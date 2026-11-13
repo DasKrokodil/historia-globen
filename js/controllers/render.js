@@ -37,6 +37,8 @@ export function createRender(app) {
     const n = visible.filter(v => v.inside).length; // samma tal som märket på Samtidigt: det som pågår (#1320)
     const count = String(ui('status.hits')[n === 1 ? 0 : 1]).replace('{n}', groupDigits(n));
     const parts = [capital(ui('status.year', { at, count }))];
+    const stepNote = timeline.takeStepNote(); // ny upplösning i förhistorien (#1089)
+    if (stepNote) parts.push(stepNote);
     if (ff.announcedKey && ff.announcedKey !== statusCard) parts.push(ff.announcement()); // ett nytt kort lästes upp medan året byttes
     else if (!fine && ff.enabled && !ff.active.length) parts.push(ui('status.noCard'));
     timeline.announce(parts.join(' '));

@@ -509,6 +509,8 @@
   "tlegend.funfact": "Visste du?",
   "tlegend.route": "resa",
   "time.rateYears": "{rate} år/s",
+  "time.yearsAgo": "för cirka {n} år sedan",
+  "time.stepNow": "Nu är varje steg {n} år.",
   "time.rateDays": "{rate} {unit}/s",
   "time.dayShort": "d",
   "time.speedLabel": "Uppspelningshastighet: {rate}. Tryck för att byta.",

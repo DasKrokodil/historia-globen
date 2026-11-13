@@ -48,7 +48,9 @@ import { list, urval, bredder, ALLTID } from './urval.mjs';
 
 const require = createRequire(import.meta.url);
 const playwright = require('playwright');
-const { PNG } = require('playwright-core/lib/utilsBundle');
+// playwright-core hämtas från samma ställe som playwright hittades, inte från repot: i molnmiljön ligger de förinstallerade
+// paketen utanför repot och NODE_PATH pekar bara på playwright (2026-11-13). I CI ligger båda i node_modules, så det fungerar som förut.
+const { PNG } = createRequire(require.resolve('playwright'))('playwright-core/lib/utilsBundle');
 
 const PORT = Number(process.argv[2] || 8000);
 const BROWSER = process.env.BROWSER || 'chromium';
@@ -3399,6 +3401,30 @@ async function run(browser, vp) {
     }
   });
 
+  // Cooks resor fick källbelagda stopp med korta platsnamn (#1377)
+  await check('Cooks första resa har sju stopp med korta namn', async () => {
+    try {
+      await clickView('#btn-focus');
+      await visible('#focus-menu');
+      await page.click('#focus-menu [data-tab="Resor"]');
+      await page.fill('#focus-menu .focus-search', 'Cooks första');
+      const route = page.locator('#focus-menu .focus-item[data-key="route:cook-resa-1"]');
+      await route.waitFor({ state: 'visible', timeout: T.step });
+      await route.click();
+      await visible('#focus-bar');
+      const marks = await page.locator('.tdot.route-stop').evaluateAll(nodes => nodes.map(node =>
+        node.getAttribute('aria-label') || node.title));
+      if (marks.length !== 7) throw new Error(`Cooks första resa har ${marks.length} stopp, inte 7: ${marks.join(' | ')}`);
+      for (const label of ['Point Venus (Tahiti) · 3 juni 1769', 'Botany Bay · 29 april 1770', 'Deal (Downs) · 12 juli 1771']) {
+        if (!marks.some(mark => mark.includes(label))) throw new Error(`resestoppet saknas: ${label} (${marks.join(' | ')})`);
+      }
+      return `7 stopp, bland annat ${marks[1]}`;
+    } finally {
+      if (await page.locator('#focus-bar').isVisible().catch(() => false)) await page.click('#focus-exit');
+      await hidden('#focus-bar');
+      if (await page.locator('#focus-menu').isVisible().catch(() => false)) await page.keyboard.press('Escape');
+    }
+  });
   // Columbus resor 2–4 fick källbelagda stopp med korta platsnamn (#1377)
   await check('Columbus fjärde resa har åtta stopp med korta namn', async () => {
     try {
@@ -4907,7 +4933,7 @@ async function run(browser, vp) {
       await open('#y=-60000&l=events,spread');
       await tp.waitForSelector('#religion-legend .rl-spread', { state: 'attached', timeout: T.step });
       const seen = await tp.evaluate(() => [...document.querySelectorAll('#religion-legend .rl-spread-item')].map(li => ({
-        title: li.querySelector('strong')?.textContent ?? '', sources: li.querySelectorAll('a[href]').length,
+        title: li.querySelector('.rl-spread-head')?.textContent ?? '', sources: li.querySelectorAll('a[href]').length,
       })));
       if (seen.length < 3) throw new Error(`för få poster i listan år 60 000 f.Kr.: ${JSON.stringify(seen)}`);
       const without = seen.filter(i => !i.sources);
@@ -4918,6 +4944,52 @@ async function run(browser, vp) {
       if (await tp.locator('#religion-legend .rl-spread').count()) throw new Error('lagret syns år 1500, efter förhistorien');
       if (errors.length) throw new Error(`fel i konsolen: ${errors.join(' | ')}`);
       return `${seen.length} poster år 60 000 f.Kr., alla med källa`;
+    } finally {
+      await tp.close();
+    }
+  });
+
+  // #1417: teckenförklaringens lista är kartans textalternativ. Varje post har en rubrik, så att en skärmläsare kan hoppa
+  // mellan dem, och källänkarna har minst 24 × 24 px träffyta.
+  await check('människans spridning: rubrik per post och källänkar på minst 24 × 24 px (#1417)', async () => {
+    const tp = await context.newPage();
+    const tpAw = abortWatch(tp);
+    const errors = [];
+    tp.on('pageerror', e => { if (!tpAw.defer(e.message)) errors.push(e.message); });
+    try {
+      if (THREE_LOCAL) {
+        await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+        await tp.route(u => isFont(u.href), r => r.abort());
+      }
+      await tpAw.goto(`${BASE}?ny=1417#y=-60000&l=events,spread`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForSelector('#religion-legend .rl-spread', { state: 'attached', timeout: T.step });
+      // Listan kan vara hopfälld (smal skärm, eller för lite plats): fäll ut den för att kunna mäta länkarna
+      if (await tp.getAttribute('#religion-legend .rl-toggle', 'aria-expanded') !== 'true') await tp.click('#religion-legend .rl-toggle');
+      await tp.waitForSelector('#religion-legend .rl-spread-src', { state: 'visible', timeout: T.step });
+      const got = await tp.evaluate(() => {
+        const items = [...document.querySelectorAll('#religion-legend .rl-spread-item')];
+        const heads = items.map(li => li.querySelector('h1, h2, h3, h4, h5, h6'));
+        const links = [...document.querySelectorAll('#religion-legend .rl-spread-src')].map(a => {
+          const r = a.getBoundingClientRect();
+          return { w: Math.round(r.width * 10) / 10, h: Math.round(r.height * 10) / 10, name: a.textContent.trim() };
+        });
+        return {
+          items: items.length, missing: heads.filter(h => !h || !h.textContent.trim()).length,
+          levels: [...new Set(heads.filter(Boolean).map(h => h.tagName))], links,
+          inP: !!document.querySelector('#religion-legend p h3'),
+        };
+      });
+      if (!got.items) throw new Error('listan är tom år 60 000 f.Kr.');
+      if (got.missing) throw new Error(`${got.missing} av ${got.items} poster saknar rubrik`);
+      if (got.levels.length !== 1 || got.levels[0] !== 'H3') throw new Error(`rubrikerna ska vara h3: ${got.levels.join(', ')}`);
+      if (got.inP) throw new Error('en rubrik ligger i ett stycke (<p>), vilket inte är giltig HTML');
+      const small = got.links.filter(l => l.w < 24 || l.h < 24);
+      if (!got.links.length) throw new Error('inga källänkar');
+      if (small.length) throw new Error(`källänkar mindre än 24 × 24 px: ${JSON.stringify(small.slice(0, 3))}`);
+      errors.push(...tpAw.settle());
+      if (errors.length) throw new Error(`sidfel: ${errors[0]}`);
+      return `${got.items} poster med h3, ${got.links.length} källänkar på minst 24 × 24 px`;
     } finally {
       await tp.close();
     }
@@ -5586,6 +5658,47 @@ async function run(browser, vp) {
   });
   // #1320: reglagets upplösning. I förhistorien är ett steg tusen eller hundra år, rubriken och uppläst värde är avrundade,
   // farten följer upplösningen, märket på Samtidigt räknar bara det som pågår och en gammal länk med exakt år öppnas.
+  // #1089: tangentbordsrundan och skärmläsaren i förhistorien. Home, pilarna, PageUp/PageDown och End följer upplösningen,
+  // det upplästa värdet säger hur länge sedan det var före 10 000 f.Kr., och ett byte av upplösning läses upp.
+  await check('tangentbord och skärmläsare i förhistoriens segment (#1089)', async () => {
+    const wp = await context.newPage();
+    const errs = [];
+    wp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await wp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await wp.route(u => isFont(u.href), r => r.abort());
+      }
+      await wp.goto(`${BASE}?lang=sv&ny=k1089#y=1325`);
+      await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await wp.focus('#track');
+      const vt = () => wp.getAttribute('#track', 'aria-valuetext').then(v => v.replace(/\s+/g, ' '));
+      const press = async (key, want) => {
+        await wp.keyboard.press(key);
+        await wp.waitForFunction(w => document.getElementById('track').getAttribute('aria-valuetext').replace(/\s+/g, ' ') === w, want, { timeout: T.step })
+          .catch(async () => { throw new Error(`${key}: värdet är "${await vt()}", väntat "${want}"`); });
+      };
+      await press('Home', '100 000 f.Kr., för cirka 102 000 år sedan');
+      await press('ArrowRight', '99 000 f.Kr., för cirka 101 000 år sedan');
+      await press('PageUp', '89 000 f.Kr., för cirka 91 000 år sedan'); // tio steg, inte över hela tidslinjen
+      await press('PageDown', '99 000 f.Kr., för cirka 101 000 år sedan');
+      // Fram till gränsen 10 000 f.Kr. och ett steg till: upplösningen byts och det läses upp
+      await wp.keyboard.press('Home');
+      for (let i = 0; i < 8; i++) await wp.keyboard.press('PageUp');
+      await press('PageUp', '10 000 f.Kr.'); // här byts upplösningen till hundra år
+      await wp.waitForFunction(() => /^År 10\s000 f\.Kr\.: .*Nu är varje steg 100 år/.test(document.getElementById('screen-reader-status').textContent.replace(/\s+/g, ' ').trim()), null, { timeout: T.step })
+        .catch(async () => { throw new Error(`statusraden säger "${await wp.textContent('#screen-reader-status')}"`); });
+      await press('ArrowRight', '9900 f.Kr.');
+      // I historisk tid är det som förut
+      await press('End', String(await wp.getAttribute('#track', 'aria-valuemax')));
+      await wp.keyboard.press('PageDown');
+      const last = await vt();
+      if (!/^\d{4}$/.test(last) || Number(last) !== Number(await wp.getAttribute('#track', 'aria-valuemax')) - 100) throw new Error(`PageDown från slutet: "${last}"`);
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return 'Home, pilar, PageUp/PageDown och End med upplösningen; "för cirka … år sedan" och uppläst byte vid 10 000 f.Kr.';
+    } finally { await wp.close(); }
+  });
   await check('reglagets upplösning i förhistorien (#1320)', async () => {
     const wp = await context.newPage();
     const errs = [];
