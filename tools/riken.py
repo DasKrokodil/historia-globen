@@ -270,8 +270,9 @@ GROUPS = {
          {'homeland': ['French Second Republic']}),
         ('(Second French Empire)', 'andra-franska-kejsardomet', 'Andra franska kejsardömet', '#2f6fdc',
          {'homeland': ['Second French Empire']}),
+        # Cliopatria räknar Saar till Frankrike till och med 1931; perioden delas 1932, annars ligger Saar kvar till 1939 (#1329)
         ('(French Third Republic)', 'frankrike-tredje-republiken', 'Frankrike (tredje republiken)', '#2f6fdc',
-         {'homeland': ['French Third Republic']}),
+         {'homeland': ['French Third Republic'], 'splits': (1932,)}),
         ('(Vichy France)', 'vichyregimen', 'Vichyregimen', '#2f6fdc', {'years': (1940, 1942), 'homeland': ['Vichy France']}),
         ('(French Fourth Republic)', 'frankrike-fjarde-republiken', 'Frankrike (fjärde republiken)', '#2f6fdc',
          {'homeland': ['French Fourth Republic']}),
@@ -286,6 +287,22 @@ GROUPS = {
     'tyska-riket': ('Tyska riket', 'German Empire', [
         (['German Empire', 'German Africa'], 'tyska-riket', 'Tyska riket', '#7a5aa0', {'en': 'German Empire', 'homeland': ['German Empire']}),
     ]),
+    # Tyskland 1920–1990 (#1329). Cliopatria har Weimar Republic till och med 1935 och Nazi Germany från 1936, men
+    # Wikidata och Wikipedia låter Nazityskland börja 1933. Åren 1933–1935 ritas därför som Nazityskland med Cliopatrias
+    # gräns för Weimarrepubliken (gränsen är densamma). 1945–1948 visar Cliopatria ockupationszonerna (USA, Storbritannien,
+    # Frankrike och Sovjetunionen); Förbundsrepubliken börjar 1950 och DDR 1949 som i Cliopatria.
+    'weimarrepubliken': ('Weimarrepubliken', 'Weimar Republic', [
+        ('Weimar Republic', 'weimarrepubliken', 'Weimarrepubliken', '#8a78b0', {'en': 'Weimar Republic', 'years': (1920, 1932)}),
+    ]),
+    'nazityskland': ('Nazityskland', 'Nazi Germany', [
+        (['Nazi Germany', 'Weimar Republic'], 'nazityskland', 'Nazityskland', '#5e5258', {'en': 'Nazi Germany', 'years': (1933, 1944)}),
+    ]),
+    'vasttyskland': ('Västtyskland', 'West Germany', [
+        ('Federal Republic of Germany', 'vasttyskland', 'Västtyskland', '#c0a040', {'en': 'West Germany'}),
+    ]),
+    'osttyskland': ('Östtyskland', 'East Germany', [
+        ('German Democratic Republic', 'osttyskland', 'Östtyskland', '#b0604a', {'en': 'East Germany'}),
+    ]),
     'osterrike-ungern': ('Österrike-Ungern', 'Austria-Hungary', [
         ('Austria-Hungary', 'osterrike-ungern', 'Österrike-Ungern', '#b0902e'),
     ]),
@@ -298,7 +315,8 @@ GROUPS = {
     ]),
     'sovjetunionen': ('Sovjetunionen', 'Soviet Union', [
         # Cliopatria räknar Litauen till Sovjetunionen till och med 1991, fast Litauen är eget land från 1990 (#644)
-        ('Union of Soviet Socialist Republics', 'sovjetunionen', 'Sovjetunionen', '#9a2a3a', {'minus': ['Republic of Lithuania'], 'splits': (1990,)}),
+        # Perioden delas 1949, när DDR bildas, annars ligger den sovjetiska zonen kvar över DDR till 1952 (#1329)
+        ('Union of Soviet Socialist Republics', 'sovjetunionen', 'Sovjetunionen', '#9a2a3a', {'minus': ['Republic of Lithuania'], 'splits': (1949, 1990)}),
     ]),
     # R6 Försvunna länder (#72). Österrike-Ungern och Sovjetunionen ovan hör också dit. Årtal, föregångare
     # och efterträdare (vanished) skrivs för hand i index.json och behålls, som facts.
@@ -334,11 +352,13 @@ GROUPS = {
     # R7 (#407): stater i Amerika som krigen och resorna behöver (inbördeskriget, Paraguaykriget, mexikanska revolutionen)
     'usa': ('USA', 'United States', [
         # Cliopatria räknar Japan till USA 1947–1966 och Okinawa till och med 2005, också de år då Japan är eget land
-        # i Cliopatria (från 1953); de åren klipps Japan bort (#644)
-        ('United States of America', 'usa', 'USA', '#4a7ab8', {'en': 'United States', 'minus': ['Japan', 'Republic of the Philippines', 'Republic of Liberia', 'Palau'],
-                                                       # Liberia eget land 1848, Filippinerna 1947, Japan 1953, Okinawa till Japan 1973, Palau
+        # i Cliopatria (från 1953); de åren klipps Japan bort (#644). Likaså Västtyskland, som Cliopatria räknar till USA
+        # 1947–1966 och som eget land från 1950 (#1329)
+        ('United States of America', 'usa', 'USA', '#4a7ab8', {'en': 'United States', 'minus': ['Japan', 'Republic of the Philippines', 'Republic of Liberia', 'Palau',
+                                                                                                    'Federal Republic of Germany', 'German Democratic Republic'],
+                                                       # Liberia eget land 1848, Filippinerna 1947, Västtyskland 1950, Japan 1953, Okinawa till Japan 1973, Palau
                                                        # 1996 (Cliopatria)
-                                                       'splits': (1848, 1947, 1953, 1973, 1996)}),
+                                                       'splits': (1848, 1947, 1949, 1950, 1953, 1973, 1996)}),
     ]),
     'amerikas-konfedererade-stater': ('Amerikas konfedererade stater', 'Confederate States of America', [
         ('Confederate States of America', 'amerikas-konfedererade-stater', 'Amerikas konfedererade stater', '#8c7f6a'),
