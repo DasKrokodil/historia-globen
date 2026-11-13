@@ -17,6 +17,7 @@
       "sourceIds": [
         "arenas-2020-philippines-mtdna",
         "beyer-2021-climatic-windows",
+        "clarkson-2020-dhaba",
         "curnoe-2025-gua-dagang",
         "davis-madsen-2026-coopers-ferry",
         "dillehay-2015-monte-verde",
@@ -27,11 +28,15 @@
         "heydari-guran-2021-bawa-yawan",
         "jacobs-2025-denisova-chronology",
         "kaifu-2024-mata-menge",
+        "louys-2022-lida-ajer",
         "shipton-2024-timor",
+        "shipton-2026-miniaturization",
+        "shriner-keita-2016-route-unresolved",
         "springer-2026-white-sands",
         "sumer-2025-ranis-genomes",
         "vallini-2024-persian-plateau",
         "vidal-2022-omo-kibish",
+        "wedage-2019-fa-hien-lena",
         "wooller-2018-bering",
         "xia-2024-baishiya"
       ]
@@ -101,6 +106,12 @@
       "license": "CC BY-NC 4.0: länkad källa, ingen text kopierad (beslut 2026-10-29)",
       "sourceIds": [
         "brumm-2021-tedongnge"
+      ]
+    },
+    {
+      "license": "CC BY-NC-ND (enligt Europe PMC), länkad källa: ingen text kopierad (beslut 2026-10-29)",
+      "sourceIds": [
+        "pagani-2015-out-of-africa-route"
       ]
     },
     {
