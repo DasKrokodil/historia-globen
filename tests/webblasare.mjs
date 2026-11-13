@@ -5489,7 +5489,6 @@ async function run(browser, vp) {
       await open('#y=-49999');
       const b = await read();
       if (b.steps.join(' ') !== '−100 000 −10 000 −1000 +1000 +10 000 +100 000') throw new Error(`stegknapparna 50 000 f.Kr.: ${b.steps.join(' ')}`);
-      if (!/25\s000 år\/s/.test(b.speed)) throw new Error(`farten 50 000 f.Kr.: ${b.speed}`);
       await wp.click('.timebar .controls .step[data-step="1"]');
       await wp.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '-48999', null, { timeout: T.step });
       // Märket räknar bara det som pågår: samma tal som "N pågår" i knappens namn
@@ -5498,6 +5497,9 @@ async function run(browser, vp) {
       const ongoing = (await wp.getAttribute('#btn-panel', 'aria-label')).match(/(\d+) pågår/)?.[1];
       if (c.badge !== ongoing) throw new Error(`1325: märket visar ${c.badge} men ${ongoing} pågår`);
       if (c.steps.join(' ') !== '−100 −10 −1 +1 +10 +100') throw new Error(`stegknapparna 1325: ${c.steps.join(' ')}`);
+      // Farten är nivån gånger upplösningen: tusen gånger fortare före 10 000 f.Kr. än 1325 (nivån kan vara sparad av ett tidigare test)
+      const rate = t => Number((t.match(/(\d[\d\s]*) år\/s/) || [])[1]?.replace(/\s/g, ''));
+      if (!(rate(b.speed) === rate(c.speed) * 1000)) throw new Error(`farten: ${b.speed} vid 50 000 f.Kr. men ${c.speed} vid 1325`);
       if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
       return `${a.big} (länk -7412) | ${b.steps.join(' ')} | ${b.speed} | 1325: märket ${c.badge} pågår`;
     } finally { await wp.close(); }
