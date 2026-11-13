@@ -30,7 +30,7 @@ export function entry({ refresh }) {
     id: 'routes', name: ui('layer.routes'), group: 'movement', menu: { on: true, note: ui('layer.routesNote') }, layer, z: Z.routes,
     enabled: s => s.focus?.type === 'route' || s.layers.routes,
     apply: s => { layer.shipStyle = s.on.discovery ? 'ship' : 'dot'; layer.onlyRoute = s.focusRoute?.id ?? null; },
-    update: s => layer.update({ year: s.year, fine: s.fine, window: s.window, filters: s.filters }),
+    update: s => layer.update({ year: s.year, fine: s.fine, window: s.window, windowBefore: s.windowBefore, windowAfter: s.windowAfter, filters: s.filters }),
     marks: s => layer.marks(s),
     drawOverlay: (ctx, W, H) => layer.drawOverlay(ctx, W, H),
   };
@@ -213,7 +213,7 @@ export class LinesLayer {
    * window (timeline.windowYears), filters (kategorierna som syns). Utanför fokusläget är året ett heltal;
    * vägarna ritas då som de låg vid årets slut, så att en resa som började under året syns samma år.
    */
-  update({ year, fine = false, window = 0, filters = null }) {
+  update({ year, fine = false, window = 0, windowBefore = window, windowAfter = window, filters = null }) {
     this.active = [];
     if (!this.enabled) return this.active;
     const now = fine ? year : Math.floor(year) + 0.999;
@@ -221,13 +221,13 @@ export class LinesLayer {
       if (this.onlyRoute && route.id !== this.onlyRoute) continue;
       if (!isVisibleReview(route.review) || (filters && !filters.has(route.category))) continue;
       if (route.kind === 'trade') {
-        const shown = legs.filter(({ leg }) => now >= leg.from - window && year <= leg.to + window)
+        const shown = legs.filter(({ leg }) => now >= leg.from - windowAfter && year <= leg.to + windowBefore)
           .map(({ leg, prep }) => ({ leg, pts: prep.pts, dashed: !!leg.uncertain }));
         if (shown.length) this.active.push({ route, alpha: TRADE, legs: shown, ships: [], trade: true });
         continue;
       }
       const first = legs[0].leg.from, last = Math.max(...legs.map(l => l.leg.to));
-      if (now < first || year > last + window) continue;
+      if (now < first || year > last + windowBefore) continue;
       // Etapper kan gå samtidigt (till exempel när en flotta delas): varje pågående etapp får ett skepp.
       // Pågår ingen etapp (resan ligger i hamn mellan två etapper) står skeppet där den senaste etappen slutade.
       const shown = [], moving = [];

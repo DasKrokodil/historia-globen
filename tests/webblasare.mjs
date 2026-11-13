@@ -3933,6 +3933,53 @@ async function run(browser, vp) {
     }
   });
 
+  // Upplysningen efter byte till de, es eller fr ska aldrig ligga över en knapp, när knappraden blir två rader (#1378).
+  // Namnet börjar som kontrollen ovan, så att den ligger i samma CI-jobb (tests/jobb.json).
+  await check('reservspråket: upplysning vid språkbyte täcker inga knappar i dator- och surfplattebredd (#1378)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet';
+    const fel = [];
+    let antal = 0;
+    for (const lang of ['de', 'es', 'fr']) {
+      const pp = await context.newPage();
+      const errors = [];
+      pp.on('pageerror', e => errors.push(e.message));
+      pp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
+      try {
+        if (THREE_LOCAL) {
+          await pp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+          await pp.route(u => isFont(u.href), r => r.abort());
+        }
+        // Som efter ett språkbyte: valet är sparat och upplysningen väntar på nästa laddning
+        await pp.addInitScript(l => {
+          try { localStorage.setItem('hg-lang', l); sessionStorage.setItem('hg-lang-chosen', l); } catch { /* utan lagring */ }
+        }, lang);
+        for (const [w, h] of [[1400, 900], [1024, 768]]) {
+          await pp.setViewportSize({ width: w, height: h });
+          await pp.goto(`${BASE}#y=1600`);
+          await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+          await pp.waitForSelector('.lang-notice', { timeout: T.step });
+          const r = await pp.evaluate(() => {
+            const n = document.querySelector('.lang-notice').getBoundingClientRect();
+            const knappar = [...document.querySelectorAll('.top-actions button, .top-actions a')]
+              .filter(e => e.offsetParent && !e.closest('.lang-notice') && !e.closest('[hidden]'))
+              .filter(e => { const b = e.getBoundingClientRect(); return b.width && b.left < n.right && b.right > n.left && b.top < n.bottom && b.bottom > n.top; })
+              .map(e => e.id || e.textContent.trim().slice(0, 14));
+            return { knappar, synlig: n.left >= 0 && n.right <= innerWidth && n.top >= 0 && n.bottom <= innerHeight };
+          });
+          if (r.knappar.length) fel.push(`${lang} ${w} px: upplysningen ligger över ${r.knappar.join(', ')}`);
+          if (!r.synlig) fel.push(`${lang} ${w} px: upplysningen ligger delvis utanför fönstret`);
+          antal++;
+        }
+        if (errors.length) fel.push(`${lang}: ${errors[0]}`);
+      } finally {
+        try { await pp.evaluate(() => { localStorage.removeItem('hg-lang'); sessionStorage.removeItem('hg-lang-chosen'); }); } catch { /* sidan är redan stängd */ }
+        await pp.close();
+      }
+    }
+    if (fel.length) throw new Error(fel.join('; '));
+    return `${antal} kombinationer av språk och bredd utan överlapp`;
+  });
+
   await check('krigskortet på valt språk, inte svenska (#1240)', async () => {
     if (vp.width <= 760) return 'körs i datorjobbet';
     const seen = [];
@@ -5228,12 +5275,48 @@ async function run(browser, vp) {
       // ligger markören vid kanten, så etiketten får som sista utväg ligga över en grannmarkör), och rikesnamnen får inte ta hela platsen över Europa
       if (!shown.some(l => l === 'Första världskriget')) throw new Error(`år 1916 saknar etikett för första världskriget: ${shown.join(' | ')}`);
       if (shown.some(l => / · (slut|börjar) \d/.test(l))) throw new Error(`etikett med slut/börjar kvar: ${shown.find(l => / · (slut|börjar) \d/.test(l))}`);
-      rows.push(await want('#y=-500', /^500-talet f\.Kr\. · ±\d*0 år$/));
+      // 500 f.Kr. ligger vid en segmentgräns och har olika långt fönster före och efter (#1319, egen kontroll nedan); 1500 f.Kr. ligger inne i ett segment
+      rows.push(await want('#y=-1500', /^1500-talet f\.Kr\. · ±\d*0 år$/));
       rows.push(await want('#y=1914&f=war:forsta-varldskriget', /^Följer .+ · visar \d+ (år|dagar?) före och efter$/));
       // Yngre läsare (#1191): lektion 2 för åk 4–6 skriver fönstret i ord i stället för med "±"
       rows.push(await want('#t=vikingatiden-och-varlden&m=lektion', /^\d+-talet · även \d+ år före och efter$/));
       if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
       return `${rows[0]} | ${rows[2]} | 1916: ${before ?? '(ingen Titanic-etikett)'}`;
+    } finally { await wp.close(); }
+  });
+  // #1319: fönstret är 1,2 % av reglaget åt varje håll, räknat i reglagets läge. Vid en segmentgräns blir det olika långt före
+  // och efter året, och raden under årtalet skriver då båda sidorna i klartext i stället för "±". Inne i ett segment är det som förut.
+  await check('tidsfönstret före och efter året vid en segmentgräns (#1319)', async () => {
+    const wp = await context.newPage();
+    const errs = [];
+    wp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await wp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await wp.route(u => isFont(u.href), r => r.abort());
+      }
+      let loads = 0;
+      const text = async hash => {
+        await wp.goto(`${BASE}?lang=sv&ny=f${loads++}${hash}`);
+        await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await wp.waitForSelector('#event-list .event-item', { state: 'attached', timeout: T.step });
+        await wp.waitForFunction(() => document.getElementById('year-segment').textContent.trim() !== '', null, { timeout: 8000 });
+        return wp.evaluate(() => ({ row: document.getElementById('year-segment').textContent.trim(), title: document.getElementById('year-segment').title, sr: document.getElementById('year-window-note').textContent }));
+      };
+      // 5000 f.Kr.: det glesa segmentet bakåt (cirka 11 600 år), kortare framåt där 3000 f.Kr. och det täta segmentet börjar
+      const a = await text('#y=-4999');
+      if (!/ · 12\s000 år före, 2000 år efter$/.test(a.row)) throw new Error(`5000 f.Kr.: raden säger "${a.row}"`);
+      if (/±/.test(a.row + a.title)) throw new Error(`5000 f.Kr.: "±" visas fast sidorna är olika långa: ${a.row}`);
+      if (!/upp till 12\s000 år före eller 2000 år efter/.test(a.title) || a.sr !== a.title) throw new Error(`5000 f.Kr.: förklaringen säger "${a.title}"`);
+      // 501 f.Kr.: segmentgräns med 140 år före och 80 år efter
+      const b = await text('#y=-500');
+      if (!/ · 140 år före, 80 år efter$/.test(b.row)) throw new Error(`501 f.Kr.: raden säger "${b.row}"`);
+      // Inne i ett segment är sidorna lika långa och raden är som förut
+      const c = await text('#y=1325');
+      if (!/^1300-talet · ±\d*0 år$/.test(c.row)) throw new Error(`1325: raden säger "${c.row}"`);
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return `${a.row} | ${b.row} | ${c.row}`;
     } finally { await wp.close(); }
   });
   // #1134: raden under årtalet radbryts i smal skärm i stället för att klippas med ellips. Längsta texten styr: alla
