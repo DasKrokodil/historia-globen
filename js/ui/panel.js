@@ -2,7 +2,7 @@
 // (i lagermenyn, #120, och som chips ovanför listan, #311) och faktarutan.
 import { buildAreaCurve } from './areacurve.js';
 import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatOffset, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg, flagUrl, isVisibleReview, eventTags, needDetails, misconceptionsFor, roundWindow } from '../model.js';
-import { ui, LANG } from '../i18n.js';
+import { ui, LANG, langAttr } from '../i18n.js';
 import { MIN_YEAR } from '../timeline.js';
 import { eventCitation } from './citation.js';
 
@@ -244,10 +244,14 @@ function tagMarks(e, tags) {
   return marks.length ? `<div class="tag-marks">${marks.join('')}</div>` : '';
 }
 
-/** Varför listan är tom (#886): 'filters' när alla kategorier är avstängda, annars 'year' (inget kring året). */
-export function emptyCause({ visibleCount, filters }) {
+/**
+ * Varför listan är tom: 'filters' när alla kategorier är avstängda (#886), 'some' när några men inte alla är avstängda
+ * (#1304; kräver total, antalet kategorier som finns) och annars 'year' (inget kring året).
+ */
+export function emptyCause({ visibleCount, filters, total = null }) {
   if (visibleCount > 0) return null;
-  return filters.size === 0 ? 'filters' : 'year';
+  if (filters.size === 0) return 'filters';
+  return total != null && filters.size < total ? 'some' : 'year';
 }
 
 /** Antalet i raden "Översikt: ett urval, cirka N händelser" (#1139): avrundat till tiotal, men exakt under tio. */
@@ -409,10 +413,11 @@ export class Panel {
     if (partialCount) parts.push(plural('range.partialCount', partialCount, { count: partialCount }));
     // I intervallet finns inget "nära": raden säger hur många som pågår under intervallet och hur många som sticker ut
     if (range) this.toggle.setAttribute('aria-label', stop(parts.join(', ')));
-    const filtersOff = !labels?.themeEmpty && emptyCause({ visibleCount: visible.length, filters: this.filters }) === 'filters';
+    const cause = labels?.themeEmpty ? null : emptyCause({ visibleCount: visible.length, filters: this.filters, total: this.allCategories?.size });
+    const filtersOff = cause === 'filters', filtersSome = cause === 'some';
     this.sub.textContent = visible.length ? stop(range ? parts.join(', ') : `${summaryText}. ${parts.join(', ')}`)
       : range && !filtersOff ? ui('range.empty', { range: bare })
-      : ui(filtersOff && !(this.tag && this.tags[this.tag]) ? 'panel.filtersOff' : 'panel.empty', { within, at: bare });
+      : ui(filtersOff && !(this.tag && this.tags[this.tag]) ? 'panel.filtersOff' : filtersSome ? 'panel.filtersSome' : 'panel.empty', { within, at: bare });
     const tagCopy = this.tag && this.tags[this.tag];
     if (!visible.length && tagCopy) {
       // Vyn med tagg (#555): säg om ingen händelse har taggen ännu, eller om det bara är tomt kring året
@@ -423,11 +428,12 @@ export class Panel {
       this.list.replaceChildren(note);
       return;
     }
-    if (filtersOff) {
-      // Alla kategorier av (#886): det är filtret som döljer händelserna, så dragning i tidslinjen hjälper inte
+    if (filtersOff || filtersSome) {
+      // Alla kategorier av (#886): det är filtret som döljer händelserna, så dragning i tidslinjen hjälper inte.
+      // Några av (#1304): filtret kan dölja dem, så raden säger det och knappen visar alla kategorier igen
       const help = document.createElement('p');
       help.className = 'empty-note';
-      help.textContent = ui('panel.filtersOffHelp');
+      help.textContent = ui(filtersOff ? 'panel.filtersOffHelp' : 'panel.filtersSomeHelp');
       const reset = document.createElement('button');
       reset.type = 'button';
       reset.className = 'link-btn panel-show-all-categories';
@@ -466,7 +472,7 @@ export class Panel {
     const row = (v, name = '') => { const { e, inside, partial } = v; return `
           <li class="event-item${inside ? '' : ' is-near'}${partial ? ' is-partial' : ''}${e.id === this.selectedId ? ' is-selected' : ''}">
             <button type="button" class="event-btn" data-id="${esc(e.id)}" aria-label="${esc([...offset(v), `${formatEventTime(e)}, ${t(e.title)}${name ? `, ${regionName(name)}` : ''}`, ...notes(e, partial), reviewLabel(e.review, 'Händelsen')].join(', '))}"${e.id === this.selectedId ? ' aria-current="true"' : ''}>
-              <span class="dot" style="background:${CAT[e.category]?.color}"></span><span class="ttl">${esc(t(e.title))}</span><span class="meta">${esc([...offset(v), formatEventTime(e), t(e.place), ...notes(e, partial)].join(' · '))}</span>
+              <span class="dot" style="background:${CAT[e.category]?.color}"></span><span class="ttl"${langAttr(e.title)}>${esc(t(e.title))}</span><span class="meta">${esc([...offset(v), formatEventTime(e), t(e.place), ...notes(e, partial)].join(' · '))}</span>
             </button>
           </li>`; };
     this.list.innerHTML = [...groups].filter(([, vs]) => vs.length).map(([name, vs]) => {
@@ -504,7 +510,7 @@ export class Panel {
     this.selectedId = e.id;
     this.detail.className = `detail detail-card frame-${styleFor(e, this.styles).frame}`;
     this.detail.innerHTML = `<button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
-      <h3>${esc(t(e.title))}</h3><div class="meta">${esc(formatEventTime(e))} · ${esc(t(e.place))}</div>${loadingHtml()}`;
+      <h3${langAttr(e.title)}>${esc(t(e.title))}</h3><div class="meta">${esc(formatEventTime(e))} · ${esc(t(e.place))}</div>${loadingHtml()}`;
     this.setDetailOpen(true);
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
   }
@@ -564,7 +570,7 @@ export class Panel {
     this.selectedId = null;
     this.detail.className = `detail detail-card frame-${styleFor(events[0], this.styles).frame}`;
     const srcs = (theme.sources ?? []).map(id => this.srcById[id]).filter(Boolean);
-    const items = events.map(e => `<li><button type="button" class="theme-event" data-theme-event="${esc(e.id)}"><span class="theme-event-year">${esc(formatEventTime(e))}</span> ${esc(t(e.title))}${e.start < MIN_YEAR ? ` <span class="theme-event-note">${esc(ui('theme.beforeScale'))}</span>` : ''}</button></li>`).join('');
+    const items = events.map(e => `<li><button type="button" class="theme-event" data-theme-event="${esc(e.id)}"><span class="theme-event-year">${esc(formatEventTime(e))}</span> <span${langAttr(e.title)}>${esc(t(e.title))}</span>${e.start < MIN_YEAR ? ` <span class="theme-event-note">${esc(ui('theme.beforeScale'))}</span>` : ''}</button></li>`).join('');
     this.detail.innerHTML = `
       <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
       <div class="story-label">${esc(ui('theme.label'))}</div>
@@ -596,7 +602,7 @@ export class Panel {
     const emblems = (place.emblems ?? []).filter(em => flagUrl(em));
     const srcs = [...new Set([...(place.sources ?? []), ...emblems.map(em => em.source)])].map(id => this.srcById[id]).filter(Boolean);
     const emblemHtml = emblems.length ? `<div class="place-emblems">${emblems.map(em => `<figure class="place-emblem place-emblem-${esc(em.kind)}"><img src="${esc(flagUrl(em))}" alt="${esc(t(em.caption))}"><figcaption>${esc(t(em.caption))}<span class="meta">${esc(em.credit)} · ${esc(em.license)}</span></figcaption></figure>`).join('')}</div>` : '';
-    const items = events.map(e => `<li><button type="button" class="theme-event" data-theme-event="${esc(e.id)}"><span class="theme-event-year">${esc(formatEventTime(e))}</span> ${esc(t(e.title))}${e.start < MIN_YEAR ? ` <span class="theme-event-note">${esc(ui('theme.beforeScale'))}</span>` : ''}</button></li>`).join('');
+    const items = events.map(e => `<li><button type="button" class="theme-event" data-theme-event="${esc(e.id)}"><span class="theme-event-year">${esc(formatEventTime(e))}</span> <span${langAttr(e.title)}>${esc(t(e.title))}</span>${e.start < MIN_YEAR ? ` <span class="theme-event-note">${esc(ui('theme.beforeScale'))}</span>` : ''}</button></li>`).join('');
     const type = ui(`place.type.${place.type}`), of = place.partOf ? t(place.partOf) : '';
     this.detail.innerHTML = `
       <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
@@ -778,13 +784,13 @@ export class Panel {
     const unc = uncertaintyRow(e, this.uncertainty, evidence.marker('uncertainty'));
     this.detail.innerHTML = `
       <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
-      <h3>${esc(t(e.title))}</h3>
+      <h3${langAttr(e.title)}>${esc(t(e.title))}</h3>
       <div class="meta">${esc(formatEventTime(e))}${evidence.marker('date')}${unc ? uncertaintyMark(e, 'date', this.uncertainty) : ''} · ${esc(t(e.place))}${evidence.marker('location')}${unc ? uncertaintyMark(e, 'place', this.uncertainty) : ''} · ${esc(t(CAT[e.category]?.name))}</div>
       ${beforeTimelineStart(e) ? `<p class="scale-note">${esc(ui('detail.beforeScale', { year: formatYear(MIN_YEAR) }))}</p>` : ''}
       ${tagMarks(e, this.tags)}
       ${this.onShowPlace ? `<button type="button" class="place-row" data-show-place aria-label="${esc(ui('detail.showPlaceLabel', { place: t(e.place) }))}"><span class="place-pin" aria-hidden="true"></span><span class="place-go">${esc(ui('detail.showPlace'))}</span></button>` : ''}
       ${figure(e, this.srcById, evidence.marker('image'))}
-      ${loading ? loadingHtml() : `<p>${esc(t(e.summary))}${evidence.marker('summary')}</p>`}
+      ${loading ? loadingHtml() : `<p${langAttr(e.summary)}>${esc(t(e.summary))}${evidence.marker('summary')}</p>`}
       ${e.note ? `<aside class="detail-note"><h4>${esc(t(e.note.title))}</h4><p>${esc(t(e.note.text))}</p></aside>` : ''}
       ${loading ? '' : mythsHtml(misconceptionsFor(e.id), this.srcById, pending)}
       ${unc}

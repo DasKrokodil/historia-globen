@@ -3,7 +3,7 @@
   "meta.title": "Historia-globen – vea lo que ocurría al mismo tiempo en el mundo",
   "meta.description": "Explore la historia del mundo en un globo giratorio. Recorra el tiempo y vea lo que ocurría al mismo tiempo en distintas partes del mundo.",
   "lang.label": "Idioma",
-  "lang.beta": "Traducción en curso. Los acontecimientos, los relatos y algunos botones aún se muestran en sueco.",
+  "lang.beta": "Traducción en curso. Los acontecimientos, los relatos y algunos botones aún se muestran en inglés y, en algunos casos, en sueco.",
   "cat.natur": "Naturaleza y animales",
   "cat.natur.count": [
     "acontecimiento natural",
@@ -451,6 +451,8 @@
   "panel.emptyHelp": "Arrastre la línea de tiempo o pulse reproducir para encontrar el siguiente acontecimiento. Los puntos bajo la línea de tiempo muestran dónde hay datos.",
   "panel.filtersOff": "Todas las categorías están desactivadas, por lo que no se muestra ningún acontecimiento.",
   "panel.filtersOffHelp": "Active una o más categorías arriba, o vuelva a mostrarlas todas.",
+  "panel.filtersSome": "Nada en las categorías seleccionadas en {within} de {at}.",
+  "panel.filtersSomeHelp": "Algunas categorías están desactivadas y pueden ocultar acontecimientos. Muestre todas las categorías o arrastre la línea de tiempo.",
   "panel.showAllCategories": "Mostrar todas las categorías",
   "panel.overviewNote": "Resumen: una selección, unos {count} acontecimientos.",
   "panel.overviewAll": "Mostrar todos",

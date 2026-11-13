@@ -7,12 +7,16 @@
       "title": {
         "sv": "Sidenvägen: Chang'an och Hexikorridoren",
         "en": "Silk Road: Chang'an and the Hexi Corridor",
-        "de": "Die Seidenstraße: Chang'an und der Hexi-Korridor"
+        "de": "Die Seidenstraße: Chang'an und der Hexi-Korridor",
+        "fr": "La route de la soie : Chang’an et le corridor du Hexi",
+        "es": "La Ruta de la Seda: Chang'an y el corredor de Hexi"
       },
       "summary": {
         "sv": "Sidenvägen var inte en enda väg utan ett nät av handelsvägar mellan Kina och Medelhavet. Den östra delen började i Han-dynastins huvudstad Chang'an, dagens Xi'an, och gick åt nordväst genom Gansu längs en rad oaser i Hexikorridoren mot Anxi och Dunhuang. Under senare Han låg huvudstaden i Luoyang längre österut. Hankinesiska trupper drev ut xiongnu ur korridoren 121 f.Kr., och Kina fick då kontroll över vägen mot Centralasien. Få köpmän reste hela vägen; varorna bytte ägare många gånger på vägen.",
         "en": "The Silk Road was not one road but a network of trade routes between China and the Mediterranean. Its eastern part started in the Han capital Chang'an, today's Xi'an, and ran northwest through Gansu along a string of oases in the Hexi Corridor towards Anxi and Dunhuang. Under the Later Han the capital was Luoyang, further east. Han troops drove the Xiongnu out of the corridor in 121 BC, giving China control of the road to Central Asia. Few merchants travelled the whole way; goods changed hands many times along the route.",
-        "de": "Die Seidenstraße war nicht ein einziger Weg, sondern ein Netz von Handelswegen zwischen China und dem Mittelmeer. Der östliche Teil begann in der Hauptstadt der Han-Dynastie, Chang'an, dem heutigen Xi'an, und verlief nach Nordwesten durch Gansu entlang einer Reihe von Oasen im Hexi-Korridor in Richtung Anxi und Dunhuang. In der späteren Han-Zeit lag die Hauptstadt weiter östlich in Luoyang. Han-chinesische Truppen vertrieben die Xiongnu 121 v. Chr. aus dem Korridor, und China erhielt damit die Kontrolle über den Weg nach Zentralasien. Nur wenige Kaufleute legten die ganze Strecke zurück; die Waren wechselten unterwegs viele Male den Besitzer."
+        "de": "Die Seidenstraße war nicht ein einziger Weg, sondern ein Netz von Handelswegen zwischen China und dem Mittelmeer. Der östliche Teil begann in der Hauptstadt der Han-Dynastie, Chang'an, dem heutigen Xi'an, und verlief nach Nordwesten durch Gansu entlang einer Reihe von Oasen im Hexi-Korridor in Richtung Anxi und Dunhuang. In der späteren Han-Zeit lag die Hauptstadt weiter östlich in Luoyang. Han-chinesische Truppen vertrieben die Xiongnu 121 v. Chr. aus dem Korridor, und China erhielt damit die Kontrolle über den Weg nach Zentralasien. Nur wenige Kaufleute legten die ganze Strecke zurück; die Waren wechselten unterwegs viele Male den Besitzer.",
+        "fr": "La route de la soie n’était pas une route unique mais un réseau de routes commerciales entre la Chine et la Méditerranée. Sa partie orientale commençait à Chang’an, capitale de la dynastie Han et actuelle Xi’an, et partait vers le nord-ouest à travers le Gansu le long d’une série d’oasis du corridor du Hexi vers Anxi et Dunhuang. Sous les Han postérieurs, la capitale se trouvait plus à l’est, à Luoyang. Les troupes Han chassèrent les Xiongnu du corridor en 121 av. J.-C., et la Chine prit alors le contrôle de la route vers l’Asie centrale. Peu de marchands faisaient tout le trajet ; les marchandises changeaient de mains de nombreuses fois en chemin.",
+        "es": "La Ruta de la Seda no era un solo camino, sino una red de rutas comerciales entre China y el Mediterráneo. La parte oriental comenzaba en Chang'an, la capital de la dinastía Han, hoy Xi'an, e iba hacia el noroeste por Gansu siguiendo una serie de oasis del corredor de Hexi hacia Anxi y Dunhuang. Durante los Han posteriores, la capital estaba más al este, en Luoyang. Las tropas Han expulsaron a los xiongnu del corredor en el 121 a. C., y China obtuvo entonces el control de la ruta hacia Asia Central. Pocos comerciantes hacían todo el camino; las mercancías cambiaban de manos muchas veces por el camino."
       },
       "start": -129,
       "end": 1450,
@@ -22,12 +26,16 @@
         "title": {
           "sv": "Källorna skiljer sig",
           "en": "Sources differ",
-          "de": "Die Quellen unterscheiden sich"
+          "de": "Die Quellen unterscheiden sich",
+          "fr": "Les sources divergent",
+          "es": "Las fuentes no coinciden"
         },
         "text": {
           "sv": "Wikipedia anger på olika ställen att sidenvägen började omkring 130 f.Kr. (Han-dynastins sändebud efter Zhang Qians resor), omkring 114 f.Kr. eller under första århundradet f.Kr. World History Encyclopedia skriver 130 f.Kr. Slutet anges som mitten av 1400-talet (Wikipedia, ungefär 1450) eller 1453, när Osmanska riket tog Konstantinopel (World History Encyclopedia). Enligt Wikipedia fortsatte sidenhandeln ändå till 1720-talet. Här visas vägen från 130 f.Kr. till 1450. Hexikorridoren kom under Han-dynastin 121 f.Kr., och Dunhuang blev ett eget kommanderi först kort efter 104 f.Kr.",
           "en": "Wikipedia gives the start of the Silk Road in different places as about 130 BC (Han envoys after Zhang Qian's journeys), about 114 BC or the 1st century BC. World History Encyclopedia says 130 BC. The end is given as the mid-15th century (Wikipedia, about 1450) or 1453, when the Ottoman Empire took Constantinople (World History Encyclopedia). According to Wikipedia the silk trade still went on until the 1720s. The route is shown here from 130 BC to 1450. The Hexi Corridor came under the Han in 121 BC, and Dunhuang became a commandery only shortly after 104 BC.",
-          "de": "Wikipedia gibt an verschiedenen Stellen an, dass die Seidenstraße um 130 v. Chr. begann (Gesandte der Han-Dynastie nach Zhang Qians Reisen), um 114 v. Chr. oder im ersten Jahrhundert v. Chr. Die World History Encyclopedia schreibt 130 v. Chr. Das Ende wird mit Mitte des 15. Jahrhunderts (Wikipedia, ungefähr 1450) oder mit 1453 angegeben, als das Osmanische Reich Konstantinopel einnahm (World History Encyclopedia). Laut Wikipedia setzte sich der Seidenhandel dennoch bis in die 1720er-Jahre fort. Hier wird der Weg von 130 v. Chr. bis 1450 gezeigt. Der Hexi-Korridor kam 121 v. Chr. unter die Han-Dynastie, und Dunhuang wurde erst kurz nach 104 v. Chr. eine eigene Kommandantur."
+          "de": "Wikipedia gibt an verschiedenen Stellen an, dass die Seidenstraße um 130 v. Chr. begann (Gesandte der Han-Dynastie nach Zhang Qians Reisen), um 114 v. Chr. oder im ersten Jahrhundert v. Chr. Die World History Encyclopedia schreibt 130 v. Chr. Das Ende wird mit Mitte des 15. Jahrhunderts (Wikipedia, ungefähr 1450) oder mit 1453 angegeben, als das Osmanische Reich Konstantinopel einnahm (World History Encyclopedia). Laut Wikipedia setzte sich der Seidenhandel dennoch bis in die 1720er-Jahre fort. Hier wird der Weg von 130 v. Chr. bis 1450 gezeigt. Der Hexi-Korridor kam 121 v. Chr. unter die Han-Dynastie, und Dunhuang wurde erst kurz nach 104 v. Chr. eine eigene Kommandantur.",
+          "fr": "Wikipédia indique à différents endroits que la route de la soie commença vers 130 av. J.-C. (les envoyés de la dynastie Han après les voyages de Zhang Qian), vers 114 av. J.-C. ou au Ier siècle av. J.-C. La World History Encyclopedia écrit 130 av. J.-C. La fin est indiquée comme le milieu du XVe siècle (Wikipédia, vers 1450) ou 1453, quand l’Empire ottoman prit Constantinople (World History Encyclopedia). Selon Wikipédia, le commerce de la soie se poursuivit néanmoins jusqu’aux années 1720. La route est ici affichée de 130 av. J.-C. à 1450. Le corridor du Hexi passa sous la dynastie Han en 121 av. J.-C., et Dunhuang ne devint une commanderie distincte que peu après 104 av. J.-C.",
+          "es": "Wikipedia indica en distintos lugares que la Ruta de la Seda comenzó hacia el 130 a. C. (los enviados de la dinastía Han tras los viajes de Zhang Qian), hacia el 114 a. C. o en el siglo I a. C. La World History Encyclopedia escribe 130 a. C. El final se indica como mediados del siglo XV (Wikipedia, hacia 1450) o 1453, cuando el Imperio otomano tomó Constantinopla (World History Encyclopedia). Según Wikipedia, el comercio de la seda continuó, sin embargo, hasta la década de 1720. Aquí la ruta se muestra desde el 130 a. C. hasta 1450. El corredor de Hexi pasó a la dinastía Han en el 121 a. C., y Dunhuang no se convirtió en una comandancia propia hasta poco después del 104 a. C."
         }
       },
       "sources": [
@@ -51,7 +59,9 @@
               "name": {
                 "sv": "Chang'an (Xi'an)",
                 "en": "Chang'an (Xi'an)",
-                "de": "Chang'an (Xi'an)"
+                "de": "Chang'an (Xi'an)",
+                "fr": "Chang’an (Xi’an)",
+                "es": "Chang'an (Xi'an)"
               }
             },
             {
@@ -59,7 +69,9 @@
               "name": {
                 "sv": "Lanzhou",
                 "en": "Lanzhou",
-                "de": "Lanzhou"
+                "de": "Lanzhou",
+                "fr": "Lanzhou",
+                "es": "Lanzhou"
               }
             },
             {
@@ -67,7 +79,9 @@
               "name": {
                 "sv": "Wuwei",
                 "en": "Wuwei",
-                "de": "Wuwei"
+                "de": "Wuwei",
+                "fr": "Wuwei",
+                "es": "Wuwei"
               }
             },
             {
@@ -75,7 +89,9 @@
               "name": {
                 "sv": "Zhangye",
                 "en": "Zhangye",
-                "de": "Zhangye"
+                "de": "Zhangye",
+                "fr": "Zhangye",
+                "es": "Zhangye"
               }
             },
             {
@@ -83,7 +99,9 @@
               "name": {
                 "sv": "Jiuquan",
                 "en": "Jiuquan",
-                "de": "Jiuquan"
+                "de": "Jiuquan",
+                "fr": "Jiuquan",
+                "es": "Jiuquan"
               }
             },
             {
@@ -91,7 +109,9 @@
               "name": {
                 "sv": "Anxi (Guazhou)",
                 "en": "Anxi (Guazhou)",
-                "de": "Anxi (Guazhou)"
+                "de": "Anxi (Guazhou)",
+                "fr": "Anxi (Guazhou)",
+                "es": "Anxi (Guazhou)"
               }
             }
           ],
@@ -111,12 +131,16 @@
       "title": {
         "sv": "Sidenvägen runt Tarimbäckenet",
         "en": "Silk Road around the Tarim Basin",
-        "de": "Die Seidenstraße um das Tarimbecken"
+        "de": "Die Seidenstraße um das Tarimbecken",
+        "fr": "La route de la soie autour du bassin du Tarim",
+        "es": "La Ruta de la Seda alrededor de la cuenca del Tarim"
       },
       "summary": {
         "sv": "Väster om Anxi och Dunhuang delade sig sidenvägen runt Taklamakanöknen i Tarimbäckenet och möttes igen i Kashgar. Den norra vägen gick från oas till oas längs Tianshans fot via Turpan, Karasahr, Korla, Kucha och Aksu. Den södra vägen följde Kunlunbergen via Miran, Niya, Khotan och Yarkant. Under Han-dynastin gick huvudvägen genom mitten, från Jadeporten via Loulan vid Lop Nur till Korla. När floden Tarim bytte lopp omkring 330 e.Kr. flyttade trafiken norrut till Kumul (Hami), och området kring Lop Nur blev obeboeligt.",
         "en": "West of Anxi and Dunhuang the Silk Road split around the Taklamakan Desert in the Tarim Basin and joined again at Kashgar. The northern route went from oasis to oasis along the foot of the Tian Shan via Turpan, Karasahr, Korla, Kucha and Aksu. The southern route followed the Kunlun Mountains via Miran, Niya, Khotan and Yarkant. Under the Han the main road ran through the middle, from the Jade Gate via Loulan near Lop Nur to Korla. When the Tarim river changed course around 330 AD, traffic moved north to Kumul (Hami), and the Lop Nur area became uninhabitable.",
-        "de": "Westlich von Anxi und Dunhuang teilte sich die Seidenstraße um die Wüste Taklamakan im Tarimbecken und traf in Kaschgar wieder zusammen. Die nördliche Route führte von Oase zu Oase am Fuß des Tian Shan über Turfan, Karasahr, Korla, Kucha und Aksu. Die südliche Route folgte dem Kunlun-Gebirge über Miran, Niya, Chotan und Jarkant. Zur Han-Zeit verlief die Hauptroute durch die Mitte, vom Jadetor über Loulan am Lop Nur nach Korla. Als der Fluss Tarim um 330 n. Chr. seinen Lauf änderte, verlagerte sich der Verkehr nach Norden nach Kumul (Hami), und das Gebiet um den Lop Nur wurde unbewohnbar."
+        "de": "Westlich von Anxi und Dunhuang teilte sich die Seidenstraße um die Wüste Taklamakan im Tarimbecken und traf in Kaschgar wieder zusammen. Die nördliche Route führte von Oase zu Oase am Fuß des Tian Shan über Turfan, Karasahr, Korla, Kucha und Aksu. Die südliche Route folgte dem Kunlun-Gebirge über Miran, Niya, Chotan und Jarkant. Zur Han-Zeit verlief die Hauptroute durch die Mitte, vom Jadetor über Loulan am Lop Nur nach Korla. Als der Fluss Tarim um 330 n. Chr. seinen Lauf änderte, verlagerte sich der Verkehr nach Norden nach Kumul (Hami), und das Gebiet um den Lop Nur wurde unbewohnbar.",
+        "fr": "À l’ouest d’Anxi et de Dunhuang, la route de la soie se divisait autour du désert du Taklamakan, dans le bassin du Tarim, et se rejoignait à Kachgar. La route du nord allait d’oasis en oasis au pied du Tian Shan par Tourfan, Karachahr, Korla, Koutcha et Aksou. La route du sud longeait les monts Kunlun par Miran, Niya, Khotan et Yarkand. Sous la dynastie Han, la route principale passait par le centre, de la porte de Jade par Loulan, près du Lop Nor, jusqu’à Korla. Quand le Tarim changea de cours vers 330 apr. J.-C., le trafic se déplaça vers le nord, vers Kumul (Hami), et la région du Lop Nor devint inhabitable.",
+        "es": "Al oeste de Anxi y Dunhuang, la Ruta de la Seda se dividía alrededor del desierto de Taklamakán, en la cuenca del Tarim, y volvía a unirse en Kashgar. La ruta del norte iba de oasis en oasis al pie del Tian Shan por Turpan, Karasahr, Korla, Kucha y Aksu. La ruta del sur seguía las montañas Kunlun por Miran, Niya, Khotan y Yarkand. Durante la dinastía Han, la ruta principal pasaba por el centro, desde la puerta de Jade por Loulan, junto al Lop Nur, hasta Korla. Cuando el río Tarim cambió de curso hacia el 330 d. C., el tráfico se desplazó al norte, hacia Kumul (Hami), y la zona del Lop Nur se volvió inhabitable."
       },
       "start": -129,
       "end": 1450,
@@ -126,12 +150,16 @@
         "title": {
           "sv": "Källorna skiljer sig",
           "en": "Sources differ",
-          "de": "Die Quellen unterscheiden sich"
+          "de": "Die Quellen unterscheiden sich",
+          "fr": "Les sources divergent",
+          "es": "Las fuentes no coinciden"
         },
         "text": {
           "sv": "Wikipedia anger på olika ställen att sidenvägen började omkring 130 f.Kr. (Han-dynastins sändebud efter Zhang Qians resor), omkring 114 f.Kr. eller under första århundradet f.Kr. World History Encyclopedia skriver 130 f.Kr. Slutet anges som mitten av 1400-talet (Wikipedia, ungefär 1450) eller 1453, när Osmanska riket tog Konstantinopel (World History Encyclopedia). Enligt Wikipedia fortsatte sidenhandeln ändå till 1720-talet. Här visas vägen från 130 f.Kr. till 1450. Wikipedia ger ingen egen tid för den norra och den södra vägen, så de visas för hela perioden. Den södra vägen kan vara äldre än Han-dynastin, och den stördes när Tibet bredde ut sig i slutet av 600-talet och på 700-talet. Mittvägen genom Loulan övergavs enligt samma artikel helt först på 500-talet, inte redan omkring 330. Uppräkningen av orterna längs vägarna saknar egen källhänvisning i Wikipedia.",
           "en": "Wikipedia gives the start of the Silk Road in different places as about 130 BC (Han envoys after Zhang Qian's journeys), about 114 BC or the 1st century BC. World History Encyclopedia says 130 BC. The end is given as the mid-15th century (Wikipedia, about 1450) or 1453, when the Ottoman Empire took Constantinople (World History Encyclopedia). According to Wikipedia the silk trade still went on until the 1720s. The route is shown here from 130 BC to 1450. Wikipedia gives no separate dates for the northern and southern routes, so they are shown for the whole period. The southern route may be older than the Han, and it was disrupted by the Tibetan expansion in the late 7th and 8th centuries. According to the same article the middle route through Loulan was fully abandoned only in the 6th century, not already around 330. The lists of towns along the routes have no citation of their own in Wikipedia.",
-          "de": "Wikipedia gibt an verschiedenen Stellen an, dass die Seidenstraße um 130 v. Chr. begann (Gesandte der Han-Dynastie nach Zhang Qians Reisen), um 114 v. Chr. oder im ersten Jahrhundert v. Chr. Die World History Encyclopedia schreibt 130 v. Chr. Das Ende wird mit Mitte des 15. Jahrhunderts (Wikipedia, ungefähr 1450) oder mit 1453 angegeben, als das Osmanische Reich Konstantinopel einnahm (World History Encyclopedia). Laut Wikipedia setzte sich der Seidenhandel dennoch bis in die 1720er-Jahre fort. Hier wird der Weg von 130 v. Chr. bis 1450 gezeigt. Wikipedia nennt keine eigene Zeit für die nördliche und die südliche Route, deshalb werden sie für den ganzen Zeitraum gezeigt. Die südliche Route kann älter sein als die Han-Dynastie, und sie wurde gestört, als sich Tibet Ende des 7. Jahrhunderts und im 8. Jahrhundert ausbreitete. Die Mittelroute durch Loulan wurde laut demselben Artikel erst im 6. Jahrhundert ganz aufgegeben, nicht schon um 330. Die Aufzählung der Orte entlang der Routen hat bei Wikipedia keinen eigenen Quellenhinweis."
+          "de": "Wikipedia gibt an verschiedenen Stellen an, dass die Seidenstraße um 130 v. Chr. begann (Gesandte der Han-Dynastie nach Zhang Qians Reisen), um 114 v. Chr. oder im ersten Jahrhundert v. Chr. Die World History Encyclopedia schreibt 130 v. Chr. Das Ende wird mit Mitte des 15. Jahrhunderts (Wikipedia, ungefähr 1450) oder mit 1453 angegeben, als das Osmanische Reich Konstantinopel einnahm (World History Encyclopedia). Laut Wikipedia setzte sich der Seidenhandel dennoch bis in die 1720er-Jahre fort. Hier wird der Weg von 130 v. Chr. bis 1450 gezeigt. Wikipedia nennt keine eigene Zeit für die nördliche und die südliche Route, deshalb werden sie für den ganzen Zeitraum gezeigt. Die südliche Route kann älter sein als die Han-Dynastie, und sie wurde gestört, als sich Tibet Ende des 7. Jahrhunderts und im 8. Jahrhundert ausbreitete. Die Mittelroute durch Loulan wurde laut demselben Artikel erst im 6. Jahrhundert ganz aufgegeben, nicht schon um 330. Die Aufzählung der Orte entlang der Routen hat bei Wikipedia keinen eigenen Quellenhinweis.",
+          "fr": "Wikipédia indique à différents endroits que la route de la soie commença vers 130 av. J.-C. (les envoyés de la dynastie Han après les voyages de Zhang Qian), vers 114 av. J.-C. ou au Ier siècle av. J.-C. La World History Encyclopedia écrit 130 av. J.-C. La fin est indiquée comme le milieu du XVe siècle (Wikipédia, vers 1450) ou 1453, quand l’Empire ottoman prit Constantinople (World History Encyclopedia). Selon Wikipédia, le commerce de la soie se poursuivit néanmoins jusqu’aux années 1720. La route est ici affichée de 130 av. J.-C. à 1450. Wikipédia ne donne pas de période propre pour la route du nord et la route du sud ; elles sont donc affichées pour toute la période. La route du sud est peut-être plus ancienne que la dynastie Han, et elle fut perturbée quand le Tibet s’étendit à la fin du VIIe siècle et au VIIIe siècle. Selon le même article, la route centrale par Loulan ne fut complètement abandonnée qu’au VIe siècle, et non dès 330 environ. L’énumération des localités le long des routes n’a pas de source propre sur Wikipédia.",
+          "es": "Wikipedia indica en distintos lugares que la Ruta de la Seda comenzó hacia el 130 a. C. (los enviados de la dinastía Han tras los viajes de Zhang Qian), hacia el 114 a. C. o en el siglo I a. C. La World History Encyclopedia escribe 130 a. C. El final se indica como mediados del siglo XV (Wikipedia, hacia 1450) o 1453, cuando el Imperio otomano tomó Constantinopla (World History Encyclopedia). Según Wikipedia, el comercio de la seda continuó, sin embargo, hasta la década de 1720. Aquí la ruta se muestra desde el 130 a. C. hasta 1450. Wikipedia no da un periodo propio para la ruta del norte y la del sur, así que se muestran para todo el periodo. La ruta del sur puede ser anterior a la dinastía Han, y se vio perturbada cuando el Tíbet se expandió a finales del siglo VII y en el siglo VIII. Según el mismo artículo, la ruta central por Loulan no se abandonó del todo hasta el siglo VI, y no ya hacia el 330. La lista de localidades a lo largo de las rutas no tiene fuente propia en Wikipedia."
         }
       },
       "sources": [
@@ -156,7 +184,9 @@
               "name": {
                 "sv": "Dunhuang",
                 "en": "Dunhuang",
-                "de": "Dunhuang"
+                "de": "Dunhuang",
+                "fr": "Dunhuang",
+                "es": "Dunhuang"
               }
             },
             {
@@ -164,7 +194,9 @@
               "name": {
                 "sv": "Jadeporten (Yumenpasset)",
                 "en": "Jade Gate (Yumen Pass)",
-                "de": "Jadetor (Yumen-Pass)"
+                "de": "Jadetor (Yumen-Pass)",
+                "fr": "Porte de Jade (passe de Yumen)",
+                "es": "Puerta de Jade (paso de Yumen)"
               }
             },
             {
@@ -172,7 +204,9 @@
               "name": {
                 "sv": "Loulan",
                 "en": "Loulan",
-                "de": "Loulan"
+                "de": "Loulan",
+                "fr": "Loulan",
+                "es": "Loulan"
               }
             },
             {
@@ -180,7 +214,9 @@
               "name": {
                 "sv": "Korla",
                 "en": "Korla",
-                "de": "Korla"
+                "de": "Korla",
+                "fr": "Korla",
+                "es": "Korla"
               }
             }
           ],
@@ -200,7 +236,9 @@
               "name": {
                 "sv": "Korla",
                 "en": "Korla",
-                "de": "Korla"
+                "de": "Korla",
+                "fr": "Korla",
+                "es": "Korla"
               }
             },
             {
@@ -208,7 +246,9 @@
               "name": {
                 "sv": "Kucha",
                 "en": "Kucha",
-                "de": "Kucha"
+                "de": "Kucha",
+                "fr": "Koutcha",
+                "es": "Kucha"
               }
             },
             {
@@ -216,7 +256,9 @@
               "name": {
                 "sv": "Aksu",
                 "en": "Aksu",
-                "de": "Aksu"
+                "de": "Aksu",
+                "fr": "Aksou",
+                "es": "Aksu"
               }
             },
             {
@@ -224,7 +266,9 @@
               "name": {
                 "sv": "Kashgar",
                 "en": "Kashgar",
-                "de": "Kaschgar"
+                "de": "Kaschgar",
+                "fr": "Kachgar",
+                "es": "Kashgar"
               }
             }
           ],
@@ -245,7 +289,9 @@
               "name": {
                 "sv": "Anxi (Guazhou)",
                 "en": "Anxi (Guazhou)",
-                "de": "Anxi (Guazhou)"
+                "de": "Anxi (Guazhou)",
+                "fr": "Anxi (Guazhou)",
+                "es": "Anxi (Guazhou)"
               }
             },
             {
@@ -253,7 +299,9 @@
               "name": {
                 "sv": "Kumul (Hami)",
                 "en": "Kumul (Hami)",
-                "de": "Kumul (Hami)"
+                "de": "Kumul (Hami)",
+                "fr": "Kumul (Hami)",
+                "es": "Kumul (Hami)"
               }
             },
             {
@@ -261,7 +309,9 @@
               "name": {
                 "sv": "Turpan",
                 "en": "Turpan",
-                "de": "Turfan"
+                "de": "Turfan",
+                "fr": "Tourfan",
+                "es": "Turpan"
               }
             },
             {
@@ -269,7 +319,9 @@
               "name": {
                 "sv": "Karasahr",
                 "en": "Karasahr",
-                "de": "Karasahr"
+                "de": "Karasahr",
+                "fr": "Karachahr",
+                "es": "Karasahr"
               }
             },
             {
@@ -277,7 +329,9 @@
               "name": {
                 "sv": "Korla",
                 "en": "Korla",
-                "de": "Korla"
+                "de": "Korla",
+                "fr": "Korla",
+                "es": "Korla"
               }
             }
           ],
@@ -297,7 +351,9 @@
               "name": {
                 "sv": "Anxi (Guazhou)",
                 "en": "Anxi (Guazhou)",
-                "de": "Anxi (Guazhou)"
+                "de": "Anxi (Guazhou)",
+                "fr": "Anxi (Guazhou)",
+                "es": "Anxi (Guazhou)"
               }
             },
             {
@@ -305,7 +361,9 @@
               "name": {
                 "sv": "Dunhuang",
                 "en": "Dunhuang",
-                "de": "Dunhuang"
+                "de": "Dunhuang",
+                "fr": "Dunhuang",
+                "es": "Dunhuang"
               }
             },
             {
@@ -313,7 +371,9 @@
               "name": {
                 "sv": "Miran",
                 "en": "Miran",
-                "de": "Miran"
+                "de": "Miran",
+                "fr": "Miran",
+                "es": "Miran"
               }
             },
             {
@@ -321,7 +381,9 @@
               "name": {
                 "sv": "Qarkilik (Ruoqiang)",
                 "en": "Qarkilik (Ruoqiang)",
-                "de": "Qarkilik (Ruoqiang)"
+                "de": "Qarkilik (Ruoqiang)",
+                "fr": "Qarkilik (Ruoqiang)",
+                "es": "Qarkilik (Ruoqiang)"
               }
             },
             {
@@ -329,7 +391,9 @@
               "name": {
                 "sv": "Qarqan (Qiemo)",
                 "en": "Qarqan (Qiemo)",
-                "de": "Qarqan (Qiemo)"
+                "de": "Qarqan (Qiemo)",
+                "fr": "Qarqan (Qiemo)",
+                "es": "Qarqan (Qiemo)"
               }
             },
             {
@@ -337,7 +401,9 @@
               "name": {
                 "sv": "Niya",
                 "en": "Niya",
-                "de": "Niya"
+                "de": "Niya",
+                "fr": "Niya",
+                "es": "Niya"
               }
             },
             {
@@ -345,7 +411,9 @@
               "name": {
                 "sv": "Keriya",
                 "en": "Keriya",
-                "de": "Keriya"
+                "de": "Keriya",
+                "fr": "Keriya",
+                "es": "Keriya"
               }
             },
             {
@@ -353,7 +421,9 @@
               "name": {
                 "sv": "Khotan",
                 "en": "Khotan",
-                "de": "Chotan"
+                "de": "Chotan",
+                "fr": "Khotan",
+                "es": "Khotan"
               }
             },
             {
@@ -361,7 +431,9 @@
               "name": {
                 "sv": "Pishan (Guma)",
                 "en": "Pishan (Guma)",
-                "de": "Pishan (Guma)"
+                "de": "Pishan (Guma)",
+                "fr": "Pishan (Guma)",
+                "es": "Pishan (Guma)"
               }
             },
             {
@@ -369,7 +441,9 @@
               "name": {
                 "sv": "Karghalik (Yecheng)",
                 "en": "Karghalik (Yecheng)",
-                "de": "Karghalik (Yecheng)"
+                "de": "Karghalik (Yecheng)",
+                "fr": "Karghalik (Yecheng)",
+                "es": "Karghalik (Yecheng)"
               }
             },
             {
@@ -377,7 +451,9 @@
               "name": {
                 "sv": "Yarkant",
                 "en": "Yarkant",
-                "de": "Jarkant"
+                "de": "Jarkant",
+                "fr": "Yarkand",
+                "es": "Yarkand"
               }
             },
             {
@@ -385,7 +461,9 @@
               "name": {
                 "sv": "Kashgar",
                 "en": "Kashgar",
-                "de": "Kaschgar"
+                "de": "Kaschgar",
+                "fr": "Kachgar",
+                "es": "Kashgar"
               }
             }
           ],
@@ -404,12 +482,16 @@
       "title": {
         "sv": "Sidenvägen: från Kashgar till Medelhavet",
         "en": "Silk Road: from Kashgar to the Mediterranean",
-        "de": "Die Seidenstraße: von Kaschgar zum Mittelmeer"
+        "de": "Die Seidenstraße: von Kaschgar zum Mittelmeer",
+        "fr": "La route de la soie : de Kachgar à la Méditerranée",
+        "es": "La Ruta de la Seda: de Kashgar al Mediterráneo"
       },
       "summary": {
         "sv": "Väster om Kashgar delade sig vägen igen. En gren gick över Torugartpasset till Kokand i Ferganadalen och sedan genom Karakumöknen, en annan genom Alajdalen mot Termez och Balkh. Båda nådde Merv, en stor handelsstad i dagens Turkmenistan. Därifrån gick vägen via Sarakhs, Mashhad och Nishapur till Ray, nära dagens Teheran, och vidare västerut genom norra Iran och Mesopotamien till Levanten vid Medelhavet. Partherriket var länge mellanhand mellan Kina och Rom. Ktesifon var en viktig handelsstad tills araberna tog den 637; senare blev Bagdad den viktigaste staden längs vägen. Orterna är de som källan använder för att beskriva vägen, ofta med dagens namn.",
         "en": "West of Kashgar the road split again. One branch crossed the Torugart Pass to Kokand in the Fergana Valley and then the Karakum Desert, another went through the Alay Valley towards Termez and Balkh. Both reached Merv, a great trading city in today's Turkmenistan. From there the road ran via Sarakhs, Mashhad and Nishapur to Ray, near today's Tehran, and on west through northern Iran and Mesopotamia to the Levant on the Mediterranean. The Parthian Empire was long the middleman between China and Rome. Ctesiphon was an important trading city until the Arabs took it in 637; later Baghdad became the most important city on the route. The places are those the source uses to describe the route, often with their modern names.",
-        "de": "Westlich von Kaschgar teilte sich der Weg erneut. Ein Zweig führte über den Torugartpass nach Kokand im Ferganatal und dann durch die Wüste Karakum, ein anderer durch das Alaital in Richtung Termez und Balch. Beide erreichten Merw, eine große Handelsstadt im heutigen Turkmenistan. Von dort führte der Weg über Sarachs, Maschhad und Nischapur nach Ray, nahe dem heutigen Teheran, und weiter nach Westen durch den Nordiran und Mesopotamien zur Levante am Mittelmeer. Das Partherreich war lange Zwischenhändler zwischen China und Rom. Ktesiphon war eine wichtige Handelsstadt, bis die Araber sie 637 einnahmen; später wurde Bagdad die wichtigste Stadt entlang des Weges. Die Orte sind die, die die Quelle zur Beschreibung des Weges verwendet, oft mit heutigem Namen."
+        "de": "Westlich von Kaschgar teilte sich der Weg erneut. Ein Zweig führte über den Torugartpass nach Kokand im Ferganatal und dann durch die Wüste Karakum, ein anderer durch das Alaital in Richtung Termez und Balch. Beide erreichten Merw, eine große Handelsstadt im heutigen Turkmenistan. Von dort führte der Weg über Sarachs, Maschhad und Nischapur nach Ray, nahe dem heutigen Teheran, und weiter nach Westen durch den Nordiran und Mesopotamien zur Levante am Mittelmeer. Das Partherreich war lange Zwischenhändler zwischen China und Rom. Ktesiphon war eine wichtige Handelsstadt, bis die Araber sie 637 einnahmen; später wurde Bagdad die wichtigste Stadt entlang des Weges. Die Orte sind die, die die Quelle zur Beschreibung des Weges verwendet, oft mit heutigem Namen.",
+        "fr": "À l’ouest de Kachgar, la route se divisait de nouveau. Une branche passait par le col de Torugart jusqu’à Kokand, dans la vallée de Ferghana, puis traversait le désert du Karakoum ; une autre passait par la vallée de l’Alaï vers Termez et Balkh. Les deux atteignaient Merv, grande ville marchande de l’actuel Turkménistan. De là, la route passait par Sarakhs, Mechhed et Nichapur jusqu’à Ray, près de l’actuelle Téhéran, puis vers l’ouest à travers le nord de l’Iran et la Mésopotamie jusqu’au Levant, sur la Méditerranée. L’Empire parthe fut longtemps l’intermédiaire entre la Chine et Rome. Ctésiphon fut une ville marchande importante jusqu’à sa prise par les Arabes en 637 ; plus tard, Bagdad devint la ville la plus importante le long de la route. Les localités sont celles que la source utilise pour décrire la route, souvent sous leur nom actuel.",
+        "es": "Al oeste de Kashgar, la ruta volvía a dividirse. Un ramal cruzaba el paso de Torugart hasta Kokand, en el valle de Ferganá, y después atravesaba el desierto de Karakum; otro iba por el valle de Alái hacia Termez y Balj. Ambos llegaban a Merv, una gran ciudad comercial del actual Turkmenistán. Desde allí la ruta seguía por Sarajs, Mashhad y Nishapur hasta Rey, cerca de la actual Teherán, y más al oeste por el norte de Irán y Mesopotamia hasta el Levante, junto al Mediterráneo. El Imperio parto fue durante mucho tiempo intermediario entre China y Roma. Ctesifonte fue una ciudad comercial importante hasta que los árabes la tomaron en 637; más tarde Bagdad se convirtió en la ciudad más importante de la ruta. Las localidades son las que usa la fuente para describir la ruta, a menudo con su nombre actual."
       },
       "start": -129,
       "end": 1450,
@@ -419,12 +501,16 @@
         "title": {
           "sv": "Källorna skiljer sig",
           "en": "Sources differ",
-          "de": "Die Quellen unterscheiden sich"
+          "de": "Die Quellen unterscheiden sich",
+          "fr": "Les sources divergent",
+          "es": "Las fuentes no coinciden"
         },
         "text": {
           "sv": "Wikipedia anger på olika ställen att sidenvägen började omkring 130 f.Kr. (Han-dynastins sändebud efter Zhang Qians resor), omkring 114 f.Kr. eller under första århundradet f.Kr. World History Encyclopedia skriver 130 f.Kr. Slutet anges som mitten av 1400-talet (Wikipedia, ungefär 1450) eller 1453, när Osmanska riket tog Konstantinopel (World History Encyclopedia). Enligt Wikipedia fortsatte sidenhandeln ändå till 1720-talet. Här visas vägen från 130 f.Kr. till 1450. Wikipedia beskriver vägen väster om Ray bara som en riktning (norra Iran, Mesopotamien, norra Syriska öknen, Levanten). Hamadan, Ktesifon, Bagdad och Antiokia kommer från andra Wikipediasidor, och sidan som kallar Antiokia sidenvägens västra ändpunkt är märkt som otillräckligt belagd. Sträckorna Kokand–Merv, Balkh–Merv och väster om Ray är därför ungefärliga. Merv kunde också nås via Nisa i stället för Sarakhs.",
           "en": "Wikipedia gives the start of the Silk Road in different places as about 130 BC (Han envoys after Zhang Qian's journeys), about 114 BC or the 1st century BC. World History Encyclopedia says 130 BC. The end is given as the mid-15th century (Wikipedia, about 1450) or 1453, when the Ottoman Empire took Constantinople (World History Encyclopedia). According to Wikipedia the silk trade still went on until the 1720s. The route is shown here from 130 BC to 1450. Wikipedia describes the road west of Ray only as a direction (northern Iran, Mesopotamia, the northern Syrian Desert, the Levant). Hamadan, Ctesiphon, Baghdad and Antioch come from other Wikipedia pages, and the page calling Antioch the western end of the Silk Road is tagged as poorly sourced. The stretches Kokand–Merv, Balkh–Merv and west of Ray are therefore approximate. Merv could also be reached via Nisa instead of Sarakhs.",
-          "de": "Wikipedia gibt an verschiedenen Stellen an, dass die Seidenstraße um 130 v. Chr. begann (Gesandte der Han-Dynastie nach Zhang Qians Reisen), um 114 v. Chr. oder im ersten Jahrhundert v. Chr. Die World History Encyclopedia schreibt 130 v. Chr. Das Ende wird mit Mitte des 15. Jahrhunderts (Wikipedia, ungefähr 1450) oder mit 1453 angegeben, als das Osmanische Reich Konstantinopel einnahm (World History Encyclopedia). Laut Wikipedia setzte sich der Seidenhandel dennoch bis in die 1720er-Jahre fort. Hier wird der Weg von 130 v. Chr. bis 1450 gezeigt. Wikipedia beschreibt den Weg westlich von Ray nur als eine Richtung (Nordiran, Mesopotamien, nördliche Syrische Wüste, Levante). Hamadan, Ktesiphon, Bagdad und Antiochia stammen von anderen Wikipedia-Seiten, und die Seite, die Antiochia als westlichen Endpunkt der Seidenstraße bezeichnet, ist als unzureichend belegt markiert. Die Strecken Kokand–Merw, Balch–Merw und westlich von Ray sind deshalb ungefähr. Merw konnte auch über Nisa statt über Sarachs erreicht werden."
+          "de": "Wikipedia gibt an verschiedenen Stellen an, dass die Seidenstraße um 130 v. Chr. begann (Gesandte der Han-Dynastie nach Zhang Qians Reisen), um 114 v. Chr. oder im ersten Jahrhundert v. Chr. Die World History Encyclopedia schreibt 130 v. Chr. Das Ende wird mit Mitte des 15. Jahrhunderts (Wikipedia, ungefähr 1450) oder mit 1453 angegeben, als das Osmanische Reich Konstantinopel einnahm (World History Encyclopedia). Laut Wikipedia setzte sich der Seidenhandel dennoch bis in die 1720er-Jahre fort. Hier wird der Weg von 130 v. Chr. bis 1450 gezeigt. Wikipedia beschreibt den Weg westlich von Ray nur als eine Richtung (Nordiran, Mesopotamien, nördliche Syrische Wüste, Levante). Hamadan, Ktesiphon, Bagdad und Antiochia stammen von anderen Wikipedia-Seiten, und die Seite, die Antiochia als westlichen Endpunkt der Seidenstraße bezeichnet, ist als unzureichend belegt markiert. Die Strecken Kokand–Merw, Balch–Merw und westlich von Ray sind deshalb ungefähr. Merw konnte auch über Nisa statt über Sarachs erreicht werden.",
+          "fr": "Wikipédia indique à différents endroits que la route de la soie commença vers 130 av. J.-C. (les envoyés de la dynastie Han après les voyages de Zhang Qian), vers 114 av. J.-C. ou au Ier siècle av. J.-C. La World History Encyclopedia écrit 130 av. J.-C. La fin est indiquée comme le milieu du XVe siècle (Wikipédia, vers 1450) ou 1453, quand l’Empire ottoman prit Constantinople (World History Encyclopedia). Selon Wikipédia, le commerce de la soie se poursuivit néanmoins jusqu’aux années 1720. La route est ici affichée de 130 av. J.-C. à 1450. Wikipédia ne décrit la route à l’ouest de Ray que comme une direction (nord de l’Iran, Mésopotamie, nord du désert de Syrie, Levant). Hamadan, Ctésiphon, Bagdad et Antioche proviennent d’autres pages de Wikipédia, et la page qui fait d’Antioche l’extrémité occidentale de la route de la soie est signalée comme insuffisamment sourcée. Les tronçons Kokand–Merv, Balkh–Merv et à l’ouest de Ray sont donc approximatifs. Merv pouvait aussi être atteinte par Nisa au lieu de Sarakhs.",
+          "es": "Wikipedia indica en distintos lugares que la Ruta de la Seda comenzó hacia el 130 a. C. (los enviados de la dinastía Han tras los viajes de Zhang Qian), hacia el 114 a. C. o en el siglo I a. C. La World History Encyclopedia escribe 130 a. C. El final se indica como mediados del siglo XV (Wikipedia, hacia 1450) o 1453, cuando el Imperio otomano tomó Constantinopla (World History Encyclopedia). Según Wikipedia, el comercio de la seda continuó, sin embargo, hasta la década de 1720. Aquí la ruta se muestra desde el 130 a. C. hasta 1450. Wikipedia describe la ruta al oeste de Rey solo como una dirección (norte de Irán, Mesopotamia, norte del desierto de Siria, Levante). Hamadán, Ctesifonte, Bagdad y Antioquía proceden de otras páginas de Wikipedia, y la página que llama a Antioquía el extremo occidental de la Ruta de la Seda está marcada como insuficientemente documentada. Por eso los tramos Kokand–Merv, Balj–Merv y al oeste de Rey son aproximados. También se podía llegar a Merv por Nisa en lugar de Sarajs."
         }
       },
       "sources": [
@@ -450,7 +536,9 @@
               "name": {
                 "sv": "Kashgar",
                 "en": "Kashgar",
-                "de": "Kaschgar"
+                "de": "Kaschgar",
+                "fr": "Kachgar",
+                "es": "Kashgar"
               }
             },
             {
@@ -458,7 +546,9 @@
               "name": {
                 "sv": "Torugartpasset",
                 "en": "Torugart Pass",
-                "de": "Torugartpass"
+                "de": "Torugartpass",
+                "fr": "Col de Torugart",
+                "es": "Paso de Torugart"
               }
             },
             {
@@ -466,7 +556,9 @@
               "name": {
                 "sv": "Kokand i Ferganadalen",
                 "en": "Kokand in the Fergana Valley",
-                "de": "Kokand im Ferganatal"
+                "de": "Kokand im Ferganatal",
+                "fr": "Kokand dans la vallée de Ferghana",
+                "es": "Kokand, en el valle de Ferganá"
               }
             },
             {
@@ -474,7 +566,9 @@
               "name": {
                 "sv": "Merv",
                 "en": "Merv",
-                "de": "Merw"
+                "de": "Merw",
+                "fr": "Merv",
+                "es": "Merv"
               }
             }
           ],
@@ -496,7 +590,9 @@
               "name": {
                 "sv": "Kashgar",
                 "en": "Kashgar",
-                "de": "Kaschgar"
+                "de": "Kaschgar",
+                "fr": "Kachgar",
+                "es": "Kashgar"
               }
             },
             {
@@ -504,7 +600,9 @@
               "name": {
                 "sv": "Irkeshtam",
                 "en": "Irkeshtam",
-                "de": "Irkeshtam"
+                "de": "Irkeshtam",
+                "fr": "Irkechtam",
+                "es": "Irkeshtam"
               }
             },
             {
@@ -512,7 +610,9 @@
               "name": {
                 "sv": "Alajdalen",
                 "en": "The Alay Valley",
-                "de": "Alaital"
+                "de": "Alaital",
+                "fr": "Vallée de l’Alaï",
+                "es": "Valle de Alái"
               }
             },
             {
@@ -520,7 +620,9 @@
               "name": {
                 "sv": "Termez",
                 "en": "Termez",
-                "de": "Termez"
+                "de": "Termez",
+                "fr": "Termez",
+                "es": "Termez"
               }
             },
             {
@@ -528,7 +630,9 @@
               "name": {
                 "sv": "Balkh",
                 "en": "Balkh",
-                "de": "Balch"
+                "de": "Balch",
+                "fr": "Balkh",
+                "es": "Balj"
               }
             },
             {
@@ -536,7 +640,9 @@
               "name": {
                 "sv": "Merv",
                 "en": "Merv",
-                "de": "Merw"
+                "de": "Merw",
+                "fr": "Merv",
+                "es": "Merv"
               }
             }
           ],
@@ -557,7 +663,9 @@
               "name": {
                 "sv": "Merv",
                 "en": "Merv",
-                "de": "Merw"
+                "de": "Merw",
+                "fr": "Merv",
+                "es": "Merv"
               }
             },
             {
@@ -565,7 +673,9 @@
               "name": {
                 "sv": "Sarakhs",
                 "en": "Sarakhs",
-                "de": "Sarachs"
+                "de": "Sarachs",
+                "fr": "Sarakhs",
+                "es": "Sarajs"
               }
             },
             {
@@ -573,7 +683,9 @@
               "name": {
                 "sv": "Mashhad",
                 "en": "Mashhad",
-                "de": "Maschhad"
+                "de": "Maschhad",
+                "fr": "Mechhed",
+                "es": "Mashhad"
               }
             },
             {
@@ -581,7 +693,9 @@
               "name": {
                 "sv": "Nishapur",
                 "en": "Nishapur",
-                "de": "Nischapur"
+                "de": "Nischapur",
+                "fr": "Nichapur",
+                "es": "Nishapur"
               }
             },
             {
@@ -589,7 +703,9 @@
               "name": {
                 "sv": "Ray",
                 "en": "Ray",
-                "de": "Ray"
+                "de": "Ray",
+                "fr": "Ray",
+                "es": "Rey"
               }
             }
           ],
@@ -610,7 +726,9 @@
               "name": {
                 "sv": "Ray",
                 "en": "Ray",
-                "de": "Ray"
+                "de": "Ray",
+                "fr": "Ray",
+                "es": "Rey"
               }
             },
             {
@@ -618,7 +736,9 @@
               "name": {
                 "sv": "Hamadan",
                 "en": "Hamadan",
-                "de": "Hamadan"
+                "de": "Hamadan",
+                "fr": "Hamadan",
+                "es": "Hamadán"
               }
             },
             {
@@ -626,7 +746,9 @@
               "name": {
                 "sv": "Ktesifon",
                 "en": "Ctesiphon",
-                "de": "Ktesiphon"
+                "de": "Ktesiphon",
+                "fr": "Ctésiphon",
+                "es": "Ctesifonte"
               }
             },
             {
@@ -634,7 +756,9 @@
               "name": {
                 "sv": "Antiokia",
                 "en": "Antioch",
-                "de": "Antiochia"
+                "de": "Antiochia",
+                "fr": "Antioche",
+                "es": "Antioquía"
               }
             }
           ],
@@ -658,7 +782,9 @@
               "name": {
                 "sv": "Ray",
                 "en": "Ray",
-                "de": "Ray"
+                "de": "Ray",
+                "fr": "Ray",
+                "es": "Rey"
               }
             },
             {
@@ -666,7 +792,9 @@
               "name": {
                 "sv": "Hamadan",
                 "en": "Hamadan",
-                "de": "Hamadan"
+                "de": "Hamadan",
+                "fr": "Hamadan",
+                "es": "Hamadán"
               }
             },
             {
@@ -674,7 +802,9 @@
               "name": {
                 "sv": "Bagdad",
                 "en": "Baghdad",
-                "de": "Bagdad"
+                "de": "Bagdad",
+                "fr": "Bagdad",
+                "es": "Bagdad"
               }
             }
           ],

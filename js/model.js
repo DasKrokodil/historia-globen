@@ -80,10 +80,27 @@ export const isVisibleReview = r => settings.showDrafts || r === 'source-checked
 // Grov indelning efter koordinater, för att gruppera listan "Samtidigt i världen" (#120).
 // Gränserna är ungefärliga: Gibraltar, Medelhavet, Suez och Röda havet, Bosporen, Kaukasus och Ural.
 export const REGIONS = ['Europa', 'Asien', 'Afrika', 'Amerika', 'Oceanien'];
+// Västra Anatoliens kust som [lat, lon] från Dardanellerna i norr till Knidos i söder (#1334). Ungefärlig linje:
+// öster om den ligger Mindre Asien, väster om den öarna i Egeiska havet (Lesbos, Chios, Samos, Kos) och Gallipoli.
+const AEGEAN_COAST = [[40.45, 26.75], [40.0, 26.2], [39.5, 26.05], [39.4, 26.62], [39.0, 26.75], [38.7, 26.7],
+  [38.45, 26.4], [38.3, 26.25], [38.0, 26.9], [37.75, 27.1], [37.6, 27.05], [37.4, 27.15], [37.0, 27.2],
+  [36.95, 27.38], [36.6, 27.6]];
+function aegeanCoastLon(lat) {
+  for (let i = 1; i < AEGEAN_COAST.length; i++) {
+    const [a, x] = AEGEAN_COAST[i - 1], [b, y] = AEGEAN_COAST[i];
+    if (lat >= b) return y + (lat - b) / (a - b) * (x - y);
+  }
+  return AEGEAN_COAST[AEGEAN_COAST.length - 1][1];
+}
 export function region(lat, lon) {
   if (lat > 50 && (lon < -168 || lon > 160)) return 'Asien'; // Sibiriens östspets och Wrangelön vid datumlinjen
   if (lon < -125 && lat < 35) return 'Oceanien'; // Hawaii, Midway och Stilla havet (Kalifornien ligger öster om -125)
   if (lon < -105 && lat < -10) return 'Oceanien'; // östra Polynesien med Rapa Nui; geografin går före politiken (#630)
+  // Atlantöarna mellan -32 och -20 (#1334): Azorerna hör till Europa och Kap Verde till Afrika
+  if (lon >= -32 && lon < -20) {
+    if (lat > 36 && lat < 40.5) return 'Europa';
+    if (lat > 13 && lat < 18) return 'Afrika';
+  }
   if (lon < -25) return 'Amerika';
   // Grönlands östkust går öster om -25 norr om cirka 69° N; Island slutar vid 66,5° N (Natural Earth 1:10m, #1135)
   if (lon < -10 && lat >= 68) return 'Amerika';
@@ -94,9 +111,11 @@ export function region(lat, lon) {
     lon < -1.5 ? lat < 36 :
     lon <= 11.5 ? lat < 37.5 :
     lon <= 32.5 ? lat < 33.5 :
-    lat < 31.5 && lon < 32.5 + (30 - lat) * 0.62); // väster om Röda havet
+    (lat < 31.5 && lon < 32.5 + (30 - lat) * 0.62) || lat < 12); // väster om Röda havet; Somalia söder om Adenviken (#1334)
   if (africa) return 'Afrika';
-  if (lat >= 35 && (lon < 28.9 || (lat >= 41 && lon < 60 && !(lon > 40 && lat < 44.5)))) return 'Europa';
+  if (lon >= 52 && lon < 64 && lat > -22 && lat < -3) return 'Afrika'; // Maskarenerna och Seychellerna (#1334)
+  if (lat >= 36.6 && lat <= 40.45 && lon < 28.9 && lon > aegeanCoastLon(lat)) return 'Asien'; // västra Anatolien (#1334)
+  if (lat >= 35 &&(lon < 28.9 || (lat >= 41 && lon < 60 && !(lon > 40 && lat < 44.5)))) return 'Europa';
   return 'Asien';
 }
 
