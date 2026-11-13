@@ -358,7 +358,7 @@ GROUPS = {
                                                                                                     'Federal Republic of Germany', 'German Democratic Republic'],
                                                        # Liberia eget land 1848, Filippinerna 1947, Västtyskland 1950, Japan 1953, Okinawa till Japan 1973, Palau
                                                        # 1996 (Cliopatria)
-                                                       'splits': (1848, 1947, 1950, 1953, 1973, 1996)}),
+                                                       'splits': (1848, 1947, 1949, 1950, 1953, 1973, 1996)}),
     ]),
     'amerikas-konfedererade-stater': ('Amerikas konfedererade stater', 'Confederate States of America', [
         ('Confederate States of America', 'amerikas-konfedererade-stater', 'Amerikas konfedererade stater', '#8c7f6a'),

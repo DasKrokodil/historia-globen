@@ -14419,7 +14419,10 @@
    "id": "weimarrepubliken",
    "name": {
     "sv": "Weimarrepubliken",
-    "en": "Weimar Republic"
+    "en": "Weimar Republic",
+    "de": "Weimarer Republik",
+    "es": "República de Weimar",
+    "fr": "république de Weimar"
    },
    "color": "#8a78b0",
    "from": 1920,
@@ -14430,20 +14433,223 @@
      "id": "weimarrepubliken",
      "name": {
       "sv": "Weimarrepubliken",
-      "en": "Weimar Republic"
+      "en": "Weimar Republic",
+      "de": "Weimarer Republik",
+      "es": "República de Weimar",
+      "fr": "république de Weimar"
      },
      "sources": [
       "cliopatria"
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Weimarrepubliken var Tysklands första demokratiska republik. Den utropades i november 1918, när kejsardömet föll i slutet av första världskriget, och fick sitt namn efter staden Weimar, där nationalförsamlingen skrev författningen 1919. Republiken skakades av hyperinflation och den stora depressionen och tog slut när Hitler tog makten 1933.",
+     "en": "The Weimar Republic was Germany's first democratic republic. It was proclaimed in November 1918, when the empire fell at the end of the First World War, and was named after the town of Weimar, where the National Assembly wrote the constitution in 1919. The republic was shaken by hyperinflation and the Great Depression and came to an end when Hitler took power in 1933.",
+     "de": "Die Weimarer Republik war Deutschlands erste demokratische Republik. Sie wurde im November 1918 ausgerufen, als das Kaiserreich am Ende des Ersten Weltkriegs zusammenbrach, und nach der Stadt Weimar benannt, wo die Nationalversammlung 1919 die Verfassung ausarbeitete. Die Republik wurde von Hyperinflation und Weltwirtschaftskrise erschüttert und endete, als Hitler 1933 die Macht übernahm.",
+     "es": "La República de Weimar fue la primera república democrática de Alemania. Se proclamó en noviembre de 1918, cuando cayó el imperio al final de la Primera Guerra Mundial, y tomó su nombre de la ciudad de Weimar, donde la Asamblea Nacional redactó la constitución en 1919. La república sufrió la hiperinflación y la Gran Depresión, y llegó a su fin cuando Hitler tomó el poder en 1933.",
+     "fr": "La république de Weimar fut la première république démocratique d'Allemagne. Elle fut proclamée en novembre 1918, lorsque l'empire s'effondra à la fin de la Première Guerre mondiale, et tient son nom de la ville de Weimar, où l'Assemblée nationale rédigea la constitution en 1919. Ébranlée par l'hyperinflation et la Grande Dépression, elle prit fin lorsque Hitler arriva au pouvoir en 1933."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod",
+       "en": "When and where it arose",
+       "de": "Entstehung",
+       "es": "Cuándo y dónde surgió",
+       "fr": "Quand et où il est apparu"
+      },
+      "text": {
+       "sv": "Republiken utropades 9 november 1918 av Philipp Scheidemann från riksdagshuset i Berlin. Nationalförsamlingen sammanträdde i Weimar från 6 februari 1919, och författningen antogs 11 augusti 1919.",
+       "en": "The republic was proclaimed on 9 November 1918 by Philipp Scheidemann from the Reichstag building in Berlin. The National Assembly met in Weimar from 6 February 1919, and the constitution was adopted on 11 August 1919.",
+       "de": "Die Republik wurde am 9. November 1918 von Philipp Scheidemann vom Reichstagsgebäude in Berlin aus ausgerufen. Die Nationalversammlung tagte ab dem 6. Februar 1919 in Weimar, und die Verfassung wurde am 11. August 1919 angenommen.",
+       "es": "Philipp Scheidemann proclamó la república el 9 de noviembre de 1918 desde el edificio del Reichstag en Berlín. La Asamblea Nacional se reunió en Weimar a partir del 6 de febrero de 1919, y la constitución se aprobó el 11 de agosto de 1919.",
+       "fr": "La république fut proclamée le 9 novembre 1918 par Philipp Scheidemann depuis le bâtiment du Reichstag à Berlin. L'Assemblée nationale siégea à Weimar à partir du 6 février 1919, et la constitution fut adoptée le 11 août 1919."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade",
+       "en": "How it ended",
+       "de": "Wie es endete",
+       "es": "Cómo terminó",
+       "fr": "Comment il a pris fin"
+      },
+      "text": {
+       "sv": "Hitler blev rikskansler 30 januari 1933. Riksdagshusbranddekretet 28 februari och fullmaktslagen 23 mars 1933 gav honom makten att styra utan riksdagen. Författningen avskaffades formellt aldrig förrän de allierade tog över makten 5 juni 1945.",
+       "en": "Hitler became Chancellor on 30 January 1933. The Reichstag Fire Decree of 28 February and the Enabling Act of 23 March 1933 gave him the power to govern without the Reichstag. The constitution was never formally abolished until the Allies assumed power on 5 June 1945.",
+       "de": "Hitler wurde am 30. Januar 1933 Reichskanzler. Die Reichstagsbrandverordnung vom 28. Februar und das Ermächtigungsgesetz vom 23. März 1933 gaben ihm die Macht, ohne den Reichstag zu regieren. Die Verfassung wurde formell erst abgeschafft, als die Alliierten am 5. Juni 1945 die Regierungsgewalt übernahmen.",
+       "es": "Hitler fue nombrado canciller el 30 de enero de 1933. El decreto del incendio del Reichstag, del 28 de febrero, y la ley habilitante, del 23 de marzo de 1933, le dieron el poder de gobernar sin el Reichstag. La constitución no se abolió formalmente hasta que los Aliados asumieron el poder el 5 de junio de 1945.",
+       "fr": "Hitler devint chancelier le 30 janvier 1933. Le décret de l'incendie du Reichstag du 28 février et la loi des pleins pouvoirs du 23 mars 1933 lui donnèrent le pouvoir de gouverner sans le Reichstag. La constitution ne fut formellement abolie que lorsque les Alliés prirent le pouvoir le 5 juin 1945."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad",
+       "en": "Capital",
+       "de": "Hauptstadt",
+       "es": "Capital",
+       "fr": "Capitale"
+      },
+      "text": {
+       "sv": "Berlin.",
+       "en": "Berlin.",
+       "de": "Berlin.",
+       "es": "Berlín.",
+       "fr": "Berlin."
+      }
+     },
+     {
+      "label": {
+       "sv": "Befolkning och yta",
+       "en": "Population and area",
+       "de": "Bevölkerung und Fläche",
+       "es": "Población y superficie",
+       "fr": "Population et superficie"
+      },
+      "text": {
+       "sv": "Cirka 62,4 miljoner invånare och 468 787 km² år 1925.",
+       "en": "About 62.4 million inhabitants and 468,787 km² in 1925.",
+       "de": "Rund 62,4 Millionen Einwohner und 468.787 km² im Jahr 1925.",
+       "es": "Unos 62,4 millones de habitantes y 468 787 km² en 1925.",
+       "fr": "Environ 62,4 millions d'habitants et 468 787 km² en 1925."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1919,
+      "label": {
+       "sv": "1919",
+       "en": "1919",
+       "de": "1919",
+       "es": "1919",
+       "fr": "1919"
+      },
+      "title": {
+       "sv": "Versaillesfreden",
+       "en": "The Treaty of Versailles",
+       "de": "Der Versailler Vertrag",
+       "es": "El Tratado de Versalles",
+       "fr": "Le traité de Versailles"
+      },
+      "text": {
+       "sv": "Tyskland undertecknar fredsfördraget 28 juni. Weimarförfattningen antas 11 augusti.",
+       "en": "Germany signs the peace treaty on 28 June. The Weimar Constitution is adopted on 11 August.",
+       "de": "Deutschland unterzeichnet am 28. Juni den Friedensvertrag. Am 11. August wird die Weimarer Verfassung angenommen.",
+       "es": "Alemania firma el tratado de paz el 28 de junio. La constitución de Weimar se aprueba el 11 de agosto.",
+       "fr": "L'Allemagne signe le traité de paix le 28 juin. La constitution de Weimar est adoptée le 11 août."
+      },
+      "sources": [
+       "wp-weimar-republic"
+      ]
+     },
+     {
+      "year": 1923,
+      "label": {
+       "sv": "1923",
+       "en": "1923",
+       "de": "1923",
+       "es": "1923",
+       "fr": "1923"
+      },
+      "title": {
+       "sv": "Hyperinflationen",
+       "en": "Hyperinflation",
+       "de": "Die Hyperinflation",
+       "es": "La hiperinflación",
+       "fr": "L'hyperinflation"
+      },
+      "text": {
+       "sv": "Penningvärdet rasar, och inflationen når sin topp i slutet av året.",
+       "en": "The currency collapses, and inflation peaks at the end of the year.",
+       "de": "Die Währung verfällt, und die Inflation erreicht Ende des Jahres ihren Höhepunkt.",
+       "es": "La moneda se desploma, y la inflación alcanza su punto máximo a finales de año.",
+       "fr": "La monnaie s'effondre, et l'inflation atteint son sommet à la fin de l'année."
+      },
+      "sources": [
+       "wp-weimar-republic"
+      ]
+     },
+     {
+      "year": 1926,
+      "label": {
+       "sv": "1926",
+       "en": "1926",
+       "de": "1926",
+       "es": "1926",
+       "fr": "1926"
+      },
+      "title": {
+       "sv": "Med i Nationernas förbund",
+       "en": "Member of the League of Nations",
+       "de": "Mitglied im Völkerbund",
+       "es": "Miembro de la Sociedad de Naciones",
+       "fr": "Membre de la Société des Nations"
+      },
+      "text": {
+       "sv": "Efter Locarnofördragen 1925 går Tyskland med i Nationernas förbund 8 september 1926.",
+       "en": "After the Locarno Treaties of 1925, Germany joins the League of Nations on 8 September 1926.",
+       "de": "Nach den Locarno-Verträgen von 1925 tritt Deutschland am 8. September 1926 dem Völkerbund bei.",
+       "es": "Tras los Tratados de Locarno de 1925, Alemania ingresa en la Sociedad de Naciones el 8 de septiembre de 1926.",
+       "fr": "Après les accords de Locarno de 1925, l'Allemagne entre à la Société des Nations le 8 septembre 1926."
+      },
+      "sources": [
+       "wp-weimar-republic"
+      ]
+     },
+     {
+      "year": 1929,
+      "label": {
+       "sv": "1929",
+       "en": "1929",
+       "de": "1929",
+       "es": "1929",
+       "fr": "1929"
+      },
+      "title": {
+       "sv": "Den stora depressionen",
+       "en": "The Great Depression",
+       "de": "Die Weltwirtschaftskrise",
+       "es": "La Gran Depresión",
+       "fr": "La Grande Dépression"
+      },
+      "text": {
+       "sv": "Krisen når Tyskland från oktober 1929. Från mars 1930 styr regeringar som stöder sig på presidentens nödförordningar i stället för på riksdagen.",
+       "en": "The crisis reaches Germany from October 1929. From March 1930 governments rule by the president's emergency decrees instead of relying on the Reichstag.",
+       "de": "Die Krise erreicht Deutschland ab Oktober 1929. Ab März 1930 regieren Präsidialkabinette mit Notverordnungen des Reichspräsidenten statt mit dem Reichstag.",
+       "es": "La crisis llega a Alemania a partir de octubre de 1929. Desde marzo de 1930 gobiernan gabinetes que se apoyan en los decretos de emergencia del presidente en lugar del Reichstag.",
+       "fr": "La crise atteint l'Allemagne à partir d'octobre 1929. À partir de mars 1930, des gouvernements s'appuient sur les décrets d'urgence du président plutôt que sur le Reichstag."
+      },
+      "sources": [
+       "wp-weimar-republic"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna anger 9 november 1918–23 mars 1933 (Wikipedia) och 1918–1933 (Wikidata). Kartan visar republiken 1920–1932. Cliopatria har republiken från 1920, så 1919 visas Tyska riket. Cliopatria har den också till och med 1935, men åren 1933–1935 visas här som Nazityskland, eftersom källorna låter republiken sluta 1933.",
+     "en": "The sources give 9 November 1918–23 March 1933 (Wikipedia) and 1918–1933 (Wikidata). The map shows the republic in 1920–1932. Cliopatria has the republic from 1920, so 1919 shows the German Empire. Cliopatria also has it up to and including 1935, but the years 1933–1935 are shown here as Nazi Germany, since the sources end the republic in 1933.",
+     "de": "Die Quellen nennen den 9. November 1918 bis 23. März 1933 (Wikipedia) und 1918–1933 (Wikidata). Die Karte zeigt die Republik 1920–1932. Cliopatria führt die Republik ab 1920, daher ist 1919 das Deutsche Kaiserreich zu sehen. Cliopatria führt sie auch bis einschließlich 1935, doch die Jahre 1933–1935 werden hier als NS-Staat gezeigt, da die Republik laut den Quellen 1933 endete.",
+     "es": "Las fuentes indican del 9 de noviembre de 1918 al 23 de marzo de 1933 (Wikipedia) y 1918–1933 (Wikidata). El mapa muestra la república en 1920–1932. Cliopatria la incluye a partir de 1920, por lo que en 1919 aparece el Imperio alemán. Cliopatria la mantiene también hasta 1935 inclusive, pero los años 1933–1935 se muestran aquí como Alemania nazi, ya que según las fuentes la república terminó en 1933.",
+     "fr": "Les sources indiquent du 9 novembre 1918 au 23 mars 1933 (Wikipédia) et 1918–1933 (Wikidata). La carte montre la république en 1920–1932. Cliopatria la fait commencer en 1920, si bien qu'en 1919 apparaît l'Empire allemand. Cliopatria la prolonge aussi jusqu'en 1935 inclus, mais les années 1933–1935 sont montrées ici comme le Troisième Reich, puisque selon les sources la république prit fin en 1933."
+    },
+    "sources": [
+     "wp-weimar-republic",
+     "wd-weimar-republic"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "nazityskland",
    "name": {
     "sv": "Nazityskland",
-    "en": "Nazi Germany"
+    "en": "Nazi Germany",
+    "de": "NS-Staat",
+    "es": "Alemania nazi",
+    "fr": "Troisième Reich"
    },
    "color": "#5e5258",
    "from": 1933,
@@ -14454,20 +14660,309 @@
      "id": "nazityskland",
      "name": {
       "sv": "Nazityskland",
-      "en": "Nazi Germany"
+      "en": "Nazi Germany",
+      "de": "NS-Staat",
+      "es": "Alemania nazi",
+      "fr": "Troisième Reich"
      },
      "sources": [
       "cliopatria"
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Nazityskland var Tyskland under Adolf Hitlers diktatur 1933–1945. Regimen förföljde judar och andra grupper, annekterade grannländer och började andra världskriget med anfallet på Polen 1939. Under kriget mördade regimen omkring sex miljoner judar i Förintelsen och miljontals andra människor. Den föll när Tyskland kapitulerade i maj 1945.",
+     "en": "Nazi Germany was Germany under the dictatorship of Adolf Hitler in 1933–1945. The regime persecuted Jews and other groups, annexed neighbouring countries and started the Second World War with the attack on Poland in 1939. During the war the regime murdered about six million Jews in the Holocaust and millions of other people. It fell when Germany surrendered in May 1945.",
+     "de": "Der NS-Staat war Deutschland unter der Diktatur Adolf Hitlers 1933–1945. Das Regime verfolgte Juden und andere Gruppen, annektierte Nachbarländer und begann mit dem Angriff auf Polen 1939 den Zweiten Weltkrieg. Im Krieg ermordete das Regime im Holocaust etwa sechs Millionen Juden und Millionen weiterer Menschen. Es endete mit der Kapitulation Deutschlands im Mai 1945.",
+     "es": "La Alemania nazi fue Alemania bajo la dictadura de Adolf Hitler en 1933–1945. El régimen persiguió a los judíos y a otros grupos, anexionó países vecinos y comenzó la Segunda Guerra Mundial con el ataque a Polonia en 1939. Durante la guerra asesinó a unos seis millones de judíos en el Holocausto y a millones de otras personas. Cayó cuando Alemania capituló en mayo de 1945.",
+     "fr": "Le Troisième Reich désigne l'Allemagne sous la dictature d'Adolf Hitler de 1933 à 1945. Le régime persécuta les Juifs et d'autres groupes, annexa des pays voisins et déclencha la Seconde Guerre mondiale en attaquant la Pologne en 1939. Pendant la guerre, il assassina environ six millions de Juifs lors de la Shoah, ainsi que des millions d'autres personnes. Il s'effondra avec la capitulation de l'Allemagne en mai 1945."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod",
+       "en": "When and where it arose",
+       "de": "Entstehung",
+       "es": "Cuándo y dónde surgió",
+       "fr": "Quand et où il est apparu"
+      },
+      "text": {
+       "sv": "Hitler blev rikskansler 30 januari 1933. Fullmaktslagen antogs 23 mars 1933 med 444 röster mot 94 och gav regeringen rätt att stifta lagar utan riksdagen.",
+       "en": "Hitler became Chancellor on 30 January 1933. The Enabling Act was passed on 23 March 1933 by 444 votes to 94 and gave the government the right to make laws without the Reichstag.",
+       "de": "Hitler wurde am 30. Januar 1933 Reichskanzler. Das Ermächtigungsgesetz wurde am 23. März 1933 mit 444 zu 94 Stimmen angenommen und erlaubte der Regierung, Gesetze ohne den Reichstag zu erlassen.",
+       "es": "Hitler fue nombrado canciller el 30 de enero de 1933. La ley habilitante se aprobó el 23 de marzo de 1933 por 444 votos contra 94 y permitió al gobierno dictar leyes sin el Reichstag.",
+       "fr": "Hitler devint chancelier le 30 janvier 1933. La loi des pleins pouvoirs fut adoptée le 23 mars 1933 par 444 voix contre 94 et permit au gouvernement de légiférer sans le Reichstag."
+      }
+     },
+     {
+      "label": {
+       "sv": "Annekterat och ockuperat",
+       "en": "Annexed and occupied",
+       "de": "Annektiert und besetzt",
+       "es": "Anexionado y ocupado",
+       "fr": "Annexé et occupé"
+      },
+      "text": {
+       "sv": "Saar kom tillbaka efter en folkomröstning i januari 1935, och trupper gick in i Rhenlandet 7 mars 1936. 1938 annekterades Österrike i mars och Sudetlandet efter Münchenöverenskommelsen i september, och 1939 Memel. Från 1939 ockuperades stora delar av Europa: Polen, Danmark och Norge, Frankrike, Jugoslavien och Grekland och delar av Sovjetunionen. Kartan visar det område som Cliopatria räknar till riket varje år; mycket av det var ockuperat i krig och inte fredstida gränser.",
+       "en": "The Saar returned after a plebiscite in January 1935, and troops marched into the Rhineland on 7 March 1936. In 1938 Austria was annexed in March and the Sudetenland after the Munich Agreement in September, and in 1939 Memel. From 1939 large parts of Europe were occupied: Poland, Denmark and Norway, France, Yugoslavia and Greece, and parts of the Soviet Union. The map shows the area that Cliopatria counts to the state each year; much of it was occupied in war, not peacetime borders.",
+       "de": "Das Saargebiet kam nach einer Volksabstimmung im Januar 1935 zurück, und am 7. März 1936 marschierten Truppen ins Rheinland ein. 1938 wurden im März Österreich und nach dem Münchner Abkommen im September das Sudetenland annektiert, 1939 das Memelland. Ab 1939 wurden große Teile Europas besetzt: Polen, Dänemark und Norwegen, Frankreich, Jugoslawien und Griechenland sowie Teile der Sowjetunion. Die Karte zeigt das Gebiet, das Cliopatria dem Staat in jedem Jahr zurechnet; vieles davon war im Krieg besetzt und keine Friedensgrenze.",
+       "es": "El Sarre volvió tras un plebiscito en enero de 1935, y las tropas entraron en Renania el 7 de marzo de 1936. En 1938 se anexionaron Austria, en marzo, y los Sudetes, tras el Acuerdo de Múnich en septiembre, y en 1939 Memel. A partir de 1939 se ocuparon grandes partes de Europa: Polonia, Dinamarca y Noruega, Francia, Yugoslavia y Grecia, y partes de la Unión Soviética. El mapa muestra el territorio que Cliopatria atribuye al Estado cada año; gran parte estaba ocupado en guerra y no corresponde a fronteras de tiempos de paz.",
+       "fr": "La Sarre fut réintégrée après un plébiscite en janvier 1935, et les troupes entrèrent en Rhénanie le 7 mars 1936. En 1938 furent annexés l'Autriche en mars et les Sudètes après les accords de Munich en septembre, puis Memel en 1939. À partir de 1939, une grande partie de l'Europe fut occupée : la Pologne, le Danemark et la Norvège, la France, la Yougoslavie et la Grèce, ainsi que des parties de l'Union soviétique. La carte montre le territoire que Cliopatria attribue à l'État chaque année ; une grande partie était occupée en temps de guerre et ne correspond pas à des frontières de temps de paix."
+      }
+     },
+     {
+      "label": {
+       "sv": "Förintelsen och andra massmord",
+       "en": "The Holocaust and other mass murders",
+       "de": "Holocaust und weitere Massenmorde",
+       "es": "El Holocausto y otros asesinatos en masa",
+       "fr": "La Shoah et les autres meurtres de masse"
+      },
+      "text": {
+       "sv": "Mellan 5,5 och 6 miljoner judar mördades, varav över en miljon barn. Omkring 3,3 miljoner av 5,75 miljoner tillfångatagna sovjetiska soldater dödades. Omkring 220 000 romer, ungefär en fjärdedel av Europas romer, och 200 000 personer med funktionsnedsättning mördades.",
+       "en": "Between 5.5 and 6 million Jews were murdered, over one million of them children. About 3.3 million of the 5.75 million captured Soviet soldiers were killed. About 220,000 Roma, roughly a quarter of Europe's Roma, and 200,000 people with disabilities were murdered.",
+       "de": "Zwischen 5,5 und 6 Millionen Juden wurden ermordet, darunter über eine Million Kinder. Etwa 3,3 Millionen der 5,75 Millionen gefangenen sowjetischen Soldaten wurden getötet. Rund 220.000 Roma, etwa ein Viertel der Roma Europas, und 200.000 Menschen mit Behinderungen wurden ermordet.",
+       "es": "Entre 5,5 y 6 millones de judíos fueron asesinados, más de un millón de ellos niños. Unos 3,3 millones de los 5,75 millones de soldados soviéticos capturados murieron a manos del régimen. Fueron asesinados unos 220 000 gitanos, aproximadamente una cuarta parte de los de Europa, y 200 000 personas con discapacidad.",
+       "fr": "Entre 5,5 et 6 millions de Juifs furent assassinés, dont plus d'un million d'enfants. Environ 3,3 millions des 5,75 millions de soldats soviétiques capturés furent tués. Environ 220 000 Roms, soit à peu près un quart des Roms d'Europe, et 200 000 personnes handicapées furent assassinés."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade",
+       "en": "How it ended",
+       "de": "Wie es endete",
+       "es": "Cómo terminó",
+       "fr": "Comment il a pris fin"
+      },
+      "text": {
+       "sv": "Hitler dog 30 april 1945. Den villkorslösa kapitulationen undertecknades 8 maj 1945, och den sista regeringen greps 23 maj.",
+       "en": "Hitler died on 30 April 1945. The unconditional surrender was signed on 8 May 1945, and the last government was arrested on 23 May.",
+       "de": "Hitler starb am 30. April 1945. Die bedingungslose Kapitulation wurde am 8. Mai 1945 unterzeichnet, und die letzte Regierung wurde am 23. Mai verhaftet.",
+       "es": "Hitler murió el 30 de abril de 1945. La capitulación incondicional se firmó el 8 de mayo de 1945, y el último gobierno fue arrestado el 23 de mayo.",
+       "fr": "Hitler mourut le 30 avril 1945. La capitulation sans condition fut signée le 8 mai 1945, et le dernier gouvernement fut arrêté le 23 mai."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad",
+       "en": "Capital",
+       "de": "Hauptstadt",
+       "es": "Capital",
+       "fr": "Capitale"
+      },
+      "text": {
+       "sv": "Berlin.",
+       "en": "Berlin.",
+       "de": "Berlin.",
+       "es": "Berlín.",
+       "fr": "Berlin."
+      }
+     },
+     {
+      "label": {
+       "sv": "Befolkning och yta",
+       "en": "Population and area",
+       "de": "Bevölkerung und Fläche",
+       "es": "Población y superficie",
+       "fr": "Population et superficie"
+      },
+      "text": {
+       "sv": "Cirka 79,4 miljoner invånare och 633 786 km² år 1939.",
+       "en": "About 79.4 million inhabitants and 633,786 km² in 1939.",
+       "de": "Rund 79,4 Millionen Einwohner und 633.786 km² im Jahr 1939.",
+       "es": "Unos 79,4 millones de habitantes y 633 786 km² en 1939.",
+       "fr": "Environ 79,4 millions d'habitants et 633 786 km² en 1939."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1933,
+      "label": {
+       "sv": "1933",
+       "en": "1933",
+       "de": "1933",
+       "es": "1933",
+       "fr": "1933"
+      },
+      "title": {
+       "sv": "Hitler tar makten",
+       "en": "Hitler takes power",
+       "de": "Hitler übernimmt die Macht",
+       "es": "Hitler toma el poder",
+       "fr": "Hitler prend le pouvoir"
+      },
+      "text": {
+       "sv": "Hitler blir rikskansler 30 januari, och fullmaktslagen 23 mars gör att regeringen kan stifta lagar utan riksdagen.",
+       "en": "Hitler becomes Chancellor on 30 January, and the Enabling Act of 23 March lets the government make laws without the Reichstag.",
+       "de": "Hitler wird am 30. Januar Reichskanzler, und das Ermächtigungsgesetz vom 23. März erlaubt der Regierung, Gesetze ohne den Reichstag zu erlassen.",
+       "es": "Hitler es nombrado canciller el 30 de enero, y la ley habilitante del 23 de marzo permite al gobierno dictar leyes sin el Reichstag.",
+       "fr": "Hitler devient chancelier le 30 janvier, et la loi des pleins pouvoirs du 23 mars permet au gouvernement de légiférer sans le Reichstag."
+      },
+      "sources": [
+       "wp-nazi-germany"
+      ]
+     },
+     {
+      "year": 1935,
+      "label": {
+       "sv": "1935",
+       "en": "1935",
+       "de": "1935",
+       "es": "1935",
+       "fr": "1935"
+      },
+      "title": {
+       "sv": "Nürnberglagarna",
+       "en": "The Nuremberg Laws",
+       "de": "Die Nürnberger Gesetze",
+       "es": "Las leyes de Núremberg",
+       "fr": "Les lois de Nuremberg"
+      },
+      "text": {
+       "sv": "Lagarna 15 september tar ifrån judar deras rättigheter som medborgare.",
+       "en": "The laws of 15 September strip Jews of their rights as citizens.",
+       "de": "Die Gesetze vom 15. September nehmen Juden ihre Rechte als Bürger.",
+       "es": "Las leyes del 15 de septiembre privan a los judíos de sus derechos como ciudadanos.",
+       "fr": "Les lois du 15 septembre privent les Juifs de leurs droits de citoyens."
+      },
+      "sources": [
+       "wp-nazi-germany"
+      ]
+     },
+     {
+      "year": 1938,
+      "label": {
+       "sv": "1938",
+       "en": "1938",
+       "de": "1938",
+       "es": "1938",
+       "fr": "1938"
+      },
+      "title": {
+       "sv": "Österrike och Sudetlandet",
+       "en": "Austria and the Sudetenland",
+       "de": "Österreich und das Sudetenland",
+       "es": "Austria y los Sudetes",
+       "fr": "L'Autriche et les Sudètes"
+      },
+      "text": {
+       "sv": "Österrike annekteras i mars och Sudetlandet efter Münchenöverenskommelsen i september. I november mördas minst 91 judar i novemberpogromen.",
+       "en": "Austria is annexed in March and the Sudetenland after the Munich Agreement in September. In November at least 91 Jews are murdered in the November pogrom.",
+       "de": "Österreich wird im März annektiert, das Sudetenland nach dem Münchner Abkommen im September. Im November werden bei den Novemberpogromen mindestens 91 Juden ermordet.",
+       "es": "Austria es anexionada en marzo y los Sudetes tras el Acuerdo de Múnich en septiembre. En noviembre al menos 91 judíos son asesinados en el pogromo de noviembre.",
+       "fr": "L'Autriche est annexée en mars et les Sudètes après les accords de Munich en septembre. En novembre, au moins 91 Juifs sont assassinés lors du pogrom de novembre."
+      },
+      "sources": [
+       "wp-nazi-germany"
+      ]
+     },
+     {
+      "year": 1939,
+      "label": {
+       "sv": "1939",
+       "en": "1939",
+       "de": "1939",
+       "es": "1939",
+       "fr": "1939"
+      },
+      "title": {
+       "sv": "Anfallet på Polen",
+       "en": "The attack on Poland",
+       "de": "Der Angriff auf Polen",
+       "es": "El ataque a Polonia",
+       "fr": "L'attaque contre la Pologne"
+      },
+      "text": {
+       "sv": "Tyskland anfaller Polen 1 september, och andra världskriget börjar.",
+       "en": "Germany attacks Poland on 1 September, and the Second World War begins.",
+       "de": "Deutschland greift am 1. September Polen an, und der Zweite Weltkrieg beginnt.",
+       "es": "Alemania ataca Polonia el 1 de septiembre, y comienza la Segunda Guerra Mundial.",
+       "fr": "L'Allemagne attaque la Pologne le 1er septembre, et la Seconde Guerre mondiale commence."
+      },
+      "sources": [
+       "wp-nazi-germany"
+      ]
+     },
+     {
+      "year": 1941,
+      "label": {
+       "sv": "1941",
+       "en": "1941",
+       "de": "1941",
+       "es": "1941",
+       "fr": "1941"
+      },
+      "title": {
+       "sv": "Anfallet på Sovjetunionen",
+       "en": "The attack on the Soviet Union",
+       "de": "Der Angriff auf die Sowjetunion",
+       "es": "El ataque a la Unión Soviética",
+       "fr": "L'attaque contre l'Union soviétique"
+      },
+      "text": {
+       "sv": "Tyskland anfaller Sovjetunionen 22 juni.",
+       "en": "Germany attacks the Soviet Union on 22 June.",
+       "de": "Deutschland greift am 22. Juni die Sowjetunion an.",
+       "es": "Alemania ataca la Unión Soviética el 22 de junio.",
+       "fr": "L'Allemagne attaque l'Union soviétique le 22 juin."
+      },
+      "sources": [
+       "wp-nazi-germany"
+      ]
+     },
+     {
+      "year": 1945,
+      "label": {
+       "sv": "1945",
+       "en": "1945",
+       "de": "1945",
+       "es": "1945",
+       "fr": "1945"
+      },
+      "title": {
+       "sv": "Kapitulationen",
+       "en": "The surrender",
+       "de": "Die Kapitulation",
+       "es": "La capitulación",
+       "fr": "La capitulation"
+      },
+      "text": {
+       "sv": "Tyskland kapitulerar villkorslöst 8 maj.",
+       "en": "Germany surrenders unconditionally on 8 May.",
+       "de": "Deutschland kapituliert am 8. Mai bedingungslos.",
+       "es": "Alemania capitula sin condiciones el 8 de mayo.",
+       "fr": "L'Allemagne capitule sans condition le 8 mai."
+      },
+      "sources": [
+       "wp-nazi-germany"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna anger 1933–1945: från 30 januari 1933 till kapitulationen 8 maj 1945 (Wikipedia), eller 15 mars 1933–23 maj 1945 (Wikidata). Kartan visar staten 1933–1944. Cliopatria har den först från 1936; åren 1933–1935 visas här med Cliopatrias gräns för Weimarrepubliken. Cliopatria slutar 1944, och 1945 visar kartan ockupationszonerna. Området 1938–1944 följer Cliopatrias perioder och omfattar ockuperade länder.",
+     "en": "The sources give 1933–1945: from 30 January 1933 to the surrender on 8 May 1945 (Wikipedia), or 15 March 1933–23 May 1945 (Wikidata). The map shows the state in 1933–1944. Cliopatria only has it from 1936; the years 1933–1935 are shown here with Cliopatria's border for the Weimar Republic. Cliopatria ends in 1944, and in 1945 the map shows the occupation zones. The area in 1938–1944 follows Cliopatria's periods and includes occupied countries.",
+     "de": "Die Quellen nennen 1933–1945: vom 30. Januar 1933 bis zur Kapitulation am 8. Mai 1945 (Wikipedia) oder 15. März 1933 bis 23. Mai 1945 (Wikidata). Die Karte zeigt den Staat 1933–1944. Cliopatria führt ihn erst ab 1936; die Jahre 1933–1935 werden hier mit Cliopatrias Grenze der Weimarer Republik gezeigt. Cliopatria endet 1944, und 1945 zeigt die Karte die Besatzungszonen. Das Gebiet 1938–1944 folgt Cliopatrias Zeitabschnitten und umfasst besetzte Länder.",
+     "es": "Las fuentes indican 1933–1945: del 30 de enero de 1933 a la capitulación del 8 de mayo de 1945 (Wikipedia), o del 15 de marzo de 1933 al 23 de mayo de 1945 (Wikidata). El mapa muestra el Estado en 1933–1944. Cliopatria solo lo incluye a partir de 1936; los años 1933–1935 se muestran aquí con la frontera de Cliopatria para la República de Weimar. Cliopatria termina en 1944, y en 1945 el mapa muestra las zonas de ocupación. El territorio de 1938–1944 sigue los periodos de Cliopatria e incluye países ocupados.",
+     "fr": "Les sources indiquent 1933–1945 : du 30 janvier 1933 à la capitulation du 8 mai 1945 (Wikipédia), ou du 15 mars 1933 au 23 mai 1945 (Wikidata). La carte montre l'État en 1933–1944. Cliopatria ne le fait commencer qu'en 1936 ; les années 1933–1935 sont montrées ici avec la frontière de Cliopatria pour la république de Weimar. Cliopatria s'arrête en 1944, et en 1945 la carte montre les zones d'occupation. Le territoire de 1938–1944 suit les périodes de Cliopatria et comprend des pays occupés."
+    },
+    "sources": [
+     "wp-nazi-germany",
+     "wd-nazi-germany"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "vasttyskland",
    "name": {
     "sv": "Västtyskland",
-    "en": "West Germany"
+    "en": "West Germany",
+    "de": "Bundesrepublik Deutschland",
+    "es": "Alemania Occidental",
+    "fr": "Allemagne de l'Ouest"
    },
    "color": "#c0a040",
    "from": 1950,
@@ -14478,20 +14973,250 @@
      "id": "vasttyskland",
      "name": {
       "sv": "Västtyskland",
-      "en": "West Germany"
+      "en": "West Germany",
+      "de": "Bundesrepublik Deutschland",
+      "es": "Alemania Occidental",
+      "fr": "Allemagne de l'Ouest"
      },
      "sources": [
       "cliopatria"
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Västtyskland, Förbundsrepubliken Tyskland, bildades 1949 av de tre västliga ockupationszonerna efter andra världskriget. Det blev en demokrati med Bonn som huvudstad, gick med i Nato och var med och grundade EEC. Under kalla kriget var landet delat från Östtyskland, och 1990 återförenades de två.",
+     "en": "West Germany, the Federal Republic of Germany, was formed in 1949 from the three western occupation zones after the Second World War. It became a democracy with Bonn as its capital, joined NATO and was a founding member of the EEC. During the Cold War it was divided from East Germany, and in 1990 the two were reunified.",
+     "de": "Die Bundesrepublik Deutschland wurde 1949 aus den drei westlichen Besatzungszonen nach dem Zweiten Weltkrieg gebildet. Sie wurde eine Demokratie mit Bonn als Hauptstadt, trat der NATO bei und gehörte zu den Gründern der EWG. Im Kalten Krieg war sie von der DDR getrennt, und 1990 wurden die beiden Staaten wiedervereinigt.",
+     "es": "Alemania Occidental, la República Federal de Alemania, se formó en 1949 a partir de las tres zonas de ocupación occidentales tras la Segunda Guerra Mundial. Se convirtió en una democracia con Bonn como capital, ingresó en la OTAN y fue miembro fundador de la CEE. Durante la Guerra Fría estuvo separada de Alemania Oriental, y en 1990 ambas se reunificaron.",
+     "fr": "L'Allemagne de l'Ouest, la République fédérale d'Allemagne, fut formée en 1949 à partir des trois zones d'occupation occidentales après la Seconde Guerre mondiale. Elle devint une démocratie avec Bonn pour capitale, adhéra à l'OTAN et fut membre fondateur de la CEE. Pendant la guerre froide, elle fut séparée de l'Allemagne de l'Est, et les deux furent réunifiées en 1990."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod",
+       "en": "When and where it arose",
+       "de": "Entstehung",
+       "es": "Cuándo y dónde surgió",
+       "fr": "Quand et où il est apparu"
+      },
+      "text": {
+       "sv": "Efter kriget delades Tyskland i fyra ockupationszoner: en fransk i väster, en brittisk i nordväst, en amerikansk i söder och en sovjetisk i öster. Den brittiska och den amerikanska zonen slogs ihop till Bizonien, och med den franska zonen blev det Trizonien. Av de tre västliga zonerna bildades Förbundsrepubliken 23 maj 1949.",
+       "en": "After the war Germany was divided into four occupation zones: a French one in the west, a British one in the north-west, an American one in the south and a Soviet one in the east. The British and American zones were merged into the Bizone, and with the French zone it became the Trizone. The Federal Republic was formed from the three western zones on 23 May 1949.",
+       "de": "Nach dem Krieg wurde Deutschland in vier Besatzungszonen geteilt: eine französische im Westen, eine britische im Nordwesten, eine amerikanische im Süden und eine sowjetische im Osten. Die britische und die amerikanische Zone wurden zur Bizone zusammengelegt, mit der französischen Zone entstand die Trizone. Aus den drei westlichen Zonen wurde am 23. Mai 1949 die Bundesrepublik gegründet.",
+       "es": "Tras la guerra, Alemania se dividió en cuatro zonas de ocupación: una francesa al oeste, una británica al noroeste, una estadounidense al sur y una soviética al este. Las zonas británica y estadounidense se unieron en la Bizona, y con la zona francesa se formó la Trizona. La República Federal se fundó con las tres zonas occidentales el 23 de mayo de 1949.",
+       "fr": "Après la guerre, l'Allemagne fut divisée en quatre zones d'occupation : une française à l'ouest, une britannique au nord-ouest, une américaine au sud et une soviétique à l'est. Les zones britannique et américaine furent réunies en Bizone, puis, avec la zone française, en Trizone. La République fédérale fut fondée à partir des trois zones occidentales le 23 mai 1949."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade",
+       "en": "How it ended",
+       "de": "Wie es endete",
+       "es": "Cómo terminó",
+       "fr": "Comment il a pris fin"
+      },
+      "text": {
+       "sv": "Två plus fyra-fördraget undertecknades 12 september 1990, och 3 oktober 1990 anslöt sig Östtyskland till Förbundsrepubliken. Förbundsrepubliken finns kvar som dagens Tyskland.",
+       "en": "The Two Plus Four Treaty was signed on 12 September 1990, and on 3 October 1990 East Germany joined the Federal Republic. The Federal Republic continues as today's Germany.",
+       "de": "Der Zwei-plus-Vier-Vertrag wurde am 12. September 1990 unterzeichnet, und am 3. Oktober 1990 trat die DDR der Bundesrepublik bei. Die Bundesrepublik besteht als das heutige Deutschland fort.",
+       "es": "El Tratado Dos más Cuatro se firmó el 12 de septiembre de 1990, y el 3 de octubre de 1990 Alemania Oriental se adhirió a la República Federal. La República Federal continúa como la Alemania actual.",
+       "fr": "Le traité « Deux plus Quatre » fut signé le 12 septembre 1990, et le 3 octobre 1990 l'Allemagne de l'Est adhéra à la République fédérale. La République fédérale perdure dans l'Allemagne actuelle."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad",
+       "en": "Capital",
+       "de": "Hauptstadt",
+       "es": "Capital",
+       "fr": "Capitale"
+      },
+      "text": {
+       "sv": "Bonn. Förbundsdagen röstade 20 juni 1991 för att flytta regeringen till Berlin.",
+       "en": "Bonn. The Bundestag voted on 20 June 1991 to move the government to Berlin.",
+       "de": "Bonn. Der Bundestag stimmte am 20. Juni 1991 für den Umzug der Regierung nach Berlin.",
+       "es": "Bonn. El Bundestag votó el 20 de junio de 1991 trasladar el gobierno a Berlín.",
+       "fr": "Bonn. Le Bundestag vota le 20 juin 1991 le transfert du gouvernement à Berlin."
+      }
+     },
+     {
+      "label": {
+       "sv": "Befolkning och yta",
+       "en": "Population and area",
+       "de": "Bevölkerung und Fläche",
+       "es": "Población y superficie",
+       "fr": "Population et superficie"
+      },
+      "text": {
+       "sv": "Cirka 51 miljoner invånare 1950 och 63,3 miljoner 1990. Ytan var 248 717 km².",
+       "en": "About 51 million inhabitants in 1950 and 63.3 million in 1990. The area was 248,717 km².",
+       "de": "Rund 51 Millionen Einwohner 1950 und 63,3 Millionen 1990. Die Fläche betrug 248.717 km².",
+       "es": "Unos 51 millones de habitantes en 1950 y 63,3 millones en 1990. La superficie era de 248 717 km².",
+       "fr": "Environ 51 millions d'habitants en 1950 et 63,3 millions en 1990. La superficie était de 248 717 km²."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1949,
+      "label": {
+       "sv": "1949",
+       "en": "1949",
+       "de": "1949",
+       "es": "1949",
+       "fr": "1949"
+      },
+      "title": {
+       "sv": "Förbundsrepubliken bildas",
+       "en": "The Federal Republic is founded",
+       "de": "Gründung der Bundesrepublik",
+       "es": "Se funda la República Federal",
+       "fr": "Fondation de la République fédérale"
+      },
+      "text": {
+       "sv": "Förbundsrepubliken bildas av de tre västliga ockupationszonerna 23 maj.",
+       "en": "The Federal Republic is formed from the three western occupation zones on 23 May.",
+       "de": "Die Bundesrepublik wird am 23. Mai aus den drei westlichen Besatzungszonen gebildet.",
+       "es": "La República Federal se forma con las tres zonas de ocupación occidentales el 23 de mayo.",
+       "fr": "La République fédérale est formée à partir des trois zones d'occupation occidentales le 23 mai."
+      },
+      "sources": [
+       "wp-west-germany"
+      ]
+     },
+     {
+      "year": 1955,
+      "label": {
+       "sv": "1955",
+       "en": "1955",
+       "de": "1955",
+       "es": "1955",
+       "fr": "1955"
+      },
+      "title": {
+       "sv": "Med i Nato",
+       "en": "Member of NATO",
+       "de": "NATO-Mitglied",
+       "es": "Miembro de la OTAN",
+       "fr": "Membre de l'OTAN"
+      },
+      "text": {
+       "sv": "Västtyskland blir medlem i Nato 9 maj.",
+       "en": "West Germany becomes a member of NATO on 9 May.",
+       "de": "Die Bundesrepublik wird am 9. Mai Mitglied der NATO.",
+       "es": "Alemania Occidental ingresa en la OTAN el 9 de mayo.",
+       "fr": "L'Allemagne de l'Ouest devient membre de l'OTAN le 9 mai."
+      },
+      "sources": [
+       "wp-west-germany"
+      ]
+     },
+     {
+      "year": 1957,
+      "label": {
+       "sv": "1957",
+       "en": "1957",
+       "de": "1957",
+       "es": "1957",
+       "fr": "1957"
+      },
+      "title": {
+       "sv": "EEC",
+       "en": "The EEC",
+       "de": "Die EWG",
+       "es": "La CEE",
+       "fr": "La CEE"
+      },
+      "text": {
+       "sv": "Västtyskland är med och grundar Europeiska ekonomiska gemenskapen 25 mars.",
+       "en": "West Germany is a founding member of the European Economic Community on 25 March.",
+       "de": "Die Bundesrepublik gründet am 25. März die Europäische Wirtschaftsgemeinschaft mit.",
+       "es": "Alemania Occidental es uno de los fundadores de la Comunidad Económica Europea el 25 de marzo.",
+       "fr": "L'Allemagne de l'Ouest est l'un des fondateurs de la Communauté économique européenne le 25 mars."
+      },
+      "sources": [
+       "wp-west-germany"
+      ]
+     },
+     {
+      "year": 1973,
+      "label": {
+       "sv": "1973",
+       "en": "1973",
+       "de": "1973",
+       "es": "1973",
+       "fr": "1973"
+      },
+      "title": {
+       "sv": "Med i FN",
+       "en": "Member of the UN",
+       "de": "UN-Mitglied",
+       "es": "Miembro de la ONU",
+       "fr": "Membre de l'ONU"
+      },
+      "text": {
+       "sv": "Efter grundfördraget med Östtyskland 21 december 1972 blir båda staterna medlemmar i FN 18 september 1973.",
+       "en": "After the Basic Treaty with East Germany on 21 December 1972, both states become members of the UN on 18 September 1973.",
+       "de": "Nach dem Grundlagenvertrag mit der DDR vom 21. Dezember 1972 werden beide Staaten am 18. September 1973 Mitglieder der Vereinten Nationen.",
+       "es": "Tras el Tratado Básico con Alemania Oriental del 21 de diciembre de 1972, ambos Estados ingresan en la ONU el 18 de septiembre de 1973.",
+       "fr": "Après le traité fondamental avec l'Allemagne de l'Est du 21 décembre 1972, les deux États deviennent membres de l'ONU le 18 septembre 1973."
+      },
+      "sources": [
+       "wp-west-germany"
+      ]
+     },
+     {
+      "year": 1990,
+      "label": {
+       "sv": "1990",
+       "en": "1990",
+       "de": "1990",
+       "es": "1990",
+       "fr": "1990"
+      },
+      "title": {
+       "sv": "Återföreningen",
+       "en": "Reunification",
+       "de": "Die Wiedervereinigung",
+       "es": "La reunificación",
+       "fr": "La réunification"
+      },
+      "text": {
+       "sv": "Östtyskland ansluter sig till Förbundsrepubliken 3 oktober.",
+       "en": "East Germany joins the Federal Republic on 3 October.",
+       "de": "Die DDR tritt am 3. Oktober der Bundesrepublik bei.",
+       "es": "Alemania Oriental se adhiere a la República Federal el 3 de octubre.",
+       "fr": "L'Allemagne de l'Est adhère à la République fédérale le 3 octobre."
+      },
+      "sources": [
+       "wp-west-germany"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna anger 23 maj 1949–3 oktober 1990. Kartan visar landet 1950–1990 som i Cliopatria. Åren 1945–1949 visar kartan ockupationszonerna som delar av USA, Storbritannien och Frankrike, som i Cliopatria. Cliopatria räknar dessutom västra Tyskland till USA 1947–1966; från 1950 klipps det bort.",
+     "en": "The sources give 23 May 1949–3 October 1990. The map shows the country in 1950–1990, as in Cliopatria. For 1945–1949 the map shows the occupation zones as parts of the United States, Britain and France, as in Cliopatria. Cliopatria also counts western Germany to the United States in 1947–1966; from 1950 this is clipped away.",
+     "de": "Die Quellen nennen den 23. Mai 1949 bis 3. Oktober 1990. Die Karte zeigt das Land wie Cliopatria 1950–1990. Für 1945–1949 zeigt die Karte wie Cliopatria die Besatzungszonen als Teile der USA, Großbritanniens und Frankreichs. Cliopatria rechnet Westdeutschland außerdem 1947–1966 den USA zu; ab 1950 wird das herausgeschnitten.",
+     "es": "Las fuentes indican del 23 de mayo de 1949 al 3 de octubre de 1990. El mapa muestra el país en 1950–1990, como Cliopatria. Para 1945–1949 el mapa muestra las zonas de ocupación como partes de Estados Unidos, el Reino Unido y Francia, como Cliopatria. Cliopatria atribuye además el oeste de Alemania a Estados Unidos en 1947–1966; a partir de 1950 eso se recorta.",
+     "fr": "Les sources indiquent du 23 mai 1949 au 3 octobre 1990. La carte montre le pays en 1950–1990, comme Cliopatria. Pour 1945–1949, la carte montre les zones d'occupation comme des parties des États-Unis, du Royaume-Uni et de la France, comme Cliopatria. Cliopatria rattache en outre l'ouest de l'Allemagne aux États-Unis en 1947–1966 ; à partir de 1950, cette partie est retirée."
+    },
+    "sources": [
+     "wp-west-germany",
+     "wd-west-germany"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "osttyskland",
    "name": {
     "sv": "Östtyskland",
-    "en": "East Germany"
+    "en": "East Germany",
+    "de": "Deutsche Demokratische Republik",
+    "es": "Alemania Oriental",
+    "fr": "République démocratique allemande"
    },
    "color": "#b0604a",
    "from": 1949,
@@ -14502,14 +15227,269 @@
      "id": "osttyskland",
      "name": {
       "sv": "Östtyskland",
-      "en": "East Germany"
+      "en": "East Germany",
+      "de": "Deutsche Demokratische Republik",
+      "es": "Alemania Oriental",
+      "fr": "République démocratique allemande"
      },
      "sources": [
       "cliopatria"
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Östtyskland, Tyska demokratiska republiken (DDR), bildades 1949 av den sovjetiska ockupationszonen. Det var en kommunistisk enpartistat i östblocket med Östberlin som huvudstad. Berlinmuren byggdes 1961 för att stoppa flykten västerut. Muren föll 1989, och 1990 gick DDR upp i Förbundsrepubliken.",
+     "en": "East Germany, the German Democratic Republic (GDR), was formed in 1949 from the Soviet occupation zone. It was a communist one-party state in the Eastern Bloc with East Berlin as its capital. The Berlin Wall was built in 1961 to stop people fleeing to the West. The Wall fell in 1989, and in 1990 the GDR became part of the Federal Republic.",
+     "de": "Die Deutsche Demokratische Republik (DDR) wurde 1949 aus der sowjetischen Besatzungszone gebildet. Sie war ein kommunistischer Einparteienstaat im Ostblock mit Ost-Berlin als Hauptstadt. Die Berliner Mauer wurde 1961 gebaut, um die Flucht in den Westen zu stoppen. Die Mauer fiel 1989, und 1990 ging die DDR in der Bundesrepublik auf.",
+     "es": "Alemania Oriental, la República Democrática Alemana (RDA), se formó en 1949 a partir de la zona de ocupación soviética. Era un Estado comunista de partido único del bloque del Este, con Berlín Este como capital. El Muro de Berlín se construyó en 1961 para detener la huida hacia el Oeste. El Muro cayó en 1989, y en 1990 la RDA se integró en la República Federal.",
+     "fr": "L'Allemagne de l'Est, la République démocratique allemande (RDA), fut formée en 1949 à partir de la zone d'occupation soviétique. C'était un État communiste à parti unique du bloc de l'Est, avec Berlin-Est pour capitale. Le mur de Berlin fut construit en 1961 pour empêcher la fuite vers l'Ouest. Le Mur tomba en 1989, et en 1990 la RDA fut intégrée à la République fédérale."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod",
+       "en": "When and where it arose",
+       "de": "Entstehung",
+       "es": "Cuándo y dónde surgió",
+       "fr": "Quand et où il est apparu"
+      },
+      "text": {
+       "sv": "DDR upprättades 7 oktober 1949 av den sovjetiska ockupationszonen, som bestod av fem länder: Mecklenburg-Vorpommern, Brandenburg, Sachsen, Sachsen-Anhalt och Thüringen.",
+       "en": "The GDR was established on 7 October 1949 from the Soviet occupation zone, which consisted of five states: Mecklenburg-Vorpommern, Brandenburg, Saxony, Saxony-Anhalt and Thuringia.",
+       "de": "Die DDR wurde am 7. Oktober 1949 aus der sowjetischen Besatzungszone gegründet, die aus fünf Ländern bestand: Mecklenburg-Vorpommern, Brandenburg, Sachsen, Sachsen-Anhalt und Thüringen.",
+       "es": "La RDA se fundó el 7 de octubre de 1949 a partir de la zona de ocupación soviética, formada por cinco estados: Mecklemburgo-Pomerania Occidental, Brandeburgo, Sajonia, Sajonia-Anhalt y Turingia.",
+       "fr": "La RDA fut fondée le 7 octobre 1949 à partir de la zone d'occupation soviétique, composée de cinq Länder : le Mecklembourg-Poméranie-Occidentale, le Brandebourg, la Saxe, la Saxe-Anhalt et la Thuringe."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade",
+       "en": "How it ended",
+       "de": "Wie es endete",
+       "es": "Cómo terminó",
+       "fr": "Comment il a pris fin"
+      },
+      "text": {
+       "sv": "Efter det första fria valet i mars 1990 anslöt sig de fem länderna till Förbundsrepubliken 3 oktober 1990, och Öst- och Västberlin förenades samma dag.",
+       "en": "After the first free election in March 1990, the five states joined the Federal Republic on 3 October 1990, and East and West Berlin were united the same day.",
+       "de": "Nach der ersten freien Wahl im März 1990 traten die fünf Länder am 3. Oktober 1990 der Bundesrepublik bei, und Ost- und West-Berlin wurden am selben Tag vereint.",
+       "es": "Tras las primeras elecciones libres, en marzo de 1990, los cinco estados se adhirieron a la República Federal el 3 de octubre de 1990, y Berlín Este y Berlín Oeste se unieron ese mismo día.",
+       "fr": "Après les premières élections libres en mars 1990, les cinq Länder adhérèrent à la République fédérale le 3 octobre 1990, et Berlin-Est et Berlin-Ouest furent réunis le même jour."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad",
+       "en": "Capital",
+       "de": "Hauptstadt",
+       "es": "Capital",
+       "fr": "Capitale"
+      },
+      "text": {
+       "sv": "Östberlin.",
+       "en": "East Berlin.",
+       "de": "Ost-Berlin.",
+       "es": "Berlín Este.",
+       "fr": "Berlin-Est."
+      }
+     },
+     {
+      "label": {
+       "sv": "Befolkning och yta",
+       "en": "Population and area",
+       "de": "Bevölkerung und Fläche",
+       "es": "Población y superficie",
+       "fr": "Population et superficie"
+      },
+      "text": {
+       "sv": "Cirka 18,4 miljoner invånare 1950 och 16,1 miljoner 1990. Ytan var 108 333 km².",
+       "en": "About 18.4 million inhabitants in 1950 and 16.1 million in 1990. The area was 108,333 km².",
+       "de": "Rund 18,4 Millionen Einwohner 1950 und 16,1 Millionen 1990. Die Fläche betrug 108.333 km².",
+       "es": "Unos 18,4 millones de habitantes en 1950 y 16,1 millones en 1990. La superficie era de 108 333 km².",
+       "fr": "Environ 18,4 millions d'habitants en 1950 et 16,1 millions en 1990. La superficie était de 108 333 km²."
+      }
+     }
+    ],
+    "milestones": [
+     {
+      "year": 1949,
+      "label": {
+       "sv": "1949",
+       "en": "1949",
+       "de": "1949",
+       "es": "1949",
+       "fr": "1949"
+      },
+      "title": {
+       "sv": "DDR bildas",
+       "en": "The GDR is founded",
+       "de": "Gründung der DDR",
+       "es": "Se funda la RDA",
+       "fr": "Fondation de la RDA"
+      },
+      "text": {
+       "sv": "DDR upprättas av den sovjetiska ockupationszonen 7 oktober.",
+       "en": "The GDR is established from the Soviet occupation zone on 7 October.",
+       "de": "Die DDR wird am 7. Oktober aus der sowjetischen Besatzungszone gegründet.",
+       "es": "La RDA se funda a partir de la zona de ocupación soviética el 7 de octubre.",
+       "fr": "La RDA est fondée à partir de la zone d'occupation soviétique le 7 octobre."
+      },
+      "sources": [
+       "wp-east-germany"
+      ]
+     },
+     {
+      "year": 1953,
+      "label": {
+       "sv": "1953",
+       "en": "1953",
+       "de": "1953",
+       "es": "1953",
+       "fr": "1953"
+      },
+      "title": {
+       "sv": "Upproret i juni",
+       "en": "The June uprising",
+       "de": "Der Aufstand im Juni",
+       "es": "La revuelta de junio",
+       "fr": "Le soulèvement de juin"
+      },
+      "text": {
+       "sv": "Ett uppror 16–17 juni slås ned med hjälp av sovjetiska trupper.",
+       "en": "An uprising on 16–17 June is put down with the help of Soviet troops.",
+       "de": "Ein Aufstand am 16. und 17. Juni wird mit Hilfe sowjetischer Truppen niedergeschlagen.",
+       "es": "Una revuelta el 16 y 17 de junio es aplastada con la ayuda de tropas soviéticas.",
+       "fr": "Un soulèvement les 16 et 17 juin est réprimé avec l'aide des troupes soviétiques."
+      },
+      "sources": [
+       "wp-east-germany"
+      ]
+     },
+     {
+      "year": 1955,
+      "label": {
+       "sv": "1955",
+       "en": "1955",
+       "de": "1955",
+       "es": "1955",
+       "fr": "1955"
+      },
+      "title": {
+       "sv": "Warszawapakten",
+       "en": "The Warsaw Pact",
+       "de": "Der Warschauer Pakt",
+       "es": "El Pacto de Varsovia",
+       "fr": "Le pacte de Varsovie"
+      },
+      "text": {
+       "sv": "DDR är med när Warszawapakten bildas 14 maj.",
+       "en": "The GDR takes part when the Warsaw Pact is formed on 14 May.",
+       "de": "Die DDR ist dabei, als am 14. Mai der Warschauer Pakt gegründet wird.",
+       "es": "La RDA participa en la fundación del Pacto de Varsovia el 14 de mayo.",
+       "fr": "La RDA participe à la fondation du pacte de Varsovie le 14 mai."
+      },
+      "sources": [
+       "wp-east-germany"
+      ]
+     },
+     {
+      "year": 1961,
+      "label": {
+       "sv": "1961",
+       "en": "1961",
+       "de": "1961",
+       "es": "1961",
+       "fr": "1961"
+      },
+      "title": {
+       "sv": "Berlinmuren byggs",
+       "en": "The Berlin Wall is built",
+       "de": "Der Bau der Berliner Mauer",
+       "es": "Se construye el Muro de Berlín",
+       "fr": "La construction du mur de Berlin"
+      },
+      "text": {
+       "sv": "Bygget av muren mellan Öst- och Västberlin börjar 13 augusti.",
+       "en": "Construction of the wall between East and West Berlin begins on 13 August.",
+       "de": "Am 13. August beginnt der Bau der Mauer zwischen Ost- und West-Berlin.",
+       "es": "El 13 de agosto comienza la construcción del muro entre Berlín Este y Berlín Oeste.",
+       "fr": "La construction du mur entre Berlin-Est et Berlin-Ouest commence le 13 août."
+      },
+      "sources": [
+       "wp-berlin-wall"
+      ]
+     },
+     {
+      "year": 1989,
+      "label": {
+       "sv": "1989",
+       "en": "1989",
+       "de": "1989",
+       "es": "1989",
+       "fr": "1989"
+      },
+      "title": {
+       "sv": "Muren faller",
+       "en": "The Wall falls",
+       "de": "Der Mauerfall",
+       "es": "Cae el Muro",
+       "fr": "La chute du Mur"
+      },
+      "text": {
+       "sv": "Muren öppnas 9 november.",
+       "en": "The Wall is opened on 9 November.",
+       "de": "Die Mauer wird am 9. November geöffnet.",
+       "es": "El Muro se abre el 9 de noviembre.",
+       "fr": "Le Mur est ouvert le 9 novembre."
+      },
+      "sources": [
+       "wp-berlin-wall"
+      ]
+     },
+     {
+      "year": 1990,
+      "label": {
+       "sv": "1990",
+       "en": "1990",
+       "de": "1990",
+       "es": "1990",
+       "fr": "1990"
+      },
+      "title": {
+       "sv": "Återföreningen",
+       "en": "Reunification",
+       "de": "Die Wiedervereinigung",
+       "es": "La reunificación",
+       "fr": "La réunification"
+      },
+      "text": {
+       "sv": "De fem länderna ansluter sig till Förbundsrepubliken 3 oktober.",
+       "en": "The five states join the Federal Republic on 3 October.",
+       "de": "Die fünf Länder treten am 3. Oktober der Bundesrepublik bei.",
+       "es": "Los cinco estados se adhieren a la República Federal el 3 de octubre.",
+       "fr": "Les cinq Länder adhèrent à la République fédérale le 3 octobre."
+      },
+      "sources": [
+       "wp-east-germany"
+      ]
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna anger 7 oktober 1949–3 oktober 1990, och kartan visar landet 1949–1990 som i Cliopatria. Åren 1945–1948 visar kartan den sovjetiska zonen som en del av Sovjetunionen, som i Cliopatria.",
+     "en": "The sources give 7 October 1949–3 October 1990, and the map shows the country in 1949–1990, as in Cliopatria. For 1945–1948 the map shows the Soviet zone as part of the Soviet Union, as in Cliopatria.",
+     "de": "Die Quellen nennen den 7. Oktober 1949 bis 3. Oktober 1990, und die Karte zeigt das Land wie Cliopatria 1949–1990. Für 1945–1948 zeigt die Karte wie Cliopatria die sowjetische Zone als Teil der Sowjetunion.",
+     "es": "Las fuentes indican del 7 de octubre de 1949 al 3 de octubre de 1990, y el mapa muestra el país en 1949–1990, como Cliopatria. Para 1945–1948 el mapa muestra la zona soviética como parte de la Unión Soviética, como Cliopatria.",
+     "fr": "Les sources indiquent du 7 octobre 1949 au 3 octobre 1990, et la carte montre le pays en 1949–1990, comme Cliopatria. Pour 1945–1948, la carte montre la zone soviétique comme une partie de l'Union soviétique, comme Cliopatria."
+    },
+    "sources": [
+     "wp-east-germany",
+     "wd-east-germany",
+     "wp-berlin-wall"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "osterrike-ungern",
