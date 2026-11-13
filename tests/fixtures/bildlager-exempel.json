@@ -1,0 +1,57 @@
+{
+  "schema": "historia-globen/bildlager@2",
+  "layers": [
+    {
+      "id": "exempel-kallkarta",
+      "kind": "lager",
+      "aliases": ["gammalt-namn"],
+      "group": "perspective",
+      "name": { "sv": "Exempel: källkarta", "en": "Example: source map", "de": "Beispiel: Quellenkarte", "es": "Ejemplo: mapa de fuente", "fr": "Exemple : carte source" },
+      "note": { "sv": "Bara för testet", "en": "Test only", "de": "Nur für den Test", "es": "Solo para la prueba", "fr": "Pour le test uniquement" },
+      "slices": [
+        {
+          "id": "exempel-utsnitt",
+          "format": "raster",
+          "file": "images/lager/nattljus-2016.jpg",
+          "width": 3600,
+          "height": 1800,
+          "from": 1500,
+          "to": 1599,
+          "bounds": [-30, 30, 60, 75],
+          "opacity": 0.8,
+          "caveat": { "sv": "Ungefärlig", "en": "Approximate", "de": "Ungefähr", "es": "Aproximado", "fr": "Approximatif" },
+          "sources": ["nasa-black-marble-2016"],
+          "review": "source-checked",
+          "license": "Bara för testet"
+        },
+        {
+          "id": "exempel-kust",
+          "format": "vektor",
+          "file": "data/land.json",
+          "from": 1600,
+          "sources": ["nasa-black-marble-2016"],
+          "review": "draft",
+          "license": "Bara för testet"
+        }
+      ]
+    },
+    {
+      "id": "exempel-grund",
+      "kind": "grund",
+      "name": { "sv": "Exempel: grundkarta", "en": "Example: base map", "de": "Beispiel: Grundkarte", "es": "Ejemplo: mapa base", "fr": "Exemple : fond de carte" },
+      "label": { "sv": "Forntida kust (exempel)", "en": "Ancient coast (example)", "de": "Urzeitliche Küste (Beispiel)", "es": "Costa antigua (ejemplo)", "fr": "Côte ancienne (exemple)" },
+      "slices": [
+        {
+          "id": "exempel-grund-1",
+          "format": "vektor",
+          "file": "data/land.json",
+          "from": -20000,
+          "to": -10000,
+          "sources": ["nasa-black-marble-2016"],
+          "review": "source-checked",
+          "license": "Bara för testet"
+        }
+      ]
+    }
+  ]
+}
