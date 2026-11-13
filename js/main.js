@@ -162,7 +162,7 @@ async function start() {
     onSelect: id => app.select(id, false), // raderna i datumresultatet (#590); året är redan rätt
     onOpen: () => app.surfaces.opened('jump'), // årshoppet och intervallformuläret stänger varandra (#1141)
   });
-  app.surfaces.register('jump', 'popover', () => yearJump.close());
+  app.surfaces.register('jump', 'popover', () => yearJump.close(), { isOpen: () => !$('jump-pop').hidden, opener: $('year-jump') });
 
 
   // Lagerväljaren: vilka lager som syns. Raderna och startläget kommer från registret.
@@ -346,13 +346,15 @@ async function start() {
   // Fokus och skärmläsare (#1138): hela kortet byts via innerHTML, så #detail är inte aria-live (allt lästes om vid varje byte).
   // I stället säger statusraden rubriken en gång per ny ruta. Kom man från Samtidigt-kortet, som döljs, går fokus till Stäng
   // och tillbaka till samma knapp när rutan stängs (kortet ritas om, så knappen hittas på id eller händelse-id).
-  let detailTitle = '', cardFocus = null;
+  let detailTitle = '', cardFocus = null, listFocus = null;
   panel.onDetailChange = open => {
     const detail = $('detail'), card = $('funfact'), active = document.activeElement;
     if (open) {
       if (!cardFocus && card.contains(active)) cardFocus = active.dataset?.id ? { chip: active.dataset.id } : { id: active.id };
+      // En rad i Samtidigt-listan (#1323): fokus går till Stäng, och tillbaka till raden (eller knappen Samtidigt) när rutan stängs
+      if (!cardFocus && !listFocus && $('panel').contains(active) && active.dataset?.id) listFocus = active.dataset.id;
       ff.setDetailOpen(true);
-      if (cardFocus) detail.querySelector('[data-close]')?.focus({ preventScroll: true });
+      if (cardFocus || listFocus) detail.querySelector('[data-close]')?.focus({ preventScroll: true });
       const title = detail.querySelector('h3')?.textContent.trim() ?? '';
       if (title && title !== detailTitle) $('screen-reader-status').textContent = `${ui('detail.label')}: ${title}`;
       detailTitle = title;
@@ -367,7 +369,16 @@ async function start() {
       const own = back.chip ? $('ff-events').querySelector(`.ff-chip[data-id="${CSS.escape(back.chip)}"]`) : back.id && $(back.id);
       [own, $('ff-next'), $('ff-handle')].find(el => el && !el.hidden && el.getClientRects().length)?.focus({ preventScroll: true });
     });
-    cardFocus = null; detailTitle = '';
+    if (listFocus && wasInDetail) {
+      const id = listFocus;
+      requestAnimationFrame(() => {
+        const now = document.activeElement;
+        if (now && now !== document.body && !detail.contains(now)) return; // besökaren har redan flyttat fokus
+        const row = $('event-list').querySelector(`.event-btn[data-id="${CSS.escape(id)}"]`);
+        [row, $('btn-panel')].find(el => el && !el.hidden && el.getClientRects().length)?.focus({ preventScroll: true });
+      });
+    }
+    cardFocus = null; listFocus = null; detailTitle = '';
   };
   // Kortets källor (#337): rikets berättelse har egna, fun facts och krigskort ärver händelsernas, som har laddats
   // när dialogen visar dem (Om källorna laddar alla händelsers källor först)
@@ -682,6 +693,22 @@ async function start() {
   panel.onTour = (id, btn) => tour.start(id, btn);
   panel.howTour = () => { const x = tour.tours?.find(y => y.id === 'hur-vet-vi-det-har'); return x ? { id: x.id, label: t(x.title) } : null; };
   tour.onOpen = () => surfaces.closeAll();
+  // Dialogerna och Escape (#1323, js/surfaces.js). Dialogerna är en grupp: bara en är öppen, och en öppnad dialog pausar
+  // uppspelningen och nedräkningen, som inte fortsätter av sig själva. Registret märker öppnandet på attributet hidden, så att
+  // dialogernas egen kod inte ändras. Escape stänger det översta öppna (dialog, årshopp eller intervallformulär, jakt, Turer-menyn)
+  // också när fokus ligger utanför ytan, och fokus går tillbaka till ytans knapp.
+  surfaces.onDialogOpen = () => { timeline.pause(); app.playback.stopCountdown(); };
+  surfaces.watch('help', $('help'), 'dialog', refocus => help.close(refocus !== false), { opener: $('btn-help') });
+  surfaces.watch('sources', $('sources-dialog'), 'dialog', () => sources.hide(), { opener: $('btn-sources') });
+  surfaces.watch('intro', $('intro'), 'dialog', refocus => intro.close(refocus !== false), { opener: $('btn-intro') });
+  surfaces.watch('quiz', $('quiz'), 'dialog', refocus => quiz.close(refocus !== false), { opener: $('btn-quiz') });
+  surfaces.watch('feedback', $('feedback'), 'dialog', () => feedback.close());
+  surfaces.watch('hunt', $('hunt'), 'uppdrag', refocus => hunt.end(refocus !== false), { opener: $('btn-hunt') });
+  surfaces.register('tours', 'meny', () => tour.closeMenu(), { isOpen: () => !$('tour-menu').hidden, opener: $('btn-tour'), central: true });
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Escape' || e.defaultPrevented) return;
+    if (surfaces.escape()) { e.preventDefault(); e.stopPropagation(); }
+  }, true);
   // Tillståndet i adressen (#501) och knappen Dela (#64). En tur i adressen (t och s, eller ?tur=<id>) startar
   // direkt vid rätt steg och går före en delad vy (#736), till exempel från en lektion eller ett test.
   const address = createAddress(app);

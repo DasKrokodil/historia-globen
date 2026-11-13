@@ -330,5 +330,5 @@ export function createPlayback(app) {
   // Raden "Nästa paus" följer pausvalen i Lager
   $('layer-menu').addEventListener('change', e => { if (e.target.dataset.pause) showNextPause(); });
 
-  return { check, startAt, clearRouteStops, reset, showNextPause, warEndOf, playToEnd };
+  return { check, startAt, clearRouteStops, reset, showNextPause, warEndOf, playToEnd, stopCountdown };
 }

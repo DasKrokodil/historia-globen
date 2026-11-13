@@ -5463,6 +5463,63 @@ async function run(browser, vp) {
       return `inga mindre ytor eller texter i fem lägen; stängknapp i ${closed.join(', ')}`;
     } finally { await wp.close(); }
   });
+  // #1323: stängregistret. (1) Uppspelningen pausar när en dialog öppnas och fortsätter inte av sig själv. (2) Escape stänger årshoppet
+  // också när fokus ligger utanför det, och fokus går tillbaka till knappen. (3) En faktaruta som öppnas från Samtidigt-listan flyttar fokus
+  // till Stäng, och fokus går tillbaka till raden (eller knappen Samtidigt) när den stängs.
+  await check('stängregistret: dialog pausar uppspelningen, Escape stänger årshoppet och fokus följer faktarutan (#1323)', async () => {
+    const wp = await context.newPage();
+    const errs = [];
+    wp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await wp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await wp.route(u => isFont(u.href), r => r.abort());
+      }
+      await wp.goto(`${BASE}?lang=sv&ny=r${Date.now()}#y=1200`);
+      await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await wp.waitForSelector('#event-list .event-item', { state: 'attached', timeout: T.step });
+      const yearText = () => wp.textContent('#year-big');
+      // (1) Spela, öppna Källor (knappen ligger i Mer/Meny): uppspelningen står still och fortsätter inte
+      const y0 = await yearText();
+      await wp.click('#btn-play');
+      await wp.waitForFunction(y => document.getElementById('year-big').textContent !== y, y0, { timeout: 8000 }); // uppspelningen går
+      await wp.evaluate(() => document.getElementById('btn-sources').click());
+      await wp.waitForSelector('#sources-dialog:not([hidden])', { timeout: T.step });
+      await wp.waitForTimeout(300);
+      const t0 = await yearText();
+      await wp.waitForTimeout(1500);
+      const t1 = await yearText();
+      if (t0 !== t1) throw new Error(`uppspelningen fortsatte bakom Källor: ${t0} → ${t1}`);
+      await wp.keyboard.press('Escape');
+      await wp.waitForSelector('#sources-dialog', { state: 'hidden', timeout: T.step });
+      // (2) Escape stänger årshoppet när fokus ligger utanför det
+      await wp.click('#year-jump');
+      await wp.waitForSelector('#jump-pop:not([hidden])', { timeout: T.step });
+      await wp.evaluate(() => document.activeElement?.blur());
+      await wp.keyboard.press('Escape');
+      await wp.waitForSelector('#jump-pop', { state: 'hidden', timeout: T.step });
+      const back = await wp.evaluate(() => document.activeElement?.id);
+      if (back !== 'year-jump') throw new Error(`fokus gick inte tillbaka till årshoppets knapp efter Escape: ${back}`);
+      // (3) Faktarutan från listan
+      if (await wp.locator('#panel').isHidden()) await wp.click('#btn-panel');
+      await wp.waitForSelector('#event-list .event-btn', { timeout: T.step });
+      const row = wp.locator('#event-list .event-btn').first();
+      const id = await row.getAttribute('data-id');
+      await row.focus();
+      await wp.keyboard.press('Enter');
+      await wp.waitForSelector('#detail:not([hidden])', { timeout: T.step });
+      const inClose = await wp.evaluate(() => document.activeElement?.matches('#detail [data-close]'));
+      if (!inClose) throw new Error(`fokus gick inte till Stäng när faktarutan öppnades från listan: ${await wp.evaluate(() => document.activeElement?.id || document.activeElement?.tagName)}`);
+      await wp.click('#detail [data-close]');
+      await wp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
+      await wp.waitForFunction(() => document.activeElement && document.activeElement !== document.body, null, { timeout: 3000 });
+      const where = await wp.evaluate(() => ({ id: document.activeElement.id, data: document.activeElement.dataset?.id ?? null }));
+      if (where.id !== 'btn-panel' && where.data !== id) throw new Error(`fokus gick inte tillbaka till raden eller Samtidigt-knappen: ${JSON.stringify(where)}`);
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return `pausad bakom Källor (${t0}), Escape stänger årshoppet, fokus tillbaka till ${where.id || 'raden'}`;
+    } finally { await wp.close(); }
+  });
   // #1134: raden under årtalet radbryts i smal skärm i stället för att klippas med ellips. Längsta texten styr: alla
   // fem språk, ett f.Kr.-år (längst rubrik) och ett intervall, i 400 px bredd. Körs i mobiljobbet (en egen sida, egen bredd).
   await check('raden under årtalet ryms på 400 px på fem språk (#1134)', async () => {
