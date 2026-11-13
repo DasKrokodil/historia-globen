@@ -546,6 +546,7 @@
   "sources.baseMap": "Grundkartan",
   "sources.modernBorders": "Dagens gränser",
   "sources.discovery": "Upptäcktsresor: {title}",
+  "sources.imageLayer": "Bildlager: {title}",
   "sources.imageUse": "Bild: {title}",
   "sources.loading": "Laddar källorna…",
   "sources.loadFailed": "Källorna kunde inte laddas.",

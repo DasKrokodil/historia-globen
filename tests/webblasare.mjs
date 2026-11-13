@@ -4278,6 +4278,47 @@ async function run(browser, vp) {
     return 'fem språk: hastighet och spelknapp, årshoppets fel, dagläge, källor/sökning och affischens ritade etiketter; ingen rå nyckel eller sidscroll';
   });
 
+  await check('bildlagrens källor står under Kartdata i Om källorna (#1410)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet';
+    const bp = await context.newPage();
+    const bpAw = abortWatch(bp);
+    const errs = [];
+    bp.on('pageerror', e => { if (!bpAw.defer(e.message)) errs.push(e.message); });
+    try {
+      if (THREE_LOCAL) {
+        await bp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+        await bp.route(u => isFont(u.href), r => r.abort());
+      }
+      await bpAw.goto(`${BASE}?ny=1410#y=2000`);
+      await bp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      // Skivorna som sidan visar, och deras källor, läses ur datan; testet hittar inte på några egna
+      const want = await bp.evaluate(async () => {
+        const [{ imageRows }, { ui }, { t }] = await Promise.all([import('./js/layers/images.js'), import('./js/i18n.js'), import('./js/model.js')]);
+        const doc = await (await fetch('data/bildlager.json')).json();
+        const reg = (await (await fetch('data/sources.json')).json()).sources;
+        return imageRows(doc).flatMap(r => r.slices).map(x => ({
+          label: ui('sources.imageLayer', { title: t(x.title) }),
+          titles: (x.sources ?? []).map(id => reg.find(s => s.id === id)?.title).filter(Boolean),
+        }));
+      });
+      if (!want.length) throw new Error('inga bildlager med skivor att pröva');
+      await bp.evaluate(() => document.getElementById('btn-sources').click());
+      await bp.waitForSelector('#sources-dialog', { state: 'visible', timeout: T.step });
+      await bp.waitForSelector('.src-group[data-group="maps"]', { timeout: T.load });
+      await bp.click('.src-group[data-group="maps"]');
+      await bp.waitForSelector('.src-section[data-group="maps"]', { timeout: T.step });
+      const text = await bp.locator('.src-section[data-group="maps"]').innerText();
+      for (const w of want) {
+        if (!text.includes(w.label)) throw new Error(`Kartdata saknar "${w.label}"`);
+        for (const title of w.titles) if (!text.includes(title)) throw new Error(`Kartdata saknar källan "${title}" för ${w.label}`);
+      }
+      if (/sources\.imageLayer/.test(text)) throw new Error('rå gränssnittsnyckel i Kartdata');
+      errs.push(...bpAw.settle());
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return want.map(w => `${w.label} (${w.titles.length} källor)`).join(', ');
+    } finally { await bp.close(); }
+  });
+
   await check('Källor öppnas', async () => {
     await clickView('#btn-sources');
     await visible('#sources-dialog');
@@ -5565,6 +5606,59 @@ async function run(browser, vp) {
       if (!/^1300-talet · ±\d*0 år$/.test(c.row)) throw new Error(`1325: raden säger "${c.row}"`);
       if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
       return `${a.row} | ${b.row} | ${c.row}`;
+    } finally { await wp.close(); }
+  });
+  // #1320: reglagets upplösning. I förhistorien är ett steg tusen eller hundra år, rubriken och uppläst värde är avrundade,
+  // farten följer upplösningen, märket på Samtidigt räknar bara det som pågår och en gammal länk med exakt år öppnas.
+  await check('reglagets upplösning i förhistorien (#1320)', async () => {
+    const wp = await context.newPage();
+    const errs = [];
+    wp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await wp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await wp.route(u => isFont(u.href), r => r.abort());
+      }
+      let loads = 0;
+      const read = () => wp.evaluate(() => ({
+        now: Number(document.getElementById('track').getAttribute('aria-valuenow')),
+        text: document.getElementById('track').getAttribute('aria-valuetext'),
+        big: `${document.getElementById('year-big').textContent} ${document.getElementById('year-era').textContent}`.trim(),
+        steps: [...document.querySelectorAll('.timebar .controls .step[data-step]')].map(b => b.textContent.replace(/\s/g, ' ').trim()),
+        speed: document.querySelector('.timebar .controls .speed').getAttribute('aria-label'),
+        badge: document.getElementById('panel-count').textContent.trim(),
+      }));
+      const open = async hash => {
+        await wp.goto(`${BASE}?lang=sv&ny=u${loads++}${hash}`);
+        await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await wp.waitForFunction(() => document.getElementById('panel-sub')?.textContent.length > 5, null, { timeout: T.step });
+      };
+      // En gammal länk med exakt år öppnas oavrundad, men rubriken och det upplästa värdet är avrundade
+      await open('#y=-7412');
+      const a = await read();
+      if (a.now !== -7412) throw new Error(`länken #y=-7412 gav året ${a.now}`);
+      if (a.text.replace(/\s/g, ' ') !== '7400 f.Kr.' || !/^7400 f\.Kr\.$/.test(a.big.replace(/\s+/g, ' '))) throw new Error(`7413 f.Kr. visas som "${a.big}" / "${a.text}"`);
+      if (a.steps.join(' ') !== '−10 000 −1000 −100 +100 +1000 +10 000') throw new Error(`stegknapparna 7400 f.Kr.: ${a.steps.join(' ')}`);
+      // Ett steg bakåt landar på hundratal, och före 10 000 f.Kr. på tusental
+      await wp.click('.timebar .controls .step[data-step="-1"]');
+      await wp.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '-7499', null, { timeout: T.step });
+      await open('#y=-49999');
+      const b = await read();
+      if (b.steps.join(' ') !== '−100 000 −10 000 −1000 +1000 +10 000 +100 000') throw new Error(`stegknapparna 50 000 f.Kr.: ${b.steps.join(' ')}`);
+      await wp.click('.timebar .controls .step[data-step="1"]');
+      await wp.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '-48999', null, { timeout: T.step });
+      // Märket räknar bara det som pågår: samma tal som "N pågår" i knappens namn
+      await open('#y=1325');
+      const c = await read();
+      const ongoing = (await wp.getAttribute('#btn-panel', 'aria-label')).match(/(\d+) pågår/)?.[1];
+      if (c.badge !== ongoing) throw new Error(`1325: märket visar ${c.badge} men ${ongoing} pågår`);
+      if (c.steps.join(' ') !== '−100 −10 −1 +1 +10 +100') throw new Error(`stegknapparna 1325: ${c.steps.join(' ')}`);
+      // Farten är nivån gånger upplösningen: tusen gånger fortare före 10 000 f.Kr. än 1325 (nivån kan vara sparad av ett tidigare test)
+      const rate = t => Number((t.match(/(\d[\d\s]*) år\/s/) || [])[1]?.replace(/\s/g, ''));
+      if (!(rate(b.speed) === rate(c.speed) * 1000)) throw new Error(`farten: ${b.speed} vid 50 000 f.Kr. men ${c.speed} vid 1325`);
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return `${a.big} (länk -7412) | ${b.steps.join(' ')} | ${b.speed} | 1325: märket ${c.badge} pågår`;
     } finally { await wp.close(); }
   });
   // #1322: tidslåset i lägeskontraktet. I en tur och i en lektion (som börjar med en tur) går året inte att byta med drag, klick,
