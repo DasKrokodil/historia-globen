@@ -36944,6 +36944,156 @@
    ]
   },
   {
+   "id": "four-oirats",
+   "name": {
+    "sv": "Four Oirats",
+    "en": "Four Oirats",
+    "de": "Dörben Oirat",
+    "es": "Cuatro Oirates",
+    "fr": "Quatre oïrats"
+   },
+   "color": "#7a6ab0",
+   "from": 1402,
+   "to": 1474,
+   "file": "data/empires/four-oirats.json",
+   "polities": [
+    {
+     "id": "four-oirats",
+     "name": {
+      "sv": "Four Oirats",
+      "en": "Four Oirats",
+      "de": "Dörben Oirat",
+      "es": "Cuatro Oirates",
+      "fr": "Quatre oïrats"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "western-chalukya-empire",
+   "name": {
+    "sv": "Western Chalukya Empire",
+    "en": "Western Chalukya Empire",
+    "de": "Western Chalukya Empire",
+    "es": "Imperio de Chalukya Occidental",
+    "fr": "Chalukya occidentaux"
+   },
+   "color": "#b07a6a",
+   "from": 980,
+   "to": 1187,
+   "file": "data/empires/western-chalukya-empire.json",
+   "polities": [
+    {
+     "id": "western-chalukya-empire",
+     "name": {
+      "sv": "Western Chalukya Empire",
+      "en": "Western Chalukya Empire",
+      "de": "Western Chalukya Empire",
+      "es": "Imperio de Chalukya Occidental",
+      "fr": "Chalukya occidentaux"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "pagan-kingdom",
+   "name": {
+    "sv": "Pagan kingdom",
+    "en": "Pagan kingdom",
+    "de": "Königreich von Bagan",
+    "es": "Reino de Pagan",
+    "fr": "royaume de Pagan"
+   },
+   "color": "#9aa04a",
+   "from": 850,
+   "to": 1293,
+   "file": "data/empires/pagan-kingdom.json",
+   "polities": [
+    {
+     "id": "pagan-kingdom",
+     "name": {
+      "sv": "Pagan kingdom",
+      "en": "Pagan kingdom",
+      "de": "Königreich von Bagan",
+      "es": "Reino de Pagan",
+      "fr": "royaume de Pagan"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "rasulid-dynasty",
+   "name": {
+    "sv": "Rasulid dynasty",
+    "en": "Rasulid dynasty",
+    "de": "Rasuliden",
+    "es": "dinastía rasúlida",
+    "fr": "Rassoulides"
+   },
+   "color": "#4a8aa0",
+   "from": 1236,
+   "to": 1458,
+   "file": "data/empires/rasulid-dynasty.json",
+   "polities": [
+    {
+     "id": "rasulid-dynasty",
+     "name": {
+      "sv": "Rasulid dynasty",
+      "en": "Rasulid dynasty",
+      "de": "Rasuliden",
+      "es": "dinastía rasúlida",
+      "fr": "Rassoulides"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "chola-empire",
+   "name": {
+    "sv": "Chola Empire",
+    "en": "Chola Empire",
+    "de": "Chola Empire",
+    "es": "Imperio Chola",
+    "fr": "empire Chola"
+   },
+   "color": "#c0704a",
+   "from": 850,
+   "to": 1259,
+   "file": "data/empires/chola-empire.json",
+   "polities": [
+    {
+     "id": "chola-empire",
+     "name": {
+      "sv": "Chola Empire",
+      "en": "Chola Empire",
+      "de": "Chola Empire",
+      "es": "Imperio Chola",
+      "fr": "empire Chola"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
    "id": "andorra",
    "modernState": true,
    "name": {

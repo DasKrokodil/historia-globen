@@ -1341,6 +1341,25 @@ GROUPS = {
         ('Protectorate of the Western Regions', 'vastra-regionernas-protektorat', 'De västra regionernas protektorat', '#6a9a8a',
          {'en': 'Protectorate of the Western Regions'}),
     ]),
+    # Medeltidens luckor, åttonde omgången (#645, DasKrokodils ja 2026-11-13): Cliopatrias Wikidata-id är en stat men
+    # saknar svensk etikett (SPARQL 2026-11-13), så namnet är det engelska enligt beslutet 2026-11-12. Cliopatrias
+    # Oirat Confederation (1619–1676) har samma Wikidata-id som Four Oirats men ligger utanför Wikidatas spann (1399–1628)
+    # och väntar.
+    'four-oirats': ('Four Oirats', 'Four Oirats', [
+        ('Four Oirats', 'four-oirats', 'Four Oirats', '#7a6ab0', {'en': 'Four Oirats'}),
+    ]),
+    'western-chalukya-empire': ('Western Chalukya Empire', 'Western Chalukya Empire', [
+        ('Western Chalukya Empire', 'western-chalukya-empire', 'Western Chalukya Empire', '#b07a6a', {'en': 'Western Chalukya Empire'}),
+    ]),
+    'pagan-kingdom': ('Pagan kingdom', 'Pagan kingdom', [
+        ('Pagan Kingdom', 'pagan-kingdom', 'Pagan kingdom', '#9aa04a', {'en': 'Pagan kingdom'}),
+    ]),
+    'rasulid-dynasty': ('Rasulid dynasty', 'Rasulid dynasty', [
+        ('Rasulid Dynasty', 'rasulid-dynasty', 'Rasulid dynasty', '#4a8aa0', {'en': 'Rasulid dynasty'}),
+    ]),
+    'chola-empire': ('Chola Empire', 'Chola Empire', [
+        ('Chola Empire', 'chola-empire', 'Chola Empire', '#c0704a', {'en': 'Chola Empire'}),
+    ]),
     # Små stater ur Natural Earth (#722, Rikards beslut 2026-11-07): Cliopatria saknar dem i nutid eller har fel gräns
     # (Saint Kitts ligger på Saint Croix, Mikronesien är bara Pohnpei). Gränsen är dagens land i Natural Earth
     # (tools/ne-omstridda-omraden.geojson, tools/ne_omstridda.py), från självständigheten enligt Wikidata och Wikipedia
