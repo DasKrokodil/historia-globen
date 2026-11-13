@@ -22,7 +22,7 @@ Artigt tilltal i alla språk, så att tyska, spanska och franska är lika:
 - Uppmaningar skrivs i imperativ för `usted` (spanska: `arrastre`, `elija`, `toque`, `pulse`) och `vous` (franska: `faites glisser`, `choisissez`, `cliquez`).
 - Texter som inte tilltalar läsaren (händelser, fakta) skrivs opersonligt, som svenskan.
 
-**Känd avvikelse i dag (rättas i ett eget issue):** gränssnittet använder informellt tilltal i `data/ui/de.json` (`du`), `data/ui/es.json` (`tú`: `arrastra`, `toca`, `elige`, `pulsa`, `puedes`) och i en nyckel i `data/ui/fr.json` (`hunt.region`, `tu`). De ändras till artigt tilltal enligt beslutet.
+**Rättat (#839, 2026-11-13):** de sista spanska gränssnittstexterna med `tú` (bland annat `meta.title`, `help.s1`, `ff.dragHint` och `search.hint`) har `usted`. Tyskan rättades i #857, och franskan har inget informellt tilltal utanför Samtidighetsjakten. Kvar med du-form är bara texter för Samtidighetsjakten (`hunt.*`, `theme.huntImpossible`), enligt undantaget ovan.
 
 ## 2. Tidsangivelser
 

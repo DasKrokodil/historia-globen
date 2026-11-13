@@ -17,8 +17,8 @@
     },
     {
       "kind": "choices",
-      "title": { "sv": "Nu är det din tur", "en": "Now it's your turn", "fr": "À vous de jouer", "de": "Jetzt bist du dran", "es": "Ahora te toca a ti" },
-      "text": { "sv": "Du står kvar på 1889. Dra i tidslinjen och leta efter fler saker som händer samtidigt.", "en": "You are still in 1889. Drag the timeline and look for more things that happen at the same time.", "fr": "Vous êtes toujours en 1889. Faites glisser la frise chronologique et cherchez d'autres choses qui se passent en même temps.", "de": "Du bist immer noch im Jahr 1889. Ziehe an der Zeitleiste und suche nach weiteren Dingen, die gleichzeitig geschehen.", "es": "Sigues en 1889. Arrastra la línea de tiempo y busca más cosas que ocurren al mismo tiempo." }
+      "title": { "sv": "Nu är det din tur", "en": "Now it's your turn", "fr": "À vous de jouer", "de": "Jetzt sind Sie dran", "es": "Ahora le toca a usted" },
+      "text": { "sv": "Du står kvar på 1889. Dra i tidslinjen och leta efter fler saker som händer samtidigt.", "en": "You are still in 1889. Drag the timeline and look for more things that happen at the same time.", "fr": "Vous êtes toujours en 1889. Faites glisser la frise chronologique et cherchez d'autres choses qui se passent en même temps.", "de": "Sie sind immer noch im Jahr 1889. Ziehen Sie an der Zeitleiste und suchen Sie nach weiteren Dingen, die gleichzeitig geschehen.", "es": "Sigue en 1889. Arrastre la línea de tiempo y busque más cosas que ocurren al mismo tiempo." }
     }
   ],
   "labels": {

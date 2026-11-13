@@ -179,9 +179,9 @@
       "question": {
         "sv": "Varför tror du att uppgifter om hur stora arméer var ofta skiljer sig så mycket?",
         "en": "Why do you think figures for the size of armies so often differ so much?",
-        "fr": "Pourquoi penses-tu que les chiffres sur la taille des armées divergent si souvent autant ?",
-        "de": "Warum glaubst du, weichen Angaben über die Größe von Heeren so oft so stark voneinander ab?",
-        "es": "¿Por qué crees que las cifras sobre el tamaño de los ejércitos difieren tan a menudo tanto?"
+        "fr": "Pourquoi pensez-vous que les chiffres sur la taille des armées divergent si souvent autant ?",
+        "de": "Warum, glauben Sie, weichen Angaben über die Größe von Heeren so oft so stark voneinander ab?",
+        "es": "¿Por qué cree que las cifras sobre el tamaño de los ejércitos difieren tan a menudo tanto?"
       },
       "layers": [
         "events",
@@ -226,9 +226,9 @@
       "question": {
         "sv": "Vad tror du att det betydde för handeln i området att alla tre städerna plundrades?",
         "en": "What do you think it meant for trade in the region that all three cities were plundered?",
-        "fr": "Que penses-tu que le pillage des trois villes a signifié pour le commerce de la région ?",
-        "de": "Was glaubst du, bedeutete es für den Handel in der Region, dass alle drei Städte geplündert wurden?",
-        "es": "¿Qué crees que significó para el comercio de la región que las tres ciudades fueran saqueadas?"
+        "fr": "Que pensez-vous que le pillage des trois villes a signifié pour le commerce de la région ?",
+        "de": "Was, glauben Sie, bedeutete es für den Handel in der Region, dass alle drei Städte geplündert wurden?",
+        "es": "¿Qué cree que significó para el comercio de la región que las tres ciudades fueran saqueadas?"
       },
       "layers": [
         "events",
