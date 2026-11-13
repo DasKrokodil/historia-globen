@@ -1183,6 +1183,43 @@ GROUPS = {
     'cordobaemiratet': ('Córdobaemiratet', 'Emirate of Córdoba', [
         ('Emirate of Córdoba', 'cordobaemiratet', 'Córdobaemiratet', '#6a9a3a', {'en': 'Emirate of Córdoba'}),
     ]),
+    # Medeltidens luckor, femte omgången (#645): de största kvarvarande luckorna 500–1500 enligt tools/tackning_riken.py
+    # (2026-11-12). Svenska namn är Wikidatas svenska etiketter, annars engelska. Cliopatrias White Huns pekar på en
+    # förgreningssida (Q41761342) och får Heftaliter (Q26576), och Khazaria pekar på folket khazarer (Q173282) och får staten
+    # Khazar Khaganate (Q2090473), kontrollerat mot Wikidata 2026-11-12. Great Jin är Jurchens Jindynasti 1115–1234 (Q5066).
+    'suidynastin': ('Suidynastin', 'Sui dynasty', [
+        ('Sui Dynasty', 'suidynastin', 'Suidynastin', '#c0604a', {'en': 'Sui dynasty'}),
+    ]),
+    'heftaliter': ('Heftaliter', 'Hephthalites', [
+        ('White Huns', 'heftaliter', 'Heftaliter', '#8a7a5a', {'en': 'Hephthalites', 'wikidata': 'Q26576'}),
+    ]),
+    'sodra-qidynastin': ('Södra Qidynastin', 'Southern Qi', [
+        ('Southern Qi', 'sodra-qidynastin', 'Södra Qidynastin', '#5a8a6a', {'en': 'Southern Qi'}),
+    ]),
+    'khazar-khaganate': ('Khazar Khaganate', 'Khazar Khaganate', [
+        ('Khazaria', 'khazar-khaganate', 'Khazar Khaganate', '#a07a9a', {'en': 'Khazar Khaganate', 'wikidata': 'Q2090473'}),
+    ]),
+    'ghuriderna': ('Ghuriderna', 'Ghurid dynasty', [
+        ('Ghurid Dynasty', 'ghuriderna', 'Ghuriderna', '#7a9a4a', {'en': 'Ghurid dynasty'}),
+    ]),
+    'jindynastin-jurchen': ('Jindynastin', 'Jin dynasty', [
+        ('Great Jin', 'jindynastin-jurchen', 'Jindynastin', '#b08a3a', {'en': 'Jin dynasty'}),
+    ]),
+    'qocho': ('Qocho', 'Qocho', [
+        ('Qocho Kingdom', 'qocho', 'Qocho', '#4a9ab0', {'en': 'Qocho'}),
+    ]),
+    'tulunider': ('Tulunider', 'Tulunids', [
+        ('Tulunids', 'tulunider', 'Tulunider', '#9a6a4a', {'en': 'Tulunids'}),
+    ]),
+    'rustamider': ('Rustamid dynasty', 'Rustamid dynasty', [
+        ('Rustamid dynasty', 'rustamider', 'Rustamid dynasty', '#6a7ab0', {'en': 'Rustamid dynasty'}),
+    ]),
+    'hafsiderna': ('Hafsiderna', 'Hafsid dynasty', [
+        ('Hafsid Dynasty', 'hafsiderna', 'Hafsiderna', '#4a8a7a', {'en': 'Hafsid dynasty'}),
+    ]),
+    'aghlabider': ('Aghlabider', 'Aghlabids', [
+        ('Aghlabid Dynasty', 'aghlabider', 'Aghlabider', '#b0605a', {'en': 'Aghlabids'}),
+    ]),
     # Små stater ur Natural Earth (#722, Rikards beslut 2026-11-07): Cliopatria saknar dem i nutid eller har fel gräns
     # (Saint Kitts ligger på Saint Croix, Mikronesien är bara Pohnpei). Gränsen är dagens land i Natural Earth
     # (tools/ne-omstridda-omraden.geojson, tools/ne_omstridda.py), från självständigheten enligt Wikidata och Wikipedia

@@ -1566,5 +1566,245 @@
     "credit": "Nicholas Chevalier / Wikimedia Commons",
     "license": "Public domain",
     "source": "commons-bild-burke-och-wills-expedition"
+  },
+  {
+    "id": "plimpton-322",
+    "file": "plimpton-322.jpg",
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Lertavlan Plimpton 322, en babylonisk taltabell. Fotograf okänd. Licens: Public domain.",
+      "en": "The clay tablet Plimpton 322, a Babylonian table of numbers. Photographer unknown. Licence: Public domain.",
+      "de": "Die Tontafel Plimpton 322, eine babylonische Zahlentabelle. Fotograf unbekannt. Lizenz: Public domain.",
+      "es": "La tablilla de arcilla Plimpton 322, una tabla numérica babilónica. Fotógrafo desconocido. Licencia: Public domain.",
+      "fr": "La tablette d'argile Plimpton 322, une table de nombres babylonienne. Photographe inconnu. Licence : Public domain."
+    },
+    "credit": "Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-plimpton-322"
+  },
+  {
+    "id": "orakelben-skrift",
+    "file": "orakelben-skrift.jpg",
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Orakelben med inskrifter från Shangdynastin, funna i Yinxu vid Anyang i Kina. Foto: Gary Lee Todd, 2018. Licens: CC0.",
+      "en": "Oracle bones with inscriptions from the Shang dynasty, found at Yinxu near Anyang in China. Photo: Gary Lee Todd, 2018. Licence: CC0.",
+      "de": "Orakelknochen mit Inschriften aus der Shang-Dynastie, gefunden in Yinxu bei Anyang in China. Foto: Gary Lee Todd, 2018. Lizenz: CC0.",
+      "es": "Huesos oraculares con inscripciones de la dinastía Shang, hallados en Yinxu, cerca de Anyang (China). Foto: Gary Lee Todd, 2018. Licencia: CC0.",
+      "fr": "Os oraculaires portant des inscriptions de la dynastie Shang, trouvés à Yinxu près d'Anyang en Chine. Photo : Gary Lee Todd, 2018. Licence : CC0."
+    },
+    "credit": "Gary Lee Todd / Wikimedia Commons",
+    "license": "CC0",
+    "source": "commons-bild-orakelben-skrift"
+  },
+  {
+    "id": "dodahavsrullarna",
+    "file": "dodahavsrullarna.jpg",
+    "kind": "historisk",
+    "style": "antik",
+    "caption": {
+      "sv": "Del av den stora Jesajarullen från Qumran, en av Dödahavsrullarna. Foto: Ardon Bar Hama. Licens: Public domain.",
+      "en": "Part of the Great Isaiah Scroll from Qumran, one of the Dead Sea Scrolls. Photo: Ardon Bar Hama. Licence: Public domain.",
+      "de": "Ausschnitt aus der großen Jesajarolle aus Qumran, einer der Schriftrollen vom Toten Meer. Foto: Ardon Bar Hama. Lizenz: Public domain.",
+      "es": "Parte del Gran Rollo de Isaías de Qumrán, uno de los manuscritos del mar Muerto. Foto: Ardon Bar Hama. Licencia: Public domain.",
+      "fr": "Partie du grand rouleau d'Isaïe de Qumrân, l'un des manuscrits de la mer Morte. Photo : Ardon Bar Hama. Licence : Public domain."
+    },
+    "credit": "Ardon Bar Hama / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-dodahavsrullarna"
+  },
+  {
+    "id": "diamantsutran-trycks",
+    "file": "diamantsutran-trycks.jpg",
+    "kind": "historisk",
+    "style": "tidig-medeltid",
+    "caption": {
+      "sv": "Titelbilden i Diamantsutran från grotta 17 i Dunhuang, tryckt 868, tusch på papper. I dag i British Library. Licens: Public domain.",
+      "en": "The frontispiece of the Diamond Sutra from Cave 17 at Dunhuang, printed in 868, ink on paper. Now in the British Library. Licence: Public domain.",
+      "de": "Das Titelbild des Diamant-Sutra aus Höhle 17 in Dunhuang, gedruckt 868, Tusche auf Papier. Heute in der British Library. Lizenz: Public domain.",
+      "es": "El frontispicio del Sutra del diamante de la cueva 17 de Dunhuang, impreso en 868, tinta sobre papel. Hoy en la British Library. Licencia: Public domain.",
+      "fr": "Le frontispice du Sûtra du diamant de la grotte 17 de Dunhuang, imprimé en 868, encre sur papier. Aujourd'hui à la British Library. Licence : Public domain."
+    },
+    "credit": "British Library / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-diamantsutran-trycks"
+  },
+  {
+    "id": "stora-buddha-i-kamakura",
+    "file": "stora-buddha-i-kamakura.jpg",
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Den stora Buddha i Kamakura, fotograferad 2017. Foto: Suicasmo. Licens: CC BY-SA 4.0.",
+      "en": "The Great Buddha of Kamakura, photographed in 2017. Photo: Suicasmo. Licence: CC BY-SA 4.0.",
+      "de": "Der Große Buddha von Kamakura, fotografiert 2017. Foto: Suicasmo. Lizenz: CC BY-SA 4.0.",
+      "es": "El Gran Buda de Kamakura, fotografiado en 2017. Foto: Suicasmo. Licencia: CC BY-SA 4.0.",
+      "fr": "Le Grand Bouddha de Kamakura, photographié en 2017. Photo : Suicasmo. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Suicasmo / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-stora-buddha-i-kamakura"
+  },
+  {
+    "id": "riccis-varldskarta-1602",
+    "file": "riccis-varldskarta-1602.jpg",
+    "kind": "historisk",
+    "style": "kina-tusch",
+    "caption": {
+      "sv": "Utsnitt ur Matteo Riccis världskarta Kunyu Wanguo Quantu från 1602, fotograferad på en utställning i Library of Congress. Licens: Public domain.",
+      "en": "Detail of Matteo Ricci's world map Kunyu Wanguo Quantu from 1602, photographed at an exhibition at the Library of Congress. Licence: Public domain.",
+      "de": "Ausschnitt aus Matteo Riccis Weltkarte Kunyu Wanguo Quantu von 1602, fotografiert in einer Ausstellung der Library of Congress. Lizenz: Public domain.",
+      "es": "Detalle del mapamundi Kunyu Wanguo Quantu de Matteo Ricci, de 1602, fotografiado en una exposición de la Library of Congress. Licencia: Public domain.",
+      "fr": "Détail de la carte du monde Kunyu Wanguo Quantu de Matteo Ricci, de 1602, photographiée lors d'une exposition à la Library of Congress. Licence : Public domain."
+    },
+    "credit": "Matteo Ricci / Library of Congress / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-riccis-varldskarta-1602"
+  },
+  {
+    "id": "slaget-vid-plassey",
+    "file": "slaget-vid-plassey.jpg",
+    "kind": "historisk",
+    "style": "miniatyr",
+    "caption": {
+      "sv": "Robert Clive möter Mir Jafar efter slaget vid Plassey. Målning av Francis Hayman, omkring 1760. Licens: Public domain.",
+      "en": "Robert Clive meets Mir Jafar after the Battle of Plassey. Painting by Francis Hayman, about 1760. Licence: Public domain.",
+      "de": "Robert Clive trifft Mir Jafar nach der Schlacht bei Plassey. Gemälde von Francis Hayman, um 1760. Lizenz: Public domain.",
+      "es": "Robert Clive se reúne con Mir Jafar después de la batalla de Plassey. Pintura de Francis Hayman, hacia 1760. Licencia: Public domain.",
+      "fr": "Robert Clive rencontre Mir Jafar après la bataille de Plassey. Peinture de Francis Hayman, vers 1760. Licence : Public domain."
+    },
+    "credit": "Francis Hayman / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-slaget-vid-plassey"
+  },
+  {
+    "id": "dronten-sista-gangen",
+    "file": "dronten-sista-gangen.jpg",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+      "sv": "Edwards dront, en av de mest kända målningarna av en dront, troligen av Roelant Savery, sent 1620-tal. Licens: Public domain.",
+      "en": "Edwards' Dodo, one of the best-known paintings of a dodo, probably by Roelant Savery, late 1620s. Licence: Public domain.",
+      "de": "Edwards' Dodo, eines der bekanntesten Gemälde eines Dodos, wahrscheinlich von Roelant Savery, späte 1620er-Jahre. Lizenz: Public domain.",
+      "es": "El dodo de Edwards, una de las pinturas más conocidas de un dodo, probablemente de Roelant Savery, finales de la década de 1620. Licencia: Public domain.",
+      "fr": "Le dodo d'Edwards, l'une des peintures de dodo les plus connues, probablement de Roelant Savery, fin des années 1620. Licence : Public domain."
+    },
+    "credit": "Roelant Savery / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-dronten-sista-gangen"
+  },
+  {
+    "id": "borobudur-byggs",
+    "file": "borobudur-byggs.jpg",
+    "kind": "historisk",
+    "style": "tidig-medeltid",
+    "caption": {
+      "sv": "Borobudur nära Magelang på Java, flygfoto av flygavdelningen i Nederländska Ostindiens armé, okänt år. KITLV. Licens: CC BY 4.0.",
+      "en": "Borobudur near Magelang on Java, aerial photograph by the air division of the Royal Netherlands East Indies Army, date unknown. KITLV. Licence: CC BY 4.0.",
+      "de": "Borobudur bei Magelang auf Java, Luftaufnahme der Luftfahrtabteilung der Königlich Niederländisch-Indischen Armee, Jahr unbekannt. KITLV. Lizenz: CC BY 4.0.",
+      "es": "Borobudur, cerca de Magelang (Java), fotografía aérea de la sección de aviación del Real Ejército de las Indias Orientales Neerlandesas, fecha desconocida. KITLV. Licencia: CC BY 4.0.",
+      "fr": "Borobudur près de Magelang à Java, photographie aérienne de la section aéronautique de l'Armée royale des Indes orientales néerlandaises, date inconnue. KITLV. Licence : CC BY 4.0."
+    },
+    "credit": "Luchtvaart Afdeeling KNIL / KITLV / Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "source": "commons-bild-borobudur-byggs"
+  },
+  {
+    "id": "brihadisvaratemplet",
+    "file": "brihadisvaratemplet.jpg",
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Brihadisvaratemplet i Thanjavur i dag. Foto: Shajinss. Licens: CC BY-SA 3.0.",
+      "en": "The Brihadisvara Temple in Thanjavur today. Photo: Shajinss. Licence: CC BY-SA 3.0.",
+      "de": "Der Brihadishvara-Tempel in Thanjavur heute. Foto: Shajinss. Lizenz: CC BY-SA 3.0.",
+      "es": "El templo de Brihadisvara en Thanjavur en la actualidad. Foto: Shajinss. Licencia: CC BY-SA 3.0.",
+      "fr": "Le temple de Brihadishvara à Thanjavur aujourd'hui. Photo : Shajinss. Licence : CC BY-SA 3.0."
+    },
+    "credit": "Shajinss / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-brihadisvaratemplet"
+  },
+  {
+    "id": "jantar-mantar-jaipur",
+    "file": "jantar-mantar-jaipur.jpg",
+    "kind": "historisk",
+    "style": "miniatyr",
+    "caption": {
+      "sv": "Observatoriet Jantar Mantar i Jaipur, fotograferat 2019. Foto: Jakub Hałun. Licens: CC BY-SA 4.0.",
+      "en": "The Jantar Mantar observatory in Jaipur, photographed in 2019. Photo: Jakub Hałun. Licence: CC BY-SA 4.0.",
+      "de": "Das Observatorium Jantar Mantar in Jaipur, fotografiert 2019. Foto: Jakub Hałun. Lizenz: CC BY-SA 4.0.",
+      "es": "El observatorio Jantar Mantar de Jaipur, fotografiado en 2019. Foto: Jakub Hałun. Licencia: CC BY-SA 4.0.",
+      "fr": "L'observatoire Jantar Mantar de Jaipur, photographié en 2019. Photo : Jakub Hałun. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Jakub Hałun / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-jantar-mantar-jaipur"
+  },
+  {
+    "id": "slaget-vid-hattin",
+    "file": "slaget-vid-hattin.jpg",
+    "kind": "historisk",
+    "style": "islamisk",
+    "caption": {
+      "sv": "Slaget vid Hattin i en bokmålning i en handskrift av Estoire d'Eracles, 1440–1445. Licens: Public domain.",
+      "en": "The Battle of Hattin in a miniature from a manuscript of the Estoire d'Eracles, 1440–1445. Licence: Public domain.",
+      "de": "Die Schlacht bei Hattin in einer Buchmalerei aus einer Handschrift der Estoire d'Eracles, 1440–1445. Lizenz: Public domain.",
+      "es": "La batalla de Hattin en una miniatura de un manuscrito de la Estoire d'Eracles, 1440–1445. Licencia: Public domain.",
+      "fr": "La bataille de Hattin dans une miniature d'un manuscrit de l'Estoire d'Eracles, 1440–1445. Licence : Public domain."
+    },
+    "credit": "Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-slaget-vid-hattin"
+  },
+  {
+    "id": "su-songs-urtorn",
+    "file": "su-songs-urtorn.jpg",
+    "kind": "historisk",
+    "style": "kina-tusch",
+    "caption": {
+      "sv": "Ritning av Su Songs astronomiska urtorn ur hans bok. Licens: Public domain.",
+      "en": "Drawing of Su Song's astronomical clock tower from his book. Licence: Public domain.",
+      "de": "Zeichnung von Su Songs astronomischem Uhrturm aus seinem Buch. Lizenz: Public domain.",
+      "es": "Dibujo de la torre del reloj astronómico de Su Song, tomado de su libro. Licencia: Public domain.",
+      "fr": "Dessin de la tour-horloge astronomique de Su Song, tiré de son livre. Licence : Public domain."
+    },
+    "credit": "Su Song / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-su-songs-urtorn"
+  },
+  {
+    "id": "kabuki-borjar-1603",
+    "file": "kabuki-borjar-1603.jpg",
+    "kind": "historisk",
+    "style": "japan-ukiyoe",
+    "caption": {
+      "sv": "Utsnitt ur skärmen Okuni Kabuki-zu Byōbu, målad omkring 1603, med det äldsta kända porträttet av Izumo no Okuni. Kyoto nationalmuseum. Licens: Public domain.",
+      "en": "Detail of the screen Okuni Kabuki-zu Byōbu, painted around 1603, with the oldest known portrait of Izumo no Okuni. Kyoto National Museum. Licence: Public domain.",
+      "de": "Ausschnitt aus dem Stellschirm Okuni Kabuki-zu Byōbu, gemalt um 1603, mit dem ältesten bekannten Bildnis von Izumo no Okuni. Nationalmuseum Kyōto. Lizenz: Public domain.",
+      "es": "Detalle del biombo Okuni Kabuki-zu Byōbu, pintado hacia 1603, con el retrato más antiguo conocido de Izumo no Okuni. Museo Nacional de Kioto. Licencia: Public domain.",
+      "fr": "Détail du paravent Okuni Kabuki-zu Byōbu, peint vers 1603, avec le plus ancien portrait connu d'Izumo no Okuni. Musée national de Kyoto. Licence : Public domain."
+    },
+    "credit": "Kyoto National Museum / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-kabuki-borjar-1603"
+  },
+  {
+    "id": "nederlandarna-till-dejima",
+    "file": "nederlandarna-till-dejima.jpg",
+    "kind": "historisk",
+    "style": "japan-ukiyoe",
+    "caption": {
+      "sv": "Den tidigare nederländska handelsstationen på Dejima i Nagasaki, sedd från Tamaebron 2024. Foto: Jakub Hałun. Licens: CC BY 4.0.",
+      "en": "The former Dutch trading post on Dejima in Nagasaki, seen from Tamae Bridge in 2024. Photo: Jakub Hałun. Licence: CC BY 4.0.",
+      "de": "Die ehemalige niederländische Handelsstation auf Dejima in Nagasaki, gesehen von der Tamae-Brücke 2024. Foto: Jakub Hałun. Lizenz: CC BY 4.0.",
+      "es": "El antiguo puesto comercial neerlandés de Dejima, en Nagasaki, visto desde el puente Tamae en 2024. Foto: Jakub Hałun. Licencia: CC BY 4.0.",
+      "fr": "L'ancien comptoir néerlandais de Dejima à Nagasaki, vu du pont Tamae en 2024. Photo : Jakub Hałun. Licence : CC BY 4.0."
+    },
+    "credit": "Jakub Hałun / Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "source": "commons-bild-nederlandarna-till-dejima"
   }
 ]

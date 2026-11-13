@@ -7606,7 +7606,10 @@
      "id": "sodra-song",
      "name": {
       "sv": "Södra Song",
-      "en": "Southern Song"
+      "en": "Southern Song",
+      "de": "Southern Song",
+      "es": "dinastía Song meridional",
+      "fr": "Song méridionaux"
      },
      "sources": [
       "cliopatria"
@@ -35485,6 +35488,369 @@
       "de": "Emirat von Córdoba",
       "es": "emirato de Córdoba",
       "fr": "émirat de Cordoue"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "suidynastin",
+   "name": {
+    "sv": "Suidynastin",
+    "en": "Sui dynasty",
+    "de": "Sui-Dynastie",
+    "es": "dinastía Sui",
+    "fr": "dynastie Sui"
+   },
+   "color": "#c0604a",
+   "from": 587,
+   "to": 627,
+   "file": "data/empires/suidynastin.json",
+   "polities": [
+    {
+     "id": "suidynastin",
+     "name": {
+      "sv": "Suidynastin",
+      "en": "Sui dynasty",
+      "de": "Sui-Dynastie",
+      "es": "dinastía Sui",
+      "fr": "dynastie Sui"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "heftaliter",
+   "name": {
+    "sv": "Heftaliter",
+    "en": "Hephthalites",
+    "de": "Hephthaliten",
+    "es": "heftalita",
+    "fr": "Shvetahûna"
+   },
+   "color": "#8a7a5a",
+   "from": 410,
+   "to": 560,
+   "file": "data/empires/heftaliter.json",
+   "polities": [
+    {
+     "id": "heftaliter",
+     "name": {
+      "sv": "Heftaliter",
+      "en": "Hephthalites",
+      "de": "Hephthaliten",
+      "es": "heftalita",
+      "fr": "Shvetahûna"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "sodra-qidynastin",
+   "name": {
+    "sv": "Södra Qidynastin",
+    "en": "Southern Qi",
+    "de": "Südliche Qi-Dynastie",
+    "es": "Dinastía Qi del Sur",
+    "fr": "dynastie Qi du Sud"
+   },
+   "color": "#5a8a6a",
+   "from": 480,
+   "to": 509,
+   "file": "data/empires/sodra-qidynastin.json",
+   "polities": [
+    {
+     "id": "sodra-qidynastin",
+     "name": {
+      "sv": "Södra Qidynastin",
+      "en": "Southern Qi",
+      "de": "Südliche Qi-Dynastie",
+      "es": "Dinastía Qi del Sur",
+      "fr": "dynastie Qi du Sud"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "khazar-khaganate",
+   "name": {
+    "sv": "Khazar Khaganate",
+    "en": "Khazar Khaganate",
+    "de": "Khanat der Chasaren",
+    "es": "Jazaria",
+    "fr": "Khaganat khazar"
+   },
+   "color": "#a07a9a",
+   "from": 630,
+   "to": 979,
+   "file": "data/empires/khazar-khaganate.json",
+   "polities": [
+    {
+     "id": "khazar-khaganate",
+     "name": {
+      "sv": "Khazar Khaganate",
+      "en": "Khazar Khaganate",
+      "de": "Khanat der Chasaren",
+      "es": "Jazaria",
+      "fr": "Khaganat khazar"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "ghuriderna",
+   "name": {
+    "sv": "Ghuriderna",
+    "en": "Ghurid dynasty",
+    "de": "Ghuriden",
+    "es": "Imperio gúrida",
+    "fr": "Ghorides"
+   },
+   "color": "#7a9a4a",
+   "from": 1152,
+   "to": 1209,
+   "file": "data/empires/ghuriderna.json",
+   "polities": [
+    {
+     "id": "ghuriderna",
+     "name": {
+      "sv": "Ghuriderna",
+      "en": "Ghurid dynasty",
+      "de": "Ghuriden",
+      "es": "Imperio gúrida",
+      "fr": "Ghorides"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "jindynastin-jurchen",
+   "name": {
+    "sv": "Jindynastin",
+    "en": "Jin dynasty",
+    "de": "Jin-Dynastie",
+    "es": "dinastía Jin",
+    "fr": "dynastie Jin"
+   },
+   "color": "#b08a3a",
+   "from": 1126,
+   "to": 1235,
+   "file": "data/empires/jindynastin-jurchen.json",
+   "polities": [
+    {
+     "id": "jindynastin-jurchen",
+     "name": {
+      "sv": "Jindynastin",
+      "en": "Jin dynasty",
+      "de": "Jin-Dynastie",
+      "es": "dinastía Jin",
+      "fr": "dynastie Jin"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "influence": [
+    {
+     "polity": "jindynastin-jurchen",
+     "name": {
+      "en": "Goryeo"
+     },
+     "relation": "allegiance",
+     "from": 1126,
+     "to": 1235
+    },
+    {
+     "polity": "jindynastin-jurchen",
+     "name": {
+      "en": "Western Xia"
+     },
+     "relation": "vassalage",
+     "from": 1126,
+     "to": 1226
+    },
+    {
+     "polity": "jindynastin-jurchen",
+     "name": {
+      "sv": "Södra Song",
+      "en": "Southern Song",
+      "de": "Southern Song",
+      "es": "dinastía Song meridional",
+      "fr": "Song méridionaux"
+     },
+     "relation": "allegiance",
+     "from": 1139,
+     "to": 1235
+    }
+   ]
+  },
+  {
+   "id": "qocho",
+   "name": {
+    "sv": "Qocho",
+    "en": "Qocho",
+    "de": "Reich von Kocho",
+    "es": "Reino Uigur de Qocho",
+    "fr": "Royaume Ouïghour de Qocho"
+   },
+   "color": "#4a9ab0",
+   "from": 860,
+   "to": 1138,
+   "file": "data/empires/qocho.json",
+   "polities": [
+    {
+     "id": "qocho",
+     "name": {
+      "sv": "Qocho",
+      "en": "Qocho",
+      "de": "Reich von Kocho",
+      "es": "Reino Uigur de Qocho",
+      "fr": "Royaume Ouïghour de Qocho"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "tulunider",
+   "name": {
+    "sv": "Tulunider",
+    "en": "Tulunids",
+    "de": "Tuluniden",
+    "es": "tuluníes",
+    "fr": "Toulounides"
+   },
+   "color": "#9a6a4a",
+   "from": 875,
+   "to": 910,
+   "file": "data/empires/tulunider.json",
+   "polities": [
+    {
+     "id": "tulunider",
+     "name": {
+      "sv": "Tulunider",
+      "en": "Tulunids",
+      "de": "Tuluniden",
+      "es": "tuluníes",
+      "fr": "Toulounides"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "rustamider",
+   "name": {
+    "sv": "Rustamid dynasty",
+    "en": "Rustamid dynasty",
+    "de": "Rustamiden",
+    "es": "rostomitas",
+    "fr": "Rostémides"
+   },
+   "color": "#6a7ab0",
+   "from": 778,
+   "to": 910,
+   "file": "data/empires/rustamider.json",
+   "polities": [
+    {
+     "id": "rustamider",
+     "name": {
+      "sv": "Rustamid dynasty",
+      "en": "Rustamid dynasty",
+      "de": "Rustamiden",
+      "es": "rostomitas",
+      "fr": "Rostémides"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "hafsiderna",
+   "name": {
+    "sv": "Hafsiderna",
+    "en": "Hafsid dynasty",
+    "de": "Hafsiden",
+    "es": "dinastía hafsí",
+    "fr": "Hafsides"
+   },
+   "color": "#4a8a7a",
+   "from": 1236,
+   "to": 1571,
+   "file": "data/empires/hafsiderna.json",
+   "polities": [
+    {
+     "id": "hafsiderna",
+     "name": {
+      "sv": "Hafsiderna",
+      "en": "Hafsid dynasty",
+      "de": "Hafsiden",
+      "es": "dinastía hafsí",
+      "fr": "Hafsides"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "aghlabider",
+   "name": {
+    "sv": "Aghlabider",
+    "en": "Aghlabids",
+    "de": "Aghlabiden",
+    "es": "aglabí",
+    "fr": "Aghlabides"
+   },
+   "color": "#b0605a",
+   "from": 800,
+   "to": 910,
+   "file": "data/empires/aghlabider.json",
+   "polities": [
+    {
+     "id": "aghlabider",
+     "name": {
+      "sv": "Aghlabider",
+      "en": "Aghlabids",
+      "de": "Aghlabiden",
+      "es": "aglabí",
+      "fr": "Aghlabides"
      },
      "sources": [
       "cliopatria"
