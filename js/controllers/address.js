@@ -92,6 +92,9 @@ export function createAddress(app) {
       // Tidsintervallet (#755): en adress med y2 och utan fokus väljer intervallet, annars stängs ett valt intervall
       const wantRange = s.yearEnd != null && !s.focus;
       if (!wantRange) app.range?.close({ redraw: false });
+      // En vanlig vy lämnar fokuset före årsvalet. Annars klämmer tidsreglagets fokusspann
+      // det nya året till den gamla gränsen när fokuset redan har laddats klart (#1251).
+      if (!s.focus && state.focus) app.endFocus(false);
       timeline.year = s.year;
       if (wantRange && !app.range?.set(s.year, s.yearEnd, s.period ?? null)) app.range?.close({ redraw: false });
       const focusNow = state.focus ? `${state.focus.type}:${state.focus.id}` : null;

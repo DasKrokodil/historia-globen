@@ -28,11 +28,11 @@
         "zoom": 1.4
       },
       "chapter": {
-        "sv": "Kris",
-        "en": "Crisis",
-        "fr": "Crise",
-        "de": "Krise",
-        "es": "Crisis"
+        "sv": "Tronföljden",
+        "en": "The succession",
+        "fr": "La succession",
+        "de": "Die Thronfolge",
+        "es": "La sucesión"
       },
       "title": {
         "sv": "Strid om tronen, 1588",
@@ -43,11 +43,11 @@
       },
       "status": "belagt",
       "text": {
-        "sv": "Efter Askia Daouds död 1583 försvagas riket av strider om tronen. 1588 blir hans son Ishaq kung, samtidigt som en av bröderna tågar mot huvudstaden Gao med en upprorsarmé. Ishaq vinner, men armén har förlorat många soldater och ledare.",
-        "en": "After the death of Askia Daoud in 1583, the empire is weakened by struggles over the throne. In 1588 his son Ishaq becomes king, while one of his brothers marches on the capital Gao with a rebel army. Ishaq wins, but the army has lost many soldiers and leaders.",
-        "fr": "Après la mort de l'askia Daoud en 1583, l'empire est affaibli par des luttes pour le trône. En 1588, son fils Ishaq devient roi, alors qu'un de ses frères marche sur la capitale Gao avec une armée rebelle. Ishaq l'emporte, mais l'armée a perdu de nombreux soldats et chefs.",
-        "de": "Nach dem Tod von Askia Daoud 1583 wird das Reich durch Kämpfe um den Thron geschwächt. 1588 wird sein Sohn Ishaq König, während einer seiner Brüder mit einem Rebellenheer auf die Hauptstadt Gao zieht. Ishaq siegt, doch das Heer hat viele Soldaten und Anführer verloren.",
-        "es": "Tras la muerte de Askia Daoud en 1583, el imperio se debilita por las luchas por el trono. En 1588 su hijo Ishaq se convierte en rey, mientras uno de sus hermanos marcha sobre la capital, Gao, con un ejército rebelde. Ishaq vence, pero el ejército ha perdido muchos soldados y jefes."
+        "sv": "Efter Askia Daouds död, 1582 eller 1583 (källorna skiljer sig), försvagas riket av strider om tronen. 1588 blir hans son Ishaq kung, samtidigt som en av bröderna tågar mot huvudstaden Gao med en upprorsarmé. Ishaq vinner, men armén har förlorat många soldater och ledare.",
+        "en": "After the death of Askia Daoud in 1582 or 1583 (the sources differ), the empire is weakened by struggles over the throne. In 1588 his son Ishaq becomes king, while one of his brothers marches on the capital Gao with a rebel army. Ishaq wins, but the army has lost many soldiers and leaders.",
+        "fr": "Après la mort de l'askia Daoud, en 1582 ou 1583 (les sources divergent), l'empire est affaibli par des luttes pour le trône. En 1588, son fils Ishaq devient roi, alors qu'un de ses frères marche sur la capitale Gao avec une armée rebelle. Ishaq l'emporte, mais l'armée a perdu de nombreux soldats et chefs.",
+        "de": "Nach dem Tod von Askia Daoud 1582 oder 1583 (die Quellen weichen voneinander ab) wird das Reich durch Kämpfe um den Thron geschwächt. 1588 wird sein Sohn Ishaq König, während einer seiner Brüder mit einem Rebellenheer auf die Hauptstadt Gao zieht. Ishaq siegt, doch das Heer hat viele Soldaten und Anführer verloren.",
+        "es": "Tras la muerte de Askia Daoud en 1582 o 1583 (las fuentes no coinciden), el imperio se debilita por las luchas por el trono. En 1588 su hijo Ishaq se convierte en rey, mientras uno de sus hermanos marcha sobre la capital, Gao, con un ejército rebelde. Ishaq vence, pero el ejército ha perdido muchos soldados y jefes."
       },
       "layers": [
         "events",
@@ -56,7 +56,8 @@
       "sources": [
         "wp-songhai-empire",
         "wp-battle-tondibi",
-        "wp-askia-ishaq-ii"
+        "wp-askia-ishaq-ii",
+        "wp-askia-daoud"
       ]
     },
     {
@@ -167,7 +168,7 @@
         "de": "Wie groß waren die Heere?",
         "es": "¿Cuán grandes eran los ejércitos?"
       },
-      "status": "okant",
+      "status": "omtvistat",
       "text": {
         "sv": "Källorna skiljer sig. Den marockanska hären anges till omkring 4 000 man i en källa och omkring 20 000 i en annan. Uppgifterna om Songhais armé går från knappt 28 000 till 80 000 man. Alla är överens om att Songhai var fler.",
         "en": "The sources differ. The Moroccan army is given as about 4,000 men in one source and about 20,000 in another. The figures for the Songhai army range from just under 28,000 to 80,000 men. All agree that Songhai had more soldiers.",
@@ -178,9 +179,9 @@
       "question": {
         "sv": "Varför tror du att uppgifter om hur stora arméer var ofta skiljer sig så mycket?",
         "en": "Why do you think figures for the size of armies so often differ so much?",
-        "fr": "Pourquoi penses-tu que les chiffres sur la taille des armées divergent si souvent autant ?",
-        "de": "Warum glaubst du, weichen Angaben über die Größe von Heeren so oft so stark voneinander ab?",
-        "es": "¿Por qué crees que las cifras sobre el tamaño de los ejércitos difieren tan a menudo tanto?"
+        "fr": "Pourquoi pensez-vous que les chiffres sur la taille des armées divergent si souvent autant ?",
+        "de": "Warum, glauben Sie, weichen Angaben über die Größe von Heeren so oft so stark voneinander ab?",
+        "es": "¿Por qué cree que las cifras sobre el tamaño de los ejércitos difieren tan a menudo tanto?"
       },
       "layers": [
         "events",
@@ -225,9 +226,9 @@
       "question": {
         "sv": "Vad tror du att det betydde för handeln i området att alla tre städerna plundrades?",
         "en": "What do you think it meant for trade in the region that all three cities were plundered?",
-        "fr": "Que penses-tu que le pillage des trois villes a signifié pour le commerce de la région ?",
-        "de": "Was glaubst du, bedeutete es für den Handel in der Region, dass alle drei Städte geplündert wurden?",
-        "es": "¿Qué crees que significó para el comercio de la región que las tres ciudades fueran saqueadas?"
+        "fr": "Que pensez-vous que le pillage des trois villes a signifié pour le commerce de la région ?",
+        "de": "Was, glauben Sie, bedeutete es für den Handel in der Region, dass alle drei Städte geplündert wurden?",
+        "es": "¿Qué cree que significó para el comercio de la región que las tres ciudades fueran saqueadas?"
       },
       "layers": [
         "events",
@@ -263,18 +264,19 @@
       },
       "status": "belagt",
       "text": {
-        "sv": "Ishaq ber om fred, men sultanen skickar i stället förstärkningar och en ny befälhavare. Efter ett nytt nederlag i oktober 1591 flyr Ishaq till Dendi, där han avsätts. I april 1592 dödas han i landsflykt.",
-        "en": "Ishaq sues for peace, but the sultan instead sends reinforcements and a new commander. After another defeat in October 1591, Ishaq flees to Dendi, where he is deposed. In April 1592 he is killed in exile.",
-        "fr": "Ishaq demande la paix, mais le sultan envoie à la place des renforts et un nouveau commandant. Après une nouvelle défaite en octobre 1591, Ishaq s'enfuit au Dendi, où il est déposé. En avril 1592, il est tué en exil.",
-        "de": "Ishaq bittet um Frieden, doch der Sultan schickt stattdessen Verstärkung und einen neuen Befehlshaber. Nach einer weiteren Niederlage im Oktober 1591 flieht Ishaq nach Dendi, wo er abgesetzt wird. Im April 1592 wird er im Exil getötet.",
-        "es": "Ishaq pide la paz, pero el sultán envía en cambio refuerzos y un nuevo comandante. Tras otra derrota en octubre de 1591, Ishaq huye a Dendi, donde es depuesto. En abril de 1592 muere asesinado en el exilio."
+        "sv": "Ishaq ber om fred, men sultanen skickar i stället förstärkningar och en ny befälhavare. Efter ett nytt nederlag i oktober 1591 flyr Ishaq till Dendi, där han avsätts. I april 1592 dödas han i landsflykt. Källorna skiljer sig om när hans regering slutade: en av dem anger den 14 april 1591.",
+        "en": "Ishaq sues for peace, but the sultan instead sends reinforcements and a new commander. After another defeat in October 1591, Ishaq flees to Dendi, where he is deposed. In April 1592 he is killed in exile. The sources differ on when his reign ended: one of them gives 14 April 1591.",
+        "fr": "Ishaq demande la paix, mais le sultan envoie à la place des renforts et un nouveau commandant. Après une nouvelle défaite en octobre 1591, Ishaq s'enfuit au Dendi, où il est déposé. En avril 1592, il est tué en exil. Les sources divergent sur la fin de son règne : l'une d'elles indique le 14 avril 1591.",
+        "de": "Ishaq bittet um Frieden, doch der Sultan schickt stattdessen Verstärkung und einen neuen Befehlshaber. Nach einer weiteren Niederlage im Oktober 1591 flieht Ishaq nach Dendi, wo er abgesetzt wird. Im April 1592 wird er im Exil getötet. Die Quellen weichen darin ab, wann seine Herrschaft endete: Eine von ihnen nennt den 14. April 1591.",
+        "es": "Ishaq pide la paz, pero el sultán envía en cambio refuerzos y un nuevo comandante. Tras otra derrota en octubre de 1591, Ishaq huye a Dendi, donde es depuesto. En abril de 1592 muere asesinado en el exilio. Las fuentes no coinciden sobre cuándo terminó su reinado: una de ellas da el 14 de abril de 1591."
       },
       "layers": [
         "events",
         "areas"
       ],
       "sources": [
-        "wp-askia-ishaq-ii"
+        "wp-askia-ishaq-ii",
+        "wp-songhai-empire"
       ]
     },
     {
@@ -301,11 +303,11 @@
       },
       "status": "belagt",
       "text": {
-        "sv": "Marocko lyckas inte styra det stora området, som splittras i dussintals mindre riken. Songhai lever vidare i den enda provinsen som finns kvar, Dendi, i ytterligare två och ett halvt sekel. Från 1612 utses Timbuktus pashor på plats i stället för från Marocko, och 1618 släpper sultanen den direkta kontrollen.",
-        "en": "Morocco fails to govern the vast region, which splinters into dozens of smaller kingdoms. Songhai lives on in its only remaining province, Dendi, for another two and a half centuries. From 1612 the pashas of Timbuktu are appointed locally rather than from Morocco, and in 1618 the sultan gives up direct control.",
-        "fr": "Le Maroc ne parvient pas à gouverner cette vaste région, qui se morcelle en dizaines de petits royaumes. Le Songhaï survit dans sa seule province restante, le Dendi, pendant encore deux siècles et demi. À partir de 1612, les pachas de Tombouctou sont nommés sur place et non plus depuis le Maroc, et en 1618 le sultan renonce au contrôle direct.",
-        "de": "Marokko gelingt es nicht, das große Gebiet zu regieren, das in Dutzende kleinerer Reiche zerfällt. Songhai lebt in der einzigen verbliebenen Provinz, Dendi, noch zweieinhalb Jahrhunderte weiter. Ab 1612 werden die Paschas von Timbuktu vor Ort ernannt statt von Marokko aus, und 1618 gibt der Sultan die direkte Kontrolle auf.",
-        "es": "Marruecos no logra gobernar la extensa región, que se fragmenta en decenas de reinos más pequeños. El Songhai sobrevive en su única provincia restante, Dendi, durante otros dos siglos y medio. Desde 1612 los bajás de Tombuctú se nombran allí mismo y no desde Marruecos, y en 1618 el sultán renuncia al control directo."
+        "sv": "Marocko lyckas inte styra det stora området, som splittras i dussintals mindre riken. Songhai lever vidare i den enda provinsen som finns kvar, Dendi, i ytterligare två och ett halvt sekel. Från 1612 utses Timbuktus pashor på plats i stället för från Marocko, och 1618 släpper sultanen den direkta kontrollen. Kartan på globen bygger på en annan källa och visar Songhairiket fram till 1608, från 1595 bara ett litet område.",
+        "en": "Morocco fails to govern the vast region, which splinters into dozens of smaller kingdoms. Songhai lives on in its only remaining province, Dendi, for another two and a half centuries. From 1612 the pashas of Timbuktu are appointed locally rather than from Morocco, and in 1618 the sultan gives up direct control. The map on the globe is based on a different source and shows the Songhai Empire until 1608, from 1595 only a small area.",
+        "fr": "Le Maroc ne parvient pas à gouverner cette vaste région, qui se morcelle en dizaines de petits royaumes. Le Songhaï survit dans sa seule province restante, le Dendi, pendant encore deux siècles et demi. À partir de 1612, les pachas de Tombouctou sont nommés sur place et non plus depuis le Maroc, et en 1618 le sultan renonce au contrôle direct. La carte du globe s'appuie sur une autre source et montre l'Empire songhaï jusqu'en 1608, à partir de 1595 seulement une petite zone.",
+        "de": "Marokko gelingt es nicht, das große Gebiet zu regieren, das in Dutzende kleinerer Reiche zerfällt. Songhai lebt in der einzigen verbliebenen Provinz, Dendi, noch zweieinhalb Jahrhunderte weiter. Ab 1612 werden die Paschas von Timbuktu vor Ort ernannt statt von Marokko aus, und 1618 gibt der Sultan die direkte Kontrolle auf. Die Karte auf dem Globus beruht auf einer anderen Quelle und zeigt das Songhai-Reich bis 1608, ab 1595 nur noch ein kleines Gebiet.",
+        "es": "Marruecos no logra gobernar la extensa región, que se fragmenta en decenas de reinos más pequeños. El Songhai sobrevive en su única provincia restante, Dendi, durante otros dos siglos y medio. Desde 1612 los bajás de Tombuctú se nombran allí mismo y no desde Marruecos, y en 1618 el sultán renuncia al control directo. El mapa del globo se basa en otra fuente y muestra el Imperio songhai hasta 1608, desde 1595 solo una zona pequeña."
       },
       "question": {
         "sv": "Kan man säga att ett rike har fallit om dess kungar fortsätter att regera någon annanstans?",
@@ -321,7 +323,8 @@
       "sources": [
         "wp-battle-tondibi",
         "wp-songhai-empire",
-        "wp-pashalik-of-timbuktu"
+        "wp-pashalik-of-timbuktu",
+        "cliopatria"
       ]
     },
     {

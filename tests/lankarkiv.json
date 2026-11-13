@@ -1,0 +1,572 @@
+{
+ "schema": "historia-globen/lankarkiv@1",
+ "om": "Länkar som de släppta versionerna sedan v5.0.0 har skrivit, med det tillstånd dagens kod läser ur dem (#1326). Länkarna är byggda med respektive versions egen encodeHash ur git-taggen (och för lektions- och lärarlänkarna med tourLink och teacherLink i js/ui/print-sheet.js), med id som fanns i versionens data. versions säger vilka versioner som skrev exakt samma länk. expected är facit: ändras det betyder en delad länk något annat än förut. Lägg till länkar när adressen får en ny del, och ändra aldrig ett facit utan ett beslut om att en gammal länk ska tolkas på nytt.",
+ "links": [
+  {
+   "what": "år, kamera, lager och alla kategorier",
+   "versions": [
+    "v5.0.0",
+    "v6.0.0",
+    "v6.1.0",
+    "v6.2.0"
+   ],
+   "hash": "#y=1325&c=34,-50,1.6&l=areas,events",
+   "expected": {
+    "state": {
+     "v": 1,
+     "year": 1325,
+     "camera": {
+      "lat": 34,
+      "lon": -50,
+      "zoom": 1.6
+     },
+     "focus": null,
+     "layers": [
+      "areas",
+      "events"
+     ],
+     "filters": null,
+     "tag": null,
+     "calm": false
+    },
+    "tour": null,
+    "mode": null,
+    "mission": null,
+    "role": null
+   }
+  },
+  {
+   "what": "år före vår tideräkning utan kamera",
+   "versions": [
+    "v5.0.0",
+    "v6.0.0",
+    "v6.1.0",
+    "v6.2.0"
+   ],
+   "hash": "#y=-499&l=areas,events",
+   "expected": {
+    "state": {
+     "v": 1,
+     "year": -499,
+     "camera": null,
+     "focus": null,
+     "layers": [
+      "areas",
+      "events"
+     ],
+     "filters": null,
+     "tag": null,
+     "calm": false
+    },
+    "tour": null,
+    "mode": null,
+    "mission": null,
+    "role": null
+   }
+  },
+  {
+   "what": "inga lager och två kategorier",
+   "versions": [
+    "v5.0.0",
+    "v6.0.0",
+    "v6.1.0",
+    "v6.2.0"
+   ],
+   "hash": "#y=1066&c=34,-50,1.6&l=&k=krig,kultur",
+   "expected": {
+    "state": {
+     "v": 1,
+     "year": 1066,
+     "camera": {
+      "lat": 34,
+      "lon": -50,
+      "zoom": 1.6
+     },
+     "focus": null,
+     "layers": [],
+     "filters": [
+      "krig",
+      "kultur"
+     ],
+     "tag": null,
+     "calm": false
+    },
+    "tour": null,
+    "mode": null,
+    "mission": null,
+    "role": null
+   }
+  },
+  {
+   "what": "följer ett krig",
+   "versions": [
+    "v5.0.0",
+    "v6.0.0",
+    "v6.1.0",
+    "v6.2.0"
+   ],
+   "hash": "#y=1916&c=34,-50,1.6&f=war:forsta-varldskriget&l=areas,events,wars",
+   "expected": {
+    "state": {
+     "v": 1,
+     "year": 1916,
+     "camera": {
+      "lat": 34,
+      "lon": -50,
+      "zoom": 1.6
+     },
+     "focus": "war:forsta-varldskriget",
+     "layers": [
+      "areas",
+      "events",
+      "wars"
+     ],
+     "filters": null,
+     "tag": null,
+     "calm": false
+    },
+    "tour": null,
+    "mode": null,
+    "mission": null,
+    "role": null
+   }
+  },
+  {
+   "what": "kort krig i dagar",
+   "versions": [
+    "v5.0.0",
+    "v6.0.0",
+    "v6.1.0",
+    "v6.2.0"
+   ],
+   "hash": "#y=1967.4301&c=34,-50,1.6&f=war:sexdagarskriget&l=events,wars",
+   "expected": {
+    "state": {
+     "v": 1,
+     "year": 1967.4301,
+     "camera": {
+      "lat": 34,
+      "lon": -50,
+      "zoom": 1.6
+     },
+     "focus": "war:sexdagarskriget",
+     "layers": [
+      "events",
+      "wars"
+     ],
+     "filters": null,
+     "tag": null,
+     "calm": false
+    },
+    "tour": null,
+    "mode": null,
+    "mission": null,
+    "role": null
+   }
+  },
+  {
+   "what": "följer ett rike",
+   "versions": [
+    "v5.0.0",
+    "v6.0.0",
+    "v6.1.0",
+    "v6.2.0"
+   ],
+   "hash": "#y=100&c=34,-50,1.6&f=empire:romarriket&l=areas,events&k=civilisationer,krig",
+   "expected": {
+    "state": {
+     "v": 1,
+     "year": 100,
+     "camera": {
+      "lat": 34,
+      "lon": -50,
+      "zoom": 1.6
+     },
+     "focus": "empire:romarriket",
+     "layers": [
+      "areas",
+      "events"
+     ],
+     "filters": [
+      "civilisationer",
+      "krig"
+     ],
+     "tag": null,
+     "calm": false
+    },
+    "tour": null,
+    "mode": null,
+    "mission": null,
+    "role": null
+   }
+  },
+  {
+   "what": "följer en religion",
+   "versions": [
+    "v5.0.0",
+    "v6.0.0",
+    "v6.1.0",
+    "v6.2.0"
+   ],
+   "hash": "#y=700&c=34,-50,1.6&f=religion:islam&l=religions,events",
+   "expected": {
+    "state": {
+     "v": 1,
+     "year": 700,
+     "camera": {
+      "lat": 34,
+      "lon": -50,
+      "zoom": 1.6
+     },
+     "focus": "religion:islam",
+     "layers": [
+      "events",
+      "religions"
+     ],
+     "filters": null,
+     "tag": null,
+     "calm": false
+    },
+    "tour": null,
+    "mode": null,
+    "mission": null,
+    "role": null
+   }
+  },
+  {
+   "what": "följer en resa",
+   "versions": [
+    "v5.0.0",
+    "v6.0.0",
+    "v6.1.0",
+    "v6.2.0"
+   ],
+   "hash": "#y=1492&c=34,-50,1.6&f=route:columbus-resa-1&l=routes,events",
+   "expected": {
+    "state": {
+     "v": 1,
+     "year": 1492,
+     "camera": {
+      "lat": 34,
+      "lon": -50,
+      "zoom": 1.6
+     },
+     "focus": "route:columbus-resa-1",
+     "layers": [
+      "events",
+      "routes"
+     ],
+     "filters": null,
+     "tag": null,
+     "calm": false
+    },
+    "tour": null,
+    "mode": null,
+    "mission": null,
+    "role": null
+   }
+  },
+  {
+   "what": "guidad tur med steg",
+   "versions": [
+    "v6.0.0",
+    "v6.1.0",
+    "v6.2.0"
+   ],
+   "hash": "#y=793&c=34,-50,1.6&l=areas,events&t=vikingatiden-och-varlden&s=lindisfarne",
+   "expected": {
+    "state": {
+     "v": 1,
+     "year": 793,
+     "camera": {
+      "lat": 34,
+      "lon": -50,
+      "zoom": 1.6
+     },
+     "focus": null,
+     "layers": [
+      "areas",
+      "events"
+     ],
+     "filters": null,
+     "tag": null,
+     "calm": false
+    },
+    "tour": {
+     "id": "vikingatiden-och-varlden",
+     "step": "lindisfarne"
+    },
+    "mode": null,
+    "mission": null,
+    "role": null
+   }
+  },
+  {
+   "what": "tur som lektion",
+   "versions": [
+    "v6.0.0",
+    "v6.1.0",
+    "v6.2.0"
+   ],
+   "hash": "#y=793&c=34,-50,1.6&l=events&t=vikingatiden-och-varlden&m=lektion",
+   "expected": {
+    "state": {
+     "v": 1,
+     "year": 793,
+     "camera": {
+      "lat": 34,
+      "lon": -50,
+      "zoom": 1.6
+     },
+     "focus": null,
+     "layers": [
+      "events"
+     ],
+     "filters": null,
+     "tag": null,
+     "calm": false
+    },
+    "tour": {
+     "id": "vikingatiden-och-varlden",
+     "step": null
+    },
+    "mode": "lektion",
+    "mission": null,
+    "role": null
+   }
+  },
+  {
+   "what": "elevuppdrag",
+   "versions": [
+    "v6.0.0",
+    "v6.1.0",
+    "v6.2.0"
+   ],
+   "hash": "#y=1500&l=areas,events&u=samtidighetsjakten-1500",
+   "expected": {
+    "state": {
+     "v": 1,
+     "year": 1500,
+     "camera": null,
+     "focus": null,
+     "layers": [
+      "areas",
+      "events"
+     ],
+     "filters": null,
+     "tag": null,
+     "calm": false
+    },
+    "tour": null,
+    "mode": null,
+    "mission": "samtidighetsjakten-1500",
+    "role": null
+   }
+  },
+  {
+   "what": "tidsintervall",
+   "versions": [
+    "v6.1.0",
+    "v6.2.0"
+   ],
+   "hash": "#y=1914&y2=1918&c=34,-50,1.6&l=areas,events",
+   "expected": {
+    "state": {
+     "v": 1,
+     "year": 1914,
+     "camera": {
+      "lat": 34,
+      "lon": -50,
+      "zoom": 1.6
+     },
+     "focus": null,
+     "layers": [
+      "areas",
+      "events"
+     ],
+     "filters": null,
+     "tag": null,
+     "calm": false,
+     "yearEnd": 1918
+    },
+    "tour": null,
+    "mode": null,
+    "mission": null,
+    "role": null
+   }
+  },
+  {
+   "what": "tidsintervall med epok",
+   "versions": [
+    "v6.2.0"
+   ],
+   "hash": "#y=800&y2=1500&p=norden-800-1500&c=34,-50,1.6&l=areas,events",
+   "expected": {
+    "state": {
+     "v": 1,
+     "year": 800,
+     "camera": {
+      "lat": 34,
+      "lon": -50,
+      "zoom": 1.6
+     },
+     "focus": null,
+     "layers": [
+      "areas",
+      "events"
+     ],
+     "filters": null,
+     "tag": null,
+     "calm": false,
+     "yearEnd": 1500,
+     "period": "norden-800-1500"
+    },
+    "tour": null,
+    "mode": null,
+    "mission": null,
+    "role": null
+   }
+  },
+  {
+   "what": "följer ett tema",
+   "versions": [
+    "v6.2.0"
+   ],
+   "hash": "#y=1450&c=34,-50,1.6&f=theme:teknik&l=areas,events",
+   "expected": {
+    "state": {
+     "v": 1,
+     "year": 1450,
+     "camera": {
+      "lat": 34,
+      "lon": -50,
+      "zoom": 1.6
+     },
+     "focus": "theme:teknik",
+     "layers": [
+      "areas",
+      "events"
+     ],
+     "filters": null,
+     "tag": null,
+     "calm": false
+    },
+    "tour": null,
+    "mode": null,
+    "mission": null,
+    "role": null
+   }
+  },
+  {
+   "what": "följer en plats",
+   "versions": [
+    "v6.2.0"
+   ],
+   "hash": "#y=1980&c=34,-50,1.6&f=place:gronland&l=places,events",
+   "expected": {
+    "state": {
+     "v": 1,
+     "year": 1980,
+     "camera": {
+      "lat": 34,
+      "lon": -50,
+      "zoom": 1.6
+     },
+     "focus": "place:gronland",
+     "layers": [
+      "events",
+      "places"
+     ],
+     "filters": null,
+     "tag": null,
+     "calm": false
+    },
+    "tour": null,
+    "mode": null,
+    "mission": null,
+    "role": null
+   }
+  },
+  {
+   "what": "förinställd vy med urval",
+   "versions": [
+    "v6.2.0"
+   ],
+   "hash": "#y=1800&c=34,-50,1.6&l=events&g=oversikt",
+   "expected": {
+    "state": {
+     "v": 1,
+     "year": 1800,
+     "camera": {
+      "lat": 34,
+      "lon": -50,
+      "zoom": 1.6
+     },
+     "focus": null,
+     "layers": [
+      "events"
+     ],
+     "filters": null,
+     "tag": "oversikt",
+     "calm": false
+    },
+    "tour": null,
+    "mode": null,
+    "mission": null,
+    "role": null
+   }
+  },
+  {
+   "what": "lektionslänken på elevbladet (tourLink)",
+   "versions": [
+    "v6.0.0"
+   ],
+   "hash": "#t=vikingatiden-och-varlden&m=lektion",
+   "expected": {
+    "state": null,
+    "tour": {
+     "id": "vikingatiden-och-varlden",
+     "step": null
+    },
+    "mode": "lektion",
+    "mission": null,
+    "role": null
+   }
+  },
+  {
+   "what": "äldre turlänk med ?tur=",
+   "versions": [
+    "v6.0.0"
+   ],
+   "hash": "",
+   "search": "?tur=andra-varldskriget",
+   "expected": {
+    "state": null,
+    "tour": {
+     "id": "andra-varldskriget",
+     "step": null
+    },
+    "mode": null,
+    "mission": null,
+    "role": null
+   }
+  },
+  {
+   "what": "lärarlänken (teacherLink)",
+   "versions": [
+    "v6.1.0"
+   ],
+   "hash": "#t=vikingatiden-och-varlden&m=lektion&r=lararen",
+   "expected": {
+    "state": null,
+    "tour": {
+     "id": "vikingatiden-och-varlden",
+     "step": null
+    },
+    "mode": "lektion",
+    "mission": null,
+    "role": "lararen"
+   }
+  }
+ ]
+}

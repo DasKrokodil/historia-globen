@@ -388,6 +388,13 @@ body {
   .presentation-mode .panel { width: min(420px, calc(100vw - 48px)); max-height: 52vh; }
   .presentation-mode .panel .event-btn .ttl { font-size: 17px; }
 }
+@media (min-width: 1101px) {
+  /* Knappraden radbryts innan den når årskortet uppe till vänster (#1190). Kortet är högst min(520px, 60vw) brett;
+     utan gränsen växte raden åt vänster in över kortet upp till cirka 1550 px, mest på tyska, spanska och franska.
+     Under 1101 px ligger kortet i stället under knapparna (#992). Panelen och menyerna placeras under radens
+     underkant med JavaScript och följer med när den blir två rader. */
+  .top-actions { max-width: calc(100% - var(--gut) - min(520px, 60vw) - var(--gut-r) - 24px); }
+}
 @media (min-width: 1600px) {
   .presentation-mode #detail { width: min(520px, calc(100vw - 64px)); }
   .presentation-mode #funfact { width: min(480px, calc(100vw - 64px)); }
@@ -961,6 +968,11 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 }
 .app:has(.pause-note:not([hidden])) .tour-card { bottom: 186px; max-height: calc(100dvh - 186px - 150px); }
 .tour-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+/* Stegindikatorn (#1280): ett streck per steg under "Steg n av N"; bara en tillägg, dold för skärmläsare */
+.tour-meter { display: flex; gap: 3px; margin: 6px 0 2px; }
+.tour-meter span { flex: 1 1 0; min-width: 2px; height: 4px; border-radius: 2px; background: var(--control-line); }
+.tour-meter .is-done { background: var(--brass-deep); }
+.tour-meter .is-current { background: var(--brass); }
 .tour-progress { margin: 0; font: 500 11px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
 .tour-head .panel-x { position: relative; float: none; margin: -4px -6px 0 0; flex: none; }
 .tour-name { margin: 6px 0 0; font: 500 11.5px/1.3 var(--f-mono); color: var(--parchment-dim); }
@@ -969,10 +981,11 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 .tour-chapter { margin: 10px 0 0; font: 500 11px/1.2 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
 .tour-chapter[hidden], .tour-question[hidden], .tour-status[hidden] { display: none; }
 /* Vad källorna säger om steget (#499): samma ord och markering som slutkortet (#500) */
-.tour-status { margin: 6px 0 0; font: 600 12.5px/1.3 var(--f-body); color: var(--parchment); }
-.tour-status::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 7px; border-radius: 50%; vertical-align: 1px; background: var(--brass); }
-.tour-status.takeaway-omtvistat::before { background: none; border: 2px solid var(--brass); width: 6px; height: 6px; }
-.tour-status.takeaway-okant::before { background: none; border: 2px dashed var(--parchment-dim); width: 6px; height: 6px; }
+/* Statusmarkören (#1280): 12 px, och formen skiljer sig (ifylld, ring, streckad ring) utöver ordet, så att den inte hänger på färg */
+.tour-status { margin: 6px 0 0; font: 600 14px/1.3 var(--f-body); color: var(--parchment); }
+.tour-status::before { content: ""; box-sizing: border-box; display: inline-block; width: 12px; height: 12px; margin-right: 8px; border-radius: 50%; vertical-align: -1px; background: var(--brass); }
+.tour-status.takeaway-omtvistat::before { background: none; border: 2px solid var(--brass); width: 12px; height: 12px; }
+.tour-status.takeaway-okant::before { background: none; border: 2px dashed var(--parchment); width: 12px; height: 12px; }
 /* Frågan att fundera på (#247): en egen ruta, så att den inte läses som en uppgift */
 .tour-question { margin: 10px 0 0; padding: 8px 10px; border-left: 2px solid var(--brass); background: color-mix(in srgb, var(--brass) 10%, transparent); font: 400 14px/1.4 var(--f-body); color: var(--parchment); }
 .tour-question-label { font-weight: 600; color: var(--brass); }
@@ -986,13 +999,14 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 .tour-actions { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-top: 14px; }
 .tour-actions .chip-btn { margin-right: auto; }
 .tour-actions .chip-btn[hidden] { display: none; }
-.tour-next { min-height: 36px; padding: 8px 14px; border: 1px solid var(--brass); border-radius: 999px; background: var(--brass); color: var(--night); font: 600 13px/1 var(--f-body); cursor: pointer; }
-.tour-end { min-height: 36px; padding: 8px 14px; border: 1px solid var(--control-line); border-radius: 999px; background: transparent; color: var(--parchment); font: 500 13px/1 var(--f-body); cursor: pointer; }
+.tour-next { min-height: 44px; padding: 8px 16px; border: 1px solid var(--brass); border-radius: 999px; background: var(--brass); color: var(--night); font: 600 13px/1 var(--f-body); cursor: pointer; }
+.tour-end { min-height: 44px; padding: 8px 16px; border: 1px solid var(--control-line); border-radius: 999px; background: transparent; color: var(--parchment); font: 500 13px/1 var(--f-body); cursor: pointer; }
 .tour-end:hover { border-color: var(--brass-deep); }
 .tour-end[hidden] { display: none; }
 .tour-next:focus-visible, .tour-end:focus-visible, .tour-pick:focus-visible { outline: 2px solid var(--brass-light); outline-offset: 2px; }
 .tour-menu { width: min(360px, calc(100vw - 32px)); }
 .tour-list { list-style: none; margin: 0; padding: 0; }
+.tour-group-title { margin-top: 10px; }
 .tour-pick { display: grid; gap: 4px; width: 100%; min-height: 44px; padding: 9px 10px; border: 0; border-radius: 8px; background: none; color: var(--parchment); text-align: left; cursor: pointer; }
 .tour-pick:hover { background: color-mix(in srgb, var(--brass) 14%, transparent); }
 .tour-pick-title { font: 400 18px/1.15 var(--f-display); }
@@ -1828,6 +1842,11 @@ details.used-by summary:hover { color: var(--parchment); }
 .layer-subrow .rel-sym, .focus-item .rel-sym { margin-left: -4px; }
 .religion-legend .rel-sym { width: 15px; height: 15px; margin-left: -3px; }
 .detail h3 .rel-sym-h { width: 22px; height: 22px; margin-right: 8px; vertical-align: -3px; }
+.place-emblems { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: flex-start; margin: 6px 0 10px; }
+.place-emblem { margin: 0; display: flex; flex-direction: column; gap: 4px; max-width: 150px; font-size: 0.85em; }
+.place-emblem img { height: 44px; width: auto; align-self: flex-start; }
+.place-emblem-flag img { border: 1px solid var(--brass); }
+.place-emblem .meta { display: block; }
 @media (max-width: 760px) { .religion-legend .rel-sym { width: 13px; height: 13px; } }
 .detail .war-link .rel-sym-in { width: 18px; height: 18px; vertical-align: -4px; }
 /* Knappen över symbolen där religionen uppstod (#271): osynlig, men går att nå med Tab och syns med fokusring */
@@ -1887,6 +1906,22 @@ details.used-by summary:hover { color: var(--parchment); }
   box-shadow: 0 8px 28px rgba(0, 0, 0, .5);
 }
 .lang-menu[hidden] { display: none; }
+.lang-notice { /* upplysningen efter byte till en ofärdig översättning (#1308) */
+  position: absolute; z-index: var(--z-meny); top: calc(100% + 8px); right: 0;
+  display: flex; align-items: flex-start; gap: 6px; width: min(280px, calc(100vw - 32px)); padding: 8px 6px 8px 12px;
+  background: color-mix(in srgb, var(--night-2) 96%, transparent); border: 1px solid var(--brass-deep); border-radius: var(--r);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, .5);
+}
+.lang-notice p { margin: 0; font: 400 13px/1.4 var(--f-body); color: var(--parchment); }
+.lang-notice-close {
+  flex: none; min-width: 28px; min-height: 28px; font-size: 18px; line-height: 1; color: var(--parchment);
+  background: none; border: 1px solid transparent; border-radius: 6px; cursor: pointer;
+}
+.lang-notice-close:hover, .lang-notice-close:focus-visible { border-color: var(--brass); outline: none; }
+@media (max-width: 760px) {
+  /* Språkknappen sitter till vänster i mobil: upplysningen läggs över hela bredden i stället (#1308) */
+  .lang-notice { position: fixed; top: 56px; left: 16px; right: 16px; width: auto; }
+}
 .lang-item {
   display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; min-height: 40px; padding: 6px 10px;
   font: 500 13.5px/1.2 var(--f-body); color: var(--parchment); text-align: left;

@@ -10,7 +10,7 @@
 import { t, isVisibleReview, loadEmpire } from '../model.js';
 import { glyph, flag, drawFlag } from './events.js';
 import { drawMedal, ORIGIN_R } from './religions.js';
-import { softEdge, influenceAt, drawInfluence } from './area-style.js';
+import { softEdge, influenceAt, drawInfluence, traceRing } from './area-style.js';
 import { AreaTransition, MAX_JUMP_YEARS } from './area-transition.js';
 import { EmpireMarkers } from './empiremarks.js';
 import { Z } from './registry.js';
@@ -30,9 +30,12 @@ export function entry({ globe, data, labelsEl, refreshSoon, showEmpireFacts }) {
   // Flagga som gäller året i empires/index.json går före rikets symbol. Saknas belagd flagga används symbolen,
   // även för ett rike i gruppen med egen faktaruta (Bysantinska riket).
   const empireById = new Map(data.empireGroups.map(g => [g.id, g]));
-  layer.markOf = (polity, year) => {
+  // Nutida stat (modernState, #1193): flaggan bara vid nära zoom (near) eller när man följer landet; annars namnet som
+  // för riken utan symbol. Faktarutan och Fokus läser flaggorna själva och visar dem alltid.
+  layer.markOf = (polity, year, near = true) => {
     const g = empireById.get(polity.group);
     const own = g?.polityFacts?.[polity.id];
+    if (g?.modernState && !near && layer.onlyGroup !== g.id) return null;
     const currentFlag = (own?.flags ?? g?.flags ?? []).find(f => year >= f.from && year <= f.to);
     // flagKind (#1148): flagga, symbol eller modern återgivning; utan fältet är det en flagga
     if (currentFlag) return { symbol: currentFlag.file, kind: 'flag', flagKind: currentFlag.kind ?? 'flag', color: polity.color, name: t(polity.name), group: g.id, own: !!own?.facts };
@@ -71,6 +74,7 @@ export function entry({ globe, data, labelsEl, refreshSoon, showEmpireFacts }) {
       layer.labelScale = marks.scale = s.labels.scale;
       layer.labelAlpha = s.labels.alpha;
       layer.showNames = s.labels.empireNames;
+      layer.modernFlags = s.labels.modernFlags ?? true;
       ensure(s.areaYear); // i ett tidsintervall slutåret (#756)
       // Övergången (#78) är mjuk när tiden spelas upp eller flyttas lite, annars visas nya läget direkt
       const out = layer.update({ year: s.areaYear, smooth: s.playing || Math.abs(s.areaYear - lastYear) <= MAX_JUMP_YEARS });
@@ -95,6 +99,7 @@ export class AreasLayer {
     this.markOf = () => null; // rikets markör: (polity, year) → { symbol, kind, color, name, group } eller null
     this.year = 0;
     this.showNames = true; // namnen under symbolerna (false utzoomat på globen, #301)
+    this.modernFlags = true; // nutida staters flaggor (false utzoomat, #1193)
     this.onGlyph = () => {}; // anropas när en symbol har laddats, så att lagerbilden ritas om
     this.transition = new AreaTransition(); // mjuk övergång när ett område byter period (#78)
     // Zoomnivån och platserna som ska hållas fria (#358), sätts med setView(). Utan setView gäller nivån
@@ -166,7 +171,7 @@ export class AreasLayer {
    */
   _layout() {
     const v = this.view;
-    const key = `${this._rev}|${this.labelScale}|${this.showNames}`;
+    const key = `${this._rev}|${this.labelScale}|${this.showNames}|${this.modernFlags}|${this.onlyGroup}`;
     if (this._lay?.key === key) return this._lay.map;
     const map = new Map();
     const X = lon => (lon + 180) / 360 * 2048, Y = lat => (90 - lat) / 180 * 1024;
@@ -186,12 +191,13 @@ export class AreasLayer {
     const keep = !!this.onlyGroup; // fokusläge för ett rike: allt som syns hör till riket och visas alltid
     // Små stater (#722, polity.point): punkten står alltid på label-punkten och tas först, så att namnen viker för den
     const DOT = 3.5 * sc;
-    const dots = this.active.filter(a => a.polity.point).map(({ polity, period }) => {
+    const dots = this.active.filter(a => a.polity.point && a.period.label).map(({ polity, period }) => {
       const x = X(period.label[0]), y = Y(period.label[1]);
       take(sq(x, y, DOT * 1.6));
       return { polity, x, y };
     });
-    const cands = this.active.filter(a => !a.polity.point).map(a => ({ ...a, area: a.period.areaKm2 ?? 0 }))
+    // label: null (#1189): ingen medalj och inget namn de åren, bara området
+    const cands = this.active.filter(a => !a.polity.point && a.period.label).map(a => ({ ...a, area: a.period.areaKm2 ?? 0 }))
       .sort((a, b) => b.area - a.area);
     const limit = keep ? Infinity : (ZOOM_LEVELS[v.level] ?? ZOOM_LEVELS[0]).names;
     const offsets = [-1.05, 1.15, -2.2, 2.3, -3.35, 3.45];
@@ -199,7 +205,7 @@ export class AreasLayer {
       if (rank >= limit) return; // för litet för den här zoomnivån: bara området syns
       const px = X(period.label[0]), py = Y(period.label[1]);
       const name = t(polity.name), w = measure(name, font);
-      const sym = this.markOf(polity, this.year);
+      const sym = this.markOf(polity, this.year, this.modernFlags);
       const d = { px, py, medal: null, star: false, name: null, x: px, y: py, lead: null };
       if (sym) {
         // Medaljen står på label-punkten. Är platsen upptagen flyttas den lite inom området (rutan runt det); ryms den
@@ -370,10 +376,7 @@ export class AreasLayer {
       const alpha = transitionAlpha * (!this.highlight || polity.group === this.highlight ? 1 : 0.25);
       ctx.beginPath();
       for (const rings of polygons(period.geometry)) {
-        for (const ring of rings) {
-          ring.forEach(([lon, lat], i) => i ? ctx.lineTo(X(lon), Y(lat)) : ctx.moveTo(X(lon), Y(lat)));
-          ctx.closePath();
-        }
+        for (const ring of rings) traceRing(ctx, ring, X, Y); // också över datumlinjen (#1097)
       }
       if (polity.uncertainBorder) { // osäker gräns: mjuk kant (#73)
         ctx.globalAlpha = alpha; softEdge(ctx, polity.color, k); ctx.globalAlpha = 1; continue;
@@ -402,10 +405,7 @@ export class AreasLayer {
       ctx.globalAlpha = alpha;
       ctx.beginPath();
       for (const rings of polygons(period.homeland)) {
-        for (const ring of rings) {
-          ring.forEach(([lon, lat], i) => i ? ctx.lineTo(X(lon), Y(lat)) : ctx.moveTo(X(lon), Y(lat)));
-          ctx.closePath();
-        }
+        for (const ring of rings) traceRing(ctx, ring, X, Y); // också över datumlinjen (#1097)
       }
       ctx.fillStyle = hexA(polity.color, 0.4);
       ctx.fill('evenodd');

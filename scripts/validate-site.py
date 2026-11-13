@@ -419,6 +419,30 @@ if misc_path.is_file():
                 if s not in src_ids:
                     err(f'data/missuppfattningar.json ({mid}): källan {s} finns inte i sources.json')
 
+# 8c2. Quizets tidsfrågor (#846): varje fråga pekar på händelser som finns, med rätt antal för sin sort.
+quiz_path = ROOT / 'data' / 'quiz.json'
+if quiz_path.is_file():
+    try:
+        quiz = json.loads(quiz_path.read_text(encoding='utf-8'))
+    except ValueError as e:
+        quiz = None
+        err(f'data/quiz.json: går inte att läsa ({e})')
+    if quiz is not None:
+        seen = set()
+        for q in quiz.get('questions', []):
+            qid = q.get('id', '?')
+            if qid in seen:
+                err(f'data/quiz.json ({qid}): id finns två gånger')
+            seen.add(qid)
+            want = {'first': 2, 'closer': 3}.get(q.get('kind'))
+            if want is None:
+                err(f'data/quiz.json ({qid}): okänd sort {q.get("kind")}')
+            elif len(q.get('events', [])) != want:
+                err(f'data/quiz.json ({qid}): sorten {q.get("kind")} ska ha {want} händelser')
+            for i in q.get('events', []):
+                if i not in ev_ids:
+                    err(f'data/quiz.json ({qid}): händelsen {i} finns inte i events.json')
+
 # 8d. Perioder och epoker (#845, #476): filen läses inte av appen än; här kontrolleras den ur repot.
 per_path = ROOT / 'data' / 'perioder.json'
 if per_path.is_file():
@@ -453,14 +477,29 @@ if per_path.is_file():
 # 8e. Teman (#398): filen publiceras (scripts/build-site.sh) och Fokus läser den. Ett tema är ett urval av befintliga
 # händelser; regler och format står i docs/datamodell.md (teman.json). Varningar stoppar inte bygget.
 VISIBLE = {'source-checked', 'two-sources'}
-EARLIEST_YEAR = -2999  # MIN_YEAR i js/timeline.js
+EARLIEST_YEAR = -99999  # MIN_YEAR i js/state.js (#1088)
 
 
 def region_of(lat, lon):
     """Samma indelning som region() i js/model.js."""
+    # Västra Anatoliens kust, samma som AEGEAN_COAST i js/model.js (#1334); här i funktionen så att testet kan köra den ensam
+    coast = [(40.45, 26.75), (40.0, 26.2), (39.5, 26.05), (39.4, 26.62), (39.0, 26.75), (38.7, 26.7),
+             (38.45, 26.4), (38.3, 26.25), (38.0, 26.9), (37.75, 27.1), (37.6, 27.05), (37.4, 27.15), (37.0, 27.2),
+             (36.95, 27.38), (36.6, 27.6)]
+
+    def coast_lon(lat):
+        for i in range(1, len(coast)):
+            a, x = coast[i - 1]
+            b, y = coast[i]
+            if lat >= b:
+                return y + (lat - b) / (a - b) * (x - y)
+        return coast[-1][1]
     if lat > 50 and (lon < -168 or lon > 160): return 'Asien'
     if lon < -125 and lat < 35: return 'Oceanien'
     if lon < -105 and lat < -10: return 'Oceanien'
+    if -32 <= lon < -20:  # Azorerna och Kap Verde (#1334)
+        if 36 < lat < 40.5: return 'Europa'
+        if 13 < lat < 18: return 'Afrika'
     if lon < -25: return 'Amerika'
     if lon < -10 and lat >= 68: return 'Amerika'  # Grönlands östkust (#1135)
     if (lat < -10 and lon > 110) or (lat < 22 and lon > 130) or lon > 160: return 'Oceanien'
@@ -468,8 +507,10 @@ def region_of(lat, lon):
         if lon < -1.5: africa = lat < 36
         elif lon <= 11.5: africa = lat < 37.5
         elif lon <= 32.5: africa = lat < 33.5
-        else: africa = lat < 31.5 and lon < 32.5 + (30 - lat) * 0.62
+        else: africa = (lat < 31.5 and lon < 32.5 + (30 - lat) * 0.62) or lat < 12  # Somalia (#1334)
         if africa: return 'Afrika'
+    if 52 <= lon < 64 and -22 < lat < -3: return 'Afrika'  # Maskarenerna och Seychellerna (#1334)
+    if 36.6 <= lat <= 40.45 and lon < 28.9 and lon > coast_lon(lat): return 'Asien'  # västra Anatolien (#1334)
     if lat >= 35 and (lon < 28.9 or (lat >= 41 and lon < 60 and not (lon > 40 and lat < 44.5))): return 'Europa'
     return 'Asien'
 

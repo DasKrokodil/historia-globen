@@ -4,14 +4,34 @@
 
 const polygons = g => g.type === 'Polygon' ? [g.coordinates] : g.coordinates;
 
+/**
+ * Lägger en ring (en yttre gräns eller ett hål) som en del av banan i ctx (#1097). Ringen vecklas ut som linjerna i
+ * lines.js (unwrap): varje punkt läggs på den längdgrad som ligger närmast den förra, så att en ring som korsar
+ * datumlinjen (180°) går den korta vägen över den och inte tvärs över hela kartan. Hamnar den utvecklade ringen utanför
+ * −180…180 läggs den en gång till, ett varv förskjuten, så att båda kanterna av den platta bilden får sin del; det som
+ * hamnar utanför bilden klipps bort. X och Y räknar längd- och breddgrad till bildpunkter (X är linjär i längdgraden).
+ */
+export function traceRing(ctx, ring, X, Y) {
+  let prev = null, min = Infinity, max = -Infinity;
+  const pts = ring.map(([lon, lat]) => {
+    const l = prev === null ? lon : lon - 360 * Math.round((lon - prev) / 360);
+    prev = l; min = Math.min(min, l); max = Math.max(max, l);
+    return [l, lat];
+  });
+  const shifts = [0];
+  if (max > 180) shifts.push(-360);
+  if (min < -180) shifts.push(360);
+  for (const s of shifts) {
+    pts.forEach(([lon, lat], i) => i ? ctx.lineTo(X(lon + s), Y(lat)) : ctx.moveTo(X(lon + s), Y(lat)));
+    ctx.closePath();
+  }
+}
+
 /** Lägger rikets gräns som en bana i ctx (alla delar och hål). */
 export function tracePath(ctx, geometry, X, Y) {
   ctx.beginPath();
   for (const rings of polygons(geometry)) {
-    for (const ring of rings) {
-      ring.forEach(([lon, lat], i) => i ? ctx.lineTo(X(lon), Y(lat)) : ctx.moveTo(X(lon), Y(lat)));
-      ctx.closePath();
-    }
+    for (const ring of rings) traceRing(ctx, ring, X, Y);
   }
 }
 

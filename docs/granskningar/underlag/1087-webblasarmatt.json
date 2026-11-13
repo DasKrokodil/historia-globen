@@ -1,0 +1,220 @@
+{
+  "measuredAt": "2026-11-12T14:47:31.262Z",
+  "browser": "Chromium (Playwright)",
+  "sourceCommit": "56a1a9de5d44cd1649ad78e19ca8d273760c62bb",
+  "viewports": [
+    {
+      "viewport": 360,
+      "height": 800,
+      "devicePixelRatio": 1,
+      "track": {
+        "x": 16,
+        "y": 722,
+        "width": 328,
+        "height": 48
+      },
+      "segments": [
+        {
+          "x": 16,
+          "y": 736,
+          "width": 81.75,
+          "height": 10
+        },
+        {
+          "x": 97.75,
+          "y": 736,
+          "width": 81.75,
+          "height": 10
+        },
+        {
+          "x": 179.5,
+          "y": 736,
+          "width": 81.75,
+          "height": 10
+        },
+        {
+          "x": 261.25,
+          "y": 736,
+          "width": 82.75,
+          "height": 10
+        }
+      ],
+      "min": -2999,
+      "max": 2026,
+      "scale": [
+        {
+          "from": -2999,
+          "to": -500,
+          "a": 0,
+          "b": 0.25
+        },
+        {
+          "from": -500,
+          "to": 1000,
+          "a": 0.25,
+          "b": 0.5
+        },
+        {
+          "from": 1000,
+          "to": 1800,
+          "a": 0.5,
+          "b": 0.75
+        },
+        {
+          "from": 1800,
+          "to": 2026,
+          "a": 0.75,
+          "b": 1
+        }
+      ],
+      "modernPixels": 82,
+      "modernWindow": 10.848,
+      "scroll": false,
+      "pageErrors": []
+    },
+    {
+      "viewport": 400,
+      "height": 800,
+      "devicePixelRatio": 1,
+      "track": {
+        "x": 16,
+        "y": 722,
+        "width": 368,
+        "height": 48
+      },
+      "segments": [
+        {
+          "x": 16,
+          "y": 736,
+          "width": 91.75,
+          "height": 10
+        },
+        {
+          "x": 107.75,
+          "y": 736,
+          "width": 91.75,
+          "height": 10
+        },
+        {
+          "x": 199.5,
+          "y": 736,
+          "width": 91.75,
+          "height": 10
+        },
+        {
+          "x": 291.25,
+          "y": 736,
+          "width": 92.75,
+          "height": 10
+        }
+      ],
+      "min": -2999,
+      "max": 2026,
+      "scale": [
+        {
+          "from": -2999,
+          "to": -500,
+          "a": 0,
+          "b": 0.25
+        },
+        {
+          "from": -500,
+          "to": 1000,
+          "a": 0.25,
+          "b": 0.5
+        },
+        {
+          "from": 1000,
+          "to": 1800,
+          "a": 0.5,
+          "b": 0.75
+        },
+        {
+          "from": 1800,
+          "to": 2026,
+          "a": 0.75,
+          "b": 1
+        }
+      ],
+      "modernPixels": 92,
+      "modernWindow": 10.848,
+      "scroll": false,
+      "pageErrors": []
+    },
+    {
+      "viewport": 768,
+      "height": 800,
+      "devicePixelRatio": 1,
+      "track": {
+        "x": 16,
+        "y": 710,
+        "width": 736,
+        "height": 54
+      },
+      "segments": [
+        {
+          "x": 16,
+          "y": 724,
+          "width": 183.75,
+          "height": 10
+        },
+        {
+          "x": 199.75,
+          "y": 724,
+          "width": 183.75,
+          "height": 10
+        },
+        {
+          "x": 383.5,
+          "y": 724,
+          "width": 183.75,
+          "height": 10
+        },
+        {
+          "x": 567.25,
+          "y": 724,
+          "width": 184.75,
+          "height": 10
+        }
+      ],
+      "min": -2999,
+      "max": 2026,
+      "scale": [
+        {
+          "from": -2999,
+          "to": -500,
+          "a": 0,
+          "b": 0.25
+        },
+        {
+          "from": -500,
+          "to": 1000,
+          "a": 0.25,
+          "b": 0.5
+        },
+        {
+          "from": 1000,
+          "to": 1800,
+          "a": 0.5,
+          "b": 0.75
+        },
+        {
+          "from": 1800,
+          "to": 2026,
+          "a": 0.75,
+          "b": 1
+        }
+      ],
+      "modernPixels": 184,
+      "modernWindow": 10.848,
+      "scroll": false,
+      "pageErrors": []
+    }
+  ],
+  "sourceHashes": {
+    "js/timeline.js": "edd05f378514d72f1408b4828e4727c54165683d4be89a94bc172bb28cfc60d3",
+    "js/state.js": "4c70fafc9670add1acf4d7834e8808ce82ef1d3cc36531fbcf5deae195ff1857",
+    "css/style.css": "ced5be282cbf57a0790f8ed4b36af9e5164ab9c0769a009e758bc373638832d1",
+    "data/events.json": "f6de76015d9d91cce095fcc66e434a256a80b482f52ccff4072a27b14d2cc569"
+  }
+}

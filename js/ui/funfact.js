@@ -341,6 +341,9 @@ export class FunFacts {
     return new Set(f && !this.minimized && !this.autoClosed ? f.events : []);
   }
 
+  /** Nyckeln för kortet som senast lästes upp (tom när inget kort läses upp); statusraden för året jämför den (#1305). */
+  get announcedKey() { return this._announcedKey; }
+
   /** Texten som skärmläsaren får när ett nytt Samtidigt-kort visas. */
   announcement() {
     return `${this.kind.textContent.trim()}. ${this.text.textContent.trim()}`;

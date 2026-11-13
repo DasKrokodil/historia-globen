@@ -4,11 +4,15 @@
   "id": "forsta-varldskriget",
   "title": {
     "sv": "Första världskriget på fyra kontinenter",
-    "en": "The First World War on four continents"
+    "en": "The First World War on four continents",
+    "de": "Der Erste Weltkrieg auf vier Kontinenten",
+    "fr": "La Première Guerre mondiale sur quatre continents"
   },
   "summary": {
     "sv": "Från skotten i Sarajevo 1914 till vapenstilleståndet 1918, i Europa, Asien, Afrika och Amerika.",
-    "en": "From the shots in Sarajevo in 1914 to the armistice in 1918, in Europe, Asia, Africa and the Americas."
+    "en": "From the shots in Sarajevo in 1914 to the armistice in 1918, in Europe, Asia, Africa and the Americas.",
+    "de": "Von den Schüssen in Sarajevo 1914 bis zum Waffenstillstand 1918, in Europa, Asien, Afrika und Amerika.",
+    "fr": "Des coups de feu de Sarajevo en 1914 à l’armistice de 1918, en Europe, en Asie, en Afrique et en Amérique."
   },
   "war": "forsta-varldskriget",
   "review": "source-checked",
@@ -23,15 +27,21 @@
       },
       "chapter": {
         "sv": "Hur kriget började",
-        "en": "How the war began"
+        "en": "How the war began",
+        "de": "Wie der Krieg begann",
+        "fr": "Comment la guerre a commencé"
       },
       "title": {
         "sv": "Sarajevo, 28 juni 1914",
-        "en": "Sarajevo, 28 June 1914"
+        "en": "Sarajevo, 28 June 1914",
+        "de": "Sarajevo, 28. Juni 1914",
+        "fr": "Sarajevo, 28 juin 1914"
       },
       "text": {
         "sv": "Den bosnienserbiske studenten Gavrilo Princip skjuter Österrike-Ungerns tronföljare Franz Ferdinand och hans hustru Sophie. Mordet utlöser julikrisen.",
-        "en": "The Bosnian Serb student Gavrilo Princip shoots Austria-Hungary's heir to the throne Franz Ferdinand and his wife Sophie. The murder sets off the July Crisis."
+        "en": "The Bosnian Serb student Gavrilo Princip shoots Austria-Hungary's heir to the throne Franz Ferdinand and his wife Sophie. The murder sets off the July Crisis.",
+        "de": "Der bosnisch-serbische Student Gavrilo Princip erschießt den österreichisch-ungarischen Thronfolger Franz Ferdinand und dessen Frau Sophie. Das Attentat löst die Julikrise aus.",
+        "fr": "L’étudiant serbe de Bosnie Gavrilo Princip abat l’héritier du trône d’Autriche-Hongrie, François-Ferdinand, et son épouse Sophie. L’attentat déclenche la crise de juillet."
       },
       "layers": [
         "events",
@@ -56,15 +66,21 @@
       },
       "title": {
         "sv": "Belgrad, 28 juli 1914",
-        "en": "Belgrade, 28 July 1914"
+        "en": "Belgrade, 28 July 1914",
+        "de": "Belgrad, 28. Juli 1914",
+        "fr": "Belgrade, 28 juillet 1914"
       },
       "text": {
         "sv": "En månad efter skotten förklarar Österrike-Ungern krig mot Serbien. I början av augusti förklarar Tyskland krig mot Ryssland och Frankrike, och Storbritannien går in i kriget när Tyskland invaderar Belgien.",
-        "en": "A month after the shots, Austria-Hungary declares war on Serbia. In early August Germany declares war on Russia and France, and Britain enters the war when Germany invades Belgium."
+        "en": "A month after the shots, Austria-Hungary declares war on Serbia. In early August Germany declares war on Russia and France, and Britain enters the war when Germany invades Belgium.",
+        "de": "Einen Monat nach den Schüssen erklärt Österreich-Ungarn Serbien den Krieg. Anfang August erklärt Deutschland Russland und Frankreich den Krieg, und Großbritannien tritt in den Krieg ein, als Deutschland in Belgien einmarschiert.",
+        "fr": "Un mois après les coups de feu, l’Autriche-Hongrie déclare la guerre à la Serbie. Début août, l’Allemagne déclare la guerre à la Russie et à la France, et le Royaume-Uni entre en guerre quand l’Allemagne envahit la Belgique."
       },
       "question": {
         "sv": "Hur kunde ett mord i en enda stad leda till att flera stormakter förklarade krig mot varandra?",
-        "en": "How could a murder in a single city lead to several great powers declaring war on each other?"
+        "en": "How could a murder in a single city lead to several great powers declaring war on each other?",
+        "de": "Wie konnte ein Attentat in einer einzigen Stadt dazu führen, dass mehrere Großmächte einander den Krieg erklärten?",
+        "fr": "Comment un attentat dans une seule ville a-t-il pu conduire plusieurs grandes puissances à se déclarer la guerre ?"
       },
       "layers": [
         "events",
@@ -88,15 +104,21 @@
       },
       "chapter": {
         "sv": "1914: kriget sprids",
-        "en": "1914: the war spreads"
+        "en": "1914: the war spreads",
+        "de": "1914: Der Krieg breitet sich aus",
+        "fr": "1914 : la guerre s’étend"
       },
       "title": {
         "sv": "Ostpreussen, slutet av augusti 1914",
-        "en": "East Prussia, late August 1914"
+        "en": "East Prussia, late August 1914",
+        "de": "Ostpreußen, Ende August 1914",
+        "fr": "Prusse-Orientale, fin août 1914"
       },
       "text": {
         "sv": "En tysk armé omringar och krossar nästan hela den ryska 2:a armén. Slaget utkämpas nära Allenstein men får namn efter Tannenberg.",
-        "en": "A German army surrounds and crushes almost the whole Russian 2nd Army. The battle is fought near Allenstein but is named after Tannenberg."
+        "en": "A German army surrounds and crushes almost the whole Russian 2nd Army. The battle is fought near Allenstein but is named after Tannenberg.",
+        "de": "Eine deutsche Armee kesselt fast die gesamte russische 2. Armee ein und vernichtet sie. Die Schlacht wird bei Allenstein geschlagen, ist aber nach Tannenberg benannt.",
+        "fr": "Une armée allemande encercle et écrase presque toute la 2e armée russe. La bataille se déroule près d’Allenstein mais porte le nom de Tannenberg."
       },
       "layers": [
         "events",
@@ -119,11 +141,15 @@
       },
       "title": {
         "sv": "Marne, september 1914",
-        "en": "The Marne, September 1914"
+        "en": "The Marne, September 1914",
+        "de": "Marne, September 1914",
+        "fr": "La Marne, septembre 1914"
       },
       "text": {
         "sv": "Franska och brittiska trupper stoppar den tyska framryckningen omkring fyra mil från Paris. Tysklands plan att snabbt besegra Frankrike misslyckas, och västfronten fastnar i ett skyttegravskrig som varar i fyra år.",
-        "en": "French and British troops stop the German advance about forty kilometres from Paris. Germany's plan to defeat France quickly fails, and the Western Front becomes bogged down in trench warfare that lasts four years."
+        "en": "French and British troops stop the German advance about forty kilometres from Paris. Germany's plan to defeat France quickly fails, and the Western Front becomes bogged down in trench warfare that lasts four years.",
+        "de": "Französische und britische Truppen stoppen den deutschen Vormarsch etwa 40 Kilometer vor Paris. Deutschlands Plan, Frankreich schnell zu besiegen, scheitert, und die Westfront erstarrt in einem Stellungskrieg, der vier Jahre dauert.",
+        "fr": "Des troupes françaises et britanniques arrêtent l’avancée allemande à une quarantaine de kilomètres de Paris. Le plan allemand visant à vaincre rapidement la France échoue, et le front de l’Ouest s’enlise dans une guerre de tranchées qui dure quatre ans."
       },
       "layers": [
         "events",
@@ -146,15 +172,21 @@
       },
       "title": {
         "sv": "Qingdao, augusti–november 1914",
-        "en": "Qingdao, August–November 1914"
+        "en": "Qingdao, August–November 1914",
+        "de": "Tsingtau, August–November 1914",
+        "fr": "Tsingtao, août–novembre 1914"
       },
       "text": {
         "sv": "Samtidigt i Kina belägrar japanska och brittiska styrkor den tyska hamnstaden Qingdao. Det är krigets enda stora landslag i Asien och Stilla havet.",
-        "en": "Meanwhile in China, Japanese and British forces besiege the German port city of Qingdao. It is the war's only major land battle in Asia and the Pacific."
+        "en": "Meanwhile in China, Japanese and British forces besiege the German port city of Qingdao. It is the war's only major land battle in Asia and the Pacific.",
+        "de": "Gleichzeitig belagern in China japanische und britische Truppen die deutsche Hafenstadt Tsingtau. Es ist die einzige große Landschlacht des Krieges in Asien und im Pazifik.",
+        "fr": "Au même moment en Chine, des forces japonaises et britanniques assiègent le port allemand de Tsingtao. C’est la seule grande bataille terrestre de la guerre en Asie et dans le Pacifique."
       },
       "question": {
         "sv": "Varför stred man om en tysk hamnstad i Kina, i ett krig som började i Europa?",
-        "en": "Why was a German port city in China fought over, in a war that began in Europe?"
+        "en": "Why was a German port city in China fought over, in a war that began in Europe?",
+        "de": "Warum wurde in einem Krieg, der in Europa begann, um eine deutsche Hafenstadt in China gekämpft?",
+        "fr": "Pourquoi s’est-on battu pour un port allemand en Chine, dans une guerre qui avait commencé en Europe ?"
       },
       "layers": [
         "events",
@@ -179,11 +211,15 @@
       },
       "title": {
         "sv": "Tanga, 3–5 november 1914",
-        "en": "Tanga, 3–5 November 1914"
+        "en": "Tanga, 3–5 November 1914",
+        "de": "Tanga, 3.–5. November 1914",
+        "fr": "Tanga, 3–5 novembre 1914"
       },
       "text": {
         "sv": "En brittisk-indisk styrka försöker inta hamnen Tanga i Tyska Östafrika men slås tillbaka av en mindre tysk styrka under Paul von Lettow-Vorbeck. Det är det första stora slaget i fälttåget i Östafrika.",
-        "en": "A British-Indian force tries to take the port of Tanga in German East Africa but is beaten back by a smaller German force under Paul von Lettow-Vorbeck. It is the first major battle in the East African campaign."
+        "en": "A British-Indian force tries to take the port of Tanga in German East Africa but is beaten back by a smaller German force under Paul von Lettow-Vorbeck. It is the first major battle in the East African campaign.",
+        "de": "Ein britisch-indischer Verband versucht, den Hafen Tanga in Deutsch-Ostafrika einzunehmen, wird aber von einer kleineren deutschen Truppe unter Paul von Lettow-Vorbeck zurückgeschlagen. Es ist die erste große Schlacht des Feldzugs in Ostafrika.",
+        "fr": "Une force anglo-indienne tente de prendre le port de Tanga, en Afrique orientale allemande, mais elle est repoussée par une force allemande plus petite commandée par Paul von Lettow-Vorbeck. C’est la première grande bataille de la campagne d’Afrique de l’Est."
       },
       "layers": [
         "events",
@@ -206,15 +242,21 @@
       },
       "chapter": {
         "sv": "1915–1916: stora slag på många fronter",
-        "en": "1915–1916: great battles on many fronts"
+        "en": "1915–1916: great battles on many fronts",
+        "de": "1915–1916: Große Schlachten an vielen Fronten",
+        "fr": "1915–1916 : de grandes batailles sur de nombreux fronts"
       },
       "title": {
         "sv": "Gallipoli, 1915",
-        "en": "Gallipoli, 1915"
+        "en": "Gallipoli, 1915",
+        "de": "Gallipoli, 1915",
+        "fr": "Gallipoli, 1915"
       },
       "text": {
         "sv": "De allierade försöker ta kontroll över sunden till Konstantinopel. Trupperna som landstiger på halvön i april dras tillbaka i januari 1916, efter cirka 250 000 döda, sårade och tillfångatagna på vardera sidan. Landstigningsdagen 25 april är i dag Anzac Day i Australien och Nya Zeeland.",
-        "en": "The Allies try to take control of the straits to Constantinople. The troops who land on the peninsula in April are withdrawn in January 1916, after about 250,000 killed, wounded and captured on each side. The day of the landing, 25 April, is today Anzac Day in Australia and New Zealand."
+        "en": "The Allies try to take control of the straits to Constantinople. The troops who land on the peninsula in April are withdrawn in January 1916, after about 250,000 killed, wounded and captured on each side. The day of the landing, 25 April, is today Anzac Day in Australia and New Zealand.",
+        "de": "Die Alliierten versuchen, die Kontrolle über die Meerengen nach Konstantinopel zu gewinnen. Die Truppen, die im April auf der Halbinsel landen, werden im Januar 1916 abgezogen, nach etwa 250.000 Toten, Verwundeten und Gefangenen auf jeder Seite. Der Landungstag, der 25. April, ist heute der Anzac Day in Australien und Neuseeland.",
+        "fr": "Les Alliés tentent de prendre le contrôle des détroits menant à Constantinople. Les troupes débarquées sur la péninsule en avril sont retirées en janvier 1916, après environ 250 000 morts, blessés et prisonniers de chaque côté. Le jour du débarquement, le 25 avril, est aujourd’hui l’Anzac Day en Australie et en Nouvelle-Zélande."
       },
       "layers": [
         "events",
@@ -237,11 +279,15 @@
       },
       "title": {
         "sv": "Verdun, februari–december 1916",
-        "en": "Verdun, February–December 1916"
+        "en": "Verdun, February–December 1916",
+        "de": "Verdun, Februar–Dezember 1916",
+        "fr": "Verdun, février–décembre 1916"
       },
       "text": {
         "sv": "Tyska trupper anfaller de franska försvarsverken kring Verdun. Det blir krigets längsta slag och slutar med fransk seger.",
-        "en": "German troops attack the French fortifications around Verdun. It becomes the longest battle of the war and ends in a French victory."
+        "en": "German troops attack the French fortifications around Verdun. It becomes the longest battle of the war and ends in a French victory.",
+        "de": "Deutsche Truppen greifen die französischen Befestigungen um Verdun an. Es wird die längste Schlacht des Krieges und endet mit einem französischen Sieg.",
+        "fr": "Des troupes allemandes attaquent les fortifications françaises autour de Verdun. Ce sera la plus longue bataille de la guerre, qui s’achève par une victoire française."
       },
       "layers": [
         "events",
@@ -264,11 +310,15 @@
       },
       "title": {
         "sv": "Kut, 29 april 1916",
-        "en": "Kut, 29 April 1916"
+        "en": "Kut, 29 April 1916",
+        "de": "Kut, 29. April 1916",
+        "fr": "Kut, 29 avril 1916"
       },
       "text": {
         "sv": "Medan slaget vid Verdun pågår kapitulerar en brittisk-indisk garnison i Kut, söder om Bagdad, efter nästan fem månaders osmansk belägring. Många av fångarna dör under marschen till fångenskap i Aleppo.",
-        "en": "While the Battle of Verdun is going on, a British-Indian garrison in Kut, south of Baghdad, surrenders after almost five months of Ottoman siege. Many of the prisoners die on the march into captivity in Aleppo."
+        "en": "While the Battle of Verdun is going on, a British-Indian garrison in Kut, south of Baghdad, surrenders after almost five months of Ottoman siege. Many of the prisoners die on the march into captivity in Aleppo.",
+        "de": "Während die Schlacht um Verdun andauert, kapituliert eine britisch-indische Garnison in Kut, südlich von Bagdad, nach fast fünf Monaten osmanischer Belagerung. Viele der Gefangenen sterben auf dem Marsch in die Gefangenschaft nach Aleppo.",
+        "fr": "Pendant que la bataille de Verdun se poursuit, une garnison anglo-indienne capitule à Kut, au sud de Bagdad, après presque cinq mois de siège ottoman. Beaucoup de prisonniers meurent pendant la marche vers la captivité à Alep."
       },
       "layers": [
         "events",
@@ -292,11 +342,15 @@
       },
       "title": {
         "sv": "Nordsjön utanför Jylland, 31 maj–1 juni 1916",
-        "en": "The North Sea off Jutland, 31 May–1 June 1916"
+        "en": "The North Sea off Jutland, 31 May–1 June 1916",
+        "de": "Nordsee vor Jütland, 31. Mai–1. Juni 1916",
+        "fr": "Mer du Nord au large du Jutland, 31 mai–1er juin 1916"
       },
       "text": {
         "sv": "Den brittiska och den tyska flottan möts i krigets största sjöslag. 14 brittiska och 11 tyska fartyg sänks. Båda sidor hävdar seger, men den tyska flottan undviker sedan nya stora sjöslag.",
-        "en": "The British and German fleets meet in the largest naval battle of the war. 14 British and 11 German ships are sunk. Both sides claim victory, but the German fleet afterwards avoids new major naval battles."
+        "en": "The British and German fleets meet in the largest naval battle of the war. 14 British and 11 German ships are sunk. Both sides claim victory, but the German fleet afterwards avoids new major naval battles.",
+        "de": "Die britische und die deutsche Flotte treffen in der größten Seeschlacht des Krieges aufeinander. 14 britische und 11 deutsche Schiffe werden versenkt. Beide Seiten beanspruchen den Sieg, doch die deutsche Flotte meidet danach weitere große Seeschlachten.",
+        "fr": "Les flottes britannique et allemande s’affrontent dans la plus grande bataille navale de la guerre. 14 navires britanniques et 11 allemands sont coulés. Les deux camps revendiquent la victoire, mais la flotte allemande évite ensuite de nouvelles grandes batailles navales."
       },
       "layers": [
         "events",
@@ -319,15 +373,21 @@
       },
       "title": {
         "sv": "Somme, juli–november 1916",
-        "en": "The Somme, July–November 1916"
+        "en": "The Somme, July–November 1916",
+        "de": "Somme, Juli–November 1916",
+        "fr": "La Somme, juillet–novembre 1916"
       },
       "text": {
         "sv": "Brittiska och franska arméer anfaller de tyska linjerna vid Somme. Över tre miljoner soldater deltar, och mer än en miljon dödas eller såras. Stridsvagnar används för första gången i september.",
-        "en": "British and French armies attack the German lines at the Somme. Over three million soldiers take part, and more than a million are killed or wounded. Tanks are used for the first time in September."
+        "en": "British and French armies attack the German lines at the Somme. Over three million soldiers take part, and more than a million are killed or wounded. Tanks are used for the first time in September.",
+        "de": "Britische und französische Armeen greifen die deutschen Linien an der Somme an. Über drei Millionen Soldaten nehmen teil, und mehr als eine Million werden getötet oder verwundet. Im September werden zum ersten Mal Panzer eingesetzt.",
+        "fr": "Des armées britanniques et françaises attaquent les lignes allemandes sur la Somme. Plus de trois millions de soldats y prennent part, et plus d’un million sont tués ou blessés. Des chars sont utilisés pour la première fois en septembre."
       },
       "question": {
         "sv": "Över tre miljoner soldater deltog vid Somme. Vad tror du att det betydde för familjerna hemma?",
-        "en": "Over three million soldiers took part at the Somme. What do you think that meant for the families at home?"
+        "en": "Over three million soldiers took part at the Somme. What do you think that meant for the families at home?",
+        "de": "Über drei Millionen Soldaten nahmen an der Somme teil. Was, glauben Sie, bedeutete das für die Familien zu Hause?",
+        "fr": "Plus de trois millions de soldats ont pris part à la bataille de la Somme. Que pensez-vous que cela a signifié pour les familles restées au pays ?"
       },
       "layers": [
         "events",
@@ -350,15 +410,21 @@
       },
       "chapter": {
         "sv": "1917–1918: USA kommer in, Ryssland lämnar",
-        "en": "1917–1918: the United States enters, Russia leaves"
+        "en": "1917–1918: the United States enters, Russia leaves",
+        "de": "1917–1918: Die USA treten ein, Russland scheidet aus",
+        "fr": "1917–1918 : les États-Unis entrent en guerre, la Russie en sort"
       },
       "title": {
         "sv": "Washington, 6 april 1917",
-        "en": "Washington, 6 April 1917"
+        "en": "Washington, 6 April 1917",
+        "de": "Washington, 6. April 1917",
+        "fr": "Washington, 6 avril 1917"
       },
       "text": {
         "sv": "USA:s kongress förklarar Tyskland krig. Tyskland hade återupptagit det oinskränkta ubåtskriget, och Zimmermanntelegrammet, ett hemligt tyskt erbjudande till Mexiko, hade gjort amerikanerna upprörda.",
-        "en": "The US Congress declares war on Germany. Germany had resumed unrestricted submarine warfare, and the Zimmermann Telegram, a secret German offer to Mexico, had outraged Americans."
+        "en": "The US Congress declares war on Germany. Germany had resumed unrestricted submarine warfare, and the Zimmermann Telegram, a secret German offer to Mexico, had outraged Americans.",
+        "de": "Der Kongress der USA erklärt Deutschland den Krieg. Deutschland hatte den uneingeschränkten U-Boot-Krieg wieder aufgenommen, und die Zimmermann-Depesche, ein geheimes deutsches Angebot an Mexiko, hatte die Amerikaner empört.",
+        "fr": "Le Congrès des États-Unis déclare la guerre à l’Allemagne. L’Allemagne avait repris la guerre sous-marine à outrance, et le télégramme Zimmermann, une proposition secrète de l’Allemagne au Mexique, avait indigné les Américains."
       },
       "layers": [
         "events",
@@ -382,15 +448,21 @@
       },
       "title": {
         "sv": "Brest-Litovsk, 3 mars 1918",
-        "en": "Brest-Litovsk, 3 March 1918"
+        "en": "Brest-Litovsk, 3 March 1918",
+        "de": "Brest-Litowsk, 3. März 1918",
+        "fr": "Brest-Litovsk, 3 mars 1918"
       },
       "text": {
         "sv": "Sovjetryssland sluter separatfred med centralmakterna och lämnar kriget. Ryssland förlorar bland annat Ukraina, Polen, Belarus och de baltiska länderna.",
-        "en": "Soviet Russia makes a separate peace with the Central Powers and leaves the war. Russia loses, among other things, Ukraine, Poland, Belarus and the Baltic countries."
+        "en": "Soviet Russia makes a separate peace with the Central Powers and leaves the war. Russia loses, among other things, Ukraine, Poland, Belarus and the Baltic countries.",
+        "de": "Sowjetrussland schließt einen Separatfrieden mit den Mittelmächten und scheidet aus dem Krieg aus. Russland verliert unter anderem die Ukraine, Polen, Belarus und die baltischen Länder.",
+        "fr": "La Russie soviétique conclut une paix séparée avec les puissances centrales et quitte la guerre. La Russie perd notamment l’Ukraine, la Pologne, la Biélorussie et les pays baltes."
       },
       "question": {
         "sv": "Inom ett år gick USA in i kriget och Ryssland lämnade det. Hur kan det ha förändrat kriget?",
-        "en": "Within a year the United States entered the war and Russia left it. How may that have changed the war?"
+        "en": "Within a year the United States entered the war and Russia left it. How may that have changed the war?",
+        "de": "Innerhalb eines Jahres traten die USA in den Krieg ein und Russland schied aus. Wie könnte das den Krieg verändert haben?",
+        "fr": "En un an, les États-Unis sont entrés en guerre et la Russie en est sortie. Comment cela a-t-il pu changer la guerre ?"
       },
       "layers": [
         "events",
@@ -414,19 +486,27 @@
       },
       "chapter": {
         "sv": "Slutet",
-        "en": "The end"
+        "en": "The end",
+        "de": "Das Ende",
+        "fr": "La fin"
       },
       "title": {
         "sv": "Compiègne, 11 november 1918",
-        "en": "Compiègne, 11 November 1918"
+        "en": "Compiègne, 11 November 1918",
+        "de": "Compiègne, 11. November 1918",
+        "fr": "Compiègne, 11 novembre 1918"
       },
       "text": {
         "sv": "Vapenstilleståndet skrivs under i en järnvägsvagn i skogen vid Compiègne och träder i kraft klockan 11. Striderna upphör, och kriget är slut. Freden sluts i Versailles den 28 juni 1919.",
-        "en": "The armistice is signed in a railway carriage in the forest at Compiègne and takes effect at 11 o'clock. The fighting stops, and the war is over. Peace is made at Versailles on 28 June 1919."
+        "en": "The armistice is signed in a railway carriage in the forest at Compiègne and takes effect at 11 o'clock. The fighting stops, and the war is over. Peace is made at Versailles on 28 June 1919.",
+        "de": "Der Waffenstillstand wird in einem Eisenbahnwagen im Wald von Compiègne unterzeichnet und tritt um 11 Uhr in Kraft. Die Kämpfe hören auf, und der Krieg ist vorbei. Der Frieden wird am 28. Juni 1919 in Versailles geschlossen.",
+        "fr": "L’armistice est signé dans un wagon de chemin de fer dans la forêt de Compiègne et entre en vigueur à 11 heures. Les combats cessent, et la guerre est terminée. La paix est signée à Versailles le 28 juin 1919."
       },
       "question": {
         "sv": "Freden slöts i Versailles mer än ett halvår efter vapenstilleståndet. Varför kan det ta tid att sluta fred?",
-        "en": "Peace was made at Versailles more than half a year after the armistice. Why might it take time to make peace?"
+        "en": "Peace was made at Versailles more than half a year after the armistice. Why might it take time to make peace?",
+        "de": "Der Frieden wurde in Versailles mehr als ein halbes Jahr nach dem Waffenstillstand geschlossen. Warum kann es dauern, Frieden zu schließen?",
+        "fr": "La paix a été signée à Versailles plus de six mois après l’armistice. Pourquoi faut-il parfois du temps pour faire la paix ?"
       },
       "layers": [
         "events",

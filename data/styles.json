@@ -6,7 +6,9 @@
    "name": {
     "sv": "Kina",
     "en": "China",
-    "de": "China"
+    "de": "China",
+    "fr": "Chine",
+    "es": "China"
    },
    "bbox": [
     [
@@ -21,7 +23,9 @@
    "name": {
     "sv": "Japan",
     "en": "Japan",
-    "de": "Japan"
+    "de": "Japan",
+    "fr": "Japon",
+    "es": "Japón"
    },
    "bbox": [
     [
@@ -36,7 +40,9 @@
    "name": {
     "sv": "Islamiska världen (Arabiska halvön, Levanten, Nordafrika)",
     "en": "The Islamic world (Arabian Peninsula, Levant, North Africa)",
-    "de": "Islamische Welt (Arabische Halbinsel, Levante, Nordafrika)"
+    "de": "Islamische Welt (Arabische Halbinsel, Levante, Nordafrika)",
+    "fr": "Monde islamique (péninsule Arabique, Levant, Afrique du Nord)",
+    "es": "Mundo islámico (península arábiga, Levante, norte de África)"
    },
    "bbox": [
     [
@@ -69,7 +75,9 @@
    "name": {
     "sv": "Persien, Indien och Osmanska riket",
     "en": "Persia, India and the Ottoman Empire",
-    "de": "Persien, Indien und das Osmanische Reich"
+    "de": "Persien, Indien und das Osmanische Reich",
+    "fr": "Perse, Inde et Empire ottoman",
+    "es": "Persia, India y el Imperio otomano"
    },
    "bbox": [
     [
@@ -84,7 +92,9 @@
    "name": {
     "sv": "Mexiko och Mesoamerika",
     "en": "Mexico and Mesoamerica",
-    "de": "Mexiko und Mesoamerika"
+    "de": "Mexiko und Mesoamerika",
+    "fr": "Mexique et Mésoamérique",
+    "es": "México y Mesoamérica"
    },
    "bbox": [
     [
@@ -99,7 +109,9 @@
    "name": {
     "sv": "Anderna",
     "en": "The Andes",
-    "de": "Anden"
+    "de": "Anden",
+    "fr": "Andes",
+    "es": "Los Andes"
    },
    "bbox": [
     [
@@ -114,7 +126,9 @@
    "name": {
     "sv": "Västafrika",
     "en": "West Africa",
-    "de": "Westafrika"
+    "de": "Westafrika",
+    "fr": "Afrique de l’Ouest",
+    "es": "África occidental"
    },
    "bbox": [
     [
@@ -129,7 +143,9 @@
    "name": {
     "sv": "Korea",
     "en": "Korea",
-    "de": "Korea"
+    "de": "Korea",
+    "fr": "Corée",
+    "es": "Corea"
    },
    "bbox": [
     [
@@ -144,7 +160,9 @@
    "name": {
     "sv": "Indien",
     "en": "India",
-    "de": "Indien"
+    "de": "Indien",
+    "fr": "Inde",
+    "es": "India"
    },
    "bbox": [
     [
@@ -159,7 +177,9 @@
    "name": {
     "sv": "Stilla havets öar",
     "en": "The islands of the Pacific",
-    "de": "Inseln des Pazifiks"
+    "de": "Inseln des Pazifiks",
+    "fr": "Îles du Pacifique",
+    "es": "Islas del Pacífico"
    },
    "bbox": [
     [
@@ -183,7 +203,9 @@
    "name": {
     "sv": "Grottmålning",
     "en": "Cave painting",
-    "de": "Höhlenmalerei"
+    "de": "Höhlenmalerei",
+    "fr": "Peinture rupestre",
+    "es": "Pintura rupestre"
    },
    "from": -999999,
    "to": -3000,
@@ -196,7 +218,9 @@
    "name": {
     "sv": "Egyptisk väggmålning och papyrus",
     "en": "Egyptian wall painting and papyrus",
-    "de": "Ägyptische Wandmalerei und Papyrus"
+    "de": "Ägyptische Wandmalerei und Papyrus",
+    "fr": "Peinture murale et papyrus égyptiens",
+    "es": "Pintura mural y papiro egipcios"
    },
    "from": -2999,
    "to": -500,
@@ -209,7 +233,9 @@
    "name": {
     "sv": "Grekisk vasmålning och romersk mosaik",
     "en": "Greek vase painting and Roman mosaic",
-    "de": "Griechische Vasenmalerei und römisches Mosaik"
+    "de": "Griechische Vasenmalerei und römisches Mosaik",
+    "fr": "Peinture de vases grecs et mosaïque romaine",
+    "es": "Pintura de vasos griegos y mosaico romano"
    },
    "from": -499,
    "to": 500,
@@ -222,7 +248,9 @@
    "name": {
     "sv": "Bysantinsk ikon och insulär bokmålning",
     "en": "Byzantine icon and Insular manuscript",
-    "de": "Byzantinische Ikone und insulare Buchmalerei"
+    "de": "Byzantinische Ikone und insulare Buchmalerei",
+    "fr": "Icône byzantine et enluminure insulaire",
+    "es": "Icono bizantino e iluminación insular"
    },
    "from": 501,
    "to": 1000,
@@ -235,7 +263,9 @@
    "name": {
     "sv": "Illuminerad handskrift",
     "en": "Illuminated manuscript",
-    "de": "Illuminierte Handschrift"
+    "de": "Illuminierte Handschrift",
+    "fr": "Manuscrit enluminé",
+    "es": "Manuscrito iluminado"
    },
    "from": 1001,
    "to": 1450,
@@ -248,7 +278,9 @@
      "name": {
       "sv": "Broderi i stil med Bayeuxtapeten",
       "en": "Embroidery in the style of the Bayeux Tapestry",
-      "de": "Stickerei im Stil des Teppichs von Bayeux"
+      "de": "Stickerei im Stil des Teppichs von Bayeux",
+      "fr": "Broderie dans le style de la tapisserie de Bayeux",
+      "es": "Bordado al estilo del tapiz de Bayeux"
      },
      "prompt": "embroidered linen panel in the style of the Bayeux Tapestry, wool thread in terracotta, ochre, green and blue, continuous frieze with border bands"
     }
@@ -259,7 +291,9 @@
    "name": {
     "sv": "Träsnitt och kopparstick",
     "en": "Woodcut and copper engraving",
-    "de": "Holzschnitt und Kupferstich"
+    "de": "Holzschnitt und Kupferstich",
+    "fr": "Gravure sur bois et sur cuivre",
+    "es": "Xilografía y grabado en cobre"
    },
    "from": 1451,
    "to": 1650,
@@ -272,7 +306,9 @@
      "name": {
       "sv": "Portolankarta",
       "en": "Portolan chart",
-      "de": "Portolankarte"
+      "de": "Portolankarte",
+      "fr": "Carte portulan",
+      "es": "Carta portulana"
      },
      "prompt": "Renaissance portolan chart on vellum with compass roses, rhumb lines, sailing ships and decorative sea, coastlines drawn in ink and colour"
     }
@@ -283,7 +319,9 @@
    "name": {
     "sv": "Barock oljemålning och gravyr",
     "en": "Baroque oil painting and engraving",
-    "de": "Barocke Ölmalerei und Gravur"
+    "de": "Barocke Ölmalerei und Gravur",
+    "fr": "Peinture à l’huile et gravure baroques",
+    "es": "Pintura al óleo y grabado barrocos"
    },
    "from": 1651,
    "to": 1800,
@@ -296,7 +334,9 @@
      "name": {
       "sv": "Naturhistorisk plansch",
       "en": "Natural history plate",
-      "de": "Naturkundliche Tafel"
+      "de": "Naturkundliche Tafel",
+      "fr": "Planche d’histoire naturelle",
+      "es": "Lámina de historia natural"
      },
      "prompt": "natural history plate, hand-coloured copper engraving of the subject with neat labels removed, scientific illustration style"
     },
@@ -305,7 +345,9 @@
      "name": {
       "sv": "Naturhistorisk plansch",
       "en": "Natural history plate",
-      "de": "Naturkundliche Tafel"
+      "de": "Naturkundliche Tafel",
+      "fr": "Planche d’histoire naturelle",
+      "es": "Lámina de historia natural"
      },
      "prompt": "scientific plate, hand-coloured copper engraving of instruments and diagrams, Enlightenment encyclopedia style"
     }
@@ -316,7 +358,9 @@
    "name": {
     "sv": "Litografi och tidningsgravyr",
     "en": "Lithograph and newspaper engraving",
-    "de": "Lithografie und Zeitungsgravur"
+    "de": "Lithografie und Zeitungsgravur",
+    "fr": "Lithographie et gravure de presse",
+    "es": "Litografía y grabado de prensa"
    },
    "from": 1801,
    "to": 1900,
@@ -329,7 +373,9 @@
    "name": {
     "sv": "Affisch i art deco och tidig modernism",
     "en": "Art deco and early modernist poster",
-    "de": "Plakat im Art déco und in der frühen Moderne"
+    "de": "Plakat im Art déco und in der frühen Moderne",
+    "fr": "Affiche Art déco et du premier modernisme",
+    "es": "Cartel art déco y del primer modernismo"
    },
    "from": 1901,
    "to": 1950,
@@ -342,7 +388,9 @@
    "name": {
     "sv": "Rymdålderns affischkonst",
     "en": "Space age poster art",
-    "de": "Plakatkunst des Raumfahrtzeitalters"
+    "de": "Plakatkunst des Raumfahrtzeitalters",
+    "fr": "Art de l’affiche de l’ère spatiale",
+    "es": "Arte del cartel de la era espacial"
    },
    "from": 1951,
    "to": 9999,
@@ -355,7 +403,9 @@
      "name": {
       "sv": "Dokumentär illustration",
       "en": "Documentary illustration",
-      "de": "Dokumentarische Illustration"
+      "de": "Dokumentarische Illustration",
+      "fr": "Illustration documentaire",
+      "es": "Ilustración documental"
      },
      "prompt": "muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine"
     },
@@ -364,7 +414,9 @@
      "name": {
       "sv": "Dokumentär illustration",
       "en": "Documentary illustration",
-      "de": "Dokumentarische Illustration"
+      "de": "Dokumentarische Illustration",
+      "fr": "Illustration documentaire",
+      "es": "Ilustración documental"
      },
      "prompt": "muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine"
     }
@@ -375,7 +427,9 @@
    "name": {
     "sv": "Tuschmålning på silkesrulle",
     "en": "Ink painting on silk scroll",
-    "de": "Tuschemalerei auf Seidenrolle"
+    "de": "Tuschemalerei auf Seidenrolle",
+    "fr": "Peinture à l’encre sur rouleau de soie",
+    "es": "Pintura a tinta sobre rollo de seda"
    },
    "from": -1000,
    "to": 1912,
@@ -390,7 +444,9 @@
    "name": {
     "sv": "Ukiyo-e-träsnitt",
     "en": "Ukiyo-e woodblock print",
-    "de": "Ukiyo-e-Holzschnitt"
+    "de": "Ukiyo-e-Holzschnitt",
+    "fr": "Estampe ukiyo-e",
+    "es": "Estampa ukiyo-e"
    },
    "from": 1600,
    "to": 1900,
@@ -405,7 +461,9 @@
    "name": {
     "sv": "Geometriska mönster, kalligrafi och arkitektur",
     "en": "Islamic geometric pattern and architecture",
-    "de": "Geometrische Muster, Kalligrafie und Architektur"
+    "de": "Geometrische Muster, Kalligrafie und Architektur",
+    "fr": "Motifs géométriques, calligraphie et architecture",
+    "es": "Motivos geométricos, caligrafía y arquitectura"
    },
    "from": 622,
    "to": 1900,
@@ -420,7 +478,9 @@
    "name": {
     "sv": "Miniatyrmålning",
     "en": "Persian, Mughal and Ottoman miniature",
-    "de": "Miniaturmalerei"
+    "de": "Miniaturmalerei",
+    "fr": "Peinture miniature",
+    "es": "Pintura en miniatura"
    },
    "from": 1200,
    "to": 1850,
@@ -435,7 +495,9 @@
    "name": {
     "sv": "Aztekisk kodex",
     "en": "Aztec codex",
-    "de": "Aztekischer Kodex"
+    "de": "Aztekischer Kodex",
+    "fr": "Codex aztèque",
+    "es": "Códice azteca"
    },
    "from": 1200,
    "to": 1550,
@@ -450,7 +512,9 @@
    "name": {
     "sv": "Inkans textil- och keramikmönster",
     "en": "Inca textile and ceramic patterns",
-    "de": "Textil- und Keramikmuster der Inka"
+    "de": "Textil- und Keramikmuster der Inka",
+    "fr": "Motifs de textiles et de céramiques incas",
+    "es": "Motivos textiles y cerámicos incas"
    },
    "from": 1000,
    "to": 1550,
@@ -465,7 +529,9 @@
    "name": {
     "sv": "Textilmönster och bronsrelief",
     "en": "West African textile and Benin bronze relief",
-    "de": "Textilmuster und Bronzerelief"
+    "de": "Textilmuster und Bronzerelief",
+    "fr": "Motifs textiles et reliefs en bronze",
+    "es": "Motivos textiles y relieves de bronce"
    },
    "from": 1200,
    "to": 1900,
@@ -480,7 +546,9 @@
    "name": {
     "sv": "Koreansk tusch- och färgmålning",
     "en": "Korean ink and colour painting",
-    "de": "Koreanische Tusche- und Farbmalerei"
+    "de": "Koreanische Tusche- und Farbmalerei",
+    "fr": "Peinture coréenne à l’encre et en couleurs",
+    "es": "Pintura coreana a tinta y en color"
    },
    "from": 1392,
    "to": 1910,
@@ -495,7 +563,9 @@
    "name": {
     "sv": "Fornindisk stenrelief",
     "en": "Ancient Indian stone relief",
-    "de": "Altindisches Steinrelief"
+    "de": "Altindisches Steinrelief",
+    "fr": "Relief en pierre de l’Inde ancienne",
+    "es": "Relieve en piedra de la India antigua"
    },
    "from": -600,
    "to": 600,
@@ -510,7 +580,9 @@
    "name": {
     "sv": "Gravyr från en resa i Stilla havet",
     "en": "Engraving from a Pacific voyage account",
-    "de": "Gravur von einer Reise im Pazifik"
+    "de": "Gravur von einer Reise im Pazifik",
+    "fr": "Gravure d’un voyage dans le Pacifique",
+    "es": "Grabado de un viaje por el Pacífico"
    },
    "from": 1760,
    "to": 1900,

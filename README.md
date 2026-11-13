@@ -123,7 +123,8 @@ docs/                 dokumentation: arkitektur, datamodell, beslutslogg, källa
 data/handelser/       händelserna, en redigeringsfil per period; här redigeras händelser (#394)
 data/events.json      alla händelser i en fil, byggd ur data/handelser/ (redigeras inte)
 data/funfacts.json    fun facts, kopplade till händelser
-data/missuppfattningar.json  vanliga historiska missuppfattningar och var de kom ifrån (#838); visas i faktarutan för händelserna i events
+data/missuppfattningar.json  vanliga historiska missuppfattningar och var de kom ifrån (#838); visas i faktarutan för händelserna i events och i quizet (Sant eller myt?, #846)
+data/quiz.json        quizets tidsfrågor (Vad kom först?, Vad låg närmast?, #846); pekar bara på händelser med id, svaret räknas ur deras årtal
 data/platser.json          platser: kort om platsers historia med dagens gräns som kontur, följs i Fokus (#579); gränserna hämtas med tools/platser_gransar.py ur Natural Earth
 data/teman.json            teman: namngivna urval av händelser som följs i Fokus (#398); tom tills första temat skrivs (#105)
 data/perioder.json         epoker i fyra indelningar: Lgr22 (fem perioder), Nordens forntid (stenålder, bronsålder, järnålder enligt Historiska museet), antiken och industrialiseringen, med årtal, källa och förenklingstext; epokknapparna i intervallformuläret läser den (#845, #965)
@@ -137,10 +138,12 @@ images/licenses.json  genererat register över händelsebildernas licenser (#393
 data/land.json        grundkarta (Natural Earth 1:50m)
 data/land-10m.json    finare kust (Natural Earth 1:10m), laddas först när det skarpa utsnittet används; byggs med tools/land_10m.mjs
 tools/riken.py        bygger rikesfilerna ur Cliopatria
+tools/riken_bevara.py det riken.py behåller vid ombyggnad: handskrivna fält som flags och översatta namn (#1220)
 tools/riken_namn.py   hämtar rikenas namn på tyska, spanska och franska ur Wikidata; riken.py bevarar dem (#676, #644)
 tools/ne_omstridda.py tar ut omstridda områden ur Natural Earth till tools/ne-omstridda-omraden.geojson, som riken.py läser (#644)
 tools/dela_data.py    bygger events.json ur data/handelser/ och delar upp händelser och riken i data/genererat/, med en fil per språk (körs efter varje ändring)
 tools/oversattning.py spärren mot oöversatta texter och kontrollen av inaktuella översättningar (#675)
+tools/markortak.mjs   räknar hur många markörer som syns samtidigt i vanligt läge, år för år, och varnar över taket 60 (#1192)
 tools/tackning.py     skriver täckningsrapporten med luckor per period, världsdel och kategori i docs/granskningar/ (#563)
 tools/tackningsrapport.py  skriver docs/tackningsrapport.md med täckningen per världsdel, århundrade och kategori
 tools/religioner.py   bygger religionslagret (data/religions.json) ur Cliopatria och faktarutornas texter, med arv av religion

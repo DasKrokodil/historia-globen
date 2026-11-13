@@ -1,0 +1,288 @@
+{
+  "schema": "historia-globen/tur@1",
+  "version": 1,
+  "id": "vad-vet-vi-egentligen",
+  "title": {
+    "sv": "Vad vet vi egentligen? Sex kända historier",
+    "en": "What do we really know? Six famous stories",
+    "de": "Was wissen wir eigentlich? Sechs bekannte Geschichten",
+    "es": "¿Qué sabemos realmente? Seis historias famosas",
+    "fr": "Que savons-nous vraiment ? Six histoires célèbres"
+  },
+  "summary": {
+    "sv": "Pompeji, de 300 spartanerna, dronten, digerdöden, spanska sjukan och Karl XII: sex berättelser du säkert har hört, och var osäkerheten sitter.",
+    "en": "Pompeii, the 300 Spartans, the dodo, the Black Death, the Spanish flu and Charles XII: six stories you have probably heard, and where the uncertainty lies.",
+    "de": "Pompeji, die 300 Spartaner, der Dodo, der Schwarze Tod, die Spanische Grippe und Karl XII.: sechs Geschichten, die Sie sicher kennen, und wo die Unsicherheit steckt.",
+    "es": "Pompeya, los 300 espartanos, el dodo, la peste negra, la gripe española y Carlos XII: seis historias que seguro que ha oído, y dónde está la incertidumbre.",
+    "fr": "Pompéi, les 300 Spartiates, le dodo, la peste noire, la grippe espagnole et Charles XII : six histoires que vous connaissez sûrement, et où se cache l'incertitude."
+  },
+  "review": "source-checked",
+  "steps": [
+    {
+      "id": "pompeji",
+      "at": 79,
+      "camera": {
+        "lat": 40.82139,
+        "lon": 14.44278,
+        "zoom": 2.4
+      },
+      "title": {
+        "sv": "Pompeji: bröt Vesuvius ut den 24 augusti?",
+        "en": "Pompeii: did Vesuvius erupt on 24 August?",
+        "de": "Pompeji: Brach der Vesuv am 24. August aus?",
+        "es": "Pompeya: ¿entró en erupción el Vesubio el 24 de agosto?",
+        "fr": "Pompéi : le Vésuve est-il entré en éruption le 24 août ?"
+      },
+      "chapter": {
+        "sv": "Vem skrev ner det, och när?",
+        "en": "Who wrote it down, and when?",
+        "de": "Wer hat es aufgeschrieben, und wann?",
+        "es": "¿Quién lo escribió, y cuándo?",
+        "fr": "Qui l'a écrit, et quand ?"
+      },
+      "question": {
+        "sv": "Hur mycket kan man lita på en uppgift som bara finns i en avskrift som trycktes mer än tusen år senare?",
+        "en": "How far can we trust a detail that survives only in a copy printed more than a thousand years later?",
+        "de": "Wie sehr kann man einer Angabe trauen, die nur in einer mehr als tausend Jahre später gedruckten Abschrift erhalten ist?",
+        "es": "¿Hasta qué punto se puede confiar en un dato que solo se conserva en una copia impresa más de mil años después?",
+        "fr": "Peut-on se fier à une information qui ne nous est parvenue que par une copie imprimée plus de mille ans plus tard ?"
+      },
+      "text": {
+        "sv": "Vesuvius utbrott år 79 begravde Pompeji, och länge angavs dagen som den 24 augusti. Datumet kommer från ett brev som Plinius den yngre skrev till historikern Tacitus omkring 25 år efter utbrottet, och det vi har är en tryckt avskrift från 1508. Redan i slutet av 1700-talet menade några forskare att utbrottet skedde på hösten. Fynd i Pompeji 1990 och 2001 pekar åt samma håll: höstfrukter som granatäpplen, offer i tjocka kläder och stora kärl med vin, som tyder på att vinskörden var avslutad. Dagen är alltså inte säker.",
+        "en": "The eruption of Vesuvius in 79 buried Pompeii, and for a long time the day was given as 24 August. The date comes from a letter that Pliny the Younger wrote to the historian Tacitus about 25 years after the eruption, and what we have is a printed copy from 1508. As early as the late 18th century, some researchers argued that the eruption happened in the autumn. Finds in Pompeii in 1990 and 2001 point the same way: autumn fruit such as pomegranates, victims in heavy clothing and large vessels of wine, which suggest that the grape harvest was over. So the day is not certain.",
+        "de": "Der Ausbruch des Vesuv im Jahr 79 begrub Pompeji, und lange galt der 24. August als Tag des Ausbruchs. Das Datum stammt aus einem Brief, den Plinius der Jüngere etwa 25 Jahre nach dem Ausbruch an den Historiker Tacitus schrieb, und erhalten ist eine gedruckte Abschrift von 1508. Schon Ende des 18. Jahrhunderts meinten einige Forscher, der Ausbruch habe im Herbst stattgefunden. Funde in Pompeji von 1990 und 2001 weisen in dieselbe Richtung: Herbstfrüchte wie Granatäpfel, Opfer in dicker Kleidung und große Weingefäße, die darauf hindeuten, dass die Weinlese vorbei war. Der Tag ist also nicht sicher.",
+        "es": "La erupción del Vesubio en el año 79 sepultó Pompeya, y durante mucho tiempo se dio como fecha el 24 de agosto. La fecha procede de una carta que Plinio el Joven escribió al historiador Tácito unos 25 años después de la erupción, y lo que tenemos es una copia impresa de 1508. Ya a finales del siglo XVIII algunos investigadores sostuvieron que la erupción ocurrió en otoño. Los hallazgos de Pompeya de 1990 y 2001 apuntan en la misma dirección: frutas de otoño como granadas, víctimas con ropa gruesa y grandes recipientes de vino, que indican que la vendimia ya había terminado. Así que el día no es seguro.",
+        "fr": "L'éruption du Vésuve en 79 a enseveli Pompéi, et l'on a longtemps donné le 24 août comme date. Celle-ci provient d'une lettre que Pline le Jeune a écrite à l'historien Tacite environ 25 ans après l'éruption, et nous n'en avons qu'une copie imprimée en 1508. Dès la fin du XVIIIe siècle, certains chercheurs ont soutenu que l'éruption avait eu lieu en automne. Des découvertes faites à Pompéi en 1990 et en 2001 vont dans le même sens : des fruits d'automne comme des grenades, des victimes vêtues d'habits épais et de grands récipients de vin, qui laissent penser que les vendanges étaient terminées. Le jour n'est donc pas certain."
+      },
+      "layers": [
+        "events"
+      ],
+      "open": "vesuvius-79",
+      "sources": [
+        "wp-vesuvius-79"
+      ]
+    },
+    {
+      "id": "thermopyle",
+      "at": -479,
+      "camera": {
+        "lat": 38.7958,
+        "lon": 22.5369,
+        "zoom": 2.4
+      },
+      "title": {
+        "sv": "Thermopyle: 300 mot miljoner?",
+        "en": "Thermopylae: 300 against millions?",
+        "de": "Thermopylen: 300 gegen Millionen?",
+        "es": "Las Termópilas: ¿300 contra millones?",
+        "fr": "Les Thermopyles : 300 contre des millions ?"
+      },
+      "chapter": {
+        "sv": "Siffror som växer",
+        "en": "Numbers that grow",
+        "de": "Zahlen, die wachsen",
+        "es": "Cifras que crecen",
+        "fr": "Des chiffres qui grossissent"
+      },
+      "question": {
+        "sv": "Varför kan siffrorna i en gammal berättelse bli större än de var?",
+        "en": "Why might the numbers in an old story grow larger than they were?",
+        "de": "Warum können die Zahlen in einer alten Geschichte größer werden, als sie waren?",
+        "es": "¿Por qué las cifras de una historia antigua pueden acabar siendo mayores de lo que fueron?",
+        "fr": "Pourquoi les chiffres d'un vieux récit peuvent-ils devenir plus grands qu'ils ne l'étaient ?"
+      },
+      "text": {
+        "sv": "Berättelsen säger att 300 spartaner stod emot en persisk armé på miljoner år 480 f.Kr. Men spartanerna var inte ensamma: grekerna var omkring 7 000 man, och bland dem fanns uppskattningsvis 300 spartaner. Herodotos skrev att perserna var omkring 2,6 miljoner, och Simonides talade om fyra miljoner. Enligt källan överdrev de antika författarna kraftigt, och moderna forskare uppskattar den persiska armén till mellan 120 000 och 300 000 man. Året är säkert, men inte dagen.",
+        "en": "The story says that 300 Spartans held out against a Persian army of millions in 480 BC. But the Spartans were not alone: the Greeks numbered about 7,000 men, including an estimated 300 Spartans. Herodotus wrote that the Persians numbered about 2.6 million, and Simonides spoke of four million. According to the source, the ancient authors greatly exaggerated, and modern researchers estimate the Persian army at between 120,000 and 300,000 men. The year is certain, but not the day.",
+        "de": "Die Geschichte erzählt, dass 300 Spartaner im Jahr 480 v. Chr. einem persischen Heer von Millionen standhielten. Doch die Spartaner waren nicht allein: Die Griechen zählten etwa 7.000 Mann, darunter schätzungsweise 300 Spartaner. Herodot schrieb, die Perser seien etwa 2,6 Millionen gewesen, und Simonides sprach von vier Millionen. Laut der Quelle haben die antiken Autoren stark übertrieben, und die heutige Forschung schätzt das persische Heer auf 120.000 bis 300.000 Mann. Das Jahr ist sicher, der Tag nicht.",
+        "es": "La historia cuenta que 300 espartanos resistieron frente a un ejército persa de millones de hombres en el año 480 a. C. Pero los espartanos no estaban solos: los griegos eran unos 7000 hombres, entre ellos unos 300 espartanos, según las estimaciones. Heródoto escribió que los persas eran unos 2,6 millones, y Simónides habló de cuatro millones. Según la fuente, los autores antiguos exageraron mucho, y los investigadores actuales calculan que el ejército persa tenía entre 120 000 y 300 000 hombres. El año es seguro, pero no el día.",
+        "fr": "Le récit dit que 300 Spartiates ont tenu tête à une armée perse de plusieurs millions d'hommes en 480 av. J.-C. Mais les Spartiates n'étaient pas seuls : les Grecs étaient environ 7 000, dont environ 300 Spartiates selon les estimations. Hérodote a écrit que les Perses étaient environ 2,6 millions, et Simonide a parlé de quatre millions. Selon la source, les auteurs antiques ont fortement exagéré, et les chercheurs actuels estiment l'armée perse entre 120 000 et 300 000 hommes. L'année est certaine, mais pas le jour."
+      },
+      "layers": [
+        "events"
+      ],
+      "open": "slaget-vid-thermopyle",
+      "sources": [
+        "wp-battle-of-thermopylae"
+      ]
+    },
+    {
+      "id": "dronten",
+      "at": 1662,
+      "camera": {
+        "lat": -20.2,
+        "lon": 57.5,
+        "zoom": 2.6
+      },
+      "title": {
+        "sv": "Dronten: när dog den ut?",
+        "en": "The dodo: when did it die out?",
+        "de": "Der Dodo: Wann starb er aus?",
+        "es": "El dodo: ¿cuándo se extinguió?",
+        "fr": "Le dodo : quand a-t-il disparu ?"
+      },
+      "chapter": {
+        "sv": "Vad betyder ”sista gången”?",
+        "en": "What does “the last time” mean?",
+        "de": "Was bedeutet „das letzte Mal“?",
+        "es": "¿Qué significa «la última vez»?",
+        "fr": "Que veut dire « la dernière fois » ?"
+      },
+      "question": {
+        "sv": "Hur kan man veta att något är borta för gott, när man bara kan se det som finns?",
+        "en": "How can we know that something is gone for good, when we can only see what is there?",
+        "de": "Wie kann man wissen, dass etwas für immer verschwunden ist, wenn man nur sehen kann, was da ist?",
+        "es": "¿Cómo se puede saber que algo ha desaparecido para siempre, si solo se puede ver lo que existe?",
+        "fr": "Comment savoir qu'une chose a disparu pour de bon, quand on ne peut voir que ce qui existe ?"
+      },
+      "text": {
+        "sv": "Dronten fanns på Mauritius i Indiska oceanen. Den sista allmänt godtagna iakttagelsen gjordes 1662 av en skeppsbruten sjöman. En beskrivning från 1681 sågs länge som den sista, och det årtalet har fortfarande förespråkare. Den sista påstådda iakttagelsen står i jaktanteckningar från 1688. En statistisk beräkning från 2003 gav 1693 som troligt år för utdöendet, med ett intervall från 1688 till 1715. Källan tror inte att frågan någonsin blir avgjord, om inte nya beskrivningar av fågeln dyker upp.",
+        "en": "The dodo lived on Mauritius in the Indian Ocean. The last widely accepted sighting was made in 1662 by a shipwrecked sailor. An account from 1681 was long seen as the last one, and that year still has supporters. The last claimed sighting is in hunting records from 1688. A statistical calculation from 2003 gave 1693 as the likely year of extinction, with a range from 1688 to 1715. The source does not expect the question ever to be settled, unless new descriptions of the bird turn up.",
+        "de": "Der Dodo lebte auf Mauritius im Indischen Ozean. Die letzte allgemein anerkannte Sichtung machte 1662 ein schiffbrüchiger Seemann. Eine Beschreibung von 1681 galt lange als die letzte, und diese Jahreszahl hat bis heute Befürworter. Die letzte behauptete Sichtung steht in Jagdaufzeichnungen von 1688. Eine statistische Berechnung von 2003 ergab 1693 als wahrscheinliches Jahr des Aussterbens, mit einer Spanne von 1688 bis 1715. Die Quelle erwartet nicht, dass die Frage je geklärt wird, es sei denn, neue Beschreibungen des Vogels tauchen auf.",
+        "es": "El dodo vivía en Mauricio, en el océano Índico. El último avistamiento aceptado de forma general lo hizo en 1662 un marinero náufrago. Una descripción de 1681 se consideró durante mucho tiempo la última, y esa fecha todavía tiene defensores. El último avistamiento que se afirma haber hecho figura en unos registros de caza de 1688. Un cálculo estadístico de 2003 dio 1693 como año probable de la extinción, con un intervalo de 1688 a 1715. La fuente no cree que la cuestión llegue a resolverse, salvo que aparezcan nuevas descripciones del ave.",
+        "fr": "Le dodo vivait à Maurice, dans l'océan Indien. La dernière observation généralement admise a été faite en 1662 par un marin naufragé. Une description de 1681 a longtemps été considérée comme la dernière, et cette date a encore ses partisans. La dernière observation revendiquée figure dans des registres de chasse de 1688. Un calcul statistique de 2003 a donné 1693 comme année probable de l'extinction, avec un intervalle de 1688 à 1715. La source ne pense pas que la question sera un jour tranchée, à moins que de nouvelles descriptions de l'oiseau ne soient retrouvées."
+      },
+      "layers": [
+        "events"
+      ],
+      "open": "dronten-sista-gangen",
+      "sources": [
+        "wp-dodo"
+      ]
+    },
+    {
+      "id": "digerdoden",
+      "at": 1346,
+      "camera": {
+        "lat": 37.6,
+        "lon": 14.0,
+        "zoom": 1.4
+      },
+      "title": {
+        "sv": "Digerdöden: hur många dog?",
+        "en": "The Black Death: how many died?",
+        "de": "Der Schwarze Tod: Wie viele starben?",
+        "es": "La peste negra: ¿cuántos murieron?",
+        "fr": "La peste noire : combien de morts ?"
+      },
+      "chapter": {
+        "sv": "Att räkna utan folkräkning",
+        "en": "Counting without a census",
+        "de": "Zählen ohne Volkszählung",
+        "es": "Contar sin censo",
+        "fr": "Compter sans recensement"
+      },
+      "question": {
+        "sv": "Hur skulle du räkna de döda i ett land där ingen skrev ner hur många som levde där?",
+        "en": "How would you count the dead in a country where no one wrote down how many people lived there?",
+        "de": "Wie würden Sie die Toten in einem Land zählen, in dem niemand aufschrieb, wie viele Menschen dort lebten?",
+        "es": "¿Cómo contaría usted los muertos en un país donde nadie anotaba cuántas personas vivían allí?",
+        "fr": "Comment compteriez-vous les morts dans un pays où personne ne notait combien de gens y vivaient ?"
+      },
+      "text": {
+        "sv": "Digerdöden drog fram över Europa 1346–1353. Ofta hör man att halva Europa dog. Källan anger upp till 50 miljoner döda och omkring 30–60 procent av Europas befolkning, ett brett spann. Exakta siffror finns inte. Det saknas pålitlig statistik från tiden, och dödstalen räknas ofta fram ur uppgifter om hur många präster som dog. Även var pesten kom ifrån är omstritt.",
+        "en": "The Black Death swept across Europe in 1346–1353. People often hear that half of Europe died. The source gives up to 50 million deaths and around 30–60 per cent of Europe's population, a wide range. There are no exact figures. Reliable statistics from the period are lacking, and death tolls are often worked out from figures for how many clergy died. Where the plague came from is also disputed.",
+        "de": "Der Schwarze Tod zog 1346–1353 über Europa hinweg. Oft hört man, die Hälfte Europas sei gestorben. Die Quelle nennt bis zu 50 Millionen Tote und etwa 30–60 Prozent der europäischen Bevölkerung, eine weite Spanne. Genaue Zahlen gibt es nicht. Verlässliche Statistiken aus der Zeit fehlen, und die Zahl der Toten wird oft aus Angaben darüber hochgerechnet, wie viele Geistliche starben. Auch woher die Pest kam, ist umstritten.",
+        "es": "La peste negra recorrió Europa entre 1346 y 1353. A menudo se oye que murió la mitad de Europa. La fuente habla de hasta 50 millones de muertos y de entre el 30 y el 60 % de la población europea, un margen amplio. No hay cifras exactas. Faltan estadísticas fiables de la época, y el número de muertos suele calcularse a partir de datos sobre cuántos clérigos murieron. También se discute de dónde vino la peste.",
+        "fr": "La peste noire a ravagé l'Europe de 1346 à 1353. On entend souvent dire que la moitié de l'Europe en est morte. La source avance jusqu'à 50 millions de morts et environ 30 à 60 % de la population européenne, une fourchette large. Il n'existe pas de chiffres exacts. Les statistiques fiables de l'époque font défaut, et le nombre de morts est souvent extrapolé à partir du nombre de membres du clergé décédés. L'origine de la peste est elle aussi discutée."
+      },
+      "layers": [
+        "events"
+      ],
+      "open": "digerdoden",
+      "sources": [
+        "wp-black-death"
+      ]
+    },
+    {
+      "id": "spanska-sjukan",
+      "at": 1918,
+      "camera": {
+        "lat": 37.55,
+        "lon": -100.85,
+        "zoom": 1.4
+      },
+      "title": {
+        "sv": "Spanska sjukan: varför spansk?",
+        "en": "The Spanish flu: why Spanish?",
+        "de": "Die Spanische Grippe: Warum spanisch?",
+        "es": "La gripe española: ¿por qué española?",
+        "fr": "La grippe espagnole : pourquoi espagnole ?"
+      },
+      "chapter": {
+        "sv": "Den som berättar syns",
+        "en": "Those who report are seen",
+        "de": "Wer berichtet, fällt auf",
+        "es": "Quien informa, se ve",
+        "fr": "Ceux qui en parlent sont remarqués"
+      },
+      "question": {
+        "sv": "Vem berättar om en händelse, och vem tiger?",
+        "en": "Who reports an event, and who stays silent?",
+        "de": "Wer berichtet über ein Ereignis, und wer schweigt?",
+        "es": "¿Quién informa sobre un acontecimiento y quién calla?",
+        "fr": "Qui parle d'un événement, et qui se tait ?"
+      },
+      "text": {
+        "sv": "Pandemin 1918–1920 kallas spanska sjukan, men den började inte i Spanien. Det var krig, och censuren i de krigförande länderna höll nere dåliga nyheter. I det neutrala Spanien skrev tidningarna fritt om sjukdomen, och det gav det felaktiga intrycket att den kom därifrån. I Spanien kallades den bland annat ”franska sjukan”. Var den egentligen började vet man inte. De tidigaste troliga fallen är kända från Kansas i USA i mars 1918, men forskare har pekat på flera andra platser, och källan säger att ursprunget inte går att avgöra.",
+        "en": "The pandemic of 1918–1920 is called the Spanish flu, but it did not begin in Spain. There was a war, and censorship in the warring countries kept bad news down. In neutral Spain, newspapers wrote freely about the disease, which gave the false impression that it came from there. In Spain it was called, among other things, the “French flu”. Where it really began is not known. The earliest probable cases are known from Kansas in the United States in March 1918, but researchers have pointed to several other places, and the source says the origin cannot be determined.",
+        "de": "Die Pandemie von 1918–1920 heißt Spanische Grippe, doch sie begann nicht in Spanien. Es herrschte Krieg, und die Zensur in den kriegführenden Ländern hielt schlechte Nachrichten zurück. Im neutralen Spanien schrieben die Zeitungen frei über die Krankheit, und das erweckte den falschen Eindruck, sie stamme von dort. In Spanien nannte man sie unter anderem „Französische Grippe“. Wo sie tatsächlich begann, weiß man nicht. Die frühesten wahrscheinlichen Fälle sind aus Kansas in den USA im März 1918 bekannt, doch Forscher haben auf mehrere andere Orte hingewiesen, und die Quelle sagt, dass sich der Ursprung nicht bestimmen lässt.",
+        "es": "La pandemia de 1918-1920 se llama gripe española, pero no empezó en España. Había una guerra, y la censura de los países en guerra ocultaba las malas noticias. En la España neutral, los periódicos informaban libremente sobre la enfermedad, lo que dio la falsa impresión de que venía de allí. En España se la llamó, entre otros nombres, «gripe francesa». No se sabe dónde empezó realmente. Los primeros casos probables se conocen en Kansas, en Estados Unidos, en marzo de 1918, pero los investigadores han señalado otros lugares, y la fuente dice que su origen no puede determinarse.",
+        "fr": "La pandémie de 1918-1920 est appelée grippe espagnole, mais elle n'a pas commencé en Espagne. C'était la guerre, et la censure des pays belligérants étouffait les mauvaises nouvelles. Dans l'Espagne neutre, les journaux parlaient librement de la maladie, ce qui a donné la fausse impression qu'elle venait de là. En Espagne, on l'appelait notamment la « grippe française ». On ne sait pas où elle a réellement commencé. Les premiers cas probables sont connus au Kansas, aux États-Unis, en mars 1918, mais les chercheurs ont désigné plusieurs autres lieux, et la source indique que son origine ne peut pas être déterminée."
+      },
+      "layers": [
+        "events"
+      ],
+      "open": "spanska-sjukan",
+      "sources": [
+        "wp-spanish-flu"
+      ]
+    },
+    {
+      "id": "karl-xii",
+      "at": 1718,
+      "camera": {
+        "lat": 59.12,
+        "lon": 11.396,
+        "zoom": 2.6
+      },
+      "title": {
+        "sv": "Karl XII: 30 november eller 11 december?",
+        "en": "Charles XII: 30 November or 11 December?",
+        "de": "Karl XII.: 30. November oder 11. Dezember?",
+        "es": "Carlos XII: ¿30 de noviembre u 11 de diciembre?",
+        "fr": "Charles XII : 30 novembre ou 11 décembre ?"
+      },
+      "chapter": {
+        "sv": "Samma dag, två datum",
+        "en": "Same day, two dates",
+        "de": "Ein Tag, zwei Daten",
+        "es": "El mismo día, dos fechas",
+        "fr": "Un même jour, deux dates"
+      },
+      "question": {
+        "sv": "När du läser ett gammalt datum: vilken kalender räknade den som skrev det med?",
+        "en": "When you read an old date: which calendar was the writer using?",
+        "de": "Wenn Sie ein altes Datum lesen: Nach welchem Kalender hat der Schreiber gerechnet?",
+        "es": "Cuando lee una fecha antigua: ¿con qué calendario contaba quien la escribió?",
+        "fr": "Quand vous lisez une date ancienne : selon quel calendrier son auteur comptait-il ?"
+      },
+      "text": {
+        "sv": "Karl XII dödades vid belägringen av fästningen Fredriksten i Norge 1718. Källorna anger hans dödsdag som 30 november enligt den gamla stilen och 11 december enligt den nya stilen, den gregorianska kalendern som vi använder i dag. Det är samma dag, bara räknad i två olika kalendrar. Globen visar 11 december. Står det bara ett datum utan att det sägs vilken kalender som gäller, vet du alltså inte säkert vilken dag som menas.",
+        "en": "Charles XII was killed at the siege of the fortress of Fredriksten in Norway in 1718. The sources give the day of his death as 30 November in the Old Style and 11 December in the New Style, the Gregorian calendar we use today. It is the same day, just counted in two different calendars. The globe shows 11 December. So if a date is given without saying which calendar it follows, you cannot be sure which day is meant.",
+        "de": "Karl XII. wurde 1718 bei der Belagerung der Festung Fredriksten in Norwegen getötet. Die Quellen geben seinen Todestag als 30. November nach altem Stil und als 11. Dezember nach neuem Stil an, dem gregorianischen Kalender, den wir heute verwenden. Es ist derselbe Tag, nur in zwei verschiedenen Kalendern gezählt. Der Globus zeigt den 11. Dezember. Steht also nur ein Datum da, ohne dass gesagt wird, welcher Kalender gilt, können Sie nicht sicher sein, welcher Tag gemeint ist.",
+        "es": "Carlos XII murió en el asedio de la fortaleza de Fredriksten, en Noruega, en 1718. Las fuentes dan como fecha de su muerte el 30 de noviembre según el estilo antiguo y el 11 de diciembre según el estilo nuevo, el calendario gregoriano que usamos hoy. Es el mismo día, solo que contado con dos calendarios distintos. El globo muestra el 11 de diciembre. Así que, si una fecha aparece sin indicar a qué calendario corresponde, usted no puede estar seguro de qué día se trata.",
+        "fr": "Charles XII a été tué lors du siège de la forteresse de Fredriksten, en Norvège, en 1718. Les sources donnent la date de sa mort comme le 30 novembre selon l'ancien style et le 11 décembre selon le nouveau style, le calendrier grégorien que nous utilisons aujourd'hui. C'est le même jour, compté dans deux calendriers différents. Le globe affiche le 11 décembre. Si une date est donnée sans préciser le calendrier, vous ne pouvez donc pas savoir avec certitude de quel jour il s'agit."
+      },
+      "layers": [
+        "events"
+      ],
+      "open": "karl-xii-stupar-1718",
+      "sources": [
+        "wp-charles-xii",
+        "wp-fredriksten-1718",
+        "wp-old-new-style"
+      ]
+    }
+  ]
+}

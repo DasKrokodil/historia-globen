@@ -58,7 +58,8 @@ function warCards(events) {
     return [{
       id: `war-${war.id}`, kind: 'war', events: evs.map(e => e.id), show: [war.start, war.start + 4],
       review: RANK[Math.min(...evs.map(e => Math.max(0, RANK.indexOf(e.review))))],
-      text: { sv: `${t(war.title)} bryter ut ${formatYear(war.start)}. Samtidigt i världen:` },
+      // Texten på valt språk (#1240); språkbyte laddar om sidan, så den byggs en gång
+      text: { sv: ui('ff.warStarts', { war: t(war.title), year: formatYear(war.start) }) },
     }];
   });
 }
@@ -81,6 +82,7 @@ async function start() {
   // Lagrens grupper och förinställda vyer (#357) är en liten fil; den hämtas samtidigt med resten
   const [data, views, introData, toursData] = await Promise.all([loadAll(), loadViews(), loadIntro(), loadTours()]);
   const globe = new Globe($('globe-canvas'), $('year-jump'));
+  globe.addZoomSurface($('labels')); // etiketterna ovanpå klotet: nypning och mushjul zoomar globen, inte sidan
   globe.drawBase(data.land);
   const flatMap = new FlatMap({
     root: $('flat-view'), box: $('flat-box'), canvas: $('flat-canvas'),
@@ -197,7 +199,7 @@ async function start() {
   routePop.onEvent = id => app.select(id);
   relLegend.onFacts = id => app.showReligionFacts(id);
   relLegend.onAbout = () => app.showAboutReligions(); // "Läs om religionerna" (#308)
-  relLegend.names = new Map(data.polities.map(p => [p.name.en, p.name.sv]));
+  relLegend.names = new Map(data.polities.map(p => [p.name.en, t(p.name)]));
   // Visa som vanligt / Dämpa i teckenförklaringen ändrar valet "Behåll mina lager" i Lager (#235)
   relLegend.onKeep = on => { layers.set('keep', on); app.refresh(); };
   // Markering när man pekar (#271): musen eller tangentbordets fokus på en religion i undermenyn, i Fokus eller i
@@ -610,6 +612,7 @@ async function start() {
     root: $('quiz'), closeBtn: $('quiz-close'), score: $('quiz-score'), event: $('quiz-event'), eventTitle: $('quiz-event-title'),
     eventMeta: $('quiz-event-meta'), question: $('quiz-question'), options: $('quiz-options'), result: $('quiz-result'),
     verdict: $('quiz-verdict'), funfact: $('quiz-funfact'), sources: $('quiz-sources'), next: $('quiz-next'),
+    title: $('quiz-title'), origin: $('quiz-origin'),
   }, data, { fallbackFocus: () => $('btn-more') });
   quizButton.hidden = !quiz.ready;
   quizButton.addEventListener('click', () => { help.close(false); quiz.open(quizButton); });
@@ -631,7 +634,7 @@ async function start() {
   // Guidade turer (#47): en tur är data i data/turer/, och spelaren styr tidslinjen, kameran, Lager och faktarutan
   const tour = new TourPlayer({
     button: $('btn-tour'), menu: $('tour-menu'), menuTitle: $('tour-menu-title'), list: $('tour-list'),
-    card: $('tour-card'), progress: $('tour-progress'), name: $('tour-name'), title: $('tour-title'), text: $('tour-text'),
+    card: $('tour-card'), progress: $('tour-progress'), meter: $('tour-meter'), name: $('tour-name'), title: $('tour-title'), text: $('tour-text'),
     read: $('tour-read'), srcBtn: $('tour-sources'), back: $('tour-back'), next: $('tour-next'), closeBtn: $('tour-close'), endBtn: $('tour-end'),
     chapter: $('tour-chapter'), question: $('tour-question'), questionLabel: $('tour-question-label'), questionText: $('tour-question-text'), status: $('tour-status'),
     printBtn: $('tour-print'),
@@ -722,8 +725,9 @@ trackPauseNote(updateFocusTop);
 
 // Safari på iPad och iPhone: globen sköter själv nypgesterna med pekhändelser. Stoppa därför Safaris
 // sidzoom bara när gesten börjar på globen; resten av sidan ska gå att zooma som vanligt (#191, #404).
+// Etiketterna och klustren ovanpå klotet räknas som globen, så att sidan inte zoomas när gesten börjar på dem.
 for (const type of ['gesturestart', 'gesturechange']) {
-  $('globe-canvas').addEventListener(type, e => e.preventDefault(), { passive: false });
+  for (const el of [$('globe-canvas'), $('labels')]) el.addEventListener(type, e => e.preventDefault(), { passive: false });
 }
 
 start().catch(err => {

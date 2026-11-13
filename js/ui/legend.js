@@ -1,13 +1,15 @@
 // Teckenförklaring och klickruta för religionslagret (#166). Båda är vanliga
 // HTML-element över globen (inte en del av kartbilden), och all text kommer ur
-// religions.json via t(). I fokusläget förklarar samma ruta också krigsområdena (#236)
+// data/ui/ via ui() och religions.json via t(). I fokusläget förklarar samma ruta också krigsområdena (#236)
 // och säger vilka lager som är dämpade, med en knapp för att visa dem som vanligt (#235).
 // I upptäcktsvyn (#101) står där vad "upptäckt" och dimman betyder, och krediten för kartbilderna.
 import { t, CAT, formatYear, symbolImg } from '../model.js';
-import { ui } from '../i18n.js';
+import { ui, LANG } from '../i18n.js';
 
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const cleanName = n => String(n).replace(/^\((.*)\)$/, '$1'); // "(Kingdom of France)" → "Kingdom of France"
+// Svenskans löptext har gemener; andra språk behåller namnets skrivsätt (tyska substantiv har versal).
+const religionName = r => LANG === 'sv' ? t(r.name).toLowerCase() : t(r.name);
 
 const OBSTACLES = '.funfact, .ff-tab, .detail-card, .panel, .focus-bar, .pause-note';
 const GAP = 10; // luft mellan förklaringen och det som ligger under
@@ -58,7 +60,7 @@ export class ReligionLegend {
       const li = e.target.closest('li[data-religion]');
       if (li && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); this.onPin(li.dataset.religion); }
     });
-    this.names = new Map(); // rikets namn i Cliopatria → svenskt namn, där det finns (data/empires/index.json)
+    this.names = new Map(); // rikets namn i Cliopatria → namn på valt språk, där det finns (data/religions-polities.json)
     pop.addEventListener('click', e => {
       if (e.target.closest('[data-close]')) this.hidePop();
       const f = e.target.closest('[data-facts]');
@@ -101,45 +103,46 @@ export class ReligionLegend {
     const items = this.items ?? [], { areas = false, war = false, fadable = [], keep = false, discovery = null } = this.focus ?? {};
     if (!items.length && !areas && !war && !fadable.length && !discovery) { this.legend.hidden = true; this.legend.textContent = ''; this._html = ''; return; }
     const unsure = items.some(i => i.unsure), inherited = items.some(i => i.inherited);
-    const title = (items.length ? 1 : 0) + (areas ? 1 : 0) + (war ? 1 : 0) + (discovery ? 1 : 0) > 1 ? 'Teckenförklaring'
-      : items.length ? 'Religioner' : areas ? 'Riken' : war ? 'Krigsområden' : discovery ? discovery.title : 'Lager medan du följer';
+    const title = (items.length ? 1 : 0) + (areas ? 1 : 0) + (war ? 1 : 0) + (discovery ? 1 : 0) > 1 ? ui('legend.title')
+      : items.length ? ui('legend.religions') : areas ? ui('legend.empires') : war ? ui('legend.warAreas') : discovery ? discovery.title : ui('legend.followLayers');
     const open = discovery ? this.discoveryOpen : this.open;
     const religionsHtml = !items.length ? '' : `<ul>${items.map(({ religion: r, sure, unsure: u, inherited: i }) =>
-      `<li data-religion="${esc(r.id)}" tabindex="0" role="button" aria-pressed="${this.pinned === r.id}" class="${this.highlight === r.id ? 'on' : ''}" title="Peka eller tryck för att lyfta fram ${esc(t(r.name).toLowerCase())} på kartan"><span class="swatch" style="background:${esc(r.color)}"></span>${symbolImg(r)}<span class="rl-name">${esc(t(r.name))}${
-        sure ? '' : u ? ' <em>(osäkert)</em>' : i ? ' <em>(ärvt)</em>' : ''}</span></li>`).join('')}</ul>${
-      unsure ? '<p class="rl-note"><span class="swatch rl-unsure"></span>Ljus med streckad kant: osäker uppgift</p>' : ''}${
-      inherited ? '<p class="rl-note"><span class="swatch rl-inherited"></span>Ljusast med prickad kant: ärvt, rikets faktaruta saknar religion</p>' : ''}`;
+      `<li data-religion="${esc(r.id)}" tabindex="0" role="button" aria-pressed="${this.pinned === r.id}" class="${this.highlight === r.id ? 'on' : ''}" title="${esc(ui('legend.highlightReligion', { religion: religionName(r) }))}"><span class="swatch" style="background:${esc(r.color)}"></span>${symbolImg(r)}<span class="rl-name">${esc(t(r.name))}${
+        sure ? '' : u ? ` <em>${esc(ui('legend.unsure'))}</em>` : i ? ` <em>${esc(ui('legend.inherited'))}</em>` : ''}</span></li>`).join('')}</ul>${
+      unsure ? `<p class="rl-note"><span class="swatch rl-unsure"></span>${esc(ui('legend.unsureNote'))}</p>` : ''}${
+      inherited ? `<p class="rl-note"><span class="swatch rl-inherited"></span>${esc(ui('legend.inheritedNote'))}</p>` : ''}`;
     // Krigsskådeplatsen: skraffering i krigets färg med hel kantlinje, som på kartan (wars.js)
-    const warHtml = !war ? '' : `<div class="rl-war"><p class="rl-note rl-row"><span class="swatch rl-hatch" style="--war:${esc(CAT.krig.color)}"></span>Krigsskådeplats: område runt kriget och slagen hittills</p>
-      <p class="rl-note">Namnet säger vilken världsdel området ligger i.</p></div>`;
+    const warHtml = !war ? '' : `<div class="rl-war"><p class="rl-note rl-row"><span class="swatch rl-hatch" style="--war:${esc(CAT.krig.color)}"></span>${esc(ui('legend.warNote'))}</p>
+      <p class="rl-note">${esc(ui('legend.continentNote'))}</p></div>`;
     const areasHtml = !areas ? '' : `<div class="rl-areas">${this.empireLegend?.softEdge ? `<p class="rl-note"><span class="swatch rl-soft"></span>${esc(this.empireLegend.softEdge)}</p>` : ''}
       ${this.empireLegend?.influence ? `<p class="rl-note"><span class="swatch rl-influence"></span>${esc(this.empireLegend.influence)}</p>` : ''}</div>`;
     // Vad symbolerna betyder (#271)
-    const symbolsHtml = !items.length ? '' : `<p class="rl-note rl-sym-note">Symbolen visar religionen. En mässingsmedalj med symbolen står där religionen uppstod: den dyker upp det året och står kvar så länge lagret är på. Peka på en religion här för att lyfta fram den.</p>`;
+    const symbolsHtml = !items.length ? '' : `<p class="rl-note rl-sym-note">${esc(ui('legend.symbolsNote'))}</p>`;
     // Faktarutan på begäran (#308), när någon religion som syns har en
-    const aboutHtml = !items.some(i => i.religion.facts) ? '' : '<button type="button" class="info-btn rl-about" data-about>Läs om religionerna</button>';
+    const aboutHtml = !items.some(i => i.religion.facts) ? '' : `<button type="button" class="info-btn rl-about" data-about>${esc(ui('legend.aboutReligions'))}</button>`;
     // Tipsraden första gången lagret slås på (#308). Den står utanför den hopfällbara listan, så att den syns även i mobil.
-    const hintHtml = !this.hint || !items.length ? '' : `<p class="rl-hint" role="note"><span>Klicka på ett färgat område för att se religion och rike.</span><button type="button" class="rl-hint-close" data-hint-close aria-label="Stäng tipset">×</button></p>`;
+    const hintHtml = !this.hint || !items.length ? '' : `<p class="rl-hint" role="note"><span>${esc(ui('legend.hint'))}</span><button type="button" class="rl-hint-close" data-hint-close aria-label="${esc(ui('legend.hintClose'))}">×</button></p>`;
     // Upptäcktsvyn (#375): förklaringen och kartkrediten följer samma hopfällbara kropp,
     // så att den inte täcker kartan i mobil. Den korta rubriken ligger kvar i knappen.
     const coverageHtml = !discovery || discovery.coverage == null ? '' : `<p class="rl-coverage" role="status">${esc(ui('discovery.coverage', { percent: discovery.coverage }))}</p>
       <p class="rl-note rl-coverage-note">${esc(ui('discovery.coverageNote'))}</p>`;
     const discHtml = !discovery ? '' : `<p class="rl-disc" role="note">${esc(discovery.perspective)}</p>`;
-    const creditHtml = !discovery ? '' : `<p class="rl-note rl-credit">${esc(discovery.credit)}${discovery.sources?.length ? ` Filsidor: ${
-      discovery.sources.map((s, i) => `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${i + 1}<span class="sr-only"> ${esc(s.title)} (öppnas i en ny flik)</span></a>`).join(', ')}.` : ''}</p>`;
-    const names = fadable.join(' och ').toLowerCase().replace(/^./, c => c.toUpperCase());
+    const creditHtml = !discovery ? '' : `<p class="rl-note rl-credit">${esc(discovery.credit)}${discovery.sources?.length ? ` ${esc(ui('legend.filePages'))} ${
+      discovery.sources.map((s, i) => `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${i + 1}<span class="sr-only"> ${esc(s.title)} ${esc(ui('legend.newTab'))}</span></a>`).join(', ')}.` : ''}</p>`;
+    const joined = fadable.join(ui('legend.and'));
+    const names = LANG === 'sv' ? joined.toLowerCase().replace(/^./, c => c.toUpperCase()) : joined;
     const fadeHtml = !fadable.length ? '' : `<p class="rl-note rl-fade">${keep
-      ? `${esc(names)} visas som vanligt. <button type="button" class="link-btn" data-keep="0">Dämpa</button>`
-      : `${esc(names)} är dämpade medan du följer det här. <button type="button" class="link-btn" data-keep="1">Visa som vanligt</button>`}</p>`;
-    this.legend.setAttribute('aria-label', `Teckenförklaring: ${title.toLowerCase()}`);
+      ? `${esc(ui('legend.layersNormal', { layers: names }))} <button type="button" class="link-btn" data-keep="0">${esc(ui('legend.dim'))}</button>`
+      : `${esc(ui('legend.layersDimmed', { layers: names }))} <button type="button" class="link-btn" data-keep="1">${esc(ui('legend.showNormal'))}</button>`}</p>`;
+    this.legend.setAttribute('aria-label', ui('legend.ariaLabel', { title: LANG === 'sv' ? title.toLowerCase() : title }));
     // Hopfälld i smal skärm (#309): religionerna som syns just nu som färgprickar på en rad under rubriken,
     // så att man ser vad som finns utan att förklaringen täcker globen. CSS visar raden bara i smal skärm.
     const DOTS = 9, shown = items.slice(0, items.length > DOTS + 1 ? DOTS : DOTS + 1);
     const dotsHtml = open || (!items.length && !war && !areas) ? '' : `<span class="rl-dots" aria-hidden="true">${
       shown.map(({ religion: r, sure }) => `<span class="rl-dot${sure ? '' : ' rl-dot-pale'}" style="background:${esc(r.color)}" title="${esc(t(r.name))}"></span>`).join('')}${
       items.length > shown.length ? `<span class="rl-more">+${items.length - shown.length}</span>` : ''}${
-      war ? `<span class="rl-dot rl-hatch" style="--war:${esc(CAT.krig.color)}" title="Krigsskådeplats"></span>` : ''}</span>`;
-    const html = `<button type="button" class="rl-toggle" aria-expanded="${open}" aria-controls="rl-body"><span class="rl-title">${title}</span><span class="rl-chev" aria-hidden="true"></span>${dotsHtml}</button>${hintHtml}
+      war ? `<span class="rl-dot rl-hatch" style="--war:${esc(CAT.krig.color)}" title="${esc(ui('legend.warTheatre'))}"></span>` : ''}</span>`;
+    const html = `<button type="button" class="rl-toggle" aria-expanded="${open}" aria-controls="rl-body"><span class="rl-title">${esc(title)}</span><span class="rl-chev" aria-hidden="true"></span>${dotsHtml}</button>${hintHtml}
       <div id="rl-body" class="rl-body" ${open ? '' : 'hidden'}>${coverageHtml}${discHtml}${aboutHtml}${religionsHtml}${symbolsHtml}${areasHtml}${warHtml}${creditHtml}${fadeHtml}</div>`;
     // Samma innehåll ritas inte om, så att musen och tangentbordets fokus ligger kvar på raden (#271)
     if (html !== this._html) {
@@ -186,25 +189,25 @@ export class ReligionLegend {
   showPop(hit, x, y) {
     const { religion: r, snapshot, polities, here, loading } = hit;
     const name = p => { const n = cleanName(p.name); return this.names.get(n) ?? n; };
-    let head = esc(t(r.name)) + (snapshot.inherited ? ' (ärvt)' : ''), where;
+    let head = esc(t(r.name)) + (snapshot.inherited ? ` ${esc(ui('legend.inherited'))}` : ''), where;
     if (loading) {
-      where = '<p class="rp-note">Söker riket på platsen…</p>';
+      where = `<p class="rp-note">${esc(ui('legend.loadingEmpire'))}</p>`;
     } else if (here?.length) {
       const names = [...new Set(here.map(name))]; // "(Kingdom of France)" och "Kingdom of France" visas en gång
       head += ` · ${esc(names[0])}`;
-      where = names.length > 1 ? `<p>Även här: ${names.slice(1, 3).map(esc).join(', ')}</p>` : '';
+      where = names.length > 1 ? `<p>${esc(ui('legend.alsoHere', { empires: names.slice(1, 3).join(', ') }))}</p>` : '';
     } else {
       const names = polities.map(name);
       where = `<p>${names.length <= 3
-        ? `Rike: ${names.map(esc).join(', ')}`
-        : `Ett av ${names.length} riken i det här området med ${esc(t(r.name).toLowerCase())}`}</p>`;
+        ? esc(ui('legend.empireNames', { empires: names.join(', ') }))
+        : esc(ui('legend.oneOfEmpires', { count: names.length, religion: religionName(r) }))}</p>`;
     }
-    this.pop.innerHTML = `<button type="button" class="detail-close" data-close aria-label="Stäng">×</button>
+    this.pop.innerHTML = `<button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
       <div class="rp-head"><span class="swatch" style="background:${esc(r.color)}"></span>${symbolImg(r)}<strong>${head}</strong></div>
       ${where}
-      ${snapshot.inherited ? this.inheritedNote(hit, name) : snapshot.sure === false ? '<p class="rp-note">Osäker uppgift: rikets faktaruta på Wikipedia pekar inte ut en officiell eller tydligt största religion, så området visas med den som nämns först. Därför är det ljusare med streckad kant.</p>' : ''}
-      ${r.facts ? `<button type="button" class="info-btn rp-more" data-facts="${esc(r.id)}">Läs mer om ${esc(t(r.name).toLowerCase())}</button>` : ''}
-      ${here?.[0]?.wikipedia && /^https:\/\/[a-z]+\.wikipedia\.org\//.test(here[0].wikipedia) ? `<a class="rp-wiki" href="${esc(here[0].wikipedia)}" target="_blank" rel="noopener noreferrer">Läs om ${esc(name(here[0]))} på Wikipedia<span class="sr-only"> (öppnas i en ny flik)</span><span aria-hidden="true"> ↗</span></a>` : ''}`;
+      ${snapshot.inherited ? this.inheritedNote(hit, name) : snapshot.sure === false ? `<p class="rp-note">${esc(ui('legend.unsureArea'))}</p>` : ''}
+      ${r.facts ? `<button type="button" class="info-btn rp-more" data-facts="${esc(r.id)}">${esc(ui('legend.moreReligion', { religion: religionName(r) }))}</button>` : ''}
+      ${here?.[0]?.wikipedia && /^https:\/\/[a-z]+\.wikipedia\.org\//.test(here[0].wikipedia) ? `<a class="rp-wiki" href="${esc(here[0].wikipedia)}" target="_blank" rel="noopener noreferrer">${esc(ui('legend.empireWikipedia', { empire: name(here[0]) }))}<span class="sr-only"> ${esc(ui('legend.newTab'))}</span><span aria-hidden="true"> ↗</span></a>` : ''}`;
     this.pop.hidden = false;
     const host = this.pop.offsetParent?.getBoundingClientRect() ?? { left: 0, top: 0, width: innerWidth, height: innerHeight };
     const w = this.pop.offsetWidth, h = this.pop.offsetHeight;
@@ -220,17 +223,17 @@ export class ReligionLegend {
   inheritedNote(hit, name) {
     const { religion: r, snapshot: s, polities, here } = hit;
     const p = here?.[0] ?? (polities.length === 1 ? polities[0] : null);
-    const who = p ? `faktarutan för ${esc(name(p))}` : 'rikenas faktarutor här';
-    const Who = who[0].toUpperCase() + who.slice(1);
     const later = p && [p.since, p.christianSince].find(y => y > s.start);
-    const why = !p || p.rule === 'saknas' ? `${Who} saknar religion.`
-      : later ? `Religionen i ${who} gäller först från ${esc(formatYear(later))}.`
-      : /%/.test(p.text ?? '') ? `${Who} anger bara andelar ur en senare folkräkning, som inte används för den här tiden.`
-      : `${Who} anger ingen religion som finns i lagret.`;
+    const reason = !p ? ui('legend.missingReligionHere')
+      : p.rule === 'saknas' ? ui('legend.missingReligion', { empire: name(p) })
+      : later ? ui('legend.laterReligion', { empire: name(p), year: formatYear(later) })
+      : /%/.test(p.text ?? '') ? ui('legend.censusReligion', { empire: name(p) })
+      : ui('legend.noLayerReligion', { empire: name(p) });
     const from = [...new Set(s.inherited.from.map(n => name({ name: n })))];
-    const fromText = from.length <= 3 ? from.map(esc).join(', ') : `${from.slice(0, 2).map(esc).join(', ')} med flera`;
-    return `<p class="rp-note">Ärvt område. ${why} Området visas med ${esc(t(r.name).toLowerCase())}, som det hade på kartan fram till ${
-      esc(formatYear(s.inherited.until))} (${fromText}).</p>`;
+    const empires = from.length <= 3 ? from.join(', ') : ui('legend.andMore', { empires: from.slice(0, 2).join(', ') });
+    return `<p class="rp-note">${esc(ui('legend.inheritedArea', {
+      reason, religion: religionName(r), year: formatYear(s.inherited.until), empires,
+    }))}</p>`;
   }
 
   hidePop() { this.pop.hidden = true; }
@@ -243,7 +246,7 @@ export class ReligionLegend {
     if (!hit) { tip.hidden = true; return; }
     const { religion: r, snapshot: s } = hit;
     const html = `<span class="swatch" style="background:${esc(r.color)}"></span>${symbolImg(r)}<span>${esc(t(r.name))}${
-      s.inherited ? ' <em>(ärvt)</em>' : s.sure === false ? ' <em>(osäkert)</em>' : ''}</span>`;
+      s.inherited ? ` <em>${esc(ui('legend.inherited'))}</em>` : s.sure === false ? ` <em>${esc(ui('legend.unsure'))}</em>` : ''}</span>`;
     if (tip._html !== html) tip.innerHTML = tip._html = html;
     tip.hidden = false;
     const host = tip.offsetParent?.getBoundingClientRect() ?? { left: 0, top: 0, width: innerWidth, height: innerHeight };
@@ -310,19 +313,19 @@ export class EmpireLegend {
     const others = this.items.filter(item => !item.colonial).sort(byName);
     const item = ({ group, colonial }) => {
       const name = t(group.name);
-      const label = colonial ? `${name} · ${this.text.colonies ?? 'kolonier'}` : name;
+      const label = colonial ? `${name} · ${this.text.colonies ?? ui('legend.colonies')}` : name;
       const mark = symbolImg(group) || '<span class="el-star" aria-hidden="true">★</span>';
-      return `<li data-empire="${esc(group.id)}" tabindex="0" role="button" aria-pressed="${this.pinned === group.id}" class="${this.highlight === group.id ? 'on' : ''}" title="${esc(this.text.highlight ?? 'Peka eller tryck för att lyfta fram riket på kartan.')}"><span class="swatch" style="background:${esc(group.color)}"></span>${mark}<span class="rl-name">${esc(label)}</span></li>`;
+      return `<li data-empire="${esc(group.id)}" tabindex="0" role="button" aria-pressed="${this.pinned === group.id}" class="${this.highlight === group.id ? 'on' : ''}" title="${esc(this.text.highlight ?? ui('legend.highlightEmpire'))}"><span class="swatch" style="background:${esc(group.color)}"></span>${mark}<span class="rl-name">${esc(label)}</span></li>`;
     };
-    const more = (this.text.more ?? 'Fler riken ({count})').replace('{count}', others.length);
-    const coloniesHtml = colonies.length ? `<p class="el-heading">${esc(this.text.colonial ?? 'Kolonialvälden')}</p><ul>${colonies.map(item).join('')}</ul>` : '';
+    const more = (this.text.more ?? ui('legend.moreEmpires')).replace('{count}', others.length);
+    const coloniesHtml = colonies.length ? `<p class="el-heading">${esc(this.text.colonial ?? ui('legend.colonialEmpires'))}</p><ul>${colonies.map(item).join('')}</ul>` : '';
     const othersHtml = others.length ? `<details class="el-more"><summary>${esc(more)}</summary><ul>${others.map(item).join('')}</ul></details>` : '';
     const dots = this.open ? '' : `<span class="rl-dots" aria-hidden="true">${this.items.slice(0, 10).map(({ group }) =>
       `<span class="rl-dot" style="background:${esc(group.color)}" title="${esc(t(group.name))}"></span>`).join('')}${
       this.items.length > 10 ? `<span class="rl-more">+${this.items.length - 10}</span>` : ''}</span>`;
-    const html = `<button type="button" class="rl-toggle el-toggle" aria-expanded="${this.open}" aria-controls="el-body"><span class="rl-title">${esc(this.text.title ?? 'Riken')}</span><span class="rl-chev" aria-hidden="true"></span>${dots}</button>
-      <button type="button" class="el-close" data-empire-close aria-label="Stäng teckenförklaringen för riken">×</button>
-      <div id="el-body" class="rl-body" ${this.open ? '' : 'hidden'}>${coloniesHtml}${othersHtml}<p class="rl-note el-note">${esc(this.text.highlight ?? 'Peka eller tryck för att lyfta fram riket på kartan.')}</p></div>`;
+    const html = `<button type="button" class="rl-toggle el-toggle" aria-expanded="${this.open}" aria-controls="el-body"><span class="rl-title">${esc(this.text.title ?? ui('legend.empires'))}</span><span class="rl-chev" aria-hidden="true"></span>${dots}</button>
+      <button type="button" class="el-close" data-empire-close aria-label="${esc(ui('legend.closeEmpires'))}">×</button>
+      <div id="el-body" class="rl-body" ${this.open ? '' : 'hidden'}>${coloniesHtml}${othersHtml}<p class="rl-note el-note">${esc(this.text.highlight ?? ui('legend.highlightEmpire'))}</p></div>`;
     if (html !== this._html) {
       const focused = this.legend.contains(document.activeElement) && document.activeElement.dataset.empire;
       const scroll = this.legend.querySelector('.rl-body')?.scrollTop ?? 0;

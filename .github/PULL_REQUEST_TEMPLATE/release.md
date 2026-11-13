@@ -13,6 +13,8 @@
 - [ ] Förhandsversionen av `main` (dev.historiagloben.se) är kontrollerad i dator och mobil: globen snurrar, tidslinjen går att dra, uppspelning, Samtidigt, Platt vy och Källor fungerar, inga synliga fel.
 - [ ] **UX-genomgång av Claude Code** (#150, del C): samma flöden som webbläsartestet (Samtidigt och nästa händelse, en händelse, byte av vy i Lager, sökning i Fokus, ett krig till slutkortet, bildlagret, Platt vy, Källor) på dev.historiagloben.se i dator och mobil. Rapport: <!-- vad som fungerade, fynd och issues (#…), eller "inga fynd" -->
 - [ ] **Produktdokumentationen** (`docs/produkt/`) är genomgången och uppdaterad: nya intressenter, användare, mål, funktioner och risker, och datum skrivet överst i dokument som kontrollerats (docs/produkt/README.md).
+- [ ] **Backlog review** (beslut 2026-11-12): milstolparna stämmer (rätt version och namn, stängda är tomma, överfulla delade), inga öppna issues saknar milstolpe, `redo`/`pågår`/`beslut-krävs` stämmer (inga avgjorda beslut kvar, rekommendation finns), dubbletter och föråldrade issues är listade, och översättningsläget (`python3 tools/oversattning.py`) är mätt. Rapport: <!-- kort lista: ändrat, förslag som väntar på DasKrokodil, eller "inga fynd" -->
+- [ ] **Utvärderingar:** öppna issues med etiketten `utvärdering` (översikt i #1209) är genomgångna och de som är mogna står nämnda här. Mogna: <!-- #…, eller "inga" -->
 - [ ] Inga utkast (`review: draft`) eller platshållarbilder som inte ska ut.
 - [ ] Kontrollerna "Bygg och validera dist/" och "Release kommer från main" är gröna på den här PR:en.
 - [ ] Versionsnumret är valt (vX.Y.Z, se docs/DEPLOYMENT.md) och skrivet i rubriken.

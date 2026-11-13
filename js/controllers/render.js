@@ -2,16 +2,44 @@
 // som syns (beslut 2), ritar lagerbilden (beslut 1) och uppdaterar listan, teckenförklaringarna och årtalet.
 // Sist får uppspelningen (playback.js) se om något ska pausa. Här finns också namnens storlek efter zoom
 // (#154, #271, #301, #358) och rikets berättelse för Samtidigt-kortet (#171).
-import { loadEventDetails, formatCentury, formatEventTime, pluralUi, t } from '../model.js';
-import { ui } from '../i18n.js';
+import { loadEventDetails, formatCentury, formatEventTime, formatYear, pluralUi, roundWindow, groupDigits, t } from '../model.js';
+import { LANG, ui } from '../i18n.js';
 import { ZOOM_LEVELS, zoomLevel, pxPerImg, zoomView, eventKeepouts } from '../ui/zoomlevels.js';
 import { empireStory } from '../ui/funfact.js';
 import { rangeParts, rangeText } from './range.js';
 
+/**
+ * Yngre läsare (#1191): en lektion för årskurs F-3 eller 4-6, eller Samtidighetsjakten, som riktar sig till elever upp till
+ * 13 år (beslut 2026-11-08 om tilltal). Där skrivs tidsfönstret i ord i stället för med "±".
+ */
+const YOUNG_GRADES = ['F-3', '4-6'];
+/** Hur länge året ska stå still innan statusraden läser upp det, så att ett drag i reglaget inte läser upp varje år (#1305). */
+const YEAR_STATUS_MS = 600;
 export function createRender(app) {
+  const youngReaders = () => !!app.hunt?.active || YOUNG_GRADES.includes(app.lesson?.tour?.lesson?.grades);
   const { $, state, data, views, registry, globe, flatMap, timeline, panel, ff, layers, relLegend, empireLegend, empireLegendButton, routePop } = app;
   const layer = registry.get('events'), areas = registry.get('areas'), religions = registry.get('religions'), routes = registry.get('routes');
   let visible = [];
+
+  // Skärmläsarens statusrad (#1305): året och antalet träffar efter varje årsbyte, hur året än byttes (knapparna +10 och −10,
+  // drag, årshopp, Visste du?). Året är ändå ingen live-region (#506): raden läses upp en gång när året har stått still en
+  // stund, och inte under uppspelning, i ett intervall (egen live-rad, #977), i en tur eller medan en pausrad syns (de har
+  // egna uppläsningar). Ett år utan Samtidigt-kort säger det. Kortets text följer med bara om ett nytt kort lästes upp under
+  // tiden, annars skulle den här raden skriva över den.
+  let statusYear = null, statusTimer = 0, statusCard = '';
+  const capital = s => (s ? s[0].toLocaleUpperCase(LANG) + s.slice(1) : s);
+  function announceYear() {
+    statusTimer = 0;
+    if (timeline.playing || state.range || app.tour?.active || !$('pause-note').hidden) return;
+    const year = timeline.year, fine = !!state.focus?.fine;
+    const at = fine ? ui('time.onDate', { date: timeline.format(year) }) : ui('panel.atYear', { year: formatYear(Math.floor(year)) });
+    const n = visible.length;
+    const count = String(ui('status.hits')[n === 1 ? 0 : 1]).replace('{n}', groupDigits(n));
+    const parts = [capital(ui('status.year', { at, count }))];
+    if (ff.announcedKey && ff.announcedKey !== statusCard) parts.push(ff.announcement()); // ett nytt kort lästes upp medan året byttes
+    else if (!fine && ff.enabled && !ff.active.length) parts.push(ui('status.noCard'));
+    timeline.announce(parts.join(' '));
+  }
 
   // Rikesnamnen ritas i kartbilden (beslut 1) och växer därför med globen: vid max zoom ser
   // kartbilden ca 10 gånger större ut på skärmen. Därför görs namnen mindre i bilden när man
@@ -24,6 +52,8 @@ export function createRender(app) {
   const religionNames = () => $('flat-view').hidden && zoomMag() >= NAMES_MAG;
   // Riken med symbol (#301): utzoomat på globen bara symbolen, vid nära zoom och i Platt vy även namnet
   const empireNames = () => !$('flat-view').hidden || zoomMag() >= NAMES_MAG;
+  // Nutida staters flaggor (#1193) syns bara vid nära zoom på globen och i Platt vy från nivån Inzoomat; annars namnet
+  const modernFlags = () => $('flat-view').hidden ? zoomMag() >= NAMES_MAG : zoomLevel(pxPerImg(globe, flatMap)) >= 2;
   function nameStyle() {
     if (!$('flat-view').hidden) return [ZOOM_LEVELS[zoomLevel(flatMap.scale)].flatScale, 1]; // efter zoomnivån (#358)
     const mag = zoomMag();
@@ -38,7 +68,7 @@ export function createRender(app) {
       const [sc, al] = nameStyle();
       const l = state.labels;
       // Ny zoomnivå (#358) ändrar vilka rikesnamn och medaljer som får plats
-      if (l.scale !== sc || l.alpha !== al || l.religionNames !== religionNames() || l.empireNames !== empireNames()
+      if (l.scale !== sc || l.alpha !== al || l.religionNames !== religionNames() || l.empireNames !== empireNames() || l.modernFlags !== modernFlags()
         || areas.view.level !== zoomLevel(pxPerImg(globe, flatMap))) refresh();
     }, 150);
   };
@@ -75,7 +105,7 @@ export function createRender(app) {
     const focus = state.focus;
     // Namn och symboler på lagerbilden efter zoom och vy (#154, #271, #301)
     const [scale, alpha] = nameStyle();
-    state.labels = { scale, alpha, religionNames: religionNames(), empireNames: empireNames() };
+    state.labels = { scale, alpha, religionNames: religionNames(), empireNames: empireNames(), modernFlags: modernFlags() };
     // I fokusläget för korta krig är året ett decimaltal (#204). Händelser och krig får då sina
     // datum ur edtf (span), medan riken, religioner och fun facts får det hela året som förut.
     const year = timeline.year, wholeYear = Math.floor(year), fine = !!focus?.fine;
@@ -90,9 +120,18 @@ export function createRender(app) {
     // Riken och religioner visas för intervallets slutår (alternativ A i förstudien, #756); utan intervall för året
     const areaYear = range ? Math.floor(range.to) : wholeYear;
     app.store.mirror({ year, wholeYear, areaYear, fine, window, span, playing, filters: panel.filters });
+    // Statusraden (#1305): första ritningen läses inte upp, och inte heller uppspelningens år
+    const yearKey = fine ? year : wholeYear;
+    if (statusYear !== null && yearKey !== statusYear && !playing && !range) {
+      if (!statusTimer) statusCard = ff.announcedKey;
+      clearTimeout(statusTimer);
+      statusTimer = setTimeout(announceYear, YEAR_STATUS_MS);
+    }
+    statusYear = yearKey;
     // Singular och plural ur språkfilen ([en, flera]), till exempel "±1 dag" och "±3 dagar"
-    const plural = (key, n) => String(ui(key)[n === 1 ? 0 : 1]).replace('{n}', n);
-    const within = fine ? plural('time.withinDays', Math.round(window * 365.25)) : plural('time.withinYears', Math.round(window));
+    // Talet med språkets tusentalsavgränsare, så att förhistoriens fönster blir "±12 000 år" (#1088)
+    const plural = (key, n) => String(ui(key)[n === 1 ? 0 : 1]).replace('{n}', groupDigits(n));
+    const within = fine ? plural('time.withinDays', Math.round(window * 365.25)) : plural('time.withinYears', roundWindow(window)); // avrundat (#1191)
     ff.story = focus?.type === 'empire' ? storyFor(focus.id) : [];
     ff.setAnnouncements(!range);
     ff.update(wholeYear, panel.filters, focus?.eventIds ?? null);
@@ -143,7 +182,11 @@ export function createRender(app) {
     $('year-jump').classList.toggle('fine', fine);
     $('year-segment').textContent = range ? ui('range.segment')
       : focus ? pluralUi(fine ? 'time.followDays' : 'time.followYears', fine ? Math.round(window * 365.25) : Math.round(window), { name: focus.short })
-      : pluralUi('time.windowYears', Math.round(window), { where: formatCentury(year) });
+      : pluralUi(youngReaders() ? 'time.windowYearsWords' : 'time.windowYears', roundWindow(window), { where: formatCentury(year), n: groupDigits(roundWindow(window)) });
+    // Tonade markörer är nära i tid, inte samtida (#1191): förklaringen står i title och som dold text för skärmläsare
+    const windowNote = range || focus ? '' : pluralUi('time.windowNote', roundWindow(window), { n: groupDigits(roundWindow(window)) });
+    $('year-segment').title = windowNote;
+    $('year-window-note').textContent = windowNote;
     // Pauserna i uppspelningen: krigets och resans stopp, grundanden, rikets nyckelår och krig som bryter ut
     app.playback.check({ year, fine, span, playing, eventsOn });
     $('app').classList.toggle('has-detail', !$('detail').hidden);

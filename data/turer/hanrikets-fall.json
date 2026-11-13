@@ -28,11 +28,11 @@
         "zoom": 1.4
       },
       "chapter": {
-        "sv": "Kris",
-        "en": "Crisis",
-        "fr": "Crise",
-        "de": "Krise",
-        "es": "Crisis"
+        "sv": "Upproret",
+        "en": "The rebellion",
+        "fr": "La révolte",
+        "de": "Der Aufstand",
+        "es": "La rebelión"
       },
       "title": {
         "sv": "Gula turbanernas uppror, 184",
@@ -41,20 +41,21 @@
         "de": "Der Aufstand der Gelben Turbane, 184",
         "es": "La rebelión de los Turbantes Amarillos, 184"
       },
-      "status": "belagt",
+      "status": "omtvistat",
       "text": {
-        "sv": "Landet kastas in i oro av Gula turbanernas uppror, som pågår från 184 till 205.",
-        "en": "The country is thrown into turmoil by the Yellow Turban Rebellion, which lasts from 184 to 205.",
-        "fr": "Le pays est plongé dans le désordre par la révolte des Turbans jaunes, qui dure de 184 à 205.",
-        "de": "Das Land wird durch den Aufstand der Gelben Turbane, der von 184 bis 205 dauert, ins Chaos gestürzt.",
-        "es": "El país se ve sumido en el desorden por la rebelión de los Turbantes Amarillos, que dura de 184 a 205."
+        "sv": "Gula turbanernas uppror bryter ut 184 och kastar landet in i oro. Källorna beskriver förloppet olika: enligt en pågår upproret till 205, enligt en annan slås huvudupproret ner inom ett år, men mindre uppror fortsätter i årtionden.",
+        "en": "The Yellow Turban Rebellion breaks out in 184 and throws the country into turmoil. The sources describe its course differently: according to one, the rebellion lasts until 205; according to another, the main rising is crushed within a year, but smaller uprisings continue for decades.",
+        "fr": "La révolte des Turbans jaunes éclate en 184 et plonge le pays dans le désordre. Les sources décrivent son déroulement différemment : selon l'une, la révolte dure jusqu'en 205 ; selon une autre, le soulèvement principal est écrasé en moins d'un an, mais de plus petites révoltes se poursuivent pendant des décennies.",
+        "de": "Der Aufstand der Gelben Turbane bricht 184 aus und stürzt das Land ins Chaos. Die Quellen beschreiben den Verlauf unterschiedlich: Nach der einen dauert der Aufstand bis 205, nach einer anderen wird der Hauptaufstand innerhalb eines Jahres niedergeschlagen, doch kleinere Erhebungen dauern noch Jahrzehnte an.",
+        "es": "La rebelión de los Turbantes Amarillos estalla en 184 y sume al país en el desorden. Las fuentes describen su curso de forma distinta: según una, la rebelión dura hasta 205; según otra, el levantamiento principal es aplastado en menos de un año, pero continúan levantamientos menores durante décadas."
       },
       "layers": [
         "events",
         "areas"
       ],
       "sources": [
-        "wp-end-of-han"
+        "wp-end-of-han",
+        "wp-han-dynasty"
       ]
     },
     {
@@ -74,18 +75,20 @@
       },
       "status": "belagt",
       "text": {
-        "sv": "Dong Zhuo, som har fört in sin armé i huvudstaden, tvingar hovet och Luoyangs invånare att flytta västerut till Chang'an. Den gamla huvudstaden bränns på hans order.",
-        "en": "Dong Zhuo, who has brought his army into the capital, forces the court and the people of Luoyang to move west to Chang'an. The old capital is burned on his orders.",
-        "fr": "Dong Zhuo, qui a fait entrer son armée dans la capitale, force la cour et les habitants de Luoyang à partir vers l'ouest, à Chang'an. L'ancienne capitale est incendiée sur son ordre.",
-        "de": "Dong Zhuo, der sein Heer in die Hauptstadt geführt hat, zwingt den Hof und die Einwohner Luoyangs, nach Westen nach Chang'an zu ziehen. Die alte Hauptstadt wird auf seinen Befehl niedergebrannt.",
-        "es": "Dong Zhuo, que ha llevado su ejército a la capital, obliga a la corte y a los habitantes de Luoyang a trasladarse al oeste, a Chang'an. La antigua capital es incendiada por orden suya."
+        "sv": "Dong Zhuo, som har fört in sin armé i huvudstaden, tvingar hovet och Luoyangs invånare att flytta västerut till Chang'an. Den gamla huvudstaden bränns på hans order. Två källor anger år 190, en tredje 191.",
+        "en": "Dong Zhuo, who has brought his army into the capital, forces the court and the people of Luoyang to move west to Chang'an. The old capital is burned on his orders. Two sources give the year 190, a third 191.",
+        "fr": "Dong Zhuo, qui a fait entrer son armée dans la capitale, force la cour et les habitants de Luoyang à partir vers l'ouest, à Chang'an. L'ancienne capitale est incendiée sur son ordre. Deux sources indiquent l'année 190, une troisième 191.",
+        "de": "Dong Zhuo, der sein Heer in die Hauptstadt geführt hat, zwingt den Hof und die Einwohner Luoyangs, nach Westen nach Chang'an zu ziehen. Die alte Hauptstadt wird auf seinen Befehl niedergebrannt. Zwei Quellen nennen das Jahr 190, eine dritte 191.",
+        "es": "Dong Zhuo, que ha llevado su ejército a la capital, obliga a la corte y a los habitantes de Luoyang a trasladarse al oeste, a Chang'an. La antigua capital es incendiada por orden suya. Dos fuentes dan el año 190; una tercera, 191."
       },
       "layers": [
         "events",
         "areas"
       ],
       "sources": [
-        "wp-end-of-han"
+        "wp-end-of-han",
+        "wp-emperor-xian-of-han",
+        "wp-han-dynasty"
       ]
     },
     {
@@ -110,7 +113,7 @@
         "de": "Luoyang, 195",
         "es": "Luoyang, 195"
       },
-      "status": "belagt",
+      "status": "okant",
       "text": {
         "sv": "I Luoyang saknas det nödvändigaste för att leva, och många ämbetsmän svälter ihjäl. Källan berättar om ämbetsmännen men säger inget om hur det gick för vanliga människor.",
         "en": "Luoyang lacks the essentials of life, and many officials starve to death. The source tells us about the officials but says nothing about what happened to ordinary people.",
@@ -121,16 +124,17 @@
       "question": {
         "sv": "Varför tror du att källorna oftare berättar om ämbetsmän än om bönder?",
         "en": "Why do you think the sources tell us about officials more often than about farmers?",
-        "fr": "Pourquoi penses-tu que les sources parlent plus souvent des fonctionnaires que des paysans ?",
-        "de": "Warum glaubst du, erzählen die Quellen häufiger von Beamten als von Bauern?",
-        "es": "¿Por qué crees que las fuentes hablan más a menudo de los funcionarios que de los campesinos?"
+        "fr": "Pourquoi pensez-vous que les sources parlent plus souvent des fonctionnaires que des paysans ?",
+        "de": "Warum, glauben Sie, erzählen die Quellen häufiger von Beamten als von Bauern?",
+        "es": "¿Por qué cree que las fuentes hablan más a menudo de los funcionarios que de los campesinos?"
       },
       "layers": [
         "events",
         "areas"
       ],
       "sources": [
-        "wp-end-of-han"
+        "wp-end-of-han",
+        "wp-emperor-xian-of-han"
       ]
     },
     {
@@ -175,7 +179,9 @@
         "areas"
       ],
       "sources": [
-        "wp-end-of-han"
+        "wp-end-of-han",
+        "wp-han-dynasty",
+        "wp-emperor-xian-of-han"
       ]
     },
     {
@@ -200,20 +206,21 @@
         "de": "Rote Klippen, 208–209",
         "es": "Acantilados Rojos, 208–209"
       },
-      "status": "okant",
+      "status": "omtvistat",
       "text": {
-        "sv": "Cao Caos armé uppskattas till 220 000 man, men själv påstod han att han hade 800 000. Hur stora arméerna var vet vi inte säkert.",
-        "en": "Cao Cao's army is estimated at 220,000 men, but he himself claimed to have 800,000. We do not know for sure how large the armies were.",
-        "fr": "L'armée de Cao Cao est estimée à 220 000 hommes, mais lui-même affirmait en avoir 800 000. Nous ne savons pas avec certitude quelle était la taille des armées.",
-        "de": "Cao Caos Heer wird auf 220 000 Mann geschätzt, er selbst behauptete jedoch, 800 000 zu haben. Wie groß die Heere waren, wissen wir nicht sicher.",
-        "es": "Se calcula que el ejército de Cao Cao tenía 220 000 hombres, pero él mismo afirmaba tener 800 000. No sabemos con seguridad cuán grandes eran los ejércitos."
+        "sv": "Cao Caos motståndare Zhou Yu uppskattade hans armé till 220 000–240 000 man, men Cao Cao själv påstod att han hade 800 000. Hur stora arméerna var vet vi inte säkert.",
+        "en": "Cao Cao's opponent Zhou Yu estimated his army at 220,000–240,000 men, but Cao Cao himself claimed to have 800,000. We do not know for sure how large the armies were.",
+        "fr": "Zhou Yu, l'adversaire de Cao Cao, estimait son armée à 220 000–240 000 hommes, mais Cao Cao lui-même affirmait en avoir 800 000. Nous ne savons pas avec certitude quelle était la taille des armées.",
+        "de": "Cao Caos Gegner Zhou Yu schätzte dessen Heer auf 220 000–240 000 Mann, Cao Cao selbst behauptete jedoch, 800 000 zu haben. Wie groß die Heere waren, wissen wir nicht sicher.",
+        "es": "Zhou Yu, adversario de Cao Cao, calculó su ejército en 220 000–240 000 hombres, pero el propio Cao Cao afirmaba tener 800 000. No sabemos con seguridad cuán grandes eran los ejércitos."
       },
       "layers": [
         "events",
         "areas"
       ],
       "sources": [
-        "wp-end-of-han"
+        "wp-end-of-han",
+        "wp-red-cliffs"
       ]
     },
     {
@@ -225,11 +232,11 @@
         "zoom": 1.3
       },
       "chapter": {
-        "sv": "Slutet",
-        "en": "The end",
-        "fr": "La fin",
-        "de": "Das Ende",
-        "es": "El final"
+        "sv": "Abdikationen",
+        "en": "The abdication",
+        "fr": "L'abdication",
+        "de": "Die Abdankung",
+        "es": "La abdicación"
       },
       "title": {
         "sv": "Kejsaren abdikerar, 220",
@@ -240,18 +247,21 @@
       },
       "status": "belagt",
       "text": {
-        "sv": "Cao Caos son Cao Pi tvingar kejsar Xian att abdikera och blir kejsare i en ny dynasti, Cao Wei. Året efter grundar Liu Bei Shu Han. De tre kungadömenas tid varar till 280.",
-        "en": "Cao Cao's son Cao Pi forces Emperor Xian to abdicate and becomes emperor of a new dynasty, Cao Wei. The following year Liu Bei founds Shu Han. The Three Kingdoms period lasts until 280.",
-        "fr": "Cao Pi, le fils de Cao Cao, force l'empereur Xian à abdiquer et devient empereur d'une nouvelle dynastie, les Cao Wei. L'année suivante, Liu Bei fonde le Shu Han. La période des Trois Royaumes dure jusqu'en 280.",
-        "de": "Cao Caos Sohn Cao Pi zwingt Kaiser Xian zur Abdankung und wird Kaiser einer neuen Dynastie, Cao Wei. Im Jahr darauf gründet Liu Bei Shu Han. Die Zeit der Drei Reiche dauert bis 280.",
-        "es": "Cao Pi, hijo de Cao Cao, obliga al emperador Xian a abdicar y se convierte en emperador de una nueva dinastía, Cao Wei. Al año siguiente Liu Bei funda Shu Han. El periodo de los Tres Reinos dura hasta 280."
+        "sv": "Cao Caos son Cao Pi tvingar kejsar Xian att abdikera och blir kejsare i en ny dynasti, Cao Wei. Året efter grundar Liu Bei Shu Han. De tre kungadömenas tid varar till 280. Kartan på globen bygger på en annan källa och visar Hanrikets område fram till 237.",
+        "en": "Cao Cao's son Cao Pi forces Emperor Xian to abdicate and becomes emperor of a new dynasty, Cao Wei. The following year Liu Bei founds Shu Han. The Three Kingdoms period lasts until 280. The map on the globe is based on a different source and shows the Han Empire's territory until 237.",
+        "fr": "Cao Pi, le fils de Cao Cao, force l'empereur Xian à abdiquer et devient empereur d'une nouvelle dynastie, les Cao Wei. L'année suivante, Liu Bei fonde le Shu Han. La période des Trois Royaumes dure jusqu'en 280. La carte du globe s'appuie sur une autre source et montre le territoire de l'Empire Han jusqu'en 237.",
+        "de": "Cao Caos Sohn Cao Pi zwingt Kaiser Xian zur Abdankung und wird Kaiser einer neuen Dynastie, Cao Wei. Im Jahr darauf gründet Liu Bei Shu Han. Die Zeit der Drei Reiche dauert bis 280. Die Karte auf dem Globus beruht auf einer anderen Quelle und zeigt das Gebiet des Han-Reichs bis 237.",
+        "es": "Cao Pi, hijo de Cao Cao, obliga al emperador Xian a abdicar y se convierte en emperador de una nueva dinastía, Cao Wei. Al año siguiente Liu Bei funda Shu Han. El periodo de los Tres Reinos dura hasta 280. El mapa del globo se basa en otra fuente y muestra el territorio del Imperio Han hasta 237."
       },
       "layers": [
         "events",
         "areas"
       ],
       "sources": [
-        "wp-end-of-han"
+        "wp-end-of-han",
+        "wp-han-dynasty",
+        "wp-emperor-xian-of-han",
+        "cliopatria"
       ]
     }
   ]

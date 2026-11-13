@@ -27,8 +27,11 @@ import shapely
 from shapely.geometry import Polygon, box, mapping, shape
 from shapely.ops import unary_union
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from riken_bevara import KEEP, keep_langs, kept_fields, old_influence_names, order_like  # noqa: E402  (#1220)
+
 ROOT = Path(__file__).resolve().parent.parent
-KEEP = ('facts', 'symbol', 'polityFacts', 'capitals')  # fält i index.json som skrivs för hand och behålls, i den här ordningen
+# KEEP (fält i index.json som skrivs för hand och behålls, bland annat flags och modernState) står i tools/riken_bevara.py (#1220)
 TOL = 0.2      # förenkling i grader (Douglas-Peucker)
 MERGE = 0.02   # slå ihop perioder där gränsen ändras mindre än så här stor del av ytan
 MIN_AREA = 0.02  # öar mindre än så här (kvadratgrader, cirka 200 km2) tas bort
@@ -53,7 +56,8 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              # förenklingen är finare, annars försvinner Gaza och gränserna mot Västbanken hamnar fel
              'israel': (0.03, 0.02, 0.02), 'palestina': (0.03, 0.02, 0.02),
              # Nutida stater (#644): Danmark med Grönland, Kina och Indonesien med många öar
-             'danmark': (0.3, 0.05, 0.08), 'kina': (0.3, 0.05, 0.08), 'indonesien': (0.2, 0.05, 0.05),
+             'danmark': (0.3, 0.05, 0.08),
+             'kina': (0.3, 0.05, 0.08), 'indonesien': (0.2, 0.05, 0.05),
              # Gambia (cirka 30 km bred längs floden) och Libanon är smala: finare förenkling för dem och grannarna Senegal och
              # Syrien, annars täcker grannarnas förenklade gräns en stor del av landet
              'gambia': (0.05, 0.02, 0.02), 'libanon': (0.05, 0.02, 0.02),
@@ -124,8 +128,10 @@ GROUPS = {
           'splits': (1919, 1967, 1969, 1976, 1979, 1987)}),
     ]),
     # R2 Antiken (#68)
-    'egypten': ('Egypten: gamla och nya riket', 'Egypt: Old and New Kingdom', [
+    # Mellersta riket (Q191324) lades till i #646 (DasKrokodils ja 2026-11-13); gruppens id står kvar så att länkar inte ändras
+    'egypten': ('Egypten: gamla, mellersta och nya riket', 'Egypt: Old, Middle and New Kingdom', [
         ('Old Kingdom of Egypt', 'egyptens-gamla-rike', 'Egyptens gamla rike', '#3aa0a8'),
+        ('Middle Kingdom of Egypt', 'egyptens-mellersta-rike', 'Egyptens mellersta rike', '#3aa0a8'),
         ('New Kingdom of Egypt', 'egyptens-nya-rike', 'Egyptens nya rike', '#3aa0a8'),
     ]),
     'assyriska-riket': ('Assyriska riket', 'Assyria', [
@@ -1121,8 +1127,14 @@ GROUPS = {
     # (Q756617, riket sedan 965; nutidens Danmark är gruppen danmark), Tibetanska imperiet, Moskvariket, Litauen, Kastilien och
     # Uiguriska khaganatet, som saknar svenskt namn på Wikidata och har det engelska. Väntar: Tibetans och Avar Khaganate (Cliopatrias
     # Wikidata-id är folkgrupper, inte riken) och Yenisei Kyrgyz (namn saknas på tre språk).
+    # Danmark 1526–1939 (#1084, DasKrokodils ja 2026-11-13): Cliopatrias Denmark-Norway heter så ända till 1939, men Norge
+    # gick 1814 till Sverige-Norge. Posten delas därför i Danmark-Norge (1526–1814, Q62651; Wikidata säger 1536–1814) och
+    # Danmark (1815–1939). 1407–1525 täcks av Kalmarunionen, och 1940–1944 räknar Cliopatria området till Tyskland.
     'konungariket-danmark': ('Konungariket Danmark', 'Kingdom of Denmark', [
         ('Kingdom of Denmark', 'konungariket-danmark', 'Konungariket Danmark', '#c05a6a', {'en': 'Kingdom of Denmark'}),
+        ('Denmark-Norway', 'danmark-norge', 'Danmark-Norge', '#c05a6a',
+         {'en': 'Denmark–Norway', 'wikidata': 'Q62651', 'years': (1526, 1814)}),
+        ('Denmark-Norway', 'danmark-1815', 'Danmark', '#c05a6a', {'en': 'Denmark', 'wikidata': 'Q35', 'years': (1815, 1939)}),
     ]),
     'tibetanska-imperiet': ('Tibetanska imperiet', 'Tibetan Empire', [
         ('Tibetan Empire', 'tibetanska-imperiet', 'Tibetanska imperiet', '#b0704a', {'en': 'Tibetan Empire'}),
@@ -1138,6 +1150,218 @@ GROUPS = {
     ]),
     'uiguriska-khaganatet': ('Uyghur Khaganate', 'Uyghur Khaganate', [
         ('Uyghur Khaganate', 'uiguriska-khaganatet', 'Uyghur Khaganate', '#4a8ac0', {'en': 'Uyghur Khaganate'}),
+    ]),
+    # Medeltidens luckor, fjärde omgången (#645, DasKrokodils beslut 2026-11-12): de största kvarvarande luckorna 500–1500 enligt
+    # tools/tackning_riken.py. Svenska namn är Wikidatas svenska etiketter; saknas en svensk etikett används den engelska (beslutet).
+    # Cliopatrias Tibetans pekar på folkgruppen (Q187985) och får Wikidatas Era of Fragmentation (Q2065143), Yenisei Kyrgyz pekar på
+    # folkgruppen (Q83142) och får staten Kyrgyz Khaganate (Q2047076), och Western/Eastern Göktürks pekar båda på gökturkarna
+    # (Q205466) och får Västturkiska (Q874357) respektive Östturkiska khaganatet (Q2607292), kontrollerat mot Wikidata 2026-11-12.
+    # Väntar: Avar Khaganate (Cliopatrias id Q68962 är fortfarande folkgruppen Avarer).
+    'era-of-fragmentation': ('Era of Fragmentation', 'Era of Fragmentation', [
+        ('Tibetans', 'era-of-fragmentation', 'Era of Fragmentation', '#a8784a', {'en': 'Era of Fragmentation', 'wikidata': 'Q2065143'}),
+    ]),
+    'yenisei-kyrgyz': ('Yenisei Kyrgyz', 'Yenisei Kyrgyz', [
+        ('Yenisei Kyrgyz', 'yenisei-kyrgyz', 'Yenisei Kyrgyz', '#6a9aa0', {'en': 'Yenisei Kyrgyz', 'wikidata': 'Q2047076'}),
+    ]),
+    'rouran': ('Rouran Khaganate', 'Rouran Khaganate', [
+        ('Rouran Khaganate', 'rouran', 'Rouran Khaganate', '#9a8a4a', {'en': 'Rouran Khaganate'}),
+    ]),
+    'vastturkiska-khaganatet': ('Västturkiska khaganatet', 'Western Turkic Khaganate', [
+        ('Western Göktürks', 'vastturkiska-khaganatet', 'Västturkiska khaganatet', '#4a9a8a',
+         {'en': 'Western Turkic Khaganate', 'wikidata': 'Q874357'}),
+    ]),
+    'ostturkiska-khaganatet': ('Östturkiska khaganatet', 'Eastern Turkic Khaganate', [
+        ('Eastern Göktürks', 'ostturkiska-khaganatet', 'Östturkiska khaganatet', '#3a7a9a',
+         {'en': 'Eastern Turkic Khaganate', 'wikidata': 'Q2607292'}),
+    ]),
+    'turgesh': ('Türgesh', 'Türgesh', [
+        ('Türgesh', 'turgesh', 'Türgesh', '#b08a6a', {'en': 'Türgesh'}),
+    ]),
+    'samaniderna': ('Samanider', 'Samanid dynasty', [
+        ('Samanid Empire', 'samaniderna', 'Samanider', '#5aa05a', {'en': 'Samanid dynasty'}),
+    ]),
+    'visigotiska-riket': ('Visigotiska riket', 'Visigothic Kingdom', [
+        ('Visigothic Kingdom', 'visigotiska-riket', 'Visigotiska riket', '#a06a4a', {'en': 'Visigothic Kingdom'}),
+    ]),
+    'norra-yuandynastin': ('Norra Yuandynastin', 'Northern Yuan dynasty', [
+        ('Northern Yuan', 'norra-yuandynastin', 'Norra Yuandynastin', '#7a6ab0', {'en': 'Northern Yuan dynasty'}),
+    ]),
+    'kungariket-alodia': ('Kungariket Alodia', 'Alodia', [
+        ('Alodia', 'kungariket-alodia', 'Kungariket Alodia', '#c09a5a', {'en': 'Alodia'}),
+    ]),
+    'cordobaemiratet': ('Córdobaemiratet', 'Emirate of Córdoba', [
+        ('Emirate of Córdoba', 'cordobaemiratet', 'Córdobaemiratet', '#6a9a3a', {'en': 'Emirate of Córdoba'}),
+    ]),
+    # Medeltidens luckor, femte omgången (#645): de största kvarvarande luckorna 500–1500 enligt tools/tackning_riken.py
+    # (2026-11-12). Svenska namn är Wikidatas svenska etiketter, annars engelska. Cliopatrias White Huns pekar på en
+    # förgreningssida (Q41761342) och får Heftaliter (Q26576), och Khazaria pekar på folket khazarer (Q173282) och får staten
+    # Khazar Khaganate (Q2090473), kontrollerat mot Wikidata 2026-11-12. Great Jin är Jurchens Jindynasti 1115–1234 (Q5066).
+    'suidynastin': ('Suidynastin', 'Sui dynasty', [
+        ('Sui Dynasty', 'suidynastin', 'Suidynastin', '#c0604a', {'en': 'Sui dynasty'}),
+    ]),
+    'heftaliter': ('Heftaliter', 'Hephthalites', [
+        ('White Huns', 'heftaliter', 'Heftaliter', '#8a7a5a', {'en': 'Hephthalites', 'wikidata': 'Q26576'}),
+    ]),
+    'sodra-qidynastin': ('Södra Qidynastin', 'Southern Qi', [
+        ('Southern Qi', 'sodra-qidynastin', 'Södra Qidynastin', '#5a8a6a', {'en': 'Southern Qi'}),
+    ]),
+    'khazar-khaganate': ('Khazar Khaganate', 'Khazar Khaganate', [
+        ('Khazaria', 'khazar-khaganate', 'Khazar Khaganate', '#a07a9a', {'en': 'Khazar Khaganate', 'wikidata': 'Q2090473'}),
+    ]),
+    'ghuriderna': ('Ghuriderna', 'Ghurid dynasty', [
+        ('Ghurid Dynasty', 'ghuriderna', 'Ghuriderna', '#7a9a4a', {'en': 'Ghurid dynasty'}),
+    ]),
+    'jindynastin-jurchen': ('Jindynastin', 'Jin dynasty', [
+        ('Great Jin', 'jindynastin-jurchen', 'Jindynastin', '#b08a3a', {'en': 'Jin dynasty'}),
+    ]),
+    'qocho': ('Qocho', 'Qocho', [
+        ('Qocho Kingdom', 'qocho', 'Qocho', '#4a9ab0', {'en': 'Qocho'}),
+    ]),
+    'tulunider': ('Tulunider', 'Tulunids', [
+        ('Tulunids', 'tulunider', 'Tulunider', '#9a6a4a', {'en': 'Tulunids'}),
+    ]),
+    'rustamider': ('Rustamid dynasty', 'Rustamid dynasty', [
+        ('Rustamid dynasty', 'rustamider', 'Rustamid dynasty', '#6a7ab0', {'en': 'Rustamid dynasty'}),
+    ]),
+    'hafsiderna': ('Hafsiderna', 'Hafsid dynasty', [
+        ('Hafsid Dynasty', 'hafsiderna', 'Hafsiderna', '#4a8a7a', {'en': 'Hafsid dynasty'}),
+    ]),
+    'aghlabider': ('Aghlabider', 'Aghlabids', [
+        ('Aghlabid Dynasty', 'aghlabider', 'Aghlabider', '#b0605a', {'en': 'Aghlabids'}),
+    ]),
+    # Medeltidens luckor, sjätte omgången (#645): de största kvarvarande luckorna 500–1500 enligt tools/tackning_riken.py
+    # (2026-11-13), med Kazakkhanatet och Moldavien som börjar på 1300- och 1400-talen. Svenska namn är Wikidatas svenska
+    # etiketter; Tuyuhun saknar svensk etikett och har den engelska. Väntar: Tibet (Cliopatrias Q521263 är "Tibets historia",
+    # inte en stat), Mongol Khanate (Q19927420 är en förgreningssida), Avar Khaganate (folkgruppen Avarer) och Ostrogothic Kingdom
+    # (Wikidata "Ostrogoternas rike", medan INFLUENCE_NAMES nedan redan säger "Östgoternas rike"; namnet bör väljas först).
+    'sibirkhanatet': ('Sibirkhanatet', 'Siberian Khanate', [
+        ('Khanate of Sibir', 'sibirkhanatet', 'Sibirkhanatet', '#6a8aa0', {'en': 'Siberian Khanate'}),
+    ]),
+    'rashtrakutariket': ('Rashtrakutariket', 'Rashtrakuta dynasty', [
+        ('Rashtrakuta Dynasty', 'rashtrakutariket', 'Rashtrakutariket', '#b07a4a', {'en': 'Rashtrakuta dynasty'}),
+    ]),
+    'tuyuhun': ('Tuyuhun', 'Tuyuhun', [
+        ('Tuyuhun', 'tuyuhun', 'Tuyuhun', '#8a9a5a', {'en': 'Tuyuhun'}),
+    ]),
+    'vakatakariket': ('Vakatakariket', 'Vakataka empire', [
+        ('Vakataka Kingdom', 'vakatakariket', 'Vakatakariket', '#a0604a', {'en': 'Vakataka empire'}),
+    ]),
+    'norra-wei': ('Norra Wei', 'Northern Wei', [
+        ('Northern Wei', 'norra-wei', 'Norra Wei', '#5a7a9a', {'en': 'Northern Wei'}),
+    ]),
+    'kanem-bornu': ('Kanem-Bornu', 'Kanem-Bornu Empire', [
+        ('Bornu Empire', 'kanem-bornu', 'Kanem-Bornu', '#b09a4a', {'en': 'Kanem-Bornu Empire'}),
+    ]),
+    'galizien-volynien': ('Furstendömet Galizien-Volynien', 'Principality of Galicia–Volhynia', [
+        ('Halych-Volhynia occupation', 'galizien-volynien', 'Furstendömet Galizien-Volynien', '#7a5a9a',
+         {'en': 'Principality of Galicia–Volhynia'}),
+    ]),
+    'kungariket-nobatia': ('Kungariket Nobatia', 'Nobatia', [
+        ('Nobatia', 'kungariket-nobatia', 'Kungariket Nobatia', '#9a7a5a', {'en': 'Nobatia'}),
+    ]),
+    'angevinska-riket': ('Det angevinska riket', 'Angevin Empire', [
+        ('Angevin Empire', 'angevinska-riket', 'Det angevinska riket', '#a04a5a', {'en': 'Angevin Empire'}),
+    ]),
+    'kazakkhanatet': ('Kazakkhanatet', 'Kazakh Khanate', [
+        ('Kazakh Khanate', 'kazakkhanatet', 'Kazakkhanatet', '#4aa0b0', {'en': 'Kazakh Khanate'}),
+    ]),
+    'furstendomet-moldavien': ('Furstendömet Moldavien', 'Principality of Moldavia', [
+        ('Principality of Moldavia', 'furstendomet-moldavien', 'Furstendömet Moldavien', '#5a9a7a', {'en': 'Principality of Moldavia'}),
+    ]),
+    # Medeltidens luckor, sjunde omgången (#645, DasKrokodils ja 2026-11-13): de största kvarvarande luckorna 500–1500 med
+    # provår var 50:e år (tools/tackning_riken.py), där Cliopatrias Wikidata-id är en stat och har svensk etikett.
+    # Svenska och engelska namn är Wikidatas etiketter, kontrollerade med SPARQL 2026-11-13.
+    'rashidunkalifatet': ('Rashidunkalifatet', 'Rashidun Caliphate', [
+        ('Rashidun Caliphate', 'rashidunkalifatet', 'Rashidunkalifatet', '#7a9a5a', {'en': 'Rashidun Caliphate'}),
+    ]),
+    'majapahitriket': ('Majapahitriket', 'Majapahit', [
+        ('Majapahit', 'majapahitriket', 'Majapahitriket', '#b0704a', {'en': 'Majapahit'}),
+    ]),
+    'chalukyadynastin': ('Chalukyadynastin', 'Chalukya dynasty', [
+        ('Chalukya Dynasty', 'chalukyadynastin', 'Chalukyadynastin', '#a05a7a', {'en': 'Chalukya dynasty'}),
+    ]),
+    'gurjara-pratihara': ('Gurjara-Pratihara', 'Gurjara-Pratihara', [
+        ('Gurjara-Pratihara Dynasty', 'gurjara-pratihara', 'Gurjara-Pratihara', '#c0804a', {'en': 'Gurjara-Pratihara'}),
+    ]),
+    'kara-khanid': ('Khanatet Kara-Khanid', 'Karakhanid Khanate', [
+        ('Kara-Khanids', 'kara-khanid', 'Khanatet Kara-Khanid', '#5a8ab0', {'en': 'Karakhanid Khanate'}),
+    ]),
+    'dali': ('Dali', 'Dali Kingdom', [
+        ('Kingdom of Dali', 'dali', 'Dali', '#8a6ab0', {'en': 'Dali Kingdom'}),
+    ]),
+    'tughlaqdynastin': ('Tughlaqdynastin', 'Tughlaq dynasty', [
+        ('Tughlaq Dynasty', 'tughlaqdynastin', 'Tughlaqdynastin', '#4a9a6a', {'en': 'Tughlaq dynasty'}),
+    ]),
+    'palariket': ('Palariket', 'Pala Empire', [
+        ('Pala Empire', 'palariket', 'Palariket', '#b09a5a', {'en': 'Pala Empire'}),
+    ]),
+    'xixia': ('Xixia', 'Western Xia', [
+        ('Western Xia', 'xixia', 'Xixia', '#9a5a4a', {'en': 'Western Xia'}),
+    ]),
+    'aq-qoyunlu': ('Aq Qoyunlu', 'Aq Qoyunlu', [
+        ('Aq Qoyunlu', 'aq-qoyunlu', 'Aq Qoyunlu', '#6a9aa0', {'en': 'Aq Qoyunlu'}),
+    ]),
+    'nanzhaoriket': ('Nanzhaoriket', 'Kingdom of Nanzhao', [
+        ('Nanzhao', 'nanzhaoriket', 'Nanzhaoriket', '#a07a9a', {'en': 'Kingdom of Nanzhao'}),
+    ]),
+    'mariniderna': ('Mariniderna', 'Marinid dynasty', [
+        ('Marinid Sultanate', 'mariniderna', 'Mariniderna', '#7a8a4a', {'en': 'Marinid dynasty'}),
+    ]),
+    # Östgoternas rike (DasKrokodils beslut 2026-11-13): samma svenska namn som i INFLUENCE_NAMES, inte Wikidatas "Ostrogoternas rike"
+    'ostgoternas-rike': ('Östgoternas rike', 'Ostrogothic Kingdom', [
+        ('Ostrogothic Kingdom', 'ostgoternas-rike', 'Östgoternas rike', '#9a6a5a', {'en': 'Ostrogothic Kingdom'}),
+    ]),
+    # Antikens luckor, första omgången (#646, DasKrokodils ja 2026-11-13): de största luckorna före 600 enligt
+    # tools/tackning_riken.py, där Cliopatrias Wikidata-id är en stat. Svenska och engelska namn är Wikidatas etiketter,
+    # kontrollerade med SPARQL 2026-11-13. Cliopatrias Western Jin (265–425) har Wikidatas hela Jindynasti (Q7352, 266–420),
+    # som har samma namn som jurchenernas Jindynasti (Q5066, 1115–1234); den får därför årtalen i namnet, som i
+    # Wikipedias titel "Jin dynasty (266–420)". Mellersta riket ligger i gruppen 'egypten' ovan.
+    'xiongnu': ('Xiongnu', 'Xiongnu', [
+        ('Xiongnu', 'xiongnu', 'Xiongnu', '#8a6a3a', {'en': 'Xiongnu'}),
+    ]),
+    'jindynastin-266-420': ('Jindynastin (266–420)', 'Jin dynasty (266–420)', [
+        ('Western Jin', 'jindynastin-266-420', 'Jindynastin (266–420)', '#c08a5a', {'en': 'Jin dynasty (266–420)'}),
+    ]),
+    'kushan': ('Kushan', 'Kushan Empire', [
+        ('Kushan Empire', 'kushan', 'Kushan', '#7a5aa0', {'en': 'Kushan Empire'}),
+    ]),
+    'satavahana': ('Satavahana', 'Satavahana dynasty', [
+        ('Satavahana Dynasty', 'satavahana', 'Satavahana', '#5aa07a', {'en': 'Satavahana dynasty'}),
+    ]),
+    'kush': ('Kush', 'Kingdom of Kush', [
+        ('Kingdom of Kush', 'kush', 'Kush', '#a0603a', {'en': 'Kingdom of Kush'}),
+    ]),
+    # Ptolemaiska riket börjar 305 f.Kr. enligt Wikidata (Q2320005, 305–30 f.Kr.). Cliopatria lägger posten "Ptolemaic Kingdom"
+    # redan på 332–325 f.Kr. och täcker då Alexanders erövringar ända till Indus, medan "Macedonian Empire" samma år bara är
+    # Makedonien; geografens granskning inför v6.3.0 (2026-11-13). Åren klipps därför till Wikidatas start.
+    'ptolemaiska-riket': ('Ptolemaiska riket', 'Ptolemaic Kingdom', [
+        ('Ptolemaic Kingdom', 'ptolemaiska-riket', 'Ptolemaiska riket', '#4a7ab0', {'en': 'Ptolemaic Kingdom', 'years': (-304, -28)}),
+    ]),
+    'mitanni': ('Mitanni', 'Mitanni', [
+        ('Mitanni', 'mitanni', 'Mitanni', '#b05a6a', {'en': 'Mitanni'}),
+    ]),
+    'vastra-regionernas-protektorat': ('De västra regionernas protektorat', 'Protectorate of the Western Regions', [
+        ('Protectorate of the Western Regions', 'vastra-regionernas-protektorat', 'De västra regionernas protektorat', '#6a9a8a',
+         {'en': 'Protectorate of the Western Regions'}),
+    ]),
+    # Medeltidens luckor, åttonde omgången (#645, DasKrokodils ja 2026-11-13): Cliopatrias Wikidata-id är en stat men
+    # saknar svensk etikett (SPARQL 2026-11-13), så namnet är det engelska enligt beslutet 2026-11-12. Cliopatrias
+    # Oirat Confederation (1619–1676) har samma Wikidata-id som Four Oirats men ligger utanför Wikidatas spann (1399–1628)
+    # och väntar.
+    'four-oirats': ('Four Oirats', 'Four Oirats', [
+        ('Four Oirats', 'four-oirats', 'Four Oirats', '#7a6ab0', {'en': 'Four Oirats'}),
+    ]),
+    'western-chalukya-empire': ('Western Chalukya Empire', 'Western Chalukya Empire', [
+        ('Western Chalukya Empire', 'western-chalukya-empire', 'Western Chalukya Empire', '#b07a6a', {'en': 'Western Chalukya Empire'}),
+    ]),
+    'pagan-kingdom': ('Pagan kingdom', 'Pagan kingdom', [
+        ('Pagan Kingdom', 'pagan-kingdom', 'Pagan kingdom', '#9aa04a', {'en': 'Pagan kingdom'}),
+    ]),
+    'rasulid-dynasty': ('Rasulid dynasty', 'Rasulid dynasty', [
+        ('Rasulid Dynasty', 'rasulid-dynasty', 'Rasulid dynasty', '#4a8aa0', {'en': 'Rasulid dynasty'}),
+    ]),
+    'chola-empire': ('Chola Empire', 'Chola Empire', [
+        ('Chola Empire', 'chola-empire', 'Chola Empire', '#c0704a', {'en': 'Chola Empire'}),
     ]),
     # Små stater ur Natural Earth (#722, Rikards beslut 2026-11-07): Cliopatria saknar dem i nutid eller har fel gräns
     # (Saint Kitts ligger på Saint Croix, Mikronesien är bara Pohnpei). Gränsen är dagens land i Natural Earth
@@ -1545,6 +1769,34 @@ def influence_periods(rels, cname, core, own, names, tol, merge, min_area):
     return sorted(out, key=lambda q: q['start'])
 
 
+def fix_swapped_shapes(by_name):
+    """Rättar poster i Cliopatria v0.0.1 där två riken har bytt geometri (#1187).
+
+    1895–1897 ligger "Qajar Dynasty" i Nederländska Ostindien och "Dutch East Indies" i Iran:
+    ytorna (1 780 919 och 1 611 467 km²) motsvarar Ostindien och Iran 1898. Geometrierna byts
+    tillbaka, och "(Netherlands)" samma år byggs om av Nederländerna och den rättade kolonin.
+    """
+    from shapely.geometry import shape, mapping
+    from shapely.ops import unary_union
+
+    def one(name, a, b):
+        hits = [f for f in by_name.get(name, []) if (f['properties']['FromYear'], f['properties']['ToYear']) == (a, b)]
+        return hits[0] if len(hits) == 1 else None
+
+    qajar, dei = one('Qajar Dynasty', 1895, 1897), one('Dutch East Indies', 1895, 1897)
+    nl_all = one('(Netherlands)', 1895, 1897)
+    nl = next((f for f in by_name.get('Netherlands', [])
+               if f['properties']['FromYear'] <= 1895 and f['properties']['ToYear'] >= 1897), None)
+    if not (qajar and dei and nl and nl_all):
+        return  # en annan version av Cliopatria: inget att rätta
+    if shape(qajar['geometry']).centroid.x < 90:
+        return  # redan rätt i källan
+    qajar['geometry'], dei['geometry'] = dei['geometry'], qajar['geometry']
+    qajar['properties']['Area'], dei['properties']['Area'] = dei['properties']['Area'], qajar['properties']['Area']
+    merged = unary_union([shape(nl['geometry']).buffer(0), shape(dei['geometry']).buffer(0)])
+    nl_all['geometry'], nl_all['properties']['Area'] = mapping(merged), km2(merged)
+
+
 def main():
     src = json.loads(Path(sys.argv[1]).read_text())
     by_name = {}
@@ -1552,6 +1804,7 @@ def main():
         p = f['properties']
         if p['Type'] == 'POLITY':
             by_name.setdefault(p['Name'], []).append(f)
+    fix_swapped_shapes(by_name)
     rels = relations(src)
     disputed = disputed_areas(by_name)  # omstridda gränser enligt Sveriges hållning (#644)
     ne = ne_shapes()  # små stater ur Natural Earth (#722)
@@ -1572,22 +1825,23 @@ def main():
     old = out / 'index.json'
     groups_old = {g['id']: g for g in json.loads(old.read_text())['groups']} if old.exists() else {}
     # Faktarutor, symboler och polityFacts (KEEP) skrivs för hand och läggs sist i gruppen
-    kept = {k: {f: g[f] for f in KEEP if f in g} for k, g in groups_old.items()}
+    kept = {k: kept_fields(g) for k, g in groups_old.items()}
     # Namnens översättningar (de, es, fr …) skrivs inte här utan står i datan (tools/riken_namn.py, #676). De
     # bevaras när filerna byggs om, så länge det svenska namnet är detsamma (annars är översättningen inaktuell)
     old_names = {}
+    old_docs = []
     for k, g in groups_old.items():
         old_names[('group', k)] = g.get('name', {})
         f = out / f'{k}.json'
         if f.exists():
-            for op in json.loads(f.read_text()).get('polities', []):
+            old_docs.append(json.loads(f.read_text()))
+            for op in old_docs[-1].get('polities', []):
                 old_names[('polity', k, op['id'])] = op.get('name', {})
+    # Inflytandenamnens översättningar (#1220), efter engelskt namn ur index.json och rikesfilerna
+    old_infl = old_influence_names(groups_old.values(), old_docs)
 
     def with_old(name, key):
-        old = old_names.get(key, {})
-        if old.get('sv') != name['sv']:
-            return name
-        return {**name, **{lang: v for lang, v in old.items() if lang not in name}}
+        return keep_langs(name, old_names.get(key, {}))
     # Försvunna länder (#72): årtal, föregångare och efterträdare skrivs också för hand
     vanished = {k: g['vanished'] for k, g in groups_old.items() if 'vanished' in g}
     # Osäkra gränser (#73): skrivs för hand, med källa som säger att gränsen var osäker eller flytande
@@ -1604,6 +1858,7 @@ def main():
             index.append({'id': gid, 'name': {'sv': sv, 'en': en}, 'color': gopts[0]['color'],
                           'from': v['founded'], 'to': v['dissolved'], 'polities': [], 'vanished': v})
             index[-1].update(kept.get(gid, {}))
+            index[-1] = order_like(index[-1], groups_old.get(gid))
             print(f'{gid}: ingen gräns, punkt {v["point"]["coordinates"]}')
             continue
         home = HOMELANDS.get(gid)
@@ -1687,6 +1942,8 @@ def main():
             if gid in uncertain:
                 polity['uncertainBorder'] = True  # osäker gräns (#73): ritas med mjuk kant
             infl = influence_periods(rels, cname, core, own, known, tol, merge, min_area) if cname else None
+            for q in infl or []:
+                q['name'] = keep_langs(q['name'], old_infl.get(q['name'].get('en')))  # #1220
             if infl:
                 polity['influence'] = infl  # lydriken och vasaller enligt Cliopatria (#75)
             polities.append(polity)
@@ -1704,7 +1961,7 @@ def main():
             index[-1]['borderSource'] = ('Cliopatria / Natural Earth' if any(m[-1].get('ne_from') for m in members)
                                          else 'Natural Earth')
         if home:
-            index[-1]['homeland'] = {'name': home['name']}
+            index[-1]['homeland'] = {'name': keep_langs(home['name'], groups_old.get(gid, {}).get('homeland', {}).get('name'))}
         if gid in vanished:
             index[-1]['vanished'] = vanished[gid]
         if gid in uncertain:
@@ -1719,6 +1976,7 @@ def main():
         if infl:
             index[-1]['influence'] = sorted(infl.values(), key=lambda a: a['from'])
         index[-1].update(kept.get(gid, {}))
+        index[-1] = order_like(index[-1], groups_old.get(gid))  # samma fältordning som förut, så att diffen blir tom (#1220)
         size = (out / f'{gid}.json').stat().st_size
         print(f'{gid}: {len(polities)} riken, {sum(len(p["periods"]) for p in polities)} perioder, {size // 1000} kB')
     notes = ('Riken som områden (lagertyp område), ett rike per fil. Utdrag ur Cliopatria, datafil cliopatria_polities_only_v021 '

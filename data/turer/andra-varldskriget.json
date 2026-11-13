@@ -4,11 +4,15 @@
   "id": "andra-varldskriget",
   "title": {
     "sv": "Andra världskriget i Europa och Stilla havet",
-    "en": "The Second World War in Europe and the Pacific"
+    "en": "The Second World War in Europe and the Pacific",
+    "de": "Der Zweite Weltkrieg in Europa und im Pazifik",
+    "fr": "La Seconde Guerre mondiale en Europe et dans le Pacifique"
   },
   "summary": {
     "sv": "Från anfallet på Polen 1939 till Japans kapitulation 1945, i Europa, Nordafrika och Stilla havet.",
-    "en": "From the attack on Poland in 1939 to Japan's surrender in 1945, in Europe, North Africa and the Pacific."
+    "en": "From the attack on Poland in 1939 to Japan's surrender in 1945, in Europe, North Africa and the Pacific.",
+    "de": "Vom Angriff auf Polen 1939 bis zur Kapitulation Japans 1945, in Europa, Nordafrika und im Pazifik.",
+    "fr": "De l’attaque de la Pologne (1939) à la capitulation du Japon (1945) : Europe, Afrique du Nord et Pacifique."
   },
   "war": "andra-varldskriget",
   "review": "source-checked",
@@ -51,14 +55,14 @@
     "teacher": {
       "sv": "Öppna Turer och välj turen om andra världskriget. Visa den på storskärm (lägg till ?presentation=1 i adressen) eller låt eleverna gå igenom den två och två. Turen har 14 steg i fem kapitel och växlar mellan Europa, Nordafrika och Stilla havet; be eleverna säga var på globen varje steg utspelar sig. Fem steg har en fråga att fundera på (Storbritannien, Pearl Harbor, Stalingrad, Auschwitz och Tokyobukten). Stanna där och låt eleverna prata i par en stund innan ni går vidare. Förslag på tid: 5 minuter start, 20 minuter tur med frågor och 5 minuter exit ticket.",
       "en": "Open Tours and choose the tour about the Second World War. Show it on a big screen (add ?presentation=1 to the address) or let the students go through it in pairs. The tour has 14 steps in five chapters and moves between Europe, North Africa and the Pacific; ask the students to say where on the globe each step takes place. Five steps have a question to think about (Britain, Pearl Harbor, Stalingrad, Auschwitz and Tokyo Bay). Stop there and let the students talk in pairs for a while before you move on. Suggested timing: 5 minutes to start, 20 minutes for the tour and questions, and 5 minutes for the exit ticket.",
-      "de": "Öffnen Sie „Touren“ und wählen Sie die Tour über den Zweiten Weltkrieg. Zeigen Sie sie auf einer Großleinwand (fügen Sie ?presentation=1 an die Adresse an) oder lassen Sie die Schülerinnen und Schüler sie zu zweit durchgehen. Die Tour hat 14 Schritte in fünf Kapiteln und wechselt zwischen Europa, Nordafrika und dem Pazifik; bitten Sie die Klasse, zu sagen, wo auf dem Globus jeder Schritt spielt. Fünf Schritte haben eine Frage zum Nachdenken (Großbritannien, Pearl Harbor, Stalingrad, Auschwitz und die Bucht von Tokio). Halten Sie dort an und lassen Sie die Schülerinnen und Schüler eine Weile zu zweit sprechen, bevor Sie weitergehen. Vorschlag für die Zeit: 5 Minuten Einstieg, 20 Minuten Tour mit Fragen und 5 Minuten Exit Ticket.",
+      "de": "Öffnen Sie „Touren“ und wählen Sie die Tour über den Zweiten Weltkrieg. Zeigen Sie sie auf einer Großleinwand (fügen Sie ?presentation=1 an die Adresse an) oder lassen Sie die Klasse sie zu zweit durchgehen. Die Tour hat 14 Schritte in fünf Kapiteln und wechselt zwischen Europa, Nordafrika und dem Pazifik; lassen Sie die Klasse nennen, wo auf dem Globus jeder Schritt spielt. Fünf Schritte haben eine Frage zum Nachdenken (Großbritannien, Pearl Harbor, Stalingrad, Auschwitz, Bucht von Tokio). Halten Sie dort an und lassen Sie die Klasse kurz zu zweit sprechen, bevor Sie weitergehen. Zeitvorschlag: 5 Minuten Einstieg, 20 Minuten Tour mit Fragen, 5 Minuten Exit Ticket.",
       "es": "Abra Recorridos y elija el recorrido sobre la Segunda Guerra Mundial. Muéstrelo en una pantalla grande (añada ?presentation=1 a la dirección) o deje que el alumnado lo recorra en parejas. El recorrido tiene 14 pasos en cinco capítulos y alterna entre Europa, el norte de África y el Pacífico; pida al alumnado que diga en qué lugar del globo ocurre cada paso. Cinco pasos tienen una pregunta para pensar (Gran Bretaña, Pearl Harbor, Stalingrado, Auschwitz y la bahía de Tokio). Deténgase allí y deje que el alumnado hable en parejas un rato antes de seguir. Tiempo sugerido: 5 minutos de inicio, 20 minutos de recorrido con preguntas y 5 minutos de exit ticket.",
-      "fr": "Ouvrez Visites et choisissez la visite sur la Seconde Guerre mondiale. Affichez-la sur grand écran (ajoutez ?presentation=1 à l'adresse) ou laissez les élèves la parcourir en binômes. La visite compte 14 étapes en cinq chapitres et alterne entre l'Europe, l'Afrique du Nord et le Pacifique ; demandez aux élèves de dire où se déroule chaque étape sur le globe. Cinq étapes ont une question à méditer (Grande-Bretagne, Pearl Harbor, Stalingrad, Auschwitz et la baie de Tokyo). Arrêtez-vous là et laissez les élèves discuter en binômes un moment avant de continuer. Durée suggérée : 5 minutes de démarrage, 20 minutes de visite avec les questions et 5 minutes de ticket de sortie."
+      "fr": "Ouvrez Visites et choisissez la visite sur la Seconde Guerre mondiale. Affichez-la sur grand écran (ajoutez ?presentation=1 à l'adresse) ou laissez les élèves la parcourir en binômes. La visite compte 14 étapes en cinq chapitres et alterne entre l'Europe, l'Afrique du Nord et le Pacifique ; demandez aux élèves où se situe chaque étape sur le globe. Cinq étapes ont une question à méditer (Grande-Bretagne, Pearl Harbor, Stalingrad, Auschwitz, baie de Tokyo). Arrêtez-vous là et laissez les élèves discuter en binômes avant de continuer. Durée suggérée : 5 minutes d’introduction, 20 minutes de visite avec questions, 5 minutes de ticket de sortie."
     },
     "exitTicket": {
       "sv": "Nämn två saker i turen som hände samma år på olika håll i världen. Varför kallas kriget ett världskrig?",
       "en": "Name two things in the tour that happened in the same year in different parts of the world. Why is the war called a world war?",
-      "de": "Nennen Sie zwei Dinge aus der Tour, die im selben Jahr an verschiedenen Orten der Welt geschahen. Warum nennt man den Krieg einen Weltkrieg?",
+      "de": "Nennen Sie zwei Dinge aus der Tour, die im selben Jahr an verschiedenen Orten geschahen. Warum heißt der Krieg Weltkrieg?",
       "es": "Nombre dos cosas del recorrido que ocurrieron el mismo año en distintas partes del mundo. ¿Por qué se llama a la guerra una guerra mundial?",
       "fr": "Citez deux choses de la visite qui se sont produites la même année dans différentes parties du monde. Pourquoi appelle-t-on cette guerre une guerre mondiale ?"
     },
@@ -132,15 +136,21 @@
       },
       "chapter": {
         "sv": "1939–1940: kriget i Europa börjar",
-        "en": "1939–1940: the war in Europe begins"
+        "en": "1939–1940: the war in Europe begins",
+        "de": "1939–1940: Der Krieg in Europa beginnt",
+        "fr": "1939–1940 : la guerre commence en Europe"
       },
       "title": {
         "sv": "Polen, 1 september 1939",
-        "en": "Poland, 1 September 1939"
+        "en": "Poland, 1 September 1939",
+        "de": "Polen, 1. September 1939",
+        "fr": "Pologne, 1er septembre 1939"
       },
       "text": {
         "sv": "Tyskland anfaller Polen tillsammans med Slovakien. Bland de första striderna är beskjutningen av Westerplatte vid Danzig. Två dagar senare förklarar Storbritannien och Frankrike krig mot Tyskland.",
-        "en": "Germany attacks Poland together with Slovakia. Among the first fighting is the shelling of Westerplatte at Danzig. Two days later Britain and France declare war on Germany."
+        "en": "Germany attacks Poland together with Slovakia. Among the first fighting is the shelling of Westerplatte at Danzig. Two days later Britain and France declare war on Germany.",
+        "de": "Deutschland greift zusammen mit der Slowakei Polen an. Zu den ersten Kämpfen gehört der Beschuss der Westerplatte bei Danzig. Zwei Tage später erklären Großbritannien und Frankreich Deutschland den Krieg.",
+        "fr": "L’Allemagne attaque la Pologne avec la Slovaquie. Parmi les premiers combats figure le bombardement de la Westerplatte, près de Dantzig. Deux jours plus tard, le Royaume-Uni et la France déclarent la guerre à l’Allemagne."
       },
       "layers": [
         "events",
@@ -164,11 +174,15 @@
       },
       "title": {
         "sv": "Frankrike, maj–juni 1940",
-        "en": "France, May–June 1940"
+        "en": "France, May–June 1940",
+        "de": "Frankreich, Mai–Juni 1940",
+        "fr": "France, mai–juin 1940"
       },
       "text": {
         "sv": "Den 10 maj anfaller Tyskland Nederländerna, Belgien, Luxemburg och Frankrike. Paris intas den 14 juni, och vapenstilleståndet som skrevs under vid Compiègne börjar gälla den 25 juni.",
-        "en": "On 10 May Germany attacks the Netherlands, Belgium, Luxembourg and France. Paris is taken on 14 June, and the armistice signed at Compiègne takes effect on 25 June."
+        "en": "On 10 May Germany attacks the Netherlands, Belgium, Luxembourg and France. Paris is taken on 14 June, and the armistice signed at Compiègne takes effect on 25 June.",
+        "de": "Am 10. Mai greift Deutschland die Niederlande, Belgien, Luxemburg und Frankreich an. Paris wird am 14. Juni eingenommen, und der in Compiègne unterzeichnete Waffenstillstand tritt am 25. Juni in Kraft.",
+        "fr": "Le 10 mai, l’Allemagne attaque les Pays-Bas, la Belgique, le Luxembourg et la France. Paris est prise le 14 juin, et l’armistice signé à Compiègne entre en vigueur le 25 juin."
       },
       "layers": [
         "events",
@@ -206,7 +220,9 @@
       },
       "question": {
         "sv": "Tyskland tog Frankrike på några veckor, men lyckades inte i luften över Storbritannien. Vad gjorde det svårare att anfalla en ö?",
-        "en": "Germany took France in a few weeks, but did not succeed in the air over Britain. What made it harder to attack an island?"
+        "en": "Germany took France in a few weeks, but did not succeed in the air over Britain. What made it harder to attack an island?",
+        "de": "Deutschland eroberte Frankreich in wenigen Wochen, scheiterte aber in der Luft über Großbritannien. Was machte es schwerer, eine Insel anzugreifen?",
+        "fr": "L’Allemagne a pris la France en quelques semaines, mais a échoué dans le ciel britannique. Qu’est-ce qui rendait l’attaque d’une île plus difficile ?"
       },
       "layers": [
         "events",
@@ -230,15 +246,21 @@
       },
       "chapter": {
         "sv": "1941: Sovjetunionen och USA dras in",
-        "en": "1941: the Soviet Union and the United States are drawn in"
+        "en": "1941: the Soviet Union and the United States are drawn in",
+        "de": "1941: Die Sowjetunion und die USA werden hineingezogen",
+        "fr": "1941 : l’Union soviétique et les États-Unis entrent dans la guerre"
       },
       "title": {
         "sv": "Sovjetunionen, 22 juni 1941",
-        "en": "The Soviet Union, 22 June 1941"
+        "en": "The Soviet Union, 22 June 1941",
+        "de": "Sowjetunion, 22. Juni 1941",
+        "fr": "Union soviétique, 22 juin 1941"
       },
       "text": {
         "sv": "Tyskland och flera av dess europeiska förbundna anfaller Sovjetunionen med mer än 3,8 miljoner soldater. Det är den största militära offensiven i historien och öppnar östfronten.",
-        "en": "Germany and several of its European allies attack the Soviet Union with more than 3.8 million soldiers. It is the largest military offensive in history and opens the Eastern Front."
+        "en": "Germany and several of its European allies attack the Soviet Union with more than 3.8 million soldiers. It is the largest military offensive in history and opens the Eastern Front.",
+        "de": "Deutschland und mehrere seiner europäischen Verbündeten greifen die Sowjetunion mit mehr als 3,8 Millionen Soldaten an. Es ist die größte militärische Offensive der Geschichte und eröffnet die Ostfront.",
+        "fr": "L’Allemagne et plusieurs de ses alliés européens attaquent l’Union soviétique avec plus de 3,8 millions de soldats. C’est la plus grande offensive militaire de l’histoire, et elle ouvre le front de l’Est."
       },
       "layers": [
         "events",
@@ -263,15 +285,21 @@
       },
       "title": {
         "sv": "Pearl Harbor, 7 december 1941",
-        "en": "Pearl Harbor, 7 December 1941"
+        "en": "Pearl Harbor, 7 December 1941",
+        "de": "Pearl Harbor, 7. Dezember 1941",
+        "fr": "Pearl Harbor, 7 décembre 1941"
       },
       "text": {
         "sv": "Samma år i Stilla havet: japanska flygplan från sex hangarfartyg anfaller den amerikanska Stillahavsflottan. USA förklarar krig mot Japan dagen efter, och Tyskland förklarar sedan krig mot USA.",
-        "en": "The same year in the Pacific: Japanese aircraft from six aircraft carriers attack the American Pacific Fleet. The United States declares war on Japan the next day, and Germany then declares war on the United States."
+        "en": "The same year in the Pacific: Japanese aircraft from six aircraft carriers attack the American Pacific Fleet. The United States declares war on Japan the next day, and Germany then declares war on the United States.",
+        "de": "Im selben Jahr im Pazifik: Japanische Flugzeuge von sechs Flugzeugträgern greifen die amerikanische Pazifikflotte an. Die USA erklären Japan am Tag darauf den Krieg, und Deutschland erklärt danach den USA den Krieg.",
+        "fr": "La même année dans le Pacifique : des avions japonais partis de six porte-avions attaquent la flotte américaine du Pacifique. Les États-Unis déclarent la guerre au Japon le lendemain, puis l’Allemagne déclare la guerre aux États-Unis."
       },
       "question": {
         "sv": "Barbarossa och Pearl Harbor hände samma år, långt från varandra. Vad kan det ha betytt att både Sovjetunionen och USA nu var med i kriget?",
-        "en": "Barbarossa and Pearl Harbor happened in the same year, far from each other. What might it have meant that both the Soviet Union and the United States were now in the war?"
+        "en": "Barbarossa and Pearl Harbor happened in the same year, far from each other. What might it have meant that both the Soviet Union and the United States were now in the war?",
+        "de": "Barbarossa und Pearl Harbor geschahen im selben Jahr, weit voneinander entfernt. Was könnte es bedeutet haben, dass nun die Sowjetunion und die USA mitkämpften?",
+        "fr": "Barbarossa et Pearl Harbor ont eu lieu la même année, loin l’une de l’autre. Que pouvait signifier que l’Union soviétique et les États-Unis soient désormais en guerre ?"
       },
       "layers": [
         "events",
@@ -296,15 +324,21 @@
       },
       "chapter": {
         "sv": "1942–1943: axelmakterna stoppas",
-        "en": "1942–1943: the Axis powers are stopped"
+        "en": "1942–1943: the Axis powers are stopped",
+        "de": "1942–1943: Die Achsenmächte werden aufgehalten",
+        "fr": "1942–1943 : les puissances de l’Axe sont arrêtées"
       },
       "title": {
         "sv": "Midway, 4–7 juni 1942",
-        "en": "Midway, 4–7 June 1942"
+        "en": "Midway, 4–7 June 1942",
+        "de": "Midway, 4.–7. Juni 1942",
+        "fr": "Midway, 4–7 juin 1942"
       },
       "text": {
         "sv": "Den amerikanska flottan besegrar en japansk flotta nära Midway. Japan förlorar fyra hangarfartyg, och dess framryckning i Stilla havet stoppas.",
-        "en": "The American navy defeats a Japanese fleet near Midway. Japan loses four aircraft carriers, and its advance in the Pacific is halted."
+        "en": "The American navy defeats a Japanese fleet near Midway. Japan loses four aircraft carriers, and its advance in the Pacific is halted.",
+        "de": "Die amerikanische Flotte besiegt eine japanische Flotte bei Midway. Japan verliert vier Flugzeugträger, und sein Vormarsch im Pazifik wird gestoppt.",
+        "fr": "La flotte américaine bat une flotte japonaise près de Midway. Le Japon perd quatre porte-avions, et son avancée dans le Pacifique est stoppée."
       },
       "layers": [
         "events",
@@ -327,11 +361,15 @@
       },
       "title": {
         "sv": "Guadalcanal, 7 augusti 1942",
-        "en": "Guadalcanal, 7 August 1942"
+        "en": "Guadalcanal, 7 August 1942",
+        "de": "Guadalcanal, 7. August 1942",
+        "fr": "Guadalcanal, 7 août 1942"
       },
       "text": {
         "sv": "Allierade trupper, mest amerikanska marinsoldater, landstiger på Guadalcanal. Det blir de allierades första stora offensiv på land mot Japan, med strider både på ön och till sjöss.",
-        "en": "Allied troops, mostly American marines, land on Guadalcanal. It becomes the Allies' first major land offensive against Japan, with fighting both on the island and at sea."
+        "en": "Allied troops, mostly American marines, land on Guadalcanal. It becomes the Allies' first major land offensive against Japan, with fighting both on the island and at sea.",
+        "de": "Alliierte Truppen, meist amerikanische Marineinfanteristen, landen auf Guadalcanal. Es wird die erste große Offensive der Alliierten an Land gegen Japan, mit Kämpfen auf der Insel und auf See.",
+        "fr": "Des troupes alliées, surtout des marines américains, débarquent à Guadalcanal. C’est la première grande offensive terrestre des Alliés contre le Japon, avec des combats sur l’île et en mer."
       },
       "layers": [
         "events",
@@ -354,11 +392,15 @@
       },
       "title": {
         "sv": "El Alamein, oktober 1942",
-        "en": "El Alamein, October 1942"
+        "en": "El Alamein, October 1942",
+        "de": "El Alamein, Oktober 1942",
+        "fr": "El Alamein, octobre 1942"
       },
       "text": {
         "sv": "Under tiden i Nordafrika anfaller den brittiska åttonde armén under Bernard Montgomery den tysk-italienska pansararmén vid El Alamein. Axelmakternas styrkor måste dra sig tillbaka ur Egypten och Libyen.",
-        "en": "Meanwhile in North Africa the British Eighth Army under Bernard Montgomery attacks the German-Italian Panzer Army at El Alamein. The Axis forces have to withdraw from Egypt and Libya."
+        "en": "Meanwhile in North Africa the British Eighth Army under Bernard Montgomery attacks the German-Italian Panzer Army at El Alamein. The Axis forces have to withdraw from Egypt and Libya.",
+        "de": "Unterdessen greift in Nordafrika die britische 8. Armee unter Bernard Montgomery die deutsch-italienische Panzerarmee bei El Alamein an. Die Truppen der Achsenmächte müssen sich aus Ägypten und Libyen zurückziehen.",
+        "fr": "Pendant ce temps, en Afrique du Nord, la 8e armée britannique de Bernard Montgomery attaque l’armée blindée germano-italienne à El Alamein. Les forces de l’Axe doivent se retirer d’Égypte et de Libye."
       },
       "layers": [
         "events",
@@ -396,7 +438,9 @@
       },
       "question": {
         "sv": "Varför tror du att ett slag om en enda stad kan ses som en vändpunkt i ett helt krig?",
-        "en": "Why do you think a battle for a single city can be seen as a turning point in a whole war?"
+        "en": "Why do you think a battle for a single city can be seen as a turning point in a whole war?",
+        "de": "Warum gilt eine Schlacht um eine einzige Stadt wohl als Wendepunkt eines ganzen Krieges?",
+        "fr": "Selon vous, pourquoi une bataille pour une seule ville peut-elle être un tournant ?"
       },
       "layers": [
         "events",
@@ -420,15 +464,21 @@
       },
       "chapter": {
         "sv": "1944–1945: kriget i Europa slutar",
-        "en": "1944–1945: the war in Europe ends"
+        "en": "1944–1945: the war in Europe ends",
+        "de": "1944–1945: Der Krieg in Europa endet",
+        "fr": "1944–1945 : la guerre prend fin en Europe"
       },
       "title": {
         "sv": "Normandie, 6 juni 1944",
-        "en": "Normandy, 6 June 1944"
+        "en": "Normandy, 6 June 1944",
+        "de": "Normandie, 6. Juni 1944",
+        "fr": "Normandie, 6 juin 1944"
       },
       "text": {
         "sv": "Allierade trupper, bland dem amerikanska, brittiska och kanadensiska, landsätts från luften och från havet på fem avsnitt av Normandies kust. Det är den största landstigningen från havet i historien och början på befrielsen av Frankrike och Västeuropa.",
-        "en": "Allied troops, among them American, British and Canadian, are landed from the air and from the sea on five sectors of the Normandy coast. It is the largest seaborne landing in history and the beginning of the liberation of France and Western Europe."
+        "en": "Allied troops, among them American, British and Canadian, are landed from the air and from the sea on five sectors of the Normandy coast. It is the largest seaborne landing in history and the beginning of the liberation of France and Western Europe.",
+        "de": "Alliierte Truppen, darunter amerikanische, britische und kanadische, landen aus der Luft und vom Meer aus an fünf Abschnitten der Küste der Normandie. Es ist die größte Landung vom Meer aus in der Geschichte und der Beginn der Befreiung Frankreichs und Westeuropas.",
+        "fr": "Des troupes alliées, notamment américaines, britanniques et canadiennes, sont débarquées par les airs et par la mer sur cinq secteurs de la côte normande. C’est le plus grand débarquement maritime de l’histoire et le début de la libération de la France et de l’Europe de l’Ouest."
       },
       "layers": [
         "events",
@@ -451,15 +501,21 @@
       },
       "title": {
         "sv": "Auschwitz, 27 januari 1945",
-        "en": "Auschwitz, 27 January 1945"
+        "en": "Auschwitz, 27 January 1945",
+        "de": "Auschwitz, 27. Januar 1945",
+        "fr": "Auschwitz, 27 janvier 1945"
       },
       "text": {
         "sv": "Sovjetiska trupper befriar Auschwitz. Minst 1,1 miljoner människor dog i lägret, de flesta judar. Det blev en symbol för Förintelsen, där omkring sex miljoner judar mördades.",
-        "en": "Soviet troops liberate Auschwitz. At least 1.1 million people died in the camp, most of them Jews. It became a symbol of the Holocaust, in which about six million Jews were murdered."
+        "en": "Soviet troops liberate Auschwitz. At least 1.1 million people died in the camp, most of them Jews. It became a symbol of the Holocaust, in which about six million Jews were murdered.",
+        "de": "Sowjetische Truppen befreien Auschwitz. Mindestens 1,1 Millionen Menschen starben im Lager, die meisten von ihnen Juden. Es wurde zum Symbol des Holocaust, bei dem etwa sechs Millionen Juden ermordet wurden.",
+        "fr": "Des troupes soviétiques libèrent Auschwitz. Au moins 1,1 million de personnes sont mortes dans le camp, pour la plupart des Juifs. Il est devenu un symbole de la Shoah, au cours de laquelle environ six millions de Juifs ont été assassinés."
       },
       "question": {
         "sv": "Den 27 januari är i dag en minnesdag för Förintelsens offer. Varför tror du att man har valt just den dagen?",
-        "en": "27 January is today a day of remembrance for the victims of the Holocaust. Why do you think that particular day was chosen?"
+        "en": "27 January is today a day of remembrance for the victims of the Holocaust. Why do you think that particular day was chosen?",
+        "de": "Der 27. Januar ist heute ein Gedenktag für die Opfer des Holocaust. Warum, glauben Sie, wurde gerade dieser Tag gewählt?",
+        "fr": "Le 27 janvier est aujourd’hui une journée de commémoration des victimes de la Shoah. Pourquoi, selon vous, a-t-on choisi précisément ce jour ?"
       },
       "layers": [
         "events",
@@ -483,11 +539,15 @@
       },
       "title": {
         "sv": "Berlin, 8 maj 1945",
-        "en": "Berlin, 8 May 1945"
+        "en": "Berlin, 8 May 1945",
+        "de": "Berlin, 8. Mai 1945",
+        "fr": "Berlin, 8 mai 1945"
       },
       "text": {
         "sv": "Tysklands högsta militära ledning skriver under en villkorslös kapitulation i Karlshorst i Berlin, dagen efter en första kapitulation i Reims. Kriget i Europa är slut, men mot Japan fortsätter det.",
-        "en": "Germany's supreme military command signs an unconditional surrender in Karlshorst in Berlin, the day after a first surrender in Reims. The war in Europe is over, but against Japan it continues."
+        "en": "Germany's supreme military command signs an unconditional surrender in Karlshorst in Berlin, the day after a first surrender in Reims. The war in Europe is over, but against Japan it continues.",
+        "de": "Die oberste deutsche Militärführung unterzeichnet in Karlshorst in Berlin eine bedingungslose Kapitulation, einen Tag nach einer ersten Kapitulation in Reims. Der Krieg in Europa ist vorbei, gegen Japan geht er jedoch weiter.",
+        "fr": "Le haut commandement militaire allemand signe une capitulation sans conditions à Karlshorst, à Berlin, au lendemain d’une première capitulation à Reims. La guerre est finie en Europe, mais elle continue contre le Japon."
       },
       "layers": [
         "events",
@@ -512,15 +572,21 @@
       },
       "chapter": {
         "sv": "1945: kriget mot Japan slutar",
-        "en": "1945: the war against Japan ends"
+        "en": "1945: the war against Japan ends",
+        "de": "1945: Der Krieg gegen Japan endet",
+        "fr": "1945 : la guerre contre le Japon prend fin"
       },
       "title": {
         "sv": "Hiroshima och Nagasaki, 6 och 9 augusti 1945",
-        "en": "Hiroshima and Nagasaki, 6 and 9 August 1945"
+        "en": "Hiroshima and Nagasaki, 6 and 9 August 1945",
+        "de": "Hiroshima und Nagasaki, 6. und 9. August 1945",
+        "fr": "Hiroshima et Nagasaki, 6 et 9 août 1945"
       },
       "text": {
         "sv": "USA fäller atombomber över Hiroshima och Nagasaki. Mellan 150 000 och 246 000 människor dödas, de flesta civila. Mellan bomberna förklarar Sovjetunionen krig mot Japan och anfaller Manchuriet.",
-        "en": "The United States drops atomic bombs on Hiroshima and Nagasaki. Between 150,000 and 246,000 people are killed, most of them civilians. Between the bombs the Soviet Union declares war on Japan and attacks Manchuria."
+        "en": "The United States drops atomic bombs on Hiroshima and Nagasaki. Between 150,000 and 246,000 people are killed, most of them civilians. Between the bombs the Soviet Union declares war on Japan and attacks Manchuria.",
+        "de": "Die USA werfen Atombomben auf Hiroshima und Nagasaki ab. Zwischen 150.000 und 246.000 Menschen werden getötet, die meisten von ihnen Zivilisten. Zwischen den beiden Bomben erklärt die Sowjetunion Japan den Krieg und greift die Mandschurei an.",
+        "fr": "Les États-Unis larguent des bombes atomiques sur Hiroshima et Nagasaki. Entre 150 000 et 246 000 personnes sont tuées, pour la plupart des civils. Entre les deux bombes, l’Union soviétique déclare la guerre au Japon et attaque la Mandchourie."
       },
       "layers": [
         "events",
@@ -543,15 +609,21 @@
       },
       "title": {
         "sv": "Tokyobukten, 2 september 1945",
-        "en": "Tokyo Bay, 2 September 1945"
+        "en": "Tokyo Bay, 2 September 1945",
+        "de": "Bucht von Tokio, 2. September 1945",
+        "fr": "Baie de Tokyo, 2 septembre 1945"
       },
       "text": {
         "sv": "Japan och nio allierade länder skriver under kapitulationen ombord på USS Missouri. Andra världskriget är slut.",
-        "en": "Japan and nine Allied countries sign the surrender aboard USS Missouri. The Second World War is over."
+        "en": "Japan and nine Allied countries sign the surrender aboard USS Missouri. The Second World War is over.",
+        "de": "Japan und neun alliierte Länder unterzeichnen die Kapitulation an Bord der USS Missouri. Der Zweite Weltkrieg ist vorbei.",
+        "fr": "Le Japon et neuf pays alliés signent la capitulation à bord de l’USS Missouri. La Seconde Guerre mondiale est terminée."
       },
       "question": {
         "sv": "Kriget i Europa slutade i maj, men mot Japan först i september. Vad betydde det för dem som fortfarande stred?",
-        "en": "The war in Europe ended in May, but against Japan only in September. What did that mean for those who were still fighting?"
+        "en": "The war in Europe ended in May, but against Japan only in September. What did that mean for those who were still fighting?",
+        "de": "Der Krieg in Europa endete im Mai, gegen Japan aber erst im September. Was bedeutete das für diejenigen, die noch kämpften?",
+        "fr": "La guerre a pris fin en mai en Europe, mais en septembre seulement contre le Japon. Qu’est-ce que cela signifiait pour ceux qui combattaient encore ?"
       },
       "layers": [
         "events",

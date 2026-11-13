@@ -77,6 +77,32 @@ test('Östgrönlandsmålet räknas till Amerika och Alltinget till Europa (#1135
   }
 });
 
+// Rättningarna i #1334 och de beslutade fallen i #630 som inte får ändras. Koordinaterna är händelsernas egna.
+const EVENT_REGIONS = [
+  ['fogo-utbrottet-1680', 'Afrika'], // Kap Verde
+  ['perserkrigen', 'Asien'], ['joniska-upproret', 'Asien'], ['slaget-vid-lade', 'Asien'],
+  ['slaget-vid-granikos', 'Asien'], ['lydiska-mynt', 'Asien'], // västra Mindre Asien
+  ['rodriguessolitaren-dor-ut', 'Afrika'], ['dronten-sista-gangen', 'Afrika'], // Maskarenerna
+  ['gallipolifalttaget', 'Europa'], ['vulkanutbrottet-pa-thera', 'Europa'],
+  ['vapenstillestand-egypten-israel-1949', 'Europa'], // Gallipoli, Thera och Rhodos stannar i Europa
+  ['hagia-sofia-byggs-532', 'Europa'], ['konstantinopels-fall', 'Europa'], // Istanbul (#630)
+  ['sexdagarskriget', 'Asien'], ['justinianska-pesten-nar-egypten', 'Asien'], // Sinai (#630)
+  ['alltinget-grundas', 'Europa'], ['ostgronlandsmalet', 'Amerika'], ['harar-adals-huvudstad', 'Afrika'],
+];
+test('världsdelarna i #1334 är rättade och de beslutade fallen oförändrade', () => {
+  for (const [id, want] of EVENT_REGIONS) {
+    const event = events.find(e => e.id === id);
+    assert.ok(event?.location?.type === 'Point', `${id}: behöver en punkt`);
+    const [lon, lat] = event.location.coordinates;
+    assert.equal(region(lat, lon), want, id);
+  }
+});
+// Syntetiska punkter kring de nya gränserna (#1334): Atlantöarna, Maskarenerna, Adenviken och Anatoliens kustlinje.
+for (const lat of [-22, -3, 12, 13, 18, 36, 36.6, 40.45, 40.5]) for (const lon of [-32, -26, -25, -20, 26.5, 27.2, 45, 52, 64]) {
+  for (const dy of [-0.0001, 0, 0.0001]) for (const dx of [-0.0001, 0, 0.0001]) edgePoints.push([lat + dy, lon + dx]);
+}
+for (let lat = 36.5; lat <= 40.6; lat += 0.05) for (let lon = 25.8; lon <= 28.0; lon += 0.05) edgePoints.push([lat, lon]);
+
 // Ett glest nät fångar också skillnader bortom de uttryckliga gränsfallen.
 for (let lat = -60; lat <= 75; lat += 2.5) for (let lon = -180; lon < 180; lon += 2.5) edgePoints.push([lat, lon]);
 

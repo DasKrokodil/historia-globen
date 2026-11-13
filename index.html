@@ -97,6 +97,8 @@
       </button>
     </div>
     <p id="year-segment" class="segment-note"></p>
+    <!-- Förklaringen av tidsfönstret för skärmläsare (#1191): tonade markörer är nära i tid, inte samtida -->
+    <span id="year-window-note" class="sr-only"></span>
     <div id="jump-back" class="jump-back" role="status" hidden>
       <span id="jump-back-text"></span><span aria-hidden="true">·</span>
       <button id="jump-back-button" class="link-btn" type="button" data-i18n="jumpBack.back">Tillbaka</button>
@@ -251,6 +253,8 @@
       <div id="quiz-result" class="quiz-result" aria-live="polite" hidden>
         <p id="quiz-verdict" class="quiz-verdict"></p>
         <p id="quiz-funfact" class="intro-funfact"></p>
+        <!-- Sant eller myt? (#846): varifrån missuppfattningen kommer -->
+        <p id="quiz-origin" class="intro-funfact quiz-origin" hidden></p>
         <p class="quiz-sources-label" data-i18n="quiz.sources">Källor</p>
         <ul id="quiz-sources" class="quiz-sources"></ul>
       </div>
@@ -370,6 +374,7 @@
       <label class="layer-row"><input type="checkbox" data-pause="major" checked> <span data-i18n="layers.pMajor">Stora händelser när man följer ett krig</span></label>
       <label class="layer-row"><input type="checkbox" data-pause="empire" checked> <span data-i18n="layers.pEmpire">Nyckelår när man följer ett rike</span> <span class="layer-note" data-i18n="layers.pEmpireNote">varför riket växer eller krymper</span></label>
       <label class="layer-row"><input type="checkbox" data-pause="route" checked> <span data-i18n="layers.pRoute">Stopp när man följer en resa</span> <span class="layer-note" data-i18n="layers.pRouteNote">platser med datum i resans data</span></label>
+      <label class="layer-row"><input type="checkbox" data-pause="theme" checked> <span data-i18n="layers.pTheme">Händelser när man följer en plats eller ett tema</span> <span class="layer-note" data-i18n="layers.pThemeNote">de viktiga först; finns inga, alla</span></label>
     </div>
   </div>
 
@@ -414,6 +419,7 @@
       <p id="tour-progress" class="tour-progress"></p>
       <button id="tour-close" class="panel-x" type="button" aria-label="Avsluta turen" data-i18n-aria-label="tour.close">×</button>
     </div>
+    <div id="tour-meter" class="tour-meter" aria-hidden="true"></div>
     <h2 id="tour-name" class="tour-name"></h2>
     <p id="tour-chapter" class="tour-chapter" hidden></p>
     <h3 id="tour-title" class="tour-title"></h3>

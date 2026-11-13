@@ -10,11 +10,11 @@
     "es": "¿Cómo cayó el Imperio romano de Occidente?"
   },
   "summary": {
-    "sv": "Ett långt förlopp från tidiga tecken till 476, och varför forskarna fortfarande diskuterar det.",
-    "en": "A long process from early signs to 476, and why researchers still debate it.",
-    "fr": "Un long processus, des premiers signes jusqu'à 476, et pourquoi les chercheurs en débattent encore.",
-    "de": "Ein langer Verlauf von den ersten Anzeichen bis 476 und warum die Forschung bis heute darüber streitet.",
-    "es": "Un largo proceso desde las primeras señales hasta 476, y por qué los investigadores todavía lo debaten."
+    "sv": "Ett långt förlopp fram till 476, och varför forskarna fortfarande diskuterar det.",
+    "en": "A long process up to 476, and why researchers still debate it.",
+    "fr": "Un long processus jusqu'en 476, et pourquoi les chercheurs en débattent encore.",
+    "de": "Ein langer Verlauf bis 476 und warum die Forschung bis heute darüber streitet.",
+    "es": "Un largo proceso hasta 476, y por qué los investigadores todavía lo debaten."
   },
   "empire": "romarriket",
   "review": "source-checked",
@@ -28,11 +28,11 @@
         "zoom": 1.7
       },
       "chapter": {
-        "sv": "Tidiga tecken",
-        "en": "Early signs",
-        "fr": "Premiers signes",
-        "de": "Erste Anzeichen",
-        "es": "Primeras señales"
+        "sv": "Provinserna",
+        "en": "The provinces",
+        "fr": "Les provinces",
+        "de": "Die Provinzen",
+        "es": "Las provincias"
       },
       "title": {
         "sv": "Armorica, omkring år 360",
@@ -66,11 +66,11 @@
         "zoom": 1.5
       },
       "chapter": {
-        "sv": "Kris",
-        "en": "Crisis",
-        "fr": "Crise",
-        "de": "Krise",
-        "es": "Crisis"
+        "sv": "Folkvandringen",
+        "en": "The migration",
+        "fr": "La migration",
+        "de": "Die Wanderung",
+        "es": "La migración"
       },
       "title": {
         "sv": "Goterna kommer in i riket, 376",
@@ -166,11 +166,11 @@
         "zoom": 1.8
       },
       "chapter": {
-        "sv": "Slutet",
-        "en": "The end",
-        "fr": "La fin",
-        "de": "Das Ende",
-        "es": "El final"
+        "sv": "Den siste kejsaren i väst",
+        "en": "The last emperor in the West",
+        "fr": "Le dernier empereur d'Occident",
+        "de": "Der letzte Kaiser im Westen",
+        "es": "El último emperador de Occidente"
       },
       "title": {
         "sv": "Ravenna, 4 september 476",
@@ -181,11 +181,11 @@
       },
       "status": "belagt",
       "text": {
-        "sv": "Odoaker tvingar Romulus Augustulus, den siste kejsaren i Västrom, att abdikera och skickar de kejserliga insignierna till Konstantinopel.",
-        "en": "Odoacer forces Romulus Augustulus, the last emperor in the West, to abdicate and sends the imperial insignia to Constantinople.",
-        "fr": "Odoacre force Romulus Augustule, le dernier empereur d'Occident, à abdiquer et envoie les insignes impériaux à Constantinople.",
-        "de": "Odoaker zwingt Romulus Augustulus, den letzten Kaiser Westroms, zur Abdankung und schickt die kaiserlichen Insignien nach Konstantinopel.",
-        "es": "Odoacro obliga a Rómulo Augústulo, el último emperador de Occidente, a abdicar y envía las insignias imperiales a Constantinopla."
+        "sv": "Odoaker tvingar Romulus Augustulus, den siste kejsaren i Västrom, att abdikera och skickar de kejserliga insignierna till Konstantinopel. Två gamla krönikor anger olika datum, 4 september och 31 augusti, och det ena är troligen en felskrivning av det andra. Forskarna brukar föredra 4 september.",
+        "en": "Odoacer forces Romulus Augustulus, the last emperor in the West, to abdicate and sends the imperial insignia to Constantinople. Two old chronicles give different dates, 4 September and 31 August, and one is probably a copying error of the other. Historians usually prefer 4 September.",
+        "fr": "Odoacre force Romulus Augustule, le dernier empereur d'Occident, à abdiquer et envoie les insignes impériaux à Constantinople. Deux chroniques anciennes donnent des dates différentes, le 4 septembre et le 31 août, et l'une est probablement une erreur de copie de l'autre. Les historiens retiennent généralement le 4 septembre.",
+        "de": "Odoaker zwingt Romulus Augustulus, den letzten Kaiser Westroms, zur Abdankung und schickt die kaiserlichen Insignien nach Konstantinopel. Zwei alte Chroniken nennen unterschiedliche Daten, den 4. September und den 31. August, und eines ist wahrscheinlich ein Abschreibfehler des anderen. Die Forschung bevorzugt meist den 4. September.",
+        "es": "Odoacro obliga a Rómulo Augústulo, el último emperador de Occidente, a abdicar y envía las insignias imperiales a Constantinopla. Dos crónicas antiguas dan fechas distintas, el 4 de septiembre y el 31 de agosto, y una es probablemente un error de copia de la otra. Los historiadores suelen preferir el 4 de septiembre."
       },
       "layers": [
         "events",
@@ -231,9 +231,9 @@
       "question": {
         "sv": "Varför tror du att forskare har kommit fram till så många olika förklaringar?",
         "en": "Why do you think researchers have come up with so many different explanations?",
-        "fr": "Pourquoi penses-tu que les chercheurs sont arrivés à tant d'explications différentes ?",
-        "de": "Warum glaubst du, sind Forschende zu so vielen verschiedenen Erklärungen gekommen?",
-        "es": "¿Por qué crees que los investigadores han llegado a tantas explicaciones distintas?"
+        "fr": "Pourquoi pensez-vous que les chercheurs sont arrivés à tant d'explications différentes ?",
+        "de": "Warum, glauben Sie, sind Forschende zu so vielen verschiedenen Erklärungen gekommen?",
+        "es": "¿Por qué cree que los investigadores han llegado a tantas explicaciones distintas?"
       },
       "layers": [
         "events",
@@ -265,7 +265,7 @@
         "de": "Das Heer vor 376",
         "es": "El ejército antes de 376"
       },
-      "status": "okant",
+      "status": "omtvistat",
       "text": {
         "sv": "Forskarna är inte överens om huruvida arméns slagkraft hade minskat redan före 376.",
         "en": "Researchers do not agree on whether the army's fighting strength had already declined before 376.",
