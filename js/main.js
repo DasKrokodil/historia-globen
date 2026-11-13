@@ -444,9 +444,9 @@ async function start() {
     return !!rh;
   };
   // I Platt vy: klick bredvid markörerna (#38)
-  flatMap.onMapClick = (ll, x, y, pointerType) => {
+  flatMap.onMapClick = (ll, x, y) => {
     relLegend.hidePop(); routePop.hide(); popClick++;
-    if (!routeClick(ll, x, y)) app.places.tap(ll, pointerType === 'touch' || pointerType === 'pen'); // sist: platsens kort (#1161)
+    if (!routeClick(ll, x, y)) app.places.tap(ll); // sist: platsens kort (#1161). Platt vy har inget dubbeltryck som zoomar, så trycket väntar inte
   };
   globe.onClick = (x, y, pointerType) => {
     const hit = globe.pick(x, y, layer.sprites.filter(s => s.visible));

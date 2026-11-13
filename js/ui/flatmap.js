@@ -98,7 +98,7 @@ export class FlatMap {
         const at = this._local(e), hit = this._hitTest(at, e.pointerType);
         if (hit) this.onSelect?.(hit.id);
         // Annars: platsen som klickades, till exempel för vägar och resor på lagerbilden (#38)
-        else this.onMapClick?.(this._lonLat(at), e.clientX, e.clientY, e.pointerType);
+        else this.onMapClick?.(this._lonLat(at), e.clientX, e.clientY);
       }
     };
     canvas.addEventListener('pointerup', up);
@@ -298,6 +298,8 @@ export class FlatMap {
     const S = this.scale * this.dpr; // enhetspixlar per bildpixel
     const cw = canvas.width, ch = canvas.height;
     const x0 = this.cx - cw / 2 / S, y0 = this.cy - ch / 2 / S;
+    // Renderingsstatus: kartans mitt och zoom, så att webbläsartestet kan se vad som ramades in (#1161)
+    this.root.dataset.view = `${(90 - this.cy / IMG_H * 180).toFixed(2)},${(this.cx / IMG_W * 360 - 180).toFixed(2)},${this.zoom.toFixed(2)}`;
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.clearRect(0, 0, cw, ch);
     ctx.imageSmoothingEnabled = true;

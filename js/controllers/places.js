@@ -111,7 +111,7 @@ export function createPlaces(app) {
   function showInFlat(place) {
     app.viewMode.set('flat');
     flatMap.frame(placeBounds(place));
-    say(ui('place.flatShown', { place: t(place.name) }), 'plats', { priority: 1, immediate: true });
+    say(ui('place.flatShown', { place: t(place.name) }), 'plats', { priority: 2, immediate: true }); // som faktarutans rubrik: svaret på knappen får inte tystas av den
   }
 
   return { allowed, ensure, tap, showInFlat, cards: () => cards };

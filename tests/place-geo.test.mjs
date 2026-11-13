@@ -59,24 +59,40 @@ test('gränsrutan viks upp kring platsens mitt, så att datumgränsen inte gör 
   assert.equal(b.east, 190);
 });
 
-test('lagret ritar konturerna bara utanför Fokus, inzoomat och när det finns platser med kort', () => {
+test('lagret ritar konturerna bara utanför Fokus och inzoomat, och platsen man följer som förut', () => {
   const { layer, enabled, update } = entry();
   const s = extra => ({ focus: null, labels: { placeHints: true }, ...extra });
-  assert.equal(enabled(s()), false, 'inga platser laddade än');
-  layer.cards = [place('gronland')];
-  assert.equal(enabled(s()), true);
-  assert.equal(enabled(s({ labels: { placeHints: false } })), false, 'utzoomat');
-  assert.equal(enabled(s({ focus: { type: 'war' } })), false, 'inte i Fokus');
-  assert.equal(enabled(s({ focus: { type: 'theme' } })), false);
+  const hints = state => { update(state); return layer.hints; };
+  assert.equal(hints(s()), true, 'inzoomat i vanligt läge');
+  assert.equal(hints(s({ labels: { placeHints: false } })), false, 'utzoomat');
+  assert.equal(hints(s({ labels: {} })), false);
+  assert.equal(hints(s({ focus: { type: 'war' } })), false, 'inte i Fokus');
+  assert.equal(hints(s({ focus: { type: 'theme' } })), false);
+  assert.equal(enabled(s()), false, 'valen i Lager styr inte konturerna runt platserna med kort');
+  assert.equal(enabled(s({ focus: { type: 'war' } })), false);
   assert.equal(enabled(s({ focus: { type: 'place', place: place('gronland') } })), true, 'platsen man följer ritas som förut');
-  update(s());
-  assert.equal(layer.hints, true);
-  assert.equal(layer.place, null);
   update(s({ focus: { type: 'place', place: place('aotearoa') } }));
   assert.equal(layer.hints, false, 'i Fokus på en plats ritas bara den platsen');
   assert.equal(layer.place.id, 'aotearoa');
-  update(s({ focus: null, labels: {} }));
-  assert.equal(layer.hints, false);
+  update(s());
+  assert.equal(layer.place, null);
+});
+
+test('ritar lagret något? Bara med platser som har kort: tomt kort-lista ritar inget', () => {
+  const { layer } = entry();
+  const calls = [];
+  const ctx = { save: () => calls.push('save'), restore() {}, stroke: () => calls.push('stroke'), set lineJoin(v) {}, set strokeStyle(v) {}, set lineWidth(v) {}, setLineDash() {}, fill() {} };
+  globalThis.Path2D ??= class { moveTo() {} lineTo() {} closePath() {} };
+  layer.hints = true;
+  layer.drawOverlay(ctx, 4096, 2048);
+  assert.deepEqual(calls, [], 'inga platser med kort');
+  layer.cards = [place('gronland'), place('aotearoa')];
+  layer.drawOverlay(ctx, 4096, 2048);
+  assert.equal(calls.filter(c => c === 'stroke').length, 4, 'en kant och en kontur per plats');
+  calls.length = 0;
+  layer.hints = false;
+  layer.drawOverlay(ctx, 4096, 2048);
+  assert.deepEqual(calls, [], 'inget utan hints och utan platsen man följer');
 });
 
 test('inGeometry är oförändrad: en punkt i en polygon och en utanför', () => {

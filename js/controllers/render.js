@@ -57,8 +57,11 @@ export function createRender(app) {
   const empireNames = () => !$('flat-view').hidden || zoomMag() >= NAMES_MAG;
   // Nutida staters flaggor (#1193) syns bara vid nära zoom på globen och i Platt vy från nivån Inzoomat; annars namnet
   const modernFlags = () => $('flat-view').hidden ? zoomMag() >= NAMES_MAG : zoomLevel(pxPerImg(globe, flatMap)) >= 2;
-  // Platsernas prickade konturer och tryck på dem (#1161): inzoomat (som flaggorna) och i vanligt läge, aldrig i Fokus, tur, lektion eller intervall
-  const placeHints = () => !!app.places?.allowed() && modernFlags();
+  // Platsernas prickade konturer och tryck på dem (#1161): i vanligt läge (aldrig i Fokus, tur, lektion eller intervall) och inzoomat:
+  // på globen vid samma nära zoom som religionernas namn, i Platt vy när kartan är förstorad (zoom 1 visar hela världen). Nivån
+  // Inzoomat för flaggorna räcker inte: en inramad plats i mobilbredd når den aldrig
+  const PLACE_FLAT_ZOOM = 1.2; // en inramad plats i mobilbredd (400 px, högt format) får zoom omkring 1,4
+  const placeHints = () => !!app.places?.allowed() && ($('flat-view').hidden ? zoomMag() >= NAMES_MAG : flatMap.zoom >= PLACE_FLAT_ZOOM);
   function nameStyle() {
     if (!$('flat-view').hidden) return [ZOOM_LEVELS[zoomLevel(flatMap.scale)].flatScale, 1]; // efter zoomnivån (#358)
     const mag = zoomMag();

@@ -10,7 +10,9 @@ export function entry() {
   const layer = new PlacesLayer();
   return {
     id: 'places', layer, z: Z.places,
-    enabled: s => s.focus?.type === 'place' || (!s.focus && !!s.labels?.placeHints && layer.cards.length > 0),
+    enabled: s => s.focus?.type === 'place',
+    // Konturerna runt platserna med kort (#1161) beror på zoomen, som ändras utan att valen i Lager gör det (och apply() körs då
+    // inte), så de styrs av hints här i stället för av enabled
     update: s => {
       layer.place = s.focus?.type === 'place' ? s.focus.place : null;
       layer.hints = !s.focus && !!s.labels?.placeHints;
@@ -43,7 +45,7 @@ export class PlacesLayer {
   }
 
   drawOverlay(ctx, W, H) {
-    if (this.enabled && this.hints) return this.drawHints(ctx, W, H);
+    if (this.hints && this.cards.length) return this.drawHints(ctx, W, H);
     const geometry = this.enabled && this.place?.boundary?.geometry;
     if (!geometry) return;
     const path = this.path(this.place, W, H);
@@ -62,10 +64,14 @@ export class PlacesLayer {
   drawHints(ctx, W, H) {
     ctx.save();
     ctx.lineJoin = 'round';
-    ctx.strokeStyle = 'rgba(241,223,180,0.7)';
-    ctx.lineWidth = Math.max(1.5, W / 2200);
+    const width = Math.max(1.5, W / 2200);
     ctx.setLineDash([W / 420, W / 520]);
-    for (const place of this.cards) ctx.stroke(this.path(place, W, H));
+    // Först en mörk kant under, så att de ljusa strecken syns både mot pergamentfärgat land och mot havet
+    for (const [color, w] of [['rgba(12,24,44,0.5)', width * 2], ['rgba(246,230,190,0.95)', width]]) {
+      ctx.strokeStyle = color;
+      ctx.lineWidth = w;
+      for (const place of this.cards) ctx.stroke(this.path(place, W, H));
+    }
     ctx.restore();
   }
 }
