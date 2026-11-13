@@ -741,6 +741,42 @@ async function run(browser, vp) {
     return 'Oxford: vanlig 1100, hopfälld 1612; Visa fler nås med tangentbord';
   });
 
+  // #1304: några kategorier av och noll träffar. Raden säger att urvalet kan dölja händelser, och knappen visar alla igen.
+  await check('några kategorier av och noll träffar: raden säger det, och Visa alla kategorier ger träffarna tillbaka (#1304)', async () => {
+    await jumpTo(1325);
+    if (await page.locator('#panel').isHidden()) await page.click('#btn-panel');
+    await visible('#panel');
+    const cats = await page.locator('#panel-filters [data-cat]').evaluateAll(els => els.map(e => e.dataset.cat));
+    const setOnly = async keep => {
+      for (const c of cats) {
+        const chip = page.locator(`#panel-filters [data-cat="${c}"]`);
+        if (((await chip.getAttribute('aria-pressed')) === 'true') !== (c === keep)) await chip.click();
+      }
+    };
+    // Hitta en kategori utan händelse kring året: slå av alla andra och se när listan blir tom
+    let empty = null;
+    for (const keep of cats) {
+      await setOnly(keep);
+      if (!(await page.locator('#event-list .event-btn').count())) { empty = keep; break; }
+    }
+    if (!empty) throw new Error('ingen kategori är tom kring 1325, så läget kan inte provas');
+    const sub = (await page.textContent('#panel-sub')).trim();
+    if (!/^Inget i de valda kategorierna inom .+ från 1325\.$/.test(sub)) throw new Error(`raden under rubriken säger "${sub}"`);
+    if (/avstängda, så inga/.test(sub)) throw new Error('läget "alla kategorier av" visas fast bara några är av');
+    const help = (await page.textContent('#event-list .empty-note')).trim();
+    if (!/kan dölja händelser/.test(help)) throw new Error(`hjälptexten säger "${help}"`);
+    const reset = page.locator('#event-list .panel-show-all-categories');
+    if (await reset.count() !== 1 || !(await reset.isVisible())) throw new Error('knappen Visa alla kategorier saknas');
+    if ((await reset.textContent()).trim() !== 'Visa alla kategorier') throw new Error('knappen har fel text');
+    await reset.click();
+    await page.waitForFunction(() => document.querySelectorAll('#event-list .event-btn').length > 0, null, { timeout: T.step });
+    const pressed = await page.locator('#panel-filters [data-cat]').evaluateAll(els => els.every(e => e.getAttribute('aria-pressed') === 'true'));
+    if (!pressed) throw new Error('Visa alla kategorier slog inte på alla kategorier');
+    if (await page.locator('#event-list .panel-show-all-categories').count()) throw new Error('knappen står kvar när listan har träffar');
+    if (!(await page.evaluate(() => !!document.activeElement?.closest('#panel-filters')))) throw new Error('fokus gick inte till kategorierna efter knappen');
+    return `${empty} ensam ger en tom lista med raden "kan dölja händelser" och knappen; Visa alla kategorier ger träffarna och alla kategorier tillbaka`;
+  });
+
   await check('kategorin Katastrofer visar Tjernobyl (#554)', async () => {
     await jumpTo(1986);
     if (await page.locator('#panel').isHidden()) await page.click('#btn-panel');

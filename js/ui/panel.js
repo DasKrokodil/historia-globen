@@ -244,10 +244,14 @@ function tagMarks(e, tags) {
   return marks.length ? `<div class="tag-marks">${marks.join('')}</div>` : '';
 }
 
-/** Varför listan är tom (#886): 'filters' när alla kategorier är avstängda, annars 'year' (inget kring året). */
-export function emptyCause({ visibleCount, filters }) {
+/**
+ * Varför listan är tom: 'filters' när alla kategorier är avstängda (#886), 'some' när några men inte alla är avstängda
+ * (#1304; kräver total, antalet kategorier som finns) och annars 'year' (inget kring året).
+ */
+export function emptyCause({ visibleCount, filters, total = null }) {
   if (visibleCount > 0) return null;
-  return filters.size === 0 ? 'filters' : 'year';
+  if (filters.size === 0) return 'filters';
+  return total != null && filters.size < total ? 'some' : 'year';
 }
 
 /** Antalet i raden "Översikt: ett urval, cirka N händelser" (#1139): avrundat till tiotal, men exakt under tio. */
@@ -409,10 +413,11 @@ export class Panel {
     if (partialCount) parts.push(plural('range.partialCount', partialCount, { count: partialCount }));
     // I intervallet finns inget "nära": raden säger hur många som pågår under intervallet och hur många som sticker ut
     if (range) this.toggle.setAttribute('aria-label', stop(parts.join(', ')));
-    const filtersOff = !labels?.themeEmpty && emptyCause({ visibleCount: visible.length, filters: this.filters }) === 'filters';
+    const cause = labels?.themeEmpty ? null : emptyCause({ visibleCount: visible.length, filters: this.filters, total: this.allCategories?.size });
+    const filtersOff = cause === 'filters', filtersSome = cause === 'some';
     this.sub.textContent = visible.length ? stop(range ? parts.join(', ') : `${summaryText}. ${parts.join(', ')}`)
       : range && !filtersOff ? ui('range.empty', { range: bare })
-      : ui(filtersOff && !(this.tag && this.tags[this.tag]) ? 'panel.filtersOff' : 'panel.empty', { within, at: bare });
+      : ui(filtersOff && !(this.tag && this.tags[this.tag]) ? 'panel.filtersOff' : filtersSome ? 'panel.filtersSome' : 'panel.empty', { within, at: bare });
     const tagCopy = this.tag && this.tags[this.tag];
     if (!visible.length && tagCopy) {
       // Vyn med tagg (#555): säg om ingen händelse har taggen ännu, eller om det bara är tomt kring året
@@ -423,11 +428,12 @@ export class Panel {
       this.list.replaceChildren(note);
       return;
     }
-    if (filtersOff) {
-      // Alla kategorier av (#886): det är filtret som döljer händelserna, så dragning i tidslinjen hjälper inte
+    if (filtersOff || filtersSome) {
+      // Alla kategorier av (#886): det är filtret som döljer händelserna, så dragning i tidslinjen hjälper inte.
+      // Några av (#1304): filtret kan dölja dem, så raden säger det och knappen visar alla kategorier igen
       const help = document.createElement('p');
       help.className = 'empty-note';
-      help.textContent = ui('panel.filtersOffHelp');
+      help.textContent = ui(filtersOff ? 'panel.filtersOffHelp' : 'panel.filtersSomeHelp');
       const reset = document.createElement('button');
       reset.type = 'button';
       reset.className = 'link-btn panel-show-all-categories';

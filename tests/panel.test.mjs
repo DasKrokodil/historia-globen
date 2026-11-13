@@ -49,10 +49,20 @@ test('tom lista: alla kategorier av ger filters, ett tomt år ger year, och en l
   assert.equal(emptyCause({ visibleCount: 3, filters: new Set(['krig']) }), null);
 });
 
-test('texterna för avstängda kategorier finns på alla fem språken, artigt tilltal utom svenska', async () => {
+// Några kategorier av och noll träffar (#1304): bara när antalet kategorier som finns är känt
+test('tom lista: några men inte alla kategorier av ger some, alla på ger year', () => {
+  assert.equal(emptyCause({ visibleCount: 0, filters: new Set(['krig']), total: 3 }), 'some');
+  assert.equal(emptyCause({ visibleCount: 0, filters: new Set(['krig', 'sport']), total: 3 }), 'some');
+  assert.equal(emptyCause({ visibleCount: 0, filters: new Set(['krig', 'sport', 'natur']), total: 3 }), 'year');
+  assert.equal(emptyCause({ visibleCount: 0, filters: new Set(), total: 3 }), 'filters');
+  assert.equal(emptyCause({ visibleCount: 2, filters: new Set(['krig']), total: 3 }), null);
+  assert.equal(emptyCause({ visibleCount: 0, filters: new Set(['krig']), total: null }), 'year');
+});
+
+test('texterna för avstängda kategorier finns på alla fem språken (#886, #1304)', async () => {
   for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
     const ui = JSON.parse(readFileSync(new URL(`../data/ui/${lang}.json`, import.meta.url)));
-    for (const key of ['panel.filtersOff', 'panel.filtersOffHelp', 'panel.showAllCategories']) {
+    for (const key of ['panel.filtersOff', 'panel.filtersOffHelp', 'panel.filtersSome', 'panel.filtersSomeHelp', 'panel.showAllCategories']) {
       assert.ok(typeof ui[key] === 'string' && ui[key].length > 5, `${lang}: ${key}`);
     }
   }

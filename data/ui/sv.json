@@ -231,6 +231,8 @@
   "panel.emptyHelp": "Dra i tidslinjen eller tryck på uppspelning för att hitta nästa händelse. Prickarna under tidslinjen visar var det finns data.",
   "panel.filtersOff": "Alla kategorier är avstängda, så inga händelser visas.",
   "panel.filtersOffHelp": "Slå på en eller flera kategorier ovan, eller visa alla igen.",
+  "panel.filtersSome": "Inget i de valda kategorierna inom {within} från {at}.",
+  "panel.filtersSomeHelp": "Några kategorier är avstängda och kan dölja händelser. Visa alla kategorier, eller dra i tidslinjen.",
   "panel.showAllCategories": "Visa alla kategorier",
   "panel.overviewNote": "Översikt: ett urval, cirka {count} händelser.",
   "panel.overviewAll": "Visa alla",

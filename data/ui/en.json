@@ -451,6 +451,8 @@
   "panel.emptyHelp": "Drag the timeline or press play to find the next event. The dots below the timeline show where there is data.",
   "panel.filtersOff": "All categories are turned off, so no events are shown.",
   "panel.filtersOffHelp": "Turn on one or more categories above, or show all again.",
+  "panel.filtersSome": "Nothing in the selected categories within {within} of {at}.",
+  "panel.filtersSomeHelp": "Some categories are turned off and may be hiding events. Show all categories, or drag the timeline.",
   "panel.showAllCategories": "Show all categories",
   "panel.overviewNote": "Overview: a selection, about {count} events.",
   "panel.overviewAll": "Show all",
