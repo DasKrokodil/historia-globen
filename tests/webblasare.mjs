@@ -48,7 +48,9 @@ import { list, urval, bredder, ALLTID } from './urval.mjs';
 
 const require = createRequire(import.meta.url);
 const playwright = require('playwright');
-const { PNG } = require('playwright-core/lib/utilsBundle');
+// playwright-core hämtas från samma ställe som playwright hittades, inte från repot: i molnmiljön ligger de förinstallerade
+// paketen utanför repot och NODE_PATH pekar bara på playwright (2026-11-13). I CI ligger båda i node_modules, så det fungerar som förut.
+const { PNG } = createRequire(require.resolve('playwright'))('playwright-core/lib/utilsBundle');
 
 const PORT = Number(process.argv[2] || 8000);
 const BROWSER = process.env.BROWSER || 'chromium';
