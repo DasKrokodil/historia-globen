@@ -292,6 +292,7 @@ export class Panel {
     this.onReport = null; // (objekt, knapp) => öppnar formuläret "Rapportera faktafel" (js/ui/feedback.js)
     this.onShowPlace = null; // (händelse) => platsraden i mobil (#312): fäller ihop rutan och visar markören på globen
     this.onEndTheme = () => {};
+    this.onPlaceFlat = null; // (plats) => Visa i Platt karta (#1161): knappen i platsens kort visas bara när återanropet finns
     this.selectedId = null;
     this.shown = null; // det faktarutan visar just nu; en rad som laddas klart ritar bara om samma ruta (#337)
     this.expandedRegions = new Set();
@@ -626,6 +627,7 @@ export class Panel {
       <p>${esc(t(place.intro))}</p>
       <p class="theme-filter-note">${esc(ui('place.borderNote'))}</p>
       <p class="theme-filter-note">${esc(ui('place.filters'))}</p>
+      ${this.onPlaceFlat ? `<button type="button" class="chip-btn theme-exit place-flat" data-place-flat aria-label="${esc(`${ui('place.flatMap')}: ${t(place.name)}`)}">${esc(ui('place.flatMap'))}</button>` : ''}
       <button type="button" class="chip-btn theme-exit" data-end-theme>${esc(ui('place.exit'))}</button>
       <details class="theme-event-list"${matchMedia('(max-width: 760px)').matches ? '' : ' open'}>
         <summary>${esc(ui('place.events', { count: events.length }))}</summary>
@@ -636,6 +638,7 @@ export class Panel {
     this.setDetailOpen(true);
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
     this.detail.querySelector('[data-end-theme]').addEventListener('click', () => this.onEndTheme());
+    this.detail.querySelector('[data-place-flat]')?.addEventListener('click', () => this.onPlaceFlat(place)); // #1161: en knapp, inget eget läge
     for (const b of this.detail.querySelectorAll('[data-theme-event]')) b.addEventListener('click', () => this.onThemeEvent?.(b.dataset.themeEvent));
     this.detail.querySelector('[data-close]').focus({ preventScroll: true });
   }

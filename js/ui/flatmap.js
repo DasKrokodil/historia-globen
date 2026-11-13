@@ -98,12 +98,12 @@ export class FlatMap {
         const at = this._local(e), hit = this._hitTest(at, e.pointerType);
         if (hit) this.onSelect?.(hit.id);
         // Annars: platsen som klickades, till exempel för vägar och resor på lagerbilden (#38)
-        else this.onMapClick?.(this._lonLat(at), e.clientX, e.clientY);
+        else this.onMapClick?.(this._lonLat(at), e.clientX, e.clientY, e.pointerType);
       }
     };
     canvas.addEventListener('pointerup', up);
     canvas.addEventListener('pointercancel', up);
-    canvas.addEventListener('pointerleave', () => this._setHover(null));
+    canvas.addEventListener('pointerleave', () => { this._setHover(null); canvas.classList.remove('on-place'); });
 
     // Tangentbord när kartan har fokus: pilar panorerar, + och − zoomar, 0 återställer
     canvas.addEventListener('keydown', e => {
@@ -117,6 +117,7 @@ export class FlatMap {
       else if (e.key === '+' || e.key === '=') this.zoomBy(STEP);
       else if (e.key === '-' || e.key === '_') this.zoomBy(1 / STEP);
       else if (e.key === '0') reset.click();
+      else if (e.key === 'Enter' && this.onActivate) { this.onActivate(); } // tangentbordets tryck på platsen i mitten (#1161)
       else handled = false;
       if (!handled) return;
       e.preventDefault();
@@ -239,6 +240,19 @@ export class FlatMap {
     return { x, y: ((90 - lat) / 180 * IMG_H - y0) * s };
   }
 
+  /** Platsen { lon, lat } i kartans mitt, för tangentbordets tryck och uppläsning (#1161). */
+  centre() { return this._lonLat({ x: this.w / 2, y: this.h / 2 }); }
+
+  /**
+   * Rama in en ruta { west, east, south, north } (longituder uppvikta kring mitten, som place-geo.js ger) med lite luft runt
+   * (#1161). Zoomen väljs så att hela rutan ryms, inom kartans gränser. Anropas när kartan är öppen och har mått.
+   */
+  frame({ west, east, south, north }, fill = 0.78) {
+    if (!this.w || !this.h) return;
+    const base = Math.max(this.w / IMG_W, this.h / IMG_H), wide = Math.max((east - west) / 360 * IMG_W, 1), high = Math.max((north - south) / 180 * IMG_H, 1);
+    this.setView((north + south) / 2, (east + west) / 2, Math.min(this.w * fill / wide, this.h * fill / high) / base);
+  }
+
   /** Platsen { lon, lat } under en punkt i kartans skärmkoordinater (omvändningen av _toScreen). */
   _lonLat(at) {
     const s = this.scale;
@@ -260,7 +274,10 @@ export class FlatMap {
 
   _hover(e) {
     if (e.pointerType !== 'mouse' || e.buttons) return;
-    this._setHover(this._hitTest(this._local(e))?.id ?? null);
+    const at = this._local(e), hit = this._hitTest(at);
+    this._setHover(hit?.id ?? null);
+    // Handen över en plats med kort (#1161), när ingen markör ligger under pekaren
+    this.canvas.classList.toggle('on-place', !hit && !!this.placeAt?.(this._lonLat(at)));
   }
 
   _setHover(id) {

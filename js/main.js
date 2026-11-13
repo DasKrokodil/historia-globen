@@ -38,6 +38,7 @@ import { createRender } from './controllers/render.js';
 import { createPlayback } from './controllers/playback.js';
 import { createRange } from './controllers/range.js';
 import { createLabels } from './controllers/labels.js';
+import { createPlaces } from './controllers/places.js';
 import { createAddress } from './controllers/address.js';
 import { createJumpBack } from './controllers/jump-back.js';
 import { createSurfaces } from './surfaces.js';
@@ -315,6 +316,8 @@ async function start() {
   app.playback = createPlayback(app);
   // Tidsintervallet (#755): läget 'intervall' i lägeskontraktet, med formuläret i årshoppet och raden under årtalet
   app.range = createRange(app);
+  // Tryck på en plats med kort (#1161): konturerna, trycket, tangentbordets Enter och knappen Visa i Platt karta
+  app.places = createPlaces(app);
 
   panel.onSelect = (...a) => app.select(...a);
   panel.onFocus = id => app.startFocus(`war:${id}`);
@@ -421,6 +424,12 @@ async function start() {
     window.addEventListener('resize', lift);
   }
   // Platsraden i faktarutan (#312, bara smal skärm): fäller ihop rutan till litet läge och visar markören på globen
+  // Knappen Visa i Platt karta i platsens kort (#1161): vyn byts och kartan ramar in platsen. På smal skärm fälls kortet ihop till
+  // litet läge så att kartan syns, och fokus går till dess handtag (knappen är då inte synlig)
+  panel.onPlaceFlat = place => {
+    app.places.showInFlat(place);
+    if (narrow.matches) { detailSheet.set('closed'); detailSheet.handle.focus({ preventScroll: true }); }
+  };
   panel.onShowPlace = e => {
     detailSheet.set('closed');
     globe.flyTo(e._lat, e._lon);
@@ -435,22 +444,25 @@ async function start() {
     return !!rh;
   };
   // I Platt vy: klick bredvid markörerna (#38)
-  flatMap.onMapClick = (ll, x, y) => {
+  flatMap.onMapClick = (ll, x, y, pointerType) => {
     relLegend.hidePop(); routePop.hide(); popClick++;
-    routeClick(ll, x, y);
+    if (!routeClick(ll, x, y)) app.places.tap(ll, pointerType === 'touch' || pointerType === 'pen'); // sist: platsens kort (#1161)
   };
-  globe.onClick = (x, y) => {
+  globe.onClick = (x, y, pointerType) => {
     const hit = globe.pick(x, y, layer.sprites.filter(s => s.visible));
     relLegend.hidePop(); routePop.hide(); popClick++;
     app.select(hit ? hit.userData.event.id : null);
     // Händelsemarkörer har företräde, sedan vägar och resor (de ritas ovanpå områdena)
     if (!hit && routes.active.length && routeClick(globe.pickLatLon(x, y), x, y)) return;
     // Annars: vilken religion ligger under klicket? (#166)
+    let rh = null;
     if (!hit && religions.enabled && !state.faded.has('religions') && religions.active.length) {
       const ll = globe.pickLatLon(x, y);
-      const rh = ll && religions.hitTest(ll.lon, ll.lat);
+      rh = ll && religions.hitTest(ll.lon, ll.lat);
       if (rh) showReligionPop(rh, ll, x, y);
     }
+    // Sist: konturen av en plats med kort (#1161). Markörer, vägar och religioner har företräde och är oförändrade
+    if (!hit && !rh) app.places.tap(globe.pickLatLon(x, y), pointerType === 'touch' || pointerType === 'pen');
   };
   // Riket på just den platsen (#194): rikenas gränser laddas vid det första klicket.
   // Ett senare klick vinner om laddningen hinner bli klar efter det.
