@@ -2424,53 +2424,59 @@ async function run(browser, vp) {
     }
   });
 
-  // #555: vyn Framsteg i Lager. Ingen riktig händelse har taggen ännu, så vyn ska säga att den är tom. Med en
-  // test-fixtur (taggen läggs på Apollo 11 bara i testet, inte i datan) ska vyn visa just den händelsen och
-  // faktarutan ha märkningen med ett namn för skärmläsare.
+  // #555: vyn Framsteg i Lager. Tomläget prövas i en egen flik där taggarna tas bort ur datan (sedan #85 har
+  // riktiga händelser taggen), och urvalet med en fixtur där bara Apollo 11 har taggen (bara i testet, inte i
+  // datan): vyn ska visa just den händelsen och faktarutan ha märkningen med ett namn för skärmläsare.
+  const withTags = async (tp, tagged) => {
+    if (THREE_LOCAL) {
+      const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+      await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+      await tp.route(u => isFont(u.href), r => r.abort());
+    }
+    await tp.route('**/data/genererat/handelser.json', async route => {
+      const res = await route.fetch();
+      const doc = await res.json();
+      for (const e of doc.events) { if (tagged.includes(e.id)) e.tags = ['framsteg']; else delete e.tags; }
+      await route.fulfill({ response: res, json: doc });
+    });
+  };
   await check('vyn Framsteg är tom utan taggar och visar taggade händelser (#555)', async () => {
-    // Det tomma läget, med den riktiga datan
-    await jumpTo(1969);
-    await clickView('#btn-layers');
-    await visible('#layer-menu');
-    const chip = page.locator('#layer-menu .view-chip[data-view="framsteg"]');
-    if (await chip.count() !== 1) throw new Error('vyn Framsteg saknas i Lager');
-    await chip.focus();
-    await page.keyboard.press('Enter');
-    await page.waitForFunction(() => document.querySelector('#layer-menu [data-view="framsteg"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
-    const status = page.locator('#layer-menu .layer-view-status');
-    await status.waitFor({ state: 'visible', timeout: T.step });
-    if (!/Inga händelser är markerade som framsteg ännu/.test(await status.textContent())) throw new Error(`tomt läge saknas i Lager: "${await status.textContent()}"`);
-    await page.keyboard.press('Escape');
-    await hidden('#layer-menu');
-    if (await page.locator('#panel').isHidden()) await page.click('#btn-panel');
-    await visible('#panel');
-    await page.waitForFunction(() => /markerade som framsteg/.test(document.querySelector('#event-list .tag-empty')?.textContent ?? ''), null, { timeout: T.step });
-    if (await page.locator('#event-list .event-btn').count()) throw new Error('vyn Framsteg visar otaggade händelser');
-    await page.click('#panel-close');
-    // Tillbaka till Standard
-    await clickView('#btn-layers');
-    await visible('#layer-menu');
-    await page.click('#layer-menu .view-chip[data-view="standard"]');
-    await page.keyboard.press('Escape');
-    await hidden('#layer-menu');
+    // Det tomma läget: samma sida i en ny flik, där ingen händelse har taggen
+    const emptyPage = await context.newPage();
+    try {
+      await withTags(emptyPage, []);
+      await emptyPage.goto(`${BASE}#y=1969`);
+      await emptyPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      const emptyView = async sel => {
+        if (await emptyPage.isHidden(sel) && await emptyPage.isVisible('#more-toggle')) await emptyPage.click('#more-toggle');
+        await emptyPage.click(sel);
+      };
+      await emptyView('#btn-layers');
+      await emptyPage.waitForSelector('#layer-menu', { state: 'visible', timeout: T.step });
+      const chip = emptyPage.locator('#layer-menu .view-chip[data-view="framsteg"]');
+      if (await chip.count() !== 1) throw new Error('vyn Framsteg saknas i Lager');
+      await chip.focus();
+      await emptyPage.keyboard.press('Enter');
+      await emptyPage.waitForFunction(() => document.querySelector('#layer-menu [data-view="framsteg"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
+      const status = emptyPage.locator('#layer-menu .layer-view-status');
+      await status.waitFor({ state: 'visible', timeout: T.step });
+      if (!/Inga händelser är markerade som framsteg ännu/.test(await status.textContent())) throw new Error(`tomt läge saknas i Lager: "${await status.textContent()}"`);
+      await emptyPage.keyboard.press('Escape');
+      if (await emptyPage.locator('#panel').isHidden()) await emptyPage.click('#btn-panel');
+      await emptyPage.waitForSelector('#panel', { state: 'visible', timeout: T.step });
+      await emptyPage.waitForFunction(() => /markerade som framsteg/.test(document.querySelector('#event-list .tag-empty')?.textContent ?? ''), null, { timeout: T.step });
+      if (await emptyPage.locator('#event-list .event-btn').count()) throw new Error('vyn Framsteg visar otaggade händelser');
+    } finally {
+      await emptyPage.close();
+    }
 
-    // Test-fixturen: samma sida i en ny flik, där Apollo 11 har taggen framsteg
+    // Test-fixturen: samma sida i en ny flik, där bara Apollo 11 har taggen framsteg
     const tagPage = await context.newPage();
     const tagErrors = [];
     tagPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) pushConsole(tagErrors, m); });
     tagPage.on('pageerror', e => tagErrors.push(e.message));
     try {
-      if (THREE_LOCAL) {
-        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
-        await tagPage.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
-        await tagPage.route(u => isFont(u.href), r => r.abort());
-      }
-      await tagPage.route('**/data/genererat/handelser.json', async route => {
-        const res = await route.fetch();
-        const doc = await res.json();
-        for (const e of doc.events) if (e.id === 'apollo-11') e.tags = ['framsteg'];
-        await route.fulfill({ response: res, json: doc });
-      });
+      await withTags(tagPage, ['apollo-11']);
       await tagPage.goto(`${BASE}#y=1969`);
       await tagPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       const tagView = async sel => {
