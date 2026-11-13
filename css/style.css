@@ -1327,6 +1327,24 @@ details.used-by summary:hover { color: var(--parchment); }
   font: 600 12px/1 var(--f-mono); color: var(--night); background: var(--brass);
   border: 1px solid var(--brass); border-radius: 999px; padding: 6px 12px; cursor: pointer; white-space: nowrap;
 }
+/* Föregående och Nästa stopp när man följer en resa (#1380): i pausraden bredvid Fortsätt. Mönstret från jump-back (#997):
+   32 px hög i bred skärm och minst 44 px i smal skärm (WCAG 2.5.8). Raden blir en rundad ruta i stället för ett piller när
+   knapparna syns, eftersom den då ofta bryts på två rader. */
+.pause-step[hidden] { display: none; }
+.pause-step {
+  font: 600 12px/1 var(--f-mono); color: var(--brass); background: none; white-space: nowrap; cursor: pointer;
+  border: 1px solid var(--control-line); border-radius: 999px; padding: 6px 12px; min-height: 32px;
+}
+.pause-step:hover { background: var(--night-3); }
+.pause-note:has(.pause-step:not([hidden])) { border-radius: var(--r); }
+.pause-note:has(.pause-step:not([hidden])) .pause-go { min-height: 32px; }
+@media (max-width: 760px) {
+  .pause-step, .pause-note:has(.pause-step:not([hidden])) .pause-go { min-height: 44px; }
+  /* Texten överst och knapparna på en rad under, lika breda, så att raden inte blir högre än två rader knappar (mätt vid 400 px) */
+  .pause-note:has(.pause-step:not([hidden])) { gap: 6px; padding-right: 6px; }
+  .pause-note:has(.pause-step:not([hidden])) :is(#pause-text, .pause-more) { flex-basis: 100%; }
+  .pause-note:has(.pause-step:not([hidden])) :is(.pause-step, .pause-go) { flex: 1 1 auto; padding-inline: 8px; }
+}
 /* "Nästa paus: …" när man följer ett krig (#244): diskret till höger om knapparna i bred skärm,
    i pausraden när skärmen är smalare, så att tidsraden inte blir högre */
 .controls { position: relative; }

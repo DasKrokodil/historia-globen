@@ -92,6 +92,7 @@ js/url-state.js       adressformatet för delbara länkar och Bakåt/Framåt (#5
 js/search-index.js    sökningens index och matchning (#570)
 js/place-search.js    "Vad hände här?": platsförslag och händelser inom 300 km, i tidsordning (#15)
 js/date-events.js     återanvändbart urval av händelser för år eller exakt datum (#483, #489, #485)
+js/route-steps.js     stegningen mellan en resas stopp: Föregående och Nästa stopp i pausraden (#1380)
 js/ui/intro.js        frivillig introduktion till samtidighet i tre stilla steg, från Utforska (#363, #516)
 js/ui/quiz.js         quizet "Vad hände samtidigt?" under Mer, med frågor ur befintliga fun facts (#65)
 js/ui/print-sheet.js  utskrift av en lektionstur: elevblad och lärarblad ur turens lärarfält (#738)

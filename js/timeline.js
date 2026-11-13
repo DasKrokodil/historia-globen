@@ -640,6 +640,8 @@ export class Timeline extends EventTarget {
     }
     if (announcement) this._announce(announcement);
     else clearStatus('pausnotis');
+    // Den som äger något i pausraden (resans stegknappar, #1380) vet då när raden har bytt text eller försvunnit
+    this.dispatchEvent(new CustomEvent('pausenote', { detail: { text: text || null } }));
   }
   /** Den här raden finns alltid i DOM:en, så att skärmläsaren säkert får ändringen. */
   /** Läser upp text för skärmläsare utan att visa en pausrad (till exempel turens slutkort, #878). */

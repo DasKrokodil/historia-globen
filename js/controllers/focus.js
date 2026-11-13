@@ -127,9 +127,12 @@ export function createFocus(app) {
     if (redraw) app.refresh();
   }
 
-  /** Escape stänger först det som ligger ovanpå. När temakortet redan är stängt lämnar nästa Escape temat. */
+  /** Följer man en resa (#1380)? Escape lämnar den som ett tema, så att man kommer ut utan musen när stegknapparna har fokus. */
+  const isRoute = () => state.focus?.type === 'route';
+
+  /** Escape stänger först det som ligger ovanpå. När temakortet redan är stängt lämnar nästa Escape temat, och likadant resan. */
   document.addEventListener('keydown', e => {
-    if (e.key !== 'Escape' || !isSelection()) return;
+    if (e.key !== 'Escape' || !(isSelection() || isRoute())) return;
     const overlay = ['detail', 'focus-menu', 'layer-menu', 'help', 'feedback', 'sources-dialog', 'jump-pop', 'religion-pop', 'route-pop']
       .some(id => { const el = $(id); return el && !el.hidden; });
     if (overlay || $('app').classList.contains('panel-open')) return;
