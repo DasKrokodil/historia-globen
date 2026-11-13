@@ -4933,8 +4933,11 @@ async function run(browser, vp) {
   await check('tidsskalans texter ryms på fem språk i 400 och 768 px (#1101)', async () => {
     if (vp.width <= 760) return 'körs i datorjobbet (provar själv 400 och 768 px)';
     const seen = [];
+    // Egen kontext: den sparade farten och tipset ärvs inte från andra prov och lämnas inte kvar åt dem
+    const isolated = await browser.newContext({ viewport: { width: 400, height: 800 }, deviceScaleFactor: 1 });
+    try {
     for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
-      const pp = await context.newPage();
+      const pp = await isolated.newPage();
       const errors = [];
       pp.on('pageerror', e => errors.push(e.message));
       try {
@@ -4942,7 +4945,9 @@ async function run(browser, vp) {
           await pp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
           await pp.route(u => isFont(u.href), r => r.abort());
         }
-        await pp.addInitScript(() => { try { localStorage.setItem('hg-year-tip', '1'); } catch { /* utan lagring */ } }); // engångstipset döljer årtalen på skalan
+        // Engångstipset döljer årtalen på skalan. Farten 100 ger den bredaste knapptexten ("100 000/s" vid 100 000 f.Kr.), och ett tidigare prov
+        // kan ha lämnat den sparad; provet sätter den själv så att det inte beror på ordningen.
+        await pp.addInitScript(() => { try { localStorage.setItem('hg-year-tip', '1'); localStorage.setItem('hg-speed-ars', '100'); } catch { /* utan lagring */ } });
         for (const [width, height] of [[400, 800], [768, 1024]]) {
           await pp.setViewportSize({ width, height });
           await pp.goto(`${BASE}?lang=${lang}#y=2000`);
@@ -5009,6 +5014,7 @@ async function run(browser, vp) {
         seen.push(lang);
       } finally { await pp.close(); }
     }
+    } finally { await isolated.close(); }
     return `${seen.join(', ')} i 400 och 768 px, år 2000, 5000 f.Kr. och 100 000 f.Kr.: årtal, knappar, årtalet i huvudet, tidsfönstret och snabbhoppen ryms, utan överlapp eller sidscroll`;
   });
 
