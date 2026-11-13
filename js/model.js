@@ -153,6 +153,11 @@ export function groupDigits(n) {
     .map(p => p.type === 'group' ? GROUP_SEP : p.value).join('');
 }
 
+/** Ett tal med högst en decimal på språkets sätt: "2,5" på svenska, tyska, spanska och franska, "2.5" på engelska (#1101). Utan tusentalsavgränsare, för tal under 10. */
+export function formatDecimal(n) {
+  return new Intl.NumberFormat(NUM_LOCALE, { maximumFractionDigits: 1, useGrouping: false }).format(n);
+}
+
 /** Kort årtal för listor: "551 f.Kr.", "793", "1325", "300 000 f.Kr.". */
 export function formatYear(y) {
   // Före 10 000 f.Kr. är årtalen tusental (#1320): i datan skrivs djup tid som Y-66000000 ("för 66 miljoner år sedan"), och som
@@ -183,7 +188,8 @@ export function centuryOf(y) {
   return { bce: isBCE(y), c: Math.floor(n / 100) + 1, hundred: Math.floor(n / 100) * 100 };
 }
 
-const ROMAN = [[10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']];
+// Upp till 100 (århundrade 100 = 9900–9999 f.Kr., #1101): förut saknades L och C, så 5000 f.Kr. blev "XXXXXI" i stället för "LI"
+const ROMAN = [[100, 'C'], [90, 'XC'], [50, 'L'], [40, 'XL'], [10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']];
 const roman = n => ROMAN.reduce((out, [v, r]) => { while (n >= v) { out += r; n -= v; } return out; }, '');
 /** Engelskans ordningstal: 1st, 2nd, 3rd, 14th, 21st. Suffixen ligger i språkfilen (time.ordSuffix), tom i övriga språk. */
 function ordinal(n) {

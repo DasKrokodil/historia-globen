@@ -4930,6 +4930,88 @@ async function run(browser, vp) {
     return 'fem språk: hastighet och spelknapp, årshoppets fel, dagläge, källor/sökning och affischens ritade etiketter; ingen rå nyckel eller sidscroll';
   });
 
+  await check('tidsskalans texter ryms på fem språk i 400 och 768 px (#1101)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet (provar själv 400 och 768 px)';
+    const seen = [];
+    for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+      const pp = await context.newPage();
+      const errors = [];
+      pp.on('pageerror', e => errors.push(e.message));
+      try {
+        if (THREE_LOCAL) {
+          await pp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+          await pp.route(u => isFont(u.href), r => r.abort());
+        }
+        await pp.addInitScript(() => { try { localStorage.setItem('hg-year-tip', '1'); } catch { /* utan lagring */ } }); // engångstipset döljer årtalen på skalan
+        for (const [width, height] of [[400, 800], [768, 1024]]) {
+          await pp.setViewportSize({ width, height });
+          await pp.goto(`${BASE}?lang=${lang}#y=2000`);
+          await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+          // Modern tid, ett år vid hundratalsupplösningen och reglagets första år: tre olika längder på knappar, årtal och tidsfönster
+          for (const year of [2000, -5000, -99999]) {
+            await pp.evaluate(y => { location.hash = `#y=${y}`; }, year);
+            await pp.waitForFunction(y => Math.abs(Number(document.getElementById('track').getAttribute('aria-valuenow')) - y) <= 1000, year, { timeout: T.step });
+            await pp.waitForTimeout(300); // knapparnas texter och skalans årtal ritas om efter bytet
+            const r = await pp.evaluate(async () => {
+              const { formatYear } = await import('./js/model.js');
+              const { MIN_YEAR } = await import('./js/timeline.js');
+              const out = { problems: [], first: formatYear(MIN_YEAR) };
+              const shown = e => { const b = e.getBoundingClientRect(); return b.width > 0 && b.height > 0 && getComputedStyle(e).visibility !== 'hidden'; };
+              // Texten får inte sticka ut ur sin ruta eller ur skärmen
+              const textBox = e => { const g = document.createRange(); g.selectNodeContents(e); return g.getBoundingClientRect(); };
+              const inside = (e, name) => {
+                const b = e.getBoundingClientRect(), t = textBox(e);
+                if (t.left < b.left - 1 || t.right > b.right + 1) out.problems.push(`${name} "${e.textContent.trim()}" sticker ut ur sin ruta (${t.left.toFixed(0)}–${t.right.toFixed(0)} mot ${b.left.toFixed(0)}–${b.right.toFixed(0)})`);
+                if (b.left < -0.5 || b.right > innerWidth + 0.5) out.problems.push(`${name} "${e.textContent.trim()}" ligger utanför skärmen (${b.left.toFixed(0)}–${b.right.toFixed(0)})`);
+              };
+              if (document.documentElement.scrollWidth > innerWidth) out.problems.push(`horisontell scroll: ${document.documentElement.scrollWidth} > ${innerWidth}`);
+              const ticks = [...document.querySelectorAll('#ticks .tick')].filter(shown);
+              out.ticks = ticks.map(e => e.textContent);
+              ticks.forEach(e => inside(e, 'årtal på skalan'));
+              ticks.forEach((a, i) => ticks.slice(i + 1).forEach(b => {
+                const ra = a.getBoundingClientRect(), rb = b.getBoundingClientRect();
+                if (ra.left < rb.right && ra.right > rb.left) out.problems.push(`årtalen "${a.textContent}" och "${b.textContent}" ligger över varandra`);
+              }));
+              out.hasFirst = ticks.some(e => e.classList.contains('first') && e.textContent === out.first);
+              out.hasModern = ticks.some(e => e.textContent === '2000');
+              document.querySelectorAll('.controls .step, .controls .play').forEach(e => { if (shown(e)) inside(e, 'knapp'); });
+              // Årtalet i huvudet får inte täckas av knapparna bredvid
+              const big = document.getElementById('year-big').getBoundingClientRect(), row = document.querySelector('.top-actions').getBoundingClientRect();
+              if (innerWidth <= 760 && row.width && big.right > row.left + 0.5 && big.bottom > row.top && big.top < row.bottom) out.problems.push(`årtalet "${document.getElementById('year-big').textContent}" täcks av knapparna (${big.right.toFixed(0)} mot ${row.left.toFixed(0)})`);
+              const note = document.getElementById('year-segment');
+              if (note.getBoundingClientRect().right > innerWidth + 0.5) out.problems.push(`tidsfönstrets rad går utanför skärmen: ${note.textContent}`);
+              if (/[XVILC]{6,}/.test(note.textContent)) out.problems.push(`ogiltigt romerskt tal: ${note.textContent}`);
+              out.note = note.textContent;
+              return out;
+            });
+            const where = `${lang} ${width} px, år ${year}`;
+            if (r.problems.length) throw new Error(`${where}: ${r.problems.join('; ')}`);
+            if (!r.hasFirst) throw new Error(`${where}: skalan saknar sitt första årtal "${r.first}": ${r.ticks.join(', ')}`);
+            if (!r.hasModern) throw new Error(`${where}: skalan saknar 2000: ${r.ticks.join(', ')}`);
+          }
+          // Snabbhoppen i årshoppet: segmentens namn ryms i sina rutor
+          await pp.click('#year-jump');
+          await pp.waitForSelector('#jump-pop:not([hidden])', { timeout: T.step });
+          const chips = await pp.evaluate(() => {
+            const pop = document.getElementById('jump-pop').getBoundingClientRect(), out = [];
+            for (const e of document.querySelectorAll('#jump-epochs .jump-epoch')) {
+              const b = e.getBoundingClientRect(), g = document.createRange();
+              g.selectNodeContents(e);
+              const t = g.getBoundingClientRect();
+              if (t.right > b.right + 1 || t.left < b.left - 1 || b.right > pop.right + 1 || b.right > innerWidth) out.push(e.textContent);
+            }
+            return { out, count: document.querySelectorAll('#jump-epochs .jump-epoch').length, scroll: document.documentElement.scrollWidth > innerWidth };
+          });
+          if (chips.out.length || chips.scroll || chips.count !== 6) throw new Error(`${lang} ${width} px: snabbhoppens knappar: ${chips.count} st, utanför: ${chips.out.join(' | ')}, scroll ${chips.scroll}`);
+          await pp.keyboard.press('Escape');
+        }
+        if (errors.length) throw new Error(`${lang}: ${errors.join(' | ')}`);
+        seen.push(lang);
+      } finally { await pp.close(); }
+    }
+    return `${seen.join(', ')} i 400 och 768 px, år 2000, 5000 f.Kr. och 100 000 f.Kr.: årtal, knappar, årtalet i huvudet, tidsfönstret och snabbhoppen ryms, utan överlapp eller sidscroll`;
+  });
+
   await check('bildlagrens källor står under Kartdata i Om källorna (#1410)', async () => {
     if (vp.width <= 760) return 'körs i datorjobbet';
     const bp = await context.newPage();
