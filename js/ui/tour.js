@@ -317,7 +317,8 @@ export class TourPlayer {
       // Slutkortet har ingen pausrad, men skärmläsaren ska höra steget och att det var det sista (#878)
       timeline.pause();
       const end = app.lesson?.active ? ui('lesson.endAnnounce', { exit: ui('lesson.exit') }) : ui('tour.endAnnounce');
-      timeline.announce(`${say}. ${end}`);
+      // Prioritet 3: slutannonsen (#878) ska inte tappas när slutstegets faktaruta, som har prioritet 2 i statusraden (#1419), öppnas samtidigt
+      timeline.announce(`${say}. ${end}`, 3);
     } else timeline.pause(note, true, say);
   }
 

@@ -6,6 +6,7 @@ import { loadAll, loadAllEventDetails, loadReligionPolities, loadRoutes, loadSou
 import { buildIndex, search as searchIndex } from './search-index.js';
 import { placeSuggestions, eventsNear, RADIUS_KM } from './place-search.js';
 import { applyStatic, setupLangPicker, takeReturnYear, LANG_INFO, ui } from './i18n.js';
+import { bindStatus, say } from './ui/status.js';
 import { Globe } from './globe.js';
 import { Timeline, setupYearJump } from './timeline.js';
 import { LAYERS } from './layers/index.js';
@@ -135,6 +136,7 @@ async function start() {
     root: $('panel'), list: $('event-list'), filters: $('filters'), chips: $('panel-filters'), detail: $('detail'),
     sub: $('panel-sub'), count: $('panel-count'), toggle: $('btn-panel'), close: $('panel-close'),
   }, data, { empireLegend: views?.empireLegend, uncertainty: views?.uncertainty, panel: views?.panel, tags: views?.tags });
+  bindStatus($('screen-reader-status')); // statusraden för skärmläsare har en enda väg in (js/ui/status.js, #1419)
   const ff = new FunFacts({
     root: $('funfact'), text: $('ff-text'), events: $('ff-events'), review: $('ff-review'),
     pager: $('ff-pager'), next: $('ff-next'), srcBtn: $('ff-sources'),
@@ -356,7 +358,7 @@ async function start() {
       ff.setDetailOpen(true);
       if (cardFocus || listFocus) detail.querySelector('[data-close]')?.focus({ preventScroll: true });
       const title = detail.querySelector('h3')?.textContent.trim() ?? '';
-      if (title && title !== detailTitle) $('screen-reader-status').textContent = `${ui('detail.label')}: ${title}`;
+      if (title && title !== detailTitle) say(`${ui('detail.label')}: ${title}`, 'faktaruta', { priority: 2, immediate: true }); // går före Samtidigt-kortet och pausraden (#1419)
       detailTitle = title;
       return;
     }
@@ -719,7 +721,7 @@ async function start() {
   shareBtn.addEventListener('click', () => address.share(text => {
     const label = shareBtn.textContent;
     shareBtn.textContent = text;
-    $('screen-reader-status').textContent = text;
+    say(text, 'dela', { priority: 1, immediate: true });
     clearTimeout(shareTimer);
     shareTimer = setTimeout(() => { shareBtn.textContent = label; }, 2500);
   }));
