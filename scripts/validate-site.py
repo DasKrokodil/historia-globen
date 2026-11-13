@@ -329,7 +329,7 @@ for item in (spread or {}).get('items', []):
     for s in item.get('sources', []):
         if s not in src_ids:
             err(f"data/spridning.json ({item.get('id')}): källan {s} finns inte i sources.json")
-    for place in item.get('places', []) + [p for path in item.get('paths', []) for p in path]:
+    for place in item.get('places', []) + [p for part in item.get('parts', []) for p in part] + [p for path in item.get('paths', []) for p in path]:
         if 'event' in place and place['event'] not in ev_ids:
             err(f"data/spridning.json ({item.get('id')}): händelsen {place['event']} finns inte i events.json")
         elif 'event' not in place and not (isinstance(place.get('coord'), list) and len(place['coord']) == 2):

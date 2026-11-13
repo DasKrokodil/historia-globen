@@ -568,6 +568,9 @@ Antagna områden och vågor i förhistorien, som lagret Människans spridning (`
   - `start`, `end`, `edtf`: år med astronomisk årsräkning. *X tusen år sedan* skrivs `2001 − 1000 · X`, som för händelserna i förhistorien (till exempel 45 000 år sedan = `-42999`).
   - `places` (område) eller `paths` (våg, en lista per gren). En plats är `{ "event": "<händelse-id>" }` (samma koordinat som händelsens markör) eller `{ "coord": [lon, lat], "wikidata": "Q…", "name": "…" }` med koordinaten ur Wikidata. Platsen ska vara kontrollerad: id:t öppnat och namnet jämfört.
   - `radiusKm` (område): hur långt ut höljet ritas runt varje plats. Ytan blir ett mjukt, konvext hölje och ska aldrig läsas som en gräns.
+  - `parts` (område, i stället för `places`): flera listor med platser. Varje del blir ett eget hölje, och delarna ritas som en yta med gemensam ytterkant. Så kan en yta följa en båge (Iberien–Kaukasus–Altaj) utan att täcka det som ligger innanför, till exempel Nordafrika.
+  - `clipLand` (område): ytan klipps mot dagens land (`land.json`). Används bara där havet inte har ändrats mycket, eftersom landbryggorna under istiden (#1096) annars skulle klippas bort.
+  - Vågornas sträckor ritas längs storcirkeln mellan platserna.
   - `title`, `label` (valfri, kort namn på kartan), `summary`, `note` (valfri, till exempel "Källorna skiljer sig"): texter per språk.
   - `sources` (id i `sources.json`) och `review` som för händelser (`draft` visas inte).
 - `scripts/validate-site.py` kontrollerar att källorna och händelserna finns och att varje plats har `event` eller `coord`. `tools/oversattning.py` räknar texterna.

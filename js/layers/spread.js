@@ -15,7 +15,7 @@ import { ui } from '../i18n.js';
 
 /** Lagrets post i registret (#338). Av som standard; den förinställda vyn "Människans spridning" slår på det. */
 export function entry({ data, refresh }) {
-  const layer = new SpreadLayer(data.byId, data.srcById);
+  const layer = new SpreadLayer(data.byId, data.srcById, data.land);
   let loading = null;
   return {
     id: 'spread', name: ui('layer.spread'), group: 'movement', layer, z: Z.spread,
@@ -39,8 +39,10 @@ export function entry({ data, refresh }) {
 const GROW = 0.6;
 
 export class SpreadLayer {
-  constructor(byId = new Map(), srcById = {}) {
+  constructor(byId = {}, srcById = {}, land = null) {
     this.byId = byId; this.srcById = srcById;
+    this.land = land?.path ? { path: new Path2D(land.path), width: land.width, height: land.height } : null; // för clipLand
+    this.edge = null; // en återanvänd duk för områdenas ytterkant
     this.items = null;
     this.enabled = false;
     this.active = []; // [{ item, grow }]
@@ -51,7 +53,9 @@ export class SpreadLayer {
     this.colors = doc.colors ?? {};
     this.items = (doc.items ?? []).filter(i => i.review !== 'draft').map(i => ({
       ...i,
-      _points: (i.places ?? []).map(p => this.coord(p)).filter(Boolean),
+      // Ett område är en eller flera delar (parts); varje del blir ett hölje, och delarna ritas som en yta.
+      // Delar gör att en yta kan följa en båge (Iberien–Kaukasus–Altaj) utan att täcka det som ligger innanför.
+      _parts: (i.parts ?? [i.places ?? []]).map(part => part.map(p => this.coord(p)).filter(Boolean)).filter(part => part.length),
       _paths: (i.paths ?? []).map(path => path.map(p => this.coord(p)).filter(Boolean)).filter(p => p.length > 1),
     }));
   }
@@ -101,43 +105,66 @@ export class SpreadLayer {
     ctx.restore();
   }
 
-  /** Ett antaget område: ett mjukt hölje runt platserna, med radien radiusKm runt varje plats. */
+  /**
+   * Ett antaget område: ett mjukt hölje med radien radiusKm runt platserna i varje del, och alla delar som en yta.
+   * Ytan fylls svagt och med snedstreck; ytterkanten är streckad med mörk kontur under, så att den syns mot både land och
+   * hav (skissen på #1094, fynd 2). Kanterna där delarna överlappar suddas bort, så att bara ytterkanten syns.
+   * clipLand: ytan klipps mot dagens land (data/land.json), för ett område som annars skulle täcka hav.
+   */
   drawArea(ctx, W, H, k, item) {
-    const pts = item._points;
-    if (!pts.length) return null;
     const col = this.colors[item.group] ?? '#e9c46a';
-    const ref = pts[0][0], ring = [];
-    const rLat = (item.radiusKm ?? 600) / 111.2; // grader
-    for (const [lon0, lat] of pts) {
-      const lon = lon0 - 360 * Math.round((lon0 - ref) / 360);
-      const rLon = rLat / Math.max(0.2, Math.cos(lat * Math.PI / 180));
-      for (let a = 0; a < 16; a++) {
-        const v = a * Math.PI / 8;
-        ring.push([(lon + rLon * Math.cos(v) + 180) / 360 * W, (90 - Math.max(-89, Math.min(89, lat + rLat * Math.sin(v)))) / 180 * H]);
-      }
-    }
-    const hull = convexHull(ring);
-    const xs = hull.map(([x]) => x), shifts = [0];
+    const polys = item._parts.map(pts => padHull(pts, item.radiusKm ?? 600, W, H)).filter(h => h.length > 2);
+    if (!polys.length) return null;
+    const all = polys.flat(), xs = all.map(([x]) => x), ys = all.map(([, y]) => y), shifts = [0];
     if (Math.min(...xs) < 0) shifts.push(W);
     if (Math.max(...xs) > W) shifts.push(-W);
+    const m = 8 * k, bx = Math.floor(Math.min(...xs) - m), by = Math.floor(Math.min(...ys) - m);
+    const bw = Math.ceil(Math.max(...xs) + m) - bx, bh = Math.ceil(Math.max(...ys) + m) - by;
     for (const dx of shifts) {
-      ctx.beginPath();
-      hull.forEach(([x, y], i) => i ? ctx.lineTo(x + dx, y) : ctx.moveTo(x + dx, y));
-      ctx.closePath();
-      ctx.globalAlpha = 0.14; ctx.fillStyle = col; ctx.fill();
-      ctx.globalAlpha = 1; ctx.fillStyle = stripes(ctx, col, k); ctx.fill();
-      // Streckad kant med mörk kontur under, så att den syns mot både land och hav (skissen på #1094, fynd 2)
-      ctx.setLineDash([9 * k, 6 * k]);
-      ctx.strokeStyle = 'rgba(16,22,30,0.55)'; ctx.lineWidth = 3.6 * k; ctx.stroke();
-      ctx.strokeStyle = col; ctx.lineWidth = 1.8 * k; ctx.stroke();
-      ctx.setLineDash([]);
+      const path = new Path2D();
+      for (const h of polys) { h.forEach(([x, y], i) => i ? path.lineTo(x + dx, y) : path.moveTo(x + dx, y)); path.closePath(); }
+      ctx.save();
+      if (item.clipLand) this.clipToLand(ctx, W, H);
+      ctx.globalAlpha = 0.14; ctx.fillStyle = col; ctx.fill(path);
+      ctx.globalAlpha = 1; ctx.fillStyle = stripes(ctx, col, k); ctx.fill(path);
+      // Kanten ritas på en egen duk: dubbelt bred, och sedan suddas allt innanför ytan, så att bara ytterhalvan blir kvar
+      const e = this.edgeCanvas(bw, bh);
+      e.setTransform(1, 0, 0, 1, -bx - dx, -by);
+      e.clearRect(bx + dx, by, bw, bh);
+      e.save();
+      if (item.clipLand) this.clipToLand(e, W, H);
+      e.lineJoin = 'round'; e.lineCap = 'round';
+      e.setLineDash([9 * k, 6 * k]);
+      e.strokeStyle = 'rgba(16,22,30,0.55)'; e.lineWidth = 7.2 * k; e.stroke(path);
+      e.strokeStyle = col; e.lineWidth = 3.6 * k; e.stroke(path);
+      e.restore();
+      e.globalCompositeOperation = 'destination-out'; e.fill(path); e.globalCompositeOperation = 'source-over';
+      ctx.drawImage(e.canvas, 0, 0, bw, bh, bx + dx, by, bw, bh);
+      ctx.restore();
     }
-    // Namnet mitt i området (höljets tyngdpunkt), så att det inte hamnar i ett grannområde
-    let x = hull.reduce((a, [hx]) => a + hx, 0) / hull.length;
-    const y = hull.reduce((a, [, hy]) => a + hy, 0) / hull.length;
+    // Namnet mitt i den största delen, så att det inte hamnar i ett grannområde
+    const main = polys.reduce((a, b) => polyArea(b) > polyArea(a) ? b : a);
+    let x = main.reduce((a, [hx]) => a + hx, 0) / main.length;
+    const y = main.reduce((a, [, hy]) => a + hy, 0) / main.length;
     x = ((x % W) + W) % W;
     // Ordet under namnet följer säkerheten, som i listan: en hypotes kallas hypotes, annars tolkning
     return { x, y, text: t(item.label ?? item.title), col, word: ui(item.certainty === 'hypotes' ? 'spread.certainty.hypotes' : 'spread.interpretation') };
+  }
+
+  /** Klipper ctx mot dagens land (data/land.json, färdigprojicerad i width × height). */
+  clipToLand(ctx, W, H) {
+    if (!this.land) return;
+    const sx = W / this.land.width, sy = H / this.land.height;
+    ctx.scale(sx, sy); ctx.clip(this.land.path); ctx.scale(1 / sx, 1 / sy);
+  }
+
+  /** Den återanvända duken för ytterkanten, minst w × h. */
+  edgeCanvas(w, h) {
+    if (!this.edge || this.edge.canvas.width < w || this.edge.canvas.height < h) {
+      const c = typeof OffscreenCanvas !== 'undefined' ? new OffscreenCanvas(w, h) : Object.assign(document.createElement('canvas'), { width: w, height: h });
+      this.edge = c.getContext('2d');
+    }
+    return this.edge;
   }
 
   /** En våg: en linje per gren, framritad till andelen grow av sin längd. */
@@ -146,8 +173,9 @@ export class SpreadLayer {
     const sure = item.certainty === 'huvudvag';
     for (const path of item._paths) {
       // Längdgraderna vecklas ut som i lines.js, så att en gren över datumlinjen går den korta vägen
+      // Varje sträcka följer storcirkeln (den kortaste vägen på klotet), inte en rak linje på den platta kartan
       let prev = null;
-      const px = path.map(([lon, lat]) => {
+      const px = greatCircle(path).map(([lon, lat]) => {
         const l = prev === null ? lon : lon - 360 * Math.round((lon - prev) / 360);
         prev = l;
         return [(l + 180) / 360 * W, (90 - lat) / 180 * H];
@@ -199,6 +227,43 @@ export class SpreadLayer {
       }
     }
   }
+}
+
+/** Punkterna längs storcirkeln mellan varje par av platser, 24 steg per sträcka. [lon, lat] in och ut. */
+function greatCircle(path) {
+  const rad = Math.PI / 180, out = [path[0]];
+  const vec = ([lon, lat]) => [Math.cos(lat * rad) * Math.cos(lon * rad), Math.cos(lat * rad) * Math.sin(lon * rad), Math.sin(lat * rad)];
+  for (let i = 1; i < path.length; i++) {
+    const a = vec(path[i - 1]), b = vec(path[i]);
+    const w = Math.acos(Math.max(-1, Math.min(1, a[0] * b[0] + a[1] * b[1] + a[2] * b[2])));
+    for (let s = 1; s <= 24; s++) {
+      const f = s / 24;
+      if (w < 1e-6) { out.push(path[i]); break; }
+      const p = Math.sin((1 - f) * w) / Math.sin(w), q = Math.sin(f * w) / Math.sin(w);
+      const [x, y, z] = [p * a[0] + q * b[0], p * a[1] + q * b[1], p * a[2] + q * b[2]];
+      out.push([Math.atan2(y, x) / rad, Math.atan2(z, Math.hypot(x, y)) / rad]);
+    }
+  }
+  return out;
+}
+
+/** Höljet (bildpunkter) runt platserna, med radien rKm runt varje plats. */
+function padHull(pts, rKm, W, H) {
+  const ref = pts[0][0], ring = [], rLat = rKm / 111.2; // grader
+  for (const [lon0, lat] of pts) {
+    const lon = lon0 - 360 * Math.round((lon0 - ref) / 360);
+    const rLon = rLat / Math.max(0.2, Math.cos(lat * Math.PI / 180));
+    for (let a = 0; a < 16; a++) {
+      const v = a * Math.PI / 8;
+      ring.push([(lon + rLon * Math.cos(v) + 180) / 360 * W, (90 - Math.max(-89, Math.min(89, lat + rLat * Math.sin(v)))) / 180 * H]);
+    }
+  }
+  return convexHull(ring);
+}
+
+/** Ytan av en polygon (bildpunkter). */
+function polyArea(h) {
+  return Math.abs(h.reduce((a, [x, y], i) => { const [x2, y2] = h[(i + 1) % h.length]; return a + x * y2 - x2 * y; }, 0)) / 2;
 }
 
 /** Början av en linje i bildpunkter, till andelen f av hela längden. */
