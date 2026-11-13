@@ -104,6 +104,12 @@
       ]
     },
     {
+      "license": "CC BY-NC (enligt Europe PMC), länkad källa: ingen text kopierad (beslut 2026-10-29)",
+      "sourceIds": [
+        "gousset-2026-homo-luzonensis"
+      ]
+    },
+    {
       "license": "CC BY-NC 4.0: länkad källa, ingen text kopierad (beslut 2026-10-29)",
       "sourceIds": [
         "brumm-2021-tedongnge"
@@ -2451,7 +2457,8 @@
         "detroit-2019-homo-luzonensis",
         "martinon-torres-2021-panga-ya-saidi",
         "mijares-2010-callao",
-        "pigati-2023-white-sands"
+        "pigati-2023-white-sands",
+        "surovell-2026-monte-verde"
       ]
     },
     {
