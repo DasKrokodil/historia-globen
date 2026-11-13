@@ -1298,6 +1298,10 @@ GROUPS = {
     'mariniderna': ('Mariniderna', 'Marinid dynasty', [
         ('Marinid Sultanate', 'mariniderna', 'Mariniderna', '#7a8a4a', {'en': 'Marinid dynasty'}),
     ]),
+    # Östgoternas rike (DasKrokodils beslut 2026-11-13): samma svenska namn som i INFLUENCE_NAMES, inte Wikidatas "Ostrogoternas rike"
+    'ostgoternas-rike': ('Östgoternas rike', 'Ostrogothic Kingdom', [
+        ('Ostrogothic Kingdom', 'ostgoternas-rike', 'Östgoternas rike', '#9a6a5a', {'en': 'Ostrogothic Kingdom'}),
+    ]),
     # Små stater ur Natural Earth (#722, Rikards beslut 2026-11-07): Cliopatria saknar dem i nutid eller har fel gräns
     # (Saint Kitts ligger på Saint Croix, Mikronesien är bara Pohnpei). Gränsen är dagens land i Natural Earth
     # (tools/ne-omstridda-omraden.geojson, tools/ne_omstridda.py), från självständigheten enligt Wikidata och Wikipedia

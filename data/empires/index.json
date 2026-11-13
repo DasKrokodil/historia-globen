@@ -36554,6 +36554,36 @@
    ]
   },
   {
+   "id": "ostgoternas-rike",
+   "name": {
+    "sv": "Östgoternas rike",
+    "en": "Ostrogothic Kingdom",
+    "de": "Ostgotenreich",
+    "es": "reino ostrogodo de Italia",
+    "fr": "royaume des Ostrogoths"
+   },
+   "color": "#9a6a5a",
+   "from": 500,
+   "to": 560,
+   "file": "data/empires/ostgoternas-rike.json",
+   "polities": [
+    {
+     "id": "ostgoternas-rike",
+     "name": {
+      "sv": "Östgoternas rike",
+      "en": "Ostrogothic Kingdom",
+      "de": "Ostgotenreich",
+      "es": "reino ostrogodo de Italia",
+      "fr": "royaume des Ostrogoths"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
    "id": "andorra",
    "modernState": true,
    "name": {
