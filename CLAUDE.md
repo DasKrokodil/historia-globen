@@ -48,6 +48,7 @@ js/layers/index.js    listan över lagren i Lager-menyns ordning; ett nytt lager
 js/layers/events.js   punktlager: händelser
 js/layers/lines.js    linjelager: vägar och resor som ritas fram över tiden (#38)
 js/layers/discovery.js upptäcktsvyn: gammal kartstil, havsmonster och dimma som resorna lyfter (#101)
+js/layers/spread.js   människans spridning: antagna områden och vågor i förhistorien som tolkningar (#1094)
 js/ui/panel.js        "Samtidigt i världen" per världsdel, filter, detaljvy
 js/ui/funfact.js      Samtidigt-kortet (fun facts m.m.) och bågar
 js/ui/sources.js      sidan Om källorna
@@ -88,6 +89,7 @@ data/routes/          vägar och resor: index.json listar filerna, en fil per re
 data/genererat/       händelser och riken uppdelade i mindre filer som sidan laddar (#337), med en fil per språk ovanpå (#675); skrivs av tools/dela_data.py, redigeras inte
 data/oversattning.json spärren mot oöversatta texter och registret över översättningar (#675); skrivs av tools/oversattning.py, publiceras inte
 data/upptackt.json    upptäcktsvyn: perspektivrad, dimma och kartbilder (#101)
+data/spridning.json   människans spridning: områden och vågor med platser ur händelser och Wikidata (#1094)
 data/vyer.json        grupperna och de förinställda vyerna i Lager (#357)
 data/ui/              gränssnittets texter: sprak.json (språken, vem som översatte och granskade) och en fil per språk (#63)
 data/religions.json   religioner som områden (statsreligion per rike ur Cliopatria) och faktarutor
