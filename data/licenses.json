@@ -686,6 +686,7 @@
         "wp-flag-antigua-and-barbuda",
         "wp-flag-argentina",
         "wp-flag-armenia",
+        "wp-flag-australia",
         "wp-flag-azerbaijan",
         "wp-flag-bahamas",
         "wp-flag-bangladesh",
@@ -702,6 +703,7 @@
         "wp-flag-colombia",
         "wp-flag-costa-rica",
         "wp-flag-czech-republic",
+        "wp-flag-fiji",
         "wp-flag-finland",
         "wp-flag-gabon",
         "wp-flag-georgia",
@@ -727,6 +729,7 @@
         "wp-flag-monaco",
         "wp-flag-nepal",
         "wp-flag-netherlands",
+        "wp-flag-new-zealand",
         "wp-flag-niger",
         "wp-flag-nigeria",
         "wp-flag-norway",
@@ -736,6 +739,8 @@
         "wp-flag-of-portugal",
         "wp-flag-of-switzerland",
         "wp-flag-pakistan",
+        "wp-flag-palau",
+        "wp-flag-papua-new-guinea",
         "wp-flag-peru",
         "wp-flag-poland",
         "wp-flag-qatar",
@@ -746,17 +751,21 @@
         "wp-flag-senegal",
         "wp-flag-sierra-leone",
         "wp-flag-singapore",
+        "wp-flag-solomon-islands",
         "wp-flag-somalia",
         "wp-flag-south-africa",
         "wp-flag-thailand",
         "wp-flag-timor-leste",
         "wp-flag-togo",
+        "wp-flag-tonga",
         "wp-flag-trinidad-and-tobago",
         "wp-flag-turkey",
+        "wp-flag-tuvalu",
         "wp-flag-ukraine",
         "wp-flag-united-arab-emirates",
         "wp-flag-uruguay",
         "wp-flag-uzbekistan",
+        "wp-flag-vanuatu",
         "wp-flag-vietnam",
         "wp-flag-yemen",
         "wp-flags-confederate-states",
@@ -1847,13 +1856,20 @@
     {
       "license": "CC0 1.0",
       "sourceIds": [
-        "commons-bild-slaget-vid-wayna-daga"
+        "commons-bild-slaget-vid-wayna-daga",
+        "commons-flagga-tonga"
       ]
     },
     {
       "license": "CC0 1.0 (WHG:s tillägg CC BY 4.0)",
       "sourceIds": [
         "whg-hced"
+      ]
+    },
+    {
+      "license": "CC0 1.0 och public domain (PD-flag)",
+      "sourceIds": [
+        "commons-flagga-tuvalu"
       ]
     },
     {
@@ -2109,9 +2125,21 @@
       ]
     },
     {
+      "license": "Public domain (PD-AustraliaGov)",
+      "sourceIds": [
+        "commons-flagga-australien"
+      ]
+    },
+    {
       "license": "Public domain (PD-Bangladesh, PD-shape)",
       "sourceIds": [
         "commons-flagga-bangladesh"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Fiji)",
+      "sourceIds": [
+        "commons-flagga-fiji"
       ]
     },
     {
@@ -2178,7 +2206,11 @@
       "license": "Public domain (PD-ineligible)",
       "sourceIds": [
         "commons-flagga-gronland",
-        "commons-flagga-qatar"
+        "commons-flagga-palau",
+        "commons-flagga-papua-nya-guinea",
+        "commons-flagga-qatar",
+        "commons-flagga-salomonoarna",
+        "commons-flagga-vanuatu"
       ]
     },
     {

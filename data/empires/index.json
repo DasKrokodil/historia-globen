@@ -26988,6 +26988,7 @@
    "from": 1905,
    "to": 2024,
    "file": "data/empires/australien.json",
+   "flags": [{"file": "australia", "from": 1908, "to": 2024, "label": {"sv": "Australiens flagga", "en": "Flag of Australia", "de": "Flagge Australiens", "es": "Bandera de Australia", "fr": "Drapeau de l’Australie"}, "sources": ["wp-flag-australia", "commons-flagga-australien"], "review": "source-checked"}],
    "polities": [
     {
      "id": "australien",
@@ -27185,6 +27186,7 @@
    "from": 1948,
    "to": 2024,
    "file": "data/empires/nya-zeeland.json",
+   "flags": [{"file": "new-zealand", "from": 1948, "to": 2024, "label": {"sv": "Nya Zeelands flagga", "en": "Flag of New Zealand", "de": "Flagge Neuseelands", "es": "Bandera de Nueva Zelanda", "fr": "Drapeau de la Nouvelle-Zélande"}, "sources": ["wp-flag-new-zealand", "commons-flagga-nya-zeeland"], "review": "source-checked"}],
    "polities": [
     {
      "id": "nya-zeeland",
@@ -27365,6 +27367,7 @@
    "from": 1946,
    "to": 2024,
    "file": "data/empires/papua-nya-guinea.json",
+   "flags": [{"file": "papua-new-guinea", "from": 1971, "to": 2024, "label": {"sv": "Papua Nya Guineas flagga", "en": "Flag of Papua New Guinea", "de": "Flagge Papua-Neuguineas", "es": "Bandera de Papúa Nueva Guinea", "fr": "Drapeau de la Papouasie-Nouvelle-Guinée"}, "sources": ["wp-flag-papua-new-guinea", "commons-flagga-papua-nya-guinea"], "review": "source-checked"}],
    "polities": [
     {
      "id": "papua-nya-guinea",
@@ -33781,6 +33784,7 @@
    "from": 1979,
    "to": 2024,
    "file": "data/empires/salomonoarna.json",
+   "flags": [{"file": "solomon-islands", "from": 1979, "to": 2024, "label": {"sv": "Salomonöarnas flagga", "en": "Flag of Solomon Islands", "de": "Flagge der Salomonen", "es": "Bandera de las Islas Salomón", "fr": "Drapeau des Îles Salomon"}, "sources": ["wp-flag-solomon-islands", "commons-flagga-salomonoarna"], "review": "source-checked"}],
    "polities": [
     {
      "id": "salomonoarna",
@@ -34234,6 +34238,7 @@
    "from": 1973,
    "to": 2024,
    "file": "data/empires/fiji.json",
+   "flags": [{"file": "fiji", "from": 1973, "to": 2024, "label": {"sv": "Fijis flagga", "en": "Flag of Fiji", "de": "Flagge Fidschis", "es": "Bandera de Fiyi", "fr": "Drapeau des Fidji"}, "sources": ["wp-flag-fiji", "commons-flagga-fiji"], "review": "source-checked"}],
    "polities": [
     {
      "id": "fiji",
@@ -34376,6 +34381,7 @@
    "from": 1983,
    "to": 2024,
    "file": "data/empires/vanuatu.json",
+   "flags": [{"file": "vanuatu", "from": 1983, "to": 2024, "label": {"sv": "Vanuatus flagga", "en": "Flag of Vanuatu", "de": "Flagge Vanuatus", "es": "Bandera de Vanuatu", "fr": "Drapeau du Vanuatu"}, "sources": ["wp-flag-vanuatu", "commons-flagga-vanuatu"], "review": "source-checked"}],
    "polities": [
     {
      "id": "vanuatu",
@@ -35278,6 +35284,7 @@
    "from": 1996,
    "to": 2024,
    "file": "data/empires/palau.json",
+   "flags": [{"file": "palau", "from": 1996, "to": 2024, "label": {"sv": "Palaus flagga", "en": "Flag of Palau", "de": "Flagge Palaus", "es": "Bandera de Palaos", "fr": "Drapeau des Palaos"}, "sources": ["wp-flag-palau", "commons-flagga-palau"], "review": "source-checked"}],
    "polities": [
     {
      "id": "palau",
@@ -38803,6 +38810,7 @@
    "from": 1970,
    "to": 2024,
    "file": "data/empires/tonga.json",
+   "flags": [{"file": "tonga", "from": 1970, "to": 2024, "label": {"sv": "Tongas flagga", "en": "Flag of Tonga", "de": "Flagge Tongas", "es": "Bandera de Tonga", "fr": "Drapeau des Tonga"}, "sources": ["wp-flag-tonga", "commons-flagga-tonga"], "review": "source-checked"}],
    "polities": [
     {
      "id": "tonga",
@@ -38850,6 +38858,7 @@
    "from": 1978,
    "to": 2024,
    "file": "data/empires/tuvalu.json",
+   "flags": [{"file": "tuvalu", "from": 1978, "to": 1994, "label": {"sv": "Tuvalus flagga", "en": "Flag of Tuvalu", "de": "Flagge Tuvalus", "es": "Bandera de Tuvalu", "fr": "Drapeau des Tuvalu"}, "sources": ["wp-flag-tuvalu", "commons-flagga-tuvalu"], "review": "source-checked"}, {"file": "tuvalu", "from": 1997, "to": 2024, "label": {"sv": "Tuvalus flagga", "en": "Flag of Tuvalu", "de": "Flagge Tuvalus", "es": "Bandera de Tuvalu", "fr": "Drapeau des Tuvalu"}, "sources": ["wp-flag-tuvalu", "commons-flagga-tuvalu"], "review": "source-checked"}],
    "polities": [
     {
      "id": "tuvalu",
