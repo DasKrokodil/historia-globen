@@ -35688,7 +35688,11 @@
     {
      "polity": "jindynastin-jurchen",
      "name": {
-      "en": "Western Xia"
+      "sv": "Xixia",
+      "en": "Western Xia",
+      "de": "Tanguten",
+      "es": "Imperio tangut",
+      "fr": "dynastie des Xia occidentaux"
      },
      "relation": "vassalage",
      "from": 1126,
@@ -36181,6 +36185,396 @@
       "de": "Fürstentum Moldau",
       "es": "Principado de Moldavia",
       "fr": "principauté de Moldavie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "rashidunkalifatet",
+   "name": {
+    "sv": "Rashidunkalifatet",
+    "en": "Rashidun Caliphate",
+    "de": "Rashidun Caliphate",
+    "es": "Califato ortodoxo",
+    "fr": "califat Rachidun"
+   },
+   "color": "#7a9a5a",
+   "from": 633,
+   "to": 665,
+   "file": "data/empires/rashidunkalifatet.json",
+   "polities": [
+    {
+     "id": "rashidunkalifatet",
+     "name": {
+      "sv": "Rashidunkalifatet",
+      "en": "Rashidun Caliphate",
+      "de": "Rashidun Caliphate",
+      "es": "Califato ortodoxo",
+      "fr": "califat Rachidun"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "majapahitriket",
+   "name": {
+    "sv": "Majapahitriket",
+    "en": "Majapahit",
+    "de": "Majapahit",
+    "es": "Imperio mayapajit",
+    "fr": "Majapahit"
+   },
+   "color": "#b0704a",
+   "from": 1294,
+   "to": 1518,
+   "file": "data/empires/majapahitriket.json",
+   "polities": [
+    {
+     "id": "majapahitriket",
+     "name": {
+      "sv": "Majapahitriket",
+      "en": "Majapahit",
+      "de": "Majapahit",
+      "es": "Imperio mayapajit",
+      "fr": "Majapahit"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "chalukyadynastin",
+   "name": {
+    "sv": "Chalukyadynastin",
+    "en": "Chalukya dynasty",
+    "de": "Chalukya",
+    "es": "Dinastía Chalukya",
+    "fr": "Chalukya"
+   },
+   "color": "#a05a7a",
+   "from": 555,
+   "to": 756,
+   "file": "data/empires/chalukyadynastin.json",
+   "polities": [
+    {
+     "id": "chalukyadynastin",
+     "name": {
+      "sv": "Chalukyadynastin",
+      "en": "Chalukya dynasty",
+      "de": "Chalukya",
+      "es": "Dinastía Chalukya",
+      "fr": "Chalukya"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "gurjara-pratihara",
+   "name": {
+    "sv": "Gurjara-Pratihara",
+    "en": "Gurjara-Pratihara",
+    "de": "Pratihara",
+    "es": "Gurjara-Pratihara",
+    "fr": "Pratihâra"
+   },
+   "color": "#c0804a",
+   "from": 732,
+   "to": 1039,
+   "file": "data/empires/gurjara-pratihara.json",
+   "polities": [
+    {
+     "id": "gurjara-pratihara",
+     "name": {
+      "sv": "Gurjara-Pratihara",
+      "en": "Gurjara-Pratihara",
+      "de": "Pratihara",
+      "es": "Gurjara-Pratihara",
+      "fr": "Pratihâra"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "kara-khanid",
+   "name": {
+    "sv": "Khanatet Kara-Khanid",
+    "en": "Karakhanid Khanate",
+    "de": "Karachaniden",
+    "es": "karajánidas",
+    "fr": "Qarakhanides"
+   },
+   "color": "#5a8ab0",
+   "from": 850,
+   "to": 1045,
+   "file": "data/empires/kara-khanid.json",
+   "polities": [
+    {
+     "id": "kara-khanid",
+     "name": {
+      "sv": "Khanatet Kara-Khanid",
+      "en": "Karakhanid Khanate",
+      "de": "Karachaniden",
+      "es": "karajánidas",
+      "fr": "Qarakhanides"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "dali",
+   "name": {
+    "sv": "Dali",
+    "en": "Dali Kingdom",
+    "de": "Dali",
+    "es": "Reino de Dali",
+    "fr": "Royaume de Dali"
+   },
+   "color": "#8a6ab0",
+   "from": 947,
+   "to": 1259,
+   "file": "data/empires/dali.json",
+   "polities": [
+    {
+     "id": "dali",
+     "name": {
+      "sv": "Dali",
+      "en": "Dali Kingdom",
+      "de": "Dali",
+      "es": "Reino de Dali",
+      "fr": "Royaume de Dali"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "tughlaqdynastin",
+   "name": {
+    "sv": "Tughlaqdynastin",
+    "en": "Tughlaq dynasty",
+    "de": "Tughluq-Dynastie",
+    "es": "dinastía tughlaq",
+    "fr": "dynastie des Tughlûq"
+   },
+   "color": "#4a9a6a",
+   "from": 1326,
+   "to": 1414,
+   "file": "data/empires/tughlaqdynastin.json",
+   "polities": [
+    {
+     "id": "tughlaqdynastin",
+     "name": {
+      "sv": "Tughlaqdynastin",
+      "en": "Tughlaq dynasty",
+      "de": "Tughluq-Dynastie",
+      "es": "dinastía tughlaq",
+      "fr": "dynastie des Tughlûq"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "palariket",
+   "name": {
+    "sv": "Palariket",
+    "en": "Pala Empire",
+    "de": "Pala",
+    "es": "dinastía Pala",
+    "fr": "Dynastie Pala"
+   },
+   "color": "#b09a5a",
+   "from": 750,
+   "to": 1168,
+   "file": "data/empires/palariket.json",
+   "polities": [
+    {
+     "id": "palariket",
+     "name": {
+      "sv": "Palariket",
+      "en": "Pala Empire",
+      "de": "Pala",
+      "es": "dinastía Pala",
+      "fr": "Dynastie Pala"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "xixia",
+   "name": {
+    "sv": "Xixia",
+    "en": "Western Xia",
+    "de": "Tanguten",
+    "es": "Imperio tangut",
+    "fr": "dynastie des Xia occidentaux"
+   },
+   "color": "#9a5a4a",
+   "from": 990,
+   "to": 1226,
+   "file": "data/empires/xixia.json",
+   "polities": [
+    {
+     "id": "xixia",
+     "name": {
+      "sv": "Xixia",
+      "en": "Western Xia",
+      "de": "Tanguten",
+      "es": "Imperio tangut",
+      "fr": "dynastie des Xia occidentaux"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "aq-qoyunlu",
+   "name": {
+    "sv": "Aq Qoyunlu",
+    "en": "Aq Qoyunlu",
+    "de": "Aq Qoyunlu",
+    "es": "Ak Koyunlu",
+    "fr": "Aq Qoyunlu"
+   },
+   "color": "#6a9aa0",
+   "from": 1407,
+   "to": 1511,
+   "file": "data/empires/aq-qoyunlu.json",
+   "polities": [
+    {
+     "id": "aq-qoyunlu",
+     "name": {
+      "sv": "Aq Qoyunlu",
+      "en": "Aq Qoyunlu",
+      "de": "Aq Qoyunlu",
+      "es": "Ak Koyunlu",
+      "fr": "Aq Qoyunlu"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "nanzhaoriket",
+   "name": {
+    "sv": "Nanzhaoriket",
+    "en": "Kingdom of Nanzhao",
+    "de": "Nanzhao",
+    "es": "Reino de Nanzhao",
+    "fr": "Royaume de Nanzhao"
+   },
+   "color": "#a07a9a",
+   "from": 741,
+   "to": 910,
+   "file": "data/empires/nanzhaoriket.json",
+   "polities": [
+    {
+     "id": "nanzhaoriket",
+     "name": {
+      "sv": "Nanzhaoriket",
+      "en": "Kingdom of Nanzhao",
+      "de": "Nanzhao",
+      "es": "Reino de Nanzhao",
+      "fr": "Royaume de Nanzhao"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "mariniderna",
+   "name": {
+    "sv": "Mariniderna",
+    "en": "Marinid dynasty",
+    "de": "Meriniden",
+    "es": "Sultanato meriní",
+    "fr": "Mérinides"
+   },
+   "color": "#7a8a4a",
+   "from": 1250,
+   "to": 1467,
+   "file": "data/empires/mariniderna.json",
+   "polities": [
+    {
+     "id": "mariniderna",
+     "name": {
+      "sv": "Mariniderna",
+      "en": "Marinid dynasty",
+      "de": "Meriniden",
+      "es": "Sultanato meriní",
+      "fr": "Mérinides"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "ostgoternas-rike",
+   "name": {
+    "sv": "Östgoternas rike",
+    "en": "Ostrogothic Kingdom",
+    "de": "Ostgotenreich",
+    "es": "reino ostrogodo de Italia",
+    "fr": "royaume des Ostrogoths"
+   },
+   "color": "#9a6a5a",
+   "from": 500,
+   "to": 560,
+   "file": "data/empires/ostgoternas-rike.json",
+   "polities": [
+    {
+     "id": "ostgoternas-rike",
+     "name": {
+      "sv": "Östgoternas rike",
+      "en": "Ostrogothic Kingdom",
+      "de": "Ostgotenreich",
+      "es": "reino ostrogodo de Italia",
+      "fr": "royaume des Ostrogoths"
      },
      "sources": [
       "cliopatria"
