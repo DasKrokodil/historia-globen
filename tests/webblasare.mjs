@@ -2126,6 +2126,27 @@ async function run(browser, vp) {
     return 'bildkort och bildlöst krigskort har samma höjd och tillgängliga namn';
   });
 
+  // Definitionen av "samtidigt" (#1311): kortet säger om en fun fact är samtidig, nära i tid eller jämför avstånd,
+  // och siffran räknas ur händelsernas årtal. 1889: Eiffeltornet och Nintendo samma år; 1843: faxen 33 år före telefonen.
+  await check('Samtidigt-kortet visar relationen i tid för en fun fact (#1311)', async () => {
+    const kindFor = async (y, id) => {
+      await jumpTo(y);
+      for (let i = 0; i < 12; i++) {
+        if ((await page.getAttribute('#funfact', 'data-funfact-id')) === id) return (await page.textContent('#ff-kind')).trim();
+        const next = page.locator('#ff-next');
+        if (!await next.isVisible().catch(() => false)) break;
+        await next.click();
+      }
+      throw new Error(`${y}: fun facten ${id} syns inte i kortet`);
+    };
+    const same = await kindFor(1889, 'nintendo-eiffel');
+    if (same !== 'Fun fact · Samtidigt') throw new Error(`1889 säger "${same}"`);
+    const near = await kindFor(1843, 'fax-telefon');
+    if (near !== 'Fun fact · Nära i tid: 33 år isär') throw new Error(`1843 säger "${near}"`);
+    await jumpTo(1889);
+    return `"${same}" och "${near}"`;
+  });
+
   await check('skärmläsarstatusen säger paus och Samtidigt-text', async () => {
     const attrs = await page.evaluate(() => {
       const year = document.querySelector('.year-readout');
