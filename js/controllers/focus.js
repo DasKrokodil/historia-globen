@@ -138,7 +138,8 @@ export function createFocus(app) {
     if (overlay || $('app').classList.contains('panel-open')) return;
     e.preventDefault();
     endFocus();
-    $('btn-focus').focus({ preventScroll: true });
+    // Sök och följ ligger i menyn Meny i smal skärm och syns inte där: fokus går då till menyknappen i stället för att tappas
+    ['btn-focus', 'more-toggle', 'btn-more'].map($).find(el => el?.getClientRects().length)?.focus({ preventScroll: true });
   }, { capture: true });
 
   // Fokusmenyn listar posternas grupper. Resorna, religionerna, temana och platserna hämtas när menyn öppnas.

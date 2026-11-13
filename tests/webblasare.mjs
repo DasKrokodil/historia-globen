@@ -3865,7 +3865,10 @@ async function run(browser, vp) {
       await sp.focus('#pause-prev-stop');
       await sp.keyboard.press('Escape');
       await sp.waitForSelector('#focus-bar', { state: 'hidden', timeout: T.step });
-      if (await sp.evaluate(() => document.activeElement?.id) !== 'btn-focus') throw new Error('fokus gick inte till Sök och följ efter Escape');
+      // I smal skärm ligger Sök och följ i menyn Meny, som inte är öppen: fokus går då till menyknappen
+      const want = vp.width <= 760 ? 'more-toggle' : 'btn-focus';
+      const got = await sp.evaluate(() => document.activeElement?.id);
+      if (got !== want) throw new Error(`fokus gick inte till ${want} efter Escape: ${got}`);
       return 'länken till Lissabon visar stoppet med båda knapparna; Escape lämnar resan';
     } finally { await sp.close(); }
   });
