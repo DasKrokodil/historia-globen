@@ -72,3 +72,23 @@ test('tidsfönstret avrundas för visning: till 5 under 30 år, annars till 10 (
   assert.equal(roundWindow(2), 5); // aldrig 0 när det finns ett fönster
   assert.equal(roundWindow(0), 0);
 });
+
+test('förhistoriens år avrundas: tusental före 10 000 f.Kr., hundratal till 3000 f.Kr. (inför v6.3.0)', async () => {
+  const { roundPrehistoric, formatYear } = await import('../js/model.js');
+  assert.equal(roundPrehistoric(-99000), -98999);           // 99 001 f.Kr. blir 99 000 f.Kr.
+  assert.match(formatYear(roundPrehistoric(-99000)), /^99.000 f\.Kr\.$/);
+  assert.equal(roundPrehistoric(-99999), -99999);           // 100 000 f.Kr. är redan runt
+  assert.equal(roundPrehistoric(-49620), -49999);           // 49 621 f.Kr. blir 50 000 f.Kr.
+  assert.equal(roundPrehistoric(-9999), -9999);             // 10 000 f.Kr. är redan runt
+  assert.equal(roundPrehistoric(-7412), -7399);             // 7413 f.Kr. blir 7400 f.Kr. (hundratal 10 000–3000 f.Kr.)
+  assert.equal(roundPrehistoric(-2999), -2999);             // 3000 f.Kr. och senare lämnas orörda
+  assert.equal(roundPrehistoric(-2849), -2849);
+  assert.equal(roundPrehistoric(1916), 1916);
+});
+
+test('stora avstånd avrundas: hundratal från 1000 år, tusental från 10 000 år (inför v6.3.0)', () => {
+  assert.equal(formatOffset('future', 1001), '1000 år senare');
+  assert.equal(formatOffset('past', 2115), '2100 år tidigare');
+  assert.equal(formatOffset('past', 999), '999 år tidigare');
+  assert.match(formatOffset('past', 11640), /^12.000 år tidigare$/);
+});
