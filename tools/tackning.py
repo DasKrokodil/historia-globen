@@ -12,14 +12,21 @@ Källpolicy).
   python3 tools/tackning.py --root <mapp> --ut -  läser data under <mapp> och skriver till skärmen
 
 Läser data/events.json, data/funfacts.json, data/sources.json, images/incoming/bildlogg.json
-(bilder som väntar på att läggas in) och data/land.json (världsdelarnas landyta).
+(bilder som väntar på att läggas in), data/land.json (världsdelarnas landyta) och data/empires/ (riken, #1341).
+Med --cliopatria <fil> jämförs rikenas landyta också med Cliopatria (cliopatria_polities_only_v021.geojson, CC BY 4.0);
+filen hämtas aldrig från nätet, och utan den står jämförelsen som "inte mätt".
 
 Deterministiskt: samma indata och samma datum ger exakt samma rapport. Bara Pythons standardbibliotek.
 
 Regler:
 - En händelse räknas en gång, efter sitt startår och sin punkt på globen.
 - Världsdel = region() i js/model.js (samma som Samtidigt-panelen), via tools/tackningsrapport.py.
-- Krig = kind "war" eller kategorin krig.
+- Krig = kind "war" eller kategorin krig. Balansen visas också utan de slag som bara syns i Fokus: händelser med
+  partOf men utan "top": true (#1341, DasKrokodils ja 2026-11-13). Den extra tabellen räknar bort dem helt.
+- Riken = grupperna i data/empires/index.json, utom delar med review "draft". Ett rike räknas i en period och
+  världsdel när någon av dess gränser gäller under perioden; världsdelen tas ur gränsens etikettpunkt (label).
+- Rikenas landyta = andelen av landytan i data/land.json (norr om 60° S) som ligger inom någon rikesgräns ett
+  provår, på ett rutnät om en grad (rutans mittpunkt), viktad med cos(latitud).
 - Bild = fältet image utan placeholder. Fun fact = händelsen finns i någon fun facts events (inte draft).
   Två källor = minst två olika id i sources som finns i data/sources.json.
 - Osäkert datum = ~ eller ? i edtf. Ungefärlig plats = fältet locationPrecision.
@@ -59,6 +66,8 @@ PERIODS = [
     ('2000', '2000-tal', 2000, None),  # till och med i år
 ]
 FEW = 3  # färre än så räknas som nästan tomt
+# Provår för rikenas landyta (#1341), astronomiska år (-499 = 500 f.Kr.)
+EMPIRE_YEARS = [-499, 1, 500, 1000, 1300, 1500, 1700, 1850, 1914, 1950, 2000]
 TOP_GAPS = 10
 
 
@@ -131,6 +140,102 @@ def land_shares(land_path, step=0.5):
     return {r: area[r] / total for r in REGIONS} if total else None
 
 
+def land_rings(land_path):
+    """Landets ringar i grader [(lon, lat), ...] ur den färdigprojicerade pathen i data/land.json, eller None."""
+    try:
+        doc = json.loads(Path(land_path).read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        return None
+    w, h = doc['width'], doc['height']
+    rings, ring = [], []
+    for cmd, xs, ys in re.findall(r'([MLZ])(?:(-?[\d.]+),(-?[\d.]+))?', doc['path']):
+        if cmd == 'M':
+            if len(ring) > 2:
+                rings.append(ring)
+            ring = [(float(xs) / w * 360 - 180, 90 - float(ys) / h * 180)]
+        elif cmd == 'L':
+            ring.append((float(xs) / w * 360 - 180, 90 - float(ys) / h * 180))
+        elif cmd == 'Z':
+            if len(ring) > 2:
+                rings.append(ring)
+            ring = []
+    if len(ring) > 2:
+        rings.append(ring)
+    return rings
+
+
+def cells_inside(rings, step=1.0):
+    """Rutorna (rad, kolumn) vars mittpunkt ligger inom ringarna enligt jämn-udda-regeln. Rad 0 börjar vid 90° N."""
+    rows = int(180 / step)
+    bands = defaultdict(list)
+    for r in rings:
+        for (x1, y1), (x2, y2) in zip(r, r[1:] + r[:1]):
+            if y1 == y2:
+                continue
+            lo, hi = min(y1, y2), max(y1, y2)
+            for b in range(max(0, int((90 - hi) / step)), min(rows, int((90 - lo) / step) + 1)):
+                bands[b].append((x1, y1, x2, y2))
+    out = set()
+    for b, edges in bands.items():
+        lat = 90 - (b + 0.5) * step
+        xs = sorted(x1 + (lat - y1) * (x2 - x1) / (y2 - y1) for x1, y1, x2, y2 in edges if (y1 > lat) != (y2 > lat))
+        for x_in, x_out in zip(xs[::2], xs[1::2]):
+            k = max(0, math.ceil((x_in + 180) / step - 0.5))
+            while k < 360 / step and -180 + (k + 0.5) * step < x_out:
+                out.add((b, k))
+                k += 1
+    return out
+
+
+def geometry_rings(geom):
+    """Alla ringar i en GeoJSON-Polygon eller -MultiPolygon, som listor av (lon, lat)."""
+    polys = [geom['coordinates']] if geom['type'] == 'Polygon' else geom['coordinates'] if geom['type'] == 'MultiPolygon' else []
+    return [[(x, y) for x, y, *_ in ring] for poly in polys for ring in poly]
+
+
+def geometry_cells(geom, step=1.0):
+    """Rutorna inom en gräns: varje polygon för sig (hål räknas bort), sedan ihop."""
+    polys = [geom['coordinates']] if geom['type'] == 'Polygon' else geom['coordinates'] if geom['type'] == 'MultiPolygon' else []
+    out = set()
+    for poly in polys:
+        out |= cells_inside([[(x, y) for x, y, *_ in ring] for ring in poly], step)
+    return out
+
+
+def read_empires(root):
+    """[(grupp, start, slut, (lon, lat), geometri)] för alla rikesgränser utom delar med review "draft"."""
+    root = Path(root)
+    try:
+        index = json.loads((root / 'data/empires/index.json').read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        return None
+    out = []
+    for g in index['groups']:
+        try:
+            doc = json.loads((root / g['file']).read_text(encoding='utf-8'))
+        except (OSError, ValueError, KeyError):
+            continue
+        for pol in doc.get('polities', []):
+            if pol.get('review') == 'draft':
+                continue
+            for per in pol.get('periods', []):
+                if per.get('geometry'):
+                    out.append((g['id'], per['start'], per['end'], tuple(per.get('label') or (0, 0)), per['geometry']))
+    return out
+
+
+def read_cliopatria(path):
+    """[(start, slut, geometri)] för Cliopatrias stater (Type POLITY), eller None om filen saknas."""
+    if not path:
+        return None
+    try:
+        doc = json.loads(Path(path).read_text(encoding='utf-8'))
+    except (OSError, ValueError):
+        return None
+    return [(f['properties']['FromYear'], f['properties']['ToYear'], f['geometry']) for f in doc['features']
+            if f['properties'].get('Type') == 'POLITY' and f.get('geometry')]
+
+
 # ---------- Rapporten ----------
 
 def pct(n, d):
@@ -146,7 +251,7 @@ def mark(n):
     return str(n)
 
 
-def build(root, today):
+def build(root, today, cliopatria=None):
     root = Path(root)
     read = lambda p: json.loads((root / p).read_text(encoding='utf-8'))
     events = read('data/events.json')['events']
@@ -167,6 +272,7 @@ def build(root, today):
             'id': e['id'], 'start': e['start'], 'period': period_of(e['start']), 'region': region(lat, lon),
             'category': e['category'],
             'war': e.get('kind') == 'war' or e['category'] == 'krig',
+            'focusOnly': bool(e.get('partOf')) and not e.get('top'),
             'progress': 'framsteg' in (e.get('tags') or []),
             'image': bool(e.get('image')) and not e['image'].get('placeholder'),
             'fact': e['id'] in with_fact,
@@ -222,7 +328,8 @@ def build(root, today):
             vals = [count[(pid, r, cat)] for r in REGIONS]
             out.append(f'| {cat} | ' + ' | '.join(mark(v) for v in vals) + f' | {sum(vals)} |')
 
-    def share_table(title, intro, key):
+    def share_table(title, intro, key, rows=rows):
+        N = len(rows)
         lines = ['', f'## {title}', '', intro, '',
                  '| Period | ' + ' | '.join(REGIONS) + ' | Alla |',
                  '| --- | ' + ' | '.join('---:' for _ in REGIONS) + ' | ---: |']
@@ -240,6 +347,13 @@ def build(root, today):
 
     out += share_table('Balans: krig mot övrigt', 'Andel krig och slag (`kind: "war"` eller kategorin `krig`). '
                        '– = inga händelser i cellen.', 'war')
+    globe_rows = [r for r in rows if not r['focusOnly']]
+    n_hidden = N - len(globe_rows)
+    out += share_table('Balans: krig mot övrigt, utan slag som bara syns i Fokus',
+                       f'Samma mått, men utan de {n_hidden} händelser som har `partOf` utan `"top": true` och därför '
+                       'bara syns när man följer kriget i Fokus (#1341). Tabellen ovan visar balansen i datat, den här '
+                       f'balansen på globen: {sum(r["war"] for r in globe_rows)} av {len(globe_rows)} händelser är krig.',
+                       'war', globe_rows)
     n_prog = sum(r['progress'] for r in rows)
     if n_prog:
         out += share_table('Balans: framsteg', 'Andel händelser med taggen `framsteg` (#555).', 'progress')
@@ -252,6 +366,8 @@ def build(root, today):
     out += share_table('Två källor', 'Andel händelser med minst två olika källor som finns i `data/sources.json`.', 'two')
     out += share_table('Osäkert datum', 'Andel händelser med `~` (ungefär) eller `?` (osäkert) i `edtf`.', 'uncertain')
     out += share_table('Ungefärlig plats', 'Andel händelser med fältet `locationPrecision`.', 'place')
+
+    out += empire_tables(root, this_year, cliopatria)
 
     # Luckor: celler (period × världsdel) med färre händelser än väntat efter periodens längd och
     # världsdelens landyta. Vikten = roten ur periodens längd i år × världsdelens andel av landytan.
@@ -291,14 +407,67 @@ def build(root, today):
     return '\n'.join(out) + '\n'
 
 
+def empire_tables(root, this_year, cliopatria=None):
+    """Riken per period och världsdel, och andelen av landytan inom något rike för provåren (#1341)."""
+    empires = read_empires(root)
+    if empires is None:
+        return ['', '## Riken', '', '`data/empires/index.json` saknas, så rikena mäts inte.']
+    out = ['', '## Riken per period och världsdel', '',
+           'Antal riken (grupper i `data/empires/index.json`) med någon gräns under perioden. Världsdelen tas ur '
+           'gränsens etikettpunkt, så ett rike kan räknas i flera världsdelar. **0** = tom cell.', '',
+           '| Period | ' + ' | '.join(REGIONS) + ' | Alla |',
+           '| --- | ' + ' | '.join('---:' for _ in REGIONS) + ' | ---: |']
+    for pid, name, first, last in PERIODS:
+        last = this_year if last is None else last
+        sel = [(g, region(lab[1], lab[0])) for g, a, b, lab, _geom in empires
+               if a <= last and b >= (first if pid != 'forhistoria' else -10**9)]
+        cells = [len({g for g, r in sel if r == reg}) for reg in REGIONS]
+        out.append(f'| {name} | ' + ' | '.join('**0**' if c == 0 else str(c) for c in cells)
+                   + f' | {len({g for g, _r in sel})} |')
+
+    rings = land_rings(Path(root) / 'data/land.json')
+    out += ['', '## Rikenas landyta', '']
+    if rings is None:
+        return out + ['`data/land.json` saknas, så landytan mäts inte.']
+    land = {c for c in cells_inside(rings, 1.0) if 90 - (c[0] + 0.5) > -60}
+    weight = lambda cells: sum(math.cos(math.radians(90 - (b + 0.5))) for b, _k in cells)
+    w_land = weight(land)
+    clio = read_cliopatria(cliopatria)
+    out += ['Andel av landytan (norr om 60° S) som ligger inom någon rikesgräns ett provår, på ett rutnät om en grad. '
+            '"Mot Cliopatria" är andelen av det land som Cliopatrias stater täcker samma år som också täcks av våra '
+            'riken (samma mått som `tools/tackning_riken.py`, men grövre). '
+            + ('Cliopatria-filen lästes lokalt.' if clio is not None else
+               'Cliopatria-filen angavs inte (`--cliopatria <fil>`), så den kolumnen är inte mätt.'), '',
+            '| År | Riken | Andel av landytan | Mot Cliopatria |', '| --- | ---: | ---: | ---: |']
+    for y in EMPIRE_YEARS:
+        alive = [(g, geom) for g, a, b, _lab, geom in empires if a <= y <= b]
+        ours = set()
+        for _g, geom in alive:
+            ours |= geometry_cells(geom)
+        ours &= land
+        if clio is None:
+            vs = 'inte mätt'
+        else:
+            theirs = set()
+            for a, b, geom in clio:
+                if a <= y <= b:
+                    theirs |= geometry_cells(geom)
+            theirs &= land
+            vs = pct(weight(ours & theirs), weight(theirs)) if theirs else '–'
+        yr = f'{1 - y} f.Kr.' if y < 1 else str(y)
+        out.append(f'| {yr} | {len({g for g, _geom in alive})} | {pct(weight(ours), w_land)} | {vs} |')
+    return out
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description='Täckningsrapport (#563)')
     ap.add_argument('--root', default=str(TOOLS.parent), help='mappen med data/ (standard: repot)')
     ap.add_argument('--datum', help='rapportens datum, ÅÅÅÅ-MM-DD (standard: i dag)')
+    ap.add_argument('--cliopatria', help='Cliopatria-filen (geojson) för jämförelsen av rikenas landyta; hämtas aldrig')
     ap.add_argument('--ut', help='fil att skriva, eller - för skärmen (standard: docs/granskningar/tackning-<datum>.md)')
     args = ap.parse_args(argv)
     today = date.fromisoformat(args.datum) if args.datum else date.today()
-    text = build(args.root, today)
+    text = build(args.root, today, args.cliopatria)
     if args.ut == '-':
         sys.stdout.write(text)
         return
