@@ -2262,6 +2262,9 @@
     { "id": "wp-kyoto-protocol", "title": "Kyoto Protocol – Wikipedia", "url": "https://en.wikipedia.org/wiki/Kyoto_Protocol", "license": "CC BY-SA 4.0", "checked": "2026-11-13" },
     { "id": "wp-baiji", "title": "Baiji – Wikipedia", "url": "https://en.wikipedia.org/wiki/Baiji", "license": "CC BY-SA 4.0", "checked": "2026-11-13" },
     { "id": "un-stockholm-1972", "title": "United Nations Conference on the Human Environment, 5–16 June 1972, Stockholm – Förenta nationerna", "url": "https://www.un.org/en/conferences/environment/stockholm1972", "license": "© Förenta nationerna (bara länkad, ingen text kopierad)", "checked": "2026-11-13" },
-    { "id": "un-rio-1992", "title": "United Nations Conference on Environment and Development, Rio de Janeiro, 3–14 June 1992 – Förenta nationerna", "url": "https://www.un.org/en/conferences/environment/rio1992", "license": "© Förenta nationerna (bara länkad, ingen text kopierad)", "checked": "2026-11-13" }
+    { "id": "un-rio-1992", "title": "United Nations Conference on Environment and Development, Rio de Janeiro, 3–14 June 1992 – Förenta nationerna", "url": "https://www.un.org/en/conferences/environment/rio1992", "license": "© Förenta nationerna (bara länkad, ingen text kopierad)", "checked": "2026-11-13" },
+    { "id": "nps-yellowstone-establishment", "title": "Yellowstone: Establishment and Legislation – National Park Service", "url": "https://www.nps.gov/yell/learn/historyculture/yellowstoneestablishment.htm", "license": "Public domain (USA:s federala regering)", "checked": "2026-11-13" },
+    { "id": "unfccc-kyoto-protocol-text", "title": "Kyoto Protocol to the United Nations Framework Convention on Climate Change (avtalstexten) – UNFCCC", "url": "https://unfccc.int/resource/docs/convkp/kpeng.pdf", "license": "© Förenta nationerna (bara länkad, ingen text kopierad)", "checked": "2026-11-13" },
+    { "id": "unfccc-convention-text", "title": "United Nations Framework Convention on Climate Change (avtalstexten) – UNFCCC", "url": "https://unfccc.int/resource/docs/convkp/conveng.pdf", "license": "© Förenta nationerna (bara länkad, ingen text kopierad)", "checked": "2026-11-13" }
   ]
 }
