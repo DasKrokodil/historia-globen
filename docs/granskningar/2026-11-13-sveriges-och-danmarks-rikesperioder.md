@@ -40,6 +40,8 @@ Datum: 2026-11-13. Gjord av Claude Code (DasKrokodil) för #1264, punkt 4 och av
 
 ## Fynd utanför Sverige och Danmark
 
+Punkterna om resten i Lappland, Köpenhamn och Norge 1814 är samlade i #1466.
+
 - **Norge 1814:** Cliopatria har `Kingdom of Norway` 1814, men gruppen `norge` är klippt till 1905–2024, så Oslo är utan rike 1814.
 - **Överlapp vid förenklade gränser:** Ribe ligger i både Danmark och Tyska riket 1864–1920, Göteborg i både Norgesväldet och Konungariket Danmark 1401, och Helsingborg är utan rike 1815 (kusten). De beror på förenklingen.
 - Danmarks kontur 1815–1921 och Island, och medaljen på Island, står redan i #1381.
