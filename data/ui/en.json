@@ -410,8 +410,6 @@
   "layer.warsNote": "the area where a war is going on · shown when Events is on",
   "layer.routes": "Journeys and trade routes",
   "layer.routesNote": "vertical line on the timeline · dashed = uncertain route",
-  "layer.images": "Image layer",
-  "layer.imagesNote": "NASA Black Marble from 2016",
   "layer.discovery": "Voyages of discovery",
   "layer.discoveryNote": "old map style with sailing ships, sea monsters and fog based on the map evidence",
   "discovery.coverage": "Coverage in the current map data for Voyages of discovery: {percent}%",

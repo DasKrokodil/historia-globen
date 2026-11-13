@@ -23,6 +23,7 @@
 import { toJSON } from '../state.js';
 import { encodeHash, decodeHash, decodeTour, decodeMission, decodeMode, decodeRole, isNewStep, LESSON_MODE } from '../url-state.js';
 import { ui } from '../i18n.js';
+import { imageAliases } from '../layers/images.js';
 
 const POLL_MS = 700;
 
@@ -79,7 +80,9 @@ export function createAddress(app) {
     app.store.ticket('fokus'); // adressen är en nyare begäran om Fokus, också när den inte har något: ett äldre fokus som laddas börjar inte
     try {
       if (s.layers) {
-        const want = new Set(s.layers);
+        // Äldre lager-id i en delad länk (l=images) pekar på lagrets nuvarande id (aliases i data/bildlager.json, #1325)
+        const renamed = imageAliases(data.imageLayers);
+        const want = new Set(s.layers.map(name => renamed[name] ?? name));
         for (const name of Object.keys(layers.on)) {
           const on = want.has(name);
           if (!!layers.on[name] !== on) { layers.set(name, on); layers.onChange(name, on); }

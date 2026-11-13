@@ -410,8 +410,6 @@
   "layer.warsNote": "la zone où se déroule une guerre · visible quand Événements est activé",
   "layer.routes": "Voyages et routes commerciales",
   "layer.routesNote": "trait vertical sur la frise chronologique · en tirets = itinéraire incertain",
-  "layer.images": "Calque d’image",
-  "layer.imagesNote": "NASA Black Marble de 2016",
   "layer.discovery": "Grandes découvertes",
   "layer.discoveryNote": "style de carte ancienne avec voiliers, monstres marins et brouillard fondé sur les sources cartographiques",
   "discovery.coverage": "Couverture du fond cartographique actuel des Grandes découvertes : {percent} %",

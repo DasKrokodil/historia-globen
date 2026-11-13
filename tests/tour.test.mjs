@@ -5,6 +5,7 @@ import { readFileSync } from 'node:fs';
 import { tourProblems, TOUR_VERSION } from '../js/tour-format.js';
 import { isVisibleReview } from '../js/model.js';
 import { eventRegion } from '../js/uppdrag-rules.js';
+import { imageRows } from '../js/layers/images.js';
 
 const read = p => JSON.parse(readFileSync(new URL(`../${p}`, import.meta.url), 'utf8'));
 const step = (over = {}) => ({ id: 'a', at: 1200, camera: { lat: 0, lon: 0, zoom: 1.4 }, text: { sv: 'Text.' }, layers: ['events'], sources: ['s1'], ...over });
@@ -121,6 +122,9 @@ test('turerna i data/turer/ följer formatet och pekar på befintliga händelser
   // Lagrens id: posterna i js/layers/index.js heter som lagren (events, areas, …)
   const list = readFileSync(new URL('../js/layers/index.js', import.meta.url), 'utf8').match(/export const LAYERS = \[([^\]]*)\]/)[1];
   const layers = new Set(list.split(',').map(x => x.trim()).filter(Boolean));
+  // Bildlagren ger en post per rad i data/bildlager.json (#1325): radernas id är lager-id, inte "images"
+  layers.delete('images');
+  for (const row of imageRows(read('data/bildlager.json'))) layers.add(row.id);
   assert.ok(index.tours.length > 0);
   for (const id of index.tours) {
     const t = read(`data/turer/${id}.json`);

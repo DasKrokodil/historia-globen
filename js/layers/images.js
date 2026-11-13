@@ -1,36 +1,80 @@
-// Bildlager (#54): färdiga, ekvirektangulära rasterbilder som väljs efter år och ritas på lagerbilden.
-// Samma overlayCanvas används av Platt vy, så ingen särskild kartkod behövs där.
+// Bildlager (#54, format 2 i #1325): färdiga, ekvirektangulära rasterbilder som väljs efter år och ritas på
+// lagerbilden. Varje rad i data/bildlager.json med kind "lager" blir en egen rad i Lager, med radens id som lager-id.
+// Samma overlayCanvas används av Platt vy, affischen och det skarpa utsnittet (registry.draw), så ingen särskild
+// kartkod behövs där: ritningen följer bara W och H.
+//
+// Byggt: raster över hela världen eller ett utsnitt (bounds), flera rader samtidigt, och rensning av bilder som
+// inte visas. Inte byggt: format "vektor" (ritstilen bestäms i #1096) och kind "grund" (version 8); de hoppas över.
 import { Z } from './registry.js';
-import { ui } from '../i18n.js';
 import { t } from '../model.js';
 
-export function entry({ data, refreshSoon }) {
-  // Formatet bildlager@2 (#1325): varje post i layers är en rad i Lager med tidsskivor i slices. Tills flera
-  // rader, vektor och bounds byggs (pull request 2 i #1325) visas som förut en enda rad med id "images":
-  // den första raden med kind "lager", och bara dess rasterskivor över hela världen. Utkast visas aldrig.
-  const row = (data.imageLayers?.layers ?? []).find(x => x.kind === 'lager');
-  const slices = (row?.slices ?? []).filter(x => x.format === 'raster' && !x.bounds && x.review !== 'draft');
-  const layer = new ImageLayer(slices);
-  layer.onLoad = refreshSoon;
-  return {
-    id: 'images', name: row?.name ? t(row.name) : ui('layer.images'), group: 'perspective', layer,
-    menu: { on: false, note: row?.note ? t(row.note) : ui('layer.imagesNote') }, z: Z.images,
-    enabled: s => s.layers.images,
-    update: s => layer.update(s.wholeYear),
-    drawOverlay: (ctx, W, H) => layer.drawOverlay(ctx, W, H),
-  };
+/** Raderna som sidan visar: kind "lager" med minst en rasterskiva som inte är utkast. */
+export function imageRows(doc) {
+  return (doc?.layers ?? [])
+    .filter(row => row.kind === 'lager')
+    .map(row => ({ ...row, slices: (row.slices ?? []).filter(x => x.format === 'raster' && x.review !== 'draft') }))
+    .filter(row => row.slices.length);
+}
+
+/** Äldre lager-id → radens id (aliases), för delade länkar som skrevs före formatet (l=images). */
+export function imageAliases(doc) {
+  const out = {};
+  for (const row of imageRows(doc)) for (const old of row.aliases ?? []) out[old] = row.id;
+  return out;
+}
+
+/** Skivan som gäller året; to saknas när skivan gäller tills vidare. */
+export function sliceAt(slices, year) {
+  return slices.find(x => year >= x.from && (x.to == null || year <= x.to)) ?? null;
+}
+
+/** Rutan på en ekvirektangulär bild W × H för bounds = [väst, syd, öst, nord]; utan bounds hela bilden. */
+export function boundsRect(bounds, W, H) {
+  if (!bounds) return { x: 0, y: 0, w: W, h: H };
+  const [west, south, east, north] = bounds;
+  return { x: (west + 180) / 360 * W, y: (90 - north) / 180 * H, w: (east - west) / 360 * W, h: (north - south) / 180 * H };
+}
+
+/** En post i lagerregistret per rad. Raderna ritas i filens ordning, alla på bildlagrens plats (Z.images). */
+export function entries({ data, refreshSoon }) {
+  return imageRows(data.imageLayers).map(row => {
+    const layer = new ImageLayer(row.slices);
+    layer.onLoad = refreshSoon;
+    return {
+      id: row.id, name: t(row.name), group: row.group ?? 'perspective', layer,
+      menu: { on: false, note: row.note ? t(row.note) : '' }, z: Z.images,
+      enabled: s => s.layers[row.id],
+      // En bild är ett tillstånd, som rikena: i ett tidsintervall visas slutåret (#756)
+      update: s => layer.update(s.areaYear),
+      drawOverlay: (ctx, W, H) => layer.drawOverlay(ctx, W, H),
+    };
+  });
 }
 
 export class ImageLayer {
-  constructor(layers = []) { this.layers = layers; this.enabled = false; this.active = null; this.images = new Map(); this.onLoad = () => {}; }
+  /** makeImage skapar bildobjektet; byts ut i testerna, där Image inte finns. */
+  constructor(slices = [], makeImage = () => new Image()) {
+    this.slices = slices; this.enabled = false; this.active = null; this.images = new Map();
+    this.onLoad = () => {}; this.makeImage = makeImage;
+  }
   update(year) {
-    if (!this.enabled) { this.active = null; return; }
-    this.active = this.layers.find(x => year >= x.from && (x.to == null || year <= x.to)) ?? null;
+    this.active = this.enabled ? sliceAt(this.slices, year) : null;
+    this._purge(this.active?.file);
     if (this.active) this._load(this.active.file);
+    return this.active;
+  }
+  /** Släpper bilder som inte visas: ett avstängt lager och en skiva vars period är över håller inget minne. */
+  _purge(keep) {
+    for (const [file, image] of this.images) {
+      if (file === keep) continue;
+      image.onload = image.onerror = null;
+      image.src = '';
+      this.images.delete(file);
+    }
   }
   _load(file) {
     if (this.images.has(file)) return;
-    const image = new Image();
+    const image = this.makeImage();
     image.onload = () => this.onLoad();
     image.onerror = () => console.warn(`Bildlagret kunde inte läsa ${file}`);
     image.src = file;
@@ -39,6 +83,7 @@ export class ImageLayer {
   drawOverlay(ctx, W, H) {
     const item = this.active, image = item && this.images.get(item.file);
     if (!image?.complete || !image.naturalWidth) return;
-    ctx.save(); ctx.globalAlpha = item.opacity ?? 1; ctx.drawImage(image, 0, 0, W, H); ctx.restore();
+    const r = boundsRect(item.bounds, W, H);
+    ctx.save(); ctx.globalAlpha = item.opacity ?? 1; ctx.drawImage(image, r.x, r.y, r.w, r.h); ctx.restore();
   }
 }
