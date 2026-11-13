@@ -53,14 +53,14 @@
     "teacher": {
       "sv": "Öppna Turer och välj turen om andra världskriget. Visa den på storskärm (lägg till ?presentation=1 i adressen) eller låt eleverna gå igenom den två och två. Turen har 14 steg i fem kapitel och växlar mellan Europa, Nordafrika och Stilla havet; be eleverna säga var på globen varje steg utspelar sig. Fem steg har en fråga att fundera på (Storbritannien, Pearl Harbor, Stalingrad, Auschwitz och Tokyobukten). Stanna där och låt eleverna prata i par en stund innan ni går vidare. Förslag på tid: 5 minuter start, 20 minuter tur med frågor och 5 minuter exit ticket.",
       "en": "Open Tours and choose the tour about the Second World War. Show it on a big screen (add ?presentation=1 to the address) or let the students go through it in pairs. The tour has 14 steps in five chapters and moves between Europe, North Africa and the Pacific; ask the students to say where on the globe each step takes place. Five steps have a question to think about (Britain, Pearl Harbor, Stalingrad, Auschwitz and Tokyo Bay). Stop there and let the students talk in pairs for a while before you move on. Suggested timing: 5 minutes to start, 20 minutes for the tour and questions, and 5 minutes for the exit ticket.",
-      "de": "Öffnen Sie „Touren“ und wählen Sie die Tour über den Zweiten Weltkrieg. Zeigen Sie sie auf einer Großleinwand (fügen Sie ?presentation=1 an die Adresse an) oder lassen Sie die Schülerinnen und Schüler sie zu zweit durchgehen. Die Tour hat 14 Schritte in fünf Kapiteln und wechselt zwischen Europa, Nordafrika und dem Pazifik; bitten Sie die Klasse, zu sagen, wo auf dem Globus jeder Schritt spielt. Fünf Schritte haben eine Frage zum Nachdenken (Großbritannien, Pearl Harbor, Stalingrad, Auschwitz und die Bucht von Tokio). Halten Sie dort an und lassen Sie die Schülerinnen und Schüler eine Weile zu zweit sprechen, bevor Sie weitergehen. Vorschlag für die Zeit: 5 Minuten Einstieg, 20 Minuten Tour mit Fragen und 5 Minuten Exit Ticket.",
+      "de": "Öffnen Sie „Touren“ und wählen Sie die Tour über den Zweiten Weltkrieg. Zeigen Sie sie auf einer Großleinwand (fügen Sie ?presentation=1 an die Adresse an) oder lassen Sie die Klasse sie zu zweit durchgehen. Die Tour hat 14 Schritte in fünf Kapiteln und wechselt zwischen Europa, Nordafrika und dem Pazifik; lassen Sie die Klasse nennen, wo auf dem Globus jeder Schritt spielt. Fünf Schritte haben eine Frage zum Nachdenken (Großbritannien, Pearl Harbor, Stalingrad, Auschwitz, Bucht von Tokio). Halten Sie dort an und lassen Sie die Klasse kurz zu zweit sprechen, bevor Sie weitergehen. Zeitvorschlag: 5 Minuten Einstieg, 20 Minuten Tour mit Fragen, 5 Minuten Exit Ticket.",
       "es": "Abra Recorridos y elija el recorrido sobre la Segunda Guerra Mundial. Muéstrelo en una pantalla grande (añada ?presentation=1 a la dirección) o deje que el alumnado lo recorra en parejas. El recorrido tiene 14 pasos en cinco capítulos y alterna entre Europa, el norte de África y el Pacífico; pida al alumnado que diga en qué lugar del globo ocurre cada paso. Cinco pasos tienen una pregunta para pensar (Gran Bretaña, Pearl Harbor, Stalingrado, Auschwitz y la bahía de Tokio). Deténgase allí y deje que el alumnado hable en parejas un rato antes de seguir. Tiempo sugerido: 5 minutos de inicio, 20 minutos de recorrido con preguntas y 5 minutos de exit ticket.",
       "fr": "Ouvrez Visites et choisissez la visite sur la Seconde Guerre mondiale. Affichez-la sur grand écran (ajoutez ?presentation=1 à l'adresse) ou laissez les élèves la parcourir en binômes. La visite compte 14 étapes en cinq chapitres et alterne entre l'Europe, l'Afrique du Nord et le Pacifique ; demandez aux élèves de dire où se déroule chaque étape sur le globe. Cinq étapes ont une question à méditer (Grande-Bretagne, Pearl Harbor, Stalingrad, Auschwitz et la baie de Tokyo). Arrêtez-vous là et laissez les élèves discuter en binômes un moment avant de continuer. Durée suggérée : 5 minutes de démarrage, 20 minutes de visite avec les questions et 5 minutes de ticket de sortie."
     },
     "exitTicket": {
       "sv": "Nämn två saker i turen som hände samma år på olika håll i världen. Varför kallas kriget ett världskrig?",
       "en": "Name two things in the tour that happened in the same year in different parts of the world. Why is the war called a world war?",
-      "de": "Nennen Sie zwei Dinge aus der Tour, die im selben Jahr an verschiedenen Orten der Welt geschahen. Warum nennt man den Krieg einen Weltkrieg?",
+      "de": "Nennen Sie zwei Dinge aus der Tour, die im selben Jahr an verschiedenen Orten geschahen. Warum heißt der Krieg Weltkrieg?",
       "es": "Nombre dos cosas del recorrido que ocurrieron el mismo año en distintas partes del mundo. ¿Por qué se llama a la guerra una guerra mundial?",
       "fr": "Citez deux choses de la visite qui se sont produites la même année dans différentes parties du monde. Pourquoi appelle-t-on cette guerre une guerre mondiale ?"
     },
@@ -214,7 +214,7 @@
       "question": {
         "sv": "Tyskland tog Frankrike på några veckor, men lyckades inte i luften över Storbritannien. Vad gjorde det svårare att anfalla en ö?",
         "en": "Germany took France in a few weeks, but did not succeed in the air over Britain. What made it harder to attack an island?",
-        "de": "Deutschland eroberte Frankreich in wenigen Wochen, hatte aber in der Luft über Großbritannien keinen Erfolg. Was machte es schwieriger, eine Insel anzugreifen?"
+        "de": "Deutschland eroberte Frankreich in wenigen Wochen, scheiterte aber in der Luft über Großbritannien. Was machte es schwerer, eine Insel anzugreifen?"
       },
       "layers": [
         "events",
@@ -285,7 +285,7 @@
       "question": {
         "sv": "Barbarossa och Pearl Harbor hände samma år, långt från varandra. Vad kan det ha betytt att både Sovjetunionen och USA nu var med i kriget?",
         "en": "Barbarossa and Pearl Harbor happened in the same year, far from each other. What might it have meant that both the Soviet Union and the United States were now in the war?",
-        "de": "Barbarossa und Pearl Harbor geschahen im selben Jahr, weit voneinander entfernt. Was könnte es bedeutet haben, dass nun sowohl die Sowjetunion als auch die USA am Krieg beteiligt waren?"
+        "de": "Barbarossa und Pearl Harbor geschahen im selben Jahr, weit voneinander entfernt. Was könnte es bedeutet haben, dass nun die Sowjetunion und die USA mitkämpften?"
       },
       "layers": [
         "events",
@@ -418,7 +418,7 @@
       "question": {
         "sv": "Varför tror du att ett slag om en enda stad kan ses som en vändpunkt i ett helt krig?",
         "en": "Why do you think a battle for a single city can be seen as a turning point in a whole war?",
-        "de": "Warum kann eine Schlacht um eine einzige Stadt Ihrer Meinung nach als Wendepunkt eines ganzen Krieges gelten?"
+        "de": "Warum gilt eine Schlacht um eine einzige Stadt wohl als Wendepunkt eines ganzen Krieges?"
       },
       "layers": [
         "events",
