@@ -313,3 +313,24 @@ Skrivet 2026-11-12. Termerna är kontrollerade mot målspråkets Wikipedia-titel
 - **Osäkerhet visas öppet**, med orden i 13.2 och med "Källorna skiljer sig" där de gör det (källpolicyn, punkt 4 och 6). Franska: *Les sources divergent* överallt (i dag finns också *Les sources diffèrent* i `data/ui/fr.json`).
 
 **Granskat 2026-11-12** av `sprak-en`, `sprak-de`, `sprak-es` och `sprak-fr` (synpunkterna är införda). RAE-regeln i 13.3 är kontrollerad i andra hand (DPD citerad i spanska Wikipedia); spanskans *denisovanos* är inte kontrollerad.
+
+## 14. Religioner på franska (#822)
+
+Namnen i `data/religions.json` följer den franska regeln med liten bokstav i adjektiv och versal bara i första ordet och egennamn. Profeten skrivs med det etablerade franska namnet *Mahomet* och flykten till Medina *l’hégire* (som i franska Wikipedia).
+
+| Svenska | Franska |
+|---|---|
+| kristendom | christianisme |
+| islam | islam |
+| judendom | judaïsme |
+| zoroastrism | zoroastrisme |
+| manikeism | manichéisme |
+| buddhism | bouddhisme |
+| hinduism | hindouisme |
+| jainism | jaïnisme |
+| sikhism | sikhisme |
+| kinesisk religion (konfucianism, daoism) | religion chinoise (confucianisme, taoïsme) |
+| tengrism | tengrisme |
+| fornegyptisk religion | religion de l’Égypte antique |
+| traditionell afrikansk religion | religion traditionnelle africaine |
+| Nyckelår (rubrik i faktarutan) | Années clés |
