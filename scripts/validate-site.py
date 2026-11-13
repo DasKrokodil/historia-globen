@@ -280,8 +280,10 @@ for d in (discovery or {}).get('decorations', []):
     exists(d.get('file', ''), f"data/upptackt.json ({d.get('id')}, file)")
 # Tidsstyrda rasterbilder (#54)
 image_layers = load('data/bildlager.json') if (DIST / 'data/bildlager.json').is_file() else None
-for layer in (image_layers or {}).get('layers', []):
-    exists(layer.get('file', ''), f"data/bildlager.json ({layer.get('id')}, file)")
+image_slices = [(row, part) for row in (image_layers or {}).get('layers', []) if isinstance(row, dict)
+                for part in row.get('slices', []) if isinstance(part, dict)]
+for row, part in image_slices:
+    exists(str(part.get('file', '')), f"data/bildlager.json ({part.get('id')}, file)")
 
 # 8. Källor och fun facts
 sources = load('data/sources.json') or {'sources': []}
@@ -320,9 +322,10 @@ for path, r in routes:
 for d in (discovery or {}).get('decorations', []):
     if d.get('source') and d['source'] not in src_ids:
         err(f"data/upptackt.json ({d.get('id')}): källan {d['source']} finns inte i sources.json")
-for layer in (image_layers or {}).get('layers', []):
-    if layer.get('source') and layer['source'] not in src_ids:
-        err(f"data/bildlager.json ({layer.get('id')}): källan {layer['source']} finns inte i sources.json")
+for row, part in image_slices:
+    for s in part.get('sources', []) if isinstance(part.get('sources'), list) else []:
+        if s not in src_ids:
+            err(f"data/bildlager.json ({part.get('id')}): källan {s} finns inte i sources.json")
 # Människans spridning (#1094): källorna och händelserna som platserna pekar på
 spread = load('data/spridning.json') if (DIST / 'data/spridning.json').is_file() else None
 for item in (spread or {}).get('items', []):
@@ -408,6 +411,91 @@ validate_schema_file('data/funfacts.json', funfacts, 'funfact.schema.json')
 validate_schema_file('data/turer/index.json', tours_index or {}, 'tours-index.schema.json')
 for path, tour in tours:
     validate_schema_file(path, tour, 'tour.schema.json')
+
+# 8b2. Bildlager (#54, formatet @2 i #1325): schemat och det som den lilla schemakontrollen inte kan uttrycka.
+IMAGE_ROW_KEYS = {'id', 'kind', 'aliases', 'group', 'name', 'note', 'label', 'slices'}
+IMAGE_SLICE_KEYS = {'id', 'title', 'format', 'file', 'width', 'height', 'from', 'to', 'bounds', 'opacity',
+                    'caveat', 'sources', 'review', 'license'}
+IMAGE_MAX_PIXELS = 4096 * 2048  # en avkodad bild på 4096 × 2048 tar cirka 32 MB i minnet
+
+
+def image_layer_problems(doc, reserved, groups):
+    """Fel i data/bildlager.json utöver schemat. reserved = andra lagers id, groups = grupperna i vyer.json."""
+    found, names, slice_ids = [], {}, set()
+    for row in doc.get('layers', []):
+        if not isinstance(row, dict):
+            continue
+        rid = row.get('id', '?')
+        for key in sorted(set(row) - IMAGE_ROW_KEYS):
+            found.append(f'({rid}): okänt fält {key!r}')
+        for name in [rid] + [a for a in row.get('aliases', []) if isinstance(a, str)]:
+            if name in reserved:
+                found.append(f'({rid}): id eller alias {name!r} används redan av ett annat lager')
+            if name in names:
+                found.append(f'({rid}): id eller alias {name!r} används också av raden {names[name]}')
+            names[name] = rid
+        if groups and row.get('group') is not None and row['group'] not in groups:
+            found.append(f"({rid}): gruppen {row['group']!r} finns inte i data/vyer.json")
+        if row.get('kind') == 'grund' and 'label' not in row:
+            found.append(f'({rid}): kind "grund" kräver label (en växlande grundkarta är alltid märkt)')
+        spans = []
+        for part in row.get('slices', []) if isinstance(row.get('slices'), list) else []:
+            if not isinstance(part, dict):
+                continue
+            sid = part.get('id', '?')
+            for key in sorted(set(part) - IMAGE_SLICE_KEYS):
+                found.append(f'({sid}): okänt fält {key!r}')
+            if sid in slice_ids:
+                found.append(f'({sid}): id finns flera gånger')
+            slice_ids.add(sid)
+            fmt, file = part.get('format'), str(part.get('file', ''))
+            if fmt == 'raster':
+                if file.endswith('.json'):
+                    found.append(f'({sid}): format "raster" ska peka på en bildfil, inte {file}')
+                w, h = part.get('width'), part.get('height')
+                if not isinstance(w, int) or not isinstance(h, int):
+                    found.append(f'({sid}): format "raster" kräver width och height')
+                elif w * h > IMAGE_MAX_PIXELS:
+                    found.append(f'({sid}): bilden är {w} × {h}, mer än {IMAGE_MAX_PIXELS} bildpunkter')
+            elif fmt == 'vektor':
+                if not file.endswith('.json'):
+                    found.append(f'({sid}): format "vektor" ska peka på en JSON-fil, inte {file}')
+                if 'bounds' in part:
+                    found.append(f'({sid}): bounds gäller bara format "raster"')
+            b = part.get('bounds')
+            if isinstance(b, list):
+                if len(b) != 4 or not all(isinstance(x, (int, float)) and not isinstance(x, bool) for x in b):
+                    found.append(f'({sid}): bounds ska vara fyra tal, [väst, syd, öst, nord]')
+                elif not (b[0] < b[2] and b[1] < b[3] and -90 <= b[1] and b[3] <= 90):
+                    found.append(f'({sid}): bounds ska ha väst < öst och syd < nord, med syd och nord inom ±90')
+            start, end = part.get('from'), part.get('to')
+            if isinstance(start, int):
+                if isinstance(end, int) and end < start:
+                    found.append(f'({sid}): to ({end}) är före from ({start})')
+                spans.append((start, end if isinstance(end, int) else float('inf'), sid))
+        spans.sort()
+        for (_, end, a), (start, _, b) in zip(spans, spans[1:]):
+            if start <= end:
+                found.append(f'({rid}): skivorna {a} och {b} överlappar i tid')
+    return found
+
+
+if image_layers is not None:
+    validate_schema_file('data/bildlager.json', image_layers, 'bildlager.schema.json')
+    # Lagrens id står i js/layers/index.js (LAYERS); "images" är bildlagrets egen rad tills raderna byggs.
+    try:
+        listed = re.search(r'export const LAYERS = \[([^\]]*)\]', (ROOT / 'js/layers/index.js').read_text(encoding='utf-8'))
+    except OSError:
+        listed = None
+    if not listed:
+        err('js/layers/index.js: hittar inte LAYERS, så bildlagrens id kan inte kontrolleras')
+    reserved_layers = {x.strip() for x in listed.group(1).split(',')} - {'images', ''} if listed else set()
+    try:
+        view_groups = {g.get('id') for g in json.loads((ROOT / 'data/vyer.json').read_text(encoding='utf-8')).get('groups', [])}
+    except (OSError, ValueError):
+        view_groups = set()
+    for problem in image_layer_problems(image_layers, reserved_layers, view_groups):
+        err(f'data/bildlager.json {problem}')
 
 # 8c. Missuppfattningar (#838): filen publiceras (scripts/build-site.sh, sedan #858) och appen läser den; här kontrolleras den ur repot.
 misc_path = ROOT / 'data' / 'missuppfattningar.json'

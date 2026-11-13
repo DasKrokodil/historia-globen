@@ -119,6 +119,7 @@ export const MODE_RULES = {
   tur: {
     when: { fokus: 'avslutar', lektion: 'samtidigt', jakt: 'samtidigt', intervall: 'avslutar' },
     restore: ['layers', 'focus', 'camera', 'tag'], takes: ['layers', 'focus', 'camera'],
+    timeLock: 'låst', // turen styr tiden: reglaget går inte att dra, klicka eller flytta med tangenter eller stegknappar (#1322)
   },
   lektion: {
     // Lektionen börjar före sin tur (js/ui/lesson.js); en jakt utanför lektionens år avslutas.
@@ -126,6 +127,7 @@ export const MODE_RULES = {
     // (tag, till exempel Översikt) och utgången återställer urvalet som det var, tillsammans med lagren.
     when: { fokus: 'avslutar', tur: 'samtidigt', jakt: 'villkor', intervall: 'avslutar' },
     restore: ['layers', 'camera', 'tag'], takes: ['layers', 'focus', 'camera'], // aldrig fokus: utgången behåller lektionens år (#881)
+    timeLock: 'lektionsår', // reglaget stannar inom lektionens år (turens lock.years), och en tur i lektionen låser det helt (#1322)
   },
   jakt: {
     // I en lektion bara uppdrag inom lektionens år (#741, #795)
@@ -138,6 +140,19 @@ export const MODE_RULES = {
     restore: [], takes: ['focus'],
   },
 };
+
+/**
+ * Tidslåset (#1322): vad besökaren får göra med reglaget medan lägena pågår (drag, klick, tangenter och stegknappar; det som
+ * ett läge själv sätter, till exempel en turs steg, går alltid). Det strängaste läget gäller.
+ * active: de pågående lägena ([{ mode }] eller lägesnamn), lessonYears: lektionens år [från, till] eller null.
+ * Ger { locked: true } (reglaget är låst), { locked: false, from, to } (bara inom de åren) eller null (fritt).
+ */
+export function timeLock(active, lessonYears = null) {
+  const rules = active.map(x => MODE_RULES[x.mode ?? x]?.timeLock).filter(Boolean);
+  if (rules.includes('låst')) return { locked: true };
+  if (rules.includes('lektionsår') && lessonYears) return { locked: false, from: lessonYears[0], to: lessonYears[1] };
+  return null;
+}
 
 /** Vad som händer när läget mode börjar medan other pågår ('samtidigt' när tabellen inte säger något). */
 export function modeRelation(mode, other) {

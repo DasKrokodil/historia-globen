@@ -729,9 +729,51 @@ Kör `python3 tools/oversattning.py` efter varje ändring i innehållet och chec
 
 Färdigprojicerade SVG-banor i 4096 × 2048 (`path`, `width`, `height`) från Natural Earth: grundkartan (1:50m) och dagens landsgränser. Grundkartan laddas vid start; dagens gränser först när lagret slås på (#337). `land-10m.json` är samma kustkarta i 1:10m (cirka 5 MB, en decimal): den används bara av det skarpa utsnittet vid inzoomning och laddas första gången det behövs; saknas den används `land.json`. Byggs med `tools/land_10m.mjs`.
 
-## `bildlager.json`: tidsstyrda rasterbilder (#54)
+## `bildlager.json`: bildlager som rader i Lager med tidsskivor (#54, format 2 i #1325)
 
-`layers` är en lista av ekvirektangulära bilder. Varje post har `id`, översatt `name` och `title`, `file`, `from`, valfritt `to`, `opacity`, `source` (id i `sources.json`) och `license`. Bilden väljs när året ligger inom perioden och ritas på lagerbilden; den syns därför lika på klotet och i Platt vy. Första posten är NASA Black Marble 2016, från 2016 och framåt.
+`bildlager.json` (`schema: historia-globen/bildlager@2`, `schemas/bildlager.schema.json`) beskriver bilder och vektorer som läggs på kartan efter år. Formatet bestämdes 2026-11-13 ([docs/beslut/2026-11-13-bildlager-v2-format.md](beslut/2026-11-13-bildlager-v2-format.md)) och är bredare än det som är byggt: se "Vad som är byggt" sist i avsnittet.
+
+**En post i `layers` är en rad i Lager.**
+
+| Fält | Krav | Betydelse |
+|---|---|---|
+| `id` | ja | Små bokstäver, siffror och bindestreck. Blir lagrets id i lagerregistret (`data-layer`, `state.layers`, `l=` i adressen) när raderna är byggda. Får inte vara ett annat lagers id (`LAYERS` i `js/layers/index.js`) eller en annan rads id eller alias. |
+| `kind` | ja | `lager`: ritas på lagerbilden ovanpå grundkartan (`Z.images`). `grund`: ersätter grundkartans land under skivans period. `grund` är reserverat för version 8 och läses inte av sidan ännu. |
+| `aliases` | nej | Äldre id som ska fortsätta fungera i delade länkar. Nattljuset har `images`, som var lagrets id före formatet. |
+| `group` | nej | Gruppen i Lager, ett id ur `groups` i `data/vyer.json`. Saknas fältet används `perspective`. |
+| `name` | ja | Radens namn, på alla fem språken. |
+| `note` | nej | Förklaringen efter namnet i Lager, på alla fem språken. |
+| `label` | ja när `kind` är `grund` | Den synliga märkningen av en växlande grundkarta, på alla fem språken. En grundkarta som inte är dagens ska alltid vara märkt. |
+| `slices` | ja, minst en | Tidsskivorna. Inom en rad får perioderna inte överlappa, så högst en skiva gäller ett visst år. |
+
+**En post i `slices` är en bild eller en vektor för en period.**
+
+| Fält | Krav | Betydelse |
+|---|---|---|
+| `id` | ja | Unikt i hela filen. |
+| `title` | nej | Längre namn på skivan, på alla fem språken. |
+| `format` | ja | `raster`: en bildfil (jpg, png eller webp). `vektor`: en JSON-fil i samma form som `data/land.json` (`width`, `height` och `path`, färdigprojicerad till 4096 × 2048). Kust och landbryggor ritas som vektor, så att de blir skarpa vid inzoomning. |
+| `file` | ja | Sökvägen under `images/` eller `data/`. `scripts/build-site.sh` kopierar filen. |
+| `width`, `height` | ja för `raster` | Bildens storlek i bildpunkter. Högst 4096 per sida och högst 4096 × 2048 bildpunkter totalt, eftersom en avkodad bild i den storleken tar cirka 32 MB i minnet. |
+| `from`, `to` | `from` ja | Hela år med astronomisk årsräkning. `to` utelämnas när skivan gäller tills vidare (inte `null`). |
+| `bounds` | nej, bara `raster` | `[väst, syd, öst, nord]` i grader (WGS 84, samma ordning som en GeoJSON-bbox). Bilden täcker den rutan och ska vara ekvirektangulär inom den; en källkarta i annan projektion projiceras om med ett skript i `tools/` först. Väst är mindre än öst, så en ruta kan inte gå över datumlinjen. Saknas fältet täcker bilden hela världen. |
+| `opacity` | nej | 0–1. Saknas fältet ritas skivan helt täckande. |
+| `caveat` | nej | En kort text om osäkerheten ("cirka", "tolkning"), på alla fem språken. Osäkerhet visas alltid med text och aldrig bara med färg (#1095). |
+| `sources` | ja, minst en | Id i `sources.json`. |
+| `review` | ja | `draft`, `source-checked` eller `two-sources`, som för händelser. `draft` visas inte. En forntida kust är ett påstående om hur världen såg ut, så källpolicyn gäller varje skiva. |
+| `license` | ja | Licensen som text. Den visas inte på sidan; källans licens står i `sources.json`. |
+
+**Regler som formatet bygger på**
+
+- Allt ritas ekvirektangulärt (arkitekturens punkt 4). Ett `lager` syns därför lika på klotet, i Platt vy och på affischen.
+- Ett `lager` kan bara lägga till något ovanpå dagens karta. Där havet stod högre än i dag kan land inte tas bort med ett lager; det kräver `grund`.
+- Ritstil för vektorer och en finare fil för det skarpa utsnittet finns inte i formatet. De läggs till när det första vektorlagret byggs (#1096), om de behövs.
+
+**Vad som är byggt.** Sidan visar ännu en enda rad i Lager med id `images`: den första raden med `kind: lager`, och bara dess rasterskivor utan `bounds` (`js/layers/images.js`). Flera rader, `bounds`, vektor, alias i adressen och rensning av bilder som inte visas byggs i nästa steg av #1325. `kind: grund` byggs i version 8 (#397, #51).
+
+**Kontroller.** `scripts/validate-site.py` kör schemat och det schemat inte kan uttrycka: okända fält, upptagna id och alias, gruppen, `label` för `grund`, bildens storlek, `bounds`, perioder som överlappar, och att filer och källor finns. `tests/validate-schema-test.py` godkänner exempelfilen `tests/fixtures/bildlager-exempel.json`, som övar hela formatet, och underkänner avsiktliga fel.
+
+Första raden är NASA Black Marble 2016 (`nattljus`), från 2016 och framåt.
 
 ## `turer/`: guidade turer (#47)
 
