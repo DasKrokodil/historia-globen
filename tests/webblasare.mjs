@@ -3427,6 +3427,31 @@ async function run(browser, vp) {
     }
   });
 
+  // Zheng Hes resor 2–7 fick källbelagda stopp med korta platsnamn (#1377)
+  await check('Zheng Hes sjunde resa har sju stopp och slutar i Taicang', async () => {
+    try {
+      await clickView('#btn-focus');
+      await visible('#focus-menu');
+      await page.click('#focus-menu [data-tab="Resor"]');
+      await page.fill('#focus-menu .focus-search', 'Zheng Hes sjunde');
+      const route = page.locator('#focus-menu .focus-item[data-key="route:zheng-he-resa-7"]');
+      await route.waitFor({ state: 'visible', timeout: T.step });
+      await route.click();
+      await visible('#focus-bar');
+      const marks = await page.locator('.tdot.route-stop').evaluateAll(nodes => nodes.map(node =>
+        node.getAttribute('aria-label') || node.title));
+      if (marks.length !== 7) throw new Error(`Zheng Hes sjunde resa har ${marks.length} stopp, inte 7: ${marks.join(' | ')}`);
+      for (const label of ['avfärd 19 januari 1431', 'Hormuz · 17 januari 1433', 'Taicang · 7 juli 1433']) {
+        if (!marks.some(mark => mark.includes(label))) throw new Error(`resestoppet saknas: ${label} (${marks.join(' | ')})`);
+      }
+      return `7 stopp, bland annat ${marks[marks.length - 1]}`;
+    } finally {
+      if (await page.locator('#focus-bar').isVisible().catch(() => false)) await page.click('#focus-exit');
+      await hidden('#focus-bar');
+      if (await page.locator('#focus-menu').isVisible().catch(() => false)) await page.keyboard.press('Escape');
+    }
+  });
+
   // Fokus-menyn hade religionerna bara första gången den öppnades, när lagret Religioner inte hade öppnats (#402-uppdelningen)
   await check('Fokus-menyn har religionerna också andra gången den öppnas', async () => {
     const counts = [];
