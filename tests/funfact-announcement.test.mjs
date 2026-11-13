@@ -8,10 +8,14 @@ test('intervallet avbryter en väntande kortuppläsning och kortet kan tala igen
   globalThis.requestAnimationFrame = callback => frames.push(callback);
   try {
     const { FunFacts } = await import('../js/ui/funfact.js');
+    const { bindStatus, resetStatus } = await import('../js/ui/status.js');
+    resetStatus();
     const card = Object.assign(Object.create(FunFacts.prototype), {
       announcementsEnabled: true, index: 0, _announcedKey: '',
-      status: { textContent: '' }, kind: { textContent: 'Kort' }, text: { textContent: 'Text' },
+      kind: { textContent: 'Kort' }, text: { textContent: 'Text' },
     });
+    card.status = { textContent: '' };
+    bindStatus(card.status); // statusraden har en enda väg in (js/ui/status.js, #1419)
     card._announce({ id: 'test' });
     assert.equal(frames.length, 1);
     card.setAnnouncements(false);
