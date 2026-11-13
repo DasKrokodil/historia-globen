@@ -8,13 +8,15 @@
         "sv": "Zheng Hes första resa",
         "en": "Zheng He's first voyage",
         "de": "Zheng Hes erste Reise",
-        "fr": "Premier voyage de Zheng He"
+        "fr": "Premier voyage de Zheng He",
+        "es": "Primer viaje de Zheng He"
       },
       "summary": {
         "sv": "Mingkejsaren Yongle skickar en stor flotta under amiralen Zheng He från Nanjing till Indiska oceanen. Under hösten 1405 seglar flottan ner till Fujian, väntar på nordostmonsunen och fortsätter via Champa, Java, Malacka och norra Sumatra till Ceylon och Calicut i Indien. Kung Alakeshvara på Ceylon är fientlig, så flottan stannar inte där. På hemvägen 1407 besegrar flottan piraten Chen Zuyi vid Palembang. Flottan är tillbaka i Nanjing den 2 oktober 1407, med sändebud från bland annat Calicut, Quilon, Semudera, Aru och Malacka.",
         "en": "The Ming Yongle Emperor sends a large fleet under admiral Zheng He from Nanjing into the Indian Ocean. In autumn 1405 the fleet sails down to Fujian, waits for the northeast monsoon and continues via Champa, Java, Malacca and northern Sumatra to Ceylon and Calicut in India. King Alakeshvara of Ceylon is hostile, so the fleet does not stay there. On the way home in 1407 the fleet defeats the pirate Chen Zuyi at Palembang. It is back in Nanjing on 2 October 1407, bringing envoys from Calicut, Quilon, Semudera, Aru, Malacca and other states.",
         "de": "Der Ming-Kaiser Yongle schickt eine große Flotte unter Admiral Zheng He von Nanjing in den Indischen Ozean. Im Herbst 1405 segelt die Flotte hinunter nach Fujian, wartet auf den Nordostmonsun und fährt weiter über Champa, Java, Malakka und das nördliche Sumatra nach Ceylon und Calicut in Indien. König Alakeshvara auf Ceylon ist feindlich gesinnt, deshalb hält die Flotte dort nicht an. Auf dem Heimweg 1407 besiegt die Flotte den Piraten Chen Zuyi bei Palembang. Die Flotte ist am 2. Oktober 1407 zurück in Nanjing, mit Gesandten unter anderem aus Calicut, Quilon, Semudera, Aru und Malakka.",
-        "fr": "L’empereur Ming Yongle envoie une grande flotte sous le commandement de l’amiral Zheng He de Nankin vers l’océan Indien. À l’automne 1405, la flotte descend jusqu’au Fujian, attend la mousson du nord-est et continue par le Champa, Java, Malacca et le nord de Sumatra jusqu’à Ceylan et Calicut, en Inde. Le roi Alakeshvara de Ceylan est hostile, si bien que la flotte ne s’y arrête pas. Sur le chemin du retour, en 1407, la flotte bat le pirate Chen Zuyi près de Palembang. La flotte est de retour à Nankin le 2 octobre 1407, avec des envoyés venus notamment de Calicut, Quilon, Semudera, Aru et Malacca."
+        "fr": "L’empereur Ming Yongle envoie une grande flotte sous le commandement de l’amiral Zheng He de Nankin vers l’océan Indien. À l’automne 1405, la flotte descend jusqu’au Fujian, attend la mousson du nord-est et continue par le Champa, Java, Malacca et le nord de Sumatra jusqu’à Ceylan et Calicut, en Inde. Le roi Alakeshvara de Ceylan est hostile, si bien que la flotte ne s’y arrête pas. Sur le chemin du retour, en 1407, la flotte bat le pirate Chen Zuyi près de Palembang. La flotte est de retour à Nankin le 2 octobre 1407, avec des envoyés venus notamment de Calicut, Quilon, Semudera, Aru et Malacca.",
+        "es": "El emperador Ming Yongle envía una gran flota al mando del almirante Zheng He desde Nankín hacia el océano Índico. En el otoño de 1405 la flota baja hasta Fujian, espera el monzón del nordeste y continúa por Champa, Java, Malaca y el norte de Sumatra hasta Ceilán y Calicut, en la India. El rey Alakeshvara de Ceilán es hostil, así que la flota no se detiene allí. En el viaje de regreso, en 1407, la flota derrota al pirata Chen Zuyi cerca de Palembang. La flota está de vuelta en Nankín el 2 de octubre de 1407, con enviados de, entre otros lugares, Calicut, Quilon, Semudera, Aru y Malaca."
       },
       "start": 1405,
       "end": 1407,
@@ -25,13 +27,15 @@
           "sv": "Källorna skiljer sig",
           "en": "The sources differ",
           "de": "Die Quellen unterscheiden sich",
-          "fr": "Les sources divergent"
+          "fr": "Les sources divergent",
+          "es": "Las fuentes no coinciden"
         },
         "text": {
           "sv": "I Wikipedia (efter Dreyer 2007 och Mingkrönikorna) dateras resan till 1405–1407. World History Encyclopedia skriver att de tre första resorna gjordes 1404, 1408 och 1409. Om flottan verkligen lade till i Quilon är osäkert: kungen av Quilon följde med till Kina 1407, men ingen berättelse bekräftar besöket. Enligt Mills (1970) låg flottan kanske i Calicut från december 1406 till april 1407.",
           "en": "Wikipedia (following Dreyer 2007 and the Ming chronicles) dates the voyage to 1405–1407. World History Encyclopedia writes that the first three voyages were made in 1404, 1408 and 1409. Whether the fleet really called at Quilon is uncertain: the king of Quilon accompanied it to China in 1407, but no account confirms the visit. According to Mills (1970) the fleet may have been at Calicut from December 1406 to April 1407.",
           "de": "Bei Wikipedia (nach Dreyer 2007 und den Ming-Chroniken) wird die Reise auf 1405–1407 datiert. Die World History Encyclopedia schreibt, dass die ersten drei Reisen 1404, 1408 und 1409 unternommen wurden. Ob die Flotte tatsächlich in Quilon anlegte, ist unsicher: Der König von Quilon reiste 1407 mit nach China, aber keine Erzählung bestätigt den Besuch. Laut Mills (1970) lag die Flotte möglicherweise von Dezember 1406 bis April 1407 in Calicut.",
-          "fr": "Sur Wikipédia (d’après Dreyer 2007 et les Annales des Ming), le voyage est daté de 1405–1407. La World History Encyclopedia écrit que les trois premiers voyages eurent lieu en 1404, 1408 et 1409. Il n’est pas certain que la flotte ait réellement fait escale à Quilon : le roi de Quilon accompagna la flotte en Chine en 1407, mais aucun récit ne confirme la visite. Selon Mills (1970), la flotte était peut-être à Calicut de décembre 1406 à avril 1407."
+          "fr": "Sur Wikipédia (d’après Dreyer 2007 et les Annales des Ming), le voyage est daté de 1405–1407. La World History Encyclopedia écrit que les trois premiers voyages eurent lieu en 1404, 1408 et 1409. Il n’est pas certain que la flotte ait réellement fait escale à Quilon : le roi de Quilon accompagna la flotte en Chine en 1407, mais aucun récit ne confirme la visite. Selon Mills (1970), la flotte était peut-être à Calicut de décembre 1406 à avril 1407.",
+          "es": "En Wikipedia (siguiendo a Dreyer 2007 y las crónicas Ming), el viaje se fecha en 1405–1407. La World History Encyclopedia escribe que los tres primeros viajes se hicieron en 1404, 1408 y 1409. Si la flota hizo escala realmente en Quilon es incierto: el rey de Quilon acompañó a la flota a China en 1407, pero ningún relato confirma la visita. Según Mills (1970), la flota quizá estuvo en Calicut de diciembre de 1406 a abril de 1407."
         }
       },
       "sources": ["wp-ming-treasure-voyages", "whe-seven-voyages-zheng-he"],
@@ -49,7 +53,8 @@
                 "sv": "Nanjing",
                 "en": "Nanjing",
                 "de": "Nanjing",
-                "fr": "Nankin"
+                "fr": "Nankin",
+                "es": "Nankín"
               },
               "edtf": "1405-23",
               "stop": true
@@ -60,7 +65,8 @@
                 "sv": "Liujiagang",
                 "en": "Liujiagang",
                 "de": "Liujiagang",
-                "fr": "Liujiagang"
+                "fr": "Liujiagang",
+                "es": "Liujiagang"
               }
             },
             {
@@ -69,7 +75,8 @@
                 "sv": "Taipingankarplatsen vid Changle",
                 "en": "The Taiping anchorage at Changle",
                 "de": "Ankerplatz Taiping bei Changle",
-                "fr": "Mouillage de Taiping à Changle"
+                "fr": "Mouillage de Taiping à Changle",
+                "es": "Fondeadero de Taiping en Changle"
               }
             }
           ],
@@ -87,7 +94,8 @@
                 "sv": "Champa",
                 "en": "Champa",
                 "de": "Champa",
-                "fr": "Champa"
+                "fr": "Champa",
+                "es": "Champa"
               }
             },
             {
@@ -96,7 +104,8 @@
                 "sv": "Java",
                 "en": "Java",
                 "de": "Java",
-                "fr": "Java"
+                "fr": "Java",
+                "es": "Java"
               }
             },
             {
@@ -105,7 +114,8 @@
                 "sv": "Malacka",
                 "en": "Malacca",
                 "de": "Malakka",
-                "fr": "Malacca"
+                "fr": "Malacca",
+                "es": "Malaca"
               }
             },
             {
@@ -114,7 +124,8 @@
                 "sv": "Aru",
                 "en": "Aru",
                 "de": "Aru",
-                "fr": "Aru"
+                "fr": "Aru",
+                "es": "Aru"
               }
             },
             {
@@ -123,7 +134,8 @@
                 "sv": "Semudera",
                 "en": "Semudera",
                 "de": "Semudera",
-                "fr": "Semudera"
+                "fr": "Semudera",
+                "es": "Semudera"
               }
             },
             {
@@ -132,7 +144,8 @@
                 "sv": "Lambri",
                 "en": "Lambri",
                 "de": "Lambri",
-                "fr": "Lambri"
+                "fr": "Lambri",
+                "es": "Lambri"
               }
             },
             {
@@ -141,7 +154,8 @@
                 "sv": "Ceylon (västkusten)",
                 "en": "Ceylon (west coast)",
                 "de": "Ceylon (Westküste)",
-                "fr": "Ceylan (côte ouest)"
+                "fr": "Ceylan (côte ouest)",
+                "es": "Ceilán (costa oeste)"
               }
             },
             {
@@ -150,7 +164,8 @@
                 "sv": "Quilon (osäkert om flottan lade till)",
                 "en": "Quilon (uncertain whether the fleet called there)",
                 "de": "Quilon (unsicher, ob die Flotte anlegte)",
-                "fr": "Quilon (escale incertaine)"
+                "fr": "Quilon (escale incertaine)",
+                "es": "Quilon (escala incierta)"
               }
             },
             {
@@ -159,7 +174,8 @@
                 "sv": "Calicut",
                 "en": "Calicut",
                 "de": "Calicut",
-                "fr": "Calicut"
+                "fr": "Calicut",
+                "es": "Calicut"
               },
               "edtf": "1406-12/1407-04?"
             }
@@ -179,7 +195,8 @@
                 "sv": "Malacka",
                 "en": "Malacca",
                 "de": "Malakka",
-                "fr": "Malacca"
+                "fr": "Malacca",
+                "es": "Malaca"
               }
             },
             {
@@ -188,14 +205,16 @@
                 "sv": "Palembang (slaget mot Chen Zuyi)",
                 "en": "Palembang (the battle against Chen Zuyi)",
                 "de": "Palembang (Gefecht gegen Chen Zuyi)",
-                "fr": "Palembang (la bataille contre Chen Zuyi)"
+                "fr": "Palembang (la bataille contre Chen Zuyi)",
+                "es": "Palembang (la batalla contra Chen Zuyi)"
               },
               "edtf": "1407",
               "dateLabel": {
                 "sv": "1407, på hemresan",
                 "en": "1407, on the return journey",
                 "de": "1407, auf der Heimreise",
-                "fr": "1407, sur le chemin du retour"
+                "fr": "1407, sur le chemin du retour",
+                "es": "1407, en el viaje de regreso"
               },
               "stop": true
             },
@@ -205,7 +224,8 @@
                 "sv": "Nanjing",
                 "en": "Nanjing",
                 "de": "Nanjing",
-                "fr": "Nankin"
+                "fr": "Nankin",
+                "es": "Nankín"
               },
               "date": "1407-10-02",
               "stop": true
@@ -223,13 +243,15 @@
         "sv": "Zheng Hes andra resa",
         "en": "Zheng He's second voyage",
         "de": "Zheng Hes zweite Reise",
-        "fr": "Deuxième voyage de Zheng He"
+        "fr": "Deuxième voyage de Zheng He",
+        "es": "Segundo viaje de Zheng He"
       },
       "summary": {
         "sv": "Order om en andra resa ges i oktober 1407, och flottan lämnar Kina i slutet av 1407 eller början av 1408. Den seglar via Champa, Siam, Java, Malacka och norra Sumatra till Quilon, Cochin och Calicut, där flottan har i uppdrag att formellt insätta kungen av Calicut. Den här gången lägger flottan inte till på Ceylon. Hemresan går genom Malackasundet 1409, och flottan är tillbaka i Nanjing sommaren 1409. Källorna nämner också platser som inte går att identifiera säkert (Jiayile, Abobadan och Ganbali), och de är inte utritade.",
         "en": "Orders for a second voyage are issued in October 1407, and the fleet leaves China in late 1407 or early 1408. It sails via Champa, Siam, Java, Malacca and northern Sumatra to Quilon, Cochin and Calicut, where it is tasked with formally investing the king of Calicut. This time the fleet does not land on Ceylon. It passes back through the Strait of Malacca in 1409 and is back in Nanjing in summer 1409. The sources also name places that cannot be identified with certainty (Jiayile, Abobadan and Ganbali); they are not drawn.",
         "de": "Der Befehl zu einer zweiten Reise wird im Oktober 1407 gegeben, und die Flotte verlässt China Ende 1407 oder Anfang 1408. Sie segelt über Champa, Siam, Java, Malakka und das nördliche Sumatra nach Quilon, Cochin und Calicut, wo die Flotte den Auftrag hat, den König von Calicut förmlich einzusetzen. Diesmal legt die Flotte nicht auf Ceylon an. Die Heimreise führt 1409 durch die Straße von Malakka, und die Flotte ist im Sommer 1409 zurück in Nanjing. Die Quellen nennen auch Orte, die sich nicht sicher identifizieren lassen (Jiayile, Abobadan und Ganbali), und sie sind nicht eingezeichnet.",
-        "fr": "L’ordre d’un deuxième voyage est donné en octobre 1407, et la flotte quitte la Chine fin 1407 ou début 1408. Elle navigue par le Champa, le Siam, Java, Malacca et le nord de Sumatra jusqu’à Quilon, Cochin et Calicut, où la flotte a pour mission d’introniser officiellement le roi de Calicut. Cette fois, la flotte ne fait pas escale à Ceylan. Le retour passe par le détroit de Malacca en 1409, et la flotte est de retour à Nankin à l’été 1409. Les sources mentionnent aussi des lieux qui ne peuvent pas être identifiés avec certitude (Jiayile, Abobadan et Ganbali) ; ils ne sont pas tracés."
+        "fr": "L’ordre d’un deuxième voyage est donné en octobre 1407, et la flotte quitte la Chine fin 1407 ou début 1408. Elle navigue par le Champa, le Siam, Java, Malacca et le nord de Sumatra jusqu’à Quilon, Cochin et Calicut, où la flotte a pour mission d’introniser officiellement le roi de Calicut. Cette fois, la flotte ne fait pas escale à Ceylan. Le retour passe par le détroit de Malacca en 1409, et la flotte est de retour à Nankin à l’été 1409. Les sources mentionnent aussi des lieux qui ne peuvent pas être identifiés avec certitude (Jiayile, Abobadan et Ganbali) ; ils ne sont pas tracés.",
+        "es": "La orden de un segundo viaje se da en octubre de 1407, y la flota sale de China a finales de 1407 o comienzos de 1408. Navega por Champa, Siam, Java, Malaca y el norte de Sumatra hasta Quilon, Cochín y Calicut, donde la flota tiene la misión de investir formalmente al rey de Calicut. Esta vez la flota no hace escala en Ceilán. El regreso pasa por el estrecho de Malaca en 1409, y la flota está de vuelta en Nankín en el verano de 1409. Las fuentes mencionan también lugares que no se pueden identificar con seguridad (Jiayile, Abobadan y Ganbali), y no están dibujados."
       },
       "start": 1407,
       "end": 1409,
@@ -240,13 +262,15 @@
           "sv": "Källorna skiljer sig",
           "en": "The sources differ",
           "de": "Die Quellen unterscheiden sich",
-          "fr": "Les sources divergent"
+          "fr": "Les sources divergent",
+          "es": "Las fuentes no coinciden"
         },
         "text": {
           "sv": "Avresan anges som femte året under Yongle, alltså slutet av 1407 eller kanske början av 1408. World History Encyclopedia daterar resan till 1408 och skriver att flottan löste en tvist på Java på hemvägen 1408, medan Wikipedia säger att hemkomsten var sommaren 1409. Det är också omstritt om Zheng He själv var med: Duyvendak (1938) och Mills (1970) menar att han stannade i Kina, Dreyer (2007) att han var med. Siam och Java kan ha besökts av mindre eskadrar innan flottan samlades i Malacka. Ordningen mellan Aru, Semudera och Lambri är här ritad efter geografin. Fei Xin berättar om ett stopp vid Pulau Sembilan i Malackasundet 1409, men Wikipedia länkar platsen till Similanöarna i Andamansjön, så den är inte utritad.",
           "en": "The departure is given as the fifth year of Yongle, that is the end of 1407 or perhaps the beginning of 1408. World History Encyclopedia dates the voyage to 1408 and writes that the fleet settled a dispute on Java on the way home in 1408, while Wikipedia says that the return was in the summer of 1409. It is also disputed whether Zheng He himself took part: Duyvendak (1938) and Mills (1970) hold that he stayed in China, Dreyer (2007) that he went along. Siam and Java may have been visited by smaller squadrons before the fleet assembled at Malacca. The order between Aru, Semudera and Lambri is drawn here according to geography. Fei Xin tells of a stop at Pulau Sembilan in the Strait of Malacca in 1409, but Wikipedia links the place to the Similan Islands in the Andaman Sea, so it is not drawn.",
           "de": "Die Abreise wird mit dem fünften Jahr unter Yongle angegeben, also Ende 1407 oder vielleicht Anfang 1408. Die World History Encyclopedia datiert die Reise auf 1408 und schreibt, die Flotte habe auf dem Heimweg 1408 einen Streit auf Java beigelegt, während Wikipedia sagt, die Heimkehr sei im Sommer 1409 gewesen. Es ist auch umstritten, ob Zheng He selbst dabei war: Duyvendak (1938) und Mills (1970) meinen, er sei in China geblieben, Dreyer (2007), er sei dabei gewesen. Siam und Java können von kleineren Geschwadern besucht worden sein, bevor sich die Flotte in Malakka sammelte. Die Reihenfolge zwischen Aru, Semudera und Lambri ist hier nach der Geografie gezeichnet. Fei Xin berichtet von einem Halt bei Pulau Sembilan in der Straße von Malakka 1409, aber Wikipedia verknüpft den Ort mit den Similan-Inseln in der Andamanensee, deshalb ist er nicht eingezeichnet.",
-          "fr": "Le départ est indiqué comme la cinquième année de Yongle, soit fin 1407 ou peut-être début 1408. La World History Encyclopedia date le voyage de 1408 et écrit que la flotte régla un conflit à Java sur le chemin du retour en 1408, tandis que Wikipédia dit que le retour eut lieu à l’été 1409. La présence de Zheng He lui-même est également discutée : Duyvendak (1938) et Mills (1970) estiment qu’il resta en Chine, Dreyer (2007) qu’il était à bord. Le Siam et Java ont pu être visités par de plus petites escadres avant que la flotte ne se rassemble à Malacca. L’ordre entre Aru, Semudera et Lambri est ici tracé d’après la géographie. Fei Xin raconte une escale à Pulau Sembilan, dans le détroit de Malacca, en 1409, mais Wikipédia relie ce lieu aux îles Similan, dans la mer d’Andaman ; il n’est donc pas tracé."
+          "fr": "Le départ est indiqué comme la cinquième année de Yongle, soit fin 1407 ou peut-être début 1408. La World History Encyclopedia date le voyage de 1408 et écrit que la flotte régla un conflit à Java sur le chemin du retour en 1408, tandis que Wikipédia dit que le retour eut lieu à l’été 1409. La présence de Zheng He lui-même est également discutée : Duyvendak (1938) et Mills (1970) estiment qu’il resta en Chine, Dreyer (2007) qu’il était à bord. Le Siam et Java ont pu être visités par de plus petites escadres avant que la flotte ne se rassemble à Malacca. L’ordre entre Aru, Semudera et Lambri est ici tracé d’après la géographie. Fei Xin raconte une escale à Pulau Sembilan, dans le détroit de Malacca, en 1409, mais Wikipédia relie ce lieu aux îles Similan, dans la mer d’Andaman ; il n’est donc pas tracé.",
+          "es": "La salida se indica como el quinto año de Yongle, es decir, finales de 1407 o quizá comienzos de 1408. La World History Encyclopedia fecha el viaje en 1408 y escribe que la flota resolvió un conflicto en Java en el regreso de 1408, mientras que Wikipedia dice que la vuelta fue en el verano de 1409. También se discute si Zheng He iba en persona: Duyvendak (1938) y Mills (1970) creen que se quedó en China, y Dreyer (2007), que fue a bordo. Siam y Java pudieron ser visitados por escuadras más pequeñas antes de que la flota se reuniera en Malaca. El orden entre Aru, Semudera y Lambri se dibuja aquí según la geografía. Fei Xin cuenta una escala en Pulau Sembilan, en el estrecho de Malaca, en 1409, pero Wikipedia enlaza el lugar con las islas Similan, en el mar de Andamán, por lo que no está dibujado."
         }
       },
       "sources": ["wp-ming-treasure-voyages", "whe-seven-voyages-zheng-he"],
@@ -265,7 +289,8 @@
                 "sv": "Nanjing",
                 "en": "Nanjing",
                 "de": "Nanjing",
-                "fr": "Nankin"
+                "fr": "Nankin",
+                "es": "Nankín"
               },
               "edtf": "1407?"
             },
@@ -275,7 +300,8 @@
                 "sv": "Liujiagang",
                 "en": "Liujiagang",
                 "de": "Liujiagang",
-                "fr": "Liujiagang"
+                "fr": "Liujiagang",
+                "es": "Liujiagang"
               }
             },
             {
@@ -284,7 +310,8 @@
                 "sv": "Changle",
                 "en": "Changle",
                 "de": "Changle",
-                "fr": "Changle"
+                "fr": "Changle",
+                "es": "Changle"
               }
             }
           ],
@@ -302,7 +329,8 @@
                 "sv": "Champa",
                 "en": "Champa",
                 "de": "Champa",
-                "fr": "Champa"
+                "fr": "Champa",
+                "es": "Champa"
               }
             },
             {
@@ -311,7 +339,8 @@
                 "sv": "Siam",
                 "en": "Siam",
                 "de": "Siam",
-                "fr": "Siam"
+                "fr": "Siam",
+                "es": "Siam"
               }
             },
             {
@@ -320,7 +349,8 @@
                 "sv": "Java",
                 "en": "Java",
                 "de": "Java",
-                "fr": "Java"
+                "fr": "Java",
+                "es": "Java"
               }
             },
             {
@@ -329,7 +359,8 @@
                 "sv": "Malacka",
                 "en": "Malacca",
                 "de": "Malakka",
-                "fr": "Malacca"
+                "fr": "Malacca",
+                "es": "Malaca"
               }
             },
             {
@@ -338,7 +369,8 @@
                 "sv": "Aru",
                 "en": "Aru",
                 "de": "Aru",
-                "fr": "Aru"
+                "fr": "Aru",
+                "es": "Aru"
               }
             },
             {
@@ -347,7 +379,8 @@
                 "sv": "Semudera",
                 "en": "Semudera",
                 "de": "Semudera",
-                "fr": "Semudera"
+                "fr": "Semudera",
+                "es": "Semudera"
               }
             },
             {
@@ -356,7 +389,8 @@
                 "sv": "Lambri",
                 "en": "Lambri",
                 "de": "Lambri",
-                "fr": "Lambri"
+                "fr": "Lambri",
+                "es": "Lambri"
               }
             },
             {
@@ -365,7 +399,8 @@
                 "sv": "Quilon",
                 "en": "Quilon",
                 "de": "Quilon",
-                "fr": "Quilon"
+                "fr": "Quilon",
+                "es": "Quilon"
               }
             },
             {
@@ -374,7 +409,8 @@
                 "sv": "Cochin",
                 "en": "Cochin",
                 "de": "Cochin",
-                "fr": "Cochin"
+                "fr": "Cochin",
+                "es": "Cochín"
               }
             },
             {
@@ -383,7 +419,8 @@
                 "sv": "Calicut (kungen insätts)",
                 "en": "Calicut (the king is installed)",
                 "de": "Calicut (der König wird eingesetzt)",
-                "fr": "Calicut (le roi est intronisé)"
+                "fr": "Calicut (le roi est intronisé)",
+                "es": "Calicut (el rey es investido)"
               }
             }
           ],
@@ -402,7 +439,8 @@
                 "sv": "Nanjing",
                 "en": "Nanjing",
                 "de": "Nanjing",
-                "fr": "Nankin"
+                "fr": "Nankin",
+                "es": "Nankín"
               },
               "edtf": "1409-22"
             }
@@ -419,13 +457,15 @@
         "sv": "Zheng Hes tredje resa",
         "en": "Zheng He's third voyage",
         "de": "Zheng Hes dritte Reise",
-        "fr": "Troisième voyage de Zheng He"
+        "fr": "Troisième voyage de Zheng He",
+        "es": "Tercer viaje de Zheng He"
       },
       "summary": {
         "sv": "Flottan lämnar Liujiagang hösten 1409, väntar vid Changle och seglar ut i januari 1410. På tio dagar når den Champa och fortsätter via Java, Malacka och Semudera till Ceylon, där den lägger till vid Galle 1410, och vidare till Quilon, Cochin och Calicut. På Ceylon kommer det till strid: kung Alakeshvara av Kotte lockar in Zheng He och 2 000 soldater i landet, men kineserna intar huvudstaden och tar kungen till fånga. Zheng He är tillbaka i Nanjing den 6 juli 1411 med fångarna, som kejsaren senare släpper.",
         "en": "The fleet leaves Liujiagang in autumn 1409, waits at Changle and sails out in January 1410. It reaches Champa within ten days and continues via Java, Malacca and Semudera to Ceylon, where it calls at Galle in 1410, and on to Quilon, Cochin and Calicut. In Ceylon it comes to a fight: King Alakeshvara of Kotte lures Zheng He and 2,000 soldiers inland, but the Chinese take his capital and capture him. Zheng He is back in Nanjing on 6 July 1411 with the captives, whom the emperor later releases.",
         "de": "Die Flotte verlässt Liujiagang im Herbst 1409, wartet bei Changle und segelt im Januar 1410 aus. In zehn Tagen erreicht sie Champa und fährt weiter über Java, Malakka und Semudera nach Ceylon, wo sie 1410 bei Galle anlegt, und weiter nach Quilon, Cochin und Calicut. Auf Ceylon kommt es zum Kampf: König Alakeshvara von Kotte lockt Zheng He und 2 000 Soldaten ins Landesinnere, aber die Chinesen nehmen die Hauptstadt ein und nehmen den König gefangen. Zheng He ist am 6. Juli 1411 mit den Gefangenen zurück in Nanjing, die der Kaiser später freilässt.",
-        "fr": "La flotte quitte Liujiagang à l’automne 1409, attend à Changle et prend la mer en janvier 1410. En dix jours, elle atteint le Champa et continue par Java, Malacca et Semudera jusqu’à Ceylan, où elle fait escale à Galle en 1410, puis jusqu’à Quilon, Cochin et Calicut. À Ceylan, il y a combat : le roi Alakeshvara de Kotte attire Zheng He et 2 000 soldats à l’intérieur du pays, mais les Chinois prennent la capitale et font le roi prisonnier. Zheng He est de retour à Nankin le 6 juillet 1411 avec les prisonniers, que l’empereur libère plus tard."
+        "fr": "La flotte quitte Liujiagang à l’automne 1409, attend à Changle et prend la mer en janvier 1410. En dix jours, elle atteint le Champa et continue par Java, Malacca et Semudera jusqu’à Ceylan, où elle fait escale à Galle en 1410, puis jusqu’à Quilon, Cochin et Calicut. À Ceylan, il y a combat : le roi Alakeshvara de Kotte attire Zheng He et 2 000 soldats à l’intérieur du pays, mais les Chinois prennent la capitale et font le roi prisonnier. Zheng He est de retour à Nankin le 6 juillet 1411 avec les prisonniers, que l’empereur libère plus tard.",
+        "es": "La flota sale de Liujiagang en el otoño de 1409, espera en Changle y se hace a la mar en enero de 1410. En diez días llega a Champa y continúa por Java, Malaca y Semudera hasta Ceilán, donde hace escala en Galle en 1410, y después hasta Quilon, Cochín y Calicut. En Ceilán hay lucha: el rey Alakeshvara de Kotte atrae a Zheng He y a 2000 soldados al interior del país, pero los chinos toman la capital y hacen prisionero al rey. Zheng He está de vuelta en Nankín el 6 de julio de 1411 con los prisioneros, a los que el emperador libera más tarde."
       },
       "start": 1409,
       "end": 1411,
@@ -436,13 +476,15 @@
           "sv": "Källorna skiljer sig",
           "en": "The sources differ",
           "de": "Die Quellen unterscheiden sich",
-          "fr": "Les sources divergent"
+          "fr": "Les sources divergent",
+          "es": "Las fuentes no coinciden"
         },
         "text": {
           "sv": "De flesta forskare placerar striden på Ceylon på hemresan 1411, men Dreyer (2007) tror att den skedde på utresan 1410. De kinesiska källorna säger inte när under resan den inträffade. World History Encyclopedia daterar resan till 1409 men anger inget hemkomstår.",
           "en": "Most scholars place the battle on Ceylon on the return journey in 1411, but Dreyer (2007) believes that it took place on the outward journey in 1410. The Chinese sources do not say when during the voyage it occurred. World History Encyclopedia dates the voyage to 1409 but gives no year of return.",
           "de": "Die meisten Forscher setzen den Kampf auf Ceylon auf die Heimreise 1411, aber Dreyer (2007) glaubt, er habe auf der Hinreise 1410 stattgefunden. Die chinesischen Quellen sagen nicht, wann auf der Reise er sich ereignete. Die World History Encyclopedia datiert die Reise auf 1409, nennt aber kein Jahr der Heimkehr.",
-          "fr": "La plupart des chercheurs placent le combat de Ceylan sur le chemin du retour en 1411, mais Dreyer (2007) pense qu’il eut lieu à l’aller en 1410. Les sources chinoises ne disent pas à quel moment du voyage il se produisit. La World History Encyclopedia date le voyage de 1409 mais n’indique pas d’année de retour."
+          "fr": "La plupart des chercheurs placent le combat de Ceylan sur le chemin du retour en 1411, mais Dreyer (2007) pense qu’il eut lieu à l’aller en 1410. Les sources chinoises ne disent pas à quel moment du voyage il se produisit. La World History Encyclopedia date le voyage de 1409 mais n’indique pas d’année de retour.",
+          "es": "La mayoría de los investigadores sitúan la lucha de Ceilán en el viaje de regreso de 1411, pero Dreyer (2007) cree que ocurrió a la ida, en 1410. Las fuentes chinas no dicen en qué momento del viaje sucedió. La World History Encyclopedia fecha el viaje en 1409, pero no indica el año de regreso."
         }
       },
       "sources": ["wp-ming-treasure-voyages", "whe-seven-voyages-zheng-he"],
@@ -461,7 +503,8 @@
                 "sv": "Nanjing",
                 "en": "Nanjing",
                 "de": "Nanjing",
-                "fr": "Nankin"
+                "fr": "Nankin",
+                "es": "Nankín"
               },
               "edtf": "1409"
             },
@@ -471,7 +514,8 @@
                 "sv": "Liujiagang",
                 "en": "Liujiagang",
                 "de": "Liujiagang",
-                "fr": "Liujiagang"
+                "fr": "Liujiagang",
+                "es": "Liujiagang"
               },
               "edtf": "1409-10/1409-11"
             },
@@ -481,7 +525,8 @@
                 "sv": "Changle",
                 "en": "Changle",
                 "de": "Changle",
-                "fr": "Changle"
+                "fr": "Changle",
+                "es": "Changle"
               },
               "edtf": "1409-11/1410-01"
             }
@@ -501,7 +546,8 @@
                 "sv": "Champa (inom tio dagar)",
                 "en": "Champa (within ten days)",
                 "de": "Champa (innerhalb von zehn Tagen)",
-                "fr": "Champa (en dix jours)"
+                "fr": "Champa (en dix jours)",
+                "es": "Champa (en diez días)"
               },
               "edtf": "1410-01/1410-02"
             }
@@ -521,7 +567,8 @@
                 "sv": "Java",
                 "en": "Java",
                 "de": "Java",
-                "fr": "Java"
+                "fr": "Java",
+                "es": "Java"
               }
             },
             {
@@ -530,7 +577,8 @@
                 "sv": "Malacka",
                 "en": "Malacca",
                 "de": "Malakka",
-                "fr": "Malacca"
+                "fr": "Malacca",
+                "es": "Malaca"
               }
             },
             {
@@ -539,7 +587,8 @@
                 "sv": "Semudera",
                 "en": "Semudera",
                 "de": "Semudera",
-                "fr": "Semudera"
+                "fr": "Semudera",
+                "es": "Semudera"
               }
             },
             {
@@ -548,7 +597,8 @@
                 "sv": "Galle, Ceylon",
                 "en": "Galle, Ceylon",
                 "de": "Galle, Ceylon",
-                "fr": "Galle, Ceylan"
+                "fr": "Galle, Ceylan",
+                "es": "Galle, Ceilán"
               },
               "edtf": "1410"
             },
@@ -558,7 +608,8 @@
                 "sv": "Quilon",
                 "en": "Quilon",
                 "de": "Quilon",
-                "fr": "Quilon"
+                "fr": "Quilon",
+                "es": "Quilon"
               }
             },
             {
@@ -567,7 +618,8 @@
                 "sv": "Cochin",
                 "en": "Cochin",
                 "de": "Cochin",
-                "fr": "Cochin"
+                "fr": "Cochin",
+                "es": "Cochín"
               }
             },
             {
@@ -576,7 +628,8 @@
                 "sv": "Calicut",
                 "en": "Calicut",
                 "de": "Calicut",
-                "fr": "Calicut"
+                "fr": "Calicut",
+                "es": "Calicut"
               }
             }
           ],
@@ -595,7 +648,8 @@
                 "sv": "Kotte, Ceylon (striden mot Alakeshvara)",
                 "en": "Kotte, Ceylon (the battle against Alakeshvara)",
                 "de": "Kotte, Ceylon (Kampf gegen Alakeshvara)",
-                "fr": "Kotte, Ceylan (le combat contre Alakeshvara)"
+                "fr": "Kotte, Ceylan (le combat contre Alakeshvara)",
+                "es": "Kotte, Ceilán (la lucha contra Alakeshvara)"
               },
               "edtf": "1411?"
             },
@@ -605,7 +659,8 @@
                 "sv": "Nanjing",
                 "en": "Nanjing",
                 "de": "Nanjing",
-                "fr": "Nankin"
+                "fr": "Nankin",
+                "es": "Nankín"
               },
               "date": "1411-07-06"
             }
@@ -622,13 +677,15 @@
         "sv": "Zheng Hes fjärde resa",
         "en": "Zheng He's fourth voyage",
         "de": "Zheng Hes vierte Reise",
-        "fr": "Quatrième voyage de Zheng He"
+        "fr": "Quatrième voyage de Zheng He",
+        "es": "Cuarto viaje de Zheng He"
       },
       "summary": {
         "sv": "Den fjärde resan går för första gången förbi Calicut. Flottan lämnar Nanjing 1413 och Fujian vid årsskiftet 1413–1414, och seglar via Champa, Kelantan, Pahang, Malacka, Palembang, Java och norra Sumatra till Ceylon, Cochin och Calicut, och vidare över Maldiverna och Lackadiverna till Hormuz vid Persiska viken. Tolken Ma Huan är med för första gången. På hemvägen 1415 slår Zheng Hes trupper ner usurpatorn Sekandar i Semudera och tar honom till fånga i Lambri. Flottan är tillbaka i Nanjing den 12 augusti 1415.",
         "en": "The fourth voyage is the first to go beyond Calicut. The fleet leaves Nanjing in 1413 and Fujian around the turn of 1413–1414, and sails via Champa, Kelantan, Pahang, Malacca, Palembang, Java and northern Sumatra to Ceylon, Cochin and Calicut, then on past the Maldives and Laccadives to Hormuz on the Persian Gulf. The interpreter Ma Huan joins for the first time. On the way home in 1415, Zheng He's troops defeat the usurper Sekandar in Semudera and capture him at Lambri. The fleet is back in Nanjing on 12 August 1415.",
         "de": "Die vierte Reise führt zum ersten Mal an Calicut vorbei. Die Flotte verlässt Nanjing 1413 und Fujian um die Jahreswende 1413–1414 und segelt über Champa, Kelantan, Pahang, Malakka, Palembang, Java und das nördliche Sumatra nach Ceylon, Cochin und Calicut und weiter über die Malediven und Lakkadiven nach Hormus am Persischen Golf. Der Dolmetscher Ma Huan ist zum ersten Mal dabei. Auf dem Heimweg 1415 schlagen Zheng Hes Truppen den Usurpator Sekandar in Semudera nieder und nehmen ihn in Lambri gefangen. Die Flotte ist am 12. August 1415 zurück in Nanjing.",
-        "fr": "Le quatrième voyage dépasse Calicut pour la première fois. La flotte quitte Nankin en 1413 et le Fujian au tournant de 1413–1414, et navigue par le Champa, le Kelantan, Pahang, Malacca, Palembang, Java et le nord de Sumatra jusqu’à Ceylan, Cochin et Calicut, puis par les Maldives et les Laquedives jusqu’à Ormuz, sur le golfe Persique. L’interprète Ma Huan participe pour la première fois. Sur le chemin du retour, en 1415, les troupes de Zheng He écrasent l’usurpateur Sekandar à Semudera et le font prisonnier à Lambri. La flotte est de retour à Nankin le 12 août 1415."
+        "fr": "Le quatrième voyage dépasse Calicut pour la première fois. La flotte quitte Nankin en 1413 et le Fujian au tournant de 1413–1414, et navigue par le Champa, le Kelantan, Pahang, Malacca, Palembang, Java et le nord de Sumatra jusqu’à Ceylan, Cochin et Calicut, puis par les Maldives et les Laquedives jusqu’à Ormuz, sur le golfe Persique. L’interprète Ma Huan participe pour la première fois. Sur le chemin du retour, en 1415, les troupes de Zheng He écrasent l’usurpateur Sekandar à Semudera et le font prisonnier à Lambri. La flotte est de retour à Nankin le 12 août 1415.",
+        "es": "El cuarto viaje va por primera vez más allá de Calicut. La flota sale de Nankín en 1413 y de Fujian a caballo entre 1413 y 1414, y navega por Champa, Kelantan, Pahang, Malaca, Palembang, Java y el norte de Sumatra hasta Ceilán, Cochín y Calicut, y después por las Maldivas y las Laquedivas hasta Ormuz, en el golfo Pérsico. El intérprete Ma Huan participa por primera vez. En el regreso, en 1415, las tropas de Zheng He derrotan al usurpador Sekandar en Semudera y lo hacen prisionero en Lambri. La flota está de vuelta en Nankín el 12 de agosto de 1415."
       },
       "start": 1413,
       "end": 1415,
@@ -639,13 +696,15 @@
           "sv": "Källorna skiljer sig",
           "en": "The sources differ",
           "de": "Die Quellen unterscheiden sich",
-          "fr": "Les sources divergent"
+          "fr": "Les sources divergent",
+          "es": "Las fuentes no coinciden"
         },
         "text": {
           "sv": "Enligt Wikipedia (efter Mingkrönikorna och Dreyer 2007) var Hormuz resans mål längst bort. World History Encyclopedia skriver att flottan dessutom seglade till Aden och upp i Röda havet till Jidda, varifrån en grupp reste till Mecka. Wikipedia nämner Aden först på den femte resan och Mecka på den sjunde. Källan räknar Sumatras hamnar i ordningen Lambri, Lide, Aru och Semudera; här är de ritade efter geografin, och Lide är inte utritad eftersom platsen inte är identifierad i källan. Jiayile, Bila och Sunla är inte heller utritade.",
           "en": "According to Wikipedia (following the Ming chronicles and Dreyer 2007) Hormuz was the voyage's farthest destination. World History Encyclopedia writes that the fleet also sailed to Aden and up the Red Sea to Jeddah, from where a group travelled to Mecca. Wikipedia mentions Aden only on the fifth voyage and Mecca on the seventh. The source lists the ports of Sumatra in the order Lambri, Lide, Aru and Semudera; here they are drawn according to geography, and Lide is not drawn because the place is not identified in the source. Jiayile, Bila and Sunla are not drawn either.",
           "de": "Laut Wikipedia (nach den Ming-Chroniken und Dreyer 2007) war Hormus das am weitesten entfernte Ziel der Reise. Die World History Encyclopedia schreibt, die Flotte sei außerdem nach Aden und das Rote Meer hinauf nach Dschidda gesegelt, von wo aus eine Gruppe nach Mekka reiste. Wikipedia nennt Aden erst bei der fünften Reise und Mekka bei der siebten. Die Quelle zählt die Häfen Sumatras in der Reihenfolge Lambri, Lide, Aru und Semudera auf; hier sind sie nach der Geografie gezeichnet, und Lide ist nicht eingezeichnet, weil der Ort in der Quelle nicht identifiziert ist. Jiayile, Bila und Sunla sind ebenfalls nicht eingezeichnet.",
-          "fr": "Selon Wikipédia (d’après les Annales des Ming et Dreyer 2007), Ormuz fut la destination la plus lointaine du voyage. La World History Encyclopedia écrit que la flotte navigua en outre jusqu’à Aden et remonta la mer Rouge jusqu’à Djeddah, d’où un groupe se rendit à La Mecque. Wikipédia ne mentionne Aden qu’au cinquième voyage et La Mecque au septième. La source énumère les ports de Sumatra dans l’ordre Lambri, Lide, Aru et Semudera ; ils sont ici tracés d’après la géographie, et Lide n’est pas tracé, car le lieu n’est pas identifié dans la source. Jiayile, Bila et Sunla ne sont pas tracés non plus."
+          "fr": "Selon Wikipédia (d’après les Annales des Ming et Dreyer 2007), Ormuz fut la destination la plus lointaine du voyage. La World History Encyclopedia écrit que la flotte navigua en outre jusqu’à Aden et remonta la mer Rouge jusqu’à Djeddah, d’où un groupe se rendit à La Mecque. Wikipédia ne mentionne Aden qu’au cinquième voyage et La Mecque au septième. La source énumère les ports de Sumatra dans l’ordre Lambri, Lide, Aru et Semudera ; ils sont ici tracés d’après la géographie, et Lide n’est pas tracé, car le lieu n’est pas identifié dans la source. Jiayile, Bila et Sunla ne sont pas tracés non plus.",
+          "es": "Según Wikipedia (siguiendo las crónicas Ming y a Dreyer 2007), Ormuz fue el destino más lejano del viaje. La World History Encyclopedia escribe que la flota navegó además hasta Adén y subió por el mar Rojo hasta Yeda, desde donde un grupo viajó a La Meca. Wikipedia no menciona Adén hasta el quinto viaje y La Meca hasta el séptimo. La fuente enumera los puertos de Sumatra en el orden Lambri, Lide, Aru y Semudera; aquí están dibujados según la geografía, y Lide no está dibujado porque el lugar no se identifica en la fuente. Tampoco están dibujados Jiayile, Bila y Sunla."
         }
       },
       "sources": ["wp-ming-treasure-voyages", "whe-seven-voyages-zheng-he"],
@@ -664,7 +723,8 @@
                 "sv": "Nanjing",
                 "en": "Nanjing",
                 "de": "Nanjing",
-                "fr": "Nankin"
+                "fr": "Nankin",
+                "es": "Nankín"
               },
               "edtf": "1413-23?"
             },
@@ -674,7 +734,8 @@
                 "sv": "Fujian (avresa)",
                 "en": "Fujian (departure)",
                 "de": "Fujian (Abreise)",
-                "fr": "Fujian (départ)"
+                "fr": "Fujian (départ)",
+                "es": "Fujian (salida)"
               },
               "edtf": "1413-12/1414-01"
             }
@@ -694,7 +755,8 @@
                 "sv": "Champa",
                 "en": "Champa",
                 "de": "Champa",
-                "fr": "Champa"
+                "fr": "Champa",
+                "es": "Champa"
               }
             },
             {
@@ -703,7 +765,8 @@
                 "sv": "Kelantan",
                 "en": "Kelantan",
                 "de": "Kelantan",
-                "fr": "Kelantan"
+                "fr": "Kelantan",
+                "es": "Kelantan"
               }
             },
             {
@@ -712,7 +775,8 @@
                 "sv": "Pahang",
                 "en": "Pahang",
                 "de": "Pahang",
-                "fr": "Pahang"
+                "fr": "Pahang",
+                "es": "Pahang"
               }
             },
             {
@@ -721,7 +785,8 @@
                 "sv": "Malacka",
                 "en": "Malacca",
                 "de": "Malakka",
-                "fr": "Malacca"
+                "fr": "Malacca",
+                "es": "Malaca"
               }
             },
             {
@@ -730,7 +795,8 @@
                 "sv": "Palembang",
                 "en": "Palembang",
                 "de": "Palembang",
-                "fr": "Palembang"
+                "fr": "Palembang",
+                "es": "Palembang"
               }
             },
             {
@@ -739,7 +805,8 @@
                 "sv": "Java",
                 "en": "Java",
                 "de": "Java",
-                "fr": "Java"
+                "fr": "Java",
+                "es": "Java"
               }
             },
             {
@@ -748,7 +815,8 @@
                 "sv": "Aru",
                 "en": "Aru",
                 "de": "Aru",
-                "fr": "Aru"
+                "fr": "Aru",
+                "es": "Aru"
               }
             },
             {
@@ -757,7 +825,8 @@
                 "sv": "Semudera",
                 "en": "Semudera",
                 "de": "Semudera",
-                "fr": "Semudera"
+                "fr": "Semudera",
+                "es": "Semudera"
               }
             },
             {
@@ -766,7 +835,8 @@
                 "sv": "Lambri",
                 "en": "Lambri",
                 "de": "Lambri",
-                "fr": "Lambri"
+                "fr": "Lambri",
+                "es": "Lambri"
               }
             },
             {
@@ -775,7 +845,8 @@
                 "sv": "Ceylon",
                 "en": "Ceylon",
                 "de": "Ceylon",
-                "fr": "Ceylan"
+                "fr": "Ceylan",
+                "es": "Ceilán"
               }
             },
             {
@@ -784,7 +855,8 @@
                 "sv": "Cochin",
                 "en": "Cochin",
                 "de": "Cochin",
-                "fr": "Cochin"
+                "fr": "Cochin",
+                "es": "Cochín"
               }
             },
             {
@@ -793,7 +865,8 @@
                 "sv": "Calicut",
                 "en": "Calicut",
                 "de": "Calicut",
-                "fr": "Calicut"
+                "fr": "Calicut",
+                "es": "Calicut"
               }
             }
           ],
@@ -812,7 +885,8 @@
                 "sv": "Liushan (Maldiverna och Lackadiverna)",
                 "en": "Liushan (the Maldives and Laccadives)",
                 "de": "Liushan (Malediven und Lakkadiven)",
-                "fr": "Liushan (Maldives et Laquedives)"
+                "fr": "Liushan (Maldives et Laquedives)",
+                "es": "Liushan (Maldivas y Laquedivas)"
               }
             },
             {
@@ -821,7 +895,8 @@
                 "sv": "Hormuz",
                 "en": "Hormuz",
                 "de": "Hormus",
-                "fr": "Ormuz"
+                "fr": "Ormuz",
+                "es": "Ormuz"
               }
             }
           ],
@@ -840,7 +915,8 @@
                 "sv": "Lambri (Sekandar tas till fånga)",
                 "en": "Lambri (Sekandar is taken prisoner)",
                 "de": "Lambri (Sekandar wird gefangen genommen)",
-                "fr": "Lambri (Sekandar est fait prisonnier)"
+                "fr": "Lambri (Sekandar est fait prisonnier)",
+                "es": "Lambri (Sekandar es capturado)"
               },
               "edtf": "1415"
             },
@@ -850,7 +926,8 @@
                 "sv": "Semudera (strid mot Sekandar)",
                 "en": "Semudera (battle against Sekandar)",
                 "de": "Semudera (Kampf gegen Sekandar)",
-                "fr": "Semudera (le combat contre Sekandar)"
+                "fr": "Semudera (le combat contre Sekandar)",
+                "es": "Semudera (lucha contra Sekandar)"
               },
               "edtf": "1415"
             },
@@ -860,7 +937,8 @@
                 "sv": "Nanjing",
                 "en": "Nanjing",
                 "de": "Nanjing",
-                "fr": "Nankin"
+                "fr": "Nankin",
+                "es": "Nankín"
               },
               "date": "1415-08-12"
             }
@@ -877,13 +955,15 @@
         "sv": "Zheng Hes femte resa",
         "en": "Zheng He's fifth voyage",
         "de": "Zheng Hes fünfte Reise",
-        "fr": "Cinquième voyage de Zheng He"
+        "fr": "Cinquième voyage de Zheng He",
+        "es": "Quinto viaje de Zheng He"
       },
       "summary": {
         "sv": "Den femte resan ska föra hem sändebud från arton länder. Zheng He lastar porslin och andra varor i Quanzhou, där han offrar rökelse den 31 maj 1417, och lämnar kanske kusten hösten 1417. Flottan besöker bland annat Champa, Pahang, Java, Palembang, Malacka, Semudera, Lambri, Ceylon, Cochin och Calicut, och sedan Hormuz, Aden och Östafrikas kust: Mogadishu, Brava och Malindi. Kinesiska skepp når Adens kust i januari 1419. Flottan är tillbaka i Kina den 8 augusti 1419 med sändebud som har lejon, leoparder, strutsar, zebror och giraffer med sig.",
         "en": "The fifth voyage is to take home envoys from eighteen countries. Zheng He loads porcelain and other goods at Quanzhou, where he burns incense on 31 May 1417, and may have left the coast in autumn 1417. The fleet visits Champa, Pahang, Java, Palembang, Malacca, Semudera, Lambri, Ceylon, Cochin and Calicut, then Hormuz, Aden and the East African coast: Mogadishu, Brava and Malindi. Chinese ships reach the coast of Aden in January 1419. The fleet is back in China on 8 August 1419 with envoys bringing lions, leopards, ostriches, zebras and giraffes.",
         "de": "Die fünfte Reise soll Gesandte aus achtzehn Ländern heimbringen. Zheng He lädt in Quanzhou Porzellan und andere Waren, wo er am 31. Mai 1417 Weihrauch opfert, und verlässt die Küste vielleicht im Herbst 1417. Die Flotte besucht unter anderem Champa, Pahang, Java, Palembang, Malakka, Semudera, Lambri, Ceylon, Cochin und Calicut und danach Hormus, Aden und die Küste Ostafrikas: Mogadischu, Brava und Malindi. Chinesische Schiffe erreichen im Januar 1419 die Küste von Aden. Die Flotte ist am 8. August 1419 zurück in China, mit Gesandten, die Löwen, Leoparden, Strauße, Zebras und Giraffen mitbringen.",
-        "fr": "Le cinquième voyage doit ramener chez eux des envoyés de dix-huit pays. Zheng He charge de la porcelaine et d’autres marchandises à Quanzhou, où il fait une offrande d’encens le 31 mai 1417, et quitte peut-être la côte à l’automne 1417. La flotte visite notamment le Champa, Pahang, Java, Palembang, Malacca, Semudera, Lambri, Ceylan, Cochin et Calicut, puis Ormuz, Aden et la côte de l’Afrique de l’Est : Mogadiscio, Brava et Malindi. Des navires chinois atteignent la côte d’Aden en janvier 1419. La flotte est de retour en Chine le 8 août 1419 avec des envoyés accompagnés de lions, de léopards, d’autruches, de zèbres et de girafes."
+        "fr": "Le cinquième voyage doit ramener chez eux des envoyés de dix-huit pays. Zheng He charge de la porcelaine et d’autres marchandises à Quanzhou, où il fait une offrande d’encens le 31 mai 1417, et quitte peut-être la côte à l’automne 1417. La flotte visite notamment le Champa, Pahang, Java, Palembang, Malacca, Semudera, Lambri, Ceylan, Cochin et Calicut, puis Ormuz, Aden et la côte de l’Afrique de l’Est : Mogadiscio, Brava et Malindi. Des navires chinois atteignent la côte d’Aden en janvier 1419. La flotte est de retour en Chine le 8 août 1419 avec des envoyés accompagnés de lions, de léopards, d’autruches, de zèbres et de girafes.",
+        "es": "El quinto viaje debe llevar de vuelta a casa a enviados de dieciocho países. Zheng He carga porcelana y otras mercancías en Quanzhou, donde ofrece incienso el 31 de mayo de 1417, y quizá deja la costa en el otoño de 1417. La flota visita, entre otros lugares, Champa, Pahang, Java, Palembang, Malaca, Semudera, Lambri, Ceilán, Cochín y Calicut, y después Ormuz, Adén y la costa de África oriental: Mogadiscio, Brava y Malindi. Naves chinas llegan a la costa de Adén en enero de 1419. La flota está de vuelta en China el 8 de agosto de 1419 con enviados que traen leones, leopardos, avestruces, cebras y jirafas."
       },
       "start": 1417,
       "end": 1419,
@@ -894,13 +974,15 @@
           "sv": "Källorna skiljer sig",
           "en": "The sources differ",
           "de": "Die Quellen unterscheiden sich",
-          "fr": "Les sources divergent"
+          "fr": "Les sources divergent",
+          "es": "Las fuentes no coinciden"
         },
         "text": {
           "sv": "Ordningen Hormuz, Lasa, Aden, Mogadishu, Brava, Zhubu och Malindi är den troligaste enligt Wikipedia, inte säker. Lasa och Zhubu är inte utritade eftersom platserna inte är identifierade i källan, och Shaliwanni (kanske Cannanore) inte heller. World History Encyclopedia skriver om resorna fem till sju tillsammans och nämner Mogadishu, Malindi och Mombasa, och att flottan nådde Zanzibar; Mombasa och Zanzibar finns inte med i Wikipedias lista. Källan säger bara att flottan kom tillbaka till Kina, inte till vilken hamn.",
           "en": "The order Hormuz, Lasa, Aden, Mogadishu, Brava, Zhubu and Malindi is the most likely according to Wikipedia, not certain. Lasa and Zhubu are not drawn because the places are not identified in the source, nor is Shaliwanni (perhaps Cannanore). World History Encyclopedia writes about voyages five to seven together and mentions Mogadishu, Malindi and Mombasa, and that the fleet reached Zanzibar; Mombasa and Zanzibar are not in Wikipedia's list. The source says only that the fleet came back to China, not to which port.",
           "de": "Die Reihenfolge Hormus, Lasa, Aden, Mogadischu, Brava, Zhubu und Malindi ist laut Wikipedia die wahrscheinlichste, nicht sicher. Lasa und Zhubu sind nicht eingezeichnet, weil die Orte in der Quelle nicht identifiziert sind, ebenso wenig Shaliwanni (vielleicht Cannanore). Die World History Encyclopedia schreibt über die Reisen fünf bis sieben zusammen und nennt Mogadischu, Malindi und Mombasa sowie dass die Flotte Sansibar erreichte; Mombasa und Sansibar stehen nicht in der Liste von Wikipedia. Die Quelle sagt nur, dass die Flotte nach China zurückkam, nicht in welchen Hafen.",
-          "fr": "L’ordre Ormuz, Lasa, Aden, Mogadiscio, Brava, Zhubu et Malindi est le plus probable selon Wikipédia, mais il n’est pas certain. Lasa et Zhubu ne sont pas tracés, car ces lieux ne sont pas identifiés dans la source, pas plus que Shaliwanni (peut-être Cannanore). La World History Encyclopedia traite ensemble des voyages cinq à sept et mentionne Mogadiscio, Malindi et Mombasa, ainsi que l’arrivée de la flotte à Zanzibar ; Mombasa et Zanzibar ne figurent pas dans la liste de Wikipédia. La source dit seulement que la flotte revint en Chine, pas dans quel port."
+          "fr": "L’ordre Ormuz, Lasa, Aden, Mogadiscio, Brava, Zhubu et Malindi est le plus probable selon Wikipédia, mais il n’est pas certain. Lasa et Zhubu ne sont pas tracés, car ces lieux ne sont pas identifiés dans la source, pas plus que Shaliwanni (peut-être Cannanore). La World History Encyclopedia traite ensemble des voyages cinq à sept et mentionne Mogadiscio, Malindi et Mombasa, ainsi que l’arrivée de la flotte à Zanzibar ; Mombasa et Zanzibar ne figurent pas dans la liste de Wikipédia. La source dit seulement que la flotte revint en Chine, pas dans quel port.",
+          "es": "El orden Ormuz, Lasa, Adén, Mogadiscio, Brava, Zhubu y Malindi es el más probable según Wikipedia, pero no es seguro. Lasa y Zhubu no están dibujados porque los lugares no se identifican en la fuente, y tampoco Shaliwanni (quizá Cannanore). La World History Encyclopedia trata juntos los viajes quinto a séptimo y menciona Mogadiscio, Malindi y Mombasa, y que la flota llegó a Zanzíbar; Mombasa y Zanzíbar no figuran en la lista de Wikipedia. La fuente solo dice que la flota volvió a China, no a qué puerto."
         }
       },
       "sources": ["wp-ming-treasure-voyages", "whe-seven-voyages-zheng-he"],
@@ -919,7 +1001,8 @@
                 "sv": "Quanzhou (rökelseoffer)",
                 "en": "Quanzhou (incense offering)",
                 "de": "Quanzhou (Weihrauchopfer)",
-                "fr": "Quanzhou (offrande d’encens)"
+                "fr": "Quanzhou (offrande d’encens)",
+                "es": "Quanzhou (ofrenda de incienso)"
               },
               "date": "1417-05-31"
             },
@@ -929,7 +1012,8 @@
                 "sv": "Champa",
                 "en": "Champa",
                 "de": "Champa",
-                "fr": "Champa"
+                "fr": "Champa",
+                "es": "Champa"
               }
             },
             {
@@ -938,7 +1022,8 @@
                 "sv": "Pahang",
                 "en": "Pahang",
                 "de": "Pahang",
-                "fr": "Pahang"
+                "fr": "Pahang",
+                "es": "Pahang"
               }
             },
             {
@@ -947,7 +1032,8 @@
                 "sv": "Java",
                 "en": "Java",
                 "de": "Java",
-                "fr": "Java"
+                "fr": "Java",
+                "es": "Java"
               }
             },
             {
@@ -956,7 +1042,8 @@
                 "sv": "Palembang",
                 "en": "Palembang",
                 "de": "Palembang",
-                "fr": "Palembang"
+                "fr": "Palembang",
+                "es": "Palembang"
               }
             },
             {
@@ -965,7 +1052,8 @@
                 "sv": "Malacka",
                 "en": "Malacca",
                 "de": "Malakka",
-                "fr": "Malacca"
+                "fr": "Malacca",
+                "es": "Malaca"
               }
             },
             {
@@ -974,7 +1062,8 @@
                 "sv": "Semudera",
                 "en": "Semudera",
                 "de": "Semudera",
-                "fr": "Semudera"
+                "fr": "Semudera",
+                "es": "Semudera"
               }
             },
             {
@@ -983,7 +1072,8 @@
                 "sv": "Lambri",
                 "en": "Lambri",
                 "de": "Lambri",
-                "fr": "Lambri"
+                "fr": "Lambri",
+                "es": "Lambri"
               }
             },
             {
@@ -992,7 +1082,8 @@
                 "sv": "Ceylon",
                 "en": "Ceylon",
                 "de": "Ceylon",
-                "fr": "Ceylan"
+                "fr": "Ceylan",
+                "es": "Ceilán"
               }
             },
             {
@@ -1001,7 +1092,8 @@
                 "sv": "Cochin",
                 "en": "Cochin",
                 "de": "Cochin",
-                "fr": "Cochin"
+                "fr": "Cochin",
+                "es": "Cochín"
               }
             },
             {
@@ -1010,7 +1102,8 @@
                 "sv": "Calicut",
                 "en": "Calicut",
                 "de": "Calicut",
-                "fr": "Calicut"
+                "fr": "Calicut",
+                "es": "Calicut"
               }
             }
           ],
@@ -1029,7 +1122,8 @@
                 "sv": "Liushan (Maldiverna och Lackadiverna)",
                 "en": "Liushan (the Maldives and Laccadives)",
                 "de": "Liushan (Malediven und Lakkadiven)",
-                "fr": "Liushan (Maldives et Laquedives)"
+                "fr": "Liushan (Maldives et Laquedives)",
+                "es": "Liushan (Maldivas y Laquedivas)"
               }
             },
             {
@@ -1038,7 +1132,8 @@
                 "sv": "Hormuz",
                 "en": "Hormuz",
                 "de": "Hormus",
-                "fr": "Ormuz"
+                "fr": "Ormuz",
+                "es": "Ormuz"
               }
             },
             {
@@ -1047,7 +1142,8 @@
                 "sv": "Aden",
                 "en": "Aden",
                 "de": "Aden",
-                "fr": "Aden"
+                "fr": "Aden",
+                "es": "Adén"
               },
               "edtf": "1419-01/1419-03"
             },
@@ -1057,7 +1153,8 @@
                 "sv": "Mogadishu",
                 "en": "Mogadishu",
                 "de": "Mogadischu",
-                "fr": "Mogadiscio"
+                "fr": "Mogadiscio",
+                "es": "Mogadiscio"
               }
             },
             {
@@ -1066,7 +1163,8 @@
                 "sv": "Brava",
                 "en": "Brava",
                 "de": "Brava",
-                "fr": "Brava"
+                "fr": "Brava",
+                "es": "Brava"
               }
             },
             {
@@ -1075,7 +1173,8 @@
                 "sv": "Malindi",
                 "en": "Malindi",
                 "de": "Malindi",
-                "fr": "Malindi"
+                "fr": "Malindi",
+                "es": "Malindi"
               }
             }
           ],
@@ -1094,7 +1193,8 @@
                 "sv": "Kina (källan anger inte hamnen; flottans bas var Nanjing)",
                 "en": "China (the source does not give the port; the fleet's base was Nanjing)",
                 "de": "China (die Quelle nennt den Hafen nicht; die Basis der Flotte war Nanjing)",
-                "fr": "Chine (la source n’indique pas le port ; la base de la flotte était Nankin)"
+                "fr": "Chine (la source n’indique pas le port ; la base de la flotte était Nankin)",
+                "es": "China (la fuente no indica el puerto; la base de la flota era Nankín)"
               },
               "date": "1419-08-08"
             }
@@ -1111,13 +1211,15 @@
         "sv": "Zheng Hes sjätte resa",
         "en": "Zheng He's sixth voyage",
         "de": "Zheng Hes sechste Reise",
-        "fr": "Sixième voyage de Zheng He"
+        "fr": "Sixième voyage de Zheng He",
+        "es": "Sexto viaje de Zheng He"
       },
       "summary": {
         "sv": "Den sjätte resan ska föra hem sändebud från sexton länder, och ordern ges den 3 mars 1421. Flottan seglar troligen först till Malacka och norra Sumatra och delar sig i Semudera i flera eskadrar. Alla fortsätter till Ceylon och södra Indien, och därifrån går eskadrar vidare till bland annat Maldiverna, Hormuz, Dhofar, Aden, Mogadishu och Brava. På hemvägen samlas de i Calicut och Semudera, och flottan är tillbaka den 3 september 1422. Samma år, 1421, beslutar kejsaren att resorna ska göra uppehåll.",
         "en": "The sixth voyage is to take home envoys from sixteen countries, and the order is issued on 3 March 1421. The fleet probably sails first to Malacca and northern Sumatra and splits into several squadrons at Semudera. All of them continue to Ceylon and southern India, from where squadrons go on to the Maldives, Hormuz, Dhofar, Aden, Mogadishu and Brava, among others. On the way home they regroup at Calicut and Semudera, and the fleet is back on 3 September 1422. In the same year, 1421, the emperor orders a pause in the voyages.",
         "de": "Die sechste Reise soll Gesandte aus sechzehn Ländern heimbringen, und der Befehl wird am 3. März 1421 gegeben. Die Flotte segelt wahrscheinlich zuerst nach Malakka und zum nördlichen Sumatra und teilt sich in Semudera in mehrere Geschwader. Alle fahren weiter nach Ceylon und Südindien, und von dort aus fahren Geschwader weiter unter anderem zu den Malediven, nach Hormus, Dhofar, Aden, Mogadischu und Brava. Auf dem Heimweg sammeln sie sich in Calicut und Semudera, und die Flotte ist am 3. September 1422 zurück. Im selben Jahr, 1421, beschließt der Kaiser, dass die Reisen pausieren sollen.",
-        "fr": "Le sixième voyage doit ramener chez eux des envoyés de seize pays, et l’ordre est donné le 3 mars 1421. La flotte navigue probablement d’abord vers Malacca et le nord de Sumatra et se divise à Semudera en plusieurs escadres. Toutes continuent vers Ceylan et le sud de l’Inde, et de là des escadres se rendent notamment aux Maldives, à Ormuz, au Dhofar, à Aden, à Mogadiscio et à Brava. Sur le chemin du retour, elles se rassemblent à Calicut et à Semudera, et la flotte est de retour le 3 septembre 1422. La même année, en 1421, l’empereur décide que les voyages seront suspendus."
+        "fr": "Le sixième voyage doit ramener chez eux des envoyés de seize pays, et l’ordre est donné le 3 mars 1421. La flotte navigue probablement d’abord vers Malacca et le nord de Sumatra et se divise à Semudera en plusieurs escadres. Toutes continuent vers Ceylan et le sud de l’Inde, et de là des escadres se rendent notamment aux Maldives, à Ormuz, au Dhofar, à Aden, à Mogadiscio et à Brava. Sur le chemin du retour, elles se rassemblent à Calicut et à Semudera, et la flotte est de retour le 3 septembre 1422. La même année, en 1421, l’empereur décide que les voyages seront suspendus.",
+        "es": "El sexto viaje debe llevar de vuelta a casa a enviados de dieciséis países, y la orden se da el 3 de marzo de 1421. La flota navega probablemente primero a Malaca y al norte de Sumatra y se divide en Semudera en varias escuadras. Todas continúan hasta Ceilán y el sur de la India, y desde allí algunas escuadras siguen, entre otros destinos, a las Maldivas, Ormuz, Dhofar, Adén, Mogadiscio y Brava. En el regreso se reúnen en Calicut y Semudera, y la flota está de vuelta el 3 de septiembre de 1422. Ese mismo año, 1421, el emperador decide que los viajes se suspendan."
       },
       "start": 1421,
       "end": 1422,
@@ -1128,13 +1230,15 @@
           "sv": "Källorna skiljer sig",
           "en": "The sources differ",
           "de": "Die Quellen unterscheiden sich",
-          "fr": "Les sources divergent"
+          "fr": "Les sources divergent",
+          "es": "Las fuentes no coinciden"
         },
         "text": {
           "sv": "Källan anger inte avresedagen eller hamnarna i Kina, och vilka eskadrar som for vart är bara delvis känt. Enligt Mingshi besökte Zheng He själv Ganbali i södra Indien; det är det enda av de tolv länderna väster om Sumatra som uttryckligen sägs ha fått besök av honom. Eskadern till Aden leddes troligen av Zhou Man. Några kinesiska skepp var kvar i Arabien: Rasulidsultanen tog emot en kinesisk delegation i Ta'izz i februari 1423. World History Encyclopedia skriver om resorna fem till sju tillsammans och nämner också Mombasa och Zanzibar, som inte finns med i Wikipedias lista.",
           "en": "The source does not give the day of departure or the ports in China, and which squadrons went where is only partly known. According to the Mingshi, Zheng He himself visited Ganbali in southern India; it is the only one of the twelve countries west of Sumatra that is expressly said to have been visited by him. The squadron to Aden was probably led by Zhou Man. Some Chinese ships remained in Arabia: the Rasulid sultan received a Chinese delegation in Ta'izz in February 1423. World History Encyclopedia writes about voyages five to seven together and also mentions Mombasa and Zanzibar, which are not in Wikipedia's list.",
           "de": "Die Quelle nennt weder den Abreisetag noch die Häfen in China, und welche Geschwader wohin fuhren, ist nur teilweise bekannt. Laut Mingshi besuchte Zheng He selbst Ganbali in Südindien; es ist das einzige der zwölf Länder westlich von Sumatra, von dem ausdrücklich gesagt wird, dass er es besucht hat. Das Geschwader nach Aden wurde wahrscheinlich von Zhou Man geleitet. Einige chinesische Schiffe blieben in Arabien: Der Rasulidensultan empfing im Februar 1423 in Ta'izz eine chinesische Delegation. Die World History Encyclopedia schreibt über die Reisen fünf bis sieben zusammen und nennt auch Mombasa und Sansibar, die nicht in der Liste von Wikipedia stehen.",
-          "fr": "La source n’indique ni la date de départ ni les ports en Chine, et l’on ne sait qu’en partie quelles escadres allèrent où. Selon le Mingshi, Zheng He visita lui-même Ganbali, dans le sud de l’Inde ; c’est le seul des douze pays situés à l’ouest de Sumatra dont il est dit expressément qu’il reçut sa visite. L’escadre envoyée à Aden était probablement dirigée par Zhou Man. Quelques navires chinois restèrent en Arabie : le sultan rasoulide reçut une délégation chinoise à Taëz en février 1423. La World History Encyclopedia traite ensemble des voyages cinq à sept et mentionne aussi Mombasa et Zanzibar, qui ne figurent pas dans la liste de Wikipédia."
+          "fr": "La source n’indique ni la date de départ ni les ports en Chine, et l’on ne sait qu’en partie quelles escadres allèrent où. Selon le Mingshi, Zheng He visita lui-même Ganbali, dans le sud de l’Inde ; c’est le seul des douze pays situés à l’ouest de Sumatra dont il est dit expressément qu’il reçut sa visite. L’escadre envoyée à Aden était probablement dirigée par Zhou Man. Quelques navires chinois restèrent en Arabie : le sultan rasoulide reçut une délégation chinoise à Taëz en février 1423. La World History Encyclopedia traite ensemble des voyages cinq à sept et mentionne aussi Mombasa et Zanzibar, qui ne figurent pas dans la liste de Wikipédia.",
+          "es": "La fuente no indica la fecha de salida ni los puertos de China, y qué escuadras fueron adónde solo se conoce en parte. Según el Mingshi, Zheng He visitó en persona Ganbali, en el sur de la India; es el único de los doce países situados al oeste de Sumatra del que se dice expresamente que recibió su visita. La escuadra a Adén la dirigía probablemente Zhou Man. Algunas naves chinas se quedaron en Arabia: el sultán rasúlida recibió a una delegación china en Taiz en febrero de 1423. La World History Encyclopedia trata juntos los viajes quinto a séptimo y menciona también Mombasa y Zanzíbar, que no figuran en la lista de Wikipedia."
         }
       },
       "sources": ["wp-ming-treasure-voyages", "whe-seven-voyages-zheng-he"],
@@ -1153,7 +1257,8 @@
                 "sv": "Nanjing (avresehamnen anges inte)",
                 "en": "Nanjing (the port of departure is not given)",
                 "de": "Nanjing (der Abreisehafen wird nicht genannt)",
-                "fr": "Nankin (le port de départ n’est pas indiqué)"
+                "fr": "Nankin (le port de départ n’est pas indiqué)",
+                "es": "Nankín (no se indica el puerto de salida)"
               },
               "edtf": "1421?"
             },
@@ -1163,7 +1268,8 @@
                 "sv": "Malacka",
                 "en": "Malacca",
                 "de": "Malakka",
-                "fr": "Malacca"
+                "fr": "Malacca",
+                "es": "Malaca"
               }
             },
             {
@@ -1172,7 +1278,8 @@
                 "sv": "Aru",
                 "en": "Aru",
                 "de": "Aru",
-                "fr": "Aru"
+                "fr": "Aru",
+                "es": "Aru"
               }
             },
             {
@@ -1181,7 +1288,8 @@
                 "sv": "Semudera (flottan delas i eskadrar)",
                 "en": "Semudera (the fleet splits into squadrons)",
                 "de": "Semudera (die Flotte teilt sich in Geschwader)",
-                "fr": "Semudera (la flotte se divise en escadres)"
+                "fr": "Semudera (la flotte se divise en escadres)",
+                "es": "Semudera (la flota se divide en escuadras)"
               }
             },
             {
@@ -1190,7 +1298,8 @@
                 "sv": "Lambri",
                 "en": "Lambri",
                 "de": "Lambri",
-                "fr": "Lambri"
+                "fr": "Lambri",
+                "es": "Lambri"
               }
             },
             {
@@ -1199,7 +1308,8 @@
                 "sv": "Ceylon",
                 "en": "Ceylon",
                 "de": "Ceylon",
-                "fr": "Ceylan"
+                "fr": "Ceylan",
+                "es": "Ceilán"
               }
             },
             {
@@ -1208,7 +1318,8 @@
                 "sv": "Calicut",
                 "en": "Calicut",
                 "de": "Calicut",
-                "fr": "Calicut"
+                "fr": "Calicut",
+                "es": "Calicut"
               }
             }
           ],
@@ -1227,7 +1338,8 @@
                 "sv": "Hormuz (en stor eskader från Calicut)",
                 "en": "Hormuz (a large squadron from Calicut)",
                 "de": "Hormus (ein großes Geschwader von Calicut)",
-                "fr": "Ormuz (une grande escadre depuis Calicut)"
+                "fr": "Ormuz (une grande escadre depuis Calicut)",
+                "es": "Ormuz (una gran escuadra desde Calicut)"
               }
             }
           ],
@@ -1246,7 +1358,8 @@
                 "sv": "Liushan (Maldiverna och Lackadiverna)",
                 "en": "Liushan (the Maldives and Laccadives)",
                 "de": "Liushan (Malediven und Lakkadiven)",
-                "fr": "Liushan (Maldives et Laquedives)"
+                "fr": "Liushan (Maldives et Laquedives)",
+                "es": "Liushan (Maldivas y Laquedivas)"
               }
             },
             {
@@ -1255,7 +1368,8 @@
                 "sv": "Mogadishu",
                 "en": "Mogadishu",
                 "de": "Mogadischu",
-                "fr": "Mogadiscio"
+                "fr": "Mogadiscio",
+                "es": "Mogadiscio"
               }
             },
             {
@@ -1264,7 +1378,8 @@
                 "sv": "Brava",
                 "en": "Brava",
                 "de": "Brava",
-                "fr": "Brava"
+                "fr": "Brava",
+                "es": "Brava"
               }
             }
           ],
@@ -1283,7 +1398,8 @@
                 "sv": "Dhofar",
                 "en": "Dhofar",
                 "de": "Dhofar",
-                "fr": "Dhofar"
+                "fr": "Dhofar",
+                "es": "Dhofar"
               }
             },
             {
@@ -1292,7 +1408,8 @@
                 "sv": "Aden (eskadern under Zhou Man)",
                 "en": "Aden (the squadron under Zhou Man)",
                 "de": "Aden (das Geschwader unter Zhou Man)",
-                "fr": "Aden (l’escadre de Zhou Man)"
+                "fr": "Aden (l’escadre de Zhou Man)",
+                "es": "Adén (la escuadra de Zhou Man)"
               }
             }
           ],
@@ -1311,7 +1428,8 @@
                 "sv": "Calicut (eskadrarna samlas)",
                 "en": "Calicut (the squadrons assemble)",
                 "de": "Calicut (die Geschwader sammeln sich)",
-                "fr": "Calicut (les escadres se rassemblent)"
+                "fr": "Calicut (les escadres se rassemblent)",
+                "es": "Calicut (las escuadras se reúnen)"
               }
             },
             {
@@ -1320,7 +1438,8 @@
                 "sv": "Semudera (hela flottan samlas)",
                 "en": "Semudera (the whole fleet assembles)",
                 "de": "Semudera (die ganze Flotte sammelt sich)",
-                "fr": "Semudera (toute la flotte se rassemble)"
+                "fr": "Semudera (toute la flotte se rassemble)",
+                "es": "Semudera (toda la flota se reúne)"
               }
             },
             {
@@ -1329,7 +1448,8 @@
                 "sv": "Siam (troligen på hemvägen)",
                 "en": "Siam (probably on the way home)",
                 "de": "Siam (wahrscheinlich auf dem Heimweg)",
-                "fr": "Siam (probablement sur le chemin du retour)"
+                "fr": "Siam (probablement sur le chemin du retour)",
+                "es": "Siam (probablemente en el regreso)"
               }
             },
             {
@@ -1338,7 +1458,8 @@
                 "sv": "Hemkomst (hamnen anges inte; flottans bas var Nanjing)",
                 "en": "Homecoming (the port is not given; the fleet's base was Nanjing)",
                 "de": "Heimkehr (der Hafen wird nicht genannt; die Basis der Flotte war Nanjing)",
-                "fr": "Retour (le port n’est pas indiqué ; la base de la flotte était Nankin)"
+                "fr": "Retour (le port n’est pas indiqué ; la base de la flotte était Nankin)",
+                "es": "Regreso (no se indica el puerto; la base de la flota era Nankín)"
               },
               "date": "1422-09-03"
             }
@@ -1355,13 +1476,15 @@
         "sv": "Zheng Hes sjunde och sista resa",
         "en": "Zheng He's seventh and last voyage",
         "de": "Zheng Hes siebte und letzte Reise",
-        "fr": "Septième et dernier voyage de Zheng He"
+        "fr": "Septième et dernier voyage de Zheng He",
+        "es": "Séptimo y último viaje de Zheng He"
       },
       "summary": {
         "sv": "Kejsaren Xuande tar upp resorna igen, och den 19 januari 1431 lämnar flottan Nanjing. Efter en lång väntan i Changle seglar den ut i januari 1432. Skriften Xia Xiyang ger dag för dag: Vijaya i Champa, Surabaya på Java, Palembang, Malacka, Semudera, Beruwala på Ceylon, Calicut och längst bort Hormuz, dit flottan kommer den 17 januari 1433. En eskader under Hong Bao seglar till Bengalen, och sju man från den följer med ett skepp från Calicut till Mecka. Flottan når Taicang den 7 juli 1433 och huvudstaden Peking den 22 juli. Det blir den sista av skattflottans resor, och Zheng He dör 1433 eller några år senare (källorna skiljer sig).",
         "en": "The Xuande Emperor revives the voyages, and on 19 January 1431 the fleet leaves Nanjing. After a long wait at Changle it sails out in January 1432. The text Xia Xiyang gives the itinerary day by day: Vijaya in Champa, Surabaya on Java, Palembang, Malacca, Semudera, Beruwala on Ceylon, Calicut and, furthest away, Hormuz, which the fleet reaches on 17 January 1433. A squadron under Hong Bao sails to Bengal, and seven of its men join a ship from Calicut to Mecca. The fleet reaches Taicang on 7 July 1433 and the capital Beijing on 22 July. It is the last of the treasure voyages, and Zheng He dies in 1433 or a few years later (the sources differ).",
         "de": "Kaiser Xuande nimmt die Reisen wieder auf, und am 19. Januar 1431 verlässt die Flotte Nanjing. Nach langem Warten in Changle segelt sie im Januar 1432 aus. Die Schrift Xia Xiyang nennt Tag für Tag: Vijaya in Champa, Surabaya auf Java, Palembang, Malakka, Semudera, Beruwala auf Ceylon, Calicut und am weitesten entfernt Hormus, wohin die Flotte am 17. Januar 1433 kommt. Ein Geschwader unter Hong Bao segelt nach Bengalen, und sieben Mann daraus fahren mit einem Schiff von Calicut nach Mekka. Die Flotte erreicht Taicang am 7. Juli 1433 und die Hauptstadt Peking am 22. Juli. Es wird die letzte der Reisen der Schatzflotte, und Zheng He stirbt 1433 oder einige Jahre später (die Quellen unterscheiden sich).",
-        "fr": "L’empereur Xuande reprend les voyages, et le 19 janvier 1431 la flotte quitte Nankin. Après une longue attente à Changle, elle prend la mer en janvier 1432. L’écrit Xia Xiyang donne les étapes jour après jour : Vijaya au Champa, Surabaya à Java, Palembang, Malacca, Semudera, Beruwala à Ceylan, Calicut et, le plus loin, Ormuz, où la flotte arrive le 17 janvier 1433. Une escadre sous le commandement de Hong Bao navigue jusqu’au Bengale, et sept hommes de cette escadre accompagnent un navire de Calicut jusqu’à La Mecque. La flotte atteint Taicang le 7 juillet 1433 et la capitale, Pékin, le 22 juillet. Ce sera le dernier des voyages de la flotte des trésors, et Zheng He meurt en 1433 ou quelques années plus tard (les sources divergent)."
+        "fr": "L’empereur Xuande reprend les voyages, et le 19 janvier 1431 la flotte quitte Nankin. Après une longue attente à Changle, elle prend la mer en janvier 1432. L’écrit Xia Xiyang donne les étapes jour après jour : Vijaya au Champa, Surabaya à Java, Palembang, Malacca, Semudera, Beruwala à Ceylan, Calicut et, le plus loin, Ormuz, où la flotte arrive le 17 janvier 1433. Une escadre sous le commandement de Hong Bao navigue jusqu’au Bengale, et sept hommes de cette escadre accompagnent un navire de Calicut jusqu’à La Mecque. La flotte atteint Taicang le 7 juillet 1433 et la capitale, Pékin, le 22 juillet. Ce sera le dernier des voyages de la flotte des trésors, et Zheng He meurt en 1433 ou quelques années plus tard (les sources divergent).",
+        "es": "El emperador Xuande reanuda los viajes, y el 19 de enero de 1431 la flota sale de Nankín. Tras una larga espera en Changle, se hace a la mar en enero de 1432. El escrito Xia Xiyang da las etapas día a día: Vijaya en Champa, Surabaya en Java, Palembang, Malaca, Semudera, Beruwala en Ceilán, Calicut y, lo más lejos, Ormuz, adonde la flota llega el 17 de enero de 1433. Una escuadra al mando de Hong Bao navega hasta Bengala, y siete hombres de ella acompañan a una nave de Calicut hasta La Meca. La flota llega a Taicang el 7 de julio de 1433 y a la capital, Pekín, el 22 de julio. Será el último de los viajes de la flota del tesoro, y Zheng He muere en 1433 o algunos años después (las fuentes no coinciden)."
       },
       "start": 1431,
       "end": 1433,
@@ -1372,13 +1495,15 @@
           "sv": "Källorna skiljer sig",
           "en": "The sources differ",
           "de": "Die Quellen unterscheiden sich",
-          "fr": "Les sources divergent"
+          "fr": "Les sources divergent",
+          "es": "Las fuentes no coinciden"
         },
         "text": {
           "sv": "Xia Xiyang nämner åtta mål, medan Mingshi och andra källor säger att flottan besökte minst sjutton länder och Gong Zhen tjugo. Datumet den 28 maj 1433 vid Kunlunhavet (Côn Sơn) kan enligt Dreyer (2007) i stället vara dagen då flottan lämnade Malacka. När Hong Baos eskader skildes från flottan är omstritt. Om Zheng Hes död skiljer sig källorna: World History Encyclopedia skriver att han dog i Calicut 1433, Wikipedia att han dog 1433 under eller strax efter resan, troligen i Calicut, eller enligt Mills (1970) först 1435 i Nanjing.",
           "en": "Xia Xiyang mentions eight destinations, while the Mingshi and other sources say that the fleet visited at least seventeen countries and Gong Zhen twenty. The date of 28 May 1433 at the Kunlun Sea (Côn Sơn) may, according to Dreyer (2007), instead be the day the fleet left Malacca. When Hong Bao's squadron separated from the fleet is disputed. On Zheng He's death the sources differ: World History Encyclopedia writes that he died in Calicut in 1433, Wikipedia that he died in 1433 during or shortly after the voyage, probably in Calicut, or according to Mills (1970) only in 1435 in Nanjing.",
           "de": "Xia Xiyang nennt acht Ziele, während Mingshi und andere Quellen sagen, die Flotte habe mindestens siebzehn Länder besucht, und Gong Zhen zwanzig. Das Datum 28. Mai 1433 beim Kunlun-Meer (Côn Sơn) kann laut Dreyer (2007) stattdessen der Tag sein, an dem die Flotte Malakka verließ. Wann sich Hong Baos Geschwader von der Flotte trennte, ist umstritten. Über Zheng Hes Tod unterscheiden sich die Quellen: Die World History Encyclopedia schreibt, er sei 1433 in Calicut gestorben, Wikipedia, er sei 1433 während oder kurz nach der Reise gestorben, wahrscheinlich in Calicut, oder laut Mills (1970) erst 1435 in Nanjing.",
-          "fr": "Le Xia Xiyang mentionne huit destinations, tandis que le Mingshi et d’autres sources disent que la flotte visita au moins dix-sept pays, et Gong Zhen vingt. La date du 28 mai 1433 à la mer de Kunlun (Côn Sơn) pourrait, selon Dreyer (2007), être plutôt le jour où la flotte quitta Malacca. Le moment où l’escadre de Hong Bao se sépara de la flotte est discuté. Les sources divergent sur la mort de Zheng He : la World History Encyclopedia écrit qu’il mourut à Calicut en 1433, Wikipédia qu’il mourut en 1433 pendant ou peu après le voyage, probablement à Calicut, ou, selon Mills (1970), seulement en 1435 à Nankin."
+          "fr": "Le Xia Xiyang mentionne huit destinations, tandis que le Mingshi et d’autres sources disent que la flotte visita au moins dix-sept pays, et Gong Zhen vingt. La date du 28 mai 1433 à la mer de Kunlun (Côn Sơn) pourrait, selon Dreyer (2007), être plutôt le jour où la flotte quitta Malacca. Le moment où l’escadre de Hong Bao se sépara de la flotte est discuté. Les sources divergent sur la mort de Zheng He : la World History Encyclopedia écrit qu’il mourut à Calicut en 1433, Wikipédia qu’il mourut en 1433 pendant ou peu après le voyage, probablement à Calicut, ou, selon Mills (1970), seulement en 1435 à Nankin.",
+          "es": "El Xia Xiyang menciona ocho destinos, mientras que el Mingshi y otras fuentes dicen que la flota visitó al menos diecisiete países, y Gong Zhen, veinte. La fecha del 28 de mayo de 1433 en el mar de Kunlun (Côn Sơn) podría ser, según Dreyer (2007), el día en que la flota salió de Malaca. Cuándo se separó la escuadra de Hong Bao de la flota es discutido. Sobre la muerte de Zheng He las fuentes no coinciden: la World History Encyclopedia escribe que murió en Calicut en 1433; Wikipedia, que murió en 1433 durante el viaje o poco después, probablemente en Calicut, o, según Mills (1970), no hasta 1435 en Nankín."
         }
       },
       "sources": ["wp-ming-treasure-voyages", "wp-zheng-he", "whe-seven-voyages-zheng-he"],
@@ -1396,7 +1521,8 @@
                 "sv": "Longwan, Nanjing",
                 "en": "Longwan, Nanjing",
                 "de": "Longwan, Nanjing",
-                "fr": "Longwan, Nankin"
+                "fr": "Longwan, Nankin",
+                "es": "Longwan, Nankín"
               },
               "date": "1431-01-19"
             },
@@ -1406,7 +1532,8 @@
                 "sv": "Liujiagang",
                 "en": "Liujiagang",
                 "de": "Liujiagang",
-                "fr": "Liujiagang"
+                "fr": "Liujiagang",
+                "es": "Liujiagang"
               },
               "date": "1431-02-03"
             }
@@ -1426,7 +1553,8 @@
                 "sv": "Changle",
                 "en": "Changle",
                 "de": "Changle",
-                "fr": "Changle"
+                "fr": "Changle",
+                "es": "Changle"
               },
               "date": "1431-04-08"
             }
@@ -1446,7 +1574,8 @@
                 "sv": "Wuhumen, Minflodens mynning",
                 "en": "Wuhumen, mouth of the Min River",
                 "de": "Wuhumen, Mündung des Min",
-                "fr": "Wuhumen, embouchure du Min"
+                "fr": "Wuhumen, embouchure du Min",
+                "es": "Wuhumen, desembocadura del Min"
               },
               "date": "1432-01-12"
             },
@@ -1456,7 +1585,8 @@
                 "sv": "Vijaya, Champa",
                 "en": "Vijaya, Champa",
                 "de": "Vijaya, Champa",
-                "fr": "Vijaya, Champa"
+                "fr": "Vijaya, Champa",
+                "es": "Vijaya, Champa"
               },
               "date": "1432-01-27"
             }
@@ -1476,7 +1606,8 @@
                 "sv": "Surabaya, Java",
                 "en": "Surabaya, Java",
                 "de": "Surabaya, Java",
-                "fr": "Surabaya, Java"
+                "fr": "Surabaya, Java",
+                "es": "Surabaya, Java"
               },
               "date": "1432-03-07"
             }
@@ -1496,7 +1627,8 @@
                 "sv": "Palembang",
                 "en": "Palembang",
                 "de": "Palembang",
-                "fr": "Palembang"
+                "fr": "Palembang",
+                "es": "Palembang"
               },
               "date": "1432-07-24"
             }
@@ -1516,7 +1648,8 @@
                 "sv": "Malacka",
                 "en": "Malacca",
                 "de": "Malakka",
-                "fr": "Malacca"
+                "fr": "Malacca",
+                "es": "Malaca"
               },
               "date": "1432-08-03"
             }
@@ -1536,7 +1669,8 @@
                 "sv": "Semudera",
                 "en": "Semudera",
                 "de": "Semudera",
-                "fr": "Semudera"
+                "fr": "Semudera",
+                "es": "Semudera"
               },
               "date": "1432-09-12"
             }
@@ -1556,7 +1690,8 @@
                 "sv": "Cuilanxu (troligen Stora Nikobaren)",
                 "en": "Cuilanxu (probably Great Nicobar)",
                 "de": "Cuilanxu (wahrscheinlich Groß-Nikobar)",
-                "fr": "Cuilanxu (probablement Grande Nicobar)"
+                "fr": "Cuilanxu (probablement Grande Nicobar)",
+                "es": "Cuilanxu (probablemente Gran Nicobar)"
               },
               "date": "1432-11-14"
             },
@@ -1566,7 +1701,8 @@
                 "sv": "Beruwala, Ceylon",
                 "en": "Beruwala, Ceylon",
                 "de": "Beruwala, Ceylon",
-                "fr": "Beruwala, Ceylan"
+                "fr": "Beruwala, Ceylan",
+                "es": "Beruwala, Ceilán"
               },
               "date": "1432-11-28"
             }
@@ -1586,7 +1722,8 @@
                 "sv": "Calicut",
                 "en": "Calicut",
                 "de": "Calicut",
-                "fr": "Calicut"
+                "fr": "Calicut",
+                "es": "Calicut"
               },
               "date": "1432-12-10"
             }
@@ -1606,7 +1743,8 @@
                 "sv": "Hormuz",
                 "en": "Hormuz",
                 "de": "Hormus",
-                "fr": "Ormuz"
+                "fr": "Ormuz",
+                "es": "Ormuz"
               },
               "date": "1433-01-17"
             }
@@ -1626,7 +1764,8 @@
                 "sv": "Calicut",
                 "en": "Calicut",
                 "de": "Calicut",
-                "fr": "Calicut"
+                "fr": "Calicut",
+                "es": "Calicut"
               },
               "date": "1433-03-31"
             }
@@ -1646,7 +1785,8 @@
                 "sv": "Semudera",
                 "en": "Semudera",
                 "de": "Semudera",
-                "fr": "Semudera"
+                "fr": "Semudera",
+                "es": "Semudera"
               },
               "date": "1433-04-25"
             }
@@ -1666,7 +1806,8 @@
                 "sv": "Malacka",
                 "en": "Malacca",
                 "de": "Malakka",
-                "fr": "Malacca"
+                "fr": "Malacca",
+                "es": "Malaca"
               },
               "date": "1433-05-09"
             }
@@ -1686,7 +1827,8 @@
                 "sv": "Kunlunhavet (vid Côn Sơn)",
                 "en": "The Kunlun Sea (near Côn Sơn)",
                 "de": "Kunlun-Meer (bei Côn Sơn)",
-                "fr": "Mer de Kunlun (près de Côn Sơn)"
+                "fr": "Mer de Kunlun (près de Côn Sơn)",
+                "es": "Mar de Kunlun (cerca de Côn Sơn)"
               },
               "date": "1433-05-28",
               "edtf": "1433-05-28?"
@@ -1697,7 +1839,8 @@
                 "sv": "Vijaya, Champa",
                 "en": "Vijaya, Champa",
                 "de": "Vijaya, Champa",
-                "fr": "Vijaya, Champa"
+                "fr": "Vijaya, Champa",
+                "es": "Vijaya, Champa"
               },
               "date": "1433-06-13"
             }
@@ -1717,7 +1860,8 @@
                 "sv": "Taicang",
                 "en": "Taicang",
                 "de": "Taicang",
-                "fr": "Taicang"
+                "fr": "Taicang",
+                "es": "Taicang"
               },
               "date": "1433-07-07"
             }
@@ -1737,7 +1881,8 @@
                 "sv": "Chittagong, Bengalen (Hong Baos eskader)",
                 "en": "Chittagong, Bengal (Hong Bao's squadron)",
                 "de": "Chittagong, Bengalen (Hong Baos Geschwader)",
-                "fr": "Chittagong, Bengale (l’escadre de Hong Bao)"
+                "fr": "Chittagong, Bengale (l’escadre de Hong Bao)",
+                "es": "Chittagong, Bengala (la escuadra de Hong Bao)"
               }
             },
             {
@@ -1746,7 +1891,8 @@
                 "sv": "Calicut (efter att flottan seglat mot Hormuz)",
                 "en": "Calicut (after the fleet had sailed for Hormuz)",
                 "de": "Calicut (nachdem die Flotte Richtung Hormus gesegelt war)",
-                "fr": "Calicut (après le départ de la flotte vers Ormuz)"
+                "fr": "Calicut (après le départ de la flotte vers Ormuz)",
+                "es": "Calicut (después de que la flota zarpara hacia Ormuz)"
               }
             }
           ],
@@ -1765,7 +1911,8 @@
                 "sv": "Mecka (sju man ur Hong Baos eskader)",
                 "en": "Mecca (seven men from Hong Bao's squadron)",
                 "de": "Mekka (sieben Mann aus Hong Baos Geschwader)",
-                "fr": "La Mecque (sept hommes de l’escadre de Hong Bao)"
+                "fr": "La Mecque (sept hommes de l’escadre de Hong Bao)",
+                "es": "La Meca (siete hombres de la escuadra de Hong Bao)"
               }
             }
           ],

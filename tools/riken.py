@@ -56,7 +56,8 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              # förenklingen är finare, annars försvinner Gaza och gränserna mot Västbanken hamnar fel
              'israel': (0.03, 0.02, 0.02), 'palestina': (0.03, 0.02, 0.02),
              # Nutida stater (#644): Danmark med Grönland, Kina och Indonesien med många öar
-             'danmark': (0.3, 0.05, 0.08), 'kina': (0.3, 0.05, 0.08), 'indonesien': (0.2, 0.05, 0.05),
+             'danmark': (0.3, 0.05, 0.08),
+             'kina': (0.3, 0.05, 0.08), 'indonesien': (0.2, 0.05, 0.05),
              # Gambia (cirka 30 km bred längs floden) och Libanon är smala: finare förenkling för dem och grannarna Senegal och
              # Syrien, annars täcker grannarnas förenklade gräns en stor del av landet
              'gambia': (0.05, 0.02, 0.02), 'libanon': (0.05, 0.02, 0.02),
@@ -1124,8 +1125,14 @@ GROUPS = {
     # (Q756617, riket sedan 965; nutidens Danmark är gruppen danmark), Tibetanska imperiet, Moskvariket, Litauen, Kastilien och
     # Uiguriska khaganatet, som saknar svenskt namn på Wikidata och har det engelska. Väntar: Tibetans och Avar Khaganate (Cliopatrias
     # Wikidata-id är folkgrupper, inte riken) och Yenisei Kyrgyz (namn saknas på tre språk).
+    # Danmark 1526–1939 (#1084, DasKrokodils ja 2026-11-13): Cliopatrias Denmark-Norway heter så ända till 1939, men Norge
+    # gick 1814 till Sverige-Norge. Posten delas därför i Danmark-Norge (1526–1814, Q62651; Wikidata säger 1536–1814) och
+    # Danmark (1815–1939). 1407–1525 täcks av Kalmarunionen, och 1940–1944 räknar Cliopatria området till Tyskland.
     'konungariket-danmark': ('Konungariket Danmark', 'Kingdom of Denmark', [
         ('Kingdom of Denmark', 'konungariket-danmark', 'Konungariket Danmark', '#c05a6a', {'en': 'Kingdom of Denmark'}),
+        ('Denmark-Norway', 'danmark-norge', 'Danmark-Norge', '#c05a6a',
+         {'en': 'Denmark–Norway', 'wikidata': 'Q62651', 'years': (1526, 1814)}),
+        ('Denmark-Norway', 'danmark-1815', 'Danmark', '#c05a6a', {'en': 'Denmark', 'wikidata': 'Q35', 'years': (1815, 1939)}),
     ]),
     'tibetanska-imperiet': ('Tibetanska imperiet', 'Tibetan Empire', [
         ('Tibetan Empire', 'tibetanska-imperiet', 'Tibetanska imperiet', '#b0704a', {'en': 'Tibetan Empire'}),
