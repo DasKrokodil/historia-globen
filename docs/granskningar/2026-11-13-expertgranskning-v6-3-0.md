@@ -11,7 +11,7 @@
 | `historiker` | händelser, turer, riken, flaggor, källor | 1 (Lister), rättat |
 | `forhistoriker` | förhistorien 100 000–3000 f.Kr., människoarter | 0. Avrundningen räckte inte, och #1372 är kompletterad |
 | `geograf` | riken, flaggor, platser, datumlinjen | 1 (Ptolemaiska riket), rättat |
-| `larare` | turer, quiz, lektioner, tilltal | 1 (tilltal i turen "Hur vet vi det här?"), DasKrokodil avgör |
+| `larare` | turer, quiz, lektioner, tilltal | 1 (tilltal i turen "Hur vet vi det här?"), rättat efter DasKrokodils beslut |
 | `sprak-en` | engelska | 0 |
 | `sprak-de` | tyska | 1 (engelska rikesnamn kvar), rättat |
 | `sprak-es` | spanska | 0 |
@@ -31,9 +31,9 @@
    Rashidunkalifatet och protektoratet har ingen egen artikel på tyska Wikipedia, och Wikidata saknar tyskt namn. Där är namnen översättningar som följer tyska Wikipedias ord ("al-chulafa ar-raschidun", "Westlichen Regionen").
 4. **Förhistoriens årtal** (förhistorikern): #1372 avrundar nu även 10 000–3000 f.Kr. till hundratal, eftersom ett steg på reglaget är hundratals år i hela segmentet.
 
-## DasKrokodil avgör före releasen
+## Avgjort av DasKrokodil före releasen
 
-- **Tilltalet i turen `hur-vet-vi-det-har`** (läraren). PR #1290 (#839) bytte till artigt tilltal på de, es och fr, med motiveringen att turen inte har någon lektion för åk 4–6. Det strider mot [beslut 2026-11-08, tur 938](../beslut/2026-11-08-tur-kallkritik-938.md) punkt 2: turen är för cirka 12–13-åringar och ska ha du-form i alla språk. Svenskan har fortfarande du-form. Antingen återställs de nio texterna till du/tú/tu och raden i ordlistan rättas, eller så skrivs ett nytt beslut som ersätter punkt 2.
+- **Tilltalet i turen `hur-vet-vi-det-har`** (läraren). PR #1290 (#839) bytte till artigt tilltal på de, es och fr, vilket stred mot [beslut 2026-11-08, tur 938](../beslut/2026-11-08-tur-kallkritik-938.md) punkt 2 (du-form för cirka 12–13-åringar). DasKrokodil valde 2026-11-13 att återställa du-formen. De nio texterna har du/tú/tu igen, och ordlistan säger nu att turen har du-form.
 
 ## Bör rättas (blockerar inte, blir issues)
 
