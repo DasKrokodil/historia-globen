@@ -212,16 +212,18 @@
         "fr": "Les personnes vivant aujourd’hui hors d’Afrique descendent pour l’essentiel d’une dispersion hors d’Afrique. Le climat permettait à la fois une route nord par le Sinaï et une route sud par le détroit de Bab el-Mandeb, et l’on ignore quelle route a été suivie."
       },
       "note": {
-        "sv": "Källorna skiljer sig om när, och de mäter delvis olika saker: utvandringen för cirka 70 000–60 000 år sedan enligt en studie, en stor utvandring för cirka 65 000 år sedan enligt en annan, och den världsomfattande spridningen som började för cirka 50 000 år sedan enligt en tredje.",
-        "en": "The sources differ on when, and they partly measure different things: the dispersal about 70,000–60,000 years ago according to one study, a major exit about 65,000 years ago according to another, and the worldwide expansion that began about 50,000 years ago according to a third.",
-        "de": "Die Quellen sind sich über den Zeitpunkt uneinig und messen teilweise Verschiedenes: die Auswanderung vor etwa 70.000–60.000 Jahren nach einer Studie, eine große Auswanderung vor etwa 65.000 Jahren nach einer anderen und die weltweite Ausbreitung, die vor etwa 50.000 Jahren begann, nach einer dritten.",
-        "es": "Las fuentes discrepan sobre cuándo y en parte miden cosas distintas: la salida hace unos 70 000–60 000 años según un estudio, una gran salida hace unos 65 000 años según otro, y la expansión mundial que comenzó hace unos 50 000 años según un tercero.",
-        "fr": "Les sources divergent sur la date et mesurent en partie des choses différentes : la sortie il y a environ 70 000 à 60 000 ans selon une étude, une grande sortie il y a environ 65 000 ans selon une autre, et l’expansion mondiale commencée il y a environ 50 000 ans selon une troisième."
+        "sv": "Källorna skiljer sig om när, och de mäter delvis olika saker: utvandringen för cirka 70 000–60 000 år sedan enligt en studie, en stor utvandring för cirka 65 000 år sedan enligt en annan, och den världsomfattande spridningen som började för cirka 50 000 år sedan enligt en tredje. Om vägen är de också oense: en genetisk studie talar för en norra väg via Egypten, och en ny analys av samma arvsmassa säger att frågan är olöst.",
+        "en": "The sources differ on when, and they partly measure different things: the dispersal about 70,000–60,000 years ago according to one study, a major exit about 65,000 years ago according to another, and the worldwide expansion that began about 50,000 years ago according to a third. They also disagree on the route: one genetic study favours a northern route via Egypt, and a new analysis of the same genomes says the question is unresolved.",
+        "de": "Die Quellen sind sich über den Zeitpunkt uneinig und messen teilweise Verschiedenes: die Auswanderung vor etwa 70.000–60.000 Jahren nach einer Studie, eine große Auswanderung vor etwa 65.000 Jahren nach einer anderen und die weltweite Ausbreitung, die vor etwa 50.000 Jahren begann, nach einer dritten. Auch über den Weg sind sie uneinig: Eine genetische Studie spricht für einen nördlichen Weg über Ägypten, und eine neue Auswertung derselben Genome sagt, dass die Frage ungeklärt ist.",
+        "es": "Las fuentes discrepan sobre cuándo y en parte miden cosas distintas: la salida hace unos 70 000–60 000 años según un estudio, una gran salida hace unos 65 000 años según otro, y la expansión mundial que comenzó hace unos 50 000 años según un tercero. También discrepan sobre la ruta: un estudio genético se inclina por una ruta norte a través de Egipto, y un nuevo análisis de los mismos genomas afirma que la cuestión sigue sin resolverse.",
+        "fr": "Les sources divergent sur la date et mesurent en partie des choses différentes : la sortie il y a environ 70 000 à 60 000 ans selon une étude, une grande sortie il y a environ 65 000 ans selon une autre, et l’expansion mondiale commencée il y a environ 50 000 ans selon une troisième. Elles divergent aussi sur l’itinéraire : une étude génétique privilégie une route nord par l’Égypte, et une nouvelle analyse des mêmes génomes conclut que la question reste ouverte."
       },
       "sources": [
         "vallini-2024-persian-plateau",
         "hallett-2025-human-niche",
-        "beyer-2021-climatic-windows"
+        "beyer-2021-climatic-windows",
+        "pagani-2015-out-of-africa-route",
+        "shriner-keita-2016-route-unresolved"
       ],
       "review": "source-checked"
     },
@@ -332,6 +334,96 @@
         "vallini-2024-persian-plateau",
         "sumer-2025-ranis-genomes",
         "jacobs-2025-denisova-chronology"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "sydasien-till-sunda",
+      "kind": "wave",
+      "group": "sapiens",
+      "certainty": "omstridd",
+      "start": -72999,
+      "end": -42999,
+      "edtf": "Y-72999?/Y-42999~",
+      "paths": [
+        [
+          {
+            "coord": [
+              59.05,
+              36.283
+            ],
+            "wikidata": "Q237660",
+            "name": "Iranian plateau"
+          },
+          {
+            "coord": [
+              82.0097,
+              24.4993
+            ],
+            "coordSource": "clarkson-2020-dhaba",
+            "name": "Dhaba 1"
+          },
+          {
+            "event": "tam-pa-ling"
+          },
+          {
+            "coord": [
+              114,
+              -1
+            ],
+            "wikidata": "Q36117",
+            "name": "Borneo"
+          }
+        ],
+        [
+          {
+            "coord": [
+              82.0097,
+              24.4993
+            ],
+            "coordSource": "clarkson-2020-dhaba",
+            "name": "Dhaba 1"
+          },
+          {
+            "coord": [
+              80.2,
+              6.6333
+            ],
+            "coordSource": "wedage-2019-fa-hien-lena",
+            "name": "Fa-Hien Lena"
+          }
+        ]
+      ],
+      "title": {
+        "sv": "Genom Sydasien mot Sunda?",
+        "en": "Through South Asia towards Sunda?",
+        "de": "Durch Südasien nach Sunda?",
+        "es": "¿A través del sur de Asia hacia Sunda?",
+        "fr": "Par l’Asie du Sud vers Sunda ?"
+      },
+      "summary": {
+        "sv": "Hur människor kom från Västasien genom Sydasien till Sydostasien är inte avgjort. I Dhaba i Indien finns stenredskap från cirka 80 000–65 000 år sedan som forskarna tolkar som spår av Homo sapiens, men inga skelettfynd. De äldsta fossilen i Sydasien, på Sri Lanka, är cirka 45 000–36 000 år gamla. I Sydostasien finns fynd i Tam Pà Ling i Laos, tänder på Sumatra från cirka 73 000–63 000 år sedan och redskap i Niah på Borneo från cirka 50 000–46 000 år sedan. Linjen visar en möjlig riktning, inte en väg.",
+        "en": "How people came from Western Asia through South Asia to Southeast Asia is unresolved. At Dhaba in India there are stone tools from about 80,000–65,000 years ago that researchers interpret as traces of Homo sapiens, but no skeletal remains. The oldest fossils in South Asia, in Sri Lanka, are about 45,000–36,000 years old. In Southeast Asia there are finds at Tam Pà Ling in Laos, teeth on Sumatra from about 73,000–63,000 years ago and tools at Niah on Borneo from about 50,000–46,000 years ago. The line shows a possible direction, not a route.",
+        "de": "Wie Menschen aus Westasien durch Südasien nach Südostasien kamen, ist ungeklärt. In Dhaba in Indien gibt es Steinwerkzeuge von vor etwa 80.000–65.000 Jahren, die Forschende als Spuren des Homo sapiens deuten, aber keine Skelettfunde. Die ältesten Fossilien Südasiens, auf Sri Lanka, sind etwa 45.000–36.000 Jahre alt. In Südostasien gibt es Funde in Tam Pà Ling in Laos, Zähne auf Sumatra von vor etwa 73.000–63.000 Jahren und Werkzeuge in Niah auf Borneo von vor etwa 50.000–46.000 Jahren. Die Linie zeigt eine mögliche Richtung, keinen Weg.",
+        "es": "No se ha resuelto cómo llegaron las personas desde Asia occidental a través del sur de Asia hasta el Sudeste Asiático. En Dhaba, en la India, hay herramientas de piedra de hace unos 80 000–65 000 años que los investigadores interpretan como rastros de Homo sapiens, pero no hay restos óseos. Los fósiles más antiguos del sur de Asia, en Sri Lanka, tienen unos 45 000–36 000 años. En el Sudeste Asiático hay hallazgos en Tam Pà Ling, en Laos, dientes en Sumatra de hace unos 73 000–63 000 años y herramientas en Niah, en Borneo, de hace unos 50 000–46 000 años. La línea muestra una dirección posible, no una ruta.",
+        "fr": "On ignore comment les humains sont venus d’Asie occidentale en Asie du Sud-Est en passant par l’Asie du Sud. À Dhaba, en Inde, des outils en pierre datant d’il y a environ 80 000 à 65 000 ans sont interprétés par les chercheurs comme des traces d’Homo sapiens, mais aucun reste squelettique n’a été trouvé. Les plus anciens fossiles d’Asie du Sud, au Sri Lanka, ont environ 45 000 à 36 000 ans. En Asie du Sud-Est, il y a des découvertes à Tam Pà Ling, au Laos, des dents à Sumatra datant d’il y a environ 73 000 à 63 000 ans et des outils à Niah, à Bornéo, datant d’il y a environ 50 000 à 46 000 ans. La ligne indique une direction possible, pas un itinéraire."
+      },
+      "note": {
+        "sv": "Källorna skiljer sig om när: genetiken pekar på att människor nådde Sunda för cirka 60 000 år sedan, medan fynden i Sydasien talar för en spridning för cirka 50 000–45 000 år sedan. En kustväg är möjlig men omstridd. Redskapen i Dhaba och den nyare tolkningen av spridningen bygger delvis på samma dateringar.",
+        "en": "The sources differ on when: genetics suggests that people reached Sunda about 60,000 years ago, while the finds in South Asia point to a dispersal about 50,000–45,000 years ago. A coastal route is possible but disputed. The tools at Dhaba and the newer interpretation of the dispersal rely partly on the same dates.",
+        "de": "Die Quellen sind sich über den Zeitpunkt uneinig: Die Genetik deutet darauf hin, dass Menschen Sunda vor etwa 60.000 Jahren erreichten, während die Funde in Südasien für eine Ausbreitung vor etwa 50.000–45.000 Jahren sprechen. Ein Küstenweg ist möglich, aber umstritten. Die Werkzeuge von Dhaba und die neuere Deutung der Ausbreitung beruhen teilweise auf denselben Datierungen.",
+        "es": "Las fuentes discrepan sobre cuándo: la genética indica que las personas llegaron a Sunda hace unos 60 000 años, mientras que los hallazgos del sur de Asia apuntan a una dispersión hace unos 50 000–45 000 años. Una ruta costera es posible, pero discutida. Las herramientas de Dhaba y la interpretación más reciente de la dispersión se basan en parte en las mismas dataciones.",
+        "fr": "Les sources divergent sur la date : la génétique indique que les humains ont atteint Sunda il y a environ 60 000 ans, tandis que les découvertes en Asie du Sud plaident pour une dispersion il y a environ 50 000 à 45 000 ans. Une route côtière est possible, mais contestée. Les outils de Dhaba et l’interprétation plus récente de la dispersion reposent en partie sur les mêmes datations."
+      },
+      "sources": [
+        "clarkson-2020-dhaba",
+        "wedage-2019-fa-hien-lena",
+        "shipton-2026-miniaturization",
+        "louys-2022-lida-ajer",
+        "curnoe-2025-gua-dagang",
+        "gandini-2025-sahul",
+        "freidline-2023-tam-pa-ling",
+        "vallini-2024-persian-plateau"
       ],
       "review": "source-checked"
     },
