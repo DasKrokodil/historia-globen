@@ -4229,6 +4229,47 @@ async function run(browser, vp) {
     return 'fem språk: hastighet och spelknapp, årshoppets fel, dagläge, källor/sökning och affischens ritade etiketter; ingen rå nyckel eller sidscroll';
   });
 
+  await check('bildlagrens källor står under Kartdata i Om källorna (#1410)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet';
+    const bp = await context.newPage();
+    const bpAw = abortWatch(bp);
+    const errs = [];
+    bp.on('pageerror', e => { if (!bpAw.defer(e.message)) errs.push(e.message); });
+    try {
+      if (THREE_LOCAL) {
+        await bp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+        await bp.route(u => isFont(u.href), r => r.abort());
+      }
+      await bpAw.goto(`${BASE}?ny=1410#y=2000`);
+      await bp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      // Skivorna som sidan visar, och deras källor, läses ur datan; testet hittar inte på några egna
+      const want = await bp.evaluate(async () => {
+        const [{ imageRows }, { ui }, { t }] = await Promise.all([import('./js/layers/images.js'), import('./js/i18n.js'), import('./js/model.js')]);
+        const doc = await (await fetch('data/bildlager.json')).json();
+        const reg = (await (await fetch('data/sources.json')).json()).sources;
+        return imageRows(doc).flatMap(r => r.slices).map(x => ({
+          label: ui('sources.imageLayer', { title: t(x.title) }),
+          titles: (x.sources ?? []).map(id => reg.find(s => s.id === id)?.title).filter(Boolean),
+        }));
+      });
+      if (!want.length) throw new Error('inga bildlager med skivor att pröva');
+      await bp.evaluate(() => document.getElementById('btn-sources').click());
+      await bp.waitForSelector('#sources-dialog', { state: 'visible', timeout: T.step });
+      await bp.waitForSelector('.src-group[data-group="maps"]', { timeout: T.load });
+      await bp.click('.src-group[data-group="maps"]');
+      await bp.waitForSelector('.src-section[data-group="maps"]', { timeout: T.step });
+      const text = await bp.locator('.src-section[data-group="maps"]').innerText();
+      for (const w of want) {
+        if (!text.includes(w.label)) throw new Error(`Kartdata saknar "${w.label}"`);
+        for (const title of w.titles) if (!text.includes(title)) throw new Error(`Kartdata saknar källan "${title}" för ${w.label}`);
+      }
+      if (/sources\.imageLayer/.test(text)) throw new Error('rå gränssnittsnyckel i Kartdata');
+      errs.push(...bpAw.settle());
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return want.map(w => `${w.label} (${w.titles.length} källor)`).join(', ');
+    } finally { await bp.close(); }
+  });
+
   await check('Källor öppnas', async () => {
     await clickView('#btn-sources');
     await visible('#sources-dialog');

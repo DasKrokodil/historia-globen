@@ -770,6 +770,7 @@
   "sources.baseMap": "Grundkarte",
   "sources.modernBorders": "Heutige Grenzen",
   "sources.discovery": "Entdeckungsreisen: {title}",
+  "sources.imageLayer": "Bildebene: {title}",
   "sources.imageUse": "Bild: {title}",
   "sources.loading": "Quellen werden geladen…",
   "sources.loadFailed": "Die Quellen konnten nicht geladen werden.",

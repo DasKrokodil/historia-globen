@@ -3,6 +3,7 @@
 // vilka händelser, fun facts, riken, religioner, kartlager och bilder som pekar på varje källa.
 import { t, settings, loadReligions, loadForSources } from '../model.js';
 import { ui } from '../i18n.js';
+import { imageRows } from '../layers/images.js';
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 // Sökningen bryr sig inte om stora bokstäver eller accenter (å, ä, ö räknas som a, a, o)
@@ -35,7 +36,7 @@ async function loadVersion() {
 }
 
 /** Räknar fram vilka uppgifter som pekar på varje källa, grupp för grupp. */
-function collect({ sources, events, funfacts, polities, empireGroups = [], land, borders, discovery }, religionsDoc) {
+function collect({ sources, events, funfacts, polities, empireGroups = [], land, borders, discovery, imageLayers }, religionsDoc) {
   const groups = Object.fromEntries(GROUPS.map(g => [g.id, { ...g, uses: new Map(), items: [] }]));
   const add = (gid, ids, label, review, item = true) => {
     const g = groups[gid];
@@ -78,6 +79,8 @@ function collect({ sources, events, funfacts, polities, empireGroups = [], land,
   if (borders?.source) add('maps', [borders.source], ui('sources.modernBorders'), null);
   // Upptäcktsvyns kartbilder (#101): havsmonster och kompassrosor ur gamla kartor, public domain
   for (const d of new Map((discovery?.decorations ?? []).map(d => [d.source, d])).values()) if (d.source) add('maps', [d.source], ui('sources.discovery', { title: t(d.title) }), null, false);
+  // Bildlagren (#54, #1325): varje skiva som sidan visar (imageRows tar bort utkast) med sin källa och granskningsstatus (#1410)
+  for (const row of imageRows(imageLayers)) for (const x of row.slices) add('maps', x.sources ?? [], ui('sources.imageLayer', { title: t(x.title) }), x.review);
   // Bilder (#195): varje bild på globen listas med ursprung och licens, även illustrationer utan extern källa.
   // De räknas inte som uppgifter med granskningsnivå; bara historiska bilder med image.source får en post i källtabellen.
   const shownEvents = events.filter(e => e.image && (settings.showDrafts || e.review !== 'draft'));
