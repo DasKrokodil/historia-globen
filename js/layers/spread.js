@@ -29,7 +29,10 @@ export function entry({ data, refresh }) {
         .then(doc => { layer.setData(doc); refresh(); })
         .catch(err => { loading = null; console.error(err); });
     },
-    update: s => layer.update({ year: s.areaYear ?? s.wholeYear }),
+    update: s => {
+      layer.labelScale = s.labels?.scale ?? 1; // namnen följer rikenas storleksregel (#1416)
+      return layer.update({ year: s.areaYear ?? s.wholeYear });
+    },
     legend: s => ({ spread: s.faded.has('spread') || !layer.active.length ? null : layer.legendItems() }),
     drawOverlay: (ctx, W, H) => layer.drawOverlay(ctx, W, H),
   };
@@ -46,6 +49,7 @@ export class SpreadLayer {
     this.items = null;
     this.enabled = false;
     this.active = []; // [{ item, grow }]
+    this.labelScale = 1; // namnens storlek relativt grundstorleken, som rikenas namn (labels.scale, #1416)
   }
 
   /** doc = data/spridning.json. Platserna (fyndplatser och platser ur Wikidata) blir [lon, lat]. */
@@ -212,16 +216,22 @@ export class SpreadLayer {
     }
   }
 
-  /** Områdenas namn, med ordet "tolkning" (eller "hypotes") under, mitt i området. */
+  /**
+   * Områdenas namn, med ordet "tolkning" (eller "hypotes") under, mitt i området. Storleken följer samma regel som rikenas
+   * namn (labels.scale i render.js, #1416), så att namnen går att läsa i Platt vy och på klotet i mobil. Ordet ritas alltid
+   * (beslutet på #1416): det är det som skiljer en tolkad yta från en gräns, och det ritas sist så att det ligger överst.
+   */
   drawLabels(ctx, W, k, labels) {
-    const size = 13 * k, small = 10.5 * k;
+    // Samma grundstorlek som rikenas namn i areas.js (16). Ordet under har samma storlek, i kursiv, så att det går att
+    // läsa lika bra som namnet (#1416); förut var det 10,5 och gick inte att läsa i mobil.
+    const sc = this.labelScale ?? 1, size = 16 * k * sc, small = 16 * k * sc;
     ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
     for (const { x, y, text, col, word } of labels) {
-      const y1 = Math.max(size + small + 4 * k, y + small);
+      const y1 = Math.max(size + small + 4 * k * sc, y + small);
       for (const dx of x < W / 8 ? [0, W] : x > W * 7 / 8 ? [0, -W] : [0]) {
-        ctx.lineWidth = 3.5 * k; ctx.strokeStyle = 'rgba(16,22,30,0.85)';
+        ctx.lineWidth = 3.5 * k * sc; ctx.strokeStyle = 'rgba(16,22,30,0.85)';
         ctx.font = `${size}px "IM Fell English", Georgia, serif`;
-        ctx.strokeText(text, x + dx, y1 - small - 2 * k); ctx.fillStyle = col; ctx.fillText(text, x + dx, y1 - small - 2 * k);
+        ctx.strokeText(text, x + dx, y1 - small - 2 * k * sc); ctx.fillStyle = col; ctx.fillText(text, x + dx, y1 - small - 2 * k * sc);
         ctx.font = `italic ${small}px "IM Fell English", Georgia, serif`;
         ctx.strokeText(word, x + dx, y1); ctx.fillStyle = '#f1dfb4'; ctx.fillText(word, x + dx, y1);
       }
