@@ -5103,7 +5103,11 @@ async function run(browser, vp) {
         await lp.locator(`#event-list .event-btn[data-id="${id}"]`).first().click();
         await lp.waitForSelector('#detail [data-hunt]', { state: 'visible', timeout: T.step });
         await lp.click('#detail [data-hunt]');
-        return (await lp.textContent('#hunt-message')).trim();
+        const msg = (await lp.textContent('#hunt-message')).trim();
+        // Som en elev: stäng faktarutan, som annars täcker listan i Samtidigt, innan nästa händelse
+        await lp.click('#detail [data-close]');
+        await lp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
+        return msg;
       };
       for (const id of ['lund-grundas', 'sagan-om-genji', 'mapungubwe-riket']) {
         const msg = await add(id);
