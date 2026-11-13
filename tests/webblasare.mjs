@@ -6414,7 +6414,7 @@ async function run(browser, vp) {
       const A4_WIDTH = 680;
       const A4_HEIGHT = 1039;
       const LANGS = ['sv', 'en', 'de', 'es', 'fr'];
-      const TOURS = ['andra-varldskriget', 'vikingatiden-och-varlden'];
+      const TOURS = ['andra-varldskriget', 'vikingatiden-och-varlden', 'vastroms-fall', 'hanrikets-fall', 'songhairikets-fall']; // fall-turerna sedan #1279
       // Firefox kan skriva familjenamnet med citattecken i document.fonts (#888): jämför utan dem
       const hasWebFont = fonts => fonts.some(f => f.replace(/"/g, '') === 'Instrument Sans');
       const measure = async (lang, tour, fallback) => {
@@ -6470,8 +6470,8 @@ async function run(browser, vp) {
             if (fallback && (used || !got.bodyFont.replace(/"/g, '').startsWith('DejaVu Sans'))) throw new Error(`${tour} ${lang}: reservmätningen använder fel typsnitt (${got.bodyFont}, webbtypsnitt: ${used})`);
             const max = Math.max(...got.heights);
             const lim = limit[fallback ? 'fallback' : 'web'];
-            // Andra världskriget har Källdetektiven (#742) och därmed tre blad, vikingatiden har två; varje blad har en h1
-            const sheets = tour === TOURS[0] ? 3 : 2;
+            // Andra världskriget och Songhai har Källdetektiven (#742, #1279) och därmed tre blad, de andra två; varje blad har en h1
+            const sheets = ['andra-varldskriget', 'songhairikets-fall'].includes(tour) ? 3 : 2;
             if (got.heights.length !== sheets || got.h1 !== sheets) throw new Error(`${tour} ${lang}: ${got.heights.length} blad och ${got.h1} h1 i stället för ${sheets}`);
             if (max > lim) throw new Error(`${tour} ${lang} ${fallback ? 'med reservtypsnitt' : 'med webbtypsnitt'}: ett blad är ${max} px högt, högst ${lim} px av A4:s ${A4_HEIGHT} px (${got.heights.join(', ')})`);
             rows.push(`${fallback ? 'reserv' : 'web'} ${tour.slice(0, 4)} ${lang} ${got.heights.join('/')}`);
