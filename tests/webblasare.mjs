@@ -2698,6 +2698,155 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
+  // #1641: regionvyn. Visa i Platt karta för en liten plats (Skåne, Danmark; upp till cirka 5 grader på marken, js/region-frame.js)
+  // ger en skarp, inzoomad karta med en sluten kantlinje i skärmpixlar. Kontrollerna läser renderingsstatusen på #flat-view
+  // (data-region, data-region-box, data-region-ppd, data-region-sharp) och mäter bildpunkterna längs platsens gräns på kartans canvas.
+  const regionOn = (pg, id) => pg.waitForFunction(x => {
+    const d = document.getElementById('flat-view').dataset;
+    return !document.getElementById('flat-view').hidden && d.region === x && !!d.regionSharp;
+  }, id, { timeout: T.step });
+  /** Vänta tills ramen står still (i mobil räknas den om när arket har fällts ihop) och den skarpa kartan har ritats om. */
+  const regionSettled = async pg => {
+    let last = '';
+    for (let i = 0; i < 20; i++) {
+      await pg.waitForTimeout(250);
+      const now = await pg.evaluate(() => `${document.getElementById('flat-view').dataset.regionBox}|${document.getElementById('flat-view').dataset.view}`);
+      if (now === last) break;
+      last = now;
+    }
+    await pg.waitForTimeout(400); // den skarpa kartan ritas 120 ms efter att vyn stannat
+  };
+  /** Öppnar regionvyn från platskortet med tangentbordet: fokus på knappen och Enter. */
+  const openRegion = async (pg, id) => {
+    const button = pg.locator('#detail [data-selection-action]');
+    await button.waitFor({ state: 'visible', timeout: T.step });
+    await button.focus();
+    await pg.keyboard.press('Enter');
+    await regionOn(pg, id);
+  };
+  await check('regionvyn: Visa i Platt karta ger Skåne skarpt och inzoomat med sluten kantlinje i skärmpixlar, utanför kortet (#1641)', async () => {
+    const { tp, tctx, errs } = await placeTapPage('#y=1827&f=place:skane', 'region1');
+    try {
+      await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+      await openRegion(tp, 'skane');
+      await regionSettled(tp);
+      // Statusraden och rutan säger vilken plats regionvyn visar, och rutan har vägen ut
+      await tp.waitForFunction(() => /^Regionvy: Skåne\./.test(document.getElementById('screen-reader-status').textContent.trim()), null, { timeout: T.step });
+      if ((await tp.textContent('#flat-region-name')).trim() !== 'Regionvy: Skåne') throw new Error(`rutan säger ${await tp.textContent('#flat-region-name')}`);
+      if (!/Lämna regionvyn/.test(await tp.textContent('#flat-region-back'))) throw new Error('rutan saknar Lämna regionvyn');
+      if ((await tp.getAttribute('#btn-flat', 'aria-pressed')) !== 'true') throw new Error('Platt karta är inte vald i Vy');
+      if (!/Skåne/.test(await tp.textContent('#focus-title'))) throw new Error('platsen följs inte längre');
+      const r = await tp.evaluate(async () => {
+        const { placeBounds } = await import('./js/place-geo.js');
+        const { regionSize } = await import('./js/region-frame.js');
+        const doc = await (await fetch('data/platser.json')).json();
+        const place = doc.places.find(p => p.id === 'skane');
+        const fv = document.getElementById('flat-view').dataset, canvas = document.getElementById('flat-canvas');
+        const cr = canvas.getBoundingClientRect(), base = Math.max(cr.width / 4096, cr.height / 2048);
+        const [lat, lon, zoom] = fv.view.split(',').map(Number);
+        const kx = regionSize(placeBounds(place)).kx, sy = base * zoom, sx = sy * kx, dpr = canvas.width / cr.width;
+        const toScreen = ([lo, la]) => ({ x: cr.width / 2 + (lo - lon) / 360 * 4096 * sx, y: cr.height / 2 + (lat - la) / 180 * 2048 * sy });
+        const img = canvas.getContext('2d').getImageData(0, 0, canvas.width, canvas.height).data;
+        const light = (x, y) => {
+          const px = Math.round(x * dpr), py = Math.round(y * dpr);
+          if (px < 0 || py < 0 || px >= canvas.width || py >= canvas.height) return false;
+          const i = (py * canvas.width + px) * 4;
+          return img[i] >= 225 && img[i + 1] >= 205 && img[i + 2] >= 150; // den ljusa kärnan (246, 230, 190); landet är (205, 184, 141)
+        };
+        const near = (x, y, d = 2) => { for (let dx = -d; dx <= d; dx++) for (let dy = -d; dy <= d; dy++) if (light(x + dx, y + dy)) return true; return false; };
+        let n = 0, hits = 0;
+        const widths = [];
+        const g = place.boundary.geometry;
+        for (const poly of g.type === 'Polygon' ? [g.coordinates] : g.coordinates) {
+          const pts = poly[0].map(toScreen);
+          for (let i = 1; i < pts.length; i++) {
+            const a = pts[i - 1], b = pts[i], len = Math.hypot(b.x - a.x, b.y - a.y);
+            if (len < 1) continue;
+            const m = { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 };
+            n++; if (near(m.x, m.y)) hits++;
+            if (len < 8) continue;
+            // Bredden: ljusa bildpunkter tvärs över linjen, mitt på en längre bit
+            const nx = -(b.y - a.y) / len, ny = (b.x - a.x) / len;
+            let w = 0;
+            for (let k = -10; k <= 10; k += 0.5) if (light(m.x + nx * k, m.y + ny * k)) w += 0.5;
+            if (w) widths.push(w);
+          }
+        }
+        widths.sort((p, q) => p - q);
+        const box = fv.regionBox.split(',').map(Number);
+        const rel = id => { const el = document.getElementById(id); if (!el || el.hidden || !el.getClientRects().length) return null; const b = el.getBoundingClientRect(); return { id, x0: b.left - cr.left, y0: b.top - cr.top, x1: b.right - cr.left, y1: b.bottom - cr.top }; };
+        const over = ['detail', 'focus-bar', 'flat-region'].map(rel).filter(o => o && o.x0 < box[2] && o.x1 > box[0] && o.y0 < box[3] && o.y1 > box[1]).map(o => o.id);
+        return { n, hits, width: widths[Math.floor(widths.length / 2)] ?? 0, ppd: Number(fv.regionPpd), flatMax: base * 10 * 2048 / 180, sharp: fv.regionSharp,
+          canvasPx: `${canvas.width}x${canvas.height}`, box, w: cr.width, h: cr.height, over };
+      });
+      // Skarp: kartan ritas för det som syns i skärmens upplösning, och skalan går långt förbi Platt vys största zoom
+      if (r.sharp !== r.canvasPx) throw new Error(`den skarpa kartan (${r.sharp}) har inte kartans storlek (${r.canvasPx})`);
+      if (!(r.ppd > 3 * r.flatMax)) throw new Error(`regionvyn är inte inzoomad förbi Platt vy: ${r.ppd} px per grad mot ${r.flatMax.toFixed(0)}`);
+      // Sluten och synlig: den ljusa kärnan finns längs nästan hela gränsen (markörerna får täcka lite)
+      if (r.hits / r.n < 0.85) throw new Error(`kantlinjen syns bara vid ${r.hits} av ${r.n} punkter längs gränsen`);
+      // I skärmpixlar: kärnan är cirka 2,5 px bred (förr cirka 9 px vid zoom 10)
+      if (!(r.width >= 1 && r.width <= 5)) throw new Error(`kantlinjens kärna är ${r.width} px bred`);
+      // Platsen ligger på kartan, och kortet, fokusraden och rutan täcker den inte
+      if (r.box[0] < 0 || r.box[1] < 0 || r.box[2] > r.w || r.box[3] > r.h) throw new Error(`platsen ryms inte på kartan: ${r.box.join(', ')}`);
+      if (r.over.length) throw new Error(`${r.over.join(', ')} täcker platsen (${r.box.join(', ')})`);
+      if (await tp.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw new Error('horisontell scroll i regionvyn');
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `${r.ppd} px per grad (Platt vy högst ${r.flatMax.toFixed(0)}), kantlinjen vid ${r.hits}/${r.n} punkter, ${r.width} px bred`;
+    } finally { await tctx.close(); }
+  });
+
+  await check('regionvyn: Lämna regionvyn och Escape går tillbaka till Platt karta, Danmark får vyn och Grönland inte (#1641)', async () => {
+    const { tp, tctx, errs } = await placeTapPage('#y=1827&f=place:skane', 'region2');
+    try {
+      const flatView = () => tp.evaluate(() => ({ open: !document.getElementById('flat-view').hidden, region: document.getElementById('flat-view').dataset.region ?? null,
+        zoom: Number(document.getElementById('flat-view').dataset.view.split(',')[2]), chip: !document.getElementById('flat-region').hidden,
+        following: !document.getElementById('focus-bar').hidden }));
+      // Regionvyn är lämnad och kartan har ritats om (zoomen står i data-view efter nästa bildruta)
+      const regionOff = () => tp.waitForFunction(() => { const d = document.getElementById('flat-view').dataset; return !d.region && Number(d.view.split(',')[2]) <= 10; }, null, { timeout: T.step });
+      await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+      await openRegion(tp, 'skane');
+      // Lämna regionvyn: Platt karta som förut, platsen följs fortfarande och statusraden säger det
+      await tp.click('#flat-region-back');
+      await regionOff();
+      let v = await flatView();
+      if (!v.open || v.chip || !v.following || v.zoom > 10) throw new Error(`efter Lämna regionvyn: ${JSON.stringify(v)}`);
+      await tp.waitForFunction(() => /Regionvyn är stängd/.test(document.getElementById('screen-reader-status').textContent), null, { timeout: T.step });
+      if (!(await tp.evaluate(() => document.activeElement?.id === 'flat-canvas'))) throw new Error('fokus gick inte till kartan efter Lämna regionvyn');
+      // Escape: först stängs kortet som ligger ovanpå, sedan lämnas regionvyn, och Fokus och Platt vy står kvar
+      if (await tp.isHidden('#detail')) await tp.click('#focus-facts');
+      if (vp.width <= 760) { await tp.click('#detail-handle'); await tp.waitForTimeout(300); }
+      await openRegion(tp, 'skane');
+      if (!(await tp.isHidden('#detail'))) {
+        await tp.keyboard.press('Escape');
+        await tp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
+        if ((await flatView()).region !== 'skane') throw new Error('Escape lämnade regionvyn innan kortet stängdes');
+      }
+      await tp.keyboard.press('Escape');
+      await regionOff();
+      v = await flatView();
+      if (!v.open || !v.following) throw new Error(`Escape gjorde mer än att lämna regionvyn: ${JSON.stringify(v)}`);
+      // Danmark får regionvyn, Grönland (större än 5 grader) ramas in som förut
+      await tp.goto(`${BASE}?ny=region3#y=1827&f=place:danmark`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+      await openRegion(tp, 'danmark');
+      if ((await tp.textContent('#flat-region-name')).trim() !== 'Regionvy: Danmark') throw new Error('rutan säger inte Danmark');
+      // Att sluta följa platsen lämnar regionvyn
+      await tp.click('#focus-exit');
+      await regionOff();
+      await tp.goto(`${BASE}?ny=region4#y=1000&f=place:gronland`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+      await tp.click('#detail [data-selection-action]');
+      await tp.waitForFunction(() => !document.getElementById('flat-view').hidden, null, { timeout: T.step });
+      await tp.waitForTimeout(400);
+      v = await flatView();
+      if (v.region || v.chip) throw new Error(`Grönland fick regionvyn: ${JSON.stringify(v)}`);
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return 'Lämna regionvyn, Escape (efter kortet) och att sluta följa lämnar vyn; Danmark får den, Grönland inte';
+    } finally { await tctx.close(); }
+  });
+
   // #1163: platser i turens steg, i lektionsläget och i tidsintervallet. Turen är en provtur som läggs in i turlistan med route:
   // ingen riktig tur har något steg med en plats än, och provet ska inte vänta på att en sådan skrivs. Steget öppnar Grönland
   // (data/platser.json) med stegfältet place.
