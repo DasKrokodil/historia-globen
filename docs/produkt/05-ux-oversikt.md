@@ -61,8 +61,9 @@ Antagna "lyckade vägar". Varje flöde är också en testplan: den som granskar 
 | Läge | Bredd | Särdrag |
 |---|---|---|
 | Surfplatta (iPad) | 768–1024 px | Toppraden är provad automatiskt i 768×1024, 820×1180 och 1024×768 (#992). Årtalet och förklaringsraden ligger under knapparna i bredder 761–1100 px, även när knappraden bryts. Övriga flöden och verklig iPad är inte fullständigt provade |
-| Dator | ≥ 761 px (testat 1400×900) | Faktaruta vid sidan, tre knappgrupper, menyer fälls ned |
+| Dator | ≥ 761 px (testat 1400×900, och låg höjd 1280×800 och 1366×768, #1310) | Faktaruta vid sidan, tre knappgrupper, menyer fälls ned. Under 880 px höjd är faktarutans bild lägre så att texten syns under den |
 | Mobil | ≤ 760 px (testat 400×800) | Bara Samtidigt och Meny i raden överst; faktaruta och Samtidigt-kort som ark med tre lägen; globen lyfts när arket är halvt; 44 px träffytor |
+| Låg höjd (#1310) | båda, under 600 px höjd | 200 % zoom av 1280×800 (640×400 CSS-px) och liggande telefon: turkortet rullar i sig självt med Nästa och Avsluta fasta längst ned, turens namn döljs i kortet (det står i turraden), faktarutans ark och bild är lägre. Provas med fönsterstorlek, inte med webbläsarens zoom. Skärmbilder före och efter: `docs/ux-review/lag-hojd-1310/` |
 | Platt vy | båda | Karta med zoom och panorering; samma bild som kan skickas till en fysisk glob |
 | Lektionsläge | båda | Menyerna dolda, år och lager låsta |
 | Presentationsläge (#488) | dator (≥ 761 px) | Större text och knappar för projektor och storskärm. Slås på med knappen i För lärare (utan omladdning; adressen får `?presentation=1`) eller med en äldre länk med parametern; Avsluta uppe i raden stänger det på stället (utan omladdning) och behåller vyn och lärarens roll i en lektion. Knappen visas inte i mobilbredd, där Avsluta täcker årtalet (känt fel i läget, #1457) |
