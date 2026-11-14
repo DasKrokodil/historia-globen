@@ -15962,8 +15962,8 @@
     "sv": "Följ Skåne i tidsordning: händelserna på globen som ligger inom dagens gräns för Skåne län, från Uppåkra och Lund till Öresundsförbindelsen. Det är ett urval, inte en heltäckande historia.",
     "en": "Follow Scania in order of time: the events on the globe that lie within the present-day border of Skåne County, from Uppåkra and Lund to the Øresund link. It is a selection, not a complete history.",
     "de": "Verfolgen Sie Schonen in zeitlicher Reihenfolge: die Ereignisse auf dem Globus innerhalb der heutigen Grenze von Skåne län, von Uppåkra und Lund bis zur Öresundverbindung. Es ist eine Auswahl, keine vollständige Geschichte.",
-    "es": "Siga Escania en orden cronológico: los acontecimientos del globo situados dentro de la frontera actual del condado de Skåne, desde Uppåkra y Lund hasta el enlace del Øresund. Es una selección, no una historia completa.",
-    "fr": "Suivez la Scanie dans l’ordre chronologique : les événements du globe situés à l’intérieur de la frontière actuelle du comté de Skåne, d’Uppåkra et de Lund à la liaison de l’Øresund. C’est une sélection, et non une histoire complète."
+    "es": "Siga Escania en orden cronológico: los acontecimientos del globo situados dentro de la frontera actual de la provincia de Escania, desde Uppåkra y Lund hasta el enlace del Øresund. Es una selección, no una historia completa.",
+    "fr": "Suivez la Scanie dans l’ordre chronologique : les événements du globe situés à l’intérieur de la frontière actuelle du comté de Scanie, d’Uppåkra et de Lund à la liaison de l’Øresund. C’est une sélection, et non une histoire complète."
    },
    "view": {
     "center": [
@@ -16972,8 +16972,8 @@
      "sv": "Konturen är Skåne läns gräns. Länet är landskapet Skåne plus Östra Karups socken i Halland.",
      "en": "The outline is the border of Skåne County. The county is the province of Scania plus Östra Karup parish in Halland.",
      "de": "Die Kontur ist die Grenze von Skåne län. Skåne län besteht aus der Landschaft Schonen und dem Kirchspiel Östra Karup in Halland.",
-     "es": "El contorno es la frontera del condado de Skåne. El condado comprende la provincia de Escania y la parroquia de Östra Karup, en Halland.",
-     "fr": "Le contour est la frontière du comté de Skåne. Le comté comprend la province de Scanie et la paroisse d’Östra Karup, dans le Halland."
+     "es": "El contorno es la frontera de la provincia de Escania (Skåne län). Esta comprende la provincia histórica de Escania y la parroquia de Östra Karup, en Halland.",
+     "fr": "Le contour est la frontière du comté de Scanie. Le comté comprend la province de Scanie et la paroisse d’Östra Karup, dans le Halland."
     }
    },
    "sources": [

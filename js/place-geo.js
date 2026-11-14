@@ -74,8 +74,10 @@ export function edgeKm(geometry, lon, lat) {
 
 /**
  * Kustmarginal: 1:50m-kusten är grov, så en plats vid kusten (Nuuk, Auckland, Golden Bay) kan hamna några
- * kilometer utanför linjen. Händelser inom så här många km från gränsen räknas som inom den. Ingen händelse i datan
- * ligger inom 20 km från en annan plats gräns; validate-site.py och testerna räknar med samma marginal.
+ * kilometer utanför linjen. Händelser inom så här många km från gränsen räknas som inom den; validate-site.py och testerna
+ * räknar med samma marginal. Marginalen kan dra in händelser vid en grannplats gräns: Öresundsförbindelsen räknas till
+ * Skåne, Sverige och Danmark, och Slaget vid Helsingborg ligger 6,8 km från Danmarks linje (#1449). Köpenhamn ligger
+ * 22,9–23,6 km från Skånes linje och räknas inte dit (#1159).
  */
 export const COAST_MARGIN_KM = 20;
 
