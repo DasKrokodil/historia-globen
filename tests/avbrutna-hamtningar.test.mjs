@@ -4,7 +4,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { EventEmitter } from 'node:events';
-import { skapaAbortWatch, urlKey, WEBKIT_ABORT, ABORTED_FETCH } from './avbrutna-hamtningar.mjs';
+import { skapaAbortWatch, urlKey, WEBKIT_ABORT, ABORTED_FETCH, textifyConsoleErrors } from './avbrutna-hamtningar.mjs';
 
 const HOST = 'localhost:8000';
 // WebKits rad som Playwright ger den som sidfel: första kolonet delar namn och text, så "http:" försvinner och en snedstreck med det
@@ -369,4 +369,83 @@ test('tidslinjen: main-frame-navigering och load syns, och listan är begränsad
   assert.ok(diag.split(' ; ').length <= 80);
   assert.match(diag, /data\/199\.json/);
   assert.doesNotMatch(diag, /data\/0\.json/);
+});
+
+// Initskriptet som gör Error-argument till text innan de når konsolen (#888, #1561): Firefox ger annars "JSHandle@object" i m.text().
+const fakeKonsol = () => {
+  const anrop = [];
+  const k = {
+    error(...a) { anrop.push({ nivå: 'error', denna: this, a }); },
+    warn(...a) { anrop.push({ nivå: 'warn', denna: this, a }); },
+  };
+  return { k, anrop };
+};
+
+test('initskriptet: ett TypeError från en avbruten hämtning blir exakt Firefox-raden som ABORTED_FETCH känner igen', () => {
+  const { k, anrop } = fakeKonsol();
+  textifyConsoleErrors(k);
+  k.error(new TypeError('NetworkError when attempting to fetch resource.'));
+  assert.equal(anrop.length, 1);
+  assert.deepEqual(anrop[0].a, ['TypeError: NetworkError when attempting to fetch resource.']);
+  assert.equal(anrop[0].a[0], 'TypeError: NetworkError when attempting to fetch resource.');
+  assert.ok(ABORTED_FETCH.test(anrop[0].a[0]));
+  assert.equal(anrop[0].denna, k, 'originalanropet görs på konsolen själv');
+});
+
+test('initskriptet: DOMException och andra Error-typer görs om, och warn får samma behandling', () => {
+  const { k, anrop } = fakeKonsol();
+  textifyConsoleErrors(k);
+  k.error(new DOMException('The operation was aborted.', 'AbortError'));
+  k.warn(new RangeError('för stort'));
+  assert.deepEqual(anrop.map(x => x.a), [['AbortError: The operation was aborted.'], ['RangeError: för stort']]);
+  assert.ok(ABORTED_FETCH.test(anrop[0].a[0]));
+});
+
+test('initskriptet: andra argument lämnas orörda och i samma ordning, och originalet anropas alltid', () => {
+  const { k, anrop } = fakeKonsol();
+  textifyConsoleErrors(k);
+  const obj = { fel: 1 }, lista = [1, 2], fn = () => {};
+  k.error('text', 42, obj, lista, null, undefined, fn, new Error('x'));
+  assert.equal(anrop.length, 1);
+  const a = anrop[0].a;
+  assert.equal(a[0], 'text');
+  assert.equal(a[1], 42);
+  assert.equal(a[2], obj, 'objektet är samma objekt, inte en kopia');
+  assert.equal(a[3], lista);
+  assert.equal(a[4], null);
+  assert.equal(a[5], undefined);
+  assert.equal(a[6], fn);
+  assert.equal(a[7], 'Error: x');
+  assert.equal(a.length, 8);
+  k.error();
+  assert.equal(anrop.length, 2);
+  assert.deepEqual(anrop[1].a, []);
+});
+
+test('initskriptet: en vanlig sträng som liknar felet räknas inte om, och en Error-lik utan arv lämnas orörd', () => {
+  const { k, anrop } = fakeKonsol();
+  textifyConsoleErrors(k);
+  const lik = { name: 'TypeError', message: 'Load failed' };
+  k.error('TypeError: Load failed', lik);
+  assert.equal(anrop[0].a[0], 'TypeError: Load failed');
+  assert.equal(anrop[0].a[1], lik);
+});
+
+test('initskriptet är fristående: det fungerar efter att ha skickats som text, som Playwright gör', () => {
+  const { k, anrop } = fakeKonsol();
+  const fran = new Function(`return (${textifyConsoleErrors.toString()})`)();
+  fran(k);
+  k.error(new TypeError('NetworkError when attempting to fetch resource.'));
+  assert.equal(anrop[0].a[0], 'TypeError: NetworkError when attempting to fetch resource.');
+});
+
+test('initskriptet utan argument omsluter den riktiga console i sidan', () => {
+  const orig = { error: console.error, warn: console.warn };
+  const sett = [];
+  console.error = (...a) => sett.push(a);
+  try {
+    textifyConsoleErrors();
+    console.error(new TypeError('Load failed'), 'extra');
+    assert.deepEqual(sett, [['TypeError: Load failed', 'extra']]);
+  } finally { console.error = orig.error; console.warn = orig.warn; }
 });

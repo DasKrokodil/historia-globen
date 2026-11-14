@@ -45,7 +45,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { list, urval, bredder, ALLTID } from './urval.mjs';
-import { skapaAbortWatch, ABORTED_FETCH } from './avbrutna-hamtningar.mjs';
+import { skapaAbortWatch, ABORTED_FETCH, textifyConsoleErrors } from './avbrutna-hamtningar.mjs';
 
 const require = createRequire(import.meta.url);
 const playwright = require('playwright');
@@ -189,22 +189,22 @@ async function waitDiag(pg, label, sink, selector, timeout) {
   }
 }
 
+// Alla kontexter i testet skapas här (#888, #1561): Firefox ger "JSHandle@object" som text för console.error(err), och handtaget går
+// inte alltid att läsa i efterhand (sidan kan ha navigerat). Därför görs Error-argument om till text i sidan, innan de når
+// webbläsarens konsol (textifyConsoleErrors i tests/avbrutna-hamtningar.mjs): "Namn: meddelande", samma form som WebKit och
+// Chromium redan ger. Det gäller varje kontext, också de egna för pekning (touchPage), språk och låg höjd, annars filtrerar
+// m.text() på "JSHandle@object" och ABORTED_FETCH och tidslinjen aktiveras aldrig. Strängar och andra argument passerar oförändrade.
+async function newTestContext(browser, opts) {
+  const c = await browser.newContext(opts);
+  await c.addInitScript(textifyConsoleErrors);
+  return c;
+}
+
 async function run(browser, vp) {
   const results = [];
   const errors = [];
   const webglWarnings = [];
-  const context = await browser.newContext({ viewport: { width: vp.width, height: vp.height }, deviceScaleFactor: 1 });
-  // Firefox ger "JSHandle@object" som text för console.error(err) (#888), och handtaget går inte alltid att läsa i efterhand
-  // (sidan kan ha navigerat). Därför görs Error-argument om till text i sidan, innan de når webbläsarens konsol: "Namn:
-  // meddelande", samma form som WebKit och Chromium redan ger. Strängar och andra argument passerar oförändrade.
-  await context.addInitScript(() => {
-    for (const level of ['error', 'warn']) {
-      const original = console[level];
-      console[level] = function (...args) {
-        return original.apply(this, args.map(a => (a instanceof Error ? `${a.name}: ${a.message}` : a)));
-      };
-    }
-  });
+  const context = await newTestContext(browser, { viewport: { width: vp.width, height: vp.height }, deviceScaleFactor: 1 });
   const page = await context.newPage();
   let threeOk = false;
 
@@ -819,7 +819,7 @@ async function run(browser, vp) {
   });
 
   await check('årshoppet: aktivt eraval, år 0 och ogiltig inmatning på fem språk (#1075)', async () => {
-    const isolated = await browser.newContext({ viewport: { width: vp.width, height: vp.height }, locale: 'sv-SE', reducedMotion: 'reduce' });
+    const isolated = await newTestContext(browser, { viewport: { width: vp.width, height: vp.height }, locale: 'sv-SE', reducedMotion: 'reduce' });
     try {
       for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
         const pp = await isolated.newPage();
@@ -1316,7 +1316,7 @@ async function run(browser, vp) {
   // utskrift (#879) och turfil vid sidladdning (#877) finns redan; här prövas att felet mitt i sessionen ger besked och
   // att sidan kommer tillbaka när felet är över, utan omladdning. Egen sida med pekning (hasTouch) för varje prov.
   const touchPage = async () => {
-    const tctx = await browser.newContext({ viewport: { width: vp.width, height: vp.height }, deviceScaleFactor: 1, hasTouch: true });
+    const tctx = await newTestContext(browser, { viewport: { width: vp.width, height: vp.height }, deviceScaleFactor: 1, hasTouch: true });
     const tp = await tctx.newPage();
     const errs = [];
     tp.on('pageerror', e => errs.push(e.message));
@@ -2672,7 +2672,7 @@ async function run(browser, vp) {
   });
   await check('platskortets rader och kryss har träffytor på minst 44 px med touch på bred skärm (#1464)', async () => {
     if (narrowVp) return 'körs i datorbredd';
-    const tctx = await browser.newContext({ viewport: { width: 1280, height: 800 }, deviceScaleFactor: 1, hasTouch: true, isMobile: true });
+    const tctx = await newTestContext(browser, { viewport: { width: 1280, height: 800 }, deviceScaleFactor: 1, hasTouch: true, isMobile: true });
     const tp = await tctx.newPage();
     const errs = [];
     tp.on('pageerror', e => errs.push(e.message));
@@ -6344,7 +6344,7 @@ async function run(browser, vp) {
     if (vp.width <= 760) return 'körs i datorjobbet (provar själv 400 och 768 px)';
     const seen = [];
     // Egen kontext: den sparade farten och tipset ärvs inte från andra prov och lämnas inte kvar åt dem
-    const isolated = await browser.newContext({ viewport: { width: 400, height: 800 }, deviceScaleFactor: 1 });
+    const isolated = await newTestContext(browser, { viewport: { width: 400, height: 800 }, deviceScaleFactor: 1 });
     try {
     for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
       const pp = await isolated.newPage();
@@ -9362,7 +9362,7 @@ const LAGA_YTOR = [
 ];
 // Egen kontext och sida per storlek, med årstipset avstängt så att det inte döljer skalan. Anroparen stänger kontexten.
 async function lagaHojdenSida(browser, { width, height }, hash) {
-  const context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: 1 });
+  const context = await newTestContext(browser, { viewport: { width, height }, deviceScaleFactor: 1 });
   const page = await context.newPage();
   const errors = [];
   page.on('pageerror', e => errors.push(e.message));
@@ -9383,7 +9383,7 @@ async function lagaHojdenSida(browser, { width, height }, hash) {
 // omflödar till 700 × 450 respektive 350 × 225 CSS-pixlar. Kontrollera de viktigaste vägarna i båda.
 async function runReflow(browser) {
   const results = [];
-  const context = await browser.newContext({ viewport: { width: 700, height: 450 }, deviceScaleFactor: 1 });
+  const context = await newTestContext(browser, { viewport: { width: 700, height: 450 }, deviceScaleFactor: 1 });
   const page = await context.newPage();
   const errors = [];
   page.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url || '')) pushConsole(errors, m, t => `konsol: ${t}`); });
@@ -9490,7 +9490,7 @@ async function runReflow(browser) {
 
 // Lugn rörelse (#246, #406) ska slås på automatiskt för besökare som valt reducerad rörelse i systemet.
 async function runReducedMotion(browser) {
-  const context = await browser.newContext({ viewport: { width: 400, height: 800 }, reducedMotion: 'reduce' });
+  const context = await newTestContext(browser, { viewport: { width: 400, height: 800 }, reducedMotion: 'reduce' });
   const page = await context.newPage();
   if (THREE_LOCAL) {
     const body = fs.readFileSync(THREE_LOCAL, 'utf8');
@@ -9528,7 +9528,7 @@ async function runPresentation(browser) {
     { name: 'presentation-mobil', width: 400, height: 800 },
     { name: 'presentation-zoom-400', width: 350, height: 225 },
   ]) {
-    const context = await browser.newContext({ viewport: vp, deviceScaleFactor: 1, reducedMotion: vp.name === 'presentation-mobil' ? 'reduce' : 'no-preference' });
+    const context = await newTestContext(browser, { viewport: vp, deviceScaleFactor: 1, reducedMotion: vp.name === 'presentation-mobil' ? 'reduce' : 'no-preference' });
     const page = await context.newPage();
     const errors = [];
     page.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url || '')) pushConsole(errors, m); });

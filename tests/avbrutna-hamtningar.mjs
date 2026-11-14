@@ -137,3 +137,23 @@ export function skapaAbortWatch({ siteHost, filtered = () => {}, register = () =
     return watch;
   };
 }
+
+/**
+ * Initskript för webbläsartestet (#888, #1561): gör Error- och DOMException-argument till strängar INNAN de når webbläsarens konsol.
+ * Firefox ger texten "JSHandle@object" i m.text() för console.error(err) när konsolhändelsen kommer, och handtaget går inte att läsa
+ * i efterhand om sidan hunnit byta adress. Då matchar inget filter på m.text() (ABORTED_FETCH, tidslinjen) i Firefox. Efter det här
+ * är texten "Namn: meddelande" direkt, samma form som WebKit och Chromium ger. Alla andra argument skickas oförändrade, och det
+ * ursprungliga anropet görs alltid. Bara testet använder funktionen; sidans egen kod (js/) ändras inte.
+ *
+ * Funktionen ska vara fristående: Playwright skickar den som text till sidan (page.addInitScript, context.addInitScript), så den får
+ * inte använda något utanför sig själv. Parametern finns för enhetsproven (ett objekt med error och warn i stället för console).
+ */
+export function textifyConsoleErrors(target = console) {
+  const isErr = a => a instanceof Error || (typeof DOMException !== 'undefined' && a instanceof DOMException);
+  for (const level of ['error', 'warn']) {
+    const original = target[level];
+    target[level] = function (...args) {
+      return original.apply(this, args.map(a => (isErr(a) ? `${a.name}: ${a.message}` : a)));
+    };
+  }
+}
