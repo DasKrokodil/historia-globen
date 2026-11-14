@@ -32,9 +32,9 @@ export class EmpireMarkers {
     for (const m of show ? marks : []) {
       now.add(m.key);
       const it = this.items.get(m.key) ?? this._make(m);
-      const visual = `${m.kind}:${m.symbol}`;
+      const visual = `${m.kind}:${m.flagKind ?? ''}:${m.symbol}`;
       if (it.visual !== visual) {
-        it.sprite.material.map = m.kind === 'flag' ? flagTexture(m.symbol) : medalTexture(m.symbol, m.color, INFO, false);
+        it.sprite.material.map = m.kind === 'flag' ? flagTexture(m.symbol, m.flagKind) : medalTexture(m.symbol, m.color, INFO, false);
         it.sprite.material.needsUpdate = true;
         it.visual = visual;
         it.button.setAttribute('aria-label', markLabel(m));
@@ -51,14 +51,14 @@ export class EmpireMarkers {
 
   _make(m) {
     const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ transparent: true, depthWrite: false,
-      map: m.kind === 'flag' ? flagTexture(m.symbol) : medalTexture(m.symbol, m.color, INFO, false) }));
+      map: m.kind === 'flag' ? flagTexture(m.symbol, m.flagKind) : medalTexture(m.symbol, m.color, INFO, false) }));
     sprite.renderOrder = 2; // ovanpå händelsernas medaljer
     this.globe.markerGroup.add(sprite);
     const button = document.createElement('button');
     button.type = 'button'; button.className = 'gorigin gempire'; button.hidden = true;
     button.setAttribute('aria-label', markLabel(m));
     button.title = ui('marks.empire.title', { name: m.name }); // hovringstexten följer språket (#1188)
-    const it = { sprite, button, mark: m, visual: `${m.kind}:${m.symbol}`, lon: null, lat: null };
+    const it = { sprite, button, mark: m, visual: `${m.kind}:${m.flagKind ?? ''}:${m.symbol}`, lon: null, lat: null };
     button.addEventListener('click', () => this.onPick(it.mark));
     this.labelsEl.append(button);
     this.items.set(m.key, it);

@@ -24,9 +24,9 @@
     "disableAll": { "sv": "Stäng av alla", "en": "Turn all off", "de": "Alle ausschalten", "es": "Desactivar todas", "fr": "Tout désactiver" },
     "disableAllLabel": { "sv": "Stäng av alla lager", "en": "Turn off all layers", "de": "Alle Ebenen ausschalten", "es": "Desactivar todas las capas", "fr": "Désactiver tous les calques" },
     "restore": { "sv": "Återställ", "en": "Restore", "de": "Zurücksetzen", "es": "Restablecer", "fr": "Rétablir" },
-    "restoreLabel": { "sv": "Återställ standardvyn", "en": "Restore the default view", "de": "Standardansicht wiederherstellen", "es": "Restablecer la vista estándar", "fr": "Rétablir la vue standard" },
+    "restoreLabel": { "sv": "Återställ startvyn", "en": "Restore the starting view", "de": "Startansicht wiederherstellen", "es": "Restablecer la vista inicial", "fr": "Rétablir la vue de départ" },
     "allOff": { "sv": "Alla lager är avstängda.", "en": "All layers are off.", "de": "Alle Ebenen sind ausgeschaltet.", "es": "Todas las capas están desactivadas.", "fr": "Tous les calques sont désactivés." },
-    "standardRestored": { "sv": "Standardvyn är återställd.", "en": "The default view has been restored.", "de": "Die Standardansicht ist wiederhergestellt.", "es": "Se ha restablecido la vista estándar.", "fr": "La vue standard est rétablie." }
+    "standardRestored": { "sv": "Startvyn är återställd.", "en": "The starting view has been restored.", "de": "Die Startansicht ist wiederhergestellt.", "es": "Se ha restablecido la vista inicial.", "fr": "La vue de départ est rétablie." }
   },
   "focus": {
     "groupByAge": { "sv": "Gruppera efter: Tidsålder", "en": "Group by: Historical period", "de": "Gruppieren nach: Epoche", "es": "Agrupar por: época histórica", "fr": "Regrouper par : époque" },

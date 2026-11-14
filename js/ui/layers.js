@@ -63,7 +63,7 @@ export class LayerMenu {
       this.on[input.dataset.layer] = input.checked;
       input.addEventListener('change', () => {
         this.on[input.dataset.layer] = input.checked;
-        this.setTag(null); // ett eget val av lager lämnar vyn med taggen
+        if (input.dataset.layer === 'events') this.setTag(null); // bara Händelser-lagret lämnar urvalet; andra lager rör det inte (#1580)
         this.syncView();
         this.onChange(input.dataset.layer, input.checked);
       });
@@ -109,7 +109,7 @@ export class LayerMenu {
     const input = this.menu.querySelector(`input[data-layer="${name}"]`);
     if (input) input.checked = on;
     this.on[name] = on;
-    if (this.views?.controlled.includes(name)) this.setTag(null);
+    if (name === 'events' && this.views?.controlled.includes(name)) this.setTag(null);
     this.syncView();
   }
 
@@ -198,7 +198,7 @@ export class LayerMenu {
     restore.className = 'layer-action';
     restore.textContent = labels.restore;
     restore.setAttribute('aria-label', labels.restoreLabel);
-    restore.addEventListener('click', () => this.applyView('standard'));
+    restore.addEventListener('click', () => this.applyView(this.views.defaultView ?? 'standard', true)); // startvyn, inte förvalet Standard (#1579)
     this.actionStatus = document.createElement('p');
     this.actionStatus.className = 'layer-action-status';
     this.actionStatus.setAttribute('role', 'status');
@@ -225,7 +225,7 @@ export class LayerMenu {
   }
 
   /** Slår på vyns lager och av de andra som vyerna styr; onChange anropas för varje lager som ändras. */
-  applyView(id) {
+  applyView(id, restored = false) {
     const view = this.views?.views.find(v => v.id === id);
     if (!view) return;
     const changed = [];
@@ -240,7 +240,7 @@ export class LayerMenu {
     const tagChanged = (view.tag ?? null) !== this.tag;
     this.tag = view.tag ?? null;
     this.syncView();
-    if (id === 'standard' && this.actionStatus) this.actionStatus.textContent = this.views.layerActions.standardRestored;
+    if (restored && this.actionStatus) this.actionStatus.textContent = this.views.layerActions.standardRestored;
     if (tagChanged) this.onTag(this.tag);
     for (const [name, on] of changed) this.onChange(name, on);
   }
@@ -307,7 +307,8 @@ export class LayerMenu {
     this.menu.hidden = false;
     this.button.setAttribute('aria-expanded', 'true');
     this.onOpen();
-    this.menu.querySelector('input,button')?.focus({ preventScroll: true }); // fokus in i menyn (#246)
+    // Fokus in i menyn (#246): första synliga kontrollen. Kryssknappen är dold på dator och kan inte få fokus (#1578)
+    [...this.menu.querySelectorAll('input,button')].find(el => el.getClientRects().length > 0)?.focus({ preventScroll: true });
   }
   close() {
     const had = this.menu.contains(document.activeElement);

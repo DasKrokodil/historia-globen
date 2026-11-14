@@ -397,6 +397,7 @@ Definitionerna står i [docs/produkt/13-ordlista.md](produkt/13-ordlista.md) ("L
 | nation | nation | Nation | nación | nation | inget eget ord i gränssnittet |
 | region (= världsdel) | continent | Kontinent | continente | continent | `region.<id>`, `hunt.progress`, `legend.continentNote` |
 | tema | theme | Thema | tema | thème | `theme.label`, `focus.tab.themes` |
+| fliken "Vad hände här?" (händelser nära en plats, #15; hette tidigare Plats) | What happened here? | Was geschah hier? | ¿Qué pasó aquí? | Que s’est-il passé ici ? (hårt mellanrum före frågetecknet) | `focus.tab.place` |
 
 - **Land är inte rike på något språk.** *Country/Land/país/pays* är dagens land med dagens gräns; *empire/Reich/imperio/empire* är rikets historiska gräns. Översätt aldrig "landet" med *empire* eller *Reich*, eller "riket" med *country*.
 - **Stat och nation används inte som synonymer till land.** *Nation*, *nación* och franska *nation* betyder folket, inte området. Delstaterna i USA heter *estados* respektive *États* (avsnitt 17.1).

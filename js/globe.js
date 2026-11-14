@@ -162,25 +162,48 @@ export class Globe {
   }
 
   // ---------- Bågar mellan samtidiga platser ----------
+  // Bågen ritas som en ljus linje på en mörk kant, som i Platt vy (4 och 1,6 px), så att den syns på både hav och
+  // pergament (Upptäcktsresor har ljus botten överallt). Rören har en bredd i pixlar som hålls vid zoom och storleksändring.
   setArcs(pairs) {
+    this._arcPairs = pairs;
+    this._buildArcs();
+  }
+
+  /** En pixel på skärmen vid klotets yta, i världsenheter. */
+  _pxWorld() {
+    return 2 * Math.tan(this.camera.fov / 2 * DEG) * this.camera.position.z / (this.canvas.clientHeight || 1);
+  }
+
+  _buildArcs() {
     for (const ch of [...this.arcGroup.children]) { ch.geometry.dispose(); ch.material.dispose(); this.arcGroup.remove(ch); }
-    for (const [a, b] of pairs) {
+    const px = this._arcPx = this._pxWorld();
+    for (const [a, b] of this._arcPairs ?? []) {
       const va = latLonToVec3(a[0], a[1]).normalize(), vb = latLonToVec3(b[0], b[1]).normalize();
       const ang = va.angleTo(vb);
       const pts = [];
       for (let i = 0; i <= 96; i++) {
-        const s = i / 96;
-        const v = slerp(va, vb, s, ang);
-        v.multiplyScalar(R * (1.006 + Math.sin(Math.PI * s) * Math.min(0.16, ang * 0.1)));
+        const t = i / 96;
+        const v = slerp(va, vb, t, ang);
+        v.multiplyScalar(R * (1.006 + Math.sin(Math.PI * t) * Math.min(0.16, ang * 0.1)));
         pts.push(v);
       }
-      const line = new THREE.Line(
-        new THREE.BufferGeometry().setFromPoints(pts),
-        new THREE.LineBasicMaterial({ color: 0xf1dfb4, transparent: true, opacity: 0.9 }),
-      );
-      this.arcGroup.add(line);
+      const curve = new THREE.CatmullRomCurve3(pts);
+      // [bredd i px, färg, täckning, ritordning]: kanten först, den ljusa linjen ovanpå
+      for (const [width, color, opacity, order] of [[4, 0x0b1219, 0.55, 1], [1.6, 0xecdfc2, 0.9, 2]]) {
+        const mesh = new THREE.Mesh(
+          new THREE.TubeGeometry(curve, 96, width * px / 2, 6, false),
+          new THREE.MeshBasicMaterial({ color, transparent: true, opacity, depthWrite: false }),
+        );
+        mesh.renderOrder = order;
+        this.arcGroup.add(mesh);
+      }
     }
     this.invalidate();
+  }
+
+  /** Bygger om bågarna när en pixel har ändrat storlek (zoom, fönstret), så att bredden håller sig. */
+  _refreshArcs() {
+    if (this._arcPairs?.length && Math.abs(this._pxWorld() / this._arcPx - 1) > 0.06) this._buildArcs();
   }
 
   // ---------- Kamera och styrning ----------
@@ -240,12 +263,14 @@ export class Globe {
     this.camera.lookAt(0, -0.06, 0);
     this.camera.updateProjectionMatrix();
     this._setTextureSize();
+    this._refreshArcs();
     this.invalidate();
   }
 
   setZoom(z) {
     this.zoom = Math.min(3.2, Math.max(0.8, z));
     this.camera.position.z = this.baseDist / this.zoom;
+    this._refreshArcs();
     this.onZoom?.(this.zoom);
     this.invalidate();
   }

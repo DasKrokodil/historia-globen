@@ -82,6 +82,7 @@ export function entry({ data, refresh, registry }) {
 }
 
 const SCALE = 0.5;           // dimbildens upplösning i förhållande till lagerbilden
+const COVERAGE_DELAY_MS = 400; // dimman ska ha stått stilla så här länge innan täckningen mäts
 const FINE_STEP = 0.01;      // i fokusläget för korta krig görs dimman om högst var hundradels år
 const cssVar = (name, fallback) => getComputedStyle(document.documentElement).getPropertyValue(name).trim() || fallback;
 const clamp01 = v => Math.max(0, Math.min(1, v));
@@ -437,9 +438,22 @@ export class DiscoveryLayer {
       areas(c);
     }
     c.globalCompositeOperation = 'source-over'; c.globalAlpha = 1;
-    const coverage = this._coverage();
-    if (coverage !== this.coverage) { this.coverage = coverage; this.onCoverage(); }
+    this._scheduleCoverage();
     this.fogDirty = false;
+  }
+
+  /**
+   * Mätaren läser tillbaka dimbilden, och en tillbakaläsning tvingar fram hela ritningen och stoppar tråden (mätt:
+   * över en sekund per år i en webbläsare utan grafikkort). Under uppspelning och vridning kom den för varje år och
+   * gjorde att globen laggade. Den görs därför först när dimman har stått stilla en kort stund.
+   */
+  _scheduleCoverage() {
+    clearTimeout(this._coverageTimer);
+    this._coverageTimer = setTimeout(() => {
+      if (!this.enabled || !this.fogCanvas) return;
+      const coverage = this._coverage();
+      if (coverage !== this.coverage) { this.coverage = coverage; this.onCoverage(); }
+    }, COVERAGE_DELAY_MS);
   }
 
   /**

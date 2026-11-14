@@ -1702,28 +1702,55 @@ async function run(browser, vp) {
         return lp.evaluate(() => {
           const year = Number(document.getElementById('track').getAttribute('aria-valuenow'));
           const line = document.querySelector('#detail .symbol-kind');
-          return { year, kind: line?.dataset.symbolKind ?? null, text: line?.textContent ?? '',
+          return { year, kind: line?.dataset.symbolKind ?? null, text: line?.textContent ?? '', hasSymbol: !!document.querySelector('#detail h3 .rel-sym-h'),
             marks: [...document.querySelectorAll('[aria-label]')].map(el => el.getAttribute('aria-label')).filter(l => /^[^:]+: (rikets|modern återgivning)/.test(l)) };
         });
       };
       const japan = await open(1900, 'japanska-imperiet', 'Japanska');
-      const japanWant = japan.year >= 1870 && japan.year <= 1945 ? 'reconstruction' : 'symbol';
+      // En symbol får ingen förklarande rad (2026-11-14): tecknet i rubriken räcker, markörens skärmläsartext säger fortfarande vad det är
+      const japanWant = japan.year >= 1870 && japan.year <= 1945 ? 'reconstruction' : null;
       if (japan.kind !== japanWant) throw new Error(`Japan ${japan.year}: raden är ${japan.kind}, inte ${japanWant}`);
       if (japanWant === 'reconstruction' && !/^Modern återgivning/.test(japan.text)) throw new Error(`fel text för modern återgivning: "${japan.text}"`);
       if (japanWant === 'reconstruction' && !japan.marks.some(l => /modern återgivning av rikets symbol/.test(l))) throw new Error(`markören säger inte modern återgivning: ${japan.marks.join(' | ')}`);
       const ottoman = await open(1900, 'osmanska-riket', 'Osmanska');
-      const ottoWant = ottoman.year >= 1793 && ottoman.year <= 1922 ? 'flag' : 'symbol';
+      const ottoWant = ottoman.year >= 1793 && ottoman.year <= 1922 ? 'flag' : null;
       if (ottoman.kind !== ottoWant) throw new Error(`Osmanska riket ${ottoman.year}: raden är ${ottoman.kind}, inte ${ottoWant}`);
       if (ottoWant === 'flag' && !/^Flagga/.test(ottoman.text)) throw new Error(`fel text för flagga: "${ottoman.text}"`);
       const rome = await open(100, 'romarriket', 'Rom: kungadöme');
-      if (rome.kind !== 'symbol' || !/inte en flagga/.test(rome.text)) throw new Error(`Rom: raden är ${rome.kind} "${rome.text}", inte symbol`);
+      if (rome.kind !== null || !rome.hasSymbol) throw new Error(`Rom: raden är ${rome.kind} "${rome.text}" och symbol i rubriken ${rome.hasSymbol}, väntade ingen rad men en symbol`);
       const han = await open(100, 'hanriket', 'Hanriket');
       if (han.kind !== null) throw new Error('Hanriket har ingen symbol men får en rad om tecknet');
       if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
-      return `Japan ${japan.year}: ${japan.kind}, Osmanska riket ${ottoman.year}: ${ottoman.kind}, Rom: symbol, Hanriket: ingen rad`;
+      return `Japan ${japan.year}: ${japan.kind}, Osmanska riket ${ottoman.year}: ${ottoman.kind}, Rom: symbol utan rad, Hanriket: ingen rad`;
     } finally {
       await lp.close();
     }
+  });
+
+  // #1570 (beslut 2026-11-14, alternativ D): formen säger vad tecknet är. En flagga är en rektangel i 3:2, en symbol och en
+  // modern återgivning är sköldar, och teckningar som själva är sköldar behåller sin form. Kontrollen ritar märkena på samma
+  // canvas som klotet använder och mäter var bildpunkterna finns, så den bryts om en flagga åter sträcks till en sköld.
+  await check('rikets tecken: flagga som rektangel, symbol som sköld (#1570)', async () => {
+    const out = await page.evaluate(async () => {
+      const m = await import(new URL('js/layers/events.js', location.href).href);
+      const measure = async (name, kind) => {
+        const tex = m.flagTexture(name, kind);
+        const until = Date.now() + 8000;
+        while (!m.flag(name).ready && Date.now() < until) await new Promise(r => setTimeout(r, 50));
+        await new Promise(r => setTimeout(r, 100));
+        const c = tex.image, g = c.getContext('2d'), { width: w, height: h } = c;
+        const px = g.getImageData(0, 0, w, h).data;
+        let x0 = w, y0 = h, x1 = -1, y1 = -1;
+        for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) if (px[(y * w + x) * 4 + 3] > 40) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+        return { name, kind, aspect: (x1 - x0 + 1) / (y1 - y0 + 1), w: x1 - x0 + 1, h: y1 - y0 + 1 };
+      };
+      return [await measure('italy', 'flag'), await measure('france-ancient', 'symbol'), await measure('poland-white-eagle', 'reconstruction'), await measure('norway-lion', 'symbol')];
+    });
+    const [flag, symbol, rebuilt, ownShield] = out;
+    if (flag.aspect < 1.25 || flag.aspect > 1.65) throw new Error(`en flagga ska vara en rektangel i ungefär 3:2, men märket är ${flag.w}×${flag.h}`);
+    for (const t of [symbol, rebuilt]) if (t.aspect < 0.78 || t.aspect > 1.05) throw new Error(`${t.name} (${t.kind}) ska vara en sköld, men märket är ${t.w}×${t.h}`);
+    if (ownShield.aspect >= 0.95) throw new Error(`en teckning som själv är en sköld ska behålla sin form, men ${ownShield.name} är ${ownShield.w}×${ownShield.h}`);
+    return `flagga ${flag.w}×${flag.h}, symbol ${symbol.w}×${symbol.h}, modern återgivning ${rebuilt.w}×${rebuilt.h}, egen sköld ${ownShield.w}×${ownShield.h}`;
   });
 
   // Styrplattans nypning i Chrome är wheel med ctrlKey. Står pekaren på en etikett eller ett kluster ovanpå klotet
@@ -3831,7 +3858,7 @@ async function run(browser, vp) {
     return `${before} → ${after}`;
   });
 
-  await check('Stäng av alla lager och återställ Standard', async () => {
+  await check('Stäng av alla lager och återställ startvyn', async () => {
     const panel = page.locator('#panel');
     const menu = page.locator('#layer-menu');
     try {
@@ -3869,23 +3896,44 @@ async function run(browser, vp) {
       await visible('#layer-menu');
       if (await page.locator('#layer-custom').isHidden()) await page.click('#layer-customize');
       await visible('#layer-custom');
-      await page.getByRole('button', { name: 'Återställ standardvyn' }).click();
-      await page.waitForFunction(() => document.querySelector('#layer-menu [data-view="standard"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
-      if ((await page.locator('.layer-action-status').textContent()).trim() !== 'Standardvyn är återställd.') {
+      await page.getByRole('button', { name: 'Återställ startvyn' }).click();
+      // Återställ går till startvyn (Översikt), inte till förvalet Standard (#1579)
+      await page.waitForFunction(() => document.querySelector('#layer-menu [data-view="oversikt"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
+      if ((await page.locator('.layer-action-status').textContent()).trim() !== 'Startvyn är återställd.') {
         throw new Error('statusraden bekräftar inte återställningen');
       }
-      const expected = await page.evaluate(() => fetch('data/vyer.json').then(response => response.json()).then(doc => doc.views.find(view => view.id === 'standard').layers));
+      const expected = await page.evaluate(() => fetch('data/vyer.json').then(response => response.json()).then(doc => doc.views.find(view => view.id === 'oversikt').layers));
       const standardStates = await page.locator('#layer-custom input[data-layer]').evaluateAll(inputs =>
         Object.fromEntries(inputs.filter(input => input.closest('[data-group]')?.dataset.group !== 'settings').map(input => [input.dataset.layer, input.checked])));
       if (expected.some(id => standardStates[id] !== true) || Object.entries(standardStates).some(([id, on]) => on !== expected.includes(id))) {
-        throw new Error(`Återställ gav inte Standard: ${JSON.stringify(standardStates)}`);
+        throw new Error(`Återställ gav inte startvyn: ${JSON.stringify(standardStates)}`);
       }
-      return 'alla kontrollerade lager stängs av, Samtidigt kan slå på Händelser och Återställ återställer Standard';
+      return 'alla kontrollerade lager stängs av, Samtidigt kan slå på Händelser och Återställ återställer startvyn';
     } finally {
       if (await panel.evaluate(el => el.classList.contains('open'))) await page.click('#panel-close');
       if (await menu.isHidden()) await clickView('#btn-layers');
       if (await page.locator('#layer-custom').isHidden()) await page.click('#layer-customize');
-      await page.getByRole('button', { name: 'Återställ standardvyn' }).click();
+      await page.click('#layer-menu .view-chip[data-view="standard"]'); // senare kontroller utgår från Standard
+      await page.keyboard.press('Escape');
+      await hidden('#layer-menu');
+    }
+  });
+
+  // #1578 och #1580: fokus hamnar i Lager-menyn när den öppnas, och ett lagerval som inte rör Händelser lämnar urvalet i Översikt
+  await check('Lager: fokus in i menyn och urvalet i Översikt består när ett annat lager ändras (#1578, #1580)', async () => {
+    await clickView('#btn-layers');
+    await visible('#layer-menu');
+    if (!(await page.evaluate(() => document.getElementById('layer-menu').contains(document.activeElement)))) throw new Error('fokus hamnade inte i Lager-menyn när den öppnades');
+    try {
+      await page.click('#layer-menu .view-chip[data-view="oversikt"]');
+      await page.waitForFunction(() => /([?&#])g=oversikt(?:&|$)/.test(location.hash), null, { timeout: T.step });
+      await setLayer('wars', false);
+      await page.waitForFunction(() => document.querySelector('#layer-menu [data-view="oversikt"]')?.getAttribute('aria-pressed') === 'false', null, { timeout: T.step });
+      if (!(await page.evaluate(() => /([?&#])g=oversikt(?:&|$)/.test(location.hash)))) throw new Error('urvalet i Översikt släpptes när Krigsområden slogs av');
+      return 'fokus i menyn och g=oversikt kvar efter att Krigsområden slagits av';
+    } finally {
+      if (await page.locator('#layer-menu').isHidden()) await clickView('#btn-layers');
+      await page.click('#layer-menu .view-chip[data-view="standard"]');
       await page.keyboard.press('Escape');
       await hidden('#layer-menu');
     }
@@ -4229,6 +4277,22 @@ async function run(browser, vp) {
     await hidden('#layer-menu');
     await hidden('#religion-legend');
     return 'fälls ihop och ut; valet sparas i sessionen';
+  });
+
+  // Vyväljaren (#651): ett nytt klick på Upptäcktsresor går tillbaka till Glob, som för Platt karta (2026-11-14)
+  await check('ett nytt klick på Upptäcktsresor går tillbaka till Glob', async () => {
+    const pressed = id => page.getAttribute(id, 'aria-pressed');
+    await clickView('#btn-discovery');
+    await page.waitForFunction(() => document.getElementById('btn-discovery').getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
+    if (await pressed('#btn-globe') !== 'false') throw new Error('Glob är markerad medan Upptäcktsresor är på');
+    await clickView('#btn-discovery');
+    await page.waitForFunction(() => document.getElementById('btn-globe').getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
+    if (await pressed('#btn-discovery') !== 'false') throw new Error('Upptäcktsresor står kvar som vald efter andra klicket');
+    await clickView('#btn-discovery');
+    await clickView('#btn-flat');
+    if (await pressed('#btn-flat') !== 'true') throw new Error('Platt karta kan inte väljas från Upptäcktsresor');
+    await clickView('#btn-globe');
+    return 'andra klicket på Upptäcktsresor ger Glob';
   });
 
   // #377, regel A: dimman lyfts över hela riket när en resa har nått dess område. USA används eftersom issuets
@@ -6621,6 +6685,8 @@ async function run(browser, vp) {
       }
       // Knappen ligger i Mer-menyn och har ingen yta medan den är stängd: kontrollera själva regeln, inte om den syns
       if (await lessonPage.evaluate(() => getComputedStyle(document.getElementById('btn-hunt')).display) !== 'none') throw new Error('#btn-hunt är inte dold i lektionsläget');
+      // Eleverna ska inte uppmanas att ge stöd: raden i Hjälp är dold i lektionsläget (2026-11-14)
+      if (await lessonPage.evaluate(() => getComputedStyle(document.querySelector('.help-support')).display) !== 'none') throw new Error('stödraden i Hjälp syns för elever i lektionsläget');
       if (await lessonPage.evaluate(() => document.scrollingElement.scrollWidth > innerWidth + 1)) throw new Error('lektionsläget ger horisontell scroll');
     };
     try {
