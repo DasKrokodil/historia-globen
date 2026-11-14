@@ -1274,11 +1274,15 @@
       },
       "sources": [
        "wp-macedonia-ancient",
-       "wp-achaemenid-empire"
+       "wp-achaemenid-empire",
+       "wp-wars-of-alexander"
       ],
       "mapNote": {
-       "sv": "Kartan visar Alexanders erövringar först från 324 f.Kr. Åren 332–325 f.Kr. visar den bara ett litet område, cirka 0,2 miljoner km².",
-       "en": "The map shows Alexander's conquests only from 324 BC. In 332–325 BC it shows only a small area, about 0.2 million km²."
+       "sv": "Kartan visar erövringarna i tre steg: Mindre Asien från 334 f.Kr., Levanten och Egypten från 332 f.Kr. och resten av Persiska riket ända till Indus från 327 f.Kr. Persiska riket ligger alltså kvar på kartan till och med 328 f.Kr., fast källorna säger att Alexander tog över det 330 f.Kr. Åren 332–325 f.Kr. har Cliopatria erövringarna under namnet Ptolemaiska riket.",
+       "en": "The map shows the conquests in three steps: Asia Minor from 334 BC, the Levant and Egypt from 332 BC and the rest of the Persian Empire all the way to the Indus from 327 BC. The Persian Empire thus remains on the map until 328 BC, although the sources say Alexander took it over in 330 BC. For 332–325 BC Cliopatria has the conquests under the name Ptolemaic Kingdom.",
+       "de": "Die Karte zeigt die Eroberungen in drei Schritten: Kleinasien ab 334 v. Chr., die Levante und Ägypten ab 332 v. Chr. und den Rest des Perserreichs bis zum Indus ab 327 v. Chr. Das Perserreich bleibt also bis 328 v. Chr. auf der Karte, obwohl Alexander es laut den Quellen 330 v. Chr. übernahm. Für 332–325 v. Chr. führt Cliopatria die Eroberungen unter dem Namen Ptolemäerreich.",
+       "es": "El mapa muestra las conquistas en tres etapas: Asia Menor desde el 334 a. C., el Levante y Egipto desde el 332 a. C. y el resto del Imperio persa hasta el Indo desde el 327 a. C. Así, el Imperio persa permanece en el mapa hasta el 328 a. C., aunque según las fuentes Alejandro se hizo con él en el 330 a. C. Para los años 332–325 a. C., Cliopatria recoge las conquistas con el nombre de Reino ptolemaico.",
+       "fr": "La carte montre les conquêtes en trois étapes : l'Asie Mineure à partir de 334 av. J.-C., le Levant et l'Égypte à partir de 332 av. J.-C. et le reste de l'Empire perse jusqu'à l'Indus à partir de 327 av. J.-C. L'Empire perse reste donc sur la carte jusqu'en 328 av. J.-C., bien que, selon les sources, Alexandre s'en soit emparé en 330 av. J.-C. Pour les années 332–325 av. J.-C., Cliopatria place les conquêtes sous le nom de Royaume ptolémaïque."
       }
      },
      {
@@ -1318,8 +1322,11 @@
        "wp-wars-diadochi"
       ],
       "mapNote": {
-       "sv": "Kartan visar riket med cirka 4,7–4,8 miljoner km² från 324 till 309 f.Kr., alltså även åren efter Alexanders död.",
-       "en": "The map shows the empire with about 4.7–4.8 million km² from 324 to 309 BC, that is also the years after Alexander's death."
+       "sv": "Kartan visar riket med cirka 4,7–5,0 miljoner km² från 327 till 309 f.Kr., alltså även åren efter Alexanders död.",
+       "en": "The map shows the empire with about 4.7–5.0 million km² from 327 to 309 BC, that is also the years after Alexander's death.",
+       "de": "Die Karte zeigt das Reich mit etwa 4,7–5,0 Millionen km² von 327 bis 309 v. Chr., also auch in den Jahren nach Alexanders Tod.",
+       "es": "El mapa muestra el imperio con unos 4,7–5,0 millones de km² del 327 al 309 a. C., es decir, también en los años posteriores a la muerte de Alejandro.",
+       "fr": "La carte montre l'empire avec environ 4,7 à 5,0 millions de km² de 327 à 309 av. J.-C., c'est-à-dire aussi dans les années qui suivent la mort d'Alexandre."
       }
      },
      {
@@ -1370,12 +1377,17 @@
      }
     ],
     "mapNote": {
-     "sv": "Kartdatan slutar 293 f.Kr., men enligt källan fanns kungadömet kvar till 168 f.Kr.",
-     "en": "The map data ends in 293 BC, but according to the source the kingdom remained until 168 BC."
+     "sv": "Kartdatan slutar 293 f.Kr., men enligt källan fanns kungadömet kvar till 168 f.Kr. Åren 332–325 f.Kr. har Cliopatria Alexanders erövringar under namnet Ptolemaiska riket (Ptolemaic Kingdom), fast det riket enligt Wikidata började först 305 f.Kr. Här räknas de åren till Makedoniska riket.",
+     "en": "The map data ends in 293 BC, but according to the source the kingdom remained until 168 BC. For 332–325 BC Cliopatria has Alexander's conquests under the name Ptolemaic Kingdom, although according to Wikidata that kingdom only began in 305 BC. Here those years are counted to the Macedonian Empire.",
+     "de": "Die Kartendaten enden 293 v. Chr., doch laut der Quelle bestand das Königreich bis 168 v. Chr. Für 332–325 v. Chr. führt Cliopatria Alexanders Eroberungen unter dem Namen Ptolemäerreich (Ptolemaic Kingdom), obwohl dieses Reich laut Wikidata erst 305 v. Chr. begann. Hier werden diese Jahre dem Makedonischen Reich zugerechnet.",
+     "es": "Los datos del mapa terminan en el 293 a. C., pero según la fuente el reino siguió existiendo hasta el 168 a. C. Para los años 332–325 a. C., Cliopatria recoge las conquistas de Alejandro con el nombre de Reino ptolemaico (Ptolemaic Kingdom), aunque según Wikidata ese reino no comenzó hasta el 305 a. C. Aquí esos años se cuentan como parte del Imperio macedonio.",
+     "fr": "Les données de la carte s'arrêtent en 293 av. J.-C., mais selon la source le royaume a subsisté jusqu'en 168 av. J.-C. Pour les années 332–325 av. J.-C., Cliopatria place les conquêtes d'Alexandre sous le nom de Royaume ptolémaïque (Ptolemaic Kingdom), alors que, selon Wikidata, ce royaume n'a commencé qu'en 305 av. J.-C. Ici, ces années sont rattachées à l'Empire macédonien."
     },
     "sources": [
      "wp-macedonia-ancient",
-     "wp-vergina-sun"
+     "wp-vergina-sun",
+     "wp-wars-of-alexander",
+     "wikidata"
     ],
     "review": "source-checked"
    },
@@ -34877,6 +34889,25 @@
    "from": 1976,
    "to": 2024,
    "file": "data/empires/portugal.json",
+   "flags": [
+    {
+     "file": "portugal",
+     "from": 1976,
+     "to": 2024,
+     "label": {
+      "sv": "Portugals flagga",
+      "en": "Flag of Portugal",
+      "de": "Flagge Portugals",
+      "es": "Bandera de Portugal",
+      "fr": "Drapeau du Portugal"
+     },
+     "sources": [
+      "wp-flag-of-portugal",
+      "commons-flagga-portugal"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "portugal",
@@ -35131,6 +35162,25 @@
    "from": 1992,
    "to": 2024,
    "file": "data/empires/serbien.json",
+   "flags": [
+    {
+     "file": "serbia",
+     "from": 2006,
+     "to": 2024,
+     "label": {
+      "sv": "Serbiens flagga",
+      "en": "Flag of Serbia",
+      "de": "Flagge Serbiens",
+      "es": "Bandera de Serbia",
+      "fr": "Drapeau de la Serbie"
+     },
+     "sources": [
+      "wp-flag-serbia",
+      "commons-flagga-serbia"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "forbundsrepubliken-jugoslavien",
@@ -35576,6 +35626,25 @@
    "from": 1992,
    "to": 2024,
    "file": "data/empires/kroatien.json",
+   "flags": [
+    {
+     "file": "croatia",
+     "from": 1992,
+     "to": 2024,
+     "label": {
+      "sv": "Kroatiens flagga",
+      "en": "Flag of Croatia",
+      "de": "Flagge Kroatiens",
+      "es": "Bandera de Croacia",
+      "fr": "Drapeau de la Croatie"
+     },
+     "sources": [
+      "wp-flag-croatia",
+      "commons-flagga-croatia"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "kroatien",
@@ -35891,6 +35960,25 @@
    "from": 1992,
    "to": 2024,
    "file": "data/empires/slovakien.json",
+   "flags": [
+    {
+     "file": "slovakia",
+     "from": 1992,
+     "to": 2024,
+     "label": {
+      "sv": "Slovakiens flagga",
+      "en": "Flag of Slovakia",
+      "de": "Flagge der Slowakei",
+      "es": "Bandera de Eslovaquia",
+      "fr": "Drapeau de la Slovaquie"
+     },
+     "sources": [
+      "wp-flag-slovakia",
+      "commons-flagga-slovakia"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "slovakien",
@@ -36333,6 +36421,25 @@
    "from": 1912,
    "to": 2024,
    "file": "data/empires/albanien.json",
+   "flags": [
+    {
+     "file": "albania",
+     "from": 1992,
+     "to": 2024,
+     "label": {
+      "sv": "Albaniens flagga",
+      "en": "Flag of Albania",
+      "de": "Flagge Albaniens",
+      "es": "Bandera de Albania",
+      "fr": "Drapeau de l’Albanie"
+     },
+     "sources": [
+      "wp-flag-albania",
+      "commons-flagga-albania"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "albanien-1912",
@@ -36444,6 +36551,25 @@
    "from": 1992,
    "to": 2024,
    "file": "data/empires/moldavien.json",
+   "flags": [
+    {
+     "file": "moldova",
+     "from": 1992,
+     "to": 2024,
+     "label": {
+      "sv": "Moldaviens flagga",
+      "en": "Flag of Moldova",
+      "de": "Flagge der Republik Moldau",
+      "es": "Bandera de Moldavia",
+      "fr": "Drapeau de la Moldavie"
+     },
+     "sources": [
+      "wp-flag-moldova",
+      "commons-flagga-moldova"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "moldavien",
@@ -36489,6 +36615,25 @@
    "from": 1992,
    "to": 2024,
    "file": "data/empires/nordmakedonien.json",
+   "flags": [
+    {
+     "file": "north-macedonia",
+     "from": 1995,
+     "to": 2024,
+     "label": {
+      "sv": "Nordmakedoniens flagga",
+      "en": "Flag of North Macedonia",
+      "de": "Flagge Nordmazedoniens",
+      "es": "Bandera de Macedonia del Norte",
+      "fr": "Drapeau de la Macédoine du Nord"
+     },
+     "sources": [
+      "wp-flag-north-macedonia",
+      "commons-flagga-north-macedonia"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "nordmakedonien",
@@ -36694,6 +36839,25 @@
    "from": 1992,
    "to": 2024,
    "file": "data/empires/slovenien.json",
+   "flags": [
+    {
+     "file": "slovenia",
+     "from": 1992,
+     "to": 2024,
+     "label": {
+      "sv": "Sloveniens flagga",
+      "en": "Flag of Slovenia",
+      "de": "Flagge Sloweniens",
+      "es": "Bandera de Eslovenia",
+      "fr": "Drapeau de la Slovénie"
+     },
+     "sources": [
+      "wp-flag-slovenia",
+      "commons-flagga-slovenia"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "slovenien",
@@ -37047,6 +37211,25 @@
    "from": 2008,
    "to": 2024,
    "file": "data/empires/kosovo.json",
+   "flags": [
+    {
+     "file": "kosovo",
+     "from": 2008,
+     "to": 2024,
+     "label": {
+      "sv": "Kosovos flagga",
+      "en": "Flag of Kosovo",
+      "de": "Flagge des Kosovo",
+      "es": "Bandera de Kosovo",
+      "fr": "Drapeau du Kosovo"
+     },
+     "sources": [
+      "wp-flag-kosovo",
+      "commons-flagga-kosovo"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "kosovo",
@@ -37139,6 +37322,25 @@
    "from": 2006,
    "to": 2024,
    "file": "data/empires/montenegro.json",
+   "flags": [
+    {
+     "file": "montenegro",
+     "from": 2006,
+     "to": 2024,
+     "label": {
+      "sv": "Montenegros flagga",
+      "en": "Flag of Montenegro",
+      "de": "Flagge Montenegros",
+      "es": "Bandera de Montenegro",
+      "fr": "Drapeau du Monténégro"
+     },
+     "sources": [
+      "wp-flag-montenegro",
+      "commons-flagga-montenegro"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "montenegro",
@@ -37442,6 +37644,25 @@
    "from": 1967,
    "to": 2024,
    "file": "data/empires/malta.json",
+   "flags": [
+    {
+     "file": "malta",
+     "from": 1967,
+     "to": 2024,
+     "label": {
+      "sv": "Maltas flagga",
+      "en": "Flag of Malta",
+      "de": "Flagge Maltas",
+      "es": "Bandera de Malta",
+      "fr": "Drapeau de Malte"
+     },
+     "sources": [
+      "wp-flag-malta",
+      "commons-flagga-malta"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "malta",
@@ -38249,6 +38470,69 @@
    "from": 866,
    "to": 1401,
    "file": "data/empires/norgesvaldet.json",
+   "facts": {
+    "items": [
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map",
+       "de": "Das Symbol auf der Karte",
+       "es": "El símbolo en el mapa",
+       "fr": "Le symbole sur la carte"
+      },
+      "text": {
+       "sv": "Det gyllene lejonet på röd sköld, ursprungligen Sverreättens vapen. Ett kungligt vapen med lejon syns först på Håkon den unges sigill från 1250. Omkring 1280 fick lejonet krona och en yxa, som står för Olav den helige; den första kända bilden av lejonet med yxa är Erik Magnussons sigill från 1285. Källorna skiljer sig: artikeln om riket daterar vapnet till 1100- eller 1200-talet, medan artikeln om vapnet säger att det härstammar från 1200-talet och att Snorres uppgift om ett lejon redan 1103 anses ohistorisk. Före 1250 visas ingen symbol.",
+       "en": "The golden lion on a red shield, originally the arms of the Sverre dynasty. Royal arms with a lion first appear on the seal of Haakon the Young from 1250. Around 1280 the lion was given a crown and an axe, which stands for Saint Olaf; the earliest known image of the lion with an axe is the seal of Eric Magnusson from 1285. The sources differ: the article on the kingdom dates the arms to the 12th or 13th century, while the article on the arms says that they originate in the 13th century and that Snorri’s claim of a lion as early as 1103 is considered unhistorical. Before 1250 no symbol is shown.",
+       "de": "Der goldene Löwe auf rotem Schild, ursprünglich das Wappen des Hauses Sverre. Ein königliches Wappen mit Löwe erscheint zuerst auf dem Siegel Håkons des Jungen von 1250. Um 1280 erhielt der Löwe eine Krone und eine Axt, die für Olav den Heiligen steht; die älteste bekannte Darstellung des Löwen mit Axt ist das Siegel Erik Magnussons von 1285. Die Quellen weichen voneinander ab: Der Artikel über das Reich datiert das Wappen auf das 12. oder 13. Jahrhundert, der Artikel über das Wappen sagt dagegen, dass es aus dem 13. Jahrhundert stammt und dass Snorris Angabe eines Löwen schon 1103 als unhistorisch gilt. Vor 1250 wird kein Symbol gezeigt.",
+       "es": "El león de oro sobre escudo rojo, en origen el escudo de la dinastía de Sverre. Un escudo real con león aparece por primera vez en el sello de Haakon el Joven, de 1250. Hacia 1280 el león recibió una corona y un hacha, que representa a san Olaf; la imagen más antigua conocida del león con hacha es el sello de Erik Magnusson, de 1285. Las fuentes difieren: el artículo sobre el reino fecha el escudo en el siglo XII o XIII, mientras que el artículo sobre el escudo dice que procede del siglo XIII y que la afirmación de Snorri de un león ya en 1103 se considera ahistórica. Antes de 1250 no se muestra ningún símbolo.",
+       "fr": "Le lion d’or sur écu rouge, à l’origine les armes de la dynastie de Sverre. Des armoiries royales au lion apparaissent pour la première fois sur le sceau de Håkon le Jeune, de 1250. Vers 1280, le lion reçut une couronne et une hache, qui représente saint Olaf ; la plus ancienne image connue du lion à la hache est le sceau d’Éric Magnusson, de 1285. Les sources divergent : l’article sur le royaume date les armoiries du XIIe ou du XIIIe siècle, tandis que l’article sur les armoiries indique qu’elles remontent au XIIIe siècle et que l’affirmation de Snorri d’un lion dès 1103 est jugée non historique. Avant 1250, aucun symbole n’est affiché."
+      }
+     }
+    ],
+    "sources": [
+     "wp-coat-of-arms-norway",
+     "wp-kingdom-of-norway-872-1397",
+     "commons-vapen-norge"
+    ],
+    "review": "source-checked"
+   },
+   "flags": [
+    {
+     "file": "norway-lion",
+     "from": 1250,
+     "to": 1284,
+     "kind": "symbol",
+     "label": {
+      "sv": "Gyllene lejon på röd sköld",
+      "en": "Golden lion on a red shield",
+      "de": "Goldener Löwe auf rotem Schild",
+      "es": "León de oro sobre escudo rojo",
+      "fr": "Lion d’or sur écu rouge"
+     },
+     "sources": [
+      "wp-coat-of-arms-norway"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "norway-lion-axe",
+     "from": 1285,
+     "to": 1401,
+     "kind": "symbol",
+     "label": {
+      "sv": "Gyllene lejon med krona och yxa på röd sköld",
+      "en": "Golden lion with crown and axe on a red shield",
+      "de": "Goldener Löwe mit Krone und Axt auf rotem Schild",
+      "es": "León de oro con corona y hacha sobre escudo rojo",
+      "fr": "Lion d’or couronné tenant une hache sur écu rouge"
+     },
+     "sources": [
+      "wp-coat-of-arms-norway",
+      "commons-vapen-norge"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "norgesvaldet",
@@ -38708,6 +38992,125 @@
    "from": 936,
    "to": 1939,
    "file": "data/empires/konungariket-danmark.json",
+   "facts": {
+    "items": [
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map",
+       "de": "Das Symbol auf der Karte",
+       "es": "El símbolo en el mapa",
+       "fr": "Le symbole sur la carte"
+      },
+      "text": {
+       "sv": "Vitt kors på rött. En fana med vitt kors på rött är belagd som de danska kungarnas fana sedan 1300-talet, och den äldsta säkra färgbilden finns i vapenboken Gelre, där fanan står bredvid kungens vapen. Källorna skiljer sig om vapenbokens ålder: omkring 1340–1370 enligt Wikipedias artikel om Dannebrog, före 1396 enligt Wikipedias artikel om vapenboken och 1395–1402 enligt filsidan på Commons. Berättelsen om att fanan föll från himlen 1219 är en legend. Från 1625 visas Dannebrog som flagga, eftersom den räknas som erkänd nationsflagga från det året. Det förlängda korset kommer från användningen till sjöss på 1700-talet, och måtten fastställdes 1748; bilden av flaggan visar därför måtten från 1748 även för åren före, och den äldre fanan är ritad med korset i mitten. Före 1370 visas ingen symbol.",
+       "en": "White cross on red. A banner with a white cross on red is attested as the banner of the Danish kings since the 14th century, and the oldest certain colour image is in the Gelre Armorial, where the banner appears beside the king’s arms. The sources differ on the age of the armorial: around 1340–1370 according to Wikipedia’s article on the Dannebrog, before 1396 according to Wikipedia’s article on the armorial, and 1395–1402 according to the file page on Commons. The story that the banner fell from the sky in 1219 is a legend. From 1625 the Dannebrog is shown as a flag, since it is counted as a recognised national flag from that year. The elongated cross comes from its use at sea in the 18th century, and the proportions were fixed in 1748; the image of the flag therefore shows the 1748 proportions also for the earlier years, and the older banner is drawn with the cross in the middle. Before 1370 no symbol is shown.",
+       "de": "Weißes Kreuz auf Rot. Ein Banner mit weißem Kreuz auf Rot ist seit dem 14. Jahrhundert als Banner der dänischen Könige belegt, und die älteste sichere Farbdarstellung findet sich im Wappenbuch Gelre, wo das Banner neben dem Wappen des Königs steht. Die Quellen weichen beim Alter des Wappenbuchs voneinander ab: um 1340–1370 laut dem Wikipedia-Artikel zum Dannebrog, vor 1396 laut dem Wikipedia-Artikel zum Wappenbuch und 1395–1402 laut der Dateiseite auf Commons. Die Erzählung, das Banner sei 1219 vom Himmel gefallen, ist eine Legende. Ab 1625 wird der Dannebrog als Flagge gezeigt, da er ab diesem Jahr als anerkannte Nationalflagge gilt. Das verlängerte Kreuz stammt aus der Verwendung zur See im 18. Jahrhundert, und die Maße wurden 1748 festgelegt; das Bild der Flagge zeigt deshalb auch für die Jahre davor die Maße von 1748, und das ältere Banner ist mit dem Kreuz in der Mitte gezeichnet. Vor 1370 wird kein Symbol gezeigt.",
+       "es": "Cruz blanca sobre rojo. Un estandarte con una cruz blanca sobre rojo está documentado como estandarte de los reyes daneses desde el siglo XIV, y la imagen en color segura más antigua se encuentra en el armorial Gelre, donde el estandarte aparece junto al escudo del rey. Las fuentes difieren sobre la antigüedad del armorial: hacia 1340–1370 según el artículo de Wikipedia sobre el Dannebrog, antes de 1396 según el artículo de Wikipedia sobre el armorial y 1395–1402 según la página del archivo en Commons. El relato de que el estandarte cayó del cielo en 1219 es una leyenda. A partir de 1625 el Dannebrog se muestra como bandera, ya que se considera bandera nacional reconocida desde ese año. La cruz alargada procede de su uso en el mar en el siglo XVIII, y las proporciones se fijaron en 1748; por eso la imagen de la bandera muestra las proporciones de 1748 también para los años anteriores, y el estandarte antiguo está dibujado con la cruz en el centro. Antes de 1370 no se muestra ningún símbolo.",
+       "fr": "Croix blanche sur fond rouge. Une bannière à croix blanche sur fond rouge est attestée comme bannière des rois de Danemark depuis le XIVe siècle, et la plus ancienne image en couleurs certaine se trouve dans l’armorial Gelre, où la bannière figure à côté des armes du roi. Les sources divergent sur l’âge de l’armorial : vers 1340–1370 selon l’article de Wikipédia sur le Dannebrog, avant 1396 selon l’article de Wikipédia sur l’armorial et 1395–1402 selon la page du fichier sur Commons. Le récit selon lequel la bannière serait tombée du ciel en 1219 est une légende. À partir de 1625, le Dannebrog est affiché comme drapeau, car il est considéré comme drapeau national reconnu depuis cette année-là. La croix allongée vient de son usage en mer au XVIIIe siècle, et les proportions ont été fixées en 1748 ; l’image du drapeau montre donc les proportions de 1748 aussi pour les années antérieures, et la bannière plus ancienne est dessinée avec la croix au centre. Avant 1370, aucun symbole n’est affiché."
+      }
+     }
+    ],
+    "sources": [
+     "wp-dannebrog",
+     "commons-gelre-dannebrog"
+    ],
+    "review": "source-checked"
+   },
+   "flags": [
+    {
+     "file": "dannebrog-banner",
+     "from": 1370,
+     "to": 1401,
+     "kind": "symbol",
+     "label": {
+      "sv": "Kungarnas fana: vitt kors på rött",
+      "en": "The kings’ banner: white cross on red",
+      "de": "Banner der Könige: weißes Kreuz auf Rot",
+      "es": "Estandarte de los reyes: cruz blanca sobre rojo",
+      "fr": "Bannière des rois : croix blanche sur fond rouge"
+     },
+     "sources": [
+      "wp-dannebrog",
+      "commons-gelre-dannebrog",
+      "wp-gelre-armorial"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "dannebrog-banner",
+     "from": 1526,
+     "to": 1624,
+     "kind": "symbol",
+     "label": {
+      "sv": "Kungarnas fana: vitt kors på rött",
+      "en": "The kings’ banner: white cross on red",
+      "de": "Banner der Könige: weißes Kreuz auf Rot",
+      "es": "Estandarte de los reyes: cruz blanca sobre rojo",
+      "fr": "Bannière des rois : croix blanche sur fond rouge"
+     },
+     "sources": [
+      "wp-dannebrog",
+      "commons-gelre-dannebrog",
+      "wp-gelre-armorial"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "denmark",
+     "from": 1625,
+     "to": 1939,
+     "label": {
+      "sv": "Dannebrog, Danmarks flagga",
+      "en": "Dannebrog, flag of Denmark",
+      "de": "Dannebrog, Flagge Dänemarks",
+      "es": "Dannebrog, bandera de Dinamarca",
+      "fr": "Dannebrog, drapeau du Danemark"
+     },
+     "sources": [
+      "wp-dannebrog"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "labelAt": [
+    {
+     "polity": "konungariket-danmark",
+     "from": 1402,
+     "to": 1406,
+     "at": null,
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "polity": "danmark-norge",
+     "from": 1814,
+     "to": 1814,
+     "at": [
+      9.4,
+      56.4
+     ],
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "polity": "danmark-1815",
+     "from": 1815,
+     "to": 1921,
+     "at": [
+      9.4,
+      56.4
+     ],
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "konungariket-danmark",
@@ -38826,6 +39229,51 @@
    "from": 1220,
    "to": 1449,
    "file": "data/empires/storfurstendomet-litauen.json",
+   "facts": {
+    "items": [
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map",
+       "de": "Das Symbol auf der Karte",
+       "es": "El símbolo en el mapa",
+       "fr": "Le symbole sur la carte"
+      },
+      "text": {
+       "sv": "Den röda fanan med en ryttare som jagar fram (Vytis). Vid slaget vid Grunwald 1410 bar de flesta av storfurstendömets regementen en sådan fana, enligt Jan Długosz’ skrift Banderia Prutenorum från 1400-talet. Bilden är förenklad efter dagens litauiska statsflagga, införd 2004, som återger samma motiv. Före 1410 visas ingen symbol.",
+       "en": "The red banner with a horseman in pursuit (Vytis). At the Battle of Grunwald in 1410, most of the Grand Duchy’s regiments carried such a banner, according to Jan Długosz’s work Banderia Prutenorum from the 15th century. The image is simplified from today’s Lithuanian state flag, introduced in 2004, which shows the same motif. Before 1410 no symbol is shown.",
+       "de": "Das rote Banner mit einem verfolgenden Reiter (Vytis). In der Schlacht bei Grunwald 1410 trugen die meisten Regimenter des Großfürstentums ein solches Banner, laut Jan Długoszs Werk Banderia Prutenorum aus dem 15. Jahrhundert. Das Bild ist nach der heutigen litauischen Staatsflagge vereinfacht, die 2004 eingeführt wurde und dasselbe Motiv zeigt. Vor 1410 wird kein Symbol gezeigt.",
+       "es": "El estandarte rojo con un jinete en persecución (Vytis). En la batalla de Grunwald, en 1410, la mayoría de los regimientos del Gran Ducado llevaba un estandarte así, según la obra Banderia Prutenorum de Jan Długosz, del siglo XV. La imagen está simplificada a partir de la actual bandera estatal lituana, introducida en 2004, que muestra el mismo motivo. Antes de 1410 no se muestra ningún símbolo.",
+       "fr": "La bannière rouge avec un cavalier lancé à la poursuite (Vytis). À la bataille de Grunwald, en 1410, la plupart des régiments du grand-duché portaient une telle bannière, selon l’ouvrage Banderia Prutenorum de Jan Długosz, du XVe siècle. L’image est simplifiée d’après l’actuel drapeau d’État lituanien, introduit en 2004, qui reprend le même motif. Avant 1410, aucun symbole n’est affiché."
+      }
+     }
+    ],
+    "sources": [
+     "wp-flag-lithuania",
+     "commons-flagga-litauen-stat"
+    ],
+    "review": "source-checked"
+   },
+   "flags": [
+    {
+     "file": "lithuania-vytis",
+     "from": 1410,
+     "to": 1449,
+     "kind": "symbol",
+     "label": {
+      "sv": "Ryttaren (Vytis) på rött, storfurstendömets fana",
+      "en": "The horseman (Vytis) on red, banner of the Grand Duchy",
+      "de": "Der Reiter (Vytis) auf Rot, Banner des Großfürstentums",
+      "es": "El jinete (Vytis) sobre rojo, estandarte del Gran Ducado",
+      "fr": "Le cavalier (Vytis) sur fond rouge, bannière du grand-duché"
+     },
+     "sources": [
+      "wp-flag-lithuania",
+      "commons-flagga-litauen-stat"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "storfurstendomet-litauen",
@@ -38856,6 +39304,52 @@
    "from": 1236,
    "to": 1515,
    "file": "data/empires/kastilianska-kronan.json",
+   "facts": {
+    "items": [
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map",
+       "de": "Das Symbol auf der Karte",
+       "es": "El símbolo en el mapa",
+       "fr": "Le symbole sur la carte"
+      },
+      "text": {
+       "sv": "Kastiliens och Leóns vapen i fyra fält: en gyllene borg på rött och ett lejon. Bilden är förenklad efter en modern teckning av vapnet på 1400-talet. Wikipedia beskriver fyrdelningen redan från 1230, när Ferdinand III förenade Kastilien och León, men det avsnittet är märkt som otillräckligt belagt; därför visas vapnet först från 1400. År 1475 förenade Isabella och Ferdinand Kastiliens och Aragoniens vapen, och därför visas symbolen bara till 1474.",
+       "en": "The arms of Castile and León in four quarters: a golden castle on red and a lion. The image is simplified from a modern drawing of the arms in the 15th century. Wikipedia describes the quartering from as early as 1230, when Ferdinand III united Castile and León, but that section is marked as insufficiently referenced; the arms are therefore shown only from 1400. In 1475 Isabella and Ferdinand joined the arms of Castile and Aragon, and the symbol is therefore shown only until 1474.",
+       "de": "Das Wappen von Kastilien und León in vier Feldern: eine goldene Burg auf Rot und ein Löwe. Das Bild ist nach einer modernen Zeichnung des Wappens im 15. Jahrhundert vereinfacht. Wikipedia beschreibt die Vierung schon ab 1230, als Ferdinand III. Kastilien und León vereinte, doch dieser Abschnitt ist als unzureichend belegt gekennzeichnet; das Wappen wird deshalb erst ab 1400 gezeigt. 1475 vereinten Isabella und Ferdinand die Wappen von Kastilien und Aragonien, und das Symbol wird deshalb nur bis 1474 gezeigt.",
+       "es": "El escudo de Castilla y León en cuatro cuarteles: un castillo de oro sobre rojo y un león. La imagen está simplificada a partir de un dibujo moderno del escudo en el siglo XV. Wikipedia describe el cuartelado ya desde 1230, cuando Fernando III unió Castilla y León, pero esa sección está marcada como insuficientemente referenciada; por eso el escudo se muestra solo desde 1400. En 1475 Isabel y Fernando unieron los escudos de Castilla y de Aragón, y por eso el símbolo se muestra solo hasta 1474.",
+       "fr": "Les armes de Castille et León en quatre quartiers : un château d’or sur fond rouge et un lion. L’image est simplifiée d’après un dessin moderne des armes au XVe siècle. Wikipédia décrit l’écartelé dès 1230, lorsque Ferdinand III réunit la Castille et le León, mais cette section est signalée comme insuffisamment sourcée ; les armes ne sont donc affichées qu’à partir de 1400. En 1475, Isabelle et Ferdinand réunirent les armes de Castille et d’Aragon, et le symbole n’est donc affiché que jusqu’en 1474."
+      }
+     }
+    ],
+    "sources": [
+     "wp-heraldry-of-castile",
+     "commons-vapen-kastilien-1400-tal",
+     "wp-crown-of-castile"
+    ],
+    "review": "source-checked"
+   },
+   "flags": [
+    {
+     "file": "castile-leon",
+     "from": 1400,
+     "to": 1474,
+     "kind": "symbol",
+     "label": {
+      "sv": "Kastiliens och Leóns vapen: borg och lejon",
+      "en": "Arms of Castile and León: castle and lion",
+      "de": "Wappen von Kastilien und León: Burg und Löwe",
+      "es": "Escudo de Castilla y León: castillo y león",
+      "fr": "Armes de Castille et León : château et lion"
+     },
+     "sources": [
+      "wp-heraldry-of-castile",
+      "commons-vapen-kastilien-1400-tal"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "kastilianska-kronan",

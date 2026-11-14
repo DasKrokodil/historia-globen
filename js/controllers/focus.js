@@ -26,7 +26,7 @@ export function createFocus(app) {
    * (#865). Ger true när fokuset började.
    *
    * Ordningen är en del av kontraktet (#1327): biljetten tas, raden i menyn döljs, posten laddar (load, som får
-   * lägga till data men inte ändra vyn), raden visas om urvalet saknas, biljetten kontrolleras, det gamla fokuset
+   * lägga till data men inte ändra vyn), beskedet visas om urvalet saknas och biljetten fortfarande gäller, biljetten kontrolleras, det gamla fokuset
    * slutar, läget börjar, året jämförs med spannet, posten förbereder (prepare), fokuset sätts, det gemensamma
    * ställs in och ritas, och sist visar posten sitt kort (start).
    */
@@ -39,8 +39,12 @@ export function createFocus(app) {
     const loaded = post ? await post.load(id) : null;
     if (!loaded) return false;
     if (loaded.unavailable) {
-      $('focus-notice').textContent = ui(loaded.unavailable);
-      $('focus-notice').hidden = false;
+      // Beskedet visas bara om ingen nyare begäran har tagit över: en plats som laddas långsamt och saknas ska inte ge ett
+      // besked ovanpå den vy som besökaren redan har gått vidare till (#865, #1162)
+      if (app.store.current(ticket)) {
+        $('focus-notice').textContent = ui(loaded.unavailable);
+        $('focus-notice').hidden = false;
+      }
       return false;
     }
     const f = { type, id, ...loaded };
@@ -176,6 +180,8 @@ export function createFocus(app) {
     focusMenu.setGroups(types.menu());
   };
   focusMenu.onPick = key => startFocus(key);
+  /** Beskedet om en länk till något som saknas (#1162) hör till den länken: en nyare adress, Bakåt eller Framåt tar bort det. */
+  const clearNotice = () => { $('focus-notice').hidden = true; };
 
-  return { startFocus, endFocus, founding, focusMenu, showFacts, isSelection };
+  return { startFocus, endFocus, founding, focusMenu, showFacts, isSelection, clearNotice };
 }
