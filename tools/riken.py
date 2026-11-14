@@ -298,8 +298,8 @@ GROUPS = {
     # Cliopatria kallar Sverige "Swedish Empire" ända till 1814, men stormaktstiden slutade med freden i Nystad 1721
     # (wp-swedish-empire). Samma Cliopatria-post delas därför i två delar med olika namn (Rikards val A i #70).
     # Gruppen heter Sverige och börjar med medeltidens kungarike (#645, Rikards beslut 2026-11-07): Cliopatrias Kingdom of Sweden
-    # finns 980–1401 och 1502–1611 (Kalmarunionen däremellan), samma post som Sverige från 1905. Gruppens id står kvar, så att
-    # länkar och filnamn inte ändras.
+    # finns 980–1401, 1502–1520 och 1526–1611 (Kalmarunionen 1402–1501 och 1521–1525, kontrollerat i #1264), samma post som
+    # Sverige från 1905. Gruppens id står kvar, så att länkar och filnamn inte ändras.
     'svenska-stormaktsvaldet': ('Sverige', 'Sweden', [
         ('Kingdom of Sweden', 'sverige-medeltiden', 'Sverige', '#3d8fd1', {'years': (980, 1611), 'en': 'Sweden', 'wikidata': 'Q34'}),
         ('Swedish Empire', 'svenska-stormaktsvaldet', 'Svenska stormaktsväldet', '#3d8fd1', {'years': (1612, 1721)}),
