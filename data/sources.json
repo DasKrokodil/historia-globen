@@ -2422,6 +2422,27 @@
     {"id": "lex-danmark-i-ef", "title": "Danmark i EF 1973-1993 – Lex", "url": "https://lex.dk/Danmark_i_EF_1973-1993", "license": "Lex, begränsad licens (bara länkad, ingen text kopierad)", "checked": "2026-11-14"},
     {"id": "wp-danish-ec-referendum-1972", "title": "1972 Danish European Communities membership referendum – Wikipedia", "url": "https://en.wikipedia.org/wiki/1972_Danish_European_Communities_membership_referendum", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
     {"id": "lex-stemmeret-til-kvinder", "title": "stemmeret til kvinder – Lex", "url": "https://lex.dk/stemmeret_til_kvinder", "license": "Lex, begränsad licens (bara länkad, ingen text kopierad)", "checked": "2026-11-14"},
-    {"id": "wp-womens-suffrage-denmark", "title": "Women's suffrage in Denmark – Wikipedia", "url": "https://en.wikipedia.org/wiki/Women%27s_suffrage_in_Denmark", "license": "CC BY-SA 4.0", "checked": "2026-11-14"}
+    {"id": "wp-womens-suffrage-denmark", "title": "Women's suffrage in Denmark – Wikipedia", "url": "https://en.wikipedia.org/wiki/Women%27s_suffrage_in_Denmark", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-belgian-congo", "title": "Belgian Congo – Wikipedia", "url": "https://en.wikipedia.org/wiki/Belgian_Congo", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wd-belgian-congo", "title": "Belgian Congo (Q213510) – Wikidata", "url": "https://www.wikidata.org/wiki/Q213510", "license": "CC0", "checked": "2026-11-14"},
+    {"id": "wd-congo-free-state", "title": "Congo Free State (Q76048) – Wikidata", "url": "https://www.wikidata.org/wiki/Q76048", "license": "CC0", "checked": "2026-11-14"},
+    {"id": "wp-ruanda-urundi", "title": "Ruanda-Urundi – Wikipedia", "url": "https://en.wikipedia.org/wiki/Ruanda-Urundi", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wd-ruanda-urundi", "title": "Ruanda-Urundi (Q590743) – Wikidata", "url": "https://www.wikidata.org/wiki/Q590743", "license": "CC0", "checked": "2026-11-14"},
+    {"id": "wp-rattanakosin", "title": "Rattanakosin Kingdom (1782–1932) – Wikipedia", "url": "https://en.wikipedia.org/wiki/Rattanakosin_Kingdom_(1782%E2%80%931932)", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wd-rattanakosin", "title": "Rattanakosin Kingdom (Q1155700) – Wikidata", "url": "https://www.wikidata.org/wiki/Q1155700", "license": "CC0", "checked": "2026-11-14"},
+    {"id": "wp-sv-siam", "title": "Siam – Wikipedia (svenska)", "url": "https://sv.wikipedia.org/wiki/Siam", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-italian-eritrea", "title": "Italian Eritrea – Wikipedia", "url": "https://en.wikipedia.org/wiki/Italian_Eritrea", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wd-italian-eritrea", "title": "Italian Eritrea (Q1232988) – Wikidata", "url": "https://www.wikidata.org/wiki/Q1232988", "license": "CC0", "checked": "2026-11-14"},
+    {"id": "wp-italian-somaliland", "title": "Italian Somaliland – Wikipedia", "url": "https://en.wikipedia.org/wiki/Italian_Somaliland", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wd-italian-somaliland", "title": "Italian Somaliland (Q319984) – Wikidata", "url": "https://www.wikidata.org/wiki/Q319984", "license": "CC0", "checked": "2026-11-14"},
+    {"id": "wp-italian-libya", "title": "Italian Libya – Wikipedia", "url": "https://en.wikipedia.org/wiki/Italian_Libya", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wd-italian-libya", "title": "Italian Libya (Q284568) – Wikidata", "url": "https://www.wikidata.org/wiki/Q284568", "license": "CC0", "checked": "2026-11-14"},
+    {"id": "wp-italian-east-africa", "title": "Italian East Africa – Wikipedia", "url": "https://en.wikipedia.org/wiki/Italian_East_Africa", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wd-italian-east-africa", "title": "Italian East Africa (Q328478) – Wikidata", "url": "https://www.wikidata.org/wiki/Q328478", "license": "CC0", "checked": "2026-11-14"},
+    {"id": "wp-second-italo-ethiopian-war", "title": "Second Italo-Ethiopian War – Wikipedia", "url": "https://en.wikipedia.org/wiki/Second_Italo-Ethiopian_War", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wd-italian-empire", "title": "Italian Empire (Q926295) – Wikidata", "url": "https://www.wikidata.org/wiki/Q926295", "license": "CC0", "checked": "2026-11-14"},
+    {"id": "wp-ottoman-tripolitania", "title": "Ottoman Tripolitania – Wikipedia", "url": "https://en.wikipedia.org/wiki/Ottoman_Tripolitania", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wd-ottoman-tripolitania", "title": "Tripolitania vilayet (Q1529261) – Wikidata", "url": "https://www.wikidata.org/wiki/Q1529261", "license": "CC0", "checked": "2026-11-14"},
+    {"id": "commons-flagga-kungariket-italien", "title": "Flag of Italy (1861–1946) – Kungariket Italiens flagga med Savojens vapensköld, handelsflaggan utan krona (Wikimedia Commons, filsida; form och färger i den förenklade teckningen; märkt insignia)", "url": "https://commons.wikimedia.org/wiki/File:Flag_of_Italy_(1861%E2%80%931946).svg", "license": "Public domain", "checked": "2026-11-14"}
   ]
 }
