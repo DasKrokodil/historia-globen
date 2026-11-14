@@ -24,6 +24,7 @@ export function latLonToVec3(lat, lon, r = R) {
 }
 
 const landPaths = new WeakMap();
+const scaledPaths = new WeakMap(); // landets bana skalad olika i öst–väst och nord–syd (regionvyn, #1641): { kx, ky, path }
 
 /**
  * Ritar grundkartan (hav, gradnät, land) på en ekvirektangulär bild som är W × H stor. Delas av hela bilden
@@ -52,9 +53,16 @@ export function paintBase(ctx, W, H, land, widths = {}) {
   const kx = W / land.width, ky = H / land.height;
   if (Math.abs(kx / ky - 1) > 1e-3) {
     // Olika skala i öst–väst och nord–syd (regionvyn i Platt vy, #1641): banan skalas och inte pennan, så att kusten blir
-    // lika tjock åt alla håll
-    const scaled = new Path2D();
-    scaled.addPath(path, new DOMMatrix([kx, 0, 0, ky, 0, 0]));
+    // lika tjock åt alla håll. Den skalade banan sparas per karta och skala (en omritning efter panorering byggs inte om).
+    // Koordinaterna blir stora (vid regionvyns största zoom i mobil med dpr 3 cirka 400 000 bildpunkter), men 32-bitars flyttal
+    // ger då fortfarande en upplösning på några hundradels bildpunkter, så linjen hoppar inte
+    let cached = scaledPaths.get(land);
+    if (!cached || cached.kx !== kx || cached.ky !== ky) {
+      const p = new Path2D();
+      p.addPath(path, new DOMMatrix([kx, 0, 0, ky, 0, 0]));
+      scaledPaths.set(land, cached = { kx, ky, path: p });
+    }
+    const scaled = cached.path;
     ctx.fillStyle = '#cdb88d';
     ctx.fill(scaled);
     ctx.strokeStyle = 'rgba(80,58,25,0.55)'; ctx.lineWidth = coast;
