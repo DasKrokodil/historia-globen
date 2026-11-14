@@ -1795,6 +1795,9 @@ details.used-by summary:hover { color: var(--parchment); }
   background: repeating-linear-gradient(-45deg, var(--war) 0 1.2px, color-mix(in srgb, var(--war) 14%, transparent) 1.2px 3.5px);
 }
 /* istidens kust (#1096): ljus yta med snedstreck och mörk kant, som i bilden */
+.religion-legend .rl-images + .rl-images, .religion-legend .rl-body > :not(.rl-images) + .rl-images { margin-top: 6px; padding-top: 4px; border-top: 1px solid var(--line); }
+.religion-legend .rl-image-text { display: block; margin: 3px 0 0; font: 400 12px/1.4 var(--f-body); color: var(--parchment-dim); }
+.religion-legend .rl-image-text .swatch { display: inline-block; vertical-align: -1px; }
 .religion-legend .rl-shelf { border-bottom: 2px solid var(--shelf-ink); box-sizing: border-box; background: repeating-linear-gradient(45deg, var(--shelf-ink) 0 1.2px, var(--shelf) 1.2px 5px); }
 .religion-legend .rl-fade { display: block; margin-top: 6px; padding-top: 4px; border-top: 1px solid var(--line); }
 .religion-legend .rl-fade .link-btn { font: inherit; padding: 0; }
@@ -1836,7 +1839,7 @@ details.used-by summary:hover { color: var(--parchment); }
 .religion-legend .rl-spread-toggle:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
 .religion-legend .rl-spread-toggle .rl-chev { flex: none; }
 .religion-legend .rl-spread-toggle[aria-expanded="true"] .rl-chev { transform: rotate(-135deg) translateY(-1px); }
-.religion-legend:has(.rl-disc) { max-width: 260px; }
+.religion-legend:has(.rl-disc), .religion-legend:has(.rl-images) { max-width: 260px; }
 .layer-sub .rel-about { display: block; margin: 6px 10px 2px; padding: 4px 10px; border-color: var(--brass-deep); }
 .religion-pop {
   position: absolute; z-index: var(--z-kartruta); width: min(260px, calc(100% - 16px)); box-sizing: border-box;
@@ -1862,7 +1865,7 @@ details.used-by summary:hover { color: var(--parchment); }
 @media (max-width: 760px) {
   /* smalare än rubrikens högra grannar (knapparna uppe till höger), 44 px hög tryckyta, borta när panelen är öppen */
   .religion-legend { max-width: 172px; font-size: 11px; padding-top: 0; padding-bottom: 0; }
-  .religion-legend:has(.rl-disc) { max-width: 210px; }
+  .religion-legend:has(.rl-disc), .religion-legend:has(.rl-images) { max-width: 210px; }
   .religion-legend .rl-disc { font-size: 11px; padding: 4px 6px; }
   .religion-legend .rl-body { padding-bottom: 6px; }
   .religion-legend .rl-toggle { min-height: 40px; }
