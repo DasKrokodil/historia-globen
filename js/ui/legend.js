@@ -102,7 +102,8 @@ export class ReligionLegend {
    * items från ReligionsLayer.legendItems(). focus (valfritt, fokusläget): war = ett följt krigs områden syns,
    * fadable = namnen på lager som dämpas (eller skulle dämpas) och keep = om de visas som vanligt (#235).
    * discovery (upptäcktsvyn, #101) = { perspective, credit, sources: [{ title, url }], coverage } eller null.
-   * spread (människans spridning, #1094) = { items: [{ kind, certainty, color, title, summary, note, sources }] } eller null;
+   * spread (människans spridning, #1094) = { items: [{ kind, certainty, color, title, summary, note, sources }], coast } eller null;
+   *   coast = raden om kusten (#1565): modellens kust och is, eller dagens kust utanför modellens spann; tom utan områden;
    * listan är också kartans textalternativ (#1106).
    * images (bildlagren, #1096) = [{ id, title, text, keys: [{ swatch, text }], sources: [{ title, url }] }] eller null: skivor med en text om
    * osäkerheten, till exempel istidens kust, som annars bara syns som färg.
@@ -137,7 +138,7 @@ export class ReligionLegend {
     // I smal skärm (#1418) visas bara namn, tecken och säkerhet per post; sammanfattningen, noten och källorna fälls ut per
     // post med en riktig knapp i rubriken (aria-expanded, tangentbord). I bred skärm står allt utfällt som förut.
     const narrow = !!this.narrow;
-    const spreadHtml = !spread ? '' : `<div class="rl-spread" style="margin-top:6px;padding-top:4px;border-top:1px solid var(--line)"><p class="rl-note">${esc(ui('legend.spreadNote'))}</p><ul>${spread.items.map((i, n) => {
+    const spreadHtml = !spread ? '' : `<div class="rl-spread" style="margin-top:6px;padding-top:4px;border-top:1px solid var(--line)"><p class="rl-note">${esc(ui('legend.spreadNote'))}</p>${spread.coast ? `<p class="rl-note" data-spread-coast>${esc(spread.coast)}</p>` : ''}<ul>${spread.items.map((i, n) => {
       const isOpen = !narrow || this.spreadOpen?.has(i.title), id = `rl-spread-more-${n}`;
       const head = narrow
         ? `<button type="button" class="rl-spread-toggle" data-spread-toggle="${esc(i.title)}" aria-expanded="${isOpen}" aria-controls="${id}"><span>${esc(i.title)}</span><span class="sr-only">, ${esc(ui('legend.spreadDetails'))}</span><span class="rl-chev" aria-hidden="true"></span></button>`

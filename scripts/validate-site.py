@@ -294,6 +294,8 @@ image_slices = [(row, part) for row in (image_layers or {}).get('layers', []) if
                 for part in row.get('slices', []) if isinstance(part, dict)]
 for row, part in image_slices:
     exists(str(part.get('file', '')), f"data/bildlager.json ({part.get('id')}, file)")
+    if part.get('mask'):  # masken för spridningslagret (#1565)
+        exists(str(part['mask']), f"data/bildlager.json ({part.get('id')}, mask)")
 
 # 8. Källor och fun facts
 sources = load('data/sources.json') or {'sources': []}
@@ -426,7 +428,7 @@ for path, tour in tours:
 
 # 8b2. Bildlager (#54, formatet @2 i #1325): schemat och det som den lilla schemakontrollen inte kan uttrycka.
 IMAGE_ROW_KEYS = {'id', 'kind', 'aliases', 'group', 'name', 'note', 'label', 'keys', 'slices'}
-IMAGE_SLICE_KEYS = {'id', 'title', 'format', 'file', 'width', 'height', 'from', 'to', 'bounds', 'opacity',
+IMAGE_SLICE_KEYS = {'id', 'title', 'format', 'file', 'mask', 'width', 'height', 'from', 'to', 'bounds', 'opacity',
                     'caveat', 'sources', 'review', 'license'}
 IMAGE_MAX_PIXELS = 4096 * 2048  # en avkodad bild på 4096 × 2048 tar cirka 32 MB i minnet
 

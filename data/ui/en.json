@@ -588,6 +588,8 @@
   "spread.certainty.omstridd": "disputed wave",
   "legend.spread": "Human dispersal",
   "legend.spreadNote": "Areas and lines are interpretations of the sources, not borders or routes. A dashed line is a main wave; a dotted line with a question mark is a possible or disputed wave. A lack of finds does not mean that nobody was there.",
+  "legend.spreadCoastModel": "The areas follow the model’s coastline and ice sheets for the nearest model step (the same model as the Ice-age coastline layer) and are not drawn on sea or ice in the model, even when that layer is off. The lines are not clipped.",
+  "legend.spreadCoastToday": "Outside 80,000–7500 years ago there is no coastline model here: Africa follows today’s coast, and the other areas are not clipped.",
   "legend.spreadSources": "Sources:",
   "legend.spreadDetails": "summary and sources",
   "legend.and": " and ",
