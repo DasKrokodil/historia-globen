@@ -11,6 +11,7 @@ Körs i CI: python3 -I tests/platser-granser-test.py
 """
 import json
 import math
+import re
 import sys
 import textwrap
 from pathlib import Path
@@ -97,6 +98,91 @@ for p in fx['points']:
     if 'edgeKm' in p:
         km = ns['edge_km'](polys, p['lon'], p['lat'])
         check(p['edgeKm'][0] <= km <= p['edgeKm'][1], f"validate-site.py: {p['namn']}: {km:.1f} km, väntat {p['edgeKm']}")
+
+# 4. Grannländerna (#1449): kustmarginalen gäller inte en punkt inne i ett annat lands polygon
+check(ns['COAST_MARGIN_KM'] == int(re.search(r'COAST_MARGIN_KM = (\d+);', (ROOT / 'js' / 'place-geo.js').read_text(encoding='utf-8')).group(1)),
+      'COAST_MARGIN_KM i validate-site.py och js/place-geo.js ska vara lika')
+check(pg.NEIGHBOUR_KM >= ns['COAST_MARGIN_KM'], 'NEIGHBOUR_KM i tools/platser_gransar.py ska täcka kustmarginalen')
+gr = json.loads((ROOT / 'tests' / 'fixtures' / 'granne.json').read_text(encoding='utf-8'))
+for p in gr['points']:
+    pl = gr['places'][p['place']]
+    nb = [poly for n in pl['neighbours'] for poly in n['geometry']['coordinates']]
+    got = ns['in_place'](pl['geometry']['coordinates'], nb, p['lon'], p['lat'])
+    check(got == p['inPlace'], f"validate-site.py: {p['namn']}: {got}, väntat {p['inPlace']}")
+for pl in platser:
+    b = pl['boundary']
+    check(isinstance(b.get('neighbours'), list), f"{pl['id']}: boundary.neighbours saknas (kör tools/platser_gransar.py)")
+    check(b.get('neighbourKm', 0) >= ns['COAST_MARGIN_KM'], f"{pl['id']}: boundary.neighbourKm är mindre än kustmarginalen")
+    check(not any('ne' in n and n['ne'] == b.get('ne') for n in b.get('neighbours', [])), f"{pl['id']}: det egna landet ligger i grannlistan")
+
+
+# 5. Verktyget som skriver grannlistan, mot en konstruerad världsatlas (inget nätverk)
+def mk_topo(countries):
+    """countries: [(id eller None, namn, yttre ring)] som en minimal world-atlas: en båge per ring, deltakodade."""
+    arcs, geoms = [], []
+    for k, (cid, namn, r) in enumerate(countries):
+        arcs.append([list(r[0])] + [[b[0] - a[0], b[1] - a[1]] for a, b in zip(r, r[1:])])
+        g = {'type': 'Polygon', 'arcs': [[k]], 'properties': {'name': namn}}
+        if cid is not None:
+            g['id'] = cid
+        geoms.append(g)
+    return {'transform': {'scale': [1, 1], 'translate': [0, 0]}, 'arcs': arcs, 'objects': {'countries': {'geometries': geoms}}}
+
+
+def rect(w, s, e, n):
+    return [[w, s], [e, s], [e, n], [w, n], [w, s]]
+
+
+def in_pieces(entry, x, y):
+    return any(pg.point_in_ring(poly[0], x, y) for poly in entry['geometry']['coordinates'])
+
+
+# En konkav granne (ett C med en vik) som sträcker sig långt utanför fönstren, ett eget land, en avlägsen stat och ett land utan id
+c_form = [[-20, -10], [0, -10], [0, 0.5], [-5, 0.5], [-5, 1.5], [0, 1.5], [0, 12], [-20, 12], [-20, -10]]
+topo = mk_topo([('1', 'Egna', rect(0, 0, 2, 2)), ('2', 'Granne', c_form), ('3', 'Avlägsen', rect(30, 0, 40, 10)), (None, 'Utan id', rect(2, 0, 4, 2))])
+arcs = pg.decode(topo)
+platsen = {'boundary': {'ne': '1', 'geometry': {'type': 'MultiPolygon', 'coordinates': [[rect(0, 0, 2, 2)]]}}}
+grannar = pg.clip_neighbours(pg.load_countries(topo, arcs), platsen)
+check([n['name'] for n in grannar] == ['Granne', 'Utan id'], f'grannarna ska vara Granne och Utan id (inte det egna eller det avlägsna): {[n["name"] for n in grannar]}')
+check('ne' not in grannar[1] and grannar[0]['ne'] == '2', 'ett land utan id i Natural Earth får ingen ne')
+check(all(len(poly) == 1 and poly[0][0] == poly[0][-1] for n in grannar for poly in n['geometry']['coordinates']), 'grannpolygonerna ska vara slutna ytterringar')
+# Fullständigt inom marginalen: för punkter inom 20 km från platsens gräns ger de klippta delarna samma svar som hela landet
+lo, hi, step = -0.25, 2.25, 0.01
+full = {'Granne': c_form[:-1] + [c_form[0]], 'Utan id': rect(2, 0, 4, 2)}
+x = lo
+checked = 0
+while x <= hi:
+    y = lo
+    while y <= hi:
+        if 0 <= x <= 2 and 0 <= y <= 2:
+            y += step
+            continue
+        for n in grannar:
+            check(in_pieces(n, x, y) == pg.point_in_ring(full[n['name']], x, y), f"{n['name']}: klippt och hel polygon ger olika svar vid {x:.2f},{y:.2f}")
+        checked += 1
+        y += step
+    x += step
+check(checked > 3000, 'provet ska pröva ett nät av punkter runt platsen')
+# Delarna är små: ingen punkt längre än fönstren når (det C-formade landet sträcker sig 20 grader västerut)
+check(max(p[0] for n in grannar[:1] for poly in n['geometry']['coordinates'] for p in poly[0]) <= 0.01 and min(p[0] for n in grannar[:1] for poly in n['geometry']['coordinates'] for p in poly[0]) > -2, 'grannens delar ska klippas vid fönstren, inte följa hela landet')
+
+# Datumlinjen: en granne på andra sidan av 180° hittas, och punkten −179,9 ligger i den
+topo = mk_topo([('1', 'Öst', rect(175, 0, 180, 5)), ('2', 'Väst', rect(-180, 0, -175, 5))])
+vid = pg.clip_neighbours(pg.load_countries(topo, pg.decode(topo)), {'boundary': {'ne': '1', 'geometry': {'type': 'MultiPolygon', 'coordinates': [[rect(175, 0, 180, 5)]]}}})
+check(len(vid) == 1 and vid[0]['name'] == 'Väst', 'en granne över datumlinjen ska hittas')
+check(vid and in_pieces(vid[0], -179.9, 2.5) and not in_pieces(vid[0], 179.9, 2.5), 'punkten −179,9 ligger i grannen men 179,9 ligger i platsen')
+# Ett län: det egna landet är det som rymmer flest av länets punkter, och det är inte en granne
+topo = mk_topo([('1', 'Landet', rect(0, 0, 10, 10)), ('2', 'Grannen', rect(10, 0, 20, 10))])
+lan = {'boundary': {'admin1': 'XXX-1', 'geometry': {'type': 'MultiPolygon', 'coordinates': [[rect(8, 3, 9.95, 5)]]}}}
+cs = pg.load_countries(topo, pg.decode(topo))
+check(pg.own_country(cs, lan)['id'] == '1', 'länets eget land ska vara det som rymmer det')
+check([n['name'] for n in pg.clip_neighbours(cs, lan)] == ['Grannen'], 'ett län har grannar utanför sitt land, inte resten av landet')
+# Fönstren täcker allt inom marginalen från gränsen
+wins = pg.border_windows({'type': 'MultiPolygon', 'coordinates': [[rect(0, 0, 3, 3)]]})
+for k in range(0, 300):
+    t = k / 100
+    for (px, py) in ((t, -0.18), (t, 3.18), (-0.18, t), (3.18, t)):
+        check(any(w[0] <= px <= w[2] and w[1] <= py <= w[3] for w in wins), f'punkten {px},{py} (20 km från gränsen) ligger i inget fönster')
 
 if fel:
     print('\n'.join(fel), file=sys.stderr)

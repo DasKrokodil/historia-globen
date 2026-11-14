@@ -73,9 +73,12 @@ export function edgeKm(geometry, lon, lat) {
 }
 
 /**
- * Kustmarginal: 1:50m-kusten är grov, så en plats vid kusten (Nuuk, Auckland, Golden Bay) kan hamna några
- * kilometer utanför linjen. Händelser inom så här många km från gränsen räknas som inom den. Ingen händelse i datan
- * ligger inom 20 km från en annan plats gräns; validate-site.py och testerna räknar med samma marginal.
+ * Kustmarginal: 1:50m-kusten är grov, så en plats vid kusten (Nuuk, Auckland, Golden Bay, Stockholm, Kalmar) kan hamna några
+ * kilometer utanför linjen. Händelser inom så här många km från gränsen räknas som inom den, men bara om de inte ligger inne i
+ * ett annat lands polygon (#1449): marginalen är till för det som hamnar i havet av kustens skull, inte för grannlandets land
+ * (Fredriksten i Norge, Helsingborg i Sverige). Grannländernas polygoner ligger i platsens `boundary.neighbours`, skrivna av
+ * tools/platser_gransar.py för minst så här många km från gränsen (`boundary.neighbourKm`), också för grannländer som inte själva
+ * är platser (Åland). validate-site.py och testerna räknar med samma marginal och samma regel.
  */
 export const COAST_MARGIN_KM = 20;
 
@@ -132,7 +135,25 @@ export function placeAt(places, lon, lat) {
   return best;
 }
 
+/**
+ * Ligger punkten inne i ett annat lands polygon (Natural Earth admin 0), enligt platsens grannlista (#1449)? Platsens eget land
+ * ingår inte i listan, så för ett landskap (Skåne) räknas resten av landet inte som granne. Saknas listan räknas ingen granne.
+ */
+export function inNeighbour(place, lon, lat) {
+  return (place.boundary.neighbours ?? []).some(n => inGeometry(n.geometry, lon, lat));
+}
+
+/**
+ * Hör punkten till platsen (#1449)? Ja om den ligger inom gränsen. Annars bara om den ligger inom kustmarginalen och inte inne i
+ * ett annat lands polygon: en punkt på land räknas till landet den ligger i, och marginalen hjälper bara punkter som hamnat i havet
+ * på grund av den grova kusten. Grannlistan prövas sist, eftersom bara de få punkterna inom marginalen når dit.
+ */
+export function inPlace(place, lon, lat) {
+  const g = place.boundary.geometry;
+  return inGeometry(g, lon, lat) || (edgeKm(g, lon, lat) <= COAST_MARGIN_KM && !inNeighbour(place, lon, lat));
+}
+
 /** Händelserna (med _lon och _lat, som model.js sätter) som ligger inom platsens gräns, i tidsordning. */
 export function placeEvents(place, events) {
-  return events.filter(e => e._lon != null && (inGeometry(place.boundary.geometry, e._lon, e._lat) || edgeKm(place.boundary.geometry, e._lon, e._lat) <= COAST_MARGIN_KM)).sort((a, b) => a.start - b.start);
+  return events.filter(e => e._lon != null && inPlace(place, e._lon, e._lat)).sort((a, b) => a.start - b.start);
 }

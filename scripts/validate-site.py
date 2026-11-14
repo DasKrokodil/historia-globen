@@ -752,6 +752,17 @@ if places_doc is not None:
                         best = min(best, math.hypot(ax + u * dx, ay + u * dy) * 111.2)
         return best
 
+    COAST_MARGIN_KM = 20  # som COAST_MARGIN_KM i js/place-geo.js (tests/platser-granser-test.py jämför de två)
+
+    def inside_polys(plys, lon, lat):
+        """Som inGeometry i js/place-geo.js: punkten ligger i en polygon och inte i något av dess hål."""
+        return any(in_ring(poly[0], lon, lat) and not any(in_ring(h, lon, lat) for h in poly[1:]) for poly in plys)
+
+    def in_place(polys, nb_polys, lon, lat):
+        """Som inPlace i js/place-geo.js (#1449): inom gränsen, eller inom kustmarginalen och inte inne i ett annat lands polygon
+        (grannländerna, nb_polys). En punkt på land räknas till landet den ligger i; marginalen är för det som hamnat i havet."""
+        return inside_polys(polys, lon, lat) or (edge_km(polys, lon, lat) <= COAST_MARGIN_KM and not inside_polys(nb_polys, lon, lat))
+
     for pl in places_doc.get('places', []):
         pid = pl.get('id', '?')
         where = f'data/platser.json ({pid})'
@@ -765,21 +776,32 @@ if places_doc is not None:
                 err(f'{where}: källan {s_} finns inte i sources.json')
         geom = pl.get('boundary', {}).get('geometry', {})
         polys = [geom['coordinates']] if geom.get('type') == 'Polygon' else geom.get('coordinates', [])
-        for poly in polys:
-            for ring in poly:
-                if len(ring) < 4 or ring[0] != ring[-1]:
-                    err(f'{where}: en ring i gränsen är inte sluten eller har färre än fyra punkter')
-                    break
-                if any(not (-180 <= x <= 180 and -90 <= y <= 90) for x, y in ring):
-                    err(f'{where}: en koordinat i gränsen ligger utanför jordklotet')
-                    break
-                if any(abs(a[0] - b[0]) > 180 for a, b in zip(ring, ring[1:])):
-                    err(f'{where}: en ring i gränsen hoppar mer än 180 grader i längdgrad (korsar datumlinjen); dela den vid 180° med tools/platser_gransar.py (#1268)')
-                    break
-        def within(e):
-            lon, lat = e['location']['coordinates'][:2]
-            return any(in_ring(poly[0], lon, lat) and not any(in_ring(h, lon, lat) for h in poly[1:]) for poly in polys) or edge_km(polys, lon, lat) <= 20  # COAST_MARGIN_KM
-        inside = [e for e in ev_all if within(e)]
+        # Grannländerna (#1449): andra länders polygoner nära gränsen, skrivna av tools/platser_gransar.py. Kustmarginalen gäller inte för
+        # en punkt som ligger inne i en av dem. Listan är obligatorisk (ett kort utan den går tillbaka till den gamla marginalen) och måste
+        # täcka minst marginalen (boundary.neighbourKm).
+        nb_list = pl.get('boundary', {}).get('neighbours')
+        if nb_list is None:
+            err(f'{where}: boundary.neighbours saknas; kör python3 tools/platser_gransar.py (#1449)')
+            nb_list = []
+        elif pl['boundary'].get('neighbourKm', 0) < COAST_MARGIN_KM:
+            err(f"{where}: boundary.neighbourKm ({pl['boundary'].get('neighbourKm')}) är mindre än kustmarginalen ({COAST_MARGIN_KM} km); kör python3 tools/platser_gransar.py (#1449)")
+        nb_polys = []
+        for nb in nb_list:
+            ng = nb.get('geometry', {})
+            nb_polys.extend([ng['coordinates']] if ng.get('type') == 'Polygon' else ng.get('coordinates', []))
+        for label, plys in (('gränsen', polys), ('en grannes gräns', nb_polys)):
+            for poly in plys:
+                for ring in poly:
+                    if len(ring) < 4 or ring[0] != ring[-1]:
+                        err(f'{where}: en ring i {label} är inte sluten eller har färre än fyra punkter')
+                        break
+                    if any(not (-180 <= x <= 180 and -90 <= y <= 90) for x, y in ring):
+                        err(f'{where}: en koordinat i {label} ligger utanför jordklotet')
+                        break
+                    if any(abs(a[0] - b[0]) > 180 for a, b in zip(ring, ring[1:])):
+                        err(f'{where}: en ring i {label} hoppar mer än 180 grader i längdgrad (korsar datumlinjen); dela den vid 180° med tools/platser_gransar.py (#1268)')
+                        break
+        inside = [e for e in ev_all if in_place(polys, nb_polys, *e['location']['coordinates'][:2])]
         if len(inside) < 5:
             err(f'{where}: minst 5 synliga händelser ska ligga inom gränsen, men det är {len(inside)}')
         if pl.get('type') == 'country':

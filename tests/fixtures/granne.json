@@ -1,0 +1,261 @@
+{
+ "_note": "Konstruerade platser och grannländer för regeln om kustmarginalen (#1449). Delas av tests/place-geo.test.mjs (inPlace i js/place-geo.js) och tests/platser-granser-test.py (in_place i scripts/validate-site.py), så att de två inte glider isär. Rutor på ekvatorn: 0,1 grader är cirka 11 km, 0,3 grader cirka 33 km.",
+ "places": {
+  "ruta": {
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        0,
+        0
+       ],
+       [
+        10,
+        0
+       ],
+       [
+        10,
+        10
+       ],
+       [
+        0,
+        10
+       ],
+       [
+        0,
+        0
+       ]
+      ]
+     ]
+    ]
+   },
+   "neighbours": [
+    {
+     "name": "Granne öster",
+     "geometry": {
+      "type": "MultiPolygon",
+      "coordinates": [
+       [
+        [
+         [
+          9.9,
+          0
+         ],
+         [
+          20,
+          0
+         ],
+         [
+          20,
+          10
+         ],
+         [
+          9.9,
+          10
+         ],
+         [
+          9.9,
+          0
+         ]
+        ]
+       ]
+      ]
+     }
+    }
+   ]
+  },
+  "utan-grannar": {
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        0,
+        0
+       ],
+       [
+        10,
+        0
+       ],
+       [
+        10,
+        10
+       ],
+       [
+        0,
+        10
+       ],
+       [
+        0,
+        0
+       ]
+      ]
+     ]
+    ]
+   },
+   "neighbours": []
+  },
+  "ring": {
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        0,
+        0
+       ],
+       [
+        10,
+        0
+       ],
+       [
+        10,
+        10
+       ],
+       [
+        0,
+        10
+       ],
+       [
+        0,
+        0
+       ]
+      ],
+      [
+       [
+        4,
+        4
+       ],
+       [
+        6,
+        4
+       ],
+       [
+        6,
+        6
+       ],
+       [
+        4,
+        6
+       ],
+       [
+        4,
+        4
+       ]
+      ]
+     ]
+    ]
+   },
+   "neighbours": [
+    {
+     "name": "Enklav",
+     "geometry": {
+      "type": "MultiPolygon",
+      "coordinates": [
+       [
+        [
+         [
+          4.5,
+          4.5
+         ],
+         [
+          5.5,
+          4.5
+         ],
+         [
+          5.5,
+          5.5
+         ],
+         [
+          4.5,
+          5.5
+         ],
+         [
+          4.5,
+          4.5
+         ]
+        ]
+       ]
+      ]
+     }
+    }
+   ]
+  }
+ },
+ "points": [
+  {
+   "namn": "inne i platsen",
+   "place": "ruta",
+   "lon": 5,
+   "lat": 5,
+   "inPlace": true
+  },
+  {
+   "namn": "på land i grannlandet, 6 km utanför gränsen",
+   "place": "ruta",
+   "lon": 10.05,
+   "lat": 5,
+   "inPlace": false
+  },
+  {
+   "namn": "i havet 6 km väster om gränsen (kustmarginalen)",
+   "place": "ruta",
+   "lon": -0.05,
+   "lat": 5,
+   "inPlace": true
+  },
+  {
+   "namn": "i havet 6 km norr om gränsen (kustmarginalen)",
+   "place": "ruta",
+   "lon": 5,
+   "lat": 10.05,
+   "inPlace": true
+  },
+  {
+   "namn": "i havet 33 km utanför gränsen (utanför marginalen)",
+   "place": "ruta",
+   "lon": -0.3,
+   "lat": 5,
+   "inPlace": false
+  },
+  {
+   "namn": "inne i platsen och i grannens polygon, där de överlappar: platsen gäller",
+   "place": "ruta",
+   "lon": 9.95,
+   "lat": 5,
+   "inPlace": true
+  },
+  {
+   "namn": "utan grannlista räknas marginalen som förut (6 km öster om gränsen)",
+   "place": "utan-grannar",
+   "lon": 10.05,
+   "lat": 5,
+   "inPlace": true
+  },
+  {
+   "namn": "i hålet, men inte i enklaven: inom marginalen från hålets kant",
+   "place": "ring",
+   "lon": 4.1,
+   "lat": 4.1,
+   "inPlace": true
+  },
+  {
+   "namn": "i hålet, inne i enklaven: ett annat land",
+   "place": "ring",
+   "lon": 5,
+   "lat": 5,
+   "inPlace": false
+  },
+  {
+   "namn": "på platsens land runt hålet",
+   "place": "ring",
+   "lon": 2,
+   "lat": 2,
+   "inPlace": true
+  }
+ ]
+}
