@@ -1113,6 +1113,16 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
   .tour-text { font-size: 15px; }
   .tour-links .link-btn { min-height: 44px; }
   .tour-next, .tour-end, .tour-actions .chip-btn { min-height: 44px; }
+  /* Faktarutan under en tur i smal skärm (#1582): turkortet krymper till steg, stegindikator och Föregående/Nästa, och arket står
+     ovanför det, så att Nästa går att nå utan att först stänga faktarutan. Kortet är 104 px högt (--tour-reading-h) och står som förut 136 eller 196 px från botten (--tour-card-b) och växer tillbaka när rutan stängs. */
+  .app.touring { --tour-reading-h: 104px; --tour-card-b: 136px; }
+  .app.touring:has(.pause-note:not([hidden])) { --tour-card-b: 196px; }
+  .app.touring:has(#detail:not([hidden])) .tour-card :is(.tour-name, .tour-chapter, .tour-title, .tour-status, .tour-text, .tour-question, .tour-links, .tour-lesson-end, .tour-foot) { display: none; }
+  .app.touring:has(#detail:not([hidden])) #detail { bottom: calc(var(--tour-card-b) + var(--tour-reading-h) + 8px); }
+  .app.touring:has(#detail:not([hidden])) #detail:not([data-sheet="full"]):not(.sheet-dragging) { max-height: min(40dvh, calc(100dvh - var(--tour-card-b) - var(--tour-reading-h) - 8px - 190px)); }
+  .app.touring:has(#detail:not([hidden])) #detail[data-sheet="full"], .app.touring:has(#detail:not([hidden])) #detail.sheet-dragging { max-height: calc(100dvh - var(--tour-card-b) - var(--tour-reading-h) - 8px - 72px - env(safe-area-inset-top, 0px)); }
+  .app.touring.lesson:has(#detail:not([hidden])) #detail[data-sheet="full"], .app.touring.lesson:has(#detail:not([hidden])) #detail.sheet-dragging { max-height: calc(100dvh - var(--tour-card-b) - var(--tour-reading-h) - 8px - 112px - env(safe-area-inset-top, 0px)); }
+  .app.touring.lesson-teacher:has(#detail:not([hidden])) #detail[data-sheet="full"], .app.touring.lesson-teacher:has(#detail:not([hidden])) #detail.sheet-dragging { max-height: calc(100dvh - var(--tour-card-b) - var(--tour-reading-h) - 8px - 142px - env(safe-area-inset-top, 0px)); }
 }
 
 /* ---------- tidslinjen ---------- */
