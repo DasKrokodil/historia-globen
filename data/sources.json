@@ -2368,6 +2368,9 @@
     {"id": "wp-chicago-pile-1", "title": "Chicago Pile-1 – Wikipedia", "url": "https://en.wikipedia.org/wiki/Chicago_Pile-1", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
     {"id": "wp-cesar-lattes", "title": "César Lattes – Wikipedia", "url": "https://en.wikipedia.org/wiki/C%C3%A9sar_Lattes", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
     {"id": "wp-chacaltaya", "title": "Chacaltaya – Wikipedia", "url": "https://en.wikipedia.org/wiki/Chacaltaya", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
-    {"id": "nobel-yukawa-bio", "title": "Hideki Yukawa – Biographical, NobelPrize.org (Nobel Prize Outreach)", "url": "https://www.nobelprize.org/prizes/physics/1949/yukawa/biographical/", "license": "© Nobel Prize Outreach (bara länkad, ingen text kopierad)", "checked": "2026-11-14"}
+    {"id": "nobel-yukawa-bio", "title": "Hideki Yukawa – Biographical, NobelPrize.org (Nobel Prize Outreach)", "url": "https://www.nobelprize.org/prizes/physics/1949/yukawa/biographical/", "license": "© Nobel Prize Outreach (bara länkad, ingen text kopierad)", "checked": "2026-11-14"},
+    {"id": "wd-senckenberg-museum", "title": "Senckenberg Museum (Q706441) – Wikidata, koordinat (P625)", "url": "https://www.wikidata.org/wiki/Q706441", "license": "CC0", "checked": "2026-11-14"},
+    {"id": "wd-hahn-meitner-bau", "title": "Hahn-Meitner-Bau (Q61768425) – Wikidata, koordinat (P625)", "url": "https://www.wikidata.org/wiki/Q61768425", "license": "CC0", "checked": "2026-11-14"},
+    {"id": "wp-de-entdeckung-der-kernspaltung", "title": "Entdeckung der Kernspaltung – Wikipedia (tyska)", "url": "https://de.wikipedia.org/wiki/Entdeckung_der_Kernspaltung", "license": "CC BY-SA 4.0", "checked": "2026-11-14"}
   ]
 }

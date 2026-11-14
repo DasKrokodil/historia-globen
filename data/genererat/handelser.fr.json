@@ -277,7 +277,7 @@
 "ramaneffekten":{"place":{"fr":"Calcutta, Inde"},"title":{"fr":"Découverte de l’effet Raman"}},
 "hubbles-lag":{"place":{"fr":"Observatoire du mont Wilson, Californie"},"title":{"fr":"Hubble : les galaxies s’éloignent de nous"},"note":{"title":{"fr":"D’autres contributions"}}},
 "yukawas-mesonteori":{"place":{"fr":"Université impériale d’Osaka, Japon"},"title":{"fr":"Yukawa prédit le méson"}},
-"karnklyvningen-upptacks":{"place":{"fr":"Institut de chimie de la Société Kaiser-Wilhelm, Berlin"},"title":{"fr":"Découverte de la fission nucléaire"}},
+"karnklyvningen-upptacks":{"place":{"fr":"Institut Kaiser-Wilhelm de chimie, Berlin-Dahlem (aujourd’hui Hahn-Meitner-Bau, université libre de Berlin)"},"title":{"fr":"Découverte de la fission nucléaire"},"note":{"title":{"fr":"Les sources divergent"}}},
 "chicago-pile-1":{"place":{"fr":"Stagg Field, université de Chicago, États-Unis"},"title":{"fr":"Démarrage du premier réacteur nucléaire"}},
 "explorer-1":{"place":{"fr":"Cap Canaveral, Floride, États-Unis"},"title":{"fr":"Explorer 1, premier satellite des États-Unis"},"note":{"title":{"fr":"À propos de la date"}}},
 "tereshkova-vostok-6":{"place":{"fr":"Atterrissage à l'ouest de Barnaoul, dans l'Altaï, Union soviétique (aujourd'hui Russie)"},"title":{"fr":"Valentina Terechkova devient la première femme dans l'espace"}},
