@@ -2076,6 +2076,27 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
+  // #1159: Skåne är ett landskap vars kontur är länet (Natural Earth admin 1). Kortet säger det på en egen rad, och kustmarginalen
+  // (COAST_MARGIN_KM, 20 km) drar in Öresundsförbindelsen (6,5 km från linjen) men inte händelserna i Köpenhamn (22,9–23,6 km).
+  await check('platsen Skåne visar landskapet med länets kontur och rätt händelser vid kusten (#1159)', async () => {
+    const { tp, tctx, errs } = await touchPage();
+    try {
+      await tp.goto(`${BASE}?ny=plats-skane#y=1700&f=place:skane`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+      const card = await tp.textContent('#detail');
+      if (!/Landskap i Sverige/.test(card)) throw new Error(`kortet saknar typraden "Landskap i Sverige": ${card.slice(0, 160)}`);
+      if (!/Skåne läns gräns/.test(card) || !/Östra Karups socken/.test(card)) throw new Error('kortet säger inte att konturen är länet och inte landskapet');
+      if (!/dagens gräns/.test(card)) throw new Error('kortet säger inte att linjen är dagens gräns');
+      const inCard = await tp.evaluate(() => [...document.querySelectorAll('#detail [data-theme-event]')].map(b => b.dataset.themeEvent));
+      for (const id of ['uppakra', 'lund-grundas', 'skane-lan-bildas', 'oresundsbron-oppnas']) if (!inCard.includes(id)) throw new Error(`${id} saknas bland händelserna inom gränsen`);
+      for (const id of ['rundetarn-star-klart', 'freden-i-kopenhamn-1660', 'freden-i-roskilde']) if (inCard.includes(id)) throw new Error(`${id} ligger i Danmark men räknas till Skåne`);
+      if (inCard.length < 15) throw new Error(`kortet listar bara ${inCard.length} händelser`);
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `${inCard.length} händelser inom gränsen`;
+    } finally { await tctx.close(); }
+  });
+
   // #1161: tryck på konturen av en plats. Konturerna syns och går att trycka på bara inzoomat och i vanligt läge; trycket
   // öppnar kortet (Fokus av typen place) på globen och i Platt vy, och knappen Visa i Platt karta ramar in platsen.
   // Grönland (isen i norr, 76° N 40° V) ligger fritt från markörer och etiketter vid år 1000, också i mobilbredd.
