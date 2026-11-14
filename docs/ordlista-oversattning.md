@@ -407,7 +407,7 @@ Förslag till typer som ännu inte finns i datan. Kolumnen "Kontrollerad" anger 
 
 | Svenska | Engelska | Tyska | Spanska | Franska | Kontrollerad |
 |---|---|---|---|---|---|
-| landskap (Sverige) | – | Landschaft (historische Provinz) | – | – | de: 2026-11-14, de.wikipedia "Landskap (Schweden)": "Landskap ist die schwedische Bezeichnung für eine historische Provinz"; aldrig *Provinz* ensamt, eftersom de.wikipedia "Provinz (Schweden)" leder till *Län* |
+| landskap (Sverige) | province (på kortet: Province) | Landschaft (historische Provinz) | provincia histórica | province historique | de: 2026-11-14, de.wikipedia "Landskap (Schweden)": "Landskap ist die schwedische Bezeichnung für eine historische Provinz"; aldrig *Provinz* ensamt, eftersom de.wikipedia "Provinz (Schweden)" leder till *Län*. en: 2026-11-14, en.wikipedia "Provinces of Sweden" ("The 25 provinces of Sweden are historical, geographical and cultural regions"); es: 2026-11-14, es.wikipedia "Escania" ("la provincia histórica o comarca (landskap) más meridional de Suecia"); fr: 2026-11-14, fr.wikipedia "Scanie" ("une province historique en Suède"). Byggd i `place.type.landskap` (#1159) |
 | Bundesland (Tyskland, Österrike) | – | Land / Bundesland | – | – | de: 2026-11-14, de.wikipedia "Land (Deutschland)": *Land* är den officiella termen, "im allgemeinen Sprachgebrauch oft auch Bundesland genannt"; Österrike är inte kontrollerat. På kortet *Bundesland*, inte *Land*, eftersom *Land* redan är typen för ett land (`place.type.country`) |
 | kanton (Schweiz) | – | Kanton | – | – | de: 2026-11-14, de.wikipedia "Schweiz": "26 teilsouveränen Kantonen" |
 | delstat (USA) | state | Bundesstaat (på kortet: US-Bundesstaat, förslag från `sprak-de`) | estado | État | de: 2026-11-14, de.wikipedia "Vereinigte Staaten" ("50 Bundesstaaten"); es: es.wikipedia "Estados Unidos" ("cincuenta estados"); fr: fr.wikipedia "États-Unis" ("cinquante États"); en: – |
@@ -423,7 +423,7 @@ Mallen `place.typeOf` ("{type} i {of}") sätter landets namn efter en fast prepo
 | Engelska | *in Sweden*, *in Denmark* | *in the United States* (artikeln *the* behövs) |
 | Spanska | *en Suecia*, *en Estados Unidos* (es.wikipedia "Estados Unidos" skriver namnet utan *los*) | – |
 
-I dag har ingen plats `partOf`, så mallen visar bara typen och felet syns inte ännu. Det blir synligt när en plats inom ett land med artikel byggs (en kanton, en amerikansk delstat, eller Grönland "i Danmarks rike" på franska). Då behöver landsnamnet kunna lagras **med preposition och artikel per språk**; bygget är ett eget issue (#1479, väntar på beslut). Tills dess: skriv aldrig ihop en sådan fras i en översättning för hand.
+Skåne (#1159) är den första platsen med `partOf` (Sverige), och där fungerar mallen på alla fem språk (*Landskap i Sverige*, *Province in Sweden*, *Landschaft in Schweden*, *Provincia histórica en Suecia*, *Province historique en Suède*), så felet syns inte ännu. Det blir synligt när en plats inom ett land med artikel byggs (en kanton, en amerikansk delstat, eller Grönland "i Danmarks rike" på franska). Då behöver landsnamnet kunna lagras **med preposition och artikel per språk**; bygget är ett eget issue (#1479, väntar på beslut). Tills dess: skriv aldrig ihop en sådan fras i en översättning för hand.
 
 ### 17.3 Öppna frågor (ändras inte i #1266)
 
