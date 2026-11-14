@@ -668,6 +668,7 @@ async function start() {
     printRoot: $('print-sheet'),
     get lesson() { return app.lesson; }, // lektionsläget (#795) skapas efter spelaren
     get places() { return app.places; }, // turens steg med en plats (#1163)
+    get linkNotice() { return app.linkNotice; }, // raden efter att turen lämnats (#1572)
     timeline, globe, flatMap, layers, narrow, root: $('app'), events: data.byId,
     layerIds: new Set(registry.entries.map(e => e.id)), controlled: registry.viewLayers(views?.groups), empires: new Set(data.empireGroups.map(g => g.id)),
     select: (id, jump) => app.select(id, jump),

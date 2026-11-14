@@ -6,7 +6,7 @@
 // - faktarutan för en befintlig händelse (select).
 // Fortsätt och spelknappen går till nästa steg. Ligger nästa steg nära i tiden spelas tiden fram dit och pausar;
 // annars hoppar tidslinjen. Avsluta återställer besökarens lager, fokus och kamera och lämnar året där turen var.
-import { t, isVisibleReview } from '../model.js';
+import { t, isVisibleReview, formatYear } from '../model.js';
 import { tourProblems } from '../tour-format.js';
 import { printLesson, teacherLink } from './print-sheet.js';
 import { ui } from '../i18n.js';
@@ -417,6 +417,7 @@ export class TourPlayer {
   end({ takenBy = null } = {}) {
     if (!this.tour) return;
     const { app } = this;
+    const wasLesson = !!app.lesson?.active, tourId = this.tour.id;
     const restore = app.store?.leave(['tur', 'lektion'], takenBy) ?? {};
     app.lesson?.leave(); // en tur som slutar tar lektionsläget med sig (#795)
     this.next.hidden = false;
@@ -438,6 +439,12 @@ export class TourPlayer {
     if (restore.camera) { app.globe.flyTo(restore.camera.lat, restore.camera.lon); app.globe.setZoom(restore.camera.zoom); }
     const back = this.opener?.isConnected && this.opener.offsetParent !== null ? this.opener : null;
     (back ?? app.fallbackFocus?.())?.focus({ preventScroll: true });
+    // Besked efter utgången (#1572): turen är slut, vilket år man står på, och ett sätt att börja om. Inte när ett annat läge tog över eller efter en lektion.
+    if (!takenBy && !wasLesson && app.linkNotice) {
+      const year = formatYear(Math.round(app.timeline.year));
+      const opener = back;
+      app.linkNotice.showText(ui('tour.left', { year }), { ms: 20000, action: { label: ui('tour.restart'), run: () => this.start(tourId, opener) } });
+    }
     this.opener = null;
   }
 }

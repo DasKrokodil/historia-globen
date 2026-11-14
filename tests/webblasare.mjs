@@ -1562,7 +1562,7 @@ async function run(browser, vp) {
     if (await page.isVisible('#funfact')) throw new Error('Samtidigt-kortet syns ovanpå turens kort');
     await page.click('#tour-back');
     if ((await progress()) !== 'Steg 2 av 3') throw new Error('Föregående gick inte tillbaka');
-    await page.click('#tour-close');
+    await page.click('#tour-end');
     await hidden('#tour-card');
     if ((await layersOn()) !== before) throw new Error(`lagren återställdes inte: ${await layersOn()} i stället för ${before}`);
     return 'tre steg med år, lager och paus; Nästa är enda framåtknappen; Föregående och Avsluta fungerar';
@@ -1614,7 +1614,7 @@ async function run(browser, vp) {
     const locked = await page.evaluate(() => [...document.querySelectorAll('.timebar .controls .step[data-step]')].map(b => ({ title: b.title, off: b.disabled })));
     if (!locked.length || locked.some(b => b.title !== 'Turen styr tiden' || !b.off)) throw new Error(`de låsta stegknapparnas hovertext och låsning: ${JSON.stringify(locked)}`);
 
-    await page.click('#tour-close');
+    await page.click('#tour-end');
     await hidden('#tour-card');
     if ((await page.getAttribute('#btn-speed', 'title')) !== speedTitle) throw new Error('hastighetsknappens egen hovertext kom inte tillbaka efter turen');
     if (await page.evaluate(() => [...document.querySelectorAll('.timebar .controls .step')].some(b => b.title === 'Turen styr tiden'))) throw new Error('en stegknapp säger fortfarande att turen styr tiden efter turen');
@@ -1637,7 +1637,7 @@ async function run(browser, vp) {
     await page.click('#tour-next');
     if (!(await page.isVisible('#tour-question'))) throw new Error('andra steget visar ingen fråga');
     if (!(await page.textContent('#tour-question')).includes('Att fundera på')) throw new Error('frågan saknar rubrik');
-    await page.click('#tour-close');
+    await page.click('#tour-end');
     await hidden('#tour-card');
     // Turen återställer fokus på kriget; lämna sidan som den var
     if (!(await page.evaluate(() => document.getElementById('focus-bar').hidden))) await page.click('#focus-exit');
@@ -1809,6 +1809,37 @@ async function run(browser, vp) {
     return 'noten och Om uppgifterna fälls ut med tangentbord; träffytor minst 44 px';
   });
 
+  // #1572: turkortet har en enda, benämnd utgång ("Lämna turen" i kortets fot, ingen kryssknapp eller Avsluta bredvid Nästa), och efter
+  // utgången står en rad "Turen är slut. Du står kvar på år …" med knappen "Starta om turen".
+  await check('turkortet: Lämna turen är den enda utgången och en rad med Starta om turen följer (#1572)', async () => {
+    const lp = await context.newPage();
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await lp.route(u => isFont(u.href), r => r.abort());
+      }
+      await lp.goto(`${BASE}?ny=1#t=vikingatiden-och-varlden`);
+      await lp.waitForSelector('#tour-card:not([hidden])', { timeout: T.load });
+      if (await lp.isVisible('#tour-close')) throw new Error('kryssknappen syns i turkortet; Lämna turen ska vara den enda utgången');
+      const end = lp.locator('#tour-end');
+      if (!/^Lämna turen$/.test((await end.textContent()).trim())) throw new Error('utgången heter inte Lämna turen');
+      const box = await end.boundingBox();
+      if (!box || box.height < 43) throw new Error(`Lämna turen är ${box?.height} px hög, minst 44 px krävs`);
+      if (await lp.locator('.tour-actions #tour-end').count()) throw new Error('Lämna turen ligger bredvid Nästa i stället för i kortets fot');
+      await end.click();
+      await lp.waitForFunction(() => /^Turen är slut\. Du står kvar på år/.test(document.getElementById('link-notice-text')?.textContent ?? ''), null, { timeout: T.step });
+      const restart = lp.locator('#link-notice-action');
+      if (!(await restart.isVisible()) || (await restart.textContent()).trim() !== 'Starta om turen') throw new Error('knappen Starta om turen saknas i raden');
+      await restart.click();
+      await lp.waitForSelector('#tour-card:not([hidden])', { timeout: T.step });
+      if (await lp.isVisible('#link-notice-card')) throw new Error('raden ligger kvar efter Starta om turen');
+      return 'Lämna turen i foten, raden efter utgången och Starta om turen startar om';
+    } finally {
+      await lp.close();
+    }
+  });
+
   // #1570 (beslut 2026-11-14, alternativ D): formen säger vad tecknet är. En flagga är en rektangel i 3:2, en symbol och en
   // modern återgivning är sköldar, och teckningar som själva är sköldar behåller sin form. Kontrollen ritar märkena på samma
   // canvas som klotet använder och mäter var bildpunkterna finns, så den bryts om en flagga åter sträcks till en sköld.
@@ -1917,7 +1948,7 @@ async function run(browser, vp) {
     if ((await page.textContent('#tour-status')).trim() !== 'Här är forskare inte överens') throw new Error('fel status i första steget');
     for (let i = 0; i < 4; i++) await page.click('#tour-next');
     if ((await page.textContent('#tour-status')).trim() !== 'Här är forskare inte överens') throw new Error('steget om arméernas storlek är inte märkt som omtvistat');
-    await page.click('#tour-close');
+    await page.click('#tour-end');
     await hidden('#tour-card');
     if (!(await page.evaluate(() => document.getElementById('focus-bar').hidden))) await page.click('#focus-exit');
     await page.$eval('#focus-menu input', el => { el.value = ''; el.dispatchEvent(new Event('input', { bubbles: true })); });
@@ -3230,7 +3261,7 @@ async function run(browser, vp) {
         if (a.card.top < 0 || a.card.bottom > a.ih) throw new Error(`${yta.namn}: turkortet ligger utanför skärmen (${Math.round(a.card.top)}–${Math.round(a.card.bottom)} av ${a.ih} px)`);
         if (a.card.height < 150) throw new Error(`${yta.namn}: turkortet är bara ${Math.round(a.card.height)} px högt`);
         if (!a.next.ok) throw new Error(`${yta.namn}: Nästa syns inte helt inne i kortet (${Math.round(a.next.top)}–${Math.round(a.next.bottom)} px, kortet ${Math.round(a.card.top)}–${Math.round(a.card.bottom)})`);
-        if (!a.end.ok) throw new Error(`${yta.namn}: Avsluta turen syns inte helt inne i kortet`);
+        if (!a.end.ok) throw new Error(`${yta.namn}: Lämna turen syns inte helt inne i kortet`);
         if (a.next.height < 44 || a.end.height < 44) throw new Error(`${yta.namn}: knapparna är lägre än 44 px (${Math.round(a.next.height)}, ${Math.round(a.end.height)})`);
         if (!a.noteInside) throw new Error(`${yta.namn}: turraden ryms inte i bild (${Math.round(a.note.left)}–${Math.round(a.note.right)}, ${Math.round(a.note.top)}–${Math.round(a.note.bottom)} av ${a.iw} × ${a.ih} px)`);
         if (a.card.bottom > a.note.top + 1) throw new Error(`${yta.namn}: turkortet täcker turraden (${Math.round(a.card.bottom)} > ${Math.round(a.note.top)} px)`);
@@ -6715,7 +6746,7 @@ async function run(browser, vp) {
         await hashHas('s=tenochtitlan');
         await tourPageAw.goBack();
         await tourPage.waitForFunction(() => document.getElementById('tour-progress').textContent.includes('2 av 3'), null, { timeout: T.step });
-        await tourPage.click('#tour-close');
+        await tourPage.click('#tour-end');
         await tourPage.waitForSelector('#tour-card', { state: 'hidden', timeout: T.step });
         await tourPage.waitForFunction(() => !location.hash.includes('t='), null, { timeout: T.step });
         // Den äldre formen ?tur=<id> startar vid första steget och flyttas in i hashen
@@ -6743,7 +6774,7 @@ async function run(browser, vp) {
     });
   }
   // Lektionsläget (#795): en länk med m=lektion startar turen med menyerna dolda och bandet överst. Låset håller vid
-  // direktlänk, omladdning och Bakåt/Framåt, tangentbordet når "Visa hela globen", slutkortet står kvar efter sista
+  // direktlänk, omladdning och Bakåt/Framåt, tangentbordet når "Lämna lektionen", slutkortet står kvar efter sista
   // steget och utgången behåller året och ger den vanliga sidan. Kontrollen körs i dator- och mobilbredd.
   await check('lektionsläget låser menyerna och har en utgång som behåller året (#795)', async () => {
     const lessonPage = await context.newPage();
@@ -6833,14 +6864,14 @@ async function run(browser, vp) {
       await nav(() => lessonPage.goForward());
       await lessonPage.waitForFunction(() => document.getElementById('tour-progress').textContent.includes('4 av 14'), null, { timeout: T.step });
       await locked();
-      // Tangentbordet når "Visa hela globen" (bandet ligger före kortet i tabbordningen)
+      // Tangentbordet når "Lämna lektionen" (bandet ligger före kortet i tabbordningen)
       await lessonPage.focus('#tour-next');
       let reached = false;
       for (let i = 0; i < 60 && !reached; i++) {
         await lessonPage.keyboard.press('Shift+Tab');
         reached = await lessonPage.evaluate(() => document.activeElement?.id === 'lesson-exit');
       }
-      if (!reached) throw new Error('Tab når inte "Visa hela globen"');
+      if (!reached) throw new Error('Tab når inte "Lämna lektionen"');
       // Turens slut: slutkortet står kvar, Escape avslutar inte, och det finns ingen Klar-knapp som tömmer läget
       for (let i = 0; i < 10; i++) await lessonPage.click('#tour-next');
       await lessonPage.waitForFunction(() => document.getElementById('tour-progress').textContent.includes('14 av 14'), null, { timeout: T.step });
@@ -6857,12 +6888,12 @@ async function run(browser, vp) {
       await lessonPage.keyboard.press('Enter');
       await lessonPage.waitForSelector('#lesson-band', { state: 'hidden', timeout: T.step });
       await lessonPage.waitForSelector('#tour-card', { state: 'hidden', timeout: T.step });
-      if ((await lessonPage.textContent('#year-big')).trim() !== last) throw new Error('"Visa hela globen" ändrade året');
+      if ((await lessonPage.textContent('#year-big')).trim() !== last) throw new Error('"Lämna lektionen" ändrade året');
       if (await lessonPage.isVisible('#more-toggle')) await lessonPage.click('#more-toggle'); // i mobilen ligger knapparna i menyn
       for (const sel of ['#btn-layers', '#btn-focus', '#btn-globe']) if (!(await shown(sel))) throw new Error(`${sel} kom inte tillbaka`);
       await lessonPage.waitForFunction(() => !/[?&#]m=|t=/.test(location.hash), null, { timeout: T.step });
       const focusOk = await lessonPage.evaluate(() => { const a = document.activeElement; return !!a && a !== document.body && a.getClientRects().length > 0; });
-      if (!focusOk) throw new Error('fokus hamnade på ingenting efter "Visa hela globen"');
+      if (!focusOk) throw new Error('fokus hamnade på ingenting efter "Lämna lektionen"');
       // Tidslinjen är fri igen
       await lessonPage.click('#year-jump');
       await lessonPage.fill('#jump-input', '1500');
@@ -6915,7 +6946,7 @@ async function run(browser, vp) {
       await lessonPage.waitForTimeout(300);
       if ((await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error(`Home på reglaget gav ${(await lessonPage.textContent('#year-big')).trim()} i stället för 1939 efter ett fokus och lektionslänken`);
       await jumpLocked('lektionslänken efter ett fokus'); // tidslinjen är låst även när lektionen börjar efter ett fokus
-      // "Visa hela globen" återställer inte ett gammalt fokus och byter inte året (#881)
+      // "Lämna lektionen" återställer inte ett gammalt fokus och byter inte året (#881)
       await open(`${BASE}?ny=14#y=1916&f=war:forsta-varldskriget`);
       await lessonPage.waitForSelector('#focus-bar:not([hidden])', { state: 'attached', timeout: T.load });
       await hashHas('c=');
@@ -6979,7 +7010,7 @@ async function run(browser, vp) {
     return 'direktlänk, omladdning och Bakåt/Framåt behåller låset; året låst till 1939–1945; Tab når utgången; slutkortet står kvar; utgången behåller året; utan lektionstur eller tur inget läge';
   });
   // #1139: lektionsläget visar alltid alla händelser i lektionens år, också när lektionens lager är exakt Översikts fem lager
-  // (då slår turen inte av något lager, och vyns urval skulle annars ligga kvar). Utgången ("Visa hela globen") ger tillbaka
+  // (då slår turen inte av något lager, och vyns urval skulle annars ligga kvar). Utgången ("Lämna lektionen") ger tillbaka
   // Översikt som det var före lektionen. Lektionens lager skrivs om i testet så att de blir lika med Översikts.
   await check('lektionsläget från Översikt visar alla händelser och lämnar inget urval kvar (#1139)', async () => {
     const lp = await context.newPage();
@@ -7015,7 +7046,7 @@ async function run(browser, vp) {
       if (!ids.length || !outside.length) throw new Error(`lektionen år 1939 visar ${ids.length} händelser och ingen utanför Översikt: urvalet läcker in i lektionen`);
       if (!await lp.evaluate(() => document.getElementById('panel-tag-note').hidden)) throw new Error('urvalsraden syns i lektionen');
       if (/[#&]g=/.test(await lp.evaluate(() => location.hash))) throw new Error('adressen har ett urval (g=) i lektionen');
-      // Visa hela globen: lektionen slutar, året står kvar och Översikt är tillbaka som före lektionen
+      // Lämna lektionen: lektionen slutar, året står kvar och Översikt är tillbaka som före lektionen
       await lp.click('#lesson-exit');
       await lp.waitForSelector('#lesson-band', { state: 'hidden', timeout: T.step });
       await lp.waitForFunction(() => document.querySelector('#layer-menu [data-view="oversikt"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
@@ -8301,7 +8332,7 @@ async function run(browser, vp) {
       }
       // Turen slutar: reglaget fungerar igen
       await open('#t=andra-varldskriget');
-      await wp.click('#tour-close');
+      await wp.click('#tour-end');
       await wp.waitForSelector('#tour-card', { state: 'hidden', timeout: T.step });
       const free = await wp.evaluate(() => ({ aria: document.getElementById('track').getAttribute('aria-disabled'), steps: [...document.querySelectorAll('.step[data-step]')].some(b => b.disabled) }));
       if (free.aria !== null || free.steps) throw new Error(`reglaget är kvar i låst läge efter turen: ${JSON.stringify(free)}`);
@@ -9142,7 +9173,7 @@ async function run(browser, vp) {
     const tour = row.locator('[data-tour="hur-vet-vi-det-har"]');
     await tour.click();
     await visible('#tour-card');
-    await page.click('#tour-close');
+    await page.click('#tour-end');
     await hidden('#tour-card');
     return answers.join(' | ');
   });
