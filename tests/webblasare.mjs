@@ -7723,8 +7723,12 @@ async function run(browser, vp) {
       });
       await wp.click('#detail [data-close]');
       await wp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
-      await wp.waitForFunction(() => document.activeElement && document.activeElement !== document.body, null, { timeout: 3000 });
-      const where = await wp.evaluate(() => ({ id: document.activeElement.id, data: document.activeElement.dataset?.id ?? null }));
+      // Vänta på det element fokus ska hamna på (#1436): raden eller Samtidigt-knappen. Förut väntade kontrollen bara på "inte body",
+      // men Firefox behåller det dolda Stäng-elementet som aktivt tills sidans requestAnimationFrame har flyttat fokus (1,7 s i en körning
+      // på CI, spåret nedan), så väntan släppte igenom det mellanläget. Påståendet är detsamma som förut (raden eller btn-panel); kommer
+      // fokus aldrig dit faller kontrollen som förut, med spåret.
+      await wp.waitForFunction(rowId => { const a = document.activeElement; return !!a && (a.id === 'btn-panel' || a.dataset?.id === rowId); }, id, { timeout: T.step }).catch(() => {});
+      const where = await wp.evaluate(() => ({ id: document.activeElement?.id ?? '', data: document.activeElement?.dataset?.id ?? null }));
       if (where.id !== 'btn-panel' && where.data !== id) {
         const diag = await wp.evaluate(async () => {
           const sp = window.__fokusSpar;
