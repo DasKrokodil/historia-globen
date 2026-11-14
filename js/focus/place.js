@@ -24,14 +24,34 @@ export function showPlaceCard(app, place, events, { follow = true, note = '', fo
     action: follow && panel.onPlaceFlat ? { text: ui('place.flatMap'), label: `${ui('place.flatMap')}: ${t(place.name)}`, run: () => panel.onPlaceFlat(place) } : null,
     // boundary.note (#1159): en fast rad om vad konturen är när den inte är platsens egen gräns (Skåne läns gräns för landskapet Skåne)
     notes: [ui('place.borderNote'), ...(place.boundary?.note ? [t(place.boundary.note)] : []), ...(follow ? [ui('place.filters')] : [])], banner: note, exit: follow ? ui('place.exit') : null,
-    summary: ui('place.events', { count: events.length }), events, sources: place.sources, focus });
+    summary: ui('place.events', { count: events.length }), events, sources: place.sources, focus, ariaLabel: ui('place.cardLabel') });
   app.surfaces.closeGroup('meny');
   if (app.narrow.matches) app.surfaces.closeGroup('sidopanel');
   $('app').classList.add('has-detail');
 }
 
-/** Raden i kortet när ett tidsintervall avslutades av att platsen började följas (#1163): vad som hände och vilket år platsen visas för. */
-export const rangeEndedNote = (range, year) => ui('place.rangeEnded', { range: rangeText(range.from, range.to), year: formatYear(year) });
+/**
+ * Var intervallets slutår ligger i förhållande till platsens egna händelser (#1464): 'in' inom spannet (platsen visas för slutåret),
+ * 'after' efter platsens sista händelse eller 'before' före den första. when är det årtal som raden nämner, räknat ur händelserna
+ * (sista händelsens slut eller första händelsens start) och aldrig skrivet för hand. Samma spann som fokuset börjar i (selectionSpan).
+ */
+export function rangeEndSide(to, events) {
+  if (!events?.length) return { side: 'in', when: null };
+  const { from, to: spanTo, lastEnd } = selectionSpan(events), end = Math.floor(to);
+  if (end > spanTo) return { side: 'after', when: Math.floor(lastEnd) };
+  if (end < from) return { side: 'before', when: Math.floor(events[0].start) };
+  return { side: 'in', when: null };
+}
+
+/**
+ * Raden i kortet när ett tidsintervall avslutades av att platsen började följas (#1163): vad som hände och vilket år platsen visas för.
+ * Ligger intervallets slutår utanför platsens händelser säger raden också varför platsen inte visas för slutåret (#1464).
+ */
+export function rangeEndedNote(range, year, events = []) {
+  const { side, when } = rangeEndSide(range.to, events);
+  const key = { in: 'place.rangeEnded', after: 'place.rangeEndedAfter', before: 'place.rangeEndedBefore' }[side];
+  return ui(key, { range: rangeText(range.from, range.to), year: formatYear(year), when: when == null ? '' : formatYear(when) });
+}
 
 /** Händelserna inom platsens gräns i tidsordning, bara de som syns (draft visas aldrig). */
 export const visibleEvents = (place, events) => placeEvents(place, events).filter(e => isVisibleReview(e.review));
@@ -43,7 +63,7 @@ export function entry(app) {
   /** Platsens kort (#579): knappen Fakta i fokusraden öppnar det igen. */
   function showCard(f, starting = false) {
     // Raden om intervallet står bara när platsen börjar följas; knappen Fakta visar kortet utan den
-    const note = starting && f.closedRange ? rangeEndedNote(f.closedRange, f.startYear) : '';
+    const note = starting && f.closedRange ? rangeEndedNote(f.closedRange, f.startYear, f.themeEvents) : '';
     showPlaceCard(app, f.place, f.themeEvents, { follow: true, note });
     // Kortets rubrik läses upp med högre prioritet (js/main.js); beskedet om intervallet läses efter den och tappas inte
     if (note) setTimeout(() => { if (app.state.focus === f) say(note, 'plats', { priority: 2, immediate: true }); }, 1600);

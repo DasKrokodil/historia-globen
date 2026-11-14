@@ -289,7 +289,7 @@ export class TourPlayer {
     else if (step.open) app.mark(step.open);
     else app.select(null, false);
     // Ett steg med en plats (#1163): konturen på kartan och, utom i smal skärm, platsens kort (inget Fokus, turen pågår)
-    if (step.place) this.showPlace(step, !app.narrow.matches);
+    const placeShown = step.place ? this.showPlace(step, !app.narrow.matches) : null;
     globe.flyTo(step.camera.lat, step.camera.lon);
     globe.setZoom(step.camera.zoom);
     flatMap.setView?.(step.camera.lat, step.camera.lon, step.camera.zoom);
@@ -311,7 +311,7 @@ export class TourPlayer {
     this.status.className = `tour-status${step.status ? ` takeaway-${step.status}` : ''}`;
     this.status.hidden = !step.status;
     this.read.hidden = !step.open && !step.place;
-    this.read.textContent = step.place ? ui('tour.readPlace') : t(this.labels.read);
+    this.read.textContent = this.readLabel(step);
     if (this.printBtn) this.printBtn.hidden = !this.tour.lesson;
     if (this.copyTeacherBtn) this.copyTeacherBtn.hidden = !this.tour.lesson;
     if (this.printStatus) this.printStatus.hidden = true;
@@ -328,13 +328,37 @@ export class TourPlayer {
     const locked = t(this.labels.locked);
     const note = [fill(t(this.labels.paused), { title: t(this.tour.title) }), locked].filter(Boolean).join(' · ');
     const say = [this.progress.textContent, t(step.chapter), t(step.title), this.status.hidden ? '' : this.status.textContent, t(step.text), t(step.question)].filter(Boolean).join('. ');
-    if (this.last) {
-      // Slutkortet har ingen pausrad, men skärmläsaren ska höra steget och att det var det sista (#878)
-      timeline.pause();
-      const end = app.lesson?.active ? ui('lesson.endAnnounce', { exit: ui('lesson.exit') }) : ui('tour.endAnnounce');
-      // Prioritet 3: slutannonsen (#878) ska inte tappas när slutstegets faktaruta, som har prioritet 2 i statusraden (#1419), öppnas samtidigt
-      timeline.announce(`${say}. ${end}`, 3);
-    } else timeline.pause(note, true, say);
+    // Slutkortet har ingen pausrad, men skärmläsaren ska höra steget och att det var det sista (#878)
+    const end = !this.last ? '' : app.lesson?.active ? ui('lesson.endAnnounce', { exit: ui('lesson.exit') }) : ui('tour.endAnnounce');
+    // Kortet som steget öppnar på dator (en händelse eller en plats) säger sin rubrik när det öppnas (main.js, prioritet 2) och tog förut bort
+    // stegets text. Nu sägs stegets text och kortets rubrik som en enda uppläsning ("Steg 2 av 3. Platsen. Plats: Grönland", #1464).
+    // En händelses kort öppnas direkt, en plats laddas först (showPlace): uppläsningen väntar då tills kortet har öppnats.
+    const cardOpens = !app.narrow.matches && !!(step.open || step.place);
+    const speak = heading => {
+      const text = [say, heading, end].filter(Boolean).join('. ');
+      // Prioritet 3 för slutannonsen (#878): den ska inte tappas när slutstegets faktaruta, som har prioritet 2 i statusraden (#1419), öppnas samtidigt
+      timeline.announce(text, this.last ? 3 : heading ? 2 : 0);
+    };
+    if (this.last) timeline.pause(); // ingen pausrad i sista steget
+    else timeline.pause(note, true, cardOpens ? '' : say); // med ett kort sägs uppläsningen av speak nedan, inte här
+    if (placeShown && cardOpens) placeShown.then(shown => { if (this.tour && this.step === step) speak(shown ? this.cardHeading() : ''); });
+    else if (step.open && cardOpens) speak(this.cardHeading());
+    else if (this.last) speak('');
+  }
+
+  /** Knappens text för steget: Läs om händelsen eller Läs om platsen (båda i data/turer/index.json, labels, #1464). */
+  readLabel(step) { return t(this.labels[step.place ? 'readPlace' : 'read']); }
+
+  /**
+   * Rubriken som faktarutan eller platsens kort läses upp med (som main.js, "Plats: Grönland" eller "Om händelsen: …"), eller tomt när
+   * inget kort är öppet.
+   */
+  cardHeading() {
+    const detail = document.getElementById('detail');
+    if (!detail || detail.hidden) return '';
+    const title = detail.querySelector('h3')?.textContent.trim() ?? '';
+    const kind = detail.classList.contains('detail-selection') ? detail.querySelector('.story-label')?.textContent.trim() : ui('detail.label');
+    return title ? `${kind}: ${title}` : '';
   }
 
   /**
@@ -343,7 +367,7 @@ export class TourPlayer {
    * Platserna laddas först nu, så steget kan ha bytts när de kommer: då visas inget.
    */
   showPlace(step, card, focus = false) {
-    this.app.places?.openStep(step.place, { card, focus, current: () => !!this.tour && this.step === step });
+    return Promise.resolve(this.app.places?.openStep(step.place, { card, focus, current: () => !!this.tour && this.step === step })).then(Boolean);
   }
 
   /** Stegindikatorn i kortet (#1280): ett streck per steg, de gjorda och det nuvarande fyllda. Bara en tillägg till
