@@ -189,7 +189,7 @@
   "help.s3": "Suivez un récit",
   "help.s3t": "Choisissez une guerre, un empire ou une religion sous Chercher et suivre.",
   "help.s4": "Lisez à propos d’un lieu",
-  "help.s4t": "Zoomez : un contour en pointillés autour d’un lieu signifie qu’il a une fiche. Touchez le contour, ou déplacez la vue avec les touches fléchées pour mettre le lieu au centre, puis appuyez sur Entrée. Les contours n’apparaissent qu’en affichage normal, pas pendant que vous suivez quelque chose ni pendant une visite, une leçon ou un intervalle de temps.",
+  "help.s4t": "Zoomez : un contour en pointillés autour d’un lieu signifie qu’il a une fiche. Touchez le contour, ou déplacez la vue avec les touches fléchées pour mettre le lieu au centre, puis appuyez sur Entrée.",
   "help.marks": "Marqueurs, groupes et religions",
   "help.m1": "Tous les événements ont la même médaille en laiton. Le symbole et la couleur intérieure indiquent la catégorie.",
   "help.m2": "L’arc sous la médaille est une petite frise chronologique. Arc entier : en cours à l’année affichée. Partie gauche : déjà passé. Partie droite : à venir. L’arc apparaît quand vous zoomez.",

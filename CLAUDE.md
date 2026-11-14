@@ -57,10 +57,10 @@ js/ui/flatmap.js      Platt vy: platt karta med zoom och panorering
 js/ui/poster.js       A4-affisch som PNG från Platt vy
 js/ui/routepop.js     klickrutan för vägar och resor
 js/ui/intro.js        frivillig introduktion till samtidighet i tre stilla steg (#363)
-js/ui/quiz.js         quizet "Vad hände samtidigt?" under Mer, frågor ur befintliga fun facts (#65)
+js/ui/quiz.js         quizet "Vad hände samtidigt?" från För lärare, frågor ur befintliga fun facts (#65)
 js/ui/teacher.js      "För lärare" under Mer: lektioner, utskrift, quiz, jakt och knapp för presentationsläget; kortet är en dialog i stängregistret (#1315)
 js/ui/print-sheet.js  utskrift av en lektionstur: elevblad och lärarblad ur turens lärarfält (#738)
-js/ui/uppdrag.js      elevuppdraget Samtidighetsjakten under Mer, med knappen i faktarutan (#741)
+js/ui/uppdrag.js      elevuppdraget Samtidighetsjakten från För lärare, med knappen i faktarutan (#741)
 js/uppdrag-rules.js   jaktens regler: år, världsdel och vad som räknas, delas med testerna (#741)
 js/quiz-rules.js      quizets regler: frågor och säkert felaktiga svar, delas med testerna (#65)
 js/samtidighet.js     definitionen av "samtidigt" och "nära i tid" för fun facts, quiz och jakt, delas med testerna (#1311)

@@ -634,19 +634,15 @@ async function start() {
     try { localStorage.setItem('hg-teckenforklaring', tLegend.open ? 'hopfalld' : 'oppen'); } catch { /* utan lagring */ }
   });
 
-  // Quiz (#65): frågor ur befintliga fun facts, startas från Mer. Knappen döljs om datan inte räcker till en fråga.
-  const quizButton = $('btn-quiz');
+  // Quiz (#65): frågor ur befintliga fun facts, startas från För lärare (#1575). Raden där döljs om datan inte räcker till en fråga.
   const quiz = new Quiz({
     root: $('quiz'), closeBtn: $('quiz-close'), score: $('quiz-score'), event: $('quiz-event'), eventTitle: $('quiz-event-title'),
     eventMeta: $('quiz-event-meta'), question: $('quiz-question'), options: $('quiz-options'), result: $('quiz-result'),
     verdict: $('quiz-verdict'), funfact: $('quiz-funfact'), sources: $('quiz-sources'), next: $('quiz-next'),
     title: $('quiz-title'), origin: $('quiz-origin'),
   }, data, { fallbackFocus: () => $('btn-more') });
-  quizButton.hidden = !quiz.ready;
-  quizButton.addEventListener('click', () => { help.close(false); quiz.open(quizButton); });
 
-  // Samtidighetsjakten (#741): ett elevuppdrag. Knappen i faktarutan finns bara medan jakten pågår.
-  const huntButton = $('btn-hunt');
+  // Samtidighetsjakten (#741): ett elevuppdrag, startas från För lärare (#1575). Knappen i faktarutan finns bara medan jakten pågår.
   const refreshDetail = () => { if (panel.selectedId && !$('detail').hidden) panel.showDetail(data.byId[panel.selectedId]); };
   const hunt = new Hunt({
     root: $('hunt'), title: $('hunt-title'), task: $('hunt-task'), years: $('hunt-years'), progress: $('hunt-progress'),
@@ -656,8 +652,6 @@ async function start() {
   app.hunt = hunt;
   panel.huntFor = e => hunt.buttonFor(e);
   panel.onHunt = e => hunt.add(e);
-  huntButton.hidden = !hunt.ready;
-  huntButton.addEventListener('click', () => { help.close(false); hunt.start(null, huntButton); });
 
   // Guidade turer (#47): en tur är data i data/turer/, och spelaren styr tidslinjen, kameran, Lager och faktarutan
   const tour = new TourPlayer({
@@ -719,9 +713,9 @@ async function start() {
   surfaces.watch('teacher', $('teacher'), 'dialog', refocus => teacher.close(refocus !== false), { opener: $('btn-teacher') });
   surfaces.watch('sources', $('sources-dialog'), 'dialog', () => sources.hide(), { opener: $('btn-sources') });
   surfaces.watch('intro', $('intro'), 'dialog', refocus => intro.close(refocus !== false), { opener: $('btn-intro') });
-  surfaces.watch('quiz', $('quiz'), 'dialog', refocus => quiz.close(refocus !== false), { opener: $('btn-quiz') });
+  surfaces.watch('quiz', $('quiz'), 'dialog', refocus => quiz.close(refocus !== false), { opener: $('btn-teacher') });
   surfaces.watch('feedback', $('feedback'), 'dialog', () => feedback.close());
-  surfaces.watch('hunt', $('hunt'), 'uppdrag', refocus => hunt.end(refocus !== false), { opener: $('btn-hunt') });
+  surfaces.watch('hunt', $('hunt'), 'uppdrag', refocus => hunt.end(refocus !== false), { opener: $('btn-teacher') });
   surfaces.register('tours', 'meny', () => tour.closeMenu(), { isOpen: () => !$('tour-menu').hidden, opener: $('btn-tour'), central: true });
   document.addEventListener('keydown', e => {
     if (e.key !== 'Escape' || e.defaultPrevented) return;
