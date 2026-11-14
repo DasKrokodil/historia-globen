@@ -1452,7 +1452,7 @@ details.used-by summary:hover { color: var(--parchment); }
 }
 .focus-notice[hidden] { display: none; }
 /* Besked om en trasig länk (#1324): samma plats och utseende som .focus-notice, men i lagret --z-band och med ogenomskinlig botten, så att
-   raden ligger över Samtidigt-kortet som startläget öppnar i mobil. Kortet tar emot klick (Stäng) medan statusraden runt det släpper
+   raden ligger över kort som ligger kvar (Samtidigt-kortet i bred skärm). Kortet tar emot klick (Stäng) medan statusraden runt det släpper
    igenom dem till kartan. */
 .link-notice {
   position: absolute; z-index: var(--z-band); left: 50%; bottom: 118px; transform: translateX(-50%);
@@ -1466,6 +1466,11 @@ details.used-by summary:hover { color: var(--parchment); }
 .link-notice-card[hidden] { display: none; }
 /* Visas Fokus-beskedet samtidigt (en trasig tur och ett tema som saknas i samma länk) ligger raden ovanför det, så att de inte täcker varandra */
 .focus-notice:not([hidden]) ~ .link-notice { bottom: 214px; }
+/* Smal skärm: raden ligger under årtalet i stället för över tidsreglaget, eftersom startläget öppnar Samtidigt-kortet som ett ark där nere och
+   raden inte ska dölja det. Himlen ovanför globen är tom, och inget ligger ovanpå förrän besökaren agerar (då stängs raden). */
+@media (max-width: 760px) {
+  .link-notice, .focus-notice:not([hidden]) ~ .link-notice { top: calc(env(safe-area-inset-top, 0px) + 96px); bottom: auto; }
+}
 .link-notice-text { margin: 0; flex: 1 1 auto; }
 .link-notice-card .link-btn { flex: none; min-height: 32px; font: inherit; white-space: nowrap; }
 @media (max-width: 760px) { .link-notice-card .link-btn { min-height: 44px; } }
