@@ -45,6 +45,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { list, urval, bredder, ALLTID } from './urval.mjs';
+import { skapaAbortWatch } from './avbrutna-hamtningar.mjs';
 
 const require = createRequire(import.meta.url);
 const playwright = require('playwright');
@@ -137,52 +138,20 @@ const ABORTED_FETCH = /^(TypeError: (Load failed|NetworkError when attempting to
 // hämtas av annat skäl (en annan status) fäller kontrollen som förut.
 const ABORTED_FONT = /^\[JavaScript Error: "downloadable font: download failed \(font-family: "[^"]+" style:\w+ weight:\d+ width:\d+ src index:\d+\): status=2152398850 source: https:\/\/fonts\.(gstatic|googleapis)\.com\/[^"\s]+"\]$/;
 
-// Avbrutna hämtningar under ett sidbyte (#1393, skärper beslutet 2026-11-08 om #888, punkt 2). WebKit skriver ett sidfel
-// "… <adress> due to access control checks." när en hämtning avbryts för att sidan byts eller laddas om. Ett sidfel räknas
-// bort bara när alla fyra gäller: (1) det kom medan just den sidan bytte sida eller laddades om, (2) texten är exakt WebKits
-// rad, (3) adressen hör till den egna webbplatsen (samma värd som BASE) och (4) samma adress också syns som en avbruten
-// begäran (requestfailed). Det fjärde avgörs i settle() när kontrollen är klar, eftersom ordningen mellan händelserna
-// varierar. Ett 404, ett fel utanför ett sidbyte och ett fel från en annan webbplats fäller fortfarande kontrollen, och
-// antalet bortfiltrerade fel står i kontrollens OK-rad.
-const WEBKIT_ABORT = /^(?:(?:Fetch API|XMLHttpRequest) cannot load |Cannot load )?(\S+) due to access control checks\.?$/;
+// Avbrutna hämtningar under ett sidbyte (#1393, steg 2): regeln och hjälpfunktionen ligger i tests/avbrutna-hamtningar.mjs, där
+// enhetsproven (tests/avbrutna-hamtningar.test.mjs) visar vad som räknas bort och vad som fortfarande fäller kontrollen. Ett sidfel
+// räknas bort bara när det kom under sidans eget sidbyte, har WebKits exakta text, gäller den egna webbplatsen och också syns som en
+// avbruten begäran. Antalet bortfiltrerade fel står i kontrollens OK-rad.
 const SITE_HOST = new URL(BASE).host;
-// "http://localhost:8000/a.json", "//localhost:8000/a.json" och "/localhost:8000/a.json" ger samma nyckel
-const urlKey = text => {
-  const m = String(text ?? '').match(/^(?:https?:)?\/{0,2}([^/\s?#]+)(\/[^\s?#]*)?/);
-  return m ? { host: m[1], key: `${m[1]}${m[2] ?? '/'}` } : null;
-};
 let abortedFiltered = 0; // per kontroll, skrivs i OK-raden av check()
-function abortWatch(p) {
-  let navigating = 0;
-  const candidates = [], aborted = new Set();
-  p.on('requestfailed', r => {
-    if (!/cancel|abort/i.test(r.failure()?.errorText ?? '')) return;
-    const k = urlKey(r.url());
-    if (k) aborted.add(k.key);
-  });
-  const nav = async go => { navigating++; try { return await go(); } finally { navigating--; } };
-  return {
-    nav,
-    goto: (url, opts) => nav(() => p.goto(url, opts)),
-    reload: opts => nav(() => p.reload(opts)),
-    /** true om sidfelet kan vara en avbruten hämtning och väntar på settle(); false om det räknas som fel direkt. */
-    defer(message, navigatingNow = navigating > 0) {
-      if (!navigatingNow) return false;
-      const m = String(message ?? '').match(WEBKIT_ABORT);
-      const k = m && urlKey(m[1]);
-      if (!k || k.host !== SITE_HOST) return false;
-      candidates.push({ key: k.key, message });
-      return true;
-    },
-    /** Sidfelen som ändå är riktiga fel (ingen avbruten begäran för samma adress). Räknar de bortfiltrerade. */
-    settle() {
-      const real = candidates.filter(c => !aborted.has(c.key)).map(c => c.message);
-      abortedFiltered += candidates.length - real.length;
-      candidates.length = 0;
-      return real;
-    },
-  };
-}
+// Bevakningarna som skapats under den kontroll som pågår. check() avgör dem när kontrollen är klar, så att ett sidfel som väntar
+// på settle() aldrig försvinner tyst om kontrollen glömmer att anropa den.
+const kontrollensBevakningar = [];
+const abortWatch = skapaAbortWatch({
+  siteHost: SITE_HOST,
+  filtered: n => { abortedFiltered += n; },
+  register: w => kontrollensBevakningar.push(w),
+});
 
 // Konsolmeddelanden (#888): när console.error får ett objekt (till exempel ett Error) ger Firefox texten
 // "JSHandle@object" i m.text(), och loggen visade bara det. Texten sparas först som förut, och när meddelandet
@@ -297,9 +266,13 @@ async function run(browser, vp) {
     if (!ALLTID.includes(name)) matched++;
     currentCheck = name;
     abortedFiltered = 0;
+    kontrollensBevakningar.length = 0;
     const t0 = Date.now();
     try {
       const note = await fn();
+      // Sidfel som väntar på sin begäran och som kontrollen inte själv avgjorde (settle()) avgörs här; ett riktigt fel fäller kontrollen
+      const kvar = kontrollensBevakningar.flatMap(w => w.settle());
+      if (kvar.length) throw new Error(`sidfel: ${kvar.join('; ')}`);
       const filtered = abortedFiltered ? `${abortedFiltered} avbrutna hämtningar under sidbyte bortfiltrerade (#1393)` : null;
       results.push({ name, ok: true, ms: Date.now() - t0, note: [note, filtered].filter(Boolean).join(' · ') || undefined });
     } catch (e) {
@@ -739,7 +712,8 @@ async function run(browser, vp) {
       const pp = await context.newPage();
       const errors = [];
       pp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
-      pp.on('pageerror', e => errors.push(e.message));
+      const ppAw = abortWatch(pp); // avbrutna hämtningar under sidbyte (#1393, steg 2)
+      pp.on('pageerror', e => { if (!ppAw.defer(e.message)) errors.push(e.message); });
       const layout = async () => {
         await pp.waitForFunction(() => {
           if (innerWidth <= 760 || innerWidth > 1100) return true;
@@ -768,7 +742,7 @@ async function run(browser, vp) {
           await pp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
           await pp.route(u => isFont(u.href), r => r.abort());
         }
-        await pp.goto(BASE);
+        await ppAw.goto(BASE);
         await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
         for (const [width, height] of [[768, 1024], [820, 1180], [1024, 768], [1400, 900], [400, 800], [761, 1024], [1100, 768], [1101, 768]]) {
           await pp.setViewportSize({ width, height });
@@ -780,7 +754,7 @@ async function run(browser, vp) {
         // lade sig över årskortet mellan 1101 och cirka 1550 px, där testet förut bara prövade svenska.
         for (const lang of ['en', 'de', 'es', 'fr']) {
           await pp.setViewportSize({ width: 820, height: 1180 });
-          await pp.goto(`${BASE}?lang=${lang}`);
+          await ppAw.goto(`${BASE}?lang=${lang}`);
           await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
           await layout();
           await pp.screenshot({ path: path.join(OUT, `992-820x1180-${lang}.png`) });
@@ -796,6 +770,7 @@ async function run(browser, vp) {
         await layout();
         await font.evaluate(node => node.remove());
         await layout();
+        errors.push(...ppAw.settle());
         if (errors.length) throw new Error(errors.join(' | '));
       } finally { await pp.close(); }
       return 'tre iPad-format, dator, mobil och brytpunkternas kanter utan överlapp eller scroll; fem språk i surfplatte- och datorbredd (#1190) och fontomflödning';
@@ -2931,7 +2906,8 @@ async function run(browser, vp) {
       const pp = await context.newPage();
       const errors = [];
       pp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
-      pp.on('pageerror', e => errors.push(e.message));
+      const ppAw = abortWatch(pp); // avbrutna hämtningar under sidbyte (#1393, steg 2)
+      pp.on('pageerror', e => { if (!ppAw.defer(e.message)) errors.push(e.message); });
       try {
         if (THREE_LOCAL) {
           await pp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
@@ -2942,7 +2918,7 @@ async function run(browser, vp) {
           window.__jumpFlights = [];
           document.addEventListener('hg:globe-flight', e => window.__jumpFlights.push(e.detail), true);
         }, lang !== 'sv');
-        await pp.goto(`${BASE}?lang=${lang}#y=1325&c=20,-45,1.6`);
+        await ppAw.goto(`${BASE}?lang=${lang}#y=1325&c=20,-45,1.6`);
         await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
         await pp.waitForFunction(() => window.__jumpFlights.some(f => f.phase === 'end'), null, { timeout: T.step });
         const state = () => pp.evaluate(async () => (await import('./js/url-state.js')).decodeHash(location.hash));
@@ -2971,9 +2947,9 @@ async function run(browser, vp) {
           const lon = (((((Math.PI / 2 - f.y) * 180 / Math.PI - 180) % 360) + 540) % 360) - 180;
           return Math.abs(lat - camera.lat) < 0.0001 && Math.abs(lon - camera.lon) < 0.0001;
         }), { start: flightsBeforeReturn, camera: before.camera }, { timeout: T.step });
-        await pp.goBack();
+        await ppAw.goBack();
         await pp.waitForFunction(year => new URLSearchParams(location.hash.slice(1)).get('y') === String(year), landed.year, { timeout: T.step });
-        await pp.goForward();
+        await ppAw.goForward();
         await pp.waitForFunction(year => new URLSearchParams(location.hash.slice(1)).get('y') === String(year), before.year, { timeout: T.step });
         if (lang === 'sv') {
           // Även nästa hopp får en retur, som upphör av tid utan att flytta året tillbaka.
@@ -2985,6 +2961,7 @@ async function run(browser, vp) {
         }
         if (await pp.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw new Error(`${lang}: horisontell scroll`);
         if (lang !== 'sv' && !await pp.evaluate(() => document.documentElement.classList.contains('calm'))) throw new Error(`${lang}: Lugn rörelse förlorades`);
+        errors.push(...ppAw.settle());
         if (errors.length) throw new Error(`${lang}: ${errors.join(' | ')}`);
       } finally {
         await pp.evaluate(value => { if (value == null) localStorage.removeItem('hg-calm'); else localStorage.setItem('hg-calm', value); }, savedCalm).catch(() => {});
@@ -5474,19 +5451,20 @@ async function run(browser, vp) {
     if (vp.width <= 760) return 'körs i datorjobbet';
     const pp = await context.newPage();
     const errors = [];
-    pp.on('pageerror', e => errors.push(e.message));
+    const ppAw = abortWatch(pp); // avbrutna hämtningar under sidbyte (#1393, steg 2)
+    pp.on('pageerror', e => { if (!ppAw.defer(e.message)) errors.push(e.message); });
     pp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
     try {
       if (THREE_LOCAL) {
         await pp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
         await pp.route(u => isFont(u.href), r => r.abort());
       }
-      await pp.goto(`${BASE}?lang=sv#y=1600`);
+      await ppAw.goto(`${BASE}?lang=sv#y=1600`);
       await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       if (await pp.locator('.lang-notice').count()) throw new Error('upplysningen syns utan språkbyte');
       // Byt till tyska i språkväljaren; sidan laddas om
       await pp.click('#btn-lang');
-      await Promise.all([pp.waitForEvent('load', { timeout: T.load }), pp.click('#lang-menu [data-lang="de"]')]);
+      await ppAw.nav(() => Promise.all([pp.waitForEvent('load', { timeout: T.load }), pp.click('#lang-menu [data-lang="de"]')])); // appens omladdning vid språkbyte (#1393)
       await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await pp.waitForSelector('.lang-notice', { timeout: T.step });
       const note = (await pp.textContent('.lang-notice p')).trim();
@@ -5501,9 +5479,10 @@ async function run(browser, vp) {
       if (!marks.includes('en')) throw new Error(`ingen titel med lang="en" år 1600: ${JSON.stringify(marks)}`);
       if (marks.includes('de')) throw new Error('en tysk titel har fått lang="de" fast sidan redan är tysk');
       // En omladdning utan nytt byte visar inte upplysningen igen
-      await pp.reload();
+      await ppAw.reload();
       await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       if (await pp.locator('.lang-notice').count()) throw new Error('upplysningen visas igen utan språkbyte');
+      errors.push(...ppAw.settle());
       if (errors.length) throw new Error(errors[0]);
       return `${marks.filter(m => m === 'en').length} av ${marks.length} titlar på engelska`;
     } finally {
@@ -5521,7 +5500,8 @@ async function run(browser, vp) {
     for (const lang of ['de', 'es', 'fr']) {
       const pp = await context.newPage();
       const errors = [];
-      pp.on('pageerror', e => errors.push(e.message));
+      const ppAw = abortWatch(pp); // avbrutna hämtningar under sidbyte (#1393, steg 2)
+      pp.on('pageerror', e => { if (!ppAw.defer(e.message)) errors.push(e.message); });
       pp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
       try {
         if (THREE_LOCAL) {
@@ -5534,7 +5514,7 @@ async function run(browser, vp) {
         }, lang);
         for (const [w, h] of [[1400, 900], [1024, 768]]) {
           await pp.setViewportSize({ width: w, height: h });
-          await pp.goto(`${BASE}#y=1600`);
+          await ppAw.goto(`${BASE}#y=1600`);
           await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
           await pp.waitForSelector('.lang-notice', { timeout: T.step });
           const r = await pp.evaluate(() => {
@@ -5549,6 +5529,7 @@ async function run(browser, vp) {
           if (!r.synlig) fel.push(`${lang} ${w} px: upplysningen ligger delvis utanför fönstret`);
           antal++;
         }
+        errors.push(...ppAw.settle());
         if (errors.length) fel.push(`${lang}: ${errors[0]}`);
       } finally {
         try { await pp.evaluate(() => { localStorage.removeItem('hg-lang'); sessionStorage.removeItem('hg-lang-chosen'); }); } catch { /* sidan är redan stängd */ }
@@ -5710,7 +5691,8 @@ async function run(browser, vp) {
     for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
       const pp = await isolated.newPage();
       const errors = [];
-      pp.on('pageerror', e => errors.push(e.message));
+      const ppAw = abortWatch(pp); // avbrutna hämtningar under sidbyte (#1393, steg 2)
+      pp.on('pageerror', e => { if (!ppAw.defer(e.message)) errors.push(e.message); });
       try {
         if (THREE_LOCAL) {
           await pp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
@@ -5721,7 +5703,7 @@ async function run(browser, vp) {
         await pp.addInitScript(() => { try { localStorage.setItem('hg-year-tip', '1'); localStorage.setItem('hg-speed-ars', '100'); } catch { /* utan lagring */ } });
         for (const [width, height] of [[400, 800], [768, 1024]]) {
           await pp.setViewportSize({ width, height });
-          await pp.goto(`${BASE}?lang=${lang}#y=2000`);
+          await ppAw.goto(`${BASE}?lang=${lang}#y=2000`);
           await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
           // Modern tid, ett år vid hundratalsupplösningen och reglagets första år: tre olika längder på knappar, årtal och tidsfönster
           for (const year of [2000, -5000, -99999]) {
@@ -5781,6 +5763,7 @@ async function run(browser, vp) {
           if (chips.out.length || chips.scroll || chips.count !== 6) throw new Error(`${lang} ${width} px: snabbhoppens knappar: ${chips.count} st, utanför: ${chips.out.join(' | ')}, scroll ${chips.scroll}`);
           await pp.keyboard.press('Escape');
         }
+        errors.push(...ppAw.settle());
         if (errors.length) throw new Error(`${lang}: ${errors.join(' | ')}`);
         seen.push(lang);
       } finally { await pp.close(); }
@@ -5953,14 +5936,15 @@ async function run(browser, vp) {
       const linkPage = await context.newPage();
       const linkErrors = [];
       linkPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) pushConsole(linkErrors, m); });
-      linkPage.on('pageerror', e => linkErrors.push(e.message));
+      const linkPageAw = abortWatch(linkPage); // avbrutna hämtningar under sidbyte (#1393, steg 2)
+      linkPage.on('pageerror', e => { if (!linkPageAw.defer(e.message)) linkErrors.push(e.message); });
       try {
         if (THREE_LOCAL) {
           const body = fs.readFileSync(THREE_LOCAL, 'utf8');
           await linkPage.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
           await linkPage.route(u => isFont(u.href), r => r.abort());
         }
-        await linkPage.goto(`${BASE}#y=1630&f=war:trettioariga-kriget&l=areas,events,funfacts`);
+        await linkPageAw.goto(`${BASE}#y=1630&f=war:trettioariga-kriget&l=areas,events,funfacts`);
         await linkPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
         await linkPage.waitForSelector('#focus-bar', { state: 'visible', timeout: T.step });
         const got = await linkPage.evaluate(() => ({ year: document.getElementById('year-big').textContent.trim(), title: document.getElementById('focus-title').textContent }));
@@ -5970,12 +5954,13 @@ async function run(browser, vp) {
         await linkPage.click('#focus-exit');
         await linkPage.waitForSelector('#focus-bar', { state: 'hidden', timeout: T.step });
         await linkPage.waitForFunction(() => !location.hash.includes('f=war'), null, { timeout: T.step });
-        await linkPage.goBack();
+        await linkPageAw.goBack();
         await linkPage.waitForSelector('#focus-bar', { state: 'visible', timeout: T.step });
         // En trasig länk ger det vanliga startläget utan fel
-        await linkPage.goto(`${BASE}?ny=1#y=abc&f=war:finns-inte`); // ?ny=1 gör att sidan laddas om
+        await linkPageAw.goto(`${BASE}?ny=1#y=abc&f=war:finns-inte`); // ?ny=1 gör att sidan laddas om
         await linkPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
         if (await linkPage.locator('#focus-bar').isVisible()) throw new Error('en trasig länk startade ett fokus');
+        linkErrors.push(...linkPageAw.settle());
         if (linkErrors.length) throw new Error(`länken gav konsolfel: ${linkErrors.join('; ')}`);
       } finally {
         await linkPage.close();
@@ -6152,7 +6137,8 @@ async function run(browser, vp) {
       const tourPage = await context.newPage();
       const tourErrors = [];
       tourPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) pushConsole(tourErrors, m); });
-      tourPage.on('pageerror', e => tourErrors.push(e.message));
+      const tourPageAw = abortWatch(tourPage); // avbrutna hämtningar under sidbyte (#1393, steg 2)
+      tourPage.on('pageerror', e => { if (!tourPageAw.defer(e.message)) tourErrors.push(e.message); });
       const progress = () => tourPage.textContent('#tour-progress').then(x => x.trim());
       const hashHas = text => tourPage.waitForFunction(t => location.hash.includes(t), text, { timeout: T.step });
       try {
@@ -6161,7 +6147,7 @@ async function run(browser, vp) {
           await tourPage.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
           await tourPage.route(u => isFont(u.href), r => r.abort());
         }
-        await tourPage.goto(`${BASE}#t=tre-platser-1325&s=tanger`);
+        await tourPageAw.goto(`${BASE}#t=tre-platser-1325&s=tanger`);
         await tourPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
         await tourPage.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
         if ((await progress()) !== 'Steg 2 av 3') throw new Error(`länken med s=tanger öppnade ${await progress()}`);
@@ -6169,20 +6155,20 @@ async function run(browser, vp) {
         if (y !== '1325') throw new Error(`steget tanger står på ${y}, inte 1325`);
         await tourPage.click('#tour-next');
         await hashHas('s=tenochtitlan');
-        await tourPage.goBack();
+        await tourPageAw.goBack();
         await tourPage.waitForFunction(() => document.getElementById('tour-progress').textContent.includes('2 av 3'), null, { timeout: T.step });
         await tourPage.click('#tour-close');
         await tourPage.waitForSelector('#tour-card', { state: 'hidden', timeout: T.step });
         await tourPage.waitForFunction(() => !location.hash.includes('t='), null, { timeout: T.step });
         // Den äldre formen ?tur=<id> startar vid första steget och flyttas in i hashen
-        await tourPage.goto(`${BASE}?tur=tre-platser-1325`);
+        await tourPageAw.goto(`${BASE}?tur=tre-platser-1325`);
         await tourPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
         await tourPage.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
         if ((await progress()) !== 'Steg 1 av 3') throw new Error(`?tur= öppnade ${await progress()}`);
         if (await tourPage.evaluate(() => location.search.includes('tur='))) throw new Error('?tur= ligger kvar i adressen');
         await hashHas('t=tre-platser-1325');
         // En okänd tur hoppas över, och resten av länken gäller
-        await tourPage.goto(`${BASE}?ny=1#y=1500&t=finns-inte`);
+        await tourPageAw.goto(`${BASE}?ny=1#y=1500&t=finns-inte`);
         await tourPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
         // Adressen ställs in efter att laddningsrutan har försvunnit; WebKit i CI hann inte före avläsningen (#888).
         // Vänta på året, och kontrollera sedan att turens kort inte öppnades.
@@ -6190,6 +6176,7 @@ async function run(browser, vp) {
         const y2 = (await tourPage.textContent('#year-big')).trim();
         if (y2 !== '1500') throw new Error(`länken med okänd tur gav året ${y2}, inte 1500`);
         if (await tourPage.locator('#tour-card').isVisible()) throw new Error('en okänd tur öppnade turens kort');
+        tourErrors.push(...tourPageAw.settle());
         if (tourErrors.length) throw new Error(`turlänken gav konsolfel: ${tourErrors.join('; ')}`);
       } finally {
         await tourPage.close();
@@ -6615,14 +6602,15 @@ async function run(browser, vp) {
     const tp = await context.newPage();
     const errors = [];
     tp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
-    tp.on('pageerror', e => errors.push(e.message));
+    const tpAw = abortWatch(tp); // avbrutna hämtningar under sidbyte (#1393, steg 2)
+    tp.on('pageerror', e => { if (!tpAw.defer(e.message)) errors.push(e.message); });
     try {
       if (THREE_LOCAL) {
         const body = fs.readFileSync(THREE_LOCAL, 'utf8');
         await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
         await tp.route(u => isFont(u.href), r => r.abort());
       }
-      const open = async hash => { await tp.goto(`${BASE}${hash}`); await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load }); };
+      const open = async hash => { await tpAw.goto(`${BASE}${hash}`); await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load }); };
       await open('#y=-60000&l=events,spread');
       await tp.waitForSelector('#religion-legend .rl-spread', { state: 'attached', timeout: T.step });
       const seen = await tp.evaluate(() => [...document.querySelectorAll('#religion-legend .rl-spread-item')].map(li => ({
@@ -6635,6 +6623,7 @@ async function run(browser, vp) {
       await open('#y=1500&l=events,spread');
       await tp.waitForTimeout(300);
       if (await tp.locator('#religion-legend .rl-spread').count()) throw new Error('lagret syns år 1500, efter förhistorien');
+      errors.push(...tpAw.settle());
       if (errors.length) throw new Error(`fel i konsolen: ${errors.join(' | ')}`);
       return `${seen.length} poster år 60 000 f.Kr., alla med källa`;
     } finally {
@@ -6792,7 +6781,8 @@ async function run(browser, vp) {
     const tp = await context.newPage();
     const errors = [];
     tp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
-    tp.on('pageerror', e => errors.push(e.message));
+    const tpAw = abortWatch(tp); // avbrutna hämtningar under sidbyte (#1393, steg 2)
+    tp.on('pageerror', e => { if (!tpAw.defer(e.message)) errors.push(e.message); });
     let slow = false;
     const DELAY = 2500;
     const hash = () => tp.evaluate(() => location.hash);
@@ -6806,7 +6796,7 @@ async function run(browser, vp) {
         if (slow) await new Promise(res => setTimeout(res, DELAY));
         await r.continue().catch(() => {});
       });
-      const open = async url => { await tp.goto(url); await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load }); };
+      const open = async url => { await tpAw.goto(url); await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load }); };
       // 1. Ett fokus, sedan en tur (som avslutar fokuset), sedan ett nytt fokus ur Fokus-menyn
       await open(`${BASE}?ny=81#y=1916&f=war:forsta-varldskriget`);
       await tp.waitForSelector('#focus-bar:not([hidden])', { state: 'attached', timeout: T.load });
@@ -6848,6 +6838,7 @@ async function run(browser, vp) {
       if (await tp.isVisible('#focus-bar')) throw new Error('startens fokus visades trots att vyn byttes medan det laddades');
       const year3 = (await tp.textContent('#year-big')).trim();
       if (year3 !== '1500') throw new Error(`året blev ${year3} i stället för 1500 när startens fokus blev klart`);
+      errors.push(...tpAw.settle());
       if (errors.length) throw new Error(`konsolfel: ${errors.join('; ')}`);
     } finally {
       await tp.close();
@@ -6860,7 +6851,8 @@ async function run(browser, vp) {
     const tp = await context.newPage();
     const errors = [];
     tp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
-    tp.on('pageerror', e => errors.push(e.message));
+    const tpAw = abortWatch(tp); // avbrutna hämtningar under sidbyte (#1393, steg 2)
+    tp.on('pageerror', e => { if (!tpAw.defer(e.message)) errors.push(e.message); });
     const text = sel => tp.textContent(sel).then(x => x.trim());
     const hashHas = (re, want = true) => tp.waitForFunction(([src, w]) => new RegExp(src).test(location.hash) === w, [re.source, want], { timeout: T.step });
     const shown = sel => tp.evaluate(q => { const el = document.querySelector(q); return !!el && !el.hidden && el.getClientRects().length > 0; }, sel);
@@ -6871,7 +6863,7 @@ async function run(browser, vp) {
         await tp.route(u => isFont(u.href), r => r.abort());
       }
       // #976: en handskriven länk utanför tidslinjen klipps i både raden och adressen.
-      await tp.goto(`${BASE}?ny=90#y=-200000&y2=3000`); // före MIN_YEAR (100 000 f.Kr. sedan #1088)
+      await tpAw.goto(`${BASE}?ny=90#y=-200000&y2=3000`); // före MIN_YEAR (100 000 f.Kr. sedan #1088)
       await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       const bounds = await tp.evaluate(async () => {
         const { MIN_YEAR, MAX_YEAR } = await import('./js/timeline.js');
@@ -6886,7 +6878,7 @@ async function run(browser, vp) {
       await tp.click('#range-exit');
       if (await text('#year-big') !== String(bounds.max)) throw new Error('Tillbaka till ett år gav inte det klippta slutåret');
       // 1. Den delade länken öppnar intervallet
-      await tp.goto(`${BASE}?ny=91#y=1914&y2=1918`);
+      await tpAw.goto(`${BASE}?ny=91#y=1914&y2=1918`);
       await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await tp.waitForSelector('#range-bar:not([hidden])', { state: 'attached', timeout: T.step });
       if (await text('#year-big') !== '1914–1918') throw new Error(`årtalet visar ${await text('#year-big')} i stället för 1914–1918`);
@@ -6959,6 +6951,7 @@ async function run(browser, vp) {
       if (await shown('#range-open')) throw new Error('intervallänken syns under turen');
       if (await shown('#range-pop')) throw new Error('intervallformuläret syns under turen');
       if (await shown('#range-bar')) throw new Error('ett intervall valdes under turen');
+      errors.push(...tpAw.settle());
       if (errors.length) throw new Error(`konsolfel: ${errors.join('; ')}`);
     } finally {
       await tp.close();
@@ -7036,7 +7029,8 @@ async function run(browser, vp) {
     const tp = await context.newPage();
     const errors = [];
     tp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
-    tp.on('pageerror', e => errors.push(e.message));
+    const tpAw = abortWatch(tp); // avbrutna hämtningar under sidbyte (#1393, steg 2)
+    tp.on('pageerror', e => { if (!tpAw.defer(e.message)) errors.push(e.message); });
     const text = sel => tp.textContent(sel).then(x => x.trim());
     const hashHas = (re, want = true) => tp.waitForFunction(([src, w]) => new RegExp(src).test(location.hash) === w, [re.source, want], { timeout: T.step });
     const shown = sel => tp.evaluate(q => { const el = document.querySelector(q); return !!el && !el.hidden && el.getClientRects().length > 0; }, sel);
@@ -7051,7 +7045,7 @@ async function run(browser, vp) {
         await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
         await tp.route(u => isFont(u.href), r => r.abort());
       }
-      await tp.goto(`${BASE}?ny=92#y=1400`);
+      await tpAw.goto(`${BASE}?ny=92#y=1400`);
       await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await openForm();
       // En grupp per indelning i data/perioder.json (i dag fyra), med rubrik och förenklingstext, och en knapp per epok.
@@ -7086,7 +7080,7 @@ async function run(browser, vp) {
       if (await tp.evaluate(() => document.activeElement?.id) !== 'range-exit') throw new Error('fokus hamnade inte på Tillbaka till ett år');
       if (await tp.evaluate(() => !document.getElementById('range-pop').hidden)) throw new Error('formuläret stod kvar öppet');
       // Bakåt återställer
-      await tp.goBack();
+      await tpAw.goBack();
       await hashHas(/y2=/, false);
       await tp.waitForSelector('#range-bar', { state: 'hidden', timeout: T.step });
       // Stenåldern ryms på tidslinjen sedan #1088 (12 000–1700 f.Kr.); 1900 till nutid går till i dag
@@ -7114,6 +7108,7 @@ async function run(browser, vp) {
       await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
       await tp.click('#year-jump', { force: true }); // låst i en tur (#1322): formuläret kan inte öppnas
       if (await shown('#range-open') || await shown('#range-pop')) throw new Error('tidsintervallet erbjuds fortfarande under en tur');
+      errors.push(...tpAw.settle());
       if (errors.length) throw new Error(`konsolfel: ${errors.join('; ')}`);
     } finally {
       await tp.close();
@@ -7126,7 +7121,8 @@ async function run(browser, vp) {
     const tp = await context.newPage();
     const errors = [];
     tp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
-    tp.on('pageerror', e => errors.push(e.message));
+    const tpAw = abortWatch(tp); // avbrutna hämtningar under sidbyte (#1393, steg 2)
+    tp.on('pageerror', e => { if (!tpAw.defer(e.message)) errors.push(e.message); });
     try {
       if (THREE_LOCAL) {
         const body = fs.readFileSync(THREE_LOCAL, 'utf8');
@@ -7134,7 +7130,7 @@ async function run(browser, vp) {
         await tp.route(u => isFont(u.href), r => r.abort());
       }
       for (const hash of ['#y=1914&y2=1918', '#y=1900&y2=2026']) {
-        await tp.goto(`${BASE}?ny=92${hash}`);
+        await tpAw.goto(`${BASE}?ny=92${hash}`);
         await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
         await tp.waitForSelector('#range-bar:not([hidden])', { state: 'attached', timeout: T.step });
         await tp.waitForFunction(() => /\d/.test(document.getElementById('range-bar-text')?.textContent ?? '') && document.getElementById('panel-sub')?.textContent.length > 5, null, { timeout: T.step });
@@ -7146,6 +7142,7 @@ async function run(browser, vp) {
         if (got.badge !== got.bar) throw new Error(`${hash}: märket visar ${got.badge} men raden ${got.bar}`);
         if (/±\s*0\b/.test(got.sub)) throw new Error(`${hash}: panelen säger ±0 år: ${got.sub}`);
       }
+      errors.push(...tpAw.settle());
       if (errors.length) throw new Error(`konsolfel: ${errors.join('; ')}`);
     } finally {
       await tp.close();
@@ -7158,9 +7155,10 @@ async function run(browser, vp) {
     const tp = await context.newPage();
     const errs = [];
     tp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errs.push(m.text()); });
-    tp.on('pageerror', e => errs.push(e.message));
+    const tpAw = abortWatch(tp); // avbrutna hämtningar under sidbyte (#1393, steg 2)
+    tp.on('pageerror', e => { if (!tpAw.defer(e.message)) errs.push(e.message); });
     const shown = sel => tp.evaluate(s => { const el = document.querySelector(s); return !!el && el.getClientRects().length > 0; }, sel);
-    const open = async url => { await tp.goto(url); await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load }); await tp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step }); await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step }); };
+    const open = async url => { await tpAw.goto(url); await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load }); await tp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step }); await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step }); };
     try {
       if (THREE_LOCAL) {
         const body = fs.readFileSync(THREE_LOCAL, 'utf8');
@@ -7187,9 +7185,10 @@ async function run(browser, vp) {
       // Rollen skrivs aldrig i adressen: Dela och omladdning ger inte eleven knappen
       if (/[#&]r=/.test(got.hash)) throw new Error(`adressen har fått rollen: ${got.hash}`);
       if (!/m=lektion/.test(got.hash)) throw new Error('adressen tappade m=lektion');
-      await tp.reload();
+      await tpAw.reload();
       await tp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.load });
       if (await shown('#lesson-print')) throw new Error('knappen finns kvar efter omladdning utan r= i adressen');
+      errs.push(...tpAw.settle());
       if (errs.length) throw new Error(`konsolfel: ${errs.join('; ')}`);
     } finally {
       await tp.close();
@@ -7201,7 +7200,8 @@ async function run(browser, vp) {
   await check('Kopiera lärarlänk ger en länk som öppnar lektionen med utskriftsknappen (#930)', async () => {
     const cp = await context.newPage();
     const errs = [];
-    cp.on('pageerror', e => errs.push(e.message));
+    const cpAw = abortWatch(cp); // avbrutna hämtningar under sidbyte (#1393, steg 2)
+    cp.on('pageerror', e => { if (!cpAw.defer(e.message)) errs.push(e.message); });
     const shown = sel => cp.evaluate(s => { const el = document.querySelector(s); return !!el && el.getClientRects().length > 0; }, sel);
     try {
       if (THREE_LOCAL) {
@@ -7209,7 +7209,7 @@ async function run(browser, vp) {
         await cp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
         await cp.route(u => isFont(u.href), r => r.abort());
       }
-      const open = async url => { await cp.goto(url); await cp.waitForSelector('#loading', { state: 'hidden', timeout: T.load }); await cp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step }); };
+      const open = async url => { await cpAw.goto(url); await cp.waitForSelector('#loading', { state: 'hidden', timeout: T.load }); await cp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step }); };
       // En tur utan lärarfält har ingen knapp
       await open(`${BASE}?ny=51#t=tre-platser-1325`);
       if (await shown('#tour-copy-teacher')) throw new Error('en tur utan lärarfält har Kopiera lärarlänk');
@@ -7225,11 +7225,12 @@ async function run(browser, vp) {
       if (!got.statusShown || !/kopierad/.test(got.status) || got.role !== 'status') throw new Error(`bekräftelsen saknas eller annonseras inte: "${got.status}"`);
       if (/[#&]r=/.test(got.hash)) throw new Error(`adressen har fått rollen: ${got.hash}`);
       // Lärarlänken öppnar lektionen med utskriftsknappen
-      await cp.goto(got.copied);
+      await cpAw.goto(got.copied);
       await cp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await cp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
       if (!(await shown('#lesson-print'))) throw new Error('lärarlänken gav ingen utskriftsknapp i bandet');
       if (await shown('#tour-copy-teacher')) throw new Error('Kopiera lärarlänk syns i lektionsläget');
+      errs.push(...cpAw.settle());
       if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
     } finally {
       await cp.close();
@@ -7419,7 +7420,8 @@ async function run(browser, vp) {
   await check('tidsfönstret före och efter året vid en segmentgräns (#1319)', async () => {
     const wp = await context.newPage();
     const errs = [];
-    wp.on('pageerror', e => errs.push(e.message));
+    const wpAw = abortWatch(wp); // avbrutna hämtningar under sidbyte (#1393, steg 2)
+    wp.on('pageerror', e => { if (!wpAw.defer(e.message)) errs.push(e.message); });
     try {
       if (THREE_LOCAL) {
         const body = fs.readFileSync(THREE_LOCAL, 'utf8');
@@ -7428,7 +7430,7 @@ async function run(browser, vp) {
       }
       let loads = 0;
       const text = async hash => {
-        await wp.goto(`${BASE}?lang=sv&ny=f${loads++}${hash}`);
+        await wpAw.goto(`${BASE}?lang=sv&ny=f${loads++}${hash}`);
         await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
         await wp.waitForSelector('#event-list .event-item', { state: 'attached', timeout: T.step });
         await wp.waitForFunction(() => document.getElementById('year-segment').textContent.trim() !== '', null, { timeout: 8000 });
@@ -7445,6 +7447,7 @@ async function run(browser, vp) {
       // Inne i ett segment är sidorna lika långa och raden är som förut
       const c = await text('#y=1325');
       if (!/^1300-talet · ±\d*0 år$/.test(c.row)) throw new Error(`1325: raden säger "${c.row}"`);
+      errs.push(...wpAw.settle());
       if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
       return `${a.row} | ${b.row} | ${c.row}`;
     } finally { await wp.close(); }
@@ -7497,7 +7500,8 @@ async function run(browser, vp) {
   await check('uppspelning och hopp i förhistoriens segment (#1090)', async () => {
     const wp = await context.newPage();
     const errs = [];
-    wp.on('pageerror', e => errs.push(e.message));
+    const wpAw = abortWatch(wp); // avbrutna hämtningar under sidbyte (#1393, steg 2)
+    wp.on('pageerror', e => { if (!wpAw.defer(e.message)) errs.push(e.message); });
     try {
       if (THREE_LOCAL) {
         const body = fs.readFileSync(THREE_LOCAL, 'utf8');
@@ -7505,7 +7509,7 @@ async function run(browser, vp) {
         await wp.route(u => isFont(u.href), r => r.abort());
       }
       const year = () => wp.getAttribute('#track', 'aria-valuenow').then(Number);
-      await wp.goto(`${BASE}?lang=sv&ny=p1090#y=-99999`);
+      await wpAw.goto(`${BASE}?lang=sv&ny=p1090#y=-99999`);
       await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await wp.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '-99999', null, { timeout: T.step });
       await wp.keyboard.press('Escape');
@@ -7522,7 +7526,7 @@ async function run(browser, vp) {
       const reached = await year();
       if ((1 - reached) % 100 !== 0) throw new Error(`uppspelningen stannade på ${reached}, inte på reglagets upplösning`); // tusental eller hundratal
       // Bakåt och Framåt mellan 1325 och 50 000 f.Kr.
-      await wp.goto(`${BASE}?lang=sv&ny=p1090b#y=1325`);
+      await wpAw.goto(`${BASE}?lang=sv&ny=p1090b#y=1325`);
       await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await wp.keyboard.press('Escape');
       await wp.click('#year-jump');
@@ -7531,12 +7535,13 @@ async function run(browser, vp) {
       await wp.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '-49999', null, { timeout: T.step });
       await wp.waitForFunction(() => /y=-49999/.test(location.hash), null, { timeout: T.step });
       await wp.waitForTimeout(1500); // hoppet blir en egen post i historiken när det har stått still en stund (isNewStep)
-      await wp.goBack();
+      await wpAw.goBack();
       await wp.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '1325', null, { timeout: T.step })
         .catch(async () => { throw new Error(`Bakåt gav ${await year()}`); });
-      await wp.goForward();
+      await wpAw.goForward();
       await wp.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '-49999', null, { timeout: T.step })
         .catch(async () => { throw new Error(`Framåt gav ${await year()}`); });
+      errs.push(...wpAw.settle());
       if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
       return `100 000 f.Kr. → ${reached} på ${secs} s (${fast.replace(/^.*?: /, '').replace(/\..*$/, '')}); Bakåt/Framåt 1325 ↔ 50 000 f.Kr.`;
     } finally { await wp.close(); }
@@ -7544,7 +7549,8 @@ async function run(browser, vp) {
   await check('reglagets upplösning i förhistorien (#1320)', async () => {
     const wp = await context.newPage();
     const errs = [];
-    wp.on('pageerror', e => errs.push(e.message));
+    const wpAw = abortWatch(wp); // avbrutna hämtningar under sidbyte (#1393, steg 2)
+    wp.on('pageerror', e => { if (!wpAw.defer(e.message)) errs.push(e.message); });
     try {
       if (THREE_LOCAL) {
         const body = fs.readFileSync(THREE_LOCAL, 'utf8');
@@ -7561,7 +7567,7 @@ async function run(browser, vp) {
         badge: document.getElementById('panel-count').textContent.trim(),
       }));
       const open = async hash => {
-        await wp.goto(`${BASE}?lang=sv&ny=u${loads++}${hash}`);
+        await wpAw.goto(`${BASE}?lang=sv&ny=u${loads++}${hash}`);
         await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
         await wp.waitForFunction(() => document.getElementById('panel-sub')?.textContent.length > 5, null, { timeout: T.step });
       };
@@ -7588,6 +7594,7 @@ async function run(browser, vp) {
       // Farten är nivån gånger upplösningen: tusen gånger fortare före 10 000 f.Kr. än 1325 (nivån kan vara sparad av ett tidigare test)
       const rate = t => Number((t.match(/(\d[\d\s]*) år\/s/) || [])[1]?.replace(/\s/g, ''));
       if (!(rate(b.speed) === rate(c.speed) * 1000)) throw new Error(`farten: ${b.speed} vid 50 000 f.Kr. men ${c.speed} vid 1325`);
+      errs.push(...wpAw.settle());
       if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
       return `${a.big} (länk -7412) | ${b.steps.join(' ')} | ${b.speed} | 1325: märket ${c.badge} pågår`;
     } finally { await wp.close(); }
@@ -7630,7 +7637,8 @@ async function run(browser, vp) {
   await check('tidslåset: reglaget är låst i en tur och en lektion och släpps när turen slutar (#1322)', async () => {
     const wp = await context.newPage();
     const errs = [];
-    wp.on('pageerror', e => errs.push(e.message));
+    const wpAw = abortWatch(wp); // avbrutna hämtningar under sidbyte (#1393, steg 2)
+    wp.on('pageerror', e => { if (!wpAw.defer(e.message)) errs.push(e.message); });
     try {
       if (THREE_LOCAL) {
         const body = fs.readFileSync(THREE_LOCAL, 'utf8');
@@ -7640,7 +7648,7 @@ async function run(browser, vp) {
       const state = () => wp.evaluate(() => ({ year: document.getElementById('year-big').textContent.trim(), step: document.getElementById('tour-progress').textContent.trim() }));
       let loads = 0;
       const open = async hash => {
-        await wp.goto(`${BASE}?lang=sv&ny=l${loads++}${hash}`);
+        await wpAw.goto(`${BASE}?lang=sv&ny=l${loads++}${hash}`);
         await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
         await wp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
       };
@@ -7677,6 +7685,7 @@ async function run(browser, vp) {
       const y0 = (await wp.textContent('#year-big')).trim();
       await wp.click('.step[data-step="10"]');
       if ((await wp.textContent('#year-big')).trim() === y0) throw new Error('stegknappen fungerar inte efter turen');
+      errs.push(...wpAw.settle());
       if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
       return `${out.join(', ')}; fritt efter turen`;
     } finally { await wp.close(); }
@@ -7982,7 +7991,8 @@ async function run(browser, vp) {
   await check('händelser före tidslinjens början får en rad i faktarutan (#942)', async () => {
     const ap = await context.newPage();
     const errs = [];
-    ap.on('pageerror', e => errs.push(e.message));
+    const apAw = abortWatch(ap); // avbrutna hämtningar under sidbyte (#1393, steg 2)
+    ap.on('pageerror', e => { if (!apAw.defer(e.message)) errs.push(e.message); });
     try {
       if (THREE_LOCAL) {
         const body = fs.readFileSync(THREE_LOCAL, 'utf8');
@@ -7991,7 +8001,7 @@ async function run(browser, vp) {
       }
       let loads = 0;
       const open = async (query, hash = '') => {
-        await ap.goto(`${BASE}?ny=9${loads++}${hash}`);
+        await apAw.goto(`${BASE}?ny=9${loads++}${hash}`);
         await ap.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
         if (await ap.isHidden('#focus-menu')) {
           if (await ap.isHidden('#btn-focus') && await ap.isVisible('#more-toggle')) await ap.click('#more-toggle');
@@ -8023,6 +8033,7 @@ async function run(browser, vp) {
       }
       await open('Eiffeltornet');
       if ((await note()).shown) throw new Error('en vanlig händelse (Eiffeltornet) har fått raden');
+      errs.push(...apAw.settle());
       if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
     } finally {
       await ap.close();
@@ -8097,18 +8108,19 @@ async function run(browser, vp) {
       const printPage = await context.newPage();
       const printErrors = [];
       printPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) pushConsole(printErrors, m); });
-      printPage.on('pageerror', e => printErrors.push(e.message));
+      const printPageAw = abortWatch(printPage); // avbrutna hämtningar under sidbyte (#1393, steg 2)
+      printPage.on('pageerror', e => { if (!printPageAw.defer(e.message)) printErrors.push(e.message); });
       try {
         if (THREE_LOCAL) {
           const body = fs.readFileSync(THREE_LOCAL, 'utf8');
           await printPage.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
           await printPage.route(u => isFont(u.href), r => r.abort());
         }
-        await printPage.goto(`${BASE}#t=tre-platser-1325`);
+        await printPageAw.goto(`${BASE}#t=tre-platser-1325`);
         await printPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
         await printPage.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
         if (await printPage.isVisible('#tour-print')) throw new Error('en tur utan lärarfält har knappen Skriv ut');
-        await printPage.goto(`${BASE}?ny=1#t=andra-varldskriget`);
+        await printPageAw.goto(`${BASE}?ny=1#t=andra-varldskriget`);
         await printPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
         await printPage.waitForSelector('#tour-print', { state: 'visible', timeout: T.step });
         await printPage.evaluate(() => { window.print = () => { window.__printed = true; }; });
@@ -8165,6 +8177,7 @@ async function run(browser, vp) {
         if (got.sheet === 'none' || got.app !== 'none') throw new Error(`i utskrift: bladen ${got.sheet}, sidan ${got.app}`);
         if (!got.link.endsWith('#t=andra-varldskriget&m=lektion')) throw new Error(`lärarbladets länk är ${got.link}`);
         if (!/Lgr22/.test(got.teacher) || !/Skolverket/.test(got.teacher)) throw new Error('lärarbladet saknar kopplingen till Lgr22 med källa');
+        printErrors.push(...printPageAw.settle());
         if (printErrors.length) throw new Error(`utskriften gav konsolfel: ${printErrors.join('; ')}`);
       } finally {
         await printPage.close();
@@ -8521,32 +8534,37 @@ async function run(browser, vp) {
   await check('språkbyte direkt efter Nästa behåller steget i lektionen (#882)', async () => {
     const lp = await context.newPage();
     const errs = [];
-    lp.on('pageerror', e => errs.push(e.message));
+    const lpAw = abortWatch(lp); // avbrutna hämtningar under sidbyte (#1393, steg 2)
+    lp.on('pageerror', e => { if (!lpAw.defer(e.message)) errs.push(e.message); });
     try {
       if (THREE_LOCAL) {
         const body = fs.readFileSync(THREE_LOCAL, 'utf8');
         await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
         await lp.route(u => isFont(u.href), r => r.abort());
       }
-      await lp.goto(`${BASE}?ny=71#t=andra-varldskriget&m=lektion`);
+      await lpAw.goto(`${BASE}?ny=71#t=andra-varldskriget&m=lektion`);
       await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await lp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
       if (!/^Steg 1 av 14$/.test((await lp.textContent('#tour-progress')).trim())) throw new Error('lektionen började inte på steg 1');
       // Nästa och språkbytet i samma evaluate: adressens 700 ms-tick hinner inte skriva steget emellan
-      await lp.evaluate(() => {
-        window.__hgGammal = true;
-        document.getElementById('tour-next').click();
-        document.querySelector('#lang-menu [data-lang="en"]').click();
+      // Språkbytet laddar om sidan (appen själv, inte testet): omladdningen räknas som ett sidbyte för bevakningen (#1393)
+      await lpAw.nav(async () => {
+        await lp.evaluate(() => {
+          window.__hgGammal = true;
+          document.getElementById('tour-next').click();
+          document.querySelector('#lang-menu [data-lang="en"]').click();
+        });
+        await lp.waitForFunction(() => {
+          const l = document.getElementById('loading');
+          return !window.__hgGammal && document.documentElement.lang === 'en' && !!l && (l.hidden || getComputedStyle(l).display === 'none')
+            && document.querySelectorAll('#lang-menu [data-lang]').length > 1;
+        }, null, { timeout: T.load });
       });
-      await lp.waitForFunction(() => {
-        const l = document.getElementById('loading');
-        return !window.__hgGammal && document.documentElement.lang === 'en' && !!l && (l.hidden || getComputedStyle(l).display === 'none')
-          && document.querySelectorAll('#lang-menu [data-lang]').length > 1;
-      }, null, { timeout: T.load });
       await lp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
       const got = await lp.evaluate(() => ({ progress: document.getElementById('tour-progress').textContent.trim(), hash: location.hash }));
       if (!/\b2 of 14\b/.test(got.progress)) throw new Error(`steget tappades: "${got.progress}" i stället för steg 2 (${got.hash})`);
       if (/[?&#]s=polen\b/.test(got.hash) || !/m=lektion/.test(got.hash)) throw new Error(`adressen efter omladdningen är fel: ${got.hash}`);
+      errs.push(...lpAw.settle());
       if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
       return `Nästa och byte till engelska i samma ögonblick: omladdningen står på "${got.progress}" med läget kvar`;
     } finally {
