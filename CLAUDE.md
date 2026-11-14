@@ -162,7 +162,7 @@ Varje händelse kan få en bild i fältet `image` (fil, `kind`, stil, bildtext, 
 5. **Spårbarhet.** Spara stil, verktyg, datum och exakt prompt för varje illustration i `image`.
 6. **Filer.** `images/events/<händelse-id>.webp`, 800 × 600 pixlar, helst under 150 kB. `python3 tools/bilder_in.py` konverterar bilder från `images/incoming/` och fyller i `image` i händelsens fil i `data/handelser/` från bildloggen `images/incoming/bildlogg.json`. `python3 tools/bildpromptar.py` skriver promptar till `docs/bildpromptar.md`. Lägg aldrig API-nycklar för bildverktyg i repot.
 7. **Platshållare** har `"placeholder": true` och märks "Platshållare" i kortet tills den riktiga bilden finns.
-8. **Människoarter och förhistoria:** riktiga fynd först, inga ansiktsrekonstruktioner som standard, fast bildtext på illustrationer och granskning av `forhistoriker` ([docs/beslut/2026-11-14-rekonstruktioner-av-manniskoarter.md](docs/beslut/2026-11-14-rekonstruktioner-av-manniskoarter.md), #1105).
+8. **Människoarter:** riktiga fynd först, inga ansiktsrekonstruktioner som standard, fast bildtext på illustrationer och granskning av `forhistoriker` ([docs/beslut/2026-11-14-rekonstruktioner-av-manniskoarter.md](docs/beslut/2026-11-14-rekonstruktioner-av-manniskoarter.md), #1105).
 
 ## Utseende
 
