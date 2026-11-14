@@ -1777,6 +1777,38 @@ async function run(browser, vp) {
     }
   });
 
+  // #1571: i händelsens faktaruta är noten en hopfälld rad med synlig rubrik, och källor, hur vi vet, status, kopiera och
+  // rapportera ligger i ett hopfällt avsnitt Om uppgifterna med antal källor och status på raden.
+  await check('faktarutan: noten och Om uppgifterna är hopfällda och öppnas med tangentbord (#1571)', async () => {
+    await jumpTo(-498); // Perserkrigen ingår i Översikt, har en notering och två källor
+    if (await page.isHidden('#panel')) await page.click('#btn-panel');
+    await visible('#panel');
+    const ev = page.locator('#event-list .event-btn', { hasText: 'Perserkrigen' }).first();
+    await ev.waitFor({ state: 'visible', timeout: T.step });
+    await ev.click();
+    const note = page.locator('#detail details.detail-note'), about = page.locator('#detail details.detail-about');
+    await about.waitFor({ state: 'visible', timeout: T.step });
+    if (await note.count() !== 1) throw new Error('händelsens not saknas som hopfälld rad');
+    if (await note.evaluate(d => d.open) || await about.evaluate(d => d.open)) throw new Error('noten eller Om uppgifterna är öppna från början');
+    if (!(await note.locator('summary').textContent()).trim()) throw new Error('notens rubrik syns inte på raden');
+    if (!/^Om uppgifterna · \d+ källor?/.test((await about.locator(':scope > summary').textContent()).trim())) throw new Error('raden Om uppgifterna saknar antal källor');
+    for (const d of [note, about]) {
+      const box = await d.locator(':scope > summary').boundingBox();
+      if (!box || box.height < 43) throw new Error(`träffytan är ${box?.height} px hög, minst 44 px krävs`);
+    }
+    // Det som ligger inuti är dolt tills avsnittet öppnas, och nås med Enter
+    if (await page.locator('#detail [data-citation]').isVisible()) throw new Error('Kopiera källhänvisning syns medan Om uppgifterna är hopfällt');
+    await about.locator(':scope > summary').focus();
+    await page.keyboard.press('Enter');
+    await page.waitForSelector('#detail [data-citation]', { state: 'visible', timeout: T.step });
+    await note.locator('summary').focus();
+    await page.keyboard.press('Enter');
+    if (!(await note.evaluate(d => d.open))) throw new Error('Enter fäller inte ut noten');
+    if (await page.evaluate(() => document.scrollingElement.scrollWidth > innerWidth + 1)) throw new Error('faktarutan ger horisontell scroll');
+    await page.locator('#detail [data-close]').click();
+    return 'noten och Om uppgifterna fälls ut med tangentbord; träffytor minst 44 px';
+  });
+
   // #1570 (beslut 2026-11-14, alternativ D): formen säger vad tecknet är. En flagga är en rektangel i 3:2, en symbol och en
   // modern återgivning är sköldar, och teckningar som själva är sköldar behåller sin form. Kontrollen ritar märkena på samma
   // canvas som klotet använder och mäter var bildpunkterna finns, så den bryts om en flagga åter sträcks till en sköld.
@@ -5616,6 +5648,8 @@ async function run(browser, vp) {
     if (await page.locator('#detail').isVisible()) await page.locator('#detail [data-close]').click();
     const event = page.locator('#ff-events .ff-chip').first();
     await event.evaluate(el => el.click());
+    await page.waitForSelector('#detail details.detail-about', { state: 'visible', timeout: T.step });
+    await page.locator('#detail details.detail-about > summary').click(); // Om uppgifterna (#1571) rymmer knappen
     await page.waitForSelector('#detail [data-citation]', { state: 'visible', timeout: T.step });
     await page.evaluate(() => { window.__copiedCitation = null; Object.defineProperty(navigator, 'clipboard', { value: { writeText: async text => { window.__copiedCitation = text; } }, configurable: true }); });
     await page.locator('#detail [data-citation]').click();
@@ -9091,6 +9125,7 @@ async function run(browser, vp) {
     const pyramid = page.locator('#event-list .event-btn', { hasText: 'Cheopspyramiden' });
     await pyramid.waitFor({ state: 'visible', timeout: T.step });
     await pyramid.click();
+    await page.locator('#detail details.detail-about > summary').click(); // Hur vet vi det här? ligger i Om uppgifterna (#1571)
     const row = page.locator('#detail details.how-know');
     await row.waitFor({ state: 'visible', timeout: T.step });
     if (await row.evaluate(d => d.open)) throw new Error('raden är utfälld från början');

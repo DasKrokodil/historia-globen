@@ -487,6 +487,7 @@
   "panel.showLessIn": "{label} en {region}",
   "detail.loading": "Chargement…",
   "detail.source": "Source :",
+  "detail.aboutData": ["À propos des informations · {n} source", "À propos des informations · {n} sources"],
   "route.sourcesCount": "Sources ({n})",
   "detail.sourceMissing": "manquante",
   "detail.beforeScale": "L’événement commence avant le début de la frise ({year}), le curseur ne peut donc pas afficher sa première année.",

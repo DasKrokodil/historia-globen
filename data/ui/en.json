@@ -487,6 +487,7 @@
   "panel.showLessIn": "{label} in {region}",
   "detail.loading": "Loading…",
   "detail.source": "Source:",
+  "detail.aboutData": ["About the information · {n} source", "About the information · {n} sources"],
   "route.sourcesCount": "Sources ({n})",
   "detail.sourceMissing": "missing",
   "detail.beforeScale": "The event begins before the start of the timeline ({year}), so the slider cannot show its first year.",

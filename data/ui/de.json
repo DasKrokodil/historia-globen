@@ -487,6 +487,7 @@
   "panel.showLessIn": "{label} in {region}",
   "detail.loading": "Wird geladen…",
   "detail.source": "Quelle:",
+  "detail.aboutData": ["Zu den Angaben · {n} Quelle", "Zu den Angaben · {n} Quellen"],
   "route.sourcesCount": "Quellen ({n})",
   "detail.sourceMissing": "fehlt",
   "detail.beforeScale": "Das Ereignis beginnt vor dem Anfang der Zeitleiste ({year}), daher kann der Regler sein erstes Jahr nicht anzeigen.",
