@@ -76,12 +76,12 @@ Kursplanen i historia öppnades igen 2026-11-14 och stämmer med det som periode
 
 ## 3. Pilotländerna mot kursplanerna
 
-Siffrorna i sista kolumnen är en grov textsökning i `data/events.json` (händelser som inte är `draft` och nämner landet eller en kultur där i svensk titel eller sammanfattning, 1 146 händelser), **inte** händelser inom landets gräns. De visar ungefär var tyngdpunkten ligger, inget mer.
+Siffrorna i sista kolumnen är en grov textsökning i `data/events.json` (händelser som inte är `draft` och nämner landet eller en kultur där i svensk titel eller sammanfattning, 1 146 händelser), **inte** händelser inom landets gräns. De visar ungefär var tyngdpunkten ligger, inget mer. **Starkt, Medel och Svagt är vår bedömning** av hur väl landet passar kursplanens innehåll, inte kursplanens ord.
 
 | Land | Åk 4–6 | Åk 7–9 | Omnämnanden per Lgr22-period (före 800 / 800–1500 / 1500–1800 / 1800–1900 / 1900–) |
 |---|---|---|---|
 | Sverige | **Starkt**: hela historia 4–6; geografi "Sverige, Europa och världen" med mest detalj om eget land | **Starkt**: industrialisering i Sverige, demokratisering och välfärd | 5 / 4 / 26 / 9 / 8 (52; 25 krig) |
-| Danmark | **Starkt** som del av Norden (Kalmarunionen, kampen om makten, jordbruket) | Svagt (Europa) | 1 / 6 / 13 / 5 / 14 (39; 18 krig) |
+| Danmark | **Medel** (som del av Norden: Kalmarunionen, kampen om makten, jordbruket) | Svagt (Europa) | 1 / 6 / 13 / 5 / 14 (39; 18 krig) |
 | Etiopien | Bara geografi (namn och läge i världen) | **Medel**: högkulturer i Afrika; imperialism 1850–1950 | 7 / 2 / 5 / 4 / 1 (19) |
 | Peru | Bara geografi | **Starkt**: högkulturer i Amerika, kolonisation (kommentarmaterialet s. 30) | 10 / 4 / 9 / 1 / 3 (27) |
 | Japan | Bara geografi | **Medel**: högkulturer i Asien, imperialism och världskrig | 1 / 7 / 15 / 2 / 16 (41; 25 krig) |
@@ -89,7 +89,9 @@ Siffrorna i sista kolumnen är en grov textsökning i `data/events.json` (hände
 
 Slutsatser:
 - **Sverige och Danmark är de enda pilotländerna som hör hemma i historia 4–6.** Kortet för åk 4–6 bör därför byggas runt Norden 800–1900. Fyra länder utanför Europa hör till historia 7–9 och till geografins namn och läge.
-- **Luckor för 4–6** (grov sökning, ingen träff): Dackefejden, jordbrukets omvandling (skiftena) och välfärdssamhället saknas; samerna har en träff (`sametinget-inrattas`, 1993). Kursplanen nämner också reformationen och emigrationen, som finns. Luckorna bör källkontrolleras i #1262 och #1263, inte här.
+- **Luckor för 4–6** (grov sökning, ingen träff): Dackefejden och jordbrukets omvandling (skiftena) saknas. Kursplanen nämner också reformationen och emigrationen, som finns. Luckorna bör källkontrolleras i #1262 och #1263, inte här.
+- **Lucka för 7–9:** välfärdssamhället ("Demokratisering och ökad globalisering, cirka 1900 till nutid") har ingen träff.
+- **Samerna** är ingen lucka i historia 4–6 (kursplanen nämner dem där bara i åk 1–3, samisk religion), utan en koppling till samhällskunskap: de nationella minoriteterna och "urfolket samerna" (4–6) och samernas ställning som urfolk (7–9). Globen har en träff (`sametinget-inrattas`, 1993).
 - **Krig dominerar** för Sverige, Danmark och Japan. Kursplanen lägger tyngden på de långa linjerna levnadsvillkor, migration och makt (historia s. 22–23), så hållbarhetströskeln i #1269 (högst hälften krig) går i samma riktning som kursplanen.
 - **Etiopien har bara en träff efter 1900.** Om Etiopien ska bära imperialism och världskrig i 7–9 behöver kortet källkontrollerade händelser 1850–1950 (#1270).
 
@@ -101,7 +103,7 @@ Lästa i `data/ui/sv.json`, `data/platser.json` och `js/focus/place.js` (mallen 
 |---|---|---|---|
 | `place.borderNote` | "Linjen på kartan visar dagens gräns, inte den gräns som gällde då." | Stämmer med statsbildning och "inga nationella gränser" (historia s. 24) | Behåll |
 | `intro` (Sverige, Danmark) | "Följ området som i dag är …" och "Det är ett urval, inte en heltäckande historia." | Stämmer: kursplanen lämnar urvalet till läraren (geografi s. 18, 26) | Behåll. Grönland och Nya Zeeland säger "Följ Grönland …", inte "området som i dag är"; överväg samma mönster (fem språk) |
-| `place.type.landskap` och `place.typeOf` | "Landskap" och "Landskap i Sverige" (Skåne) | Kursplanerna använder "landskap" om natur- och kulturlandskap, aldrig om provins. Elever i åk 4–6 möter ordet i den betydelsen i geografi | Överväg "Landskap (historisk provins)" eller en förklarande rad i kortet. Hör till ordlistan #1266 |
+| `place.type.landskap` och `place.typeOf` | "Landskap" och "Landskap i Sverige" (Skåne) | Kursplanerna använder "landskap" om natur- och kulturlandskap, aldrig om provins. Elever i åk 4–6 möter ordet i den betydelsen i geografi | Behåll typetiketten och lägg en förklarande rad i kortet, till exempel "ett av Sveriges gamla landskap, inte ett län" (fem språk). Frågan förs till ordlistan #1266, inte till ett eget issue. Att elever i 4–6 ändå möter provinsbetydelsen (i läromedel eller hemma) är ett **antagande**; kursplanerna säger inget om den |
 | Skånes `intro` | "inom dagens gräns för Skåne län" | Län nämns inte i kursplanerna; samhällskunskap talar om "regioner" | Behåll "Skåne län" (det är vad konturen är), men lärarfältet kan förklara län, region och landskap |
 | `place.type.country` | "Land" | Kursplanerna säger "länder", "Sverige … som nation", "stater i Norden" | Behåll; ordlistan #1266 bör skilja land, stat, rike och nation |
 | `focus.note.places`, `place.filters`, `place.events`, `place.emptyYear` | Urval, alla kategorier, antal, tomt år | Neutrala | Behåll |
@@ -125,16 +127,23 @@ Lästa i `data/ui/sv.json`, `data/platser.json` och `js/focus/place.js` (mallen 
 
 Övrigt:
 - Årtal, stadier och giltighetsdatum (2022-07-01) stämmer. Alla fem perioder har rätt `grades`.
-- Indelningen `norden-forntid` (stenålder, bronsålder, järnålder) motsvarar SO-innehållet "Norden befolkas" i **åk 1–3**, men har inget `grades`. Förslag: `grades: "1–3"` med källan `skolverket-lgr22-historia` (schemat tillåter vilken sträng som helst). Årtalen kommer fortfarande från Historiska museet.
+- Indelningen `norden-forntid` (stenålder, bronsålder, järnålder) motsvarar SO-innehållet "Norden befolkas" i **åk 1–3**, men har inget `grades`. Förslag: `grades: "1–3"` (schemat tillåter vilken sträng som helst). **Stadiet (åk 1–3) kommer då från kursplanen** (`skolverket-lgr22-historia`, SO-innehållet "Att leva i världen"), **årtalen från Historiska museet** (`historiska-perioder` m.fl.), så perioderna får båda källorna.
 - `docs/datamodell.md` (lektionsturerna, #1279) skriver att årskurs 4–6 "handlar bara om Norden". Det stämmer för kunskapsområdena, men det första nämner Nordens kulturmöten "med andra delar av världen". En nyans, ingen rättning krävs.
 
 ## 7. Experter
 
-Underagenterna `larare` och `historiker` kunde **inte** kallas in: arbetarsessionen har inget verktyg för underagenter. Rapporten är därför inte expertgranskad. Förslag: dirigenten kör `larare` (stadier och lektionsläget) och `historiker` (citaten och perioderna) på rapporten innan den används för urvalet av länder, eller i expertgranskningen före releasen av 6.4.0.
+- **Lärarlinsen** (`larare`) har granskat rapporten 2026-11-14 via dirigenten, utan att själv öppna källorna. Fynden är rättade: välfärdssamhället flyttat till 7–9, samerna som koppling till samhällskunskap, Danmark Medel i 4–6, bedömningsskalan förklarad, förklarande rad i stället för ny typetikett och stadiet och årtalens olika källor i avsnitt 6. Citaten kontrollerades igen mot de öppnade källorna samma dag (bland annat "nordisk stenålder, bronsålder och järnålder" i åk 1–3 och kommentarmaterialet i historia s. 24 och s. 30).
+- **Historikern** (`historiker`) har inte granskat rapporten (citaten och perioderna). Förslag: dirigenten kör den innan rapporten används för urvalet av länder, eller i expertgranskningen före releasen av 6.4.0.
 
 ## 8. Förslag på nya issues (skapas inte här)
 
 1. **Periodnamnet "Imperier och världskrig"** ändras till "Imperialism och världskrig" på fem språk (`beslut-krävs`, berör beslutet 2026-11-08 om egna epoknamn).
 2. **`grades: "1–3"` på Nordens forntid** i `data/perioder.json` med kursplanen som källa (litet, data).
-3. **Ordet "landskap" i platskortet**: förklaring eller annan typetikett, så att det inte krockar med geografins natur- och kulturlandskap (läggs till i ordlistan #1266 i stället, om det passar bättre).
-4. **Luckor för åk 4–6** att källkontrollera i Sverige- och Danmarkskorten (#1262, #1263): Dackefejden, jordbrukets omvandling (skiftena), välfärdssamhället, samernas historia. Kan läggas som kommentar på de issuen i stället för ett nytt issue.
+3. **Luckor** att källkontrollera i Sverige- och Danmarkskorten (#1262, #1263): Dackefejden och jordbrukets omvandling (åk 4–6) och välfärdssamhället (åk 7–9). Läggs som kommentar på de issuen, inget nytt issue.
+
+Inget eget issue: ordet "landskap" och den förklarande raden förs till ordlistan #1266.
+
+## 9. Förslag till lärarfält och lektion (inte gjort)
+
+- **Lärarfältet om land, stat, rike och nation** (i platskortens lektioner och i ordlistan #1266): *land* är området inom dagens gräns, som kortet visar; *stat* och *rike* är den makt som styrde området då, och de syns som riken på globen; *nation* är en gemenskap och en identitet som växte fram senare. Hur vet vi det? Kommentarmaterialet i historia (s. 24) säger att Sverige "inte alltid har funnits som nation" utan växte fram när "varken nationella gränser eller nationella identiteter existerade". Lärarfältet ska använda det som exempel på källa och skrivas med egna ord; definitionerna ovan är vårt förslag och behöver källa innan de skrivs in.
+- **Lektionsidé för åk 7–9: jämför två pilotländer**, till exempel Peru och Etiopien. Följ båda korten genom samma period, före och efter mötet med europeiska kolonialmakter eller imperialismen, och fråga: vilka händelser finns på globen, vad säger källorna, och vad saknas? Stöd i kursplanen: högkulturer i Afrika och Amerika, kolonisation och imperialism och källkritiska kriterier; kommentarmaterialet s. 29 ("geografisk spridning") och s. 30. Förutsätter att korten för Peru och Etiopien finns (#1270, #1271) och stegfältet i turer (#1163).
