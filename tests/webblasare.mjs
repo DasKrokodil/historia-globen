@@ -6642,6 +6642,35 @@ async function run(browser, vp) {
     }
   });
 
+  // #1414: efter vågorna står Homo sapiens kvar som tolkade ytor utanför Afrika. Ingen tid mellan cirka 45 000 och
+  // 12 000 år sedan får se ut som att människor bara fanns i Afrika; listan (textalternativet) visar det som syns.
+  await check('människans spridning: Homo sapiens finns utanför Afrika efter vågorna (#1414)', async () => {
+    const tp = await context.newPage();
+    const errors = [];
+    tp.on('pageerror', e => errors.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+        await tp.route(u => isFont(u.href), r => r.abort());
+      }
+      const seen = [];
+      // X tusen år sedan = 2001 − 1000 · X (data/spridning.json)
+      for (const k of [44, 40, 30, 20, 13]) {
+        await tp.goto(`${BASE}?ny=1414-${k}#y=${2001 - 1000 * k}&l=spread`);
+        await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await tp.waitForSelector('#religion-legend .rl-spread', { state: 'attached', timeout: T.step });
+        const titles = await tp.evaluate(() => [...document.querySelectorAll('#religion-legend .rl-spread-head')].map(e => e.textContent));
+        const outside = titles.filter(t => /Homo sapiens i (Asien|Europa|Sahul|Amerika)|Europa (under|efter) istidens/.test(t));
+        if (!outside.length) throw new Error(`${k} 000 år sedan syns bara ${JSON.stringify(titles)}`);
+        seen.push(`${k}k: ${outside.length}`);
+      }
+      if (errors.length) throw new Error(`sidfel: ${errors[0]}`);
+      return `ytor utanför Afrika (${seen.join(', ')})`;
+    } finally {
+      await tp.close();
+    }
+  });
+
   // #1417: teckenförklaringens lista är kartans textalternativ. Varje post har en rubrik, så att en skärmläsare kan hoppa
   // mellan dem, och källänkarna har minst 24 × 24 px träffyta.
   await check('människans spridning: rubrik per post och källänkar på minst 24 × 24 px (#1417)', async () => {
