@@ -45,6 +45,10 @@ jobs:
         run: python3 -I tools/oversattning.py --check
       - name: Kontrollera att texterna per språk och spärren stoppar medvetna fel (#675)
         run: python3 -I tests/oversattning-test.py
+      - name: Kortare faktatexter - inga fler sammanfattningar över 300 tecken (#1599)
+        run: python3 -I tools/textlangd.py --check
+      - name: Kontrollera att spärren mot långa faktatexter stoppar en för lång text (#1599)
+        run: python3 -I tests/textlangd-test.py
       - uses: actions/setup-node@v4
         with:
           node-version: '22'

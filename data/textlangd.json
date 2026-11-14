@@ -1,0 +1,22 @@
+{
+"note": "Genereras av tools/textlangd.py (#1599). baseline: antal svenska sammanfattningar (summary) över 300 tecken per fil, som bara får minska. Redigera inte för hand; kör python3 tools/textlangd.py.",
+"limit": 300,
+"baseline": {
+  "data/handelser/1-1499.json": 191,
+  "data/handelser/1500-1799.json": 93,
+  "data/handelser/1800-1899.json": 88,
+  "data/handelser/1900-1945.json": 85,
+  "data/handelser/1946-1979.json": 87,
+  "data/handelser/1980-.json": 81,
+  "data/handelser/fkr.json": 222,
+  "data/routes/columbus.json": 3,
+  "data/routes/cook.json": 3,
+  "data/routes/ibn-battuta.json": 1,
+  "data/routes/kryddvagarna.json": 3,
+  "data/routes/magellan.json": 1,
+  "data/routes/sidenvagen.json": 1,
+  "data/routes/slavhandeln.json": 3,
+  "data/routes/vikingar.json": 3,
+  "data/routes/zheng-he.json": 6
+}
+}
