@@ -19718,11 +19718,11 @@
     "fr": "Scanie"
    },
    "partOf": {
-    "sv": "Sverige",
-    "en": "Sweden",
-    "de": "Schweden",
-    "es": "Suecia",
-    "fr": "Suède"
+    "sv": "i Sverige",
+    "en": "in Sweden",
+    "de": "in Schweden",
+    "es": "en Suecia",
+    "fr": "en Suède"
    },
    "intro": {
     "sv": "Följ Skåne i tidsordning: händelserna på globen som ligger inom dagens gräns för Skåne län, från Uppåkra och Lund till Öresundsförbindelsen. Det är ett urval, inte en heltäckande historia.",
