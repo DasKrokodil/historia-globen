@@ -30,7 +30,7 @@ AGENTS.md             regler för Codex och andra agenter; pekar på CLAUDE.md
 _headers              Cloudflare Pages cache-regler (no-cache, så att en release inte blandas med gamla filer)
 css/style.css
 js/main.js            startar allt och kopplar ihop delarna
-js/controllers/       main.js uppdelad i val, fokus, faktarutor, omritning, uppspelning, berättelse, etiketter (#402), adressen (#501), tidsintervallet (range.js, #755) återgång efter hopp (jump-back.js, #997) och tryck på platsens kontur (places.js, #1161)
+js/controllers/       main.js uppdelad i val, fokus, faktarutor, omritning, uppspelning, berättelse, etiketter (#402), adressen (#501), tidsintervallet (range.js, #755) återgång efter hopp (jump-back.js, #997), tryck på platsens kontur (places.js, #1161) och presentationsläget (presentation.js, #488, #1315)
 js/model.js           språk, kategorier, granskningsstatus, tidsformat, laddning
 js/i18n.js            språkval och gränssnittets texter: ui('nyckel') ur data/ui/<språk>.json och data-i18n i index.html (#63)
 js/url-state.js       adressformatet för delbara länkar och Bakåt/Framåt (#501, #64)
@@ -58,6 +58,7 @@ js/ui/poster.js       A4-affisch som PNG från Platt vy
 js/ui/routepop.js     klickrutan för vägar och resor
 js/ui/intro.js        frivillig introduktion till samtidighet i tre stilla steg (#363)
 js/ui/quiz.js         quizet "Vad hände samtidigt?" under Mer, frågor ur befintliga fun facts (#65)
+js/ui/teacher.js      "För lärare" under Mer: lektioner, utskrift, quiz, jakt och knapp för presentationsläget; kortet är en dialog i stängregistret (#1315)
 js/ui/print-sheet.js  utskrift av en lektionstur: elevblad och lärarblad ur turens lärarfält (#738)
 js/ui/uppdrag.js      elevuppdraget Samtidighetsjakten under Mer, med knappen i faktarutan (#741)
 js/uppdrag-rules.js   jaktens regler: år, världsdel och vad som räknas, delas med testerna (#741)

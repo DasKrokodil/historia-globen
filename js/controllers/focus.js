@@ -133,7 +133,7 @@ export function createFocus(app) {
   /** Escape stänger först det som ligger ovanpå. När temakortet redan är stängt lämnar nästa Escape temat, och likadant resan. */
   document.addEventListener('keydown', e => {
     if (e.key !== 'Escape' || !(isSelection() || isRoute())) return;
-    const overlay = ['detail', 'focus-menu', 'layer-menu', 'help', 'feedback', 'sources-dialog', 'jump-pop', 'religion-pop', 'route-pop']
+    const overlay = ['detail', 'focus-menu', 'layer-menu', 'help', 'teacher', 'feedback', 'sources-dialog', 'jump-pop', 'religion-pop', 'route-pop']
       .some(id => { const el = $(id); return el && !el.hidden; });
     if (overlay || $('app').classList.contains('panel-open')) return;
     e.preventDefault();

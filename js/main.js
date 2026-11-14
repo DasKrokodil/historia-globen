@@ -41,6 +41,8 @@ import { createLabels } from './controllers/labels.js';
 import { createPlaces } from './controllers/places.js';
 import { createAddress } from './controllers/address.js';
 import { createJumpBack } from './controllers/jump-back.js';
+import { createPresentation } from './controllers/presentation.js';
+import { TeacherGuide } from './ui/teacher.js';
 import { createSurfaces } from './surfaces.js';
 
 const $ = id => document.getElementById(id);
@@ -70,17 +72,8 @@ async function start() {
   // Språket (#63): sidans fasta texter på valt språk innan något annat skriver i dem
   applyStatic();
   $('lang-note').hidden = !!LANG_INFO.complete;
-  // Presentationsläget är avsiktligt bara en delbar adressparameter. Det sparar inget val och
-  // påverkar därför inte nästa besök utan parametern.
-  const presentation = new URLSearchParams(location.search).get('presentation') === '1';
-  const presentationExit = $('presentation-exit');
-  $('app').classList.toggle('presentation-mode', presentation);
-  presentationExit.hidden = !presentation;
-  if (presentation) {
-    const exit = new URL(location.href);
-    exit.searchParams.delete('presentation');
-    presentationExit.href = `${exit.pathname}${exit.search}${exit.hash}`;
-  }
+  // Presentationsläget (#488): ?presentation=1 i adressen, eller knappen i För lärare (#1315). Det sparar inget val.
+  const presentation = createPresentation({ $, flush: () => app.address?.flush() });
   // Lagrens grupper och förinställda vyer (#357) är en liten fil; den hämtas samtidigt med resten
   const [data, views, introData, toursData] = await Promise.all([loadAll(), loadViews(), loadIntro(), loadTours()]);
   const globe = new Globe($('globe-canvas'), $('year-jump'));
@@ -506,7 +499,7 @@ async function start() {
   // Escape stänger Platt vy, men först det som ligger ovanpå (menyer, Hjälp, förslagsformuläret, panelen, faktarutan)
   document.addEventListener('keydown', e => {
     if (e.key !== 'Escape' || flatMap.hidden) return;
-    const open = ['help', 'feedback', 'layer-menu', 'focus-menu', 'sources-dialog', 'jump-pop', 'detail', 'religion-pop', 'route-pop'].some(id => !$(id).hidden);
+    const open = ['help', 'teacher', 'feedback', 'layer-menu', 'focus-menu', 'sources-dialog', 'jump-pop', 'detail', 'religion-pop', 'route-pop'].some(id => !$(id).hidden);
     // Escape i turens kort avslutar turen (js/ui/tour.js), inte Platt vy
     if (open || $('app').classList.contains('panel-open') || $('tour-card').contains(document.activeElement)) return;
     flatMap.setOpen(false);
@@ -691,11 +684,18 @@ async function start() {
   store.onExit('tur', takenBy => tour.end({ takenBy }));
   store.onExit('lektion', takenBy => tour.end({ takenBy })); // lektionen hör till sin tur och slutar med den
   store.onExit('jakt', () => hunt.end(false));
+  let teacher = null; // För lärare (#1315) skapas efter lektionsläget; closeMenus nedan anropas först när sidan körs
   // Lektionsläget (#795): en lektionslänk (m=lektion) startar turen med menyerna dolda och bandet överst
   app.lesson = new LessonMode({
     band: $('lesson-band'), title: $('lesson-band-title'), exit: $('lesson-exit'), printBtn: $('lesson-print'), printStatus: $('lesson-print-status'),
     notice: $('lesson-notice'), noticeText: $('lesson-notice-text'), retry: $('lesson-retry'), noticeClose: $('lesson-notice-close'), endLinks: $('tour-lesson-end'), endList: $('tour-lesson-end-list'),
-  }, { root: $('app'), printRoot: $('print-sheet'), timeline, tour, hunt, toursData, store, layers, snapshot: () => app.modeSnapshot(), closeMenus: () => { surfaces.closeAll(); help.close(false); } });
+  }, { root: $('app'), printRoot: $('print-sheet'), timeline, tour, hunt, toursData, store, layers, snapshot: () => app.modeSnapshot(), closeMenus: () => { surfaces.closeAll(); help.close(false); teacher?.close(false); } });
+  // För lärare (#1315): lektionerna, utskriften, quizet, jakten och presentationsläget under Mer
+  teacher = new TeacherGuide({
+    root: $('teacher'), button: $('btn-teacher'), close: $('teacher-close'), list: $('teacher-lessons'), empty: $('teacher-lessons-empty'),
+    quizBtn: $('teacher-quiz'), quizRow: $('teacher-quiz-row'), huntBtn: $('teacher-hunt'), huntRow: $('teacher-hunt-row'), presentationBtn: $('teacher-presentation'), presentationRow: $('teacher-presentation-row'),
+  }, { tour, quiz, hunt, presentation, narrow, get lesson() { return app.lesson; } });
+  $('help-teacher').addEventListener('click', () => { help.close(false); teacher.open(true); });
   // Berättelseläget (#247): krigets första kort får "Följ berättelsen" när en tur berättar om kriget
   panel.tourFor = id => { const x = tour.forWar(id); return x && { id: x.id, label: tour.storyLabel(x) }; };
   // Rikens fall (#499): rikets faktaruta får en knapp när en tur följer rikets fall
@@ -709,6 +709,7 @@ async function start() {
   // också när fokus ligger utanför ytan, och fokus går tillbaka till ytans knapp.
   surfaces.onDialogOpen = () => { timeline.pause(); app.playback.stopCountdown(); };
   surfaces.watch('help', $('help'), 'dialog', refocus => help.close(refocus !== false), { opener: $('btn-help') });
+  surfaces.watch('teacher', $('teacher'), 'dialog', refocus => teacher.close(refocus !== false), { opener: $('btn-teacher') });
   surfaces.watch('sources', $('sources-dialog'), 'dialog', () => sources.hide(), { opener: $('btn-sources') });
   surfaces.watch('intro', $('intro'), 'dialog', refocus => intro.close(refocus !== false), { opener: $('btn-intro') });
   surfaces.watch('quiz', $('quiz'), 'dialog', refocus => quiz.close(refocus !== false), { opener: $('btn-quiz') });

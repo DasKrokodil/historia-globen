@@ -59,7 +59,7 @@ AGENTS.md             regler för Codex och andra agenter; pekar på CLAUDE.md
 _headers              Cloudflare Pages cache-regler (no-cache, så att en release inte blandas med gamla filer)
 css/style.css
 js/main.js            startar allt och kopplar ihop registret, tidslinjen och panelerna
-js/controllers/       main.js uppdelad: val, fokus, faktarutor, omritning, uppspelning, berättelse, etiketter (#402), adressen (#501), tidsintervallet (range.js, #755) och återgång efter hopp (jump-back.js, #997) och tryck på platsens kontur (places.js, #1161)
+js/controllers/       main.js uppdelad: val, fokus, faktarutor, omritning, uppspelning, berättelse, etiketter (#402), adressen (#501), tidsintervallet (range.js, #755) och återgång efter hopp (jump-back.js, #997), tryck på platsens kontur (places.js, #1161) och presentationsläget (presentation.js, #488, #1315)
 js/state.js           det gemensamma tillståndet som lagren läser (år, fokus, filter, valda lager, #338), åtgärder och JSON (#403), och lägeskontraktet med uteslutningstabellen (#893)
 js/surfaces.js        stängregistret för ytor: menyerna och sidopanelen anmäler sig i grupper och en öppnad yta stänger sin grupp (#894)
 js/layers/registry.js lagerregistret: rader i Lager, ritordning, dämpning i fokus, teckenförklaring (#338)
@@ -88,6 +88,7 @@ js/ui/panel.js        "Samtidigt i världen" per världsdel, kategorifilter och 
 js/ui/funfact.js      Samtidigt-kortet (fun facts, när ett krig bröt ut) och bågar på globen
 js/ui/sources.js      sidan Om källorna (knappen Källor)
 js/ui/help.js         kort hjälp i tre steg för nya besökare (knappen Hjälp)
+js/ui/teacher.js      "För lärare" under Mer: lektioner, utskrift, quiz, jakt och knapp för presentationsläget (#1315)
 js/url-state.js       adressformatet för delbara länkar och Bakåt/Framåt (#501, #64)
 js/search-index.js    sökningens index och matchning (#570)
 js/place-search.js    "Vad hände här?": platsförslag och händelser inom 300 km, i tidsordning (#15)

@@ -902,5 +902,22 @@
   "jump.empty": "Aucun événement dans cette sélection.",
   "jump.more": "Les {count} premiers sont affichés.",
   "jump.era": "Ère",
-  "jump.error.negative": "Choisissez av. J.-C. ou apr. J.-C. avec les boutons plutôt qu’un signe moins."
+  "jump.error.negative": "Choisissez av. J.-C. ou apr. J.-C. avec les boutons plutôt qu’un signe moins.",
+  "top.teacher": "Pour les enseignants",
+  "top.teacherTitle": "Leçons, impression, quiz et mode présentation",
+  "help.teacher": "Vous enseignez ?",
+  "help.teacherBtn": "Ouvrir Pour les enseignants",
+  "teacher.close": "Fermer Pour les enseignants",
+  "teacher.intro": "Aucune connexion ni aucun compte d’élève n’est nécessaire, et le site ne conserve rien sur les élèves.",
+  "teacher.lessons": "Leçons",
+  "teacher.lessonsText": "Des leçons toutes prêtes. En mode leçon, la plupart des menus sont masqués et le temps reste dans les années de la leçon.",
+  "teacher.noLessons": "Les leçons n’ont pas pu être chargées pour le moment. Rechargez la page et réessayez.",
+  "teacher.print": "Impression",
+  "teacher.printText": "Commencez une leçon ci-dessus et choisissez Imprimer les fiches élève et enseignant dans la barre en haut. La fiche élève comporte des questions avec de la place pour répondre. La fiche enseignant comporte la classe, la durée, les prérequis, les consignes, le lien avec le programme et les questions. Le bouton n’est proposé qu’à vous, en tant qu’enseignant, et il disparaît si vous rechargez la page pendant la leçon. Pour obtenir un lien qui donne le bouton : lancez la visite sous Visites et choisissez Copier le lien enseignant sur la carte de la visite.",
+  "teacher.quizText": "Des questions sur ce qui s’est passé au même moment, tirées des anecdotes du site. Chaque réponse indique ses sources.",
+  "teacher.huntText": "Une mission indépendante pour les élèves, sans lien avec les leçons : trouver des événements sur différents continents qui ont eu lieu au même moment.",
+  "teacher.presentation": "Mode présentation",
+  "teacher.presentationText": "Pour un projecteur ou un grand écran : texte et boutons plus grands. Quittez le mode avec le bouton en haut à droite.",
+  "teacher.more": "Comment partager une leçon et imprimer les fiches",
+  "teacher.shareText": "Les élèves reçoivent la leçon par le lien de la fiche enseignant ou par Partager, sous Plus : si vous partagez en cours de leçon, ils commencent à la même étape. La barre en haut propose Afficher tout le globe : la leçon prend alors fin et le site redevient le site habituel, à la même année."
 }
