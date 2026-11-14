@@ -381,6 +381,22 @@ export function formatDate(iso) {
     ? formatCalendarDate(Number(m[1]), Number(m[2]), Number(m[3]), m[1]) : (iso || '');
 }
 
+// EDTF:s årstidskoder (nivå 1): 21 vår, 22 sommar, 23 höst, 24 vinter. Texterna ligger i språkfilerna (time.season.*, #1473).
+const SEASONS = { 21: 'spring', 22: 'summer', 23: 'autumn', 24: 'winter' };
+
+/**
+ * Datumet för ett stopp på en resa (#376): egen etikett, dagsdatum, en årstid ur edtf ("1405-23" blir "hösten 1405" på svenska,
+ * "autumn 1405" på engelska) eller edtf som det står. Texterna kommer ur språkfilen (#1473), aldrig ur koden.
+ * Samma funktion används av pausraden, stegknapparna och tidslinjemärkena (routeStops i lines.js).
+ */
+export function stopDate(place) {
+  if (place.dateLabel) return t(place.dateLabel);
+  if (place.date) return formatDate(place.date);
+  const season = /^(-?\d{4})-(2[1-4])$/.exec(place.edtf ?? '');
+  if (season) return ui(`time.season.${SEASONS[season[2]]}`, { year: formatYear(Number(season[1])) });
+  return place.edtf ?? '';
+}
+
 /** Tid för en händelse enligt dess precision och EDTF-markering. */
 export function formatEventTime(e) {
   const edtf = e.edtf || '';

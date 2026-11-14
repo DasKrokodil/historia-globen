@@ -5,11 +5,10 @@
 // Köerna ägs här och ingen annanstans. Omritningen (render.js) anropar check() efter att lagren har ritats,
 // och samma köer återupptas av Fortsätt (beforeplay). Därför flyttas omritningen och uppspelningen tillsammans:
 // de delar köerna men inte tillståndet i state (beslutet i #402).
-import { t, isVisibleReview } from '../model.js';
+import { t, isVisibleReview, stopDate } from '../model.js';
 import { MAX_YEAR } from '../timeline.js';
 import { routeStops as stopsForRoute } from '../layers/lines.js';
 import { hasTag } from '../layers/events.js';
-import { stopDate } from './story.js';
 import { stopIndexAt, stepTarget, stepState, followersAtSameTime, keysThrough } from '../route-steps.js';
 import { ui } from '../i18n.js';
 
