@@ -127,15 +127,19 @@ export function createFocus(app) {
     if (redraw) app.refresh();
   }
 
-  /** Escape stänger först det som ligger ovanpå. När temakortet redan är stängt lämnar nästa Escape temat. */
+  /** Följer man en resa (#1380)? Escape lämnar den som ett tema, så att man kommer ut utan musen när stegknapparna har fokus. */
+  const isRoute = () => state.focus?.type === 'route';
+
+  /** Escape stänger först det som ligger ovanpå. När temakortet redan är stängt lämnar nästa Escape temat, och likadant resan. */
   document.addEventListener('keydown', e => {
-    if (e.key !== 'Escape' || !isSelection()) return;
+    if (e.key !== 'Escape' || !(isSelection() || isRoute())) return;
     const overlay = ['detail', 'focus-menu', 'layer-menu', 'help', 'feedback', 'sources-dialog', 'jump-pop', 'religion-pop', 'route-pop']
       .some(id => { const el = $(id); return el && !el.hidden; });
     if (overlay || $('app').classList.contains('panel-open')) return;
     e.preventDefault();
     endFocus();
-    $('btn-focus').focus({ preventScroll: true });
+    // Sök och följ ligger i menyn Meny i smal skärm och syns inte där: fokus går då till menyknappen i stället för att tappas
+    ['btn-focus', 'more-toggle', 'btn-more'].map($).find(el => el?.getClientRects().length)?.focus({ preventScroll: true });
   }, { capture: true });
 
   // Fokusmenyn listar posternas grupper. Resorna, religionerna, temana och platserna hämtas när menyn öppnas.

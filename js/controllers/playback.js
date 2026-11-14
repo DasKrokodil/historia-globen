@@ -10,13 +10,17 @@ import { MAX_YEAR } from '../timeline.js';
 import { routeStops as stopsForRoute } from '../layers/lines.js';
 import { hasTag } from '../layers/events.js';
 import { stopDate } from './story.js';
+import { stopIndexAt, stepTarget, stepState, followersAtSameTime, keysThrough } from '../route-steps.js';
 import { ui } from '../i18n.js';
 
 export function createPlayback(app) {
-  const { $, state, data, timeline, panel, layers, ff } = app;
+  const { $, state, data, timeline, panel, layers, ff, globe } = app;
   let lastYear = 0;
   let warStops = [], stopping = false; // kö med stopp när man följer ett krig (#217)
   let routeStops = []; // kö med stopp när man följer en resa (#376)
+  // Stoppet som pausraden visar just nu (index bland resans stopp) och dess text: Föregående och Nästa stopp stegar därifrån (#1380).
+  // -1 när raden visar något annat eller inte syns; då har knapparna inget att utgå från och döljs.
+  let stepIdx = -1, stepText = null;
   // Stopp som redan har visats i den här genomspelningen, och om slutkortet har visats (#232).
   // Båda glöms när tiden flyttas för hand eller man följer något annat.
   let shownStops = new Set(), endShown = false;
@@ -44,7 +48,7 @@ export function createPlayback(app) {
     showNextPause();
   }
 
-  function showRouteStop(stop) {
+  function showRouteStop(stop, index = null) {
     const focusRoute = state.focusRoute;
     stopping = true;
     const place = stop.place;
@@ -52,12 +56,79 @@ export function createPlayback(app) {
       : `${ui('play.pausedAt', { name: t(place.name) })} · ${stopDate(place)} · ${t(focusRoute.title)}`;
     // Noten finns redan i resedatan och ska synas vid varje stopp, så att osäkerheten inte tappas bort.
     // Rubriken syns i pausraden och texten fälls ut, så att raden inte blir så hög att den krockar (#647).
-    // Skärmläsaren får hela noten.
+    // Skärmläsaren får hela noten, och "Stopp 3 av 6" först när resan har flera stopp (#1380).
     const note = focusRoute.note ? { title: t(focusRoute.note.title), text: t(focusRoute.note.text) } : null;
-    timeline.pause(text, true, note ? `${text} · ${note.title}: ${note.text}` : text, note);
+    const stops = stopsForRoute(focusRoute);
+    const at = index ?? stops.findIndex(s => s.key === stop.key);
+    const counter = stops.length > 1 && at >= 0 ? `${ui('route.stopOf', { n: at + 1, total: stops.length })}. ` : '';
+    stepIdx = at; stepText = text; // före pause(), vars 'pausenote' säger att raden är stoppets
+    timeline.pause(text, true, `${counter}${note ? `${text} · ${note.title}: ${note.text}` : text}`, note);
     timeline.year = stop.at;
     stopping = false;
     showNextPause();
+  }
+
+  /** Stopp, plats och datum för en stegknapp: "Rincónbukten, 13 januari 1493". */
+  const stopLabel = stop => [t(stop.place.name), stopDate(stop.place)].filter(Boolean).join(', ');
+  /** Föregående och Nästa stopp i pausraden (#1380): syns bara medan raden visar ett resestopp, och bara åt det håll det finns ett stopp. */
+  function updateStepButtons() {
+    const touring = app.store.active('tur') || app.store.active('lektion'); // ingen bläddring där turen eller lektionen styr tiden
+    const stops = state.focusRoute && !touring ? stopsForRoute(state.focusRoute) : [];
+    const s = stepState(stops, stepIdx);
+    for (const [id, on, dir, key] of [['pause-prev-stop', s.hasPrev, -1, 'route.prevStop'], ['pause-next-stop', s.hasNext, 1, 'route.nextStop']]) {
+      const button = $(id);
+      button.hidden = !on;
+      if (!on) continue;
+      const to = stepTarget(stops, stepIdx, dir);
+      button.setAttribute('aria-label', ui('route.stepLabel', { action: ui(key), where: stopLabel(stops[to]), n: to + 1, total: s.total }));
+      button.title = button.getAttribute('aria-label');
+    }
+  }
+  /** Steg till föregående (-1) eller nästa (1) stopp: tiden och kameran flyttas dit och pausraden visar stoppet. */
+  function stepStop(direction) {
+    const stops = state.focusRoute ? stopsForRoute(state.focusRoute) : [];
+    const to = stepTarget(stops, stepIdx, direction);
+    if (to == null || app.store.active('tur') || app.store.active('lektion')) return;
+    const pressed = document.activeElement;
+    if (timeline.playing) timeline.pause(); // byte under uppspelning pausar först
+    app.address?.flush(); // stoppet man står på skrivs i adressen före flytten, så att Bakåt går tillbaka till det (#1380)
+    // Kön och de visade stoppen följer det nya stoppet: Fortsätt går därifrån, också efter ett steg bakåt, och stopp med
+    // samma år ligger i kön eftersom uppspelningen aldrig passerar dem
+    routeStops = followersAtSameTime(stops, to);
+    shownStops = new Set(keysThrough(stops, to));
+    finishing = false;
+    const [lon, lat] = stops[to].place.at ?? [];
+    if (lat != null) globe.flyTo(lat, lon, 700); // Lugn rörelse hoppar i stället för att flyga (globe.js)
+    showRouteStop(stops[to], to);
+    app.address?.flush({ push: true });
+    // Knappen som trycktes kan ha försvunnit (första eller sista stoppet): fokus flyttas till den som finns kvar, annars till Fortsätt
+    if (pressed?.id?.startsWith('pause-') && pressed.hidden) {
+      const other = [$('pause-prev-stop'), $('pause-next-stop')].find(b => !b.hidden) ?? $('pause-go');
+      other.focus({ preventScroll: true });
+    }
+  }
+  $('pause-prev-stop').addEventListener('click', () => stepStop(-1));
+  $('pause-next-stop').addEventListener('click', () => stepStop(1));
+  // Raden bytte text eller försvann: den visar inte längre stoppet, och knapparna har inget att utgå från
+  timeline.addEventListener('pausenote', e => {
+    if (e.detail.text !== stepText) { stepIdx = -1; stepText = null; }
+    updateStepButtons();
+  });
+
+  /**
+   * Tiden står på ett resestopp när fokus på resan börjar eller när Bakåt och Framåt flyttar tiden (adressen, #1380): visa stoppet
+   * i pausraden, så att en länk till "Magellan vid stopp 4" visar stoppet och stegknapparna. Ger true när ett stopp visades.
+   * Gäller bara när resans pauser är på (Lager) och uppspelningen står still.
+   */
+  function restoreStop() {
+    if (!state.focusRoute || timeline.playing || !layers.pause.route) return false;
+    const stops = stopsForRoute(state.focusRoute);
+    const at = stopIndexAt(stops, timeline.year);
+    if (at < 0) return false;
+    routeStops = followersAtSameTime(stops, at);
+    shownStops = new Set(keysThrough(stops, at));
+    showRouteStop(stops[at], at);
+    return true;
   }
 
   /** Platsens eller temats stopp (#1255): händelserna med top eller major, annars alla, i tidsordning. */
@@ -225,12 +296,13 @@ export function createPlayback(app) {
   }
 
   /** Ett nytt fokus börjar (startFocus): resans kö töms. */
-  function clearRouteStops() { routeStops = []; }
+  function clearRouteStops() { routeStops = []; stepIdx = -1; stepText = null; updateStepButtons(); }
   /** Ett nytt fokus börjar på startYear (startFocus): passerade stopp räknas därifrån. */
   function startAt(startYear) { lastYear = startYear; }
   /** Fokus avslutas (endFocus): köerna, de visade stoppen och Spela klart glöms. */
   function reset() {
     warStops = []; routeStops = []; shownStops = new Set(); endShown = false; finishing = false;
+    stepIdx = -1; stepText = null; updateStepButtons();
   }
 
   timeline.addEventListener('change', () => {
@@ -330,5 +402,5 @@ export function createPlayback(app) {
   // Raden "Nästa paus" följer pausvalen i Lager
   $('layer-menu').addEventListener('change', e => { if (e.target.dataset.pause) showNextPause(); });
 
-  return { check, startAt, clearRouteStops, reset, showNextPause, warEndOf, playToEnd, stopCountdown };
+  return { check, startAt, clearRouteStops, restoreStop, reset, showNextPause, warEndOf, playToEnd, stopCountdown };
 }

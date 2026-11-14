@@ -112,6 +112,8 @@ export function createAddress(app) {
           timeline.year = s.year; // fokus kan ha flyttat året till sin start
         } else if (state.focus) app.endFocus();
       }
+      // En länk till ett stopp på en resa och Bakåt eller Framåt mellan stoppen visar stoppet i pausraden igen (#1380)
+      if (state.focusRoute) app.playback.restoreStop();
       if (s.camera) { globe.flyTo(s.camera.lat, s.camera.lon, 600); globe.setZoom(s.camera.zoom); }
       app.refresh();
     } finally {
@@ -141,8 +143,8 @@ export function createAddress(app) {
     return ok;
   }
 
-  /** force: skriv nu, utan att vänta tills vyn står still (flush, #882). */
-  function write(force = false) {
+  /** force: skriv nu, utan att vänta tills vyn står still (flush, #882). push: ändringen blir en egen post i historiken (resans stopp, #1380). */
+  function write(force = false, push = false) {
     if (done !== version) return; // en inställning av vyen pågår
     const cur = current(), pos = position();
     const hash = hashOf(cur, pos);
@@ -155,7 +157,7 @@ export function createAddress(app) {
     // Vänta tills vyn står still, utom när ett läge eller turens steg har bytts: det skrivs direkt (#882, #893)
     if (!force && !newTour && !timeline.playing && hash !== seenHash) { seenHash = hash; return; }
     const url = `${location.pathname}${search()}${hash}`;
-    if (newTour || isNewStep(written, cur, { playing: timeline.playing })) history.pushState(null, '', url);
+    if (newTour || push || isNewStep(written, cur, { playing: timeline.playing })) history.pushState(null, '', url);
     else history.replaceState(null, '', url);
     written = cur; writtenHash = seenHash = hash;
   }
@@ -228,8 +230,9 @@ export function createAddress(app) {
   /**
    * Skriver vyn i adressen nu. Språkbytet (js/i18n.js) laddar om sidan direkt och tar adressen som den står; utan flush
    * står steget före senaste Nästa kvar (adressen skrivs annars först när vyn har stått still, #882).
+   * push: skriv som en egen post i historiken, så att Bakåt går tillbaka till föregående stopp på en resa (#1380).
    */
-  function flush() { write(true); }
+  function flush({ push = false } = {}) { write(true, push); }
 
   return { start, link, share, flush };
 }

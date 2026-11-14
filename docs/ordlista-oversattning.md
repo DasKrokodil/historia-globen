@@ -84,6 +84,7 @@ Artigt tilltal i alla språk, så att tyska, spanska och franska är lika:
 | Visste du att …? | Did you know? | ¿Sabía que…? (artigt) | Le saviez-vous ? |
 | Översikt (vy) | Overview | Resumen | Aperçu |
 | Upptäcktsresor (vy och lager; inte kategorin) | Voyages of discovery | Viajes de descubrimiento | Grandes découvertes |
+| Föregående stopp / Nästa stopp (resa, #1380) | Previous stop / Next stop (de: *Vorherige Station* / *Nächste Station*) | Parada anterior / Parada siguiente | Étape précédente / Étape suivante |
 | Historia-globen (produktnamnet) | Historia-globen | Historia-globen | Historia-globen |
 
 **Ordval enligt #1140 (beslut 2026-11-11, [2026-11-11-ordval-1140](beslut/2026-11-11-ordval-1140.md)).** Tyska kolumnen står här eftersom tabellen saknar den: menyn *Suchen und folgen*, läget *folgen* (etikett *Sie folgen*), *Überblick* (vy), *Entdeckungsreisen* (vy och lager), *Wussten Sie?* (kortet och teckenförklaringen). Reglerna:

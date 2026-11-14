@@ -3829,6 +3829,202 @@ async function run(browser, vp) {
     }
   });
 
+  // Följ en resa: Föregående och Nästa stopp i pausraden (#1380). Varje kontroll öppnar en egen sida med en länk, så att
+  // kontrollerna inte påverkar varandra, och länken är samtidigt det som delas ("Columbus vid stopp 4").
+  const stopPage = async hash => {
+    const sp = await context.newPage();
+    const errs = [];
+    sp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) pushConsole(errs, m); });
+    sp.on('pageerror', e => errs.push(e.message));
+    if (THREE_LOCAL) {
+      const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+      await sp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+      await sp.route(u => isFont(u.href), r => r.abort());
+    }
+    await sp.goto(`${BASE}?ny=rs${Math.random().toString(36).slice(2, 7)}${hash}`);
+    await sp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+    await sp.waitForSelector('#focus-bar', { state: 'visible', timeout: T.step });
+    return { sp, errs };
+  };
+  const stopRow = sp => sp.evaluate(() => {
+    const r = id => { const e = document.getElementById(id); return e && !e.hidden && e.getClientRects().length ? Math.round(e.getBoundingClientRect().height) : 0; };
+    return {
+      text: document.getElementById('pause-text').textContent.trim(), note: r('pause-note'), prev: r('pause-prev-stop'), next: r('pause-next-stop'),
+      go: r('pause-go'), focused: document.activeElement?.id ?? '', hash: location.hash,
+      status: document.getElementById('screen-reader-status')?.textContent ?? '',
+    };
+  });
+  const stopHash = hash => ({ year: Number(/[#&]y=([-\d.]+)/.exec(hash)?.[1]), camera: /&c=([^&]+)/.exec(hash)?.[1] });
+  const waitStop = (sp, name) => sp.waitForFunction(n => document.getElementById('pause-text').textContent.includes(n) && !document.getElementById('pause-note').hidden, name, { timeout: T.step });
+
+  await check('resans stopp: Nästa och Föregående stegar mellan stoppen (#1380)', async () => {
+    const { sp, errs } = await stopPage('#y=1492.5&f=route:columbus-resa-1');
+    try {
+      // Länken står på resans första stopp (året före det flyttas dit), så pausraden visar det direkt
+      await waitStop(sp, 'Palos de la Frontera');
+      const first = await stopRow(sp);
+      if (first.prev || !first.next || !first.go) throw new Error(`vid första stoppet ska Föregående saknas och Nästa och Fortsätt finnas: ${JSON.stringify(first)}`);
+      const names = ['Guanahaní', 'La Navidad', 'Rincónbukten', 'Lissabon', 'Palos de la Frontera'];
+      const seen = [stopHash(first.hash)];
+      for (const [i, name] of names.entries()) {
+        await sp.click('#pause-next-stop');
+        await waitStop(sp, name);
+        const row = await stopRow(sp);
+        seen.push(stopHash(row.hash));
+        const last = i === names.length - 1;
+        if (!row.prev) throw new Error(`Föregående saknas vid stopp ${i + 2}`);
+        if (last === !!row.next) throw new Error(`Nästa ${row.next ? 'syns' : 'saknas'} vid stopp ${i + 2} av 6`);
+        // Skärmläsaren får "Stopp 3 av 6" före platsen och datumet
+        await sp.waitForFunction(n => document.getElementById('screen-reader-status').textContent.startsWith(`Stopp ${n} av 6`), i + 2, { timeout: T.step });
+        if (last && row.focused !== 'pause-prev-stop') throw new Error(`fokus flyttades inte till Föregående när Nästa försvann: ${row.focused}`);
+      }
+      if (new Set(seen.map(s => s.year)).size !== 6) throw new Error(`året följde inte stoppen: ${seen.map(s => s.year).join(', ')}`);
+      if (new Set(seen.map(s => s.camera)).size < 5) throw new Error(`kameran följde inte stoppen: ${seen.map(s => s.camera).join(' | ')}`);
+      // Stegen går att ta tillbaka, och vid första stoppet försvinner Föregående med fokus flyttat till Nästa
+      for (let i = 0; i < 5; i++) { await sp.click('#pause-prev-stop', { timeout: T.step }); await sp.waitForFunction(n => document.getElementById('screen-reader-status').textContent.startsWith(`Stopp ${n} av 6`), 5 - i, { timeout: T.step }); }
+      const back = await stopRow(sp);
+      if (back.prev || !back.next || back.focused !== 'pause-next-stop' || !back.text.includes('Palos de la Frontera')) throw new Error(`tillbaka vid första stoppet: ${JSON.stringify(back)}`);
+      if (stopHash(back.hash).year !== seen[0].year) throw new Error(`första stoppets år kom inte tillbaka: ${back.hash}`);
+      // Knapparna säger vilket stopp de går till
+      const label = await sp.getAttribute('#pause-next-stop', 'aria-label');
+      if (!/Nästa stopp: Guanahaní.*12 oktober 1492.*stopp 2 av 6/.test(label)) throw new Error(`Nästa stopp saknar plats, datum och läge i namnet: ${label}`);
+      if (errs.length) throw new Error(`konsolfel: ${errs.join('; ')}`);
+      return `sex stopp stegade framåt och tillbaka, året och kameran följde, fokus flyttades till kvarvarande knapp; ${label}`;
+    } finally { await sp.close(); }
+  });
+
+  await check('resans stopp: Fortsätt och Bakåt går från stoppet man har stegat till (#1380)', async () => {
+    // Lissabon, 4 mars 1493, är stopp 5 av 6 och ligger bara elva dagar före hemkomsten, så Fortsätt hinner dit inom en kontroll
+    const { sp } = await stopPage('#y=1493.1699&f=route:columbus-resa-1');
+    try {
+      await waitStop(sp, 'Lissabon');
+      await sp.click('#pause-prev-stop');
+      await waitStop(sp, 'Rincónbukten');
+      await sp.click('#pause-next-stop');
+      await waitStop(sp, 'Lissabon');
+      // Fortsätt går vidare till nästa stopp, inte tillbaka till stoppet man står på
+      await sp.click('#pause-go');
+      await waitStop(sp, 'Palos de la Frontera');
+      if ((await stopRow(sp)).next) throw new Error('Nästa syns vid sista stoppet efter Fortsätt');
+      // Ett steg bakåt och sedan Fortsätt går till stoppet efter igen, eftersom kön följer det man stegade till
+      await sp.click('#pause-prev-stop');
+      await waitStop(sp, 'Lissabon');
+      await sp.click('#pause-go');
+      await waitStop(sp, 'Palos de la Frontera');
+      // Bakåt i webbläsaren är vägen tillbaka: varje steg är en egen post i historiken
+      await sp.click('#pause-prev-stop');
+      await waitStop(sp, 'Lissabon');
+      await sp.goBack();
+      await waitStop(sp, 'Palos de la Frontera');
+      const restored = await stopRow(sp);
+      if (restored.next || !restored.prev) throw new Error(`Bakåt visade inte sista stoppet med Föregående: ${JSON.stringify(restored)}`);
+      if (!restored.hash.includes('f=route:columbus-resa-1')) throw new Error(`Bakåt lämnade resan: ${restored.hash}`);
+      return 'Fortsätt går framåt från stoppet man stegade till, också efter ett steg bakåt; Bakåt ger föregående stopp med knapparna';
+    } finally { await sp.close(); }
+  });
+
+  await check('resans stopp: en länk med ett stopps år återskapar stoppet och Escape lämnar resan (#1380)', async () => {
+    // Lissabon, 4 mars 1493: stopp 5 av 6
+    const { sp } = await stopPage('#y=1493.1699&f=route:columbus-resa-1');
+    try {
+      await waitStop(sp, 'Lissabon');
+      const row = await stopRow(sp);
+      if (!row.prev || !row.next) throw new Error(`länken till ett stopp visar inte båda stegknapparna: ${JSON.stringify(row)}`);
+      if (!/^Stopp 5 av 6/.test(row.status)) throw new Error(`skärmläsaren fick inte stoppets plats i resan: ${row.status}`);
+      await sp.click('#pause-next-stop');
+      await waitStop(sp, 'Palos de la Frontera');
+      // Escape från en stegknapp lämnar resan, som för ett tema, och fokus går till Sök och följ
+      await sp.focus('#pause-prev-stop');
+      await sp.keyboard.press('Escape');
+      await sp.waitForSelector('#focus-bar', { state: 'hidden', timeout: T.step });
+      // I smal skärm ligger Sök och följ i menyn Meny, som inte är öppen: fokus går då till menyknappen
+      const want = vp.width <= 760 ? 'more-toggle' : 'btn-focus';
+      const got = await sp.evaluate(() => document.activeElement?.id);
+      if (got !== want) throw new Error(`fokus gick inte till ${want} efter Escape: ${got}`);
+      return 'länken till Lissabon visar stoppet med båda knapparna; Escape lämnar resan';
+    } finally { await sp.close(); }
+  });
+
+  await check('resans stopp: en resa utan daterade stopp visar inga stegknappar (#1380)', async () => {
+    // Leif Erikssons resa har ingen plats med stopp: pausraden kommer aldrig, och knapparna finns inte
+    const { sp, errs } = await stopPage('#y=1000&f=route:vikingar-leif-eriksson');
+    try {
+      const title = await sp.textContent('#focus-title');
+      if (!/1000|1001/.test(title)) throw new Error(`rubriken säger inte resans spann: ${title}`);
+      await sp.click('#focus-action');
+      await sp.waitForFunction(() => document.getElementById('focus-action').dataset.action === 'pause', null, { timeout: T.step });
+      await sp.click('#focus-action');
+      const row = await stopRow(sp);
+      if (row.prev || row.next) throw new Error(`en resa utan stopp visar stegknappar: ${JSON.stringify(row)}`);
+      if (await sp.locator('.tdot.route-stop').count()) throw new Error('resan visar stopp på tidslinjen fast den saknar dem');
+      if (errs.length) throw new Error(`konsolfel: ${errs.join('; ')}`);
+      return `rubriken "${title}", inga knappar, inget fel`;
+    } finally { await sp.close(); }
+  });
+
+  await check('resans stopp: ingen bläddring när en tur tar över (#1380)', async () => {
+    const { sp } = await stopPage('#y=1492.5&f=route:columbus-resa-1');
+    try {
+      // Länken står på resans första stopp (året före det flyttas dit), så pausraden visar det direkt
+      await waitStop(sp, 'Palos de la Frontera');
+      if (!(await stopRow(sp)).next) throw new Error('Nästa stopp saknas före turen');
+      // En tur avslutar Fokus (MODE_RULES): resan och dess knappar försvinner
+      await sp.evaluate(() => { location.hash = '#t=forsta-varldskriget'; });
+      await sp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      const row = await stopRow(sp);
+      if (row.prev || row.next) throw new Error(`stegknappar syns i en tur: ${JSON.stringify(row)}`);
+      if (await sp.locator('#focus-bar').isVisible()) throw new Error('resan följs fortfarande i turen');
+      return 'turen avslutar resan och inga stegknappar syns';
+    } finally { await sp.close(); }
+  });
+
+  await check('resans stopp: ingen bläddring i lektionsläget (#1380)', async () => {
+    const sp = await context.newPage();
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await sp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await sp.route(u => isFont(u.href), r => r.abort());
+      }
+      // Länken har både en lektion och ett fokus på en resa: turen i länken går före en delad vy (js/controllers/address.js), så resan följs aldrig
+      await sp.goto(`${BASE}?ny=rl#y=1492.5&f=route:columbus-resa-1&t=andra-varldskriget&m=lektion&s=stalingrad`);
+      await sp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await sp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      if (await sp.locator('#focus-bar').isVisible()) throw new Error('en resa följs i lektionsläget');
+      const row = await stopRow(sp);
+      if (row.prev || row.next) throw new Error(`stegknappar syns i lektionsläget: ${JSON.stringify(row)}`);
+      return 'lektionen stoppar Fokus och inga stegknappar syns';
+    } finally { await sp.close(); }
+  });
+
+  await check('resans stopp: pausraden med knapparna ryms och fokusraden ligger ovanför (#1380)', async () => {
+    const { sp } = await stopPage('#y=1492.5&f=route:columbus-resa-1');
+    try {
+      // Länken står på resans första stopp (året före det flyttas dit), så pausraden visar det direkt
+      await waitStop(sp, 'Palos de la Frontera');
+      const narrow = vp.width <= 760;
+      for (const text of ['Guanahaní', 'La Navidad']) { // La Navidad har den längsta texten
+        await sp.click('#pause-next-stop');
+        await waitStop(sp, text);
+        const m = await sp.evaluate(() => {
+          const box = id => { const b = document.getElementById(id).getBoundingClientRect(); return { top: b.top, bottom: b.bottom, left: b.left, right: b.right, height: b.height }; };
+          return { note: box('pause-note'), focus: box('focus-bar'), prev: box('pause-prev-stop'), next: box('pause-next-stop'), go: box('pause-go'),
+            width: innerWidth, height: innerHeight, scroll: document.documentElement.scrollWidth };
+        });
+        if (m.scroll > m.width) throw new Error(`${text}: sidan får horisontell scroll (${m.scroll} > ${m.width})`);
+        if (m.note.left < 0 || m.note.right > m.width || m.note.bottom > m.height) throw new Error(`${text}: pausraden ryms inte: ${JSON.stringify(m.note)}`);
+        if (m.focus.bottom > m.note.top + 1) throw new Error(`${text}: fokusraden ligger över pausraden (${m.focus.bottom} > ${m.note.top})`);
+        // Mobil: minst 44 px (jump-back-mönstret); dator: 32 px
+        const min = narrow ? 44 : 32;
+        for (const key of ['prev', 'next', 'go']) if (m[key].height < min - 0.5) throw new Error(`${text}: knappen ${key} är ${m[key].height} px, under ${min}`);
+        // Knapparna ligger på en rad i smal skärm (pausraden ska inte bli högre än text + en knapprad)
+        if (narrow && (Math.abs(m.prev.top - m.next.top) > 1 || Math.abs(m.next.top - m.go.top) > 1)) throw new Error(`${text}: knapparna bryts på flera rader`);
+      }
+      await sp.screenshot({ path: path.join(OUT, `${vp.name}-1380-resa-stopp-pausrad.png`) });
+      return `knapparna är minst ${narrow ? 44 : 32} px, pausraden ryms och fokusraden ligger ovanför`;
+    } finally { await sp.close(); }
+  });
+
   // Magellans resa fick källbelagda stopp med korta platsnamn (#1377)
   await check('Magellans resa har tio stopp med korta namn', async () => {
     try {
