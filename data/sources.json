@@ -2563,8 +2563,13 @@
     {"id": "wp-en-golden-horns-of-gallehus", "title": "Golden horns of Gallehus – Wikipedia (på engelska)", "url": "https://en.wikipedia.org/wiki/Golden_horns_of_Gallehus", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
     {"id": "wp-sv-skedemosse", "title": "Skedemosse – Wikipedia (på svenska)", "url": "https://sv.wikipedia.org/wiki/Skedemosse", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
     {"id": "wp-en-levanluhta", "title": "Levänluhta – Wikipedia (på engelska)", "url": "https://en.wikipedia.org/wiki/Lev%C3%A4nluhta", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
-    {"id": "wd-hagahogen", "title": "Hågahögen – Wikidata (Q1540834)", "url": "https://www.wikidata.org/wiki/Q1540834", "license": "CC0", "checked": "2026-11-14"},
-    {"id": "wd-trundholmsvagnen", "title": "Trundholmsvagnen – Wikidata (Q1137682)", "url": "https://www.wikidata.org/wiki/Q1137682", "license": "CC0", "checked": "2026-11-14"},
-    {"id": "wd-gallehushornen", "title": "Gallehushornen – Wikidata (Q1394096)", "url": "https://www.wikidata.org/wiki/Q1394096", "license": "CC0", "checked": "2026-11-14"}
+    {"id": "raa-lamning-akermyra", "title": "Fyndplats för paddelåra, Hedemora – Riksantikvarieämbetets fornlämningsregister via K-samsök", "url": "https://kulturarvsdata.se/raa/lamning/aea1ed7c-9219-4008-99c5-dd812b97c6bc", "license": "Riksantikvarieämbetet, K-samsök (bara länkad, ingen text kopierad)", "checked": "2026-11-14"},
+    {"id": "kyppi-astuvansalmi", "title": "Astuvansalmi – Museiverkets fornlämningsregister (Kyppi)", "url": "https://www.kyppi.fi/to.aspx?id=112.696010003", "license": "Museiverket, Kyppi (bara länkad, ingen text kopierad)", "checked": "2026-11-14"},
+    {"id": "kyppi-sammallahdenmaki", "title": "Sammallahdenmäki – Museiverkets fornlämningsregister (Kyppi)", "url": "https://www.kyppi.fi/to.aspx?id=112.406010010", "license": "Museiverket, Kyppi (bara länkad, ingen text kopierad)", "checked": "2026-11-14"},
+    {"id": "kyppi-levanluhta", "title": "Levänluhta – Museiverkets fornlämningsregister (Kyppi)", "url": "https://www.kyppi.fi/to.aspx?id=112.152010020", "license": "Museiverket, Kyppi (bara länkad, ingen text kopierad)", "checked": "2026-11-14"},
+    {"id": "historiska-hagahogen", "title": "Hågahögen – Historiska museet", "url": "https://historiska.se/utforska-historien/kunskapsbank/hagahogen-historiska-museet/", "license": "Historiska museet (bara länkad, ingen text kopierad)", "checked": "2026-11-14"},
+    {"id": "natmus-egtvedpigen", "title": "Egtvedpigen – Nationalmuseet", "url": "https://natmus.dk/historisk-viden/danmark/oldtid-indtil-aar-1050/bronzealderen-1700-fkr-500-fkr/egtvedpigen/", "license": "Nationalmuseet (bara länkad, ingen text kopierad)", "checked": "2026-11-14"},
+    {"id": "natmus-solvognen", "title": "Solvognen – Nationalmuseet", "url": "https://natmus.dk/historisk-viden/danmark/oldtid-indtil-aar-1050/bronzealderen-1700-fkr-500-fkr/solvognen/", "license": "Nationalmuseet (bara länkad, ingen text kopierad)", "checked": "2026-11-14"},
+    {"id": "natmus-guldhornene", "title": "Guldhornene – Nationalmuseet", "url": "https://natmus.dk/historisk-viden/danmark/oldtid-indtil-aar-1050/yngre-jernalder-400-800/guldhornene/", "license": "Nationalmuseet (bara länkad, ingen text kopierad)", "checked": "2026-11-14"}
   ]
 }
