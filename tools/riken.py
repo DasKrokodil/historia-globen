@@ -1527,7 +1527,8 @@ GROUPS = {
     ]),
     # Inre Asien 1500–1800, Afrika 1850 och Tibet 1912–1952 (#1331, ur helganalysen #1289). Svenska och engelska namn är
     # Wikidatas etiketter, utom Khedivatet Egypten (svenska Wikipedias titel; etiketten "Khedivet" ser ut som ett skrivfel)
-    # och gruppen Egypten under ätten Muhammed Ali (Wikidatas namn på ätten; Cliopatrias id är en historieartikel).
+    # och gruppen Egypten under ätten Muhammed Ali (Wikidatas namn på ätten, Q142913, som ersätter Cliopatrias id Q3057606,
+    # en historieartikel; de och es är egna översättningar byggda på Q142913:s etiketter, fr är franska Wikipedias titel för Q3057606).
     # Mogulistan: Cliopatria delar khanatet i en östra och en västra del 1519; alla tre har samma Wikidata-id och samma namn.
     # Tibet (Q2444884): bara 1912–1952. Tibet 1363–1793 väntar, eftersom Cliopatrias id där är "Tibets historia"
     # (beslut 2026-11-07-riken-namn-645). Tibet erkändes nästan inte av någon stat; som Rhodesia visas det som i Cliopatria
@@ -1545,7 +1546,7 @@ GROUPS = {
     ]),
     'egypten-muhammad-ali': ('Egypten under ätten Muhammed Ali', 'Egypt under the Muhammad Ali dynasty', [
         ('Muhammad Ali dynasty', 'egypten-muhammad-ali', 'Egypten under ätten Muhammed Ali', '#c9a23a',
-         {'en': 'Egypt under the Muhammad Ali dynasty'}),
+         {'en': 'Egypt under the Muhammad Ali dynasty', 'wikidata': 'Q142913'}),
         ('Khedivate of Egypt', 'khedivatet-egypten', 'Khedivatet Egypten', '#c9a23a', {'en': 'Khedivate of Egypt'}),
     ]),
     'sokotokalifatet': ('Sokotokalifatet', 'Sokoto Caliphate', [
