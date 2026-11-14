@@ -548,6 +548,10 @@ async function run(browser, vp) {
     if ((await helpButton.getAttribute('aria-expanded')) !== 'true') throw new Error('Hjälp-knappen visar inte att hjälpen är öppen');
     if (await page.evaluate(() => document.activeElement?.id !== 'help-close')) throw new Error('fokus flyttas inte till Stäng när hjälpen öppnas');
     await shot('1-hjalp-oppnas');
+    // #1454: den fjärde raden förklarar att de prickade konturerna går att trycka på, och vad Enter gör
+    const placeStep = (await page.textContent('#help .help-steps li:nth-child(4)')).replace(/\s+/g, ' ');
+    if (!/Läs om en plats/.test(placeStep) || !/prickad kontur/.test(placeStep) || !/Enter/.test(placeStep)) throw new Error(`hjälpen förklarar inte konturerna runt platser: ${placeStep}`);
+    if (await help.evaluate(el => el.scrollWidth > el.clientWidth)) throw new Error('hjälpen rullar i sidled');
     await page.keyboard.press('Escape');
     await hidden('#help');
     if ((await helpButton.getAttribute('aria-expanded')) !== 'false') throw new Error('Hjälp-knappen visar inte att hjälpen är stängd');
@@ -2375,6 +2379,93 @@ async function run(browser, vp) {
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
       return 'platsen avslutar intervallet och börjar vid slutåret (annars intervallets början), kortet säger det, och ett nytt intervall avslutar platsen';
     } finally { await tctx.close(); }
+  });
+
+  // #1454: Enter på globen eller kartan. Följer man en plats öppnar Enter kortet igen (som knappen Fakta), och medan man följer något
+  // annat, i en tur, en lektion eller ett tidsintervall säger statusraden varför ingenting händer i stället för att tiga.
+  // Statusraden är en live-region som skärmläsare läser upp. Raden som stod där före Enter är en annan, så vänteloopen kan inte ge falskt grönt.
+  await check('Enter i Fokus på en plats öppnar kortet igen, och i andra lägen säger statusraden varför (#1454)', async () => {
+    const enterSays = async (pg, re, what) => {
+      await pg.focus('#globe-canvas');
+      await pg.keyboard.press('Enter');
+      await pg.waitForFunction(src => new RegExp(src).test(document.getElementById('screen-reader-status').textContent), re.source, { timeout: T.step })
+        .catch(async () => { throw new Error(`${what}: statusraden sa inte ${re}, utan "${await pg.evaluate(() => document.getElementById('screen-reader-status').textContent)}"`); });
+      if (/f=place/.test(await pg.evaluate(() => location.hash))) throw new Error(`${what}: Enter startade en plats`);
+      // Den som ser får samma text en stund i beskedraden (link-notice), utan att skärmläsaren hör den två gånger (live-regionen är av)
+      await pg.waitForSelector('#link-notice-card', { state: 'visible', timeout: T.step });
+      const seen = await pg.evaluate(() => {
+        const card = document.getElementById('link-notice-card').getBoundingClientRect(), overlap = [];
+        for (const id of ['focus-bar', 'tour-card', 'lesson-band', 'range-bar', 'year-jump', 'timeline', 'detail', 'focus-moved']) {
+          const el = document.getElementById(id);
+          if (!el || el.hidden || !el.getClientRects().length) continue;
+          const r = el.getBoundingClientRect();
+          if (r.width && r.height && card.left < r.right && card.right > r.left && card.top < r.bottom && card.bottom > r.top) overlap.push(id);
+        }
+        return { text: document.getElementById('link-notice-text').textContent, live: document.getElementById('link-notice').getAttribute('aria-live'), overlap,
+          status: document.getElementById('screen-reader-status').textContent, wide: document.documentElement.scrollWidth > innerWidth };
+      });
+      if (!re.test(seen.text) || seen.text !== seen.status.trim()) throw new Error(`${what}: beskedraden säger "${seen.text}", statusraden "${seen.status}"`);
+      if (seen.live !== 'off') throw new Error(`${what}: beskedraden läses upp en andra gång (aria-live ${seen.live})`);
+      if (seen.overlap.length) throw new Error(`${what}: beskedraden täcker ${seen.overlap.join(', ')}`);
+      if (seen.wide) throw new Error(`${what}: horisontell scroll med beskedraden`);
+    };
+    // 1. Platsen följs: stäng kortet, och Enter på globen öppnar det igen. Samma på Platt karta.
+    const a = await placeTapPage('#y=1000&f=place:gronland', 'platsenter1');
+    try {
+      await followsGreenland(a.tp);
+      await a.tp.click('#detail [data-close]');
+      await a.tp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
+      await a.tp.focus('#globe-canvas');
+      await a.tp.keyboard.press('Enter');
+      await followsGreenland(a.tp);
+      if (!(await a.tp.isVisible('#detail .place-type'))) throw new Error('Enter öppnade inte platskortet igen på globen');
+      // Platt karta: knappen i kortet byter vy, kortet stängs, och Enter på kartan öppnar det igen
+      await a.tp.click('#detail [data-selection-action]');
+      await a.tp.waitForFunction(() => !document.getElementById('flat-view').hidden, null, { timeout: T.step });
+      await a.tp.click('#detail [data-close]');
+      await a.tp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
+      await a.tp.focus('#flat-canvas');
+      await a.tp.keyboard.press('Enter');
+      await followsGreenland(a.tp);
+      if ((await a.tp.getAttribute('#btn-flat', 'aria-pressed')) !== 'true') throw new Error('Platt vy stängdes av Enter');
+      if (a.errs.length) throw new Error(`fel i konsolen: ${a.errs.join(' | ')}`);
+    } finally { await a.tctx.close(); }
+    // 2. Ett krig följs: Enter öppnar ingen plats och statusraden säger varför
+    const b = await placeTapPage('#y=1942&f=war:andra-varldskriget', 'platsenter2');
+    try {
+      await b.tp.waitForFunction(() => !document.getElementById('focus-bar').hidden && /Andra världskriget/.test(document.getElementById('focus-title').textContent), null, { timeout: T.step });
+      await enterSays(b.tp, /Enter öppnar ingen plats medan du följer något\. Välj ”Tillbaka till hela tiden” först\./, 'krig');
+      if (!/Andra världskriget/.test(await b.tp.textContent('#focus-title'))) throw new Error('Enter ändrade vad som följs');
+      // Stäng tar bort raden, och en ny Enter visar den igen
+      await b.tp.click('#link-notice-close');
+      await b.tp.waitForSelector('#link-notice-card', { state: 'hidden', timeout: T.step });
+      if (b.errs.length) throw new Error(`fel i konsolen: ${b.errs.join(' | ')}`);
+    } finally { await b.tctx.close(); }
+    // 3. En tur pågår
+    const c = await placeTourPage('#t=test-plats', 'platsenter3');
+    try {
+      await c.tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      await enterSays(c.tp, /Enter öppnar ingen plats under en tur\. Välj ”Avsluta turen” först\./, 'tur');
+      if (!(await c.tp.isVisible('#tour-card'))) throw new Error('Enter avslutade turen');
+      if (c.errs.length) throw new Error(`fel i konsolen: ${c.errs.join(' | ')}`);
+    } finally { await c.tctx.close(); }
+    // 4. Lektionsläget
+    const d = await placeTourPage('#t=test-plats&m=lektion&s=b', 'platsenter4', true);
+    try {
+      await d.tp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
+      await enterSays(d.tp, /Enter öppnar ingen plats i lektionsläget\. Platser öppnas bara av lektionens steg\./, 'lektion');
+      if (!(await d.tp.isVisible('#lesson-band'))) throw new Error('Enter avslutade lektionen');
+      if (d.errs.length) throw new Error(`fel i konsolen: ${d.errs.join(' | ')}`);
+    } finally { await d.tctx.close(); }
+    // 5. Ett tidsintervall visas
+    const e = await placeTapPage('#y=1900&y2=1950', 'platsenter5');
+    try {
+      await e.tp.waitForFunction(() => !document.getElementById('range-bar').hidden, null, { timeout: T.step });
+      await enterSays(e.tp, /Enter öppnar ingen plats medan ett tidsintervall visas\. Välj ”Tillbaka till ett år” först\./, 'intervall');
+      if (await e.tp.isHidden('#range-bar')) throw new Error('Enter avslutade intervallet');
+      if (e.errs.length) throw new Error(`fel i konsolen: ${e.errs.join(' | ')}`);
+    } finally { await e.tctx.close(); }
+    return 'Enter öppnar platskortet igen på globen och kartan, och säger varför i krig, tur, lektion och intervall';
   });
 
   // #1162: platsens adress. En plats är ett fokus som alla andra och står som f=place:<id> i adressen (beslut 2026-11-13,

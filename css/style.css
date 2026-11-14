@@ -1464,12 +1464,24 @@ details.used-by summary:hover { color: var(--parchment); }
   border: 1px solid var(--line); border-radius: var(--r); font-size: 13px; line-height: 1.4;
 }
 .link-notice-card[hidden] { display: none; }
+/* #1454: medan man följer något ligger fokusraden på samma plats (bottom: 118px) och raden hamnar ovanför den, så att Tillbaka till hela tiden syns */
+@media (min-width: 761px) {
+  .app.focusing .link-notice { bottom: 176px; }
+  /* Faktarutan ligger till höger (cirka 410 px): raden flyttas åt vänster och smalnar, så att den inte täcker texten i den */
+  .app.has-detail .link-notice { left: calc(50% - 200px); max-width: min(520px, calc(100vw - 460px)); }
+}
 /* Visas Fokus-beskedet samtidigt (en trasig tur och ett tema som saknas i samma länk) ligger raden ovanför det, så att de inte täcker varandra */
 .focus-notice:not([hidden]) ~ .link-notice { bottom: 214px; }
 /* Smal skärm: raden ligger under årtalet i stället för över tidsreglaget, eftersom startläget öppnar Samtidigt-kortet som ett ark där nere och
    raden inte ska dölja det. Himlen ovanför globen är tom, och inget ligger ovanpå förrän besökaren agerar (då stängs raden). */
 @media (max-width: 760px) {
   .link-notice, .focus-notice:not([hidden]) ~ .link-notice { top: calc(env(safe-area-inset-top, 0px) + 96px); bottom: auto; }
+  /* Lektionsbandet (#795) skjuter ner årtalet: raden följer med, 90 px under årtalets överkant som annars (masthead + 90 px, rad 992–1003) */
+  /* Tidsintervallets rad (#755) är högre än sin text, eftersom knappen Tillbaka till ett år har 44 px hög träffyta: raden ligger under den */
+  body:has(.range-bar:not([hidden])) .link-notice { top: calc(env(safe-area-inset-top, 0px) + 126px); }
+  .app.lesson .link-notice { top: calc(env(safe-area-inset-top, 0px) + 152px); }
+  .app.lesson-teacher .link-notice { top: calc(env(safe-area-inset-top, 0px) + 182px); }
+  .app.lesson-notice .link-notice { top: calc(env(safe-area-inset-top, 0px) + 202px); }
 }
 .link-notice-text { margin: 0; flex: 1 1 auto; }
 .link-notice-card .link-btn { flex: none; min-height: 32px; font: inherit; white-space: nowrap; }
