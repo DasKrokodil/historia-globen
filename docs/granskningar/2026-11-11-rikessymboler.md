@@ -174,7 +174,7 @@ Byggt på grenen `claude/issue-1153-asien-2`. Källorna öppnades 2026-11-14: "F
 
 ## Uppföljning 2026-11-14: Afrika omgång 2 (#1154)
 
-Byggt på grenen `claude/issue-1154-afrika-2`. Källorna öppnades 2026-11-14: "Flag of …" på Wikipedia för antagandeåret och Commons-filsidan för licensen. Alla filer är public domain; de flesta är märkta insignia (inte Djibouti, Sudan 1956). Teckningarna i `img/flags/` följer Commons-filernas geometri; fält och ränder följer proportionen 3:2 och stjärnor och emblem behåller sin form. Ingen flagga visas före antagandeåret eller utanför gruppens år.
+Byggt på grenen `claude/issue-1154-afrika-2`. Källorna öppnades 2026-11-14: "Flag of …" på Wikipedia för antagandeåret och Commons-filsidan för licensen. Alla filer är public domain; alla utom Djibouti, Sudan 1956 och Kamerun 1957 är märkta insignia. Teckningarna i `img/flags/` följer Commons-filernas geometri; fält och ränder följer proportionen 3:2 och stjärnor och emblem behåller sin form. Ingen flagga visas före antagandeåret eller utanför gruppens år.
 
 | Grupp | Visas | Anmärkning |
 |---|---|---|
@@ -195,6 +195,16 @@ Byggt på grenen `claude/issue-1154-afrika-2`. Källorna öppnades 2026-11-14: "
 | Kamerun | 1960 och 1975–2024 | Trikoloren enligt lag 1957-10-26, bekräftad i konstitutionen 1960-02-21; stjärnan i det röda fältet från 1975-05-20. Förbundsrepublikens flagga med två stjärnor (1961–1974) är inte ritad (lucka): Commons-filen gick inte att hämta (429), och artikeln anger inte stjärnornas exakta plats |
 | Tanzania | 1964–2024 | Antagen 1964-06-30 efter unionen med Zanzibar. Tanganyikas flagga 1961–1963 är inte ritad (lucka), eftersom Commons-filen inte gick att hämta (429) |
 | Rwanda | 2002–2024 | Antagen 2001-12-31, alltså från 2002 på årsnivå. Flaggan med svart R (1961–2001) är inte ritad (lucka), eftersom Commons-filen inte gick att hämta (429) |
+
+**Källorna skiljer sig:** Tunisiens ursprung (1827 eller 1831), Sudans första flagga (övergiven efter kuppen 1969 eller använd till 1970; filnamnet säger 1956–1970) och Övre Voltas flagga (1960 i Wikipedia, 1959–1984 på Commons filsida). Inget av fallen ändrar vilka år som visas, eftersom grupperna börjar senare eller bytet sker på samma år.
+
+**Väntar i Afrika:**
+- **Commons-filerna gick inte att hämta (429) under arbetet:** Burkina Faso (Övre Volta 1961–1983 och Burkina Faso från 1984), Kamerun 1961–1974, Tanganyika 1961–1963 och Rwanda 1963–2001. Åren och licenserna är lästa; bara teckningarna saknas.
+- **Emblem som behöver ritas förenklat ur Commons-filen:** Kenya (Maasai-sköld och spjut), Uganda (kronkranen), Zambia (örnen), Angola (macheten och kugghjulet), Zimbabwe (Zimbabwefågeln), Eswatini (skölden med spjut och tofsar) och Eritrea (olivkvisten; 1993 års version är inte öppnad).
+- **Flera flaggor efter varandra:** Libyen, Egypten från 1922, Kongo-Kinshasa, Kongo-Brazzaville, Malawi, Lesotho, Burundi, Moçambique, Etiopien (1975–1987 och från 2009) och Ekvatorialguinea (nuvarande).
+- "vänta" och "ingen" i tabellen är inte prövade igen.
+
+**Expertgranskning:** arbetaren kunde inte kalla in `historiker` och `geograf` (inget verktyg för underagenter). Fakta, källor och etikettpunkter granskas separat av en Claude Code som inte byggde ändringen.
 
 **Medaljens plats:** etikettpunkten för varje grupp och år med flagga ligger inom Cliopatrias yta och i rätt land i Natural Earth 1:50m admin-0 (kontrollskriptet från #1194 och #1497). Ingen `labelAt` behövdes. Wikidata-id för varje del är kontrollerat mot Wikidata (till exempel Q1014 Liberia, Q958 Sydsudan, Q1049 Sudan).
 
