@@ -2536,6 +2536,22 @@
     {"id": "wp-flag-montenegro", "title": "Flag of Montenegro – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Montenegro", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
     {"id": "commons-flagga-montenegro", "title": "Flag of Montenegro – Montenegros flagga (Wikimedia Commons, filsida; form och färger i den förenklade teckningen; märkt insignia)", "url": "https://commons.wikimedia.org/wiki/File:Flag_of_Montenegro.svg", "license": "Public domain (PD-SCGGov; Montenegros upphovsrättslag, status antagen enligt filsidan)", "checked": "2026-11-14"},
     {"id": "wp-flag-malta", "title": "Flag of Malta – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Malta", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
-    {"id": "commons-flagga-malta", "title": "Flag of Malta – Maltas flagga (Wikimedia Commons, filsida; form och färger i den förenklade teckningen; märkt insignia)", "url": "https://commons.wikimedia.org/wiki/File:Flag_of_Malta.svg", "license": "Public domain (Maltas regering enligt filsidan; CC Public Domain Mark 1.0)", "checked": "2026-11-14"}
+    {"id": "commons-flagga-malta", "title": "Flag of Malta – Maltas flagga (Wikimedia Commons, filsida; form och färger i den förenklade teckningen; märkt insignia)", "url": "https://commons.wikimedia.org/wiki/File:Flag_of_Malta.svg", "license": "Public domain (Maltas regering enligt filsidan; CC Public Domain Mark 1.0)", "checked": "2026-11-14"},
+    { "id": "wp-late-bronze-age-collapse", "title": "Late Bronze Age collapse – Wikipedia", "url": "https://en.wikipedia.org/wiki/Late_Bronze_Age_collapse", "license": "CC BY-SA 4.0", "checked": "2026-11-14" },
+    { "id": "wp-treaty-of-tordesillas", "title": "Treaty of Tordesillas – Wikipedia", "url": "https://en.wikipedia.org/wiki/Treaty_of_Tordesillas", "license": "CC BY-SA 4.0", "checked": "2026-11-14" },
+    { "id": "wp-seven-years-war", "title": "Seven Years' War – Wikipedia", "url": "https://en.wikipedia.org/wiki/Seven_Years%27_War", "license": "CC BY-SA 4.0", "checked": "2026-11-14" },
+    { "id": "wp-1755-lisbon-earthquake", "title": "1755 Lisbon earthquake – Wikipedia", "url": "https://en.wikipedia.org/wiki/1755_Lisbon_earthquake", "license": "CC BY-SA 4.0", "checked": "2026-11-14" },
+    { "id": "wp-congress-of-vienna", "title": "Congress of Vienna – Wikipedia", "url": "https://en.wikipedia.org/wiki/Congress_of_Vienna", "license": "CC BY-SA 4.0", "checked": "2026-11-14" },
+    { "id": "wp-revolutions-of-1848", "title": "Revolutions of 1848 – Wikipedia", "url": "https://en.wikipedia.org/wiki/Revolutions_of_1848", "license": "CC BY-SA 4.0", "checked": "2026-11-14" },
+    { "id": "wp-proclamation-kingdom-of-italy", "title": "Proclamation of the Kingdom of Italy – Wikipedia", "url": "https://en.wikipedia.org/wiki/Proclamation_of_the_Kingdom_of_Italy", "license": "CC BY-SA 4.0", "checked": "2026-11-14" },
+    { "id": "wp-proclamation-german-empire", "title": "Proclamation of the German Empire – Wikipedia", "url": "https://en.wikipedia.org/wiki/Proclamation_of_the_German_Empire", "license": "CC BY-SA 4.0", "checked": "2026-11-14" },
+    { "id": "wp-treaty-of-versailles", "title": "Treaty of Versailles – Wikipedia", "url": "https://en.wikipedia.org/wiki/Treaty_of_Versailles", "license": "CC BY-SA 4.0", "checked": "2026-11-14" },
+    { "id": "wp-spanish-civil-war", "title": "Spanish Civil War – Wikipedia", "url": "https://en.wikipedia.org/wiki/Spanish_Civil_War", "license": "CC BY-SA 4.0", "checked": "2026-11-14" },
+    { "id": "wp-spanish-coup-1936", "title": "Spanish coup of July 1936 – Wikipedia", "url": "https://en.wikipedia.org/wiki/Spanish_coup_of_July_1936", "license": "CC BY-SA 4.0", "checked": "2026-11-14" },
+    { "id": "wp-hungarian-revolution-1956", "title": "Hungarian Revolution of 1956 – Wikipedia", "url": "https://en.wikipedia.org/wiki/Hungarian_Revolution_of_1956", "license": "CC BY-SA 4.0", "checked": "2026-11-14" },
+    { "id": "wp-prague-spring", "title": "Prague Spring – Wikipedia", "url": "https://en.wikipedia.org/wiki/Prague_Spring", "license": "CC BY-SA 4.0", "checked": "2026-11-14" },
+    { "id": "wp-invasion-czechoslovakia-1968", "title": "Warsaw Pact invasion of Czechoslovakia – Wikipedia", "url": "https://en.wikipedia.org/wiki/Warsaw_Pact_invasion_of_Czechoslovakia", "license": "CC BY-SA 4.0", "checked": "2026-11-14" },
+    { "id": "wp-ss-ideal-x", "title": "SS Ideal X – Wikipedia", "url": "https://en.wikipedia.org/wiki/SS_Ideal_X", "license": "CC BY-SA 4.0", "checked": "2026-11-14" },
+    { "id": "wp-globalization", "title": "Globalization – Wikipedia", "url": "https://en.wikipedia.org/wiki/Globalization", "license": "CC BY-SA 4.0", "checked": "2026-11-14" }
   ]
 }
