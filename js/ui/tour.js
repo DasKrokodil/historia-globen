@@ -35,6 +35,9 @@ export async function loadTours() {
   }
 }
 
+/** Sätter ihop meningar för uppläsning: en punkt emellan, men ingen dubbel när delen redan slutar med skiljetecken ("Texten.", "Frågan?"). */
+const sentences = parts => parts.filter(Boolean).reduce((out, part) => (out ? `${out}${/[.!?…:]$/.test(out) ? ' ' : '. '}${part}` : part), '');
+
 const fill = (text, values) => Object.entries(values).reduce((s, [k, v]) => s.replace(`{${k}}`, String(v)), text);
 
 export class TourPlayer {
@@ -327,7 +330,7 @@ export class TourPlayer {
     // Pausraden säger också varför tidsknapparna är låsta (#1280)
     const locked = t(this.labels.locked);
     const note = [fill(t(this.labels.paused), { title: t(this.tour.title) }), locked].filter(Boolean).join(' · ');
-    const say = [this.progress.textContent, t(step.chapter), t(step.title), this.status.hidden ? '' : this.status.textContent, t(step.text), t(step.question)].filter(Boolean).join('. ');
+    const say = sentences([this.progress.textContent, t(step.chapter), t(step.title), this.status.hidden ? '' : this.status.textContent, t(step.text), t(step.question)]);
     // Slutkortet har ingen pausrad, men skärmläsaren ska höra steget och att det var det sista (#878)
     const end = !this.last ? '' : app.lesson?.active ? ui('lesson.endAnnounce', { exit: ui('lesson.exit') }) : ui('tour.endAnnounce');
     // Kortet som steget öppnar på dator (en händelse eller en plats) säger sin rubrik när det öppnas (main.js, prioritet 2) och tog förut bort
@@ -335,7 +338,7 @@ export class TourPlayer {
     // En händelses kort öppnas direkt, en plats laddas först (showPlace): uppläsningen väntar då tills kortet har öppnats.
     const cardOpens = !app.narrow.matches && !!(step.open || step.place);
     const speak = heading => {
-      const text = [say, heading, end].filter(Boolean).join('. ');
+      const text = sentences([say, heading, end]);
       // Prioritet 3 för slutannonsen (#878): den ska inte tappas när slutstegets faktaruta, som har prioritet 2 i statusraden (#1419), öppnas samtidigt
       timeline.announce(text, this.last ? 3 : heading ? 2 : 0);
     };
@@ -367,7 +370,7 @@ export class TourPlayer {
    * Platserna laddas först nu, så steget kan ha bytts när de kommer: då visas inget.
    */
   showPlace(step, card, focus = false) {
-    return Promise.resolve(this.app.places?.openStep(step.place, { card, focus, current: () => !!this.tour && this.step === step })).then(Boolean);
+    return Promise.resolve(this.app.places?.openStep(step.place, { card, focus, current: () => !!this.tour && this.step === step })).then(Boolean, () => false); // en plats som inte gick att ladda: stegets text läses ändå
   }
 
   /** Stegindikatorn i kortet (#1280): ett streck per steg, de gjorda och det nuvarande fyllda. Bara en tillägg till

@@ -2276,6 +2276,132 @@ async function run(browser, vp) {
       return 'kortet öppnas i steget utan Fokus, med Läs om platsen i smal skärm, och följer med turen';
     } finally { await tctx.close(); }
   });
+  // #1464: uppföljning av platskortet i turens steg. Fyra kontroller: djuplänk till ett platssteg i en vanlig tur, ett vanligt Fokus som
+  // startas under en tur med platssteg, den gemensamma uppläsningen av steget och kortets namn, och raden om ett slutår utanför platsens spann.
+  /** Statusraden för skärmläsare (#screen-reader-status): texten som står där just nu. */
+  const spoken = pg => pg.evaluate(() => document.getElementById('screen-reader-status').textContent.trim());
+  const spokenIs = (pg, re) => pg.waitForFunction(r => new RegExp(r).test(document.getElementById('screen-reader-status').textContent.trim()), re.source, { timeout: T.step });
+  /** Öppnar Sök och följ och följer Grönland (menyn ligger bakom Mer eller Meny i smal skärm). */
+  const followGreenlandFromMenu = async pg => {
+    if (await pg.isHidden('#btn-focus') && await pg.isVisible('#more-toggle')) await pg.click('#more-toggle');
+    if (await pg.isHidden('#btn-focus') && await pg.isVisible('#btn-more')) await pg.click('#btn-more');
+    await pg.click('#btn-focus');
+    await pg.click('#focus-menu [data-tab="Platser"]');
+    await pg.click('#focus-menu [data-key="place:gronland"]');
+    await followsGreenland(pg);
+  };
+  await check('en djuplänk till ett platssteg i en vanlig tur öppnar steget och platsens kort (#1464)', async () => {
+    const { tp, tctx, errs } = await placeTourPage('#t=test-plats&s=b', 'platstur3');
+    try {
+      await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      await stepIs(tp, 2);
+      await placeCardInStep(tp, 'djuplänken', true);
+      if (await tp.getAttribute('#detail', 'aria-label') !== 'Om platsen') throw new Error(`kortets namn för skärmläsare är ${await tp.getAttribute('#detail', 'aria-label')}, inte Om platsen`);
+      if ((await tp.textContent('#year-big')).trim() !== '1000') throw new Error('djuplänken öppnade inte stegets år');
+      const hash = await tp.evaluate(() => location.hash);
+      if (!/t=test-plats/.test(hash) || !/s=b/.test(hash)) throw new Error(`adressen har inte turens steg: ${hash}`);
+      if (/f=/.test(hash)) throw new Error(`djuplänken startade ett Fokus: ${hash}`);
+      // Föregående går till ett steg utan plats och stänger kortet (i smal skärm täcker arket knappen: det stängs först)
+      if (narrowVp) { await tp.click('#detail [data-close]'); await tp.waitForSelector('#detail', { state: 'hidden', timeout: T.step }); }
+      await tp.click('#tour-back');
+      await stepIs(tp, 1);
+      await tp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return 'djuplänken öppnar steg 2 med platsens kort (Om platsen), utan Fokus; Föregående stänger kortet';
+    } finally { await tctx.close(); }
+  });
+  await check('ett vanligt Fokus under en tur med platssteg avslutar turen och ger Fokus-kortet (#1464)', async () => {
+    const { tp, tctx, errs } = await placeTourPage('#t=test-plats&s=b', 'platstur4');
+    try {
+      await stepIs(tp, 2);
+      await placeCardInStep(tp, 'steget');
+      // Kortet i steget har ingen Avsluta platsen. I smal skärm täcker det som ark knapparna: det stängs först
+      if (narrowVp) { await tp.click('#detail [data-close]'); await tp.waitForSelector('#detail', { state: 'hidden', timeout: T.step }); }
+      await followGreenlandFromMenu(tp);
+      // Turen avslutades av Fokus (MODE_RULES) och kortet är Fokus-kortet, med det som hör till Fokus
+      await tp.waitForSelector('#tour-card', { state: 'hidden', timeout: T.step });
+      if (await tp.evaluate(() => document.getElementById('app').classList.contains('touring'))) throw new Error('klassen touring låg kvar efter att Fokus avslutade turen');
+      if (!(await tp.locator('#detail [data-end-theme]').count())) throw new Error('Fokus-kortet saknar Avsluta platsen');
+      if (!(await tp.locator('#detail .place-flat').count())) throw new Error('Fokus-kortet saknar Visa i Platt karta');
+      const notes = await tp.locator('#detail .theme-filter-note').allTextContents();
+      if (notes.length !== 2 || !/dagens gräns/.test(notes[0]) || !/oavsett/.test(notes[1])) throw new Error(`Fokus-kortets noter är fel: ${notes.join(' | ')}`);
+      if (!/^Plats$/.test((await tp.textContent('#detail .story-label')).trim())) throw new Error('Fokus-kortets etikett är inte Plats');
+      if (await tp.getAttribute('#detail', 'aria-label') !== 'Om platsen') throw new Error('Fokus-kortet heter inte Om platsen för skärmläsare');
+      const hash = await tp.evaluate(() => location.hash);
+      if (!/f=place:gronland/.test(hash) || /(^#|&)t=/.test(hash) || /(^|&)s=/.test(hash)) throw new Error(`adressen efter Fokus är fel (turen ska vara borta): ${hash}`);
+      // Turens egna delar är borta: inget turkort, ingen läs-knapp, ingen "Avsluta turen" och tidsreglaget är fritt igen
+      for (const id of ['tour-card', 'tour-read', 'tour-end']) if (await tp.isVisible(`#${id}`)) throw new Error(`#${id} syns efter att Fokus avslutade turen`);
+      // Avsluta platsen stänger kortet, och turen kommer inte tillbaka
+      await tp.click('#detail [data-end-theme]');
+      await tp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
+      await tp.waitForSelector('#focus-bar', { state: 'hidden', timeout: T.step });
+      if (await tp.isVisible('#tour-card')) throw new Error('turen kom tillbaka när platsen avslutades');
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return 'Fokus avslutar turen, kortet är Fokus-kortet med Avsluta platsen och Visa i Platt karta, och ingen tur finns kvar när platsen avslutas';
+    } finally { await tctx.close(); }
+  });
+  await check('stegets text och kortets rubrik läses upp tillsammans, och kortet heter rätt (#1464)', async () => {
+    const { tp, tctx, errs } = await placeTourPage('#t=test-plats', 'platstur5');
+    try {
+      await stepIs(tp, 1);
+      await tp.click('#tour-next');
+      await stepIs(tp, 2);
+      if (narrowVp) {
+        // Kortet öppnas inte av sig självt: statusraden säger bara stegets text, och Läs om platsen öppnar kortet som säger sin rubrik
+        await spokenIs(tp, /^Steg 2 av 3\. Platsen\. Steget öppnar platsens kort\.$/);
+        await tp.click('#tour-read');
+        await spokenIs(tp, /^Plats: Grönland$/);
+      } else {
+        // En enda uppläsning: stegets text och sedan kortets rubrik, inte bara rubriken (och inte bara texten)
+        await spokenIs(tp, /^Steg 2 av 3\. Platsen\. Steget öppnar platsens kort\. Plats: Grönland$/);
+        // Det blir så också när kortet öppnades före uppläsningen (en omritning ändrar inte raden)
+        await tp.waitForTimeout(1800);
+        if (!/^Steg 2 av 3\. Platsen\. Steget öppnar platsens kort\. Plats: Grönland$/.test(await spoken(tp))) throw new Error(`uppläsningen ändrades efteråt: ${await spoken(tp)}`);
+      }
+      if (await tp.getAttribute('#detail', 'aria-label') !== 'Om platsen') throw new Error('platskortet heter inte Om platsen');
+      // Nästa steg utan plats: statusraden säger bara det stegets text
+      if (narrowVp) { await tp.click('#detail [data-close]'); await tp.waitForSelector('#detail', { state: 'hidden', timeout: T.step }); }
+      await tp.click('#tour-next');
+      await stepIs(tp, 3);
+      await spokenIs(tp, /^Steg 3 av 3\. Sista steget, utan plats\. Detta var sista steget i turen\.$/);
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+    } finally { await tctx.close(); }
+    // Samma mönster för ett steg med en händelse: stegets text och sedan faktarutans rubrik (på dator), och kortet heter Om händelsen
+    const ev = await touchPage();
+    try {
+      await ev.tp.goto(`${BASE}?ny=platstur6#t=andra-varldskriget`);
+      await ev.tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await ev.tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      await ev.tp.waitForFunction(() => /^Steg 1 av \d+$/.test(document.getElementById('tour-progress').textContent.trim()), null, { timeout: T.step });
+      if (narrowVp) {
+        await ev.tp.waitForTimeout(600);
+        if (/Om händelsen:/.test(await spoken(ev.tp))) throw new Error(`faktarutans rubrik lästes upp utan att rutan öppnades: ${await spoken(ev.tp)}`);
+      } else {
+        await spokenIs(ev.tp, /^Steg 1 av \d+\..+\. Om händelsen: .+$/);
+        const title = (await ev.tp.textContent('#detail h3')).trim();
+        if (!(await spoken(ev.tp)).endsWith(`Om händelsen: ${title}`)) throw new Error(`uppläsningen slutar inte med faktarutans rubrik (${title}): ${await spoken(ev.tp)}`);
+        if (await ev.tp.getAttribute('#detail', 'aria-label') !== 'Om händelsen') throw new Error('händelsens ruta heter inte Om händelsen');
+      }
+    } finally { await ev.tctx.close(); }
+    return narrowVp ? 'smal skärm: stegets text, kortets rubrik först när kortet öppnas' : 'steg med plats och steg med händelse: stegets text och kortets rubrik som en uppläsning';
+  });
+  await check('tidsintervall och plats: raden säger varför slutåret inte används när det ligger utanför platsens spann (#1464)', async () => {
+    const { tp, tctx, errs } = await placeTourPage('#y=1990&y2=2020', 'platsint3');
+    try {
+      await tp.waitForFunction(() => !document.getElementById('range-bar').hidden, null, { timeout: T.step });
+      await followGreenlandFromMenu(tp);
+      const banner = (await tp.locator('#detail .place-banner').allTextContents()).join(' | ');
+      const m = /^Tidsintervallet 1990–2020 avslutades när platsen började följas\. Platsens sista händelse är (\d+), så platsen visas för år 1990\.$/.exec(banner);
+      if (!m) throw new Error(`raden säger inte varför slutåret inte används: ${banner}`);
+      // Årtalet räknas ur platsens egna händelser: det är samma som slutet på spannet i fokusraden
+      const title = await tp.textContent('#focus-title');
+      if (!title.includes(`–${m[1]}`)) throw new Error(`årtalet i raden (${m[1]}) är inte platsens sista år: ${title}`);
+      await tp.waitForFunction(() => /Platsens sista händelse är \d+/.test(document.getElementById('screen-reader-status').textContent), null, { timeout: T.step });
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `slutåret 2020 ligger efter platsens sista händelse (${m[1]}): raden säger det och att platsen visas för 1990`;
+    } finally { await tctx.close(); }
+  });
+
   await check('platsens kort i en lektion: bara via turens steg, och inget nytt sätt att komma ur låset (#1163)', async () => {
     const { tp, tctx, errs } = await placeTourPage('#t=test-plats&m=lektion&s=b', 'platslektion', true);
     try {

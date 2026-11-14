@@ -7,6 +7,7 @@ import { readFileSync } from 'node:fs';
 import { rangeEndSide, rangeEndedNote, visibleEvents } from '../js/focus/place.js';
 import { Panel } from '../js/ui/panel.js';
 import { selectionSpan } from '../js/focus/util.js';
+import { entry as placesLayer } from '../js/layers/places.js';
 import { ui } from '../js/i18n.js';
 
 const json = path => JSON.parse(readFileSync(new URL(`../${path}`, import.meta.url), 'utf8'));
@@ -89,4 +90,21 @@ test('kortet heter Om händelsen om inget annat sägs och Om platsen för platse
   assert.equal(attrs['aria-label'], 'Om händelsen', 'att stänga ändrar inte namnet');
   assert.equal(fake.detail.hidden, true);
   assert.deepEqual(calls, [true, true, false]);
+});
+
+test('konturen från ett turssteg ritas bara medan en tur pågår: ett Fokus som avslutar turen lämnar ingen kontur kvar (#1464)', () => {
+  const { layer, update } = placesLayer();
+  const step = places.find(p => p.id === 'gronland'), other = places.find(p => p.id !== 'gronland');
+  layer.step = step;
+  // Turen pågår: steget behåller sin kontur
+  update({ focus: null, modes: [{ mode: 'tur' }], labels: {} });
+  assert.equal(layer.step, step);
+  // Ett Fokus på en annan plats avslutade turen (MODE_RULES): ingen kontur från steget, bara platsen man följer
+  update({ focus: { type: 'place', place: other }, modes: [{ mode: 'fokus' }], labels: {} });
+  assert.equal(layer.step, null, 'stegets kontur låg kvar efter att turen avslutades');
+  assert.equal(layer.place, other);
+  // Samma sak när Fokus är på samma plats som steget
+  layer.step = step;
+  update({ focus: { type: 'place', place: step }, modes: [{ mode: 'fokus' }], labels: {} });
+  assert.equal(layer.step, null);
 });
