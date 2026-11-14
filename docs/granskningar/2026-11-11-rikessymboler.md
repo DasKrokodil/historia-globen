@@ -103,6 +103,29 @@ Fullständiga uppgifter finns i tabellerna per världsdel. "Belagd från" är de
 - **Slutår:** rikenas slutår i `index.json` är inte jämförda med källorna. Almohaderna står till exempel till 1343, men dynastin slutade 1269.
 - **Grönland:** har egen flagga sedan 1985 men inget eget område på kartan (se #1189).
 
+## Uppföljning 2026-11-14: Europa omgång 2 (#1152)
+
+Byggt på grenen `claude/issue-1152-europa-2`. Källorna öppnades 2026-11-14.
+
+**Steg 1, historiska symboler** (`kind: symbol`):
+
+| Rike | Visas | Anmärkning |
+|---|---|---|
+| Storfurstendömet Litauen | 1410–1449 | Vytis, fanan vid Grunwald enligt Flag of Lithuania. Ritad förenklad efter statsflaggan från 2004 |
+| Norgesväldet | lejonet 1250–1284, med krona och yxa 1285–1401 | Coat of arms of Norway: lejonet på Håkon den unges sigill 1250, yxan på Erik Magnussons sigill 1285. Inte "cirka 1200": inget kungligt lejonvapen är belagt före 1250. Källorna skiljer sig (rikets artikel säger 1100- eller 1200-talet) |
+| Konungariket Danmark | fanan 1370–1624, Dannebrog som flagga (`flag`) 1625–1939 | Gelre: cirka 1340–1370 enligt Wikipedia, 1395–1402 enligt Commons filsida (Källorna skiljer sig). 1625 som erkänd nationsflagga enligt Dannebrog-artikelns faktaruta. Gruppen omfattar också Danmark-Norge och Danmark 1815–1939 |
+| Kastilianska kronan | 1400–1474 | Heraldry of Castile: fyrdelningen sedan 1230, men avsnittet saknar källhänvisningar, så året 1400 från beslutet gäller. Från 1475 förenades Kastiliens och Aragoniens vapen, därför slutar symbolen 1474 |
+
+**Steg 2, nutida flaggor** (`flag`, från gruppens eller delens start och aldrig före antagandet): Portugal 1976–, Serbien 2006– (delen Serbien; Förbundsrepubliken Jugoslavien och Serbien och Montenegro får ingen flagga), Kroatien 1992–, Slovakien 1992–, Albanien 1992– (1991 hade flaggan stjärnan, inte ritad), Moldavien 1992–, Nordmakedonien 1995– (Kutlesh-flaggan 1992–1995 inte ritad), Slovenien 1992–, Kosovo 2008– (`docs/omstridda-granser.md`), Montenegro 2006– och Malta 1967–. Riksvapnen är kraftigt förenklade.
+
+**Återstår i Europa:**
+- Moskvariket: väntar på en andra källa för sigillets år (1489).
+- "vänta" i tabellen: Spanien, Rumänien, Belarus, Grekland, Ungern, Österrike, Lettland, Litauen (nutida), Bosnien och Hercegovina, Estland, Kungariket England, Kungariket Ungern och Första bulgariska riket. Var och en behöver en andra källa eller ett beslut.
+- Äldre flaggor för nutida stater som inte är byggda: Bulgarien före 1990, Italien före 1946, Tyskland före 1991, Albanien 1991, Nordmakedonien 1992–1995 och Schweiz 1648–1815.
+- "ingen": Novgorod, Córdoba, Frankerriket, Kalmarunionen och Neutrala Moresnet byggs inte.
+
+Därmed har alla rader i tabellen "Europa" med "bygg" en symbol eller flagga, utom Moskvariket.
+
 ## Tabeller per världsdel
 
 Kolumner: id, rike, sort, vad symbolen är, källa, bild på Commons med licens, säkerhet, rekommendation och anmärkning.
