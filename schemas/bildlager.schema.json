@@ -18,6 +18,18 @@
           "name": { "$ref": "#/$defs/text" },
           "note": { "$ref": "#/$defs/text" },
           "label": { "$ref": "#/$defs/text" },
+          "keys": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["swatch", "text"],
+              "properties": {
+                "swatch": { "type": "string", "enum": ["shelf", "ice"] },
+                "text": { "$ref": "#/$defs/text" }
+              }
+            }
+          },
           "slices": {
             "type": "array",
             "minItems": 1,

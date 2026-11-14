@@ -104,7 +104,7 @@ export class ReligionLegend {
    * discovery (upptäcktsvyn, #101) = { perspective, credit, sources: [{ title, url }], coverage } eller null.
    * spread (människans spridning, #1094) = { items: [{ kind, certainty, color, title, summary, note, sources }] } eller null;
    * listan är också kartans textalternativ (#1106).
-   * images (bildlagren, #1096) = [{ id, title, text, sources: [{ title, url }] }] eller null: skivor med en text om
+   * images (bildlagren, #1096) = [{ id, title, text, keys: [{ swatch, text }], sources: [{ title, url }] }] eller null: skivor med en text om
    * osäkerheten, till exempel istidens kust, som annars bara syns som färg.
    * Finns inget att förklara döljs rutan.
    */
@@ -148,10 +148,12 @@ export class ReligionLegend {
     }).join('')}</ul></div>`;
     // Bildlagren (#1096): ett tecken som på kartan (ljus yta med snedstreck och mörk kant), osäkerheten i text och källorna.
     // När bara bildlagret förklaras står skivans rubrik i knappen (så att "modell" syns hopfälld i mobil) och upprepas inte.
-    const imagesHtml = !images ? '' : images.map(n => `<div class="rl-images" data-image-note="${esc(n.id)}">
-      ${n.title === title ? '' : `<p class="rl-note rl-row"><span class="swatch rl-shelf" aria-hidden="true"></span><strong>${esc(n.title)}</strong></p>`}
-      <p class="rl-image-text">${n.title === title ? '<span class="swatch rl-shelf" aria-hidden="true"></span> ' : ''}${esc(n.text)}${n.sources.length ? ` ${esc(ui('legend.spreadSources'))} ${
-        n.sources.map((src, k) => `<a class="rl-spread-src" href="${esc(src.url)}" target="_blank" rel="noopener noreferrer">${k + 1}<span class="sr-only"> ${esc(src.title)} ${esc(ui('legend.newTab'))}</span></a>`).join(', ')}.` : ''}</p></div>`).join('');
+    // Har raden keys (#1564) står ett tecken per ytstil på egen rad, och rubriken och texten står utan tecken.
+    const imagesHtml = !images ? '' : images.map(n => { const keyed = !!n.keys?.length; return `<div class="rl-images" data-image-note="${esc(n.id)}">
+      ${n.title === title ? '' : `<p class="rl-note rl-row">${keyed ? '' : '<span class="swatch rl-shelf" aria-hidden="true"></span>'}<strong>${esc(n.title)}</strong></p>`}
+      ${keyed ? n.keys.map(k => `<p class="rl-note rl-row" data-image-key="${esc(k.swatch)}"><span class="swatch rl-${esc(k.swatch)}" aria-hidden="true"></span>${esc(k.text)}</p>`).join('') : ''}
+      <p class="rl-image-text">${n.title === title && !keyed ? '<span class="swatch rl-shelf" aria-hidden="true"></span> ' : ''}${esc(n.text)}${n.sources.length ? ` ${esc(ui('legend.spreadSources'))} ${
+        n.sources.map((src, k) => `<a class="rl-spread-src" href="${esc(src.url)}" target="_blank" rel="noopener noreferrer">${k + 1}<span class="sr-only"> ${esc(src.title)} ${esc(ui('legend.newTab'))}</span></a>`).join(', ')}.` : ''}</p></div>`; }).join('');
     // Vad symbolerna betyder (#271)
     const symbolsHtml = !items.length ? '' : `<p class="rl-note rl-sym-note">${esc(ui('legend.symbolsNote'))}</p>`;
     // Faktarutan på begäran (#308), när någon religion som syns har en

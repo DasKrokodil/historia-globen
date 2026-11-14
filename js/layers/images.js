@@ -44,6 +44,8 @@ export function boundsRect(bounds, W, H) {
 export function imageNotes(built, srcById = {}) {
   return built.filter(b => b.layer.active?.caveat).map(({ row, layer: { active: x } }) => ({
     id: row.id, title: t(x.title ?? row.name), text: t(x.caveat),
+    // Radens tecken (#1564): en rad per ytstil i bilden, till exempel torrlagt land och inlandsis
+    keys: (row.keys ?? []).map(k => ({ swatch: k.swatch, text: t(k.text) })),
     sources: (x.sources ?? []).map(id => srcById[id]).filter(Boolean).map(src => ({ title: src.title, url: src.url })),
   }));
 }

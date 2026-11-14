@@ -17,6 +17,8 @@
   --land: #c8b48a;
   --shelf: #d6c496;         /* istidens kust (#1096): torrlagd yta, samma ton som bilderna i images/lager/istidens-kust-*.webp */
   --shelf-ink: #503a19;     /* istidens kust: snedstreck och kustlinje */
+  --ice: #f1f4f6;           /* istidens kust (#1564): inlandsis i modellen, samma ton som i bilderna */
+  --ice-edge: #788a96;      /* istidens kust: isens kant mot isfritt land */
   --danger: #e0675a;
   --ok: #8fc48e;
   --medal: #10202c;        /* markörernas botten (#242), samma som GROUND i layers/events.js */
@@ -1799,6 +1801,7 @@ details.used-by summary:hover { color: var(--parchment); }
 .religion-legend .rl-image-text { display: block; margin: 3px 0 0; font: 400 12px/1.4 var(--f-body); color: var(--parchment-dim); }
 .religion-legend .rl-image-text .swatch { display: inline-block; vertical-align: -1px; }
 .religion-legend .rl-shelf { border-bottom: 2px solid var(--shelf-ink); box-sizing: border-box; background: repeating-linear-gradient(45deg, var(--shelf-ink) 0 1.2px, var(--shelf) 1.2px 5px); }
+.religion-legend .rl-ice { border: 1px solid var(--ice-edge); box-sizing: border-box; background: var(--ice); }
 .religion-legend .rl-fade { display: block; margin-top: 6px; padding-top: 4px; border-top: 1px solid var(--line); }
 .religion-legend .rl-fade .link-btn { font: inherit; padding: 0; }
 .religion-legend .rl-body > .rl-fade:first-child { margin-top: 0; padding-top: 0; border-top: 0; }

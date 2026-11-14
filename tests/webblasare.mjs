@@ -5674,7 +5674,7 @@ async function run(browser, vp) {
 
   // Istidens kust (#1096): en länk till 20 000 år sedan med lagret på. Beringia, Sundaland och Sahul är torrlagda i bilden,
   // teckenförklaringen säger att kusten är modellerad och att kartans kust annars är nutida, och sidan får ingen sidledsscroll.
-  await check('istidens kust: Beringia, Sunda och Sahul som land vid 20 000 år sedan', async () => {
+  await check('istidens kust: Beringia, Sunda och Sahul som land och Hudson Bay och Östersjön som is vid 20 000 år sedan', async () => {
     const kp = await context.newPage();
     const kpAw = abortWatch(kp);
     const errs = [];
@@ -5693,34 +5693,43 @@ async function run(browser, vp) {
         const [{ t }] = await Promise.all([import('./js/model.js')]);
         const doc = await (await fetch('data/bildlager.json')).json();
         const x = doc.layers.find(r => r.id === 'istidens-kust').slices.find(s => s.id === 'istidens-kust-20ka');
-        return { title: t(x.title), caveat: t(x.caveat), file: x.file };
+        return { title: t(x.title), caveat: t(x.caveat), file: x.file, ice: t(doc.layers.find(r => r.id === 'istidens-kust').keys.find(k => k.swatch === 'ice').text) };
       });
       await kp.waitForFunction(title => document.querySelector('#religion-legend .rl-title')?.textContent === title, want.title, { timeout: T.step });
       const legend = await kp.evaluate(() => {
         const lg = document.getElementById('religion-legend');
-        return { hidden: lg.hidden, body: lg.querySelector('[data-image-note="istidens-kust"]')?.textContent ?? '', links: lg.querySelectorAll('[data-image-note] a[href^="https://"]').length };
+        return { hidden: lg.hidden, body: lg.querySelector('[data-image-note="istidens-kust"]')?.textContent ?? '', links: lg.querySelectorAll('[data-image-note] a[href^="https://"]').length,
+          ice: lg.querySelector('[data-image-key="ice"]')?.textContent ?? '', iceSwatch: !!lg.querySelector('[data-image-key="ice"] .swatch.rl-ice') };
       });
       if (legend.hidden) throw new Error('teckenförklaringen är dold');
       if (!legend.body.includes(want.caveat)) throw new Error(`teckenförklaringen saknar texten om modellen: "${legend.body.slice(0, 120)}"`);
       if (legend.links < 3) throw new Error(`teckenförklaringen har ${legend.links} källänkar, väntade 3`);
+      // Inlandsisen har en egen rad med eget tecken (#1564)
+      if (legend.ice !== want.ice || !legend.iceSwatch) throw new Error(`teckenförklaringen saknar raden för is: "${legend.ice}"`);
       // Bilden som lagret visar: torrlagt (täckt) vid Beringsundet, Javasjön och Arafurasjön, och genomskinligt mitt i Stilla havet
       const px = await kp.evaluate(async file => {
         const img = new Image(); img.src = file; await img.decode();
         const c = document.createElement('canvas'); c.width = img.naturalWidth; c.height = img.naturalHeight;
         const ctx = c.getContext('2d'); ctx.drawImage(img, 0, 0);
-        const a = (lat, lon) => ctx.getImageData(Math.floor((lon + 180) / 360 * c.width), Math.floor((90 - lat) / 180 * c.height), 1, 1).data[3];
+        const rgba = (lat, lon) => ctx.getImageData(Math.floor((lon + 180) / 360 * c.width), Math.floor((90 - lat) / 180 * c.height), 1, 1).data;
+        const a = (lat, lon) => rgba(lat, lon)[3];
+        // Is: ljus, nästan vit och täckt (#1564); torrlagt land har en tydligt gulare ton
+        const ice = (lat, lon) => { const [r, g, b, al] = rgba(lat, lon); return al > 128 && Math.min(r, g, b) > 225; };
         return { size: [c.width, c.height], beringia: a(65.8, -168.8), sunda: a(-5, 110), sahul: a(-9, 135), pacific: a(0, -140),
+          iced: { hudson: ice(60, -85), ostersjon: ice(58, 19), barents: ice(75, 40) }, notIce: { beringia: ice(65.8, -168.8), sunda: ice(-5, 110), sahul: ice(-9, 135) },
           loaded: performance.getEntriesByType('resource').some(e => e.name.endsWith(file)) };
       }, want.file);
       if (px.size.join('×') !== '4096×2048') throw new Error(`bilden är ${px.size.join('×')}, väntade 4096×2048`);
       for (const k of ['beringia', 'sunda', 'sahul']) if (px[k] < 128) throw new Error(`${k} är inte land i bilden (alfa ${px[k]})`);
       if (px.pacific !== 0) throw new Error(`mitt i Stilla havet är inte genomskinligt (alfa ${px.pacific})`);
+      for (const [k, v] of Object.entries(px.iced)) if (!v) throw new Error(`${k} är inte is i bilden`);
+      for (const [k, v] of Object.entries(px.notIce)) if (v) throw new Error(`${k} är is i bilden, väntade torrt land`);
       if (!px.loaded) throw new Error(`lagret laddade inte ${want.file}`);
       const overflow = await kp.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
       if (overflow > 0) throw new Error(`sidledsscroll: ${overflow} px`);
       errs.push(...kpAw.settle());
       if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
-      return `Beringia ${px.beringia}, Sunda ${px.sunda}, Sahul ${px.sahul} (alfa), Stilla havet 0; teckenförklaringen "${want.title}" med ${legend.links} källor`;
+      return `Beringia ${px.beringia}, Sunda ${px.sunda}, Sahul ${px.sahul} (alfa), Stilla havet 0, is i Hudson Bay, Östersjön och Barents hav; teckenförklaringen "${want.title}" med ${legend.links} källor och raden "${legend.ice}"`;
     } finally { await kp.close(); }
   });
 

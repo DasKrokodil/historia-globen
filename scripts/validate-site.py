@@ -425,7 +425,7 @@ for path, tour in tours:
     validate_schema_file(path, tour, 'tour.schema.json')
 
 # 8b2. Bildlager (#54, formatet @2 i #1325): schemat och det som den lilla schemakontrollen inte kan uttrycka.
-IMAGE_ROW_KEYS = {'id', 'kind', 'aliases', 'group', 'name', 'note', 'label', 'slices'}
+IMAGE_ROW_KEYS = {'id', 'kind', 'aliases', 'group', 'name', 'note', 'label', 'keys', 'slices'}
 IMAGE_SLICE_KEYS = {'id', 'title', 'format', 'file', 'width', 'height', 'from', 'to', 'bounds', 'opacity',
                     'caveat', 'sources', 'review', 'license'}
 IMAGE_MAX_PIXELS = 4096 * 2048  # en avkodad bild på 4096 × 2048 tar cirka 32 MB i minnet
