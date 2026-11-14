@@ -55,6 +55,12 @@ export class ReligionLegend {
       } else this.open = !this.open;
       this.render(); this.fit();
     });
+    // Upptäcktsvyns hopfällda avsnitt (#1571): öppet läge minns vi här, så att det står kvar när panelen ritas om
+    this.sect = { read: false, images: false };
+    this.legend.addEventListener('toggle', e => {
+      const d = e.target.closest?.('details[data-sect]');
+      if (d && this.sect[d.dataset.sect] !== d.open) { this.sect[d.dataset.sect] = d.open; this.fitSoon(); }
+    }, true);
     this.fit = this.fit.bind(this);
     this.fitSoon = () => { cancelAnimationFrame(this._raf); this._raf = requestAnimationFrame(this.fit); };
     addEventListener('resize', this.fitSoon);
@@ -165,9 +171,14 @@ export class ReligionLegend {
     // så att den inte täcker kartan i mobil. Den korta rubriken ligger kvar i knappen.
     const coverageHtml = !discovery || discovery.coverage == null ? '' : `<p class="rl-coverage" role="status">${esc(ui('discovery.coverage', { percent: discovery.coverage }))}</p>
       <p class="rl-note rl-coverage-note">${esc(ui('discovery.coverageNote'))}</p>`;
-    const discHtml = !discovery ? '' : `<p class="rl-disc" role="note">${esc(discovery.perspective)}</p>`;
-    const creditHtml = !discovery ? '' : `<p class="rl-note rl-credit">${esc(discovery.credit)}${discovery.sources?.length ? ` ${esc(ui('legend.filePages'))} ${
-      discovery.sources.map((s, i) => `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${i + 1}<span class="sr-only"> ${esc(s.title)} ${esc(ui('legend.newTab'))}</span></a>`).join(', ')}.` : ''}</p>`;
+    const discHtml = !discovery ? '' : `<details class="rl-sect" data-sect="read"${this.sect.read ? ' open' : ''}><summary>${esc(ui('discovery.readTitle'))}</summary><p class="rl-disc" role="note">${esc(discovery.perspective)}</p></details>`;
+    // Kartbildernas kredit och filsidor (#1571): krediten står kvar att läsa i ett hopfällt avsnitt med antalet filsidor på raden;
+    // filsidorna är 36 px stora rutor i en rullbar lista (under 24 px är träffytan för liten)
+    const nSrc = discovery?.sources?.length ?? 0;
+    const imagesTitle = n => String(ui('discovery.imagesTitle')[n === 1 ? 0 : 1]).replace('{n}', n);
+    const creditHtml = !discovery ? '' : !nSrc ? `<p class="rl-note rl-credit">${esc(discovery.credit)}</p>`
+      : `<details class="rl-sect" data-sect="images"${this.sect.images ? ' open' : ''}><summary>${esc(imagesTitle(nSrc))}</summary><p class="rl-note rl-credit">${esc(discovery.credit)} ${esc(ui('legend.filePages'))}</p><ul class="rl-files">${
+        discovery.sources.map((s, i) => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${i + 1}<span class="sr-only"> ${esc(s.title)} ${esc(ui('legend.newTab'))}</span></a></li>`).join('')}</ul></details>`;
     const joined = fadable.join(ui('legend.and'));
     const names = LANG === 'sv' ? joined.toLowerCase().replace(/^./, c => c.toUpperCase()) : joined;
     const fadeHtml = !fadable.length ? '' : `<p class="rl-note rl-fade">${keep

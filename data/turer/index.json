@@ -7,7 +7,7 @@
     "step": { "sv": "Steg {current} av {total}", "en": "Step {current} of {total}", "fr": "Étape {current} sur {total}", "de": "Schritt {current} von {total}", "es": "Paso {current} de {total}" },
     "back": { "sv": "Föregående", "en": "Previous", "fr": "Précédent", "de": "Vorheriger Schritt", "es": "Anterior" },
     "next": { "sv": "Nästa", "en": "Next", "fr": "Suivant", "de": "Weiter", "es": "Siguiente" },
-    "end": { "sv": "Avsluta turen", "en": "End the tour", "fr": "Terminer la visite", "de": "Tour beenden", "es": "Terminar el recorrido" },
+    "end": { "sv": "Lämna turen", "en": "Leave the tour", "fr": "Quitter la visite", "de": "Tour verlassen", "es": "Salir del recorrido" },
     "done": { "sv": "Klar", "en": "Done", "fr": "Terminé", "de": "Fertig", "es": "Listo" },
     "read": { "sv": "Läs om händelsen", "en": "Read about the event", "fr": "En savoir plus sur l'événement", "de": "Mehr über das Ereignis", "es": "Leer sobre el acontecimiento" },
     "readPlace": { "sv": "Läs om platsen", "en": "Read about the place", "fr": "En savoir plus sur le lieu", "de": "Mehr über den Ort", "es": "Leer sobre el lugar" },
@@ -19,6 +19,9 @@
     "status-okant": { "sv": "Det här vet vi inte säkert", "en": "What we do not know for sure", "fr": "Ce que nous ne savons pas avec certitude", "de": "Was wir nicht sicher wissen", "es": "Lo que no sabemos con certeza" },
     "sources": { "sv": "Källor", "en": "Sources", "fr": "Sources", "de": "Quellen", "es": "Fuentes" },
     "group-fall": { "sv": "Hur föll det?", "en": "How did it fall?", "fr": "Comment est-il tombé ?", "de": "Wie kam es zum Fall?", "es": "¿Cómo cayó?" },
+    "group-kallkritik": { "sv": "Källkritik", "en": "Source criticism", "fr": "Esprit critique", "de": "Quellenkritik", "es": "Crítica de fuentes" },
+    "group-krig": { "sv": "Krig", "en": "War", "fr": "Guerre", "de": "Krieg", "es": "Guerra" },
+    "group-tid": { "sv": "Samtidigt i världen", "en": "At the same time in the world", "fr": "Au même moment dans le monde", "de": "Gleichzeitig in der Welt", "es": "A la vez en el mundo" },
     "locked": { "sv": "Turen styr tiden", "en": "The tour controls the time", "fr": "La visite commande le temps", "de": "Die Tour steuert die Zeit", "es": "El recorrido controla el tiempo" },
     "paused": { "sv": "Turen: {title}", "en": "Tour: {title}", "fr": "Visite : {title}", "de": "Tour: {title}", "es": "Recorrido: {title}" }
   }

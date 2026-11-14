@@ -2,6 +2,7 @@
   "schema": "historia-globen/tur@1",
   "version": 1,
   "id": "vikingatiden-och-varlden",
+  "group": "tid",
   "title": {
     "sv": "Vikingatiden och världen samtidigt",
     "en": "The Viking Age and the world at the same time",
