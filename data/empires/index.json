@@ -1,6 +1,6 @@
 {
  "schema": "historia-globen/empires-index@1",
- "notes": "Riken som områden (lagertyp område), ett rike per fil. Utdrag ur Cliopatria, datafil cliopatria_polities_only_v021 (Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/13363121), byggt med tools/riken.py. Ändringar: geometrin är förenklad (Douglas-Peucker 0.2 grader, koordinater avrundade till 0.1 grad, öar under cirka 200 km2 borttagna) och på varandra följande perioder där gränsen ändras mindre än 2 procent är sammanslagna. Brittiska, spanska och portugisiska imperiet är förenklade hårdare (0.3 grader, 8 procent, öar under cirka 800 km2 borttagna), liksom Ryssland, Sovjetunionen, Japan och franska kolonialväldet (0.3 grader, 5 procent, öar under cirka 800 km2 borttagna) och nederländska kolonialväldet (0.3 grader, 8 procent). start/end är Cliopatrias årtal oförändrade (astronomiska år). Namn inom parentes i Cliopatria, till exempel (British Empire), är Cliopatrias sammanslagning av ett imperiums alla delar. Bysantinska riket ingår i Romarriket som fortsättningen på Östromerska riket. index.json listar varje rike (grupp) med färg, tidsspann och fil; filen laddas först när riket behövs. areaKm2 är Cliopatrias yta för den första perioden i ett sammanslaget spann. label = [lon, lat] där namnet skrivs ut. Tysk-romerska riket efter 1458 är ihopbyggt av flera riken i Cliopatria, klippta mot rikets gräns 1458 utan Ungern och Tyska ordens Preussen (EXTEND i tools/riken.py, #336); där är areaKm2 räknad ur den byggda gränsen. Kolonialvälden och moderna imperier (R5, #71): parts listar Cliopatria-poster som är ihopslagna år för år till ett rike (Tyska riket med German Africa, Etiopiska kejsardömet med Ethiopia till 1974); då är areaKm2 summan av posternas ytor. homeland (#74) är moderlandet i ett utspritt välde: Cliopatria-posterna för moderlandet (polity.homeland) inom ett fönster runt moderlandet, och per period dess gräns (period.homeland); label står då i moderlandet. För Japan, där Cliopatria inte skiljer på Japan och kolonierna, är moderlandet huvudöarna och Ryukyuöarna, avgränsade med en polygon ur rikets eget område. index.json har då homeland.name, moderlandets namn. Försvunna länder (R6, #72): vanished är landets årtal enligt källorna (founded, dissolved), föregångare och efterträdare (predecessors, successors; group pekar på ett rike i den här filen, wikidata är kontrollerat). Preussen visas 1526–1806, eftersom Cliopatria från 1807 räknar landet till andra riken. Neutrala Moresnet saknas i Cliopatria och har ingen fil, bara en punkt (vanished.point). Sverige (#70): Cliopatrias \"Swedish Empire\" 1612–1814 är delad i två delar med samma gränser, Svenska stormaktsväldet till och med 1721 (freden i Nystad) och Sverige 1722–1814. Inflytande (#75): polity.influence är områden som enligt Cliopatrias relationsposter (typ RELATION, \"Allegiance of A to B\" och \"Vassalage of A to B\") lydde under riket utan att höra till det: relationens område minus rikets eget område samma år, förenklat som riket, ytor under cirka 3 000 km2 borttagna. Lydriken som själva är delar av samma grupp (khanaten under Yuan) är inte med. index.json sammanfattar dem i influence. Osäker gräns (#73): uncertainBorder på gruppen i index.json skrivs för hand med källa (note, sources, review) och ger polity.uncertainBorder i rikets fil. Omstridda gränser i nutid (#644): följer Sveriges officiella hållning enligt UD (DISPUTED i tools/riken.py, docs/omstridda-granser.md). Krim och Sevastopol räknas till Ukraina även från 2014, och inte till Ryska federationen. Västbanken med Östra Jerusalem, Gaza och Golanhöjderna räknas inte till Israel från 1967; Staten Palestina (Västbanken med Östra Jerusalem och Gaza) visas från 2014, då Sverige erkände den. De gränserna kommer ur Natural Earth (ne_10m_admin_0_disputed_areas 5.1.1, public domain), och gruppen har då borderSource. Där är areaKm2 räknad ur den nya gränsen. Små stater (#722): tolv länder som Cliopatria saknar i nutid eller har fel gräns för har gränsen ur Natural Earth (ne_10m_admin_0_countries 5.1.1, public domain), från självständigheten, och polity.point = true: de visas som en punkt med namn.",
+ "notes": "Riken som områden (lagertyp område), ett rike per fil. Utdrag ur Cliopatria, datafil cliopatria_polities_only_v021 (Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/13363121), byggt med tools/riken.py. Ändringar: geometrin är förenklad (Douglas-Peucker 0.2 grader, koordinater avrundade till 0.1 grad, öar under cirka 200 km2 borttagna) och på varandra följande perioder där gränsen ändras mindre än 2 procent är sammanslagna. Brittiska, spanska och portugisiska imperiet är förenklade hårdare (0.3 grader, 8 procent, öar under cirka 800 km2 borttagna), liksom Ryssland, Sovjetunionen, Japan och franska kolonialväldet (0.3 grader, 5 procent, öar under cirka 800 km2 borttagna) och nederländska kolonialväldet (0.3 grader, 8 procent). start/end är Cliopatrias årtal oförändrade (astronomiska år). Namn inom parentes i Cliopatria, till exempel (British Empire), är Cliopatrias sammanslagning av ett imperiums alla delar. Bysantinska riket ingår i Romarriket som fortsättningen på Östromerska riket. index.json listar varje rike (grupp) med färg, tidsspann och fil; filen laddas först när riket behövs. areaKm2 är Cliopatrias yta för den första perioden i ett sammanslaget spann. label = [lon, lat] där namnet skrivs ut. Tysk-romerska riket efter 1458 är ihopbyggt av flera riken i Cliopatria, klippta mot rikets gräns 1458 utan Ungern och Tyska ordens Preussen (EXTEND i tools/riken.py, #336); där är areaKm2 räknad ur den byggda gränsen. Kolonialvälden och moderna imperier (R5, #71): parts listar Cliopatria-poster som är ihopslagna år för år till ett rike (Tyska riket med German Africa, Etiopiska kejsardömet med Ethiopia till 1974); då är areaKm2 summan av posternas ytor. homeland (#74) är moderlandet i ett utspritt välde: Cliopatria-posterna för moderlandet (polity.homeland) inom ett fönster runt moderlandet, och per period dess gräns (period.homeland); label står då i moderlandet. För Japan, där Cliopatria inte skiljer på Japan och kolonierna, är moderlandet huvudöarna och Ryukyuöarna, avgränsade med en polygon ur rikets eget område. index.json har då homeland.name, moderlandets namn. Försvunna länder (R6, #72): vanished är landets årtal enligt källorna (founded, dissolved), föregångare och efterträdare (predecessors, successors; group pekar på ett rike i den här filen, wikidata är kontrollerat). Preussen visas 1526–1806, eftersom Cliopatria från 1807 räknar landet till andra riken. Neutrala Moresnet saknas i Cliopatria och har ingen fil, bara en punkt (vanished.point). Sverige (#70): Cliopatrias \"Swedish Empire\" 1612–1814 är delad i två delar med samma gränser, Svenska stormaktsväldet till och med 1721 (freden i Nystad) och Sverige 1722–1814. Inflytande (#75): polity.influence är områden som enligt Cliopatrias relationsposter (typ RELATION, \"Allegiance of A to B\" och \"Vassalage of A to B\") lydde under riket utan att höra till det: relationens område minus rikets eget område samma år, förenklat som riket, ytor under cirka 3 000 km2 borttagna. Lydriken som själva är delar av samma grupp (khanaten under Yuan) är inte med. index.json sammanfattar dem i influence. Osäker gräns (#73): uncertainBorder på gruppen i index.json skrivs för hand med källa (note, sources, review) och ger polity.uncertainBorder i rikets fil. Omstridda gränser i nutid (#644): följer Sveriges officiella hållning enligt UD (DISPUTED i tools/riken.py, docs/omstridda-granser.md). Krim och Sevastopol räknas till Ukraina även från 2014, och inte till Ryska federationen. Västbanken med Östra Jerusalem, Gaza och Golanhöjderna räknas inte till Israel från 1967; Staten Palestina (Västbanken med Östra Jerusalem och Gaza) visas från 2014, då Sverige erkände den. De gränserna kommer ur Natural Earth (ne_10m_admin_0_disputed_areas 5.1.1, public domain), och gruppen har då borderSource. Där är areaKm2 räknad ur den nya gränsen. Ockupation och inbördeskrig (#1332): där Cliopatria efter 1945 ritar en ockupationsmakt eller en part i ett inbördeskrig i stället för en stat, visas den internationellt erkända staten med sin egen gräns i Cliopatria ett närliggande år (fill i tools/riken.py), och makten klipps bort de åren; där är areaKm2 Cliopatrias yta för den gränsen. Små stater (#722): tolv länder som Cliopatria saknar i nutid eller har fel gräns för har gränsen ur Natural Earth (ne_10m_admin_0_countries 5.1.1, public domain), från självständigheten, och polity.point = true: de visas som en punkt med namn.",
  "groups": [
   {
    "id": "romarriket",
@@ -19109,13 +19109,20 @@
      }
     ],
     "mapNote": {
-     "sv": "Källorna anger 1918–1992. Kartan visar landet bara 1919–1938, 1947–1968 och 1991. Cliopatria räknar landet till Nazityskland 1939–1944 och till Sovjetunionen 1945–1946 och 1969–1990.",
-     "en": "The sources give 1918–1992. The map shows the country only in 1919–1938, 1947–1968 and 1991. Cliopatria counts the country as part of Nazi Germany in 1939–1944 and of the Soviet Union in 1945–1946 and 1969–1990."
+     "sv": "Källorna anger 1918–1992. Kartan visar landet 1919–1938 och 1947–1991. Cliopatria räknar landet till Nazityskland 1939–1944 och till Sovjetunionen 1945–1946 och 1969–1990. Åren 1969–1990 visar kartan i stället Tjeckoslovakien, med landets gräns 1968 i Cliopatria (densamma som 1991), enligt Historia-globens beslut att rita den internationellt erkända staten vid ockupation. Warszawapakten invaderade landet 20–21 augusti 1968, och sovjetiska trupper stod sedan kvar i landet tills de drogs tillbaka 1990–1991.",
+     "en": "The sources give 1918–1992. The map shows the country in 1919–1938 and 1947–1991. Cliopatria counts the country as part of Nazi Germany in 1939–1944 and of the Soviet Union in 1945–1946 and 1969–1990. In 1969–1990 the map instead shows Czechoslovakia, with the country's 1968 border in Cliopatria (the same as in 1991), by decision of Historia-globen to show the internationally recognised state in times of occupation. The Warsaw Pact invaded the country on 20–21 August 1968, and Soviet troops then remained in the country until they were withdrawn in 1990–1991.",
+     "de": "Die Quellen nennen 1918–1992. Die Karte zeigt das Land 1919–1938 und 1947–1991. Cliopatria zählt das Land 1939–1944 zum NS-Staat und 1945–1946 sowie 1969–1990 zur Sowjetunion. In den Jahren 1969–1990 zeigt die Karte stattdessen die Tschechoslowakei, mit der Grenze des Landes von 1968 in Cliopatria (dieselbe wie 1991), nach der Entscheidung von Historia-globen, bei Besatzung den international anerkannten Staat zu zeigen. Der Warschauer Pakt marschierte am 20. und 21. August 1968 in das Land ein, und sowjetische Truppen blieben danach im Land, bis sie 1990–1991 abgezogen wurden.",
+     "es": "Las fuentes indican 1918–1992. El mapa muestra el país en 1919–1938 y 1947–1991. Cliopatria cuenta el país como parte de la Alemania nazi en 1939–1944 y de la Unión Soviética en 1945–1946 y 1969–1990. En 1969–1990 el mapa muestra en cambio Checoslovaquia, con la frontera del país de 1968 en Cliopatria (la misma que en 1991), por decisión de Historia-globen de mostrar el Estado reconocido internacionalmente en caso de ocupación. El Pacto de Varsovia invadió el país el 20 y 21 de agosto de 1968, y después las tropas soviéticas permanecieron en el país hasta su retirada en 1990–1991.",
+     "fr": "Les sources indiquent 1918–1992. La carte montre le pays de 1919 à 1938 et de 1947 à 1991. Cliopatria compte le pays comme partie de l'Allemagne nazie de 1939 à 1944 et de l'Union soviétique en 1945–1946 et de 1969 à 1990. De 1969 à 1990, la carte montre au contraire la Tchécoslovaquie, avec la frontière du pays de 1968 dans Cliopatria (la même qu'en 1991), sur décision d'Historia-globen de montrer l'État reconnu internationalement en cas d'occupation. Le pacte de Varsovie envahit le pays les 20 et 21 août 1968, puis les troupes soviétiques restèrent dans le pays jusqu'à leur retrait en 1990–1991."
     },
     "sources": [
      "wp-czechoslovakia",
      "wp-dissolution-of-czechoslovakia",
-     "wp-coat-of-arms-czechoslovakia"
+     "wp-coat-of-arms-czechoslovakia",
+     "wp-warsaw-pact-invasion-of-czechoslovakia",
+     "wp-central-group-of-forces",
+     "wd-czechoslovakia",
+     "cliopatria"
     ],
     "review": "source-checked"
    },
@@ -23369,12 +23376,18 @@
      }
     ],
     "mapNote": {
-     "sv": "Kartan börjar 1932, när Irak blev självständigt. Den saknar Irak 1943–1946, 1958–1959 och 2006–2013, när Cliopatria räknar landet till andra riken.",
-     "en": "The map begins in 1932, when Iraq became independent. It lacks Iraq in 1943–1946, 1958–1959 and 2006–2013, when Cliopatria counts the country as part of other empires."
+     "sv": "Kartan börjar 1932, när Irak blev självständigt. Den saknar Irak 1943–1946 och 1958–1959, när Cliopatria räknar landet till andra riken. Cliopatria räknar också Irak till USA 2006–2023 (från 2014 samtidigt som till Irak). Kartan visar i stället Irak de åren, med landets gräns 2005 i Cliopatria (densamma som 2014), enligt Historia-globens beslut att rita den internationellt erkända staten vid ockupation. USA-ledda styrkor invaderade Irak 20 mars 2003, och en ockupationsmyndighet, Coalition Provisional Authority, styrde landet till 28 juni 2004. De sista amerikanska trupperna lämnade Irak 18 december 2011.",
+     "en": "The map begins in 1932, when Iraq became independent. It lacks Iraq in 1943–1946 and 1958–1959, when Cliopatria counts the country as part of other empires. Cliopatria also counts Iraq as part of the USA in 2006–2023 (from 2014 at the same time as Iraq). The map instead shows Iraq in those years, with the country's 2005 border in Cliopatria (the same as in 2014), by decision of Historia-globen to show the internationally recognised state in times of occupation. US-led forces invaded Iraq on 20 March 2003, and an occupation authority, the Coalition Provisional Authority, governed the country until 28 June 2004. The last US troops left Iraq on 18 December 2011.",
+     "de": "Die Karte beginnt 1932, als der Irak unabhängig wurde. Sie zeigt den Irak 1943–1946 und 1958–1959 nicht, weil Cliopatria das Land dann zu anderen Reichen zählt. Cliopatria zählt den Irak außerdem 2006–2023 zu den USA (ab 2014 gleichzeitig zum Irak). Die Karte zeigt in diesen Jahren stattdessen den Irak, mit der Grenze des Landes von 2005 in Cliopatria (dieselbe wie 2014), nach der Entscheidung von Historia-globen, bei Besatzung den international anerkannten Staat zu zeigen. Von den USA geführte Truppen marschierten am 20. März 2003 in den Irak ein, und eine Besatzungsbehörde, die Coalition Provisional Authority, regierte das Land bis zum 28. Juni 2004. Die letzten US-Truppen verließen den Irak am 18. Dezember 2011.",
+     "es": "El mapa comienza en 1932, cuando Irak se independizó. No muestra Irak en 1943–1946 ni en 1958–1959, cuando Cliopatria cuenta el país como parte de otros imperios. Cliopatria también cuenta Irak como parte de Estados Unidos en 2006–2023 (desde 2014 al mismo tiempo que como Irak). En cambio, el mapa muestra Irak en esos años, con la frontera del país de 2005 en Cliopatria (la misma que en 2014), por decisión de Historia-globen de mostrar el Estado reconocido internacionalmente en caso de ocupación. Fuerzas dirigidas por Estados Unidos invadieron Irak el 20 de marzo de 2003, y una autoridad de ocupación, la Autoridad Provisional de la Coalición, gobernó el país hasta el 28 de junio de 2004. Las últimas tropas estadounidenses salieron de Irak el 18 de diciembre de 2011.",
+     "fr": "La carte commence en 1932, lorsque l'Irak devint indépendant. Elle ne montre pas l'Irak en 1943–1946 ni en 1958–1959, lorsque Cliopatria compte le pays comme partie d'autres empires. Cliopatria compte aussi l'Irak comme partie des États-Unis de 2006 à 2023 (à partir de 2014 en même temps que l'Irak). La carte montre au contraire l'Irak pendant ces années, avec la frontière du pays de 2005 dans Cliopatria (la même qu'en 2014), sur décision d'Historia-globen de montrer l'État reconnu internationalement en cas d'occupation. Des forces menées par les États-Unis envahirent l'Irak le 20 mars 2003, et une autorité d'occupation, l'Autorité provisoire de la coalition, gouverna le pays jusqu'au 28 juin 2004. Les dernières troupes américaines quittèrent l'Irak le 18 décembre 2011."
     },
     "sources": [
      "wp-iraq",
-     "wd-iraq"
+     "wd-iraq",
+     "wp-coalition-provisional-authority",
+     "wp-us-withdrawal-iraq",
+     "cliopatria"
     ],
     "review": "source-checked"
    },
@@ -25094,8 +25107,11 @@
      }
     ],
     "mapNote": {
-     "sv": "Kartan visar fyra perioder: Durranis rike 1748–1827, emiratet 1828–1925, kungariket 1926–1972 och Afghanistan från 1973. Källorna anger 1747 för Durranis rike och 1823 för emiratet. Kartan saknar landet 1987–1995 och visar 1996–2005 bara en liten del av det, eftersom Cliopatria då räknar landets mitt till mujahedin respektive talibanerna.",
-     "en": "The map shows four periods: the Durrani Empire 1748–1827, the emirate 1828–1925, the kingdom 1926–1972 and Afghanistan from 1973. The sources give 1747 for the Durrani Empire and 1823 for the emirate. The map lacks the country in 1987–1995 and shows only a small part of it in 1996–2005, because Cliopatria then counts the country's middle as part of the mujahideen and the Taliban respectively."
+     "sv": "Kartan visar fyra perioder: Durranis rike 1748–1827, emiratet 1828–1925, kungariket 1926–1972 och Afghanistan från 1973. Källorna anger 1747 för Durranis rike och 1823 för emiratet. Under sovjetiska kriget i Afghanistan (december 1979–februari 1989) räknar Cliopatria delar av landet till Sovjetunionen, 1987–1995 till mujahedin och 1996–2005 större delen till talibanerna. Kartan visar i stället hela Afghanistan de åren, med landets gräns 1978 i Cliopatria (densamma som 2006), enligt Historia-globens beslut att rita den internationellt erkända staten vid ockupation och inbördeskrig. Talibanernas emirat styrde som mest omkring 90 procent av landet 1996–2001, men Islamiska staten Afghanistan förblev den regering som FN erkände.",
+     "en": "The map shows four periods: the Durrani Empire 1748–1827, the emirate 1828–1925, the kingdom 1926–1972 and Afghanistan from 1973. The sources give 1747 for the Durrani Empire and 1823 for the emirate. During the Soviet–Afghan War (December 1979–February 1989) Cliopatria counts parts of the country as part of the Soviet Union, in 1987–1995 as part of the mujahideen and in 1996–2005 most of it as part of the Taliban. The map instead shows the whole of Afghanistan in those years, with the country's 1978 border in Cliopatria (the same as in 2006), by decision of Historia-globen to show the internationally recognised state in times of occupation and civil war. At its peak the Taliban's emirate ruled about 90 per cent of the country in 1996–2001, but the Islamic State of Afghanistan remained the government recognised by the UN.",
+     "de": "Die Karte zeigt vier Abschnitte: das Durrani-Reich 1748–1827, das Emirat 1828–1925, das Königreich 1926–1972 und Afghanistan ab 1973. Die Quellen nennen 1747 für das Durrani-Reich und 1823 für das Emirat. Während des sowjetischen Kriegs in Afghanistan (Dezember 1979 bis Februar 1989) zählt Cliopatria Teile des Landes zur Sowjetunion, 1987–1995 zu den Mudschahedin und 1996–2005 den größten Teil zu den Taliban. Die Karte zeigt stattdessen in diesen Jahren ganz Afghanistan, mit der Grenze des Landes von 1978 in Cliopatria (dieselbe wie 2006), nach der Entscheidung von Historia-globen, bei Besatzung und Bürgerkrieg den international anerkannten Staat zu zeigen. Das Emirat der Taliban beherrschte 1996–2001 zeitweise etwa 90 Prozent des Landes, doch der Islamische Staat Afghanistan blieb die von der UNO anerkannte Regierung.",
+     "es": "El mapa muestra cuatro periodos: el Imperio durrani en 1748–1827, el emirato en 1828–1925, el reino en 1926–1972 y Afganistán desde 1973. Las fuentes indican 1747 para el Imperio durrani y 1823 para el emirato. Durante la guerra afgano-soviética (diciembre de 1979–febrero de 1989) Cliopatria cuenta partes del país como parte de la Unión Soviética, en 1987–1995 como parte de los muyahidines y en 1996–2005 la mayor parte como parte de los talibanes. En cambio, el mapa muestra todo Afganistán en esos años, con la frontera del país de 1978 en Cliopatria (la misma que en 2006), por decisión de Historia-globen de mostrar el Estado reconocido internacionalmente en caso de ocupación y guerra civil. En su apogeo, el emirato talibán gobernó cerca del 90 % del país en 1996–2001, pero el Estado Islámico de Afganistán siguió siendo el gobierno reconocido por la ONU.",
+     "fr": "La carte montre quatre périodes : l'Empire durrani de 1748 à 1827, l'émirat de 1828 à 1925, le royaume de 1926 à 1972 et l'Afghanistan à partir de 1973. Les sources indiquent 1747 pour l'Empire durrani et 1823 pour l'émirat. Pendant la guerre d'Afghanistan menée par l'Union soviétique (décembre 1979–février 1989), Cliopatria compte des parties du pays comme appartenant à l'Union soviétique, de 1987 à 1995 aux moudjahidines et de 1996 à 2005 la plus grande partie aux talibans. La carte montre au contraire tout l'Afghanistan pendant ces années, avec la frontière du pays de 1978 dans Cliopatria (la même qu'en 2006), sur décision d'Historia-globen de montrer l'État reconnu internationalement en cas d'occupation et de guerre civile. À son apogée, l'émirat des talibans contrôlait environ 90 % du pays de 1996 à 2001, mais l'État islamique d'Afghanistan resta le gouvernement reconnu par l'ONU."
     },
     "sources": [
      "wp-afghanistan",
@@ -25105,7 +25121,11 @@
      "wd-afghanistan",
      "wd-durrani-empire",
      "wd-emirate-of-afghanistan",
-     "wd-kingdom-of-afghanistan"
+     "wd-kingdom-of-afghanistan",
+     "wp-soviet-afghan-war",
+     "wp-islamic-emirate-of-afghanistan-1996",
+     "wp-islamic-state-of-afghanistan",
+     "cliopatria"
     ],
     "review": "source-checked"
    },
@@ -32014,11 +32034,53 @@
     "fr": "Yémen"
    },
    "color": "#4a8aa0",
-   "from": 1990,
+   "from": 1919,
    "to": 2024,
    "file": "data/empires/jemen.json",
    "flags": [{"file": "yemen", "from": 1990, "to": 2024, "label": {"sv": "Jemens flagga", "en": "Flag of Yemen", "de": "Flagge des Jemen", "es": "Bandera de Yemen", "fr": "Drapeau du Yémen"}, "sources": ["wp-flag-yemen", "commons-flagga-yemen"], "review": "source-checked"}],
    "polities": [
+    {
+     "id": "kungariket-jemen",
+     "name": {
+      "sv": "Kungariket Jemen",
+      "en": "Kingdom of Yemen",
+      "de": "Königreich Jemen",
+      "es": "Reino de Yemen",
+      "fr": "Royaume du Yémen"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "arabrepubliken-jemen",
+     "name": {
+      "sv": "Arabrepubliken Jemen",
+      "en": "Yemen Arab Republic",
+      "de": "Jemenitische Arabische Republik",
+      "es": "República Árabe de Yemen",
+      "fr": "République arabe du Yémen"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "sydjemen",
+     "name": {
+      "sv": "Sydjemen",
+      "en": "South Yemen",
+      "de": "Südjemen",
+      "es": "Yemen del Sur",
+      "fr": "Yémen du Sud"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
     {
      "id": "jemen",
      "name": {
@@ -32033,7 +32095,81 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "polityFacts": {
+    "kungariket-jemen": {
+     "facts": {
+      "summary": {
+       "sv": "Kungariket Jemen var en monarki i nordvästra delen av dagens Jemen. Imam Yahya tog makten i Sanaa 1918, när Osmanska riket drog sig tillbaka efter första världskriget. Huvudstaden var Sanaa till 1948 och sedan Taizz till 1962. Jemen blev medlem i FN 30 september 1947. En republikansk kupp 1962 ledde till inbördeskrig, och rojalisterna höll bara norra delen av landet fram till ett fredsavtal 1970.",
+       "en": "The Kingdom of Yemen was a monarchy in the north-western part of present-day Yemen. Imam Yahya took power in Sanaa in 1918, when the Ottoman Empire withdrew after the First World War. The capital was Sanaa until 1948 and then Taiz until 1962. Yemen became a member of the UN on 30 September 1947. A republican coup in 1962 led to civil war, and the royalists held only the northern part of the country until a peace deal in 1970.",
+       "de": "Das Königreich Jemen war eine Monarchie im Nordwesten des heutigen Jemen. Imam Yahya übernahm 1918 die Macht in Sanaa, als sich das Osmanische Reich nach dem Ersten Weltkrieg zurückzog. Hauptstadt war bis 1948 Sanaa und danach bis 1962 Taizz. Jemen wurde am 30. September 1947 Mitglied der UNO. Ein republikanischer Putsch 1962 führte zum Bürgerkrieg, und die Royalisten hielten bis zu einem Friedensabkommen 1970 nur noch den Norden des Landes.",
+       "es": "El Reino de Yemen fue una monarquía en el noroeste del actual Yemen. El imán Yahya tomó el poder en Saná en 1918, cuando el Imperio otomano se retiró tras la Primera Guerra Mundial. La capital fue Saná hasta 1948 y después Taiz hasta 1962. Yemen ingresó en la ONU el 30 de septiembre de 1947. Un golpe republicano en 1962 desembocó en una guerra civil, y los monárquicos solo controlaron el norte del país hasta un acuerdo de paz en 1970.",
+       "fr": "Le royaume du Yémen était une monarchie dans le nord-ouest de l'actuel Yémen. L'imam Yahya prit le pouvoir à Sanaa en 1918, lorsque l'Empire ottoman se retira après la Première Guerre mondiale. La capitale fut Sanaa jusqu'en 1948, puis Taëz jusqu'en 1962. Le Yémen devint membre de l'ONU le 30 septembre 1947. Un coup d'État républicain en 1962 déclencha une guerre civile, et les royalistes ne tinrent plus que le nord du pays jusqu'à un accord de paix en 1970."
+      },
+      "mapNote": {
+       "sv": "Wikidata anger 30 oktober 1918–1 december 1970. Kartan visar kungariket 1919–1961 och Arabrepubliken Jemen från 1962: Cliopatria har en enda post för Nordjemen 1919–1989, som kartan delar vid revolutionen 1962. Att rojalisterna höll norra delen av landet under inbördeskriget 1962–1970 visar kartan inte.",
+       "en": "Wikidata gives 30 October 1918–1 December 1970. The map shows the kingdom in 1919–1961 and the Yemen Arab Republic from 1962: Cliopatria has a single entry for North Yemen in 1919–1989, which the map divides at the revolution of 1962. The map does not show that the royalists held the northern part of the country during the civil war of 1962–1970.",
+       "de": "Wikidata nennt den 30. Oktober 1918 bis 1. Dezember 1970. Die Karte zeigt das Königreich 1919–1961 und die Jemenitische Arabische Republik ab 1962: Cliopatria hat einen einzigen Eintrag für Nordjemen 1919–1989, den die Karte bei der Revolution 1962 teilt. Dass die Royalisten im Bürgerkrieg 1962–1970 den Norden des Landes hielten, zeigt die Karte nicht.",
+       "es": "Wikidata indica del 30 de octubre de 1918 al 1 de diciembre de 1970. El mapa muestra el reino en 1919–1961 y la República Árabe de Yemen desde 1962: Cliopatria tiene una sola entrada para Yemen del Norte en 1919–1989, que el mapa divide en la revolución de 1962. El mapa no muestra que los monárquicos controlaran el norte del país durante la guerra civil de 1962–1970.",
+       "fr": "Wikidata indique du 30 octobre 1918 au 1er décembre 1970. La carte montre le royaume de 1919 à 1961 et la République arabe du Yémen à partir de 1962 : Cliopatria a une seule entrée pour le Yémen du Nord de 1919 à 1989, que la carte divise à la révolution de 1962. La carte ne montre pas que les royalistes tenaient le nord du pays pendant la guerre civile de 1962 à 1970."
+      },
+      "sources": [
+       "wp-kingdom-of-yemen",
+       "wd-kingdom-of-yemen",
+       "cliopatria"
+      ],
+      "review": "source-checked"
+     }
+    },
+    "arabrepubliken-jemen": {
+     "facts": {
+      "summary": {
+       "sv": "Arabrepubliken Jemen, ofta kallad Nordjemen, utropades 1962 när officerare störtade monarkin i Sanaa. Kuppen ledde till ett inbördeskrig i åtta år, som republikanerna vann. Huvudstaden var Sanaa. 22 maj 1990 gick landet samman med Sydjemen till dagens Republiken Jemen.",
+       "en": "The Yemen Arab Republic, often called North Yemen, was proclaimed in 1962 when officers overthrew the monarchy in Sanaa. The coup led to an eight-year civil war, which the republicans won. The capital was Sanaa. On 22 May 1990 the country united with South Yemen to form the present Republic of Yemen.",
+       "de": "Die Jemenitische Arabische Republik, oft Nordjemen genannt, wurde 1962 ausgerufen, als Offiziere in Sanaa die Monarchie stürzten. Der Putsch führte zu einem achtjährigen Bürgerkrieg, den die Republikaner gewannen. Hauptstadt war Sanaa. Am 22. Mai 1990 vereinigte sich das Land mit dem Südjemen zur heutigen Republik Jemen.",
+       "es": "La República Árabe de Yemen, a menudo llamada Yemen del Norte, se proclamó en 1962, cuando unos oficiales derrocaron la monarquía en Saná. El golpe desembocó en una guerra civil de ocho años que ganaron los republicanos. La capital era Saná. El 22 de mayo de 1990 el país se unió con Yemen del Sur para formar la actual República de Yemen.",
+       "fr": "La République arabe du Yémen, souvent appelée Yémen du Nord, fut proclamée en 1962 lorsque des officiers renversèrent la monarchie à Sanaa. Le coup d'État déclencha une guerre civile de huit ans, remportée par les républicains. La capitale était Sanaa. Le 22 mai 1990, le pays s'unit au Yémen du Sud pour former l'actuelle République du Yémen."
+      },
+      "mapNote": {
+       "sv": "Wikidata anger 26 september 1962–22 maj 1990. Kartan visar republiken 1962–1989, som Cliopatrias post för Nordjemen, och Republiken Jemen från 1990.",
+       "en": "Wikidata gives 26 September 1962–22 May 1990. The map shows the republic in 1962–1989, as in Cliopatria's entry for North Yemen, and the Republic of Yemen from 1990.",
+       "de": "Wikidata nennt den 26. September 1962 bis 22. Mai 1990. Die Karte zeigt die Republik 1962–1989, wie den Eintrag für Nordjemen in Cliopatria, und die Republik Jemen ab 1990.",
+       "es": "Wikidata indica del 26 de septiembre de 1962 al 22 de mayo de 1990. El mapa muestra la república en 1962–1989, como la entrada de Cliopatria para Yemen del Norte, y la República de Yemen desde 1990.",
+       "fr": "Wikidata indique du 26 septembre 1962 au 22 mai 1990. La carte montre la république de 1962 à 1989, comme l'entrée de Cliopatria pour le Yémen du Nord, et la République du Yémen à partir de 1990."
+      },
+      "sources": [
+       "wp-yemen-arab-republic",
+       "wd-yemen-arab-republic",
+       "cliopatria"
+      ],
+      "review": "source-checked"
+     }
+    },
+    "sydjemen": {
+     "facts": {
+      "summary": {
+       "sv": "Sydjemen, Demokratiska folkrepubliken Jemen, växte fram ur den brittiska kolonin Aden och Adenprotektoratet. Efter ett väpnat uppror mot det brittiska styret från 1963 utropades Folkrepubliken Sydjemen 30 november 1967. Landet var den enda kommunistiska staten i arabvärlden och hade Aden som huvudstad. 22 maj 1990 gick det samman med Nordjemen.",
+       "en": "South Yemen, the People's Democratic Republic of Yemen, grew out of the British Colony of Aden and the Aden Protectorate. After an armed rebellion against British rule from 1963, the People's Republic of Southern Yemen was proclaimed on 30 November 1967. The country was the only communist state in the Arab world and had Aden as its capital. On 22 May 1990 it united with North Yemen.",
+       "de": "Der Südjemen, die Demokratische Volksrepublik Jemen, ging aus der britischen Kolonie Aden und dem Aden-Protektorat hervor. Nach einem bewaffneten Aufstand gegen die britische Herrschaft ab 1963 wurde am 30. November 1967 die Volksrepublik Südjemen ausgerufen. Das Land war der einzige kommunistische Staat der arabischen Welt und hatte Aden als Hauptstadt. Am 22. Mai 1990 vereinigte es sich mit dem Nordjemen.",
+       "es": "Yemen del Sur, la República Democrática Popular de Yemen, surgió de la colonia británica de Adén y del Protectorado de Adén. Tras una rebelión armada contra el dominio británico iniciada en 1963, el 30 de noviembre de 1967 se proclamó la República Popular de Yemen del Sur. El país fue el único Estado comunista del mundo árabe y tenía Adén como capital. El 22 de mayo de 1990 se unió con Yemen del Norte.",
+       "fr": "Le Yémen du Sud, la République démocratique populaire du Yémen, est issu de la colonie britannique d'Aden et du protectorat d'Aden. Après une rébellion armée contre la domination britannique à partir de 1963, la République populaire du Yémen du Sud fut proclamée le 30 novembre 1967. Le pays était le seul État communiste du monde arabe et avait Aden pour capitale. Le 22 mai 1990, il s'unit au Yémen du Nord."
+      },
+      "mapNote": {
+       "sv": "Källorna anger 1967–1990 (Wikidata 30 november 1967–22 maj 1990). Kartan visar landet 1969–1989, som Cliopatria; åren 1967–1968 räknar Cliopatria området till Brittiska imperiet.",
+       "en": "The sources give 1967–1990 (Wikidata 30 November 1967–22 May 1990). The map shows the country in 1969–1989, as in Cliopatria; in 1967–1968 Cliopatria counts the area as part of the British Empire.",
+       "de": "Die Quellen nennen 1967–1990 (Wikidata 30. November 1967 bis 22. Mai 1990). Die Karte zeigt das Land wie Cliopatria 1969–1989; 1967–1968 zählt Cliopatria das Gebiet zum Britischen Weltreich.",
+       "es": "Las fuentes indican 1967–1990 (Wikidata, del 30 de noviembre de 1967 al 22 de mayo de 1990). El mapa muestra el país en 1969–1989, como Cliopatria; en 1967–1968 Cliopatria cuenta la zona como parte del Imperio británico.",
+       "fr": "Les sources indiquent 1967–1990 (Wikidata, du 30 novembre 1967 au 22 mai 1990). La carte montre le pays de 1969 à 1989, comme Cliopatria ; en 1967–1968, Cliopatria compte la région comme partie de l'Empire britannique."
+      },
+      "sources": [
+       "wp-south-yemen",
+       "wd-south-yemen",
+       "cliopatria"
+      ],
+      "review": "source-checked"
+     }
+    }
+   }
   },
   {
    "id": "norge",
@@ -32212,10 +32348,38 @@
     "fr": "Zimbabwe"
    },
    "color": "#9a4a6a",
-   "from": 1983,
+   "from": 1967,
    "to": 2024,
    "file": "data/empires/zimbabwe.json",
    "polities": [
+    {
+     "id": "rhodesia",
+     "name": {
+      "sv": "Rhodesia",
+      "en": "Rhodesia",
+      "de": "Rhodesien",
+      "es": "Rodesia",
+      "fr": "Rhodésie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "zimbabwe-rhodesia",
+     "name": {
+      "sv": "Zimbabwe-Rhodesia",
+      "en": "Zimbabwe Rhodesia",
+      "de": "Simbabwe-Rhodesien",
+      "es": "Zimbabue Rodesia",
+      "fr": "Zimbabwe-Rhodésie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
     {
      "id": "zimbabwe",
      "name": {
@@ -32230,7 +32394,76 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "polityFacts": {
+    "rhodesia": {
+     "facts": {
+      "summary": {
+       "sv": "Rhodesia var en stat i södra Afrika 1965–1979 som inte erkändes internationellt. Den vita minoritetsregeringen i den brittiska kolonin Sydrhodesia förklarade sig ensidigt självständig från Storbritannien 11 november 1965 för att skjuta upp ett styre av den svarta majoriteten. FN:s säkerhetsråd uppmanade alla stater att inte erkänna landet (resolution 216). Två afrikanska nationalistpartier, ZAPU och ZANU, förde ett väpnat uppror, Rhodesiska bushkriget. Huvudstaden var Salisbury, i dag Harare.",
+       "en": "Rhodesia was an unrecognised state in Southern Africa in 1965–1979. The white minority government of the British colony of Southern Rhodesia unilaterally declared independence from the United Kingdom on 11 November 1965 to delay rule by the black majority. The UN Security Council called on all states not to recognise the country (Resolution 216). Two African nationalist parties, ZAPU and ZANU, waged an armed insurgency, the Rhodesian Bush War. The capital was Salisbury, now Harare.",
+       "de": "Rhodesien war ein international nicht anerkannter Staat im südlichen Afrika 1965–1979. Die weiße Minderheitsregierung der britischen Kolonie Südrhodesien erklärte am 11. November 1965 einseitig die Unabhängigkeit vom Vereinigten Königreich, um eine Herrschaft der schwarzen Mehrheit hinauszuzögern. Der UN-Sicherheitsrat forderte alle Staaten auf, das Land nicht anzuerkennen (Resolution 216). Zwei afrikanische nationalistische Parteien, ZAPU und ZANU, führten einen bewaffneten Aufstand, den Rhodesischen Buschkrieg. Hauptstadt war Salisbury, heute Harare.",
+       "es": "Rodesia fue un Estado no reconocido internacionalmente en el sur de África en 1965–1979. El gobierno de la minoría blanca de la colonia británica de Rodesia del Sur declaró unilateralmente la independencia del Reino Unido el 11 de noviembre de 1965 para retrasar un gobierno de la mayoría negra. El Consejo de Seguridad de la ONU pidió a todos los Estados que no reconocieran el país (resolución 216). Dos partidos nacionalistas africanos, ZAPU y ZANU, libraron una insurgencia armada, la guerra de Rodesia. La capital era Salisbury, hoy Harare.",
+       "fr": "La Rhodésie était un État d'Afrique australe non reconnu internationalement, de 1965 à 1979. Le gouvernement de la minorité blanche de la colonie britannique de Rhodésie du Sud proclama unilatéralement son indépendance vis-à-vis du Royaume-Uni le 11 novembre 1965 pour retarder un gouvernement de la majorité noire. Le Conseil de sécurité de l'ONU appela tous les États à ne pas reconnaître le pays (résolution 216). Deux partis nationalistes africains, la ZAPU et la ZANU, menèrent une insurrection armée, la guerre du Bush de Rhodésie. La capitale était Salisbury, aujourd'hui Harare."
+      },
+      "mapNote": {
+       "sv": "Källorna anger 1965–1979 (Wikidata 11 november 1965–1 juni 1979). Kartan visar Rhodesia 1967–1978, som Cliopatria, som räknar landet till Brittiska imperiet 1965–1966 och också 1967–1968; de två senare åren visar kartan bara Rhodesia. Rhodesia erkändes aldrig, men kartan visar landet som Cliopatria gör, enligt Historia-globens beslut.",
+       "en": "The sources give 1965–1979 (Wikidata 11 November 1965–1 June 1979). The map shows Rhodesia in 1967–1978, as in Cliopatria, which counts the country as part of the British Empire in 1965–1966 and also in 1967–1968; in the latter two years the map shows only Rhodesia. Rhodesia was never recognised, but the map shows the country as Cliopatria does, by decision of Historia-globen.",
+       "de": "Die Quellen nennen 1965–1979 (Wikidata 11. November 1965 bis 1. Juni 1979). Die Karte zeigt Rhodesien wie Cliopatria 1967–1978. Cliopatria zählt das Land 1965–1966 und auch 1967–1968 zum Britischen Weltreich; in den beiden letzteren Jahren zeigt die Karte nur Rhodesien. Rhodesien wurde nie anerkannt, doch die Karte zeigt das Land nach einer Entscheidung von Historia-globen so wie Cliopatria.",
+       "es": "Las fuentes indican 1965–1979 (Wikidata, del 11 de noviembre de 1965 al 1 de junio de 1979). El mapa muestra Rodesia en 1967–1978, como Cliopatria, que cuenta el país como parte del Imperio británico en 1965–1966 y también en 1967–1968; en estos dos últimos años el mapa solo muestra Rodesia. Rodesia nunca fue reconocida, pero el mapa muestra el país como lo hace Cliopatria, por decisión de Historia-globen.",
+       "fr": "Les sources indiquent 1965–1979 (Wikidata, du 11 novembre 1965 au 1er juin 1979). La carte montre la Rhodésie de 1967 à 1978, comme Cliopatria, qui compte le pays comme partie de l'Empire britannique en 1965–1966 et aussi en 1967–1968 ; pour ces deux dernières années, la carte ne montre que la Rhodésie. La Rhodésie ne fut jamais reconnue, mais la carte montre le pays comme le fait Cliopatria, sur décision d'Historia-globen."
+      },
+      "sources": [
+       "wp-rhodesia",
+       "wd-rhodesia",
+       "cliopatria"
+      ],
+      "review": "source-checked"
+     }
+    },
+    "zimbabwe-rhodesia": {
+     "facts": {
+      "summary": {
+       "sv": "Zimbabwe-Rhodesia var landets namn från 1 juni 1979, efter val och en övergångsregering där Abel Muzorewa efterträdde Ian Smith. Inte heller Zimbabwe-Rhodesia erkändes av andra länder. I december 1979 kom parterna överens om att landet åter skulle bli en brittisk koloni i väntan på nya val, och 18 april 1980 blev det självständigt som Zimbabwe.",
+       "en": "Zimbabwe Rhodesia was the name of the country from 1 June 1979, after elections and a transitional government in which Abel Muzorewa succeeded Ian Smith. Zimbabwe Rhodesia was not recognised by other countries either. In December 1979 the parties agreed that the country would revert to being a British colony pending new elections, and on 18 April 1980 it became independent as Zimbabwe.",
+       "de": "Simbabwe-Rhodesien hieß das Land ab dem 1. Juni 1979, nach Wahlen und einer Übergangsregierung, in der Abel Muzorewa auf Ian Smith folgte. Auch Simbabwe-Rhodesien wurde von anderen Ländern nicht anerkannt. Im Dezember 1979 einigten sich die Parteien darauf, dass das Land bis zu Neuwahlen wieder britische Kolonie wurde, und am 18. April 1980 wurde es als Simbabwe unabhängig.",
+       "es": "Zimbabue Rodesia fue el nombre del país desde el 1 de junio de 1979, tras unas elecciones y un gobierno de transición en el que Abel Muzorewa sucedió a Ian Smith. Tampoco Zimbabue Rodesia fue reconocida por otros países. En diciembre de 1979 las partes acordaron que el país volviera a ser colonia británica hasta unas nuevas elecciones, y el 18 de abril de 1980 se independizó como Zimbabue.",
+       "fr": "Zimbabwe-Rhodésie fut le nom du pays à partir du 1er juin 1979, après des élections et un gouvernement de transition dans lequel Abel Muzorewa succéda à Ian Smith. Le Zimbabwe-Rhodésie ne fut pas non plus reconnu par d'autres pays. En décembre 1979, les parties convinrent que le pays redeviendrait une colonie britannique en attendant de nouvelles élections, et le 18 avril 1980 il devint indépendant sous le nom de Zimbabwe."
+      },
+      "mapNote": {
+       "sv": "Källorna skiljer sig: Wikipedia anger 1 juni 1979–18 april 1980 och Wikidata 1 juni–12 december 1979. Cliopatria har Zimbabwe-Rhodesia 1979–1982. Kartan visar Zimbabwe-Rhodesia 1979 och Zimbabwe från 1980, som Wikidata och Wikipedia, med Cliopatrias gräns för Zimbabwe-Rhodesia, som är densamma som Zimbabwes gräns 1983.",
+       "en": "The sources differ: Wikipedia gives 1 June 1979–18 April 1980 and Wikidata 1 June–12 December 1979. Cliopatria has Zimbabwe Rhodesia in 1979–1982. The map shows Zimbabwe Rhodesia in 1979 and Zimbabwe from 1980, as Wikidata and Wikipedia do, with Cliopatria's border for Zimbabwe Rhodesia, which is the same as Zimbabwe's border in 1983.",
+       "de": "Die Quellen weichen voneinander ab: Wikipedia nennt den 1. Juni 1979 bis 18. April 1980 und Wikidata den 1. Juni bis 12. Dezember 1979. Cliopatria hat Simbabwe-Rhodesien 1979–1982. Die Karte zeigt Simbabwe-Rhodesien 1979 und Simbabwe ab 1980, wie Wikidata und Wikipedia, mit der Grenze von Simbabwe-Rhodesien aus Cliopatria, die dieselbe ist wie die Grenze Simbabwes 1983.",
+       "es": "Las fuentes difieren: Wikipedia indica del 1 de junio de 1979 al 18 de abril de 1980 y Wikidata del 1 de junio al 12 de diciembre de 1979. Cliopatria tiene Zimbabue Rodesia en 1979–1982. El mapa muestra Zimbabue Rodesia en 1979 y Zimbabue desde 1980, como Wikidata y Wikipedia, con la frontera de Zimbabue Rodesia de Cliopatria, que es la misma que la de Zimbabue en 1983.",
+       "fr": "Les sources divergent : Wikipédia indique du 1er juin 1979 au 18 avril 1980 et Wikidata du 1er juin au 12 décembre 1979. Cliopatria a le Zimbabwe-Rhodésie de 1979 à 1982. La carte montre le Zimbabwe-Rhodésie en 1979 et le Zimbabwe à partir de 1980, comme Wikidata et Wikipédia, avec la frontière du Zimbabwe-Rhodésie de Cliopatria, qui est la même que celle du Zimbabwe en 1983."
+      },
+      "sources": [
+       "wp-zimbabwe-rhodesia",
+       "wd-zimbabwe-rhodesia",
+       "wp-rhodesia",
+       "wp-zimbabwe",
+       "wd-zimbabwe",
+       "cliopatria"
+      ],
+      "review": "source-checked"
+     }
+    }
+   },
+   "facts": {
+    "mapNote": {
+     "sv": "Zimbabwe blev självständigt 18 april 1980 (Wikipedia och Wikidata). Cliopatria kallar landet Zimbabwe-Rhodesia till och med 1982; kartan visar Zimbabwe från 1980, med samma gräns. Före 1980 visar kartan Rhodesia (1967–1978) och Zimbabwe-Rhodesia (1979).",
+     "en": "Zimbabwe became independent on 18 April 1980 (Wikipedia and Wikidata). Cliopatria calls the country Zimbabwe Rhodesia until 1982; the map shows Zimbabwe from 1980, with the same border. Before 1980 the map shows Rhodesia (1967–1978) and Zimbabwe Rhodesia (1979).",
+     "de": "Simbabwe wurde am 18. April 1980 unabhängig (Wikipedia und Wikidata). Cliopatria nennt das Land bis 1982 Simbabwe-Rhodesien; die Karte zeigt Simbabwe ab 1980 mit derselben Grenze. Vor 1980 zeigt die Karte Rhodesien (1967–1978) und Simbabwe-Rhodesien (1979).",
+     "es": "Zimbabue se independizó el 18 de abril de 1980 (Wikipedia y Wikidata). Cliopatria llama al país Zimbabue Rodesia hasta 1982; el mapa muestra Zimbabue desde 1980, con la misma frontera. Antes de 1980 el mapa muestra Rodesia (1967–1978) y Zimbabue Rodesia (1979).",
+     "fr": "Le Zimbabwe devint indépendant le 18 avril 1980 (Wikipédia et Wikidata). Cliopatria appelle le pays Zimbabwe-Rhodésie jusqu'en 1982 ; la carte montre le Zimbabwe à partir de 1980, avec la même frontière. Avant 1980, la carte montre la Rhodésie (1967–1978) et le Zimbabwe-Rhodésie (1979)."
+    },
+    "sources": [
+     "wp-zimbabwe",
+     "wd-zimbabwe",
+     "wp-zimbabwe-rhodesia",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "tyskland",
@@ -32578,7 +32811,33 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "polityFacts": {
+    "muskat-och-oman": {
+     "facts": {
+      "summary": {
+       "sv": "Sultanatet Muskat och Oman stod i praktiken under brittiskt beskydd. Det uppstod 1856, när Omanska riket delades efter sultanen Said bin Sultans död, och styrdes av Al Busaid-dynastin. Efter en palatskupp 23 juli 1970 tog sultanens son Qaboos bin Said makten och grundade dagens Sultanatet Oman.",
+       "en": "The Sultanate of Muscat and Oman was in practice under British protection. It arose in 1856, when the Omani Empire was divided after the death of Sultan Said bin Sultan, and was ruled by the Al Busaid dynasty. After a palace coup on 23 July 1970 the sultan's son Qaboos bin Said took power and founded the present Sultanate of Oman.",
+       "de": "Das Sultanat Maskat und Oman stand faktisch unter britischem Schutz. Es entstand 1856, als das Omanische Reich nach dem Tod von Sultan Said bin Sultan geteilt wurde, und wurde von der Dynastie Al Busaid regiert. Nach einem Palastputsch am 23. Juli 1970 übernahm der Sohn des Sultans, Qabus bin Said, die Macht und gründete das heutige Sultanat Oman.",
+       "es": "El Sultanato de Mascate y Omán estaba en la práctica bajo protección británica. Surgió en 1856, cuando el Imperio omaní se dividió tras la muerte del sultán Said bin Sultán, y lo gobernó la dinastía Al Busaid. Tras un golpe palaciego el 23 de julio de 1970, el hijo del sultán, Qabús bin Said, tomó el poder y fundó el actual Sultanato de Omán.",
+       "fr": "Le sultanat de Mascate et Oman était en pratique sous protection britannique. Il naquit en 1856, lorsque l'Empire omanais fut partagé après la mort du sultan Saïd ben Sultan, et fut gouverné par la dynastie Al Bou Saïd. Après une révolution de palais le 23 juillet 1970, le fils du sultan, Qabous ben Saïd, prit le pouvoir et fonda l'actuel sultanat d'Oman."
+      },
+      "mapNote": {
+       "sv": "Wikidata anger 1820–1970 och Wikipedia att sultanatet uppstod 1856. Kartan visar Muskat och Oman 1900–1955, som Cliopatria, med ett undantag: Cliopatria har ingen post för landet 1947–1955, utan en post som heter Qatar Protectorate och har exakt samma gräns som Muskat och Oman 1946. Kartan visar den gränsen som Muskat och Oman. Från 1956 till 1972 räknar Cliopatria landet till Brittiska imperiet.",
+       "en": "Wikidata gives 1820–1970 and Wikipedia that the sultanate arose in 1856. The map shows Muscat and Oman in 1900–1955, as in Cliopatria, with one exception: Cliopatria has no entry for the country in 1947–1955, but an entry called Qatar Protectorate with exactly the same border as Muscat and Oman in 1946. The map shows that border as Muscat and Oman. From 1956 to 1972 Cliopatria counts the country as part of the British Empire.",
+       "de": "Wikidata nennt 1820–1970 und Wikipedia, dass das Sultanat 1856 entstand. Die Karte zeigt Maskat und Oman wie Cliopatria 1900–1955, mit einer Ausnahme: Cliopatria hat für 1947–1955 keinen Eintrag für das Land, sondern einen Eintrag namens Qatar Protectorate mit genau derselben Grenze wie Maskat und Oman 1946. Die Karte zeigt diese Grenze als Maskat und Oman. Von 1956 bis 1972 zählt Cliopatria das Land zum Britischen Weltreich.",
+       "es": "Wikidata indica 1820–1970 y Wikipedia que el sultanato surgió en 1856. El mapa muestra Mascate y Omán en 1900–1955, como Cliopatria, con una excepción: Cliopatria no tiene ninguna entrada para el país en 1947–1955, sino una entrada llamada Qatar Protectorate con exactamente la misma frontera que Mascate y Omán en 1946. El mapa muestra esa frontera como Mascate y Omán. De 1956 a 1972 Cliopatria cuenta el país como parte del Imperio británico.",
+       "fr": "Wikidata indique 1820–1970 et Wikipédia que le sultanat naquit en 1856. La carte montre Mascate et Oman de 1900 à 1955, comme Cliopatria, à une exception près : Cliopatria n'a pas d'entrée pour le pays de 1947 à 1955, mais une entrée appelée Qatar Protectorate avec exactement la même frontière que Mascate et Oman en 1946. La carte montre cette frontière comme Mascate et Oman. De 1956 à 1972, Cliopatria compte le pays comme partie de l'Empire britannique."
+      },
+      "sources": [
+       "wp-muscat-and-oman",
+       "wd-muscat-and-oman",
+       "cliopatria"
+      ],
+      "review": "source-checked"
+     }
+    }
+   }
   },
   {
    "id": "italien",
@@ -33244,10 +33503,38 @@
     "fr": "Suriname"
    },
    "color": "#c0703a",
-   "from": 1976,
+   "from": 1820,
    "to": 2024,
    "file": "data/empires/surinam.json",
    "polities": [
+    {
+     "id": "kolonin-surinam",
+     "name": {
+      "sv": "Kolonin Surinam",
+      "en": "Surinam (Dutch colony)",
+      "de": "Kolonie Surinam",
+      "es": "Colonia de Surinam",
+      "fr": "Colonie du Suriname"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "surinam-i-kungariket",
+     "name": {
+      "sv": "Surinam inom kungariket Nederländerna",
+      "en": "Suriname in the Kingdom of the Netherlands",
+      "de": "Suriname im Königreich der Niederlande",
+      "es": "Surinam dentro del Reino de los Países Bajos",
+      "fr": "Suriname au sein du royaume des Pays-Bas"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
     {
      "id": "surinam",
      "name": {
@@ -33262,7 +33549,59 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "polityFacts": {
+    "kolonin-surinam": {
+     "facts": {
+      "summary": {
+       "sv": "Surinam var en nederländsk plantagekoloni från 1667, då nederländska styrkor tog den engelska kolonin under andra engelsk-nederländska kriget. Plantagerna drevs med förslavade afrikaner; omkring 300 000 fördes till Surinam, och slaveriet avskaffades 1863. Britterna ockuperade kolonin 1799–1802 och 1804–1816. Den förblev koloni till 15 december 1954.",
+       "en": "Surinam was a Dutch plantation colony from 1667, when Dutch forces captured the English colony during the Second Anglo-Dutch War. The plantations were worked by enslaved Africans; about 300,000 were taken to Surinam, and slavery was abolished in 1863. The British occupied the colony in 1799–1802 and 1804–1816. It remained a colony until 15 December 1954.",
+       "de": "Surinam war ab 1667 eine niederländische Plantagenkolonie, nachdem niederländische Truppen die englische Kolonie im Zweiten Englisch-Niederländischen Krieg erobert hatten. Auf den Plantagen arbeiteten versklavte Afrikaner; etwa 300.000 wurden nach Surinam gebracht, und die Sklaverei wurde 1863 abgeschafft. Die Briten besetzten die Kolonie 1799–1802 und 1804–1816. Sie blieb bis zum 15. Dezember 1954 Kolonie.",
+       "es": "Surinam fue una colonia neerlandesa de plantaciones desde 1667, cuando fuerzas neerlandesas tomaron la colonia inglesa durante la segunda guerra anglo-neerlandesa. Las plantaciones se explotaban con africanos esclavizados; unos 300 000 fueron llevados a Surinam, y la esclavitud se abolió en 1863. Los británicos ocuparon la colonia en 1799–1802 y 1804–1816. Siguió siendo colonia hasta el 15 de diciembre de 1954.",
+       "fr": "Le Suriname fut une colonie de plantation néerlandaise à partir de 1667, lorsque les forces néerlandaises prirent la colonie anglaise pendant la deuxième guerre anglo-néerlandaise. Les plantations reposaient sur des Africains réduits en esclavage ; environ 300 000 furent amenés au Suriname, et l'esclavage fut aboli en 1863. Les Britanniques occupèrent la colonie en 1799–1802 et 1804–1816. Elle resta une colonie jusqu'au 15 décembre 1954."
+      },
+      "mapNote": {
+       "sv": "Källorna skiljer sig något: Wikipedia anger 1667–15 december 1954 och Wikidata 1667–14 december 1954. Kartan visar kolonin 1820–1954. Cliopatria räknar Surinam 1820–1975 till posten Netherlands Antilles (Nederländska Antillerna), vars del på fastlandet har samma gräns som Surinam 1976 i Cliopatria; kartan visar Surinam med den gränsen. Åren före 1820 räknar Cliopatria Surinam till andra poster.",
+       "en": "The sources differ slightly: Wikipedia gives 1667–15 December 1954 and Wikidata 1667–14 December 1954. The map shows the colony in 1820–1954. Cliopatria counts Suriname in 1820–1975 as part of its entry Netherlands Antilles, whose mainland part has the same border as Suriname in 1976 in Cliopatria; the map shows Suriname with that border. In the years before 1820 Cliopatria counts Suriname as part of other entries.",
+       "de": "Die Quellen weichen leicht voneinander ab: Wikipedia nennt 1667 bis 15. Dezember 1954 und Wikidata 1667 bis 14. Dezember 1954. Die Karte zeigt die Kolonie 1820–1954. Cliopatria zählt Suriname 1820–1975 zum Eintrag Netherlands Antilles (Niederländische Antillen), dessen Teil auf dem Festland dieselbe Grenze hat wie Suriname 1976 in Cliopatria; die Karte zeigt Suriname mit dieser Grenze. In den Jahren vor 1820 zählt Cliopatria Suriname zu anderen Einträgen.",
+       "es": "Las fuentes difieren ligeramente: Wikipedia indica de 1667 al 15 de diciembre de 1954 y Wikidata de 1667 al 14 de diciembre de 1954. El mapa muestra la colonia en 1820–1954. Cliopatria cuenta Surinam en 1820–1975 dentro de su entrada Netherlands Antilles (Antillas Neerlandesas), cuya parte continental tiene la misma frontera que Surinam en 1976 en Cliopatria; el mapa muestra Surinam con esa frontera. En los años anteriores a 1820 Cliopatria cuenta Surinam dentro de otras entradas.",
+       "fr": "Les sources divergent légèrement : Wikipédia indique de 1667 au 15 décembre 1954 et Wikidata de 1667 au 14 décembre 1954. La carte montre la colonie de 1820 à 1954. Cliopatria compte le Suriname de 1820 à 1975 dans son entrée Netherlands Antilles (Antilles néerlandaises), dont la partie continentale a la même frontière que le Suriname en 1976 dans Cliopatria ; la carte montre le Suriname avec cette frontière. Pour les années avant 1820, Cliopatria compte le Suriname dans d'autres entrées."
+      },
+      "sources": [
+       "wp-surinam-dutch-colony",
+       "wp-suriname",
+       "wd-surinam-dutch-colony",
+       "cliopatria"
+      ],
+      "review": "source-checked"
+     }
+    },
+    "surinam-i-kungariket": {
+     "facts": {
+      "summary": {
+       "sv": "Genom stadgan för kungariket Nederländerna 15 december 1954 blev Surinam ett land inom kungariket, jämställt med Nederländerna och Nederländska Antillerna. Nederländerna behöll ansvaret för försvar och utrikespolitik. Efter förhandlingar med den nederländska regeringen blev Surinam självständigt 25 november 1975.",
+       "en": "Through the Charter for the Kingdom of the Netherlands of 15 December 1954, Suriname became a country within the Kingdom, on an equal footing with the Netherlands and the Netherlands Antilles. The Netherlands kept responsibility for defence and foreign affairs. After negotiations with the Dutch government, Suriname became independent on 25 November 1975.",
+       "de": "Durch das Statut für das Königreich der Niederlande vom 15. Dezember 1954 wurde Suriname ein gleichberechtigtes Land innerhalb des Königreichs, neben den Niederlanden und den Niederländischen Antillen. Die Niederlande behielten Verteidigung und Außenpolitik. Nach Verhandlungen mit der niederländischen Regierung wurde Suriname am 25. November 1975 unabhängig.",
+       "es": "Mediante el Estatuto del Reino de los Países Bajos del 15 de diciembre de 1954, Surinam pasó a ser un país dentro del Reino, en pie de igualdad con los Países Bajos y las Antillas Neerlandesas. Los Países Bajos conservaron la defensa y la política exterior. Tras negociaciones con el gobierno neerlandés, Surinam se independizó el 25 de noviembre de 1975.",
+       "fr": "Par la Charte du royaume des Pays-Bas du 15 décembre 1954, le Suriname devint un pays au sein du royaume, sur un pied d'égalité avec les Pays-Bas et les Antilles néerlandaises. Les Pays-Bas conservèrent la défense et les affaires étrangères. Après des négociations avec le gouvernement néerlandais, le Suriname devint indépendant le 25 novembre 1975."
+      },
+      "mapNote": {
+       "sv": "Källorna skiljer sig något: Wikipedia anger 15 december 1954 och Wikidata 29 december 1954 som start; båda anger självständigheten 25 november 1975. Kartan visar landet 1955–1975. Cliopatria räknar Surinam 1820–1975 till posten Netherlands Antilles (Nederländska Antillerna), vars del på fastlandet har samma gräns som Surinam 1976 i Cliopatria; kartan visar Surinam med den gränsen.",
+       "en": "The sources differ slightly: Wikipedia gives 15 December 1954 and Wikidata 29 December 1954 as the start; both give independence on 25 November 1975. The map shows the country in 1955–1975. Cliopatria counts Suriname in 1820–1975 as part of its entry Netherlands Antilles, whose mainland part has the same border as Suriname in 1976 in Cliopatria; the map shows Suriname with that border.",
+       "de": "Die Quellen weichen leicht voneinander ab: Wikipedia nennt den 15. Dezember 1954 und Wikidata den 29. Dezember 1954 als Beginn; beide nennen die Unabhängigkeit am 25. November 1975. Die Karte zeigt das Land 1955–1975. Cliopatria zählt Suriname 1820–1975 zum Eintrag Netherlands Antilles (Niederländische Antillen), dessen Teil auf dem Festland dieselbe Grenze hat wie Suriname 1976 in Cliopatria; die Karte zeigt Suriname mit dieser Grenze.",
+       "es": "Las fuentes difieren ligeramente: Wikipedia indica el 15 de diciembre de 1954 y Wikidata el 29 de diciembre de 1954 como inicio; ambas indican la independencia el 25 de noviembre de 1975. El mapa muestra el país en 1955–1975. Cliopatria cuenta Surinam en 1820–1975 dentro de su entrada Netherlands Antilles (Antillas Neerlandesas), cuya parte continental tiene la misma frontera que Surinam en 1976 en Cliopatria; el mapa muestra Surinam con esa frontera.",
+       "fr": "Les sources divergent légèrement : Wikipédia indique le 15 décembre 1954 et Wikidata le 29 décembre 1954 comme début ; toutes deux indiquent l'indépendance le 25 novembre 1975. La carte montre le pays de 1955 à 1975. Cliopatria compte le Suriname de 1820 à 1975 dans son entrée Netherlands Antilles (Antilles néerlandaises), dont la partie continentale a la même frontière que le Suriname en 1976 dans Cliopatria ; la carte montre le Suriname avec cette frontière."
+      },
+      "sources": [
+       "wp-suriname",
+       "wp-surinam-dutch-colony",
+       "wd-suriname-kingdom",
+       "cliopatria"
+      ],
+      "review": "source-checked"
+     }
+    }
+   }
   },
   {
    "id": "tadzjikistan",
@@ -33972,10 +34311,38 @@
     "fr": "Serbie"
    },
    "color": "#8a5ab0",
-   "from": 2006,
+   "from": 1992,
    "to": 2024,
    "file": "data/empires/serbien.json",
    "polities": [
+    {
+     "id": "forbundsrepubliken-jugoslavien",
+     "name": {
+      "sv": "Förbundsrepubliken Jugoslavien",
+      "en": "Federal Republic of Yugoslavia",
+      "de": "Bundesrepublik Jugoslawien",
+      "es": "República Federal de Yugoslavia",
+      "fr": "République fédérale de Yougoslavie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "serbien-och-montenegro",
+     "name": {
+      "sv": "Serbien och Montenegro",
+      "en": "Serbia and Montenegro",
+      "de": "Serbien und Montenegro",
+      "es": "Serbia y Montenegro",
+      "fr": "Serbie-et-Monténégro"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
     {
      "id": "serbien",
      "name": {
@@ -34004,6 +34371,58 @@
      "cliopatria"
     ],
     "review": "source-checked"
+   },
+   "polityFacts": {
+    "forbundsrepubliken-jugoslavien": {
+     "facts": {
+      "summary": {
+       "sv": "Förbundsrepubliken Jugoslavien bildades av Serbien och Montenegro 27 april 1992, när Socialistiska federativa republiken Jugoslavien föll sönder. FN godtog inte att den var den gamla statens fortsättning (säkerhetsrådets resolution 777), och den fick inte gå med i FN. Under krigen i Jugoslavien och Kosovokriget drabbades landet av ekonomiska sanktioner. I februari 2003 ombildades förbundet till statsunionen Serbien och Montenegro.",
+       "en": "The Federal Republic of Yugoslavia was formed by Serbia and Montenegro on 27 April 1992, when the Socialist Federal Republic of Yugoslavia broke up. The UN did not accept it as the continuation of the old state (Security Council Resolution 777), and it was not allowed to join the UN. During the Yugoslav Wars and the Kosovo War the country was hit by economic sanctions. In February 2003 the federation was reconstituted as the state union of Serbia and Montenegro.",
+       "de": "Die Bundesrepublik Jugoslawien wurde am 27. April 1992 von Serbien und Montenegro gebildet, als die Sozialistische Föderative Republik Jugoslawien zerfiel. Die UNO erkannte sie nicht als Fortsetzung des alten Staates an (Resolution 777 des Sicherheitsrats), und sie durfte der UNO nicht beitreten. Während der Jugoslawienkriege und des Kosovokriegs wurden Wirtschaftssanktionen gegen das Land verhängt. Im Februar 2003 wurde der Bund in den Staatenbund Serbien und Montenegro umgewandelt.",
+       "es": "La República Federal de Yugoslavia fue formada por Serbia y Montenegro el 27 de abril de 1992, cuando se desintegró la República Federativa Socialista de Yugoslavia. La ONU no aceptó que fuera la continuación del antiguo Estado (resolución 777 del Consejo de Seguridad), y no se le permitió ingresar en la ONU. Durante las guerras yugoslavas y la guerra de Kosovo el país sufrió sanciones económicas. En febrero de 2003 la federación se transformó en la unión estatal de Serbia y Montenegro.",
+       "fr": "La République fédérale de Yougoslavie fut formée par la Serbie et le Monténégro le 27 avril 1992, lors de l'éclatement de la République fédérative socialiste de Yougoslavie. L'ONU n'accepta pas qu'elle soit la continuation de l'ancien État (résolution 777 du Conseil de sécurité), et elle ne fut pas autorisée à adhérer à l'ONU. Pendant les guerres de Yougoslavie et la guerre du Kosovo, le pays fut frappé de sanctions économiques. En février 2003, la fédération devint l'union d'États de Serbie-et-Monténégro."
+      },
+      "mapNote": {
+       "sv": "Wikidata anger 27 april 1992–4 februari 2003. Cliopatria kallar staten Serbia-Montenegro 1992–2005 och räknar 1992–1995 också Republiken Serbiska Krajina i Kroatien och stora delar av Bosnien och Hercegovina till den. Kartan visar i stället staten med sin egen gräns 1996 i Cliopatria även 1992–1995, och de områdena som en del av Kroatien och Bosnien och Hercegovina, enligt Historia-globens beslut att rita den internationellt erkända staten vid krig och ockupation. Från 2000 ingår Kosovo inte i Cliopatrias gräns.",
+       "en": "Wikidata gives 27 April 1992–4 February 2003. Cliopatria calls the state Serbia-Montenegro in 1992–2005 and in 1992–1995 also counts the Republic of Serbian Krajina in Croatia and large parts of Bosnia and Herzegovina as part of it. The map instead shows the state with its own 1996 border from Cliopatria in 1992–1995 as well, and those areas as part of Croatia and Bosnia and Herzegovina, by decision of Historia-globen to show the internationally recognised state in times of war and occupation. From 2000 Kosovo is not included in Cliopatria's border.",
+       "de": "Wikidata nennt den 27. April 1992 bis 4. Februar 2003. Cliopatria nennt den Staat 1992–2005 Serbia-Montenegro und zählt 1992–1995 auch die Republik Serbische Krajina in Kroatien und große Teile Bosnien und Herzegowinas dazu. Die Karte zeigt den Staat stattdessen auch 1992–1995 mit seiner eigenen Grenze von 1996 aus Cliopatria und diese Gebiete als Teil Kroatiens und Bosnien und Herzegowinas, nach der Entscheidung von Historia-globen, bei Krieg und Besatzung den international anerkannten Staat zu zeigen. Ab 2000 gehört Kosovo nicht zur Grenze in Cliopatria.",
+       "es": "Wikidata indica del 27 de abril de 1992 al 4 de febrero de 2003. Cliopatria llama al Estado Serbia-Montenegro en 1992–2005 y en 1992–1995 también le atribuye la República Serbia de Krajina, en Croacia, y gran parte de Bosnia y Herzegovina. En cambio, el mapa muestra el Estado también en 1992–1995 con su propia frontera de 1996 según Cliopatria, y esas zonas como parte de Croacia y de Bosnia y Herzegovina, por decisión de Historia-globen de mostrar el Estado reconocido internacionalmente en caso de guerra y ocupación. Desde 2000 Kosovo no forma parte de la frontera de Cliopatria.",
+       "fr": "Wikidata indique du 27 avril 1992 au 4 février 2003. Cliopatria appelle l'État Serbia-Montenegro de 1992 à 2005 et lui attribue aussi, de 1992 à 1995, la République serbe de Krajina, en Croatie, et de grandes parties de la Bosnie-Herzégovine. La carte montre au contraire l'État avec sa propre frontière de 1996 selon Cliopatria aussi de 1992 à 1995, et ces zones comme parties de la Croatie et de la Bosnie-Herzégovine, sur décision d'Historia-globen de montrer l'État reconnu internationalement en cas de guerre et d'occupation. À partir de 2000, le Kosovo ne fait pas partie de la frontière de Cliopatria."
+      },
+      "sources": [
+       "wp-serbia-and-montenegro",
+       "wd-federal-republic-of-yugoslavia",
+       "wp-republic-of-serbian-krajina",
+       "wp-bosnian-war",
+       "cliopatria"
+      ],
+      "review": "source-checked"
+     }
+    },
+    "serbien-och-montenegro": {
+     "facts": {
+      "summary": {
+       "sv": "Statsunionen Serbien och Montenegro ersatte Förbundsrepubliken Jugoslavien i februari 2003. Montenegro lämnade unionen i juni 2006, och därefter utropade Serbien sin självständighet.",
+       "en": "The state union of Serbia and Montenegro replaced the Federal Republic of Yugoslavia in February 2003. Montenegro left the union in June 2006, after which Serbia proclaimed its independence.",
+       "de": "Der Staatenbund Serbien und Montenegro ersetzte im Februar 2003 die Bundesrepublik Jugoslawien. Montenegro verließ den Bund im Juni 2006, und danach erklärte Serbien seine Unabhängigkeit.",
+       "es": "La unión estatal de Serbia y Montenegro sustituyó a la República Federal de Yugoslavia en febrero de 2003. Montenegro abandonó la unión en junio de 2006, y después Serbia proclamó su independencia.",
+       "fr": "L'union d'États de Serbie-et-Monténégro remplaça la République fédérale de Yougoslavie en février 2003. Le Monténégro quitta l'union en juin 2006, après quoi la Serbie proclama son indépendance."
+      },
+      "mapNote": {
+       "sv": "Wikidata anger 2003–4 juni 2006. Kartan visar statsunionen 2003–2005 och Serbien och Montenegro som egna länder från 2006, som Cliopatria.",
+       "en": "Wikidata gives 2003–4 June 2006. The map shows the state union in 2003–2005 and Serbia and Montenegro as separate countries from 2006, as in Cliopatria.",
+       "de": "Wikidata nennt 2003 bis 4. Juni 2006. Die Karte zeigt wie Cliopatria den Staatenbund 2003–2005 und Serbien und Montenegro ab 2006 als eigene Länder.",
+       "es": "Wikidata indica de 2003 al 4 de junio de 2006. El mapa muestra la unión estatal en 2003–2005 y Serbia y Montenegro como países propios desde 2006, como Cliopatria.",
+       "fr": "Wikidata indique de 2003 au 4 juin 2006. La carte montre l'union d'États de 2003 à 2005, puis la Serbie et le Monténégro comme pays distincts à partir de 2006, comme Cliopatria."
+      },
+      "sources": [
+       "wp-serbia-and-montenegro",
+       "wd-serbia-and-montenegro",
+       "cliopatria"
+      ],
+      "review": "source-checked"
+     }
+    }
    }
   },
   {
@@ -34355,7 +34774,22 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Under kriget 1991–1995 kontrollerade serbiska styrkor mer än en fjärdedel av Kroatien, den självutropade Republiken Serbiska Krajina, som inte erkändes internationellt. Cliopatria räknar de områdena till Förbundsrepubliken Jugoslavien 1992–1995. Kartan visar i stället hela Kroatien de åren, med landets gräns 1996 i Cliopatria, enligt Historia-globens beslut att rita den internationellt erkända staten vid krig och ockupation. Kroatien erkändes internationellt som självständig stat 1992.",
+     "en": "During the war of 1991–1995 Serb forces controlled more than a quarter of Croatia, the self-proclaimed Republic of Serbian Krajina, which was not recognised internationally. Cliopatria counts those areas as part of the Federal Republic of Yugoslavia in 1992–1995. The map instead shows the whole of Croatia in those years, with the country's 1996 border in Cliopatria, by decision of Historia-globen to show the internationally recognised state in times of war and occupation. Croatia was recognised internationally as an independent state in 1992.",
+     "de": "Im Krieg 1991–1995 kontrollierten serbische Truppen mehr als ein Viertel Kroatiens, die selbsternannte Republik Serbische Krajina, die international nicht anerkannt wurde. Cliopatria zählt diese Gebiete 1992–1995 zur Bundesrepublik Jugoslawien. Die Karte zeigt in diesen Jahren stattdessen ganz Kroatien, mit der Grenze des Landes von 1996 in Cliopatria, nach der Entscheidung von Historia-globen, bei Krieg und Besatzung den international anerkannten Staat zu zeigen. Kroatien wurde 1992 international als unabhängiger Staat anerkannt.",
+     "es": "Durante la guerra de 1991–1995, las fuerzas serbias controlaron más de una cuarta parte de Croacia, la autoproclamada República Serbia de Krajina, que no fue reconocida internacionalmente. Cliopatria cuenta esas zonas como parte de la República Federal de Yugoslavia en 1992–1995. En cambio, el mapa muestra toda Croacia en esos años, con la frontera del país de 1996 en Cliopatria, por decisión de Historia-globen de mostrar el Estado reconocido internacionalmente en caso de guerra y ocupación. Croacia fue reconocida internacionalmente como Estado independiente en 1992.",
+     "fr": "Pendant la guerre de 1991 à 1995, les forces serbes contrôlèrent plus d'un quart de la Croatie, l'autoproclamée République serbe de Krajina, qui ne fut pas reconnue internationalement. Cliopatria compte ces zones comme partie de la République fédérale de Yougoslavie de 1992 à 1995. La carte montre au contraire toute la Croatie pendant ces années, avec la frontière du pays de 1996 dans Cliopatria, sur décision d'Historia-globen de montrer l'État reconnu internationalement en cas de guerre et d'occupation. La Croatie fut reconnue internationalement comme État indépendant en 1992."
+    },
+    "sources": [
+     "wp-croatian-war-of-independence",
+     "wp-republic-of-serbian-krajina",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "bosnien-och-hercegovina",
@@ -34386,7 +34820,21 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Under Bosnienkriget 1992–1995 stred regeringen mot utbrytarstaterna Republika Srpska och Herceg-Bosna, som leddes och försörjdes av Serbien respektive Kroatien. Cliopatria räknar 1992–1995 omkring tre fjärdedelar av landet till Förbundsrepubliken Jugoslavien och Kroatien. Kartan visar i stället hela Bosnien och Hercegovina de åren, med landets gräns 1996 i Cliopatria, enligt Historia-globens beslut att rita den internationellt erkända staten vid krig och ockupation. Republiken Bosnien och Hercegovina erkändes internationellt 6 april 1992, och kriget slutade när Daytonavtalet paraferades 21 november 1995.",
+     "en": "During the Bosnian War of 1992–1995 the government fought the breakaway proto-states of Republika Srpska and Herzeg-Bosnia, led and supplied by Serbia and Croatia respectively. In 1992–1995 Cliopatria counts about three quarters of the country as part of the Federal Republic of Yugoslavia and Croatia. The map instead shows the whole of Bosnia and Herzegovina in those years, with the country's 1996 border in Cliopatria, by decision of Historia-globen to show the internationally recognised state in times of war and occupation. The Republic of Bosnia and Herzegovina was recognised internationally on 6 April 1992, and the war ended when the Dayton Accords were initialled on 21 November 1995.",
+     "de": "Im Bosnienkrieg 1992–1995 kämpfte die Regierung gegen die abtrünnigen Gebilde Republika Srpska und Herceg-Bosna, die von Serbien beziehungsweise Kroatien geführt und versorgt wurden. Cliopatria zählt 1992–1995 etwa drei Viertel des Landes zur Bundesrepublik Jugoslawien und zu Kroatien. Die Karte zeigt in diesen Jahren stattdessen ganz Bosnien und Herzegowina, mit der Grenze des Landes von 1996 in Cliopatria, nach der Entscheidung von Historia-globen, bei Krieg und Besatzung den international anerkannten Staat zu zeigen. Die Republik Bosnien und Herzegowina wurde am 6. April 1992 international anerkannt, und der Krieg endete mit der Paraphierung des Dayton-Abkommens am 21. November 1995.",
+     "es": "Durante la guerra de Bosnia de 1992–1995, el gobierno combatió contra los protoestados secesionistas de la República Srpska y Herceg-Bosna, dirigidos y abastecidos por Serbia y Croacia respectivamente. En 1992–1995 Cliopatria cuenta cerca de tres cuartas partes del país como parte de la República Federal de Yugoslavia y de Croacia. En cambio, el mapa muestra toda Bosnia y Herzegovina en esos años, con la frontera del país de 1996 en Cliopatria, por decisión de Historia-globen de mostrar el Estado reconocido internacionalmente en caso de guerra y ocupación. La República de Bosnia y Herzegovina fue reconocida internacionalmente el 6 de abril de 1992, y la guerra terminó cuando se rubricaron los Acuerdos de Dayton el 21 de noviembre de 1995.",
+     "fr": "Pendant la guerre de Bosnie-Herzégovine de 1992 à 1995, le gouvernement combattit les proto-États sécessionnistes de la Republika Srpska et de l'Herceg-Bosna, dirigés et approvisionnés respectivement par la Serbie et la Croatie. De 1992 à 1995, Cliopatria compte environ les trois quarts du pays comme parties de la République fédérale de Yougoslavie et de la Croatie. La carte montre au contraire toute la Bosnie-Herzégovine pendant ces années, avec la frontière du pays de 1996 dans Cliopatria, sur décision d'Historia-globen de montrer l'État reconnu internationalement en cas de guerre et d'occupation. La République de Bosnie-Herzégovine fut reconnue internationalement le 6 avril 1992, et la guerre prit fin avec le paraphe des accords de Dayton le 21 novembre 1995."
+    },
+    "sources": [
+     "wp-bosnian-war",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "estland",
@@ -34993,10 +35441,38 @@
     "fr": "Albanie"
    },
    "color": "#c04a4a",
-   "from": 1991,
+   "from": 1912,
    "to": 2024,
    "file": "data/empires/albanien.json",
    "polities": [
+    {
+     "id": "albanien-1912",
+     "name": {
+      "sv": "Albanien",
+      "en": "Albania",
+      "de": "Albanien",
+      "es": "Albania",
+      "fr": "Albanie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "socialistiska-folkrepubliken-albanien",
+     "name": {
+      "sv": "Socialistiska folkrepubliken Albanien",
+      "en": "People's Socialist Republic of Albania",
+      "de": "Sozialistische Volksrepublik Albanien",
+      "es": "República Popular Socialista de Albania",
+      "fr": "République populaire socialiste d'Albanie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
     {
      "id": "albanien",
      "name": {
@@ -35011,7 +35487,59 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "polityFacts": {
+    "albanien-1912": {
+     "facts": {
+      "summary": {
+       "sv": "Albanien förklarade sig självständigt från Osmanska riket i Vlorë 28 november 1912. Furstendömet Albanien (1914–1925) bildades efter fördraget i London och klarade sig genom invasioner under första världskriget. 1925 avskaffades monarkin, och en republik utropades. När Italien invaderade landet 1939 styrdes det av kung Zog I, som gick i exil i Grekland, och Albanien blev ett italienskt protektorat.",
+       "en": "Albania declared its independence from the Ottoman Empire in Vlorë on 28 November 1912. The Principality of Albania (1914–1925) was formed after the Treaty of London and survived invasions during the First World War. In 1925 the monarchy was abolished and a republic was proclaimed. When Italy invaded the country in 1939 it was ruled by King Zog I, who went into exile in Greece, and Albania became an Italian protectorate.",
+       "de": "Albanien erklärte am 28. November 1912 in Vlora seine Unabhängigkeit vom Osmanischen Reich. Das Fürstentum Albanien (1914–1925) entstand nach dem Londoner Vertrag und überstand Invasionen im Ersten Weltkrieg. 1925 wurde die Monarchie abgeschafft und eine Republik ausgerufen. Als Italien das Land 1939 besetzte, wurde es von König Zogu I. regiert, der nach Griechenland ins Exil ging, und Albanien wurde ein italienisches Protektorat.",
+       "es": "Albania declaró su independencia del Imperio otomano en Vlorë el 28 de noviembre de 1912. El Principado de Albania (1914–1925) se formó tras el Tratado de Londres y sobrevivió a invasiones durante la Primera Guerra Mundial. En 1925 se abolió la monarquía y se proclamó una república. Cuando Italia invadió el país en 1939, lo gobernaba el rey Zog I, que se exilió en Grecia, y Albania se convirtió en un protectorado italiano.",
+       "fr": "L'Albanie proclama son indépendance vis-à-vis de l'Empire ottoman à Vlora le 28 novembre 1912. La principauté d'Albanie (1914–1925) fut formée après le traité de Londres et survécut à des invasions pendant la Première Guerre mondiale. En 1925, la monarchie fut abolie et une république proclamée. Lorsque l'Italie envahit le pays en 1939, il était gouverné par le roi Zog Ier, qui s'exila en Grèce, et l'Albanie devint un protectorat italien."
+      },
+      "mapNote": {
+       "sv": "Wikidata anger 28 november 1912 som start, samma år som kartan. Kartan följer Cliopatria: 1916–1919 visar den bara södra delen av landet, eftersom Cliopatria räknar resten till andra riken (Tirana till Österrike-Ungern 1916–1918 och till Italien 1919), och 1939–1943 räknar Cliopatria landet till Italien. Från 1944 visar kartan Albanien igen och från 1946 folkrepubliken.",
+       "en": "Wikidata gives 28 November 1912 as the start, the same year as the map. The map follows Cliopatria: in 1916–1919 it shows only the southern part of the country, because Cliopatria counts the rest as part of other empires (Tirana as part of Austria-Hungary in 1916–1918 and of Italy in 1919), and in 1939–1943 Cliopatria counts the country as part of Italy. From 1944 the map shows Albania again and from 1946 the People's Republic.",
+       "de": "Wikidata nennt den 28. November 1912 als Beginn, dasselbe Jahr wie die Karte. Die Karte folgt Cliopatria: 1916–1919 zeigt sie nur den Süden des Landes, weil Cliopatria den Rest zu anderen Reichen zählt (Tirana 1916–1918 zu Österreich-Ungarn und 1919 zu Italien), und 1939–1943 zählt Cliopatria das Land zu Italien. Ab 1944 zeigt die Karte wieder Albanien und ab 1946 die Volksrepublik.",
+       "es": "Wikidata indica el 28 de noviembre de 1912 como inicio, el mismo año que el mapa. El mapa sigue a Cliopatria: en 1916–1919 solo muestra el sur del país, porque Cliopatria cuenta el resto como parte de otros imperios (Tirana como parte de Austria-Hungría en 1916–1918 y de Italia en 1919), y en 1939–1943 Cliopatria cuenta el país como parte de Italia. Desde 1944 el mapa vuelve a mostrar Albania y desde 1946 la república popular.",
+       "fr": "Wikidata indique le 28 novembre 1912 comme début, la même année que la carte. La carte suit Cliopatria : de 1916 à 1919, elle ne montre que le sud du pays, car Cliopatria compte le reste comme partie d'autres empires (Tirana dans l'Autriche-Hongrie en 1916–1918 et dans l'Italie en 1919), et de 1939 à 1943 Cliopatria compte le pays comme partie de l'Italie. À partir de 1944, la carte montre de nouveau l'Albanie et, à partir de 1946, la république populaire."
+      },
+      "sources": [
+       "wp-albanian-declaration-of-independence",
+       "wp-principality-of-albania",
+       "wp-italian-invasion-of-albania",
+       "wd-albania",
+       "cliopatria"
+      ],
+      "review": "source-checked"
+     }
+    },
+    "socialistiska-folkrepubliken-albanien": {
+     "facts": {
+      "summary": {
+       "sv": "Socialistiska folkrepubliken Albanien var den kommunistiska staten i Albanien från 11 januari 1946 till 29 april 1991. Till 1976 hette den Folkrepubliken Albanien. Albanska arbetets parti hade ensamrätt på makten, och landet leddes av Enver Hoxha 1946–1985 och sedan av Ramiz Alia. Albanien bröt med Sovjetunionen och 1978 också med Kina, förklarade sig 1967 som världens första uttryckligen ateistiska stat och lämnade Warszawapakten efter invasionen av Tjeckoslovakien 1968.",
+       "en": "The People's Socialist Republic of Albania was the communist state in Albania from 11 January 1946 to 29 April 1991. Until 1976 it was called the People's Republic of Albania. The Party of Labour of Albania had a monopoly on power, and the country was led by Enver Hoxha in 1946–1985 and then by Ramiz Alia. Albania broke with the Soviet Union and in 1978 also with China, declared itself the world's first explicitly atheist state in 1967 and left the Warsaw Pact after the invasion of Czechoslovakia in 1968.",
+       "de": "Die Sozialistische Volksrepublik Albanien war vom 11. Januar 1946 bis 29. April 1991 der kommunistische Staat in Albanien. Bis 1976 hieß sie Volksrepublik Albanien. Die Partei der Arbeit Albaniens hatte das Machtmonopol, und das Land wurde 1946–1985 von Enver Hoxha und danach von Ramiz Alia geführt. Albanien brach mit der Sowjetunion und 1978 auch mit China, erklärte sich 1967 zum ersten ausdrücklich atheistischen Staat der Welt und trat nach dem Einmarsch in die Tschechoslowakei 1968 aus dem Warschauer Pakt aus.",
+       "es": "La República Popular Socialista de Albania fue el Estado comunista de Albania desde el 11 de enero de 1946 hasta el 29 de abril de 1991. Hasta 1976 se llamó República Popular de Albania. El Partido del Trabajo de Albania tenía el monopolio del poder, y el país fue dirigido por Enver Hoxha en 1946–1985 y después por Ramiz Alia. Albania rompió con la Unión Soviética y en 1978 también con China, se declaró en 1967 el primer Estado explícitamente ateo del mundo y abandonó el Pacto de Varsovia tras la invasión de Checoslovaquia en 1968.",
+       "fr": "La République populaire socialiste d'Albanie fut l'État communiste d'Albanie du 11 janvier 1946 au 29 avril 1991. Jusqu'en 1976, elle s'appelait République populaire d'Albanie. Le Parti du travail d'Albanie détenait le monopole du pouvoir, et le pays fut dirigé par Enver Hoxha de 1946 à 1985, puis par Ramiz Alia. L'Albanie rompit avec l'Union soviétique et, en 1978, aussi avec la Chine, se déclara en 1967 premier État explicitement athée du monde et quitta le pacte de Varsovie après l'invasion de la Tchécoslovaquie en 1968."
+      },
+      "mapNote": {
+       "sv": "Källorna skiljer sig: Wikipedia anger 11 januari 1946–29 april 1991 och Wikidata 11 januari 1946–22 mars 1992. Kartan visar folkrepubliken 1946–1990 och Republiken Albanien från 1991, som Cliopatria.",
+       "en": "The sources differ: Wikipedia gives 11 January 1946–29 April 1991 and Wikidata 11 January 1946–22 March 1992. The map shows the People's Republic in 1946–1990 and the Republic of Albania from 1991, as in Cliopatria.",
+       "de": "Die Quellen weichen voneinander ab: Wikipedia nennt den 11. Januar 1946 bis 29. April 1991 und Wikidata den 11. Januar 1946 bis 22. März 1992. Die Karte zeigt wie Cliopatria die Volksrepublik 1946–1990 und die Republik Albanien ab 1991.",
+       "es": "Las fuentes difieren: Wikipedia indica del 11 de enero de 1946 al 29 de abril de 1991 y Wikidata del 11 de enero de 1946 al 22 de marzo de 1992. El mapa muestra la república popular en 1946–1990 y la República de Albania desde 1991, como Cliopatria.",
+       "fr": "Les sources divergent : Wikipédia indique du 11 janvier 1946 au 29 avril 1991 et Wikidata du 11 janvier 1946 au 22 mars 1992. La carte montre la république populaire de 1946 à 1990 et la République d'Albanie à partir de 1991, comme Cliopatria."
+      },
+      "sources": [
+       "wp-peoples-socialist-republic-of-albania",
+       "wd-peoples-socialist-republic-of-albania",
+       "cliopatria"
+      ],
+      "review": "source-checked"
+     }
+    }
+   }
   },
   {
    "id": "moldavien",
