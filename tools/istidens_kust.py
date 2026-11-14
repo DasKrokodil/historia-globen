@@ -27,7 +27,8 @@ Kör från projektets rot:
     python3 tools/istidens_kust.py --grids <katalog> --ice <fil.nc> [--steps 10 15 20 30 40 50 60 70 80]
 Saknas en fil i <katalog> hämtas den från Zenodo (cirka 32 MB per steg) och kontrolleras mot md5-summan i
 Zenodos API. Saknas <fil.nc> hämtas bara den filen (554 MB) ur PANGAEA:s zip-fil (3,5 GB) med Range-anrop. Lägg inte
-rutnäten i repot. Kräver numpy och Pillow (som tools/riken.py och tools/bilder_in.py) och h5py för isfilen (NetCDF 4).
+rutnäten i repot. Kräver Python-paketen numpy, Pillow och h5py (pip install numpy pillow h5py); h5py läser isfilen,
+som är NetCDF 4, och godkändes som beroende för verktyget av DasKrokodil 2026-11-14.
 Skivorna i data/bildlager.json (raden "istidens-kust") skrivs för hand efter körningen; verktyget skriver ut
 filerna, storlekarna och hur stor del av bilden som är torrlagd.
 """
@@ -236,7 +237,8 @@ def render(shown, then_sea, ice):
 
 
 def main():
-    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0],
+                                 epilog='Kräver Python-paketen numpy, Pillow och h5py (pip install numpy pillow h5py).')
     ap.add_argument('--grids', required=True, type=Path, help='katalog för rutnäten (hämtas dit om de saknas)')
     ap.add_argument('--ice', required=True, type=Path,
                     help='isfilen reconstruction_0.25_degree.nc ur PaleoMIST 1.0 (hämtas dit om den saknas)')
