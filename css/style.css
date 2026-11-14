@@ -1809,6 +1809,17 @@ details.used-by summary:hover { color: var(--parchment); }
    den feta texten förut, och källänkarna har minst 24 × 24 px träffyta */
 .religion-legend .rl-spread-head { display: inline; margin: 0; font: inherit; font-weight: 700; letter-spacing: normal; text-transform: none; color: inherit; }
 .religion-legend .rl-spread-src { display: inline-flex; align-items: center; justify-content: center; min-width: 24px; min-height: 24px; color: var(--brass); }
+/* Sammanfattningen sätts i brödtextens typsnitt (som i faktarutan), inte i mono (#1418). I smal skärm är den hopfälld per post
+   bakom en riktig knapp i rubriken; knappen är minst 24 px hög och har samma utseende som rubriken. */
+.religion-legend .rl-spread-text { display: block; margin: 3px 0 0; font: 400 12px/1.4 var(--f-body); color: var(--parchment-dim); }
+.religion-legend .rl-spread-text[hidden] { display: none; }
+.religion-legend .rl-spread-toggle {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 24px; margin: 0; padding: 0; border: 0; background: none;
+  font: inherit; font-weight: 700; color: inherit; text-align: left; cursor: pointer;
+}
+.religion-legend .rl-spread-toggle:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+.religion-legend .rl-spread-toggle .rl-chev { flex: none; }
+.religion-legend .rl-spread-toggle[aria-expanded="true"] .rl-chev { transform: rotate(-135deg) translateY(-1px); }
 .religion-legend:has(.rl-disc) { max-width: 260px; }
 .layer-sub .rel-about { display: block; margin: 6px 10px 2px; padding: 4px 10px; border-color: var(--brass-deep); }
 .religion-pop {

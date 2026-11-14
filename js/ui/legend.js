@@ -34,9 +34,11 @@ export class ReligionLegend {
     // Byter man fönsterbredd över gränsen gäller standardläget för den nya bredden.
     const wide = matchMedia('(min-width: 761px)');
     this.open = wide.matches;
+    this.narrow = !wide.matches; // människans spridning: posterna är hopfällda i smal skärm (#1418)
+    this.spreadOpen = new Set(); // de poster (rubrikerna) som är utfällda i smal skärm
     this.discoveryOpen = true;
     try { this.discoveryOpen = sessionStorage.getItem(DISCOVERY_KEY) !== '0'; } catch { /* utan lagring */ }
-    wide.addEventListener('change', () => { this.open = wide.matches; this.render(); this.fit(); });
+    wide.addEventListener('change', () => { this.open = wide.matches; this.narrow = !wide.matches; this.render(); this.fit(); });
     legend.addEventListener('click', e => {
       if (e.target.closest('[data-hint-close]')) { this.closeHint(); return; }
       if (e.target.closest('[data-about]')) { this.onAbout(); return; }
@@ -44,6 +46,8 @@ export class ReligionLegend {
       if (keep) { this.onKeep(keep.dataset.keep === '1'); return; }
       const li = e.target.closest('li[data-religion]');
       if (li) { this.onPin(li.dataset.religion); return; }
+      const more = e.target.closest('[data-spread-toggle]');
+      if (more) { this.toggleSpread(more.dataset.spreadToggle); return; }
       if (!e.target.closest('.rl-toggle')) return;
       if (this.focus?.discovery) {
         this.discoveryOpen = !this.discoveryOpen;
@@ -128,10 +132,18 @@ export class ReligionLegend {
       ${this.empireLegend?.influence ? `<p class="rl-note"><span class="swatch rl-influence"></span>${esc(this.empireLegend.influence)}</p>` : ''}</div>`;
     // Människans spridning (#1094): samma tecken som på kartan (område med snedstreck och streckad kant, våg med streck
     // eller prickar), vad varje post bygger på och dess källor. Listan är kartans textalternativ (#1106).
-    const spreadHtml = !spread ? '' : `<div class="rl-spread" style="margin-top:6px;padding-top:4px;border-top:1px solid var(--line)"><p class="rl-note">${esc(ui('legend.spreadNote'))}</p><ul>${spread.items.map(i =>
-      `<li class="rl-spread-item" style="display:block;margin-top:6px"><div class="rl-note rl-row"><span class="swatch" aria-hidden="true" style="${spreadSwatch(i)}"></span>${i.kind === 'wave' && i.certainty !== 'huvudvag' ? '<span aria-hidden="true">?</span>' : ''}<span><h3 class="rl-spread-head">${esc(i.title)}</h3> <em>(${esc(ui(`spread.certainty.${i.certainty}`))})</em></span></div>
-        <p class="rl-note" style="display:block">${esc(i.summary)}${i.note ? ` ${esc(i.note)}` : ''}${i.sources.length ? ` ${esc(ui('legend.spreadSources'))} ${
-          i.sources.map((s, n) => `<a class="rl-spread-src" href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${n + 1}<span class="sr-only"> ${esc(s.title)} ${esc(ui('legend.newTab'))}</span></a>`).join(', ')}.` : ''}</p></li>`).join('')}</ul></div>`;
+    // I smal skärm (#1418) visas bara namn, tecken och säkerhet per post; sammanfattningen, noten och källorna fälls ut per
+    // post med en riktig knapp i rubriken (aria-expanded, tangentbord). I bred skärm står allt utfällt som förut.
+    const narrow = !!this.narrow;
+    const spreadHtml = !spread ? '' : `<div class="rl-spread" style="margin-top:6px;padding-top:4px;border-top:1px solid var(--line)"><p class="rl-note">${esc(ui('legend.spreadNote'))}</p><ul>${spread.items.map((i, n) => {
+      const isOpen = !narrow || this.spreadOpen?.has(i.title), id = `rl-spread-more-${n}`;
+      const head = narrow
+        ? `<button type="button" class="rl-spread-toggle" data-spread-toggle="${esc(i.title)}" aria-expanded="${isOpen}" aria-controls="${id}"><span>${esc(i.title)}</span><span class="sr-only">, ${esc(ui('legend.spreadDetails'))}</span><span class="rl-chev" aria-hidden="true"></span></button>`
+        : esc(i.title);
+      return `<li class="rl-spread-item" style="display:block;margin-top:6px"><div class="rl-note rl-row"><span class="swatch" aria-hidden="true" style="${spreadSwatch(i)}"></span>${i.kind === 'wave' && i.certainty !== 'huvudvag' ? '<span aria-hidden="true">?</span>' : ''}<span><h3 class="rl-spread-head">${head}</h3> <em>(${esc(ui(`spread.certainty.${i.certainty}`))})</em></span></div>
+        <p class="rl-spread-text" id="${id}" ${isOpen ? '' : 'hidden'}>${esc(i.summary)}${i.note ? ` ${esc(i.note)}` : ''}${i.sources.length ? ` ${esc(ui('legend.spreadSources'))} ${
+          i.sources.map((s, k) => `<a class="rl-spread-src" href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${k + 1}<span class="sr-only"> ${esc(s.title)} ${esc(ui('legend.newTab'))}</span></a>`).join(', ')}.` : ''}</p></li>`;
+    }).join('')}</ul></div>`;
     // Vad symbolerna betyder (#271)
     const symbolsHtml = !items.length ? '' : `<p class="rl-note rl-sym-note">${esc(ui('legend.symbolsNote'))}</p>`;
     // Faktarutan på begäran (#308), när någon religion som syns har en
@@ -163,12 +175,21 @@ export class ReligionLegend {
     // Samma innehåll ritas inte om, så att musen och tangentbordets fokus ligger kvar på raden (#271)
     if (html !== this._html) {
       const focused = this.legend.contains(document.activeElement) && document.activeElement.dataset.religion;
+      const focusedMore = this.legend.contains(document.activeElement) ? document.activeElement.dataset?.spreadToggle : undefined;
       const scroll = this.legend.querySelector('.rl-body')?.scrollTop ?? 0;
       this.legend.innerHTML = this._html = html;
       const body = this.legend.querySelector('.rl-body'); if (body) body.scrollTop = scroll;
       if (focused) this.legend.querySelector(`[data-religion="${focused}"]`)?.focus({ preventScroll: true });
+      if (focusedMore !== undefined) [...this.legend.querySelectorAll('[data-spread-toggle]')].find(b => b.dataset.spreadToggle === focusedMore)?.focus({ preventScroll: true });
     }
     this.legend.hidden = false;
+  }
+
+  /** Fäller ut eller ihop en post i människans spridning (smal skärm, #1418); tangentbordsfokus ligger kvar på knappen. */
+  toggleSpread(title) {
+    if (!this.spreadOpen) this.spreadOpen = new Set();
+    if (!this.spreadOpen.delete(title)) this.spreadOpen.add(title);
+    this.render(); this.fit();
   }
 
   /** Lägger förklaringen under rubriken uppe till vänster och begränsar listans höjd så att den slutar
@@ -289,7 +310,7 @@ export class EmpireLegend {
     this.onPin = () => {};
     this.onClose = () => {};
     const wide = matchMedia('(min-width: 761px)');
-    wide.addEventListener('change', () => { this.open = wide.matches; this.render(); this.fit(); });
+    wide.addEventListener('change', () => { this.open = wide.matches; this.narrow = !wide.matches; this.render(); this.fit(); });
     legend.addEventListener('click', e => {
       const close = e.target.closest('[data-empire-close]');
       if (close) { this.onClose(); return; }

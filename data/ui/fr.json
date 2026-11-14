@@ -579,6 +579,7 @@
   "legend.spread": "Dispersion humaine",
   "legend.spreadNote": "Les zones et les lignes sont des interprétations des sources, pas des frontières ni des itinéraires. Une ligne en tirets est une vague principale ; une ligne pointillée avec un point d’interrogation, une vague possible ou contestée. L’absence de découvertes ne signifie pas que personne n’y vivait.",
   "legend.spreadSources": "Sources :",
+  "legend.spreadDetails": "résumé et sources",
   "legend.and": " et ",
   "legend.layersNormal": "{layers} s’affichent comme d’habitude.",
   "legend.layersDimmed": "Affichage atténué pendant ce suivi : {layers}.",
