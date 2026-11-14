@@ -1463,6 +1463,8 @@ details.used-by summary:hover { color: var(--parchment); }
   border: 1px solid var(--line); border-radius: var(--r); font-size: 13px; line-height: 1.4;
 }
 .link-notice-card[hidden] { display: none; }
+/* Visas Fokus-beskedet samtidigt (en trasig tur och ett tema som saknas i samma länk) ligger raden ovanför det, så att de inte täcker varandra */
+.focus-notice:not([hidden]) ~ .link-notice { bottom: 214px; }
 .link-notice-text { margin: 0; flex: 1 1 auto; }
 .link-notice-card .link-btn { flex: none; min-height: 32px; font: inherit; white-space: nowrap; }
 @media (max-width: 760px) { .link-notice-card .link-btn { min-height: 44px; } }
