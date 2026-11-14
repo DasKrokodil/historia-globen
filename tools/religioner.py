@@ -9,7 +9,8 @@ Skriptet läser alltså registret ur den befintliga religions.json, sorterar tex
 ögonblicksbilder. Faktarutor ("facts"), symboler ("symbol", #271) och religionernas namn och färger behålls som de är.
 
 Regler för ett rikes religion ett visst år (religion_at):
-- En religion markerad som statlig eller officiell väljs först; annars en över 50 procent eller
+- En religion markerad som statlig eller officiell väljs först, även under en rubrik som "State religion:",
+  "Official:" eller "State and majority" (OFFICIAL_HEADER, #1609); annars en över 50 procent eller
   under rubriken Majority; annars den enda som nämns (sure = true). Nämns flera utan markering
   väljs den först nämnda (sure = false).
 - Riken med kontrollerat år för kristnandet (christianSince, med källa) är kristna från det året.
@@ -27,8 +28,10 @@ ett rike i Cliopatria täcker platsen; utan rike försvinner området. Ärvda om
 faktarutan för rikena i "from", i ögonblicksbilden som slutar året "until". De ritas som osäkra.
 "polities" i en ärvd ögonblicksbild är rikena utan religion som täcker området.
 
-Kör från projektets rot med Cliopatria-filen (cliopatria_polities_only_v021.geojson från
-https://zenodo.org/records/13363121, CC BY 4.0), och därefter tools/religioner_riken.py:
+Kör från projektets rot med Cliopatria-filen (cliopatria_polities_only_v021.geojson, CC BY 4.0), och därefter
+tools/religioner_riken.py. Filen ligger i cliopatria.geojson.zip i version 0.2.1 på Zenodo
+(https://zenodo.org/records/23128623); posten 13363121 är version 0.0.1 och ger andra riken. Med v0.2.1 ger en
+ombyggnad samma innehåll som den incheckade filen (kontrollerat 2026-11-14, #1609):
     python3 tools/religioner.py <cliopatria.geojson>
     python3 tools/religioner_riken.py <cliopatria.geojson>
 Kräver shapely (pip install shapely).
@@ -88,6 +91,13 @@ SPLIT = re.compile(r';|,(?![^()]*\))')
 # Årtal för den valda religionen ("Christianity c. 200 AD", "(from 6th century)"). "State religion from" gäller bara statusen.
 SINCE = re.compile(r'(?:\b(?:from|after|since)\s+c?\.?\s*|\bc\.\s*)(\d{3,4})(?:\s*(?:AD|CE))?\b|\b(?:from|after)\s+(\d{1,2})(?:st|nd|rd|th)\s+century', re.I)
 OFFICIAL_FROM = re.compile(r'(?:state religion|official)[^;]*?\bfrom\s+(\d{3,4})', re.I)
+# Rubrik för officiell religion (#1609): ett stycke som bara består av rubrikord och börjar med "state" eller
+# "official", med eller utan "religion" och kolon: "State religion:", "Official religions", "Official:", "Official",
+# "State and majority", "State and official religion". Religionen står i nästa stycke. "Official, and majority:"
+# delas vid kommat och ger stycket "Official". Inte rubriker: "Majority:" ensamt (regeln majoritet), "Unofficial:",
+# "Official languages" och "(official)" efter en religion (det fångas av MARK i samma stycke som religionen).
+OFFICIAL_HEADER = re.compile(r'(?:state|official)(?:\s*(?:,\s*)?(?:and\s+)?(?:state|official|majority))*'
+                             r'(?:\s+religions?)?\s*:?', re.I)
 
 
 def match(seg):
@@ -110,9 +120,9 @@ def classify(text):
     for k, r, s in found:
         if MARK.search(s) and not NONE.search(s):
             return r, True, 'officiell'
-    # "State religion:" som rubrik: nästa religion efter rubriken
+    # Rubriken "State religion:", "Official:", "State and majority" och liknande: nästa religion efter rubriken
     for k, s in enumerate(segs):
-        if re.match(r'(state|official) religions?\s*:?$', s, re.I):
+        if OFFICIAL_HEADER.fullmatch(s):
             after = [f for f in found if f[0] > k]
             if after:
                 return after[0][1], True, 'officiell'

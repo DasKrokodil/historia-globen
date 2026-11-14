@@ -39,6 +39,8 @@ jobs:
         run: python3 -I tests/hallbarhet-test.py
       - name: Kontrollera att bilder_in.py fyller i image för händelser på flera rader och på en rad (#1288)
         run: python3 -I tests/bilder-in-test.py
+      - name: Kontrollera att religionslagret räknar rubriker som Official och State and majority som officiell religion (#1609)
+        run: python3 -I tests/religioner-test.py
       - name: Översätt samtidigt - inga nya oöversatta texter och inga inaktuella översättningar (#675)
         run: python3 -I tools/oversattning.py --check
       - name: Kontrollera att texterna per språk och spärren stoppar medvetna fel (#675)
