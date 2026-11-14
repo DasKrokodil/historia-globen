@@ -235,6 +235,17 @@ export function pluralUi(key, n, vars = {}) {
 }
 
 /**
+ * Raden som förklarar en vy med smalt urval (#1379): vyn Framsteg visar bara händelser som källan själv beskriver som
+ * framsteg, och det är få. Antalet räknas ur datan (count = händelser med taggen), aldrig skrivet i texten. Ger '' för
+ * taggar utan egen rad (Översikt har sin egen i Samtidigt, #1139) och när ingen händelse har taggen (då gäller tomläget).
+ */
+const TAG_VIEW_NOTE = { framsteg: 'view.progressNote' };
+export function tagViewNote(tag, count) {
+  const key = TAG_VIEW_NOTE[tag];
+  return key && count > 0 ? pluralUi(key, count, { count }) : '';
+}
+
+/**
  * Hur långt en händelse ligger från året (hela år), med riktning (#995). Etiketten på klotet: "4 år före (1912)" för det som är
  * slut, "om 2 år (1918)" för det som börjar. Året står i parentes och formateras som vanligt (f.Kr. blir rätt).
  * Astronomiska år räknas rakt av: 1 e.Kr. minus 1 f.Kr. är 1 år, så det finns inget år 0 att räkna bort.

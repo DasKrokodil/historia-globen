@@ -3692,7 +3692,7 @@ async function run(browser, vp) {
     await tp.route('**/data/genererat/handelser.json', async route => {
       const res = await route.fetch();
       const doc = await res.json();
-      for (const e of doc.events) { if (tagged.includes(e.id)) e.tags = ['framsteg']; else delete e.tags; }
+      if (tagged) for (const e of doc.events) { if (tagged.includes(e.id)) e.tags = ['framsteg']; else delete e.tags; }
       await route.fulfill({ response: res, json: doc });
     });
   };
@@ -3768,6 +3768,72 @@ async function run(browser, vp) {
       await tagPage.close();
     }
     return 'tomt läge i Lager och Samtidigt; med fixtur bara Apollo 11, märkning med namn och förklaring';
+  });
+
+  // #1379: vyn Framsteg visar bara det källan själv beskriver som framsteg, och det är få. Lager och Samtidigt säger det,
+  // med antalet räknat ur datan (inte skrivet i texten), på det tomma året 1325. Raden försvinner när en annan vy väljs,
+  // ligger i statusraden i Lager och ryms utan horisontell scroll. Prövas med en fixtur med en enda taggad händelse (ental)
+  // och med den riktiga datan (antalet ur handelser.json).
+  await check('vyn Framsteg förklarar det smala urvalet i Lager och Samtidigt (#1379)', async () => {
+    const note = n => new RegExp(`beskriver som framsteg\\. Än så länge är det ${n} händelse${n === 1 ? '' : 'r'}\\.`);
+    const cases = [];
+    for (const tagged of [['apollo-11'], null]) {
+      const tp = await context.newPage();
+      const errors = [];
+      tp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) pushConsole(errors, m); });
+      tp.on('pageerror', e => errors.push(e.message));
+      try {
+        await withTags(tp, tagged);
+        await tp.goto(`${BASE}#y=1325`);
+        await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        const expected = tagged ? tagged.length : await tp.evaluate(async () => {
+          const doc = await (await fetch('data/genererat/handelser.json')).json();
+          return doc.events.filter(e => (e.tags ?? []).includes('framsteg') && e.review !== 'draft').length;
+        });
+        if (!expected) continue; // ingen händelse har taggen i datan: tomt läge, och det prövar kontrollen ovan
+        cases.push(expected);
+        const fits = sel => tp.evaluate(s => {
+          const r = document.querySelector(s).getBoundingClientRect();
+          return r.left >= 0 && r.right <= innerWidth + 0.5 && document.documentElement.scrollWidth <= document.documentElement.clientWidth;
+        }, sel);
+        if (await tp.isHidden('#btn-layers') && await tp.isVisible('#more-toggle')) await tp.click('#more-toggle');
+        await tp.click('#btn-layers');
+        await tp.waitForSelector('#layer-menu', { state: 'visible', timeout: T.step });
+        const status = tp.locator('#layer-menu .layer-view-status');
+        await tp.click('#layer-menu .view-chip[data-view="framsteg"]');
+        await status.waitFor({ state: 'visible', timeout: T.step });
+        const lagerText = await status.textContent();
+        if (!note(expected).test(lagerText)) throw new Error(`Lager säger inte att vyn bara visar framsteg, med ${expected}: "${lagerText}"`);
+        if (await status.getAttribute('role') !== 'status') throw new Error('raden i Lager är ingen statusrad för skärmläsare');
+        if (!await fits('#layer-menu .layer-view-status')) throw new Error('raden i Lager ryms inte i bredden');
+        await tp.screenshot({ path: path.join(OUT, `${vp.name}-framsteg-forklaring-lager.png`) });
+        // En annan vy: raden försvinner
+        await tp.click('#layer-menu .view-chip[data-view="standard"]');
+        await status.waitFor({ state: 'hidden', timeout: T.step });
+        await tp.click('#layer-menu .view-chip[data-view="framsteg"]');
+        await status.waitFor({ state: 'visible', timeout: T.step });
+        await tp.keyboard.press('Escape');
+        // Samtidigt: samma förklaring överst, och tomläget för året finns kvar under
+        if (await tp.locator('#panel').isHidden()) await tp.click('#btn-panel');
+        await tp.waitForSelector('#panel', { state: 'visible', timeout: T.step });
+        const panelNote = tp.locator('#panel-tag-note');
+        await panelNote.waitFor({ state: 'visible', timeout: T.step });
+        const panelText = await tp.locator('#panel-tag-text').textContent();
+        if (!note(expected).test(panelText)) throw new Error(`Samtidigt säger inte att vyn bara visar framsteg, med ${expected}: "${panelText}"`);
+        if (!await fits('#panel-tag-note')) throw new Error('raden i Samtidigt ryms inte i bredden');
+        await tp.waitForFunction(() => /Inga framsteg inom/.test(document.querySelector('#event-list .tag-empty')?.textContent ?? ''), null, { timeout: T.step });
+        await tp.screenshot({ path: path.join(OUT, `${vp.name}-framsteg-forklaring-samtidigt.png`) });
+        // Visa alla: vyn byts och raden försvinner
+        await tp.click('#panel-tag-all');
+        await panelNote.waitFor({ state: 'hidden', timeout: T.step });
+        if (await tp.locator('#event-list .tag-empty').count()) throw new Error('tomläget för Framsteg ligger kvar efter Visa alla');
+        if (errors.length) throw new Error(`konsolfel: ${errors.join('; ')}`);
+      } finally {
+        await tp.close();
+      }
+    }
+    if (!cases.length) throw new Error('ingen fixtur gav någon händelse med taggen');
+    return `raden i Lager och Samtidigt med antalet ur datan (${cases.join(' och ')}), försvinner med en annan vy`;
   });
 
   // #474: huvudstaden som gäller året syns när man följer ett rike. Testet tar ett rike ur datan med minst två daterade
