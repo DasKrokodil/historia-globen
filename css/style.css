@@ -2563,7 +2563,7 @@ span.theme-event:hover { background: none; outline: none; }
   /* Text på minst 12 px */
   .segment-note, .chip-btn .count, .filter, .panel-filters .filter, .region-count, .ff-name, .ff-more, .ff-badge, .ff-pre, .ff-sep, .ff-kind, .ff-pager, .ff-drag-hint,
   .review-badge, .controls .speed, .controls .step, .tick, .timeline-legend summary, .timeline-legend, .layer-heading, .focus-sort-label,
-  .focus-sort .chip-btn, .layer-note, .focus-group-count, .tour-lesson-meta, .view-chip, .empire-legend-button { font-size: 12px; }
+  .focus-sort .chip-btn, .layer-note, .focus-group-count, .tour-lesson-meta, .view-chip, .view-chip-desc, .empire-legend-button { font-size: 12px; }
   .focus-group-toggle, .focus-group-toggle > span { font-size: 12px; }
   .timeline-legend summary::before { inset: -10px -8px -20px; } /* 44 px hög tryckyta, nedåt och uppåt över skalan */
   /* Täta rader (flikarna och sorteringen i Sök och följ, förvalen i Lager): ytan är en verklig höjd som med raden mellan chipsen
