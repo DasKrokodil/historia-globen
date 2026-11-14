@@ -121,7 +121,10 @@ test('en skiva med caveat står i teckenförklaringen med rubrik, text och käll
   const built = [{ row: { id: 'kust', name: { sv: 'Kust' } }, layer }];
   assert.deepEqual(imageNotes(built, srcById), [], 'avstängt lager: ingen post');
   layer.enabled = true; layer.update(1550);
-  assert.deepEqual(imageNotes(built, srcById), [{ id: 'kust', title: 'Kusten', text: 'Tolkning', sources: [{ title: 'Källa', url: 'https://example.org/' }] }]);
+  assert.deepEqual(imageNotes(built, srcById), [{ id: 'kust', title: 'Kusten', text: 'Tolkning', keys: [], sources: [{ title: 'Källa', url: 'https://example.org/' }] }]);
+  built[0].row.keys = [{ swatch: 'ice', text: { sv: 'Inlandsis' } }];
+  assert.deepEqual(imageNotes(built, srcById)[0].keys, [{ swatch: 'ice', text: 'Inlandsis' }], 'radens tecken följer med (#1564)');
+  delete built[0].row.keys;
   layer.update(1700);
   assert.deepEqual(imageNotes(built, srcById), [], 'året utanför skivorna: ingen post');
   const plain = new ImageLayer([slice()], fakeImage); plain.enabled = true; plain.update(1550);
@@ -136,4 +139,8 @@ test('istidens kust: skivorna följer på varandra utan glapp, och 20 000 år se
   assert.equal(sliceAt(slices, 1950 - 20000).id, 'istidens-kust-20ka');
   for (const x of slices) assert.ok(x.caveat?.sv && x.caveat.en && x.caveat.de && x.caveat.es && x.caveat.fr, `${x.id} har caveat på fem språk`);
   assert.equal(sliceAt(slices, 2026), null, 'i nutid visas ingen istidskust');
+  // Inlandsisen har en egen rad i teckenförklaringen (#1564), och texten säger inte längre "land eller is"
+  assert.deepEqual(row.keys.map(k => k.swatch), ['shelf', 'ice']);
+  for (const k of row.keys) assert.ok(k.text.sv && k.text.en && k.text.de && k.text.es && k.text.fr, `tecknet ${k.swatch} har text på fem språk`);
+  for (const x of slices) assert.ok(!x.caveat.sv.includes('land eller is') && x.caveat.sv.includes('inlandsis'), `${x.id}: texten skiljer is från land`);
 });

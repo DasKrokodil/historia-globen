@@ -787,6 +787,7 @@ Färdigprojicerade SVG-banor i 4096 × 2048 (`path`, `width`, `height`) från Na
 | `name` | ja | Radens namn, på alla fem språken. |
 | `note` | nej | Förklaringen efter namnet i Lager, på alla fem språken. |
 | `label` | ja när `kind` är `grund` | Den synliga märkningen av en växlande grundkarta, på alla fem språken. En grundkarta som inte är dagens ska alltid vara märkt. |
+| `keys` | nej | Teckenförklaringens rader för radens ytstilar (#1564): en lista med `swatch` (`shelf`: ljus yta med snedstreck, `ice`: ljus, nästan vit yta med grå kant) och `text` på alla fem språken. Varje rad står med sitt tecken i teckenförklaringen när en skiva med `caveat` syns. Saknas fältet visas ett tecken (`shelf`) framför rubriken. |
 | `slices` | ja, minst en | Tidsskivorna. Inom en rad får perioderna inte överlappa, så högst en skiva gäller ett visst år. |
 
 **En post i `slices` är en bild eller en vektor för en period.**
@@ -816,7 +817,7 @@ Färdigprojicerade SVG-banor i 4096 × 2048 (`path`, `width`, `height`) från Na
 
 **Kontroller.** `scripts/validate-site.py` kör schemat och det schemat inte kan uttrycka: okända fält, upptagna id och alias, gruppen, `label` för `grund`, bildens storlek, `bounds`, perioder som överlappar, och att filer och källor finns. `tests/validate-schema-test.py` godkänner exempelfilen `tests/fixtures/bildlager-exempel.json`, som övar hela formatet, och underkänner avsiktliga fel. `tests/images.test.mjs` kontrollerar urvalet av rader och skivor, rutan för `bounds`, rensningen av bilder och att varje lager i länkarkivet finns kvar, direkt eller som alias.
 
-Första raden är NASA Black Marble 2016 (`nattljus`), från 2016 och framåt. Den andra är **Istidens kust** (`istidens-kust`, #1096): nio skivor med den modellerade kusten 10 000–80 000 år sedan ur PaleoMIST 1.0 (Gowan m.fl. 2021) via rutnäten i Wilmes m.fl. (2023), gjorda med `tools/istidens_kust.py`. Modellens år är år före 1950 (BP), så skivan för 20 000 år sedan börjar år 1950 − 25 000 = −23 050; varje skiva gäller fram till mitten mot nästa steg, den yngsta till 7 500 år sedan och den äldsta från 81 250 år sedan. Varje skiva har `caveat` om att kusten är modellerad och att kartans kust annars är nutida ([beslut 2026-11-14](beslut/2026-11-14-istidens-kust.md)).
+Första raden är NASA Black Marble 2016 (`nattljus`), från 2016 och framåt. Den andra är **Istidens kust** (`istidens-kust`, #1096): nio skivor med den modellerade kusten 10 000–80 000 år sedan ur PaleoMIST 1.0 (Gowan m.fl. 2021) via rutnäten i Wilmes m.fl. (2023), gjorda med `tools/istidens_kust.py`. Modellens år är år före 1950 (BP), så skivan för 20 000 år sedan börjar år 1950 − 25 000 = −23 050; varje skiva gäller fram till mitten mot nästa steg, den yngsta till 7 500 år sedan och den äldsta från 81 250 år sedan. Varje skiva har `caveat` om att kusten är modellerad och att kartans kust annars är nutida ([beslut 2026-11-14](beslut/2026-11-14-istidens-kust.md)). Inlandsisen ritas för sig i en ljus, nästan vit ton ur PaleoMIST:s istjocklek, med en egen rad i teckenförklaringen (`keys`, [beslut 2026-11-14 om inlandsisen](beslut/2026-11-14-inlandsis-i-istidens-kust.md), #1564).
 
 ## `turer/`: guidade turer (#47)
 
