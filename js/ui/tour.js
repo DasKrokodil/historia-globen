@@ -6,7 +6,7 @@
 // - faktarutan för en befintlig händelse (select).
 // Fortsätt och spelknappen går till nästa steg. Ligger nästa steg nära i tiden spelas tiden fram dit och pausar;
 // annars hoppar tidslinjen. Avsluta återställer besökarens lager, fokus och kamera och lämnar året där turen var.
-import { t, isVisibleReview } from '../model.js';
+import { t, isVisibleReview, formatYear } from '../model.js';
 import { tourProblems } from '../tour-format.js';
 import { printLesson, teacherLink } from './print-sheet.js';
 import { ui } from '../i18n.js';
@@ -144,41 +144,55 @@ export class TourPlayer {
   get active() { return !!this.tour; }
 
   /**
-   * Menyn (#1280): turerna om rikens fall (fältet empire) står sist under rubriken "Hur föll det?", och övriga turer
-   * kommer först i registrets ordning. Saknas rubriken i registret står alla turer i registrets ordning, utan grupp.
+   * Menyn (#1573, ersätter gruppen "Hur föll det?" från #1280): turerna ligger under rubriker (Källkritik, Krig, Samtidigt i
+   * världen, Hur föll det?), en tät rad per tur. Raden fälls ut med sammanfattningen och startknapparna. Gruppen kommer ur turens
+   * fält group, annars ur war (krig) och empire (fall). Saknas rubrikerna i registret står alla turer i registrets ordning, utan grupp.
    */
   buildMenu() {
-    const heading = t(this.labels['group-fall']);
-    const falls = heading ? this.tours.filter(tour => tour.empire) : [];
-    const rows = (heading ? this.tours.filter(tour => !tour.empire) : this.tours).map(tour => this.menuItem(tour));
-    if (falls.length) {
-      const group = document.createElement('li');
-      group.setAttribute('role', 'presentation');
-      group.className = 'tour-group';
-      const title = document.createElement('p');
-      title.className = 'layer-heading tour-group-title';
-      title.textContent = heading;
-      group.append(title);
-      rows.push(group, ...falls.map(tour => this.menuItem(tour)));
+    const groupOf = tour => tour.group ?? (tour.empire ? 'fall' : tour.war ? 'krig' : null);
+    const order = ['kallkritik', 'krig', 'tid', 'fall'];
+    const heading = id => t(this.labels[`group-${id}`]);
+    const grouped = order.every(id => heading(id));
+    const rows = [];
+    if (!grouped) rows.push(...this.tours.map(tour => this.menuItem(tour)));
+    else {
+      for (const id of order) {
+        const tours = this.tours.filter(tour => groupOf(tour) === id);
+        if (!tours.length) continue;
+        const group = document.createElement('li');
+        group.setAttribute('role', 'presentation');
+        group.className = 'tour-group';
+        const title = document.createElement('p');
+        title.className = 'layer-heading tour-group-title';
+        title.textContent = heading(id);
+        group.append(title);
+        rows.push(group, ...tours.map(tour => this.menuItem(tour)));
+      }
+      // Turer utan grupp (ett nytt slag som ännu inte har fått rubrik) står sist, så att ingen tur försvinner ur menyn
+      rows.push(...this.tours.filter(tour => !order.includes(groupOf(tour))).map(tour => this.menuItem(tour)));
     }
     this.list.replaceChildren(...rows);
   }
 
+  /**
+   * En rad i menyn (#1573): en hopfälld rad med turens rubrik, och under den sammanfattningen och knapparna Starta turen
+   * (#1002) och, för en lektionstur, Starta som lektion (#889, årskurs och tid står bredvid; lektionsläget är detsamma som
+   * länken m=lektion ger, #795). Det tar ett tryck extra att starta, men listan blir kort.
+   */
   menuItem(tour) {
     const li = document.createElement('li');
-    const b = document.createElement('button');
-    b.type = 'button'; b.className = 'tour-pick'; b.dataset.tour = tour.id;
+    const row = document.createElement('details');
+    row.className = 'tour-row'; row.dataset.tour = tour.id;
+    const head = document.createElement('summary');
+    head.className = 'tour-pick'; head.dataset.tour = tour.id;
     const name = document.createElement('span'); name.className = 'tour-pick-title'; name.textContent = t(tour.title);
-    const meta = document.createElement('span'); meta.className = 'tour-pick-meta';
-    meta.textContent = t(tour.summary);
-    meta.hidden = !tour.summary;
-    b.append(name, meta);
-    b.addEventListener('click', () => { this.closeMenu(false); this.start(tour.id, this.button); });
-    li.append(b);
-    // Varje tur har en synlig startknapp (#1002); rubriken är fortfarande klickbar. En lektionstur märks dessutom
-    // med årskurs och tid, och kan startas som lektion (#889). Allt kommer ur turens lesson-fält; lektionsläget
-    // är detsamma som länken m=lektion ger (#795).
-    const row = document.createElement('div'); row.className = 'tour-lesson-row';
+    head.append(name);
+    const body = document.createElement('div'); body.className = 'tour-row-body';
+    if (tour.summary) {
+      const meta = document.createElement('p'); meta.className = 'tour-pick-meta'; meta.textContent = t(tour.summary);
+      body.append(meta);
+    }
+    const lessonRow = document.createElement('div'); lessonRow.className = 'tour-lesson-row';
     const info = document.createElement('span'); info.className = 'tour-lesson-meta';
     const actions = document.createElement('span'); actions.className = 'tour-actions';
     const play = document.createElement('button');
@@ -196,7 +210,9 @@ export class TourPlayer {
       go.addEventListener('click', () => { this.closeMenu(false); this.startAsLesson(tour.id); });
       actions.append(go);
     }
-    row.append(info, actions);
+    lessonRow.append(info, actions);
+    body.append(lessonRow);
+    row.append(head, body);
     li.append(row);
     return li;
   }
@@ -218,6 +234,7 @@ export class TourPlayer {
     const r = (this.button.closest('.top-actions') ?? this.button).getBoundingClientRect();
     this.menu.style.top = `${r.bottom + 8}px`;
     this.menu.style.maxHeight = `calc(100dvh - ${r.bottom + 24}px)`;
+    for (const d of this.list.querySelectorAll('details.tour-row[open]')) d.open = false; // menyn börjar alltid hopfälld (#1573)
     this.menu.hidden = false;
     this.button.setAttribute('aria-expanded', 'true');
     this.onOpen?.();
@@ -417,6 +434,7 @@ export class TourPlayer {
   end({ takenBy = null } = {}) {
     if (!this.tour) return;
     const { app } = this;
+    const wasLesson = !!app.lesson?.active, tourId = this.tour.id;
     const restore = app.store?.leave(['tur', 'lektion'], takenBy) ?? {};
     app.lesson?.leave(); // en tur som slutar tar lektionsläget med sig (#795)
     this.next.hidden = false;
@@ -438,6 +456,12 @@ export class TourPlayer {
     if (restore.camera) { app.globe.flyTo(restore.camera.lat, restore.camera.lon); app.globe.setZoom(restore.camera.zoom); }
     const back = this.opener?.isConnected && this.opener.offsetParent !== null ? this.opener : null;
     (back ?? app.fallbackFocus?.())?.focus({ preventScroll: true });
+    // Besked efter utgången (#1572): turen är slut, vilket år man står på, och ett sätt att börja om. Inte när ett annat läge tog över eller efter en lektion.
+    if (!takenBy && !wasLesson && app.linkNotice) {
+      const year = formatYear(Math.round(app.timeline.year));
+      const opener = back;
+      app.linkNotice.showText(ui('tour.left', { year }), { ms: 20000, action: { label: ui('tour.restart'), run: () => this.start(tourId, opener) } });
+    }
     this.opener = null;
   }
 }

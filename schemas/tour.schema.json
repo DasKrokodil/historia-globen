@@ -11,6 +11,7 @@
     "summary": { "$ref": "#/$defs/text" },
     "war": { "type": "string", "pattern": "^[a-z0-9-]+$" },
     "empire": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "group": { "type": "string", "enum": ["kallkritik", "krig", "tid", "fall"] },
     "review": { "type": "string", "enum": ["draft", "source-checked", "two-sources"] },
     "lesson": { "$ref": "#/$defs/lesson" },
     "steps": { "type": "array", "items": { "$ref": "#/$defs/step" } }

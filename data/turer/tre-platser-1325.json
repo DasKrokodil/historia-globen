@@ -2,6 +2,7 @@
   "schema": "historia-globen/tur@1",
   "version": 1,
   "id": "tre-platser-1325",
+  "group": "tid",
   "title": { "sv": "Tre platser, 1324–1325", "en": "Three places, 1324–1325", "de": "Drei Orte, 1324–1325", "fr": "Trois lieux, 1324–1325", "es": "Tres lugares, 1324–1325" },
   "summary": { "sv": "En pilgrimsfärd, en resa som börjar och en stad som grundas, på tre platser under två år.", "en": "A pilgrimage, a journey that begins and a city that is founded, in three places over two years.", "de": "Eine Pilgerreise, eine Reise, die beginnt, und eine Stadt, die gegründet wird, an drei Orten in zwei Jahren.", "fr": "Un pèlerinage, un voyage qui commence et une ville qui est fondée, en trois lieux sur deux ans.", "es": "Una peregrinación, un viaje que comienza y una ciudad que se funda, en tres lugares a lo largo de dos años." },
   "review": "source-checked",

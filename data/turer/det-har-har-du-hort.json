@@ -2,6 +2,7 @@
   "schema": "historia-globen/tur@1",
   "version": 1,
   "id": "det-har-har-du-hort",
+  "group": "kallkritik",
   "title": {
     "sv": "Det här har du hört. Stämmer det?",
     "en": "You have heard this. Is it true?",
