@@ -406,7 +406,7 @@ Förslag till typer som ännu inte finns i datan. Kolumnen "Kontrollerad" anger 
 | Svenska | Engelska | Tyska | Spanska | Franska | Kontrollerad |
 |---|---|---|---|---|---|
 | landskap (Sverige) | – | Landschaft (historische Provinz) | – | – | de: 2026-11-14, de.wikipedia "Landskap (Schweden)": "Landskap ist die schwedische Bezeichnung für eine historische Provinz"; aldrig *Provinz* ensamt, eftersom de.wikipedia "Provinz (Schweden)" leder till *Län* |
-| Bundesland (Tyskland, Österrike) | – | Land / Bundesland | – | – | de: 2026-11-14, de.wikipedia "Land (Deutschland)": *Land* är den officiella termen, "im allgemeinen Sprachgebrauch oft auch Bundesland genannt" |
+| Bundesland (Tyskland, Österrike) | – | Land / Bundesland | – | – | de: 2026-11-14, de.wikipedia "Land (Deutschland)": *Land* är den officiella termen, "im allgemeinen Sprachgebrauch oft auch Bundesland genannt"; Österrike är inte kontrollerat. På kortet *Bundesland*, inte *Land*, eftersom *Land* redan är typen för ett land (`place.type.country`) |
 | kanton (Schweiz) | – | Kanton | – | – | de: 2026-11-14, de.wikipedia "Schweiz": "26 teilsouveränen Kantonen" |
 | delstat (USA) | state | Bundesstaat (på kortet: US-Bundesstaat, förslag från `sprak-de`) | estado | État | de: 2026-11-14, de.wikipedia "Vereinigte Staaten" ("50 Bundesstaaten"); es: es.wikipedia "Estados Unidos" ("cincuenta estados"); fr: fr.wikipedia "États-Unis" ("cinquante États"); en: – |
 
