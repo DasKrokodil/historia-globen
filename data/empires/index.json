@@ -13231,15 +13231,17 @@
      }
     ],
     "mapNote": {
-     "sv": "Källorna anger 1547–1721 för tsardömet och 1721–1917 för kejsardömet. Kartan visar tsardömet 1547–1720 och kejsardömet 1721–1916.",
-     "en": "The sources give 1547–1721 for the tsardom and 1721–1917 for the empire. The map shows the tsardom 1547–1720 and the empire 1721–1916."
+     "sv": "Källorna anger 1547–1721 för tsardömet och 1721–1917 för kejsardömet. Kartan visar tsardömet 1547–1720 och kejsardömet 1721–1916. Efter kejsardömet har Cliopatria posten Russian Republic 1917–1919, som inte finns på kartan än. Källorna anger kortare tid: Ryska republiken fanns enligt Wikipedia från 14 september 1917 till januari 1918 och enligt Wikidata till 25 oktober 1917.",
+     "en": "The sources give 1547–1721 for the tsardom and 1721–1917 for the empire. The map shows the tsardom 1547–1720 and the empire 1721–1916. After the empire Cliopatria has the entry Russian Republic in 1917–1919, which is not on the map yet. The sources give a shorter time: according to Wikipedia the Russian Republic existed from 14 September 1917 to January 1918, and according to Wikidata until 25 October 1917."
     },
     "sources": [
      "wp-tsardom-of-russia",
      "wd-tsardom-of-russia",
      "wp-russian-empire",
      "wd-russian-empire",
-     "wp-coat-of-arms-russia"
+     "wp-coat-of-arms-russia",
+     "wp-russian-republic",
+     "wd-russian-republic"
     ],
     "review": "two-sources"
    },
@@ -31788,7 +31790,7 @@
     "fr": "Mongolie"
    },
    "color": "#3a6fb0",
-   "from": 1926,
+   "from": 1912,
    "to": 2024,
    "file": "data/empires/mongoliet.json",
    "flags": [
@@ -31829,6 +31831,20 @@
    ],
    "polities": [
     {
+     "id": "bogd-khanate",
+     "name": {
+      "sv": "Bogd Khanate",
+      "en": "Bogd Khanate of Mongolia",
+      "de": "Mongolisches Khanat",
+      "es": "Kanato de Mongolia",
+      "fr": "Khaganat de Mongolie du Bogdo"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
      "id": "mongoliska-folkrepubliken",
      "name": {
       "sv": "Mongoliska folkrepubliken",
@@ -31856,7 +31872,22 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Bogd Khanate utropade sig självständigt 1 december 1911 och fanns till 26 november 1924, då Mongoliska folkrepubliken utropades (Wikipedia och Wikidata). Enligt Wikipedia var landet 1915–1919 självstyrande under kinesisk överhöghet och 1919–1921 ockuperat av Republiken Kina, och det erkändes bara av Sovjetryssland och Sovjetunionen (1921–1924) och av Tibet. Kartan visar Bogd Khanate som Cliopatria, 1912–1919 och 1922–1925 (åren 1920–1921 saknas i Cliopatria), därefter Mongoliska folkrepubliken från 1926 och Mongoliet från 1992. Gränserna är Cliopatrias.",
+     "en": "The Bogd Khanate proclaimed independence on 1 December 1911 and existed until 26 November 1924, when the Mongolian People’s Republic was proclaimed (Wikipedia and Wikidata). According to Wikipedia, the country was autonomous under Chinese suzerainty in 1915–1919 and occupied by the Republic of China in 1919–1921, and it was recognised only by Soviet Russia and the Soviet Union (1921–1924) and by Tibet. The map shows the Bogd Khanate as Cliopatria does, in 1912–1919 and 1922–1925 (Cliopatria lacks 1920–1921), then the Mongolian People’s Republic from 1926 and Mongolia from 1992. The borders are Cliopatria’s.",
+     "de": "Das Mongolische Khanat erklärte am 1. Dezember 1911 seine Unabhängigkeit und bestand bis zum 26. November 1924, als die Mongolische Volksrepublik ausgerufen wurde (Wikipedia und Wikidata). Laut Wikipedia war das Land 1915–1919 autonom unter chinesischer Oberhoheit und 1919–1921 von der Republik China besetzt, und es wurde nur von Sowjetrussland und der Sowjetunion (1921–1924) und von Tibet anerkannt. Die Karte zeigt das Khanat wie Cliopatria 1912–1919 und 1922–1925 (bei Cliopatria fehlen 1920–1921), danach die Mongolische Volksrepublik ab 1926 und die Mongolei ab 1992. Die Grenzen sind die von Cliopatria.",
+     "es": "El kanato de Mongolia proclamó su independencia el 1 de diciembre de 1911 y existió hasta el 26 de noviembre de 1924, cuando se proclamó la República Popular de Mongolia (Wikipedia y Wikidata). Según Wikipedia, el país fue autónomo bajo soberanía china en 1915–1919 y estuvo ocupado por la República de China en 1919–1921, y solo lo reconocieron la Rusia soviética y la Unión Soviética (1921–1924) y el Tíbet. El mapa muestra el kanato como Cliopatria, en 1912–1919 y 1922–1925 (a Cliopatria le faltan 1920–1921), y después la República Popular de Mongolia desde 1926 y Mongolia desde 1992. Las fronteras son las de Cliopatria.",
+     "fr": "Le khaganat de Mongolie du Bogdo proclama son indépendance le 1er décembre 1911 et exista jusqu’au 26 novembre 1924, date de la proclamation de la République populaire mongole (Wikipédia et Wikidata). Selon Wikipédia, le pays fut autonome sous suzeraineté chinoise en 1915–1919 et occupé par la république de Chine en 1919–1921, et il ne fut reconnu que par la Russie soviétique et l’Union soviétique (1921–1924) et par le Tibet. La carte montre le khaganat comme Cliopatria, en 1912–1919 et 1922–1925 (il manque 1920–1921 chez Cliopatria), puis la République populaire mongole à partir de 1926 et la Mongolie à partir de 1992. Les frontières sont celles de Cliopatria."
+    },
+    "sources": [
+     "wp-bogd-khanate",
+     "wd-bogd-khanate",
+     "cliopatria"
+    ],
+    "review": "two-sources"
+   }
   },
   {
    "id": "tchad",
@@ -39987,7 +40018,7 @@
    },
    "color": "#7a6ab0",
    "from": 1375,
-   "to": 1439,
+   "to": 1635,
    "file": "data/empires/norra-yuandynastin.json",
    "polities": [
     {
@@ -40003,8 +40034,38 @@
       "cliopatria"
      ],
      "review": "source-checked"
+    },
+    {
+     "id": "norra-yuandynastin-1468",
+     "name": {
+      "sv": "Norra Yuandynastin",
+      "en": "Northern Yuan dynasty",
+      "de": "Nördliche Yuan-Dynastie",
+      "es": "Yuan del Norte",
+      "fr": "Dynastie Yuan du Nord"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Källorna skiljer sig om slutet: Wikipedia anger 1368–1635, då Ejei khan underkastade sig Senare Jin, och Wikidata 1368–1691. Kartan visar två poster i Cliopatria: Northern Yuan 1375–1439 och Mongol Khanate 1468–1635. Den senare har i Cliopatria ett Wikidata-id som är en förgreningssida; av rikena där stämmer bara Norra Yuandynastin med år och plats, och kartan visar den därför som Norra Yuandynastin. Åren 1440–1467 har Cliopatria ingen sådan post, och från 1547 är området bara omkring 500 000 km² i öster. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ on the end: Wikipedia gives 1368–1635, when Ejei Khan submitted to the Later Jin, and Wikidata 1368–1691. The map shows two entries in Cliopatria: Northern Yuan in 1375–1439 and Mongol Khanate in 1468–1635. In Cliopatria the latter has a Wikidata ID that is a disambiguation page; of the states listed there, only the Northern Yuan matches the years and the place, so the map shows it as the Northern Yuan dynasty. For 1440–1467 Cliopatria has no such entry, and from 1547 the area is only about 500,000 km² in the east. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Beim Ende weichen die Quellen ab: Wikipedia nennt 1368–1635, als sich Ejei Khan den Späteren Jin unterwarf, und Wikidata 1368–1691. Die Karte zeigt zwei Einträge von Cliopatria: Northern Yuan 1375–1439 und Mongol Khanate 1468–1635. Der zweite hat bei Cliopatria eine Wikidata-ID, die eine Begriffsklärungsseite ist; von den dort genannten Staaten passt nur die Nördliche Yuan-Dynastie zu Jahren und Ort, und die Karte zeigt ihn deshalb als Nördliche Yuan-Dynastie. Für 1440–1467 hat Cliopatria keinen solchen Eintrag, und ab 1547 ist das Gebiet nur etwa 500.000 km² groß und liegt im Osten. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren sobre el final: Wikipedia indica 1368–1635, cuando Ejei Kan se sometió a los Jin posteriores, y Wikidata 1368–1691. El mapa muestra dos entradas de Cliopatria: Northern Yuan en 1375–1439 y Mongol Khanate en 1468–1635. En Cliopatria, la segunda tiene un identificador de Wikidata que es una página de desambiguación; de los Estados que allí figuran, solo los Yuan del Norte coinciden en años y lugar, por lo que el mapa la muestra como Yuan del Norte. Para 1440–1467, Cliopatria no tiene ninguna entrada de este tipo, y desde 1547 la superficie es de solo unos 500 000 km² en el este. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent sur la fin : Wikipédia indique 1368–1635, lorsque Ejei Khan se soumit aux Jin postérieurs, et Wikidata 1368–1691. La carte montre deux entrées de Cliopatria : Northern Yuan en 1375–1439 et Mongol Khanate en 1468–1635. Chez Cliopatria, la seconde a un identifiant Wikidata qui est une page d’homonymie ; parmi les États qui y figurent, seule la dynastie Yuan du Nord correspond aux années et au lieu, et la carte la montre donc comme dynastie Yuan du Nord. Pour 1440–1467, Cliopatria n’a pas d’entrée de ce type, et à partir de 1547 la superficie n’est que d’environ 500 000 km², à l’est. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-northern-yuan",
+     "wd-northern-yuan",
+     "wp-mongol-khanate",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "kungariket-alodia",
@@ -41542,6 +41603,411 @@
      "review": "source-checked"
     }
    ]
+  },
+  {
+   "id": "dzungarkhanatet",
+   "name": {
+    "sv": "Dzungarkhanatet",
+    "en": "Dzungar Khanate",
+    "de": "Dsungarisches Khanat",
+    "es": "Kanato de Zungaria",
+    "fr": "Khanat dzoungar"
+   },
+   "color": "#9a7a4a",
+   "from": 1609,
+   "to": 1756,
+   "file": "data/empires/dzungarkhanatet.json",
+   "polities": [
+    {
+     "id": "dzungarkhanatet",
+     "name": {
+      "sv": "Dzungarkhanatet",
+      "en": "Dzungar Khanate",
+      "de": "Dsungarisches Khanat",
+      "es": "Kanato de Zungaria",
+      "fr": "Khanat dzoungar"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Wikipedia och Wikidata anger 1634–1758. Kartan visar khanatet som Cliopatria: 1609–1618 och 1677–1756. Åren 1619–1676 har Cliopatria i stället Oiratförbundet (Oirat Confederation), som inte finns på kartan än. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "Wikipedia and Wikidata give 1634–1758. The map shows the khanate as Cliopatria does: 1609–1618 and 1677–1756. For 1619–1676 Cliopatria has the Oirat Confederation instead, which is not on the map yet. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Wikipedia und Wikidata nennen 1634–1758. Die Karte zeigt das Khanat wie Cliopatria: 1609–1618 und 1677–1756. Für 1619–1676 hat Cliopatria stattdessen die Oiratische Konföderation (Oirat Confederation), die noch nicht auf der Karte ist. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Wikipedia y Wikidata indican 1634–1758. El mapa muestra el kanato como Cliopatria: 1609–1618 y 1677–1756. Para 1619–1676, Cliopatria tiene en su lugar la Confederación oirata (Oirat Confederation), que todavía no está en el mapa. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Wikipédia et Wikidata indiquent 1634–1758. La carte montre le khanat comme Cliopatria : 1609–1618 et 1677–1756. Pour 1619–1676, Cliopatria a à la place la Confédération oïrate (Oirat Confederation), qui n’est pas encore sur la carte. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-dzungar-khanate",
+     "wd-dzungar-khanate",
+     "cliopatria"
+    ],
+    "review": "two-sources"
+   }
+  },
+  {
+   "id": "mogulistan",
+   "name": {
+    "sv": "Mogulistan",
+    "en": "Moghulistan",
+    "de": "Mogulistan",
+    "es": "Mogolistán",
+    "fr": "Mogholistan"
+   },
+   "color": "#5a9a8a",
+   "from": 1463,
+   "to": 1686,
+   "file": "data/empires/mogulistan.json",
+   "polities": [
+    {
+     "id": "mogulistan",
+     "name": {
+      "sv": "Mogulistan",
+      "en": "Moghulistan",
+      "de": "Mogulistan",
+      "es": "Mogolistán",
+      "fr": "Mogholistan"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "mogulistan-ost",
+     "name": {
+      "sv": "Mogulistan",
+      "en": "Moghulistan",
+      "de": "Mogulistan",
+      "es": "Mogolistán",
+      "fr": "Mogholistan"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "mogulistan-vast",
+     "name": {
+      "sv": "Mogulistan",
+      "en": "Moghulistan",
+      "de": "Mogulistan",
+      "es": "Mogolistán",
+      "fr": "Mogholistan"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Källorna skiljer sig: Wikipedia anger 1347–1462, då khanatet delades i Yarkentkhanatet och Turpankhanatet, och Wikidata 1347–1570. Kartan visar Mogulistan som Cliopatria: 1463–1518, och från 1519 en östra del (till 1686) och en västra del (till 1635), som Cliopatria ger samma namn och samma Wikidata-id. Cliopatrias östra del ligger i Tarimbäckenet och den västra i Tianshan; delarna motsvarar inte säkert Wikipedias två khanat. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ: Wikipedia gives 1347–1462, when the khanate split into the Yarkent Khanate and the Turpan Khanate, and Wikidata 1347–1570. The map shows Moghulistan as Cliopatria does: 1463–1518, and from 1519 an eastern part (until 1686) and a western part (until 1635), which Cliopatria gives the same name and the same Wikidata ID. Cliopatria’s eastern part lies in the Tarim Basin and the western part in the Tian Shan; the parts do not necessarily match Wikipedia’s two khanates. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Die Quellen weichen voneinander ab: Wikipedia nennt 1347–1462, als sich das Khanat in das Yarkant-Khanat und das Turpan-Khanat teilte, und Wikidata 1347–1570. Die Karte zeigt Mogulistan wie Cliopatria: 1463–1518 und ab 1519 einen östlichen Teil (bis 1686) und einen westlichen Teil (bis 1635), denen Cliopatria denselben Namen und dieselbe Wikidata-ID gibt. Der östliche Teil liegt bei Cliopatria im Tarimbecken und der westliche im Tian Shan; die Teile entsprechen nicht sicher den beiden Khanaten bei Wikipedia. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren: Wikipedia indica 1347–1462, cuando el kanato se dividió en el kanato de Yarkand y el kanato de Turpán, y Wikidata 1347–1570. El mapa muestra Mogolistán como Cliopatria: 1463–1518 y, desde 1519, una parte oriental (hasta 1686) y una parte occidental (hasta 1635), a las que Cliopatria da el mismo nombre y el mismo identificador de Wikidata. La parte oriental de Cliopatria está en la cuenca del Tarim y la occidental en el Tian Shan; las partes no corresponden necesariamente a los dos kanatos de Wikipedia. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent : Wikipédia indique 1347–1462, date à laquelle le khanat se divisa en khanat de Yarkand et khanat de Tourfan, et Wikidata 1347–1570. La carte montre le Mogholistan comme Cliopatria : 1463–1518, puis à partir de 1519 une partie orientale (jusqu’en 1686) et une partie occidentale (jusqu’en 1635), auxquelles Cliopatria donne le même nom et le même identifiant Wikidata. La partie orientale de Cliopatria se trouve dans le bassin du Tarim et la partie occidentale dans le Tian Shan ; ces parties ne correspondent pas forcément aux deux khanats de Wikipédia. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-moghulistan",
+     "wd-moghulistan",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "tibet",
+   "name": {
+    "sv": "Tibet",
+    "en": "Tibet",
+    "de": "Tibet",
+    "es": "Reino del Tíbet",
+    "fr": "Tibet"
+   },
+   "color": "#b0604a",
+   "from": 1912,
+   "to": 1951,
+   "file": "data/empires/tibet.json",
+   "polities": [
+    {
+     "id": "tibet",
+     "name": {
+      "sv": "Tibet",
+      "en": "Tibet",
+      "de": "Tibet",
+      "es": "Reino del Tíbet",
+      "fr": "Tibet"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Tibet var de facto självständigt från 1912, när Qingdynastin föll, men nästan ingen stat erkände det; Republiken Kina räknade Tibet till Kina. Källorna skiljer sig om slutet: Wikipedia anger 1951, då Folkrepubliken Kina annekterade Tibet efter att Folkets befrielsearmé gått in i Chamdo i oktober 1950, och Wikidata anger 1959. Kartan visar Tibet 1912–1951 som Cliopatria. Efter 1951 följer kartan Sveriges hållning (Historia-globens beslut 2026-11-14): Sverige upprättade som första västland diplomatiska förbindelser med Folkrepubliken Kina 1950 (UD), och Tibet visas inte längre som eget land. Gränsen är Cliopatrias, och den ändras flera gånger. Tibet före 1912 (Cliopatria har Tibet 1363–1793) finns inte på kartan än.",
+     "en": "Tibet was de facto independent from 1912, when the Qing dynasty fell, but almost no state recognised it; the Republic of China counted Tibet as part of China. The sources differ on the end: Wikipedia gives 1951, when the People’s Republic of China annexed Tibet after the People’s Liberation Army entered Chamdo in October 1950, and Wikidata gives 1959. The map shows Tibet in 1912–1951 as Cliopatria does. After 1951 the map follows Sweden’s position (Historia-globen’s decision of 14 November 2026): Sweden was the first Western country to establish diplomatic relations with the People’s Republic of China, in 1950 (Swedish Ministry for Foreign Affairs), and Tibet is no longer shown as a separate country. The border is Cliopatria’s, and it changes several times. Tibet before 1912 (Cliopatria has Tibet in 1363–1793) is not on the map yet.",
+     "de": "Tibet war ab 1912, als die Qing-Dynastie fiel, de facto unabhängig, aber fast kein Staat erkannte es an; die Republik China zählte Tibet zu China. Beim Ende weichen die Quellen ab: Wikipedia nennt 1951, als die Volksrepublik China Tibet annektierte, nachdem die Volksbefreiungsarmee im Oktober 1950 in Chamdo einmarschiert war, und Wikidata nennt 1959. Die Karte zeigt Tibet 1912–1951 wie Cliopatria. Nach 1951 folgt die Karte der Haltung Schwedens (Beschluss von Historia-globen vom 14. November 2026): Schweden nahm 1950 als erstes westliches Land diplomatische Beziehungen zur Volksrepublik China auf (schwedisches Außenministerium), und Tibet wird nicht mehr als eigenes Land gezeigt. Die Grenze ist die von Cliopatria, und sie ändert sich mehrmals. Tibet vor 1912 (Cliopatria hat Tibet 1363–1793) ist noch nicht auf der Karte.",
+     "es": "El Tíbet fue independiente de facto desde 1912, cuando cayó la dinastía Qing, pero casi ningún Estado lo reconoció; la República de China consideraba el Tíbet parte de China. Las fuentes difieren sobre el final: Wikipedia indica 1951, cuando la República Popular China anexionó el Tíbet después de que el Ejército Popular de Liberación entrara en Chamdo en octubre de 1950, y Wikidata indica 1959. El mapa muestra el Tíbet en 1912–1951 como Cliopatria. Después de 1951, el mapa sigue la posición de Suecia (decisión de Historia-globen del 14 de noviembre de 2026): Suecia fue el primer país occidental en establecer relaciones diplomáticas con la República Popular China, en 1950 (Ministerio de Asuntos Exteriores de Suecia), y el Tíbet ya no se muestra como un país propio. La frontera es la de Cliopatria, y cambia varias veces. El Tíbet anterior a 1912 (Cliopatria tiene el Tíbet en 1363–1793) todavía no está en el mapa.",
+     "fr": "Le Tibet fut indépendant de facto à partir de 1912, à la chute de la dynastie Qing, mais presque aucun État ne le reconnut ; la république de Chine considérait le Tibet comme une partie de la Chine. Les sources divergent sur la fin : Wikipédia indique 1951, lorsque la république populaire de Chine annexa le Tibet après l’entrée de l’Armée populaire de libération à Chamdo en octobre 1950, et Wikidata indique 1959. La carte montre le Tibet en 1912–1951 comme Cliopatria. Après 1951, la carte suit la position de la Suède (décision d’Historia-globen du 14 novembre 2026) : la Suède fut le premier pays occidental à établir des relations diplomatiques avec la république populaire de Chine, en 1950 (ministère suédois des Affaires étrangères), et le Tibet n’est plus montré comme un pays à part. La frontière est celle de Cliopatria, et elle change plusieurs fois. Le Tibet d’avant 1912 (Cliopatria a le Tibet en 1363–1793) n’est pas encore sur la carte."
+    },
+    "sources": [
+     "wp-tibet-1912-1951",
+     "wd-tibet-1912-1951",
+     "ud-kina",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "egypten-muhammad-ali",
+   "name": {
+    "sv": "Egypten under ätten Muhammed Ali",
+    "en": "Egypt under the Muhammad Ali dynasty",
+    "fr": "Égypte sous les Alaouites",
+    "de": "Ägypten unter der Dynastie des Muhammad Ali",
+    "es": "Egipto bajo la dinastía de Mehmet Alí"
+   },
+   "color": "#c9a23a",
+   "from": 1805,
+   "to": 1884,
+   "file": "data/empires/egypten-muhammad-ali.json",
+   "polities": [
+    {
+     "id": "egypten-muhammad-ali",
+     "name": {
+      "sv": "Egypten under ätten Muhammed Ali",
+      "en": "Egypt under the Muhammad Ali dynasty",
+      "fr": "Égypte sous les Alaouites",
+      "de": "Ägypten unter der Dynastie des Muhammad Ali",
+      "es": "Egipto bajo la dinastía de Mehmet Alí"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "khedivatet-egypten",
+     "name": {
+      "sv": "Khedivatet Egypten",
+      "en": "Khedivate of Egypt",
+      "de": "Khedivat Ägypten",
+      "es": "Jedivato de Egipto",
+      "fr": "Khédivat d'Égypte"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Muhammed Ali tog makten i Egypten 1805, när den osmanske sultanen erkände hans ställning, och Egypten var därefter formellt fortfarande en del av Osmanska riket. Khedivatet Egypten fanns enligt Wikipedia och Wikidata 1867–1914, från 1882 under brittisk ockupation. Kartan visar Cliopatrias poster: Muhammad Ali-dynastin 1805–1865 och khedivatet 1866–1884; från 1885 räknar Cliopatria Egypten till Brittiska imperiet. Åren 1805–1810 är Cliopatrias område bara omkring 1 800 km², och 1840–1841 omfattar det också delar av Arabiska halvön. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "Muhammad Ali took power in Egypt in 1805, when the Ottoman sultan acknowledged his position, and Egypt then formally remained part of the Ottoman Empire. According to Wikipedia and Wikidata, the Khedivate of Egypt existed in 1867–1914, under British occupation from 1882. The map shows Cliopatria’s entries: the Muhammad Ali dynasty in 1805–1865 and the khedivate in 1866–1884; from 1885 Cliopatria counts Egypt as part of the British Empire. In 1805–1810 Cliopatria’s area is only about 1,800 km², and in 1840–1841 it also includes parts of the Arabian Peninsula. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Muhammad Ali übernahm 1805 die Macht in Ägypten, als der osmanische Sultan seine Stellung anerkannte, und Ägypten blieb danach formell Teil des Osmanischen Reiches. Laut Wikipedia und Wikidata bestand das Khedivat Ägypten 1867–1914, ab 1882 unter britischer Besatzung. Die Karte zeigt die Einträge von Cliopatria: die Dynastie des Muhammad Ali 1805–1865 und das Khedivat 1866–1884; ab 1885 zählt Cliopatria Ägypten zum Britischen Weltreich. In den Jahren 1805–1810 ist das Gebiet bei Cliopatria nur etwa 1.800 km² groß, und 1840–1841 umfasst es auch Teile der Arabischen Halbinsel. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Mehmet Alí tomó el poder en Egipto en 1805, cuando el sultán otomano reconoció su posición, y Egipto siguió siendo después formalmente parte del Imperio otomano. Según Wikipedia y Wikidata, el jedivato de Egipto existió en 1867–1914, bajo ocupación británica desde 1882. El mapa muestra las entradas de Cliopatria: la dinastía de Mehmet Alí en 1805–1865 y el jedivato en 1866–1884; desde 1885, Cliopatria cuenta Egipto como parte del Imperio británico. En 1805–1810, la superficie de Cliopatria es de solo unos 1800 km², y en 1840–1841 incluye también partes de la península arábiga. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Méhémet Ali prit le pouvoir en Égypte en 1805, lorsque le sultan ottoman reconnut sa position, et l’Égypte resta ensuite formellement une partie de l’Empire ottoman. Selon Wikipédia et Wikidata, le khédivat d’Égypte exista en 1867–1914, sous occupation britannique à partir de 1882. La carte montre les entrées de Cliopatria : la dynastie de Méhémet Ali en 1805–1865 et le khédivat en 1866–1884 ; à partir de 1885, Cliopatria compte l’Égypte dans l’Empire britannique. En 1805–1810, la superficie chez Cliopatria n’est que d’environ 1 800 km², et en 1840–1841 elle comprend aussi des parties de la péninsule Arabique. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-egypt-muhammad-ali",
+     "wd-muhammad-ali-dynasty",
+     "wp-khedivate-of-egypt",
+     "wd-khedivate-of-egypt",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "sokotokalifatet",
+   "name": {
+    "sv": "Sokotokalifatet",
+    "en": "Sokoto Caliphate",
+    "de": "Kalifat von Sokoto",
+    "es": "Califato de Sokoto",
+    "fr": "Empire de Sokoto"
+   },
+   "color": "#5a8a4a",
+   "from": 1805,
+   "to": 1904,
+   "file": "data/empires/sokotokalifatet.json",
+   "polities": [
+    {
+     "id": "sokotokalifatet",
+     "name": {
+      "sv": "Sokotokalifatet",
+      "en": "Sokoto Caliphate",
+      "de": "Kalifat von Sokoto",
+      "es": "Califato de Sokoto",
+      "fr": "Empire de Sokoto"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Wikipedia och Wikidata anger 1804–1903: kalifatet grundades 1804 och föll efter slaget vid Burmi 1903. Kartan visar kalifatet 1805–1904, som Cliopatria. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "Wikipedia and Wikidata give 1804–1903: the caliphate was founded in 1804 and fell after the Battle of Burmi in 1903. The map shows the caliphate in 1805–1904, as in Cliopatria. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Wikipedia und Wikidata nennen 1804–1903: Das Kalifat wurde 1804 gegründet und fiel nach der Schlacht von Burmi 1903. Die Karte zeigt das Kalifat wie Cliopatria 1805–1904. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Wikipedia y Wikidata indican 1804–1903: el califato se fundó en 1804 y cayó tras la batalla de Burmi en 1903. El mapa muestra el califato en 1805–1904, como Cliopatria. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Wikipédia et Wikidata indiquent 1804–1903 : le califat fut fondé en 1804 et tomba après la bataille de Burmi en 1903. La carte montre le califat en 1805–1904, comme Cliopatria. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-sokoto-caliphate",
+     "wd-sokoto-caliphate",
+     "cliopatria"
+    ],
+    "review": "two-sources"
+   }
+  },
+  {
+   "id": "kungariket-madagaskar",
+   "name": {
+    "sv": "Kungariket Madagaskar",
+    "en": "Merina Kingdom",
+    "de": "Königreich Madagaskar",
+    "es": "Reino de Imerina",
+    "fr": "Royaume merina"
+   },
+   "color": "#a04a6a",
+   "from": 1792,
+   "to": 1897,
+   "file": "data/empires/kungariket-madagaskar.json",
+   "polities": [
+    {
+     "id": "kungariket-madagaskar",
+     "name": {
+      "sv": "Kungariket Madagaskar",
+      "en": "Merina Kingdom",
+      "de": "Königreich Madagaskar",
+      "es": "Reino de Imerina",
+      "fr": "Royaume merina"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Wikipedia och Wikidata anger omkring 1540–1897: riket Imerina, även kallat Kungariket Madagaskar, fanns från omkring 1540 tills Frankrike erövrade det 1897. Kartan visar riket 1792–1897, som Cliopatria, som inte har det före 1792. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "Wikipedia and Wikidata give about 1540–1897: the Kingdom of Imerina, also called the Kingdom of Madagascar, existed from about 1540 until France conquered it in 1897. The map shows the kingdom in 1792–1897, as Cliopatria does, which does not have it before 1792. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Wikipedia und Wikidata nennen etwa 1540–1897: Das Königreich Imerina, auch Königreich Madagaskar genannt, bestand von etwa 1540, bis Frankreich es 1897 eroberte. Die Karte zeigt das Königreich wie Cliopatria 1792–1897; Cliopatria hat es vor 1792 nicht. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Wikipedia y Wikidata indican hacia 1540–1897: el reino de Imerina, también llamado reino de Madagascar, existió desde hacia 1540 hasta que Francia lo conquistó en 1897. El mapa muestra el reino en 1792–1897, como Cliopatria, que no lo tiene antes de 1792. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Wikipédia et Wikidata indiquent vers 1540–1897 : le royaume de l’Imerina, aussi appelé royaume de Madagascar, exista de 1540 environ jusqu’à sa conquête par la France en 1897. La carte montre le royaume en 1792–1897, comme Cliopatria, qui ne l’a pas avant 1792. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-imerina",
+     "wd-merina-kingdom",
+     "cliopatria"
+    ],
+    "review": "two-sources"
+   }
+  },
+  {
+   "id": "wadai",
+   "name": {
+    "sv": "Wadai",
+    "en": "Ouaddai Empire",
+    "de": "Reich Wadai",
+    "es": "Imperio uadai",
+    "fr": "Royaume du Ouaddaï"
+   },
+   "color": "#b08a4a",
+   "from": 1636,
+   "to": 1910,
+   "file": "data/empires/wadai.json",
+   "polities": [
+    {
+     "id": "wadai",
+     "name": {
+      "sv": "Wadai",
+      "en": "Ouaddai Empire",
+      "de": "Reich Wadai",
+      "es": "Imperio uadai",
+      "fr": "Royaume du Ouaddaï"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Källorna skiljer sig om slutet: Wikipedia anger 1635–1912, då Frankrike erövrade Wadai, och Wikidata 1635–1909. Kartan visar Wadai 1636–1910, som Cliopatria, med nästan samma yta, omkring 280 000 km², alla år. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ on the end: Wikipedia gives 1635–1912, when France conquered Wadai, and Wikidata 1635–1909. The map shows Wadai in 1636–1910, as in Cliopatria, with almost the same area, about 280,000 km², in every year. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Beim Ende weichen die Quellen ab: Wikipedia nennt 1635–1912, als Frankreich Wadai eroberte, und Wikidata 1635–1909. Die Karte zeigt Wadai wie Cliopatria 1636–1910, in allen Jahren mit fast derselben Fläche, etwa 280.000 km². Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren sobre el final: Wikipedia indica 1635–1912, cuando Francia conquistó Uadai, y Wikidata 1635–1909. El mapa muestra Uadai en 1636–1910, como Cliopatria, con casi la misma superficie, unos 280 000 km², todos los años. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent sur la fin : Wikipédia indique 1635–1912, lorsque la France conquit le Ouaddaï, et Wikidata 1635–1909. La carte montre le Ouaddaï en 1636–1910, comme Cliopatria, avec presque la même superficie, environ 280 000 km², chaque année. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-wadai-sultanate",
+     "wd-wadai",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "sultanatet-darfur",
+   "name": {
+    "sv": "Sultanatet Darfur",
+    "en": "Sultanate of Darfur",
+    "de": "Sultanat Darfur",
+    "es": "Sultanato de Darfur",
+    "fr": "Sultanat du Darfour"
+   },
+   "color": "#8a5a3a",
+   "from": 1609,
+   "to": 1876,
+   "file": "data/empires/sultanatet-darfur.json",
+   "polities": [
+    {
+     "id": "sultanatet-darfur",
+     "name": {
+      "sv": "Sultanatet Darfur",
+      "en": "Sultanate of Darfur",
+      "de": "Sultanat Darfur",
+      "es": "Sultanato de Darfur",
+      "fr": "Sultanat du Darfour"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Källorna skiljer sig om början: Wikipedia anger mitten av 1500-talet och Wikidata 1603. Wikipedia säger att sultanatet föll 1874, när den sudanesiske krigsherren al-Zubayr Rahma Mansur erövrade det, och att det återupprättades 1898–1916; Wikidata har samma år. Kartan visar sultanatet 1609–1876, som Cliopatria, som inte har åren 1898–1916. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ on the beginning: Wikipedia gives the mid-16th century and Wikidata 1603. Wikipedia says that the sultanate fell in 1874, when the Sudanese warlord al-Zubayr Rahma Mansur conquered it, and that it was re-established in 1898–1916; Wikidata has the same years. The map shows the sultanate in 1609–1876, as Cliopatria does, which does not have the years 1898–1916. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Beim Beginn weichen die Quellen ab: Wikipedia nennt die Mitte des 16. Jahrhunderts und Wikidata 1603. Laut Wikipedia fiel das Sultanat 1874, als der sudanesische Kriegsherr al-Zubayr Rahma Mansur es eroberte, und wurde 1898–1916 wiederhergestellt; Wikidata hat dieselben Jahre. Die Karte zeigt das Sultanat wie Cliopatria 1609–1876; Cliopatria hat die Jahre 1898–1916 nicht. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren sobre el comienzo: Wikipedia indica mediados del siglo XVI y Wikidata 1603. Wikipedia dice que el sultanato cayó en 1874, cuando lo conquistó el caudillo sudanés al-Zubayr Rahma Mansur, y que fue restablecido en 1898–1916; Wikidata tiene los mismos años. El mapa muestra el sultanato en 1609–1876, como Cliopatria, que no tiene los años 1898–1916. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent sur le début : Wikipédia indique le milieu du XVIe siècle et Wikidata 1603. Wikipédia dit que le sultanat tomba en 1874, lorsque le chef de guerre soudanais al-Zubayr Rahma Mansur le conquit, et qu’il fut rétabli en 1898–1916 ; Wikidata a les mêmes années. La carte montre le sultanat en 1609–1876, comme Cliopatria, qui n’a pas les années 1898–1916. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-sultanate-of-darfur",
+     "wd-sultanate-of-darfur",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "andorra",

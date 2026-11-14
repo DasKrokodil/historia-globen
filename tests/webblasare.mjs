@@ -3692,7 +3692,7 @@ async function run(browser, vp) {
     await tp.route('**/data/genererat/handelser.json', async route => {
       const res = await route.fetch();
       const doc = await res.json();
-      for (const e of doc.events) { if (tagged.includes(e.id)) e.tags = ['framsteg']; else delete e.tags; }
+      if (tagged) for (const e of doc.events) { if (tagged.includes(e.id)) e.tags = ['framsteg']; else delete e.tags; }
       await route.fulfill({ response: res, json: doc });
     });
   };
@@ -3742,7 +3742,9 @@ async function run(browser, vp) {
       await tagView('#btn-layers');
       await tagPage.waitForSelector('#layer-menu', { state: 'visible', timeout: T.step });
       await tagPage.click('#layer-menu .view-chip[data-view="framsteg"]');
-      if (await tagPage.locator('#layer-menu .layer-view-status').isVisible()) throw new Error('tomt läge visas trots en taggad händelse');
+      // Raden under vyvalet förklarar nu urvalet (#1379), men får inte säga att ingen händelse är markerad
+      const taggedStatus = await tagPage.locator('#layer-menu .layer-view-status').textContent();
+      if (/Inga händelser är markerade som framsteg ännu/.test(taggedStatus)) throw new Error(`tomt läge visas trots en taggad händelse: "${taggedStatus}"`);
       await tagPage.keyboard.press('Escape');
       if (await tagPage.locator('#panel').isHidden()) await tagPage.click('#btn-panel');
       await tagPage.waitForSelector('#event-list .event-btn[data-id="apollo-11"]', { state: 'visible', timeout: T.step });
@@ -3768,6 +3770,72 @@ async function run(browser, vp) {
       await tagPage.close();
     }
     return 'tomt läge i Lager och Samtidigt; med fixtur bara Apollo 11, märkning med namn och förklaring';
+  });
+
+  // #1379: vyn Framsteg visar bara det källan själv beskriver som framsteg, och det är få. Lager och Samtidigt säger det,
+  // med antalet räknat ur datan (inte skrivet i texten), på det tomma året 1325. Raden försvinner när en annan vy väljs,
+  // ligger i statusraden i Lager och ryms utan horisontell scroll. Prövas med en fixtur med en enda taggad händelse (ental)
+  // och med den riktiga datan (antalet ur handelser.json).
+  await check('vyn Framsteg förklarar det smala urvalet i Lager och Samtidigt (#1379)', async () => {
+    const note = n => new RegExp(`beskriver som framsteg\\. Än så länge är det ${n} händelse${n === 1 ? '' : 'r'}\\.`);
+    const cases = [];
+    for (const tagged of [['apollo-11'], null]) {
+      const tp = await context.newPage();
+      const errors = [];
+      tp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) pushConsole(errors, m); });
+      tp.on('pageerror', e => errors.push(e.message));
+      try {
+        await withTags(tp, tagged);
+        await tp.goto(`${BASE}#y=1325`);
+        await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        const expected = tagged ? tagged.length : await tp.evaluate(async () => {
+          const doc = await (await fetch('data/genererat/handelser.json')).json();
+          return doc.events.filter(e => (e.tags ?? []).includes('framsteg') && e.review !== 'draft').length;
+        });
+        if (!expected) continue; // ingen händelse har taggen i datan: tomt läge, och det prövar kontrollen ovan
+        cases.push(expected);
+        const fits = sel => tp.evaluate(s => {
+          const r = document.querySelector(s).getBoundingClientRect();
+          return r.left >= 0 && r.right <= innerWidth + 0.5 && document.documentElement.scrollWidth <= document.documentElement.clientWidth;
+        }, sel);
+        if (await tp.isHidden('#btn-layers') && await tp.isVisible('#more-toggle')) await tp.click('#more-toggle');
+        await tp.click('#btn-layers');
+        await tp.waitForSelector('#layer-menu', { state: 'visible', timeout: T.step });
+        const status = tp.locator('#layer-menu .layer-view-status');
+        await tp.click('#layer-menu .view-chip[data-view="framsteg"]');
+        await status.waitFor({ state: 'visible', timeout: T.step });
+        const lagerText = await status.textContent();
+        if (!note(expected).test(lagerText)) throw new Error(`Lager säger inte att vyn bara visar framsteg, med ${expected}: "${lagerText}"`);
+        if (await status.getAttribute('role') !== 'status') throw new Error('raden i Lager är ingen statusrad för skärmläsare');
+        if (!await fits('#layer-menu .layer-view-status')) throw new Error('raden i Lager ryms inte i bredden');
+        await tp.screenshot({ path: path.join(OUT, `${vp.name}-framsteg-forklaring-lager.png`) });
+        // En annan vy: raden försvinner
+        await tp.click('#layer-menu .view-chip[data-view="standard"]');
+        await status.waitFor({ state: 'hidden', timeout: T.step });
+        await tp.click('#layer-menu .view-chip[data-view="framsteg"]');
+        await status.waitFor({ state: 'visible', timeout: T.step });
+        await tp.keyboard.press('Escape');
+        // Samtidigt: samma förklaring överst, och tomläget för året finns kvar under
+        if (await tp.locator('#panel').isHidden()) await tp.click('#btn-panel');
+        await tp.waitForSelector('#panel', { state: 'visible', timeout: T.step });
+        const panelNote = tp.locator('#panel-tag-note');
+        await panelNote.waitFor({ state: 'visible', timeout: T.step });
+        const panelText = await tp.locator('#panel-tag-text').textContent();
+        if (!note(expected).test(panelText)) throw new Error(`Samtidigt säger inte att vyn bara visar framsteg, med ${expected}: "${panelText}"`);
+        if (!await fits('#panel-tag-note')) throw new Error('raden i Samtidigt ryms inte i bredden');
+        await tp.waitForFunction(() => /Inga framsteg inom/.test(document.querySelector('#event-list .tag-empty')?.textContent ?? ''), null, { timeout: T.step });
+        await tp.screenshot({ path: path.join(OUT, `${vp.name}-framsteg-forklaring-samtidigt.png`) });
+        // Visa alla: vyn byts och raden försvinner
+        await tp.click('#panel-tag-all');
+        await panelNote.waitFor({ state: 'hidden', timeout: T.step });
+        if (await tp.locator('#event-list .tag-empty').count()) throw new Error('tomläget för Framsteg ligger kvar efter Visa alla');
+        if (errors.length) throw new Error(`konsolfel: ${errors.join('; ')}`);
+      } finally {
+        await tp.close();
+      }
+    }
+    if (!cases.length) throw new Error('ingen fixtur gav någon händelse med taggen');
+    return `raden i Lager och Samtidigt med antalet ur datan (${cases.join(' och ')}), försvinner med en annan vy`;
   });
 
   // #474: huvudstaden som gäller året syns när man följer ett rike. Testet tar ett rike ur datan med minst två daterade
@@ -5157,6 +5225,62 @@ async function run(browser, vp) {
     return 'fyllt vid 170° öst och 175° väst, tomt vid 0° och 30° öst';
   });
 
+  // #1227: data som delats vid ±180° (#1268) har en söm: segment längs kanten där delarna möts. Fyllningen ska gå ända fram,
+  // men strokningen ska hoppa över sömmen, annars syns en kort linje längs kartans kant (på globen en prickad linje längs 180°-
+  // meridianen). Kontrollen ritar rikets, religionens och platsens egna banor på en riktig canvas och mäter bildpunkterna vid
+  // kanten (x = 0 och x = W − 1, mitt på sömmen) både med och utan stroke; ett område som går över linjen utan delning ritas
+  // dessutom vid båda kanterna och inte som ett band (religionslagrets egen ritning, tidigare punkt för punkt utan traceRing).
+  await check('områden och religioner över datumlinjen: fyllning ända fram, ingen stroke längs sömmen (#1227)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet';
+    const r = await page.evaluate(async () => {
+      const { AreasLayer } = await import('./js/layers/areas.js');
+      const { ReligionsLayer } = await import('./js/layers/religions.js');
+      const W = 4096, H = 2048;
+      const X = lon => (lon + 180) / 360 * W, Y = lat => (90 - lat) / 180 * H;
+      const canvas = () => { const c = document.createElement('canvas'); c.width = W; c.height = H; return c; };
+      // Kolumnerna närmast kanten, rader mitt på sömmen (lat 52–60): största alfa i varje
+      const edge = ctx => {
+        const col = x => { const d = ctx.getImageData(x, Math.round(Y(60)), 1, Math.round(Y(52) - Y(60))).data; let m = 0; for (let i = 3; i < d.length; i += 4) m = Math.max(m, d[i]); return m; };
+        return { east: col(W - 1), west: col(0), inner: col(Math.round(X(170))), innerW: col(Math.round(X(-175))) };
+      };
+      const split = { type: 'MultiPolygon', coordinates: [
+        [[[160, 50], [180, 50], [180, 62], [160, 62], [160, 50]]],
+        [[[-180, 50], [-170, 50], [-170, 62], [-180, 62], [-180, 50]]],
+      ] };
+      const wrap = { type: 'Polygon', coordinates: [[[160, 50], [-170, 50], [-170, 62], [160, 62], [160, 50]]] }; // som Beringia: över linjen utan delning
+      const out = {};
+      // Riket: områdeslagrets egen ritning (tracePath + strokeEdge)
+      const polity = geometry => ({ id: 't', name: { sv: 'Test' }, group: 't', color: '#ff0000', review: 'source-checked', periods: [{ start: 0, end: 10, geometry }] });
+      for (const [key, geometry] of [['rikeDelat', split], ['rikeOver', wrap]]) {
+        const layer = new AreasLayer([polity(geometry)]);
+        layer.update({ year: 5 });
+        const c = canvas(), ctx = c.getContext('2d');
+        layer.drawOverlay(ctx, W, H);
+        out[key] = { ...edge(ctx), middle: ctx.getImageData(Math.round(X(0)), Math.round(Y(56)), 1, 1).data[3], europe: ctx.getImageData(Math.round(X(30)), Math.round(Y(56)), 1, 1).data[3] };
+      }
+      // Religionen: religionslagrets egen ritning
+      const religion = (geometry, sure = true) => ({ id: 't', color: '#00aaff', name: { sv: 'Test' }, snapshots: [{ start: 0, end: 10, sure, geometry, polities: [] }] });
+      for (const [key, geometry, sure] of [['religionDelad', split, true], ['religionOver', wrap, true], ['religionDeladStreckad', split, false]]) {
+        const layer = new ReligionsLayer();
+        layer.religions = [religion(geometry, sure)]; layer.enabled = true;
+        layer.update({ year: 5 });
+        const c = canvas(), ctx = c.getContext('2d');
+        layer.drawOverlay(ctx, W, H);
+        out[key] = { ...edge(ctx), middle: ctx.getImageData(Math.round(X(0)), Math.round(Y(56)), 1, 1).data[3], europe: ctx.getImageData(Math.round(X(30)), Math.round(Y(56)), 1, 1).data[3] };
+      }
+      return out;
+    });
+    // Fyllningen går ända fram (alfa > 0 vid kanten) men strokens full alfa finns inte där (bara fyllning: områdena 0,32 och 0,5)
+    const MAX_FILL = 150;
+    for (const [key, v] of Object.entries(r)) {
+      if (!v.east || !v.west) throw new Error(`${key}: fyllningen når inte kanten: ${JSON.stringify(v)}`);
+      if (v.middle || v.europe) throw new Error(`${key}: området ritas tvärs över kartan: ${JSON.stringify(v)}`);
+      if (key.endsWith('Over')) continue; // utan söm: ingen kant att kontrollera, strokens egen linje ligger vid kanten (klippt)
+      if (v.east > MAX_FILL || v.west > MAX_FILL) throw new Error(`${key}: sömmen strokas som en linje längs kanten: ${JSON.stringify(v)}`);
+    }
+    return 'delade områden: fyllt ända fram, ingen stroke längs sömmen i riken och religioner; över linjen utan delning: båda kanterna, inget band';
+  });
+
   // #1268: platsernas gränser delas vid datumlinjen i datan (tools/platser_gransar.py), och platslagret lägger delringarna punkt
   // för punkt. En konstruerad plats över 180° (som Ryssland eller Fiji) ritas med platslagrets egen bana på en riktig canvas:
   // fylld vid båda kanterna, tom i mitten (ett streck tvärs över kartan skulle ge fylld bild vid 0°).
@@ -5181,6 +5305,40 @@ async function run(browser, vp) {
     if (!r.east || !r.west) throw new Error(`platsen saknas vid kanterna: ${JSON.stringify(r)}`);
     if (r.middle || r.europe || r.north) throw new Error(`platsen ritas tvärs över kartan: ${JSON.stringify(r)}`);
     return 'fylld vid 170° öst och 175° väst, tom vid 0° och 30° öst';
+  });
+
+  // #1227: sömmen mellan delarna ritas inte som en linje längs kartans kant. Platsens egen bana ritas på en riktig canvas i
+  // alla tre lägen (konturen i Fokus, konturen i en turs steg, de tunna markeringarna runt platser med kort) och bildpunkterna
+  // vid kanten (x = 0 och x = W − 1, mitt på sömmen) mäts: fyllningen (alfa 0,16) går ända fram men strokens alfa (0,95) syns inte.
+  await check('en plats över datumlinjen: ingen stroke längs sömmen, fyllningen ända fram (#1227)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet';
+    const r = await page.evaluate(async () => {
+      const { PlacesLayer } = await import('./js/layers/places.js');
+      const W = 2048, H = 1024;
+      const Y = lat => (90 - lat) / 180 * H;
+      const place = { id: 'test-somstroke', boundary: { geometry: { type: 'MultiPolygon', coordinates: [
+        [[[160, 50], [180, 50], [180, 62], [160, 62], [160, 50]]],
+        [[[-180, 50], [-170, 50], [-170, 62], [-180, 62], [-180, 50]]],
+      ] } } };
+      const draw = setup => {
+        const c = document.createElement('canvas'); c.width = W; c.height = H;
+        const ctx = c.getContext('2d'), layer = new PlacesLayer();
+        setup(layer);
+        layer.drawOverlay(ctx, W, H);
+        const col = x => { const d = ctx.getImageData(x, Math.round(Y(60)), 1, Math.round(Y(52) - Y(60))).data; let m = 0; for (let i = 3; i < d.length; i += 4) m = Math.max(m, d[i]); return m; };
+        return { east: col(W - 1), west: col(0) };
+      };
+      return {
+        fokus: draw(l => { l.enabled = true; l.place = place; }),
+        steg: draw(l => { l.step = place; }),
+        markering: draw(l => { l.hints = true; l.cards = [place]; l.px = 1.5; }),
+      };
+    });
+    // Fyllningen (0,16 · 255 ≈ 41) går ända fram; en stroke (0,95) ger över 200
+    if (!r.fokus.east || !r.fokus.west) throw new Error(`fyllningen når inte kanten: ${JSON.stringify(r.fokus)}`);
+    for (const key of ['fokus', 'steg']) if (r[key].east > 80 || r[key].west > 80) throw new Error(`${key}: sömmen strokas som en linje längs kanten: ${JSON.stringify(r[key])}`);
+    if (r.markering.east || r.markering.west) throw new Error(`markeringen: sömmen strokas som en linje längs kanten: ${JSON.stringify(r.markering)}`);
+    return 'fylld ända fram, ingen stroke längs sömmen i Fokus, turens steg och markeringarna';
   });
 
   await check('ett rike syns', async () => {

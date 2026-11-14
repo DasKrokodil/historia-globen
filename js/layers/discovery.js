@@ -30,7 +30,7 @@
 // vägarna) ändras; att lyfta den görs med destination-out.
 import { t, loadSources, sourcesReady, loadEmpire, isVisibleReview } from '../model.js';
 import { traceWrapped, segDist } from './lines.js';
-import { tracePath } from './area-style.js';
+import { tracePath, strokeEdge } from './area-style.js';
 import { Z } from './registry.js';
 import { ui } from '../i18n.js';
 
@@ -406,7 +406,7 @@ export class DiscoveryLayer {
     const reached = this.reached ?? [], lifted = this.lifted ?? [];
     const X = lon => (lon + 180) * deg, Y = lat => (90 - lat) / 180 * h;
     const areas = ctx => { for (const g of lifted) { tracePath(ctx, g, X, Y); ctx.fill('evenodd'); } };
-    const edges = ctx => { for (const g of lifted) { tracePath(ctx, g, X, Y); ctx.stroke(); } };
+    const edges = ctx => { for (const g of lifted) { tracePath(ctx, g, X, Y); strokeEdge(ctx, g, X, Y); } };
     const each = () => { for (const pts of reached) traceWrapped(c, pts.length > 1 ? pts : [pts[0], pts[0]], w, h, ctx => ctx.stroke()); };
     c.lineJoin = 'round'; c.lineCap = 'round';
     const width = (fog.corridorDeg ?? 7) * deg, soft = fog.soften ?? 0.6;
