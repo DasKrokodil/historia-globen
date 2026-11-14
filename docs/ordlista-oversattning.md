@@ -41,6 +41,8 @@ Artigt tilltal i alla språk, så att tyska, spanska och franska är lika:
 - Månader skrivs med liten bokstav på båda språken: `14 de julio de 1789`, `14 juillet 1789`.
 - **Datum i gränssnittet (#983):** `formatDate` och datum med dagprecision i `formatEventTime` följer språkets datumformat. Tyska har punkt efter dagen (`4. Juli 1776`), spanska har `de` före månad och år. Svenska och engelska behåller dag–månad–år (`4 juli 1776`, `4 July 1776`); franska följer exemplet ovan. `Intl.DateTimeFormat` ger ordningen och skiljetecknen (engelska med `en-GB`); månadsnamnen hämtas fortfarande ur språkfilen och årtalet följer modellens tideräkning. Inga datum i innehållet ändras.
 
+- **Årstider i stoppens datum (#1473):** `stopDate` i `model.js` skriver en årstid ur edtf (`1405-21` till `1405-24`) med nycklarna `time.season.spring|summer|autumn|winter` och `{year}`. Svenska bestämd form (`hösten 1405`), engelska `autumn 1405` (brittiskt), tyska `Herbst 1405` (`Frühjahr` för våren), spanska `otoño de 1405` (alltid med `de`) och franska `automne 1405` (utan artikel). Samma former som i resornas egna etiketter (`dateLabel`) i `data/routes/`.
+
 ## 3. Siffror och tecken
 
 - **Tusental** (mängd, inte år): **franska** har hårt mellanrum från fyra siffror, "4 000 ans". **Spanska** har mellanrum först från fem siffror, "4000 años" men "40 000 años" (hårt mellanrum U+00A0, så att talet inte bryts över två rader, #1385), enligt RAE (Diccionario panhispánico de dudas, "números", § 2a; beslut 2026-11-12, [docs/beslut/2026-11-12-spanska-tusental.md](beslut/2026-11-12-spanska-tusental.md)). Som år alltid utan mellanrum.

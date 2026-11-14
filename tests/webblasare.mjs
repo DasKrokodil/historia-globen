@@ -4851,6 +4851,35 @@ async function run(browser, vp) {
     return seen.join(' | ');
   });
 
+  // Stoppets datum med årstid (edtf 1405-23) kommer ur språkfilen, inte ur koden (#1473): Zheng Hes första stopp
+  await check('resans stopp på valt språk: årstiden i stoppets datum (#1473)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet';
+    const want = { en: 'autumn 1405', de: 'Herbst 1405', es: 'otoño de 1405', fr: 'automne 1405' };
+    const seen = [];
+    for (const [lang, text] of Object.entries(want)) {
+      const pp = await context.newPage();
+      const errors = [];
+      pp.on('pageerror', e => errors.push(e.message));
+      pp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
+      try {
+        if (THREE_LOCAL) {
+          await pp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+          await pp.route(u => isFont(u.href), r => r.abort());
+        }
+        await pp.goto(`${BASE}?lang=${lang}#y=1405&f=route:zheng-he-resa-1`);
+        await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await pp.waitForSelector('#focus-bar', { state: 'visible', timeout: T.load });
+        await pp.waitForSelector('.tdot.route-stop', { state: 'attached', timeout: T.load });
+        const marks = await pp.locator('.tdot.route-stop').evaluateAll(nodes => nodes.map(n => n.getAttribute('aria-label') || n.title));
+        if (!marks.some(mark => mark.includes(` · ${text}`))) throw new Error(`${lang}: stoppet saknar "${text}": ${marks.join(' | ')}`);
+        if (marks.some(mark => /hösten|\{year\}|time\.season/.test(mark))) throw new Error(`${lang}: svensk text eller rå nyckel: ${marks.join(' | ')}`);
+        if (errors.length) throw new Error(`${lang}: ${errors[0]}`);
+        seen.push(`${lang}: ${text}`);
+      } finally { await pp.close(); }
+    }
+    return seen.join(' | ');
+  });
+
   await check('tidslinjen, årshoppet, Platt vy, affischen och källorna på fem språk (#672)', async () => {
     const copies = {
       sv: ['år/s', 'Källregister', 'Affisch'], en: ['yr/s', 'Source register', 'Poster'],

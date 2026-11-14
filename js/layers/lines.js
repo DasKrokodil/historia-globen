@@ -15,7 +15,7 @@
 // Allt ritas på den platta lagerbilden (beslut 1), så Platt vy visar samma sak. Långa sträckor följer
 // storcirklar (punkter läggs in längs vägen), och linjer över datumlinjen ritas en bildbredd åt andra
 // hållet också, så att de fortsätter på andra sidan bilden.
-import { CAT, edtfHasDays, edtfSpan, formatDate, isVisibleReview, loadRoutes, t } from '../model.js';
+import { CAT, edtfHasDays, edtfSpan, isVisibleReview, loadRoutes, stopDate, t } from '../model.js';
 import { Z } from './registry.js';
 import { ui } from '../i18n.js';
 
@@ -50,8 +50,7 @@ export function routeStops(route) {
     let at = day ? edtfSpan({ edtf: iso, start: route.start, end: route.end })[0]
       : /^-?\d{4}$/.test(iso) ? Number(iso) : leg.from;
     if (!edtfHasDays(route.edtf)) at = Math.floor(at);
-    const date = place.dateLabel ? t(place.dateLabel) : place.date ? formatDate(place.date)
-      : /^-?\d{4}-23$/.test(place.edtf ?? '') ? `hösten ${place.edtf.slice(0, 4)}` : place.edtf ?? '';
+    const date = stopDate(place);
     return { place, at, day, date, key: `${route.id}:${iso}:${t(place.name)}` };
   })).sort((a, b) => a.at - b.at);
 }

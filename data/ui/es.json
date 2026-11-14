@@ -106,6 +106,10 @@
   "time.since": "desde {start}",
   "jump.today": "Hoy",
   "time.until": "hasta {end}",
+  "time.season.spring": "primavera de {year}",
+  "time.season.summer": "verano de {year}",
+  "time.season.autumn": "otoño de {year}",
+  "time.season.winter": "invierno de {year}",
   "time.months": [
     "enero",
     "febrero",

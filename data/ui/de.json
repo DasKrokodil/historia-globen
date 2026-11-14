@@ -106,6 +106,10 @@
   "time.since": "seit {start}",
   "jump.today": "Heute",
   "time.until": "bis {end}",
+  "time.season.spring": "Frühjahr {year}",
+  "time.season.summer": "Sommer {year}",
+  "time.season.autumn": "Herbst {year}",
+  "time.season.winter": "Winter {year}",
   "time.months": [
     "Januar",
     "Februar",
