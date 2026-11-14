@@ -1,7 +1,7 @@
 // Lagerväljaren: en meny där man slår av och på lager (händelser, fun facts, riken, religioner, dagens gränser m.m.).
 // Raderna, deras grupper och startläget kommer från lagerregistret (layers/registry.js, #338, #357).
 // Överst står de förinställda vyerna ur data/vyer.json (#357): en vy slår på sina lager och av de andra.
-import { t } from '../model.js';
+import { t, tagViewNote } from '../model.js';
 import { ui } from '../i18n.js';
 
 async function getJSON(path) {
@@ -252,9 +252,13 @@ export class LayerMenu {
     for (const btn of this.viewBtns) btn.setAttribute('aria-pressed', String(btn.dataset.view === cur));
     this.customChip.hidden = cur !== null;
     this.menu.dataset.view = cur ?? 'custom';
-    const empty = this.tag && !(this.views.tagCount?.(this.tag) > 0) ? this.views.tags?.[this.tag]?.empty : '';
-    this.viewStatus.textContent = empty || '';
-    this.viewStatus.hidden = !empty;
+    // Raden under vyvalet (#555, #1379): tomt läge om ingen händelse har taggen, annars en förklaring av urvalet
+    // (vyn Framsteg visar bara det källan själv kallar framsteg) med antalet räknat ur datan. Samma text sätts inte om,
+    // så att statusraden inte läses upp igen när valen ändras utan att vyn byts.
+    const tagged = this.tag ? this.views.tagCount?.(this.tag) ?? 0 : 0;
+    const note = this.tag ? (tagged > 0 ? tagViewNote(this.tag, tagged) : this.views.tags?.[this.tag]?.empty) : '';
+    if (this.viewStatus.textContent !== (note || '')) this.viewStatus.textContent = note || '';
+    this.viewStatus.hidden = !note;
     if (this.actionStatus) {
       this.actionStatus.textContent = cur === 'bara-kartan' ? this.views.layerActions.allOff : '';
     }
