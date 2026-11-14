@@ -2402,26 +2402,95 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
-  await check('platskortets rader och kryss har träffytor på minst 44 px på touch (#1464)', async () => {
-    // pointer: coarse prövas inte i datorbredd (Playwright ändrar det bara med isMobile): raderna prövas i smal skärm, där max-width gäller
+  // Träffytor på touch (#1464): raderna i händelselistan minst 44 px och krysset träffas 6 px utanför knappen åt alla håll, också när kortet är
+  // rullat (krysset är sticky). Smal skärm: max-width gäller. Bred skärm: en touch-sida med isMobile (Playwright ändrar pointer: coarse bara då).
+  const targets = pg => pg.evaluate(() => {
+    const d = document.getElementById('detail'), b = d.querySelector('.detail-close');
+    const at = (x, y) => !!document.elementFromPoint(x, y)?.closest('.detail-close');
+    const measure = () => { const r = b.getBoundingClientRect(), mid = { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+      return { w: Math.round(r.width), left: at(r.left - 6, mid.y), right: at(r.right + 6, mid.y), up: at(mid.x, r.top - 6), down: at(mid.x, r.bottom + 6) }; };
+    const rows = [...d.querySelectorAll('[data-theme-event]')].map(x => Math.round(x.getBoundingClientRect().height * 10) / 10);
+    const top = measure();
+    d.scrollTop = 150; // kortet rullat: krysset ligger kvar överst
+    const scrolled = { ...measure(), scrolled: d.scrollTop };
+    d.scrollTop = 0;
+    return { rows, top, scrolled, coarse: matchMedia('(pointer: coarse)').matches };
+  });
+  const touchTargets = async (pg, what, needCoarse) => {
+    await followGreenlandFromMenu(pg);
+    // Listan är hopfälld i smal skärm
+    if (!(await pg.locator('#detail .theme-event-list[open]').count())) await pg.click('#detail .theme-event-list summary');
+    await pg.waitForSelector('#detail [data-theme-event]', { state: 'visible', timeout: T.step });
+    const r = await targets(pg);
+    if (needCoarse && !r.coarse) throw new Error(`${what}: sidan har inte pointer: coarse, så provet prövar ingenting`);
+    if (r.rows.length < 5 || r.rows.some(h => h < 44)) throw new Error(`${what}: raderna i händelselistan är för låga för touch: ${r.rows.join(', ')} px`);
+    for (const [state, m] of [['överst', r.top], ['rullat', r.scrolled]]) {
+      if (!m.left || !m.right || !m.up || !m.down) throw new Error(`${what}: krysset har för liten träffyta (${state}): ${JSON.stringify(m)}`);
+    }
+    if (!r.scrolled.scrolled) throw new Error(`${what}: kortet gick inte att rulla, så "rullat" prövades inte`);
+    return `${r.rows.length} rader på minst ${Math.min(...r.rows)} px; krysset (${r.top.w} px) träffas 6 px utanför knappen åt alla håll, överst och rullat`;
+  };
+  await check('platskortets rader och kryss har träffytor på minst 44 px på touch, smal skärm (#1464)', async () => {
     if (!narrowVp) return 'körs i mobilbredd';
     const { tp, tctx, errs } = await placeTourPage('#y=1000', 'platstouch1');
     try {
-      await followGreenlandFromMenu(tp);
-      // Listan är hopfälld i smal skärm
-      if (!(await tp.locator('#detail .theme-event-list[open]').count())) await tp.click('#detail .theme-event-list summary');
-      await tp.waitForSelector('#detail [data-theme-event]', { state: 'visible', timeout: T.step });
-      const rows = await tp.evaluate(() => [...document.querySelectorAll('#detail [data-theme-event]')].map(b => Math.round(b.getBoundingClientRect().height * 10) / 10));
-      if (rows.length < 5 || rows.some(h => h < 44)) throw new Error(`raderna i händelselistan är för låga för touch: ${rows.join(', ')} px`);
-      // Krysset: en punkt 6 px utanför knappen åt vänster, höger och uppåt ger fortfarande knappen (träffytan är 8 px större åt alla håll)
-      const hit = await tp.evaluate(() => {
-        const b = document.querySelector('#detail .detail-close'), r = b.getBoundingClientRect(), mid = { x: r.left + r.width / 2, y: r.top + r.height / 2 };
-        const at = (x, y) => !!document.elementFromPoint(x, y)?.closest('.detail-close');
-        return { w: Math.round(r.width), left: at(r.left - 6, mid.y), right: at(r.right + 6, mid.y), up: at(mid.x, r.top - 6), down: at(mid.x, r.bottom + 6) };
-      });
-      if (!hit.left || !hit.right || !hit.up || !hit.down) throw new Error(`krysset har för liten träffyta: ${JSON.stringify(hit)}`);
+      const msg = await touchTargets(tp, 'smal skärm', false);
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
-      return `${rows.length} rader på minst ${Math.min(...rows)} px; krysset (${hit.w} px) träffas 6 px utanför knappen åt alla håll`;
+      return msg;
+    } finally { await tctx.close(); }
+  });
+  await check('platskortets rader och kryss har träffytor på minst 44 px med touch på bred skärm (#1464)', async () => {
+    if (narrowVp) return 'körs i datorbredd';
+    const tctx = await browser.newContext({ viewport: { width: 1280, height: 800 }, deviceScaleFactor: 1, hasTouch: true, isMobile: true });
+    const tp = await tctx.newPage();
+    const errs = [];
+    tp.on('pageerror', e => errs.push(e.message));
+    if (THREE_LOCAL) {
+      const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+      await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+      await tp.route(u => isFont(u.href), r => r.abort());
+    }
+    try {
+      await tp.goto(`${BASE}?ny=platstouch2#y=1000`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      const msg = await touchTargets(tp, 'bred skärm med touch', true);
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return msg;
+    } finally { await tctx.close(); }
+  });
+  await check('platskortet heter Om platsen och temakortet Om temat, också på engelska och efter ett nytt anrop av språkbytet (#1464)', async () => {
+    const { tp, tctx, errs } = await touchPage();
+    const label = () => tp.getAttribute('#detail', 'aria-label');
+    // Ett testtema ersätter data/teman.json (som i kontrollen för teman), så inget riktigt tema behövs
+    const tx = v => ({ sv: v, en: v, de: v, es: v, fr: v });
+    const themes = { schema: 'historia-globen/teman@1', themes: [{ id: 'testtema', name: tx('Testtema'), intro: tx('Ett urval för testet.'), review: 'source-checked', sources: [],
+      events: ['sintashta-stridsvagnar', 'fyren-pa-faros', 'dujiangyan', 'cai-lun-papper', 'zhang-hengs-seismoskop', 'gutenberg'] }] };
+    await tp.route('**/data/teman.json*', r => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(themes) }));
+    let n = 0;
+    const open = async (hash, type) => {
+      await tp.goto(`${BASE}?ny=kortnamn${++n}${hash}`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForSelector(`#detail ${type}`, { state: 'visible', timeout: T.step });
+    };
+    try {
+      await open('#y=1000&f=place:gronland', '.place-type');
+      if (await label() !== 'Om platsen') throw new Error(`platskortet heter ${await label()}`);
+      await open('#y=120&f=theme:testtema', '.story-label');
+      if (await label() !== 'Om temat') throw new Error(`temakortet heter ${await label()}`);
+      // Engelska: kortet heter det på engelska, och språkbytet (applyStatic) som sätter fasta texter får inte ge tillbaka Om händelsen
+      await tp.goto(`${BASE}?ny=kortnamn2&lang=en#y=1000&f=place:gronland`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+      if (await label() !== 'About the place') throw new Error(`platskortet heter ${await label()} på engelska`);
+      await tp.evaluate(async () => (await import('./js/i18n.js')).applyStatic());
+      if (await label() !== 'About the place') throw new Error(`namnet gick förlorat vid språkbytet: ${await label()}`);
+      await tp.goto(`${BASE}?ny=kortnamn3&lang=en#y=120&f=theme:testtema`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForSelector('#detail .story-label', { state: 'visible', timeout: T.step });
+      await tp.evaluate(async () => (await import('./js/i18n.js')).applyStatic());
+      if (await label() !== 'About the theme') throw new Error(`temakortet heter ${await label()} på engelska`);
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return 'Om platsen och Om temat (About the place, About the theme), och namnet står kvar efter applyStatic()';
     } finally { await tctx.close(); }
   });
   await check('platsens kort i en lektion: bara via turens steg, och inget nytt sätt att komma ur låset (#1163)', async () => {

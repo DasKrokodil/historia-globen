@@ -116,6 +116,7 @@
   "focus.note.themes": "Följ ett tema: ett urval av händelser från hela världen som hör ihop. Temat visar alla sina händelser oavsett kategorival; dina kategorier gäller igen när temat avslutas.",
   "focus.themeCount": "{count} händelser",
   "theme.label": "Tema",
+  "theme.cardLabel": "Om temat",
   "theme.events": "Händelser i temat ({count})",
   "theme.beforeScale": "(börjar före tidslinjens början)",
   "theme.huntImpossible": "Temat har för få världsdelar kring uppdragets år. Avsluta temat om du vill fortsätta jakten.",

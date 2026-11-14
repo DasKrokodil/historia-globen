@@ -50,7 +50,8 @@ export function rangeEndSide(to, events) {
 export function rangeEndedNote(range, year, events = []) {
   const { side, when } = rangeEndSide(range.to, events);
   const key = { in: 'place.rangeEnded', after: 'place.rangeEndedAfter', before: 'place.rangeEndedBefore' }[side];
-  return ui(key, { range: rangeText(range.from, range.to), year: formatYear(year), when: when == null ? '' : formatYear(when) });
+  // Slutar årtalet med f.Kr. blir punkten efter förkortningen också meningens punkt, inte två
+  return ui(key, { range: rangeText(range.from, range.to), year: formatYear(year), when: when == null ? '' : formatYear(when) }).replace(/\.\.$/, '.');
 }
 
 /** Händelserna inom platsens gräns i tidsordning, bara de som syns (draft visas aldrig). */

@@ -346,6 +346,7 @@
   "focus.note.themes": "Follow a theme: a selection of related events from around the world. The theme shows all its events regardless of your category choices; your choices apply again when you end the theme.",
   "focus.themeCount": "{count} events",
   "theme.label": "Theme",
+  "theme.cardLabel": "About the theme",
   "theme.events": "Events in the theme ({count})",
   "theme.beforeScale": "(begins before the start of the timeline)",
   "theme.huntImpossible": "This theme has too few continents around the year of this hunt. End the theme if you want to carry on with the hunt.",

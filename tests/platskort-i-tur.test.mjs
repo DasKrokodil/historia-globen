@@ -54,10 +54,23 @@ test('raden för ett slutår inom spannet är oförändrad, och före och efter 
   assert.match(before, /^Tidsintervallet 800–900 (e\.Kr\. )?avslutades när platsen började följas\. Platsens första händelse är 1000, så platsen visas för år 1000\.$/);
 });
 
+test('årtalen i raden skrivs med f.Kr. när platsens händelser ligger före vår tideräkning (formatYear)', () => {
+  // Astronomisk årsräkning: 2600 f.Kr. är -2599 och 2000 f.Kr. är -1999
+  const early = [ev(-2599, -1999), ev(-1500)];
+  const before = rangeEndedNote({ from: -2999, to: -2899 }, -2599, early);
+  assert.match(before, /Platsens första händelse är 2600 f\.Kr\., så platsen visas för år 2600 f\.Kr\.$/);
+  assert.ok(!before.includes('-2599'), 'det astronomiska årtalet ska inte visas');
+  const after = rangeEndedNote({ from: -500, to: -100 }, -500, [ev(-2599, -1999)]);
+  assert.match(after, /Platsens sista händelse är 2000 f\.Kr\., så platsen visas för år 501 f\.Kr\.$/);
+  assert.ok(!after.includes('-1999'));
+  assert.deepEqual(rangeEndSide(-2899, early), { side: 'before', when: -2599 });
+  assert.deepEqual(rangeEndSide(-100, [ev(-2599, -1999)]), { side: 'after', when: -1999 });
+});
+
 test('texterna finns på alla fem språken med samma platshållare, och tour.readPlace är flyttad', () => {
   const sv = json('data/ui/sv.json');
   const holders = text => [...String(text).matchAll(/\{(\w+)\}/g)].map(m => m[1]).sort().join();
-  for (const key of ['place.rangeEnded', 'place.rangeEndedAfter', 'place.rangeEndedBefore', 'place.cardLabel']) {
+  for (const key of ['place.rangeEnded', 'place.rangeEndedAfter', 'place.rangeEndedBefore', 'place.cardLabel', 'theme.cardLabel']) {
     assert.ok(sv[key], `${key} saknas på svenska`);
     for (const lang of LANGS) {
       const file = json(`data/ui/${lang}.json`);

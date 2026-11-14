@@ -346,6 +346,7 @@
   "focus.note.themes": "Suivez un thème : une sélection d’événements liés, venus du monde entier. Le thème affiche tous ses événements, quelles que soient les catégories choisies ; votre sélection s’applique à nouveau lorsque vous quittez le thème.",
   "focus.themeCount": "{count} événements",
   "theme.label": "Thème",
+  "theme.cardLabel": "À propos du thème",
   "theme.events": "Événements du thème ({count})",
   "theme.beforeScale": "(commence avant le début de la frise)",
   "theme.huntImpossible": "Ce thème compte trop peu de continents autour de l’année de la mission. Termine le thème si tu veux continuer la chasse.",

@@ -522,7 +522,11 @@ export class Panel {
    * kort heter Om platsen (#1464). Varje öppning sätter namnet, så att ett kort inte ärver det förra kortets.
    */
   setDetailOpen(open, label = ui('detail.label')) {
-    if (open) this.detail.setAttribute('aria-label', label);
+    if (open) {
+      // Namnet ägs härifrån: attributet för språkbytet (index.html) tas bort, så att applyStatic() aldrig sätter tillbaka Om händelsen på ett öppet kort
+      this.detail.removeAttribute?.('data-i18n-aria-label');
+      this.detail.setAttribute('aria-label', label);
+    }
     this.detail.hidden = !open;
     this.onDetailChange(open);
   }

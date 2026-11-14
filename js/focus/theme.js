@@ -13,7 +13,7 @@ export function entry(app) {
   function showCard(f) {
     app.store.setSelected(null);
     panel.showSelection({ label: ui('theme.label'), name: f.theme.name, intro: f.theme.intro, notes: [ui('theme.filters')],
-      exit: ui('theme.exit'), summary: ui('theme.events', { count: f.themeEvents.length }), events: f.themeEvents, sources: f.theme.sources });
+      exit: ui('theme.exit'), summary: ui('theme.events', { count: f.themeEvents.length }), events: f.themeEvents, sources: f.theme.sources, ariaLabel: ui('theme.cardLabel') });
     app.surfaces.closeAll({ narrow: app.narrow.matches });
     $('app').classList.add('has-detail');
   }

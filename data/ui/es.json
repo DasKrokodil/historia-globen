@@ -346,6 +346,7 @@
   "focus.note.themes": "Siga un tema: una selección de acontecimientos relacionados de todo el mundo. El tema muestra todos sus acontecimientos independientemente de las categorías elegidas; su selección volverá a aplicarse al terminar el tema.",
   "focus.themeCount": "{count} acontecimientos",
   "theme.label": "Tema",
+  "theme.cardLabel": "Sobre el tema",
   "theme.events": "Acontecimientos del tema ({count})",
   "theme.beforeScale": "(empieza antes del inicio de la línea de tiempo)",
   "theme.huntImpossible": "Este tema tiene muy pocos continentes en torno al año de la misión. Termina el tema si quieres seguir con la caza.",
