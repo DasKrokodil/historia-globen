@@ -24,7 +24,11 @@ export class LessonMode {
     Object.assign(this, els, { app });
     this.tour = null;
     this.teacher = false; // läraren har en knapp för elev- och lärarblad i bandet (#885); eleven i den vanliga länken har ingen
-    this.exit.addEventListener('click', () => this.exitToGlobe());
+    // Eleven får en fråga innan lektionen lämnas; läraren lämnar direkt (#1572)
+    this.exit.addEventListener('click', () => (this.teacher || !this.confirm ? this.exitToGlobe() : this.askExit()));
+    this.confirmNo?.addEventListener('click', () => this.cancelExit());
+    this.confirmYes?.addEventListener('click', () => { this.hideConfirm(); this.exitToGlobe(); });
+    this.confirm?.addEventListener('keydown', e => { if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); this.cancelExit(); } });
     this.printBtn?.addEventListener('click', () => this.print());
     // Adressen skrivs om till den vanliga vyn när länken inte blev en lektion, så länken sparas här (explain)
     this.retry?.addEventListener('click', () => { if (this.noticeUrl) history.replaceState(null, '', this.noticeUrl); location.reload(); });
@@ -47,6 +51,27 @@ export class LessonMode {
     this.noticeUrl = location.href;
     this.notice.hidden = false;
     this.app.root.classList.add('lesson-notice');
+  }
+
+  /** Frågan "Lämna lektionen?" tar bandets plats, med fokus på Stanna kvar. */
+  askExit() {
+    this.band.hidden = true;
+    this.confirm.hidden = false;
+    this.app.root.classList.add('lesson-notice');
+    this.confirmNo.focus({ preventScroll: true });
+  }
+
+  /** Stanna kvar: bandet tillbaka och fokus på knappen som öppnade frågan. */
+  cancelExit() {
+    this.hideConfirm();
+    this.exit.focus({ preventScroll: true });
+  }
+
+  hideConfirm() {
+    if (!this.confirm || this.confirm.hidden) return;
+    this.confirm.hidden = true;
+    this.band.hidden = !this.tour;
+    this.app.root.classList.remove('lesson-notice');
   }
 
   hideNotice() {
@@ -133,6 +158,7 @@ export class LessonMode {
     this.teacher = false;
     this.showTeacherTools();
     root.classList.remove('lesson');
+    this.hideConfirm();
     this.band.hidden = true;
     this.endLinks.hidden = true;
     timeline.focusLocked = false;

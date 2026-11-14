@@ -80,6 +80,12 @@
     <button id="lesson-exit" class="lesson-exit" type="button" data-i18n="lesson.exit">Visa hela globen</button>
     <p id="lesson-print-status" class="lesson-print-status" role="status" hidden></p>
   </section>
+  <!-- Eleven bekräftar innan lektionen lämnas (#1572); läraren lämnar direkt. Samma plats och utseende som förklaringen nedan (js/ui/lesson.js) -->
+  <section id="lesson-confirm" class="lesson-band lesson-notice" role="group" aria-labelledby="lesson-confirm-text" hidden>
+    <p id="lesson-confirm-text" class="lesson-band-title" data-i18n="lesson.confirm">Lämna lektionen? Då visas hela globen.</p>
+    <button id="lesson-confirm-no" class="lesson-exit" type="button" data-i18n="lesson.confirmNo">Stanna kvar</button>
+    <button id="lesson-confirm-yes" class="lesson-exit" type="button" data-i18n="lesson.confirmYes">Ja, lämna</button>
+  </section>
   <!-- En lektionslänk som inte gick att starta (#877): förklaring i stället för en tyst, vanlig glob -->
   <section id="lesson-notice" class="lesson-band lesson-notice" role="alert" hidden>
     <p id="lesson-notice-text" class="lesson-band-title"></p>
