@@ -2728,6 +2728,119 @@ async function run(browser, vp) {
     return out.join('; ');
   });
 
+  // #1310: på en låg yta fick faktarutan ingen plats för texten (1280 × 800: bara rubrik och bild, 336 av 949 px) och turkortet blev 28 px
+  // högt med Nästa utanför skärmen (200 % zoom). Rutan ska rymmas på skärmen utan att täcka årtalet eller knapparna överst, visa text
+  // under bilden, gå att rulla till slutet med krysset kvar i bild, och sidan ska inte rulla.
+  await check('låg höjd: faktarutan visar text och rullas till slutet (1280 × 800, 1366 × 768, 200 % zoom, #1310)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet (provar själv tre storlekar)';
+    const out = [];
+    for (const yta of LAGA_YTOR) {
+      const { context, page: pp, errors } = await lagaHojdenSida(browser, yta, '#y=1542');
+      try {
+        await pp.click('#btn-panel');
+        const knapp = pp.locator('.event-btn[data-id="nya-lagarna-1542"]');
+        if (!(await knapp.count())) throw new Error('händelsen nya-lagarna-1542 (bild och lång text) finns inte i listan: byt till en annan med bild och lång text');
+        await knapp.first().scrollIntoViewIfNeeded();
+        await knapp.first().click();
+        await pp.waitForSelector('#detail:not([hidden])', { timeout: T.step });
+        await pp.waitForSelector('#detail .detail-fig img', { state: yta.width <= 760 ? 'attached' : 'visible', timeout: T.step });
+        await pp.waitForTimeout(400); // arket och bilden sätter sig
+        if (yta.width <= 760) { await pp.click('#detail .sheet-handle'); await pp.waitForFunction(() => document.getElementById('detail').dataset.sheet === 'full'); await pp.waitForTimeout(200); }
+        const m = () => pp.evaluate(() => {
+          const r = e => { const b = e.getBoundingClientRect(); return { top: b.top, bottom: b.bottom, left: b.left, right: b.right, height: b.height }; };
+          const card = document.getElementById('detail'), c = r(card);
+          const img = card.querySelector('.detail-fig img'), close = card.querySelector('.detail-close'), last = [...card.children].filter(e => e.getBoundingClientRect().height > 0).pop();
+          const text = [...card.querySelectorAll('p')].find(p => p.textContent.trim().length > 80);
+          const bar = document.querySelector('.timebar').getBoundingClientRect(), top = document.querySelector('.top-actions').getBoundingClientRect(), year = document.getElementById('year-jump').getBoundingClientRect();
+          const hit = document.elementFromPoint(year.x + year.width / 2, year.y + year.height / 2);
+          const x = close && r(close);
+          return {
+            card: c, scrollable: card.scrollHeight > card.clientHeight + 1, overflowY: getComputedStyle(card).overflowY,
+            img: img && r(img), text: text && r(text), last: last && r(last), close: x,
+            closeVisible: !!x && x.top >= c.top - 1 && x.bottom <= c.bottom + 1 && x.top >= 0 && x.bottom <= innerHeight,
+            barTop: bar.top, topBottom: top.bottom, topLeft: top.left, yearHit: !!hit?.closest('#year-jump'), yearBottom: year.bottom, yearRight: year.right,
+            sw: document.documentElement.scrollWidth, sh: document.documentElement.scrollHeight, iw: innerWidth, ih: innerHeight,
+          };
+        });
+        const a = await m();
+        if (a.card.top < 0 || a.card.bottom > a.ih) throw new Error(`${yta.namn}: faktarutan ligger utanför skärmen (${Math.round(a.card.top)}–${Math.round(a.card.bottom)} av ${a.ih} px)`);
+        if (a.card.bottom > a.barTop + 1) throw new Error(`${yta.namn}: faktarutan täcker tidsreglaget (rutan slutar vid ${Math.round(a.card.bottom)} px, reglaget börjar vid ${Math.round(a.barTop)} px)`);
+        if (a.card.top < a.topBottom - 1 && a.card.right > a.topLeft) throw new Error(`${yta.namn}: faktarutan täcker knapparna överst (${Math.round(a.card.top)} < ${Math.round(a.topBottom)} px)`);
+        if (a.card.top < a.yearBottom - 1 && a.card.left < a.yearRight) throw new Error(`${yta.namn}: faktarutan täcker årtalet`);
+        if (!a.yearHit) throw new Error(`${yta.namn}: årtalet går inte att klicka`);
+        if (!a.scrollable || a.overflowY !== 'auto') throw new Error(`${yta.namn}: faktarutan rullas inte (rullbar ${a.scrollable}, overflow-y ${a.overflowY})`);
+        if (a.img.height > a.card.height * 0.5) throw new Error(`${yta.namn}: bilden tar ${Math.round(a.img.height)} av ${Math.round(a.card.height)} px av rutan`);
+        if (yta.width > 760 && !(a.text && a.text.top + 40 <= a.card.bottom)) throw new Error(`${yta.namn}: ingen text syns under bilden utan att rulla (texten börjar vid ${a.text && Math.round(a.text.top)}, rutan slutar vid ${Math.round(a.card.bottom)} px)`);
+        if (!a.closeVisible) throw new Error(`${yta.namn}: krysset syns inte`);
+        await pp.evaluate(() => { const d = document.getElementById('detail'); d.scrollTop = d.scrollHeight; });
+        await pp.waitForTimeout(150);
+        const b = await m();
+        if (b.last.bottom > b.card.bottom + 1) throw new Error(`${yta.namn}: slutet av faktarutan nås inte med rullning (sista raden slutar vid ${Math.round(b.last.bottom)}, rutan vid ${Math.round(b.card.bottom)} px)`);
+        if (!b.closeVisible) throw new Error(`${yta.namn}: krysset försvinner när rutan rullas`);
+        if (b.sw > b.iw) throw new Error(`${yta.namn}: horisontell scroll (${b.sw} > ${b.iw} px)`);
+        if (b.sh > b.ih) throw new Error(`${yta.namn}: hela sidan rullar (${b.sh} > ${b.ih} px)`);
+        if (errors.length) throw new Error(`${yta.namn}: sidfel ${errors.join(' | ')}`);
+        await pp.screenshot({ path: path.join(OUT, `1310-faktaruta-${yta.width}x${yta.height}.png`) });
+        out.push(`${yta.namn}: rutan ${Math.round(a.card.height)} px, bilden ${Math.round(a.img.height)} px, ${yta.width > 760 ? `texten börjar ${Math.round(a.card.bottom - a.text.top)} px över kanten, ` : ''}krysset kvar vid rullning`);
+      } finally { await context.close(); }
+    }
+    return out.join('; ');
+  });
+
+  await check('låg höjd: turkortet och turraden ryms med Nästa och Avsluta i bild (1280 × 800, 1366 × 768, 200 % zoom, #1310)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet (provar själv tre storlekar)';
+    const out = [];
+    for (const yta of LAGA_YTOR) {
+      const { context, page: pp, errors } = await lagaHojdenSida(browser, yta, '#t=forsta-varldskriget');
+      try {
+        await pp.waitForSelector('#tour-card:not([hidden])', { timeout: T.step });
+        await pp.waitForSelector('#pause-note:not([hidden])', { timeout: T.step });
+        await pp.waitForTimeout(500);
+        const m = () => pp.evaluate(() => {
+          const el = id => document.getElementById(id), rect = e => { const b = e.getBoundingClientRect(); return { top: b.top, bottom: b.bottom, left: b.left, right: b.right, height: b.height }; };
+          const card = el('tour-card'), c = rect(card);
+          const inside = id => { const b = rect(el(id)); const hit = document.elementFromPoint((b.left + b.right) / 2, (b.top + b.bottom) / 2); return { ...b, ok: b.height > 0 && b.top >= c.top - 1 && b.bottom <= c.bottom + 1 && b.top >= 0 && b.bottom <= innerHeight && !!hit?.closest(`#${id}`) }; };
+          const note = rect(el('pause-note')), year = rect(el('year-jump')), top = rect(document.querySelector('.top-actions'));
+          const hit = document.elementFromPoint((year.left + year.right) / 2, (year.top + year.bottom) / 2);
+          return {
+            card: c, scrollable: card.scrollHeight > card.clientHeight + 1, overflowY: getComputedStyle(card).overflowY, scrollH: card.scrollHeight, clientH: card.clientHeight,
+            next: inside('tour-next'), end: inside('tour-end'), title: rect(el('tour-title')), text: rect(el('tour-text')), actions: rect(card.querySelector('.tour-actions')),
+            note, noteInside: note.left >= 0 && note.right <= innerWidth && note.top >= 0 && note.bottom <= innerHeight, year, yearHit: !!hit?.closest('#year-jump'), top,
+            sw: document.documentElement.scrollWidth, sh: document.documentElement.scrollHeight, iw: innerWidth, ih: innerHeight,
+          };
+        });
+        const a = await m();
+        if (a.card.top < 0 || a.card.bottom > a.ih) throw new Error(`${yta.namn}: turkortet ligger utanför skärmen (${Math.round(a.card.top)}–${Math.round(a.card.bottom)} av ${a.ih} px)`);
+        if (a.card.height < 150) throw new Error(`${yta.namn}: turkortet är bara ${Math.round(a.card.height)} px högt`);
+        if (!a.next.ok) throw new Error(`${yta.namn}: Nästa syns inte helt inne i kortet (${Math.round(a.next.top)}–${Math.round(a.next.bottom)} px, kortet ${Math.round(a.card.top)}–${Math.round(a.card.bottom)})`);
+        if (!a.end.ok) throw new Error(`${yta.namn}: Avsluta turen syns inte helt inne i kortet`);
+        if (a.next.height < 44 || a.end.height < 44) throw new Error(`${yta.namn}: knapparna är lägre än 44 px (${Math.round(a.next.height)}, ${Math.round(a.end.height)})`);
+        if (!a.noteInside) throw new Error(`${yta.namn}: turraden ryms inte i bild (${Math.round(a.note.left)}–${Math.round(a.note.right)}, ${Math.round(a.note.top)}–${Math.round(a.note.bottom)} av ${a.iw} × ${a.ih} px)`);
+        if (a.card.bottom > a.note.top + 1) throw new Error(`${yta.namn}: turkortet täcker turraden (${Math.round(a.card.bottom)} > ${Math.round(a.note.top)} px)`);
+        if (!a.yearHit) throw new Error(`${yta.namn}: årtalet går inte att klicka`);
+        if (a.card.top < a.year.bottom - 1 && a.card.left < a.year.right) throw new Error(`${yta.namn}: turkortet täcker årtalet`);
+        if (a.card.top < a.top.bottom - 1 && a.card.right > a.top.left) throw new Error(`${yta.namn}: turkortet täcker knapparna överst`);
+        // Kortet rullas i sig självt när innehållet inte ryms, och texten nås: i slutet av rullningen ligger den ovanför de fasta knapparna
+        if (a.scrollable && a.overflowY !== 'auto') throw new Error(`${yta.namn}: turkortet rullas inte (overflow-y ${a.overflowY})`);
+        await pp.evaluate(() => { const d = document.getElementById('tour-card'); d.scrollTop = d.scrollHeight; });
+        await pp.waitForTimeout(150);
+        const b = await m();
+        if (b.text.bottom > b.actions.top + 1) throw new Error(`${yta.namn}: slutet av texten nås inte med rullning (${Math.round(b.text.bottom)} > ${Math.round(b.actions.top)} px)`);
+        if (!b.next.ok || !b.end.ok) throw new Error(`${yta.namn}: Nästa eller Avsluta försvinner när kortet rullas`);
+        await pp.focus('#tour-end');
+        const fokus = await pp.evaluate(() => { const b = document.getElementById('tour-end').getBoundingClientRect(); return b.top >= 0 && b.bottom <= innerHeight; });
+        if (!fokus) throw new Error(`${yta.namn}: Avsluta turen hamnar utanför bild vid fokus`);
+        if (b.sw > b.iw) throw new Error(`${yta.namn}: horisontell scroll (${b.sw} > ${b.iw} px)`);
+        if (b.sh > b.ih) throw new Error(`${yta.namn}: hela sidan rullar (${b.sh} > ${b.ih} px)`);
+        if (errors.length) throw new Error(`${yta.namn}: sidfel ${errors.join(' | ')}`);
+        await pp.evaluate(() => { document.getElementById('tour-card').scrollTop = 0; });
+        await pp.screenshot({ path: path.join(OUT, `1310-turkort-${yta.width}x${yta.height}.png`) });
+        out.push(`${yta.namn}: kortet ${Math.round(a.card.height)} px${a.scrollable ? ' (rullbart, knapparna fasta)' : ''}, Nästa och Avsluta i bild, turraden ryms`);
+      } finally { await context.close(); }
+    }
+    return out.join('; ');
+  });
+
   await check('Samtidigt-kortet går till nästa händelse', async () => {
     await visible('#funfact');
     if (await page.locator('#panel').isHidden()) await page.click('#btn-panel');
@@ -8197,6 +8310,33 @@ async function run(browser, vp) {
   results.push({ name: 'inga fel i konsolen', ok: errors.length === 0, ms: 0, note: errors.slice(0, 10).join(' | ') || undefined });
   await context.close();
   return results;
+}
+
+// #1310: faktarutan, turkortet och turraden vid låg höjd. Storlekarna är två bärbara datorer och 200 % sidzoom på den ena:
+// 200 % zoom av 1280 × 800 är en yta på 640 × 400 CSS-pixlar (samma sätt som avsnittet "zoom och omflödning", #404:
+// fönstret görs hälften så stort i stället för att webbläsarens zoom ändras, eftersom Playwright inte kan zooma sidan).
+const LAGA_YTOR = [
+  { namn: '1280 × 800', width: 1280, height: 800 },
+  { namn: '1366 × 768', width: 1366, height: 768 },
+  { namn: '200 % zoom (640 × 400)', width: 640, height: 400 },
+];
+// Egen kontext och sida per storlek, med årstipset avstängt så att det inte döljer skalan. Anroparen stänger kontexten.
+async function lagaHojdenSida(browser, { width, height }, hash) {
+  const context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: 1 });
+  const page = await context.newPage();
+  const errors = [];
+  page.on('pageerror', e => errors.push(e.message));
+  if (THREE_LOCAL) {
+    const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+    await page.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+    await page.route(u => isFont(u.href), r => r.abort());
+  }
+  await page.addInitScript(() => { try { localStorage.setItem('hg-year-tip', '1'); } catch { /* utan lagring */ } });
+  await page.goto(`${BASE}${hash}`, { waitUntil: 'domcontentloaded', timeout: T.load });
+  await page.waitForFunction(() => document.getElementById('loading')?.hidden, null, { timeout: T.load });
+  if (await page.isVisible('#intro')) await page.click('#intro-close');
+  if (await page.isVisible('#help')) await page.click('#help-close');
+  return { context, page, errors };
 }
 
 // WCAG 1.4.4/1.4.10 (#404): 200 och 400 procents sidzoom motsvarar att en 1400 × 900-yta
