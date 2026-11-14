@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
-"""Hämtar dagens landgräns för platserna i data/platser.json ur Natural Earth 1:50m (via world-atlas 2.0.2, public
-domain) och skriver dem som GeoJSON i platsens fält boundary.geometry (#579).
+"""Hämtar dagens gräns för platserna i data/platser.json ur Natural Earth (public domain) och skriver dem som GeoJSON i
+platsens fält boundary.geometry (#579): länder ur 1:50m admin 0 via world-atlas 2.0.2, län och delstater ur 1:10m admin 1 (#1159).
 
 Körs för hand: python3 tools/platser_gransar.py
-Land väljs med ISO 3166-1 numeriskt id (boundary.ne). Polygoner vars första punkt ligger i en ruta i boundary.exclude ([väst, syd, öst, nord]) tas bort; Natural Earth
+Ett land väljs med ISO 3166-1 numeriskt id (boundary.ne). Polygoner vars första punkt ligger i en ruta i boundary.exclude ([väst, syd, öst, nord]) tas bort; Natural Earth
 räknar Tokelau till Nya Zeeland, men Tokelau ingår inte i konturen (beslut 2026-11-10 i #579). Koordinaterna avrundas till två decimaler (cirka 1 km) och polygoner med färre än
 fyra punkter tas bort.
+Ett län eller en delstat väljs med adm1_code (boundary.admin1, till exempel SWE-3429 för Skåne län) ur Natural Earth 1:10m admin 1
+version 5.1.2; koordinaterna avrundas där till tre decimaler (cirka 100 m). Filen är cirka 40 MB; en nedladdad kopia kan ges som
+argument: python3 tools/platser_gransar.py ne_10m_admin_1_states_provinces.geojson
 Ringar som korsar datumlinjen (±180°, till exempel Ryssland och Fiji) delas vid 180° med nya sömpunkter, så att varje delring ligger
 på ena sidan och ingen ring har ett hopp större än 180° i längdgrad (#1268). Delningen är data: schemat är oförändrat, och
 js/place-geo.js och scripts/validate-site.py skyddar ändå mot en ring som hoppar."""
@@ -13,6 +16,9 @@ import json, math, sys, urllib.request
 from pathlib import Path
 
 URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-50m.json'
+# Län och delstater (boundary.admin1 = adm1_code): Natural Earth 1:10m admin 1, version 5.1.2, public domain.
+# Skåne finns bara i 1:10m. Koordinaterna avrundas till tre decimaler (cirka 100 m).
+ADMIN1_URL = 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_1_states_provinces.geojson'
 FILE = Path(__file__).resolve().parent.parent / 'data' / 'platser.json'
 
 
@@ -170,14 +176,38 @@ def geometry(topo, arcs, ne_id, exclude=()):
     return {'type': 'MultiPolygon', 'coordinates': out}
 
 
+def admin1_geometry(collection, code):
+    f = next(f for f in collection['features'] if f['properties'].get('adm1_code') == code)
+    g = f['geometry']
+    polys = g['coordinates'] if g['type'] == 'MultiPolygon' else [g['coordinates']]
+    out = []
+    for poly in polys:
+        rings = [dedupe([[round(x, 3), round(y, 3)] for x, y in r]) for r in poly]
+        rings = [r for r in rings if len(r) >= 4]
+        if rings:
+            out.append(rings)
+    return {'type': 'MultiPolygon', 'coordinates': out}
+
+
 def main():
     doc = json.loads(FILE.read_text(encoding='utf-8'))
-    with urllib.request.urlopen(URL, timeout=60) as r:
-        topo = json.load(r)
-    arcs = decode(topo)
+    topo = arcs = admin1 = None
     for place in doc['places']:
         b = place['boundary']
-        b['geometry'] = geometry(topo, arcs, b['ne'], b.get('exclude', []))
+        if 'admin1' in b:
+            if admin1 is None:
+                if len(sys.argv) > 1:
+                    admin1 = json.loads(Path(sys.argv[1]).read_text(encoding='utf-8'))
+                else:
+                    with urllib.request.urlopen(ADMIN1_URL, timeout=300) as r:
+                        admin1 = json.load(r)
+            b['geometry'] = admin1_geometry(admin1, b['admin1'])
+        else:
+            if topo is None:
+                with urllib.request.urlopen(URL, timeout=60) as r:
+                    topo = json.load(r)
+                arcs = decode(topo)
+            b['geometry'] = geometry(topo, arcs, b['ne'], b.get('exclude', []))
         n = sum(len(p[0]) for p in b['geometry']['coordinates'])
         print(f"{place['id']}: {len(b['geometry']['coordinates'])} polygoner, {n} punkter")
     FILE.write_text(json.dumps(doc, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')

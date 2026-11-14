@@ -357,6 +357,7 @@
   "place.label": "Ort",
   "place.type.autonomous": "Autonomes Gebiet",
   "place.type.country": "Land",
+  "place.type.landskap": "Landschaft",
   "place.typeOf": "{type} in {of}",
   "place.borderNote": "Die Linie auf der Karte zeigt die heutige Grenze, nicht die damalige.",
   "place.filters": "Alle Ereignisse innerhalb der Grenze werden unabhängig von Ihrer Kategorienwahl angezeigt.",
