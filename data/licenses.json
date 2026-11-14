@@ -866,6 +866,7 @@
         "wp-flag-colombia",
         "wp-flag-costa-rica",
         "wp-flag-croatia",
+        "wp-flag-cyprus",
         "wp-flag-czech-republic",
         "wp-flag-fiji",
         "wp-flag-finland",
@@ -881,6 +882,7 @@
         "wp-flag-india",
         "wp-flag-indonesia",
         "wp-flag-ireland",
+        "wp-flag-israel",
         "wp-flag-italy",
         "wp-flag-ivory-coast",
         "wp-flag-jamaica",
@@ -888,19 +890,24 @@
         "wp-flag-jordan",
         "wp-flag-kosovo",
         "wp-flag-kuwait",
+        "wp-flag-kyrgyzstan",
+        "wp-flag-lebanon",
         "wp-flag-lithuania",
         "wp-flag-luxembourg",
         "wp-flag-madagascar",
+        "wp-flag-malaysia",
         "wp-flag-mali",
         "wp-flag-malta",
         "wp-flag-moldova",
         "wp-flag-monaco",
+        "wp-flag-mongolia",
         "wp-flag-montenegro",
         "wp-flag-nepal",
         "wp-flag-netherlands",
         "wp-flag-new-zealand",
         "wp-flag-niger",
         "wp-flag-nigeria",
+        "wp-flag-north-korea",
         "wp-flag-north-macedonia",
         "wp-flag-norway",
         "wp-flag-of-ethiopia",
@@ -910,11 +917,14 @@
         "wp-flag-of-switzerland",
         "wp-flag-pakistan",
         "wp-flag-palau",
+        "wp-flag-palestine",
         "wp-flag-papua-new-guinea",
         "wp-flag-peru",
+        "wp-flag-philippines",
         "wp-flag-poland",
         "wp-flag-qatar",
         "wp-flag-qing",
+        "wp-flag-republic-of-china",
         "wp-flag-russia",
         "wp-flag-saint-kitts-and-nevis",
         "wp-flag-saint-lucia",
@@ -927,6 +937,9 @@
         "wp-flag-solomon-islands",
         "wp-flag-somalia",
         "wp-flag-south-africa",
+        "wp-flag-south-korea",
+        "wp-flag-south-vietnam",
+        "wp-flag-tajikistan",
         "wp-flag-thailand",
         "wp-flag-timor-leste",
         "wp-flag-togo",
@@ -2647,6 +2660,12 @@
       ]
     },
     {
+      "license": "Public domain (PD-Israel, PD-flag)",
+      "sourceIds": [
+        "commons-flagga-israel"
+      ]
+    },
+    {
       "license": "Public domain (PD-Japan-exempt, PD-shape)",
       "sourceIds": [
         "commons-flagga-japan"
@@ -2659,15 +2678,46 @@
       ]
     },
     {
+      "license": "Public domain (PD-KG-exempt)",
+      "sourceIds": [
+        "commons-flagga-kyrgyzstan",
+        "commons-flagga-kyrgyzstan-1992"
+      ]
+    },
+    {
       "license": "Public domain (PD-LT-exempt, PD-self)",
       "sourceIds": [
         "commons-flagga-litauen-stat"
       ]
     },
     {
+      "license": "Public domain (PD-Lebanon, PD-USGov-CIA-WF, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-lebanon"
+      ]
+    },
+    {
       "license": "Public domain (PD-MD-exempt)",
       "sourceIds": [
         "commons-flagga-moldova"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Malaysia, PD-self)",
+      "sourceIds": [
+        "commons-flagga-malaysia"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Mongolia-exempt)",
+      "sourceIds": [
+        "commons-flagga-mongolia"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Mongolia-exempt, PD-self)",
+      "sourceIds": [
+        "commons-flagga-mongolia-1945"
       ]
     },
     {
@@ -2683,6 +2733,12 @@
       ]
     },
     {
+      "license": "Public domain (PD-North Korea, PD-flag)",
+      "sourceIds": [
+        "commons-flagga-north-korea"
+      ]
+    },
+    {
       "license": "Public domain (PD-North Macedonia)",
       "sourceIds": [
         "commons-flagga-north-macedonia"
@@ -2692,6 +2748,24 @@
       "license": "Public domain (PD-OpenClipart och CC0; PD-Croatia-exempt)",
       "sourceIds": [
         "commons-flagga-croatia"
+      ]
+    },
+    {
+      "license": "Public domain (PD-OpenClipart, PD-TJ-exempt)",
+      "sourceIds": [
+        "commons-flagga-tajikistan"
+      ]
+    },
+    {
+      "license": "Public domain (PD-PRC-exempt, PD-ROC-exempt)",
+      "sourceIds": [
+        "commons-flagga-republic-of-china"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Philippines)",
+      "sourceIds": [
+        "commons-flagga-philippines"
       ]
     },
     {
@@ -2716,6 +2790,18 @@
       "license": "Public domain (PD-Slovenia)",
       "sourceIds": [
         "commons-flagga-slovenia"
+      ]
+    },
+    {
+      "license": "Public domain (PD-South Korea, PD-flag)",
+      "sourceIds": [
+        "commons-flagga-south-korea"
+      ]
+    },
+    {
+      "license": "Public domain (PD-State of Palestine, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-palestine"
       ]
     },
     {
@@ -2755,8 +2841,16 @@
       ]
     },
     {
+      "license": "Public domain (PD-geometry)",
+      "sourceIds": [
+        "commons-flagga-south-vietnam"
+      ]
+    },
+    {
       "license": "Public domain (PD-ineligible)",
       "sourceIds": [
+        "commons-flagga-cyprus",
+        "commons-flagga-cyprus-1960",
         "commons-flagga-gronland",
         "commons-flagga-kosovo",
         "commons-flagga-palau",

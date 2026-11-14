@@ -22082,6 +22082,66 @@
    "from": 1948,
    "to": 2024,
    "file": "data/empires/israel.json",
+   "flags": [
+    {
+     "file": "israel",
+     "from": 1948,
+     "to": 2024,
+     "label": {
+      "sv": "Israels flagga",
+      "en": "Flag of Israel",
+      "de": "Flagge Israels",
+      "es": "Bandera de Israel",
+      "fr": "Drapeau d'Israël"
+     },
+     "sources": [
+      "wp-flag-israel",
+      "commons-flagga-israel"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "labelAt": [
+    {
+     "polity": "israel",
+     "from": 1956,
+     "to": 1957,
+     "at": [
+      34.7,
+      31.4
+     ],
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "polity": "israel",
+     "from": 1967,
+     "to": 1972,
+     "at": [
+      34.7,
+      31.4
+     ],
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "polity": "israel",
+     "from": 1976,
+     "to": 1982,
+     "at": [
+      34.7,
+      31.4
+     ],
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "israel",
@@ -22321,6 +22381,25 @@
    "from": 2014,
    "to": 2024,
    "file": "data/empires/palestina.json",
+   "flags": [
+    {
+     "file": "palestine",
+     "from": 2014,
+     "to": 2024,
+     "label": {
+      "sv": "Palestinas flagga",
+      "en": "Flag of Palestine",
+      "de": "Flagge Palästinas",
+      "es": "Bandera de Palestina",
+      "fr": "Drapeau de la Palestine"
+     },
+     "sources": [
+      "wp-flag-palestine",
+      "commons-flagga-palestine"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "palestina",
@@ -25805,6 +25884,25 @@
    "from": 1948,
    "to": 2024,
    "file": "data/empires/nordkorea.json",
+   "flags": [
+    {
+     "file": "north-korea",
+     "from": 1948,
+     "to": 2024,
+     "label": {
+      "sv": "Nordkoreas flagga",
+      "en": "Flag of North Korea",
+      "de": "Flagge Nordkoreas",
+      "es": "Bandera de Corea del Norte",
+      "fr": "Drapeau de la Corée du Nord"
+     },
+     "sources": [
+      "wp-flag-north-korea",
+      "commons-flagga-north-korea"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "nordkorea",
@@ -26064,6 +26162,25 @@
    "from": 1948,
    "to": 2024,
    "file": "data/empires/sydkorea.json",
+   "flags": [
+    {
+     "file": "south-korea",
+     "from": 1949,
+     "to": 2024,
+     "label": {
+      "sv": "Sydkoreas flagga",
+      "en": "Flag of South Korea",
+      "de": "Flagge Südkoreas",
+      "es": "Bandera de Corea del Sur",
+      "fr": "Drapeau de la Corée du Sud"
+     },
+     "sources": [
+      "wp-flag-south-korea",
+      "commons-flagga-south-korea"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "sydkorea",
@@ -26622,6 +26739,25 @@
    "from": 1956,
    "to": 1975,
    "file": "data/empires/sydvietnam.json",
+   "flags": [
+    {
+     "file": "south-vietnam",
+     "from": 1956,
+     "to": 1975,
+     "label": {
+      "sv": "Republiken Vietnams flagga",
+      "en": "Flag of the Republic of Vietnam",
+      "de": "Flagge der Republik Vietnam",
+      "es": "Bandera de la República de Vietnam",
+      "fr": "Drapeau de la République du Viêt Nam"
+     },
+     "sources": [
+      "wp-flag-south-vietnam",
+      "commons-flagga-south-vietnam"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "sydvietnam",
@@ -31282,6 +31418,25 @@
    "from": 1950,
    "to": 2024,
    "file": "data/empires/taiwan.json",
+   "flags": [
+    {
+     "file": "republic-of-china",
+     "from": 1950,
+     "to": 2024,
+     "label": {
+      "sv": "Republiken Kinas flagga",
+      "en": "Flag of the Republic of China",
+      "de": "Flagge der Republik China",
+      "es": "Bandera de la República de China",
+      "fr": "Drapeau de la République de Chine"
+     },
+     "sources": [
+      "wp-flag-republic-of-china",
+      "commons-flagga-republic-of-china"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "taiwan",
@@ -31636,6 +31791,42 @@
    "from": 1926,
    "to": 2024,
    "file": "data/empires/mongoliet.json",
+   "flags": [
+    {
+     "file": "mongolia-1945",
+     "from": 1945,
+     "to": 1991,
+     "label": {
+      "sv": "Mongoliets flagga från 1945",
+      "en": "Mongolian flag of 1945",
+      "de": "Mongolische Flagge von 1945",
+      "es": "Bandera mongola de 1945",
+      "fr": "Drapeau mongol de 1945"
+     },
+     "sources": [
+      "wp-flag-mongolia",
+      "commons-flagga-mongolia-1945"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "mongolia",
+     "from": 1992,
+     "to": 2024,
+     "label": {
+      "sv": "Mongoliets flagga från 1992",
+      "en": "Mongolian flag of 1992",
+      "de": "Mongolische Flagge von 1992",
+      "es": "Bandera mongola de 1992",
+      "fr": "Drapeau mongol de 1992"
+     },
+     "sources": [
+      "wp-flag-mongolia",
+      "commons-flagga-mongolia"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "mongoliska-folkrepubliken",
@@ -33321,6 +33512,25 @@
    "from": 1963,
    "to": 2024,
    "file": "data/empires/malaysia.json",
+   "flags": [
+    {
+     "file": "malaysia",
+     "from": 1963,
+     "to": 2024,
+     "label": {
+      "sv": "Malaysias flagga",
+      "en": "Flag of Malaysia",
+      "de": "Flagge Malaysias",
+      "es": "Bandera de Malasia",
+      "fr": "Drapeau de la Malaisie"
+     },
+     "sources": [
+      "wp-flag-malaysia",
+      "commons-flagga-malaysia"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "malaysia",
@@ -33383,6 +33593,25 @@
    "from": 1947,
    "to": 2024,
    "file": "data/empires/filippinerna.json",
+   "flags": [
+    {
+     "file": "philippines",
+     "from": 1947,
+     "to": 2024,
+     "label": {
+      "sv": "Filippinernas flagga",
+      "en": "Flag of the Philippines",
+      "de": "Flagge der Philippinen",
+      "es": "Bandera de Filipinas",
+      "fr": "Drapeau des Philippines"
+     },
+     "sources": [
+      "wp-flag-philippines",
+      "commons-flagga-philippines"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "filippinerna",
@@ -34146,6 +34375,42 @@
    "from": 1992,
    "to": 2024,
    "file": "data/empires/kirgizistan.json",
+   "flags": [
+    {
+     "file": "kyrgyzstan-1992",
+     "from": 1992,
+     "to": 2023,
+     "label": {
+      "sv": "Kirgizistans flagga från 1992",
+      "en": "Kyrgyz flag of 1992",
+      "de": "Kirgisische Flagge von 1992",
+      "es": "Bandera kirguisa de 1992",
+      "fr": "Drapeau kirghize de 1992"
+     },
+     "sources": [
+      "wp-flag-kyrgyzstan",
+      "commons-flagga-kyrgyzstan-1992"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "kyrgyzstan",
+     "from": 2024,
+     "to": 2024,
+     "label": {
+      "sv": "Kirgizistans flagga från 2023",
+      "en": "Kyrgyz flag of 2023",
+      "de": "Kirgisische Flagge von 2023",
+      "es": "Bandera kirguisa de 2023",
+      "fr": "Drapeau kirghize de 2023"
+     },
+     "sources": [
+      "wp-flag-kyrgyzstan",
+      "commons-flagga-kyrgyzstan"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "kirgizistan",
@@ -34428,6 +34693,25 @@
    "from": 1992,
    "to": 2024,
    "file": "data/empires/tadzjikistan.json",
+   "flags": [
+    {
+     "file": "tajikistan",
+     "from": 1992,
+     "to": 2024,
+     "label": {
+      "sv": "Tadzjikistans flagga",
+      "en": "Flag of Tajikistan",
+      "de": "Flagge Tadschikistans",
+      "es": "Bandera de Tayikistán",
+      "fr": "Drapeau du Tadjikistan"
+     },
+     "sources": [
+      "wp-flag-tajikistan",
+      "commons-flagga-tajikistan"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "tadzjikistan",
@@ -37149,6 +37433,25 @@
    "from": 1944,
    "to": 2024,
    "file": "data/empires/libanon.json",
+   "flags": [
+    {
+     "file": "lebanon",
+     "from": 1990,
+     "to": 2024,
+     "label": {
+      "sv": "Libanons flagga från 1990",
+      "en": "Lebanese flag of 1990",
+      "de": "Libanesische Flagge von 1990",
+      "es": "Bandera libanesa de 1990",
+      "fr": "Drapeau libanais de 1990"
+     },
+     "sources": [
+      "wp-flag-lebanon",
+      "commons-flagga-lebanon"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "libanon",
@@ -37277,6 +37580,42 @@
    "from": 1961,
    "to": 2024,
    "file": "data/empires/cypern.json",
+   "flags": [
+    {
+     "file": "cyprus-1960",
+     "from": 1961,
+     "to": 2005,
+     "label": {
+      "sv": "Cyperns flagga från 1960",
+      "en": "Cypriot flag of 1960",
+      "de": "Zyprische Flagge von 1960",
+      "es": "Bandera chipriota de 1960",
+      "fr": "Drapeau chypriote de 1960"
+     },
+     "sources": [
+      "wp-flag-cyprus",
+      "commons-flagga-cyprus-1960"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "cyprus",
+     "from": 2006,
+     "to": 2024,
+     "label": {
+      "sv": "Cyperns flagga från 2006",
+      "en": "Cypriot flag of 2006",
+      "de": "Zyprische Flagge von 2006",
+      "es": "Bandera chipriota de 2006",
+      "fr": "Drapeau chypriote de 2006"
+     },
+     "sources": [
+      "wp-flag-cyprus",
+      "commons-flagga-cyprus"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "cypern",
