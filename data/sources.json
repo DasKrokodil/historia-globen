@@ -2674,6 +2674,9 @@
     {"id": "wp-encyclopedie", "title": "Encyclopédie – Wikipedia", "url": "https://en.wikipedia.org/wiki/Encyclop%C3%A9die", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
     {"id": "wd-encyclopedie", "title": "Encyclopédie (Q447) – Wikidata", "url": "https://www.wikidata.org/wiki/Q447", "license": "CC0", "checked": "2026-11-14"},
     {"id": "wp-what-is-enlightenment", "title": "What Is Enlightenment? – Wikipedia", "url": "https://en.wikipedia.org/wiki/What_Is_Enlightenment%3F", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
-    {"id": "wd-what-is-enlightenment", "title": "Answering the Question: What Is Enlightenment? (Q812981) – Wikidata", "url": "https://www.wikidata.org/wiki/Q812981", "license": "CC0", "checked": "2026-11-14"}
+    {"id": "wd-what-is-enlightenment", "title": "Answering the Question: What Is Enlightenment? (Q812981) – Wikidata", "url": "https://www.wikidata.org/wiki/Q812981", "license": "CC0", "checked": "2026-11-14"},
+    {"id": "wp-immanuel-kant", "title": "Immanuel Kant – Wikipedia", "url": "https://en.wikipedia.org/wiki/Immanuel_Kant", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-papal-states", "title": "Papal States – Wikipedia", "url": "https://en.wikipedia.org/wiki/Papal_States", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-kingdom-of-prussia", "title": "Kingdom of Prussia – Wikipedia", "url": "https://en.wikipedia.org/wiki/Kingdom_of_Prussia", "license": "CC BY-SA 4.0", "checked": "2026-11-14"}
   ]
 }
