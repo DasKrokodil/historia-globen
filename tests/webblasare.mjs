@@ -2356,6 +2356,231 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
+  // #1162: platsens adress. En plats är ett fokus som alla andra och står som f=place:<id> i adressen (beslut 2026-11-13,
+  // docs/beslut/2026-11-13-platsens-adress.md), så Dela, Bakåt/Framåt och en delad länk ska fungera som för teman och riken.
+  // Dela byts mot en fångst av länken (navigator.clipboard och delningsmenyn), så att testet läser det besökaren delar i alla motorer.
+  const placeAddrPage = async () => {
+    const t = await touchPage();
+    await t.tp.addInitScript(() => {
+      window.__shared = [];
+      Object.defineProperty(navigator, 'share', { value: undefined, configurable: true });
+      Object.defineProperty(navigator, 'clipboard', { value: { writeText: async text => { window.__shared.push(text); } }, configurable: true });
+    });
+    t.tp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) pushConsole(t.errs, m, x => `konsol: ${x}`); });
+    return t;
+  };
+  const addrOpen = async (pg, url) => { await pg.goto(url); await pg.waitForSelector('#loading', { state: 'hidden', timeout: T.load }); };
+  const setHash = (pg, hash) => pg.evaluate(h => { location.hash = h; }, hash);
+  const focusIs = (pg, re) => pg.waitForFunction(({ source }) => !document.getElementById('focus-bar').hidden && new RegExp(source).test(document.getElementById('focus-title').textContent)
+    && !!document.querySelector('#detail .place-type'), { source: re.source }, { timeout: T.step });
+  const noFocus = pg => pg.waitForFunction(() => document.getElementById('focus-bar').hidden && !document.getElementById('app').classList.contains('focusing'), null, { timeout: T.step });
+  const viewNow = pg => pg.evaluate(() => ({ hash: location.hash, focus: document.getElementById('focus-bar').hidden ? null : document.getElementById('focus-title').textContent,
+    year: document.getElementById('year-big').textContent.trim(), card: !document.getElementById('detail').hidden, range: !document.getElementById('range-bar').hidden,
+    notice: document.getElementById('focus-notice').hidden ? null : document.getElementById('focus-notice').textContent }));
+  /** Knappen Dela (under Mer eller Meny): ger länken som kopierades. */
+  const shareLink = async pg => {
+    if (await pg.isHidden('#btn-share') && await pg.isVisible('#more-toggle')) await pg.click('#more-toggle');
+    if (await pg.isHidden('#btn-share') && await pg.isVisible('#btn-more')) await pg.click('#btn-more');
+    const before = await pg.evaluate(() => window.__shared.length);
+    await pg.click('#btn-share');
+    await pg.waitForFunction(n => window.__shared.length > n, before, { timeout: T.step });
+    return pg.evaluate(() => window.__shared.at(-1));
+  };
+  const parts = link => new URLSearchParams(new URL(link).hash.slice(1));
+  await check('platsens adress: Dela, Bakåt/Framåt och en delad länk startar rätt plats (#1162)', async () => {
+    const { tp, tctx, errs } = await placeAddrPage();
+    try {
+      await addrOpen(tp, `${BASE}?ny=padr1#y=1000`);
+      // Bakåt från en plats går till vyn före den (ingen plats, kortet stängt), och Framåt tillbaka till platsen
+      await setHash(tp, '#y=1000&f=place:gronland');
+      await focusIs(tp, /Grönland/);
+      await tp.waitForFunction(() => location.hash.includes('f=place:gronland'), null, { timeout: T.step });
+      await tp.goBack();
+      await noFocus(tp);
+      if (!(await tp.isHidden('#detail'))) throw new Error('platskortet låg kvar efter Bakåt till vyn utan plats');
+      await tp.goForward();
+      await focusIs(tp, /Grönland/);
+      // Dela: länken har platsen i fokusfältet och året, och ingen annan adressform (inget eget fält)
+      const link = await shareLink(tp);
+      const hp = parts(link);
+      if (hp.get('f') !== 'place:gronland' || hp.get('y') !== '1000' || hp.has('y2') || hp.has('r')) throw new Error(`Dela gav fel länk: ${link}`);
+      // En delad länk startar rätt plats i en ny laddning: platsen följs, kortet är öppet och adressen behåller platsen
+      await addrOpen(tp, link.replace('?ny=padr1', '?ny=padr2'));
+      await focusIs(tp, /Grönland/);
+      if ((await viewNow(tp)).year !== '1000') throw new Error(`den delade länken startade vid fel år: ${(await viewNow(tp)).year}`);
+      if (!(await tp.isVisible('#detail'))) throw new Error('platskortet öppnades inte av den delade länken');
+      await tp.waitForFunction(() => location.hash.includes('f=place:gronland'), null, { timeout: T.step });
+      // Bakåt och Framåt mellan två platser, och efter Avsluta platsen
+      await setHash(tp, '#y=1000&f=place:aotearoa');
+      await focusIs(tp, /Aotearoa/);
+      await tp.goBack();
+      await focusIs(tp, /Grönland/);
+      if (!/f=place:gronland/.test(await tp.evaluate(() => location.hash))) throw new Error('adressen följde inte med Bakåt till Grönland');
+      await tp.goForward();
+      await focusIs(tp, /Aotearoa/);
+      await tp.click('#focus-exit');
+      await tp.waitForFunction(() => !location.hash.includes('f='), null, { timeout: T.step });
+      await noFocus(tp);
+      await tp.goBack();
+      await focusIs(tp, /Aotearoa/);
+      await tp.goBack();
+      await focusIs(tp, /Grönland/);
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return 'Bakåt och Framåt mellan vy, plats och plats; Dela ger f=place:<id>; en delad länk startar rätt plats';
+    } finally { await tctx.close(); }
+  });
+  await check('platsens adress: med tidsintervall i adressen och i historiken (#1162, #755)', async () => {
+    const { tp, tctx, errs } = await placeAddrPage();
+    try {
+      await addrOpen(tp, `${BASE}?ny=padr3#y=1900&y2=1950`);
+      await tp.waitForFunction(() => !document.getElementById('range-bar').hidden, null, { timeout: T.step });
+      if (await tp.isHidden('#btn-focus') && await tp.isVisible('#more-toggle')) await tp.click('#more-toggle');
+      if (await tp.isHidden('#btn-focus') && await tp.isVisible('#btn-more')) await tp.click('#btn-more');
+      await tp.click('#btn-focus');
+      await tp.click('#focus-menu [data-tab="Platser"]');
+      await tp.click('#focus-menu [data-key="place:gronland"]');
+      await focusIs(tp, /Grönland/);
+      await tp.waitForFunction(() => location.hash.includes('f=place:gronland'), null, { timeout: T.step });
+      // Dela under en plats som började följas i ett intervall: länken har platsen och slutåret, aldrig y2
+      const link = await shareLink(tp);
+      const hp = parts(link);
+      if (hp.get('f') !== 'place:gronland' || hp.get('y') !== '1950' || hp.has('y2')) throw new Error(`länken efter intervallet är fel: ${link}`);
+      // Bakåt från platsen går tillbaka till intervallet (raden visas, året är spannet), Framåt till platsen
+      await tp.goBack();
+      await tp.waitForFunction(() => !document.getElementById('range-bar').hidden && document.getElementById('focus-bar').hidden, null, { timeout: T.step });
+      const back = await viewNow(tp);
+      if (back.year !== '1900–1950' || back.card || !/y2=1950/.test(back.hash)) throw new Error(`Bakåt gav inte tillbaka intervallet: ${JSON.stringify(back)}`);
+      await tp.goForward();
+      await focusIs(tp, /Grönland/);
+      if ((await viewNow(tp)).range) throw new Error('intervallraden låg kvar efter Framåt till platsen');
+      // Den delade länken startar platsen vid slutåret, utan intervall
+      await addrOpen(tp, link.replace('?ny=padr3', '?ny=padr4'));
+      await focusIs(tp, /Grönland/);
+      const shared = await viewNow(tp);
+      if (shared.year !== '1950' || shared.range) throw new Error(`den delade länken öppnades fel: ${JSON.stringify(shared)}`);
+      // En länk med både y2 och f=place (skrivs aldrig av sidan) öppnas som platsen vid y: Fokus utesluter intervallet
+      await addrOpen(tp, `${BASE}?ny=padr5#y=1900&y2=1950&f=place:gronland`);
+      await focusIs(tp, /Grönland/);
+      const both = await viewNow(tp);
+      if (both.year !== '1900' || both.range || /y2=/.test(both.hash)) throw new Error(`y2 och f=place i samma länk öppnades fel: ${JSON.stringify(both)}`);
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return 'Dela ger platsen vid slutåret utan y2; Bakåt går till intervallet och Framåt till platsen; y2 och f=place i samma länk ger platsen vid y';
+    } finally { await tctx.close(); }
+  });
+  await check('platsens adress: en plats som saknas eller är utkast ger ett lugnt besked (#1162)', async () => {
+    const { tp, tctx, errs } = await placeAddrPage();
+    try {
+      const unavailable = async what => {
+        await tp.waitForFunction(() => !document.getElementById('focus-notice').hidden, null, { timeout: T.step });
+        const v = await viewNow(tp);
+        if (!/Platsen är inte tillgänglig\. Välj en annan plats i Sök och följ\./.test(v.notice ?? '') || v.focus || v.card) throw new Error(`${what}: fel besked eller läge: ${JSON.stringify(v)}`);
+        if (/f=place/.test(v.hash)) throw new Error(`${what}: adressen behöll platsen som inte finns: ${v.hash}`);
+        // Beskedet hör till länken: en vanlig länk efter den tar bort det
+        await setHash(tp, '#y=1500');
+        await tp.waitForFunction(() => document.getElementById('focus-notice').hidden && document.getElementById('year-big').textContent.trim() === '1500', null, { timeout: T.step });
+      };
+      // En plats som inte finns
+      await addrOpen(tp, `${BASE}?ny=pbesked1#y=1000&f=place:finns-inte`);
+      await unavailable('plats som saknas');
+      // En plats som är utkast (review: draft) laddas aldrig, så länken ger samma besked och platsen finns inte i Sök och följ
+      await tp.route('**/data/platser.json', async r => {
+        const j = await (await r.fetch()).json();
+        j.places.find(p => p.id === 'gronland').review = 'draft';
+        await r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(j) });
+      });
+      await addrOpen(tp, `${BASE}?ny=pbesked2#y=1000&f=place:gronland`);
+      await unavailable('plats som är utkast');
+      await setHash(tp, '#y=1000');
+      if (await tp.isHidden('#btn-focus') && await tp.isVisible('#more-toggle')) await tp.click('#more-toggle');
+      if (await tp.isHidden('#btn-focus') && await tp.isVisible('#btn-more')) await tp.click('#btn-more');
+      await tp.click('#btn-focus');
+      await tp.click('#focus-menu [data-tab="Platser"]');
+      await tp.locator('#focus-menu [data-key="place:aotearoa"]').waitFor({ state: 'visible', timeout: T.step });
+      if (await tp.locator('#focus-menu [data-key="place:gronland"]').count()) throw new Error('en plats som är utkast fanns i Sök och följ');
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return 'en plats som saknas eller är utkast ger beskedet, ingen plats i adressen och inget konsolfel; en nyare länk tar bort beskedet';
+    } finally { await tctx.close(); }
+  });
+  // #865 för platser: platsfilen (165 kB) hämtas först när en plats börjar följas, så en länk till en plats kan vara långsam. Biljetten
+  // i startFocus avgör: en plats som blir klar efter att en annan länk, Bakåt eller ett annat fokus har tagit över börjar inte,
+  // och en plats som saknas visar inte sitt besked ovanpå vyn som besökaren gått vidare till. Samma metod som #865-kontrollen för turen.
+  await check('platsens adress: en plats som laddas medan en annan länk eller Bakåt kommer följer biljetten (#865, #1162)', async () => {
+    const { tp, tctx, errs } = await placeAddrPage();
+    const DELAY = 2000;
+    let slow = false, released = 0;
+    try {
+      await tp.route('**/data/platser.json', async r => {
+        if (slow) await new Promise(res => setTimeout(res, DELAY));
+        await r.continue().catch(() => {});
+        released++;
+      });
+      const fresh = async name => {
+        slow = false; released = 0;
+        await addrOpen(tp, `${BASE}?ny=${name}#y=1000`);
+        await tp.waitForLoadState('networkidle');
+        if (released) throw new Error('platsfilen hämtades redan vid start, så kontrollen kan inte fördröja den');
+        slow = true;
+      };
+      /** Väntar tills den fördröjda platsfilen har släppts och startFocus hunnit avgöra. */
+      const settled = async () => {
+        const t0 = Date.now();
+        while (!released && Date.now() - t0 < T.step) await tp.waitForTimeout(100);
+        if (!released) throw new Error('platsfilen hämtades aldrig');
+        await tp.waitForTimeout(800);
+      };
+      const assertPlain = async (what, year) => {
+        const v = await viewNow(tp);
+        if (v.focus || v.card || v.notice || v.year !== year || /f=/.test(v.hash)) throw new Error(`${what}: ${JSON.stringify(v)}`);
+      };
+      // A: en annan vanlig länk kommer medan platsen laddas
+      await fresh('pras1');
+      await setHash(tp, '#y=1000&f=place:gronland');
+      await tp.waitForTimeout(200);
+      await setHash(tp, '#y=1500&c=10,20,2');
+      await settled();
+      await assertPlain('plats och sedan en vanlig länk', '1500');
+      // B: en annan plats kommer medan den första laddas: den sista vinner, i vilken ordning platserna än blir klara
+      await fresh('pras2');
+      await setHash(tp, '#y=1000&f=place:gronland');
+      await tp.waitForTimeout(200);
+      await setHash(tp, '#y=1000&f=place:aotearoa');
+      await settled();
+      await focusIs(tp, /Aotearoa/);
+      if (!/f=place:aotearoa/.test(await tp.evaluate(() => location.hash))) throw new Error('adressen följde inte den sista platsen');
+      // C: Bakåt kommer medan platsen laddas
+      await fresh('pras3');
+      await setHash(tp, '#y=1100');
+      await tp.waitForFunction(() => document.getElementById('year-big').textContent.trim() === '1100', null, { timeout: T.step });
+      await setHash(tp, '#y=1100&f=place:gronland');
+      await tp.waitForTimeout(200);
+      await tp.goBack();
+      await settled();
+      await assertPlain('plats och sedan Bakåt', '1100');
+      // D: ett krig i en länk kommer medan platsen laddas: kriget följs, platsens kort öppnas inte
+      await fresh('pras4');
+      await setHash(tp, '#y=1000&f=place:gronland');
+      await tp.waitForTimeout(200);
+      await setHash(tp, '#y=1942&f=war:andra-varldskriget');
+      await settled();
+      await tp.waitForFunction(() => !document.getElementById('focus-bar').hidden && /Andra världskriget/.test(document.getElementById('focus-title').textContent), null, { timeout: T.step });
+      if (await tp.locator('#detail .place-type').count()) throw new Error('platsens kort öppnades ovanpå kriget');
+      // E: en plats som saknas blir klar efter en nyare länk: inget besked ovanpå den nya vyn
+      await fresh('pras5');
+      await setHash(tp, '#y=1000&f=place:finns-inte');
+      await tp.waitForTimeout(200);
+      await setHash(tp, '#y=1500');
+      await settled();
+      await assertPlain('plats som saknas och sedan en vanlig länk', '1500');
+      // F: utan något som kommer emellan börjar den långsamma platsen som vanligt
+      await fresh('pras6');
+      await setHash(tp, '#y=1000&f=place:gronland');
+      await settled();
+      await focusIs(tp, /Grönland/);
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return 'en nyare länk, Bakåt eller ett annat fokus vinner över en plats som laddas; en ensam plats börjar ändå';
+    } finally { await tctx.close(); }
+  });
+
   // #1327: fokustyperna är poster i js/focus/. Varje typ börjar via en länk, visar sitt kort, har knappen Fakta där
   // den ska finnas, står i adressen och slutar rent. Ett urval (tema, plats) lämnar tillbaka fokus till Fokus-knappen
   // och stänger sitt kort; ett okänt id börjar inget fokus och ger inget fel.

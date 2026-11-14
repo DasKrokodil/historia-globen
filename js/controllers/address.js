@@ -97,6 +97,7 @@ export function createAddress(app) {
     const focusId = s.focus?.split(':')[1] ?? ''; // namnet i raden är id:t, utan typen
     const mine = ++version;
     app.store.ticket('fokus'); // adressen är en nyare begäran om Fokus, också när den inte har något: ett äldre fokus som laddas börjar inte
+    app.clearFocusNotice?.(); // beskedet "platsen är inte tillgänglig" hörde till den förra länken; startFocus visar det igen om den här också saknar något (#1162)
     try {
       if (s.layers) {
         // Äldre lager-id i en delad länk (l=images) pekar på lagrets nuvarande id (aliases i data/bildlager.json, #1325)
