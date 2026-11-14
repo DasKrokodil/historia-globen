@@ -22101,6 +22101,47 @@
      "review": "source-checked"
     }
    ],
+   "labelAt": [
+    {
+     "polity": "israel",
+     "from": 1956,
+     "to": 1957,
+     "at": [
+      34.7,
+      31.4
+     ],
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "polity": "israel",
+     "from": 1967,
+     "to": 1972,
+     "at": [
+      34.7,
+      31.4
+     ],
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "polity": "israel",
+     "from": 1976,
+     "to": 1982,
+     "at": [
+      34.7,
+      31.4
+     ],
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "israel",
@@ -26708,7 +26749,7 @@
       "en": "Flag of the Republic of Vietnam",
       "de": "Flagge der Republik Vietnam",
       "es": "Bandera de la República de Vietnam",
-      "fr": "Drapeau de la république du Viêt Nam"
+      "fr": "Drapeau de la République du Viêt Nam"
      },
      "sources": [
       "wp-flag-south-vietnam",
@@ -31387,7 +31428,7 @@
       "en": "Flag of the Republic of China",
       "de": "Flagge der Republik China",
       "es": "Bandera de la República de China",
-      "fr": "Drapeau de la république de Chine"
+      "fr": "Drapeau de la République de Chine"
      },
      "sources": [
       "wp-flag-republic-of-china",

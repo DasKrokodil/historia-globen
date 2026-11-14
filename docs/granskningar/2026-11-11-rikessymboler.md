@@ -170,6 +170,10 @@ Byggt på grenen `claude/issue-1153-asien-2`. Källorna öppnades 2026-11-14: "F
 - **Korea (Joseon och kejsardömet):** taegukgi-varianterna skiljer sig mellan filerna (1882, november 1882, 1899) och året skiljer (1882 eller 1883); filen från 1899 är CC BY-SA.
 - **Äldre flaggor:** Libanon 1944–1989 (filen ska hämtas), Sydkorea 1948, Mongoliet 1926–1944, Georgien 1918–2003.
 
+**Rättat efter granskningen (#1497):** Israels medalj stod på Sinai 1956–1957, 1967–1972 och 1976–1982, där Cliopatria räknar Sinai till Israel. `labelAt` sätter [34.7, 31.4] de åren, enligt beslutet 2026-11-12 om medaljens plats. Kontrollskriptet jämför nu varje etikettpunkt med Natural Earth admin-0.
+
+## Tabeller per världsdel
+
 
 ## Tabeller per världsdel
 
