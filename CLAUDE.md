@@ -242,7 +242,7 @@ Rikard gillar stilen. Behåll den:
 | 7.0 Tidsmodell och reglage | Tidslinje i nivåer (#49) och synlig tidsskala (#1313); reglagets grund görs redan i 6.3.1 |
 | 7.1 Människoarter | Människoarter (#11), bildlager v2 (#1325), fokustyper som poster (#1327) och förhistorien utöver människans spridning (#1338) |
 | 7.2 Lärarstöd för förhistorien | Epoker för förhistorien (#1343, beslutsfil 2026-11-13) och lärarstöd. Version 7 som helhet följer riktningen 2026-11-10 (docs/beslut/2026-11-10-version-7-riktning.md): människans läge cirka 100 000 år bakåt, förhistorien högst cirka 10 % av reglaget, jordens historia först i version 8 |
-| 8 Jordens historia | Eget läge med geologisk tidslinje och forntida kartor (#12, #51–#53) |
+| 8 Jordens historia | Eget läge med geologisk tidslinje och forntida kartor (#397, #51–#53). Designen är beslutad 2026-11-14 (docs/beslut/2026-11-14-jordens-historia-design.md): karta för fanerozoikum först, PaleoCoastlines som kartkälla, tid som år före nutid, och de osynliga grundstegen först (#1511–#1513, #1420); delissues #1510–#1521 |
 | 9 Atlas och jämförelse | Jämför två tider (#248), historiska kartor (#249), skolatlasens bildlager (#8, #9, #55) |
 
 Parallella spår (milstolpar utan versionsnummer, görs bredvid huvudversionerna):
