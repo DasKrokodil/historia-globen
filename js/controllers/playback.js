@@ -16,6 +16,7 @@ import { themeStops, themeKey, passedThemeStops } from '../theme-stops.js';
 export function createPlayback(app) {
   const { $, state, data, timeline, panel, layers, ff, globe } = app;
   let lastYear = 0;
+  let startYear = null; // året som fokus började på (startAt): platsens och temats stopp det året räknas vid första Spela (#1620)
   let warStops = [], stopping = false; // kö med stopp när man följer ett krig (#217)
   let routeStops = []; // kö med stopp när man följer en resa (#376)
   let themeQueue = []; // kö med stopp när man följer en plats eller ett tema, till exempel två samma år (#1620)
@@ -144,6 +145,9 @@ export function createPlayback(app) {
     stopping = false;
     app.store.setSelected(hit.id);
     panel.showDetail(hit, matchMedia('(min-width: 761px)').matches);
+    // Som krigens och resornas stopp: faktarutans plats och raden "Nästa paus" (nästa i kön, aldrig stoppet man står på)
+    $('app').classList.toggle('has-detail', !$('detail').hidden);
+    showNextPause();
   }
 
   /** Krigets slut i fokusläget: sista dagen eller året, och "i dag" för ett pågående krig (#223). */
@@ -153,7 +157,7 @@ export function createPlayback(app) {
   function queuedStop() {
     const { focusWar, focusRoute, focus } = state;
     if (focusRoute) return routeStops[0] ?? null;
-    if (!focusWar) return focus?.themeEvents ? themeQueue[0] ?? null : null;
+    if (!focusWar) return focus?.themeEvents && layers.pause.theme ? themeQueue[0] ?? null : null; // valet i Lager gäller också kön
     if (warStops.length) return warStops[0];
     return focusWar.story && !endShown && timeline.year >= warEndOf() ? 'end' : null;
   }
@@ -277,7 +281,10 @@ export function createPlayback(app) {
     // och nästa Fortsätt visar nästa innan tiden går vidare, som resans stopp.
     if (focus?.themeEvents && playing && layers.pause.theme) {
       // Kön fylls på och skrivs inte över: en omritning som började under uppspelningen kan komma efter pausen (#1620)
-      const hits = passedThemeStops(themeStops(focus.themeEvents), shownStops, passed).filter(e => !themeQueue.includes(e));
+      // Stopp på året där fokus började räknas när uppspelningen startar där, så att ett byte till en annan plats samma år
+      // (Skåne → Sverige 1658) inte tappar årets stopp
+      const passedTheme = tt => passed(tt) || (tt === startYear && lastYear === tt && year > tt);
+      const hits = passedThemeStops(themeStops(focus.themeEvents), shownStops, passedTheme).filter(e => !themeQueue.some(q => themeKey(q) === themeKey(e)));
       themeQueue = [...themeQueue, ...hits];
       if (hits.length) showThemeStop(themeQueue.shift());
     }
@@ -296,10 +303,10 @@ export function createPlayback(app) {
     lastYear = year;
   }
 
-  /** Ett nytt fokus börjar (startFocus): resans kö töms. */
-  function clearRouteStops() { routeStops = []; themeQueue = []; stepIdx = -1; stepText = null; updateStepButtons(); }
+  /** Ett nytt fokus börjar (startFocus): köerna och de visade stoppen glöms, också när året är detsamma (Skåne → Sverige 1658). */
+  function clearRouteStops() { routeStops = []; themeQueue = []; shownStops = new Set(); stepIdx = -1; stepText = null; updateStepButtons(); }
   /** Ett nytt fokus börjar på startYear (startFocus): passerade stopp räknas därifrån. */
-  function startAt(startYear) { lastYear = startYear; }
+  function startAt(from) { lastYear = from; startYear = from; }
   /** Fokus avslutas (endFocus): köerna, de visade stoppen och Spela klart glöms. */
   function reset() {
     warStops = []; routeStops = []; themeQueue = []; shownStops = new Set(); endShown = false; finishing = false;

@@ -3451,7 +3451,12 @@ async function run(browser, vp) {
         const hit = skane.find(id => text === `Pausad vid ${byId[id].title.sv}`);
         if (hit) stops.push(hit);
         else if (Object.values(byId).some(e => text === `Pausad vid ${e.title?.sv}`)) throw new Error(`pausade vid en händelse som inte är markerad: "${text}" (efter ${stops.join(', ')})`);
-        if (hit === 'trohetseden-i-malmo') await tp.screenshot({ path: path.join(OUT, `${vp.name}-1620-skane-paus-1658.png`) });
+        if (hit === 'trohetseden-i-malmo') {
+          await tp.screenshot({ path: path.join(OUT, `${vp.name}-1620-skane-paus-1658.png`) });
+          // Raden "Nästa paus" pekar på nästa stopp samma år, inte på stoppet man står på (#1620)
+          const next = await tp.evaluate(() => ['next-pause', 'pause-next'].map(id => document.getElementById(id).textContent).join(' | '));
+          if (!next.includes(byId['forsvenskningen-av-skane'].title.sv) || next.includes(byId['trohetseden-i-malmo'].title.sv)) throw new Error(`"Nästa paus" vid trohetseden: "${next}"`);
+        }
         if (hit === 'forsvenskningen-av-skane') {
           const at = await tp.evaluate(() => document.getElementById('focus-state').textContent);
           if (!at.includes('1658')) throw new Error(`tiden står inte på 1658 vid den andra pausen samma år: "${at}"`);
@@ -3459,8 +3464,37 @@ async function run(browser, vp) {
         }
       }
       if (stops.join() !== skane.join()) throw new Error(`pauserna i Skåne: ${stops.join(' → ')}; väntade ${skane.join(' → ')}`);
+      // Fokusbyte under pausen (#1620): Skåne pausad vid trohetseden 1658, sedan Sverige samma år. Årets stopp tappas inte:
+      // Spela i Sverige pausar vid trohetseden och sedan försvenskningen, båda 1658.
+      await tp.goto(`${BASE}?ny=plats5#y=1650&f=place:skane`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForFunction(() => !document.getElementById('focus-bar').hidden && /Skåne/.test(document.getElementById('focus-title').textContent), null, { timeout: T.step });
+      const pauseOnce = async what => {
+        await tp.evaluate(() => { document.getElementById('pause-text').textContent = ''; document.getElementById('focus-action').click(); });
+        await tp.waitForFunction(() => document.getElementById('focus-action').dataset.action !== 'pause' && document.getElementById('pause-text').textContent !== '', null, { timeout: T.step * 3 })
+          .catch(() => { throw new Error(`uppspelningen pausade inte (${what})`); });
+        return tp.evaluate(() => document.getElementById('pause-text').textContent);
+      };
+      const want = id => `Pausad vid ${byId[id].title.sv}`;
+      const s1 = await pauseOnce('Skåne från 1650');
+      if (s1 !== want('trohetseden-i-malmo')) throw new Error(`Skåne från 1650 pausade vid "${s1}"`);
+      await tp.evaluate(() => { location.hash = '#y=1658&f=place:sverige'; });
+      await tp.waitForFunction(() => /Sverige/.test(document.getElementById('focus-title').textContent), null, { timeout: T.step });
+      const swapped = [await pauseOnce('Sverige 1658, första'), await pauseOnce('Sverige 1658, andra')];
+      if (swapped.join() !== [want('trohetseden-i-malmo'), want('forsvenskningen-av-skane')].join()) throw new Error(`efter bytet till Sverige 1658: ${swapped.join(' → ')}`);
+      if (!(await tp.evaluate(() => document.getElementById('focus-state').textContent)).includes('1658')) throw new Error('tiden flyttades förbi 1658 efter bytet');
+      // Pauserna av i Lager medan kön har ett stopp (#1620): Fortsätt visar inte kön utan spelar vidare
+      await tp.evaluate(() => { location.hash = '#y=1650&f=place:skane'; });
+      await tp.waitForFunction(() => /Skåne/.test(document.getElementById('focus-title').textContent), null, { timeout: T.step });
+      const s2 = await pauseOnce('Skåne från 1650 före valet');
+      if (s2 !== want('trohetseden-i-malmo')) throw new Error(`Skåne från 1650 (andra gången) pausade vid "${s2}"`);
+      await tp.evaluate(() => { for (const box of document.querySelectorAll('input[data-pause="theme"]')) { box.checked = false; box.dispatchEvent(new Event('change', { bubbles: true })); } });
+      await tp.evaluate(() => document.getElementById('focus-action').click());
+      const playingOn = await tp.evaluate(() => document.getElementById('focus-action').dataset.action === 'pause' && !document.getElementById('pause-text').textContent.includes('Försvenskningen'));
+      await tp.evaluate(() => { const a = document.getElementById('focus-action'); if (a.dataset.action === 'pause') a.click(); for (const box of document.querySelectorAll('input[data-pause="theme"]')) { box.checked = true; box.dispatchEvent(new Event('change', { bubbles: true })); } });
+      if (!playingOn) throw new Error('Fortsätt visade det köade stoppet fast pauserna var avstängda i Lager');
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
-      return `pausade vid första händelsen (${first.start}): ${pause}; Skåne: ${stops.join(' → ')}`;
+      return `pausade vid första händelsen (${first.start}): ${pause}; Skåne: ${stops.join(" → ")}; byte till Sverige 1658: ${swapped.length} stopp`;
     } finally { await tctx.close(); }
   });
 
