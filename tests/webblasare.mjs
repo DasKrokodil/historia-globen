@@ -302,6 +302,11 @@ async function run(browser, vp) {
     if (await page.isHidden(sel) && await page.isVisible('#btn-more')) await page.click('#btn-more');
     await page.click(sel);
   };
+  // Eleven bekräftar innan lektionen lämnas, läraren inte (#1572): hjälpen klickar Visa hela globen och, om frågan kommer, Ja
+  const leaveLesson = async pg => {
+    await pg.click('#lesson-exit');
+    if (await pg.isVisible('#lesson-confirm')) await pg.click('#lesson-confirm-yes');
+  };
   // Quiz och Samtidighetsjakten har en enda ingång, För lärare under Mer (#1575)
   const teacherItem = async id => {
     await clickView('#btn-teacher');
@@ -723,7 +728,7 @@ async function run(browser, vp) {
       if (!lesson.print) throw new Error('läraren får ingen knapp för elev- och lärarblad');
       if (lesson.card) throw new Error('kortet står kvar öppet i lektionen');
       if (!/m=lektion/.test(lesson.hash) || /r=lararen/.test(lesson.hash)) throw new Error(`adressen ska vara elevlänken (m=lektion utan r=lararen): ${lesson.hash}`);
-      await pp.click('#lesson-exit');
+      await leaveLesson(pp);
       await pp.waitForSelector('#lesson-band', { state: 'hidden', timeout: T.step });
       if (errors.length) throw new Error(errors.join(' | '));
     } finally { await pp.close(); }
@@ -1863,6 +1868,33 @@ async function run(browser, vp) {
     }
   });
 
+  // #1572: i lektionsläget skalas text och kort för projektor från 1 600 px
+  await check('lektionsläget skalas för projektor från 1 600 px (#1572)', async () => {
+    const lp = await context.newPage();
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await lp.route(u => isFont(u.href), r => r.abort());
+      }
+      const measure = async (width, height) => {
+        await lp.setViewportSize({ width, height });
+        await lp.goto(`${BASE}?ny=1572p${width}#t=andra-varldskriget&m=lektion`);
+        await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await lp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+        return lp.evaluate(() => ({ card: Math.round(document.getElementById('tour-card').getBoundingClientRect().width), text: parseFloat(getComputedStyle(document.getElementById('tour-text')).fontSize), scroll: document.scrollingElement.scrollWidth > innerWidth + 1 }));
+      };
+      const normal = await measure(1400, 900), wide = await measure(1700, 950), huge = await measure(2400, 1200);
+      if (normal.text !== 15 || normal.card > 400) throw new Error(`vid 1 400 px ändras kortet: ${JSON.stringify(normal)}`);
+      if (wide.card !== 480 || wide.text < 18) throw new Error(`vid 1 700 px är kortet ${wide.card} px och texten ${wide.text} px`);
+      if (huge.text < 22 || huge.card < 600) throw new Error(`vid 2 400 px är kortet ${huge.card} px och texten ${huge.text} px`);
+      if (wide.scroll || huge.scroll) throw new Error('projektorskalningen ger horisontell scroll');
+      return `kort ${normal.card}/${wide.card}/${huge.card} px och text ${normal.text}/${wide.text}/${huge.text} px vid 1 400, 1 700 och 2 400 px`;
+    } finally {
+      await lp.close();
+    }
+  });
+
   // #1581: svarar servern att formuläret är avstängt (503 disabled) medan klienten är påslagen, ska länkarna till GitHub synas
   await check('förslagsformuläret: svarar servern disabled visas länkarna till GitHub (#1581)', async () => {
     const lp = await context.newPage();
@@ -2888,7 +2920,7 @@ async function run(browser, vp) {
       if (!(await tp.isHidden('#focus-bar')) || /f=place/.test(await tp.evaluate(() => location.hash))) throw new Error('ett tryck eller Enter startade ett fokus i lektionen');
       if (!(await tp.isVisible('#lesson-band'))) throw new Error('lektionen avslutades av ett platstryck');
       // Utgången är som förut: Visa hela globen stänger lektionen och kortet
-      await tp.click('#lesson-exit');
+      await leaveLesson(tp);
       await tp.waitForSelector('#lesson-band', { state: 'hidden', timeout: T.step });
       await tp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
@@ -7085,9 +7117,22 @@ async function run(browser, vp) {
       if (!(await lessonPage.isVisible('#tour-card')) || !(await lessonPage.isVisible('#lesson-band'))) throw new Error('Escape avslutade lektionen');
       const last = (await lessonPage.textContent('#year-big')).trim();
       // Utgången: året står kvar, läget och turen slutar, menyerna är tillbaka och fokus hamnar på något synligt
+      // Eleven får en fråga först (#1572): Stanna kvar och Escape lämnar inte, Ja lämnar
       await lessonPage.focus('#lesson-exit');
       await lessonPage.keyboard.press('Enter');
+      await lessonPage.waitForSelector('#lesson-confirm', { state: 'visible', timeout: T.step });
+      if (await lessonPage.isVisible('#lesson-band')) throw new Error('bandet ligger kvar bakom frågan om att lämna lektionen');
+      if (!(await lessonPage.evaluate(() => document.activeElement?.id === 'lesson-confirm-no'))) throw new Error('fokus ligger inte på Stanna kvar när frågan visas');
+      await lessonPage.keyboard.press('Escape');
+      await lessonPage.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
+      if (await lessonPage.isVisible('#lesson-confirm') || !(await lessonPage.isVisible('#tour-card'))) throw new Error('Escape i frågan lämnade lektionen eller lämnade frågan öppen');
+      if (!(await lessonPage.evaluate(() => document.activeElement?.id === 'lesson-exit'))) throw new Error('fokus gick inte tillbaka till Lämna lektionen efter Stanna kvar');
+      if ((await lessonPage.textContent('#year-big')).trim() !== last) throw new Error('Stanna kvar ändrade året');
+      await lessonPage.keyboard.press('Enter');
+      await lessonPage.waitForSelector('#lesson-confirm', { state: 'visible', timeout: T.step });
+      await lessonPage.click('#lesson-confirm-yes');
       await lessonPage.waitForSelector('#lesson-band', { state: 'hidden', timeout: T.step });
+      if (await lessonPage.isVisible('#lesson-confirm')) throw new Error('frågan ligger kvar efter att lektionen lämnats');
       await lessonPage.waitForSelector('#tour-card', { state: 'hidden', timeout: T.step });
       if ((await lessonPage.textContent('#year-big')).trim() !== last) throw new Error('"Lämna lektionen" ändrade året');
       if (await lessonPage.isVisible('#more-toggle')) await lessonPage.click('#more-toggle'); // i mobilen ligger knapparna i menyn
@@ -7107,7 +7152,7 @@ async function run(browser, vp) {
       // Reglagets ARIA-gränser följer lektionens lås (#883) och återställs när man lämnar lektionen
       const ariaBounds = () => lessonPage.evaluate(() => { const t = document.getElementById('track'); return [t.getAttribute('aria-valuemin'), t.getAttribute('aria-valuemax')].join('..'); });
       if ((await ariaBounds()) !== '793..1068') throw new Error(`reglagets ARIA-gränser i vikingalektionen var ${await ariaBounds()} i stället för 793..1068`);
-      await lessonPage.click('#lesson-exit');
+      await leaveLesson(lessonPage);
       const { min: firstYear } = await timelineBounds(lessonPage);
       await lessonPage.waitForFunction(min => document.getElementById('track').getAttribute('aria-valuemin') === String(min), firstYear, { timeout: T.step });
       if ((await ariaBounds()).startsWith('793')) throw new Error('ARIA-gränserna låg kvar efter Visa hela globen');
@@ -7154,7 +7199,7 @@ async function run(browser, vp) {
       await lessonPage.evaluate(() => { location.hash = '#t=andra-varldskriget&m=lektion'; });
       await lessonPage.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
       await lessonPage.waitForFunction(() => document.getElementById('tour-progress').textContent.includes('1 av 14'), null, { timeout: T.step });
-      await lessonPage.click('#lesson-exit');
+      await leaveLesson(lessonPage);
       await lessonPage.waitForSelector('#lesson-band', { state: 'hidden', timeout: T.step });
       await lessonPage.waitForTimeout(1500); // ett återställt fokus laddas och flyttar året efter en stund
       if ((await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error(`utgången gav året ${(await lessonPage.textContent('#year-big')).trim()} i stället för lektionens 1939`);
@@ -7248,7 +7293,7 @@ async function run(browser, vp) {
       if (!await lp.evaluate(() => document.getElementById('panel-tag-note').hidden)) throw new Error('urvalsraden syns i lektionen');
       if (/[#&]g=/.test(await lp.evaluate(() => location.hash))) throw new Error('adressen har ett urval (g=) i lektionen');
       // Lämna lektionen: lektionen slutar, året står kvar och Översikt är tillbaka som före lektionen
-      await lp.click('#lesson-exit');
+      await leaveLesson(lp);
       await lp.waitForSelector('#lesson-band', { state: 'hidden', timeout: T.step });
       await lp.waitForFunction(() => document.querySelector('#layer-menu [data-view="oversikt"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
       await lp.waitForFunction(() => /([?&#])g=oversikt(?:&|$)/.test(location.hash), null, { timeout: T.step });
@@ -8043,6 +8088,12 @@ async function run(browser, vp) {
       await tpAw.reload();
       await tp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.load });
       if (await shown('#lesson-print')) throw new Error('knappen finns kvar efter omladdning utan r= i adressen');
+      // Läraren lämnar lektionen direkt, utan fråga (#1572)
+      await tp.goto(`${BASE}?ny=33#t=andra-varldskriget&m=lektion&r=lararen`);
+      await tp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.load });
+      await tp.click('#lesson-exit');
+      await tp.waitForSelector('#lesson-band', { state: 'hidden', timeout: T.step });
+      if (await tp.isVisible('#lesson-confirm')) throw new Error('läraren fick en fråga innan lektionen lämnades');
       errs.push(...tpAw.settle());
       if (errs.length) throw new Error(`konsolfel: ${errs.join('; ')}`);
     } finally {
@@ -8169,7 +8220,7 @@ async function run(browser, vp) {
       if (!(await mp.isVisible('#lesson-print'))) throw new Error('Starta som lektion i menyn ger läraren ingen utskriftsknapp i bandet (#885)');
       await mp.waitForFunction(() => location.hash.includes('m=lektion'), null, { timeout: T.step }).catch(() => { throw new Error('adressen saknar m=lektion efter knappen'); });
       // Den vanliga starten gör fortfarande en vanlig tur utan band
-      await mp.click('#lesson-exit');
+      await leaveLesson(mp);
       await mp.waitForSelector('#lesson-band', { state: 'hidden', timeout: T.step });
     } finally {
       await mp.close();

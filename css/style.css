@@ -980,6 +980,22 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
   backdrop-filter: blur(6px); box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
 }
 .tour-card[hidden] { display: none; }
+/* Lektionsläget på projektor (#1572): från 1 600 px större text och ett bredare kort, och från 2 200 px ännu större */
+@media (min-width: 1600px) {
+  .app.lesson .tour-card { width: 480px; padding: 18px 20px 14px; }
+  .app.lesson .tour-title { font-size: 28px; }
+  .app.lesson .tour-text { font-size: 18px; }
+  .app.lesson .tour-question { font-size: 17px; }
+  .app.lesson .tour-progress, .app.lesson .tour-name { font-size: 13px; }
+  .app.lesson .lesson-band-title, .app.lesson .lesson-exit { font-size: 15px; }
+  .app.lesson .lesson-exit { min-height: 38px; }
+}
+@media (min-width: 2200px) {
+  .app.lesson .tour-card { width: 600px; }
+  .app.lesson .tour-title { font-size: 34px; }
+  .app.lesson .tour-text { font-size: 22px; }
+  .app.lesson .tour-question { font-size: 21px; }
+}
 .app.touring .funfact, .app.touring .ff-tab { display: none; }
 /* Turkortets Nästa är den enda framåtknappen och Avsluta finns där (#999): pausraden visar bara var i turen man är */
 .app.touring #pause-go { display: none !important; }
