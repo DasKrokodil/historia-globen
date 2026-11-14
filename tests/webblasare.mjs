@@ -1783,6 +1783,44 @@ async function run(browser, vp) {
     }
   });
 
+  // #1575: Mer är ordnad i grupper (Lär dig, För skolan, Hjälp projektet); Lämna förslag och Stöd är egna rader, Stöd är en länk som
+  // öppnas i en ny flik, och raden om projektet finns sist i Om källorna med licenser, förslag, stöd och källkod.
+  await check('Mer: grupper med Lämna förslag och Stöd, och en rad om projektet i Om källorna (#1575)', async () => {
+    const lp = await context.newPage();
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await lp.route(u => isFont(u.href), r => r.abort());
+      }
+      await lp.goto(`${BASE}?ny=1575`);
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      if (await lp.isVisible('#more-toggle')) await lp.click('#more-toggle'); else await lp.click('#btn-more');
+      await lp.waitForSelector('#extra-menu', { state: 'visible', timeout: T.step });
+      const labels = await lp.locator('#extra-menu .extra-label').allTextContents();
+      if (labels.map(x => x.trim()).join('|') !== 'Lär dig|För skolan|Hjälp projektet') throw new Error(`grupprubrikerna är ${labels.join('|')}`);
+      const support = lp.locator('#btn-support');
+      if (!(await support.isVisible())) throw new Error('Stöd syns inte i Mer');
+      if ((await support.getAttribute('target')) !== '_blank' || !/noopener/.test(await support.getAttribute('rel')) || !/^https:\/\//.test(await support.getAttribute('href'))) throw new Error('Stöd är ingen säker länk som öppnas i en ny flik');
+      if (!/ny flik/.test(await support.getAttribute('aria-label'))) throw new Error('Stöd säger inte att länken öppnas i en ny flik');
+      if (await lp.isVisible('.help-support')) throw new Error('Stöd ligger kvar i Hjälp');
+      // Lämna förslag öppnar formuläret
+      await lp.click('#btn-feedback');
+      await lp.waitForSelector('#feedback:not([hidden])', { timeout: T.step });
+      await lp.keyboard.press('Escape');
+      // Raden om projektet sist i Om källorna
+      if (await lp.isVisible('#more-toggle') && await lp.isHidden('#btn-sources')) await lp.click('#more-toggle'); else if (await lp.isHidden('#btn-sources')) await lp.click('#btn-more');
+      await lp.click('#btn-sources');
+      await lp.waitForSelector('#sources-dialog:not([hidden]) .src-about', { timeout: T.step });
+      const about = await lp.evaluate(() => { const p = document.querySelector('#sources-body .src-about'); return { text: p.textContent, links: [...p.querySelectorAll('a')].map(a => a.href), button: !!p.querySelector('[data-open-feedback]') }; });
+      if (!/GPL-3\.0/.test(about.text) || !/CC BY 4\.0/.test(about.text)) throw new Error('raden om projektet nämner inte licenserna');
+      if (!about.button || about.links.length !== 2) throw new Error(`raden om projektet har ${about.links.length} länkar och ${about.button ? 'en' : 'ingen'} förslagsknapp`);
+      return 'tre grupper i Mer, Stöd som säker länk, Lämna förslag öppnar formuläret, raden om projektet i Om källorna';
+    } finally {
+      await lp.close();
+    }
+  });
+
   // #1571: i händelsens faktaruta är noten en hopfälld rad med synlig rubrik, och källor, hur vi vet, status, kopiera och
   // rapportera ligger i ett hopfällt avsnitt Om uppgifterna med antal källor och status på raden.
   await check('faktarutan: noten och Om uppgifterna är hopfällda och öppnas med tangentbord (#1571)', async () => {
@@ -6839,8 +6877,8 @@ async function run(browser, vp) {
       }
       // Knappen ligger i Mer-menyn och har ingen yta medan den är stängd: kontrollera själva regeln, inte om den syns
       if (await lessonPage.evaluate(() => getComputedStyle(document.getElementById('btn-hunt')).display) !== 'none') throw new Error('#btn-hunt är inte dold i lektionsläget');
-      // Eleverna ska inte uppmanas att ge stöd: raden i Hjälp är dold i lektionsläget (2026-11-14)
-      if (await lessonPage.evaluate(() => getComputedStyle(document.querySelector('.help-support')).display) !== 'none') throw new Error('stödraden i Hjälp syns för elever i lektionsläget');
+      // Eleverna ska inte uppmanas att ge stöd: Stöd i Mer är dold i lektionsläget (2026-11-14, flyttad från Hjälp i #1575)
+      if (await lessonPage.evaluate(() => getComputedStyle(document.getElementById('btn-support')).display) !== 'none') throw new Error('Stöd i Mer syns för elever i lektionsläget');
       if (await lessonPage.evaluate(() => document.scrollingElement.scrollWidth > innerWidth + 1)) throw new Error('lektionsläget ger horisontell scroll');
     };
     try {

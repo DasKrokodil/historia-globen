@@ -575,6 +575,8 @@ async function start() {
   // Besökarnas förslag (docs/feedback.md): från Hjälp och från faktarutans "Rapportera faktafel"
   const feedback = new Feedback($('feedback'));
   $('help-feedback').addEventListener('click', () => { help.close(false); feedback.open({ opener: $('btn-help') }); });
+  $('btn-feedback').addEventListener('click', () => feedback.open({ opener: $('btn-feedback') })); // Lämna förslag i Mer (#1575)
+  sources.onFeedback = () => { sources.hide(); feedback.open({ opener: $('btn-sources') }); }; // och i raden om projektet i Om källorna
   const report = (object, btn) => {
     object.year = Math.round(timeline.year);
     feedback.open({ opener: btn, event: object.type === 'event' ? data.byId[object.id] : null, object });

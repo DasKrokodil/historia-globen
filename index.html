@@ -157,18 +157,25 @@
       <div class="extra-wrap">
         <button id="btn-more" class="chip-btn extra-toggle" type="button" aria-expanded="false" aria-controls="extra-menu" title="Källor, hjälp och dela" data-i18n-title="top.moreTitle"><span class="extra-dots" aria-hidden="true"></span><span data-i18n="top.more">Mer</span></button>
         <div id="extra-menu" class="extra-menu" role="group" aria-label="Mer" data-i18n-aria-label="top.more">
+          <!-- Mer i tre grupper (#1575): Lär dig, För skolan och Hjälp projektet. Stöd och Lämna förslag är egna, lågmälda rader. -->
+          <span class="extra-label" data-i18n="more.learn">Lär dig</span>
           <!-- Kom igång (#996): introduktionen i tre stilla steg; öppnas aldrig av sig själv (#516) -->
           <button id="btn-intro" class="chip-btn" type="button" aria-controls="intro"></button>
-          <button id="btn-sources" class="chip-btn" type="button" title="Om källorna: källpolicy och källregister" data-i18n-title="top.sourcesTitle" data-i18n="top.sources">Källor</button>
           <button id="btn-help" class="chip-btn" type="button" aria-expanded="false" aria-controls="help" data-i18n="top.help">Hjälp</button>
+          <button id="btn-sources" class="chip-btn" type="button" title="Om källorna: källpolicy och källregister" data-i18n-title="top.sourcesTitle" data-i18n="top.sources">Källor</button>
+          <!-- Quiz (#65): "Vad hände samtidigt som …?" ur befintliga fun facts (js/ui/quiz.js, js/quiz-rules.js) -->
+          <button id="btn-quiz" class="chip-btn" type="button" aria-controls="quiz" hidden title="Vad hände samtidigt? Frågor ur fun facts" data-i18n-title="top.quizTitle" data-i18n="top.quiz">Quiz</button>
+          <span class="extra-label" data-i18n="more.school">För skolan</span>
           <!-- För lärare (#1315): lektioner, utskrift, quiz, jakt och presentationsläge på ett ställe (js/ui/teacher.js) -->
           <button id="btn-teacher" class="chip-btn" type="button" aria-expanded="false" aria-controls="teacher" title="Lektioner, utskrift, quiz och storskärm" data-i18n-title="top.teacherTitle" data-i18n="top.teacher">För lärare</button>
-          <!-- Quiz (#65): "Vad hände samtidigt som …?" ur befintliga fun facts (js/ui/quiz.js, js/quiz-rules.js) -->
           <!-- Samtidighetsjakten (#741): ett elevuppdrag ur data/uppdrag.json (js/ui/uppdrag.js, js/uppdrag-rules.js) -->
           <button id="btn-hunt" class="chip-btn" type="button" aria-controls="hunt" hidden title="Hitta händelser på olika kontinenter samtidigt" data-i18n-title="top.huntTitle" data-i18n="top.hunt">Samtidighetsjakten</button>
-          <button id="btn-quiz" class="chip-btn" type="button" aria-controls="quiz" hidden title="Vad hände samtidigt? Frågor ur fun facts" data-i18n-title="top.quizTitle" data-i18n="top.quiz">Quiz</button>
+          <span class="extra-label" data-i18n="more.project">Hjälp projektet</span>
           <!-- Dela (#64): länken till vyn som den ser ut nu, med år, kamera, fokus, lager och kategorier (#501) -->
           <button id="btn-share" class="chip-btn" type="button" title="Kopiera en länk till den här vyn" data-i18n-title="share.title" data-i18n="share.button">Dela</button>
+          <button id="btn-feedback" class="chip-btn" type="button" aria-haspopup="dialog" aria-controls="feedback" data-i18n="help.feedbackBtn">Lämna förslag</button>
+          <!-- Stöd (#1575): flyttat hit från Hjälp; en länk ut ur sidan, öppnas i en ny flik och döljs för elever i lektionsläget -->
+          <a id="btn-support" class="chip-btn" href="https://ko-fi.com/historiagloben" target="_blank" rel="noopener noreferrer" aria-label="Stöd Historia-globen på Ko-fi (öppnas i en ny flik)" data-i18n-aria-label="help.kofiLabel"><span data-i18n="more.support">Stöd</span><span aria-hidden="true"> ↗</span></a>
         </div>
       </div>
     </div>
@@ -199,8 +206,6 @@
       </ul>
     </details>
     <p class="help-teacher" data-i18n="help.teacher">Undervisar du? <button id="help-teacher" class="link-btn" type="button" aria-controls="teacher" data-i18n="help.teacherBtn">Öppna För lärare</button></p>
-    <p class="help-support" data-i18n="help.support">Historia-globen är gratis att använda. Vill du bidra till drift och vidareutveckling kan du lämna ett frivilligt stöd.
-      <a href="https://ko-fi.com/historiagloben" target="_blank" rel="noopener noreferrer" aria-label="Stöd Historia-globen på Ko-fi (öppnas i en ny flik)" data-i18n-aria-label="help.kofiLabel" data-i18n="help.kofi">Stöd Historia-globen<span aria-hidden="true"> ↗</span></a></p>
     <p class="help-feedback" data-i18n="help.feedback">Saknar du något eller har du hittat ett fel? <button id="help-feedback" class="link-btn" type="button" aria-haspopup="dialog" aria-controls="feedback" data-i18n="help.feedbackBtn">Lämna förslag</button></p>
   </aside>
 
