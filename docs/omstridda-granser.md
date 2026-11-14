@@ -147,6 +147,8 @@ Källorna för ockupationen och kontrollen (Wikipedia, kontrollerade 2026-11-13)
 
 **Inte med i beslutet:** Rhodesia (1965–1979) och Zimbabwe-Rhodesia (1979) erkändes inte av någon stat, men Cliopatria ritar dem som egen stat och inte som en ockupationsmakt. De visas som i Cliopatria (svaret på del 1 i #1332), och rutan Om kartan säger att staten inte erkändes.
 
+**Före 1945: Etiopien 1936–1941 (#1330, #1083).** Beslutet gäller ockupationer efter 1945 och ändrar inte hur Italiens erövring av Etiopien ritas. Där följer kartan Cliopatria, som DasKrokodil bestämde när #1083 fördes över till #1330 (2026-11-13): Etiopiska kejsardömet slutar 1935, Italienska Östafrika (Etiopien, Eritrea och Italienska Somaliland) ritas 1936–1940 som en del av gruppen Italienska kolonier i Afrika, och Etiopien kommer tillbaka 1942. 1941 ritar Cliopatria det mesta av landet som Brittiska imperiet och bara området kring Gondar som italienskt; kartan visar det så, och rutan Om kartan för Italienska Östafrika säger det. Ingen gräns är påhittad: alla år har Cliopatrias egna gränser.
+
 **Fall som återstår** (sett i de byggda filerna 2026-11-13, inte ändrade här): Kuwait 1990 visas som Irak; Sovjetunionen ritas över Polen 1953–1989 och över Polen, Tjeckoslovakien, Ungern, Rumänien och Bulgarien 1945–1946; Ungern saknas 1956–1957; Muskat och Oman räknas till Brittiska imperiet 1956–1972. De prövas mot regeln i en senare omgång (#1469).
 
 ## Frågor till Rikard (2026-11-06, besvarade)
