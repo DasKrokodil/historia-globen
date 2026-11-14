@@ -38,7 +38,8 @@ export function noticeText(problems, say = ui) {
 
 export function createLinkNotice(app, { schedule = setTimeout, cancel = clearTimeout } = {}) {
   const { $, timeline, surfaces } = app;
-  const region = $('link-notice'), card = $('link-notice-card'), text = $('link-notice-text'), close = $('link-notice-close');
+  const region = $('link-notice'), card = $('link-notice-card'), text = $('link-notice-text'), close = $('link-notice-close'), act = $('link-notice-action');
+  let action = null; // en valfri knapp i raden (#1572), till exempel Starta om turen
   let timer = null;
 
   function hide() {
@@ -49,16 +50,18 @@ export function createLinkNotice(app, { schedule = setTimeout, cancel = clearTim
     if (card.contains(document.activeElement)) $('year-jump')?.focus({ preventScroll: true });
     card.hidden = true;
     text.textContent = '';
+    action = null; act.hidden = true; act.textContent = '';
   }
 
   /**
    * Visar en text i raden (#1454: också besked från andra delar, till exempel varför Enter inte öppnar en plats). ms: hur länge den ligger
-   * kvar. announce: false när texten redan sägs på statusraden (#screen-reader-status), så att skärmläsaren inte läser den två gånger;
+   * kvar. action: { label, run } lägger en knapp i raden. announce: false när texten redan sägs på statusraden (#screen-reader-status), så att skärmläsaren inte läser den två gånger;
    * raden är då en live-region som är avstängd tills nästa visning (som alltid sätter om den).
    */
-  function showText(line, { ms = LINK_NOTICE_MS, announce = true } = {}) {
+  function showText(line, { ms = LINK_NOTICE_MS, announce = true, action: extra = null } = {}) {
     hide();
     if (!line) return;
+    if (extra) { action = extra.run; act.textContent = extra.label; act.hidden = false; }
     region.setAttribute('aria-live', announce ? 'polite' : 'off');
     text.textContent = line;
     card.hidden = false; // stängregistret märker det (watch) och stänger det som en ny yta stänger
@@ -73,6 +76,7 @@ export function createLinkNotice(app, { schedule = setTimeout, cancel = clearTim
   }
 
   close.addEventListener('click', hide);
+  act.addEventListener('click', () => { const run = action; hide(); run?.(); });
   surfaces.watch('link-notice', card, 'besked', () => hide());
 
   const dismiss = event => { if (!card.hidden && !card.contains(event.target)) hide(); };

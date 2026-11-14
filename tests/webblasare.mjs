@@ -302,6 +302,11 @@ async function run(browser, vp) {
     if (await page.isHidden(sel) && await page.isVisible('#btn-more')) await page.click('#btn-more');
     await page.click(sel);
   };
+  // Turer-menyn (#1573): en tur startas genom att fälla ut raden och trycka Starta turen
+  const startFromMenu = async (pg, id) => {
+    await pg.click(`#tour-menu details.tour-row[data-tour="${id}"] > summary`);
+    await pg.click(`#tour-menu .tour-start-btn[data-tour="${id}"]`);
+  };
   const jumpTo = async y => {
     await page.click('#year-jump');
     await visible('#jump-input');
@@ -1543,7 +1548,7 @@ async function run(browser, vp) {
     const before = await layersOn();
     await clickView('#btn-tour');
     await visible('#tour-menu');
-    await page.click('#tour-menu .tour-pick[data-tour="tre-platser-1325"]');
+    await startFromMenu(page, 'tre-platser-1325');
     await visible('#tour-card');
     const progress = () => page.textContent('#tour-progress').then(s => s.trim());
     if ((await progress()) !== 'Steg 1 av 3') throw new Error(`turen började på ${await progress()}`);
@@ -1562,7 +1567,7 @@ async function run(browser, vp) {
     if (await page.isVisible('#funfact')) throw new Error('Samtidigt-kortet syns ovanpå turens kort');
     await page.click('#tour-back');
     if ((await progress()) !== 'Steg 2 av 3') throw new Error('Föregående gick inte tillbaka');
-    await page.click('#tour-close');
+    await page.click('#tour-end');
     await hidden('#tour-card');
     if ((await layersOn()) !== before) throw new Error(`lagren återställdes inte: ${await layersOn()} i stället för ${before}`);
     return 'tre steg med år, lager och paus; Nästa är enda framåtknappen; Föregående och Avsluta fungerar';
@@ -1577,15 +1582,16 @@ async function run(browser, vp) {
     await visible('#tour-menu');
     const rows = await page.evaluate(() => [...document.querySelectorAll('#tour-list > li')].map(li => (
       li.querySelector('.tour-group-title') ? `#${li.querySelector('.tour-group-title').textContent.trim()}` : li.querySelector('.tour-pick')?.dataset.tour)));
-    const at = rows.findIndex(r => String(r).startsWith('#'));
-    if (at < 1 || rows.filter(r => String(r).startsWith('#')).length !== 1) throw new Error(`Turer-menyn har ingen enda grupprubrik efter de övriga turerna: ${rows.join(', ')}`);
-    if (rows[at] !== '#Hur föll det?') throw new Error(`grupprubriken heter ${rows[at]}`);
-    const falls = rows.slice(at + 1);
-    if (falls.join() !== 'vastroms-fall,hanrikets-fall,songhairikets-fall') throw new Error(`under rubriken står ${falls.join(', ')}`);
-    if (rows.slice(0, at).some(r => /-fall$/.test(r))) throw new Error('en fall-tur står före rubriken');
-    if (await page.locator('#tour-list > li[role="presentation"]').count() !== 1) throw new Error('rubrikraden ska vara role=presentation');
+    // Turerna ligger under rubriker (#1573): Källkritik, Krig, Samtidigt i världen och Hur föll det?, en tät rad per tur
+    const want = ['#Källkritik', 'hur-vet-vi-det-har', 'det-har-har-du-hort', 'vad-vet-vi-egentligen', '#Krig', 'andra-varldskriget', 'forsta-varldskriget',
+      '#Samtidigt i världen', 'tre-platser-1325', 'vikingatiden-och-varlden', '#Hur föll det?', 'vastroms-fall', 'hanrikets-fall', 'songhairikets-fall'];
+    if (rows.join() !== want.join()) throw new Error(`Turer-menyn har fel rubriker eller ordning: ${rows.join(', ')}`);
+    if (await page.locator('#tour-list > li[role="presentation"]').count() !== 4) throw new Error('rubrikraderna ska vara role=presentation (fyra)');
+    // Raderna är hopfällda och ryms: start- och lektionsknapparna syns först när raden fälls ut
+    if (await page.locator('#tour-menu details.tour-row[open]').count()) throw new Error('en tur-rad är öppen från början');
+    if (await page.locator('#tour-menu .tour-start-btn').first().isVisible()) throw new Error('Starta turen syns på en hopfälld rad');
 
-    await page.click('#tour-menu .tour-pick[data-tour="hanrikets-fall"]');
+    await startFromMenu(page, 'hanrikets-fall');
     await visible('#tour-card');
     const total = Number((await page.textContent('#tour-progress')).match(/av (\d+)/)[1]);
     const meter = () => page.evaluate(() => {
@@ -1614,13 +1620,13 @@ async function run(browser, vp) {
     const locked = await page.evaluate(() => [...document.querySelectorAll('.timebar .controls .step[data-step]')].map(b => ({ title: b.title, off: b.disabled })));
     if (!locked.length || locked.some(b => b.title !== 'Turen styr tiden' || !b.off)) throw new Error(`de låsta stegknapparnas hovertext och låsning: ${JSON.stringify(locked)}`);
 
-    await page.click('#tour-close');
+    await page.click('#tour-end');
     await hidden('#tour-card');
     if ((await page.getAttribute('#btn-speed', 'title')) !== speedTitle) throw new Error('hastighetsknappens egen hovertext kom inte tillbaka efter turen');
     if (await page.evaluate(() => [...document.querySelectorAll('.timebar .controls .step')].some(b => b.title === 'Turen styr tiden'))) throw new Error('en stegknapp säger fortfarande att turen styr tiden efter turen');
     if (await page.evaluate(() => [...document.querySelectorAll('.timebar .controls .step, #btn-play')].some(b => b.hasAttribute('data-before-tour')))) throw new Error('tidsknapparna har kvar spåret efter turen');
     await jumpTo(startYear);
-    return `rubriken "Hur föll det?" med ${falls.length} turer, ${total} streck i stegindikatorn, Nästa ${Math.round(next.height)} px, markör ${marker.w} px och förklaringen i pausraden och på stegknapparna`;
+    return `fyra rubriker med tio turer, ${total} streck i stegindikatorn, Nästa ${Math.round(next.height)} px, markör ${marker.w} px och förklaringen i pausraden och på stegknapparna`;
   });
 
   await check('krigets första kort startar berättelsen med kapitel och frågor (#247)', async () => {
@@ -1637,7 +1643,7 @@ async function run(browser, vp) {
     await page.click('#tour-next');
     if (!(await page.isVisible('#tour-question'))) throw new Error('andra steget visar ingen fråga');
     if (!(await page.textContent('#tour-question')).includes('Att fundera på')) throw new Error('frågan saknar rubrik');
-    await page.click('#tour-close');
+    await page.click('#tour-end');
     await hidden('#tour-card');
     // Turen återställer fokus på kriget; lämna sidan som den var
     if (!(await page.evaluate(() => document.getElementById('focus-bar').hidden))) await page.click('#focus-exit');
@@ -1722,6 +1728,179 @@ async function run(browser, vp) {
       if (han.kind !== null) throw new Error('Hanriket har ingen symbol men får en rad om tecknet');
       if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
       return `Japan ${japan.year}: ${japan.kind}, Osmanska riket ${ottoman.year}: ${ottoman.kind}, Rom: symbol utan rad, Hanriket: ingen rad`;
+    } finally {
+      await lp.close();
+    }
+  });
+
+  // #1571 (pilot): resans klickruta. Noten ("Källorna skiljer sig") är en hopfälld rad med synlig rubrik, källorna och
+  // statusen ligger i en hopfälld rad sist, och "Läs mer" ryms utan rullning. Rutan visas direkt via RoutePop (en kopia av
+  // main.js som levereras bara här och lägger rutan på window), så kontrollen inte beror på var en väg ligger på kartan.
+  await check('resans ruta: noten och källorna är hopfällda och Läs mer ryms utan rullning (#1571)', async () => {
+    const lp = await context.newPage();
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await lp.route(u => isFont(u.href), r => r.abort());
+      }
+      const marker = "const routePop = new RoutePop($('route-pop'), data);";
+      const mainSrc = fs.readFileSync(new URL('../js/main.js', import.meta.url), 'utf8');
+      if (!mainSrc.includes(marker)) throw new Error('main.js skapar inte routePop på den väntade raden; uppdatera kontrollen');
+      const patched = mainSrc.replace(marker, `${marker} window.__routePop = routePop; window.__routes = routes;`);
+      await lp.route(/\/js\/main\.js(\?.*)?$/, r => r.fulfill({ status: 200, contentType: 'application/javascript', body: patched }));
+      await lp.goto(`${BASE}#y=1330&l=events,routes`); // resor är inte på i startvyn (#1574), så lagret slås på i länken
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      // Lagrets egen väg (annars döljer appen rutan vid nästa omritning, eftersom vägen inte syns)
+      const show = () => lp.evaluate(() => {
+        const route = window.__routes.active.map(a => a.route).find(r => r.id === 'ibn-battuta');
+        window.__routePop.show({ route, leg: route.legs[1] }, innerWidth / 2, innerHeight / 3);
+      });
+      await lp.waitForFunction(() => window.__routes?.active.some(a => a.route.id === 'ibn-battuta'), null, { timeout: T.step });
+      await show();
+      await lp.waitForSelector('#route-pop .rp-about', { state: 'visible', timeout: T.step });
+      const note = lp.locator('#route-pop .rp-note-d');
+      if (await note.count() !== 1) throw new Error('resans not saknas som hopfälld rad');
+      if (await note.evaluate(el => el.open)) throw new Error('noten är öppen från början');
+      if (!/Källorna skiljer sig/.test(await note.locator('summary').textContent())) throw new Error('notens rubrik syns inte på raden');
+      if (!/^Källor \(\d+\) · /.test((await lp.locator('#route-pop .rp-about > summary').textContent()).trim())) throw new Error('raden med källor och status saknar antal och status');
+      const fit = await lp.evaluate(() => {
+        const pop = document.getElementById('route-pop'), more = pop.querySelector('.rp-more').getBoundingClientRect(), box = pop.getBoundingClientRect();
+        return { scrolls: pop.scrollHeight > pop.clientHeight + 1, moreInside: more.top >= box.top && more.bottom <= box.bottom, width: Math.round(box.width), h: Math.round(box.height), page: document.scrollingElement.scrollWidth > innerWidth + 1 };
+      });
+      if (fit.scrolls) throw new Error(`rutan rullar med noten stängd (${fit.h} px hög)`);
+      if (!fit.moreInside) throw new Error('"Läs mer" ligger utanför rutan');
+      if (fit.page) throw new Error('rutan ger horisontell scroll');
+      // Tangentbord: Enter på rubriken fäller ut noten, och den står kvar öppen när rutan ritas om (källregistret kommer sent)
+      await note.locator('summary').focus();
+      await lp.keyboard.press('Enter');
+      if (!(await note.evaluate(el => el.open))) throw new Error('Enter fäller inte ut noten');
+      await show();
+      if (!(await lp.locator('#route-pop .rp-note-d').evaluate(el => el.open))) throw new Error('noten stängdes när rutan ritades om');
+      return `rutan ${fit.width} px bred och ${fit.h} px hög utan rullning; noten fälls ut med Enter och står kvar`;
+    } finally {
+      await lp.close();
+    }
+  });
+
+  // #1575: Mer är ordnad i grupper (Lär dig, För skolan, Hjälp projektet); Lämna förslag och Stöd är egna rader, Stöd är en länk som
+  // öppnas i en ny flik, och raden om projektet finns sist i Om källorna med licenser, förslag, stöd och källkod.
+  await check('Mer: grupper med Lämna förslag och Stöd, och en rad om projektet i Om källorna (#1575)', async () => {
+    const lp = await context.newPage();
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await lp.route(u => isFont(u.href), r => r.abort());
+      }
+      await lp.goto(`${BASE}?ny=1575`);
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      if (await lp.isVisible('#more-toggle')) await lp.click('#more-toggle'); else await lp.click('#btn-more');
+      await lp.waitForSelector('#extra-menu', { state: 'visible', timeout: T.step });
+      const labels = await lp.locator('#extra-menu .extra-label').allTextContents();
+      if (labels.map(x => x.trim()).join('|') !== 'Lär dig|För skolan|Hjälp projektet') throw new Error(`grupprubrikerna är ${labels.join('|')}`);
+      const support = lp.locator('#btn-support');
+      if (!(await support.isVisible())) throw new Error('Stöd syns inte i Mer');
+      if ((await support.getAttribute('target')) !== '_blank' || !/noopener/.test(await support.getAttribute('rel')) || !/^https:\/\//.test(await support.getAttribute('href'))) throw new Error('Stöd är ingen säker länk som öppnas i en ny flik');
+      if (!/ny flik/.test(await support.getAttribute('aria-label'))) throw new Error('Stöd säger inte att länken öppnas i en ny flik');
+      if (await lp.isVisible('.help-support')) throw new Error('Stöd ligger kvar i Hjälp');
+      // Lämna förslag öppnar formuläret
+      await lp.click('#btn-feedback');
+      await lp.waitForSelector('#feedback:not([hidden])', { timeout: T.step });
+      await lp.keyboard.press('Escape');
+      // Raden om projektet sist i Om källorna
+      if (await lp.isVisible('#more-toggle') && await lp.isHidden('#btn-sources')) await lp.click('#more-toggle'); else if (await lp.isHidden('#btn-sources')) await lp.click('#btn-more');
+      await lp.click('#btn-sources');
+      await lp.waitForSelector('#sources-dialog:not([hidden]) .src-about', { timeout: T.step });
+      const about = await lp.evaluate(() => { const p = document.querySelector('#sources-body .src-about'); return { text: p.textContent, links: [...p.querySelectorAll('a')].map(a => a.href), button: !!p.querySelector('[data-open-feedback]') }; });
+      if (!/GPL-3\.0/.test(about.text) || !/CC BY 4\.0/.test(about.text)) throw new Error('raden om projektet nämner inte licenserna');
+      if (!about.button || about.links.length !== 2) throw new Error(`raden om projektet har ${about.links.length} länkar och ${about.button ? 'en' : 'ingen'} förslagsknapp`);
+      return 'tre grupper i Mer, Stöd som säker länk, Lämna förslag öppnar formuläret, raden om projektet i Om källorna';
+    } finally {
+      await lp.close();
+    }
+  });
+
+  // #1571: i händelsens faktaruta är noten en hopfälld rad med synlig rubrik, och källor, hur vi vet, status, kopiera och
+  // rapportera ligger i ett hopfällt avsnitt Om uppgifterna med antal källor och status på raden.
+  await check('faktarutan: noten och Om uppgifterna är hopfällda och öppnas med tangentbord (#1571)', async () => {
+    await jumpTo(-498); // Perserkrigen ingår i Översikt, har en notering och två källor
+    if (await page.isHidden('#panel')) await page.click('#btn-panel');
+    await visible('#panel');
+    const ev = page.locator('#event-list .event-btn', { hasText: 'Perserkrigen' }).first();
+    await ev.waitFor({ state: 'visible', timeout: T.step });
+    await ev.click();
+    const note = page.locator('#detail details.detail-note'), about = page.locator('#detail details.detail-about');
+    await about.waitFor({ state: 'visible', timeout: T.step });
+    if (await note.count() !== 1) throw new Error('händelsens not saknas som hopfälld rad');
+    if (await note.evaluate(d => d.open) || await about.evaluate(d => d.open)) throw new Error('noten eller Om uppgifterna är öppna från början');
+    if (!(await note.locator('summary').textContent()).trim()) throw new Error('notens rubrik syns inte på raden');
+    if (!/^Om uppgifterna · \d+ källor?/.test((await about.locator(':scope > summary').textContent()).trim())) throw new Error('raden Om uppgifterna saknar antal källor');
+    for (const d of [note, about]) {
+      const box = await d.locator(':scope > summary').boundingBox();
+      if (!box || box.height < 43) throw new Error(`träffytan är ${box?.height} px hög, minst 44 px krävs`);
+    }
+    // Det som ligger inuti är dolt tills avsnittet öppnas, och nås med Enter
+    if (await page.locator('#detail [data-citation]').isVisible()) throw new Error('Kopiera källhänvisning syns medan Om uppgifterna är hopfällt');
+    await about.locator(':scope > summary').focus();
+    await page.keyboard.press('Enter');
+    await page.waitForSelector('#detail [data-citation]', { state: 'visible', timeout: T.step });
+    await note.locator('summary').focus();
+    await page.keyboard.press('Enter');
+    if (!(await note.evaluate(d => d.open))) throw new Error('Enter fäller inte ut noten');
+    if (await page.evaluate(() => document.scrollingElement.scrollWidth > innerWidth + 1)) throw new Error('faktarutan ger horisontell scroll');
+    await page.locator('#detail [data-close]').click();
+    return 'noten och Om uppgifterna fälls ut med tangentbord; träffytor minst 44 px';
+  });
+
+  // #1573: Turer-menyn har rubriker och en tät rad per tur; en rad fälls ut med tangentbord (Enter) och visar sammanfattningen och
+  // Starta turen. Raderna är minst 44 px höga och hela listan ryms utan rullning i både dator och mobil.
+  await check('Turer-menyn: rubriker och hopfällda rader som öppnas med tangentbord (#1573)', async () => {
+    await clickView('#btn-tour');
+    await visible('#tour-menu');
+    try {
+      const heads = await page.locator('#tour-menu details.tour-row > summary').evaluateAll(els => els.map(e => Math.round(e.getBoundingClientRect().height)));
+      if (heads.length !== 10) throw new Error(`${heads.length} tur-rader, väntade 10`);
+      if (heads.some(h => h < 43)) throw new Error(`en rad är lägre än 44 px: ${heads.join(', ')}`);
+      const scrolls = await page.evaluate(() => { const m = document.getElementById('tour-menu'); return m.scrollHeight > m.clientHeight + 1; });
+      if (scrolls) throw new Error('menyn rullar med alla rader hopfällda');
+      const first = page.locator('#tour-menu details.tour-row').first();
+      await first.locator(':scope > summary').focus();
+      await page.keyboard.press('Enter');
+      if (!(await first.evaluate(d => d.open))) throw new Error('Enter fäller inte ut raden');
+      if (!(await first.locator('.tour-pick-meta').isVisible()) || !(await first.locator('.tour-start-btn').isVisible())) throw new Error('sammanfattningen och Starta turen syns inte på den utfällda raden');
+      return `10 rader (${Math.min(...heads)}–${Math.max(...heads)} px), ingen rullning hopfällt, Enter fäller ut`;
+    } finally {
+      if (await page.locator('#tour-menu').isVisible()) { await page.keyboard.press('Escape'); await hidden('#tour-menu'); }
+    }
+  });
+
+  // #1572: turkortet har en enda, benämnd utgång ("Lämna turen" i kortets fot, ingen kryssknapp eller Avsluta bredvid Nästa), och efter
+  // utgången står en rad "Turen är slut. Du står kvar på år …" med knappen "Starta om turen".
+  await check('turkortet: Lämna turen är den enda utgången och en rad med Starta om turen följer (#1572)', async () => {
+    const lp = await context.newPage();
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await lp.route(u => isFont(u.href), r => r.abort());
+      }
+      await lp.goto(`${BASE}?ny=1#t=vikingatiden-och-varlden`);
+      await lp.waitForSelector('#tour-card:not([hidden])', { timeout: T.load });
+      if (await lp.isVisible('#tour-close')) throw new Error('kryssknappen syns i turkortet; Lämna turen ska vara den enda utgången');
+      const end = lp.locator('#tour-end');
+      if (!/^Lämna turen$/.test((await end.textContent()).trim())) throw new Error('utgången heter inte Lämna turen');
+      const box = await end.boundingBox();
+      if (!box || box.height < 43) throw new Error(`Lämna turen är ${box?.height} px hög, minst 44 px krävs`);
+      if (await lp.locator('.tour-actions #tour-end').count()) throw new Error('Lämna turen ligger bredvid Nästa i stället för i kortets fot');
+      await end.click();
+      await lp.waitForFunction(() => /^Turen är slut\. Du står kvar på år/.test(document.getElementById('link-notice-text')?.textContent ?? ''), null, { timeout: T.step });
+      const restart = lp.locator('#link-notice-action');
+      if (!(await restart.isVisible()) || (await restart.textContent()).trim() !== 'Starta om turen') throw new Error('knappen Starta om turen saknas i raden');
+      await restart.click();
+      await lp.waitForSelector('#tour-card:not([hidden])', { timeout: T.step });
+      if (await lp.isVisible('#link-notice-card')) throw new Error('raden ligger kvar efter Starta om turen');
+      return 'Lämna turen i foten, raden efter utgången och Starta om turen startar om';
     } finally {
       await lp.close();
     }
@@ -1835,7 +2014,7 @@ async function run(browser, vp) {
     if ((await page.textContent('#tour-status')).trim() !== 'Här är forskare inte överens') throw new Error('fel status i första steget');
     for (let i = 0; i < 4; i++) await page.click('#tour-next');
     if ((await page.textContent('#tour-status')).trim() !== 'Här är forskare inte överens') throw new Error('steget om arméernas storlek är inte märkt som omtvistat');
-    await page.click('#tour-close');
+    await page.click('#tour-end');
     await hidden('#tour-card');
     if (!(await page.evaluate(() => document.getElementById('focus-bar').hidden))) await page.click('#focus-exit');
     await page.$eval('#focus-menu input', el => { el.value = ''; el.dispatchEvent(new Event('input', { bubbles: true })); });
@@ -3148,7 +3327,7 @@ async function run(browser, vp) {
         if (a.card.top < 0 || a.card.bottom > a.ih) throw new Error(`${yta.namn}: turkortet ligger utanför skärmen (${Math.round(a.card.top)}–${Math.round(a.card.bottom)} av ${a.ih} px)`);
         if (a.card.height < 150) throw new Error(`${yta.namn}: turkortet är bara ${Math.round(a.card.height)} px högt`);
         if (!a.next.ok) throw new Error(`${yta.namn}: Nästa syns inte helt inne i kortet (${Math.round(a.next.top)}–${Math.round(a.next.bottom)} px, kortet ${Math.round(a.card.top)}–${Math.round(a.card.bottom)})`);
-        if (!a.end.ok) throw new Error(`${yta.namn}: Avsluta turen syns inte helt inne i kortet`);
+        if (!a.end.ok) throw new Error(`${yta.namn}: Lämna turen syns inte helt inne i kortet`);
         if (a.next.height < 44 || a.end.height < 44) throw new Error(`${yta.namn}: knapparna är lägre än 44 px (${Math.round(a.next.height)}, ${Math.round(a.end.height)})`);
         if (!a.noteInside) throw new Error(`${yta.namn}: turraden ryms inte i bild (${Math.round(a.note.left)}–${Math.round(a.note.right)}, ${Math.round(a.note.top)}–${Math.round(a.note.bottom)} av ${a.iw} × ${a.ih} px)`);
         if (a.card.bottom > a.note.top + 1) throw new Error(`${yta.namn}: turkortet täcker turraden (${Math.round(a.card.bottom)} > ${Math.round(a.note.top)} px)`);
@@ -3927,10 +4106,10 @@ async function run(browser, vp) {
     try {
       await page.click('#layer-menu .view-chip[data-view="oversikt"]');
       await page.waitForFunction(() => /([?&#])g=oversikt(?:&|$)/.test(location.hash), null, { timeout: T.step });
-      await setLayer('wars', false);
+      await setLayer('areas', false); // Riken är på i Översikt (startvyn, #1574)
       await page.waitForFunction(() => document.querySelector('#layer-menu [data-view="oversikt"]')?.getAttribute('aria-pressed') === 'false', null, { timeout: T.step });
-      if (!(await page.evaluate(() => /([?&#])g=oversikt(?:&|$)/.test(location.hash)))) throw new Error('urvalet i Översikt släpptes när Krigsområden slogs av');
-      return 'fokus i menyn och g=oversikt kvar efter att Krigsområden slagits av';
+      if (!(await page.evaluate(() => /([?&#])g=oversikt(?:&|$)/.test(location.hash)))) throw new Error('urvalet i Översikt släpptes när Riken slogs av');
+      return 'fokus i menyn och g=oversikt kvar efter att Riken slagits av';
     } finally {
       if (await page.locator('#layer-menu').isHidden()) await clickView('#btn-layers');
       await page.click('#layer-menu .view-chip[data-view="standard"]');
@@ -3955,9 +4134,9 @@ async function run(browser, vp) {
       await first.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await first.waitForFunction(() => document.querySelector('#layer-menu .view-chip[data-view="oversikt"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
       await first.waitForFunction(() => /([?&#])g=oversikt(?:&|$)/.test(location.hash), null, { timeout: T.step });
-      // Översikt väljer bara händelserna: lagren är som i Standard, så Riken och Samtidigt finns kvar
+      // Startvyn är lugn (#1574): Riken och Samtidigt är på, men inte Resor och Krigsområden
       const on = await first.evaluate(() => ['areas', 'funfacts', 'routes', 'wars'].filter(l => document.querySelector(`[data-layer="${l}"]`)?.checked));
-      if (on.length !== 4) throw new Error(`Översikt som startvy ska behålla Standards lager, men bara ${on.join(', ') || 'inga'} är på`);
+      if (on.join() !== 'areas,funfacts') throw new Error(`Översikt som startvy ska ha Riken och Samtidigt på men inte Resor och Krigsområden, men ${on.join(', ') || 'inga'} är på`);
     } finally { await first.close(); }
     await chip.click();
     await page.waitForFunction(() => document.querySelector('#layer-menu [data-view="oversikt"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
@@ -4271,6 +4450,17 @@ async function run(browser, vp) {
     }
     await toggle.click();
     await visible('#religion-legend #rl-body');
+    // #1571: förklaringen och filsidorna är hopfällda avsnitt; täckningen står kvar synlig, och filsidorna har stora träffytor
+    const sect = id => page.locator(`#religion-legend details[data-sect="${id}"]`);
+    if (await sect('read').count() !== 1 || await sect('images').count() !== 1) throw new Error('Upptäcktsvyns avsnitt Så läser du vyn och Kartbilder saknas');
+    if (await sect('read').evaluate(el => el.open) || await sect('images').evaluate(el => el.open)) throw new Error('avsnitten är öppna från början');
+    if (!/^Så läser du vyn/.test((await sect('read').locator('summary').textContent()).trim())) throw new Error('rubriken Så läser du vyn saknas');
+    if (!/^Kartbilder · \d+ filsidor/.test((await sect('images').locator('summary').textContent()).trim())) throw new Error('raden med antal filsidor saknas');
+    if (!(await coverage.isVisible())) throw new Error('täckningsraden syns inte när avsnitten är hopfällda');
+    await sect('images').locator('summary').click();
+    const small = await page.evaluate(() => [...document.querySelectorAll('#religion-legend .rl-files a')].filter(a => { const r = a.getBoundingClientRect(); return r.width < 24 || r.height < 24; }).length);
+    if (small) throw new Error(`${small} filsidelänkar har en träffyta under 24 px`);
+    await sect('images').locator('summary').click();
     await shot('4b-upptacktsvy');
     await setLayer('discovery', false);
     await page.keyboard.press('Escape');
@@ -5555,6 +5745,8 @@ async function run(browser, vp) {
     if (await page.locator('#detail').isVisible()) await page.locator('#detail [data-close]').click();
     const event = page.locator('#ff-events .ff-chip').first();
     await event.evaluate(el => el.click());
+    await page.waitForSelector('#detail details.detail-about', { state: 'visible', timeout: T.step });
+    await page.locator('#detail details.detail-about > summary').click(); // Om uppgifterna (#1571) rymmer knappen
     await page.waitForSelector('#detail [data-citation]', { state: 'visible', timeout: T.step });
     await page.evaluate(() => { window.__copiedCitation = null; Object.defineProperty(navigator, 'clipboard', { value: { writeText: async text => { window.__copiedCitation = text; } }, configurable: true }); });
     await page.locator('#detail [data-citation]').click();
@@ -6620,7 +6812,7 @@ async function run(browser, vp) {
         await hashHas('s=tenochtitlan');
         await tourPageAw.goBack();
         await tourPage.waitForFunction(() => document.getElementById('tour-progress').textContent.includes('2 av 3'), null, { timeout: T.step });
-        await tourPage.click('#tour-close');
+        await tourPage.click('#tour-end');
         await tourPage.waitForSelector('#tour-card', { state: 'hidden', timeout: T.step });
         await tourPage.waitForFunction(() => !location.hash.includes('t='), null, { timeout: T.step });
         // Den äldre formen ?tur=<id> startar vid första steget och flyttas in i hashen
@@ -6648,7 +6840,7 @@ async function run(browser, vp) {
     });
   }
   // Lektionsläget (#795): en länk med m=lektion startar turen med menyerna dolda och bandet överst. Låset håller vid
-  // direktlänk, omladdning och Bakåt/Framåt, tangentbordet når "Visa hela globen", slutkortet står kvar efter sista
+  // direktlänk, omladdning och Bakåt/Framåt, tangentbordet når "Lämna lektionen", slutkortet står kvar efter sista
   // steget och utgången behåller året och ger den vanliga sidan. Kontrollen körs i dator- och mobilbredd.
   await check('lektionsläget låser menyerna och har en utgång som behåller året (#795)', async () => {
     const lessonPage = await context.newPage();
@@ -6685,8 +6877,8 @@ async function run(browser, vp) {
       }
       // Knappen ligger i Mer-menyn och har ingen yta medan den är stängd: kontrollera själva regeln, inte om den syns
       if (await lessonPage.evaluate(() => getComputedStyle(document.getElementById('btn-hunt')).display) !== 'none') throw new Error('#btn-hunt är inte dold i lektionsläget');
-      // Eleverna ska inte uppmanas att ge stöd: raden i Hjälp är dold i lektionsläget (2026-11-14)
-      if (await lessonPage.evaluate(() => getComputedStyle(document.querySelector('.help-support')).display) !== 'none') throw new Error('stödraden i Hjälp syns för elever i lektionsläget');
+      // Eleverna ska inte uppmanas att ge stöd: Stöd i Mer är dold i lektionsläget (2026-11-14, flyttad från Hjälp i #1575)
+      if (await lessonPage.evaluate(() => getComputedStyle(document.getElementById('btn-support')).display) !== 'none') throw new Error('Stöd i Mer syns för elever i lektionsläget');
       if (await lessonPage.evaluate(() => document.scrollingElement.scrollWidth > innerWidth + 1)) throw new Error('lektionsläget ger horisontell scroll');
     };
     try {
@@ -6738,14 +6930,14 @@ async function run(browser, vp) {
       await nav(() => lessonPage.goForward());
       await lessonPage.waitForFunction(() => document.getElementById('tour-progress').textContent.includes('4 av 14'), null, { timeout: T.step });
       await locked();
-      // Tangentbordet når "Visa hela globen" (bandet ligger före kortet i tabbordningen)
+      // Tangentbordet når "Lämna lektionen" (bandet ligger före kortet i tabbordningen)
       await lessonPage.focus('#tour-next');
       let reached = false;
       for (let i = 0; i < 60 && !reached; i++) {
         await lessonPage.keyboard.press('Shift+Tab');
         reached = await lessonPage.evaluate(() => document.activeElement?.id === 'lesson-exit');
       }
-      if (!reached) throw new Error('Tab når inte "Visa hela globen"');
+      if (!reached) throw new Error('Tab når inte "Lämna lektionen"');
       // Turens slut: slutkortet står kvar, Escape avslutar inte, och det finns ingen Klar-knapp som tömmer läget
       for (let i = 0; i < 10; i++) await lessonPage.click('#tour-next');
       await lessonPage.waitForFunction(() => document.getElementById('tour-progress').textContent.includes('14 av 14'), null, { timeout: T.step });
@@ -6762,12 +6954,12 @@ async function run(browser, vp) {
       await lessonPage.keyboard.press('Enter');
       await lessonPage.waitForSelector('#lesson-band', { state: 'hidden', timeout: T.step });
       await lessonPage.waitForSelector('#tour-card', { state: 'hidden', timeout: T.step });
-      if ((await lessonPage.textContent('#year-big')).trim() !== last) throw new Error('"Visa hela globen" ändrade året');
+      if ((await lessonPage.textContent('#year-big')).trim() !== last) throw new Error('"Lämna lektionen" ändrade året');
       if (await lessonPage.isVisible('#more-toggle')) await lessonPage.click('#more-toggle'); // i mobilen ligger knapparna i menyn
       for (const sel of ['#btn-layers', '#btn-focus', '#btn-globe']) if (!(await shown(sel))) throw new Error(`${sel} kom inte tillbaka`);
       await lessonPage.waitForFunction(() => !/[?&#]m=|t=/.test(location.hash), null, { timeout: T.step });
       const focusOk = await lessonPage.evaluate(() => { const a = document.activeElement; return !!a && a !== document.body && a.getClientRects().length > 0; });
-      if (!focusOk) throw new Error('fokus hamnade på ingenting efter "Visa hela globen"');
+      if (!focusOk) throw new Error('fokus hamnade på ingenting efter "Lämna lektionen"');
       // Tidslinjen är fri igen
       await lessonPage.click('#year-jump');
       await lessonPage.fill('#jump-input', '1500');
@@ -6820,7 +7012,7 @@ async function run(browser, vp) {
       await lessonPage.waitForTimeout(300);
       if ((await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error(`Home på reglaget gav ${(await lessonPage.textContent('#year-big')).trim()} i stället för 1939 efter ett fokus och lektionslänken`);
       await jumpLocked('lektionslänken efter ett fokus'); // tidslinjen är låst även när lektionen börjar efter ett fokus
-      // "Visa hela globen" återställer inte ett gammalt fokus och byter inte året (#881)
+      // "Lämna lektionen" återställer inte ett gammalt fokus och byter inte året (#881)
       await open(`${BASE}?ny=14#y=1916&f=war:forsta-varldskriget`);
       await lessonPage.waitForSelector('#focus-bar:not([hidden])', { state: 'attached', timeout: T.load });
       await hashHas('c=');
@@ -6883,8 +7075,8 @@ async function run(browser, vp) {
     }
     return 'direktlänk, omladdning och Bakåt/Framåt behåller låset; året låst till 1939–1945; Tab når utgången; slutkortet står kvar; utgången behåller året; utan lektionstur eller tur inget läge';
   });
-  // #1139: lektionsläget visar alltid alla händelser i lektionens år, också när lektionens lager är exakt Översikts fem lager
-  // (då slår turen inte av något lager, och vyns urval skulle annars ligga kvar). Utgången ("Visa hela globen") ger tillbaka
+  // #1139: lektionsläget visar alltid alla händelser i lektionens år, också när lektionens lager är exakt Översikts tre lager
+  // (då slår turen inte av något lager, och vyns urval skulle annars ligga kvar). Utgången ("Lämna lektionen") ger tillbaka
   // Översikt som det var före lektionen. Lektionens lager skrivs om i testet så att de blir lika med Översikts.
   await check('lektionsläget från Översikt visar alla händelser och lämnar inget urval kvar (#1139)', async () => {
     const lp = await context.newPage();
@@ -6896,7 +7088,7 @@ async function run(browser, vp) {
         await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
         await lp.route(u => isFont(u.href), r => r.abort());
       }
-      const overviewLayers = ['events', 'funfacts', 'areas', 'routes', 'wars'];
+      const overviewLayers = ['events', 'funfacts', 'areas'];
       await lp.route(u => /data\/turer\/andra-varldskriget\.json/.test(u.href), async r => {
         const res = await r.fetch();
         const doc = await res.json();
@@ -6909,7 +7101,7 @@ async function run(browser, vp) {
       await lp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
       await lp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
       const view = id => lp.evaluate(v => document.querySelector(`#layer-menu [data-view="${v}"]`)?.getAttribute('aria-pressed'), id);
-      await lp.waitForFunction(() => document.querySelector('#layer-menu [data-view="standard"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
+      await lp.waitForFunction(() => document.querySelector('#layer-menu [data-view="oversikt"]')?.getAttribute('aria-pressed') === 'false', null, { timeout: T.step });
       if (await view('oversikt') !== 'false') throw new Error('Översikt är kvar som vy i lektionen');
       // Samtidigt visar händelser som inte hör till Översikt: urvalet gäller inte i lektionen
       const ids = await lp.evaluate(() => [...document.querySelectorAll('#event-list .event-btn')].map(b => b.dataset.id));
@@ -6920,7 +7112,7 @@ async function run(browser, vp) {
       if (!ids.length || !outside.length) throw new Error(`lektionen år 1939 visar ${ids.length} händelser och ingen utanför Översikt: urvalet läcker in i lektionen`);
       if (!await lp.evaluate(() => document.getElementById('panel-tag-note').hidden)) throw new Error('urvalsraden syns i lektionen');
       if (/[#&]g=/.test(await lp.evaluate(() => location.hash))) throw new Error('adressen har ett urval (g=) i lektionen');
-      // Visa hela globen: lektionen slutar, året står kvar och Översikt är tillbaka som före lektionen
+      // Lämna lektionen: lektionen slutar, året står kvar och Översikt är tillbaka som före lektionen
       await lp.click('#lesson-exit');
       await lp.waitForSelector('#lesson-band', { state: 'hidden', timeout: T.step });
       await lp.waitForFunction(() => document.querySelector('#layer-menu [data-view="oversikt"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
@@ -7817,7 +8009,7 @@ async function run(browser, vp) {
       if (await mp.isHidden('#btn-tour') && await mp.isVisible('#btn-more')) await mp.click('#btn-more');
       await mp.click('#btn-tour');
       await mp.waitForSelector('#tour-menu:not([hidden])', { state: 'visible', timeout: T.step });
-      const picks = await mp.evaluate(() => [...document.querySelectorAll('#tour-menu li')].map(li => ({ tour: li.querySelector('.tour-pick')?.dataset.tour, start: li.querySelector('.tour-start-btn')?.dataset.tour })));
+      const picks = await mp.evaluate(() => [...document.querySelectorAll('#tour-menu li')].filter(li => li.querySelector('.tour-pick')).map(li => ({ tour: li.querySelector('.tour-pick')?.dataset.tour, start: li.querySelector('.tour-start-btn')?.dataset.tour })));
       if (picks[0]?.tour !== 'hur-vet-vi-det-har') throw new Error(`turlistan börjar med ${picks[0]?.tour}, väntade hur-vet-vi-det-har (#1002)`);
       const bare = picks.filter(x => x.start !== x.tour);
       if (bare.length) throw new Error(`turer utan synlig startknapp: ${bare.map(x => x.tour).join(', ')} (#1002)`);
@@ -7833,6 +8025,7 @@ async function run(browser, vp) {
       const ww = rows.find(r => r.tour === 'andra-varldskriget');
       if (!ww || !/Lektion · årskurs 7–9 · \d+ min/.test(ww.meta) || !/Starta som lektion: /.test(ww.label)) throw new Error(`lektionen för andra världskriget märks fel: ${JSON.stringify(ww)}`);
       if (await mp.locator('#tour-menu .tour-lesson-start[data-tour="forsta-varldskriget"]').count()) throw new Error('en vanlig tur har fått knappen Starta som lektion');
+      await mp.click('#tour-menu details.tour-row[data-tour="andra-varldskriget"] > summary');
       await mp.click('#tour-menu .tour-lesson-start[data-tour="andra-varldskriget"]');
       await mp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
       await mp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
@@ -8206,7 +8399,7 @@ async function run(browser, vp) {
       }
       // Turen slutar: reglaget fungerar igen
       await open('#t=andra-varldskriget');
-      await wp.click('#tour-close');
+      await wp.click('#tour-end');
       await wp.waitForSelector('#tour-card', { state: 'hidden', timeout: T.step });
       const free = await wp.evaluate(() => ({ aria: document.getElementById('track').getAttribute('aria-disabled'), steps: [...document.querySelectorAll('.step[data-step]')].some(b => b.disabled) }));
       if (free.aria !== null || free.steps) throw new Error(`reglaget är kvar i låst läge efter turen: ${JSON.stringify(free)}`);
@@ -8940,7 +9133,9 @@ async function run(browser, vp) {
       await blockedPage.fill('#focus-menu .focus-search', 'machu picchu');
       await blockedPage.waitForSelector('#focus-menu [data-key^="event:"]', { timeout: T.step });
       await blockedPage.press('#focus-menu .focus-search', 'Enter');
-      await blockedPage.waitForSelector('#detail .src', { timeout: T.step });
+      await blockedPage.waitForSelector('#detail details.detail-about', { timeout: T.step });
+      await blockedPage.locator('#detail details.detail-about > summary').click(); // källraden ligger i Om uppgifterna (#1571)
+      await blockedPage.waitForSelector('#detail .src', { state: 'visible', timeout: T.step });
       // Tid nog för upprepade omladdningar att visa sig (förut cirka två anrop i sekunden)
       await blockedPage.waitForTimeout(4000);
       if (calls !== 1) throw new Error(`missuppfattningsfilen efterfrågades ${calls} gånger, högst 1 tillåts`);
@@ -9016,6 +9211,7 @@ async function run(browser, vp) {
     if (!/Historisk osäkerhet:.*dateringen är ungefärlig/.test(text)) throw new Error(`osäkerhetsraden saknar ungefärlig datering: ${text}`);
     if (!(await page.locator('#detail .review-badge').count())) throw new Error('faktarutan saknar en separat rad för källkontroll');
     // Kontrollen och osäkerheten skiljs åt med en kort förklaring som syns direkt i rutan (#786)
+    await page.locator('#detail details.detail-about > summary').click(); // granskningsraden ligger i Om uppgifterna (#1571)
     const explain = page.locator('#detail .review-explain');
     await explain.waitFor({ state: 'visible', timeout: T.step });
     const explainText = (await explain.textContent()).trim();
@@ -9090,6 +9286,7 @@ async function run(browser, vp) {
     const pyramid = page.locator('#event-list .event-btn', { hasText: 'Cheopspyramiden' });
     await pyramid.waitFor({ state: 'visible', timeout: T.step });
     await pyramid.click();
+    await page.locator('#detail details.detail-about > summary').click(); // Hur vet vi det här? ligger i Om uppgifterna (#1571)
     const row = page.locator('#detail details.how-know');
     await row.waitFor({ state: 'visible', timeout: T.step });
     if (await row.evaluate(d => d.open)) throw new Error('raden är utfälld från början');
@@ -9106,7 +9303,7 @@ async function run(browser, vp) {
     const tour = row.locator('[data-tour="hur-vet-vi-det-har"]');
     await tour.click();
     await visible('#tour-card');
-    await page.click('#tour-close');
+    await page.click('#tour-end');
     await hidden('#tour-card');
     return answers.join(' | ');
   });

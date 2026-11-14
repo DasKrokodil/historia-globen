@@ -5,6 +5,7 @@
 // En tur:  { schema, version, id, title, summary?, war?, review, steps: [steg, ...] }
 //   war     valfritt: kriget (händelse-id) som turen berättar om; krigets första kort får då "Följ berättelsen" (#247)
 //   empire  valfritt: riket (grupp-id i data/empires/index.json) vars fall turen följer; rikets faktaruta får då en knapp (#499)
+//   group   valfritt: gruppen i Turer-menyn (#1573): kallkritik, krig, tid eller fall. Saknas fältet följer gruppen av war (krig) och empire (fall)
 //   lesson  valfritt: lärarfält för en lektionstur (skolpiloten, #737):
 //           { grades, minutes, curriculum: [{ text, sources }], prerequisites?, teacher, exitTicket }
 //           grades     årskurs: F-3, 4-6, 7-9 eller gy
@@ -60,6 +61,7 @@ export function tourProblems(tour, known = {}) {
   if (!TOUR_REVIEW.includes(tour.review)) say(`okänd granskningsstatus ${tour.review}.`);
   if (tour.war != null && (typeof tour.war !== 'string' || (known.events && !known.events.has(tour.war)))) say(`kriget ${tour.war} finns inte.`);
   if (tour.empire != null && (typeof tour.empire !== 'string' || (known.empires && !known.empires.has(tour.empire)))) say(`riket ${tour.empire} finns inte.`);
+  if (tour.group != null && !['kallkritik', 'krig', 'tid', 'fall'].includes(tour.group)) say(`okänd grupp ${tour.group} (kallkritik, krig, tid, fall).`);
   if (tour.lesson != null) lessonProblems(tour.lesson, known, tour).forEach(say);
   if (!Array.isArray(tour.steps) || !tour.steps.length) { say('har inga steg.'); return out; }
   const ids = new Set();

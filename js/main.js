@@ -561,6 +561,8 @@ async function start() {
   // Besökarnas förslag (docs/feedback.md): från Hjälp och från faktarutans "Rapportera faktafel"
   const feedback = new Feedback($('feedback'));
   $('help-feedback').addEventListener('click', () => { help.close(false); feedback.open({ opener: $('btn-help') }); });
+  $('btn-feedback').addEventListener('click', () => feedback.open({ opener: $('btn-feedback') })); // Lämna förslag i Mer (#1575)
+  sources.onFeedback = () => { sources.hide(); feedback.open({ opener: $('btn-sources') }); }; // och i raden om projektet i Om källorna
   const report = (object, btn) => {
     object.year = Math.round(timeline.year);
     feedback.open({ opener: btn, event: object.type === 'event' ? data.byId[object.id] : null, object });
@@ -654,6 +656,7 @@ async function start() {
     printRoot: $('print-sheet'),
     get lesson() { return app.lesson; }, // lektionsläget (#795) skapas efter spelaren
     get places() { return app.places; }, // turens steg med en plats (#1163)
+    get linkNotice() { return app.linkNotice; }, // raden efter att turen lämnats (#1572)
     timeline, globe, flatMap, layers, narrow, root: $('app'), events: data.byId,
     layerIds: new Set(registry.entries.map(e => e.id)), controlled: registry.viewLayers(views?.groups), empires: new Set(data.empireGroups.map(g => g.id)),
     select: (id, jump) => app.select(id, jump),
