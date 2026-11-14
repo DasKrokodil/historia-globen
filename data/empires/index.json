@@ -3313,7 +3313,7 @@
       "en": "Old Kingdom of Egypt",
       "de": "Altes Reich",
       "es": "Imperio Antiguo de Egipto",
-      "fr": "Ancien Empire de l'Égypte"
+      "fr": "Ancien Empire"
      },
      "sources": [
       "cliopatria"
@@ -10325,7 +10325,7 @@
     "en": "Kingdom of Kongo",
     "de": "Königreich Kongo",
     "es": "Reino del Congo",
-    "fr": "royaume de Kongo"
+    "fr": "Royaume de Kongo"
    },
    "color": "#b0703a",
    "from": 1440,
@@ -10339,7 +10339,7 @@
       "en": "Kingdom of Kongo",
       "de": "Königreich Kongo",
       "es": "Reino del Congo",
-      "fr": "royaume de Kongo"
+      "fr": "Royaume de Kongo"
      },
      "sources": [
       "cliopatria"
@@ -10543,7 +10543,7 @@
     "en": "Oyo Empire",
     "de": "Königreich Oyo",
     "es": "Imperio oyo",
-    "fr": "royaume d'Oyo"
+    "fr": "Royaume d'Oyo"
    },
    "color": "#a05a8a",
    "from": 1609,
@@ -10557,7 +10557,7 @@
       "en": "Oyo Empire",
       "de": "Königreich Oyo",
       "es": "Imperio oyo",
-      "fr": "royaume d'Oyo"
+      "fr": "Royaume d'Oyo"
      },
      "sources": [
       "cliopatria"
@@ -15411,7 +15411,7 @@
     "en": "Weimar Republic",
     "de": "Weimarer Republik",
     "es": "República de Weimar",
-    "fr": "république de Weimar"
+    "fr": "République de Weimar"
    },
    "color": "#8a78b0",
    "from": 1920,
@@ -15425,7 +15425,7 @@
       "en": "Weimar Republic",
       "de": "Weimarer Republik",
       "es": "República de Weimar",
-      "fr": "république de Weimar"
+      "fr": "République de Weimar"
      },
      "sources": [
       "cliopatria"
@@ -30673,7 +30673,7 @@
       "en": "Republic of China",
       "de": "Republik China",
       "es": "República de China",
-      "fr": "république de Chine"
+      "fr": "République de Chine"
      },
      "sources": [
       "cliopatria"
@@ -31039,7 +31039,7 @@
       "en": "Kingdom of Libya",
       "de": "Königreich Libyen",
       "es": "Reino de Libia",
-      "fr": "royaume de Libye"
+      "fr": "Royaume de Libye"
      },
      "sources": [
       "cliopatria"
@@ -32891,7 +32891,7 @@
       "en": "Kingdom of Italy",
       "de": "Königreich Italien",
       "es": "Reino de Italia",
-      "fr": "royaume d'Italie"
+      "fr": "Royaume d'Italie"
      },
      "sources": [
       "cliopatria"
@@ -33146,7 +33146,7 @@
       "en": "Kingdom of Romania",
       "de": "Königreich Rumänien",
       "es": "Reino de Rumania",
-      "fr": "royaume de Roumanie"
+      "fr": "Royaume de Roumanie"
      },
      "sources": [
       "cliopatria"
@@ -33912,7 +33912,7 @@
       "en": "Kingdom of Iceland",
       "de": "Königreich Island",
       "es": "Reino de Islandia",
-      "fr": "royaume d'Islande"
+      "fr": "Royaume d'Islande"
      },
      "sources": [
       "cliopatria"
@@ -36995,7 +36995,7 @@
     "en": "Liao dynasty",
     "de": "Liao-Dynastie",
     "es": "Dinastía Liao",
-    "fr": "dynastie liao"
+    "fr": "Dynastie Liao"
    },
    "color": "#6a8ac0",
    "from": 911,
@@ -37009,7 +37009,7 @@
       "en": "Liao dynasty",
       "de": "Liao-Dynastie",
       "es": "Dinastía Liao",
-      "fr": "dynastie liao"
+      "fr": "Dynastie Liao"
      },
      "sources": [
       "cliopatria"
@@ -37085,7 +37085,7 @@
     "en": "Kingdom of Hungary",
     "de": "Königreich Ungarn",
     "es": "Reino de Hungría",
-    "fr": "royaume de Hongrie"
+    "fr": "Royaume de Hongrie"
    },
    "color": "#c05a4a",
    "from": 1000,
@@ -37099,7 +37099,7 @@
       "en": "Kingdom of Hungary",
       "de": "Königreich Ungarn",
       "es": "Reino de Hungría",
-      "fr": "royaume de Hongrie"
+      "fr": "Royaume de Hongrie"
      },
      "sources": [
       "cliopatria"
@@ -37115,7 +37115,7 @@
     "en": "Kingdom of France",
     "de": "Königreich Frankreich",
     "es": "Reino de Francia",
-    "fr": "royaume de France"
+    "fr": "Royaume de France"
    },
    "color": "#4a6ac0",
    "from": 990,
@@ -37189,7 +37189,7 @@
       "en": "Kingdom of France",
       "de": "Königreich Frankreich",
       "es": "Reino de Francia",
-      "fr": "royaume de France"
+      "fr": "Royaume de France"
      },
      "sources": [
       "cliopatria"
@@ -37216,7 +37216,7 @@
     "en": "Kingdom of England",
     "de": "Königreich England",
     "es": "Reino de Inglaterra",
-    "fr": "royaume d'Angleterre"
+    "fr": "Royaume d'Angleterre"
    },
    "color": "#c04a6a",
    "from": 936,
@@ -37230,7 +37230,7 @@
       "en": "Kingdom of England",
       "de": "Königreich England",
       "es": "Reino de Inglaterra",
-      "fr": "royaume d'Angleterre"
+      "fr": "Royaume d'Angleterre"
      },
      "sources": [
       "cliopatria"
@@ -37246,7 +37246,7 @@
     "en": "Old Kingdom of Norway",
     "de": "Königreich Norwegen",
     "es": "Reino de Noruega",
-    "fr": "royaume de Norvège (872-1397)"
+    "fr": "Royaume de Norvège"
    },
    "color": "#4a8a9a",
    "from": 866,
@@ -37260,7 +37260,7 @@
       "en": "Old Kingdom of Norway",
       "de": "Königreich Norwegen",
       "es": "Reino de Noruega",
-      "fr": "royaume de Norvège (872-1397)"
+      "fr": "Royaume de Norvège"
      },
      "sources": [
       "cliopatria"
@@ -37409,7 +37409,7 @@
     "en": "Almohad Caliphate",
     "de": "Almohaden-Kalifat",
     "es": "Imperio almohade",
-    "fr": "califat almohade"
+    "fr": "Califat almohade"
    },
    "color": "#a05a8a",
    "from": 1139,
@@ -37466,7 +37466,7 @@
       "en": "Almohad Caliphate",
       "de": "Almohaden-Kalifat",
       "es": "Imperio almohade",
-      "fr": "califat almohade"
+      "fr": "Califat almohade"
      },
      "sources": [
       "cliopatria"
@@ -37482,7 +37482,7 @@
     "en": "Caliphate of Córdoba",
     "de": "Kalifat von Córdoba",
     "es": "Califato de Córdoba",
-    "fr": "califat de Cordoue"
+    "fr": "Califat de Cordoue"
    },
    "color": "#7a9a3a",
    "from": 936,
@@ -37496,7 +37496,7 @@
       "en": "Caliphate of Córdoba",
       "de": "Kalifat von Córdoba",
       "es": "Califato de Córdoba",
-      "fr": "califat de Cordoue"
+      "fr": "Califat de Cordoue"
      },
      "sources": [
       "cliopatria"
@@ -37675,7 +37675,7 @@
     "en": "Mamluk Sultanate",
     "de": "Sultanat der Mameluken",
     "es": "Sultanato mameluco de Egipto",
-    "fr": "sultanat mamelouk d'Égypte"
+    "fr": "Sultanat mamelouk d'Égypte"
    },
    "color": "#a0804a",
    "from": 1241,
@@ -37689,7 +37689,7 @@
       "en": "Mamluk Sultanate",
       "de": "Sultanat der Mameluken",
       "es": "Sultanato mameluco de Egipto",
-      "fr": "sultanat mamelouk d'Égypte"
+      "fr": "Sultanat mamelouk d'Égypte"
      },
      "sources": [
       "cliopatria"
@@ -37705,7 +37705,7 @@
     "en": "Kingdom of Denmark",
     "de": "Königreich Dänemark",
     "es": "Reino de Dinamarca",
-    "fr": "royaume de Danemark"
+    "fr": "Royaume de Danemark"
    },
    "color": "#c05a6a",
    "from": 936,
@@ -37719,7 +37719,7 @@
       "en": "Kingdom of Denmark",
       "de": "Königreich Dänemark",
       "es": "Reino de Dinamarca",
-      "fr": "royaume de Danemark"
+      "fr": "Royaume de Danemark"
      },
      "sources": [
       "cliopatria"
@@ -37733,7 +37733,7 @@
       "en": "Denmark–Norway",
       "de": "Dänemark-Norwegen",
       "es": "Reino de Dinamarca y Noruega",
-      "fr": "royaume de Danemark et de Norvège"
+      "fr": "Royaume de Danemark et de Norvège"
      },
      "sources": [
       "cliopatria"
@@ -37793,7 +37793,7 @@
     "en": "Grand Principality of Moscow",
     "de": "Großfürstentum Moskau",
     "es": "Principado de Moscú",
-    "fr": "grande-principauté de Moscou"
+    "fr": "Grande-principauté de Moscou"
    },
    "color": "#8a5ab0",
    "from": 1294,
@@ -37807,7 +37807,7 @@
       "en": "Grand Principality of Moscow",
       "de": "Großfürstentum Moskau",
       "es": "Principado de Moscú",
-      "fr": "grande-principauté de Moscou"
+      "fr": "Grande-principauté de Moscou"
      },
      "sources": [
       "cliopatria"
@@ -37823,7 +37823,7 @@
     "en": "Grand Duchy of Lithuania",
     "de": "Großfürstentum Litauen",
     "es": "Gran Ducado de Lituania",
-    "fr": "grand-duché de Lituanie"
+    "fr": "Grand-duché de Lituanie"
    },
    "color": "#5aa07a",
    "from": 1220,
@@ -37837,7 +37837,7 @@
       "en": "Grand Duchy of Lithuania",
       "de": "Großfürstentum Litauen",
       "es": "Gran Ducado de Lituania",
-      "fr": "grand-duché de Lituanie"
+      "fr": "Grand-duché de Lituanie"
      },
      "sources": [
       "cliopatria"
@@ -37853,7 +37853,7 @@
     "en": "Crown of Castile",
     "de": "Kastilien",
     "es": "Corona de Castilla",
-    "fr": "couronne de Castille"
+    "fr": "Couronne de Castille"
    },
    "color": "#c0a04a",
    "from": 1236,
@@ -37867,7 +37867,7 @@
       "en": "Crown of Castile",
       "de": "Kastilien",
       "es": "Corona de Castilla",
-      "fr": "couronne de Castille"
+      "fr": "Couronne de Castille"
      },
      "sources": [
       "cliopatria"
@@ -38123,7 +38123,7 @@
     "en": "Visigothic Kingdom",
     "de": "Westgotenreich",
     "es": "Reino visigodo",
-    "fr": "royaume des Wisigoths"
+    "fr": "Royaume des Wisigoths"
    },
    "color": "#a06a4a",
    "from": 426,
@@ -38137,7 +38137,7 @@
       "en": "Visigothic Kingdom",
       "de": "Westgotenreich",
       "es": "Reino visigodo",
-      "fr": "royaume des Wisigoths"
+      "fr": "Royaume des Wisigoths"
      },
      "sources": [
       "cliopatria"
@@ -38153,7 +38153,7 @@
     "en": "Northern Yuan dynasty",
     "de": "Nördliche Yuan-Dynastie",
     "es": "Yuan del Norte",
-    "fr": "dynastie Yuan du Nord"
+    "fr": "Dynastie Yuan du Nord"
    },
    "color": "#7a6ab0",
    "from": 1375,
@@ -38167,7 +38167,7 @@
       "en": "Northern Yuan dynasty",
       "de": "Nördliche Yuan-Dynastie",
       "es": "Yuan del Norte",
-      "fr": "dynastie Yuan du Nord"
+      "fr": "Dynastie Yuan du Nord"
      },
      "sources": [
       "cliopatria"
@@ -38213,7 +38213,7 @@
     "en": "Emirate of Córdoba",
     "de": "Emirat von Córdoba",
     "es": "Emirato de Córdoba",
-    "fr": "émirat de Cordoue"
+    "fr": "Émirat de Cordoue"
    },
    "color": "#6a9a3a",
    "from": 757,
@@ -38227,7 +38227,7 @@
       "en": "Emirate of Córdoba",
       "de": "Emirat von Córdoba",
       "es": "Emirato de Córdoba",
-      "fr": "émirat de Cordoue"
+      "fr": "Émirat de Cordoue"
      },
      "sources": [
       "cliopatria"
@@ -38243,7 +38243,7 @@
     "en": "Sui dynasty",
     "de": "Sui-Dynastie",
     "es": "Dinastía Sui",
-    "fr": "dynastie Sui"
+    "fr": "Dynastie Sui"
    },
    "color": "#c0604a",
    "from": 587,
@@ -38257,7 +38257,7 @@
       "en": "Sui dynasty",
       "de": "Sui-Dynastie",
       "es": "Dinastía Sui",
-      "fr": "dynastie Sui"
+      "fr": "Dynastie Sui"
      },
      "sources": [
       "cliopatria"
@@ -38273,7 +38273,7 @@
     "en": "Hephthalites",
     "de": "Hephthaliten",
     "es": "Heftalitas",
-    "fr": "Shvetahûna"
+    "fr": "Hephtalites"
    },
    "color": "#8a7a5a",
    "from": 410,
@@ -38287,7 +38287,7 @@
       "en": "Hephthalites",
       "de": "Hephthaliten",
       "es": "Heftalitas",
-      "fr": "Shvetahûna"
+      "fr": "Hephtalites"
      },
      "sources": [
       "cliopatria"
@@ -38303,7 +38303,7 @@
     "en": "Southern Qi",
     "de": "Südliche Qi-Dynastie",
     "es": "Dinastía Qi del Sur",
-    "fr": "dynastie Qi du Sud"
+    "fr": "Dynastie Qi du Sud"
    },
    "color": "#5a8a6a",
    "from": 480,
@@ -38317,7 +38317,7 @@
       "en": "Southern Qi",
       "de": "Südliche Qi-Dynastie",
       "es": "Dinastía Qi del Sur",
-      "fr": "dynastie Qi du Sud"
+      "fr": "Dynastie Qi du Sud"
      },
      "sources": [
       "cliopatria"
@@ -38393,7 +38393,7 @@
     "en": "Jin dynasty",
     "de": "Jin-Dynastie",
     "es": "Dinastía Jin",
-    "fr": "dynastie Jin"
+    "fr": "Dynastie Jin"
    },
    "color": "#b08a3a",
    "from": 1126,
@@ -38407,7 +38407,7 @@
       "en": "Jin dynasty",
       "de": "Jin-Dynastie",
       "es": "Dinastía Jin",
-      "fr": "dynastie Jin"
+      "fr": "Dynastie Jin"
      },
      "sources": [
       "cliopatria"
@@ -38432,7 +38432,7 @@
       "en": "Western Xia",
       "de": "Westliche Xia",
       "es": "Imperio tangut",
-      "fr": "dynastie des Xia occidentaux"
+      "fr": "Dynastie des Xia occidentaux"
      },
      "relation": "vassalage",
      "from": 1126,
@@ -38460,7 +38460,7 @@
     "en": "Qocho",
     "de": "Reich von Kocho",
     "es": "Reino Uigur de Qocho",
-    "fr": "Royaume Ouïghour de Qocho"
+    "fr": "Royaume ouïghour de Qocho"
    },
    "color": "#4a9ab0",
    "from": 860,
@@ -38474,7 +38474,7 @@
       "en": "Qocho",
       "de": "Reich von Kocho",
       "es": "Reino Uigur de Qocho",
-      "fr": "Royaume Ouïghour de Qocho"
+      "fr": "Royaume ouïghour de Qocho"
      },
      "sources": [
       "cliopatria"
@@ -38700,7 +38700,7 @@
     "en": "Vakataka empire",
     "de": "Vakataka",
     "es": "Dinastia Vakataka",
-    "fr": "empire Vakataka"
+    "fr": "Empire Vakataka"
    },
    "color": "#a0604a",
    "from": 260,
@@ -38714,7 +38714,7 @@
       "en": "Vakataka empire",
       "de": "Vakataka",
       "es": "Dinastia Vakataka",
-      "fr": "empire Vakataka"
+      "fr": "Empire Vakataka"
      },
      "sources": [
       "cliopatria"
@@ -38730,7 +38730,7 @@
     "en": "Northern Wei",
     "de": "Nördliche Wei-Dynastie",
     "es": "Dinastía Wei del Norte",
-    "fr": "dynastie Wei du Nord"
+    "fr": "Dynastie Wei du Nord"
    },
    "color": "#5a7a9a",
    "from": 387,
@@ -38744,7 +38744,7 @@
       "en": "Northern Wei",
       "de": "Nördliche Wei-Dynastie",
       "es": "Dinastía Wei del Norte",
-      "fr": "dynastie Wei du Nord"
+      "fr": "Dynastie Wei du Nord"
      },
      "sources": [
       "cliopatria"
@@ -38790,7 +38790,7 @@
     "en": "Principality of Galicia–Volhynia",
     "de": "Fürstentum Galizien-Wolhynien",
     "es": "Principado de Galicia-Volynia",
-    "fr": "principauté de Galicie-Volhynie"
+    "fr": "Principauté de Galicie-Volhynie"
    },
    "color": "#7a5a9a",
    "from": 1056,
@@ -38804,7 +38804,7 @@
       "en": "Principality of Galicia–Volhynia",
       "de": "Fürstentum Galizien-Wolhynien",
       "es": "Principado de Galicia-Volynia",
-      "fr": "principauté de Galicie-Volhynie"
+      "fr": "Principauté de Galicie-Volhynie"
      },
      "sources": [
       "cliopatria"
@@ -38910,7 +38910,7 @@
     "en": "Principality of Moldavia",
     "de": "Fürstentum Moldau",
     "es": "Principado de Moldavia",
-    "fr": "principauté de Moldavie"
+    "fr": "Principauté de Moldavie"
    },
    "color": "#5a9a7a",
    "from": 1363,
@@ -38924,7 +38924,7 @@
       "en": "Principality of Moldavia",
       "de": "Fürstentum Moldau",
       "es": "Principado de Moldavia",
-      "fr": "principauté de Moldavie"
+      "fr": "Principauté de Moldavie"
      },
      "sources": [
       "cliopatria"
@@ -38940,7 +38940,7 @@
     "en": "Rashidun Caliphate",
     "de": "Kalifat der Raschidun",
     "es": "Califato ortodoxo",
-    "fr": "califat Rachidun"
+    "fr": "Califat Rachidun"
    },
    "color": "#7a9a5a",
    "from": 633,
@@ -38954,7 +38954,7 @@
       "en": "Rashidun Caliphate",
       "de": "Kalifat der Raschidun",
       "es": "Califato ortodoxo",
-      "fr": "califat Rachidun"
+      "fr": "Califat Rachidun"
      },
      "sources": [
       "cliopatria"
@@ -39120,7 +39120,7 @@
     "en": "Tughlaq dynasty",
     "de": "Tughluq-Dynastie",
     "es": "Dinastía tughlaq",
-    "fr": "dynastie des Tughlûq"
+    "fr": "Dynastie des Tughlûq"
    },
    "color": "#4a9a6a",
    "from": 1326,
@@ -39134,7 +39134,7 @@
       "en": "Tughlaq dynasty",
       "de": "Tughluq-Dynastie",
       "es": "Dinastía tughlaq",
-      "fr": "dynastie des Tughlûq"
+      "fr": "Dynastie des Tughlûq"
      },
      "sources": [
       "cliopatria"
@@ -39180,7 +39180,7 @@
     "en": "Western Xia",
     "de": "Westliche Xia",
     "es": "Imperio tangut",
-    "fr": "dynastie des Xia occidentaux"
+    "fr": "Dynastie des Xia occidentaux"
    },
    "color": "#9a5a4a",
    "from": 990,
@@ -39194,7 +39194,7 @@
       "en": "Western Xia",
       "de": "Westliche Xia",
       "es": "Imperio tangut",
-      "fr": "dynastie des Xia occidentaux"
+      "fr": "Dynastie des Xia occidentaux"
      },
      "sources": [
       "cliopatria"
@@ -39300,7 +39300,7 @@
     "en": "Ostrogothic Kingdom",
     "de": "Ostgotenreich",
     "es": "Reino ostrogodo de Italia",
-    "fr": "royaume des Ostrogoths"
+    "fr": "Royaume des Ostrogoths"
    },
    "color": "#9a6a5a",
    "from": 500,
@@ -39314,7 +39314,7 @@
       "en": "Ostrogothic Kingdom",
       "de": "Ostgotenreich",
       "es": "Reino ostrogodo de Italia",
-      "fr": "royaume des Ostrogoths"
+      "fr": "Royaume des Ostrogoths"
      },
      "sources": [
       "cliopatria"
@@ -39360,7 +39360,7 @@
     "en": "Jin dynasty (266–420)",
     "de": "Jin-Dynastie (266–420)",
     "es": "Dinastía Jin (266–420)",
-    "fr": "dynastie Jin (266–420)"
+    "fr": "Dynastie Jin (266–420)"
    },
    "color": "#c08a5a",
    "from": 265,
@@ -39374,7 +39374,7 @@
       "en": "Jin dynasty (266–420)",
       "de": "Jin-Dynastie (266–420)",
       "es": "Dinastía Jin (266–420)",
-      "fr": "dynastie Jin (266–420)"
+      "fr": "Dynastie Jin (266–420)"
      },
      "sources": [
       "cliopatria"
@@ -39450,7 +39450,7 @@
     "en": "Kingdom of Kush",
     "de": "Reich von Kusch",
     "es": "Reino de Kush",
-    "fr": "royaume de Koush"
+    "fr": "Royaume de Koush"
    },
    "color": "#a0603a",
    "from": -1000,
@@ -39464,7 +39464,7 @@
       "en": "Kingdom of Kush",
       "de": "Reich von Kusch",
       "es": "Reino de Kush",
-      "fr": "royaume de Koush"
+      "fr": "Royaume de Koush"
      },
      "sources": [
       "cliopatria"
@@ -39480,7 +39480,7 @@
     "en": "Ptolemaic Kingdom",
     "de": "Ptolemäisches Königreich",
     "es": "Egipto tolemaico",
-    "fr": "royaume ptolémaïque"
+    "fr": "Royaume ptolémaïque"
    },
    "color": "#4a7ab0",
    "from": -304,
@@ -39494,7 +39494,7 @@
       "en": "Ptolemaic Kingdom",
       "de": "Ptolemäisches Königreich",
       "es": "Egipto tolemaico",
-      "fr": "royaume ptolémaïque"
+      "fr": "Royaume ptolémaïque"
      },
      "sources": [
       "cliopatria"
@@ -39630,7 +39630,7 @@
     "en": "Pagan kingdom",
     "de": "Königreich von Bagan",
     "es": "Reino de Pagan",
-    "fr": "royaume de Pagan"
+    "fr": "Royaume de Pagan"
    },
    "color": "#9aa04a",
    "from": 850,
@@ -39644,7 +39644,7 @@
       "en": "Pagan kingdom",
       "de": "Königreich von Bagan",
       "es": "Reino de Pagan",
-      "fr": "royaume de Pagan"
+      "fr": "Royaume de Pagan"
      },
      "sources": [
       "cliopatria"
@@ -39690,7 +39690,7 @@
     "en": "Chola Empire",
     "de": "Chola Empire",
     "es": "Imperio Chola",
-    "fr": "empire Chola"
+    "fr": "Empire Chola"
    },
    "color": "#c0704a",
    "from": 850,
@@ -39704,7 +39704,7 @@
       "en": "Chola Empire",
       "de": "Chola Empire",
       "es": "Imperio Chola",
-      "fr": "empire Chola"
+      "fr": "Empire Chola"
      },
      "sources": [
       "cliopatria"

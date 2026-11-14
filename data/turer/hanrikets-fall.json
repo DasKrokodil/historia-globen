@@ -5,7 +5,7 @@
   "title": {
     "sv": "Hur föll Hanriket?",
     "en": "How did the Han Empire fall?",
-    "fr": "Comment l'Empire Han est-il tombé ?",
+    "fr": "Comment l'Empire Han est-il tombé ?",
     "de": "Wie fiel das Han-Reich?",
     "es": "¿Cómo cayó el Imperio Han?"
   },
@@ -28,7 +28,7 @@
           "en": "Linked to Lgr22, history in years 7–9, Social transformations: advanced civilisations in different parts of the world, here China in Asia. The tour shows how such an empire fell.",
           "de": "Bezogen auf Lgr22, Geschichte in den Klassen 7–9, gesellschaftlicher Wandel: Hochkulturen in verschiedenen Teilen der Welt, hier China in Asien. Die Tour zeigt, wie ein solches Reich fiel.",
           "es": "Vinculado a Lgr22, historia en los cursos 7–9, transformaciones sociales: altas culturas en distintas partes del mundo, aquí China, en Asia. El recorrido muestra cómo cayó un imperio así.",
-          "fr": "En lien avec Lgr22, histoire en classes 7 à 9, transformations des sociétés : les grandes civilisations dans différentes parties du monde, ici la Chine en Asie. La visite montre comment un tel empire est tombé."
+          "fr": "En lien avec Lgr22 (le programme suédois de l'école obligatoire), histoire en classes 7 à 9 (numérotation suédoise), transformations des sociétés : les grandes civilisations dans différentes parties du monde, ici la Chine en Asie. La visite montre comment un tel empire est tombé."
         },
         "sources": [
           "skolverket-lgr22-historia"
@@ -96,7 +96,7 @@
       "text": {
         "sv": "Gula turbanernas uppror bryter ut 184 och kastar landet in i oro. Källorna beskriver förloppet olika: enligt en pågår upproret till 205, enligt en annan slås huvudupproret ner inom ett år, men mindre uppror fortsätter i årtionden.",
         "en": "The Yellow Turban Rebellion breaks out in 184 and throws the country into turmoil. The sources describe its course differently: according to one, the rebellion lasts until 205; according to another, the main rising is crushed within a year, but smaller uprisings continue for decades.",
-        "fr": "La révolte des Turbans jaunes éclate en 184 et plonge le pays dans le désordre. Les sources décrivent son déroulement différemment : selon l'une, la révolte dure jusqu'en 205 ; selon une autre, le soulèvement principal est écrasé en moins d'un an, mais de plus petites révoltes se poursuivent pendant des décennies.",
+        "fr": "La révolte des Turbans jaunes éclate en 184 et plonge le pays dans le désordre. Les sources décrivent son déroulement différemment : selon l'une, la révolte dure jusqu'en 205 ; selon une autre, le soulèvement principal est écrasé en moins d'un an, mais de plus petites révoltes se poursuivent pendant des décennies.",
         "de": "Der Aufstand der Gelben Turbane bricht 184 aus und stürzt das Land ins Chaos. Die Quellen beschreiben den Verlauf unterschiedlich: Nach der einen dauert der Aufstand bis 205, nach einer anderen wird der Hauptaufstand innerhalb eines Jahres niedergeschlagen, doch kleinere Erhebungen dauern noch Jahrzehnte an.",
         "es": "La rebelión de los Turbantes Amarillos estalla en 184 y sume al país en el desorden. Las fuentes describen su curso de forma distinta: según una, la rebelión dura hasta 205; según otra, el levantamiento principal es aplastado en menos de un año, pero continúan levantamientos menores durante décadas."
       },
@@ -175,7 +175,7 @@
       "question": {
         "sv": "Varför tror du att källorna oftare berättar om ämbetsmän än om bönder?",
         "en": "Why do you think the sources tell us about officials more often than about farmers?",
-        "fr": "Pourquoi pensez-vous que les sources parlent plus souvent des fonctionnaires que des paysans ?",
+        "fr": "Pourquoi pensez-vous que les sources parlent plus souvent des fonctionnaires que des paysans ?",
         "de": "Warum, glauben Sie, erzählen die Quellen häufiger von Beamten als von Bauern?",
         "es": "¿Por qué cree que las fuentes hablan más a menudo de los funcionarios que de los campesinos?"
       },
@@ -221,7 +221,7 @@
       "question": {
         "sv": "Varför kan det vara klokt att styra i kejsarens namn i stället för att ta titeln själv?",
         "en": "Why might it be wise to rule in the emperor's name instead of taking the title yourself?",
-        "fr": "Pourquoi peut-il être habile de gouverner au nom de l'empereur plutôt que de prendre soi-même le titre ?",
+        "fr": "Pourquoi peut-il être habile de gouverner au nom de l'empereur plutôt que de prendre soi-même le titre ?",
         "de": "Warum kann es klug sein, im Namen des Kaisers zu regieren, statt den Titel selbst anzunehmen?",
         "es": "¿Por qué puede ser inteligente gobernar en nombre del emperador en lugar de tomar uno mismo el título?"
       },
