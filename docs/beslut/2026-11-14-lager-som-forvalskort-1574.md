@@ -9,7 +9,7 @@
 - **Raderna förklarar vad lagret gör på kartan**, inte vilket märke det har på tidslinjen: Händelser ("markörer på kartan för det som hände"), Samtidigt-kortet ("kortet som visar vad som hände samtidigt på olika håll") och Resor och handelsvägar ("… som linjer på kartan · streckad = osäker väg"). Övriga rader hade redan en beskrivning av vad lagret gör.
 
 ## Inte gjort (kvar i #1574, steg 4)
-- **Inställningarna** (Lugn rörelse, Pausa uppspelningen vid) ligger kvar i Lager under Kategorier. Att flytta dem till Mer › Inställningar kräver en ny yta och att `LayerMenu` slutar läsa `data-pause` och `data-calm` ur menyn; det görs i en egen omgång.
+- **Inställningarna** flyttades i en egen omgång, se [2026-11-14-installningar-i-mer-1574.md](2026-11-14-installningar-i-mer-1574.md).
 - **Kategorierna** (14 piller) är inte hopfällda som en egen grupp.
 
 ## Berör
