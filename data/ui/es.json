@@ -473,6 +473,7 @@
   "panel.overviewNote": "Resumen: una selección, unos {count} acontecimientos.",
   "panel.overviewAll": "Mostrar todos",
   "panel.overviewAllLabel": "Mostrar todos los acontecimientos en lugar de la selección",
+  "view.progressNote": ["Esta vista solo muestra los acontecimientos que la propia fuente describe como progreso. Por ahora hay {count} acontecimiento.", "Esta vista solo muestra los acontecimientos que la propia fuente describe como progreso. Por ahora hay {count} acontecimientos."],
   "panel.showLessIn": "{label} en {region}",
   "detail.loading": "Cargando…",
   "detail.source": "Fuente:",

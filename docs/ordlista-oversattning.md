@@ -85,6 +85,7 @@ Artigt tilltal i alla språk, så att tyska, spanska och franska är lika:
 | Grafisk symbol | Graphic symbol | Símbolo gráfico | Symbole graphique |
 | Visste du att …? | Did you know? | ¿Sabía que…? (artigt) | Le saviez-vous ? |
 | Översikt (vy) | Overview | Resumen | Aperçu |
+| Framsteg (vy och tagg, #555; förklaringsraden #1379 skriver samma ord, de: *Fortschritt*) | Progress | Progreso | Progrès |
 | Upptäcktsresor (vy och lager; inte kategorin) | Voyages of discovery | Viajes de descubrimiento | Grandes découvertes |
 | Föregående stopp / Nästa stopp (resa, #1380) | Previous stop / Next stop (de: *Vorherige Station* / *Nächste Station*) | Parada anterior / Parada siguiente | Étape précédente / Étape suivante |
 | Historia-globen (produktnamnet) | Historia-globen | Historia-globen | Historia-globen |

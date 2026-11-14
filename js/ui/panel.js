@@ -1,7 +1,7 @@
 // "Samtidigt i världen": lista över synliga händelser per världsdel, kategorifilter
 // (i lagermenyn, #120, och som chips ovanför listan, #311) och faktarutan.
 import { buildAreaCurve } from './areacurve.js';
-import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatOffset, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg, flagUrl, isVisibleReview, eventTags, needDetails, misconceptionsFor, roundWindow, groupDigits } from '../model.js';
+import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatOffset, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg, flagUrl, isVisibleReview, eventTags, needDetails, misconceptionsFor, roundWindow, groupDigits, tagViewNote } from '../model.js';
 import { ui, LANG, langAttr } from '../i18n.js';
 import { MIN_YEAR } from '../timeline.js';
 import { eventCitation } from './citation.js';
@@ -357,14 +357,18 @@ export class Panel {
     if (open) this.onOpen();
   }
 
-  /** Raden överst när vyn Översikt är på (#1139): ett urval, antalet räknat ur datan och en knapp till alla händelser. */
+  /**
+   * Raden överst när vyn Översikt (#1139) eller Framsteg (#1379) är på: vyn är ett urval, antalet räknas ur datan och en knapp
+   * går till alla händelser. Framsteg säger att vyn bara visar det källan själv beskriver som framsteg, och hur få de är.
+   */
   updateTagNote(eventsOn = true) {
     if (!this.tagNote) return;
-    const count = this.tagCounts.get('oversikt') ?? 0;
-    const on = eventsOn && this.tag === 'oversikt' && count > 0;
+    const count = this.tag ? this.tagCounts.get(this.tag) ?? 0 : 0;
+    const text = this.tag === 'oversikt' ? ui('panel.overviewNote', { count: overviewCount(count) }) : tagViewNote(this.tag, count);
+    const on = eventsOn && count > 0 && !!text;
     this.tagNote.hidden = !on;
     if (!on) return;
-    this.tagNoteText.textContent = ui('panel.overviewNote', { count: overviewCount(count) });
+    this.tagNoteText.textContent = text;
     this.tagNoteAll.textContent = ui('panel.overviewAll');
     this.tagNoteAll.setAttribute('aria-label', ui('panel.overviewAllLabel'));
   }

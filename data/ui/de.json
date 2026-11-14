@@ -473,6 +473,7 @@
   "panel.overviewNote": "Überblick: eine Auswahl, etwa {count} Ereignisse.",
   "panel.overviewAll": "Alle anzeigen",
   "panel.overviewAllLabel": "Alle Ereignisse statt der Auswahl anzeigen",
+  "view.progressNote": ["Diese Ansicht zeigt nur Ereignisse, die die Quelle selbst als Fortschritt beschreibt. Bisher gibt es {count} Ereignis.", "Diese Ansicht zeigt nur Ereignisse, die die Quelle selbst als Fortschritt beschreibt. Bisher gibt es {count} Ereignisse."],
   "panel.showLessIn": "{label} in {region}",
   "detail.loading": "Wird geladen…",
   "detail.source": "Quelle:",
