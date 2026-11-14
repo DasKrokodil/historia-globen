@@ -2704,6 +2704,12 @@
     {"id": "wd-what-is-enlightenment", "title": "Answering the Question: What Is Enlightenment? (Q812981) – Wikidata", "url": "https://www.wikidata.org/wiki/Q812981", "license": "CC0", "checked": "2026-11-14"},
     {"id": "wp-immanuel-kant", "title": "Immanuel Kant – Wikipedia", "url": "https://en.wikipedia.org/wiki/Immanuel_Kant", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
     {"id": "wp-papal-states", "title": "Papal States – Wikipedia", "url": "https://en.wikipedia.org/wiki/Papal_States", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
-    {"id": "wp-kingdom-of-prussia", "title": "Kingdom of Prussia – Wikipedia", "url": "https://en.wikipedia.org/wiki/Kingdom_of_Prussia", "license": "CC BY-SA 4.0", "checked": "2026-11-14"}
+    {"id": "wp-kingdom-of-prussia", "title": "Kingdom of Prussia – Wikipedia", "url": "https://en.wikipedia.org/wiki/Kingdom_of_Prussia", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    { "id": "wp-mount-mazama", "title": "Mount Mazama – Wikipedia", "url": "https://en.wikipedia.org/wiki/Mount_Mazama", "license": "CC BY-SA 4.0", "checked": "2026-11-14" },
+    { "id": "whitlock-2026-yellowstone", "title": "Whitlock m.fl. 2026: Postglacial ecosystem development of a hydrothermal landscape in Yellowstone National Park, PNAS (PMC13534540); askan från Mazama 7 584–7 682 år före 1950", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13534540/", "license": "CC BY-NC-ND 4.0: länkad källa, ingen text kopierad (beslut 2026-10-29)", "checked": "2026-11-14" },
+    { "id": "wp-budj-bim", "title": "Budj Bim – Wikipedia", "url": "https://en.wikipedia.org/wiki/Budj_Bim", "license": "CC BY-SA 4.0", "checked": "2026-11-14" },
+    { "id": "kavanagh-2026-budj-bim", "title": "Kavanagh m.fl. 2026: Complex eruption processes and deposits of basaltic fissures: insights from the ~37 ka Budj Bim volcanic complex, Southeastern Australia, Bulletin of Volcanology (PMC13038471)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13038471/", "license": "CC BY 4.0", "checked": "2026-11-14" },
+    { "id": "wp-taforalt", "title": "Taforalt – Wikipedia", "url": "https://en.wikipedia.org/wiki/Taforalt", "license": "CC BY-SA 4.0", "checked": "2026-11-14" },
+    { "id": "moubtahij-2024-taforalt", "title": "Moubtahij m.fl. 2024: Isotopic evidence of high reliance on plant food among Later Stone Age hunter-gatherers at Taforalt, Morocco, Nature Ecology & Evolution (PMC11090808)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11090808/", "license": "CC BY 4.0", "checked": "2026-11-14" }
   ]
 }

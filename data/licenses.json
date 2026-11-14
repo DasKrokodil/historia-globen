@@ -106,7 +106,9 @@
         "commons-bild-nederlandarna-till-dejima",
         "commons-bild-tambora-1815",
         "crevecoeur-2021-jebel-sahaba",
+        "kavanagh-2026-budj-bim",
         "librado-2021-horses",
+        "moubtahij-2024-taforalt",
         "oktaviana-2024-karampuang",
         "pmc-pecnerova-2017",
         "ucdp-brd-261",
@@ -142,7 +144,8 @@
       "sourceIds": [
         "mutin-2025-mehrgarh",
         "oktaviana-2026-muna",
-        "weber-2025-otzi"
+        "weber-2025-otzi",
+        "whitlock-2026-yellowstone"
       ]
     },
     {
@@ -561,6 +564,7 @@
         "wp-bucha-massacre",
         "wp-buddhas-of-bamiyan",
         "wp-buddhism",
+        "wp-budj-bim",
         "wp-budj-bim-heritage-areas",
         "wp-buenos-aires",
         "wp-bunei",
@@ -1524,6 +1528,7 @@
         "wp-mount-everest",
         "wp-mount-fuji",
         "wp-mount-lamington",
+        "wp-mount-mazama",
         "wp-mount-pelee-1902",
         "wp-mount-ruapehu",
         "wp-mount-tarawera",
@@ -2011,6 +2016,7 @@
         "wp-sydney-opera-house",
         "wp-syria",
         "wp-tabriz",
+        "wp-taforalt",
         "wp-taiping-heavenly-kingdom",
         "wp-taiping-rebellion",
         "wp-taj-mahal",
