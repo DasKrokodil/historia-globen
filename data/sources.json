@@ -2204,6 +2204,8 @@
     { "id": "surovell-2026-monte-verde", "title": "Surovell m.fl. 2026: A mid-Holocene age for Monte Verde challenges the timeline of human colonization of South America, Science (sammanfattningen i Europe PMC)", "url": "https://doi.org/10.1126/science.adw9217", "license": "Stängd artikel, länkad källa: bara sammanfattningen läst, ingen text kopierad (beslut 2026-11-12)", "checked": "2026-11-14" },
     { "id": "politis-2016-arroyo-seco", "title": "Politis m.fl. 2016: The Arrival of Homo sapiens into the Southern Cone at 14,000 Years Ago, PLOS ONE (Europe PMC PMC5040268)", "url": "https://doi.org/10.1371/journal.pone.0162870", "license": "CC BY (enligt Europe PMC)", "checked": "2026-11-14" },
     { "id": "prates-2020-sydamerika", "title": "Prates m.fl. 2020: Rapid radiation of humans in South America after the last glacial maximum: A radiocarbon-based study, PLOS ONE (Europe PMC PMC7375534)", "url": "https://doi.org/10.1371/journal.pone.0236023", "license": "CC BY (enligt Europe PMC)", "checked": "2026-11-14" },
+    { "id": "posth-2023-hunter-gatherers", "title": "Posth m.fl. 2023: Palaeogenomics of Upper Palaeolithic to Neolithic European hunter-gatherers, Nature (Europe PMC PMC9977688)", "url": "https://doi.org/10.1038/s41586-023-05726-0", "license": "CC BY (enligt Europe PMC)", "checked": "2026-11-14" },
+    { "id": "bradshaw-2021-sahul", "title": "Bradshaw m.fl. 2021: Stochastic models support rapid peopling of Late Pleistocene Sahul, Nat. Commun. (Europe PMC PMC8085232)", "url": "https://doi.org/10.1038/s41467-021-21551-3", "license": "CC BY (enligt Europe PMC)", "checked": "2026-11-14" },
     { "id": "gousset-2026-homo-luzonensis", "title": "Gousset m.fl. 2026: Homo luzonensis and the role of homoplasy in the morphology of hominin insular species, Cladistics (Europe PMC PMC13155073)", "url": "https://doi.org/10.1111/cla.70027", "license": "CC BY-NC (enligt Europe PMC), länkad källa: ingen text kopierad (beslut 2026-10-29)", "checked": "2026-11-13" },
     {"id": "wp-sv-hallristningarna-i-tanum", "title": "Hällristningsområdet i Tanum – Wikipedia", "url": "https://sv.wikipedia.org/wiki/H%C3%A4llristningsomr%C3%A5det_i_Tanum", "license": "CC BY-SA 4.0", "checked": "2026-11-13"},
     {"id": "wp-en-rock-carvings-in-tanum", "title": "Rock Carvings in Tanum – Wikipedia", "url": "https://en.wikipedia.org/wiki/Rock_Carvings_in_Tanum", "license": "CC BY-SA 4.0", "checked": "2026-11-13"},
@@ -2690,6 +2692,18 @@
     {"id": "wp-clt-brazil", "title": "Consolidation of Labor Laws – Wikipedia", "url": "https://en.wikipedia.org/wiki/Consolidation_of_Labor_Laws", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
     {"id": "wp-rio-de-janeiro", "title": "Rio de Janeiro – Wikipedia", "url": "https://en.wikipedia.org/wiki/Rio_de_Janeiro", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
     {"id": "wp-history-of-malaria", "title": "History of malaria – Wikipedia", "url": "https://en.wikipedia.org/wiki/History_of_malaria", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
-    {"id": "wp-anopheles-arabiensis", "title": "Anopheles arabiensis – Wikipedia", "url": "https://en.wikipedia.org/wiki/Anopheles_arabiensis", "license": "CC BY-SA 4.0", "checked": "2026-11-14"}
+    {"id": "wp-anopheles-arabiensis", "title": "Anopheles arabiensis – Wikipedia", "url": "https://en.wikipedia.org/wiki/Anopheles_arabiensis", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-renaissance", "title": "Renaissance – Wikipedia", "url": "https://en.wikipedia.org/wiki/Renaissance", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-age-of-enlightenment", "title": "Age of Enlightenment – Wikipedia", "url": "https://en.wikipedia.org/wiki/Age_of_Enlightenment", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-florence-cathedral", "title": "Florence Cathedral – Wikipedia", "url": "https://en.wikipedia.org/wiki/Florence_Cathedral", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-sistine-chapel-ceiling", "title": "Sistine Chapel ceiling – Wikipedia", "url": "https://en.wikipedia.org/wiki/Sistine_Chapel_ceiling", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wd-sistine-chapel-ceiling", "title": "Sistine Chapel ceiling (Q844675) – Wikidata", "url": "https://www.wikidata.org/wiki/Q844675", "license": "CC0", "checked": "2026-11-14"},
+    {"id": "wp-encyclopedie", "title": "Encyclopédie – Wikipedia", "url": "https://en.wikipedia.org/wiki/Encyclop%C3%A9die", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wd-encyclopedie", "title": "Encyclopédie (Q447) – Wikidata", "url": "https://www.wikidata.org/wiki/Q447", "license": "CC0", "checked": "2026-11-14"},
+    {"id": "wp-what-is-enlightenment", "title": "What Is Enlightenment? – Wikipedia", "url": "https://en.wikipedia.org/wiki/What_Is_Enlightenment%3F", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wd-what-is-enlightenment", "title": "Answering the Question: What Is Enlightenment? (Q812981) – Wikidata", "url": "https://www.wikidata.org/wiki/Q812981", "license": "CC0", "checked": "2026-11-14"},
+    {"id": "wp-immanuel-kant", "title": "Immanuel Kant – Wikipedia", "url": "https://en.wikipedia.org/wiki/Immanuel_Kant", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-papal-states", "title": "Papal States – Wikipedia", "url": "https://en.wikipedia.org/wiki/Papal_States", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-kingdom-of-prussia", "title": "Kingdom of Prussia – Wikipedia", "url": "https://en.wikipedia.org/wiki/Kingdom_of_Prussia", "license": "CC BY-SA 4.0", "checked": "2026-11-14"}
   ]
 }

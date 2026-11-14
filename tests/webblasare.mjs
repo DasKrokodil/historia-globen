@@ -6642,6 +6642,35 @@ async function run(browser, vp) {
     }
   });
 
+  // #1414: efter vågorna står Homo sapiens kvar som tolkade ytor utanför Afrika. Ingen tid mellan cirka 45 000 och
+  // 12 000 år sedan får se ut som att människor bara fanns i Afrika; listan (textalternativet) visar det som syns.
+  await check('människans spridning: Homo sapiens finns utanför Afrika efter vågorna (#1414)', async () => {
+    const tp = await context.newPage();
+    const errors = [];
+    tp.on('pageerror', e => errors.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+        await tp.route(u => isFont(u.href), r => r.abort());
+      }
+      const seen = [];
+      // X tusen år sedan = 2001 − 1000 · X (data/spridning.json)
+      for (const k of [44, 40, 30, 20, 13]) {
+        await tp.goto(`${BASE}?ny=1414-${k}#y=${2001 - 1000 * k}&l=spread`);
+        await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await tp.waitForSelector('#religion-legend .rl-spread', { state: 'attached', timeout: T.step });
+        const titles = await tp.evaluate(() => [...document.querySelectorAll('#religion-legend .rl-spread-head')].map(e => e.textContent));
+        const outside = titles.filter(t => /Homo sapiens i (Asien|Europa|Sahul|Amerika)|Europa (under|efter) istidens/.test(t));
+        if (!outside.length) throw new Error(`${k} 000 år sedan syns bara ${JSON.stringify(titles)}`);
+        seen.push(`${k}k: ${outside.length}`);
+      }
+      if (errors.length) throw new Error(`sidfel: ${errors[0]}`);
+      return `ytor utanför Afrika (${seen.join(', ')})`;
+    } finally {
+      await tp.close();
+    }
+  });
+
   // #1417: teckenförklaringens lista är kartans textalternativ. Varje post har en rubrik, så att en skärmläsare kan hoppa
   // mellan dem, och källänkarna har minst 24 × 24 px träffyta.
   await check('människans spridning: rubrik per post och källänkar på minst 24 × 24 px (#1417)', async () => {
@@ -7768,11 +7797,47 @@ async function run(browser, vp) {
       await wp.waitForSelector('#detail:not([hidden])', { timeout: T.step });
       const inClose = await wp.evaluate(() => document.activeElement?.matches('#detail [data-close]'));
       if (!inClose) throw new Error(`fokus gick inte till Stäng när faktarutan öppnades från listan: ${await wp.evaluate(() => document.activeElement?.id || document.activeElement?.tagName)}`);
+      // Diagnostik (#1436, ändrar inte vad som godkänns): ett spår över var fokus ligger efter Stäng, med tid, så att en röd
+      // kontroll i Firefox visar om fokus fastnade på det dolda Stäng-elementet, hamnade på något annat eller bara kom senare
+      // (ett mellanläge som kontrollens väntan fångade). Spåret läses bara när kontrollen redan har fallit.
+      await wp.evaluate(() => {
+        const d = el => {
+          if (!el) return 'null';
+          const one = e => `${e.tagName.toLowerCase()}${e.id ? `#${e.id}` : ''}${typeof e.className === 'string' && e.className.trim() ? `.${e.className.trim().split(/\s+/).join('.')}` : ''}${e.dataset?.id ? `[data-id=${e.dataset.id}]` : ''}`;
+          return `${one(el)}${el.closest('#detail') ? ' (i #detail)' : ''}${el.parentElement ? ` < ${one(el.parentElement)}` : ''}${el.isConnected ? '' : ' (utanför sidan)'}`;
+        };
+        const log = [], t0 = performance.now(), rafs = [];
+        const snap = why => { const s = d(document.activeElement); if (log[log.length - 1]?.s !== s) log.push({ t: Math.round(performance.now() - t0), why, s }); };
+        const onEvt = e => snap(e.type);
+        for (const t of ['focusin', 'focusout']) document.addEventListener(t, onEvt, true);
+        const timer = setInterval(() => snap('tid'), 10);
+        const raf = () => { rafs.push(Math.round(performance.now() - t0)); if (performance.now() - t0 < 4000) requestAnimationFrame(raf); };
+        requestAnimationFrame(raf);
+        window.__fokusSpar = { log, rafs, snap, stop: () => { clearInterval(timer); for (const t of ['focusin', 'focusout']) document.removeEventListener(t, onEvt, true); } };
+        snap('start');
+      });
       await wp.click('#detail [data-close]');
       await wp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
-      await wp.waitForFunction(() => document.activeElement && document.activeElement !== document.body, null, { timeout: 3000 });
-      const where = await wp.evaluate(() => ({ id: document.activeElement.id, data: document.activeElement.dataset?.id ?? null }));
-      if (where.id !== 'btn-panel' && where.data !== id) throw new Error(`fokus gick inte tillbaka till raden eller Samtidigt-knappen: ${JSON.stringify(where)}`);
+      // Vänta på det element fokus ska hamna på (#1436): raden eller Samtidigt-knappen. Förut väntade kontrollen bara på "inte body",
+      // men Firefox behåller det dolda Stäng-elementet som aktivt tills sidans requestAnimationFrame har flyttat fokus (1,7 s i en körning
+      // på CI, spåret nedan), så väntan släppte igenom det mellanläget. Påståendet är detsamma som förut (raden eller btn-panel); kommer
+      // fokus aldrig dit faller kontrollen som förut, med spåret.
+      await wp.waitForFunction(rowId => { const a = document.activeElement; return !!a && (a.id === 'btn-panel' || a.dataset?.id === rowId); }, id, { timeout: T.step }).catch(() => {});
+      const where = await wp.evaluate(() => ({ id: document.activeElement?.id ?? '', data: document.activeElement?.dataset?.id ?? null }));
+      if (where.id !== 'btn-panel' && where.data !== id) {
+        const diag = await wp.evaluate(async () => {
+          const sp = window.__fokusSpar;
+          if (!sp) return 'inget spår';
+          const okNow = () => { const a = document.activeElement; return !!a && (a.id === 'btn-panel' || a.closest?.('#event-list .event-btn')); };
+          const t1 = performance.now();
+          while (!okNow() && performance.now() - t1 < 2500) await new Promise(r => setTimeout(r, 25));
+          sp.snap('slut'); sp.stop();
+          const a = document.activeElement, det = document.getElementById('detail');
+          return `${okNow() ? `fokus låg på raden eller knappen när spåret lästes, ${Math.round(performance.now() - t1)} ms efter kontrollens läsning (väntan fångade alltså ett mellanläge)` : 'fokus kom inte till raden eller knappen inom 2,5 s till (stabilt fel i sidan, inte ett mellanläge)'} · ${JSON.stringify({ hasFocus: document.hasFocus(), detailHidden: det.hidden, detailContainsFokus: det.contains(a), panelHidden: document.getElementById('panel').hidden, narrow: matchMedia('(max-width: 760px)').matches, rader: document.querySelectorAll('#event-list .event-btn').length, ramar: sp.rafs.length })} · spår: ${sp.log.map(x => `${x.t} ms ${x.why}: ${x.s}`).join(' → ')}`;
+        });
+        throw new Error(`fokus gick inte tillbaka till raden eller Samtidigt-knappen: ${JSON.stringify(where)} · ${diag}`);
+      }
+      await wp.evaluate(() => window.__fokusSpar?.stop());
       if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
       return `pausad bakom Källor (${t0}), Escape stänger årshoppet, fokus tillbaka till ${where.id || 'raden'}`;
     } finally { await wp.close(); }

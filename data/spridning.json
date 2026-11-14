@@ -338,6 +338,398 @@
       "review": "source-checked"
     },
     {
+      "id": "sapiens-europa-tidigt",
+      "kind": "area",
+      "group": "sapiens",
+      "certainty": "tolkning",
+      "start": -42999,
+      "end": -22000,
+      "edtf": "Y-42999~/Y-22000~",
+      "radiusKm": 450,
+      "places": [
+        {
+          "event": "chauvetgrottan"
+        },
+        {
+          "coord": [
+            5.0089,
+            50.4467
+          ],
+          "wikidata": "Q3117255",
+          "name": "Goyet Caves"
+        },
+        {
+          "event": "lejonmanniskan"
+        },
+        {
+          "event": "ranis-zlaty-kun"
+        },
+        {
+          "coord": [
+            39.0517,
+            51.3858
+          ],
+          "wikidata": "Q4235785",
+          "name": "Kostyonki–Borshchyovo archaeological complex"
+        },
+        {
+          "coord": [
+            25.4303,
+            42.9467
+          ],
+          "wikidata": "Q4838907",
+          "name": "Bacho Kiro cave"
+        }
+      ],
+      "title": {
+        "sv": "Homo sapiens i Europa före istidens kallaste del",
+        "en": "Homo sapiens in Europe before the coldest part of the Ice Age",
+        "de": "Homo sapiens in Europa vor dem kältesten Abschnitt der Eiszeit",
+        "es": "Homo sapiens en Europa antes de la fase más fría de la glaciación",
+        "fr": "Homo sapiens en Europe avant la phase la plus froide de l’ère glaciaire"
+      },
+      "label": {
+        "sv": "Homo sapiens i Europa",
+        "en": "Homo sapiens in Europe",
+        "de": "Homo sapiens in Europa",
+        "es": "Homo sapiens en Europa",
+        "fr": "Homo sapiens en Europe"
+      },
+      "summary": {
+        "sv": "Homo sapiens fanns i Europa från minst 45 000 år sedan, till exempel i Ranis i Tyskland och Bacho Kiro i Bulgarien. De tidigaste grupperna lämnade nästan inget arv till människor som lever i dag. Senare grupper finns bland annat i Kostenki i västra Ryssland (cirka 37 000 år sedan) och i Goyet i Belgien (cirka 35 000 år sedan). Ytan är ritad runt fyndplatser och är ingen gräns.",
+        "en": "Homo sapiens lived in Europe from at least 45,000 years ago, for example at Ranis in Germany and Bacho Kiro in Bulgaria. The earliest groups left almost no ancestry in people living today. Later groups are known from Kostenki in western Russia (about 37,000 years ago) and Goyet in Belgium (about 35,000 years ago), among other places. The area is drawn around find sites and is not a border.",
+        "de": "Homo sapiens lebte ab mindestens vor 45.000 Jahren in Europa, zum Beispiel in Ranis in Deutschland und in Bacho Kiro in Bulgarien. Die frühesten Gruppen hinterließen bei heute lebenden Menschen fast kein Erbgut. Spätere Gruppen sind unter anderem aus Kostenki im Westen Russlands (vor etwa 37.000 Jahren) und aus Goyet in Belgien (vor etwa 35.000 Jahren) bekannt. Die Fläche ist um Fundorte gezeichnet und ist keine Grenze.",
+        "es": "Homo sapiens vivía en Europa desde hace al menos 45 000 años, por ejemplo en Ranis, en Alemania, y en Bacho Kiro, en Bulgaria. Los primeros grupos casi no dejaron herencia en las personas que viven hoy. Se conocen grupos posteriores en Kostenki, en el oeste de Rusia (hace unos 37 000 años), y en Goyet, en Bélgica (hace unos 35 000 años), entre otros lugares. El área está dibujada alrededor de yacimientos y no es una frontera.",
+        "fr": "Homo sapiens vivait en Europe depuis au moins 45 000 ans, par exemple à Ranis, en Allemagne, et à Bacho Kiro, en Bulgarie. Les premiers groupes n’ont laissé presque aucun héritage chez les personnes vivant aujourd’hui. Des groupes plus tardifs sont connus notamment à Kostenki, dans l’ouest de la Russie (il y a environ 37 000 ans), et à Goyet, en Belgique (il y a environ 35 000 ans). La zone est tracée autour de sites de découverte et n’est pas une frontière."
+      },
+      "sources": [
+        "posth-2023-hunter-gatherers",
+        "sumer-2025-ranis-genomes"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "sapiens-europa-istid",
+      "kind": "area",
+      "group": "sapiens",
+      "certainty": "tolkning",
+      "start": -21999,
+      "end": -17000,
+      "edtf": "Y-21999~/Y-17000~",
+      "radiusKm": 450,
+      "parts": [
+        [
+          {
+            "coord": [
+              -4.239,
+              40.24
+            ],
+            "wikidata": "Q12837",
+            "name": "Iberian Peninsula"
+          },
+          {
+            "event": "lascaux"
+          }
+        ],
+        [
+          {
+            "coord": [
+              14,
+              42
+            ],
+            "wikidata": "Q145694",
+            "name": "Italian Peninsula"
+          }
+        ],
+        [
+          {
+            "coord": [
+              22,
+              42
+            ],
+            "wikidata": "Q23522",
+            "name": "Balkans"
+          }
+        ]
+      ],
+      "title": {
+        "sv": "Europa under istidens kallaste del",
+        "en": "Europe during the coldest part of the Ice Age",
+        "de": "Europa im kältesten Abschnitt der Eiszeit",
+        "es": "Europa durante la fase más fría de la glaciación",
+        "fr": "L’Europe pendant la phase la plus froide de l’ère glaciaire"
+      },
+      "label": {
+        "sv": "Tillflykt i söder",
+        "en": "Refuges in the south",
+        "de": "Rückzugsgebiete im Süden",
+        "es": "Refugios en el sur",
+        "fr": "Refuges au sud"
+      },
+      "summary": {
+        "sv": "Under den kallaste delen av den senaste istiden minskade befolkningen i stora delar av Europa, och människor drog sig söderut. Solutréenkulturen på Iberiska halvön och i södra Frankrike, cirka 24 000–19 000 år sedan, visar det. Italienska halvön, Balkan och sydöstra delen av Östeuropeiska slätten är andra föreslagna tillflyktsområden, men hur mycket människorna där bidrog till senare befolkningar är omstritt. Ytan är ritad runt regioner och är ingen gräns.",
+        "en": "During the coldest part of the last Ice Age, the population declined in large parts of Europe and people withdrew to the south. The Solutrean culture in the Iberian Peninsula and southern France, about 24,000–19,000 years ago, shows this. The Italian Peninsula, the Balkans and the south-eastern part of the East European Plain are other proposed refuges, but how much the people there contributed to later populations is disputed. The area is drawn around regions and is not a border.",
+        "de": "Im kältesten Abschnitt der letzten Eiszeit ging die Bevölkerung in großen Teilen Europas zurück, und die Menschen zogen sich nach Süden zurück. Das zeigt das Solutréen auf der Iberischen Halbinsel und in Südfrankreich, vor etwa 24.000–19.000 Jahren. Die Italienische Halbinsel, der Balkan und der Südosten der Osteuropäischen Ebene sind weitere vermutete Rückzugsgebiete, doch wie viel die Menschen dort zu späteren Bevölkerungen beitrugen, ist umstritten. Die Fläche ist um Regionen gezeichnet und ist keine Grenze.",
+        "es": "Durante la fase más fría de la última glaciación, la población disminuyó en gran parte de Europa y las personas se retiraron hacia el sur. Así lo muestra la cultura solutrense en la península ibérica y el sur de Francia, hace entre unos 24 000 y 19 000 años. La península itálica, los Balcanes y el sureste de la llanura de Europa Oriental son otros refugios propuestos, pero se discute cuánto contribuyeron las personas de esas zonas a las poblaciones posteriores. El área está dibujada alrededor de regiones y no es una frontera.",
+        "fr": "Pendant la phase la plus froide de la dernière ère glaciaire, la population a diminué dans une grande partie de l’Europe et les humains se sont repliés vers le sud. La culture solutréenne, dans la péninsule Ibérique et le sud de la France, il y a environ 24 000 à 19 000 ans, en témoigne. La péninsule italienne, les Balkans et le sud-est de la plaine d’Europe orientale sont d’autres refuges proposés, mais la contribution des populations de ces régions aux populations ultérieures est discutée. La zone est tracée autour de régions et n’est pas une frontière."
+      },
+      "sources": [
+        "posth-2023-hunter-gatherers"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "sapiens-europa-efter-istid",
+      "kind": "area",
+      "group": "sapiens",
+      "certainty": "tolkning",
+      "start": -16999,
+      "end": -9999,
+      "edtf": "Y-16999~/Y-9999~",
+      "radiusKm": 450,
+      "parts": [
+        [
+          {
+            "coord": [
+              -4.239,
+              40.24
+            ],
+            "wikidata": "Q12837",
+            "name": "Iberian Peninsula"
+          },
+          {
+            "coord": [
+              2.537,
+              47.409
+            ],
+            "wikidata": "Q27496",
+            "name": "Western Europe"
+          },
+          {
+            "coord": [
+              10,
+              51
+            ],
+            "wikidata": "Q27509",
+            "name": "Central Europe"
+          }
+        ],
+        [
+          {
+            "coord": [
+              14,
+              42
+            ],
+            "wikidata": "Q145694",
+            "name": "Italian Peninsula"
+          },
+          {
+            "coord": [
+              22,
+              42
+            ],
+            "wikidata": "Q23522",
+            "name": "Balkans"
+          }
+        ]
+      ],
+      "title": {
+        "sv": "Europa efter istidens kallaste del",
+        "en": "Europe after the coldest part of the Ice Age",
+        "de": "Europa nach dem kältesten Abschnitt der Eiszeit",
+        "es": "Europa después de la fase más fría de la glaciación",
+        "fr": "L’Europe après la phase la plus froide de l’ère glaciaire"
+      },
+      "label": {
+        "sv": "Homo sapiens i Europa",
+        "en": "Homo sapiens in Europe",
+        "de": "Homo sapiens in Europa",
+        "es": "Homo sapiens en Europa",
+        "fr": "Homo sapiens en Europe"
+      },
+      "summary": {
+        "sv": "Efter den kallaste delen av istiden levde människor åter i större delar av Europa. Magdalénienkulturen, cirka 19 000–14 000 år sedan, fanns från Iberiska halvön genom Centraleuropa till Östeuropa. Epigravettienkulturen, cirka 24 000–12 000 år sedan, fanns från Italienska halvön över Balkan till sydöstra delen av Östeuropeiska slätten. För cirka 14 000 år sedan ersattes Magdalénienkulturens grupper nästan helt av andra grupper, enligt studier av forntida DNA. Ytan är ritad runt regioner och är ingen gräns.",
+        "en": "After the coldest part of the Ice Age, people again lived in larger parts of Europe. The Magdalenian culture, about 19,000–14,000 years ago, extended from the Iberian Peninsula through Central Europe to Eastern Europe. The Epigravettian culture, about 24,000–12,000 years ago, extended from the Italian Peninsula across the Balkans to the south-eastern part of the East European Plain. About 14,000 years ago, the Magdalenian groups were almost completely replaced by other groups, according to studies of ancient DNA. The area is drawn around regions and is not a border.",
+        "de": "Nach dem kältesten Abschnitt der Eiszeit lebten Menschen wieder in größeren Teilen Europas. Das Magdalénien, vor etwa 19.000–14.000 Jahren, reichte von der Iberischen Halbinsel durch Mitteleuropa bis nach Osteuropa. Das Epigravettien, vor etwa 24.000–12.000 Jahren, reichte von der Italienischen Halbinsel über den Balkan bis in den Südosten der Osteuropäischen Ebene. Vor etwa 14.000 Jahren wurden die Gruppen des Magdalénien nach Studien alter DNA fast vollständig durch andere Gruppen ersetzt. Die Fläche ist um Regionen gezeichnet und ist keine Grenze.",
+        "es": "Después de la fase más fría de la glaciación, las personas volvieron a vivir en zonas más amplias de Europa. La cultura magdaleniense, hace entre unos 19 000 y 14 000 años, se extendía desde la península ibérica, a través de Europa Central, hasta Europa Oriental. La cultura epigravetiense, hace entre unos 24 000 y 12 000 años, se extendía desde la península itálica, a través de los Balcanes, hasta el sureste de la llanura de Europa Oriental. Hace unos 14 000 años, los grupos magdalenienses fueron sustituidos casi por completo por otros grupos, según estudios de ADN antiguo. El área está dibujada alrededor de regiones y no es una frontera.",
+        "fr": "Après la phase la plus froide de l’ère glaciaire, les humains vivaient de nouveau dans une plus grande partie de l’Europe. Le Magdalénien, il y a environ 19 000 à 14 000 ans, s’étendait de la péninsule Ibérique à l’Europe de l’Est en passant par l’Europe centrale. L’Épigravettien, il y a environ 24 000 à 12 000 ans, s’étendait de la péninsule italienne au sud-est de la plaine d’Europe orientale en passant par les Balkans. Il y a environ 14 000 ans, les groupes magdaléniens ont été presque entièrement remplacés par d’autres groupes, selon des études d’ADN ancien. La zone est tracée autour de régions et n’est pas une frontière."
+      },
+      "sources": [
+        "posth-2023-hunter-gatherers"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "sapiens-asien",
+      "kind": "area",
+      "group": "sapiens",
+      "certainty": "tolkning",
+      "start": -42999,
+      "end": -9999,
+      "edtf": "Y-42999~/Y-9999~",
+      "radiusKm": 550,
+      "parts": [
+        [
+          {
+            "coord": [
+              47,
+              33.667
+            ],
+            "wikidata": "Q167021",
+            "name": "Zagros Mountains"
+          },
+          {
+            "event": "denisovaner"
+          }
+        ],
+        [
+          {
+            "event": "denisovaner"
+          },
+          {
+            "coord": [
+              115.8714,
+              39.6578
+            ],
+            "wikidata": "Q2431206",
+            "name": "Tianyuan Cave"
+          }
+        ],
+        [
+          {
+            "coord": [
+              47,
+              33.667
+            ],
+            "wikidata": "Q167021",
+            "name": "Zagros Mountains"
+          },
+          {
+            "coord": [
+              82.0097,
+              24.4993
+            ],
+            "coordSource": "clarkson-2020-dhaba",
+            "name": "Dhaba 1"
+          },
+          {
+            "coord": [
+              80.2,
+              6.6333
+            ],
+            "coordSource": "wedage-2019-fa-hien-lena",
+            "name": "Fa-Hien Lena"
+          }
+        ],
+        [
+          {
+            "coord": [
+              82.0097,
+              24.4993
+            ],
+            "coordSource": "clarkson-2020-dhaba",
+            "name": "Dhaba 1"
+          },
+          {
+            "event": "xianrendong-keramik"
+          }
+        ],
+        [
+          {
+            "coord": [
+              82.0097,
+              24.4993
+            ],
+            "coordSource": "clarkson-2020-dhaba",
+            "name": "Dhaba 1"
+          },
+          {
+            "event": "tam-pa-ling"
+          },
+          {
+            "coord": [
+              114,
+              -1
+            ],
+            "wikidata": "Q36117",
+            "name": "Borneo"
+          }
+        ],
+        [
+          {
+            "coord": [
+              80.2,
+              6.6333
+            ],
+            "coordSource": "wedage-2019-fa-hien-lena",
+            "name": "Fa-Hien Lena"
+          },
+          {
+            "coord": [
+              114,
+              -1
+            ],
+            "wikidata": "Q36117",
+            "name": "Borneo"
+          },
+          {
+            "coord": [
+              125.083,
+              -9.083
+            ],
+            "wikidata": "Q83067",
+            "name": "Timor"
+          }
+        ],
+        [
+          {
+            "coord": [
+              115.8714,
+              39.6578
+            ],
+            "wikidata": "Q2431206",
+            "name": "Tianyuan Cave"
+          },
+          {
+            "event": "xianrendong-keramik"
+          },
+          {
+            "coord": [
+              114,
+              -1
+            ],
+            "wikidata": "Q36117",
+            "name": "Borneo"
+          }
+        ]
+      ],
+      "title": {
+        "sv": "Homo sapiens i Asien",
+        "en": "Homo sapiens in Asia",
+        "de": "Homo sapiens in Asien",
+        "es": "Homo sapiens en Asia",
+        "fr": "Homo sapiens en Asie"
+      },
+      "summary": {
+        "sv": "Från cirka 45 000 år sedan fanns Homo sapiens på många håll i Asien. Spår finns bland annat i Denisovagrottan i Altaj (från minst 45 000 år sedan och igen för cirka 25 000–20 000 år sedan), i Tianyuangrottan i Kina (en människa som levde för cirka 40 000 år sedan), i Dhaba i Indien (små stenredskap från cirka 48 000 år sedan, och allt färre efter cirka 37 000 år sedan), i grottan Fa-Hien Lena på Sri Lanka (redskap från cirka 48 000–45 000 till 4 000 år sedan), på Timor (från cirka 44 000 år sedan) och i Xianrendong i södra Kina (keramik från 20 000–19 000 år sedan). Havet stod lägre än i dag, och mycket av det som nu är hav mellan Sydostasiens öar var land, kontinenten Sunda. Kusterna på kartan är dagens. Ytan är ritad runt fyndplatser och regioner, visar inte var människor saknades och är ingen gräns.",
+        "en": "From about 45,000 years ago, Homo sapiens lived in many parts of Asia. Traces have been found at Denisova Cave in the Altai (from at least 45,000 years ago and again about 25,000–20,000 years ago), at Tianyuan Cave in China (a person who lived about 40,000 years ago), at Dhaba in India (small stone tools from about 48,000 years ago, becoming much rarer after about 37,000 years ago), at Fa-Hien Lena Cave in Sri Lanka (tools from about 48,000–45,000 to 4,000 years ago), on Timor (from about 44,000 years ago) and at Xianrendong in southern China (pottery from 20,000–19,000 years ago), among other places. The sea was lower than today, and much of what is now sea between the islands of Southeast Asia was land, the continent of Sunda. The coastlines on the map are today’s. The area is drawn around find sites and regions, does not show where people were absent and is not a border.",
+        "de": "Ab etwa vor 45.000 Jahren lebte Homo sapiens in vielen Teilen Asiens. Spuren gibt es unter anderem in der Denisova-Höhle im Altai (ab mindestens vor 45.000 Jahren und erneut vor etwa 25.000–20.000 Jahren), in der Tianyuan-Höhle in China (ein Mensch, der vor etwa 40.000 Jahren lebte), in Dhaba in Indien (kleine Steinwerkzeuge ab etwa vor 48.000 Jahren, nach etwa vor 37.000 Jahren viel seltener), in der Höhle Fa-Hien Lena auf Sri Lanka (Werkzeuge von vor etwa 48.000–45.000 bis 4.000 Jahren), auf Timor (ab etwa vor 44.000 Jahren) und in Xianrendong in Südchina (Keramik von vor 20.000–19.000 Jahren). Der Meeresspiegel lag tiefer als heute, und vieles, was heute Meer zwischen den Inseln Südostasiens ist, war Land, der Kontinent Sunda. Die Küsten auf der Karte sind die heutigen. Die Fläche ist um Fundorte und Regionen gezeichnet, zeigt nicht, wo keine Menschen lebten, und ist keine Grenze.",
+        "es": "Desde hace unos 45 000 años, Homo sapiens vivía en muchas partes de Asia. Hay rastros, entre otros lugares, en la cueva de Denisova, en el Altái (desde hace al menos 45 000 años y de nuevo hace entre 25 000 y 20 000 años), en la cueva de Tianyuan, en China (una persona que vivió hace unos 40 000 años), en Dhaba, en la India (pequeñas herramientas de piedra desde hace unos 48 000 años, mucho más escasas a partir de hace unos 37 000 años), en la cueva de Fa-Hien Lena, en Sri Lanka (herramientas desde hace unos 48 000–45 000 años hasta hace unos 4000 años), en Timor (desde hace unos 44 000 años) y en Xianrendong, en el sur de China (cerámica de hace entre 20 000 y 19 000 años). El nivel del mar era más bajo que hoy, y gran parte de lo que ahora es mar entre las islas del Sudeste Asiático era tierra, el continente de Sunda. Las costas del mapa son las actuales. El área está dibujada alrededor de yacimientos y regiones, no indica dónde no había personas y no es una frontera.",
+        "fr": "À partir d’il y a environ 45 000 ans, Homo sapiens vivait dans de nombreuses régions d’Asie. On en a trouvé des traces notamment dans la grotte de Denisova, dans l’Altaï (depuis au moins 45 000 ans et de nouveau il y a environ 25 000 à 20 000 ans), dans la grotte de Tianyuan, en Chine (une personne qui a vécu il y a environ 40 000 ans), à Dhaba, en Inde (petits outils en pierre depuis environ 48 000 ans, beaucoup plus rares après environ 37 000 ans), dans la grotte de Fa-Hien Lena, au Sri Lanka (outils datant d’il y a environ 48 000–45 000 ans à 4 000 ans), à Timor (depuis environ 44 000 ans) et à Xianrendong, dans le sud de la Chine (céramique datant d’il y a 20 000 à 19 000 ans). Le niveau de la mer était plus bas qu’aujourd’hui, et une grande partie de ce qui est aujourd’hui la mer entre les îles d’Asie du Sud-Est était émergée : le continent de Sunda. Les côtes de la carte sont celles d’aujourd’hui. La zone est tracée autour de sites de découverte et de régions, n’indique pas où il n’y avait personne et n’est pas une frontière."
+      },
+      "sources": [
+        "jacobs-2025-denisova-chronology",
+        "vallini-2024-persian-plateau",
+        "wedage-2019-fa-hien-lena",
+        "clarkson-2020-dhaba",
+        "shipton-2024-timor",
+        "wu-2012-xianrendong",
+        "freidline-2023-tam-pa-ling",
+        "gandini-2025-sahul"
+      ],
+      "review": "source-checked"
+    },
+    {
       "id": "sydasien-till-sunda",
       "kind": "wave",
       "group": "sapiens",
@@ -493,6 +885,59 @@
         "gandini-2025-sahul",
         "shipton-2024-timor",
         "curnoe-2025-gua-dagang"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "sapiens-sahul",
+      "kind": "area",
+      "group": "sapiens",
+      "certainty": "tolkning",
+      "start": -44999,
+      "end": -9999,
+      "edtf": "Y-44999~/Y-9999~",
+      "radiusKm": 600,
+      "places": [
+        {
+          "coord": [
+            140,
+            -5
+          ],
+          "wikidata": "Q40285",
+          "name": "New Guinea"
+        },
+        {
+          "event": "madjedbebe"
+        },
+        {
+          "event": "gabarnmung"
+        },
+        {
+          "coord": [
+            143.0833,
+            -33.75
+          ],
+          "wikidata": "Q452812",
+          "name": "Lake Mungo"
+        }
+      ],
+      "title": {
+        "sv": "Homo sapiens i Sahul",
+        "en": "Homo sapiens in Sahul",
+        "de": "Homo sapiens in Sahul",
+        "es": "Homo sapiens en Sahul",
+        "fr": "Homo sapiens au Sahul"
+      },
+      "summary": {
+        "sv": "Sahul, där Australien, Nya Guinea och Tasmanien då hängde ihop, var befolkat senast för cirka 47 000 år sedan enligt både den långa och den korta kronologin. Vid Lake Mungo i sydöstra Australien finns spår av människor från cirka 50 000–45 000 år sedan och gravar som är cirka 40 000 år gamla. På Huonhalvön på Nya Guinea finns spår som är minst 40 000 år gamla. En modell beräknar att hela kontinenten kan ha befolkats på så kort tid som cirka 4 400–5 600 år. Havet stod lägre än i dag, och kusterna på kartan är dagens. Ytan är ritad runt fyndplatser och regioner, visar inte var människor saknades och är ingen gräns.",
+        "en": "Sahul, where Australia, New Guinea and Tasmania were then joined, was inhabited by about 47,000 years ago at the latest, according to both the long and the short chronology. At Lake Mungo in south-eastern Australia there are traces of people from about 50,000–45,000 years ago and burials about 40,000 years old. On the Huon Peninsula in New Guinea there are traces at least 40,000 years old. One model estimates that the whole continent may have been settled in as little as about 4,400–5,600 years. The sea was lower than today, and the coastlines on the map are today’s. The area is drawn around find sites and regions, does not show where people were absent and is not a border.",
+        "de": "Sahul, wo Australien, Neuguinea und Tasmanien damals zusammenhingen, war nach der langen wie nach der kurzen Chronologie spätestens vor etwa 47.000 Jahren besiedelt. Am Lake Mungo im Südosten Australiens gibt es Spuren von Menschen von vor etwa 50.000–45.000 Jahren und Gräber, die etwa 40.000 Jahre alt sind. Auf der Huon-Halbinsel in Neuguinea gibt es Spuren, die mindestens 40.000 Jahre alt sind. Ein Modell berechnet, dass der ganze Kontinent in nur etwa 4.400–5.600 Jahren besiedelt worden sein könnte. Der Meeresspiegel lag tiefer als heute, und die Küsten auf der Karte sind die heutigen. Die Fläche ist um Fundorte und Regionen gezeichnet, zeigt nicht, wo keine Menschen lebten, und ist keine Grenze.",
+        "es": "Sahul, donde Australia, Nueva Guinea y Tasmania estaban entonces unidas, estaba habitado como muy tarde hace unos 47 000 años, según tanto la cronología larga como la corta. En el lago Mungo, en el sureste de Australia, hay rastros de personas de hace entre unos 50 000 y 45 000 años y enterramientos de unos 40 000 años. En la península de Huon, en Nueva Guinea, hay rastros de al menos 40 000 años. Un modelo calcula que todo el continente pudo poblarse en tan solo unos 4400–5600 años. El nivel del mar era más bajo que hoy, y las costas del mapa son las actuales. El área está dibujada alrededor de yacimientos y regiones, no indica dónde no había personas y no es una frontera.",
+        "fr": "Le Sahul, où l’Australie, la Nouvelle-Guinée et la Tasmanie étaient alors réunies, était habité au plus tard il y a environ 47 000 ans, selon la chronologie longue comme selon la chronologie courte. Au lac Mungo, dans le sud-est de l’Australie, on trouve des traces humaines datant d’il y a environ 50 000 à 45 000 ans et des sépultures d’environ 40 000 ans. Sur la péninsule de Huon, en Nouvelle-Guinée, on trouve des traces d’au moins 40 000 ans. Un modèle estime que tout le continent aurait pu être peuplé en seulement environ 4 400 à 5 600 ans. Le niveau de la mer était plus bas qu’aujourd’hui, et les côtes de la carte sont celles d’aujourd’hui. La zone est tracée autour de sites de découverte et de régions, n’indique pas où il n’y avait personne et n’est pas une frontière."
+      },
+      "sources": [
+        "gandini-2025-sahul",
+        "bradshaw-2021-sahul"
       ],
       "review": "source-checked"
     },
@@ -791,6 +1236,100 @@
         "davis-madsen-2026-coopers-ferry",
         "wooller-2018-bering",
         "springer-2026-white-sands"
+      ],
+      "review": "source-checked"
+    },
+    {
+      "id": "sapiens-amerika",
+      "kind": "area",
+      "group": "sapiens",
+      "certainty": "tolkning",
+      "start": -11999,
+      "end": -9999,
+      "edtf": "Y-11999~/Y-9999~",
+      "radiusKm": 600,
+      "clipLand": true,
+      "parts": [
+        [
+          {
+            "coord": [
+              -116.413,
+              45.916
+            ],
+            "wikidata": "Q67210067",
+            "name": "Cooper's Ferry"
+          },
+          {
+            "event": "clovis-kulturen"
+          },
+          {
+            "coord": [
+              -86,
+              12
+            ],
+            "wikidata": "Q27611",
+            "name": "Central America"
+          }
+        ],
+        [
+          {
+            "coord": [
+              -86,
+              12
+            ],
+            "wikidata": "Q27611",
+            "name": "Central America"
+          },
+          {
+            "coord": [
+              -79.307,
+              -7.924
+            ],
+            "wikidata": "Q1632701",
+            "name": "Huaca Prieta"
+          }
+        ],
+        [
+          {
+            "coord": [
+              -79.307,
+              -7.924
+            ],
+            "wikidata": "Q1632701",
+            "name": "Huaca Prieta"
+          },
+          {
+            "coord": [
+              -60.244,
+              -38.361
+            ],
+            "coordSource": "politis-2016-arroyo-seco",
+            "name": "Arroyo Seco 2"
+          }
+        ]
+      ],
+      "title": {
+        "sv": "Homo sapiens i Amerika",
+        "en": "Homo sapiens in the Americas",
+        "de": "Homo sapiens in Amerika",
+        "es": "Homo sapiens en América",
+        "fr": "Homo sapiens en Amérique"
+      },
+      "summary": {
+        "sv": "För cirka 14 000 år sedan fanns människor i både Nord- och Sydamerika. I Sydamerika är de äldsta tillförlitliga spåren cirka 15 100–14 000 år gamla, bland annat vid Huaca Prieta i Peru och Arroyo Seco 2 i Argentina. Källan räknar också Monte Verde i Chile dit, men boplatsens ålder är omstridd. Spåren är få fram till cirka 13 000 år sedan och blir sedan snabbt fler. I Nordamerika finns Clovis-kulturen från cirka 13 050–12 750 år sedan. Ytan är ritad runt fyndplatser och regioner, visar inte var människor saknades och är ingen gräns.",
+        "en": "About 14,000 years ago there were people in both North and South America. In South America the oldest reliable traces are about 15,100–14,000 years old, among them at Huaca Prieta in Peru and Arroyo Seco 2 in Argentina. The source also counts Monte Verde in Chile among them, but the campsite’s age is disputed. The traces are few until about 13,000 years ago and then quickly become more numerous. In North America there is the Clovis culture from about 13,050–12,750 years ago. The area is drawn around find sites and regions, does not show where people were absent and is not a border.",
+        "de": "Vor etwa 14.000 Jahren gab es Menschen sowohl in Nord- als auch in Südamerika. In Südamerika sind die ältesten verlässlichen Spuren etwa 15.100–14.000 Jahre alt, unter anderem in Huaca Prieta in Peru und Arroyo Seco 2 in Argentinien. Die Quelle zählt auch Monte Verde in Chile dazu, doch das Alter des Lagerplatzes ist umstritten. Bis vor etwa 13.000 Jahren sind die Spuren selten, danach werden sie rasch zahlreicher. In Nordamerika gibt es die Clovis-Kultur von vor etwa 13.050–12.750 Jahren. Die Fläche ist um Fundorte und Regionen gezeichnet, zeigt nicht, wo keine Menschen lebten, und ist keine Grenze.",
+        "es": "Hace unos 14 000 años había personas tanto en América del Norte como en América del Sur. En América del Sur, los rastros fiables más antiguos tienen entre unos 15 100 y 14 000 años, entre ellos los de Huaca Prieta, en Perú, y Arroyo Seco 2, en Argentina. La fuente incluye también Monte Verde, en Chile, pero la antigüedad del campamento es discutida. Los rastros son escasos hasta hace unos 13 000 años y después aumentan rápidamente. En América del Norte está la cultura clovis, de hace entre unos 13 050 y 12 750 años. El área está dibujada alrededor de yacimientos y regiones, no indica dónde no había personas y no es una frontera.",
+        "fr": "Il y a environ 14 000 ans, des humains vivaient en Amérique du Nord comme en Amérique du Sud. En Amérique du Sud, les plus anciennes traces fiables ont environ 15 100 à 14 000 ans, notamment à Huaca Prieta, au Pérou, et à Arroyo Seco 2, en Argentine. La source y compte aussi Monte Verde, au Chili, mais l’âge du campement est contesté. Les traces sont rares jusqu’à il y a environ 13 000 ans, puis deviennent rapidement plus nombreuses. En Amérique du Nord, on trouve la culture Clovis, datant d’il y a environ 13 050 à 12 750 ans. La zone est tracée autour de sites de découverte et de régions, n’indique pas où il n’y avait personne et n’est pas une frontière."
+      },
+      "sources": [
+        "prates-2020-sydamerika",
+        "politis-2016-arroyo-seco",
+        "dillehay-2015-monte-verde",
+        "surovell-2026-monte-verde",
+        "davis-madsen-2026-coopers-ferry",
+        "waters-2020-clovis",
+        "wp-clovis-culture"
       ],
       "review": "source-checked"
     }
