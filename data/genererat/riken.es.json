@@ -86,7 +86,7 @@
 "benin":{"flags":{"0":{"label":{"es":"Bandera de Benín"}},"1":{"label":{"es":"Bandera de Benín"}}}},
 "honduras":{"flags":{"0":{"label":{"es":"Bandera hondureña de cinco estrellas"}}}},
 "island":{"flags":{"0":{"label":{"es":"Bandera de Islandia"}}}},
-"bulgarien":{"flags":{"0":{"label":{"es":"Bandera de Bulgaria"}}}},
+"bulgarien":{"flags":{"0":{"label":{"es":"Bandera de Bulgaria"}},"1":{"label":{"es":"Bandera de Bulgaria"}}}},
 "guatemala":{"flags":{"0":{"label":{"es":"Bandera civil guatemalteca"}}}},
 "liberia":{"flags":{"0":{"label":{"es":"Bandera de Liberia"}}}},
 "portugal":{"flags":{"0":{"label":{"es":"Bandera de Portugal"}}}},

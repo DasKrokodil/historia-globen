@@ -87,7 +87,7 @@
 "benin":{"flags":{"0":{"label":{"de":"Flagge von Benin"}},"1":{"label":{"de":"Flagge von Benin"}}}},
 "honduras":{"flags":{"0":{"label":{"de":"Honduranische Flagge mit fünf Sternen"}}}},
 "island":{"flags":{"0":{"label":{"de":"Flagge Islands"}}}},
-"bulgarien":{"flags":{"0":{"label":{"de":"Flagge Bulgariens"}}}},
+"bulgarien":{"flags":{"0":{"label":{"de":"Flagge Bulgariens"}},"1":{"label":{"de":"Flagge Bulgariens"}}}},
 "guatemala":{"flags":{"0":{"label":{"de":"Guatemaltekische Zivilflagge"}}}},
 "liberia":{"flags":{"0":{"label":{"de":"Flagge Liberias"}}}},
 "portugal":{"flags":{"0":{"label":{"de":"Flagge Portugals"}}}},

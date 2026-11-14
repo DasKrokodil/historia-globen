@@ -1291,6 +1291,7 @@
         "wp-kingdom-of-georgia",
         "wp-kingdom-of-mapungubwe",
         "wp-kingdom-of-navarre",
+        "wp-kingdom-of-norway-1814",
         "wp-kingdom-of-norway-872-1397",
         "wp-kingdom-of-portugal",
         "wp-kingdom-of-scotland",
@@ -1808,6 +1809,7 @@
         "wp-sasanian-empire",
         "wp-satyendra-nath-bose",
         "wp-saudeleur-dynasty",
+        "wp-schleswig-plebiscites",
         "wp-seal-of-texas",
         "wp-second-chechen-war",
         "wp-second-chuenpi",
@@ -2235,6 +2237,7 @@
         "wd-czechoslovakia",
         "wd-danish-gold-coast",
         "wd-danish-india",
+        "wd-denmark-norway",
         "wd-durrani-empire",
         "wd-dzungar-khanate",
         "wd-east-germany",
@@ -2260,6 +2263,7 @@
         "wd-italian-libya",
         "wd-italian-somaliland",
         "wd-jellingestenarna",
+        "wd-jin-dynasty",
         "wd-jordan",
         "wd-joseon",
         "wd-jyske-lov",
@@ -2267,6 +2271,7 @@
         "wd-khedivate-of-egypt",
         "wd-kingdom-of-afghanistan",
         "wd-kingdom-of-cusco",
+        "wd-kingdom-of-iceland",
         "wd-kingdom-of-kongo",
         "wd-kingdom-of-yemen",
         "wd-kobenhavns-universitet",
@@ -2286,6 +2291,7 @@
         "wd-north-korea",
         "wd-north-vietnam",
         "wd-northern-yuan",
+        "wd-norway",
         "wd-ottoman-tripolitania",
         "wd-oyo-empire",
         "wd-pakistan",
@@ -2311,6 +2317,7 @@
         "wd-safavid-iran",
         "wd-saltsjobadsavtalet",
         "wd-sametinget-sverige",
+        "wd-schleswig-plebiscite",
         "wd-serbia-and-montenegro",
         "wd-slaget-vid-dybbol",
         "wd-sokoto-caliphate",
@@ -2427,6 +2434,7 @@
         "historiska-bronsalder",
         "historiska-eskelhem",
         "historiska-ganggrifter",
+        "historiska-hagahogen",
         "historiska-jarnalder",
         "historiska-lillberget",
         "historiska-perioder",
@@ -2474,6 +2482,22 @@
         "lex-tollundmanden",
         "lex-tybrind-vig-boplads",
         "lex-waitangitraktaten"
+      ]
+    },
+    {
+      "license": "Museiverket, Kyppi (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "kyppi-astuvansalmi",
+        "kyppi-levanluhta",
+        "kyppi-sammallahdenmaki"
+      ]
+    },
+    {
+      "license": "Nationalmuseet (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "natmus-egtvedpigen",
+        "natmus-guldhornene",
+        "natmus-solvognen"
       ]
     },
     {
@@ -3110,6 +3134,21 @@
         "ud-taiwan",
         "ud-ukraina",
         "ud-vastsahara"
+      ]
+    },
+    {
+      "license": "Riksantikvarieämbetet, K-samsök (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "raa-lamning-akermyra"
+      ]
+    },
+    {
+      "license": "Skolverket (bara länkad; inga villkor för återanvändning angivna under Om webbplatsen på skolverket.se, öppnad 2026-11-14; korta citat med källhänvisning i granskningsrapporten, ingen text kopierad till data)",
+      "sourceIds": [
+        "skolverket-kommentar-geografi",
+        "skolverket-kommentar-historia",
+        "skolverket-lgr22-geografi",
+        "skolverket-lgr22-samhallskunskap"
       ]
     },
     {
