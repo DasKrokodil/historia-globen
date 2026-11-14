@@ -34,6 +34,7 @@ import { LayerRegistry } from './layers/registry.js';
 import { createSelection } from './controllers/selection.js';
 import { createFacts } from './controllers/facts.js';
 import { createFocus } from './controllers/focus.js';
+import { createDetailFocus } from './controllers/detail-focus.js';
 import { createRender } from './controllers/render.js';
 import { createPlayback } from './controllers/playback.js';
 import { createRange } from './controllers/range.js';
@@ -339,40 +340,25 @@ async function start() {
   // Fokus och skärmläsare (#1138): hela kortet byts via innerHTML, så #detail är inte aria-live (allt lästes om vid varje byte).
   // I stället säger statusraden rubriken en gång per ny ruta. Kom man från Samtidigt-kortet, som döljs, går fokus till Stäng
   // och tillbaka till samma knapp när rutan stängs (kortet ritas om, så knappen hittas på id eller händelse-id).
-  let detailTitle = '', cardFocus = null, listFocus = null;
+  // Fokus flyttas direkt, inte i nästa bildruta (#1436): se js/controllers/detail-focus.js
+  let detailTitle = '';
+  const detailFocus = createDetailFocus({ $ });
   panel.onDetailChange = open => {
-    const detail = $('detail'), card = $('funfact'), active = document.activeElement;
+    const detail = $('detail'), active = document.activeElement;
     if (open) {
-      if (!cardFocus && card.contains(active)) cardFocus = active.dataset?.id ? { chip: active.dataset.id } : { id: active.id };
-      // En rad i Samtidigt-listan (#1323): fokus går till Stäng, och tillbaka till raden (eller knappen Samtidigt) när rutan stängs
-      if (!cardFocus && !listFocus && $('panel').contains(active) && active.dataset?.id) listFocus = active.dataset.id;
+      // Ett kort eller en rad i Samtidigt-listan (#1323): fokus går till Stäng, och tillbaka när rutan stängs
+      const fromSurface = detailFocus.open(active);
       ff.setDetailOpen(true);
-      if (cardFocus || listFocus) detail.querySelector('[data-close]')?.focus({ preventScroll: true });
+      if (fromSurface) detail.querySelector('[data-close]')?.focus({ preventScroll: true });
       const title = detail.querySelector('h3')?.textContent.trim() ?? '';
       const kind = detail.classList.contains('detail-selection') ? detail.querySelector('.story-label')?.textContent.trim() : ''; // Plats och Tema i stället för Om händelsen, också i en turs steg där inget Fokus pågår (#1163)
       if (title && title !== detailTitle) say(`${kind || ui('detail.label')}: ${title}`, 'faktaruta', { priority: 2, immediate: true }); // går före Samtidigt-kortet och pausraden (#1419)
       detailTitle = title;
       return;
     }
-    const back = cardFocus, wasInDetail = !active || active === document.body || detail.contains(active);
     ff.setDetailOpen(false);
-    // I smal skärm döljs kortet av klassen has-detail tills omritningen har tagit bort den, så fokus flyttas efter den
-    if (back && wasInDetail) requestAnimationFrame(() => {
-      const now = document.activeElement;
-      if (now && now !== document.body && !detail.contains(now)) return; // besökaren har redan flyttat fokus
-      const own = back.chip ? $('ff-events').querySelector(`.ff-chip[data-id="${CSS.escape(back.chip)}"]`) : back.id && $(back.id);
-      [own, $('ff-next'), $('ff-handle')].find(el => el && !el.hidden && el.getClientRects().length)?.focus({ preventScroll: true });
-    });
-    if (listFocus && wasInDetail) {
-      const id = listFocus;
-      requestAnimationFrame(() => {
-        const now = document.activeElement;
-        if (now && now !== document.body && !detail.contains(now)) return; // besökaren har redan flyttat fokus
-        const row = $('event-list').querySelector(`.event-btn[data-id="${CSS.escape(id)}"]`);
-        [row, $('btn-panel')].find(el => el && !el.hidden && el.getClientRects().length)?.focus({ preventScroll: true });
-      });
-    }
-    cardFocus = null; listFocus = null; detailTitle = '';
+    detailFocus.close(active);
+    detailTitle = '';
   };
   // Kortets källor (#337): rikets berättelse har egna, fun facts och krigskort ärver händelsernas, som har laddats
   // när dialogen visar dem (Om källorna laddar alla händelsers källor först)

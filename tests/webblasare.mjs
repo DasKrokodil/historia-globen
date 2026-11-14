@@ -8587,6 +8587,66 @@ async function run(browser, vp) {
       return `pausad bakom Källor (${t0}), Escape stänger årshoppet, fokus tillbaka till ${where.id || 'raden'}`;
     } finally { await wp.close(); }
   });
+  // #1436: fokus flyttas direkt när faktarutan stängs, inte i nästa bildruta. Firefox lät det dolda Stäng-elementet vara aktivt i cirka
+  // 1,7 s tills sidans requestAnimationFrame körde; en tangentbordsanvändare hamnade då utan synligt fokus. Här stängs requestAnimationFrame
+  // (körs aldrig) precis före klicket, så kontrollen faller om rättningen bara ligger i en bildruta, i vilken webbläsare som helst.
+  // (a) en rad i Samtidigt-listan: tillbaka till raden (dator) eller Samtidigt-knappen (mobil, panelen stängs). (b) utan öppnare (ett
+  // datumresultat i årshoppet): tabba till Stäng, Enter, och fokus är på Samtidigt-knappen i stället för på body.
+  await check('stängregistret: fokus flyttas direkt när faktarutan stängs, utan bildruta (#1436)', async () => {
+    const wp = await context.newPage();
+    const errs = [];
+    wp.on('pageerror', e => errs.push(e.message));
+    const load = async () => {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await wp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await wp.route(u => isFont(u.href), r => r.abort());
+      }
+      await wp.goto(`${BASE}?lang=sv&ny=r${Date.now()}#y=1200`);
+      await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.step });
+      await wp.waitForSelector('#event-list .event-item', { state: 'attached', timeout: T.step });
+    };
+    // Var fokus ligger 100 ms efter att Stäng har tryckts, med requestAnimationFrame avstängd. 100 ms är en bråkdel av Firefox 1,7 s och
+    // kortare än en bildruta på 60 Hz: bara en mikrotask eller task hinner före.
+    const noFrame = () => wp.evaluate(() => { window.requestAnimationFrame = () => 0; });
+    const settle = () => wp.evaluate(() => new Promise(r => setTimeout(() => {
+      const a = document.activeElement;
+      r({ id: a?.id ?? '', data: a?.dataset?.id ?? null, tag: a?.tagName ?? '', inDetail: !!a && document.getElementById('detail').contains(a), body: a === document.body || !a });
+    }, 100)));
+    try {
+      await load();
+      // (a) raden
+      if (await wp.locator('#panel').isHidden()) await wp.click('#btn-panel');
+      await wp.waitForSelector('#event-list .event-btn', { timeout: T.step });
+      const row = wp.locator('#event-list .event-btn').first();
+      const id = await row.getAttribute('data-id');
+      await row.focus();
+      await wp.keyboard.press('Enter');
+      await wp.waitForSelector('#detail:not([hidden])', { timeout: T.step });
+      if (!await wp.evaluate(() => document.activeElement?.matches('#detail [data-close]'))) throw new Error('fokus gick inte till Stäng när faktarutan öppnades från listan');
+      await noFrame();
+      await wp.evaluate(() => document.querySelector('#detail [data-close]').click());
+      const a = await settle();
+      if (a.id !== 'btn-panel' && a.data !== id) throw new Error(`rad: fokus låg inte på raden eller Samtidigt-knappen 100 ms efter Stäng utan bildruta: ${JSON.stringify(a)}`);
+      // (b) utan öppnare: faktarutan öppnas från ett datumresultat i årshoppet (fokus ligger då på årshoppets knapp), Stäng med tangentbordet
+      await load();
+      await wp.click('#year-jump');
+      await wp.fill('#jump-input', '19860426'); // ett datum ger en lista med händelser (som kontrollen för #590)
+      await wp.locator('#jump-pop').evaluate(form => form.requestSubmit());
+      await wp.waitForSelector('#jump-date-events button.jump-date-event', { timeout: T.step });
+      await wp.click('#jump-date-events button.jump-date-event');
+      await wp.waitForSelector('#detail:not([hidden])', { timeout: T.step });
+      await wp.focus('#detail [data-close]'); // tabba till Stäng
+      await noFrame();
+      await wp.keyboard.press('Enter');
+      await wp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
+      const b = await settle();
+      const btnVisible = await wp.evaluate(() => { const el = document.getElementById('btn-panel'); return !!el && !el.hidden && el.getClientRects().length > 0; });
+      if (b.body || b.inDetail || (btnVisible && b.id !== 'btn-panel')) throw new Error(`utan öppnare: fokus låg på ${b.body ? 'body' : b.inDetail ? 'det dolda Stäng-elementet' : `${b.tag}#${b.id}`} i stället för Samtidigt-knappen 100 ms efter Enter på Stäng: ${JSON.stringify(b)}`);
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return `fokus direkt på ${a.id || 'raden'} (rad) och ${b.id || b.tag} (utan öppnare), utan bildruta`;
+    } finally { await wp.close(); }
+  });
   // #1134: raden under årtalet radbryts i smal skärm i stället för att klippas med ellips. Längsta texten styr: alla
   // fem språk, ett f.Kr.-år (längst rubrik) och ett intervall, i 400 px bredd. Körs i mobiljobbet (en egen sida, egen bredd).
   await check('raden under årtalet ryms på 400 px på fem språk (#1134)', async () => {
