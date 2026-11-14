@@ -360,6 +360,7 @@
 "grundloven-1849":{"place":{"de":"Dänemark (Markierung in Kopenhagen)"},"title":{"de":"Dänemark erhält seine erste Verfassung"}},
 "kolera-i-kopenhamn-1853":{"place":{"de":"Kopenhagen, Dänemark"},"title":{"de":"Die Choleraepidemie in Kopenhagen"},"note":{"title":{"de":"Zu den Quellen"}}},
 "stormningen-av-dybbol":{"place":{"de":"Düppel (Dybbøl), Dänemark"},"title":{"de":"Die Erstürmung der Düppeler Schanzen"}},
+"boxarupproret":{"place":{"de":"Nordchina, von Shandong bis Tianjin und Peking (die Markierung liegt in Shandong, wo die Bewegung begann)"},"title":{"de":"Der Boxeraufstand"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "rifkriget":{"place":{"de":"Rif im Norden Marokkos, damals spanisches Protektorat (begann bei Annual)"},"title":{"de":"Rifkrieg"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "slaget-vid-annual":{"place":{"de":"Annual im Nordosten Marokkos, etwa 60 km westlich von Melilla"},"title":{"de":"Die Rifkämpfer besiegen Spanien bei Annual"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "massakern-vid-monte-arruit":{"place":{"de":"Monte Arruit bei Al Aaroui, etwa 35 km südlich von Melilla"},"title":{"de":"Das Massaker von Monte Arruit"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
@@ -462,6 +463,10 @@
 "kvinnlig-rostratt-danmark-1915":{"place":{"de":"Dänemark (Markierung in Kopenhagen)"},"title":{"de":"Frauen erhalten in Dänemark das Wahlrecht zum Reichstag"}},
 "lego-grundas":{"place":{"de":"Billund, Jütland, Dänemark"},"title":{"de":"LEGO beginnt in einer Tischlerwerkstatt in Billund"},"note":{"title":{"de":"Zu den Quellen"}}},
 "raddningen-av-de-danska-judarna":{"place":{"de":"Kopenhagen und die Küste Seelands, Dänemark"},"title":{"de":"Die dänischen Juden werden nach Schweden gerettet"},"note":{"title":{"de":"Die Quellen unterscheiden sich"}}},
+"rysk-japanska-kriget":{"place":{"de":"Mandschurei, Korea, Gelbes Meer und Japanisches Meer (die Markierung liegt bei Port Arthur, im heutigen Lüshunkou, wo der Krieg begann)"},"title":{"de":"Der Russisch-Japanische Krieg"},"note":{"title":{"de":"Zum Datum"}}},
+"xinhairevolutionen":{"place":{"de":"China (die Markierung liegt in Wuchang, im heutigen Wuhan, wo die Revolution begann)"},"title":{"de":"Die Xinhai-Revolution: das Ende der Qing-Dynastie"}},
+"andra-kinesisk-japanska-kriget":{"place":{"de":"China, Birma, Korea, Indochina und Taiwan (die Markierung liegt an der Marco-Polo-Brücke bei Peking, wo der Krieg begann)"},"title":{"de":"Der Zweite Japanisch-Chinesische Krieg"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
+"nanjingmassakern":{"place":{"de":"Nanjing und das Umland der Stadt, China"},"title":{"de":"Das Massaker von Nanking"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "bangladeshs-befrielsekrig":{"place":{"de":"Ostpakistan, heute Bangladesch (Beginn in Dhaka)"},"title":{"de":"Bangladesch-Befreiungskrieg"},"note":{"title":{"de":"Zum Beginn des Krieges"}}},
 "operation-searchlight":{"place":{"de":"Dhaka und andere Städte in Ostpakistan"},"title":{"de":"Operation Searchlight"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "bangladeshs-sjalvstandighet-utropas":{"place":{"de":"Dhaka"},"title":{"de":"Die Unabhängigkeit Bangladeschs wird ausgerufen"},"note":{"title":{"de":"Nur eine Quelle für den Ort"}}},
@@ -503,6 +508,7 @@
 "operation-condor":{"place":{"de":"Der Südkegel Südamerikas (die Markierung liegt in Santiago de Chile, wo die Zusammenarbeit begründet wurde)"},"title":{"de":"Operation Condor"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "lattes-chacaltaya-1947":{"place":{"de":"Chacaltaya, Bolivien"},"title":{"de":"César Lattes fängt Pionen auf dem Chacaltaya ein"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "danmark-gar-med-i-eg":{"place":{"de":"Dänemark (Markierung in Kopenhagen)"},"title":{"de":"Dänemark tritt den Europäischen Gemeinschaften bei"}},
+"stora-spranget":{"place":{"de":"China (die Markierung liegt in Peking)"},"title":{"de":"Der Große Sprung nach vorn"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}},
 "www":{"place":{"de":"CERN, Genf"},"title":{"de":"Das Web wird erfunden"}},
 "rysslands-invasion-av-ukraina":{"place":{"de":"Ukraine (Angriff von Norden, Osten und Süden, unter anderem auf Kiew)"},"title":{"de":"Russlands Invasion der Ukraine"}},
 "slaget-om-kyiv-2022":{"place":{"de":"Kiew, Ukraine"},"title":{"de":"Die Schlacht um Kiew"},"note":{"title":{"de":"Die Quellen unterscheiden sich"}}},
@@ -577,5 +583,6 @@
 "ipcc-bildas":{"place":{"de":"Genf, Schweiz (Sitz des Sekretariats)"},"title":{"de":"Der Weltklimarat IPCC wird gegründet"}},
 "klimatkonventionen-rio-1992":{"place":{"de":"Rio de Janeiro, Brasilien"},"title":{"de":"Die Klimarahmenkonvention wird in Rio unterzeichnet"}},
 "kyotoprotokollet":{"place":{"de":"Kyōto, Japan"},"title":{"de":"Das Kyoto-Protokoll wird angenommen"}},
-"baijin-forklaras-funktionellt-utdod":{"place":{"de":"Jangtsekiang, China"},"title":{"de":"Der Chinesische Flussdelfin Baiji wird für funktionell ausgestorben erklärt"}}
+"baijin-forklaras-funktionellt-utdod":{"place":{"de":"Jangtsekiang, China"},"title":{"de":"Der Chinesische Flussdelfin Baiji wird für funktionell ausgestorben erklärt"}},
+"himmelska-fridens-torg-1989":{"place":{"de":"Tian’anmen-Platz, Peking, China"},"title":{"de":"Die Proteste auf dem Tian’anmen-Platz und das Massaker"},"note":{"title":{"de":"Die Quellen weichen voneinander ab"}}}
 }}

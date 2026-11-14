@@ -769,6 +769,7 @@
 "grundloven-1849":{"place":{"en":"Denmark (marker in Copenhagen)"},"title":{"en":"Denmark gets its first constitution"}},
 "kolera-i-kopenhamn-1853":{"place":{"en":"Copenhagen, Denmark"},"title":{"en":"The cholera epidemic in Copenhagen"},"note":{"title":{"en":"About the sources"}}},
 "stormningen-av-dybbol":{"place":{"en":"Dybbøl, Denmark"},"title":{"en":"The storming of Dybbøl"}},
+"boxarupproret":{"place":{"en":"Northern China, from Shandong to Tianjin and Beijing (the marker is in Shandong, where the movement began)"},"title":{"en":"The Boxer Rebellion"},"note":{"title":{"en":"The sources differ"}}},
 "rifkriget":{"place":{"en":"Rif in northern Morocco, then a Spanish protectorate (began near Annual)"},"title":{"en":"Rif War"},"note":{"title":{"en":"The sources differ"}}},
 "slaget-vid-annual":{"place":{"en":"Annual in north-eastern Morocco, about 60 km west of Melilla"},"title":{"en":"The Riffians defeat Spain at Annual"},"note":{"title":{"en":"The sources differ"}}},
 "massakern-vid-monte-arruit":{"place":{"en":"Monte Arruit at Al Aaroui, about 35 km south of Melilla"},"title":{"en":"The massacre at Monte Arruit"},"note":{"title":{"en":"The sources differ"}}},
@@ -871,6 +872,10 @@
 "kvinnlig-rostratt-danmark-1915":{"place":{"en":"Denmark (marker in Copenhagen)"},"title":{"en":"Women win the vote for parliament in Denmark"}},
 "lego-grundas":{"place":{"en":"Billund, Jutland, Denmark"},"title":{"en":"LEGO begins in a carpenter’s workshop in Billund"},"note":{"title":{"en":"About the sources"}}},
 "raddningen-av-de-danska-judarna":{"place":{"en":"Copenhagen and the coast of Zealand, Denmark"},"title":{"en":"The Danish Jews are rescued to Sweden"},"note":{"title":{"en":"The sources differ"}}},
+"rysk-japanska-kriget":{"place":{"en":"Manchuria, Korea, the Yellow Sea and the Sea of Japan (the marker is at Port Arthur, in present-day Lüshunkou, where the war began)"},"title":{"en":"The Russo-Japanese War"},"note":{"title":{"en":"About the date"}}},
+"xinhairevolutionen":{"place":{"en":"China (the marker is in Wuchang, in present-day Wuhan, where the revolution began)"},"title":{"en":"The 1911 Revolution: the fall of the Qing dynasty"}},
+"andra-kinesisk-japanska-kriget":{"place":{"en":"China, Burma, Korea, Indochina and Taiwan (the marker is at the Marco Polo Bridge near Beijing, where the war began)"},"title":{"en":"The Second Sino-Japanese War"},"note":{"title":{"en":"The sources differ"}}},
+"nanjingmassakern":{"place":{"en":"Nanjing and the surrounding countryside, China"},"title":{"en":"The Nanjing Massacre"},"note":{"title":{"en":"The sources differ"}}},
 "bangladeshs-befrielsekrig":{"place":{"en":"East Pakistan, today Bangladesh (began in Dhaka)"},"title":{"en":"Bangladesh Liberation War"},"note":{"title":{"en":"About the start of the war"}}},
 "operation-searchlight":{"place":{"en":"Dhaka and other cities in East Pakistan"},"title":{"en":"Operation Searchlight"},"note":{"title":{"en":"The sources differ"}}},
 "bangladeshs-sjalvstandighet-utropas":{"place":{"en":"Dhaka"},"title":{"en":"Bangladesh's independence is proclaimed"},"note":{"title":{"en":"Only one source for the place"}}},
@@ -993,6 +998,7 @@
 "operation-condor":{"place":{"en":"The Southern Cone of South America (the marker is in Santiago, Chile, where the cooperation was set up)"},"title":{"en":"Operation Condor"},"note":{"title":{"en":"The sources differ"}}},
 "lattes-chacaltaya-1947":{"place":{"en":"Chacaltaya, Bolivia"},"title":{"en":"César Lattes captures pions on Chacaltaya"},"note":{"title":{"en":"The sources differ"}}},
 "danmark-gar-med-i-eg":{"place":{"en":"Denmark (marker in Copenhagen)"},"title":{"en":"Denmark joins the European Communities"}},
+"stora-spranget":{"place":{"en":"China (the marker is in Beijing)"},"title":{"en":"The Great Leap Forward"},"note":{"title":{"en":"The sources differ"}}},
 "www":{"place":{"en":"CERN, Geneva"},"title":{"en":"The invention of the Web"}},
 "rysslands-invasion-av-ukraina":{"place":{"en":"Ukraine (attack from the north, east and south, including towards Kyiv)"},"title":{"en":"Russia's invasion of Ukraine"}},
 "slaget-om-kyiv-2022":{"place":{"en":"Kyiv, Ukraine"},"title":{"en":"The Battle of Kyiv"},"note":{"title":{"en":"The sources differ"}}},
@@ -1099,5 +1105,6 @@
 "ipcc-bildas":{"place":{"en":"Geneva, Switzerland (seat of the secretariat)"},"title":{"en":"The UN climate panel IPCC is created"}},
 "klimatkonventionen-rio-1992":{"place":{"en":"Rio de Janeiro, Brazil"},"title":{"en":"The climate convention is signed in Rio"}},
 "kyotoprotokollet":{"place":{"en":"Kyoto, Japan"},"title":{"en":"The Kyoto Protocol is adopted"}},
-"baijin-forklaras-funktionellt-utdod":{"place":{"en":"The Yangtze River, China"},"title":{"en":"The Yangtze river dolphin, the baiji, is declared functionally extinct"}}
+"baijin-forklaras-funktionellt-utdod":{"place":{"en":"The Yangtze River, China"},"title":{"en":"The Yangtze river dolphin, the baiji, is declared functionally extinct"}},
+"himmelska-fridens-torg-1989":{"place":{"en":"Tiananmen Square, Beijing, China"},"title":{"en":"The Tiananmen Square protests and massacre"},"note":{"title":{"en":"The sources differ"}}}
 }}

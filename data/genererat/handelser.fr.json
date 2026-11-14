@@ -259,6 +259,7 @@
 "grundloven-1849":{"place":{"fr":"Danemark (repère à Copenhague)"},"title":{"fr":"Le Danemark reçoit sa première Constitution"}},
 "kolera-i-kopenhamn-1853":{"place":{"fr":"Copenhague, Danemark"},"title":{"fr":"L’épidémie de choléra de Copenhague"},"note":{"title":{"fr":"À propos des sources"}}},
 "stormningen-av-dybbol":{"place":{"fr":"Dybbøl, Danemark"},"title":{"fr":"L’assaut de Dybbøl"}},
+"boxarupproret":{"place":{"fr":"Chine du Nord, du Shandong à Tianjin et Pékin (le repère est dans le Shandong, où le mouvement commença)"},"title":{"fr":"La révolte des Boxers"},"note":{"title":{"fr":"Les sources divergent"}}},
 "slaget-om-storbritannien":{"note":{"title":{"fr":"À propos de la période"}}},
 "slaget-vid-stalingrad":{"note":{"title":{"fr":"Les sources divergent"}}},
 "nya-zeeland-blir-dominion":{"place":{"fr":"Nouvelle-Zélande"},"title":{"fr":"La Nouvelle-Zélande devient un dominion"}},
@@ -295,6 +296,10 @@
 "kvinnlig-rostratt-danmark-1915":{"place":{"fr":"Danemark (repère à Copenhague)"},"title":{"fr":"Les femmes obtiennent le droit de vote au Parlement au Danemark"}},
 "lego-grundas":{"place":{"fr":"Billund, Jutland, Danemark"},"title":{"fr":"LEGO commence dans un atelier de menuiserie à Billund"},"note":{"title":{"fr":"À propos des sources"}}},
 "raddningen-av-de-danska-judarna":{"place":{"fr":"Copenhague et la côte du Seeland, Danemark"},"title":{"fr":"Les Juifs du Danemark sont sauvés vers la Suède"},"note":{"title":{"fr":"Les sources divergent"}}},
+"rysk-japanska-kriget":{"place":{"fr":"Mandchourie, Corée, mer Jaune et mer du Japon (le repère est à Port-Arthur, dans l’actuel Lüshunkou, où la guerre commença)"},"title":{"fr":"La guerre russo-japonaise"},"note":{"title":{"fr":"À propos de la date"}}},
+"xinhairevolutionen":{"place":{"fr":"Chine (le repère est à Wuchang, dans l’actuelle Wuhan, où la révolution commença)"},"title":{"fr":"La révolution chinoise de 1911 : la chute de la dynastie Qing"}},
+"andra-kinesisk-japanska-kriget":{"place":{"fr":"Chine, Birmanie, Corée, Indochine et Taïwan (le repère est au pont Marco-Polo, près de Pékin, où la guerre commença)"},"title":{"fr":"La seconde guerre sino-japonaise"},"note":{"title":{"fr":"Les sources divergent"}}},
+"nanjingmassakern":{"place":{"fr":"Nankin et la campagne environnante, Chine"},"title":{"fr":"Le massacre de Nankin"},"note":{"title":{"fr":"Les sources divergent"}}},
 "explorer-1":{"place":{"fr":"Cap Canaveral, Floride, États-Unis"},"title":{"fr":"Explorer 1, premier satellite des États-Unis"},"note":{"title":{"fr":"À propos de la date"}}},
 "tereshkova-vostok-6":{"place":{"fr":"Atterrissage à l'ouest de Barnaoul, dans l'Altaï, Union soviétique (aujourd'hui Russie)"},"title":{"fr":"Valentina Terechkova devient la première femme dans l'espace"}},
 "asterix-frankrikes-forsta-satellit":{"place":{"fr":"Hammaguir, Algérie"},"title":{"fr":"Astérix, premier satellite français"}},
@@ -331,6 +336,7 @@
 "operation-condor":{"place":{"fr":"Le Cône Sud de l’Amérique du Sud (le repère est à Santiago du Chili, où la coopération fut créée)"},"title":{"fr":"Opération Condor"},"note":{"title":{"fr":"Les sources divergent"}}},
 "lattes-chacaltaya-1947":{"place":{"fr":"Chacaltaya, Bolivie"},"title":{"fr":"César Lattes capte des pions sur le Chacaltaya"},"note":{"title":{"fr":"Les sources divergent"}}},
 "danmark-gar-med-i-eg":{"place":{"fr":"Danemark (repère à Copenhague)"},"title":{"fr":"Le Danemark adhère aux Communautés européennes"}},
+"stora-spranget":{"place":{"fr":"Chine (le repère est à Pékin)"},"title":{"fr":"Le Grand Bond en avant"},"note":{"title":{"fr":"Les sources divergent"}}},
 "constitution-act-1986":{"place":{"fr":"Wellington, Nouvelle-Zélande"},"title":{"fr":"La Nouvelle-Zélande se dote de sa propre loi constitutionnelle"},"note":{"title":{"fr":"À propos de la date"}}},
 "maori-officiellt-sprak":{"place":{"fr":"Nouvelle-Zélande"},"title":{"fr":"Le maori devient langue officielle"},"note":{"title":{"fr":"À propos de la date"}}},
 "waikato-tainui-uppgorelsen":{"place":{"fr":"Waikato, Nouvelle-Zélande"},"title":{"fr":"La Couronne présente ses excuses aux Waikato-Tainui"},"note":{"title":{"fr":"Les sources divergent"}}},
@@ -347,5 +353,6 @@
 "ipcc-bildas":{"place":{"fr":"Genève, Suisse (siège du secrétariat)"},"title":{"fr":"Création du GIEC, le groupe d'experts de l'ONU sur le climat"}},
 "klimatkonventionen-rio-1992":{"place":{"fr":"Rio de Janeiro, Brésil"},"title":{"fr":"La convention sur le climat est signée à Rio"}},
 "kyotoprotokollet":{"place":{"fr":"Kyoto, Japon"},"title":{"fr":"Le protocole de Kyoto est adopté"}},
-"baijin-forklaras-funktionellt-utdod":{"place":{"fr":"Yangzi Jiang, Chine"},"title":{"fr":"Le baiji, dauphin du Yangzi, est déclaré fonctionnellement éteint"}}
+"baijin-forklaras-funktionellt-utdod":{"place":{"fr":"Yangzi Jiang, Chine"},"title":{"fr":"Le baiji, dauphin du Yangzi, est déclaré fonctionnellement éteint"}},
+"himmelska-fridens-torg-1989":{"place":{"fr":"Place Tian’anmen, Pékin, Chine"},"title":{"fr":"Les manifestations de la place Tian’anmen et le massacre"},"note":{"title":{"fr":"Les sources divergent"}}}
 }}
