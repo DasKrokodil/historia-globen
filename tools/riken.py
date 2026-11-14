@@ -24,7 +24,7 @@ from pathlib import Path
 
 import numpy as np
 import shapely
-from shapely.geometry import Polygon, box, mapping, shape
+from shapely.geometry import MultiPolygon, Polygon, box, mapping, shape
 from shapely.ops import unary_union
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -1303,11 +1303,15 @@ GROUPS = {
     # Danmark 1526–1939 (#1084, DasKrokodils ja 2026-11-13): Cliopatrias Denmark-Norway heter så ända till 1939, men Norge
     # gick 1814 till Sverige-Norge. Posten delas därför i Danmark-Norge (1526–1814, Q62651; Wikidata säger 1536–1814) och
     # Danmark (1815–1939). 1407–1525 täcks av Kalmarunionen, och 1940–1944 räknar Cliopatria området till Tyskland.
+    # Cliopatrias Denmark-Norway har Island med till och med 1921, men Kingdom of Iceland finns från 1918 (Wikidata Q62567:
+    # 1 december 1918). Danmark klipper därför bort Cliopatrias egen yta för Kingdom of Iceland 1918–1921 (#1381); från 1922
+    # har Cliopatrias Danmark inte Island med, och de perioderna lämnas orörda.
     'konungariket-danmark': ('Konungariket Danmark', 'Kingdom of Denmark', [
         ('Kingdom of Denmark', 'konungariket-danmark', 'Konungariket Danmark', '#c05a6a', {'en': 'Kingdom of Denmark'}),
         ('Denmark-Norway', 'danmark-norge', 'Danmark-Norge', '#c05a6a',
          {'en': 'Denmark–Norway', 'wikidata': 'Q62651', 'years': (1526, 1814)}),
-        ('Denmark-Norway', 'danmark-1815', 'Danmark', '#c05a6a', {'en': 'Denmark', 'wikidata': 'Q35', 'years': (1815, 1939)}),
+        ('Denmark-Norway', 'danmark-1815', 'Danmark', '#c05a6a', {'en': 'Denmark', 'wikidata': 'Q35', 'years': (1815, 1939),
+                                                                    'minus': [('Kingdom of Iceland', 1918, 1921)]}),
     ]),
     'tibetanska-imperiet': ('Tibetanska imperiet', 'Tibetan Empire', [
         ('Tibetan Empire', 'tibetanska-imperiet', 'Tibetanska imperiet', '#b0704a', {'en': 'Tibetan Empire'}),
@@ -1810,22 +1814,40 @@ def apply_disputed(items, gid, areas):
     return items
 
 
+def cut_parts(g, cut):
+    """g minus cut, där bara de delar av en multipolygon som skär cut klipps. De andra delarna behåller sina
+    ringar oförändrade, så att förenklingen efteråt blir densamma som förut (Själland när Island klipps bort, #1381)."""
+    parts = list(g.geoms) if g.geom_type == 'MultiPolygon' else [g]
+    keep = [q for q in parts if not q.intersects(cut)]
+    hit = [q.difference(cut) for q in parts if q.intersects(cut)]
+    hit = [x for h in hit for x in (h.geoms if hasattr(h, 'geoms') else [h]) if x.geom_type == 'Polygon' and not x.is_empty]
+    out = keep + hit
+    if not out:
+        return Polygon()
+    return MultiPolygon(out) if len(out) > 1 else out[0]
+
+
 def minus_others(items, names, by_name):
     """Klipper bort andra Cliopatria-stater (names) ur en dels perioder de år de finns (#644). Cliopatria räknar ibland
     ett område både till en stat och till dess forna kolonialmakt, till exempel Algeriet och Djibouti till Femte franska
     republiken 1961–2023. Perioderna delas där någon av staterna börjar eller slutar."""
-    # Ett namn kan vara (namn, från år): då klipps staten bara bort från det året
-    pairs = [(n, None) if isinstance(n, str) else n for n in names]
-    feats = [f for n, y in pairs for f in by_name.get(n, []) if y is None or f['properties']['ToYear'] >= y]
+    # Ett namn kan vara (namn, från år): då klipps staten bara bort från det året. (namn, från år, till år) klipper bara
+    # till och med till år, så att perioderna efter det inte räknas om (Kingdom of Iceland ur Danmark 1918–1921, #1381)
+    pairs = [(n, None) if isinstance(n, str) else tuple(n[:2]) for n in names]
+    last = {n[0]: n[2] for n in names if not isinstance(n, str) and len(n) > 2}
+    feats = [f for n, y in pairs for f in by_name.get(n, []) if (y is None or f['properties']['ToYear'] >= y)
+             and f['properties']['FromYear'] <= last.get(n, 9999)]
     first = {n: y for n, y in pairs}
     start = lambda f: max(f['properties']['FromYear'], first[f['properties']['Name']] or f['properties']['FromYear'])
+    end = lambda f: min(f['properties']['ToYear'], last.get(f['properties']['Name'], 9999))
     out = []
     for a, b, g, ar in items:
-        cuts = sorted({a, b + 1} | {c for f in feats for c in (start(f), f['properties']['ToYear'] + 1) if a < c <= b})
+        cuts = sorted({a, b + 1} | {c for f in feats for c in (start(f), end(f) + 1) if a < c <= b})
         for s, e in zip(cuts, cuts[1:]):
-            on = [shape(f['geometry']).buffer(0) for f in feats if start(f) <= s <= f['properties']['ToYear']]
+            on = [shape(f['geometry']).buffer(0) for f in feats if start(f) <= s <= end(f)]
             if on:
-                ng = g.difference(unary_union(on))
+                # Med (namn, från, till) klipps bara de delar som träffas (cut_parts, #1381); övriga minus som förut
+                ng = cut_parts(g, unary_union(on)) if last else g.difference(unary_union(on))
                 out.append((s, e - 1, ng, km2(ng)))
             else:
                 out.append((s, e - 1, g, ar))
