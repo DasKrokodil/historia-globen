@@ -75,7 +75,7 @@
 "benin":{"flags":{"0":{"label":{"fr":"Drapeau du Bénin"}},"1":{"label":{"fr":"Drapeau du Bénin"}}}},
 "honduras":{"flags":{"0":{"label":{"fr":"Drapeau hondurien à cinq étoiles"}}}},
 "island":{"flags":{"0":{"label":{"fr":"Drapeau de l’Islande"}}}},
-"bulgarien":{"flags":{"0":{"label":{"fr":"Drapeau de la Bulgarie"}}}},
+"bulgarien":{"flags":{"0":{"label":{"fr":"Drapeau de la Bulgarie"}},"1":{"label":{"fr":"Drapeau de la Bulgarie"}}}},
 "guatemala":{"flags":{"0":{"label":{"fr":"Drapeau civil guatémaltèque"}}}},
 "portugal":{"flags":{"0":{"label":{"fr":"Drapeau du Portugal"}}}},
 "tjeckien":{"flags":{"0":{"label":{"fr":"Drapeau de la Tchéquie"}}}},
