@@ -111,7 +111,7 @@
 "almoravider":{"flags":{"0":{"label":{"de":"Schwarzes Banner"}}}},
 "almohader":{"flags":{"0":{"label":{"de":"Weißes Banner"}}}},
 "kungariket-polen":{"flags":{"0":{"label":{"de":"Weißer Adler auf Rot, moderne Rekonstruktion des Siegels von 1295"}}}},
-"konungariket-danmark":{"flags":{"0":{"label":{"de":"Banner der Könige: weißes Kreuz auf Rot"}},"1":{"label":{"de":"Dannebrog, Flagge Dänemarks"}}}},
+"konungariket-danmark":{"flags":{"0":{"label":{"de":"Banner der Könige: weißes Kreuz auf Rot"}},"1":{"label":{"de":"Banner der Könige: weißes Kreuz auf Rot"}},"2":{"label":{"de":"Dannebrog, Flagge Dänemarks"}}}},
 "storfurstendomet-litauen":{"flags":{"0":{"label":{"de":"Der Reiter (Vytis) auf Rot, Banner des Großfürstentums"}}}},
 "kastilianska-kronan":{"flags":{"0":{"label":{"de":"Wappen von Kastilien und León: Burg und Löwe"}}}},
 "monaco":{"flags":{"0":{"label":{"de":"Flagge Monacos"}}}},

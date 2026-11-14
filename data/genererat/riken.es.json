@@ -110,7 +110,7 @@
 "almoravider":{"flags":{"0":{"label":{"es":"Estandarte negro"}}}},
 "almohader":{"flags":{"0":{"label":{"es":"Estandarte blanco"}}}},
 "kungariket-polen":{"flags":{"0":{"label":{"es":"Águila blanca sobre rojo, reconstrucción moderna del sello de 1295"}}}},
-"konungariket-danmark":{"flags":{"0":{"label":{"es":"Estandarte de los reyes: cruz blanca sobre rojo"}},"1":{"label":{"es":"Dannebrog, bandera de Dinamarca"}}}},
+"konungariket-danmark":{"flags":{"0":{"label":{"es":"Estandarte de los reyes: cruz blanca sobre rojo"}},"1":{"label":{"es":"Estandarte de los reyes: cruz blanca sobre rojo"}},"2":{"label":{"es":"Dannebrog, bandera de Dinamarca"}}}},
 "storfurstendomet-litauen":{"flags":{"0":{"label":{"es":"El jinete (Vytis) sobre rojo, estandarte del Gran Ducado"}}}},
 "kastilianska-kronan":{"flags":{"0":{"label":{"es":"Escudo de Castilla y León: castillo y león"}}}},
 "monaco":{"flags":{"0":{"label":{"es":"Bandera de Mónaco"}}}},

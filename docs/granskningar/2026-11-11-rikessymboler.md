@@ -126,6 +126,24 @@ Byggt på grenen `claude/issue-1152-europa-2`. Källorna öppnades 2026-11-14.
 
 Därmed har alla rader i tabellen "Europa" med "bygg" en symbol eller flagga, utom Moskvariket.
 
+**Expertgranskning 2026-11-14 (historiker och geograf, före ihopslagning).** Båda lämnade synpunkter och inget blockerande. Källorna öppnades om 2026-11-14.
+
+Rättat i den här pull requesten:
+- **Kastilien:** lejonets färg står inte längre i faktarutan (rättat i en tidigare commit).
+- **Danmark, Gelre:** faktarutan redovisar nu tre värden för vapenbokens ålder: omkring 1340–1370 i Wikipedias artikel om Dannebrog, före 1396 i artikeln om vapenboken och 1395–1402 på Commons filsida. Artikeln om vapenboken är ny källa (`wp-gelre-armorial`). Fanans start 1370 är oförändrad.
+- **Danmark, yta:** kungafanan är delad i två spann, 1370–1401 och 1526–1624. Åren 1407–1525 har Konungariket Danmark ingen yta (Kalmarunionen ligger där). Åren 1402–1406 är en prick på 73 km² som inte får medalj (tidigare commit).
+- **Licenser i `data/sources.json`**, rättade mot filsidorna på Commons: Kroatien (PD-OpenClipart och CC0, PD-Croatia-exempt), Slovakien (PD-SlovakGov), Montenegro (PD-SCGGov, filsidan säger att statusen är antagen) och Malta (filsidans Malta-mall och CC Public Domain Mark 1.0).
+- **README och datamodellen** kallade flaggfilerna "egna teckningar". De är förenklade, och för flera bygger de på Commons-filer. Kontrollerat för Slovakien, Slovenien och Nordmakedonien: emblemens banor är desamma som i Commons-filen, medan de enkla färgfälten är egna.
+
+Öppet för DasKrokodils beslut:
+- **Kungafanans start:** 1370 eller 1395. Källorna avgör inte.
+- **SVG-filerna för Slovenien, Nordmakedonien och Montenegro:** public domain-grunden är osäker på Commons själv, och banorna är kopierade. Ska de ritas om eller behållas med en not?
+- **Kastiliens lejon** är ritat i purpur (`#8a1c4e`). Ingen öppnad källa anger färgen, och faktarutan säger inget om den.
+- **Litauen 1410–1449:** slutåret är rikets slut i datan, inte något källan säger om fanan.
+- **Malta** visas från 1967 (rikets start i datan) trots att flaggan antogs 1964. **Nordmakedonien** 1992–1994 och **Serbien** 1992–2005 saknar tecken.
+
+Luckor (blockerar inte): Andorra, Liechtenstein och San Marino saknar flagga. Enligt geografens räkning har Europa nu symbol eller flagga på 35 av 54 grupper (65 %), mot Asien 20 av 67 och Afrika 14 av 60, så nästa omgångar bör gå dit.
+
 ## Tabeller per världsdel
 
 Kolumner: id, rike, sort, vad symbolen är, källa, bild på Commons med licens, säkerhet, rekommendation och anmärkning.

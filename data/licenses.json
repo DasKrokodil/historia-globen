@@ -959,6 +959,7 @@
         "wp-gardar-greenland",
         "wp-garuda",
         "wp-gautama-buddha",
+        "wp-gelre-armorial",
         "wp-genpei-war",
         "wp-george-washingtons-teeth",
         "wp-german-colonial-empire",
@@ -2556,6 +2557,12 @@
       ]
     },
     {
+      "license": "Public domain (Maltas regering enligt filsidan; CC Public Domain Mark 1.0)",
+      "sourceIds": [
+        "commons-flagga-malta"
+      ]
+    },
+    {
       "license": "Public domain (PD-1923, PD-old)",
       "sourceIds": [
         "commons-flagga-portugal"
@@ -2598,12 +2605,6 @@
       ]
     },
     {
-      "license": "Public domain (PD-CroatiaGov)",
-      "sourceIds": [
-        "commons-flagga-croatia"
-      ]
-    },
-    {
       "license": "Public domain (PD-Fiji)",
       "sourceIds": [
         "commons-flagga-fiji"
@@ -2634,18 +2635,6 @@
       ]
     },
     {
-      "license": "Public domain (PD-MNEGov, PD-SCGGov)",
-      "sourceIds": [
-        "commons-flagga-montenegro"
-      ]
-    },
-    {
-      "license": "Public domain (PD-MaltaGov)",
-      "sourceIds": [
-        "commons-flagga-malta"
-      ]
-    },
-    {
       "license": "Public domain (PD-Nepal)",
       "sourceIds": [
         "commons-flagga-nepal"
@@ -2664,13 +2653,25 @@
       ]
     },
     {
+      "license": "Public domain (PD-OpenClipart och CC0; PD-Croatia-exempt)",
+      "sourceIds": [
+        "commons-flagga-croatia"
+      ]
+    },
+    {
+      "license": "Public domain (PD-SCGGov; Montenegros upphovsrättslag, status antagen enligt filsidan)",
+      "sourceIds": [
+        "commons-flagga-montenegro"
+      ]
+    },
+    {
       "license": "Public domain (PD-SerbiaGov)",
       "sourceIds": [
         "commons-flagga-serbia"
       ]
     },
     {
-      "license": "Public domain (PD-Slovakia)",
+      "license": "Public domain (PD-SlovakGov)",
       "sourceIds": [
         "commons-flagga-slovakia"
       ]
