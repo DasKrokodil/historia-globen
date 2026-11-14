@@ -3011,6 +3011,15 @@
       ]
     },
     {
+      "license": "Skolverket (bara länkad; inga villkor för återanvändning angivna under Om webbplatsen på skolverket.se, öppnad 2026-11-14; korta citat med källhänvisning i granskningsrapporten, ingen text kopierad till data)",
+      "sourceIds": [
+        "skolverket-kommentar-geografi",
+        "skolverket-kommentar-historia",
+        "skolverket-lgr22-geografi",
+        "skolverket-lgr22-samhallskunskap"
+      ]
+    },
+    {
       "license": "Skolverket (bara länkad; årtal och årskurser hämtade, periodnamnen är egna formuleringar, ingen text kopierad)",
       "sourceIds": [
         "skolverket-lgr22-historia"
