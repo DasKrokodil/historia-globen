@@ -1727,6 +1727,56 @@ async function run(browser, vp) {
     }
   });
 
+  // #1571 (pilot): resans klickruta. Noten ("Källorna skiljer sig") är en hopfälld rad med synlig rubrik, källorna och
+  // statusen ligger i en hopfälld rad sist, och "Läs mer" ryms utan rullning. Rutan visas direkt via RoutePop (en kopia av
+  // main.js som levereras bara här och lägger rutan på window), så kontrollen inte beror på var en väg ligger på kartan.
+  await check('resans ruta: noten och källorna är hopfällda och Läs mer ryms utan rullning (#1571)', async () => {
+    const lp = await context.newPage();
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await lp.route(u => isFont(u.href), r => r.abort());
+      }
+      const marker = "const routePop = new RoutePop($('route-pop'), data);";
+      const mainSrc = fs.readFileSync(new URL('../js/main.js', import.meta.url), 'utf8');
+      if (!mainSrc.includes(marker)) throw new Error('main.js skapar inte routePop på den väntade raden; uppdatera kontrollen');
+      const patched = mainSrc.replace(marker, `${marker} window.__routePop = routePop; window.__routes = routes;`);
+      await lp.route(/\/js\/main\.js(\?.*)?$/, r => r.fulfill({ status: 200, contentType: 'application/javascript', body: patched }));
+      await lp.goto(`${BASE}#y=1330`);
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      // Lagrets egen väg (annars döljer appen rutan vid nästa omritning, eftersom vägen inte syns)
+      const show = () => lp.evaluate(() => {
+        const route = window.__routes.active.map(a => a.route).find(r => r.id === 'ibn-battuta');
+        window.__routePop.show({ route, leg: route.legs[1] }, innerWidth / 2, innerHeight / 3);
+      });
+      await lp.waitForFunction(() => window.__routes?.active.some(a => a.route.id === 'ibn-battuta'), null, { timeout: T.step });
+      await show();
+      await lp.waitForSelector('#route-pop .rp-about', { state: 'visible', timeout: T.step });
+      const note = lp.locator('#route-pop .rp-note-d');
+      if (await note.count() !== 1) throw new Error('resans not saknas som hopfälld rad');
+      if (await note.evaluate(el => el.open)) throw new Error('noten är öppen från början');
+      if (!/Källorna skiljer sig/.test(await note.locator('summary').textContent())) throw new Error('notens rubrik syns inte på raden');
+      if (!/^Källor \(\d+\) · /.test((await lp.locator('#route-pop .rp-about > summary').textContent()).trim())) throw new Error('raden med källor och status saknar antal och status');
+      const fit = await lp.evaluate(() => {
+        const pop = document.getElementById('route-pop'), more = pop.querySelector('.rp-more').getBoundingClientRect(), box = pop.getBoundingClientRect();
+        return { scrolls: pop.scrollHeight > pop.clientHeight + 1, moreInside: more.top >= box.top && more.bottom <= box.bottom, width: Math.round(box.width), h: Math.round(box.height), page: document.scrollingElement.scrollWidth > innerWidth + 1 };
+      });
+      if (fit.scrolls) throw new Error(`rutan rullar med noten stängd (${fit.h} px hög)`);
+      if (!fit.moreInside) throw new Error('"Läs mer" ligger utanför rutan');
+      if (fit.page) throw new Error('rutan ger horisontell scroll');
+      // Tangentbord: Enter på rubriken fäller ut noten, och den står kvar öppen när rutan ritas om (källregistret kommer sent)
+      await note.locator('summary').focus();
+      await lp.keyboard.press('Enter');
+      if (!(await note.evaluate(el => el.open))) throw new Error('Enter fäller inte ut noten');
+      await show();
+      if (!(await lp.locator('#route-pop .rp-note-d').evaluate(el => el.open))) throw new Error('noten stängdes när rutan ritades om');
+      return `rutan ${fit.width} px bred och ${fit.h} px hög utan rullning; noten fälls ut med Enter och står kvar`;
+    } finally {
+      await lp.close();
+    }
+  });
+
   // #1570 (beslut 2026-11-14, alternativ D): formen säger vad tecknet är. En flagga är en rektangel i 3:2, en symbol och en
   // modern återgivning är sköldar, och teckningar som själva är sköldar behåller sin form. Kontrollen ritar märkena på samma
   // canvas som klotet använder och mäter var bildpunkterna finns, så den bryts om en flagga åter sträcks till en sköld.

@@ -1,9 +1,19 @@
 // Klickrutan för vägar och resor (#38): en liten ruta i samma stil som religionernas klickruta, med vägens
 // namn, tid, sammanfattning, källor och "Läs mer" till den kopplade händelsen (fältet event).
 import { CAT, MONTHS_SHORT, t, formatYear, formatEventTime, reviewLabel, needDetails } from '../model.js';
+import { ui } from '../i18n.js';
 
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const KIND = { voyage: 'Resa', trade: 'Handelsväg' };
+
+/** Långa sammanfattningar delas i korta stycken om högst två meningar, så att texten inte blir en vägg (#1571). Texten ändras inte. */
+function paragraphs(text) {
+  if (text.length < 260) return [text];
+  const sentences = text.split(/(?<=[.!?])\s+(?=\p{Lu})/u);
+  const out = [];
+  for (let i = 0; i < sentences.length; i += 2) out.push(sentences.slice(i, i + 2).join(' '));
+  return out;
+}
 
 /** En del av en EDTF-sträng som text: "3 aug 1492", "aug 1492" eller "1492". */
 function edtfText(s) {
@@ -40,7 +50,6 @@ export class RoutePop {
 
   /** Visar rutan vid klickpunkten (x, y i fönstret). hit = LinesLayer.hitTest(): { route, leg }. */
   show({ route, leg }, x, y) {
-    this.route = route; this.leg = leg;
     // Källregistret laddas vid första klicket (#337); rutan ritas om med källorna när det har kommit
     needDetails([])?.then(() => { if (this.route === route && this.leg === leg && !this.pop.hidden) this.show({ route, leg }, x, y); })
       .catch(err => console.error(err));
@@ -51,17 +60,25 @@ export class RoutePop {
       : esc(t(s.title)));
     const ev = route.event && this.byId[route.event];
     const multi = (route.legs?.length ?? 0) > 1;
+    // Ritas rutan om (källregistret har kommit) för samma väg ska utfällda avsnitt stå kvar öppna
+    const same = this.route === route && this.leg === leg && !this.pop.hidden;
+    const wasOpen = sel => same && !!this.pop.querySelector(`${sel}[open]`);
+    const noteOpen = wasOpen('.rp-note-d'), aboutOpen = wasOpen('.rp-about');
+    this.route = route; this.leg = leg;
+    // Ordning (#1571): rubrik, tid, sammanfattning, noten som en hopfälld rad (oenigheten syns alltid som en rad), Läs mer,
+    // och sist en hopfälld rad med källor och status. Osäkerhet göms inte: noten har sin rubrik synlig.
     this.pop.innerHTML = `<button type="button" class="detail-close" data-close aria-label="Stäng">×</button>
       <div class="rp-head"><span class="swatch" style="background:${esc(col)}"></span><strong>${esc(t(route.title))}</strong></div>
       <p class="rp-note">${esc(KIND[route.kind] ?? 'Väg')} · ${esc(formatEventTime(route))}</p>
       ${multi && leg ? `<p class="rp-note">Etapp: ${esc(legTime(leg))}${leg.uncertain ? ' · osäker väg (streckad)' : ''}</p>`
         : leg?.uncertain ? '<p class="rp-note">Osäker väg (streckad)</p>' : ''}
-      ${route.summary ? `<p>${esc(t(route.summary))}</p>` : ''}
-      ${route.note ? `<p class="rp-note-box"><strong>${esc(t(route.note.title))}</strong> ${esc(t(route.note.text))}</p>` : ''}
-      ${links.length ? `<p class="rp-src">Källor: ${links.join(', ')}</p>` : ''}
-      <p class="rp-note">${esc(reviewLabel(route.review, route.kind === 'trade' ? 'Vägen' : 'Resan'))}</p>
+      ${route.summary ? paragraphs(t(route.summary)).map(x => `<p class="rp-summary">${esc(x)}</p>`).join('') : ''}
+      ${route.note ? `<details class="rp-disc rp-note-d"${noteOpen ? ' open' : ''}><summary>${esc(t(route.note.title))}</summary><p>${esc(t(route.note.text))}</p></details>` : ''}
       ${ev ? `<button type="button" class="info-btn rp-more" data-event="${esc(ev.id)}">Läs mer om ${esc(t(ev.title))}</button>` : ''}
-      ${this.onReport ? `<button type="button" class="link-btn report-btn" data-report="${esc(route.id)}" aria-haspopup="dialog" aria-controls="feedback">Rapportera faktafel</button>` : ''}`;
+      <details class="rp-disc rp-about"${aboutOpen ? ' open' : ''}><summary>${esc(ui('route.sourcesCount', { n: ids.length }))} · ${esc(reviewLabel(route.review, route.kind === 'trade' ? 'Vägen' : 'Resan'))}</summary>
+        ${links.length ? `<p class="rp-src">${links.join(', ')}</p>` : ''}
+        ${this.onReport ? `<button type="button" class="link-btn report-btn" data-report="${esc(route.id)}" aria-haspopup="dialog" aria-controls="feedback">Rapportera faktafel</button>` : ''}
+      </details>`;
     this.pop.setAttribute('aria-label', t(route.title));
     this.pop.hidden = false;
     this.pop.scrollTop = 0;
