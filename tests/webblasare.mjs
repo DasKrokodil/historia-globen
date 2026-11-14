@@ -692,6 +692,11 @@ async function run(browser, vp) {
       await pp.waitForSelector('#teacher-lessons li button', { state: 'visible', timeout: T.step });
       await pp.click('#teacher-lessons li:first-child button');
       await pp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
+      // Bandet visas direkt, men adressen skrivs först när turen har startat och nästa varv i adressens väntan har kommit
+      // (js/controllers/address.js, write() vid POLL_MS; lektionsläget räknas bara med en tur, js/url-state.js). Att läsa
+      // location.hash före det ger den gamla vyn (#1562, Firefox är långsammare än Chromium här). Vänta därför in att
+      // läget står i adressen; kommer det aldrig fäller påståendet nedan med adressen som den är (#1562).
+      await pp.waitForFunction(() => /(?:#|&)m=lektion(?:&|$)/.test(location.hash), null, { timeout: T.step }).catch(() => {});
       const lesson = await pp.evaluate(() => ({
         title: document.getElementById('lesson-band-title').textContent,
         print: !document.getElementById('lesson-print').hidden,
