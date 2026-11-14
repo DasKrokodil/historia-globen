@@ -291,3 +291,82 @@ test('en konsolrad som kontrollen glömde att avgöra kan avgöras av den som k�
   assert.equal(registrerade.flatMap(w => w.settle()).length, 1);
   assert.deepEqual(registrerade.flatMap(w => w.settle()), []);
 });
+
+// Tidslinjen (#1561): ändrar inte vad som fäller, bara vad felraden säger.
+const svar = (path, status) => ({ ...begaran(path), response: async () => ({ status: () => status }) });
+const tick = () => new Promise(r => setImmediate(r));
+
+test('tidslinjen: ett konsolfel utanför sidbyte fäller som förut och får tidslinjen på samma rad', async () => {
+  const { sidan, aw, filtrerade } = uppsattning();
+  sidan.url = () => 'http://localhost:8000/?ny=pbesked2#y=1000';
+  await aw.goto('http://localhost:8000/?ny=pbesked1#y=1000&f=place:finns-inte');
+  sidan.emit('requestfailed', begaran('/data/empires/x.json', 'NS_BINDING_ABORTED'));
+  sidan.emit('requestfailed', begaran('/s.woff2', 'NS_ERROR_ABORT', 'fonts.gstatic.com')); // typsnitt tas inte med
+  sidan.emit('requestfinished', svar('/data/platser.json', 404));
+  await tick();
+  assert.equal(aw.deferConsole(FIREFOX), false); // utanför sidbyte: räknas som fel, som förut
+  const diag = aw.consoleDiag(FIREFOX);
+  assert.match(diag, /^ \(tidslinje, tid sedan kontrollens start: /);
+  assert.match(diag, /sidbyte 1 börjar: goto \/\?ny=pbesked1#y=1000&f=place:finns-inte/);
+  assert.match(diag, /sidbyte 1 slut/);
+  assert.match(diag, /requestfailed: \/data\/empires\/x\.json \(NS_BINDING_ABORTED\)/);
+  assert.match(diag, /svar 404: \/data\/platser\.json/);
+  assert.match(diag, /UTANFÖR sidbyte/);
+  assert.match(diag, /sidan \/\?ny=pbesked2/);
+  assert.doesNotMatch(diag, /fonts\.gstatic/);
+  assert.doesNotMatch(diag, /\n/); // en rad, eftersom failNote bara visar första raden
+  assert.deepEqual(aw.settle(), []);
+  assert.equal(filtrerade(), 0);
+});
+
+test('tidslinjen: bara ABORTED_FETCH-raderna får en tidslinje, och något annat fäller eller räknas av som förut', async () => {
+  const { aw } = uppsattning();
+  assert.equal(aw.consoleDiag('TypeError: x is undefined'), '');
+  assert.equal(aw.consoleDiag('/localhost:8000/a.json due to access control checks.'), '');
+  assert.equal(aw.deferConsole('TypeError: x is undefined'), false);
+});
+
+test('tidslinjen: ofullbordade egna begäranden räknas, andra webbplatser och avslutade inte; filtret ändras inte av dem', async () => {
+  const { sidan, aw, filtrerade } = uppsattning();
+  const a = begaran('/data/a.json'), b = begaran('/data/b.json'), c = begaran('/x.json', undefined, 'annan.example');
+  for (const r of [a, b, c]) sidan.emit('request', r);
+  sidan.emit('requestfinished', a);
+  sidan.goto = async () => { assert.equal(aw.deferConsole(FIREFOX), true); };
+  await aw.goto('x');
+  const diag = aw.consoleDiag(FIREFOX);
+  assert.match(diag, /sidbyte 1 börjar: goto [^;]*; 1 ofullbordade egna begäranden \(\/data\/b\.json\)/);
+  assert.match(diag, /under sidbyte 1/);
+  // En ofullbordad begäran räknas INTE som avbruten (villkor 3 är oförändrat): konsolfelet fäller fortfarande
+  const kvar = aw.settle();
+  assert.equal(kvar.length, 1);
+  assert.match(kvar[0], /ingen begäran till den egna webbplatsen avbröts/);
+  assert.match(kvar[0], /tidslinje/);
+  assert.equal(filtrerade(), 0);
+});
+
+test('tidslinjen: ett konsolfel som räknas bort får ingen tidslinje i felen', async () => {
+  const { sidan, aw, filtrerade } = uppsattning();
+  sidan.goto = async () => {
+    sidan.emit('requestfailed', begaran('/data/a.json', 'NS_BINDING_ABORTED'));
+    assert.equal(aw.deferConsole(FIREFOX), true);
+  };
+  await aw.goto('x');
+  assert.deepEqual(aw.settle(), []);
+  assert.equal(filtrerade(), 1);
+});
+
+test('tidslinjen: main-frame-navigering och load syns, och listan är begränsad', async () => {
+  const { sidan, aw } = uppsattning();
+  const huvud = { url: () => 'http://localhost:8000/?ny=1' };
+  sidan.mainFrame = () => huvud;
+  sidan.emit('framenavigated', huvud);
+  sidan.emit('framenavigated', { url: () => 'http://localhost:8000/iframe' }); // en annan ram räknas inte
+  sidan.emit('load');
+  for (let i = 0; i < 200; i++) sidan.emit('requestfailed', begaran(`/data/${i}.json`, 'NS_BINDING_ABORTED'));
+  aw.deferConsole(FIREFOX);
+  const diag = aw.consoleDiag(FIREFOX);
+  assert.doesNotMatch(diag, /\/iframe/);
+  assert.ok(diag.split(' ; ').length <= 80);
+  assert.match(diag, /data\/199\.json/);
+  assert.doesNotMatch(diag, /data\/0\.json/);
+});

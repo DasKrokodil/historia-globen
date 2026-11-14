@@ -2905,7 +2905,11 @@ async function run(browser, vp) {
     // .catch loggar den ("TypeError: NetworkError when attempting to fetch resource.", #1561). Den räknas bort bara under ett sidbyte och
     // när en begäran till den egna webbplatsen också avbröts; samma text i övrigt fäller kontrollen (check() avgör resten med settle()).
     const aw = abortWatch(t.tp);
-    t.tp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url) && !aw.deferConsole(m.text())) pushConsole(t.errs, m, x => `konsol: ${x}`); });
+    t.tp.on('console', m => {
+      if (m.type() !== 'error' || isFont(m.location()?.url) || aw.deferConsole(m.text())) return;
+      const diag = aw.consoleDiag(m.text()); // tidslinjen på samma rad när en avbruten hämtning ändå fäller kontrollen (#1561)
+      pushConsole(t.errs, m, x => `konsol: ${x}${diag}`);
+    });
     return { ...t, aw };
   };
   const addrOpen = async (aw, pg, url) => { await aw.goto(url); await pg.waitForSelector('#loading', { state: 'hidden', timeout: T.load }); };
