@@ -9,6 +9,7 @@ import { formatYear, groupDigits } from '../model.js';
 import { FocusMenu } from '../ui/focusmenu.js';
 import { ui } from '../i18n.js';
 import { warStory } from './story.js';
+import { formatYearSpan } from './facts.js';
 import { createFocusTypes } from '../focus/registry.js';
 import { FOCUS_ENTRIES } from '../focus/index.js';
 import { founding as foundingOf } from '../focus/religion.js';
@@ -29,8 +30,11 @@ export function createFocus(app) {
    * lägga till data men inte ändra vyn), beskedet visas om urvalet saknas och biljetten fortfarande gäller, biljetten kontrolleras, det gamla fokuset
    * slutar, läget börjar, året jämförs med spannet, posten förbereder (prepare), fokuset sätts, det gemensamma
    * ställs in och ritas, och sist visar posten sitt kort (start).
+   *
+   * within ({ from, to }, valfri, #1448): en period inom fokusets spann, till exempel ett rike i landskortet. Året stannar bara om det
+   * ligger inom perioden; annars börjar fokuset vid periodens första år, och raden om flytten nämner perioden.
    */
-  async function startFocus(key) {
+  async function startFocus(key, { within = null } = {}) {
     const ticket = app.store.ticket('fokus');
     const [type, id] = key.split(':');
     $('focus-notice').hidden = true;
@@ -61,7 +65,9 @@ export function createFocus(app) {
     const inSpan = y => y >= f.from && y <= f.to;
     const prevYear = closedRange ? [closedRange.to, closedRange.from].map(Math.floor).find(inSpan) ?? Math.floor(closedRange.from) : timeline.year;
     if (closedRange) f.closedRange = closedRange;
-    const prevText = timeline.format(prevYear), keepYear = inSpan(prevYear);
+    const inWithin = y => !within || (y >= within.from && y <= within.to);
+    const prevText = timeline.format(prevYear), keepYear = inSpan(prevYear) && inWithin(prevYear);
+    const periodStart = within && inSpan(within.from) ? within.from : null;
     post.prepare?.(f);
     const { war = null, route = null } = post.follows?.(f) ?? {};
     app.store.setFocus(f, { war, route });
@@ -78,11 +84,12 @@ export function createFocus(app) {
     // Krigets kapitel på tidslinjen hör till det man följer (state.focusWar), inte till en typ
     const focusWar = state.focusWar;
     if (focusWar) timeline.setStory(warStory(focusWar, { timeline, focus: f, end: app.playback.warEndOf() }));
-    const startYear = keepYear ? prevYear : f.from;
+    const startYear = keepYear ? prevYear : periodStart ?? f.from;
     f.startYear = startYear; // kortet kan säga vilket år det visas för (#1163)
     app.playback.startAt(startYear);
     timeline.year = startYear;
-    showMoved(keepYear ? null : { prevYear, prevText, startYear, short: f.short, movedKey: post.movedKey });
+    showMoved(keepYear ? null : { prevYear, prevText, startYear, short: f.short, movedKey: post.movedKey,
+      why: periodStart != null ? ui('focus.movedPeriod', { years: formatYearSpan(within.from, within.to) }) : null });
     app.refresh();
     post.start?.(f);
     return true;
@@ -101,7 +108,7 @@ export function createFocus(app) {
     $('app').classList.toggle('focus-moved-on', !!m);
     movedBack = m;
     if (!m) return;
-    const why = m.movedKey ? ui(m.movedKey) : ui('focus.movedStart', { name: m.short });
+    const why = m.why ?? (m.movedKey ? ui(m.movedKey) : ui('focus.movedStart', { name: m.short }));
     $('focus-moved-text').textContent = `${ui('focus.moved', { year: timeline.format(m.startYear), why })} · `;
     $('focus-moved-back').textContent = ui('focus.movedBack', { year: m.prevText });
   }

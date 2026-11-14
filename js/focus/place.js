@@ -26,6 +26,16 @@ export function placeLead(place, tx = t, tui = ui) {
  */
 export function showPlaceCard(app, place, events, { follow = true, note = '', focus = follow } = {}) {
   const { $, panel } = app;
+  // Rikena i landskortet (#1448): i Fokus är varje rike en knapp Följ riket; i en tur bara en rad, eftersom turen inte får avslutas av kortet
+  const rows = placeEmpireRows(place, app.data?.empireGroups);
+  const periods = rows.map(r => {
+    const years = formatYearSpan(r.from, r.to);
+    if (r.kind === 'gap') return { gap: ui('place.empireGap', { years }) };
+    return { years, name: r.name, label: ui('place.followEmpire', { name: t(r.name), years }),
+      run: follow && panel.onPlaceEmpire ? () => panel.onPlaceEmpire(r) : null };
+  });
+  const empires = periods.length ? { title: ui('place.empires', { count: rows.filter(r => r.kind === 'empire').length }), note: ui('place.empiresNote'),
+    follow: ui('place.followEmpireShort'), rows: periods } : null;
   app.store.setSelected(null);
   panel.showSelection({ label: ui('place.label'), name: place.name, lead: placeLead(place), emblems: place.emblems,
     intro: place.intro,
@@ -33,10 +43,32 @@ export function showPlaceCard(app, place, events, { follow = true, note = '', fo
     action: follow && panel.onPlaceFlat ? { text: ui('place.flatMap'), label: `${ui('place.flatMap')}: ${t(place.name)}`, run: () => panel.onPlaceFlat(place) } : null,
     // boundary.note (#1159): en fast rad om vad konturen är när den inte är platsens egen gräns (Skåne läns gräns för landskapet Skåne)
     notes: [ui('place.borderNote'), ...(place.boundary?.note ? [t(place.boundary.note)] : []), ...(follow ? [ui('place.filters')] : [])], banner: note, exit: follow ? ui('place.exit') : null,
-    summary: ui('place.events', { count: events.length }), events, sources: place.sources, focus, ariaLabel: ui('place.cardLabel') });
+    empires, summary: ui('place.events', { count: events.length }), events, sources: place.sources, focus, ariaLabel: ui('place.cardLabel') });
   app.surfaces.closeGroup('meny');
   if (app.narrow.matches) app.surfaces.closeGroup('sidopanel');
   $('app').classList.add('has-detail');
+}
+
+/**
+ * Rikena i landskortet (#1448): platsens periods i tidsordning, med rikets eget namn (delen, polity, i data/empires/index.json), och
+ * en rad för varje lucka, år mellan första och sista perioden som ingen period täcker. Inga namn eller årtal står i koden: allt kommer
+ * ur platsen och rikenas index, och scripts/validate-site.py kontrollerar att åren är rikets egna. En period vars rike eller del saknas
+ * i indexet hoppas över. Ger [] när platsen saknar perioder.
+ */
+export function placeEmpireRows(place, groups = []) {
+  const rows = [];
+  for (const p of place?.periods ?? []) {
+    const g = (groups ?? []).find(x => x.id === p.empire), pol = g?.polities?.find(x => x.id === p.polity);
+    if (pol) rows.push({ kind: 'empire', empire: g.id, polity: pol.id, name: pol.name, from: p.from, to: p.to });
+  }
+  const gaps = [];
+  let end = -Infinity;
+  for (const r of [...rows].sort((a, b) => a.from - b.from)) {
+    if (end !== -Infinity && r.from > end + 1) gaps.push({ kind: 'gap', from: end + 1, to: r.from - 1 });
+    end = Math.max(end, r.to);
+  }
+  // Stabil sortering: perioder med samma första år står i platsens ordning, och en lucka står efter perioden före den
+  return [...rows, ...gaps].sort((a, b) => a.from - b.from);
 }
 
 /**

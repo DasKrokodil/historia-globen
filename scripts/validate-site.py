@@ -806,6 +806,38 @@ if places_doc is not None:
         inside = [e for e in ev_all if in_place(polys, nb_polys, *e['location']['coordinates'][:2])]
         if len(inside) < 5:
             err(f'{where}: minst 5 synliga händelser ska ligga inom gränsen, men det är {len(inside)}')
+        # Rikena i landskortet (#1448): bara id och år, och åren hämtas ur rikets egna data. from är början och to slutet på
+        # någon av delens perioder i rikets fil, och perioderna emellan följer på varandra utan lucka. Listan står i tidsordning.
+        prev_from = None
+        for i, per in enumerate(pl.get('periods', [])):
+            at = f"{where}, periods[{i}] ({per.get('empire')}/{per.get('polity')} {per.get('from')}–{per.get('to')})"
+            grp = next((g for g in (empires or {}).get('groups', []) if g.get('id') == per.get('empire')), None)
+            if grp is None:
+                err(f'{at}: riket finns inte i data/empires/index.json')
+                continue
+            if per.get('polity') not in {p.get('id') for p in grp.get('polities', [])}:
+                err(f"{at}: delen {per.get('polity')} finns inte i gruppen {grp['id']}")
+                continue
+            if not grp.get('file') or not (DIST / grp['file']).is_file():
+                err(f'{at}: riket har ingen fil med perioder')
+                continue
+            pol = next((p for p in load(grp['file']).get('polities', []) if p.get('id') == per['polity']), None)
+            spans = sorted((q['start'], q['end']) for q in (pol or {}).get('periods', []))
+            starts = [a for a, _ in spans]
+            if per.get('from') not in starts or per.get('to') not in [b for _, b in spans] or per['from'] > per['to']:
+                err(f"{at}: åren är inte början och slut på perioder i {grp['file']} ({per['polity']}); hämta dem ur rikets data")
+                continue
+            run = spans[starts.index(per['from']):]
+            end = run[0][1]
+            for a, b in run[1:]:
+                if end >= per['to'] or a != end + 1:
+                    break
+                end = b
+            if end != per['to']:
+                err(f"{at}: {per['polity']} har en lucka mellan {per['from']} och {per['to']} i {grp['file']}; dela perioden vid luckan")
+            if prev_from is not None and per['from'] < prev_from:
+                err(f'{at}: perioderna ska stå i tidsordning (efter from)')
+            prev_from = per['from']
         if pl.get('type') == 'country':
             for why in country_warnings(inside):
                 print(f'validate-site: VARNING: {where}: hållbarhetsriktlinjen (#1269): {why}', file=sys.stderr)

@@ -61,6 +61,22 @@
             }
           },
           "emblems": {"type": "array", "description": "Flagga och vapen på kortet (#1160): en egen SVG i img/flags/, bildtext på alla språk, kredit, licens och källa (filsidan i sources.json).", "items": {"type": "object", "required": ["kind", "file", "caption", "credit", "license", "source"], "additionalProperties": false, "properties": {"kind": {"enum": ["flag", "arms"]}, "file": {"type": "string", "pattern": "^[a-z0-9-]+$"}, "caption": {"type": "object", "required": ["sv"]}, "credit": {"type": "string"}, "license": {"type": "string"}, "source": {"type": "string"}}}},
+          "periods": {
+            "type": "array",
+            "minItems": 1,
+            "description": "Rikena i landskortet (#1448): de riken i data/empires/ vars område på kartan motsvarar platsen, i tidsordning. Bara id och år, inga egna texter: namnet är rikets eget (polity) och åren måste vara början och slut på rikets egna perioder utan lucka emellan (kontrolleras av scripts/validate-site.py). Länkarna startar Fokus på riket.",
+            "items": {
+              "type": "object",
+              "required": ["empire", "polity", "from", "to"],
+              "additionalProperties": false,
+              "properties": {
+                "empire": { "type": "string", "pattern": "^[a-z0-9-]+$", "description": "Gruppens id i data/empires/index.json; Följ riket startar Fokus på den." },
+                "polity": { "type": "string", "pattern": "^[a-z0-9-]+$", "description": "Delen (polity) i gruppen vars namn och perioder gäller, till exempel sverige-norge i gruppen svenska-stormaktsvaldet." },
+                "from": { "type": "integer", "description": "Första året; början på en av delens perioder i rikets fil." },
+                "to": { "type": "integer", "description": "Sista året; slutet på en av delens perioder i rikets fil." }
+              }
+            }
+          },
           "sources": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^[a-z0-9-]+$" } },
           "review": { "enum": ["draft", "source-checked", "two-sources"] },
           "placeholder": { "type": "boolean" }
