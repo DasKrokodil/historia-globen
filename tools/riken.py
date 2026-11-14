@@ -143,7 +143,7 @@ GROUPS = {
     ]),
     # R2 Antiken (#68)
     # Mellersta riket (Q191324) lades till i #646 (DasKrokodils ja 2026-11-13); gruppens id står kvar så att länkar inte ändras
-    'egypten': ('Egypten: gamla, mellersta och nya riket', 'Egypt: Old, Middle and New Kingdom', [
+    'egypten': ('Egypten: gamla, mellersta och nya riket', 'Egypt: Old, Middle and New Kingdoms', [
         ('Old Kingdom of Egypt', 'egyptens-gamla-rike', 'Egyptens gamla rike', '#3aa0a8'),
         ('Middle Kingdom of Egypt', 'egyptens-mellersta-rike', 'Egyptens mellersta rike', '#3aa0a8'),
         ('New Kingdom of Egypt', 'egyptens-nya-rike', 'Egyptens nya rike', '#3aa0a8'),
