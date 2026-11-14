@@ -49,6 +49,18 @@ export function paintBase(ctx, W, H, land, widths = {}) {
   // Land: färdigprojicerad path (klippt vid datumlinjen) i 4096x2048
   let path = landPaths.get(land);
   if (!path) landPaths.set(land, path = new Path2D(land.path));
+  const kx = W / land.width, ky = H / land.height;
+  if (Math.abs(kx / ky - 1) > 1e-3) {
+    // Olika skala i öst–väst och nord–syd (regionvyn i Platt vy, #1641): banan skalas och inte pennan, så att kusten blir
+    // lika tjock åt alla håll
+    const scaled = new Path2D();
+    scaled.addPath(path, new DOMMatrix([kx, 0, 0, ky, 0, 0]));
+    ctx.fillStyle = '#cdb88d';
+    ctx.fill(scaled);
+    ctx.strokeStyle = 'rgba(80,58,25,0.55)'; ctx.lineWidth = coast;
+    ctx.stroke(scaled);
+    return;
+  }
   ctx.save();
   ctx.scale(W / land.width, H / land.height);
   ctx.fillStyle = '#cdb88d';

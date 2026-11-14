@@ -78,7 +78,12 @@ export function createRender(app) {
   const PLACE_FLAT_ZOOM = 1.2; // en inramad plats i mobilbredd (400 px, högt format) får zoom omkring 1,4
   const placeHints = () => !!app.places?.allowed() && ($('flat-view').hidden ? zoomMag() >= NAMES_MAG : flatMap.zoom >= PLACE_FLAT_ZOOM);
   // Konturens bredd räknas i skärmpixlar (bildpunkter på 4096-bilden per skärmpixel), annars blir den hårfin när kartan visas litet
-  const placePx = () => Math.round(100 / pxPerImg(globe, flatMap)) / 100;
+  // och grov när den visas stort (#1627). Två värdesiffror: vid stark förstoring är talet litet, och det får aldrig bli 0
+  const placePx = () => Number((1 / pxPerImg(globe, flatMap)).toPrecision(2));
+  // Platsens linje ritas i Fokus på en plats, i en turs steg med en plats (#1163) och som markeringar (placeHints): i alla tre
+  // räknas den om när zoomen ändras (#1641), annars blir den lika bred som vid förra omritningen
+  const places = registry.get('places');
+  const placeLine = l => l.placeHints || state.focus?.type === 'place' || !!places?.step;
   function nameStyle() {
     if (!$('flat-view').hidden) return [ZOOM_LEVELS[zoomLevel(flatMap.scale)].flatScale, 1]; // efter zoomnivån (#358)
     const mag = zoomMag();
@@ -93,7 +98,7 @@ export function createRender(app) {
       const [sc, al] = nameStyle();
       const l = state.labels;
       // Ny zoomnivå (#358) ändrar vilka rikesnamn och medaljer som får plats
-      if (l.scale !== sc || l.alpha !== al || l.religionNames !== religionNames() || l.empireNames !== empireNames() || l.modernFlags !== modernFlags() || l.placeHints !== placeHints() || (l.placeHints && Math.abs(Math.log(l.placePx / placePx())) > 0.12)
+      if (l.scale !== sc || l.alpha !== al || l.religionNames !== religionNames() || l.empireNames !== empireNames() || l.modernFlags !== modernFlags() || l.placeHints !== placeHints() || (placeLine(l) && Math.abs(Math.log(l.placePx / placePx())) > 0.12)
         || areas.view.level !== zoomLevel(pxPerImg(globe, flatMap))) refresh();
     }, 150);
   };
@@ -104,6 +109,8 @@ export function createRender(app) {
   // Under en övergång för riken (#78) ritas bara lagerbilden om, en gång per bildruta, tills övergången är klar;
   // annars ritas inget mellan refresh.
   globe.detail.setLayers((ctx, W, H, drawFaded) => registry.draw(ctx, W, H, state, drawFaded));
+  // Regionvyns skarpa karta i Platt vy (#1641): bara lagren som räknar i skärmpixlar (`region` i posten), unit = bildpunkter per skärmpixel
+  flatMap.setRegionLayers((ctx, W, H, drawFaded, unit) => registry.draw(ctx, W, H, state, drawFaded, { region: true, unit }));
   let overlayRaf = 0;
   function drawOverlay() {
     cancelAnimationFrame(overlayRaf); overlayRaf = 0;
@@ -112,6 +119,7 @@ export function createRender(app) {
     globe.commitOverlay();
     globe.detail.layersChanged(); // det skarpa utsnittet vid inzoomning ritas om när det blir stilla
     flatMap.draw(); // Platt vy ritas om med samma bilder (gör inget när den är stängd)
+    flatMap.regionLayersChanged(); // regionvyns skarpa karta ritas om när det blir stilla (#1641)
     if (registry.animating()) overlayRaf = requestAnimationFrame(drawOverlay);
   }
 
