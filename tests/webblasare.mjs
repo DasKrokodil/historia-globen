@@ -5484,6 +5484,120 @@ async function run(browser, vp) {
     return 'Skåne, Stockholmstrakten och Nya Zeeland följer ?c= i den här bredden';
   });
 
+  // Trasig länk (#1324): en tur, ett krig eller ett år i adressen som inte gick att öppna ger en rad som säger vad som saknades.
+  // Sidan öppnas som förut; raden är en status för skärmläsare, täcker inte årtalet, ger ingen sidoscroll och går att stänga.
+  await check('trasig länk: raden säger vad som saknades', async () => {
+    const brokenPage = await context.newPage();
+    const brokenPageAw = abortWatch(brokenPage);
+    const brokenErrors = [];
+    brokenPage.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url) && !/cancel|abort|access control checks/i.test(m.text())) pushConsole(brokenErrors, m); });
+    brokenPage.on('pageerror', e => { if (!brokenPageAw.defer(e.message)) brokenErrors.push(e.message); });
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await brokenPage.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await brokenPage.route(u => isFont(u.href), r => r.abort());
+      }
+      let n = 0;
+      const open = async hash => {
+        await brokenPageAw.goto(`${BASE}?ny=trasig${++n}${hash}`, { waitUntil: 'domcontentloaded', timeout: T.load }); // ?ny gör att sidan laddas om
+        await brokenPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      };
+      const cardText = async () => (await brokenPage.isVisible('#link-notice-card')) ? (await brokenPage.textContent('#link-notice-text')).trim() : '';
+      const measure = () => brokenPage.evaluate(() => {
+        const rect = el => { const r = el.getBoundingClientRect(); return { x: r.x, y: r.y, right: r.right, bottom: r.bottom }; };
+        const card = rect(document.getElementById('link-notice-card')), yearEl = document.querySelector('.year-readout');
+        const live = document.getElementById('link-notice');
+        const e = document.getElementById('link-notice-close');
+        return {
+          card, year: rect(yearEl), vw: document.documentElement.clientWidth, vh: window.innerHeight,
+          scroll: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+          role: live.getAttribute('role'), live: live.getAttribute('aria-live'), liveShown: getComputedStyle(live).display !== 'none',
+          focusInCard: document.getElementById('link-notice-card').contains(document.activeElement),
+          closeHeight: e.getBoundingClientRect().height, images: document.getElementById('link-notice-card').querySelectorAll('img, script').length,
+        };
+      });
+      const checks = [
+        { hash: '#t=finns-inte', say: /Turen .finns-inte. finns inte/, name: 'okänd tur', focus: false },
+        { hash: '#y=1500&f=war:finns-inte', say: /.finns-inte. i länken finns inte/, name: 'okänt krig', focus: false },
+        { hash: '#y=abc', say: /Året .abc. i länken är inte ett tal/, name: 'år som inte är ett tal', focus: false },
+      ];
+      for (const c of checks) {
+        await open(c.hash);
+        await brokenPage.waitForSelector('#link-notice-card', { state: 'visible', timeout: T.step });
+        const said = await cardText();
+        if (!c.say.test(said)) throw new Error(`${c.name}: raden sa "${said}"`);
+        const m = await measure();
+        if (m.role !== 'status' || m.live !== 'polite' || !m.liveShown) throw new Error(`${c.name}: raden är ingen status för skärmläsare (role ${m.role}, aria-live ${m.live}, syns ${m.liveShown})`);
+        if (m.scroll > 0) throw new Error(`${c.name}: sidoscroll på ${m.scroll} px`);
+        if (m.card.x < 0 || m.card.right > m.vw || m.card.bottom > m.vh || m.card.y < 0) throw new Error(`${c.name}: raden ryms inte i fönstret (${JSON.stringify(m.card)})`);
+        const overlap = !(m.card.right <= m.year.x || m.card.x >= m.year.right || m.card.bottom <= m.year.y || m.card.y >= m.year.bottom);
+        if (overlap) throw new Error(`${c.name}: raden täcker årtalet`);
+        if (m.focusInCard) throw new Error(`${c.name}: raden tog fokus`);
+        if (vp.name === 'mobil' && m.closeHeight < 44) throw new Error(`${c.name}: Stäng är ${m.closeHeight} px hög, minst 44 krävs`);
+        if (await brokenPage.isVisible('#lesson-notice') || await brokenPage.isVisible('#lesson-band') || await brokenPage.isVisible('#tour-card') || await brokenPage.isVisible('#focus-bar')) throw new Error(`${c.name}: ett läge eller en annan rad slogs på`);
+        // Länken öppnas som förut: året är startåret eller länkens
+        const wantYear = c.hash.includes('y=1500') ? '1500' : null;
+        if (wantYear) await brokenPage.waitForFunction(v => document.getElementById('year-big').textContent.replace(/\s/g, '') === v, wantYear, { timeout: T.step }).catch(async () => { throw new Error(`${c.name}: året blev ${await year()} i stället för ${wantYear}`); });
+      }
+      // Stäng, och att Escape, en handling på kartan och ett nytt år också stänger raden
+      await open('#t=finns-inte');
+      await brokenPage.waitForSelector('#link-notice-card', { state: 'visible', timeout: T.step });
+      await brokenPage.click('#link-notice-close');
+      await brokenPage.waitForSelector('#link-notice-card', { state: 'hidden', timeout: T.step });
+      await open('#y=1500&f=war:finns-inte');
+      await brokenPage.waitForSelector('#link-notice-card', { state: 'visible', timeout: T.step });
+      await brokenPage.keyboard.press('Escape');
+      await brokenPage.waitForSelector('#link-notice-card', { state: 'hidden', timeout: T.step });
+      await open('#y=abc');
+      await brokenPage.waitForSelector('#link-notice-card', { state: 'visible', timeout: T.step });
+      await brokenPage.mouse.click(vp.width / 2, 300); // ett tryck på kartan
+      await brokenPage.waitForSelector('#link-notice-card', { state: 'hidden', timeout: T.step });
+      await open('#y=1500&f=war:finns-inte');
+      await brokenPage.waitForSelector('#link-notice-card', { state: 'visible', timeout: T.step });
+      await brokenPage.click('.step[data-step="10"]');
+      await brokenPage.waitForSelector('#link-notice-card', { state: 'hidden', timeout: T.step });
+      // Tab till Stäng stänger inte raden, och när Stäng har fokus flyttas fokus till årskontrollen
+      await open('#t=finns-inte');
+      await brokenPage.waitForSelector('#link-notice-card', { state: 'visible', timeout: T.step });
+      await brokenPage.focus('#link-notice-close');
+      if (!await brokenPage.isVisible('#link-notice-card')) throw new Error('raden stängdes när Stäng fick fokus');
+      await brokenPage.keyboard.press('Enter');
+      await brokenPage.waitForSelector('#link-notice-card', { state: 'hidden', timeout: T.step });
+      if (await brokenPage.evaluate(() => document.activeElement?.id) === 'link-notice-close') throw new Error('fokus låg kvar på en dold knapp');
+      // Allt trasigt samtidigt: tur och år, en rad med båda. Resten av länken läses inte, som förut
+      await open('#t=finns-inte&f=war:finns-inte&y=abc');
+      await brokenPage.waitForSelector('#link-notice-card', { state: 'visible', timeout: T.step });
+      const both = await cardText();
+      if (!/Turen/.test(both) || !/Året/.test(both)) throw new Error(`en länk med flera fel sa "${both}"`);
+      // En giltig länk ger ingen rad
+      await open('#y=1630&f=war:trettioariga-kriget');
+      await brokenPage.waitForSelector('#focus-bar', { state: 'visible', timeout: T.step });
+      if (await brokenPage.isVisible('#link-notice-card')) throw new Error('en giltig länk gav en rad om en trasig länk');
+      // En ändrad adress (Bakåt, Framåt eller en klistrad länk, popstate) till en trasig tur ger raden, och en giltig adress tar bort den
+      await brokenPage.evaluate(() => { location.hash = '#t=finns-inte'; });
+      await brokenPage.waitForSelector('#link-notice-card', { state: 'visible', timeout: T.step });
+      if (!/Turen/.test(await cardText())) throw new Error(`en ändrad adress till en saknad tur sa "${await cardText()}"`);
+      await brokenPage.evaluate(() => { location.hash = '#y=1630'; });
+      await brokenPage.waitForSelector('#link-notice-card', { state: 'hidden', timeout: T.step });
+      // Namnet från adressen skrivs som text, aldrig som HTML
+      await open('#y=1500&t=%3Cimg%20src%3Dx%20onerror%3Dalert(1)%3E');
+      await brokenPage.waitForSelector('#link-notice-card', { state: 'visible', timeout: T.step });
+      const unsafe = await measure();
+      if (unsafe.images) throw new Error('namnet ur adressen blev element i raden');
+      if (!/<img src=x/.test(await cardText())) throw new Error(`namnet ur adressen visades inte som text: "${await cardText()}"`);
+      // En lektionslänk till en tur som saknas förklaras av lektionsbandet, inte av två rader
+      await open('#t=finns-inte&m=lektion');
+      await brokenPage.waitForSelector('#lesson-notice', { state: 'visible', timeout: T.step });
+      if (await brokenPage.isVisible('#link-notice-card')) throw new Error('en lektionslänk gav både lektionsbandets förklaring och raden om en trasig länk');
+      if (await brokenPage.isVisible('#lesson-band') || await brokenPage.isVisible('#tour-card')) throw new Error('en trasig lektionslänk slog på ett läge');
+      if (brokenErrors.length) throw new Error(`trasiga länkar gav konsolfel: ${brokenErrors.join('; ')}`);
+    } finally {
+      await brokenPage.close();
+    }
+    return 'okänd tur, okänt krig och ogiltigt år: raden är en status, ryms, täcker inte årtalet, stängs av Stäng, Escape, handling och nytt år; ingen dubbel rad i en lektionslänk';
+  });
+
   if (vp.name === 'dator') {
     // En länk till en guidad tur (#736): t och s i adressen startar turen vid rätt steg, adressen följer turen,
     // Bakåt går till steget innan, Avsluta tar bort turen ur adressen, och en okänd tur ger en vanlig vy
