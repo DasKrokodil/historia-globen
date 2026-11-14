@@ -12,8 +12,9 @@ befintliga index.json och för över de fälten i varje grupp när filen skrivs 
 fältet vanished för försvunna länder (#72): årtal, föregångare, efterträdare och, för länder
 utan gräns i Cliopatria, en punkt, och uncertainBorder för osäkra gränser (#73).
 
-Kör från projektets rot, med Cliopatria-filen (cliopatria_polities_only_v021.geojson
-från https://zenodo.org/records/13363121, CC BY 4.0):
+Kör från projektets rot, med Cliopatria-filen (cliopatria_polities_only_v021.geojson ur cliopatria.geojson.zip
+i version 0.2.1 på Zenodo, https://zenodo.org/records/23128623, doi:10.5281/zenodo.23128623, CC BY 4.0;
+posten 13363121 är version 0.0.1 och ger andra riken, #1616):
     python3 tools/riken.py <cliopatria.geojson>
 Kräver shapely (pip install shapely).
 """
@@ -2095,7 +2096,7 @@ def drop_remnants(by_name):
 
 
 def fix_swapped_shapes(by_name):
-    """Rättar poster i Cliopatria v0.0.1 där två riken har bytt geometri (#1187).
+    """Rättar poster i Cliopatria (v0.0.1 och v0.2.1) där två riken har bytt geometri (#1187).
 
     1895–1897 ligger "Qajar Dynasty" i Nederländska Ostindien och "Dutch East Indies" i Iran:
     ytorna (1 780 919 och 1 611 467 km²) motsvarar Ostindien och Iran 1898. Geometrierna byts
@@ -2325,7 +2326,7 @@ def main():
         size = (out / f'{gid}.json').stat().st_size
         print(f'{gid}: {len(polities)} riken, {sum(len(p["periods"]) for p in polities)} perioder, {size // 1000} kB')
     notes = ('Riken som områden (lagertyp område), ett rike per fil. Utdrag ur Cliopatria, datafil cliopatria_polities_only_v021 '
-             '(Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/13363121), byggt med tools/riken.py. '
+             '(version 0.2.1, Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/23128623), byggt med tools/riken.py. '
              f'Ändringar: geometrin är förenklad (Douglas-Peucker {TOL} grader, koordinater avrundade till 0.1 grad, öar under cirka 200 km2 '
              f'borttagna) och på varandra följande perioder där gränsen ändras mindre än {round(MERGE * 100)} procent är sammanslagna. '
              'Brittiska, spanska och portugisiska imperiet är förenklade hårdare (0.3 grader, 8 procent, öar under cirka 800 km2 borttagna), '
