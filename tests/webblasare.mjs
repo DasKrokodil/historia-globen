@@ -1921,6 +1921,46 @@ async function run(browser, vp) {
     }
   });
 
+  // #1582: i smal skärm krymper turkortet till steg och Nästa medan faktarutan är öppen, så att Nästa går att nå
+  await check('mobil: faktarutan täcker inte Nästa i en tur (#1582)', async () => {
+    if (vp.width > 760) return 'gäller smal skärm; i bred skärm ligger faktarutan på högersidan';
+    const lp = await context.newPage();
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await lp.route(u => isFont(u.href), r => r.abort());
+      }
+      await lp.goto(`${BASE}?ny=1582#t=forsta-varldskriget`);
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await lp.waitForSelector('#tour-read', { state: 'visible', timeout: T.step });
+      await lp.click('#tour-read');
+      await lp.waitForSelector('#detail:not([hidden])', { timeout: T.step });
+      await lp.waitForTimeout(500);
+      const geo = await lp.evaluate(() => {
+        const r = id => document.getElementById(id).getBoundingClientRect();
+        const next = r('tour-next'), card = r('tour-card'), detail = r('detail');
+        const el = document.elementFromPoint(next.x + next.width / 2, next.y + next.height / 2);
+        return { nextCovered: !(el && document.getElementById('tour-next').contains(el)), cardTop: card.top, detailBottom: detail.bottom, textShown: document.getElementById('tour-text').getClientRects().length > 0 };
+      });
+      if (geo.nextCovered) throw new Error('Nästa täcks av faktarutan');
+      if (geo.detailBottom > geo.cardTop + 1) throw new Error(`faktarutan (${Math.round(geo.detailBottom)}) går ner över kortet (${Math.round(geo.cardTop)})`);
+      if (geo.textShown) throw new Error('kortet har kvar hela texten medan faktarutan är öppen');
+      // Nästa går vidare utan att stänga rutan först, och kortet är hela igen
+      await lp.click('#tour-next');
+      await lp.waitForFunction(() => /2/.test(document.getElementById('tour-progress').textContent), null, { timeout: T.step });
+      await lp.waitForFunction(() => document.getElementById('tour-text').getClientRects().length > 0, null, { timeout: T.step });
+      // Stäng återger kortet
+      await lp.click('#tour-read');
+      await lp.waitForSelector('#detail:not([hidden])', { timeout: T.step });
+      await lp.click('#detail .detail-close');
+      await lp.waitForFunction(() => document.getElementById('detail').hidden && document.getElementById('tour-text').getClientRects().length > 0, null, { timeout: T.step });
+      return 'Nästa nås och rutan ligger ovanför det krympta kortet; Nästa går vidare och Stäng återger kortet';
+    } finally {
+      await lp.close();
+    }
+  });
+
   // #1581: svarar servern att formuläret är avstängt (503 disabled) medan klienten är påslagen, ska länkarna till GitHub synas
   await check('förslagsformuläret: svarar servern disabled visas länkarna till GitHub (#1581)', async () => {
     const lp = await context.newPage();
