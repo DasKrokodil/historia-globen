@@ -4,6 +4,7 @@ dist/
 # Pythons cachefiler från tools/ och scripts/
 __pycache__/
 *.pyc
+tools/.cache/
 
 # wranglers arbetsmapp från scripts/pages-function-check.sh (#663)
 .wrangler/
