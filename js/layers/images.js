@@ -4,9 +4,11 @@
 // kartkod behövs där: ritningen följer bara W och H.
 //
 // Byggt: raster över hela världen eller ett utsnitt (bounds), flera rader samtidigt, och rensning av bilder som
-// inte visas. Inte byggt: format "vektor" (ritstilen bestäms i #1096) och kind "grund" (version 8); de hoppas över.
+// inte visas. En skiva med caveat (till exempel istidens kust, #1096) står i teckenförklaringen med sin rubrik, osäkerheten
+// i text och sina källor, så att en tolkning aldrig bara syns som färg (#1095). Inte byggt: format "vektor" och kind
+// "grund" (version 8); de hoppas över.
 import { Z } from './registry.js';
-import { t } from '../model.js';
+import { t, loadSources, sourcesReady } from '../model.js';
 
 /** Raderna som sidan visar: kind "lager" med minst en rasterskiva som inte är utkast. */
 export function imageRows(doc) {
@@ -35,17 +37,35 @@ export function boundsRect(bounds, W, H) {
   return { x: (west + 180) / 360 * W, y: (90 - north) / 180 * H, w: (east - west) / 360 * W, h: (north - south) / 180 * H };
 }
 
+/**
+ * Teckenförklaringen för bildlagren: en post per rad som syns och vars skiva har caveat, med skivans rubrik
+ * (annars radens namn), osäkerheten i text och källorna (titel och adress ur källregistret, när det är laddat).
+ */
+export function imageNotes(built, srcById = {}) {
+  return built.filter(b => b.layer.active?.caveat).map(({ row, layer: { active: x } }) => ({
+    id: row.id, title: t(x.title ?? row.name), text: t(x.caveat),
+    sources: (x.sources ?? []).map(id => srcById[id]).filter(Boolean).map(src => ({ title: src.title, url: src.url })),
+  }));
+}
+
 /** En post i lagerregistret per rad. Raderna ritas i filens ordning, alla på bildlagrens plats (Z.images). */
 export function entries({ data, refreshSoon }) {
+  const built = [];
+  // Alla rader ger samma lista till teckenförklaringen (registry.legend slår ihop delarna), så den blir hel oavsett ordning
+  const legend = () => { const notes = imageNotes(built, data.srcById); return { images: notes.length ? notes : null }; };
   return imageRows(data.imageLayers).map(row => {
     const layer = new ImageLayer(row.slices);
     layer.onLoad = refreshSoon;
+    built.push({ row, layer });
     return {
       id: row.id, name: t(row.name), group: row.group ?? 'perspective', layer,
       menu: { on: false, note: row.note ? t(row.note) : '' }, z: Z.images,
       enabled: s => s.layers[row.id],
       // En bild är ett tillstånd, som rikena: i ett tidsintervall visas slutåret (#756)
       update: s => layer.update(s.areaYear),
+      // Källornas namn i teckenförklaringen: källregistret laddas första gången en skiva med caveat syns
+      apply: s => { if (s.on?.[row.id] && row.slices.some(x => x.caveat) && !sourcesReady()) loadSources().then(refreshSoon).catch(err => console.error(err)); },
+      legend,
       drawOverlay: (ctx, W, H) => layer.drawOverlay(ctx, W, H),
     };
   });

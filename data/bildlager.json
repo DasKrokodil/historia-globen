@@ -23,6 +23,141 @@
           "license": "Public domain i USA enligt NASA:s riktlinjer för bilder"
         }
       ]
+    },
+    {
+      "id": "istidens-kust",
+      "kind": "lager",
+      "group": "perspective",
+      "name": { "sv": "Istidens kust (modell)", "en": "Ice-age coastline (model)", "de": "Eiszeitliche Küste (Modell)", "es": "Costa de la era glacial (modelo)", "fr": "Côte de l’ère glaciaire (modèle)" },
+      "note": { "sv": "modellerad kust 80 000–7500 år sedan; kartans kust är annars nutida", "en": "modelled coastline 80,000–7500 years ago; otherwise the map shows the present-day coast", "de": "modellierte Küste vor 80.000–7500 Jahren; sonst zeigt die Karte die heutige Küste", "es": "costa modelada hace 80 000–7500 años; por lo demás, el mapa muestra la costa actual", "fr": "côte modélisée il y a 80 000–7500 ans ; sinon, la carte montre la côte actuelle" },
+      "slices": [
+        {
+          "id": "istidens-kust-80ka",
+          "title": { "sv": "Kusten för cirka 80 000 år sedan (modell)", "en": "The coastline about 80,000 years ago (model)", "de": "Die Küste vor etwa 80.000 Jahren (Modell)", "es": "La costa hace unos 80 000 años (modelo)", "fr": "La côte il y a environ 80 000 ans (modèle)" },
+          "format": "raster",
+          "file": "images/lager/istidens-kust-80ka.webp",
+          "width": 4096,
+          "height": 2048,
+          "from": -79300,
+          "to": -73051,
+          "caveat": { "sv": "Tolkning, inte en karta från tiden. Ljusa ytor med snedstreck är hav i dag men inte hav i modellen PaleoMIST 1.0 (Gowan m.fl. 2021, rutnät ur Wilmes m.fl. 2023). Det närmaste modellsteget visas, och slutna hav som Kaspiska havet är inte med. Kartans kust är annars nutida.", "en": "An interpretation, not a map from the time. Light hatched areas are sea today but not sea in the PaleoMIST 1.0 model (Gowan et al. 2021, grids from Wilmes et al. 2023). The nearest model step is shown, and enclosed seas such as the Caspian Sea are not included. Otherwise the coastline on the map is present-day.", "de": "Eine Deutung, keine Karte aus jener Zeit. Helle, schraffierte Flächen sind heute Meer, im Modell PaleoMIST 1.0 aber kein Meer (Gowan u. a. 2021, Gitter aus Wilmes u. a. 2023). Gezeigt wird der nächstgelegene Modellschritt; abgeschlossene Meere wie das Kaspische Meer sind nicht enthalten. Ansonsten zeigt die Karte die heutige Küste.", "es": "Una interpretación, no un mapa de la época. Las zonas claras con rayas son mar hoy, pero no lo son en el modelo PaleoMIST 1.0 (Gowan et al. 2021, cuadrículas de Wilmes et al. 2023). Se muestra el paso del modelo más cercano, y los mares cerrados como el mar Caspio no están incluidos. Por lo demás, la costa del mapa es la actual.", "fr": "Une interprétation, pas une carte de l’époque. Les zones claires hachurées sont de la mer aujourd’hui, mais pas dans le modèle PaleoMIST 1.0 (Gowan et al. 2021, grilles de Wilmes et al. 2023). Le pas du modèle le plus proche est affiché, et les mers fermées comme la mer Caspienne ne sont pas incluses. Sinon, la côte de la carte est celle d’aujourd’hui." },
+          "sources": ["wilmes-2023-tidvatten-rutnat", "gowan-2019-paleomist-data", "gowan-2021-paleomist"],
+          "review": "source-checked",
+          "license": "CC BY 4.0 (Wilmes m.fl. 2023 och Gowan 2019; bearbetad: torrlagda ytor och kustlinje ritade med tools/istidens_kust.py)"
+        },
+        {
+          "id": "istidens-kust-70ka",
+          "title": { "sv": "Kusten för cirka 70 000 år sedan (modell)", "en": "The coastline about 70,000 years ago (model)", "de": "Die Küste vor etwa 70.000 Jahren (Modell)", "es": "La costa hace unos 70 000 años (modelo)", "fr": "La côte il y a environ 70 000 ans (modèle)" },
+          "format": "raster",
+          "file": "images/lager/istidens-kust-70ka.webp",
+          "width": 4096,
+          "height": 2048,
+          "from": -73050,
+          "to": -63051,
+          "caveat": { "sv": "Tolkning, inte en karta från tiden. Ljusa ytor med snedstreck är hav i dag men inte hav i modellen PaleoMIST 1.0 (Gowan m.fl. 2021, rutnät ur Wilmes m.fl. 2023). Det närmaste modellsteget visas, och slutna hav som Kaspiska havet är inte med. Kartans kust är annars nutida.", "en": "An interpretation, not a map from the time. Light hatched areas are sea today but not sea in the PaleoMIST 1.0 model (Gowan et al. 2021, grids from Wilmes et al. 2023). The nearest model step is shown, and enclosed seas such as the Caspian Sea are not included. Otherwise the coastline on the map is present-day.", "de": "Eine Deutung, keine Karte aus jener Zeit. Helle, schraffierte Flächen sind heute Meer, im Modell PaleoMIST 1.0 aber kein Meer (Gowan u. a. 2021, Gitter aus Wilmes u. a. 2023). Gezeigt wird der nächstgelegene Modellschritt; abgeschlossene Meere wie das Kaspische Meer sind nicht enthalten. Ansonsten zeigt die Karte die heutige Küste.", "es": "Una interpretación, no un mapa de la época. Las zonas claras con rayas son mar hoy, pero no lo son en el modelo PaleoMIST 1.0 (Gowan et al. 2021, cuadrículas de Wilmes et al. 2023). Se muestra el paso del modelo más cercano, y los mares cerrados como el mar Caspio no están incluidos. Por lo demás, la costa del mapa es la actual.", "fr": "Une interprétation, pas une carte de l’époque. Les zones claires hachurées sont de la mer aujourd’hui, mais pas dans le modèle PaleoMIST 1.0 (Gowan et al. 2021, grilles de Wilmes et al. 2023). Le pas du modèle le plus proche est affiché, et les mers fermées comme la mer Caspienne ne sont pas incluses. Sinon, la côte de la carte est celle d’aujourd’hui." },
+          "sources": ["wilmes-2023-tidvatten-rutnat", "gowan-2019-paleomist-data", "gowan-2021-paleomist"],
+          "review": "source-checked",
+          "license": "CC BY 4.0 (Wilmes m.fl. 2023 och Gowan 2019; bearbetad: torrlagda ytor och kustlinje ritade med tools/istidens_kust.py)"
+        },
+        {
+          "id": "istidens-kust-60ka",
+          "title": { "sv": "Kusten för cirka 60 000 år sedan (modell)", "en": "The coastline about 60,000 years ago (model)", "de": "Die Küste vor etwa 60.000 Jahren (Modell)", "es": "La costa hace unos 60 000 años (modelo)", "fr": "La côte il y a environ 60 000 ans (modèle)" },
+          "format": "raster",
+          "file": "images/lager/istidens-kust-60ka.webp",
+          "width": 4096,
+          "height": 2048,
+          "from": -63050,
+          "to": -53051,
+          "caveat": { "sv": "Tolkning, inte en karta från tiden. Ljusa ytor med snedstreck är hav i dag men inte hav i modellen PaleoMIST 1.0 (Gowan m.fl. 2021, rutnät ur Wilmes m.fl. 2023). Det närmaste modellsteget visas, och slutna hav som Kaspiska havet är inte med. Kartans kust är annars nutida.", "en": "An interpretation, not a map from the time. Light hatched areas are sea today but not sea in the PaleoMIST 1.0 model (Gowan et al. 2021, grids from Wilmes et al. 2023). The nearest model step is shown, and enclosed seas such as the Caspian Sea are not included. Otherwise the coastline on the map is present-day.", "de": "Eine Deutung, keine Karte aus jener Zeit. Helle, schraffierte Flächen sind heute Meer, im Modell PaleoMIST 1.0 aber kein Meer (Gowan u. a. 2021, Gitter aus Wilmes u. a. 2023). Gezeigt wird der nächstgelegene Modellschritt; abgeschlossene Meere wie das Kaspische Meer sind nicht enthalten. Ansonsten zeigt die Karte die heutige Küste.", "es": "Una interpretación, no un mapa de la época. Las zonas claras con rayas son mar hoy, pero no lo son en el modelo PaleoMIST 1.0 (Gowan et al. 2021, cuadrículas de Wilmes et al. 2023). Se muestra el paso del modelo más cercano, y los mares cerrados como el mar Caspio no están incluidos. Por lo demás, la costa del mapa es la actual.", "fr": "Une interprétation, pas une carte de l’époque. Les zones claires hachurées sont de la mer aujourd’hui, mais pas dans le modèle PaleoMIST 1.0 (Gowan et al. 2021, grilles de Wilmes et al. 2023). Le pas du modèle le plus proche est affiché, et les mers fermées comme la mer Caspienne ne sont pas incluses. Sinon, la côte de la carte est celle d’aujourd’hui." },
+          "sources": ["wilmes-2023-tidvatten-rutnat", "gowan-2019-paleomist-data", "gowan-2021-paleomist"],
+          "review": "source-checked",
+          "license": "CC BY 4.0 (Wilmes m.fl. 2023 och Gowan 2019; bearbetad: torrlagda ytor och kustlinje ritade med tools/istidens_kust.py)"
+        },
+        {
+          "id": "istidens-kust-50ka",
+          "title": { "sv": "Kusten för cirka 50 000 år sedan (modell)", "en": "The coastline about 50,000 years ago (model)", "de": "Die Küste vor etwa 50.000 Jahren (Modell)", "es": "La costa hace unos 50 000 años (modelo)", "fr": "La côte il y a environ 50 000 ans (modèle)" },
+          "format": "raster",
+          "file": "images/lager/istidens-kust-50ka.webp",
+          "width": 4096,
+          "height": 2048,
+          "from": -53050,
+          "to": -43051,
+          "caveat": { "sv": "Tolkning, inte en karta från tiden. Ljusa ytor med snedstreck är hav i dag men inte hav i modellen PaleoMIST 1.0 (Gowan m.fl. 2021, rutnät ur Wilmes m.fl. 2023). Det närmaste modellsteget visas, och slutna hav som Kaspiska havet är inte med. Kartans kust är annars nutida.", "en": "An interpretation, not a map from the time. Light hatched areas are sea today but not sea in the PaleoMIST 1.0 model (Gowan et al. 2021, grids from Wilmes et al. 2023). The nearest model step is shown, and enclosed seas such as the Caspian Sea are not included. Otherwise the coastline on the map is present-day.", "de": "Eine Deutung, keine Karte aus jener Zeit. Helle, schraffierte Flächen sind heute Meer, im Modell PaleoMIST 1.0 aber kein Meer (Gowan u. a. 2021, Gitter aus Wilmes u. a. 2023). Gezeigt wird der nächstgelegene Modellschritt; abgeschlossene Meere wie das Kaspische Meer sind nicht enthalten. Ansonsten zeigt die Karte die heutige Küste.", "es": "Una interpretación, no un mapa de la época. Las zonas claras con rayas son mar hoy, pero no lo son en el modelo PaleoMIST 1.0 (Gowan et al. 2021, cuadrículas de Wilmes et al. 2023). Se muestra el paso del modelo más cercano, y los mares cerrados como el mar Caspio no están incluidos. Por lo demás, la costa del mapa es la actual.", "fr": "Une interprétation, pas une carte de l’époque. Les zones claires hachurées sont de la mer aujourd’hui, mais pas dans le modèle PaleoMIST 1.0 (Gowan et al. 2021, grilles de Wilmes et al. 2023). Le pas du modèle le plus proche est affiché, et les mers fermées comme la mer Caspienne ne sont pas incluses. Sinon, la côte de la carte est celle d’aujourd’hui." },
+          "sources": ["wilmes-2023-tidvatten-rutnat", "gowan-2019-paleomist-data", "gowan-2021-paleomist"],
+          "review": "source-checked",
+          "license": "CC BY 4.0 (Wilmes m.fl. 2023 och Gowan 2019; bearbetad: torrlagda ytor och kustlinje ritade med tools/istidens_kust.py)"
+        },
+        {
+          "id": "istidens-kust-40ka",
+          "title": { "sv": "Kusten för cirka 40 000 år sedan (modell)", "en": "The coastline about 40,000 years ago (model)", "de": "Die Küste vor etwa 40.000 Jahren (Modell)", "es": "La costa hace unos 40 000 años (modelo)", "fr": "La côte il y a environ 40 000 ans (modèle)" },
+          "format": "raster",
+          "file": "images/lager/istidens-kust-40ka.webp",
+          "width": 4096,
+          "height": 2048,
+          "from": -43050,
+          "to": -33051,
+          "caveat": { "sv": "Tolkning, inte en karta från tiden. Ljusa ytor med snedstreck är hav i dag men inte hav i modellen PaleoMIST 1.0 (Gowan m.fl. 2021, rutnät ur Wilmes m.fl. 2023). Det närmaste modellsteget visas, och slutna hav som Kaspiska havet är inte med. Kartans kust är annars nutida.", "en": "An interpretation, not a map from the time. Light hatched areas are sea today but not sea in the PaleoMIST 1.0 model (Gowan et al. 2021, grids from Wilmes et al. 2023). The nearest model step is shown, and enclosed seas such as the Caspian Sea are not included. Otherwise the coastline on the map is present-day.", "de": "Eine Deutung, keine Karte aus jener Zeit. Helle, schraffierte Flächen sind heute Meer, im Modell PaleoMIST 1.0 aber kein Meer (Gowan u. a. 2021, Gitter aus Wilmes u. a. 2023). Gezeigt wird der nächstgelegene Modellschritt; abgeschlossene Meere wie das Kaspische Meer sind nicht enthalten. Ansonsten zeigt die Karte die heutige Küste.", "es": "Una interpretación, no un mapa de la época. Las zonas claras con rayas son mar hoy, pero no lo son en el modelo PaleoMIST 1.0 (Gowan et al. 2021, cuadrículas de Wilmes et al. 2023). Se muestra el paso del modelo más cercano, y los mares cerrados como el mar Caspio no están incluidos. Por lo demás, la costa del mapa es la actual.", "fr": "Une interprétation, pas une carte de l’époque. Les zones claires hachurées sont de la mer aujourd’hui, mais pas dans le modèle PaleoMIST 1.0 (Gowan et al. 2021, grilles de Wilmes et al. 2023). Le pas du modèle le plus proche est affiché, et les mers fermées comme la mer Caspienne ne sont pas incluses. Sinon, la côte de la carte est celle d’aujourd’hui." },
+          "sources": ["wilmes-2023-tidvatten-rutnat", "gowan-2019-paleomist-data", "gowan-2021-paleomist"],
+          "review": "source-checked",
+          "license": "CC BY 4.0 (Wilmes m.fl. 2023 och Gowan 2019; bearbetad: torrlagda ytor och kustlinje ritade med tools/istidens_kust.py)"
+        },
+        {
+          "id": "istidens-kust-30ka",
+          "title": { "sv": "Kusten för cirka 30 000 år sedan (modell)", "en": "The coastline about 30,000 years ago (model)", "de": "Die Küste vor etwa 30.000 Jahren (Modell)", "es": "La costa hace unos 30 000 años (modelo)", "fr": "La côte il y a environ 30 000 ans (modèle)" },
+          "format": "raster",
+          "file": "images/lager/istidens-kust-30ka.webp",
+          "width": 4096,
+          "height": 2048,
+          "from": -33050,
+          "to": -23051,
+          "caveat": { "sv": "Tolkning, inte en karta från tiden. Ljusa ytor med snedstreck är hav i dag men inte hav i modellen PaleoMIST 1.0 (Gowan m.fl. 2021, rutnät ur Wilmes m.fl. 2023). Det närmaste modellsteget visas, och slutna hav som Kaspiska havet är inte med. Kartans kust är annars nutida.", "en": "An interpretation, not a map from the time. Light hatched areas are sea today but not sea in the PaleoMIST 1.0 model (Gowan et al. 2021, grids from Wilmes et al. 2023). The nearest model step is shown, and enclosed seas such as the Caspian Sea are not included. Otherwise the coastline on the map is present-day.", "de": "Eine Deutung, keine Karte aus jener Zeit. Helle, schraffierte Flächen sind heute Meer, im Modell PaleoMIST 1.0 aber kein Meer (Gowan u. a. 2021, Gitter aus Wilmes u. a. 2023). Gezeigt wird der nächstgelegene Modellschritt; abgeschlossene Meere wie das Kaspische Meer sind nicht enthalten. Ansonsten zeigt die Karte die heutige Küste.", "es": "Una interpretación, no un mapa de la época. Las zonas claras con rayas son mar hoy, pero no lo son en el modelo PaleoMIST 1.0 (Gowan et al. 2021, cuadrículas de Wilmes et al. 2023). Se muestra el paso del modelo más cercano, y los mares cerrados como el mar Caspio no están incluidos. Por lo demás, la costa del mapa es la actual.", "fr": "Une interprétation, pas une carte de l’époque. Les zones claires hachurées sont de la mer aujourd’hui, mais pas dans le modèle PaleoMIST 1.0 (Gowan et al. 2021, grilles de Wilmes et al. 2023). Le pas du modèle le plus proche est affiché, et les mers fermées comme la mer Caspienne ne sont pas incluses. Sinon, la côte de la carte est celle d’aujourd’hui." },
+          "sources": ["wilmes-2023-tidvatten-rutnat", "gowan-2019-paleomist-data", "gowan-2021-paleomist"],
+          "review": "source-checked",
+          "license": "CC BY 4.0 (Wilmes m.fl. 2023 och Gowan 2019; bearbetad: torrlagda ytor och kustlinje ritade med tools/istidens_kust.py)"
+        },
+        {
+          "id": "istidens-kust-20ka",
+          "title": { "sv": "Kusten för cirka 20 000 år sedan (modell)", "en": "The coastline about 20,000 years ago (model)", "de": "Die Küste vor etwa 20.000 Jahren (Modell)", "es": "La costa hace unos 20 000 años (modelo)", "fr": "La côte il y a environ 20 000 ans (modèle)" },
+          "format": "raster",
+          "file": "images/lager/istidens-kust-20ka.webp",
+          "width": 4096,
+          "height": 2048,
+          "from": -23050,
+          "to": -15551,
+          "caveat": { "sv": "Tolkning, inte en karta från tiden. Ljusa ytor med snedstreck är hav i dag men inte hav i modellen PaleoMIST 1.0 (Gowan m.fl. 2021, rutnät ur Wilmes m.fl. 2023). Det närmaste modellsteget visas, och slutna hav som Kaspiska havet är inte med. Kartans kust är annars nutida.", "en": "An interpretation, not a map from the time. Light hatched areas are sea today but not sea in the PaleoMIST 1.0 model (Gowan et al. 2021, grids from Wilmes et al. 2023). The nearest model step is shown, and enclosed seas such as the Caspian Sea are not included. Otherwise the coastline on the map is present-day.", "de": "Eine Deutung, keine Karte aus jener Zeit. Helle, schraffierte Flächen sind heute Meer, im Modell PaleoMIST 1.0 aber kein Meer (Gowan u. a. 2021, Gitter aus Wilmes u. a. 2023). Gezeigt wird der nächstgelegene Modellschritt; abgeschlossene Meere wie das Kaspische Meer sind nicht enthalten. Ansonsten zeigt die Karte die heutige Küste.", "es": "Una interpretación, no un mapa de la época. Las zonas claras con rayas son mar hoy, pero no lo son en el modelo PaleoMIST 1.0 (Gowan et al. 2021, cuadrículas de Wilmes et al. 2023). Se muestra el paso del modelo más cercano, y los mares cerrados como el mar Caspio no están incluidos. Por lo demás, la costa del mapa es la actual.", "fr": "Une interprétation, pas une carte de l’époque. Les zones claires hachurées sont de la mer aujourd’hui, mais pas dans le modèle PaleoMIST 1.0 (Gowan et al. 2021, grilles de Wilmes et al. 2023). Le pas du modèle le plus proche est affiché, et les mers fermées comme la mer Caspienne ne sont pas incluses. Sinon, la côte de la carte est celle d’aujourd’hui." },
+          "sources": ["wilmes-2023-tidvatten-rutnat", "gowan-2019-paleomist-data", "gowan-2021-paleomist"],
+          "review": "source-checked",
+          "license": "CC BY 4.0 (Wilmes m.fl. 2023 och Gowan 2019; bearbetad: torrlagda ytor och kustlinje ritade med tools/istidens_kust.py)"
+        },
+        {
+          "id": "istidens-kust-15ka",
+          "title": { "sv": "Kusten för cirka 15 000 år sedan (modell)", "en": "The coastline about 15,000 years ago (model)", "de": "Die Küste vor etwa 15.000 Jahren (Modell)", "es": "La costa hace unos 15 000 años (modelo)", "fr": "La côte il y a environ 15 000 ans (modèle)" },
+          "format": "raster",
+          "file": "images/lager/istidens-kust-15ka.webp",
+          "width": 4096,
+          "height": 2048,
+          "from": -15550,
+          "to": -10551,
+          "caveat": { "sv": "Tolkning, inte en karta från tiden. Ljusa ytor med snedstreck är hav i dag men inte hav i modellen PaleoMIST 1.0 (Gowan m.fl. 2021, rutnät ur Wilmes m.fl. 2023). Det närmaste modellsteget visas, och slutna hav som Kaspiska havet är inte med. Kartans kust är annars nutida.", "en": "An interpretation, not a map from the time. Light hatched areas are sea today but not sea in the PaleoMIST 1.0 model (Gowan et al. 2021, grids from Wilmes et al. 2023). The nearest model step is shown, and enclosed seas such as the Caspian Sea are not included. Otherwise the coastline on the map is present-day.", "de": "Eine Deutung, keine Karte aus jener Zeit. Helle, schraffierte Flächen sind heute Meer, im Modell PaleoMIST 1.0 aber kein Meer (Gowan u. a. 2021, Gitter aus Wilmes u. a. 2023). Gezeigt wird der nächstgelegene Modellschritt; abgeschlossene Meere wie das Kaspische Meer sind nicht enthalten. Ansonsten zeigt die Karte die heutige Küste.", "es": "Una interpretación, no un mapa de la época. Las zonas claras con rayas son mar hoy, pero no lo son en el modelo PaleoMIST 1.0 (Gowan et al. 2021, cuadrículas de Wilmes et al. 2023). Se muestra el paso del modelo más cercano, y los mares cerrados como el mar Caspio no están incluidos. Por lo demás, la costa del mapa es la actual.", "fr": "Une interprétation, pas une carte de l’époque. Les zones claires hachurées sont de la mer aujourd’hui, mais pas dans le modèle PaleoMIST 1.0 (Gowan et al. 2021, grilles de Wilmes et al. 2023). Le pas du modèle le plus proche est affiché, et les mers fermées comme la mer Caspienne ne sont pas incluses. Sinon, la côte de la carte est celle d’aujourd’hui." },
+          "sources": ["wilmes-2023-tidvatten-rutnat", "gowan-2019-paleomist-data", "gowan-2021-paleomist"],
+          "review": "source-checked",
+          "license": "CC BY 4.0 (Wilmes m.fl. 2023 och Gowan 2019; bearbetad: torrlagda ytor och kustlinje ritade med tools/istidens_kust.py)"
+        },
+        {
+          "id": "istidens-kust-10ka",
+          "title": { "sv": "Kusten för cirka 10 000 år sedan (modell)", "en": "The coastline about 10,000 years ago (model)", "de": "Die Küste vor etwa 10.000 Jahren (Modell)", "es": "La costa hace unos 10 000 años (modelo)", "fr": "La côte il y a environ 10 000 ans (modèle)" },
+          "format": "raster",
+          "file": "images/lager/istidens-kust-10ka.webp",
+          "width": 4096,
+          "height": 2048,
+          "from": -10550,
+          "to": -5550,
+          "caveat": { "sv": "Tolkning, inte en karta från tiden. Ljusa ytor med snedstreck är hav i dag men inte hav i modellen PaleoMIST 1.0 (Gowan m.fl. 2021, rutnät ur Wilmes m.fl. 2023). Det närmaste modellsteget visas, och slutna hav som Kaspiska havet är inte med. Kartans kust är annars nutida.", "en": "An interpretation, not a map from the time. Light hatched areas are sea today but not sea in the PaleoMIST 1.0 model (Gowan et al. 2021, grids from Wilmes et al. 2023). The nearest model step is shown, and enclosed seas such as the Caspian Sea are not included. Otherwise the coastline on the map is present-day.", "de": "Eine Deutung, keine Karte aus jener Zeit. Helle, schraffierte Flächen sind heute Meer, im Modell PaleoMIST 1.0 aber kein Meer (Gowan u. a. 2021, Gitter aus Wilmes u. a. 2023). Gezeigt wird der nächstgelegene Modellschritt; abgeschlossene Meere wie das Kaspische Meer sind nicht enthalten. Ansonsten zeigt die Karte die heutige Küste.", "es": "Una interpretación, no un mapa de la época. Las zonas claras con rayas son mar hoy, pero no lo son en el modelo PaleoMIST 1.0 (Gowan et al. 2021, cuadrículas de Wilmes et al. 2023). Se muestra el paso del modelo más cercano, y los mares cerrados como el mar Caspio no están incluidos. Por lo demás, la costa del mapa es la actual.", "fr": "Une interprétation, pas une carte de l’époque. Les zones claires hachurées sont de la mer aujourd’hui, mais pas dans le modèle PaleoMIST 1.0 (Gowan et al. 2021, grilles de Wilmes et al. 2023). Le pas du modèle le plus proche est affiché, et les mers fermées comme la mer Caspienne ne sont pas incluses. Sinon, la côte de la carte est celle d’aujourd’hui." },
+          "sources": ["wilmes-2023-tidvatten-rutnat", "gowan-2019-paleomist-data", "gowan-2021-paleomist"],
+          "review": "source-checked",
+          "license": "CC BY 4.0 (Wilmes m.fl. 2023 och Gowan 2019; bearbetad: torrlagda ytor och kustlinje ritade med tools/istidens_kust.py)"
+        }
+      ]
     }
   ]
 }
