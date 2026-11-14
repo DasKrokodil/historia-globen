@@ -397,11 +397,13 @@ Definitionerna står i [docs/produkt/13-ordlista.md](produkt/13-ordlista.md) ("L
 | nation | nation | Nation | nación | nation | inget eget ord i gränssnittet |
 | region (= världsdel) | continent | Kontinent | continente | continent | `region.<id>`, `hunt.progress`, `legend.continentNote` |
 | tema | theme | Thema | tema | thème | `theme.label`, `focus.tab.themes` |
+| regionvy (Platt vy inzoomad på en liten plats, #1641) | close-up map | Nahkarte | mapa de cerca | carte rapprochée | `regionView.*` |
 | fliken "Vad hände här?" (händelser nära en plats, #15; hette tidigare Plats) | What happened here? | Was geschah hier? | ¿Qué pasó aquí? | Que s’est-il passé ici ? (hårt mellanrum före frågetecknet) | `focus.tab.place` |
 
 - **Land är inte rike på något språk.** *Country/Land/país/pays* är dagens land med dagens gräns; *empire/Reich/imperio/empire* är rikets historiska gräns. Översätt aldrig "landet" med *empire* eller *Reich*, eller "riket" med *country*.
 - **Stat och nation används inte som synonymer till land.** *Nation*, *nación* och franska *nation* betyder folket, inte området. Delstaterna i USA heter *estados* respektive *États* (avsnitt 17.1).
 - **Region** översätts inte med *region*, *Region*, *región* eller *région*, eftersom det på målspråken oftast betyder en del av ett land. Gränssnittet säger redan *continent*, *Kontinent*, *continente* och *continent*.
+- **Regionvy** (#1641) är namnet på vyn i svenskan, så som DasKrokodil skrev det i issuet; *region* ensamt betyder fortfarande världsdel. På de andra språken heter vyn efter vad den gör, en karta på nära håll: *close-up map*, *Nahkarte*, *mapa de cerca*, *carte rapprochée* (granskas av språkexperterna före releasen).
 
 ### 17.1 Platstyper (för kommande platser; läggs i `place.type.<typ>` när typen byggs)
 
