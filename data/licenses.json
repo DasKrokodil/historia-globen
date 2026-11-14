@@ -96,6 +96,7 @@
     {
       "license": "CC BY 4.0",
       "sourceIds": [
+        "benjamin-2020-murujuga",
         "cliopatria",
         "commons-bild-borobudur-byggs",
         "commons-bild-fn-grundas",
@@ -107,10 +108,15 @@
         "commons-bild-tambora-1815",
         "crevecoeur-2021-jebel-sahaba",
         "kavanagh-2026-budj-bim",
+        "koster-2021-al",
         "librado-2021-horses",
         "moubtahij-2024-taforalt",
         "oktaviana-2024-karampuang",
+        "pico-2022-scabland",
         "pmc-pecnerova-2017",
+        "rotunno-2025-keramik-afrika",
+        "saltre-2016-megafauna",
+        "soriano-2015-sibudu",
         "ucdp-brd-261",
         "ucdp-prio-acd-261"
       ]
@@ -425,6 +431,7 @@
         "wp-austerlitz",
         "wp-australia",
         "wp-australian-frontier-wars",
+        "wp-australian-megafauna",
         "wp-australian-overland-telegraph-line",
         "wp-austria-hungary",
         "wp-austronesian-peoples",
@@ -577,6 +584,7 @@
         "wp-burari",
         "wp-burke-and-wills-expedition",
         "wp-burnham-camp",
+        "wp-burrup-peninsula",
         "wp-byblos",
         "wp-byodo-in",
         "wp-byzantine-empire",
@@ -782,6 +790,7 @@
         "wp-dream-pool-essays",
         "wp-dresden-codex",
         "wp-droughts-in-the-sahel",
+        "wp-dufuna-canoe",
         "wp-dujiangyan",
         "wp-dunhuang",
         "wp-dunmores-proclamation",
@@ -1058,6 +1067,7 @@
         "wp-girgaon",
         "wp-girnar",
         "wp-gisborne-nz",
+        "wp-glacial-lake-missoula",
         "wp-glade-armistice",
         "wp-glagolitic-script",
         "wp-glasgow-green",
@@ -1507,6 +1517,7 @@
         "wp-ming",
         "wp-ming-treasure-voyages",
         "wp-minoan-eruption",
+        "wp-missoula-floods",
         "wp-mita",
         "wp-moa",
         "wp-moai",
@@ -1577,6 +1588,7 @@
         "wp-napoleon",
         "wp-napoleon-complex",
         "wp-napoleonic-wars",
+        "wp-naracoorte-caves",
         "wp-narmer",
         "wp-narva-1700",
         "wp-national-emblem-of-france",
@@ -1843,6 +1855,7 @@
         "wp-sack-of-constantinople",
         "wp-safavid-iran",
         "wp-safavid-shia",
+        "wp-sahul",
         "wp-said-bin-sultan",
         "wp-saint-domingue-expedition",
         "wp-sakoku",
@@ -1898,6 +1911,7 @@
         "wp-shiraz",
         "wp-shrewsbury",
         "wp-shwezigon-pagoda",
+        "wp-sibudu-cave",
         "wp-sidereus-nuncius",
         "wp-sidi-bouzid",
         "wp-siege-acre-1189",
@@ -2101,6 +2115,7 @@
         "wp-tomb-of-tutankhamun",
         "wp-tora-bora",
         "wp-toronto-general-hospital",
+        "wp-torres-strait",
         "wp-torres-strait-islands",
         "wp-toussaint-louverture",
         "wp-toussaint-rouge",
@@ -2487,6 +2502,7 @@
     {
       "license": "Fri att läsa, ingen öppen licens angiven: länkad källa, ingen text kopierad",
       "sourceIds": [
+        "malaspinas-2016-aboriginal-australia",
         "piperno-2009-xihuatoxtla",
         "ranere-2009-xihuatoxtla"
       ]
