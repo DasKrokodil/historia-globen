@@ -9,13 +9,13 @@ import { Help } from './help.js';
 
 export class TeacherGuide extends Help {
   /**
-   * els: root, button, close, list, empty, quizBtn, quizRow, huntBtn, huntRow, presentationBtn, presentationRow.
+   * els: root, button, close, list, empty, linkStatus, quizBtn, quizRow, huntBtn, huntRow, presentationBtn, presentationRow.
    * app: { tour, quiz, hunt, presentation, narrow, lesson } från main.js (alla finns när kortet skapas). narrow: matchMedia för smal skärm.
    */
   constructor(els, app) {
     super({ root: els.root, button: els.button, close: els.close });
-    const { list, empty, quizBtn, quizRow, huntBtn, huntRow, presentationBtn, presentationRow } = els; // inte close: det är metoden i Help
-    Object.assign(this, { list, empty, quizBtn, quizRow, huntBtn, huntRow, presentationBtn, presentationRow, app });
+    const { list, empty, linkStatus, quizBtn, quizRow, huntBtn, huntRow, presentationBtn, presentationRow } = els; // inte close: det är metoden i Help
+    Object.assign(this, { list, empty, linkStatus, quizBtn, quizRow, huntBtn, huntRow, presentationBtn, presentationRow, app });
     this.quizBtn.addEventListener('click', () => { this.close(false); this.app.quiz.open(this.button); });
     this.huntBtn.addEventListener('click', () => { this.close(false); this.app.hunt.start(null, this.button); });
     this.presentationBtn.addEventListener('click', () => {
@@ -31,6 +31,7 @@ export class TeacherGuide extends Help {
     const lessons = (tour?.tours ?? []).filter(x => x.lesson);
     this.list.replaceChildren(...lessons.map(x => this.row(x)));
     this.list.hidden = !lessons.length;
+    if (this.linkStatus) this.linkStatus.hidden = true;
     this.empty.hidden = !!lessons.length; // aldrig ett tomt kort utan förklaring (blind-spots: data saknas)
     this.quizRow.hidden = !quiz?.ready;
     this.huntRow.hidden = !hunt?.ready;
@@ -48,7 +49,13 @@ export class TeacherGuide extends Help {
     go.textContent = ui('tour.lessonStart');
     go.setAttribute('aria-label', ui('tour.lessonStartLabel', { title: t(tourData.title) }));
     go.addEventListener('click', () => { this.close(false); this.app.tour.startAsLesson(tourData.id); });
-    li.append(name, meta, go);
+    // Kopiera lärarlänk (#930, #1583): lektionslänken med r=lararen, som ger knappen för elev- och lärarblad i bandet
+    const copy = document.createElement('button');
+    copy.type = 'button'; copy.className = 'link-btn teacher-lesson-copy';
+    copy.textContent = ui('tour.teacherLinkCopy');
+    copy.setAttribute('aria-label', ui('teacher.copyLabel', { title: t(tourData.title) }));
+    copy.addEventListener('click', () => this.app.tour.copyTeacherLink(tourData, this.linkStatus));
+    li.append(name, meta, go, copy);
     return li;
   }
 

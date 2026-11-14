@@ -658,9 +658,6 @@ async function start() {
     card: $('tour-card'), progress: $('tour-progress'), meter: $('tour-meter'), name: $('tour-name'), title: $('tour-title'), text: $('tour-text'),
     read: $('tour-read'), srcBtn: $('tour-sources'), back: $('tour-back'), next: $('tour-next'), closeBtn: $('tour-close'), endBtn: $('tour-end'),
     chapter: $('tour-chapter'), question: $('tour-question'), questionLabel: $('tour-question-label'), questionText: $('tour-question-text'), status: $('tour-status'),
-    printBtn: $('tour-print'),
-    printStatus: $('tour-print-status'),
-    copyTeacherBtn: $('tour-copy-teacher'),
   }, toursData, {
     printRoot: $('print-sheet'),
     get lesson() { return app.lesson; }, // lektionsläget (#795) skapas efter spelaren
@@ -692,7 +689,7 @@ async function start() {
   // För lärare (#1315): lektionerna, utskriften, quizet, jakten och presentationsläget under Mer
   teacher = new TeacherGuide({
     root: $('teacher'), button: $('btn-teacher'), close: $('teacher-close'), list: $('teacher-lessons'), empty: $('teacher-lessons-empty'),
-    quizBtn: $('teacher-quiz'), quizRow: $('teacher-quiz-row'), huntBtn: $('teacher-hunt'), huntRow: $('teacher-hunt-row'), presentationBtn: $('teacher-presentation'), presentationRow: $('teacher-presentation-row'),
+    quizBtn: $('teacher-quiz'), quizRow: $('teacher-quiz-row'), huntBtn: $('teacher-hunt'), linkStatus: $('teacher-link-status'), huntRow: $('teacher-hunt-row'), presentationBtn: $('teacher-presentation'), presentationRow: $('teacher-presentation-row'),
   }, { tour, quiz, hunt, presentation, narrow, get lesson() { return app.lesson; } });
   $('help-teacher').addEventListener('click', () => { help.close(false); teacher.open(true); });
   // Berättelseläget (#247): krigets första kort får "Följ berättelsen" när en tur berättar om kriget

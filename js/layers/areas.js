@@ -146,7 +146,7 @@ export class AreasLayer {
     for (const { polity, period } of this.active) {
       const d = L.get(akey(polity, period));
       // På label-punkten, eller strax bredvid om den platsen var upptagen (_layout)
-      if (d?.medal) out.push({ key: polity.id, ...d.medal, polity, lon: d.px / 2048 * 360 - 180, lat: 90 - d.py / 1024 * 180 });
+      if (d?.medal) out.push({ key: polity.id, ...d.medal, polity, area: period.areaKm2 ?? 0, lon: d.px / 2048 * 360 - 180, lat: 90 - d.py / 1024 * 180 });
     }
     return out;
   }
