@@ -84,6 +84,12 @@
       ]
     },
     {
+      "license": "CC BY 3.0 eller GFDL",
+      "sourceIds": [
+        "commons-vapen-norge"
+      ]
+    },
+    {
       "license": "CC BY 4.0",
       "sourceIds": [
         "cliopatria",
@@ -241,6 +247,12 @@
       "license": "CC BY-SA 3.0 DE",
       "sourceIds": [
         "commons-bild-berlinmurens-fall"
+      ]
+    },
+    {
+      "license": "CC BY-SA 3.0 eller GFDL",
+      "sourceIds": [
+        "commons-vapen-kastilien-1400-tal"
       ]
     },
     {
@@ -631,6 +643,7 @@
         "wp-coat-of-arms-hawaiian-kingdom",
         "wp-coat-of-arms-mexico",
         "wp-coat-of-arms-netherlands",
+        "wp-coat-of-arms-norway",
         "wp-coat-of-arms-prussia",
         "wp-coat-of-arms-russia",
         "wp-coat-of-arms-ukraine",
@@ -822,6 +835,7 @@
         "wp-first-punic-war",
         "wp-first-revelation",
         "wp-first-taranaki-war",
+        "wp-flag-albania",
         "wp-flag-antigua-and-barbuda",
         "wp-flag-argentina",
         "wp-flag-armenia",
@@ -841,6 +855,7 @@
         "wp-flag-china",
         "wp-flag-colombia",
         "wp-flag-costa-rica",
+        "wp-flag-croatia",
         "wp-flag-czech-republic",
         "wp-flag-fiji",
         "wp-flag-finland",
@@ -861,16 +876,22 @@
         "wp-flag-jamaica",
         "wp-flag-japan",
         "wp-flag-jordan",
+        "wp-flag-kosovo",
         "wp-flag-kuwait",
+        "wp-flag-lithuania",
         "wp-flag-luxembourg",
         "wp-flag-madagascar",
         "wp-flag-mali",
+        "wp-flag-malta",
+        "wp-flag-moldova",
         "wp-flag-monaco",
+        "wp-flag-montenegro",
         "wp-flag-nepal",
         "wp-flag-netherlands",
         "wp-flag-new-zealand",
         "wp-flag-niger",
         "wp-flag-nigeria",
+        "wp-flag-north-macedonia",
         "wp-flag-norway",
         "wp-flag-of-ethiopia",
         "wp-flag-of-france",
@@ -888,8 +909,11 @@
         "wp-flag-saint-kitts-and-nevis",
         "wp-flag-saint-lucia",
         "wp-flag-senegal",
+        "wp-flag-serbia",
         "wp-flag-sierra-leone",
         "wp-flag-singapore",
+        "wp-flag-slovakia",
+        "wp-flag-slovenia",
         "wp-flag-solomon-islands",
         "wp-flag-somalia",
         "wp-flag-south-africa",
@@ -1025,6 +1049,7 @@
         "wp-hemming-of-denmark",
         "wp-henderson-island",
         "wp-henrik-kauffmann",
+        "wp-heraldry-of-castile",
         "wp-herero-nama-genocide",
         "wp-heungdeoksa",
         "wp-hexi-corridor",
@@ -1199,6 +1224,7 @@
         "wp-kingdom-of-georgia",
         "wp-kingdom-of-mapungubwe",
         "wp-kingdom-of-navarre",
+        "wp-kingdom-of-norway-872-1397",
         "wp-kingdom-of-portugal",
         "wp-kingdom-of-scotland",
         "wp-kingdom-of-yemen",
@@ -2530,6 +2556,12 @@
       ]
     },
     {
+      "license": "Public domain (PD-1923, PD-old)",
+      "sourceIds": [
+        "commons-flagga-portugal"
+      ]
+    },
+    {
       "license": "Public domain (PD-AM-exempt)",
       "sourceIds": [
         "commons-flagga-armenia"
@@ -2542,6 +2574,18 @@
       ]
     },
     {
+      "license": "Public domain (PD-Albania-exempt, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-albania"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Art, PD-old-100)",
+      "sourceIds": [
+        "commons-gelre-dannebrog"
+      ]
+    },
+    {
       "license": "Public domain (PD-AustraliaGov)",
       "sourceIds": [
         "commons-flagga-australien"
@@ -2551,6 +2595,12 @@
       "license": "Public domain (PD-Bangladesh, PD-shape)",
       "sourceIds": [
         "commons-flagga-bangladesh"
+      ]
+    },
+    {
+      "license": "Public domain (PD-CroatiaGov)",
+      "sourceIds": [
+        "commons-flagga-croatia"
       ]
     },
     {
@@ -2572,6 +2622,30 @@
       ]
     },
     {
+      "license": "Public domain (PD-LT-exempt, PD-self)",
+      "sourceIds": [
+        "commons-flagga-litauen-stat"
+      ]
+    },
+    {
+      "license": "Public domain (PD-MD-exempt)",
+      "sourceIds": [
+        "commons-flagga-moldova"
+      ]
+    },
+    {
+      "license": "Public domain (PD-MNEGov, PD-SCGGov)",
+      "sourceIds": [
+        "commons-flagga-montenegro"
+      ]
+    },
+    {
+      "license": "Public domain (PD-MaltaGov)",
+      "sourceIds": [
+        "commons-flagga-malta"
+      ]
+    },
+    {
       "license": "Public domain (PD-Nepal)",
       "sourceIds": [
         "commons-flagga-nepal"
@@ -2581,6 +2655,30 @@
       "license": "Public domain (PD-New Zealand, PD-US-expired)",
       "sourceIds": [
         "commons-flagga-nya-zeeland"
+      ]
+    },
+    {
+      "license": "Public domain (PD-North Macedonia)",
+      "sourceIds": [
+        "commons-flagga-north-macedonia"
+      ]
+    },
+    {
+      "license": "Public domain (PD-SerbiaGov)",
+      "sourceIds": [
+        "commons-flagga-serbia"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Slovakia)",
+      "sourceIds": [
+        "commons-flagga-slovakia"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Slovenia)",
+      "sourceIds": [
+        "commons-flagga-slovenia"
       ]
     },
     {
@@ -2623,6 +2721,7 @@
       "license": "Public domain (PD-ineligible)",
       "sourceIds": [
         "commons-flagga-gronland",
+        "commons-flagga-kosovo",
         "commons-flagga-palau",
         "commons-flagga-papua-nya-guinea",
         "commons-flagga-qatar",
