@@ -199,6 +199,24 @@ Filen `data/platser.json` (schema `schemas/platser.schema.json`, kontroll i `scr
 
 **Datumlinjen (#1268):** en ring som korsar ±180° (Ryssland, Fiji, USA med Aleuterna) delas av `tools/platser_gransar.py` vid 180° med nya sömpunkter på exakt 180 och −180, så att varje delring är en sluten polygon på ena sidan och ingen kant hoppar mer än 180° i längdgrad. Inget nytt schema och inget nytt fält. Sömmen är ingen kust: `edgeKm` hoppar över segment där båda ändpunkterna ligger på ±180. `validate-site.py` stoppar en ring som hoppar, och `js/place-geo.js` och Python-kopian i `validate-site.py` viker som skydd upp en ring som ändå hoppar och prövar punkten som längdgrad och längdgrad ± 360.
 
+## `ortnamn/`: ortnamn för regionvyn (#1643)
+
+En fil per plats i `data/platser.json`, `data/ortnamn/<platsens id>.json`, så att regionvyn (#1627) bara laddar namnen för den plats som visas. Filerna skrivs av `python3 tools/ortnamn.py` ur Natural Earth 1:10m (natural-earth-vector 5.1.2, public domain, källan `natural-earth-ortnamn`) och redigeras inte. Inga namn skrivs för hand. Det här issuet visar inga namn i gränssnittet; det gör regionvyn.
+
+| Fält | Innehåll |
+|---|---|
+| `schema` | `historia-globen/ortnamn@1` |
+| `place`, `source` | platsens id (samma som filnamnet) och källans id i `sources.json` |
+| `frame`, `padKm` | ramen `[väst, syd, öst, nord]`: platsens gräns som ruta med marginalen `padKm` åt alla håll, det största av 25 km och 30 % av rutans längsta sida (ungefär det regionvyn visar när platsen fyller cirka 65 %). Marginalen i längdgrad räknas med cos(mittbredden). Korsar ramen datumlinjen (Aotearoa) är väst större än öst |
+| `places` | orter ur `ne_10m_populated_places` inom ramen, högst 60, de viktigaste först: `id` (`ne-` och Natural Earths `NE_ID`), `kind` (`capital`, `admin1-capital` eller `place`, ur `FEATURECLA`), `rank` (`SCALERANK`, 0 viktigast och 10 minst, så att vyn kan gallra efter skala), `coordinates` (`[lon, lat]`, tre decimaler) och `name`. Urvalet sorteras på `SCALERANK` och sedan folkmängd (`POP_MAX`); en ort utanför platsens egen ruta räknas två steg lägre i urvalet, så att den närmaste omgivningen går före storstäder vid ramens kant |
+| `neighbours` | grannländerna i platsens `boundary.neighbours` (vilka länder det är bestäms alltså där, #1449): `ne` (ISO 3166-1 numeriskt), `label` (punkt för namnet) och `name` ur `ne_10m_admin_0_countries` (`ISO_N3`, eller `ISO_N3_EH` när `ISO_N3` är −99, som för Norge) |
+| `seas` | hav, sund och vikar ur `ne_10m_geography_marine_polys` inom ramen, högst 12: `id`, `kind` (Natural Earths `featurecla`, till exempel `sea`, `sound`, `bay`), `rank` (`scalerank`), `label` och `name` |
+| `name`, `fallback` | namnet på `sv`, `en`, `de`, `es` och `fr` ur Natural Earths `NAME_SV` … (`name_sv` … för haven). Saknas ett språk används engelska, och språket står i `fallback`, så att det syns att namnet inte är översatt |
+
+**Punkten för ett namn** (`label`) är den punkt i ett rutnät om 48 × 48 över ramen som ligger inne i området och längst från dess kant och ramens kant. Ett land eller hav utan en enda sådan punkt tas inte med. Punkterna har två decimaler (cirka 1 km).
+
+**Storlek (mätt 2026-11-14):** före fanns inga ortnamn (0 byte). Efter: fem filer på sammanlagt 46,6 kB (9,1 kB med gzip). Skåne 2,2 kB (0,7 kB gzip, 8 orter, 1 grannland, 3 hav), Danmark 8,4 kB (2,1 kB gzip), Aotearoa 10,1 kB, Sverige och Grönland 13,0 kB vardera (cirka 3 kB gzip). Natural Earths filer som verktyget läser är tillsammans 34 MB. En omkörning ger samma filer byte för byte.
+
 ## `teman.json`: teman (#398)
 
 **Fastställt format (#950, beslut [2026-11-08-temaformat-398.md](beslut/2026-11-08-temaformat-398.md), frågorna 1–4 på #398 besvarade av DasKrokodil 2026-11-08), byggt i #962:** filen `data/teman.json` (tom lista), schemat `schemas/teman.schema.json`, kontrollen i `scripts/validate-site.py` och temat i Fokus. Ett tema är ett **namngivet urval av befintliga händelser** med en introduktion, till exempel teknik (#105). Temat lägger inte till några fakta: allt historiskt innehåll ligger kvar i händelserna och deras källor.

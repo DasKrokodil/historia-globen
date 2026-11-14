@@ -77,6 +77,9 @@ for f in events funfacts missuppfattningar quiz perioder teman platser intro upp
   copy "data/$f.json"
 done
 copy data/licenses.json
+
+# Ortnamn för regionvyn (#1643): en fil per plats, skriven av tools/ortnamn.py
+for f in data/ortnamn/*.json; do [ -f "$f" ] && copy "$f"; done
 copy images/licenses.json
 
 # Gränssnittets språk (#63): sprak.json och en fil per språk som js/i18n.js laddar
