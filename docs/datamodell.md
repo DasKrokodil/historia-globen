@@ -65,6 +65,8 @@ Sidan läser händelserna uppdelade i ett index och de långa fälten per period
 
 **Obligatoriska fält:** `id` (läsbart och unikt), `category` (en av de fjorton kategorierna i `model.js`; `katastrofer` sedan #554), `start`, `end`, `precision`, `edtf`, `location`, `place`, `title`, `summary`, `sources` och `review`.
 
+**Kategori för gravar, offer, tempel och ritualer** ([beslut 2026-11-14](beslut/2026-11-14-kategori-for-gravar-och-ritualer.md), #1587): `religion` när källan själv talar om tro, kult, ritual eller ceremoni (tempel, offerplatser, ceremoniella centrum, gravar där källan beskriver ritualen som religiös); `kultur` när det viktiga är föremål, konst eller gravgåvor; `manniskan` när det viktiga är människorna själva (hur de levde och dog, kroppar, arvsmassa). Kategorin väljs efter vad källan säger, aldrig för att fylla en tom cell i täckningsmåttet.
+
 **Valfria fält:**
 
 | Fält | Betydelse |
