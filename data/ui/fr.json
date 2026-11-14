@@ -577,6 +577,8 @@
   "legend.symbolsNote": "Le symbole indique la religion. Un médaillon en laiton portant le symbole marque le lieu où la religion est née : il apparaît cette année-là et reste tant que le calque est activé. Pointez ici sur une religion pour la mettre en évidence.",
   "legend.aboutReligions": "En savoir plus sur les religions",
   "legend.filePages": "Pages des fichiers :",
+  "discovery.readTitle": "Comment lire cette vue",
+  "discovery.imagesTitle": ["Images de la carte · {n} page de fichier", "Images de la carte · {n} pages de fichier"],
   "legend.newTab": "(s’ouvre dans un nouvel onglet)",
   "layer.spread": "Dispersion humaine",
   "layer.spreadNote": "préhistoire · zones et vagues comme interprétations des sources",

@@ -577,6 +577,8 @@
   "legend.symbolsNote": "El símbolo indica la religión. Un medallón de latón con el símbolo señala dónde surgió la religión: aparece ese año y permanece mientras la capa está activada. Señale aquí una religión para resaltarla.",
   "legend.aboutReligions": "Lea sobre las religiones",
   "legend.filePages": "Páginas de los archivos:",
+  "discovery.readTitle": "Cómo leer esta vista",
+  "discovery.imagesTitle": ["Imágenes del mapa · {n} página de archivo", "Imágenes del mapa · {n} páginas de archivo"],
   "legend.newTab": "(se abre en una pestaña nueva)",
   "layer.spread": "Dispersión humana",
   "layer.spreadNote": "prehistoria · áreas y oleadas como interpretaciones de las fuentes",

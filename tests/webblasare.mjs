@@ -4321,6 +4321,17 @@ async function run(browser, vp) {
     }
     await toggle.click();
     await visible('#religion-legend #rl-body');
+    // #1571: förklaringen och filsidorna är hopfällda avsnitt; täckningen står kvar synlig, och filsidorna har stora träffytor
+    const sect = id => page.locator(`#religion-legend details[data-sect="${id}"]`);
+    if (await sect('read').count() !== 1 || await sect('images').count() !== 1) throw new Error('Upptäcktsvyns avsnitt Så läser du vyn och Kartbilder saknas');
+    if (await sect('read').evaluate(el => el.open) || await sect('images').evaluate(el => el.open)) throw new Error('avsnitten är öppna från början');
+    if (!/^Så läser du vyn/.test((await sect('read').locator('summary').textContent()).trim())) throw new Error('rubriken Så läser du vyn saknas');
+    if (!/^Kartbilder · \d+ filsidor/.test((await sect('images').locator('summary').textContent()).trim())) throw new Error('raden med antal filsidor saknas');
+    if (!(await coverage.isVisible())) throw new Error('täckningsraden syns inte när avsnitten är hopfällda');
+    await sect('images').locator('summary').click();
+    const small = await page.evaluate(() => [...document.querySelectorAll('#religion-legend .rl-files a')].filter(a => { const r = a.getBoundingClientRect(); return r.width < 24 || r.height < 24; }).length);
+    if (small) throw new Error(`${small} filsidelänkar har en träffyta under 24 px`);
+    await sect('images').locator('summary').click();
     await shot('4b-upptacktsvy');
     await setLayer('discovery', false);
     await page.keyboard.press('Escape');

@@ -18,3 +18,6 @@ Noterna om oenighet i dateringar är upp till 1 340 tecken och fyllde rutan så 
 
 ## Kvar i #1571
 Upptäcktsvyns panel (`discovery.readTitle`, `discovery.imagesTitle`), händelsens faktaruta ("Om uppgifterna", `detail.aboutData`), nyckeln `how.agree.differ` ("Se anteckningen ovan"), samt att korta faktatexterna.
+
+## Upptäcktsvyns panel (steg 2, samma dag)
+Panelen "Upptäcktsresor" visar täckningsraden ("Täckning i nuvarande kartunderlag …: 27 %") och dess korta förklaring öppet, eftersom den är redovisningen av osäkerheten, men "Så läser du vyn" (den långa texten om perspektivet) och "Kartbilder · 19 filsidor" (kredit och filsidor) är hopfällda avsnitt. Filsidorna är 36 px stora rutor i en rullbar lista (var cirka 8 px breda länkar). Nycklar: `discovery.readTitle` och `discovery.imagesTitle` (ental och flertal) på alla fem språken. Öppet läge minns panelen när den ritas om.

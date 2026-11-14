@@ -356,6 +356,8 @@
   "legend.symbolsNote": "Symbolen visar religionen. En mässingsmedalj med symbolen står där religionen uppstod: den dyker upp det året och står kvar så länge lagret är på. Peka på en religion här för att lyfta fram den.",
   "legend.aboutReligions": "Läs om religionerna",
   "legend.filePages": "Filsidor:",
+  "discovery.readTitle": "Så läser du vyn",
+  "discovery.imagesTitle": ["Kartbilder · {n} filsida", "Kartbilder · {n} filsidor"],
   "legend.newTab": "(öppnas i en ny flik)",
   "layer.spread": "Människans spridning",
   "layer.spreadNote": "förhistoria · områden och vågor som tolkningar av källorna",

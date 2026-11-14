@@ -1827,6 +1827,25 @@ details.used-by summary:hover { color: var(--parchment); }
 .religion-legend .rl-coverage-note { display: block; margin-top: 0; }
 .religion-legend .rl-credit { display: block; }
 .religion-legend .rl-credit a { color: var(--brass); }
+/* Hopfällda avsnitt i Upptäcktsvyns panel (#1571): rubrik med vinkel, 44 px hög; filsidorna som stora rutor i en rullbar lista */
+.religion-legend .rl-sect { margin: 4px 0 0; border-top: 1px solid var(--line); }
+.religion-legend .rl-sect > summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 44px; cursor: pointer; list-style: none;
+  font: 600 11px/1.3 var(--f-mono); color: var(--brass);
+}
+.religion-legend .rl-sect > summary::-webkit-details-marker { display: none; }
+.religion-legend .rl-sect > summary::after {
+  content: ""; flex: none; width: 7px; height: 7px; border: solid currentColor; border-width: 0 2px 2px 0;
+  transform: rotate(45deg) translateY(-2px); transition: transform .15s;
+}
+.religion-legend .rl-sect[open] > summary::after { transform: rotate(-135deg) translateY(-1px); }
+.religion-legend .rl-sect > summary:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; border-radius: 3px; }
+.religion-legend .rl-files { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; padding: 0; list-style: none; max-height: 34vh; overflow-y: auto; }
+.religion-legend .rl-files a {
+  display: inline-flex; align-items: center; justify-content: center; min-width: 36px; min-height: 36px; box-sizing: border-box;
+  border: 1px solid var(--brass-deep); border-radius: 6px; font: 600 12px/1 var(--f-mono); text-decoration: none; color: var(--brass);
+}
+.religion-legend .rl-files a:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
 /* Människans spridning (#1417): varje post har en rubrik (så att en skärmläsare kan hoppa mellan dem) som ser ut som
    den feta texten förut, och källänkarna har minst 24 × 24 px träffyta */
 .religion-legend .rl-spread-head { display: inline; margin: 0; font: inherit; font-weight: 700; letter-spacing: normal; text-transform: none; color: inherit; }
