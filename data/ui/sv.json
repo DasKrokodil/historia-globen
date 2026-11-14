@@ -368,7 +368,7 @@
   "legend.spread": "Människans spridning",
   "legend.spreadNote": "Ytor och linjer är tolkningar av källorna, inte gränser eller vägar. Streckad linje är en huvudvåg, prickad linje med frågetecken en möjlig eller omstridd våg. Att fynd saknas betyder inte att ingen fanns där.",
   "legend.spreadCoastModel": "Ytorna följer modellens kust och inlandsis för närmaste modellsteg (samma modell som lagret Istidens kust) och ritas inte på hav eller is i modellen, också när det lagret är av. Linjerna klipps inte.",
-  "legend.spreadCoastToday": "Utanför 80 000–7500 år sedan finns ingen modell för kusten här: Afrika följer dagens kust, och övriga ytor klipps inte.",
+  "legend.spreadCoastToday": "Utanför 80 000–7 500 år sedan finns ingen modell för kusten här: Afrika följer dagens kust, och övriga ytor klipps inte.",
   "legend.spreadSources": "Källor:",
   "legend.spreadDetails": "sammanfattning och källor",
   "legend.and": " och ",

@@ -55,6 +55,40 @@ test('före modellens spann gäller ingen mask, och raden om kusten säger det',
   assert.notEqual(layer.legendItems().coast, before, 'raden skiljer modellens kust från dagens');
 });
 
+test('vid stegbyte klipps med den förra masken tills den nya är laddad, och sedan släpps den förra', () => {
+  // Bilder som laddas först när testet säger det, som i webbläsaren
+  const pending = [];
+  const slowImage = () => { const im = { complete: false, naturalWidth: 0, src: '' }; pending.push(im); return im; };
+  const load = im => { im.complete = true; im.naturalWidth = 2048; im.onload?.(); };
+  let redraws = 0;
+  const layer = new SpreadLayer({}, {}, null, maskSlices(doc), slowImage);
+  layer.onMask = () => { redraws++; };
+  layer.enabled = true; layer.setData({ items: [area] });
+  layer.update({ year: -18050 });
+  assert.equal(layer.maskImage(), null, 'ingen mask laddad än: som utan modell');
+  assert.match(layer.legendItems().coast, /./);
+  const before = layer.legendItems().coast;
+  load(pending[0]);
+  assert.equal(redraws, 1);
+  assert.equal(layer.maskImage(), pending[0]);
+  assert.notEqual(layer.legendItems().coast, before, 'raden säger modellens kust först när något klipps');
+  const model = layer.legendItems().coast;
+  // Stegbyte till 30 000 år sedan: 20 000-masken ritas under tiden, och raden säger fortfarande modellens kust
+  layer.update({ year: -28050 });
+  assert.deepEqual([...layer.masks.keys()].sort(), ['images/lager/istidens-land-20ka.webp', 'images/lager/istidens-land-30ka.webp']);
+  assert.equal(layer.maskImage(), pending[0], 'den förra masken är reserv');
+  assert.equal(layer.legendItems().coast, model);
+  // Ännu ett byte innan 30 000 är klar: högst två hålls, och reserven är fortfarande den laddade
+  layer.update({ year: -38050 });
+  assert.deepEqual([...layer.masks.keys()].sort(), ['images/lager/istidens-land-20ka.webp', 'images/lager/istidens-land-40ka.webp']);
+  assert.equal(pending[1].src, '', 'masken som aldrig blev klar släpps');
+  assert.equal(layer.maskImage(), pending[0]);
+  load(pending[2]);
+  assert.deepEqual([...layer.masks.keys()], ['images/lager/istidens-land-40ka.webp'], 'reserven släpps när den nya är klar');
+  assert.equal(pending[0].src, '');
+  assert.equal(layer.maskImage(), pending[2]);
+});
+
 test('ett avstängt lager håller ingen mask', () => {
   const layer = new SpreadLayer({}, {}, null, maskSlices(doc), fakeImage);
   layer.setData({ items: [area] });

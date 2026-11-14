@@ -10,7 +10,7 @@
 // data/events.json eller platser med koordinat ur Wikidata), och vågen går mellan sådana platser. Spann,
 // källor och "källorna skiljer sig" står i teckenförklaringen, som också är kartans textalternativ (#1106).
 //
-// Istidens kust (#1565, beslut 2026-11-14): mellan cirka 80 000 och 7 500 år sedan klipps alla områden mot torrt land
+// Istidens kust (#1565, beslut 2026-11-14): cirka 80 000–7 500 år sedan klipps alla områden mot torrt land
 // utan is i modellen bakom bildlagret Istidens kust (PaleoMIST 1.0), för det närmaste modellsteget. Masken är en egen,
 // liten bild per steg (skivans fält mask i data/bildlager.json, 2048 × 1024, alfa = land utan is), som laddas bara när
 // lagret är på och ett område syns i det spannet, och släpps annars. Det fungerar också när bildlagret är av. Vågornas
@@ -46,14 +46,13 @@ export function entry({ data, refresh }) {
   };
 }
 
-/** Skivorna med mask (land utan is, #1565) ur bildlagren, i den första raden som har några; annars en tom lista. */
+/** Skivorna med mask (land utan is, #1565) i bildlagret Istidens kust (raden istidens-kust); annars en tom lista. */
 export function maskSlices(doc) {
-  for (const row of imageRows(doc)) {
-    const slices = row.slices.filter(x => x.mask);
-    if (slices.length) return slices;
-  }
-  return [];
+  return imageRows(doc).find(row => row.id === 'istidens-kust')?.slices.filter(x => x.mask) ?? [];
 }
+
+/** En mask som går att rita med: laddad och läsbar. */
+const ready = image => !!image && !image.failed && image.complete && image.naturalWidth > 0;
 
 // Hur långt före slutet (i andelar av spannet) vågen är helt framritad; resten av spannet står den kvar
 const GROW = 0.6;
@@ -62,8 +61,11 @@ export class SpreadLayer {
   constructor(byId = {}, srcById = {}, land = null, masks = [], makeImage = () => new Image()) {
     this.byId = byId; this.srcById = srcById;
     this.maskSlices = masks; this.makeImage = makeImage; // makeImage byts ut i testerna, där Image inte finns
-    this.masks = new Map(); // fil → bild; högst en åt gången, de andra släpps (som bildlagren, images.js)
+    // fil → bild; högst två: masken som gäller året och, medan den laddas, den förra laddade (shown), som ritas
+    // under tiden så att ytorna inte blinkar ut över hav och is vid stegbyte under uppspelning och dragning
+    this.masks = new Map();
     this.mask = null; // skivan vars mask gäller året, eller null
+    this.shown = null; // filen för den senaste masken som var laddad, reserv tills den nya är klar
     this.onMask = () => {};
     this.work = null; // en återanvänd duk där ett område ritas och klipps mot masken
     this.land = land?.path ? { path: new Path2D(land.path), width: land.width, height: land.height } : null; // för clipLand
@@ -112,25 +114,49 @@ export class SpreadLayer {
     return this.active;
   }
 
-  /** Laddar masken file (eller ingen) och släpper alla andra. */
+  /**
+   * Laddar masken file. Den förra laddade masken behålls som reserv tills file är klar och släpps först då; alla
+   * andra släpps direkt. Utan file (inget modellsteg eller lagret av) släpps allt.
+   */
   loadMask(file) {
-    for (const [f, image] of this.masks) {
-      if (f === file) continue;
-      image.onload = image.onerror = null; image.src = '';
-      this.masks.delete(f);
-    }
-    if (!file || this.masks.has(file)) return;
+    const current = this.masks.get(file);
+    if (ready(current)) this.shown = file;
+    const keep = new Set([file, ready(this.masks.get(this.shown)) ? this.shown : null]);
+    if (!file) keep.clear();
+    this._release(keep);
+    if (!file || current) return;
     const image = this.makeImage();
-    image.onload = () => this.onMask();
+    image.onload = () => {
+      if (this.masks.get(file) !== image) return; // släppt under tiden
+      // Klar: nu ersätter den reserven, om den fortfarande gäller året
+      if (this.mask?.mask === file) { this.shown = file; this._release(new Set([file])); }
+      this.onMask();
+    };
     image.onerror = () => { image.failed = true; console.warn(`Spridningslagret kunde inte läsa masken ${file}`); };
     image.src = file;
     this.masks.set(file, image);
   }
 
-  /** Den laddade masken för året, eller null (inget modellsteg, inte laddad än eller trasig: då som utan modell). */
+  /** Släpper alla masker utom de i keep. */
+  _release(keep) {
+    for (const [f, image] of this.masks) {
+      if (keep.has(f)) continue;
+      image.onload = image.onerror = null; image.src = '';
+      this.masks.delete(f);
+    }
+    if (!this.masks.has(this.shown)) this.shown = null;
+  }
+
+  /**
+   * Masken att klippa med: årets mask när den är laddad, annars (medan den laddas) den förra laddade, och annars null
+   * (inget modellsteg, ingen mask laddad än eller trasig: då som utan modell).
+   */
   maskImage() {
-    const image = this.mask && this.masks.get(this.mask.mask);
-    return image && !image.failed && image.complete && image.naturalWidth ? image : null;
+    if (!this.mask) return null;
+    const own = this.masks.get(this.mask.mask);
+    if (ready(own)) return own;
+    const prev = this.masks.get(this.shown);
+    return ready(prev) ? prev : null;
   }
 
   /** Teckenförklaringen och textalternativet: allt som syns, med spann, säkerhet, not och källor. */
@@ -138,7 +164,8 @@ export class SpreadLayer {
     // En rad om kusten när ett område syns: modellens kust och is, eller (utanför modellens spann) som förut
     const areas = this.active.some(a => a.item.kind === 'area');
     return {
-      coast: !areas ? '' : ui(this.mask ? 'legend.spreadCoastModel' : 'legend.spreadCoastToday'),
+      // Modellens kust bara när något faktiskt klipps (en mask är laddad), annars som utan modell
+      coast: !areas ? '' : ui(this.maskImage() ? 'legend.spreadCoastModel' : 'legend.spreadCoastToday'),
       items: this.active.map(({ item }) => ({
         id: item.id, kind: item.kind, certainty: item.certainty, color: this.colors[item.group] ?? '#e9c46a',
         title: t(item.title), summary: t(item.summary), note: item.note ? t(item.note) : '',
