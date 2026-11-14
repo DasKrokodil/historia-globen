@@ -263,6 +263,7 @@
 "grundloven-1849":{"place":{"es":"Dinamarca (marcador en Copenhague)"},"title":{"es":"Dinamarca recibe su primera Constitución"}},
 "kolera-i-kopenhamn-1853":{"place":{"es":"Copenhague, Dinamarca"},"title":{"es":"La epidemia de cólera de Copenhague"},"note":{"title":{"es":"Sobre las fuentes"}}},
 "stormningen-av-dybbol":{"place":{"es":"Dybbøl, Dinamarca"},"title":{"es":"El asalto de Dybbøl"}},
+"boxarupproret":{"place":{"es":"Norte de China, de Shandong a Tianjin y Pekín (el marcador está en Shandong, donde comenzó el movimiento)"},"title":{"es":"El levantamiento de los bóxers"},"note":{"title":{"es":"Las fuentes difieren"}}},
 "slaget-om-storbritannien":{"note":{"title":{"es":"Sobre el período"}}},
 "slaget-vid-stalingrad":{"note":{"title":{"es":"Las fuentes difieren"}}},
 "nya-zeeland-blir-dominion":{"place":{"es":"Nueva Zelanda"},"title":{"es":"Nueva Zelanda se convierte en dominio"}},
@@ -301,6 +302,10 @@
 "raddningen-av-de-danska-judarna":{"place":{"es":"Copenhague y la costa de Selandia, Dinamarca"},"title":{"es":"Los judíos daneses son rescatados hacia Suecia"},"note":{"title":{"es":"Las fuentes difieren"}}},
 "armeniska-folkmordet":{"place":{"es":"El Imperio otomano, de Anatolia al desierto sirio (el marcador está en Constantinopla, hoy Estambul, donde comenzaron las detenciones el 24 de abril de 1915)"},"title":{"es":"El genocidio armenio"},"note":{"title":{"es":"Las fuentes difieren"}}},
 "turkiska-frihetskriget":{"place":{"es":"Anatolia y Tracia oriental (el marcador está en Esmirna, hoy İzmir, donde empezó la guerra)"},"title":{"es":"La guerra de independencia turca"},"note":{"title":{"es":"Las fuentes difieren"}}},
+"rysk-japanska-kriget":{"place":{"es":"Manchuria, Corea, el mar Amarillo y el mar del Japón (el marcador está en Port Arthur, en la actual Lüshunkou, donde comenzó la guerra)"},"title":{"es":"La guerra ruso-japonesa"},"note":{"title":{"es":"Sobre la fecha"}}},
+"xinhairevolutionen":{"place":{"es":"China (el marcador está en Wuchang, en la actual Wuhan, donde comenzó la revolución)"},"title":{"es":"La Revolución de Xinhai: la caída de la dinastía Qing"}},
+"andra-kinesisk-japanska-kriget":{"place":{"es":"China, Birmania, Corea, Indochina y Taiwán (el marcador está en el puente de Marco Polo, cerca de Pekín, donde comenzó la guerra)"},"title":{"es":"La segunda guerra sino-japonesa"},"note":{"title":{"es":"Las fuentes difieren"}}},
+"nanjingmassakern":{"place":{"es":"Nankín y el campo de sus alrededores, China"},"title":{"es":"La masacre de Nankín"},"note":{"title":{"es":"Las fuentes difieren"}}},
 "explorer-1":{"place":{"es":"Cabo Cañaveral, Florida, Estados Unidos"},"title":{"es":"Explorer 1, el primer satélite de Estados Unidos"},"note":{"title":{"es":"Sobre la fecha"}}},
 "tereshkova-vostok-6":{"place":{"es":"Aterrizaje al oeste de Barnaúl, en Altái, Unión Soviética (hoy Rusia)"},"title":{"es":"Valentina Tereshkova se convierte en la primera mujer en el espacio"}},
 "asterix-frankrikes-forsta-satellit":{"place":{"es":"Hammaguir, Argelia"},"title":{"es":"Astérix, el primer satélite de Francia"}},
@@ -339,6 +344,7 @@
 "danmark-gar-med-i-eg":{"place":{"es":"Dinamarca (marcador en Copenhague)"},"title":{"es":"Dinamarca ingresa en las Comunidades Europeas"}},
 "iranska-revolutionen":{"place":{"es":"Irán (el marcador está en Teherán)"},"title":{"es":"La Revolución iraní"},"note":{"title":{"es":"Sobre el número de muertos"}}},
 "folkmordet-i-kambodja":{"place":{"es":"Kampuchea Democrática, hoy Camboya (el marcador está en Nom Pen)"},"title":{"es":"El genocidio camboyano"},"note":{"title":{"es":"Las fuentes difieren"}}},
+"stora-spranget":{"place":{"es":"China (el marcador está en Pekín)"},"title":{"es":"El Gran Salto Adelante"},"note":{"title":{"es":"Las fuentes difieren"}}},
 "constitution-act-1986":{"place":{"es":"Wellington, Nueva Zelanda"},"title":{"es":"Nueva Zelanda obtiene su propia ley constitucional"},"note":{"title":{"es":"Sobre la fecha"}}},
 "maori-officiellt-sprak":{"place":{"es":"Nueva Zelanda"},"title":{"es":"El maorí se convierte en lengua oficial"},"note":{"title":{"es":"Sobre la fecha"}}},
 "waikato-tainui-uppgorelsen":{"place":{"es":"Waikato, Nueva Zelanda"},"title":{"es":"La Corona pide perdón a Waikato-Tainui"},"note":{"title":{"es":"Las fuentes difieren"}}},
@@ -355,5 +361,6 @@
 "ipcc-bildas":{"place":{"es":"Ginebra, Suiza (sede de la secretaría)"},"title":{"es":"Se crea el IPCC, el grupo de expertos de la ONU sobre el clima"}},
 "klimatkonventionen-rio-1992":{"place":{"es":"Río de Janeiro, Brasil"},"title":{"es":"Se firma en Río la convención sobre el cambio climático"}},
 "kyotoprotokollet":{"place":{"es":"Kioto, Japón"},"title":{"es":"Se aprueba el Protocolo de Kioto"}},
-"baijin-forklaras-funktionellt-utdod":{"place":{"es":"Río Yangtsé, China"},"title":{"es":"El baiji, delfín del río Yangtsé, es declarado funcionalmente extinto"}}
+"baijin-forklaras-funktionellt-utdod":{"place":{"es":"Río Yangtsé, China"},"title":{"es":"El baiji, delfín del río Yangtsé, es declarado funcionalmente extinto"}},
+"himmelska-fridens-torg-1989":{"place":{"es":"Plaza de Tiananmén, Pekín, China"},"title":{"es":"Las protestas y la masacre de la plaza de Tiananmén"},"note":{"title":{"es":"Las fuentes difieren"}}}
 }}
