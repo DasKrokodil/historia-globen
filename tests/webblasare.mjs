@@ -5947,6 +5947,9 @@ async function run(browser, vp) {
       // textContent och inte innerText: en källa med fler än åtta användningar fälls ihop i <details> (MAX_USES i sources.js),
       // till exempel istidens kust med nio skivor (#1096), och då läser innerText inte listan
       const text = await bp.locator('.src-section[data-group="maps"]').evaluate(el => el.textContent);
+      // Den hopfällda listan ska verkligen finnas, så att textContent inte bara läser något som aldrig visas
+      const folded = await bp.locator('.src-section[data-group="maps"] details.used-by').count();
+      if (!folded) throw new Error('Kartdata har ingen hopfälld lista (details.used-by), fast en källa används av fler än åtta skivor');
       for (const w of want) {
         if (!text.includes(w.label)) throw new Error(`Kartdata saknar "${w.label}"`);
         for (const title of w.titles) if (!text.includes(title)) throw new Error(`Kartdata saknar källan "${title}" för ${w.label}`);

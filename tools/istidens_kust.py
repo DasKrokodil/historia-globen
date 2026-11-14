@@ -124,8 +124,9 @@ def reach(seed, allowed):
 def exposed_on_grid(then_mz, now_mz, lats, lons):
     """Torrlagt i modellen: hav i dag men inte hav i steget, utom i hav som redan i dag är avskilt från världshavet.
 
-    Världshavet är det hav i steget 0 år sedan som hänger ihop med en punkt mitt i Stilla havet. Hav som inte gör det
-    (till exempel Kaspiska havet) har en egen nivå som inte följer världshavets, så deras stränder visas inte.
+    Världshavet är det hav i steget 0 år sedan som hänger ihop med en punkt mitt i Stilla havet. Kaspiska havet och
+    Svarta havet saknar förbindelse med världshavet i modellens rutnät (1/8 grad) och visas därför inte; deras stränder
+    följer inte världshavets nivå i den här beräkningen.
     Returnerar (torrlagt som visas, avskilt hav i dag).
     """
     then_sea, now_sea = then_mz == 1, now_mz == 1
