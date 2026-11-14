@@ -1274,11 +1274,15 @@
       },
       "sources": [
        "wp-macedonia-ancient",
-       "wp-achaemenid-empire"
+       "wp-achaemenid-empire",
+       "wp-wars-of-alexander"
       ],
       "mapNote": {
-       "sv": "Kartan visar Alexanders erövringar först från 324 f.Kr. Åren 332–325 f.Kr. visar den bara ett litet område, cirka 0,2 miljoner km².",
-       "en": "The map shows Alexander's conquests only from 324 BC. In 332–325 BC it shows only a small area, about 0.2 million km²."
+       "sv": "Kartan visar erövringarna i tre steg: Mindre Asien från 334 f.Kr., Levanten och Egypten från 332 f.Kr. och resten av Persiska riket ända till Indus från 327 f.Kr. Persiska riket ligger alltså kvar på kartan till och med 328 f.Kr., fast källorna säger att Alexander tog över det 330 f.Kr. Åren 332–325 f.Kr. har Cliopatria erövringarna under namnet Ptolemaiska riket.",
+       "en": "The map shows the conquests in three steps: Asia Minor from 334 BC, the Levant and Egypt from 332 BC and the rest of the Persian Empire all the way to the Indus from 327 BC. The Persian Empire thus remains on the map until 328 BC, although the sources say Alexander took it over in 330 BC. For 332–325 BC Cliopatria has the conquests under the name Ptolemaic Kingdom.",
+       "de": "Die Karte zeigt die Eroberungen in drei Schritten: Kleinasien ab 334 v. Chr., die Levante und Ägypten ab 332 v. Chr. und den Rest des Perserreichs bis zum Indus ab 327 v. Chr. Das Perserreich bleibt also bis 328 v. Chr. auf der Karte, obwohl Alexander es laut den Quellen 330 v. Chr. übernahm. Für 332–325 v. Chr. führt Cliopatria die Eroberungen unter dem Namen Ptolemäerreich.",
+       "es": "El mapa muestra las conquistas en tres etapas: Asia Menor desde el 334 a. C., el Levante y Egipto desde el 332 a. C. y el resto del Imperio persa hasta el Indo desde el 327 a. C. Así, el Imperio persa permanece en el mapa hasta el 328 a. C., aunque según las fuentes Alejandro se hizo con él en el 330 a. C. Para los años 332–325 a. C., Cliopatria recoge las conquistas con el nombre de Reino ptolemaico.",
+       "fr": "La carte montre les conquêtes en trois étapes : l'Asie Mineure à partir de 334 av. J.-C., le Levant et l'Égypte à partir de 332 av. J.-C. et le reste de l'Empire perse jusqu'à l'Indus à partir de 327 av. J.-C. L'Empire perse reste donc sur la carte jusqu'en 328 av. J.-C., bien que, selon les sources, Alexandre s'en soit emparé en 330 av. J.-C. Pour les années 332–325 av. J.-C., Cliopatria place les conquêtes sous le nom de Royaume ptolémaïque."
       }
      },
      {
@@ -1318,8 +1322,11 @@
        "wp-wars-diadochi"
       ],
       "mapNote": {
-       "sv": "Kartan visar riket med cirka 4,7–4,8 miljoner km² från 324 till 309 f.Kr., alltså även åren efter Alexanders död.",
-       "en": "The map shows the empire with about 4.7–4.8 million km² from 324 to 309 BC, that is also the years after Alexander's death."
+       "sv": "Kartan visar riket med cirka 4,7–5,0 miljoner km² från 327 till 309 f.Kr., alltså även åren efter Alexanders död.",
+       "en": "The map shows the empire with about 4.7–5.0 million km² from 327 to 309 BC, that is also the years after Alexander's death.",
+       "de": "Die Karte zeigt das Reich mit etwa 4,7–5,0 Millionen km² von 327 bis 309 v. Chr., also auch in den Jahren nach Alexanders Tod.",
+       "es": "El mapa muestra el imperio con unos 4,7–5,0 millones de km² del 327 al 309 a. C., es decir, también en los años posteriores a la muerte de Alejandro.",
+       "fr": "La carte montre l'empire avec environ 4,7 à 5,0 millions de km² de 327 à 309 av. J.-C., c'est-à-dire aussi dans les années qui suivent la mort d'Alexandre."
       }
      },
      {
@@ -1370,12 +1377,17 @@
      }
     ],
     "mapNote": {
-     "sv": "Kartdatan slutar 293 f.Kr., men enligt källan fanns kungadömet kvar till 168 f.Kr.",
-     "en": "The map data ends in 293 BC, but according to the source the kingdom remained until 168 BC."
+     "sv": "Kartdatan slutar 293 f.Kr., men enligt källan fanns kungadömet kvar till 168 f.Kr. Åren 332–325 f.Kr. har Cliopatria Alexanders erövringar under namnet Ptolemaiska riket (Ptolemaic Kingdom), fast det riket enligt Wikidata började först 305 f.Kr. Här räknas de åren till Makedoniska riket.",
+     "en": "The map data ends in 293 BC, but according to the source the kingdom remained until 168 BC. For 332–325 BC Cliopatria has Alexander's conquests under the name Ptolemaic Kingdom, although according to Wikidata that kingdom only began in 305 BC. Here those years are counted to the Macedonian Empire.",
+     "de": "Die Kartendaten enden 293 v. Chr., doch laut der Quelle bestand das Königreich bis 168 v. Chr. Für 332–325 v. Chr. führt Cliopatria Alexanders Eroberungen unter dem Namen Ptolemäerreich (Ptolemaic Kingdom), obwohl dieses Reich laut Wikidata erst 305 v. Chr. begann. Hier werden diese Jahre dem Makedonischen Reich zugerechnet.",
+     "es": "Los datos del mapa terminan en el 293 a. C., pero según la fuente el reino siguió existiendo hasta el 168 a. C. Para los años 332–325 a. C., Cliopatria recoge las conquistas de Alejandro con el nombre de Reino ptolemaico (Ptolemaic Kingdom), aunque según Wikidata ese reino no comenzó hasta el 305 a. C. Aquí esos años se cuentan como parte del Imperio macedonio.",
+     "fr": "Les données de la carte s'arrêtent en 293 av. J.-C., mais selon la source le royaume a subsisté jusqu'en 168 av. J.-C. Pour les années 332–325 av. J.-C., Cliopatria place les conquêtes d'Alexandre sous le nom de Royaume ptolémaïque (Ptolemaic Kingdom), alors que, selon Wikidata, ce royaume n'a commencé qu'en 305 av. J.-C. Ici, ces années sont rattachées à l'Empire macédonien."
     },
     "sources": [
      "wp-macedonia-ancient",
-     "wp-vergina-sun"
+     "wp-vergina-sun",
+     "wp-wars-of-alexander",
+     "wikidata"
     ],
     "review": "source-checked"
    },
