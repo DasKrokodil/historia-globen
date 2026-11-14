@@ -301,7 +301,8 @@
         "commons-bild-sovjetunionens-upplosning",
         "commons-bild-stora-mosken-i-djenne",
         "commons-bild-sydafrikas-forsta-fria-val",
-        "commons-bild-vulkanutbrottet-pa-thera"
+        "commons-bild-vulkanutbrottet-pa-thera",
+        "commons-vapenflagga-skane"
       ]
     },
     {
@@ -2274,6 +2275,7 @@
         "wp-sv-siam",
         "wp-sv-skane",
         "wp-sv-skane-lan",
+        "wp-sv-skanes-flagga",
         "wp-sv-skanes-historia",
         "wp-sv-skanska-generalguvernementet",
         "wp-sv-skedemosse",
@@ -3422,13 +3424,15 @@
     {
       "license": "Public domain (PD-shape)",
       "sourceIds": [
+        "commons-flagga-danmark",
         "commons-flagga-gambia",
         "commons-flagga-guinea-bissau",
         "commons-flagga-kuwait",
         "commons-flagga-mauritius",
         "commons-flagga-sao-tome-and-principe",
         "commons-flagga-singapore",
-        "commons-flagga-somalia"
+        "commons-flagga-somalia",
+        "commons-flagga-sverige"
       ]
     },
     {
