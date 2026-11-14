@@ -487,15 +487,32 @@ body {
 .layer-note { flex-basis: 100%; padding-left: 26px; font: 400 11px/1.3 var(--f-mono); color: var(--parchment-dim); }
 /* Grupper och förinställda vyer i Lager (#357) */
 .layer-subheading { margin: 8px 10px 2px; font: 500 10.5px/1 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--parchment-dim); }
-.view-chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 6px 10px 8px; }
+.view-chips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; padding: 6px 10px 8px; }
+/* Förvalen som kort (#1574): namnet och en mening om vad vyn visar på kartan */
 .view-chip {
-  display: inline-flex; align-items: center; min-height: 32px; padding: 6px 12px;
-  font: 500 12.5px/1 var(--f-body); color: var(--parchment);
-  background: transparent; border: 1px solid var(--control-line); border-radius: 999px; cursor: pointer;
+  display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 3px; min-height: 44px; padding: 8px 10px; text-align: left;
+  font: 500 12.5px/1.2 var(--f-body); color: var(--parchment);
+  background: transparent; border: 1px solid var(--control-line); border-radius: 10px; cursor: pointer;
 }
+.view-chip-name { font-weight: 600; }
+.view-chip-desc { font: 400 11px/1.3 var(--f-body); color: var(--parchment-dim); }
 .view-chip:hover { background: var(--night-3); border-color: var(--brass-deep); }
 .view-chip[aria-pressed="true"] { background: var(--brass); border-color: var(--brass); color: var(--night); }
-.view-custom { cursor: default; border-style: dashed; border-color: var(--brass-deep); color: var(--brass); font-style: italic; }
+.view-chip[aria-pressed="true"] .view-chip-desc { color: color-mix(in srgb, var(--night) 80%, transparent); }
+#layer-menu { width: min(460px, calc(100vw - 32px)); }
+/* Grupperna i Fler val (#1574): hopfällda, med antalet påslagna lager på raden */
+.layer-sect { border-top: 1px solid var(--line); }
+.layer-sect > summary {
+  display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 10px; cursor: pointer; list-style: none;
+  font: 600 11px/1.2 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass);
+}
+.layer-sect > summary::-webkit-details-marker { display: none; }
+.layer-sect > summary::after { content: ""; margin-left: auto; width: 7px; height: 7px; border: solid currentColor; border-width: 0 2px 2px 0; transform: rotate(45deg) translateY(-2px); transition: transform .15s; }
+.layer-sect[open] > summary::after { transform: rotate(-135deg) translateY(-1px); }
+.layer-sect > summary:focus-visible { outline: 2px solid var(--brass); outline-offset: -2px; border-radius: 6px; }
+.layer-sect-count { font: 400 11px/1.2 var(--f-mono); letter-spacing: 0; text-transform: none; color: var(--parchment-dim); }
+.layer-group:has(.layer-sect) .layer-heading { display: none; }
+.view-custom { grid-column: 1 / -1; align-items: center; cursor: default; border-style: dashed; border-color: var(--brass-deep); color: var(--brass); font-style: italic; }
 .view-custom[hidden] { display: none; }
 .layer-customize {
   display: flex; align-items: center; justify-content: center; gap: 8px;

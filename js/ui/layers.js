@@ -37,7 +37,7 @@ export async function loadViews() {
         [id, Object.fromEntries(Object.entries(texts).map(([k, text]) => [k, t(text)]))])),
       layerActions: Object.fromEntries(Object.entries(doc.layerActions ?? {}).map(([id, text]) => [id, t(text)])),
       groups: doc.groups.map(g => ({ ...g, name: t(g.name) })),
-      views: doc.views.map(v => ({ ...v, name: t(v.name) })),
+      views: doc.views.map(v => ({ ...v, name: t(v.name), description: v.description ? t(v.description) : '' })),
       defaultView: doc.defaultView,
     };
   } catch (err) {
@@ -141,7 +141,16 @@ export class LayerMenu {
     this.viewBtns = views.views.map(v => {
       const btn = document.createElement('button');
       btn.type = 'button'; btn.className = 'view-chip'; btn.dataset.view = v.id;
-      btn.textContent = v.name;
+      // Ett förval är ett kort med namnet och en mening om vad det visar på kartan (#1574). Det tillgängliga namnet är bara namnet;
+      // meningen läses som beskrivning.
+      const label = document.createElement('span'); label.className = 'view-chip-name'; label.textContent = v.name;
+      btn.append(label);
+      if (v.description) {
+        const desc = document.createElement('span'); desc.className = 'view-chip-desc'; desc.id = `view-desc-${v.id}`; desc.textContent = v.description;
+        btn.append(desc);
+        btn.setAttribute('aria-describedby', desc.id);
+      }
+      btn.setAttribute('aria-label', v.name);
       btn.setAttribute('aria-pressed', 'false');
       btn.addEventListener('click', () => this.applyView(v.id));
       row.append(btn);
@@ -163,6 +172,7 @@ export class LayerMenu {
     this.customBox.className = 'layer-custom'; this.customBox.id = 'layer-custom';
     while (this.menu.firstChild) this.customBox.append(this.menu.firstChild);
     this.addLayerActions(views);
+    this.collapseGroups();
     let customOpen = false;
     try { customOpen = sessionStorage.getItem('hg-layer-customize') === '1'; } catch { /* utan lagring */ }
     this.customBtn.addEventListener('click', () => this.setCustomOpen(this.customBox.hidden));
@@ -179,6 +189,36 @@ export class LayerMenu {
     this.menu.prepend(close);
     this.setCustomOpen(customOpen, false);
     this.syncView();
+  }
+
+  /**
+   * Grupperna i Fler val (#1574) är hopfällda avsnitt med antalet påslagna lager på raden ("Makt, tro och gränser · 1 av 4 på").
+   * Gruppens rubrik (som aria-labelledby pekar på) står kvar dold; Inställningar är ingen lagergrupp och lämnas som den är.
+   */
+  collapseGroups() {
+    this.sects = [];
+    for (const box of this.customBox.querySelectorAll('.layer-group:not([data-group="settings"])')) {
+      const head = box.querySelector(':scope > .layer-heading');
+      if (!head) continue;
+      const details = document.createElement('details');
+      details.className = 'layer-sect';
+      const summary = document.createElement('summary');
+      const title = document.createElement('span'); title.className = 'layer-sect-title'; title.textContent = head.textContent;
+      const count = document.createElement('span'); count.className = 'layer-sect-count';
+      summary.append(title, count);
+      head.hidden = true;
+      details.append(summary, ...[...box.children].filter(c => c !== head));
+      box.append(details);
+      this.sects.push({ box, count });
+    }
+  }
+
+  /** Antalet påslagna lager i varje grupp på gruppens rad. */
+  syncGroups() {
+    for (const { box, count } of this.sects ?? []) {
+      const inputs = [...box.querySelectorAll('input[data-layer]')];
+      count.textContent = ui('layers.groupCount', { on: inputs.filter(i => i.checked).length, total: inputs.length });
+    }
   }
 
   /** Snabbvalen stänger alla kontrollerade lager eller återgår till Standard. */
@@ -248,6 +288,7 @@ export class LayerMenu {
   /** Markerar vyn som stämmer, eller visar Anpassad. */
   syncView() {
     if (!this.views) return;
+    this.syncGroups();
     const cur = this.currentView();
     for (const btn of this.viewBtns) btn.setAttribute('aria-pressed', String(btn.dataset.view === cur));
     this.customChip.hidden = cur !== null;

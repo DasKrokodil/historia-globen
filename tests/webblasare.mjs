@@ -330,7 +330,10 @@ async function run(browser, vp) {
   const setLayer = async (name, on) => {
     if (await page.isHidden('#layer-menu')) { await clickView('#btn-layers'); await visible('#layer-menu'); }
     const box = page.locator(layerRow(name));
-    if (await box.isHidden()) { await page.click('#layer-customize'); await box.waitFor({ state: 'visible', timeout: T.step }); }
+    // Raderna ligger i hopfällda grupper i Fler val (#1574): öppna Fler val om det behövs, och sedan lagrets grupp
+    if (await box.isHidden() && await page.locator('#layer-custom').isHidden()) await page.click('#layer-customize');
+    await box.evaluate(el => el.closest('details.layer-sect')?.setAttribute('open', ''));
+    await box.waitFor({ state: 'visible', timeout: T.step });
     if ((await box.isChecked()) !== on) await box.click();
   };
   const setPause = async (name, on) => {
