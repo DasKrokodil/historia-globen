@@ -98,8 +98,13 @@ GROUPS = {
     'persiska-riket': ('Persiska riket (akemeniderna)', 'Achaemenid Empire', [
         ('Achaemenid Empire', 'akemenidiska-riket', 'Persiska riket', '#c08a2e'),
     ]),
+    # Alexanders erövringar 332–325 f.Kr. (#1382): Cliopatria v0.2.1 har dem under namnet "Ptolemaic Kingdom" (Q2320005)
+    # åren -331 till -324, medan "Macedonian Empire" samma år bara är Makedonien (218 169 km²). Ytan 332–328 f.Kr. är exakt
+    # det Persiska riket förlorade från 333 f.Kr. (Mindre Asien, Levanten och Egypten, ingen överlappning med Achaemenid
+    # Empire), och 327–325 f.Kr. hela det gamla Persiska riket till Indus, samma område som "Macedonian Empire" från 323 f.Kr.
+    # Ptolemaios I blev kung först 305 f.Kr. (Wikidata, Wikipedia). Posterna läggs därför till Makedoniska riket de åren.
     'alexanders-rike': ('Makedoniska riket', 'Macedonian Empire', [
-        ('Macedonian Empire', 'makedoniska-riket', 'Makedoniska riket', '#3f7fb5'),
+        ('Macedonian Empire', 'makedoniska-riket', 'Makedoniska riket', '#3f7fb5', {'join': [('Ptolemaic Kingdom', -331, -324)]}),
     ]),
     'hanriket': ('Hanriket', 'Han dynasty', [
         ('Han Dynasty', 'hanriket', 'Hanriket', '#d0703a'),
@@ -1482,7 +1487,8 @@ GROUPS = {
     ]),
     # Ptolemaiska riket börjar 305 f.Kr. enligt Wikidata (Q2320005, 305–30 f.Kr.). Cliopatria lägger posten "Ptolemaic Kingdom"
     # redan på 332–325 f.Kr. och täcker då Alexanders erövringar ända till Indus, medan "Macedonian Empire" samma år bara är
-    # Makedonien; geografens granskning inför v6.3.0 (2026-11-13). Åren klipps därför till Wikidatas start.
+    # Makedonien; geografens granskning inför v6.3.0 (2026-11-13). Åren klipps därför till Wikidatas start, och
+    # posterna 332–325 f.Kr. läggs till Makedoniska riket (#1382).
     'ptolemaiska-riket': ('Ptolemaiska riket', 'Ptolemaic Kingdom', [
         ('Ptolemaic Kingdom', 'ptolemaiska-riket', 'Ptolemaiska riket', '#4a7ab0', {'en': 'Ptolemaic Kingdom', 'years': (-304, -28)}),
     ]),
@@ -1869,8 +1875,15 @@ def member_periods(by_name, cname, years=None, feats=None):
 
 def join_periods(base, names, by_name):
     """Lägger till Cliopatria-posterna i names till perioderna i base de år de finns (Osmanska riket med Tripolitanien,
-    #1330). Perioderna delas där posterna börjar eller slutar; år utan dem behåller sin gräns oförändrad."""
-    feats = [f for n in names for f in by_name.get(n, [])]
+    #1330). Perioderna delas där posterna börjar eller slutar; år utan dem behåller sin gräns oförändrad.
+    Ett namn kan vara (namn, från, till): då räknas bara de poster som ligger helt inom åren (Alexanders erövringar
+    under namnet "Ptolemaic Kingdom", #1382)."""
+    def within(n):
+        if isinstance(n, (list, tuple)):
+            name, a, b = n
+            return [f for f in by_name.get(name, []) if a <= f['properties']['FromYear'] and f['properties']['ToYear'] <= b]
+        return by_name.get(n, [])
+    feats = [f for n in names for f in within(n)]
     cuts = {f['properties']['FromYear'] for f in feats} | {f['properties']['ToYear'] + 1 for f in feats}
     out = []
     for a, b, g, ar in base:
