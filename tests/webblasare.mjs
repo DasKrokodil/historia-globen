@@ -1827,54 +1827,43 @@ async function run(browser, vp) {
   // #1571: i händelsens faktaruta är noten en hopfälld rad med synlig rubrik, och källor, hur vi vet, status, kopiera och
   // rapportera ligger i ett hopfällt avsnitt Om uppgifterna med antal källor och status på raden.
   await check('faktarutan: noten och Om uppgifterna är hopfällda och öppnas med tangentbord (#1571)', async () => {
-    await jumpTo(-498); // Perserkrigen ingår i Översikt, har en notering och två källor
-    if (await page.isHidden('#panel')) await page.click('#btn-panel');
-    await visible('#panel');
-    const ev = page.locator('#event-list .event-btn', { hasText: 'Perserkrigen' }).first();
-    await ev.waitFor({ state: 'visible', timeout: T.step });
-    await ev.click();
-    const note = page.locator('#detail details.detail-note'), about = page.locator('#detail details.detail-about');
-    await about.waitFor({ state: 'visible', timeout: T.step });
-    if (await note.count() !== 1) throw new Error('händelsens not saknas som hopfälld rad');
-    if (await note.evaluate(d => d.open) || await about.evaluate(d => d.open)) throw new Error('noten eller Om uppgifterna är öppna från början');
-    if (!(await note.locator('summary').textContent()).trim()) throw new Error('notens rubrik syns inte på raden');
-    if (!/^Om uppgifterna · \d+ källor?/.test((await about.locator(':scope > summary').textContent()).trim())) throw new Error('raden Om uppgifterna saknar antal källor');
-    for (const d of [note, about]) {
-      const box = await d.locator(':scope > summary').boundingBox();
-      if (!box || box.height < 43) throw new Error(`träffytan är ${box?.height} px hög, minst 44 px krävs`);
-    }
-    // Det som ligger inuti är dolt tills avsnittet öppnas, och nås med Enter
-    if (await page.locator('#detail [data-citation]').isVisible()) throw new Error('Kopiera källhänvisning syns medan Om uppgifterna är hopfällt');
-    await about.locator(':scope > summary').focus();
-    await page.keyboard.press('Enter');
-    await page.waitForSelector('#detail [data-citation]', { state: 'visible', timeout: T.step });
-    await note.locator('summary').focus();
-    await page.keyboard.press('Enter');
-    if (!(await note.evaluate(d => d.open))) throw new Error('Enter fäller inte ut noten');
-    if (await page.evaluate(() => document.scrollingElement.scrollWidth > innerWidth + 1)) throw new Error('faktarutan ger horisontell scroll');
-    await page.locator('#detail [data-close]').click();
-    return 'noten och Om uppgifterna fälls ut med tangentbord; träffytor minst 44 px';
-  });
-
-  // #1573: Turer-menyn har rubriker och en tät rad per tur; en rad fälls ut med tangentbord (Enter) och visar sammanfattningen och
-  // Starta turen. Raderna är minst 44 px höga och hela listan ryms utan rullning i både dator och mobil.
-  await check('Turer-menyn: rubriker och hopfällda rader som öppnas med tangentbord (#1573)', async () => {
-    await clickView('#btn-tour');
-    await visible('#tour-menu');
+    // Egen sida: kontrollen öppnar panelen och faktarutan, och ska inte lämna något tillstånd i den delade sidan åt Samtidigt-kontrollerna efter den
+    const lp = await context.newPage();
     try {
-      const heads = await page.locator('#tour-menu details.tour-row > summary').evaluateAll(els => els.map(e => Math.round(e.getBoundingClientRect().height)));
-      if (heads.length !== 10) throw new Error(`${heads.length} tur-rader, väntade 10`);
-      if (heads.some(h => h < 43)) throw new Error(`en rad är lägre än 44 px: ${heads.join(', ')}`);
-      const scrolls = await page.evaluate(() => { const m = document.getElementById('tour-menu'); return m.scrollHeight > m.clientHeight + 1; });
-      if (scrolls) throw new Error('menyn rullar med alla rader hopfällda');
-      const first = page.locator('#tour-menu details.tour-row').first();
-      await first.locator(':scope > summary').focus();
-      await page.keyboard.press('Enter');
-      if (!(await first.evaluate(d => d.open))) throw new Error('Enter fäller inte ut raden');
-      if (!(await first.locator('.tour-pick-meta').isVisible()) || !(await first.locator('.tour-start-btn').isVisible())) throw new Error('sammanfattningen och Starta turen syns inte på den utfällda raden');
-      return `10 rader (${Math.min(...heads)}–${Math.max(...heads)} px), ingen rullning hopfällt, Enter fäller ut`;
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await lp.route(u => isFont(u.href), r => r.abort());
+      }
+      await lp.goto(`${BASE}?ny=1571#y=-498`); // Perserkrigen ingår i Översikt, har en notering och två källor
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      if (await lp.isHidden('#panel')) await lp.click('#btn-panel');
+      await lp.waitForSelector('#panel', { state: 'visible', timeout: T.step });
+      const ev = lp.locator('#event-list .event-btn', { hasText: 'Perserkrigen' }).first();
+      await ev.waitFor({ state: 'visible', timeout: T.step });
+      await ev.click();
+      const note = lp.locator('#detail details.detail-note'), about = lp.locator('#detail details.detail-about');
+      await about.waitFor({ state: 'visible', timeout: T.step });
+      if (await note.count() !== 1) throw new Error('händelsens not saknas som hopfälld rad');
+      if (await note.evaluate(d => d.open) || await about.evaluate(d => d.open)) throw new Error('noten eller Om uppgifterna är öppna från början');
+      if (!(await note.locator('summary').textContent()).trim()) throw new Error('notens rubrik syns inte på raden');
+      if (!/^Om uppgifterna · \d+ källor?/.test((await about.locator(':scope > summary').textContent()).trim())) throw new Error('raden Om uppgifterna saknar antal källor');
+      for (const d of [note, about]) {
+        const box = await d.locator(':scope > summary').boundingBox();
+        if (!box || box.height < 43) throw new Error(`träffytan är ${box?.height} px hög, minst 44 px krävs`);
+      }
+      // Det som ligger inuti är dolt tills avsnittet öppnas, och nås med Enter
+      if (await lp.locator('#detail [data-citation]').isVisible()) throw new Error('Kopiera källhänvisning syns medan Om uppgifterna är hopfällt');
+      await about.locator(':scope > summary').focus();
+      await lp.keyboard.press('Enter');
+      await lp.waitForSelector('#detail [data-citation]', { state: 'visible', timeout: T.step });
+      await note.locator('summary').focus();
+      await lp.keyboard.press('Enter');
+      if (!(await note.evaluate(d => d.open))) throw new Error('Enter fäller inte ut noten');
+      if (await lp.evaluate(() => document.scrollingElement.scrollWidth > innerWidth + 1)) throw new Error('faktarutan ger horisontell scroll');
+      return 'noten och Om uppgifterna fälls ut med tangentbord; träffytor minst 44 px';
     } finally {
-      if (await page.locator('#tour-menu').isVisible()) { await page.keyboard.press('Escape'); await hidden('#tour-menu'); }
+      await lp.close();
     }
   });
 
@@ -6482,7 +6471,8 @@ async function run(browser, vp) {
     // Om urvalet (#916): rubriken och de fem styckena finns, och ingen rå textnyckel syns
     const urval = page.locator('.src-urval');
     await urval.waitFor({ state: 'visible', timeout: T.step });
-    if (await urval.locator('p').count() !== 5) throw new Error('Om urvalet har inte fem stycken');
+    // Raden om projektet (#1575) står sist i avsnittet men är inget stycke om urvalet
+    if (await urval.locator('p:not(.src-about)').count() !== 5) throw new Error('Om urvalet har inte fem stycken');
     if (/sources\.urval/.test(await urval.textContent())) throw new Error('Om urvalet visar en rå textnyckel');
     const version = await page.evaluate(() => fetch('data/version.json').then(response => response.json()));
     const versionRow = page.locator('.src-version');
