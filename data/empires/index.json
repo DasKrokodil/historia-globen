@@ -10319,6 +10319,681 @@
    ]
   },
   {
+   "id": "kongoriket",
+   "name": {
+    "sv": "Kongoriket",
+    "en": "Kingdom of Kongo",
+    "de": "Königreich Kongo",
+    "es": "Reino del Congo",
+    "fr": "royaume de Kongo"
+   },
+   "color": "#b0703a",
+   "from": 1440,
+   "to": 1669,
+   "file": "data/empires/kongoriket.json",
+   "polities": [
+    {
+     "id": "kongoriket",
+     "name": {
+      "sv": "Kongoriket",
+      "en": "Kingdom of Kongo",
+      "de": "Königreich Kongo",
+      "es": "Reino del Congo",
+      "fr": "royaume de Kongo"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Kongoriket var ett kungarike i Centralafrika, i dagens norra Angola, västra Kongo-Kinshasa, södra Gabon och Kongo-Brazzaville. Huvudstaden var M'banza-Kongo. Enligt Wikipedia var riket självständigt från omkring 1390 till 1862 och därefter periodvis en lydstat under Portugal fram till 1914.",
+     "en": "The Kingdom of Kongo was a kingdom in Central Africa, in present-day northern Angola, the western Democratic Republic of the Congo, southern Gabon and the Republic of the Congo. Its capital was M'banza-Kongo. According to Wikipedia the kingdom was independent from about 1390 to 1862 and after that intermittently a vassal state of Portugal until 1914.",
+     "de": "Das Königreich Kongo war ein Königreich in Zentralafrika, im heutigen Norden Angolas, im Westen der Demokratischen Republik Kongo, im Süden Gabuns und in der Republik Kongo. Die Hauptstadt war M'banza-Kongo. Laut Wikipedia war das Reich von etwa 1390 bis 1862 unabhängig und danach zeitweise ein Vasallenstaat Portugals bis 1914.",
+     "es": "El Reino del Congo fue un reino de África central, en el actual norte de Angola, el oeste de la República Democrática del Congo, el sur de Gabón y la República del Congo. Su capital era M'banza-Kongo. Según Wikipedia, el reino fue independiente desde aproximadamente 1390 hasta 1862 y después, de forma intermitente, un Estado vasallo de Portugal hasta 1914.",
+     "fr": "Le royaume de Kongo était un royaume d'Afrique centrale, dans l'actuel nord de l'Angola, l'ouest de la République démocratique du Congo, le sud du Gabon et la République du Congo. Sa capitale était M'banza-Kongo. Selon Wikipédia, le royaume fut indépendant d'environ 1390 à 1862, puis, par intermittence, un État vassal du Portugal jusqu'en 1914."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod",
+       "en": "When and where it arose",
+       "de": "Entstehung",
+       "es": "Cuándo y dónde surgió",
+       "fr": "Quand et où il est apparu"
+      },
+      "text": {
+       "sv": "Riket grundades omkring 1390 genom ett politiskt äktenskap mellan Nima a Nzima, som styrde Mpemba Kasi och Vungu, och Lukeni lua Nsanze, dotter till härskaren i grannriket Mbata. Berättelserna om grundandet är muntliga traditioner som skrevs ned först i slutet av 1500-talet.",
+       "en": "The kingdom was founded around 1390 through a political marriage between Nima a Nzima, ruler of Mpemba Kasi and Vungu, and Lukeni lua Nsanze, daughter of the ruler of the neighbouring kingdom of Mbata. The accounts of the founding are oral traditions that were first written down in the late 16th century.",
+       "de": "Das Reich wurde um 1390 durch eine politische Heirat zwischen Nima a Nzima, dem Herrscher von Mpemba Kasi und Vungu, und Lukeni lua Nsanze, der Tochter des Herrschers des Nachbarreichs Mbata, gegründet. Die Erzählungen über die Gründung sind mündliche Überlieferungen, die erst im späten 16. Jahrhundert aufgeschrieben wurden.",
+       "es": "El reino se fundó hacia 1390 mediante un matrimonio político entre Nima a Nzima, gobernante de Mpemba Kasi y Vungu, y Lukeni lua Nsanze, hija del gobernante del reino vecino de Mbata. Los relatos de la fundación son tradiciones orales que se pusieron por escrito por primera vez a finales del siglo XVI.",
+       "fr": "Le royaume fut fondé vers 1390 par un mariage politique entre Nima a Nzima, souverain de Mpemba Kasi et de Vungu, et Lukeni lua Nsanze, fille du souverain du royaume voisin de Mbata. Les récits de la fondation sont des traditions orales qui furent mises par écrit pour la première fois à la fin du XVIe siècle."
+      }
+     },
+     {
+      "label": {
+       "sv": "Mötet med Portugal",
+       "en": "Contact with Portugal",
+       "de": "Kontakt mit Portugal",
+       "es": "El contacto con Portugal",
+       "fr": "Le contact avec le Portugal"
+      },
+      "text": {
+       "sv": "Den portugisiske upptäcktsresanden Diogo Cão nådde Kongos kust 1483. Kung Nzinga a Nkuwu döptes 1491 och tog namnet João I.",
+       "en": "The Portuguese explorer Diogo Cão reached the coast of Kongo in 1483. King Nzinga a Nkuwu was baptised in 1491 and took the name João I.",
+       "de": "Der portugiesische Seefahrer Diogo Cão erreichte 1483 die Küste des Kongo. König Nzinga a Nkuwu wurde 1491 getauft und nahm den Namen João I. an.",
+       "es": "El explorador portugués Diogo Cão llegó a la costa del Congo en 1483. El rey Nzinga a Nkuwu fue bautizado en 1491 y adoptó el nombre de João I.",
+       "fr": "L'explorateur portugais Diogo Cão atteignit la côte du Kongo en 1483. Le roi Nzinga a Nkuwu fut baptisé en 1491 et prit le nom de João Ier."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade",
+       "en": "How it ended",
+       "de": "Wie es endete",
+       "es": "Cómo terminó",
+       "fr": "Comment il a pris fin"
+      },
+      "text": {
+       "sv": "I slaget vid Mbwila 1665 besegrade portugisiska styrkor från Angola Kongos här och dödade kung António I. Därefter följde ett inbördeskrig i omkring 40 år, och fler människor från Kongo såldes som slavar över Atlanten. Portugal avskaffade kungadömet 1914.",
+       "en": "At the Battle of Mbwila in 1665, Portuguese forces from Angola defeated Kongo's army and killed King António I. A civil war of about 40 years followed, and more people from Kongo were sold as slaves across the Atlantic. Portugal abolished the monarchy in 1914.",
+       "de": "In der Schlacht von Mbwila 1665 besiegten portugiesische Truppen aus Angola das Heer des Kongo und töteten König António I. Danach folgte ein Bürgerkrieg von etwa 40 Jahren, und mehr Menschen aus dem Kongo wurden als Sklaven über den Atlantik verkauft. Portugal schaffte die Monarchie 1914 ab.",
+       "es": "En la batalla de Mbwila, en 1665, fuerzas portuguesas procedentes de Angola derrotaron al ejército del Congo y mataron al rey António I. Siguió una guerra civil de unos 40 años, y más personas del Congo fueron vendidas como esclavas a través del Atlántico. Portugal abolió la monarquía en 1914.",
+       "fr": "À la bataille de Mbwila en 1665, des forces portugaises venues d'Angola vainquirent l'armée du Kongo et tuèrent le roi António Ier. Une guerre civile d'environ 40 ans suivit, et davantage de personnes du Kongo furent vendues comme esclaves de l'autre côté de l'Atlantique. Le Portugal abolit la monarchie en 1914."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad",
+       "en": "Capital",
+       "de": "Hauptstadt",
+       "es": "Capital",
+       "fr": "Capitale"
+      },
+      "text": {
+       "sv": "M'banza-Kongo, som kring år 1600 fick det portugisiska namnet São Salvador.",
+       "en": "M'banza-Kongo, which around 1600 was given the Portuguese name São Salvador.",
+       "de": "M'banza-Kongo, das um 1600 den portugiesischen Namen São Salvador erhielt.",
+       "es": "M'banza-Kongo, que hacia 1600 recibió el nombre portugués de São Salvador.",
+       "fr": "M'banza-Kongo, qui reçut vers 1600 le nom portugais de São Salvador."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna skiljer sig: Wikipedia anger omkring 1390–1914 (självständigt till 1862) och Wikidata 1395 till 1888 eller 1914. Kartan visar Kongoriket 1440–1669, som i Cliopatria, med samma yta alla år, 131 583 km². Enligt Wikipedia hade rikets kärnområde i slutet av 1500-talet omkring 130 000 km². Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ: Wikipedia gives about 1390–1914 (independent until 1862) and Wikidata 1395 to 1888 or 1914. The map shows the Kingdom of Kongo in 1440–1669, as in Cliopatria, with the same area in every year, 131,583 km². According to Wikipedia the core region of the kingdom covered about 130,000 km² at the end of the 16th century. The borders are Cliopatria's estimate and not known state borders.",
+     "de": "Die Quellen weichen voneinander ab: Wikipedia nennt etwa 1390–1914 (unabhängig bis 1862) und Wikidata 1395 bis 1888 oder 1914. Die Karte zeigt das Königreich Kongo wie Cliopatria 1440–1669, in allen Jahren mit derselben Fläche, 131.583 km². Laut Wikipedia umfasste das Kerngebiet des Reiches Ende des 16. Jahrhunderts etwa 130.000 km². Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren: Wikipedia indica aproximadamente 1390–1914 (independiente hasta 1862) y Wikidata 1395 hasta 1888 o 1914. El mapa muestra el Reino del Congo en 1440–1669, como Cliopatria, con la misma superficie todos los años, 131 583 km². Según Wikipedia, el núcleo del reino abarcaba unos 130 000 km² a finales del siglo XVI. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent : Wikipédia indique environ 1390–1914 (indépendant jusqu'en 1862) et Wikidata 1395 jusqu'à 1888 ou 1914. La carte montre le royaume de Kongo en 1440–1669, comme Cliopatria, avec la même superficie chaque année, 131 583 km². Selon Wikipédia, le cœur du royaume couvrait environ 130 000 km² à la fin du XVIe siècle. Les frontières sont une estimation de Cliopatria et non des frontières d'État connues."
+    },
+    "sources": [
+     "wp-kongo",
+     "wd-kingdom-of-kongo"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "funjsultanatet",
+   "name": {
+    "sv": "Funj Sultanate",
+    "en": "Funj Sultanate",
+    "de": "Sultanat von Sannar",
+    "es": "sultanato de Sennar",
+    "fr": "Sultanat de Sennar"
+   },
+   "color": "#3a8a8a",
+   "from": 1507,
+   "to": 1821,
+   "file": "data/empires/funjsultanatet.json",
+   "polities": [
+    {
+     "id": "funjsultanatet",
+     "name": {
+      "sv": "Funj Sultanate",
+      "en": "Funj Sultanate",
+      "de": "Sultanat von Sannar",
+      "es": "sultanato de Sennar",
+      "fr": "Sultanat de Sennar"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Funj Sultanate, även kallat sultanatet Sennar, var ett islamiskt kungarike i dagens Sudan, nordvästra Eritrea och västra Etiopien, med huvudstaden Sennar vid Blå Nilen. Som störst, i slutet av 1600-talet, sträckte det sig från Nilens tredje katarakt söderut till Etiopiska höglandets västra kant och från Röda havet västerut till Kordofan.",
+     "en": "The Funj Sultanate, also called the Sultanate of Sennar, was an Islamic kingdom in present-day Sudan, north-western Eritrea and western Ethiopia, with its capital at Sennar on the Blue Nile. At its greatest extent, in the late 17th century, it reached from the Third Cataract of the Nile south to the western edge of the Ethiopian Highlands, and from the Red Sea west to Kordofan.",
+     "de": "Das Sultanat von Sannar, auch Funj-Sultanat genannt, war ein islamisches Königreich im heutigen Sudan, im Nordwesten Eritreas und im Westen Äthiopiens, mit der Hauptstadt Sennar am Blauen Nil. In seiner größten Ausdehnung, im späten 17. Jahrhundert, reichte es vom dritten Nilkatarakt nach Süden bis an den Westrand des Äthiopischen Hochlands und vom Roten Meer nach Westen bis Kordofan.",
+     "es": "El sultanato de Sennar, también llamado sultanato funj, fue un reino islámico en el actual Sudán, el noroeste de Eritrea y el oeste de Etiopía, con capital en Sennar, a orillas del Nilo Azul. En su máxima extensión, a finales del siglo XVII, se extendía desde la tercera catarata del Nilo hacia el sur hasta el borde occidental del macizo etíope, y desde el mar Rojo hacia el oeste hasta Kordofán.",
+     "fr": "Le sultanat de Sennar, aussi appelé sultanat Funj, était un royaume islamique dans l'actuel Soudan, le nord-ouest de l'Érythrée et l'ouest de l'Éthiopie, avec Sennar, sur le Nil Bleu, pour capitale. À son apogée, à la fin du XVIIe siècle, il s'étendait de la troisième cataracte du Nil au sud jusqu'à la bordure occidentale des hauts plateaux éthiopiens, et de la mer Rouge à l'ouest jusqu'au Kordofan."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod",
+       "en": "When and where it arose",
+       "de": "Entstehung",
+       "es": "Cuándo y dónde surgió",
+       "fr": "Quand et où il est apparu"
+      },
+      "text": {
+       "sv": "Sultanatet grundades 1504 av sultan Amara Dunqas, efter de kristna nubiska kungarikena Makuria och Alodia. Var funjfolket kom ifrån är fortfarande omstritt bland forskare.",
+       "en": "The sultanate was founded in 1504 by Sultan Amara Dunqas, after the Christian Nubian kingdoms of Makuria and Alodia. Where the Funj people came from is still disputed among scholars.",
+       "de": "Das Sultanat wurde 1504 von Sultan Amara Dunqas gegründet, nach den christlichen nubischen Königreichen Makuria und Alodia. Woher die Funj stammten, ist unter Forschenden bis heute umstritten.",
+       "es": "El sultanato fue fundado en 1504 por el sultán Amara Dunqas, tras los reinos cristianos nubios de Makuria y Alodia. El origen del pueblo funj sigue siendo objeto de debate entre los investigadores.",
+       "fr": "Le sultanat fut fondé en 1504 par le sultan Amara Dunqas, après les royaumes chrétiens nubiens de Makurie et d'Alodie. L'origine du peuple funj reste débattue parmi les chercheurs."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade",
+       "en": "How it ended",
+       "de": "Wie es endete",
+       "es": "Cómo terminó",
+       "fr": "Comment il a pris fin"
+      },
+      "text": {
+       "sv": "Under 1700-talet försvagades sultanatet, särskilt efter att hamaj tog makten i en kupp 1762. Det slets sönder av inbördeskrig, och 1821 gav den siste sultanen upp inför den turkisk-egyptiska erövringen.",
+       "en": "In the 18th century the sultanate weakened, especially after the Hamaj seized power in a coup in 1762. It was torn apart by civil wars, and in 1821 the last sultan surrendered to the Turco-Egyptian conquest.",
+       "de": "Im 18. Jahrhundert wurde das Sultanat schwächer, besonders nachdem die Hamaj 1762 durch einen Putsch die Macht übernahmen. Es wurde von Bürgerkriegen zerrissen, und 1821 ergab sich der letzte Sultan der türkisch-ägyptischen Eroberung.",
+       "es": "En el siglo XVIII el sultanato se debilitó, sobre todo después de que los hamaj tomaran el poder en un golpe en 1762. Quedó desgarrado por guerras civiles, y en 1821 el último sultán se rindió ante la conquista turco-egipcia.",
+       "fr": "Au XVIIIe siècle, le sultanat s'affaiblit, surtout après la prise du pouvoir par les Hamaj lors d'un coup d'État en 1762. Il fut déchiré par des guerres civiles, et en 1821 le dernier sultan se rendit lors de la conquête turco-égyptienne."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad",
+       "en": "Capital",
+       "de": "Hauptstadt",
+       "es": "Capital",
+       "fr": "Capitale"
+      },
+      "text": {
+       "sv": "Sennar.",
+       "en": "Sennar.",
+       "de": "Sennar.",
+       "es": "Sennar.",
+       "fr": "Sennar."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna skiljer sig något: Wikipedia anger 1504–1821 och Wikidata 1505–1821. Kartan visar sultanatet 1507–1821, som i Cliopatria, med nästan samma yta, omkring 630 000 km², alla år. Enligt Wikipedia förlorade sultanatet stora områden under 1700-talet, och efter 1802 styrde det bara Gezira; det syns inte på kartan. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ slightly: Wikipedia gives 1504–1821 and Wikidata 1505–1821. The map shows the sultanate in 1507–1821, as in Cliopatria, with almost the same area, about 630,000 km², in every year. According to Wikipedia the sultanate lost large areas in the 18th century, and after 1802 it ruled only the Gezira; this is not visible on the map. The borders are Cliopatria's estimate and not known state borders.",
+     "de": "Die Quellen weichen leicht voneinander ab: Wikipedia nennt 1504–1821 und Wikidata 1505–1821. Die Karte zeigt das Sultanat wie Cliopatria 1507–1821, in allen Jahren mit fast derselben Fläche, etwa 630.000 km². Laut Wikipedia verlor das Sultanat im 18. Jahrhundert große Gebiete und herrschte nach 1802 nur noch über die Gezira; das ist auf der Karte nicht zu sehen. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren ligeramente: Wikipedia indica 1504–1821 y Wikidata 1505–1821. El mapa muestra el sultanato en 1507–1821, como Cliopatria, con casi la misma superficie, unos 630 000 km², todos los años. Según Wikipedia, el sultanato perdió grandes territorios en el siglo XVIII y después de 1802 solo gobernaba la Gezira; esto no se ve en el mapa. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent légèrement : Wikipédia indique 1504–1821 et Wikidata 1505–1821. La carte montre le sultanat en 1507–1821, comme Cliopatria, avec presque la même superficie, environ 630 000 km², chaque année. Selon Wikipédia, le sultanat perdit de vastes territoires au XVIIIe siècle et, après 1802, ne gouvernait plus que la Gezira ; cela n'apparaît pas sur la carte. Les frontières sont une estimation de Cliopatria et non des frontières d'État connues."
+    },
+    "sources": [
+     "wp-funj-sultanate",
+     "wd-funj-sultanate"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "oyoriket",
+   "name": {
+    "sv": "Oyoriket",
+    "en": "Oyo Empire",
+    "de": "Königreich Oyo",
+    "es": "Imperio oyo",
+    "fr": "royaume d'Oyo"
+   },
+   "color": "#a05a8a",
+   "from": 1609,
+   "to": 1835,
+   "file": "data/empires/oyoriket.json",
+   "polities": [
+    {
+     "id": "oyoriket",
+     "name": {
+      "sv": "Oyoriket",
+      "en": "Oyo Empire",
+      "de": "Königreich Oyo",
+      "es": "Imperio oyo",
+      "fr": "royaume d'Oyo"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Oyoriket var ett yorubarike i Västafrika, i dagens västra Nigeria och Benin. Enligt Wikipedia var det ett av de politiskt viktigaste rikena i Västafrika från slutet av 1500-talet till början av 1700-talet, med makt över de flesta andra yorubakungarikena och över Dahomey. Riket använde kavalleri i krigen.",
+     "en": "The Oyo Empire was a Yoruba empire in West Africa, in present-day western Nigeria and Benin. According to Wikipedia it was one of the most politically important states in West Africa from the late 16th to the early 18th century, holding sway over most of the other Yoruba kingdoms and over Dahomey. The empire used cavalry in its wars.",
+     "de": "Das Königreich Oyo war ein Yoruba-Reich in Westafrika, im heutigen Westen Nigerias und in Benin. Laut Wikipedia war es vom späten 16. bis zum frühen 18. Jahrhundert einer der politisch wichtigsten Staaten Westafrikas und hatte Macht über die meisten anderen Yoruba-Königreiche und über Dahomey. Das Reich setzte in seinen Kriegen Reiterei ein.",
+     "es": "El Imperio oyo fue un imperio yoruba de África occidental, en el actual oeste de Nigeria y en Benín. Según Wikipedia, fue uno de los Estados políticamente más importantes de África occidental desde finales del siglo XVI hasta comienzos del XVIII, con dominio sobre la mayoría de los demás reinos yorubas y sobre Dahomey. El imperio usaba la caballería en sus guerras.",
+     "fr": "Le royaume d'Oyo était un empire yoruba d'Afrique de l'Ouest, dans l'actuel ouest du Nigeria et au Bénin. Selon Wikipédia, il fut l'un des États politiquement les plus importants d'Afrique de l'Ouest de la fin du XVIe au début du XVIIIe siècle, et dominait la plupart des autres royaumes yorubas ainsi que le Dahomey. L'empire utilisait la cavalerie dans ses guerres."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod",
+       "en": "When and where it arose",
+       "de": "Entstehung",
+       "es": "Cuándo y dónde surgió",
+       "fr": "Quand et où il est apparu"
+      },
+      "text": {
+       "sv": "Grundandet räknas till omkring 1300, men det året är bara uppskattat genom att räkna bakåt. Omkring 1535 ockuperade nupefolket Oyo, och kungasläkten levde i exil i omkring 80 år innan riket byggdes upp igen, mer centraliserat än förut.",
+       "en": "The founding is dated to about 1300, but that year is only estimated by counting backwards. Around 1535 the Nupe occupied Oyo, and the royal dynasty lived in exile for about 80 years before the empire was rebuilt, more centralised than before.",
+       "de": "Die Gründung wird auf etwa 1300 datiert, doch dieses Jahr ist nur durch Zurückrechnen geschätzt. Um 1535 besetzten die Nupe Oyo, und die Königsfamilie lebte etwa 80 Jahre im Exil, bevor das Reich zentraler als zuvor wiederaufgebaut wurde.",
+       "es": "La fundación se sitúa hacia 1300, pero ese año solo se ha estimado contando hacia atrás. Hacia 1535 los nupe ocuparon Oyo, y la dinastía real vivió en el exilio unos 80 años antes de que el imperio se reconstruyera, más centralizado que antes.",
+       "fr": "La fondation est datée d'environ 1300, mais cette année n'est qu'une estimation obtenue en remontant le temps. Vers 1535, les Nupe occupèrent Oyo, et la dynastie royale vécut en exil pendant environ 80 ans avant que l'empire ne soit reconstruit, plus centralisé qu'auparavant."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade",
+       "en": "How it ended",
+       "de": "Wie es endete",
+       "es": "Cómo terminó",
+       "fr": "Comment il a pris fin"
+      },
+      "text": {
+       "sv": "Många menar att nedgången började redan 1754 med palatskupper. Ilorin bröt sig loss, och 1835 förstördes huvudstaden Oyo-Ile. Huvudstaden flyttades då söderut till Ago d'Oyo, men Oyo fick aldrig tillbaka sin ställning.",
+       "en": "Many believe that the decline began as early as 1754 with palace coups. Ilorin broke away, and in 1835 the capital Oyo-Ile was destroyed. The capital was then moved south to Ago d'Oyo, but Oyo never regained its position.",
+       "de": "Viele meinen, dass der Niedergang schon 1754 mit Palastputschen begann. Ilorin spaltete sich ab, und 1835 wurde die Hauptstadt Oyo-Ile zerstört. Die Hauptstadt wurde danach nach Süden nach Ago d'Oyo verlegt, doch Oyo erlangte seine Stellung nie zurück.",
+       "es": "Muchos creen que la decadencia comenzó ya en 1754 con golpes de palacio. Ilorin se separó, y en 1835 la capital, Oyo-Ile, fue destruida. La capital se trasladó entonces al sur, a Ago d'Oyo, pero Oyo nunca recuperó su posición.",
+       "fr": "Beaucoup estiment que le déclin commença dès 1754 avec des révolutions de palais. Ilorin fit sécession, et en 1835 la capitale, Oyo-Ile, fut détruite. La capitale fut alors déplacée vers le sud, à Ago d'Oyo, mais Oyo ne retrouva jamais sa position."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad",
+       "en": "Capital",
+       "de": "Hauptstadt",
+       "es": "Capital",
+       "fr": "Capitale"
+      },
+      "text": {
+       "sv": "Oyo-Ile; efter 1835 Ago d'Oyo.",
+       "en": "Oyo-Ile; after 1835 Ago d'Oyo.",
+       "de": "Oyo-Ile; nach 1835 Ago d'Oyo.",
+       "es": "Oyo-Ile; después de 1835, Ago d'Oyo.",
+       "fr": "Oyo-Ile ; après 1835, Ago d'Oyo."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna skiljer sig: enligt Wikipedia räknas grundandet till omkring 1300, och Wikidata anger 1400–1905. Kartan visar Oyoriket 1609–1835, som i Cliopatria, alltså från tiden efter exilen till att huvudstaden förstördes. Enligt Wikipedia omfattade riket över 150 000 km² omkring 1680, men Cliopatrias yta är som störst 87 978 km² (1769–1819). Huvudstaden Oyo-Ile ligger 49 km utanför Cliopatrias yta 1609–1669. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ: according to Wikipedia the founding is dated to about 1300, and Wikidata gives 1400–1905. The map shows the Oyo Empire in 1609–1835, as in Cliopatria, that is from after the exile until the capital was destroyed. According to Wikipedia the empire covered over 150,000 km² around 1680, but Cliopatria's area is at most 87,978 km² (1769–1819). The capital Oyo-Ile lies 49 km outside Cliopatria's area in 1609–1669. The borders are Cliopatria's estimate and not known state borders.",
+     "de": "Die Quellen weichen voneinander ab: Laut Wikipedia wird die Gründung auf etwa 1300 datiert, und Wikidata nennt 1400–1905. Die Karte zeigt das Königreich Oyo wie Cliopatria 1609–1835, also von der Zeit nach dem Exil bis zur Zerstörung der Hauptstadt. Laut Wikipedia umfasste das Reich um 1680 über 150.000 km², doch die Fläche bei Cliopatria beträgt höchstens 87.978 km² (1769–1819). Die Hauptstadt Oyo-Ile liegt 1609–1669 49 km außerhalb der Fläche von Cliopatria. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren: según Wikipedia, la fundación se sitúa hacia 1300, y Wikidata indica 1400–1905. El mapa muestra el Imperio oyo en 1609–1835, como Cliopatria, es decir, desde después del exilio hasta la destrucción de la capital. Según Wikipedia, el imperio abarcaba más de 150 000 km² hacia 1680, pero la superficie de Cliopatria es como máximo de 87 978 km² (1769–1819). La capital, Oyo-Ile, queda 49 km fuera de la superficie de Cliopatria en 1609–1669. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent : selon Wikipédia, la fondation est datée d'environ 1300, et Wikidata indique 1400–1905. La carte montre le royaume d'Oyo en 1609–1835, comme Cliopatria, c'est-à-dire de l'après-exil jusqu'à la destruction de la capitale. Selon Wikipédia, l'empire couvrait plus de 150 000 km² vers 1680, mais la superficie de Cliopatria est au plus de 87 978 km² (1769–1819). La capitale, Oyo-Ile, se trouve à 49 km en dehors de la surface de Cliopatria en 1609–1669. Les frontières sont une estimation de Cliopatria et non des frontières d'État connues."
+    },
+    "sources": [
+     "wp-oyo-empire",
+     "wd-oyo-empire"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "ashantiriket",
+   "name": {
+    "sv": "Ashantiriket",
+    "en": "Ashanti Empire",
+    "de": "Aschantireich",
+    "es": "Imperio asante",
+    "fr": "Empire ashanti"
+   },
+   "color": "#c09a2a",
+   "from": 1702,
+   "to": 1897,
+   "file": "data/empires/ashantiriket.json",
+   "polities": [
+    {
+     "id": "ashantiriket",
+     "name": {
+      "sv": "Ashantiriket",
+      "en": "Ashanti Empire",
+      "de": "Aschantireich",
+      "es": "Imperio asante",
+      "fr": "Empire ashanti"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Ashantiriket, även kallat Asante, var en akanstat i dagens Ghana som enligt Wikipedia bestod 1701–1902. Det växte från Ashantiregionen till större delen av Ghana och delar av Elfenbenskusten och Togo. Ekonomin byggde främst på handel med guld och jordbruksvaror, men också på slavhandel. Huvudstaden var Kumasi.",
+     "en": "The Ashanti Empire, also called Asante, was an Akan state in present-day Ghana that according to Wikipedia lasted from 1701 to 1902. It grew from the Ashanti Region to cover most of Ghana and parts of Ivory Coast and Togo. Its economy was based mainly on the trade in gold and agricultural goods, but also on the slave trade. Its capital was Kumasi.",
+     "de": "Das Aschantireich, auch Asante genannt, war ein Akan-Staat im heutigen Ghana, der laut Wikipedia von 1701 bis 1902 bestand. Es wuchs von der Region Ashanti auf den größten Teil Ghanas und Teile der Elfenbeinküste und Togos. Seine Wirtschaft beruhte vor allem auf dem Handel mit Gold und Agrarprodukten, aber auch auf dem Sklavenhandel. Die Hauptstadt war Kumasi.",
+     "es": "El Imperio asante, también llamado ashanti, fue un Estado akan en la actual Ghana que, según Wikipedia, existió de 1701 a 1902. Creció desde la región de Ashanti hasta abarcar la mayor parte de Ghana y partes de Costa de Marfil y Togo. Su economía se basaba sobre todo en el comercio de oro y productos agrícolas, pero también en el comercio de esclavos. Su capital era Kumasi.",
+     "fr": "L'Empire ashanti, aussi appelé Asante, était un État akan dans l'actuel Ghana qui, selon Wikipédia, exista de 1701 à 1902. Il s'étendit de la région Ashanti à la majeure partie du Ghana et à certaines parties de la Côte d'Ivoire et du Togo. Son économie reposait surtout sur le commerce de l'or et des produits agricoles, mais aussi sur la traite des esclaves. Sa capitale était Kumasi."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod",
+       "en": "When and where it arose",
+       "de": "Entstehung",
+       "es": "Cuándo y dónde surgió",
+       "fr": "Quand et où il est apparu"
+      },
+      "text": {
+       "sv": "Under kung Osei Tutu och hans rådgivare Okomfo Anokye enades ashantistaterna kring den Gyllene stolen som gemensam symbol. År 1701 besegrade de Denkyira i slaget vid Feyiase och blev fria från Denkyiras styre.",
+       "en": "Under King Osei Tutu and his adviser Okomfo Anokye, the Ashanti states united around the Golden Stool as their common symbol. In 1701 they defeated Denkyira at the Battle of Feyiase and were freed from Denkyira's rule.",
+       "de": "Unter König Osei Tutu und seinem Berater Okomfo Anokye vereinigten sich die Aschanti-Staaten um den Goldenen Stuhl als gemeinsames Symbol. 1701 besiegten sie Denkyira in der Schlacht von Feyiase und wurden von der Herrschaft Denkyiras frei.",
+       "es": "Bajo el rey Osei Tutu y su consejero Okomfo Anokye, los Estados asante se unieron en torno al Taburete de Oro como símbolo común. En 1701 derrotaron a Denkyira en la batalla de Feyiase y se liberaron de su dominio.",
+       "fr": "Sous le roi Osei Tutu et son conseiller Okomfo Anokye, les États ashanti s'unirent autour du Tabouret d'or, leur symbole commun. En 1701, ils vainquirent le Denkyira à la bataille de Feyiase et se libérèrent de sa domination."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade",
+       "en": "How it ended",
+       "de": "Wie es endete",
+       "es": "Cómo terminó",
+       "fr": "Comment il a pris fin"
+      },
+      "text": {
+       "sv": "Ashanti utkämpade fem krig mot britterna. Efter det femte blev riket den 1 januari 1902 en del av den brittiska kolonin Guldkusten. Ashanti finns kvar i dag som ett traditionellt kungarike inom Ghana.",
+       "en": "Ashanti fought five wars against the British. After the fifth, the empire became part of the British Gold Coast colony on 1 January 1902. Ashanti still exists today as a traditional kingdom within Ghana.",
+       "de": "Die Aschanti führten fünf Kriege gegen die Briten. Nach dem fünften wurde das Reich am 1. Januar 1902 Teil der britischen Kolonie Goldküste. Aschanti besteht bis heute als traditionelles Königreich innerhalb Ghanas.",
+       "es": "Los asante libraron cinco guerras contra los británicos. Tras la quinta, el imperio pasó a formar parte de la colonia británica de Costa de Oro el 1 de enero de 1902. Asante sigue existiendo hoy como reino tradicional dentro de Ghana.",
+       "fr": "Les Ashanti livrèrent cinq guerres contre les Britanniques. Après la cinquième, l'empire fut intégré à la colonie britannique de la Côte-de-l'Or le 1er janvier 1902. L'Ashanti existe encore aujourd'hui comme royaume traditionnel au sein du Ghana."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad",
+       "en": "Capital",
+       "de": "Hauptstadt",
+       "es": "Capital",
+       "fr": "Capitale"
+      },
+      "text": {
+       "sv": "Kumasi.",
+       "en": "Kumasi.",
+       "de": "Kumasi.",
+       "es": "Kumasi.",
+       "fr": "Kumasi."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna skiljer sig: Wikipedia anger 1701–1902 och Wikidata 1670–1902. Kartan visar riket 1702–1897, som i Cliopatria. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ: Wikipedia gives 1701–1902 and Wikidata 1670–1902. The map shows the empire in 1702–1897, as in Cliopatria. The borders are Cliopatria's estimate and not known state borders.",
+     "de": "Die Quellen weichen voneinander ab: Wikipedia nennt 1701–1902 und Wikidata 1670–1902. Die Karte zeigt das Reich wie Cliopatria 1702–1897. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren: Wikipedia indica 1701–1902 y Wikidata 1670–1902. El mapa muestra el imperio en 1702–1897, como Cliopatria. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent : Wikipédia indique 1701–1902 et Wikidata 1670–1902. La carte montre l'empire en 1702–1897, comme Cliopatria. Les frontières sont une estimation de Cliopatria et non des frontières d'État connues."
+    },
+    "sources": [
+     "wp-asante-empire",
+     "wd-ashanti-empire"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "gronland-koloni",
+   "name": {
+    "sv": "Grönland",
+    "en": "Greenland",
+    "de": "Grönland",
+    "es": "Groenlandia",
+    "fr": "Groenland"
+   },
+   "color": "#6a9ac0",
+   "from": 1734,
+   "to": 1940,
+   "file": "data/empires/gronland-koloni.json",
+   "polities": [
+    {
+     "id": "gronland-koloni",
+     "name": {
+      "sv": "Grönland",
+      "en": "Greenland",
+      "de": "Grönland",
+      "es": "Groenlandia",
+      "fr": "Groenland"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Grönland var en koloni under Danmark-Norge och, efter 1814, under Danmark. Danmark-Norge byggde upp handelskolonier längs kusten och införde ett handelsmonopol. Grönland var koloni till 1953, då ön fick en ny ställning inom det danska riket.",
+     "en": "Greenland was a colony of Denmark–Norway and, after 1814, of Denmark. Denmark–Norway developed trading colonies along the coast and imposed a trade monopoly. Greenland remained a colony until 1953, when the island received a new status within the Danish Realm.",
+     "de": "Grönland war eine Kolonie Dänemark-Norwegens und nach 1814 Dänemarks. Dänemark-Norwegen baute Handelskolonien entlang der Küste auf und führte ein Handelsmonopol ein. Grönland blieb bis 1953 eine Kolonie; dann erhielt die Insel einen neuen Status innerhalb des dänischen Reiches.",
+     "es": "Groenlandia fue una colonia de Dinamarca-Noruega y, después de 1814, de Dinamarca. Dinamarca-Noruega estableció colonias comerciales a lo largo de la costa e impuso un monopolio comercial. Groenlandia siguió siendo colonia hasta 1953, cuando la isla recibió un nuevo estatus dentro del Reino de Dinamarca.",
+     "fr": "Le Groenland fut une colonie du Danemark-Norvège puis, après 1814, du Danemark. Le Danemark-Norvège développa des colonies commerciales le long de la côte et imposa un monopole commercial. Le Groenland resta une colonie jusqu'en 1953, lorsque l'île reçut un nouveau statut au sein du royaume de Danemark."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "Hur kolonin började",
+       "en": "How the colony began",
+       "de": "Wie die Kolonie begann",
+       "es": "Cómo empezó la colonia",
+       "fr": "Comment la colonie a commencé"
+      },
+      "text": {
+       "sv": "De nordiska bosättningarna på Grönland hade försvunnit, och i flera hundra år var inuiterna de enda som bodde på ön. År 1721 skickade Danmark-Norge en missionsexpedition dit under prästen Hans Egede. Den hittade inga ättlingar till nordborna och döpte i stället inuiter. År 1728 grundades bosättningen Godthåb, i dag Nuuk.",
+       "en": "The Norse settlements in Greenland had disappeared, and for several centuries the Inuit were the only inhabitants of the island. In 1721 Denmark–Norway sent a missionary expedition there under the priest Hans Egede. It found no descendants of the Norse and baptised Inuit instead. In 1728 the settlement of Godthåb, today Nuuk, was founded.",
+       "de": "Die nordischen Siedlungen in Grönland waren verschwunden, und mehrere Jahrhunderte lang waren die Inuit die einzigen Bewohner der Insel. 1721 schickte Dänemark-Norwegen eine Missionsexpedition unter dem Pfarrer Hans Egede dorthin. Sie fand keine Nachkommen der Nordleute und taufte stattdessen Inuit. 1728 wurde die Siedlung Godthåb gegründet, das heutige Nuuk.",
+       "es": "Los asentamientos nórdicos de Groenlandia habían desaparecido, y durante varios siglos los inuit fueron los únicos habitantes de la isla. En 1721 Dinamarca-Noruega envió allí una expedición misionera dirigida por el sacerdote Hans Egede. No encontró descendientes de los nórdicos y bautizó en su lugar a inuit. En 1728 se fundó el asentamiento de Godthåb, hoy Nuuk.",
+       "fr": "Les établissements nordiques du Groenland avaient disparu, et pendant plusieurs siècles les Inuits furent les seuls habitants de l'île. En 1721, le Danemark-Norvège y envoya une expédition missionnaire menée par le pasteur Hans Egede. Elle ne trouva aucun descendant des Nordiques et baptisa des Inuits à la place. En 1728 fut fondé l'établissement de Godthåb, aujourd'hui Nuuk."
+      }
+     },
+     {
+      "label": {
+       "sv": "Efter 1814",
+       "en": "After 1814",
+       "de": "Nach 1814",
+       "es": "Después de 1814",
+       "fr": "Après 1814"
+      },
+      "text": {
+       "sv": "Vid freden i Kiel 1814 lämnade Danmark Norge till Sverige, men kolonierna, också Grönland, stannade hos Danmark. Norge gjorde senare anspråk på östra Grönland, men 1933 dömde en internationell domstol till Danmarks fördel. När Tyskland ockuperade Danmark 1940 skars Grönland av från Danmark, och 1941 fick USA rätt att bygga baser på ön.",
+       "en": "At the Treaty of Kiel in 1814 Denmark ceded Norway to Sweden, but the colonies, including Greenland, stayed with Denmark. Norway later claimed eastern Greenland, but in 1933 an international court ruled in favour of Denmark. When Germany occupied Denmark in 1940, Greenland was cut off from Denmark, and in 1941 the United States was allowed to build bases on the island.",
+       "de": "Im Frieden von Kiel 1814 trat Dänemark Norwegen an Schweden ab, doch die Kolonien, auch Grönland, blieben bei Dänemark. Norwegen erhob später Anspruch auf Ostgrönland, aber 1933 entschied ein internationales Gericht zugunsten Dänemarks. Als Deutschland 1940 Dänemark besetzte, wurde Grönland von Dänemark abgeschnitten, und 1941 durften die Vereinigten Staaten Stützpunkte auf der Insel errichten.",
+       "es": "En el Tratado de Kiel de 1814, Dinamarca cedió Noruega a Suecia, pero las colonias, incluida Groenlandia, siguieron en manos de Dinamarca. Más tarde Noruega reclamó el este de Groenlandia, pero en 1933 un tribunal internacional falló a favor de Dinamarca. Cuando Alemania ocupó Dinamarca en 1940, Groenlandia quedó separada de Dinamarca, y en 1941 Estados Unidos obtuvo permiso para construir bases en la isla.",
+       "fr": "Au traité de Kiel de 1814, le Danemark céda la Norvège à la Suède, mais les colonies, dont le Groenland, restèrent au Danemark. La Norvège revendiqua plus tard l'est du Groenland, mais en 1933 une cour internationale donna raison au Danemark. Lorsque l'Allemagne occupa le Danemark en 1940, le Groenland fut coupé du Danemark, et en 1941 les États-Unis furent autorisés à construire des bases sur l'île."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Kartan visar Grönland 1734–1940, som i Cliopatria, som ett eget område och inte som en del av Danmark. Ytan följer kolonierna längs västkusten och växer från omkring 11 000 km² till omkring 170 000 km²; 1936–1940 omfattar den hela ön. Källorna nämner andra år: missionsexpeditionen kom 1721, Godthåb grundades 1728 och Grönland var koloni till 1953. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The map shows Greenland in 1734–1940, as in Cliopatria, as an area of its own and not as part of Denmark. The area follows the colonies along the west coast and grows from about 11,000 km² to about 170,000 km²; in 1936–1940 it covers the whole island. The sources mention other years: the missionary expedition arrived in 1721, Godthåb was founded in 1728 and Greenland was a colony until 1953. The borders are Cliopatria's estimate and not known state borders.",
+     "de": "Die Karte zeigt Grönland wie Cliopatria 1734–1940, als eigenes Gebiet und nicht als Teil Dänemarks. Die Fläche folgt den Kolonien an der Westküste und wächst von etwa 11.000 km² auf etwa 170.000 km²; 1936–1940 umfasst sie die ganze Insel. Die Quellen nennen andere Jahre: Die Missionsexpedition kam 1721, Godthåb wurde 1728 gegründet, und Grönland war bis 1953 eine Kolonie. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "El mapa muestra Groenlandia en 1734–1940, como Cliopatria, como un territorio propio y no como parte de Dinamarca. La superficie sigue las colonias de la costa oeste y crece de unos 11 000 km² a unos 170 000 km²; en 1936–1940 abarca toda la isla. Las fuentes mencionan otros años: la expedición misionera llegó en 1721, Godthåb se fundó en 1728 y Groenlandia fue colonia hasta 1953. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "La carte montre le Groenland en 1734–1940, comme Cliopatria, comme un territoire à part et non comme une partie du Danemark. La surface suit les colonies de la côte ouest et passe d'environ 11 000 km² à environ 170 000 km² ; en 1936–1940, elle couvre toute l'île. Les sources mentionnent d'autres années : l'expédition missionnaire arriva en 1721, Godthåb fut fondé en 1728 et le Groenland resta une colonie jusqu'en 1953. Les frontières sont une estimation de Cliopatria et non des frontières d'État connues."
+    },
+    "sources": [
+     "wp-history-of-greenland",
+     "wd-greenland"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "danska-indien",
+   "name": {
+    "sv": "Danska Indien",
+    "en": "Danish India",
+    "de": "Dänisch-Ostindien",
+    "es": "India danesa",
+    "fr": "Inde danoise"
+   },
+   "color": "#c0505a",
+   "from": 1757,
+   "to": 1808,
+   "file": "data/empires/danska-indien.json",
+   "polities": [
+    {
+     "id": "danska-indien",
+     "name": {
+      "sv": "Danska Indien",
+      "en": "Danish India",
+      "de": "Dänisch-Ostindien",
+      "es": "India danesa",
+      "fr": "Inde danoise"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Danska Indien var de fort och handelsstationer som Danmark-Norge, och efter 1814 Danmark, hade i Indien. Till dem hörde Tranquebar (Tharangambadi) i dagens Tamil Nadu, Serampore i Västbengalen och Nikobarerna. Danmark hade besittningar i Indien i mer än 200 år.",
+     "en": "Danish India was the forts and trading posts that Denmark–Norway, and after 1814 Denmark, held in India. They included Tranquebar (Tharangambadi) in present-day Tamil Nadu, Serampore in West Bengal and the Nicobar Islands. Denmark held possessions in India for more than 200 years.",
+     "de": "Dänisch-Ostindien bestand aus den Forts und Handelsstationen, die Dänemark-Norwegen und nach 1814 Dänemark in Indien besaß. Dazu gehörten Tranquebar (Tharangambadi) im heutigen Tamil Nadu, Serampore in Westbengalen und die Nikobaren. Dänemark hatte mehr als 200 Jahre lang Besitzungen in Indien.",
+     "es": "La India danesa fueron los fuertes y factorías que Dinamarca-Noruega, y después de 1814 Dinamarca, tuvo en la India. Entre ellos estaban Tranquebar (Tharangambadi), en el actual Tamil Nadu, Serampore, en Bengala Occidental, y las islas Nicobar. Dinamarca tuvo posesiones en la India durante más de 200 años.",
+     "fr": "L'Inde danoise désignait les forts et comptoirs que le Danemark-Norvège, puis après 1814 le Danemark, possédait en Inde. Parmi eux figuraient Tranquebar (Tharangambadi), dans l'actuel Tamil Nadu, Serampore, au Bengale-Occidental, et les îles Nicobar. Le Danemark eut des possessions en Inde pendant plus de 200 ans."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "Hur kolonin började",
+       "en": "How the colony began",
+       "de": "Wie die Kolonie begann",
+       "es": "Cómo empezó la colonia",
+       "fr": "Comment la colonie a commencé"
+      },
+      "text": {
+       "sv": "År 1616 grundade kung Kristian IV ett danskt ostindiskt kompani med ensamrätt på handeln mellan Danmark-Norge och Asien i tolv år. Den 20 november 1620 fick danskarna byn Tranquebar och rätt att bygga Fort Dansborg genom ett avtal med nayaken av Tanjore.",
+       "en": "In 1616 King Christian IV created a Danish East India Company with a twelve-year monopoly on trade between Denmark–Norway and Asia. On 20 November 1620 the Danes obtained the village of Tranquebar and the right to build Fort Dansborg through a treaty with the Nayak of Tanjore.",
+       "de": "1616 gründete König Christian IV. eine Dänische Ostindien-Kompanie mit einem zwölfjährigen Monopol auf den Handel zwischen Dänemark-Norwegen und Asien. Am 20. November 1620 erhielten die Dänen durch einen Vertrag mit dem Nayak von Tanjore das Dorf Tranquebar und das Recht, Fort Dansborg zu bauen.",
+       "es": "En 1616 el rey Cristián IV creó una Compañía Danesa de las Indias Orientales con el monopolio del comercio entre Dinamarca-Noruega y Asia durante doce años. El 20 de noviembre de 1620 los daneses obtuvieron la aldea de Tranquebar y el derecho a construir el fuerte Dansborg mediante un tratado con el nayak de Tanjore.",
+       "fr": "En 1616, le roi Christian IV créa une Compagnie danoise des Indes orientales avec un monopole de douze ans sur le commerce entre le Danemark-Norvège et l'Asie. Le 20 novembre 1620, les Danois obtinrent le village de Tranquebar et le droit de construire le fort Dansborg par un traité avec le nayak de Tanjore."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur kolonin slutade",
+       "en": "How the colony ended",
+       "de": "Wie die Kolonie endete",
+       "es": "Cómo terminó la colonia",
+       "fr": "Comment la colonie a pris fin"
+      },
+      "text": {
+       "sv": "Storbritannien tog över de danska besittningarna. Tranquebar och de flesta andra platser såldes 1845, och 1868 sålde Danmark sina sista rättigheter till Nikobarerna. Storbritannien annekterade öarna 1869.",
+       "en": "Britain took over the Danish possessions. Tranquebar and most other places were sold in 1845, and in 1868 Denmark sold its last rights to the Nicobar Islands. Britain annexed the islands in 1869.",
+       "de": "Großbritannien übernahm die dänischen Besitzungen. Tranquebar und die meisten anderen Orte wurden 1845 verkauft, und 1868 verkaufte Dänemark seine letzten Rechte an den Nikobaren. Großbritannien annektierte die Inseln 1869.",
+       "es": "Gran Bretaña se hizo con las posesiones danesas. Tranquebar y la mayoría de los demás lugares se vendieron en 1845, y en 1868 Dinamarca vendió sus últimos derechos sobre las islas Nicobar. Gran Bretaña anexionó las islas en 1869.",
+       "fr": "La Grande-Bretagne reprit les possessions danoises. Tranquebar et la plupart des autres lieux furent vendus en 1845, et en 1868 le Danemark vendit ses derniers droits sur les îles Nicobar. La Grande-Bretagne annexa les îles en 1869."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna skiljer sig mycket: enligt Wikipedia varade den danska närvaron från 1620 till 1868, och Wikidata anger 1620–1869, men Cliopatria har Danska Indien bara 1757–1808. Cliopatrias yta ligger på Nikobarerna och i Bengalen 1757–1799, i Bengalen 1800–1802 och vid Tranquebar 1803–1808; Tranquebar saknas före 1800, och Serampore ligger 17 km utanför ytan i Bengalen. Ytorna är 300–2 200 km² och visas därför som en punkt. Cliopatria räknar delar av Nikobarerna till Habsburgska riket 1778–1790. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ greatly: according to Wikipedia the Danish presence lasted from 1620 to 1868, and Wikidata gives 1620–1869, but Cliopatria has Danish India only in 1757–1808. Cliopatria's area lies on the Nicobar Islands and in Bengal in 1757–1799, in Bengal in 1800–1802 and at Tranquebar in 1803–1808; Tranquebar is missing before 1800, and Serampore lies 17 km outside the area in Bengal. The areas are 300–2,200 km² and are therefore shown as a point. Cliopatria counts parts of the Nicobar Islands as belonging to the Habsburg Monarchy in 1778–1790. The borders are Cliopatria's estimate and not known state borders.",
+     "de": "Die Quellen weichen stark voneinander ab: Laut Wikipedia dauerte die dänische Präsenz von 1620 bis 1868, und Wikidata nennt 1620–1869, doch Cliopatria hat Dänisch-Ostindien nur 1757–1808. Die Fläche bei Cliopatria liegt 1757–1799 auf den Nikobaren und in Bengalen, 1800–1802 in Bengalen und 1803–1808 bei Tranquebar; Tranquebar fehlt vor 1800, und Serampore liegt 17 km außerhalb der Fläche in Bengalen. Die Flächen sind 300–2.200 km² groß und werden deshalb als Punkt gezeigt. Cliopatria rechnet Teile der Nikobaren 1778–1790 der Habsburgermonarchie zu. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren mucho: según Wikipedia, la presencia danesa duró de 1620 a 1868, y Wikidata indica 1620–1869, pero Cliopatria solo tiene la India danesa en 1757–1808. La superficie de Cliopatria está en las islas Nicobar y en Bengala en 1757–1799, en Bengala en 1800–1802 y en Tranquebar en 1803–1808; Tranquebar falta antes de 1800, y Serampore queda 17 km fuera de la superficie en Bengala. Las superficies miden 300–2200 km² y por eso se muestran como un punto. Cliopatria atribuye partes de las islas Nicobar a la monarquía de los Habsburgo en 1778–1790. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent fortement : selon Wikipédia, la présence danoise dura de 1620 à 1868, et Wikidata indique 1620–1869, mais Cliopatria n'a l'Inde danoise qu'en 1757–1808. La surface de Cliopatria se trouve sur les îles Nicobar et au Bengale en 1757–1799, au Bengale en 1800–1802 et à Tranquebar en 1803–1808 ; Tranquebar manque avant 1800, et Serampore se trouve à 17 km en dehors de la surface au Bengale. Les surfaces mesurent 300 à 2 200 km² et sont donc montrées comme un point. Cliopatria attribue une partie des îles Nicobar à la monarchie de Habsbourg en 1778–1790. Les frontières sont une estimation de Cliopatria et non des frontières d'État connues."
+    },
+    "sources": [
+     "wp-danish-india",
+     "wd-danish-india"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "danska-guldkusten",
+   "name": {
+    "sv": "Danska Guldkusten",
+    "en": "Danish Gold Coast",
+    "de": "Dänische Besitzungen an der Goldküste",
+    "es": "Costa de Oro danesa",
+    "fr": "Côte-de-l'Or danoise"
+   },
+   "color": "#c0505a",
+   "from": 1659,
+   "to": 1852,
+   "file": "data/empires/danska-guldkusten.json",
+   "polities": [
+    {
+     "id": "danska-guldkusten",
+     "name": {
+      "sv": "Danska Guldkusten",
+      "en": "Danish Gold Coast",
+      "de": "Dänische Besitzungen an der Goldküste",
+      "es": "Costa de Oro danesa",
+      "fr": "Côte-de-l'Or danoise"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Danska Guldkusten var de kolonier som Danmark-Norge, och efter 1814 Danmark, hade på Guldkusten, ungefär i dagens sydöstra Ghana. Forten användes för slavhandeln tills Danmark avskaffade sin del i den atlantiska slavhandeln, genom ett beslut 1792 som genomfördes 1803. Enligt Wikipedia var området under danskt inflytande över 10 000 km².",
+     "en": "The Danish Gold Coast was the colonies that Denmark–Norway, and after 1814 Denmark, held on the Gold Coast, roughly present-day south-eastern Ghana. The forts were used for the slave trade until Denmark abolished its participation in the Atlantic slave trade, by a decree of 1792 that took effect in 1803. According to Wikipedia the area under Danish influence was over 10,000 km².",
+     "de": "Die Dänische Goldküste bestand aus den Kolonien, die Dänemark-Norwegen und nach 1814 Dänemark an der Goldküste besaß, ungefähr im heutigen Südosten Ghanas. Die Forts dienten dem Sklavenhandel, bis Dänemark seine Beteiligung am atlantischen Sklavenhandel abschaffte, durch einen Erlass von 1792, der 1803 in Kraft trat. Laut Wikipedia umfasste das Gebiet unter dänischem Einfluss über 10.000 km².",
+     "es": "La Costa de Oro danesa fueron las colonias que Dinamarca-Noruega, y después de 1814 Dinamarca, tuvo en la Costa de Oro, aproximadamente el actual sureste de Ghana. Los fuertes se usaron para el comercio de esclavos hasta que Dinamarca abolió su participación en la trata atlántica, mediante un decreto de 1792 que entró en vigor en 1803. Según Wikipedia, la zona bajo influencia danesa superaba los 10 000 km².",
+     "fr": "La Côte-de-l'Or danoise regroupait les colonies que le Danemark-Norvège, puis après 1814 le Danemark, possédait sur la Côte-de-l'Or, à peu près l'actuel sud-est du Ghana. Les forts servirent à la traite des esclaves jusqu'à ce que le Danemark abolisse sa participation à la traite atlantique, par un décret de 1792 entré en vigueur en 1803. Selon Wikipédia, la zone sous influence danoise dépassait 10 000 km²."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "Hur kolonin började",
+       "en": "How the colony began",
+       "de": "Wie die Kolonie begann",
+       "es": "Cómo empezó la colonia",
+       "fr": "Comment la colonie a commencé"
+      },
+      "text": {
+       "sv": "Hendrik Carloff, som tidigare hade arbetat för Svenska Afrikanska kompaniet, seglade för Danmarks räkning och nådde Guldkusten i januari 1658.",
+       "en": "Hendrik Carloff, who had previously worked for the Swedish Africa Company, sailed on behalf of Denmark and reached the Gold Coast in January 1658.",
+       "de": "Hendrik Carloff, der zuvor für die Schwedische Afrikakompanie gearbeitet hatte, segelte im Auftrag Dänemarks und erreichte die Goldküste im Januar 1658.",
+       "es": "Hendrik Carloff, que antes había trabajado para la Compañía Sueca de África, navegó por cuenta de Dinamarca y llegó a la Costa de Oro en enero de 1658.",
+       "fr": "Hendrik Carloff, qui avait auparavant travaillé pour la Compagnie suédoise d'Afrique, navigua pour le compte du Danemark et atteignit la Côte-de-l'Or en janvier 1658."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur kolonin slutade",
+       "en": "How the colony ended",
+       "de": "Wie die Kolonie endete",
+       "es": "Cómo terminó la colonia",
+       "fr": "Comment la colonie a pris fin"
+      },
+      "text": {
+       "sv": "År 1817 var nästan alla danska poster övergivna utom Fort Christiansborg. Den 30 mars 1850 sålde Danmark alla sina fort och besittningar på Guldkusten till Storbritannien, och de blev en del av Brittiska Guldkusten.",
+       "en": "By 1817 almost all Danish posts had been abandoned except Fort Christiansborg. On 30 March 1850 Denmark sold all its forts and possessions on the Gold Coast to Britain, and they became part of the British Gold Coast.",
+       "de": "Bis 1817 waren fast alle dänischen Posten außer Fort Christiansborg aufgegeben. Am 30. März 1850 verkaufte Dänemark alle seine Forts und Besitzungen an der Goldküste an Großbritannien, und sie wurden Teil der Britischen Goldküste.",
+       "es": "Hacia 1817 casi todos los puestos daneses habían sido abandonados, salvo el fuerte Christiansborg. El 30 de marzo de 1850 Dinamarca vendió todos sus fuertes y posesiones en la Costa de Oro a Gran Bretaña, y pasaron a formar parte de la Costa de Oro británica.",
+       "fr": "En 1817, presque tous les postes danois avaient été abandonnés, à l'exception du fort Christiansborg. Le 30 mars 1850, le Danemark vendit tous ses forts et possessions de la Côte-de-l'Or à la Grande-Bretagne, et ils furent intégrés à la Côte-de-l'Or britannique."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna skiljer sig: Wikipedia och Wikidata anger 1658–1850, men Cliopatria 1659–1852. Kartan följer Cliopatria. Cliopatrias yta är bara forten och deras närmaste omgivning, 700–1 400 km², och visas därför som en punkt; enligt Wikipedia var området under danskt inflytande över 10 000 km². Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ: Wikipedia and Wikidata give 1658–1850, but Cliopatria 1659–1852. The map follows Cliopatria. Cliopatria's area is only the forts and their immediate surroundings, 700–1,400 km², and is therefore shown as a point; according to Wikipedia the area under Danish influence was over 10,000 km². The borders are Cliopatria's estimate and not known state borders.",
+     "de": "Die Quellen weichen voneinander ab: Wikipedia und Wikidata nennen 1658–1850, Cliopatria dagegen 1659–1852. Die Karte folgt Cliopatria. Die Fläche bei Cliopatria umfasst nur die Forts und ihre nächste Umgebung, 700–1.400 km², und wird deshalb als Punkt gezeigt; laut Wikipedia umfasste das Gebiet unter dänischem Einfluss über 10.000 km². Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren: Wikipedia y Wikidata indican 1658–1850, pero Cliopatria 1659–1852. El mapa sigue a Cliopatria. La superficie de Cliopatria abarca solo los fuertes y su entorno inmediato, 700–1400 km², y por eso se muestra como un punto; según Wikipedia, la zona bajo influencia danesa superaba los 10 000 km². Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent : Wikipédia et Wikidata indiquent 1658–1850, mais Cliopatria 1659–1852. La carte suit Cliopatria. La surface de Cliopatria ne comprend que les forts et leurs abords immédiats, 700 à 1 400 km², et est donc montrée comme un point ; selon Wikipédia, la zone sous influence danoise dépassait 10 000 km². Les frontières sont une estimation de Cliopatria et non des frontières d'État connues."
+    },
+    "sources": [
+     "wp-danish-gold-coast",
+     "wd-danish-gold-coast"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
    "id": "mogulriket",
    "name": {
     "sv": "Mogulriket",

@@ -73,6 +73,11 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              'seychellerna': (0.02, 0.02, 0.001), 'palau': (0.02, 0.02, 0.001),
              # Östtimor (femtonde omgången) blir annars en triangel
              'osttimor': (0.03, 0.02, 0.005),
+             # Afrika och danska kolonier (#1388): Oyo och Ashanti börjar små (6 000–33 000 km²), Grönlands kolonier
+             # är en smal kust, och de små kolonierna (300–2 200 km²) behåller alla öar och fort
+             'oyoriket': (0.03, 0.02, 0.005), 'ashantiriket': (0.03, 0.02, 0.005), 'kongoriket': (0.05, 0.02, 0.01),
+             'gronland-koloni': (0.08, 0.03, 0.005),
+             'danska-indien': (0.002, 0.02, 0), 'danska-guldkusten': (0.002, 0.02, 0),
              # Amerika före 1429 (#556): små riken (2 000–100 000 km²) blir annars fyrhörningar
              'chimor': (0.03, 0.02, 0.005), 'purepecha': (0.03, 0.02, 0.005), 'inkariket': (0.05, 0.02, 0.02),
              # Små stater ur Natural Earth (#722): nästan ingen förenkling, och alla öar behålls
@@ -229,6 +234,34 @@ GROUPS = {
     ]),
     'songhairiket': ('Songhairiket', 'Songhai Empire', [
         ('Songhai Empire', 'songhairiket', 'Songhairiket', '#7fae4a'),
+    ]),
+    # Afrika och danska kolonier (luckan ur #1388, 2026-11-13). Svenska namn är Wikidatas svenska etiketter, utom
+    # Ashantiriket (etiketten är "Ashanti (stat)", med en förtydligande parentes; namnet är svenska Wikipedias
+    # artikelnamn) och Funj Sultanate (svensk etikett saknas, så namnet är Cliopatrias och engelska Wikipedias).
+    'kongoriket': ('Kongoriket', 'Kingdom of Kongo', [
+        ('Kingdom of Kongo', 'kongoriket', 'Kongoriket', '#b0703a', {'en': 'Kingdom of Kongo'}),
+    ]),
+    'funjsultanatet': ('Funj Sultanate', 'Funj Sultanate', [
+        ('Funj Sultanate', 'funjsultanatet', 'Funj Sultanate', '#3a8a8a', {'en': 'Funj Sultanate'}),
+    ]),
+    'oyoriket': ('Oyoriket', 'Oyo Empire', [
+        ('Oyo Empire', 'oyoriket', 'Oyoriket', '#a05a8a', {'en': 'Oyo Empire'}),
+    ]),
+    'ashantiriket': ('Ashantiriket', 'Ashanti Empire', [
+        ('Ashanti Empire', 'ashantiriket', 'Ashantiriket', '#c09a2a', {'en': 'Ashanti Empire'}),
+    ]),
+    # Danska kolonier som egna grupper, inte som delar av Konungariket Danmark: inget beslut säger att Grönland eller
+    # kolonierna ska ritas som en del av Danmarks kontur (#1264). Cliopatrias Danish India är 1757–1808 (Wikipedia:
+    # 1620–1869), och Danish Gold Coast 1659–1852 (Wikipedia: 1658–1850). Kolonierna är 300–2 200 km² och visas
+    # som punkter med namn (samma visning som de små staterna, #722); gränsen är fortfarande Cliopatrias.
+    'gronland-koloni': ('Grönland', 'Greenland', [
+        ('Greenland', 'gronland-koloni', 'Grönland', '#6a9ac0', {'en': 'Greenland'}),
+    ]),
+    'danska-indien': ('Danska Indien', 'Danish India', [
+        ('Danish India', 'danska-indien', 'Danska Indien', '#c0505a', {'en': 'Danish India', 'point': True}),
+    ]),
+    'danska-guldkusten': ('Danska Guldkusten', 'Danish Gold Coast', [
+        ('Danish Gold Coast', 'danska-guldkusten', 'Danska Guldkusten', '#c0505a', {'en': 'Danish Gold Coast', 'point': True}),
     ]),
     'mogulriket': ('Mogulriket', 'Mughal Empire', [
         ('Mughal Empire', 'mogulriket', 'Mogulriket', '#6b9e3a'),
@@ -1765,7 +1798,8 @@ def extend(by_name, ext):
 
 # Koordinaterna avrundas till 0.1 grad, utom för små länder där gränsen annars hamnar fel (#644)
 DECIMALS = {'israel': 2, 'palestina': 2, **{g: 3 for g in SMALL_STATES},
-            'chimor': 2, 'purepecha': 2, 'inkariket': 2}  # #556
+            'chimor': 2, 'purepecha': 2, 'inkariket': 2,  # #556
+            'oyoriket': 2, 'ashantiriket': 2, 'gronland-koloni': 2, 'danska-indien': 3, 'danska-guldkusten': 3}  # #1388
 
 
 def rnd(o, nd=1):

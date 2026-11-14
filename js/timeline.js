@@ -38,6 +38,29 @@ export function segmentLabel(s) {
   return `${formatYear(from)}–${formatYear(to)}`;
 }
 const segFor = y => SEGMENTS.find(s => y <= s.to) ?? SEGMENTS.at(-1);
+/** Segmentet som ett år ligger i (den synliga skalan, #1313). */
+export const segmentAt = y => segFor(clampY(y));
+
+/**
+ * Skalan i ett segment (#1313): hur många år en tiondel av tidslinjen rymmer där, räknat ur segmentets egna fält
+ * ((to - from) år på (b - a) av tidslinjen), avrundat till två gällande siffror ("cirka 370 år", inte "369,2"). Inga tal skrivs för hand:
+ * ändras SEGMENTS ändras texterna med.
+ */
+export function yearsPerTenth(s) {
+  const exact = (s.to - s.from) / (s.b - s.a) / 10;
+  const unit = 10 ** Math.max(0, Math.floor(Math.log10(exact)) - 1);
+  return Math.round(exact / unit) * unit;
+}
+/** Skarvarna: lägena på tidslinjen där ett segment slutar och nästa börjar, med skalan på var sida. */
+export const SEAMS = SEGMENTS.slice(0, -1).map((s, i) => ({ at: s.b, year: nominal(s.to), before: s, after: SEGMENTS[i + 1] }));
+const fmtScale = s => groupDigits(yearsPerTenth(s));
+/** Skalraden för ett år: "Här är en tiondel av tidslinjen ≈ 370 år", eller vid ett segmentbyte "Ny skala: en tiondel ≈ 370 år (förut 690)". */
+export function scaleText(y, from = null) {
+  const s = segmentAt(y), f = from && from !== s ? from : null;
+  return f ? ui('scale.new', { n: fmtScale(s), m: fmtScale(f) }) : ui('scale.here', { n: fmtScale(s) });
+}
+/** Samma för skärmläsare, med hela meningen. */
+export const scaleTextFull = (y, from) => ui('scale.newFull', { n: fmtScale(segmentAt(y)), m: fmtScale(from) });
 const segForPos = p => SEGMENTS.find(s => p <= s.b) ?? SEGMENTS.at(-1);
 
 /**
@@ -105,10 +128,11 @@ const ICON_PAUSE = 'M4 2.5h3v11H4zM9 2.5h3v11H9z';
 const ICON_AGAIN = 'M8 2.5V0L4.2 3.6 8 7.2V4.5a3.5 3.5 0 1 1-3.5 3.5h-2A5.5 5.5 0 1 0 8 2.5z';
 const fmtDays = r => { const n = fmtNum(r * DAYS_PER_YEAR); return ui('time.rateDays', { rate: n, unit: dayUnit(n) }); };
 
+const SCALE_NOTE_MS = 5000; // så länge skalraden står kvar efter sista flytten (#1313)
 const DENSITY_LIMIT = 80; // fler händelsemärken än så blir ett täthetsband i översikten (#1000)
 
 export class Timeline extends EventTarget {
-  constructor({ track, thumb, segs, ticks, dots, ffMarks, chapters, warMarks, markNote, playBtn, playIcon, stepBtns, speedBtn, pauseNote, pauseText, pauseGo, status }) {
+  constructor({ track, thumb, segs, ticks, dots, ffMarks, chapters, warMarks, markNote, scaleNote, playBtn, playIcon, stepBtns, speedBtn, pauseNote, pauseText, pauseGo, status }) {
     super();
     Object.assign(this, { track, thumb, playBtn, playIcon, speedBtn, pauseNote, pauseText, pauseGo, status, stepBtns, segsEl: segs, ticksEl: ticks });
     this._year = 1325;
@@ -129,7 +153,7 @@ export class Timeline extends EventTarget {
     // Hastighet i år per sekund (#164). Det gamla sparade värdet ('hg-speed', ×-faktor) ignoreras.
     this.speed = 25;
     try { const v = Number(localStorage.getItem('hg-speed-ars')); if (SPEEDS.includes(v)) this.speed = v; } catch { /* utan lagring */ }
-    this.dotsEl = dots; this.ffEl = ffMarks; this.chaptersEl = chapters; this.warEl = warMarks; this.markNote = markNote;
+    this.dotsEl = dots; this.ffEl = ffMarks; this.chaptersEl = chapters; this.warEl = warMarks; this.markNote = markNote; this.scaleNoteEl = scaleNote; this._scaleTimer = 0;
     this._story = null; // kapitel och markeringar när man följer ett krig (#244)
     this._drawScale();
     addEventListener('resize', () => { if (this.focus) { this._drawScale(); this._drawStory(); } else this._hideOverlaps(); }); // antal årtal beror på bredden
@@ -148,7 +172,10 @@ export class Timeline extends EventTarget {
       const r = track.getBoundingClientRect();
       this.setByUser(this.toYear((x - r.left) / r.width));
     };
-    track.addEventListener('pointerdown', e => { if (this.locked) return; track.setPointerCapture(e.pointerId); this.pause(); setFromX(e.clientX); });
+    track.addEventListener('pointerdown', e => { if (this.locked) return; track.setPointerCapture(e.pointerId); this._held = true; this.pause(); setFromX(e.clientX); });
+    for (const ev of ['pointerup', 'pointercancel', 'lostpointercapture']) track.addEventListener(ev, () => { this._held = false; });
+    // Tangentbordet (#1313): reglaget som får fokus visar skalan vid året, så att den som aldrig drar också ser den
+    track.addEventListener('focus', () => { if (!this.locked && !this.focus && !this.range) this._showScale(segFor(this._year)); });
     track.addEventListener('pointermove', e => { if (track.hasPointerCapture(e.pointerId)) setFromX(e.clientX); });
     track.addEventListener('keydown', e => {
       if (this.locked) return;
@@ -173,11 +200,36 @@ export class Timeline extends EventTarget {
     const l = this.lock();
     if (l?.locked) return;
     const before = this.focus ? null : stepAt(this._year);
+    const segBefore = this.focus || this.range ? null : segFor(this._year);
     this.year = l?.from != null ? Math.max(l.from, Math.min(l.to, y)) : y;
+    this._showScale(segBefore);
     // Ny upplösning efter ett drag, en tangent eller en stegknapp (#1089): skärmläsaren får veta hur långt ett steg nu är.
     // Beskedet läses i statusraden tillsammans med året (takeStepNote, js/controllers/render.js), så att det inte skrivs över.
     if (before != null && stepAt(this._year) !== before) this._stepNote = ui('time.stepNow', { n: groupDigits(stepAt(this._year)) });
+    // Ny skala efter ett drag över en skarv (#1313): sägs också för skärmläsaren, i samma rad som året
+    if (segBefore && segFor(this._year) !== segBefore) this._stepNote = [scaleTextFull(this._year, segBefore), this._stepNote].filter(Boolean).join(' ');
   }
+  /**
+   * Skalraden (#1313): en rad under tidslinjen, i samma lucka som teckenförklaringen (som tonas ned medan raden syns), som säger vad en tiondel av
+   * tidslinjen är vid året besökaren står på, och vid en skarv att skalan ändras. Den visas när besökaren flyttar året
+   * (drag, tangent, stegknapp, hopp) eller när uppspelningen passerar en skarv, och försvinner efter en stund, men inte medan
+   * fingret ligger kvar. Visas aldrig i fokusläge eller intervall, som har egna skalor. Raden är dold för skärmläsare (aria-hidden):
+   * de får samma sak i statusraden (takeStepNote).
+   */
+  _showScale(segBefore) {
+    const el = this.scaleNoteEl;
+    if (!el) return;
+    if (this.focus || this.range) { this._hideScale(); return; }
+    const now = segFor(this._year);
+    // Efter en skarv står "Ny skala … (förut …)" kvar medan raden syns, även om draget fortsätter i det nya segmentet
+    if (segBefore && segBefore !== now) this._scaleFrom = segBefore;
+    else if (el.hidden) this._scaleFrom = null;
+    el.textContent = scaleText(this._year, this._scaleFrom);
+    el.hidden = false;
+    clearTimeout(this._scaleTimer);
+    this._scaleTimer = setTimeout(() => (this._held ? this._showScale(segFor(this._year)) : this._hideScale()), SCALE_NOTE_MS); // ligger fingret kvar står raden kvar
+  }
+  _hideScale() { clearTimeout(this._scaleTimer); this._scaleFrom = null; if (this.scaleNoteEl) this.scaleNoteEl.hidden = true; }
   /** Beskedet om ny upplösning sedan senast, eller tom text. Läses en gång. */
   takeStepNote() { const n = this._stepNote ?? ''; this._stepNote = ''; return n; }
   /**
@@ -286,6 +338,7 @@ export class Timeline extends EventTarget {
   setFocus(range) {
     this.pause();
     this.focus = range;
+    if (range) this._hideScale(); // fokusläget har egen skala (#1313)
     if (!range) this._story = null; // kapitel och markeringar hör till det man följer
     if (!range?.fine) this._year = Math.floor(this._year); // utanför korta krig är året ett heltal
     this._labelSpeed();
@@ -324,7 +377,13 @@ export class Timeline extends EventTarget {
     }
     for (const s of SEGMENTS) {
       const d = document.createElement('div');
-      d.className = 'seg'; d.style.width = `${(s.b - s.a) * 100}%`; d.title = segmentLabel(s);
+      d.className = 'seg'; d.style.width = `${(s.b - s.a) * 100}%`; d.title = ui('scale.seg', { label: segmentLabel(s), n: fmtScale(s) });
+      this.segsEl.append(d);
+    }
+    // Skarvarna (#1313): där skalan byter. Ett tecken som ett avbrott i en axel, bara för ögat (reglaget är tabbstoppet)
+    for (const seam of SEAMS) {
+      const d = document.createElement('i'); // i, inte div: .seg:last-of-type och :nth-of-type(even) räknar bara segmenten
+      d.className = 'seam'; d.style.left = `${seam.at * 100}%`; d.setAttribute('aria-hidden', 'true');
       this.segsEl.append(d);
     }
     for (const [y, level] of TICKS) {
@@ -388,7 +447,9 @@ export class Timeline extends EventTarget {
     if (this.focus) y = Math.max(this.focus.from, Math.min(this.focus.to, y)); // stanna inom fokusspannet
     if (y === this._year) return;
     const stepChanged = !this.focus && stepAt(y) !== stepAt(this._year);
+    const segBefore = this.playing && !this.focus && !this.range ? segFor(this._year) : null;
     this._year = y;
+    if (segBefore && segFor(y) !== segBefore) this._showScale(segBefore); // uppspelningen passerar en skarv (#1313)
     if (stepChanged) { this._labelSpeed(); this._labelSteps(); } // ny upplösning: stegen och farten byter tal (#1320)
     this._render();
     this.dispatchEvent(new CustomEvent('change', { detail: { year: y } }));
