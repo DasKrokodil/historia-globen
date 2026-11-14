@@ -25,6 +25,18 @@ Licenserna nedan gäller respektive komponent eller datakälla, inte hela Histor
 |---|---|---|
 | Store norske leksikon (snl.no) och Lex (lex.dk) | Kontroll av årtal och plats i händelser, bara länkade | De flesta artiklarna har begränsad licens ("begrenset"/"begrænset"); ingen text är kopierad. Artiklarna står i [`data/sources.json`](./data/sources.json). |
 
+## Flaggor och vapen på platskorten
+
+Platskortens flaggor och vapen (`emblems` i `data/platser.json`, filerna i `img/flags/`, #1160, #1619) har var sin licens, kontrollerad på filsidan på Wikimedia Commons. Filsidan står i [`data/sources.json`](./data/sources.json) och bland kortets källor, och kortet visar kredit och licens under bilden. Flaggor och vapen är officiella beteckningar ("insignia") och kan ha andra begränsningar än upphovsrätt, till exempel att de inte får användas i varumärken.
+
+| Fil | Bild | Upphovsperson | Licens och filsida |
+|---|---|---|---|
+| `greenland.svg` | Grönlands flagga (egen förenklad teckning) | efter Jeffrey Connell | Public domain (PD-ineligible), [filsidan](https://commons.wikimedia.org/wiki/File:Flag_of_Greenland.svg) |
+| `greenland-arms.svg` | Grönlands riksvapen | Octane | Public domain (PD-self), [filsidan](https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Greenland.svg) |
+| `new-zealand.svg` | Nya Zeelands flagga | Zscout370 m.fl. | Public domain i Nya Zeeland och USA, [filsidan](https://commons.wikimedia.org/wiki/File:Flag_of_New_Zealand.svg) |
+| `sweden.svg` | Sveriges flagga | Jon Harald Søby m.fl. | Public domain (PD-shape), [filsidan](https://commons.wikimedia.org/wiki/File:Flag_of_Sweden.svg) |
+| `dannebrog.svg` | Danmarks flagga (Dannebrog) | Madden m.fl. | Public domain (PD-shape), [filsidan](https://commons.wikimedia.org/wiki/File:Flag_of_Denmark.svg) |
+
 ## Bilder
 
 Licens och kredit för varje händelsebild finns i det genererade [`images/licenses.json`](./images/licenses.json). Det omfattar inte kartbilderna i `images/karta/` eller rasterlagren i `images/lager/`; se [README:s licensavsnitt](./README.md#licenser) för dem.

@@ -776,6 +776,14 @@ if places_doc is not None:
         for s_ in pl.get('sources', []) + [pl.get('boundary', {}).get('source')]:
             if s_ not in src_ids:
                 err(f'{where}: källan {s_} finns inte i sources.json')
+        # Flagga och vapen på kortet (#1160, #1619): filen finns, filsidan står bland källorna och bildtexten har alla fem språk
+        for em in pl.get('emblems', []):
+            exists(f"img/flags/{em.get('file', '')}.svg", f"emblemet {em.get('file', '')} ({where})")
+            if em.get('source') not in src_ids:
+                err(f"{where}: emblemets källa {em.get('source')} finns inte i sources.json")
+            missing = [lang for lang in ('sv', 'en', 'de', 'es', 'fr') if not (em.get('caption') or {}).get(lang)]
+            if missing:
+                err(f"{where}: bildtexten till emblemet {em.get('file', '')} saknar {', '.join(missing)}")
         geom = pl.get('boundary', {}).get('geometry', {})
         polys = [geom['coordinates']] if geom.get('type') == 'Polygon' else geom.get('coordinates', [])
         # Grannländerna (#1449): andra länders polygoner nära gränsen, skrivna av tools/platser_gransar.py. Kustmarginalen gäller inte för

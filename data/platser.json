@@ -17739,6 +17739,22 @@
      "to": 2024
     }
    ],
+   "emblems": [
+    {
+     "kind": "flag",
+     "file": "sweden",
+     "caption": {
+      "sv": "Sveriges flagga",
+      "en": "Flag of Sweden",
+      "de": "Flagge Schwedens",
+      "es": "Bandera de Suecia",
+      "fr": "Drapeau de la Suède"
+     },
+     "credit": "Jon Harald Søby m.fl., Wikimedia Commons",
+     "license": "Public domain",
+     "source": "commons-flagga-sverige"
+    }
+   ],
    "sources": [
     "natural-earth-countries",
     "cliopatria"
@@ -19795,6 +19811,22 @@
      "polity": "danmark",
      "from": 1945,
      "to": 2024
+    }
+   ],
+   "emblems": [
+    {
+     "kind": "flag",
+     "file": "dannebrog",
+     "caption": {
+      "sv": "Danmarks flagga (Dannebrog)",
+      "en": "Flag of Denmark (Dannebrog)",
+      "de": "Flagge Dänemarks (Dannebrog)",
+      "es": "Bandera de Dinamarca (Dannebrog)",
+      "fr": "Drapeau du Danemark (Dannebrog)"
+     },
+     "credit": "Madden m.fl., Wikimedia Commons",
+     "license": "Public domain",
+     "source": "commons-flagga-danmark"
     }
    ],
    "sources": [
