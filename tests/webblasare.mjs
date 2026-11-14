@@ -9073,7 +9073,9 @@ async function run(browser, vp) {
       await blockedPage.fill('#focus-menu .focus-search', 'machu picchu');
       await blockedPage.waitForSelector('#focus-menu [data-key^="event:"]', { timeout: T.step });
       await blockedPage.press('#focus-menu .focus-search', 'Enter');
-      await blockedPage.waitForSelector('#detail .src', { timeout: T.step });
+      await blockedPage.waitForSelector('#detail details.detail-about', { timeout: T.step });
+      await blockedPage.locator('#detail details.detail-about > summary').click(); // källraden ligger i Om uppgifterna (#1571)
+      await blockedPage.waitForSelector('#detail .src', { state: 'visible', timeout: T.step });
       // Tid nog för upprepade omladdningar att visa sig (förut cirka två anrop i sekunden)
       await blockedPage.waitForTimeout(4000);
       if (calls !== 1) throw new Error(`missuppfattningsfilen efterfrågades ${calls} gånger, högst 1 tillåts`);
@@ -9149,6 +9151,7 @@ async function run(browser, vp) {
     if (!/Historisk osäkerhet:.*dateringen är ungefärlig/.test(text)) throw new Error(`osäkerhetsraden saknar ungefärlig datering: ${text}`);
     if (!(await page.locator('#detail .review-badge').count())) throw new Error('faktarutan saknar en separat rad för källkontroll');
     // Kontrollen och osäkerheten skiljs åt med en kort förklaring som syns direkt i rutan (#786)
+    await page.locator('#detail details.detail-about > summary').click(); // granskningsraden ligger i Om uppgifterna (#1571)
     const explain = page.locator('#detail .review-explain');
     await explain.waitFor({ state: 'visible', timeout: T.step });
     const explainText = (await explain.textContent()).trim();
