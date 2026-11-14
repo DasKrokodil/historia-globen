@@ -20,5 +20,13 @@ Efter steg 1 (#1425) föll #865, #996 och #1138 fortfarande i WebKit med samma t
 - **Hjälpfunktionen flyttades till `tests/avbrutna-hamtningar.mjs`** så att den går att prova utan webbläsare, och används nu i alla kontroller som laddar om eller byter sida på samma sida (21 till).
 - **#1138:** kapplöpningen i `#screen-reader-status` rättades redan i #1419/#1424 (`js/ui/status.js`). Felet i körningen efter #1425 kom enligt radnumret i loggen från sidfelet som kontrollen kastar sist, efter att alla påståenden om statusraden hade gått igenom.
 
+## Uppdatering 2026-11-14 (konsolfel i Firefox, #1561)
+Firefox-jobbet i #1531 föll i kontrollen om platsens adress (#1162) med konsolfelet `TypeError: NetworkError when attempting to fetch resource.`. Orsaken är ett sidbyte i testet: sidan hämtar riken och andra filer när kontrollen går vidare med `goto`, Firefox avbryter hämtningarna och sidans egna `.catch` skriver dem som `console.error`. Sidan fångar felet (inget ofångat fel, platsfilen ger en tom lista och besked), så det är ett mätfel, och filtret i #1393 kände bara igen sidfel och WebKits text. Ändringen i `abortWatch()` är lika smal som för sidfel:
+
+- **Ett konsolfel räknas bort bara när alla tre gäller:** det kom under sidans eget sidbyte (`goto`, `reload`, `goBack`, `goForward`, `nav`), texten är exakt en av raderna i `ABORTED_FETCH` (WebKit `TypeError: Load failed`, Firefox `TypeError: NetworkError when attempting to fetch resource.`, `AbortError: The operation was aborted.`) och minst en begäran till den egna webbplatsen blev avbruten under samma sidbyte (`cancelled`, `net::ERR_ABORTED`, `NS_BINDING_ABORTED`). Konsolraden har ingen adress, så villkoret om samma adress som för sidfel går inte att ställa.
+- Samma text utan sidbyte, under ett sidbyte utan avbruten begäran till den egna webbplatsen, eller någon annan text fäller kontrollen; felet visar då vilka begäranden som misslyckades.
+- Kontrollerna om platsens adress (`placeAddrPage()`) är de första som använder det. Fler kontroller får det först när de visar samma fel.
+- Firefox gick inte att köra i molnmiljön. Chromium rapporterar inga avbrutna begäranden vid sidbyte, så det positiva fallet är bara provat med enhetsprov och en simulerad begäran; Firefox-jobbet i CI avgör.
+
 ## Berör
 `tests/webblasare.mjs`, `tests/avbrutna-hamtningar.mjs` (`abortWatch()`), `docs/DEPLOYMENT.md` (Firefox och WebKit i testet, release), [2026-11-08-firefox-webkit-testet-888](2026-11-08-firefox-webkit-testet-888.md), #1393, #1174, #1419.

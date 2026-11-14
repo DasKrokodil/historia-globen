@@ -4,7 +4,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { EventEmitter } from 'node:events';
-import { skapaAbortWatch, urlKey, WEBKIT_ABORT } from './avbrutna-hamtningar.mjs';
+import { skapaAbortWatch, urlKey, WEBKIT_ABORT, ABORTED_FETCH } from './avbrutna-hamtningar.mjs';
 
 const HOST = 'localhost:8000';
 // WebKits rad som Playwright ger den som sidfel: första kolonet delar namn och text, så "http:" försvinner och en snedstreck med det
@@ -183,4 +183,111 @@ test('en bevakning som kontrollen glömde att avgöra kan avgöras av den som k�
   await aw.goto('x');
   assert.equal(registrerade.flatMap(w => w.settle()).length, 1);
   assert.deepEqual(registrerade.flatMap(w => w.settle()), []); // avgjort en gång, inte två
+});
+
+// Konsolfel (#1561): Firefox skriver den avbrutna hämtningen som ett konsolfel utan adress när sidans egen .catch loggar den.
+const FIREFOX = 'TypeError: NetworkError when attempting to fetch resource.';
+
+test('ABORTED_FETCH känner igen exakt Firefox, WebKit och AbortError och inget som bara liknar dem', () => {
+  assert.match(FIREFOX, ABORTED_FETCH);
+  assert.match('TypeError: Load failed', ABORTED_FETCH);
+  assert.match('AbortError: The operation was aborted.', ABORTED_FETCH);
+  assert.doesNotMatch('TypeError: NetworkError when attempting to fetch resource. Och mer', ABORTED_FETCH);
+  assert.doesNotMatch('Error: NetworkError when attempting to fetch resource.', ABORTED_FETCH);
+  assert.doesNotMatch('TypeError: Failed to fetch', ABORTED_FETCH);
+  assert.doesNotMatch('Unexpected token < in JSON at position 0', ABORTED_FETCH);
+});
+
+test('räknas bort: Firefox konsolfel under goto när en begäran till den egna webbplatsen avbröts (#1561)', async () => {
+  const { sidan, aw, filtrerade } = uppsattning();
+  const fel = [];
+  sidan.goto = async () => {
+    sidan.emit('requestfailed', begaran('/data/empires/frankerriket.json', 'NS_BINDING_ABORTED'));
+    if (!aw.deferConsole(FIREFOX)) fel.push(FIREFOX);
+    if (!aw.deferConsole(FIREFOX)) fel.push(FIREFOX); // flera hämtningar avbryts i samma sidbyte
+  };
+  await aw.goto('http://localhost:8000/?ny=1');
+  assert.deepEqual(fel, []);
+  assert.deepEqual(aw.settle(), []);
+  assert.equal(filtrerade(), 2);
+});
+
+test('räknas bort: ordningen mellan konsolfel och avbruten begäran spelar ingen roll, och goBack räknas som sidbyte', async () => {
+  const { sidan, aw, filtrerade } = uppsattning();
+  sidan.goBack = async () => {
+    assert.equal(aw.deferConsole(FIREFOX), true);
+    sidan.emit('requestfailed', begaran('/data/land.json', 'NS_ERROR_ABORT'));
+  };
+  await aw.goBack();
+  assert.deepEqual(aw.settle(), []);
+  assert.equal(filtrerade(), 1);
+});
+
+test('fäller: samma text utan sidbyte (ett riktigt fel i sidan eller nätet)', async () => {
+  const { sidan, aw, filtrerade } = uppsattning();
+  sidan.emit('requestfailed', begaran('/data/a.json', 'NS_BINDING_ABORTED'));
+  assert.equal(aw.deferConsole(FIREFOX), false); // ingen goto pågår: kontrollen ska själv räkna felet
+  assert.deepEqual(aw.settle(), []);
+  assert.equal(filtrerade(), 0);
+});
+
+test('fäller: samma text efter att sidbytet är klart', async () => {
+  const { aw } = uppsattning();
+  await aw.goto('x');
+  assert.equal(aw.deferConsole(FIREFOX), false);
+});
+
+test('fäller: andra konsolfel under sidbyte, även med avbruten begäran', async () => {
+  const { sidan, aw } = uppsattning();
+  const fel = [];
+  sidan.goto = async () => {
+    sidan.emit('requestfailed', begaran('/data/a.json', 'NS_BINDING_ABORTED'));
+    for (const m of ['TypeError: Failed to fetch', 'SyntaxError: JSON.parse: unexpected character', 'TypeError: x is undefined', 'Failed to load resource: the server responded with a status of 404 (File not found)']) {
+      if (!aw.deferConsole(m)) fel.push(m);
+    }
+  };
+  await aw.goto('x');
+  assert.equal(fel.length, 4);
+  assert.deepEqual(aw.settle(), []);
+});
+
+test('fäller: texten under sidbyte utan någon avbruten begäran, och texten säger vad som syntes', async () => {
+  const { sidan, aw, filtrerade } = uppsattning();
+  sidan.goto = async () => {
+    assert.equal(aw.deferConsole(FIREFOX), true);
+    sidan.emit('requestfailed', begaran('/data/a.json', 'NS_ERROR_CONNECTION_REFUSED')); // ett riktigt nätfel, inget avbrott
+  };
+  await aw.goto('x');
+  const kvar = aw.settle();
+  assert.equal(kvar.length, 1);
+  assert.match(kvar[0], /NetworkError when attempting to fetch resource/);
+  assert.match(kvar[0], /localhost:8000\/data\/a\.json: NS_ERROR_CONNECTION_REFUSED/);
+  assert.equal(filtrerade(), 0);
+});
+
+test('fäller: texten under sidbyte där bara en annan webbplats avbröts', async () => {
+  const { sidan, aw } = uppsattning();
+  sidan.goto = async () => {
+    aw.deferConsole(FIREFOX);
+    sidan.emit('requestfailed', begaran('/x.json', 'NS_BINDING_ABORTED', 'annan.example'));
+  };
+  await aw.goto('x');
+  assert.equal(aw.settle().length, 1);
+});
+
+test('fäller: texten under ett sidbyte när avbrottet hörde till ett tidigare sidbyte', async () => {
+  const { sidan, aw } = uppsattning();
+  sidan.goto = async () => { sidan.emit('requestfailed', begaran('/data/a.json', 'NS_BINDING_ABORTED')); };
+  await aw.goto('första');
+  sidan.goto = async () => { aw.deferConsole(FIREFOX); }; // det andra sidbytet avbröt ingenting
+  await aw.goto('andra');
+  assert.equal(aw.settle().length, 1);
+});
+
+test('en konsolrad som kontrollen glömde att avgöra kan avgöras av den som kör kontrollen (register)', async () => {
+  const { sidan, aw, registrerade } = uppsattning();
+  sidan.goto = async () => { aw.deferConsole(FIREFOX); };
+  await aw.goto('x');
+  assert.equal(registrerade.flatMap(w => w.settle()).length, 1);
+  assert.deepEqual(registrerade.flatMap(w => w.settle()), []);
 });

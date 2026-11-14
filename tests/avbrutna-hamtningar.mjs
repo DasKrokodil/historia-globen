@@ -12,6 +12,19 @@
 //      rad för just begärans egen adress, se nedan). Det fjärde avgörs i settle() när kontrollen är klar, eftersom ordningen mellan
 //      händelserna varierar.
 // Ett 404, ett fel utanför ett sidbyte och ett fel från en annan webbplats fäller fortfarande kontrollen.
+//
+// Konsolfel (#1561): Firefox (och WebKit) skriver en avbruten hämtning som ett konsolfel utan adress när sidans egen .catch loggar den:
+// "TypeError: NetworkError when attempting to fetch resource." (Firefox), "TypeError: Load failed" (WebKit), "AbortError: …". Texten
+// säger inte vilken adress det gällde, så villkoren är andra men lika snäva. Ett konsolfel räknas bort bara när alla tre gäller:
+//   1. det kom medan just den sidan bytte sida eller laddades om (samma nav-räknare som för sidfel),
+//   2. texten är exakt en av raderna i ABORTED_FETCH (inget annat felmeddelande), och
+//   3. minst en begäran till den egna webbplatsen blev avbruten (requestfailed med "cancelled", "net::ERR_ABORTED" eller Firefox
+//      "NS_BINDING_ABORTED") under samma sidbyte. Det avgörs i settle().
+// Samma text utan sidbyte, eller under ett sidbyte där ingen begäran till den egna webbplatsen avbröts, fäller fortfarande kontrollen.
+
+/** Konsolradena för en avbruten hämtning: WebKit "TypeError: Load failed" (#702), Firefox "TypeError: NetworkError when attempting to
+ *  fetch resource." eller "AbortError: The operation was aborted." (#888). Exakt de raderna, inget som bara liknar dem. */
+export const ABORTED_FETCH = /^(TypeError: (Load failed|NetworkError when attempting to fetch resource\.)|AbortError: The operation was aborted\.\s*)$/;
 
 /** WebKits rad för en avbruten hämtning: grupp 1 är adressen (med eller utan "Fetch API cannot load " och "http:"). */
 export const WEBKIT_ABORT = /^(?:(?:Fetch API|XMLHttpRequest) cannot load |Cannot load )?(\S+) due to access control checks\.?$/;
@@ -30,8 +43,9 @@ export const urlKey = text => {
  */
 export function skapaAbortWatch({ siteHost, filtered = () => {}, register = () => {} }) {
   return function abortWatch(p) {
-    let navigating = 0;
+    let navigating = 0, navSerial = 0; // navSerial räknar sidbytena, så att en konsolrad hör ihop med avbrott under just sitt sidbyte
     const candidates = [], aborted = new Set(), failedTexts = new Map(); // failedTexts: adress till texterna på alla misslyckade begäranden
+    const consoleCandidates = [], abortedOwnNav = new Set(); // abortedOwnNav: sidbyten där en begäran till den egna webbplatsen avbröts
     p.on('requestfailed', r => {
       const k = urlKey(r.url()), text = r.failure()?.errorText ?? '';
       if (k) failedTexts.set(k.key, [...(failedTexts.get(k.key) ?? []), text]);
@@ -41,8 +55,9 @@ export function skapaAbortWatch({ siteHost, filtered = () => {}, register = () =
       const own = text.match(WEBKIT_ABORT);
       if (!/cancel|abort/i.test(text) && !(own && k && urlKey(own[1])?.key === k.key)) return;
       if (k) aborted.add(k.key);
+      if (k?.host === siteHost) abortedOwnNav.add(navSerial);
     });
-    const nav = async go => { navigating++; try { return await go(); } finally { navigating--; } };
+    const nav = async go => { navigating++; navSerial++; try { return await go(); } finally { navigating--; } };
     const watch = {
       nav,
       goto: (url, opts) => nav(() => p.goto(url, opts)),
@@ -58,14 +73,24 @@ export function skapaAbortWatch({ siteHost, filtered = () => {}, register = () =
         candidates.push({ key: k.key, message });
         return true;
       },
-      /** Sidfelen som ändå är riktiga fel (ingen avbruten begäran för samma adress). Räknar de bortfiltrerade. */
+      /** true om konsolraden kan vara en avbruten hämtning och väntar på settle(); false om den räknas som fel direkt (#1561). */
+      deferConsole(text, navigatingNow = navigating > 0) {
+        if (!navigatingNow || !ABORTED_FETCH.test(String(text ?? ''))) return false;
+        consoleCandidates.push({ text, serial: navSerial });
+        return true;
+      },
+      /** Sidfelen och konsolraderna som ändå är riktiga fel (ingen avbruten begäran). Räknar de bortfiltrerade. */
       settle() {
         const real = candidates.filter(c => !aborted.has(c.key));
-        filtered(candidates.length - real.length);
+        const realConsole = consoleCandidates.filter(c => !abortedOwnNav.has(c.serial));
+        filtered(candidates.length - real.length + consoleCandidates.length - realConsole.length);
         candidates.length = 0;
+        consoleCandidates.length = 0;
+        const allFailed = [...failedTexts.entries()].map(([key, t]) => `${key}: ${t.join(' / ')}`).join(' | ') || 'inga';
+        const consoleReal = realConsole.map(c => `konsol: ${c.text} (under sidbyte, men ingen begäran till den egna webbplatsen avbröts; misslyckade begäranden: ${allFailed})`);
         // Villkor 4 uppfylldes inte: texten säger vad webbläsaren rapporterade som misslyckad begäran för adressen, så att en körning i
         // WebKit visar varför felet inte räknades bort (ett sidfel utan den raden kom utanför ett sidbyte). Villkoren är oförändrade.
-        return real.map(c => `${c.message} (ingen avbruten begäran för adressen; misslyckade begäranden: ${failedTexts.get(c.key)?.join(' | ') || 'inga'})`);
+        return [...real.map(c => `${c.message} (ingen avbruten begäran för adressen; misslyckade begäranden: ${failedTexts.get(c.key)?.join(' | ') || 'inga'})`), ...consoleReal];
       },
     };
     register(watch);
