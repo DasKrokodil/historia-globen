@@ -14,7 +14,7 @@
           "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
           "type": { "enum": ["autonomous", "country", "landskap"], "description": "Typen visas som en egen rad på kortet; ui() har place.type.<typ> på alla språk." },
           "name": { "$ref": "#/$defs/text" },
-          "partOf": { "$ref": "#/$defs/text" },
+          "partOf": { "$ref": "#/$defs/phrase" },
           "intro": { "$ref": "#/$defs/text" },
           "view": {
             "type": "object",
@@ -69,6 +69,18 @@
     }
   },
   "$defs": {
+    "phrase": {
+      "type": "object",
+      "description": "Hela frasen per språk för vad platsen ingår i, med den preposition och artikel som landet kräver (#1479): sv \"i Sverige\", de \"in Schweden\", fr \"en Suède\". Kortet skriver \"{typ} {fras}\" (place.typeOf) och lägger aldrig till en preposition själv. Varje språk måste börja med en preposition (sv i/på, en in/on/at, de in/im/auf/an, es en, fr en/au/aux/à/dans/sur), så att ett bart landsnamn avvisas. Kontrollen är bara ett nät: den avgör inte om artikel, kön eller kasus är rätt, och behövs en preposition som saknas i listan utökas listan här (docs/ordlista-oversattning.md 17.2).",
+      "required": ["sv", "en", "de", "es", "fr"],
+      "properties": {
+        "sv": { "type": "string", "pattern": "^(i|på) \\S.*$" },
+        "en": { "type": "string", "pattern": "^(in|on|at) \\S.*$" },
+        "de": { "type": "string", "pattern": "^(in|im|auf|an) \\S.*$" },
+        "es": { "type": "string", "pattern": "^en \\S.*$" },
+        "fr": { "type": "string", "pattern": "^(en|au|aux|à|dans|sur) \\S.*$" }
+      }
+    },
     "text": {
       "type": "object",
       "required": ["sv", "en", "de", "es", "fr"],

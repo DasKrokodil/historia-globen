@@ -8,6 +8,16 @@ import { formatYearSpan } from '../controllers/facts.js';
 import { langs, selectionSpan, warnHuntImpossible } from './util.js';
 
 /**
+ * Typraden under namnet (#1479): typen, och när platsen ingår i något (`partOf`) typen följd av frasen, till exempel "Landskap i Sverige".
+ * `partOf` är hela frasen per språk, med preposition och artikel som landet kräver ("in der Schweiz", "aux États-Unis"), så koden
+ * lägger aldrig till en preposition själv; mallen `place.typeOf` är bara "{type} {of}". tx och tui är texthämtarna (för prov per språk).
+ */
+export function placeLead(place, tx = t, tui = ui) {
+  const type = tui(`place.type.${place.type}`), of = place.partOf ? tx(place.partOf) : '';
+  return of ? tui('place.typeOf', { type, of }) : type;
+}
+
+/**
  * Platsens kort (#579): samma kort i Fokus och i en turs steg (#1163). Skillnaden är det som hör till Fokus. I Fokus har kortet
  * knappen Avsluta platsen och Visa i Platt karta (#1161) och notisen om att filtren inte gäller; i en tur (follow: false)
  * har kortet ingen av dem: turen styr kameran och vyn och får inte avslutas av kortet. note är en rad direkt under namnet (att ett
@@ -16,9 +26,8 @@ import { langs, selectionSpan, warnHuntImpossible } from './util.js';
  */
 export function showPlaceCard(app, place, events, { follow = true, note = '', focus = follow } = {}) {
   const { $, panel } = app;
-  const type = ui(`place.type.${place.type}`), of = place.partOf ? t(place.partOf) : '';
   app.store.setSelected(null);
-  panel.showSelection({ label: ui('place.label'), name: place.name, lead: of ? ui('place.typeOf', { type, of }) : type, emblems: place.emblems,
+  panel.showSelection({ label: ui('place.label'), name: place.name, lead: placeLead(place), emblems: place.emblems,
     intro: place.intro,
     // Visa i Platt karta (#1161): byter vy och ramar in platsen; knappen finns när main.js har kopplat återanropet
     action: follow && panel.onPlaceFlat ? { text: ui('place.flatMap'), label: `${ui('place.flatMap')}: ${t(place.name)}`, run: () => panel.onPlaceFlat(place) } : null,

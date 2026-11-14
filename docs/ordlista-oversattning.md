@@ -414,20 +414,35 @@ Förslag till typer som ännu inte finns i datan. Kolumnen "Kontrollerad" anger 
 | kanton (Schweiz) | – | Kanton | – | – | de: 2026-11-14, de.wikipedia "Schweiz": "26 teilsouveränen Kantonen" |
 | delstat (USA) | state | Bundesstaat (på kortet: US-Bundesstaat, förslag från `sprak-de`) | estado | État | de: 2026-11-14, de.wikipedia "Vereinigte Staaten" ("50 Bundesstaaten"); es: es.wikipedia "Estados Unidos" ("cincuenta estados"); fr: fr.wikipedia "États-Unis" ("cinquante États"); en: – |
 
-### 17.2 Landsnamn med artikel och preposition
+### 17.2 Landsnamn med artikel och preposition (byggd, #1479)
 
-Mallen `place.typeOf` ("{type} i {of}") sätter landets namn efter en fast preposition: *in* (en, de) och *en* (es, fr). Det fungerar för namn utan artikel, men inte för alla länder:
+**Regel:** `partOf` i `data/platser.json` lagrar **hela frasen per språk**, med den preposition och artikel som landet kräver, och mallen `place.typeOf` är bara `{type} {of}` på alla språk (ingen fast preposition i `data/ui/`). Kortets typrad är då typen följd av frasen: *Landskap i Sverige*, *Landschaft in Schweden*. Varje fras kontrolleras mot målspråkets Wikipedia när platsen byggs (avsnitt 4, regel 5), och schemat kräver en inledande preposition per språk, så att ett bart landsnamn avvisas. Skriv frasen så som språket säger den, aldrig ihopsatt för hand ur ett landsnamn. Beslut: [2026-11-14-landsnamn-med-artikel-1479.md](beslut/2026-11-14-landsnamn-med-artikel-1479.md).
 
-| Språk | Fungerar | Fungerar inte (exempel, kontrollerade 2026-11-14) |
+**Fall från #1266 där en fast preposition blir fel** (kontrollerade mot målspråkets Wikipedia 2026-11-14; det enda i det här avsnittet som är källkontrollerat):
+
+| Språk | Fast preposition fungerar | Kräver egen fras |
 |---|---|---|
 | Tyska | *in Schweden*, *in Dänemark*, *in Neuseeland* | *in der Schweiz* (de.wikipedia "Schweiz": "Die Schweiz …"), *in den USA* / *in den Vereinigten Staaten* (de.wikipedia "Vereinigte Staaten": "Die Vereinigten Staaten von Amerika", förkortat USA) |
 | Franska | *en Suède* (femininum) | *au Danemark* (fr.wikipedia "Danemark": "Le Danemark …"), *aux États-Unis* (fr.wikipedia "États-Unis": "Les États-Unis …") |
 | Engelska | *in Sweden*, *in Denmark* | *in the United States* (artikeln *the* behövs) |
 | Spanska | *en Suecia*, *en Estados Unidos* (es.wikipedia "Estados Unidos" skriver namnet utan *los*) | – |
 
-Skåne (#1159) är den första platsen med `partOf` (Sverige), och där fungerar mallen på alla fem språk (*Landskap i Sverige*, *Province in Sweden*, *Landschaft in Schweden*, *Provincia histórica en Suecia*, *Province historique en Suède*), så felet syns inte ännu. Det blir synligt när en plats inom ett land med artikel byggs (en kanton, en amerikansk delstat, eller Grönland "i Danmarks rike" på franska). Då behöver landsnamnet kunna lagras **med preposition och artikel per språk**; bygget är ett eget issue (#1479, väntar på beslut). Tills dess: skriv aldrig ihop en sådan fras i en översättning för hand.
+**Regler per språk för den som skriver en fras.** Reglerna är mönster för skribenten, inte uppgifter om världen. Alla exempel är *exempel, ej källkontrollerade här*: varje fras kontrolleras mot målspråkets Wikipedia (*Le/La/Les …*, *Die/Der …*, *El/La/Los …*, *The …*) när platsen byggs, och landets kön, tal och artikel avgörs av den källan, inte av namnet.
+
+| Språk | Regel | Exempelformer (ej källkontrollerade här) |
+|---|---|---|
+| Tyska | *in* + kasus (dativ). Femininum *in der* (*in der Schweiz*), plural *in den* (*in den USA*), maskulinum och neutrum *im* (*in* + *dem*). Öar följer ofta *auf*. Kontrollera mot de.wikipedia. Som standard för delstatsfraser föreslår `sprak-de` *in den USA* (förslag från `sprak-de`, inte beslut) | *in Schweden*, *in der Schweiz*, *in den USA*, *im …*, *auf …* |
+| Franska | Femininum eller maskulinum som börjar på vokal: *en*. Maskulinum som börjar på konsonant: *au*. Plural: *aux*. Öar och småstater tar ofta *à*. Delstat, region och kanton: *dans* + artikel. Könet syns inte på namnet, så fr.wikipedia (*Le/La/Les …*) avgör | *en Suède*, *au …*, *aux États-Unis*, *à …*, *dans le …* |
+| Spanska | Artikeln står kvar efter *en*: *el*, *la*, *los*, *las*. *en* + *el* blir aldrig *al* eller *del*, så det är ingen kontraktion. *en Estados Unidos* och *en los Estados Unidos* är båda godtagbara; välj en form och använd den konsekvent. Mönster med artikel | *en Suecia*, *en el …*, *en los …*, *en las …* |
+| Engelska | Artikeln *the* är det som oftast fallerar. Öar tar ofta *on*. Välj en form och använd den konsekvent (*the United Kingdom* eller *the UK*). *the* skrivs med liten bokstav mitt i frasen | *in Sweden*, *in the …*, *on …* |
+
+**Frasen väljs för platsens typ.** Ett landskap kan ta *de* på spanska (öppen fråga i 17.3) medan ett land tar *en*; en delstat eller kanton kan ta *dans* på franska. Skribenten skriver därför den form som passar just typen och landet, inte en gemensam mall. **Schemakontrollen är bara ett nät:** den kräver en inledande preposition per språk (se beslutsfilen) och kan inte avgöra om artikel, kön eller kasus är rätt.
+
+Skåne (#1159) är den första platsen med `partOf` och har frasen på alla fem språk: *i Sverige*, *in Sweden*, *in Schweden*, *en Suecia*, *en Suède*. Typraden är oförändrad (*Landskap i Sverige*, *Province in Sweden*, *Landschaft in Schweden*, *Provincia histórica en Suecia*, *Province historique en Suède*). Exemplen i högra kolumnen finns bara som provdata i `tests/platskort-landsnamn.test.mjs`; ingen plats i datan har dem än, och varje ny fras kontrolleras mot källan när platsen byggs. Fall att tänka på: Grönland "i Danmarks rike" på franska, en kanton, en amerikansk delstat.
 
 ### 17.3 Öppna frågor (ändras inte i #1266)
 
 1. **Tyska samlingsordet: *Orte* eller *Gebiete*?** `sprak-de` föreslog *Gebiete* (planeringen i `docs/granskningar/2026-11-12-planering-regionhistoria.md`, punkt 11). Att tänka på före beslutet: *Gebiet* används redan i `data/ui/de.json` för andra områden (krigsområdet i `legend.warNote`, religionens område i `pop.religion`, Människans spridning i `layer.spreadNote` och typen *Autonomes Gebiet*), så ett kort om Grönland skulle få rubriken *Gebiet* och typen *Autonomes Gebiet*. Ändras det berörs `focus.tab.places` (*Orte*), `place.label` (*Ort*) och de övriga `place.*`-texterna med *Ort* i `data/ui/de.json`. Avgörs av DasKrokodil efter granskning av `sprak-de`.
 2. **Neuseeland/Aotearoa:** datan skriver *Neuseeland (Aotearoa)*, och de.wikipedia "Neuseeland" ger *Aotearoa* som maoriskt namn i inledningen. Ingen ändring behövs; samma mönster gäller de andra språken i `data/platser.json`.
+3. **Spanska typraden för landskap: *en* eller *de*?** I dag *Provincia histórica en Suecia* (oförändrat från före #1479). `sprak-es` anmärker att *de* är normalt för administrativa indelningar (*… de Suecia*). Frasen i `data/platser.json` är hel per språk, så ändringen är en datarad (Skånes `partOf.es`), ingen kodändring. Avgörs av DasKrokodil efter granskning av `sprak-es`.
+4. **Grönlands fras på franska.** *au Danemark* (som i tabellen ovan) eller ett förslag som *dans le Royaume du Danemark* (förslag, ej källkontrollerat här)? Grönland är en plats av typen `autonomous`, och Grönland ligger i Danmarks rike snarare än i Danmark. Kontrolleras mot fr.wikipedia när Grönland får `partOf`; avgörs av DasKrokodil.
