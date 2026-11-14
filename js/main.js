@@ -293,7 +293,7 @@ async function start() {
   };
   // Fokus (att följa ett krig, rike, en religion eller resa) stoppas av lektionsläget (#795) och av de andra lägen som
   // tabellen MODE_RULES i js/state.js säger (#893): en länk i en faktaruta eller en gammal adress kan inte släppa låset
-  const startFocus = key => (store.canEnter('fokus') ? focusCtl.startFocus(key) : Promise.resolve(false));
+  const startFocus = (key, opts) => (store.canEnter('fokus') ? focusCtl.startFocus(key, opts) : Promise.resolve(false));
   Object.assign(app, { startFocus, endFocus: focusCtl.endFocus, founding: focusCtl.founding, focusMenu: focusCtl.focusMenu, showFocusFacts: focusCtl.showFacts, clearFocusNotice: focusCtl.clearNotice });
   const render = createRender(app);
   Object.assign(app, { render, refresh: render.refresh, syncNameScale: render.syncNameScale, storyFor: render.storyFor });
@@ -320,6 +320,19 @@ async function start() {
   // efterträdare eller föregångare som finns som rike (#72, follow) börjar följas direkt.
   // I lektionsläget (#795) följs ingenting: ett rike öppnar bara sin faktaruta
   panel.onEmpire = (id, follow = false) => ((!follow || app.lesson?.active) && app.showEmpireFacts(id)) || app.startFocus(`empire:${id}`);
+  // Följ riket i landskortet (#1448): riket följs från periodens år, så att länken "Sverige-Norge 1815–1904" inte börjar år 980.
+  // I lektionsläget följs ingenting, som ovan: riket öppnar bara sin faktaruta
+  // Följ riket ersätter platsen (Fokus-typerna utesluter varandra; kortet säger det). Rikets faktarutor är redan laddade för kortet, så
+  // rikets kort ritas direkt, och tangentbordsfokus flyttas dit (knappen som trycktes finns inte längre)
+  panel.onPlaceEmpire = async r => {
+    if (app.lesson?.active) return app.showEmpireFacts(r.empire);
+    const started = await app.startFocus(`empire:${r.empire}`, { within: { from: r.from, to: r.to, name: t(r.name) } });
+    if (started && !document.querySelector('#detail')?.contains(document.activeElement)) {
+      const target = !$('detail').hidden ? $('detail').querySelector('[data-close]') : $('focus-facts').hidden ? $('focus-exit') : $('focus-facts');
+      target?.focus({ preventScroll: true });
+    }
+    return started;
+  };
   $('focus-exit').addEventListener('click', () => {
     const selection = focusCtl.isSelection(); // ett tema eller en plats (#1327): fokus går tillbaka till knappen
     app.endFocus();

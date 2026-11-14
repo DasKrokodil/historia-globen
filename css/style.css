@@ -2508,6 +2508,12 @@ details.used-by summary:hover { color: var(--parchment); }
 .theme-event:hover, .theme-event:focus-visible { background: rgba(255, 255, 255, .08); outline: 1px solid var(--brass, #c9a24b); }
 .theme-event-year { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--card-dim); margin-right: 6px; }
 .theme-event-note { font-style: italic; color: var(--card-dim); }
+/* Rikena i landskortet (#1448): en rad i en tur är text, inte en knapp (ingen pekare); en lucka är en läsbar rad i samma storlek */
+span.theme-event { cursor: default; }
+span.theme-event:hover { background: none; outline: none; }
+.place-empire-gap { padding: 6px 4px; font-size: 13px; line-height: 1.4; font-style: italic; color: var(--card-dim); }
+.place-empire-list > .theme-filter-note { margin: 4px 0 0; }
+.place-empire-note { margin: 0 4px 4px; font-size: 12px; line-height: 1.4; color: var(--card-dim); }
 /* Träffytor på touch (#1464), bara för platsens och temats kort: raderna i händelselistan är minst 44 px höga (18 px text och 13 + 13 px luft),
    och krysset når 44 px även på en bred skärm med touch (i smal skärm ger #detail .detail-close::after det redan). */
 @media (max-width: 760px), (pointer: coarse) { .detail-selection .theme-event { padding-block: 13px; } }

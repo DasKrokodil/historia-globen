@@ -285,6 +285,7 @@ export class Panel {
     this.onSources = () => {};
     this.onFocus = () => {};
     this.onEmpire = () => {}; // (rikets id) => rikets faktaruta (#76)
+    this.onPlaceEmpire = null; // ({ empire, from, to }) => följ riket från landskortet (#1448); kopplas i main.js
     this.onOpen = () => {};
     this.onDetailChange = () => {};
     this.onEnableEvents = () => {};
@@ -608,12 +609,29 @@ export class Panel {
    *   focus    false: kortet tar inte tangentbordsfokus (platsens kort i en turs steg, #1163: fokus ska ligga kvar på Nästa)
    *   ariaLabel kortets namn för skärmläsare; utan namn gäller Om händelsen (platsens kort heter Om platsen, #1464)
    */
-  showSelection({ label, name, lead = '', emblems = [], intro, action = null, notes = [], exit, summary, events, sources = [], focus = true, banner = '', ariaLabel }) {
+  /**
+   * Kortet för ett urval (tema eller plats). empires (#1448, bara platser med periods): { title, note, follow, rows }, där en rad är
+   * { years, name, label, run } (run saknas i en tur: raden är då bara text) eller { gap } (en lucka, en läsbar rad).
+   */
+  showSelection({ label, name, lead = '', emblems = [], intro, action = null, notes = [], exit, empires = null, summary, events, sources = [], focus = true, banner = '', ariaLabel }) {
     this.selectedId = null;
     this.detail.className = `detail detail-card detail-selection frame-${styleFor(events[0], this.styles).frame}`; // detail-selection: main.js läser upp etiketten (Plats, Tema), också när inget Fokus pågår (#1163)
     const shown = (emblems ?? []).filter(em => flagUrl(em));
     const srcs = [...new Set([...(sources ?? []), ...shown.map(em => em.source)])].map(id => this.srcById[id]).filter(Boolean);
     const emblemHtml = shown.length ? `<div class="place-emblems">${shown.map(em => `<figure class="place-emblem place-emblem-${esc(em.kind)}"><img src="${esc(flagUrl(em))}" alt="${esc(t(em.caption))}"><figcaption>${esc(t(em.caption))}<span class="meta">${esc(em.credit)} · ${esc(em.license)}</span></figcaption></figure>`).join('')}</div>` : '';
+    const open = matchMedia('(max-width: 760px)').matches ? '' : ' open';
+    // Rikena i landskortet (#1448): riktiga knappar med hela namnet för skärmläsare ("Följ riket Sverige 1612–1721"), luckorna som rader
+    // Namnet för skärmläsare har samma ordning som den synliga texten (WCAG 2.5.3): "1815–1904 Sverige-Norge, Följ riket".
+    // Rikets egen rad Om kartan (mapNote, Kalmarunionen) står som en liten rad under knappen, inte i den, och beskriver knappen.
+    const empireNote = (r, i) => r.mapNote ? `<p class="place-empire-note" id="place-empire-note-${i}"${langAttr(r.mapNote)}>${esc(t(r.mapNote))}</p>` : '';
+    const empireItem = (r, i) => r.gap ? `<li class="place-empire-gap">${esc(r.gap)}</li>`
+      : `<li>${r.run ? `<button type="button" class="theme-event" data-place-empire="${i}" aria-label="${esc(r.label)}"${r.mapNote ? ` aria-describedby="place-empire-note-${i}"` : ''}>` : '<span class="theme-event">'}<span class="theme-event-year">${esc(r.years)}</span> <span${langAttr(r.name)}>${esc(t(r.name))}</span>${r.run ? ` <span class="theme-event-note" aria-hidden="true">${esc(empires.follow)}</span></button>` : '</span>'}${empireNote(r, i)}</li>`;
+    // Förklaringen står under listan, så att raderna syns först i smal skärm (#1448)
+    const empireHtml = empires?.rows?.length ? `<details class="theme-event-list place-empire-list"${open}>
+        <summary>${esc(empires.title)}</summary>
+        <ul class="theme-events place-empires">${empires.rows.map(empireItem).join('')}</ul>
+        <p class="theme-filter-note place-empires-note">${esc(empires.note)}</p>
+      </details>` : '';
     const items = events.map(e => `<li><button type="button" class="theme-event" data-theme-event="${esc(e.id)}"><span class="theme-event-year">${esc(formatEventTime(e))}</span> <span${langAttr(e.title)}>${esc(t(e.title))}</span>${e.start < MIN_YEAR ? ` <span class="theme-event-note">${esc(ui('theme.beforeScale'))}</span>` : ''}</button></li>`).join('');
     this.detail.innerHTML = `
       <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
@@ -626,7 +644,8 @@ export class Panel {
       ${action ? `<button type="button" class="chip-btn theme-exit place-flat" data-selection-action aria-label="${esc(action.label ?? action.text)}">${esc(action.text)}</button>` : ''}
       ${notes.map(note => `<p class="theme-filter-note">${esc(note)}</p>`).join('\n      ')}
       ${exit ? `<button type="button" class="chip-btn theme-exit" data-end-theme>${esc(exit)}</button>` : ''}
-      <details class="theme-event-list"${matchMedia('(max-width: 760px)').matches ? '' : ' open'}>
+      ${empireHtml}
+      <details class="theme-event-list"${open}>
         <summary>${esc(summary)}</summary>
         <ul class="theme-events">${items}</ul>
       </details></div>
@@ -637,6 +656,7 @@ export class Panel {
     this.detail.querySelector('[data-end-theme]')?.addEventListener('click', () => this.onEndTheme());
     this.detail.querySelector('[data-selection-action]')?.addEventListener('click', () => action.run());
     for (const b of this.detail.querySelectorAll('[data-theme-event]')) b.addEventListener('click', () => this.onThemeEvent?.(b.dataset.themeEvent));
+    for (const b of this.detail.querySelectorAll('[data-place-empire]')) b.addEventListener('click', () => empires.rows[+b.dataset.placeEmpire].run());
     if (focus) this.detail.querySelector('[data-close]').focus({ preventScroll: true });
   }
 
@@ -720,6 +740,8 @@ export class Panel {
     this.curve = null;
     this.detail.className = `detail detail-card${place ? ` frame-${styleFor(place, this.styles).frame}` : ''}`;
     delete this.detail.dataset.style;
+    // Ritas rutan om (källorna kom, #1448) medan tangentbordsfokus låg i den, hamnar fokus på krysset igen i stället för på body
+    const hadFocus = typeof document !== 'undefined' && this.detail.contains(document.activeElement);
     this.detail.innerHTML = `
       <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
       <div class="story-label"><span class="swatch" style="background:${esc(color)}"></span>${esc(ui(`facts.kind.${kind}`))}</div>
@@ -737,6 +759,7 @@ export class Panel {
     this.bindReviewInfo();
     if (report) this.bindReport(report.year);
     this.detail.querySelector('[data-tour]')?.addEventListener('click', ev => this.onTour?.(ev.currentTarget.dataset.tour, ev.currentTarget));
+    if (hadFocus) this.detail.querySelector('[data-close]').focus({ preventScroll: true });
   }
 
   /**

@@ -10,7 +10,7 @@
 // händelsemarkör, en väg eller en religion hanteras som förut (main.js) och kommer aldrig hit.
 import { loadPlaces, isVisibleReview, t } from '../model.js';
 import { placeAt, placeEvents, placeBounds } from '../place-geo.js';
-import { showPlaceCard, visibleEvents } from '../focus/place.js';
+import { showPlaceCard, visibleEvents, ensurePlaceFacts } from '../focus/place.js';
 import { ui } from '../i18n.js';
 import { say } from '../ui/status.js';
 
@@ -146,7 +146,9 @@ export function createPlaces(app) {
   async function openStep(id, { card = true, focus = false, current = () => true } = {}) {
     const place = (await loadPlaces()).find(p => p.id === id);
     const events = place ? visibleEvents(place, data.events) : [];
-    if (!place || !events.length || !current()) return false;
+    if (!place || !events.length) return false;
+    await ensurePlaceFacts(place); // rikenas rad Om kartan vid raderna i kortet (#1448)
+    if (!current()) return false;
     layer.step = place;
     if (card) showPlaceCard(app, place, events, { follow: false, focus });
     app.refresh();

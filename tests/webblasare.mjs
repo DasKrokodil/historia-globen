@@ -2330,6 +2330,79 @@ async function run(browser, vp) {
     return `Sverige ${sverige.length} och Danmark ${danmark.length} händelser`;
   });
 
+  // #1448: rikena i landskortet. Raderna räknas ur data/platser.json (periods) och data/empires/index.json, aldrig ur testet: en knapp per
+  // period med hela namnet för skärmläsare, en rad per lucka (år mellan perioderna som ingen period täcker), och knappen följer gruppen från
+  // periodens första år när året ligger utanför perioden. Danmark prövas med tangentbordet (Enter på knappen).
+  await check('landskortet: rikena som knappar Följ riket med luckorna som rader, och riket följs från periodens år (#1448)', async () => {
+    const run = async (id, year, pick, useKeyboard) => {
+      const { tp, tctx, errs } = await touchPage();
+      try {
+        await tp.goto(`${BASE}?ny=landskort-riken-${id}#y=${year}&f=place:${id}`);
+        await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await tp.waitForSelector('#detail .place-empire-list', { state: 'attached', timeout: T.step });
+        const want = await tp.evaluate(async pid => {
+          const [pl, idx] = await Promise.all([fetch('data/platser.json').then(r => r.json()), fetch('data/empires/index.json').then(r => r.json())]);
+          const place = pl.places.find(p => p.id === pid);
+          const spans = place.periods.map(p => [p.from, p.to]).sort((a, b) => a[0] - b[0]);
+          let end = spans[0][1], gaps = 0;
+          for (const [a, b] of spans.slice(1)) { if (a > end + 1) gaps++; end = Math.max(end, b); }
+          const names = place.periods.map(p => idx.groups.find(g => g.id === p.empire).polities.find(x => x.id === p.polity).name.sv);
+          const kalmar = place.periods.some(p => p.empire === 'kalmarunionen') ? idx.groups.find(g => g.id === 'kalmarunionen').facts?.mapNote?.sv : null;
+          return { periods: place.periods, names, gaps, kalmarNote: kalmar ?? null };
+        }, id);
+        // Listan är ihopfälld i mobilbredd (som händelselistan); öppna den
+        await tp.evaluate(() => { document.querySelector('#detail .place-empire-list').open = true; });
+        const got = await tp.evaluate(() => ({
+          labels: [...document.querySelectorAll('#detail [data-place-empire]')].map(b => b.getAttribute('aria-label')),
+          tags: [...document.querySelectorAll('#detail [data-place-empire]')].map(b => b.tagName),
+          gaps: [...document.querySelectorAll('#detail .place-empire-gap')].map(li => li.textContent),
+          summary: document.querySelector('#detail .place-empire-list > summary').textContent,
+          leaves: /Följ riket lämnar platsen/.test(document.querySelector('#detail .place-empires-note')?.textContent ?? ''),
+          noteAfter: !!document.querySelector('#detail .place-empires + .place-empires-note'),
+          notes: [...document.querySelectorAll('#detail .place-empire-note')].map(n => n.textContent),
+        }));
+        if (got.labels.length !== want.periods.length) throw new Error(`${id}: ${got.labels.length} knappar, väntat ${want.periods.length}`);
+        if (got.tags.some(t => t !== 'BUTTON')) throw new Error(`${id}: raderna är inte knappar`);
+        want.periods.forEach((p, i) => {
+          const l = got.labels[i];
+          // Namnet har den synliga textens ordning (WCAG 2.5.3): år, namn, Följ riket
+          if (!l.endsWith(', Följ riket') || !l.startsWith(String(p.from)) || !l.includes(want.names[i]) || !l.includes(String(p.to))) throw new Error(`${id}: knapp ${i} heter "${l}", väntat ${p.from}–${p.to} ${want.names[i]}, Följ riket`);
+        });
+        if (got.gaps.length !== want.gaps) throw new Error(`${id}: ${got.gaps.length} luckrader, väntat ${want.gaps}`);
+        if (got.gaps.some(g => !/kartan visar inget av rikena i listan här/.test(g))) throw new Error(`${id}: luckraden är oläslig: ${got.gaps.join(' | ')}`);
+        if (!got.leaves) throw new Error(`${id}: kortet säger inte att Följ riket lämnar platsen`);
+        if (!got.noteAfter) throw new Error(`${id}: förklaringen står inte under listan`);
+        // Rikets rad Om kartan (mapNote) står under Kalmarunionens första rad, ur rikenas faktarutor
+        if (want.kalmarNote && got.notes[0] !== want.kalmarNote) throw new Error(`${id}: Kalmarunionens rad Om kartan saknas: ${JSON.stringify(got.notes)}`);
+        if (!/Riken på kartan/.test(got.summary)) throw new Error(`${id}: listans rubrik saknas: ${got.summary}`);
+        if (await tp.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw new Error(`${id}: horisontell scroll med rikeslistan`);
+        // Följ riket: perioden som väljs (pick) räknas ur datan; året flyttas till periodens början när det ligger utanför
+        const i = want.periods.findIndex(pick);
+        const per = want.periods[i];
+        const btn = tp.locator('#detail [data-place-empire]').nth(i); // knapparna står i platsens ordning (tidsordning, kontrolleras av validate-site.py)
+        if (useKeyboard) { await btn.focus(); await tp.keyboard.press('Enter'); } else await btn.click();
+        await tp.waitForFunction(e => location.hash.includes(`f=empire:${e}`), per.empire, { timeout: T.step });
+        const y = await tp.evaluate(() => Number(new URLSearchParams(location.hash.slice(1)).get('y')));
+        const expectYear = year >= per.from && year <= per.to ? year : per.from;
+        if (y !== expectYear) throw new Error(`${id}: året är ${y} efter Följ riket, väntat ${expectYear} (perioden ${per.from}–${per.to})`);
+        const movedText = await tp.textContent('#focus-moved-text');
+        if (expectYear !== year && !movedText.includes(`då perioden ${per.from}–${per.to} börjar`)) throw new Error(`${id}: raden om flytten nämner inte perioden: ${movedText}`);
+        // Fokusraden säger vilken period som valdes, eftersom riket som följs är hela gruppen
+        if (!movedText.includes(`Perioden du valde: ${want.names[i]} ${per.from}–${per.to}`)) throw new Error(`${id}: fokusraden säger inte vilken period som valdes: ${movedText}`);
+        // Tangentbordsfokus hamnar i rikets kort (eller fokusraden), inte på body
+        // Rikets ruta ritas om när källorna har kommit (efter 1–2 s); fokus ska ligga kvar i den efteråt
+        await tp.waitForTimeout(2500);
+        const active = await tp.evaluate(() => document.activeElement?.closest('#detail, #focus-bar') ? document.activeElement.id || document.activeElement.className : `ute: ${document.activeElement?.tagName}`);
+        if (/^ute:/.test(active)) throw new Error(`${id}: tangentbordsfokus försvann efter Följ riket (${active})`);
+        if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+        return `${id}: ${got.labels.length} riken, ${got.gaps.length} luckor, följer ${per.empire} från ${y}`;
+      } finally { await tctx.close(); }
+    };
+    const a = await run('sverige', 1700, p => p.polity === 'sverige-norge', false);
+    const b = await run('danmark', 1700, p => p.empire === 'kalmarunionen', true);
+    return `${a}; ${b}`;
+  });
+
   // #1161: tryck på konturen av en plats. Konturerna syns och går att trycka på bara inzoomat och i vanligt läge; trycket
   // öppnar kortet (Fokus av typen place) på globen och i Platt vy, och knappen Visa i Platt karta ramar in platsen.
   // Grönland (isen i norr, 76° N 40° V) ligger fritt från markörer och etiketter vid år 1000, också i mobilbredd.

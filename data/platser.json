@@ -17683,8 +17683,65 @@
      }
     ]
    },
+   "periods": [
+    {
+     "empire": "svenska-stormaktsvaldet",
+     "polity": "sverige-medeltiden",
+     "from": 980,
+     "to": 1401
+    },
+    {
+     "empire": "kalmarunionen",
+     "polity": "kalmarunionen",
+     "from": 1402,
+     "to": 1501
+    },
+    {
+     "empire": "svenska-stormaktsvaldet",
+     "polity": "sverige-medeltiden",
+     "from": 1502,
+     "to": 1520
+    },
+    {
+     "empire": "kalmarunionen",
+     "polity": "kalmarunionen",
+     "from": 1521,
+     "to": 1525
+    },
+    {
+     "empire": "svenska-stormaktsvaldet",
+     "polity": "sverige-medeltiden",
+     "from": 1526,
+     "to": 1611
+    },
+    {
+     "empire": "svenska-stormaktsvaldet",
+     "polity": "svenska-stormaktsvaldet",
+     "from": 1612,
+     "to": 1721
+    },
+    {
+     "empire": "svenska-stormaktsvaldet",
+     "polity": "sverige-1722",
+     "from": 1722,
+     "to": 1814
+    },
+    {
+     "empire": "svenska-stormaktsvaldet",
+     "polity": "sverige-norge",
+     "from": 1815,
+     "to": 1904
+    },
+    {
+     "empire": "svenska-stormaktsvaldet",
+     "polity": "sverige-1905",
+     "from": 1905,
+     "to": 2024
+    }
+   ],
    "sources": [
-    "natural-earth-countries"
+    "natural-earth-countries",
+    "cliopatria"
    ],
    "review": "source-checked"
   },
@@ -19702,8 +19759,47 @@
      }
     ]
    },
+   "periods": [
+    {
+     "empire": "konungariket-danmark",
+     "polity": "konungariket-danmark",
+     "from": 936,
+     "to": 1017
+    },
+    {
+     "empire": "konungariket-danmark",
+     "polity": "konungariket-danmark",
+     "from": 1056,
+     "to": 1401
+    },
+    {
+     "empire": "kalmarunionen",
+     "polity": "kalmarunionen",
+     "from": 1402,
+     "to": 1525
+    },
+    {
+     "empire": "konungariket-danmark",
+     "polity": "danmark-norge",
+     "from": 1526,
+     "to": 1814
+    },
+    {
+     "empire": "konungariket-danmark",
+     "polity": "danmark-1815",
+     "from": 1815,
+     "to": 1939
+    },
+    {
+     "empire": "danmark",
+     "polity": "danmark",
+     "from": 1945,
+     "to": 2024
+    }
+   ],
    "sources": [
-    "natural-earth-countries"
+    "natural-earth-countries",
+    "cliopatria"
    ],
    "review": "source-checked"
   },
