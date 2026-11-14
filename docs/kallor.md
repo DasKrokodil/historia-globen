@@ -29,7 +29,7 @@ Nivån syns i faktarutan och under Om källorna, inte som eget märke på globen
 | Wikipedia | Händelser, krigens berättelse, religioner | CC BY-SA (vi skriver egna texter och länkar) | Sekundärkälla. Den duger för prototypen, men källan Wikipedia själv hänvisar till är bättre. |
 | Wikidata | Andra källa för årtal och plats | CC0 | Används för nivån `two-sources` |
 | Cliopatria (Seshat), version 0.2.1 ([Zenodo](https://zenodo.org/records/23128623)) | Rikenas och religionslagrets gränser | CC BY 4.0 | Används som den är, utan egen granskning (se [beslut.md](beslut.md)) |
-| Natural Earth | Grundkarta och dagens gränser | Public domain | |
+| Natural Earth | Grundkarta, dagens gränser och ortnamn för regionvyn (`data/ortnamn/`, #1643) | Public domain | Ortnamnen är Natural Earths egna namn på fem språk; saknas ett språk används engelska och språket står i `fallback` |
 | Wikimedia Commons | Historiska bilder | Public domain, CC0, CC BY eller CC BY-SA | Licensen kontrolleras på filsidan, och filsidan läggs i källregistret |
 | Library of Congress, Prints & Photographs (loc.gov/pictures) | Historiska bilder, till exempel fotografier och fotokromer från 1800-talet och tidigt 1900-tal | "No known restrictions on publication" | Bara poster med den rättighetstexten i fältet Rights Advisory, inte "Rights status not evaluated". Arkivposten läggs i källregistret. |
 | Wikisource: Encyclopædia Britannica 1911, Dictionary of National Biography (1885–1900) och andra äldre verk | Andra källa för årtal och plats | Public domain | Äldre uppslagsverk kan vara föråldrade, så de används som jämförelse, inte ensamma |

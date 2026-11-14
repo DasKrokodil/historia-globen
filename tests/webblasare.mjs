@@ -2393,6 +2393,46 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
+  // #1160, #1619: platskortets flagga och vapen. Varje plats med emblems i data/platser.json visar varje emblem som en bild
+  // som laddas, med bildtexten som alt-text och synlig bildtext, kredit och licens, utan horisontell scroll och inom kortet.
+  await check('platskortets flagga och vapen laddas med bildtext (#1160, #1619)', async () => {
+    const { tp, tctx, errs } = await touchPage();
+    try {
+      const doc = await (await tctx.request.get(`${BASE}data/platser.json`)).json();
+      const places = doc.places.filter(p => p.review !== 'draft' && p.emblems?.length);
+      for (const id of ['sverige', 'danmark']) if (!places.some(p => p.id === id)) throw new Error(`platsen ${id} saknar emblem i data/platser.json`);
+      const notes = [];
+      for (const place of places) {
+        await tp.goto(`${BASE}?ny=emblem-${place.id}#y=1900&f=place:${place.id}`);
+        await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await tp.waitForSelector('#detail .place-emblems', { state: 'visible', timeout: T.step });
+        await tp.waitForFunction(() => [...document.querySelectorAll('#detail .place-emblem img')].every(i => i.complete), null, { timeout: T.step });
+        const shown = await tp.evaluate(() => {
+          const card = document.getElementById('detail').getBoundingClientRect();
+          return [...document.querySelectorAll('#detail .place-emblem')].map(f => {
+            const img = f.querySelector('img'), r = img.getBoundingClientRect();
+            return { src: img.getAttribute('src'), alt: img.alt, w: img.naturalWidth, caption: f.querySelector('figcaption').textContent,
+              inside: r.left >= card.left - 1 && r.right <= card.right + 1, h: r.height };
+          });
+        });
+        if (shown.length !== place.emblems.length) throw new Error(`${place.id}: kortet visar ${shown.length} av ${place.emblems.length} emblem`);
+        place.emblems.forEach((em, i) => {
+          const s = shown[i];
+          if (s.src !== `img/flags/${em.file}.svg`) throw new Error(`${place.id}: emblem ${i + 1} har fel fil (${s.src})`);
+          if (!s.w) throw new Error(`${place.id}: bilden ${em.file}.svg laddades inte`);
+          if (s.alt !== em.caption.sv) throw new Error(`${place.id}: alt-texten "${s.alt}" är inte bildtexten "${em.caption.sv}"`);
+          if (!s.caption.includes(em.caption.sv) || !s.caption.includes(em.license)) throw new Error(`${place.id}: bildtexten saknar namn eller licens: "${s.caption}"`);
+          if (!s.inside) throw new Error(`${place.id}: bilden ${em.file}.svg går utanför kortet`);
+          if (s.h > 60) throw new Error(`${place.id}: bilden ${em.file}.svg är ${Math.round(s.h)} px hög`);
+        });
+        if (await tp.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw new Error(`${place.id}: horisontell scroll med platskortet`);
+        notes.push(`${place.id} ${shown.length}`);
+      }
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `emblem per plats: ${notes.join(', ')}`;
+    } finally { await tctx.close(); }
+  });
+
   // #1439: en plats begränsar vad som syns som ett tema gör, så en jakt som inte går att klara inom platsen får veta det i sin
   // meddelanderad (en live-region) med platsens egen text, som säger att platsen ska avslutas, och raden försvinner med jakten.
   await check('en pågående jakt får veta att uppdraget inte går att klara inom platsen (#1439)', async () => {
