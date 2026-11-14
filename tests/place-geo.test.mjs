@@ -105,7 +105,8 @@ test('platsen som ett turssteg öppnar ritas som i Fokus utan att något Fokus p
   update({ focus: null, labels: { placeHints: false } });
   layer.step = place('gronland');
   layer.drawOverlay(ctx, 4096, 2048);
-  assert.deepEqual(calls.filter(c => c !== 'save'), ['fill', 'stroke'], 'platsen i steget ritas med fyllning och kontur, som i Fokus');
+  // Konturen är en mörk kant och en ljus kärna (#1641), som markeringarna runt platser med kort
+  assert.deepEqual(calls.filter(c => c !== 'save'), ['fill', 'stroke', 'stroke'], 'platsen i steget ritas med fyllning och kontur, som i Fokus');
   // Ett Fokus på en annan plats går före steget
   calls.length = 0;
   layer.enabled = true;
