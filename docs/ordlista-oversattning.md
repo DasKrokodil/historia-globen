@@ -421,7 +421,7 @@ Mallen `place.typeOf` ("{type} i {of}") sätter landets namn efter en fast prepo
 | Engelska | *in Sweden*, *in Denmark* | *in the United States* (artikeln *the* behövs) |
 | Spanska | *en Suecia*, *en Estados Unidos* (es.wikipedia "Estados Unidos" skriver namnet utan *los*) | – |
 
-I dag har ingen plats `partOf`, så mallen visar bara typen och felet syns inte ännu. Det blir synligt när en plats inom ett land med artikel byggs (en kanton, en amerikansk delstat, eller Grönland "i Danmarks rike" på franska). Då behöver landsnamnet kunna lagras **med preposition och artikel per språk**; bygget är ett eget issue (se pull requesten för #1266). Tills dess: skriv aldrig ihop en sådan fras i en översättning för hand.
+I dag har ingen plats `partOf`, så mallen visar bara typen och felet syns inte ännu. Det blir synligt när en plats inom ett land med artikel byggs (en kanton, en amerikansk delstat, eller Grönland "i Danmarks rike" på franska). Då behöver landsnamnet kunna lagras **med preposition och artikel per språk**; bygget är ett eget issue (#1479, väntar på beslut). Tills dess: skriv aldrig ihop en sådan fras i en översättning för hand.
 
 ### 17.3 Öppna frågor (ändras inte i #1266)
 
