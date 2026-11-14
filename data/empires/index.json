@@ -31512,6 +31512,25 @@
    "from": 1963,
    "to": 2024,
    "file": "data/empires/algeriet.json",
+   "flags": [
+    {
+     "file": "algeria",
+     "from": 1963,
+     "to": 2024,
+     "label": {
+      "sv": "Algeriets flagga",
+      "en": "Flag of Algeria",
+      "de": "Flagge Algeriens",
+      "es": "Bandera de Argelia",
+      "fr": "Drapeau de l'Algérie"
+     },
+     "sources": [
+      "wp-flag-algeria",
+      "commons-flagga-algeria"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "algeriet",
@@ -31717,6 +31736,42 @@
    "from": 1956,
    "to": 2024,
    "file": "data/empires/sudan.json",
+   "flags": [
+    {
+     "file": "sudan-1956",
+     "from": 1956,
+     "to": 1969,
+     "label": {
+      "sv": "Sudans flagga från 1956",
+      "en": "Flag of Sudan from 1956",
+      "de": "Flagge Sudans von 1956",
+      "es": "Bandera de Sudán de 1956",
+      "fr": "Drapeau du Soudan de 1956"
+     },
+     "sources": [
+      "wp-flag-sudan",
+      "commons-flagga-sudan-1956"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "sudan",
+     "from": 1970,
+     "to": 2024,
+     "label": {
+      "sv": "Sudans flagga från 1970",
+      "en": "Flag of Sudan from 1970",
+      "de": "Flagge Sudans seit 1970",
+      "es": "Bandera de Sudán desde 1970",
+      "fr": "Drapeau du Soudan depuis 1970"
+     },
+     "sources": [
+      "wp-flag-sudan",
+      "commons-flagga-sudan"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "sudan",
@@ -32208,6 +32263,25 @@
    "from": 1990,
    "to": 2024,
    "file": "data/empires/namibia.json",
+   "flags": [
+    {
+     "file": "namibia",
+     "from": 1990,
+     "to": 2024,
+     "label": {
+      "sv": "Namibias flagga",
+      "en": "Flag of Namibia",
+      "de": "Flagge Namibias",
+      "es": "Bandera de Namibia",
+      "fr": "Drapeau de la Namibie"
+     },
+     "sources": [
+      "wp-flag-namibia",
+      "commons-flagga-namibia"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "namibia",
@@ -32496,6 +32570,25 @@
    "from": 1961,
    "to": 2024,
    "file": "data/empires/centralafrikanska-republiken.json",
+   "flags": [
+    {
+     "file": "central-african-republic",
+     "from": 1961,
+     "to": 2024,
+     "label": {
+      "sv": "Centralafrikanska republikens flagga",
+      "en": "Flag of the Central African Republic",
+      "de": "Flagge der Zentralafrikanischen Republik",
+      "es": "Bandera de la República Centroafricana",
+      "fr": "Drapeau de la République centrafricaine"
+     },
+     "sources": [
+      "wp-flag-central-african-republic",
+      "commons-flagga-central-african-republic"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "centralafrikanska-republiken",
@@ -32576,6 +32669,25 @@
    "from": 2014,
    "to": 2024,
    "file": "data/empires/sydsudan.json",
+   "flags": [
+    {
+     "file": "south-sudan",
+     "from": 2014,
+     "to": 2024,
+     "label": {
+      "sv": "Sydsudans flagga",
+      "en": "Flag of South Sudan",
+      "de": "Flagge Südsudans",
+      "es": "Bandera de Sudán del Sur",
+      "fr": "Drapeau du Soudan du Sud"
+     },
+     "sources": [
+      "wp-flag-south-sudan",
+      "commons-flagga-south-sudan"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "sydsudan",
@@ -33325,6 +33437,25 @@
    "from": 1670,
    "to": 2024,
    "file": "data/empires/marocko.json",
+   "flags": [
+    {
+     "file": "morocco",
+     "from": 1915,
+     "to": 2024,
+     "label": {
+      "sv": "Marockos flagga",
+      "en": "Flag of Morocco",
+      "de": "Flagge Marokkos",
+      "es": "Bandera de Marruecos",
+      "fr": "Drapeau du Maroc"
+     },
+     "sources": [
+      "wp-flag-morocco",
+      "commons-flagga-morocco"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "marocko",
@@ -34532,6 +34663,25 @@
    "from": 1956,
    "to": 2024,
    "file": "data/empires/tunisien.json",
+   "flags": [
+    {
+     "file": "tunisia",
+     "from": 1956,
+     "to": 2024,
+     "label": {
+      "sv": "Tunisiens flagga",
+      "en": "Flag of Tunisia",
+      "de": "Flagge Tunesiens",
+      "es": "Bandera de Túnez",
+      "fr": "Drapeau de la Tunisie"
+     },
+     "sources": [
+      "wp-flag-tunisia",
+      "commons-flagga-tunisia"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "tunisien",
@@ -35173,6 +35323,25 @@
    "from": 1848,
    "to": 2024,
    "file": "data/empires/liberia.json",
+   "flags": [
+    {
+     "file": "liberia",
+     "from": 1848,
+     "to": 2024,
+     "label": {
+      "sv": "Liberias flagga",
+      "en": "Flag of Liberia",
+      "de": "Flagge Liberias",
+      "es": "Bandera de Liberia",
+      "fr": "Drapeau du Liberia"
+     },
+     "sources": [
+      "wp-flag-liberia",
+      "commons-flagga-liberia"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "liberia",
@@ -36545,6 +36714,25 @@
    "from": 1973,
    "to": 2024,
    "file": "data/empires/guinea-bissau.json",
+   "flags": [
+    {
+     "file": "guinea-bissau",
+     "from": 1973,
+     "to": 2024,
+     "label": {
+      "sv": "Guinea-Bissaus flagga",
+      "en": "Flag of Guinea-Bissau",
+      "de": "Flagge Guinea-Bissaus",
+      "es": "Bandera de Guinea-Bisáu",
+      "fr": "Drapeau de la Guinée-Bissau"
+     },
+     "sources": [
+      "wp-flag-guinea-bissau",
+      "commons-flagga-guinea-bissau"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "guinea-bissau",
@@ -37042,6 +37230,25 @@
    "from": 1979,
    "to": 2024,
    "file": "data/empires/djibouti.json",
+   "flags": [
+    {
+     "file": "djibouti",
+     "from": 1979,
+     "to": 2024,
+     "label": {
+      "sv": "Djiboutis flagga",
+      "en": "Flag of Djibouti",
+      "de": "Flagge Dschibutis",
+      "es": "Bandera de Yibuti",
+      "fr": "Drapeau de Djibouti"
+     },
+     "sources": [
+      "wp-flag-djibouti",
+      "commons-flagga-djibouti"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "djibouti",
@@ -37433,6 +37640,25 @@
    "from": 1967,
    "to": 2024,
    "file": "data/empires/gambia.json",
+   "flags": [
+    {
+     "file": "gambia",
+     "from": 1967,
+     "to": 2024,
+     "label": {
+      "sv": "Gambias flagga",
+      "en": "Flag of the Gambia",
+      "de": "Flagge Gambias",
+      "es": "Bandera de Gambia",
+      "fr": "Drapeau de la Gambie"
+     },
+     "sources": [
+      "wp-flag-gambia",
+      "commons-flagga-gambia"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "gambia",
@@ -37822,6 +38048,25 @@
    "from": 1969,
    "to": 2024,
    "file": "data/empires/mauritius.json",
+   "flags": [
+    {
+     "file": "mauritius",
+     "from": 1969,
+     "to": 2024,
+     "label": {
+      "sv": "Mauritius flagga",
+      "en": "Flag of Mauritius",
+      "de": "Flagge von Mauritius",
+      "es": "Bandera de Mauricio",
+      "fr": "Drapeau de Maurice"
+     },
+     "sources": [
+      "wp-flag-mauritius",
+      "commons-flagga-mauritius"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "mauritius",
@@ -37902,6 +38147,25 @@
    "from": 1976,
    "to": 2024,
    "file": "data/empires/sao-tome-och-principe.json",
+   "flags": [
+    {
+     "file": "sao-tome-and-principe",
+     "from": 1976,
+     "to": 2024,
+     "label": {
+      "sv": "São Tomé och Príncipes flagga",
+      "en": "Flag of São Tomé and Príncipe",
+      "de": "Flagge von São Tomé und Príncipe",
+      "es": "Bandera de Santo Tomé y Príncipe",
+      "fr": "Drapeau de Sao Tomé-et-Principe"
+     },
+     "sources": [
+      "wp-flag-sao-tome-and-principe",
+      "commons-flagga-sao-tome-and-principe"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "sao-tome-och-principe",
