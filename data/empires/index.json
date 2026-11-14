@@ -33079,6 +33079,42 @@
    "from": 1960,
    "to": 2024,
    "file": "data/empires/kamerun.json",
+   "flags": [
+    {
+     "file": "cameroon-1957",
+     "from": 1960,
+     "to": 1960,
+     "label": {
+      "sv": "Kameruns flagga från 1957",
+      "en": "Flag of Cameroon from 1957",
+      "de": "Flagge Kameruns von 1957",
+      "es": "Bandera de Camerún de 1957",
+      "fr": "Drapeau du Cameroun de 1957"
+     },
+     "sources": [
+      "wp-flag-cameroon",
+      "commons-flagga-cameroon-1957"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "cameroon",
+     "from": 1975,
+     "to": 2024,
+     "label": {
+      "sv": "Kameruns flagga från 1975",
+      "en": "Flag of Cameroon from 1975",
+      "de": "Flagge Kameruns seit 1975",
+      "es": "Bandera de Camerún desde 1975",
+      "fr": "Drapeau du Cameroun depuis 1975"
+     },
+     "sources": [
+      "wp-flag-cameroon",
+      "commons-flagga-cameroon"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "kamerun",

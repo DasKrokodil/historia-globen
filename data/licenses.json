@@ -874,6 +874,7 @@
         "wp-flag-bolivia",
         "wp-flag-botswana",
         "wp-flag-bulgaria",
+        "wp-flag-cameroon",
         "wp-flag-canada",
         "wp-flag-central-african-republic",
         "wp-flag-chad",
@@ -2743,6 +2744,12 @@
       ]
     },
     {
+      "license": "Public domain (PD-Cameroon, PD-shape); koden även CC BY-SA 4.0",
+      "sourceIds": [
+        "commons-flagga-cameroon"
+      ]
+    },
+    {
       "license": "Public domain (PD-Central African Republic, PD-ineligible)",
       "sourceIds": [
         "commons-flagga-central-african-republic"
@@ -3019,6 +3026,7 @@
     {
       "license": "Public domain (PD-self)",
       "sourceIds": [
+        "commons-flagga-cameroon-1957",
         "commons-flagga-skane",
         "commons-flagga-sudan-1956",
         "commons-flagga-timor-leste",
