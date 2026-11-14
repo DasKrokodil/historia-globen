@@ -860,6 +860,7 @@
         "wp-first-revelation",
         "wp-first-taranaki-war",
         "wp-flag-albania",
+        "wp-flag-algeria",
         "wp-flag-antigua-and-barbuda",
         "wp-flag-argentina",
         "wp-flag-armenia",
@@ -874,6 +875,7 @@
         "wp-flag-botswana",
         "wp-flag-bulgaria",
         "wp-flag-canada",
+        "wp-flag-central-african-republic",
         "wp-flag-chad",
         "wp-flag-chile",
         "wp-flag-china",
@@ -882,15 +884,18 @@
         "wp-flag-croatia",
         "wp-flag-cyprus",
         "wp-flag-czech-republic",
+        "wp-flag-djibouti",
         "wp-flag-fiji",
         "wp-flag-finland",
         "wp-flag-gabon",
+        "wp-flag-gambia",
         "wp-flag-georgia",
         "wp-flag-germany",
         "wp-flag-ghana",
         "wp-flag-grenada",
         "wp-flag-guatemala",
         "wp-flag-guinea",
+        "wp-flag-guinea-bissau",
         "wp-flag-honduras",
         "wp-flag-iceland",
         "wp-flag-india",
@@ -906,16 +911,20 @@
         "wp-flag-kuwait",
         "wp-flag-kyrgyzstan",
         "wp-flag-lebanon",
+        "wp-flag-liberia",
         "wp-flag-lithuania",
         "wp-flag-luxembourg",
         "wp-flag-madagascar",
         "wp-flag-malaysia",
         "wp-flag-mali",
         "wp-flag-malta",
+        "wp-flag-mauritius",
         "wp-flag-moldova",
         "wp-flag-monaco",
         "wp-flag-mongolia",
         "wp-flag-montenegro",
+        "wp-flag-morocco",
+        "wp-flag-namibia",
         "wp-flag-nepal",
         "wp-flag-netherlands",
         "wp-flag-new-zealand",
@@ -942,6 +951,7 @@
         "wp-flag-russia",
         "wp-flag-saint-kitts-and-nevis",
         "wp-flag-saint-lucia",
+        "wp-flag-sao-tome-and-principe",
         "wp-flag-senegal",
         "wp-flag-serbia",
         "wp-flag-sierra-leone",
@@ -952,13 +962,16 @@
         "wp-flag-somalia",
         "wp-flag-south-africa",
         "wp-flag-south-korea",
+        "wp-flag-south-sudan",
         "wp-flag-south-vietnam",
+        "wp-flag-sudan",
         "wp-flag-tajikistan",
         "wp-flag-thailand",
         "wp-flag-timor-leste",
         "wp-flag-togo",
         "wp-flag-tonga",
         "wp-flag-trinidad-and-tobago",
+        "wp-flag-tunisia",
         "wp-flag-turkey",
         "wp-flag-tuvalu",
         "wp-flag-ukraine",
@@ -2703,6 +2716,12 @@
       ]
     },
     {
+      "license": "Public domain (PD-Algeria, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-algeria"
+      ]
+    },
+    {
       "license": "Public domain (PD-Art, PD-old-100)",
       "sourceIds": [
         "commons-gelre-dannebrog"
@@ -2718,6 +2737,12 @@
       "license": "Public domain (PD-Bangladesh, PD-shape)",
       "sourceIds": [
         "commons-flagga-bangladesh"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Central African Republic, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-central-african-republic"
       ]
     },
     {
@@ -2788,6 +2813,18 @@
       ]
     },
     {
+      "license": "Public domain (PD-Morocco, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-morocco"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Namibia)",
+      "sourceIds": [
+        "commons-flagga-namibia"
+      ]
+    },
+    {
       "license": "Public domain (PD-Nepal)",
       "sourceIds": [
         "commons-flagga-nepal"
@@ -2821,6 +2858,12 @@
       "license": "Public domain (PD-OpenClipart, PD-TJ-exempt)",
       "sourceIds": [
         "commons-flagga-tajikistan"
+      ]
+    },
+    {
+      "license": "Public domain (PD-OpenClipart, PD-shape)",
+      "sourceIds": [
+        "commons-flagga-djibouti"
       ]
     },
     {
@@ -2872,9 +2915,27 @@
       ]
     },
     {
+      "license": "Public domain (PD-Sudan, PD-shape)",
+      "sourceIds": [
+        "commons-flagga-south-sudan"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Sudan-exempt, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-sudan"
+      ]
+    },
+    {
       "license": "Public domain (PD-Thailand, PD-shape)",
       "sourceIds": [
         "commons-flagga-thailand"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Tunisia, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-tunisia"
       ]
     },
     {
@@ -2937,6 +2998,7 @@
       "license": "Public domain (PD-self)",
       "sourceIds": [
         "commons-flagga-skane",
+        "commons-flagga-sudan-1956",
         "commons-flagga-timor-leste",
         "commons-vapen-gronland"
       ]
@@ -2944,7 +3006,11 @@
     {
       "license": "Public domain (PD-shape)",
       "sourceIds": [
+        "commons-flagga-gambia",
+        "commons-flagga-guinea-bissau",
         "commons-flagga-kuwait",
+        "commons-flagga-mauritius",
+        "commons-flagga-sao-tome-and-principe",
         "commons-flagga-singapore",
         "commons-flagga-somalia"
       ]
@@ -2959,6 +3025,12 @@
       "license": "Public domain (PD-shape, PD-RU-exempt, PD-flag)",
       "sourceIds": [
         "commons-flagga-russia"
+      ]
+    },
+    {
+      "license": "Public domain (PD-trivial)",
+      "sourceIds": [
+        "commons-flagga-liberia"
       ]
     },
     {
