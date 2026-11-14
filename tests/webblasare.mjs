@@ -6638,6 +6638,8 @@ async function run(browser, vp) {
       }
       // Knappen ligger i Mer-menyn och har ingen yta medan den är stängd: kontrollera själva regeln, inte om den syns
       if (await lessonPage.evaluate(() => getComputedStyle(document.getElementById('btn-hunt')).display) !== 'none') throw new Error('#btn-hunt är inte dold i lektionsläget');
+      // Eleverna ska inte uppmanas att ge stöd: raden i Hjälp är dold i lektionsläget (2026-11-14)
+      if (await lessonPage.evaluate(() => getComputedStyle(document.querySelector('.help-support')).display) !== 'none') throw new Error('stödraden i Hjälp syns för elever i lektionsläget');
       if (await lessonPage.evaluate(() => document.scrollingElement.scrollWidth > innerWidth + 1)) throw new Error('lektionsläget ger horisontell scroll');
     };
     try {
