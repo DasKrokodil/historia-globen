@@ -3410,8 +3410,9 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
-  // #1255: när man följer en plats stannar uppspelningen vid platsens händelser. Grönland har inga viktiga
-  // händelser, så den stannar vid alla; första stoppet är den äldsta händelsen. Valet i Lager stänger av pauserna.
+  // #1255: när man följer en plats stannar uppspelningen vid platsens viktiga händelser (major eller top), annars vid alla.
+  // På Grönland är den äldsta händelsen (Saqqaqkulturen) också markerad (#1620), så första stoppet är den äldsta. Valet i
+  // Lager stänger av pauserna.
   await check('uppspelningen pausar vid platsens händelser när man följer en plats (#1255)', async () => {
     const { tp, tctx, errs } = await touchPage();
     try {
@@ -3432,8 +3433,34 @@ async function run(browser, vp) {
       if (!year.includes(String(Math.abs(first.start <= 0 ? first.start - 1 : first.start)))) throw new Error(`tiden står inte på första händelsens år (${first.start}): "${year}"`);
       // I smal skärm öppnas inte faktarutan vid pausen, så att kartan syns (som för krigets stopp); händelsen markeras på globen
       if (vp.width > 760 && await tp.isHidden('#detail')) throw new Error('faktarutan visar inte händelsen vid pausen');
+      // #1620: Skånes viktiga händelser (major eller top) är pauserna, i tidsordning och utan att någon hoppas över,
+      // också trohetseden och försvenskningen som båda är 1658: efter den första visar nästa Spela den andra utan att tiden
+      // flyttas förbi året (kön i playback.js). Pauser av annat slag (till exempel Samtidigt-kort) räknas inte.
+      const skane = ['uppakra', 'lund-grundas', 'skane-under-magnus-eriksson', 'trohetseden-i-malmo', 'forsvenskningen-av-skane', 'slaget-vid-lund', 'freden-i-lund', 'oresundsbron-oppnas'];
+      const byId = Object.fromEntries((events.events ?? events).map(e => [e.id, e]));
+      for (const id of skane) if (!byId[id]?.major && !byId[id]?.top) throw new Error(`${id} är inte markerad som viktig (major eller top)`);
+      await tp.goto(`${BASE}?ny=plats4#y=-200&f=place:skane`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForFunction(() => !document.getElementById('focus-bar').hidden && /Skåne/.test(document.getElementById('focus-title').textContent), null, { timeout: T.step });
+      const stops = [];
+      for (let i = 0; i < 20 && stops.length < skane.length; i++) {
+        await tp.evaluate(() => { document.getElementById('pause-text').textContent = ''; document.getElementById('focus-action').click(); });
+        await tp.waitForFunction(() => document.getElementById('focus-action').dataset.action !== 'pause' && document.getElementById('pause-text').textContent !== '', null, { timeout: T.step * 3 })
+          .catch(() => { throw new Error(`uppspelningen pausade inte efter ${stops.join(', ') || 'starten'}`); });
+        const text = await tp.evaluate(() => document.getElementById('pause-text').textContent);
+        const hit = skane.find(id => text === `Pausad vid ${byId[id].title.sv}`);
+        if (hit) stops.push(hit);
+        else if (Object.values(byId).some(e => text === `Pausad vid ${e.title?.sv}`)) throw new Error(`pausade vid en händelse som inte är markerad: "${text}" (efter ${stops.join(', ')})`);
+        if (hit === 'trohetseden-i-malmo') await tp.screenshot({ path: path.join(OUT, `${vp.name}-1620-skane-paus-1658.png`) });
+        if (hit === 'forsvenskningen-av-skane') {
+          const at = await tp.evaluate(() => document.getElementById('focus-state').textContent);
+          if (!at.includes('1658')) throw new Error(`tiden står inte på 1658 vid den andra pausen samma år: "${at}"`);
+          await tp.screenshot({ path: path.join(OUT, `${vp.name}-1620-skane-paus-1658-andra.png`) });
+        }
+      }
+      if (stops.join() !== skane.join()) throw new Error(`pauserna i Skåne: ${stops.join(' → ')}; väntade ${skane.join(' → ')}`);
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
-      return `pausade vid första händelsen (${first.start}): ${pause}`;
+      return `pausade vid första händelsen (${first.start}): ${pause}; Skåne: ${stops.join(' → ')}`;
     } finally { await tctx.close(); }
   });
 

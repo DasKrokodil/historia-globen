@@ -11,12 +11,14 @@ import { routeStops as stopsForRoute } from '../layers/lines.js';
 import { hasTag } from '../layers/events.js';
 import { stopIndexAt, stepTarget, stepState, followersAtSameTime, keysThrough } from '../route-steps.js';
 import { ui } from '../i18n.js';
+import { themeStops, themeKey, passedThemeStops } from '../theme-stops.js';
 
 export function createPlayback(app) {
   const { $, state, data, timeline, panel, layers, ff, globe } = app;
   let lastYear = 0;
   let warStops = [], stopping = false; // kö med stopp när man följer ett krig (#217)
   let routeStops = []; // kö med stopp när man följer en resa (#376)
+  let themeQueue = []; // kö med stopp när man följer en plats eller ett tema, till exempel två samma år (#1620)
   // Stoppet som pausraden visar just nu (index bland resans stopp) och dess text: Föregående och Nästa stopp stegar därifrån (#1380).
   // -1 när raden visar något annat eller inte syns; då har knapparna inget att utgå från och döljs.
   let stepIdx = -1, stepText = null;
@@ -130,11 +132,18 @@ export function createPlayback(app) {
     return true;
   }
 
-  /** Platsens eller temats stopp (#1255): händelserna med top eller major, annars alla, i tidsordning. */
-  function themeStops(focus) {
-    const evs = [...(focus.themeEvents || [])].sort((a, b) => a.start - b.start);
-    const important = evs.filter(e => e.top || e.major);
-    return important.length ? important : evs;
+  /** Platsens eller temats stopp (#1255): tiden står på händelsens år, så nästa Spela fortsätter till nästa. */
+  function showThemeStop(hit) {
+    // Stoppet sparas som visat, så att en omritning under pausen inte ger samma stopp igen vid Fortsätt.
+    // stopping hindrar att tidsflytten nedan tömmer shownStops och kön (change-lyssnaren).
+    shownStops.add(themeKey(hit));
+    // always: också när Fortsätt visar nästa stopp i kön och tidslinjen inte spelar, som krigens och resornas stopp
+    timeline.pause(ui('play.pausedThemeEvent', { title: t(hit.title) }), true);
+    stopping = true;
+    timeline.year = hit.start;
+    stopping = false;
+    app.store.setSelected(hit.id);
+    panel.showDetail(hit, matchMedia('(min-width: 761px)').matches);
   }
 
   /** Krigets slut i fokusläget: sista dagen eller året, och "i dag" för ett pågående krig (#223). */
@@ -142,9 +151,9 @@ export function createPlayback(app) {
   /** Nästa stopp som Fortsätt ska visa: kön, eller slutkortet om tiden står i krigets slut och
    *  kortet inte har visats än. Då börjar uppspelningen aldrig om före slutkortet (#232). */
   function queuedStop() {
-    const { focusWar, focusRoute } = state;
+    const { focusWar, focusRoute, focus } = state;
     if (focusRoute) return routeStops[0] ?? null;
-    if (!focusWar) return null;
+    if (!focusWar) return focus?.themeEvents ? themeQueue[0] ?? null : null;
     if (warStops.length) return warStops[0];
     return focusWar.story && !endShown && timeline.year >= warEndOf() ? 'end' : null;
   }
@@ -264,20 +273,13 @@ export function createPlayback(app) {
       if (hit) { timeline.pause(ui('play.pausedFounding')); app.store.setSelected(hit.id); panel.showDetail(hit, matchMedia('(min-width: 761px)').matches); }
     }
     // I fokus på en plats eller ett tema stannar uppspelningen vid händelserna (#1255): de viktiga (top eller major)
-    // om det finns några, annars alla. Tiden står på händelsens år, så nästa Spela fortsätter till nästa.
+    // om det finns några, annars alla. Alla som passerades köas, också flera samma år (#1620): den första visas nu
+    // och nästa Fortsätt visar nästa innan tiden går vidare, som resans stopp.
     if (focus?.themeEvents && playing && layers.pause.theme) {
-      const hit = themeStops(focus).find(e => !shownStops.has('t:' + e.id) && passed(e.start));
-      if (hit) {
-        // Stoppet sparas som visat, så att en omritning under pausen inte ger samma stopp igen vid Fortsätt.
-        // stopping hindrar att tidsflytten nedan tömmer shownStops (change-lyssnaren).
-        shownStops.add('t:' + hit.id);
-        timeline.pause(ui('play.pausedThemeEvent', { title: t(hit.title) }));
-        stopping = true;
-        timeline.year = hit.start;
-        stopping = false;
-        app.store.setSelected(hit.id);
-        panel.showDetail(hit, matchMedia('(min-width: 761px)').matches);
-      }
+      // Kön fylls på och skrivs inte över: en omritning som började under uppspelningen kan komma efter pausen (#1620)
+      const hits = passedThemeStops(themeStops(focus.themeEvents), shownStops, passed).filter(e => !themeQueue.includes(e));
+      themeQueue = [...themeQueue, ...hits];
+      if (hits.length) showThemeStop(themeQueue.shift());
     }
     // I fokus på ett rike stannar uppspelningen vid rikets nyckelår, och kortet säger varför
     // riket växer eller krymper (#171). Valet finns i Lager.
@@ -295,12 +297,12 @@ export function createPlayback(app) {
   }
 
   /** Ett nytt fokus börjar (startFocus): resans kö töms. */
-  function clearRouteStops() { routeStops = []; stepIdx = -1; stepText = null; updateStepButtons(); }
+  function clearRouteStops() { routeStops = []; themeQueue = []; stepIdx = -1; stepText = null; updateStepButtons(); }
   /** Ett nytt fokus börjar på startYear (startFocus): passerade stopp räknas därifrån. */
   function startAt(startYear) { lastYear = startYear; }
   /** Fokus avslutas (endFocus): köerna, de visade stoppen och Spela klart glöms. */
   function reset() {
-    warStops = []; routeStops = []; shownStops = new Set(); endShown = false; finishing = false;
+    warStops = []; routeStops = []; themeQueue = []; shownStops = new Set(); endShown = false; finishing = false;
     stepIdx = -1; stepText = null; updateStepButtons();
   }
 
@@ -308,7 +310,7 @@ export function createPlayback(app) {
     // Tiden flyttades för hand (året ändrades utan uppspelning och inte av ett stopp): kön med krigets
     // stopp glöms, och stoppen visas igen när man spelar på nytt (#232). Också "Spela igen" går hit.
     if (!timeline.playing && !stopping) {
-      warStops = []; routeStops = []; shownStops = new Set(); finishing = false;
+      warStops = []; routeStops = []; themeQueue = []; shownStops = new Set(); finishing = false;
       if (state.focusWar && timeline.year < warEndOf()) endShown = false;
     }
     app.refresh();
@@ -328,6 +330,9 @@ export function createPlayback(app) {
       if (routeStops[0] === stop) routeStops.shift();
       shownStops.add(stop.key);
       showRouteStop(stop);
+    } else if (state.focus?.themeEvents && !state.focusWar) {
+      if (themeQueue[0] === stop) themeQueue.shift();
+      showThemeStop(stop);
     } else {
       if (warStops[0] === stop) warStops.shift();
       showWarStop(stop, !!state.focus?.fine);
