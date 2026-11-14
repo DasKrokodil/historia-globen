@@ -296,7 +296,7 @@
 "lund-grundas":{"place":{"de":"Lund, Schonen"},"title":{"de":"Gründung von Lund"},"note":{"title":{"de":"Zur Datierung"}}},
 "lund-blir-arkebiskopssate":{"place":{"de":"Lund, Schonen"},"title":{"de":"Lund wird Erzbischofssitz für den ganzen Norden"},"note":{"title":{"de":"Die Quellen unterscheiden sich"}}},
 "lunds-domkyrka-invigs":{"place":{"de":"Lund, Schonen"},"title":{"de":"Weihe des Doms zu Lund"}},
-"skane-under-magnus-eriksson":{"place":{"de":"Schonen"},"title":{"de":"Schonen unter dem schwedischen König Magnus Eriksson"}},
+"skane-under-magnus-eriksson":{"place":{"de":"Schonen"},"title":{"de":"Schonen unter dem schwedischen König Magnus Eriksson"},"note":{"title":{"de":"Die Quellen unterscheiden sich"}}},
 "ansgar-i-birka":{"place":{"de":"Birka auf Björkö im Mälarsee, Schweden"},"title":{"de":"Ansgar predigt in Birka"},"note":{"title":{"de":"Zur Datierung"}}},
 "uppsala-blir-arkebiskopssate":{"place":{"de":"Alt-Uppsala, Schweden"},"title":{"de":"Uppsala wird Erzbischofssitz für Schweden"}},
 "kalmarunionen-bildas":{"place":{"de":"Kalmar, Schweden"},"title":{"de":"Die Kalmarer Union: Dänemark, Norwegen und Schweden erhalten einen gemeinsamen König"}},
