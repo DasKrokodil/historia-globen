@@ -135,8 +135,11 @@ export function medalTexture(icon, color, { when, major, unsure }, full) {
   return tex;
 }
 
-// Rikenas flaggor (#462): ett litet heraldiskt tygmärke. Sköldens egen silhuett gör att
-// rikestecken inte förväxlas med de runda händelsemedaljerna och tar mindre plats än ett platt kort.
+// Rikenas tecken (#462, #1570): ett litet heraldiskt tygmärke vars form säger vad tecknet är (beslut 2026-11-14,
+// alternativ D): en flagga (kind flag) är en rektangel i flaggans egen 3:2-proportion, en symbol (kind symbol) är en
+// sköld och en modern återgivning (kind reconstruction) är en sköld med streckad kant. Teckningarna ritas aldrig
+// sträckta: rektangeln visar hela bilden, skölden beskär mot mitten, och de fyra teckningar som själva är sköldar
+// behåller sin egen form. Silhuetten skiljer rikestecken från de runda händelsemedaljerna.
 // Samma canvas används på klotet och i Platt vy, så att uttrycket är konsekvent i båda projektionerna.
 const flagCache = new Map();
 
@@ -144,34 +147,48 @@ function flagSeed(name) {
   return [...name].reduce((n, ch) => (n * 33 + ch.charCodeAt(0)) >>> 0, 5381);
 }
 
-/** En diskret vävd och lätt sliten flagga, klippt till ett litet heraldiskt tygmärke. */
-function flagBadge(ctx, cx, cy, r, img, name) {
-  const seed = flagSeed(name);
-  const left = cx - r * 0.68, right = cx + r * 0.68;
-  const top = cy - r * 0.72, shoulder = cy - r * 0.42;
-  const bottom = cy + r * 0.78;
-  const shield = () => {
-    ctx.beginPath();
-    ctx.moveTo(left, top + r * 0.15);
-    ctx.quadraticCurveTo(cx, top - r * 0.11, right, top + r * 0.15);
-    ctx.lineTo(right, shoulder);
-    ctx.bezierCurveTo(right, cy + r * 0.22, cx + r * 0.42, cy + r * 0.61, cx, bottom);
-    ctx.bezierCurveTo(cx - r * 0.42, cy + r * 0.61, left, cy + r * 0.22, left, shoulder);
-    ctx.closePath();
-  };
-  ctx.save();
-  shield();
-  ctx.fillStyle = GROUND; ctx.fill();
-  ctx.lineWidth = Math.max(1.5, r * 0.13); ctx.strokeStyle = INK; ctx.stroke();
-  shield();
-  ctx.lineWidth = Math.max(1, r * 0.047); ctx.strokeStyle = BRASS; ctx.stroke();
+// Källfilerna är SVG utan egen bredd och höjd, och 9-argumentsformen av drawImage ger då fel källkoordinater. Varje bild
+// ritas därför en gång på en bildpunktsbild i 3:2, där också teckningens avgränsning mäts (alfa), så att en teckning som
+// själv är en sköld kan skiljas från en rektangulär flagga.
+const RASTER_W = 900, RASTER_H = 600;
+const rasters = new WeakMap();
+function rasterOf(img) {
+  if (rasters.has(img)) return rasters.get(img);
+  const canvas = document.createElement('canvas');
+  canvas.width = RASTER_W; canvas.height = RASTER_H;
+  const g = canvas.getContext('2d', { willReadFrequently: true });
+  g.drawImage(img, 0, 0, RASTER_W, RASTER_H);
+  const data = g.getImageData(0, 0, RASTER_W, RASTER_H).data;
+  let x0 = RASTER_W, y0 = RASTER_H, x1 = -1, y1 = -1;
+  for (let y = 0; y < RASTER_H; y += 3) {
+    for (let x = 0; x < RASTER_W; x += 3) {
+      if (data[(y * RASTER_W + x) * 4 + 3] > 24) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+    }
+  }
+  if (x1 < 0) { x0 = 0; y0 = 0; x1 = RASTER_W - 1; y1 = RASTER_H - 1; }
+  const box = { x: x0, y: y0, w: x1 - x0 + 1, h: y1 - y0 + 1 };
+  const own = box.w < RASTER_W * 0.9; // teckningen har en egen silhuett (en sköld) i stället för att fylla hela 3:2-rutan
+  const r = { canvas, box, own, tints: new Map() };
+  rasters.set(img, r);
+  return r;
+}
 
-  const w = r * 1.25, h = r * 1.31, x = cx - w / 2, y = cy - r * 0.61;
-  shield();
-  ctx.save(); ctx.clip();
-  if (img) ctx.drawImage(img, x, y, w, h);
-  else { ctx.fillStyle = '#53452d'; ctx.fillRect(x, y, w, h); }
-  // Varptrådar, ojämn färg och några blekta partier ger materialkänsla utan att ändra flaggans motiv.
+/** Teckningens silhuett i en enda färg, för kanten runt en teckning som själv är en sköld. */
+function tintOf(r, color) {
+  if (r.tints.has(color)) return r.tints.get(color);
+  const c = document.createElement('canvas');
+  c.width = r.box.w; c.height = r.box.h;
+  const g = c.getContext('2d');
+  g.drawImage(r.canvas, r.box.x, r.box.y, r.box.w, r.box.h, 0, 0, r.box.w, r.box.h);
+  g.globalCompositeOperation = 'source-in';
+  g.fillStyle = color; g.fillRect(0, 0, r.box.w, r.box.h);
+  r.tints.set(color, c);
+  return c;
+}
+
+/** Varptrådar, ojämn färg och några blekta partier ger materialkänsla utan att ändra motivet. Ritas inom redan klippt yta. */
+function weave(ctx, x, y, w, h, r, seed) {
+  ctx.save();
   ctx.globalCompositeOperation = 'soft-light';
   for (let i = 0; i < 13; i++) {
     const yy = y + (i + 0.5) * h / 13;
@@ -188,31 +205,115 @@ function flagBadge(ctx, cx, cy, r, img, name) {
     ctx.fillStyle = 'rgba(246,231,196,0.13)'; ctx.fillRect(sx, sy, r * 0.035, r * 0.022);
   }
   ctx.restore();
-  shield();
-  ctx.lineWidth = Math.max(1, r * 0.035); ctx.strokeStyle = 'rgba(67,45,24,0.76)'; ctx.stroke();
+}
+
+/** En flagga: rektangel i 3:2 med tunn mässingsram, hela bilden utan sträckning. */
+function flagBanner(ctx, cx, cy, r, img, seed) {
+  const w = r * 1.6, h = w * 2 / 3, x = cx - w / 2, y = cy - h / 2, rad = r * 0.06;
+  const rect = () => { ctx.beginPath(); ctx.roundRect(x, y, w, h, rad); };
+  ctx.save();
+  rect(); ctx.fillStyle = GROUND; ctx.fill();
+  ctx.lineWidth = Math.max(1.5, r * 0.13); ctx.strokeStyle = INK; ctx.stroke();
+  rect(); ctx.lineWidth = Math.max(1, r * 0.047); ctx.strokeStyle = BRASS; ctx.stroke();
+  rect(); ctx.save(); ctx.clip();
+  if (img) ctx.drawImage(rasterOf(img).canvas, 0, 0, RASTER_W, RASTER_H, x, y, w, h);
+  else { ctx.fillStyle = '#53452d'; ctx.fillRect(x, y, w, h); }
+  weave(ctx, x, y, w, h, r, seed);
+  ctx.restore();
+  rect(); ctx.lineWidth = Math.max(1, r * 0.035); ctx.strokeStyle = 'rgba(67,45,24,0.76)'; ctx.stroke();
   ctx.restore();
 }
 
-export function flagTexture(name) {
-  if (flagCache.has(name)) return flagCache.get(name);
+/** En symbol eller modern återgivning: sköld. Teckningar som själva är sköldar behåller sin form. */
+function flagShield(ctx, cx, cy, r, img, seed, dashed) {
+  const left = cx - r * 0.68, right = cx + r * 0.68;
+  const top = cy - r * 0.72, shoulder = cy - r * 0.42;
+  const bottom = cy + r * 0.78;
+  const shield = () => {
+    ctx.beginPath();
+    ctx.moveTo(left, top + r * 0.15);
+    ctx.quadraticCurveTo(cx, top - r * 0.11, right, top + r * 0.15);
+    ctx.lineTo(right, shoulder);
+    ctx.bezierCurveTo(right, cy + r * 0.22, cx + r * 0.42, cy + r * 0.61, cx, bottom);
+    ctx.bezierCurveTo(cx - r * 0.42, cy + r * 0.61, left, cy + r * 0.22, left, shoulder);
+    ctx.closePath();
+  };
+  const ras = img ? rasterOf(img) : null;
+  ctx.save();
+  if (ras?.own) {
+    // Teckningen är själv en sköld: den ritas hel (som mest 1,5r hög), med mörk kant och en tunn mässingslinje runt sin egen silhuett
+    const { box } = ras, h = r * 1.5, w = h * box.w / box.h, x = cx - w / 2, y = cy - h / 2;
+    const ring = (color, d) => { const t = tintOf(ras, color); for (let i = 0; i < 12; i++) { const a = i / 12 * Math.PI * 2; ctx.drawImage(t, x + Math.cos(a) * d, y + Math.sin(a) * d, w, h); } };
+    ring(INK, Math.max(1.6, r * 0.11)); ring(BRASS, Math.max(0.9, r * 0.05));
+    ctx.drawImage(ras.canvas, box.x, box.y, box.w, box.h, x, y, w, h);
+    ctx.save(); ctx.globalAlpha = 0.9; weaveClip(ctx, ras, x, y, w, h, r, seed); ctx.restore();
+    ctx.restore();
+    return;
+  }
+  shield();
+  ctx.fillStyle = GROUND; ctx.fill();
+  ctx.lineWidth = Math.max(1.5, r * 0.13); ctx.strokeStyle = INK; ctx.stroke();
+  shield();
+  ctx.lineWidth = Math.max(1, r * 0.047); ctx.strokeStyle = BRASS;
+  if (dashed) ctx.setLineDash([r * 0.16, r * 0.1]);
+  ctx.stroke();
+  ctx.setLineDash([]);
+  // Hela sköldens yta fylls av bilden: den beskärs mot mitten med sköldens proportioner, utan sträckning
+  const w = right - left, h = bottom - top, x = left, y = top;
+  shield(); ctx.save(); ctx.clip();
+  if (ras) {
+    const sw = Math.min(RASTER_W, RASTER_H * w / h), sx = (RASTER_W - sw) / 2;
+    ctx.drawImage(ras.canvas, sx, 0, sw, RASTER_H, x, y, w, h);
+  } else { ctx.fillStyle = '#53452d'; ctx.fillRect(x, y, w, h); }
+  weave(ctx, x, y, w, h, r, seed);
+  ctx.restore();
+  shield();
+  ctx.lineWidth = Math.max(1, r * 0.035); ctx.strokeStyle = 'rgba(67,45,24,0.76)';
+  if (dashed) ctx.setLineDash([r * 0.16, r * 0.1]);
+  ctx.stroke();
+  ctx.restore();
+}
+
+/** Väven på en teckning som själv är en sköld: klipps till teckningens egen silhuett. */
+function weaveClip(ctx, ras, x, y, w, h, r, seed) {
+  const c = document.createElement('canvas');
+  c.width = Math.max(1, Math.ceil(w)); c.height = Math.max(1, Math.ceil(h));
+  const g = c.getContext('2d');
+  weave(g, 0, 0, c.width, c.height, r, seed);
+  g.globalCompositeOperation = 'destination-in';
+  g.drawImage(tintOf(ras, '#000'), 0, 0, c.width, c.height);
+  ctx.drawImage(c, x, y);
+}
+
+/** Rikets tecken efter vad det är: flagga som rektangel, symbol och modern återgivning som sköld. */
+function flagBadge(ctx, cx, cy, r, img, name, kind = 'flag') {
+  const seed = flagSeed(name);
+  if (kind === 'symbol') flagShield(ctx, cx, cy, r, img, seed, false);
+  else if (kind === 'reconstruction') flagShield(ctx, cx, cy, r, img, seed, true);
+  else flagBanner(ctx, cx, cy, r, img, seed);
+}
+
+export function flagTexture(name, kind = 'flag') {
+  const key = `${kind}|${name}`;
+  if (flagCache.has(key)) return flagCache.get(key);
   const c = document.createElement('canvas'); c.width = c.height = 128;
   const g = c.getContext('2d');
   const tex = new THREE.CanvasTexture(c); tex.colorSpace = THREE.SRGBColorSpace;
   const draw = () => {
     g.clearRect(0, 0, 128, 128);
     const fl = flag(name);
-    flagBadge(g, 64, 64, 55, fl.ready ? fl.img : null, name);
+    flagBadge(g, 64, 64, 55, fl.ready ? fl.img : null, name, kind);
     tex.needsUpdate = true;
   };
   draw();
   if (!flag(name).ready) flag(name).waiting.push(draw);
-  flagCache.set(name, tex);
+  flagCache.set(key, tex);
   return tex;
 }
 
 /** Ritar samma heraldiska tygmärke på områdeslagrets canvas. */
-export function drawFlag(ctx, x, y, r, img, name) {
-  flagBadge(ctx, x, y, r, img, name);
+export function drawFlag(ctx, x, y, r, img, name, kind = 'flag') {
+  flagBadge(ctx, x, y, r, img, name, kind);
 }
 
 /**

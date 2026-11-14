@@ -444,7 +444,7 @@ export class AreasLayer {
       if (!d) continue;
       ctx.globalAlpha = alpha;
       // Rike med symbol (#301): medaljen på label-punkten
-      if (d.medal?.kind === 'flag') drawFlag(ctx, d.px * k, d.py * k, R, this._flag(d.medal.symbol), d.medal.symbol);
+      if (d.medal?.kind === 'flag') drawFlag(ctx, d.px * k, d.py * k, R, this._flag(d.medal.symbol), d.medal.symbol, d.medal.flagKind);
       else if (d.medal) drawMedal(ctx, d.px * k, d.py * k, R, polity.color, this._glyph(d.medal.symbol));
       // Huvudland (#74) utan symbol: mässingsstjärnan i moderlandet
       if (d.star) star(ctx, d.px * k, d.py * k, 7 * k * this.labelScale);

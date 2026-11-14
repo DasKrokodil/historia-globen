@@ -1727,6 +1727,32 @@ async function run(browser, vp) {
     }
   });
 
+  // #1570 (beslut 2026-11-14, alternativ D): formen säger vad tecknet är. En flagga är en rektangel i 3:2, en symbol och en
+  // modern återgivning är sköldar, och teckningar som själva är sköldar behåller sin form. Kontrollen ritar märkena på samma
+  // canvas som klotet använder och mäter var bildpunkterna finns, så den bryts om en flagga åter sträcks till en sköld.
+  await check('rikets tecken: flagga som rektangel, symbol som sköld (#1570)', async () => {
+    const out = await page.evaluate(async () => {
+      const m = await import(new URL('js/layers/events.js', location.href).href);
+      const measure = async (name, kind) => {
+        const tex = m.flagTexture(name, kind);
+        const until = Date.now() + 8000;
+        while (!m.flag(name).ready && Date.now() < until) await new Promise(r => setTimeout(r, 50));
+        await new Promise(r => setTimeout(r, 100));
+        const c = tex.image, g = c.getContext('2d'), { width: w, height: h } = c;
+        const px = g.getImageData(0, 0, w, h).data;
+        let x0 = w, y0 = h, x1 = -1, y1 = -1;
+        for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) if (px[(y * w + x) * 4 + 3] > 40) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+        return { name, kind, aspect: (x1 - x0 + 1) / (y1 - y0 + 1), w: x1 - x0 + 1, h: y1 - y0 + 1 };
+      };
+      return [await measure('italy', 'flag'), await measure('france-ancient', 'symbol'), await measure('poland-white-eagle', 'reconstruction'), await measure('norway-lion', 'symbol')];
+    });
+    const [flag, symbol, rebuilt, ownShield] = out;
+    if (flag.aspect < 1.25 || flag.aspect > 1.65) throw new Error(`en flagga ska vara en rektangel i ungefär 3:2, men märket är ${flag.w}×${flag.h}`);
+    for (const t of [symbol, rebuilt]) if (t.aspect < 0.78 || t.aspect > 1.05) throw new Error(`${t.name} (${t.kind}) ska vara en sköld, men märket är ${t.w}×${t.h}`);
+    if (ownShield.aspect >= 0.95) throw new Error(`en teckning som själv är en sköld ska behålla sin form, men ${ownShield.name} är ${ownShield.w}×${ownShield.h}`);
+    return `flagga ${flag.w}×${flag.h}, symbol ${symbol.w}×${symbol.h}, modern återgivning ${rebuilt.w}×${rebuilt.h}, egen sköld ${ownShield.w}×${ownShield.h}`;
+  });
+
   // Styrplattans nypning i Chrome är wheel med ctrlKey. Står pekaren på en etikett eller ett kluster ovanpå klotet
   // ska globen zooma och sidan inte; tidigare släppte etiketterna igenom händelsen och Chrome zoomade hela sidan.
   await check('nypning på en etikett zoomar globen, inte sidan', async () => {
