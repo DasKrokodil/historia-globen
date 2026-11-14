@@ -235,7 +235,7 @@
 "lund-grundas":{"place":{"fr":"Lund, Scanie"},"title":{"fr":"Fondation de Lund"},"note":{"title":{"fr":"À propos de la datation"}}},
 "lund-blir-arkebiskopssate":{"place":{"fr":"Lund, Scanie"},"title":{"fr":"Lund devient siège archiépiscopal de tous les pays nordiques"},"note":{"title":{"fr":"Les sources divergent"}}},
 "lunds-domkyrka-invigs":{"place":{"fr":"Lund, Scanie"},"title":{"fr":"Consécration de la cathédrale de Lund"}},
-"skane-under-magnus-eriksson":{"place":{"fr":"Scanie"},"title":{"fr":"La Scanie sous le roi suédois Magnus Eriksson"}},
+"skane-under-magnus-eriksson":{"place":{"fr":"Scanie"},"title":{"fr":"La Scanie sous le roi suédois Magnus Eriksson"},"note":{"title":{"fr":"Les sources divergent"}}},
 "ansgar-i-birka":{"place":{"fr":"Birka, sur l'île de Björkö dans le lac Mälar, Suède"},"title":{"fr":"Ansgar prêche à Birka"},"note":{"title":{"fr":"À propos de la date"}}},
 "uppsala-blir-arkebiskopssate":{"place":{"fr":"Gamla Uppsala, Suède"},"title":{"fr":"Uppsala devient le siège archiépiscopal de la Suède"}},
 "kalmarunionen-bildas":{"place":{"fr":"Kalmar, Suède"},"title":{"fr":"L'Union de Kalmar : le Danemark, la Norvège et la Suède ont un seul roi"}},
