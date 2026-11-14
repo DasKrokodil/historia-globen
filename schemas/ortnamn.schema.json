@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Historia-globen: ortnamn för regionvyn (#1643)",
+  "description": "En fil per plats i data/platser.json, data/ortnamn/<platsens id>.json, med orter, grannländer och hav runt platsen och namn på fem språk ur Natural Earth (public domain). Skrivs av tools/ortnamn.py, redigeras inte.",
+  "type": "object",
+  "required": ["schema", "place", "source", "frame", "padKm", "places", "neighbours", "seas"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": { "type": "string", "pattern": "^historia-globen/ortnamn@1$" },
+    "place": { "type": "string", "pattern": "^[a-z0-9-]+$", "description": "Platsens id i data/platser.json; filen heter likadant." },
+    "source": { "type": "string", "pattern": "^[a-z0-9-]+$", "description": "Källans id i data/sources.json (natural-earth-ortnamn)." },
+    "frame": { "$ref": "#/$defs/box", "description": "Ramen [väst, syd, öst, nord]: platsens gräns med padKm marginal. Väst är större än öst när ramen korsar datumlinjen." },
+    "padKm": { "type": "integer", "minimum": 0 },
+    "places": {
+      "type": "array",
+      "description": "Orter ur ne_10m_populated_places inom ramen, de viktigaste först.",
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "rank", "coordinates", "name"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^ne-[0-9]+$", "description": "ne- och Natural Earths NE_ID." },
+          "kind": { "enum": ["capital", "admin1-capital", "place"] },
+          "rank": { "type": "integer", "minimum": 0, "maximum": 10, "description": "Natural Earths SCALERANK: 0 viktigast, 10 minst." },
+          "coordinates": { "$ref": "#/$defs/point" },
+          "name": { "$ref": "#/$defs/text" },
+          "fallback": { "$ref": "#/$defs/fallback" }
+        }
+      }
+    },
+    "neighbours": {
+      "type": "array",
+      "description": "Grannländerna i boundary.neighbours i data/platser.json, med namn ur ne_10m_admin_0_countries och en punkt för namnet inne i landet och inom ramen.",
+      "items": {
+        "type": "object",
+        "required": ["ne", "label", "name"],
+        "additionalProperties": false,
+        "properties": {
+          "ne": { "type": "string", "pattern": "^[0-9]+$", "description": "ISO 3166-1 numeriskt id, samma som i boundary.neighbours." },
+          "label": { "$ref": "#/$defs/point" },
+          "name": { "$ref": "#/$defs/text" },
+          "fallback": { "$ref": "#/$defs/fallback" }
+        }
+      }
+    },
+    "seas": {
+      "type": "array",
+      "description": "Hav, sund och vikar ur ne_10m_geography_marine_polys inom ramen, de viktigaste först.",
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "rank", "label", "name"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^ne-[0-9]+$" },
+          "kind": { "type": "string", "pattern": "^[a-z ]+$", "description": "Natural Earths featurecla (ocean, sea, sound, bay …)." },
+          "rank": { "type": "integer", "minimum": 0 },
+          "label": { "$ref": "#/$defs/point" },
+          "name": { "$ref": "#/$defs/text" },
+          "fallback": { "$ref": "#/$defs/fallback" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "point": {
+      "type": "array", "minItems": 2, "maxItems": 2,
+      "description": "[longitud, latitud] i WGS 84.",
+      "items": { "type": "number", "minimum": -180, "maximum": 180 }
+    },
+    "box": {
+      "type": "array", "minItems": 4, "maxItems": 4,
+      "items": { "type": "number", "minimum": -180, "maximum": 180 }
+    },
+    "fallback": {
+      "type": "array", "minItems": 1,
+      "description": "Språk där Natural Earth saknar namnet och engelska används i stället.",
+      "items": { "enum": ["sv", "de", "es", "fr"] }
+    },
+    "text": {
+      "type": "object",
+      "required": ["sv", "en", "de", "es", "fr"],
+      "additionalProperties": false,
+      "properties": {
+        "sv": { "type": "string", "pattern": ".+" }, "en": { "type": "string", "pattern": ".+" }, "de": { "type": "string", "pattern": ".+" },
+        "es": { "type": "string", "pattern": ".+" }, "fr": { "type": "string", "pattern": ".+" }
+      }
+    }
+  }
+}

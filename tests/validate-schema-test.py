@@ -88,4 +88,31 @@ with tempfile.TemporaryDirectory() as tmp:
         if expected not in result.stderr:
             raise SystemExit(f'Bildlager, {name}: underkändes av fel skäl:\n{result.stderr}')
 
-print(f'validate-schema-test: ok (saknad title och ogiltig evidence underkänns; bildlagrets exempel godkänns och {len(cases)} avsiktliga fel underkänns)')
+# Ortnamn för regionvyn (#1643): de riktiga filerna godkänns ovan (dist/ är byggd), och en fil som bryter mot schemat underkänns.
+def ortnamn_cases():
+    return [
+        ('namn som saknar franska', lambda d: d['places'][0]['name'].pop('fr'), "obligatoriska fältet 'fr' saknas"),
+        ('ort utan koordinater', lambda d: d['places'][0].pop('coordinates'), "obligatoriska fältet 'coordinates' saknas"),
+        ('ort utan id', lambda d: d['places'][0].pop('id'), "obligatoriska fältet 'id' saknas"),
+        ('koordinat utanför jorden', lambda d: d['seas'][0].update(label=[200, 55]), 'större än maximum 180'),
+        ('tomt namn', lambda d: d['neighbours'][0]['name'].update(sv=''), "matchar inte pattern '.+'"),
+    ]
+
+
+with tempfile.TemporaryDirectory() as tmp:
+    site = Path(tmp) / 'dist'
+    shutil.copytree(DIST, site)
+    target = site / 'data' / 'ortnamn' / 'skane.json'
+    good = json.loads(target.read_text(encoding='utf-8'))
+    for name, change, expected in ortnamn_cases():
+        doc = copy.deepcopy(good)
+        change(doc)
+        target.write_text(json.dumps(doc, ensure_ascii=False), encoding='utf-8')
+        result = subprocess.run([sys.executable, '-I', 'scripts/validate-site.py', str(site)], cwd=ROOT, text=True, capture_output=True)
+        if result.returncode == 0:
+            raise SystemExit(f'Ortnamn, {name}: förväntade att filen underkänns.')
+        if expected not in result.stderr:
+            raise SystemExit(f'Ortnamn, {name}: underkändes av fel skäl:\n{result.stderr}')
+
+print(f'validate-schema-test: ok (saknad title och ogiltig evidence underkänns; bildlagrets exempel godkänns och {len(cases)} avsiktliga fel underkänns; '
+      f'{len(ortnamn_cases())} fel i ortnamnen underkänns)')

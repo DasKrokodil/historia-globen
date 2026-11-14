@@ -852,6 +852,29 @@ if places_doc is not None:
             for why in country_warnings(inside):
                 print(f'validate-site: VARNING: {where}: hållbarhetsriktlinjen (#1269): {why}', file=sys.stderr)
 
+# 8g. Ortnamn för regionvyn (#1643): en fil per plats i data/ortnamn/, skriven av tools/ortnamn.py ur Natural Earth. Schemat (fem språk,
+# id och koordinater), att filen hör till en plats i data/platser.json, att källan finns och att grannländerna är platsens egna.
+if places_doc is not None:
+    by_place = {pl.get('id'): pl for pl in places_doc.get('places', [])}
+    for pid in sorted(by_place):
+        if not (DIST / f'data/ortnamn/{pid}.json').is_file():
+            err(f'data/ortnamn/{pid}.json saknas; kör python3 tools/ortnamn.py (#1643)')
+    for f in sorted((DIST / 'data/ortnamn').glob('*.json')) if (DIST / 'data/ortnamn').is_dir() else []:
+        path = rel(f)
+        doc = load(path)
+        if doc is None:
+            continue
+        validate_schema_file(path, doc, 'ortnamn.schema.json')
+        if doc.get('place') != f.stem or f.stem not in by_place:
+            err(f"{path}: platsen {doc.get('place')} ska heta som filen och finnas i data/platser.json")
+            continue
+        if doc.get('source') not in src_ids:
+            err(f"{path}: källan {doc.get('source')} finns inte i sources.json")
+        own = {str(n.get('ne')) for n in by_place[f.stem]['boundary'].get('neighbours', [])}
+        for nb in doc.get('neighbours', []):
+            if str(nb.get('ne')) not in own:
+                err(f"{path}: grannlandet {nb.get('ne')} finns inte i platsens boundary.neighbours; kör python3 tools/ortnamn.py")
+
 # Turens stegfält place (#1163): platsen finns i data/platser.json och är inte ett utkast (ett kort utan synlig plats öppnas inte)
 place_ids = {pl.get('id') for pl in (places_doc or {}).get('places', []) if pl.get('review') != 'draft'}
 for path, tour in tours:

@@ -93,6 +93,7 @@ data/genererat/       händelser och riken uppdelade i mindre filer som sidan la
 data/oversattning.json spärren mot oöversatta texter och registret över översättningar (#675); skrivs av tools/oversattning.py, publiceras inte
 data/textlangd.json   spärren mot långa faktatexter: sammanfattningar över 300 tecken per fil, som bara får minska (#1599); skrivs av tools/textlangd.py, publiceras inte
 data/upptackt.json    upptäcktsvyn: perspektivrad, dimma och kartbilder (#101)
+data/ortnamn/         ortnamn för regionvyn (#1643): en fil per plats med orter, grannländer och hav på fem språk ur Natural Earth; skrivs av tools/ortnamn.py, redigeras inte
 data/spridning.json   människans spridning: områden och vågor med platser ur händelser och Wikidata (#1094)
 data/vyer.json        grupperna och de förinställda vyerna i Lager (#357)
 data/ui/              gränssnittets texter: sprak.json (språken, vem som översatte och granskade) och en fil per språk (#63)
