@@ -1,0 +1,27 @@
+# Flagga och vapen på korten för Skåne, Sverige och Danmark
+
+**Datum:** 2026-11-14 (DasKrokodil i #1619: ja på båda frågorna)
+
+## Beslut
+1. Skåne, Sverige och Danmark får flagga och vapen i samma omgång (licenserna kontrolleras tillsammans), på samma sätt som Grönland och Aotearoa (`emblems` i `data/platser.json`, #1160). En plats får visa bara vapen eller bara flagga när det andra saknas eller har oklara villkor.
+2. Ingen bild används om licensen, upphovsrätten eller villkoren för användningen är oklara. Platsen visas då utan det emblemet, och det står öppet här.
+3. Varje fil är kontrollerad på sin filsida på Wikimedia Commons 2026-11-14. Filsidan står i `data/sources.json` och bland kortets källor, och kortet visar kredit och licens under bilden.
+
+## Filerna
+
+| Plats | Fil i `img/flags/` | Bild | Filsida på Commons | Upphovsperson | Licens på filsidan |
+|---|---|---|---|---|---|
+| Sverige | `sweden.svg` (filen från Commons, utan XML-raden) | Sveriges flagga | [Flag of Sweden.svg](https://commons.wikimedia.org/wiki/File:Flag_of_Sweden.svg) | Jon Harald Søby m.fl. | Public domain (PD-shape), märkt insignia: enligt filsidan får flaggan enligt lag 1970:498 inte användas i varumärken utan tillstånd |
+| Danmark | `dannebrog.svg` (filen från Commons, utan XML-raden) | Danmarks flagga (Dannebrog) | [Flag of Denmark.svg](https://commons.wikimedia.org/wiki/File:Flag_of_Denmark.svg) | Madden m.fl. | Public domain (PD-shape), märkt insignia |
+
+`img/flags/denmark.svg` (egen teckning i 3:2 som rikena använder) ändras inte; kortet får Commons-filen i Dannebrogs egna mått 37:28.
+
+## Det som utelämnades och varför
+
+- **Skånes landskapsvapen och landskapsflagga (godkända, men inte inlagda ännu).** Båda filsidorna är öppnade och licenserna är klara: [Skåne vapen.svg](https://commons.wikimedia.org/wiki/File:Sk%C3%A5ne_vapen.svg) (Lokal_Profil, CC BY-SA 2.5, märkt `insignia-Sweden`, källposten `commons-landskapsvapen-skane`; senaste uppladdningen 2026-01-01 av VulpesVulpes42 enligt Commons) och [Banner of Arms of Scania.svg](https://commons.wikimedia.org/wiki/File:Banner_of_Arms_of_Scania.svg) (vapenflaggan med griphuvudet, Tgbsww 2025 efter Lokal_Profils vapen och Flaggalfs [Flag of Scania.png](https://commons.wikimedia.org/wiki/File:Flag_of_Scania.png), CC BY-SA 3.0, alla tre CC BY-SA). Själva filerna gick inte att hämta: upload.wikimedia.org svarade 429 (för många förfrågningar, "retry-after: 600") i mer än en timme 2026-11-14, också efter långa pauser. Ingen fil hittas på eller ritas om, så Skånes kort har inga emblem i den här omgången. Nästa steg: hämta de två filerna, lägg dem som `img/flags/skane-banner.svg` och `img/flags/skane-arms.svg`, lägg till källposterna och `emblems` (bildtexter på fem språk: "Skånes landskapsflagga (vapenflagga)" och "Skånes landskapsvapen"), som för Sverige och Danmark.
+- **Sveriges riksvapen (stora och lilla).** Upphovsrätten är klar på Commons (stora riksvapnet: PD-Sweden, PD-EdictGov och CC BY-SA 4.0; lilla riksvapnet med kedja: CC BY-SA 4.0), men båda är märkta `insignia-Sweden`, och Riksarkivet skriver på sin sida om lilla riksvapnet (öppnad 2026-11-14, https://riksarkivet.se/arkivera-och-forvalta/heraldik-och-statssymboler/lilla-riksvapnet): "Riksvapnen får inte utan tillstånd användas i andra sammanhang" och "En symbol med tre kronor är alltid skyddad enligt lag". Svenska Wikipedia säger att tillstånd krävs i näringsverksamhet. Källorna säger olika om vad som kräver tillstånd, och lagtexten (riksdagen.se) gick inte att öppna härifrån. Villkoren är alltså oklara, och vapnet visas inte. Valet mellan stora och lilla riksvapnet hade annars varit lilla riksvapnet: det är statens symbol för myndigheter, medan stora riksvapnet också är statschefens personliga vapen och enligt lagen (citerad på filsidan) bara bör användas av andra när det finns särskilda skäl.
+- **Danmarks riksvapen.** Filsidan för statens vapen (`National coat of arms of Denmark.svg`, Galico efter Sodacan, CC BY-SA 3.0 med flera, märkt insignia) har klar upphovsrätt, men filen är 840 kB, och en annan filsida för samma vapen (`Arms of Denmark.svg`) skriver att danska officiella beteckningar är skyddade mot obehörig användning enligt den danska strafflagen (§ 132) och att fler begränsningar gäller. Statsministeriets och kungahusets sidor gick inte att öppna härifrån. Villkoren är alltså oklara, och vapnet visas inte, på samma grund som Sveriges.
+- **Den rödgula skånska korsflaggan.** Filsidan (`Skånska flaggan.svg`, PD-self) har klar licens, men flaggan är inte Skånes officiella landskapsflagga. Enligt svenska Wikipedia ([Skånes flagga](https://sv.wikipedia.org/wiki/Sk%C3%A5nes_flagga), öppnad 2026-11-14; läggs som källa när vapenflaggan läggs in) är vapenflaggan med griphuvudet landskapets officiella landskapsflagga, medan korsflaggan saknar officiell status enligt statsheraldikern, trots Region Skånes beslut 1999 och 2017. Kortet ska därför visa vapenflaggan som landskapsflagga. Källposten `commons-flagga-skane` (korsflaggan) används inte.
+
+## Motivering
+DasKrokodil saknade Skånes landskapsvapen och landskapsflagga på kortet. Flaggorna och landskapsvapnet har klara licenser och används här bara som information om platsen, utan kommersiellt syfte. Riksvapnen är statens egna tecken med särskilda regler i lag, och de källor som gick att öppna säger inte entydigt att vår användning är tillåten; hellre en plats utan vapen än en risk. Vill DasKrokodil ha riksvapnen kan frågan ställas till Riksarkivet (Sverige) respektive Statsministeriet (Danmark) i ett eget issue.

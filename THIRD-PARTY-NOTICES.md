@@ -34,7 +34,8 @@ Platskortens flaggor och vapen (`emblems` i `data/platser.json`, filerna i `img/
 | `greenland.svg` | Grönlands flagga (egen förenklad teckning) | efter Jeffrey Connell | Public domain (PD-ineligible), [filsidan](https://commons.wikimedia.org/wiki/File:Flag_of_Greenland.svg) |
 | `greenland-arms.svg` | Grönlands riksvapen | Octane | Public domain (PD-self), [filsidan](https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Greenland.svg) |
 | `new-zealand.svg` | Nya Zeelands flagga | Zscout370 m.fl. | Public domain i Nya Zeeland och USA, [filsidan](https://commons.wikimedia.org/wiki/File:Flag_of_New_Zealand.svg) |
-EMBLEM_ROWS
+| `sweden.svg` | Sveriges flagga | Jon Harald Søby m.fl. | Public domain (PD-shape), [filsidan](https://commons.wikimedia.org/wiki/File:Flag_of_Sweden.svg) |
+| `dannebrog.svg` | Danmarks flagga (Dannebrog) | Madden m.fl. | Public domain (PD-shape), [filsidan](https://commons.wikimedia.org/wiki/File:Flag_of_Denmark.svg) |
 
 ## Bilder
 
