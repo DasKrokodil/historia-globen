@@ -28020,6 +28020,25 @@
    "from": 1963,
    "to": 2024,
    "file": "data/empires/rwanda.json",
+   "flags": [
+    {
+     "file": "rwanda",
+     "from": 2002,
+     "to": 2024,
+     "label": {
+      "sv": "Rwandas flagga från 2001",
+      "en": "Flag of Rwanda from 2001",
+      "de": "Flagge Ruandas seit 2001",
+      "es": "Bandera de Ruanda desde 2001",
+      "fr": "Drapeau du Rwanda depuis 2001"
+     },
+     "sources": [
+      "wp-flag-rwanda",
+      "commons-flagga-rwanda"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "rwanda",
@@ -32232,6 +32251,25 @@
    "from": 1961,
    "to": 2024,
    "file": "data/empires/tanzania.json",
+   "flags": [
+    {
+     "file": "tanzania",
+     "from": 1964,
+     "to": 2024,
+     "label": {
+      "sv": "Tanzanias flagga",
+      "en": "Flag of Tanzania",
+      "de": "Flagge Tansanias",
+      "es": "Bandera de Tanzania",
+      "fr": "Drapeau de la Tanzanie"
+     },
+     "sources": [
+      "wp-flag-tanzania",
+      "commons-flagga-tanzania"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "tanzania",
