@@ -3,7 +3,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { placeAt, placeBounds, inGeometry, edgeKm, placeEvents } from '../js/place-geo.js';
+import { placeAt, placeBounds, inGeometry, edgeKm, placeEvents, inPlace, inNeighbour, COAST_MARGIN_KM } from '../js/place-geo.js';
 import { entry } from '../js/layers/places.js';
 
 const square = (id, w, s, e, n) => ({ id, boundary: { geometry: { type: 'Polygon', coordinates: [[[w, s], [e, s], [e, n], [w, n], [w, s]]] } } });
@@ -191,4 +191,70 @@ test('datumlinjen: dagens platser ger samma svar som förut (Aotearoa med Chatha
   assert.ok(edgeKm(place('aotearoa').boundary.geometry, 179.5, -44) > 100, 'Chathamöarna är 3 grader bort, inte på kartans andra kant');
   assert.equal(inGeometry(place('gronland').boundary.geometry, -40, 72), true);
   assert.equal(inGeometry(place('sverige').boundary.geometry, 20.2, 67.85), true, 'Kiruna');
+});
+
+// Kustmarginalen gäller bara punkter som inte ligger inne i ett annat lands polygon (#1449). Fallen delas med
+// tests/platser-granser-test.py, som kör kopian in_place i scripts/validate-site.py, så att de två inte glider isär.
+const granne = JSON.parse(readFileSync(new URL('./fixtures/granne.json', import.meta.url), 'utf8'));
+const fxPlace = id => ({ boundary: granne.places[id] });
+
+test('grannländer: marginalen hjälper punkter i havet men inte punkter på land i ett annat land (konstruerade fall)', () => {
+  for (const p of granne.points) {
+    assert.equal(inPlace(fxPlace(p.place), p.lon, p.lat), p.inPlace, p.namn);
+  }
+});
+
+test('grannländer: placeEvents ger samma svar som inPlace, i tidsordning', () => {
+  const ev = (id, start, lon, lat) => ({ id, start, _lon: lon, _lat: lat });
+  const got = placeEvents(fxPlace('ruta'), [ev('granne', 1, 10.05, 5), ev('hav', 3, -0.05, 5), ev('inne', 2, 5, 5), ev('langt', 0, -0.3, 5)]);
+  assert.deepEqual(got.map(e => e.id), ['inne', 'hav']);
+  assert.equal(inNeighbour(fxPlace('ruta'), 10.05, 5), true);
+  assert.equal(inNeighbour({ boundary: { geometry: granne.places.ruta.geometry } }, 10.05, 5), false, 'utan lista finns ingen granne');
+});
+
+test('grannländer: varje plats i data/platser.json har en grannlista som täcker kustmarginalen och inte innehåller platsens eget land', () => {
+  for (const p of real) {
+    const b = p.boundary;
+    assert.ok(Array.isArray(b.neighbours), `${p.id}: boundary.neighbours saknas (kör python3 tools/platser_gransar.py)`);
+    assert.ok(b.neighbourKm >= COAST_MARGIN_KM, `${p.id}: neighbourKm ${b.neighbourKm} är mindre än kustmarginalen ${COAST_MARGIN_KM} km`);
+    if (b.ne) assert.ok(!b.neighbours.some(n => n.ne === b.ne), `${p.id}: det egna landet ligger i grannlistan`);
+    for (const n of b.neighbours) {
+      assert.ok(n.name && n.geometry, `${p.id}: en granne saknar namn eller geometri`);
+      for (const poly of n.geometry.coordinates) for (const ring of poly) assert.deepEqual(ring[0], ring[ring.length - 1], `${p.id}/${n.name}: ringen är inte sluten`);
+    }
+  }
+});
+
+const realEvents = JSON.parse(readFileSync(new URL('../data/events.json', import.meta.url), 'utf8')).events;
+for (const e of realEvents) if (e.location.type === 'Point') [e._lon, e._lat] = e.location.coordinates;
+const idsIn = id => new Set(placeEvents(place(id), realEvents).map(e => e.id));
+
+test('grannländer: Fredriksten i Norge hör inte till Sveriges kort, och Helsingborg i Sverige hör inte till Danmarks (#1449)', () => {
+  assert.equal(idsIn('sverige').has('karl-xii-stupar-1718'), false, 'Fredriksten ligger 6,3 km utanför Sveriges gräns, i Norge');
+  assert.equal(idsIn('danmark').has('slaget-vid-helsingborg'), false, 'Helsingborg ligger 6,8 km utanför Danmarks gräns, i Sverige');
+  assert.equal(idsIn('sverige').has('slaget-vid-helsingborg'), true);
+  assert.equal(idsIn('skane').has('slaget-vid-helsingborg'), true);
+  const norge = place('sverige').boundary.neighbours.find(x => x.name === 'Norway');
+  assert.equal(inGeometry(place('sverige').boundary.geometry, 11.396, 59.12), false);
+  assert.ok(inGeometry(norge.geometry, 11.396, 59.12), 'punkten ligger inne i Norges polygon');
+  assert.ok(edgeKm(place('sverige').boundary.geometry, 11.396, 59.12) <= COAST_MARGIN_KM, 'den ligger inom marginalen, så det är grannlistan som stänger den ute');
+});
+
+test('grannländer: punkter i havet inom marginalen räknas fortfarande, och Öresundsbron hör till både Sverige, Danmark och Skåne (#1449)', () => {
+  const sv = idsIn('sverige');
+  for (const id of ['stockholm-namns-1252', 'kalmarunionen-bildas']) {
+    const e = realEvents.find(x => x.id === id);
+    assert.equal(inGeometry(place('sverige').boundary.geometry, e._lon, e._lat), false, `${id} ligger utanför 1:50m-linjen`);
+    assert.ok(sv.has(id), `${id} ska räknas till Sverige genom kustmarginalen`);
+  }
+  for (const pid of ['sverige', 'danmark', 'skane']) assert.ok(idsIn(pid).has('oresundsbron-oppnas'), `Öresundsbron saknas i ${pid}`);
+});
+
+test('grannländer: bara grannens land stänger ute, inte resten av platsens eget land (Skåne mot Sverige)', () => {
+  // Skåne är ett län i Sverige: Sverige är inte granne, så svensk mark strax utanför länet räknas som förut. Danmark är granne.
+  const skane = place('skane');
+  assert.ok(!skane.boundary.neighbours.some(n => n.ne === '752'), 'Sverige är inte granne till Skåne');
+  assert.ok(skane.boundary.neighbours.some(n => n.ne === '208'), 'Danmark är granne till Skåne');
+  assert.equal(inNeighbour(skane, 13.0, 56.45), false, 'mitt i länet');
+  assert.equal(inNeighbour(skane, 12.55, 55.68), true, 'Köpenhamns land är Danmark');
 });

@@ -2076,6 +2076,31 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
+  // #1449: kustmarginalen (20 km) gäller bara punkter som inte ligger inne i ett annat lands polygon. Fredriksten i Norge ligger 6,3 km
+  // utanför Sveriges gräns och Helsingborg i Sverige 6,8 km från Danmarks; ingen av dem hör till grannlandets kort. Stockholm och
+  // Kalmar ligger i havet utanför 1:50m-linjen och hör kvar till Sverige, och Öresundsförbindelsen (i sundet) hör till båda.
+  await check('platsernas kort tar inte med grannlandets land genom kustmarginalen: Fredriksten i Sverige, Helsingborg i Danmark (#1449)', async () => {
+    const cardOf = async (id, year) => {
+      const { tp, tctx, errs } = await touchPage();
+      try {
+        await tp.goto(`${BASE}?ny=plats-granne-${id}#y=${year}&f=place:${id}`);
+        await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+        const ids = await tp.evaluate(() => [...document.querySelectorAll('#detail [data-theme-event]')].map(b => b.dataset.themeEvent));
+        if (await tp.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw new Error(`horisontell scroll med kortet för ${id}`);
+        if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+        return ids;
+      } finally { await tctx.close(); }
+    };
+    const sverige = await cardOf('sverige', 1718);
+    if (sverige.includes('karl-xii-stupar-1718')) throw new Error('Fredriksten (Halden, Norge) finns i Sveriges kort');
+    for (const id of ['stockholm-namns-1252', 'kalmarunionen-bildas', 'oresundsbron-oppnas', 'slaget-vid-helsingborg']) if (!sverige.includes(id)) throw new Error(`${id} saknas i Sveriges kort`);
+    const danmark = await cardOf('danmark', 1710);
+    if (danmark.includes('slaget-vid-helsingborg')) throw new Error('Helsingborg (Sverige) finns i Danmarks kort');
+    for (const id of ['oresundsbron-oppnas', 'rundetarn-star-klart']) if (!danmark.includes(id)) throw new Error(`${id} saknas i Danmarks kort`);
+    return `Sverige ${sverige.length} och Danmark ${danmark.length} händelser`;
+  });
+
   // #1161: tryck på konturen av en plats. Konturerna syns och går att trycka på bara inzoomat och i vanligt läge; trycket
   // öppnar kortet (Fokus av typen place) på globen och i Platt vy, och knappen Visa i Platt karta ramar in platsen.
   // Grönland (isen i norr, 76° N 40° V) ligger fritt från markörer och etiketter vid år 1000, också i mobilbredd.
