@@ -2958,6 +2958,29 @@
     {"id": "wp-neor-lake", "title": "Neor Lake – Wikipedia", "url": "https://en.wikipedia.org/wiki/Neor_Lake", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
     {"id": "wp-faxian", "title": "Faxian – Wikipedia", "url": "https://en.wikipedia.org/wiki/Faxian", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
     {"id": "wp-mount-lao", "title": "Mount Lao – Wikipedia", "url": "https://en.wikipedia.org/wiki/Mount_Lao", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
-    {"id": "wp-rabatak-inscription", "title": "Rabatak inscription – Wikipedia", "url": "https://en.wikipedia.org/wiki/Rabatak_inscription", "license": "CC BY-SA 4.0", "checked": "2026-11-14"}
-  ]
+    {"id": "wp-rabatak-inscription", "title": "Rabatak inscription – Wikipedia", "url": "https://en.wikipedia.org/wiki/Rabatak_inscription", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "pmc-david-2024-cloggs", "title": "David m.fl. 2024: Archaeological evidence of an ethnographically documented Australian Aboriginal ritual dated to the last ice age, Nature Human Behaviour (PMC11343701)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11343701/", "license": "CC BY 4.0", "checked": "2026-11-14"},
+    {"id": "wp-cloggs-cave", "title": "Cloggs Cave – Wikipedia", "url": "https://en.wikipedia.org/wiki/Cloggs_Cave", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "pmc-cerezo-roman-2026-hora", "title": "Cerezo-Román m.fl. 2026: Earliest evidence for intentional cremation of human remains in Africa, Science Advances (PMC12757068)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12757068/", "license": "CC BY-NC 4.0 (bara länkad, ingen text kopierad)", "checked": "2026-11-14"},
+    {"id": "wp-hora-mountain", "title": "Hora Mountain – Wikipedia", "url": "https://en.wikipedia.org/wiki/Hora_Mountain", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "pmc-oshea-2021-huron", "title": "O’Shea m.fl. 2021: Central Oregon obsidian from a submerged early Holocene archaeological site beneath Lake Huron, PLOS ONE (PMC8133412)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8133412/", "license": "CC BY 4.0", "checked": "2026-11-14"},
+    {"id": "wp-lake-huron", "title": "Lake Huron – Wikipedia", "url": "https://en.wikipedia.org/wiki/Lake_Huron", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-gebel-ramlah", "title": "Gebel Ramlah – Wikipedia", "url": "https://en.wikipedia.org/wiki/Gebel_Ramlah", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-porc-epic-cave", "title": "Porc-Epic Cave – Wikipedia", "url": "https://en.wikipedia.org/wiki/Porc-Epic_Cave", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "pmc-rosso-2017-porc-epic", "title": "Rosso, d’Errico och Queffelec 2017: Patterns of change and continuity in ochre use during the late Middle Stone Age of the Horn of Africa: The Porc-Epic Cave record, PLOS ONE (PMC5443497)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5443497/", "license": "CC BY 4.0", "checked": "2026-11-14"},
+    {"id": "pmc-shaw-2020-waim", "title": "Shaw m.fl. 2020: Emergence of a Neolithic in highland New Guinea by 5000 to 4000 years ago, Science Advances (PMC7096170)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7096170/", "license": "CC BY-NC 4.0 (bara länkad, ingen text kopierad)", "checked": "2026-11-14"},
+    {"id": "pmc-gandini-2025-sahul", "title": "Gandini m.fl. 2025: Genomic evidence supports the \"long chronology\" for the peopling of Sahul, Science Advances (PMC12662211)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12662211/", "license": "CC BY 4.0", "checked": "2026-11-14"},
+    {"id": "wp-lake-victoria", "title": "Lake Victoria – Wikipedia", "url": "https://en.wikipedia.org/wiki/Lake_Victoria", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "pmc-ngoepe-2023-victoriasjon", "title": "Ngoepe m.fl. 2023: A continuous fish fossil record reveals key insights into adaptive radiation, Nature (PMC10567567)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10567567/", "license": "CC BY 4.0", "checked": "2026-11-14"},
+    {"id": "wp-rotoiti-caldera", "title": "Rotoiti Caldera – Wikipedia", "url": "https://en.wikipedia.org/wiki/Rotoiti_Caldera", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-okataina-caldera", "title": "Ōkataina Caldera – Wikipedia", "url": "https://en.wikipedia.org/wiki/Ōkataina_Caldera", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-lake-rotoiti", "title": "Lake Rotoiti (Bay of Plenty) – Wikipedia", "url": "https://en.wikipedia.org/wiki/Lake_Rotoiti_(Bay_of_Plenty)", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "pmc-goff-2017-aitape", "title": "Goff m.fl. 2017: Reassessing the environmental context of the Aitape Skull – The oldest tsunami victim in the world?, PLOS ONE (PMC5656299)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5656299/", "license": "CC BY 4.0", "checked": "2026-11-14"},
+    {"id": "wp-aitape-skull", "title": "Aitape Skull – Wikipedia", "url": "https://en.wikipedia.org/wiki/Aitape_Skull", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-sissano-lagoon", "title": "Sissano Lagoon – Wikipedia", "url": "https://en.wikipedia.org/wiki/Sissano_Lagoon", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-laas-geel", "title": "Laas Geel – Wikipedia", "url": "https://en.wikipedia.org/wiki/Laas_Geel", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-cave-of-swimmers", "title": "Cave of Swimmers – Wikipedia", "url": "https://en.wikipedia.org/wiki/Cave_of_Swimmers", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-guila-naquitz-cave", "title": "Guilá Naquitz Cave – Wikipedia", "url": "https://en.wikipedia.org/wiki/Guilá_Naquitz_Cave", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-new-britain", "title": "New Britain – Wikipedia", "url": "https://en.wikipedia.org/wiki/New_Britain", "license": "CC BY-SA 4.0", "checked": "2026-11-14"}
+]
 }
