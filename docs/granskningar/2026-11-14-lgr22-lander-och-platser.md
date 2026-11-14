@@ -105,7 +105,7 @@ Lästa i `data/ui/sv.json`, `data/platser.json` och `js/focus/place.js` (mallen 
 | `intro` (Sverige, Danmark) | "Följ området som i dag är …" och "Det är ett urval, inte en heltäckande historia." | Stämmer: kursplanen lämnar urvalet till läraren (geografi s. 18, 26) | Behåll. Grönland och Nya Zeeland säger "Följ Grönland …", inte "området som i dag är"; överväg samma mönster (fem språk) |
 | `place.type.landskap` och `place.typeOf` | "Landskap" och "Landskap i Sverige" (Skåne) | Kursplanerna använder "landskap" om natur- och kulturlandskap, aldrig om provins. Elever i åk 4–6 möter ordet i den betydelsen i geografi | Behåll typetiketten och lägg en förklarande rad i kortet, till exempel "ett av Sveriges gamla landskap, inte ett län" (fem språk). Frågan förs till ordlistan #1266, inte till ett eget issue. Att elever i 4–6 ändå möter provinsbetydelsen (i läromedel eller hemma) är ett **antagande**; kursplanerna säger inget om den |
 | Skånes `intro` | "inom dagens gräns för Skåne län" | Län nämns inte i kursplanerna; samhällskunskap talar om "regioner" | Behåll "Skåne län" (det är vad konturen är), men lärarfältet kan förklara län, region och landskap |
-| `place.type.country` | "Land" | Kursplanerna säger "länder", "Sverige … som nation", "stater i Norden" | Behåll; ordlistan #1266 bör skilja land, stat, rike och nation |
+| `place.type.country` | "Land" | Kursplanerna säger "länder"; kommentarmaterialet (historia s. 24–25) säger "Sverige … som nation" och "stater i Norden" | Behåll; ordlistan #1266 bör skilja land, stat, rike och nation |
 | `focus.note.places`, `place.filters`, `place.events`, `place.emptyYear` | Urval, alla kategorier, antal, tomt år | Neutrala | Behåll |
 
 ## 5. Till lektionsläget (#1163)
@@ -133,7 +133,7 @@ Lästa i `data/ui/sv.json`, `data/platser.json` och `js/focus/place.js` (mallen 
 ## 7. Experter
 
 - **Lärarlinsen** (`larare`) har granskat rapporten 2026-11-14 via dirigenten, utan att själv öppna källorna. Fynden är rättade: välfärdssamhället flyttat till 7–9, samerna som koppling till samhällskunskap, Danmark Medel i 4–6, bedömningsskalan förklarad, förklarande rad i stället för ny typetikett och stadiet och årtalens olika källor i avsnitt 6. Citaten kontrollerades igen mot de öppnade källorna samma dag (bland annat "nordisk stenålder, bronsålder och järnålder" i åk 1–3 och kommentarmaterialet i historia s. 24 och s. 30).
-- **Historikern** (`historiker`) har inte granskat rapporten (citaten och perioderna). Förslag: dirigenten kör den innan rapporten används för urvalet av länder, eller i expertgranskningen före releasen av 6.4.0.
+- **Historikern** (`historiker`) granskade rapporten 2026-11-14 och kontrollerade alla citat och sidnummer ordagrant mot källorna (utom textsökningssiffrorna i tabellen i avsnitt 3). Godkänd med en rättning: i avsnitt 4 (`place.type.country`) kommer "Sverige … som nation" och "stater i Norden" ur kommentarmaterialet, inte ur kursplanerna; rättat.
 
 ## 8. Förslag på nya issues (skapas inte här)
 
