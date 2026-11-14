@@ -98,7 +98,13 @@ export function placeLabels(singles, { W, H, hoverId, markers, badges, blocked =
       // Ett pågående krig får lägga etiketten över rikesnamn, och sist bredvid markören eller en rad längre bort (#1022)
       const side = dx => ({ x0: p.x + dx - (dx < 0 ? w : 0), x1: p.x + dx + (dx < 0 ? 0 : w), y0: p.y - h / 2, y1: p.y + h / 2 });
       const inside = b => b.x0 >= 4 && b.x1 <= W - 4;
-      box = [above, below, side(-off), side(off), { ...above, y0: above.y0 - h - 2, y1: above.y1 - h - 2 }, { ...below, y0: below.y0 + h + 2, y1: below.y1 + h + 2 }]
+      // Är klungorna tätt runt markören (en klunga ovanför, en under och en bredvid) ryms ingen av platserna ovan. Då söks platsen
+      // vidare åt sidan, steg för steg bort från markören, på markörens egen rad (#1538: Första världskriget 1916 i mobil, när
+      // Verdun och Versaillesfreden bildar en klunga alldeles intill). Klungor, knappar, markörer och andra etiketter är fortfarande
+      // fasta hinder; bara rikesnamnen (soft) får etiketten ligga över.
+      const farSides = [];
+      for (let dx = off + 12; dx <= W; dx += 12) farSides.push(side(-dx), side(dx));
+      box = [above, below, side(-off), side(off), { ...above, y0: above.y0 - h - 2, y1: above.y1 - h - 2 }, { ...below, y0: below.y0 + h + 2, y1: below.y1 + h + 2 }, ...farSides]
         .find(b => inside(b) && free(b, false));
       // Sist av allt: ovanför eller under markören, över grannmarkörer (inte över klungor, knappar eller andra etiketter),
       // så att det som pågår och är viktigast alltid får en etikett (#1022, mobilbredd 1916)
