@@ -59,3 +59,34 @@ test('utan priority och soft fungerar placeLabels som förut (anropen i Platt vy
   const out = place([single('a', 200, 200), single('b', 600, 400)]);
   assert.equal(out.length, 2);
 });
+
+// #1538: mobil (400 × 800), år 1916. Verdun och Versaillesfreden bildar en klunga alldeles intill Första världskriget, och två klungor
+// ligger ovanför och bredvid. Ovanför, under och på sidorna intill markören är upptaget av klungor, så etiketten måste ligga längre bort.
+// Lägena är de verkliga ur globen (skärmpositioner, klungor, knappar och rikesnamn).
+test('Första världskriget får etikett även när klungor ligger ovanför, under och bredvid markören (#1538)', () => {
+  const W = 401, H = 800;
+  const at = (id, x, y, kind) => ({ e: { id, kind, title: id }, p: { x, y, facing: 0.8 } });
+  const singles = [
+    at('forsta-varldskriget', 335, 297, 'war'), at('panamakanalen-oppnas', 98, 460), at('vandringsduvan-dor-ut', 108, 352),
+    at('mexikanska-revolutionen', 54, 404, 'war'), at('mexikos-grundlag-1917', 53, 397), at('spanska-sjukan', 73, 341),
+    at('titanic-sjunker', 201, 358), at('bingham-vid-machu-picchu', 125, 528), at('insulin-forsta-patienten', 125, 341),
+    at('chagas-ny-parasit-1909', 219, 547), at('sveriges-forsta-nationalparker', 273, 249)];
+  const dot = (x, y, r) => ({ x0: x - r, x1: x + r, y0: y - r, y1: y + r });
+  const markers = singles.map(s => ({ id: s.e.id, box: dot(s.p.x, s.p.y, 9) }));
+  const badges = [[348, 296], [297, 273], [312, 301], [324, 354], [374, 449]].map(([x, y]) => dot(x, y, 16));
+  const blocked = [[11, 1, 20, 10], [12, 2, 68, 54], [12, 49, 379, 73], [203, 2, 321, 48], [316, 2, 389, 48], [12, 700, 61, 742], [57, 700, 106, 742],
+    [102, 700, 151, 742], [147, 700, 201, 742], [197, 700, 245, 742], [241, 700, 290, 742], [286, 700, 335, 742], [331, 700, 389, 742]]
+    .map(([x0, y0, x1, y1]) => ({ x0, y0, x1, y1 }));
+  const soft = [[327, 306, 332, 313], [316, 322, 321, 329], [321, 312, 327, 319], [317, 300, 322, 308], [261, 261, 282, 287], [281, 309, 307, 335],
+    [57, 359, 77, 371], [185, 532, 218, 544], [294, 333, 320, 359], [348, 293, 374, 319]].map(([x0, y0, x1, y1]) => ({ x0, y0, x1, y1 }));
+  const isWar = it => it.e.kind === 'war';
+  const out = placeLabels(singles, { W, H, hoverId: null, markers, badges, blocked, soft, priority: isWar, text: e => (e.id === 'forsta-varldskriget' ? 'Första världskriget' : e.id), pxOf: () => 18 });
+  const l = out.find(x => x.e.id === 'forsta-varldskriget');
+  assert.ok(l, 'Första världskriget har etikett');
+  const w = 'Första världskriget'.length * 6.6 + 30, box = { x0: l.x - w / 2, x1: l.x + w / 2, y0: l.y - 2 - 22, y1: l.y - 2 };
+  assert.ok(box.x0 >= 4 && box.x1 <= W - 4, 'etiketten ryms på skärmen');
+  const hit = b => box.x0 < b.x1 && box.x1 > b.x0 && box.y0 < b.y1 && box.y1 > b.y0;
+  assert.ok(!badges.some(hit), 'etiketten ligger inte över en klunga');
+  assert.ok(!blocked.some(hit), 'etiketten ligger inte över knappar eller rubrik');
+  assert.ok(!markers.filter(m => m.id !== 'forsta-varldskriget').some(m => hit(m.box)), 'etiketten ligger inte över en grannmarkör');
+});
