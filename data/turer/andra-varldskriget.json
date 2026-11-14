@@ -28,7 +28,7 @@
           "en": "Linked to Lgr22 (the Swedish compulsory school curriculum), history in years 7–9, Imperialism and world wars c. 1850–1950: the two world wars and their causes and consequences.",
           "de": "Bezogen auf Lgr22 (den schwedischen Lehrplan der Pflichtschule), Geschichte in den Klassen 7–9, Imperialismus und Weltkriege ca. 1850–1950: die beiden Weltkriege, ihre Ursachen und Folgen.",
           "es": "Vinculado a Lgr22 (el currículo sueco de la escuela obligatoria), historia en los cursos 7–9, Imperialismo y guerras mundiales, c. 1850–1950: las dos guerras mundiales y sus causas y consecuencias.",
-          "fr": "En lien avec Lgr22 (le programme suédois de l'école obligatoire), histoire en classes 7 à 9, Impérialisme et guerres mondiales, v. 1850–1950 : les deux guerres mondiales, leurs causes et leurs conséquences."
+          "fr": "En lien avec Lgr22 (le programme suédois de l'école obligatoire), histoire en classes 7 à 9 (numérotation suédoise), Impérialisme et guerres mondiales, v. 1850–1950 : les deux guerres mondiales, leurs causes et leurs conséquences."
         },
         "sources": [
           "skolverket-lgr22-historia"
@@ -40,7 +40,7 @@
           "en": "Linked to Lgr22, history in years 7–9: interpreting historical sources from the period and examining them critically.",
           "de": "Bezogen auf Lgr22, Geschichte in den Klassen 7–9: historische Quellen aus dem Zeitraum deuten und quellenkritisch prüfen.",
           "es": "Vinculado a Lgr22, historia en los cursos 7–9: interpretar fuentes históricas del período y examinarlas con espíritu crítico.",
-          "fr": "En lien avec Lgr22, histoire en classes 7 à 9 : interpréter des sources historiques de la période et les examiner de façon critique."
+          "fr": "En lien avec Lgr22, histoire en classes 7 à 9 : interpréter des sources historiques de la période et les examiner de façon critique."
         },
         "sources": [
           "skolverket-lgr22-historia"
@@ -59,14 +59,14 @@
       "en": "Open Tours and choose the tour about the Second World War. Show it on a big screen (add ?presentation=1 to the address) or let the students go through it in pairs. The tour has 14 steps in five chapters and moves between Europe, North Africa and the Pacific; ask the students to say where on the globe each step takes place. Five steps have a question to think about (Britain, Pearl Harbor, Stalingrad, Auschwitz and Tokyo Bay). Stop there and let the students talk in pairs for a while before you move on. Suggested timing: 5 minutes to start, 20 minutes for the tour and questions, and 5 minutes for the exit ticket.",
       "de": "Öffnen Sie „Touren“ und wählen Sie die Tour über den Zweiten Weltkrieg. Zeigen Sie sie auf einer Großleinwand (fügen Sie ?presentation=1 an die Adresse an) oder lassen Sie die Klasse sie zu zweit durchgehen. Die Tour hat 14 Schritte in fünf Kapiteln und wechselt zwischen Europa, Nordafrika und dem Pazifik; lassen Sie die Klasse nennen, wo auf dem Globus jeder Schritt spielt. Fünf Schritte haben eine Frage zum Nachdenken (Großbritannien, Pearl Harbor, Stalingrad, Auschwitz, Bucht von Tokio). Halten Sie dort an und lassen Sie die Klasse kurz zu zweit sprechen, bevor Sie weitergehen. Zeitvorschlag: 5 Minuten Einstieg, 20 Minuten Tour mit Fragen, 5 Minuten Exit Ticket.",
       "es": "Abra Recorridos y elija el recorrido sobre la Segunda Guerra Mundial. Muéstrelo en una pantalla grande (añada ?presentation=1 a la dirección) o deje que el alumnado lo recorra en parejas. El recorrido tiene 14 pasos en cinco capítulos y alterna entre Europa, el norte de África y el Pacífico; pida al alumnado que diga en qué lugar del globo ocurre cada paso. Cinco pasos tienen una pregunta para pensar (Gran Bretaña, Pearl Harbor, Stalingrado, Auschwitz y la bahía de Tokio). Deténgase en esos pasos y deje que el alumnado hable en parejas un rato antes de seguir. Tiempo sugerido: 5 minutos de inicio, 20 minutos de recorrido con preguntas y 5 minutos de exit ticket.",
-      "fr": "Ouvrez Visites et choisissez la visite sur la Seconde Guerre mondiale. Affichez-la sur grand écran (ajoutez ?presentation=1 à l'adresse) ou laissez les élèves la parcourir en binômes. La visite compte 14 étapes en cinq chapitres et alterne entre l'Europe, l'Afrique du Nord et le Pacifique ; demandez aux élèves où se situe chaque étape sur le globe. Cinq étapes ont une question à méditer (Grande-Bretagne, Pearl Harbor, Stalingrad, Auschwitz, baie de Tokyo). Arrêtez-vous là et laissez les élèves discuter en binômes avant de continuer. Durée suggérée : 5 minutes d’introduction, 20 minutes de visite avec questions, 5 minutes de ticket de sortie."
+      "fr": "Ouvrez Visites et choisissez la visite sur la Seconde Guerre mondiale. Affichez-la sur grand écran (ajoutez ?presentation=1 à l'adresse) ou laissez les élèves la parcourir en binômes. La visite compte 14 étapes en cinq chapitres et alterne entre l'Europe, l'Afrique du Nord et le Pacifique ; demandez aux élèves où se situe chaque étape sur le globe. Cinq étapes ont une question à méditer (Grande-Bretagne, Pearl Harbor, Stalingrad, Auschwitz, baie de Tokyo). Arrêtez-vous là et laissez les élèves discuter en binômes avant de continuer. Durée suggérée : 5 minutes d’introduction, 20 minutes de visite avec questions, 5 minutes de ticket de sortie."
     },
     "exitTicket": {
       "sv": "Nämn två saker i turen som hände samma år på olika håll i världen. Varför kallas kriget ett världskrig?",
       "en": "Name two things in the tour that happened in the same year in different parts of the world. Why is the war called a world war?",
       "de": "Nennen Sie zwei Dinge aus der Tour, die im selben Jahr an verschiedenen Orten geschahen. Warum heißt der Krieg Weltkrieg?",
       "es": "Nombre dos cosas del recorrido que ocurrieron el mismo año en distintas partes del mundo. ¿Por qué se llama mundial esta guerra?",
-      "fr": "Citez deux choses de la visite qui se sont produites la même année dans différentes parties du monde. Pourquoi appelle-t-on cette guerre une guerre mondiale ?"
+      "fr": "Citez deux choses de la visite qui se sont produites la même année dans différentes parties du monde. Pourquoi appelle-t-on cette guerre une guerre mondiale ?"
     },
     "sourceDetective": [
       {
@@ -77,21 +77,21 @@
             "en": "The extra box in the fact box mentions two ways of counting how long the battle lasted. What are they, and who counts which way?",
             "de": "Der zusätzliche Kasten im Faktenfeld nennt zwei Arten zu zählen, wie lange die Schlacht dauerte. Welche sind es, und wer zählt auf welche Weise?",
             "es": "El recuadro adicional de la ficha menciona dos formas de contar cuánto duró la batalla. ¿Cuáles son y quién cuenta de cada una de ellas?",
-            "fr": "L'encadré supplémentaire de la fiche mentionne deux façons de compter la durée de la bataille. Lesquelles, et qui compte de quelle façon ?"
+            "fr": "L'encadré supplémentaire de la fiche mentionne deux façons de compter la durée de la bataille. Lesquelles, et qui compte de quelle façon ?"
           },
           {
             "sv": "Vad räknar de tyska historikerna in i slaget som de brittiska källorna inte gör?",
             "en": "What do the German historians include in the battle that the British sources do not?",
             "de": "Was rechnen die deutschen Historiker zur Schlacht, was die britischen Quellen nicht dazurechnen?",
             "es": "¿Qué incluyen los historiadores alemanes en la batalla que las fuentes británicas no incluyen?",
-            "fr": "Qu'est-ce que les historiens allemands incluent dans la bataille, contrairement aux sources britanniques ?"
+            "fr": "Qu'est-ce que les historiens allemands incluent dans la bataille, contrairement aux sources britanniques ?"
           },
           {
             "sv": "Varför tror du att två länder kan räkna samma slag på olika sätt?",
             "en": "Why do you think two countries can count the same battle in different ways?",
             "de": "Warum können zwei Länder Ihrer Meinung nach dieselbe Schlacht unterschiedlich zählen?",
             "es": "¿Por qué cree usted que dos países pueden contar la misma batalla de maneras distintas?",
-            "fr": "Pourquoi, selon vous, deux pays peuvent-ils compter la même bataille de façons différentes ?"
+            "fr": "Pourquoi, selon vous, deux pays peuvent-ils compter la même bataille de façons différentes ?"
           }
         ]
       },
@@ -103,21 +103,21 @@
             "en": "The extra box in the fact box mentions two dates on which the battle began. What are they, and which source gives which?",
             "de": "Der zusätzliche Kasten im Faktenfeld nennt zwei Daten, an denen die Schlacht begann. Welche sind es, und welche Quelle nennt welches?",
             "es": "El recuadro adicional de la ficha menciona dos fechas en las que comenzó la batalla. ¿Cuáles son y qué fuente da cada una?",
-            "fr": "L'encadré supplémentaire de la fiche mentionne deux dates de début de la bataille. Lesquelles, et quelle source donne laquelle ?"
+            "fr": "L'encadré supplémentaire de la fiche mentionne deux dates de début de la bataille. Lesquelles, et quelle source donne laquelle ?"
           },
           {
             "sv": "Vad är källorna överens om?",
             "en": "What do the sources agree on?",
             "de": "Worin stimmen die Quellen überein?",
             "es": "¿En qué coinciden las fuentes?",
-            "fr": "Sur quoi les sources sont-elles d'accord ?"
+            "fr": "Sur quoi les sources sont-elles d'accord ?"
           },
           {
             "sv": "Vad hände vid vart och ett av startdatumen, enligt rutan? Vilket datum tycker du passar bäst som början på slaget, och varför?",
             "en": "According to the box, what happened on each of the start dates? Which date do you think fits best as the start of the battle, and why?",
             "de": "Was geschah laut dem Kasten an jedem der beiden Anfangsdaten? Welches Datum passt Ihrer Meinung nach am besten als Beginn der Schlacht, und warum?",
             "es": "Según el recuadro, ¿qué ocurrió en cada una de las fechas de inicio? ¿Qué fecha cree usted que encaja mejor como comienzo de la batalla, y por qué?",
-            "fr": "D'après l'encadré, que s'est-il passé à chacune des dates de début ? Quelle date vous semble la mieux convenir comme début de la bataille, et pourquoi ?"
+            "fr": "D'après l'encadré, que s'est-il passé à chacune des dates de début ? Quelle date vous semble la mieux convenir comme début de la bataille, et pourquoi ?"
           }
         ]
       }

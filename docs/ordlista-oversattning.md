@@ -43,7 +43,7 @@ Artigt tilltal i alla språk, så att tyska, spanska och franska är lika:
 
 ## 3. Siffror och tecken
 
-- **Tusental** (mängd, inte år): **franska** har hårt mellanrum från fyra siffror, "4 000 ans". **Spanska** har mellanrum först från fem siffror, "4000 años" men "40 000 años", enligt RAE (Diccionario panhispánico de dudas, "números", § 2a; beslut 2026-11-12, [docs/beslut/2026-11-12-spanska-tusental.md](beslut/2026-11-12-spanska-tusental.md)). Som år alltid utan mellanrum.
+- **Tusental** (mängd, inte år): **franska** har hårt mellanrum från fyra siffror, "4 000 ans". **Spanska** har mellanrum först från fem siffror, "4000 años" men "40 000 años" (hårt mellanrum U+00A0, så att talet inte bryts över två rader, #1385), enligt RAE (Diccionario panhispánico de dudas, "números", § 2a; beslut 2026-11-12, [docs/beslut/2026-11-12-spanska-tusental.md](beslut/2026-11-12-spanska-tusental.md)). Som år alltid utan mellanrum.
 - **Decimaler** med komma: `3,5 millones`, `3,5 millions`.
 - **Citattecken:** spanska `«…»`, franska `« … »` med hårda mellanrum innanför tecknen.
 - **Fransk typografi:** hårt mellanrum före `:`, `;`, `?`, `!` och `»`, och efter `«`. Apostrof `’` eller `'` som i gränssnittet; var konsekvent i samma fil.
@@ -350,3 +350,31 @@ Profeten skrivs *Mahoma* och flykten till Medina *la hégira* (etablerade spansk
 | shinto | sintoísmo |
 | kinesisk religion (konfucianism, daoism) | religión china (confucianismo, taoísmo) |
 | Nyckelår (rubrik i faktarutan) | Años clave |
+
+## 16. Språkfynd ur expertgranskningen v6.3.0 (#1385)
+
+Rättat 2026-11-14 efter [expertgranskningen före v6.3.0](granskningar/2026-11-13-expertgranskning-v6-3-0.md). Formerna gäller från nu i nya och ändrade texter.
+
+| Svenska | Engelska | Tyska | Spanska | Franska |
+|---|---|---|---|---|
+| söva (före en operation) | *anaesthetise* (inte *put to sleep*, som också betyder avliva) | – | – | – |
+| Källorna skiljer sig | The sources differ | – | *Las fuentes difieren* (inte *Las fuentes no coinciden*) | *Les sources divergent* (13.4) |
+| Om tiden (rubrik i en anteckning om datering) | About the time | *Zur Datierung* (inte *Zur Zeit*, som betyder "för närvarande") | – | – |
+| folkvandringstiden, folkvandringen | – | *Völkerwanderung* | – | – |
+| lager (i Lager-menyn och teckenförklaringen) | layer | Ebene | capa | *calque* överallt (inte *couche*; *couche* får stå om jordlager i händelsetexter) |
+| inom {tid} från {år} | within {time} of {year} | – | – | *à moins de {within} de {at}* (inte *dans un rayon de*, som är ett avstånd) |
+| flaggetikett | – | *Flagge von Niger*, *Flagge von Mali*, *Flagge von Benin* (som *Flagge von Sierra Leone*) | – | – |
+| Licens: public domain (bildtext) | – | – | *Licencia: dominio público* | – |
+| Lgr22, årskurs 7–9 | Lgr22 (the Swedish compulsory school curriculum), years 7–9 | – | – | *Lgr22 (le programme suédois de l'école obligatoire)*, *classes 7 à 9 (numérotation suédoise)* första gången i en text |
+
+**Rikesnamn (kontrollerade 2026-11-14 mot öppnade artiklar på målspråkets Wikipedia):**
+
+| Svenska | Tyska | Spanska | Franska | Anmärkning |
+|---|---|---|---|---|
+| Xixia (Västra Xia) | *Westliche Xia* (inte *Tanguten*, som är folket, eller *Westlich-Xia*); i löptext *die Westliche Xia*, *der Westlichen Xia* | – | – | de.wikipedia "Westliche Xia-Dynastie": "Das Reich der Westlichen Xia-Dynastie", "Geschichte der Westlichen Xia" |
+| Heftaliter | – | *Heftalitas* | *Hephtalites* | es.wikipedia "Heftalita" (omdirigering från *Heftalitas*); fr.wikipedia "Shvetahûna" (omdirigering från *Hephtalites*, i texten "Ephthalites ou Hephthalites") |
+| Aghlabider | – | *Aglabíes* | – | es.wikipedia "Aglabí" (omdirigering från *Aglabíes*, i texten "Los aglabíes") |
+| Egyptens gamla rike | *Altes Reich* | – | *Ancien Empire* | utan "von Ägypten" och "de l'Égypte": riket står redan i gruppen Egypten |
+| Norra Yuan | *Nördliche Yuan-Dynastie* (bindestreck) | – | – | |
+
+- **Versal i spanska och franska rikesnamn:** första ordet får versal även när det är ett vanligt substantiv (*Reino visigodo*, *Dinastía Sui*, *Royaume de France*, *Dynastie Liao*), övriga ord följer avsnitt 3 (*Royaume ouïghour de Qocho*). Årtal hör inte till namnet (*Royaume de Norvège*, inte *royaume de Norvège (872-1397)*).
