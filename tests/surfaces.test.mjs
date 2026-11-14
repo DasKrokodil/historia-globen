@@ -117,3 +117,32 @@ test('anyOpen säger om någon yta i gruppen är öppen, och opener får fokus e
   assert.equal(focused, 1);
   assert.deepEqual(log, []);
 });
+
+test('en öppnad meny, panel, popover, dialog eller jakt stänger raden om en trasig länk, men raden stänger inget (#1324)', () => {
+  for (const [id, group] of [['meny', 'meny'], ['panel', 'sidopanel'], ['popover', 'popover'], ['dialog', 'dialog'], ['jakt', 'uppdrag']]) {
+    const log = [];
+    const s = createSurfaces();
+    s.register('besked', 'besked', () => log.push('besked'));
+    s.register(id, group, () => log.push(id));
+    s.opened(id);
+    assert.ok(log.includes('besked'), `${group} stängde inte beskedet`);
+  }
+  const log = [];
+  const s = createSurfaces();
+  for (const [id, group] of [['panel', 'sidopanel'], ['layers', 'meny'], ['jump', 'popover'], ['hjalp', 'dialog'], ['besked', 'besked']]) s.register(id, group, () => log.push(id));
+  s.opened('besked');
+  assert.deepEqual(log, [], 'beskedet öppnades och stängde en annan yta');
+});
+
+test('Escape stänger raden om en trasig länk, efter dialoger, popovers och jakten (#1324)', () => {
+  const closed = [];
+  const open = { besked: true, dialog: true };
+  const s = createSurfaces();
+  s.register('besked', 'besked', () => { open.besked = false; closed.push('besked'); }, { isOpen: () => open.besked });
+  s.register('hjalp', 'dialog', () => { open.dialog = false; closed.push('hjalp'); }, { isOpen: () => open.dialog });
+  assert.equal(s.escape(), true);
+  assert.deepEqual(closed, ['hjalp'], 'dialogen först');
+  assert.equal(s.escape(), true);
+  assert.deepEqual(closed, ['hjalp', 'besked']);
+  assert.equal(s.escape(), false);
+});

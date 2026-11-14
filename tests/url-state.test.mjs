@@ -1,7 +1,8 @@
 // Adressformatet (#501, #64): js/url-state.js. Kör: node --test 'tests/*.test.mjs'
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { encodeHash, decodeHash, decodeTour, decodeMode, decodeMission, decodeRole, isNewStep, RESERVED_HASH_FIELDS } from '../js/url-state.js';
+import { encodeHash, decodeHash, decodeProblems, decodeTour, decodeMode, decodeMission, decodeRole, isNewStep, RESERVED_HASH_FIELDS } from '../js/url-state.js';
+import { noticeText, noticeKey, cleanName, NAME_MAX } from '../js/controllers/link-notice.js';
 import { MIN_YEAR, MAX_YEAR, RESERVED_STATE_KEYS, toJSON, fromJSON } from '../js/state.js';
 import { readFileSync } from 'node:fs';
 
@@ -240,4 +241,77 @@ test('d och domain är reserverade: de skrivs inte, och en länk med d öppnas s
   const json = toJSON({ year: 1325, focus: null, layers: { areas: true }, filters: new Set(['krig']), tag: null, calm: false, range: null });
   for (const key of RESERVED_STATE_KEYS) assert.ok(!(key in json), `${key} är reserverat (#397)`);
   assert.ok(!('domain' in fromJSON({ ...json, domain: 'jorden' })));
+});
+
+// Felkanalen (#1324): vad i en länk som inte gick att tolka. Länken öppnas som förut; kanalen ändrar inget i tolkningen.
+test('felkanalen: ett ogiltigt år, en tur med fel tecken och ett okänt fokus ger varsitt problem, i fast ordning', () => {
+  assert.deepEqual(decodeProblems('#y=abc'), [{ kind: 'year', why: 'format', value: 'abc' }]);
+  assert.deepEqual(decodeProblems('#t=Finns Inte'), [{ kind: 'tour', why: 'missing', value: 'Finns Inte' }]);
+  assert.deepEqual(decodeProblems('', '?tur=Fel!'), [{ kind: 'tour', why: 'missing', value: 'Fel!' }], 'den äldre ?tur= läses också');
+  assert.deepEqual(decodeProblems('#y=1500&f=okänd:x'), [{ kind: 'focus', why: 'missing', value: 'okänd:x' }]);
+  assert.deepEqual(decodeProblems('#y=1500&f=finns-inte:x'), [{ kind: 'focus', why: 'missing', value: 'finns-inte:x' }], 'okänd typ');
+  assert.deepEqual(decodeProblems('#y=1500&f=war'), [{ kind: 'focus', why: 'missing', value: 'war' }], 'saknar id');
+  // Sammanblandade parametrar: alla tre samtidigt, i ordningen tur, fokus, år
+  assert.deepEqual(decodeProblems('#y=abc&f=x&t=A B').map(p => p.kind), ['tour', 'focus', 'year']);
+});
+
+test('felkanalen: en giltig länk, en tom eller en saknad del ger inget problem, och kanalen kastar aldrig', () => {
+  for (const ok of ['', '#', '#y=1500', '#y=-499&l=events', '#y=1879.0548', '#y=1500&f=war:hundraarskriget', '#y=1500&f=place:ett_id', '#t=vikingatiden-och-varlden&s=ett-steg',
+    '#y=', '#y=%20', '#t=', '#f=', '#y=1500&d=jorden', '#y=1&calm=1', '#foo=1']) assert.deepEqual(decodeProblems(ok), [], ok);
+  assert.deepEqual(decodeProblems(null, null), []);
+  assert.deepEqual(decodeProblems(undefined), []);
+  assert.deepEqual(decodeProblems('#y=%E0%A4%A').map(p => p.kind), ['year'], 'trasig procentkodning kastar inte');
+});
+
+test('felkanalen: hashen tolkas som förut, och problems finns bara när något är trasigt', () => {
+  const ok = decodeHash('#y=1500&f=war:hundraarskriget');
+  assert.ok(!('problems' in ok));
+  // Ett okänt fokus tas bort ur tillståndet som förut; felet står i problems
+  const bad = decodeHash('#y=1000&f=okänd:x&l=events');
+  assert.equal(bad.year, 1000);
+  assert.equal(bad.focus, null);
+  assert.deepEqual(bad.layers, ['events']);
+  assert.deepEqual(bad.problems.map(p => p.kind), ['focus']);
+  // Ett ogiltigt år ger fortfarande null (startläget): problemet läses då med decodeProblems
+  assert.equal(decodeHash('#y=abc&f=war:hundraarskriget'), null);
+  assert.deepEqual(decodeProblems('#y=abc&f=war:hundraarskriget').map(p => p.kind), ['year']);
+  // En fokusnyckel som följer formen men saknas i datan är inget formfel: det avgörs i address.js
+  assert.deepEqual(decodeProblems('#y=1500&f=war:finns-inte'), []);
+  assert.equal(decodeHash('#y=1500&f=war:finns-inte').focus, 'war:finns-inte');
+});
+
+test('felkanalen: gamla länkar ur arkivet ger inget problem', () => {
+  for (const link of archive.links) assert.deepEqual(decodeProblems(link.hash, link.search ?? ''), [], `${link.versions.join(', ')}: ${link.what}`);
+});
+
+test('felkanalen: raden säger vad som saknades, med namnet som text, kapat, och ett problem per slag', () => {
+  const say = (key, vars) => `${key}|${vars.name}`;
+  assert.equal(noticeText([{ kind: 'tour', why: 'missing', value: 'finns-inte' }], say), 'link.noTour|finns-inte');
+  assert.equal(noticeText([{ kind: 'tour', why: 'fetch', value: 'en-tur' }], say), 'link.tourFetch|en-tur');
+  assert.equal(noticeText([{ kind: 'focus', why: 'missing', value: 'x' }, { kind: 'year', why: 'format', value: 'abc' }], say), 'link.noFocus|x link.badYear|abc');
+  assert.equal(noticeText([{ kind: 'tour', value: 'a' }, { kind: 'tour', value: 'b' }], say), 'link.noTour|a', 'den första av ett slag gäller');
+  assert.equal(noticeText([], say), '');
+  assert.equal(noticeText(null, say), '');
+  assert.equal(noticeKey({ kind: 'year', why: 'format' }), 'link.badYear');
+  // Namnet kommer ur adressen: HTML lämnas orört (raden skrivs med textContent), men styrtecken och riktningstecken tas bort och längden kapas
+  assert.equal(cleanName('<img src=x onerror=alert(1)>'), '<img src=x onerror=alert(1)>');
+  assert.equal(cleanName('a‮b\u0000c\n d'), 'a b c d');
+  assert.equal([...cleanName('x'.repeat(500))].length, NAME_MAX);
+  assert.ok(cleanName('x'.repeat(500)).endsWith('…'));
+  assert.equal(cleanName(null), '');
+});
+
+test('felkanalen: varje text finns i alla fem språken, med {name}, och i artigt tilltal', () => {
+  const keys = ['link.noTour', 'link.tourFetch', 'link.noFocus', 'link.badYear'];
+  for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+    const ui = JSON.parse(readFileSync(new URL(`../data/ui/${lang}.json`, import.meta.url), 'utf8'));
+    for (const key of keys) {
+      assert.ok(ui[key], `${lang} saknar ${key}`);
+      assert.ok(ui[key].includes('{name}'), `${lang}: ${key} saknar {name}`);
+    }
+    const text = keys.map(k => ui[k]).join(' ');
+    if (lang === 'de') assert.ok(!/\b(du|dein|dir)\b/i.test(text), 'de: du-form');
+    if (lang === 'es') assert.ok(!/\b(tú|tu|vuelve|inténtalo)\b/i.test(text), 'es: tú-form');
+    if (lang === 'fr') assert.ok(!/\b(tu|ton|ta|recharge)\b/i.test(text), 'fr: tu-form');
+  }
 });

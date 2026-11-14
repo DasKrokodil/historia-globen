@@ -94,6 +94,7 @@ export function createAddress(app) {
   /** Ställer in vyn efter en läst hash (decodeHash). Ger det som saknas i datan (felkanalen, #1324), eller null när en nyare adress tog över. */
   async function apply(s) {
     const found = [];
+    const focusId = s.focus?.split(':')[1] ?? ''; // namnet i raden är id:t, utan typen
     const mine = ++version;
     app.store.ticket('fokus'); // adressen är en nyare begäran om Fokus, också när den inte har något: ett äldre fokus som laddas börjar inte
     try {
@@ -129,12 +130,12 @@ export function createAddress(app) {
           if (mine !== version) return null;
           if (!started) {
             // Typen sa nej utan att ett läge eller en nyare adress stod i vägen och utan eget besked (tema och plats har ett): id:t finns inte
-            if (!crashed && app.store.canEnter('fokus') && app.$('focus-notice').hidden) found.push({ kind: 'focus', why: 'missing', value: s.focus });
+            if (!crashed && app.store.canEnter('fokus') && app.$('focus-notice').hidden) found.push({ kind: 'focus', why: 'missing', value: focusId });
             return found;
           }
           timeline.year = s.year; // fokus kan ha flyttat året till sin start
         } else {
-          if (s.focus) found.push({ kind: 'focus', why: 'missing', value: s.focus }); // typen har sagt att id:t inte finns
+          if (s.focus) found.push({ kind: 'focus', why: 'missing', value: focusId }); // typen har sagt att id:t inte finns
           if (state.focus) app.endFocus();
         }
       }
