@@ -45,12 +45,30 @@
 |---|---|
 | **Händelse** | En post i `data/handelser/` med id, kategori, start/slut, plats, titel, sammanfattning, källor och granskningsnivå. |
 | **Krig** | En händelse med `kind: "war"` och spann; slag pekar på kriget med `partOf`. Har ett **krigsområde** som ritas runt platserna. |
-| **Rike** (polity) | Ett område över tid ur `data/empires/`, byggt ur Cliopatria. |
+| **Rike** (polity) | Ett område över tid ur `data/empires/`, byggt ur Cliopatria. Se avsnittet "Land, rike, stat, nation, plats och tema" nedan. |
 | **Väg / resa** | Linje som ritas fram över tiden (`data/routes/`). |
 | **Urval** | Det som kommit med på globen. Gjort av en ensam redaktör; kriterier i [08](08-urvalsriktlinje.md). |
 | **Kärnhändelser** | Den godkända listan av händelser som ska finnas ([karnhandelser.md](../karnhandelser.md)). |
 | **EDTF / precision** | Hur osäkerhet och noggrannhet i datum skrivs (`~`, `?`, spann) och Wikidatas skala 0–11. |
 | **Omstridd gräns** | En nutida gräns- eller statusfråga som ritas enligt **Sveriges hållning (UD)**, med källa. |
+
+## Land, rike, stat, nation, plats och tema (#1266)
+
+Eleven ska inte tro att land och rike är samma sak. Orden nedan beskriver **hur projektet använder dem** i data, kod och gränssnitt; de är inte uppslagsverkens fullständiga definitioner. Översättningarna står i [ordlista-oversattning.md](../ordlista-oversattning.md), avsnitt 17.
+
+| Begrepp | Betyder i Historia-globen | I data och kod |
+|---|---|---|
+| **Plats** (samlingsordet) | Ett kort om ett områdes historia med en **dagens gräns** som kontur: händelserna inom gränsen i tidsordning. Samlingsordet för alla platstyper (land, självstyrt område, senare landskap, delstat, Bundesland, kanton). Kortet säger vilken typ platsen är; samlingsordet står bara i gruppen **Platser** och i rubriken **Plats** på kortet. Platsen lägger inte till några fakta själv; allt historiskt står i händelserna och deras källor. | `data/platser.json`, fokus av typen `place` (`js/focus/place.js`), `place.*` och `focus.tab.places` i `data/ui/` |
+| **Land** | **Dagens land, med dagens gräns, under hela tidsspannet.** Ett land är en plats av typen `country` (beslut 2026-11-12, [länderna före regionerna](../beslut/2026-11-12-landerna-fore-regionerna.md)), inte ett eget fokus. Kortet visar allt som hänt inom dagens gräns, också när området hörde till andra riken eller inte var en stat alls. Därför står den fasta raden "Linjen på kartan visar dagens gräns, inte den gräns som gällde då" (`place.borderNote`). Skriv gärna "området som i dag är Sverige" när det gäller tiden före dagens land. | `type: "country"`, `place.type.country` |
+| **Försvunnet land** | Undantaget från "dagens land": ett land som **inte finns längre** (till exempel Tjeckoslovakien), med årtal då det bildades och upplöstes och vilka länder det blev. Det är ett **rike** i datan, inte en plats, och listas under fliken Försvunna länder i Sök och följ. Ordet "land" används där för att gränssnittet säger så; inget försvunnet land har ett platskort med dagens gräns. | grupp med `vanished` i `data/empires/index.json`, `facts.kind.vanished`, `focus.tab.vanished` |
+| **Självstyrt område** | En plats som har eget styre men inte är ett självständigt land (Grönland). Typen sätts bara när den finns i redan källkontrollerade händelser. | `type: "autonomous"`, `place.type.autonomous` |
+| **Rike** | **En statsbildning som fanns under en viss tid, med gränser som ändras** år för år. Samlingsordet i gränssnittet för alla statsbildningar ur Cliopatria: kejsardömen och kungadömen, men också kalifat, kolonialvälden och republiker som USA och Mexiko under deras historia. Rikets kontur är den gräns som gällde det valda året, inte dagens. Ett rike och ett land kan ha samma namn (riket Sverige och landet Sverige) men är olika saker: riket har en historisk gräns som ändras, landet har dagens gräns. Områden som inte var en stat (stadsstater, kulturer) kallas inte rike ([beslut 2026-11-13](../beslut/2026-11-13-omraden-som-inte-ar-stat-1300.md)). | `data/empires/`, lagret Riken (`layer.areas`), `facts.kind.empire`, fokus av typen `empire` |
+| **Stat** | En politisk organisation med makt över ett område och dess folk. Ordet är **inget eget begrepp i gränssnittet** och ingen datatyp; det används i förklaringar (till exempel "statsreligion" och "områden som inte är en stat") och i namn som källorna själva använder (Amerikas konfedererade stater). Både riken och dagens länder är stater, men en plats behöver inte vara det (Grönland). | inget fält; `facts.stateReligion` |
+| **Nation** | En **grupp människor** som delar identitet, ofta språk och historia, eller medborgarskap i en stat; alltså människorna, inte området. En stat kan rymma flera nationer, och en nation kan bo i flera stater. Ordet är **inget begrepp i gränssnittet** och ingen datatyp, och det används inte som synonym till land. Används det i en text ska det betyda folket. | inget fält |
+| **Region** | **Världsdel** (Europa, Asien, Afrika, Amerika, Oceanien), som förut. Används inte om landskap, delstater eller andra delar av ett land; de är platser med en egen typ. | `REGIONS` i `js/model.js`, `region.<id>` i `data/ui/` |
+| **Tema** | Ett namngivet **urval av befintliga händelser** med en introduktion, till exempel teknik. Har ingen gräns och inget område; händelserna kan ligga var som helst i världen. Skilt från en plats (urval efter gräns) och från en epok (ett tidsspann). | `data/teman.json`, fokus av typen `theme` (`js/focus/theme.js`), `theme.*` i `data/ui/` |
+
+**Varför orden hålls isär:** dagens gräns läst som en gammal gräns ger fel bild ("Sverige har alltid sett ut så"), och ett rike läst som ett land ger samma fel åt andra hållet. Rikets kontur och landets kontur ser olika ut på kartan av samma skäl.
 
 ## Teknik
 
