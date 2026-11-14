@@ -671,7 +671,10 @@ GROUPS = {
         ('Kingdom of Libya', 'kungariket-libyen', 'Kungariket Libyen', '#5f7fb0', {'en': 'Kingdom of Libya'}),
         (['Libyan Arab Republic', 'State of Libya'], 'libyen', 'Libyen', '#5f7fb0', {'en': 'Libya', 'wikidata': 'Q1016'}),
     ]),
+    # Bogd Khanate (#1331): Cliopatrias Great Mongol State 1912–1925, med Wikidatas id (Cliopatria anger Q7313, Yuandynastin).
+    # Före 1945 följer kartan Cliopatria (docs/omstridda-granser.md); att staten knappt erkändes står i rutan Om kartan
     'mongoliet': ('Mongoliet', 'Mongolia', [
+        ('Great Mongol State', 'bogd-khanate', 'Bogd Khanate', '#3a6fb0', {'en': 'Bogd Khanate of Mongolia', 'wikidata': 'Q2475921'}),
         ("Mongolian People's Republic", 'mongoliska-folkrepubliken', 'Mongoliska folkrepubliken', '#3a6fb0',
          {'en': "Mongolian People's Republic"}),
         ('Mongolia', 'mongoliet', 'Mongoliet', '#3a6fb0', {'en': 'Mongolia'}),
@@ -1337,8 +1340,12 @@ GROUPS = {
     'visigotiska-riket': ('Visigotiska riket', 'Visigothic Kingdom', [
         ('Visigothic Kingdom', 'visigotiska-riket', 'Visigotiska riket', '#a06a4a', {'en': 'Visigothic Kingdom'}),
     ]),
+    # Cliopatrias Mongol Khanate (1468–1635) läggs till Norra Yuandynastin (#1331). Cliopatrias Wikidata-id Q19927420 är en
+    # förgreningssida; av rikena där är det bara Norra Yuan (Q8959, 1368–1635 enligt Wikipedia) som stämmer med år och plats.
     'norra-yuandynastin': ('Norra Yuandynastin', 'Northern Yuan dynasty', [
         ('Northern Yuan', 'norra-yuandynastin', 'Norra Yuandynastin', '#7a6ab0', {'en': 'Northern Yuan dynasty'}),
+        ('Mongol Khanate', 'norra-yuandynastin-1468', 'Norra Yuandynastin', '#7a6ab0',
+         {'en': 'Northern Yuan dynasty', 'wikidata': 'Q8959'}),
     ]),
     'kungariket-alodia': ('Kungariket Alodia', 'Alodia', [
         ('Alodia', 'kungariket-alodia', 'Kungariket Alodia', '#c09a5a', {'en': 'Alodia'}),
@@ -1517,6 +1524,41 @@ GROUPS = {
     ]),
     'chola-empire': ('Chola Empire', 'Chola Empire', [
         ('Chola Empire', 'chola-empire', 'Chola Empire', '#c0704a', {'en': 'Chola Empire'}),
+    ]),
+    # Inre Asien 1500–1800, Afrika 1850 och Tibet 1912–1952 (#1331, ur helganalysen #1289). Svenska och engelska namn är
+    # Wikidatas etiketter, utom Khedivatet Egypten (svenska Wikipedias titel; etiketten "Khedivet" ser ut som ett skrivfel)
+    # och gruppen Egypten under ätten Muhammed Ali (Wikidatas namn på ätten; Cliopatrias id är en historieartikel).
+    # Mogulistan: Cliopatria delar khanatet i en östra och en västra del 1519; alla tre har samma Wikidata-id och samma namn.
+    # Tibet (Q2444884): bara 1912–1952. Tibet 1363–1793 väntar, eftersom Cliopatrias id där är "Tibets historia"
+    # (beslut 2026-11-07-riken-namn-645). Tibet erkändes nästan inte av någon stat; som Rhodesia visas det som i Cliopatria
+    # med en not (beslut 2026-11-13-ockupation-och-inbordeskrig, punkt 5).
+    'dzungarkhanatet': ('Dzungarkhanatet', 'Dzungar Khanate', [
+        ('Dzungar Khanate', 'dzungarkhanatet', 'Dzungarkhanatet', '#9a7a4a', {'en': 'Dzungar Khanate'}),
+    ]),
+    'mogulistan': ('Mogulistan', 'Moghulistan', [
+        ('Moghulistan', 'mogulistan', 'Mogulistan', '#5a9a8a', {'en': 'Moghulistan'}),
+        ('Eastern Moghulistan', 'mogulistan-ost', 'Mogulistan', '#5a9a8a', {'en': 'Moghulistan'}),
+        ('Western Moghulistan', 'mogulistan-vast', 'Mogulistan', '#5a9a8a', {'en': 'Moghulistan'}),
+    ]),
+    'tibet': ('Tibet', 'Tibet', [
+        ('Tibet', 'tibet', 'Tibet', '#b0604a', {'en': 'Tibet', 'wikidata': 'Q2444884', 'years': (1912, 1952)}),
+    ]),
+    'egypten-muhammad-ali': ('Egypten under ätten Muhammed Ali', 'Egypt under the Muhammad Ali dynasty', [
+        ('Muhammad Ali dynasty', 'egypten-muhammad-ali', 'Egypten under ätten Muhammed Ali', '#c9a23a',
+         {'en': 'Egypt under the Muhammad Ali dynasty'}),
+        ('Khedivate of Egypt', 'khedivatet-egypten', 'Khedivatet Egypten', '#c9a23a', {'en': 'Khedivate of Egypt'}),
+    ]),
+    'sokotokalifatet': ('Sokotokalifatet', 'Sokoto Caliphate', [
+        ('Sokoto Caliphate', 'sokotokalifatet', 'Sokotokalifatet', '#5a8a4a', {'en': 'Sokoto Caliphate'}),
+    ]),
+    'kungariket-madagaskar': ('Kungariket Madagaskar', 'Merina Kingdom', [
+        ('Merina Kingdom', 'kungariket-madagaskar', 'Kungariket Madagaskar', '#a04a6a', {'en': 'Merina Kingdom'}),
+    ]),
+    'wadai': ('Wadai', 'Ouaddai Empire', [
+        ('Wadai Empire', 'wadai', 'Wadai', '#b08a4a', {'en': 'Ouaddai Empire'}),
+    ]),
+    'sultanatet-darfur': ('Sultanatet Darfur', 'Sultanate of Darfur', [
+        ('Sultanate of Darfur', 'sultanatet-darfur', 'Sultanatet Darfur', '#8a5a3a', {'en': 'Sultanate of Darfur'}),
     ]),
     # Små stater ur Natural Earth (#722, Rikards beslut 2026-11-07): Cliopatria saknar dem i nutid eller har fel gräns
     # (Saint Kitts ligger på Saint Croix, Mikronesien är bara Pohnpei). Gränsen är dagens land i Natural Earth

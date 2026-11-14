@@ -31788,7 +31788,7 @@
     "fr": "Mongolie"
    },
    "color": "#3a6fb0",
-   "from": 1926,
+   "from": 1912,
    "to": 2024,
    "file": "data/empires/mongoliet.json",
    "flags": [
@@ -31828,6 +31828,17 @@
     }
    ],
    "polities": [
+    {
+     "id": "bogd-khanate",
+     "name": {
+      "sv": "Bogd Khanate",
+      "en": "Bogd Khanate of Mongolia"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
     {
      "id": "mongoliska-folkrepubliken",
      "name": {
@@ -39987,7 +39998,7 @@
    },
    "color": "#7a6ab0",
    "from": 1375,
-   "to": 1439,
+   "to": 1635,
    "file": "data/empires/norra-yuandynastin.json",
    "polities": [
     {
@@ -39998,6 +40009,17 @@
       "de": "Nördliche Yuan-Dynastie",
       "es": "Yuan del Norte",
       "fr": "Dynastie Yuan du Nord"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "norra-yuandynastin-1468",
+     "name": {
+      "sv": "Norra Yuandynastin",
+      "en": "Northern Yuan dynasty"
      },
      "sources": [
       "cliopatria"
@@ -41535,6 +41557,231 @@
       "de": "Chola Empire",
       "es": "Imperio Chola",
       "fr": "Empire Chola"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "dzungarkhanatet",
+   "name": {
+    "sv": "Dzungarkhanatet",
+    "en": "Dzungar Khanate"
+   },
+   "color": "#9a7a4a",
+   "from": 1609,
+   "to": 1756,
+   "file": "data/empires/dzungarkhanatet.json",
+   "polities": [
+    {
+     "id": "dzungarkhanatet",
+     "name": {
+      "sv": "Dzungarkhanatet",
+      "en": "Dzungar Khanate"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "mogulistan",
+   "name": {
+    "sv": "Mogulistan",
+    "en": "Moghulistan"
+   },
+   "color": "#5a9a8a",
+   "from": 1463,
+   "to": 1686,
+   "file": "data/empires/mogulistan.json",
+   "polities": [
+    {
+     "id": "mogulistan",
+     "name": {
+      "sv": "Mogulistan",
+      "en": "Moghulistan"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "mogulistan-ost",
+     "name": {
+      "sv": "Mogulistan",
+      "en": "Moghulistan"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "mogulistan-vast",
+     "name": {
+      "sv": "Mogulistan",
+      "en": "Moghulistan"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "tibet",
+   "name": {
+    "sv": "Tibet",
+    "en": "Tibet"
+   },
+   "color": "#b0604a",
+   "from": 1912,
+   "to": 1952,
+   "file": "data/empires/tibet.json",
+   "polities": [
+    {
+     "id": "tibet",
+     "name": {
+      "sv": "Tibet",
+      "en": "Tibet"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "egypten-muhammad-ali",
+   "name": {
+    "sv": "Egypten under ätten Muhammed Ali",
+    "en": "Egypt under the Muhammad Ali dynasty"
+   },
+   "color": "#c9a23a",
+   "from": 1805,
+   "to": 1884,
+   "file": "data/empires/egypten-muhammad-ali.json",
+   "polities": [
+    {
+     "id": "egypten-muhammad-ali",
+     "name": {
+      "sv": "Egypten under ätten Muhammed Ali",
+      "en": "Egypt under the Muhammad Ali dynasty"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "khedivatet-egypten",
+     "name": {
+      "sv": "Khedivatet Egypten",
+      "en": "Khedivate of Egypt"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "sokotokalifatet",
+   "name": {
+    "sv": "Sokotokalifatet",
+    "en": "Sokoto Caliphate"
+   },
+   "color": "#5a8a4a",
+   "from": 1805,
+   "to": 1904,
+   "file": "data/empires/sokotokalifatet.json",
+   "polities": [
+    {
+     "id": "sokotokalifatet",
+     "name": {
+      "sv": "Sokotokalifatet",
+      "en": "Sokoto Caliphate"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "kungariket-madagaskar",
+   "name": {
+    "sv": "Kungariket Madagaskar",
+    "en": "Merina Kingdom"
+   },
+   "color": "#a04a6a",
+   "from": 1792,
+   "to": 1897,
+   "file": "data/empires/kungariket-madagaskar.json",
+   "polities": [
+    {
+     "id": "kungariket-madagaskar",
+     "name": {
+      "sv": "Kungariket Madagaskar",
+      "en": "Merina Kingdom"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "wadai",
+   "name": {
+    "sv": "Wadai",
+    "en": "Ouaddai Empire"
+   },
+   "color": "#b08a4a",
+   "from": 1636,
+   "to": 1910,
+   "file": "data/empires/wadai.json",
+   "polities": [
+    {
+     "id": "wadai",
+     "name": {
+      "sv": "Wadai",
+      "en": "Ouaddai Empire"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ]
+  },
+  {
+   "id": "sultanatet-darfur",
+   "name": {
+    "sv": "Sultanatet Darfur",
+    "en": "Sultanate of Darfur"
+   },
+   "color": "#8a5a3a",
+   "from": 1609,
+   "to": 1876,
+   "file": "data/empires/sultanatet-darfur.json",
+   "polities": [
+    {
+     "id": "sultanatet-darfur",
+     "name": {
+      "sv": "Sultanatet Darfur",
+      "en": "Sultanate of Darfur"
      },
      "sources": [
       "cliopatria"
