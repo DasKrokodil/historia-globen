@@ -82,7 +82,25 @@ def main():
     out = ['# Bildpromptar', '',
            'Skapade av `tools/bildpromptar.py` (#129). Kopiera prompten till ett bildverktyg och lägg bilden i',
            '`images/incoming/<händelse-id>.jpg` (eller .png/.webp). Spara verktyg och datum, så fyller Claude i `image` i händelsens fil i data/handelser/.',
-           'Sök alltid efter en riktig public domain-bild på Wikimedia Commons först.', '']
+           'Sök alltid efter en riktig public domain-bild på Wikimedia Commons först.', '',
+           '## Människoarter och förhistoria (#1105)', '',
+           'Gäller bilder av människoarter och förhistoria, enligt '
+           '[docs/beslut/2026-11-14-rekonstruktioner-av-manniskoarter.md](beslut/2026-11-14-rekonstruktioner-av-manniskoarter.md).', '',
+           '- **Riktig bild först:** fossil, fyndplatser, verktyg och andra fynd från Wikimedia Commons med tillåten licens '
+           '(public domain, CC0, CC BY, CC BY-SA). Annars landskap, djur eller föremål, utan människor i närbild.',
+           '- **Inga ansiktsrekonstruktioner som standard**, varken egna illustrationer eller foton av museirekonstruktioner. '
+           'Ett undantag kräver DasKrokodils ja.',
+           '- **Bildtexten** på en illustration börjar med "Illustration, tolkning, inte en historisk bild" '
+           '(en: "Illustration, interpretation, not a historical image"; de: "Illustration, Deutung, kein historisches Bild"; '
+           'es: "Ilustración, interpretación, no una imagen histórica"; fr: "Illustration, interprétation, pas une image historique"). '
+           'Stil, verktyg, datum och exakt prompt sparas i `image`.',
+           '- **Prompten får inte innehålla** hudfärg, hår, ansiktsdrag, kroppsbyggnad, kläder, smycken eller beteende som '
+           'händelsens källa inte stöder. Står det inte i källan, står det inte i prompten.',
+           '- **Inga stereotyper:** inga "grottmänniskor", inga apmänniskor, ingen hopsjunken hållning som tecken på en '
+           '"primitiv" art och ingen marschrad av arter mot nutidsmänniskan.',
+           '- **Granskning:** `forhistoriker` granskar motiv, bildtext och prompt innan bilden läggs in.',
+           '- Promptarna nedan för händelser före cirka 3000 f.Kr. är skrivna för stilen i `data/styles.json` och följer inte '
+           'reglerna av sig själva: ta bort människor ur motivet eller välj en riktig bild.', '']
     for e, style, variant, prompt in rows:
         title = e['title']['sv']
         name = variant['name']['sv'] if variant else style['name']['sv']
