@@ -3832,7 +3832,7 @@ async function run(browser, vp) {
     return `${before} → ${after}`;
   });
 
-  await check('Stäng av alla lager och återställ Standard', async () => {
+  await check('Stäng av alla lager och återställ startvyn', async () => {
     const panel = page.locator('#panel');
     const menu = page.locator('#layer-menu');
     try {
@@ -3870,23 +3870,44 @@ async function run(browser, vp) {
       await visible('#layer-menu');
       if (await page.locator('#layer-custom').isHidden()) await page.click('#layer-customize');
       await visible('#layer-custom');
-      await page.getByRole('button', { name: 'Återställ standardvyn' }).click();
-      await page.waitForFunction(() => document.querySelector('#layer-menu [data-view="standard"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
-      if ((await page.locator('.layer-action-status').textContent()).trim() !== 'Standardvyn är återställd.') {
+      await page.getByRole('button', { name: 'Återställ startvyn' }).click();
+      // Återställ går till startvyn (Översikt), inte till förvalet Standard (#1579)
+      await page.waitForFunction(() => document.querySelector('#layer-menu [data-view="oversikt"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
+      if ((await page.locator('.layer-action-status').textContent()).trim() !== 'Startvyn är återställd.') {
         throw new Error('statusraden bekräftar inte återställningen');
       }
-      const expected = await page.evaluate(() => fetch('data/vyer.json').then(response => response.json()).then(doc => doc.views.find(view => view.id === 'standard').layers));
+      const expected = await page.evaluate(() => fetch('data/vyer.json').then(response => response.json()).then(doc => doc.views.find(view => view.id === 'oversikt').layers));
       const standardStates = await page.locator('#layer-custom input[data-layer]').evaluateAll(inputs =>
         Object.fromEntries(inputs.filter(input => input.closest('[data-group]')?.dataset.group !== 'settings').map(input => [input.dataset.layer, input.checked])));
       if (expected.some(id => standardStates[id] !== true) || Object.entries(standardStates).some(([id, on]) => on !== expected.includes(id))) {
-        throw new Error(`Återställ gav inte Standard: ${JSON.stringify(standardStates)}`);
+        throw new Error(`Återställ gav inte startvyn: ${JSON.stringify(standardStates)}`);
       }
-      return 'alla kontrollerade lager stängs av, Samtidigt kan slå på Händelser och Återställ återställer Standard';
+      return 'alla kontrollerade lager stängs av, Samtidigt kan slå på Händelser och Återställ återställer startvyn';
     } finally {
       if (await panel.evaluate(el => el.classList.contains('open'))) await page.click('#panel-close');
       if (await menu.isHidden()) await clickView('#btn-layers');
       if (await page.locator('#layer-custom').isHidden()) await page.click('#layer-customize');
-      await page.getByRole('button', { name: 'Återställ standardvyn' }).click();
+      await page.click('#layer-menu .view-chip[data-view="standard"]'); // senare kontroller utgår från Standard
+      await page.keyboard.press('Escape');
+      await hidden('#layer-menu');
+    }
+  });
+
+  // #1578 och #1580: fokus hamnar i Lager-menyn när den öppnas, och ett lagerval som inte rör Händelser lämnar urvalet i Översikt
+  await check('Lager: fokus in i menyn och urvalet i Översikt består när ett annat lager ändras (#1578, #1580)', async () => {
+    await clickView('#btn-layers');
+    await visible('#layer-menu');
+    if (!(await page.evaluate(() => document.getElementById('layer-menu').contains(document.activeElement)))) throw new Error('fokus hamnade inte i Lager-menyn när den öppnades');
+    try {
+      await page.click('#layer-menu .view-chip[data-view="oversikt"]');
+      await page.waitForFunction(() => /([?&#])g=oversikt(?:&|$)/.test(location.hash), null, { timeout: T.step });
+      await setLayer('wars', false);
+      await page.waitForFunction(() => document.querySelector('#layer-menu [data-view="oversikt"]')?.getAttribute('aria-pressed') === 'false', null, { timeout: T.step });
+      if (!(await page.evaluate(() => /([?&#])g=oversikt(?:&|$)/.test(location.hash)))) throw new Error('urvalet i Översikt släpptes när Krigsområden slogs av');
+      return 'fokus i menyn och g=oversikt kvar efter att Krigsområden slagits av';
+    } finally {
+      if (await page.locator('#layer-menu').isHidden()) await clickView('#btn-layers');
+      await page.click('#layer-menu .view-chip[data-view="standard"]');
       await page.keyboard.press('Escape');
       await hidden('#layer-menu');
     }
