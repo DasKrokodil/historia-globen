@@ -88,8 +88,8 @@ def main():
            '[docs/beslut/2026-11-14-rekonstruktioner-av-manniskoarter.md](beslut/2026-11-14-rekonstruktioner-av-manniskoarter.md).', '',
            '- **Riktig bild först:** fossil, fyndplatser, verktyg och andra fynd från Wikimedia Commons med tillåten licens '
            '(public domain, CC0, CC BY, CC BY-SA). Annars landskap, djur eller föremål, där människoarten inte visas i närbild.',
-           '- **Inga ansiktsrekonstruktioner som standard**, varken egna illustrationer eller foton av museirekonstruktioner '
-           '(att foton av museirekonstruktioner utesluts väntar på DasKrokodils bekräftelse). Ett undantag kräver DasKrokodils ja.',
+           '- **Inga ansiktsrekonstruktioner som standard**, varken egna illustrationer eller foton av museirekonstruktioner. '
+           'Ett undantag kräver DasKrokodils ja.',
            '- **Bildtexten** på en illustration börjar med "Illustration, tolkning, inte en historisk bild" '
            '(en: "Illustration, interpretation, not a historical image"; de: "Illustration, Deutung, kein historisches Bild"; '
            'es: "Ilustración, interpretación, no una imagen histórica"; fr: "Illustration, interprétation, pas une image historique"). '
