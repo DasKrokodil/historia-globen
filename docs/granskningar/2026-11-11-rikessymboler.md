@@ -174,9 +174,6 @@ Byggt på grenen `claude/issue-1153-asien-2`. Källorna öppnades 2026-11-14: "F
 
 ## Tabeller per världsdel
 
-
-## Tabeller per världsdel
-
 Kolumner: id, rike, sort, vad symbolen är, källa, bild på Commons med licens, säkerhet, rekommendation och anmärkning.
 
 
