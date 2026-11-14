@@ -72,16 +72,24 @@ export class GlobeDetail {
   }
 
   /** Hämtar den finare kustkartan första gången utsnittet behövs. Misslyckas hämtningen används 1:50m som förut. */
-  _loadFineLand() {
-    if (this.fineRequested) return;
+  _loadFineLand() { this.loadFineLand(); }
+
+  /**
+   * Den finare kustkartan, hämtad en gång: ett löfte som ger den, eller null om den inte kunde läsas (då ritas 1:50m).
+   * Delas med regionvyn i Platt vy (#1641), som ritar samma grundkarta skarpt.
+   */
+  loadFineLand() {
+    if (this.fineRequested) return this._finePromise;
     this.fineRequested = true;
-    fetch(FINE_LAND)
+    this._finePromise = fetch(FINE_LAND)
       .then(res => { if (!res.ok) throw new Error(`${res.status}`); return res.json(); })
       .then(land => {
         this.fineLand = land;
         if (this.region) { this._drawBase(); this.globe.invalidate(); } // byt kusten under utsnittet som redan syns
+        return land;
       })
-      .catch(err => console.warn('Den finare kustkartan kunde inte laddas, grundkartan används', err));
+      .catch(err => { console.warn('Den finare kustkartan kunde inte laddas, grundkartan används', err); return null; });
+    return this._finePromise;
   }
 
   /** Lagrens ritfunktion: (ctx, W, H, drawFaded) => void, samma anrop som registry.draw. */

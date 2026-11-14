@@ -126,9 +126,13 @@ export function createPlaces(app) {
   }
 
   // ---- knappen "Visa i Platt karta" i platsens kort --------------------------------------------------------------
-  /** Byt till Platt karta och ram in platsen. Kameran på globen flyger inte, och inget eget läge börjar. */
+  /**
+   * Byt till Platt karta och ram in platsen. Kameran på globen flyger inte, och inget eget läge börjar. En liten plats (upp till
+   * cirka 5 grader, Skåne och Danmark) får regionvyn i stället (#1641, controllers/region.js): en skarp, inzoomad karta.
+   */
   function showInFlat(place) {
     app.viewMode.set('flat');
+    if (app.region?.eligible(place)) { app.region.enter(place); return; }
     // På bred skärm ligger kortet till höger och täcker kartan: inramningen räknar bara med ytan till vänster om det
     const card = $('detail'), covered = !app.narrow.matches && !card.hidden ? Math.max(0, flatMap.canvas.getBoundingClientRect().right - card.getBoundingClientRect().left) : 0;
     flatMap.frame(placeBounds(place), 0.78, covered);

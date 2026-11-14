@@ -70,6 +70,12 @@
         <button id="flat-reset" class="flat-zbtn" type="button" aria-label="Återställ kartan" data-i18n-aria-label="flat.reset" title="Återställ kartan" data-i18n-title="flat.reset"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <button id="flat-poster" class="flat-zbtn flat-poster" type="button"></button>
       </div>
+      <!-- Regionvyn (#1641): vilken plats som visas och vägen ut; texterna skrivs av js/controllers/region.js -->
+      <div id="flat-region" class="flat-region" role="group" aria-labelledby="flat-region-name" hidden>
+        <p id="flat-region-name" class="flat-region-name"></p>
+        <p id="flat-region-note" class="flat-region-note"></p>
+        <button id="flat-region-back" class="flat-region-back" type="button"></button>
+      </div>
     </div>
   </div>
 
