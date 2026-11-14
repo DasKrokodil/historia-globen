@@ -1530,9 +1530,10 @@ GROUPS = {
     # och gruppen Egypten under ätten Muhammed Ali (Wikidatas namn på ätten, Q142913, som ersätter Cliopatrias id Q3057606,
     # en historieartikel; de och es är egna översättningar byggda på Q142913:s etiketter, fr är franska Wikipedias titel för Q3057606).
     # Mogulistan: Cliopatria delar khanatet i en östra och en västra del 1519; alla tre har samma Wikidata-id och samma namn.
-    # Tibet (Q2444884): bara 1912–1952. Tibet 1363–1793 väntar, eftersom Cliopatrias id där är "Tibets historia"
-    # (beslut 2026-11-07-riken-namn-645). Tibet erkändes nästan inte av någon stat; som Rhodesia visas det som i Cliopatria
-    # med en not (beslut 2026-11-13-ockupation-och-inbordeskrig, punkt 5).
+    # Tibet (Q2444884): bara 1912–1951; efter 1951 följer kartan Sveriges hållning (DasKrokodils beslut 2026-11-14).
+    # Tibet 1363–1793 väntar, eftersom Cliopatrias id där är "Tibets historia"
+    # (beslut 2026-11-07-riken-namn-645). Tibet erkändes nästan inte av någon stat; 1912–1951 visas det som i
+    # Cliopatria med en not, och 1952 lämnas tomt (docs/omstridda-granser.md).
     'dzungarkhanatet': ('Dzungarkhanatet', 'Dzungar Khanate', [
         ('Dzungar Khanate', 'dzungarkhanatet', 'Dzungarkhanatet', '#9a7a4a', {'en': 'Dzungar Khanate'}),
     ]),
@@ -1542,7 +1543,7 @@ GROUPS = {
         ('Western Moghulistan', 'mogulistan-vast', 'Mogulistan', '#5a9a8a', {'en': 'Moghulistan'}),
     ]),
     'tibet': ('Tibet', 'Tibet', [
-        ('Tibet', 'tibet', 'Tibet', '#b0604a', {'en': 'Tibet', 'wikidata': 'Q2444884', 'years': (1912, 1952)}),
+        ('Tibet', 'tibet', 'Tibet', '#b0604a', {'en': 'Tibet', 'wikidata': 'Q2444884', 'years': (1912, 1951)}),
     ]),
     'egypten-muhammad-ali': ('Egypten under ätten Muhammed Ali', 'Egypt under the Muhammad Ali dynasty', [
         ('Muhammad Ali dynasty', 'egypten-muhammad-ali', 'Egypten under ätten Muhammed Ali', '#c9a23a',

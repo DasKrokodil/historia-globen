@@ -13231,15 +13231,17 @@
      }
     ],
     "mapNote": {
-     "sv": "Källorna anger 1547–1721 för tsardömet och 1721–1917 för kejsardömet. Kartan visar tsardömet 1547–1720 och kejsardömet 1721–1916.",
-     "en": "The sources give 1547–1721 for the tsardom and 1721–1917 for the empire. The map shows the tsardom 1547–1720 and the empire 1721–1916."
+     "sv": "Källorna anger 1547–1721 för tsardömet och 1721–1917 för kejsardömet. Kartan visar tsardömet 1547–1720 och kejsardömet 1721–1916. Efter kejsardömet har Cliopatria posten Russian Republic 1917–1919, som inte finns på kartan än. Källorna anger kortare tid: Ryska republiken fanns enligt Wikipedia från 14 september 1917 till januari 1918 och enligt Wikidata till 25 oktober 1917.",
+     "en": "The sources give 1547–1721 for the tsardom and 1721–1917 for the empire. The map shows the tsardom 1547–1720 and the empire 1721–1916. After the empire Cliopatria has the entry Russian Republic in 1917–1919, which is not on the map yet. The sources give a shorter time: according to Wikipedia the Russian Republic existed from 14 September 1917 to January 1918, and according to Wikidata until 25 October 1917."
     },
     "sources": [
      "wp-tsardom-of-russia",
      "wd-tsardom-of-russia",
      "wp-russian-empire",
      "wd-russian-empire",
-     "wp-coat-of-arms-russia"
+     "wp-coat-of-arms-russia",
+     "wp-russian-republic",
+     "wd-russian-republic"
     ],
     "review": "two-sources"
    },
@@ -41731,7 +41733,7 @@
    },
    "color": "#b0604a",
    "from": 1912,
-   "to": 1952,
+   "to": 1951,
    "file": "data/empires/tibet.json",
    "polities": [
     {
@@ -41751,15 +41753,16 @@
    ],
    "facts": {
     "mapNote": {
-     "sv": "Tibet var de facto självständigt från 1912, när Qingdynastin föll, men nästan ingen stat erkände det; Republiken Kina räknade Tibet till Kina. Källorna skiljer sig om slutet: Wikipedia anger 1951, då Folkrepubliken Kina annekterade Tibet efter att Folkets befrielsearmé gått in i Chamdo i oktober 1950, och Wikidata anger 1959. Kartan visar Tibet 1912–1952 som Cliopatria, enligt Historia-globens beslut om stater som inte erkändes, med Cliopatrias gräns, som ändras flera gånger. Tibet före 1912 (Cliopatria har Tibet 1363–1793) finns inte på kartan än.",
-     "en": "Tibet was de facto independent from 1912, when the Qing dynasty fell, but almost no state recognised it; the Republic of China counted Tibet as part of China. The sources differ on the end: Wikipedia gives 1951, when the People’s Republic of China annexed Tibet after the People’s Liberation Army entered Chamdo in October 1950, and Wikidata gives 1959. The map shows Tibet in 1912–1952 as Cliopatria does, following Historia-globen’s decision on states that were not recognised, with Cliopatria’s border, which changes several times. Tibet before 1912 (Cliopatria has Tibet in 1363–1793) is not on the map yet.",
-     "de": "Tibet war ab 1912, als die Qing-Dynastie fiel, de facto unabhängig, aber fast kein Staat erkannte es an; die Republik China zählte Tibet zu China. Beim Ende weichen die Quellen ab: Wikipedia nennt 1951, als die Volksrepublik China Tibet annektierte, nachdem die Volksbefreiungsarmee im Oktober 1950 in Chamdo einmarschiert war, und Wikidata nennt 1959. Die Karte zeigt Tibet 1912–1952 wie Cliopatria, nach dem Beschluss von Historia-globen zu Staaten, die nicht anerkannt wurden, mit der Grenze von Cliopatria, die sich mehrmals ändert. Tibet vor 1912 (Cliopatria hat Tibet 1363–1793) ist noch nicht auf der Karte.",
-     "es": "El Tíbet fue independiente de facto desde 1912, cuando cayó la dinastía Qing, pero casi ningún Estado lo reconoció; la República de China consideraba el Tíbet parte de China. Las fuentes difieren sobre el final: Wikipedia indica 1951, cuando la República Popular China anexionó el Tíbet después de que el Ejército Popular de Liberación entrara en Chamdo en octubre de 1950, y Wikidata indica 1959. El mapa muestra el Tíbet en 1912–1952 como Cliopatria, según la decisión de Historia-globen sobre los Estados que no fueron reconocidos, con la frontera de Cliopatria, que cambia varias veces. El Tíbet anterior a 1912 (Cliopatria tiene el Tíbet en 1363–1793) todavía no está en el mapa.",
-     "fr": "Le Tibet fut indépendant de facto à partir de 1912, à la chute de la dynastie Qing, mais presque aucun État ne le reconnut ; la république de Chine considérait le Tibet comme une partie de la Chine. Les sources divergent sur la fin : Wikipédia indique 1951, lorsque la république populaire de Chine annexa le Tibet après l’entrée de l’Armée populaire de libération à Chamdo en octobre 1950, et Wikidata indique 1959. La carte montre le Tibet en 1912–1952 comme Cliopatria, selon la décision d’Historia-globen sur les États qui n’étaient pas reconnus, avec la frontière de Cliopatria, qui change plusieurs fois. Le Tibet d’avant 1912 (Cliopatria a le Tibet en 1363–1793) n’est pas encore sur la carte."
+     "sv": "Tibet var de facto självständigt från 1912, när Qingdynastin föll, men nästan ingen stat erkände det; Republiken Kina räknade Tibet till Kina. Källorna skiljer sig om slutet: Wikipedia anger 1951, då Folkrepubliken Kina annekterade Tibet efter att Folkets befrielsearmé gått in i Chamdo i oktober 1950, och Wikidata anger 1959. Kartan visar Tibet 1912–1951 som Cliopatria. Efter 1951 följer kartan Sveriges hållning (Historia-globens beslut 2026-11-14): Sverige upprättade som första västland diplomatiska förbindelser med Folkrepubliken Kina 1950 (UD), och Tibet visas inte längre som eget land. Gränsen är Cliopatrias, och den ändras flera gånger. Tibet före 1912 (Cliopatria har Tibet 1363–1793) finns inte på kartan än.",
+     "en": "Tibet was de facto independent from 1912, when the Qing dynasty fell, but almost no state recognised it; the Republic of China counted Tibet as part of China. The sources differ on the end: Wikipedia gives 1951, when the People’s Republic of China annexed Tibet after the People’s Liberation Army entered Chamdo in October 1950, and Wikidata gives 1959. The map shows Tibet in 1912–1951 as Cliopatria does. After 1951 the map follows Sweden’s position (Historia-globen’s decision of 14 November 2026): Sweden was the first Western country to establish diplomatic relations with the People’s Republic of China, in 1950 (Swedish Ministry for Foreign Affairs), and Tibet is no longer shown as a separate country. The border is Cliopatria’s, and it changes several times. Tibet before 1912 (Cliopatria has Tibet in 1363–1793) is not on the map yet.",
+     "de": "Tibet war ab 1912, als die Qing-Dynastie fiel, de facto unabhängig, aber fast kein Staat erkannte es an; die Republik China zählte Tibet zu China. Beim Ende weichen die Quellen ab: Wikipedia nennt 1951, als die Volksrepublik China Tibet annektierte, nachdem die Volksbefreiungsarmee im Oktober 1950 in Chamdo einmarschiert war, und Wikidata nennt 1959. Die Karte zeigt Tibet 1912–1951 wie Cliopatria. Nach 1951 folgt die Karte der Haltung Schwedens (Beschluss von Historia-globen vom 14. November 2026): Schweden nahm 1950 als erstes westliches Land diplomatische Beziehungen zur Volksrepublik China auf (schwedisches Außenministerium), und Tibet wird nicht mehr als eigenes Land gezeigt. Die Grenze ist die von Cliopatria, und sie ändert sich mehrmals. Tibet vor 1912 (Cliopatria hat Tibet 1363–1793) ist noch nicht auf der Karte.",
+     "es": "El Tíbet fue independiente de facto desde 1912, cuando cayó la dinastía Qing, pero casi ningún Estado lo reconoció; la República de China consideraba el Tíbet parte de China. Las fuentes difieren sobre el final: Wikipedia indica 1951, cuando la República Popular China anexionó el Tíbet después de que el Ejército Popular de Liberación entrara en Chamdo en octubre de 1950, y Wikidata indica 1959. El mapa muestra el Tíbet en 1912–1951 como Cliopatria. Después de 1951, el mapa sigue la posición de Suecia (decisión de Historia-globen del 14 de noviembre de 2026): Suecia fue el primer país occidental en establecer relaciones diplomáticas con la República Popular China, en 1950 (Ministerio de Asuntos Exteriores de Suecia), y el Tíbet ya no se muestra como un país propio. La frontera es la de Cliopatria, y cambia varias veces. El Tíbet anterior a 1912 (Cliopatria tiene el Tíbet en 1363–1793) todavía no está en el mapa.",
+     "fr": "Le Tibet fut indépendant de facto à partir de 1912, à la chute de la dynastie Qing, mais presque aucun État ne le reconnut ; la république de Chine considérait le Tibet comme une partie de la Chine. Les sources divergent sur la fin : Wikipédia indique 1951, lorsque la république populaire de Chine annexa le Tibet après l’entrée de l’Armée populaire de libération à Chamdo en octobre 1950, et Wikidata indique 1959. La carte montre le Tibet en 1912–1951 comme Cliopatria. Après 1951, la carte suit la position de la Suède (décision d’Historia-globen du 14 novembre 2026) : la Suède fut le premier pays occidental à établir des relations diplomatiques avec la république populaire de Chine, en 1950 (ministère suédois des Affaires étrangères), et le Tibet n’est plus montré comme un pays à part. La frontière est celle de Cliopatria, et elle change plusieurs fois. Le Tibet d’avant 1912 (Cliopatria a le Tibet en 1363–1793) n’est pas encore sur la carte."
     },
     "sources": [
      "wp-tibet-1912-1951",
      "wd-tibet-1912-1951",
+     "ud-kina",
      "cliopatria"
     ],
     "review": "source-checked"
