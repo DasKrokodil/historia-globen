@@ -8,7 +8,7 @@
 // annars hoppar tidslinjen. Avsluta återställer besökarens lager, fokus och kamera och lämnar året där turen var.
 import { t, isVisibleReview, formatYear } from '../model.js';
 import { tourProblems } from '../tour-format.js';
-import { printLesson, teacherLink } from './print-sheet.js';
+import { teacherLink } from './print-sheet.js';
 import { ui } from '../i18n.js';
 
 /** Längsta tid (sekunder) som uppspelningen får ta mellan två steg; längre avstånd blir ett hopp. */
@@ -91,25 +91,6 @@ export class TourPlayer {
       else if (s?.place) this.showPlace(s, true, true); // knappen är en uttrycklig handling: kortet får fokus (arket täcker annars knappen)
     });
     this.srcBtn.addEventListener('click', () => { const ids = this.step?.sources ?? []; app.openSources(ids); });
-    // Skriv ut (#738): bara i en lektionstur, alltså en tur med lärarfält (lesson, #737)
-    if (this.printBtn) {
-      this.printBtn.textContent = ui('print.button');
-      // Går inte källregistret att ladda skrivs inget ut; beskedet står kvar och en ny tryckning försöker igen (#879)
-      this.printBtn.addEventListener('click', async () => {
-        if (this.printStatus) this.printStatus.hidden = true;
-        const result = await printLesson(this.tour, app.printRoot);
-        if (result === 'sources' && this.printStatus) {
-          this.printStatus.textContent = ui('print.sourcesFailed');
-          this.printStatus.classList.remove('is-ok');
-          this.printStatus.hidden = false;
-        }
-      });
-    }
-    // Kopiera lärarlänk (#930): som Dela, men länken har r=lararen; den hamnar aldrig i adressen
-    if (this.copyTeacherBtn) {
-      this.copyTeacherBtn.textContent = ui('tour.teacherLinkCopy');
-      this.copyTeacherBtn.addEventListener('click', () => this.copyTeacherLink());
-    }
     // Escape i en lektion avslutar inte turen: utgången är "Visa hela globen" i bandet (#795)
     this.card.addEventListener('keydown', e => { if (e.key === 'Escape') { e.stopPropagation(); if (!app.lesson?.active) this.end(); } });
 
@@ -256,13 +237,12 @@ export class TourPlayer {
   stepIndex(stepId) { return Math.max(0, this.tour?.steps.findIndex(x => x.id === stepId) ?? 0); }
 
   /**
-   * Startar turen med id, vid steget stepId om det finns (en länk med t och s, #736), annars vid första steget.
-   * Besökarens lager, fokus och kamera sparas, så att Avsluta kan återställa dem. Ger false för en okänd tur.
+   * Kopierar lektionslänken med lärarens väg till bladen (#930), som Dela: urklipp, annars en ruta att kopiera ur.
+   * Knappen står vid varje lektion i För lärare (#1583); note är raden som säger att länken är kopierad.
    */
-  /** Kopierar lektionslänken med lärarens väg till bladen (#930), som Dela: urklipp, annars en ruta att kopiera ur. */
-  async copyTeacherLink() {
-    if (!this.tour?.lesson) return;
-    const url = teacherLink(this.tour), note = this.printStatus;
+  async copyTeacherLink(tour, note = null) {
+    if (!tour?.lesson) return;
+    const url = teacherLink(tour);
     const say = (text, ok) => { if (!note) return; note.textContent = text; note.classList.toggle('is-ok', ok); note.hidden = false; };
     try {
       await navigator.clipboard.writeText(url);
@@ -273,6 +253,10 @@ export class TourPlayer {
     }
   }
 
+  /**
+   * Startar turen med id, vid steget stepId om det finns (en länk med t och s, #736), annars vid första steget.
+   * Besökarens lager, fokus och kamera sparas, så att Avsluta kan återställa dem. Ger false för en okänd tur.
+   */
   start(id, opener = null, stepId = null) {
     const tour = this.tours.find(x => x.id === id);
     if (!tour) return false;
@@ -332,9 +316,6 @@ export class TourPlayer {
     this.status.hidden = !step.status;
     this.read.hidden = !step.open && !step.place;
     this.read.textContent = this.readLabel(step);
-    if (this.printBtn) this.printBtn.hidden = !this.tour.lesson;
-    if (this.copyTeacherBtn) this.copyTeacherBtn.hidden = !this.tour.lesson;
-    if (this.printStatus) this.printStatus.hidden = true;
     this.back.hidden = this.index === 0;
     if (this.endBtn) this.endBtn.hidden = this.last; // sista steget: Klar avslutar
     this.next.textContent = this.last ? t(this.labels.done) : `${t(this.labels.next)} →`;

@@ -44,9 +44,9 @@ export class EmpireMarkers {
         it.sprite.position.copy(latLonToVec3(m.lat, m.lon, R * 1.014));
         it.lon = m.lon; it.lat = m.lat;
       }
-      it.sprite.visible = true;
+      it.sprite.visible = it.want = true;
     }
-    for (const [key, it] of this.items) if (!now.has(key)) { it.sprite.visible = false; it.button.hidden = true; }
+    for (const [key, it] of this.items) if (!now.has(key)) { it.sprite.visible = it.want = false; it.button.hidden = true; }
   }
 
   _make(m) {
@@ -58,13 +58,29 @@ export class EmpireMarkers {
     button.type = 'button'; button.className = 'gorigin gempire'; button.hidden = true;
     button.setAttribute('aria-label', markLabel(m));
     button.title = ui('marks.empire.title', { name: m.name }); // hovringstexten följer språket (#1188)
-    const it = { sprite, button, mark: m, visual: `${m.kind}:${m.flagKind ?? ''}:${m.symbol}`, lon: null, lat: null };
+    const it = { sprite, button, mark: m, want: false, visual: `${m.kind}:${m.flagKind ?? ''}:${m.symbol}`, lon: null, lat: null };
     button.addEventListener('click', () => this.onPick(it.mark));
     this.labelsEl.append(button);
     this.items.set(m.key, it);
     return it;
   }
 
-  /** Varje bildruta: storlek på skärmen och knappens plats, som religionernas medaljer. */
-  frame() { frameMedals(this.globe, this.items.values(), this.scale); }
+  /**
+   * Varje bildruta: storlek på skärmen och knappens plats, som religionernas medaljer. Därefter kontrolleras markörerna mot varandra i
+   * skärmpixlar (#1584): placeringen på kartan (AreasLayer._layout) håller dem isär i kartans mått, men nära klotets kant och vid låg
+   * inzoomning kommer två riken tätt på skärmen. Det större riket (areaKm2) behåller sin markör, och en markör som ligger närmare än 80 % av medaljernas
+   * storlek från en större grannes hålls borta den bildrutan; på lagerbilden syns då bara den lilla medaljen under.
+   */
+  frame() {
+    const items = [...this.items.values()];
+    for (const it of items) it.sprite.visible = it.want;
+    frameMedals(this.globe, items, this.scale);
+    const shown = items.filter(it => it.sprite.visible && !it.button.hidden).sort((a, b) => (b.mark.area ?? 0) - (a.mark.area ?? 0));
+    const kept = [];
+    for (const it of shown) {
+      const size = parseFloat(it.button.style.width) || 0, p = this.globe.project(it.sprite.position);
+      const clash = kept.some(k => Math.hypot(k.x - p.x, k.y - p.y) < (k.size + size) / 2 * 0.8);
+      if (clash) { it.sprite.visible = false; it.button.hidden = true; } else kept.push({ x: p.x, y: p.y, size });
+    }
+  }
 }

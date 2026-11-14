@@ -248,6 +248,8 @@
       <p class="teacher-text" data-i18n="teacher.lessonsText">Färdiga lektioner. I lektionsläget döljs de flesta menyerna och tiden stannar inom lektionens år.</p>
       <ul id="teacher-lessons" class="teacher-lessons"></ul>
       <p id="teacher-lessons-empty" class="teacher-text teacher-empty" hidden data-i18n="teacher.noLessons">Lektionerna kunde inte hämtas just nu. Ladda om sidan och försök igen.</p>
+      <!-- Besked efter Kopiera lärarlänk (#1583) -->
+      <p id="teacher-link-status" class="tour-print-status" role="status" hidden></p>
     </section>
     <ul class="teacher-actions">
       <li id="teacher-quiz-row">
@@ -273,7 +275,7 @@
       <summary data-i18n="teacher.more">Så delar du lektionen och skriver ut</summary>
       <p class="teacher-text" data-i18n="teacher.shareText">Eleverna får lektionen med länken på lärarbladet, eller med Dela under Mer: delar du mitt i lektionen börjar de på samma steg. Bandet överst har Visa hela globen: då slutar lektionen och sidan blir den vanliga, med samma år.</p>
       <h3 class="teacher-h teacher-h-print" data-i18n="teacher.print">Utskrift</h3>
-      <p class="teacher-text" data-i18n="teacher.printText">Starta en lektion ovan och välj Skriv ut elev- och lärarblad i bandet överst. Elevbladet har frågor med plats för svar. Lärarbladet har årskurs, tid, förkunskaper, instruktion, koppling till läroplanen och frågorna. Knappen finns bara för dig som lärare, och den försvinner om du laddar om sidan under lektionen. Vill du ha en länk som ger knappen: starta turen under Turer och välj Kopiera lärarlänk i turkortet.</p>
+      <p class="teacher-text" data-i18n="teacher.printText">Starta en lektion ovan och välj Skriv ut elev- och lärarblad i bandet överst. Elevbladet har frågor med plats för svar. Lärarbladet har årskurs, tid, förkunskaper, instruktion, koppling till läroplanen och frågorna. Knappen finns bara för dig som lärare, och den försvinner om du laddar om sidan under lektionen. Vill du ha en länk som ger knappen: välj Kopiera lärarlänk vid lektionen ovan.</p>
     </details>
   </aside>
 
@@ -495,12 +497,7 @@
     <div class="tour-links">
       <button id="tour-read" class="link-btn" type="button" aria-controls="detail"></button>
       <button id="tour-sources" class="link-btn" type="button"></button>
-      <!-- Skriv ut (#738): elevblad och lärarblad ur turens lärarfält, bara i lektionsturer -->
-      <button id="tour-print" class="link-btn" type="button" hidden></button>
-      <!-- Kopiera lärarlänk (#930): lektionslänken med r=lararen, bara för lektionsturer i den fria vyn -->
-      <button id="tour-copy-teacher" class="link-btn" type="button" hidden></button>
     </div>
-    <p id="tour-print-status" class="tour-print-status" role="status" hidden></p>
     <!-- Slutkortet i en lektion (#795): länkar till lektionens uppdrag -->
     <div id="tour-lesson-end" class="tour-lesson-end" hidden>
       <p class="tour-lesson-end-label" data-i18n="lesson.next">Fortsätt med ett uppdrag</p>

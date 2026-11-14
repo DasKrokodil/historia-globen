@@ -1895,6 +1895,32 @@ async function run(browser, vp) {
     }
   });
 
+  // #1584: två riken som ligger fritt på kartan kan hamna tätt på klotet nära kanten; markörerna kontrolleras mot varandra i skärmpixlar
+  await check('riksmärkena ligger inte över varandra på klotet vid år 1420 (#1584)', async () => {
+    const lp = await context.newPage();
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await lp.route(u => isFont(u.href), r => r.abort());
+      }
+      await lp.goto(`${BASE}?ny=1584#y=1420&l=areas,events`);
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await lp.waitForFunction(() => document.querySelectorAll('.gempire:not([hidden])').length >= 2, null, { timeout: T.step });
+      await lp.waitForTimeout(800);
+      const marks = await lp.evaluate(() => [...document.querySelectorAll('.gempire:not([hidden])')].map(b => { const r = b.getBoundingClientRect(); return { name: b.getAttribute('aria-label').split(':')[0], x: r.x + r.width / 2, y: r.y + r.height / 2, size: r.width }; }));
+      const clashes = [];
+      for (let i = 0; i < marks.length; i++) for (let j = i + 1; j < marks.length; j++) {
+        const a = marks[i], b = marks[j];
+        if (Math.hypot(a.x - b.x, a.y - b.y) < (a.size + b.size) / 2 * 0.75) clashes.push(`${a.name} och ${b.name}`);
+      }
+      if (clashes.length) throw new Error(`markörer som ligger över varandra: ${clashes.join('; ')}`);
+      return `${marks.length} synliga riksmärken, inga över varandra`;
+    } finally {
+      await lp.close();
+    }
+  });
+
   // #1581: svarar servern att formuläret är avstängt (503 disabled) medan klienten är påslagen, ska länkarna till GitHub synas
   await check('förslagsformuläret: svarar servern disabled visas länkarna till GitHub (#1581)', async () => {
     const lp = await context.newPage();
@@ -8101,8 +8127,8 @@ async function run(browser, vp) {
     }
     return 'eleven ser ingen knapp; r=lararen ger knappen i bandet, tre blad skrivs ut, steget och året står kvar, fokus kommer tillbaka och rollen skrivs aldrig i adressen';
   });
-  // #930: Kopiera lärarlänk i turkortet (den fria vyn) ger lektionslänken med r=lararen; den hamnar aldrig i adressen,
-  // och länken öppnar lektionen med lärarens utskriftsknapp i bandet.
+  // #930, #1583: Kopiera lärarlänk finns vid varje lektion i För lärare (inte i turkortet) och ger lektionslänken med r=lararen;
+  // den hamnar aldrig i adressen, och länken öppnar lektionen med lärarens utskriftsknapp i bandet.
   await check('Kopiera lärarlänk ger en länk som öppnar lektionen med utskriftsknappen (#930)', async () => {
     const cp = await context.newPage();
     const errs = [];
@@ -8115,18 +8141,24 @@ async function run(browser, vp) {
         await cp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
         await cp.route(u => isFont(u.href), r => r.abort());
       }
-      const open = async url => { await cpAw.goto(url); await cp.waitForSelector('#loading', { state: 'hidden', timeout: T.load }); await cp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step }); };
-      // En tur utan lärarfält har ingen knapp
-      await open(`${BASE}?ny=51#t=tre-platser-1325`);
-      if (await shown('#tour-copy-teacher')) throw new Error('en tur utan lärarfält har Kopiera lärarlänk');
-      // En lektionstur i den fria vyn har den, och urklippet får lärarlänken
+      const open = async url => { await cpAw.goto(url); await cp.waitForSelector('#loading', { state: 'hidden', timeout: T.load }); };
+      // Turkortet har varken Kopiera lärarlänk eller Skriv ut, inte ens i en lektionstur i den fria vyn (#1583)
       await open(`${BASE}?ny=52#t=andra-varldskriget`);
-      if (!(await shown('#tour-copy-teacher'))) throw new Error('en lektionstur saknar Kopiera lärarlänk');
-      if (!/lärarlänk/i.test(await cp.textContent('#tour-copy-teacher'))) throw new Error('knappen har fel namn');
+      await cp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      if (await cp.evaluate(() => !!document.getElementById('tour-copy-teacher') || !!document.getElementById('tour-print'))) throw new Error('turkortet har lärarknappar kvar (#1583)');
+      // För lärare: varje lektion har Kopiera lärarlänk, och urklippet får lärarlänken
+      await cp.click('#tour-end');
+      await cp.waitForSelector('#tour-card', { state: 'hidden', timeout: T.step });
+      if (await cp.isVisible('#more-toggle')) await cp.click('#more-toggle'); else await cp.click('#btn-more');
+      await cp.click('#btn-teacher');
+      await cp.waitForSelector('#teacher:not([hidden]) .teacher-lesson', { timeout: T.step });
+      const copy = cp.locator('#teacher-lessons li:has(.teacher-lesson-start[data-tour="andra-varldskriget"]) .teacher-lesson-copy');
+      if (!/lärarlänk/i.test(await copy.textContent())) throw new Error('knappen har fel namn');
+      if (!/Andra världskriget|andra världskriget/i.test(await copy.getAttribute('aria-label'))) throw new Error('knappen säger inte vilken lektion den gäller');
       await cp.evaluate(() => { window.__copied = null; Object.defineProperty(navigator, 'clipboard', { value: { writeText: async t => { window.__copied = t; } }, configurable: true }); });
-      await cp.click('#tour-copy-teacher');
+      await copy.click();
       await cp.waitForFunction(() => window.__copied, null, { timeout: T.step });
-      const got = await cp.evaluate(() => ({ copied: window.__copied, status: document.getElementById('tour-print-status').textContent.trim(), statusShown: !document.getElementById('tour-print-status').hidden, role: document.getElementById('tour-print-status').getAttribute('role'), hash: location.hash }));
+      const got = await cp.evaluate(() => ({ copied: window.__copied, status: document.getElementById('teacher-link-status').textContent.trim(), statusShown: !document.getElementById('teacher-link-status').hidden, role: document.getElementById('teacher-link-status').getAttribute('role'), hash: location.hash }));
       if (!/#t=andra-varldskriget&m=lektion&r=lararen$/.test(got.copied)) throw new Error(`urklippet har fel länk: ${got.copied}`);
       if (!got.statusShown || !/kopierad/.test(got.status) || got.role !== 'status') throw new Error(`bekräftelsen saknas eller annonseras inte: "${got.status}"`);
       if (/[#&]r=/.test(got.hash)) throw new Error(`adressen har fått rollen: ${got.hash}`);
@@ -8135,13 +8167,12 @@ async function run(browser, vp) {
       await cp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await cp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
       if (!(await shown('#lesson-print'))) throw new Error('lärarlänken gav ingen utskriftsknapp i bandet');
-      if (await shown('#tour-copy-teacher')) throw new Error('Kopiera lärarlänk syns i lektionsläget');
       errs.push(...cpAw.settle());
       if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
     } finally {
       await cp.close();
     }
-    return 'ingen knapp i en tur utan lärarfält; lektionsturen kopierar länken med r=lararen, bekräftar med role=status och lämnar adressen utan roll; länken öppnar lektionen med utskriftsknappen';
+    return 'turkortet har inga lärarknappar; varje lektion i För lärare kopierar länken med r=lararen, bekräftar med role=status och lämnar adressen utan roll; länken öppnar lektionen med utskriftsknappen';
   });
   // #862 F7: i mobil öppnades faktarutan bakom turkortet, så att kortets text täckte rubrik, handtag och Stäng.
   // Prövar att faktarutans stängknapp är det som träffas mitt på knappen (inte kortet) och att Stäng fungerar.
@@ -9019,20 +9050,20 @@ async function run(browser, vp) {
       }
       let failing = true;
       await pp.route(u => /data\/sources\.json/.test(u.href), r => (failing ? r.fulfill({ status: 503, body: 'fel' }) : r.continue()));
-      await pp.goto(`${BASE}?ny=21#t=andra-varldskriget`);
+      await pp.goto(`${BASE}?ny=21#t=andra-varldskriget&m=lektion&r=lararen`); // utskriften startas från lektionsbandet (#1583)
       await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
-      await pp.waitForSelector('#tour-print', { state: 'visible', timeout: T.step });
+      await pp.waitForSelector('#lesson-print', { state: 'visible', timeout: T.step });
       await pp.evaluate(() => { window.__prints = 0; window.print = () => { window.__prints++; }; });
-      await pp.click('#tour-print');
-      await pp.waitForSelector('#tour-print-status', { state: 'visible', timeout: T.step });
-      if (!/gick inte att ladda/.test(await pp.textContent('#tour-print-status'))) throw new Error('beskedet säger inte att källorna inte gick att ladda');
+      await pp.click('#lesson-print');
+      await pp.waitForSelector('#lesson-print-status', { state: 'visible', timeout: T.step });
+      if (!/gick inte att ladda/.test(await pp.textContent('#lesson-print-status'))) throw new Error('beskedet säger inte att källorna inte gick att ladda');
       const failed = await pp.evaluate(() => ({ prints: window.__prints, pages: document.querySelectorAll('#print-sheet .print-page').length }));
       if (failed.prints || failed.pages) throw new Error(`blad skrevs ut utan källregistret (${failed.prints} utskrifter, ${failed.pages} blad)`);
       failing = false;
-      await pp.click('#tour-print');
+      await pp.click('#lesson-print');
       await pp.waitForFunction(() => window.__prints === 1, null, { timeout: T.step });
       const ok = await pp.evaluate(() => ({
-        hidden: document.getElementById('tour-print-status').hidden,
+        hidden: document.getElementById('lesson-print-status').hidden,
         titles: [...document.querySelectorAll('#print-sheet .print-src-title')].map(e => e.textContent.trim()),
       }));
       if (!ok.hidden) throw new Error('beskedet stod kvar efter ett lyckat nytt försök');
@@ -9086,12 +9117,12 @@ async function run(browser, vp) {
         await printPageAw.goto(`${BASE}#t=tre-platser-1325`);
         await printPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
         await printPage.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
-        if (await printPage.isVisible('#tour-print')) throw new Error('en tur utan lärarfält har knappen Skriv ut');
-        await printPageAw.goto(`${BASE}?ny=1#t=andra-varldskriget`);
+        if (await printPage.isVisible('#lesson-print')) throw new Error('en tur utan lärarfält har knappen Skriv ut');
+        await printPageAw.goto(`${BASE}?ny=1#t=andra-varldskriget&m=lektion&r=lararen`);
         await printPage.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
-        await printPage.waitForSelector('#tour-print', { state: 'visible', timeout: T.step });
+        await printPage.waitForSelector('#lesson-print', { state: 'visible', timeout: T.step });
         await printPage.evaluate(() => { window.print = () => { window.__printed = true; }; });
-        await printPage.click('#tour-print');
+        await printPage.click('#lesson-print');
         await printPage.waitForFunction(() => window.__printed, null, { timeout: T.step });
         await printPage.emulateMedia({ media: 'print' });
         const got = await printPage.evaluate(() => ({
@@ -9169,11 +9200,11 @@ async function run(browser, vp) {
             await pg.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
           }
           if (fallback) await pg.route(u => isFont(u.href), r => r.abort());
-          await pg.goto(`${BASE}?ny=1&lang=${lang}#t=${tour}`);
+          await pg.goto(`${BASE}?ny=1&lang=${lang}#t=${tour}&m=lektion&r=lararen`);
           await pg.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
-          await pg.waitForSelector('#tour-print', { state: 'visible', timeout: T.load });
+          await pg.waitForSelector('#lesson-print', { state: 'visible', timeout: T.load });
           await pg.evaluate(() => { window.print = () => { window.__printed = true; }; });
-          await pg.click('#tour-print');
+          await pg.click('#lesson-print');
           await pg.waitForFunction(() => window.__printed, null, { timeout: T.step });
           await pg.emulateMedia({ media: 'print' });
           // Reservtypsnittet är DejaVu Sans, så att mätningen blir densamma på alla maskiner (annars väljer
