@@ -589,7 +589,7 @@
   "legend.spread": "Dispersión humana",
   "legend.spreadNote": "Las áreas y las líneas son interpretaciones de las fuentes, no fronteras ni rutas. Una línea discontinua es una oleada principal; una línea de puntos con signo de interrogación, una oleada posible o discutida. Que falten hallazgos no significa que no hubiera nadie.",
   "legend.spreadCoastModel": "Las áreas siguen la costa y los mantos de hielo del modelo para el paso del modelo más cercano (el mismo modelo que la capa Costa de la era glacial) y no se dibujan sobre mar ni hielo del modelo, aunque esa capa esté desactivada. Las líneas no se recortan.",
-  "legend.spreadCoastToday": "Fuera del periodo de hace 80 000–7500 años no hay aquí modelo de la costa: África sigue la costa actual y las demás áreas no se recortan.",
+  "legend.spreadCoastToday": "Fuera del periodo de hace 80 000–7500 años no hay aquí modelo de la costa: África sigue la costa actual y las demás áreas no se recortan.",
   "legend.spreadSources": "Fuentes:",
   "legend.spreadDetails": "resumen y fuentes",
   "legend.and": " y ",
