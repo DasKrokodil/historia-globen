@@ -669,29 +669,55 @@ if places_doc is not None:
     ev_all = [e for e in events['events'] if e.get('review') in VISIBLE and e['location']['type'] == 'Point']
     seen_places = set()
 
+    def unwrapped(ring):
+        """Som unwrapped i js/place-geo.js (#1268): ringen med varje punkt på den längdgrad som är närmast den förra, och dess spann."""
+        pts, prev = [], None
+        for x, y in ring:
+            if prev is not None:
+                x = x - 360 * round((x - prev) / 360)
+            prev = x
+            pts.append((x, y))
+        return pts, min(p[0] for p in pts), max(p[0] for p in pts)
+
     def in_ring(ring, lon, lat):
-        inside = False
-        j = len(ring) - 1
-        for i in range(len(ring)):
-            xi, yi = ring[i]; xj, yj = ring[j]
-            if (yi > lat) != (yj > lat) and lon < (xj - xi) * (lat - yi) / (yj - yi) + xi:
-                inside = not inside
-            j = i
-        return inside
+        """Som inRing i js/place-geo.js: jämn-udda-regeln med punkten som lon och lon ± 360."""
+        pts, lo, hi = unwrapped(ring)
+        for shift in (0, 360, -360):
+            x = lon + shift
+            if x < lo or x > hi:
+                continue
+            inside = False
+            j = len(pts) - 1
+            for i in range(len(pts)):
+                xi, yi = pts[i]; xj, yj = pts[j]
+                if (yi > lat) != (yj > lat) and x < (xj - xi) * (lat - yi) / (yj - yi) + xi:
+                    inside = not inside
+                j = i
+            if inside:
+                return True
+        return False
 
     def edge_km(polys, lon, lat):
-        """Som edgeKm i js/place-geo.js: kortaste avståndet till gränsen i km."""
+        """Som edgeKm i js/place-geo.js: kortaste avståndet till gränsen i km, med uppvikta ringar, punkten som lon och
+        lon ± 360, och utan segment där båda ändpunkterna ligger på ±180 (sömmen vid datumlinjen, #1268)."""
         k = math.cos(math.radians(lat))
         best = float('inf')
         for poly in polys:
             for ring in poly:
-                for i in range(1, len(ring)):
-                    ax, ay = (ring[i - 1][0] - lon) * k, ring[i - 1][1] - lat
-                    bx, by = (ring[i][0] - lon) * k, ring[i][1] - lat
-                    dx, dy = bx - ax, by - ay
-                    ln = dx * dx + dy * dy
-                    u = max(0, min(1, -(ax * dx + ay * dy) / ln)) if ln else 0
-                    best = min(best, math.hypot(ax + u * dx, ay + u * dy) * 111.2)
+                pts, lo, hi = unwrapped(ring)
+                for shift in (0, 360, -360):
+                    px = lon + shift
+                    if max(lo - px, px - hi, 0) * k * 111.2 >= best:
+                        continue
+                    for i in range(1, len(pts)):
+                        if abs(ring[i - 1][0]) == 180 and abs(ring[i][0]) == 180:
+                            continue
+                        ax, ay = (pts[i - 1][0] - px) * k, pts[i - 1][1] - lat
+                        bx, by = (pts[i][0] - px) * k, pts[i][1] - lat
+                        dx, dy = bx - ax, by - ay
+                        ln = dx * dx + dy * dy
+                        u = max(0, min(1, -(ax * dx + ay * dy) / ln)) if ln else 0
+                        best = min(best, math.hypot(ax + u * dx, ay + u * dy) * 111.2)
         return best
 
     for pl in places_doc.get('places', []):
@@ -714,6 +740,9 @@ if places_doc is not None:
                     break
                 if any(not (-180 <= x <= 180 and -90 <= y <= 90) for x, y in ring):
                     err(f'{where}: en koordinat i gränsen ligger utanför jordklotet')
+                    break
+                if any(abs(a[0] - b[0]) > 180 for a, b in zip(ring, ring[1:])):
+                    err(f'{where}: en ring i gränsen hoppar mer än 180 grader i längdgrad (korsar datumlinjen); dela den vid 180° med tools/platser_gransar.py (#1268)')
                     break
         def within(e):
             lon, lat = e['location']['coordinates'][:2]
