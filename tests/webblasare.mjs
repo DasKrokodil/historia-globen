@@ -4761,6 +4761,32 @@ async function run(browser, vp) {
     return 'fyllt vid 170° öst och 175° väst, tomt vid 0° och 30° öst';
   });
 
+  // #1268: platsernas gränser delas vid datumlinjen i datan (tools/platser_gransar.py), och platslagret lägger delringarna punkt
+  // för punkt. En konstruerad plats över 180° (som Ryssland eller Fiji) ritas med platslagrets egen bana på en riktig canvas:
+  // fylld vid båda kanterna, tom i mitten (ett streck tvärs över kartan skulle ge fylld bild vid 0°).
+  await check('en plats över datumlinjen ritas delad vid kanterna, utan streck tvärs över kartan (#1268)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet';
+    const r = await page.evaluate(async () => {
+      const { PlacesLayer } = await import('./js/layers/places.js');
+      const W = 2048, H = 1024, c = document.createElement('canvas');
+      c.width = W; c.height = H;
+      const ctx = c.getContext('2d');
+      const layer = new PlacesLayer();
+      layer.enabled = true;
+      layer.place = { id: 'test-datumlinjen', boundary: { geometry: { type: 'MultiPolygon', coordinates: [
+        [[[160, 50], [180, 50], [180, 62], [160, 62], [160, 50]]],
+        [[[-180, 50], [-170, 50], [-170, 62], [-180, 62], [-180, 50]]],
+      ] } } };
+      layer.drawOverlay(ctx, W, H);
+      const X = lon => (lon + 180) / 360 * W, Y = lat => (90 - lat) / 180 * H;
+      const at = (lon, lat) => ctx.getImageData(Math.min(W - 1, Math.round(X(lon))), Math.round(Y(lat)), 1, 1).data[3];
+      return { east: at(170, 56), west: at(-175, 56), middle: at(0, 56), europe: at(30, 56), north: at(-175, 70) };
+    });
+    if (!r.east || !r.west) throw new Error(`platsen saknas vid kanterna: ${JSON.stringify(r)}`);
+    if (r.middle || r.europe || r.north) throw new Error(`platsen ritas tvärs över kartan: ${JSON.stringify(r)}`);
+    return 'fylld vid 170° öst och 175° väst, tom vid 0° och 30° öst';
+  });
+
   await check('ett rike syns', async () => {
     const n = await layerDraws('areas', 5000);
     return `${n} pixlar ändras när Riken slås på`;
