@@ -144,6 +144,33 @@ Rättat i den här pull requesten:
 
 Luckor (blockerar inte): Andorra, Liechtenstein och San Marino saknar flagga. Enligt geografens räkning har Europa nu symbol eller flagga på 35 av 54 grupper (65 %), mot Asien 20 av 67 och Afrika 14 av 60, så nästa omgångar bör gå dit.
 
+## Uppföljning 2026-11-14: Asien omgång 2 (#1153)
+
+Byggt på grenen `claude/issue-1153-asien-2`. Källorna öppnades 2026-11-14: "Flag of …" på Wikipedia för åren och Commons-filsidan för licensen (alla public domain, märkta insignia). Teckningarna i `img/flags/` följer Commons-filernas geometri; fält och ränder följer flaggans proportion och emblemen behåller sin form.
+
+| Grupp | Visas | Anmärkning |
+|---|---|---|
+| Israel | 1948–2024 | Antagen 1948-10-28 |
+| Palestina | 2014–2024 | Gruppen börjar med Sveriges erkännande 2014 (`docs/omstridda-granser.md`); flaggan antogs av PLO 1964 och av staten Palestina 1988 |
+| Taiwan | 1950–2024 | Etiketten säger "Republiken Kinas flagga", eftersom flaggan är Republiken Kinas (på Taiwan sedan 1945) |
+| Sydvietnam | 1956–1975 | Republiken Vietnams flagga (1955) |
+| Libanon | 1990–2024 | Cedern helt grön sedan 1990-09-21. Flaggan 1943–1990 med brun stam är inte ritad, eftersom Commons-filen inte gick att hämta (429); 1944–1989 är en lucka |
+| Filippinerna | 1947–2024 | Mönstret från 1936. Blåa nyansen har växlat (1955, 1985, 1986, 1998); teckningen har dagens färger |
+| Malaysia | 1963–2024 | 14 ränder och 14-uddig stjärna sedan 1963-09-16 |
+| Nordkorea | 1948–2024 | Proportionen 1:2 som gällde till mars 2026 |
+| Sydkorea | 1949–2024 | Dagens geometri sedan 1949-10-15; flaggan 1948–1949 hade en annan utformning och är en lucka |
+| Kirgizistan | 1992–2023 och 2024 | Solens strålar rätades ut genom lagen 2023-12-26 |
+| Tadzjikistan | 1992–2024 | Antagen 1992-11-24 |
+| Mongoliet | 1945–1991 och 1992–2024 | Stjärnan togs bort 1992-02-12; 1926–1944 är en lucka |
+| Cypern | 1961–2005 och 2006–2024 | Kvistar, färger och proportion ändrades 2006-04-24 |
+
+**Väntar i Asien:**
+- **Detaljrika emblem som inte går att förenkla utan att hitta på eller förvränga:** Bhutan (draken), Saudiarabien (trosbekännelsen i skrift; dessutom varianterna 1926–1973 okontrollerade), Brunei (rikets vapen), Kazakstan (örnen och ornamentet) och Turkmenistan (mattmönstren; versionen 1992–2000 är okontrollerad).
+- **Iran och Irak** (helt eller inte alls): takbir i skrift i båda och okontrollerade varianter (Irak 1959–1963 och 1963–2008; källorna skiljer sig om Irans första flagga, 1905 eller 1907).
+- **Korea (Joseon och kejsardömet):** taegukgi-varianterna skiljer sig mellan filerna (1882, november 1882, 1899) och året skiljer (1882 eller 1883); filen från 1899 är CC BY-SA.
+- **Äldre flaggor:** Libanon 1944–1989 (filen ska hämtas), Sydkorea 1948, Mongoliet 1926–1944, Georgien 1918–2003.
+
+
 ## Tabeller per världsdel
 
 Kolumner: id, rike, sort, vad symbolen är, källa, bild på Commons med licens, säkerhet, rekommendation och anmärkning.
