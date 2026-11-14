@@ -27,10 +27,14 @@
 //   d = tidsdomänen i version 8 (människans eller jordens historia), tillståndets fält domain (RESERVED_STATE_KEYS i
 //   js/state.js). Värdena bestäms när läget byggs. En länk med d öppnas i dag som om d saknades.
 //
+// Felkanalen (#1324): decodeProblems() säger vad i en länk som inte gick att tolka, som en lista med { kind, why, value }
+// (kind: 'tour', 'focus' eller 'year'). Länken öppnas som förut; kanalen ändrar inget i tolkningen och skriver inget i
+// adressen. Det som bara datan kan avgöra (finns turen, finns kriget?) lägger controllers/address.js till i samma lista.
+//
 // Bara y krävs (eller t, för en tur). Okända fält hoppas över, så att en länk från en senare version ändå öppnas så gott det går.
 // Filen har inga importer från webbläsaren och testas i node (tests/url-state.test.mjs).
 
-import { STATE_VERSION, fromJSON, MIN_YEAR, MAX_YEAR } from './state.js';
+import { STATE_VERSION, fromJSON, parseFocusKey, MIN_YEAR, MAX_YEAR } from './state.js';
 
 const ID = /^[a-z0-9-]+$/;
 /** Adressfält som är reserverade för en senare version (#397): fältets namn och tillståndets fält det ska bära. */
@@ -93,9 +97,31 @@ export function decodeTour(hash, search = '') {
 }
 
 /**
+ * Det i en länk som inte går att tolka (felkanalen, #1324): en lista med { kind, why, value }, tom när allt går att läsa.
+ * value är texten ur länken, orörd (visningen kapar och skriver den som text). Tre slag, i den här ordningen:
+ *   tour   t (eller ?tur=) med tecken som inget tur-id kan ha        why 'missing'
+ *   focus  f som inte är <typ>:<id> med en känd typ (FOCUS_TYPES)    why 'missing'
+ *   year   y som inte är ett tal (y= utan värde räknas som saknat)   why 'format'
+ * Ren funktion utan DOM som aldrig kastar. Att ett id följer formen men saknas i datan avgörs där registren finns
+ * (js/controllers/address.js), som lägger till { kind, why: 'missing' | 'fetch', value } i samma lista.
+ */
+export function decodeProblems(hash, search = '') {
+  const params = new URLSearchParams(String(hash ?? '').replace(/^#/, ''));
+  const problems = [];
+  const tour = params.get('t') ?? new URLSearchParams(String(search ?? '')).get('tur');
+  if (tour != null && tour.trim() !== '' && !ID.test(tour)) problems.push({ kind: 'tour', why: 'missing', value: tour });
+  const focus = params.get('f');
+  if (focus != null && focus !== '' && !parseFocusKey(focus)) problems.push({ kind: 'focus', why: 'missing', value: focus });
+  const year = params.get('y');
+  if (year != null && year.trim() !== '' && !Number.isFinite(Number(year))) problems.push({ kind: 'year', why: 'format', value: year });
+  return problems;
+}
+
+/**
  * Läser en hash ("#y=1325&…") till samma form som fromJSON() ger, med två tillägg: layers och filters är
  * null när de saknas i länken (då behålls sidans vanliga val). Ger null när hashen saknar ett giltigt år,
- * och kastar aldrig: en trasig länk ska ge det vanliga startläget, inte ett fel.
+ * och kastar aldrig: en trasig länk ska ge det vanliga startläget, inte ett fel. Det som inte gick att tolka står i
+ * problems (felkanalen, #1324), som bara finns när något är trasigt; ett ogiltigt år ger null och läses med decodeProblems().
  */
 export function decodeHash(hash) {
   const text = String(hash ?? '').replace(/^#/, '');
@@ -116,11 +142,11 @@ export function decodeHash(hash) {
   if (Number.isFinite(y2)) { doc.yearEnd = clampYear(Math.round(y2)); if (params.get('p')) doc.period = params.get('p'); } // fromJSON jämför efter klippningen: ett tomt intervall blir ett år
   let state;
   try { state = fromJSON(doc); } catch {
-    // Ett trasigt fält (till exempel ett okänt fokus) tas bort; året och resten gäller ändå
+    // Ett trasigt fält (till exempel ett okänt fokus) tas bort; året och resten gäller ändå. Felet står i problems (#1324)
     try { state = fromJSON({ ...doc, focus: null }); } catch { return null; }
-    if (doc.focus) state.focusError = true;
   }
-  return { ...state, layers: layers ? state.layers : null, filters: filters ? state.filters : null };
+  const problems = decodeProblems(text);
+  return { ...state, layers: layers ? state.layers : null, filters: filters ? state.filters : null, ...(problems.length ? { problems } : {}) };
 }
 
 /**

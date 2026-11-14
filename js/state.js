@@ -311,6 +311,12 @@ export function toJSON(state, camera = null) {
   };
 }
 
+/** Det man följer som { type, id } ur `<typ>:<id>` i adressen (#1324), eller null när formen eller typen är okänd (FOCUS_TYPES). */
+export function parseFocusKey(text) {
+  const m = typeof text === 'string' && text.match(/^([a-z]+):([A-Za-z0-9_-]+)$/);
+  return m && FOCUS_TYPES.includes(m[1]) ? { type: m[1], id: m[2] } : null;
+}
+
 /**
  * Läser tillståndet ur JSON (en sträng eller ett objekt från toJSON). Kontrollerar typerna, rättar
  * kameran inom jordens gränser och hoppar över okända fält. Ett fel kastas med en förklaring på svenska;
@@ -328,9 +334,9 @@ export function fromJSON(value) {
   };
   let focus = null;
   if (doc.focus != null) {
-    const m = typeof doc.focus === 'string' && doc.focus.match(/^([a-z]+):([A-Za-z0-9_-]+)$/);
-    if (!m || !FOCUS_TYPES.includes(m[1])) throw new Error(`Okänt fokus: ${doc.focus}.`);
-    focus = `${m[1]}:${m[2]}`;
+    const parsed = parseFocusKey(doc.focus);
+    if (!parsed) throw new Error(`Okänt fokus: ${doc.focus}.`);
+    focus = `${parsed.type}:${parsed.id}`;
   }
   let camera = null;
   if (doc.camera != null) {

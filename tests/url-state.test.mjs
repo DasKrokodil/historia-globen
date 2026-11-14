@@ -40,7 +40,7 @@ test('trasiga länkar ger null eller hoppar över det trasiga fältet, utan att 
   const s = decodeHash('#y=1000&f=okänd:x&l=events,<script>&c=1,2');
   assert.equal(s.year, 1000);
   assert.equal(s.focus, null);
-  assert.equal(s.focusError, true);
+  assert.deepEqual(s.problems, [{ kind: 'focus', why: 'missing', value: 'okänd:x' }]);
   assert.deepEqual(s.layers, ['events']);
   assert.equal(s.camera, null);
 });

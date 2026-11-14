@@ -504,6 +504,13 @@
     </div>
   </div>
   <p id="focus-notice" class="focus-notice" role="status" aria-live="polite" hidden></p>
+  <!-- Besked om en trasig länk (#1324): en tur, ett krig eller ett år i adressen som inte gick att öppna. Statusraden finns hela tiden så att skärmläsaren hör texten när kortet visas -->
+  <div id="link-notice" class="link-notice" role="status" aria-live="polite">
+    <div id="link-notice-card" class="link-notice-card" hidden>
+      <p id="link-notice-text" class="link-notice-text"></p>
+      <button id="link-notice-close" class="link-btn" type="button" data-i18n="common.close">Stäng</button>
+    </div>
+  </div>
 
   <footer class="timebar">
     <div id="pause-note" class="pause-note" role="status" hidden>

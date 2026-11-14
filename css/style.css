@@ -1451,6 +1451,21 @@ details.used-by summary:hover { color: var(--parchment); }
   border: 1px solid var(--line); border-radius: var(--r); font-size: 13px; line-height: 1.4; text-align: center;
 }
 .focus-notice[hidden] { display: none; }
+/* Besked om en trasig länk (#1324): samma plats och utseende som .focus-notice. Ytan ligger i lagret --z-fokus, och kortet tar emot klick
+   (Stäng) medan statusraden runt det släpper igenom dem till kartan. */
+.link-notice {
+  position: absolute; z-index: var(--z-fokus); left: 50%; bottom: 118px; transform: translateX(-50%);
+  width: max-content; max-width: min(520px, calc(100vw - 32px)); margin: 0; pointer-events: none;
+}
+.link-notice-card {
+  display: flex; align-items: center; gap: 12px; padding: 9px 13px; pointer-events: auto;
+  color: var(--parchment-dim); background: color-mix(in srgb, var(--night-2) 94%, transparent);
+  border: 1px solid var(--line); border-radius: var(--r); font-size: 13px; line-height: 1.4;
+}
+.link-notice-card[hidden] { display: none; }
+.link-notice-text { margin: 0; flex: 1 1 auto; }
+.link-notice-card .link-btn { flex: none; min-height: 32px; font: inherit; white-space: nowrap; }
+@media (max-width: 760px) { .link-notice-card .link-btn { min-height: 44px; } }
 /* Fokusåtgärden samlar uppspelningen i samma rad, så tidsraden inte visar två primära knappar. */
 .app.focusing #btn-play { display: none; }
 
