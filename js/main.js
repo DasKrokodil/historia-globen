@@ -46,7 +46,7 @@ import { createJumpBack } from './controllers/jump-back.js';
 import { createLinkNotice } from './controllers/link-notice.js';
 import { createPresentation } from './controllers/presentation.js';
 import { TeacherGuide } from './ui/teacher.js';
-import { createSurfaces } from './surfaces.js';
+import { createSurfaces, OVERLAY_IDS } from './surfaces.js';
 
 const $ = id => document.getElementById(id);
 
@@ -504,7 +504,7 @@ async function start() {
   // Escape stänger Platt vy, men först det som ligger ovanpå (menyer, Hjälp, förslagsformuläret, panelen, faktarutan)
   document.addEventListener('keydown', e => {
     if (e.key !== 'Escape' || flatMap.hidden) return;
-    const open = ['help', 'teacher', 'feedback', 'settings', 'layer-menu', 'focus-menu', 'sources-dialog', 'jump-pop', 'detail', 'religion-pop', 'route-pop'].some(id => !$(id).hidden);
+    const open = OVERLAY_IDS.some(id => !$(id).hidden);
     // Escape i turens kort avslutar turen (js/ui/tour.js), inte Platt vy
     if (open || $('app').classList.contains('panel-open') || $('tour-card').contains(document.activeElement)) return;
     flatMap.setOpen(false);

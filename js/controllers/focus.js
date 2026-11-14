@@ -8,6 +8,7 @@
 import { formatYear, groupDigits } from '../model.js';
 import { FocusMenu } from '../ui/focusmenu.js';
 import { ui } from '../i18n.js';
+import { OVERLAY_IDS } from '../surfaces.js';
 import { warStory } from './story.js';
 import { formatYearSpan } from './facts.js';
 import { createFocusTypes } from '../focus/registry.js';
@@ -152,8 +153,7 @@ export function createFocus(app) {
   /** Escape stänger först det som ligger ovanpå. När temakortet redan är stängt lämnar nästa Escape temat, och likadant resan. */
   document.addEventListener('keydown', e => {
     if (e.key !== 'Escape' || !(isSelection() || isRoute())) return;
-    const overlay = ['detail', 'focus-menu', 'layer-menu', 'help', 'teacher', 'settings', 'feedback', 'sources-dialog', 'jump-pop', 'religion-pop', 'route-pop']
-      .some(id => { const el = $(id); return el && !el.hidden; });
+    const overlay = OVERLAY_IDS.some(id => { const el = $(id); return el && !el.hidden; });
     if (overlay || $('app').classList.contains('panel-open')) return;
     e.preventDefault();
     endFocus();

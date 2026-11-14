@@ -33,7 +33,9 @@ const STEP = 1.4; // zoom per knapptryck eller tangent
 const WORLD = IMG_W / (2 * Math.PI); // bildpixlar per klotradie: markörernas storlek följer samma mått som på klotet
 const CLICK_PX = 6; // längre rörelse än så räknas som att dra, inte klicka
 const SHARP_DELAY = 120; // ms efter sista rörelsen innan regionvyns skarpa karta ritas om (#1641)
-const REGION_ZOOM_OUT = 2.5, REGION_ZOOM_IN = 4; // hur långt man kan zooma ut och in i regionvyn, räknat från ramen
+// Hur långt man kan zooma ut och in i regionvyn, räknat från ramen. Längre in stämmer varken kantlinjen (platsens gräns i datan)
+// eller 1:10m-kusten med varandra
+const REGION_ZOOM_OUT = 2.5, REGION_ZOOM_IN = 3;
 
 export class FlatMap {
   constructor({ root, box, canvas, labels, zoomIn, zoomOut, reset, sources, base, onToggle, onSelect, labelText, fillLabel }) {
@@ -53,15 +55,21 @@ export class FlatMap {
     this._waitGlyph = new Set();
     this.obstacles = []; // rikesnamn och medaljer på kartbilden (AreasLayer.placedBoxes, #358): etiketterna hamnar inte på dem
     this.kx = 1;          // öst–västskalan: 1 utom i regionvyn, där den är cos(mittbredden) (#1641)
-    this._region = null;  // regionvyn: { id, bounds, free, minZoom, maxZoom } (#1641)
+    this._region = null;  // regionvyn: { id, bounds, free, fitScale, moved } (#1641); moved: man har panorerat eller zoomat själv
     this._regionLayers = null; // (ctx, W, H, drawFaded, unit) ritar lagren i regionvyns skarpa karta
     this._sharp = null;   // regionvyns skarpa karta som den senast ritades: { canvas, X0, Y0, sx, sy, w, h, dpr, dirty }
     this._sharpTimer = 0;
     this.onRegion = null; // (id eller null, förra id, { quiet }) när regionvyn börjar eller slutar (controllers/region.js)
+    this.onRegionReset = null; // Återställ i regionvyn: ramen är tillbaka (controllers/region.js säger det på statusraden)
+    this._paints = 0;     // hur många gånger regionvyns skarpa karta har ritats (renderingsstatus för webbläsartestet)
 
     zoomIn.addEventListener('click', () => this.zoomBy(STEP));
     zoomOut.addEventListener('click', () => this.zoomBy(1 / STEP));
-    reset.addEventListener('click', () => { this.leaveRegion(); this.zoom = 1; this.cx = IMG_W / 2; this.cy = IMG_H / 2; this.draw(); this.onZoom?.(); });
+    // Återställ: hela världen, men i regionvyn tillbaka till platsens ram (#1641); regionvyn lämnas bara med sina egna utgångar
+    reset.addEventListener('click', () => {
+      if (this._region) { this.fitRegion(); this.onRegionReset?.(); return; }
+      this.zoom = 1; this.cx = IMG_W / 2; this.cy = IMG_H / 2; this.draw(); this.onZoom?.();
+    });
     this.onZoom = null; // anropas när zoomen eller ytans storlek ändras: rikesnamnen beror på zoomnivån (#358, ui/zoomlevels.js)
 
     // Mushjul: zooma kring muspekaren
@@ -204,18 +212,24 @@ export class FlatMap {
     this.box.style.top = `${Math.round(top)}px`;
     this.box.style.height = `${Math.max(120, Math.round(bottom - top))}px`;
     const r = this.box.getBoundingClientRect();
+    const keep = this._region && this.w ? this.scale : 0; // regionvyns skala före, för en karta man har flyttat själv
     this.dpr = Math.min(3, window.devicePixelRatio || 1);
     this.w = r.width; this.h = r.height;
     this.canvas.width = Math.round(this.w * this.dpr);
     this.canvas.height = Math.round(this.h * this.dpr);
-    if (this._region) this.fitRegion(); // regionvyn ramas in igen i den nya ytan (#1641)
+    // Regionvyn (#1641): ramas in igen i den nya ytan, men har man panorerat eller zoomat själv står kartan kvar i samma skala
+    // (i mobil ändras ytan när adressfältet fälls ihop, och det får inte ta bort det man har gjort)
+    if (this._region && !this._region.moved) this.fitRegion();
+    else if (keep) this.zoom = keep / this._base();
     this._clamp(); // en mitt som sattes medan kartan var stängd (setView) hamnar inom ytan
     this.draw();
     this.onZoom?.();
   }
 
+  /** Skärmpixlar per bildpixel vid zoom 1, då kartan täcker ytan. */
+  _base() { return Math.max(this.w / IMG_W, this.h / IMG_H); }
   /** Skärmpixlar per bildpixel (i nord–syd). Zoom 1 täcker ytan. */
-  get scale() { return Math.max(this.w / IMG_W, this.h / IMG_H) * this.zoom; }
+  get scale() { return this._base() * this.zoom; }
   /** Skärmpixlar per bildpixel i öst–väst: samma som scale utom i regionvyn (#1641). */
   get sx() { return this.scale * this.kx; }
 
@@ -225,18 +239,23 @@ export class FlatMap {
   _local(e) { const r = this.canvas.getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; }
 
   _pan(dx, dy) {
+    if (this._region) this._region.moved = true;
     this.cx -= dx / this.sx; this.cy -= dy / this.scale;
     this._clamp();
   }
 
   /** Zoomens gränser: hela världen till zoom 10, i regionvyn runt ramen (#1641). */
-  _zoomLimits() { return this._region ? [this._region.minZoom, this._region.maxZoom] : [1, MAX_ZOOM]; }
+  _zoomLimits() {
+    const r = this._region;
+    return r ? [r.fitScale / REGION_ZOOM_OUT / this._base(), r.fitScale * REGION_ZOOM_IN / this._base()] : [1, MAX_ZOOM];
+  }
 
   /** Zooma med faktorn f kring punkten at (i kartans skärmkoordinater, standard mitten). */
   zoomBy(f, at = { x: this.w / 2, y: this.h / 2 }, redraw = true) {
     const [lo, hi] = this._zoomLimits();
     const z = Math.min(hi, Math.max(lo, this.zoom * f));
     if (z === this.zoom) return;
+    if (this._region) this._region.moved = true;
     // Punkten under at ska ligga kvar under at
     const ix = this.cx + (at.x - this.w / 2) / this.sx, iy = this.cy + (at.y - this.h / 2) / this.scale;
     this.zoom = z;
@@ -300,23 +319,32 @@ export class FlatMap {
    */
   enterRegion(id, bounds, free) {
     if (!this.w || !this.h) return;
-    this._region = { id, bounds, free, minZoom: 1, maxZoom: MAX_ZOOM };
+    this._region = { id, bounds, free, fitScale: 0, moved: false };
     this._sharp = null;
     this.fitRegion();
     this.root.dataset.region = id;
     this.onRegion?.(id);
   }
 
-  /** Rama in regionvyns plats igen, till exempel när arket i mobil har fällts ihop eller ytan har ändrat storlek. */
+  /** Har man panorerat eller zoomat själv sedan regionvyn ramade in platsen? Då ramas den inte in igen av sig själv. */
+  get regionMoved() { return !!this._region?.moved; }
+
+  /** Den fria ytan som ramen räknas i ({ x, y, w, h }), eller null utanför regionvyn. */
+  regionFree() {
+    const r = this._region;
+    return r ? (r.free?.() ?? { x: 0, y: 0, w: this.w, h: this.h }) : null;
+  }
+
+  /** Rama in regionvyns plats igen (arket i mobil har fällts ihop, ytan har ändrat storlek, Återställ). */
   fitRegion() {
     const r = this._region;
     if (!r || !this.w || !this.h) return;
     const view = { w: this.w, h: this.h };
     const f = regionFrame(r.bounds, view, r.free?.() ?? { x: 0, y: 0, ...view });
-    const base = Math.max(this.w / IMG_W, this.h / IMG_H);
     this.kx = f.kx;
-    this.zoom = f.ppd / (IMG_H / 180) / base; // skärmpixlar per grad → skärmpixlar per bildpixel → zoom
-    r.minZoom = this.zoom / REGION_ZOOM_OUT; r.maxZoom = this.zoom * REGION_ZOOM_IN;
+    r.fitScale = f.ppd / (IMG_H / 180); // skärmpixlar per grad → skärmpixlar per bildpixel
+    r.moved = false;
+    this.zoom = r.fitScale / this._base();
     this.cx = (f.lon + 180) / 360 * IMG_W; this.cy = (90 - f.lat) / 180 * IMG_H;
     this._clamp();
     this.draw();
@@ -335,7 +363,7 @@ export class FlatMap {
     this.zoom = Math.min(MAX_ZOOM, Math.max(1, this.zoom));
     clearTimeout(this._sharpTimer); this._sharpTimer = 0;
     this._sharp = null;
-    for (const key of ['region', 'regionBox', 'regionPpd', 'regionSharp']) delete this.root.dataset[key];
+    for (const key of ['region', 'regionBox', 'regionPpd', 'regionSharp', 'regionPaints']) delete this.root.dataset[key];
     this._clamp();
     this.draw();
     this.onZoom?.();
@@ -380,6 +408,7 @@ export class FlatMap {
     }
     this._sharp = { canvas: c, X0, Y0, sx, sy, w: this.w, h: this.h, dpr, dirty: false };
     this.root.dataset.regionSharp = `${c.width}x${c.height}`;
+    this.root.dataset.regionPaints = String(++this._paints);
     this.draw();
   }
 

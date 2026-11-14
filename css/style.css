@@ -1323,9 +1323,14 @@ html.calm .year-tip { animation: none; }
 .flat-region-back:hover { border-color: var(--brass); color: var(--brass); }
 .flat-region-back:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
 .app.region-view .religion-legend { display: none; }
+/* Raden överst i Lager medan regionvyn är öppen: valen i menyn gäller inte kartan just då */
+.layer-region-note { margin: 0 0 8px; padding: 6px 8px; font: 400 12px/1.35 var(--f-body); color: var(--parchment); border-left: 2px solid var(--brass); }
+.layer-region-note[hidden] { display: none; }
+/* Mobil: bara rubriken och knappen på en rad (texten säger statusraden och Lager), så att platsen får plats */
 @media (max-width: 760px) {
-  .flat-region { top: 36px; font-size: 12px; }
-  .flat-region-back { min-height: 44px; }
+  .flat-region { top: 36px; display: flex; align-items: center; gap: 8px; padding: 4px 4px 4px 10px; }
+  .flat-region-note { display: none; }
+  .flat-region-back { min-height: 44px; flex: none; }
 }
 
 /* ---------- källor ---------- */

@@ -3,9 +3,16 @@
 import { loadPlaces, loadEmpireFacts, t, isVisibleReview, formatYear, rangeText } from '../model.js';
 import { ui } from '../i18n.js';
 import { say } from '../ui/status.js';
-import { placeEvents } from '../place-geo.js';
+import { placeEvents, placeBounds } from '../place-geo.js';
+import { regionEligible } from '../region-frame.js';
 import { formatYearSpan } from '../controllers/facts.js';
 import { langs, selectionSpan, warnHuntImpossible } from './util.js';
+
+/** Knappen i platskortet: "Visa i regionvy" för en plats som får regionvyn (js/region-frame.js), annars "Visa i Platt karta". */
+function flatAction(place, run) {
+  const key = place.boundary?.geometry && regionEligible(placeBounds(place)) ? 'place.regionMap' : 'place.flatMap';
+  return { text: ui(key), label: `${ui(key)}: ${t(place.name)}`, run };
+}
 
 /**
  * Typraden under namnet (#1479): typen, och när platsen ingår i något (`partOf`) typen följd av frasen, till exempel "Landskap i Sverige".
@@ -41,7 +48,8 @@ export function showPlaceCard(app, place, events, { follow = true, note = '', fo
   panel.showSelection({ label: ui('place.label'), name: place.name, lead: placeLead(place), emblems: place.emblems,
     intro: place.intro,
     // Visa i Platt karta (#1161): byter vy och ramar in platsen; knappen finns när main.js har kopplat återanropet
-    action: follow && panel.onPlaceFlat ? { text: ui('place.flatMap'), label: `${ui('place.flatMap')}: ${t(place.name)}`, run: () => panel.onPlaceFlat(place) } : null,
+    // En liten plats får regionvyn (#1641), och knappen säger det
+    action: follow && panel.onPlaceFlat ? flatAction(place, () => panel.onPlaceFlat(place)) : null,
     // boundary.note (#1159): en fast rad om vad konturen är när den inte är platsens egen gräns (Skåne läns gräns för landskapet Skåne)
     notes: [ui('place.borderNote'), ...(place.boundary?.note ? [t(place.boundary.note)] : []), ...(follow ? [ui('place.filters')] : [])], banner: note, exit: follow ? ui('place.exit') : null,
     empires, summary: ui('place.events', { count: events.length }), events, sources: place.sources, focus, ariaLabel: ui('place.cardLabel') });
