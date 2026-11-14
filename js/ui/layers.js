@@ -52,9 +52,10 @@ export class LayerMenu {
    * controlled är lagren som vyerna styr; de andra raderna (till exempel "Behåll mina lager") rörs inte.
    * En vy med tag (#555) visar bara händelser med den taggen; tagCount(tag) ger hur många händelser som har den,
    * så att vyn kan säga att den är tom.
+   * settings (#1574): kortet Inställningar i Mer med rutorna data-calm och data-pause; utan det läses de ur menyn.
    */
-  constructor({ button, menu, views = null }) {
-    Object.assign(this, { button, menu });
+  constructor({ button, menu, settings = menu, views = null }) {
+    Object.assign(this, { button, menu, settings });
     this.onChange = () => {};
     this.onTag = () => {};
     this.on = {};
@@ -73,7 +74,7 @@ export class LayerMenu {
     this.pause = {};
     let saved = {};
     try { saved = JSON.parse(localStorage.getItem('hg-pause') || '{}'); } catch { /* utan lagring */ }
-    for (const input of menu.querySelectorAll('input[data-pause]')) {
+    for (const input of settings.querySelectorAll('input[data-pause]')) {
       if (input.dataset.pause in saved) input.checked = saved[input.dataset.pause];
       this.pause[input.dataset.pause] = input.checked;
       input.addEventListener('change', () => {
@@ -83,7 +84,7 @@ export class LayerMenu {
     }
     // Lugn rörelse (#246): följer webbläsarens prefers-reduced-motion tills man själv väljer. Valet sparas.
     this.onCalm = () => {};
-    const calmInput = menu.querySelector('input[data-calm]');
+    const calmInput = settings.querySelector('input[data-calm]');
     this.calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
     try { const s = localStorage.getItem('hg-calm'); if (s !== null) this.calm = s === '1'; } catch { /* utan lagring */ }
     const applyCalm = () => { document.documentElement.classList.toggle('calm', this.calm); this.onCalm(this.calm); };
@@ -173,6 +174,7 @@ export class LayerMenu {
     while (this.menu.firstChild) this.customBox.append(this.menu.firstChild);
     this.addLayerActions(views);
     this.collapseGroups();
+    this.collapseCategories();
     let customOpen = false;
     try { customOpen = sessionStorage.getItem('hg-layer-customize') === '1'; } catch { /* utan lagring */ }
     this.customBtn.addEventListener('click', () => this.setCustomOpen(this.customBox.hidden));
@@ -193,7 +195,7 @@ export class LayerMenu {
 
   /**
    * Grupperna i Fler val (#1574) är hopfällda avsnitt med antalet påslagna lager på raden ("Makt, tro och gränser · 1 av 4 på").
-   * Gruppens rubrik (som aria-labelledby pekar på) står kvar dold; Inställningar är ingen lagergrupp och lämnas som den är.
+   * Gruppens rubrik (som aria-labelledby pekar på) står kvar dold; gruppen med bara "Behåll mina lager" (data-group="settings") har en enda rad och lämnas öppen.
    */
   collapseGroups() {
     this.sects = [];
@@ -211,6 +213,31 @@ export class LayerMenu {
       box.append(details);
       this.sects.push({ box, count });
     }
+  }
+
+  /**
+   * Kategorierna är en egen hopfälld grupp i Fler val (#1574) med antalet valda på raden ("14 av 14 på").
+   * Knapparna sätts av panelen (js/ui/panel.js) och följer aria-pressed, som också ändras från Samtidigt-panelen; raden följer med.
+   */
+  collapseCategories() {
+    const head = this.customBox.querySelector(':scope > .layer-heading[data-i18n="layers.categories"]');
+    const filters = this.customBox.querySelector('#filters');
+    if (!head || !filters) return;
+    const details = document.createElement('details');
+    details.className = 'layer-sect layer-cats';
+    const summary = document.createElement('summary');
+    const title = document.createElement('span'); title.className = 'layer-sect-title'; title.textContent = head.textContent;
+    const count = document.createElement('span'); count.className = 'layer-sect-count';
+    summary.append(title, count);
+    head.hidden = true;
+    filters.before(details);
+    details.append(summary, filters);
+    const sync = () => {
+      const pills = [...filters.querySelectorAll('[data-cat]')];
+      count.textContent = pills.length ? ui('layers.groupCount', { on: pills.filter(b => b.getAttribute('aria-pressed') === 'true').length, total: pills.length }) : '';
+    };
+    new MutationObserver(sync).observe(filters, { subtree: true, childList: true, attributes: true, attributeFilter: ['aria-pressed'] });
+    sync();
   }
 
   /** Antalet påslagna lager i varje grupp på gruppens rad. */

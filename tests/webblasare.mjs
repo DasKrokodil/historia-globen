@@ -336,11 +336,11 @@ async function run(browser, vp) {
     await box.waitFor({ state: 'visible', timeout: T.step });
     if ((await box.isChecked()) !== on) await box.click();
   };
+  // Pausvalen ligger i Inställningar under Mer (#1574). Flödena som bara behöver värdet flippar rutan direkt; själva vägen
+  // Mer › Inställningar prövas i en egen kontroll.
   const setPause = async (name, on) => {
-    if (await page.isHidden('#layer-menu')) { await clickView('#btn-layers'); await visible('#layer-menu'); }
     const box = page.locator(`input[data-pause="${name}"]`);
-    if (await box.isHidden()) { await page.click('#layer-customize'); await box.waitFor({ state: 'visible', timeout: T.step }); }
-    if ((await box.isChecked()) !== on) await box.click();
+    if ((await box.isChecked()) !== on) await box.evaluate(el => el.click());
   };
   // Slår av ett lager, väntar på att kartan står still, slår på det och väntar på att minst min pixlar ändras.
   const layerDraws = async (name, min) => {
@@ -1801,13 +1801,39 @@ async function run(browser, vp) {
       if (await lp.isVisible('#more-toggle')) await lp.click('#more-toggle'); else await lp.click('#btn-more');
       await lp.waitForSelector('#extra-menu', { state: 'visible', timeout: T.step });
       const labels = await lp.locator('#extra-menu .extra-label').allTextContents();
-      if (labels.map(x => x.trim()).join('|') !== 'Lär dig|För skolan|Hjälp projektet') throw new Error(`grupprubrikerna är ${labels.join('|')}`);
+      if (labels.map(x => x.trim()).join('|') !== 'Lär dig|För skolan|Anpassa|Hjälp projektet') throw new Error(`grupprubrikerna är ${labels.join('|')}`);
       const support = lp.locator('#btn-support');
       if (!(await support.isVisible())) throw new Error('Stöd syns inte i Mer');
       if ((await support.getAttribute('target')) !== '_blank' || !/noopener/.test(await support.getAttribute('rel')) || !/^https:\/\//.test(await support.getAttribute('href'))) throw new Error('Stöd är ingen säker länk som öppnas i en ny flik');
       if (!/ny flik/.test(await support.getAttribute('aria-label'))) throw new Error('Stöd säger inte att länken öppnas i en ny flik');
       if (await lp.isVisible('.help-support')) throw new Error('Stöd ligger kvar i Hjälp');
+      // Inställningar (#1574): Lugn rörelse och Pausa vid ligger i ett kort under Mer och inte längre i Lager
+      await lp.click('#btn-settings');
+      await lp.waitForSelector('#settings:not([hidden])', { timeout: T.step });
+      if (await lp.isVisible('#extra-menu')) throw new Error('Mer ligger kvar öppen bakom Inställningar');
+      const rows = await lp.evaluate(() => ({
+        calm: !!document.querySelector('#settings input[data-calm]'),
+        pauses: document.querySelectorAll('#settings input[data-pause]').length,
+        inLayers: document.querySelectorAll('#layer-menu input[data-pause], #layer-menu input[data-calm]').length,
+        title: document.getElementById('settings-title').textContent.trim(),
+      }));
+      if (!rows.calm || rows.pauses < 6) throw new Error(`Inställningar har ${rows.pauses} pausval och ${rows.calm ? 'Lugn rörelse' : 'inte Lugn rörelse'}`);
+      if (rows.inLayers) throw new Error(`${rows.inLayers} inställningar ligger kvar i Lager`);
+      if (rows.title !== 'Inställningar') throw new Error(`kortets rubrik är ${rows.title}`);
+      // Valen verkar och sparas: Lugn rörelse sätter klassen calm, ett pausval skrivs till lagringen
+      const calmBox = lp.locator('#settings input[data-calm]');
+      const calmBefore = await calmBox.isChecked();
+      await calmBox.click();
+      if ((await lp.evaluate(() => document.documentElement.classList.contains('calm'))) === calmBefore) throw new Error('Lugn rörelse ändrade inte sidan');
+      const warBox = lp.locator('#settings input[data-pause="wars"]');
+      const warBefore = await warBox.isChecked();
+      await warBox.click();
+      const saved = await lp.evaluate(() => JSON.parse(localStorage.getItem('hg-pause') || '{}'));
+      if (saved.wars === warBefore) throw new Error('pausvalet sparades inte');
+      await lp.keyboard.press('Escape');
+      await lp.waitForSelector('#settings', { state: 'hidden', timeout: T.step });
       // Lämna förslag öppnar formuläret
+      if (await lp.isVisible('#more-toggle') && await lp.isHidden('#btn-feedback')) await lp.click('#more-toggle'); else if (await lp.isHidden('#btn-feedback')) await lp.click('#btn-more');
       await lp.click('#btn-feedback');
       await lp.waitForSelector('#feedback:not([hidden])', { timeout: T.step });
       await lp.keyboard.press('Escape');
@@ -1818,7 +1844,7 @@ async function run(browser, vp) {
       const about = await lp.evaluate(() => { const p = document.querySelector('#sources-body .src-about'); return { text: p.textContent, links: [...p.querySelectorAll('a')].map(a => a.href), button: !!p.querySelector('[data-open-feedback]') }; });
       if (!/GPL-3\.0/.test(about.text) || !/CC BY 4\.0/.test(about.text)) throw new Error('raden om projektet nämner inte licenserna');
       if (!about.button || about.links.length !== 2) throw new Error(`raden om projektet har ${about.links.length} länkar och ${about.button ? 'en' : 'ingen'} förslagsknapp`);
-      return 'tre grupper i Mer, Stöd som säker länk, Lämna förslag öppnar formuläret, raden om projektet i Om källorna';
+      return 'fyra grupper i Mer, Inställningar som eget kort utanför Lager, Stöd som säker länk, Lämna förslag öppnar formuläret, raden om projektet i Om källorna';
     } finally {
       await lp.close();
     }
@@ -3665,7 +3691,7 @@ async function run(browser, vp) {
     }
     await shot('3-handelse-oppnas');
     const calm = page.locator('input[data-calm]');
-    if (await calm.isChecked()) await calm.click();
+    if (await calm.isChecked()) await calm.evaluate(el => el.click());
     // Valet flyger först till markören. När flygningen är klar ska den valda medaljen fortsätta
     // pulsera även om globen annars står helt stilla (#390).
     // #1174: vänta in flygningens slut i stället för en fast väntan (CI kan vara sen), och mät över minst en halv
@@ -3998,6 +4024,9 @@ async function run(browser, vp) {
     await visible('#layer-custom');
     const menuWidth = await page.locator('#layer-menu').evaluate(el => ({ scroll: el.scrollWidth, client: el.clientWidth }));
     if (menuWidth.scroll > menuWidth.client) throw new Error(`Lager-menyn är ${menuWidth.scroll}px bred i en yta på ${menuWidth.client}px`);
+    // Kategorierna är en egen hopfälld grupp med antal (#1574)
+    const cats = await page.locator('#layer-menu details.layer-cats').evaluate(el => ({ open: el.open, count: el.querySelector('.layer-sect-count')?.textContent, pills: el.querySelectorAll('[data-cat]').length }));
+    if (cats.open || !/^\d+ av \d+ på$/.test(cats.count) || cats.pills < 10) throw new Error(`Kategorier är ${cats.open ? 'öppna' : 'hopfällda'} med raden "${cats.count}" och ${cats.pills} knappar`);
     await shot('3-lager-anpassa');
     await page.keyboard.press('Escape');
     await hidden('#layer-menu');
@@ -4904,15 +4933,9 @@ async function run(browser, vp) {
       await page.click('#focus-exit');
       await hidden('#focus-bar');
 
-      await clickView('#btn-layers');
-      await visible('#layer-menu');
-      if (await page.locator('#layer-custom').isHidden()) await page.click('#layer-customize');
       const stops = page.locator('input[data-pause="route"]');
-      await stops.waitFor({ state: 'visible', timeout: T.step });
       if (!(await stops.isChecked())) throw new Error('resestoppen är inte på som standard');
-      await stops.click();
-      await page.keyboard.press('Escape');
-      await hidden('#layer-menu');
+      await stops.evaluate(el => el.click());
 
       await clickView('#btn-focus');
       await visible('#focus-menu');
@@ -4932,9 +4955,8 @@ async function run(browser, vp) {
       if (await action.isVisible().catch(() => false) && (await action.textContent()).includes('Pausa')) await action.click();
       if (await page.locator('#focus-bar').isVisible().catch(() => false)) await page.click('#focus-exit');
       // Återställ inställningen, så att senare flöden får sidans standard.
-      if (!(await page.locator('#layer-menu').isVisible().catch(() => false))) await clickView('#btn-layers');
       const stops = page.locator('input[data-pause="route"]');
-      if (await stops.isVisible().catch(() => false) && !(await stops.isChecked())) await stops.click();
+      if (!(await stops.isChecked().catch(() => true))) await stops.evaluate(el => el.click());
       await page.keyboard.press('Escape');
     }
   });
@@ -6036,9 +6058,9 @@ async function run(browser, vp) {
     await clickView('#btn-layers');
     await visible('#layer-menu');
     const calm = page.locator('input[data-calm]');
-    if (!(await calm.isChecked())) await calm.click();
+    if (!(await calm.isChecked())) await calm.evaluate(el => el.click());
     const events = page.locator(layerRow('events'));
-    if (!(await events.isChecked())) await events.click();
+    await setLayer('events', true); // öppnar Fler val och gruppen om de är hopfällda
     await events.click();
     await page.keyboard.press('Escape');
     await hidden('#layer-menu');

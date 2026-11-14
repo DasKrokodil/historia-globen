@@ -863,6 +863,12 @@ body {
 /* Kortet är högt och öppnas ur menyn Mer: det ligger i menylagret, annars täcks det av Samtidigt-kortet i mobilen */
 .teacher-card { z-index: var(--z-meny); width: min(380px, calc(100vw - 32px)); }
 @media (max-width: 760px) { .teacher-card { width: auto; } .teacher-card .panel-x { min-width: 44px; min-height: 44px; } }
+/* Inställningar (#1574): öppnas ur Mer som För lärare och ligger i menylagret; raderna är samma som i Lager */
+.settings-card { z-index: var(--z-meny); width: min(380px, calc(100vw - 32px)); }
+.settings-rows { margin-top: 4px; }
+.settings-rows .layer-row { padding: 9px 6px; }
+.settings-rows .layer-subheading { margin: 10px 6px 2px; }
+@media (max-width: 760px) { .settings-card { width: auto; } .settings-card .panel-x { min-width: 44px; min-height: 44px; } .settings-rows .layer-row { min-height: 44px; } }
 .teacher-intro, .teacher-text { margin: 8px 0 0; font: 400 13px/1.45 var(--f-body); color: var(--parchment-dim); }
 .teacher-section { margin-top: 10px; border-top: 1px solid var(--line); padding-top: 8px; }
 .teacher-h { margin: 0; font: 500 11px/1.2 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }

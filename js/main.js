@@ -163,7 +163,7 @@ async function start() {
 
 
   // Lagerväljaren: vilka lager som syns. Raderna och startläget kommer från registret.
-  const layers = new LayerMenu({ button: $('btn-layers'), menu: $('layer-menu'),
+  const layers = new LayerMenu({ button: $('btn-layers'), menu: $('layer-menu'), settings: $('settings'),
     views: views && { ...views, controlled: registry.viewLayers(views.groups),
       tagCount: tag => data.events.filter(e => hasTag(e, tag) && isVisibleReview(e.review)).length } });
   // En vy med tagg (#555), till exempel Framsteg, visar bara händelser med taggen
@@ -500,7 +500,7 @@ async function start() {
   // Escape stänger Platt vy, men först det som ligger ovanpå (menyer, Hjälp, förslagsformuläret, panelen, faktarutan)
   document.addEventListener('keydown', e => {
     if (e.key !== 'Escape' || flatMap.hidden) return;
-    const open = ['help', 'teacher', 'feedback', 'layer-menu', 'focus-menu', 'sources-dialog', 'jump-pop', 'detail', 'religion-pop', 'route-pop'].some(id => !$(id).hidden);
+    const open = ['help', 'teacher', 'feedback', 'settings', 'layer-menu', 'focus-menu', 'sources-dialog', 'jump-pop', 'detail', 'religion-pop', 'route-pop'].some(id => !$(id).hidden);
     // Escape i turens kort avslutar turen (js/ui/tour.js), inte Platt vy
     if (open || $('app').classList.contains('panel-open') || $('tour-card').contains(document.activeElement)) return;
     flatMap.setOpen(false);
@@ -572,6 +572,8 @@ async function start() {
   const help = new Help({
     root: $('help'), button: $('btn-help'), close: $('help-close'),
   });
+  // Inställningar (#1574): rörelse och pauser, flyttade från Lager till Mer
+  const settingsCard = new Help({ root: $('settings'), button: $('btn-settings'), close: $('settings-close') });
   // Besökarnas förslag (docs/feedback.md): från Hjälp och från faktarutans "Rapportera faktafel"
   const feedback = new Feedback($('feedback'));
   $('help-feedback').addEventListener('click', () => { help.close(false); feedback.open({ opener: $('btn-help') }); });
@@ -713,6 +715,7 @@ async function start() {
   // också när fokus ligger utanför ytan, och fokus går tillbaka till ytans knapp.
   surfaces.onDialogOpen = () => { timeline.pause(); app.playback.stopCountdown(); };
   surfaces.watch('help', $('help'), 'dialog', refocus => help.close(refocus !== false), { opener: $('btn-help') });
+  surfaces.watch('settings', $('settings'), 'dialog', refocus => settingsCard.close(refocus !== false), { opener: $('btn-settings') });
   surfaces.watch('teacher', $('teacher'), 'dialog', refocus => teacher.close(refocus !== false), { opener: $('btn-teacher') });
   surfaces.watch('sources', $('sources-dialog'), 'dialog', () => sources.hide(), { opener: $('btn-sources') });
   surfaces.watch('intro', $('intro'), 'dialog', refocus => intro.close(refocus !== false), { opener: $('btn-intro') });

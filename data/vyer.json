@@ -135,7 +135,7 @@
     { "id": "power", "name": { "sv": "Makt, tro och gränser", "en": "Power, faith and borders", "de": "Macht, Glaube und Grenzen", "es": "Poder, fe y fronteras", "fr": "Pouvoir, foi et frontières" } },
     { "id": "movement", "name": { "sv": "Rörelser och handel", "en": "Movement and trade", "de": "Bewegung und Handel", "es": "Movimientos y comercio", "fr": "Mouvements et commerce" } },
     { "id": "perspective", "name": { "sv": "Historiskt perspektiv", "en": "Historical perspective", "de": "Historische Perspektive", "es": "Perspectiva histórica", "fr": "Perspective historique" } },
-    { "id": "settings", "name": { "sv": "Inställningar", "en": "Settings", "de": "Einstellungen", "es": "Ajustes", "fr": "Réglages" }, "settings": true }
+    { "id": "settings", "name": { "sv": "Mina lager", "en": "My layers", "de": "Meine Ebenen", "es": "Mis capas", "fr": "Mes calques" }, "settings": true }
   ],
   "views": [
     { "id": "oversikt", "name": { "sv": "Översikt", "en": "Overview", "de": "Überblick", "es": "Resumen", "fr": "Aperçu" }, "description": {"sv": "Det viktigaste i världen, med riken.", "en": "The most important events worldwide, with empires.", "de": "Das Wichtigste weltweit, mit Reichen.", "es": "Lo más importante del mundo, con imperios.", "fr": "L’essentiel dans le monde, avec les empires."}, "layers": ["events", "funfacts", "areas"], "tag": "oversikt" },

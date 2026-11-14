@@ -398,8 +398,8 @@ export function createPlayback(app) {
   for (const type of ['pointerdown', 'keydown']) ff.root.addEventListener(type, stopCountdown);
   ff.tab?.addEventListener('pointerdown', stopCountdown);
 
-  // Raden "Nästa paus" följer pausvalen i Lager
-  $('layer-menu').addEventListener('change', e => { if (e.target.dataset.pause) showNextPause(); });
+  // Raden "Nästa paus" följer pausvalen i Inställningar (Mer, #1574)
+  $('settings').addEventListener('change', e => { if (e.target.dataset.pause) showNextPause(); });
 
   return { check, startAt, clearRouteStops, restoreStop, reset, showNextPause, warEndOf, playToEnd, stopCountdown };
 }
