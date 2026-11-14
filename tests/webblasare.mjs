@@ -676,9 +676,16 @@ async function run(browser, vp) {
       const off = await pp.evaluate(() => ({ on: document.getElementById('app').classList.contains('presentation-mode'), param: new URL(location.href).searchParams.has('presentation'), year: document.getElementById('year-big').textContent.replace(/\s/g, '') }));
       if (off.on || off.param) throw new Error(`Avsluta tog inte bort läget: ${JSON.stringify(off)}`);
       if (off.year !== '1066') throw new Error(`Avsluta behöll inte året: ${off.year}`);
+      // Ingen ny väg in i smal skärm (#1457): även ett klick som kommer sent, efter att fönstret blivit smalt, slår inte på läget
+      const full = pp.viewportSize();
+      await pp.setViewportSize({ width: 400, height: 800 });
+      await pp.evaluate(() => document.getElementById('teacher-presentation').click());
+      const late = await pp.evaluate(() => ({ on: document.getElementById('app').classList.contains('presentation-mode'), param: new URL(location.href).searchParams.has('presentation') }));
+      await pp.setViewportSize(full);
+      if (late.on || late.param) throw new Error(`knappen slog på läget i smal skärm: ${JSON.stringify(late)}`);
       if (errors.length) throw new Error(errors.join(' | '));
     } finally { await pp.close(); }
-    return 'knappen slår på läget utan omladdning, fokus går till Avsluta, adressen får ?presentation=1, och Avsluta stänger läget på stället och behåller året';
+    return 'knappen slår på läget utan omladdning, fokus går till Avsluta, adressen får ?presentation=1, Avsluta stänger läget på stället och behåller året, och knappen slår inte på läget i smal skärm';
   });
 
   await check('För lärare: en startknapp i kortet öppnar läraren med knappen för utskrift', async () => {
@@ -7946,11 +7953,50 @@ async function runPresentation(browser) {
         width: innerWidth,
         stored: Object.keys(localStorage).some(key => /presentation/i.test(key)),
         calm: document.documentElement.classList.contains('calm'),
+        param: new URL(location.href).searchParams.get('presentation') === '1',
+        exitShown: (document.getElementById('presentation-exit')?.getBoundingClientRect().width || 0) > 0,
+        ...(() => { // träffar en klick på årtalets mitt knappen själv eller något som ligger över den?
+          const r = document.getElementById('year-jump').getBoundingClientRect();
+          const hit = document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2);
+          return { yearHit: !!hit?.closest('#year-jump'), hit: hit?.id || hit?.className || hit?.tagName };
+        })(),
       }));
-      if (!state.active || !state.exit?.width || !state.exit?.height) throw new Error('presentationsläget eller avslutsknappen saknas');
+      // Läget gäller bara från 761 px (#1457): i smal skärm ritas ingen klass och ingen Avsluta, så årtalet går att klicka
+      const narrowView = vp.width <= 760;
+      if (narrowView) {
+        if (state.active || state.exitShown) throw new Error('presentationsläget slogs på i smal skärm');
+        if (!state.param) throw new Error('adressen tappade ?presentation=1 i smal skärm');
+        if (!state.yearHit) throw new Error(`årtalet går inte att klicka i ${vp.width} px: elementFromPoint träffar ${state.hit}`);
+      } else if (!state.active || !state.exit?.width || !state.exit?.height) throw new Error('presentationsläget eller avslutsknappen saknas');
       if (state.scroll > state.width) throw new Error(`presentationsläget ger ${state.scroll}px horisontell scroll i ${state.width}px`);
       if (state.stored) throw new Error('presentationsläget sparas i localStorage');
       if (vp.name === 'presentation-mobil' && !state.calm) throw new Error('reducerad rörelse aktiverar inte Lugn rörelse i presentationsläge');
+      if (vp.name === 'presentation-1280') {
+        // Fönstret passerar 761 px med läget på: ingen Avsluta som täcker årtalet i smalt läge, och läget kommer tillbaka när det blir brett
+        const probe = () => page.evaluate(() => {
+          const y = document.getElementById('year-jump').getBoundingClientRect();
+          const hit = document.elementFromPoint(y.x + y.width / 2, y.y + y.height / 2);
+          return {
+            on: document.getElementById('app').classList.contains('presentation-mode'),
+            exitShown: document.getElementById('presentation-exit').getBoundingClientRect().width > 0,
+            param: new URL(location.href).searchParams.get('presentation'),
+            yearHit: !!hit?.closest('#year-jump'),
+            scroll: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth), width: innerWidth,
+          };
+        });
+        const settle = () => page.waitForTimeout(250);
+        await page.setViewportSize({ width: 400, height: 800 });
+        await settle();
+        const small = await probe();
+        if (small.on || small.exitShown) throw new Error(`läget står kvar när fönstret blir smalt: ${JSON.stringify(small)}`);
+        if (!small.yearHit) throw new Error('Avsluta täcker årtalet när fönstret blir smalt');
+        if (small.param !== '1') throw new Error('adressen tappade parametern när fönstret blev smalt');
+        if (small.scroll > small.width) throw new Error(`horisontell scroll när fönstret blir smalt: ${small.scroll} > ${small.width}`);
+        await page.setViewportSize({ width: 1280, height: 720 });
+        await settle();
+        const wide = await probe();
+        if (!wide.on || !wide.exitShown || !wide.yearHit) throw new Error(`läget kommer inte tillbaka när fönstret blir brett: ${JSON.stringify(wide)}`);
+      }
       if (vp.width >= 1000) {
         await page.click('#btn-panel');
         const event = page.locator('#event-list .event-btn').first();
@@ -7964,11 +8010,14 @@ async function runPresentation(browser) {
         await page.click('#btn-flat');
       }
       if (vp.name === 'presentation-1280' || vp.name === 'presentation-1920') await page.screenshot({ path: path.join(OUT, `${vp.name}.png`) });
-      await page.locator('#presentation-exit').focus();
-      await page.keyboard.press('Enter');
-      await page.waitForFunction(() => !new URL(location.href).searchParams.has('presentation'), null, { timeout: T.load });
+      if (!narrowView) {
+        await page.locator('#presentation-exit').focus();
+        await page.keyboard.press('Enter');
+        await page.waitForFunction(() => !new URL(location.href).searchParams.has('presentation'), null, { timeout: T.load });
+      }
       results.push({ name: `presentationsläge ${vp.width} × ${vp.height}`, ok: errors.length === 0, ms: Date.now() - t0,
-        note: errors.join(' | ') || 'klass, exit, kärnkontroller och omflöde fungerar' });
+        note: errors.join(' | ') || (narrowView ? 'läget slås inte på i smal skärm, årtalet går att klicka och adressen behåller parametern'
+          : 'klass, exit, kärnkontroller och omflöde fungerar') });
     } catch (e) {
       results.push({ name: `presentationsläge ${vp.width} × ${vp.height}`, ok: false, ms: Date.now() - t0, note: String(e.message).split('\n')[0] });
       await page.screenshot({ path: path.join(OUT, `FEL-${vp.name}.png`) }).catch(() => {});
