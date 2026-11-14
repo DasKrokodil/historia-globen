@@ -263,6 +263,8 @@ Firefox och WebKit går inte att ladda ner i molnmiljön där agenterna arbetar,
 
 **Att tänka på när en kontroll är röd i bara en motor:** läs först texten (konsolfel görs läsbara i testet, och en väntan som tar slut visar adress, kortets tillstånd och konsolfelen), och sök efter en motorskillnad i hur något *skrivs* (typsnittsnamn, felmeddelanden) innan du misstänker appen. Räkna bara bort de exakta meddelandena för avbruten hämtning, och bara medan testet navigerar; ett annat konsolfel ska fortfarande fälla kontrollen. Det enda riktiga appfyndet i den här omgången, ett litet fönster vid start där en vybyte kunde gå förlorad, är rättat i #893, och testet döljer det inte längre (#953 tog bort `addressReady()`).
 
+**Öppet fel i Firefox (#1436, 2026-11-14):** kontrollen "stängregistret: dialog pausar uppspelningen, Escape stänger årshoppet och fokus följer faktarutan (#1323)" faller i Firefox med att fokus ligger på ett element utan id och utan `data-id`. Felet är inte reproducerat (Firefox går inte att ladda ner i molnmiljön). Den starkaste hypotesen är att Firefox behåller det dolda Stäng-elementet som `document.activeElement` tills sidans `requestAnimationFrame` har flyttat fokus, och att kontrollens väntan (`activeElement !== body`) då läser det mellanläget. Kontrollen skriver därför, när den faller, ett tidsatt spår över var fokus låg efter Stäng, om fokus senare kom rätt och om sidan är i smalt läge; läs det i nästa Firefox-körning (etiketten `alla-webbläsare`) innan något rättas. Spåret ändrar inte vad som godkänns.
+
 ### Inställningar i GitHub
 
 Det här går inte att lägga i repot. Rikard gjorde det under Settings → Rules den 30 oktober 2026, med två rulesets:
