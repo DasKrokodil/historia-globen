@@ -577,6 +577,8 @@
   "legend.symbolsNote": "Das Symbol zeigt die Religion. Ein Messingmedaillon mit dem Symbol steht am Ursprungsort der Religion: Es erscheint in diesem Jahr und bleibt, solange die Ebene eingeschaltet ist. Zeigen Sie hier auf eine Religion, um sie hervorzuheben.",
   "legend.aboutReligions": "Lesen Sie über die Religionen",
   "legend.filePages": "Dateiseiten:",
+  "discovery.readTitle": "So lesen Sie die Ansicht",
+  "discovery.imagesTitle": ["Kartenbilder · {n} Dateiseite", "Kartenbilder · {n} Dateiseiten"],
   "legend.newTab": "(öffnet sich in einem neuen Tab)",
   "layer.spread": "Ausbreitung des Menschen",
   "layer.spreadNote": "Vorgeschichte · Gebiete und Wellen als Deutungen der Quellen",
