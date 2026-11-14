@@ -35,6 +35,14 @@ ROOT = Path(__file__).resolve().parent.parent
 TOL = 0.2      # förenkling i grader (Douglas-Peucker)
 MERGE = 0.02   # slå ihop perioder där gränsen ändras mindre än så här stor del av ytan
 MIN_AREA = 0.02  # öar mindre än så här (kvadratgrader, cirka 200 km2) tas bort
+# Rester (#1333): en period i en Cliopatria-post som är mindre än REMNANT_SHARE av postens största period och
+# till mindre än REMNANT_INSIDE av sin yta ligger utanför postens övriga, större perioder hoppas över (drop_remnants)
+REMNANT_SHARE = 0.01
+REMNANT_INSIDE = 0.5
+
+# Grupper som förenklas finare än förut men där namnets plats och sammanslagningen av perioder räknas med den
+# gamla förenklingen (grupp -> grader), så att bara gränsens kust blir finare och perioderna står kvar (Danmark och Sverige, #1466)
+SAME_AS_TOL = {'danmark': 0.3, 'konungariket-danmark': TOL, 'kalmarunionen': TOL, 'svenska-stormaktsvaldet': TOL}
 
 # Stora, utspridda imperier förenklas hårdare så att filen blir lagom stor: grupp -> (TOL, MERGE, MIN_AREA)
 # Små stater som visas som punkter, med gränsen ur Natural Earth (#722)
@@ -49,14 +57,20 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              # R7 (#407): USA med Alaska, de arktiska öarna och Stilla havet
              'usa': (0.3, 0.05, 0.08),
              # Kanada, Ryssland och Australien med långa kuster och många öar
-             'kanada': (0.3, 0.05, 0.08), 'australien': (0.3, 0.05, 0.08),
+             # Kanada slår ihop perioder under 2,5 procent (#1333), så att perioden med Newfoundland och Labrador från 1949
+             # (3,3 procent av ytan) står kvar
+             'kanada': (0.3, 0.025, 0.08), 'australien': (0.3, 0.05, 0.08),
              # Ryssland: perioderna slås aldrig ihop, så att små ändringar (som Krim, cirka 0,2 procent av ytan) inte försvinner
              'ryska-federationen': (0.3, 0.0, 0.08),
              # Israel och Palestina (#644): små länder med smala gränsområden (Gaza är cirka 10 km bred), så
              # förenklingen är finare, annars försvinner Gaza och gränserna mot Västbanken hamnar fel
              'israel': (0.03, 0.02, 0.02), 'palestina': (0.03, 0.02, 0.02),
-             # Nutida stater (#644): Danmark med Grönland, Kina och Indonesien med många öar
-             'danmark': (0.3, 0.05, 0.08),
+             # Nutida stater (#644): Danmark med Grönland, Kina och Indonesien med många öar.
+             # Danmarks och Sveriges grupper förenklas finare (0,1 grader), annars förenklas Öresundskusten bort och
+             # Köpenhamn och Helsingborg hamnar långt utanför gränsen (#1466)
+             'danmark': (0.1, 0.05, 0.08),
+             'konungariket-danmark': (0.1, MERGE, MIN_AREA), 'kalmarunionen': (0.1, MERGE, MIN_AREA),
+             'svenska-stormaktsvaldet': (0.1, MERGE, MIN_AREA),
              'kina': (0.3, 0.05, 0.08), 'indonesien': (0.2, 0.05, 0.05),
              # Gambia (cirka 30 km bred längs floden) och Libanon är smala: finare förenkling för dem och grannarna Senegal och
              # Syrien, annars täcker grannarnas förenklade gräns en stor del av landet
@@ -671,7 +685,10 @@ GROUPS = {
         ('Kingdom of Libya', 'kungariket-libyen', 'Kungariket Libyen', '#5f7fb0', {'en': 'Kingdom of Libya'}),
         (['Libyan Arab Republic', 'State of Libya'], 'libyen', 'Libyen', '#5f7fb0', {'en': 'Libya', 'wikidata': 'Q1016'}),
     ]),
+    # Bogd Khanate (#1331): Cliopatrias Great Mongol State 1912–1925, med Wikidatas id (Cliopatria anger Q7313, Yuandynastin).
+    # Före 1945 följer kartan Cliopatria (docs/omstridda-granser.md); att staten knappt erkändes står i rutan Om kartan
     'mongoliet': ('Mongoliet', 'Mongolia', [
+        ('Great Mongol State', 'bogd-khanate', 'Bogd Khanate', '#3a6fb0', {'en': 'Bogd Khanate of Mongolia', 'wikidata': 'Q2475921'}),
         ("Mongolian People's Republic", 'mongoliska-folkrepubliken', 'Mongoliska folkrepubliken', '#3a6fb0',
          {'en': "Mongolian People's Republic"}),
         ('Mongolia', 'mongoliet', 'Mongoliet', '#3a6fb0', {'en': 'Mongolia'}),
@@ -773,8 +790,10 @@ GROUPS = {
         ("People's Democratic Republic of Yemen", 'sydjemen', 'Sydjemen', '#a0704a', {'en': 'South Yemen'}),
         ('Republic of Yemen', 'jemen', 'Jemen', '#4a8aa0', {'en': 'Yemen', 'wikidata': 'Q805'}),
     ]),
+    # Norge 1814 (#1466, DasKrokodils ja 2026-11-14): Cliopatrias Kingdom of Norway 1814 är en egen kort period;
+    # 1815–1904 är Norge en del av Sverige-Norge (gruppen svenska-stormaktsvaldet)
     'norge': ('Norge', 'Norway', [
-        ('Kingdom of Norway', 'norge', 'Norge', '#2f8f7a', {'en': 'Norway', 'years': (1905, 2024)}),
+        ('Kingdom of Norway', 'norge', 'Norge', '#2f8f7a', {'en': 'Norway', 'years': (1814, 2024)}),
     ]),
     'uzbekistan': ('Uzbekistan', 'Uzbekistan', [
         ('Republic of Uzbekistan', 'uzbekistan', 'Uzbekistan', '#c0705a', {'en': 'Uzbekistan'}),
@@ -1337,8 +1356,12 @@ GROUPS = {
     'visigotiska-riket': ('Visigotiska riket', 'Visigothic Kingdom', [
         ('Visigothic Kingdom', 'visigotiska-riket', 'Visigotiska riket', '#a06a4a', {'en': 'Visigothic Kingdom'}),
     ]),
+    # Cliopatrias Mongol Khanate (1468–1635) läggs till Norra Yuandynastin (#1331). Cliopatrias Wikidata-id Q19927420 är en
+    # förgreningssida; av rikena där är det bara Norra Yuan (Q8959, 1368–1635 enligt Wikipedia) som stämmer med år och plats.
     'norra-yuandynastin': ('Norra Yuandynastin', 'Northern Yuan dynasty', [
         ('Northern Yuan', 'norra-yuandynastin', 'Norra Yuandynastin', '#7a6ab0', {'en': 'Northern Yuan dynasty'}),
+        ('Mongol Khanate', 'norra-yuandynastin-1468', 'Norra Yuandynastin', '#7a6ab0',
+         {'en': 'Northern Yuan dynasty', 'wikidata': 'Q8959'}),
     ]),
     'kungariket-alodia': ('Kungariket Alodia', 'Alodia', [
         ('Alodia', 'kungariket-alodia', 'Kungariket Alodia', '#c09a5a', {'en': 'Alodia'}),
@@ -1517,6 +1540,43 @@ GROUPS = {
     ]),
     'chola-empire': ('Chola Empire', 'Chola Empire', [
         ('Chola Empire', 'chola-empire', 'Chola Empire', '#c0704a', {'en': 'Chola Empire'}),
+    ]),
+    # Inre Asien 1500–1800, Afrika 1850 och Tibet 1912–1952 (#1331, ur helganalysen #1289). Svenska och engelska namn är
+    # Wikidatas etiketter, utom Khedivatet Egypten (svenska Wikipedias titel; etiketten "Khedivet" ser ut som ett skrivfel)
+    # och gruppen Egypten under ätten Muhammed Ali (Wikidatas namn på ätten, Q142913, som ersätter Cliopatrias id Q3057606,
+    # en historieartikel; de och es är egna översättningar byggda på Q142913:s etiketter, fr är franska Wikipedias titel för Q3057606).
+    # Mogulistan: Cliopatria delar khanatet i en östra och en västra del 1519; alla tre har samma Wikidata-id och samma namn.
+    # Tibet (Q2444884): bara 1912–1951; efter 1951 följer kartan Sveriges hållning (DasKrokodils beslut 2026-11-14).
+    # Tibet 1363–1793 väntar, eftersom Cliopatrias id där är "Tibets historia"
+    # (beslut 2026-11-07-riken-namn-645). Tibet erkändes nästan inte av någon stat; 1912–1951 visas det som i
+    # Cliopatria med en not, och 1952 lämnas tomt (docs/omstridda-granser.md).
+    'dzungarkhanatet': ('Dzungarkhanatet', 'Dzungar Khanate', [
+        ('Dzungar Khanate', 'dzungarkhanatet', 'Dzungarkhanatet', '#9a7a4a', {'en': 'Dzungar Khanate'}),
+    ]),
+    'mogulistan': ('Mogulistan', 'Moghulistan', [
+        ('Moghulistan', 'mogulistan', 'Mogulistan', '#5a9a8a', {'en': 'Moghulistan'}),
+        ('Eastern Moghulistan', 'mogulistan-ost', 'Mogulistan', '#5a9a8a', {'en': 'Moghulistan'}),
+        ('Western Moghulistan', 'mogulistan-vast', 'Mogulistan', '#5a9a8a', {'en': 'Moghulistan'}),
+    ]),
+    'tibet': ('Tibet', 'Tibet', [
+        ('Tibet', 'tibet', 'Tibet', '#b0604a', {'en': 'Tibet', 'wikidata': 'Q2444884', 'years': (1912, 1951)}),
+    ]),
+    'egypten-muhammad-ali': ('Egypten under ätten Muhammed Ali', 'Egypt under the Muhammad Ali dynasty', [
+        ('Muhammad Ali dynasty', 'egypten-muhammad-ali', 'Egypten under ätten Muhammed Ali', '#c9a23a',
+         {'en': 'Egypt under the Muhammad Ali dynasty', 'wikidata': 'Q142913'}),
+        ('Khedivate of Egypt', 'khedivatet-egypten', 'Khedivatet Egypten', '#c9a23a', {'en': 'Khedivate of Egypt'}),
+    ]),
+    'sokotokalifatet': ('Sokotokalifatet', 'Sokoto Caliphate', [
+        ('Sokoto Caliphate', 'sokotokalifatet', 'Sokotokalifatet', '#5a8a4a', {'en': 'Sokoto Caliphate'}),
+    ]),
+    'kungariket-madagaskar': ('Kungariket Madagaskar', 'Merina Kingdom', [
+        ('Merina Kingdom', 'kungariket-madagaskar', 'Kungariket Madagaskar', '#a04a6a', {'en': 'Merina Kingdom'}),
+    ]),
+    'wadai': ('Wadai', 'Ouaddai Empire', [
+        ('Wadai Empire', 'wadai', 'Wadai', '#b08a4a', {'en': 'Ouaddai Empire'}),
+    ]),
+    'sultanatet-darfur': ('Sultanatet Darfur', 'Sultanate of Darfur', [
+        ('Sultanate of Darfur', 'sultanatet-darfur', 'Sultanatet Darfur', '#8a5a3a', {'en': 'Sultanate of Darfur'}),
     ]),
     # Små stater ur Natural Earth (#722, Rikards beslut 2026-11-07): Cliopatria saknar dem i nutid eller har fel gräns
     # (Saint Kitts ligger på Saint Croix, Mikronesien är bara Pohnpei). Gränsen är dagens land i Natural Earth
@@ -1990,6 +2050,28 @@ def influence_periods(rels, cname, core, own, names, tol, merge, min_area):
     return sorted(out, key=lambda q: q['start'])
 
 
+def drop_remnants(by_name):
+    """Tar bort rester ur Cliopatria (#1333): perioder i en post som är mindre än REMNANT_SHARE av postens
+    största period och som till mest REMNANT_INSIDE av sin yta ligger inom postens övriga, större perioder.
+    Det är fläckar långt från riket, till exempel Kingdom of Denmark 1402–1406 (73 km² i finska Lappland).
+    Ett rike som krymper till en del av sitt gamla område (Mogulriket 1857–1858, Delhi) står kvar.
+    Returnerar de borttagna som (namn, från, till, yta)."""
+    gone = []
+    for name, feats in by_name.items():
+        top = max(f['properties']['Area'] for f in feats)
+        small = [f for f in feats if f['properties']['Area'] < REMNANT_SHARE * top]
+        if not small:
+            continue
+        big = unary_union([shape(f['geometry']).buffer(0) for f in feats if f['properties']['Area'] >= REMNANT_SHARE * top])
+        for f in small:
+            g = shape(f['geometry']).buffer(0)
+            if g.is_empty or g.intersection(big).area < REMNANT_INSIDE * g.area:
+                p = f['properties']
+                gone.append((name, p['FromYear'], p['ToYear'], round(p['Area'])))
+                feats.remove(f)
+    return gone
+
+
 def fix_swapped_shapes(by_name):
     """Rättar poster i Cliopatria v0.0.1 där två riken har bytt geometri (#1187).
 
@@ -2026,6 +2108,8 @@ def main():
         if p['Type'] == 'POLITY':
             by_name.setdefault(p['Name'], []).append(f)
     fix_swapped_shapes(by_name)
+    for name, a, b, ar in drop_remnants(by_name):
+        print(f'rest hoppas över (#1333): {name} {a}–{b}, {ar} km2')
     rels = relations(src)
     disputed = disputed_areas(by_name)  # omstridda gränser enligt Sveriges hållning (#644)
     ne = ne_shapes()  # små stater ur Natural Earth (#722)
@@ -2127,12 +2211,18 @@ def main():
                     g = unary_union([q for q in g.geoms if q.area > min_area] or [max(g.geoms, key=lambda q: q.area)])
                 if g.is_empty:
                     continue
+                # gc: gränsen förenklad som förut (SAME_AS_TOL, #1466), för namnets plats och sammanslagningen av perioder
+                gc = g
+                if gid in SAME_AS_TOL:
+                    gc = raw.simplify(SAME_AS_TOL[gid], preserve_topology=True)
+                    if gc.geom_type == 'MultiPolygon':
+                        gc = unary_union([q for q in gc.geoms if q.area > min_area] or [max(gc.geoms, key=lambda q: q.area)])
                 # Namnet skrivs där den största delen av riket ligger
-                c = (max(g.geoms, key=lambda q: q.area) if g.geom_type == 'MultiPolygon' else g).representative_point()
+                c = (max(gc.geoms, key=lambda q: q.area) if gc.geom_type == 'MultiPolygon' else gc).representative_point()
                 # label i GROUPS ersätter den uträknade punkten (små stater: huvudstaden, #722)
                 lab = list(opts['label']) if opts.get('label') else [round(c.x, 1), round(c.y, 1)]
                 q = {'start': start, 'end': end, 'areaKm2': round(area),
-                     'label': lab, '_shape': g,
+                     'label': lab, '_shape': gc,
                      'geometry': {'type': mapping(g)['type'], 'coordinates': rnd(mapping(g)['coordinates'], DECIMALS.get(gid, 1))}}
                 # Huvudlandet (#74): den del av riket som är moderlandet. Den ritas kraftigare och får rikets namn.
                 if home and 'homeland' in opts:
@@ -2218,6 +2308,8 @@ def main():
              f'borttagna) och på varandra följande perioder där gränsen ändras mindre än {round(MERGE * 100)} procent är sammanslagna. '
              'Brittiska, spanska och portugisiska imperiet är förenklade hårdare (0.3 grader, 8 procent, öar under cirka 800 km2 borttagna), '
              'liksom Ryssland, Sovjetunionen, Japan och franska kolonialväldet (0.3 grader, 5 procent, öar under cirka 800 km2 borttagna) och nederländska kolonialväldet (0.3 grader, 8 procent). '
+             'Rester i Cliopatria, perioder under 1 procent av postens största yta som till största delen ligger utanför postens '
+             'övriga yta (till exempel Kingdom of Denmark 1402–1406, 73 km2 i Lappland), är borttagna (#1333). '
              'start/end är Cliopatrias årtal oförändrade (astronomiska år). Namn inom parentes i Cliopatria, till exempel (British Empire), '
              'är Cliopatrias sammanslagning av ett imperiums alla delar. Bysantinska riket ingår i Romarriket som fortsättningen på '
              'Östromerska riket. index.json listar varje rike (grupp) med färg, tidsspann och fil; filen laddas först när riket behövs. '

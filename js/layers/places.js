@@ -6,6 +6,7 @@
 // Vilka platser det gäller ger controllers/places.js i `cards`. I en turs steg med en plats (#1163) ritas den platsens kontur
 // på samma sätt som i Fokus (`step`), eftersom kortet säger att linjen på kartan är dagens gräns.
 import { Z } from './registry.js';
+import { traceRing, hasSeam } from './area-style.js';
 
 export function entry() {
   const layer = new PlacesLayer();
@@ -28,23 +29,30 @@ export function entry() {
 export class PlacesLayer {
   constructor() { this.place = null; this.step = null; this.cards = []; this.hints = false; this.px = 1; this.enabled = false; this._paths = new Map(); }
 
-  /** Konturen som en bana på lagerbilden W × H. Banorna sparas per plats och storlek, så att en omritning inte bygger om dem. */
+  /**
+   * Konturen som banor på lagerbilden W × H: `fill` för fyllningen och `edge` för strokningen. Ringarna läggs med traceRing
+   * (#1227), så att en gräns som korsar datumlinjen (180°) går den korta vägen och läggs vid båda kanterna i stället för tvärs
+   * över kartan. Datan delas redan vid ±180° (tools/platser_gransar.py, #1268); sömmen mellan delarna är ingen gräns, så `edge`
+   * hoppar över den och bara fyllningen går ända fram. En plats utan söm har samma bana till båda. Banorna sparas per plats
+   * och storlek, så att en omritning inte bygger om dem.
+   */
   path(place, W, H) {
     const key = `${place.id}:${W}x${H}`;
-    let path = this._paths.get(key);
-    if (path) return path;
+    let paths = this._paths.get(key);
+    if (paths) return paths;
     if (this._paths.size > 16) this._paths.clear(); // det skarpa utsnittet ritar i många storlekar
     const x = lon => (lon + 180) / 360 * W, y = lat => (90 - lat) / 180 * H;
     const geometry = place.boundary.geometry;
-    path = new Path2D();
-    for (const poly of geometry.type === 'Polygon' ? [geometry.coordinates] : geometry.coordinates) {
-      for (const ring of poly) {
-        ring.forEach(([lon, lat], i) => (i ? path.lineTo(x(lon), y(lat)) : path.moveTo(x(lon), y(lat))));
-        path.closePath();
+    const lay = (path, skipSeams) => {
+      for (const poly of geometry.type === 'Polygon' ? [geometry.coordinates] : geometry.coordinates) {
+        for (const ring of poly) traceRing(path, ring, x, y, skipSeams);
       }
-    }
-    this._paths.set(key, path);
-    return path;
+      return path;
+    };
+    const fill = lay(new Path2D(), false);
+    paths = { fill, edge: hasSeam(geometry) ? lay(new Path2D(), true) : fill };
+    this._paths.set(key, paths);
+    return paths;
   }
 
   drawOverlay(ctx, W, H) {
@@ -52,15 +60,15 @@ export class PlacesLayer {
     // Platsen som ett turssteg öppnar (#1163) ritas som i Fokus, utan att något Fokus pågår (controllers/places.js sätter step)
     const place = this.enabled && this.place?.boundary?.geometry ? this.place : this.step;
     if (!place?.boundary?.geometry) return;
-    const path = this.path(place, W, H);
+    const { fill, edge } = this.path(place, W, H);
     ctx.save();
     ctx.lineJoin = 'round';
     ctx.fillStyle = 'rgba(214,168,79,0.16)';
-    ctx.fill(path, 'evenodd');
+    ctx.fill(fill, 'evenodd');
     ctx.strokeStyle = 'rgba(241,223,180,0.95)';
     ctx.lineWidth = Math.max(2, W / 1400);
     ctx.setLineDash([W / 300, W / 450]);
-    ctx.stroke(path);
+    ctx.stroke(edge);
     ctx.restore();
   }
 
@@ -76,7 +84,7 @@ export class PlacesLayer {
     for (const [color, w] of [['rgba(12,24,44,0.55)', width + 2 * unit], ['rgba(246,230,190,0.95)', width]]) {
       ctx.strokeStyle = color;
       ctx.lineWidth = w;
-      for (const place of this.cards) ctx.stroke(this.path(place, W, H));
+      for (const place of this.cards) ctx.stroke(this.path(place, W, H).edge);
     }
     ctx.restore();
   }

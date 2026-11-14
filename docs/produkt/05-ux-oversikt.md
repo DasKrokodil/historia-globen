@@ -48,6 +48,7 @@ Antagna "lyckade vägar". Varje flöde är också en testplan: den som granskar 
 4. **Tur:** Turer → välj → steg med fråga att fundera på → slutkort med det viktigaste.
 5. **Lektion:** läraren öppnar För lärare under Mer (eller Hjälp → "Undervisar du?") och väljer Starta som lektion, eller delar länken (`m=lektion`) → menyerna är dolda, år och lager låsta → band med "Visa hela globen" → elevblad och lärarblad skrivs ut. Lektionen visar alltid alla händelser i lektionens år, aldrig Översikts urval (#1139).
    - **Lärarstödet (#1139):** en gammal länk utan `g=` visar alla händelser, medan en bar länk (`historiagloben.se` utan hash) börjar i Översikt, ett urval om cirka 120 händelser. Två elever som öppnar "samma" sida kan alltså se olika saker. Be eleverna öppna länken du delar (en lektionslänk visar alltid alla händelser), eller säg att de ska välja Standard i Lager. Raden "Översikt: ett urval, cirka 120 händelser. Visa alla" överst i Samtidigt säger när det är ett urval.
+   - **Vyn Framsteg (#1379):** den visar bara händelser som källan själv beskriver som framsteg, och det är få än så länge, så globen kan se nästan tom ut (till exempel år 1325). Lager (under vyvalet) och Samtidigt (överst, med "Visa alla") säger det: "Den här vyn visar bara händelser som källan själv beskriver som framsteg. Än så länge är det 2 händelser." Antalet räknas ur datan. Att dölja vyn tills det finns fler taggade händelser kräver DasKrokodils ja och är inte gjort.
 6. **Dela:** Dela → länk → mottagaren ser samma vy (adressen bär år, kamera, fokus, lager).
 7. **Rapportera fel:** faktaruta → Rapportera faktafel.
 8. **Följ ett tema:** Sök och följ → första gruppen Teman → introduktionskort → välj händelser eller spela genom urvalet → Avsluta temat. På mobil är händelselistan hopfälld; Escape stänger först kortet och därefter temat.
@@ -61,8 +62,9 @@ Antagna "lyckade vägar". Varje flöde är också en testplan: den som granskar 
 | Läge | Bredd | Särdrag |
 |---|---|---|
 | Surfplatta (iPad) | 768–1024 px | Toppraden är provad automatiskt i 768×1024, 820×1180 och 1024×768 (#992). Årtalet och förklaringsraden ligger under knapparna i bredder 761–1100 px, även när knappraden bryts. Övriga flöden och verklig iPad är inte fullständigt provade |
-| Dator | ≥ 761 px (testat 1400×900) | Faktaruta vid sidan, tre knappgrupper, menyer fälls ned |
+| Dator | ≥ 761 px (testat 1400×900, och låg höjd 1280×800 och 1366×768, #1310) | Faktaruta vid sidan, tre knappgrupper, menyer fälls ned. Under 880 px höjd är faktarutans bild lägre så att texten syns under den |
 | Mobil | ≤ 760 px (testat 400×800) | Bara Samtidigt och Meny i raden överst; faktaruta och Samtidigt-kort som ark med tre lägen; globen lyfts när arket är halvt; 44 px träffytor |
+| Låg höjd (#1310) | båda, under 600 px höjd | 200 % zoom av 1280×800 (640×400 CSS-px) och liggande telefon: turkortet rullar i sig självt med Nästa och Avsluta fasta längst ned, turens namn döljs i kortet (det står i turraden), faktarutans ark och bild är lägre. Provas med fönsterstorlek, inte med webbläsarens zoom. Skärmbilder före och efter: `docs/ux-review/lag-hojd-1310/` |
 | Platt vy | båda | Karta med zoom och panorering; samma bild som kan skickas till en fysisk glob |
 | Lektionsläge | båda | Menyerna dolda, år och lager låsta |
 | Presentationsläge (#488) | dator (≥ 761 px) | Större text och knappar för projektor och storskärm. Slås på med knappen i För lärare (utan omladdning; adressen får `?presentation=1`) eller med en äldre länk med parametern; Avsluta uppe i raden stänger det på stället (utan omladdning) och behåller vyn och lärarens roll i en lektion. Knappen visas inte i mobilbredd, där Avsluta täcker årtalet (känt fel i läget, #1457) |

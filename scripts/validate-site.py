@@ -27,6 +27,8 @@ Kontroller:
      skriptet (tools/dela_data.py i repot) och jämför med dem i dist/. Den hittar också händelser som
      ligger i fel periodfil och id som finns två gånger.
  11. Licensmanifesten (#393) stämmer med data/sources.json och bilduppgifterna i data/events.json.
+ 12. Mjuka varningar (stoppar inte bygget): teman med få världsdelar och länder som är för tunna enligt
+     hållbarhetsriktlinjen (#1269, COUNTRY_* nedan).
 
 Användning: python3 scripts/validate-site.py [dist]
 """
@@ -47,6 +49,14 @@ FORBIDDEN = ['.git/', '.github/', '.claude/', '.orchestra/', 'docs/', 'tools/', 
              'functions/', 'tests/']  # functions/ publiceras av Cloudflare Pages från repots rot, inte via dist/
 FORBIDDEN_NAMES = {'CLAUDE.md', 'README.md', '.DS_Store', '__pycache__', '.gitignore'}
 FORBIDDEN_SUFFIXES = {'.py', '.pyc', '.sh', '.md'}
+
+# Hållbarhetsriktlinjen för länder (#1269): en mjuk VARNING (stderr, stoppar inte bygget) när ett land av typen `country`
+# har för lite att visa. Tre av fyra trösklar är historikerns och arkitektens förslag i #1259, inget beslut: de kan
+# justeras efter pilotens utvärdering (#1274). Golvet på 5 händelser (err nedan) är ett krav och ändras inte här.
+COUNTRY_MIN_EVENTS = 12      # synliga händelser inom gräns
+COUNTRY_MIN_CENTURIES = 4    # olika sekler (start // 100) bland dem
+COUNTRY_MIN_CATEGORIES = 3   # kategorier utöver krig
+COUNTRY_MAX_WAR_SHARE = 0.5  # andel krigshändelser (kind == "war" eller kategorin krig); mer än så varnar
 
 errors = []
 
@@ -661,6 +671,28 @@ if themes_doc is not None:
         if before:
             print(f"validate-site: VARNING: {where}: börjar före tidslinjens början: {', '.join(before)}", file=sys.stderr)
 
+# --- hållbarhetsvarning start (#1269; tests/hallbarhet-test.py kör exakt det här blocket)
+def country_warnings(inside):
+    """Orden för de villkor i hållbarhetsriktlinjen som ett land bryter mot. `inside` är de synliga händelserna inom
+    gränsen (samma urval som kravet på fem händelser). Tom lista när landet håller riktlinjen."""
+    def is_war(e):
+        return e.get('kind') == 'war' or e.get('category') == 'krig'
+    found = []
+    if len(inside) < COUNTRY_MIN_EVENTS:
+        found.append(f'bara {len(inside)} synliga händelser inom gränsen (minst {COUNTRY_MIN_EVENTS} önskas)')
+    centuries = {e.get('start', 0) // 100 for e in inside}
+    if len(centuries) < COUNTRY_MIN_CENTURIES:
+        found.append(f'händelserna sprids över bara {len(centuries)} sekel (minst {COUNTRY_MIN_CENTURIES} önskas)')
+    categories = {e.get('category') for e in inside if not is_war(e)}
+    if len(categories) < COUNTRY_MIN_CATEGORIES:
+        found.append(f'bara {len(categories)} kategorier utöver krig (minst {COUNTRY_MIN_CATEGORIES} önskas)')
+    wars = sum(1 for e in inside if is_war(e))
+    if inside and wars / len(inside) > COUNTRY_MAX_WAR_SHARE:
+        found.append(f'{wars} av {len(inside)} händelser är krig ({round(100 * wars / len(inside))} %, högst {round(100 * COUNTRY_MAX_WAR_SHARE)} % önskas)')
+    return found
+# --- hållbarhetsvarning slut
+
+
 # 8f. Platser (#579): kurerade kort om platsers historia med dagens gräns som kontur. Händelserna ligger inom gränsen
 # (räknas vid körning i js/place-geo.js), så här kontrolleras källor, gräns och att det finns något att visa.
 places_doc = load('data/platser.json') if (DIST / 'data/platser.json').is_file() else None
@@ -750,6 +782,9 @@ if places_doc is not None:
         inside = [e for e in ev_all if within(e)]
         if len(inside) < 5:
             err(f'{where}: minst 5 synliga händelser ska ligga inom gränsen, men det är {len(inside)}')
+        if pl.get('type') == 'country':
+            for why in country_warnings(inside):
+                print(f'validate-site: VARNING: {where}: hållbarhetsriktlinjen (#1269): {why}', file=sys.stderr)
 
 # Turens stegfält place (#1163): platsen finns i data/platser.json och är inte ett utkast (ett kort utan synlig plats öppnas inte)
 place_ids = {pl.get('id') for pl in (places_doc or {}).get('places', []) if pl.get('review') != 'draft'}

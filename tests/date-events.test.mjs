@@ -61,7 +61,7 @@ const reference = (from, to) => events.filter(e => e.start <= to && e.end >= fro
   && !(/\/\.\.$/.test(e.edtf ?? '') && e.start <= to - 100));
 
 for (const [name, from, to, expected] of [
-  ['1914–1918', 1914, 1918, 27], // 24 + vandringsduvan 1914 (#1336) + Kimberley 1871–1914 (#1015) + kvinnlig rösträtt i Danmark 1915 (#1263)
+  ['1914–1918', 1914, 1918, 28], // 24 + vandringsduvan 1914 (#1336) + Kimberley 1871–1914 (#1015) + kvinnlig rösträtt i Danmark 1915 (#1263) + armeniska folkmordet 1915–1917 (#1018)
   ['500–400 f.Kr. (−499 till −399)', -499, -399, undefined],
   ['1900–1999', 1900, 1999, undefined],
 ]) {

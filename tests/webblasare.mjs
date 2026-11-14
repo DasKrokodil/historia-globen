@@ -2728,6 +2728,119 @@ async function run(browser, vp) {
     return out.join('; ');
   });
 
+  // #1310: på en låg yta fick faktarutan ingen plats för texten (1280 × 800: bara rubrik och bild, 336 av 949 px) och turkortet blev 28 px
+  // högt med Nästa utanför skärmen (200 % zoom). Rutan ska rymmas på skärmen utan att täcka årtalet eller knapparna överst, visa text
+  // under bilden, gå att rulla till slutet med krysset kvar i bild, och sidan ska inte rulla.
+  await check('låg höjd: faktarutan visar text och rullas till slutet (1280 × 800, 1366 × 768, 200 % zoom, #1310)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet (provar själv tre storlekar)';
+    const out = [];
+    for (const yta of LAGA_YTOR) {
+      const { context, page: pp, errors } = await lagaHojdenSida(browser, yta, '#y=1542');
+      try {
+        await pp.click('#btn-panel');
+        const knapp = pp.locator('.event-btn[data-id="nya-lagarna-1542"]');
+        if (!(await knapp.count())) throw new Error('händelsen nya-lagarna-1542 (bild och lång text) finns inte i listan: byt till en annan med bild och lång text');
+        await knapp.first().scrollIntoViewIfNeeded();
+        await knapp.first().click();
+        await pp.waitForSelector('#detail:not([hidden])', { timeout: T.step });
+        await pp.waitForSelector('#detail .detail-fig img', { state: yta.width <= 760 ? 'attached' : 'visible', timeout: T.step });
+        await pp.waitForTimeout(400); // arket och bilden sätter sig
+        if (yta.width <= 760) { await pp.click('#detail .sheet-handle'); await pp.waitForFunction(() => document.getElementById('detail').dataset.sheet === 'full'); await pp.waitForTimeout(200); }
+        const m = () => pp.evaluate(() => {
+          const r = e => { const b = e.getBoundingClientRect(); return { top: b.top, bottom: b.bottom, left: b.left, right: b.right, height: b.height }; };
+          const card = document.getElementById('detail'), c = r(card);
+          const img = card.querySelector('.detail-fig img'), close = card.querySelector('.detail-close'), last = [...card.children].filter(e => e.getBoundingClientRect().height > 0).pop();
+          const text = [...card.querySelectorAll('p')].find(p => p.textContent.trim().length > 80);
+          const bar = document.querySelector('.timebar').getBoundingClientRect(), top = document.querySelector('.top-actions').getBoundingClientRect(), year = document.getElementById('year-jump').getBoundingClientRect();
+          const hit = document.elementFromPoint(year.x + year.width / 2, year.y + year.height / 2);
+          const x = close && r(close);
+          return {
+            card: c, scrollable: card.scrollHeight > card.clientHeight + 1, overflowY: getComputedStyle(card).overflowY,
+            img: img && r(img), text: text && r(text), last: last && r(last), close: x,
+            closeVisible: !!x && x.top >= c.top - 1 && x.bottom <= c.bottom + 1 && x.top >= 0 && x.bottom <= innerHeight,
+            barTop: bar.top, topBottom: top.bottom, topLeft: top.left, yearHit: !!hit?.closest('#year-jump'), yearBottom: year.bottom, yearRight: year.right,
+            sw: document.documentElement.scrollWidth, sh: document.documentElement.scrollHeight, iw: innerWidth, ih: innerHeight,
+          };
+        });
+        const a = await m();
+        if (a.card.top < 0 || a.card.bottom > a.ih) throw new Error(`${yta.namn}: faktarutan ligger utanför skärmen (${Math.round(a.card.top)}–${Math.round(a.card.bottom)} av ${a.ih} px)`);
+        if (a.card.bottom > a.barTop + 1) throw new Error(`${yta.namn}: faktarutan täcker tidsreglaget (rutan slutar vid ${Math.round(a.card.bottom)} px, reglaget börjar vid ${Math.round(a.barTop)} px)`);
+        if (a.card.top < a.topBottom - 1 && a.card.right > a.topLeft) throw new Error(`${yta.namn}: faktarutan täcker knapparna överst (${Math.round(a.card.top)} < ${Math.round(a.topBottom)} px)`);
+        if (a.card.top < a.yearBottom - 1 && a.card.left < a.yearRight) throw new Error(`${yta.namn}: faktarutan täcker årtalet`);
+        if (!a.yearHit) throw new Error(`${yta.namn}: årtalet går inte att klicka`);
+        if (!a.scrollable || a.overflowY !== 'auto') throw new Error(`${yta.namn}: faktarutan rullas inte (rullbar ${a.scrollable}, overflow-y ${a.overflowY})`);
+        if (a.img.height > a.card.height * 0.5) throw new Error(`${yta.namn}: bilden tar ${Math.round(a.img.height)} av ${Math.round(a.card.height)} px av rutan`);
+        if (yta.width > 760 && !(a.text && a.text.top + 40 <= a.card.bottom)) throw new Error(`${yta.namn}: ingen text syns under bilden utan att rulla (texten börjar vid ${a.text && Math.round(a.text.top)}, rutan slutar vid ${Math.round(a.card.bottom)} px)`);
+        if (!a.closeVisible) throw new Error(`${yta.namn}: krysset syns inte`);
+        await pp.evaluate(() => { const d = document.getElementById('detail'); d.scrollTop = d.scrollHeight; });
+        await pp.waitForTimeout(150);
+        const b = await m();
+        if (b.last.bottom > b.card.bottom + 1) throw new Error(`${yta.namn}: slutet av faktarutan nås inte med rullning (sista raden slutar vid ${Math.round(b.last.bottom)}, rutan vid ${Math.round(b.card.bottom)} px)`);
+        if (!b.closeVisible) throw new Error(`${yta.namn}: krysset försvinner när rutan rullas`);
+        if (b.sw > b.iw) throw new Error(`${yta.namn}: horisontell scroll (${b.sw} > ${b.iw} px)`);
+        if (b.sh > b.ih) throw new Error(`${yta.namn}: hela sidan rullar (${b.sh} > ${b.ih} px)`);
+        if (errors.length) throw new Error(`${yta.namn}: sidfel ${errors.join(' | ')}`);
+        await pp.screenshot({ path: path.join(OUT, `1310-faktaruta-${yta.width}x${yta.height}.png`) });
+        out.push(`${yta.namn}: rutan ${Math.round(a.card.height)} px, bilden ${Math.round(a.img.height)} px, ${yta.width > 760 ? `texten börjar ${Math.round(a.card.bottom - a.text.top)} px över kanten, ` : ''}krysset kvar vid rullning`);
+      } finally { await context.close(); }
+    }
+    return out.join('; ');
+  });
+
+  await check('låg höjd: turkortet och turraden ryms med Nästa och Avsluta i bild (1280 × 800, 1366 × 768, 200 % zoom, #1310)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet (provar själv tre storlekar)';
+    const out = [];
+    for (const yta of LAGA_YTOR) {
+      const { context, page: pp, errors } = await lagaHojdenSida(browser, yta, '#t=forsta-varldskriget');
+      try {
+        await pp.waitForSelector('#tour-card:not([hidden])', { timeout: T.step });
+        await pp.waitForSelector('#pause-note:not([hidden])', { timeout: T.step });
+        await pp.waitForTimeout(500);
+        const m = () => pp.evaluate(() => {
+          const el = id => document.getElementById(id), rect = e => { const b = e.getBoundingClientRect(); return { top: b.top, bottom: b.bottom, left: b.left, right: b.right, height: b.height }; };
+          const card = el('tour-card'), c = rect(card);
+          const inside = id => { const b = rect(el(id)); const hit = document.elementFromPoint((b.left + b.right) / 2, (b.top + b.bottom) / 2); return { ...b, ok: b.height > 0 && b.top >= c.top - 1 && b.bottom <= c.bottom + 1 && b.top >= 0 && b.bottom <= innerHeight && !!hit?.closest(`#${id}`) }; };
+          const note = rect(el('pause-note')), year = rect(el('year-jump')), top = rect(document.querySelector('.top-actions'));
+          const hit = document.elementFromPoint((year.left + year.right) / 2, (year.top + year.bottom) / 2);
+          return {
+            card: c, scrollable: card.scrollHeight > card.clientHeight + 1, overflowY: getComputedStyle(card).overflowY, scrollH: card.scrollHeight, clientH: card.clientHeight,
+            next: inside('tour-next'), end: inside('tour-end'), title: rect(el('tour-title')), text: rect(el('tour-text')), actions: rect(card.querySelector('.tour-actions')),
+            note, noteInside: note.left >= 0 && note.right <= innerWidth && note.top >= 0 && note.bottom <= innerHeight, year, yearHit: !!hit?.closest('#year-jump'), top,
+            sw: document.documentElement.scrollWidth, sh: document.documentElement.scrollHeight, iw: innerWidth, ih: innerHeight,
+          };
+        });
+        const a = await m();
+        if (a.card.top < 0 || a.card.bottom > a.ih) throw new Error(`${yta.namn}: turkortet ligger utanför skärmen (${Math.round(a.card.top)}–${Math.round(a.card.bottom)} av ${a.ih} px)`);
+        if (a.card.height < 150) throw new Error(`${yta.namn}: turkortet är bara ${Math.round(a.card.height)} px högt`);
+        if (!a.next.ok) throw new Error(`${yta.namn}: Nästa syns inte helt inne i kortet (${Math.round(a.next.top)}–${Math.round(a.next.bottom)} px, kortet ${Math.round(a.card.top)}–${Math.round(a.card.bottom)})`);
+        if (!a.end.ok) throw new Error(`${yta.namn}: Avsluta turen syns inte helt inne i kortet`);
+        if (a.next.height < 44 || a.end.height < 44) throw new Error(`${yta.namn}: knapparna är lägre än 44 px (${Math.round(a.next.height)}, ${Math.round(a.end.height)})`);
+        if (!a.noteInside) throw new Error(`${yta.namn}: turraden ryms inte i bild (${Math.round(a.note.left)}–${Math.round(a.note.right)}, ${Math.round(a.note.top)}–${Math.round(a.note.bottom)} av ${a.iw} × ${a.ih} px)`);
+        if (a.card.bottom > a.note.top + 1) throw new Error(`${yta.namn}: turkortet täcker turraden (${Math.round(a.card.bottom)} > ${Math.round(a.note.top)} px)`);
+        if (!a.yearHit) throw new Error(`${yta.namn}: årtalet går inte att klicka`);
+        if (a.card.top < a.year.bottom - 1 && a.card.left < a.year.right) throw new Error(`${yta.namn}: turkortet täcker årtalet`);
+        if (a.card.top < a.top.bottom - 1 && a.card.right > a.top.left) throw new Error(`${yta.namn}: turkortet täcker knapparna överst`);
+        // Kortet rullas i sig självt när innehållet inte ryms, och texten nås: i slutet av rullningen ligger den ovanför de fasta knapparna
+        if (a.scrollable && a.overflowY !== 'auto') throw new Error(`${yta.namn}: turkortet rullas inte (overflow-y ${a.overflowY})`);
+        await pp.evaluate(() => { const d = document.getElementById('tour-card'); d.scrollTop = d.scrollHeight; });
+        await pp.waitForTimeout(150);
+        const b = await m();
+        if (b.text.bottom > b.actions.top + 1) throw new Error(`${yta.namn}: slutet av texten nås inte med rullning (${Math.round(b.text.bottom)} > ${Math.round(b.actions.top)} px)`);
+        if (!b.next.ok || !b.end.ok) throw new Error(`${yta.namn}: Nästa eller Avsluta försvinner när kortet rullas`);
+        await pp.focus('#tour-end');
+        const fokus = await pp.evaluate(() => { const b = document.getElementById('tour-end').getBoundingClientRect(); return b.top >= 0 && b.bottom <= innerHeight; });
+        if (!fokus) throw new Error(`${yta.namn}: Avsluta turen hamnar utanför bild vid fokus`);
+        if (b.sw > b.iw) throw new Error(`${yta.namn}: horisontell scroll (${b.sw} > ${b.iw} px)`);
+        if (b.sh > b.ih) throw new Error(`${yta.namn}: hela sidan rullar (${b.sh} > ${b.ih} px)`);
+        if (errors.length) throw new Error(`${yta.namn}: sidfel ${errors.join(' | ')}`);
+        await pp.evaluate(() => { document.getElementById('tour-card').scrollTop = 0; });
+        await pp.screenshot({ path: path.join(OUT, `1310-turkort-${yta.width}x${yta.height}.png`) });
+        out.push(`${yta.namn}: kortet ${Math.round(a.card.height)} px${a.scrollable ? ' (rullbart, knapparna fasta)' : ''}, Nästa och Avsluta i bild, turraden ryms`);
+      } finally { await context.close(); }
+    }
+    return out.join('; ');
+  });
+
   await check('Samtidigt-kortet går till nästa händelse', async () => {
     await visible('#funfact');
     if (await page.locator('#panel').isHidden()) await page.click('#btn-panel');
@@ -3579,7 +3692,7 @@ async function run(browser, vp) {
     await tp.route('**/data/genererat/handelser.json', async route => {
       const res = await route.fetch();
       const doc = await res.json();
-      for (const e of doc.events) { if (tagged.includes(e.id)) e.tags = ['framsteg']; else delete e.tags; }
+      if (tagged) for (const e of doc.events) { if (tagged.includes(e.id)) e.tags = ['framsteg']; else delete e.tags; }
       await route.fulfill({ response: res, json: doc });
     });
   };
@@ -3629,7 +3742,9 @@ async function run(browser, vp) {
       await tagView('#btn-layers');
       await tagPage.waitForSelector('#layer-menu', { state: 'visible', timeout: T.step });
       await tagPage.click('#layer-menu .view-chip[data-view="framsteg"]');
-      if (await tagPage.locator('#layer-menu .layer-view-status').isVisible()) throw new Error('tomt läge visas trots en taggad händelse');
+      // Raden under vyvalet förklarar nu urvalet (#1379), men får inte säga att ingen händelse är markerad
+      const taggedStatus = await tagPage.locator('#layer-menu .layer-view-status').textContent();
+      if (/Inga händelser är markerade som framsteg ännu/.test(taggedStatus)) throw new Error(`tomt läge visas trots en taggad händelse: "${taggedStatus}"`);
       await tagPage.keyboard.press('Escape');
       if (await tagPage.locator('#panel').isHidden()) await tagPage.click('#btn-panel');
       await tagPage.waitForSelector('#event-list .event-btn[data-id="apollo-11"]', { state: 'visible', timeout: T.step });
@@ -3655,6 +3770,72 @@ async function run(browser, vp) {
       await tagPage.close();
     }
     return 'tomt läge i Lager och Samtidigt; med fixtur bara Apollo 11, märkning med namn och förklaring';
+  });
+
+  // #1379: vyn Framsteg visar bara det källan själv beskriver som framsteg, och det är få. Lager och Samtidigt säger det,
+  // med antalet räknat ur datan (inte skrivet i texten), på det tomma året 1325. Raden försvinner när en annan vy väljs,
+  // ligger i statusraden i Lager och ryms utan horisontell scroll. Prövas med en fixtur med en enda taggad händelse (ental)
+  // och med den riktiga datan (antalet ur handelser.json).
+  await check('vyn Framsteg förklarar det smala urvalet i Lager och Samtidigt (#1379)', async () => {
+    const note = n => new RegExp(`beskriver som framsteg\\. Än så länge är det ${n} händelse${n === 1 ? '' : 'r'}\\.`);
+    const cases = [];
+    for (const tagged of [['apollo-11'], null]) {
+      const tp = await context.newPage();
+      const errors = [];
+      tp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) pushConsole(errors, m); });
+      tp.on('pageerror', e => errors.push(e.message));
+      try {
+        await withTags(tp, tagged);
+        await tp.goto(`${BASE}#y=1325`);
+        await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        const expected = tagged ? tagged.length : await tp.evaluate(async () => {
+          const doc = await (await fetch('data/genererat/handelser.json')).json();
+          return doc.events.filter(e => (e.tags ?? []).includes('framsteg') && e.review !== 'draft').length;
+        });
+        if (!expected) continue; // ingen händelse har taggen i datan: tomt läge, och det prövar kontrollen ovan
+        cases.push(expected);
+        const fits = sel => tp.evaluate(s => {
+          const r = document.querySelector(s).getBoundingClientRect();
+          return r.left >= 0 && r.right <= innerWidth + 0.5 && document.documentElement.scrollWidth <= document.documentElement.clientWidth;
+        }, sel);
+        if (await tp.isHidden('#btn-layers') && await tp.isVisible('#more-toggle')) await tp.click('#more-toggle');
+        await tp.click('#btn-layers');
+        await tp.waitForSelector('#layer-menu', { state: 'visible', timeout: T.step });
+        const status = tp.locator('#layer-menu .layer-view-status');
+        await tp.click('#layer-menu .view-chip[data-view="framsteg"]');
+        await status.waitFor({ state: 'visible', timeout: T.step });
+        const lagerText = await status.textContent();
+        if (!note(expected).test(lagerText)) throw new Error(`Lager säger inte att vyn bara visar framsteg, med ${expected}: "${lagerText}"`);
+        if (await status.getAttribute('role') !== 'status') throw new Error('raden i Lager är ingen statusrad för skärmläsare');
+        if (!await fits('#layer-menu .layer-view-status')) throw new Error('raden i Lager ryms inte i bredden');
+        await tp.screenshot({ path: path.join(OUT, `${vp.name}-framsteg-forklaring-lager.png`) });
+        // En annan vy: raden försvinner
+        await tp.click('#layer-menu .view-chip[data-view="standard"]');
+        await status.waitFor({ state: 'hidden', timeout: T.step });
+        await tp.click('#layer-menu .view-chip[data-view="framsteg"]');
+        await status.waitFor({ state: 'visible', timeout: T.step });
+        await tp.keyboard.press('Escape');
+        // Samtidigt: samma förklaring överst, och tomläget för året finns kvar under
+        if (await tp.locator('#panel').isHidden()) await tp.click('#btn-panel');
+        await tp.waitForSelector('#panel', { state: 'visible', timeout: T.step });
+        const panelNote = tp.locator('#panel-tag-note');
+        await panelNote.waitFor({ state: 'visible', timeout: T.step });
+        const panelText = await tp.locator('#panel-tag-text').textContent();
+        if (!note(expected).test(panelText)) throw new Error(`Samtidigt säger inte att vyn bara visar framsteg, med ${expected}: "${panelText}"`);
+        if (!await fits('#panel-tag-note')) throw new Error('raden i Samtidigt ryms inte i bredden');
+        await tp.waitForFunction(() => /Inga framsteg inom/.test(document.querySelector('#event-list .tag-empty')?.textContent ?? ''), null, { timeout: T.step });
+        await tp.screenshot({ path: path.join(OUT, `${vp.name}-framsteg-forklaring-samtidigt.png`) });
+        // Visa alla: vyn byts och raden försvinner
+        await tp.click('#panel-tag-all');
+        await panelNote.waitFor({ state: 'hidden', timeout: T.step });
+        if (await tp.locator('#event-list .tag-empty').count()) throw new Error('tomläget för Framsteg ligger kvar efter Visa alla');
+        if (errors.length) throw new Error(`konsolfel: ${errors.join('; ')}`);
+      } finally {
+        await tp.close();
+      }
+    }
+    if (!cases.length) throw new Error('ingen fixtur gav någon händelse med taggen');
+    return `raden i Lager och Samtidigt med antalet ur datan (${cases.join(' och ')}), försvinner med en annan vy`;
   });
 
   // #474: huvudstaden som gäller året syns när man följer ett rike. Testet tar ett rike ur datan med minst två daterade
@@ -5044,6 +5225,62 @@ async function run(browser, vp) {
     return 'fyllt vid 170° öst och 175° väst, tomt vid 0° och 30° öst';
   });
 
+  // #1227: data som delats vid ±180° (#1268) har en söm: segment längs kanten där delarna möts. Fyllningen ska gå ända fram,
+  // men strokningen ska hoppa över sömmen, annars syns en kort linje längs kartans kant (på globen en prickad linje längs 180°-
+  // meridianen). Kontrollen ritar rikets, religionens och platsens egna banor på en riktig canvas och mäter bildpunkterna vid
+  // kanten (x = 0 och x = W − 1, mitt på sömmen) både med och utan stroke; ett område som går över linjen utan delning ritas
+  // dessutom vid båda kanterna och inte som ett band (religionslagrets egen ritning, tidigare punkt för punkt utan traceRing).
+  await check('områden och religioner över datumlinjen: fyllning ända fram, ingen stroke längs sömmen (#1227)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet';
+    const r = await page.evaluate(async () => {
+      const { AreasLayer } = await import('./js/layers/areas.js');
+      const { ReligionsLayer } = await import('./js/layers/religions.js');
+      const W = 4096, H = 2048;
+      const X = lon => (lon + 180) / 360 * W, Y = lat => (90 - lat) / 180 * H;
+      const canvas = () => { const c = document.createElement('canvas'); c.width = W; c.height = H; return c; };
+      // Kolumnerna närmast kanten, rader mitt på sömmen (lat 52–60): största alfa i varje
+      const edge = ctx => {
+        const col = x => { const d = ctx.getImageData(x, Math.round(Y(60)), 1, Math.round(Y(52) - Y(60))).data; let m = 0; for (let i = 3; i < d.length; i += 4) m = Math.max(m, d[i]); return m; };
+        return { east: col(W - 1), west: col(0), inner: col(Math.round(X(170))), innerW: col(Math.round(X(-175))) };
+      };
+      const split = { type: 'MultiPolygon', coordinates: [
+        [[[160, 50], [180, 50], [180, 62], [160, 62], [160, 50]]],
+        [[[-180, 50], [-170, 50], [-170, 62], [-180, 62], [-180, 50]]],
+      ] };
+      const wrap = { type: 'Polygon', coordinates: [[[160, 50], [-170, 50], [-170, 62], [160, 62], [160, 50]]] }; // som Beringia: över linjen utan delning
+      const out = {};
+      // Riket: områdeslagrets egen ritning (tracePath + strokeEdge)
+      const polity = geometry => ({ id: 't', name: { sv: 'Test' }, group: 't', color: '#ff0000', review: 'source-checked', periods: [{ start: 0, end: 10, geometry }] });
+      for (const [key, geometry] of [['rikeDelat', split], ['rikeOver', wrap]]) {
+        const layer = new AreasLayer([polity(geometry)]);
+        layer.update({ year: 5 });
+        const c = canvas(), ctx = c.getContext('2d');
+        layer.drawOverlay(ctx, W, H);
+        out[key] = { ...edge(ctx), middle: ctx.getImageData(Math.round(X(0)), Math.round(Y(56)), 1, 1).data[3], europe: ctx.getImageData(Math.round(X(30)), Math.round(Y(56)), 1, 1).data[3] };
+      }
+      // Religionen: religionslagrets egen ritning
+      const religion = (geometry, sure = true) => ({ id: 't', color: '#00aaff', name: { sv: 'Test' }, snapshots: [{ start: 0, end: 10, sure, geometry, polities: [] }] });
+      for (const [key, geometry, sure] of [['religionDelad', split, true], ['religionOver', wrap, true], ['religionDeladStreckad', split, false]]) {
+        const layer = new ReligionsLayer();
+        layer.religions = [religion(geometry, sure)]; layer.enabled = true;
+        layer.update({ year: 5 });
+        const c = canvas(), ctx = c.getContext('2d');
+        layer.drawOverlay(ctx, W, H);
+        out[key] = { ...edge(ctx), middle: ctx.getImageData(Math.round(X(0)), Math.round(Y(56)), 1, 1).data[3], europe: ctx.getImageData(Math.round(X(30)), Math.round(Y(56)), 1, 1).data[3] };
+      }
+      return out;
+    });
+    // Fyllningen går ända fram (alfa > 0 vid kanten) men strokens full alfa finns inte där (bara fyllning: områdena 0,32 och 0,5)
+    const MAX_FILL = 150;
+    for (const [key, v] of Object.entries(r)) {
+      if (!v.east || !v.west) throw new Error(`${key}: fyllningen når inte kanten: ${JSON.stringify(v)}`);
+      if (v.middle || v.europe) throw new Error(`${key}: området ritas tvärs över kartan: ${JSON.stringify(v)}`);
+      if (key.endsWith('Over')) continue; // utan söm: ingen kant att kontrollera, strokens egen linje ligger vid kanten (klippt)
+      if (v.east > MAX_FILL || v.west > MAX_FILL) throw new Error(`${key}: sömmen strokas som en linje längs kanten: ${JSON.stringify(v)}`);
+    }
+    return 'delade områden: fyllt ända fram, ingen stroke längs sömmen i riken och religioner; över linjen utan delning: båda kanterna, inget band';
+  });
+
   // #1268: platsernas gränser delas vid datumlinjen i datan (tools/platser_gransar.py), och platslagret lägger delringarna punkt
   // för punkt. En konstruerad plats över 180° (som Ryssland eller Fiji) ritas med platslagrets egen bana på en riktig canvas:
   // fylld vid båda kanterna, tom i mitten (ett streck tvärs över kartan skulle ge fylld bild vid 0°).
@@ -5068,6 +5305,40 @@ async function run(browser, vp) {
     if (!r.east || !r.west) throw new Error(`platsen saknas vid kanterna: ${JSON.stringify(r)}`);
     if (r.middle || r.europe || r.north) throw new Error(`platsen ritas tvärs över kartan: ${JSON.stringify(r)}`);
     return 'fylld vid 170° öst och 175° väst, tom vid 0° och 30° öst';
+  });
+
+  // #1227: sömmen mellan delarna ritas inte som en linje längs kartans kant. Platsens egen bana ritas på en riktig canvas i
+  // alla tre lägen (konturen i Fokus, konturen i en turs steg, de tunna markeringarna runt platser med kort) och bildpunkterna
+  // vid kanten (x = 0 och x = W − 1, mitt på sömmen) mäts: fyllningen (alfa 0,16) går ända fram men strokens alfa (0,95) syns inte.
+  await check('en plats över datumlinjen: ingen stroke längs sömmen, fyllningen ända fram (#1227)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet';
+    const r = await page.evaluate(async () => {
+      const { PlacesLayer } = await import('./js/layers/places.js');
+      const W = 2048, H = 1024;
+      const Y = lat => (90 - lat) / 180 * H;
+      const place = { id: 'test-somstroke', boundary: { geometry: { type: 'MultiPolygon', coordinates: [
+        [[[160, 50], [180, 50], [180, 62], [160, 62], [160, 50]]],
+        [[[-180, 50], [-170, 50], [-170, 62], [-180, 62], [-180, 50]]],
+      ] } } };
+      const draw = setup => {
+        const c = document.createElement('canvas'); c.width = W; c.height = H;
+        const ctx = c.getContext('2d'), layer = new PlacesLayer();
+        setup(layer);
+        layer.drawOverlay(ctx, W, H);
+        const col = x => { const d = ctx.getImageData(x, Math.round(Y(60)), 1, Math.round(Y(52) - Y(60))).data; let m = 0; for (let i = 3; i < d.length; i += 4) m = Math.max(m, d[i]); return m; };
+        return { east: col(W - 1), west: col(0) };
+      };
+      return {
+        fokus: draw(l => { l.enabled = true; l.place = place; }),
+        steg: draw(l => { l.step = place; }),
+        markering: draw(l => { l.hints = true; l.cards = [place]; l.px = 1.5; }),
+      };
+    });
+    // Fyllningen (0,16 · 255 ≈ 41) går ända fram; en stroke (0,95) ger över 200
+    if (!r.fokus.east || !r.fokus.west) throw new Error(`fyllningen når inte kanten: ${JSON.stringify(r.fokus)}`);
+    for (const key of ['fokus', 'steg']) if (r[key].east > 80 || r[key].west > 80) throw new Error(`${key}: sömmen strokas som en linje längs kanten: ${JSON.stringify(r[key])}`);
+    if (r.markering.east || r.markering.west) throw new Error(`markeringen: sömmen strokas som en linje längs kanten: ${JSON.stringify(r.markering)}`);
+    return 'fylld ända fram, ingen stroke längs sömmen i Fokus, turens steg och markeringarna';
   });
 
   await check('ett rike syns', async () => {
@@ -8229,6 +8500,33 @@ async function run(browser, vp) {
   results.push({ name: 'inga fel i konsolen', ok: errors.length === 0, ms: 0, note: errors.slice(0, 10).join(' | ') || undefined });
   await context.close();
   return results;
+}
+
+// #1310: faktarutan, turkortet och turraden vid låg höjd. Storlekarna är två bärbara datorer och 200 % sidzoom på den ena:
+// 200 % zoom av 1280 × 800 är en yta på 640 × 400 CSS-pixlar (samma sätt som avsnittet "zoom och omflödning", #404:
+// fönstret görs hälften så stort i stället för att webbläsarens zoom ändras, eftersom Playwright inte kan zooma sidan).
+const LAGA_YTOR = [
+  { namn: '1280 × 800', width: 1280, height: 800 },
+  { namn: '1366 × 768', width: 1366, height: 768 },
+  { namn: '200 % zoom (640 × 400)', width: 640, height: 400 },
+];
+// Egen kontext och sida per storlek, med årstipset avstängt så att det inte döljer skalan. Anroparen stänger kontexten.
+async function lagaHojdenSida(browser, { width, height }, hash) {
+  const context = await browser.newContext({ viewport: { width, height }, deviceScaleFactor: 1 });
+  const page = await context.newPage();
+  const errors = [];
+  page.on('pageerror', e => errors.push(e.message));
+  if (THREE_LOCAL) {
+    const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+    await page.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+    await page.route(u => isFont(u.href), r => r.abort());
+  }
+  await page.addInitScript(() => { try { localStorage.setItem('hg-year-tip', '1'); } catch { /* utan lagring */ } });
+  await page.goto(`${BASE}${hash}`, { waitUntil: 'domcontentloaded', timeout: T.load });
+  await page.waitForFunction(() => document.getElementById('loading')?.hidden, null, { timeout: T.load });
+  if (await page.isVisible('#intro')) await page.click('#intro-close');
+  if (await page.isVisible('#help')) await page.click('#help-close');
+  return { context, page, errors };
 }
 
 // WCAG 1.4.4/1.4.10 (#404): 200 och 400 procents sidzoom motsvarar att en 1400 × 900-yta

@@ -504,7 +504,7 @@ body {
 .layer-action { min-height: 44px; padding: 6px 8px; color: var(--parchment); background: var(--night-3); border: 1px solid var(--control-line); border-radius: 8px; font: 500 12.5px/1.2 var(--f-body); cursor: pointer; }
 .layer-action:hover { border-color: var(--brass-deep); }
 .layer-action-status { grid-column: 1 / -1; margin: 0; color: var(--parchment-dim); font-size: 12px; line-height: 1.35; }
-.layer-view-status { margin: 6px 0 0; color: var(--parchment-dim); font-size: 12.5px; line-height: 1.4; }
+.layer-view-status { margin: 6px 0 0; padding: 0 10px 8px; color: var(--parchment-dim); font-size: 12.5px; line-height: 1.4; }
 .panel-enable-events { min-height: 44px; margin: 0 10px 12px; }
 .layer-customize-chev {
   width: 6px; height: 6px; border: solid currentColor; border-width: 0 1.5px 1.5px 0;
@@ -2425,3 +2425,46 @@ details.used-by summary:hover { color: var(--parchment); }
   .menu-x:hover, .menu-x:focus-visible { color: var(--brass); outline: 2px solid var(--brass); outline-offset: -4px; }
 }
 @media (min-width: 761px) { .menu-x { display: none; } }
+
+/* ---------- Låg höjd och 200 % zoom: faktarutan, turkortet och turraden får plats (#1310) ----------
+   Korten ligger förankrade nedtill, och deras högsta höjd var "skärmens höjd minus ett fast avstånd uppåt". På en låg yta
+   (1280 × 800 på en bärbar, 1366 × 768, och 200 % zoom, som är en 640 × 400-yta i CSS-pixlar) blev det för lite eller inget:
+   faktarutan visade bara rubrik och bild, och turkortet blev 28 px högt med Nästa utanför skärmen. Reglerna gäller bara låg höjd,
+   så den vanliga stora skärmen (1400 × 900 och uppåt) och mobil stående (400 × 800) är oförändrade. */
+
+/* Bärbar dator: faktarutan får mer höjd och bilden mindre, så att texten syns under bilden. Krysset är redan "sticky" och följer med vid rullning. */
+@media (min-width: 761px) and (max-height: 880px) {
+  .detail-card { max-height: max(150px, min(56vh, calc(100dvh - 330px))); scrollbar-width: thin; scrollbar-color: var(--brass-deep) var(--night-3); }
+  .detail-fig img { aspect-ratio: auto; height: clamp(110px, 22vh, 220px); }
+}
+
+/* Låg yta, alla bredder (200 % zoom och liggande telefon): turkortet tar plats ovanför turraden i stället för att räknas ur ett fast avstånd,
+   rullar i sig självt, och Nästa och Avsluta ligger kvar längst ned medan texten rullar. Fler klasser än reglerna ovan (som har
+   :has(.pause-note:not([hidden]))), så att den här vinner. Turraden (pausraden) ligger oförändrad. */
+@media (max-height: 600px) {
+  .app { --tour-top: 150px; }
+  .app.lesson, .app.lesson-notice { --tour-top: 200px; } /* lektionsbandet (52 px) ovanpå */
+  .app.app.app .tour-card {
+    --tour-bottom: 136px;
+    bottom: var(--tour-bottom);
+    max-height: calc(100dvh - var(--tour-bottom) - var(--tour-top));
+    padding-bottom: 0;
+    scrollbar-width: thin; scrollbar-color: var(--brass-deep) var(--night-2);
+  }
+  .app.app.app.pause-var .tour-card { --tour-bottom: calc(var(--pause-top) + 8px); }
+  .tour-card .tour-name { display: none; } /* turens namn står redan i turraden under kortet; kortets namn hämtas ändå av aria-labelledby */
+  .tour-card .tour-actions { position: sticky; bottom: 0; margin-top: 8px; padding: 8px 0 12px; background: var(--night-2); }
+  .app.app.app #detail, .app.app.app #funfact { scrollbar-width: thin; scrollbar-color: var(--brass-deep) var(--night-3); }
+}
+@media (max-height: 600px) and (min-width: 761px) and (max-width: 1100px) {
+  .app { --tour-top: calc(var(--tablet-actions-height, 98px) + 120px); } /* årtalet ligger under knapparna på en platta yta (#992) */
+  .app.lesson, .app.lesson-notice { --tour-top: calc(var(--tablet-actions-height, 98px) + 172px); }
+}
+@media (max-height: 600px) and (max-width: 760px) {
+  .app { --tour-top: 76px; }
+  .app.lesson, .app.lesson-notice { --tour-top: 130px; }
+  .app.lesson-teacher { --tour-top: 170px; }
+  /* Faktarutan som ark: rubrik, datum och text får mer än handtaget och rubriken, och bilden tar inte hela arket i helt läge */
+  .detail-fig img { aspect-ratio: auto; height: clamp(90px, 28vh, 180px); }
+  #detail { max-height: min(52dvh, calc(100dvh - var(--ff-b) - 120px)); }
+}
