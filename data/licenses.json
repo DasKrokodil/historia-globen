@@ -796,12 +796,21 @@
         "wp-empire-of-japan",
         "wp-emu-war",
         "wp-en-anders-celsius",
+        "wp-en-astuvansalmi",
+        "wp-en-barum-woman",
+        "wp-en-egtved-girl",
         "wp-en-eu-folkomrostning-1994",
         "wp-en-eu-utvidgning-1995",
+        "wp-en-golden-horns-of-gallehus",
         "wp-en-gota-canal",
+        "wp-en-levanluhta",
         "wp-en-nobel-prize",
+        "wp-en-rock-art-of-alta",
         "wp-en-rock-carvings-in-tanum",
+        "wp-en-sammallahdenmaki",
         "wp-en-sveriges-riksbank",
+        "wp-en-tollund-man",
+        "wp-en-trundholm-sun-chariot",
         "wp-en-vasa-ship",
         "wp-encomienda",
         "wp-end-of-han",
@@ -1888,6 +1897,7 @@
         "wp-sv-celsiusskalan",
         "wp-sv-forsvenskningen",
         "wp-sv-gota-kanal",
+        "wp-sv-hagahogen",
         "wp-sv-hallristningarna-i-tanum",
         "wp-sv-jellingestenarna",
         "wp-sv-kopenhamn",
@@ -1904,6 +1914,7 @@
         "wp-sv-skane-lan",
         "wp-sv-skanes-historia",
         "wp-sv-skanska-generalguvernementet",
+        "wp-sv-skedemosse",
         "wp-sv-sodra-stambanan",
         "wp-sv-stockholms-historia",
         "wp-sv-uppsala-universitet",
@@ -2185,10 +2196,12 @@
         "wd-eu-utvidgning-1995",
         "wd-federal-republic-of-yugoslavia",
         "wd-funj-sultanate",
+        "wd-gallehushornen",
         "wd-gota-kanal",
         "wd-gran-colombia",
         "wd-greenland",
         "wd-habsburg-monarchy",
+        "wd-hagahogen",
         "wd-hawaiian-kingdom",
         "wd-india",
         "wd-iran",
@@ -2261,6 +2274,7 @@
         "wd-taiping-heavenly-kingdom",
         "wd-tanum",
         "wd-tarascan-state",
+        "wd-trundholmsvagnen",
         "wd-tsardom-of-russia",
         "wd-ukraine",
         "wd-union-sweden-norway",
@@ -2351,10 +2365,18 @@
     {
       "license": "Historiska museet (bara länkad, ingen text kopierad)",
       "sourceIds": [
+        "historiska-akermyra-paddeln",
+        "historiska-barumkvinnan",
         "historiska-bronsalder",
+        "historiska-eskelhem",
+        "historiska-ganggrifter",
         "historiska-jarnalder",
+        "historiska-lillberget",
         "historiska-perioder",
-        "historiska-stenalder"
+        "historiska-rituell-maltid",
+        "historiska-rodockragravar",
+        "historiska-stenalder",
+        "historiska-timra"
       ]
     },
     {
@@ -2370,7 +2392,9 @@
         "lex-danmarks-grundlove",
         "lex-dominion",
         "lex-dybbol",
+        "lex-egtvedpigen",
         "lex-grundlovgivende-rigsforsamling",
+        "lex-guldhornene",
         "lex-hc-orsted",
         "lex-jellingstenene",
         "lex-jodeaktionen",
@@ -2387,8 +2411,11 @@
         "lex-ribe",
         "lex-rodding-hojskole",
         "lex-rundetarn",
+        "lex-solvognen",
         "lex-stavnsband",
         "lex-stemmeret-til-kvinder",
+        "lex-tollundmanden",
+        "lex-tybrind-vig-boplads",
         "lex-waitangitraktaten"
       ]
     },
@@ -2952,10 +2979,12 @@
     {
       "license": "Store norske leksikon, begränsad licens (bara länkad, ingen text kopierad)",
       "sourceIds": [
+        "snl-alta-ristningene",
         "snl-new-zealand",
         "snl-new-zealands-befolkning",
         "snl-new-zealands-historie",
-        "snl-new-zealands-politiske-system"
+        "snl-new-zealands-politiske-system",
+        "snl-snartemofunnene"
       ]
     },
     {
