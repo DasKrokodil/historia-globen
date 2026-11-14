@@ -786,8 +786,11 @@ export class Panel {
     // Kortets ram följer händelsens tidsålder, med eller utan bild (#129)
     const st = styleFor(e, this.styles);
     // En omritning för samma händelse (när detaljfilen har laddats) behåller öppna märkningar
-    const keepOpen = this.detail.dataset.eventId === e.id
-      ? [...this.detail.querySelectorAll('details.tag-mark[open]')].map(d => d.dataset.tag) : [];
+    const same = this.detail.dataset.eventId === e.id;
+    const keepOpen = same ? [...this.detail.querySelectorAll('details.tag-mark[open]')].map(d => d.dataset.tag) : [];
+    // Noten och Om uppgifterna (#1571) står kvar öppna när samma händelse ritas om
+    const noteOpen = same && !!this.detail.querySelector('details.detail-note[open]');
+    const aboutOpen = same && !!this.detail.querySelector('details.detail-about[open]');
     this.detail.dataset.eventId = e.id;
     this.detail.className = `detail detail-card frame-${st.frame}`;
     this.detail.dataset.style = st.variant?.id ?? st.style.id;
@@ -805,7 +808,7 @@ export class Panel {
       ${this.onShowPlace ? `<button type="button" class="place-row" data-show-place aria-label="${esc(ui('detail.showPlaceLabel', { place: t(e.place) }))}"><span class="place-pin" aria-hidden="true"></span><span class="place-go">${esc(ui('detail.showPlace'))}</span></button>` : ''}
       ${figure(e, this.srcById, evidence.marker('image'))}
       ${loading ? loadingHtml() : `<p${langAttr(e.summary)}>${esc(t(e.summary))}${evidence.marker('summary')}</p>`}
-      ${e.note ? `<aside class="detail-note"><h4>${esc(t(e.note.title))}</h4><p>${esc(t(e.note.text))}</p></aside>` : ''}
+      ${e.note ? `<details class="detail-note"${noteOpen ? ' open' : ''}><summary>${esc(t(e.note.title))}</summary><p>${esc(t(e.note.text))}</p></details>` : ''}
       ${loading ? '' : mythsHtml(misconceptionsFor(e.id), this.srcById, pending)}
       ${unc}
       ${e._war ? `<p class="war-link">${esc(ui('detail.partOf'))} <button type="button" class="link-btn" data-goto="${esc(e._war.id)}">${esc(t(e._war.title))}</button></p>` : ''}
@@ -813,14 +816,18 @@ export class Panel {
       ${e._battles?.length ? `<div class="war-list"><h4>${esc(ui('detail.battles'))}</h4><ol>${e._battles.map(b =>
         `<li><button type="button" class="link-btn" data-goto="${esc(b.id)}">${esc(t(b.title))}</button> <span class="meta">${esc(formatEventTime(b))}</span></li>`).join('')}</ol></div>` : ''}
       ${empireList(e._empires ?? e._war?._empires)}
-      ${evidence.sources || srcLine(srcs, pending)}
-      ${pending ? '' : howWeKnowRow(srcs, e.review, sourcesDisagree(e), this.howTour?.())}
       ${(() => { const h = this.huntFor?.(e); return h ? `<button type="button" class="chip-btn hunt-add" data-hunt${h.disabled ? ' disabled' : ''}>${esc(h.label)}</button>` : ''; })()}
-      <div class="detail-actions">
-        ${reviewRow(e.review, 'Händelsen')}
-        ${loading ? '' : `<button type="button" class="link-btn" data-citation>${esc(ui('citation.copy'))}</button><span data-citation-status role="status" aria-live="polite"></span>`}
-        ${this.onReport ? reportBtn({ type: 'event', id: e.id, label: t(e.title) }) : ''}
-      </div>`;
+      <details class="detail-about"${aboutOpen ? ' open' : ''}><summary>${esc(String(ui('detail.aboutData')[srcs.length === 1 ? 0 : 1]).replace('{n}', srcs.length))} · ${esc(reviewLabel(e.review, 'Händelsen'))}</summary>
+        ${evidence.sources || srcLine(srcs, pending)}
+        ${pending ? '' : howWeKnowRow(srcs, e.review, sourcesDisagree(e), this.howTour?.())}
+        <div class="detail-actions">
+          ${reviewRow(e.review, 'Händelsen')}
+          ${loading ? '' : `<button type="button" class="link-btn" data-citation>${esc(ui('citation.copy'))}</button><span data-citation-status role="status" aria-live="polite"></span>`}
+          ${this.onReport ? reportBtn({ type: 'event', id: e.id, label: t(e.title) }) : ''}
+        </div>
+      </details>`;
+    // En källhänvisning [n] i texten pekar på en rad i Om uppgifterna: öppna avsnittet först, så att länken har något att hoppa till
+    for (const a of this.detail.querySelectorAll('.evidence-ref a')) a.addEventListener('click', () => { this.detail.querySelector('details.detail-about')?.setAttribute('open', ''); });
     for (const tag of keepOpen) this.detail.querySelector(`details.tag-mark[data-tag="${CSS.escape(tag)}"]`)?.setAttribute('open', '');
     this.detail.scrollTop = 0;
     this.setDetailOpen(true);

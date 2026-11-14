@@ -487,6 +487,7 @@
   "panel.showLessIn": "{label} en {region}",
   "detail.loading": "Cargando…",
   "detail.source": "Fuente:",
+  "detail.aboutData": ["Sobre los datos · {n} fuente", "Sobre los datos · {n} fuentes"],
   "route.sourcesCount": "Fuentes ({n})",
   "detail.sourceMissing": "falta",
   "detail.beforeScale": "El acontecimiento comienza antes del inicio de la línea de tiempo ({year}), por lo que el control no puede mostrar su primer año.",

@@ -266,6 +266,7 @@
   "detail.label": "Om händelsen",
   "detail.loading": "Laddar…",
   "detail.source": "Källa:",
+  "detail.aboutData": ["Om uppgifterna · {n} källa", "Om uppgifterna · {n} källor"],
   "route.sourcesCount": "Källor ({n})",
   "detail.sourceMissing": "saknas",
   "detail.beforeScale": "Händelsen börjar före tidslinjens början ({year}), så reglaget kan inte visa dess första år.",
