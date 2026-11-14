@@ -10,6 +10,7 @@
     "end": { "sv": "Avsluta turen", "en": "End the tour", "fr": "Terminer la visite", "de": "Tour beenden", "es": "Terminar el recorrido" },
     "done": { "sv": "Klar", "en": "Done", "fr": "Terminé", "de": "Fertig", "es": "Listo" },
     "read": { "sv": "Läs om händelsen", "en": "Read about the event", "fr": "En savoir plus sur l'événement", "de": "Mehr über das Ereignis", "es": "Leer sobre el acontecimiento" },
+    "readPlace": { "sv": "Läs om platsen", "en": "Read about the place", "fr": "En savoir plus sur le lieu", "de": "Mehr über den Ort", "es": "Leer sobre el lugar" },
     "question": { "sv": "Att fundera på:", "en": "Something to think about:", "fr": "À méditer :", "de": "Zum Nachdenken:", "es": "Para pensar:" },
     "story": { "sv": "Följ berättelsen: {title} ({total} steg)", "en": "Follow the story: {title} ({total} steps)", "fr": "Suivre le récit : {title} ({total} étapes)", "de": "Der Geschichte folgen: {title} ({total} Schritte)", "es": "Seguir el relato: {title} ({total} pasos)" },
     "fall": { "sv": "Följ fallet: {title} ({total} steg)", "en": "Follow the fall: {title} ({total} steps)", "fr": "Suivre la chute : {title} ({total} étapes)", "de": "Dem Fall folgen: {title} ({total} Schritte)", "es": "Seguir la caída: {title} ({total} pasos)" },

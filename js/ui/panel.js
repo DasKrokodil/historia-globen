@@ -517,8 +517,16 @@ export class Panel {
     return !!pending;
   }
 
-  /** Samma signal används av alla slags faktarutor: händelse, rike, religion och berättelse. */
-  setDetailOpen(open) {
+  /**
+   * Samma signal används av alla slags faktarutor: händelse, rike, religion och berättelse. Det öppna kortets namn för skärmläsare är Om händelsen (detail.label) om inget annat sägs: platsens
+   * kort heter Om platsen (#1464). Varje öppning sätter namnet, så att ett kort inte ärver det förra kortets.
+   */
+  setDetailOpen(open, label = ui('detail.label')) {
+    if (open) {
+      // Namnet ägs härifrån: attributet för språkbytet (index.html) tas bort, så att applyStatic() aldrig sätter tillbaka Om händelsen på ett öppet kort
+      this.detail.removeAttribute?.('data-i18n-aria-label');
+      this.detail.setAttribute('aria-label', label);
+    }
     this.detail.hidden = !open;
     this.onDetailChange(open);
   }
@@ -598,8 +606,9 @@ export class Panel {
    *   sources  källornas id
    *   banner   valfri rad direkt under namnet, synlig utan att rulla (att ett tidsintervall avslutades när platsen började följas, #1163)
    *   focus    false: kortet tar inte tangentbordsfokus (platsens kort i en turs steg, #1163: fokus ska ligga kvar på Nästa)
+   *   ariaLabel kortets namn för skärmläsare; utan namn gäller Om händelsen (platsens kort heter Om platsen, #1464)
    */
-  showSelection({ label, name, lead = '', emblems = [], intro, action = null, notes = [], exit, summary, events, sources = [], focus = true, banner = '' }) {
+  showSelection({ label, name, lead = '', emblems = [], intro, action = null, notes = [], exit, summary, events, sources = [], focus = true, banner = '', ariaLabel }) {
     this.selectedId = null;
     this.detail.className = `detail detail-card detail-selection frame-${styleFor(events[0], this.styles).frame}`; // detail-selection: main.js läser upp etiketten (Plats, Tema), också när inget Fokus pågår (#1163)
     const shown = (emblems ?? []).filter(em => flagUrl(em));
@@ -623,7 +632,7 @@ export class Panel {
       </details></div>
       ${srcs.length ? srcLine(srcs, false) : ''}`;
     this.detail.scrollTop = 0;
-    this.setDetailOpen(true);
+    this.setDetailOpen(true, ariaLabel);
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
     this.detail.querySelector('[data-end-theme]')?.addEventListener('click', () => this.onEndTheme());
     this.detail.querySelector('[data-selection-action]')?.addEventListener('click', () => action.run());
