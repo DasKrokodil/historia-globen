@@ -35,6 +35,14 @@ ROOT = Path(__file__).resolve().parent.parent
 TOL = 0.2      # förenkling i grader (Douglas-Peucker)
 MERGE = 0.02   # slå ihop perioder där gränsen ändras mindre än så här stor del av ytan
 MIN_AREA = 0.02  # öar mindre än så här (kvadratgrader, cirka 200 km2) tas bort
+# Rester (#1333): en period i en Cliopatria-post som är mindre än REMNANT_SHARE av postens största period och
+# till mindre än REMNANT_INSIDE av sin yta ligger utanför postens övriga, större perioder hoppas över (drop_remnants)
+REMNANT_SHARE = 0.01
+REMNANT_INSIDE = 0.5
+
+# Grupper som förenklas finare än förut men där namnets plats och sammanslagningen av perioder räknas med den
+# gamla förenklingen (grupp -> grader), så att bara gränsens kust blir finare och perioderna står kvar (Danmark och Sverige, #1466)
+SAME_AS_TOL = {'danmark': 0.3, 'konungariket-danmark': TOL, 'kalmarunionen': TOL, 'svenska-stormaktsvaldet': TOL}
 
 # Stora, utspridda imperier förenklas hårdare så att filen blir lagom stor: grupp -> (TOL, MERGE, MIN_AREA)
 # Små stater som visas som punkter, med gränsen ur Natural Earth (#722)
@@ -49,14 +57,20 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              # R7 (#407): USA med Alaska, de arktiska öarna och Stilla havet
              'usa': (0.3, 0.05, 0.08),
              # Kanada, Ryssland och Australien med långa kuster och många öar
-             'kanada': (0.3, 0.05, 0.08), 'australien': (0.3, 0.05, 0.08),
+             # Kanada slår ihop perioder under 2,5 procent (#1333), så att perioden med Newfoundland och Labrador från 1949
+             # (3,3 procent av ytan) står kvar
+             'kanada': (0.3, 0.025, 0.08), 'australien': (0.3, 0.05, 0.08),
              # Ryssland: perioderna slås aldrig ihop, så att små ändringar (som Krim, cirka 0,2 procent av ytan) inte försvinner
              'ryska-federationen': (0.3, 0.0, 0.08),
              # Israel och Palestina (#644): små länder med smala gränsområden (Gaza är cirka 10 km bred), så
              # förenklingen är finare, annars försvinner Gaza och gränserna mot Västbanken hamnar fel
              'israel': (0.03, 0.02, 0.02), 'palestina': (0.03, 0.02, 0.02),
-             # Nutida stater (#644): Danmark med Grönland, Kina och Indonesien med många öar
-             'danmark': (0.3, 0.05, 0.08),
+             # Nutida stater (#644): Danmark med Grönland, Kina och Indonesien med många öar.
+             # Danmarks och Sveriges grupper förenklas finare (0,1 grader), annars förenklas Öresundskusten bort och
+             # Köpenhamn och Helsingborg hamnar långt utanför gränsen (#1466)
+             'danmark': (0.1, 0.05, 0.08),
+             'konungariket-danmark': (0.1, MERGE, MIN_AREA), 'kalmarunionen': (0.1, MERGE, MIN_AREA),
+             'svenska-stormaktsvaldet': (0.1, MERGE, MIN_AREA),
              'kina': (0.3, 0.05, 0.08), 'indonesien': (0.2, 0.05, 0.05),
              # Gambia (cirka 30 km bred längs floden) och Libanon är smala: finare förenkling för dem och grannarna Senegal och
              # Syrien, annars täcker grannarnas förenklade gräns en stor del av landet
@@ -773,8 +787,10 @@ GROUPS = {
         ("People's Democratic Republic of Yemen", 'sydjemen', 'Sydjemen', '#a0704a', {'en': 'South Yemen'}),
         ('Republic of Yemen', 'jemen', 'Jemen', '#4a8aa0', {'en': 'Yemen', 'wikidata': 'Q805'}),
     ]),
+    # Norge 1814 (#1466, DasKrokodils ja 2026-11-14): Cliopatrias Kingdom of Norway 1814 är en egen kort period;
+    # 1815–1904 är Norge en del av Sverige-Norge (gruppen svenska-stormaktsvaldet)
     'norge': ('Norge', 'Norway', [
-        ('Kingdom of Norway', 'norge', 'Norge', '#2f8f7a', {'en': 'Norway', 'years': (1905, 2024)}),
+        ('Kingdom of Norway', 'norge', 'Norge', '#2f8f7a', {'en': 'Norway', 'years': (1814, 2024)}),
     ]),
     'uzbekistan': ('Uzbekistan', 'Uzbekistan', [
         ('Republic of Uzbekistan', 'uzbekistan', 'Uzbekistan', '#c0705a', {'en': 'Uzbekistan'}),
@@ -1990,6 +2006,28 @@ def influence_periods(rels, cname, core, own, names, tol, merge, min_area):
     return sorted(out, key=lambda q: q['start'])
 
 
+def drop_remnants(by_name):
+    """Tar bort rester ur Cliopatria (#1333): perioder i en post som är mindre än REMNANT_SHARE av postens
+    största period och som till mest REMNANT_INSIDE av sin yta ligger inom postens övriga, större perioder.
+    Det är fläckar långt från riket, till exempel Kingdom of Denmark 1402–1406 (73 km² i finska Lappland).
+    Ett rike som krymper till en del av sitt gamla område (Mogulriket 1857–1858, Delhi) står kvar.
+    Returnerar de borttagna som (namn, från, till, yta)."""
+    gone = []
+    for name, feats in by_name.items():
+        top = max(f['properties']['Area'] for f in feats)
+        small = [f for f in feats if f['properties']['Area'] < REMNANT_SHARE * top]
+        if not small:
+            continue
+        big = unary_union([shape(f['geometry']).buffer(0) for f in feats if f['properties']['Area'] >= REMNANT_SHARE * top])
+        for f in small:
+            g = shape(f['geometry']).buffer(0)
+            if g.is_empty or g.intersection(big).area < REMNANT_INSIDE * g.area:
+                p = f['properties']
+                gone.append((name, p['FromYear'], p['ToYear'], round(p['Area'])))
+                feats.remove(f)
+    return gone
+
+
 def fix_swapped_shapes(by_name):
     """Rättar poster i Cliopatria v0.0.1 där två riken har bytt geometri (#1187).
 
@@ -2026,6 +2064,8 @@ def main():
         if p['Type'] == 'POLITY':
             by_name.setdefault(p['Name'], []).append(f)
     fix_swapped_shapes(by_name)
+    for name, a, b, ar in drop_remnants(by_name):
+        print(f'rest hoppas över (#1333): {name} {a}–{b}, {ar} km2')
     rels = relations(src)
     disputed = disputed_areas(by_name)  # omstridda gränser enligt Sveriges hållning (#644)
     ne = ne_shapes()  # små stater ur Natural Earth (#722)
@@ -2127,12 +2167,18 @@ def main():
                     g = unary_union([q for q in g.geoms if q.area > min_area] or [max(g.geoms, key=lambda q: q.area)])
                 if g.is_empty:
                     continue
+                # gc: gränsen förenklad som förut (SAME_AS_TOL, #1466), för namnets plats och sammanslagningen av perioder
+                gc = g
+                if gid in SAME_AS_TOL:
+                    gc = raw.simplify(SAME_AS_TOL[gid], preserve_topology=True)
+                    if gc.geom_type == 'MultiPolygon':
+                        gc = unary_union([q for q in gc.geoms if q.area > min_area] or [max(gc.geoms, key=lambda q: q.area)])
                 # Namnet skrivs där den största delen av riket ligger
-                c = (max(g.geoms, key=lambda q: q.area) if g.geom_type == 'MultiPolygon' else g).representative_point()
+                c = (max(gc.geoms, key=lambda q: q.area) if gc.geom_type == 'MultiPolygon' else gc).representative_point()
                 # label i GROUPS ersätter den uträknade punkten (små stater: huvudstaden, #722)
                 lab = list(opts['label']) if opts.get('label') else [round(c.x, 1), round(c.y, 1)]
                 q = {'start': start, 'end': end, 'areaKm2': round(area),
-                     'label': lab, '_shape': g,
+                     'label': lab, '_shape': gc,
                      'geometry': {'type': mapping(g)['type'], 'coordinates': rnd(mapping(g)['coordinates'], DECIMALS.get(gid, 1))}}
                 # Huvudlandet (#74): den del av riket som är moderlandet. Den ritas kraftigare och får rikets namn.
                 if home and 'homeland' in opts:

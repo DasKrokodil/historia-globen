@@ -33130,7 +33130,7 @@
     "fr": "Norvège"
    },
    "color": "#2f8f7a",
-   "from": 1905,
+   "from": 1814,
    "to": 2024,
    "file": "data/empires/norge.json",
    "flags": [
@@ -33178,7 +33178,22 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Cliopatria visar Norge som eget kungarike hela 1814 och från 1815 som en del av Sverige-Norge. Enligt källan var Norge en de facto självständig stat från 25 februari till 4 november 1814: grundlagen antogs 17 maj, ingen främmande makt erkände staten, och den 4 november valde Stortinget Karl XIII till kung i union med Sverige. Wikidata anger 17 maj 1814 som ett av Norges startdatum.",
+     "en": "Cliopatria shows Norway as a separate kingdom for all of 1814 and from 1815 as part of Sweden-Norway. According to the source, Norway was a de facto independent state from 25 February to 4 November 1814: the constitution was adopted on 17 May, no foreign power recognised the state, and on 4 November the Storting elected Charles XIII king in a union with Sweden. Wikidata gives 17 May 1814 as one of Norway's start dates.",
+     "de": "Cliopatria zeigt Norwegen das ganze Jahr 1814 als eigenes Königreich und ab 1815 als Teil von Schweden-Norwegen. Laut der Quelle war Norwegen vom 25. Februar bis zum 4. November 1814 ein de facto unabhängiger Staat: Die Verfassung wurde am 17. Mai angenommen, keine ausländische Macht erkannte den Staat an, und am 4. November wählte das Storting Karl XIII. zum König in einer Union mit Schweden. Wikidata nennt den 17. Mai 1814 als eines der Anfangsdaten Norwegens.",
+     "es": "Cliopatria muestra Noruega como reino propio durante todo 1814 y, desde 1815, como parte de Suecia-Noruega. Según la fuente, Noruega fue un Estado independiente de facto del 25 de febrero al 4 de noviembre de 1814: la Constitución se aprobó el 17 de mayo, ninguna potencia extranjera reconoció el Estado y el 4 de noviembre el Storting eligió a Carlos XIII rey en unión con Suecia. Wikidata da el 17 de mayo de 1814 como una de las fechas de inicio de Noruega.",
+     "fr": "Cliopatria montre la Norvège comme un royaume distinct pendant toute l'année 1814, puis à partir de 1815 comme une partie de la Suède-Norvège. Selon la source, la Norvège fut un État indépendant de fait du 25 février au 4 novembre 1814 : la Constitution fut adoptée le 17 mai, aucune puissance étrangère ne reconnut l'État, et le 4 novembre le Storting élut Charles XIII roi dans une union avec la Suède. Wikidata indique le 17 mai 1814 comme l'une des dates de début de la Norvège."
+    },
+    "sources": [
+     "wp-kingdom-of-norway-1814",
+     "wd-norway",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "uzbekistan",
@@ -38496,7 +38511,7 @@
    },
    "color": "#4a9a6a",
    "from": 962,
-   "to": 1209,
+   "to": 1191,
    "file": "data/empires/ghaznaviderna.json",
    "polities": [
     {
