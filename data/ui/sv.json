@@ -253,6 +253,7 @@
   "panel.overviewNote": "Översikt: ett urval, cirka {count} händelser.",
   "panel.overviewAll": "Visa alla",
   "panel.overviewAllLabel": "Visa alla händelser i stället för urvalet",
+  "view.progressNote": ["Den här vyn visar bara händelser som källan själv beskriver som framsteg. Än så länge är det {count} händelse.", "Den här vyn visar bara händelser som källan själv beskriver som framsteg. Än så länge är det {count} händelser."],
   "panel.showLessIn": "{label} i {region}",
   "detail.label": "Om händelsen",
   "detail.loading": "Laddar…",

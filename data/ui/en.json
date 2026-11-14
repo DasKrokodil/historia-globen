@@ -473,6 +473,7 @@
   "panel.overviewNote": "Overview: a selection, about {count} events.",
   "panel.overviewAll": "Show all",
   "panel.overviewAllLabel": "Show all events instead of the selection",
+  "view.progressNote": ["This view only shows events that the source itself describes as progress. So far there is {count} event.", "This view only shows events that the source itself describes as progress. So far there are {count} events."],
   "panel.showLessIn": "{label} in {region}",
   "detail.loading": "Loading…",
   "detail.source": "Source:",

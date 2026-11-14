@@ -473,6 +473,7 @@
   "panel.overviewNote": "Aperçu : une sélection, environ {count} événements.",
   "panel.overviewAll": "Tout afficher",
   "panel.overviewAllLabel": "Afficher tous les événements au lieu de la sélection",
+  "view.progressNote": ["Cette vue n’affiche que les événements que la source elle-même décrit comme un progrès. Pour l’instant, il y a {count} événement.", "Cette vue n’affiche que les événements que la source elle-même décrit comme un progrès. Pour l’instant, il y a {count} événements."],
   "panel.showLessIn": "{label} en {region}",
   "detail.loading": "Chargement…",
   "detail.source": "Source :",
