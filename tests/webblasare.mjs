@@ -2724,10 +2724,12 @@ async function run(browser, vp) {
     await pg.keyboard.press('Enter');
     await regionOn(pg, id);
   };
-  await check('regionvyn: Visa i Platt karta ger Skåne skarpt och inzoomat med sluten kantlinje i skärmpixlar, utanför kortet (#1641)', async () => {
+  await check('regionvyn: Visa i regionvy ger Skåne skarpt och inzoomat med sluten kantlinje i skärmpixlar, utanför kortet (#1641)', async () => {
     const { tp, tctx, errs } = await placeTapPage('#y=1827&f=place:skane', 'region1');
     try {
       await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+      // Knappen säger att den öppnar regionvyn (Grönland och Sverige har kvar Visa i Platt karta)
+      if (!/Visa i regionvy/.test(await tp.textContent('#detail [data-selection-action]'))) throw new Error(`knappen heter ${await tp.textContent('#detail [data-selection-action]')}`);
       await openRegion(tp, 'skane');
       await regionSettled(tp);
       // Statusraden och rutan säger vilken plats regionvyn visar, och rutan har vägen ut
@@ -2844,6 +2846,72 @@ async function run(browser, vp) {
       if (v.region || v.chip) throw new Error(`Grönland fick regionvyn: ${JSON.stringify(v)}`);
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
       return 'Lämna regionvyn, Escape (efter kortet) och att sluta följa lämnar vyn; Danmark får den, Grönland inte';
+    } finally { await tctx.close(); }
+  });
+
+  await check('regionvyn: omgivningen tonas ned, panorering och zoom ritar om skarpt, Återställ och storleksändring ramar in, en tur lämnar vyn (#1641)', async () => {
+    const { tp, tctx, errs } = await placeTapPage('#y=1827&f=place:skane', 'region5');
+    try {
+      await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+      await openRegion(tp, 'skane');
+      await regionSettled(tp);
+      const info = () => tp.evaluate(() => {
+        const d = document.getElementById('flat-view').dataset, [lat, lon, zoom] = d.view.split(',').map(Number);
+        return { region: d.region ?? null, lat, lon, zoom, ppd: Number(d.regionPpd), paints: Number(d.regionPaints ?? 0), box: (d.regionBox ?? '').split(',').map(Number) };
+      });
+      // Nedtoningen: utanför platsens ruta finns land, men inget med landets fulla ljushet (205, 184, 141); inne i rutan finns det
+      const px = await tp.evaluate(() => {
+        const canvas = document.getElementById('flat-canvas'), dpr = canvas.width / canvas.getBoundingClientRect().width;
+        const [x0, y0, x1, y1] = document.getElementById('flat-view').dataset.regionBox.split(',').map(v => Number(v) * dpr);
+        const d = canvas.getContext('2d').getImageData(0, 0, canvas.width, canvas.height).data, m = 12 * dpr;
+        let outFull = 0, outDim = 0, inFull = 0;
+        for (let y = 0; y < canvas.height; y += 2) for (let x = 0; x < canvas.width; x += 2) {
+          const i = (y * canvas.width + x) * 4, r = d[i], g = d[i + 1], b = d[i + 2];
+          const full = Math.abs(r - 205) < 10 && Math.abs(g - 184) < 10 && Math.abs(b - 141) < 10;
+          const dim = Math.abs(r - 155) < 14 && Math.abs(g - 140) < 14 && Math.abs(b - 110) < 14; // 75 % av landet plus mörk ton
+          const inside = x > x0 + m && x < x1 - m && y > y0 + m && y < y1 - m, outside = x < x0 - m || x > x1 + m || y < y0 - m || y > y1 + m;
+          if (outside && full) outFull++;
+          if (outside && dim) outDim++;
+          if (inside && full) inFull++;
+        }
+        return { outFull, outDim, inFull };
+      });
+      if (px.outFull > 20) throw new Error(`omgivningen är inte nedtonad: ${JSON.stringify(px)}`);
+      if (px.outDim < 200 || px.inFull < 200) throw new Error(`landet syns inte nedtonat utanför och fullt inne i platsen: ${JSON.stringify(px)}`);
+      // Panorering och zoom med tangentbordet: kartan ritas om skarpt för den nya vyn
+      const a = await info();
+      await tp.focus('#flat-canvas');
+      await tp.keyboard.press('ArrowLeft');
+      await tp.waitForFunction(p => Number(document.getElementById('flat-view').dataset.regionPaints) > p, a.paints, { timeout: T.step });
+      const b = await info();
+      if (!(b.lon < a.lon)) throw new Error(`pilen åt vänster flyttade inte kartan: ${a.lon} → ${b.lon}`);
+      await tp.keyboard.press('+');
+      await tp.waitForFunction(p => Number(document.getElementById('flat-view').dataset.regionPaints) > p, b.paints, { timeout: T.step });
+      const c = await info();
+      if (!(c.zoom > b.zoom) || c.region !== 'skane') throw new Error(`plus zoomade inte in i regionvyn: ${b.zoom} → ${c.zoom}`);
+      // Storleksändring med en flyttad karta: samma mitt och samma skala (i mobil fälls adressfältet så)
+      const vpNow = tp.viewportSize();
+      await tp.setViewportSize({ width: vpNow.width, height: vpNow.height - 60 });
+      await regionSettled(tp);
+      const d = await info();
+      if (Math.abs(d.lat - c.lat) > 0.02 || Math.abs(d.lon - c.lon) > 0.02 || Math.abs(d.ppd / c.ppd - 1) > 0.01) throw new Error(`den flyttade kartan ändrades av storleken: ${JSON.stringify(c)} → ${JSON.stringify(d)}`);
+      // Återställ (0 på kartan) ramar in platsen igen och säger det; regionvyn står kvar
+      await tp.focus('#flat-canvas');
+      await tp.keyboard.press('0');
+      await tp.waitForFunction(() => /Regionvyn ramar in Skåne igen/.test(document.getElementById('screen-reader-status').textContent), null, { timeout: T.step });
+      await regionSettled(tp);
+      if ((await info()).region !== 'skane') throw new Error('Återställ lämnade regionvyn');
+      // Storleksändring med en oflyttad karta: ramen räknas om, tillbaka till samma skala som från början
+      await tp.setViewportSize(vpNow);
+      await regionSettled(tp);
+      const e = await info();
+      if (Math.abs(e.ppd / a.ppd - 1) > 0.02) throw new Error(`ramen räknades inte om efter storleken: ${a.ppd} → ${e.ppd} px per grad`);
+      // En tur som startas från adressen avslutar Fokus och lämnar regionvyn
+      await tp.evaluate(() => { location.hash = '#t=hur-vet-vi-det-har'; });
+      await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      await tp.waitForFunction(() => !document.getElementById('flat-view').dataset.region && document.getElementById('flat-region').hidden, null, { timeout: T.step });
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `utanför ${px.outDim} nedtonade och ${px.outFull} fulla landpunkter; ${a.paints}→${c.paints} skarpa ritningar; ${a.ppd}→${e.ppd} px per grad`;
     } finally { await tctx.close(); }
   });
 
