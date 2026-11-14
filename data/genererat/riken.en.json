@@ -137,7 +137,7 @@
 "almoravider":{"flags":{"0":{"label":{"en":"Black banner"}}}},
 "almohader":{"flags":{"0":{"label":{"en":"White banner"}}}},
 "kungariket-polen":{"flags":{"0":{"label":{"en":"White eagle on red, modern reconstruction of the 1295 seal"}}}},
-"konungariket-danmark":{"flags":{"0":{"label":{"en":"The kings’ banner: white cross on red"}},"1":{"label":{"en":"Dannebrog, flag of Denmark"}}}},
+"konungariket-danmark":{"flags":{"0":{"label":{"en":"The kings’ banner: white cross on red"}},"1":{"label":{"en":"The kings’ banner: white cross on red"}},"2":{"label":{"en":"Dannebrog, flag of Denmark"}}}},
 "storfurstendomet-litauen":{"flags":{"0":{"label":{"en":"The horseman (Vytis) on red, banner of the Grand Duchy"}}}},
 "kastilianska-kronan":{"flags":{"0":{"label":{"en":"Arms of Castile and León: castle and lion"}}}},
 "monaco":{"flags":{"0":{"label":{"en":"Flag of Monaco"}}}},

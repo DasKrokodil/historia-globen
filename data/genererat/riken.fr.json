@@ -110,7 +110,7 @@
 "almoravider":{"flags":{"0":{"label":{"fr":"Étendard noir"}}}},
 "almohader":{"flags":{"0":{"label":{"fr":"Étendard blanc"}}}},
 "kungariket-polen":{"flags":{"0":{"label":{"fr":"Aigle blanc sur fond rouge, reconstitution moderne du sceau de 1295"}}}},
-"konungariket-danmark":{"flags":{"0":{"label":{"fr":"Bannière des rois : croix blanche sur fond rouge"}},"1":{"label":{"fr":"Dannebrog, drapeau du Danemark"}}}},
+"konungariket-danmark":{"flags":{"0":{"label":{"fr":"Bannière des rois : croix blanche sur fond rouge"}},"1":{"label":{"fr":"Bannière des rois : croix blanche sur fond rouge"}},"2":{"label":{"fr":"Dannebrog, drapeau du Danemark"}}}},
 "storfurstendomet-litauen":{"flags":{"0":{"label":{"fr":"Le cavalier (Vytis) sur fond rouge, bannière du grand-duché"}}}},
 "kastilianska-kronan":{"flags":{"0":{"label":{"fr":"Armes de Castille et León : château et lion"}}}},
 "monaco":{"flags":{"0":{"label":{"fr":"Drapeau de Monaco"}}}},
