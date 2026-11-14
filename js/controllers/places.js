@@ -18,6 +18,8 @@ import { say } from '../ui/status.js';
 const TOUCH_WAIT_MS = 380;
 /** Hur länge vyn ska stå still efter en tangent innan statusraden säger vilken plats som ligger i mitten. */
 const ANNOUNCE_MS = 900;
+/** Hur länge beskedet om att Enter inte öppnar en plats syns för den som ser: tillräckligt för att läsa två meningar; Stäng och nästa handling tar bort det förr. */
+const BUSY_NOTICE_MS = 10000;
 
 export function createPlaces(app) {
   const { $, state, data, globe, flatMap, registry } = app;
@@ -90,7 +92,14 @@ export function createPlaces(app) {
    */
   async function activate() {
     if (state.focus?.type === 'place') { app.showFocusFacts(); return; }
-    if (!allowed()) { say(ui(`place.enterBusy.${busyMode()}`), 'plats', { priority: 2 }); return; } // svaret på en tangent tystas inte av en rubrik som nyss lästes upp
+    if (!allowed()) {
+      // Skärmläsaren hör det på statusraden (prioritet 2: svaret på en tangent tystas inte av en rubrik som nyss lästes upp); den som ser
+      // får samma text en stund i beskedraden (link-notice), som inte läser upp den en andra gång (announce: false)
+      const line = ui(`place.enterBusy.${busyMode()}`);
+      say(line, 'plats', { priority: 2 });
+      app.linkNotice?.showText(line, { ms: BUSY_NOTICE_MS, announce: false });
+      return;
+    }
     await ensure();
     const place = at(centre());
     if (place) follow(place);

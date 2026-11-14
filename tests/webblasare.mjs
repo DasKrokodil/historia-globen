@@ -2391,6 +2391,23 @@ async function run(browser, vp) {
       await pg.waitForFunction(src => new RegExp(src).test(document.getElementById('screen-reader-status').textContent), re.source, { timeout: T.step })
         .catch(async () => { throw new Error(`${what}: statusraden sa inte ${re}, utan "${await pg.evaluate(() => document.getElementById('screen-reader-status').textContent)}"`); });
       if (/f=place/.test(await pg.evaluate(() => location.hash))) throw new Error(`${what}: Enter startade en plats`);
+      // Den som ser får samma text en stund i beskedraden (link-notice), utan att skärmläsaren hör den två gånger (live-regionen är av)
+      await pg.waitForSelector('#link-notice-card', { state: 'visible', timeout: T.step });
+      const seen = await pg.evaluate(() => {
+        const card = document.getElementById('link-notice-card').getBoundingClientRect(), overlap = [];
+        for (const id of ['focus-bar', 'tour-card', 'lesson-band', 'range-bar', 'year-jump', 'timeline', 'detail', 'focus-moved']) {
+          const el = document.getElementById(id);
+          if (!el || el.hidden || !el.getClientRects().length) continue;
+          const r = el.getBoundingClientRect();
+          if (r.width && r.height && card.left < r.right && card.right > r.left && card.top < r.bottom && card.bottom > r.top) overlap.push(id);
+        }
+        return { text: document.getElementById('link-notice-text').textContent, live: document.getElementById('link-notice').getAttribute('aria-live'), overlap,
+          status: document.getElementById('screen-reader-status').textContent, wide: document.documentElement.scrollWidth > innerWidth };
+      });
+      if (!re.test(seen.text) || seen.text !== seen.status.trim()) throw new Error(`${what}: beskedraden säger "${seen.text}", statusraden "${seen.status}"`);
+      if (seen.live !== 'off') throw new Error(`${what}: beskedraden läses upp en andra gång (aria-live ${seen.live})`);
+      if (seen.overlap.length) throw new Error(`${what}: beskedraden täcker ${seen.overlap.join(', ')}`);
+      if (seen.wide) throw new Error(`${what}: horisontell scroll med beskedraden`);
     };
     // 1. Platsen följs: stäng kortet, och Enter på globen öppnar det igen. Samma på Platt karta.
     const a = await placeTapPage('#y=1000&f=place:gronland', 'platsenter1');
@@ -2419,13 +2436,16 @@ async function run(browser, vp) {
       await b.tp.waitForFunction(() => !document.getElementById('focus-bar').hidden && /Andra världskriget/.test(document.getElementById('focus-title').textContent), null, { timeout: T.step });
       await enterSays(b.tp, /Enter öppnar ingen plats medan du följer något\. Välj ”Tillbaka till hela tiden” först\./, 'krig');
       if (!/Andra världskriget/.test(await b.tp.textContent('#focus-title'))) throw new Error('Enter ändrade vad som följs');
+      // Stäng tar bort raden, och en ny Enter visar den igen
+      await b.tp.click('#link-notice-close');
+      await b.tp.waitForSelector('#link-notice-card', { state: 'hidden', timeout: T.step });
       if (b.errs.length) throw new Error(`fel i konsolen: ${b.errs.join(' | ')}`);
     } finally { await b.tctx.close(); }
     // 3. En tur pågår
     const c = await placeTourPage('#t=test-plats', 'platsenter3');
     try {
       await c.tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
-      await enterSays(c.tp, /Enter öppnar ingen plats under en tur\. Avsluta turen först\./, 'tur');
+      await enterSays(c.tp, /Enter öppnar ingen plats under en tur\. Välj ”Avsluta turen” först\./, 'tur');
       if (!(await c.tp.isVisible('#tour-card'))) throw new Error('Enter avslutade turen');
       if (c.errs.length) throw new Error(`fel i konsolen: ${c.errs.join(' | ')}`);
     } finally { await c.tctx.close(); }

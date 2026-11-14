@@ -38,7 +38,7 @@ export function noticeText(problems, say = ui) {
 
 export function createLinkNotice(app, { schedule = setTimeout, cancel = clearTimeout } = {}) {
   const { $, timeline, surfaces } = app;
-  const card = $('link-notice-card'), text = $('link-notice-text'), close = $('link-notice-close');
+  const region = $('link-notice'), card = $('link-notice-card'), text = $('link-notice-text'), close = $('link-notice-close');
   let timer = null;
 
   function hide() {
@@ -51,14 +51,25 @@ export function createLinkNotice(app, { schedule = setTimeout, cancel = clearTim
     text.textContent = '';
   }
 
-  /** Visar raden för problemen, och döljer den om listan är tom. Ersätter en rad som redan visas. */
-  function show(problems) {
+  /**
+   * Visar en text i raden (#1454: också besked från andra delar, till exempel varför Enter inte öppnar en plats). ms: hur länge den ligger
+   * kvar. announce: false när texten redan sägs på statusraden (#screen-reader-status), så att skärmläsaren inte läser den två gånger;
+   * raden är då en live-region som är avstängd tills nästa visning (som alltid sätter om den).
+   */
+  function showText(line, { ms = LINK_NOTICE_MS, announce = true } = {}) {
     hide();
-    const line = noticeText(problems);
     if (!line) return;
+    region.setAttribute('aria-live', announce ? 'polite' : 'off');
     text.textContent = line;
     card.hidden = false; // stängregistret märker det (watch) och stänger det som en ny yta stänger
-    timer = schedule(hide, LINK_NOTICE_MS);
+    timer = schedule(hide, ms);
+  }
+
+  /** Visar raden för problemen, och döljer den om listan är tom. Ersätter en rad som redan visas. */
+  function show(problems) {
+    const line = noticeText(problems);
+    if (!line) hide();
+    else showText(line);
   }
 
   close.addEventListener('click', hide);
@@ -73,5 +84,5 @@ export function createLinkNotice(app, { schedule = setTimeout, cancel = clearTim
   timeline.addEventListener('change', hide);
   timeline.addEventListener('playstate', () => { if (timeline.playing) hide(); });
   window.addEventListener('popstate', hide);
-  return { show, hide };
+  return { show, showText, hide };
 }
