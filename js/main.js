@@ -41,6 +41,7 @@ import { createLabels } from './controllers/labels.js';
 import { createPlaces } from './controllers/places.js';
 import { createAddress } from './controllers/address.js';
 import { createJumpBack } from './controllers/jump-back.js';
+import { createLinkNotice } from './controllers/link-notice.js';
 import { createPresentation } from './controllers/presentation.js';
 import { TeacherGuide } from './ui/teacher.js';
 import { createSurfaces } from './surfaces.js';
@@ -722,6 +723,7 @@ async function start() {
   }, true);
   // Tillståndet i adressen (#501) och knappen Dela (#64). En tur i adressen (t och s, eller ?tur=<id>) startar
   // direkt vid rätt steg och går före en delad vy (#736), till exempel från en lektion eller ett test.
+  app.linkNotice = createLinkNotice(app); // raden om en trasig länk (#1324); adressen fyller i den
   const address = createAddress(app);
   app.address = address;
   await address.start();

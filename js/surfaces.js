@@ -10,19 +10,22 @@
 //   dialog    Källor, Hjälp, Kom igång, Quiz och förslagsformuläret (#1323): bara en åt gången. En öppen dialog pausar
 //             uppspelningen och nedräkningen, och de fortsätter inte av sig själva (onDialogOpen)
 //   uppdrag   Samtidighetsjakten (#1323): ett kort som inte stänger något annat, men som Escape stänger centralt
+//   besked    raden om en trasig länk (#1324): ett kort som inte stänger något, men som Escape stänger centralt och som
+//             stängs av varje annan grupp som öppnas (en öppnad meny, panel, popover, dialog eller jakt)
 // CLOSES säger vilka grupper en öppnad yta i gruppen stänger. En meny stänger de andra menyerna och sidopanelen,
 // en sidopanel stänger menyerna (men inte sig själv: det finns en).
 export const CLOSES = {
-  meny: ['meny', 'sidopanel'],
-  sidopanel: ['meny'],
-  popover: ['popover'],
-  dialog: ['dialog'],
-  uppdrag: [],
+  meny: ['meny', 'sidopanel', 'besked'],
+  sidopanel: ['meny', 'besked'],
+  popover: ['popover', 'besked'],
+  dialog: ['dialog', 'besked'],
+  uppdrag: ['besked'],
+  besked: [],
 };
 
 // Escape stänger det översta öppna i den första gruppen som har något öppet (#1323). Menyerna och sidopanelen har egna
 // Escape-lyssnare och tas bara med när de är anmälda med `central: true` (Turer-menyn, vars lyssnare kräver fokus i menyn).
-const ESCAPE_ORDER = ['dialog', 'popover', 'uppdrag', 'meny'];
+const ESCAPE_ORDER = ['dialog', 'popover', 'uppdrag', 'besked', 'meny'];
 
 export function createSurfaces(closes = CLOSES) {
   const members = new Map(); // id -> { group, close, isOpen, opener, central, openedAt }
