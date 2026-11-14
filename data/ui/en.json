@@ -357,6 +357,7 @@
   "place.label": "Place",
   "place.type.autonomous": "Autonomous territory",
   "place.type.country": "Country",
+  "place.type.landskap": "Province",
   "place.typeOf": "{type} in {of}",
   "place.borderNote": "The line on the map shows today’s border, not the border of the time.",
   "place.filters": "All events within the border are shown regardless of your category choices.",
