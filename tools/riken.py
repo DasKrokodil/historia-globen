@@ -77,6 +77,8 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              # är en smal kust, och de små kolonierna (300–2 200 km²) behåller alla öar och fort
              'oyoriket': (0.03, 0.02, 0.005), 'ashantiriket': (0.03, 0.02, 0.005), 'kongoriket': (0.05, 0.02, 0.01),
              'gronland-koloni': (0.08, 0.03, 0.005),
+             # Ruanda-Urundi (#1330) är 50 000 km² och blir annars kantigt
+             'belgiska-kongo': (0.1, 0.02, 0.02),
              'danska-indien': (0.002, 0.02, 0), 'danska-guldkusten': (0.002, 0.02, 0),
              # Amerika före 1429 (#556): små riken (2 000–100 000 km²) blir annars fyrhörningar
              'chimor': (0.03, 0.02, 0.005), 'purepecha': (0.03, 0.02, 0.005), 'inkariket': (0.05, 0.02, 0.02),
@@ -106,7 +108,9 @@ GROUPS = {
         ('Maurya Empire', 'mauryariket', 'Mauryariket', '#5f9e4a'),
     ]),
     'osmanska-riket': ('Osmanska riket', 'Ottoman Empire', [
-        ('Ottoman Empire', 'osmanska-riket', 'Osmanska riket', '#2f8f7f'),
+        # Cliopatria har den osmanska provinsen Tripolitanien (dagens Libyen) som egen post, Ottoman Tripolitania 1840–1911.
+        # Den läggs till riket (join) de år den finns, som Tyska riket med German Africa, så att gränsen andra år är densamma (#1330)
+        ('Ottoman Empire', 'osmanska-riket', 'Osmanska riket', '#2f8f7f', {'join': ['Ottoman Tripolitania']}),
     ]),
     'mongolriket': ('Mongolriket och dess khanat', 'Mongol Empire and successor khanates', [
         ('Mongol Empire', 'mongolriket', 'Mongolriket', '#8a6d3b'),
@@ -131,8 +135,11 @@ GROUPS = {
           # Perioderna delas när öländerna blir egna länder i Cliopatria (Malta, Barbados och Antigua och Barbuda 1967,
           # Saint Vincent 1969, Grenada och Seychellerna 1976, Dominica och Saint Lucia 1979, Brunei 1987), annars slås
           # ändringen ihop med åren före. 1919: Cliopatria räknar norra Moçambique till imperiet bara 1918, och det
-          # ska inte ligga kvar över Portugisiska imperiet 1919–1921 (#644)
-          'splits': (1919, 1967, 1969, 1976, 1979, 1987)}),
+          # ska inte ligga kvar över Portugisiska imperiet 1919–1921 (#644). 1926, 1930, 1936, 1940 och 1944: Jaghbub är
+          # italienskt från 1926, Kufra i Libyen brittiskt i Cliopatria till 1929, Sarratriangeln italiensk från 1936, Brittiska
+          # Somaliland italienskt 1940, och Libyen räknas till imperiet från 1944; annars ligger imperiet över Italienska
+          # kolonier i Afrika eller saknas i Libyen 1944 (#1330)
+          'splits': (1919, 1926, 1930, 1936, 1940, 1944, 1967, 1969, 1976, 1979, 1987)}),
     ]),
     # R2 Antiken (#68)
     # Mellersta riket (Q191324) lades till i #646 (DasKrokodils ja 2026-11-13); gruppens id står kvar så att länkar inte ändras
@@ -324,7 +331,8 @@ GROUPS = {
          {'homeland': ['Second French Empire']}),
         # Cliopatria räknar Saar till Frankrike till och med 1931; perioden delas 1932, annars ligger Saar kvar till 1939 (#1329)
         ('(French Third Republic)', 'frankrike-tredje-republiken', 'Frankrike (tredje republiken)', '#2f6fdc',
-         {'homeland': ['French Third Republic'], 'splits': (1932,)}),
+         # 1920 (#1330): gränsen mot Italienska Libyen ändras, annars ligger 1919 års gräns över Libyen 1920–1931
+         {'homeland': ['French Third Republic'], 'splits': (1920, 1932)}),
         ('(Vichy France)', 'vichyregimen', 'Vichyregimen', '#2f6fdc', {'years': (1940, 1942), 'homeland': ['Vichy France']}),
         ('(French Fourth Republic)', 'frankrike-fjarde-republiken', 'Frankrike (fjärde republiken)', '#2f6fdc',
          {'homeland': ['French Fourth Republic']}),
@@ -535,6 +543,29 @@ GROUPS = {
     'nigeria': ('Nigeria', 'Nigeria', [
         ('Federal Republic of Nigeria', 'nigeria', 'Nigeria', '#3f9a5a', {'en': 'Nigeria'}),
     ]),
+    # Belgiska Kongo (#1330). Cliopatrias Belgian Congo 1890–1959 är både Kongostaten (Wikidata 1885–1908) och kolonin
+    # (Wikidata 15 november 1908–30 juni 1960), och från 1916 med Ruanda-Urundi (Wikidata 1922–1962). 1960–1962 är posten
+    # bara Ruanda-Urundi. Delarna följer Wikidatas årtal på helt år; gränsen är Cliopatrias
+    'belgiska-kongo': ('Belgiska Kongo', 'Belgian Congo', [
+        ('Belgian Congo', 'kongostaten', 'Kongostaten', '#5a7aa8', {'en': 'Congo Free State', 'years': (1890, 1907), 'wikidata': 'Q76048'}),
+        ('Belgian Congo', 'belgiska-kongo', 'Belgiska Kongo', '#5a7aa8', {'en': 'Belgian Congo', 'years': (1908, 1959)}),
+        ('Belgian Congo', 'ruanda-urundi', 'Ruanda-Urundi', '#5a7aa8', {'en': 'Ruanda-Urundi', 'years': (1960, 1962), 'wikidata': 'Q590743'}),
+    ]),
+    # Italienska kolonier i Afrika (#1330, #1083). Cliopatrias Italian Africa 1890–1943 är en post för alla kolonierna. Den delas
+    # i kolonierna med rutor (clip) som bara skiljer områden som inte hänger ihop (Libyen, Eritrea och Somaliland ligger
+    # åtskilda av andra länder; ingen ny gräns ritas). Namn och årtal efter Wikidata: Italienska Eritrea 1890–1936, Italienska
+    # Somaliland till 1936, Italienska Östafrika 1936–1941 (Etiopien, Eritrea och Somaliland) och Italienska Libyen till 1943.
+    # Etiopien saknas 1936–1941 och kommer tillbaka 1942, som i Cliopatria. Ockupationsbeslutet 2026-11-13 gäller efter 1945
+    'italienska-kolonier': ('Italienska kolonier i Afrika', 'Italian colonies in Africa', [
+        ('Italian Africa', 'italienska-eritrea', 'Italienska Eritrea', '#6a9a58',
+         {'en': 'Italian Eritrea', 'years': (1890, 1935), 'clip': (33, 12.2, 44, 19), 'wikidata': 'Q1232988'}),
+        ('Italian Africa', 'italienska-somaliland', 'Italienska Somaliland', '#6a9a58',
+         {'en': 'Italian Somaliland', 'years': (1890, 1935), 'clip': (40, -2, 52, 12.2), 'wikidata': 'Q319984'}),
+        ('Italian Africa', 'italienska-ostafrika', 'Italienska Östafrika', '#6a9a58',
+         {'en': 'Italian East Africa', 'years': (1936, 1941), 'clip': (33, -2, 52, 19), 'wikidata': 'Q328478'}),
+        ('Italian Africa', 'italienska-libyen', 'Italienska Libyen', '#6a9a58',
+         {'en': 'Italian Libya', 'years': (1912, 1943), 'clip': (9, 18, 26, 34), 'wikidata': 'Q284568'}),
+    ]),
     'kongo-kinshasa': ('Kongo-Kinshasa', 'Democratic Republic of the Congo', [
         # Cliopatria: Democratic Republic of the Congo 1960–1972 och från 1996, Zaire 1973–1995
         (['Democratic Republic of the Congo', 'Zaire'], 'kongo-kinshasa', 'Kongo-Kinshasa', '#4a8ac0',
@@ -707,7 +738,10 @@ GROUPS = {
     'botswana': ('Botswana', 'Botswana', [
         ('Republic of Botswana', 'botswana', 'Botswana', '#d07a5a', {'en': 'Botswana'}),
     ]),
+    # Siam före 1932 (#1330): Cliopatrias Rattanakosin Kingdom 1783–1931. Wikidata saknar svensk etikett; svenska Wikipedia
+    # kallar landet Siam, och engelska Wikipedia säger att riket kallades Kingdom of Siam efter 1855
     'thailand': ('Thailand', 'Thailand', [
+        ('Rattanakosin Kingdom', 'siam', 'Siam', '#4f9a9a', {'en': 'Siam'}),
         ('Kingdom of Thailand', 'thailand', 'Thailand', '#4f9a9a', {'en': 'Thailand'}),
     ]),
     'turkmenistan': ('Turkmenistan', 'Turkmenistan', [
@@ -1833,6 +1867,24 @@ def member_periods(by_name, cname, years=None, feats=None):
     return items
 
 
+def join_periods(base, names, by_name):
+    """Lägger till Cliopatria-posterna i names till perioderna i base de år de finns (Osmanska riket med Tripolitanien,
+    #1330). Perioderna delas där posterna börjar eller slutar; år utan dem behåller sin gräns oförändrad."""
+    feats = [f for n in names for f in by_name.get(n, [])]
+    cuts = {f['properties']['FromYear'] for f in feats} | {f['properties']['ToYear'] + 1 for f in feats}
+    out = []
+    for a, b, g, ar in base:
+        edges = [a] + sorted(c for c in cuts if a < c <= b) + [b + 1]
+        for x, y in zip(edges, edges[1:]):
+            on = [f for f in feats if f['properties']['FromYear'] <= x <= f['properties']['ToYear']]
+            if on:
+                out.append((x, y - 1, unary_union([g] + [shape(f['geometry']).buffer(0) for f in on]),
+                            ar + sum(f['properties']['Area'] for f in on)))
+            else:
+                out.append((x, y - 1, g, ar))
+    return out
+
+
 def homeland_shape(by_name, names, window, raw, year, tol, min_area):
     """Moderlandet det året: Cliopatria-delarna i names (eller hela riket om names är tom) inom fönstret
     (bbox [väst, syd, öst, nord] eller en polygon), förenklat som riket. None om inget finns."""
@@ -2038,6 +2090,9 @@ def main():
                 if opts.get('ne'):
                     g1 = ne[opts['ne']]
                     base = [(a, b, g1, km2(g1)) if a >= opts.get('ne_from', a) else (a, b, g, ar) for a, b, g, ar in base]
+            # join: andra Cliopatria-poster som läggs till delen de år de finns, utan att ändra gränsen övriga år (#1330)
+            if opts.get('join'):
+                base = join_periods(base, opts['join'], by_name)
             # fill: år där gränsen är statens egen gräns i Cliopatria ett annat år (ockupation och inbördeskrig, #1332)
             if opts.get('fill'):
                 base = fill_periods(base, opts['fill'], by_name)
@@ -2046,6 +2101,12 @@ def main():
                 base = [(*opts['prepend'], Polygon(), 0)] + base
             if opts.get('minus'):
                 base = minus_others(base, opts['minus'], by_name)
+            # clip: bara den del av posten som ligger i rutan (väst, syd, öst, nord). Används där en Cliopatria-post är flera
+            # kolonier som inte hänger ihop, så att rutan inte drar någon ny gräns (Italienska kolonier i Afrika, #1330)
+            if opts.get('clip'):
+                cb = box(*opts['clip'])
+                base = [(a, b, g.intersection(cb), km2(g.intersection(cb))) for a, b, g, _ar in base]
+                base = [q for q in base if not q[2].is_empty]
             for start, end, raw, area in apply_disputed(base, gid, disputed):
                 core.append((start, end, raw))
                 g = raw.simplify(tol, preserve_topology=True)

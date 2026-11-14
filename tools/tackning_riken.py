@@ -35,8 +35,10 @@ def our_names():
     names = {}
     for _gid, (_sv, _en, members, *_o) in GROUPS.items():
         for cname, *rest in members:
-            years = (rest[-1] if rest and isinstance(rest[-1], dict) else {}).get('years', (-99999, 99999))
-            for n in (cname if isinstance(cname, list) else [cname]):
+            opts = rest[-1] if rest and isinstance(rest[-1], dict) else {}
+            years = opts.get('years', (-99999, 99999))
+            # join: poster som läggs till delen de år de finns (Osmanska riket med Tripolitanien, #1330)
+            for n in (cname if isinstance(cname, list) else [cname]) + opts.get('join', []):
                 if n:
                     names.setdefault(n, []).append(years)
     return names
