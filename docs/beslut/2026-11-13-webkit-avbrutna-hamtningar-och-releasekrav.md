@@ -5,7 +5,7 @@
 ## Beslut
 1. WebKit-felen reproduceras i CI med etiketten `alla-webbläsare`, eftersom WebKit inte går att köra i molnmiljön.
 2. En avbruten hämtning räknas bort ur sidfelen bara när den kom under ett sidbyte i den egna sidan, gäller den egna webbplatsen, har WebKits exakta text och också syns som en avbruten begäran. Det skärper beslutet 2026-11-08 (#888, punkt 2) och gäller alla kontroller genom en gemensam hjälpfunktion. Antalet bortfiltrerade fel syns i resultatet.
-3. WebKit delas inte i två jobb nu. Det omprövas om jobbet tar över cirka 38 minuter (gränsen är 45).
+3. WebKit delas inte i två jobb nu. Det omprövas om jobbet tar över cirka 38 minuter (gränsen var 45; höjd till 60 minuter 2026-11-14, se [2026-11-14-firefox-webkit-tidsgrans-60](2026-11-14-firefox-webkit-tidsgrans-60.md)).
 4. Chromium måste vara grönt för en release. Firefox och WebKit är också krav, men DasKrokodil får godta ett rött jobb när det finns ett issue med felraden och det är visat att felet sitter i testet (så som för v6.3.0, 2026-11-13). `continue-on-error` används inte.
 
 ## Varför
