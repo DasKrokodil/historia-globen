@@ -28020,6 +28020,25 @@
    "from": 1963,
    "to": 2024,
    "file": "data/empires/rwanda.json",
+   "flags": [
+    {
+     "file": "rwanda",
+     "from": 2002,
+     "to": 2024,
+     "label": {
+      "sv": "Rwandas flagga från 2001",
+      "en": "Flag of Rwanda from 2001",
+      "de": "Flagge Ruandas seit 2001",
+      "es": "Bandera de Ruanda desde 2001",
+      "fr": "Drapeau du Rwanda depuis 2001"
+     },
+     "sources": [
+      "wp-flag-rwanda",
+      "commons-flagga-rwanda"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "rwanda",
@@ -31512,6 +31531,25 @@
    "from": 1963,
    "to": 2024,
    "file": "data/empires/algeriet.json",
+   "flags": [
+    {
+     "file": "algeria",
+     "from": 1963,
+     "to": 2024,
+     "label": {
+      "sv": "Algeriets flagga",
+      "en": "Flag of Algeria",
+      "de": "Flagge Algeriens",
+      "es": "Bandera de Argelia",
+      "fr": "Drapeau de l'Algérie"
+     },
+     "sources": [
+      "wp-flag-algeria",
+      "commons-flagga-algeria"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "algeriet",
@@ -31717,6 +31755,42 @@
    "from": 1956,
    "to": 2024,
    "file": "data/empires/sudan.json",
+   "flags": [
+    {
+     "file": "sudan-1956",
+     "from": 1956,
+     "to": 1969,
+     "label": {
+      "sv": "Sudans flagga från 1956",
+      "en": "Flag of Sudan from 1956",
+      "de": "Flagge Sudans von 1956",
+      "es": "Bandera de Sudán de 1956",
+      "fr": "Drapeau du Soudan de 1956"
+     },
+     "sources": [
+      "wp-flag-sudan",
+      "commons-flagga-sudan-1956"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "sudan",
+     "from": 1970,
+     "to": 2024,
+     "label": {
+      "sv": "Sudans flagga från 1970",
+      "en": "Flag of Sudan from 1970",
+      "de": "Flagge Sudans seit 1970",
+      "es": "Bandera de Sudán desde 1970",
+      "fr": "Drapeau du Soudan depuis 1970"
+     },
+     "sources": [
+      "wp-flag-sudan",
+      "commons-flagga-sudan"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "sudan",
@@ -32146,6 +32220,42 @@
    "from": 1961,
    "to": 2024,
    "file": "data/empires/mauretanien.json",
+   "flags": [
+    {
+     "file": "mauritania-1959",
+     "from": 1961,
+     "to": 2016,
+     "label": {
+      "sv": "Mauretaniens flagga från 1959",
+      "en": "Flag of Mauritania from 1959",
+      "de": "Flagge Mauretaniens von 1959",
+      "es": "Bandera de Mauritania de 1959",
+      "fr": "Drapeau de la Mauritanie de 1959"
+     },
+     "sources": [
+      "wp-flag-mauritania",
+      "commons-flagga-mauritania-1959"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "mauritania",
+     "from": 2017,
+     "to": 2024,
+     "label": {
+      "sv": "Mauretaniens flagga från 2017",
+      "en": "Flag of Mauritania from 2017",
+      "de": "Flagge Mauretaniens seit 2017",
+      "es": "Bandera de Mauritania desde 2017",
+      "fr": "Drapeau de la Mauritanie depuis 2017"
+     },
+     "sources": [
+      "wp-flag-mauritania",
+      "commons-flagga-mauritania"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "mauretanien",
@@ -32177,6 +32287,25 @@
    "from": 1961,
    "to": 2024,
    "file": "data/empires/tanzania.json",
+   "flags": [
+    {
+     "file": "tanzania",
+     "from": 1964,
+     "to": 2024,
+     "label": {
+      "sv": "Tanzanias flagga",
+      "en": "Flag of Tanzania",
+      "de": "Flagge Tansanias",
+      "es": "Bandera de Tanzania",
+      "fr": "Drapeau de la Tanzanie"
+     },
+     "sources": [
+      "wp-flag-tanzania",
+      "commons-flagga-tanzania"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "tanzania",
@@ -32208,6 +32337,25 @@
    "from": 1990,
    "to": 2024,
    "file": "data/empires/namibia.json",
+   "flags": [
+    {
+     "file": "namibia",
+     "from": 1990,
+     "to": 2024,
+     "label": {
+      "sv": "Namibias flagga",
+      "en": "Flag of Namibia",
+      "de": "Flagge Namibias",
+      "es": "Bandera de Namibia",
+      "fr": "Drapeau de la Namibie"
+     },
+     "sources": [
+      "wp-flag-namibia",
+      "commons-flagga-namibia"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "namibia",
@@ -32496,6 +32644,25 @@
    "from": 1961,
    "to": 2024,
    "file": "data/empires/centralafrikanska-republiken.json",
+   "flags": [
+    {
+     "file": "central-african-republic",
+     "from": 1961,
+     "to": 2024,
+     "label": {
+      "sv": "Centralafrikanska republikens flagga",
+      "en": "Flag of the Central African Republic",
+      "de": "Flagge der Zentralafrikanischen Republik",
+      "es": "Bandera de la República Centroafricana",
+      "fr": "Drapeau de la République centrafricaine"
+     },
+     "sources": [
+      "wp-flag-central-african-republic",
+      "commons-flagga-central-african-republic"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "centralafrikanska-republiken",
@@ -32576,6 +32743,25 @@
    "from": 2014,
    "to": 2024,
    "file": "data/empires/sydsudan.json",
+   "flags": [
+    {
+     "file": "south-sudan",
+     "from": 2014,
+     "to": 2024,
+     "label": {
+      "sv": "Sydsudans flagga",
+      "en": "Flag of South Sudan",
+      "de": "Flagge Südsudans",
+      "es": "Bandera de Sudán del Sur",
+      "fr": "Drapeau du Soudan du Sud"
+     },
+     "sources": [
+      "wp-flag-south-sudan",
+      "commons-flagga-south-sudan"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "sydsudan",
@@ -32893,6 +33079,42 @@
    "from": 1960,
    "to": 2024,
    "file": "data/empires/kamerun.json",
+   "flags": [
+    {
+     "file": "cameroon-1957",
+     "from": 1960,
+     "to": 1960,
+     "label": {
+      "sv": "Kameruns flagga från 1957",
+      "en": "Flag of Cameroon from 1957",
+      "de": "Flagge Kameruns von 1957",
+      "es": "Bandera de Camerún de 1957",
+      "fr": "Drapeau du Cameroun de 1957"
+     },
+     "sources": [
+      "wp-flag-cameroon",
+      "commons-flagga-cameroon-1957"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "cameroon",
+     "from": 1975,
+     "to": 2024,
+     "label": {
+      "sv": "Kameruns flagga från 1975",
+      "en": "Flag of Cameroon from 1975",
+      "de": "Flagge Kameruns seit 1975",
+      "es": "Bandera de Camerún desde 1975",
+      "fr": "Drapeau du Cameroun depuis 1975"
+     },
+     "sources": [
+      "wp-flag-cameroon",
+      "commons-flagga-cameroon"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "kamerun",
@@ -33340,6 +33562,25 @@
    "from": 1670,
    "to": 2024,
    "file": "data/empires/marocko.json",
+   "flags": [
+    {
+     "file": "morocco",
+     "from": 1915,
+     "to": 2024,
+     "label": {
+      "sv": "Marockos flagga",
+      "en": "Flag of Morocco",
+      "de": "Flagge Marokkos",
+      "es": "Bandera de Marruecos",
+      "fr": "Drapeau du Maroc"
+     },
+     "sources": [
+      "wp-flag-morocco",
+      "commons-flagga-morocco"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "marocko",
@@ -34547,6 +34788,25 @@
    "from": 1956,
    "to": 2024,
    "file": "data/empires/tunisien.json",
+   "flags": [
+    {
+     "file": "tunisia",
+     "from": 1956,
+     "to": 2024,
+     "label": {
+      "sv": "Tunisiens flagga",
+      "en": "Flag of Tunisia",
+      "de": "Flagge Tunesiens",
+      "es": "Bandera de Túnez",
+      "fr": "Drapeau de la Tunisie"
+     },
+     "sources": [
+      "wp-flag-tunisia",
+      "commons-flagga-tunisia"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "tunisien",
@@ -35093,6 +35353,22 @@
    "flags": [
     {
      "file": "bulgaria",
+     "from": 1880,
+     "to": 1947,
+     "label": {
+      "sv": "Bulgariens flagga",
+      "en": "Flag of Bulgaria",
+      "de": "Flagge Bulgariens",
+      "es": "Bandera de Bulgaria",
+      "fr": "Drapeau de la Bulgarie"
+     },
+     "sources": [
+      "wp-flag-bulgaria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "bulgaria",
      "from": 1990,
      "to": 2024,
      "label": {
@@ -35188,6 +35464,25 @@
    "from": 1848,
    "to": 2024,
    "file": "data/empires/liberia.json",
+   "flags": [
+    {
+     "file": "liberia",
+     "from": 1848,
+     "to": 2024,
+     "label": {
+      "sv": "Liberias flagga",
+      "en": "Flag of Liberia",
+      "de": "Flagge Liberias",
+      "es": "Bandera de Liberia",
+      "fr": "Drapeau du Liberia"
+     },
+     "sources": [
+      "wp-flag-liberia",
+      "commons-flagga-liberia"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "liberia",
@@ -35396,7 +35691,7 @@
    "flags": [
     {
      "file": "czech",
-     "from": 1992,
+     "from": 1993,
      "to": 2024,
      "label": {
       "sv": "Tjeckiens flagga",
@@ -36560,6 +36855,25 @@
    "from": 1973,
    "to": 2024,
    "file": "data/empires/guinea-bissau.json",
+   "flags": [
+    {
+     "file": "guinea-bissau",
+     "from": 1973,
+     "to": 2024,
+     "label": {
+      "sv": "Guinea-Bissaus flagga",
+      "en": "Flag of Guinea-Bissau",
+      "de": "Flagge Guinea-Bissaus",
+      "es": "Bandera de Guinea-Bisáu",
+      "fr": "Drapeau de la Guinée-Bissau"
+     },
+     "sources": [
+      "wp-flag-guinea-bissau",
+      "commons-flagga-guinea-bissau"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "guinea-bissau",
@@ -37057,6 +37371,25 @@
    "from": 1979,
    "to": 2024,
    "file": "data/empires/djibouti.json",
+   "flags": [
+    {
+     "file": "djibouti",
+     "from": 1979,
+     "to": 2024,
+     "label": {
+      "sv": "Djiboutis flagga",
+      "en": "Flag of Djibouti",
+      "de": "Flagge Dschibutis",
+      "es": "Bandera de Yibuti",
+      "fr": "Drapeau de Djibouti"
+     },
+     "sources": [
+      "wp-flag-djibouti",
+      "commons-flagga-djibouti"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "djibouti",
@@ -37448,6 +37781,25 @@
    "from": 1967,
    "to": 2024,
    "file": "data/empires/gambia.json",
+   "flags": [
+    {
+     "file": "gambia",
+     "from": 1967,
+     "to": 2024,
+     "label": {
+      "sv": "Gambias flagga",
+      "en": "Flag of the Gambia",
+      "de": "Flagge Gambias",
+      "es": "Bandera de Gambia",
+      "fr": "Drapeau de la Gambie"
+     },
+     "sources": [
+      "wp-flag-gambia",
+      "commons-flagga-gambia"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "gambia",
@@ -37837,6 +38189,25 @@
    "from": 1969,
    "to": 2024,
    "file": "data/empires/mauritius.json",
+   "flags": [
+    {
+     "file": "mauritius",
+     "from": 1969,
+     "to": 2024,
+     "label": {
+      "sv": "Mauritius flagga",
+      "en": "Flag of Mauritius",
+      "de": "Flagge von Mauritius",
+      "es": "Bandera de Mauricio",
+      "fr": "Drapeau de Maurice"
+     },
+     "sources": [
+      "wp-flag-mauritius",
+      "commons-flagga-mauritius"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "mauritius",
@@ -37917,6 +38288,25 @@
    "from": 1976,
    "to": 2024,
    "file": "data/empires/sao-tome-och-principe.json",
+   "flags": [
+    {
+     "file": "sao-tome-and-principe",
+     "from": 1976,
+     "to": 2024,
+     "label": {
+      "sv": "São Tomé och Príncipes flagga",
+      "en": "Flag of São Tomé and Príncipe",
+      "de": "Flagge von São Tomé und Príncipe",
+      "es": "Bandera de Santo Tomé y Príncipe",
+      "fr": "Drapeau de Sao Tomé-et-Principe"
+     },
+     "sources": [
+      "wp-flag-sao-tome-and-principe",
+      "commons-flagga-sao-tome-and-principe"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "sao-tome-och-principe",
@@ -39396,9 +39786,21 @@
       }
      }
     ],
+    "mapNote": {
+     "sv": "Kartan visar Danmark-Norge från 1526, som Cliopatria. Wikidata anger 1536–1814 för Danmark-Norge, så källorna skiljer sig om starten. Cliopatria räknar Island till Danmark till och med 1921, men enligt Wikidata fanns Kungariket Island från 1 december 1918. Kartan visar därför Danmark utan Island från 1918, då Island visas som eget kungarike. Norra Slesvig (Sønderjylland) röstade i folkomröstningen 1920 för att höra till Danmark och överfördes 15 juni 1920, men Cliopatria räknar området till Danmark först från 1922.",
+     "en": "The map shows Denmark–Norway from 1526, as Cliopatria does. Wikidata gives 1536–1814 for Denmark–Norway, so the sources differ on the start. Cliopatria counts Iceland as part of Denmark until 1921, but according to Wikidata the Kingdom of Iceland existed from 1 December 1918. The map therefore shows Denmark without Iceland from 1918, when Iceland is shown as a kingdom of its own. Northern Schleswig (Southern Jutland) voted in the 1920 plebiscite to join Denmark and was transferred on 15 June 1920, but Cliopatria counts the area as part of Denmark only from 1922.",
+     "de": "Die Karte zeigt Dänemark-Norwegen ab 1526, wie Cliopatria. Wikidata gibt 1536–1814 für Dänemark-Norwegen an, die Quellen weichen also beim Beginn voneinander ab. Cliopatria zählt Island bis 1921 zu Dänemark, aber laut Wikidata bestand das Königreich Island ab dem 1. Dezember 1918. Die Karte zeigt Dänemark deshalb ab 1918 ohne Island, das dann als eigenes Königreich erscheint. Nordschleswig (Sønderjylland) stimmte bei der Volksabstimmung 1920 für den Anschluss an Dänemark und wurde am 15. Juni 1920 übergeben, aber Cliopatria zählt das Gebiet erst ab 1922 zu Dänemark.",
+     "es": "El mapa muestra el Reino de Dinamarca y Noruega desde 1526, como Cliopatria. Wikidata da 1536–1814 para Dinamarca y Noruega, así que las fuentes difieren sobre el comienzo. Cliopatria cuenta Islandia como parte de Dinamarca hasta 1921, pero según Wikidata el Reino de Islandia existió desde el 1 de diciembre de 1918. Por eso el mapa muestra Dinamarca sin Islandia desde 1918, cuando Islandia aparece como reino propio. Schleswig del Norte (Jutlandia Meridional) votó en el plebiscito de 1920 por unirse a Dinamarca y fue transferido el 15 de junio de 1920, pero Cliopatria cuenta la zona como parte de Dinamarca solo desde 1922.",
+     "fr": "La carte montre le Royaume de Danemark et de Norvège à partir de 1526, comme Cliopatria. Wikidata indique 1536–1814 pour le Danemark-Norvège : les sources divergent donc sur le début. Cliopatria compte l’Islande comme partie du Danemark jusqu’en 1921, mais selon Wikidata le Royaume d’Islande exista à partir du 1er décembre 1918. La carte montre donc le Danemark sans l’Islande à partir de 1918, quand l’Islande apparaît comme un royaume distinct. Le Schleswig du Nord (Jutland du Sud) vota lors du plébiscite de 1920 pour rejoindre le Danemark et fut transféré le 15 juin 1920, mais Cliopatria ne compte la région comme partie du Danemark qu’à partir de 1922."
+    },
     "sources": [
      "wp-dannebrog",
-     "commons-gelre-dannebrog"
+     "commons-gelre-dannebrog",
+     "cliopatria",
+     "wd-denmark-norway",
+     "wd-kingdom-of-iceland",
+     "wd-schleswig-plebiscite",
+     "wp-schleswig-plebiscites"
     ],
     "review": "source-checked"
    },
@@ -41277,7 +41679,21 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Namnet följer Wikidata, som anger Jindynastin 266–420. Kartans gränser kommer från Cliopatrias post Western Jin, som täcker 265–425. Kartan visar därför riket ett år före och fem år efter källans årtal.",
+     "en": "The name follows Wikidata, which gives the Jin dynasty as 266–420. The borders on the map come from Cliopatria’s entry Western Jin, which covers 265–425. The map therefore shows the empire one year before and five years after the source’s dates.",
+     "de": "Der Name folgt Wikidata, das die Jin-Dynastie mit 266–420 angibt. Die Grenzen auf der Karte stammen aus Cliopatrias Eintrag Western Jin, der 265–425 umfasst. Die Karte zeigt das Reich deshalb ein Jahr vor und fünf Jahre nach den Jahreszahlen der Quelle.",
+     "es": "El nombre sigue a Wikidata, que da 266–420 para la dinastía Jin. Las fronteras del mapa proceden de la entrada Western Jin de Cliopatria, que abarca 265–425. Por eso el mapa muestra el imperio un año antes y cinco años después de las fechas de la fuente.",
+     "fr": "Le nom suit Wikidata, qui indique 266–420 pour la dynastie Jin. Les frontières de la carte viennent de l’entrée Western Jin de Cliopatria, qui couvre 265–425. La carte montre donc l’empire un an avant et cinq ans après les dates de la source."
+    },
+    "sources": [
+     "wd-jin-dynasty",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "kushan",

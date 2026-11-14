@@ -860,6 +860,7 @@
         "wp-first-revelation",
         "wp-first-taranaki-war",
         "wp-flag-albania",
+        "wp-flag-algeria",
         "wp-flag-antigua-and-barbuda",
         "wp-flag-argentina",
         "wp-flag-armenia",
@@ -873,7 +874,9 @@
         "wp-flag-bolivia",
         "wp-flag-botswana",
         "wp-flag-bulgaria",
+        "wp-flag-cameroon",
         "wp-flag-canada",
+        "wp-flag-central-african-republic",
         "wp-flag-chad",
         "wp-flag-chile",
         "wp-flag-china",
@@ -882,15 +885,18 @@
         "wp-flag-croatia",
         "wp-flag-cyprus",
         "wp-flag-czech-republic",
+        "wp-flag-djibouti",
         "wp-flag-fiji",
         "wp-flag-finland",
         "wp-flag-gabon",
+        "wp-flag-gambia",
         "wp-flag-georgia",
         "wp-flag-germany",
         "wp-flag-ghana",
         "wp-flag-grenada",
         "wp-flag-guatemala",
         "wp-flag-guinea",
+        "wp-flag-guinea-bissau",
         "wp-flag-honduras",
         "wp-flag-iceland",
         "wp-flag-india",
@@ -906,16 +912,21 @@
         "wp-flag-kuwait",
         "wp-flag-kyrgyzstan",
         "wp-flag-lebanon",
+        "wp-flag-liberia",
         "wp-flag-lithuania",
         "wp-flag-luxembourg",
         "wp-flag-madagascar",
         "wp-flag-malaysia",
         "wp-flag-mali",
         "wp-flag-malta",
+        "wp-flag-mauritania",
+        "wp-flag-mauritius",
         "wp-flag-moldova",
         "wp-flag-monaco",
         "wp-flag-mongolia",
         "wp-flag-montenegro",
+        "wp-flag-morocco",
+        "wp-flag-namibia",
         "wp-flag-nepal",
         "wp-flag-netherlands",
         "wp-flag-new-zealand",
@@ -940,8 +951,10 @@
         "wp-flag-qing",
         "wp-flag-republic-of-china",
         "wp-flag-russia",
+        "wp-flag-rwanda",
         "wp-flag-saint-kitts-and-nevis",
         "wp-flag-saint-lucia",
+        "wp-flag-sao-tome-and-principe",
         "wp-flag-senegal",
         "wp-flag-serbia",
         "wp-flag-sierra-leone",
@@ -952,13 +965,17 @@
         "wp-flag-somalia",
         "wp-flag-south-africa",
         "wp-flag-south-korea",
+        "wp-flag-south-sudan",
         "wp-flag-south-vietnam",
+        "wp-flag-sudan",
         "wp-flag-tajikistan",
+        "wp-flag-tanzania",
         "wp-flag-thailand",
         "wp-flag-timor-leste",
         "wp-flag-togo",
         "wp-flag-tonga",
         "wp-flag-trinidad-and-tobago",
+        "wp-flag-tunisia",
         "wp-flag-turkey",
         "wp-flag-tuvalu",
         "wp-flag-ukraine",
@@ -1792,6 +1809,7 @@
         "wp-sasanian-empire",
         "wp-satyendra-nath-bose",
         "wp-saudeleur-dynasty",
+        "wp-schleswig-plebiscites",
         "wp-seal-of-texas",
         "wp-second-chechen-war",
         "wp-second-chuenpi",
@@ -2219,6 +2237,7 @@
         "wd-czechoslovakia",
         "wd-danish-gold-coast",
         "wd-danish-india",
+        "wd-denmark-norway",
         "wd-durrani-empire",
         "wd-dzungar-khanate",
         "wd-east-germany",
@@ -2244,6 +2263,7 @@
         "wd-italian-libya",
         "wd-italian-somaliland",
         "wd-jellingestenarna",
+        "wd-jin-dynasty",
         "wd-jordan",
         "wd-joseon",
         "wd-jyske-lov",
@@ -2251,6 +2271,7 @@
         "wd-khedivate-of-egypt",
         "wd-kingdom-of-afghanistan",
         "wd-kingdom-of-cusco",
+        "wd-kingdom-of-iceland",
         "wd-kingdom-of-kongo",
         "wd-kingdom-of-yemen",
         "wd-kobenhavns-universitet",
@@ -2296,6 +2317,7 @@
         "wd-safavid-iran",
         "wd-saltsjobadsavtalet",
         "wd-sametinget-sverige",
+        "wd-schleswig-plebiscite",
         "wd-serbia-and-montenegro",
         "wd-slaget-vid-dybbol",
         "wd-sokoto-caliphate",
@@ -2722,6 +2744,12 @@
       ]
     },
     {
+      "license": "Public domain (PD-Algeria, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-algeria"
+      ]
+    },
+    {
       "license": "Public domain (PD-Art, PD-old-100)",
       "sourceIds": [
         "commons-gelre-dannebrog"
@@ -2737,6 +2765,18 @@
       "license": "Public domain (PD-Bangladesh, PD-shape)",
       "sourceIds": [
         "commons-flagga-bangladesh"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Cameroon, PD-shape); koden även CC BY-SA 4.0",
+      "sourceIds": [
+        "commons-flagga-cameroon"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Central African Republic, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-central-african-republic"
       ]
     },
     {
@@ -2795,6 +2835,18 @@
       ]
     },
     {
+      "license": "Public domain (PD-Mauritania, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-mauritania"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Mauritania, PD-ineligible, PD-shape)",
+      "sourceIds": [
+        "commons-flagga-mauritania-1959"
+      ]
+    },
+    {
       "license": "Public domain (PD-Mongolia-exempt)",
       "sourceIds": [
         "commons-flagga-mongolia"
@@ -2804,6 +2856,18 @@
       "license": "Public domain (PD-Mongolia-exempt, PD-self)",
       "sourceIds": [
         "commons-flagga-mongolia-1945"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Morocco, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-morocco"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Namibia)",
+      "sourceIds": [
+        "commons-flagga-namibia"
       ]
     },
     {
@@ -2843,6 +2907,12 @@
       ]
     },
     {
+      "license": "Public domain (PD-OpenClipart, PD-shape)",
+      "sourceIds": [
+        "commons-flagga-djibouti"
+      ]
+    },
+    {
       "license": "Public domain (PD-PRC-exempt, PD-ROC-exempt)",
       "sourceIds": [
         "commons-flagga-republic-of-china"
@@ -2852,6 +2922,12 @@
       "license": "Public domain (PD-Philippines)",
       "sourceIds": [
         "commons-flagga-philippines"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Rwanda, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-rwanda"
       ]
     },
     {
@@ -2891,9 +2967,27 @@
       ]
     },
     {
+      "license": "Public domain (PD-Sudan, PD-shape)",
+      "sourceIds": [
+        "commons-flagga-south-sudan"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Sudan-exempt, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-sudan"
+      ]
+    },
+    {
       "license": "Public domain (PD-Thailand, PD-shape)",
       "sourceIds": [
         "commons-flagga-thailand"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Tunisia, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-tunisia"
       ]
     },
     {
@@ -2943,6 +3037,7 @@
         "commons-flagga-papua-nya-guinea",
         "commons-flagga-qatar",
         "commons-flagga-salomonoarna",
+        "commons-flagga-tanzania",
         "commons-flagga-vanuatu"
       ]
     },
@@ -2955,7 +3050,9 @@
     {
       "license": "Public domain (PD-self)",
       "sourceIds": [
+        "commons-flagga-cameroon-1957",
         "commons-flagga-skane",
+        "commons-flagga-sudan-1956",
         "commons-flagga-timor-leste",
         "commons-vapen-gronland"
       ]
@@ -2963,7 +3060,11 @@
     {
       "license": "Public domain (PD-shape)",
       "sourceIds": [
+        "commons-flagga-gambia",
+        "commons-flagga-guinea-bissau",
         "commons-flagga-kuwait",
+        "commons-flagga-mauritius",
+        "commons-flagga-sao-tome-and-principe",
         "commons-flagga-singapore",
         "commons-flagga-somalia"
       ]
@@ -2978,6 +3079,12 @@
       "license": "Public domain (PD-shape, PD-RU-exempt, PD-flag)",
       "sourceIds": [
         "commons-flagga-russia"
+      ]
+    },
+    {
+      "license": "Public domain (PD-trivial)",
+      "sourceIds": [
+        "commons-flagga-liberia"
       ]
     },
     {
@@ -3033,6 +3140,15 @@
       "license": "Riksantikvarieämbetet, K-samsök (bara länkad, ingen text kopierad)",
       "sourceIds": [
         "raa-lamning-akermyra"
+      ]
+    },
+    {
+      "license": "Skolverket (bara länkad; inga villkor för återanvändning angivna under Om webbplatsen på skolverket.se, öppnad 2026-11-14; korta citat med källhänvisning i granskningsrapporten, ingen text kopierad till data)",
+      "sourceIds": [
+        "skolverket-kommentar-geografi",
+        "skolverket-kommentar-historia",
+        "skolverket-lgr22-geografi",
+        "skolverket-lgr22-samhallskunskap"
       ]
     },
     {
