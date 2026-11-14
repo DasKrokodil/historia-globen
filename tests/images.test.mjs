@@ -3,7 +3,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { readFileSync } from 'node:fs';
-import { ImageLayer, imageRows, imageAliases, sliceAt, boundsRect, entries } from '../js/layers/images.js';
+import { ImageLayer, imageRows, imageAliases, sliceAt, boundsRect, entries, imageNotes } from '../js/layers/images.js';
 
 const read = p => JSON.parse(readFileSync(new URL(`../${p}`, import.meta.url), 'utf8'));
 const example = read('tests/fixtures/bildlager-exempel.json');
@@ -113,4 +113,27 @@ test('varje lager i länkarkivet finns kvar, direkt eller som alias (#1326, #132
   const names = new Set(links.flatMap(l => l.expected.state?.layers ?? []));
   assert.ok(names.has('images'), 'arkivet ska ha en länk med det äldre id:t images');
   for (const name of names) assert.ok(ids.has(renamed[name] ?? name), `lagret ${name} i en äldre länk finns inte längre och saknar alias`);
+});
+
+test('en skiva med caveat står i teckenförklaringen med rubrik, text och källor (#1096)', () => {
+  const text = { sv: 'Tolkning' }, srcById = { s1: { id: 's1', title: 'Källa', url: 'https://example.org/' } };
+  const layer = new ImageLayer([slice({ title: { sv: 'Kusten' }, caveat: text, sources: ['s1', 'saknas'] })], fakeImage);
+  const built = [{ row: { id: 'kust', name: { sv: 'Kust' } }, layer }];
+  assert.deepEqual(imageNotes(built, srcById), [], 'avstängt lager: ingen post');
+  layer.enabled = true; layer.update(1550);
+  assert.deepEqual(imageNotes(built, srcById), [{ id: 'kust', title: 'Kusten', text: 'Tolkning', sources: [{ title: 'Källa', url: 'https://example.org/' }] }]);
+  layer.update(1700);
+  assert.deepEqual(imageNotes(built, srcById), [], 'året utanför skivorna: ingen post');
+  const plain = new ImageLayer([slice()], fakeImage); plain.enabled = true; plain.update(1550);
+  assert.deepEqual(imageNotes([{ row: { id: 'n', name: { sv: 'N' } }, layer: plain }]), [], 'utan caveat: ingen post');
+});
+
+test('istidens kust: skivorna följer på varandra utan glapp, och 20 000 år sedan har en egen skiva (#1096)', () => {
+  const row = read('data/bildlager.json').layers.find(r => r.id === 'istidens-kust');
+  assert.ok(row, 'raden istidens-kust finns');
+  const slices = [...row.slices].sort((a, b) => a.from - b.from);
+  for (const [a, b] of slices.slice(1).map((x, i) => [slices[i], x])) assert.equal(b.from, a.to + 1, `${a.id} och ${b.id} ska mötas`);
+  assert.equal(sliceAt(slices, 1950 - 20000).id, 'istidens-kust-20ka');
+  for (const x of slices) assert.ok(x.caveat?.sv && x.caveat.en && x.caveat.de && x.caveat.es && x.caveat.fr, `${x.id} har caveat på fem språk`);
+  assert.equal(sliceAt(slices, 2026), null, 'i nutid visas ingen istidskust');
 });
