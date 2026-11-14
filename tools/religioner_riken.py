@@ -13,7 +13,8 @@ det område som ritas. I ärvda områden (#269) är rikena de som saknar religio
 nästan inte ändras slås ihop, så att filen blir mindre. Religionen tas inte härifrån utan ur religions.json.
 
 Kör från projektets rot, efter att religions.json är byggd (tools/religioner.py), med Cliopatria-filen
-(cliopatria_polities_only_v021.geojson från https://zenodo.org/records/13363121, CC BY 4.0):
+(cliopatria_polities_only_v021.geojson ur cliopatria.geojson.zip i version 0.2.1 på Zenodo,
+https://zenodo.org/records/23128623, doi:10.5281/zenodo.23128623, CC BY 4.0; posten 13363121 är version 0.0.1, #1616):
     python3 tools/religioner_riken.py <cliopatria.geojson>
 Kräver shapely (pip install shapely).
 """
@@ -84,7 +85,7 @@ def main():
     if missing:
         print('saknas i Cliopatria:', missing)
     notes = ('Varje rikes gräns i religionslagret, för klickrutan (#194). Utdrag ur Cliopatria, datafil '
-             'cliopatria_polities_only_v021 (Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/13363121), '
+             'cliopatria_polities_only_v021 (version 0.2.1, Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/23128623), '
              'byggt med tools/religioner_riken.py. Bara rikesperioder som ingår i någon ögonblicksbild i religions.json finns med. '
              f'Ändringar: geometrin är förenklad (Douglas-Peucker {TOL} grader, koordinater avrundade till 0.1 grad, öar under '
              f'{MIN_AREA} kvadratgrader borttagna). start/end är Cliopatrias årtal (astronomiska år); perioder där gränsen ändras mindre än '
