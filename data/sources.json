@@ -2586,6 +2586,8 @@
     {"id": "wd-norway", "title": "Norway (Q20) – Wikidata", "url": "https://www.wikidata.org/wiki/Q20", "license": "CC0", "checked": "2026-11-14"},
     {"id": "wd-denmark-norway", "title": "Denmark–Norway (Q62651) – Wikidata", "url": "https://www.wikidata.org/wiki/Q62651", "license": "CC0", "checked": "2026-11-14"},
     {"id": "wd-kingdom-of-iceland", "title": "Kingdom of Iceland (Q62567) – Wikidata", "url": "https://www.wikidata.org/wiki/Q62567", "license": "CC0", "checked": "2026-11-14"},
-    {"id": "wd-jin-dynasty", "title": "Jin dynasty (Q7352) – Wikidata", "url": "https://www.wikidata.org/wiki/Q7352", "license": "CC0", "checked": "2026-11-14"}
+    {"id": "wd-jin-dynasty", "title": "Jin dynasty (Q7352) – Wikidata", "url": "https://www.wikidata.org/wiki/Q7352", "license": "CC0", "checked": "2026-11-14"},
+    {"id": "wd-schleswig-plebiscite", "title": "Schleswig plebiscite 1920 (Q692146) – Wikidata", "url": "https://www.wikidata.org/wiki/Q692146", "license": "CC0", "checked": "2026-11-14"},
+    {"id": "wp-schleswig-plebiscites", "title": "1920 Schleswig plebiscites – Wikipedia", "url": "https://en.wikipedia.org/wiki/1920_Schleswig_plebiscites", "license": "CC BY-SA 4.0", "checked": "2026-11-14"}
   ]
 }

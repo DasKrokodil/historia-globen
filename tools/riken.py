@@ -24,7 +24,7 @@ from pathlib import Path
 
 import numpy as np
 import shapely
-from shapely.geometry import Polygon, box, mapping, shape
+from shapely.geometry import MultiPolygon, Polygon, box, mapping, shape
 from shapely.ops import unary_union
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -1770,6 +1770,19 @@ def apply_disputed(items, gid, areas):
     return items
 
 
+def cut_parts(g, cut):
+    """g minus cut, där bara de delar av en multipolygon som skär cut klipps. De andra delarna behåller sina
+    ringar oförändrade, så att förenklingen efteråt blir densamma som förut (Själland när Island klipps bort, #1381)."""
+    parts = list(g.geoms) if g.geom_type == 'MultiPolygon' else [g]
+    keep = [q for q in parts if not q.intersects(cut)]
+    hit = [q.difference(cut) for q in parts if q.intersects(cut)]
+    hit = [x for h in hit for x in (h.geoms if hasattr(h, 'geoms') else [h]) if x.geom_type == 'Polygon' and not x.is_empty]
+    out = keep + hit
+    if not out:
+        return Polygon()
+    return MultiPolygon(out) if len(out) > 1 else out[0]
+
+
 def minus_others(items, names, by_name):
     """Klipper bort andra Cliopatria-stater (names) ur en dels perioder de år de finns (#644). Cliopatria räknar ibland
     ett område både till en stat och till dess forna kolonialmakt, till exempel Algeriet och Djibouti till Femte franska
@@ -1789,7 +1802,8 @@ def minus_others(items, names, by_name):
         for s, e in zip(cuts, cuts[1:]):
             on = [shape(f['geometry']).buffer(0) for f in feats if start(f) <= s <= end(f)]
             if on:
-                ng = g.difference(unary_union(on))
+                # Med (namn, från, till) klipps bara de delar som träffas (cut_parts, #1381); övriga minus som förut
+                ng = cut_parts(g, unary_union(on)) if last else g.difference(unary_union(on))
                 out.append((s, e - 1, ng, km2(ng)))
             else:
                 out.append((s, e - 1, g, ar))
