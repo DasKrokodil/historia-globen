@@ -3742,7 +3742,9 @@ async function run(browser, vp) {
       await tagView('#btn-layers');
       await tagPage.waitForSelector('#layer-menu', { state: 'visible', timeout: T.step });
       await tagPage.click('#layer-menu .view-chip[data-view="framsteg"]');
-      if (await tagPage.locator('#layer-menu .layer-view-status').isVisible()) throw new Error('tomt läge visas trots en taggad händelse');
+      // Raden under vyvalet förklarar nu urvalet (#1379), men får inte säga att ingen händelse är markerad
+      const taggedStatus = await tagPage.locator('#layer-menu .layer-view-status').textContent();
+      if (/Inga händelser är markerade som framsteg ännu/.test(taggedStatus)) throw new Error(`tomt läge visas trots en taggad händelse: "${taggedStatus}"`);
       await tagPage.keyboard.press('Escape');
       if (await tagPage.locator('#panel').isHidden()) await tagPage.click('#btn-panel');
       await tagPage.waitForSelector('#event-list .event-btn[data-id="apollo-11"]', { state: 'visible', timeout: T.step });
