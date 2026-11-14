@@ -2046,6 +2046,36 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
+  // #1439: en plats begränsar vad som syns som ett tema gör, så en jakt som inte går att klara inom platsen får veta det i sin
+  // meddelanderad (en live-region) med platsens egen text, som säger att platsen ska avslutas, och raden försvinner med jakten.
+  await check('en pågående jakt får veta att uppdraget inte går att klara inom platsen (#1439)', async () => {
+    const { tp, tctx, errs } = await touchPage();
+    try {
+      await tp.goto(`${BASE}?ny=plats3#y=1500&u=samtidighetsjakten-1500`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForSelector('#hunt', { state: 'visible', timeout: T.step });
+      if (await tp.isHidden('#btn-focus') && await tp.isVisible('#more-toggle')) await tp.click('#more-toggle');
+      if (await tp.isHidden('#btn-focus') && await tp.isVisible('#btn-more')) await tp.click('#btn-more');
+      await tp.click('#btn-focus');
+      await tp.waitForSelector('#focus-menu [data-tab="Platser"]', { state: 'visible', timeout: T.step });
+      await tp.click('#focus-menu [data-tab="Platser"]');
+      const row = tp.locator('#focus-menu [data-key="place:gronland"]');
+      await row.waitFor({ state: 'visible', timeout: T.step });
+      await row.click();
+      await tp.waitForFunction(() => location.hash.includes('f=place:gronland'), null, { timeout: T.step });
+      await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+      const msg = (await tp.textContent('#hunt-message')).trim();
+      if (!/Platsen/.test(msg) || !/Avsluta platsen/.test(msg)) throw new Error(`jakten sa inte att uppdraget inte går att klara inom platsen: "${msg}"`);
+      if (!(await tp.getAttribute('#hunt-message', 'class')).includes('is-no')) throw new Error('meddelandet har inte det röda tillståndet');
+      if (await tp.getAttribute('#hunt-message', 'aria-live') !== 'polite') throw new Error('meddelanderaden är ingen live-region');
+      // Jakten och platsen pågår samtidigt, och jakten går att avsluta med knappen
+      if (await tp.isHidden('#hunt')) throw new Error('jakten försvann när platsen började följas');
+      if (await tp.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw new Error('horisontell scroll med jakt och platskort');
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return msg;
+    } finally { await tctx.close(); }
+  });
+
   // #1161: tryck på konturen av en plats. Konturerna syns och går att trycka på bara inzoomat och i vanligt läge; trycket
   // öppnar kortet (Fokus av typen place) på globen och i Platt vy, och knappen Visa i Platt karta ramar in platsen.
   // Grönland (isen i norr, 76° N 40° V) ligger fritt från markörer och etiketter vid år 1000, också i mobilbredd.

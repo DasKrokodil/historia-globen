@@ -1,5 +1,7 @@
 // Det fokustyperna delar (#1327): mittpunkter, urvalets spann och namnen som sökningen letar i.
 import { MIN_YEAR, MAX_YEAR } from '../state.js';
+import { ui } from '../i18n.js';
+import { eventRegion, span as missionSpan } from '../uppdrag-rules.js';
 
 /** Sökningen i Fokus (#311) letar i namnen på alla språk som datan har. */
 export const langs = n => Object.values(n ?? {}).filter(Boolean);
@@ -33,4 +35,27 @@ export function selectionSpan(events) {
   const lastEnd = Math.max(...events.map(e => e.end));
   const from = Math.min(Math.max(MIN_YEAR, events[0].start), MAX_YEAR), to = Math.max(from, Math.min(MAX_YEAR, lastEnd));
   return { from, to, lastEnd };
+}
+
+/**
+ * Går uppdraget i den jakt som pågår inte att klara inom urvalet (#893, #1439)? Ett urval (tema eller plats) begränsar vad som syns, så
+ * det räknas hur många världsdelar urvalets händelser har inom uppdragets år. Färre än uppdraget kräver: det går inte att klara.
+ * Ingen pågående jakt ger false.
+ */
+export function huntImpossible(hunt, events) {
+  if (!hunt?.active) return false;
+  const [a, b] = missionSpan(hunt.mission);
+  const regions = new Set(events.filter(e => e.end >= a && e.start <= b).map(eventRegion).filter(Boolean));
+  return regions.size < hunt.mission.count;
+}
+
+/**
+ * Säger i jaktens meddelanderad (en live-region) att uppdraget inte går att klara inom urvalet. key är typens egen text i data/ui/
+ * (theme.huntImpossible, place.huntImpossible), eftersom texten säger vad eleven ska avsluta. Ger true när något sades.
+ */
+export function warnHuntImpossible(hunt, events, key) {
+  if (!huntImpossible(hunt, events)) return false;
+  hunt.message.textContent = ui(key);
+  hunt.message.className = 'hunt-message is-no';
+  return true;
 }

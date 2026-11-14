@@ -5,7 +5,7 @@ import { ui } from '../i18n.js';
 import { say } from '../ui/status.js';
 import { placeEvents } from '../place-geo.js';
 import { formatYearSpan } from '../controllers/facts.js';
-import { langs, selectionSpan } from './util.js';
+import { langs, selectionSpan, warnHuntImpossible } from './util.js';
 
 /**
  * Platsens kort (#579): samma kort i Fokus och i en turs steg (#1163). Skillnaden är det som hör till Fokus. I Fokus har kortet
@@ -60,7 +60,11 @@ export function entry(app) {
       return { title: `${t(place.name)} · ${formatYearSpan(evs[0].start, lastEnd)}`, short: t(place.name), from, to,
         center: place.view.center, zoom: place.view.zoom, place, themeEvents: evs, eventIds: new Set(evs.map(e => e.id)) };
     },
-    start: f => showCard(f, true),
+    start(f) {
+      showCard(f, true);
+      // En jakt pågår samtidigt med platsen (#893). Platsen begränsar vad som syns, så säg det när uppdraget inte går att klara (#1439)
+      warnHuntImpossible(app.hunt, f.themeEvents, 'place.huntImpossible');
+    },
     facts: { has: () => true, show: f => showCard(f) },
     async menuLoad() { list ??= await loadPlaces(); },
     // En plats visas med typ och antal händelser inom gränsen ("Självstyrt område · 17 händelser · 2500 f.Kr.–2009", #579)
