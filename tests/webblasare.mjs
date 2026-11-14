@@ -1749,7 +1749,7 @@ async function run(browser, vp) {
       if (!mainSrc.includes(marker)) throw new Error('main.js skapar inte routePop på den väntade raden; uppdatera kontrollen');
       const patched = mainSrc.replace(marker, `${marker} window.__routePop = routePop; window.__routes = routes;`);
       await lp.route(/\/js\/main\.js(\?.*)?$/, r => r.fulfill({ status: 200, contentType: 'application/javascript', body: patched }));
-      await lp.goto(`${BASE}#y=1330`);
+      await lp.goto(`${BASE}#y=1330&l=events,routes`); // resor är inte på i startvyn (#1574), så lagret slås på i länken
       await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       // Lagrets egen väg (annars döljer appen rutan vid nästa omritning, eftersom vägen inte syns)
       const show = () => lp.evaluate(() => {
@@ -4068,10 +4068,10 @@ async function run(browser, vp) {
     try {
       await page.click('#layer-menu .view-chip[data-view="oversikt"]');
       await page.waitForFunction(() => /([?&#])g=oversikt(?:&|$)/.test(location.hash), null, { timeout: T.step });
-      await setLayer('wars', false);
+      await setLayer('areas', false); // Riken är på i Översikt (startvyn, #1574)
       await page.waitForFunction(() => document.querySelector('#layer-menu [data-view="oversikt"]')?.getAttribute('aria-pressed') === 'false', null, { timeout: T.step });
-      if (!(await page.evaluate(() => /([?&#])g=oversikt(?:&|$)/.test(location.hash)))) throw new Error('urvalet i Översikt släpptes när Krigsområden slogs av');
-      return 'fokus i menyn och g=oversikt kvar efter att Krigsområden slagits av';
+      if (!(await page.evaluate(() => /([?&#])g=oversikt(?:&|$)/.test(location.hash)))) throw new Error('urvalet i Översikt släpptes när Riken slogs av');
+      return 'fokus i menyn och g=oversikt kvar efter att Riken slagits av';
     } finally {
       if (await page.locator('#layer-menu').isHidden()) await clickView('#btn-layers');
       await page.click('#layer-menu .view-chip[data-view="standard"]');
@@ -4096,9 +4096,9 @@ async function run(browser, vp) {
       await first.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await first.waitForFunction(() => document.querySelector('#layer-menu .view-chip[data-view="oversikt"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
       await first.waitForFunction(() => /([?&#])g=oversikt(?:&|$)/.test(location.hash), null, { timeout: T.step });
-      // Översikt väljer bara händelserna: lagren är som i Standard, så Riken och Samtidigt finns kvar
+      // Startvyn är lugn (#1574): Riken och Samtidigt är på, men inte Resor och Krigsområden
       const on = await first.evaluate(() => ['areas', 'funfacts', 'routes', 'wars'].filter(l => document.querySelector(`[data-layer="${l}"]`)?.checked));
-      if (on.length !== 4) throw new Error(`Översikt som startvy ska behålla Standards lager, men bara ${on.join(', ') || 'inga'} är på`);
+      if (on.join() !== 'areas,funfacts') throw new Error(`Översikt som startvy ska ha Riken och Samtidigt på men inte Resor och Krigsområden, men ${on.join(', ') || 'inga'} är på`);
     } finally { await first.close(); }
     await chip.click();
     await page.waitForFunction(() => document.querySelector('#layer-menu [data-view="oversikt"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
@@ -7037,7 +7037,7 @@ async function run(browser, vp) {
     }
     return 'direktlänk, omladdning och Bakåt/Framåt behåller låset; året låst till 1939–1945; Tab når utgången; slutkortet står kvar; utgången behåller året; utan lektionstur eller tur inget läge';
   });
-  // #1139: lektionsläget visar alltid alla händelser i lektionens år, också när lektionens lager är exakt Översikts fem lager
+  // #1139: lektionsläget visar alltid alla händelser i lektionens år, också när lektionens lager är exakt Översikts tre lager
   // (då slår turen inte av något lager, och vyns urval skulle annars ligga kvar). Utgången ("Lämna lektionen") ger tillbaka
   // Översikt som det var före lektionen. Lektionens lager skrivs om i testet så att de blir lika med Översikts.
   await check('lektionsläget från Översikt visar alla händelser och lämnar inget urval kvar (#1139)', async () => {
@@ -7050,7 +7050,7 @@ async function run(browser, vp) {
         await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
         await lp.route(u => isFont(u.href), r => r.abort());
       }
-      const overviewLayers = ['events', 'funfacts', 'areas', 'routes', 'wars'];
+      const overviewLayers = ['events', 'funfacts', 'areas'];
       await lp.route(u => /data\/turer\/andra-varldskriget\.json/.test(u.href), async r => {
         const res = await r.fetch();
         const doc = await res.json();
@@ -7063,7 +7063,7 @@ async function run(browser, vp) {
       await lp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
       await lp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
       const view = id => lp.evaluate(v => document.querySelector(`#layer-menu [data-view="${v}"]`)?.getAttribute('aria-pressed'), id);
-      await lp.waitForFunction(() => document.querySelector('#layer-menu [data-view="standard"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
+      await lp.waitForFunction(() => document.querySelector('#layer-menu [data-view="oversikt"]')?.getAttribute('aria-pressed') === 'false', null, { timeout: T.step });
       if (await view('oversikt') !== 'false') throw new Error('Översikt är kvar som vy i lektionen');
       // Samtidigt visar händelser som inte hör till Översikt: urvalet gäller inte i lektionen
       const ids = await lp.evaluate(() => [...document.querySelectorAll('#event-list .event-btn')].map(b => b.dataset.id));
