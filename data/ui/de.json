@@ -487,6 +487,7 @@
   "panel.showLessIn": "{label} in {region}",
   "detail.loading": "Wird geladen…",
   "detail.source": "Quelle:",
+  "route.sourcesCount": "Quellen ({n})",
   "detail.sourceMissing": "fehlt",
   "detail.beforeScale": "Das Ereignis beginnt vor dem Anfang der Zeitleiste ({year}), daher kann der Regler sein erstes Jahr nicht anzeigen.",
   "detail.yearsAgo": "Der Text rechnet in Jahren vor heute, die Jahreszahlen in v. Chr. Der Unterschied beträgt etwa 2.000 Jahre: Vor 40.000 Jahren ist etwa 38.000 v. Chr.",

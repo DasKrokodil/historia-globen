@@ -266,6 +266,7 @@
   "detail.label": "Om händelsen",
   "detail.loading": "Laddar…",
   "detail.source": "Källa:",
+  "route.sourcesCount": "Källor ({n})",
   "detail.sourceMissing": "saknas",
   "detail.beforeScale": "Händelsen börjar före tidslinjens början ({year}), så reglaget kan inte visa dess första år.",
   "detail.yearsAgo": "Texten räknar i år sedan och årtalen i f.Kr. Skillnaden är ungefär 2 000 år: för 40 000 år sedan är cirka 38 000 f.Kr.",
