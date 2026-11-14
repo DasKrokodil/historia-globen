@@ -49,6 +49,7 @@
 "mali":{"flags":{"0":{"label":{"de":"Flagge von Mali"}}}},
 "sydafrika":{"flags":{"0":{"label":{"de":"Südafrikanische Flagge von 1928"}},"1":{"label":{"de":"Südafrikanische Flagge von 1994"}}}},
 "niger":{"flags":{"0":{"label":{"de":"Flagge von Niger"}}}},
+"mauretanien":{"flags":{"0":{"label":{"de":"Flagge Mauretaniens von 1959"}},"1":{"label":{"de":"Flagge Mauretaniens seit 2017"}}}},
 "tanzania":{"flags":{"0":{"label":{"de":"Flagge Tansanias"}}}},
 "namibia":{"flags":{"0":{"label":{"de":"Flagge Namibias"}}}},
 "turkiet":{"flags":{"0":{"label":{"de":"Flagge der Türkei"}}}},

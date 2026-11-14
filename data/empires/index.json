@@ -32220,6 +32220,42 @@
    "from": 1961,
    "to": 2024,
    "file": "data/empires/mauretanien.json",
+   "flags": [
+    {
+     "file": "mauritania-1959",
+     "from": 1961,
+     "to": 2016,
+     "label": {
+      "sv": "Mauretaniens flagga från 1959",
+      "en": "Flag of Mauritania from 1959",
+      "de": "Flagge Mauretaniens von 1959",
+      "es": "Bandera de Mauritania de 1959",
+      "fr": "Drapeau de la Mauritanie de 1959"
+     },
+     "sources": [
+      "wp-flag-mauritania",
+      "commons-flagga-mauritania-1959"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "mauritania",
+     "from": 2017,
+     "to": 2024,
+     "label": {
+      "sv": "Mauretaniens flagga från 2017",
+      "en": "Flag of Mauritania from 2017",
+      "de": "Flagge Mauretaniens seit 2017",
+      "es": "Bandera de Mauritania desde 2017",
+      "fr": "Drapeau de la Mauritanie depuis 2017"
+     },
+     "sources": [
+      "wp-flag-mauritania",
+      "commons-flagga-mauritania"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "mauretanien",

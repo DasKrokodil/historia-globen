@@ -918,6 +918,7 @@
         "wp-flag-malaysia",
         "wp-flag-mali",
         "wp-flag-malta",
+        "wp-flag-mauritania",
         "wp-flag-mauritius",
         "wp-flag-moldova",
         "wp-flag-monaco",
@@ -2800,6 +2801,18 @@
       "license": "Public domain (PD-Malaysia, PD-self)",
       "sourceIds": [
         "commons-flagga-malaysia"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Mauritania, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-mauritania"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Mauritania, PD-ineligible, PD-shape)",
+      "sourceIds": [
+        "commons-flagga-mauritania-1959"
       ]
     },
     {

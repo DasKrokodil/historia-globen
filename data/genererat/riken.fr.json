@@ -48,6 +48,7 @@
 "mali":{"flags":{"0":{"label":{"fr":"Drapeau du Mali"}}}},
 "sydafrika":{"flags":{"0":{"label":{"fr":"Drapeau sud-africain de 1928"}},"1":{"label":{"fr":"Drapeau sud-africain de 1994"}}}},
 "niger":{"flags":{"0":{"label":{"fr":"Drapeau du Niger"}}}},
+"mauretanien":{"flags":{"0":{"label":{"fr":"Drapeau de la Mauritanie de 1959"}},"1":{"label":{"fr":"Drapeau de la Mauritanie depuis 2017"}}}},
 "tanzania":{"flags":{"0":{"label":{"fr":"Drapeau de la Tanzanie"}}}},
 "namibia":{"flags":{"0":{"label":{"fr":"Drapeau de la Namibie"}}}},
 "turkiet":{"flags":{"0":{"label":{"fr":"Drapeau de la Turquie"}}}},
