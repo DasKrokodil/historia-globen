@@ -542,7 +542,6 @@
   "facts.originSymbol": "El símbolo {symbol} en el globo muestra dónde surgió la religión:",
   "facts.origin": "Dónde surgió la religión:",
   "facts.symbolKind.flag": "Bandera: un dibujo simplificado de la bandera que usaba el imperio en el año elegido.",
-  "facts.symbolKind.symbol": "Símbolo: un signo que usaba el imperio o que los historiadores asocian con él, no una bandera en sentido moderno.",
   "facts.symbolKind.reconstruction": "Representación moderna: un dibujo actual de algo documentado, no una imagen de la época.",
   "marks.empire.flag": "{name}: bandera del imperio. Abre la ficha del imperio.",
   "marks.empire.symbol": "{name}: símbolo del imperio. Abre la ficha del imperio.",

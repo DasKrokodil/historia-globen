@@ -542,7 +542,6 @@
   "facts.originSymbol": "Le symbole {symbol} sur le globe montre où la religion est née :",
   "facts.origin": "Là où la religion est née :",
   "facts.symbolKind.flag": "Drapeau : un dessin simplifié du drapeau qu’utilisait l’empire l’année choisie.",
-  "facts.symbolKind.symbol": "Symbole : un signe qu’utilisait l’empire ou que les historiens lui associent, pas un drapeau au sens moderne.",
   "facts.symbolKind.reconstruction": "Représentation moderne : un dessin actuel d’un élément attesté, pas une image de l’époque.",
   "marks.empire.flag": "{name} : drapeau de l’empire. Ouvre la fiche de l’empire.",
   "marks.empire.symbol": "{name} : symbole de l’empire. Ouvre la fiche de l’empire.",

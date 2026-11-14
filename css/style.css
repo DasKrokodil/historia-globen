@@ -1969,7 +1969,9 @@ details.used-by summary:hover { color: var(--parchment); }
 .rel-sym { width: 16px; height: 16px; flex: none; display: inline-block; vertical-align: -3px; }
 .layer-subrow .rel-sym, .focus-item .rel-sym { margin-left: -4px; }
 .religion-legend .rel-sym { width: 15px; height: 15px; margin-left: -3px; }
-.detail h3 .rel-sym-h { width: 22px; height: 22px; margin-right: 8px; vertical-align: -3px; }
+/* Rubrikens tecken är stort nog att läsa (2026-11-14): höjden styr och bredden följer teckningen (flaggor är 3:2, religionernas symboler kvadratiska) */
+.detail h3:has(.rel-sym-h) { display: flex; align-items: center; gap: 10px; }
+.detail h3 .rel-sym-h { width: auto; height: 44px; max-width: 72px; margin: 0; vertical-align: baseline; }
 .place-emblems { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: flex-start; margin: 6px 0 10px; }
 .place-emblem { margin: 0; display: flex; flex-direction: column; gap: 4px; max-width: 150px; font-size: 0.85em; }
 .place-emblem img { height: 44px; width: auto; align-self: flex-start; }

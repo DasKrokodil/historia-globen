@@ -542,7 +542,6 @@
   "facts.originSymbol": "Das Symbol {symbol} auf dem Globus zeigt, wo die Religion entstand:",
   "facts.origin": "Wo die Religion entstand:",
   "facts.symbolKind.flag": "Flagge: eine vereinfachte Zeichnung der Flagge, die das Reich im gewählten Jahr verwendete.",
-  "facts.symbolKind.symbol": "Symbol: ein Zeichen, das das Reich verwendete oder das die Forschung mit ihm verbindet, keine Flagge im modernen Sinn.",
   "facts.symbolKind.reconstruction": "Moderne Wiedergabe: eine heutige Zeichnung von etwas Belegtem, kein Bild aus der Zeit.",
   "marks.empire.flag": "{name}: Flagge des Reiches. Öffnet den Faktenkasten des Reiches.",
   "marks.empire.symbol": "{name}: Symbol des Reiches. Öffnet den Faktenkasten des Reiches.",

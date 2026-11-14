@@ -1702,25 +1702,26 @@ async function run(browser, vp) {
         return lp.evaluate(() => {
           const year = Number(document.getElementById('track').getAttribute('aria-valuenow'));
           const line = document.querySelector('#detail .symbol-kind');
-          return { year, kind: line?.dataset.symbolKind ?? null, text: line?.textContent ?? '',
+          return { year, kind: line?.dataset.symbolKind ?? null, text: line?.textContent ?? '', hasSymbol: !!document.querySelector('#detail h3 .rel-sym-h'),
             marks: [...document.querySelectorAll('[aria-label]')].map(el => el.getAttribute('aria-label')).filter(l => /^[^:]+: (rikets|modern återgivning)/.test(l)) };
         });
       };
       const japan = await open(1900, 'japanska-imperiet', 'Japanska');
-      const japanWant = japan.year >= 1870 && japan.year <= 1945 ? 'reconstruction' : 'symbol';
+      // En symbol får ingen förklarande rad (2026-11-14): tecknet i rubriken räcker, markörens skärmläsartext säger fortfarande vad det är
+      const japanWant = japan.year >= 1870 && japan.year <= 1945 ? 'reconstruction' : null;
       if (japan.kind !== japanWant) throw new Error(`Japan ${japan.year}: raden är ${japan.kind}, inte ${japanWant}`);
       if (japanWant === 'reconstruction' && !/^Modern återgivning/.test(japan.text)) throw new Error(`fel text för modern återgivning: "${japan.text}"`);
       if (japanWant === 'reconstruction' && !japan.marks.some(l => /modern återgivning av rikets symbol/.test(l))) throw new Error(`markören säger inte modern återgivning: ${japan.marks.join(' | ')}`);
       const ottoman = await open(1900, 'osmanska-riket', 'Osmanska');
-      const ottoWant = ottoman.year >= 1793 && ottoman.year <= 1922 ? 'flag' : 'symbol';
+      const ottoWant = ottoman.year >= 1793 && ottoman.year <= 1922 ? 'flag' : null;
       if (ottoman.kind !== ottoWant) throw new Error(`Osmanska riket ${ottoman.year}: raden är ${ottoman.kind}, inte ${ottoWant}`);
       if (ottoWant === 'flag' && !/^Flagga/.test(ottoman.text)) throw new Error(`fel text för flagga: "${ottoman.text}"`);
       const rome = await open(100, 'romarriket', 'Rom: kungadöme');
-      if (rome.kind !== 'symbol' || !/inte en flagga/.test(rome.text)) throw new Error(`Rom: raden är ${rome.kind} "${rome.text}", inte symbol`);
+      if (rome.kind !== null || !rome.hasSymbol) throw new Error(`Rom: raden är ${rome.kind} "${rome.text}" och symbol i rubriken ${rome.hasSymbol}, väntade ingen rad men en symbol`);
       const han = await open(100, 'hanriket', 'Hanriket');
       if (han.kind !== null) throw new Error('Hanriket har ingen symbol men får en rad om tecknet');
       if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
-      return `Japan ${japan.year}: ${japan.kind}, Osmanska riket ${ottoman.year}: ${ottoman.kind}, Rom: symbol, Hanriket: ingen rad`;
+      return `Japan ${japan.year}: ${japan.kind}, Osmanska riket ${ottoman.year}: ${ottoman.kind}, Rom: symbol utan rad, Hanriket: ingen rad`;
     } finally {
       await lp.close();
     }
