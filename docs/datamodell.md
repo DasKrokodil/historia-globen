@@ -187,6 +187,8 @@ Filen `data/platser.json` (schema `schemas/platser.schema.json`, kontroll i `scr
 
 **Händelserna inom gränsen** räknas vid körning av `placeEvents()` i `js/place-geo.js`: händelsens punkt ligger i polygonen, eller inom **20 km** från dess kant (`COAST_MARGIN_KM`), eftersom 1:50m-kusten är grov och Nuuk, Auckland och Golden Bay annars hamnar i havet. `validate-site.py` räknar med samma marginal och kräver minst 5 synliga händelser inom gränsen. Gränsen är **dagens**, inte den som gällde då; kortet säger det på en fast rad (`place.borderNote`).
 
+**Datumlinjen (#1268):** en ring som korsar ±180° (Ryssland, Fiji, USA med Aleuterna) delas av `tools/platser_gransar.py` vid 180° med nya sömpunkter på exakt 180 och −180, så att varje delring är en sluten polygon på ena sidan och ingen kant hoppar mer än 180° i längdgrad. Inget nytt schema och inget nytt fält. Sömmen är ingen kust: `edgeKm` hoppar över segment där båda ändpunkterna ligger på ±180. `validate-site.py` stoppar en ring som hoppar, och `js/place-geo.js` och Python-kopian i `validate-site.py` viker som skydd upp en ring som ändå hoppar och prövar punkten som längdgrad och längdgrad ± 360.
+
 ## `teman.json`: teman (#398)
 
 **Fastställt format (#950, beslut [2026-11-08-temaformat-398.md](beslut/2026-11-08-temaformat-398.md), frågorna 1–4 på #398 besvarade av DasKrokodil 2026-11-08), byggt i #962:** filen `data/teman.json` (tom lista), schemat `schemas/teman.schema.json`, kontrollen i `scripts/validate-site.py` och temat i Fokus. Ett tema är ett **namngivet urval av befintliga händelser** med en introduktion, till exempel teknik (#105). Temat lägger inte till några fakta: allt historiskt innehåll ligger kvar i händelserna och deras källor.
