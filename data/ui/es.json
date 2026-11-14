@@ -579,6 +579,7 @@
   "legend.spread": "Dispersión humana",
   "legend.spreadNote": "Las áreas y las líneas son interpretaciones de las fuentes, no fronteras ni rutas. Una línea discontinua es una oleada principal; una línea de puntos con signo de interrogación, una oleada posible o discutida. Que falten hallazgos no significa que no hubiera nadie.",
   "legend.spreadSources": "Fuentes:",
+  "legend.spreadDetails": "resumen y fuentes",
   "legend.and": " y ",
   "legend.layersNormal": "{layers} se muestran como de costumbre.",
   "legend.layersDimmed": "{layers} se atenúan durante este seguimiento.",

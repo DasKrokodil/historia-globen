@@ -6659,6 +6659,8 @@ async function run(browser, vp) {
       await tp.waitForSelector('#religion-legend .rl-spread', { state: 'attached', timeout: T.step });
       // Listan kan vara hopfälld (smal skärm, eller för lite plats): fäll ut den för att kunna mäta länkarna
       if (await tp.getAttribute('#religion-legend .rl-toggle', 'aria-expanded') !== 'true') await tp.click('#religion-legend .rl-toggle');
+      // I smal skärm är posterna hopfällda (#1418): fäll ut alla för att kunna mäta källänkarna
+      while (await tp.locator('#religion-legend .rl-spread-toggle[aria-expanded="false"]').count()) await tp.locator('#religion-legend .rl-spread-toggle[aria-expanded="false"]').first().click();
       await tp.waitForSelector('#religion-legend .rl-spread-src', { state: 'visible', timeout: T.step });
       const got = await tp.evaluate(() => {
         const items = [...document.querySelectorAll('#religion-legend .rl-spread-item')];
@@ -6683,6 +6685,70 @@ async function run(browser, vp) {
       errors.push(...tpAw.settle());
       if (errors.length) throw new Error(`sidfel: ${errors[0]}`);
       return `${got.items} poster med h3, ${got.links.length} källänkar på minst 24 × 24 px`;
+    } finally {
+      await tp.close();
+    }
+  });
+
+  // #1418: i smal skärm visar listan bara namn, tecken och säkerhet per post; sammanfattning, not och källor fälls ut med en
+  // riktig knapp (aria-expanded, tangentbord, minst 24 px hög). I bred skärm står allt utfällt. Sammanfattningen står i
+  // brödtextens typsnitt, inte i mono.
+  await check('människans spridning: posterna fälls ut en och en i smal skärm och står utfällda i bred (#1418)', async () => {
+    const tp = await context.newPage();
+    const tpAw = abortWatch(tp);
+    const errors = [];
+    tp.on('pageerror', e => { if (!tpAw.defer(e.message)) errors.push(e.message); });
+    try {
+      if (THREE_LOCAL) {
+        await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+        await tp.route(u => isFont(u.href), r => r.abort());
+      }
+      await tpAw.goto(`${BASE}?ny=1418#y=-50000&l=events,spread`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForSelector('#religion-legend .rl-spread', { state: 'attached', timeout: T.step });
+      if (await tp.getAttribute('#religion-legend .rl-toggle', 'aria-expanded') !== 'true') await tp.click('#religion-legend .rl-toggle');
+      const narrow = vp.width <= 760;
+      const state = () => tp.evaluate(() => {
+        const items = [...document.querySelectorAll('#religion-legend .rl-spread-item')];
+        return {
+          items: items.length,
+          buttons: items.filter(li => li.querySelector('h3 > button.rl-spread-toggle')).length,
+          shown: items.filter(li => li.querySelector('.rl-spread-text').getBoundingClientRect().height > 0).length,
+          expanded: items.map(li => li.querySelector('.rl-spread-toggle')?.getAttribute('aria-expanded')),
+          controls: items.every(li => { const b = li.querySelector('.rl-spread-toggle'); return !b || document.getElementById(b.getAttribute('aria-controls')) === li.querySelector('.rl-spread-text'); }),
+          font: getComputedStyle(items[0].querySelector('.rl-spread-text')).fontFamily,
+          heights: [...document.querySelectorAll('#religion-legend .rl-spread-toggle')].map(b => Math.round(b.getBoundingClientRect().height)),
+          overflow: document.documentElement.scrollWidth - innerWidth,
+        };
+      });
+      const first = await state();
+      if (!first.items) throw new Error('listan är tom år 50 000 f.Kr.');
+      if (!/Instrument Sans/.test(first.font)) throw new Error(`sammanfattningen står inte i brödtextens typsnitt: ${first.font}`);
+      if (first.overflow > 0) throw new Error(`horisontell scroll: ${first.overflow} px`);
+      if (!narrow) {
+        if (first.buttons) throw new Error('bred skärm: posterna ska stå utfällda utan knappar');
+        if (first.shown !== first.items) throw new Error(`bred skärm: ${first.shown} av ${first.items} sammanfattningar syns`);
+        errors.push(...tpAw.settle());
+        if (errors.length) throw new Error(`sidfel: ${errors[0]}`);
+        return `${first.items} poster utfällda, utan knappar`;
+      }
+      if (first.buttons !== first.items) throw new Error(`smal skärm: ${first.buttons} knappar för ${first.items} poster`);
+      if (first.shown) throw new Error(`smal skärm: ${first.shown} sammanfattningar syns innan något fällts ut`);
+      if (first.expanded.some(x => x !== 'false')) throw new Error(`aria-expanded ska vara false från början: ${first.expanded}`);
+      if (!first.controls) throw new Error('aria-controls pekar inte på sammanfattningen');
+      if (first.heights.some(h => h < 24)) throw new Error(`knapp lägre än 24 px: ${first.heights}`);
+      // Tangentbord: Enter fäller ut, Space fäller ihop, och fokus ligger kvar på knappen
+      await tp.focus('#religion-legend .rl-spread-toggle');
+      await tp.keyboard.press('Enter');
+      const open = await state();
+      if (open.shown !== 1 || open.expanded[0] !== 'true') throw new Error(`Enter fällde inte ut den första posten: ${JSON.stringify(open)}`);
+      if (!await tp.evaluate(() => document.activeElement.classList.contains('rl-spread-toggle'))) throw new Error('fokus lämnade knappen när posten fälldes ut');
+      await tp.keyboard.press('Space');
+      const closed = await state();
+      if (closed.shown !== 0 || closed.expanded[0] !== 'false') throw new Error(`Space fällde inte ihop posten: ${JSON.stringify(closed)}`);
+      errors.push(...tpAw.settle());
+      if (errors.length) throw new Error(`sidfel: ${errors[0]}`);
+      return `${first.items} poster hopfällda med knapp, Enter och Space fäller ut och ihop`;
     } finally {
       await tp.close();
     }

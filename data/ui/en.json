@@ -579,6 +579,7 @@
   "legend.spread": "Human dispersal",
   "legend.spreadNote": "Areas and lines are interpretations of the sources, not borders or routes. A dashed line is a main wave; a dotted line with a question mark is a possible or disputed wave. A lack of finds does not mean that nobody was there.",
   "legend.spreadSources": "Sources:",
+  "legend.spreadDetails": "summary and sources",
   "legend.and": " and ",
   "legend.layersNormal": "{layers} are shown as usual.",
   "legend.layersDimmed": "{layers} are dimmed while you follow this.",

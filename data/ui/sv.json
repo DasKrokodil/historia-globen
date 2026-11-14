@@ -360,6 +360,7 @@
   "legend.spread": "Människans spridning",
   "legend.spreadNote": "Ytor och linjer är tolkningar av källorna, inte gränser eller vägar. Streckad linje är en huvudvåg, prickad linje med frågetecken en möjlig eller omstridd våg. Att fynd saknas betyder inte att ingen fanns där.",
   "legend.spreadSources": "Källor:",
+  "legend.spreadDetails": "sammanfattning och källor",
   "legend.and": " och ",
   "legend.layersNormal": "{layers} visas som vanligt.",
   "legend.layersDimmed": "{layers} är dämpade medan du följer det här.",
