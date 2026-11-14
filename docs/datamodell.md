@@ -31,6 +31,7 @@ Läs detta först och sök sedan upp det avsnitt du behöver.
 - `styles.json` – bildstilar efter tid och plats.
 - `genererat/` (#337) – de uppdelade filer som sidan laddar, med en fil per språk ovanpå (#675).
 - `oversattning.json` (#675) – spärren mot oöversatta texter och registret över översättningar; skrivs av `tools/oversattning.py`, publiceras inte.
+- `textlangd.json` (#1599) – spärren mot långa faktatexter: antal svenska sammanfattningar (`summary`) över 300 tecken per fil i `handelser/` och `routes/`, som bara får minska; skrivs av `tools/textlangd.py`, publiceras inte (docs/beslut/2026-11-14-kortare-faktatexter.md).
 - `land.json` och `borders.json` – grundkartan och dagens gränser.
 - `vyer.json` (#357) – grupper och förinställda vyer i Lager.
 
@@ -64,6 +65,8 @@ Sidan läser händelserna uppdelade i ett index och de långa fälten per period
 ```
 
 **Obligatoriska fält:** `id` (läsbart och unikt), `category` (en av de fjorton kategorierna i `model.js`; `katastrofer` sedan #554), `start`, `end`, `precision`, `edtf`, `location`, `place`, `title`, `summary`, `sources` och `review`.
+
+**Längd på `summary`** ([beslut 2026-11-14](beslut/2026-11-14-kortare-faktatexter.md), #1599): som huvudregel högst cirka 300 tecken på svenska, ungefär två till tre korta meningar; fördjupningen står i `note` och de hopfällda avsnitten. Gäller också resor och vägar i `routes/`. En förkortning tar bara bort text, och översättningarna kortas på samma sätt. `tools/textlangd.py` stoppar fler texter över gränsen.
 
 **Kategori för gravar, offer, tempel och ritualer** ([beslut 2026-11-14](beslut/2026-11-14-kategori-for-gravar-och-ritualer.md), #1587): `religion` när källan själv talar om tro, kult, ritual eller ceremoni (tempel, offerplatser, ceremoniella centrum, gravar där källan beskriver ritualen som religiös); `kultur` när det viktiga är föremål, konst eller gravgåvor; `manniskan` när det viktiga är människorna själva (hur de levde och dog, kroppar, arvsmassa). Kategorin väljs efter vad källan säger, aldrig för att fylla en tom cell i täckningsmåttet.
 

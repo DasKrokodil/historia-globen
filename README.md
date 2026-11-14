@@ -162,6 +162,7 @@ data/borders.json     dagens landsgränser (Natural Earth)
 data/routes/          vägar och resor (lagertyp linje): index.json och en fil per resa eller väg
 data/genererat/       händelser och riken uppdelade i mindre filer som sidan laddar, med en fil per språk (genereras, redigeras inte)
 data/oversattning.json baslinjen för oöversatta texter och registret över översättningar (genereras av tools/oversattning.py)
+data/textlangd.json   baslinjen för sammanfattningar över 300 tecken (genereras av tools/textlangd.py, #1599)
 data/upptackt.json    upptäcktsvyn: perspektivraden, den åldrade kartstilen, dimmans täckning och korridorens bredd, dekorationernas platser
 data/spridning.json   människans spridning: antagna områden och vågor som tolkningar av källorna (#1094)
 data/upptackt-europa.json Europa som hemregion i upptäcktsvyn, lyft från början (#872); byggs med tools/europa_dimma.py ur Natural Earth
