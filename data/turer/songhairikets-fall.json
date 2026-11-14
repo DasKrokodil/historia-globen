@@ -5,7 +5,7 @@
   "title": {
     "sv": "Hur föll Songhairiket?",
     "en": "How did the Songhai Empire fall?",
-    "fr": "Comment l'Empire songhaï est-il tombé ?",
+    "fr": "Comment l'Empire songhaï est-il tombé ?",
     "de": "Wie fiel das Songhai-Reich?",
     "es": "¿Cómo cayó el Imperio songhai?"
   },
@@ -18,6 +18,78 @@
   },
   "empire": "songhairiket",
   "review": "source-checked",
+  "lesson": {
+    "grades": "7-9",
+    "minutes": 30,
+    "curriculum": [
+      {
+        "text": {
+          "sv": "Kopplad till Lgr22, historia i årskurs 7–9, Samhällsomvandlingar: högkulturer i olika delar av världen, här Västafrika. Turen visar hur ett sådant rike föll.",
+          "en": "Linked to Lgr22, history in years 7–9, Social transformations: advanced civilisations in different parts of the world, here West Africa. The tour shows how such an empire fell.",
+          "de": "Bezogen auf Lgr22, Geschichte in den Klassen 7–9, gesellschaftlicher Wandel: Hochkulturen in verschiedenen Teilen der Welt, hier Westafrika. Die Tour zeigt, wie ein solches Reich fiel.",
+          "es": "Vinculado a Lgr22, historia en los cursos 7–9, transformaciones sociales: altas culturas en distintas partes del mundo, aquí África occidental. El recorrido muestra cómo cayó un imperio así.",
+          "fr": "En lien avec Lgr22 (le programme suédois de l'école obligatoire), histoire en classes 7 à 9 (numérotation suédoise), transformations des sociétés : les grandes civilisations dans différentes parties du monde, ici l'Afrique de l'Ouest. La visite montre comment un tel empire est tombé."
+        },
+        "sources": [
+          "skolverket-lgr22-historia"
+        ]
+      },
+      {
+        "text": {
+          "sv": "Kopplad till Lgr22, historia i årskurs 7–9: att tolka historiska källor och granska dem källkritiskt.",
+          "en": "Linked to Lgr22, history in years 7–9: interpreting historical sources and examining them critically.",
+          "de": "Bezogen auf Lgr22, Geschichte in den Klassen 7–9: historische Quellen deuten und quellenkritisch prüfen.",
+          "es": "Vinculado a Lgr22, historia en los cursos 7–9: interpretar fuentes históricas y examinarlas con espíritu crítico.",
+          "fr": "En lien avec Lgr22, histoire en classes 7 à 9 : interpréter des sources historiques et les examiner de façon critique."
+        },
+        "sources": [
+          "skolverket-lgr22-historia"
+        ]
+      }
+    ],
+    "prerequisites": {
+      "sv": "Inga särskilda. Visa gärna Västafrika och floden Niger på globen innan turen börjar.",
+      "en": "None in particular. You may want to show West Africa and the river Niger on the globe before the tour starts.",
+      "de": "Keine besonderen. Zeigen Sie am besten Westafrika und den Fluss Niger auf dem Globus, bevor die Tour beginnt.",
+      "es": "Ninguno en especial. Conviene mostrar África occidental y el río Níger en el globo antes de empezar el recorrido.",
+      "fr": "Aucun en particulier. Montrez de préférence l'Afrique de l'Ouest et le fleuve Niger sur le globe avant le début de la visite."
+    },
+    "teacher": {
+      "sv": "Gör så här: öppna Turer och välj Hur föll Songhairiket? under Hur föll det?. Visa turen på storskärm (lägg till ?presentation=1 i adressen) eller låt eleverna gå igenom den två och två. Be eleverna titta på märkningen i varje kort, som säger vad källorna vet. Att veta: erövraren var grannen i norr, Marocko. Enligt källan om slaget varnade många av sultanens rådgivare för att det var otillåtet att kriga mot ett annat muslimskt land. Krönikan Tarikh al-Sudan är skriven på arabiska. Svarsriktning: Arméerna: den som berättar kan ha skäl att göra en seger större. Krönikorna: krönikören arbetade för erövrarna. Avslutning efter alla tre turerna om rikens fall: Försvann rikena helt, och vad är källorna oense om? Riktning: Östrom fortsatte, Hanriket delades i tre kungadömen (till 280) och Songhais kungar regerade vidare i Dendi. Tid: 5 minuter start, 20 minuter tur och 5 minuter exit ticket.",
+      "en": "How to: open Tours and choose How did the Songhai Empire fall? under How did it fall?. Show the tour on a big screen (add ?presentation=1 to the address) or let the students go through it in pairs. Ask the students to look at the label on each card, which says what the sources know. Good to know: the conqueror was the neighbour to the north, Morocco. According to the source on the battle, many of the sultan's advisers warned that it was unlawful to wage war on another Muslim country. The chronicle Tarikh al-Sudan is written in Arabic. Answer direction: The armies: whoever tells the story may have reasons to make a victory bigger. The chronicles: the chronicler worked for the conquerors. Wrap-up after all three tours about the fall of empires: Did the empires disappear completely, and what do the sources disagree on? Direction: the Eastern Roman Empire continued, the Han Empire split into three kingdoms (until 280) and the Songhai kings went on ruling in Dendi. Timing: 5 minutes to start, 20 minutes of tour and 5 minutes of exit ticket.",
+      "de": "So geht es: Öffnen Sie „Touren“ und wählen Sie „Wie fiel das Songhai-Reich?“ unter „Wie kam es zum Fall?“. Zeigen Sie die Tour auf einer Großleinwand (fügen Sie ?presentation=1 an die Adresse an) oder lassen Sie die Klasse sie zu zweit durchgehen. Lassen Sie die Klasse auf die Kennzeichnung jeder Karte achten: Sie sagt, was die Quellen wissen. Gut zu wissen: Der Eroberer war der Nachbar im Norden, Marokko. Laut der Quelle zur Schlacht warnten viele Berater des Sultans, ein Krieg gegen ein anderes muslimisches Land sei unrechtmäßig. Die Chronik Tarikh al-Sudan ist auf Arabisch geschrieben. Antwortrichtung: Die Heere: Wer berichtet, kann Gründe haben, einen Sieg größer zu machen. Die Chroniken: Der Chronist arbeitete für die Eroberer. Abschluss nach allen drei Touren über den Fall von Reichen: Verschwanden die Reiche ganz, und worüber sind die Quellen uneins? Richtung: Ostrom bestand weiter, das Han-Reich zerfiel in drei Königreiche (bis 280) und die Könige der Songhai regierten in Dendi weiter. Zeit: 5 Minuten Einstieg, 20 Minuten Tour, 5 Minuten Exit-Ticket.",
+      "es": "Cómo hacerlo: abra Recorridos y elija «¿Cómo cayó el Imperio songhai?» en «¿Cómo cayó?». Muestre el recorrido en pantalla grande (añada ?presentation=1 a la dirección) o deje que los alumnos lo recorran por parejas. Pida a los alumnos que se fijen en la etiqueta de cada tarjeta, que dice lo que saben las fuentes. Conviene saber: el conquistador fue el vecino del norte, Marruecos. Según la fuente sobre la batalla, muchos consejeros del sultán advirtieron de que era ilícito hacer la guerra a otro país musulmán. La crónica Tarikh al-Sudan está escrita en árabe. Orientación de las respuestas: Los ejércitos: quien cuenta la historia puede tener motivos para agrandar una victoria. Las crónicas: el cronista trabajaba para los conquistadores. Cierre tras los tres recorridos sobre la caída de imperios: ¿Desaparecieron los imperios por completo y en qué no coinciden las fuentes? Orientación: el Imperio romano de Oriente continuó, el Imperio Han se dividió en tres reinos (hasta 280) y los reyes songhai siguieron reinando en Dendi. Tiempo: 5 minutos de inicio, 20 de recorrido y 5 de exit ticket.",
+      "fr": "Déroulement : ouvrez Visites et choisissez « Comment l'Empire songhaï est-il tombé ? » sous « Comment est-il tombé ? ». Affichez la visite sur grand écran (ajoutez ?presentation=1 à l'adresse) ou laissez les élèves la parcourir en binômes. Demandez aux élèves de regarder l'étiquette de chaque carte, qui indique ce que savent les sources. À savoir : le conquérant était le voisin du nord, le Maroc. Selon la source sur la bataille, de nombreux conseillers du sultan avertirent qu'il était illicite de faire la guerre à un autre pays musulman. La chronique Tarikh al-Sudan est écrite en arabe. Pistes de réponse : Les armées : celui qui raconte peut avoir des raisons de grossir une victoire. Les chroniques : le chroniqueur travaillait pour les conquérants. Conclusion après les trois visites sur la chute des empires : les empires ont-ils complètement disparu, et sur quoi les sources ne sont-elles pas d'accord ? Piste : l'Empire romain d'Orient a continué, l'Empire Han s'est divisé en trois royaumes (jusqu'en 280) et les rois songhaï ont continué à régner dans le Dendi. Durée : 5 minutes de démarrage, 20 minutes de visite et 5 minutes de ticket de sortie."
+    },
+    "exitTicket": {
+      "sv": "Vem erövrade Songhairiket, och vems röster saknas i källorna? Ge ett exempel från turen.",
+      "en": "Who conquered the Songhai Empire, and whose voices are missing from the sources? Give an example from the tour.",
+      "de": "Wer eroberte das Songhai-Reich, und wessen Stimmen fehlen in den Quellen? Nennen Sie ein Beispiel aus der Tour.",
+      "es": "¿Quién conquistó el Imperio songhai y qué voces faltan en las fuentes? Dé un ejemplo del recorrido.",
+      "fr": "Qui a conquis l'Empire songhaï, et quelles voix manquent dans les sources ? Donnez un exemple tiré de la visite."
+    },
+    "sourceDetective": [
+      {
+        "event": "slaget-vid-tondibi",
+        "questions": [
+          {
+            "sv": "Den extra rutan i faktarutan nämner två datum för slaget. Vilka är de, och vilken källa anger vilket?",
+            "en": "The extra box in the fact box mentions two dates for the battle. What are they, and which source gives which?",
+            "de": "Der zusätzliche Kasten im Faktenfeld nennt zwei Daten für die Schlacht. Welche sind es, und welche Quelle nennt welches?",
+            "es": "El recuadro adicional de la ficha menciona dos fechas para la batalla. ¿Cuáles son y qué fuente da cada una?",
+            "fr": "L'encadré supplémentaire de la fiche mentionne deux dates pour la bataille. Lesquelles, et quelle source donne laquelle ?"
+          },
+          {
+            "sv": "Var kommer punkten på kartan ifrån, och varför står det att den är ungefärlig?",
+            "en": "Where does the point on the map come from, and why does it say that it is approximate?",
+            "de": "Woher stammt der Punkt auf der Karte, und warum steht dort, dass er ungefähr ist?",
+            "es": "¿De dónde procede el punto del mapa y por qué se dice que es aproximado?",
+            "fr": "D'où vient le point sur la carte, et pourquoi est-il indiqué qu'il est approximatif ?"
+          }
+        ]
+      }
+    ]
+  },
   "steps": [
     {
       "id": "tronstriden",
@@ -93,7 +165,7 @@
       "question": {
         "sv": "Varför kan det vara farligt för ett rike när grannarna får veta att det är splittrat?",
         "en": "Why can it be dangerous for an empire when its neighbours find out that it is divided?",
-        "fr": "Pourquoi peut-il être dangereux pour un empire que ses voisins apprennent qu'il est divisé ?",
+        "fr": "Pourquoi peut-il être dangereux pour un empire que ses voisins apprennent qu'il est divisé ?",
         "de": "Warum kann es für ein Reich gefährlich sein, wenn die Nachbarn erfahren, dass es gespalten ist?",
         "es": "¿Por qué puede ser peligroso para un imperio que sus vecinos sepan que está dividido?"
       },
@@ -164,7 +236,7 @@
       "title": {
         "sv": "Hur stora var arméerna?",
         "en": "How large were the armies?",
-        "fr": "Quelle était la taille des armées ?",
+        "fr": "Quelle était la taille des armées ?",
         "de": "Wie groß waren die Heere?",
         "es": "¿Cuán grandes eran los ejércitos?"
       },
@@ -179,7 +251,7 @@
       "question": {
         "sv": "Varför tror du att uppgifter om hur stora arméer var ofta skiljer sig så mycket?",
         "en": "Why do you think figures for the size of armies so often differ so much?",
-        "fr": "Pourquoi pensez-vous que les chiffres sur la taille des armées divergent si souvent autant ?",
+        "fr": "Pourquoi pensez-vous que les chiffres sur la taille des armées divergent si souvent autant ?",
         "de": "Warum, glauben Sie, weichen Angaben über die Größe von Heeren so oft so stark voneinander ab?",
         "es": "¿Por qué cree que las cifras sobre el tamaño de los ejércitos difieren tan a menudo tanto?"
       },
@@ -226,7 +298,7 @@
       "question": {
         "sv": "Vad tror du att det betydde för handeln i området att alla tre städerna plundrades?",
         "en": "What do you think it meant for trade in the region that all three cities were plundered?",
-        "fr": "Que pensez-vous que le pillage des trois villes a signifié pour le commerce de la région ?",
+        "fr": "Que pensez-vous que le pillage des trois villes a signifié pour le commerce de la région ?",
         "de": "Was, glauben Sie, bedeutete es für den Handel in der Region, dass alle drei Städte geplündert wurden?",
         "es": "¿Qué cree que significó para el comercio de la región que las tres ciudades fueran saqueadas?"
       },
@@ -266,9 +338,9 @@
       "text": {
         "sv": "Ishaq ber om fred, men sultanen skickar i stället förstärkningar och en ny befälhavare. Efter ett nytt nederlag i oktober 1591 flyr Ishaq till Dendi, där han avsätts. I april 1592 dödas han i landsflykt. Källorna skiljer sig om när hans regering slutade: en av dem anger den 14 april 1591.",
         "en": "Ishaq sues for peace, but the sultan instead sends reinforcements and a new commander. After another defeat in October 1591, Ishaq flees to Dendi, where he is deposed. In April 1592 he is killed in exile. The sources differ on when his reign ended: one of them gives 14 April 1591.",
-        "fr": "Ishaq demande la paix, mais le sultan envoie à la place des renforts et un nouveau commandant. Après une nouvelle défaite en octobre 1591, Ishaq s'enfuit au Dendi, où il est déposé. En avril 1592, il est tué en exil. Les sources divergent sur la fin de son règne : l'une d'elles indique le 14 avril 1591.",
+        "fr": "Ishaq demande la paix, mais le sultan envoie à la place des renforts et un nouveau commandant. Après une nouvelle défaite en octobre 1591, Ishaq s'enfuit au Dendi, où il est déposé. En avril 1592, il est tué en exil. Les sources divergent sur la fin de son règne : l'une d'elles indique le 14 avril 1591.",
         "de": "Ishaq bittet um Frieden, doch der Sultan schickt stattdessen Verstärkung und einen neuen Befehlshaber. Nach einer weiteren Niederlage im Oktober 1591 flieht Ishaq nach Dendi, wo er abgesetzt wird. Im April 1592 wird er im Exil getötet. Die Quellen weichen darin ab, wann seine Herrschaft endete: Eine von ihnen nennt den 14. April 1591.",
-        "es": "Ishaq pide la paz, pero el sultán envía en cambio refuerzos y un nuevo comandante. Tras otra derrota en octubre de 1591, Ishaq huye a Dendi, donde es depuesto. En abril de 1592 muere asesinado en el exilio. Las fuentes no coinciden sobre cuándo terminó su reinado: una de ellas da el 14 de abril de 1591."
+        "es": "Ishaq pide la paz, pero el sultán envía en cambio refuerzos y un nuevo comandante. Tras otra derrota en octubre de 1591, Ishaq huye a Dendi, donde es depuesto. En abril de 1592 muere asesinado en el exilio. Las fuentes difieren sobre cuándo terminó su reinado: una de ellas da el 14 de abril de 1591."
       },
       "layers": [
         "events",
@@ -312,7 +384,7 @@
       "question": {
         "sv": "Kan man säga att ett rike har fallit om dess kungar fortsätter att regera någon annanstans?",
         "en": "Can you say that an empire has fallen if its kings go on ruling somewhere else?",
-        "fr": "Peut-on dire qu'un empire est tombé si ses rois continuent de régner ailleurs ?",
+        "fr": "Peut-on dire qu'un empire est tombé si ses rois continuent de régner ailleurs ?",
         "de": "Kann man sagen, dass ein Reich gefallen ist, wenn seine Könige anderswo weiterregieren?",
         "es": "¿Se puede decir que un imperio ha caído si sus reyes siguen reinando en otro lugar?"
       },
@@ -345,7 +417,7 @@
       "title": {
         "sv": "Vems röster finns kvar?",
         "en": "Whose voices have survived?",
-        "fr": "Quelles voix nous sont parvenues ?",
+        "fr": "Quelles voix nous sont parvenues ?",
         "de": "Wessen Stimmen sind erhalten?",
         "es": "¿Qué voces se han conservado?"
       },
@@ -360,7 +432,7 @@
       "question": {
         "sv": "Vad kan det betyda för berättelsen att krönikören arbetade för dem som hade erövrat landet?",
         "en": "What might it mean for the story that the chronicler worked for those who had conquered the country?",
-        "fr": "Qu'est-ce que cela peut signifier pour le récit que le chroniqueur ait travaillé pour ceux qui avaient conquis le pays ?",
+        "fr": "Qu'est-ce que cela peut signifier pour le récit que le chroniqueur ait travaillé pour ceux qui avaient conquis le pays ?",
         "de": "Was kann es für die Erzählung bedeuten, dass der Chronist für die Eroberer des Landes arbeitete?",
         "es": "¿Qué puede significar para el relato que el cronista trabajara para quienes habían conquistado el país?"
       },

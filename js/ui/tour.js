@@ -82,7 +82,11 @@ export class TourPlayer {
     this.next.addEventListener('click', () => (this.last ? this.end() : this.go(this.index + 1)));
     this.closeBtn.addEventListener('click', () => this.end());
     this.endBtn?.addEventListener('click', () => this.end());
-    this.read.addEventListener('click', () => { const id = this.step?.open; if (id) app.select(id, false); });
+    this.read.addEventListener('click', () => {
+      const s = this.step;
+      if (s?.open) app.select(s.open, false);
+      else if (s?.place) this.showPlace(s, true, true); // knappen är en uttrycklig handling: kortet får fokus (arket täcker annars knappen)
+    });
     this.srcBtn.addEventListener('click', () => { const ids = this.step?.sources ?? []; app.openSources(ids); });
     // Skriv ut (#738): bara i en lektionstur, alltså en tur med lärarfält (lesson, #737)
     if (this.printBtn) {
@@ -280,9 +284,12 @@ export class TourPlayer {
     // Faktarutan först (den flyttar kameran till händelsen), sedan stegets egen kamera
     // I smal skärm markeras händelsen bara på globen (krigets händelser syns annars inte utzoomat), och
     // faktarutan öppnas med "Läs om händelsen", så att arket inte täcker kortet
+    app.places?.closeStep(); // platsens kontur från förra steget (#1163); omritningen nedan tar bort den
     if (step.open && !app.narrow.matches) app.select(step.open, false);
     else if (step.open) app.mark(step.open);
     else app.select(null, false);
+    // Ett steg med en plats (#1163): konturen på kartan och, utom i smal skärm, platsens kort (inget Fokus, turen pågår)
+    if (step.place) this.showPlace(step, !app.narrow.matches);
     globe.flyTo(step.camera.lat, step.camera.lon);
     globe.setZoom(step.camera.zoom);
     flatMap.setView?.(step.camera.lat, step.camera.lon, step.camera.zoom);
@@ -303,7 +310,8 @@ export class TourPlayer {
     this.status.textContent = step.status ? t(this.labels[`status-${step.status}`]) : '';
     this.status.className = `tour-status${step.status ? ` takeaway-${step.status}` : ''}`;
     this.status.hidden = !step.status;
-    this.read.hidden = !step.open;
+    this.read.hidden = !step.open && !step.place;
+    this.read.textContent = step.place ? ui('tour.readPlace') : t(this.labels.read);
     if (this.printBtn) this.printBtn.hidden = !this.tour.lesson;
     if (this.copyTeacherBtn) this.copyTeacherBtn.hidden = !this.tour.lesson;
     if (this.printStatus) this.printStatus.hidden = true;
@@ -327,6 +335,15 @@ export class TourPlayer {
       // Prioritet 3: slutannonsen (#878) ska inte tappas när slutstegets faktaruta, som har prioritet 2 i statusraden (#1419), öppnas samtidigt
       timeline.announce(`${say}. ${end}`, 3);
     } else timeline.pause(note, true, say);
+  }
+
+  /**
+   * Steget öppnar en plats (#1163, controllers/places.js): konturen ritas och kortet öppnas om card är true. I smal skärm öppnas
+   * kortet inte av sig självt, som för en händelse, eftersom arket skulle täcka turkortet; "Läs om platsen" öppnar det.
+   * Platserna laddas först nu, så steget kan ha bytts när de kommer: då visas inget.
+   */
+  showPlace(step, card, focus = false) {
+    this.app.places?.openStep(step.place, { card, focus, current: () => !!this.tour && this.step === step });
   }
 
   /** Stegindikatorn i kortet (#1280): ett streck per steg, de gjorda och det nuvarande fyllda. Bara en tillägg till
@@ -381,6 +398,7 @@ export class TourPlayer {
     app.root.classList.remove('touring');
     app.globe.setViewLift(0);
     app.timeline.pause();
+    app.places?.closeStep(); // platsens kontur (#1163) tas bort av omritningen i select
     app.select(null, false);
     for (const [id, on] of Object.entries(restore.layers ?? {})) {
       if (!!app.layers.on[id] === on) continue;

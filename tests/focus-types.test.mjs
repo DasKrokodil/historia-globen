@@ -99,6 +99,15 @@ test('registret hittar posten för det man följer', () => {
   assert.equal(reg.of({ type: 'place', id: 'x' }).selectsBy, 'geometry');
 });
 
+test('startsAtRangeEnd: bara platsen börjar vid ett intervalls slutår, och fältet kontrolleras (#1163)', () => {
+  const reg = registry();
+  assert.equal(reg.get('place').startsAtRangeEnd, true);
+  for (const type of ['war', 'empire', 'religion', 'route', 'theme']) assert.ok(!reg.get(type).startsAtRangeEnd, `${type} börjar som förut`);
+  const app = fakeApp(), place = FOCUS_ENTRIES.map(entry => entry(app)).find(p => p.type === 'place');
+  assert.deepEqual(focusTypeProblems({ ...place, startsAtRangeEnd: 'ja' }), ['place: startsAtRangeEnd ska vara true eller false.']);
+  assert.deepEqual(focusTypeProblems({ ...place, startsAtRangeEnd: false }), []);
+});
+
 test('krig: kontrollen för gamla länkar, och ett okänt id börjar inget fokus', async () => {
   const war = registry().get('war');
   const known = events.find(e => e.kind === 'war').id, notWar = events.find(e => e.kind !== 'war').id;

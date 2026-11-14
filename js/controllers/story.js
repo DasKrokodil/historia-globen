@@ -1,7 +1,7 @@
 // Krigets och resans berättelse på tidslinjen (#402, del av #389): kapitel, markeringar och slutpunkt
-// när man följer ett krig (#244), och hur ett stopp på en resa dateras (#376). Rena funktioner:
+// när man följer ett krig (#244). Stoppens datum (stopDate, #376) ligger i model.js sedan #1473. Rena funktioner:
 // de läser bara det de får och ändrar inget tillstånd.
-import { t, edtfSpan, isVisibleReview, formatDate } from '../model.js';
+import { t, edtfSpan, isVisibleReview } from '../model.js';
 import { markerInfo } from '../layers/events.js';
 
 /**
@@ -57,12 +57,4 @@ export function warStory(war, { timeline, focus, end }) {
     else marks.push({ at: end, end: true, label });
   }
   return { bands, marks };
-}
-
-/** Datumet för ett stopp på en resa (#376): egen etikett, dagsdatum, en årstid ur edtf eller edtf som det står. */
-export function stopDate(place) {
-  if (place.dateLabel) return t(place.dateLabel);
-  if (place.date) return formatDate(place.date);
-  if (/^-?\d{4}-23$/.test(place.edtf ?? '')) return `hösten ${place.edtf.slice(0, 4)}`;
-  return place.edtf ?? '';
 }

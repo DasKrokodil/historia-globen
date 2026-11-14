@@ -59,7 +59,7 @@ AGENTS.md             regler för Codex och andra agenter; pekar på CLAUDE.md
 _headers              Cloudflare Pages cache-regler (no-cache, så att en release inte blandas med gamla filer)
 css/style.css
 js/main.js            startar allt och kopplar ihop registret, tidslinjen och panelerna
-js/controllers/       main.js uppdelad: val, fokus, faktarutor, omritning, uppspelning, berättelse, etiketter (#402), adressen (#501), tidsintervallet (range.js, #755) återgång efter hopp (jump-back.js, #997) och presentationsläget (presentation.js, #488, #1315)
+js/controllers/       main.js uppdelad: val, fokus, faktarutor, omritning, uppspelning, berättelse, etiketter (#402), adressen (#501), tidsintervallet (range.js, #755) och återgång efter hopp (jump-back.js, #997), tryck på platsens kontur (places.js, #1161) och presentationsläget (presentation.js, #488, #1315)
 js/state.js           det gemensamma tillståndet som lagren läser (år, fokus, filter, valda lager, #338), åtgärder och JSON (#403), och lägeskontraktet med uteslutningstabellen (#893)
 js/surfaces.js        stängregistret för ytor: menyerna och sidopanelen anmäler sig i grupper och en öppnad yta stänger sin grupp (#894)
 js/layers/registry.js lagerregistret: rader i Lager, ritordning, dämpning i fokus, teckenförklaring (#338)
@@ -75,9 +75,9 @@ js/layers/areas.js    lager: riken som områden som ändras över tid
 js/layers/area-style.js  mjuk kant för osäkra gränser och prickat inflytande (lydriken)
 js/layers/area-transition.js  mjuk övergång när ett rike byter period, delas eller slås ihop (#78)
 js/layers/borders.js  lager: dagens landsgränser (av som standard)
-js/layers/places.js   lager: konturen av platsen man följer i Fokus (#579)
+js/layers/places.js   lager: konturen av platsen man följer i Fokus (#579) och de prickade konturerna runt platser med kort när man har zoomat in (#1161)
 js/layers/spread.js   lager: människans spridning, antagna områden och vågor i förhistorien (#1094)
-js/place-geo.js       vilka händelser som ligger inom en plats gräns, delas med testerna (#579)
+js/place-geo.js       vilka händelser som ligger inom en plats gräns, platsen under en punkt vid tryck och gränsrutan för inramning i Platt vy, delas med testerna (#579, #1161)
 js/layers/religions.js lager: religioner som områden, med symboler i områdena (#271)
 js/layers/origins.js  religionens symbol där den uppstod, som klickbar markör (#271)
 js/layers/empiremarks.js rikenas symboler mitt i områdena, som klickbara markörer (#301)
@@ -93,6 +93,7 @@ js/url-state.js       adressformatet för delbara länkar och Bakåt/Framåt (#5
 js/search-index.js    sökningens index och matchning (#570)
 js/place-search.js    "Vad hände här?": platsförslag och händelser inom 300 km, i tidsordning (#15)
 js/date-events.js     återanvändbart urval av händelser för år eller exakt datum (#483, #489, #485)
+js/route-steps.js     stegningen mellan en resas stopp: Föregående och Nästa stopp i pausraden (#1380)
 js/ui/intro.js        frivillig introduktion till samtidighet i tre stilla steg, från Utforska (#363, #516)
 js/ui/quiz.js         quizet "Vad hände samtidigt?" under Mer, med frågor ur befintliga fun facts (#65)
 js/ui/print-sheet.js  utskrift av en lektionstur: elevblad och lärarblad ur turens lärarfält (#738)
@@ -253,6 +254,7 @@ Se också [licenssammanställningen](CONTENT-LICENSE.md), [tredjepartsnotiserna]
 - **three.js** laddas från jsDelivr och har MIT-licens. Typsnitten kommer från Google Fonts (SIL Open Font License).
 - Händelsetexterna är egna sammanfattningar. Källorna, ofta Wikipedia (CC BY-SA), länkas från varje uppgift.
 - **Store norske leksikon** (snl.no) och **Lex** (lex.dk, Den Store Danske) används som länkade kontrollkällor för årtal och plats, till exempel för händelserna om Aotearoa/Nya Zeeland (#579). De flesta artiklarna har en begränsad licens; ingen text är kopierad, och artiklarna står i källregistret.
+- **Nobelstiftelsens webbplats** (nobelprize.org, © Nobel Prize Outreach) används som länkad kontrollkälla för årtal och plats, till exempel för Hideki Yukawas mesonteori (#86). Ingen text är kopierad.
 
 Namnet "Historia-globen" omfattas inte av licenserna ovan.
 

@@ -1,6 +1,6 @@
 {
  "schema": "historia-globen/empires-index@1",
- "notes": "Riken som områden (lagertyp område), ett rike per fil. Utdrag ur Cliopatria, datafil cliopatria_polities_only_v021 (Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/13363121), byggt med tools/riken.py. Ändringar: geometrin är förenklad (Douglas-Peucker 0.2 grader, koordinater avrundade till 0.1 grad, öar under cirka 200 km2 borttagna) och på varandra följande perioder där gränsen ändras mindre än 2 procent är sammanslagna. Brittiska, spanska och portugisiska imperiet är förenklade hårdare (0.3 grader, 8 procent, öar under cirka 800 km2 borttagna), liksom Ryssland, Sovjetunionen, Japan och franska kolonialväldet (0.3 grader, 5 procent, öar under cirka 800 km2 borttagna) och nederländska kolonialväldet (0.3 grader, 8 procent). start/end är Cliopatrias årtal oförändrade (astronomiska år). Namn inom parentes i Cliopatria, till exempel (British Empire), är Cliopatrias sammanslagning av ett imperiums alla delar. Bysantinska riket ingår i Romarriket som fortsättningen på Östromerska riket. index.json listar varje rike (grupp) med färg, tidsspann och fil; filen laddas först när riket behövs. areaKm2 är Cliopatrias yta för den första perioden i ett sammanslaget spann. label = [lon, lat] där namnet skrivs ut. Tysk-romerska riket efter 1458 är ihopbyggt av flera riken i Cliopatria, klippta mot rikets gräns 1458 utan Ungern och Tyska ordens Preussen (EXTEND i tools/riken.py, #336); där är areaKm2 räknad ur den byggda gränsen. Kolonialvälden och moderna imperier (R5, #71): parts listar Cliopatria-poster som är ihopslagna år för år till ett rike (Tyska riket med German Africa, Etiopiska kejsardömet med Ethiopia till 1974); då är areaKm2 summan av posternas ytor. homeland (#74) är moderlandet i ett utspritt välde: Cliopatria-posterna för moderlandet (polity.homeland) inom ett fönster runt moderlandet, och per period dess gräns (period.homeland); label står då i moderlandet. För Japan, där Cliopatria inte skiljer på Japan och kolonierna, är moderlandet huvudöarna och Ryukyuöarna, avgränsade med en polygon ur rikets eget område. index.json har då homeland.name, moderlandets namn. Försvunna länder (R6, #72): vanished är landets årtal enligt källorna (founded, dissolved), föregångare och efterträdare (predecessors, successors; group pekar på ett rike i den här filen, wikidata är kontrollerat). Preussen visas 1526–1806, eftersom Cliopatria från 1807 räknar landet till andra riken. Neutrala Moresnet saknas i Cliopatria och har ingen fil, bara en punkt (vanished.point). Sverige (#70): Cliopatrias \"Swedish Empire\" 1612–1814 är delad i två delar med samma gränser, Svenska stormaktsväldet till och med 1721 (freden i Nystad) och Sverige 1722–1814. Inflytande (#75): polity.influence är områden som enligt Cliopatrias relationsposter (typ RELATION, \"Allegiance of A to B\" och \"Vassalage of A to B\") lydde under riket utan att höra till det: relationens område minus rikets eget område samma år, förenklat som riket, ytor under cirka 3 000 km2 borttagna. Lydriken som själva är delar av samma grupp (khanaten under Yuan) är inte med. index.json sammanfattar dem i influence. Osäker gräns (#73): uncertainBorder på gruppen i index.json skrivs för hand med källa (note, sources, review) och ger polity.uncertainBorder i rikets fil. Omstridda gränser i nutid (#644): följer Sveriges officiella hållning enligt UD (DISPUTED i tools/riken.py, docs/omstridda-granser.md). Krim och Sevastopol räknas till Ukraina även från 2014, och inte till Ryska federationen. Västbanken med Östra Jerusalem, Gaza och Golanhöjderna räknas inte till Israel från 1967; Staten Palestina (Västbanken med Östra Jerusalem och Gaza) visas från 2014, då Sverige erkände den. De gränserna kommer ur Natural Earth (ne_10m_admin_0_disputed_areas 5.1.1, public domain), och gruppen har då borderSource. Där är areaKm2 räknad ur den nya gränsen. Små stater (#722): tolv länder som Cliopatria saknar i nutid eller har fel gräns för har gränsen ur Natural Earth (ne_10m_admin_0_countries 5.1.1, public domain), från självständigheten, och polity.point = true: de visas som en punkt med namn.",
+ "notes": "Riken som områden (lagertyp område), ett rike per fil. Utdrag ur Cliopatria, datafil cliopatria_polities_only_v021 (Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/13363121), byggt med tools/riken.py. Ändringar: geometrin är förenklad (Douglas-Peucker 0.2 grader, koordinater avrundade till 0.1 grad, öar under cirka 200 km2 borttagna) och på varandra följande perioder där gränsen ändras mindre än 2 procent är sammanslagna. Brittiska, spanska och portugisiska imperiet är förenklade hårdare (0.3 grader, 8 procent, öar under cirka 800 km2 borttagna), liksom Ryssland, Sovjetunionen, Japan och franska kolonialväldet (0.3 grader, 5 procent, öar under cirka 800 km2 borttagna) och nederländska kolonialväldet (0.3 grader, 8 procent). start/end är Cliopatrias årtal oförändrade (astronomiska år). Namn inom parentes i Cliopatria, till exempel (British Empire), är Cliopatrias sammanslagning av ett imperiums alla delar. Bysantinska riket ingår i Romarriket som fortsättningen på Östromerska riket. index.json listar varje rike (grupp) med färg, tidsspann och fil; filen laddas först när riket behövs. areaKm2 är Cliopatrias yta för den första perioden i ett sammanslaget spann. label = [lon, lat] där namnet skrivs ut. Tysk-romerska riket efter 1458 är ihopbyggt av flera riken i Cliopatria, klippta mot rikets gräns 1458 utan Ungern och Tyska ordens Preussen (EXTEND i tools/riken.py, #336); där är areaKm2 räknad ur den byggda gränsen. Kolonialvälden och moderna imperier (R5, #71): parts listar Cliopatria-poster som är ihopslagna år för år till ett rike (Tyska riket med German Africa, Etiopiska kejsardömet med Ethiopia till 1974); då är areaKm2 summan av posternas ytor. homeland (#74) är moderlandet i ett utspritt välde: Cliopatria-posterna för moderlandet (polity.homeland) inom ett fönster runt moderlandet, och per period dess gräns (period.homeland); label står då i moderlandet. För Japan, där Cliopatria inte skiljer på Japan och kolonierna, är moderlandet huvudöarna och Ryukyuöarna, avgränsade med en polygon ur rikets eget område. index.json har då homeland.name, moderlandets namn. Försvunna länder (R6, #72): vanished är landets årtal enligt källorna (founded, dissolved), föregångare och efterträdare (predecessors, successors; group pekar på ett rike i den här filen, wikidata är kontrollerat). Preussen visas 1526–1806, eftersom Cliopatria från 1807 räknar landet till andra riken. Neutrala Moresnet saknas i Cliopatria och har ingen fil, bara en punkt (vanished.point). Sverige (#70): Cliopatrias \"Swedish Empire\" 1612–1814 är delad i två delar med samma gränser, Svenska stormaktsväldet till och med 1721 (freden i Nystad) och Sverige 1722–1814. Inflytande (#75): polity.influence är områden som enligt Cliopatrias relationsposter (typ RELATION, \"Allegiance of A to B\" och \"Vassalage of A to B\") lydde under riket utan att höra till det: relationens område minus rikets eget område samma år, förenklat som riket, ytor under cirka 3 000 km2 borttagna. Lydriken som själva är delar av samma grupp (khanaten under Yuan) är inte med. index.json sammanfattar dem i influence. Osäker gräns (#73): uncertainBorder på gruppen i index.json skrivs för hand med källa (note, sources, review) och ger polity.uncertainBorder i rikets fil. Omstridda gränser i nutid (#644): följer Sveriges officiella hållning enligt UD (DISPUTED i tools/riken.py, docs/omstridda-granser.md). Krim och Sevastopol räknas till Ukraina även från 2014, och inte till Ryska federationen. Västbanken med Östra Jerusalem, Gaza och Golanhöjderna räknas inte till Israel från 1967; Staten Palestina (Västbanken med Östra Jerusalem och Gaza) visas från 2014, då Sverige erkände den. De gränserna kommer ur Natural Earth (ne_10m_admin_0_disputed_areas 5.1.1, public domain), och gruppen har då borderSource. Där är areaKm2 räknad ur den nya gränsen. Ockupation och inbördeskrig (#1332): där Cliopatria efter 1945 ritar en ockupationsmakt eller en part i ett inbördeskrig i stället för en stat, visas den internationellt erkända staten med sin egen gräns i Cliopatria ett närliggande år (fill i tools/riken.py), och makten klipps bort de åren; där är areaKm2 Cliopatrias yta för den gränsen. Små stater (#722): tolv länder som Cliopatria saknar i nutid eller har fel gräns för har gränsen ur Natural Earth (ne_10m_admin_0_countries 5.1.1, public domain), från självständigheten, och polity.point = true: de visas som en punkt med namn.",
  "groups": [
   {
    "id": "romarriket",
@@ -3296,7 +3296,7 @@
    "id": "egypten",
    "name": {
     "sv": "Egypten: gamla, mellersta och nya riket",
-    "en": "Egypt: Old, Middle and New Kingdom",
+    "en": "Egypt: Old, Middle and New Kingdoms",
     "de": "Ägypten: Altes, Mittleres und Neues Reich",
     "es": "Egipto: Imperio Antiguo, Medio y Nuevo",
     "fr": "Égypte : Ancien, Moyen et Nouvel Empire"
@@ -3311,9 +3311,9 @@
      "name": {
       "sv": "Egyptens gamla rike",
       "en": "Old Kingdom of Egypt",
-      "de": "Altes Reich von Ägypten",
+      "de": "Altes Reich",
       "es": "Imperio Antiguo de Egipto",
-      "fr": "Ancien Empire de l'Égypte"
+      "fr": "Ancien Empire"
      },
      "sources": [
       "cliopatria"
@@ -7700,7 +7700,7 @@
       "sv": "Södra Song",
       "en": "Southern Song",
       "de": "Südliche Song-Dynastie",
-      "es": "dinastía Song meridional",
+      "es": "Dinastía Song meridional",
       "fr": "Song méridionaux"
      },
      "sources": [
@@ -10317,6 +10317,681 @@
      "review": "two-sources"
     }
    ]
+  },
+  {
+   "id": "kongoriket",
+   "name": {
+    "sv": "Kongoriket",
+    "en": "Kingdom of Kongo",
+    "de": "Königreich Kongo",
+    "es": "Reino del Congo",
+    "fr": "Royaume de Kongo"
+   },
+   "color": "#b0703a",
+   "from": 1440,
+   "to": 1669,
+   "file": "data/empires/kongoriket.json",
+   "polities": [
+    {
+     "id": "kongoriket",
+     "name": {
+      "sv": "Kongoriket",
+      "en": "Kingdom of Kongo",
+      "de": "Königreich Kongo",
+      "es": "Reino del Congo",
+      "fr": "Royaume de Kongo"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Kongoriket var ett kungarike i Centralafrika, i dagens norra Angola, västra Kongo-Kinshasa, södra Gabon och Kongo-Brazzaville. Huvudstaden var M'banza-Kongo. Enligt Wikipedia var riket självständigt från omkring 1390 till 1862 och därefter periodvis en lydstat under Portugal fram till 1914.",
+     "en": "The Kingdom of Kongo was a kingdom in Central Africa, in present-day northern Angola, the western Democratic Republic of the Congo, southern Gabon and the Republic of the Congo. Its capital was M'banza-Kongo. According to Wikipedia the kingdom was independent from about 1390 to 1862 and after that intermittently a vassal state of Portugal until 1914.",
+     "de": "Das Königreich Kongo war ein Königreich in Zentralafrika, im heutigen Norden Angolas, im Westen der Demokratischen Republik Kongo, im Süden Gabuns und in der Republik Kongo. Die Hauptstadt war M'banza-Kongo. Laut Wikipedia war das Reich von etwa 1390 bis 1862 unabhängig und danach zeitweise ein Vasallenstaat Portugals bis 1914.",
+     "es": "El Reino del Congo fue un reino de África central, en el actual norte de Angola, el oeste de la República Democrática del Congo, el sur de Gabón y la República del Congo. Su capital era M'banza-Kongo. Según Wikipedia, el reino fue independiente desde aproximadamente 1390 hasta 1862 y después, de forma intermitente, un Estado vasallo de Portugal hasta 1914.",
+     "fr": "Le royaume de Kongo était un royaume d'Afrique centrale, dans l'actuel nord de l'Angola, l'ouest de la République démocratique du Congo, le sud du Gabon et la République du Congo. Sa capitale était M'banza-Kongo. Selon Wikipédia, le royaume fut indépendant d'environ 1390 à 1862, puis, par intermittence, un État vassal du Portugal jusqu'en 1914."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod",
+       "en": "When and where it arose",
+       "de": "Entstehung",
+       "es": "Cuándo y dónde surgió",
+       "fr": "Quand et où il est apparu"
+      },
+      "text": {
+       "sv": "Riket grundades omkring 1390 genom ett politiskt äktenskap mellan Nima a Nzima, som styrde Mpemba Kasi och Vungu, och Lukeni lua Nsanze, dotter till härskaren i grannriket Mbata. Berättelserna om grundandet är muntliga traditioner som skrevs ned först i slutet av 1500-talet.",
+       "en": "The kingdom was founded around 1390 through a political marriage between Nima a Nzima, ruler of Mpemba Kasi and Vungu, and Lukeni lua Nsanze, daughter of the ruler of the neighbouring kingdom of Mbata. The accounts of the founding are oral traditions that were first written down in the late 16th century.",
+       "de": "Das Reich wurde um 1390 durch eine politische Heirat zwischen Nima a Nzima, dem Herrscher von Mpemba Kasi und Vungu, und Lukeni lua Nsanze, der Tochter des Herrschers des Nachbarreichs Mbata, gegründet. Die Erzählungen über die Gründung sind mündliche Überlieferungen, die erst im späten 16. Jahrhundert aufgeschrieben wurden.",
+       "es": "El reino se fundó hacia 1390 mediante un matrimonio político entre Nima a Nzima, gobernante de Mpemba Kasi y Vungu, y Lukeni lua Nsanze, hija del gobernante del reino vecino de Mbata. Los relatos de la fundación son tradiciones orales que se pusieron por escrito por primera vez a finales del siglo XVI.",
+       "fr": "Le royaume fut fondé vers 1390 par un mariage politique entre Nima a Nzima, souverain de Mpemba Kasi et de Vungu, et Lukeni lua Nsanze, fille du souverain du royaume voisin de Mbata. Les récits de la fondation sont des traditions orales qui furent mises par écrit pour la première fois à la fin du XVIe siècle."
+      }
+     },
+     {
+      "label": {
+       "sv": "Mötet med Portugal",
+       "en": "Contact with Portugal",
+       "de": "Kontakt mit Portugal",
+       "es": "El contacto con Portugal",
+       "fr": "Le contact avec le Portugal"
+      },
+      "text": {
+       "sv": "Den portugisiske upptäcktsresanden Diogo Cão nådde Kongos kust 1483. Kung Nzinga a Nkuwu döptes 1491 och tog namnet João I.",
+       "en": "The Portuguese explorer Diogo Cão reached the coast of Kongo in 1483. King Nzinga a Nkuwu was baptised in 1491 and took the name João I.",
+       "de": "Der portugiesische Seefahrer Diogo Cão erreichte 1483 die Küste des Kongo. König Nzinga a Nkuwu wurde 1491 getauft und nahm den Namen João I. an.",
+       "es": "El explorador portugués Diogo Cão llegó a la costa del Congo en 1483. El rey Nzinga a Nkuwu fue bautizado en 1491 y adoptó el nombre de João I.",
+       "fr": "L'explorateur portugais Diogo Cão atteignit la côte du Kongo en 1483. Le roi Nzinga a Nkuwu fut baptisé en 1491 et prit le nom de João Ier."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade",
+       "en": "How it ended",
+       "de": "Wie es endete",
+       "es": "Cómo terminó",
+       "fr": "Comment il a pris fin"
+      },
+      "text": {
+       "sv": "I slaget vid Mbwila 1665 besegrade portugisiska styrkor från Angola Kongos här och dödade kung António I. Därefter följde ett inbördeskrig i omkring 40 år, och fler människor från Kongo såldes som slavar över Atlanten. Portugal avskaffade kungadömet 1914.",
+       "en": "At the Battle of Mbwila in 1665, Portuguese forces from Angola defeated Kongo's army and killed King António I. A civil war of about 40 years followed, and more people from Kongo were sold as slaves across the Atlantic. Portugal abolished the monarchy in 1914.",
+       "de": "In der Schlacht von Mbwila 1665 besiegten portugiesische Truppen aus Angola das Heer des Kongo und töteten König António I. Danach folgte ein Bürgerkrieg von etwa 40 Jahren, und mehr Menschen aus dem Kongo wurden als Sklaven über den Atlantik verkauft. Portugal schaffte die Monarchie 1914 ab.",
+       "es": "En la batalla de Mbwila, en 1665, fuerzas portuguesas procedentes de Angola derrotaron al ejército del Congo y mataron al rey António I. Siguió una guerra civil de unos 40 años, y más personas del Congo fueron vendidas como esclavas a través del Atlántico. Portugal abolió la monarquía en 1914.",
+       "fr": "À la bataille de Mbwila en 1665, des forces portugaises venues d'Angola vainquirent l'armée du Kongo et tuèrent le roi António Ier. Une guerre civile d'environ 40 ans suivit, et davantage de personnes du Kongo furent vendues comme esclaves de l'autre côté de l'Atlantique. Le Portugal abolit la monarchie en 1914."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad",
+       "en": "Capital",
+       "de": "Hauptstadt",
+       "es": "Capital",
+       "fr": "Capitale"
+      },
+      "text": {
+       "sv": "M'banza-Kongo, som kring år 1600 fick det portugisiska namnet São Salvador.",
+       "en": "M'banza-Kongo, which around 1600 was given the Portuguese name São Salvador.",
+       "de": "M'banza-Kongo, das um 1600 den portugiesischen Namen São Salvador erhielt.",
+       "es": "M'banza-Kongo, que hacia 1600 recibió el nombre portugués de São Salvador.",
+       "fr": "M'banza-Kongo, qui reçut vers 1600 le nom portugais de São Salvador."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna skiljer sig: Wikipedia anger omkring 1390–1914 (självständigt till 1862) och Wikidata 1395 till 1888 eller 1914. Kartan visar Kongoriket 1440–1669, som i Cliopatria, med samma yta alla år, 131 583 km². Enligt Wikipedia hade rikets kärnområde i slutet av 1500-talet omkring 130 000 km². Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ: Wikipedia gives about 1390–1914 (independent until 1862) and Wikidata 1395 to 1888 or 1914. The map shows the Kingdom of Kongo in 1440–1669, as in Cliopatria, with the same area in every year, 131,583 km². According to Wikipedia the core region of the kingdom covered about 130,000 km² at the end of the 16th century. The borders are Cliopatria's estimate and not known state borders.",
+     "de": "Die Quellen weichen voneinander ab: Wikipedia nennt etwa 1390–1914 (unabhängig bis 1862) und Wikidata 1395 bis 1888 oder 1914. Die Karte zeigt das Königreich Kongo wie Cliopatria 1440–1669, in allen Jahren mit derselben Fläche, 131.583 km². Laut Wikipedia umfasste das Kerngebiet des Reiches Ende des 16. Jahrhunderts etwa 130.000 km². Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren: Wikipedia indica aproximadamente 1390–1914 (independiente hasta 1862) y Wikidata 1395 hasta 1888 o 1914. El mapa muestra el Reino del Congo en 1440–1669, como Cliopatria, con la misma superficie todos los años, 131 583 km². Según Wikipedia, el núcleo del reino abarcaba unos 130 000 km² a finales del siglo XVI. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent : Wikipédia indique environ 1390–1914 (indépendant jusqu'en 1862) et Wikidata 1395 jusqu'à 1888 ou 1914. La carte montre le royaume de Kongo en 1440–1669, comme Cliopatria, avec la même superficie chaque année, 131 583 km². Selon Wikipédia, le cœur du royaume couvrait environ 130 000 km² à la fin du XVIe siècle. Les frontières sont une estimation de Cliopatria et non des frontières d'État connues."
+    },
+    "sources": [
+     "wp-kongo",
+     "wd-kingdom-of-kongo"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "funjsultanatet",
+   "name": {
+    "sv": "Funj Sultanate",
+    "en": "Funj Sultanate",
+    "de": "Sultanat von Sannar",
+    "es": "Sultanato de Sennar",
+    "fr": "Sultanat de Sennar"
+   },
+   "color": "#3a8a8a",
+   "from": 1507,
+   "to": 1821,
+   "file": "data/empires/funjsultanatet.json",
+   "polities": [
+    {
+     "id": "funjsultanatet",
+     "name": {
+      "sv": "Funj Sultanate",
+      "en": "Funj Sultanate",
+      "de": "Sultanat von Sannar",
+      "es": "Sultanato de Sennar",
+      "fr": "Sultanat de Sennar"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Funj Sultanate, även kallat sultanatet Sennar, var ett islamiskt kungarike i dagens Sudan, nordvästra Eritrea och västra Etiopien, med huvudstaden Sennar vid Blå Nilen. Som störst, i slutet av 1600-talet, sträckte det sig från Nilens tredje katarakt söderut till Etiopiska höglandets västra kant och från Röda havet västerut till Kordofan.",
+     "en": "The Funj Sultanate, also called the Sultanate of Sennar, was an Islamic kingdom in present-day Sudan, north-western Eritrea and western Ethiopia, with its capital at Sennar on the Blue Nile. At its greatest extent, in the late 17th century, it reached from the Third Cataract of the Nile south to the western edge of the Ethiopian Highlands, and from the Red Sea west to Kordofan.",
+     "de": "Das Sultanat von Sannar, auch Funj-Sultanat genannt, war ein islamisches Königreich im heutigen Sudan, im Nordwesten Eritreas und im Westen Äthiopiens, mit der Hauptstadt Sennar am Blauen Nil. In seiner größten Ausdehnung, im späten 17. Jahrhundert, reichte es vom dritten Nilkatarakt nach Süden bis an den Westrand des Äthiopischen Hochlands und vom Roten Meer nach Westen bis Kordofan.",
+     "es": "El sultanato de Sennar, también llamado sultanato funj, fue un reino islámico en el actual Sudán, el noroeste de Eritrea y el oeste de Etiopía, con capital en Sennar, a orillas del Nilo Azul. En su máxima extensión, a finales del siglo XVII, se extendía desde la tercera catarata del Nilo hacia el sur hasta el borde occidental del macizo etíope, y desde el mar Rojo hacia el oeste hasta Kordofán.",
+     "fr": "Le sultanat de Sennar, aussi appelé sultanat Funj, était un royaume islamique dans l'actuel Soudan, le nord-ouest de l'Érythrée et l'ouest de l'Éthiopie, avec Sennar, sur le Nil Bleu, pour capitale. À son apogée, à la fin du XVIIe siècle, il s'étendait de la troisième cataracte du Nil au sud jusqu'à la bordure occidentale des hauts plateaux éthiopiens, et de la mer Rouge à l'ouest jusqu'au Kordofan."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod",
+       "en": "When and where it arose",
+       "de": "Entstehung",
+       "es": "Cuándo y dónde surgió",
+       "fr": "Quand et où il est apparu"
+      },
+      "text": {
+       "sv": "Sultanatet grundades 1504 av sultan Amara Dunqas, efter de kristna nubiska kungarikena Makuria och Alodia. Var funjfolket kom ifrån är fortfarande omstritt bland forskare.",
+       "en": "The sultanate was founded in 1504 by Sultan Amara Dunqas, after the Christian Nubian kingdoms of Makuria and Alodia. Where the Funj people came from is still disputed among scholars.",
+       "de": "Das Sultanat wurde 1504 von Sultan Amara Dunqas gegründet, nach den christlichen nubischen Königreichen Makuria und Alodia. Woher die Funj stammten, ist unter Forschenden bis heute umstritten.",
+       "es": "El sultanato fue fundado en 1504 por el sultán Amara Dunqas, tras los reinos cristianos nubios de Makuria y Alodia. El origen del pueblo funj sigue siendo objeto de debate entre los investigadores.",
+       "fr": "Le sultanat fut fondé en 1504 par le sultan Amara Dunqas, après les royaumes chrétiens nubiens de Makurie et d'Alodie. L'origine du peuple funj reste débattue parmi les chercheurs."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade",
+       "en": "How it ended",
+       "de": "Wie es endete",
+       "es": "Cómo terminó",
+       "fr": "Comment il a pris fin"
+      },
+      "text": {
+       "sv": "Under 1700-talet försvagades sultanatet, särskilt efter att hamaj tog makten i en kupp 1762. Det slets sönder av inbördeskrig, och 1821 gav den siste sultanen upp inför den turkisk-egyptiska erövringen.",
+       "en": "In the 18th century the sultanate weakened, especially after the Hamaj seized power in a coup in 1762. It was torn apart by civil wars, and in 1821 the last sultan surrendered to the Turco-Egyptian conquest.",
+       "de": "Im 18. Jahrhundert wurde das Sultanat schwächer, besonders nachdem die Hamaj 1762 durch einen Putsch die Macht übernahmen. Es wurde von Bürgerkriegen zerrissen, und 1821 ergab sich der letzte Sultan der türkisch-ägyptischen Eroberung.",
+       "es": "En el siglo XVIII el sultanato se debilitó, sobre todo después de que los hamaj tomaran el poder en un golpe en 1762. Quedó desgarrado por guerras civiles, y en 1821 el último sultán se rindió ante la conquista turco-egipcia.",
+       "fr": "Au XVIIIe siècle, le sultanat s'affaiblit, surtout après la prise du pouvoir par les Hamaj lors d'un coup d'État en 1762. Il fut déchiré par des guerres civiles, et en 1821 le dernier sultan se rendit lors de la conquête turco-égyptienne."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad",
+       "en": "Capital",
+       "de": "Hauptstadt",
+       "es": "Capital",
+       "fr": "Capitale"
+      },
+      "text": {
+       "sv": "Sennar.",
+       "en": "Sennar.",
+       "de": "Sennar.",
+       "es": "Sennar.",
+       "fr": "Sennar."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna skiljer sig något: Wikipedia anger 1504–1821 och Wikidata 1505–1821. Kartan visar sultanatet 1507–1821, som i Cliopatria, med nästan samma yta, omkring 630 000 km², alla år. Enligt Wikipedia förlorade sultanatet stora områden under 1700-talet, och efter 1802 styrde det bara Gezira; det syns inte på kartan. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ slightly: Wikipedia gives 1504–1821 and Wikidata 1505–1821. The map shows the sultanate in 1507–1821, as in Cliopatria, with almost the same area, about 630,000 km², in every year. According to Wikipedia the sultanate lost large areas in the 18th century, and after 1802 it ruled only the Gezira; this is not visible on the map. The borders are Cliopatria's estimate and not known state borders.",
+     "de": "Die Quellen weichen leicht voneinander ab: Wikipedia nennt 1504–1821 und Wikidata 1505–1821. Die Karte zeigt das Sultanat wie Cliopatria 1507–1821, in allen Jahren mit fast derselben Fläche, etwa 630.000 km². Laut Wikipedia verlor das Sultanat im 18. Jahrhundert große Gebiete und herrschte nach 1802 nur noch über die Gezira; das ist auf der Karte nicht zu sehen. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren ligeramente: Wikipedia indica 1504–1821 y Wikidata 1505–1821. El mapa muestra el sultanato en 1507–1821, como Cliopatria, con casi la misma superficie, unos 630 000 km², todos los años. Según Wikipedia, el sultanato perdió grandes territorios en el siglo XVIII y después de 1802 solo gobernaba la Gezira; esto no se ve en el mapa. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent légèrement : Wikipédia indique 1504–1821 et Wikidata 1505–1821. La carte montre le sultanat en 1507–1821, comme Cliopatria, avec presque la même superficie, environ 630 000 km², chaque année. Selon Wikipédia, le sultanat perdit de vastes territoires au XVIIIe siècle et, après 1802, ne gouvernait plus que la Gezira ; cela n'apparaît pas sur la carte. Les frontières sont une estimation de Cliopatria et non des frontières d'État connues."
+    },
+    "sources": [
+     "wp-funj-sultanate",
+     "wd-funj-sultanate"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "oyoriket",
+   "name": {
+    "sv": "Oyoriket",
+    "en": "Oyo Empire",
+    "de": "Königreich Oyo",
+    "es": "Imperio oyo",
+    "fr": "Royaume d'Oyo"
+   },
+   "color": "#a05a8a",
+   "from": 1609,
+   "to": 1835,
+   "file": "data/empires/oyoriket.json",
+   "polities": [
+    {
+     "id": "oyoriket",
+     "name": {
+      "sv": "Oyoriket",
+      "en": "Oyo Empire",
+      "de": "Königreich Oyo",
+      "es": "Imperio oyo",
+      "fr": "Royaume d'Oyo"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Oyoriket var ett yorubarike i Västafrika, i dagens västra Nigeria och Benin. Enligt Wikipedia var det ett av de politiskt viktigaste rikena i Västafrika från slutet av 1500-talet till början av 1700-talet, med makt över de flesta andra yorubakungarikena och över Dahomey. Riket använde kavalleri i krigen.",
+     "en": "The Oyo Empire was a Yoruba empire in West Africa, in present-day western Nigeria and Benin. According to Wikipedia it was one of the most politically important states in West Africa from the late 16th to the early 18th century, holding sway over most of the other Yoruba kingdoms and over Dahomey. The empire used cavalry in its wars.",
+     "de": "Das Königreich Oyo war ein Yoruba-Reich in Westafrika, im heutigen Westen Nigerias und in Benin. Laut Wikipedia war es vom späten 16. bis zum frühen 18. Jahrhundert einer der politisch wichtigsten Staaten Westafrikas und hatte Macht über die meisten anderen Yoruba-Königreiche und über Dahomey. Das Reich setzte in seinen Kriegen Reiterei ein.",
+     "es": "El Imperio oyo fue un imperio yoruba de África occidental, en el actual oeste de Nigeria y en Benín. Según Wikipedia, fue uno de los Estados políticamente más importantes de África occidental desde finales del siglo XVI hasta comienzos del XVIII, con dominio sobre la mayoría de los demás reinos yorubas y sobre Dahomey. El imperio usaba la caballería en sus guerras.",
+     "fr": "Le royaume d'Oyo était un empire yoruba d'Afrique de l'Ouest, dans l'actuel ouest du Nigeria et au Bénin. Selon Wikipédia, il fut l'un des États politiquement les plus importants d'Afrique de l'Ouest de la fin du XVIe au début du XVIIIe siècle, et dominait la plupart des autres royaumes yorubas ainsi que le Dahomey. L'empire utilisait la cavalerie dans ses guerres."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod",
+       "en": "When and where it arose",
+       "de": "Entstehung",
+       "es": "Cuándo y dónde surgió",
+       "fr": "Quand et où il est apparu"
+      },
+      "text": {
+       "sv": "Grundandet räknas till omkring 1300, men det året är bara uppskattat genom att räkna bakåt. Omkring 1535 ockuperade nupefolket Oyo, och kungasläkten levde i exil i omkring 80 år innan riket byggdes upp igen, mer centraliserat än förut.",
+       "en": "The founding is dated to about 1300, but that year is only estimated by counting backwards. Around 1535 the Nupe occupied Oyo, and the royal dynasty lived in exile for about 80 years before the empire was rebuilt, more centralised than before.",
+       "de": "Die Gründung wird auf etwa 1300 datiert, doch dieses Jahr ist nur durch Zurückrechnen geschätzt. Um 1535 besetzten die Nupe Oyo, und die Königsfamilie lebte etwa 80 Jahre im Exil, bevor das Reich zentraler als zuvor wiederaufgebaut wurde.",
+       "es": "La fundación se sitúa hacia 1300, pero ese año solo se ha estimado contando hacia atrás. Hacia 1535 los nupe ocuparon Oyo, y la dinastía real vivió en el exilio unos 80 años antes de que el imperio se reconstruyera, más centralizado que antes.",
+       "fr": "La fondation est datée d'environ 1300, mais cette année n'est qu'une estimation obtenue en remontant le temps. Vers 1535, les Nupe occupèrent Oyo, et la dynastie royale vécut en exil pendant environ 80 ans avant que l'empire ne soit reconstruit, plus centralisé qu'auparavant."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade",
+       "en": "How it ended",
+       "de": "Wie es endete",
+       "es": "Cómo terminó",
+       "fr": "Comment il a pris fin"
+      },
+      "text": {
+       "sv": "Många menar att nedgången började redan 1754 med palatskupper. Ilorin bröt sig loss, och 1835 förstördes huvudstaden Oyo-Ile. Huvudstaden flyttades då söderut till Ago d'Oyo, men Oyo fick aldrig tillbaka sin ställning.",
+       "en": "Many believe that the decline began as early as 1754 with palace coups. Ilorin broke away, and in 1835 the capital Oyo-Ile was destroyed. The capital was then moved south to Ago d'Oyo, but Oyo never regained its position.",
+       "de": "Viele meinen, dass der Niedergang schon 1754 mit Palastputschen begann. Ilorin spaltete sich ab, und 1835 wurde die Hauptstadt Oyo-Ile zerstört. Die Hauptstadt wurde danach nach Süden nach Ago d'Oyo verlegt, doch Oyo erlangte seine Stellung nie zurück.",
+       "es": "Muchos creen que la decadencia comenzó ya en 1754 con golpes de palacio. Ilorin se separó, y en 1835 la capital, Oyo-Ile, fue destruida. La capital se trasladó entonces al sur, a Ago d'Oyo, pero Oyo nunca recuperó su posición.",
+       "fr": "Beaucoup estiment que le déclin commença dès 1754 avec des révolutions de palais. Ilorin fit sécession, et en 1835 la capitale, Oyo-Ile, fut détruite. La capitale fut alors déplacée vers le sud, à Ago d'Oyo, mais Oyo ne retrouva jamais sa position."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad",
+       "en": "Capital",
+       "de": "Hauptstadt",
+       "es": "Capital",
+       "fr": "Capitale"
+      },
+      "text": {
+       "sv": "Oyo-Ile; efter 1835 Ago d'Oyo.",
+       "en": "Oyo-Ile; after 1835 Ago d'Oyo.",
+       "de": "Oyo-Ile; nach 1835 Ago d'Oyo.",
+       "es": "Oyo-Ile; después de 1835, Ago d'Oyo.",
+       "fr": "Oyo-Ile ; après 1835, Ago d'Oyo."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna skiljer sig: enligt Wikipedia räknas grundandet till omkring 1300, och Wikidata anger 1400–1905. Kartan visar Oyoriket 1609–1835, som i Cliopatria, alltså från tiden efter exilen till att huvudstaden förstördes. Enligt Wikipedia omfattade riket över 150 000 km² omkring 1680, men Cliopatrias yta är som störst 87 978 km² (1769–1819). Huvudstaden Oyo-Ile ligger 49 km utanför Cliopatrias yta 1609–1669. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ: according to Wikipedia the founding is dated to about 1300, and Wikidata gives 1400–1905. The map shows the Oyo Empire in 1609–1835, as in Cliopatria, that is from after the exile until the capital was destroyed. According to Wikipedia the empire covered over 150,000 km² around 1680, but Cliopatria's area is at most 87,978 km² (1769–1819). The capital Oyo-Ile lies 49 km outside Cliopatria's area in 1609–1669. The borders are Cliopatria's estimate and not known state borders.",
+     "de": "Die Quellen weichen voneinander ab: Laut Wikipedia wird die Gründung auf etwa 1300 datiert, und Wikidata nennt 1400–1905. Die Karte zeigt das Königreich Oyo wie Cliopatria 1609–1835, also von der Zeit nach dem Exil bis zur Zerstörung der Hauptstadt. Laut Wikipedia umfasste das Reich um 1680 über 150.000 km², doch die Fläche bei Cliopatria beträgt höchstens 87.978 km² (1769–1819). Die Hauptstadt Oyo-Ile liegt 1609–1669 49 km außerhalb der Fläche von Cliopatria. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren: según Wikipedia, la fundación se sitúa hacia 1300, y Wikidata indica 1400–1905. El mapa muestra el Imperio oyo en 1609–1835, como Cliopatria, es decir, desde después del exilio hasta la destrucción de la capital. Según Wikipedia, el imperio abarcaba más de 150 000 km² hacia 1680, pero la superficie de Cliopatria es como máximo de 87 978 km² (1769–1819). La capital, Oyo-Ile, queda 49 km fuera de la superficie de Cliopatria en 1609–1669. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent : selon Wikipédia, la fondation est datée d'environ 1300, et Wikidata indique 1400–1905. La carte montre le royaume d'Oyo en 1609–1835, comme Cliopatria, c'est-à-dire de l'après-exil jusqu'à la destruction de la capitale. Selon Wikipédia, l'empire couvrait plus de 150 000 km² vers 1680, mais la superficie de Cliopatria est au plus de 87 978 km² (1769–1819). La capitale, Oyo-Ile, se trouve à 49 km en dehors de la surface de Cliopatria en 1609–1669. Les frontières sont une estimation de Cliopatria et non des frontières d'État connues."
+    },
+    "sources": [
+     "wp-oyo-empire",
+     "wd-oyo-empire"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "ashantiriket",
+   "name": {
+    "sv": "Ashantiriket",
+    "en": "Ashanti Empire",
+    "de": "Aschantireich",
+    "es": "Imperio asante",
+    "fr": "Empire ashanti"
+   },
+   "color": "#c09a2a",
+   "from": 1702,
+   "to": 1897,
+   "file": "data/empires/ashantiriket.json",
+   "polities": [
+    {
+     "id": "ashantiriket",
+     "name": {
+      "sv": "Ashantiriket",
+      "en": "Ashanti Empire",
+      "de": "Aschantireich",
+      "es": "Imperio asante",
+      "fr": "Empire ashanti"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Ashantiriket, även kallat Asante, var en akanstat i dagens Ghana som enligt Wikipedia bestod 1701–1902. Det växte från Ashantiregionen till större delen av Ghana och delar av Elfenbenskusten och Togo. Ekonomin byggde främst på handel med guld och jordbruksvaror, men också på slavhandel. Huvudstaden var Kumasi.",
+     "en": "The Ashanti Empire, also called Asante, was an Akan state in present-day Ghana that according to Wikipedia lasted from 1701 to 1902. It grew from the Ashanti Region to cover most of Ghana and parts of Ivory Coast and Togo. Its economy was based mainly on the trade in gold and agricultural goods, but also on the slave trade. Its capital was Kumasi.",
+     "de": "Das Aschantireich, auch Asante genannt, war ein Akan-Staat im heutigen Ghana, der laut Wikipedia von 1701 bis 1902 bestand. Es wuchs von der Region Ashanti auf den größten Teil Ghanas und Teile der Elfenbeinküste und Togos. Seine Wirtschaft beruhte vor allem auf dem Handel mit Gold und Agrarprodukten, aber auch auf dem Sklavenhandel. Die Hauptstadt war Kumasi.",
+     "es": "El Imperio asante, también llamado ashanti, fue un Estado akan en la actual Ghana que, según Wikipedia, existió de 1701 a 1902. Creció desde la región de Ashanti hasta abarcar la mayor parte de Ghana y partes de Costa de Marfil y Togo. Su economía se basaba sobre todo en el comercio de oro y productos agrícolas, pero también en el comercio de esclavos. Su capital era Kumasi.",
+     "fr": "L'Empire ashanti, aussi appelé Asante, était un État akan dans l'actuel Ghana qui, selon Wikipédia, exista de 1701 à 1902. Il s'étendit de la région Ashanti à la majeure partie du Ghana et à certaines parties de la Côte d'Ivoire et du Togo. Son économie reposait surtout sur le commerce de l'or et des produits agricoles, mais aussi sur la traite des esclaves. Sa capitale était Kumasi."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod",
+       "en": "When and where it arose",
+       "de": "Entstehung",
+       "es": "Cuándo y dónde surgió",
+       "fr": "Quand et où il est apparu"
+      },
+      "text": {
+       "sv": "Under kung Osei Tutu och hans rådgivare Okomfo Anokye enades ashantistaterna kring den Gyllene stolen som gemensam symbol. År 1701 besegrade de Denkyira i slaget vid Feyiase och blev fria från Denkyiras styre.",
+       "en": "Under King Osei Tutu and his adviser Okomfo Anokye, the Ashanti states united around the Golden Stool as their common symbol. In 1701 they defeated Denkyira at the Battle of Feyiase and were freed from Denkyira's rule.",
+       "de": "Unter König Osei Tutu und seinem Berater Okomfo Anokye vereinigten sich die Aschanti-Staaten um den Goldenen Stuhl als gemeinsames Symbol. 1701 besiegten sie Denkyira in der Schlacht von Feyiase und wurden von der Herrschaft Denkyiras frei.",
+       "es": "Bajo el rey Osei Tutu y su consejero Okomfo Anokye, los Estados asante se unieron en torno al Taburete de Oro como símbolo común. En 1701 derrotaron a Denkyira en la batalla de Feyiase y se liberaron de su dominio.",
+       "fr": "Sous le roi Osei Tutu et son conseiller Okomfo Anokye, les États ashanti s'unirent autour du Tabouret d'or, leur symbole commun. En 1701, ils vainquirent le Denkyira à la bataille de Feyiase et se libérèrent de sa domination."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade",
+       "en": "How it ended",
+       "de": "Wie es endete",
+       "es": "Cómo terminó",
+       "fr": "Comment il a pris fin"
+      },
+      "text": {
+       "sv": "Ashanti utkämpade fem krig mot britterna. Efter det femte blev riket den 1 januari 1902 en del av den brittiska kolonin Guldkusten. Ashanti finns kvar i dag som ett traditionellt kungarike inom Ghana.",
+       "en": "Ashanti fought five wars against the British. After the fifth, the empire became part of the British Gold Coast colony on 1 January 1902. Ashanti still exists today as a traditional kingdom within Ghana.",
+       "de": "Die Aschanti führten fünf Kriege gegen die Briten. Nach dem fünften wurde das Reich am 1. Januar 1902 Teil der britischen Kolonie Goldküste. Aschanti besteht bis heute als traditionelles Königreich innerhalb Ghanas.",
+       "es": "Los asante libraron cinco guerras contra los británicos. Tras la quinta, el imperio pasó a formar parte de la colonia británica de Costa de Oro el 1 de enero de 1902. Asante sigue existiendo hoy como reino tradicional dentro de Ghana.",
+       "fr": "Les Ashanti livrèrent cinq guerres contre les Britanniques. Après la cinquième, l'empire fut intégré à la colonie britannique de la Côte-de-l'Or le 1er janvier 1902. L'Ashanti existe encore aujourd'hui comme royaume traditionnel au sein du Ghana."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad",
+       "en": "Capital",
+       "de": "Hauptstadt",
+       "es": "Capital",
+       "fr": "Capitale"
+      },
+      "text": {
+       "sv": "Kumasi.",
+       "en": "Kumasi.",
+       "de": "Kumasi.",
+       "es": "Kumasi.",
+       "fr": "Kumasi."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna skiljer sig: Wikipedia anger 1701–1902 och Wikidata 1670–1902. Kartan visar riket 1702–1897, som i Cliopatria. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ: Wikipedia gives 1701–1902 and Wikidata 1670–1902. The map shows the empire in 1702–1897, as in Cliopatria. The borders are Cliopatria's estimate and not known state borders.",
+     "de": "Die Quellen weichen voneinander ab: Wikipedia nennt 1701–1902 und Wikidata 1670–1902. Die Karte zeigt das Reich wie Cliopatria 1702–1897. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren: Wikipedia indica 1701–1902 y Wikidata 1670–1902. El mapa muestra el imperio en 1702–1897, como Cliopatria. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent : Wikipédia indique 1701–1902 et Wikidata 1670–1902. La carte montre l'empire en 1702–1897, comme Cliopatria. Les frontières sont une estimation de Cliopatria et non des frontières d'État connues."
+    },
+    "sources": [
+     "wp-asante-empire",
+     "wd-ashanti-empire"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "gronland-koloni",
+   "name": {
+    "sv": "Grönland",
+    "en": "Greenland",
+    "de": "Grönland",
+    "es": "Groenlandia",
+    "fr": "Groenland"
+   },
+   "color": "#6a9ac0",
+   "from": 1734,
+   "to": 1940,
+   "file": "data/empires/gronland-koloni.json",
+   "polities": [
+    {
+     "id": "gronland-koloni",
+     "name": {
+      "sv": "Grönland",
+      "en": "Greenland",
+      "de": "Grönland",
+      "es": "Groenlandia",
+      "fr": "Groenland"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Grönland var en koloni under Danmark-Norge och, efter 1814, under Danmark. Danmark-Norge byggde upp handelskolonier längs kusten och införde ett handelsmonopol. Grönland var koloni till 1953, då ön fick en ny ställning inom det danska riket.",
+     "en": "Greenland was a colony of Denmark–Norway and, after 1814, of Denmark. Denmark–Norway developed trading colonies along the coast and imposed a trade monopoly. Greenland remained a colony until 1953, when the island received a new status within the Danish Realm.",
+     "de": "Grönland war eine Kolonie Dänemark-Norwegens und nach 1814 Dänemarks. Dänemark-Norwegen baute Handelskolonien entlang der Küste auf und führte ein Handelsmonopol ein. Grönland blieb bis 1953 eine Kolonie; dann erhielt die Insel einen neuen Status innerhalb des dänischen Reiches.",
+     "es": "Groenlandia fue una colonia de Dinamarca-Noruega y, después de 1814, de Dinamarca. Dinamarca-Noruega estableció colonias comerciales a lo largo de la costa e impuso un monopolio comercial. Groenlandia siguió siendo colonia hasta 1953, cuando la isla recibió un nuevo estatus dentro del Reino de Dinamarca.",
+     "fr": "Le Groenland fut une colonie du Danemark-Norvège puis, après 1814, du Danemark. Le Danemark-Norvège développa des colonies commerciales le long de la côte et imposa un monopole commercial. Le Groenland resta une colonie jusqu'en 1953, lorsque l'île reçut un nouveau statut au sein du royaume de Danemark."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "Hur kolonin började",
+       "en": "How the colony began",
+       "de": "Wie die Kolonie begann",
+       "es": "Cómo empezó la colonia",
+       "fr": "Comment la colonie a commencé"
+      },
+      "text": {
+       "sv": "De nordiska bosättningarna på Grönland hade försvunnit, och i flera hundra år var inuiterna de enda som bodde på ön. År 1721 skickade Danmark-Norge en missionsexpedition dit under prästen Hans Egede. Den hittade inga ättlingar till nordborna och döpte i stället inuiter. År 1728 grundades bosättningen Godthåb, i dag Nuuk.",
+       "en": "The Norse settlements in Greenland had disappeared, and for several centuries the Inuit were the only inhabitants of the island. In 1721 Denmark–Norway sent a missionary expedition there under the priest Hans Egede. It found no descendants of the Norse and baptised Inuit instead. In 1728 the settlement of Godthåb, today Nuuk, was founded.",
+       "de": "Die nordischen Siedlungen in Grönland waren verschwunden, und mehrere Jahrhunderte lang waren die Inuit die einzigen Bewohner der Insel. 1721 schickte Dänemark-Norwegen eine Missionsexpedition unter dem Pfarrer Hans Egede dorthin. Sie fand keine Nachkommen der Nordleute und taufte stattdessen Inuit. 1728 wurde die Siedlung Godthåb gegründet, das heutige Nuuk.",
+       "es": "Los asentamientos nórdicos de Groenlandia habían desaparecido, y durante varios siglos los inuit fueron los únicos habitantes de la isla. En 1721 Dinamarca-Noruega envió allí una expedición misionera dirigida por el sacerdote Hans Egede. No encontró descendientes de los nórdicos y bautizó en su lugar a inuit. En 1728 se fundó el asentamiento de Godthåb, hoy Nuuk.",
+       "fr": "Les établissements nordiques du Groenland avaient disparu, et pendant plusieurs siècles les Inuits furent les seuls habitants de l'île. En 1721, le Danemark-Norvège y envoya une expédition missionnaire menée par le pasteur Hans Egede. Elle ne trouva aucun descendant des Nordiques et baptisa des Inuits à la place. En 1728 fut fondé l'établissement de Godthåb, aujourd'hui Nuuk."
+      }
+     },
+     {
+      "label": {
+       "sv": "Efter 1814",
+       "en": "After 1814",
+       "de": "Nach 1814",
+       "es": "Después de 1814",
+       "fr": "Après 1814"
+      },
+      "text": {
+       "sv": "Vid freden i Kiel 1814 lämnade Danmark Norge till Sverige, men kolonierna, också Grönland, stannade hos Danmark. Norge gjorde senare anspråk på östra Grönland, men 1933 dömde en internationell domstol till Danmarks fördel. När Tyskland ockuperade Danmark 1940 skars Grönland av från Danmark, och 1941 fick USA rätt att bygga baser på ön.",
+       "en": "At the Treaty of Kiel in 1814 Denmark ceded Norway to Sweden, but the colonies, including Greenland, stayed with Denmark. Norway later claimed eastern Greenland, but in 1933 an international court ruled in favour of Denmark. When Germany occupied Denmark in 1940, Greenland was cut off from Denmark, and in 1941 the United States was allowed to build bases on the island.",
+       "de": "Im Frieden von Kiel 1814 trat Dänemark Norwegen an Schweden ab, doch die Kolonien, auch Grönland, blieben bei Dänemark. Norwegen erhob später Anspruch auf Ostgrönland, aber 1933 entschied ein internationales Gericht zugunsten Dänemarks. Als Deutschland 1940 Dänemark besetzte, wurde Grönland von Dänemark abgeschnitten, und 1941 durften die Vereinigten Staaten Stützpunkte auf der Insel errichten.",
+       "es": "En el Tratado de Kiel de 1814, Dinamarca cedió Noruega a Suecia, pero las colonias, incluida Groenlandia, siguieron en manos de Dinamarca. Más tarde Noruega reclamó el este de Groenlandia, pero en 1933 un tribunal internacional falló a favor de Dinamarca. Cuando Alemania ocupó Dinamarca en 1940, Groenlandia quedó separada de Dinamarca, y en 1941 Estados Unidos obtuvo permiso para construir bases en la isla.",
+       "fr": "Au traité de Kiel de 1814, le Danemark céda la Norvège à la Suède, mais les colonies, dont le Groenland, restèrent au Danemark. La Norvège revendiqua plus tard l'est du Groenland, mais en 1933 une cour internationale donna raison au Danemark. Lorsque l'Allemagne occupa le Danemark en 1940, le Groenland fut coupé du Danemark, et en 1941 les États-Unis furent autorisés à construire des bases sur l'île."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Kartan visar Grönland 1734–1940, som i Cliopatria, som ett eget område och inte som en del av Danmark. Ytan följer kolonierna längs västkusten och växer från omkring 11 000 km² till omkring 170 000 km²; 1936–1940 omfattar den hela ön. Källorna nämner andra år: missionsexpeditionen kom 1721, Godthåb grundades 1728 och Grönland var koloni till 1953. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The map shows Greenland in 1734–1940, as in Cliopatria, as an area of its own and not as part of Denmark. The area follows the colonies along the west coast and grows from about 11,000 km² to about 170,000 km²; in 1936–1940 it covers the whole island. The sources mention other years: the missionary expedition arrived in 1721, Godthåb was founded in 1728 and Greenland was a colony until 1953. The borders are Cliopatria's estimate and not known state borders.",
+     "de": "Die Karte zeigt Grönland wie Cliopatria 1734–1940, als eigenes Gebiet und nicht als Teil Dänemarks. Die Fläche folgt den Kolonien an der Westküste und wächst von etwa 11.000 km² auf etwa 170.000 km²; 1936–1940 umfasst sie die ganze Insel. Die Quellen nennen andere Jahre: Die Missionsexpedition kam 1721, Godthåb wurde 1728 gegründet, und Grönland war bis 1953 eine Kolonie. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "El mapa muestra Groenlandia en 1734–1940, como Cliopatria, como un territorio propio y no como parte de Dinamarca. La superficie sigue las colonias de la costa oeste y crece de unos 11 000 km² a unos 170 000 km²; en 1936–1940 abarca toda la isla. Las fuentes mencionan otros años: la expedición misionera llegó en 1721, Godthåb se fundó en 1728 y Groenlandia fue colonia hasta 1953. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "La carte montre le Groenland en 1734–1940, comme Cliopatria, comme un territoire à part et non comme une partie du Danemark. La surface suit les colonies de la côte ouest et passe d'environ 11 000 km² à environ 170 000 km² ; en 1936–1940, elle couvre toute l'île. Les sources mentionnent d'autres années : l'expédition missionnaire arriva en 1721, Godthåb fut fondé en 1728 et le Groenland resta une colonie jusqu'en 1953. Les frontières sont une estimation de Cliopatria et non des frontières d'État connues."
+    },
+    "sources": [
+     "wp-history-of-greenland",
+     "wd-greenland"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "danska-indien",
+   "name": {
+    "sv": "Danska Indien",
+    "en": "Danish India",
+    "de": "Dänisch-Ostindien",
+    "es": "India danesa",
+    "fr": "Inde danoise"
+   },
+   "color": "#c0505a",
+   "from": 1757,
+   "to": 1808,
+   "file": "data/empires/danska-indien.json",
+   "polities": [
+    {
+     "id": "danska-indien",
+     "name": {
+      "sv": "Danska Indien",
+      "en": "Danish India",
+      "de": "Dänisch-Ostindien",
+      "es": "India danesa",
+      "fr": "Inde danoise"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Danska Indien var de fort och handelsstationer som Danmark-Norge, och efter 1814 Danmark, hade i Indien. Till dem hörde Tranquebar (Tharangambadi) i dagens Tamil Nadu, Serampore i Västbengalen och Nikobarerna. Danmark hade besittningar i Indien i mer än 200 år.",
+     "en": "Danish India was the forts and trading posts that Denmark–Norway, and after 1814 Denmark, held in India. They included Tranquebar (Tharangambadi) in present-day Tamil Nadu, Serampore in West Bengal and the Nicobar Islands. Denmark held possessions in India for more than 200 years.",
+     "de": "Dänisch-Ostindien bestand aus den Forts und Handelsstationen, die Dänemark-Norwegen und nach 1814 Dänemark in Indien besaß. Dazu gehörten Tranquebar (Tharangambadi) im heutigen Tamil Nadu, Serampore in Westbengalen und die Nikobaren. Dänemark hatte mehr als 200 Jahre lang Besitzungen in Indien.",
+     "es": "La India danesa fueron los fuertes y factorías que Dinamarca-Noruega, y después de 1814 Dinamarca, tuvo en la India. Entre ellos estaban Tranquebar (Tharangambadi), en el actual Tamil Nadu, Serampore, en Bengala Occidental, y las islas Nicobar. Dinamarca tuvo posesiones en la India durante más de 200 años.",
+     "fr": "L'Inde danoise désignait les forts et comptoirs que le Danemark-Norvège, puis après 1814 le Danemark, possédait en Inde. Parmi eux figuraient Tranquebar (Tharangambadi), dans l'actuel Tamil Nadu, Serampore, au Bengale-Occidental, et les îles Nicobar. Le Danemark eut des possessions en Inde pendant plus de 200 ans."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "Hur kolonin började",
+       "en": "How the colony began",
+       "de": "Wie die Kolonie begann",
+       "es": "Cómo empezó la colonia",
+       "fr": "Comment la colonie a commencé"
+      },
+      "text": {
+       "sv": "År 1616 grundade kung Kristian IV ett danskt ostindiskt kompani med ensamrätt på handeln mellan Danmark-Norge och Asien i tolv år. Den 20 november 1620 fick danskarna byn Tranquebar och rätt att bygga Fort Dansborg genom ett avtal med nayaken av Tanjore.",
+       "en": "In 1616 King Christian IV created a Danish East India Company with a twelve-year monopoly on trade between Denmark–Norway and Asia. On 20 November 1620 the Danes obtained the village of Tranquebar and the right to build Fort Dansborg through a treaty with the Nayak of Tanjore.",
+       "de": "1616 gründete König Christian IV. eine Dänische Ostindien-Kompanie mit einem zwölfjährigen Monopol auf den Handel zwischen Dänemark-Norwegen und Asien. Am 20. November 1620 erhielten die Dänen durch einen Vertrag mit dem Nayak von Tanjore das Dorf Tranquebar und das Recht, Fort Dansborg zu bauen.",
+       "es": "En 1616 el rey Cristián IV creó una Compañía Danesa de las Indias Orientales con el monopolio del comercio entre Dinamarca-Noruega y Asia durante doce años. El 20 de noviembre de 1620 los daneses obtuvieron la aldea de Tranquebar y el derecho a construir el fuerte Dansborg mediante un tratado con el nayak de Tanjore.",
+       "fr": "En 1616, le roi Christian IV créa une Compagnie danoise des Indes orientales avec un monopole de douze ans sur le commerce entre le Danemark-Norvège et l'Asie. Le 20 novembre 1620, les Danois obtinrent le village de Tranquebar et le droit de construire le fort Dansborg par un traité avec le nayak de Tanjore."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur kolonin slutade",
+       "en": "How the colony ended",
+       "de": "Wie die Kolonie endete",
+       "es": "Cómo terminó la colonia",
+       "fr": "Comment la colonie a pris fin"
+      },
+      "text": {
+       "sv": "Storbritannien tog över de danska besittningarna. Tranquebar och de flesta andra platser såldes 1845, och 1868 sålde Danmark sina sista rättigheter till Nikobarerna. Storbritannien annekterade öarna 1869.",
+       "en": "Britain took over the Danish possessions. Tranquebar and most other places were sold in 1845, and in 1868 Denmark sold its last rights to the Nicobar Islands. Britain annexed the islands in 1869.",
+       "de": "Großbritannien übernahm die dänischen Besitzungen. Tranquebar und die meisten anderen Orte wurden 1845 verkauft, und 1868 verkaufte Dänemark seine letzten Rechte an den Nikobaren. Großbritannien annektierte die Inseln 1869.",
+       "es": "Gran Bretaña se hizo con las posesiones danesas. Tranquebar y la mayoría de los demás lugares se vendieron en 1845, y en 1868 Dinamarca vendió sus últimos derechos sobre las islas Nicobar. Gran Bretaña anexionó las islas en 1869.",
+       "fr": "La Grande-Bretagne reprit les possessions danoises. Tranquebar et la plupart des autres lieux furent vendus en 1845, et en 1868 le Danemark vendit ses derniers droits sur les îles Nicobar. La Grande-Bretagne annexa les îles en 1869."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna skiljer sig mycket: enligt Wikipedia varade den danska närvaron från 1620 till 1868, och Wikidata anger 1620–1869, men Cliopatria har Danska Indien bara 1757–1808. Cliopatrias yta ligger på Nikobarerna och i Bengalen 1757–1799, i Bengalen 1800–1802 och vid Tranquebar 1803–1808; Tranquebar saknas före 1800, och Serampore ligger 17 km utanför ytan i Bengalen. Ytorna är 300–2 200 km² och visas därför som en punkt. Cliopatria räknar delar av Nikobarerna till Habsburgska riket 1778–1790. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ greatly: according to Wikipedia the Danish presence lasted from 1620 to 1868, and Wikidata gives 1620–1869, but Cliopatria has Danish India only in 1757–1808. Cliopatria's area lies on the Nicobar Islands and in Bengal in 1757–1799, in Bengal in 1800–1802 and at Tranquebar in 1803–1808; Tranquebar is missing before 1800, and Serampore lies 17 km outside the area in Bengal. The areas are 300–2,200 km² and are therefore shown as a point. Cliopatria counts parts of the Nicobar Islands as belonging to the Habsburg Monarchy in 1778–1790. The borders are Cliopatria's estimate and not known state borders.",
+     "de": "Die Quellen weichen stark voneinander ab: Laut Wikipedia dauerte die dänische Präsenz von 1620 bis 1868, und Wikidata nennt 1620–1869, doch Cliopatria hat Dänisch-Ostindien nur 1757–1808. Die Fläche bei Cliopatria liegt 1757–1799 auf den Nikobaren und in Bengalen, 1800–1802 in Bengalen und 1803–1808 bei Tranquebar; Tranquebar fehlt vor 1800, und Serampore liegt 17 km außerhalb der Fläche in Bengalen. Die Flächen sind 300–2.200 km² groß und werden deshalb als Punkt gezeigt. Cliopatria rechnet Teile der Nikobaren 1778–1790 der Habsburgermonarchie zu. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren mucho: según Wikipedia, la presencia danesa duró de 1620 a 1868, y Wikidata indica 1620–1869, pero Cliopatria solo tiene la India danesa en 1757–1808. La superficie de Cliopatria está en las islas Nicobar y en Bengala en 1757–1799, en Bengala en 1800–1802 y en Tranquebar en 1803–1808; Tranquebar falta antes de 1800, y Serampore queda 17 km fuera de la superficie en Bengala. Las superficies miden 300–2200 km² y por eso se muestran como un punto. Cliopatria atribuye partes de las islas Nicobar a la monarquía de los Habsburgo en 1778–1790. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent fortement : selon Wikipédia, la présence danoise dura de 1620 à 1868, et Wikidata indique 1620–1869, mais Cliopatria n'a l'Inde danoise qu'en 1757–1808. La surface de Cliopatria se trouve sur les îles Nicobar et au Bengale en 1757–1799, au Bengale en 1800–1802 et à Tranquebar en 1803–1808 ; Tranquebar manque avant 1800, et Serampore se trouve à 17 km en dehors de la surface au Bengale. Les surfaces mesurent 300 à 2 200 km² et sont donc montrées comme un point. Cliopatria attribue une partie des îles Nicobar à la monarchie de Habsbourg en 1778–1790. Les frontières sont une estimation de Cliopatria et non des frontières d'État connues."
+    },
+    "sources": [
+     "wp-danish-india",
+     "wd-danish-india"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "danska-guldkusten",
+   "name": {
+    "sv": "Danska Guldkusten",
+    "en": "Danish Gold Coast",
+    "de": "Dänische Besitzungen an der Goldküste",
+    "es": "Costa de Oro danesa",
+    "fr": "Côte-de-l'Or danoise"
+   },
+   "color": "#c0505a",
+   "from": 1659,
+   "to": 1852,
+   "file": "data/empires/danska-guldkusten.json",
+   "polities": [
+    {
+     "id": "danska-guldkusten",
+     "name": {
+      "sv": "Danska Guldkusten",
+      "en": "Danish Gold Coast",
+      "de": "Dänische Besitzungen an der Goldküste",
+      "es": "Costa de Oro danesa",
+      "fr": "Côte-de-l'Or danoise"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Danska Guldkusten var de kolonier som Danmark-Norge, och efter 1814 Danmark, hade på Guldkusten, ungefär i dagens sydöstra Ghana. Forten användes för slavhandeln tills Danmark avskaffade sin del i den atlantiska slavhandeln, genom ett beslut 1792 som genomfördes 1803. Enligt Wikipedia var området under danskt inflytande över 10 000 km².",
+     "en": "The Danish Gold Coast was the colonies that Denmark–Norway, and after 1814 Denmark, held on the Gold Coast, roughly present-day south-eastern Ghana. The forts were used for the slave trade until Denmark abolished its participation in the Atlantic slave trade, by a decree of 1792 that took effect in 1803. According to Wikipedia the area under Danish influence was over 10,000 km².",
+     "de": "Die Dänische Goldküste bestand aus den Kolonien, die Dänemark-Norwegen und nach 1814 Dänemark an der Goldküste besaß, ungefähr im heutigen Südosten Ghanas. Die Forts dienten dem Sklavenhandel, bis Dänemark seine Beteiligung am atlantischen Sklavenhandel abschaffte, durch einen Erlass von 1792, der 1803 in Kraft trat. Laut Wikipedia umfasste das Gebiet unter dänischem Einfluss über 10.000 km².",
+     "es": "La Costa de Oro danesa fueron las colonias que Dinamarca-Noruega, y después de 1814 Dinamarca, tuvo en la Costa de Oro, aproximadamente el actual sureste de Ghana. Los fuertes se usaron para el comercio de esclavos hasta que Dinamarca abolió su participación en la trata atlántica, mediante un decreto de 1792 que entró en vigor en 1803. Según Wikipedia, la zona bajo influencia danesa superaba los 10 000 km².",
+     "fr": "La Côte-de-l'Or danoise regroupait les colonies que le Danemark-Norvège, puis après 1814 le Danemark, possédait sur la Côte-de-l'Or, à peu près l'actuel sud-est du Ghana. Les forts servirent à la traite des esclaves jusqu'à ce que le Danemark abolisse sa participation à la traite atlantique, par un décret de 1792 entré en vigueur en 1803. Selon Wikipédia, la zone sous influence danoise dépassait 10 000 km²."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "Hur kolonin började",
+       "en": "How the colony began",
+       "de": "Wie die Kolonie begann",
+       "es": "Cómo empezó la colonia",
+       "fr": "Comment la colonie a commencé"
+      },
+      "text": {
+       "sv": "Hendrik Carloff, som tidigare hade arbetat för Svenska Afrikanska kompaniet, seglade för Danmarks räkning och nådde Guldkusten i januari 1658.",
+       "en": "Hendrik Carloff, who had previously worked for the Swedish Africa Company, sailed on behalf of Denmark and reached the Gold Coast in January 1658.",
+       "de": "Hendrik Carloff, der zuvor für die Schwedische Afrikakompanie gearbeitet hatte, segelte im Auftrag Dänemarks und erreichte die Goldküste im Januar 1658.",
+       "es": "Hendrik Carloff, que antes había trabajado para la Compañía Sueca de África, navegó por cuenta de Dinamarca y llegó a la Costa de Oro en enero de 1658.",
+       "fr": "Hendrik Carloff, qui avait auparavant travaillé pour la Compagnie suédoise d'Afrique, navigua pour le compte du Danemark et atteignit la Côte-de-l'Or en janvier 1658."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur kolonin slutade",
+       "en": "How the colony ended",
+       "de": "Wie die Kolonie endete",
+       "es": "Cómo terminó la colonia",
+       "fr": "Comment la colonie a pris fin"
+      },
+      "text": {
+       "sv": "År 1817 var nästan alla danska poster övergivna utom Fort Christiansborg. Den 30 mars 1850 sålde Danmark alla sina fort och besittningar på Guldkusten till Storbritannien, och de blev en del av Brittiska Guldkusten.",
+       "en": "By 1817 almost all Danish posts had been abandoned except Fort Christiansborg. On 30 March 1850 Denmark sold all its forts and possessions on the Gold Coast to Britain, and they became part of the British Gold Coast.",
+       "de": "Bis 1817 waren fast alle dänischen Posten außer Fort Christiansborg aufgegeben. Am 30. März 1850 verkaufte Dänemark alle seine Forts und Besitzungen an der Goldküste an Großbritannien, und sie wurden Teil der Britischen Goldküste.",
+       "es": "Hacia 1817 casi todos los puestos daneses habían sido abandonados, salvo el fuerte Christiansborg. El 30 de marzo de 1850 Dinamarca vendió todos sus fuertes y posesiones en la Costa de Oro a Gran Bretaña, y pasaron a formar parte de la Costa de Oro británica.",
+       "fr": "En 1817, presque tous les postes danois avaient été abandonnés, à l'exception du fort Christiansborg. Le 30 mars 1850, le Danemark vendit tous ses forts et possessions de la Côte-de-l'Or à la Grande-Bretagne, et ils furent intégrés à la Côte-de-l'Or britannique."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna skiljer sig: Wikipedia och Wikidata anger 1658–1850, men Cliopatria 1659–1852. Kartan följer Cliopatria. Cliopatrias yta är bara forten och deras närmaste omgivning, 700–1 400 km², och visas därför som en punkt; enligt Wikipedia var området under danskt inflytande över 10 000 km². Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ: Wikipedia and Wikidata give 1658–1850, but Cliopatria 1659–1852. The map follows Cliopatria. Cliopatria's area is only the forts and their immediate surroundings, 700–1,400 km², and is therefore shown as a point; according to Wikipedia the area under Danish influence was over 10,000 km². The borders are Cliopatria's estimate and not known state borders.",
+     "de": "Die Quellen weichen voneinander ab: Wikipedia und Wikidata nennen 1658–1850, Cliopatria dagegen 1659–1852. Die Karte folgt Cliopatria. Die Fläche bei Cliopatria umfasst nur die Forts und ihre nächste Umgebung, 700–1.400 km², und wird deshalb als Punkt gezeigt; laut Wikipedia umfasste das Gebiet unter dänischem Einfluss über 10.000 km². Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren: Wikipedia y Wikidata indican 1658–1850, pero Cliopatria 1659–1852. El mapa sigue a Cliopatria. La superficie de Cliopatria abarca solo los fuertes y su entorno inmediato, 700–1400 km², y por eso se muestra como un punto; según Wikipedia, la zona bajo influencia danesa superaba los 10 000 km². Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent : Wikipédia et Wikidata indiquent 1658–1850, mais Cliopatria 1659–1852. La carte suit Cliopatria. La surface de Cliopatria ne comprend que les forts et leurs abords immédiats, 700 à 1 400 km², et est donc montrée comme un point ; selon Wikipédia, la zone sous influence danoise dépassait 10 000 km². Les frontières sont une estimation de Cliopatria et non des frontières d'État connues."
+    },
+    "sources": [
+     "wp-danish-gold-coast",
+     "wd-danish-gold-coast"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "mogulriket",
@@ -13114,8 +13789,11 @@
      }
     ],
     "mapNote": {
-     "sv": "Kartan visar Sverige från 980. Åren 1402–1501 räknar kartdatan (Cliopatria) området till Kalmarunionen, så där visas inget Sverige. Källorna anger stormaktstiden till 1611–1721; den slutade med freden i Nystad 1721. Kartan (Cliopatria) kallar Sverige \"Swedish Empire\" ända till 1814. Här heter riket därför Svenska stormaktsväldet till och med 1721 och Sverige 1722–1814, med kartdatans gränser, alltså Sverige med Finland och Pommern efter stormaktstiden. Unionen med Norge visas 1815–1904 (källorna: 1814–1905) och Sverige från 1905.",
-     "en": "The map shows Sweden from 980. In 1402–1501 the map data (Cliopatria) counts the area as part of the Kalmar Union, so no Sweden is shown there. The sources give the Swedish Empire period as 1611–1721; it ended with the Peace of Nystad in 1721. The map (Cliopatria) calls Sweden “Swedish Empire” all the way to 1814. Here the realm is therefore called the Swedish Empire up to and including 1721 and Sweden 1722–1814, with the map data's borders, that is Sweden with Finland and Pomerania after the Swedish Empire period. The union with Norway is shown 1815–1904 (the sources: 1814–1905) and Sweden from 1905."
+     "sv": "Kartan visar Sverige från 980. Åren 1402–1501 och 1521–1525 räknar kartdatan (Cliopatria) området till Kalmarunionen, så där visas inget Sverige. Källorna säger att Sverige lämnade unionen 1523, det år Gustav Vasa valdes till kung (6 juni). Källorna anger stormaktstiden till 1611–1721; den slutade med freden i Nystad 1721. Kartan (Cliopatria) kallar Sverige \"Swedish Empire\" ända till 1814. Här heter riket därför Svenska stormaktsväldet till och med 1721 och Sverige 1722–1814, med kartdatans gränser, alltså Sverige med Finland och Pommern efter stormaktstiden. Unionen med Norge visas 1815–1904 (källorna: 1814–1905) och Sverige från 1905.",
+     "en": "The map shows Sweden from 980. In 1402–1501 and 1521–1525 the map data (Cliopatria) counts the area as part of the Kalmar Union, so no Sweden is shown there. The sources say that Sweden left the union in 1523, the year Gustav Vasa was elected king (6 June). The sources give the Swedish Empire period as 1611–1721; it ended with the Peace of Nystad in 1721. The map (Cliopatria) calls Sweden “Swedish Empire” all the way to 1814. Here the realm is therefore called the Swedish Empire up to and including 1721 and Sweden 1722–1814, with the map data's borders, that is Sweden with Finland and Pomerania after the Swedish Empire period. The union with Norway is shown 1815–1904 (the sources: 1814–1905) and Sweden from 1905.",
+     "de": "Die Karte zeigt Schweden ab 980. In den Jahren 1402–1501 und 1521–1525 rechnen die Kartendaten (Cliopatria) das Gebiet der Kalmarer Union zu, daher wird dort kein Schweden gezeigt. Laut den Quellen verließ Schweden die Union 1523, im Jahr, in dem Gustav Vasa zum König gewählt wurde (6. Juni). Die Quellen nennen für die Großmachtzeit 1611–1721; sie endete mit dem Frieden von Nystad 1721. Die Karte (Cliopatria) nennt Schweden bis 1814 „Swedish Empire“. Hier heißt das Reich daher bis einschließlich 1721 Schwedisches Großreich und 1722–1814 Schweden, mit den Grenzen der Kartendaten, also Schweden mit Finnland und Pommern nach der Großmachtzeit. Die Union mit Norwegen wird 1815–1904 gezeigt (die Quellen: 1814–1905) und Schweden ab 1905.",
+     "es": "El mapa muestra Suecia desde 980. En 1402–1501 y 1521–1525 los datos del mapa (Cliopatria) cuentan el territorio como parte de la Unión de Kalmar, por lo que allí no se muestra Suecia. Según las fuentes, Suecia abandonó la unión en 1523, el año en que Gustavo Vasa fue elegido rey (6 de junio). Las fuentes sitúan la época de gran potencia de Suecia en 1611–1721; terminó con la paz de Nystad en 1721. El mapa (Cliopatria) llama a Suecia «Swedish Empire» hasta 1814. Por eso aquí el reino se llama Imperio sueco hasta 1721 inclusive y Suecia en 1722–1814, con las fronteras de los datos del mapa, es decir, Suecia con Finlandia y Pomerania después de la época de gran potencia. La unión con Noruega se muestra en 1815–1904 (las fuentes: 1814–1905) y Suecia desde 1905.",
+     "fr": "La carte montre la Suède à partir de 980. En 1402–1501 et 1521–1525, les données de la carte (Cliopatria) comptent le territoire comme faisant partie de l'Union de Kalmar ; aucune Suède n'y est donc montrée. Selon les sources, la Suède a quitté l'union en 1523, l'année où Gustave Vasa a été élu roi (6 juin). Les sources situent l'ère de grandeur de la Suède en 1611–1721 ; elle a pris fin avec la paix de Nystad en 1721. La carte (Cliopatria) appelle la Suède « Swedish Empire » jusqu'en 1814. Ici, le royaume s'appelle donc Empire suédois jusqu'en 1721 inclus et Suède en 1722–1814, avec les frontières des données de la carte, c'est-à-dire la Suède avec la Finlande et la Poméranie après l'ère de grandeur. L'union avec la Norvège est montrée en 1815–1904 (les sources : 1814–1905) et la Suède à partir de 1905."
     },
     "sources": [
      "wp-swedish-empire",
@@ -13125,7 +13803,9 @@
      "wd-union-sweden-norway",
      "wp-sweden",
      "wp-history-of-sweden-800-1521",
-     "wp-stockholm"
+     "wp-stockholm",
+     "wp-kalmar-union",
+     "wp-gustav-vasa"
     ],
     "review": "two-sources"
    },
@@ -14731,7 +15411,7 @@
     "en": "Weimar Republic",
     "de": "Weimarer Republik",
     "es": "República de Weimar",
-    "fr": "république de Weimar"
+    "fr": "République de Weimar"
    },
    "color": "#8a78b0",
    "from": 1920,
@@ -14745,7 +15425,7 @@
       "en": "Weimar Republic",
       "de": "Weimarer Republik",
       "es": "República de Weimar",
-      "fr": "république de Weimar"
+      "fr": "République de Weimar"
      },
      "sources": [
       "cliopatria"
@@ -18429,13 +19109,20 @@
      }
     ],
     "mapNote": {
-     "sv": "Källorna anger 1918–1992. Kartan visar landet bara 1919–1938, 1947–1968 och 1991. Cliopatria räknar landet till Nazityskland 1939–1944 och till Sovjetunionen 1945–1946 och 1969–1990.",
-     "en": "The sources give 1918–1992. The map shows the country only in 1919–1938, 1947–1968 and 1991. Cliopatria counts the country as part of Nazi Germany in 1939–1944 and of the Soviet Union in 1945–1946 and 1969–1990."
+     "sv": "Källorna anger 1918–1992. Kartan visar landet 1919–1938 och 1947–1991. Cliopatria räknar landet till Nazityskland 1939–1944 och till Sovjetunionen 1945–1946 och 1969–1990. Åren 1969–1990 visar kartan i stället Tjeckoslovakien, med landets gräns 1968 i Cliopatria (densamma som 1991), enligt Historia-globens beslut att rita den internationellt erkända staten vid ockupation. Warszawapakten invaderade landet 20–21 augusti 1968, och sovjetiska trupper stod sedan kvar i landet tills de drogs tillbaka 1990–1991.",
+     "en": "The sources give 1918–1992. The map shows the country in 1919–1938 and 1947–1991. Cliopatria counts the country as part of Nazi Germany in 1939–1944 and of the Soviet Union in 1945–1946 and 1969–1990. In 1969–1990 the map instead shows Czechoslovakia, with the country's 1968 border in Cliopatria (the same as in 1991), by decision of Historia-globen to show the internationally recognised state in times of occupation. The Warsaw Pact invaded the country on 20–21 August 1968, and Soviet troops then remained in the country until they were withdrawn in 1990–1991.",
+     "de": "Die Quellen nennen 1918–1992. Die Karte zeigt das Land 1919–1938 und 1947–1991. Cliopatria zählt das Land 1939–1944 zum NS-Staat und 1945–1946 sowie 1969–1990 zur Sowjetunion. In den Jahren 1969–1990 zeigt die Karte stattdessen die Tschechoslowakei, mit der Grenze des Landes von 1968 in Cliopatria (dieselbe wie 1991), nach der Entscheidung von Historia-globen, bei Besatzung den international anerkannten Staat zu zeigen. Der Warschauer Pakt marschierte am 20. und 21. August 1968 in das Land ein, und sowjetische Truppen blieben danach im Land, bis sie 1990–1991 abgezogen wurden.",
+     "es": "Las fuentes indican 1918–1992. El mapa muestra el país en 1919–1938 y 1947–1991. Cliopatria cuenta el país como parte de la Alemania nazi en 1939–1944 y de la Unión Soviética en 1945–1946 y 1969–1990. En 1969–1990 el mapa muestra en cambio Checoslovaquia, con la frontera del país de 1968 en Cliopatria (la misma que en 1991), por decisión de Historia-globen de mostrar el Estado reconocido internacionalmente en caso de ocupación. El Pacto de Varsovia invadió el país el 20 y 21 de agosto de 1968, y después las tropas soviéticas permanecieron en el país hasta su retirada en 1990–1991.",
+     "fr": "Les sources indiquent 1918–1992. La carte montre le pays de 1919 à 1938 et de 1947 à 1991. Cliopatria compte le pays comme partie de l'Allemagne nazie de 1939 à 1944 et de l'Union soviétique en 1945–1946 et de 1969 à 1990. De 1969 à 1990, la carte montre au contraire la Tchécoslovaquie, avec la frontière du pays de 1968 dans Cliopatria (la même qu'en 1991), sur décision d'Historia-globen de montrer l'État reconnu internationalement en cas d'occupation. Le pacte de Varsovie envahit le pays les 20 et 21 août 1968, puis les troupes soviétiques restèrent dans le pays jusqu'à leur retrait en 1990–1991."
     },
     "sources": [
      "wp-czechoslovakia",
      "wp-dissolution-of-czechoslovakia",
-     "wp-coat-of-arms-czechoslovakia"
+     "wp-coat-of-arms-czechoslovakia",
+     "wp-warsaw-pact-invasion-of-czechoslovakia",
+     "wp-central-group-of-forces",
+     "wd-czechoslovakia",
+     "cliopatria"
     ],
     "review": "source-checked"
    },
@@ -22689,12 +23376,18 @@
      }
     ],
     "mapNote": {
-     "sv": "Kartan börjar 1932, när Irak blev självständigt. Den saknar Irak 1943–1946, 1958–1959 och 2006–2013, när Cliopatria räknar landet till andra riken.",
-     "en": "The map begins in 1932, when Iraq became independent. It lacks Iraq in 1943–1946, 1958–1959 and 2006–2013, when Cliopatria counts the country as part of other empires."
+     "sv": "Kartan börjar 1932, när Irak blev självständigt. Den saknar Irak 1943–1946 och 1958–1959, när Cliopatria räknar landet till andra riken. Cliopatria räknar också Irak till USA 2006–2023 (från 2014 samtidigt som till Irak). Kartan visar i stället Irak de åren, med landets gräns 2005 i Cliopatria (densamma som 2014), enligt Historia-globens beslut att rita den internationellt erkända staten vid ockupation. USA-ledda styrkor invaderade Irak 20 mars 2003, och en ockupationsmyndighet, Coalition Provisional Authority, styrde landet till 28 juni 2004. De sista amerikanska trupperna lämnade Irak 18 december 2011.",
+     "en": "The map begins in 1932, when Iraq became independent. It lacks Iraq in 1943–1946 and 1958–1959, when Cliopatria counts the country as part of other empires. Cliopatria also counts Iraq as part of the USA in 2006–2023 (from 2014 at the same time as Iraq). The map instead shows Iraq in those years, with the country's 2005 border in Cliopatria (the same as in 2014), by decision of Historia-globen to show the internationally recognised state in times of occupation. US-led forces invaded Iraq on 20 March 2003, and an occupation authority, the Coalition Provisional Authority, governed the country until 28 June 2004. The last US troops left Iraq on 18 December 2011.",
+     "de": "Die Karte beginnt 1932, als der Irak unabhängig wurde. Sie zeigt den Irak 1943–1946 und 1958–1959 nicht, weil Cliopatria das Land dann zu anderen Reichen zählt. Cliopatria zählt den Irak außerdem 2006–2023 zu den USA (ab 2014 gleichzeitig zum Irak). Die Karte zeigt in diesen Jahren stattdessen den Irak, mit der Grenze des Landes von 2005 in Cliopatria (dieselbe wie 2014), nach der Entscheidung von Historia-globen, bei Besatzung den international anerkannten Staat zu zeigen. Von den USA geführte Truppen marschierten am 20. März 2003 in den Irak ein, und eine Besatzungsbehörde, die Coalition Provisional Authority, regierte das Land bis zum 28. Juni 2004. Die letzten US-Truppen verließen den Irak am 18. Dezember 2011.",
+     "es": "El mapa comienza en 1932, cuando Irak se independizó. No muestra Irak en 1943–1946 ni en 1958–1959, cuando Cliopatria cuenta el país como parte de otros imperios. Cliopatria también cuenta Irak como parte de Estados Unidos en 2006–2023 (desde 2014 al mismo tiempo que como Irak). En cambio, el mapa muestra Irak en esos años, con la frontera del país de 2005 en Cliopatria (la misma que en 2014), por decisión de Historia-globen de mostrar el Estado reconocido internacionalmente en caso de ocupación. Fuerzas dirigidas por Estados Unidos invadieron Irak el 20 de marzo de 2003, y una autoridad de ocupación, la Autoridad Provisional de la Coalición, gobernó el país hasta el 28 de junio de 2004. Las últimas tropas estadounidenses salieron de Irak el 18 de diciembre de 2011.",
+     "fr": "La carte commence en 1932, lorsque l'Irak devint indépendant. Elle ne montre pas l'Irak en 1943–1946 ni en 1958–1959, lorsque Cliopatria compte le pays comme partie d'autres empires. Cliopatria compte aussi l'Irak comme partie des États-Unis de 2006 à 2023 (à partir de 2014 en même temps que l'Irak). La carte montre au contraire l'Irak pendant ces années, avec la frontière du pays de 2005 dans Cliopatria (la même qu'en 2014), sur décision d'Historia-globen de montrer l'État reconnu internationalement en cas d'occupation. Des forces menées par les États-Unis envahirent l'Irak le 20 mars 2003, et une autorité d'occupation, l'Autorité provisoire de la coalition, gouverna le pays jusqu'au 28 juin 2004. Les dernières troupes américaines quittèrent l'Irak le 18 décembre 2011."
     },
     "sources": [
      "wp-iraq",
-     "wd-iraq"
+     "wd-iraq",
+     "wp-coalition-provisional-authority",
+     "wp-us-withdrawal-iraq",
+     "cliopatria"
     ],
     "review": "source-checked"
    },
@@ -24414,8 +25107,11 @@
      }
     ],
     "mapNote": {
-     "sv": "Kartan visar fyra perioder: Durranis rike 1748–1827, emiratet 1828–1925, kungariket 1926–1972 och Afghanistan från 1973. Källorna anger 1747 för Durranis rike och 1823 för emiratet. Kartan saknar landet 1987–1995 och visar 1996–2005 bara en liten del av det, eftersom Cliopatria då räknar landets mitt till mujahedin respektive talibanerna.",
-     "en": "The map shows four periods: the Durrani Empire 1748–1827, the emirate 1828–1925, the kingdom 1926–1972 and Afghanistan from 1973. The sources give 1747 for the Durrani Empire and 1823 for the emirate. The map lacks the country in 1987–1995 and shows only a small part of it in 1996–2005, because Cliopatria then counts the country's middle as part of the mujahideen and the Taliban respectively."
+     "sv": "Kartan visar fyra perioder: Durranis rike 1748–1827, emiratet 1828–1925, kungariket 1926–1972 och Afghanistan från 1973. Källorna anger 1747 för Durranis rike och 1823 för emiratet. Under sovjetiska kriget i Afghanistan (december 1979–februari 1989) räknar Cliopatria delar av landet till Sovjetunionen, 1987–1995 till mujahedin och 1996–2005 större delen till talibanerna. Kartan visar i stället hela Afghanistan de åren, med landets gräns 1978 i Cliopatria (densamma som 2006), enligt Historia-globens beslut att rita den internationellt erkända staten vid ockupation och inbördeskrig. Talibanernas emirat styrde som mest omkring 90 procent av landet 1996–2001, men Islamiska staten Afghanistan förblev den regering som FN erkände.",
+     "en": "The map shows four periods: the Durrani Empire 1748–1827, the emirate 1828–1925, the kingdom 1926–1972 and Afghanistan from 1973. The sources give 1747 for the Durrani Empire and 1823 for the emirate. During the Soviet–Afghan War (December 1979–February 1989) Cliopatria counts parts of the country as part of the Soviet Union, in 1987–1995 as part of the mujahideen and in 1996–2005 most of it as part of the Taliban. The map instead shows the whole of Afghanistan in those years, with the country's 1978 border in Cliopatria (the same as in 2006), by decision of Historia-globen to show the internationally recognised state in times of occupation and civil war. At its peak the Taliban's emirate ruled about 90 per cent of the country in 1996–2001, but the Islamic State of Afghanistan remained the government recognised by the UN.",
+     "de": "Die Karte zeigt vier Abschnitte: das Durrani-Reich 1748–1827, das Emirat 1828–1925, das Königreich 1926–1972 und Afghanistan ab 1973. Die Quellen nennen 1747 für das Durrani-Reich und 1823 für das Emirat. Während des sowjetischen Kriegs in Afghanistan (Dezember 1979 bis Februar 1989) zählt Cliopatria Teile des Landes zur Sowjetunion, 1987–1995 zu den Mudschahedin und 1996–2005 den größten Teil zu den Taliban. Die Karte zeigt stattdessen in diesen Jahren ganz Afghanistan, mit der Grenze des Landes von 1978 in Cliopatria (dieselbe wie 2006), nach der Entscheidung von Historia-globen, bei Besatzung und Bürgerkrieg den international anerkannten Staat zu zeigen. Das Emirat der Taliban beherrschte 1996–2001 zeitweise etwa 90 Prozent des Landes, doch der Islamische Staat Afghanistan blieb die von der UNO anerkannte Regierung.",
+     "es": "El mapa muestra cuatro periodos: el Imperio durrani en 1748–1827, el emirato en 1828–1925, el reino en 1926–1972 y Afganistán desde 1973. Las fuentes indican 1747 para el Imperio durrani y 1823 para el emirato. Durante la guerra afgano-soviética (diciembre de 1979–febrero de 1989) Cliopatria cuenta partes del país como parte de la Unión Soviética, en 1987–1995 como parte de los muyahidines y en 1996–2005 la mayor parte como parte de los talibanes. En cambio, el mapa muestra todo Afganistán en esos años, con la frontera del país de 1978 en Cliopatria (la misma que en 2006), por decisión de Historia-globen de mostrar el Estado reconocido internacionalmente en caso de ocupación y guerra civil. En su apogeo, el emirato talibán gobernó cerca del 90 % del país en 1996–2001, pero el Estado Islámico de Afganistán siguió siendo el gobierno reconocido por la ONU.",
+     "fr": "La carte montre quatre périodes : l'Empire durrani de 1748 à 1827, l'émirat de 1828 à 1925, le royaume de 1926 à 1972 et l'Afghanistan à partir de 1973. Les sources indiquent 1747 pour l'Empire durrani et 1823 pour l'émirat. Pendant la guerre d'Afghanistan menée par l'Union soviétique (décembre 1979–février 1989), Cliopatria compte des parties du pays comme appartenant à l'Union soviétique, de 1987 à 1995 aux moudjahidines et de 1996 à 2005 la plus grande partie aux talibans. La carte montre au contraire tout l'Afghanistan pendant ces années, avec la frontière du pays de 1978 dans Cliopatria (la même qu'en 2006), sur décision d'Historia-globen de montrer l'État reconnu internationalement en cas d'occupation et de guerre civile. À son apogée, l'émirat des talibans contrôlait environ 90 % du pays de 1996 à 2001, mais l'État islamique d'Afghanistan resta le gouvernement reconnu par l'ONU."
     },
     "sources": [
      "wp-afghanistan",
@@ -24425,7 +25121,11 @@
      "wd-afghanistan",
      "wd-durrani-empire",
      "wd-emirate-of-afghanistan",
-     "wd-kingdom-of-afghanistan"
+     "wd-kingdom-of-afghanistan",
+     "wp-soviet-afghan-war",
+     "wp-islamic-emirate-of-afghanistan-1996",
+     "wp-islamic-state-of-afghanistan",
+     "cliopatria"
     ],
     "review": "source-checked"
    },
@@ -29973,7 +30673,7 @@
       "en": "Republic of China",
       "de": "Republik China",
       "es": "República de China",
-      "fr": "république de Chine"
+      "fr": "République de Chine"
      },
      "sources": [
       "cliopatria"
@@ -30339,7 +31039,7 @@
       "en": "Kingdom of Libya",
       "de": "Königreich Libyen",
       "es": "Reino de Libia",
-      "fr": "royaume de Libye"
+      "fr": "Royaume de Libye"
      },
      "sources": [
       "cliopatria"
@@ -30509,7 +31209,7 @@
      "label": {
       "sv": "Malis flagga",
       "en": "Flag of Mali",
-      "de": "Flagge Malis",
+      "de": "Flagge von Mali",
       "es": "Bandera de Mali",
       "fr": "Drapeau du Mali"
      },
@@ -30623,7 +31323,7 @@
      "label": {
       "sv": "Nigers flagga",
       "en": "Flag of Niger",
-      "de": "Flagge Nigers",
+      "de": "Flagge von Niger",
       "es": "Bandera de Níger",
       "fr": "Drapeau du Niger"
      },
@@ -31334,11 +32034,53 @@
     "fr": "Yémen"
    },
    "color": "#4a8aa0",
-   "from": 1990,
+   "from": 1919,
    "to": 2024,
    "file": "data/empires/jemen.json",
    "flags": [{"file": "yemen", "from": 1990, "to": 2024, "label": {"sv": "Jemens flagga", "en": "Flag of Yemen", "de": "Flagge des Jemen", "es": "Bandera de Yemen", "fr": "Drapeau du Yémen"}, "sources": ["wp-flag-yemen", "commons-flagga-yemen"], "review": "source-checked"}],
    "polities": [
+    {
+     "id": "kungariket-jemen",
+     "name": {
+      "sv": "Kungariket Jemen",
+      "en": "Kingdom of Yemen",
+      "de": "Königreich Jemen",
+      "es": "Reino de Yemen",
+      "fr": "Royaume du Yémen"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "arabrepubliken-jemen",
+     "name": {
+      "sv": "Arabrepubliken Jemen",
+      "en": "Yemen Arab Republic",
+      "de": "Jemenitische Arabische Republik",
+      "es": "República Árabe de Yemen",
+      "fr": "République arabe du Yémen"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "sydjemen",
+     "name": {
+      "sv": "Sydjemen",
+      "en": "South Yemen",
+      "de": "Südjemen",
+      "es": "Yemen del Sur",
+      "fr": "Yémen du Sud"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
     {
      "id": "jemen",
      "name": {
@@ -31353,7 +32095,81 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "polityFacts": {
+    "kungariket-jemen": {
+     "facts": {
+      "summary": {
+       "sv": "Kungariket Jemen var en monarki i nordvästra delen av dagens Jemen. Imam Yahya tog makten i Sanaa 1918, när Osmanska riket drog sig tillbaka efter första världskriget. Huvudstaden var Sanaa till 1948 och sedan Taizz till 1962. Jemen blev medlem i FN 30 september 1947. En republikansk kupp 1962 ledde till inbördeskrig, och rojalisterna höll bara norra delen av landet fram till ett fredsavtal 1970.",
+       "en": "The Kingdom of Yemen was a monarchy in the north-western part of present-day Yemen. Imam Yahya took power in Sanaa in 1918, when the Ottoman Empire withdrew after the First World War. The capital was Sanaa until 1948 and then Taiz until 1962. Yemen became a member of the UN on 30 September 1947. A republican coup in 1962 led to civil war, and the royalists held only the northern part of the country until a peace deal in 1970.",
+       "de": "Das Königreich Jemen war eine Monarchie im Nordwesten des heutigen Jemen. Imam Yahya übernahm 1918 die Macht in Sanaa, als sich das Osmanische Reich nach dem Ersten Weltkrieg zurückzog. Hauptstadt war bis 1948 Sanaa und danach bis 1962 Taizz. Jemen wurde am 30. September 1947 Mitglied der UNO. Ein republikanischer Putsch 1962 führte zum Bürgerkrieg, und die Royalisten hielten bis zu einem Friedensabkommen 1970 nur noch den Norden des Landes.",
+       "es": "El Reino de Yemen fue una monarquía en el noroeste del actual Yemen. El imán Yahya tomó el poder en Saná en 1918, cuando el Imperio otomano se retiró tras la Primera Guerra Mundial. La capital fue Saná hasta 1948 y después Taiz hasta 1962. Yemen ingresó en la ONU el 30 de septiembre de 1947. Un golpe republicano en 1962 desembocó en una guerra civil, y los monárquicos solo controlaron el norte del país hasta un acuerdo de paz en 1970.",
+       "fr": "Le royaume du Yémen était une monarchie dans le nord-ouest de l'actuel Yémen. L'imam Yahya prit le pouvoir à Sanaa en 1918, lorsque l'Empire ottoman se retira après la Première Guerre mondiale. La capitale fut Sanaa jusqu'en 1948, puis Taëz jusqu'en 1962. Le Yémen devint membre de l'ONU le 30 septembre 1947. Un coup d'État républicain en 1962 déclencha une guerre civile, et les royalistes ne tinrent plus que le nord du pays jusqu'à un accord de paix en 1970."
+      },
+      "mapNote": {
+       "sv": "Wikidata anger 30 oktober 1918–1 december 1970. Kartan visar kungariket 1919–1961 och Arabrepubliken Jemen från 1962: Cliopatria har en enda post för Nordjemen 1919–1989, som kartan delar vid revolutionen 1962. Att rojalisterna höll norra delen av landet under inbördeskriget 1962–1970 visar kartan inte.",
+       "en": "Wikidata gives 30 October 1918–1 December 1970. The map shows the kingdom in 1919–1961 and the Yemen Arab Republic from 1962: Cliopatria has a single entry for North Yemen in 1919–1989, which the map divides at the revolution of 1962. The map does not show that the royalists held the northern part of the country during the civil war of 1962–1970.",
+       "de": "Wikidata nennt den 30. Oktober 1918 bis 1. Dezember 1970. Die Karte zeigt das Königreich 1919–1961 und die Jemenitische Arabische Republik ab 1962: Cliopatria hat einen einzigen Eintrag für Nordjemen 1919–1989, den die Karte bei der Revolution 1962 teilt. Dass die Royalisten im Bürgerkrieg 1962–1970 den Norden des Landes hielten, zeigt die Karte nicht.",
+       "es": "Wikidata indica del 30 de octubre de 1918 al 1 de diciembre de 1970. El mapa muestra el reino en 1919–1961 y la República Árabe de Yemen desde 1962: Cliopatria tiene una sola entrada para Yemen del Norte en 1919–1989, que el mapa divide en la revolución de 1962. El mapa no muestra que los monárquicos controlaran el norte del país durante la guerra civil de 1962–1970.",
+       "fr": "Wikidata indique du 30 octobre 1918 au 1er décembre 1970. La carte montre le royaume de 1919 à 1961 et la République arabe du Yémen à partir de 1962 : Cliopatria a une seule entrée pour le Yémen du Nord de 1919 à 1989, que la carte divise à la révolution de 1962. La carte ne montre pas que les royalistes tenaient le nord du pays pendant la guerre civile de 1962 à 1970."
+      },
+      "sources": [
+       "wp-kingdom-of-yemen",
+       "wd-kingdom-of-yemen",
+       "cliopatria"
+      ],
+      "review": "source-checked"
+     }
+    },
+    "arabrepubliken-jemen": {
+     "facts": {
+      "summary": {
+       "sv": "Arabrepubliken Jemen, ofta kallad Nordjemen, utropades 1962 när officerare störtade monarkin i Sanaa. Kuppen ledde till ett inbördeskrig i åtta år, som republikanerna vann. Huvudstaden var Sanaa. 22 maj 1990 gick landet samman med Sydjemen till dagens Republiken Jemen.",
+       "en": "The Yemen Arab Republic, often called North Yemen, was proclaimed in 1962 when officers overthrew the monarchy in Sanaa. The coup led to an eight-year civil war, which the republicans won. The capital was Sanaa. On 22 May 1990 the country united with South Yemen to form the present Republic of Yemen.",
+       "de": "Die Jemenitische Arabische Republik, oft Nordjemen genannt, wurde 1962 ausgerufen, als Offiziere in Sanaa die Monarchie stürzten. Der Putsch führte zu einem achtjährigen Bürgerkrieg, den die Republikaner gewannen. Hauptstadt war Sanaa. Am 22. Mai 1990 vereinigte sich das Land mit dem Südjemen zur heutigen Republik Jemen.",
+       "es": "La República Árabe de Yemen, a menudo llamada Yemen del Norte, se proclamó en 1962, cuando unos oficiales derrocaron la monarquía en Saná. El golpe desembocó en una guerra civil de ocho años que ganaron los republicanos. La capital era Saná. El 22 de mayo de 1990 el país se unió con Yemen del Sur para formar la actual República de Yemen.",
+       "fr": "La République arabe du Yémen, souvent appelée Yémen du Nord, fut proclamée en 1962 lorsque des officiers renversèrent la monarchie à Sanaa. Le coup d'État déclencha une guerre civile de huit ans, remportée par les républicains. La capitale était Sanaa. Le 22 mai 1990, le pays s'unit au Yémen du Sud pour former l'actuelle République du Yémen."
+      },
+      "mapNote": {
+       "sv": "Wikidata anger 26 september 1962–22 maj 1990. Kartan visar republiken 1962–1989, som Cliopatrias post för Nordjemen, och Republiken Jemen från 1990.",
+       "en": "Wikidata gives 26 September 1962–22 May 1990. The map shows the republic in 1962–1989, as in Cliopatria's entry for North Yemen, and the Republic of Yemen from 1990.",
+       "de": "Wikidata nennt den 26. September 1962 bis 22. Mai 1990. Die Karte zeigt die Republik 1962–1989, wie den Eintrag für Nordjemen in Cliopatria, und die Republik Jemen ab 1990.",
+       "es": "Wikidata indica del 26 de septiembre de 1962 al 22 de mayo de 1990. El mapa muestra la república en 1962–1989, como la entrada de Cliopatria para Yemen del Norte, y la República de Yemen desde 1990.",
+       "fr": "Wikidata indique du 26 septembre 1962 au 22 mai 1990. La carte montre la république de 1962 à 1989, comme l'entrée de Cliopatria pour le Yémen du Nord, et la République du Yémen à partir de 1990."
+      },
+      "sources": [
+       "wp-yemen-arab-republic",
+       "wd-yemen-arab-republic",
+       "cliopatria"
+      ],
+      "review": "source-checked"
+     }
+    },
+    "sydjemen": {
+     "facts": {
+      "summary": {
+       "sv": "Sydjemen, Demokratiska folkrepubliken Jemen, växte fram ur den brittiska kolonin Aden och Adenprotektoratet. Efter ett väpnat uppror mot det brittiska styret från 1963 utropades Folkrepubliken Sydjemen 30 november 1967. Landet var den enda kommunistiska staten i arabvärlden och hade Aden som huvudstad. 22 maj 1990 gick det samman med Nordjemen.",
+       "en": "South Yemen, the People's Democratic Republic of Yemen, grew out of the British Colony of Aden and the Aden Protectorate. After an armed rebellion against British rule from 1963, the People's Republic of Southern Yemen was proclaimed on 30 November 1967. The country was the only communist state in the Arab world and had Aden as its capital. On 22 May 1990 it united with North Yemen.",
+       "de": "Der Südjemen, die Demokratische Volksrepublik Jemen, ging aus der britischen Kolonie Aden und dem Aden-Protektorat hervor. Nach einem bewaffneten Aufstand gegen die britische Herrschaft ab 1963 wurde am 30. November 1967 die Volksrepublik Südjemen ausgerufen. Das Land war der einzige kommunistische Staat der arabischen Welt und hatte Aden als Hauptstadt. Am 22. Mai 1990 vereinigte es sich mit dem Nordjemen.",
+       "es": "Yemen del Sur, la República Democrática Popular de Yemen, surgió de la colonia británica de Adén y del Protectorado de Adén. Tras una rebelión armada contra el dominio británico iniciada en 1963, el 30 de noviembre de 1967 se proclamó la República Popular de Yemen del Sur. El país fue el único Estado comunista del mundo árabe y tenía Adén como capital. El 22 de mayo de 1990 se unió con Yemen del Norte.",
+       "fr": "Le Yémen du Sud, la République démocratique populaire du Yémen, est issu de la colonie britannique d'Aden et du protectorat d'Aden. Après une rébellion armée contre la domination britannique à partir de 1963, la République populaire du Yémen du Sud fut proclamée le 30 novembre 1967. Le pays était le seul État communiste du monde arabe et avait Aden pour capitale. Le 22 mai 1990, il s'unit au Yémen du Nord."
+      },
+      "mapNote": {
+       "sv": "Källorna anger 1967–1990 (Wikidata 30 november 1967–22 maj 1990). Kartan visar landet 1969–1989, som Cliopatria; åren 1967–1968 räknar Cliopatria området till Brittiska imperiet.",
+       "en": "The sources give 1967–1990 (Wikidata 30 November 1967–22 May 1990). The map shows the country in 1969–1989, as in Cliopatria; in 1967–1968 Cliopatria counts the area as part of the British Empire.",
+       "de": "Die Quellen nennen 1967–1990 (Wikidata 30. November 1967 bis 22. Mai 1990). Die Karte zeigt das Land wie Cliopatria 1969–1989; 1967–1968 zählt Cliopatria das Gebiet zum Britischen Weltreich.",
+       "es": "Las fuentes indican 1967–1990 (Wikidata, del 30 de noviembre de 1967 al 22 de mayo de 1990). El mapa muestra el país en 1969–1989, como Cliopatria; en 1967–1968 Cliopatria cuenta la zona como parte del Imperio británico.",
+       "fr": "Les sources indiquent 1967–1990 (Wikidata, du 30 novembre 1967 au 22 mai 1990). La carte montre le pays de 1969 à 1989, comme Cliopatria ; en 1967–1968, Cliopatria compte la région comme partie de l'Empire britannique."
+      },
+      "sources": [
+       "wp-south-yemen",
+       "wd-south-yemen",
+       "cliopatria"
+      ],
+      "review": "source-checked"
+     }
+    }
+   }
   },
   {
    "id": "norge",
@@ -31532,10 +32348,38 @@
     "fr": "Zimbabwe"
    },
    "color": "#9a4a6a",
-   "from": 1983,
+   "from": 1967,
    "to": 2024,
    "file": "data/empires/zimbabwe.json",
    "polities": [
+    {
+     "id": "rhodesia",
+     "name": {
+      "sv": "Rhodesia",
+      "en": "Rhodesia",
+      "de": "Rhodesien",
+      "es": "Rodesia",
+      "fr": "Rhodésie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "zimbabwe-rhodesia",
+     "name": {
+      "sv": "Zimbabwe-Rhodesia",
+      "en": "Zimbabwe Rhodesia",
+      "de": "Simbabwe-Rhodesien",
+      "es": "Zimbabue Rodesia",
+      "fr": "Zimbabwe-Rhodésie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
     {
      "id": "zimbabwe",
      "name": {
@@ -31550,7 +32394,76 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "polityFacts": {
+    "rhodesia": {
+     "facts": {
+      "summary": {
+       "sv": "Rhodesia var en stat i södra Afrika 1965–1979 som inte erkändes internationellt. Den vita minoritetsregeringen i den brittiska kolonin Sydrhodesia förklarade sig ensidigt självständig från Storbritannien 11 november 1965 för att skjuta upp ett styre av den svarta majoriteten. FN:s säkerhetsråd uppmanade alla stater att inte erkänna landet (resolution 216). Två afrikanska nationalistpartier, ZAPU och ZANU, förde ett väpnat uppror, Rhodesiska bushkriget. Huvudstaden var Salisbury, i dag Harare.",
+       "en": "Rhodesia was an unrecognised state in Southern Africa in 1965–1979. The white minority government of the British colony of Southern Rhodesia unilaterally declared independence from the United Kingdom on 11 November 1965 to delay rule by the black majority. The UN Security Council called on all states not to recognise the country (Resolution 216). Two African nationalist parties, ZAPU and ZANU, waged an armed insurgency, the Rhodesian Bush War. The capital was Salisbury, now Harare.",
+       "de": "Rhodesien war ein international nicht anerkannter Staat im südlichen Afrika 1965–1979. Die weiße Minderheitsregierung der britischen Kolonie Südrhodesien erklärte am 11. November 1965 einseitig die Unabhängigkeit vom Vereinigten Königreich, um eine Herrschaft der schwarzen Mehrheit hinauszuzögern. Der UN-Sicherheitsrat forderte alle Staaten auf, das Land nicht anzuerkennen (Resolution 216). Zwei afrikanische nationalistische Parteien, ZAPU und ZANU, führten einen bewaffneten Aufstand, den Rhodesischen Buschkrieg. Hauptstadt war Salisbury, heute Harare.",
+       "es": "Rodesia fue un Estado no reconocido internacionalmente en el sur de África en 1965–1979. El gobierno de la minoría blanca de la colonia británica de Rodesia del Sur declaró unilateralmente la independencia del Reino Unido el 11 de noviembre de 1965 para retrasar un gobierno de la mayoría negra. El Consejo de Seguridad de la ONU pidió a todos los Estados que no reconocieran el país (resolución 216). Dos partidos nacionalistas africanos, ZAPU y ZANU, libraron una insurgencia armada, la guerra de Rodesia. La capital era Salisbury, hoy Harare.",
+       "fr": "La Rhodésie était un État d'Afrique australe non reconnu internationalement, de 1965 à 1979. Le gouvernement de la minorité blanche de la colonie britannique de Rhodésie du Sud proclama unilatéralement son indépendance vis-à-vis du Royaume-Uni le 11 novembre 1965 pour retarder un gouvernement de la majorité noire. Le Conseil de sécurité de l'ONU appela tous les États à ne pas reconnaître le pays (résolution 216). Deux partis nationalistes africains, la ZAPU et la ZANU, menèrent une insurrection armée, la guerre du Bush de Rhodésie. La capitale était Salisbury, aujourd'hui Harare."
+      },
+      "mapNote": {
+       "sv": "Källorna anger 1965–1979 (Wikidata 11 november 1965–1 juni 1979). Kartan visar Rhodesia 1967–1978, som Cliopatria, som räknar landet till Brittiska imperiet 1965–1966 och också 1967–1968; de två senare åren visar kartan bara Rhodesia. Rhodesia erkändes aldrig, men kartan visar landet som Cliopatria gör, enligt Historia-globens beslut.",
+       "en": "The sources give 1965–1979 (Wikidata 11 November 1965–1 June 1979). The map shows Rhodesia in 1967–1978, as in Cliopatria, which counts the country as part of the British Empire in 1965–1966 and also in 1967–1968; in the latter two years the map shows only Rhodesia. Rhodesia was never recognised, but the map shows the country as Cliopatria does, by decision of Historia-globen.",
+       "de": "Die Quellen nennen 1965–1979 (Wikidata 11. November 1965 bis 1. Juni 1979). Die Karte zeigt Rhodesien wie Cliopatria 1967–1978. Cliopatria zählt das Land 1965–1966 und auch 1967–1968 zum Britischen Weltreich; in den beiden letzteren Jahren zeigt die Karte nur Rhodesien. Rhodesien wurde nie anerkannt, doch die Karte zeigt das Land nach einer Entscheidung von Historia-globen so wie Cliopatria.",
+       "es": "Las fuentes indican 1965–1979 (Wikidata, del 11 de noviembre de 1965 al 1 de junio de 1979). El mapa muestra Rodesia en 1967–1978, como Cliopatria, que cuenta el país como parte del Imperio británico en 1965–1966 y también en 1967–1968; en estos dos últimos años el mapa solo muestra Rodesia. Rodesia nunca fue reconocida, pero el mapa muestra el país como lo hace Cliopatria, por decisión de Historia-globen.",
+       "fr": "Les sources indiquent 1965–1979 (Wikidata, du 11 novembre 1965 au 1er juin 1979). La carte montre la Rhodésie de 1967 à 1978, comme Cliopatria, qui compte le pays comme partie de l'Empire britannique en 1965–1966 et aussi en 1967–1968 ; pour ces deux dernières années, la carte ne montre que la Rhodésie. La Rhodésie ne fut jamais reconnue, mais la carte montre le pays comme le fait Cliopatria, sur décision d'Historia-globen."
+      },
+      "sources": [
+       "wp-rhodesia",
+       "wd-rhodesia",
+       "cliopatria"
+      ],
+      "review": "source-checked"
+     }
+    },
+    "zimbabwe-rhodesia": {
+     "facts": {
+      "summary": {
+       "sv": "Zimbabwe-Rhodesia var landets namn från 1 juni 1979, efter val och en övergångsregering där Abel Muzorewa efterträdde Ian Smith. Inte heller Zimbabwe-Rhodesia erkändes av andra länder. I december 1979 kom parterna överens om att landet åter skulle bli en brittisk koloni i väntan på nya val, och 18 april 1980 blev det självständigt som Zimbabwe.",
+       "en": "Zimbabwe Rhodesia was the name of the country from 1 June 1979, after elections and a transitional government in which Abel Muzorewa succeeded Ian Smith. Zimbabwe Rhodesia was not recognised by other countries either. In December 1979 the parties agreed that the country would revert to being a British colony pending new elections, and on 18 April 1980 it became independent as Zimbabwe.",
+       "de": "Simbabwe-Rhodesien hieß das Land ab dem 1. Juni 1979, nach Wahlen und einer Übergangsregierung, in der Abel Muzorewa auf Ian Smith folgte. Auch Simbabwe-Rhodesien wurde von anderen Ländern nicht anerkannt. Im Dezember 1979 einigten sich die Parteien darauf, dass das Land bis zu Neuwahlen wieder britische Kolonie wurde, und am 18. April 1980 wurde es als Simbabwe unabhängig.",
+       "es": "Zimbabue Rodesia fue el nombre del país desde el 1 de junio de 1979, tras unas elecciones y un gobierno de transición en el que Abel Muzorewa sucedió a Ian Smith. Tampoco Zimbabue Rodesia fue reconocida por otros países. En diciembre de 1979 las partes acordaron que el país volviera a ser colonia británica hasta unas nuevas elecciones, y el 18 de abril de 1980 se independizó como Zimbabue.",
+       "fr": "Zimbabwe-Rhodésie fut le nom du pays à partir du 1er juin 1979, après des élections et un gouvernement de transition dans lequel Abel Muzorewa succéda à Ian Smith. Le Zimbabwe-Rhodésie ne fut pas non plus reconnu par d'autres pays. En décembre 1979, les parties convinrent que le pays redeviendrait une colonie britannique en attendant de nouvelles élections, et le 18 avril 1980 il devint indépendant sous le nom de Zimbabwe."
+      },
+      "mapNote": {
+       "sv": "Källorna skiljer sig: Wikipedia anger 1 juni 1979–18 april 1980 och Wikidata 1 juni–12 december 1979. Cliopatria har Zimbabwe-Rhodesia 1979–1982. Kartan visar Zimbabwe-Rhodesia 1979 och Zimbabwe från 1980, som Wikidata och Wikipedia, med Cliopatrias gräns för Zimbabwe-Rhodesia, som är densamma som Zimbabwes gräns 1983.",
+       "en": "The sources differ: Wikipedia gives 1 June 1979–18 April 1980 and Wikidata 1 June–12 December 1979. Cliopatria has Zimbabwe Rhodesia in 1979–1982. The map shows Zimbabwe Rhodesia in 1979 and Zimbabwe from 1980, as Wikidata and Wikipedia do, with Cliopatria's border for Zimbabwe Rhodesia, which is the same as Zimbabwe's border in 1983.",
+       "de": "Die Quellen weichen voneinander ab: Wikipedia nennt den 1. Juni 1979 bis 18. April 1980 und Wikidata den 1. Juni bis 12. Dezember 1979. Cliopatria hat Simbabwe-Rhodesien 1979–1982. Die Karte zeigt Simbabwe-Rhodesien 1979 und Simbabwe ab 1980, wie Wikidata und Wikipedia, mit der Grenze von Simbabwe-Rhodesien aus Cliopatria, die dieselbe ist wie die Grenze Simbabwes 1983.",
+       "es": "Las fuentes difieren: Wikipedia indica del 1 de junio de 1979 al 18 de abril de 1980 y Wikidata del 1 de junio al 12 de diciembre de 1979. Cliopatria tiene Zimbabue Rodesia en 1979–1982. El mapa muestra Zimbabue Rodesia en 1979 y Zimbabue desde 1980, como Wikidata y Wikipedia, con la frontera de Zimbabue Rodesia de Cliopatria, que es la misma que la de Zimbabue en 1983.",
+       "fr": "Les sources divergent : Wikipédia indique du 1er juin 1979 au 18 avril 1980 et Wikidata du 1er juin au 12 décembre 1979. Cliopatria a le Zimbabwe-Rhodésie de 1979 à 1982. La carte montre le Zimbabwe-Rhodésie en 1979 et le Zimbabwe à partir de 1980, comme Wikidata et Wikipédia, avec la frontière du Zimbabwe-Rhodésie de Cliopatria, qui est la même que celle du Zimbabwe en 1983."
+      },
+      "sources": [
+       "wp-zimbabwe-rhodesia",
+       "wd-zimbabwe-rhodesia",
+       "wp-rhodesia",
+       "wp-zimbabwe",
+       "wd-zimbabwe",
+       "cliopatria"
+      ],
+      "review": "source-checked"
+     }
+    }
+   },
+   "facts": {
+    "mapNote": {
+     "sv": "Zimbabwe blev självständigt 18 april 1980 (Wikipedia och Wikidata). Cliopatria kallar landet Zimbabwe-Rhodesia till och med 1982; kartan visar Zimbabwe från 1980, med samma gräns. Före 1980 visar kartan Rhodesia (1967–1978) och Zimbabwe-Rhodesia (1979).",
+     "en": "Zimbabwe became independent on 18 April 1980 (Wikipedia and Wikidata). Cliopatria calls the country Zimbabwe Rhodesia until 1982; the map shows Zimbabwe from 1980, with the same border. Before 1980 the map shows Rhodesia (1967–1978) and Zimbabwe Rhodesia (1979).",
+     "de": "Simbabwe wurde am 18. April 1980 unabhängig (Wikipedia und Wikidata). Cliopatria nennt das Land bis 1982 Simbabwe-Rhodesien; die Karte zeigt Simbabwe ab 1980 mit derselben Grenze. Vor 1980 zeigt die Karte Rhodesien (1967–1978) und Simbabwe-Rhodesien (1979).",
+     "es": "Zimbabue se independizó el 18 de abril de 1980 (Wikipedia y Wikidata). Cliopatria llama al país Zimbabue Rodesia hasta 1982; el mapa muestra Zimbabue desde 1980, con la misma frontera. Antes de 1980 el mapa muestra Rodesia (1967–1978) y Zimbabue Rodesia (1979).",
+     "fr": "Le Zimbabwe devint indépendant le 18 avril 1980 (Wikipédia et Wikidata). Cliopatria appelle le pays Zimbabwe-Rhodésie jusqu'en 1982 ; la carte montre le Zimbabwe à partir de 1980, avec la même frontière. Avant 1980, la carte montre la Rhodésie (1967–1978) et le Zimbabwe-Rhodésie (1979)."
+    },
+    "sources": [
+     "wp-zimbabwe",
+     "wd-zimbabwe",
+     "wp-zimbabwe-rhodesia",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "tyskland",
@@ -31898,7 +32811,33 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "polityFacts": {
+    "muskat-och-oman": {
+     "facts": {
+      "summary": {
+       "sv": "Sultanatet Muskat och Oman stod i praktiken under brittiskt beskydd. Det uppstod 1856, när Omanska riket delades efter sultanen Said bin Sultans död, och styrdes av Al Busaid-dynastin. Efter en palatskupp 23 juli 1970 tog sultanens son Qaboos bin Said makten och grundade dagens Sultanatet Oman.",
+       "en": "The Sultanate of Muscat and Oman was in practice under British protection. It arose in 1856, when the Omani Empire was divided after the death of Sultan Said bin Sultan, and was ruled by the Al Busaid dynasty. After a palace coup on 23 July 1970 the sultan's son Qaboos bin Said took power and founded the present Sultanate of Oman.",
+       "de": "Das Sultanat Maskat und Oman stand faktisch unter britischem Schutz. Es entstand 1856, als das Omanische Reich nach dem Tod von Sultan Said bin Sultan geteilt wurde, und wurde von der Dynastie Al Busaid regiert. Nach einem Palastputsch am 23. Juli 1970 übernahm der Sohn des Sultans, Qabus bin Said, die Macht und gründete das heutige Sultanat Oman.",
+       "es": "El Sultanato de Mascate y Omán estaba en la práctica bajo protección británica. Surgió en 1856, cuando el Imperio omaní se dividió tras la muerte del sultán Said bin Sultán, y lo gobernó la dinastía Al Busaid. Tras un golpe palaciego el 23 de julio de 1970, el hijo del sultán, Qabús bin Said, tomó el poder y fundó el actual Sultanato de Omán.",
+       "fr": "Le sultanat de Mascate et Oman était en pratique sous protection britannique. Il naquit en 1856, lorsque l'Empire omanais fut partagé après la mort du sultan Saïd ben Sultan, et fut gouverné par la dynastie Al Bou Saïd. Après une révolution de palais le 23 juillet 1970, le fils du sultan, Qabous ben Saïd, prit le pouvoir et fonda l'actuel sultanat d'Oman."
+      },
+      "mapNote": {
+       "sv": "Wikidata anger 1820–1970 och Wikipedia att sultanatet uppstod 1856. Kartan visar Muskat och Oman 1900–1955, som Cliopatria, med ett undantag: Cliopatria har ingen post för landet 1947–1955, utan en post som heter Qatar Protectorate och har exakt samma gräns som Muskat och Oman 1946. Kartan visar den gränsen som Muskat och Oman. Från 1956 till 1972 räknar Cliopatria landet till Brittiska imperiet.",
+       "en": "Wikidata gives 1820–1970 and Wikipedia that the sultanate arose in 1856. The map shows Muscat and Oman in 1900–1955, as in Cliopatria, with one exception: Cliopatria has no entry for the country in 1947–1955, but an entry called Qatar Protectorate with exactly the same border as Muscat and Oman in 1946. The map shows that border as Muscat and Oman. From 1956 to 1972 Cliopatria counts the country as part of the British Empire.",
+       "de": "Wikidata nennt 1820–1970 und Wikipedia, dass das Sultanat 1856 entstand. Die Karte zeigt Maskat und Oman wie Cliopatria 1900–1955, mit einer Ausnahme: Cliopatria hat für 1947–1955 keinen Eintrag für das Land, sondern einen Eintrag namens Qatar Protectorate mit genau derselben Grenze wie Maskat und Oman 1946. Die Karte zeigt diese Grenze als Maskat und Oman. Von 1956 bis 1972 zählt Cliopatria das Land zum Britischen Weltreich.",
+       "es": "Wikidata indica 1820–1970 y Wikipedia que el sultanato surgió en 1856. El mapa muestra Mascate y Omán en 1900–1955, como Cliopatria, con una excepción: Cliopatria no tiene ninguna entrada para el país en 1947–1955, sino una entrada llamada Qatar Protectorate con exactamente la misma frontera que Mascate y Omán en 1946. El mapa muestra esa frontera como Mascate y Omán. De 1956 a 1972 Cliopatria cuenta el país como parte del Imperio británico.",
+       "fr": "Wikidata indique 1820–1970 et Wikipédia que le sultanat naquit en 1856. La carte montre Mascate et Oman de 1900 à 1955, comme Cliopatria, à une exception près : Cliopatria n'a pas d'entrée pour le pays de 1947 à 1955, mais une entrée appelée Qatar Protectorate avec exactement la même frontière que Mascate et Oman en 1946. La carte montre cette frontière comme Mascate et Oman. De 1956 à 1972, Cliopatria compte le pays comme partie de l'Empire britannique."
+      },
+      "sources": [
+       "wp-muscat-and-oman",
+       "wd-muscat-and-oman",
+       "cliopatria"
+      ],
+      "review": "source-checked"
+     }
+    }
+   }
   },
   {
    "id": "italien",
@@ -31952,7 +32891,7 @@
       "en": "Kingdom of Italy",
       "de": "Königreich Italien",
       "es": "Reino de Italia",
-      "fr": "royaume d'Italie"
+      "fr": "Royaume d'Italie"
      },
      "sources": [
       "cliopatria"
@@ -32207,7 +33146,7 @@
       "en": "Kingdom of Romania",
       "de": "Königreich Rumänien",
       "es": "Reino de Rumania",
-      "fr": "royaume de Roumanie"
+      "fr": "Royaume de Roumanie"
      },
      "sources": [
       "cliopatria"
@@ -32564,10 +33503,38 @@
     "fr": "Suriname"
    },
    "color": "#c0703a",
-   "from": 1976,
+   "from": 1820,
    "to": 2024,
    "file": "data/empires/surinam.json",
    "polities": [
+    {
+     "id": "kolonin-surinam",
+     "name": {
+      "sv": "Kolonin Surinam",
+      "en": "Surinam (Dutch colony)",
+      "de": "Kolonie Surinam",
+      "es": "Colonia de Surinam",
+      "fr": "Colonie du Suriname"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "surinam-i-kungariket",
+     "name": {
+      "sv": "Surinam inom kungariket Nederländerna",
+      "en": "Suriname in the Kingdom of the Netherlands",
+      "de": "Suriname im Königreich der Niederlande",
+      "es": "Surinam dentro del Reino de los Países Bajos",
+      "fr": "Suriname au sein du royaume des Pays-Bas"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
     {
      "id": "surinam",
      "name": {
@@ -32582,7 +33549,59 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "polityFacts": {
+    "kolonin-surinam": {
+     "facts": {
+      "summary": {
+       "sv": "Surinam var en nederländsk plantagekoloni från 1667, då nederländska styrkor tog den engelska kolonin under andra engelsk-nederländska kriget. Plantagerna drevs med förslavade afrikaner; omkring 300 000 fördes till Surinam, och slaveriet avskaffades 1863. Britterna ockuperade kolonin 1799–1802 och 1804–1816. Den förblev koloni till 15 december 1954.",
+       "en": "Surinam was a Dutch plantation colony from 1667, when Dutch forces captured the English colony during the Second Anglo-Dutch War. The plantations were worked by enslaved Africans; about 300,000 were taken to Surinam, and slavery was abolished in 1863. The British occupied the colony in 1799–1802 and 1804–1816. It remained a colony until 15 December 1954.",
+       "de": "Surinam war ab 1667 eine niederländische Plantagenkolonie, nachdem niederländische Truppen die englische Kolonie im Zweiten Englisch-Niederländischen Krieg erobert hatten. Auf den Plantagen arbeiteten versklavte Afrikaner; etwa 300.000 wurden nach Surinam gebracht, und die Sklaverei wurde 1863 abgeschafft. Die Briten besetzten die Kolonie 1799–1802 und 1804–1816. Sie blieb bis zum 15. Dezember 1954 Kolonie.",
+       "es": "Surinam fue una colonia neerlandesa de plantaciones desde 1667, cuando fuerzas neerlandesas tomaron la colonia inglesa durante la segunda guerra anglo-neerlandesa. Las plantaciones se explotaban con africanos esclavizados; unos 300 000 fueron llevados a Surinam, y la esclavitud se abolió en 1863. Los británicos ocuparon la colonia en 1799–1802 y 1804–1816. Siguió siendo colonia hasta el 15 de diciembre de 1954.",
+       "fr": "Le Suriname fut une colonie de plantation néerlandaise à partir de 1667, lorsque les forces néerlandaises prirent la colonie anglaise pendant la deuxième guerre anglo-néerlandaise. Les plantations reposaient sur des Africains réduits en esclavage ; environ 300 000 furent amenés au Suriname, et l'esclavage fut aboli en 1863. Les Britanniques occupèrent la colonie en 1799–1802 et 1804–1816. Elle resta une colonie jusqu'au 15 décembre 1954."
+      },
+      "mapNote": {
+       "sv": "Källorna skiljer sig något: Wikipedia anger 1667–15 december 1954 och Wikidata 1667–14 december 1954. Kartan visar kolonin 1820–1954. Cliopatria räknar Surinam 1820–1975 till posten Netherlands Antilles (Nederländska Antillerna), vars del på fastlandet har samma gräns som Surinam 1976 i Cliopatria; kartan visar Surinam med den gränsen. Åren före 1820 räknar Cliopatria Surinam till andra poster.",
+       "en": "The sources differ slightly: Wikipedia gives 1667–15 December 1954 and Wikidata 1667–14 December 1954. The map shows the colony in 1820–1954. Cliopatria counts Suriname in 1820–1975 as part of its entry Netherlands Antilles, whose mainland part has the same border as Suriname in 1976 in Cliopatria; the map shows Suriname with that border. In the years before 1820 Cliopatria counts Suriname as part of other entries.",
+       "de": "Die Quellen weichen leicht voneinander ab: Wikipedia nennt 1667 bis 15. Dezember 1954 und Wikidata 1667 bis 14. Dezember 1954. Die Karte zeigt die Kolonie 1820–1954. Cliopatria zählt Suriname 1820–1975 zum Eintrag Netherlands Antilles (Niederländische Antillen), dessen Teil auf dem Festland dieselbe Grenze hat wie Suriname 1976 in Cliopatria; die Karte zeigt Suriname mit dieser Grenze. In den Jahren vor 1820 zählt Cliopatria Suriname zu anderen Einträgen.",
+       "es": "Las fuentes difieren ligeramente: Wikipedia indica de 1667 al 15 de diciembre de 1954 y Wikidata de 1667 al 14 de diciembre de 1954. El mapa muestra la colonia en 1820–1954. Cliopatria cuenta Surinam en 1820–1975 dentro de su entrada Netherlands Antilles (Antillas Neerlandesas), cuya parte continental tiene la misma frontera que Surinam en 1976 en Cliopatria; el mapa muestra Surinam con esa frontera. En los años anteriores a 1820 Cliopatria cuenta Surinam dentro de otras entradas.",
+       "fr": "Les sources divergent légèrement : Wikipédia indique de 1667 au 15 décembre 1954 et Wikidata de 1667 au 14 décembre 1954. La carte montre la colonie de 1820 à 1954. Cliopatria compte le Suriname de 1820 à 1975 dans son entrée Netherlands Antilles (Antilles néerlandaises), dont la partie continentale a la même frontière que le Suriname en 1976 dans Cliopatria ; la carte montre le Suriname avec cette frontière. Pour les années avant 1820, Cliopatria compte le Suriname dans d'autres entrées."
+      },
+      "sources": [
+       "wp-surinam-dutch-colony",
+       "wp-suriname",
+       "wd-surinam-dutch-colony",
+       "cliopatria"
+      ],
+      "review": "source-checked"
+     }
+    },
+    "surinam-i-kungariket": {
+     "facts": {
+      "summary": {
+       "sv": "Genom stadgan för kungariket Nederländerna 15 december 1954 blev Surinam ett land inom kungariket, jämställt med Nederländerna och Nederländska Antillerna. Nederländerna behöll ansvaret för försvar och utrikespolitik. Efter förhandlingar med den nederländska regeringen blev Surinam självständigt 25 november 1975.",
+       "en": "Through the Charter for the Kingdom of the Netherlands of 15 December 1954, Suriname became a country within the Kingdom, on an equal footing with the Netherlands and the Netherlands Antilles. The Netherlands kept responsibility for defence and foreign affairs. After negotiations with the Dutch government, Suriname became independent on 25 November 1975.",
+       "de": "Durch das Statut für das Königreich der Niederlande vom 15. Dezember 1954 wurde Suriname ein gleichberechtigtes Land innerhalb des Königreichs, neben den Niederlanden und den Niederländischen Antillen. Die Niederlande behielten Verteidigung und Außenpolitik. Nach Verhandlungen mit der niederländischen Regierung wurde Suriname am 25. November 1975 unabhängig.",
+       "es": "Mediante el Estatuto del Reino de los Países Bajos del 15 de diciembre de 1954, Surinam pasó a ser un país dentro del Reino, en pie de igualdad con los Países Bajos y las Antillas Neerlandesas. Los Países Bajos conservaron la defensa y la política exterior. Tras negociaciones con el gobierno neerlandés, Surinam se independizó el 25 de noviembre de 1975.",
+       "fr": "Par la Charte du royaume des Pays-Bas du 15 décembre 1954, le Suriname devint un pays au sein du royaume, sur un pied d'égalité avec les Pays-Bas et les Antilles néerlandaises. Les Pays-Bas conservèrent la défense et les affaires étrangères. Après des négociations avec le gouvernement néerlandais, le Suriname devint indépendant le 25 novembre 1975."
+      },
+      "mapNote": {
+       "sv": "Källorna skiljer sig något: Wikipedia anger 15 december 1954 och Wikidata 29 december 1954 som start; båda anger självständigheten 25 november 1975. Kartan visar landet 1955–1975. Cliopatria räknar Surinam 1820–1975 till posten Netherlands Antilles (Nederländska Antillerna), vars del på fastlandet har samma gräns som Surinam 1976 i Cliopatria; kartan visar Surinam med den gränsen.",
+       "en": "The sources differ slightly: Wikipedia gives 15 December 1954 and Wikidata 29 December 1954 as the start; both give independence on 25 November 1975. The map shows the country in 1955–1975. Cliopatria counts Suriname in 1820–1975 as part of its entry Netherlands Antilles, whose mainland part has the same border as Suriname in 1976 in Cliopatria; the map shows Suriname with that border.",
+       "de": "Die Quellen weichen leicht voneinander ab: Wikipedia nennt den 15. Dezember 1954 und Wikidata den 29. Dezember 1954 als Beginn; beide nennen die Unabhängigkeit am 25. November 1975. Die Karte zeigt das Land 1955–1975. Cliopatria zählt Suriname 1820–1975 zum Eintrag Netherlands Antilles (Niederländische Antillen), dessen Teil auf dem Festland dieselbe Grenze hat wie Suriname 1976 in Cliopatria; die Karte zeigt Suriname mit dieser Grenze.",
+       "es": "Las fuentes difieren ligeramente: Wikipedia indica el 15 de diciembre de 1954 y Wikidata el 29 de diciembre de 1954 como inicio; ambas indican la independencia el 25 de noviembre de 1975. El mapa muestra el país en 1955–1975. Cliopatria cuenta Surinam en 1820–1975 dentro de su entrada Netherlands Antilles (Antillas Neerlandesas), cuya parte continental tiene la misma frontera que Surinam en 1976 en Cliopatria; el mapa muestra Surinam con esa frontera.",
+       "fr": "Les sources divergent légèrement : Wikipédia indique le 15 décembre 1954 et Wikidata le 29 décembre 1954 comme début ; toutes deux indiquent l'indépendance le 25 novembre 1975. La carte montre le pays de 1955 à 1975. Cliopatria compte le Suriname de 1820 à 1975 dans son entrée Netherlands Antilles (Antilles néerlandaises), dont la partie continentale a la même frontière que le Suriname en 1976 dans Cliopatria ; la carte montre le Suriname avec cette frontière."
+      },
+      "sources": [
+       "wp-suriname",
+       "wp-surinam-dutch-colony",
+       "wd-suriname-kingdom",
+       "cliopatria"
+      ],
+      "review": "source-checked"
+     }
+    }
+   }
   },
   {
    "id": "tadzjikistan",
@@ -32761,7 +33780,7 @@
      "label": {
       "sv": "Benins flagga",
       "en": "Flag of Benin",
-      "de": "Flagge Benins",
+      "de": "Flagge von Benin",
       "es": "Bandera de Benín",
       "fr": "Drapeau du Bénin"
      },
@@ -32777,7 +33796,7 @@
      "label": {
       "sv": "Benins flagga",
       "en": "Flag of Benin",
-      "de": "Flagge Benins",
+      "de": "Flagge von Benin",
       "es": "Bandera de Benín",
       "fr": "Drapeau du Bénin"
      },
@@ -32893,7 +33912,7 @@
       "en": "Kingdom of Iceland",
       "de": "Königreich Island",
       "es": "Reino de Islandia",
-      "fr": "royaume d'Islande"
+      "fr": "Royaume d'Islande"
      },
      "sources": [
       "cliopatria"
@@ -33292,10 +34311,38 @@
     "fr": "Serbie"
    },
    "color": "#8a5ab0",
-   "from": 2006,
+   "from": 1992,
    "to": 2024,
    "file": "data/empires/serbien.json",
    "polities": [
+    {
+     "id": "forbundsrepubliken-jugoslavien",
+     "name": {
+      "sv": "Förbundsrepubliken Jugoslavien",
+      "en": "Federal Republic of Yugoslavia",
+      "de": "Bundesrepublik Jugoslawien",
+      "es": "República Federal de Yugoslavia",
+      "fr": "République fédérale de Yougoslavie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "serbien-och-montenegro",
+     "name": {
+      "sv": "Serbien och Montenegro",
+      "en": "Serbia and Montenegro",
+      "de": "Serbien und Montenegro",
+      "es": "Serbia y Montenegro",
+      "fr": "Serbie-et-Monténégro"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
     {
      "id": "serbien",
      "name": {
@@ -33324,6 +34371,58 @@
      "cliopatria"
     ],
     "review": "source-checked"
+   },
+   "polityFacts": {
+    "forbundsrepubliken-jugoslavien": {
+     "facts": {
+      "summary": {
+       "sv": "Förbundsrepubliken Jugoslavien bildades av Serbien och Montenegro 27 april 1992, när Socialistiska federativa republiken Jugoslavien föll sönder. FN godtog inte att den var den gamla statens fortsättning (säkerhetsrådets resolution 777), och den fick inte gå med i FN. Under krigen i Jugoslavien och Kosovokriget drabbades landet av ekonomiska sanktioner. I februari 2003 ombildades förbundet till statsunionen Serbien och Montenegro.",
+       "en": "The Federal Republic of Yugoslavia was formed by Serbia and Montenegro on 27 April 1992, when the Socialist Federal Republic of Yugoslavia broke up. The UN did not accept it as the continuation of the old state (Security Council Resolution 777), and it was not allowed to join the UN. During the Yugoslav Wars and the Kosovo War the country was hit by economic sanctions. In February 2003 the federation was reconstituted as the state union of Serbia and Montenegro.",
+       "de": "Die Bundesrepublik Jugoslawien wurde am 27. April 1992 von Serbien und Montenegro gebildet, als die Sozialistische Föderative Republik Jugoslawien zerfiel. Die UNO erkannte sie nicht als Fortsetzung des alten Staates an (Resolution 777 des Sicherheitsrats), und sie durfte der UNO nicht beitreten. Während der Jugoslawienkriege und des Kosovokriegs wurden Wirtschaftssanktionen gegen das Land verhängt. Im Februar 2003 wurde der Bund in den Staatenbund Serbien und Montenegro umgewandelt.",
+       "es": "La República Federal de Yugoslavia fue formada por Serbia y Montenegro el 27 de abril de 1992, cuando se desintegró la República Federativa Socialista de Yugoslavia. La ONU no aceptó que fuera la continuación del antiguo Estado (resolución 777 del Consejo de Seguridad), y no se le permitió ingresar en la ONU. Durante las guerras yugoslavas y la guerra de Kosovo el país sufrió sanciones económicas. En febrero de 2003 la federación se transformó en la unión estatal de Serbia y Montenegro.",
+       "fr": "La République fédérale de Yougoslavie fut formée par la Serbie et le Monténégro le 27 avril 1992, lors de l'éclatement de la République fédérative socialiste de Yougoslavie. L'ONU n'accepta pas qu'elle soit la continuation de l'ancien État (résolution 777 du Conseil de sécurité), et elle ne fut pas autorisée à adhérer à l'ONU. Pendant les guerres de Yougoslavie et la guerre du Kosovo, le pays fut frappé de sanctions économiques. En février 2003, la fédération devint l'union d'États de Serbie-et-Monténégro."
+      },
+      "mapNote": {
+       "sv": "Wikidata anger 27 april 1992–4 februari 2003. Cliopatria kallar staten Serbia-Montenegro 1992–2005 och räknar 1992–1995 också Republiken Serbiska Krajina i Kroatien och stora delar av Bosnien och Hercegovina till den. Kartan visar i stället staten med sin egen gräns 1996 i Cliopatria även 1992–1995, och de områdena som en del av Kroatien och Bosnien och Hercegovina, enligt Historia-globens beslut att rita den internationellt erkända staten vid krig och ockupation. Från 2000 ingår Kosovo inte i Cliopatrias gräns.",
+       "en": "Wikidata gives 27 April 1992–4 February 2003. Cliopatria calls the state Serbia-Montenegro in 1992–2005 and in 1992–1995 also counts the Republic of Serbian Krajina in Croatia and large parts of Bosnia and Herzegovina as part of it. The map instead shows the state with its own 1996 border from Cliopatria in 1992–1995 as well, and those areas as part of Croatia and Bosnia and Herzegovina, by decision of Historia-globen to show the internationally recognised state in times of war and occupation. From 2000 Kosovo is not included in Cliopatria's border.",
+       "de": "Wikidata nennt den 27. April 1992 bis 4. Februar 2003. Cliopatria nennt den Staat 1992–2005 Serbia-Montenegro und zählt 1992–1995 auch die Republik Serbische Krajina in Kroatien und große Teile Bosnien und Herzegowinas dazu. Die Karte zeigt den Staat stattdessen auch 1992–1995 mit seiner eigenen Grenze von 1996 aus Cliopatria und diese Gebiete als Teil Kroatiens und Bosnien und Herzegowinas, nach der Entscheidung von Historia-globen, bei Krieg und Besatzung den international anerkannten Staat zu zeigen. Ab 2000 gehört Kosovo nicht zur Grenze in Cliopatria.",
+       "es": "Wikidata indica del 27 de abril de 1992 al 4 de febrero de 2003. Cliopatria llama al Estado Serbia-Montenegro en 1992–2005 y en 1992–1995 también le atribuye la República Serbia de Krajina, en Croacia, y gran parte de Bosnia y Herzegovina. En cambio, el mapa muestra el Estado también en 1992–1995 con su propia frontera de 1996 según Cliopatria, y esas zonas como parte de Croacia y de Bosnia y Herzegovina, por decisión de Historia-globen de mostrar el Estado reconocido internacionalmente en caso de guerra y ocupación. Desde 2000 Kosovo no forma parte de la frontera de Cliopatria.",
+       "fr": "Wikidata indique du 27 avril 1992 au 4 février 2003. Cliopatria appelle l'État Serbia-Montenegro de 1992 à 2005 et lui attribue aussi, de 1992 à 1995, la République serbe de Krajina, en Croatie, et de grandes parties de la Bosnie-Herzégovine. La carte montre au contraire l'État avec sa propre frontière de 1996 selon Cliopatria aussi de 1992 à 1995, et ces zones comme parties de la Croatie et de la Bosnie-Herzégovine, sur décision d'Historia-globen de montrer l'État reconnu internationalement en cas de guerre et d'occupation. À partir de 2000, le Kosovo ne fait pas partie de la frontière de Cliopatria."
+      },
+      "sources": [
+       "wp-serbia-and-montenegro",
+       "wd-federal-republic-of-yugoslavia",
+       "wp-republic-of-serbian-krajina",
+       "wp-bosnian-war",
+       "cliopatria"
+      ],
+      "review": "source-checked"
+     }
+    },
+    "serbien-och-montenegro": {
+     "facts": {
+      "summary": {
+       "sv": "Statsunionen Serbien och Montenegro ersatte Förbundsrepubliken Jugoslavien i februari 2003. Montenegro lämnade unionen i juni 2006, och därefter utropade Serbien sin självständighet.",
+       "en": "The state union of Serbia and Montenegro replaced the Federal Republic of Yugoslavia in February 2003. Montenegro left the union in June 2006, after which Serbia proclaimed its independence.",
+       "de": "Der Staatenbund Serbien und Montenegro ersetzte im Februar 2003 die Bundesrepublik Jugoslawien. Montenegro verließ den Bund im Juni 2006, und danach erklärte Serbien seine Unabhängigkeit.",
+       "es": "La unión estatal de Serbia y Montenegro sustituyó a la República Federal de Yugoslavia en febrero de 2003. Montenegro abandonó la unión en junio de 2006, y después Serbia proclamó su independencia.",
+       "fr": "L'union d'États de Serbie-et-Monténégro remplaça la République fédérale de Yougoslavie en février 2003. Le Monténégro quitta l'union en juin 2006, après quoi la Serbie proclama son indépendance."
+      },
+      "mapNote": {
+       "sv": "Wikidata anger 2003–4 juni 2006. Kartan visar statsunionen 2003–2005 och Serbien och Montenegro som egna länder från 2006, som Cliopatria.",
+       "en": "Wikidata gives 2003–4 June 2006. The map shows the state union in 2003–2005 and Serbia and Montenegro as separate countries from 2006, as in Cliopatria.",
+       "de": "Wikidata nennt 2003 bis 4. Juni 2006. Die Karte zeigt wie Cliopatria den Staatenbund 2003–2005 und Serbien und Montenegro ab 2006 als eigene Länder.",
+       "es": "Wikidata indica de 2003 al 4 de junio de 2006. El mapa muestra la unión estatal en 2003–2005 y Serbia y Montenegro como países propios desde 2006, como Cliopatria.",
+       "fr": "Wikidata indique de 2003 au 4 juin 2006. La carte montre l'union d'États de 2003 à 2005, puis la Serbie et le Monténégro comme pays distincts à partir de 2006, comme Cliopatria."
+      },
+      "sources": [
+       "wp-serbia-and-montenegro",
+       "wd-serbia-and-montenegro",
+       "cliopatria"
+      ],
+      "review": "source-checked"
+     }
+    }
    }
   },
   {
@@ -33675,7 +34774,22 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Under kriget 1991–1995 kontrollerade serbiska styrkor mer än en fjärdedel av Kroatien, den självutropade Republiken Serbiska Krajina, som inte erkändes internationellt. Cliopatria räknar de områdena till Förbundsrepubliken Jugoslavien 1992–1995. Kartan visar i stället hela Kroatien de åren, med landets gräns 1996 i Cliopatria, enligt Historia-globens beslut att rita den internationellt erkända staten vid krig och ockupation. Kroatien erkändes internationellt som självständig stat 1992.",
+     "en": "During the war of 1991–1995 Serb forces controlled more than a quarter of Croatia, the self-proclaimed Republic of Serbian Krajina, which was not recognised internationally. Cliopatria counts those areas as part of the Federal Republic of Yugoslavia in 1992–1995. The map instead shows the whole of Croatia in those years, with the country's 1996 border in Cliopatria, by decision of Historia-globen to show the internationally recognised state in times of war and occupation. Croatia was recognised internationally as an independent state in 1992.",
+     "de": "Im Krieg 1991–1995 kontrollierten serbische Truppen mehr als ein Viertel Kroatiens, die selbsternannte Republik Serbische Krajina, die international nicht anerkannt wurde. Cliopatria zählt diese Gebiete 1992–1995 zur Bundesrepublik Jugoslawien. Die Karte zeigt in diesen Jahren stattdessen ganz Kroatien, mit der Grenze des Landes von 1996 in Cliopatria, nach der Entscheidung von Historia-globen, bei Krieg und Besatzung den international anerkannten Staat zu zeigen. Kroatien wurde 1992 international als unabhängiger Staat anerkannt.",
+     "es": "Durante la guerra de 1991–1995, las fuerzas serbias controlaron más de una cuarta parte de Croacia, la autoproclamada República Serbia de Krajina, que no fue reconocida internacionalmente. Cliopatria cuenta esas zonas como parte de la República Federal de Yugoslavia en 1992–1995. En cambio, el mapa muestra toda Croacia en esos años, con la frontera del país de 1996 en Cliopatria, por decisión de Historia-globen de mostrar el Estado reconocido internacionalmente en caso de guerra y ocupación. Croacia fue reconocida internacionalmente como Estado independiente en 1992.",
+     "fr": "Pendant la guerre de 1991 à 1995, les forces serbes contrôlèrent plus d'un quart de la Croatie, l'autoproclamée République serbe de Krajina, qui ne fut pas reconnue internationalement. Cliopatria compte ces zones comme partie de la République fédérale de Yougoslavie de 1992 à 1995. La carte montre au contraire toute la Croatie pendant ces années, avec la frontière du pays de 1996 dans Cliopatria, sur décision d'Historia-globen de montrer l'État reconnu internationalement en cas de guerre et d'occupation. La Croatie fut reconnue internationalement comme État indépendant en 1992."
+    },
+    "sources": [
+     "wp-croatian-war-of-independence",
+     "wp-republic-of-serbian-krajina",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "bosnien-och-hercegovina",
@@ -33706,7 +34820,21 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Under Bosnienkriget 1992–1995 stred regeringen mot utbrytarstaterna Republika Srpska och Herceg-Bosna, som leddes och försörjdes av Serbien respektive Kroatien. Cliopatria räknar 1992–1995 omkring tre fjärdedelar av landet till Förbundsrepubliken Jugoslavien och Kroatien. Kartan visar i stället hela Bosnien och Hercegovina de åren, med landets gräns 1996 i Cliopatria, enligt Historia-globens beslut att rita den internationellt erkända staten vid krig och ockupation. Republiken Bosnien och Hercegovina erkändes internationellt 6 april 1992, och kriget slutade när Daytonavtalet paraferades 21 november 1995.",
+     "en": "During the Bosnian War of 1992–1995 the government fought the breakaway proto-states of Republika Srpska and Herzeg-Bosnia, led and supplied by Serbia and Croatia respectively. In 1992–1995 Cliopatria counts about three quarters of the country as part of the Federal Republic of Yugoslavia and Croatia. The map instead shows the whole of Bosnia and Herzegovina in those years, with the country's 1996 border in Cliopatria, by decision of Historia-globen to show the internationally recognised state in times of war and occupation. The Republic of Bosnia and Herzegovina was recognised internationally on 6 April 1992, and the war ended when the Dayton Accords were initialled on 21 November 1995.",
+     "de": "Im Bosnienkrieg 1992–1995 kämpfte die Regierung gegen die abtrünnigen Gebilde Republika Srpska und Herceg-Bosna, die von Serbien beziehungsweise Kroatien geführt und versorgt wurden. Cliopatria zählt 1992–1995 etwa drei Viertel des Landes zur Bundesrepublik Jugoslawien und zu Kroatien. Die Karte zeigt in diesen Jahren stattdessen ganz Bosnien und Herzegowina, mit der Grenze des Landes von 1996 in Cliopatria, nach der Entscheidung von Historia-globen, bei Krieg und Besatzung den international anerkannten Staat zu zeigen. Die Republik Bosnien und Herzegowina wurde am 6. April 1992 international anerkannt, und der Krieg endete mit der Paraphierung des Dayton-Abkommens am 21. November 1995.",
+     "es": "Durante la guerra de Bosnia de 1992–1995, el gobierno combatió contra los protoestados secesionistas de la República Srpska y Herceg-Bosna, dirigidos y abastecidos por Serbia y Croacia respectivamente. En 1992–1995 Cliopatria cuenta cerca de tres cuartas partes del país como parte de la República Federal de Yugoslavia y de Croacia. En cambio, el mapa muestra toda Bosnia y Herzegovina en esos años, con la frontera del país de 1996 en Cliopatria, por decisión de Historia-globen de mostrar el Estado reconocido internacionalmente en caso de guerra y ocupación. La República de Bosnia y Herzegovina fue reconocida internacionalmente el 6 de abril de 1992, y la guerra terminó cuando se rubricaron los Acuerdos de Dayton el 21 de noviembre de 1995.",
+     "fr": "Pendant la guerre de Bosnie-Herzégovine de 1992 à 1995, le gouvernement combattit les proto-États sécessionnistes de la Republika Srpska et de l'Herceg-Bosna, dirigés et approvisionnés respectivement par la Serbie et la Croatie. De 1992 à 1995, Cliopatria compte environ les trois quarts du pays comme parties de la République fédérale de Yougoslavie et de la Croatie. La carte montre au contraire toute la Bosnie-Herzégovine pendant ces années, avec la frontière du pays de 1996 dans Cliopatria, sur décision d'Historia-globen de montrer l'État reconnu internationalement en cas de guerre et d'occupation. La République de Bosnie-Herzégovine fut reconnue internationalement le 6 avril 1992, et la guerre prit fin avec le paraphe des accords de Dayton le 21 novembre 1995."
+    },
+    "sources": [
+     "wp-bosnian-war",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "estland",
@@ -34313,10 +35441,38 @@
     "fr": "Albanie"
    },
    "color": "#c04a4a",
-   "from": 1991,
+   "from": 1912,
    "to": 2024,
    "file": "data/empires/albanien.json",
    "polities": [
+    {
+     "id": "albanien-1912",
+     "name": {
+      "sv": "Albanien",
+      "en": "Albania",
+      "de": "Albanien",
+      "es": "Albania",
+      "fr": "Albanie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "socialistiska-folkrepubliken-albanien",
+     "name": {
+      "sv": "Socialistiska folkrepubliken Albanien",
+      "en": "People's Socialist Republic of Albania",
+      "de": "Sozialistische Volksrepublik Albanien",
+      "es": "República Popular Socialista de Albania",
+      "fr": "République populaire socialiste d'Albanie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
     {
      "id": "albanien",
      "name": {
@@ -34331,7 +35487,59 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "polityFacts": {
+    "albanien-1912": {
+     "facts": {
+      "summary": {
+       "sv": "Albanien förklarade sig självständigt från Osmanska riket i Vlorë 28 november 1912. Furstendömet Albanien (1914–1925) bildades efter fördraget i London och klarade sig genom invasioner under första världskriget. 1925 avskaffades monarkin, och en republik utropades. När Italien invaderade landet 1939 styrdes det av kung Zog I, som gick i exil i Grekland, och Albanien blev ett italienskt protektorat.",
+       "en": "Albania declared its independence from the Ottoman Empire in Vlorë on 28 November 1912. The Principality of Albania (1914–1925) was formed after the Treaty of London and survived invasions during the First World War. In 1925 the monarchy was abolished and a republic was proclaimed. When Italy invaded the country in 1939 it was ruled by King Zog I, who went into exile in Greece, and Albania became an Italian protectorate.",
+       "de": "Albanien erklärte am 28. November 1912 in Vlora seine Unabhängigkeit vom Osmanischen Reich. Das Fürstentum Albanien (1914–1925) entstand nach dem Londoner Vertrag und überstand Invasionen im Ersten Weltkrieg. 1925 wurde die Monarchie abgeschafft und eine Republik ausgerufen. Als Italien das Land 1939 besetzte, wurde es von König Zogu I. regiert, der nach Griechenland ins Exil ging, und Albanien wurde ein italienisches Protektorat.",
+       "es": "Albania declaró su independencia del Imperio otomano en Vlorë el 28 de noviembre de 1912. El Principado de Albania (1914–1925) se formó tras el Tratado de Londres y sobrevivió a invasiones durante la Primera Guerra Mundial. En 1925 se abolió la monarquía y se proclamó una república. Cuando Italia invadió el país en 1939, lo gobernaba el rey Zog I, que se exilió en Grecia, y Albania se convirtió en un protectorado italiano.",
+       "fr": "L'Albanie proclama son indépendance vis-à-vis de l'Empire ottoman à Vlora le 28 novembre 1912. La principauté d'Albanie (1914–1925) fut formée après le traité de Londres et survécut à des invasions pendant la Première Guerre mondiale. En 1925, la monarchie fut abolie et une république proclamée. Lorsque l'Italie envahit le pays en 1939, il était gouverné par le roi Zog Ier, qui s'exila en Grèce, et l'Albanie devint un protectorat italien."
+      },
+      "mapNote": {
+       "sv": "Wikidata anger 28 november 1912 som start, samma år som kartan. Kartan följer Cliopatria: 1916–1919 visar den bara södra delen av landet, eftersom Cliopatria räknar resten till andra riken (Tirana till Österrike-Ungern 1916–1918 och till Italien 1919), och 1939–1943 räknar Cliopatria landet till Italien. Från 1944 visar kartan Albanien igen och från 1946 folkrepubliken.",
+       "en": "Wikidata gives 28 November 1912 as the start, the same year as the map. The map follows Cliopatria: in 1916–1919 it shows only the southern part of the country, because Cliopatria counts the rest as part of other empires (Tirana as part of Austria-Hungary in 1916–1918 and of Italy in 1919), and in 1939–1943 Cliopatria counts the country as part of Italy. From 1944 the map shows Albania again and from 1946 the People's Republic.",
+       "de": "Wikidata nennt den 28. November 1912 als Beginn, dasselbe Jahr wie die Karte. Die Karte folgt Cliopatria: 1916–1919 zeigt sie nur den Süden des Landes, weil Cliopatria den Rest zu anderen Reichen zählt (Tirana 1916–1918 zu Österreich-Ungarn und 1919 zu Italien), und 1939–1943 zählt Cliopatria das Land zu Italien. Ab 1944 zeigt die Karte wieder Albanien und ab 1946 die Volksrepublik.",
+       "es": "Wikidata indica el 28 de noviembre de 1912 como inicio, el mismo año que el mapa. El mapa sigue a Cliopatria: en 1916–1919 solo muestra el sur del país, porque Cliopatria cuenta el resto como parte de otros imperios (Tirana como parte de Austria-Hungría en 1916–1918 y de Italia en 1919), y en 1939–1943 Cliopatria cuenta el país como parte de Italia. Desde 1944 el mapa vuelve a mostrar Albania y desde 1946 la república popular.",
+       "fr": "Wikidata indique le 28 novembre 1912 comme début, la même année que la carte. La carte suit Cliopatria : de 1916 à 1919, elle ne montre que le sud du pays, car Cliopatria compte le reste comme partie d'autres empires (Tirana dans l'Autriche-Hongrie en 1916–1918 et dans l'Italie en 1919), et de 1939 à 1943 Cliopatria compte le pays comme partie de l'Italie. À partir de 1944, la carte montre de nouveau l'Albanie et, à partir de 1946, la république populaire."
+      },
+      "sources": [
+       "wp-albanian-declaration-of-independence",
+       "wp-principality-of-albania",
+       "wp-italian-invasion-of-albania",
+       "wd-albania",
+       "cliopatria"
+      ],
+      "review": "source-checked"
+     }
+    },
+    "socialistiska-folkrepubliken-albanien": {
+     "facts": {
+      "summary": {
+       "sv": "Socialistiska folkrepubliken Albanien var den kommunistiska staten i Albanien från 11 januari 1946 till 29 april 1991. Till 1976 hette den Folkrepubliken Albanien. Albanska arbetets parti hade ensamrätt på makten, och landet leddes av Enver Hoxha 1946–1985 och sedan av Ramiz Alia. Albanien bröt med Sovjetunionen och 1978 också med Kina, förklarade sig 1967 som världens första uttryckligen ateistiska stat och lämnade Warszawapakten efter invasionen av Tjeckoslovakien 1968.",
+       "en": "The People's Socialist Republic of Albania was the communist state in Albania from 11 January 1946 to 29 April 1991. Until 1976 it was called the People's Republic of Albania. The Party of Labour of Albania had a monopoly on power, and the country was led by Enver Hoxha in 1946–1985 and then by Ramiz Alia. Albania broke with the Soviet Union and in 1978 also with China, declared itself the world's first explicitly atheist state in 1967 and left the Warsaw Pact after the invasion of Czechoslovakia in 1968.",
+       "de": "Die Sozialistische Volksrepublik Albanien war vom 11. Januar 1946 bis 29. April 1991 der kommunistische Staat in Albanien. Bis 1976 hieß sie Volksrepublik Albanien. Die Partei der Arbeit Albaniens hatte das Machtmonopol, und das Land wurde 1946–1985 von Enver Hoxha und danach von Ramiz Alia geführt. Albanien brach mit der Sowjetunion und 1978 auch mit China, erklärte sich 1967 zum ersten ausdrücklich atheistischen Staat der Welt und trat nach dem Einmarsch in die Tschechoslowakei 1968 aus dem Warschauer Pakt aus.",
+       "es": "La República Popular Socialista de Albania fue el Estado comunista de Albania desde el 11 de enero de 1946 hasta el 29 de abril de 1991. Hasta 1976 se llamó República Popular de Albania. El Partido del Trabajo de Albania tenía el monopolio del poder, y el país fue dirigido por Enver Hoxha en 1946–1985 y después por Ramiz Alia. Albania rompió con la Unión Soviética y en 1978 también con China, se declaró en 1967 el primer Estado explícitamente ateo del mundo y abandonó el Pacto de Varsovia tras la invasión de Checoslovaquia en 1968.",
+       "fr": "La République populaire socialiste d'Albanie fut l'État communiste d'Albanie du 11 janvier 1946 au 29 avril 1991. Jusqu'en 1976, elle s'appelait République populaire d'Albanie. Le Parti du travail d'Albanie détenait le monopole du pouvoir, et le pays fut dirigé par Enver Hoxha de 1946 à 1985, puis par Ramiz Alia. L'Albanie rompit avec l'Union soviétique et, en 1978, aussi avec la Chine, se déclara en 1967 premier État explicitement athée du monde et quitta le pacte de Varsovie après l'invasion de la Tchécoslovaquie en 1968."
+      },
+      "mapNote": {
+       "sv": "Källorna skiljer sig: Wikipedia anger 11 januari 1946–29 april 1991 och Wikidata 11 januari 1946–22 mars 1992. Kartan visar folkrepubliken 1946–1990 och Republiken Albanien från 1991, som Cliopatria.",
+       "en": "The sources differ: Wikipedia gives 11 January 1946–29 April 1991 and Wikidata 11 January 1946–22 March 1992. The map shows the People's Republic in 1946–1990 and the Republic of Albania from 1991, as in Cliopatria.",
+       "de": "Die Quellen weichen voneinander ab: Wikipedia nennt den 11. Januar 1946 bis 29. April 1991 und Wikidata den 11. Januar 1946 bis 22. März 1992. Die Karte zeigt wie Cliopatria die Volksrepublik 1946–1990 und die Republik Albanien ab 1991.",
+       "es": "Las fuentes difieren: Wikipedia indica del 11 de enero de 1946 al 29 de abril de 1991 y Wikidata del 11 de enero de 1946 al 22 de marzo de 1992. El mapa muestra la república popular en 1946–1990 y la República de Albania desde 1991, como Cliopatria.",
+       "fr": "Les sources divergent : Wikipédia indique du 11 janvier 1946 au 29 avril 1991 et Wikidata du 11 janvier 1946 au 22 mars 1992. La carte montre la république populaire de 1946 à 1990 et la République d'Albanie à partir de 1991, comme Cliopatria."
+      },
+      "sources": [
+       "wp-peoples-socialist-republic-of-albania",
+       "wd-peoples-socialist-republic-of-albania",
+       "cliopatria"
+      ],
+      "review": "source-checked"
+     }
+    }
+   }
   },
   {
    "id": "moldavien",
@@ -35726,7 +36934,7 @@
     "sv": "Ghaznaviderna",
     "en": "Ghaznavid Empire",
     "de": "Ghaznawiden",
-    "es": "dinastía gaznávida",
+    "es": "Dinastía gaznávida",
     "fr": "Ghaznévides"
    },
    "color": "#4a9a6a",
@@ -35740,7 +36948,7 @@
       "sv": "Ghaznaviderna",
       "en": "Ghaznavid Empire",
       "de": "Ghaznawiden",
-      "es": "dinastía gaznávida",
+      "es": "Dinastía gaznávida",
       "fr": "Ghaznévides"
      },
      "sources": [
@@ -35787,7 +36995,7 @@
     "en": "Liao dynasty",
     "de": "Liao-Dynastie",
     "es": "Dinastía Liao",
-    "fr": "dynastie liao"
+    "fr": "Dynastie Liao"
    },
    "color": "#6a8ac0",
    "from": 911,
@@ -35801,7 +37009,7 @@
       "en": "Liao dynasty",
       "de": "Liao-Dynastie",
       "es": "Dinastía Liao",
-      "fr": "dynastie liao"
+      "fr": "Dynastie Liao"
      },
      "sources": [
       "cliopatria"
@@ -35877,7 +37085,7 @@
     "en": "Kingdom of Hungary",
     "de": "Königreich Ungarn",
     "es": "Reino de Hungría",
-    "fr": "royaume de Hongrie"
+    "fr": "Royaume de Hongrie"
    },
    "color": "#c05a4a",
    "from": 1000,
@@ -35891,7 +37099,7 @@
       "en": "Kingdom of Hungary",
       "de": "Königreich Ungarn",
       "es": "Reino de Hungría",
-      "fr": "royaume de Hongrie"
+      "fr": "Royaume de Hongrie"
      },
      "sources": [
       "cliopatria"
@@ -35907,7 +37115,7 @@
     "en": "Kingdom of France",
     "de": "Königreich Frankreich",
     "es": "Reino de Francia",
-    "fr": "royaume de France"
+    "fr": "Royaume de France"
    },
    "color": "#4a6ac0",
    "from": 990,
@@ -35981,7 +37189,7 @@
       "en": "Kingdom of France",
       "de": "Königreich Frankreich",
       "es": "Reino de Francia",
-      "fr": "royaume de France"
+      "fr": "Royaume de France"
      },
      "sources": [
       "cliopatria"
@@ -36008,7 +37216,7 @@
     "en": "Kingdom of England",
     "de": "Königreich England",
     "es": "Reino de Inglaterra",
-    "fr": "royaume d'Angleterre"
+    "fr": "Royaume d'Angleterre"
    },
    "color": "#c04a6a",
    "from": 936,
@@ -36022,7 +37230,7 @@
       "en": "Kingdom of England",
       "de": "Königreich England",
       "es": "Reino de Inglaterra",
-      "fr": "royaume d'Angleterre"
+      "fr": "Royaume d'Angleterre"
      },
      "sources": [
       "cliopatria"
@@ -36038,7 +37246,7 @@
     "en": "Old Kingdom of Norway",
     "de": "Königreich Norwegen",
     "es": "Reino de Noruega",
-    "fr": "royaume de Norvège (872-1397)"
+    "fr": "Royaume de Norvège"
    },
    "color": "#4a8a9a",
    "from": 866,
@@ -36052,7 +37260,7 @@
       "en": "Old Kingdom of Norway",
       "de": "Königreich Norwegen",
       "es": "Reino de Noruega",
-      "fr": "royaume de Norvège (872-1397)"
+      "fr": "Royaume de Norvège"
      },
      "sources": [
       "cliopatria"
@@ -36170,7 +37378,7 @@
     "sv": "Ayyubiderna",
     "en": "Ayyubid dynasty",
     "de": "Ayyubiden",
-    "es": "dinastía ayubí",
+    "es": "Dinastía ayubí",
     "fr": "Ayyoubides"
    },
    "color": "#5a9ab0",
@@ -36184,7 +37392,7 @@
       "sv": "Ayyubiderna",
       "en": "Ayyubid dynasty",
       "de": "Ayyubiden",
-      "es": "dinastía ayubí",
+      "es": "Dinastía ayubí",
       "fr": "Ayyoubides"
      },
      "sources": [
@@ -36201,7 +37409,7 @@
     "en": "Almohad Caliphate",
     "de": "Almohaden-Kalifat",
     "es": "Imperio almohade",
-    "fr": "califat almohade"
+    "fr": "Califat almohade"
    },
    "color": "#a05a8a",
    "from": 1139,
@@ -36258,7 +37466,7 @@
       "en": "Almohad Caliphate",
       "de": "Almohaden-Kalifat",
       "es": "Imperio almohade",
-      "fr": "califat almohade"
+      "fr": "Califat almohade"
      },
      "sources": [
       "cliopatria"
@@ -36274,7 +37482,7 @@
     "en": "Caliphate of Córdoba",
     "de": "Kalifat von Córdoba",
     "es": "Califato de Córdoba",
-    "fr": "califat de Cordoue"
+    "fr": "Califat de Cordoue"
    },
    "color": "#7a9a3a",
    "from": 936,
@@ -36288,7 +37496,7 @@
       "en": "Caliphate of Córdoba",
       "de": "Kalifat von Córdoba",
       "es": "Califato de Córdoba",
-      "fr": "califat de Cordoue"
+      "fr": "Califat de Cordoue"
      },
      "sources": [
       "cliopatria"
@@ -36466,8 +37674,8 @@
     "sv": "Mamluksultanatet",
     "en": "Mamluk Sultanate",
     "de": "Sultanat der Mameluken",
-    "es": "sultanato mameluco de Egipto",
-    "fr": "sultanat mamelouk d'Égypte"
+    "es": "Sultanato mameluco de Egipto",
+    "fr": "Sultanat mamelouk d'Égypte"
    },
    "color": "#a0804a",
    "from": 1241,
@@ -36480,8 +37688,8 @@
       "sv": "Mamluksultanatet",
       "en": "Mamluk Sultanate",
       "de": "Sultanat der Mameluken",
-      "es": "sultanato mameluco de Egipto",
-      "fr": "sultanat mamelouk d'Égypte"
+      "es": "Sultanato mameluco de Egipto",
+      "fr": "Sultanat mamelouk d'Égypte"
      },
      "sources": [
       "cliopatria"
@@ -36497,7 +37705,7 @@
     "en": "Kingdom of Denmark",
     "de": "Königreich Dänemark",
     "es": "Reino de Dinamarca",
-    "fr": "royaume de Danemark"
+    "fr": "Royaume de Danemark"
    },
    "color": "#c05a6a",
    "from": 936,
@@ -36511,7 +37719,7 @@
       "en": "Kingdom of Denmark",
       "de": "Königreich Dänemark",
       "es": "Reino de Dinamarca",
-      "fr": "royaume de Danemark"
+      "fr": "Royaume de Danemark"
      },
      "sources": [
       "cliopatria"
@@ -36525,7 +37733,7 @@
       "en": "Denmark–Norway",
       "de": "Dänemark-Norwegen",
       "es": "Reino de Dinamarca y Noruega",
-      "fr": "royaume de Danemark et de Norvège"
+      "fr": "Royaume de Danemark et de Norvège"
      },
      "sources": [
       "cliopatria"
@@ -36585,7 +37793,7 @@
     "en": "Grand Principality of Moscow",
     "de": "Großfürstentum Moskau",
     "es": "Principado de Moscú",
-    "fr": "grande-principauté de Moscou"
+    "fr": "Grande-principauté de Moscou"
    },
    "color": "#8a5ab0",
    "from": 1294,
@@ -36599,7 +37807,7 @@
       "en": "Grand Principality of Moscow",
       "de": "Großfürstentum Moskau",
       "es": "Principado de Moscú",
-      "fr": "grande-principauté de Moscou"
+      "fr": "Grande-principauté de Moscou"
      },
      "sources": [
       "cliopatria"
@@ -36615,7 +37823,7 @@
     "en": "Grand Duchy of Lithuania",
     "de": "Großfürstentum Litauen",
     "es": "Gran Ducado de Lituania",
-    "fr": "grand-duché de Lituanie"
+    "fr": "Grand-duché de Lituanie"
    },
    "color": "#5aa07a",
    "from": 1220,
@@ -36629,7 +37837,7 @@
       "en": "Grand Duchy of Lithuania",
       "de": "Großfürstentum Litauen",
       "es": "Gran Ducado de Lituania",
-      "fr": "grand-duché de Lituanie"
+      "fr": "Grand-duché de Lituanie"
      },
      "sources": [
       "cliopatria"
@@ -36645,7 +37853,7 @@
     "en": "Crown of Castile",
     "de": "Kastilien",
     "es": "Corona de Castilla",
-    "fr": "couronne de Castille"
+    "fr": "Couronne de Castille"
    },
    "color": "#c0a04a",
    "from": 1236,
@@ -36659,7 +37867,7 @@
       "en": "Crown of Castile",
       "de": "Kastilien",
       "es": "Corona de Castilla",
-      "fr": "couronne de Castille"
+      "fr": "Couronne de Castille"
      },
      "sources": [
       "cliopatria"
@@ -36794,7 +38002,7 @@
     "sv": "Västturkiska khaganatet",
     "en": "Western Turkic Khaganate",
     "de": "Westliches Türk-Kaganat",
-    "es": "kanato de los turcos occidentales",
+    "es": "Kanato de los turcos occidentales",
     "fr": "Khaganat turc occidental"
    },
    "color": "#4a9a8a",
@@ -36808,7 +38016,7 @@
       "sv": "Västturkiska khaganatet",
       "en": "Western Turkic Khaganate",
       "de": "Westliches Türk-Kaganat",
-      "es": "kanato de los turcos occidentales",
+      "es": "Kanato de los turcos occidentales",
       "fr": "Khaganat turc occidental"
      },
      "sources": [
@@ -36854,7 +38062,7 @@
     "sv": "Türgesh",
     "en": "Türgesh",
     "de": "Türgesch-Khaganat",
-    "es": "turgueses",
+    "es": "Turgueses",
     "fr": "Türgesh"
    },
    "color": "#b08a6a",
@@ -36868,7 +38076,7 @@
       "sv": "Türgesh",
       "en": "Türgesh",
       "de": "Türgesch-Khaganat",
-      "es": "turgueses",
+      "es": "Turgueses",
       "fr": "Türgesh"
      },
      "sources": [
@@ -36884,7 +38092,7 @@
     "sv": "Samanider",
     "en": "Samanid dynasty",
     "de": "Samaniden",
-    "es": "samánidas",
+    "es": "Samánidas",
     "fr": "Samanides"
    },
    "color": "#5aa05a",
@@ -36898,7 +38106,7 @@
       "sv": "Samanider",
       "en": "Samanid dynasty",
       "de": "Samaniden",
-      "es": "samánidas",
+      "es": "Samánidas",
       "fr": "Samanides"
      },
      "sources": [
@@ -36914,8 +38122,8 @@
     "sv": "Visigotiska riket",
     "en": "Visigothic Kingdom",
     "de": "Westgotenreich",
-    "es": "reino visigodo",
-    "fr": "royaume des Wisigoths"
+    "es": "Reino visigodo",
+    "fr": "Royaume des Wisigoths"
    },
    "color": "#a06a4a",
    "from": 426,
@@ -36928,8 +38136,8 @@
       "sv": "Visigotiska riket",
       "en": "Visigothic Kingdom",
       "de": "Westgotenreich",
-      "es": "reino visigodo",
-      "fr": "royaume des Wisigoths"
+      "es": "Reino visigodo",
+      "fr": "Royaume des Wisigoths"
      },
      "sources": [
       "cliopatria"
@@ -36943,9 +38151,9 @@
    "name": {
     "sv": "Norra Yuandynastin",
     "en": "Northern Yuan dynasty",
-    "de": "Nördliche Yuan Dynastie",
+    "de": "Nördliche Yuan-Dynastie",
     "es": "Yuan del Norte",
-    "fr": "dynastie Yuan du Nord"
+    "fr": "Dynastie Yuan du Nord"
    },
    "color": "#7a6ab0",
    "from": 1375,
@@ -36957,9 +38165,9 @@
      "name": {
       "sv": "Norra Yuandynastin",
       "en": "Northern Yuan dynasty",
-      "de": "Nördliche Yuan Dynastie",
+      "de": "Nördliche Yuan-Dynastie",
       "es": "Yuan del Norte",
-      "fr": "dynastie Yuan du Nord"
+      "fr": "Dynastie Yuan du Nord"
      },
      "sources": [
       "cliopatria"
@@ -37004,8 +38212,8 @@
     "sv": "Córdobaemiratet",
     "en": "Emirate of Córdoba",
     "de": "Emirat von Córdoba",
-    "es": "emirato de Córdoba",
-    "fr": "émirat de Cordoue"
+    "es": "Emirato de Córdoba",
+    "fr": "Émirat de Cordoue"
    },
    "color": "#6a9a3a",
    "from": 757,
@@ -37018,8 +38226,8 @@
       "sv": "Córdobaemiratet",
       "en": "Emirate of Córdoba",
       "de": "Emirat von Córdoba",
-      "es": "emirato de Córdoba",
-      "fr": "émirat de Cordoue"
+      "es": "Emirato de Córdoba",
+      "fr": "Émirat de Cordoue"
      },
      "sources": [
       "cliopatria"
@@ -37034,8 +38242,8 @@
     "sv": "Suidynastin",
     "en": "Sui dynasty",
     "de": "Sui-Dynastie",
-    "es": "dinastía Sui",
-    "fr": "dynastie Sui"
+    "es": "Dinastía Sui",
+    "fr": "Dynastie Sui"
    },
    "color": "#c0604a",
    "from": 587,
@@ -37048,8 +38256,8 @@
       "sv": "Suidynastin",
       "en": "Sui dynasty",
       "de": "Sui-Dynastie",
-      "es": "dinastía Sui",
-      "fr": "dynastie Sui"
+      "es": "Dinastía Sui",
+      "fr": "Dynastie Sui"
      },
      "sources": [
       "cliopatria"
@@ -37064,8 +38272,8 @@
     "sv": "Heftaliter",
     "en": "Hephthalites",
     "de": "Hephthaliten",
-    "es": "heftalita",
-    "fr": "Shvetahûna"
+    "es": "Heftalitas",
+    "fr": "Hephtalites"
    },
    "color": "#8a7a5a",
    "from": 410,
@@ -37078,8 +38286,8 @@
       "sv": "Heftaliter",
       "en": "Hephthalites",
       "de": "Hephthaliten",
-      "es": "heftalita",
-      "fr": "Shvetahûna"
+      "es": "Heftalitas",
+      "fr": "Hephtalites"
      },
      "sources": [
       "cliopatria"
@@ -37095,7 +38303,7 @@
     "en": "Southern Qi",
     "de": "Südliche Qi-Dynastie",
     "es": "Dinastía Qi del Sur",
-    "fr": "dynastie Qi du Sud"
+    "fr": "Dynastie Qi du Sud"
    },
    "color": "#5a8a6a",
    "from": 480,
@@ -37109,7 +38317,7 @@
       "en": "Southern Qi",
       "de": "Südliche Qi-Dynastie",
       "es": "Dinastía Qi del Sur",
-      "fr": "dynastie Qi du Sud"
+      "fr": "Dynastie Qi du Sud"
      },
      "sources": [
       "cliopatria"
@@ -37184,8 +38392,8 @@
     "sv": "Jindynastin",
     "en": "Jin dynasty",
     "de": "Jin-Dynastie",
-    "es": "dinastía Jin",
-    "fr": "dynastie Jin"
+    "es": "Dinastía Jin",
+    "fr": "Dynastie Jin"
    },
    "color": "#b08a3a",
    "from": 1126,
@@ -37198,8 +38406,8 @@
       "sv": "Jindynastin",
       "en": "Jin dynasty",
       "de": "Jin-Dynastie",
-      "es": "dinastía Jin",
-      "fr": "dynastie Jin"
+      "es": "Dinastía Jin",
+      "fr": "Dynastie Jin"
      },
      "sources": [
       "cliopatria"
@@ -37222,9 +38430,9 @@
      "name": {
       "sv": "Xixia",
       "en": "Western Xia",
-      "de": "Tanguten",
+      "de": "Westliche Xia",
       "es": "Imperio tangut",
-      "fr": "dynastie des Xia occidentaux"
+      "fr": "Dynastie des Xia occidentaux"
      },
      "relation": "vassalage",
      "from": 1126,
@@ -37236,7 +38444,7 @@
       "sv": "Södra Song",
       "en": "Southern Song",
       "de": "Südliche Song-Dynastie",
-      "es": "dinastía Song meridional",
+      "es": "Dinastía Song meridional",
       "fr": "Song méridionaux"
      },
      "relation": "allegiance",
@@ -37252,7 +38460,7 @@
     "en": "Qocho",
     "de": "Reich von Kocho",
     "es": "Reino Uigur de Qocho",
-    "fr": "Royaume Ouïghour de Qocho"
+    "fr": "Royaume ouïghour de Qocho"
    },
    "color": "#4a9ab0",
    "from": 860,
@@ -37266,7 +38474,7 @@
       "en": "Qocho",
       "de": "Reich von Kocho",
       "es": "Reino Uigur de Qocho",
-      "fr": "Royaume Ouïghour de Qocho"
+      "fr": "Royaume ouïghour de Qocho"
      },
      "sources": [
       "cliopatria"
@@ -37281,7 +38489,7 @@
     "sv": "Tulunider",
     "en": "Tulunids",
     "de": "Tuluniden",
-    "es": "tuluníes",
+    "es": "Tuluníes",
     "fr": "Toulounides"
    },
    "color": "#9a6a4a",
@@ -37295,7 +38503,7 @@
       "sv": "Tulunider",
       "en": "Tulunids",
       "de": "Tuluniden",
-      "es": "tuluníes",
+      "es": "Tuluníes",
       "fr": "Toulounides"
      },
      "sources": [
@@ -37311,7 +38519,7 @@
     "sv": "Rustamid dynasty",
     "en": "Rustamid dynasty",
     "de": "Rustamiden",
-    "es": "rostomitas",
+    "es": "Rostomitas",
     "fr": "Rostémides"
    },
    "color": "#6a7ab0",
@@ -37325,7 +38533,7 @@
       "sv": "Rustamid dynasty",
       "en": "Rustamid dynasty",
       "de": "Rustamiden",
-      "es": "rostomitas",
+      "es": "Rostomitas",
       "fr": "Rostémides"
      },
      "sources": [
@@ -37341,7 +38549,7 @@
     "sv": "Hafsiderna",
     "en": "Hafsid dynasty",
     "de": "Hafsiden",
-    "es": "dinastía hafsí",
+    "es": "Dinastía hafsí",
     "fr": "Hafsides"
    },
    "color": "#4a8a7a",
@@ -37355,7 +38563,7 @@
       "sv": "Hafsiderna",
       "en": "Hafsid dynasty",
       "de": "Hafsiden",
-      "es": "dinastía hafsí",
+      "es": "Dinastía hafsí",
       "fr": "Hafsides"
      },
      "sources": [
@@ -37371,7 +38579,7 @@
     "sv": "Aghlabider",
     "en": "Aghlabids",
     "de": "Aghlabiden",
-    "es": "aglabí",
+    "es": "Aglabíes",
     "fr": "Aghlabides"
    },
    "color": "#b0605a",
@@ -37385,7 +38593,7 @@
       "sv": "Aghlabider",
       "en": "Aghlabids",
       "de": "Aghlabiden",
-      "es": "aglabí",
+      "es": "Aglabíes",
       "fr": "Aghlabides"
      },
      "sources": [
@@ -37492,7 +38700,7 @@
     "en": "Vakataka empire",
     "de": "Vakataka",
     "es": "Dinastia Vakataka",
-    "fr": "empire Vakataka"
+    "fr": "Empire Vakataka"
    },
    "color": "#a0604a",
    "from": 260,
@@ -37506,7 +38714,7 @@
       "en": "Vakataka empire",
       "de": "Vakataka",
       "es": "Dinastia Vakataka",
-      "fr": "empire Vakataka"
+      "fr": "Empire Vakataka"
      },
      "sources": [
       "cliopatria"
@@ -37522,7 +38730,7 @@
     "en": "Northern Wei",
     "de": "Nördliche Wei-Dynastie",
     "es": "Dinastía Wei del Norte",
-    "fr": "dynastie Wei du Nord"
+    "fr": "Dynastie Wei du Nord"
    },
    "color": "#5a7a9a",
    "from": 387,
@@ -37536,7 +38744,7 @@
       "en": "Northern Wei",
       "de": "Nördliche Wei-Dynastie",
       "es": "Dinastía Wei del Norte",
-      "fr": "dynastie Wei du Nord"
+      "fr": "Dynastie Wei du Nord"
      },
      "sources": [
       "cliopatria"
@@ -37582,7 +38790,7 @@
     "en": "Principality of Galicia–Volhynia",
     "de": "Fürstentum Galizien-Wolhynien",
     "es": "Principado de Galicia-Volynia",
-    "fr": "principauté de Galicie-Volhynie"
+    "fr": "Principauté de Galicie-Volhynie"
    },
    "color": "#7a5a9a",
    "from": 1056,
@@ -37596,7 +38804,7 @@
       "en": "Principality of Galicia–Volhynia",
       "de": "Fürstentum Galizien-Wolhynien",
       "es": "Principado de Galicia-Volynia",
-      "fr": "principauté de Galicie-Volhynie"
+      "fr": "Principauté de Galicie-Volhynie"
      },
      "sources": [
       "cliopatria"
@@ -37702,7 +38910,7 @@
     "en": "Principality of Moldavia",
     "de": "Fürstentum Moldau",
     "es": "Principado de Moldavia",
-    "fr": "principauté de Moldavie"
+    "fr": "Principauté de Moldavie"
    },
    "color": "#5a9a7a",
    "from": 1363,
@@ -37716,7 +38924,7 @@
       "en": "Principality of Moldavia",
       "de": "Fürstentum Moldau",
       "es": "Principado de Moldavia",
-      "fr": "principauté de Moldavie"
+      "fr": "Principauté de Moldavie"
      },
      "sources": [
       "cliopatria"
@@ -37732,7 +38940,7 @@
     "en": "Rashidun Caliphate",
     "de": "Kalifat der Raschidun",
     "es": "Califato ortodoxo",
-    "fr": "califat Rachidun"
+    "fr": "Califat Rachidun"
    },
    "color": "#7a9a5a",
    "from": 633,
@@ -37746,7 +38954,7 @@
       "en": "Rashidun Caliphate",
       "de": "Kalifat der Raschidun",
       "es": "Califato ortodoxo",
-      "fr": "califat Rachidun"
+      "fr": "Califat Rachidun"
      },
      "sources": [
       "cliopatria"
@@ -37851,7 +39059,7 @@
     "sv": "Khanatet Kara-Khanid",
     "en": "Karakhanid Khanate",
     "de": "Karachaniden",
-    "es": "karajánidas",
+    "es": "Karajánidas",
     "fr": "Qarakhanides"
    },
    "color": "#5a8ab0",
@@ -37865,7 +39073,7 @@
       "sv": "Khanatet Kara-Khanid",
       "en": "Karakhanid Khanate",
       "de": "Karachaniden",
-      "es": "karajánidas",
+      "es": "Karajánidas",
       "fr": "Qarakhanides"
      },
      "sources": [
@@ -37911,8 +39119,8 @@
     "sv": "Tughlaqdynastin",
     "en": "Tughlaq dynasty",
     "de": "Tughluq-Dynastie",
-    "es": "dinastía tughlaq",
-    "fr": "dynastie des Tughlûq"
+    "es": "Dinastía tughlaq",
+    "fr": "Dynastie des Tughlûq"
    },
    "color": "#4a9a6a",
    "from": 1326,
@@ -37925,8 +39133,8 @@
       "sv": "Tughlaqdynastin",
       "en": "Tughlaq dynasty",
       "de": "Tughluq-Dynastie",
-      "es": "dinastía tughlaq",
-      "fr": "dynastie des Tughlûq"
+      "es": "Dinastía tughlaq",
+      "fr": "Dynastie des Tughlûq"
      },
      "sources": [
       "cliopatria"
@@ -37941,7 +39149,7 @@
     "sv": "Palariket",
     "en": "Pala Empire",
     "de": "Pala",
-    "es": "dinastía Pala",
+    "es": "Dinastía Pala",
     "fr": "Dynastie Pala"
    },
    "color": "#b09a5a",
@@ -37955,7 +39163,7 @@
       "sv": "Palariket",
       "en": "Pala Empire",
       "de": "Pala",
-      "es": "dinastía Pala",
+      "es": "Dinastía Pala",
       "fr": "Dynastie Pala"
      },
      "sources": [
@@ -37970,9 +39178,9 @@
    "name": {
     "sv": "Xixia",
     "en": "Western Xia",
-    "de": "Tanguten",
+    "de": "Westliche Xia",
     "es": "Imperio tangut",
-    "fr": "dynastie des Xia occidentaux"
+    "fr": "Dynastie des Xia occidentaux"
    },
    "color": "#9a5a4a",
    "from": 990,
@@ -37984,9 +39192,9 @@
      "name": {
       "sv": "Xixia",
       "en": "Western Xia",
-      "de": "Tanguten",
+      "de": "Westliche Xia",
       "es": "Imperio tangut",
-      "fr": "dynastie des Xia occidentaux"
+      "fr": "Dynastie des Xia occidentaux"
      },
      "sources": [
       "cliopatria"
@@ -38091,8 +39299,8 @@
     "sv": "Östgoternas rike",
     "en": "Ostrogothic Kingdom",
     "de": "Ostgotenreich",
-    "es": "reino ostrogodo de Italia",
-    "fr": "royaume des Ostrogoths"
+    "es": "Reino ostrogodo de Italia",
+    "fr": "Royaume des Ostrogoths"
    },
    "color": "#9a6a5a",
    "from": 500,
@@ -38105,8 +39313,8 @@
       "sv": "Östgoternas rike",
       "en": "Ostrogothic Kingdom",
       "de": "Ostgotenreich",
-      "es": "reino ostrogodo de Italia",
-      "fr": "royaume des Ostrogoths"
+      "es": "Reino ostrogodo de Italia",
+      "fr": "Royaume des Ostrogoths"
      },
      "sources": [
       "cliopatria"
@@ -38151,8 +39359,8 @@
     "sv": "Jindynastin (266–420)",
     "en": "Jin dynasty (266–420)",
     "de": "Jin-Dynastie (266–420)",
-    "es": "dinastía Jin (266–420)",
-    "fr": "dynastie Jin (266–420)"
+    "es": "Dinastía Jin (266–420)",
+    "fr": "Dynastie Jin (266–420)"
    },
    "color": "#c08a5a",
    "from": 265,
@@ -38165,8 +39373,8 @@
       "sv": "Jindynastin (266–420)",
       "en": "Jin dynasty (266–420)",
       "de": "Jin-Dynastie (266–420)",
-      "es": "dinastía Jin (266–420)",
-      "fr": "dynastie Jin (266–420)"
+      "es": "Dinastía Jin (266–420)",
+      "fr": "Dynastie Jin (266–420)"
      },
      "sources": [
       "cliopatria"
@@ -38242,7 +39450,7 @@
     "en": "Kingdom of Kush",
     "de": "Reich von Kusch",
     "es": "Reino de Kush",
-    "fr": "royaume de Koush"
+    "fr": "Royaume de Koush"
    },
    "color": "#a0603a",
    "from": -1000,
@@ -38256,7 +39464,7 @@
       "en": "Kingdom of Kush",
       "de": "Reich von Kusch",
       "es": "Reino de Kush",
-      "fr": "royaume de Koush"
+      "fr": "Royaume de Koush"
      },
      "sources": [
       "cliopatria"
@@ -38272,7 +39480,7 @@
     "en": "Ptolemaic Kingdom",
     "de": "Ptolemäisches Königreich",
     "es": "Egipto tolemaico",
-    "fr": "royaume ptolémaïque"
+    "fr": "Royaume ptolémaïque"
    },
    "color": "#4a7ab0",
    "from": -304,
@@ -38286,7 +39494,7 @@
       "en": "Ptolemaic Kingdom",
       "de": "Ptolemäisches Königreich",
       "es": "Egipto tolemaico",
-      "fr": "royaume ptolémaïque"
+      "fr": "Royaume ptolémaïque"
      },
      "sources": [
       "cliopatria"
@@ -38331,7 +39539,7 @@
     "sv": "De västra regionernas protektorat",
     "en": "Protectorate of the Western Regions",
     "de": "Protektorat der Westlichen Regionen",
-    "es": "protectorado de las regiones occidentales",
+    "es": "Protectorado de las regiones occidentales",
     "fr": "Protectorat des Régions de l'Ouest"
    },
    "color": "#6a9a8a",
@@ -38345,7 +39553,7 @@
       "sv": "De västra regionernas protektorat",
       "en": "Protectorate of the Western Regions",
       "de": "Protektorat der Westlichen Regionen",
-      "es": "protectorado de las regiones occidentales",
+      "es": "Protectorado de las regiones occidentales",
       "fr": "Protectorat des Régions de l'Ouest"
      },
      "sources": [
@@ -38422,7 +39630,7 @@
     "en": "Pagan kingdom",
     "de": "Königreich von Bagan",
     "es": "Reino de Pagan",
-    "fr": "royaume de Pagan"
+    "fr": "Royaume de Pagan"
    },
    "color": "#9aa04a",
    "from": 850,
@@ -38436,7 +39644,7 @@
       "en": "Pagan kingdom",
       "de": "Königreich von Bagan",
       "es": "Reino de Pagan",
-      "fr": "royaume de Pagan"
+      "fr": "Royaume de Pagan"
      },
      "sources": [
       "cliopatria"
@@ -38451,7 +39659,7 @@
     "sv": "Rasulid dynasty",
     "en": "Rasulid dynasty",
     "de": "Rasuliden",
-    "es": "dinastía rasúlida",
+    "es": "Dinastía rasúlida",
     "fr": "Rassoulides"
    },
    "color": "#4a8aa0",
@@ -38465,7 +39673,7 @@
       "sv": "Rasulid dynasty",
       "en": "Rasulid dynasty",
       "de": "Rasuliden",
-      "es": "dinastía rasúlida",
+      "es": "Dinastía rasúlida",
       "fr": "Rassoulides"
      },
      "sources": [
@@ -38482,7 +39690,7 @@
     "en": "Chola Empire",
     "de": "Chola Empire",
     "es": "Imperio Chola",
-    "fr": "empire Chola"
+    "fr": "Empire Chola"
    },
    "color": "#c0704a",
    "from": 850,
@@ -38496,7 +39704,7 @@
       "en": "Chola Empire",
       "de": "Chola Empire",
       "es": "Imperio Chola",
-      "fr": "empire Chola"
+      "fr": "Empire Chola"
      },
      "sources": [
       "cliopatria"

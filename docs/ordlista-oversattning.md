@@ -41,9 +41,11 @@ Artigt tilltal i alla språk, så att tyska, spanska och franska är lika:
 - Månader skrivs med liten bokstav på båda språken: `14 de julio de 1789`, `14 juillet 1789`.
 - **Datum i gränssnittet (#983):** `formatDate` och datum med dagprecision i `formatEventTime` följer språkets datumformat. Tyska har punkt efter dagen (`4. Juli 1776`), spanska har `de` före månad och år. Svenska och engelska behåller dag–månad–år (`4 juli 1776`, `4 July 1776`); franska följer exemplet ovan. `Intl.DateTimeFormat` ger ordningen och skiljetecknen (engelska med `en-GB`); månadsnamnen hämtas fortfarande ur språkfilen och årtalet följer modellens tideräkning. Inga datum i innehållet ändras.
 
+- **Årstider i stoppens datum (#1473):** `stopDate` i `model.js` skriver en årstid ur edtf (`1405-21` till `1405-24`) med nycklarna `time.season.spring|summer|autumn|winter` och `{year}`. Svenska bestämd form (`hösten 1405`), engelska `autumn 1405` (brittiskt), tyska `Herbst 1405` (`Frühjahr` för våren), spanska `otoño de 1405` (alltid med `de`) och franska `automne 1405` (utan artikel). Samma former som i resornas egna etiketter (`dateLabel`) i `data/routes/`.
+
 ## 3. Siffror och tecken
 
-- **Tusental** (mängd, inte år): **franska** har hårt mellanrum från fyra siffror, "4 000 ans". **Spanska** har mellanrum först från fem siffror, "4000 años" men "40 000 años", enligt RAE (Diccionario panhispánico de dudas, "números", § 2a; beslut 2026-11-12, [docs/beslut/2026-11-12-spanska-tusental.md](beslut/2026-11-12-spanska-tusental.md)). Som år alltid utan mellanrum.
+- **Tusental** (mängd, inte år): **franska** har hårt mellanrum från fyra siffror, "4 000 ans". **Spanska** har mellanrum först från fem siffror, "4000 años" men "40 000 años" (hårt mellanrum U+00A0, så att talet inte bryts över två rader, #1385), enligt RAE (Diccionario panhispánico de dudas, "números", § 2a; beslut 2026-11-12, [docs/beslut/2026-11-12-spanska-tusental.md](beslut/2026-11-12-spanska-tusental.md)). Som år alltid utan mellanrum.
 - **Decimaler** med komma: `3,5 millones`, `3,5 millions`.
 - **Citattecken:** spanska `«…»`, franska `« … »` med hårda mellanrum innanför tecknen.
 - **Fransk typografi:** hårt mellanrum före `:`, `;`, `?`, `!` och `»`, och efter `«`. Apostrof `’` eller `'` som i gränssnittet; var konsekvent i samma fil.
@@ -84,6 +86,7 @@ Artigt tilltal i alla språk, så att tyska, spanska och franska är lika:
 | Visste du att …? | Did you know? | ¿Sabía que…? (artigt) | Le saviez-vous ? |
 | Översikt (vy) | Overview | Resumen | Aperçu |
 | Upptäcktsresor (vy och lager; inte kategorin) | Voyages of discovery | Viajes de descubrimiento | Grandes découvertes |
+| Föregående stopp / Nästa stopp (resa, #1380) | Previous stop / Next stop (de: *Vorherige Station* / *Nächste Station*) | Parada anterior / Parada siguiente | Étape précédente / Étape suivante |
 | Historia-globen (produktnamnet) | Historia-globen | Historia-globen | Historia-globen |
 
 **Ordval enligt #1140 (beslut 2026-11-11, [2026-11-11-ordval-1140](beslut/2026-11-11-ordval-1140.md)).** Tyska kolumnen står här eftersom tabellen saknar den: menyn *Suchen und folgen*, läget *folgen* (etikett *Sie folgen*), *Überblick* (vy), *Entdeckungsreisen* (vy och lager), *Wussten Sie?* (kortet och teckenförklaringen). Reglerna:
@@ -349,3 +352,80 @@ Profeten skrivs *Mahoma* och flykten till Medina *la hégira* (etablerade spansk
 | shinto | sintoísmo |
 | kinesisk religion (konfucianism, daoism) | religión china (confucianismo, taoísmo) |
 | Nyckelår (rubrik i faktarutan) | Años clave |
+
+## 16. Språkfynd ur expertgranskningen v6.3.0 (#1385)
+
+Rättat 2026-11-14 efter [expertgranskningen före v6.3.0](granskningar/2026-11-13-expertgranskning-v6-3-0.md). Formerna gäller från nu i nya och ändrade texter.
+
+| Svenska | Engelska | Tyska | Spanska | Franska |
+|---|---|---|---|---|
+| söva (före en operation) | *anaesthetise* (inte *put to sleep*, som också betyder avliva) | – | – | – |
+| Källorna skiljer sig | The sources differ | – | *Las fuentes difieren* (inte *Las fuentes no coinciden*) | *Les sources divergent* (13.4) |
+| Om tiden (rubrik i en anteckning om datering) | About the time | *Zur Datierung* (inte *Zur Zeit*, som betyder "för närvarande") | – | – |
+| folkvandringstiden, folkvandringen | – | *Völkerwanderung* | – | – |
+| lager (i Lager-menyn och teckenförklaringen) | layer | Ebene | capa | *calque* överallt (inte *couche*; *couche* får stå om jordlager i händelsetexter) |
+| inom {tid} från {år} | within {time} of {year} | – | – | *à moins de {within} de {at}* (inte *dans un rayon de*, som är ett avstånd) |
+| flaggetikett | – | *Flagge von Niger*, *Flagge von Mali*, *Flagge von Benin* (som *Flagge von Sierra Leone*) | – | – |
+| Licens: public domain (bildtext) | – | – | *Licencia: dominio público* | – |
+| Lgr22, årskurs 7–9 | Lgr22 (the Swedish compulsory school curriculum), years 7–9 | – | – | *Lgr22 (le programme suédois de l'école obligatoire)*, *classes 7 à 9 (numérotation suédoise)* första gången i en text |
+
+**Rikesnamn (kontrollerade 2026-11-14 mot öppnade artiklar på målspråkets Wikipedia):**
+
+| Svenska | Tyska | Spanska | Franska | Anmärkning |
+|---|---|---|---|---|
+| Xixia (Västra Xia) | *Westliche Xia* (inte *Tanguten*, som är folket, eller *Westlich-Xia*); i löptext *die Westliche Xia*, *der Westlichen Xia* | – | – | de.wikipedia "Westliche Xia-Dynastie": "Das Reich der Westlichen Xia-Dynastie", "Geschichte der Westlichen Xia" |
+| Heftaliter | – | *Heftalitas* | *Hephtalites* | es.wikipedia "Heftalita" (omdirigering från *Heftalitas*); fr.wikipedia "Shvetahûna" (omdirigering från *Hephtalites*, i texten "Ephthalites ou Hephthalites") |
+| Aghlabider | – | *Aglabíes* | – | es.wikipedia "Aglabí" (omdirigering från *Aglabíes*, i texten "Los aglabíes") |
+| Egyptens gamla rike | *Altes Reich* | – | *Ancien Empire* | utan "von Ägypten" och "de l'Égypte": riket står redan i gruppen Egypten |
+| Norra Yuan | *Nördliche Yuan-Dynastie* (bindestreck) | – | – | |
+
+- **Versal i spanska och franska rikesnamn:** första ordet får versal även när det är ett vanligt substantiv (*Reino visigodo*, *Dinastía Sui*, *Royaume de France*, *Dynastie Liao*), övriga ord följer avsnitt 3 (*Royaume ouïghour de Qocho*). Årtal hör inte till namnet (*Royaume de Norvège*, inte *royaume de Norvège (872-1397)*).
+
+## 17. Land, rike, stat, nation, plats och tema (#1266)
+
+Definitionerna står i [docs/produkt/13-ordlista.md](produkt/13-ordlista.md) ("Land, rike, stat, nation, plats och tema"). Tabellen ger ordet på varje språk. Där gränssnittet redan har ett ord står nyckeln, och ordet ändras inte här; ändringar görs i egna ärenden. Tilltalet följer avsnitt 1 (artigt, utom i texter för elever till och med 13 år).
+
+| Svenska | Engelska | Tyska | Spanska | Franska | I `data/ui/` |
+|---|---|---|---|---|---|
+| plats (samlingsordet, gruppen) | place, Places | Ort, Orte (i dag; se fråga 1 nedan) | lugar, Lugares | lieu, Lieux | `place.label`, `focus.tab.places` |
+| land | country | Land | país | pays | `place.type.country`, `review.subject.Landet` |
+| försvunnet land | former country (fliken: Vanished countries) | ehemaliges Land (fliken: Verschwundene Länder) | país desaparecido | pays disparu | `facts.kind.vanished`, `focus.tab.vanished` |
+| självstyrt område | autonomous territory | autonomes Gebiet | territorio autónomo | territoire autonome | `place.type.autonomous` |
+| rike | empire | Reich | imperio | empire | `facts.kind.empire`, `layer.areas` (se avsnitt 7, 9 och 11) |
+| stat | state | Staat | Estado | État | inget eget ord i gränssnittet |
+| nation | nation | Nation | nación | nation | inget eget ord i gränssnittet |
+| region (= världsdel) | continent | Kontinent | continente | continent | `region.<id>`, `hunt.progress`, `legend.continentNote` |
+| tema | theme | Thema | tema | thème | `theme.label`, `focus.tab.themes` |
+
+- **Land är inte rike på något språk.** *Country/Land/país/pays* är dagens land med dagens gräns; *empire/Reich/imperio/empire* är rikets historiska gräns. Översätt aldrig "landet" med *empire* eller *Reich*, eller "riket" med *country*.
+- **Stat och nation används inte som synonymer till land.** *Nation*, *nación* och franska *nation* betyder folket, inte området. Delstaterna i USA heter *estados* respektive *États* (avsnitt 17.1).
+- **Region** översätts inte med *region*, *Region*, *región* eller *région*, eftersom det på målspråken oftast betyder en del av ett land. Gränssnittet säger redan *continent*, *Kontinent*, *continente* och *continent*.
+
+### 17.1 Platstyper (för kommande platser; läggs i `place.type.<typ>` när typen byggs)
+
+Förslag till typer som ännu inte finns i datan. Kolumnen "Kontrollerad" anger öppnad källa; rader med `–` kontrolleras mot målspråkets Wikipedia när typen byggs (avsnitt 4, regel 5).
+
+| Svenska | Engelska | Tyska | Spanska | Franska | Kontrollerad |
+|---|---|---|---|---|---|
+| landskap (Sverige) | – | Landschaft (historische Provinz) | – | – | de: 2026-11-14, de.wikipedia "Landskap (Schweden)": "Landskap ist die schwedische Bezeichnung für eine historische Provinz"; aldrig *Provinz* ensamt, eftersom de.wikipedia "Provinz (Schweden)" leder till *Län* |
+| Bundesland (Tyskland, Österrike) | – | Land / Bundesland | – | – | de: 2026-11-14, de.wikipedia "Land (Deutschland)": *Land* är den officiella termen, "im allgemeinen Sprachgebrauch oft auch Bundesland genannt"; Österrike är inte kontrollerat. På kortet *Bundesland*, inte *Land*, eftersom *Land* redan är typen för ett land (`place.type.country`) |
+| kanton (Schweiz) | – | Kanton | – | – | de: 2026-11-14, de.wikipedia "Schweiz": "26 teilsouveränen Kantonen" |
+| delstat (USA) | state | Bundesstaat (på kortet: US-Bundesstaat, förslag från `sprak-de`) | estado | État | de: 2026-11-14, de.wikipedia "Vereinigte Staaten" ("50 Bundesstaaten"); es: es.wikipedia "Estados Unidos" ("cincuenta estados"); fr: fr.wikipedia "États-Unis" ("cinquante États"); en: – |
+
+### 17.2 Landsnamn med artikel och preposition
+
+Mallen `place.typeOf` ("{type} i {of}") sätter landets namn efter en fast preposition: *in* (en, de) och *en* (es, fr). Det fungerar för namn utan artikel, men inte för alla länder:
+
+| Språk | Fungerar | Fungerar inte (exempel, kontrollerade 2026-11-14) |
+|---|---|---|
+| Tyska | *in Schweden*, *in Dänemark*, *in Neuseeland* | *in der Schweiz* (de.wikipedia "Schweiz": "Die Schweiz …"), *in den USA* / *in den Vereinigten Staaten* (de.wikipedia "Vereinigte Staaten": "Die Vereinigten Staaten von Amerika", förkortat USA) |
+| Franska | *en Suède* (femininum) | *au Danemark* (fr.wikipedia "Danemark": "Le Danemark …"), *aux États-Unis* (fr.wikipedia "États-Unis": "Les États-Unis …") |
+| Engelska | *in Sweden*, *in Denmark* | *in the United States* (artikeln *the* behövs) |
+| Spanska | *en Suecia*, *en Estados Unidos* (es.wikipedia "Estados Unidos" skriver namnet utan *los*) | – |
+
+I dag har ingen plats `partOf`, så mallen visar bara typen och felet syns inte ännu. Det blir synligt när en plats inom ett land med artikel byggs (en kanton, en amerikansk delstat, eller Grönland "i Danmarks rike" på franska). Då behöver landsnamnet kunna lagras **med preposition och artikel per språk**; bygget är ett eget issue (#1479, väntar på beslut). Tills dess: skriv aldrig ihop en sådan fras i en översättning för hand.
+
+### 17.3 Öppna frågor (ändras inte i #1266)
+
+1. **Tyska samlingsordet: *Orte* eller *Gebiete*?** `sprak-de` föreslog *Gebiete* (planeringen i `docs/granskningar/2026-11-12-planering-regionhistoria.md`, punkt 11). Att tänka på före beslutet: *Gebiet* används redan i `data/ui/de.json` för andra områden (krigsområdet i `legend.warNote`, religionens område i `pop.religion`, Människans spridning i `layer.spreadNote` och typen *Autonomes Gebiet*), så ett kort om Grönland skulle få rubriken *Gebiet* och typen *Autonomes Gebiet*. Ändras det berörs `focus.tab.places` (*Orte*), `place.label` (*Ort*) och de övriga `place.*`-texterna med *Ort* i `data/ui/de.json`. Avgörs av DasKrokodil efter granskning av `sprak-de`.
+2. **Neuseeland/Aotearoa:** datan skriver *Neuseeland (Aotearoa)*, och de.wikipedia "Neuseeland" ger *Aotearoa* som maoriskt namn i inledningen. Ingen ändring behövs; samma mönster gäller de andra språken i `data/platser.json`.

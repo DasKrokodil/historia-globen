@@ -241,7 +241,7 @@
         "en": "Only the western part of New Holland shown by Blaeu's map. Eastern and inland Australia deliberately remain unknown in this layer.",
         "de": "Nur der westliche Teil von Neu-Holland, den Blaeus Karte zeigt. Ost- und Binnenaustralien bleiben in dieser Ebene bewusst unbekannt.",
         "es": "Solo la parte occidental de Nueva Holanda mostrada por el mapa de Blaeu. El este y el interior de Australia permanecen deliberadamente desconocidos en esta capa.",
-        "fr": "Seule la partie occidentale de la Nouvelle-Hollande montrée par la carte de Blaeu. L’est et l’intérieur de l’Australie restent délibérément inconnus dans cette couche."
+        "fr": "Seule la partie occidentale de la Nouvelle-Hollande montrée par la carte de Blaeu. L’est et l’intérieur de l’Australie restent délibérément inconnus dans ce calque."
       },
       "geometry": {"type": "MultiPolygon", "coordinates": [
         [[[113,-13],[117,-14],[119,-18],[118,-23],[114,-27],[114,-31],[118,-34],[122,-34],[123,-30],[120,-26],[120,-20],[121,-15],[117,-12],[113,-13]]]

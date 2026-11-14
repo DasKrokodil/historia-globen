@@ -47,10 +47,17 @@ export function createFocus(app) {
     types.checkLoaded(post, f);
     // Något annat tog över medan fokuset laddades, eller ett läge som stoppar Fokus pågår (lektionen, #795)
     if (!app.store.current(ticket) || !app.store.canEnter('fokus')) return false;
+    // Ett tidsintervall som pågår avslutas av Fokus (MODE_RULES). En typ med startsAtRangeEnd (platsen, #1163) börjar vid intervallets
+    // slutår, som Tillbaka till ett år, och kortet säger att intervallet avslutades; övriga typer börjar som förut vid intervallets början
+    const closedRange = post.startsAtRangeEnd && state.range ? { from: state.range.from, to: state.range.to } : null;
     if (state.focus) endFocus(false);
     app.store.enter('fokus'); // avslutar en tur som pågår (MODE_RULES i js/state.js); turens lager återställs, inte dess fokus
-    // Året stannar om det ligger inom spannet; annars flyttas det till starten och flytten visas (#167)
-    const prevYear = timeline.year, prevText = timeline.format(prevYear), keepYear = prevYear >= f.from && prevYear <= f.to;
+    // Året stannar om det ligger inom spannet; annars flyttas det till starten och flytten visas (#167). Efter ett intervall: slutåret
+    // om det ligger inom spannet, annars intervallets början om den gör det (som förut), annars spannets start
+    const inSpan = y => y >= f.from && y <= f.to;
+    const prevYear = closedRange ? [closedRange.to, closedRange.from].map(Math.floor).find(inSpan) ?? Math.floor(closedRange.from) : timeline.year;
+    if (closedRange) f.closedRange = closedRange;
+    const prevText = timeline.format(prevYear), keepYear = inSpan(prevYear);
     post.prepare?.(f);
     const { war = null, route = null } = post.follows?.(f) ?? {};
     app.store.setFocus(f, { war, route });
@@ -68,6 +75,7 @@ export function createFocus(app) {
     const focusWar = state.focusWar;
     if (focusWar) timeline.setStory(warStory(focusWar, { timeline, focus: f, end: app.playback.warEndOf() }));
     const startYear = keepYear ? prevYear : f.from;
+    f.startYear = startYear; // kortet kan säga vilket år det visas för (#1163)
     app.playback.startAt(startYear);
     timeline.year = startYear;
     showMoved(keepYear ? null : { prevYear, prevText, startYear, short: f.short, movedKey: post.movedKey });
@@ -119,15 +127,19 @@ export function createFocus(app) {
     if (redraw) app.refresh();
   }
 
-  /** Escape stänger först det som ligger ovanpå. När temakortet redan är stängt lämnar nästa Escape temat. */
+  /** Följer man en resa (#1380)? Escape lämnar den som ett tema, så att man kommer ut utan musen när stegknapparna har fokus. */
+  const isRoute = () => state.focus?.type === 'route';
+
+  /** Escape stänger först det som ligger ovanpå. När temakortet redan är stängt lämnar nästa Escape temat, och likadant resan. */
   document.addEventListener('keydown', e => {
-    if (e.key !== 'Escape' || !isSelection()) return;
+    if (e.key !== 'Escape' || !(isSelection() || isRoute())) return;
     const overlay = ['detail', 'focus-menu', 'layer-menu', 'help', 'teacher', 'feedback', 'sources-dialog', 'jump-pop', 'religion-pop', 'route-pop']
       .some(id => { const el = $(id); return el && !el.hidden; });
     if (overlay || $('app').classList.contains('panel-open')) return;
     e.preventDefault();
     endFocus();
-    $('btn-focus').focus({ preventScroll: true });
+    // Sök och följ ligger i menyn Meny i smal skärm och syns inte där: fokus går då till menyknappen i stället för att tappas
+    ['btn-focus', 'more-toggle', 'btn-more'].map($).find(el => el?.getClientRects().length)?.focus({ preventScroll: true });
   }, { capture: true });
 
   // Fokusmenyn listar posternas grupper. Resorna, religionerna, temana och platserna hämtas när menyn öppnas.

@@ -38,6 +38,7 @@ import { createRender } from './controllers/render.js';
 import { createPlayback } from './controllers/playback.js';
 import { createRange } from './controllers/range.js';
 import { createLabels } from './controllers/labels.js';
+import { createPlaces } from './controllers/places.js';
 import { createAddress } from './controllers/address.js';
 import { createJumpBack } from './controllers/jump-back.js';
 import { createPresentation } from './controllers/presentation.js';
@@ -143,7 +144,7 @@ async function start() {
 
   const timeline = new Timeline({
     track: $('track'), thumb: $('thumb'), segs: $('track-segments'), ticks: $('ticks'),
-    dots: $('track-dots'), ffMarks: $('track-ff'), chapters: $('track-chapters'), warMarks: $('track-war'), markNote: $('timeline-mark-note'), playBtn: $('btn-play'), playIcon: $('play-icon'), pauseNote: $('pause-note'), pauseText: $('pause-text'),
+    dots: $('track-dots'), ffMarks: $('track-ff'), chapters: $('track-chapters'), warMarks: $('track-war'), markNote: $('timeline-mark-note'), scaleNote: $('timeline-scale-note'), playBtn: $('btn-play'), playIcon: $('play-icon'), pauseNote: $('pause-note'), pauseText: $('pause-text'),
     pauseGo: $('pause-go'), status: $('screen-reader-status'),
     stepBtns: document.querySelectorAll('.step[data-step]'), speedBtn: $('btn-speed'),
   });
@@ -308,6 +309,8 @@ async function start() {
   app.playback = createPlayback(app);
   // Tidsintervallet (#755): läget 'intervall' i lägeskontraktet, med formuläret i årshoppet och raden under årtalet
   app.range = createRange(app);
+  // Tryck på en plats med kort (#1161): konturerna, trycket, tangentbordets Enter och knappen Visa i Platt karta
+  app.places = createPlaces(app);
 
   panel.onSelect = (...a) => app.select(...a);
   panel.onFocus = id => app.startFocus(`war:${id}`);
@@ -322,7 +325,7 @@ async function start() {
   });
   // Knappen Fakta i fokusraden öppnar faktarutan eller kortet för det man följer igen (#170); posten i js/focus/ vet vilket
   $('focus-facts').addEventListener('click', () => focusCtl.showFacts());
-  panel.onThemeEvent = id => app.select(id);
+  panel.onThemeEvent = id => app.select(id, !app.tour?.active); // i en tur styr steget året: en rad i platsens kort hoppar inte (#1163)
   panel.onEndTheme = () => {
     app.endFocus();
     $('btn-focus').focus({ preventScroll: true });
@@ -345,7 +348,8 @@ async function start() {
       ff.setDetailOpen(true);
       if (cardFocus || listFocus) detail.querySelector('[data-close]')?.focus({ preventScroll: true });
       const title = detail.querySelector('h3')?.textContent.trim() ?? '';
-      if (title && title !== detailTitle) say(`${ui('detail.label')}: ${title}`, 'faktaruta', { priority: 2, immediate: true }); // går före Samtidigt-kortet och pausraden (#1419)
+      const kind = detail.classList.contains('detail-selection') ? detail.querySelector('.story-label')?.textContent.trim() : ''; // Plats och Tema i stället för Om händelsen, också i en turs steg där inget Fokus pågår (#1163)
+      if (title && title !== detailTitle) say(`${kind || ui('detail.label')}: ${title}`, 'faktaruta', { priority: 2, immediate: true }); // går före Samtidigt-kortet och pausraden (#1419)
       detailTitle = title;
       return;
     }
@@ -408,6 +412,12 @@ async function start() {
     window.addEventListener('resize', lift);
   }
   // Platsraden i faktarutan (#312, bara smal skärm): fäller ihop rutan till litet läge och visar markören på globen
+  // Knappen Visa i Platt karta i platsens kort (#1161): vyn byts och kartan ramar in platsen. På smal skärm fälls kortet ihop till
+  // litet läge så att kartan syns, och fokus går till dess handtag (knappen är då inte synlig)
+  panel.onPlaceFlat = place => {
+    app.places.showInFlat(place);
+    if (narrow.matches) { detailSheet.set('closed'); detailSheet.handle.focus({ preventScroll: true }); }
+  };
   panel.onShowPlace = e => {
     detailSheet.set('closed');
     globe.flyTo(e._lat, e._lon);
@@ -424,20 +434,23 @@ async function start() {
   // I Platt vy: klick bredvid markörerna (#38)
   flatMap.onMapClick = (ll, x, y) => {
     relLegend.hidePop(); routePop.hide(); popClick++;
-    routeClick(ll, x, y);
+    if (!routeClick(ll, x, y)) app.places.tap(ll); // sist: platsens kort (#1161). Platt vy har inget dubbeltryck som zoomar, så trycket väntar inte
   };
-  globe.onClick = (x, y) => {
+  globe.onClick = (x, y, pointerType) => {
     const hit = globe.pick(x, y, layer.sprites.filter(s => s.visible));
     relLegend.hidePop(); routePop.hide(); popClick++;
     app.select(hit ? hit.userData.event.id : null);
     // Händelsemarkörer har företräde, sedan vägar och resor (de ritas ovanpå områdena)
     if (!hit && routes.active.length && routeClick(globe.pickLatLon(x, y), x, y)) return;
     // Annars: vilken religion ligger under klicket? (#166)
+    let rh = null;
     if (!hit && religions.enabled && !state.faded.has('religions') && religions.active.length) {
       const ll = globe.pickLatLon(x, y);
-      const rh = ll && religions.hitTest(ll.lon, ll.lat);
+      rh = ll && religions.hitTest(ll.lon, ll.lat);
       if (rh) showReligionPop(rh, ll, x, y);
     }
+    // Sist: konturen av en plats med kort (#1161). Markörer, vägar och religioner har företräde och är oförändrade
+    if (!hit && !rh) app.places.tap(globe.pickLatLon(x, y), pointerType === 'touch' || pointerType === 'pen');
   };
   // Riket på just den platsen (#194): rikenas gränser laddas vid det första klicket.
   // Ett senare klick vinner om laddningen hinner bli klar efter det.
@@ -653,6 +666,7 @@ async function start() {
   }, toursData, {
     printRoot: $('print-sheet'),
     get lesson() { return app.lesson; }, // lektionsläget (#795) skapas efter spelaren
+    get places() { return app.places; }, // turens steg med en plats (#1163)
     timeline, globe, flatMap, layers, narrow, root: $('app'), events: data.byId,
     layerIds: new Set(registry.entries.map(e => e.id)), controlled: registry.viewLayers(views?.groups), empires: new Set(data.empireGroups.map(g => g.id)),
     select: (id, jump) => app.select(id, jump),

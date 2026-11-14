@@ -5,7 +5,7 @@
   "title": {
     "sv": "Hur föll Västromerska riket?",
     "en": "How did the Western Roman Empire fall?",
-    "fr": "Comment l'Empire romain d'Occident est-il tombé ?",
+    "fr": "Comment l'Empire romain d'Occident est-il tombé ?",
     "de": "Wie fiel das Weströmische Reich?",
     "es": "¿Cómo cayó el Imperio romano de Occidente?"
   },
@@ -18,6 +18,57 @@
   },
   "empire": "romarriket",
   "review": "source-checked",
+  "lesson": {
+    "grades": "7-9",
+    "minutes": 30,
+    "curriculum": [
+      {
+        "text": {
+          "sv": "Kopplad till Lgr22, historia i årskurs 7–9, Samhällsomvandlingar: antiken och vad den betyder för oss i dag. Turen visar hur den västra delen av Romarriket föll.",
+          "en": "Linked to Lgr22, history in years 7–9, Social transformations: antiquity and what it means for us today. The tour shows how the western part of the Roman Empire fell.",
+          "de": "Bezogen auf Lgr22, Geschichte in den Klassen 7–9, gesellschaftlicher Wandel: die Antike und was sie heute für uns bedeutet. Die Tour zeigt, wie der westliche Teil des Römischen Reiches fiel.",
+          "es": "Vinculado a Lgr22, historia en los cursos 7–9, transformaciones sociales: la Antigüedad y lo que significa para nosotros hoy. El recorrido muestra cómo cayó la parte occidental del Imperio romano.",
+          "fr": "En lien avec Lgr22 (le programme suédois de l'école obligatoire), histoire en classes 7 à 9 (numérotation suédoise), transformations des sociétés : l'Antiquité et ce qu'elle signifie pour nous aujourd'hui. La visite montre comment la partie occidentale de l'Empire romain est tombée."
+        },
+        "sources": [
+          "skolverket-lgr22-historia"
+        ]
+      },
+      {
+        "text": {
+          "sv": "Kopplad till Lgr22, historia i årskurs 7–9: att tolka historiska källor och granska dem källkritiskt.",
+          "en": "Linked to Lgr22, history in years 7–9: interpreting historical sources and examining them critically.",
+          "de": "Bezogen auf Lgr22, Geschichte in den Klassen 7–9: historische Quellen deuten und quellenkritisch prüfen.",
+          "es": "Vinculado a Lgr22, historia en los cursos 7–9: interpretar fuentes históricas y examinarlas con espíritu crítico.",
+          "fr": "En lien avec Lgr22, histoire en classes 7 à 9 : interpréter des sources historiques et les examiner de façon critique."
+        },
+        "sources": [
+          "skolverket-lgr22-historia"
+        ]
+      }
+    ],
+    "prerequisites": {
+      "sv": "Eleverna vet ungefär vad Romarriket var. Inget annat behövs.",
+      "en": "The students know roughly what the Roman Empire was. Nothing else is needed.",
+      "de": "Die Klasse weiß ungefähr, was das Römische Reich war. Mehr ist nicht nötig.",
+      "es": "Los alumnos saben más o menos qué fue el Imperio romano. No hace falta nada más.",
+      "fr": "Les élèves savent à peu près ce qu'était l'Empire romain. Rien d'autre n'est nécessaire."
+    },
+    "teacher": {
+      "sv": "Gör så här: öppna Turer och välj Hur föll Västromerska riket? under Hur föll det?. Visa turen på storskärm (lägg till ?presentation=1 i adressen) eller låt eleverna gå igenom den två och två. Turen har 7 steg, från omkring 360 till 476. Be eleverna titta på märkningen i varje kort, som säger vad källorna vet. Stanna vid de två frågorna (Ravenna 476 och Ett fall eller en förvandling?) och låt eleverna prata i par. Begrepp: Västrom är den västra delen av Romarriket. Den östra delen, Östrom, fanns kvar i nästan tusen år till, fram till 1453. Abdikera betyder att lämna tronen, och insignierna är kejsarens tecken på makt. Ordet barbarer finns inte i turen, där folken nämns vid namn; möter eleverna ordet i andra texter kan ni fråga vem som använde det och om vilka. Visa att det var flera folk och flera tillfällen (376, 410 och 455), och att 476 är en gräns som man har valt för ett långt förlopp. Svarsriktning: Ravenna 476: ett datum kan bli fel när en text skrivs av, och en allmän metod är att jämföra källorna; vilket datum det blev ändrar inte att förloppet var långt. Ett fall eller en förvandling?: forskare väljer olika förklaringar och olika slutår. Avslutning efter alla tre turerna om rikens fall: Försvann rikena helt, och vad är källorna oense om? Riktning: Östrom fortsatte, Hanriket delades i tre kungadömen (till 280) och Songhais kungar regerade vidare i Dendi. Tid: 5 minuter start, 20 minuter tur och 5 minuter exit ticket.",
+      "en": "How to: open Tours and choose How did the Western Roman Empire fall? under How did it fall?. Show the tour on a big screen (add ?presentation=1 to the address) or let the students go through it in pairs. The tour has 7 steps, from about 360 to 476. Ask the students to look at the label on each card, which says what the sources know. Stop at the two questions (Ravenna 476 and A fall or a transformation?) and let the students talk in pairs. Terms: the Western Roman Empire is the western part of the Roman Empire. The eastern part, the Eastern Roman Empire, lasted for almost another thousand years, until 1453. To abdicate means to give up the throne, and the insignia are the emperor's signs of power. The word barbarians is not used in the tour, where the peoples are named; if the students meet the word in other texts, you can ask who used it and about whom. Show that there were several peoples and several occasions (376, 410 and 455), and that 476 is a line chosen for a long process. Answer direction: Ravenna 476: a date can go wrong when a text is copied, and a general method is to compare the sources; whichever date it was does not change that the process was long. A fall or a transformation?: researchers choose different explanations and different end years. Wrap-up after all three tours about the fall of empires: Did the empires disappear completely, and what do the sources disagree on? Direction: the Eastern Roman Empire continued, the Han Empire split into three kingdoms (until 280) and the Songhai kings went on ruling in Dendi. Timing: 5 minutes to start, 20 minutes of tour and 5 minutes of exit ticket.",
+      "de": "So geht es: Öffnen Sie „Touren“ und wählen Sie „Wie fiel das Weströmische Reich?“ unter „Wie kam es zum Fall?“. Zeigen Sie die Tour auf einer Großleinwand (fügen Sie ?presentation=1 an die Adresse an) oder lassen Sie die Klasse sie zu zweit durchgehen. Die Tour hat 7 Schritte, von etwa 360 bis 476. Lassen Sie die Klasse auf die Kennzeichnung jeder Karte achten: Sie sagt, was die Quellen wissen. Halten Sie bei den beiden Fragen an (Ravenna 476 und Ein Fall oder ein Wandel?) und lassen Sie die Klasse zu zweit darüber sprechen. Begriffe: Westrom ist der westliche Teil des Römischen Reiches. Der östliche Teil, Ostrom, bestand noch fast tausend Jahre weiter, bis 1453. Abdanken heißt, den Thron aufzugeben, und die Insignien sind die Zeichen der kaiserlichen Macht. Das Wort Barbaren kommt in der Tour nicht vor, dort werden die Völker mit Namen genannt; begegnet der Klasse das Wort in anderen Texten, können Sie fragen, wer es benutzte und über wen. Zeigen Sie, dass es mehrere Völker und mehrere Ereignisse waren (376, 410 und 455) und dass 476 eine gewählte Grenze für einen langen Vorgang ist. Antwortrichtung: Ravenna 476: Ein Datum kann beim Abschreiben falsch werden, und eine allgemeine Methode ist, die Quellen zu vergleichen; welches Datum es auch war, der Vorgang war lang. Ein Fall oder ein Wandel?: Forschende wählen unterschiedliche Erklärungen und unterschiedliche Endjahre. Abschluss nach allen drei Touren über den Fall von Reichen: Verschwanden die Reiche ganz, und worüber sind die Quellen uneins? Richtung: Ostrom bestand weiter, das Han-Reich zerfiel in drei Königreiche (bis 280) und die Könige der Songhai regierten in Dendi weiter. Zeit: 5 Minuten Einstieg, 20 Minuten Tour, 5 Minuten Exit-Ticket.",
+      "es": "Cómo hacerlo: abra Recorridos y elija «¿Cómo cayó el Imperio romano de Occidente?» en «¿Cómo cayó?». Muestre el recorrido en pantalla grande (añada ?presentation=1 a la dirección) o deje que los alumnos lo recorran por parejas. El recorrido tiene 7 pasos, de hacia 360 a 476. Pida a los alumnos que se fijen en la etiqueta de cada tarjeta, que dice lo que saben las fuentes. Deténgase en las dos preguntas (Rávena, 476 y ¿Una caída o una transformación?) y deje que los alumnos hablen por parejas. Conceptos: el Imperio romano de Occidente es la parte occidental del Imperio romano. La parte oriental, el Imperio romano de Oriente, duró casi mil años más, hasta 1453. Abdicar significa renunciar al trono, y las insignias son los signos del poder del emperador. La palabra bárbaros no aparece en el recorrido, donde los pueblos se nombran; si los alumnos encuentran la palabra en otros textos, puede preguntar quién la usaba y sobre quién. Muestre que fueron varios pueblos y varias ocasiones (376, 410 y 455), y que 476 es un límite elegido para un proceso largo. Orientación de las respuestas: Rávena, 476: una fecha puede equivocarse al copiar un texto, y un método general es comparar las fuentes; sea cual sea la fecha, el proceso fue largo. ¿Una caída o una transformación?: los investigadores eligen explicaciones distintas y años finales distintos. Cierre tras los tres recorridos sobre la caída de imperios: ¿Desaparecieron los imperios por completo y en qué no coinciden las fuentes? Orientación: el Imperio romano de Oriente continuó, el Imperio Han se dividió en tres reinos (hasta 280) y los reyes songhai siguieron reinando en Dendi. Tiempo: 5 minutos de inicio, 20 de recorrido y 5 de exit ticket.",
+      "fr": "Déroulement : ouvrez Visites et choisissez « Comment l'Empire romain d'Occident est-il tombé ? » sous « Comment est-il tombé ? ». Affichez la visite sur grand écran (ajoutez ?presentation=1 à l'adresse) ou laissez les élèves la parcourir en binômes. La visite compte 7 étapes, d'environ 360 à 476. Demandez aux élèves de regarder l'étiquette de chaque carte, qui indique ce que savent les sources. Arrêtez-vous aux deux questions (Ravenne 476 et Une chute ou une transformation ?) et laissez les élèves en parler en binômes. Notions : l'Empire romain d'Occident est la partie occidentale de l'Empire romain. La partie orientale, l'Empire romain d'Orient, a duré encore près de mille ans, jusqu'en 1453. Abdiquer signifie renoncer au trône, et les insignes sont les signes du pouvoir de l'empereur. Le mot barbares n'est pas employé dans la visite, où les peuples sont nommés ; si les élèves rencontrent ce mot dans d'autres textes, vous pouvez demander qui l'employait et à propos de qui. Montrez qu'il y a eu plusieurs peuples et plusieurs moments (376, 410 et 455), et que 476 est une limite choisie pour un long processus. Pistes de réponse : Ravenne 476 : une date peut être faussée quand un texte est recopié, et une méthode générale consiste à comparer les sources ; quelle que soit la date, le processus a été long. Une chute ou une transformation ? : les chercheurs choisissent des explications et des années de fin différentes. Conclusion après les trois visites sur la chute des empires : les empires ont-ils complètement disparu, et sur quoi les sources ne sont-elles pas d'accord ? Piste : l'Empire romain d'Orient a continué, l'Empire Han s'est divisé en trois royaumes (jusqu'en 280) et les rois songhaï ont continué à régner dans le Dendi. Durée : 5 minutes de démarrage, 20 minutes de visite et 5 minutes de ticket de sortie."
+    },
+    "exitTicket": {
+      "sv": "Ge ett exempel från turen på något som källorna är säkra på och ett på något som forskarna inte är överens om.",
+      "en": "Give one example from the tour of something the sources are sure about and one of something researchers do not agree on.",
+      "de": "Nennen Sie ein Beispiel aus der Tour für etwas, bei dem die Quellen sicher sind, und eines für etwas, worüber die Forschung uneins ist.",
+      "es": "Dé un ejemplo del recorrido de algo sobre lo que las fuentes están seguras y otro de algo en lo que los investigadores no están de acuerdo.",
+      "fr": "Donnez un exemple tiré de la visite de quelque chose dont les sources sont sûres et un exemple de quelque chose sur quoi les chercheurs ne sont pas d'accord."
+    }
+  },
   "steps": [
     {
       "id": "armorica",
@@ -69,7 +120,7 @@
         "sv": "Folkvandringen",
         "en": "The migration",
         "fr": "La migration",
-        "de": "Die Wanderung",
+        "de": "Die Völkerwanderung",
         "es": "La migración"
       },
       "title": {
@@ -187,6 +238,13 @@
         "de": "Odoaker zwingt Romulus Augustulus, den letzten Kaiser Westroms, zur Abdankung und schickt die kaiserlichen Insignien nach Konstantinopel. Zwei alte Chroniken nennen unterschiedliche Daten, den 4. September und den 31. August, und eines ist wahrscheinlich ein Abschreibfehler des anderen. Die Forschung bevorzugt meist den 4. September.",
         "es": "Odoacro obliga a Rómulo Augústulo, el último emperador de Occidente, a abdicar y envía las insignias imperiales a Constantinopla. Dos crónicas antiguas dan fechas distintas, el 4 de septiembre y el 31 de agosto, y una es probablemente un error de copia de la otra. Los historiadores suelen preferir el 4 de septiembre."
       },
+      "question": {
+        "sv": "Två krönikor anger olika datum, och det ena är troligen en felskrivning. Spelar det någon roll för frågan om när Västrom föll?",
+        "en": "Two chronicles give different dates, and one is probably a copying error. Does it matter for the question of when the Western Roman Empire fell?",
+        "de": "Zwei Chroniken nennen unterschiedliche Daten, und eines ist wahrscheinlich ein Abschreibfehler. Spielt das eine Rolle für die Frage, wann Westrom fiel?",
+        "es": "Dos crónicas dan fechas distintas, y una es probablemente un error de copia. ¿Importa eso para la pregunta de cuándo cayó el Imperio romano de Occidente?",
+        "fr": "Deux chroniques donnent des dates différentes, et l'une est probablement une erreur de copie. Est-ce important pour savoir quand l'Empire romain d'Occident est tombé ?"
+      },
       "layers": [
         "events",
         "areas"
@@ -209,14 +267,14 @@
       "chapter": {
         "sv": "Hur ska det förstås?",
         "en": "How should it be understood?",
-        "fr": "Comment le comprendre ?",
+        "fr": "Comment le comprendre ?",
         "de": "Wie ist das zu verstehen?",
         "es": "¿Cómo debe entenderse?"
       },
       "title": {
         "sv": "Ett fall eller en förvandling?",
         "en": "A fall or a transformation?",
-        "fr": "Une chute ou une transformation ?",
+        "fr": "Une chute ou une transformation ?",
         "de": "Ein Fall oder ein Wandel?",
         "es": "¿Una caída o una transformación?"
       },
@@ -231,7 +289,7 @@
       "question": {
         "sv": "Varför tror du att forskare har kommit fram till så många olika förklaringar?",
         "en": "Why do you think researchers have come up with so many different explanations?",
-        "fr": "Pourquoi pensez-vous que les chercheurs sont arrivés à tant d'explications différentes ?",
+        "fr": "Pourquoi pensez-vous que les chercheurs sont arrivés à tant d'explications différentes ?",
         "de": "Warum, glauben Sie, sind Forschende zu so vielen verschiedenen Erklärungen gekommen?",
         "es": "¿Por qué cree que los investigadores han llegado a tantas explicaciones distintas?"
       },

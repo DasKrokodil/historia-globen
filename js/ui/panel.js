@@ -292,6 +292,7 @@ export class Panel {
     this.onReport = null; // (objekt, knapp) => öppnar formuläret "Rapportera faktafel" (js/ui/feedback.js)
     this.onShowPlace = null; // (händelse) => platsraden i mobil (#312): fäller ihop rutan och visar markören på globen
     this.onEndTheme = () => {};
+    this.onPlaceFlat = null; // (plats) => Visa i Platt karta (#1161): knappen i platsens kort visas bara när återanropet finns
     this.selectedId = null;
     this.shown = null; // det faktarutan visar just nu; en rad som laddas klart ritar bara om samma ruta (#337)
     this.expandedRegions = new Set();
@@ -584,16 +585,19 @@ export class Panel {
    *   emblems  valfria flaggor och vapen (#1160): egna SVG:er i img/flags/ med bildtext, kredit och licens;
    *            filsidorna läggs till bland källorna
    *   intro    inledningen, text per språk
+   *   action   valfri knapp direkt efter inledningen, { text, label, run } (platsens Visa i Platt karta, #1161); label är knappens aria-label och ska börja med text
    *   notes    de fasta raderna under inledningen (att filtren inte gäller, att linjen är dagens gräns)
-   *   exit     texten på knappen som lämnar urvalet
+   *   exit     texten på knappen som lämnar urvalet; utan text finns ingen knapp (platsens kort i en turs steg, #1163, där inget Fokus pågår)
    *   summary  rubriken för listan ("14 händelser")
    *   events   händelserna i tidsordning, som knappar som öppnar faktarutan. En händelse före tidslinjens
    *            början (#942) märks, eftersom reglaget inte når dit
    *   sources  källornas id
+   *   banner   valfri rad direkt under namnet, synlig utan att rulla (att ett tidsintervall avslutades när platsen började följas, #1163)
+   *   focus    false: kortet tar inte tangentbordsfokus (platsens kort i en turs steg, #1163: fokus ska ligga kvar på Nästa)
    */
-  showSelection({ label, name, lead = '', emblems = [], intro, notes = [], exit, summary, events, sources = [] }) {
+  showSelection({ label, name, lead = '', emblems = [], intro, action = null, notes = [], exit, summary, events, sources = [], focus = true, banner = '' }) {
     this.selectedId = null;
-    this.detail.className = `detail detail-card frame-${styleFor(events[0], this.styles).frame}`;
+    this.detail.className = `detail detail-card detail-selection frame-${styleFor(events[0], this.styles).frame}`; // detail-selection: main.js läser upp etiketten (Plats, Tema), också när inget Fokus pågår (#1163)
     const shown = (emblems ?? []).filter(em => flagUrl(em));
     const srcs = [...new Set([...(sources ?? []), ...shown.map(em => em.source)])].map(id => this.srcById[id]).filter(Boolean);
     const emblemHtml = shown.length ? `<div class="place-emblems">${shown.map(em => `<figure class="place-emblem place-emblem-${esc(em.kind)}"><img src="${esc(flagUrl(em))}" alt="${esc(t(em.caption))}"><figcaption>${esc(t(em.caption))}<span class="meta">${esc(em.credit)} · ${esc(em.license)}</span></figcaption></figure>`).join('')}</div>` : '';
@@ -602,11 +606,13 @@ export class Panel {
       <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
       <div class="story-label">${esc(label)}</div>
       <h3>${esc(t(name))}</h3>
+      ${banner ? `<p class="theme-filter-note place-banner">${esc(banner)}</p>` : ''}
       <div class="story">${lead ? `<p class="place-type">${esc(lead)}</p>` : ''}
       ${emblemHtml}
       <p>${esc(t(intro))}</p>
+      ${action ? `<button type="button" class="chip-btn theme-exit place-flat" data-selection-action aria-label="${esc(action.label ?? action.text)}">${esc(action.text)}</button>` : ''}
       ${notes.map(note => `<p class="theme-filter-note">${esc(note)}</p>`).join('\n      ')}
-      <button type="button" class="chip-btn theme-exit" data-end-theme>${esc(exit)}</button>
+      ${exit ? `<button type="button" class="chip-btn theme-exit" data-end-theme>${esc(exit)}</button>` : ''}
       <details class="theme-event-list"${matchMedia('(max-width: 760px)').matches ? '' : ' open'}>
         <summary>${esc(summary)}</summary>
         <ul class="theme-events">${items}</ul>
@@ -615,9 +621,10 @@ export class Panel {
     this.detail.scrollTop = 0;
     this.setDetailOpen(true);
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
-    this.detail.querySelector('[data-end-theme]').addEventListener('click', () => this.onEndTheme());
+    this.detail.querySelector('[data-end-theme]')?.addEventListener('click', () => this.onEndTheme());
+    this.detail.querySelector('[data-selection-action]')?.addEventListener('click', () => action.run());
     for (const b of this.detail.querySelectorAll('[data-theme-event]')) b.addEventListener('click', () => this.onThemeEvent?.(b.dataset.themeEvent));
-    this.detail.querySelector('[data-close]').focus({ preventScroll: true });
+    if (focus) this.detail.querySelector('[data-close]').focus({ preventScroll: true });
   }
 
   /** Knappen "Rapportera faktafel" skickar bara objektets typ och id till formuläret. */

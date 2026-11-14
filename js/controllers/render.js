@@ -26,6 +26,21 @@ export function createRender(app) {
   // stund, och inte under uppspelning, i ett intervall (egen live-rad, #977), i en tur eller medan en pausrad syns (de har
   // egna uppläsningar). Ett år utan Samtidigt-kort säger det. Kortets text följer med bara om ett nytt kort lästes upp under
   // tiden, annars skulle den här raden skriva över den.
+  // Årtalet och knapparna överst delar raden i smal skärm (#1101): "100 000" i 30 px täcks av språkknappen på franska i 400 px, där
+  // knapparna är bredare. Typstorleken minskas ett steg i taget tills årtalet ryms, men inte under 18 px. Bara långa årtal
+  // (fem tecken eller fler, alltså förhistorien och intervall) mäts, så att vanliga år inte kostar någon mätning.
+  function fitYear() {
+    const big = $('year-big'), actions = document.querySelector('.top-actions');
+    big.style.fontSize = '';
+    if (innerWidth > 760 || big.textContent.length < 5 || !actions) return;
+    const row = actions.getBoundingClientRect();
+    if (!row.width) return;
+    const clash = () => { const b = big.getBoundingClientRect(); return b.right > row.left - 8 && b.bottom > row.top && b.top < row.bottom; };
+    for (let size = parseFloat(getComputedStyle(big).fontSize); size > 18 && clash();) big.style.fontSize = `${--size}px`;
+  }
+  addEventListener('resize', fitYear);
+  document.fonts?.ready.then(fitYear); // måtten ändras när typsnittet har laddats
+
   let statusYear = null, statusTimer = 0, statusCard = '';
   const capital = s => (s ? s[0].toLocaleUpperCase(LANG) + s.slice(1) : s);
   function announceYear() {
@@ -57,6 +72,13 @@ export function createRender(app) {
   const empireNames = () => !$('flat-view').hidden || zoomMag() >= NAMES_MAG;
   // Nutida staters flaggor (#1193) syns bara vid nära zoom på globen och i Platt vy från nivån Inzoomat; annars namnet
   const modernFlags = () => $('flat-view').hidden ? zoomMag() >= NAMES_MAG : zoomLevel(pxPerImg(globe, flatMap)) >= 2;
+  // Platsernas prickade konturer och tryck på dem (#1161): i vanligt läge (aldrig i Fokus, tur, lektion eller intervall) och inzoomat:
+  // på globen vid samma nära zoom som religionernas namn, i Platt vy när kartan är förstorad (zoom 1 visar hela världen). Nivån
+  // Inzoomat för flaggorna räcker inte: en inramad plats i mobilbredd når den aldrig
+  const PLACE_FLAT_ZOOM = 1.2; // en inramad plats i mobilbredd (400 px, högt format) får zoom omkring 1,4
+  const placeHints = () => !!app.places?.allowed() && ($('flat-view').hidden ? zoomMag() >= NAMES_MAG : flatMap.zoom >= PLACE_FLAT_ZOOM);
+  // Konturens bredd räknas i skärmpixlar (bildpunkter på 4096-bilden per skärmpixel), annars blir den hårfin när kartan visas litet
+  const placePx = () => Math.round(100 / pxPerImg(globe, flatMap)) / 100;
   function nameStyle() {
     if (!$('flat-view').hidden) return [ZOOM_LEVELS[zoomLevel(flatMap.scale)].flatScale, 1]; // efter zoomnivån (#358)
     const mag = zoomMag();
@@ -71,7 +93,7 @@ export function createRender(app) {
       const [sc, al] = nameStyle();
       const l = state.labels;
       // Ny zoomnivå (#358) ändrar vilka rikesnamn och medaljer som får plats
-      if (l.scale !== sc || l.alpha !== al || l.religionNames !== religionNames() || l.empireNames !== empireNames() || l.modernFlags !== modernFlags()
+      if (l.scale !== sc || l.alpha !== al || l.religionNames !== religionNames() || l.empireNames !== empireNames() || l.modernFlags !== modernFlags() || l.placeHints !== placeHints() || (l.placeHints && Math.abs(Math.log(l.placePx / placePx())) > 0.12)
         || areas.view.level !== zoomLevel(pxPerImg(globe, flatMap))) refresh();
     }, 150);
   };
@@ -108,7 +130,8 @@ export function createRender(app) {
     const focus = state.focus;
     // Namn och symboler på lagerbilden efter zoom och vy (#154, #271, #301)
     const [scale, alpha] = nameStyle();
-    state.labels = { scale, alpha, religionNames: religionNames(), empireNames: empireNames(), modernFlags: modernFlags() };
+    state.labels = { scale, alpha, religionNames: religionNames(), empireNames: empireNames(), modernFlags: modernFlags(), placeHints: placeHints(), placePx: placePx() };
+    if (state.labels.placeHints) app.places.ensure(); // platsernas gränser (165 kB) laddas först när man har zoomat in
     // I fokusläget för korta krig är året ett decimaltal (#204). Händelser och krig får då sina
     // datum ur edtf (span), medan riken, religioner och fun facts får det hela året som förut.
     const year = timeline.year, wholeYear = Math.floor(year), fine = !!focus?.fine;
@@ -188,6 +211,7 @@ export function createRender(app) {
     const [num, era] = range ? rangeParts(range.from, range.to) : timeline.formatParts(year);
     $('year-big').textContent = num;
     $('year-era').textContent = era;
+    fitYear();
     $('year-jump').classList.toggle('fine', fine);
     $('year-segment').textContent = range ? ui('range.segment')
       : focus ? pluralUi(fine ? 'time.followDays' : 'time.followYears', fine ? Math.round(window * 365.25) : Math.round(window), { name: focus.short })

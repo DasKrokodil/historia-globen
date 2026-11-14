@@ -1196,7 +1196,16 @@ async function run(browser, vp) {
     // Som en elev: öppna händelsen i Samtidigt och tryck på Lägg till i jakten i faktarutan
     const add = async id => {
       if (await page.isHidden('#panel')) await clickView('#btn-panel');
-      await page.locator(`#event-list .event-btn[data-id="${id}"]`).first().click();
+      const btn = page.locator(`#event-list .event-btn[data-id="${id}"]`).first();
+      // Panelen visar fem händelser per världsdel och resten bakom "Visa fler". Nya händelser i datan (Mutapariket och Sankore i
+      // #1015) kan skjuta Bartolomeu Dias 1488 ut ur Afrika-listan, så världsdelarna öppnas en i taget tills händelsen syns,
+      // som en elev skulle göra, i stället för att anta att den alltid ligger bland de fem första.
+      for (let i = 0; !await btn.count() && i < 8; i++) {
+        const more = page.locator('#event-list .panel-more[data-region][aria-expanded="false"]').first();
+        if (!await more.count()) break;
+        await more.click();
+      }
+      await btn.click();
       await page.waitForSelector('#detail [data-hunt]', { state: 'visible', timeout: T.step });
       await page.click('#detail [data-hunt]');
       return (await page.textContent('#hunt-message')).trim();
@@ -2030,6 +2039,286 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
+  // #1161: tryck på konturen av en plats. Konturerna syns och går att trycka på bara inzoomat och i vanligt läge; trycket
+  // öppnar kortet (Fokus av typen place) på globen och i Platt vy, och knappen Visa i Platt karta ramar in platsen.
+  // Grönland (isen i norr, 76° N 40° V) ligger fritt från markörer och etiketter vid år 1000, också i mobilbredd.
+  const placeTapPage = async (hash, name) => {
+    const t = await touchPage();
+    await t.tp.goto(`${BASE}?ny=${name}${hash}`);
+    await t.tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+    return t;
+  };
+  // dy: andel av höjden ovanför mitten. Mobilens etiketter (Alltinget) ligger i mitten vid år 1000, så inzoomat trycker vi högre upp på isen
+  const centreOf = async (pg, dy = 0) => { const b = await pg.locator('#globe-canvas').boundingBox(); return { x: b.x + b.width / 2, y: b.y + b.height * (0.5 - dy) }; };
+  const followsGreenland = pg => pg.waitForFunction(() => !document.getElementById('focus-bar').hidden && /Grönland/.test(document.getElementById('focus-title').textContent)
+    && !!document.querySelector('#detail .place-type'), null, { timeout: T.step });
+  await check('tryck på konturen av en plats öppnar kortet, bara inzoomat och i vanligt läge (#1161)', async () => {
+    // Utzoomat syns ingen kontur och ett tryck på Grönland öppnar ingenting
+    const far = await placeTapPage('#y=1000&c=76,-40,1', 'platstryck1');
+    try {
+      const at = await centreOf(far.tp);
+      await far.tp.mouse.move(at.x, at.y);
+      await far.tp.mouse.click(at.x, at.y);
+      await far.tp.waitForTimeout(900);
+      if (!(await far.tp.isHidden('#focus-bar'))) throw new Error('ett tryck på Grönland utzoomat startade ett fokus');
+      if ((await far.tp.getAttribute('#globe-canvas', 'class')).includes('on-place')) throw new Error('handen visades över en plats utzoomat');
+    } finally { await far.tctx.close(); }
+    // Inzoomat: handen över konturen, och ett tryck öppnar platsens kort
+    const { tp, tctx, errs } = await placeTapPage('#y=1000&c=76,-40,3', 'platstryck2');
+    try {
+      const at = await centreOf(tp, 0.18);
+      await tp.mouse.move(at.x, at.y);
+      await tp.waitForFunction(() => document.getElementById('globe-canvas').classList.contains('on-place'), null, { timeout: T.step });
+      await tp.mouse.click(at.x, at.y);
+      await followsGreenland(tp);
+      await tp.waitForFunction(() => location.hash.includes('f=place:gronland'), null, { timeout: T.step });
+      // I Fokus finns ingen hand och ingen ny kontur att trycka på
+      await tp.mouse.move(at.x + 3, at.y + 3);
+      await tp.waitForTimeout(250);
+      if ((await tp.getAttribute('#globe-canvas', 'class')).includes('on-place')) throw new Error('handen visades över en plats i Fokus');
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return 'handen och trycket gäller bara inzoomat, och kortet öppnas';
+    } finally { await tctx.close(); }
+  });
+
+  await check('Visa i Platt karta ramar in platsen, och ett tryck i Platt vy öppnar kortet (#1161)', async () => {
+    const { tp, tctx, errs } = await placeTapPage('#y=1000&f=place:gronland', 'platstryck3');
+    try {
+      await followsGreenland(tp);
+      const button = tp.locator('#detail [data-selection-action]');
+      await button.waitFor({ state: 'visible', timeout: T.step });
+      if (!/Visa i Platt karta/.test(await button.textContent())) throw new Error(`knappen heter ${await button.textContent()}`);
+      if (!/Grönland/.test(await button.getAttribute('aria-label'))) throw new Error('knappens aria-label nämner inte platsen');
+      if (!(await tp.isHidden('#flat-view'))) throw new Error('Platt vy var öppen före knappen');
+      await button.click();
+      await tp.waitForFunction(() => !document.getElementById('flat-view').hidden, null, { timeout: T.step });
+      // Vyn byts utan eget läge: Platt karta är vald, platsen följs fortfarande och kartan är inramad på Grönland
+      if ((await tp.getAttribute('#btn-flat', 'aria-pressed')) !== 'true') throw new Error('Platt karta är inte vald i Vy');
+      if (!/Grönland/.test(await tp.textContent('#focus-title'))) throw new Error('platsen följs inte längre');
+      const frame = async () => tp.evaluate(() => {
+        const [lat, lon, zoom] = document.getElementById('flat-view').dataset.view.split(',').map(Number);
+        const r = document.getElementById('flat-canvas').getBoundingClientRect(), base = Math.max(r.width / 4096, r.height / 2048), scale = base * zoom;
+        return { lat, lon, zoom, halfLon: r.width / 2 / scale / 4096 * 360, halfLat: r.height / 2 / scale / 2048 * 180 };
+      });
+      await tp.waitForFunction(() => Number(document.getElementById('flat-view').dataset.view.split(',')[2]) > 1.2, null, { timeout: T.step });
+      const f = await frame();
+      // Hela Grönland (73° V–12° V, 59° N–84° N) ryms i kartans ruta
+      if (f.lon - f.halfLon > -73 || f.lon + f.halfLon < -12 || f.lat - f.halfLat > 59 || f.lat + f.halfLat < 84) throw new Error(`Grönland ryms inte i kartan: mitt ${f.lat},${f.lon}, halva ${f.halfLat}×${f.halfLon} grader`);
+      if (f.halfLon > 90) throw new Error(`kartan är inte inzoomad: halva bredden ${f.halfLon} grader`);
+      // Skärmläsaren får veta vad som hände
+      if (!/Platt karta öppen med Grönland i bild/.test(await tp.textContent('#screen-reader-status'))) throw new Error('statusraden säger inte att platsen visas');
+      // Avsluta platsen, och tryck sedan på konturen i Platt vy (kartan står kvar inramad, konturen syns därför)
+      const focusLeft = async () => { await tp.evaluate(() => document.querySelector('#detail [data-end-theme]')?.click()); await tp.waitForFunction(() => document.getElementById('focus-bar').hidden, null, { timeout: T.step }); };
+      await focusLeft();
+      // Inlandsisen (75° N 40° V) på skärmen, räknat ur kartans mitt och zoom: i mobilbredd kan kartan inte centreras på Grönland
+      // (den kan inte rullas förbi polerna), så mitten av ytan är inte Grönland. Trycket med finger väntar ett ögonblick på ett dubbeltryck
+      const { cx, cy } = await tp.evaluate(() => {
+        const [lat, lon, zoom] = document.getElementById('flat-view').dataset.view.split(',').map(Number);
+        const r = document.getElementById('flat-canvas').getBoundingClientRect(), scale = Math.max(r.width / 4096, r.height / 2048) * zoom;
+        return { cx: r.left + r.width / 2 + (-40 - lon) / 360 * 4096 * scale, cy: r.top + r.height / 2 + (lat - 75) / 180 * 2048 * scale };
+      });
+      await tp.mouse.move(cx, cy);
+      await tp.waitForFunction(() => document.getElementById('flat-canvas').classList.contains('on-place'), null, { timeout: T.step });
+      await tp.touchscreen.tap(cx, cy);
+      await followsGreenland(tp);
+      if ((await tp.getAttribute('#btn-flat', 'aria-pressed')) !== 'true') throw new Error('Platt vy stängdes av trycket');
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `inramad: mitt ${f.lat},${f.lon}, zoom ${f.zoom}`;
+    } finally { await tctx.close(); }
+  });
+
+  await check('tangentbord: Enter följer platsen i mitten och statusraden säger vilken plats det är (#1161)', async () => {
+    const { tp, tctx, errs } = await placeTapPage('#y=1000&c=76,-40,1', 'platstryck4');
+    try {
+      const status = () => tp.textContent('#screen-reader-status').then(s => s.replace(/\s+/g, ' ').trim());
+      await tp.focus('#globe-canvas');
+      // En tangentbordsflytt: efter en stund säger statusraden vilken plats med kort som ligger i mitten
+      await tp.keyboard.press('ArrowLeft');
+      await tp.waitForFunction(() => /Grönland: en plats med kort\. Tryck Enter/.test(document.getElementById('screen-reader-status').textContent), null, { timeout: T.step });
+      // Enter följer platsen, utan mus
+      await tp.keyboard.press('Enter');
+      await followsGreenland(tp);
+      await tp.waitForFunction(() => location.hash.includes('f=place:gronland'), null, { timeout: T.step });
+      await tp.click('#detail [data-end-theme]');
+      await tp.waitForFunction(() => document.getElementById('focus-bar').hidden, null, { timeout: T.step });
+      // Utan plats med kort i mitten säger Enter vad man kan göra i stället (Sök och följ räcker alltid)
+      await tp.goto(`${BASE}?ny=platstryck5#y=1000&c=0,0,1`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.focus('#globe-canvas');
+      await tp.keyboard.press('Enter');
+      await tp.waitForFunction(() => /Ingen plats med eget kort ligger i mitten\. Välj en plats under Sök och följ → Platser\./.test(document.getElementById('screen-reader-status').textContent), null, { timeout: T.step });
+      if (!(await tp.isHidden('#focus-bar'))) throw new Error('Enter startade ett fokus utan plats i mitten');
+      // Globens text nämner tangenten
+      if (!/Enter/.test(await tp.getAttribute('#globe-canvas', 'aria-label'))) throw new Error('globens beskrivning nämner inte Enter');
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `statusraden: ${await status()}`;
+    } finally { await tctx.close(); }
+  });
+
+  // #1163: platser i turens steg, i lektionsläget och i tidsintervallet. Turen är en provtur som läggs in i turlistan med route:
+  // ingen riktig tur har något steg med en plats än, och provet ska inte vänta på att en sådan skrivs. Steget öppnar Grönland
+  // (data/platser.json) med stegfältet place.
+  const placeTour = lesson => ({
+    schema: 'historia-globen/tur@1', version: 1, id: 'test-plats', title: { sv: 'Provtur om en plats' }, review: 'source-checked',
+    steps: [
+      { id: 'a', at: 1000, camera: { lat: 60, lon: 10, zoom: 1.4 }, text: { sv: 'Första steget, utan plats.' }, layers: ['events'], sources: ['s'] },
+      { id: 'b', at: 1000, camera: { lat: 76, lon: -40, zoom: 3 }, title: { sv: 'Platsen' }, text: { sv: 'Steget öppnar platsens kort.' }, layers: ['events'], place: 'gronland', sources: ['s'] },
+      { id: 'c', at: 1010, camera: { lat: 60, lon: 10, zoom: 1.4 }, text: { sv: 'Sista steget, utan plats.' }, layers: ['events'], sources: ['s'] },
+    ],
+    ...(lesson ? { lesson: { grades: '7-9', minutes: 30, curriculum: [{ text: { sv: 'Prov.' }, sources: ['s'] }], teacher: { sv: 'Prov.' }, exitTicket: { sv: 'Prov.' }, lock: { years: [900, 1100], layers: ['events'] } } } : {}),
+  });
+  const placeTourPage = async (hash, name, lesson = false) => {
+    const t = await touchPage();
+    await t.tp.route('**/data/turer/index.json', async r => {
+      const j = await (await r.fetch()).json();
+      await r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ ...j, tours: [...j.tours, 'test-plats'] }) });
+    });
+    await t.tp.route('**/data/turer/test-plats.json', r => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(placeTour(lesson)) }));
+    await t.tp.goto(`${BASE}?ny=${name}${hash}`);
+    await t.tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+    return t;
+  };
+  const narrowVp = vp.width <= 760;
+  const stepIs = (pg, n) => pg.waitForFunction(x => new RegExp(`^Steg ${x} av 3$`).test(document.getElementById('tour-progress').textContent.trim()), n, { timeout: T.step });
+  /** Platsens kort i ett steg: öppet (i smal skärm efter Läs om platsen), med rätt etikett, utan Avsluta platsen och utan Visa i Platt karta. */
+  const placeCardInStep = async (pg, what, firstTime = false) => {
+    if (narrowVp) {
+      // Arket skulle täcka turkortet: som för en händelse öppnas kortet med knappen
+      if (!(await pg.isHidden('#detail'))) throw new Error(`${what}: kortet öppnades av sig självt i smal skärm`);
+      await pg.waitForSelector('#tour-read', { state: 'visible', timeout: T.step });
+      await pg.click('#tour-read');
+      // Knappen är en uttrycklig handling: kortet (arket) får fokus, eftersom det annars täcker knappen som har det
+      await pg.waitForFunction(() => document.getElementById('detail').contains(document.activeElement), null, { timeout: T.step });
+    }
+    await pg.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+    // Kortet tar inte tangentbordsfokus (Nästa ska behålla det), och skärmläsaren hör "Plats: Grönland", inte "Om händelsen"
+    if (narrowVp ? false : await pg.evaluate(() => document.getElementById('detail').contains(document.activeElement))) throw new Error(`${what}: kortet tog tangentbordsfokus`);
+    if (firstTime) await pg.waitForFunction(() => /Plats: Grönland/.test(document.getElementById('screen-reader-status').textContent), null, { timeout: T.step });
+    if (!/Läs om platsen/.test(await pg.textContent('#tour-read'))) throw new Error(`${what}: knappen heter inte Läs om platsen: ${await pg.textContent('#tour-read')}`);
+    if (!/^Plats$/.test((await pg.textContent('#detail .story-label')).trim())) throw new Error(`${what}: kortets etikett är inte Plats`);
+    if (await pg.locator('#detail [data-end-theme]').count()) throw new Error(`${what}: kortet har Avsluta platsen utan att något Fokus pågår`);
+    if (await pg.locator('#detail .place-flat').count()) throw new Error(`${what}: kortet har Visa i Platt karta, men turen styr kameran`);
+    const notes = await pg.locator('#detail .theme-filter-note').allTextContents();
+    if (notes.length !== 1 || !/dagens gräns/.test(notes[0])) throw new Error(`${what}: kortets noter är fel (filternotisen hör till Fokus): ${notes.join(' | ')}`);
+    if (!(await pg.isHidden('#focus-bar')) || /f=/.test(await pg.evaluate(() => location.hash))) throw new Error(`${what}: ett Fokus började (det skulle ha avslutat turen)`);
+  };
+  await check('platsens kort i en turs steg: öppnas utan Fokus och följer turen (#1163)', async () => {
+    const { tp, tctx, errs } = await placeTourPage('#t=test-plats', 'platstur1');
+    try {
+      await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      await stepIs(tp, 1);
+      if (!(await tp.isHidden('#detail'))) throw new Error('ett steg utan plats öppnade ett kort');
+      if (!(await tp.isHidden('#tour-read'))) throw new Error('Läs om-knappen syns i ett steg utan händelse eller plats');
+      await tp.click('#tour-next');
+      await stepIs(tp, 2);
+      await placeCardInStep(tp, 'steg 2', true);
+      // I smal skärm täcker kortet som ark turkortet, som för en händelse: det stängs innan man går vidare
+      const closeCard = async () => { if (narrowVp) { await tp.click('#detail [data-close]'); await tp.waitForSelector('#detail', { state: 'hidden', timeout: T.step }); } };
+      await closeCard();
+      // Nästa steg utan plats stänger kortet, och Bakåt öppnar det igen (i smal skärm med knappen)
+      await tp.click('#tour-next');
+      await stepIs(tp, 3);
+      await tp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
+      await tp.click('#tour-back');
+      await stepIs(tp, 2);
+      await placeCardInStep(tp, 'steg 2 igen');
+      await closeCard();
+      // Bakåt, Nästa och direkt Nästa igen: kortet från steget som lämnades får inte dyka upp i steget utan plats
+      await tp.click('#tour-back');
+      await stepIs(tp, 1);
+      await tp.click('#tour-next');
+      await tp.click('#tour-next');
+      await stepIs(tp, 3);
+      await tp.waitForTimeout(600);
+      if (!(await tp.isHidden('#detail'))) throw new Error('platsens kort låg kvar i ett steg utan plats');
+      // Klar (sista steget) stänger kortet och lämnar ingen plats kvar
+      await tp.click('#tour-next');
+      await tp.waitForSelector('#tour-card', { state: 'hidden', timeout: T.step });
+      if (!(await tp.isHidden('#detail')) || !(await tp.isHidden('#focus-bar'))) throw new Error('kortet eller fokusraden låg kvar efter turen');
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return 'kortet öppnas i steget utan Fokus, med Läs om platsen i smal skärm, och följer med turen';
+    } finally { await tctx.close(); }
+  });
+  await check('platsens kort i en lektion: bara via turens steg, och inget nytt sätt att komma ur låset (#1163)', async () => {
+    const { tp, tctx, errs } = await placeTourPage('#t=test-plats&m=lektion&s=b', 'platslektion', true);
+    try {
+      await tp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
+      await stepIs(tp, 2);
+      await placeCardInStep(tp, 'lektionssteg');
+      // Låset är orört: året står kvar, årshoppet och Fokus-knappen går inte att nå
+      if ((await tp.textContent('#year-big')).trim() !== '1000') throw new Error('lektionens år ändrades');
+      if (await tp.evaluate(() => { const el = document.getElementById('btn-focus'); return !!el && el.getClientRects().length > 0; })) throw new Error('Sök och följ syns i lektionsläget');
+      // En rad i kortets lista öppnar händelsen men hoppar inte året, som annars (jump) skulle flytta det inom lektionens spann
+      if (narrowVp) await tp.click('#detail .theme-event-list summary');
+      await tp.click('#detail [data-theme-event]');
+      await tp.waitForFunction(() => !document.querySelector('#detail .place-type'), null, { timeout: T.step });
+      if ((await tp.textContent('#year-big')).trim() !== '1000') throw new Error(`en rad i platskortet hoppade året: ${await tp.textContent('#year-big')}`);
+      // Platstrycket är av: ett tryck och Enter på globen öppnar ingen plats, och ingen hand visas över platsen
+      const b = await tp.locator('#globe-canvas').boundingBox();
+      const at = { x: b.x + b.width / 2, y: b.y + b.height * 0.32 };
+      await tp.mouse.move(at.x, at.y);
+      await tp.waitForTimeout(250);
+      if ((await tp.getAttribute('#globe-canvas', 'class')).includes('on-place')) throw new Error('handen visades över en plats i lektionen');
+      await tp.mouse.click(at.x, at.y);
+      await tp.focus('#globe-canvas');
+      await tp.keyboard.press('Enter');
+      await tp.waitForTimeout(900);
+      if (!(await tp.isHidden('#focus-bar')) || /f=place/.test(await tp.evaluate(() => location.hash))) throw new Error('ett tryck eller Enter startade ett fokus i lektionen');
+      if (!(await tp.isVisible('#lesson-band'))) throw new Error('lektionen avslutades av ett platstryck');
+      // Utgången är som förut: Visa hela globen stänger lektionen och kortet
+      await tp.click('#lesson-exit');
+      await tp.waitForSelector('#lesson-band', { state: 'hidden', timeout: T.step });
+      await tp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return 'kortet öppnas bara av steget; tryck och Enter gör inget i lektionen, och utgången stänger kortet';
+    } finally { await tctx.close(); }
+  });
+  await check('tidsintervall och plats: platsen avslutar intervallet, börjar vid slutåret och säger det (#1163)', async () => {
+    const { tp, tctx, errs } = await placeTourPage('#y=1900&y2=1950', 'platsint1');
+    try {
+      await tp.waitForFunction(() => !document.getElementById('range-bar').hidden, null, { timeout: T.step });
+      if (await tp.isHidden('#btn-focus') && await tp.isVisible('#more-toggle')) await tp.click('#more-toggle');
+      if (await tp.isHidden('#btn-focus') && await tp.isVisible('#btn-more')) await tp.click('#btn-more');
+      await tp.click('#btn-focus');
+      await tp.click('#focus-menu [data-tab="Platser"]');
+      await tp.click('#focus-menu [data-key="place:gronland"]');
+      await followsGreenland(tp);
+      // Intervallet är avslutat (Fokus utesluter det), platsen visas för intervallets slutår och kortet säger det
+      if (!(await tp.isHidden('#range-bar'))) throw new Error('intervallraden låg kvar när platsen började följas');
+      if ((await tp.textContent('#year-big')).trim() !== '1950') throw new Error(`platsen började inte vid slutåret: ${await tp.textContent('#year-big')}`);
+      const notes = (await tp.locator('#detail .place-banner').allTextContents()).join(' | ');
+      if (!/^Tidsintervallet 1900–1950 avslutades när platsen började följas\. För år 1950 visas platsen\.$/.test(notes)) throw new Error(`kortet säger inte att intervallet avslutades: ${notes}`);
+      // Raden står direkt under namnet och syns utan att rulla kortet
+      const inView = await tp.evaluate(() => { const r = document.querySelector('#detail .place-banner').getBoundingClientRect(), d = document.getElementById('detail').getBoundingClientRect(); return r.top >= d.top && r.bottom <= d.bottom; });
+      if (!inView) throw new Error('beskedet om intervallet ligger utanför det synliga i kortet');
+      // Och läses upp efter kortets rubrik
+      await tp.waitForFunction(() => /Tidsintervallet 1900–1950 avslutades/.test(document.getElementById('screen-reader-status').textContent), null, { timeout: T.step });
+      const hash = await tp.evaluate(() => location.hash);
+      if (/y2=/.test(hash) || !/f=place:gronland/.test(hash)) throw new Error(`adressen är fel efter bytet: ${hash}`);
+      // Åt andra hållet: ett nytt intervall avslutar platsen och stänger kortet (inget kort utan fokus)
+      await tp.click('#year-jump');
+      await tp.click('#range-open');
+      await tp.fill('#range-from', '1800');
+      await tp.fill('#range-to', '1850');
+      await tp.click('#range-pop .jump-go');
+      await tp.waitForFunction(() => !document.getElementById('range-bar').hidden && document.getElementById('focus-bar').hidden, null, { timeout: T.step });
+      await tp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
+      // Slutåret utanför platsens spann (Grönland: till 2009): året hoppar inte längre än till intervallets början, som låg inom spannet
+      await tp.goto(`${BASE}?ny=platsint2#y=1990&y2=2020`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForFunction(() => !document.getElementById('range-bar').hidden, null, { timeout: T.step });
+      if (await tp.isHidden('#btn-focus') && await tp.isVisible('#more-toggle')) await tp.click('#more-toggle');
+      if (await tp.isHidden('#btn-focus') && await tp.isVisible('#btn-more')) await tp.click('#btn-more');
+      await tp.click('#btn-focus');
+      await tp.click('#focus-menu [data-tab="Platser"]');
+      await tp.click('#focus-menu [data-key="place:gronland"]');
+      await followsGreenland(tp);
+      if ((await tp.textContent('#year-big')).trim() !== '1990') throw new Error(`slutåret låg utanför spannet och året blev ${await tp.textContent('#year-big')}, inte intervallets början`);
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return 'platsen avslutar intervallet och börjar vid slutåret (annars intervallets början), kortet säger det, och ett nytt intervall avslutar platsen';
+    } finally { await tctx.close(); }
+  });
+
   // #1327: fokustyperna är poster i js/focus/. Varje typ börjar via en länk, visar sitt kort, har knappen Fakta där
   // den ska finnas, står i adressen och slutar rent. Ett urval (tema, plats) lämnar tillbaka fokus till Fokus-knappen
   // och stänger sitt kort; ett okänt id börjar inget fokus och ger inget fel.
@@ -2310,14 +2599,27 @@ async function run(browser, vp) {
   });
 
   await check('Samtidigt-kortet ger bildlösa händelser en likvärdig reservruta', async () => {
-    await jumpTo(1879); await visible('#funfact');
     const cards = page.locator('#ff-pics .ff-pic');
     const reserve = page.locator('#ff-pics .ff-pic.ff-reserve');
     const image = page.locator('#ff-pics .ff-pic img:not(.ff-reserve-icon)');
+    // Året är inte fast (#1336): 1879 räckte tills nya bildlösa händelser (Royal National Park, Kvaggan) kom närmare kriget än den enda
+    // bildhändelsen (telefonen 1876), och krigskortet blev då en enda symbolruta, som är avsiktligt när inget kort har bild. Kontrollen
+    // provar därför några år i ordning och använder det första där Samtidigt-kortet har både bildkort och reservkort. År med två
+    // bildhändelser och två bildlösa står först, eftersom nya händelser då kan komma till utan att blandningen försvinner.
     // Minst ett kort av varje sort räcker för att pröva blandningen; fler bilder i datan (#453) får inte fälla testet.
-    if (await cards.count() < 2 || !await reserve.count() || !await image.count()) throw new Error('1879 saknar blandade bild- och reservkort');
+    const MIXED_YEARS = [1861, 1839, 1791, 1895, 1948, 1879];
+    let mixedYear = null;
+    for (const y of MIXED_YEARS) {
+      await jumpTo(y); await visible('#funfact');
+      const mixed = await page.waitForFunction(() => {
+        const pics = document.querySelectorAll('#ff-pics .ff-pic');
+        return pics.length >= 2 && document.querySelector('#ff-pics .ff-pic.ff-reserve') && document.querySelector('#ff-pics .ff-pic img:not(.ff-reserve-icon)');
+      }, null, { timeout: 2500 }).then(() => true, () => false);
+      if (mixed) { mixedYear = y; break; }
+    }
+    if (mixedYear == null) throw new Error(`inget av åren ${MIXED_YEARS.join(', ')} har blandade bild- och reservkort i Samtidigt-kortet`);
     const label = await reserve.first().getAttribute('aria-label');
-    if (!/Krig och konflikter, 1879, Anglo-zuluiska kriget/.test(label ?? '')) throw new Error('reservkortet saknar kategori, år och titel i sitt namn');
+    if (!/^[^,]+, -?\d+, .+: /.test(label ?? '')) throw new Error(`reservkortet saknar kategori, år och titel i sitt namn (${mixedYear}): ${label}`);
     const missing = await reserve.evaluateAll(nodes => nodes.some(node => ['.ff-reserve-icon', '.ff-reserve-year', '.ff-reserve-category', '.ff-name'].some(selector => !node.querySelector(selector))));
     if (missing) throw new Error('reservkortet saknar ikon, år, kategori eller titel');
     // Reservsymbolen får inte växa ur rutan (#975): en regel för alla bilder i .ff-pic gjorde den 173 px i en ruta på 132 px.
@@ -2332,7 +2634,7 @@ async function run(browser, vp) {
     const heights = await cards.evaluateAll(nodes => nodes.map(node => Math.round(node.getBoundingClientRect().height)));
     if (new Set(heights).size !== 1) throw new Error(`bild- och reservkort har olika höjd: ${heights.join(', ')}`);
     const imageHeight = await image.first().evaluate(el => Math.round(el.closest('.ff-pic').getBoundingClientRect().height));
-    await page.screenshot({ path: path.join(OUT, `${vp.name}-samtidigt-reservkort-1879.png`), fullPage: false });
+    await page.screenshot({ path: path.join(OUT, `${vp.name}-samtidigt-reservkort-${mixedYear}.png`), fullPage: false });
     try {
       await jumpTo(1274);
       if ((await page.textContent('#ff-kind')).trim() !== 'När ett krig bröt ut') throw new Error('1274 saknar det verifierade krigskortet i Samtidigt');
@@ -2562,6 +2864,78 @@ async function run(browser, vp) {
     const w = await page.evaluate(() => ({ doc: document.documentElement.scrollWidth, body: document.body.scrollWidth, win: window.innerWidth }));
     if (Math.max(w.doc, w.body) > w.win) throw new Error(`sidan är ${Math.max(w.doc, w.body)} px bred i ett ${w.win} px fönster`);
     return `${Math.max(w.doc, w.body)} px av ${w.win}`;
+  });
+
+  // #1313: skarvarna mellan tidslinjens segment syns, och en rad säger vad som ändras. Egen sida, så att den delade sidans tillstånd inte ändras.
+  await check('tidsskalan: skarvarna syns och skalraden säger vad som ändras (#1313)', async () => {
+    const fresh = await context.newPage();
+    try {
+      if (THREE_LOCAL) {
+        await fresh.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+        await fresh.route(u => isFont(u.href), r => r.abort());
+      }
+      await fresh.goto(BASE);
+      await fresh.evaluate(() => { try { localStorage.removeItem('hg-teckenforklaring'); localStorage.setItem('hg-year-tip', '1'); } catch { /* */ } });
+      await fresh.reload();
+      await fresh.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await fresh.waitForSelector('#track-segments .seam', { state: 'attached', timeout: T.step });
+      // 1. Fyra skarvar, i stigande ordning, på varje gräns mellan segmenten och inom reglaget
+      const seams = await fresh.evaluate(() => {
+        const track = document.getElementById('track').getBoundingClientRect();
+        const segs = [...document.querySelectorAll('#track-segments .seg')].map(s => s.getBoundingClientRect());
+        return { segs: segs.length, seams: [...document.querySelectorAll('#track-segments .seam')].map(s => { const r = s.getBoundingClientRect(); return { x: r.left + r.width / 2, w: r.width, h: r.height, hidden: s.getAttribute('aria-hidden') }; }),
+          edges: segs.slice(0, -1).map(r => r.right), left: track.left, right: track.right };
+      });
+      if (seams.segs !== 5 || seams.seams.length !== 4) throw new Error(`väntade 5 segment och 4 skarvar, fick ${seams.segs} och ${seams.seams.length}`);
+      seams.seams.forEach((s, i) => {
+        if (Math.abs(s.x - seams.edges[i]) > 1.5) throw new Error(`skarv ${i + 1} ligger vid ${s.x}, segmentgränsen vid ${seams.edges[i]}`);
+        if (s.w < 3 || s.h < 12) throw new Error(`skarv ${i + 1} är för liten (${s.w}×${s.h})`);
+        if (s.hidden !== 'true') throw new Error('skarven är inte dold för skärmläsare (reglaget är tabbstoppet)');
+        if (s.x < seams.left || s.x > seams.right) throw new Error('skarven ligger utanför reglaget');
+      });
+      // 2. Titeln på varje segment säger skalan, och bara tal ur segmentens egna fält (inga epoknamn)
+      const titles = await fresh.locator('#track-segments .seg[title]').evaluateAll(els => els.map(e => e.title));
+      if (titles.length !== 5 || titles.some(x => !/\d/.test(x) || /ålder|Antiken|Medeltid|Modern/i.test(x))) throw new Error(`segmentens titlar: ${JSON.stringify(titles)}`);
+      // 3. Dra över en skarv: raden säger "Ny skala", teckenförklaringen tonas ned, tidsraden ändrar inte höjd och inget går utanför skärmen
+      const box = await fresh.locator('#track').boundingBox();
+      const heightBefore = (await fresh.locator('.timebar').boundingBox()).height;
+      const X = p => box.x + box.width * p, Y = box.y + 26; // under prickarnas rad (markeringarna stoppar draget)
+      const note = fresh.locator('#timeline-scale-note');
+      if (await note.isVisible()) throw new Error('skalraden syns innan något har flyttats');
+      await fresh.mouse.move(X(0.62), Y); await fresh.mouse.down(); await fresh.mouse.move(X(0.58), Y);
+      await note.waitFor({ state: 'visible', timeout: T.step });
+      const inSegment = (await note.textContent()).trim();
+      if (!/^Här är en tiondel av tidslinjen ≈ \d/.test(inSegment)) throw new Error(`skalraden inne i ett segment: "${inSegment}"`);
+      await fresh.mouse.move(X(0.45), Y); // ett enda hopp över skarven, så att statusraden hinner läsa upp det en gång
+      const crossed = (await note.textContent()).trim();
+      if (!/^Ny skala: en tiondel ≈ \d[\d\s ]* år \(förut \d/.test(crossed)) throw new Error(`skalraden efter skarven: "${crossed}"`);
+      const m = await fresh.evaluate(() => {
+        const r = id => document.getElementById(id).getBoundingClientRect();
+        const n = document.getElementById('timeline-scale-note');
+        const legend = document.getElementById('timeline-legend');
+        return { note: r('timeline-scale-note'), legendVis: getComputedStyle(legend).visibility, overflow: n.scrollWidth > n.clientWidth + 1,
+          bar: document.querySelector('.timebar').getBoundingClientRect().height, scroll: document.documentElement.scrollWidth, width: innerWidth, height: innerHeight, sr: n.getAttribute('aria-hidden') };
+      });
+      await fresh.mouse.up();
+      if (m.legendVis !== 'hidden') throw new Error('teckenförklaringen ligger kvar över skalraden');
+      if (m.overflow) throw new Error('skalraden är för lång för bredden och klipps');
+      if (Math.abs(m.bar - heightBefore) > 0.5) throw new Error(`tidsraden ändrade höjd (${heightBefore} → ${m.bar}) när skalraden visades`);
+      if (m.scroll > m.width) throw new Error('horisontell scroll');
+      if (m.note.left < 0 || m.note.right > m.width || m.note.top < 0) throw new Error(`skalraden ligger utanför skärmen: ${JSON.stringify(m.note)}`);
+      if (m.sr !== 'true') throw new Error('skalraden är inte dold för skärmläsare (de får samma sak i statusraden)');
+      // 4. Skärmläsaren får hela meningen i statusraden
+      await fresh.waitForFunction(() => /Ny skala: en tiondel av tidslinjen är nu cirka/.test(document.getElementById('screen-reader-status').textContent), null, { timeout: T.step })
+        .catch(async e => { throw new Error(`statusraden fick inte skalbeskedet: "${await fresh.textContent('#screen-reader-status')}" (${e.message.split('\n')[0]})`); });
+      // 5. Tangentbord: Home går till första året, över alla skarvar, och raden säger den nya skalan
+      await fresh.focus('#track'); await fresh.keyboard.press('End'); await fresh.keyboard.press('Home');
+      const afterHome = (await note.textContent()).trim();
+      if (!/≈ 97\s?000 år/.test(afterHome)) throw new Error(`skalraden efter Home: "${afterHome}"`);
+      // 6. Raden försvinner av sig själv och teckenförklaringen kommer tillbaka
+      await note.waitFor({ state: 'hidden', timeout: 9000 });
+      if (await fresh.evaluate(() => getComputedStyle(document.getElementById('timeline-legend')).visibility) !== 'visible') throw new Error('teckenförklaringen kom inte tillbaka');
+      const seamLegend = await fresh.isVisible('.tl-item-seam');
+      return `4 skarver på segmentgränserna; "${inSegment}" → "${crossed}"; ${m.width <= 560 ? 'skarvförklaringen i teckenförklaringen är dold i smal skärm' : `teckenförklaringens skarvrad syns: ${seamLegend}`}`;
+    } finally { await fresh.close(); }
   });
 
   await check('tidslinjen går att flytta', async () => {
@@ -3617,6 +3991,202 @@ async function run(browser, vp) {
     }
   });
 
+  // Följ en resa: Föregående och Nästa stopp i pausraden (#1380). Varje kontroll öppnar en egen sida med en länk, så att
+  // kontrollerna inte påverkar varandra, och länken är samtidigt det som delas ("Columbus vid stopp 4").
+  const stopPage = async hash => {
+    const sp = await context.newPage();
+    const errs = [];
+    sp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) pushConsole(errs, m); });
+    sp.on('pageerror', e => errs.push(e.message));
+    if (THREE_LOCAL) {
+      const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+      await sp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+      await sp.route(u => isFont(u.href), r => r.abort());
+    }
+    await sp.goto(`${BASE}?ny=rs${Math.random().toString(36).slice(2, 7)}${hash}`);
+    await sp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+    await sp.waitForSelector('#focus-bar', { state: 'visible', timeout: T.step });
+    return { sp, errs };
+  };
+  const stopRow = sp => sp.evaluate(() => {
+    const r = id => { const e = document.getElementById(id); return e && !e.hidden && e.getClientRects().length ? Math.round(e.getBoundingClientRect().height) : 0; };
+    return {
+      text: document.getElementById('pause-text').textContent.trim(), note: r('pause-note'), prev: r('pause-prev-stop'), next: r('pause-next-stop'),
+      go: r('pause-go'), focused: document.activeElement?.id ?? '', hash: location.hash,
+      status: document.getElementById('screen-reader-status')?.textContent ?? '',
+    };
+  });
+  const stopHash = hash => ({ year: Number(/[#&]y=([-\d.]+)/.exec(hash)?.[1]), camera: /&c=([^&]+)/.exec(hash)?.[1] });
+  const waitStop = (sp, name) => sp.waitForFunction(n => document.getElementById('pause-text').textContent.includes(n) && !document.getElementById('pause-note').hidden, name, { timeout: T.step });
+
+  await check('resans stopp: Nästa och Föregående stegar mellan stoppen (#1380)', async () => {
+    const { sp, errs } = await stopPage('#y=1492.5&f=route:columbus-resa-1');
+    try {
+      // Länken står på resans första stopp (året före det flyttas dit), så pausraden visar det direkt
+      await waitStop(sp, 'Palos de la Frontera');
+      const first = await stopRow(sp);
+      if (first.prev || !first.next || !first.go) throw new Error(`vid första stoppet ska Föregående saknas och Nästa och Fortsätt finnas: ${JSON.stringify(first)}`);
+      const names = ['Guanahaní', 'La Navidad', 'Rincónbukten', 'Lissabon', 'Palos de la Frontera'];
+      const seen = [stopHash(first.hash)];
+      for (const [i, name] of names.entries()) {
+        await sp.click('#pause-next-stop');
+        await waitStop(sp, name);
+        const row = await stopRow(sp);
+        seen.push(stopHash(row.hash));
+        const last = i === names.length - 1;
+        if (!row.prev) throw new Error(`Föregående saknas vid stopp ${i + 2}`);
+        if (last === !!row.next) throw new Error(`Nästa ${row.next ? 'syns' : 'saknas'} vid stopp ${i + 2} av 6`);
+        // Skärmläsaren får "Stopp 3 av 6" före platsen och datumet
+        await sp.waitForFunction(n => document.getElementById('screen-reader-status').textContent.startsWith(`Stopp ${n} av 6`), i + 2, { timeout: T.step });
+        if (last && row.focused !== 'pause-prev-stop') throw new Error(`fokus flyttades inte till Föregående när Nästa försvann: ${row.focused}`);
+      }
+      if (new Set(seen.map(s => s.year)).size !== 6) throw new Error(`året följde inte stoppen: ${seen.map(s => s.year).join(', ')}`);
+      if (new Set(seen.map(s => s.camera)).size < 5) throw new Error(`kameran följde inte stoppen: ${seen.map(s => s.camera).join(' | ')}`);
+      // Stegen går att ta tillbaka, och vid första stoppet försvinner Föregående med fokus flyttat till Nästa
+      for (let i = 0; i < 5; i++) { await sp.click('#pause-prev-stop', { timeout: T.step }); await sp.waitForFunction(n => document.getElementById('screen-reader-status').textContent.startsWith(`Stopp ${n} av 6`), 5 - i, { timeout: T.step }); }
+      const back = await stopRow(sp);
+      if (back.prev || !back.next || back.focused !== 'pause-next-stop' || !back.text.includes('Palos de la Frontera')) throw new Error(`tillbaka vid första stoppet: ${JSON.stringify(back)}`);
+      if (stopHash(back.hash).year !== seen[0].year) throw new Error(`första stoppets år kom inte tillbaka: ${back.hash}`);
+      // Knapparna säger vilket stopp de går till
+      const label = await sp.getAttribute('#pause-next-stop', 'aria-label');
+      if (!/Nästa stopp: Guanahaní.*12 oktober 1492.*stopp 2 av 6/.test(label)) throw new Error(`Nästa stopp saknar plats, datum och läge i namnet: ${label}`);
+      if (errs.length) throw new Error(`konsolfel: ${errs.join('; ')}`);
+      return `sex stopp stegade framåt och tillbaka, året och kameran följde, fokus flyttades till kvarvarande knapp; ${label}`;
+    } finally { await sp.close(); }
+  });
+
+  await check('resans stopp: Fortsätt och Bakåt går från stoppet man har stegat till (#1380)', async () => {
+    // Lissabon, 4 mars 1493, är stopp 5 av 6 och ligger bara elva dagar före hemkomsten, så Fortsätt hinner dit inom en kontroll
+    const { sp } = await stopPage('#y=1493.1699&f=route:columbus-resa-1');
+    try {
+      await waitStop(sp, 'Lissabon');
+      await sp.click('#pause-prev-stop');
+      await waitStop(sp, 'Rincónbukten');
+      await sp.click('#pause-next-stop');
+      await waitStop(sp, 'Lissabon');
+      // Fortsätt går vidare till nästa stopp, inte tillbaka till stoppet man står på
+      await sp.click('#pause-go');
+      await waitStop(sp, 'Palos de la Frontera');
+      if ((await stopRow(sp)).next) throw new Error('Nästa syns vid sista stoppet efter Fortsätt');
+      // Ett steg bakåt och sedan Fortsätt går till stoppet efter igen, eftersom kön följer det man stegade till
+      await sp.click('#pause-prev-stop');
+      await waitStop(sp, 'Lissabon');
+      await sp.click('#pause-go');
+      await waitStop(sp, 'Palos de la Frontera');
+      // Bakåt i webbläsaren är vägen tillbaka: varje steg är en egen post i historiken
+      await sp.click('#pause-prev-stop');
+      await waitStop(sp, 'Lissabon');
+      await sp.goBack();
+      await waitStop(sp, 'Palos de la Frontera');
+      const restored = await stopRow(sp);
+      if (restored.next || !restored.prev) throw new Error(`Bakåt visade inte sista stoppet med Föregående: ${JSON.stringify(restored)}`);
+      if (!restored.hash.includes('f=route:columbus-resa-1')) throw new Error(`Bakåt lämnade resan: ${restored.hash}`);
+      return 'Fortsätt går framåt från stoppet man stegade till, också efter ett steg bakåt; Bakåt ger föregående stopp med knapparna';
+    } finally { await sp.close(); }
+  });
+
+  await check('resans stopp: en länk med ett stopps år återskapar stoppet och Escape lämnar resan (#1380)', async () => {
+    // Lissabon, 4 mars 1493: stopp 5 av 6
+    const { sp } = await stopPage('#y=1493.1699&f=route:columbus-resa-1');
+    try {
+      await waitStop(sp, 'Lissabon');
+      const row = await stopRow(sp);
+      if (!row.prev || !row.next) throw new Error(`länken till ett stopp visar inte båda stegknapparna: ${JSON.stringify(row)}`);
+      if (!/^Stopp 5 av 6/.test(row.status)) throw new Error(`skärmläsaren fick inte stoppets plats i resan: ${row.status}`);
+      await sp.click('#pause-next-stop');
+      await waitStop(sp, 'Palos de la Frontera');
+      // Escape från en stegknapp lämnar resan, som för ett tema, och fokus går till Sök och följ
+      await sp.focus('#pause-prev-stop');
+      await sp.keyboard.press('Escape');
+      await sp.waitForSelector('#focus-bar', { state: 'hidden', timeout: T.step });
+      // I smal skärm ligger Sök och följ i menyn Meny, som inte är öppen: fokus går då till menyknappen
+      const want = vp.width <= 760 ? 'more-toggle' : 'btn-focus';
+      const got = await sp.evaluate(() => document.activeElement?.id);
+      if (got !== want) throw new Error(`fokus gick inte till ${want} efter Escape: ${got}`);
+      return 'länken till Lissabon visar stoppet med båda knapparna; Escape lämnar resan';
+    } finally { await sp.close(); }
+  });
+
+  await check('resans stopp: en resa utan daterade stopp visar inga stegknappar (#1380)', async () => {
+    // Leif Erikssons resa har ingen plats med stopp: pausraden kommer aldrig, och knapparna finns inte
+    const { sp, errs } = await stopPage('#y=1000&f=route:vikingar-leif-eriksson');
+    try {
+      const title = await sp.textContent('#focus-title');
+      if (!/1000|1001/.test(title)) throw new Error(`rubriken säger inte resans spann: ${title}`);
+      await sp.click('#focus-action');
+      await sp.waitForFunction(() => document.getElementById('focus-action').dataset.action === 'pause', null, { timeout: T.step });
+      await sp.click('#focus-action');
+      const row = await stopRow(sp);
+      if (row.prev || row.next) throw new Error(`en resa utan stopp visar stegknappar: ${JSON.stringify(row)}`);
+      if (await sp.locator('.tdot.route-stop').count()) throw new Error('resan visar stopp på tidslinjen fast den saknar dem');
+      if (errs.length) throw new Error(`konsolfel: ${errs.join('; ')}`);
+      return `rubriken "${title}", inga knappar, inget fel`;
+    } finally { await sp.close(); }
+  });
+
+  await check('resans stopp: ingen bläddring när en tur tar över (#1380)', async () => {
+    const { sp } = await stopPage('#y=1492.5&f=route:columbus-resa-1');
+    try {
+      // Länken står på resans första stopp (året före det flyttas dit), så pausraden visar det direkt
+      await waitStop(sp, 'Palos de la Frontera');
+      if (!(await stopRow(sp)).next) throw new Error('Nästa stopp saknas före turen');
+      // En tur avslutar Fokus (MODE_RULES): resan och dess knappar försvinner
+      await sp.evaluate(() => { location.hash = '#t=forsta-varldskriget'; });
+      await sp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      const row = await stopRow(sp);
+      if (row.prev || row.next) throw new Error(`stegknappar syns i en tur: ${JSON.stringify(row)}`);
+      if (await sp.locator('#focus-bar').isVisible()) throw new Error('resan följs fortfarande i turen');
+      return 'turen avslutar resan och inga stegknappar syns';
+    } finally { await sp.close(); }
+  });
+
+  await check('resans stopp: ingen bläddring i lektionsläget (#1380)', async () => {
+    const sp = await context.newPage();
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await sp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await sp.route(u => isFont(u.href), r => r.abort());
+      }
+      // Länken har både en lektion och ett fokus på en resa: turen i länken går före en delad vy (js/controllers/address.js), så resan följs aldrig
+      await sp.goto(`${BASE}?ny=rl#y=1492.5&f=route:columbus-resa-1&t=andra-varldskriget&m=lektion&s=stalingrad`);
+      await sp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await sp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      if (await sp.locator('#focus-bar').isVisible()) throw new Error('en resa följs i lektionsläget');
+      const row = await stopRow(sp);
+      if (row.prev || row.next) throw new Error(`stegknappar syns i lektionsläget: ${JSON.stringify(row)}`);
+      return 'lektionen stoppar Fokus och inga stegknappar syns';
+    } finally { await sp.close(); }
+  });
+
+  await check('resans stopp: pausraden med knapparna ryms och fokusraden ligger ovanför (#1380)', async () => {
+    const { sp } = await stopPage('#y=1492.5&f=route:columbus-resa-1');
+    try {
+      // Länken står på resans första stopp (året före det flyttas dit), så pausraden visar det direkt
+      await waitStop(sp, 'Palos de la Frontera');
+      const narrow = vp.width <= 760;
+      for (const text of ['Guanahaní', 'La Navidad']) { // La Navidad har den längsta texten
+        await sp.click('#pause-next-stop');
+        await waitStop(sp, text);
+        const m = await sp.evaluate(() => {
+          const box = id => { const b = document.getElementById(id).getBoundingClientRect(); return { top: b.top, bottom: b.bottom, left: b.left, right: b.right, height: b.height }; };
+          return { note: box('pause-note'), focus: box('focus-bar'), prev: box('pause-prev-stop'), next: box('pause-next-stop'), go: box('pause-go'),
+            width: innerWidth, height: innerHeight, scroll: document.documentElement.scrollWidth };
+        });
+        if (m.scroll > m.width) throw new Error(`${text}: sidan får horisontell scroll (${m.scroll} > ${m.width})`);
+        if (m.note.left < 0 || m.note.right > m.width || m.note.bottom > m.height) throw new Error(`${text}: pausraden ryms inte: ${JSON.stringify(m.note)}`);
+        if (m.focus.bottom > m.note.top + 1) throw new Error(`${text}: fokusraden ligger över pausraden (${m.focus.bottom} > ${m.note.top})`);
+        // Mobil: minst 44 px (jump-back-mönstret); dator: 32 px
+        const min = narrow ? 44 : 32;
+        for (const key of ['prev', 'next', 'go']) if (m[key].height < min - 0.5) throw new Error(`${text}: knappen ${key} är ${m[key].height} px, under ${min}`);
+        // Knapparna ligger på en rad i smal skärm (pausraden ska inte bli högre än text + en knapprad)
+        if (narrow && (Math.abs(m.prev.top - m.next.top) > 1 || Math.abs(m.next.top - m.go.top) > 1)) throw new Error(`${text}: knapparna bryts på flera rader`);
+      }
+      await sp.screenshot({ path: path.join(OUT, `${vp.name}-1380-resa-stopp-pausrad.png`) });
+      return `knapparna är minst ${narrow ? 44 : 32} px, pausraden ryms och fokusraden ligger ovanför`;
+    } finally { await sp.close(); }
+  });
+
   // Magellans resa fick källbelagda stopp med korta platsnamn (#1377)
   await check('Magellans resa har tio stopp med korta namn', async () => {
     try {
@@ -4443,6 +5013,35 @@ async function run(browser, vp) {
     return seen.join(' | ');
   });
 
+  // Stoppets datum med årstid (edtf 1405-23) kommer ur språkfilen, inte ur koden (#1473): Zheng Hes första stopp
+  await check('resans stopp på valt språk: årstiden i stoppets datum (#1473)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet';
+    const want = { en: 'autumn 1405', de: 'Herbst 1405', es: 'otoño de 1405', fr: 'automne 1405' };
+    const seen = [];
+    for (const [lang, text] of Object.entries(want)) {
+      const pp = await context.newPage();
+      const errors = [];
+      pp.on('pageerror', e => errors.push(e.message));
+      pp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
+      try {
+        if (THREE_LOCAL) {
+          await pp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+          await pp.route(u => isFont(u.href), r => r.abort());
+        }
+        await pp.goto(`${BASE}?lang=${lang}#y=1405&f=route:zheng-he-resa-1`);
+        await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await pp.waitForSelector('#focus-bar', { state: 'visible', timeout: T.load });
+        await pp.waitForSelector('.tdot.route-stop', { state: 'attached', timeout: T.load });
+        const marks = await pp.locator('.tdot.route-stop').evaluateAll(nodes => nodes.map(n => n.getAttribute('aria-label') || n.title));
+        if (!marks.some(mark => mark.includes(` · ${text}`))) throw new Error(`${lang}: stoppet saknar "${text}": ${marks.join(' | ')}`);
+        if (marks.some(mark => /hösten|\{year\}|time\.season/.test(mark))) throw new Error(`${lang}: svensk text eller rå nyckel: ${marks.join(' | ')}`);
+        if (errors.length) throw new Error(`${lang}: ${errors[0]}`);
+        seen.push(`${lang}: ${text}`);
+      } finally { await pp.close(); }
+    }
+    return seen.join(' | ');
+  });
+
   await check('tidslinjen, årshoppet, Platt vy, affischen och källorna på fem språk (#672)', async () => {
     const copies = {
       sv: ['år/s', 'Källregister', 'Affisch'], en: ['yr/s', 'Source register', 'Poster'],
@@ -4520,6 +5119,94 @@ async function run(browser, vp) {
       } finally { await pp.close(); }
     }
     return 'fem språk: hastighet och spelknapp, årshoppets fel, dagläge, källor/sökning och affischens ritade etiketter; ingen rå nyckel eller sidscroll';
+  });
+
+  await check('tidsskalans texter ryms på fem språk i 400 och 768 px (#1101)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet (provar själv 400 och 768 px)';
+    const seen = [];
+    // Egen kontext: den sparade farten och tipset ärvs inte från andra prov och lämnas inte kvar åt dem
+    const isolated = await browser.newContext({ viewport: { width: 400, height: 800 }, deviceScaleFactor: 1 });
+    try {
+    for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+      const pp = await isolated.newPage();
+      const errors = [];
+      pp.on('pageerror', e => errors.push(e.message));
+      try {
+        if (THREE_LOCAL) {
+          await pp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+          await pp.route(u => isFont(u.href), r => r.abort());
+        }
+        // Engångstipset döljer årtalen på skalan. Farten 100 ger den bredaste knapptexten ("100 000/s" vid 100 000 f.Kr.), och ett tidigare prov
+        // kan ha lämnat den sparad; provet sätter den själv så att det inte beror på ordningen.
+        await pp.addInitScript(() => { try { localStorage.setItem('hg-year-tip', '1'); localStorage.setItem('hg-speed-ars', '100'); } catch { /* utan lagring */ } });
+        for (const [width, height] of [[400, 800], [768, 1024]]) {
+          await pp.setViewportSize({ width, height });
+          await pp.goto(`${BASE}?lang=${lang}#y=2000`);
+          await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+          // Modern tid, ett år vid hundratalsupplösningen och reglagets första år: tre olika längder på knappar, årtal och tidsfönster
+          for (const year of [2000, -5000, -99999]) {
+            await pp.evaluate(y => { location.hash = `#y=${y}`; }, year);
+            await pp.waitForFunction(y => Math.abs(Number(document.getElementById('track').getAttribute('aria-valuenow')) - y) <= 1000, year, { timeout: T.step });
+            await pp.waitForTimeout(300); // knapparnas texter och skalans årtal ritas om efter bytet
+            const r = await pp.evaluate(async () => {
+              const { formatYear } = await import('./js/model.js');
+              const { MIN_YEAR } = await import('./js/timeline.js');
+              const out = { problems: [], first: formatYear(MIN_YEAR) };
+              const shown = e => { const b = e.getBoundingClientRect(); return b.width > 0 && b.height > 0 && getComputedStyle(e).visibility !== 'hidden'; };
+              // Texten får inte sticka ut ur sin ruta eller ur skärmen
+              const textBox = e => { const g = document.createRange(); g.selectNodeContents(e); return g.getBoundingClientRect(); };
+              const inside = (e, name) => {
+                const b = e.getBoundingClientRect(), t = textBox(e);
+                if (t.left < b.left - 1 || t.right > b.right + 1) out.problems.push(`${name} "${e.textContent.trim()}" sticker ut ur sin ruta (${t.left.toFixed(0)}–${t.right.toFixed(0)} mot ${b.left.toFixed(0)}–${b.right.toFixed(0)})`);
+                if (b.left < -0.5 || b.right > innerWidth + 0.5) out.problems.push(`${name} "${e.textContent.trim()}" ligger utanför skärmen (${b.left.toFixed(0)}–${b.right.toFixed(0)})`);
+              };
+              if (document.documentElement.scrollWidth > innerWidth) out.problems.push(`horisontell scroll: ${document.documentElement.scrollWidth} > ${innerWidth}`);
+              const ticks = [...document.querySelectorAll('#ticks .tick')].filter(shown);
+              out.ticks = ticks.map(e => e.textContent);
+              ticks.forEach(e => inside(e, 'årtal på skalan'));
+              ticks.forEach((a, i) => ticks.slice(i + 1).forEach(b => {
+                const ra = a.getBoundingClientRect(), rb = b.getBoundingClientRect();
+                if (ra.left < rb.right && ra.right > rb.left) out.problems.push(`årtalen "${a.textContent}" och "${b.textContent}" ligger över varandra`);
+              }));
+              out.hasFirst = ticks.some(e => e.classList.contains('first') && e.textContent === out.first);
+              out.hasModern = ticks.some(e => e.textContent === '2000');
+              document.querySelectorAll('.controls .step, .controls .play').forEach(e => { if (shown(e)) inside(e, 'knapp'); });
+              // Årtalet i huvudet får inte täckas av knapparna bredvid
+              const big = document.getElementById('year-big').getBoundingClientRect(), row = document.querySelector('.top-actions').getBoundingClientRect();
+              if (innerWidth <= 760 && row.width && big.right > row.left + 0.5 && big.bottom > row.top && big.top < row.bottom) out.problems.push(`årtalet "${document.getElementById('year-big').textContent}" täcks av knapparna (${big.right.toFixed(0)} mot ${row.left.toFixed(0)})`);
+              const note = document.getElementById('year-segment');
+              if (note.getBoundingClientRect().right > innerWidth + 0.5) out.problems.push(`tidsfönstrets rad går utanför skärmen: ${note.textContent}`);
+              if (/[XVILC]{6,}/.test(note.textContent)) out.problems.push(`ogiltigt romerskt tal: ${note.textContent}`);
+              out.note = note.textContent;
+              return out;
+            });
+            const where = `${lang} ${width} px, år ${year}`;
+            if (r.problems.length) throw new Error(`${where}: ${r.problems.join('; ')}`);
+            if (!r.hasFirst) throw new Error(`${where}: skalan saknar sitt första årtal "${r.first}": ${r.ticks.join(', ')}`);
+            if (!r.hasModern) throw new Error(`${where}: skalan saknar 2000: ${r.ticks.join(', ')}`);
+          }
+          // Snabbhoppen i årshoppet: segmentens namn ryms i sina rutor
+          await pp.click('#year-jump');
+          await pp.waitForSelector('#jump-pop:not([hidden])', { timeout: T.step });
+          const chips = await pp.evaluate(() => {
+            const pop = document.getElementById('jump-pop').getBoundingClientRect(), out = [];
+            for (const e of document.querySelectorAll('#jump-epochs .jump-epoch')) {
+              const b = e.getBoundingClientRect(), g = document.createRange();
+              g.selectNodeContents(e);
+              const t = g.getBoundingClientRect();
+              if (t.right > b.right + 1 || t.left < b.left - 1 || b.right > pop.right + 1 || b.right > innerWidth) out.push(e.textContent);
+            }
+            return { out, count: document.querySelectorAll('#jump-epochs .jump-epoch').length, scroll: document.documentElement.scrollWidth > innerWidth };
+          });
+          if (chips.out.length || chips.scroll || chips.count !== 6) throw new Error(`${lang} ${width} px: snabbhoppens knappar: ${chips.count} st, utanför: ${chips.out.join(' | ')}, scroll ${chips.scroll}`);
+          await pp.keyboard.press('Escape');
+        }
+        if (errors.length) throw new Error(`${lang}: ${errors.join(' | ')}`);
+        seen.push(lang);
+      } finally { await pp.close(); }
+    }
+    } finally { await isolated.close(); }
+    return `${seen.join(', ')} i 400 och 768 px, år 2000, 5000 f.Kr. och 100 000 f.Kr.: årtal, knappar, årtalet i huvudet, tidsfönstret och snabbhoppen ryms, utan överlapp eller sidscroll`;
   });
 
   await check('bildlagrens källor står under Kartdata i Om källorna (#1410)', async () => {
@@ -5095,6 +5782,76 @@ async function run(browser, vp) {
       if (await lp.evaluate(() => document.getElementById('panel-tag-note').hidden)) throw new Error('urvalsraden saknas när Översikt är tillbaka efter lektionen');
       if (errors.length) throw new Error(`konsolfel: ${errors.join('; ')}`);
       return `lektionen visar ${ids.length} händelser år 1939, varav ${outside.length} utanför Översikt; utgången ger Översikt tillbaka`;
+    } finally { await lp.close(); }
+  });
+  // #1340: uppdrag knyts till lektionen i data (fältet lesson i data/uppdrag.json). Efter sista steget visar slutkortet
+  // lektionens eget uppdrag, inte år 1500; jakten börjar inom lektionens år och går att klara med händelserna där,
+  // utan att flytta tiden (reglaget är låst i lektionen, #1322).
+  await check('lektionens slutkort leder till lektionens eget uppdrag (#1340)', async () => {
+    const lp = await context.newPage();
+    const errors = [];
+    lp.on('pageerror', e => errors.push(e.message));
+    lp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await lp.route(u => isFont(u.href), r => r.abort());
+      }
+      const endOf = async (tour, step) => {
+        await lp.goto(`${BASE}?ny=1340-${tour}#t=${tour}&m=lektion&s=${step}`); // egen sökdel: en ny sidladdning, inte bara en ny adress
+        await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await lp.waitForSelector('#tour-lesson-end', { state: 'visible', timeout: T.step });
+        return lp.evaluate(() => [...document.querySelectorAll('#tour-lesson-end-list button')].map(b => b.textContent.trim()));
+      };
+      const yearNow = () => lp.textContent('#year-big').then(x => x.trim());
+      // Vikingatiden (åk 4–6): ett uppdrag, omkring år 1000, och inte år 1500
+      const viking = await endOf('vikingatiden-och-varlden', 'ghana');
+      if (viking.length !== 1 || !/omkring år 1000/.test(viking[0])) throw new Error(`vikingalektionens slutkort visar ${JSON.stringify(viking)}`);
+      await lp.click('#tour-lesson-end-list button');
+      await lp.waitForSelector('#hunt', { state: 'visible', timeout: T.step });
+      if (await yearNow() !== '1000') throw new Error(`jakten började på ${await yearNow()}, inte 1000`);
+      const span = (await lp.textContent('#hunt-years')).trim();
+      if (!/950.1050/.test(span)) throw new Error(`jakten visar åren ${span}`);
+      if (!(await lp.isVisible('#lesson-band'))) throw new Error('jakten avslutade lektionen');
+      // Som en elev: öppna händelser i Samtidigt och lägg dem i jakten (Europa, Asien, Afrika)
+      const add = async id => {
+        if (await lp.isHidden('#panel')) {
+          if (await lp.isHidden('#btn-panel') && await lp.isVisible('#more-toggle')) await lp.click('#more-toggle');
+          await lp.click('#btn-panel');
+        }
+        await lp.locator(`#event-list .event-btn[data-id="${id}"]`).first().click();
+        await lp.waitForSelector('#detail [data-hunt]', { state: 'visible', timeout: T.step });
+        await lp.click('#detail [data-hunt]');
+        const msg = (await lp.textContent('#hunt-message')).trim();
+        // Som en elev: stäng faktarutan, som annars täcker listan i Samtidigt, innan nästa händelse
+        await lp.click('#detail [data-close]');
+        await lp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
+        return msg;
+      };
+      for (const id of ['lund-grundas', 'sagan-om-genji', 'mapungubwe-riket']) {
+        const msg = await add(id);
+        if (!/räknas/.test(msg)) throw new Error(`${id} räknades inte: ${msg}`);
+      }
+      await lp.waitForSelector('#hunt-done', { state: 'visible', timeout: T.step });
+      if (await lp.evaluate(() => document.scrollingElement.scrollWidth > innerWidth + 1)) throw new Error('jakten i lektionen ger horisontell scroll');
+      // Andra världskriget (åk 7–9): år 1945, där turen slutar. Reglaget är låst i lektionen (#1322), så jakten ska gå
+      // att klara utan att flytta tiden: Europa, Asien och Amerika.
+      const war = await endOf('andra-varldskriget', 'tokyobukten');
+      if (war.length !== 1 || !/år 1945/.test(war[0])) throw new Error(`krigslektionens slutkort visar ${JSON.stringify(war)}`);
+      await lp.click('#tour-lesson-end-list button');
+      await lp.waitForSelector('#hunt', { state: 'visible', timeout: T.step });
+      if (await yearNow() !== '1945') throw new Error(`krigsjakten började på ${await yearNow()}, inte 1945`);
+      const warYears = (await lp.textContent('#hunt-years')).trim();
+      if (warYears !== 'År 1945') throw new Error(`krigsjakten visar åren "${warYears}"`);
+      await lp.waitForFunction(() => location.hash.includes('u=samtidighetsjakten-1945'), null, { timeout: T.step });
+      for (const id of ['andra-varldskriget', 'indonesiens-sjalvstandighet', 'fn-grundas']) {
+        const msg = await add(id);
+        if (!/räknas/.test(msg)) throw new Error(`${id} räknades inte i krigsjakten: ${msg}`);
+      }
+      await lp.waitForSelector('#hunt-done', { state: 'visible', timeout: T.step });
+      if (errors.length) throw new Error(`konsolfel: ${errors.join('; ')}`);
+      return `vikingalektionen: ${viking[0]}; krigslektionen: ${war[0]}; båda klarade med tre världsdelar utan att flytta tiden`;
     } finally { await lp.close(); }
   });
   // #865: en gammal adress som väntar på att ett fokus ska laddas får inte skriva över året och kameran när en vanlig
@@ -5749,7 +6506,12 @@ async function run(browser, vp) {
       const rows = await mp.evaluate(() => [...document.querySelectorAll('#tour-menu .tour-lesson-row')].filter(r => r.querySelector('.tour-lesson-meta')?.textContent.trim()).map(r => ({
         meta: r.querySelector('.tour-lesson-meta')?.textContent.trim(), tour: r.querySelector('.tour-lesson-start')?.dataset.tour,
         label: r.querySelector('.tour-lesson-start')?.getAttribute('aria-label') })));
-      if (rows.length !== 2) throw new Error(`${rows.length} lektioner märkta i menyn, väntade 2`);
+      if (rows.length !== 5) throw new Error(`${rows.length} lektioner märkta i menyn, väntade 5`);
+      // De tre turerna om rikens fall är lektioner för årskurs 7–9 (#1279)
+      for (const id of ['vastroms-fall', 'hanrikets-fall', 'songhairikets-fall']) {
+        const r = rows.find(x => x.tour === id);
+        if (!r || !/Lektion · årskurs 7–9 · \d+ min/.test(r.meta)) throw new Error(`fall-turen ${id} märks inte som lektion för årskurs 7–9: ${JSON.stringify(r)}`);
+      }
       const ww = rows.find(r => r.tour === 'andra-varldskriget');
       if (!ww || !/Lektion · årskurs 7–9 · \d+ min/.test(ww.meta) || !/Starta som lektion: /.test(ww.label)) throw new Error(`lektionen för andra världskriget märks fel: ${JSON.stringify(ww)}`);
       if (await mp.locator('#tour-menu .tour-lesson-start[data-tour="forsta-varldskriget"]').count()) throw new Error('en vanlig tur har fått knappen Starta som lektion');
@@ -5766,7 +6528,7 @@ async function run(browser, vp) {
     } finally {
       await mp.close();
     }
-    return 'två lektioner märkta (årskurs och tid), Starta som lektion ger bandet, steg 1 och 1939, m=lektion i adressen; vanliga turer utan lektionsknapp; Hur vet vi det här först och en Starta turen-knapp på varje tur (#1002)';
+    return 'fem lektioner märkta (årskurs och tid), fall-turerna för årskurs 7–9, Starta som lektion ger bandet, steg 1 och 1939, m=lektion i adressen; vanliga turer utan lektionsknapp; Hur vet vi det här först och en Starta turen-knapp på varje tur (#1002)';
   });
   // #994 och #995: raden under årtalet säger århundradet och fönstret i klartext, och det som ligger före eller efter året
   // säger hur långt ("4 år före (1912)", "21 år senare") i stället för "slut 1912"
@@ -6039,6 +6801,39 @@ async function run(browser, vp) {
       if (!(rate(b.speed) === rate(c.speed) * 1000)) throw new Error(`farten: ${b.speed} vid 50 000 f.Kr. men ${c.speed} vid 1325`);
       if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
       return `${a.big} (länk -7412) | ${b.steps.join(' ')} | ${b.speed} | 1325: märket ${c.badge} pågår`;
+    } finally { await wp.close(); }
+  });
+  // #1321: fokusskalans årtal. Inget riktigt fokus spänner än över mer än 12 000 år, så ett testtema ersätter data/teman.json via
+  // route (som i temakontrollen). Förut slutade steglistan vid 1000 år och föll till 2000: 96 000 år gav 48 årtal på en skala
+  // där 4 (mobil) till 13 får plats. Skalan ska ge högst så många årtal som får plats, och de ska inte ligga över varandra.
+  await check('fokusskalan klarar spann över 12 000 år utan överlappande årtal (#1321)', async () => {
+    const wp = await context.newPage();
+    const errs = [];
+    wp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await wp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await wp.route(u => isFont(u.href), r => r.abort());
+      }
+      const tx = v => ({ sv: v, en: v, de: v, es: v, fr: v });
+      const doc = { schema: 'historia-globen/teman@1', themes: [{ id: 'djuptema', name: tx('Djuptema'), intro: tx('Ett urval för testet.'), events: ['neandertalare', 'botai-hastar', 'sintashta-stridsvagnar'], sources: [], review: 'source-checked' }] };
+      await wp.route('**/data/teman.json*', r => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(doc) }));
+      await wp.goto(`${BASE}?lang=sv&ny=skala1321#y=1900&f=theme:djuptema`);
+      await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await wp.waitForFunction(() => !document.getElementById('focus-bar').hidden && document.querySelectorAll('#ticks .tick').length > 1, null, { timeout: T.step });
+      const r = await wp.evaluate(() => {
+        const ticks = [...document.querySelectorAll('#ticks .tick')].map(x => { const b = x.getBoundingClientRect(); return { text: x.textContent.trim(), left: b.left, right: b.right }; });
+        return { ticks, width: document.getElementById('track').clientWidth };
+      });
+      const fit = Math.max(3, Math.floor(r.width / 90));
+      const names = r.ticks.map(x => x.text).join(', ');
+      if (r.ticks.length < 2) throw new Error(`skalan har ${r.ticks.length} årtal: ${names}`);
+      if (r.ticks.length > fit + 1) throw new Error(`${r.ticks.length} årtal på en skala som rymmer ${fit}: ${names}`);
+      for (let i = 1; i < r.ticks.length; i++)
+        if (r.ticks[i].left < r.ticks[i - 1].right) throw new Error(`"${r.ticks[i - 1].text}" och "${r.ticks[i].text}" ligger över varandra`);
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return `${r.ticks.length} årtal på ${r.width} px (plats för ${fit}): ${names}`;
     } finally { await wp.close(); }
   });
   // #1322: tidslåset i lägeskontraktet. I en tur och i en lektion (som börjar med en tur) går året inte att byta med drag, klick,
@@ -6558,7 +7353,7 @@ async function run(browser, vp) {
       const A4_WIDTH = 680;
       const A4_HEIGHT = 1039;
       const LANGS = ['sv', 'en', 'de', 'es', 'fr'];
-      const TOURS = ['andra-varldskriget', 'vikingatiden-och-varlden'];
+      const TOURS = ['andra-varldskriget', 'vikingatiden-och-varlden', 'vastroms-fall', 'hanrikets-fall', 'songhairikets-fall']; // fall-turerna sedan #1279
       // Firefox kan skriva familjenamnet med citattecken i document.fonts (#888): jämför utan dem
       const hasWebFont = fonts => fonts.some(f => f.replace(/"/g, '') === 'Instrument Sans');
       const measure = async (lang, tour, fallback) => {
@@ -6614,8 +7409,8 @@ async function run(browser, vp) {
             if (fallback && (used || !got.bodyFont.replace(/"/g, '').startsWith('DejaVu Sans'))) throw new Error(`${tour} ${lang}: reservmätningen använder fel typsnitt (${got.bodyFont}, webbtypsnitt: ${used})`);
             const max = Math.max(...got.heights);
             const lim = limit[fallback ? 'fallback' : 'web'];
-            // Andra världskriget har Källdetektiven (#742) och därmed tre blad, vikingatiden har två; varje blad har en h1
-            const sheets = tour === TOURS[0] ? 3 : 2;
+            // Andra världskriget och Songhai har Källdetektiven (#742, #1279) och därmed tre blad, de andra två; varje blad har en h1
+            const sheets = ['andra-varldskriget', 'songhairikets-fall'].includes(tour) ? 3 : 2;
             if (got.heights.length !== sheets || got.h1 !== sheets) throw new Error(`${tour} ${lang}: ${got.heights.length} blad och ${got.h1} h1 i stället för ${sheets}`);
             if (max > lim) throw new Error(`${tour} ${lang} ${fallback ? 'med reservtypsnitt' : 'med webbtypsnitt'}: ett blad är ${max} px högt, högst ${lim} px av A4:s ${A4_HEIGHT} px (${got.heights.join(', ')})`);
             rows.push(`${fallback ? 'reserv' : 'web'} ${tour.slice(0, 4)} ${lang} ${got.heights.join('/')}`);

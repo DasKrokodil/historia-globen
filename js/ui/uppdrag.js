@@ -4,7 +4,7 @@
 // Reglerna står i js/uppdrag-rules.js och uppdragen i data/uppdrag.json. Ingen poäng sparas.
 import { t, formatEventTime, formatYear, isVisibleReview, needDetails } from '../model.js';
 import { ui } from '../i18n.js';
-import { checkHunt, huntDone, missionProblems, span, eventRegion } from '../uppdrag-rules.js';
+import { checkHunt, huntDone, missionProblems, span, eventRegion, fitsLesson, defaultMission } from '../uppdrag-rules.js';
 
 /** Uppdragen i data/uppdrag.json. Ett uppdrag med fel hoppas över (varning i konsolen). */
 export async function loadMissions() {
@@ -43,13 +43,17 @@ export class Hunt {
   get active() { return !!this.mission; }
   get missionId() { return this.mission?.id ?? null; }
 
-  /** Startar uppdraget (första uppdraget när id saknas). Tiden flyttas till uppdragets år. Ger false för ett okänt id. */
+  /**
+   * Startar uppdraget (när id saknas det första som inte hör till en lektion). Tiden flyttas till uppdragets år.
+   * Ger false för ett okänt id.
+   */
   start(id = null, opener = null) {
-    const m = id ? this.missions.find(x => x.id === id) : this.missions[0];
+    const m = id ? this.missions.find(x => x.id === id) : defaultMission(this.missions);
     if (!m) return false;
-    // I en lektion (#795) gäller bara uppdrag inom lektionens år, som i slutkortet (js/ui/lesson.js): jakten flyttar året
-    const years = this.app.lesson?.active ? this.app.lesson.lock?.years : null;
-    if (years && (m.year < years[0] || m.year > years[1])) return false;
+    // I en lektion (#795) gäller bara lektionens eget uppdrag, eller ett uppdrag utan lektion inom lektionens år, som i
+    // slutkortet (js/ui/lesson.js, #1340): jakten flyttar året
+    const lesson = this.app.lesson;
+    if (lesson?.active && !fitsLesson(m, lesson.tour?.id, lesson.lock?.years)) return false;
     if (this.app.store && !this.app.store.enter('jakt')) return false; // läget Jakt (#893, MODE_RULES i js/state.js)
     this.mission = m; this.found = []; this.opener = opener;
     this.app.timeline.pause();
@@ -94,7 +98,9 @@ export class Hunt {
       this.found.push(e);
       this.message.textContent = ui('hunt.ok', { title, region: regionName(r.region) });
     } else {
-      this.message.textContent = ui(`hunt.${r.reason}`, { title, from, to, region: r.region ? regionName(r.region) : '' });
+      // Ett uppdrag med window 0 gäller ett enda år (#1340): "pågick inte år 1945" i stället för "utanför åren 1945–1945"
+      const key = r.reason === 'time' && from === to ? 'hunt.timeYear' : `hunt.${r.reason}`;
+      this.message.textContent = ui(key, { title, from, to, year: from, region: r.region ? regionName(r.region) : '' });
     }
     this.message.className = `hunt-message ${r.ok ? 'is-ok' : 'is-no'}`;
     this.render();
@@ -107,7 +113,7 @@ export class Hunt {
     const [from, to] = span(m).map(formatYear);
     this.title.textContent = t(m.title);
     this.task.textContent = t(m.task);
-    this.years.textContent = ui('hunt.years', { from, to });
+    this.years.textContent = from === to ? ui('hunt.year', { year: from }) : ui('hunt.years', { from, to });
     this.progress.textContent = ui('hunt.progress', { n: this.found.length, count: m.count });
     this.list.replaceChildren(...this.found.map(e => {
       const li = el('li');

@@ -153,6 +153,11 @@ export function groupDigits(n) {
     .map(p => p.type === 'group' ? GROUP_SEP : p.value).join('');
 }
 
+/** Ett tal med högst en decimal på språkets sätt: "2,5" på svenska, tyska, spanska och franska, "2.5" på engelska (#1101). Utan tusentalsavgränsare, för tal under 10. */
+export function formatDecimal(n) {
+  return new Intl.NumberFormat(NUM_LOCALE, { maximumFractionDigits: 1, useGrouping: false }).format(n);
+}
+
 /** Kort årtal för listor: "551 f.Kr.", "793", "1325", "300 000 f.Kr.". */
 export function formatYear(y) {
   // Före 10 000 f.Kr. är årtalen tusental (#1320): i datan skrivs djup tid som Y-66000000 ("för 66 miljoner år sedan"), och som
@@ -183,7 +188,8 @@ export function centuryOf(y) {
   return { bce: isBCE(y), c: Math.floor(n / 100) + 1, hundred: Math.floor(n / 100) * 100 };
 }
 
-const ROMAN = [[10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']];
+// Upp till 100 (århundrade 100 = 9900–9999 f.Kr., #1101): förut saknades L och C, så 5000 f.Kr. blev "XXXXXI" i stället för "LI"
+const ROMAN = [[100, 'C'], [90, 'XC'], [50, 'L'], [40, 'XL'], [10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']];
 const roman = n => ROMAN.reduce((out, [v, r]) => { while (n >= v) { out += r; n -= v; } return out; }, '');
 /** Engelskans ordningstal: 1st, 2nd, 3rd, 14th, 21st. Suffixen ligger i språkfilen (time.ordSuffix), tom i övriga språk. */
 function ordinal(n) {
@@ -283,6 +289,13 @@ export function yearParts(y) {
   return [groupDigits(y), ''];
 }
 
+/** Intervallet som text: "1914–1918", "500–400 f.Kr." eller "50 f.Kr.–50". Ger [siffror, tideräkning] för huvudet (#755). */
+export function rangeParts(from, to) {
+  const [n1, e1] = yearParts(from), [n2, e2] = yearParts(to);
+  return e1 === e2 ? [`${n1}–${n2}`, e1] : [`${formatYear(from)}–${formatYear(to)}`, ''];
+}
+export const rangeText = (from, to) => rangeParts(from, to).filter(Boolean).join(' ');
+
 /** Tolkar ett inskrivet år till astronomiskt år, eller null. "2600 f.Kr.", "44 fkr", "300 BC" och
  *  "-500" blir före vår tideräkning; "1969", "800 e.Kr." och "AD 800" efter. Utan tideräkning i texten
  *  används `defaultEra` ('ce' eller 'bce'). Det finns inget år 0 i visningen: 1 f.Kr. är 0. */
@@ -366,6 +379,22 @@ export function formatDate(iso) {
   const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
   return m && isValidDate(Number(m[1]), Number(m[2]), Number(m[3]))
     ? formatCalendarDate(Number(m[1]), Number(m[2]), Number(m[3]), m[1]) : (iso || '');
+}
+
+// EDTF:s årstidskoder (nivå 1): 21 vår, 22 sommar, 23 höst, 24 vinter. Texterna ligger i språkfilerna (time.season.*, #1473).
+const SEASONS = { 21: 'spring', 22: 'summer', 23: 'autumn', 24: 'winter' };
+
+/**
+ * Datumet för ett stopp på en resa (#376): egen etikett, dagsdatum, en årstid ur edtf ("1405-23" blir "hösten 1405" på svenska,
+ * "autumn 1405" på engelska) eller edtf som det står. Texterna kommer ur språkfilen (#1473), aldrig ur koden.
+ * Samma funktion används av pausraden, stegknapparna och tidslinjemärkena (routeStops i lines.js).
+ */
+export function stopDate(place) {
+  if (place.dateLabel) return t(place.dateLabel);
+  if (place.date) return formatDate(place.date);
+  const season = /^(-?\d{4})-(2[1-4])$/.exec(place.edtf ?? '');
+  if (season) return ui(`time.season.${SEASONS[season[2]]}`, { year: formatYear(Number(season[1])) });
+  return place.edtf ?? '';
 }
 
 /** Tid för en händelse enligt dess precision och EDTF-markering. */

@@ -128,6 +128,27 @@ Regeln (Rikards beslut 2026-11-03 på #556, se [beslut/2026-11-03-omstridda-gran
 - **Cliopatria:** området hör till Indonesien (Republic of Indonesia) 1976–2005 och är en egen stat (East Timor) från 2006. Wikidata (Q574) anger 28 november 1975 som startdatum. Källorna skiljer sig alltså, och det står i noten.
 - **Gjort (2026-11-06, femtonde omgången nutida stater):** området (Indonesiens gräns 2005 minus gränsen 2006 i Cliopatria) räknas aldrig till Indonesien från 1976, visas utan stat 1976–2001 (som Golanhöjderna) och som Östtimor från 2002 (`DISPUTED` i `tools/riken.py`). Åren 2002–2005 har Östtimor samma gräns. Noten i rutan Om kartan för Östtimor och Indonesien finns på alla fem språken, med UD:s och FN:s sidor som källor. Hållningen är tydlig, så den här gången behövdes ingen fråga till Rikard; väljer han hellre att visa området på annat sätt 1976–2001 ändras bara `DISPUTED`.
 
+## Ockupation och inbördeskrig (#1332, beslut 2026-11-13)
+
+Regeln ([beslut/2026-11-13-ockupation-och-inbordeskrig.md](beslut/2026-11-13-ockupation-och-inbordeskrig.md), DasKrokodils svar på #1332): där Cliopatria efter 1945 ritar en ockupationsmakt eller en part i ett inbördeskrig i stället för en stat, ritas den **internationellt erkända staten**, och ockupationen eller kontrollen står med källa i rutan Om kartan. Det är en annan fråga än fallen ovan: där gäller Sveriges hållning om vem ett område tillhör, här vilken stat som ritas när Cliopatria ritar en makt som kontrollerade landet.
+
+**Så görs gränsen (inga påhittade gränser).** De år Cliopatria ritar en annan makt används **statens egen gräns i Cliopatria** ett närliggande år (`fill` i `GROUPS` i `tools/riken.py`), och bara där Cliopatrias gräns för staten är densamma före och efter. Makten som Cliopatria ritar i stället klipps bort de åren (`DISPUTED` med `to` och området `('clio', namn, år)`). Mätt i `cliopatria_polities_only_v021` 2026-11-13 (symmetrisk skillnad mellan gränserna, delat med ytan):
+
+| Stat | År på kartan | Cliopatria ritar i stället | Gränsen som används | Samma som | Skillnad |
+|---|---|---|---|---|---|
+| Afghanistan | 1979–2005 | Sovjetunionen (delar 1979–1989), `Mujahideen` (1987–1995), `Taliban` (1996–2005; `Afghanistan` bara i nordost) | `Republic of Afghanistan` 1978 | `Afghanistan` 2006 | 0,2 % |
+| Irak | 2006–2013 | USA (2006–2023, från 2014 samtidigt med `Republic of Iraq`) | `Iraqi Republic` 2005 | `Republic of Iraq` 2014 | 0,1 % |
+| Tjeckoslovakien | 1969–1990 | Sovjetunionen (1969–1990, och samtidigt 1991) | `Czechoslovakia` 1968 | `Czechoslovakia` 1991 | 0,1 % |
+| Kroatien | 1992–1995 | `Serbia-Montenegro` (Republiken Serbiska Krajina) | `Republic of Croatia` 1996 | samma post till 2024 | 0 % |
+| Bosnien och Hercegovina | 1992–1995 | `Serbia-Montenegro` och `Republic of Croatia` (Republika Srpska och Herceg-Bosna; Cliopatrias Bosnien är 1992–1995 bara en fjärdedel av landet) | `Bosnia and Herzegovina` 1996 | `Bosnia and Herzegovina` 2006 | 0,2 % |
+| Förbundsrepubliken Jugoslavien | 1992–1995 | samma post med de serbiska områdena i Kroatien och Bosnien | `Serbia-Montenegro` 1996 | `Serbia-Montenegro` 2000 (utom Kosovo) | – |
+
+Källorna för ockupationen och kontrollen (Wikipedia, kontrollerade 2026-11-13): [Soviet–Afghan War](https://en.wikipedia.org/wiki/Soviet%E2%80%93Afghan_War) (december 1979–februari 1989), [Islamic Emirate of Afghanistan (1996–2001)](https://en.wikipedia.org/wiki/Islamic_Emirate_of_Afghanistan_(1996%E2%80%932001)) (talibanerna styrde som mest omkring 90 procent av landet) och [Islamic State of Afghanistan](https://en.wikipedia.org/wiki/Islamic_State_of_Afghanistan) (FN:s erkända regering till 2001); [Coalition Provisional Authority](https://en.wikipedia.org/wiki/Coalition_Provisional_Authority) (ockupationsmyndigheten till 28 juni 2004) och [Withdrawal of United States troops from Iraq (2007–2011)](https://en.wikipedia.org/wiki/Withdrawal_of_United_States_troops_from_Iraq_(2007%E2%80%932011)) (de sista trupperna lämnade 18 december 2011); [Warsaw Pact invasion of Czechoslovakia](https://en.wikipedia.org/wiki/Warsaw_Pact_invasion_of_Czechoslovakia) (20–21 augusti 1968) och [Central Group of Forces](https://en.wikipedia.org/wiki/Central_Group_of_Forces) (de sovjetiska trupperna drogs tillbaka 1990–1991); [Croatian War of Independence](https://en.wikipedia.org/wiki/Croatian_War_of_Independence), [Republic of Serbian Krajina](https://en.wikipedia.org/wiki/Republic_of_Serbian_Krajina) och [Bosnian War](https://en.wikipedia.org/wiki/Bosnian_War). Noterna i rutan Om kartan för de sex rikena finns på alla fem språken.
+
+**Inte med i beslutet:** Rhodesia (1965–1979) och Zimbabwe-Rhodesia (1979) erkändes inte av någon stat, men Cliopatria ritar dem som egen stat och inte som en ockupationsmakt. De visas som i Cliopatria (svaret på del 1 i #1332), och rutan Om kartan säger att staten inte erkändes.
+
+**Fall som återstår** (sett i de byggda filerna 2026-11-13, inte ändrade här): Kuwait 1990 visas som Irak; Sovjetunionen ritas över Polen 1953–1989 och över Polen, Tjeckoslovakien, Ungern, Rumänien och Bulgarien 1945–1946; Ungern saknas 1956–1957; Muskat och Oman räknas till Brittiska imperiet 1956–1972. De prövas mot regeln i en senare omgång (#1469).
+
 ## Frågor till Rikard (2026-11-06, besvarade)
 
 1. Israel, Palestina och Golan: får gränserna hämtas ur Natural Earth (public domain, samma källa som grundkartan)?

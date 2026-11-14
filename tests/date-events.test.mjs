@@ -56,12 +56,12 @@ test('ett intervall med ett enda år ger samma händelser som årsurvalet', () =
 // utan öppna spann äldre än 100 år före slutet), så att testet följer datan när den växer.
 // Förstudien (docs/granskningar/2026-11-07-tidsintervall-forstudie.md) räknade 1914–1918: 23,
 // 500–400 f.Kr.: 26 och 1900–1999: 196 på 761 händelser; med dagens data är det fler. 1914–1918 är 24 sedan
-// emigrationen från Sverige (1840–1925, #1012) lades till.
+// emigrationen från Sverige (1840–1925, #1012) lades till, och 25 sedan vandringsduvan (1914, #1336).
 const reference = (from, to) => events.filter(e => e.start <= to && e.end >= from
   && !(/\/\.\.$/.test(e.edtf ?? '') && e.start <= to - 100));
 
 for (const [name, from, to, expected] of [
-  ['1914–1918', 1914, 1918, 24],
+  ['1914–1918', 1914, 1918, 26], // 24 + vandringsduvan 1914 (#1336) + Kimberley 1871–1914 (#1015)
   ['500–400 f.Kr. (−499 till −399)', -499, -399, undefined],
   ['1900–1999', 1900, 1999, undefined],
 ]) {
