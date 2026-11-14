@@ -9,13 +9,21 @@
 // Ytorna är inga gränser: ett område ritas som ett mjukt hölje runt namngivna platser (fyndplatser ur
 // data/events.json eller platser med koordinat ur Wikidata), och vågen går mellan sådana platser. Spann,
 // källor och "källorna skiljer sig" står i teckenförklaringen, som också är kartans textalternativ (#1106).
+//
+// Istidens kust (#1565, beslut 2026-11-14): mellan cirka 80 000 och 7 500 år sedan klipps alla områden mot torrt land
+// utan is i modellen bakom bildlagret Istidens kust (PaleoMIST 1.0), för det närmaste modellsteget. Masken är en egen,
+// liten bild per steg (skivans fält mask i data/bildlager.json, 2048 × 1024, alfa = land utan is), som laddas bara när
+// lagret är på och ett område syns i det spannet, och släpps annars. Det fungerar också när bildlagret är av. Vågornas
+// linjer klipps inte: de visar riktning, inte väg. Utanför spannet klipps bara Afrika (clipLand) mot dagens land.
 import { Z } from './registry.js';
+import { imageRows, sliceAt } from './images.js';
 import { loadSpread, t } from '../model.js';
 import { ui } from '../i18n.js';
 
 /** Lagrets post i registret (#338). Av som standard; den förinställda vyn "Människans spridning" slår på det. */
 export function entry({ data, refresh }) {
-  const layer = new SpreadLayer(data.byId, data.srcById, data.land);
+  const layer = new SpreadLayer(data.byId, data.srcById, data.land, maskSlices(data.imageLayers));
+  layer.onMask = () => refresh(); // masken laddad: rita om, nu klippt mot istidens kust
   let loading = null;
   return {
     id: 'spread', name: ui('layer.spread'), group: 'movement', layer, z: Z.spread,
@@ -38,12 +46,26 @@ export function entry({ data, refresh }) {
   };
 }
 
+/** Skivorna med mask (land utan is, #1565) ur bildlagren, i den första raden som har några; annars en tom lista. */
+export function maskSlices(doc) {
+  for (const row of imageRows(doc)) {
+    const slices = row.slices.filter(x => x.mask);
+    if (slices.length) return slices;
+  }
+  return [];
+}
+
 // Hur långt före slutet (i andelar av spannet) vågen är helt framritad; resten av spannet står den kvar
 const GROW = 0.6;
 
 export class SpreadLayer {
-  constructor(byId = {}, srcById = {}, land = null) {
+  constructor(byId = {}, srcById = {}, land = null, masks = [], makeImage = () => new Image()) {
     this.byId = byId; this.srcById = srcById;
+    this.maskSlices = masks; this.makeImage = makeImage; // makeImage byts ut i testerna, där Image inte finns
+    this.masks = new Map(); // fil → bild; högst en åt gången, de andra släpps (som bildlagren, images.js)
+    this.mask = null; // skivan vars mask gäller året, eller null
+    this.onMask = () => {};
+    this.work = null; // en återanvänd duk där ett område ritas och klipps mot masken
     this.land = land?.path ? { path: new Path2D(land.path), width: land.width, height: land.height } : null; // för clipLand
     this.edge = null; // en återanvänd duk för områdenas ytterkant
     this.items = null;
@@ -75,19 +97,48 @@ export class SpreadLayer {
 
   update({ year }) {
     this.active = [];
-    if (!this.enabled || !this.items) return this.active;
+    if (!this.enabled || !this.items) { this.mask = null; this.loadMask(null); this.work = null; return this.active; }
     for (const item of this.items) {
       if (year < item.start || year > item.end) continue;
       const span = Math.max(1, item.end - item.start);
       const grow = item.kind === 'wave' ? Math.min(1, (year - item.start) / (span * GROW)) : 1;
       this.active.push({ item, grow });
     }
+    // Masken behövs bara när ett område syns och året har ett modellsteg; annars släpps den och duken med den
+    const slice = this.active.some(a => a.item.kind === 'area') ? sliceAt(this.maskSlices, year) : null;
+    this.mask = slice?.mask ? slice : null;
+    this.loadMask(this.mask?.mask);
+    if (!this.mask) this.work = null;
     return this.active;
+  }
+
+  /** Laddar masken file (eller ingen) och släpper alla andra. */
+  loadMask(file) {
+    for (const [f, image] of this.masks) {
+      if (f === file) continue;
+      image.onload = image.onerror = null; image.src = '';
+      this.masks.delete(f);
+    }
+    if (!file || this.masks.has(file)) return;
+    const image = this.makeImage();
+    image.onload = () => this.onMask();
+    image.onerror = () => { image.failed = true; console.warn(`Spridningslagret kunde inte läsa masken ${file}`); };
+    image.src = file;
+    this.masks.set(file, image);
+  }
+
+  /** Den laddade masken för året, eller null (inget modellsteg, inte laddad än eller trasig: då som utan modell). */
+  maskImage() {
+    const image = this.mask && this.masks.get(this.mask.mask);
+    return image && !image.failed && image.complete && image.naturalWidth ? image : null;
   }
 
   /** Teckenförklaringen och textalternativet: allt som syns, med spann, säkerhet, not och källor. */
   legendItems() {
+    // En rad om kusten när ett område syns: modellens kust och is, eller (utanför modellens spann) som förut
+    const areas = this.active.some(a => a.item.kind === 'area');
     return {
+      coast: !areas ? '' : ui(this.mask ? 'legend.spreadCoastModel' : 'legend.spreadCoastToday'),
       items: this.active.map(({ item }) => ({
         id: item.id, kind: item.kind, certainty: item.certainty, color: this.colors[item.group] ?? '#e9c46a',
         title: t(item.title), summary: t(item.summary), note: item.note ? t(item.note) : '',
@@ -113,7 +164,9 @@ export class SpreadLayer {
    * Ett antaget område: ett mjukt hölje med radien radiusKm runt platserna i varje del, och alla delar som en yta.
    * Ytan fylls svagt och med snedstreck; ytterkanten är streckad med mörk kontur under, så att den syns mot både land och
    * hav (skissen på #1094, fynd 2). Kanterna där delarna överlappar suddas bort, så att bara ytterkanten syns.
-   * clipLand: ytan klipps mot dagens land (data/land.json), för ett område som annars skulle täcka hav.
+   * Med en mask (istidens kust, #1565) klipps ytan, snedstrecken och kanten mot land utan is i modellen: ytan ritas på en
+   * egen duk som sedan behåller bara det som masken täcker. Utan mask klipps ett område med clipLand mot dagens land
+   * (data/land.json), och övriga områden klipps inte.
    */
   drawArea(ctx, W, H, k, item) {
     const col = this.colors[item.group] ?? '#e9c46a';
@@ -124,27 +177,39 @@ export class SpreadLayer {
     if (Math.max(...xs) > W) shifts.push(-W);
     const m = 8 * k, bx = Math.floor(Math.min(...xs) - m), by = Math.floor(Math.min(...ys) - m);
     const bw = Math.ceil(Math.max(...xs) + m) - bx, bh = Math.ceil(Math.max(...ys) + m) - by;
+    const mask = this.maskImage();
     for (const dx of shifts) {
+      // Det synliga: utan del på kartan (0…W) hoppas förskjutningen över
+      if (bx + dx >= W || bx + dx + bw <= 0) continue;
       const path = new Path2D();
       for (const h of polys) { h.forEach(([x, y], i) => i ? path.lineTo(x + dx, y) : path.moveTo(x + dx, y)); path.closePath(); }
-      ctx.save();
-      if (item.clipLand) this.clipToLand(ctx, W, H);
-      ctx.globalAlpha = 0.14; ctx.fillStyle = col; ctx.fill(path);
-      ctx.globalAlpha = 1; ctx.fillStyle = stripes(ctx, col, k); ctx.fill(path);
+      // Med mask ritas allt på arbetsduken w, som har samma koordinater som kartan (förskjuten till rutan bx + dx, by)
+      const w = mask ? this.workCanvas(bw, bh) : ctx;
+      w.save();
+      if (mask) { w.setTransform(1, 0, 0, 1, -bx - dx, -by); w.clearRect(bx + dx, by, bw, bh); }
+      else if (item.clipLand) this.clipToLand(w, W, H);
+      w.globalAlpha = 0.14; w.fillStyle = col; w.fill(path);
+      w.globalAlpha = 1; w.fillStyle = stripes(w, col, k); w.fill(path);
       // Kanten ritas på en egen duk: dubbelt bred, och sedan suddas allt innanför ytan, så att bara ytterhalvan blir kvar
       const e = this.edgeCanvas(bw, bh);
       e.setTransform(1, 0, 0, 1, -bx - dx, -by);
       e.clearRect(bx + dx, by, bw, bh);
       e.save();
-      if (item.clipLand) this.clipToLand(e, W, H);
+      if (!mask && item.clipLand) this.clipToLand(e, W, H);
       e.lineJoin = 'round'; e.lineCap = 'round';
       e.setLineDash([9 * k, 6 * k]);
       e.strokeStyle = 'rgba(16,22,30,0.55)'; e.lineWidth = 7.2 * k; e.stroke(path);
       e.strokeStyle = col; e.lineWidth = 3.6 * k; e.stroke(path);
       e.restore();
       e.globalCompositeOperation = 'destination-out'; e.fill(path); e.globalCompositeOperation = 'source-over';
-      ctx.drawImage(e.canvas, 0, 0, bw, bh, bx + dx, by, bw, bh);
-      ctx.restore();
+      w.drawImage(e.canvas, 0, 0, bw, bh, bx + dx, by, bw, bh);
+      if (mask) {
+        // Behåll bara det som ligger på land utan is: masken täcker hela kartan (0…W), mjukt uppskalad
+        w.globalCompositeOperation = 'destination-in';
+        w.drawImage(mask, 0, 0, W, H);
+        w.restore();
+        ctx.drawImage(w.canvas, 0, 0, bw, bh, bx + dx, by, bw, bh);
+      } else w.restore();
     }
     // Namnet mitt i den största delen, så att det inte hamnar i ett grannområde
     const main = polys.reduce((a, b) => polyArea(b) > polyArea(a) ? b : a);
@@ -169,6 +234,16 @@ export class SpreadLayer {
       this.edge = c.getContext('2d');
     }
     return this.edge;
+  }
+
+  /** Arbetsduken för ett område som klipps mot masken, minst w × h; växer bara, och släpps när masken släpps. */
+  workCanvas(w, h) {
+    if (!this.work || this.work.canvas.width < w || this.work.canvas.height < h) {
+      const cw = Math.max(w, this.work?.canvas.width ?? 0), ch = Math.max(h, this.work?.canvas.height ?? 0);
+      const c = typeof OffscreenCanvas !== 'undefined' ? new OffscreenCanvas(cw, ch) : Object.assign(document.createElement('canvas'), { width: cw, height: ch });
+      this.work = c.getContext('2d');
+    }
+    return this.work;
   }
 
   /** En våg: en linje per gren, framritad till andelen grow av sin längd. */

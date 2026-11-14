@@ -23,8 +23,13 @@ men aldrig där masken har hav. Allt annat är genomskinligt, så att grundkarta
 ekvirektangulär 4096 × 2048 (−180…180, 90…−90), som lagerbilden (beslut 1), och sparas som WebP med alfakanal i
 images/lager/.
 
+Verktyget skriver också en mask per steg (#1565), images/lager/istidens-land-<N>ka.webp, MASK_W × MASK_H (2048 × 1024):
+vit med alfakanal, där alfa är andelen land utan is i modellen (inte hav i steget och inte is, samplat bilinjärt), så
+att kanten blir mjuk. Lagret Människans spridning (js/layers/spread.js) klipper sina ytor mot masken. Masken tar med
+dagens land, till skillnad från bilden, och lägre upplösning räcker: ytorna är tolkningar med radier på hundratals km.
+
 Kör från projektets rot:
-    python3 tools/istidens_kust.py --grids <katalog> --ice <fil.nc> [--steps 10 15 20 30 40 50 60 70 80]
+    python3 tools/istidens_kust.py --grids <katalog> --ice <fil.nc> [--steps 10 15 20 30 40 50 60 70 80] [--bara-masker]
 Saknas en fil i <katalog> hämtas den från Zenodo (cirka 32 MB per steg) och kontrolleras mot md5-summan i
 Zenodos API. Saknas <fil.nc> hämtas bara den filen (554 MB) ur PANGAEA:s zip-fil (3,5 GB) med Range-anrop. Lägg inte
 rutnäten i repot. Kräver Python-paketen numpy, Pillow och h5py (pip install numpy pillow h5py); h5py läser isfilen,
@@ -50,6 +55,7 @@ RECORD = 'https://zenodo.org/api/records/8147509'
 FILE_URL = 'https://zenodo.org/records/8147509/files/{name}?download=1'
 NAME = 'grid_gowan_glacial_1_8_{k}kyrBP_flon'
 W, H = 4096, 2048
+MASK_W, MASK_H = 2048, 1024  # masken för spridningslagret (#1565): 8 MB avkodad i stället för 32 MB
 ICE_ZIP = 'https://hs.pangaea.de/Maps/Global_Ice_Sheets/Gowan_ice_reconstruction.zip'
 ICE_MEMBER = 'ice_reconstruction/global_grid/reconstruction_0.25_degree.nc'
 ICE_META = 'https://doi.pangaea.de/10.1594/PANGAEA.905800?format=metainfo_xml'
@@ -151,10 +157,11 @@ def read_grid(path):
     return np.linspace(lats[0], lats[1], m), np.linspace(lons[0], lons[1], n), mz
 
 
-def sample(mask, lats, lons):
-    """Bilinjär interpolation av en 0/1-mask till lagerbildens pixlar; utanför rutnätets latituder blir värdet nan."""
-    lon = -180 + (np.arange(W) + 0.5) * 360 / W
-    lat = 90 - (np.arange(H) + 0.5) * 180 / H
+def sample(mask, lats, lons, w=W, h=H):
+    """Bilinjär interpolation av en 0/1-mask till w × h pixlar (lagerbilden som standard); utanför rutnätets latituder
+    blir värdet nan."""
+    lon = -180 + (np.arange(w) + 0.5) * 360 / w
+    lat = 90 - (np.arange(h) + 0.5) * 180 / h
     dlon, dlat = lons[1] - lons[0], lats[1] - lats[0]
     fx = (lon - lons[0]) / dlon
     fy = (lat - lats[0]) / dlat
@@ -236,6 +243,21 @@ def render(shown, then_sea, ice):
     return img, exposed, iced
 
 
+def land_mask(then_mz, lats, lons, iced_grid, ice_lats, ice_lons):
+    """Masken för spridningslagret (#1565): alfa = andel land utan is i steget, MASK_W × MASK_H, vit RGBA.
+
+    Land är "inte hav" i Wilmes mask, så dagens land ingår, och vatten som masken har som hav (också Kaspiska havet och
+    Svarta havet, som bilden inte visar) klipps bort. Is är istjockleken över ICE_MIN. Utanför rutnätets latituder (söder om −85,9°) blir alfa 0.
+    """
+    land = 1 - np.nan_to_num(sample(then_mz == 1, lats, lons, MASK_W, MASK_H), nan=1.0)
+    ice = np.nan_to_num(sample(iced_grid, ice_lats, ice_lons, MASK_W, MASK_H), nan=0.0)
+    alpha = np.clip(np.rint(land * (1 - ice) * 255), 0, 255).astype(np.uint8)
+    img = np.full((MASK_H, MASK_W, 4), 255, np.uint8)
+    img[..., 3] = alpha
+    img[alpha == 0, :3] = 0  # helt genomskinligt blir svart, så att WebP packar bättre
+    return img, alpha
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0],
                                  epilog='Kräver Python-paketen numpy, Pillow och h5py (pip install numpy pillow h5py).')
@@ -244,6 +266,8 @@ def main():
                     help='isfilen reconstruction_0.25_degree.nc ur PaleoMIST 1.0 (hämtas dit om den saknas)')
     ap.add_argument('--steps', nargs='+', default=['10', '15', '20', '30', '40', '50', '60', '70', '80'],
                     help='tidssteg i tusental år före 1950 (Gowan-serien har vart 2,5:e, 0–80)')
+    ap.add_argument('--bara-masker', action='store_true',
+                    help='skriv bara maskerna för spridningslagret, inte lagerbilderna (#1565)')
     args = ap.parse_args()
     args.grids.mkdir(parents=True, exist_ok=True)
     with urllib.request.urlopen(RECORD) as r:
@@ -263,6 +287,12 @@ def main():
         if len(hit) != 1:
             raise SystemExit(f'Steget {k}: isfilen saknar tidssteget')
         iced_grid = np.nan_to_num(thickness[hit[0]]) > ICE_MIN
+        mask, alpha = land_mask(mz, lats, lons, iced_grid, ice_lats, ice_lons)
+        mpath = OUT / f'istidens-land-{k.replace(".", "-")}ka.webp'
+        Image.fromarray(mask, 'RGBA').save(mpath, 'WEBP', lossless=True, quality=100, method=6)
+        print(f'{mpath.relative_to(ROOT)}: {mpath.stat().st_size // 1024} kB, land utan is {(alpha >= 128).mean() * 100:.2f} % av masken')
+        if args.bara_masker:
+            continue
         img, exposed, iced = render(sample(shown, lats, lons), sample(mz == 1, lats, lons),
                                     sample(iced_grid, ice_lats, ice_lons))
         path = OUT / f'istidens-kust-{k.replace(".", "-")}ka.webp'

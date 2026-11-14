@@ -7030,6 +7030,69 @@ async function run(browser, vp) {
     }
   });
 
+  // #1565: spridningens ytor klipps mot land utan is i istidens kust (närmaste modellsteg), också när bildlagret är av.
+  // Sidan laddar bara den lilla masken (inte lagerbilden) och teckenförklaringen har raden om kusten. Ritningen prövas
+  // sedan på riktigt med lagrets egen kod och den riktiga masken: en yta över Hudson Bay ritas inte på isen vid 20 000
+  // år sedan, Asiens yta finns kvar på Sunda men inte mitt i Sydkinesiska havet (hav), och utan modell (före 80 000 år) är
+  // samma punkt i havet täckt som förut.
+  await check('människans spridning: ytorna klipps mot istidens kust och is (#1565)', async () => {
+    const tp = await context.newPage();
+    const tpAw = abortWatch(tp);
+    const errors = [];
+    tp.on('console', m => { if (m.type() === 'error' && !isFont(m.location()?.url)) errors.push(m.text()); });
+    tp.on('pageerror', e => { if (!tpAw.defer(e.message)) errors.push(e.message); });
+    try {
+      if (THREE_LOCAL) {
+        await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+        await tp.route(u => isFont(u.href), r => r.abort());
+      }
+      await tpAw.goto(`${BASE}?ny=1565#y=-18050&l=spread`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForSelector('#religion-legend [data-spread-coast]', { state: 'attached', timeout: T.step });
+      await tp.waitForFunction(() => performance.getEntriesByType('resource').some(e => /istidens-land-20ka\.webp$/.test(e.name)), null, { timeout: T.step });
+      const page1 = await tp.evaluate(async () => {
+        const { ui } = await import('./js/i18n.js');
+        return { coast: document.querySelector('#religion-legend [data-spread-coast]').textContent, want: ui('legend.spreadCoastModel'),
+          image: performance.getEntriesByType('resource').some(e => /istidens-kust-\d+ka\.webp$/.test(e.name)) };
+      });
+      if (page1.coast !== page1.want) throw new Error(`raden om kusten är "${page1.coast}"`);
+      if (page1.image) throw new Error('lagerbilden laddades fast Istidens kust är av; bara masken behövs');
+      const px = await tp.evaluate(async () => {
+        const [{ SpreadLayer, maskSlices }, layers, spread, events] = await Promise.all([import('./js/layers/spread.js'),
+          fetch('data/bildlager.json').then(r => r.json()), fetch('data/spridning.json').then(r => r.json()), fetch('data/events.json').then(r => r.json())]);
+        const byId = Object.fromEntries((events.events ?? []).map(e => [e.id, e]));
+        const W = 4096, H = 2048;
+        const hudson = { id: 'test-hudson', kind: 'area', group: 'sapiens', start: -30000, end: -9999, radiusKm: 400, places: [{ coord: [-85, 60] }], title: { sv: 'Test' } };
+        const draw = async (year, masks) => {
+          const layer = new SpreadLayer(byId, {}, null, masks);
+          layer.enabled = true;
+          layer.setData({ ...spread, items: [...spread.items.filter(i => i.id === 'sapiens-asien'), hudson] });
+          const loaded = new Promise(r => { layer.onMask = r; });
+          layer.update({ year });
+          if (layer.mask) await loaded;
+          const c = new OffscreenCanvas(W, H), ctx = c.getContext('2d');
+          for (const { item } of layer.active) layer.drawArea(ctx, W, H, W / 2048, item);
+          const a = (lat, lon) => ctx.getImageData(Math.floor((lon + 180) / 360 * W), Math.floor((90 - lat) / 180 * H), 1, 1).data[3];
+          return { mask: layer.mask?.mask ?? null, hudson: a(60, -85), sunda: a(-5, 110), sea: a(15, 115), india: a(22, 78) };
+        };
+        // Utan masker (som före 80 000 år sedan): samma yta, oklippt
+        return { ice: await draw(-18050, maskSlices(layers)), none: await draw(-18050, []) };
+      });
+      const v = px.ice;
+      if (v.mask !== 'images/lager/istidens-land-20ka.webp') throw new Error(`masken för 20 000 år sedan används inte (${v.mask})`);
+      if (v.hudson !== 0) throw new Error(`ytan ritas på isen över Hudson Bay (alfa ${v.hudson})`);
+      if (!v.sunda) throw new Error('Asiens yta saknas på Sunda, som var land');
+      if (!v.india) throw new Error('Asiens yta saknas i Indien');
+      if (v.sea !== 0) throw new Error(`Asiens yta ritas i Sydkinesiska havet, som var hav (alfa ${v.sea})`);
+      if (!px.none.sea || !px.none.hudson || px.none.mask) throw new Error(`utan modell ska ytorna vara oklippta: ${JSON.stringify(px.none)}`);
+      errors.push(...tpAw.settle());
+      if (errors.length) throw new Error(`fel i konsolen: ${errors.join(' | ')}`);
+      return `20 000 år sedan: Hudson Bay 0, Sunda ${v.sunda}, Indien ${v.india}, Sydkinesiska havet 0 (alfa; utan modell ${px.none.sea}); bara masken laddades`;
+    } finally {
+      await tp.close();
+    }
+  });
+
   // #1414: efter vågorna står Homo sapiens kvar som tolkade ytor utanför Afrika. Ingen tid mellan cirka 45 000 och
   // 12 000 år sedan får se ut som att människor bara fanns i Afrika; listan (textalternativet) visar det som syns.
   await check('människans spridning: Homo sapiens finns utanför Afrika efter vågorna (#1414)', async () => {

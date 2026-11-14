@@ -588,6 +588,8 @@
   "spread.certainty.omstridd": "vague contestée",
   "legend.spread": "Dispersion humaine",
   "legend.spreadNote": "Les zones et les lignes sont des interprétations des sources, pas des frontières ni des itinéraires. Une ligne en tirets est une vague principale ; une ligne pointillée avec un point d’interrogation, une vague possible ou contestée. L’absence de découvertes ne signifie pas que personne n’y vivait.",
+  "legend.spreadCoastModel": "Les zones suivent la côte et les inlandsis du modèle pour l’étape du modèle la plus proche (le même modèle que la couche Côte de l’ère glaciaire) et ne sont pas tracées sur la mer ni sur la glace du modèle, même lorsque cette couche est désactivée. Les lignes ne sont pas découpées.",
+  "legend.spreadCoastToday": "En dehors de la période d’il y a 80 000 à 7500 ans, il n’y a pas ici de modèle de la côte : l’Afrique suit la côte actuelle, et les autres zones ne sont pas découpées.",
   "legend.spreadSources": "Sources :",
   "legend.spreadDetails": "résumé et sources",
   "legend.and": " et ",

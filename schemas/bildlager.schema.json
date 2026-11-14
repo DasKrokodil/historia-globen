@@ -40,6 +40,7 @@
                 "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
                 "title": { "$ref": "#/$defs/text" },
                 "format": { "type": "string", "enum": ["raster", "vektor"] },
+                "mask": { "type": "string", "pattern": "^images/[A-Za-z0-9_./-]+\\.(png|webp)$" },
                 "file": { "type": "string", "pattern": "^(images|data)/[A-Za-z0-9_./-]+\\.(jpg|jpeg|png|webp|json)$" },
                 "width": { "type": "integer", "minimum": 1, "maximum": 4096 },
                 "height": { "type": "integer", "minimum": 1, "maximum": 4096 },

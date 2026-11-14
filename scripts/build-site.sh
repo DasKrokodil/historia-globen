@@ -146,6 +146,8 @@ for layer in json.load(open('data/bildlager.json')).get('layers', []):
     for part in layer.get('slices', []):
         if part.get('file'):
             print(part['file'])
+        if part.get('mask'):  # masken för spridningslagret (#1565)
+            print(part['mask'])
 PY
 )
 

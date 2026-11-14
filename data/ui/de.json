@@ -588,6 +588,8 @@
   "spread.certainty.omstridd": "umstrittene Welle",
   "legend.spread": "Ausbreitung des Menschen",
   "legend.spreadNote": "Flächen und Linien sind Deutungen der Quellen, keine Grenzen oder Wege. Eine gestrichelte Linie ist eine Hauptwelle, eine gepunktete Linie mit Fragezeichen eine mögliche oder umstrittene Welle. Fehlende Funde bedeuten nicht, dass niemand dort war.",
+  "legend.spreadCoastModel": "Die Flächen folgen der Küste und den Eisschilden des Modells für den nächsten Modellschritt (dasselbe Modell wie in der Ebene Eiszeitliche Küste) und werden nicht auf Meer oder Eis im Modell gezeichnet, auch wenn diese Ebene ausgeschaltet ist. Die Linien werden nicht beschnitten.",
+  "legend.spreadCoastToday": "Außerhalb von vor 80.000–7500 Jahren gibt es hier kein Küstenmodell: Afrika folgt der heutigen Küste, und die übrigen Flächen werden nicht beschnitten.",
   "legend.spreadSources": "Quellen:",
   "legend.spreadDetails": "Zusammenfassung und Quellen",
   "legend.and": " und ",
