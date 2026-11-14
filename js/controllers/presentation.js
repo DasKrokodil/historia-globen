@@ -2,10 +2,14 @@
 // delbar adressparameter (?presentation=1, äldre länkar fortsätter fungera) som också kan slås på med knappen
 // Presentationsläge i För lärare (#1315). Knappen skriver parametern i adressen utan att ladda om sidan, så att
 // Dela och en omladdning behåller läget, och Avsluta tar bort den igen.
+// Läget gäller bara från 761 px (#1457): det är till för projektor och storskärm, och i smal skärm ändrar det bara toppraden,
+// där Avsluta täckte årtalet. Adressparametern är läget, bredden avgör om det visas: i smal skärm ritas inget (ingen klass,
+// ingen Avsluta) men parametern står kvar, så att en länk, en rotation eller en ändrad fönsterstorlek åter ger läget på bred
+// skärm. Gränsen är samma som mobilbrytpunkten i CSS (max-width: 760px).
 const PARAM = 'presentation';
 
 /** $: getElementById; flush: skriver adressen nu (app.address.flush, finns först när adressen har startat). */
-export function createPresentation({ $, flush = () => {} }) {
+export function createPresentation({ $, flush = () => {}, narrow = matchMedia('(max-width: 760px)') }) {
   const root = $('app'), exit = $('presentation-exit');
 
   const isOn = () => new URLSearchParams(location.search).get(PARAM) === '1';
@@ -16,18 +20,21 @@ export function createPresentation({ $, flush = () => {} }) {
     return `${url.pathname}${url.search}${url.hash}`;
   };
 
-  function apply(on) {
+  /** Ritar läget efter adressen och bredden. Samma väg vid start och när fönstret passerar 761 px, så inget halvt tillstånd uppstår. */
+  function render() {
+    const on = isOn() && !narrow.matches;
     root.classList.toggle('presentation-mode', on);
     exit.hidden = !on;
     if (on) exit.href = plainUrl();
   }
 
-  /** Slår läget på eller av och skriver adressen. Ger true när läget är på. */
+  /** Slår läget på eller av och skriver adressen. Ger true när läget är på. I smal skärm slås det aldrig på (ger false, adressen rörs inte). */
   function set(on) {
+    if (on && narrow.matches) return false;
     const url = new URL(location.href);
     if (on) url.searchParams.set(PARAM, '1'); else url.searchParams.delete(PARAM);
     history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`);
-    apply(on);
+    render();
     return on;
   }
 
@@ -44,6 +51,7 @@ export function createPresentation({ $, flush = () => {} }) {
     next?.focus({ preventScroll: true });
   });
 
-  apply(isOn());
+  narrow.addEventListener('change', render);
+  render();
   return { set, get active() { return root.classList.contains('presentation-mode'); } };
 }

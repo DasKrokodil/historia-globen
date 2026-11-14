@@ -366,7 +366,8 @@ body {
 }
 
 /* ---------- presentationsläge (#488) ----------
-   Aktiveras bara av ?presentation=1. Normalvyn får inga ändrade variabler eller mått. */
+   Aktiveras bara av ?presentation=1 och bara från 761 px (#1457): js/controllers/presentation.js sätter ingen klass i smal
+   skärm, så Avsluta kan inte täcka årtalet där. Normalvyn får inga ändrade variabler eller mått. */
 .presentation-exit { display: none; align-items: center; min-height: 44px; text-decoration: none; }
 .presentation-mode .presentation-exit { display: inline-flex; }
 .presentation-mode .top-actions { gap: 12px; }

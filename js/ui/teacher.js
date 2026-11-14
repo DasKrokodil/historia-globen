@@ -20,8 +20,8 @@ export class TeacherGuide extends Help {
     this.huntBtn.addEventListener('click', () => { this.close(false); this.app.hunt.start(null, this.button); });
     this.presentationBtn.addEventListener('click', () => {
       this.close(false);
-      this.app.presentation.set(true);
-      document.getElementById('presentation-exit')?.focus({ preventScroll: true }); // Avsluta är det första att nå med tangentbordet
+      // Avsluta är det första att nå med tangentbordet. Raden visas inte i smal skärm; slår fönstret ihop medan kortet är öppet ger set false
+      if (this.app.presentation.set(true)) document.getElementById('presentation-exit')?.focus({ preventScroll: true });
     });
   }
 
