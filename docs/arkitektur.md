@@ -84,6 +84,8 @@ Klickbara markörer, etiketter och bågar ligger ovanpå klotet som 3D-objekt oc
 
 **CSS-lagerordning (#894, #1065):** `z-index` över 4 i `css/style.css` anges med `var(--z-…)` från `:root`. Lokala värden 0–4 inne i en yta får vara siffror. `tests/zindex.test.mjs` kontrollerar detta i det befintliga Node-testjobbet; ett fel anger väljare och radnummer. Kommentarer och strängar räknas inte som deklarationer. Ingen tillåtelselista behövs efter namngivningen i #1064. Lägg inte till nya undantag för nya ytor: välj ett befintligt lagernamn eller dokumentera ett nytt i [beslutet om lagerordning](beslut/2026-11-09-lagerordning.md).
 
+**CSS-variabler (#1471):** varje `var(--x)` i `css/style.css` utan reservvärde måste ha en deklaration av `--x`, annars blir egenskapen ogiltig och till exempel en `outline` med `var(--x)` försvinner (fokusringen saknades där `--brass-light` användes utan att vara definierad). `tests/css-variabler.test.mjs` kontrollerar detta i Node-testjobbet; ett fel anger radnummer och variabel. Variabler som sätts inline i JS står i en namngiven undantagslista i provet, som också faller när en post inte längre behövs. Skriv `var(--x, reserv)` eller definiera variabeln i `:root`; lägg inte till nya undantag för färger och mått.
+
 | Fil | Ansvar |
 |---|---|
 | `js/main.js` | Startar allt och kopplar ihop registret, tidslinjen, panelerna och controllerna: skapar delarna, lyssnar på klick, menyer och tangenter. Själva ansvaret ligger i `js/controllers/` (#402) |

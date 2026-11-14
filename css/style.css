@@ -12,6 +12,7 @@
   --parchment-dim: #a9a08c;/* sekundär text */
   --brass: #d6b06a;        /* accent: mässing */
   --brass-deep: #9c7a3c;
+  --brass-light: color-mix(in srgb, var(--brass) 70%, #fff); /* ljusare mässing (#e2c897): fokusring, rubrik på epokgrupperna och hovring på fokusknappen (#1471). 11,6:1 mot --night, 10,6:1 mot --night-2 */
   --ocean: #13324a;
   --land: #c8b48a;
   --danger: #e0675a;
