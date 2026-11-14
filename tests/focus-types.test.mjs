@@ -7,7 +7,10 @@ import { FOCUS_TYPES, MIN_YEAR, MAX_YEAR } from '../js/state.js';
 import { createFocusTypes, focusTypeProblems, SELECTS_BY } from '../js/focus/registry.js';
 import { FOCUS_ENTRIES } from '../js/focus/index.js';
 import { founding } from '../js/focus/religion.js';
-import { selectionSpan, pointCenter } from '../js/focus/util.js';
+import { selectionSpan, pointCenter, huntImpossible, warnHuntImpossible } from '../js/focus/util.js';
+import { placeEvents } from '../js/place-geo.js';
+import { isVisibleReview } from '../js/model.js';
+import { ui } from '../js/i18n.js';
 
 const json = path => JSON.parse(readFileSync(new URL(`../${path}`, import.meta.url)));
 const events = json('data/events.json').events;
@@ -241,6 +244,60 @@ test('tema: en jakt som inte går att klara inom temat får veta det, och bara d
   // Ingen jakt pågår: inget sägs
   const idle = run({ active: false, mission: { year, window: 0, count: 6 }, message: { textContent: '', className: '' } });
   assert.equal(idle.message.className, '');
+});
+
+test('plats: en jakt som inte går att klara inom platsen får veta det, med platsens egen text, och bara då (#1439)', () => {
+  const doc = json('data/platser.json').places.find(p => p.id === 'gronland');
+  const evs = placeEvents(doc, events).filter(e => isVisibleReview(e.review));
+  assert.ok(evs.length, 'Grönland har synliga händelser');
+  const f = { type: 'place', id: doc.id, place: doc, themeEvents: evs };
+  const run = hunt => {
+    const app = fakeApp(); app.hunt = hunt;
+    createFocusTypes(FOCUS_ENTRIES.map(entry => entry(app))).get('place').start(f);
+    return hunt;
+  };
+  const year = evs[0].start, msg = () => ({ textContent: '', className: '' });
+  // En plats ligger i en världsdel: uppdraget med fem världsdelar går inte att klara
+  const impossible = run({ active: true, mission: { year, window: 0, count: 5 }, message: msg() });
+  assert.equal(impossible.message.className, 'hunt-message is-no');
+  assert.ok(impossible.message.textContent);
+  // Texten är platsens egen: temats text säger Avsluta temat
+  assert.notEqual(impossible.message.textContent, ui('theme.huntImpossible'));
+  assert.equal(impossible.message.textContent, ui('place.huntImpossible'));
+  // En världsdel räcker och platsen har en händelse det året: inget sägs
+  assert.equal(run({ active: true, mission: { year, window: 0, count: 1 }, message: msg() }).message.className, '');
+  // Ingen jakt pågår: inget sägs
+  assert.equal(run({ active: false, mission: { year, window: 0, count: 5 }, message: msg() }).message.className, '');
+  assert.doesNotThrow(() => run(undefined));
+});
+
+test('jaktens kontroll är gemensam för tema och plats och räknar världsdelar inom uppdragets år (#1439)', () => {
+  const ev = (id, lat, lon, start, end = start) => ({ id, _lat: lat, _lon: lon, start, end });
+  // Europa, Asien och Afrika år 1000, men Nordamerika först 1500
+  const evs = [ev('a', 48, 2, 1000), ev('b', 35, 105, 990, 1010), ev('c', 0, 20, 1000), ev('d', 40, -100, 1500)];
+  const hunt = (count, window = 0, year = 1000) => ({ active: true, mission: { year, window, count } });
+  assert.equal(huntImpossible(hunt(3), evs), false);
+  assert.equal(huntImpossible(hunt(4), evs), true, 'Nordamerika ligger utanför uppdragets år');
+  assert.equal(huntImpossible(hunt(4, 500), evs), false, 'ett vidare fönster når Nordamerika');
+  assert.equal(huntImpossible(hunt(1, 0, 1200), evs), true, 'ingen händelse alls det året');
+  assert.equal(huntImpossible({ active: false, mission: { year: 1000, window: 0, count: 9 } }, evs), false);
+  assert.equal(huntImpossible(null, evs), false);
+  const h = { ...hunt(4), message: { textContent: '', className: '' } };
+  assert.equal(warnHuntImpossible(h, evs, 'place.huntImpossible'), true);
+  assert.equal(h.message.textContent, ui('place.huntImpossible'));
+  const ok = { ...hunt(3), message: { textContent: '', className: '' } };
+  assert.equal(warnHuntImpossible(ok, evs, 'place.huntImpossible'), false);
+  assert.equal(ok.message.textContent, '');
+});
+
+test('platsens text om en omöjlig jakt finns på alla fem språken, i du-form (elevtext, #1439)', () => {
+  const du = { sv: /\bdu\b/, en: /\bif you\b/, de: /\bBeende\b.*\bwillst\b/, es: /\bTermina\b.*\bquieres\b/, fr: /\bTermine\b.*\bveux\b/ };
+  for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+    const texts = json(`data/ui/${lang}.json`);
+    assert.ok(texts['place.huntImpossible'], `${lang}: place.huntImpossible`);
+    assert.match(texts['place.huntImpossible'], du[lang], `${lang}: du-form`);
+    assert.notEqual(texts['place.huntImpossible'], texts['theme.huntImpossible'], `${lang}: egen text för platsen`);
+  }
 });
 
 test('ett laddat fokus måste stämma med postens deklaration', () => {

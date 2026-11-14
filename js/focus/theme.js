@@ -2,8 +2,7 @@
 import { loadThemes, t, isVisibleReview } from '../model.js';
 import { ui } from '../i18n.js';
 import { formatYearSpan } from '../controllers/facts.js';
-import { eventRegion, span as missionSpan } from '../uppdrag-rules.js';
-import { langs, pointCenter, selectionSpan } from './util.js';
+import { langs, pointCenter, selectionSpan, warnHuntImpossible } from './util.js';
 
 export function entry(app) {
   const { $, data, panel, layers } = app;
@@ -36,11 +35,7 @@ export function entry(app) {
     start(f) {
       showCard(f);
       // En jakt pågår samtidigt med temat (#893). Temat begränsar vad som syns, så säg det när uppdraget inte går att klara
-      const hunt = app.hunt;
-      if (!hunt?.active) return;
-      const [a, b] = missionSpan(hunt.mission);
-      const regions = new Set(f.themeEvents.filter(e => e.end >= a && e.start <= b).map(eventRegion).filter(Boolean));
-      if (regions.size < hunt.mission.count) { hunt.message.textContent = ui('theme.huntImpossible'); hunt.message.className = 'hunt-message is-no'; }
+      warnHuntImpossible(app.hunt, f.themeEvents, 'theme.huntImpossible');
     },
     facts: { has: () => true, show: showCard },
     async menuLoad() { list ??= await loadThemes(); },
