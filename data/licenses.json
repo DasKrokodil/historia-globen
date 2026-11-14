@@ -2417,6 +2417,7 @@
         "historiska-bronsalder",
         "historiska-eskelhem",
         "historiska-ganggrifter",
+        "historiska-hagahogen",
         "historiska-jarnalder",
         "historiska-lillberget",
         "historiska-perioder",
@@ -2464,6 +2465,22 @@
         "lex-tollundmanden",
         "lex-tybrind-vig-boplads",
         "lex-waitangitraktaten"
+      ]
+    },
+    {
+      "license": "Museiverket, Kyppi (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "kyppi-astuvansalmi",
+        "kyppi-levanluhta",
+        "kyppi-sammallahdenmaki"
+      ]
+    },
+    {
+      "license": "Nationalmuseet (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "natmus-egtvedpigen",
+        "natmus-guldhornene",
+        "natmus-solvognen"
       ]
     },
     {
@@ -3015,6 +3032,12 @@
         "ud-taiwan",
         "ud-ukraina",
         "ud-vastsahara"
+      ]
+    },
+    {
+      "license": "Riksantikvarieämbetet, K-samsök (bara länkad, ingen text kopierad)",
+      "sourceIds": [
+        "raa-lamning-akermyra"
       ]
     },
     {
