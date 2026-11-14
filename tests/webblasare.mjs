@@ -302,6 +302,12 @@ async function run(browser, vp) {
     if (await page.isHidden(sel) && await page.isVisible('#btn-more')) await page.click('#btn-more');
     await page.click(sel);
   };
+  // Quiz och Samtidighetsjakten har en enda ingång, För lärare under Mer (#1575)
+  const teacherItem = async id => {
+    await clickView('#btn-teacher');
+    await visible('#teacher');
+    await page.click(id);
+  };
   // Turer-menyn (#1573): en tur startas genom att fälla ut raden och trycka Starta turen
   const startFromMenu = async (pg, id) => {
     await pg.click(`#tour-menu details.tour-row[data-tour="${id}"] > summary`);
@@ -1188,7 +1194,7 @@ async function run(browser, vp) {
     try { return await huntCheck(); } catch (err) { if (await page.isVisible('#hunt')) await page.click('#hunt-end'); throw err; }
   });
   async function huntCheck() {
-    await clickView('#btn-hunt');
+    await teacherItem('#teacher-hunt');
     await visible('#hunt');
     if ((await year()) !== '1500') throw new Error(`jakten började på ${await year()}, inte 1500`);
     if (!/^0 /.test((await page.textContent('#hunt-progress')).trim())) throw new Error('jakten börjar inte på noll');
@@ -1225,7 +1231,7 @@ async function run(browser, vp) {
     await page.keyboard.press('Escape');
     await hidden('#hunt');
     const back = await page.evaluate(() => document.activeElement?.id);
-    if (!['btn-hunt', 'btn-more', 'more-toggle'].includes(back)) throw new Error(`fokus gick till ${back} efter Escape`);
+    if (!['btn-teacher', 'btn-more', 'more-toggle'].includes(back)) throw new Error(`fokus gick till ${back} efter Escape`);
     await page.waitForFunction(() => !location.hash.includes('u='), null, { timeout: T.step });
     if (await page.isVisible('#detail')) await page.keyboard.press('Escape');
     return 'år 1500; Amerika två gånger ger besked; tre världsdelar ger fråga och källor; u= i adressen och bort efter Escape';
@@ -1244,15 +1250,17 @@ async function run(browser, vp) {
         const r = b.getBoundingClientRect();
         const el = document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2);
         return !(el && b.contains(el));
-      }), ['btn-hunt', 'btn-quiz', 'btn-sources', 'btn-help']);
+      }), ['btn-teacher', 'btn-sources', 'btn-help']);
       if (blocked.length) throw new Error(`panelen tar emot klicket i stället för ${blocked.join(', ')}`);
-      // Och ett riktigt klick (utan force) startar jakten
-      await page.click('#btn-hunt');
+      // Och ett riktigt klick (utan force) öppnar För lärare, där jakten startas
+      await page.click('#btn-teacher');
+      await visible('#teacher');
+      await page.click('#teacher-hunt');
       await visible('#hunt');
       if (await page.isVisible('#panel-close')) await page.click('#panel-close');
       await page.click('#hunt-end');
       await hidden('#hunt');
-      return 'Källor, Hjälp, Quiz och Samtidighetsjakten når klicket med Samtidigt öppen';
+      return 'Källor, Hjälp och För lärare (med Quiz och Samtidighetsjakten) når klicket med Samtidigt öppen';
     } finally {
       if (await page.isVisible('#hunt')) await page.click('#hunt-end').catch(() => {});
       if (await page.isVisible('#panel-close')) await page.click('#panel-close').catch(() => {});
@@ -1277,7 +1285,7 @@ async function run(browser, vp) {
     // [knapp, det som öppnas]. Öppnas ingenting av dessa räknas klicket som missat.
     const CONTROLS = [
       ['btn-layers', ['#layer-menu']], ['btn-focus', ['#focus-menu']], ['btn-help', ['#help']],
-      ['btn-sources', ['#sources-dialog']], ['btn-quiz', ['#quiz']], ['btn-hunt', ['#hunt']],
+      ['btn-sources', ['#sources-dialog']], ['btn-teacher', ['#teacher']],
     ];
     const problems = [];
     let measured = 0, skipped = 0, n = 0;
@@ -1499,7 +1507,7 @@ async function run(browser, vp) {
     try { return await quizCheck(); } catch (err) { if (await page.isVisible('#quiz')) await page.keyboard.press('Escape'); throw err; }
   });
   async function quizCheck() {
-    await clickView('#btn-quiz');
+    await teacherItem('#teacher-quiz');
     await visible('#quiz');
     if ((await page.textContent('#quiz-event-title')).trim() === '') throw new Error('frågan saknar händelse');
     if (await page.locator('#quiz-options button').count() !== 3) throw new Error('frågan har inte tre svar');
@@ -1547,7 +1555,7 @@ async function run(browser, vp) {
     await page.keyboard.press('Escape');
     await hidden('#quiz');
     const back = await page.evaluate(() => document.activeElement?.id);
-    if (!['btn-quiz', 'btn-more', 'more-toggle'].includes(back)) throw new Error(`fokus gick till ${back} efter Escape`);
+    if (!['btn-teacher', 'btn-more', 'more-toggle'].includes(back)) throw new Error(`fokus gick till ${back} efter Escape`);
     return 'tre svar, Enter svarar, årtal och källor efter svaret, Nästa fråga, Sant eller myt med facit utan poäng och en tidsfråga med uträknat avstånd (#846), Escape och fokus tillbaka';
   }
 
@@ -1850,6 +1858,39 @@ async function run(browser, vp) {
       if (!/GPL-3\.0/.test(about.text) || !/CC BY 4\.0/.test(about.text)) throw new Error('raden om projektet nämner inte licenserna');
       if (!about.button || about.links.length !== 2) throw new Error(`raden om projektet har ${about.links.length} länkar och ${about.button ? 'en' : 'ingen'} förslagsknapp`);
       return 'fyra grupper i Mer, Inställningar som eget kort utanför Lager, Stöd som säker länk, Lämna förslag öppnar formuläret, raden om projektet i Om källorna';
+    } finally {
+      await lp.close();
+    }
+  });
+
+  // #1581: svarar servern att formuläret är avstängt (503 disabled) medan klienten är påslagen, ska länkarna till GitHub synas
+  await check('förslagsformuläret: svarar servern disabled visas länkarna till GitHub (#1581)', async () => {
+    const lp = await context.newPage();
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await lp.route(u => isFont(u.href), r => r.abort());
+      }
+      await lp.addInitScript(() => { window.turnstile = { render: (el, o) => { o.callback('test-token'); return 1; }, reset() {} }; });
+      await lp.route('**/api/feedback', r => r.fulfill({ status: 503, contentType: 'application/json', body: JSON.stringify({ ok: false, error: 'disabled' }) }));
+      await lp.goto(`${BASE}?ny=1581`);
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await lp.evaluate(() => { const f = document.getElementById('feedback'); f.dataset.sitekey = 'test'; f.dataset.privacy = 'approved'; });
+      if (await lp.isVisible('#more-toggle')) await lp.click('#more-toggle'); else await lp.click('#btn-more');
+      await lp.click('#btn-feedback');
+      await lp.waitForSelector('#feedback:not([hidden])', { timeout: T.step });
+      if (await lp.isVisible('#fb-closed')) throw new Error('reservlänkarna syns redan innan servern har svarat');
+      await lp.selectOption('#fb-category', { index: 1 });
+      await lp.fill('#fb-description', 'Ett förslag som är längre än tio tecken.');
+      await lp.waitForFunction(() => !document.getElementById('fb-submit')?.disabled, null, { timeout: T.step });
+      await lp.click('#fb-submit');
+      await lp.waitForSelector('#fb-closed', { state: 'visible', timeout: T.step });
+      const links = await lp.locator('#fb-closed a').evaluateAll(a => a.filter(x => x.offsetParent !== null).length);
+      if (links < 3) throw new Error(`bara ${links} av tre länkar till GitHub syns`);
+      const status = await lp.textContent('#fb-status');
+      if (!/länkarna till GitHub ovan/.test(status)) throw new Error(`beskedet pekar inte på länkarna: ${status}`);
+      return 'tre länkar till GitHub syns när servern svarar disabled';
     } finally {
       await lp.close();
     }
@@ -6968,8 +7009,9 @@ async function run(browser, vp) {
       for (const sel of ['#btn-layers', '#btn-focus', '#btn-globe', '#btn-flat', '#btn-discovery', '#btn-tour', '#filters', '#tour-close', '#tour-end']) {
         if (await shown(sel)) throw new Error(`${sel} syns i lektionsläget`);
       }
-      // Knappen ligger i Mer-menyn och har ingen yta medan den är stängd: kontrollera själva regeln, inte om den syns
-      if (await lessonPage.evaluate(() => getComputedStyle(document.getElementById('btn-hunt')).display) !== 'none') throw new Error('#btn-hunt är inte dold i lektionsläget');
+      // Knappen ligger i Mer-menyn och har ingen yta medan den är stängd: kontrollera själva regeln, inte om den syns.
+      // För lärare är ingången till Quiz och Samtidighetsjakten (#1575) och är dold för eleverna.
+      if (await lessonPage.evaluate(() => getComputedStyle(document.getElementById('btn-teacher')).display) !== 'none') throw new Error('#btn-teacher är inte dold i lektionsläget');
       // Eleverna ska inte uppmanas att ge stöd: Stöd i Mer är dold i lektionsläget (2026-11-14, flyttad från Hjälp i #1575)
       if (await lessonPage.evaluate(() => getComputedStyle(document.getElementById('btn-support')).display) !== 'none') throw new Error('Stöd i Mer syns för elever i lektionsläget');
       if (await lessonPage.evaluate(() => document.scrollingElement.scrollWidth > innerWidth + 1)) throw new Error('lektionsläget ger horisontell scroll');
@@ -7140,7 +7182,7 @@ async function run(browser, vp) {
       await open(`${BASE}?ny=4#t=andra-varldskriget&m=lektion&u=samtidighetsjakten-1500`);
       await lessonPage.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
       await lessonPage.waitForTimeout(500);
-      if (await shown('#btn-hunt')) throw new Error('Samtidighetsjakten syns i lektionsläget');
+      if (await shown('#btn-teacher')) throw new Error('Samtidighetsjakten syns i lektionsläget');
       if (await lessonPage.isVisible('#hunt')) throw new Error('u= utanför lektionens år öppnade jakten i lektionsläget');
       if ((await lessonPage.textContent('#year-big')).trim() !== '1939') throw new Error('u= flyttade året i lektionsläget');
       if (/u=/.test(await lessonPage.evaluate(() => location.hash))) throw new Error('adressen behöll u= som ignorerades');

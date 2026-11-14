@@ -27,7 +27,7 @@ const MESSAGES = {
 };
 const FIELD_ORDER = ['category', 'description', 'source', 'email'];
 const SERVER_ERRORS = {
-  disabled: 'Formuläret är inte öppet ännu. Försök igen senare, eller använd länkarna till GitHub.',
+  disabled: 'Formuläret är inte öppet ännu. Använd länkarna till GitHub ovan, eller försök igen senare.',
   turnstile_failed: 'Kontrollen av att du är en människa gick inte igenom. Försök igen.',
   rate_limited: 'Du har skickat många förslag på kort tid. Vänta en stund och försök igen.',
   busy: 'Det är fullt just nu. Vänta en stund och försök igen.',
@@ -65,6 +65,7 @@ export class Feedback {
     this.token = '';
     this.widgetId = null;
     this.sending = false;
+    this.serverClosed = false; // servern svarade att formuläret är avstängt (#1581): då ska länkarna till GitHub synas
 
     for (const c of FEEDBACK_CATEGORIES) this.category.add(new Option(c.label, c.id));
 
@@ -138,9 +139,11 @@ export class Feedback {
 
   applyMode() {
     const on = this.enabled;
-    this.closed.hidden = on;
+    // Reservlänkarna syns när formuläret är avstängt i klienten eller när servern säger att det är avstängt (#1581)
+    const closed = !on || this.serverClosed;
+    this.closed.hidden = !closed;
     this.submit.disabled = !on || this.sending;
-    if (!on) this.submit.setAttribute('aria-describedby', 'fb-closed'); else this.submit.removeAttribute('aria-describedby');
+    if (closed) this.submit.setAttribute('aria-describedby', 'fb-closed'); else this.submit.removeAttribute('aria-describedby');
   }
 
   renderEvent() {
@@ -252,6 +255,7 @@ export class Feedback {
     this.sending = false; this.applyMode();
     this.form.removeAttribute('aria-busy');
     this.resetTurnstile(); // en token gäller bara en gång
+    if (out?.error === 'disabled') { this.serverClosed = true; this.applyMode(); } // servern är avstängd trots att klienten är påslagen (#1581)
 
     if (res?.status === 201 && out?.ok === true) {
       this.form.reset();
