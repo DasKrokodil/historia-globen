@@ -102,7 +102,7 @@
 "benin":{"flags":{"0":{"label":{"en":"Flag of Benin"}},"1":{"label":{"en":"Flag of Benin"}}}},
 "honduras":{"flags":{"0":{"label":{"en":"Honduran five-star flag"}}}},
 "island":{"flags":{"0":{"label":{"en":"Flag of Iceland"}}}},
-"bulgarien":{"flags":{"0":{"label":{"en":"Flag of Bulgaria"}}}},
+"bulgarien":{"flags":{"0":{"label":{"en":"Flag of Bulgaria"}},"1":{"label":{"en":"Flag of Bulgaria"}}}},
 "guatemala":{"flags":{"0":{"label":{"en":"Guatemalan civil flag"}}}},
 "portugal":{"flags":{"0":{"label":{"en":"Flag of Portugal"}}}},
 "tjeckien":{"flags":{"0":{"label":{"en":"Flag of the Czech Republic"}}}},

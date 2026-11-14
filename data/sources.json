@@ -1970,8 +1970,8 @@
     { "id": "wp-flag-poland", "title": "Flag of Poland – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Poland", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
     { "id": "wp-flag-italy", "title": "Flag of Italy – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Italy", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
     { "id": "wp-flag-iceland", "title": "Flag of Iceland – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Iceland", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
-    { "id": "wp-flag-bulgaria", "title": "Flag of Bulgaria – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Bulgaria", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
-    { "id": "wp-flag-czech-republic", "title": "Flag of the Czech Republic – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_the_Czech_Republic", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
+    { "id": "wp-flag-bulgaria", "title": "Flag of Bulgaria – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Bulgaria", "license": "CC BY-SA 4.0", "checked": "2026-11-14" },
+    { "id": "wp-flag-czech-republic", "title": "Flag of the Czech Republic – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_the_Czech_Republic", "license": "CC BY-SA 4.0", "checked": "2026-11-14" },
     { "id": "wp-flag-ireland", "title": "Flag of Ireland – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Ireland", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
     { "id": "wp-flag-netherlands", "title": "Flag of the Netherlands – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_the_Netherlands", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
     { "id": "wp-flag-belgium", "title": "Flag of Belgium – Wikipedia", "url": "https://en.wikipedia.org/wiki/Flag_of_Belgium", "license": "CC BY-SA 4.0", "checked": "2026-11-12" },
@@ -2583,6 +2583,9 @@
     {"id": "wd-trundholmsvagnen", "title": "Trundholmsvagnen – Wikidata (Q1137682)", "url": "https://www.wikidata.org/wiki/Q1137682", "license": "CC0", "checked": "2026-11-14"},
     {"id": "wd-gallehushornen", "title": "Gallehushornen – Wikidata (Q1394096)", "url": "https://www.wikidata.org/wiki/Q1394096", "license": "CC0", "checked": "2026-11-14"},
     {"id": "wp-kingdom-of-norway-1814", "title": "Kingdom of Norway (1814) – Wikipedia", "url": "https://en.wikipedia.org/wiki/Kingdom_of_Norway_(1814)", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
-    {"id": "wd-norway", "title": "Norway (Q20) – Wikidata", "url": "https://www.wikidata.org/wiki/Q20", "license": "CC0", "checked": "2026-11-14"}
+    {"id": "wd-norway", "title": "Norway (Q20) – Wikidata", "url": "https://www.wikidata.org/wiki/Q20", "license": "CC0", "checked": "2026-11-14"},
+    {"id": "wd-denmark-norway", "title": "Denmark–Norway (Q62651) – Wikidata", "url": "https://www.wikidata.org/wiki/Q62651", "license": "CC0", "checked": "2026-11-14"},
+    {"id": "wd-kingdom-of-iceland", "title": "Kingdom of Iceland (Q62567) – Wikidata", "url": "https://www.wikidata.org/wiki/Q62567", "license": "CC0", "checked": "2026-11-14"},
+    {"id": "wd-jin-dynasty", "title": "Jin dynasty (Q7352) – Wikidata", "url": "https://www.wikidata.org/wiki/Q7352", "license": "CC0", "checked": "2026-11-14"}
   ]
 }

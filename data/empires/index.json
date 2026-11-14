@@ -35062,6 +35062,22 @@
    "flags": [
     {
      "file": "bulgaria",
+     "from": 1880,
+     "to": 1947,
+     "label": {
+      "sv": "Bulgariens flagga",
+      "en": "Flag of Bulgaria",
+      "de": "Flagge Bulgariens",
+      "es": "Bandera de Bulgaria",
+      "fr": "Drapeau de la Bulgarie"
+     },
+     "sources": [
+      "wp-flag-bulgaria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "bulgaria",
      "from": 1990,
      "to": 2024,
      "label": {
@@ -35365,7 +35381,7 @@
    "flags": [
     {
      "file": "czech",
-     "from": 1992,
+     "from": 1993,
      "to": 2024,
      "label": {
       "sv": "Tjeckiens flagga",
@@ -39365,9 +39381,19 @@
       }
      }
     ],
+    "mapNote": {
+     "sv": "Kartan visar Danmark-Norge från 1526, som Cliopatria. Wikidata anger 1536–1814 för Danmark-Norge, så källorna skiljer sig om starten. Cliopatria räknar Island till Danmark till och med 1921, men enligt Wikidata fanns Kungariket Island från 1 december 1918. Kartan visar därför Danmark utan Island från 1918, då Island visas som eget kungarike.",
+     "en": "The map shows Denmark–Norway from 1526, as Cliopatria does. Wikidata gives 1536–1814 for Denmark–Norway, so the sources differ on the start. Cliopatria counts Iceland as part of Denmark until 1921, but according to Wikidata the Kingdom of Iceland existed from 1 December 1918. The map therefore shows Denmark without Iceland from 1918, when Iceland is shown as a kingdom of its own.",
+     "de": "Die Karte zeigt Dänemark-Norwegen ab 1526, wie Cliopatria. Wikidata gibt 1536–1814 für Dänemark-Norwegen an, die Quellen weichen also beim Beginn voneinander ab. Cliopatria zählt Island bis 1921 zu Dänemark, aber laut Wikidata bestand das Königreich Island ab dem 1. Dezember 1918. Die Karte zeigt Dänemark deshalb ab 1918 ohne Island, das dann als eigenes Königreich erscheint.",
+     "es": "El mapa muestra el Reino de Dinamarca y Noruega desde 1526, como Cliopatria. Wikidata da 1536–1814 para Dinamarca y Noruega, así que las fuentes difieren sobre el comienzo. Cliopatria cuenta Islandia como parte de Dinamarca hasta 1921, pero según Wikidata el Reino de Islandia existió desde el 1 de diciembre de 1918. Por eso el mapa muestra Dinamarca sin Islandia desde 1918, cuando Islandia aparece como reino propio.",
+     "fr": "La carte montre le Royaume de Danemark et de Norvège à partir de 1526, comme Cliopatria. Wikidata indique 1536–1814 pour le Danemark-Norvège : les sources divergent donc sur le début. Cliopatria compte l’Islande comme partie du Danemark jusqu’en 1921, mais selon Wikidata le Royaume d’Islande exista à partir du 1er décembre 1918. La carte montre donc le Danemark sans l’Islande à partir de 1918, quand l’Islande apparaît comme un royaume distinct."
+    },
     "sources": [
      "wp-dannebrog",
-     "commons-gelre-dannebrog"
+     "commons-gelre-dannebrog",
+     "cliopatria",
+     "wd-denmark-norway",
+     "wd-kingdom-of-iceland"
     ],
     "review": "source-checked"
    },
@@ -41216,7 +41242,21 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Namnet följer Wikidata, som anger Jindynastin 266–420. Kartans gränser kommer från Cliopatrias post Western Jin, som täcker 265–425. Kartan visar därför riket ett år före och fem år efter källans årtal.",
+     "en": "The name follows Wikidata, which gives the Jin dynasty as 266–420. The borders on the map come from Cliopatria’s entry Western Jin, which covers 265–425. The map therefore shows the empire one year before and five years after the source’s dates.",
+     "de": "Der Name folgt Wikidata, das die Jin-Dynastie mit 266–420 angibt. Die Grenzen auf der Karte stammen aus Cliopatrias Eintrag Western Jin, der 265–425 umfasst. Die Karte zeigt das Reich deshalb ein Jahr vor und fünf Jahre nach den Jahreszahlen der Quelle.",
+     "es": "El nombre sigue a Wikidata, que da 266–420 para la dinastía Jin. Las fronteras del mapa proceden de la entrada Western Jin de Cliopatria, que abarca 265–425. Por eso el mapa muestra el imperio un año antes y cinco años después de las fechas de la fuente.",
+     "fr": "Le nom suit Wikidata, qui indique 266–420 pour la dynastie Jin. Les frontières de la carte viennent de l’entrée Western Jin de Cliopatria, qui couvre 265–425. La carte montre donc l’empire un an avant et cinq ans après les dates de la source."
+    },
+    "sources": [
+     "wd-jin-dynasty",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "kushan",
