@@ -204,9 +204,12 @@ export class SpreadLayer {
       e.globalCompositeOperation = 'destination-out'; e.fill(path); e.globalCompositeOperation = 'source-over';
       w.drawImage(e.canvas, 0, 0, bw, bh, bx + dx, by, bw, bh);
       if (mask) {
-        // Behåll bara det som ligger på land utan is: masken täcker hela kartan (0…W), mjukt uppskalad
+        // Behåll bara det som ligger på land utan is. Bara den del av masken som motsvarar rutan (inom kartan 0…W)
+        // skalas upp, mjukt; utanför kartan blir duken tom, men den delen syns ändå inte.
+        const x0 = Math.max(0, bx + dx), x1 = Math.min(W, bx + dx + bw), y0 = Math.max(0, by), y1 = Math.min(H, by + bh);
+        const sx = mask.naturalWidth / W, sy = mask.naturalHeight / H;
         w.globalCompositeOperation = 'destination-in';
-        w.drawImage(mask, 0, 0, W, H);
+        w.drawImage(mask, x0 * sx, y0 * sy, (x1 - x0) * sx, (y1 - y0) * sy, x0, y0, x1 - x0, y1 - y0);
         w.restore();
         ctx.drawImage(w.canvas, 0, 0, bw, bh, bx + dx, by, bw, bh);
       } else w.restore();
