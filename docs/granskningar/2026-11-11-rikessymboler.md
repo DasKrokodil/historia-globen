@@ -191,6 +191,8 @@ Byggt på grenen `claude/issue-1154-afrika-2`. Källorna öppnades 2026-11-14: "
 | Sydsudan | 2014–2024 | Antagen 2005, nationsflagga 2011-07-09. Teckningen har den form som fastställdes 2023-08-25 (ljusblå triangel, upprätt stjärna); före 2023 var mörkblå triangel och lutande stjärna vanliga varianter |
 | Marocko | 1915–2024 | Sultanens dahir 1915-11-17. Gruppen har ingen yta 1912–1955, så flaggan syns på kartan från 1956 |
 | Sudan | 1956–1969 och 1970–2024 | Blått-gult-grönt från självständigheten 1956-01-01; rött-vitt-svart med grön triangel från 1970-05-20. Artikeln säger både att den första flaggan övergavs efter kuppen 1969 och att den användes till 1970; på årsnivå gäller den nya från 1970 |
+| Tanzania | 1964–2024 | Antagen 1964-06-30 efter unionen med Zanzibar. Tanganyikas flagga 1961–1963 är inte ritad (lucka), eftersom Commons-filen inte gick att hämta (429) |
+| Rwanda | 2002–2024 | Antagen 2001-12-31, alltså från 2002 på årsnivå. Flaggan med svart R (1961–2001) är inte ritad (lucka), eftersom Commons-filen inte gick att hämta (429) |
 
 **Medaljens plats:** etikettpunkten för varje grupp och år med flagga ligger inom Cliopatrias yta och i rätt land i Natural Earth 1:50m admin-0 (kontrollskriptet från #1194 och #1497). Ingen `labelAt` behövdes. Wikidata-id för varje del är kontrollerat mot Wikidata (till exempel Q1014 Liberia, Q958 Sydsudan, Q1049 Sudan).
 

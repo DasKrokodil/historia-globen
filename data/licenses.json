@@ -949,6 +949,7 @@
         "wp-flag-qing",
         "wp-flag-republic-of-china",
         "wp-flag-russia",
+        "wp-flag-rwanda",
         "wp-flag-saint-kitts-and-nevis",
         "wp-flag-saint-lucia",
         "wp-flag-sao-tome-and-principe",
@@ -966,6 +967,7 @@
         "wp-flag-south-vietnam",
         "wp-flag-sudan",
         "wp-flag-tajikistan",
+        "wp-flag-tanzania",
         "wp-flag-thailand",
         "wp-flag-timor-leste",
         "wp-flag-togo",
@@ -2879,6 +2881,12 @@
       ]
     },
     {
+      "license": "Public domain (PD-Rwanda, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-rwanda"
+      ]
+    },
+    {
       "license": "Public domain (PD-SCGGov; Montenegros upphovsrättslag, status antagen enligt filsidan)",
       "sourceIds": [
         "commons-flagga-montenegro"
@@ -2985,6 +2993,7 @@
         "commons-flagga-papua-nya-guinea",
         "commons-flagga-qatar",
         "commons-flagga-salomonoarna",
+        "commons-flagga-tanzania",
         "commons-flagga-vanuatu"
       ]
     },
