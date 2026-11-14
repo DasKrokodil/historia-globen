@@ -4232,6 +4232,22 @@ async function run(browser, vp) {
     return 'fälls ihop och ut; valet sparas i sessionen';
   });
 
+  // Vyväljaren (#651): ett nytt klick på Upptäcktsresor går tillbaka till Glob, som för Platt karta (2026-11-14)
+  await check('ett nytt klick på Upptäcktsresor går tillbaka till Glob', async () => {
+    const pressed = id => page.getAttribute(id, 'aria-pressed');
+    await clickView('#btn-discovery');
+    await page.waitForFunction(() => document.getElementById('btn-discovery').getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
+    if (await pressed('#btn-globe') !== 'false') throw new Error('Glob är markerad medan Upptäcktsresor är på');
+    await clickView('#btn-discovery');
+    await page.waitForFunction(() => document.getElementById('btn-globe').getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
+    if (await pressed('#btn-discovery') !== 'false') throw new Error('Upptäcktsresor står kvar som vald efter andra klicket');
+    await clickView('#btn-discovery');
+    await clickView('#btn-flat');
+    if (await pressed('#btn-flat') !== 'true') throw new Error('Platt karta kan inte väljas från Upptäcktsresor');
+    await clickView('#btn-globe');
+    return 'andra klicket på Upptäcktsresor ger Glob';
+  });
+
   // #377, regel A: dimman lyfts över hela riket när en resa har nått dess område. USA används eftersom issuets
   // krav är att USA syns under inbördeskriget (1863). Den riktiga modulen och USA:s fil laddas; vägarna ersätts av
   // en punkt i landet (reached), så att testet inte beror på vilka resor som finns i datan.
