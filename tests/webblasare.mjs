@@ -5225,6 +5225,62 @@ async function run(browser, vp) {
     return 'fyllt vid 170° öst och 175° väst, tomt vid 0° och 30° öst';
   });
 
+  // #1227: data som delats vid ±180° (#1268) har en söm: segment längs kanten där delarna möts. Fyllningen ska gå ända fram,
+  // men strokningen ska hoppa över sömmen, annars syns en kort linje längs kartans kant (på globen en prickad linje längs 180°-
+  // meridianen). Kontrollen ritar rikets, religionens och platsens egna banor på en riktig canvas och mäter bildpunkterna vid
+  // kanten (x = 0 och x = W − 1, mitt på sömmen) både med och utan stroke; ett område som går över linjen utan delning ritas
+  // dessutom vid båda kanterna och inte som ett band (religionslagrets egen ritning, tidigare punkt för punkt utan traceRing).
+  await check('områden och religioner över datumlinjen: fyllning ända fram, ingen stroke längs sömmen (#1227)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet';
+    const r = await page.evaluate(async () => {
+      const { AreasLayer } = await import('./js/layers/areas.js');
+      const { ReligionsLayer } = await import('./js/layers/religions.js');
+      const W = 4096, H = 2048;
+      const X = lon => (lon + 180) / 360 * W, Y = lat => (90 - lat) / 180 * H;
+      const canvas = () => { const c = document.createElement('canvas'); c.width = W; c.height = H; return c; };
+      // Kolumnerna närmast kanten, rader mitt på sömmen (lat 52–60): största alfa i varje
+      const edge = ctx => {
+        const col = x => { const d = ctx.getImageData(x, Math.round(Y(60)), 1, Math.round(Y(52) - Y(60))).data; let m = 0; for (let i = 3; i < d.length; i += 4) m = Math.max(m, d[i]); return m; };
+        return { east: col(W - 1), west: col(0), inner: col(Math.round(X(170))), innerW: col(Math.round(X(-175))) };
+      };
+      const split = { type: 'MultiPolygon', coordinates: [
+        [[[160, 50], [180, 50], [180, 62], [160, 62], [160, 50]]],
+        [[[-180, 50], [-170, 50], [-170, 62], [-180, 62], [-180, 50]]],
+      ] };
+      const wrap = { type: 'Polygon', coordinates: [[[160, 50], [-170, 50], [-170, 62], [160, 62], [160, 50]]] }; // som Beringia: över linjen utan delning
+      const out = {};
+      // Riket: områdeslagrets egen ritning (tracePath + strokeEdge)
+      const polity = geometry => ({ id: 't', name: { sv: 'Test' }, group: 't', color: '#ff0000', review: 'source-checked', periods: [{ start: 0, end: 10, geometry }] });
+      for (const [key, geometry] of [['rikeDelat', split], ['rikeOver', wrap]]) {
+        const layer = new AreasLayer([polity(geometry)]);
+        layer.update({ year: 5 });
+        const c = canvas(), ctx = c.getContext('2d');
+        layer.drawOverlay(ctx, W, H);
+        out[key] = { ...edge(ctx), middle: ctx.getImageData(Math.round(X(0)), Math.round(Y(56)), 1, 1).data[3], europe: ctx.getImageData(Math.round(X(30)), Math.round(Y(56)), 1, 1).data[3] };
+      }
+      // Religionen: religionslagrets egen ritning
+      const religion = (geometry, sure = true) => ({ id: 't', color: '#00aaff', name: { sv: 'Test' }, snapshots: [{ start: 0, end: 10, sure, geometry, polities: [] }] });
+      for (const [key, geometry, sure] of [['religionDelad', split, true], ['religionOver', wrap, true], ['religionDeladStreckad', split, false]]) {
+        const layer = new ReligionsLayer();
+        layer.religions = [religion(geometry, sure)]; layer.enabled = true;
+        layer.update({ year: 5 });
+        const c = canvas(), ctx = c.getContext('2d');
+        layer.drawOverlay(ctx, W, H);
+        out[key] = { ...edge(ctx), middle: ctx.getImageData(Math.round(X(0)), Math.round(Y(56)), 1, 1).data[3], europe: ctx.getImageData(Math.round(X(30)), Math.round(Y(56)), 1, 1).data[3] };
+      }
+      return out;
+    });
+    // Fyllningen går ända fram (alfa > 0 vid kanten) men strokens full alfa finns inte där (bara fyllning: områdena 0,32 och 0,5)
+    const MAX_FILL = 150;
+    for (const [key, v] of Object.entries(r)) {
+      if (!v.east || !v.west) throw new Error(`${key}: fyllningen når inte kanten: ${JSON.stringify(v)}`);
+      if (v.middle || v.europe) throw new Error(`${key}: området ritas tvärs över kartan: ${JSON.stringify(v)}`);
+      if (key.endsWith('Over')) continue; // utan söm: ingen kant att kontrollera, strokens egen linje ligger vid kanten (klippt)
+      if (v.east > MAX_FILL || v.west > MAX_FILL) throw new Error(`${key}: sömmen strokas som en linje längs kanten: ${JSON.stringify(v)}`);
+    }
+    return 'delade områden: fyllt ända fram, ingen stroke längs sömmen i riken och religioner; över linjen utan delning: båda kanterna, inget band';
+  });
+
   // #1268: platsernas gränser delas vid datumlinjen i datan (tools/platser_gransar.py), och platslagret lägger delringarna punkt
   // för punkt. En konstruerad plats över 180° (som Ryssland eller Fiji) ritas med platslagrets egen bana på en riktig canvas:
   // fylld vid båda kanterna, tom i mitten (ett streck tvärs över kartan skulle ge fylld bild vid 0°).
@@ -5249,6 +5305,40 @@ async function run(browser, vp) {
     if (!r.east || !r.west) throw new Error(`platsen saknas vid kanterna: ${JSON.stringify(r)}`);
     if (r.middle || r.europe || r.north) throw new Error(`platsen ritas tvärs över kartan: ${JSON.stringify(r)}`);
     return 'fylld vid 170° öst och 175° väst, tom vid 0° och 30° öst';
+  });
+
+  // #1227: sömmen mellan delarna ritas inte som en linje längs kartans kant. Platsens egen bana ritas på en riktig canvas i
+  // alla tre lägen (konturen i Fokus, konturen i en turs steg, de tunna markeringarna runt platser med kort) och bildpunkterna
+  // vid kanten (x = 0 och x = W − 1, mitt på sömmen) mäts: fyllningen (alfa 0,16) går ända fram men strokens alfa (0,95) syns inte.
+  await check('en plats över datumlinjen: ingen stroke längs sömmen, fyllningen ända fram (#1227)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet';
+    const r = await page.evaluate(async () => {
+      const { PlacesLayer } = await import('./js/layers/places.js');
+      const W = 2048, H = 1024;
+      const Y = lat => (90 - lat) / 180 * H;
+      const place = { id: 'test-somstroke', boundary: { geometry: { type: 'MultiPolygon', coordinates: [
+        [[[160, 50], [180, 50], [180, 62], [160, 62], [160, 50]]],
+        [[[-180, 50], [-170, 50], [-170, 62], [-180, 62], [-180, 50]]],
+      ] } } };
+      const draw = setup => {
+        const c = document.createElement('canvas'); c.width = W; c.height = H;
+        const ctx = c.getContext('2d'), layer = new PlacesLayer();
+        setup(layer);
+        layer.drawOverlay(ctx, W, H);
+        const col = x => { const d = ctx.getImageData(x, Math.round(Y(60)), 1, Math.round(Y(52) - Y(60))).data; let m = 0; for (let i = 3; i < d.length; i += 4) m = Math.max(m, d[i]); return m; };
+        return { east: col(W - 1), west: col(0) };
+      };
+      return {
+        fokus: draw(l => { l.enabled = true; l.place = place; }),
+        steg: draw(l => { l.step = place; }),
+        markering: draw(l => { l.hints = true; l.cards = [place]; l.px = 1.5; }),
+      };
+    });
+    // Fyllningen (0,16 · 255 ≈ 41) går ända fram; en stroke (0,95) ger över 200
+    if (!r.fokus.east || !r.fokus.west) throw new Error(`fyllningen når inte kanten: ${JSON.stringify(r.fokus)}`);
+    for (const key of ['fokus', 'steg']) if (r[key].east > 80 || r[key].west > 80) throw new Error(`${key}: sömmen strokas som en linje längs kanten: ${JSON.stringify(r[key])}`);
+    if (r.markering.east || r.markering.west) throw new Error(`markeringen: sömmen strokas som en linje längs kanten: ${JSON.stringify(r.markering)}`);
+    return 'fylld ända fram, ingen stroke längs sömmen i Fokus, turens steg och markeringarna';
   });
 
   await check('ett rike syns', async () => {
