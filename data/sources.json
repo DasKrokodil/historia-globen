@@ -2353,6 +2353,21 @@
     { "id": "wp-central-group-of-forces", "title": "Central Group of Forces – Wikipedia", "url": "https://en.wikipedia.org/wiki/Central_Group_of_Forces", "license": "CC BY-SA 4.0", "checked": "2026-11-13" },
     { "id": "wp-republic-of-serbian-krajina", "title": "Republic of Serbian Krajina – Wikipedia", "url": "https://en.wikipedia.org/wiki/Republic_of_Serbian_Krajina", "license": "CC BY-SA 4.0", "checked": "2026-11-13" },
     { "id": "wp-croatian-war-of-independence", "title": "Croatian War of Independence – Wikipedia", "url": "https://en.wikipedia.org/wiki/Croatian_War_of_Independence", "license": "CC BY-SA 4.0", "checked": "2026-11-13" },
-    { "id": "wp-bosnian-war", "title": "Bosnian War – Wikipedia", "url": "https://en.wikipedia.org/wiki/Bosnian_War", "license": "CC BY-SA 4.0", "checked": "2026-11-13" }
+    { "id": "wp-bosnian-war", "title": "Bosnian War – Wikipedia", "url": "https://en.wikipedia.org/wiki/Bosnian_War", "license": "CC BY-SA 4.0", "checked": "2026-11-13" },
+    {"id": "wp-annus-mirabilis-papers", "title": "Annus mirabilis papers – Wikipedia", "url": "https://en.wikipedia.org/wiki/Annus_mirabilis_papers", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-alfred-wegener", "title": "Alfred Wegener – Wikipedia", "url": "https://en.wikipedia.org/wiki/Alfred_Wegener", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-continental-drift", "title": "Continental drift – Wikipedia", "url": "https://en.wikipedia.org/wiki/Continental_drift", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-taung-child", "title": "Taung Child – Wikipedia", "url": "https://en.wikipedia.org/wiki/Taung_Child", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-taung", "title": "Taung – Wikipedia", "url": "https://en.wikipedia.org/wiki/Taung", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-satyendra-nath-bose", "title": "Satyendra Nath Bose – Wikipedia", "url": "https://en.wikipedia.org/wiki/Satyendra_Nath_Bose", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-bose-einstein-statistics", "title": "Bose–Einstein statistics – Wikipedia", "url": "https://en.wikipedia.org/wiki/Bose%E2%80%93Einstein_statistics", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-c-v-raman", "title": "C. V. Raman – Wikipedia", "url": "https://en.wikipedia.org/wiki/C._V._Raman", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-hubbles-law", "title": "Hubble's law – Wikipedia", "url": "https://en.wikipedia.org/wiki/Hubble%27s_law", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-hideki-yukawa", "title": "Hideki Yukawa – Wikipedia", "url": "https://en.wikipedia.org/wiki/Hideki_Yukawa", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-nuclear-fission", "title": "Nuclear fission – Wikipedia", "url": "https://en.wikipedia.org/wiki/Nuclear_fission", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-chicago-pile-1", "title": "Chicago Pile-1 – Wikipedia", "url": "https://en.wikipedia.org/wiki/Chicago_Pile-1", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-cesar-lattes", "title": "César Lattes – Wikipedia", "url": "https://en.wikipedia.org/wiki/C%C3%A9sar_Lattes", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "wp-chacaltaya", "title": "Chacaltaya – Wikipedia", "url": "https://en.wikipedia.org/wiki/Chacaltaya", "license": "CC BY-SA 4.0", "checked": "2026-11-14"},
+    {"id": "nobel-yukawa-bio", "title": "Hideki Yukawa – Biographical, NobelPrize.org (Nobel Prize Outreach)", "url": "https://www.nobelprize.org/prizes/physics/1949/yukawa/biographical/", "license": "© Nobel Prize Outreach (bara länkad, ingen text kopierad)", "checked": "2026-11-14"}
   ]
 }
