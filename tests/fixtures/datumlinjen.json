@@ -1,0 +1,35 @@
+{
+  "_om": "Konstruerade gränser över datumlinjen (#1268), delade av tests/place-geo.test.mjs (js/place-geo.js) och tests/platser-granser-test.py (kopian i scripts/validate-site.py), så att de två inte glider isär. Ryssland-lik: ett land över 180 grader, som en odelad ring (hoppar) och delat vid 180. Fiji-lik: små delar på båda sidor. Avstånden är km enligt platt närmevärde, inom spannet min-max.",
+  "geometries": {
+    "ryssland_odelad": {"type": "MultiPolygon", "coordinates": [[[[100, 50], [150, 50], [-170, 50], [-170, 70], [150, 70], [100, 70], [100, 50]]]]},
+    "ryssland_delad": {"type": "MultiPolygon", "coordinates": [
+      [[[100, 50], [150, 50], [180, 50], [180, 70], [150, 70], [100, 70], [100, 50]]],
+      [[[-180, 50], [-170, 50], [-170, 70], [-180, 70], [-180, 50]]]]},
+    "fiji": {"type": "MultiPolygon", "coordinates": [
+      [[[179, -17], [180, -17], [180, -16], [179, -16], [179, -17]]],
+      [[[-180, -17], [-179, -17], [-179, -16], [-180, -16], [-180, -17]]]]},
+    "slutar_vid_somen": {"type": "MultiPolygon", "coordinates": [[[[170, 60], [180, 60], [180, 65], [170, 65], [170, 60]]]]},
+    "vastra_sidan": {"type": "MultiPolygon", "coordinates": [[[[-179, 60], [-170, 60], [-170, 70], [-179, 70], [-179, 60]]]]}
+  },
+  "points": [
+    {"namn": "Anadyr ligger i Ryssland (odelad ring)", "geometry": "ryssland_odelad", "lon": 177.5, "lat": 64.7, "inside": true},
+    {"namn": "östsidan av linjen, inne (odelad ring)", "geometry": "ryssland_odelad", "lon": -175, "lat": 60, "inside": true},
+    {"namn": "inne långt västerut (odelad ring)", "geometry": "ryssland_odelad", "lon": 120, "lat": 60, "inside": true},
+    {"namn": "utanför österut (odelad ring)", "geometry": "ryssland_odelad", "lon": -160, "lat": 60, "inside": false},
+    {"namn": "utanför söderut (odelad ring)", "geometry": "ryssland_odelad", "lon": 170, "lat": 40, "inside": false},
+    {"namn": "punkt på andra sidan jorden (odelad ring)", "geometry": "ryssland_odelad", "lon": -10, "lat": 60, "inside": false},
+    {"namn": "Anadyr (delad)", "geometry": "ryssland_delad", "lon": 177.5, "lat": 64.7, "inside": true},
+    {"namn": "östsidan, inne (delad)", "geometry": "ryssland_delad", "lon": -175, "lat": 60, "inside": true},
+    {"namn": "utanför österut (delad)", "geometry": "ryssland_delad", "lon": -160, "lat": 60, "inside": false},
+    {"namn": "utanför söderut (delad)", "geometry": "ryssland_delad", "lon": 170, "lat": 40, "inside": false},
+    {"namn": "Fiji, väst om linjen", "geometry": "fiji", "lon": 179.5, "lat": -16.5, "inside": true},
+    {"namn": "Fiji, öst om linjen", "geometry": "fiji", "lon": -179.5, "lat": -16.5, "inside": true},
+    {"namn": "utanför Fiji, väst", "geometry": "fiji", "lon": 178, "lat": -16.5, "inside": false},
+    {"namn": "utanför Fiji, öst", "geometry": "fiji", "lon": -178, "lat": -16.5, "inside": false},
+    {"namn": "179,5 grader mot -179,5 grader: cirka 70 km, inte 16 000", "geometry": "vastra_sidan", "lon": 179.5, "lat": 65, "inside": false, "edgeKm": [60, 80]},
+    {"namn": "Fiji: strax väst om sömmen, 1 grad söder om kusten", "geometry": "fiji", "lon": 179.5, "lat": -18, "inside": false, "edgeKm": [105, 120]},
+    {"namn": "sömmen är ingen kust: ett land som slutar vid 180 har ingen gräns där", "geometry": "slutar_vid_somen", "lon": -179.9, "lat": 62.5, "inside": false, "edgeKm": [100, 400]},
+    {"namn": "sömmen är ingen kust: sedd från väst", "geometry": "slutar_vid_somen", "lon": 179.9, "lat": 70, "inside": false, "edgeKm": [500, 600]},
+    {"namn": "delad ring: ingen kust vid sömmen, 20 km räcker inte", "geometry": "ryssland_delad", "lon": 179.9, "lat": 75, "inside": false, "edgeKm": [500, 600]}
+  ]
+}

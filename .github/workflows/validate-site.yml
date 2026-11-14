@@ -33,6 +33,8 @@ jobs:
         run: python3 -I tests/significance-test.py
       - name: Kontrollera att en ombyggnad av rikena behåller flaggor, handskrivna fält och översatta namn (#1220)
         run: python3 -I tests/riken-bevara-test.py
+      - name: Kontrollera att platsernas gränser delas vid datumlinjen och att JS och Python räknar lika (#1268)
+        run: python3 -I tests/platser-granser-test.py
       - name: Kontrollera att bilder_in.py fyller i image för händelser på flera rader och på en rad (#1288)
         run: python3 -I tests/bilder-in-test.py
       - name: Översätt samtidigt - inga nya oöversatta texter och inga inaktuella översättningar (#675)
