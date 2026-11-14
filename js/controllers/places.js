@@ -2,7 +2,8 @@
 // både på globen och i Platt vy, och knappen "Visa i Platt karta" i kortet byter vy och ramar in platsen.
 // Ett tryck är en genväg: Sök och följ → Platser räcker fortfarande för den som använder tangentbord eller skärmläsare.
 // Tangentbordets motsvarighet är Enter på globen eller kartan, som följer platsen i mitten av vyn; och efter att man har
-// flyttat vyn med tangenterna säger statusraden vilken plats med kort som ligger i mitten.
+// flyttat vyn med tangenterna säger statusraden vilken plats med kort som ligger i mitten. Enter i Fokus på en plats öppnar
+// kortet igen, och i övriga lägen där man följer något säger statusraden varför ingenting händer (#1454).
 //
 // Vad som syns är det som går att trycka på: konturerna (layers/places.js) och trycken gäller bara inzoomat och i vanligt
 // läge (controllers/render.js, placeHints), aldrig i Fokus, tur, lektion eller intervall. Ett tryck som träffar en
@@ -79,9 +80,17 @@ export function createPlaces(app) {
     return { lon, lat };
   };
 
-  /** Enter: följ platsen i mitten av vyn, om den har ett kort. Utan sådan säger statusraden vad man kan göra i stället. */
+  /** Varför Enter inte öppnar någon plats just nu (#1454): det läge som hindrar, det strängaste först. Fokus är det som är kvar. */
+  const busyMode = () => ['lektion', 'tur', 'intervall'].find(m => state.modes.some(x => x.mode === m)) ?? 'fokus';
+
+  /**
+   * Enter (#1161, #1454). Följer man en plats öppnar Enter kortet igen, som knappen Fakta i fokusraden. Följer man något annat, eller
+   * pågår en tur, en lektion eller ett tidsintervall, händer ingenting med platserna, och statusraden säger varför i stället för att
+   * tiga. I vanligt läge följs platsen i mitten av vyn, om den har ett kort; utan sådan säger statusraden vad man kan göra i stället.
+   */
   async function activate() {
-    if (!allowed()) return;
+    if (state.focus?.type === 'place') { app.showFocusFacts(); return; }
+    if (!allowed()) { say(ui(`place.enterBusy.${busyMode()}`), 'plats', { priority: 2 }); return; } // svaret på en tangent tystas inte av en rubrik som nyss lästes upp
     await ensure();
     const place = at(centre());
     if (place) follow(place);

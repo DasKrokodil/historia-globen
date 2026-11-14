@@ -1,0 +1,16 @@
+# Konturerna runt platser förklaras i Hjälp, och Enter svarar i alla lägen (#1454)
+
+**Datum:** 2026-11-14 (DasKrokodil sa ja till rekommendationen i issuet: 1 och 2 byggs, 3 och namn på konturen väntar)
+
+## Beslut
+1. **En rad i Hjälp.** Hjälpens steg får en fjärde rad, "Läs om en plats" (`help.s4`, `help.s4t`): en prickad kontur runt en plats betyder att den har ett kort; man trycker på konturen, eller flyttar vyn med piltangenterna så att platsen ligger i mitten och trycker Enter. Raden står synlig bland stegen, inte inuti den hopfällda listan Markörer, och nämner ingen plats vid namn, så att den inte blir fel när fler platser kommer. Inget val i Lager och ingen ledtråd i Lager-menyn.
+2. **Enter öppnar platskortet igen i Fokus på en plats**, som knappen Fakta i fokusraden (`app.showFocusFacts`, samma funktion som knappen).
+3. **I övriga lägen där man följer något säger statusraden varför ingenting händer** (`place.enterBusy.fokus`, `.tur`, `.lektion`, `.intervall`): en mening som säger att Enter inte öppnar någon plats och, i Fokus, tur och intervall, vilken knapp som tar en ur läget. I lektionsläget står ingen utgång: läraren styr lektionen, och en elev ska inte uppmanas lämna den; där säger raden att platser bara öppnas av lektionens steg. Det strängaste läget gäller när flera pågår (lektion, tur, intervall, Fokus). En jakt hindrar inte platser. Meddelandet har prioritet 2 i statusraden (`js/ui/status.js`), så att en rubrik som nyss lästes upp inte tystar svaret på tangenten.
+4. **Det som inte byggs:** förenkling av konturen för visning (kräver att gränsen för visning och för urval hålls isär, en datamodellfråga) och namn på konturen (väntar tills det finns fler platser än Grönland och Aotearoa, så att trängseln går att bedöma). Punkterna i issuets "Läget" utöver 1 och 2 är oförändrade; kortets ord på statusraden ("Plats: Grönland") gjordes i #1161.
+5. Inga andra lägen eller tryck ändras: beslutet 2026-11-13 om tryck på en plats gäller som förut (inget platstryck i Fokus, tur, lektion eller intervall).
+
+## Varför
+En besökare som ser en prickad kontur får ingen ledtråd om att den går att trycka på, och på touch finns ingen hovring. En rad i Hjälp är den enklaste ingången och rör ingen yta som redan är trång. Enter som tiger i Fokus, tur, lektion och intervall får tangentbords- och skärmläsaranvändare att tro att tangenten är trasig; ett svar som säger varför, och ett Enter som gör det man väntar sig i Fokus på en plats, gör att ingen ingång blir tyst.
+
+## Berör
+#1454, #1161, `index.html`, `js/controllers/places.js`, `js/main.js`, `data/ui/{sv,en,de,es,fr}.json`, `tests/place-enter.test.mjs`, `tests/webblasare.mjs`, `docs/arkitektur.md`, `docs/produkt/05-ux-oversikt.md`.

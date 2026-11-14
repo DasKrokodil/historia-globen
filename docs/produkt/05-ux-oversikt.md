@@ -36,7 +36,7 @@ Det finns sex "rum" att vara i, och man ska alltid kunna komma tillbaka till huv
 | **Lager och Vy** | Lager, Vy | Välja vad som syns; glob / platt / upptäckt | Utanför-tryck, Escape |
 | **Tur / lektion / quiz / jakt** | Turer, Mer, delad länk | Följa ett förlopp steg för steg | Avsluta, Klar, Escape |
 
-Mer-menyn (Källor, Hjälp, För lärare, Quiz, Samtidighetsjakten, Dela) samlar det som inte är kärnflödet. **För lärare** (#1315) är ingången för den som undervisar: ett kort med lektionerna (Starta som lektion), en förklaring av utskriften av elev- och lärarblad, Quiz, Samtidighetsjakten och en knapp för presentationsläget, och det säger att ingen inloggning och inga elevkonton behövs. Hjälp har en rad "Undervisar du?" som öppnar det. Språket väljs med en egen knapp i raden överst (jordglob och kod, ofärdiga språk märkta beta), så att den som inte läser svenska hittar den utan att öppna en meny (#1167).
+Mer-menyn (Källor, Hjälp, För lärare, Quiz, Samtidighetsjakten, Dela) samlar det som inte är kärnflödet. **För lärare** (#1315) är ingången för den som undervisar: ett kort med lektionerna (Starta som lektion), en förklaring av utskriften av elev- och lärarblad, Quiz, Samtidighetsjakten och en knapp för presentationsläget, och det säger att ingen inloggning och inga elevkonton behövs. Hjälp har en rad "Undervisar du?" som öppnar det, och en fjärde rad, "Läs om en plats", som förklarar att de prickade konturerna runt platser med kort går att trycka på när man har zoomat in, och vad Enter gör (#1454). Språket väljs med en egen knapp i raden överst (jordglob och kod, ofärdiga språk märkta beta), så att den som inte läser svenska hittar den utan att öppna en meny (#1167).
 
 ## Huvudflöden
 
