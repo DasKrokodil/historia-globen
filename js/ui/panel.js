@@ -621,12 +621,16 @@ export class Panel {
     const emblemHtml = shown.length ? `<div class="place-emblems">${shown.map(em => `<figure class="place-emblem place-emblem-${esc(em.kind)}"><img src="${esc(flagUrl(em))}" alt="${esc(t(em.caption))}"><figcaption>${esc(t(em.caption))}<span class="meta">${esc(em.credit)} · ${esc(em.license)}</span></figcaption></figure>`).join('')}</div>` : '';
     const open = matchMedia('(max-width: 760px)').matches ? '' : ' open';
     // Rikena i landskortet (#1448): riktiga knappar med hela namnet för skärmläsare ("Följ riket Sverige 1612–1721"), luckorna som rader
+    // Namnet för skärmläsare har samma ordning som den synliga texten (WCAG 2.5.3): "1815–1904 Sverige-Norge, Följ riket".
+    // Rikets egen rad Om kartan (mapNote, Kalmarunionen) står som en liten rad under knappen, inte i den, och beskriver knappen.
+    const empireNote = (r, i) => r.mapNote ? `<p class="place-empire-note" id="place-empire-note-${i}"${langAttr(r.mapNote)}>${esc(t(r.mapNote))}</p>` : '';
     const empireItem = (r, i) => r.gap ? `<li class="place-empire-gap">${esc(r.gap)}</li>`
-      : `<li>${r.run ? `<button type="button" class="theme-event" data-place-empire="${i}" aria-label="${esc(r.label)}">` : '<span class="theme-event">'}<span class="theme-event-year">${esc(r.years)}</span> <span${langAttr(r.name)}>${esc(t(r.name))}</span>${r.run ? ` <span class="theme-event-note" aria-hidden="true">${esc(empires.follow)}</span></button>` : '</span>'}</li>`;
+      : `<li>${r.run ? `<button type="button" class="theme-event" data-place-empire="${i}" aria-label="${esc(r.label)}"${r.mapNote ? ` aria-describedby="place-empire-note-${i}"` : ''}>` : '<span class="theme-event">'}<span class="theme-event-year">${esc(r.years)}</span> <span${langAttr(r.name)}>${esc(t(r.name))}</span>${r.run ? ` <span class="theme-event-note" aria-hidden="true">${esc(empires.follow)}</span></button>` : '</span>'}${empireNote(r, i)}</li>`;
+    // Förklaringen står under listan, så att raderna syns först i smal skärm (#1448)
     const empireHtml = empires?.rows?.length ? `<details class="theme-event-list place-empire-list"${open}>
         <summary>${esc(empires.title)}</summary>
-        <p class="theme-filter-note">${esc(empires.note)}</p>
         <ul class="theme-events place-empires">${empires.rows.map(empireItem).join('')}</ul>
+        <p class="theme-filter-note place-empires-note">${esc(empires.note)}</p>
       </details>` : '';
     const items = events.map(e => `<li><button type="button" class="theme-event" data-theme-event="${esc(e.id)}"><span class="theme-event-year">${esc(formatEventTime(e))}</span> <span${langAttr(e.title)}>${esc(t(e.title))}</span>${e.start < MIN_YEAR ? ` <span class="theme-event-note">${esc(ui('theme.beforeScale'))}</span>` : ''}</button></li>`).join('');
     this.detail.innerHTML = `
@@ -736,6 +740,8 @@ export class Panel {
     this.curve = null;
     this.detail.className = `detail detail-card${place ? ` frame-${styleFor(place, this.styles).frame}` : ''}`;
     delete this.detail.dataset.style;
+    // Ritas rutan om (källorna kom, #1448) medan tangentbordsfokus låg i den, hamnar fokus på krysset igen i stället för på body
+    const hadFocus = typeof document !== 'undefined' && this.detail.contains(document.activeElement);
     this.detail.innerHTML = `
       <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
       <div class="story-label"><span class="swatch" style="background:${esc(color)}"></span>${esc(ui(`facts.kind.${kind}`))}</div>
@@ -753,6 +759,7 @@ export class Panel {
     this.bindReviewInfo();
     if (report) this.bindReport(report.year);
     this.detail.querySelector('[data-tour]')?.addEventListener('click', ev => this.onTour?.(ev.currentTarget.dataset.tour, ev.currentTarget));
+    if (hadFocus) this.detail.querySelector('[data-close]').focus({ preventScroll: true });
   }
 
   /**

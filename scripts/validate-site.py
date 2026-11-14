@@ -809,6 +809,8 @@ if places_doc is not None:
         # Rikena i landskortet (#1448): bara id och år, och åren hämtas ur rikets egna data. from är början och to slutet på
         # någon av delens perioder i rikets fil, och perioderna emellan följer på varandra utan lucka. Listan står i tidsordning.
         prev_from = None
+        if pl.get('periods') and 'cliopatria' not in pl.get('sources', []):
+            err(f'{where}: en plats med periods ska ha källan cliopatria (rikenas gränser och år) i sources')
         for i, per in enumerate(pl.get('periods', [])):
             at = f"{where}, periods[{i}] ({per.get('empire')}/{per.get('polity')} {per.get('from')}–{per.get('to')})"
             grp = next((g for g in (empires or {}).get('groups', []) if g.get('id') == per.get('empire')), None)

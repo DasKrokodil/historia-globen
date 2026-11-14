@@ -2342,7 +2342,8 @@ async function run(browser, vp) {
           let end = spans[0][1], gaps = 0;
           for (const [a, b] of spans.slice(1)) { if (a > end + 1) gaps++; end = Math.max(end, b); }
           const names = place.periods.map(p => idx.groups.find(g => g.id === p.empire).polities.find(x => x.id === p.polity).name.sv);
-          return { periods: place.periods, names, gaps };
+          const kalmar = place.periods.some(p => p.empire === 'kalmarunionen') ? idx.groups.find(g => g.id === 'kalmarunionen').facts?.mapNote?.sv : null;
+          return { periods: place.periods, names, gaps, kalmarNote: kalmar ?? null };
         }, id);
         // Listan är ihopfälld i mobilbredd (som händelselistan); öppna den
         await tp.evaluate(() => { document.querySelector('#detail .place-empire-list').open = true; });
@@ -2351,15 +2352,23 @@ async function run(browser, vp) {
           tags: [...document.querySelectorAll('#detail [data-place-empire]')].map(b => b.tagName),
           gaps: [...document.querySelectorAll('#detail .place-empire-gap')].map(li => li.textContent),
           summary: document.querySelector('#detail .place-empire-list > summary').textContent,
+          leaves: /Följ riket lämnar platsen/.test(document.querySelector('#detail .place-empires-note')?.textContent ?? ''),
+          noteAfter: !!document.querySelector('#detail .place-empires + .place-empires-note'),
+          notes: [...document.querySelectorAll('#detail .place-empire-note')].map(n => n.textContent),
         }));
         if (got.labels.length !== want.periods.length) throw new Error(`${id}: ${got.labels.length} knappar, väntat ${want.periods.length}`);
         if (got.tags.some(t => t !== 'BUTTON')) throw new Error(`${id}: raderna är inte knappar`);
         want.periods.forEach((p, i) => {
           const l = got.labels[i];
-          if (!l.startsWith('Följ riket ') || !l.includes(want.names[i]) || !l.includes(String(p.from)) || !l.includes(String(p.to))) throw new Error(`${id}: knapp ${i} heter "${l}", väntat namn ${want.names[i]} och ${p.from}–${p.to}`);
+          // Namnet har den synliga textens ordning (WCAG 2.5.3): år, namn, Följ riket
+          if (!l.endsWith(', Följ riket') || !l.startsWith(String(p.from)) || !l.includes(want.names[i]) || !l.includes(String(p.to))) throw new Error(`${id}: knapp ${i} heter "${l}", väntat ${p.from}–${p.to} ${want.names[i]}, Följ riket`);
         });
         if (got.gaps.length !== want.gaps) throw new Error(`${id}: ${got.gaps.length} luckrader, väntat ${want.gaps}`);
-        if (got.gaps.some(g => !/på kartan ligger området inte i något av rikena i listan/.test(g))) throw new Error(`${id}: luckraden är oläslig: ${got.gaps.join(' | ')}`);
+        if (got.gaps.some(g => !/kartan visar inget av rikena i listan här/.test(g))) throw new Error(`${id}: luckraden är oläslig: ${got.gaps.join(' | ')}`);
+        if (!got.leaves) throw new Error(`${id}: kortet säger inte att Följ riket lämnar platsen`);
+        if (!got.noteAfter) throw new Error(`${id}: förklaringen står inte under listan`);
+        // Rikets rad Om kartan (mapNote) står under Kalmarunionens första rad, ur rikenas faktarutor
+        if (want.kalmarNote && got.notes[0] !== want.kalmarNote) throw new Error(`${id}: Kalmarunionens rad Om kartan saknas: ${JSON.stringify(got.notes)}`);
         if (!/Riken på kartan/.test(got.summary)) throw new Error(`${id}: listans rubrik saknas: ${got.summary}`);
         if (await tp.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw new Error(`${id}: horisontell scroll med rikeslistan`);
         // Följ riket: perioden som väljs (pick) räknas ur datan; året flyttas till periodens början när det ligger utanför
@@ -2371,7 +2380,15 @@ async function run(browser, vp) {
         const y = await tp.evaluate(() => Number(new URLSearchParams(location.hash.slice(1)).get('y')));
         const expectYear = year >= per.from && year <= per.to ? year : per.from;
         if (y !== expectYear) throw new Error(`${id}: året är ${y} efter Följ riket, väntat ${expectYear} (perioden ${per.from}–${per.to})`);
-        if (expectYear !== year && !(await tp.textContent('#focus-moved-text')).includes(`${per.from}–${per.to}`)) throw new Error(`${id}: raden om flytten nämner inte perioden`);
+        const movedText = await tp.textContent('#focus-moved-text');
+        if (expectYear !== year && !movedText.includes(`då perioden ${per.from}–${per.to} börjar`)) throw new Error(`${id}: raden om flytten nämner inte perioden: ${movedText}`);
+        // Fokusraden säger vilken period som valdes, eftersom riket som följs är hela gruppen
+        if (!movedText.includes(`Perioden du valde: ${want.names[i]} ${per.from}–${per.to}`)) throw new Error(`${id}: fokusraden säger inte vilken period som valdes: ${movedText}`);
+        // Tangentbordsfokus hamnar i rikets kort (eller fokusraden), inte på body
+        // Rikets ruta ritas om när källorna har kommit (efter 1–2 s); fokus ska ligga kvar i den efteråt
+        await tp.waitForTimeout(2500);
+        const active = await tp.evaluate(() => document.activeElement?.closest('#detail, #focus-bar') ? document.activeElement.id || document.activeElement.className : `ute: ${document.activeElement?.tagName}`);
+        if (/^ute:/.test(active)) throw new Error(`${id}: tangentbordsfokus försvann efter Följ riket (${active})`);
         if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
         return `${id}: ${got.labels.length} riken, ${got.gaps.length} luckor, följer ${per.empire} från ${y}`;
       } finally { await tctx.close(); }

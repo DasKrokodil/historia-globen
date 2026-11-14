@@ -17740,7 +17740,8 @@
     }
    ],
    "sources": [
-    "natural-earth-countries"
+    "natural-earth-countries",
+    "cliopatria"
    ],
    "review": "source-checked"
   },
@@ -19797,7 +19798,8 @@
     }
    ],
    "sources": [
-    "natural-earth-countries"
+    "natural-earth-countries",
+    "cliopatria"
    ],
    "review": "source-checked"
   },

@@ -88,7 +88,9 @@ export function createFocus(app) {
     f.startYear = startYear; // kortet kan säga vilket år det visas för (#1163)
     app.playback.startAt(startYear);
     timeline.year = startYear;
-    showMoved(keepYear ? null : { prevYear, prevText, startYear, short: f.short, movedKey: post.movedKey,
+    // Perioden som valdes i landskortet (#1448) står i raden, eftersom riket som följs är hela gruppen (Sverige 980–2024)
+    const period = within?.name ? ui('focus.chosenPeriod', { name: within.name, years: formatYearSpan(within.from, within.to) }) : '';
+    showMoved(keepYear && !period ? null : { prevYear, prevText, startYear, short: f.short, movedKey: post.movedKey, moved: !keepYear, period,
       why: periodStart != null ? ui('focus.movedPeriod', { years: formatYearSpan(within.from, within.to) }) : null });
     app.refresh();
     post.start?.(f);
@@ -101,16 +103,22 @@ export function createFocus(app) {
   }
   /** Följer man ett urval (tema eller plats)? Då hör kortet till fokuset, och Escape och Avsluta lämnar det. */
   const isSelection = () => !!state.focus?.eventIds;
-  /** Raden i fokusraden när tiden flyttades till fokusets start (#167), med en väg tillbaka. */
+  /**
+   * Raden i fokusraden när tiden flyttades till fokusets start (#167), med en väg tillbaka. period (#1448): perioden som valdes i
+   * landskortet står först i raden, också när tiden inte flyttades (moved: false; då utan Tillbaka). Raden är role="status".
+   */
   let movedBack = null;
   function showMoved(m) {
     $('focus-moved').hidden = !m;
     $('app').classList.toggle('focus-moved-on', !!m);
     movedBack = m;
     if (!m) return;
+    const moved = m.moved !== false;
     const why = m.why ?? (m.movedKey ? ui(m.movedKey) : ui('focus.movedStart', { name: m.short }));
-    $('focus-moved-text').textContent = `${ui('focus.moved', { year: timeline.format(m.startYear), why })} · `;
-    $('focus-moved-back').textContent = ui('focus.movedBack', { year: m.prevText });
+    const parts = [m.period, moved ? ui('focus.moved', { year: timeline.format(m.startYear), why }) : ''].filter(Boolean);
+    $('focus-moved-text').textContent = `${parts.join(' · ')}${moved ? ' · ' : ''}`;
+    $('focus-moved-back').hidden = !moved;
+    $('focus-moved-back').textContent = moved ? ui('focus.movedBack', { year: m.prevText }) : '';
   }
   // Raden behövs bara innan man börjar spela: under uppspelningen gör den fokusraden högre och krockar med pausraden (#647)
   timeline.addEventListener('playstate', () => { if (timeline.playing && movedBack) showMoved(null); });

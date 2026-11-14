@@ -1,6 +1,6 @@
 // Fokustypen plats (#579): ett urval av händelser, valt med en geometri (dagens gräns i data/platser.json).
 // Draft-platser laddas aldrig.
-import { loadPlaces, t, isVisibleReview, formatYear, rangeText } from '../model.js';
+import { loadPlaces, loadEmpireFacts, t, isVisibleReview, formatYear, rangeText } from '../model.js';
 import { ui } from '../i18n.js';
 import { say } from '../ui/status.js';
 import { placeEvents } from '../place-geo.js';
@@ -31,11 +31,12 @@ export function showPlaceCard(app, place, events, { follow = true, note = '', fo
   const periods = rows.map(r => {
     const years = formatYearSpan(r.from, r.to);
     if (r.kind === 'gap') return { gap: ui('place.empireGap', { years }) };
-    return { years, name: r.name, label: ui('place.followEmpire', { name: t(r.name), years }),
-      run: follow && panel.onPlaceEmpire ? () => panel.onPlaceEmpire(r) : null };
+    return { years, name: r.name, label: ui('place.followEmpire', { name: t(r.name), years }), mapNote: r.mapNote,
+      run: follow && panel.onPlaceEmpire ? () => panel.onPlaceEmpire({ ...r, label: `${t(r.name)} ${years}` }) : null };
   });
-  const empires = periods.length ? { title: ui('place.empires', { count: rows.filter(r => r.kind === 'empire').length }), note: ui('place.empiresNote'),
-    follow: ui('place.followEmpireShort'), rows: periods } : null;
+  // Förklaringen står under listan, så att raderna syns först i smal skärm; i Fokus också att Följ riket lämnar platsen
+  const empires = periods.length ? { title: ui('place.empires', { count: rows.filter(r => r.kind === 'empire').length }),
+    note: [ui('place.empiresNote'), ...(follow ? [ui('place.followLeaves')] : [])].join(' '), follow: ui('place.followEmpireShort'), rows: periods } : null;
   app.store.setSelected(null);
   panel.showSelection({ label: ui('place.label'), name: place.name, lead: placeLead(place), emblems: place.emblems,
     intro: place.intro,
@@ -56,10 +57,15 @@ export function showPlaceCard(app, place, events, { follow = true, note = '', fo
  * i indexet hoppas över. Ger [] när platsen saknar perioder.
  */
 export function placeEmpireRows(place, groups = []) {
-  const rows = [];
+  const rows = [], noted = new Set();
   for (const p of place?.periods ?? []) {
     const g = (groups ?? []).find(x => x.id === p.empire), pol = g?.polities?.find(x => x.id === p.polity);
-    if (pol) rows.push({ kind: 'empire', empire: g.id, polity: pol.id, name: pol.name, from: p.from, to: p.to });
+    if (!pol) continue;
+    // Rikets egen rad Om kartan (facts.mapNote) står vid raden när gruppen bara har den här delen, så att texten gäller delen
+    // (Kalmarunionen: källornas årtal mot kartans), och bara vid gruppens första rad. Laddas med rikenas faktarutor (ensurePlaceFacts).
+    const mapNote = g.polities.length === 1 && g.facts?.mapNote && !noted.has(g.id) ? g.facts.mapNote : null;
+    if (mapNote) noted.add(g.id);
+    rows.push({ kind: 'empire', empire: g.id, polity: pol.id, name: pol.name, from: p.from, to: p.to, mapNote });
   }
   const gaps = [];
   let end = -Infinity;
@@ -70,6 +76,9 @@ export function placeEmpireRows(place, groups = []) {
   // Stabil sortering: perioder med samma första år står i platsens ordning, och en lucka står efter perioden före den
   return [...rows, ...gaps].sort((a, b) => a.from - b.from);
 }
+
+/** Rikenas faktarutor (mapNote vid raderna, #1448) laddas innan kortet för en plats med perioder ritas. Ett fel stoppar inte kortet. */
+export const ensurePlaceFacts = place => (place?.periods?.length ? loadEmpireFacts().catch(err => console.warn('Rikenas faktarutor kunde inte laddas', err)) : null);
 
 /**
  * Var intervallets slutår ligger i förhållande till platsens egna händelser (#1464): 'in' inom spannet (platsen visas för slutåret),
@@ -119,6 +128,7 @@ export function entry(app) {
       const place = (await loadPlaces()).find(x => x.id === id);
       const evs = place ? visible(place) : [];
       if (!evs.length) return { unavailable: 'place.unavailable' };
+      await ensurePlaceFacts(place);
       const { from, to, lastEnd } = selectionSpan(evs);
       return { title: `${t(place.name)} · ${formatYearSpan(evs[0].start, lastEnd)}`, short: t(place.name), from, to,
         center: place.view.center, zoom: place.view.zoom, place, themeEvents: evs, eventIds: new Set(evs.map(e => e.id)) };

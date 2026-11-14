@@ -43,6 +43,21 @@ test('varje period pekar på ett rike och en del som finns, och åren är börja
   }
 });
 
+test('en plats med perioder har källan cliopatria (rikenas gränser och år)', () => {
+  for (const pl of places.filter(p => p.periods)) assert.ok(pl.sources.includes('cliopatria'), `${pl.id} saknar cliopatria i sources`);
+});
+
+test('rikets egen rad Om kartan står vid raden bara när gruppen har en enda del, och bara vid gruppens första rad', () => {
+  const note = { sv: 'Källorna anger x.' };
+  const gs = [{ id: 'u', facts: { mapNote: note }, polities: [{ id: 'u', name: { sv: 'Unionen' } }] },
+    { id: 'm', facts: { mapNote: { sv: 'gäller hela gruppen' } }, polities: [{ id: 'm1', name: { sv: 'M1' } }, { id: 'm2', name: { sv: 'M2' } }] }];
+  const rows = placeEmpireRows({ periods: [{ empire: 'm', polity: 'm1', from: 1, to: 5 }, { empire: 'u', polity: 'u', from: 6, to: 9 },
+    { empire: 'm', polity: 'm2', from: 10, to: 12 }, { empire: 'u', polity: 'u', from: 13, to: 14 }] }, gs);
+  assert.deepEqual(rows.map(r => r.mapNote), [null, note, null, null]);
+  // Utan laddade faktarutor: ingen rad, inget fel
+  assert.deepEqual(placeEmpireRows({ periods: [{ empire: 'u', polity: 'u', from: 6, to: 9 }] }, [{ ...gs[0], facts: undefined }]).map(r => r.mapNote), [null]);
+});
+
 test('Skåne (landskap) och platser utan beslut har inga perioder', () => {
   for (const pl of places.filter(p => !['sverige', 'danmark'].includes(p.id))) assert.equal(pl.periods, undefined, pl.id);
 });
@@ -82,14 +97,20 @@ test('kortet visar rikena som knappar med hela namnet, luckan som en rad och i e
   const make = () => ({ detail: { set innerHTML(v) { html.push(v); }, querySelector: () => el, querySelectorAll: () => [] }, styles: json('data/styles.json'),
     srcById: {}, setDetailOpen() {}, onSelect() {} });
   const rows = [{ years: '1612–1721', name: { sv: 'Svenska stormaktsväldet' }, label: ui('place.followEmpire', { name: 'Svenska stormaktsväldet', years: '1612–1721' }), run: () => {} },
-    { gap: ui('place.empireGap', { years: '1018–1055' }) }];
+    { gap: ui('place.empireGap', { years: '1018–1055' }) },
+    { years: '1402–1501', name: { sv: 'Kalmarunionen' }, label: 'x', mapNote: { sv: 'Källorna anger y.' }, run: () => {} }];
   const opts = { label: 'Plats', name: { sv: 'Sverige' }, intro: { sv: 'x' }, summary: 's', events: [{ start: 1700, _lat: 60, _lon: 15 }],
     empires: { title: ui('place.empires', { count: 1 }), note: ui('place.empiresNote'), follow: ui('place.followEmpireShort'), rows } };
   Panel.prototype.showSelection.call(make(), opts);
   const out = html.at(-1);
-  assert.match(out, /<button type="button" class="theme-event" data-place-empire="0" aria-label="Följ riket Svenska stormaktsväldet 1612–1721">/);
-  assert.match(out, /<li class="place-empire-gap">1018–1055: på kartan ligger området inte i något av rikena i listan\.<\/li>/);
+  // Namnet har samma ordning som den synliga texten (år, namn, Följ riket; WCAG 2.5.3)
+  assert.match(out, /<button type="button" class="theme-event" data-place-empire="0" aria-label="1612–1721 Svenska stormaktsväldet, Följ riket">/);
+  assert.match(out, /<li class="place-empire-gap">1018–1055: kartan visar inget av rikena i listan här\.<\/li>/);
   assert.match(out, /Riken på kartan \(1\)/);
+  // Rikets rad Om kartan står under knappen och beskriver den
+  assert.match(out, /aria-describedby="place-empire-note-2"><span[^]*?<\/button><p class="place-empire-note" id="place-empire-note-2">Källorna anger y\.<\/p><\/li>/);
+  // Förklaringen står efter listan, så att raderna syns först
+  assert.ok(out.indexOf('place-empires-note') > out.indexOf('class="theme-events place-empires"'), 'förklaringen står före listan');
   // I en tur (ingen run) är raden text: ingen knapp som kan avsluta turen
   Panel.prototype.showSelection.call(make(), { ...opts, empires: { ...opts.empires, rows: [{ ...rows[0], run: null }] } });
   assert.ok(!html.at(-1).includes('data-place-empire'), 'en rad utan run får ingen knapp');
@@ -101,11 +122,16 @@ test('kortet visar rikena som knappar med hela namnet, luckan som en rad och i e
 test('de nya texterna finns på alla fem språken med samma platshållare', () => {
   const sv = json('data/ui/sv.json');
   const holders = text => [...String(text).matchAll(/\{(\w+)\}/g)].map(m => m[1]).sort().join();
-  for (const key of ['place.empires', 'place.empiresNote', 'place.followEmpire', 'place.followEmpireShort', 'place.empireGap', 'focus.movedPeriod']) {
+  for (const key of ['place.empires', 'place.empiresNote', 'place.followEmpire', 'place.followEmpireShort', 'place.empireGap', 'place.followLeaves', 'focus.movedPeriod', 'focus.chosenPeriod']) {
     for (const lang of LANGS) {
       const file = json(`data/ui/${lang}.json`);
       assert.ok(file[key], `${key} saknas på ${lang}`);
       assert.equal(holders(file[key]), holders(sv[key]), `${key} på ${lang} har andra platshållare än svenskan`);
     }
   }
+});
+
+test('franska har hårt mellanrum före kolon i de nya texterna', () => {
+  const fr = json('data/ui/fr.json');
+  for (const key of ['place.empireGap', 'focus.chosenPeriod']) assert.ok(!/ :/.test(fr[key]) && /\u00a0:/.test(fr[key]), `${key}: ${fr[key]}`);
 });
