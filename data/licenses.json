@@ -37,7 +37,6 @@
         "jacobs-2025-denisova-chronology",
         "kaifu-2024-mata-menge",
         "louys-2022-lida-ajer",
-        "pmc-robbins-2009-balathal",
         "politis-2016-arroyo-seco",
         "posth-2023-hunter-gatherers",
         "prates-2020-sydamerika",
@@ -57,6 +56,12 @@
       "license": "CC BY (enligt artikeln och Europe PMC)",
       "sourceIds": [
         "indriati-2011-solo-terrace"
+      ]
+    },
+    {
+      "license": "CC BY (enligt artikeln)",
+      "sourceIds": [
+        "pmc-robbins-2009-balathal"
       ]
     },
     {
@@ -408,6 +413,7 @@
         "wp-ammunition-hill",
         "wp-anc-youth-league",
         "wp-ancient-carthage",
+        "wp-ancient-linzi",
         "wp-andrianampoinimerina",
         "wp-angkor-wat",
         "wp-anglo-zulu-war",
@@ -1538,7 +1544,6 @@
         "wp-lincoln",
         "wp-lindisfarne",
         "wp-lingyuan",
-        "wp-linzi-district",
         "wp-lion-and-sun",
         "wp-lion-capital-ashoka",
         "wp-lion-man-hohlenstein-stadel",
@@ -1763,6 +1768,7 @@
         "wp-norfolk-virginia",
         "wp-normandy-landings",
         "wp-norse-settlement-north-america",
+        "wp-north-jeolla",
         "wp-north-korea",
         "wp-north-vietnam",
         "wp-northern-common-cuscus",
@@ -2523,6 +2529,7 @@
         "wd-italian-eritrea",
         "wd-italian-libya",
         "wd-italian-somaliland",
+        "wd-itazuke-site",
         "wd-jellingestenarna",
         "wd-jin-dynasty",
         "wd-jordan",
