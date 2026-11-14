@@ -302,6 +302,11 @@ async function run(browser, vp) {
     if (await page.isHidden(sel) && await page.isVisible('#btn-more')) await page.click('#btn-more');
     await page.click(sel);
   };
+  // Turer-menyn (#1573): en tur startas genom att fälla ut raden och trycka Starta turen
+  const startFromMenu = async (pg, id) => {
+    await pg.click(`#tour-menu details.tour-row[data-tour="${id}"] > summary`);
+    await pg.click(`#tour-menu .tour-start-btn[data-tour="${id}"]`);
+  };
   const jumpTo = async y => {
     await page.click('#year-jump');
     await visible('#jump-input');
@@ -1543,7 +1548,7 @@ async function run(browser, vp) {
     const before = await layersOn();
     await clickView('#btn-tour');
     await visible('#tour-menu');
-    await page.click('#tour-menu .tour-pick[data-tour="tre-platser-1325"]');
+    await startFromMenu(page, 'tre-platser-1325');
     await visible('#tour-card');
     const progress = () => page.textContent('#tour-progress').then(s => s.trim());
     if ((await progress()) !== 'Steg 1 av 3') throw new Error(`turen började på ${await progress()}`);
@@ -1577,15 +1582,16 @@ async function run(browser, vp) {
     await visible('#tour-menu');
     const rows = await page.evaluate(() => [...document.querySelectorAll('#tour-list > li')].map(li => (
       li.querySelector('.tour-group-title') ? `#${li.querySelector('.tour-group-title').textContent.trim()}` : li.querySelector('.tour-pick')?.dataset.tour)));
-    const at = rows.findIndex(r => String(r).startsWith('#'));
-    if (at < 1 || rows.filter(r => String(r).startsWith('#')).length !== 1) throw new Error(`Turer-menyn har ingen enda grupprubrik efter de övriga turerna: ${rows.join(', ')}`);
-    if (rows[at] !== '#Hur föll det?') throw new Error(`grupprubriken heter ${rows[at]}`);
-    const falls = rows.slice(at + 1);
-    if (falls.join() !== 'vastroms-fall,hanrikets-fall,songhairikets-fall') throw new Error(`under rubriken står ${falls.join(', ')}`);
-    if (rows.slice(0, at).some(r => /-fall$/.test(r))) throw new Error('en fall-tur står före rubriken');
-    if (await page.locator('#tour-list > li[role="presentation"]').count() !== 1) throw new Error('rubrikraden ska vara role=presentation');
+    // Turerna ligger under rubriker (#1573): Källkritik, Krig, Samtidigt i världen och Hur föll det?, en tät rad per tur
+    const want = ['#Källkritik', 'hur-vet-vi-det-har', 'det-har-har-du-hort', 'vad-vet-vi-egentligen', '#Krig', 'andra-varldskriget', 'forsta-varldskriget',
+      '#Samtidigt i världen', 'tre-platser-1325', 'vikingatiden-och-varlden', '#Hur föll det?', 'vastroms-fall', 'hanrikets-fall', 'songhairikets-fall'];
+    if (rows.join() !== want.join()) throw new Error(`Turer-menyn har fel rubriker eller ordning: ${rows.join(', ')}`);
+    if (await page.locator('#tour-list > li[role="presentation"]').count() !== 4) throw new Error('rubrikraderna ska vara role=presentation (fyra)');
+    // Raderna är hopfällda och ryms: start- och lektionsknapparna syns först när raden fälls ut
+    if (await page.locator('#tour-menu details.tour-row[open]').count()) throw new Error('en tur-rad är öppen från början');
+    if (await page.locator('#tour-menu .tour-start-btn').first().isVisible()) throw new Error('Starta turen syns på en hopfälld rad');
 
-    await page.click('#tour-menu .tour-pick[data-tour="hanrikets-fall"]');
+    await startFromMenu(page, 'hanrikets-fall');
     await visible('#tour-card');
     const total = Number((await page.textContent('#tour-progress')).match(/av (\d+)/)[1]);
     const meter = () => page.evaluate(() => {
@@ -1620,7 +1626,7 @@ async function run(browser, vp) {
     if (await page.evaluate(() => [...document.querySelectorAll('.timebar .controls .step')].some(b => b.title === 'Turen styr tiden'))) throw new Error('en stegknapp säger fortfarande att turen styr tiden efter turen');
     if (await page.evaluate(() => [...document.querySelectorAll('.timebar .controls .step, #btn-play')].some(b => b.hasAttribute('data-before-tour')))) throw new Error('tidsknapparna har kvar spåret efter turen');
     await jumpTo(startYear);
-    return `rubriken "Hur föll det?" med ${falls.length} turer, ${total} streck i stegindikatorn, Nästa ${Math.round(next.height)} px, markör ${marker.w} px och förklaringen i pausraden och på stegknapparna`;
+    return `fyra rubriker med tio turer, ${total} streck i stegindikatorn, Nästa ${Math.round(next.height)} px, markör ${marker.w} px och förklaringen i pausraden och på stegknapparna`;
   });
 
   await check('krigets första kort startar berättelsen med kapitel och frågor (#247)', async () => {
@@ -1807,6 +1813,28 @@ async function run(browser, vp) {
     if (await page.evaluate(() => document.scrollingElement.scrollWidth > innerWidth + 1)) throw new Error('faktarutan ger horisontell scroll');
     await page.locator('#detail [data-close]').click();
     return 'noten och Om uppgifterna fälls ut med tangentbord; träffytor minst 44 px';
+  });
+
+  // #1573: Turer-menyn har rubriker och en tät rad per tur; en rad fälls ut med tangentbord (Enter) och visar sammanfattningen och
+  // Starta turen. Raderna är minst 44 px höga och hela listan ryms utan rullning i både dator och mobil.
+  await check('Turer-menyn: rubriker och hopfällda rader som öppnas med tangentbord (#1573)', async () => {
+    await clickView('#btn-tour');
+    await visible('#tour-menu');
+    try {
+      const heads = await page.locator('#tour-menu details.tour-row > summary').evaluateAll(els => els.map(e => Math.round(e.getBoundingClientRect().height)));
+      if (heads.length !== 10) throw new Error(`${heads.length} tur-rader, väntade 10`);
+      if (heads.some(h => h < 43)) throw new Error(`en rad är lägre än 44 px: ${heads.join(', ')}`);
+      const scrolls = await page.evaluate(() => { const m = document.getElementById('tour-menu'); return m.scrollHeight > m.clientHeight + 1; });
+      if (scrolls) throw new Error('menyn rullar med alla rader hopfällda');
+      const first = page.locator('#tour-menu details.tour-row').first();
+      await first.locator(':scope > summary').focus();
+      await page.keyboard.press('Enter');
+      if (!(await first.evaluate(d => d.open))) throw new Error('Enter fäller inte ut raden');
+      if (!(await first.locator('.tour-pick-meta').isVisible()) || !(await first.locator('.tour-start-btn').isVisible())) throw new Error('sammanfattningen och Starta turen syns inte på den utfällda raden');
+      return `10 rader (${Math.min(...heads)}–${Math.max(...heads)} px), ingen rullning hopfällt, Enter fäller ut`;
+    } finally {
+      if (await page.locator('#tour-menu').isVisible()) { await page.keyboard.press('Escape'); await hidden('#tour-menu'); }
+    }
   });
 
   // #1572: turkortet har en enda, benämnd utgång ("Lämna turen" i kortets fot, ingen kryssknapp eller Avsluta bredvid Nästa), och efter
@@ -7943,7 +7971,7 @@ async function run(browser, vp) {
       if (await mp.isHidden('#btn-tour') && await mp.isVisible('#btn-more')) await mp.click('#btn-more');
       await mp.click('#btn-tour');
       await mp.waitForSelector('#tour-menu:not([hidden])', { state: 'visible', timeout: T.step });
-      const picks = await mp.evaluate(() => [...document.querySelectorAll('#tour-menu li')].map(li => ({ tour: li.querySelector('.tour-pick')?.dataset.tour, start: li.querySelector('.tour-start-btn')?.dataset.tour })));
+      const picks = await mp.evaluate(() => [...document.querySelectorAll('#tour-menu li')].filter(li => li.querySelector('.tour-pick')).map(li => ({ tour: li.querySelector('.tour-pick')?.dataset.tour, start: li.querySelector('.tour-start-btn')?.dataset.tour })));
       if (picks[0]?.tour !== 'hur-vet-vi-det-har') throw new Error(`turlistan börjar med ${picks[0]?.tour}, väntade hur-vet-vi-det-har (#1002)`);
       const bare = picks.filter(x => x.start !== x.tour);
       if (bare.length) throw new Error(`turer utan synlig startknapp: ${bare.map(x => x.tour).join(', ')} (#1002)`);
@@ -7959,6 +7987,7 @@ async function run(browser, vp) {
       const ww = rows.find(r => r.tour === 'andra-varldskriget');
       if (!ww || !/Lektion · årskurs 7–9 · \d+ min/.test(ww.meta) || !/Starta som lektion: /.test(ww.label)) throw new Error(`lektionen för andra världskriget märks fel: ${JSON.stringify(ww)}`);
       if (await mp.locator('#tour-menu .tour-lesson-start[data-tour="forsta-varldskriget"]').count()) throw new Error('en vanlig tur har fått knappen Starta som lektion');
+      await mp.click('#tour-menu details.tour-row[data-tour="andra-varldskriget"] > summary');
       await mp.click('#tour-menu .tour-lesson-start[data-tour="andra-varldskriget"]');
       await mp.waitForSelector('#lesson-band', { state: 'visible', timeout: T.step });
       await mp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });

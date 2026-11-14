@@ -19,6 +19,9 @@
     "status-okant": { "sv": "Det här vet vi inte säkert", "en": "What we do not know for sure", "fr": "Ce que nous ne savons pas avec certitude", "de": "Was wir nicht sicher wissen", "es": "Lo que no sabemos con certeza" },
     "sources": { "sv": "Källor", "en": "Sources", "fr": "Sources", "de": "Quellen", "es": "Fuentes" },
     "group-fall": { "sv": "Hur föll det?", "en": "How did it fall?", "fr": "Comment est-il tombé ?", "de": "Wie kam es zum Fall?", "es": "¿Cómo cayó?" },
+    "group-kallkritik": { "sv": "Källkritik", "en": "Source criticism", "fr": "Esprit critique", "de": "Quellenkritik", "es": "Crítica de fuentes" },
+    "group-krig": { "sv": "Krig", "en": "War", "fr": "Guerre", "de": "Krieg", "es": "Guerra" },
+    "group-tid": { "sv": "Samtidigt i världen", "en": "At the same time in the world", "fr": "Au même moment dans le monde", "de": "Gleichzeitig in der Welt", "es": "A la vez en el mundo" },
     "locked": { "sv": "Turen styr tiden", "en": "The tour controls the time", "fr": "La visite commande le temps", "de": "Die Tour steuert die Zeit", "es": "El recorrido controla el tiempo" },
     "paused": { "sv": "Turen: {title}", "en": "Tour: {title}", "fr": "Visite : {title}", "de": "Tour: {title}", "es": "Recorrido: {title}" }
   }
