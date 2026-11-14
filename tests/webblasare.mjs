@@ -2402,6 +2402,28 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
+  await check('platskortets rader och kryss har träffytor på minst 44 px på touch (#1464)', async () => {
+    // pointer: coarse prövas inte i datorbredd (Playwright ändrar det bara med isMobile): raderna prövas i smal skärm, där max-width gäller
+    if (!narrowVp) return 'körs i mobilbredd';
+    const { tp, tctx, errs } = await placeTourPage('#y=1000', 'platstouch1');
+    try {
+      await followGreenlandFromMenu(tp);
+      // Listan är hopfälld i smal skärm
+      if (!(await tp.locator('#detail .theme-event-list[open]').count())) await tp.click('#detail .theme-event-list summary');
+      await tp.waitForSelector('#detail [data-theme-event]', { state: 'visible', timeout: T.step });
+      const rows = await tp.evaluate(() => [...document.querySelectorAll('#detail [data-theme-event]')].map(b => Math.round(b.getBoundingClientRect().height * 10) / 10));
+      if (rows.length < 5 || rows.some(h => h < 44)) throw new Error(`raderna i händelselistan är för låga för touch: ${rows.join(', ')} px`);
+      // Krysset: en punkt 6 px utanför knappen åt vänster, höger och uppåt ger fortfarande knappen (träffytan är 8 px större åt alla håll)
+      const hit = await tp.evaluate(() => {
+        const b = document.querySelector('#detail .detail-close'), r = b.getBoundingClientRect(), mid = { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+        const at = (x, y) => !!document.elementFromPoint(x, y)?.closest('.detail-close');
+        return { w: Math.round(r.width), left: at(r.left - 6, mid.y), right: at(r.right + 6, mid.y), up: at(mid.x, r.top - 6), down: at(mid.x, r.bottom + 6) };
+      });
+      if (!hit.left || !hit.right || !hit.up || !hit.down) throw new Error(`krysset har för liten träffyta: ${JSON.stringify(hit)}`);
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `${rows.length} rader på minst ${Math.min(...rows)} px; krysset (${hit.w} px) träffas 6 px utanför knappen åt alla håll`;
+    } finally { await tctx.close(); }
+  });
   await check('platsens kort i en lektion: bara via turens steg, och inget nytt sätt att komma ur låset (#1163)', async () => {
     const { tp, tctx, errs } = await placeTourPage('#t=test-plats&m=lektion&s=b', 'platslektion', true);
     try {
