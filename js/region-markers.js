@@ -8,7 +8,7 @@
 // Bohuslän, Östersjön och Nordtyskland") står kvar på sin punkt och märks som ungefärliga. Händelser som hamnar på samma ställe på skärmen läggs i en
 // hög med ortnamn och årsspann, med samma klustring som globen (js/ui/clusters.js).
 import { cluster } from './ui/clusters.js';
-import { placeAt } from './place-geo.js';
+import { smallestPlace } from './place-geo.js';
 
 /** Högens radie i skärmpixlar: markörer närmare än så läggs i en hög (markören är 24 px bred och högens bricka 30 px). */
 export const PILE_PX = 28;
@@ -34,17 +34,16 @@ export function km([lon1, lat1], [lon2, lat2]) {
 }
 
 /**
- * Gäller händelsen hela platsen? Det säger datan (#1674): händelsen har `scope: "place"` (den gäller hela den minsta platsen i
- * data/platser.json som den ligger i, och punkten står bara för platsen) och en ungefärlig plats (`locationPrecision`), som
- * scripts/validate-site.py kräver. places är alla platser: ligger händelsen också i en mindre plats inom den här (Skåne i Sverige)
- * gäller den den mindre platsen och står som ungefärlig markör här. Utan places görs ingen sådan prövning. Inga platstexter läses,
- * så svaret är detsamma på alla språk (textregeln från steg 1b är borta, docs/beslut/2026-11-15-scope-place-1674.md).
+ * Gäller händelsen hela platsen? Det säger datan (#1674): händelsen har `scope: "place"` och en ungefärlig plats
+ * (`locationPrecision`, som scripts/validate-site.py kräver), och platsen är den minsta av places som händelsen hör till
+ * (smallestPlace i js/place-geo.js: gränsen med kustmarginalen, som platsens händelser). En skånsk händelse gäller alltså Skåne och
+ * står som ungefärlig markör i Sverige. places är alla platser som får visas; utan dem ger ingen händelse brickan (hellre en
+ * markör än "Hela Sverige" för något som gäller Skåne). Inga platstexter läses, så svaret är detsamma på alla språk (textregeln
+ * från steg 1b är borta, docs/beslut/2026-11-15-scope-place-1674.md).
  */
 export function wholePlace(e, place, places = []) {
-  if (e?.scope !== 'place' || !e.locationPrecision || !place) return false;
-  if (e._lon == null || !places.length) return true;
-  const at = placeAt(places, e._lon, e._lat);
-  return !at || at.id === place.id;
+  if (e?.scope !== 'place' || !e.locationPrecision || !place || e._lon == null) return false;
+  return smallestPlace(places, e._lon, e._lat)?.id === place.id;
 }
 
 /**
