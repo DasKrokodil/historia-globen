@@ -1843,12 +1843,23 @@ TJECKISKA_GRANSEN = (11.9, 48.5, 15.1, 51.1)
 # från Allgäu till Passau (#1771). Gränserna mellan Tyskland, Schweiz och Österrike har i stort sett inte ändrats sedan 1919 (en.wikipedia
 # "Germany–Switzerland border", "Austria–Switzerland border" och "Austria–Germany border"), så där följer de Natural Earth från
 # 1919: Cliopatrias och förenklingens gränser lägger annars Bregenz i Tyskland, Kreuzlingen i Västtyskland och Basel utan stat.
-# Natural Earth följer Seerhein vid Konstanz, så gamla stan (tysk) ritas i Schweiz; det står i Om kartan
+# Natural Earth 1:10m avviker upp till cirka 1 km längs Rhen och Bodensee (Konstanz, Petershausen och Bad Säckingen ritas i Schweiz);
+# det godtas och står i Om kartan, eftersom en egen skiljelinje vore påhittad
 HOCHRHEIN = (7.5, 47.2, 10.5, 47.85)
 ALPGRANSEN = (10.5, 47.25, 14.0, 48.8)
 ALP = ('rutor', [HOCHRHEIN, ALPGRANSEN])
 # Kaliningradområdet och Ermland-Masuriens gräns mot det (samma som 'kaliningrad-polen'), #1771
 ERMLAND = (19.4, 54.0, 22.95, 55.4)
+# Natural Earth 1:10m lägger gränsen mellan Polen och Kaliningradområdet 3–4 km för långt norrut (Bagrationovsk och
+# Zjeleznodorozjnyj hamnar i Polen), och Litauens gräns något för långt söderut (geografen, #1771). Polens och Litauens sidor
+# är därför Natural Earth minus Ryska federationens gräns i Cliopatria 2000, så att den ryska gränsen inte flyttas; remsan
+# som Natural Earth räknar till Polen eller Litauen men Cliopatria till Ryssland läggs till Sovjetunionen och Ryssland
+RYSKA_CLIO = ('clio', 'Russian Federation', 2000)
+POLEN_ERMLAND = ('skillnad', ('snitt', ('ne', ['polen-ne']), ('rutor', [ERMLAND])), RYSKA_CLIO)
+REMSA_PL = ('snitt', ('snitt', ('ne', ['polen-ne']), ('rutor', [ERMLAND])), RYSKA_CLIO)
+LITAUEN_UTAN_RU = ('ne', ['litauen-ne'])
+# Jura och Sundgau: Frankrikes gräns mot Schweiz från Genève till Basel
+JURA = (5.9, 46.1, 7.6, 47.65)
 TYSKA_SIDAN = ('snitt', ('ne', ['tyskland']), ('rutor', [FRANSKA_GRANSEN]))
 FRANSKA_SIDAN = ('snitt', ('ne', ['frankrike-ne']), ('rutor', [FRANSKA_GRANSEN]))
 # Tysklands sida av gränsen mot Nederländerna 1950–1962 enligt Förbundsrepublikens gräns i Cliopatria 1955 (utan Selfkant och
@@ -1989,7 +2000,7 @@ DISPUTED = {
                                           ('rutor', [(19.4, 54.2, 22.95, 55.4)])), ('ne', ['polen-ne'])),
                     'from': 1945, 'to': 1989, 'strict': True, 'remove': [], 'add': ['sovjetunionen']},
     # och Polen i samma ruta klipps bort efter förenklingen, så att Sovjetunionen inte buktar in över Ermland-Masurien
-    'kaliningrad-polen': {'area': ('snitt', ('ne', ['polen-ne']), ('rutor', [(19.4, 54.0, 22.95, 55.4)])), 'from': 1945, 'to': 1989,
+    'kaliningrad-polen': {'area': POLEN_ERMLAND, 'from': 1945, 'to': 1989,
                           'strict': True, 'remove': ['sovjetunionen'], 'add': []},
     # Fria staden Danzig (#1746): Cliopatria räknar Memelområdet till fristaden 1919–1935. Det förvaltades av de allierade
     # till 1923 och hörde sedan till Litauen; delen tas bort som källfel
@@ -2018,6 +2029,18 @@ DISPUTED = {
     # och Schweiz förenklade gräns buktar ut över fransk mark (Jura, Genève); Frankrike i Natural Earth klipps ur Schweiz 1930–1939
     'schweiz-frankrike': {'area': ('ne', ['frankrike-ne']), 'from': 1930, 'to': 1939, 'strict': True, 'efter': True,
                           'remove': ['schweiz'], 'add': []},
+    # Jura och Sundgau (#1771): gränsen mellan Frankrike och Schweiz är i stort sett från 1815 (en.wikipedia "France–Switzerland
+    # border"; små byten, bland annat för flygplatsen i Genève 1960). I rutan JURA följer den Natural Earth från 1919, så att Sundgau
+    # och Jura inte blir utan stat (Altkirch, Delle, Ferrette) och länderna inte ritas över varandra. 1940–1944 följer Frankrikes sida
+    # Cliopatria
+    'frankrike-jura': {'area': ('snitt', ('ne', ['frankrike-ne']), ('rutor', [JURA])), 'from': 1919, 'to': 1939, 'strict': True,
+                       'efter': True, 'remove': [], 'add': ['franska-kolonialvaldet']},
+    'frankrike-jura-1945': {'area': ('snitt', ('ne', ['frankrike-ne']), ('rutor', [JURA])), 'from': 1945, 'strict': True,
+                            'efter': True, 'remove': [], 'add': ['franska-kolonialvaldet', 'frankrike']},
+    'jura-frankrike-schweiz': {'area': ('snitt', ('ne', ['frankrike-ne']), ('rutor', [JURA])), 'from': 1919, 'strict': True,
+                               'efter': True, 'remove': ['schweiz'], 'add': []},
+    'jura-schweiz': {'area': ('snitt', ('ne', ['schweiz-ne']), ('rutor', [JURA])), 'from': 1919, 'strict': True, 'efter': True,
+                     'remove': ['franska-kolonialvaldet', 'frankrike', 'nazityskland'], 'add': ['schweiz']},
     'gransen-frankrike-tyska-sidan': {'area': TYSKA_SIDAN, 'from': 1930, 'to': 1939, 'strict': True, 'efter': True,
                                       'remove': ['franska-kolonialvaldet'], 'add': []},
     # Lindau: Cliopatria har ingen stat där från 1950. Landkreis Lindau hörde till den franska zonen och återförenades med Bayern
@@ -2079,22 +2102,22 @@ DISPUTED = {
     'litauen-kaliningrad': {'area': ('ne', ['kaliningrad-ne']), 'from': 1990, 'strict': True, 'efter': True,
                             'remove': ['litauen'], 'add': []},
     # och Litauens sida av gränsen läggs till Litauen, vars förenklade gräns annars inte når fram (Kybartai, Pagėgiai)
-    'litauen-ne': {'area': ('ne', ['litauen-ne']), 'from': 1990, 'strict': True, 'efter': True,
+    'litauen-ne': {'area': LITAUEN_UTAN_RU, 'from': 1990, 'strict': True, 'efter': True,
                    'remove': [], 'add': ['litauen']},
-    'kaliningrad-grannar': {'area': ('snitt', ('ne', ['polen-ne', 'litauen-ne']), ('rutor', [KALININGRAD])), 'from': 1990,
+    'kaliningrad-grannar': {'area': POLEN_ERMLAND, 'from': 1990,
                             'strict': True, 'efter': True, 'remove': ['sovjetunionen', 'ryska-federationen'], 'add': []},
     # Ermland (#1771): Polens förenklade gräns når inte fram till gränsen mot Kaliningradområdet, så polsk mark vid (20,55, 54,36) var
     # utan stat från 1945 (Cliopatria räknar den till Sovjetunionen och Ryssland, som klipps bort ovan). Polen i Natural Earth i rutan
     # läggs till Polen
-    'polen-ermland': {'area': ('snitt', ('ne', ['polen-ne']), ('rutor', [ERMLAND])), 'from': 1945, 'strict': True, 'efter': True,
+    'polen-ermland': {'area': POLEN_ERMLAND, 'from': 1945, 'strict': True, 'efter': True,
                       'remove': [], 'add': ['polen']},
     # och klipps ur Sovjetunionen också efter avrundningen ('kaliningrad-polen' klipps före den, och avrundningen till 0,1 grad
     # lägger tillbaka en remsa polsk mark)
-    'ermland-sovjet': {'area': ('snitt', ('ne', ['polen-ne']), ('rutor', [ERMLAND])), 'from': 1945, 'to': 1991, 'strict': True,
+    'ermland-sovjet': {'area': POLEN_ERMLAND, 'from': 1945, 'to': 1991, 'strict': True,
                        'efter': True, 'remove': ['sovjetunionen'], 'add': []},
     # Vid trelandspunkten med Litauen (Suwałki) går Polens och Litauens förenklade gränser in i varandra
     'polen-litauen': {'area': ('ne', ['litauen-ne']), 'from': 1945, 'strict': True, 'efter': True, 'remove': ['polen'], 'add': []},
-    'litauen-polen': {'area': ('snitt', ('ne', ['polen-ne']), ('rutor', [ERMLAND])), 'from': 1990, 'strict': True, 'efter': True,
+    'litauen-polen': {'area': POLEN_ERMLAND, 'from': 1990, 'strict': True, 'efter': True,
                       'remove': ['litauen'], 'add': []},
     # och vid trelandspunkten med Tjeckoslovakien (Zittau) Polens och Tjeckoslovakiens; Polens sida i rutan (Bogatynia) läggs till Polen
     'polen-tjeckien': {'area': ('ne', ['tjeckien-ne']), 'from': 1945, 'strict': True, 'efter': True, 'remove': ['polen'], 'add': []},
@@ -2105,6 +2128,12 @@ DISPUTED = {
     # Från 1990 läggs den till Litauen ('litauen-ne' ovan)
     'litauen-sovjet': {'area': ('ne', ['litauen-ne']), 'from': 1945, 'to': 1989, 'strict': True, 'efter': True,
                        'remove': [], 'add': ['sovjetunionen']},
+    # och Litauens sida mot Kaliningradområdet klipps ur Sovjetunionen och Ryssland från 1990 (Natural Earth minus Cliopatrias Ryssland)
+    'kaliningrad-grannar-lt': {'area': ('snitt', LITAUEN_UTAN_RU, ('rutor', [KALININGRAD])), 'from': 1990, 'strict': True,
+                               'efter': True, 'remove': ['sovjetunionen', 'ryska-federationen'], 'add': []},
+    # Remsorna som Natural Earth räknar till Polen eller Litauen men Cliopatria till Ryssland (Bagrationovsk) hör till Kaliningradområdet
+    'kaliningrad-remsa-pl': {'area': REMSA_PL, 'from': 1945, 'strict': True, 'efter': True,
+                             'remove': ['polen'], 'add': ['sovjetunionen', 'ryska-federationen']},
     'danzig-memel': {'area': ('rutor', [(20.8, 55.0, 22.6, 56.0)]), 'parts': True, 'from': 1919, 'to': 1935,
                      'remove': ['fria-staden-danzig'], 'add': []},
     # Cliopatrias gräns för fristaden överlappar grannarnas (Polen i väster, Ostpreussen i öster); grannarnas gränser i
@@ -2183,6 +2212,12 @@ DISPUTED = {
                                              ('ne', ['vasttyska-granslander'])),
                                     'from': 1945, 'to': 1949, 'strict': True, 'efter': True, 'remove': ['usa'],
                                     'add': ['franska-kolonialvaldet']},
+    # Och norr om rutan, kring Leutkirch (Kreis Wangen i Württemberg-Hohenzollern), där Cliopatria räknar en bit till den amerikanska zonen
+    # men den förenklade gränsen inte når fram: Baden-Württemberg söder om 48,1 grader (Ulm och Württemberg-Baden, den amerikanska
+    # zonens del av Württemberg, ligger norr om det) läggs till den franska zonen och klipps ur USA
+    'franskzon-leutkirch': {'area': ('snitt', ('skillnad', ('ne', ['tyskland']), ('ne', ['vasttyska-granslander'])),
+                                     ('rutor', [(9.5, 47.85, 10.3, 48.1)])),
+                            'from': 1945, 'to': 1949, 'strict': True, 'efter': True, 'remove': ['usa'], 'add': ['franska-kolonialvaldet']},
     # och Tjeckoslovakiens sida, som Cliopatria 1947–1949 ritar också i USA och Sovjetunionen
     'tjeckoslovakien-zoner': {'area': ('ne', ['tjeckien-ne']), 'from': 1947, 'to': 1949, 'strict': True, 'efter': True,
                               'remove': ['usa', 'sovjetunionen'], 'add': []},
@@ -2923,7 +2958,8 @@ def main():
              'eller läggs till bara efter förenklingen. '
              'Bodensee, Basel, Vorarlberg, Kuriska näset och Ermland (#1771): gränserna mellan Tyskland, Schweiz, Österrike och Frankrike '
              'vid Bodensee och Basel och längs gränsen mellan Österrike och Tyskland följer Natural Earth från 1919; Polens och Litauens '
-             'gränser mot Kaliningradområdet följer Natural Earth från 1945 (Litauen från 1990, Kuriska näset i Sovjetunionen 1945–1989); '
+             'gränser mot Kaliningradområdet följer Natural Earth från 1945 (Polen utom det som Cliopatria räknar till Ryssland; Litauen från 1990, '
+             'Kuriska näset i Sovjetunionen 1945–1989); gränsen mellan Frankrike och Schweiz följer Natural Earth från 1919 (Frankrikes sida 1919–1939 och från 1945); '
              'den amerikanska zonen (Bayern) och den sovjetiska (Sachsen och Thüringen) når 1945–1949 fram till gränserna mot '
              'Tjeckoslovakien, Polen och Österrike, och den franska (Baden-Württemberg) till Bodensee, med delstaternas gränser i Natural Earth. '
              'Små stater (#722): tolv länder som Cliopatria saknar i nutid eller har fel gräns för har gränsen ur Natural Earth '

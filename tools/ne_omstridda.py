@@ -60,8 +60,8 @@ CLIPPED = {'frankrike-ne': ('FRA', (-5.5, 41.0, 10.0, 51.5)), 'nederlanderna-ne'
            # Litauen till 55,75 grader nord, så att hela den litauiska delen av Kuriska näset (Nida) och Klaipėda kommer med (#1771)
            'litauen-ne': ('LTU', (19.4, 54.2, 22.95, 55.75)),
            'tjeckien-ne': ('CZE', (11.9, 48.5, 15.1, 51.1)),
-           # Schweiz och Österrike längs gränserna mot Tyskland och vid Bodensee, Basel och Vorarlberg (#1771)
-           'schweiz-ne': ('CHE', (7.5, 47.2, 10.5, 47.85)), 'osterrike-ne': ('AUT', (7.5, 47.0, 14.1, 48.9))}
+           # Schweiz och Österrike längs gränserna mot Tyskland och Frankrike och vid Bodensee, Basel och Vorarlberg (#1771)
+           'schweiz-ne': ('CHE', (5.9, 45.8, 10.5, 47.85)), 'osterrike-ne': ('AUT', (7.5, 47.0, 14.1, 48.9))}
 # Små stater (#722), ur samma fil men förenklade till bara 0,002 grader och avrundade till 0,001 grad
 # Delstater ur ne_10m_admin_1_states_provinces (adm1_code), sammanslagna och förenklade till 0,003 grader (#1730, #1750)
 STATES = {'vasttyska-granslander': ['DEU-1579', 'DEU-1576', 'DEU-1574', 'DEU-1591'],

@@ -61,8 +61,8 @@ SCHENGEN = (6.36, 49.47)
 PERL = (6.385, 49.474)
 ZITTAU = (14.807, 50.896)
 # #1771, ur Wikidata: Bregenz Q1737, Hörbranz Q261132, Lochau Q668055, Basel Q78, Riehen Q5262, Weil am Rhein Q61909,
-# Kreuzlingen Q63905, Schaffhausen Q9009, Nida Q1004306, Zwiesel Q163091, Passau Q4190. Ermland: polsk mark vid gränsen mot
-# Kaliningradområdet (geografen, 2026-11-15)
+# Kreuzlingen Q63905, Schaffhausen Q9009, Nida Q1004306, Zwiesel Q163091, Passau Q4190, Bartoszyce Q809585 (polsk mark i Ermland),
+# Bagrationovsk Q104354, Altkirch Q208119, Delle Q676305, Ferrette Q392059
 BREGENZ = (9.749, 47.505)
 HORBRANZ = (9.753, 47.555)
 LOCHAU = (9.752, 47.53)
@@ -72,7 +72,11 @@ WEIL = (7.611, 47.595)
 KREUZLINGEN = (9.178, 47.646)
 SCHAFFHAUSEN = (8.634, 47.697)
 NIDA = (21.005, 55.304)
-ERMLAND = (20.55, 54.36)
+BARTOSZYCE = (20.808, 54.254)
+BAGRATIONOVSK = (20.633, 54.383)
+ALTKIRCH = (7.239, 47.623)
+DELLE = (6.998, 47.507)
+FERRETTE = (7.316, 47.494)
 ZWIESEL = (13.233, 49.017)
 PASSAU = (13.461, 48.575)
 # Berlin 1949–1990 (#1731), ur Wikidata: Västberlin och Östberlin
@@ -184,8 +188,14 @@ PUNKTER = [
     *[('schweiz', WEIL, 'Weil am Rhein', y, False) for y in (1925, 1947, 1970, 2000)],
     ('sovjetunionen', NIDA, 'Nida', 1960, True),
     *[('litauen', NIDA, 'Nida', y, True) for y in (1990, 2000, 2024)],
-    *[('polen', ERMLAND, 'Ermland (20,55, 54,36)', y, True) for y in (1946, 1970, 1990, 2000, 2024)],
-    *[(g, ERMLAND, 'Ermland (20,55, 54,36)', y, False) for g, y in (('sovjetunionen', 1960), ('ryska-federationen', 2000))],
+    *[('polen', BARTOSZYCE, 'Bartoszyce', y, True) for y in (1946, 1970, 1990, 2000, 2024)],
+    *[(g, BARTOSZYCE, 'Bartoszyce', y, False) for g, y in (('sovjetunionen', 1960), ('ryska-federationen', 2000))],
+    *[(g, BAGRATIONOVSK, 'Bagrationovsk', y, True) for g, y in (('sovjetunionen', 1946), ('sovjetunionen', 1970), ('sovjetunionen', 1990),
+                                                                 ('ryska-federationen', 2000), ('ryska-federationen', 2024))],
+    *[('polen', BAGRATIONOVSK, 'Bagrationovsk', y, False) for y in (1946, 1970, 2000)],
+    # Sundgau och Jura 1930–1939 (geografen, #1771): Frankrike, inte utan stat
+    *[('franska-kolonialvaldet', p, n, y, True) for p, n in ((ALTKIRCH, 'Altkirch'), (DELLE, 'Delle'), (FERRETTE, 'Ferrette'))
+      for y in (1925, 1930, 1931, 1932, 1935, 1939)],
     *[('sovjetunionen', ZITTAU, 'Zittau', y, True) for y in (1945, 1946, 1948)],
     *[('tjeckoslovakien', ZITTAU, 'Zittau', y, False) for y in (1947, 1960)],
     *[('usa', p, n, y, True) for p, n in ((ZWIESEL, 'Zwiesel'), (PASSAU, 'Passau')) for y in (1945, 1946, 1949)],
