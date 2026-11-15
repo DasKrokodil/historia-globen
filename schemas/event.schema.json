@@ -40,6 +40,8 @@
             }
           },
           "significance": { "type": "integer", "enum": [1] },
+          "locationPrecision": { "type": "string", "enum": ["region", "country"] },
+          "scope": { "type": "string", "enum": ["place"] },
           "tags": { "type": "array", "uniqueItems": true, "minItems": 1, "items": { "type": "string", "enum": ["framsteg"] } },
           "evidence": {
             "type": "object",

@@ -3,11 +3,12 @@
 // ligger i js/ui/region-marks.js.
 //
 // Numret är radens nummer i listan "Händelser på platsen" (platsens händelser i tidsordning, js/focus/place.js), så att kartan och
-// listan säger samma sak. En händelse vars plats är hela platsen ("Skåne", "Danmark (markören i Köpenhamn)") ritas inte som en prick
-// på en påhittad punkt utan står i brickan "Hela Skåne". Alla andra händelser med ungefärlig plats (Barum, Trundholms mosse, "Skåne,
+// listan säger samma sak. En händelse som gäller hela platsen (`scope: "place"` i datan, #1674) ritas inte som en prick på en
+// påhittad punkt utan står i brickan "Hela Skåne". Alla andra händelser med ungefärlig plats (Barum, Trundholms mosse, "Skåne,
 // Bohuslän, Östersjön och Nordtyskland") står kvar på sin punkt och märks som ungefärliga. Händelser som hamnar på samma ställe på skärmen läggs i en
 // hög med ortnamn och årsspann, med samma klustring som globen (js/ui/clusters.js).
 import { cluster } from './ui/clusters.js';
+import { placeAt } from './place-geo.js';
 
 /** Högens radie i skärmpixlar: markörer närmare än så läggs i en hög (markören är 24 px bred och högens bricka 30 px). */
 export const PILE_PX = 28;
@@ -33,28 +34,25 @@ export function km([lon1, lat1], [lon2, lat2]) {
 }
 
 /**
- * Gäller händelsen hela platsen? Bara när platsen är ungefärlig (`locationPrecision` `region` eller `country`) och händelsens egen
- * platstext är exakt platsens namn ("Skåne") eller namnet följt av "(markören i …)" ("Danmark (markören i Köpenhamn)"). Allt annat,
- * till exempel "Skåne, Bohuslän, Östersjön och Nordtyskland", "Skåne, särskilt Göinge" eller "Skåne (freden slöts vid floden Ejdern)",
- * gäller inte hela platsen och står kvar på sin punkt som ungefärlig. Båda texterna jämförs på svenska, som datan skrivs först på
- * (CLAUDE.md, Språk), så att svaret är detsamma på alla språk. Det är en heuristik på svensk platstext: ett eget fält i händelsen är
- * rätt väg och kräver ett beslut (docs/beslut/2026-11-14-regionvy-steg-1b-1642.md).
+ * Gäller händelsen hela platsen? Det säger datan (#1674): händelsen har `scope: "place"` (den gäller hela den minsta platsen i
+ * data/platser.json som den ligger i, och punkten står bara för platsen) och en ungefärlig plats (`locationPrecision`), som
+ * scripts/validate-site.py kräver. places är alla platser: ligger händelsen också i en mindre plats inom den här (Skåne i Sverige)
+ * gäller den den mindre platsen och står som ungefärlig markör här. Utan places görs ingen sådan prövning. Inga platstexter läses,
+ * så svaret är detsamma på alla språk (textregeln från steg 1b är borta, docs/beslut/2026-11-15-scope-place-1674.md).
  */
-export function wholePlace(e, place) {
-  if (!e?.locationPrecision) return false;
-  const name = String(place?.name?.sv ?? '').trim();
-  const where = String(typeof e.place === 'string' ? e.place : e.place?.sv ?? '').trim();
-  if (!name || !where.startsWith(name)) return false;
-  const rest = where.slice(name.length).trim();
-  return rest === '' || /^\(markören i [^()]+\)$/.test(rest);
+export function wholePlace(e, place, places = []) {
+  if (e?.scope !== 'place' || !e.locationPrecision || !place) return false;
+  if (e._lon == null || !places.length) return true;
+  const at = placeAt(places, e._lon, e._lat);
+  return !at || at.id === place.id;
 }
 
 /**
  * Platsens händelser som rader: { e, n, whole, approx }. n är radens nummer i listan (1, 2, …), i samma ordning som listan
  * (händelserna kommer i tidsordning från visibleEvents i js/focus/place.js). approx: platsen är ungefärlig.
  */
-export function regionItems(events, place) {
-  return (events ?? []).map((e, i) => ({ e, n: i + 1, whole: wholePlace(e, place), approx: !!e.locationPrecision }));
+export function regionItems(events, place, places = []) {
+  return (events ?? []).map((e, i) => ({ e, n: i + 1, whole: wholePlace(e, place, places), approx: !!e.locationPrecision }));
 }
 
 /**

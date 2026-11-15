@@ -49,9 +49,9 @@ export class RegionMarks {
     this.state = { shown: [], names: [] }; // det som ritades senast (renderingsstatus och prov)
   }
 
-  /** Platsens händelser (listans ordning) och platsen. Nollställer markering och solfjäder. */
-  setContent({ place, events }) {
-    const items = regionItems(events, place);
+  /** Platsens händelser (listans ordning), platsen och alla platser (för brickan, #1674). Nollställer markering och solfjäder. */
+  setContent({ place, events, places = [] }) {
+    const items = regionItems(events, place, places);
     this.content = { place, items, byId: new Map(items.map(it => [it.e.id, it])) };
     this.mark = this.hover = this.open = this._wantOpen = null;
     this._lastSel = null;

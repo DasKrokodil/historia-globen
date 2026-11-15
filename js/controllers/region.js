@@ -9,7 +9,7 @@
 // inte ur ett fält i datan, och lägger platsen i den del av kartan som kortet, arket, fokusraden och vyns egen ruta inte täcker.
 //
 // Markörerna (#1642, steg 1b): platsens händelser får numrerade markörer, där numret är raden i listan "Händelser på platsen" i
-// kortet (raderna får samma nummer medan vyn är öppen). Händelser som gäller hela platsen står i brickan "Hela Skåne", markörer på
+// kortet (raderna får samma nummer medan vyn är öppen). Händelser som gäller hela platsen (`scope: "place"`, #1674) står i brickan "Hela Skåne", markörer på
 // samma ställe i en hög som fälls ut, och ortnamnen (data/ortnamn/<plats>.json) laddas när vyn öppnas (js/ui/region-marks.js).
 // Lista och karta hör ihop: en rad i fokus eller under musen markerar markören, en markerad markör ger raden en ram, och Escape
 // fäller först ihop en utfälld hög.
@@ -18,7 +18,7 @@ import { regionEligible, regionSize, freeArea } from '../region-frame.js';
 import { regionItems } from '../region-markers.js';
 import { visibleEvents } from '../focus/place.js';
 import { OVERLAY_IDS } from '../surfaces.js';
-import { t, loadOrtnamn, pluralUi } from '../model.js';
+import { t, loadOrtnamn, pluralUi, loadedPlaces } from '../model.js';
 import { ui } from '../i18n.js';
 import { say } from '../ui/status.js';
 
@@ -94,7 +94,7 @@ export function createRegion(app) {
   /** Markörerna räknas om ur platsens händelser (listans ordning), med samma markering om händelsen finns kvar. */
   function sync() {
     const mark = marks.mark;
-    marks.setContent({ place, events: placeEventsOf(place) });
+    marks.setContent({ place, events: placeEventsOf(place), places: loadedPlaces() });
     if (mark && marks.numberOf(mark) != null) marks.setMark(mark, { open: false });
     for (const el of $('detail').querySelectorAll('.region-num')) el.remove();
   }
@@ -172,7 +172,7 @@ export function createRegion(app) {
     if (!app.narrow.matches && !roomy()) { fallBack(p); return; }
     // Markörerna i listans ordning, och ortnamnen när filen har laddats (först nu, bara för den här platsen)
     const events = placeEventsOf(p);
-    marks.setContent({ place: p, events });
+    marks.setContent({ place: p, events, places: loadedPlaces() });
     decorate();
     loadOrtnamn(p.id).then(doc => { if (doc && flatMap.region === p.id && place === p) marks.setNames(doc); });
     // Den finare kusten (1:10m, samma som globens utsnitt) laddas en gång; kartan ritas om med den när den kommer
@@ -183,7 +183,7 @@ export function createRegion(app) {
       if (!flatMap.regionMoved) flatMap.fitRegion();
       if (!roomy()) fallBack(p);
     }, REFIT_MS);
-    say(ui('regionView.shown', { place: name, events: countText(p, regionItems(events, p)) }), 'plats', { priority: 2, immediate: true }); // som faktarutans rubrik: svaret på knappen
+    say(ui('regionView.shown', { place: name, events: countText(p, regionItems(events, p, loadedPlaces())) }), 'plats', { priority: 2, immediate: true }); // som faktarutans rubrik: svaret på knappen
   }
 
   /** Lämna regionvyn med knappen eller Escape: Platt vy som förut, med platsen inramad, och fokus på kartan. */
