@@ -870,6 +870,9 @@ if places_doc is not None:
             continue
         if doc.get('source') not in src_ids:
             err(f"{path}: källan {doc.get('source')} finns inte i sources.json")
+        for pl in doc.get('places', []):
+            if str(pl.get('id', '')).startswith('wd-') and (pl.get('source') not in src_ids or pl.get('id') != f"wd-{pl.get('wikidata')}"):
+                err(f"{path}: orten {pl.get('id')} ur kompletteringen ska ha source i sources.json och wikidata som id (#1676)")
         own = {str(n.get('ne')) for n in by_place[f.stem]['boundary'].get('neighbours', [])}
         for nb in doc.get('neighbours', []):
             if str(nb.get('ne')) not in own:

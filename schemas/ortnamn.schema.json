@@ -13,18 +13,20 @@
     "padKm": { "type": "integer", "minimum": 0 },
     "places": {
       "type": "array",
-      "description": "Orter ur ne_10m_populated_places inom ramen, de viktigaste först.",
+      "description": "Orter ur ne_10m_populated_places inom ramen, de viktigaste först, och sist orterna ur data/ortnamn-komplettering.json (Wikidata, med source och wikidata, #1676).",
       "items": {
         "type": "object",
         "required": ["id", "kind", "rank", "coordinates", "name"],
         "additionalProperties": false,
         "properties": {
-          "id": { "type": "string", "pattern": "^ne-[0-9]+$", "description": "ne- och Natural Earths NE_ID." },
+          "id": { "type": "string", "pattern": "^(ne-[0-9]+|wd-Q[0-9]+)$", "description": "ne- och Natural Earths NE_ID, eller wd- och Wikidatas Q-id för en ort ur kompletteringen (#1676)." },
           "kind": { "enum": ["capital", "admin1-capital", "place"] },
           "rank": { "type": "integer", "minimum": 0, "maximum": 10, "description": "Natural Earths SCALERANK: 0 viktigast, 10 minst." },
           "coordinates": { "$ref": "#/$defs/point" },
           "name": { "$ref": "#/$defs/text" },
-          "fallback": { "$ref": "#/$defs/fallback" }
+          "fallback": { "$ref": "#/$defs/fallback" },
+          "source": { "type": "string", "pattern": "^[a-z0-9-]+$", "description": "Källans id i data/sources.json när orten inte kommer från Natural Earth (kompletteringen, #1676)." },
+          "wikidata": { "type": "string", "pattern": "^Q[0-9]+$", "description": "Ortens Q-id i Wikidata (kompletteringen, #1676)." }
         }
       }
     },
@@ -73,7 +75,7 @@
     },
     "fallback": {
       "type": "array", "minItems": 1,
-      "description": "Språk där Natural Earth saknar namnet och engelska används i stället.",
+      "description": "Språk där källan (Natural Earth eller Wikidata) saknar namnet och engelska används i stället.",
       "items": { "enum": ["sv", "de", "es", "fr"] }
     },
     "text": {

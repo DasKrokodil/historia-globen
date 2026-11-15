@@ -1,0 +1,195 @@
+{
+ "schema": "historia-globen/ortnamn-komplettering@1",
+ "note": "Orter som händelser på platsen pekar på men som saknas i Natural Earth (#1676). Etiketter och koordinater ur Wikidata (CC0), hämtade 2026-11-15 och jämförda med händelsernas egna punkter (alla inom 5 km). Saknas en etikett används engelska och språket står i fallback. tools/ortnamn.py lägger till orterna i data/ortnamn/<plats>.json med källa per ort. Publiceras inte.",
+ "source": "wikidata",
+ "checked": "2026-11-15",
+ "places": {
+  "skane": [
+   {
+    "wikidata": "Q2167",
+    "coordinates": [
+     13.199,
+     55.708
+    ],
+    "name": {
+     "sv": "Lund",
+     "en": "Lund",
+     "de": "Lund",
+     "es": "Lund",
+     "fr": "Lund"
+    },
+    "events": [
+     "lund-grundas",
+     "lund-blir-arkebiskopssate",
+     "lunds-domkyrka-invigs",
+     "lunds-universitet-grundas",
+     "freden-i-lund",
+     "reformationen-i-skane",
+     "slaget-vid-lund"
+    ]
+   },
+   {
+    "wikidata": "Q809637",
+    "coordinates": [
+     14.366,
+     56.117
+    ],
+    "name": {
+     "sv": "Barum",
+     "en": "Barum",
+     "de": "Barum",
+     "es": "Barum",
+     "fr": "Barum"
+    },
+    "fallback": [
+     "es"
+    ],
+    "events": [
+     "barumkvinnan"
+    ]
+   }
+  ],
+  "danmark": [
+   {
+    "wikidata": "Q322361",
+    "coordinates": [
+     8.763,
+     55.327
+    ],
+    "name": {
+     "sv": "Ribe",
+     "en": "Ribe",
+     "de": "Ribe",
+     "es": "Ribe",
+     "fr": "Ribe"
+    },
+    "events": [
+     "ribe-handelsplats"
+    ]
+   },
+   {
+    "wikidata": "Q835708",
+    "coordinates": [
+     9.419,
+     55.756
+    ],
+    "name": {
+     "sv": "Jelling",
+     "en": "Jelling",
+     "de": "Jelling",
+     "es": "Jelling",
+     "fr": "Jelling"
+    },
+    "events": [
+     "jellingestenen"
+    ]
+   },
+   {
+    "wikidata": "Q3412882",
+    "coordinates": [
+     9.31,
+     55.614
+    ],
+    "name": {
+     "sv": "Egtved",
+     "en": "Egtved",
+     "de": "Egtved",
+     "es": "Egtved",
+     "fr": "Egtved"
+    },
+    "events": [
+     "egtvedflickan"
+    ]
+   },
+   {
+    "wikidata": "Q2608258",
+    "coordinates": [
+     11.91,
+     55.008
+    ],
+    "name": {
+     "sv": "Vordingborg",
+     "en": "Vordingborg",
+     "de": "Vordingborg",
+     "es": "Vordingborg",
+     "fr": "Vordingborg"
+    },
+    "events": [
+     "jyske-lov"
+    ]
+   },
+   {
+    "wikidata": "Q836960",
+    "coordinates": [
+     9.058,
+     55.367
+    ],
+    "name": {
+     "sv": "Rødding",
+     "en": "Rødding",
+     "de": "Rødding",
+     "es": "Rødding",
+     "fr": "Rødding"
+    },
+    "events": [
+     "rodding-folkhogskola"
+    ]
+   },
+   {
+    "wikidata": "Q2567585",
+    "coordinates": [
+     9.736,
+     54.911
+    ],
+    "name": {
+     "sv": "Dybbøl",
+     "en": "Dybbøl",
+     "de": "Düppel",
+     "es": "Dybbøl",
+     "fr": "Dybbol"
+    },
+    "events": [
+     "stormningen-av-dybbol"
+    ]
+   },
+   {
+    "wikidata": "Q1701099",
+    "coordinates": [
+     9.119,
+     55.724
+    ],
+    "name": {
+     "sv": "Billund",
+     "en": "Billund",
+     "de": "Billund",
+     "es": "Billund",
+     "fr": "Billund"
+    },
+    "events": [
+     "lego-grundas"
+    ]
+   },
+   {
+    "wikidata": "Q12342310",
+    "coordinates": [
+     8.813,
+     54.957
+    ],
+    "name": {
+     "sv": "Gallehus",
+     "en": "Gallehus",
+     "de": "Gallehus",
+     "es": "Gallehus",
+     "fr": "Gallehus"
+    },
+    "fallback": [
+     "es",
+     "fr"
+    ],
+    "events": [
+     "guldhornen-fran-gallehus"
+    ]
+   }
+  ]
+ }
+}

@@ -24,6 +24,11 @@ Punkten för ett namn är den punkt i ett rutnät över ramen som ligger inne i 
 Namnen: Natural Earths NAME_SV, NAME_EN, NAME_DE, NAME_ES och NAME_FR (name_sv … för haven). Saknas ett språk används engelska
 (NAME_EN, annars NAME), och språket står då i fallback, så att det syns att namnet inte är översatt. Inga namn skrivs för hand.
 Koordinaterna avrundas till tre decimaler för orter (cirka 100 m) och två för namnens punkter (cirka 1 km). En omkörning ger tom diff.
+
+Kompletteringen (#1676): orter som händelser på platsen pekar på men som Natural Earth saknar (Lund, Ribe, Jelling …) står för hand
+i data/ortnamn-komplettering.json, med etiketter och koordinat ur Wikidata (CC0) och de händelser de jämfördes med. De läggs sist i
+places med id wd-<Q-id>, rank KOMPLETTERING_RANK (källan har ingen storleksrang), source (källans id i sources.json) och wikidata,
+så att det syns att namnet inte kommer från Natural Earth. En ort som redan finns i Natural Earth inom DUPLICATE_KM läggs inte till.
 """
 import gzip
 import json
@@ -54,6 +59,9 @@ OUTSIDE_PENALTY = 2
 MAX_SEAS = 12
 GRID = 48
 KM_PER_DEG = 111.2
+KOMPLETTERING = ROOT / 'data' / 'ortnamn-komplettering.json'
+KOMPLETTERING_RANK = 10
+DUPLICATE_KM = 2
 KINDS = {'Admin-0 capital': 'capital', 'Admin-0 capital alt': 'capital', 'Admin-1 capital': 'admin1-capital'}
 
 
@@ -168,6 +176,24 @@ def iso_n3(props):
     return props.get('ISO_N3_EH') if v in (None, '', '-99') else v
 
 
+KOMPLETTERING_SOURCE = ['wikidata']
+
+
+def komplettering():
+    """Orterna ur data/ortnamn-komplettering.json per plats (#1676), eller inget om filen saknas."""
+    if not KOMPLETTERING.is_file():
+        return {}
+    doc = json.loads(KOMPLETTERING.read_text(encoding='utf-8'))
+    KOMPLETTERING_SOURCE[0] = doc['source']
+    return doc['places']
+
+
+def km_between(a, b):
+    """Avståndet i km mellan två punkter [lon, lat] (lokal platt skala, räcker för några km)."""
+    lat0 = math.radians((a[1] + b[1]) / 2)
+    return math.hypot((a[0] - b[0]) * KM_PER_DEG * math.cos(lat0), (a[1] - b[1]) * KM_PER_DEG)
+
+
 def build(place, ne_places, marine, countries):
     fr, own, pad_km = frame(place)
     out = {'schema': 'historia-globen/ortnamn@1', 'place': place['id'], 'source': SOURCE,
@@ -189,6 +215,17 @@ def build(place, ne_places, marine, countries):
                 'coordinates': [round(x, 3), round(y, 3)], 'name': nm}
         if fb:
             item['fallback'] = fb
+        out['places'].append(item)
+
+    for extra in komplettering().get(place['id'], []):
+        x, y = extra['coordinates']
+        if any(km_between(pl['coordinates'], (x, y)) <= DUPLICATE_KM for pl in out['places']):
+            print(f"  {place['id']}: {extra['name']['sv']} finns redan i Natural Earth, läggs inte till", file=sys.stderr)
+            continue
+        item = {'id': f"wd-{extra['wikidata']}", 'kind': 'place', 'rank': KOMPLETTERING_RANK, 'coordinates': [x, y],
+                'name': extra['name'], 'source': KOMPLETTERING_SOURCE[0], 'wikidata': extra['wikidata']}
+        if extra.get('fallback'):
+            item['fallback'] = extra['fallback']
         out['places'].append(item)
 
     by_iso = {}
