@@ -115,11 +115,11 @@ export function createRegion(app) {
     const b = e.target.closest?.('[data-theme-event]');
     if (b && place && marks.active) marks.setMark(b.dataset.themeEvent, { open: true, from: 'list' });
   });
-  $('detail').addEventListener('mouseover', e => {
-    if (!place || !marks.active) return;
+  $('detail').addEventListener('pointerover', e => {
+    if (!place || !marks.active || e.pointerType !== 'mouse') return; // ett tryck med finger öppnar raden, det är ingen hovring
     marks.setHover(e.target.closest?.('[data-theme-event]')?.dataset.themeEvent ?? null);
   });
-  $('detail').addEventListener('mouseleave', () => { if (place && marks.active) marks.setHover(null); });
+  $('detail').addEventListener('pointerleave', () => { if (place && marks.active) marks.setHover(null); });
 
   /** Statusraden: "Skåne, 21 händelser, 7 gäller hela Skåne". */
   function countText(p, items) {

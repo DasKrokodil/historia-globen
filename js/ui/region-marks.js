@@ -183,8 +183,7 @@ export class RegionMarks {
       ...L.singles.map(it => ({ n: it.n, kind: 'single', it })),
       ...L.piles.map(p => ({ n: p.members[0].n, kind: 'pile', p })),
     ].sort((a, b2) => a.n - b2.n);
-    const spokes = [], tags = [];
-    let label = null;
+    const spokes = [], tags = [], labels = [];
     for (const entry of top) {
       if (entry.kind === 'brick') {
         want.push(['brick', brickEl, brickPos.x, brickPos.y]);
@@ -196,7 +195,7 @@ export class RegionMarks {
           L.brick.forEach((it, i) => {
             want.push([`fan:${it.e.id}`, this._marker(it, true), pts[i].x, pts[i].y]);
             blocked.push(box(pts[i].x, pts[i].y, R + 3));
-            if (hl(it.e.id)) label = { it, x: pts[i].x, y: pts[i].y };
+            if (hl(it.e.id)) labels.push({ it, x: pts[i].x, y: pts[i].y });
           });
         }
       } else if (entry.kind === 'single') {
@@ -207,7 +206,7 @@ export class RegionMarks {
         want.push([`mark:${it.e.id}`, el, it.p.x, it.p.y]);
         if (low) continue;
         blocked.push(box(it.p.x, it.p.y, R + (it.approx ? 8 : 3))); // den streckade ringen runt en ungefärlig plats är större
-        if (hl(it.e.id)) label = { it, x: it.p.x, y: it.p.y };
+        if (hl(it.e.id)) labels.push({ it, x: it.p.x, y: it.p.y });
       } else {
         const { p } = entry;
         const key = `pile:${p.members[0].e.id}`;
@@ -227,7 +226,7 @@ export class RegionMarks {
             spokes.push([p.x, p.y, at.x, at.y]);
             want.push([`fan:${m.e.id}`, this._marker(m, true), at.x, at.y]);
             blocked.push(box(at.x, at.y, R + 3));
-            if (hl(m.e.id)) label = { it: m, x: at.x, y: at.y };
+            if (hl(m.e.id)) labels.push({ it: m, x: at.x, y: at.y });
           });
           el.style.zIndex = '2';
         } else el.style.zIndex = '';
@@ -245,7 +244,9 @@ export class RegionMarks {
       el.dataset.tag = spot?.side ?? 'none';
       if (spot) blocked.push(spot.box);
     }
-    // Etiketten vid den markerade markören: över, under, till höger eller vänster, där den inte täcker andra markörer
+    // Etiketten vid den markerade markören (eller den under muspekaren, som går före): över, under, till höger eller vänster, där den
+    // inte täcker andra markörer
+    const label = labels.find(l => l.it.e.id === this.hover) ?? labels.find(l => l.it.e.id === this.mark) ?? null;
     if (label) {
       const el = this._label(label.it);
       const size = { w: el._w ?? 160, h: el._h ?? 24 };
@@ -361,8 +362,8 @@ export class RegionMarks {
         if (this.mark === it.e.id) this.onSelect?.(it.e.id);
         else this.setMark(it.e.id, { open: false, from: 'map' });
       });
-      b.addEventListener('mouseenter', () => this.setHover(it.e.id));
-      b.addEventListener('mouseleave', () => this.setHover(null));
+      b.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') this.setHover(it.e.id); });
+      b.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') this.setHover(null); });
       return b;
     });
     if (el._n !== it.n) {
@@ -413,6 +414,8 @@ export class RegionMarks {
       el.querySelector('.rpile-tag')._w = undefined;
     }
     el.setAttribute('aria-expanded', String(isOpen));
+    // Utfälld visar högen ett kryss i stället för antalet, så att antalet inte läses som en händelses nummer i ringen runt den
+    el.querySelector('.rpile-count').textContent = isOpen ? '×' : String(ids.length);
     return el;
   }
 
