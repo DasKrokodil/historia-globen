@@ -29,7 +29,8 @@ const el = (tag, cls, text) => { const n = document.createElement(tag); if (cls)
 export class Hunt {
   /**
    * els: rutans delar i index.html (root, title, task, years, progress, list, message, done, reflection, sources,
-   *      closeBtn, endBtn). missions: från loadMissions. app: { timeline, byId, srcById, onChange, fallbackFocus, lesson (lektionsläget, #795) }.
+   *      closeBtn, endBtn). missions: från loadMissions. app: { timeline, byId, srcById, onChange, fallbackFocus,
+   *      lesson (lektionsläget, #795), tour (slutkortets återgång, #1709) }.
    */
   constructor(els, missions, app) {
     Object.assign(this, els, { missions, app });
@@ -56,6 +57,7 @@ export class Hunt {
     if (lesson?.active && !fitsLesson(m, lesson.tour?.id, lesson.lock?.years)) return false;
     if (this.app.store && !this.app.store.enter('jakt')) return false; // läget Jakt (#893, MODE_RULES i js/state.js)
     this.mission = m; this.found = []; this.opener = opener;
+    this.app.tour?.hideForHunt();
     this.app.timeline.pause();
     this.app.timeline.year = m.year;
     this.root.hidden = false;
@@ -74,8 +76,9 @@ export class Hunt {
     this.mission = null; this.found = [];
     this.root.hidden = true;
     this.app.onChange?.();
+    const resumed = this.app.tour?.resumeAfterHunt();
     if (refocus) {
-      const back = this.opener?.isConnected && this.opener.offsetParent !== null ? this.opener : this.app.fallbackFocus?.();
+      const back = this.opener?.isConnected && this.opener.offsetParent !== null ? this.opener : resumed ?? this.app.fallbackFocus?.();
       back?.focus({ preventScroll: true });
     }
     this.opener = null;

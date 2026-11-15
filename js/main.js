@@ -655,7 +655,7 @@ async function start() {
     root: $('hunt'), title: $('hunt-title'), task: $('hunt-task'), years: $('hunt-years'), progress: $('hunt-progress'),
     list: $('hunt-list'), message: $('hunt-message'), done: $('hunt-done'), reflection: $('hunt-reflection'),
     sources: $('hunt-sources'), closeBtn: $('hunt-close'), endBtn: $('hunt-end'),
-  }, await loadMissions(), { timeline, byId: data.byId, srcById: data.srcById, onChange: refreshDetail, fallbackFocus: () => $('btn-more'), store, get lesson() { return app.lesson; } });
+  }, await loadMissions(), { timeline, byId: data.byId, srcById: data.srcById, onChange: refreshDetail, fallbackFocus: () => $('btn-more'), store, get lesson() { return app.lesson; }, get tour() { return app.tour; } });
   app.hunt = hunt;
   panel.huntFor = e => hunt.buttonFor(e);
   panel.onHunt = e => hunt.add(e);

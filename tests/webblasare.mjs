@@ -8448,6 +8448,65 @@ async function run(browser, vp) {
       return `lektionen visar ${ids.length} händelser år 1939, varav ${outside.length} utanför Översikt; utgången ger Översikt tillbaka`;
     } finally { await lp.close(); }
   });
+  // #1709: jakten ska inte täckas av slutkortet eller erbjuda sista stegets händelse utanför uppdragets år.
+  await check('lektionens jakt lämnar plats åt uppdraget och återgår till slutkortet (#1709)', async () => {
+    const lp = await context.newPage();
+    const errors = [];
+    lp.on('pageerror', e => errors.push(e.message));
+    try {
+      await lp.setViewportSize({ width: vp.width > 760 ? 1280 : 400, height: 800 });
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await lp.route(u => isFont(u.href), r => r.abort());
+      }
+      // Detta är lektionens sista steg och uppdraget som gav felet i #1709.
+      await lp.goto(`${BASE}#t=vikingatiden-och-varlden&m=lektion&s=ghana`);
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await lp.waitForSelector('#tour-lesson-end', { state: 'visible', timeout: T.step });
+      const startHunt = async () => {
+        await lp.click('#tour-lesson-end-list button');
+        await lp.waitForSelector('#hunt', { state: 'visible', timeout: T.step });
+        await lp.waitForSelector('#tour-card', { state: 'hidden', timeout: T.step });
+        await lp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
+        if ((await lp.textContent('#year-big')).trim() !== '1000') throw new Error('jakten står inte på sitt år 1000');
+        if (!await lp.isVisible('#lesson-band')) throw new Error('jakten avslutade lektionen');
+        const task = await lp.evaluate(() => {
+          const e = document.getElementById('hunt-task'), b = e.getBoundingClientRect(), root = document.getElementById('hunt').getBoundingClientRect();
+          return { top: b.top, bottom: b.bottom, rootBottom: root.bottom,
+            free: !!document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2)?.closest('#hunt') };
+        });
+        if (!task.free || task.bottom > task.rootBottom || task.top < 0) throw new Error(`uppdragstexten är täckt eller klippt: ${JSON.stringify(task)}`);
+      };
+      await startHunt();
+      // Eleven kan välja en samtida händelse, inte bara se uppdraget.
+      if (await lp.isHidden('#panel')) await lp.click('#btn-panel');
+      await lp.locator('#event-list .event-btn[data-id="lund-grundas"]').first().click();
+      await lp.waitForSelector('#detail [data-hunt]', { state: 'visible', timeout: T.step });
+      await lp.click('#detail [data-hunt]');
+      if (!/räknas/.test(await lp.textContent('#hunt-message'))) throw new Error('en giltig händelse gick inte att lägga till');
+      await lp.click('#detail [data-close]');
+      await lp.waitForFunction(() => new URLSearchParams(location.hash.slice(1)).has('u'), null, { timeout: T.step });
+      // En delad länk/omladdning återskapar samma fria jaktvy.
+      await lp.reload();
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await lp.waitForSelector('#hunt', { state: 'visible', timeout: T.step });
+      if (await lp.isVisible('#tour-card') || await lp.isVisible('#detail')) throw new Error('slutkort eller faktaruta kom tillbaka vid omladdning');
+      await lp.click('#hunt-close');
+      await lp.waitForSelector('#hunt', { state: 'hidden', timeout: T.step });
+      await lp.waitForSelector('#tour-lesson-end', { state: 'visible', timeout: T.step });
+      if ((await lp.textContent('#year-big')).trim() !== '1000') throw new Error('året flyttades när jakten avslutades');
+      if (!await lp.evaluate(() => document.activeElement?.matches('#tour-lesson-end-list button'))) throw new Error('fokus återgick inte till den synliga jaktknappen');
+      // Knappen som skapats om fungerar igen. Lektionen kan sedan lämnas från bandet.
+      await startHunt();
+      await leaveLesson(lp);
+      if (await lp.isVisible('#tour-card') || await lp.isVisible('#lesson-band')) throw new Error('lektionen gick inte att lämna under jakten');
+      await lp.click('#hunt-close');
+      if (await lp.isVisible('#tour-card')) throw new Error('ett gammalt slutkort öppnades efter att lektionen lämnats');
+      if (errors.length) throw new Error(`sidfel: ${errors.join('; ')}`);
+      return 'fri uppdragstext, gamla faktarutan stängd, omladdning och återgång med fokus fungerar';
+    } finally { await lp.close(); }
+  });
   // #1340: uppdrag knyts till lektionen i data (fältet lesson i data/uppdrag.json). Efter sista steget visar slutkortet
   // lektionens eget uppdrag, inte år 1500; jakten börjar inom lektionens år och går att klara med händelserna där,
   // utan att flytta tiden (reglaget är låst i lektionen, #1322).
