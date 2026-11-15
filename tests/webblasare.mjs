@@ -9307,6 +9307,12 @@ async function run(browser, vp) {
       const open = async hash => {
         await wpAw.goto(`${BASE}?lang=sv&ny=u${loads++}${hash}`);
         await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        // Laddningsrutan döljs innan adressen läses (js/main.js: address.start() kommer efteråt), så reglaget står först på
+        // startåret 1325. Vänta på länkens år; WebKit hann annars inte, och provet läste 1325 (#1174)
+        const y = Number(new URLSearchParams(hash.slice(1)).get('y'));
+        try {
+          await wp.waitForFunction(v => Number(document.getElementById('track').getAttribute('aria-valuenow')) === v, y, { timeout: T.step });
+        } catch { /* felet nedan säger vilket år reglaget står på */ }
         await wp.waitForFunction(() => document.getElementById('panel-sub')?.textContent.length > 5, null, { timeout: T.step });
       };
       // En gammal länk med exakt år öppnas oavrundad, men rubriken och det upplästa värdet är avrundade
