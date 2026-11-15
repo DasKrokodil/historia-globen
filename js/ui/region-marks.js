@@ -1,6 +1,6 @@
 // Regionvyns markörer (#1642, steg 1b av #1627) ovanpå den skarpa kartan i Platt vy (js/ui/flatmap.js). Varje händelse på platsen
 // får en numrerad markör, där numret är radens nummer i listan "Händelser på platsen". Händelser som gäller hela platsen samlas i
-// brickan "Hela Skåne · 7", och markörer på samma ställe i en hög med ortnamn och årsspann som fälls ut som en solfjäder. Ortnamnen
+// brickan "Hela Skåne · 4", och markörer på samma ställe i en hög med ortnamn och årsspann som fälls ut som en solfjäder. Ortnamnen
 // (data/ortnamn/<plats>.json) ritas på kartans canvas utan att krocka med markörerna. Reglerna är rena funktioner i
 // js/region-markers.js; här finns ritningen och knapparna.
 //
@@ -444,7 +444,7 @@ export class RegionMarks {
     return el;
   }
 
-  /** Brickan "Hela Skåne · 7": händelserna som gäller hela platsen; fälls ut som en rad numrerade markörer under sig. */
+  /** Brickan "Hela Skåne · 4": händelserna som gäller hela platsen; fälls ut som en rad numrerade markörer under sig. */
   _brick(items, place) {
     const el = this._get('brick', () => {
       const b = document.createElement('button');
