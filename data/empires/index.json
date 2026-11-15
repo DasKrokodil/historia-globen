@@ -39906,6 +39906,265 @@
    }
   },
   {
+   "id": "wessex",
+   "name": {
+    "sv": "Wessex",
+    "en": "Kingdom of Wessex",
+    "de": "Königreich Wessex",
+    "es": "Reino de Wessex",
+    "fr": "Wessex"
+   },
+   "color": "#b0566a",
+   "from": 534,
+   "to": 935,
+   "file": "data/empires/wessex.json",
+   "polities": [
+    {
+     "id": "wessex",
+     "name": {
+      "sv": "Wessex",
+      "en": "Kingdom of Wessex",
+      "de": "Königreich Wessex",
+      "es": "Reino de Wessex",
+      "fr": "Wessex"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Wessex var ett angelsaxiskt kungarike i södra England. Engelska Wikipedia anger omkring 519 till omkring 927. Alfred den store tog omkring 886 titeln kung över anglosaxarna, och 927 erövrade Æthelstan York och kallade sig kung över engelsmännen.",
+     "en": "Wessex was an Anglo-Saxon kingdom in southern England. English Wikipedia gives about 519 to about 927. Around 886 Alfred the Great took the title King of the Anglo-Saxons, and in 927 Æthelstan conquered York and called himself King of the English.",
+     "de": "Wessex war ein angelsächsisches Königreich im Süden Englands. Die englische Wikipedia nennt etwa 519 bis etwa 927. Um 886 nahm Alfred der Große den Titel König der Angelsachsen an, und 927 eroberte Æthelstan York und nannte sich König der Engländer.",
+     "es": "Wessex fue un reino anglosajón del sur de Inglaterra. La Wikipedia en inglés indica desde hacia 519 hasta hacia 927. Hacia 886 Alfredo el Grande adoptó el título de rey de los anglosajones, y en 927 Æthelstan conquistó York y se llamó rey de los ingleses.",
+     "fr": "Le Wessex était un royaume anglo-saxon du sud de l'Angleterre. La Wikipédia en anglais indique d'environ 519 à environ 927. Vers 886, Alfred le Grand prit le titre de roi des Anglo-Saxons, et en 927 Æthelstan conquit York et se fit appeler roi des Anglais."
+    },
+    "items": [],
+    "mapNote": {
+     "sv": "Källorna skiljer sig. Kartan följer Cliopatria: Wessex 534–935. Engelska Wikipedia anger omkring 519–927, och Wikidata 519–927. Gränserna är Cliopatrias uppskattning.",
+     "en": "The sources differ. The map follows Cliopatria: Wessex in 534–935. English Wikipedia gives about 519–927, and Wikidata 519–927. The borders are Cliopatria's estimate.",
+     "de": "Die Quellen weichen voneinander ab. Die Karte folgt Cliopatria: Wessex 534–935. Die englische Wikipedia nennt etwa 519–927 und Wikidata 519–927. Die Grenzen sind eine Schätzung von Cliopatria.",
+     "es": "Las fuentes difieren. El mapa sigue a Cliopatria: Wessex en 534–935. La Wikipedia en inglés indica hacia 519–927, y Wikidata 519–927. Las fronteras son una estimación de Cliopatria.",
+     "fr": "Les sources divergent. La carte suit Cliopatria : le Wessex en 534–935. La Wikipédia en anglais indique environ 519–927, et Wikidata 519–927. Les frontières sont une estimation de Cliopatria."
+    },
+    "sources": [
+     "wp-wessex",
+     "wd-wessex"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "mercia",
+   "name": {
+    "sv": "Mercia",
+    "en": "Kingdom of Mercia",
+    "de": "Mercia",
+    "es": "Reino de Mercia",
+    "fr": "Mercie"
+   },
+   "color": "#9a7a3a",
+   "from": 534,
+   "to": 883,
+   "file": "data/empires/mercia.json",
+   "polities": [
+    {
+     "id": "mercia",
+     "name": {
+      "sv": "Mercia",
+      "en": "Kingdom of Mercia",
+      "de": "Mercia",
+      "es": "Reino de Mercia",
+      "fr": "Mercie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Mercia var ett angelsaxiskt kungarike i dagens Midlands, kring floden Trent och dess biflöden. Enligt engelska Wikipedia flyttade hovet runt i riket utan fast huvudstad; Tamworth var ett viktigt säte.",
+     "en": "Mercia was an Anglo-Saxon kingdom in the present-day Midlands, centred on the River Trent and its tributaries. According to English Wikipedia the court moved around the kingdom without a fixed capital; Tamworth was an important seat.",
+     "de": "Mercia war ein angelsächsisches Königreich in den heutigen Midlands, rund um den Fluss Trent und seine Nebenflüsse. Laut der englischen Wikipedia zog der Hof ohne feste Hauptstadt durch das Reich; Tamworth war ein wichtiger Sitz.",
+     "es": "Mercia fue un reino anglosajón en las actuales Midlands, en torno al río Trent y sus afluentes. Según la Wikipedia en inglés, la corte se desplazaba por el reino sin una capital fija; Tamworth fue una sede importante.",
+     "fr": "La Mercie était un royaume anglo-saxon situé dans les actuelles Midlands, autour de la rivière Trent et de ses affluents. Selon la Wikipédia en anglais, la cour se déplaçait dans le royaume sans capitale fixe ; Tamworth était un siège important."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "Hur det slutade",
+       "en": "How it ended",
+       "de": "Wie es endete",
+       "es": "Cómo terminó",
+       "fr": "Comment il a pris fin"
+      },
+      "text": {
+       "sv": "Danelagen tog stora delar av Mercia i slutet av 800-talet. Den siste kungen, Ceolwulf II, dog 879, och riket verkar då ha förlorat sitt politiska oberoende. Efter Æthelflæds död 918 tog Edvard av Wessex över.",
+       "en": "The Danelaw absorbed much of Mercia in the late 9th century. The last king, Ceolwulf II, died in 879, and the kingdom then appears to have lost its political independence. After Æthelflæd's death in 918 Edward of Wessex took over.",
+       "de": "Das Danelag nahm im späten 9. Jahrhundert große Teile Mercias ein. Der letzte König, Ceolwulf II., starb 879, und das Reich scheint damals seine politische Unabhängigkeit verloren zu haben. Nach Æthelflæds Tod 918 übernahm Eduard von Wessex.",
+       "es": "El Danelaw absorbió gran parte de Mercia a finales del siglo IX. El último rey, Ceolwulf II, murió en 879, y el reino parece haber perdido entonces su independencia política. Tras la muerte de Æthelflæd en 918, Eduardo de Wessex tomó el control.",
+       "fr": "Le Danelaw absorba une grande partie de la Mercie à la fin du IXe siècle. Le dernier roi, Ceolwulf II, mourut en 879, et le royaume semble alors avoir perdu son indépendance politique. Après la mort d'Æthelflæd en 918, Édouard de Wessex prit le pouvoir."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna skiljer sig. Kartan följer Cliopatria: Mercia 534–883. Cliopatria har Mercia också 884–925, men bara som en yta på 44 km², som inte visas. Engelska Wikipedia och Wikidata anger 527–918. Gränserna är Cliopatrias uppskattning.",
+     "en": "The sources differ. The map follows Cliopatria: Mercia in 534–883. Cliopatria also has Mercia in 884–925, but only as an area of 44 km², which is not shown. English Wikipedia and Wikidata give 527–918. The borders are Cliopatria's estimate.",
+     "de": "Die Quellen weichen voneinander ab. Die Karte folgt Cliopatria: Mercia 534–883. Cliopatria hat Mercia auch 884–925, aber nur als Fläche von 44 km², die nicht gezeigt wird. Die englische Wikipedia und Wikidata nennen 527–918. Die Grenzen sind eine Schätzung von Cliopatria.",
+     "es": "Las fuentes difieren. El mapa sigue a Cliopatria: Mercia en 534–883. Cliopatria tiene Mercia también en 884–925, pero solo como una superficie de 44 km², que no se muestra. La Wikipedia en inglés y Wikidata indican 527–918. Las fronteras son una estimación de Cliopatria.",
+     "fr": "Les sources divergent. La carte suit Cliopatria : la Mercie en 534–883. Cliopatria a aussi la Mercie en 884–925, mais seulement comme une surface de 44 km², qui n'est pas montrée. La Wikipédia en anglais et Wikidata indiquent 527–918. Les frontières sont une estimation de Cliopatria."
+    },
+    "sources": [
+     "wp-mercia",
+     "wd-mercia"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "northumbria",
+   "name": {
+    "sv": "Northumbria",
+    "en": "Kingdom of Northumbria",
+    "de": "Northumbria",
+    "es": "Reino de Northumbria",
+    "fr": "Northumbrie"
+   },
+   "color": "#6a7ab0",
+   "from": 612,
+   "to": 935,
+   "file": "data/empires/northumbria.json",
+   "polities": [
+    {
+     "id": "northumbria",
+     "name": {
+      "sv": "Northumbria",
+      "en": "Kingdom of Northumbria",
+      "de": "Northumbria",
+      "es": "Reino de Northumbria",
+      "fr": "Northumbrie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Northumbria var ett angelsaxiskt kungarike i dagens södra Skottland och norra England, från Humber, Peak District och floden Mersey i söder till Firth of Forth i norr. Det började som två riken, Deira i söder och Bernicia i norr, som enades under bernicianska kungar.",
+     "en": "Northumbria was an Anglo-Saxon kingdom in present-day southern Scotland and northern England, from the Humber, the Peak District and the River Mersey in the south to the Firth of Forth in the north. It began as two kingdoms, Deira in the south and Bernicia in the north, which were united under Bernician kings.",
+     "de": "Northumbria war ein angelsächsisches Königreich im heutigen Südschottland und Nordengland, vom Humber, dem Peak District und dem Fluss Mersey im Süden bis zum Firth of Forth im Norden. Es begann als zwei Reiche, Deira im Süden und Bernicia im Norden, die unter bernizischen Königen vereint wurden.",
+     "es": "Northumbria fue un reino anglosajón en el actual sur de Escocia y el norte de Inglaterra, desde el Humber, el Peak District y el río Mersey en el sur hasta el Firth of Forth en el norte. Comenzó como dos reinos, Deira en el sur y Bernicia en el norte, que se unieron bajo reyes bernicios.",
+     "fr": "La Northumbrie était un royaume anglo-saxon situé dans l'actuel sud de l'Écosse et le nord de l'Angleterre, de l'Humber, du Peak District et de la Mersey au sud jusqu'au Firth of Forth au nord. Elle commença comme deux royaumes, Deira au sud et Bernicie au nord, réunis sous des rois berniciens."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "Hur det slutade",
+       "en": "How it ended",
+       "de": "Wie es endete",
+       "es": "Cómo terminó",
+       "fr": "Comment il a pris fin"
+      },
+      "text": {
+       "sv": "Vikingar erövrade Deira 867, som sedan blev kungariket York. Bernicia godtog kung Æthelstans styre 927, och 954 drev kung Eadred ut den siste vikingakungen.",
+       "en": "Vikings conquered Deira in 867, which then became the Kingdom of York. Bernicia accepted the rule of King Æthelstan in 927, and in 954 King Eadred expelled the last Viking king.",
+       "de": "Wikinger eroberten 867 Deira, das danach das Königreich York wurde. Bernicia erkannte 927 die Herrschaft König Æthelstans an, und 954 vertrieb König Eadred den letzten Wikingerkönig.",
+       "es": "Los vikingos conquistaron Deira en 867, que después se convirtió en el Reino de York. Bernicia aceptó el gobierno del rey Æthelstan en 927, y en 954 el rey Eadred expulsó al último rey vikingo.",
+       "fr": "Les Vikings conquirent Deira en 867, qui devint ensuite le royaume d'York. La Bernicie accepta l'autorité du roi Æthelstan en 927, et en 954 le roi Eadred chassa le dernier roi viking."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna skiljer sig. Kartan följer Cliopatria: Northumbria 612–935. Engelska Wikipedia anger 654 i faktarutan men skriver att de bernicianska kungarna styrde efter 651, och Wikidata anger 653–954. Cliopatria räknar Isle of Man till både Northumbria och Dalriada 626–632. Gränserna är Cliopatrias uppskattning.",
+     "en": "The sources differ. The map follows Cliopatria: Northumbria in 612–935. English Wikipedia gives 654 in its infobox but writes that the Bernician kings ruled after 651, and Wikidata gives 653–954. Cliopatria counts the Isle of Man to both Northumbria and Dál Riata in 626–632. The borders are Cliopatria's estimate.",
+     "de": "Die Quellen weichen voneinander ab. Die Karte folgt Cliopatria: Northumbria 612–935. Die englische Wikipedia nennt in der Infobox 654, schreibt aber, dass die bernizischen Könige ab 651 herrschten, und Wikidata nennt 653–954. Cliopatria zählt die Isle of Man 626–632 sowohl zu Northumbria als auch zu Dalriada. Die Grenzen sind eine Schätzung von Cliopatria.",
+     "es": "Las fuentes difieren. El mapa sigue a Cliopatria: Northumbria en 612–935. La Wikipedia en inglés indica 654 en su ficha, pero escribe que los reyes bernicios gobernaron desde 651, y Wikidata indica 653–954. Cliopatria cuenta la isla de Man tanto en Northumbria como en Dalriada en 626–632. Las fronteras son una estimación de Cliopatria.",
+     "fr": "Les sources divergent. La carte suit Cliopatria : la Northumbrie en 612–935. La Wikipédia en anglais indique 654 dans son infobox mais écrit que les rois berniciens régnèrent après 651, et Wikidata indique 653–954. Cliopatria compte l'île de Man à la fois dans la Northumbrie et dans le Dál Riata en 626–632. Les frontières sont une estimation de Cliopatria."
+    },
+    "sources": [
+     "wp-northumbria",
+     "wd-northumbria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "dal-riata",
+   "name": {
+    "sv": "Dalriada",
+    "en": "Dál Riata",
+    "de": "Dalriada",
+    "es": "Reino de Dalriada",
+    "fr": "Dál Riata"
+   },
+   "color": "#5a9a8a",
+   "from": 540,
+   "to": 899,
+   "file": "data/empires/dal-riata.json",
+   "polities": [
+    {
+     "id": "dal-riata",
+     "name": {
+      "sv": "Dalriada",
+      "en": "Dál Riata",
+      "de": "Dalriada",
+      "es": "Reino de Dalriada",
+      "fr": "Dál Riata"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Dalriada var ett gaeliskt kungarike som omfattade Skottlands västkust och nordöstra Irland. Kullen med borgen Dunadd anses ha varit huvudstad.",
+     "en": "Dál Riata was a Gaelic kingdom that encompassed the western seaboard of Scotland and north-eastern Ireland. The hillfort of Dunadd is believed to have been its capital.",
+     "de": "Dalriada war ein gälisches Königreich, das die Westküste Schottlands und den Nordosten Irlands umfasste. Die Hügelfestung Dunadd gilt als seine Hauptstadt.",
+     "es": "Dalriada fue un reino gaélico que abarcaba la costa occidental de Escocia y el noreste de Irlanda. Se cree que el fuerte de la colina de Dunadd fue su capital.",
+     "fr": "Le Dál Riata était un royaume gaélique qui englobait la côte ouest de l'Écosse et le nord-est de l'Irlande. Le fort de colline de Dunadd passe pour avoir été sa capitale."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "Hur det slutade",
+       "en": "How it ended",
+       "de": "Wie es endete",
+       "es": "Cómo terminó",
+       "fr": "Comment il a pris fin"
+      },
+      "text": {
+       "sv": "Rikets självständighet tog slut någon gång på 800-talet, när det gick samman med pikternas land och bildade kungariket Alba. Cináed mac Ailpín blev kung över pikterna 843.",
+       "en": "The kingdom's independence ended sometime in the 9th century, when it merged with Pictland to form the Kingdom of Alba. Cináed mac Ailpín became king of the Picts in 843.",
+       "de": "Die Unabhängigkeit des Reiches endete irgendwann im 9. Jahrhundert, als es sich mit dem Land der Pikten zum Königreich Alba vereinte. Cináed mac Ailpín wurde 843 König der Pikten.",
+       "es": "La independencia del reino terminó en algún momento del siglo IX, cuando se unió con el país de los pictos para formar el Reino de Alba. Cináed mac Ailpín se convirtió en rey de los pictos en 843.",
+       "fr": "L'indépendance du royaume prit fin à un moment du IXe siècle, lorsqu'il s'unit au pays des Pictes pour former le royaume d'Alba. Cináed mac Ailpín devint roi des Pictes en 843."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna skiljer sig. Kartan följer Cliopatria: Dalriada 540–899, därefter Alba. Engelska Wikipedia anger 498–850 och Wikidata 498–843. Cliopatria räknar Isle of Man till både Dalriada och Northumbria 626–632. Gränserna är Cliopatrias uppskattning.",
+     "en": "The sources differ. The map follows Cliopatria: Dál Riata in 540–899, then Alba. English Wikipedia gives 498–850 and Wikidata 498–843. Cliopatria counts the Isle of Man to both Dál Riata and Northumbria in 626–632. The borders are Cliopatria's estimate.",
+     "de": "Die Quellen weichen voneinander ab. Die Karte folgt Cliopatria: Dalriada 540–899, danach Alba. Die englische Wikipedia nennt 498–850 und Wikidata 498–843. Cliopatria zählt die Isle of Man 626–632 sowohl zu Dalriada als auch zu Northumbria. Die Grenzen sind eine Schätzung von Cliopatria.",
+     "es": "Las fuentes difieren. El mapa sigue a Cliopatria: Dalriada en 540–899 y después Alba. La Wikipedia en inglés indica 498–850 y Wikidata 498–843. Cliopatria cuenta la isla de Man tanto en Dalriada como en Northumbria en 626–632. Las fronteras son una estimación de Cliopatria.",
+     "fr": "Les sources divergent. La carte suit Cliopatria : le Dál Riata en 540–899, puis Alba. La Wikipédia en anglais indique 498–850 et Wikidata 498–843. Cliopatria compte l'île de Man à la fois dans le Dál Riata et dans la Northumbrie en 626–632. Les frontières sont une estimation de Cliopatria."
+    },
+    "sources": [
+     "wp-dal-riata",
+     "wd-dal-riata"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
    "id": "strathclyde",
    "name": {
     "sv": "Strathclyde",
