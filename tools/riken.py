@@ -246,8 +246,9 @@ GROUPS = {
     ]),
     'inkariket': ('Inkariket', 'Inca Empire', [
         # Amerika före 1429 (#556): Cliopatrias `Cuzco` är kungariket Cusco, inkarikets föregångare. Cliopatria
-        # anger staden (Q5582862); kungariket är Q2314963, som saknar svensk etikett och har det engelska namnet
-        ('Cuzco', 'kungariket-cusco', 'Kingdom of Cusco', '#8a5a9e', {'en': 'Kingdom of Cusco', 'wikidata': 'Q2314963'}),
+        # anger staden (Q5582862); kungariket är Q2314963, som saknar svensk etikett. Det svenska namnet följer svenska
+        # Wikipedia ("kungariket Cusco", artikeln Inca Roca, #1702)
+        ('Cuzco', 'kungariket-cusco', 'Kungariket Cusco', '#8a5a9e', {'en': 'Kingdom of Cusco', 'wikidata': 'Q2314963'}),
         ('Inca Empire', 'inkariket', 'Inkariket', '#8a5a9e'),
     ]),
     # Amerika före 1429 (#556, luckan ur #1388). Inte med, eftersom de inte är en stat och väntar på formatet i
@@ -259,22 +260,22 @@ GROUPS = {
     'chimor': ('Chimor', 'Chimor', [
         (['Chimor', 'Chimu Empire'], 'chimor', 'Chimor', '#c47a3d', {'en': 'Chimor'}),
     ]),
-    # Cliopatria anger dagens delstat Michoacán (Q79861); staten är Q2605410. Svensk etikett saknas på Wikidata,
-    # så det svenska namnet är det engelska (Wikipedias artikelnamn)
-    'purepecha': ('Purépecha Empire', 'Purépecha Empire', [
-        ('Michoacán', 'purepecha', 'Purépecha Empire', '#5f7fc0', {'en': 'Purépecha Empire', 'wikidata': 'Q2605410'}),
+    # Cliopatria anger dagens delstat Michoacán (Q79861); staten är Q2605410. Svensk etikett saknas på Wikidata; det
+    # svenska namnet är folkets namn (svenska Wikipedia, Mexikos historia: "purepecha") med -riket som Aztekriket (#1702)
+    'purepecha': ('Purépechariket', 'Purépecha Empire', [
+        ('Michoacán', 'purepecha', 'Purépechariket', '#5f7fc0', {'en': 'Purépecha Empire', 'wikidata': 'Q2605410'}),
     ]),
     'songhairiket': ('Songhairiket', 'Songhai Empire', [
         ('Songhai Empire', 'songhairiket', 'Songhairiket', '#7fae4a'),
     ]),
     # Afrika och danska kolonier (luckan ur #1388, 2026-11-13). Svenska namn är Wikidatas svenska etiketter, utom
     # Ashantiriket (etiketten är "Ashanti (stat)", med en förtydligande parentes; namnet är svenska Wikipedias
-    # artikelnamn) och Funj Sultanate (svensk etikett saknas, så namnet är Cliopatrias och engelska Wikipedias).
+    # artikelnamn) och Sultanatet Sennar (svensk etikett saknas; namnet följer svenska Wikipedia, artikeln Alodia, #1702).
     'kongoriket': ('Kongoriket', 'Kingdom of Kongo', [
         ('Kingdom of Kongo', 'kongoriket', 'Kongoriket', '#b0703a', {'en': 'Kingdom of Kongo'}),
     ]),
-    'funjsultanatet': ('Funj Sultanate', 'Funj Sultanate', [
-        ('Funj Sultanate', 'funjsultanatet', 'Funj Sultanate', '#3a8a8a', {'en': 'Funj Sultanate'}),
+    'funjsultanatet': ('Sultanatet Sennar', 'Funj Sultanate', [
+        ('Funj Sultanate', 'funjsultanatet', 'Sultanatet Sennar', '#3a8a8a', {'en': 'Funj Sultanate'}),
     ]),
     'oyoriket': ('Oyoriket', 'Oyo Empire', [
         ('Oyo Empire', 'oyoriket', 'Oyoriket', '#a05a8a', {'en': 'Oyo Empire'}),
@@ -682,7 +683,7 @@ GROUPS = {
         ('Republic of Indonesia', 'indonesien', 'Indonesien', '#b04a7a', {'en': 'Indonesia'}),
     ]),
     'saudiarabien': ('Saudiarabien', 'Saudi Arabia', [
-        ('Kingdom of Hejaz and Nejd', 'hijaz-och-najd', 'Kingdom of Nejd and Hejaz', '#8a7a2f',
+        ('Kingdom of Hejaz and Nejd', 'hijaz-och-najd', 'Kungariket Hijaz och Najd', '#8a7a2f',
          {'en': 'Kingdom of Nejd and Hejaz', 'wikidata': 'Q1756546'}),
         ('Kingdom of Saudi Arabia', 'saudiarabien', 'Saudiarabien', '#8a7a2f', {'en': 'Saudi Arabia'}),
     ]),
@@ -1433,8 +1434,8 @@ GROUPS = {
     'tulunider': ('Tulunider', 'Tulunids', [
         ('Tulunids', 'tulunider', 'Tulunider', '#9a6a4a', {'en': 'Tulunids'}),
     ]),
-    'rustamider': ('Rustamid dynasty', 'Rustamid dynasty', [
-        ('Rustamid dynasty', 'rustamider', 'Rustamid dynasty', '#6a7ab0', {'en': 'Rustamid dynasty'}),
+    'rustamider': ('Rustamiderna', 'Rustamid dynasty', [
+        ('Rustamid dynasty', 'rustamider', 'Rustamiderna', '#6a7ab0', {'en': 'Rustamid dynasty'}),
     ]),
     'hafsiderna': ('Hafsiderna', 'Hafsid dynasty', [
         ('Hafsid Dynasty', 'hafsiderna', 'Hafsiderna', '#4a8a7a', {'en': 'Hafsid dynasty'}),
@@ -1565,17 +1566,17 @@ GROUPS = {
     'four-oirats': ('Four Oirats', 'Four Oirats', [
         ('Four Oirats', 'four-oirats', 'Four Oirats', '#7a6ab0', {'en': 'Four Oirats'}),
     ]),
-    'western-chalukya-empire': ('Western Chalukya Empire', 'Western Chalukya Empire', [
-        ('Western Chalukya Empire', 'western-chalukya-empire', 'Western Chalukya Empire', '#b07a6a', {'en': 'Western Chalukya Empire'}),
+    'western-chalukya-empire': ('Västra Chalukyariket', 'Western Chalukya Empire', [
+        ('Western Chalukya Empire', 'western-chalukya-empire', 'Västra Chalukyariket', '#b07a6a', {'en': 'Western Chalukya Empire'}),
     ]),
-    'pagan-kingdom': ('Pagan kingdom', 'Pagan kingdom', [
-        ('Pagan Kingdom', 'pagan-kingdom', 'Pagan kingdom', '#9aa04a', {'en': 'Pagan kingdom'}),
+    'pagan-kingdom': ('Kungariket Pagan', 'Pagan kingdom', [
+        ('Pagan Kingdom', 'pagan-kingdom', 'Kungariket Pagan', '#9aa04a', {'en': 'Pagan kingdom'}),
     ]),
-    'rasulid-dynasty': ('Rasulid dynasty', 'Rasulid dynasty', [
-        ('Rasulid Dynasty', 'rasulid-dynasty', 'Rasulid dynasty', '#4a8aa0', {'en': 'Rasulid dynasty'}),
+    'rasulid-dynasty': ('Rasuliderna', 'Rasulid dynasty', [
+        ('Rasulid Dynasty', 'rasulid-dynasty', 'Rasuliderna', '#4a8aa0', {'en': 'Rasulid dynasty'}),
     ]),
-    'chola-empire': ('Chola Empire', 'Chola Empire', [
-        ('Chola Empire', 'chola-empire', 'Chola Empire', '#c0704a', {'en': 'Chola Empire'}),
+    'chola-empire': ('Cholariket', 'Chola Empire', [
+        ('Chola Empire', 'chola-empire', 'Cholariket', '#c0704a', {'en': 'Chola Empire'}),
     ]),
     # Inre Asien 1500–1800, Afrika 1850 och Tibet 1912–1952 (#1331, ur helganalysen #1289). Svenska och engelska namn är
     # Wikidatas etiketter, utom Khedivatet Egypten (svenska Wikipedias titel; etiketten "Khedivet" ser ut som ett skrivfel)
