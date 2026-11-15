@@ -39246,8 +39246,104 @@
       "cliopatria"
      ],
      "review": "source-checked"
+    },
+    {
+     "id": "england-1072",
+     "name": {
+      "sv": "Kungariket England",
+      "en": "Kingdom of England",
+      "de": "Königreich England",
+      "es": "Reino de Inglaterra",
+      "fr": "Royaume d'Angleterre"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "engelska-samvaldet",
+     "name": {
+      "sv": "Engelska samväldet",
+      "en": "Commonwealth of England",
+      "de": "Commonwealth of England",
+      "es": "Mancomunidad de Inglaterra",
+      "fr": "Commonwealth d'Angleterre"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
     }
-   ]
+   ],
+   "polityFacts": {
+    "england-1072": {
+     "facts": {
+      "summary": {
+       "sv": "Cliopatria kallar Kungariket England 1072–1168 för Norman England, efter normandernas erövring. Erövringen inleddes 1066 med invasionen, slaget vid Hastings 14 oktober och Vilhelms kröning i Westminster Abbey 25 december 1066. Enligt svenska Wikipedia kom det sista upproret i början av 1071.",
+       "en": "Cliopatria calls the Kingdom of England in 1072–1168 Norman England, after the Norman conquest. The conquest began in 1066 with the invasion, the Battle of Hastings on 14 October and William's coronation in Westminster Abbey on 25 December 1066. According to Swedish Wikipedia the last uprising came at the beginning of 1071.",
+       "de": "Cliopatria nennt das Königreich England 1072–1168 Norman England, nach der normannischen Eroberung. Die Eroberung begann 1066 mit der Invasion, der Schlacht bei Hastings am 14. Oktober und Wilhelms Krönung in der Westminster Abbey am 25. Dezember 1066. Laut der schwedischen Wikipedia kam der letzte Aufstand Anfang 1071.",
+       "es": "Cliopatria llama al Reino de Inglaterra en 1072–1168 Norman England, por la conquista normanda. La conquista comenzó en 1066 con la invasión, la batalla de Hastings el 14 de octubre y la coronación de Guillermo en la abadía de Westminster el 25 de diciembre de 1066. Según la Wikipedia en sueco, el último levantamiento se produjo a comienzos de 1071.",
+       "fr": "Cliopatria appelle le royaume d'Angleterre en 1072–1168 Norman England, d'après la conquête normande. La conquête commença en 1066 avec l'invasion, la bataille de Hastings le 14 octobre et le couronnement de Guillaume à l'abbaye de Westminster le 25 décembre 1066. Selon la Wikipédia en suédois, le dernier soulèvement eut lieu au début de 1071."
+      },
+      "items": [],
+      "mapNote": {
+       "sv": "Kartan följer Cliopatria: Kungariket England under normandisk tid 1072–1168, därefter det angevinska riket 1169–1209. Cliopatrias Wikidata-id för perioden gäller erövringen som händelse, inte riket, och används inte. Gränserna är Cliopatrias uppskattning.",
+       "en": "The map follows Cliopatria: the Kingdom of England in the Norman period in 1072–1168, then the Angevin Empire in 1169–1209. Cliopatria's Wikidata ID for the period refers to the conquest as an event, not the kingdom, and is not used. The borders are Cliopatria's estimate.",
+       "de": "Die Karte folgt Cliopatria: das Königreich England in normannischer Zeit 1072–1168, danach das Angevinische Reich 1169–1209. Die Wikidata-ID von Cliopatria für diesen Zeitraum bezeichnet die Eroberung als Ereignis, nicht das Reich, und wird nicht verwendet. Die Grenzen sind eine Schätzung von Cliopatria.",
+       "es": "El mapa sigue a Cliopatria: el Reino de Inglaterra en época normanda en 1072–1168 y después el Imperio angevino en 1169–1209. El identificador de Wikidata que da Cliopatria para el período se refiere a la conquista como acontecimiento, no al reino, y no se usa. Las fronteras son una estimación de Cliopatria.",
+       "fr": "La carte suit Cliopatria : le royaume d'Angleterre à l'époque normande en 1072–1168, puis l'Empire angevin en 1169–1209. L'identifiant Wikidata que Cliopatria donne pour la période désigne la conquête en tant qu'événement, non le royaume, et n'est pas utilisé. Les frontières sont une estimation de Cliopatria."
+      },
+      "sources": [
+       "wp-sv-normandernas-erovring",
+       "cliopatria"
+      ],
+      "review": "source-checked"
+     }
+    },
+    "engelska-samvaldet": {
+     "facts": {
+      "summary": {
+       "sv": "Engelska samväldet var den republik som styrde England efter att Karl I avrättats 30 januari 1649. Rumpparlamentet förklarade England som samvälde 19 maj 1649. Från 1653 var Oliver Cromwell lordprotektor, och samväldet omfattade då också Skottland och Irland.",
+       "en": "The Commonwealth of England was the republic that governed England after Charles I was executed on 30 January 1649. The Rump Parliament declared England a commonwealth on 19 May 1649. From 1653 Oliver Cromwell was Lord Protector, and the Commonwealth then also included Scotland and Ireland.",
+       "de": "Das Commonwealth of England war die Republik, die England regierte, nachdem Karl I. am 30. Januar 1649 hingerichtet worden war. Das Rumpfparlament erklärte England am 19. Mai 1649 zum Commonwealth. Ab 1653 war Oliver Cromwell Lordprotektor, und das Commonwealth umfasste nun auch Schottland und Irland.",
+       "es": "La Mancomunidad de Inglaterra fue la república que gobernó Inglaterra después de que Carlos I fuera ejecutado el 30 de enero de 1649. El Parlamento Rabadilla declaró Inglaterra una mancomunidad el 19 de mayo de 1649. Desde 1653 Oliver Cromwell fue lord protector, y la Mancomunidad incluyó entonces también a Escocia e Irlanda.",
+       "fr": "Le Commonwealth d'Angleterre fut la république qui gouverna l'Angleterre après l'exécution de Charles Ier le 30 janvier 1649. Le Parlement croupion déclara l'Angleterre république le 19 mai 1649. À partir de 1653, Oliver Cromwell fut lord-protecteur, et le Commonwealth comprit alors aussi l'Écosse et l'Irlande."
+      },
+      "items": [
+       {
+        "label": {
+         "sv": "Hur det slutade",
+         "en": "How it ended",
+         "de": "Wie es endete",
+         "es": "Cómo terminó",
+         "fr": "Comment il a pris fin"
+        },
+        "text": {
+         "sv": "Karl II utfärdade Bredadeklarationen 4 april 1660 och kom till London 29 maj 1660, och monarkin återupprättades.",
+         "en": "Charles II issued the Declaration of Breda on 4 April 1660 and arrived in London on 29 May 1660, and the monarchy was restored.",
+         "de": "Karl II. erließ am 4. April 1660 die Erklärung von Breda und traf am 29. Mai 1660 in London ein; die Monarchie wurde wiederhergestellt.",
+         "es": "Carlos II emitió la Declaración de Breda el 4 de abril de 1660 y llegó a Londres el 29 de mayo de 1660, y la monarquía fue restaurada.",
+         "fr": "Charles II publia la déclaration de Breda le 4 avril 1660 et arriva à Londres le 29 mai 1660, et la monarchie fut restaurée."
+        }
+       }
+      ],
+      "mapNote": {
+       "sv": "Källorna skiljer sig. Kartan följer Cliopatria: Engelska samväldet 1645–1661, med Skottland från 1653. Wikipedia och Wikidata anger 1649–1660. 1645–1652 ritas både samväldet och Kungariket England, som i Cliopatria; där deras områden ligger insprängda i varandra överlappar de förenklade gränserna något. Gränserna är Cliopatrias uppskattning.",
+       "en": "The sources differ. The map follows Cliopatria: the Commonwealth of England in 1645–1661, with Scotland from 1653. Wikipedia and Wikidata give 1649–1660. In 1645–1652 both the Commonwealth and the Kingdom of England are drawn, as in Cliopatria; where their areas are interspersed, the simplified borders overlap somewhat. The borders are Cliopatria's estimate.",
+       "de": "Die Quellen weichen voneinander ab. Die Karte folgt Cliopatria: das Commonwealth of England 1645–1661, ab 1653 mit Schottland. Wikipedia und Wikidata nennen 1649–1660. 1645–1652 werden wie bei Cliopatria sowohl das Commonwealth als auch das Königreich England gezeigt; wo ihre Gebiete ineinandergreifen, überlappen sich die vereinfachten Grenzen etwas. Die Grenzen sind eine Schätzung von Cliopatria.",
+       "es": "Las fuentes difieren. El mapa sigue a Cliopatria: la Mancomunidad de Inglaterra en 1645–1661, con Escocia desde 1653. Wikipedia y Wikidata indican 1649–1660. En 1645–1652 se dibujan tanto la Mancomunidad como el Reino de Inglaterra, como en Cliopatria; donde sus territorios se entremezclan, las fronteras simplificadas se superponen algo. Las fronteras son una estimación de Cliopatria.",
+       "fr": "Les sources divergent. La carte suit Cliopatria : le Commonwealth d'Angleterre en 1645–1661, avec l'Écosse à partir de 1653. Wikipédia et Wikidata indiquent 1649–1660. En 1645–1652, le Commonwealth et le royaume d'Angleterre sont tous deux dessinés, comme dans Cliopatria ; là où leurs territoires s'entremêlent, les frontières simplifiées se chevauchent quelque peu. Les frontières sont une estimation de Cliopatria."
+      },
+      "sources": [
+       "wp-commonwealth-of-england",
+       "wd-engelska-samvaldet",
+       "cliopatria"
+      ],
+      "review": "source-checked"
+     }
+    }
+   }
   },
   {
    "id": "norgesvaldet",
@@ -39561,11 +39657,11 @@
      }
     ],
     "mapNote": {
-     "sv": "Källorna skiljer sig. Kartan följer Cliopatria: Alba 900–1293 och Kungariket Skottland 1294–1304 och 1314–1608. Engelska Wikipedia och Wikidata sätter gränsen mellan Alba och Kungariket Skottland vid 1286, och Wikidata anger 843–1707 för Kungariket Skottland. 1305–1313, 1609–1639 och 1662–1708 räknar Cliopatria Skottland till Kungariket England, och så visar kartan det. 1640–1652 hör Skottland i Cliopatria inte till något rike och 1653–1661 till Commonwealth of England, som kartan ännu inte har, så de åren är Skottland nästan tomt. Cliopatria räknar Isle of Man till både Skottland och England under delar av 1300- och 1400-talen, och 1552–1608 delar av dagens Nordirland till Skottland. Gränserna är Cliopatrias uppskattning.",
-     "en": "The sources differ. The map follows Cliopatria: Alba in 900–1293 and the Kingdom of Scotland in 1294–1304 and 1314–1608. English Wikipedia and Wikidata put the boundary between Alba and the Kingdom of Scotland at 1286, and Wikidata gives 843–1707 for the Kingdom of Scotland. In 1305–1313, 1609–1639 and 1662–1708 Cliopatria counts Scotland to the Kingdom of England, and the map shows it that way. In 1640–1652 Scotland belongs to no state in Cliopatria and in 1653–1661 to the Commonwealth of England, which the map does not have yet, so in those years Scotland is almost empty. Cliopatria counts the Isle of Man to both Scotland and England during parts of the 14th and 15th centuries, and in 1552–1608 parts of present-day Northern Ireland to Scotland. The borders are Cliopatria's estimate.",
-     "de": "Die Quellen weichen voneinander ab. Die Karte folgt Cliopatria: Alba 900–1293 und das Königreich Schottland 1294–1304 und 1314–1608. Die englische Wikipedia und Wikidata setzen die Grenze zwischen Alba und dem Königreich Schottland bei 1286, und Wikidata nennt 843–1707 für das Königreich Schottland. 1305–1313, 1609–1639 und 1662–1708 zählt Cliopatria Schottland zum Königreich England, und so zeigt es die Karte. 1640–1652 gehört Schottland bei Cliopatria zu keinem Reich und 1653–1661 zum Commonwealth of England, das die Karte noch nicht hat; in diesen Jahren ist Schottland daher fast leer. Cliopatria zählt die Isle of Man in Teilen des 14. und 15. Jahrhunderts zu Schottland und zu England, und 1552–1608 Teile des heutigen Nordirlands zu Schottland. Die Grenzen sind eine Schätzung von Cliopatria.",
-     "es": "Las fuentes difieren. El mapa sigue a Cliopatria: Alba en 900–1293 y el Reino de Escocia en 1294–1304 y 1314–1608. La Wikipedia en inglés y Wikidata sitúan el límite entre Alba y el Reino de Escocia en 1286, y Wikidata indica 843–1707 para el Reino de Escocia. En 1305–1313, 1609–1639 y 1662–1708 Cliopatria cuenta Escocia en el Reino de Inglaterra, y así lo muestra el mapa. En 1640–1652 Escocia no pertenece a ningún Estado en Cliopatria y en 1653–1661 a la Commonwealth de Inglaterra, que el mapa todavía no tiene, por lo que esos años Escocia aparece casi vacía. Cliopatria cuenta la isla de Man tanto en Escocia como en Inglaterra durante partes de los siglos XIV y XV, y en 1552–1608 partes de la actual Irlanda del Norte en Escocia. Las fronteras son una estimación de Cliopatria.",
-     "fr": "Les sources divergent. La carte suit Cliopatria : Alba en 900–1293 et le royaume d'Écosse en 1294–1304 et 1314–1608. La Wikipédia en anglais et Wikidata placent la limite entre Alba et le royaume d'Écosse en 1286, et Wikidata indique 843–1707 pour le royaume d'Écosse. En 1305–1313, 1609–1639 et 1662–1708, Cliopatria compte l'Écosse dans le royaume d'Angleterre, et la carte la montre ainsi. En 1640–1652, l'Écosse n'appartient à aucun État dans Cliopatria et en 1653–1661 au Commonwealth d'Angleterre, que la carte n'a pas encore ; ces années-là, l'Écosse est donc presque vide. Cliopatria compte l'île de Man à la fois dans l'Écosse et dans l'Angleterre pendant une partie des XIVe et XVe siècles, et en 1552–1608 des parties de l'actuelle Irlande du Nord dans l'Écosse. Les frontières sont une estimation de Cliopatria."
+     "sv": "Källorna skiljer sig. Kartan följer Cliopatria: Alba 900–1293 och Kungariket Skottland 1294–1304 och 1314–1608. Engelska Wikipedia och Wikidata sätter gränsen mellan Alba och Kungariket Skottland vid 1286, och Wikidata anger 843–1707 för Kungariket Skottland. 1305–1313, 1609–1639 och 1662–1708 räknar Cliopatria Skottland till Kungariket England, och så visar kartan det. 1640–1652 hör Skottland i Cliopatria inte till något rike, så de åren är Skottland nästan tomt, och 1653–1661 räknas det till Engelska samväldet. Cliopatria räknar Isle of Man till både Skottland och England under delar av 1300- och 1400-talen, och 1552–1608 delar av dagens Nordirland till Skottland. Gränserna är Cliopatrias uppskattning.",
+     "en": "The sources differ. The map follows Cliopatria: Alba in 900–1293 and the Kingdom of Scotland in 1294–1304 and 1314–1608. English Wikipedia and Wikidata put the boundary between Alba and the Kingdom of Scotland at 1286, and Wikidata gives 843–1707 for the Kingdom of Scotland. In 1305–1313, 1609–1639 and 1662–1708 Cliopatria counts Scotland to the Kingdom of England, and the map shows it that way. In 1640–1652 Scotland belongs to no state in Cliopatria, so in those years Scotland is almost empty, and in 1653–1661 it is counted to the Commonwealth of England. Cliopatria counts the Isle of Man to both Scotland and England during parts of the 14th and 15th centuries, and in 1552–1608 parts of present-day Northern Ireland to Scotland. The borders are Cliopatria's estimate.",
+     "de": "Die Quellen weichen voneinander ab. Die Karte folgt Cliopatria: Alba 900–1293 und das Königreich Schottland 1294–1304 und 1314–1608. Die englische Wikipedia und Wikidata setzen die Grenze zwischen Alba und dem Königreich Schottland bei 1286, und Wikidata nennt 843–1707 für das Königreich Schottland. 1305–1313, 1609–1639 und 1662–1708 zählt Cliopatria Schottland zum Königreich England, und so zeigt es die Karte. 1640–1652 gehört Schottland bei Cliopatria zu keinem Reich, in diesen Jahren ist Schottland daher fast leer, und 1653–1661 wird es zum Commonwealth of England gezählt. Cliopatria zählt die Isle of Man in Teilen des 14. und 15. Jahrhunderts zu Schottland und zu England, und 1552–1608 Teile des heutigen Nordirlands zu Schottland. Die Grenzen sind eine Schätzung von Cliopatria.",
+     "es": "Las fuentes difieren. El mapa sigue a Cliopatria: Alba en 900–1293 y el Reino de Escocia en 1294–1304 y 1314–1608. La Wikipedia en inglés y Wikidata sitúan el límite entre Alba y el Reino de Escocia en 1286, y Wikidata indica 843–1707 para el Reino de Escocia. En 1305–1313, 1609–1639 y 1662–1708 Cliopatria cuenta Escocia en el Reino de Inglaterra, y así lo muestra el mapa. En 1640–1652 Escocia no pertenece a ningún Estado en Cliopatria, por lo que esos años aparece casi vacía, y en 1653–1661 se cuenta en la Mancomunidad de Inglaterra. Cliopatria cuenta la isla de Man tanto en Escocia como en Inglaterra durante partes de los siglos XIV y XV, y en 1552–1608 partes de la actual Irlanda del Norte en Escocia. Las fronteras son una estimación de Cliopatria.",
+     "fr": "Les sources divergent. La carte suit Cliopatria : Alba en 900–1293 et le royaume d'Écosse en 1294–1304 et 1314–1608. La Wikipédia en anglais et Wikidata placent la limite entre Alba et le royaume d'Écosse en 1286, et Wikidata indique 843–1707 pour le royaume d'Écosse. En 1305–1313, 1609–1639 et 1662–1708, Cliopatria compte l'Écosse dans le royaume d'Angleterre, et la carte la montre ainsi. En 1640–1652, l'Écosse n'appartient à aucun État dans Cliopatria, elle est donc presque vide ces années-là, et en 1653–1661 elle est comptée dans le Commonwealth d'Angleterre. Cliopatria compte l'île de Man à la fois dans l'Écosse et dans l'Angleterre pendant une partie des XIVe et XVe siècles, et en 1552–1608 des parties de l'actuelle Irlande du Nord dans l'Écosse. Les frontières sont une estimation de Cliopatria."
     },
     "sources": [
      "wp-kingdom-of-alba",

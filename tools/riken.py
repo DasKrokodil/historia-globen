@@ -1275,6 +1275,10 @@ GROUPS = {
     ]),
     'kungariket-england': ('Kungariket England', 'Kingdom of England', [
         ('Kingdom of England', 'kungariket-england', 'Kungariket England', '#c04a6a', {'en': 'Kingdom of England'}),
+        # Luckorna 1072–1168 och 1645–1661 (#1741, DasKrokodils ja 2026-11-15). Cliopatrias Norman England räknas till Kungariket
+        # England (MemberOf); Cliopatrias Q200485 är händelsen "Normandernas erövring av England" och används inte.
+        ('Norman England', 'england-1072', 'Kungariket England', '#c04a6a', {'en': 'Kingdom of England', 'wikidata': None}),
+        ('Commonwealth of England', 'engelska-samvaldet', 'Engelska samväldet', '#c04a6a', {'en': 'Commonwealth of England', 'wikidata': 'Q330362'}),
     ]),
     # Norge ingår i Nordsjöväldet 1028–1039 i Cliopatria, som också har Old Kingdom of Norway de åren; Norge klipps bort ur
     # Norgesväldet då, så att det inte ritas två gånger (#1602).
