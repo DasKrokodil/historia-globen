@@ -3405,8 +3405,15 @@ async function run(browser, vp) {
       if (notes.length !== 2 || !/dagens gräns/.test(notes[0]) || !/oavsett/.test(notes[1])) throw new Error(`Fokus-kortets noter är fel: ${notes.join(' | ')}`);
       if (!/^Plats$/.test((await tp.textContent('#detail .story-label')).trim())) throw new Error('Fokus-kortets etikett är inte Plats');
       if (await tp.getAttribute('#detail', 'aria-label') !== 'Om platsen') throw new Error('Fokus-kortet heter inte Om platsen för skärmläsare');
+      // Adressen skrivs när den läses av nästa gång (var 700:e ms, js/controllers/address.js), inte direkt: vänta på den.
+      // Firefox och WebKit hann annars inte, och provet läste adressen från turen (#1174).
+      const hashOk = h => /f=place:gronland/.test(h) && !/(^#|&)t=/.test(h) && !/&s=/.test(h);
+      try {
+        await tp.waitForFunction(src => new RegExp(src[0]).test(location.hash) && !new RegExp(src[1]).test(location.hash) && !new RegExp(src[2]).test(location.hash),
+          ['f=place:gronland', '(^#|&)t=', '&s='], { timeout: T.step });
+      } catch { /* felet nedan säger vad adressen är */ }
       const hash = await tp.evaluate(() => location.hash);
-      if (!/f=place:gronland/.test(hash) || /(^#|&)t=/.test(hash) || /(^|&)s=/.test(hash)) throw new Error(`adressen efter Fokus är fel (turen ska vara borta): ${hash}`);
+      if (!hashOk(hash)) throw new Error(`adressen efter Fokus är fel (turen ska vara borta): ${hash}`);
       // Turens egna delar är borta: inget turkort, ingen läs-knapp, ingen "Avsluta turen" och tidsreglaget är fritt igen
       for (const id of ['tour-card', 'tour-read', 'tour-end']) if (await tp.isVisible(`#${id}`)) throw new Error(`#${id} syns efter att Fokus avslutade turen`);
       // Avsluta platsen stänger kortet, och turen kommer inte tillbaka
