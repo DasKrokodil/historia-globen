@@ -399,7 +399,7 @@
 "trajanus-bro-over-donau":{"place":{"es":"El Danubio entre Drobeta-Turnu Severin, Rumanía, y Kladovo, Serbia"},"title":{"es":"El puente de Trajano sobre el bajo Danubio"}},
 "vaxtavlan-fran-alburnus-maior":{"place":{"es":"Roșia Montană (Alburnus Maior), Alba, Rumanía"},"title":{"es":"La ciudad minera de Alburnus Maior aparece en una tablilla de cera"}},
 "nero-och-korinthkanalen":{"place":{"es":"Istmo de Corinto, Grecia"},"title":{"es":"Nerón empieza a excavar un canal en el istmo de Corinto"}},
-"runorna-fran-vimose":{"place":{"es":"Vimose, noroeste de Fionia, Dinamarca"},"title":{"es":"Las runas de Vimose"}},
+"runorna-fran-vimose":{"place":{"es":"Vimose, noroeste de Fionia, Dinamarca"},"title":{"es":"Las runas de Vimose"},"note":{"title":{"es":"Las fuentes difieren"}}},
 "eketorps-borg-byggs":{"place":{"es":"Eketorp, sureste de Öland, Suecia"},"title":{"es":"Se construye el fuerte de Eketorp en Öland"}},
 "damhjortar-fors-till-britannien":{"place":{"es":"Fishbourne, cerca de Chichester, Inglaterra (lugar de los hallazgos)"},"title":{"es":"Los gamos llegan a Britania"}},
 "spetalska-i-great-chesterford":{"place":{"es":"Great Chesterford, Essex, Inglaterra"},"title":{"es":"Lepra en un joven de Great Chesterford"}},
