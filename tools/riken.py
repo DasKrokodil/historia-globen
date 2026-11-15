@@ -1891,6 +1891,12 @@ HAINAN_TAIWAN = (108.4, 18.0, 111.3, 20.25)
 # Zhoushan (#1499): rutan runt Zhoushanön (Dinghai). Taiwan har bara ön i rutan; Folkrepubliken får ön ur Republiken Kinas gräns
 # 1950 i Cliopatria (samma som Folkrepubliken 1953), som inte har något fastland, så rutan behöver inte undvika Ningbos kust
 ZHOUSHAN = (121.95, 29.95, 122.35, 30.25)
+# Pool Malebo (#1707): de två Kongos sidor av floden i Natural Earth, i rutan (14,6–15,9 Ö, 4,8–3,8 S) som tools/ne_omstridda.py
+# klipper ut. Brazzavillesidan räknas utan det som också ligger på Kinshasasidan (avrundningen ger en remsa på cirka 0,06 km²)
+KINSHASA_SIDAN = ('ne', ['kongo-kinshasa-ne'])
+BRAZZAVILLE_SIDAN = ('skillnad', ('ne', ['kongo-brazzaville-ne']), ('ne', ['kongo-kinshasa-ne']))
+# Newfoundland och Labrador (#1707): rutan runt provinsen, för Brittiska imperiets delar där från 1949
+NEWFOUNDLAND = (-68.0, 46.4, -52.0, 61.0)
 
 DISPUTED = {
     # Krim och Sevastopol: Cliopatria räknar halvön till Ryssland från 2014 och till Ukraina bara till och med 2023.
@@ -2294,6 +2300,33 @@ DISPUTED = {
     # och Tjeckoslovakiens sida, som Cliopatria 1947–1949 ritar också i USA och Sovjetunionen
     'tjeckoslovakien-zoner': {'area': ('ne', ['tjeckien-ne']), 'from': 1947, 'to': 1949, 'strict': True, 'efter': True,
                               'remove': ['usa', 'sovjetunionen'], 'add': []},
+    # Kinshasa och Brazzaville (#1707): Kinshasa (Léopoldville) ligger på Pool Malebos södra strand och Brazzaville på andra sidan
+    # floden (wp-kinshasa), och gränsen mellan de två Kongo följer Kongofloden (wp-grans-kongo). Förenklingen lade Kinshasa i
+    # Kongo-Brazzaville från 1961 och utan stat 1960, och 1890–1959 i både Kongostaten eller Belgiska Kongo och Frankrike. I rutan
+    # POOL_MALEBO följer floden Natural Earth: varje sida klipps ur grannarna alla år, och läggs till de stater som höll den de år
+    # som Cliopatria redan har dem där (Frankrike saknas 1940–1944 i hela Franska Ekvatorialafrika, och så får det vara)
+    'kongo-ne-sida': {'area': KINSHASA_SIDAN, 'from': 1880, 'strict': True, 'efter': True,
+                      'remove': ['franska-kolonialvaldet', 'frankrike', 'kongo-brazzaville'], 'add': []},
+    'kongo-ne-sida-belgien': {'area': KINSHASA_SIDAN, 'from': 1890, 'to': 1959, 'strict': True, 'efter': True,
+                              'remove': [], 'add': ['belgiska-kongo']},
+    'kongo-ne-sida-kinshasa': {'area': KINSHASA_SIDAN, 'from': 1960, 'strict': True, 'efter': True,
+                               'remove': [], 'add': ['kongo-kinshasa']},
+    'kongo-no-sida': {'area': BRAZZAVILLE_SIDAN, 'from': 1880, 'strict': True, 'efter': True,
+                      'remove': ['belgiska-kongo', 'kongo-kinshasa'], 'add': []},
+    'kongo-no-sida-frankrike': {'area': BRAZZAVILLE_SIDAN, 'from': 1895, 'to': 1939, 'strict': True, 'efter': True,
+                                'remove': [], 'add': ['franska-kolonialvaldet']},
+    'kongo-no-sida-frankrike-1945': {'area': BRAZZAVILLE_SIDAN, 'from': 1945, 'to': 1957, 'strict': True, 'efter': True,
+                                     'remove': [], 'add': ['franska-kolonialvaldet']},
+    'kongo-no-sida-femte-republiken': {'area': BRAZZAVILLE_SIDAN, 'from': 1958, 'to': 1960, 'strict': True, 'efter': True,
+                                       'remove': [], 'add': ['frankrike']},
+    'kongo-no-sida-brazzaville': {'area': BRAZZAVILLE_SIDAN, 'from': 1961, 'strict': True, 'efter': True,
+                                  'remove': [], 'add': ['kongo-brazzaville']},
+    # Newfoundland och Labrador (#1707): gick med i Kanada vid midnatt 31 mars 1949 (wp-newfoundland-and-labrador). Cliopatria
+    # räknar provinsen till Kanada från 1949 men också till Brittiska imperiet till och med 1952, så Gander låg i båda. Imperiets
+    # delar som ligger helt i rutan (Newfoundland och Labrador; inget annat av imperiet ligger där) tas bort från 1949, efter
+    # förenklingen. Med yta räknas imperiets yta (areaKm2) utan provinsen
+    'newfoundland-imperiet': {'area': ('rutor', [NEWFOUNDLAND]), 'parts': True, 'from': 1949, 'strict': True, 'efter': True,
+                              'yta': True, 'remove': ['brittiska-imperiet'], 'add': []},
 }
 
 
