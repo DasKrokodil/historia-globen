@@ -20,7 +20,11 @@
 // skärmpixlar (`setRegionLayers`, registry.draw med view.region). Bilden är fortfarande ekvirektangulär (beslut 1), men en
 // grad i öst–väst ritas cos(mittbredden) gånger så bred (`kx`), så att platsen får sin form på marken. Den skarpa bilden
 // ritas om när vyn har stått still en stund (SHARP_DELAY); under tiden flyttas och skalas den förra.
+//
+// Regionvyns markörer (#1642): i stället för medaljerna får platsens händelser numrerade markörer (numret är raden i listan
+// "Händelser på platsen"), brickan "Hela Skåne" och högar som fälls ut, och ortnamnen ritas för orientering (js/ui/region-marks.js).
 import { regionFrame } from '../region-frame.js';
+import { RegionMarks } from './region-marks.js';
 import { medalTexture, medalSize, glyph } from '../layers/events.js';
 import { cluster, clusterContents, placeLabels, dotBox } from './clusters.js';
 import { empireBlocks } from './zoomlevels.js';
@@ -62,6 +66,9 @@ export class FlatMap {
     this.onRegion = null; // (id eller null, förra id, { quiet }) när regionvyn börjar eller slutar (controllers/region.js)
     this.onRegionReset = null; // Återställ i regionvyn: ramen är tillbaka (controllers/region.js säger det på statusraden)
     this._paints = 0;     // hur många gånger regionvyns skarpa karta har ritats (renderingsstatus för webbläsartestet)
+    // Regionvyns markörer och ortnamn (#1642); regionCovers() ger rutorna som täcker kartan (kortet, fokusraden, rutan), i kartans pixlar
+    this.regionMarks = new RegionMarks({ map: this, layer: labels, onSelect: id => this.onSelect?.(id) });
+    this.regionCovers = null;
 
     zoomIn.addEventListener('click', () => this.zoomBy(STEP));
     zoomOut.addEventListener('click', () => this.zoomBy(1 / STEP));
@@ -121,6 +128,8 @@ export class FlatMap {
       if (e.type === 'pointerup' && d && d.moved < CLICK_PX && !this._pointers.size) {
         const at = this._local(e), hit = this._hitTest(at, e.pointerType);
         if (hit) this.onSelect?.(hit.id);
+        // Regionvyn (#1642): ett tryck bredvid markörerna fäller ihop solfjädern och tar bort markeringen
+        else if (this._region && this.regionMarks.active) this.regionMarks.background();
         // Annars: platsen som klickades, till exempel för vägar och resor på lagerbilden (#38)
         else this.onMapClick?.(this._lonLat(at), e.clientX, e.clientY);
       }
@@ -363,6 +372,7 @@ export class FlatMap {
     this.zoom = Math.min(MAX_ZOOM, Math.max(1, this.zoom));
     clearTimeout(this._sharpTimer); this._sharpTimer = 0;
     this._sharp = null;
+    this.regionMarks.clear();
     for (const key of ['region', 'regionBox', 'regionPpd', 'regionSharp', 'regionPaints']) delete this.root.dataset[key];
     this._clamp();
     this.draw();
@@ -485,7 +495,16 @@ export class FlatMap {
     // Markörerna ritas ovanpå, i CSS-pixlar (lagret ovanpå kartan, #313)
     ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
     this._renderArcs(ctx);
-    this._renderMarkers(ctx);
+    // Regionvyn med platsens händelser: numrerade markörer, bricka, högar och ortnamn (#1642) i stället för medaljerna
+    if (this._region && this.regionMarks.active) { this._hideMarkers(); this.regionMarks.render(ctx); }
+    else this._renderMarkers(ctx);
+  }
+
+  /** Medaljerna, klungorna och etiketterna göms (regionvyn ritar sina egna markörer, #1642). */
+  _hideMarkers() {
+    this._hits = [];
+    for (const el of this._clusterPool) el.hidden = true;
+    for (const el of this._labelPool.values()) el.hidden = true;
   }
 
   /** Den synliga delen av 4096-bilderna, uppförstorad till skärmens upplösning (i regionvyn med öst–västskalan kx). */
