@@ -100,7 +100,7 @@ test('fäller: begärans text nämner en annan adress än sidfelets', async () =
   await aw.goto('x');
   const kvar = aw.settle();
   assert.equal(kvar.length, 1);
-  assert.match(kvar[0], /ingen avbruten begäran för adressen/);
+  assert.match(kvar[0], /ingen avbruten eller ofullbordad begäran för adressen/);
 });
 
 test('fäller: fel utanför ett sidbyte', async () => {
@@ -183,6 +183,57 @@ test('en bevakning som kontrollen glömde att avgöra kan avgöras av den som k�
   await aw.goto('x');
   assert.equal(registrerade.flatMap(w => w.settle()).length, 1);
   assert.deepEqual(registrerade.flatMap(w => w.settle()), []); // avgjort en gång, inte två
+});
+
+// Steg 3 (DasKrokodil 2026-11-15): WebKit skickar ingen requestfailed när ett sidbyte avbryter en hämtning, men begäran syns (request)
+// och blir aldrig klar. En sådan ofullbordad egen begäran uppfyller villkor 4; de andra villkoren gäller som förut.
+test('räknas bort: WebKit, sidfel under sidbyte för en egen begäran som aldrig blev klar och inte fick requestfailed', async () => {
+  const { sidan, aw, filtrerade } = uppsattning();
+  sidan.emit('request', begaran('/data/a.json'));
+  sidan.goto = async () => { assert.equal(aw.defer(rad('/data/a.json')), true); };
+  await aw.goto('x');
+  assert.deepEqual(aw.settle(), []);
+  assert.equal(filtrerade(), 1);
+});
+
+test('fäller: sidfel för en egen begäran som redan var klar när felet kom', async () => {
+  const { sidan, aw } = uppsattning();
+  const a = begaran('/data/a.json');
+  sidan.emit('request', a);
+  sidan.emit('requestfinished', a);
+  sidan.goto = async () => { aw.defer(rad('/data/a.json')); };
+  await aw.goto('x');
+  const kvar = aw.settle();
+  assert.equal(kvar.length, 1);
+  assert.match(kvar[0], /ingen avbruten eller ofullbordad begäran/);
+});
+
+test('fäller: sidfel för en egen begäran som misslyckades på riktigt (nekad anslutning)', async () => {
+  const { sidan, aw } = uppsattning();
+  const a = begaran('/data/a.json', 'net::ERR_CONNECTION_REFUSED');
+  sidan.emit('request', a);
+  sidan.emit('requestfailed', a);
+  sidan.goto = async () => { aw.defer(rad('/data/a.json')); };
+  await aw.goto('x');
+  assert.equal(aw.settle().length, 1);
+});
+
+test('fäller: en ofullbordad begäran för en annan adress, eller utanför sidbyte, räknar inte bort sidfelet', async () => {
+  const { sidan, aw } = uppsattning();
+  sidan.emit('request', begaran('/data/b.json'));
+  sidan.goto = async () => { aw.defer(rad('/data/a.json')); };
+  await aw.goto('x');
+  assert.equal(aw.settle().length, 1);
+  sidan.emit('request', begaran('/data/c.json'));
+  assert.equal(aw.defer(rad('/data/c.json')), false); // utanför sidbyte: räknas som fel direkt
+});
+
+test('fäller: en ofullbordad begäran till en annan webbplats räknar inte bort sidfelet för den webbplatsen', async () => {
+  const { sidan, aw } = uppsattning();
+  sidan.emit('request', begaran('/x.json', undefined, 'annan.example'));
+  sidan.goto = async () => { assert.equal(aw.defer(rad('/x.json', 'annan.example')), false); };
+  await aw.goto('x');
+  assert.deepEqual(aw.settle(), []);
 });
 
 // Konsolfel (#1561): Firefox skriver den avbrutna hämtningen som ett konsolfel utan adress när sidans egen .catch loggar den.
