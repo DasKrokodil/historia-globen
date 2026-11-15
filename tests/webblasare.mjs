@@ -1340,7 +1340,13 @@ async function run(browser, vp) {
     const tctx = await newTestContext(browser, { viewport: { width: vp.width, height: vp.height }, deviceScaleFactor: 1, hasTouch: true });
     const tp = await tctx.newPage();
     const errs = [];
-    tp.on('pageerror', e => errs.push(e.message));
+    // Avbrutna hämtningar under sidbyte (#1393, steg 3): goto och reload på sidan går genom abortWatch, så att WebKits sidfel för en
+    // egen fil som avbryts av sidbytet räknas bort med samma smala villkor som i resten av testet. Alla andra sidfel räknas som förut.
+    const tpAw = abortWatch(tp);
+    const goto = tp.goto.bind(tp), reload = tp.reload.bind(tp);
+    tp.goto = (url, opts) => tpAw.nav(() => goto(url, opts), `goto ${url}`);
+    tp.reload = opts => tpAw.nav(() => reload(opts), 'reload');
+    tp.on('pageerror', e => { if (!tpAw.defer(e.message)) errs.push(e.message); });
     if (THREE_LOCAL) {
       const body = fs.readFileSync(THREE_LOCAL, 'utf8');
       await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
