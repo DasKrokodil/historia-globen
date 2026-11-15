@@ -21,7 +21,8 @@ ne_10m_admin_1_states_provinces (version 5.1.2, samma fil som tools/platser_gran
 DDR och Västtyskland är grov (Ratzeburg ligger i Cliopatrias DDR, #1730).
 
 Kring Tyskland (#1755) tas också Frankrikes, Nederländernas, Kaliningradområdets, Litauens och Tjeckiens gränser ur
-ne_10m_admin_0_countries, bara inom en ruta (CLIPPED), och Saarlands gräns ur admin 1.
+ne_10m_admin_0_countries, bara inom en ruta (CLIPPED), och Saarlands gräns ur admin 1. Vid Bodensee, Basel och längs gränsen
+mellan Österrike och Tyskland (#1771) tas Schweiz och Österrike med på samma sätt.
 
 Kör från projektets rot, med de uppackade shapefilerna och delstaternas GeoJSON:
     python3 tools/ne_omstridda.py <ne_10m_admin_0_disputed_areas.shp> <ne_10m_admin_0_countries.shp> \
@@ -55,8 +56,12 @@ COUNTRIES = {'azerbajdzjan': 'AZE', 'tyskland': 'DEU', 'polen-ne': 'POL'}  # Tys
 # (gränsen mot Tyskland, Forbach), Nederländerna i Europa (gränsen mot Tyskland), Kaliningradområdet med grannarna Polen och
 # Litauen, och Tjeckien längs gränsen mot Tyskland (Selb)
 CLIPPED = {'frankrike-ne': ('FRA', (-5.5, 41.0, 10.0, 51.5)), 'nederlanderna-ne': ('NLD', (3.0, 50.6, 7.5, 53.8)),
-           'kaliningrad-ne': ('RUS', (19.4, 54.2, 22.95, 55.4)), 'litauen-ne': ('LTU', (19.4, 54.2, 22.95, 55.4)),
-           'tjeckien-ne': ('CZE', (11.9, 48.5, 15.1, 51.1))}
+           'kaliningrad-ne': ('RUS', (19.4, 54.2, 22.95, 55.4)),
+           # Litauen till 55,75 grader nord, så att hela den litauiska delen av Kuriska näset (Nida) och Klaipėda kommer med (#1771)
+           'litauen-ne': ('LTU', (19.4, 54.2, 22.95, 55.75)),
+           'tjeckien-ne': ('CZE', (11.9, 48.5, 15.1, 51.1)),
+           # Schweiz och Österrike längs gränserna mot Tyskland och Frankrike och vid Bodensee, Basel och Vorarlberg (#1771)
+           'schweiz-ne': ('CHE', (5.9, 45.8, 10.5, 47.85)), 'osterrike-ne': ('AUT', (7.5, 47.0, 14.1, 48.9))}
 # Små stater (#722), ur samma fil men förenklade till bara 0,002 grader och avrundade till 0,001 grad
 # Delstater ur ne_10m_admin_1_states_provinces (adm1_code), sammanslagna och förenklade till 0,003 grader (#1730, #1750)
 STATES = {'vasttyska-granslander': ['DEU-1579', 'DEU-1576', 'DEU-1574', 'DEU-1591'],
