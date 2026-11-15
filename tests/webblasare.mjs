@@ -2406,7 +2406,10 @@ async function run(browser, vp) {
     try {
       const doc = await (await tctx.request.get(`${BASE}data/platser.json`)).json();
       const places = doc.places.filter(p => p.review !== 'draft' && p.emblems?.length);
-      for (const id of ['sverige', 'danmark']) if (!places.some(p => p.id === id)) throw new Error(`platsen ${id} saknar emblem i data/platser.json`);
+      for (const id of ['sverige', 'danmark', 'skane']) if (!places.some(p => p.id === id)) throw new Error(`platsen ${id} saknar emblem i data/platser.json`);
+      // Skåne har landskapsvapnet (#1619); vapenflaggan gick inte att hämta från Wikimedia Commons och visas inte
+      const skane = places.find(p => p.id === 'skane');
+      if (!skane.emblems.some(e => e.kind === 'arms' && e.file === 'skane-arms')) throw new Error('Skåne saknar landskapsvapnet');
       const notes = [];
       for (const place of places) {
         await tp.goto(`${BASE}?ny=emblem-${place.id}#y=1900&f=place:${place.id}`);

@@ -37,6 +37,7 @@ Platskortens flaggor och vapen (`emblems` i `data/platser.json`, filerna i `img/
 | `new-zealand.svg` | Nya Zeelands flagga | Zscout370 m.fl. | Public domain i Nya Zeeland och USA, [filsidan](https://commons.wikimedia.org/wiki/File:Flag_of_New_Zealand.svg) |
 | `sweden.svg` | Sveriges flagga | Jon Harald Søby m.fl. | Public domain (PD-shape), [filsidan](https://commons.wikimedia.org/wiki/File:Flag_of_Sweden.svg) |
 | `dannebrog.svg` | Danmarks flagga (Dannebrog) | Madden m.fl. | Public domain (PD-shape), [filsidan](https://commons.wikimedia.org/wiki/File:Flag_of_Denmark.svg) |
+| `skane-arms.svg` | Skånes landskapsvapen | Lokal_Profil | [CC BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/), [filsidan](https://commons.wikimedia.org/wiki/File:Sk%C3%A5ne_vapen.svg); märkt insignia. Ändring: `viewBox` tillagd så att bilden skalas |
 
 ## Bilder
 
