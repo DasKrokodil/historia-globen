@@ -411,7 +411,7 @@
 "goternas-gravar-i-bulgarien":{"place":{"fr":"Aquae Calidae, près de Bourgas, Bulgarie (l’un des deux lieux de sépulture ; l’autre est l’aoul du khan Omourtag, près de Choumen)"},"title":{"fr":"L’ADN de sépultures liées aux Goths en Bulgarie"}},
 "ambryms-kaldera":{"place":{"fr":"Ambrym, Vanuatu (le point est le centre de l’île)"},"title":{"fr":"La grande caldeira d’Ambrym se forme"}},
 "kost-och-halsa-vid-sigatoka":{"place":{"fr":"Dunes de Sigatoka, sur la côte sud-ouest de Viti Levu, Fidji"},"title":{"fr":"Alimentation et santé au cimetière de Sigatoka"}},
-"utbrott-tommer-sodra-taveuni":{"place":{"fr":"Taveuni, Fidji (le point est le centre de l’île ; les éruptions frappèrent la partie sud)"},"title":{"fr":"Des éruptions volcaniques vident le sud de Taveuni"}},
+"utbrott-tommer-sodra-taveuni":{"place":{"fr":"Taveuni, Fidji (le point est le centre de l’île ; les éruptions frappèrent la partie sud)"},"title":{"fr":"Des éruptions volcaniques vident le sud de Taveuni"},"note":{"title":{"fr":"Une seule source"}}},
 "havsytan-star-nastan-still-i-franska-polynesien":{"place":{"fr":"Polynésie française, douze îles de quatre archipels (le point est Bora Bora, l’une des îles de l’étude)"},"title":{"fr":"Le niveau de la mer se stabilise presque en Polynésie française"},"note":{"title":{"fr":"À propos de la datation"}}},
 "slaget-vid-landskrona":{"note":{"title":{"fr":"À propos du calendrier"}}},
 "slaget-vid-helsingborg":{"note":{"title":{"fr":"À propos du calendrier"}}},
