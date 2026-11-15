@@ -473,7 +473,11 @@
     <!-- Urvalsmarkeringen (#1139): syns bara när vyn Översikt är på; texten och knappen sätts av js/ui/panel.js -->
     <p id="panel-tag-note" class="panel-tag-note" hidden><span id="panel-tag-text"></span> <button id="panel-tag-all" type="button" class="link-btn"></button></p>
     <!-- Kategorichips (#311): samma filter som Kategorier under Lager, byggs av js/ui/panel.js -->
-    <div id="panel-filters" class="filters panel-filters" role="group" aria-label="Kategorier i listan och på globen" data-i18n-aria-label="panel.filters"></div>
+    <!-- Filtret är ihopfällt som standard (beslut i #1782): knappen säger hur många kategorier som är på och fäller ut chipsen -->
+    <div class="panel-filterbar"><button id="panel-filter-toggle" type="button" class="panel-filter-toggle" aria-expanded="false" aria-controls="panel-filters"></button></div>
+    <div id="panel-filters" class="filters panel-filters" role="group" aria-label="Kategorier i listan och på globen" data-i18n-aria-label="panel.filters" hidden></div>
+    <!-- En flik per världsdel (beslut i #1782, alternativ C); fylls av js/ui/panel.js -->
+    <div id="panel-tabs" class="panel-tabs" role="tablist" aria-label="Världsdel" data-i18n-aria-label="panel.regionsLabel" hidden></div>
     <div id="event-list" class="event-list"></div>
   </aside>
 

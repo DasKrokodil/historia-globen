@@ -273,8 +273,8 @@ export class Panel {
     this.onShowAllEvents = () => {}; // byter till vyn med alla händelser (samma åtgärd som Standard i Lager); main.js kopplar den
     this.tagNoteAll?.addEventListener('click', () => {
       this.onShowAllEvents();
-      // Raden försvinner när urvalet slutar: fokus till första kategorin, som ligger kvar
-      (this.root.querySelector('.filter[data-cat]') ?? this.toggle).focus({ preventScroll: true });
+      // Raden försvinner när urvalet slutar: fokus till filterknappen, som ligger kvar
+      (this.filterToggle ?? this.root.querySelector('.filter[data-cat]') ?? this.toggle).focus({ preventScroll: true });
     });
     this.tagCounts = new Map();
     for (const e of events) for (const tag of (isVisibleReview(e.review) ? eventTags(e) : [])) this.tagCounts.set(tag, (this.tagCounts.get(tag) ?? 0) + 1);
@@ -299,6 +299,12 @@ export class Panel {
     this.expandedRegions = new Set();
     this.longOpen = false;
     this.copy = panel;
+    // Filtret är ihopfällt som standard och listan har en flik per världsdel (beslut i #1782)
+    this.chips = chips ?? null;
+    this.filterToggle = root.querySelector?.('#panel-filter-toggle') ?? null;
+    this.tabs = root.querySelector?.('#panel-tabs') ?? null;
+    this.region = null; // världsdelen som flikarna visar; behålls mellan omritningar tills den blir tom
+    this.filterToggle?.addEventListener('click', () => this.setFiltersOpen(!!this.chips?.hidden));
 
     // Visa bara kategorier som har händelser, i den fasta ordningen. Samma chips finns på två ställen:
     // under Lager (#120) och ovanför listan i panelen (#311). Båda styr samma filter, så de följs åt.
@@ -315,12 +321,14 @@ export class Panel {
           const on = this.filters.has(c.id);
           on ? this.filters.delete(c.id) : this.filters.add(c.id);
           for (const x of boxes) x.querySelector(`[data-cat="${c.id}"]`)?.setAttribute('aria-pressed', String(!on));
+          this.syncFilterToggle();
           this.onFilter(this.filters);
         });
         box.append(b);
       }
     }
 
+    this.syncFilterToggle();
     toggle.addEventListener('click', () => {
       this.setOpen(!root.classList.contains('open'));
       if (root.classList.contains('open')) close?.focus({ preventScroll: true }); // fokus in i panelen (#246)
@@ -333,7 +341,22 @@ export class Panel {
   setFilters(ids) {
     this.filters = new Set(ids);
     for (const b of this.root.ownerDocument.querySelectorAll('.filter[data-cat]')) b.setAttribute('aria-pressed', String(this.filters.has(b.dataset.cat)));
+    this.syncFilterToggle();
     this.onFilter(this.filters);
+  }
+
+  /** Knappen över kategorierna säger hur många som är på ("Kategorier: alla 14", "Kategorier: 11 av 14") och fäller ut chipsen. */
+  syncFilterToggle() {
+    if (!this.filterToggle) return;
+    const total = this.allCategories.size, on = this.filters.size;
+    const text = on === total ? ui('panel.filterAll', { total }) : ui('panel.filterSome', { on, total });
+    this.filterToggle.innerHTML = `<span>${esc(text)}</span><span class="arrow" aria-hidden="true">▾</span>`;
+  }
+
+  setFiltersOpen(open) {
+    if (!this.chips || !this.filterToggle) return;
+    this.chips.hidden = !open;
+    this.filterToggle.setAttribute('aria-expanded', String(open));
   }
 
   /** Öppna eller stäng listan "Samtidigt i världen". */
@@ -391,6 +414,8 @@ export class Panel {
    */
   render(visible, year, window, eventsOn = true, labels = null) {
     this.updateTagNote(eventsOn);
+    this.syncFilterToggle(); // texten följer språket
+    if (this.tabs) this.tabs.hidden = true; // visas igen när listan har världsdelar att välja mellan
     if (!eventsOn) {
       this.count.textContent = '0';
       this.toggle.setAttribute('aria-label', this.accessibleName(t(this.copy.eventsOff)));
@@ -434,7 +459,8 @@ export class Panel {
     if (range) this.toggle.setAttribute('aria-label', this.accessibleName(stop(parts.join(', '))));
     const cause = labels?.themeEmpty ? null : emptyCause({ visibleCount: visible.length, filters: this.filters, total: this.allCategories?.size });
     const filtersOff = cause === 'filters', filtersSome = cause === 'some';
-    this.sub.textContent = visible.length ? stop(range ? parts.join(', ') : `${summaryText}. ${parts.join(', ')}`)
+    // Raden säger en gång vad som pågår och vad som är nära (beslut i #1782: inte "träffar" och inte samma sak två gånger)
+    this.sub.textContent = visible.length ? stop(parts.join(', '))
       : range && !filtersOff ? ui('range.empty', { range: bare })
       : ui(filtersOff && !(this.tag && this.tags[this.tag]) ? 'panel.filtersOff' : filtersSome ? 'panel.filtersSome' : 'panel.empty', { within, at: bare });
     const tagCopy = this.tag && this.tags[this.tag];
@@ -459,8 +485,8 @@ export class Panel {
       reset.textContent = ui('panel.showAllCategories');
       reset.addEventListener('click', () => {
         this.setFilters(this.allCategories);
-        // Knappen försvinner när listan ritas om: fokus till första kategorin, som ligger kvar
-        (this.root.querySelector('.filter[data-cat]') ?? this.toggle).focus({ preventScroll: true });
+        // Knappen försvinner när listan ritas om: fokus till filterknappen, som ligger kvar
+        (this.filterToggle ?? this.root.querySelector('.filter[data-cat]') ?? this.toggle).focus({ preventScroll: true });
       });
       this.list.replaceChildren(help, reset);
       return;
@@ -474,7 +500,9 @@ export class Panel {
       this.list.innerHTML = `<p class="empty-note">${esc(ui('panel.emptyHelp'))}</p>`;
       return;
     }
-    // Grupperat per världsdel, i fast ordning, så att man ser vad som händer på olika håll
+    // Grupperat per världsdel, i fast ordning, så att man ser vad som händer på olika håll. Listan har en flik per världsdel (beslut i
+    // #1782, alternativ C): den valda världsdelens händelser syns, med Pågår först och Nära i tid under. De andra världsdelarna ligger
+    // kvar i sidan men är dolda (hidden), så att de inte läses upp och så att listan går att söka igenom som förut.
     const groups = new Map(REGIONS.map(r => [r, []]));
     const old = [];
     for (const v of visible) (v.longRunning ? old : groups.get(v.e._region ??= region(v.e._lat, v.e._lon))).push(v);
@@ -494,17 +522,68 @@ export class Panel {
               <span class="dot" style="background:${CAT[e.category]?.color}"></span><span class="ttl"${langAttr(e.title)}>${esc(t(e.title))}</span><span class="meta">${esc([...offset(v), formatEventTime(e), t(e.place), ...notes(e, partial)].join(' · '))}</span>
             </button>
           </li>`; };
-    this.list.innerHTML = [...groups].filter(([, vs]) => vs.length).map(([name, vs]) => {
-      vs.sort(rank); const open = this.expandedRegions.has(name), shown = open ? vs : vs.slice(0, 5), rest = vs.length - shown.length;
-      return `
-      <section class="region-group">
-        <h3 class="region-head">${esc(regionName(name))} <span class="region-count">${vs.length}</span></h3>
-        <ol>${shown.map(v => row(v, name)).join('')}</ol>${vs.length > 5 ? `<button type="button" class="link-btn panel-more" data-region="${esc(name)}" aria-expanded="${open}" aria-label="${esc(open ? ui('panel.showLessIn', { label: copy('showLess'), region: regionName(name) }) : copy('showMore').replace('{count}', rest).replace('{region}', regionName(name)))}">${esc(open ? copy('showLess') : copy('showMore').replace('{count}', rest).replace('{region}', regionName(name)))}</button>` : ''}
-      </section>`;
-    }).join('') + (old.length ? `<section class="region-group long-running"><button type="button" class="link-btn panel-more" data-long aria-expanded="${this.longOpen}">${esc(copy('longRunning').replace('{count}', old.length))}</button>${this.longOpen ? `<ol>${old.sort(rank).map(v => row(v)).join('')}</ol>` : ''}</section>` : '');
+    const present = [...groups].filter(([, vs]) => vs.length);
+    const isInside = v => range || v.inside;
+    // Världsdelen behålls när året ändras, tills den blir tom; då väljs den med flest som pågår. Väljs en händelse i en annan världsdel
+    // (på globen) följer fliken med, en gång per val.
+    if (!present.some(([name]) => name === this.region)) {
+      this.region = present.length ? present.reduce((best, cur) => cur[1].filter(isInside).length > best[1].filter(isInside).length ? cur : best)[0] : null;
+    }
+    const picked = this.selectedId && present.find(([, vs]) => vs.some(v => v.e.id === this.selectedId));
+    if (picked && this.pickedId !== this.selectedId) this.region = picked[0];
+    this.pickedId = this.selectedId;
+    const focusedTab = this.tabs?.contains(document.activeElement) ? document.activeElement.dataset.tab : null;
+    const CAP = 6; // fler än så ligger bakom "Visa N till"
+    const section = (name, kind, vs) => {
+      const items = vs.filter(v => !!isInside(v) === (kind === 'inside'));
+      if (!items.length) return '';
+      const open = this.expandedRegions.has(`${name}|${kind}`), shown = open ? items : items.slice(0, CAP), rest = items.length - shown.length;
+      const more = items.length > CAP ? `<button type="button" class="link-btn panel-more" data-region="${esc(name)}" data-kind="${kind}" aria-expanded="${open}" aria-label="${esc(open ? ui('panel.showLessIn', { label: copy('showLess'), region: regionName(name) }) : copy('showMore').replace('{count}', rest).replace('{region}', regionName(name)))}">${esc(open ? copy('showLess') : copy('showMore').replace('{count}', rest).replace('{region}', regionName(name)))}</button>` : '';
+      return `<h3 class="panel-sec panel-sec-${kind}">${esc(ui(kind === 'inside' ? 'panel.groupInside' : 'panel.groupNear'))} <span class="region-count">${items.length}</span></h3>
+        <ol>${shown.map(v => row(v, name)).join('')}</ol>${more}`;
+    };
+    const panes = present.map(([name, vs]) => {
+      vs.sort(rank);
+      const i = REGIONS.indexOf(name), on = name === this.region;
+      return { on, html: `
+      <section class="region-group" role="tabpanel" id="panel-sec-${i}" aria-labelledby="panel-tab-${i}" data-panel-region="${esc(name)}"${on ? '' : ' hidden'}>
+        ${section(name, 'inside', vs)}${section(name, 'near', vs)}
+      </section>` };
+    }).sort((a, b) => b.on - a.on); // den valda världsdelen först i sidan
+    this.list.innerHTML = panes.map(x => x.html).join('') + (old.length ? `<section class="region-group long-running"><button type="button" class="link-btn panel-more" data-long aria-expanded="${this.longOpen}">${esc(copy('longRunning').replace('{count}', old.length))}</button>${this.longOpen ? `<ol>${old.sort(rank).map(v => row(v)).join('')}</ol>` : ''}</section>` : '');
+    if (this.tabs && present.length) {
+      this.tabs.innerHTML = present.map(([name, vs]) => {
+        const i = REGIONS.indexOf(name), on = name === this.region;
+        return `<button type="button" role="tab" class="panel-tab" id="panel-tab-${i}" data-tab="${esc(name)}" aria-selected="${on}" aria-controls="panel-sec-${i}" tabindex="${on ? 0 : -1}" aria-label="${esc(plural('panel.tabLabel', vs.length, { region: regionName(name), count: vs.length }))}"><span>${esc(regionName(name))}</span> <span class="region-count">${vs.length}</span></button>`;
+      }).join('');
+      this.tabs.hidden = false;
+      const names = present.map(([name]) => name);
+      const choose = name => {
+        this.region = name;
+        this.render(visible, year, window, eventsOn, labels);
+        this.list.scrollTop = 0;
+        const tab = this.tabs.querySelector(`[data-tab="${name}"]`);
+        tab?.focus({ preventScroll: true });
+        tab?.scrollIntoView?.({ block: 'nearest', inline: 'nearest' });
+      };
+      for (const b of this.tabs.querySelectorAll('[data-tab]')) {
+        b.addEventListener('click', () => choose(b.dataset.tab));
+        b.addEventListener('keydown', ev => {
+          let at = names.indexOf(b.dataset.tab);
+          if (ev.key === 'ArrowRight') at = (at + 1) % names.length;
+          else if (ev.key === 'ArrowLeft') at = (at - 1 + names.length) % names.length;
+          else if (ev.key === 'Home') at = 0;
+          else if (ev.key === 'End') at = names.length - 1;
+          else return;
+          ev.preventDefault();
+          choose(names[at]);
+        });
+      }
+      if (focusedTab) this.tabs.querySelector(`[data-tab="${focusedTab}"]`)?.focus({ preventScroll: true });
+    }
     // Riktiga knappar: Enter och mellanslag fungerar av sig själva
     for (const b of this.list.querySelectorAll('.event-btn')) b.addEventListener('click', () => this.onSelect(b.dataset.id));
-    for (const b of this.list.querySelectorAll('[data-region]')) b.addEventListener('click', () => { this.expandedRegions.has(b.dataset.region) ? this.expandedRegions.delete(b.dataset.region) : this.expandedRegions.add(b.dataset.region); this.render(visible, year, window, eventsOn, labels); });
+    for (const b of this.list.querySelectorAll('[data-region]')) b.addEventListener('click', () => { const key = `${b.dataset.region}|${b.dataset.kind}`; this.expandedRegions.has(key) ? this.expandedRegions.delete(key) : this.expandedRegions.add(key); this.render(visible, year, window, eventsOn, labels); });
     this.list.querySelector('[data-long]')?.addEventListener('click', () => { this.longOpen = !this.longOpen; this.render(visible, year, window, eventsOn, labels); });
   }
 

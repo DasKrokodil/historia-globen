@@ -260,6 +260,27 @@ async function run(browser, vp) {
   };
   const visible = sel => page.waitForSelector(sel, { state: 'visible', timeout: T.step });
   const hidden = sel => page.waitForSelector(sel, { state: 'hidden', timeout: T.step });
+  // Samtidigt har en flik per världsdel, ett ihopfällt filter och högst sex rader per avsnitt (#1782). Hjälparna gör som en besökare:
+  // öppnar filtret, och väljer fliken och fäller ut "Visa N till" tills raden syns.
+  const openPanelFilters = async pg => { if ((await pg.getAttribute('#panel-filter-toggle', 'aria-expanded')) !== 'true') await pg.click('#panel-filter-toggle'); };
+  const panelEvent = async (pg, { id, text }) => {
+    const row = id ? pg.locator(`#event-list .event-btn[data-id="${id}"]`).first() : pg.locator('#event-list .event-btn', { hasText: text }).first();
+    if (await row.isVisible()) return row;
+    if (await row.count()) { // raden finns i en världsdel som inte är vald
+      const region = await row.evaluate(el => el.closest('[data-panel-region]')?.dataset.panelRegion ?? null);
+      if (region) { await pg.locator(`#panel-tabs [data-tab="${region}"]`).click(); return row; }
+    }
+    for (const tab of await pg.locator('#panel-tabs [data-tab]').evaluateAll(els => els.map(e => e.dataset.tab))) {
+      await pg.locator(`#panel-tabs [data-tab="${tab}"]`).click();
+      for (let i = 0; i < 6 && !(await row.count()); i++) {
+        const more = pg.locator('#event-list [data-panel-region]:not([hidden]) .panel-more[data-region][aria-expanded="false"]').first();
+        if (!(await more.count())) break;
+        await more.click();
+      }
+      if (await row.count()) return row;
+    }
+    return row;
+  };
   let currentCheck = '';
   const check = async (name, fn) => {
     if (!wanted(name)) { skipped++; return; }
@@ -949,7 +970,8 @@ async function run(browser, vp) {
     const old = page.locator('#event-list [data-long]');
     if (!(await old.count()) || (await old.getAttribute('aria-expanded')) !== 'false') throw new Error('Oxford saknar hopfälld långvarig grupp år 1612');
     const panelText = (await page.textContent('#panel')).replace(/\s+/g, ' ');
-    if (!/träffar: \d+ pågår, \d+ nära/.test(panelText) || /\{count\}|\{inside\}|\{near\}/.test(panelText)) throw new Error('panelen visar inte datastyrd träffsammanfattning');
+    const panelLabel = (await page.getAttribute('#btn-panel', 'aria-label')) ?? '';
+    if (!/\d+ pågår, \d+ nära/.test(panelLabel) || /träffar|\{count\}|\{inside\}|\{near\}/.test(`${panelLabel} ${panelText}`)) throw new Error(`panelen visar inte datastyrd sammanfattning (knappens namn: "${panelLabel}")`);
     if (await page.locator('#panel button').evaluateAll(buttons => buttons.some(b => ['longRunning', 'showMore', 'showLess', 'summary'].includes(b.textContent.trim())))) throw new Error('panelen visar en rå datanyckel');
     if (!/Pågår sedan länge \(1\)/.test((await old.textContent()) ?? '')) throw new Error('långraden har fel synlig text');
     await old.focus(); await page.keyboard.press('Enter');
@@ -960,7 +982,7 @@ async function run(browser, vp) {
     if (/(^|\s)oxford(\s|$)/.test((await page.locator('#flat-view').getAttribute('data-visible-events')) ?? '')) throw new Error('Oxford-markören syns i Platt vy år 1612');
     await clickView('#btn-flat');
     await page.click('#btn-panel'); await visible('#panel');
-    const more = page.locator('#event-list [data-region]').first();
+    const more = page.locator('#event-list [data-panel-region]:not([hidden]) [data-region]').first();
     if (await more.count()) { if (!/Visa \d+ till i /.test((await more.textContent()) ?? '')) throw new Error('Visa fler saknar synlig datastyrd världsdel'); await more.focus(); await page.keyboard.press('Enter'); if ((await more.getAttribute('aria-expanded')) !== 'true') throw new Error('Visa fler öppnas inte med tangentbord'); }
     await jumpTo(1889);
     return 'Oxford: vanlig 1100, hopfälld 1612; Visa fler nås med tangentbord';
@@ -971,6 +993,7 @@ async function run(browser, vp) {
     await jumpTo(1325);
     if (await page.locator('#panel').isHidden()) await page.click('#btn-panel');
     await visible('#panel');
+    await openPanelFilters(page); // filtret är ihopfällt som standard (#1782)
     const cats = await page.locator('#panel-filters [data-cat]').evaluateAll(els => els.map(e => e.dataset.cat));
     const setOnly = async keep => {
       for (const c of cats) {
@@ -998,7 +1021,7 @@ async function run(browser, vp) {
     const pressed = await page.locator('#panel-filters [data-cat]').evaluateAll(els => els.every(e => e.getAttribute('aria-pressed') === 'true'));
     if (!pressed) throw new Error('Visa alla kategorier slog inte på alla kategorier');
     if (await page.locator('#event-list .panel-show-all-categories').count()) throw new Error('knappen står kvar när listan har träffar');
-    if (!(await page.evaluate(() => !!document.activeElement?.closest('#panel-filters')))) throw new Error('fokus gick inte till kategorierna efter knappen');
+    if (!(await page.evaluate(() => !!document.activeElement?.closest('#panel-filters') || document.activeElement?.id === 'panel-filter-toggle'))) throw new Error('fokus gick inte till filterknappen eller kategorierna efter knappen');
     return `${empty} ensam ger en tom lista med raden "kan dölja händelser" och knappen; Visa alla kategorier ger träffarna och alla kategorier tillbaka`;
   });
 
@@ -1006,6 +1029,7 @@ async function run(browser, vp) {
     await jumpTo(1986);
     if (await page.locator('#panel').isHidden()) await page.click('#btn-panel');
     await visible('#panel');
+    await openPanelFilters(page);
     const chip = page.locator('#panel-filters [data-cat="katastrofer"]');
     if (await chip.count() !== 1) throw new Error('filterknappen Katastrofer saknas');
     if ((await chip.textContent()).trim() !== 'Katastrofer') throw new Error(`filterknappen heter "${(await chip.textContent()).trim()}"`);
@@ -1019,12 +1043,13 @@ async function run(browser, vp) {
       return (a + 0.05) / (b + 0.05);
     });
     if (ratio < 3) throw new Error(`kategorifärgen har bara kontrasten ${ratio.toFixed(1)}:1`);
-    const row = page.locator('#event-list .event-btn', { hasText: 'Tjernobylkatastrofen' });
-    await row.first().waitFor({ state: 'visible', timeout: T.step });
+    const row = await panelEvent(page, { text: 'Tjernobylkatastrofen' });
+    await row.waitFor({ state: 'visible', timeout: T.step });
     await chip.click();
-    await row.first().waitFor({ state: 'detached', timeout: T.step });
+    await row.waitFor({ state: 'detached', timeout: T.step });
     await chip.click();
-    await row.first().waitFor({ state: 'visible', timeout: T.step });
+    // Blev världsdelen tom när kategorin slogs av väljer fliken en annan; den som tittar går tillbaka till sin
+    await (await panelEvent(page, { text: 'Tjernobylkatastrofen' })).waitFor({ state: 'visible', timeout: T.step });
     await page.click('#panel-close');
     return `filterknapp, Tjernobyl följer filtret, kontrast ${ratio.toFixed(1)}:1`;
   });
@@ -1206,15 +1231,9 @@ async function run(browser, vp) {
     // Som en elev: öppna händelsen i Samtidigt och tryck på Lägg till i jakten i faktarutan
     const add = async id => {
       if (await page.isHidden('#panel')) await clickView('#btn-panel');
-      const btn = page.locator(`#event-list .event-btn[data-id="${id}"]`).first();
-      // Panelen visar fem händelser per världsdel och resten bakom "Visa fler". Nya händelser i datan (Mutapariket och Sankore i
-      // #1015) kan skjuta Bartolomeu Dias 1488 ut ur Afrika-listan, så världsdelarna öppnas en i taget tills händelsen syns,
-      // som en elev skulle göra, i stället för att anta att den alltid ligger bland de fem första.
-      for (let i = 0; !await btn.count() && i < 8; i++) {
-        const more = page.locator('#event-list .panel-more[data-region][aria-expanded="false"]').first();
-        if (!await more.count()) break;
-        await more.click();
-      }
+      // Panelen har en flik per världsdel och sex händelser per avsnitt, resten bakom "Visa N till". Nya händelser i datan kan skjuta en
+      // händelse ur listan, så fliken väljs och avsnitten fälls ut tills händelsen syns, som en elev skulle göra.
+      const btn = await panelEvent(page, { id });
       await btn.click();
       await page.waitForSelector('#detail [data-hunt]', { state: 'visible', timeout: T.step });
       await page.click('#detail [data-hunt]');
@@ -1476,7 +1495,7 @@ async function run(browser, vp) {
         await ipAw.goto(`${BASE}?ny=22${loads++}#y=${year}`); // ny sida varje gång, så att adressen inte bara byter fragment
         await ip.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
         if (await ip.isHidden('#panel')) await ip.click('#btn-panel');
-        await ip.locator(`#event-list .event-btn[data-id="${id}"]`).first().click({ timeout: T.step });
+        await (await panelEvent(ip, { id })).click({ timeout: T.step });
       };
       await openEvent(1943, 'slaget-vid-stalingrad');
       // I mobilens halva läge är bilden dold och hämtas inte (loading=lazy); fäll ut kortet som en användare (pil upp på handtaget)
@@ -2075,7 +2094,7 @@ async function run(browser, vp) {
       await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       if (await lp.isHidden('#panel')) await lp.click('#btn-panel');
       await lp.waitForSelector('#panel', { state: 'visible', timeout: T.step });
-      const ev = lp.locator('#event-list .event-btn', { hasText: 'Perserkrigen' }).first();
+      const ev = await panelEvent(lp, { text: 'Perserkrigen' });
       await ev.waitFor({ state: 'visible', timeout: T.step });
       await ev.click();
       const note = lp.locator('#detail details.detail-note'), about = lp.locator('#detail details.detail-about');
@@ -5561,7 +5580,7 @@ async function run(browser, vp) {
       if (/Inga händelser är markerade som framsteg ännu/.test(taggedStatus)) throw new Error(`tomt läge visas trots en taggad händelse: "${taggedStatus}"`);
       await tagPage.keyboard.press('Escape');
       if (await tagPage.locator('#panel').isHidden()) await tagPage.click('#btn-panel');
-      await tagPage.waitForSelector('#event-list .event-btn[data-id="apollo-11"]', { state: 'visible', timeout: T.step });
+      await (await panelEvent(tagPage, { id: 'apollo-11' })).waitFor({ state: 'visible', timeout: T.step });
       const ids = await tagPage.locator('#event-list .event-btn').evaluateAll(bs => bs.map(b => b.dataset.id));
       if (ids.length !== 1 || ids[0] !== 'apollo-11') throw new Error(`vyn visar ${ids.join(', ')}, inte bara den taggade händelsen`);
       await tagPage.click('#event-list .event-btn[data-id="apollo-11"]');
@@ -7290,7 +7309,7 @@ async function run(browser, vp) {
     await jumpTo(2026);
     await page.click('#btn-panel');
     await visible('#panel');
-    const afghanistan = page.locator('#event-list .event-btn', { hasText: 'Kriget i Afghanistan' });
+    const afghanistan = await panelEvent(page, { text: 'Kriget i Afghanistan' });
     await afghanistan.waitFor({ state: 'visible', timeout: T.step });
     await afghanistan.click();
     await page.waitForFunction(() => [...document.querySelectorAll('#flat-labels .glabel')]
@@ -8482,7 +8501,7 @@ async function run(browser, vp) {
       await startHunt();
       // Eleven kan välja en samtida händelse, inte bara se uppdraget.
       if (await lp.isHidden('#panel')) await lp.click('#btn-panel');
-      await lp.locator('#event-list .event-btn[data-id="lund-grundas"]').first().click();
+      await (await panelEvent(lp, { id: 'lund-grundas' })).click();
       await lp.waitForSelector('#detail [data-hunt]', { state: 'visible', timeout: T.step });
       await lp.click('#detail [data-hunt]');
       if (!/räknas/.test(await lp.textContent('#hunt-message'))) throw new Error('en giltig händelse gick inte att lägga till');
@@ -8544,7 +8563,7 @@ async function run(browser, vp) {
           if (await lp.isHidden('#btn-panel') && await lp.isVisible('#more-toggle')) await lp.click('#more-toggle');
           await lp.click('#btn-panel');
         }
-        await lp.locator(`#event-list .event-btn[data-id="${id}"]`).first().click();
+        await (await panelEvent(lp, { id })).click();
         await lp.waitForSelector('#detail [data-hunt]', { state: 'visible', timeout: T.step });
         await lp.click('#detail [data-hunt]');
         const msg = (await lp.textContent('#hunt-message')).trim();
@@ -10692,7 +10711,7 @@ async function run(browser, vp) {
     await hidden('#jump-pop');
     if (await page.isHidden('#panel')) await page.click('#btn-panel');
     await visible('#panel');
-    const event = page.locator('#event-list .event-btn', { hasText: 'Cheopspyramiden' });
+    const event = await panelEvent(page, { text: 'Cheopspyramiden' });
     await event.waitFor({ state: 'visible', timeout: T.step });
     await event.click();
     await visible('#detail .uncertainty-row');
@@ -10772,7 +10791,7 @@ async function run(browser, vp) {
     await hidden('#jump-pop');
     if (await page.isHidden('#panel')) await page.click('#btn-panel');
     await visible('#panel');
-    const pyramid = page.locator('#event-list .event-btn', { hasText: 'Cheopspyramiden' });
+    const pyramid = await panelEvent(page, { text: 'Cheopspyramiden' });
     await pyramid.waitFor({ state: 'visible', timeout: T.step });
     await pyramid.click();
     await page.locator('#detail details.detail-about > summary').click(); // Hur vet vi det här? ligger i Om uppgifterna (#1571)

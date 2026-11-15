@@ -556,7 +556,7 @@ body {
 .panel-head { position: relative; padding: 16px 18px 10px; border-bottom: 1px solid var(--line); }
 .panel-head .panel-x { position: absolute; top: 12px; right: 12px; float: none; margin: 0; }
 .panel-head h2 {
-  margin: 0;
+  margin: 0; padding-right: 44px; /* håller rubriken fri från stängknappen */
   font: 400 21px/1.15 var(--f-display);
   text-wrap: balance;
 }
@@ -594,6 +594,44 @@ body {
   .panel-filters::-webkit-scrollbar { display: none; }
   .panel-filters .filter { flex: none; white-space: nowrap; }
 }
+
+/* Filtret i Samtidigt är ihopfällt som standard (beslut i #1782): en rad som säger hur många kategorier som är på */
+.panel-filterbar { flex: none; padding: 8px 14px 0; }
+.panel-filter-toggle {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; min-height: 40px; padding: 0 14px;
+  font: 500 13px/1.2 var(--f-body); color: var(--parchment); text-align: left;
+  background: var(--night-3); border: 1px solid var(--control-line); border-radius: 10px; cursor: pointer;
+}
+.panel-filter-toggle .arrow { color: var(--brass); transition: transform .15s; }
+.panel-filter-toggle[aria-expanded="true"] .arrow { transform: rotate(180deg); }
+.panel-filter-toggle:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+.panel-filter-toggle .on { color: var(--brass); font-weight: 600; }
+.panel-filters[hidden] { display: none; }
+.panel-filterbar + .panel-filters { border-top: 0; }
+
+/* En flik per världsdel (beslut i #1782, alternativ C): en rad som rullar i sidled, den valda i mässing */
+.panel-tabs {
+  flex: none; display: flex; gap: 6px; padding: 8px 14px 6px; overflow-x: auto; scrollbar-width: none;
+  border-bottom: 1px solid var(--line);
+}
+.panel-tabs[hidden] { display: none; }
+@media (min-width: 761px) { .panel-tabs { flex-wrap: wrap; overflow: visible; } } /* på dator ryms alla världsdelar på två rader */
+.panel-tabs::-webkit-scrollbar { display: none; }
+.panel-tab {
+  flex: none; display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 12px;
+  font: 600 13px/1 var(--f-body); color: var(--parchment); background: transparent;
+  border: 1px solid var(--control-line); border-radius: 999px; cursor: pointer; white-space: nowrap;
+}
+.panel-tab .region-count { margin-left: 0; color: inherit; opacity: .8; }
+.panel-tab[aria-selected="true"] { background: var(--brass); border-color: var(--brass); color: var(--night); }
+.panel-tab:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+.region-group[hidden] { display: none; }
+/* Pågår och Nära i tid under världsdelens flik */
+.panel-sec {
+  margin: 12px 8px 2px; font: 600 11px/1.3 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--brass);
+}
+.panel-sec-near { color: var(--parchment-dim); }
+.panel-sec .region-count { margin-left: 4px; }
 
 .event-list {
   padding: 4px 10px 14px;
@@ -2687,13 +2725,15 @@ span.theme-event:hover { background: none; outline: none; }
    dokumentordning och varje knapp är positionerad, så en grannes synliga yta går före en annans förlängning. */
 @media (max-width: 760px) {
   :is(.filter, .view-chip, .link-btn, .ff-chip, .ff-handle, .timeline-legend summary, .panel-x, .focus-tabs .chip-btn, .focus-sort .chip-btn,
-      .timebar .step, .timebar .play) { position: relative; }
+      .panel-tab, .panel-filter-toggle, .timebar .step, .timebar .play) { position: relative; }
+  /* Stängknappen i Samtidigt ligger uppe till höger (stilen ovan ger alla .panel-x position: relative och slog ut den, så att × täckte rubriken) */
+  .panel-head .panel-x { position: absolute; }
   :is(.filter, .view-chip, .link-btn, .ff-chip, .ff-handle, .panel-x, .focus-tabs .chip-btn, .focus-sort .chip-btn,
-      .timebar .step, .timebar .play)::after {
+      .panel-tab, .panel-filter-toggle, .timebar .step, .timebar .play)::after {
     content: ""; position: absolute; left: 50%; top: 50%; width: max(100%, 44px); height: max(100%, 44px); transform: translate(-50%, -50%);
   }
   /* Text på minst 12 px */
-  .segment-note, .chip-btn .count, .filter, .panel-filters .filter, .region-count, .ff-name, .ff-more, .ff-badge, .ff-pre, .ff-sep, .ff-kind, .ff-pager, .ff-drag-hint,
+  .segment-note, .chip-btn .count, .filter, .panel-filters .filter, .panel-sec, .region-count, .ff-name, .ff-more, .ff-badge, .ff-pre, .ff-sep, .ff-kind, .ff-pager, .ff-drag-hint,
   .review-badge, .controls .speed, .controls .step, .tick, .timeline-legend summary, .timeline-legend, .layer-heading, .focus-sort-label,
   .focus-sort .chip-btn, .layer-note, .focus-group-count, .tour-lesson-meta, .view-chip, .view-chip-desc, .empire-legend-button { font-size: 12px; }
   .focus-group-toggle, .focus-group-toggle > span { font-size: 12px; }
