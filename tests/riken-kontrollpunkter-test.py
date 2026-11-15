@@ -89,6 +89,10 @@ SEOUL = (126.99, 37.56)
 BUSAN = (129.075, 35.18)
 DAEGU = (128.60167, 35.87167)
 KOREA_SYD = ((SEOUL, 'Seoul'), (BUSAN, 'Busan'), (DAEGU, 'Daegu'))
+# Utanför Korea ska USA vara som förut 1948–1966 (geografens prov för #1500): östra Puerto Rico och norra Honshu
+FAJARDO = (-65.65, 18.33)
+HUMACAO = (-65.83, 18.15)
+MINMAYA = (140.45, 41.2)
 # Nära trepunkterna (geografen, #1534): punkter i Cliopatrias Sudan 2014 där Centralafrikanska republikens och Etiopiens förenklade
 # gränser når in. Sudans gräns längs Sydsudan får inte läggas över dem, så att marken bara ritas i en stat
 NARA_CAF = (23.96, 8.71)
@@ -268,6 +272,8 @@ PUNKTER = [
     *[('sydkorea', p, n, y, True) for p, n in KOREA_SYD for y in (1948, 1950, 1953, 1960, 1966, 1967, 2024)],
     *[('usa', p, n, y, False) for p, n in KOREA_SYD for y in (1948, 1950, 1953, 1960, 1966, 1967)],
     *[('nordkorea', p, n, y, False) for p, n in KOREA_SYD for y in (1948, 1960)],
+    *[('usa', p, n, y, True) for p, n in ((FAJARDO, 'Fajardo'), (HUMACAO, 'Humacao')) for y in (1948, 1950, 1953, 1960, 1966)],
+    *[('usa', MINMAYA, 'Minmaya', y, True) for y in (1948, 1950, 1952)],
 ]
 
 
