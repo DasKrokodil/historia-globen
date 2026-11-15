@@ -38,7 +38,7 @@ Platskortens flaggor och vapen (`emblems` i `data/platser.json`, filerna i `img/
 | `sweden.svg` | Sveriges flagga | Jon Harald Søby m.fl. | Public domain (PD-shape), [filsidan](https://commons.wikimedia.org/wiki/File:Flag_of_Sweden.svg) |
 | `dannebrog.svg` | Danmarks flagga (Dannebrog) | Madden m.fl. | Public domain (PD-shape), [filsidan](https://commons.wikimedia.org/wiki/File:Flag_of_Denmark.svg) |
 | `skane-banner.svg` | Skånes landskapsflagga (vapenflagga) | Tgbsww, efter Lokal_Profils `Skåne vapen.svg` | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/), [filsidan](https://commons.wikimedia.org/wiki/File:Banner_of_Arms_of_Scania.svg) |
-| `skane-arms.svg` | Skånes landskapsvapen | Lokal_Profil | [CC BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/), [filsidan](https://commons.wikimedia.org/wiki/File:Sk%C3%A5ne_vapen.svg); märkt insignia |
+| `skane-arms.svg` | Skånes landskapsvapen | Lokal_Profil | [CC BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/), [filsidan](https://commons.wikimedia.org/wiki/File:Sk%C3%A5ne_vapen.svg); märkt insignia. Ändring: `viewBox` tillagd så att bilden skalas |
 
 ## Bilder
 
