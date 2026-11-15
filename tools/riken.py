@@ -84,6 +84,7 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              # Tyskland 1949–1990 och Frankrike (#1706): med 0,2 grader fylls Västberlin i DDR-ytan och Frankrikes gräns
              # buktar in över Saarland (Saarbrücken ligger cirka 5 km från gränsen)
              'osttyskland': (0.05, MERGE, MIN_AREA), 'vasttyskland': (0.05, MERGE, MIN_AREA), 'frankrike': (0.1, MERGE, MIN_AREA),
+             'polen': (0.05, MERGE, MIN_AREA),  # Słubice och Zgorzelec ligger vid Oder–Neisse (#1750)
              'belgien': (0.05, MERGE, MIN_AREA),  # Eupen ligger cirka 15 km från gränsen mot Tyskland (#1730)
              # Luxemburg och Singapore är små
              'luxemburg': (0.03, 0.02, 0.005), 'singapore': (0.02, 0.02, 0.005),
@@ -1767,7 +1768,7 @@ EXTEND = {
 # Saarområdet 1920–1935 (#1730, #1750): Frankrikes gräns 1931 minus gränsen 1932 i Cliopatria, inom Tysklands gräns i Natural Earth
 SAAR = ('snitt', (('French Third Republic', 1931), ('French Third Republic', 1932)), ('ne', ['tyskland']))
 # Rutan längs gränsen mellan DDR och Västtyskland (väst, syd, öst, nord), #1750
-INNERTYSKA = (9.8, 50.25, 12.05, 54.2)
+INNERTYSKA = (9.8, 50.15, 12.3, 54.2)  # syd 50,15 och öst 12,3: hela Thüringens och Bayerns gräns (#1750)
 # Rutan längs Oder–Neisse-gränsen, #1750
 ODER = (13.7, 50.75, 15.2, 54.45)
 
@@ -1886,14 +1887,26 @@ DISPUTED = {
     # Oder–Neisse (#1750): Cliopatrias Polen sträcker sig väster om gränsen (Frankfurt an der Oder och Görlitz ligger i
     # Polen). Tysklands gräns i Natural Earth klipps ur Polen, och den tyska sidan längs gränsen läggs till DDR och Tyskland
     'oder-polen': {'area': ('ne', ['tyskland']), 'from': 1945, 'strict': True, 'remove': ['polen'], 'add': []},
+    # och Polens sida av gränsen i rutan (Cliopatrias Polen 1960 utom Tyskland) läggs tillbaka efter förenklingen (Słubice)
+    'oder-polen-sida': {'area': ('skillnad', ('snitt', ('clio', 'Republic of Poland', 1960), ('rutor', [ODER])), ('ne', ['tyskland'])),
+                        'from': 1945, 'strict': True, 'remove': [], 'add': ['polen']},
     'oder-ddr': {'area': ('snitt', ('ne', ['osttyska-lander']), ('rutor', [ODER])), 'from': 1949, 'to': 1990, 'strict': True,
                  'remove': [], 'add': ['osttyskland']},
     'oder-tyskland': {'area': ('snitt', ('ne', ['tyskland']), ('rutor', [ODER])), 'from': 1991, 'strict': True,
                       'remove': [], 'add': ['tyskland']},
+    # Och den polska och tjeckiska sidan i rutan (allt utanför Tysklands gräns) klipps ur DDR och Tyskland, så att den
+    # förenklade gränsen inte buktar in över Słubice och Zgorzelec
+    'oder-ej-tyskland': {'area': ('skillnad', ('rutor', [ODER]), ('ne', ['tyskland'])), 'from': 1949, 'strict': True,
+                         'remove': ['osttyskland', 'tyskland'], 'add': []},
     # Kaliningradområdet (#1750): Sovjetunionen förenklas med 0,3 grader, och sedan perioderna delades 1949 och 1953
-    # försvann en remsa längs kusten (Baltijsk). Sovjetunionens gräns 1960 i en ruta kring området läggs tillbaka
-    'kaliningrad': {'area': ('snitt', ('clio', 'Union of Soviet Socialist Republics', 1960), ('rutor', [(19.4, 54.2, 22.95, 55.4)])),
+    # försvann en remsa längs kusten (Baltijsk). Sovjetunionens gräns 1960 i en ruta kring området läggs tillbaka, utom Polen
+    # enligt Natural Earth
+    'kaliningrad': {'area': ('skillnad', ('snitt', ('clio', 'Union of Soviet Socialist Republics', 1960),
+                                          ('rutor', [(19.4, 54.2, 22.95, 55.4)])), ('ne', ['polen-ne'])),
                     'from': 1945, 'to': 1989, 'strict': True, 'remove': [], 'add': ['sovjetunionen']},
+    # och Polen i samma ruta klipps bort efter förenklingen, så att Sovjetunionen inte buktar in över Ermland-Masurien
+    'kaliningrad-polen': {'area': ('snitt', ('ne', ['polen-ne']), ('rutor', [(19.4, 54.0, 22.95, 55.4)])), 'from': 1945, 'to': 1989,
+                          'strict': True, 'remove': ['sovjetunionen'], 'add': []},
     # Nazi Germany har småbitar (mest vatten mellan grannarnas gränser) i länder som Tyskland aldrig höll eller ännu inte
     # hade ockuperat. ('rutor', [(väst, syd, öst, nord), ...]) med 'parts': bara de delar av riket som ligger helt inne i en
     # ruta tas bort, så att rutan aldrig klipper i rikets sammanhängande yta
@@ -2110,8 +2123,9 @@ def extend(by_name, ext):
 
 
 # Koordinaterna avrundas till 0.1 grad, utom för små länder där gränsen annars hamnar fel (#644)
-# tyskland och nederlanderna med två decimaler: Selfkant och Elten är cirka 0,1 grad breda (#1730)
-DECIMALS = {'israel': 2, 'palestina': 2, 'osttyskland': 2, 'vasttyskland': 2, 'tyskland': 2, 'nederlanderna': 2, **{g: 3 for g in SMALL_STATES},
+# tyskland och nederlanderna med två decimaler: Selfkant och Elten är cirka 0,1 grad breda (#1730); polen med två
+# decimaler, annars hamnar Słubice och Zgorzelec vid Oder–Neisse utanför Polen (#1750)
+DECIMALS = {'israel': 2, 'palestina': 2, 'osttyskland': 2, 'vasttyskland': 2, 'tyskland': 2, 'nederlanderna': 2, 'polen': 2, **{g: 3 for g in SMALL_STATES},
             'chimor': 2, 'purepecha': 2, 'inkariket': 2,  # #556
             'strathclyde': 2, 'kungariket-skottland': 2,  # #1721
             'oyoriket': 2, 'ashantiriket': 2, 'gronland-koloni': 2, 'danska-indien': 3, 'danska-guldkusten': 3}  # #1388
