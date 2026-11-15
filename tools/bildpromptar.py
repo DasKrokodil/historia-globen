@@ -23,6 +23,16 @@ FIXED = ('historical illustration, not a photograph, does not look like a real h
          'no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format')
 RESPECT = ('Respect: never depict the Prophet Muhammad; no caricatures of peoples; '
            'convey mood and setting rather than invented details.')
+HUMAN_SPECIES_EVENTS = {
+    'denisovaner',
+    'homo-floresiensis',
+    'jebel-irhoud',
+    'denisova-11',
+}
+HUMAN_SPECIES_RULE = (
+    'Illustration, interpretation, not a historical image. Do not depict people or make facial '
+    'reconstructions; show landscape, animals, objects or the find site instead.'
+)
 # Extra regler för enskilda händelser, utöver de allmänna
 EXTRA = {
     'hijra': 'Show only landscape, a caravan seen from a distance and architecture. No depiction of the Prophet Muhammad or other identifiable people.',
@@ -48,13 +58,18 @@ def prompt_for(e, doc):
     style, base, variant = style_for(e, doc)
     title = e['title'].get('en') or e['title']['sv']
     place = e['place'].get('en') or e['place']['sv']
+    style_prompt = variant['prompt'] if variant else style['prompt']
+    if e['id'] in HUMAN_SPECIES_EVENTS:
+        style_prompt = style_prompt.replace(' and human silhouettes', '')
     parts = [
-        f"Style: {variant['prompt'] if variant else style['prompt']}.",
+        f"Style: {style_prompt}.",
         f"Subject: {title} — {place}, {year_text(e['start'])}.",
         f"What happened (show only this, do not add details): {e['summary'].get('en') or e['summary']['sv']}",
         FIXED + '.',
         RESPECT,
     ]
+    if e['id'] in HUMAN_SPECIES_EVENTS:
+        parts.append(HUMAN_SPECIES_RULE)
     if e['id'] in EXTRA:
         parts.append(EXTRA[e['id']])
     return style, variant, ' '.join(parts)

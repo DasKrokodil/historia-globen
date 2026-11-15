@@ -423,7 +423,7 @@ Style: ancient Greek red-figure and black-figure vase painting, or Roman floor m
 - Spara som: `images/incoming/teotihuacan.jpg`
 
 ```text
-Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Teotihuacan — Teotihuacan, State of México, Mexico, 100 BCE. What happened (show only this, do not add details): Teotihuacan was a large city about 40 kilometres northeast of present-day Mexico City. It was probably founded around 100 BC, and the Pyramid of the Sun and the Pyramid of the Moon were built here. At its height it was the largest city in the Americas, with probably around 100,000 inhabitants. Around AD 550 the city's great buildings were plundered and burned, but people continued to live there on a smaller scale. The Aztecs, who came much later, gave the city its name. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Teotihuacan — Teotihuacan, State of México, Mexico, 100 BCE. What happened (show only this, do not add details): Teotihuacan was a large city about 40 kilometres northeast of present-day Mexico City. It was probably founded around 100 BC, and the Pyramid of the Sun and the Pyramid of the Moon were built here. At its height it was the largest city in the Americas, with probably around 100,000 inhabitants. Around AD 550 the city's great buildings were plundered and burned, but people continued to live there on a smaller scale. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Nok-kulturen och dess terrakottaskulpturer (`nok-kulturen`)
@@ -443,7 +443,7 @@ Style: ancient Egyptian wall painting and papyrus illustration, flat profile fig
 - Spara som: `images/incoming/piye-erovrar-egypten.jpg`
 
 ```text
-Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Piye of Kush conquers Egypt — Memphis and the Nile Valley (today Egypt), 728 BCE. What happened (show only this, do not add details): King Piye of Kush, who ruled from Napata in present-day Sudan, invaded Egypt in his twentieth regnal year. He won at Herakleopolis, took Hermopolis after a five-month siege and conquered Memphis, and the kings of the Nile Delta submitted. The victory is described on a victory stele found at Gebel Barkal. Piye is regarded as the founder of Egypt's 25th dynasty but then returned to Nubia and never came back to Egypt. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Piye of Kush conquers Egypt — Memphis and the Nile Valley (today Egypt), 728 BCE. What happened (show only this, do not add details): King Piye of Kush, who ruled from Napata in present-day Sudan, invaded Egypt in his twentieth regnal year. He won at Herakleopolis, took Hermopolis after a five-month siege and conquered Memphis, and the kings of the Nile Delta submitted. Piye is regarded as the founder of Egypt's 25th dynasty but then returned to Nubia and never came back to Egypt. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Meroë blir Kushrikets huvudstad (`meroe-blir-huvudstad`)
@@ -463,7 +463,7 @@ Style: ancient Egyptian wall painting and papyrus illustration, flat profile fig
 - Spara som: `images/incoming/hatshepsuts-expedition-till-punt.jpg`
 
 ```text
-Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Hatshepsut's expedition to Punt — The port of Mersa Gawasis on the Red Sea (today Egypt), on the way to Punt, 1471 BCE. What happened (show only this, do not add details): In her ninth regnal year, around 1471 BC, Pharaoh Hatshepsut sent a trading expedition of five ships to the land of Punt. According to the temple texts it was led by the chancellor Nehsi, and it returned with, among other things, 31 living myrrh trees and incense. The journey is depicted in reliefs in her mortuary temple at Deir el-Bahari, and planks from the expedition have been found at the port of Mersa Gawasis on the Red Sea. Where Punt lay is debated, but most scholars place it in the Horn of Africa. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Hatshepsut's expedition to Punt — The port of Mersa Gawasis on the Red Sea (today Egypt), on the way to Punt, 1471 BCE. What happened (show only this, do not add details): In her ninth regnal year, around 1471 BC, Pharaoh Hatshepsut sent a trading expedition of five ships to the land of Punt. According to the temple texts it was led by the chancellor Nehsi, and it returned with, among other things, 31 living myrrh trees and incense. The journey is depicted in reliefs in her mortuary temple at Deir el-Bahari. Where Punt lay is debated, but most scholars place it in the Horn of Africa. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Hanno seglar längs Västafrikas kust (`hannos-resa-langs-afrika`)
@@ -563,7 +563,7 @@ Style: ancient Egyptian wall painting and papyrus illustration, flat profile fig
 - Spara som: `images/incoming/lapitakulturen-i-bismarckarkipelagen.jpg`
 
 ```text
-Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The Lapita culture appears in the Bismarck Archipelago — The Bismarck Archipelago, including the island of Mussau (today Papua New Guinea), 1600 BCE. What happened (show only this, do not add details): About 3,500 years ago the Lapita culture suddenly appears in the Bismarck Archipelago, fully developed and without traces of earlier stages. This suggests that it arrived with people who migrated in by sea. The classic Lapita pottery with stamped geometric patterns was made there between about 1600 and 1200 BC, and the finds at Talepakemalai on Mussau belong to the earliest group. The Lapita people are ancestors of the peoples of Polynesia, eastern Micronesia and the islands of Melanesia. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The Lapita culture appears in the Bismarck Archipelago — The Bismarck Archipelago, including the island of Mussau (today Papua New Guinea), 1600 BCE. What happened (show only this, do not add details): About 3,500 years ago the Lapita culture suddenly appears in the Bismarck Archipelago, fully developed and without traces of earlier stages. The classic Lapita pottery with stamped geometric patterns was made there between about 1600 and 1200 BC, and the finds at Talepakemalai on Mussau belong to the earliest group. The Lapita people are ancestors of the peoples of Polynesia, eastern Micronesia and the islands of Melanesia. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Kermariket i Nubien (`kermariket`)
@@ -623,7 +623,7 @@ Style: ancient Egyptian wall painting and papyrus illustration, flat profile fig
 - Spara som: `images/incoming/paracaskulturen.jpg`
 
 ```text
-Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The Paracas culture and its textiles — The Paracas Peninsula in the Ica region (today Peru), 800 BCE. What happened (show only this, do not add details): The Paracas culture existed in the present-day Ica region of Peru from around 800 to around 100 BC. The people were skilled in irrigation and are known for their textiles. In the cemetery of Wari Kayan on the Paracas Peninsula the dead were wrapped in a seated position in many layers of finely woven and embroidered cloth, regarded as among the finest made in the pre-Columbian Andes. Paracas lacked a central ruler and consisted of local chiefdoms. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The Paracas culture and its textiles — The Paracas Peninsula in the Ica region (today Peru), 800 BCE. What happened (show only this, do not add details): The Paracas culture existed in the present-day Ica region of Peru from around 800 to around 100 BC. The people were skilled in irrigation and are known for their textiles. In the cemetery of Wari Kayan on the Paracas Peninsula the dead were wrapped in a seated position in many layers of finely woven and embroidered cloth, regarded as among the finest made in the pre-Columbian Andes. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Adenakulturen bygger gravhögar (`adenakulturen`)
@@ -643,7 +643,7 @@ Style: ancient Greek red-figure and black-figure vase painting, or Roman floor m
 - Spara som: `images/incoming/kaminaljuyu-blomstring.jpg`
 
 ```text
-Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Kaminaljuyu flourishes in the Maya highlands — Kaminaljuyu in Guatemala City (today Guatemala), 400 BCE. What happened (show only this, do not add details): Kaminaljuyu in present-day Guatemala City was inhabited from around 1500 BC to AD 1200 and was the largest site in the southern Maya area. Its peak, the Miraflores period, is dated to around 400–100 BC, but a more recent dating moves it to around 100 BC–AD 100. Then large thrones and stelae were erected, and many monuments received early hieroglyphic texts. The city had advanced systems for managing water. Today most of the remains lie beneath the city. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Kaminaljuyu flourishes in the Maya highlands — Kaminaljuyu in Guatemala City (today Guatemala), 400 BCE. What happened (show only this, do not add details): Kaminaljuyu in present-day Guatemala City was inhabited from around 1500 BC to AD 1200 and was the largest site in the southern Maya area. Its peak, the Miraflores period, is dated to around 400–100 BC, but a more recent dating moves it to around 100 BC–AD 100. Then large thrones and stelae were erected, and many monuments received early hieroglyphic texts. The city had advanced systems for managing water. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Izapas stelar och altare (`izapas-stelar`)
@@ -653,7 +653,7 @@ Style: ancient Greek red-figure and black-figure vase painting, or Roman floor m
 - Spara som: `images/incoming/izapas-stelar.jpg`
 
 ```text
-Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The stelae and altars of Izapa — Izapa in Chiapas, near Tacaná (today Mexico), 850 BCE. What happened (show only this, do not add details): Izapa in Chiapas was the largest site in the state and had its heyday between about 850 and 100 BC. The site is known for its sculpture: the researcher Garth Norman has counted 89 stelae, 61 altars and 3 thrones. The stelae often stand together with altars shaped like frogs, where the toads stood for rain. The images show myths and religious motifs and rarely have writing signs. The term Izapan style is used for similar works in other parts of the region. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The stelae and altars of Izapa — Izapa in Chiapas, near Tacaná (today Mexico), 850 BCE. What happened (show only this, do not add details): Izapa in Chiapas was the largest site in the state and had its heyday between about 850 and 100 BC. The site is known for its sculpture: the researcher Garth Norman has counted 89 stelae, 61 altars and 3 thrones. The stelae often stand together with altars shaped like frogs, where the toads stood for rain. The images show myths and religious motifs and rarely have writing signs. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Dingon i Australien: de äldsta säkra fynden (`dingon-nar-australien`)
@@ -763,7 +763,7 @@ Style: ancient Egyptian wall painting and papyrus illustration, flat profile fig
 - Spara som: `images/incoming/fyndplatsen-lapita.jpg`
 
 ```text
-Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The Lapita site in New Caledonia — The Lapita site on the Foué Peninsula near Koné, Grande Terre (today New Caledonia), 800 BCE. What happened (show only this, do not add details): The Lapita culture is named after a site on the Foué Peninsula on New Caledonia's main island, Grande Terre. There the American archaeologists Edward W. Gifford and Richard Shutler Jr. dug in 1952, and the settlement and the pottery shards were later dated to around 800 BC. The name comes from the archaeologists mishearing the word xapeta'a in the local language Haveke, which means roughly “dig a hole”. The oldest traces of people in New Caledonia are from the Lapita period. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The Lapita site in New Caledonia — The Lapita site on the Foué Peninsula near Koné, Grande Terre (today New Caledonia), 800 BCE. What happened (show only this, do not add details): The Lapita culture is named after a site on the Foué Peninsula on New Caledonia's main island, Grande Terre. There the American archaeologists Edward W. Gifford and Richard Shutler Jr. dug in 1952, and the settlement and the pottery shards were later dated to around 800 BC. The name comes from the archaeologists mishearing the word xapeta'a in the local language Haveke, which means roughly “dig a hole”. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Nauru befolkas (`nauru-befolkas`)
@@ -873,7 +873,7 @@ Style: ancient Egyptian wall painting and papyrus illustration, flat profile fig
 - Spara som: `images/incoming/takalik-abaj.jpg`
 
 ```text
-Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The trading city of Tak'alik Ab'aj — Tak'alik Ab'aj, Guatemala, 900 BCE. What happened (show only this, do not add details): Tak'alik Ab'aj in present-day Guatemala is one of several Mesoamerican sites with both Olmec and Maya features. The city flourished from the 9th century BC to at least the 10th century AD and was an important centre of commerce, trading with Kaminaljuyu and Chocolá among others. It lay where a river could be crossed, which was probably important when the city was founded, since trade routes were channelled through the site. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The trading city of Tak'alik Ab'aj — Tak'alik Ab'aj, Guatemala, 900 BCE. What happened (show only this, do not add details): Tak'alik Ab'aj in present-day Guatemala is one of several Mesoamerican sites with both Olmec and Maya features. The city flourished from the 9th century BC to at least the 10th century AD and was an important centre of commerce, trading with Kaminaljuyu and Chocolá among others. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Väggmålningarna i San Bartolo (`san-bartolos-vaggmalningar`)
@@ -1083,7 +1083,7 @@ Style: ancient Greek red-figure and black-figure vase painting, or Roman floor m
 - Spara som: `images/incoming/neandertalare.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Neanderthals — Bawa Yawan in the Zagros Mountains, Iran (one of the late finds), 100000 BCE. What happened (show only this, do not add details): Neanderthals lived in Europe and in western and central Asia. According to the sources they died out in western Eurasia about 39,000 years ago, after living at the same time as Homo sapiens in Europe for several thousand years. A Neanderthal tooth from Bawa Yawan in the Zagros Mountains is 43,600–41,500 years old. Neanderthals and Homo sapiens had children together, and traces of this are found in the genomes of all people outside Africa studied so far. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Neanderthals — Bawa Yawan in the Zagros Mountains, Iran (one of the late finds), 100000 BCE. What happened (show only this, do not add details): Neanderthals lived in Europe and in western and central Asia. According to the sources they died out in western Eurasia about 39,000 years ago, after living at the same time as Homo sapiens in Europe for several thousand years. Neanderthals and Homo sapiens had children together, and traces of this are found in the genomes of all people outside Africa studied so far. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Denisovaner, en grupp människor som påvisats genom DNA (`denisovaner`)
@@ -1093,7 +1093,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/denisovaner.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Denisovans, a group of humans identified through DNA — Denisova Cave in the Altai, Siberia (Russia), 100000 BCE. What happened (show only this, do not add details): Denisovans are a group of humans first identified through DNA from a small bone of a finger or toe in Denisova Cave. Denisovan DNA is found there in layers from about 250,000 years ago, and the oldest fossils from about 200,000 years ago. A rib from Baishiya Karst Cave on the Tibetan Plateau is 48,000–32,000 years old, the youngest find in the sources. Neanderthals also lived in Denisova Cave, and one of the finds comes from a child of a Neanderthal and a Denisovan. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal, flickering torchlight texture. Subject: Denisovans, a group of humans identified through DNA — Denisova Cave in the Altai, Siberia (Russia), 100000 BCE. What happened (show only this, do not add details): Denisovans are a group of humans first identified through DNA from a small bone of a finger or toe in Denisova Cave. Denisovan DNA is found there in layers from about 250,000 years ago, and the oldest fossils from about 200,000 years ago. Neanderthals also lived in Denisova Cave, and one of the finds comes from a child of a Neanderthal and a Denisovan. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details. Illustration, interpretation, not a historical image. Do not depict people or make facial reconstructions; show landscape, animals, objects or the find site instead.
 ```
 
 ## Homo floresiensis på Flores (`homo-floresiensis`)
@@ -1103,7 +1103,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/homo-floresiensis.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Homo floresiensis on Flores — Liang Bua on Flores, Indonesia, 98000 BCE. What happened (show only this, do not add details): Homo floresiensis was a short human species on the island of Flores. The finds in the cave of Liang Bua are 100,000–60,000 years old. Ancestors with even smaller jaws and teeth lived on the same island about 700,000 years ago, according to finds at Mata Menge. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal, flickering torchlight texture. Subject: Homo floresiensis on Flores — Liang Bua on Flores, Indonesia, 98000 BCE. What happened (show only this, do not add details): Homo floresiensis was a short human species on the island of Flores. The finds in the cave of Liang Bua are 100,000–60,000 years old. Ancestors with even smaller jaws and teeth lived on the same island about 700,000 years ago, according to finds at Mata Menge. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details. Illustration, interpretation, not a historical image. Do not depict people or make facial reconstructions; show landscape, animals, objects or the find site instead.
 ```
 
 ## Homo luzonensis på Luzon (`homo-luzonensis`)
@@ -1126,6 +1126,16 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: An archaic human on Borneo — Gua Dagang in Niah National Park, Sarawak (Malaysia), 53000 BCE. What happened (show only this, do not add details): According to the researchers, a tooth from the cave of Gua Dagang at Niah on Borneo has features usually found in archaic humans but not in Homo sapiens. It is about 55,000–52,000 years old according to optical dating, that is, from just before or at the same time as Homo sapiens arrived at Niah. Which species it belongs to has not been established. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
+## Homo erectus vid Ngandong på Java (`homo-erectus-ngandong`)
+
+- År: 115000 BCE · plats: Ngandong vid floden Solo, Centraljava (Indonesien)
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/homo-erectus-ngandong.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Homo erectus at Ngandong on Java — Ngandong on the Solo River, Central Java (Indonesia), 115000 BCE. What happened (show only this, do not add details): Homo erectus was the first human species in Island Southeast Asia and reached Java more than 1.5 million years ago. At Ngandong in Central Java, twelve skull caps and two shin bones of the species were found in 1931–1933, in a bone bed about 20 metres above the Solo River. According to a model based on 52 age estimates, the bone bed is 117,000–108,000 years old. Ngandong is the last known place where Homo erectus lived. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
 ## Människor i Australien för 65 000 år sedan? (`madjedbebe`)
 
 - År: 63000 BCE · plats: Madjedbebe i Arnhemland, norra Australien
@@ -1143,7 +1153,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/jebel-irhoud.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Jebel Irhoud: the oldest finds counted as Homo sapiens — Jebel Irhoud, Morocco, 298000 BCE. What happened (show only this, do not add details): According to the source, the finds at Jebel Irhoud in Morocco are the oldest currently counted as part of our own lineage, Homo sapiens. They are about 300,000 years old. The face, jaw and teeth resemble those of people today, but the braincase lacks the rounded shape typical of modern humans. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal, flickering torchlight texture. Subject: Jebel Irhoud: the oldest finds counted as Homo sapiens — Jebel Irhoud, Morocco, 298000 BCE. What happened (show only this, do not add details): According to the source, the finds at Jebel Irhoud in Morocco are the oldest currently counted as part of our own lineage, Homo sapiens. They are about 300,000 years old. The face, jaw and teeth resemble those of people today, but the braincase lacks the rounded shape typical of modern humans. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details. Illustration, interpretation, not a historical image. Do not depict people or make facial reconstructions; show landscape, animals, objects or the find site instead.
 ```
 
 ## Homo sapiens vid Omo Kibish (`omo-kibish`)
@@ -1273,7 +1283,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/catalhoyuk.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Çatalhöyük, an early large settlement — Çatalhöyük on the Konya plain, Turkey, 7500 BCE. What happened (show only this, do not add details): Çatalhöyük in southern Anatolia was a settlement from around 7500 to 5600 BC. The houses of mud brick stood close together without streets. People entered through openings in the roof by ladders, and the roofs served as streets. The dead were buried under the floors. There are wall paintings and more than 2,500 clay figurines. The inhabitants grew several kinds of wheat and peas, and obsidian tools were an important craft. The site became a World Heritage Site in 2012. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Çatalhöyük, an early large settlement — Çatalhöyük on the Konya plain, Turkey, 7500 BCE. What happened (show only this, do not add details): Çatalhöyük in southern Anatolia was a settlement from around 7500 to 5600 BC. The houses of mud brick stood close together without streets. People entered through openings in the roof by ladders, and the roofs served as streets. The dead were buried under the floors. There are wall paintings and more than 2,500 clay figurines. The inhabitants grew several kinds of wheat and peas, and obsidian tools were an important craft. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Tornet i Jeriko (`jerikos-torn`)
@@ -1283,7 +1293,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/jerikos-torn.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Tower of Jericho — Tell es-Sultan, Jericho, West Bank, 8000 BCE. What happened (show only this, do not add details): Around 8000 BC a tower of undressed stone was built in Jericho, about 8.5 metres high and with a staircase inside. It stood within the wall around the settlement of Tell es-Sultan and was built before pottery was made there. The archaeologist Kathleen Kenyon excavated the tower in 1952–1958. What it was used for is unknown; one interpretation links it to the shadow at sunset on midsummer. Tell es-Sultan became a World Heritage Site in 2023. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Tower of Jericho — Tell es-Sultan, Jericho, West Bank, 8000 BCE. What happened (show only this, do not add details): Around 8000 BC a tower of undressed stone was built in Jericho, about 8.5 metres high and with a staircase inside. It stood within the wall around the settlement of Tell es-Sultan and was built before pottery was made there. The archaeologist Kathleen Kenyon excavated the tower in 1952–1958. What it was used for is unknown; one interpretation links it to the shadow at sunset on midsummer. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Grottmålningar med en berättelse på Sulawesi (`leang-karampuang`)
@@ -1293,7 +1303,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/leang-karampuang.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Cave paintings that tell a story on Sulawesi — Leang Karampuang in the Maros-Pangkep karst, Sulawesi, Indonesia, 49200 BCE. What happened (show only this, do not add details): In the cave of Leang Karampuang on the island of Sulawesi there is a painting of human-like figures that appear to interact with a wild pig. A thin layer of calcite has formed on top of the paint, and it is at least 51,200 years old according to uranium-series dating. The painting is therefore at least that old, and it is one of the oldest known examples of pictures that tell something. The same karst area has about 300 caves with paintings, among them Leang Tedongnge with a life-size pig at least 45,500 years old. The painters were probably Homo sapiens. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Cave paintings that tell a story on Sulawesi — Leang Karampuang in the Maros-Pangkep karst, Sulawesi, Indonesia, 49200 BCE. What happened (show only this, do not add details): In the cave of Leang Karampuang on the island of Sulawesi there is a painting of human-like figures that appear to interact with a wild pig. A thin layer of calcite has formed on top of the paint, and it is at least 51,200 years old according to uranium-series dating. The painting is therefore at least that old, and it is one of the oldest known examples of pictures that tell something. The painters were probably Homo sapiens. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Målningarna i Lascaux (`lascaux`)
@@ -1303,7 +1313,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/lascaux.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The paintings of Lascaux — Lascaux near Montignac, Dordogne, France, 20000 BCE. What happened (show only this, do not add details): Lascaux Cave in south-western France has hundreds of paintings of large animals, mostly horses and then deer, but also aurochs and bison. There is only one human figure. The colours were made from minerals such as ochre and manganese compounds. The paintings are most often estimated to be 17,000–22,000 years old, but this is still debated. The entrance was found in 1940 by an 18-year-old boy. The cave has been closed to visitors since 1963 to protect the paintings, and replicas are shown today. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The paintings of Lascaux — Lascaux near Montignac, Dordogne, France, 20000 BCE. What happened (show only this, do not add details): Lascaux Cave in south-western France has hundreds of paintings of large animals, mostly horses and then deer, but also aurochs and bison. There is only one human figure. The colours were made from minerals such as ochre and manganese compounds. The paintings are most often estimated to be 17,000–22,000 years old, but this is still debated. The cave has been closed to visitors since 1963 to protect the paintings, and replicas are shown today. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Newgrange och ljuset vid vintersolståndet (`newgrange`)
@@ -1313,7 +1323,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/newgrange.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Newgrange and the light at the winter solstice — Newgrange by the River Boyne, County Meath, Ireland, 3100 BCE. What happened (show only this, do not add details): Newgrange is a large Neolithic passage tomb on a ridge above the River Boyne in Ireland, built around 3100 BC according to radiocarbon dates. At the winter solstice the rising sun shines through an opening above the entrance, along the passage and into the chamber for about 17 minutes. White quartz and dark stones were brought from about 50 kilometres away. Both burnt and unburnt human bones have been found in the passage. What the tomb was used for is not known, but it is thought to have had religious significance. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Newgrange and the light at the winter solstice — Newgrange by the River Boyne, County Meath, Ireland, 3100 BCE. What happened (show only this, do not add details): Newgrange is a large Neolithic passage tomb on a ridge above the River Boyne in Ireland, built around 3100 BC according to radiocarbon dates. At the winter solstice the rising sun shines through an opening above the entrance, along the passage and into the chamber for about 17 minutes. Both burnt and unburnt human bones have been found in the passage. What the tomb was used for is not known, but it is thought to have had religious significance. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Stenbyn Skara Brae (`skara-brae`)
@@ -1323,7 +1333,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/skara-brae.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The stone village of Skara Brae — Skara Brae at the Bay of Skaill, Orkney, Scotland, 3180 BCE. What happened (show only this, do not add details): Skara Brae in Orkney is a Neolithic village of stone. According to radiocarbon dates it was begun around 3180 BC and abandoned around 2500 BC. The houses share a layout with a hearth in the middle, beds on both sides and a dresser opposite the door, and the furniture is made of stone. The inhabitants kept cattle, pigs and sheep, ate fish and shellfish and probably grew barley. The village came to light in 1850, when a storm blew the soil off a mound. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The stone village of Skara Brae — Skara Brae at the Bay of Skaill, Orkney, Scotland, 3180 BCE. What happened (show only this, do not add details): Skara Brae in Orkney is a Neolithic village of stone. According to radiocarbon dates it was begun around 3180 BC and abandoned around 2500 BC. The houses share a layout with a hearth in the middle, beds on both sides and a dresser opposite the door, and the furniture is made of stone. The village came to light in 1850, when a storm blew the soil off a mound. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Ötzi dör i Alperna (`otzi`)
@@ -1333,7 +1343,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/otzi.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Ötzi dies in the Alps — Tisenjoch in the Ötztal Alps, on the border between Italy and Austria, 3359 BCE. What happened (show only this, do not add details): Ötzi is a man who died in the Alps between 3359 and 3105 BC, according to radiocarbon dates. His body was naturally preserved in the ice and was found in 1991 by two tourists at about 3,210 metres, just inside Italy’s border. He carried a copper axe, a flint dagger and a bow. Traces in his teeth suggest that he grew up north of Bolzano. X-rays revealed an arrowhead in his left shoulder, so he was probably killed by another person. He is on display today in the archaeological museum in Bolzano. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Ötzi dies in the Alps — Tisenjoch in the Ötztal Alps, on the border between Italy and Austria, 3359 BCE. What happened (show only this, do not add details): Ötzi is a man who died in the Alps between 3359 and 3105 BC, according to radiocarbon dates. His body was naturally preserved in the ice and was found in 1991 by two tourists at about 3,210 metres, just inside Italy’s border. He carried a copper axe, a flint dagger and a bow. Traces in his teeth suggest that he grew up north of Bolzano. X-rays revealed an arrowhead in his left shoulder, so he was probably killed by another person. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Tobautbrottet (`tobautbrottet`)
@@ -1343,7 +1353,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/tobautbrottet.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Toba eruption — Lake Toba on Sumatra, Indonesia, 72000 BCE. What happened (show only this, do not add details): About 74,000 years ago one of the largest known explosive volcanic eruptions on Earth took place where Lake Toba on Sumatra lies today. The lake is the water-filled caldera left by the eruption. Argon–argon dating gives about 73,900–73,700 years ago. Ash fell over the Indian subcontinent, and tiny glass shards from the eruption have been found as far away as South Africa, Ethiopia and Lake Malawi. Neanderthals and Denisovans survived the eruption. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Toba eruption — Lake Toba on Sumatra, Indonesia, 72000 BCE. What happened (show only this, do not add details): About 74,000 years ago one of the largest known explosive volcanic eruptions on Earth took place where Lake Toba on Sumatra lies today. Argon–argon dating gives about 73,900–73,700 years ago. Ash fell over the Indian subcontinent, and tiny glass shards from the eruption have been found as far away as South Africa, Ethiopia and Lake Malawi. Neanderthals and Denisovans survived the eruption. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Bönderna i Mehrgarh (`mehrgarh`)
@@ -1353,7 +1363,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/mehrgarh.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The farmers of Mehrgarh — Mehrgarh on the Kachi plain, Balochistan, Pakistan, 5200 BCE. What happened (show only this, do not add details): Mehrgarh is a Neolithic settlement near the Bolan Pass in Pakistan and one of the earliest known sites in South Asia with traces of farming and herding. In the oldest period there was no pottery. People grew wheat and barley and kept sheep, goats and cattle, and the zebu, native to the plain, was soon domesticated. New radiocarbon dates on tooth enamel from the graves show that people settled there around 5200–4900 BC. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The farmers of Mehrgarh — Mehrgarh on the Kachi plain, Balochistan, Pakistan, 5200 BCE. What happened (show only this, do not add details): Mehrgarh is a Neolithic settlement near the Bolan Pass in Pakistan and one of the earliest known sites in South Asia with traces of farming and herding. People grew wheat and barley and kept sheep, goats and cattle, and the zebu, native to the plain, was soon domesticated. New radiocarbon dates on tooth enamel from the graves show that people settled there around 5200–4900 BC. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Botaifolket och hästarna (`botai-hastar`)
@@ -1383,7 +1393,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/jebel-sahaba.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The violence at Jebel Sahaba — Jebel Sahaba on the Nile, northern Sudan, 16600 BCE. What happened (show only this, do not add details): According to radiocarbon dates on the skeletons, the Jebel Sahaba cemetery on the Nile is at least 13,400 years old. Of 61 people examined, 41 had at least one healed or unhealed injury, and 16 had injuries from the time of death, including children. Most injuries come from arrows and spears, and stone points are still lodged in several skeletons. That the same people have both healed and fresh injuries suggests repeated violence between groups, perhaps in raids and ambushes, rather than a single battle. The cemetery was excavated in the 1960s. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The violence at Jebel Sahaba — Jebel Sahaba on the Nile, northern Sudan, 16600 BCE. What happened (show only this, do not add details): According to radiocarbon dates on the skeletons, the Jebel Sahaba cemetery on the Nile is at least 13,400 years old. Of 61 people examined, 41 had at least one healed or unhealed injury, and 16 had injuries from the time of death, including children. Most injuries come from arrows and spears, and stone points are still lodged in several skeletons. That the same people have both healed and fresh injuries suggests repeated violence between groups, perhaps in raids and ambushes, rather than a single battle. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Potatisen tämjs i Anderna (`potatisen-tams`)
@@ -1393,7 +1403,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/potatisen-tams.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The potato is domesticated in the Andes — Around Lake Titicaca, southern Peru and north-western Bolivia, 8000 BCE. What happened (show only this, do not add details): Wild potato species grow from the southern United States to southern Chile, but the cultivated potato has a single origin in southern Peru, according to genetic studies. It was domesticated around Lake Titicaca about 10,000–7,000 years ago, according to estimates. Potato starch is found on stone tools in the Titicaca Basin from around 3400–1600 BC, and the oldest securely attested tuber comes from Ancón on the coast of Peru, around 2500 BC. About 3,000 varieties are grown in the Andes today. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The potato is domesticated in the Andes — Around Lake Titicaca, southern Peru and north-western Bolivia, 8000 BCE. What happened (show only this, do not add details): Wild potato species grow from the southern United States to southern Chile, but the cultivated potato has a single origin in southern Peru, according to genetic studies. It was domesticated around Lake Titicaca about 10,000–7,000 years ago, according to estimates. Potato starch is found on stone tools in the Titicaca Basin from around 3400–1600 BC, and the oldest securely attested tuber comes from Ancón on the coast of Peru, around 2500 BC. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Chinchorromumierna (`chinchorromumier`)
@@ -1403,7 +1413,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/chinchorromumier.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Chinchorro mummies — Arica and the Camarones valley, northern Chile, 5050 BCE. What happened (show only this, do not add details): Fishers and gatherers on the coast of northern Chile began to mummify their dead around 5050 BC. These are the oldest known deliberately preserved human bodies in the world. The bodies were rebuilt and reinforced, shaped with clay and given wigs and mineral paint. Men, women and children were preserved, not just an elite. Around 90 per cent of their food came from the sea. The custom lasted about 3,000 years, and the sites became a World Heritage Site in 2021. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Chinchorro mummies — Arica and the Camarones valley, northern Chile, 5050 BCE. What happened (show only this, do not add details): Fishers and gatherers on the coast of northern Chile began to mummify their dead around 5050 BC. These are the oldest known deliberately preserved human bodies in the world. The bodies were rebuilt and reinforced, shaped with clay and given wigs and mineral paint. Men, women and children were preserved, not just an elite. The custom lasted about 3,000 years, and the sites became a World Heritage Site in 2021. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Händerna i Cueva de las Manos (`cueva-de-las-manos`)
@@ -1413,7 +1423,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/cueva-de-las-manos.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The hands of Cueva de las Manos — Cueva de las Manos, Santa Cruz, Argentina, 7300 BCE. What happened (show only this, do not add details): A cave in Patagonia holds more than 2,000 handprints, most of them painted as stencils around the hand. The images were made in several phases from around 7300 BC to around AD 700. This has been shown by radiocarbon dating, by remains of bone tubes through which the paint was sprayed, and by a piece of painted rock wall that fell into the layers. Almost all the hands are left hands: 829 against 31. The oldest style shows hunter-gatherers hunting guanacos. The cave became a World Heritage Site in 1999. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The hands of Cueva de las Manos — Cueva de las Manos, Santa Cruz, Argentina, 7300 BCE. What happened (show only this, do not add details): A cave in Patagonia holds more than 2,000 handprints, most of them painted as stencils around the hand. The images were made in several phases from around 7300 BC to around AD 700. Almost all the hands are left hands: 829 against 31. The oldest style shows hunter-gatherers hunting guanacos. The cave became a World Heritage Site in 1999. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Majsen tämjs i Mexiko (`majsen-tams-i-balsasdalen`)
@@ -1423,7 +1433,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/majsen-tams-i-balsasdalen.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Maize is domesticated in Mexico — Xihuatoxtla near Iguala, Balsas valley, Mexico, 7000 BCE. What happened (show only this, do not add details): The wild ancestor of maize, teosinte, grows in the Balsas valley in southern Mexico. In the rock shelter of Xihuatoxtla near Iguala, grinding stones have been found with starch grains and phytoliths from maize. Charcoal in the same layer is about 8,700 years old according to radiocarbon dating, so maize was there by then at the latest. Genetic studies suggest that maize was domesticated about 9,000 years ago. A domesticated squash was present just as early. The growers were small groups who moved with the seasons. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Maize is domesticated in Mexico — Xihuatoxtla near Iguala, Balsas valley, Mexico, 7000 BCE. What happened (show only this, do not add details): The wild ancestor of maize, teosinte, grows in the Balsas valley in southern Mexico. In the rock shelter of Xihuatoxtla near Iguala, grinding stones have been found with starch grains and phytoliths from maize. Charcoal in the same layer is about 8,700 years old according to radiocarbon dating, so maize was there by then at the latest. Genetic studies suggest that maize was domesticated about 9,000 years ago. A domesticated squash was present just as early. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Jordhögarna i Watson Brake (`watson-brake`)
@@ -1433,7 +1443,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/watson-brake.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The mounds of Watson Brake — Watson Brake, Louisiana, USA, 3500 BCE. What happened (show only this, do not add details): Watson Brake in Louisiana is the oldest known mound complex in North America. Eleven mounds joined by ridges form an oval almost 900 feet (about 270 metres) across. According to 27 radiocarbon dates, building began around 3500 BC and went on for about 500 years, and the site was abandoned around 2800 BC. The builders were hunter-gatherers, not farmers, and lived on fish, shellfish and seeds. The finds changed researchers’ picture of who could build large structures. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The mounds of Watson Brake — Watson Brake, Louisiana, USA, 3500 BCE. What happened (show only this, do not add details): Watson Brake in Louisiana is the oldest known mound complex in North America. Eleven mounds joined by ridges form an oval almost 900 feet (about 270 metres) across. According to 27 radiocarbon dates, building began around 3500 BC and went on for about 500 years, and the site was abandoned around 2800 BC. The builders were hunter-gatherers, not farmers, and lived on fish, shellfish and seeds. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Megafaunan försvinner i Amerika (`megafaunan-forsvinner-i-amerika`)
@@ -1453,7 +1463,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/chauvetgrottan.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The paintings of Chauvet Cave — Chauvet Cave, Ardèche, France, 35000 BCE. What happened (show only this, do not add details): Chauvet Cave in southern France has some of the best-preserved figurative cave paintings in the world. It holds hundreds of images of animals from at least 13 species, with unusually many predators such as cave lions, leopards, bears and cave hyenas. The artists scraped the walls clean and engraved around the outlines to give depth. According to a model based on 259 radiocarbon dates, people visited the cave in two periods, 37,000–33,500 and 31,000–28,000 years ago, and most of the black drawings belong to the earlier one. The cave was found in 1994. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The paintings of Chauvet Cave — Chauvet Cave, Ardèche, France, 35000 BCE. What happened (show only this, do not add details): Chauvet Cave in southern France has some of the best-preserved figurative cave paintings in the world. It holds hundreds of images of animals from at least 13 species, with unusually many predators such as cave lions, leopards, bears and cave hyenas. According to a model based on 259 radiocarbon dates, people visited the cave in two periods, 37,000–33,500 and 31,000–28,000 years ago, and most of the black drawings belong to the earlier one. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Lejonmänniskan (`lejonmanniskan`)
@@ -1463,7 +1473,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/lejonmanniskan.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Lion-man — Hohlenstein-Stadel in the Lone valley, Swabian Jura, Germany, 39000 BCE. What happened (show only this, do not add details): The Lion-man is a 31-centimetre figure in mammoth ivory with a human body and the head of a cave lion. It was found in the Hohlenstein-Stadel cave in southern Germany in 1939, in more than 200 pieces. The Second World War began a week later, and the pieces lay forgotten in the museum in Ulm for about 30 years. The layer in which it lay is 41,000–35,000 years old according to radiocarbon dating. It is among the oldest known works of art of its kind. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Lion-man — Hohlenstein-Stadel in the Lone valley, Swabian Jura, Germany, 39000 BCE. What happened (show only this, do not add details): The Lion-man is a 31-centimetre figure in mammoth ivory with a human body and the head of a cave lion. It was found in the Hohlenstein-Stadel cave in southern Germany in 1939, in more than 200 pieces. The layer in which it lay is 41,000–35,000 years old according to radiocarbon dating. It is among the oldest known works of art of its kind. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Doggerland dränks (`doggerland-drankes`)
@@ -1473,7 +1483,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/doggerland-drankes.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Doggerland is drowned — Doggerland, today the southern North Sea (the marker is on Dogger Bank), 8000 BCE. What happened (show only this, do not add details): Where the southern North Sea lies today, a large land area existed after the Ice Age between Britain, the Netherlands, Germany and Jutland: Doggerland. As the ice melted, the sea rose and drowned the land step by step, first into low islands and then completely, between about 8000 and 5000 BC. Britain became an island. Dogger Bank was one of the last islands. In 1931 a trawler brought up a barbed point made of antler, and seismic surveys have mapped rivers and lakes on the seabed. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Doggerland is drowned — Doggerland, today the southern North Sea (the marker is on Dogger Bank), 8000 BCE. What happened (show only this, do not add details): Where the southern North Sea lies today, a large land area existed after the Ice Age between Britain, the Netherlands, Germany and Jutland: Doggerland. As the ice melted, the sea rose and drowned the land step by step, first into low islands and then completely, between about 8000 and 5000 BC. Britain became an island. Dogger Bank was one of the last islands. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Guldet i Varnagravfältet (`varna-gravfaltet`)
@@ -1483,7 +1493,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/varna-gravfaltet.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The gold of the Varna Necropolis — Varna, Bulgaria, 4569 BCE. What happened (show only this, do not add details): Near Varna in Bulgaria an excavator operator found a Copper Age cemetery in 1972. The graves date from 4569–4340 BC according to radiocarbon dating. The 294 graves held objects of gold and copper, pottery and blades of flint and obsidian, in all about 3,000 gold objects weighing some 6 kilograms. A single grave, number 43, held more gold than has been found in the rest of the world from the same time. Some graves have no skeleton, only grave goods. Copper from Bulgaria’s mountains and shells from the Mediterranean suggest long-distance trade. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The gold of the Varna Necropolis — Varna, Bulgaria, 4569 BCE. What happened (show only this, do not add details): Near Varna in Bulgaria an excavator operator found a Copper Age cemetery in 1972. The graves date from 4569–4340 BC according to radiocarbon dating. The 294 graves held objects of gold and copper, pottery and blades of flint and obsidian, in all about 3,000 gold objects weighing some 6 kilograms. A single grave, number 43, held more gold than has been found in the rest of the world from the same time. Copper from Bulgaria’s mountains and shells from the Mediterranean suggest long-distance trade. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Ristad ockra och snäckpärlor i Blombos (`blombosgrottan`)
@@ -1503,7 +1513,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/den-grona-sahara.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Green Sahara — The Sahara and North Africa, 12600 BCE. What happened (show only this, do not add details): About 14,600–5,000 years ago North Africa was much wetter than today. Grass, trees and lakes covered large parts of the Sahara. Changes in the Earth’s orbit and tilt, the vegetation and less dust strengthened the African monsoon. There were two dry interruptions, during the Younger Dryas and about 8,200 years ago. People settled in the Sahara, hunted and gathered and later kept cattle, goats and sheep, and they left rock art behind. As it dried out, people gradually moved to places with more reliable water, such as the Nile valley. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Green Sahara — The Sahara and North Africa, 12600 BCE. What happened (show only this, do not add details): About 14,600–5,000 years ago North Africa was much wetter than today. Grass, trees and lakes covered large parts of the Sahara. Changes in the Earth’s orbit and tilt, the vegetation and less dust strengthened the African monsoon. People settled in the Sahara, hunted and gathered and later kept cattle, goats and sheep, and they left rock art behind. As it dried out, people gradually moved to places with more reliable water, such as the Nile valley. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Stencirkeln i Nabta Playa (`nabta-playa`)
@@ -1513,7 +1523,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/nabta-playa.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The stone circle at Nabta Playa — Nabta Playa in the Nubian Desert, southern Egypt, 4800 BCE. What happened (show only this, do not add details): Nabta Playa was a seasonal lake in the Nubian Desert, about 100 kilometres west of Abu Simbel, when the Sahara was greener. People had seasonal camps there and later larger settlements with deep wells. From around 5500 BC cattle were buried in clay-lined chambers under stone mounds. Around 4800 BC a small stone circle was built with narrow stones roughly aligned with sunrise at the summer solstice, near the time when the rains usually came. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The stone circle at Nabta Playa — Nabta Playa in the Nubian Desert, southern Egypt, 4800 BCE. What happened (show only this, do not add details): Nabta Playa was a seasonal lake in the Nubian Desert, about 100 kilometres west of Abu Simbel, when the Sahara was greener. From around 5500 BC cattle were buried in clay-lined chambers under stone mounds. Researchers interpret them as sacrificed animals and the site as a ceremonial centre for the region. Around 4800 BC a small stone circle was built with narrow stones roughly aligned with sunrise at the summer solstice, near the time when the rains usually came. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Afrikas äldsta keramik i Ounjougou (`ounjougou-keramik`)
@@ -1533,7 +1543,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/yngre-dryas.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Younger Dryas: the Ice Age’s last cold snap — The Northern Hemisphere (the marker is at Allerød, Denmark, where the period was first described), 10900 BCE. What happened (show only this, do not add details): The Younger Dryas was the last cold period of the most recent ice age, about 10900–9700 BC. The Northern Hemisphere cooled quickly, by about 3 degrees in North America, 2–6 degrees in Europe and up to 10 degrees in Greenland, while the Southern Hemisphere grew warmer. The period is named after the mountain avens, Dryas octopetala, whose fossils are common in Scandinavian layers from the time. It ended with rapid warming, and the Holocene, the present warm period, began. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Younger Dryas: the Ice Age’s last cold snap — The Northern Hemisphere (the marker is at Allerød, Denmark, where the period was first described), 10900 BCE. What happened (show only this, do not add details): The Younger Dryas was the last cold period of the most recent ice age, about 10900–9700 BC. The Northern Hemisphere cooled quickly, by about 3 degrees in North America, 2–6 degrees in Europe and up to 10 degrees in Greenland, while the Southern Hemisphere grew warmer. It ended with rapid warming, and the Holocene, the present warm period, began. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Jordbruk i Nya Guineas högland (`kuk-jordbruk`)
@@ -1563,7 +1573,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/gabarnmung.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Australia’s oldest dated rock painting — Gabarnmung in south-western Arnhem Land, Australia, 26000 BCE. What happened (show only this, do not add details): Gabarnmung is a rock shelter with paintings on the land of the Jawoyn people in Arnhem Land in northern Australia. On a painted piece of rock that had fallen from the ceiling lay ash that is about 28,000 years old according to radiocarbon dating. The ceiling must therefore have been painted more than 28,000 years ago. That makes it Australia’s oldest securely dated rock painting. The paintings show fish, wallabies, crocodiles, people and spirit figures, among other things. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Australia’s oldest dated rock painting — Gabarnmung in south-western Arnhem Land, Australia, 26000 BCE. What happened (show only this, do not add details): Gabarnmung is a rock shelter with paintings on the land of the Jawoyn people in Arnhem Land in northern Australia. On a painted piece of rock that had fallen from the ceiling lay ash that is about 28,000 years old according to radiocarbon dating. The ceiling must therefore have been painted more than 28,000 years ago. That makes it Australia’s oldest securely dated rock painting. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Denisova 11: barn till en neandertalare och en denisovan (`denisova-11`)
@@ -1573,7 +1583,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/denisova-11.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Denisova 11: the child of a Neanderthal and a Denisovan — Denisova Cave in the Altai, Siberia (Russia), 116000 BCE. What happened (show only this, do not add details): A bone fragment from Denisova Cave in the Altai, known as Denisova 11, comes from the child of a Neanderthal and a Denisovan. The fragment lay in layers deposited about 150,000–80,000 years ago, and its age is estimated at 118,000–79,000 years. Researchers have found fossils of both Denisovans and Neanderthals in the cave. The find shows that the two groups met and had children together. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal, flickering torchlight texture. Subject: Denisova 11: the child of a Neanderthal and a Denisovan — Denisova Cave in the Altai, Siberia (Russia), 116000 BCE. What happened (show only this, do not add details): A bone fragment from Denisova Cave in the Altai, known as Denisova 11, comes from the child of a Neanderthal and a Denisovan. The fragment lay in layers deposited about 150,000–80,000 years ago, and its age is estimated at 118,000–79,000 years. Researchers have found fossils of both Denisovans and Neanderthals in the cave. The find shows that the two groups met and had children together. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details. Illustration, interpretation, not a historical image. Do not depict people or make facial reconstructions; show landscape, animals, objects or the find site instead.
 ```
 
 ## Denisovaner på Tibetanska högplatån (`baishiya-denisovaner`)
@@ -1583,7 +1593,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/baishiya-denisovaner.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Denisovans on the Tibetan Plateau — Baishiya Karst Cave in Gansu, China, on the Tibetan Plateau, 158000 BCE. What happened (show only this, do not add details): In Baishiya Karst Cave, 3,280 metres above sea level on the north-eastern Tibetan Plateau, a lower jaw and a rib from Denisovans have been found, as well as Denisovan DNA in the sediment layers. According to the source, Denisovans were present in the cave from at least 160,000 years ago, and the rib comes from a layer that is 48,000–32,000 years old. Marks on the animal bones in the cave suggest that the Denisovans made use of meat, marrow and hides and made tools from bone. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Denisovans on the Tibetan Plateau — Baishiya Karst Cave in Gansu, China, on the Tibetan Plateau, 158000 BCE. What happened (show only this, do not add details): In Baishiya Karst Cave, 3,280 metres above sea level on the north-eastern Tibetan Plateau, a lower jaw and a rib from Denisovans have been found, as well as Denisovan DNA in the sediment layers. According to the source, Denisovans were present in the cave from at least 160,000 years ago, and the rib comes from a layer that is 48,000–32,000 years old. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Fotspår från istiden vid White Sands (`white-sands-fotspar`)
@@ -1593,7 +1603,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/white-sands-fotspar.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Ice Age footprints at White Sands — White Sands National Park, New Mexico, USA, 21500 BCE. What happened (show only this, do not add details): In White Sands National Park in New Mexico there are human footprints in layers by the shore of an ancient lake, together with tracks of large Ice Age animals. The layers are dated to about 23,500–21,700 years ago by radiocarbon dating of seeds and pollen. That would mean that people were in North America when the ice sheets were at their largest. There are also straight drag marks that the researchers interpret as traces of a travois, a frame of poles pulled along the ground. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Ice Age footprints at White Sands — White Sands National Park, New Mexico, USA, 21500 BCE. What happened (show only this, do not add details): In White Sands National Park in New Mexico there are human footprints in layers by the shore of an ancient lake, together with tracks of large Ice Age animals. The layers are dated to about 23,500–21,700 years ago by radiocarbon dating of seeds and pollen. That would mean that people were in North America when the ice sheets were at their largest. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Boplatsen Monte Verde i Chile (`monte-verde`)
@@ -1623,7 +1633,7 @@ Style: ancient Egyptian wall painting and papyrus illustration, flat profile fig
 - Spara som: `images/incoming/clovis-kulturen.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Clovis culture in North America — Blackwater Draw near Clovis, New Mexico, USA (finds across much of North America), 11100 BCE. What happened (show only this, do not add details): The Clovis culture is the earliest archaeological culture that can be recognised across much of North America. It is dated to about 13,050–12,750 years ago, based on ten securely dated sites. The type site is at Blackwater Draw near Clovis in New Mexico, where stone tools were found together with mammoth bones in 1929. The people were mobile hunter-gatherers who hunted large animals, especially mammoths, and their points have a characteristic flute. For a long time many researchers thought they were the first people in the Americas, but because of older finds most researchers now reject that idea. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Clovis culture in North America — Blackwater Draw near Clovis, New Mexico, USA (finds across much of North America), 11100 BCE. What happened (show only this, do not add details): The Clovis culture is the earliest archaeological culture that can be recognised across much of North America. It is dated to about 13,050–12,750 years ago, based on ten securely dated sites. The people were mobile hunter-gatherers who hunted large animals, especially mammoths, and their points have a characteristic flute. For a long time many researchers thought they were the first people in the Americas, but because of older finds most researchers now reject that idea. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Bantuexpansionen (`bantuexpansionen`)
@@ -1633,7 +1643,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/bantuexpansionen.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Bantu expansion — The highlands on the border between Cameroon and Nigeria, where the expansion probably began, 4000 BCE. What happened (show only this, do not add details): The Bantu expansion was a long series of prehistoric migrations. Peoples speaking Proto-Bantu spread from an area around the border between Cameroon and Nigeria across large parts of Central, East and Southern Africa, according to the source roughly between 4000 BC and AD 500. A western branch went south along the coast or the rivers through the Congo rainforest and reached central Angola around 500 BC. An eastern branch reached the area west of Lake Victoria at about the same time, and Bantu speakers reached South Africa perhaps as early as around AD 300. Along the way they absorbed, displaced and in some cases perhaps replaced the hunter-gatherers and herders who already lived there. The main evidence is that so many languages south of the equator resemble each other, together with archaeology and genetics. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Bantu expansion — The highlands on the border between Cameroon and Nigeria, where the expansion probably began, 4000 BCE. What happened (show only this, do not add details): The Bantu expansion was a long series of prehistoric migrations. Peoples speaking Proto-Bantu spread from an area around the border between Cameroon and Nigeria across large parts of Central, East and Southern Africa, according to the source roughly between 4000 BC and AD 500. The main evidence is that so many languages south of the equator resemble each other, together with archaeology and genetics. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Kyros den store besegrar mederna och grundar Perserriket (`kyros-grundar-perserriket`)
@@ -1643,7 +1653,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/kyros-grundar-perserriket.jpg`
 
 ```text
-Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Cyrus the Great defeats the Medes and founds the Persian Empire — Ecbatana, capital of the Median kingdom (now Hamadan in Iran), 550 BCE. What happened (show only this, do not add details): Cyrus II, known as Cyrus the Great, came from Persis and was king of Anshan under the Medes. He rebelled against the Median king Astyages, his maternal grandfather. In 550 BC he defeated the Medes, captured Astyages and took the capital Ecbatana. This is counted as the beginning of the Achaemenid Empire, the Persian Empire. Cyrus went on to conquer Lydia in Anatolia and, in 539 BC, Babylon, and the empire became the largest the world had yet seen. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Cyrus the Great defeats the Medes and founds the Persian Empire — Ecbatana, capital of the Median kingdom (now Hamadan in Iran), 550 BCE. What happened (show only this, do not add details): Cyrus II, known as Cyrus the Great, came from Persis and was king of Anshan under the Medes. He rebelled against the Median king Astyages. In 550 BC he defeated the Medes, captured Astyages and took the capital Ecbatana. This is counted as the beginning of the Achaemenid Empire, the Persian Empire. Cyrus went on to conquer Lydia in Anatolia and, in 539 BC, Babylon, and the empire became the largest the world had yet seen. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Bronsålderns kollaps (`bronsalderns-kollaps`)
@@ -1653,7 +1663,7 @@ Style: ancient Egyptian wall painting and papyrus illustration, flat profile fig
 - Spara som: `images/incoming/bronsalderns-kollaps.jpg`
 
 ```text
-Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The Late Bronze Age collapse — The eastern Mediterranean and the Near East (the marker is at Ugarit in Syria), 1200 BCE. What happened (show only this, do not add details): In the late 13th and early 12th centuries BC several societies in the eastern Mediterranean and the Near East collapsed. The Hittite Empire in Anatolia and the Levant fell, and the palace economy of Mycenaean Greece broke up into small, isolated villages. The New Kingdom of Egypt survived, but weakened. The trading city of Ugarit in Syria had been destroyed by 1178 BC. The source lists many possible causes, among them climate change, drought, volcanic eruptions, earthquakes, disease and attacks by the so-called Sea Peoples. No explanation has won a consensus among scholars, and several causes probably worked together. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The Late Bronze Age collapse — The eastern Mediterranean and the Near East (the marker is at Ugarit in Syria), 1200 BCE. What happened (show only this, do not add details): In the late 13th and early 12th centuries BC several societies in the eastern Mediterranean and the Near East collapsed. The Hittite Empire in Anatolia and the Levant fell, and the palace economy of Mycenaean Greece broke up into small, isolated villages. The source lists many possible causes, among them climate change, drought, volcanic eruptions, earthquakes, disease and attacks by the so-called Sea Peoples. No explanation has won a consensus among scholars, and several causes probably worked together. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Barumkvinnan begravs i Skåne (`barumkvinnan`)
@@ -1803,7 +1813,7 @@ Style: ancient Greek red-figure and black-figure vase painting, or Roman floor m
 - Spara som: `images/incoming/mount-mazama-crater-lake.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Mount Mazama erupts and Crater Lake forms — Crater Lake in the Cascade Range, Oregon, United States, 5700 BCE. What happened (show only this, do not add details): About 7,700 years ago the Mount Mazama volcano in the Cascade Range, in what is now Oregon, had a huge eruption. Around 61 cubic kilometres of magma was thrown out, and ash fell over eight of today’s US states and three Canadian provinces. When the magma chamber beneath the mountain emptied, the summit collapsed into a large basin, a caldera, and the mountain became about 1,200 metres lower. The caldera filled with water and became Crater Lake, which at 592 metres is the deepest lake in the United States. Indigenous peoples have lived in the area for at least 10,000 years, and the volcano has an important place in their stories. In Klamath the mountain is called Tum-sum-ne. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Mount Mazama erupts and Crater Lake forms — Crater Lake in the Cascade Range, Oregon, United States, 5700 BCE. What happened (show only this, do not add details): About 7,700 years ago the Mount Mazama volcano in the Cascade Range, in what is now Oregon, had a huge eruption. When the magma chamber beneath the mountain emptied, the summit collapsed into a large basin, a caldera, and the mountain became about 1,200 metres lower. The caldera filled with water and became Crater Lake, which at 592 metres is the deepest lake in the United States. Indigenous peoples have lived in the area for at least 10,000 years, and the volcano has an important place in their stories. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Vulkanen Budj Bim får utbrott (`budj-bim-utbrottet`)
@@ -1813,7 +1823,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/budj-bim-utbrottet.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Budj Bim volcano erupts — Budj Bim (Mount Eccles), Victoria, Australia, 34900 BCE. What happened (show only this, do not add details): The Budj Bim volcano in south-western Victoria, Australia, erupted about 36,900 years ago, plus or minus 3,100 years, according to an argon–argon dating from 2020. Lava and ash came out of a row of fissures and craters. A lava flow, the Tyrendarra flow, ran more than 30 kilometres south all the way into the sea and changed how water drained in the area, so that large wetlands formed. Much later the Gunditjmara people built their eel traps in them. The Gunditjmara creation story is about the eruption of the volcano, when the creator being Budj Bim was revealed. The name Budj Bim means “high head” in the Gunditjmara language. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Budj Bim volcano erupts — Budj Bim (Mount Eccles), Victoria, Australia, 34900 BCE. What happened (show only this, do not add details): The Budj Bim volcano in south-western Victoria, Australia, erupted about 36,900 years ago, plus or minus 3,100 years, according to an argon–argon dating from 2020. A lava flow, the Tyrendarra flow, ran more than 30 kilometres south all the way into the sea and changed how water drained in the area, so that large wetlands formed. Much later the Gunditjmara people built their eel traps in them. The Gunditjmara creation story is about the eruption of the volcano, when the creator being Budj Bim was revealed. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Gravplatsen i Taforalt (`taforalt-gravplatsen`)
@@ -1823,7 +1833,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/taforalt-gravplatsen.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Taforalt burial ground — Grotte des Pigeons at Taforalt, Berkane province, Morocco, 13100 BCE. What happened (show only this, do not add details): In the Grotte des Pigeons cave at Taforalt in north-eastern Morocco, hunter-gatherers buried their dead about 15,100–14,000 years ago. At least 34 skeletons of adolescents and adults, and also of younger children, have been found, and the site is counted among the oldest burial grounds in North Africa. The same area was used for burials again and again, and some graves were covered with large stones. Some held horns, jaws and teeth from animals as well as plants such as ephedra, which may point to rituals. The people belonged to the Iberomaurusian culture. Cavities in their teeth and isotopes in the skeletons show that they ate a lot of plant food, such as acorns and pine nuts, several thousand years before farming reached the region. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Taforalt burial ground — Grotte des Pigeons at Taforalt, Berkane province, Morocco, 13100 BCE. What happened (show only this, do not add details): In the Grotte des Pigeons cave at Taforalt in north-eastern Morocco, hunter-gatherers buried their dead about 15,100–14,000 years ago. At least 34 skeletons of adolescents and adults, and also of younger children, have been found, and the site is counted among the oldest burial grounds in North Africa. Some held horns, jaws and teeth from animals as well as plants such as ephedra, which may point to rituals. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Offerplatsen Skedemosse på Öland (`offerplatsen-skedemosse`)
@@ -1853,7 +1863,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/dufunakanoten.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Dufuna canoe, Africa’s oldest known boat — Dufuna, Yobe State, Nigeria, 6556 BCE. What happened (show only this, do not add details): In 1987 a Fulani herdsman digging a well near the village of Dufuna in north-eastern Nigeria struck a canoe 4.5 metres below ground. It is hollowed out of a single trunk of African mahogany, 8.4 metres long and 50 centimetres wide. Radiocarbon dates place it about 8,500–8,000 years ago, which makes it Africa’s oldest known boat and the second oldest in the world after the Pesse canoe in the Netherlands. The bow and stern are skilfully shaped, and the excavator Peter Breunig argued that this shows a long tradition of boat-building. The site probably lay on the flood plain of Lake Chad at the time, and the canoe was perhaps used for fishing. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Dufuna canoe, Africa’s oldest known boat — Dufuna, Yobe State, Nigeria, 6556 BCE. What happened (show only this, do not add details): In 1987 a Fulani herdsman digging a well near the village of Dufuna in north-eastern Nigeria struck a canoe 4.5 metres below ground. It is hollowed out of a single trunk of African mahogany, 8.4 metres long and 50 centimetres wide. Radiocarbon dates place it about 8,500–8,000 years ago, which makes it Africa’s oldest known boat and the second oldest in the world after the Pesse canoe in the Netherlands. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Lebombobenet med inristade skåror (`lebombobenet`)
@@ -1873,7 +1883,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/gobero-gravfaltet.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Gobero, the oldest known cemetery in the Sahara — Gobero in the Ténéré desert, Niger, 7700 BCE. What happened (show only this, do not add details): On the shore of an ancient lake in the Ténéré desert in Niger lies Gobero, the oldest known cemetery in the Sahara, from about 7500 BC. The Sahara was greener then, and the lake was about 3 kilometres across. The first inhabitants, the Kiffians, were hunters, fishers and gatherers who mostly stayed in the same place, and they buried their dead with the legs tightly drawn up against the body. When the climate turned dry, they left the site around 6200 BC. After a break another people, the Tenerians, arrived, who also kept cattle. About 200 graves have been found. In one of them a woman and two children lie facing each other with their hands intertwined. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Gobero, the oldest known cemetery in the Sahara — Gobero in the Ténéré desert, Niger, 7700 BCE. What happened (show only this, do not add details): On the shore of an ancient lake in the Ténéré desert in Niger lies Gobero, the oldest known cemetery in the Sahara, from about 7500 BC. The first inhabitants, the Kiffians, were hunters, fishers and gatherers who mostly stayed in the same place, and they buried their dead with the legs tightly drawn up against the body. When the climate turned dry, they left the site around 6200 BC. About 200 graves have been found. In one of them a woman and two children lie facing each other with their hands intertwined. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Apollo 11-stenarna, Afrikas äldsta kända föreställande bilder (`apollo-11-stenarna`)
@@ -1883,7 +1893,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/apollo-11-stenarna.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Apollo 11 stones, Africa’s oldest known figurative pictures — Apollo 11 Cave in ǀAi-ǀAis/Richtersveld, south-western Namibia, 28000 BCE. What happened (show only this, do not add details): In the Apollo 11 rock shelter in south-western Namibia, seven grey-brown quartzite slabs bearing drawings were excavated. They are radiocarbon-dated to about 30,000 years ago and are regarded as the oldest pictures in Africa that depict something. On the best-known slab, animal and human are blended into a single being: the hind legs resemble a person’s, the horns and body an antelope’s and the head that of a big cat. People used the shelter in bouts over at least 40,000 years, from about 71,000 to 29,000 years ago. The archaeologist Wolfgang Erich Wendt named the cave after the Apollo 11 spaceflight, which had just returned to Earth. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Apollo 11 stones, Africa’s oldest known figurative pictures — Apollo 11 Cave in ǀAi-ǀAis/Richtersveld, south-western Namibia, 28000 BCE. What happened (show only this, do not add details): In the Apollo 11 rock shelter in south-western Namibia, seven grey-brown quartzite slabs bearing drawings were excavated. They are radiocarbon-dated to about 30,000 years ago and are regarded as the oldest pictures in Africa that depict something. On the best-known slab, animal and human are blended into a single being: the hind legs resemble a person’s, the horns and body an antelope’s and the head that of a big cat. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Ristade strutsäggsskal i Diepkloof (`diepkloof-strutsaggsskal`)
@@ -1893,7 +1903,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/diepkloof-strutsaggsskal.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Engraved ostrich eggshells at Diepkloof — Diepkloof Rock Shelter near Elands Bay, Western Cape, South Africa, 58000 BCE. What happened (show only this, do not add details): At the Diepkloof rock shelter on the west coast of South Africa, about 270 pieces of ostrich eggshell with engraved geometric patterns have been found, from an estimated 25 containers. The shells were used as water containers. The patterns, among them a band of lines crossed by close hatching, are about 60,000 years old. They occur in several successive layers, so the tradition lasted for several thousand years. The researchers think the patterns may have expressed the identity of a group or a person. The engravings are among the earliest traces of people using symbols. Diepkloof became a World Heritage Site in 2024 together with other Stone Age sites in South Africa. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Engraved ostrich eggshells at Diepkloof — Diepkloof Rock Shelter near Elands Bay, Western Cape, South Africa, 58000 BCE. What happened (show only this, do not add details): At the Diepkloof rock shelter on the west coast of South Africa, about 270 pieces of ostrich eggshell with engraved geometric patterns have been found, from an estimated 25 containers. The patterns, among them a band of lines crossed by close hatching, are about 60,000 years old. The researchers think the patterns may have expressed the identity of a group or a person. The engravings are among the earliest traces of people using symbols. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Australiens megafauna dör ut (`megafaunan-forsvinner-i-australien`)
@@ -1903,7 +1913,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/megafaunan-forsvinner-i-australien.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Australia’s megafauna dies out — Australia; the point is Cuddie Springs in New South Wales, 44000 BCE. What happened (show only this, do not add details): During the Ice Age large animals lived in Australia, among them the marsupial lion, giant kangaroos such as Procoptodon and the flightless bird Genyornis. Most of them died out. According to datings of fossils with OSL and uranium–thorium, all large animals on the mainland disappeared within a short time, about 46,000 years ago, roughly when the first people had arrived. A 2016 study of 659 fossil ages found that the extinction happened at roughly the same time for the different genera, with a peak about 42,100 years ago, and that it was not linked to drought in the climate. That study concludes that the megafauna disappeared about 13,500 years after people arrived. At Cuddie Springs in New South Wales stone tools have been found together with megafauna bones. The excavators see this as a secure association, but the interpretation is disputed. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Australia’s megafauna dies out — Australia; the point is Cuddie Springs in New South Wales, 44000 BCE. What happened (show only this, do not add details): During the Ice Age large animals lived in Australia, among them the marsupial lion, giant kangaroos such as Procoptodon and the flightless bird Genyornis. According to datings of fossils with OSL and uranium–thorium, all large animals on the mainland disappeared within a short time, about 46,000 years ago, roughly when the first people had arrived. A 2016 study of 659 fossil ages found that the extinction happened at roughly the same time for the different genera, with a peak about 42,100 years ago. That study concludes that the megafauna disappeared about 13,500 years after people arrived. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Murujugas hällristningar (`murujugas-hallristningar`)
@@ -1933,7 +1943,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/bass-sund-bildas.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Tasmania becomes an island — Bass Strait between Victoria and Tasmania, Australia, 12000 BCE. What happened (show only this, do not add details): During the Ice Age Tasmania was joined to the Australian mainland by a broad land bridge, the Bassian Plain. People reached Tasmania across it about 40,000 years ago. When the Ice Age ended, the sea rose and flooded the plain. Bass Strait formed, and Tasmania became an island. The sources give different times for when this happened, from about 14,000 to about 6,000 years ago. After that the Tasmanians lived cut off from the mainland. People lived on Flinders Island in the strait until about 4,000 years ago. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Tasmania becomes an island — Bass Strait between Victoria and Tasmania, Australia, 12000 BCE. What happened (show only this, do not add details): During the Ice Age Tasmania was joined to the Australian mainland by a broad land bridge, the Bassian Plain. People reached Tasmania across it about 40,000 years ago. When the Ice Age ended, the sea rose and flooded the plain. Bass Strait formed, and Tasmania became an island. The sources give different times for when this happened, from about 14,000 to about 6,000 years ago. After that the Tasmanians lived cut off from the mainland. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Sjöfarare når Buka över öppet hav (`kilugrottan`)
@@ -1943,7 +1953,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/kilugrottan.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Seafarers reach Buka across open sea — Kilu Cave on Buka Island, Bougainville, Papua New Guinea, 31560 BCE. What happened (show only this, do not add details): Kilu Cave lies at the foot of a limestone cliff on Buka Island in Bougainville, Papua New Guinea. It is the oldest known settlement in the Solomon Islands archipelago, with traces of people from about 33,000–31,000 years ago. To get there, people must have travelled across open sea with no land in sight: from Nissan Island to Buka it is at least 60 kilometres. According to Wikipedia this is the oldest known evidence of such seafaring in the Palaeolithic. The people in the cave ate fish from both reefs and the open sea, sharks, sea snails, rats, bats and lizards. After a break at the end of the Ice Age, people lived in the cave again about 9,000–5,000 years ago. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Seafarers reach Buka across open sea — Kilu Cave on Buka Island, Bougainville, Papua New Guinea, 31560 BCE. What happened (show only this, do not add details): Kilu Cave lies at the foot of a limestone cliff on Buka Island in Bougainville, Papua New Guinea. It is the oldest known settlement in the Solomon Islands archipelago, with traces of people from about 33,000–31,000 years ago. To get there, people must have travelled across open sea with no land in sight: from Nissan Island to Buka it is at least 60 kilometres. According to Wikipedia this is the oldest known evidence of such seafaring in the Palaeolithic. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Vulkanen Mount Gambier får utbrott (`mount-gambiers-utbrott`)
@@ -1953,7 +1963,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/mount-gambiers-utbrott.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Mount Gambier volcano erupts — Mount Gambier (Berrin), South Australia, 4000 BCE. What happened (show only this, do not add details): Mount Gambier in South Australia is a complex of four maars, craters formed by explosive eruptions, among them Blue Lake / Warwar. It is one of Australia’s youngest volcanoes. According to the latest estimate, from radiocarbon dating of plant fibres in Blue Lake, the volcano erupted a little before 6,000 years ago. The Boandik people call the mountain Berrin. In their Dreaming story the lakes were ovens built by the creator being Craitbul, who is said to sleep at the bottom of Warwar. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Mount Gambier volcano erupts — Mount Gambier (Berrin), South Australia, 4000 BCE. What happened (show only this, do not add details): Mount Gambier in South Australia is a complex of four maars, craters formed by explosive eruptions, among them Blue Lake / Warwar. According to the latest estimate, from radiocarbon dating of plant fibres in Blue Lake, the volcano erupted a little before 6,000 years ago. The Boandik people call the mountain Berrin. In their Dreaming story the lakes were ovens built by the creator being Craitbul, who is said to sleep at the bottom of Warwar. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Missoulafloderna, istidens jätteflodvågor (`missoulafloderna`)
@@ -1963,7 +1973,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/missoulafloderna.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Missoula floods, giant floods of the Ice Age — Glacial Lake Missoula in Montana and the Channeled Scablands in eastern Washington, USA, 16000 BCE. What happened (show only this, do not add details): At the end of the Ice Age an ice dam blocked the Clark Fork River in what is now Montana, and a large glacial lake, Lake Missoula, formed. Again and again the ice dam burst, and the lake’s water rushed across what is now eastern Washington, northern Idaho and northern Oregon and down the Columbia River Gorge. Then the ice dam formed again. Researchers have found traces of at least 25 great floods, and the largest carried about 10 cubic kilometres of water an hour, 13 times more than the Amazon River. The floods carved out the Channeled Scablands landscape. The geologist J Harlen Bretz proposed the explanation in the 1920s, but it was disputed for 40 years. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Missoula floods, giant floods of the Ice Age — Glacial Lake Missoula in Montana and the Channeled Scablands in eastern Washington, USA, 16000 BCE. What happened (show only this, do not add details): At the end of the Ice Age an ice dam blocked the Clark Fork River in what is now Montana, and a large glacial lake, Lake Missoula, formed. Researchers have found traces of at least 25 great floods, and the largest carried about 10 cubic kilometres of water an hour, 13 times more than the Amazon River. The floods carved out the Channeled Scablands landscape. The geologist J Harlen Bretz proposed the explanation in the 1920s, but it was disputed for 40 years. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Agassizsjön töms och klimatet kyls (`agassizsjon-toms`)
@@ -1973,7 +1983,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/agassizsjon-toms.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Lake Agassiz drains and the climate cools — Lake Agassiz in present-day Manitoba, Ontario, Minnesota and North Dakota, North America, 6200 BCE. What happened (show only this, do not add details): Lake Agassiz was a huge glacial lake in North America, fed by meltwater from the ice sheet. At its largest it was bigger than all the Great Lakes combined. About 8,200 years ago, when the last ice over Hudson Bay melted, the lake drained almost completely, probably together with Lake Ojibway, into the North Atlantic. This raised sea level across the world. The cold fresh water may have weakened the ocean currents in the Atlantic and caused the 8.2-kiloyear event, a rapid cooling that lasted two to four centuries. In Greenland the temperature fell by 3.3 degrees in less than 20 years. What remains of the lake includes Lake Winnipeg. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Lake Agassiz drains and the climate cools — Lake Agassiz in present-day Manitoba, Ontario, Minnesota and North Dakota, North America, 6200 BCE. What happened (show only this, do not add details): Lake Agassiz was a huge glacial lake in North America, fed by meltwater from the ice sheet. About 8,200 years ago, when the last ice over Hudson Bay melted, the lake drained almost completely, probably together with Lake Ojibway, into the North Atlantic. This raised sea level across the world. The cold fresh water may have weakened the ocean currents in the Atlantic and caused the 8.2-kiloyear event, a rapid cooling that lasted two to four centuries. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Begravningsritualer i Lapa do Santo (`lapa-do-santo-begravningar`)
@@ -1983,7 +1993,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/lapa-do-santo-begravningar.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Burial rituals at Lapa do Santo — Lapa do Santo in the Lagoa Santa karst, Minas Gerais, Brazil, 8600 BCE. What happened (show only this, do not add details): Lapa do Santo is a cave with a rock shelter in the limestone landscape around Lagoa Santa in eastern Brazil. The oldest graves there are about 10,600–10,300 years old, and the dead were then laid down whole. Around a thousand years later, about 9,600–9,400 years ago, things were done differently. The bodies of the dead were taken apart: teeth were pulled out, flesh was cut away, parts were passed through fire and perhaps some were eaten. Only after that were the remains buried, following fixed rules. There were neither grave goods nor large tombs; the rituals revolved around the bodies themselves. The people were hunter-gatherers who stayed in the same area and ate mostly plants and small to medium-sized mammals. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Burial rituals at Lapa do Santo — Lapa do Santo in the Lagoa Santa karst, Minas Gerais, Brazil, 8600 BCE. What happened (show only this, do not add details): Lapa do Santo is a cave with a rock shelter in the limestone landscape around Lagoa Santa in eastern Brazil. The oldest graves there are about 10,600–10,300 years old, and the dead were then laid down whole. Around a thousand years later, about 9,600–9,400 years ago, things were done differently. The bodies of the dead were taken apart: teeth were pulled out, flesh was cut away, parts were passed through fire and perhaps some were eaten. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Ett runt torg i Sechin Bajo (`sechin-bajo`)
@@ -1993,7 +2003,7 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 - Spara som: `images/incoming/sechin-bajo.jpg`
 
 ```text
-Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: A circular plaza at Sechin Bajo — Sechin Bajo in the Casma valley, Áncash, Peru, 3600 BCE. What happened (show only this, do not add details): By the Sechin River in the Casma valley in Peru, about 330 kilometres north-west of Lima, lie the ruins of Sechin Bajo. In 2008 a German-Peruvian team found a sunken circular plaza there, 10–12 metres across, built of stone and rectangular mud bricks (adobe). Radiocarbon dated the plaza to about 3500 BC and a two-metre-high frieze nearby to about 3600 BC. If the dates are confirmed, they are the oldest known examples of monumental building in the Americas. People already lived in the valley around 4500 BC. The buildings were rebuilt several times, and the large buildings on top date from about 1600–1200 BC. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: A circular plaza at Sechin Bajo — Sechin Bajo in the Casma valley, Áncash, Peru, 3600 BCE. What happened (show only this, do not add details): By the Sechin River in the Casma valley in Peru, about 330 kilometres north-west of Lima, lie the ruins of Sechin Bajo. In 2008 a German-Peruvian team found a sunken circular plaza there, 10–12 metres across, built of stone and rectangular mud bricks (adobe). Radiocarbon dated the plaza to about 3500 BC and a two-metre-high frieze nearby to about 3600 BC. If the dates are confirmed, they are the oldest known examples of monumental building in the Americas. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Amerikas äldsta kända hundgravar (`koster-hundgravar`)
@@ -2004,6 +2014,1696 @@ Style: prehistoric cave painting in red and yellow ochre and charcoal on rough l
 
 ```text
 Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The oldest known dog burials in the Americas — Koster near Eldred in the Illinois River valley, Illinois, USA, 7900 BCE. What happened (show only this, do not add details): At Koster in the Illinois River valley in the USA, archaeologists have excavated 25 separate occupation layers, from the early Archaic period to about AD 1000. There are three dog burials that are about 9,900 years old. Together with a dog burial at Stilwell II, 35 kilometres away, they are the oldest known remains of dogs in the Americas. The site also has one of the oldest known cemeteries in eastern North America, and traces of people grinding food with stones and living in the same place all year round. The finds made archaeologists see the early inhabitants as settled rather than constantly on the move. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Vulkanen Cerro Blanco får ett jätteutbrott (`cerro-blanco-utbrottet`)
+
+- År: 2300 BCE · plats: Cerro Blanco i provinsen Catamarca, nordvästra Argentina
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/cerro-blanco-utbrottet.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: A giant eruption at the Cerro Blanco volcano — Cerro Blanco in Catamarca Province, north-western Argentina, 2300 BCE. What happened (show only this, do not add details): Around 2300 BC, with an uncertainty of about 160 years, the Cerro Blanco volcano in the Andes had a very large eruption. It is tentatively rated 7 on the Volcanic Explosivity Index and is the largest known eruption in the Central Andes during the Holocene. The eruption formed the volcano’s most recent caldera. The wind carried the ash east-southeast over about 500,000 square kilometres, and according to models it may have reached Brazil and Paraguay. The eruption happened at the same time as the 4.2-kiloyear event, a climatic event with drought, and the two may be linked in some way. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Vulkanen Aniakchak rasar samman till en kaldera (`aniakchak-kalderan`)
+
+- År: 1750 BCE · plats: Aniakchak på Alaskahalvön, Alaska (USA)
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/aniakchak-kalderan.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The Aniakchak volcano collapses into a caldera — Aniakchak on the Alaska Peninsula, Alaska (United States), 1750 BCE. What happened (show only this, do not add details): About 3,700 years ago the Aniakchak volcano on the Alaska Peninsula collapsed into its own magma chamber. The eruption fundamentally changed the landscape and probably buried earlier traces of people under many metres of volcanic material. The land nearest the caldera remained largely uninhabited for millennia: the Pacific coast was resettled about 2,000 years ago. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Mount St. Helens största kända utbrott (`mount-st-helens-yn-utbrottet`)
+
+- År: 1900 BCE · plats: Mount St. Helens i delstaten Washington (USA)
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/mount-st-helens-yn-utbrottet.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The largest known eruption of Mount St. Helens — Mount St. Helens in Washington State (United States), 1900 BCE. What happened (show only this, do not add details): Around 1900 BC Mount St. Helens had its largest known eruption of the Holocene. It left an ash layer that geologists call Yn. The eruption belonged to the Smith Creek eruptive period, roughly 2500–1600 BC, when the volcano woke after about 4,000 years of rest and ash and pumice covered large areas. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## De sista marksengångarna på Kuba (`sista-karibiska-sengangarna`)
+
+- År: 2750 BCE · plats: Kuba
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/sista-karibiska-sengangarna.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The last ground sloths on Cuba — Cuba, 2750 BCE. What happened (show only this, do not add details): Megalocnus was a ground sloth on Cuba, about the size of a black bear and estimated to weigh 200–270 kilograms. The youngest known find has been dated to about 4,700 years ago, that is around 2750 BC. That is about 1,200 years after the earliest known traces of people on Cuba. All the sloths of the Greater Antilles are now extinct, and their extinction coincided, to within a thousand years, with the arrival of people on the islands. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Torka och växande glaciärer i Nordamerika (`torka-och-glaciarer-i-nordamerika-4-2`)
+
+- År: 2200 BCE · plats: Nordamerika; iskärnan från Mount Logan i sydvästra Yukon (Kanada)
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/torka-och-glaciarer-i-nordamerika-4-2.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Drought and advancing glaciers in North America — North America; the ice core from Mount Logan in south-western Yukon (Canada), 2200 BCE. What happened (show only this, do not add details): Around 2200 BC the 4.2-kiloyear event began, one of the most severe climatic events of the Holocene, which probably lasted about a hundred years. In North America there is evidence of severe drought in the middle of the continent, and glaciers in the mountain ranges of western Canada advanced. An ice core from Mount Logan, Canada’s highest mountain, is one of the two reference samples that mark the beginning of the Meghalayan age, the latest part of the Holocene. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Mount Meager: Kanadas största kända utbrott på 10 000 år (`mount-meager-bridge-river-utbrottet`)
+
+- År: 400 BCE · plats: Mount Meager i Coast Mountains, sydvästra British Columbia (Kanada)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/mount-meager-bridge-river-utbrottet.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Mount Meager: Canada’s largest known eruption in 10,000 years — Mount Meager in the Coast Mountains, south-western British Columbia (Canada), 400 BCE. What happened (show only this, do not add details): About 2,400 years ago the Mount Meager massif had the largest known eruption in Canada in the last 10,000 years. An ash column rose at least 20 kilometres, and westerly winds carried the ash east as far as Alberta. Afterwards lava collapsed down the slopes and formed a barrier of breccia that dammed the Lillooet River. When the lake behind it burst, there was a massive flood. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Popocatépetl begraver byn Tetimpa (`popocatepetl-begraver-tetimpa`)
+
+- År: 800 BCE · plats: Popocatépetl i centrala Mexiko
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/popocatepetl-begraver-tetimpa.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Popocatépetl buries the village of Tetimpa — Popocatépetl in central Mexico, 800 BCE. What happened (show only this, do not add details): Three major Plinian eruptions of the Popocatépetl volcano are known: around 1195–830 BC, 800–215 BC and probably AD 823. The village of Tetimpa nearby ended up under the ash twice, in the second and in the third eruption. That is why traces of the pre-Classic culture survive there. The eruptions were accompanied by pyroclastic flows and large lahars that swept into the basins below the volcano. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Cascajalblocket med okända tecken (`cascajalblocket`)
+
+- År: 900 BCE · plats: Lomas de Tacamichapan i kommunen Jáltipan, nära San Lorenzo (Veracruz, Mexiko)
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/cascajalblocket.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The Cascajal Block and its unknown signs — Lomas de Tacamichapan, municipality of Jáltipan, near San Lorenzo (Veracruz, Mexico), 900 BCE. What happened (show only this, do not add details): The Cascajal Block is a slab of serpentinite, 36 × 21 × 13 centimetres and about 11.5 kilograms, with 62 incised signs unlike any other script in Mesoamerica. Road builders found it in the late 1990s in a pile of debris in the village of Lomas de Tacamichapan in the Olmec heartland, about one kilometre from San Lorenzo. From pottery lying beside it, it has been dated to the San Lorenzo phase, which ended around 900 BC. The researchers who described the find in 2006 think it may be the oldest known writing in the Americas, but nobody knows what the signs mean. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Solobservatoriet med de tretton tornen i Chankillo (`chankillo-tretton-torn`)
+
+- År: 300 BCE · plats: Chankillo i Casma-Sechín-dalen, regionen Áncash (Peru)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/chankillo-tretton-torn.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The Thirteen Towers solar observatory at Chankillo — Chankillo in the Casma-Sechín basin, Áncash region (Peru), 300 BCE. What happened (show only this, do not add details): At Chankillo in the coastal desert of Peru, thirteen towers stand at regular intervals along a low ridge. They have been interpreted as an astronomical observatory built in the 3rd century BC. Seen from two observation points, the row, about 300 metres long, matches the rising and setting points of the sun over the year: at the winter solstice the sun rises behind the leftmost tower and six months later, at the summer solstice, behind the rightmost one. The towers may be the earliest known observatory in the Americas. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Kotoshtraditionens tempel i Anderna (`kotoshtraditionen`)
+
+- År: 3000 BCE · plats: Kotosh nära Huánuco i Perus Anderna
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/kotoshtraditionen.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The temples of the Kotosh Religious Tradition in the Andes — Kotosh near Huánuco in the Peruvian Andes, 3000 BCE. What happened (show only this, do not add details): The Kotosh Religious Tradition is the archaeologists’ name for the ritual buildings constructed in the valleys of the Peruvian Andes between about 3000 and 1800 BC, before pottery was used there. The first site to be found was Kotosh, about 5 kilometres from Huánuco, where the Temple of the Crossed Hands was built. Despite the great distances, the buildings are remarkably alike, and the tradition has many links to the later Chavín culture. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Olmekernas offermosse i El Manatí (`el-manati-offermossen`)
+
+- År: 1600 BCE · plats: El Manatí i kommunen Hidalgotitlán, Veracruz (Mexiko)
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/el-manati-offermossen.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The Olmec sacrificial bog at El Manatí — El Manatí in the municipality of Hidalgotitlán, Veracruz (Mexico), 1600 BCE. What happened (show only this, do not add details): El Manatí, about 15 kilometres south-east of San Lorenzo, was a sacred Olmec sacrificial bog from about 1600 to 1200 BC. Wooden sculptures, rubber balls, ceremonial axes and the bones of infants were placed there, and the mud has preserved them well. The wooden busts are the oldest wooden objects found in Mexico. The rubber balls are the earliest yet found, and they may have been used in the Mesoamerican ballgame. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Kakao odlas och dricks i Mesoamerika (`kakao-hos-mokaya`)
+
+- År: 1900 BCE · plats: Paso de la Amada i Soconusco, Chiapas (Mexiko)
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/kakao-hos-mokaya.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Cacao is grown and drunk in Mesoamerica — Paso de la Amada in Soconusco, Chiapas (Mexico), 1900 BCE. What happened (show only this, do not add details): The cacao tree is originally from the Amazon, but by about 1900 BC it was present in cultivated form among the Mokaya culture on the Pacific coast of Soconusco. A ceramic vessel from Paso de la Amada, dated to between 1900 and 1500 BC, held traces of cacao. On the Gulf of Mexico, in Veracruz, pre-Olmec peoples were preparing cacao around 1750 BC. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Saladoiderna tar sig ut till Antillerna (`saladoider-nar-antillerna`)
+
+- År: 500 BCE · plats: Små Antillerna och Puerto Rico, från nedre Orinoco (Venezuela)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/saladoider-nar-antillerna.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The Saladoid people reach the Antilles — The Lesser Antilles and Puerto Rico, from the lower Orinoco (Venezuela), 500 BCE. What happened (show only this, do not add details): Between about 500 and 280 BC, seafaring people from the lower Orinoco River in present-day Venezuela reached the Lesser Antilles and Puerto Rico. Archaeologists call them Saladoid after the settlement of Saladero, where their pottery was first recognised. They farmed, made richly decorated pottery and lived in permanent villages, and they displaced the older Ortoiroid culture, which had no pottery. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Huvudlöss hos chinchorrofolket (`huvudloss-hos-chinchorrofolket`)
+
+- År: 3000 BCE · plats: Kommunen Camarones i regionen Arica y Parinacota, norra Chile
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/huvudloss-hos-chinchorrofolket.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Head lice among the Chinchorro people — The commune of Camarones in the Arica y Parinacota Region, northern Chile, 3000 BCE. What happened (show only this, do not add details): Researchers examined a small patch of scalp, 2 × 2 centimetres, on 63 mummies of the Chinchorro culture from the coast between Arica and Camarones in northern Chile. The mummies dated from about 5,000 to 3,000 years ago. Fifty of them, about 79 percent, had lice or lice eggs. The researchers suggested that how common the lice were could help show how closely people lived together and how settled the communities were. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Den äldsta kända tatueringen i Amerika (`chinchorro-tatuering`)
+
+- År: 2563 BCE · plats: Chinchorrokulturen vid kusten i norra Chile
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/chinchorro-tatuering.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The oldest known tattoo in the Americas — The Chinchorro culture on the coast of northern Chile, 2563 BCE. What happened (show only this, do not add details): A man of the Chinchorro culture has a tattoo above his upper lip, a dotted line resembling a moustache. The mummy has been dated to 1880 BC ± 100 years, which after calibration corresponds to 2563–1972 BC. The tattoo is believed to be the oldest direct evidence of tattooing in the Americas and the fourth oldest in the world. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Pärlhirs blir en odlad gröda i norra Mali (`parlhirs-tams-i-norra-mali`)
+
+- År: 2500 BCE · plats: Norra Mali (punkten i Tilemsidalen)
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/parlhirs-tams-i-norra-mali.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Pearl millet becomes a cultivated crop in northern Mali — Northern Mali (the point is in the Tilemsi Valley), 2500 BCE. What happened (show only this, do not add details): Pearl millet is a drought-tolerant cereal that was domesticated in West Africa. Finds from the Sahel in northern Mali show domesticated pearl millet between about 2500 and 2000 BC. A 2021 study examined pottery from three sites further north in Mali, where millet chaff had been mixed into the clay. It shows that wild pearl millet was already used in the fifth millennium BC and that cultivation probably began in the fourth. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Afrikanskt ris börjar odlas i Nigers inlandsdelta (`afrikanskt-ris-odlas-i-nigerdeltat`)
+
+- År: 1000 BCE · plats: Nigers inlandsdelta, Mali
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/afrikanskt-ris-odlas-i-nigerdeltat.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: African rice begins to be cultivated in the Inner Niger Delta — Inner Niger Delta, Mali, 1000 BCE. What happened (show only this, do not add details): African rice (Oryza glaberrima) is a species of its own, distinct from Asian rice. According to the source, it was first domesticated and grown about 3,000 years ago in the inland delta of the Niger, in present-day Mali. From there its cultivation spread across West Africa. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Spår av bananer i Nkang i Kamerun (`bananer-i-nkang`)
+
+- År: 500 BCE · plats: Nkang nära Monatélé, Centrumregionen i Kamerun
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/bananer-i-nkang.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Traces of bananas at Nkang in Cameroon — Nkang near Monatélé, Centre Region, Cameroon, 500 BCE. What happened (show only this, do not add details): At Nkang in central Cameroon, archaeologists have examined pits from a settlement at least 2,700 years old. In one of the pits, which radiocarbon dating shows was used about 2,400–2,500 years ago, banana phytoliths were stuck to pieces of pottery. Phytoliths are microscopic silica particles that form in plants. Bananas have no wild ancestors in Africa, so they must have been brought there. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Herdarnas boplats Luxmanda i Tanzania (`herdarnas-boplats-luxmanda`)
+
+- År: 1250 BCE · plats: Luxmanda på Mbuluplatån, Babatidistriktet, norra Tanzania
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/herdarnas-boplats-luxmanda.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Luxmanda, a herders’ settlement in Tanzania — Luxmanda on the Mbulu Plateau, Babati District, northern Tanzania, 1250 BCE. What happened (show only this, do not add details): The Luxmanda settlement in northern Tanzania was discovered in 2012. Radiocarbon dating shows it was occupied about 3,200–2,900 years ago. It is the largest and southernmost known settlement of the early East African herding culture called the Savanna Pastoral Neolithic. Its people relied heavily on their animals: cattle, sheep, goats and donkeys. Residues in the pottery show that they mostly cooked meat and, to a lesser extent, milk. The genome of an infant girl who died about 3,100 years ago shows that about 38 per cent of her ancestry was linked to early farmers in the Levant. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Ett tidigt tamfår i Namaqualand (`tamfar-vid-spoegrivier`)
+
+- År: 197 BCE · plats: Spoegrivier i Namaqualand, Nordkapprovinsen, Sydafrika
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/tamfar-vid-spoegrivier.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: An early domestic sheep in Namaqualand — Spoegrivier in Namaqualand, Northern Cape, South Africa, 197 BCE. What happened (show only this, do not add details): A foot bone from the site of Spoegrivier in Namaqualand, South Africa, has been radiocarbon dated to 2105 ± 65 years before present. After calibration, its age most likely lies between about 200 BC and AD 110. An analysis of the bone’s proteins, published in 2021, confirmed that it comes from a sheep. According to the study, it is the earliest directly dated evidence of domestic animals in southern Africa. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Stort utbrott vid Deriba i Jebel Marra (`vulkanutbrottet-vid-deriba`)
+
+- År: 1570 BCE · plats: Deribakalderan i Jebel Marra, Darfur, Sudan
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/vulkanutbrottet-vid-deriba.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: A large eruption at Deriba in Jebel Marra — Deriba caldera in Jebel Marra, Darfur, Sudan, 1570 BCE. What happened (show only this, do not add details): Deriba is a caldera, a large cauldron-shaped depression, in the Jebel Marra massif in Darfur, western Sudan. About 3,500 years ago, 3520 ± 100 years before present, the volcano had a large explosive eruption of the Plinian type, rated 4 on the Volcanic Explosivity Index. Activity then continued with a cone inside the caldera and side vents, possibly into historical times. The caldera measures about 4.8 × 6.4 kilometres, and its rim is the highest point in Sudan. There are hot springs and fumaroles, and the volcano is now regarded as dormant, not extinct. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Torka dödar dronter och jättesköldpaddor på Mauritius (`torka-vid-mare-aux-songes`)
+
+- År: 2200 BCE · plats: Mare aux Songes, Mauritius
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/torka-vid-mare-aux-songes.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Drought kills dodos and giant tortoises on Mauritius — Mare aux Songes, Mauritius, 2200 BCE. What happened (show only this, do not add details): The Mare aux Songes swamp on Mauritius holds the bones of more than 300 dodos and many other animals. The bones were deposited over a few centuries about 4,000 years ago. According to researchers, the island was hit by a severe and prolonged drought about 4,200 years ago. The animals went to the water in the swamp, got stuck in the mud and died. In the 2005 excavation, almost two thirds of the bones came from giant tortoises of the genus Cylindraspis. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Det senaste stora skredet på Piton de la Fournaise (`flankskred-pa-piton-de-la-fournaise`)
+
+- År: 2500 BCE · plats: Piton de la Fournaise, Réunion
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/flankskred-pa-piton-de-la-fournaise.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The last major landslide on Piton de la Fournaise — Piton de la Fournaise, Réunion, 2500 BCE. What happened (show only this, do not add details): The Piton de la Fournaise volcano on Réunion has collapsed several times. The Enclos Fouqué caldera formed through collapses in three episodes, about 250,000, 65,000 and 5,000 years ago. An explosive eruption about 4,700 years ago may have reached 5 on the Volcanic Explosivity Index. The last major collapse of the volcano’s flank is believed to have happened about 4,500 years ago. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Kintampokulturen i Ghana (`kintampokulturen`)
+
+- År: 2500 BCE · plats: Bono East i Ghana; fynd också i östra Elfenbenskusten och Togo
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/kintampokulturen.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The Kintampo culture in Ghana — Bono East, Ghana; finds also in eastern Côte d’Ivoire and Togo, 2500 BCE. What happened (show only this, do not add details): According to the source, the Kintampo culture was founded by farmers and herders from the Sahara between about 2500 and 1400 BC. Archaeologists have studied at least three dozen sites in savanna, wooded savanna and rainforest in present-day Ghana. The people grew pearl millet, cowpeas, yams and oil palm among other plants, kept goats, sheep and cattle, and hunted wild animals. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Urewekulturen framställer järn kring Victoriasjön (`urewekulturen`)
+
+- År: 500 BCE · plats: Kring Victoriasjön i Östafrika
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/urewekulturen.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The Urewe culture smelts iron around Lake Victoria — Around Lake Victoria, East Africa, 500 BCE. What happened (show only this, do not add details): The Urewe culture was an early Iron Age culture around Lake Victoria. Its earliest dated artefacts come from the Kagera Region of Tanzania, and its sites date from the 5th century BC to the 6th century AD. The culture reached Kivu in the Democratic Republic of the Congo, western Kenya, Uganda, Rwanda and Burundi, and was most widespread in the first six centuries AD. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Koppar bryts och smälts vid Akjoujt (`koppar-vid-akjoujt`)
+
+- År: 1000 BCE · plats: Akjoujt i västra Mauretanien
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/koppar-vid-akjoujt.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Copper is mined and smelted at Akjoujt — Akjoujt, western Mauritania, 1000 BCE. What happened (show only this, do not add details): Around Akjoujt in western Mauritania, copper was mined and smelted long before the Common Era. Traces of mining continue until about 300 BC, and radiocarbon dates from the Grotte aux Chauves-souris mine show that the copper ore malachite was mined and smelted there in the early 5th century BC. How the technique arrived is disputed. It has been linked to the spread of Berbers into the western Sahara and the Sahel, and the researcher Michael Bisson has pointed to ties with the Early Bronze Age of Western Europe and Phoenician North Africa. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Lejontemplet åt Apedemak i Musawwarat es-Sufra (`lejontemplet-i-musawwarat-es-sufra`)
+
+- År: 220 BCE · plats: Musawwarat es-Sufra, Sudan
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/lejontemplet-i-musawwarat-es-sufra.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The Lion Temple of Apedemak at Musawwarat es-Sufra — Musawwarat es-Sufra, Sudan, 220 BCE. What happened (show only this, do not add details): King Arnekhamani of Kush, who according to the source reigned about 220–215 BC, had the Lion Temple built at Musawwarat es-Sufra in present-day Sudan. The temple is dedicated to the god Apedemak, who is shown with three heads in the reliefs on its outer walls. Its largest structure is the Great Enclosure, a labyrinth-like complex of about 45,000 square metres, much of which was built in the 3rd century BC. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Medracen, en kunglig grav i Numidien (`medracen`)
+
+- År: 400 BCE · plats: Nära Batna i nordöstra Algeriet
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/medracen.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The Medracen, a royal tomb in Numidia — Near Batna, north-eastern Algeria, 400 BCE. What happened (show only this, do not add details): The Medracen is a large round tumulus of dressed stone in the countryside about 90 kilometres south of Constantine in Algeria. It is regarded as a royal mausoleum built by the Berber kingdom of Numidia. Around its base stand sixty Doric columns, partly built into the wall, beneath a cornice in Egyptian style, and its upper part rises in steps reminiscent of the pyramids of Egypt. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## De senegambiska stencirklarna (`senegambiska-stencirklar`)
+
+- År: 300 BCE · plats: Senegal och Gambia
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/senegambiska-stencirklar.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The Senegambian stone circles — Senegal and the Gambia, 300 BCE. What happened (show only this, do not add details): Senegal and the Gambia have more than 1,000 stone circles and burial mounds. The generally accepted range for them runs from the 3rd century BC to the 16th century AD. The monuments mark graves, and at Sine Ngayène the burials seem to have come first and the stones to have been raised later. There is no agreement on who built them; the Serer themselves attribute the monuments to a people they call the Soos. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Harpuner av ben vid Katanda (`katanda-benharpuner`)
+
+- År: 88000 BCE · plats: Katanda vid Semlikifloden, Kongo-Kinshasa (punkten: Semlikis början vid Ishango, fyndplatsen anges inte)
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/katanda-benharpuner.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Bone harpoons at Katanda — Katanda on the Semliki River, Democratic Republic of the Congo (point: the start of the Semliki near Ishango; the find site is not given), 88000 BCE. What happened (show only this, do not add details): At Katanda on the Semliki River in the eastern Democratic Republic of the Congo, archaeologists have found several barbed harpoon heads made of bone. According to Wikipedia they are about 90,000 years old. The site also holds many catfish bones, and the size of the harpoons suits catching fully grown catfish. A 2018 article counts them among the oldest known specialised bone tools south of the Sahara. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## En kniv av ben i Dar es-Soltan (`dar-es-soltan-benkniv`)
+
+- År: 88050 BCE · plats: Grottan Dar es-Soltan 1 sydväst om Rabat, Marocko
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/dar-es-soltan-benkniv.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: A bone knife at Dar es-Soltan — Dar es-Soltan 1 cave south-west of Rabat, Morocco, 88050 BCE. What happened (show only this, do not add details): In the Dar es-Soltan 1 cave on Morocco’s Atlantic coast, about 10 kilometres south-west of Rabat, researchers have found a tool made from a rib, probably from an animal of the bovid family. They interpret it as a knife that could be used for several tasks. The layer where the tool lay has been dated by luminescence to about 90,000 years ago. According to the researchers, it is the oldest specialised bone tool in a well-dated setting that clearly belongs to the Aterian culture of North Africa. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Barnmumien i Uan Muhuggiag (`uan-muhuggiag-mumien`)
+
+- År: 4300 BCE · plats: Klippskyddet Uan Muhuggiag i Tadrart Acacus, Libyen
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/uan-muhuggiag-mumien.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The child mummy of Uan Muhuggiag — Uan Muhuggiag rock shelter in the Tadrart Acacus, Libya, 4300 BCE. What happened (show only this, do not add details): Uan Muhuggiag is a rock shelter in the Tadrart Acacus mountains in south-western Libya, in the middle of the Sahara. There archaeologists found the remains of a boy of about two and a half who had been embalmed. His organs had been removed, and the body lay in a foetal position in a sack of antelope skin with a layer of leaves. Around his neck he wore a necklace of ostrich eggshell. According to Wikipedia the site was in use from no later than the sixth millennium BC until about 2700 BC, and it also has rock paintings, bones of domestic cattle and pottery. The mummy is now in the Red Castle Museum in Tripoli. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Hällkonsten i Tassili n'Ajjer (`tassili-najjer-hallkonst`)
+
+- År: 10000 BCE · plats: Tassili n'Ajjer i sydöstra Algeriet
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/tassili-najjer-hallkonst.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The rock art of Tassili n'Ajjer — Tassili n'Ajjer in south-eastern Algeria, 10000 BCE. What happened (show only this, do not add details): Tassili n'Ajjer is a plateau in south-eastern Algeria, near the borders with Libya and Niger. It holds a great number of rock engravings and rock paintings, and the area has been a World Heritage Site since 1982. The oldest images are presumed to be about 12,000 years old and show wild animals and hunting. Later came the so-called Round Head figures, people with round heads who seem to float, and later still images of domestic cattle, horses and camels. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Pärlor av strutsäggsskal i Enkapune Ya Muto (`enkapune-ya-muto-parlor`)
+
+- År: 38000 BCE · plats: Enkapune Ya Muto på Mau Escarpment, Kenya
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/enkapune-ya-muto-parlor.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Ostrich eggshell beads at Enkapune Ya Muto — Enkapune Ya Muto on the Mau Escarpment, Kenya, 38000 BCE. What happened (show only this, do not add details): Enkapune Ya Muto, also called Twilight Cave, is a rock shelter on the Mau Escarpment above the Naivasha basin in Kenya’s part of the Rift Valley. In one of the layers archaeologists have found 13 complete perforated ostrich eggshell beads, 12 unfinished beads and almost 600 shell fragments. This suggests that beads were made on the spot. The beads have been dated to about 40,000 years ago. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Naqadakulturen i Egypten före faraonerna (`naqadakulturen`)
+
+- År: 4000 BCE · plats: Naqada i Övre Egypten
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/naqadakulturen.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Naqada culture in Egypt before the pharaohs — Naqada in Upper Egypt, 4000 BCE. What happened (show only this, do not add details): The Naqada culture is Egypt’s culture in the period before the pharaohs, named after the town of Naqada in Upper Egypt. It is divided into three phases, Naqada I–III, from about 4000 BC to shortly before 3000 BC. Among other things people made black-topped pottery and painted vessels, and early on they had contacts with Nubia, the oases of the Western Desert and the eastern Mediterranean. Obsidian came all the way from Ethiopia. Over time grave goods became richer and the differences between an elite and ordinary people clearer. The last phase coincides with the time of the first pharaohs. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Superutbrottet i Taupō (`oruanuiutbrottet`)
+
+- År: 23725 BCE · plats: Vulkanen Taupō på Nordön, Nya Zeeland
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/oruanuiutbrottet.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Taupō supereruption — Taupō Volcano on the North Island, New Zealand, 23725 BCE. What happened (show only this, do not add details): About 25,600 years ago Taupō Volcano on the North Island of New Zealand had a gigantic eruption, the Oruanui eruption. It is counted as the most recent known supereruption on Earth. The eruption lasted only a few months but threw out more than 1,000 cubic kilometres of ash and rock. Ash fell over the whole North Island and the northern part of the South Island, and it has been found in the ice of Antarctica, about 5,000 kilometres away. Where the ground collapsed, part of Lake Taupō lies today. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Mungokvinnan kremeras (`mungokvinnan-kremeras`)
+
+- År: 38000 BCE · plats: Lake Mungo i New South Wales, Australien
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/mungokvinnan-kremeras.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Mungo Lady is cremated — Lake Mungo in New South Wales, Australia, 38000 BCE. What happened (show only this, do not add details): At the dry lake of Lake Mungo in New South Wales, the geologist Jim Bowler found in 1968 the burnt bones of a woman, now known as Mungo Lady. According to Wikipedia this is one of the oldest known cremations in the world, and it suggests that people already then had complex burial rituals. According to a 2003 study she is about 40,000 years old. Her remains were returned to the Aboriginal groups in 1992 and reburied in 2022, together with Mungo Man. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Kuskusen kommer till Nya Irland (`kuskusen-till-nya-irland`)
+
+- År: 18000 BCE · plats: Nya Irland i Bismarckarkipelagen, Papua Nya Guinea
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/kuskusen-till-nya-irland.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The cuscus arrives in New Ireland — New Ireland in the Bismarck Archipelago, Papua New Guinea, 18000 BCE. What happened (show only this, do not add details): The northern common cuscus is a marsupial from New Guinea that also lives on several islands further away. According to Wikipedia it was introduced to the island of New Ireland in the Bismarck Archipelago between 10,000 and 20,000 years ago, and to the Solomon Islands only less than 6,000 years ago. A 2022 research review describes how the cuscus was moved between islands about 20,000 years ago, probably for its meat. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Bonnevillefloden bryter igenom vid Red Rock Pass (`bonnevillefloden`)
+
+- År: 15450 BCE · plats: Red Rock Pass i Idaho, USA
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/bonnevillefloden.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Bonneville flood breaks through at Red Rock Pass — Red Rock Pass in Idaho, USA, 15450 BCE. What happened (show only this, do not add details): Lake Bonneville was a large lake in North America during the Ice Age, about 83,000 square kilometres. About 17,400 years ago the water rose so high that it broke through a natural dam at Red Rock Pass in present-day Idaho. The flood rushed through the Snake River valley, carved a deep canyon and waterfalls such as Shoshone Falls, and reached the Pacific Ocean via the Columbia River. Unlike the Missoula floods, it happened only once. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Kopparkulturen vid de stora sjöarna (`kopparkulturen-vid-stora-sjoarna`)
+
+- År: 6500 BCE · plats: Området kring de stora sjöarna, Nordamerika (punkten: Oconto, Wisconsin)
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/kopparkulturen-vid-stora-sjoarna.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Old Copper Complex by the Great Lakes — The Great Lakes region, North America (point: Oconto, Wisconsin), 6500 BCE. What happened (show only this, do not add details): By the Great Lakes of North America, people in the Archaic period worked native copper, which was found in veins and nuggets near Lake Superior, for example on Isle Royale and the Keweenaw Peninsula. According to Wikipedia the culture lasted from about 6500 to 1000 BC, and towards the end copper was used mostly for ornaments and status items. The researchers behind a 2022 study describe it as the earliest known use of native copper for tools in the world. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Gravarna i Windover och omsorgen om en sjuk pojke (`windover-gravarna`)
+
+- År: 6050 BCE · plats: Windover nära Titusville, Florida, USA
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/windover-gravarna.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Windover burials and the care of a sick boy — Windover near Titusville, Florida, USA, 6050 BCE. What happened (show only this, do not add details): Windover is a small pond near Titusville in Florida where people buried their dead in the peat about 8,000–7,000 years ago. Archaeologists have found about 168 individuals, and at least 90 of them had preserved brain tissue. One of the dead was a boy aged 14–16 with open spina bifida, who was probably paralysed from the waist down. That he still lived so long suggests, according to Wikipedia, that the group cared for him for about 15 years. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Indigoblå bomull i Huaca Prieta (`indigo-i-huaca-prieta`)
+
+- År: 4050 BCE · plats: Huaca Prieta i Chicamadalen, La Libertad, Peru
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/indigo-i-huaca-prieta.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Indigo-blue cotton at Huaca Prieta — Huaca Prieta in the Chicama Valley, La Libertad, Peru, 4050 BCE. What happened (show only this, do not add details): Huaca Prieta is a large mound on the Pacific coast in the Chicama Valley in northern Peru. People have been there since about 14,500 years ago, long before pottery existed in the area. In the mound researchers have found cotton fabrics about 6,000 years old, and some of them are dyed blue with indigo. According to Wikipedia this is the earliest known use of indigo as a dye, about 1,500 years before indigo was used in Egypt under the Fifth Dynasty. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Mumierna i Tarimbäckenet (`mumierna-i-xiaohe`)
+
+- År: 2135 BCE · plats: Gravfältet Xiaohe väster om Lop Nur, Xinjiang, Kina
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/mumierna-i-xiaohe.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The mummies of the Tarim Basin — The Xiaohe cemetery west of Lop Nur, Xinjiang, China, 2135 BCE. What happened (show only this, do not add details): In the desert of the Tarim Basin, people who were buried about 4,000 years ago have been preserved as mummies. When researchers studied the genomes of 13 of the early mummies in 2021, they found a local population that had long lived in isolation. This speaks against older theories that they descended from migrant groups such as the Afanasievo culture. Milk proteins in their dental calculus nevertheless suggest that they kept livestock. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Torka i norra Mesopotamien (`torka-i-mesopotamien-4-2`)
+
+- År: 2200 BCE · plats: Norra Mesopotamien; Tell Leilan i Khaburdalen, nordöstra Syrien
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/torka-i-mesopotamien-4-2.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Drought in northern Mesopotamia — Northern Mesopotamia; Tell Leilan in the Khabur valley, north-eastern Syria, 2200 BCE. What happened (show only this, do not add details): In the ruin mound of Tell Leilan, the ancient city of Shekhna in north-eastern Syria, there is a layer of soil just under a metre thick with no trace of people at all. Researchers have linked it to a severe drought that began around 2200 BC and hit farming. It is part of the 4.2-kiloyear event, a climate shift with traces also in the Indus Valley and China. Around 2170 BC large parts of the northern plains were abandoned, and many people fled south, which may have weakened the Akkadian Empire. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Jordbävningen i Judeen (`jordbavningen-i-judeen-31-fkr`)
+
+- År: 31 BCE · plats: Judeen; punkten vid Jeriko är ungefärlig, eftersom epicentrum är okänt
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/jordbavningen-i-judeen-31-fkr.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The earthquake in Judea — Judea; the point at Jericho is approximate, since the epicentre is unknown, 31 BCE. What happened (show only this, do not add details): In the same year as the Battle of Actium, the seventh year of Herod the Great as king, an earthquake shook Judea. The historian Josephus relates that cattle and people were killed by collapsing buildings, while Herod’s army escaped because it was camped in the open. In the ruins at Qumran there is a crack through a ritual bath and collapsed rooms that may be the work of the quake, but the damage may also come from later attacks. Because archaeologists have found little destruction, the magnitude is estimated at only 6–6.5. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Skylax seglar nerför Indus (`skylax-seglar-nerfor-indus`)
+
+- År: 519 BCE · plats: Indus vid Attock, Pakistan (ett förslag om var resan började)
+- Stil: Fornindisk stenrelief (`indien-relief`)
+- Spara som: `images/incoming/skylax-seglar-nerfor-indus.jpg`
+
+```text
+Style: ancient Indian stone relief in the manner of early Buddhist stupa carvings, sandstone, carved figures in shallow relief. Subject: Scylax sails down the Indus — The Indus at Attock, Pakistan (one suggestion of where the voyage began), 519 BCE. What happened (show only this, do not add details): The Persian king Darius I sent some trusted men to sail down the Indus. Among them was Scylax, a Greek whose home was Caryanda. Herodotus relates that they followed the river out to the sea, kept westward and after 30 months reached the place where an Egyptian king had once let Phoenicians set off to sail around Libya. Many historians think the purpose was to scout ahead of a conquest, not to explore. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Nearchos flotta seglar från Indus till Persiska viken (`nearchos-flotta-fran-indus`)
+
+- År: 326 BCE · plats: Kusten vid Karachi, Pakistan; Manora, som har identifierats med Nearchos Morontobara
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/nearchos-flotta-fran-indus.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Nearchus’ fleet sails from the Indus to the Persian Gulf — The coast at Karachi, Pakistan; Manora, which has been identified with Nearchus’ Morontobara, 326 BCE. What happened (show only this, do not add details): When Alexander the Great turned homeward from India in 326 BC, he had a fleet built on the Hydaspes river. Under the command of Nearchus it sailed down the Indus and then west along the coast, while Alexander himself marched through the desert of Gedrosia. The fleet then passed a hilly island that Nearchus called Morontobara, later identified with Manora at Karachi, made its way through the Strait of Hormuz and reached the mouth of the Tigris in 324 BC. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Dilmun, mellanhand mellan Mesopotamien och Indusdalen (`dilmun-handelsplats`)
+
+- År: 2200 BCE · plats: Qal'at al-Bahrain, Bahrain
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/dilmun-handelsplats.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Dilmun, middleman between Mesopotamia and the Indus Valley — Qal'at al-Bahrain, Bahrain, 2200 BCE. What happened (show only this, do not add details): Around 2300 BC King Ur-Nanshe of Lagash received timber that ships from Dilmun had brought him. Dilmun lay on the Persian Gulf and passed goods between Mesopotamia and the Indus Valley. The capital was probably the mound of Qal'at al-Bahrain in northern Bahrain, where people lived from about 2300 BC. Most finds point to Bahrain, but some scholars have looked for Dilmun elsewhere on the Gulf. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Den stora dammen i Marib (`stora-dammen-i-marib`)
+
+- År: 800 BCE · plats: Marib, Jemen; punkten är den nya dammen, cirka 3 km uppströms ruinerna av den gamla
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/stora-dammen-i-marib.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The Great Dam of Marib — Marib, Yemen; the point is the new dam, about 3 km upstream of the ruins of the old one, 800 BCE. What happened (show only this, do not add details): The Sabaean kings in present-day Yemen built great irrigation works, among them the dam at Marib. The oldest inscription about it is from the time of King Yatha' Amar Watar I, 760–740 BC. According to Wikipedia the dam supported a flourishing culture for more than a thousand years. It broke several times and was repaired, but after water overtopped it in 570 or 575 it was abandoned. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Läkekonst i gravarna vid Mawangdui (`lakekonst-i-mawangdui`)
+
+- År: 168 BCE · plats: Mawangdui i Changsha, Hunan, Kina
+- Stil: Tuschmålning på silkesrulle (`kina-tusch`)
+- Spara som: `images/incoming/lakekonst-i-mawangdui.jpg`
+
+```text
+Style: Chinese ink and wash painting on a silk hand scroll, misty mountains and water, fine brushwork, muted mineral colours. Subject: Medicine in the tombs of Mawangdui — Mawangdui in Changsha, Hunan, China, 168 BCE. What happened (show only this, do not add details): Tomb number three at Mawangdui in Changsha was sealed in 168 BC. A man in his thirties lay there, and 28 books written on silk were placed with him. Among them were two medical works that no one had known before: one with prescriptions for 52 ailments and one on eleven channels in the body, and both describe treatment with moxibustion. Since acupuncture is absent from the texts, moxibustion may have been a primary treatment at the time. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Bronsgjutare i Ban Chiang (`bronsgjutare-i-ban-chiang`)
+
+- År: 2000 BCE · plats: Ban Chiang, Udon Thani, Thailand
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/bronsgjutare-i-ban-chiang.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Bronze casters at Ban Chiang — Ban Chiang, Udon Thani, Thailand, 2000 BCE. What happened (show only this, do not add details): In 1966 a Harvard student tripped over a tree root in the village of Ban Chiang in north-eastern Thailand and fell among old clay pots sticking up out of the path. Later excavations found crucibles and other signs that the villagers cast bronze themselves. The red-painted pots that made the site famous are, by contrast, much younger, from about 300 BC–AD 200. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Bronstrummorna från Đông Sơn (`bronstrummor-fran-dong-son`)
+
+- År: 1000 BCE · plats: Röda flodens delta, Vietnam; punkten är Cổ Loa, där en av trummorna hittades
+- Stil: Tuschmålning på silkesrulle (`kina-tusch`)
+- Spara som: `images/incoming/bronstrummor-fran-dong-son.jpg`
+
+```text
+Style: Chinese ink and wash painting on a silk hand scroll, misty mountains and water, fine brushwork, muted mineral colours. Subject: The bronze drums of Đông Sơn — The Red River Delta, Vietnam; the point is Cổ Loa, where one of the drums was found, 1000 BCE. What happened (show only this, do not add details): Bronze frogs often sit on top of the great drums for which the Đông Sơn culture of northern Vietnam is best known. The metal top of the drum has a sun at its centre, and around it run rings depicting warships and warriors adorned with feathers. The culture is dated to about 1000 BC–AD 100; Vietnamese historians place its end at 1 BC. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Dösarna i Gochang (`dosarna-i-gochang`)
+
+- År: 700 BCE · plats: Gochang, Jeonbuk, Sydkorea (punkten är kommunens mitt)
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/dosarna-i-gochang.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The dolmens of Gochang — Gochang, Jeonbuk State, South Korea (the point is the centre of the county), 700 BCE. What happened (show only this, do not add details): The Korean Peninsula has more than 35,000 dolmens, about 40 per cent of all those in the world according to Wikipedia. The tombs are built of large stones with a heavy capstone, and they are linked to a ruling elite who also held rites at them. The custom of raising dolmens existed in Korea from the 7th century BC, among other places in Gochang in the south-west of the country, and died out around the 3rd century BC. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Guldmannen i Issykkurganen (`guldmannen-i-issyk`)
+
+- År: 400 BCE · plats: Issyk, omkring 50 km öster om Almaty, Kazakstan
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/guldmannen-i-issyk.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The Golden Man of the Issyk kurgan — Issyk, about 50 km east of Almaty, Kazakhstan, 400 BCE. What happened (show only this, do not add details): A copy of the Golden Man stands today at the top of the Independence Monument in Almaty, as a national symbol of Kazakhstan. The original was found in 1969 in a six-metre-high burial mound of the Saka, a Scythian people, near Issyk. The mound’s main grave had been robbed, but a side grave of spruce logs was untouched. In it lay a young person aged 16–18 in a costume with about 4,000 gold objects. Whether the person was a man or a woman cannot be determined. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Pāṇinis grammatik för sanskrit (`paninis-grammatik`)
+
+- År: 600 BCE · plats: Gandhara, nuvarande norra Pakistan
+- Stil: Fornindisk stenrelief (`indien-relief`)
+- Spara som: `images/incoming/paninis-grammatik.jpg`
+
+```text
+Style: ancient Indian stone relief in the manner of early Buddhist stupa carvings, sandstone, carved figures in shallow relief. Subject: Pāṇini’s grammar of Sanskrit — Gandhara, present-day northern Pakistan, 600 BCE. What happened (show only this, do not add details): The whole of Pāṇini’s grammar can be recited in about two hours, even though it contains nearly 4,000 short rules. The work is called the Aṣṭādhyāyī, is divided into eight chapters and is the earliest surviving grammar of Sanskrit. The rules describe how correct words and forms are built, and the work is usually taken to mark the beginning of Classical Sanskrit. Modern scholars have compared the system with formal models of language, and Frits Staal called Pāṇini the Indian Euclid. According to later inscriptions Pāṇini came from Salatura in Gandhara, probably in present-day northern Pakistan. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Qanaterna i Gonabad (`qanaterna-i-gonabad`)
+
+- År: 700 BCE · plats: Gonabad, Razavi Khorasan, Iran
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/qanaterna-i-gonabad.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The qanats of Gonabad — Gonabad, Razavi Khorasan, Iran, 700 BCE. What happened (show only this, do not add details): In Gonabad in Iran, water has been led underground for about 2,700 years. The system is a qanat: a gently sloping tunnel that takes groundwater from an aquifer and lets it flow out to the fields by gravity, without pumps. Where the technique was born is not entirely clear: Iran, early in the first millennium BC, is usually named, but there are also sources that favour south-eastern Arabia. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Kungsvägen mellan Susa och Sardes (`kungsvagen-susa-sardes`)
+
+- År: 500 BCE · plats: Susa, Iran; vägen gick till Sardes
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/kungsvagen-susa-sardes.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The Royal Road between Susa and Sardis — Susa, Iran; the road ran to Sardis, 500 BCE. What happened (show only this, do not add details): Nine days on horseback or ninety on foot: that was how long the journey took on the Royal Road between Susa and Sardis, about 2,700 kilometres. The Persian Empire rebuilt and improved the road in the 5th century BC, probably under Darius I. Along it were 111 stations with fresh horses, so that the king’s messengers could change horses and carry on. Archaeologists believe the westernmost sections may have been built earlier by Assyrian kings. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Siloamtunneln i Jerusalem (`siloamtunneln`)
+
+- År: 850 BCE · plats: Davids stad i Silwan, östra Jerusalem
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/siloamtunneln.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The Siloam tunnel in Jerusalem — The City of David in Silwan, East Jerusalem, 850 BCE. What happened (show only this, do not add details): An inscription in the tunnel tells how two teams cut their way through the rock from opposite ends until they met. The Siloam tunnel carries water 533 metres from the Gihon Spring to the Pool of Siloam in Jerusalem, and its ends differ by only 30 centimetres in height. The tunnel is most often linked to King Hezekiah of Judah, and the Bible mentions a tunnel he had built to bring water into the city. According to Wikipedia, radiocarbon samples from the plaster and datings of speleothems support that dating. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Cuju, ett tidigt bollspel i Kina (`cuju-bollspel-i-kina`)
+
+- År: 300 BCE · plats: Ruinerna av Linzi, Qis huvudstad, i Zibo, Shandong, Kina
+- Stil: Tuschmålning på silkesrulle (`kina-tusch`)
+- Spara som: `images/incoming/cuju-bollspel-i-kina.jpg`
+
+```text
+Style: Chinese ink and wash painting on a silk hand scroll, misty mountains and water, fine brushwork, muted mineral colours. Subject: Cuju, an early ball game in China — The ruins of Linzi, capital of Qi, in Zibo, Shandong, China, 300 BCE. What happened (show only this, do not add details): FIFA, the world football federation, counts the Chinese ball game cuju among the earliest kicking games for which there is written evidence. A military work from the 3rd or 2nd century BC describes the game as an exercise. The first historical text to mention cuju, the Zhan Guo Ce, does so in its section on the state of Qi, and in Qi’s wealthy capital Linzi various forms of the game were played for entertainment. A competitive form was used to keep the cavalry fit, and under the Han dynasty matches were played at court on fields with six crescent-shaped goalposts at each end. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Risodlingen når Japan (`risodlingen-nar-japan`)
+
+- År: 1000 BCE · plats: Itazuke i Hakata-ku, Fukuoka, Kyushu, Japan
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/risodlingen-nar-japan.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Rice farming reaches Japan — Itazuke in Hakata-ku, Fukuoka, Kyushu, Japan, 1000 BCE. What happened (show only this, do not add details): At Itazuke in Fukuoka archaeologists have found rice paddies, canals with a weir, carbonised rice and even human footprints. The site counts among the first in Japan with irrigated rice farming, although this is debated. Farming came to northern Kyushu from the Korean Peninsula, together with millet. The new farmers, whom archaeologists call the Yayoi people, were migrants from Korea and nearby regions who mixed with the Jōmon people already living on the islands. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Den syriska elefanten (`den-syriska-elefanten`)
+
+- År: 1800 BCE · plats: Västasien; punkten är Habbaniyahsjön i Irak, en av fyndplatserna
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/den-syriska-elefanten.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The Syrian elephant — Western Asia; the point is Lake Habbaniyah in Iraq, one of the find sites, 1800 BCE. What happened (show only this, do not add details): During the Bronze Age, Asian elephants lived far west of India. The finds range from at least 1800 BC to about 700 BC, when the elephants probably died out. Climatic shifts and new land use in the early Iron Age have been suggested as causes. Some scholars suspect that the animals had been brought there by people, perhaps from India, but this has not been shown. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Spetälska i Balathal (`spetalska-i-balathal`)
+
+- År: 2500 BCE · plats: Balathal nära Udaipur, Rajasthan, Indien
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/spetalska-i-balathal.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Leprosy at Balathal — Balathal near Udaipur, Rajasthan, India, 2500 BCE. What happened (show only this, do not add details): Inside a large stone enclosure in the village of Balathal, a middle-aged man was buried in layers of ash from burnt cow dung. He lived in the Chalcolithic, and according to the researchers radiocarbon dates of the layers show that he was buried between 2500 and 2000 BC. The skeleton has lesions around the nose and upper jaw, in the joints and on the shinbone. When the researchers compared them with other diseases in 2009, they concluded that the man had lepromatous leprosy. They described the find as the oldest documented skeletal evidence for the disease. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Små ritualeldar i Cloggsgrottan (`cloggsgrottans-ritualeldar`)
+
+- År: 11000 BCE · plats: Cloggsgrottan vid Snowy River nära Buchan, Victoria, Australien
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/cloggsgrottans-ritualeldar.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Small ritual fires in Cloggs Cave — Cloggs Cave on the Snowy River near Buchan, Victoria, Australia, 11000 BCE. What happened (show only this, do not add details): In Cloggs Cave in Victoria, archaeologists have found two small fireplaces, each with a trimmed stick of Casuarina wood bearing traces of fat. They are about 12,000 and 11,000 years old. They resemble rituals that GunaiKurnai medicine men and women performed according to 19th-century ethnographers. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Kremeringen vid berget Hora (`kremeringen-vid-hora`)
+
+- År: 7590 BCE · plats: Klippskyddet Hora 1 vid foten av berget Hora, Mzimbadistriktet, norra Malawi
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/kremeringen-vid-hora.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The cremation at Mount Hora — The Hora 1 rock shelter at the foot of Mount Hora, Mzimba District, northern Malawi, 7590 BCE. What happened (show only this, do not add details): At Mount Hora in northern Malawi, about 9,500 years ago, hunter-gatherers burned a dead adult, probably a woman, on a large pyre. Cut marks on the bones suggest that the flesh was removed first, and stone tools may have been placed in the pyre as grave offerings. According to Wikipedia, it is Africa’s oldest known cremation pyre. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Obsidian från Oregon under Huronsjön (`obsidian-fran-oregon-under-huronsjon`)
+
+- År: 7050 BCE · plats: Alpena–Amberley-ryggen på Huronsjöns botten, mellan Michigan och Ontario
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/obsidian-fran-oregon-under-huronsjon.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Obsidian from Oregon beneath Lake Huron — The Alpena-Amberley Ridge on the bed of Lake Huron, between Michigan and Ontario, 7050 BCE. What happened (show only this, do not add details): On the bed of Lake Huron, 32 metres below the surface, there was dry land about 9,000 years ago. There archaeologists have found two flakes of obsidian from Wagontire in Oregon, more than 4,000 kilometres away. It is the oldest known find of obsidian in eastern North America, and the stone probably passed through many hands. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Snäckor från Röda havet i Gebel Ramlahs gravar (`snackor-fran-roda-havet-i-gebel-ramlah`)
+
+- År: 5000 BCE · plats: Gebel Ramlah i Västra öknen, södra Egypten
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/snackor-fran-roda-havet-i-gebel-ramlah.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Red Sea shells in the graves of Gebel Ramlah — Gebel Ramlah in the Western Desert, southern Egypt, 5000 BCE. What happened (show only this, do not add details): At Gebel Ramlah in the Western Desert of southern Egypt, herders buried their dead in the fifth millennium BC with ornaments of Red Sea shells and mussels from the Nile. According to Wikipedia, the shells probably point to an exchange that reached the Red Sea coast, but the people may also have travelled there themselves. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Obsidian från långt bort i Porc-Epicgrottan (`obsidian-i-porc-epicgrottan`)
+
+- År: 48050 BCE · plats: Porc-Epicgrottan söder om Dire Dawa, Etiopien
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/obsidian-i-porc-epicgrottan.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Obsidian from afar in Porc-Epic Cave — Porc-Epic Cave south of Dire Dawa, Ethiopia, 48050 BCE. What happened (show only this, do not add details): In Porc-Epic Cave near Dire Dawa in eastern Ethiopia, Middle Stone Age hunters left behind obsidian tools. The stone is not found nearby but comes from three sources 150–250 kilometres away. According to Wikipedia, the stone material was obtained on journeys through the landscape or through exchange with neighbours. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Obsidian från Nya Britannien förs över havet (`obsidian-fran-nya-britannien`)
+
+- År: 21050 BCE · plats: Nya Britannien i Bismarckarkipelagen, Papua Nya Guinea
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/obsidian-fran-nya-britannien.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Obsidian from New Britain is carried across the sea — New Britain in the Bismarck Archipelago, Papua New Guinea, 21050 BCE. What happened (show only this, do not add details): Obsidian is a volcanic glass. At the site of Matenkupkum on New Ireland there was obsidian from the neighbouring island of New Britain at least 12,000 years ago, so the stone had been carried across the sea. According to Wikipedia, obsidian was traded in what is now Papua New Guinea at least 23,000 years ago. The sources differ on when the exchange began. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Victoriasjön fylls på nytt (`victoriasjon-fylls-pa-nytt`)
+
+- År: 15050 BCE · plats: Victoriasjön, mellan Uganda, Kenya och Tanzania
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/victoriasjon-fylls-pa-nytt.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Lake Victoria fills again — Lake Victoria, between Uganda, Kenya and Tanzania, 15050 BCE. What happened (show only this, do not add details): Lake Victoria, Africa’s largest lake, is only 68–81 metres deep and has dried out completely at least three times, most recently during the last ice age. When the rains returned it filled again, first with wetlands and then with a deep lake. The sources differ on when this happened. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Rotoitiutbrottet på Nordön (`rotoitiutbrottet`)
+
+- År: 62050 BCE · plats: Rotoitisjön i Ōkatainakalderan, Bay of Plenty, Nya Zeeland
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/rotoitiutbrottet.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Rotoiti eruption on the North Island — Lake Rotoiti in the Ōkataina Caldera, Bay of Plenty, New Zealand, 62050 BCE. What happened (show only this, do not add details): The Rotoiti eruption in the Ōkataina Caldera on New Zealand’s North Island threw out about 100 cubic kilometres of magma or more. Its ash and ignimbrite cover large parts of the northern North Island, and geologists use the layer as a reference layer in the stratigraphy. When the eruption happened is disputed. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Aitapeskallen och en tsunami på Nya Guineas nordkust (`aitapeskallen-och-tsunamin`)
+
+- År: 5050 BCE · plats: Paniri Creek inåt land från Sissanolagunen, Sandaunprovinsen, Papua Nya Guinea
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/aitapeskallen-och-tsunamin.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Aitape Skull and a tsunami on New Guinea’s north coast — Paniri Creek inland from Sissano Lagoon, Sandaun Province, Papua New Guinea, 5050 BCE. What happened (show only this, do not add details): The Aitape Skull was found in 1929 inland from Sissano Lagoon on New Guinea’s north coast and is about 6,000 years old. A 2017 study concludes that it was carried there by a tsunami. The person may then be the oldest known tsunami victim, or may already have been buried when the wave came. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Hällmålningarna i Laas Geel (`hallmalningarna-i-laas-geel`)
+
+- År: 3550 BCE · plats: Laas Geel utanför Hargeisa, Maroodi Jeex, Somaliland (Somalia)
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/hallmalningarna-i-laas-geel.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The rock paintings of Laas Geel — Laas Geel outside Hargeisa, Maroodi Jeex, Somaliland (Somalia), 3550 BCE. What happened (show only this, do not add details): In the rock shelters of Laas Geel outside Hargeisa in Somaliland are vivid paintings of cattle, some in ceremonial robes, and of the herders who probably painted them. They are about 5,500–4,500 years old and are among the earliest known images of domestic cattle in the Horn of Africa. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Simmarnas grotta i Gilf Kebir (`simmarnas-grotta`)
+
+- År: 8000 BCE · plats: Wadi Sura i Gilf Kebir, Nya dalen, sydvästra Egypten
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/simmarnas-grotta.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Cave of Swimmers in the Gilf Kebir — Wadi Sura in the Gilf Kebir, New Valley, south-western Egypt, 8000 BCE. What happened (show only this, do not add details): In a rock shelter on the Gilf Kebir plateau in Egypt’s desert are paintings of people who seem to be swimming, and of a giraffe and a hippopotamus, among others. László Almásy found the site in 1933. The paintings may be as old as around 8000 BC, when the Sahara was greener. What they depict is disputed. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Pumpan tämjs i Guilá Naquitz (`pumpan-tams-i-guila-naquitz`)
+
+- År: 8800 BCE · plats: Guilá Naquitz-grottan nordväst om Mitla, Oaxaca, Mexiko
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/pumpan-tams-i-guila-naquitz.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Squash is domesticated at Guilá Naquitz — Guilá Naquitz Cave north-west of Mitla, Oaxaca, Mexico, 8800 BCE. What happened (show only this, do not add details): In the cave of Guilá Naquitz in Oaxaca in southern Mexico, archaeologists have found remains of the squash Cucurbita pepo whose rinds and stalks grew thicker over time, a sign that people were selecting and growing the plant. According to Wikipedia, it is the oldest known evidence of a domesticated crop on the continent. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Himmelsskivan från Nebra (`nebra-himmelsskivan`)
+
+- År: 1800 BCE · plats: Mittelberg vid Nebra, Sachsen-Anhalt, Tyskland
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/nebra-himmelsskivan.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The Nebra sky disc — Mittelberg near Nebra, Saxony-Anhalt, Germany, 1800 BCE. What happened (show only this, do not add details): The Nebra bronze disc has gold figures read as a sun or full moon, a crescent moon and stars, among them a group usually taken to be the Pleiades. No older concrete depiction of heavenly bodies is known anywhere. The disc belongs to the Únětice culture and was dug up by looters on the Mittelberg in 1999. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## En meteorit slår ner vid Kaali (`kaali-kratern`)
+
+- År: 1530 BCE · plats: Kaali på ön Saaremaa, Estland
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/kaali-kratern.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: A meteorite strikes at Kaali — Kaali on the island of Saaremaa, Estonia, 1530 BCE. What happened (show only this, do not add details): Nine craters on Saaremaa formed when a meteorite of 20–80 tonnes broke apart in the air and the pieces struck the ground. The largest, 110 metres wide, now holds Lake Kaali. Forest burned up to 6 km away, and the island was already inhabited. The lake is seen as a later cult site, where animal bones may be traces of sacrifices. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Lerkärlet från Vinkovci tolkas som en kalender (`kalenderkarlet-fran-vinkovci`)
+
+- År: 2600 BCE · plats: Vinkovci, Kroatien
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/kalenderkarlet-fran-vinkovci.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The Vinkovci vessel is read as a calendar — Vinkovci, Croatia, 2600 BCE. What happened (show only this, do not add details): A clay vessel of the Vučedol culture, dated to about 2600 BC, was found in a burial mound in the centre of Vinkovci. Its four bands of signs are read as the four seasons of the year, each with twelve boxes for signs in the sky, and according to this interpretation the calendar follows the constellation Orion. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Pytheas seglar till norra Europa (`pytheas-seglar-norrut`)
+
+- År: 325 BCE · plats: Norra spetsen av Storbritannien, som Pytheas kallade Orcas (punkten är Dunnet Head; han reste från Massalia, i dag Marseille)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/pytheas-seglar-norrut.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Pytheas sails to northern Europe — The northern tip of Britain, which Pytheas called Orcas (the point is Dunnet Head; he set out from Massalia, today Marseille), 325 BCE. What happened (show only this, do not add details): The Greek geographer Pytheas of Massalia travelled to northern Europe around 325 BC and visited much of the British Isles. He is the first person on record to describe the midnight sun, and he called the northern tip of Britain Orcas. His book is lost and is known only through later writers. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Hekla får ett av sina största utbrott (`hekla-3-utbrottet`)
+
+- År: 1203 BCE · plats: Hekla, Island
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/hekla-3-utbrottet.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Hekla has one of its largest eruptions — Hekla, Iceland, 1203 BCE. What happened (show only this, do not add details): With about 7.3 km³ of ejected material, Hekla 3 is among Iceland’s largest eruptions since the last ice age. Ash from it has been found in Scottish peat bogs. The eruption may have cooled the northern hemisphere for a few years, and in Ireland trees hardly grew at all for a decade. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Vägen över mossen vid Corlea byggs (`corlea-vagen-byggs`)
+
+- År: 148 BCE · plats: Corlea nära Keenagh, grevskapet Longford, Irland
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/corlea-vagen-byggs.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The Corlea bog road is built — Corlea near Keenagh, County Longford, Ireland, 148 BCE. What happened (show only this, do not add details): The oaks in the Corlea road were felled in late 148 or early 147 BC, according to the tree rings. From split planks a road at least a kilometre long was built across the bog, wide enough for wheels. Within about ten years the bog had swallowed it. Its purpose is unknown. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Skeppet med Antikytheramekanismen sjunker (`antikytheravraket`)
+
+- År: 70 BCE · plats: Utanför ön Antikythera, Grekland
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/antikytheravraket.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The ship carrying the Antikythera mechanism sinks — Off the island of Antikythera, Greece, 70 BCE. What happened (show only this, do not add details): A ship sank off Antikythera around 70–60 BC. Its cargo included a hand-cranked instrument with at least 30 bronze gears that could follow the Sun and the Moon and predict eclipses. It is often called the oldest known analogue computer. Sponge divers found the wreck in 1900. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Pest i bronsålderns Britannien (`pest-i-bronsalderns-britannien`)
+
+- År: 2196 BCE · plats: Charterhouse Warren i Mendip Hills, Somerset, England (punkten är byn Charterhouse)
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/pest-i-bronsalderns-britannien.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Plague in Bronze Age Britain — Charterhouse Warren in the Mendip Hills, Somerset, England (the point is the village of Charterhouse), 2196 BCE. What happened (show only this, do not add details): The plague bacterium Yersinia pestis has been found in the teeth of three people who lived in Britain about 4,000 years ago: two children from a mass burial at Charterhouse Warren and a woman at Levens in Cumbria. They are the earliest traces of plague detected so far in Britain. How severe the disease was is unclear. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Kallt och torrt i Alperna (`kyla-i-alperna-4-2`)
+
+- År: 2250 BCE · plats: Spannagelgrottan i Tyrolen, Österrike (punkten är grottan; folkminskningen gäller norra alpförlandet)
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/kyla-i-alperna-4-2.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Cold and dry in the Alps — Spannagel Cave in Tyrol, Austria (the point is the cave; the population decline concerns the northern Alpine foreland), 2250 BCE. What happened (show only this, do not add details): Speleothems from three caves in Germany and Austria show cooler weather and dry winters around 2250–2150 BC, during the so-called 4.2 event. In Spannagel Cave it is the coldest time in the 2,000 years the study covers. At the same time, the population in the northern Alpine foreland clearly declined. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Hirs på bordet i Polen (`hirs-i-pielgrzymowice`)
+
+- År: 1636 BCE · plats: Trakten av Pielgrzymowice nordost om Kraków, Polen (punkten är byn med det namnet; att det är fyndplatsen är en tolkning)
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/hirs-i-pielgrzymowice.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Millet on the table in Poland — Area of Pielgrzymowice north-east of Kraków, Poland (the point is the village of that name; that it is the find site is an interpretation), 1636 BCE. What happened (show only this, do not add details): Isotopes in bones and teeth show that a woman at Pielgrzymowice ate a lot of millet around 1590 BC, give or take 50 years, but not as a child. It is the earliest evidence of people in the area eating a lot of millet, and according to the study it pushes the oldest known millet eating in Europe back by more than a century. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Elfenbensdamen i Valencina (`elfenbensdamen-i-valencina`)
+
+- År: 2900 BCE · plats: Valencina de la Concepción nära Sevilla, Spanien (punkten är orten)
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/elfenbensdamen-i-valencina.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The Ivory Lady of Valencina — Valencina de la Concepción near Seville, Spain (the point is the town), 2900 BCE. What happened (show only this, do not add details): A young person was buried alone at Valencina around 2900–2650 BC with, among other things, a whole African elephant tusk. The researchers argue that the grave goods make her the most prominent person on the peninsula in the Copper Age before the Bell Beaker culture. Proteins in the tooth enamel showed in 2021 that she was a woman, not a man. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Den befästa byn i Biskupin byggs (`biskupin-byggs`)
+
+- År: 748 BCE · plats: Biskupin vid Żnin, Kujavien-Pommern, Polen
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/biskupin-byggs.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The fortified settlement of Biskupin is built — Biskupin near Żnin, Kuyavian-Pomeranian Voivodeship, Poland, 748 BCE. What happened (show only this, do not add details): A fortified wooden settlement was built on a wet island in a lake in northern Poland, today a peninsula. Tree rings show that the oaks were felled in 747–722 BC, most of them in the winter of 748/747 BC. The settlement belonged to the Lusatian culture. When it was found in 1933, it was first thought to be Slavic. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Bojerna präglar Biatecmynt (`biatec-mynten`)
+
+- År: 100 BCE · plats: Bratislava, Slovakien (punkten är staden)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/biatec-mynten.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The Boii mint Biatec coins — Bratislava, Slovakia (the point is the city), 100 BCE. What happened (show only this, do not add details): In the 1st century BC the Celtic Boii minted silver and gold coins where Bratislava stands today. The coins carry fourteen different inscriptions in Latin capitals, most often the name Biatec, presumably a king. No older writing is known in Slovakia or the neighbouring lands. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Saltgruvorna i Hallstatt blomstrar (`saltbrytning-i-hallstatt`)
+
+- År: 800 BCE · plats: Hallstatt, Övre Österrike, Österrike
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/saltbrytning-i-hallstatt.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The salt mines of Hallstatt flourish — Hallstatt, Upper Austria, Austria, 800 BCE. What happened (show only this, do not add details): Salt was mined at Hallstatt already in the Bronze Age, and from the 8th century BC until about 500 BC the Alpine mines were the centre of a wealthy community whose prosperity shows in the cemeteries. In the mine tunnels the salt has preserved leather, wood and textiles, among them backpacks. The place gave its name to the Hallstatt culture. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Kopparbrytning på Great Orme (`kopparbrytning-pa-great-orme`)
+
+- År: 2000 BCE · plats: Great Orme vid Llandudno, Wales
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/kopparbrytning-pa-great-orme.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Copper mining on the Great Orme — Great Orme near Llandudno, Wales, 2000 BCE. What happened (show only this, do not add details): With tools of stone and bone, people began mining copper ore on the Great Orme in north Wales about 4,000 years ago. Around 1600 BC it was the only working copper mine in Britain, and it was at its most productive in 1700–1400 BC. In total up to 1,760 tonnes of copper may have been mined. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Tjurhopp på väggarna i Knossos (`tjurhoppning-pa-knossos`)
+
+- År: 1450 BCE · plats: Palatset i Knossos, Kreta, Grekland
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/tjurhoppning-pa-knossos.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Bull-leaping on the walls of Knossos — The palace of Knossos, Crete, Greece, 1450 BCE. What happened (show only this, do not add details): A painted stucco relief from the palace of Knossos, from about 1450–1400 BC, shows a person upside down over a bull’s back, with one figure at the animal’s horns and one behind it. Bull-leaping is a common motif in Minoan art. Whether it was a sport, a ceremony or both is debated. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Den trakiska graven i Kazanlak målas (`trakiska-graven-i-kazanlak`)
+
+- År: 400 BCE · plats: Kazanlak, Stara Zagora, Bulgarien
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/trakiska-graven-i-kazanlak.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The Thracian tomb of Kazanlak is painted — Kazanlak, Stara Zagora Province, Bulgaria, 400 BCE. What happened (show only this, do not add details): In the valley where Thracian rulers were buried, near Kazanlak, a small domed brick tomb was built in the 4th century BC. Its frescoes show a couple at a ritual funeral feast, with musicians, horses and a chariot. No paintings from the Hellenistic period are better preserved in Bulgaria. The tomb has been a World Heritage Site since 1979. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Offergåvor på berget vid Kokino (`offerberget-vid-kokino`)
+
+- År: 1900 BCE · plats: Tatićev Kamen vid Kokino, kommunen Staro Nagoričane, Nordmakedonien
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/offerberget-vid-kokino.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Offerings on the mountain at Kokino — Tatićev Kamen near Kokino, Staro Nagoričane Municipality, North Macedonia, 1900 BCE. What happened (show only this, do not add details): On the summit of Tatićev Kamen near Kokino there are traces of people from the 19th to the 7th century BC, most of them from the Middle Bronze Age. Vessels with offerings were placed in cracks in the rock, so the site is interpreted as a holy mountain. Its discoverers believe that stones there marked the sunrise at the solstices. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Megalitgravarna vid Kap Trafalgar (`megalitgravarna-vid-trafalgar`)
+
+- År: 1875 BCE · plats: Tombolon vid Kap Trafalgar, Barbate, Cádiz, Spanien
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/megalitgravarna-vid-trafalgar.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The megalithic tombs at Cape Trafalgar — The tombolo at Cape Trafalgar, Barbate, Cádiz, Spain, 1875 BCE. What happened (show only this, do not add details): On the tombolo at Cape Trafalgar, archaeologists have excavated two Bronze Age megalithic tombs. Radiocarbon dating shows that they were used mainly around 1875–1600 BC. They may have been built then, and if so they are among the last megalithic tombs in the Iberian Peninsula. The grave goods include gold, silver and ivory. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Pungvargen och pungdjävulen dör ut på fastlandet (`pungvargen-forsvinner-fran-fastlandet`)
+
+- År: 1651 BCE · plats: Australiens fastland; punkten är mitt på Nullarborslätten, där en uttorkad pungvarg, omkring 3 300 år gammal, hittades i en grotta
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/pungvargen-forsvinner-fran-fastlandet.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The thylacine and the Tasmanian devil die out on the mainland — Mainland Australia; the point is in the middle of the Nullarbor Plain, where a dried-out thylacine about 3,300 years old was found in a cave, 1651 BCE. What happened (show only this, do not add details): Around 1650–1250 BC the thylacine vanished from mainland Australia, and the Tasmanian devil at about the same time. Both lived on in Tasmania. The dingo appeared on the mainland in the same period, and researchers name it, a growing population and a changing climate as possible causes. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Det sista spåret av jättefågeln Sylviornis (`sylviornis-dor-ut`)
+
+- År: 1120 BCE · plats: Pindaigrottorna på Népouihalvön, Grande Terres nordvästkust (i dag Nya Kaledonien)
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/sylviornis-dor-ut.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The last trace of the giant bird Sylviornis — The Pindai Caves on the Népoui Peninsula, north-west coast of Grande Terre (today New Caledonia), 1120 BCE. What happened (show only this, do not add details): The youngest known bone of Sylviornis comes from the Pindai Caves and is dated to 1120–840 BC. The bird lived only in New Caledonia, could not fly, stood about 80 cm tall and weighed 27–34 kg. Its bones are often found at sites used by people, and the Lapita people probably hunted it until it died out. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Lapitafolket jagar stora landsköldpaddor (`lapitafolket-jagar-landskoldpaddor`)
+
+- År: 1051 BCE · plats: Från Vanuatu till Viti Levu i Fiji; punkten är ön Naigani, en av fyndplatserna (i dag Fiji)
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/lapitafolket-jagar-landskoldpaddor.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The Lapita people hunt large land tortoises — From Vanuatu to Viti Levu in Fiji; the point is the island of Naigani, one of the find sites (today Fiji), 1051 BCE. What happened (show only this, do not add details): At seven early settlement sites, five in Vanuatu and two in Fiji, there are bones of a large hornless tortoise that lived on land. Many bones are burnt and bear cut marks from butchery. In Vanuatu they date to around 1050–750 BC. People hunted the tortoises until the species died out. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Ett av de största utbrotten i Witori (`stort-utbrott-i-witori`)
+
+- År: 1470 BCE · plats: Witorikalderan öster om Kimbe på Nya Britannien (i dag Papua Nya Guinea); punkten är Pago, en ung vulkankägla inne i kalderan
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/stort-utbrott-i-witori.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: One of the largest eruptions at Witori — The Witori Caldera east of Kimbe on New Britain (today Papua New Guinea); the point is Pago, a young volcanic cone inside the caldera, 1470 BCE. What happened (show only this, do not add details): Pago is a young volcanic cone inside the Witori Caldera on New Britain. Around 1370 BC, with an uncertainty of a hundred years, the volcano had one of its largest eruptions. Of the three large eruptions the source lists, it produced the most material: about 30 cubic kilometres of ash and rock (VEI 6). historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Starkare El Niño och ändrad eldning i norra Australien (`el-nino-och-elden-vid-girraween`)
+
+- År: 2051 BCE · plats: Girraweenlagunen strax söder om Darwin, Northern Territory, Australien
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/el-nino-och-elden-vid-girraween.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: A stronger El Niño and changed burning in northern Australia — Girraween Lagoon just south of Darwin, Northern Territory, Australia, 2051 BCE. What happened (show only this, do not add details): According to earlier research, El Niño grew stronger from around 2050 BC. A sediment core from Girraween Lagoon shows a drier and more changeable climate at that time. Around 1050 BC the traces of fire change. Aboriginal people probably then began managing the landscape with fire, or did so more, perhaps because of the climate or a growing population. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Arvsmassa från Watom under lapitatiden (`arvsmassa-fran-watom`)
+
+- År: 751 BCE · plats: Reber–Rakival på ön Watom utanför Nya Britannien (i dag Papua Nya Guinea); punkten är ön
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/arvsmassa-fran-watom.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: DNA from Watom in the Lapita period — Reber–Rakival on Watom Island off New Britain (today Papua New Guinea); the point is the island, 751 BCE. What happened (show only this, do not add details): Watom Island has Lapita pottery from before 1050 BC. Yet two people buried there around 750–250 BC had only Papuan ancestry in their DNA, closest to Baining speakers on New Britain. Isotopes suggest that they grew up on the island. East Asian ancestry is found in a person from around AD 50. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Palauernas långa släktlinje (`arvsmassa-fran-palau`)
+
+- År: 975 BCE · plats: Gravgrottan Ucheliungs bland Rock Islands, Palau; punkten är öarnas mitt
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/arvsmassa-fran-palau.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The long ancestral line of the Palauans — The Ucheliungs burial cave in the Rock Islands, Palau; the point is the centre of the islands, 975 BCE. What happened (show only this, do not add details): In the Ucheliungs burial cave in Palau's limestone islands, two people have been dated to around 975–546 BC. They and 19 others up to around AD 1450 had about 60 per cent East Asian and 40 per cent Papuan ancestry, like Palauans today. According to the study, this is the longest known continuity in Remote Oceania. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Från havets mat till odlingarnas på Uripiv (`kosten-pa-uripiv`)
+
+- År: 851 BCE · plats: Ön Uripiv utanför nordöstra Malakula (i dag Vanuatu)
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/kosten-pa-uripiv.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: From sea food to farmed food on Uripiv — Uripiv Island off north-east Malakula (today Vanuatu), 851 BCE. What happened (show only this, do not add details): Graves on the island of Uripiv show how diet changed from the Lapita period, around 850–650 BC, to the time after it, around 550–50 BC. Isotopes in the skeletons show more and more food from the land and less from the sea, which fits with farming growing. Three people from the later period had probably moved there after childhood. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Kavan odlas fram i Vanuatu (`kavan-odlas-fram`)
+
+- År: 1051 BCE · plats: Norra Vanuatu; punkten är ön Pentecost, där en av de vanligaste odlade sorterna kommer ifrån. Källan nämner ingen enskild ö för domesticeringen
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/kavan-odlas-fram.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Kava is domesticated in Vanuatu — Northern Vanuatu; the point is Pentecost Island, home of one of the most common cultivated varieties. The source names no single island for the domestication, 1051 BCE. What happened (show only this, do not add details): Kava is a plant whose root is ground and mixed with water to make a drink used at ceremonies around the Pacific. It was probably developed by growers in northern Vanuatu about 3,000 years ago, around 1050 BC, by selecting from the wild species Piper wichmannii. The cultivated varieties are sterile and are propagated without seeds. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Fisken försvinner ur tasmaniernas kost (`fisken-forsvinner-ur-tasmaniernas-kost`)
+
+- År: 2051 BCE · plats: Tasmanien, Australien; källan nämner ingen enskild plats, och punkten är ungefär öns mitt
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/fisken-forsvinner-ur-tasmaniernas-kost.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Fish disappears from the Tasmanians' diet — Tasmania, Australia; the source names no single site, and the point is roughly the centre of the island, 2051 BCE. What happened (show only this, do not add details): The diet of the Aboriginal people of Tasmania seems to have changed around 2050 BC: more possums, kangaroos and wallabies and almost no scaled fish. They also appear to have replaced bone tools with sharp stone tools. The reason is disputed. One explanation is that scrubland turned into grassland that gave more other food. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## En fältnäbbmus i bronsålderns Danmark (`faltnabbmus-i-aalborg`)
+
+- År: 897 BCE · plats: Aalborg, Danmark (punkten är staden; fynden gjordes i stadens sydöstra utkant)
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/faltnabbmus-i-aalborg.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: A bicoloured shrew in Bronze Age Denmark — Aalborg, Denmark (the point is the city; the finds were made on its south-eastern outskirts), 897 BCE. What happened (show only this, do not add details): In a waste layer in a small building in an Iron Age village near Aalborg lay bones of a bicoloured shrew, a species not among Denmark's shrews today. DNA revealed the species, and a jawbone was dated to around 900–570 BC. The researchers lean towards it having lived there, but cannot rule out that it was carried there. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Metallen till Sydskandinavien byter väg (`metallen-till-sydskandinavien-byter-vag`)
+
+- År: 2100 BCE · plats: Sydskandinavien, främst Danmark; punkten är ungefär Danmarks mitt
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/metallen-till-sydskandinavien-byter-vag.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Metal reaches southern Scandinavia by new routes — Southern Scandinavia, mainly Denmark; the point is roughly the middle of Denmark, 2100 BCE. What happened (show only this, do not add details): Just over 500 analyses of metal objects show that more and more metal reached southern Scandinavia from around 2100–2000 BC, first from the Inn Valley in Austria and Slovakia via central Germany. Around 1500 BC British copper no longer appears in the finds, and in 1450–1300 BC over 60 per cent of the samples point to northern Italy. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Betet sätter spår vid Mortensnes (`bete-vid-mortensnes`)
+
+- År: 1650 BCE · plats: Mortensnes vid Varangerfjorden, Nesseby kommun, Norge
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/bete-vid-mortensnes.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Grazing leaves its mark at Mortensnes — Mortensnes on the Varanger Fjord, Nesseby Municipality, Norway, 1650 BCE. What happened (show only this, do not add details): Mortensnes on the Varanger Fjord was a large settlement for thousands of years. Yet DNA and pollen from a nearby lake show that it noticeably affected the plants around it only in the last 3,600 years or so, through grazing, and more in the last thousand years, probably through reindeer herding and possibly domestic stock. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Spår av meningokocker på Ajvide (`meningokocker-pa-ajvide`)
+
+- År: 2800 BCE · plats: Ajvide, Eksta socken, sydvästra Gotland, Sverige
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/meningokocker-pa-ajvide.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Traces of meningococci at Ajvide — Ajvide, Eksta parish, south-west Gotland, Sweden, 2800 BCE. What happened (show only this, do not add details): Ajvide on Gotland was a settlement of hunter-gatherers of the Pitted Ware culture. In DNA from skeletons found there, researchers detected traces of the bacterium Neisseria meningitidis (meningococci). In one person who lived around 2800 BC the find counts as a probable case, in another as ambiguous. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Mjölk i lerkärlen i Kyrkslätt (`mjolk-i-lerkarlen-i-kyrkslatt`)
+
+- År: 2500 BCE · plats: Kyrkslätt (Kirkkonummi), Nyland, Finland; fynden kommer från tre boplatser i kommunen, och punkten är kommunens centrum
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/mjolk-i-lerkarlen-i-kyrkslatt.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Milk in the pots of Kirkkonummi — Kirkkonummi (Kyrkslätt), Uusimaa, Finland; the finds come from three sites in the municipality, and the point is its centre, 2500 BCE. What happened (show only this, do not add details): Fat residues in pottery show that around 2500 BC people in southern Finland went from food from the water to products from ruminants. At three Corded Ware sites in Kirkkonummi there was ruminant fat, and in three beakers milk fat. This shows livestock farming that far north. Dairying probably came with a new population. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Kastelli jättekyrka byggs (`kastelli-jattekyrka`)
+
+- År: 2000 BCE · plats: Nära Pattijoki, Norra Österbotten, Finland
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/kastelli-jattekyrka.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The Kastelli Giant's Church is built — Near Pattijoki, North Ostrobothnia, Finland, 2000 BCE. What happened (show only this, do not add details): Near Pattijoki, a stone enclosure of about 60 by 35 metres was built around 2000 BC, with walls seven metres wide and six openings. It then stood on a rocky shore, and more than twenty stone cairns surround it. The source does not say what it was for, but pits nearby may have stored killed game. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Bärnsten och bronsgjutning i Kukuliškiai (`barnsten-och-brons-i-kukuliskiai`)
+
+- År: 800 BCE · plats: Kukuliškiai, Klaipėda distrikt, Litauens kust
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/barnsten-och-brons-i-kukuliskiai.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Amber and bronze casting at Kukuliškiai — Kukuliškiai, Klaipėda District, on the Lithuanian coast, 800 BCE. What happened (show only this, do not add details): Around 800–400 BC a settlement with wooden houses stood on the Lithuanian coast. Bronze was cast in moulds there, and amber and working waste turn up across almost the whole excavation. As Lithuania has no metal ore, researchers link the amber to trade. People grew barley, peas, lentils and broad beans, and mostly kept domestic animals. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Tumlarna blir färre i östra Östersjön (`tumlarna-blir-farre-i-ostra-ostersjon`)
+
+- År: 3000 BCE · plats: Östra Östersjön; punkten är Sārnate i västra Lettland, där tumlartänder först kändes igen i mönstren på lerkärl
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/tumlarna-blir-farre-i-ostra-ostersjon.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Porpoises become fewer in the eastern Baltic — The eastern Baltic; the point is Sārnate in western Latvia, where porpoise teeth were first recognised in pottery decoration, 3000 BCE. What happened (show only this, do not add details): Bones from sites in Estonia, Latvia and Lithuania show that porpoises were fairly numerous in the eastern Baltic 6,000–4,000 years ago. After around 3000 BC they seem to have become fewer, as the sea also became less salty. At Sārnate in Latvia people appear to have stamped patterns into pots with porpoise jaws. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Befästa boplatser på kullar i östra Litauen (`befasta-kullar-i-ostra-litauen`)
+
+- År: 1000 BCE · plats: Östra Litauen; punkten är borgkullen i Narkūnai, en av de mest undersökta
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/befasta-kullar-i-ostra-litauen.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Fortified hilltop settlements in eastern Lithuania — Eastern Lithuania; the point is the hillfort at Narkūnai, one of the most studied, 1000 BCE. What happened (show only this, do not add details): Around 1000 BC people in eastern Lithuania began to build fortified settlements on hills, with rectangular post houses. Each settlement is thought to have housed about 80–120 people. They hunted, gathered and kept sheep, pigs and cattle but farmed less. At some sites metal was cast in clay moulds. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Olbia gjuter mynt formade som delfiner (`delfinmynt-i-olbia`)
+
+- År: 500 BCE · plats: Olbia vid Södra Bugs mynningsvik, Mykolajiv oblast, Ukraina
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/delfinmynt-i-olbia.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Olbia casts coins shaped like dolphins — Olbia on the Southern Bug estuary, Mykolaiv Oblast, Ukraine, 500 BCE. What happened (show only this, do not add details): Olbia was a Greek colony from Miletus on the Southern Bug estuary. Grain, fish and slaves were shipped from here to Greece. In the 5th century BC the city cast bronze money, including coins shaped like leaping dolphins, when most Greek coins were otherwise round and struck. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Mjölkproteiner i tandsten från skytisk tid (`mjolkproteiner-i-skyternas-tandsten`)
+
+- År: 700 BCE · plats: Bilsk i Poltava oblast och Mamai-Gora vid Dnepr, Ukraina; punkten är borgen i Bilsk
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/mjolkproteiner-i-skyternas-tandsten.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Milk proteins in dental calculus from the Scythian era — Bilsk in Poltava Oblast and Mamai-Gora on the Dnieper, Ukraine; the point is the Bilsk hillfort, 700 BCE. What happened (show only this, do not add details): Dental calculus from people buried at Bilsk and Mamai-Gora in Ukraine around 700–200 BC contained proteins from the milk of cattle, sheep and goats. One person also had protein from horse milk. The sample is small: six of eleven people with reliable samples had milk proteins. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Kopparbrytningen i Kargaly (`kopparbrytning-i-kargaly`)
+
+- År: 3000 BCE · plats: Kargaly, Orenburg oblast, södra Ural, Ryssland (punkten är gruvområdets mitt)
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/kopparbrytning-i-kargaly.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: Copper mining at Kargaly — Kargaly, Orenburg Oblast, southern Urals, Russia (the point is the centre of the mining area), 3000 BCE. What happened (show only this, do not add details): Copper mining began at Kargaly in the southern Urals around 3000 BC. After a long break around 2500–1900 BC it became far more intensive and went on until about 1400 BC. The area covers almost 500 km², with up to 35,000 traces of shafts, galleries and open pits. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Handelsstaden Tanais grundas vid Don (`handelsstaden-tanais-grundas`)
+
+- År: 300 BCE · plats: Tanais vid Nedvigovka, Rostov oblast, Ryssland
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/handelsstaden-tanais-grundas.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The trading town of Tanais is founded on the Don — Tanais at Nedvigovka, Rostov Oblast, Russia, 300 BCE. What happened (show only this, do not add details): In the first quarter of the 3rd century BC, Greeks from the Bosporus founded the town of Tanais in the Don delta. Strabo calls it a shared market for the nomads of Asia and Europe. They brought slaves, hides and animal products and received clothing and wine. Most of the amphora stamps from the excavations come from Rhodes. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Etnas våldsamma utbrott 122 f.Kr. (`etnas-utbrott-122-fkr`)
+
+- År: 122 BCE · plats: Etna, Sicilien, Italien (punkten är toppen)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/etnas-utbrott-122-fkr.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The violent eruption of Etna in 122 BC — Mount Etna, Sicily, Italy (the point is the summit), 122 BCE. What happened (show only this, do not add details): In 122 BC Etna had a very violent explosive eruption from its summit, of the kind called Plinian. Tephra fell to the south-east, including on the town of Catania, where many roofs collapsed. The Roman government then exempted the people of Catania from taxes for ten years. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Terramarebyarna överges (`terramarebyarna-overges`)
+
+- År: 1200 BCE · plats: Poslätten i Emilia, norra Italien; punkten är Montale nära Modena, en av kulturens stora platser
+- Stil: Egyptisk väggmålning och papyrus (`egypten`)
+- Spara som: `images/incoming/terramarebyarna-overges.jpg`
+
+```text
+Style: ancient Egyptian wall painting and papyrus illustration, flat profile figures, registers, limited palette of ochre, malachite green, Egyptian blue and black outlines; Mesopotamian low relief carving as an alternative. Subject: The Terramare villages are abandoned — The Po plain in Emilia, northern Italy; the point is Montale near Modena, one of the culture's major sites, 1200 BCE. What happened (show only this, do not add details): The Terramare culture of the Po plain left over 60 known villages, where people grew wheat, barley and legumes and kept livestock. Around 1200–1150 BC most villages south of the Po were abandoned. Possible causes mentioned are overpopulation, depleted resources and periods of drought, but the causes are not fully clear. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Alkmaion från Kroton och hälsan som jämvikt (`alkmaion-fran-kroton`)
+
+- År: 500 BCE · plats: Kroton (i dag Crotone), Kalabrien, Italien
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/alkmaion-fran-kroton.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Alcmaeon of Croton and health as balance — Croton (today Crotone), Calabria, Italy, 500 BCE. What happened (show only this, do not add details): The natural philosopher Alcmaeon of Croton lived around 500 BC. He saw health as a balance between opposing powers in the body and disease as one of them taking over. He placed thought in the head. A late antique source says he dissected, but whether he did, and if so on animals or humans, is disputed. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Arkimedes verkar i Syrakusa (`arkimedes-i-syrakusa`)
+
+- År: 287 BCE · plats: Syrakusa, Sicilien, Italien
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/arkimedes-i-syrakusa.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Archimedes at work in Syracuse — Syracuse, Sicily, Italy, 287 BCE. What happened (show only this, do not add details): Archimedes lived in Syracuse on Sicily, around 287–212 BC. In his work On Floating Bodies he wrote that a body in a fluid is pushed upwards with a force equal to the weight of the fluid it displaces. Using polygons with 96 sides, he showed that π lies between 3 10/71 and 3 1/7. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Kultbyggnaden i Nevalı Çori (`nevali-cori-kultbyggnad`)
+
+- År: 8400 BCE · plats: Nevalı Çori vid Eufrat, Şanlıurfaprovinsen, Turkiet (i dag under vatten)
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/nevali-cori-kultbyggnad.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The cult building at Nevalı Çori — Nevalı Çori on the Euphrates, Şanlıurfa Province, Turkey (now under water), 8400 BCE. What happened (show only this, do not add details): By a stream near the Euphrates, in the foothills of the Taurus Mountains, people built a cult building into the slope around 8400–8100 BC. It had single-piece pillars and limestone sculptures, among them a head larger than life. Small clay figurines are interpreted as offerings. The site is now under water. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Eridu grundas i södra Mesopotamien (`eridu-grundas`)
+
+- År: 5400 BCE · plats: Eridu sydsydväst om Ur, Dhi Qar, Irak
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/eridu-grundas.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Eridu is founded in southern Mesopotamia — Eridu south-south-west of Ur, Dhi Qar, Iraq, 5400 BCE. What happened (show only this, do not add details): Eridu was founded around 5400 BC, in the Ubaid period, on a sand dune where no one had lived before. The Sumerians’ own texts make Eridu the first city, and it is traditionally counted as the oldest in southern Mesopotamia. The temple of the god Enki was rebuilt again and again on top of the older buildings. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Vinframställning i grottan Areni-1 (`vinkallaren-i-areni-1`)
+
+- År: 4100 BCE · plats: Grottan Areni-1 vid byn Areni, Vajots Dzor, Armenien
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/vinkallaren-i-areni-1.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Winemaking in Areni-1 cave — Areni-1 cave near the village of Areni, Vayots Dzor, Armenia, 4100 BCE. What happened (show only this, do not add details): Around 4100–4000 BC, grapes were pressed in a cave by the Arpa River in Armenia. There is a clay pressing basin, a vat for fermentation, large jars and remains of grape seeds and skins. Traces of a pigment from red wine show that it was wine. It is the oldest known site of winemaking. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Mustatilerna och en kult kring boskap (`mustatilerna-i-arabien`)
+
+- År: 5300 BCE · plats: Nordvästra Saudiarabien; punkten är en av platserna
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/mustatilerna-i-arabien.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The mustatils and a cattle cult — North-western Saudi Arabia; the point is one of the sites, 5300 BCE. What happened (show only this, do not add details): More than a thousand mustatils, long courtyards within sandstone walls, are found in north-western Saudi Arabia. A chamber in the middle of one of them held only pieces of cattle skulls. Radiocarbon on the pieces shows that it was built around 5300–5000 BC, and perhaps the others too. The finds are believed to be traces of an unknown cult. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Vassbåtar på havet vid Kuwaitbukten (`vassbatar-vid-h3-i-kuwait`)
+
+- År: 5511 BCE · plats: Platsen H3 på Jazirat Dubaji, Subiya, norr om Kuwaitbukten, Kuwait
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/vassbatar-vid-h3-i-kuwait.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Reed boats at sea by Kuwait Bay — Site H3 on Jazirat Dubaji, Subiya, north of Kuwait Bay, Kuwait, 5511 BCE. What happened (show only this, do not add details): Barnacles on flakes of bitumen show that boats made their way out on the Persian Gulf from site H3 in Kuwait in the second half of the sixth millennium BC. The other side of the flakes bears reed impressions: the bitumen sealed boats of bundled reeds. The finds are described as the oldest known traces of boats at sea. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Havet fyller Persiska viken efter istiden (`persiska-viken-fylls`)
+
+- År: 10051 BCE · plats: Persiska viken; punkten är vikens mitt
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/persiska-viken-fylls.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The sea fills the Persian Gulf after the Ice Age — The Persian Gulf; the point is the middle of the gulf, 10051 BCE. What happened (show only this, do not add details): During the last ice age the sea level was at its lowest about 125 metres lower than today, and most of the floor of the Persian Gulf was land: a plain where rivers met. When the ice melted, the sea rose, and the gulf became a sea about 12,000–6,000 years ago. The plain may have been a refuge for people. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Kot Diji före Indusstäderna (`kot-diji`)
+
+- År: 3300 BCE · plats: Kot Diji söder om Khairpur, Sindh, Pakistan
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/kot-diji.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Kot Diji before the Indus cities — Kot Diji south of Khairpur, Sindh, Pakistan, 3300 BCE. What happened (show only this, do not add details): Kot Diji, opposite Mohenjo-daro on the Indus, has given its name to a culture of the Early Harappan phase. The site is estimated to have been inhabited from around 3300 BC. The elite lived on a height behind a wall with bastions, and below lay mud-brick houses on stone foundations. The whole site shows traces of large fires. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Sarazm och förbindelserna i Centralasien (`sarazm-och-handeln`)
+
+- År: 3900 BCE · plats: Sarazm väster om Pandzjakent, Sughd, Tadzjikistan
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/sarazm-och-handeln.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Sarazm and the connections of Central Asia — Sarazm west of Panjakent, Sughd, Tajikistan, 3900 BCE. What happened (show only this, do not add details): In north-western Tajikistan lay Sarazm, which is described as the first city in Central Asia with economic ties in a network of places, from the Turkmen steppes and the Aral Sea to the Iranian Plateau and the Indus. The pottery shows contacts in several directions, and the inhabitants worked metal on the site. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Liangzhu och dammarna vid Yangtzedeltat (`liangzhu-och-dammarna`)
+
+- År: 3300 BCE · plats: Liangzhu i Yuhang, nordvästra Hangzhou, Zhejiang, Kina
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/liangzhu-och-dammarna.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Liangzhu and the dams of the Yangtze Delta — Liangzhu in Yuhang, north-western Hangzhou, Zhejiang, China, 3300 BCE. What happened (show only this, do not add details): Liangzhu was the centre of a culture in the Yangtze Delta known for its jade. The city had clay walls with water and land gates. High dams were built north-west of it and low ones on the plain, the latter of clay in bundles of grass. The water system is counted as the oldest known in the world on such a large scale. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Gudinnans tempel i Niuheliang (`niuheliang-gudinnans-tempel`)
+
+- År: 3500 BCE · plats: Niuheliang mellan Chaoyang och Jianping, Liaoning, Kina
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/niuheliang-gudinnans-tempel.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Goddess Temple at Niuheliang — Niuheliang between Chaoyang and Jianping, Liaoning, China, 3500 BCE. What happened (show only this, do not add details): On the hills at Niuheliang, during the Hongshan culture around 3500–3000 BC, there was a place for burials and offerings where no dwellings have been found. A clay head with jade eyes gave an underground complex with painted walls the name Goddess Temple. There is also an altar and burial cairns. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## En blandad dryck i Jiahus krukor (`jiahu-jast-dryck`)
+
+- År: 7000 BCE · plats: Jiahu norr om Wuyang, Henan, Kina
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/jiahu-jast-dryck.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: A mixed drink in the jars of Jiahu — Jiahu north of Wuyang, Henan, China, 7000 BCE. What happened (show only this, do not add details): Chemical analyses of jars from the village of Jiahu in Henan gave signs of a fermented drink of rice, honey and hawthorn and/or grapes. The jars date from about 7000–5500 BC. The researchers assume that mould broke the rice down into sugar before fermentation, and the drink was flavoured with flowers and resin. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Rött lack i Kakinoshima (`lacket-i-kakinoshima`)
+
+- År: 7051 BCE · plats: Kakinoshima i Hakodate, Hokkaido, Japan
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/lacket-i-kakinoshima.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Red lacquer at Kakinoshima — Kakinoshima in Hakodate, Hokkaido, Japan, 7051 BCE. What happened (show only this, do not add details): At Kakinoshima, in what is now the city of Hakodate on Hokkaido, archaeologists have found red-lacquered objects that are about 9,000 years old. They are described as the oldest known lacquerwork in the world. The site was inhabited in the Jōmon period, from around 7000 to 1000 BC. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Akahoyautbrottet drabbar södra Kyushu (`akahoya-utbrottet-i-kikai`)
+
+- År: 5351 BCE · plats: Kikaikalderan i Ōsumiöarna söder om Kyushu, Kagoshima, Japan; punkten är kalderan
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/akahoya-utbrottet-i-kikai.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Akahoya eruption strikes southern Kyushu — Kikai Caldera in the Ōsumi Islands south of Kyushu, Kagoshima, Japan; the point is the caldera, 5351 BCE. What happened (show only this, do not add details): Kikai Caldera lies almost entirely under the sea south of Kyushu. About 7,300–7,200 years ago it exploded with a strength of 7 on the VEI scale. Glowing flows of ash and rock reached the coast about 100 kilometres away, and ash fell as far as Hokkaido. The eruption hit the Jōmon culture of southern Kyushu hard. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Utbrottet som skapade Kurilsjön (`kurilsjons-kaldera-bildas`)
+
+- År: 6460 BCE · plats: Kurilsjön på södra Kamtjatka, Ryssland
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/kurilsjons-kaldera-bildas.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The eruption that created Kurile Lake — Kurile Lake in southern Kamchatka, Russia, 6460 BCE. What happened (show only this, do not add details): Kurile Lake in southern Kamchatka fills a caldera that formed in an enormous eruption in 6460–6414 BC. About 140–170 cubic kilometres of material were thrown out, and the ash settled over more than two million square kilometres. It is the largest known eruption in Kamchatka since the Ice Age. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Mammutkalven Ljuba dör i leran (`mammutkalven-ljuba`)
+
+- År: 40051 BCE · plats: Floden Juribej på Jamalhalvön, Ryssland; punkten är flodens mynning i Bajdaratskajabukten, inte fyndplatsen
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/mammutkalven-ljuba.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The mammoth calf Lyuba dies in the mud — The Yuribey River on the Yamal Peninsula, Russia; the point is the river’s mouth in Baydaratskaya Bay, not the find site, 40051 BCE. What happened (show only this, do not add details): About 42,000 years ago a woolly mammoth calf, only 30–35 days old, died on what is now the Yamal Peninsula. She is believed to have got stuck in deep mud as the herd crossed a riverbed and to have suffocated on the mud she breathed in. Reindeer herders found her in 2007, so well preserved that her mother’s milk was still in her stomach. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## En amputation som läkte i Liang Tebo (`amputationen-i-liang-tebo`)
+
+- År: 29570 BCE · plats: Grottan Liang Tebo i karstområdet Sangkulirang–Mangkalihat, Östkalimantan, Indonesien; punkten är karstområdets mitt, inte grottan
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/amputationen-i-liang-tebo.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: An amputation that healed at Liang Tebo — Liang Tebo cave in the Sangkulirang–Mangkalihat karst, East Kalimantan, Indonesia; the point is the middle of the karst area, not the cave, 29570 BCE. What happened (show only this, do not add details): In a limestone cave on Borneo, 31,500–30,400 years ago, a young adult was buried who lacked the lower part of the left lower leg. The cut surfaces are clean and have healed, and the researchers conclude that the leg was removed by surgery, probably in childhood. The person then lived at least 6–9 more years. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Bhirrana vid Ghaggars gamla flodfåror (`bhirrana`)
+
+- År: 3200 BCE · plats: Bhirrana i Fatehabad, Haryana, Indien
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/bhirrana.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Bhirrana by the old channels of the Ghaggar — Bhirrana in Fatehabad, Haryana, India, 3200 BCE. What happened (show only this, do not add details): The village of Bhirrana in Haryana lies by the old channels of the seasonal Ghaggar River. The lowest layer has pit dwellings, Hakra ware and objects of smelted copper, and later a settlement with a wall and houses with several rooms grew up in the heyday of the Indus Valley. How old the lowest layers are is disputed. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Storeggaskredet och tsunamin (`storeggaskredet`)
+
+- År: 6225 BCE · plats: Storeggaskredet i Norska havet, cirka 100 km nordväst om Møre, Norge; punkten är skredområdet
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/storeggaskredet.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Storegga Slide and its tsunami — The Storegga Slide in the Norwegian Sea, about 100 km northwest of Møre, Norway; the point is the slide area, 6225 BCE. What happened (show only this, do not add details): Along Norway’s continental shelf, huge masses of sediment slid into the deep in three large slides. The last one took place around 6225–6170 BC, according to carbon in the tsunami deposits. The wave left sand up to 29 km inland in Scotland. What set off the slides is debated. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Baltiska issjön töms vid Billingen (`baltiska-issjon-tappas-ut`)
+
+- År: 9671 BCE · plats: Billingen mellan Skövde och Skara, Västergötland, Sverige; punkten är berget, inte själva genombrottet
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/baltiska-issjon-tappas-ut.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Baltic Ice Lake drains at Billingen — Billingen between Skövde and Skara, Västergötland, Sweden; the point is the mountain, not the breach itself, 9671 BCE. What happened (show only this, do not add details): Where the Baltic Sea lies today, a large meltwater lake existed after the Ice Age. About 11,620 years ago it broke through a narrow passage at Billingen in Västergötland and fell to sea level, in several steps over half a year to a year and a half. Then salt water could flow in, and the Yoldia Sea followed. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Vulkanutbrottet vid Laacher See (`laacher-see-utbrottet`)
+
+- År: 11051 BCE · plats: Laacher See i Eifel, Rheinland-Pfalz, Tyskland
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/laacher-see-utbrottet.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Laacher See eruption — Laacher See in the Eifel, Rhineland-Palatinate, Germany, 11051 BCE. What happened (show only this, do not add details): About 13,000 years ago, the volcano at Laacher See in the Eifel erupted violently, on roughly the same scale as Pinatubo in 1991. Ash fell over more than 300,000 km², from central France to Poland and southern Sweden. The deposits dammed the Rhine until the dam broke and the flood reached Bonn. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Jätteutbrottet i Campi Flegrei (`kampanska-ignimbriten`)
+
+- År: 37756 BCE · plats: Fuorigrotta i Neapel, Kampanien, Italien; punkten är Fuorigrotta i Campi Flegreis kaldera, i dess östra del
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/kampanska-ignimbriten.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The great eruption of Campi Flegrei — Fuorigrotta in Naples, Campania, Italy; the point is Fuorigrotta, in the eastern part of the Campi Flegrei caldera, 37756 BCE. What happened (show only this, do not add details): About 39,200–39,700 years ago, Campi Flegrei near Naples produced the largest explosive volcanic eruption in Europe in 200,000 years. Ash fell over about three million km². Model calculations suggest Western Europe was 2–4 degrees colder for one to two years, but no certain trace of the eruption has been found in polar ice. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Ett ingrepp mot karies i Villabruna (`tandingreppet-i-villabruna`)
+
+- År: 12211 BCE · plats: Sovramonte i provinsen Belluno, Venetien, Italien; punkten är kommunen, inte klippskyddet Riparo Villabruna
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/tandingreppet-i-villabruna.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Treatment of tooth decay at Villabruna — Sovramonte in the province of Belluno, Veneto, Italy; the point is the municipality, not the Riparo Villabruna rock shelter, 12211 BCE. What happened (show only this, do not add details): A man of about 25, found in the Villabruna rock shelter in northern Italy and dated to about 14,200–13,800 years ago, had a large cavity in a wisdom tooth. Scratches in the hole suggest that someone scraped it out with pointed flint tools while he was alive. The researchers see it as a sign of knowledge about treating disease. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## En ko med ett hål i skallen i Champ-Durand (`kon-som-opererades-i-champ-durand`)
+
+- År: 3400 BCE · plats: Den befästa boplatsen Champ-Durand i Vendée, Frankrike
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/kon-som-opererades-i-champ-durand.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: A cow with a hole in its skull at Champ-Durand — The fortified settlement of Champ-Durand in Vendée, France, 3400 BCE. What happened (show only this, do not add details): At Champ-Durand in western France, the skull of a cow from around 3400–3000 BC has been found with a hole in the frontal bone. The marks around the hole resemble those on human skulls operated on by scraping, and the bone never healed. Perhaps people wanted to save the animal, perhaps they practised on it before operating on humans. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Obsidian från Melos i Franchthigrottan (`obsidian-fran-melos-i-franchthi`)
+
+- År: 13000 BCE · plats: Franchthigrottan vid Kiladabukten i Argolis, Grekland
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/obsidian-fran-melos-i-franchthi.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Obsidian from Melos in Franchthi Cave — Franchthi Cave above Kiladha Bay in Argolis, Greece, 13000 BCE. What happened (show only this, do not add details): For some 35,000 years, until around 3000 BC, people took refuge in Franchthi Cave in Argolis. Obsidian from the island of Melos turns up in the cave from as far back as about 13,000 BC. The finds are counted as early evidence of seafaring in Greece. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Bondebyn Sesklo i Thessalien (`sesklo`)
+
+- År: 7510 BCE · plats: Sesklo nära Volos, Magnesia, Thessalien, Grekland
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/sesklo.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The farming village of Sesklo in Thessaly — Sesklo near Volos, Magnesia, Thessaly, Greece, 7510 BCE. What happened (show only this, do not add details): Sesklo in Thessaly has given its name to a farming culture, about 7510–4400 BC, which the article counts as the earliest known Neolithic culture in Europe. Around 5000 BC the village had 500–800 houses on about 20 hectares. How many lived there is unclear: 1,000–5,000 according to different researchers. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Trypilliakulturens jätteboplatser (`trypillias-jatteboplatser`)
+
+- År: 4000 BCE · plats: Talianky nära Talne, Ukraina; punkten är byn, och jätteboplatserna låg spridda i trakten
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/trypillias-jatteboplatser.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The mega-sites of the Trypillia culture — Talianky near Talne, Ukraine; the point is the village, and the mega-sites were spread across the area, 4000 BCE. What happened (show only this, do not add details): During the fourth millennium BC, some settlements of the Cucuteni–Trypillia culture, in present-day Ukraine, grew to more than 100 hectares. Talianky had 1,600–2,000 houses and Maidanetske almost 3,000. Researchers disagree on how many lived there at once, whether people only gathered there for parts of the year, and whether the sites were towns. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Koppargruvan i Rudna Glava (`koppargruvan-i-rudna-glava`)
+
+- År: 5000 BCE · plats: Rudna Glava vid floden Šaška, Majdanpek, östra Serbien; punkten är trakten
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/koppargruvan-i-rudna-glava.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The copper mine at Rudna Glava — Rudna Glava on the Šaška river, Majdanpek, eastern Serbia; the point is the area, 5000 BCE. What happened (show only this, do not add details): During the fifth millennium BC, people of the Vinča culture mined copper ore at Rudna Glava in eastern Serbia. The miners dug shafts into the slope and put up scaffolds to get at the ore. The site is among the earliest evidence of copper mining and metalworking in Europe. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Variscitgruvorna i Gavà (`variscitgruvorna-i-gava`)
+
+- År: 4200 BCE · plats: Gavà i Katalonien, Spanien
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/variscitgruvorna-i-gava.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The variscite mines of Gavà — Gavà in Catalonia, Spain, 4200 BCE. What happened (show only this, do not add details): At Gavà in Catalonia, people dug mines for variscite, a green mineral made into ornaments. The mines are dated to about 4200–3400 BC, but variscite from them is found in older graves in Huesca, so mining probably began earlier. They are the only known Neolithic variscite mines. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Stenyxorna från Langdale (`stenyxorna-fran-langdale`)
+
+- År: 4000 BCE · plats: Great Langdale i Lake District, England
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/stenyxorna-fran-langdale.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Langdale stone axes — Great Langdale in the Lake District, England, 4000 BCE. What happened (show only this, do not add details): On the fells around Great Langdale in the Lake District, people knapped rough stone axe blanks around 4000–3500 BC. The axes were often polished elsewhere and have been found all over Britain and Ireland. About 27 per cent of the polished stone axes examined in Britain come from here. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Flintgruvorna i Spiennes (`flintgruvorna-i-spiennes`)
+
+- År: 4300 BCE · plats: Spiennes sydost om Mons, Belgien
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/flintgruvorna-i-spiennes.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The flint mines of Spiennes — Spiennes southeast of Mons, Belgium, 4300 BCE. What happened (show only this, do not add details): At Spiennes near Mons in Belgium, flint was mined from around 4300 to 2200 BC. The shafts went more than ten metres down and led to underground cavities. The flint became axe blanks, which were carried up to 150 km away and often polished there. The mines became a World Heritage Site in 2000. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Kanoten från Pesse (`pessekanoten`)
+
+- År: 8040 BCE · plats: Pesse, Hoogeveen, Drenthe, Nederländerna; punkten är byn, och kanoten hittades söder om den
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/pessekanoten.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Pesse canoe — Pesse, Hoogeveen, Drenthe, Netherlands; the point is the village, and the canoe was found south of it, 8040 BCE. What happened (show only this, do not add details): When the A28 motorway was built in 1955, a hollowed-out pine log, just under three metres long, was found south of Pesse in the Netherlands. According to radiocarbon dating it was made between about 8040 and 7510 BC. It is described as the world’s oldest known boat. Some have doubted it was a boat, but a replica could be paddled. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Meteoritkratrarna i Morasko (`meteoritkratrarna-i-morasko`)
+
+- År: 3051 BCE · plats: Morasko i norra Poznań, Polen
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/meteoritkratrarna-i-morasko.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The meteorite craters at Morasko — Morasko on the northern edge of Poznań, Poland, 3051 BCE. What happened (show only this, do not add details): At Morasko on the northern edge of Poznań there are seven craters left by meteorite impacts, and five of them hold small lakes. The largest is about 100 m across and 11 m deep. The impact is estimated to have happened about 5,000 years ago. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Den befästa boplatsen Los Millares (`los-millares`)
+
+- År: 3025 BCE · plats: Los Millares, Santa Fe de Mondújar, Almería, Andalusien, Spanien
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/los-millares.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The fortified settlement of Los Millares — Los Millares, Santa Fe de Mondújar, Almería, Andalusia, Spain, 3025 BCE. What happened (show only this, do not add details): In southern Spain lay Los Millares, a Copper Age settlement used from around 3025 to 2000 BC. It was protected by three rings of stone walls, the outermost with 19 bastions. A large building shows traces of copper smelting. Probably about 1,000 people lived here. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Templen i Ġgantija på Gozo (`ggantija`)
+
+- År: 3600 BCE · plats: Xagħra på Gozo, Malta
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/ggantija.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Ġgantija temples on Gozo — Xagħra on Gozo, Malta, 3600 BCE. What happened (show only this, do not add details): On Gozo in Malta, Ġgantija was built around 3600 BC and used until around 2500 BC: two temples of large stone blocks and a third that was never finished. Figurines and statues from the site are linked to a fertility cult. The temples are older than the pyramids of Egypt and became a World Heritage Site in 1980. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Kratrarna i Ilumetsa (`ilumetsakratrarna`)
+
+- År: 5221 BCE · plats: Ilumetsa i Võrumaa, sydöstra Estland
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/ilumetsakratrarna.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Ilumetsa craters — Ilumetsa in Võru County, southeastern Estonia, 5221 BCE. What happened (show only this, do not add details): At Ilumetsa in southeastern Estonia there are two hollows, about 75–80 and 50 metres across and 725 metres apart. Charcoal beneath what is thought to be ejected material shows that both formed at the same time, about 7,000–7,170 years ago. They are counted as probable meteorite craters, but this has not been proven. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Utbrottet som gav Ulleungdo dess kaldera (`ulleungdos-kaldera-bildas`)
+
+- År: 8000 BCE · plats: Ön Ulleungdo, Sydkorea
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/ulleungdos-kaldera-bildas.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The eruption that gave Ulleungdo its caldera — Ulleungdo island, South Korea, 8000 BCE. What happened (show only this, do not add details): A violent explosive eruption around 8000 BC blasted away the summit of the Ulleungdo volcano, leaving a caldera behind. The island lies 120 km east of the Korean Peninsula and is the part of a large stratovolcano on the seabed that reaches above the waves. Within the caldera, later eruptions raised the peak of Albong. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Tuffkonen Seongsan Ilchulbong bildas (`seongsan-ilchulbong-bildas`)
+
+- År: 4751 BCE · plats: Seongsan Ilchulbong på Jeju, Sydkorea
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/seongsan-ilchulbong-bildas.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The tuff cone of Seongsan Ilchulbong forms — Seongsan Ilchulbong on Jeju, South Korea, 4751 BCE. What happened (show only this, do not add details): Seongsan Ilchulbong on Jeju is a tuff cone some 6,700 years old, built up by hydrovolcanic eruptions of the Surtseyan kind where the sea floor lay close to the surface. It rises 182 metres and measures 600 metres across. Since 2007 it has belonged to the World Heritage Site Jeju Volcanic Island and Lava Tubes. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Tidig keramik i Gosan-ri på Jeju (`keramiken-i-gosan-ri`)
+
+- År: 8000 BCE · plats: Gosan-ri på Jeju, Sydkorea
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/keramiken-i-gosan-ri.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Early pottery at Gosan-ri on Jeju — Gosan-ri on Jeju, South Korea, 8000 BCE. What happened (show only this, do not add details): At the site of Gosan-ri on Jeju, and at Ubong-ri near Ulsan, there are clay vessels from Korea’s earliest period with pottery. They are dated to around 8000 BC or earlier. According to Wikipedia, Korea’s Palaeolithic ended when people began making pottery. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Stenåldersboplatsen i Amsa-dong (`boplatsen-i-amsa-dong`)
+
+- År: 4000 BCE · plats: Amsa-dong i Gangdong-gu, Seoul, Sydkorea
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/boplatsen-i-amsa-dong.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Stone Age settlement at Amsa-dong — Amsa-dong in Gangdong District, Seoul, South Korea, 4000 BCE. What happened (show only this, do not add details): Around 4000 BC the people of Amsa-dong, now part of Seoul, made their homes in umjip, huts with lowered floors. The finds point to cooked grain and fish in their diet by about 3000 BC. It is the only known major Stone Age site in Seoul and has been a protected historic site since 1979. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Hepatit B bland jägarfolket i Sachtysj (`hepatit-b-i-sachtysj`)
+
+- År: 4851 BCE · plats: Sachtysj i Ivanovo oblast vid övre Volga, Ryssland; punkten är byn Sachtysj, inte gravfälten
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/hepatit-b-i-sachtysj.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Hepatitis B among the hunter-gatherers of Sakhtysh — Sakhtysh in Ivanovo Oblast, Upper Volga region, Russia; the point is the village of Sakhtysh, not the burial grounds, 4851 BCE. What happened (show only this, do not add details): At Sakhtysh, hunter-gatherer-fishers buried their dead around 4850–2850 BC. Ancient DNA shows traces of hepatitis B virus in five of those studied and parvovirus B19 in four. Their immune-system genes were unusually alike, probably because the group was small and met few kinds of pathogens. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Skidliknande föremål vid Sindorsjön (`skidfragment-vid-sindorsjon`)
+
+- År: 6300 BCE · plats: Sindorsjön i Republiken Komi, Ryssland; punkten är sjön, inte själva fyndplatsen Vis I
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/skidfragment-vid-sindorsjon.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Ski-like objects at Lake Sindor — Lake Sindor in the Komi Republic, Russia; the point is the lake, not the Vis I find site itself, 6300 BCE. What happened (show only this, do not add details): At Lake Sindor, about 1,200 km northeast of Moscow, fragments of objects resembling skis have been found. They are dated to around 6300–5000 BC. Wikipedia counts them as the oldest known fragments of ski-like objects. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Lerkärlen i Jelsjankakulturen (`elsjankakulturens-lerkarl`)
+
+- År: 6700 BCE · plats: Mellersta Volga, Ryssland; punkten är Samarakröken, i kulturens område, inte en fyndplats
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/elsjankakulturens-lerkarl.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Pottery of the Elshanka culture — Middle Volga, Russia; the point is the Samara Bend, within the culture’s area, not a find site, 6700 BCE. What happened (show only this, do not add details): On the middle Volga lived hunters and fishers with seasonal camps where rivers meet. From around 6700 BC they shaped pots from the mud of stagnant ponds and fired them in open fires at 450–600 °C. Wikipedia counts the pots as Europe’s oldest pottery. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Bär kokade med fisk i Zamostje (`bar-och-fisk-i-zamostje`)
+
+- År: 5700 BCE · plats: Zamostje 2 vid floden Dubna, Moskva oblast, Ryssland
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/bar-och-fisk-i-zamostje.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Berries cooked with fish at Zamostje — Zamostje 2 on the Dubna River, Moscow Oblast, Russia, 5700 BCE. What happened (show only this, do not add details): At the Zamostje 2 site, hunter-gatherer-fishers cooked guelder rose berries together with freshwater fish in their clay pots around 5700–5300 BC. The berries are bitter and mildly toxic raw, and the fish may have made them more palatable. Later pots from the site show far fewer traces of the berries. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Ladoga skiljs från Ancylussjön (`ladoga-blir-en-egen-sjo`)
+
+- År: 6851 BCE · plats: Ladoga, Ryssland
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/ladoga-blir-en-egen-sjo.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Lake Ladoga is cut off from the Ancylus Lake — Lake Ladoga, Russia, 6851 BCE. What happened (show only this, do not add details): After the Ice Age, Ladoga was at first part of the Baltic Ice Lake. Between 9,500 and 9,100 years before present it belonged to the Ancylus Lake, a forerunner of the Baltic Sea. When the level of the Ancylus Lake fell, around 8,800 years before present (the source does not say whether these are radiocarbon years), Ladoga became a lake of its own. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Pest bland jägarna vid Bajkalsjön (`pesten-vid-angara`)
+
+- År: 3571 BCE · plats: Floden Angara nordväst om Bajkalsjön, Ryssland; punkten är Angaras utlopp ur Bajkalsjön, inte gravfälten
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/pesten-vid-angara.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Plague among the hunters near Lake Baikal — The Angara River northwest of Lake Baikal, Russia; the point is where the Angara leaves Lake Baikal, not the cemeteries, 3571 BCE. What happened (show only this, do not add details): In four cemeteries on the Angara River near Lake Baikal, the plague bacterium has been found in 18 hunter-gatherers. A first outbreak took place around 3570–3315 BC and a second a few centuries later. The disease struck small family groups and appears to have killed quickly, especially children. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Altajfloden (`altaifloden`)
+
+- År: 12000 BCE · plats: Altajrepubliken, Ryssland; punkten är Wikidatas punkt för översvämningarna
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/altaifloden.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The Altai floods — Altai Republic, Russia; the point is the one Wikidata gives for the floods, 12000 BCE. What happened (show only this, do not add details): At the end of the Ice Age a glacier dammed a lake in the Chuya and Kuray basins in the Altai, holding up to 600 cubic kilometres of water behind an ice dam about 650 metres high. According to some geomorphologists the dam burst and the water rushed out along the Katun. Current ripples up to 18 metres high remain. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Den frusna sabeltandade kattungen i Jakutien (`sabeltandade-kattungen-i-jakutien`)
+
+- År: 35070 BCE · plats: Floden Badjaricha, biflod till Indigirka, Jakutien, Ryssland
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/sabeltandade-kattungen-i-jakutien.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: The frozen sabre-toothed cat cub in Yakutia — The Badyarikha River, a tributary of the Indigirka, Yakutia, Russia, 35070 BCE. What happened (show only this, do not add details): In 2020 the frozen mummy of a three-week-old cub of the sabre-toothed cat Homotherium latidens was found by the Badyarikha River in Yakutia. Its wool is dated to about 37,000–35,500 years before present. Pollen and plant remains suggest that it lived in larch forest and moist meadows by a river. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Ullhårig noshörning i en vargvalps mage (`noshorning-i-vargvalpens-mage`)
+
+- År: 12451 BCE · plats: Tumat i Jakutien, Ryssland; punkten är byn Tumat, inte fyndplatsen
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/noshorning-i-vargvalpens-mage.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Woolly rhinoceros in a wolf puppy’s stomach — Tumat in Yakutia, Russia; the point is the village of Tumat, not the find site, 12451 BCE. What happened (show only this, do not add details): In the permafrost at Tumat in Yakutia a mummified wolf puppy was found with a piece of woolly rhinoceros tissue in its stomach. Both are dated to about 14,400 years ago, shortly before the species died out. The genome shows no inbreeding, and the researchers think the species vanished quickly. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Vävda tyger i grottan Tjortovy Vorota (`tygerna-i-tjortovy-vorota`)
+
+- År: 7451 BCE · plats: Grottan Tjortovy Vorota nära Dalnegorsk, Primorje kraj, Ryssland
+- Stil: Grottmålning (`grotta`)
+- Spara som: `images/incoming/tygerna-i-tjortovy-vorota.jpg`
+
+```text
+Style: prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture. Subject: Woven fabrics in Chertovy Vorota Cave — Chertovy Vorota Cave near Dalnegorsk, Primorsky Krai, Russia, 7451 BCE. What happened (show only this, do not add details): Charred scraps of rope, netting and woven cloth have come to light in Chertovy Vorota Cave in the Sikhote-Alin mountains, lying under the remains of a wooden building that had burnt down. Dates taken on the textiles themselves place them about 9,400–8,400 years before present, and they were probably made from a sedge, Carex sordida. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Genpeikriget (`genpeikriget`)
@@ -2363,7 +4063,7 @@ Style: early medieval art: Byzantine icon with gold leaf background, or Insular 
 - Spara som: `images/incoming/cai-lun-papper.jpg`
 
 ```text
-Style: Chinese ink and wash painting on a silk hand scroll, misty mountains and water, fine brushwork, muted mineral colours. Subject: Cai Lun improves paper — Luoyang, Henan, China, 105 CE. What happened (show only this, do not add details): In the year 105 the official Cai Lun at the court in Luoyang presented the emperor with a new way of making paper. He boiled bark, hemp waste, old rags and fishing nets into a pulp that was mixed with water and strained into sheets. Paper became cheaper and soon replaced the heavy strips of bamboo and wood that people wrote on. Cai Lun has long been regarded as the inventor of paper, but archaeological finds show that paper existed in China even before the Common Era. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Chinese ink and wash painting on a silk hand scroll, misty mountains and water, fine brushwork, muted mineral colours. Subject: Cai Lun improves paper — Luoyang, Henan, China, 105 CE. What happened (show only this, do not add details): In the year 105 the official Cai Lun at the court in Luoyang presented the emperor with a new way of making paper. He boiled bark, hemp waste, old rags and fishing nets into a pulp that was mixed with water and strained into sheets. Cai Lun has long been regarded as the inventor of paper, but archaeological finds show that paper existed in China even before the Common Era. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Justinianska pesten (`justinianska-pesten-541`)
@@ -2373,7 +4073,7 @@ Style: Chinese ink and wash painting on a silk hand scroll, misty mountains and 
 - Spara som: `images/incoming/justinianska-pesten-541.jpg`
 
 ```text
-Style: early medieval art: Byzantine icon with gold leaf background, or Insular illuminated manuscript in the style of the Book of Kells and the Lindisfarne Gospels with interlaced knotwork, spirals and zoomorphic borders. Subject: The Plague of Justinian — Constantinople and the Mediterranean region, 541 CE. What happened (show only this, do not add details): Between 541 and 549 plague spread across the whole Mediterranean region, Europe and the Near East. The infection reached Egypt in 541 and was at its worst in the capital Constantinople, where about a fifth of the inhabitants died according to the historian Procopius. Emperor Justinian I himself fell ill but survived. Researchers have shown that the disease was caused by the same bacterium that later produced the Black Death. How great the consequences were is disputed among historians. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early medieval art: Byzantine icon with gold leaf background, or Insular illuminated manuscript in the style of the Book of Kells and the Lindisfarne Gospels with interlaced knotwork, spirals and zoomorphic borders. Subject: The Plague of Justinian — Constantinople and the Mediterranean region, 541 CE. What happened (show only this, do not add details): Between 541 and 549 plague spread across the whole Mediterranean region, Europe and the Near East. The infection reached Egypt in 541 and was at its worst in the capital Constantinople, where about a fifth of the inhabitants died according to the historian Procopius. Researchers have shown that the disease was caused by the same bacterium that later produced the Black Death. How great the consequences were is disputed among historians. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Visdomens hus i Bagdad (`visdomens-hus-bagdad`)
@@ -2453,7 +4153,7 @@ Style: Islamic art: intricate geometric tile patterns, arabesques and decorative
 - Spara som: `images/incoming/mapungubwe-riket.jpg`
 
 ```text
-Style: early medieval art: Byzantine icon with gold leaf background, or Insular illuminated manuscript in the style of the Book of Kells and the Lindisfarne Gospels with interlaced knotwork, spirals and zoomorphic borders. Subject: The Kingdom of Mapungubwe on the Limpopo — Where the Shashe and Limpopo rivers meet (now South Africa), 1000 CE. What happened (show only this, do not add details): Around the year 1000, people of the Leopard's Kopje culture moved south to Bambandyanalo (K2) on the Limpopo, where they farmed, kept cattle and traded via the Swahili cities on the Indian Ocean. Around 1220, during a drought, the elite moved up onto Mapungubwe Hill. From there ivory and gold were exported to the east coast, and the capital had about 5,000 inhabitants around 1250. Around 1300 the population moved away. Today the site is a UNESCO World Heritage Site. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early medieval art: Byzantine icon with gold leaf background, or Insular illuminated manuscript in the style of the Book of Kells and the Lindisfarne Gospels with interlaced knotwork, spirals and zoomorphic borders. Subject: The Kingdom of Mapungubwe on the Limpopo — Where the Shashe and Limpopo rivers meet (now South Africa), 1000 CE. What happened (show only this, do not add details): Around the year 1000, people of the Leopard's Kopje culture moved south to Bambandyanalo (K2) on the Limpopo, where they farmed, kept cattle and traded via the Swahili cities on the Indian Ocean. Around 1220, during a drought, the elite moved up onto Mapungubwe Hill. From there ivory and gold were exported to the east coast, and the capital had about 5,000 inhabitants around 1250. Around 1300 the population moved away. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Kopparhuvudena från Ife gjuts (`ife-huvudet`)
@@ -2473,7 +4173,7 @@ Style: West African textile patterns and cast bronze relief plaques in the style
 - Spara som: `images/incoming/kilwa-pa-sin-hojd.jpg`
 
 ```text
-Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapis blue and vermilion, decorated initial and vine border, flat perspective. Subject: The trading city of Kilwa builds a palace and a domed mosque — Kilwa Kisiwani on the Swahili Coast (now Tanzania), 1300 CE. What happened (show only this, do not add details): In the early 14th century Kilwa is the most powerful city on the Swahili Coast. The city trades gold, iron and ivory from the interior for beads, cloth, porcelain and spices from Asia. The sultan al-Hasan ibn Sulaiman builds the palace Husuni Kubwa of coral stone and extends the Great Mosque with a large dome. The Moroccan traveller Ibn Battuta visited Kilwa in 1331 and described the city as one of the most beautiful in the world. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapis blue and vermilion, decorated initial and vine border, flat perspective. Subject: The trading city of Kilwa builds a palace and a domed mosque — Kilwa Kisiwani on the Swahili Coast (now Tanzania), 1300 CE. What happened (show only this, do not add details): In the early 14th century Kilwa is the most powerful city on the Swahili Coast. The city trades gold, iron and ivory from the interior for beads, cloth, porcelain and spices from Asia. The Moroccan traveller Ibn Battuta visited Kilwa in 1331 and described the city as one of the most beautiful in the world. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Kungadömet Kongo grundas (`kungadomet-kongo-grundas`)
@@ -2493,7 +4193,7 @@ Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapi
 - Spara som: `images/incoming/bartolomeu-dias-rundar-afrika.jpg`
 
 ```text
-Style: Renaissance portolan chart on vellum with compass roses, rhumb lines, sailing ships and decorative sea, coastlines drawn in ink and colour. Subject: Bartolomeu Dias sails around the southern tip of Africa — Mossel Bay on Africa's south coast (now South Africa), 1488 CE. What happened (show only this, do not add details): The Portuguese navigator Bartolomeu Dias leaves Lisbon with three ships around July 1487. After 30 days on the open sea he reaches, on 4 February 1488, the south coast of Africa at what is later called Mossel Bay, and becomes the first European to sail around the southern tip of Africa. On the way home in May 1488 he sees the Cape of Good Hope. Portugal had thereby reached its long-sought goal. No contemporary documents about the voyage have been found. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Renaissance portolan chart on vellum with compass roses, rhumb lines, sailing ships and decorative sea, coastlines drawn in ink and colour. Subject: Bartolomeu Dias sails around the southern tip of Africa — Mossel Bay on Africa's south coast (now South Africa), 1488 CE. What happened (show only this, do not add details): The Portuguese navigator Bartolomeu Dias leaves Lisbon with three ships around July 1487. After 30 days on the open sea he reaches, on 4 February 1488, the south coast of Africa at what is later called Mossel Bay, and becomes the first European to sail around the southern tip of Africa. On the way home in May 1488 he sees the Cape of Good Hope. No contemporary documents about the voyage have been found. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Hopewellkulturens ceremoniella jordverk (`hopewell-jordverken`)
@@ -2503,7 +4203,7 @@ Style: Renaissance portolan chart on vellum with compass roses, rhumb lines, sai
 - Spara som: `images/incoming/hopewell-jordverken.jpg`
 
 ```text
-Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The ceremonial earthworks of the Hopewell culture — Southern Ohio, including Mound City at Chillicothe and Newark (now USA), 1 CE. What happened (show only this, do not add details): Between roughly the year 1 and 400, the Hopewell culture built large earthworks in geometric shapes along tributaries of the Ohio River. At the Octagon Earthworks in Newark, three-metre-high earth walls surround an octagon, probably built in alignment with the movements of the sun and moon. Eight of the sites became World Heritage Sites in 2023. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The ceremonial earthworks of the Hopewell culture — Southern Ohio, including Mound City at Chillicothe and Newark (now USA), 1 CE. What happened (show only this, do not add details): Around the years 1–400, the Hopewell culture built large geometric earthworks along tributaries of the Ohio River, probably for ceremonies and burials; their exact use remains unclear. In Newark, three-metre-high walls surround an octagon, probably aligned with the movements of the sun and moon. Eight of them became World Heritage Sites in 2023. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Mochekulturen och Señor de Sipán (`moche-kulturen`)
@@ -2523,7 +4223,7 @@ Style: ancient Greek red-figure and black-figure vase painting, or Roman floor m
 - Spara som: `images/incoming/pakal-i-palenque.jpg`
 
 ```text
-Style: early medieval art: Byzantine icon with gold leaf background, or Insular illuminated manuscript in the style of the Book of Kells and the Lindisfarne Gospels with interlaced knotwork, spirals and zoomorphic borders. Subject: Pakal the Great rules Palenque — Palenque in Chiapas (now Mexico), 615 CE. What happened (show only this, do not add details): Kʼinich Janaabʼ Pakal, also called Pakal the Great, ruled the Maya city of Palenque from 615 until his death in 683, for 68 years. He extended Palenque's power among the western Maya states and had some of the Maya culture's finest works of art and architecture erected, including a major extension of the palace. He was buried in the Temple of the Inscriptions, Palenque's largest step pyramid, which was built as his funerary monument and completed shortly after 683 by his son. The tomb was not discovered until 1952. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early medieval art: Byzantine icon with gold leaf background, or Insular illuminated manuscript in the style of the Book of Kells and the Lindisfarne Gospels with interlaced knotwork, spirals and zoomorphic borders. Subject: Pakal the Great rules Palenque — Palenque in Chiapas (now Mexico), 615 CE. What happened (show only this, do not add details): Kʼinich Janaabʼ Pakal, also called Pakal the Great, ruled the Maya city of Palenque from 615 until his death in 683, for 68 years. He extended Palenque's power among the western Maya states and had some of the Maya culture's finest works of art and architecture erected, including a major extension of the palace. He was buried in the Temple of the Inscriptions, Palenque's largest step pyramid, which was built as his funerary monument and completed shortly after 683 by his son. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Wari-riket i Anderna (`wari-riket`)
@@ -2543,7 +4243,7 @@ Style: early medieval art: Byzantine icon with gold leaf background, or Insular 
 - Spara som: `images/incoming/chaco-canyon.jpg`
 
 ```text
-Style: early medieval art: Byzantine icon with gold leaf background, or Insular illuminated manuscript in the style of the Book of Kells and the Lindisfarne Gospels with interlaced knotwork, spirals and zoomorphic borders. Subject: The great houses of Chaco Canyon — Chaco Canyon in New Mexico (now USA), 900 CE. What happened (show only this, do not add details): Between about 900 and 1150, Chaco Canyon was a major cultural centre for the Ancestral Puebloans. They quarried sandstone and hauled timber long distances to build 15 large complexes, so-called great houses, which remained the largest buildings in North America until the 19th century. The largest, Pueblo Bonito, had at least 650 rooms and was four storeys high in places. A 50-year drought that began in 1130 is thought to have contributed to the abandonment of the canyon. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early medieval art: Byzantine icon with gold leaf background, or Insular illuminated manuscript in the style of the Book of Kells and the Lindisfarne Gospels with interlaced knotwork, spirals and zoomorphic borders. Subject: The great houses of Chaco Canyon — Chaco Canyon in New Mexico (now USA), 900 CE. What happened (show only this, do not add details): Between about 900 and 1150, Chaco Canyon was a major cultural centre for the Ancestral Puebloans. They quarried sandstone and hauled timber long distances to build 15 large complexes, so-called great houses, which remained the largest buildings in North America until the 19th century. A 50-year drought that began in 1130 is thought to have contributed to the abandonment of the canyon. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Cahokia och Monks Mound (`cahokia`)
@@ -2573,7 +4273,7 @@ Style: Aztec (Mexica) codex painting on bark paper or deerskin, bold black outli
 - Spara som: `images/incoming/pachacuti-inkariket.jpg`
 
 ```text
-Style: Andean and Inca textile (tocapu) and ceramic patterns, stepped geometric motifs, terracotta, cream and black, mountains and terraces. Subject: Pachacuti makes Cusco into the Inca Empire — Cusco (now Peru), 1438 CE. What happened (show only this, do not add details): Pachacuti was the ninth Inca ruler in Cusco and transformed the chiefdom of Cusco into the Inca Empire, Tawantinsuyu. He came to power after the war against the Chanka people and conquered, among other things, land around Lake Titicaca and northwards towards Quito, which began the Inca expansion in the Andes. Most archaeologists believe that Machu Picchu was built as an estate for him. The Inca did not count years in a systematic way, so his reign is uncertain: the usual chronology says 1438–1471. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Andean and Inca textile (tocapu) and ceramic patterns, stepped geometric motifs, terracotta, cream and black, mountains and terraces. Subject: Pachacuti makes Cusco into the Inca Empire — Cusco (now Peru), 1438 CE. What happened (show only this, do not add details): Pachacuti was the ninth Inca ruler in Cusco and transformed the chiefdom of Cusco into the Inca Empire, Tawantinsuyu. He came to power after the war against the Chanka people and conquered, among other things, land around Lake Titicaca and northwards towards Quito, which began the Inca expansion in the Andes. The Inca did not count years in a systematic way, so his reign is uncertain: the usual chronology says 1438–1471. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Polynesier når Hawaii (`polynesier-nar-hawaii`)
@@ -2593,7 +4293,7 @@ Style: early medieval art: Byzantine icon with gold leaf background, or Insular 
 - Spara som: `images/incoming/polynesier-nar-rapa-nui.jpg`
 
 ```text
-Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapis blue and vermilion, decorated initial and vine border, flat perspective. Subject: Polynesians reach Rapa Nui (Easter Island) — Rapa Nui, Easter Island (now Chile), 1100 CE. What happened (show only this, do not add details): Polynesians reach Rapa Nui, the far south-east of the Polynesian Triangle, probably in the 12th century according to the best assessment today. They probably came by canoe or catamaran from Mangareva, about 2,600 km away, or the Marquesas Islands, about 3,200 km away. According to oral tradition the first settlers were led by the chief Hotu Matuʻa. Between about 1250 and 1500 the Rapa Nui people carved moai, over 900 large stone statues, most of them from tuff from the Rano Raraku quarry. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapis blue and vermilion, decorated initial and vine border, flat perspective. Subject: Polynesians reach Rapa Nui (Easter Island) — Rapa Nui, Easter Island (now Chile), 1100 CE. What happened (show only this, do not add details): Polynesians reach Rapa Nui, the far south-east of the Polynesian Triangle, probably in the 12th century according to the best assessment today. They probably came by canoe or catamaran from Mangareva, about 2,600 km away, or the Marquesas Islands, about 3,200 km away. According to oral tradition the first settlers were led by the chief Hotu Matuʻa. Between about 1250 and 1500 the Rapa Nui people carved moai, over 900 large stone statues. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Tuʻi Tonga-riket börjar breda ut sig (`tui-tonga-riket`)
@@ -2633,7 +4333,7 @@ Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapi
 - Spara som: `images/incoming/taputapuatea-marae.jpg`
 
 ```text
-Style: early medieval art: Byzantine icon with gold leaf background, or Insular illuminated manuscript in the style of the Book of Kells and the Lindisfarne Gospels with interlaced knotwork, spirals and zoomorphic borders. Subject: The temple site of Taputapuātea on Raiatea — Opoa on eastern Raiatea (now French Polynesia), 1000 CE. What happened (show only this, do not add details): Marae Taputapuātea at Opoa on Raiatea may have been laid out as early as around the year 1000 and was rebuilt and extended at least twice between the 14th and 18th centuries. The site was once regarded as the central temple of eastern Polynesia. First the creator god Taʻaroa was worshipped there, later the god ʻOro. Priests and navigators from all over the Pacific gathered there to make offerings and share knowledge of ocean navigation. Since 2017 the site has been a World Heritage Site. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early medieval art: Byzantine icon with gold leaf background, or Insular illuminated manuscript in the style of the Book of Kells and the Lindisfarne Gospels with interlaced knotwork, spirals and zoomorphic borders. Subject: The temple site of Taputapuātea on Raiatea — Opoa on eastern Raiatea (now French Polynesia), 1000 CE. What happened (show only this, do not add details): Marae Taputapuātea at Opoa on Raiatea may have been laid out as early as around the year 1000 and was rebuilt and extended at least twice between the 14th and 18th centuries. The site was once regarded as the central temple of eastern Polynesia. First the creator god Taʻaroa was worshipped there, later the god ʻOro. Priests and navigators from all over the Pacific gathered there to make offerings and share knowledge of ocean navigation. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Aksums stora steler (`aksums-stora-steler`)
@@ -2693,7 +4393,7 @@ Style: West African textile patterns and cast bronze relief plaques in the style
 - Spara som: `images/incoming/xitle-begraver-cuicuilco.jpg`
 
 ```text
-Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The volcano Xitle buries Cuicuilco — Cuicuilco in Tlalpan, Mexico City (today Mexico), 245 CE. What happened (show only this, do not add details): Cuicuilco on the southern shore of Lake Texcoco may be the oldest city in the Valley of Mexico, and its pyramid began to be built a few centuries before the Common Era. At its height the city had about 20,000 inhabitants, but it declined as Teotihuacan grew. It was destroyed and abandoned after an eruption of the volcano Xitle, and the lava covered large parts of the city. Refugees are thought to have moved north and become part of Teotihuacan's population. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The volcano Xitle buries Cuicuilco — Cuicuilco in Tlalpan, Mexico City (today Mexico), 245 CE. What happened (show only this, do not add details): Cuicuilco on the southern shore of Lake Texcoco may be the oldest city in the Valley of Mexico, and its pyramid began to be built a few centuries before the Common Era. At its height the city had about 20,000 inhabitants, but it declined as Teotihuacan grew. It was destroyed and abandoned after an eruption of the volcano Xitle, and the lava covered large parts of the city. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Quiriguá tar Copáns kung till fånga (`quirigua-besegrar-copan`)
@@ -2703,7 +4403,7 @@ Style: ancient Greek red-figure and black-figure vase painting, or Roman floor m
 - Spara som: `images/incoming/quirigua-besegrar-copan.jpg`
 
 ```text
-Style: early medieval art: Byzantine icon with gold leaf background, or Insular illuminated manuscript in the style of the Book of Kells and the Lindisfarne Gospels with interlaced knotwork, spirals and zoomorphic borders. Subject: Quiriguá takes the king of Copán captive — Quiriguá in the Motagua Valley (today Guatemala), 738 CE. What happened (show only this, do not add details): Quiriguá was a small vassal state under the powerful Maya city of Copán. In 738, Quiriguá's king K'ak' Tiliw Chan Yopaat took Copán's king Uaxaclajuun Ub'aah K'awiil captive, and on 3 May 738 he was beheaded in a public ceremony at Quiriguá. There are no traces of either city having been attacked; Quiriguá became independent and gained control of important trade routes. Calakmul may have played a part behind the coup. In Copán, no new buildings or monuments were erected for 18 years afterwards. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early medieval art: Byzantine icon with gold leaf background, or Insular illuminated manuscript in the style of the Book of Kells and the Lindisfarne Gospels with interlaced knotwork, spirals and zoomorphic borders. Subject: Quiriguá takes the king of Copán captive — Quiriguá in the Motagua Valley (today Guatemala), 738 CE. What happened (show only this, do not add details): Quiriguá was a small vassal state under the powerful Maya city of Copán. In 738, Quiriguá's king K'ak' Tiliw Chan Yopaat took Copán's king Uaxaclajuun Ub'aah K'awiil captive, and on 3 May 738 he was beheaded in a public ceremony at Quiriguá. There are no traces of either city having been attacked; Quiriguá became independent and gained control of important trade routes. Calakmul may have played a part behind the coup. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Tula, toltekernas stad, på sin höjdpunkt (`tula-toltekernas-huvudstad`)
@@ -2713,7 +4413,7 @@ Style: early medieval art: Byzantine icon with gold leaf background, or Insular 
 - Spara som: `images/incoming/tula-toltekernas-huvudstad.jpg`
 
 ```text
-Style: early medieval art: Byzantine icon with gold leaf background, or Insular illuminated manuscript in the style of the Book of Kells and the Lindisfarne Gospels with interlaced knotwork, spirals and zoomorphic borders. Subject: Tula, city of the Toltecs, at its height — Tula in Hidalgo, north of Mexico City (today Mexico), 900 CE. What happened (show only this, do not add details): Tula, in today's state of Hidalgo, became important after the fall of Teotihuacan and was at its largest between about 900 and 1150. The city then covered about 14 square kilometres with around 60,000 inhabitants. It lived on agriculture and on mining and working obsidian. Best known is the Pyramid of Quetzalcoatl, where four four-metre-tall basalt warrior figures held up the roof of the temple. Drought and ethnic conflicts contributed to the city's fall around 1150, but Tula lived on in Aztec history, which is often mixed with myth. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early medieval art: Byzantine icon with gold leaf background, or Insular illuminated manuscript in the style of the Book of Kells and the Lindisfarne Gospels with interlaced knotwork, spirals and zoomorphic borders. Subject: Tula, city of the Toltecs, at its height — Tula in Hidalgo, north of Mexico City (today Mexico), 900 CE. What happened (show only this, do not add details): Tula, in today's state of Hidalgo, became important after the fall of Teotihuacan and was at its largest between about 900 and 1150. The city then covered about 14 square kilometres with around 60,000 inhabitants. Best known is the Pyramid of Quetzalcoatl, where four four-metre-tall basalt warrior figures held up the roof of the temple. Drought and ethnic conflicts contributed to the city's fall around 1150, but Tula lived on in Aztec history, which is often mixed with myth. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Mixtekhärskaren Åtta Hjort Jaguarklo (`atta-hjort-jaguarklo`)
@@ -2913,7 +4613,7 @@ Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapi
 - Spara som: `images/incoming/glagolitiska-alfabetet.jpg`
 
 ```text
-Style: early medieval art: Byzantine icon with gold leaf background, or Insular illuminated manuscript in the style of the Book of Kells and the Lindisfarne Gospels with interlaced knotwork, spirals and zoomorphic borders. Subject: Cyril, Methodius and the Glagolitic alphabet — Great Moravia (today Czechia and Slovakia), 862 CE. What happened (show only this, do not add details): In 862 the Byzantine emperor sent the brothers Cyril and Methodius from Thessalonica as missionaries to Great Moravia, at the request of Prince Rastislav. Cyril created the Glagolitic alphabet, the oldest known Slavic alphabet, to translate Greek church texts into Old Church Slavonic. It was used in Great Moravia from 863. Later the Cyrillic alphabet emerged in Bulgaria and gradually took over there. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early medieval art: Byzantine icon with gold leaf background, or Insular illuminated manuscript in the style of the Book of Kells and the Lindisfarne Gospels with interlaced knotwork, spirals and zoomorphic borders. Subject: Cyril, Methodius and the Glagolitic alphabet — Great Moravia (today Czechia and Slovakia), 862 CE. What happened (show only this, do not add details): In 862 the Byzantine emperor sent the brothers Cyril and Methodius from Thessalonica as missionaries to Great Moravia, at the request of Prince Rastislav. Cyril created the Glagolitic alphabet, the oldest known Slavic alphabet, to translate Greek church texts into Old Church Slavonic. Later the Cyrillic alphabet emerged in Bulgaria and gradually took over there. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Hatepeutbrottet vid Taupō (`hatepeutbrottet`)
@@ -3183,7 +4883,7 @@ Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapi
 - Spara som: `images/incoming/skane-under-magnus-eriksson.jpg`
 
 ```text
-Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapis blue and vermilion, decorated initial and vine border, flat perspective. Subject: Scania under the Swedish king Magnus Eriksson — Scania, 1332 CE. What happened (show only this, do not add details): In 1332 all of Scania was pledged to a count of Holstein. The Scanians rose against him and submitted to the Swedish king Magnus Eriksson. Even so, Scania did not become part of the Swedish realm, and in 1360 the Danish king Valdemar Atterdag took the province back. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapis blue and vermilion, decorated initial and vine border, flat perspective. Subject: Scania under the Swedish king Magnus Eriksson — Scania, 1332 CE. What happened (show only this, do not add details): In 1332 all of Scania was pledged to a count of Holstein. The Scanians rose up and submitted to the Swedish king Magnus Eriksson. The link was best described as a personal union: the same king, but Scania did not become part of the Swedish realm. In 1360 the Danish king Valdemar Atterdag took Scania back. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Ansgar predikar i Birka (`ansgar-i-birka`)
@@ -3423,7 +5123,7 @@ Style: Aztec (Mexica) codex painting on bark paper or deerskin, bold black outli
 - Spara som: `images/incoming/dresdenkodexen.jpg`
 
 ```text
-Style: Aztec (Mexica) codex painting on bark paper or deerskin, bold black outlines, flat red, blue, yellow and green, glyph-like stylised figures and temples. Subject: The Dresden Codex, a Maya book of astronomy — The region around Chichén Itzá, Yucatán, Mexico (the book is now in Dresden), 1200 CE. What happened (show only this, do not add details): The Dresden Codex is a Maya book from the region around Chichén Itzá, written in Maya script on paper made from fig bark and folded like a concertina. It contains astronomical and astrological tables, for example on conjunctions of planets, as well as information on religion, the seasons and illness. The text is based on an original that was three or four hundred years older. The Royal Library in Dresden bought the book from a private owner in Vienna in 1739, and it was damaged by water during the Second World War. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Aztec (Mexica) codex painting on bark paper or deerskin, bold black outlines, flat red, blue, yellow and green, glyph-like stylised figures and temples. Subject: The Dresden Codex, a Maya book of astronomy — The region around Chichén Itzá, Yucatán, Mexico (the book is now in Dresden), 1200 CE. What happened (show only this, do not add details): The Dresden Codex is a Maya book from the region around Chichén Itzá, written in Maya script on paper made from fig bark and folded like a concertina. It contains astronomical and astrological tables, for example on conjunctions of planets, as well as information on religion, the seasons and illness. The text is based on an original that was three or four hundred years older. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Koret i Saint-Denis, den första gotiska byggnaden (`koret-i-saint-denis`)
@@ -3463,7 +5163,7 @@ Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapi
 - Spara som: `images/incoming/fibonaccis-liber-abaci.jpg`
 
 ```text
-Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapis blue and vermilion, decorated initial and vine border, flat perspective. Subject: Fibonacci's Liber Abaci brings Arabic numerals to Europe — Pisa, Republic of Pisa (now Italy); Leonardo's home town, where the book was written is not stated, 1202 CE. What happened (show only this, do not add details): Leonardo of Pisa, who was later called Fibonacci, wrote the arithmetic book Liber Abaci in Latin in 1202. It was one of the first books in Western Europe to describe the Hindu–Arabic numeral system with ten digits and place value, and it is best known for introducing that system and the Arabic numerals in Europe. Leonardo had learned the method as a young man in Bugia in North Africa, where his father worked at the customs house for the merchants from Pisa. The book was aimed both at merchants and at mathematicians. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapis blue and vermilion, decorated initial and vine border, flat perspective. Subject: Fibonacci's Liber Abaci brings Arabic numerals to Europe — Pisa, Republic of Pisa (now Italy); Leonardo's home town, where the book was written is not stated, 1202 CE. What happened (show only this, do not add details): Leonardo of Pisa, who was later called Fibonacci, wrote the arithmetic book Liber Abaci in Latin in 1202. It was one of the first books in Western Europe to describe the Hindu–Arabic numeral system with ten digits and place value, and it is best known for introducing that system and the Arabic numerals in Europe. Leonardo had learned the method as a young man in Bugia in North Africa, where his father worked at the customs house for the merchants from Pisa. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Florens präglar guldmyntet florin (`florinen-praglas`)
@@ -3483,7 +5183,7 @@ Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapi
 - Spara som: `images/incoming/giottos-fresker-i-padua.jpg`
 
 ```text
-Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapis blue and vermilion, decorated initial and vine border, flat perspective. Subject: Giotto's frescoes in the Scrovegni Chapel — Scrovegni Chapel, Padua, Italy, 1305 CE. What happened (show only this, do not add details): The banker Enrico Scrovegni in Padua had a chapel built next to his palace and commissioned the Florentine painter Giotto to decorate it. Giotto and his team covered all the walls and the ceiling with frescoes of the lives of Christ and the Virgin Mary and a large Last Judgement. The frescoes were completed around 1305, the year the chapel was consecrated. They renewed mural painting and influenced its technique, style and content for a whole century. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapis blue and vermilion, decorated initial and vine border, flat perspective. Subject: Giotto's frescoes in the Scrovegni Chapel — Scrovegni Chapel, Padua, Italy, 1305 CE. What happened (show only this, do not add details): The banker Enrico Scrovegni in Padua had a chapel built next to his palace and commissioned the Florentine painter Giotto to decorate it. Giotto and his team covered all the walls and the ceiling with frescoes of the lives of Christ and the Virgin Mary and a large Last Judgement. The frescoes were completed around 1305, the year the chapel was consecrated. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Påvarna flyttar till Avignon (`paven-flyttar-till-avignon`)
@@ -3503,7 +5203,7 @@ Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapi
 - Spara som: `images/incoming/stora-svalten-1315.jpg`
 
 ```text
-Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapis blue and vermilion, decorated initial and vine border, flat perspective. Subject: The Great Famine in Europe — Most of Europe, east to Poland and south to the Alps, 1315 CE. What happened (show only this, do not add details): Bad weather came in the spring of 1315, and harvests failed until the summer harvest of 1317. The famine struck most of Europe, east to Poland and south to the Alps. Weakened animals fell ill, and the numbers of sheep and cattle fell by as much as 80 per cent. Europe did not fully recover until 1322. The famine ended the growth that had lasted since the 11th century and was the first of several great crises in 14th-century Europe. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapis blue and vermilion, decorated initial and vine border, flat perspective. Subject: The Great Famine in Europe — Most of Europe, east to Poland and south to the Alps, 1315 CE. What happened (show only this, do not add details): Bad weather came in the spring of 1315, and harvests failed until the summer harvest of 1317. The famine struck most of Europe, east to Poland and south to the Alps. Weakened animals fell ill, and the numbers of sheep and cattle fell by as much as 80 per cent. The famine ended the growth that had lasted since the 11th century and was the first of several great crises in 14th-century Europe. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Jordbävningen i Basel (`jordbavningen-i-basel-1356`)
@@ -3523,7 +5223,7 @@ Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapi
 - Spara som: `images/incoming/karantan-i-ragusa-1377.jpg`
 
 ```text
-Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapis blue and vermilion, decorated initial and vine border, flat perspective. Subject: Ragusa introduces quarantine against the plague — Ragusa (now Dubrovnik, Croatia), 1377 CE. What happened (show only this, do not add details): On 27 July 1377 the Great Council of the Republic of Ragusa, now Dubrovnik, decided that merchants, sailors and goods from infected areas could not enter the city until they had spent a month in isolation on uninhabited islands outside the city. The city had been hit hard by the plague in 1348. The 30-day isolation was called the trentino. When Venice extended the period to 40 days in 1448, the measure got the name quarantine, from the word for forty. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapis blue and vermilion, decorated initial and vine border, flat perspective. Subject: Ragusa introduces quarantine against the plague — Ragusa (now Dubrovnik, Croatia), 1377 CE. What happened (show only this, do not add details): On 27 July 1377 the Great Council of the Republic of Ragusa, now Dubrovnik, decided that merchants, sailors and goods from infected areas could not enter the city until they had spent a month in isolation on uninhabited islands outside the city. The 30-day isolation was called the trentino. When Venice extended the period to 40 days in 1448, the measure got the name quarantine, from the word for forty. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Uret i Salisburys katedral (`uret-i-salisbury`)
@@ -3553,7 +5253,7 @@ Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapi
 - Spara som: `images/incoming/moundville-hovdingadome.jpg`
 
 ```text
-Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapis blue and vermilion, decorated initial and vine border, flat perspective. Subject: Moundville becomes a regional chiefdom — Moundville on the Black Warrior River, Alabama (now USA), 1150 CE. What happened (show only this, do not add details): Moundville on the Black Warrior River in present-day Alabama was inhabited by the Mississippian culture from around 1000. Around 1150 its leaders began turning the site into a regional centre, a chiefdom. The site has 29 platform mounds around a rectangular plaza, and the community was protected by a wooden palisade on three sides. From around 1300 the site was used more as a religious and political centre than as a town, and by around 1500 most of it was abandoned. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapis blue and vermilion, decorated initial and vine border, flat perspective. Subject: Moundville becomes a regional chiefdom — Moundville on the Black Warrior River, Alabama (now USA), 1150 CE. What happened (show only this, do not add details): Moundville on the Black Warrior River in present-day Alabama was inhabited by the Mississippian culture from around 1000. Around 1150 its leaders began turning the site into a regional centre, a chiefdom. The site has 29 platform mounds around a rectangular plaza. From around 1300 the site was used more as a religious and political centre than as a town, and by around 1500 most of it was abandoned. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Hohokamfolket bygger Casa Grande och bevattnar öknen (`casa-grande-hohokam`)
@@ -3613,7 +5313,7 @@ Style: Aztec (Mexica) codex painting on bark paper or deerskin, bold black outli
 - Spara som: `images/incoming/codex-zouche-nuttall.jpg`
 
 ```text
-Style: Aztec (Mexica) codex painting on bark paper or deerskin, bold black outlines, flat red, blue, yellow and green, glyph-like stylised figures and temples. Subject: The Codex Zouche-Nuttall is painted — The Mixtec region of Oaxaca (now Mexico); the book is about Tilantongo, but where it was painted is not known, 1300 CE. What happened (show only this, do not add details): The Codex Zouche-Nuttall is one of about 16 manuscripts from Mexico that are entirely pre-Columbian in origin. It was probably made in the 14th century from 47 pieces of animal skin, folds like a screen and is painted on both sides with Mixtec pictography. It records the genealogies, alliances and conquests of 11th- and 12th-century rulers of the small Mixtec kingdom of Tilantongo in Oaxaca, especially under the warrior Eight Deer Jaguar Claw. Today it is in the British Museum. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Aztec (Mexica) codex painting on bark paper or deerskin, bold black outlines, flat red, blue, yellow and green, glyph-like stylised figures and temples. Subject: The Codex Zouche-Nuttall is painted — The Mixtec region of Oaxaca (now Mexico); the book is about Tilantongo, but where it was painted is not known, 1300 CE. What happened (show only this, do not add details): The Codex Zouche-Nuttall is one of about 16 manuscripts from Mexico that are entirely pre-Columbian in origin. It was probably made in the 14th century from 47 pieces of animal skin, folds like a screen and is painted on both sides with Mixtec pictography. It records the genealogies, alliances and conquests of 11th- and 12th-century rulers of the small Mixtec kingdom of Tilantongo in Oaxaca, especially under the warrior Eight Deer Jaguar Claw. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Det första templet på Templo Mayor byggs (`templo-mayor-forsta-templet`)
@@ -3623,7 +5323,7 @@ Style: Aztec (Mexica) codex painting on bark paper or deerskin, bold black outli
 - Spara som: `images/incoming/templo-mayor-forsta-templet.jpg`
 
 ```text
-Style: Aztec (Mexica) codex painting on bark paper or deerskin, bold black outlines, flat red, blue, yellow and green, glyph-like stylised figures and temples. Subject: The first temple at the Templo Mayor is built — Tenochtitlan (now Mexico City, Mexico), 1325 CE. What happened (show only this, do not add details): The Templo Mayor was the main temple of the Mexica in Tenochtitlan, now Mexico City. It was dedicated both to the war god Huitzilopochtli and to the rain god Tlaloc and was seen as the centre of the universe. The first of seven temples on the site was built in 1325 or shortly afterwards, and the second existed by 1375. Each new temple was built over the old one. The largest expansion took place in 1454, and the Spanish destroyed the temple in 1521. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Aztec (Mexica) codex painting on bark paper or deerskin, bold black outlines, flat red, blue, yellow and green, glyph-like stylised figures and temples. Subject: The first temple at the Templo Mayor is built — Tenochtitlan (now Mexico City, Mexico), 1325 CE. What happened (show only this, do not add details): The Templo Mayor was the main temple of the Mexica in Tenochtitlan, now Mexico City. It was dedicated both to the war god Huitzilopochtli and to the rain god Tlaloc and was seen as the centre of the universe. The first of seven temples on the site was built in 1325 or shortly afterwards, and the second existed by 1375. The largest expansion took place in 1454, and the Spanish destroyed the temple in 1521. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## La Isabela: ett tidigt exempel på det columbianska utbytet (`la-isabela-columbianska-utbytet`)
@@ -3633,7 +5333,7 @@ Style: Aztec (Mexica) codex painting on bark paper or deerskin, bold black outli
 - Spara som: `images/incoming/la-isabela-columbianska-utbytet.jpg`
 
 ```text
-Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: La Isabela: an early example of the Columbian exchange — La Isabela, Puerto Plata Province, Dominican Republic, 1493 CE. What happened (show only this, do not add details): Between late December 1493 and early January 1494, on his second voyage, Columbus founded La Isabela on Hispaniola, the first stable Spanish settlement in the Americas. The Spaniards brought pigs, horses, wheat and sugar cane. The same year La Isabela was struck by the first known epidemic to spread from Europe to the Americas. The event is an early example of the Columbian exchange, which began with Columbus's voyage of 1492: plants, animals and diseases carried between the Americas and Europe, Africa and Asia. Diseases from the Old World contributed to an 80–95 per cent fall in the Indigenous population of the Americas. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: La Isabela: an early example of the Columbian exchange — La Isabela, Puerto Plata Province, Dominican Republic, 1493 CE. What happened (show only this, do not add details): Between late December 1493 and early January 1494, on his second voyage, Columbus founded La Isabela on Hispaniola, the first stable Spanish settlement in the Americas. The same year La Isabela was struck by the first known epidemic to spread from Europe to the Americas. The event is an early example of the Columbian exchange: plants, animals and diseases carried between the Americas and Europe, Africa and Asia. Diseases from the Old World contributed to an 80–95 per cent fall in the Indigenous population of the Americas. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Digerdöden når Egypten och Kairo (`digerdoden-i-egypten`)
@@ -3643,7 +5343,7 @@ Style: Renaissance woodcut or copper engraving, fine black hatching and cross-ha
 - Spara som: `images/incoming/digerdoden-i-egypten.jpg`
 
 ```text
-Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: The Black Death reaches Egypt and Cairo — Cairo and the Nile Valley, Egypt, 1347 CE. What happened (show only this, do not add details): In the autumn of 1347 a ship carrying the plague came to Alexandria. During the spring of 1348 the disease spread over northern Egypt, and it was at its worst between October 1348 and January 1349. In September 1348 the plague reached Cairo, which was then the largest city in the Mediterranean region and larger than any city in Europe. About 200,000 people, a third of the city’s inhabitants, died there, and several quarters lay empty during the following century. The plague then returned to Egypt again and again, 58 times between 1347 and 1517 according to the source. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: The Black Death reaches Egypt and Cairo — Cairo and the Nile Valley, Egypt, 1347 CE. What happened (show only this, do not add details): In the autumn of 1347 a ship carrying the plague came to Alexandria. In September 1348 the plague reached Cairo, which was then the largest city in the Mediterranean region and larger than any city in Europe. About 200,000 people, a third of the city’s inhabitants, died there, and several quarters lay empty during the following century. The plague then returned to Egypt again and again, 58 times between 1347 and 1517 according to the source. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Ibn Khaldun skriver Muqaddiman (`ibn-khalduns-muqaddima`)
@@ -3653,7 +5353,7 @@ Style: Islamic art: intricate geometric tile patterns, arabesques and decorative
 - Spara som: `images/incoming/ibn-khalduns-muqaddima.jpg`
 
 ```text
-Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: Ibn Khaldun writes the Muqaddimah — Qalʿat ibn Salama, in present-day Algeria, 1377 CE. What happened (show only this, do not add details): In 1377 Ibn Khaldun wrote the Muqaddimah, the introduction and first book of a planned world history, the Kitab al-ʿIbar. He wrote the first version at Qalʿat ibn Salama, where he lived in seclusion for almost four years after withdrawing from political life. He begins by pointing out the common mistakes of historians, such as partisanship and over-confidence in their sources, and then sets out a theory of how societies rise and decline. Best known is the concept of ʿasabiyyah, group feeling or social cohesion. Already in his lifetime the Muqaddimah was regarded as a work in its own right, and some scholars today see it as the first work of social science. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: Ibn Khaldun writes the Muqaddimah — Qalʿat ibn Salama, in present-day Algeria, 1377 CE. What happened (show only this, do not add details): In 1377 Ibn Khaldun wrote the Muqaddimah, the introduction and first book of a planned world history, the Kitab al-ʿIbar. He begins by pointing out the common mistakes of historians, such as partisanship and over-confidence in their sources, and then sets out a theory of how societies rise and decline. Best known is the concept of ʿasabiyyah, group feeling or social cohesion. Already in his lifetime the Muqaddimah was regarded as a work in its own right, and some scholars today see it as the first work of social science. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Mutapariket växer fram (`mutapariket`)
@@ -3663,7 +5363,7 @@ Style: Islamic art: intricate geometric tile patterns, arabesques and decorative
 - Spara som: `images/incoming/mutapariket.jpg`
 
 ```text
-Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapis blue and vermilion, decorated initial and vine border, flat perspective. Subject: The Mutapa Empire emerges — The Dande–Musengezi area in northern Zimbabwe, where the first capitals lay, 1430 CE. What happened (show only this, do not add details): The Mutapa Empire was a Shona state on the northern part of the Zimbabwean Plateau, between the Zambezi and Limpopo rivers. The king’s title was Mwenemutapa, which the Portuguese wrote as Monomotapa. According to Shona oral tradition the state was founded by Mutota, an elephant hunter who conquered Dande and built a capital with a stone enclosure, and his son Matope expanded it. Historians think the tradition compresses several generations of rulers and date the state’s formation to the 14th and 15th centuries. The state controlled the trade routes along the Zambezi, where Muslim Swahili and later Portuguese merchants traded at marketplaces, and around 1760 it is said to have broken up into smaller principalities. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapis blue and vermilion, decorated initial and vine border, flat perspective. Subject: The Mutapa Empire emerges — The Dande–Musengezi area in northern Zimbabwe, where the first capitals lay, 1430 CE. What happened (show only this, do not add details): The Mutapa Empire was a Shona state on the northern part of the Zimbabwean Plateau, between the Zambezi and Limpopo rivers. According to Shona oral tradition the state was founded by Mutota, an elephant hunter who conquered Dande and built a capital with a stone enclosure, and his son Matope expanded it. Historians think the tradition compresses several generations of rulers and date the state’s formation to the 14th and 15th centuries. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Ribe anläggs som handelsplats (`ribe-handelsplats`)
@@ -3723,7 +5423,7 @@ Style: Renaissance woodcut or copper engraving, fine black hatching and cross-ha
 - Spara som: `images/incoming/tordesillasfordraget.jpg`
 
 ```text
-Style: Renaissance portolan chart on vellum with compass roses, rhumb lines, sailing ships and decorative sea, coastlines drawn in ink and colour. Subject: The Treaty of Tordesillas — Tordesillas, Castile (now Spain), 1494 CE. What happened (show only this, do not add details): On 7 June 1494 Portugal and Castile signed a treaty at Tordesillas on how newly discovered lands outside Europe were to be divided between them. The line was drawn along a meridian 370 leagues, about 2,100 km, west of the Cape Verde islands. The lands east of the line were to belong to Portugal and the lands west of it to Castile. The treaty modified a line that Pope Alexander VI had drawn in the bull Inter caetera in 1493. The line gave Portugal rights to the eastern part of present-day Brazil. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Renaissance portolan chart on vellum with compass roses, rhumb lines, sailing ships and decorative sea, coastlines drawn in ink and colour. Subject: The Treaty of Tordesillas — Tordesillas, Castile (now Spain), 1494 CE. What happened (show only this, do not add details): On 7 June 1494 Portugal and Castile signed a treaty at Tordesillas on how newly discovered lands outside Europe were to be divided between them. The line was drawn along a meridian 370 leagues, about 2,100 km, west of the Cape Verde islands. The lands east of the line were to belong to Portugal and the lands west of it to Castile. The line gave Portugal rights to the eastern part of present-day Brazil. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Guldhornen från Gallehus (`guldhornen-fran-gallehus`)
@@ -3763,7 +5463,7 @@ Style: ancient Greek red-figure and black-figure vase painting, or Roman floor m
 - Spara som: `images/incoming/brunelleschis-kupol.jpg`
 
 ```text
-Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapis blue and vermilion, decorated initial and vine border, flat perspective. Subject: Brunelleschi's dome is built over Florence Cathedral — Florence, Republic of Florence (today Italy), 1420 CE. What happened (show only this, do not add details): In 1420–1436 the dome over the cathedral of Santa Maria del Fiore in Florence is built following Filippo Brunelleschi's solution. It was the first octagonal dome raised without a temporary wooden supporting frame, and it is still the largest masonry dome ever built. The dome belongs to the Renaissance, the period that began in Florence: Brunelleschi studied the buildings of antiquity and shaped the Renaissance style of architecture. Pope Eugene IV consecrated the cathedral on 25 March 1436. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapis blue and vermilion, decorated initial and vine border, flat perspective. Subject: Brunelleschi's dome is built over Florence Cathedral — Florence, Republic of Florence (today Italy), 1420 CE. What happened (show only this, do not add details): In 1420–1436 the dome over the cathedral of Santa Maria del Fiore in Florence is built following Filippo Brunelleschi's solution. It was the first octagonal dome raised without a temporary wooden supporting frame, and it is still the largest masonry dome ever built. Pope Eugene IV consecrated the cathedral on 25 March 1436. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Guldet i Timrå och handeln i Medelpad (`guldet-i-timra`)
@@ -3774,6 +5474,1016 @@ Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapi
 
 ```text
 Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The gold of Timrå and trade in Medelpad — Mouth of the Indalsälven river near Timrå, Medelpad, Sweden, 200 CE. What happened (show only this, do not add details): The area around the mouth of the Indalsälven river near present-day Sundsvall is unusually rich in finds from AD 200–600: gold, Roman imports, large burial mounds and weapon graves. A trading place grew up here, probably led by a chieftain or petty king. The elite grew rich from trade in iron, game, elk antler and furs, among other goods. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Elefantfåglarna dör ut på Madagaskar (`elefantfaglarna-dor-ut`)
+
+- År: 800 CE · plats: Madagaskar
+- Stil: Bysantinsk ikon och insulär bokmålning (`tidig-medeltid`)
+- Spara som: `images/incoming/elefantfaglarna-dor-ut.jpg`
+
+```text
+Style: early medieval art: Byzantine icon with gold leaf background, or Insular illuminated manuscript in the style of the Book of Kells and the Lindisfarne Gospels with interlaced knotwork, spirals and zoomorphic borders. Subject: The elephant birds die out on Madagascar — Madagascar, 800 CE. What happened (show only this, do not add details): Elephant birds were large flightless birds that lived only on Madagascar. Based on the youngest radiocarbon dates, a 2021 study suggests that the elephant birds and Madagascar's hippopotamuses died out sometime between 800 and 1050. At the same time people were changing the island's landscape, probably with fire, as forest became grassland, likely for cattle. Humans are thought to be the main cause, but there is little evidence that the birds were hunted. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Ibn al-Haytham skriver Optikens bok i Kairo (`ibn-al-haytham-optikens-bok`)
+
+- År: 1011 CE · plats: Kairo, fatimidkalifatet (i dag Egypten)
+- Stil: Geometriska mönster, kalligrafi och arkitektur (`islamisk`)
+- Spara som: `images/incoming/ibn-al-haytham-optikens-bok.jpg`
+
+```text
+Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: Ibn al-Haytham writes the Book of Optics in Cairo — Cairo, Fatimid Caliphate (now Egypt), 1011 CE. What happened (show only this, do not add details): The mathematician and physicist Ibn al-Haytham, born in Basra, spent his most productive years in the Fatimid capital of Cairo. There, between 1011 and 1021, he wrote the seven-volume Kitab al-Manazir (Book of Optics). In it he explained that we see when light reflects from an object and reaches the eye, and that seeing takes place in the brain. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Maimonides skriver Moré nebuchim i Fustat (`maimonides-skriver-more-nebuchim`)
+
+- År: 1185 CE · plats: Fustat (i dag en del av Kairo, Egypten)
+- Stil: Geometriska mönster, kalligrafi och arkitektur (`islamisk`)
+- Spara som: `images/incoming/maimonides-skriver-more-nebuchim.jpg`
+
+```text
+Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: Maimonides writes The Guide for the Perplexed in Fustat — Fustat (now part of Cairo, Egypt), 1185 CE. What happened (show only this, do not add details): The Jewish philosopher and physician Maimonides, born in Córdoba, settled in Fustat in Egypt around 1168–1171 and lived there until his death in 1204. He was physician to Saladin and then at the Ayyubid court. Between 1185 and 1190 he wrote his main philosophical work, The Guide for the Perplexed, in Judeo-Arabic, that is, Arabic written in Hebrew letters. The work seeks to reconcile Aristotle's philosophy with Jewish theology. It was translated into Hebrew in 1204, was controversial in its day and also influenced Christian philosophers such as Thomas Aquinas. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Banu Hilal och Banu Sulaym flyttar till Maghreb (`banu-hilal-flyttar-till-maghreb`)
+
+- År: 1001 CE · plats: Från Egypten via Kyrenaika till Ifriqiya (i dag Libyen, Tunisien och Algeriet)
+- Stil: Geometriska mönster, kalligrafi och arkitektur (`islamisk`)
+- Spara som: `images/incoming/banu-hilal-flyttar-till-maghreb.jpg`
+
+```text
+Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: The Banu Hilal and Banu Sulaym migrate to the Maghreb — From Egypt via Cyrenaica to Ifriqiya (now Libya, Tunisia and Algeria), 1001 CE. What happened (show only this, do not add details): During the 11th century large groups of Bedouin from the Banu Hilal and Banu Sulaym tribes moved westwards from Egypt to the Maghreb. According to the traditional account, found for example in Ibn Khaldun, the Fatimids sent them to punish the Zirids of Ifriqiya, who had declared their independence, but many modern historians regard this account as Fatimid propaganda. How many they were is very uncertain: estimates range from a few tens of thousands to around one million. The migration was a major reason why the Maghreb gradually became Arabic-speaking. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Afrikanska och asiatiska rötter möts på swahilikusten (`swahilikustens-afrikanska-och-asiatiska-rotter`)
+
+- År: 1000 CE · plats: Swahilikusten (gravar i bland annat Mtwapa, Manda och Kilwa, i dag Kenya och Tanzania)
+- Stil: Bysantinsk ikon och insulär bokmålning (`tidig-medeltid`)
+- Spara som: `images/incoming/swahilikustens-afrikanska-och-asiatiska-rotter.jpg`
+
+```text
+Style: early medieval art: Byzantine icon with gold leaf background, or Insular illuminated manuscript in the style of the Book of Kells and the Lindisfarne Gospels with interlaced knotwork, spirals and zoomorphic borders. Subject: African and Asian roots meet on the Swahili coast — The Swahili coast (burials at Mtwapa, Manda and Kilwa, among others, now Kenya and Tanzania), 1000 CE. What happened (show only this, do not add details): A study of ancient DNA from 80 people shows that people of African and Asian origin began to form families on the Swahili coast around the year 1000, at the same time as Islam became widespread. In many of those buried in the coastal towns more than half of the DNA came from African, mainly female, ancestors and a large share from Asian ancestors. Of the Asian ancestry, 80–90 per cent came from men from Persia. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Vallarna i Sungbos Eredo byggs (`sungbos-eredo`)
+
+- År: 901 CE · plats: Sydväst om Ijebu Ode, delstaten Ogun (i dag Nigeria)
+- Stil: Bysantinsk ikon och insulär bokmålning (`tidig-medeltid`)
+- Spara som: `images/incoming/sungbos-eredo.jpg`
+
+```text
+Style: early medieval art: Byzantine icon with gold leaf background, or Insular illuminated manuscript in the style of the Book of Kells and the Lindisfarne Gospels with interlaced knotwork, spirals and zoomorphic borders. Subject: The earthworks of Sungbo's Eredo are built — South-west of Ijebu Ode, Ogun State (now Nigeria), 901 CE. What happened (show only this, do not add details): South-west of the Yoruba town of Ijebu Ode in south-western Nigeria runs a system of ditches with banks on their inner side, more than 160 km in all. They form an uneven ring around the old Ijebu Kingdom, an area measuring roughly 40 km from north to south. The earthwork is thought to have served defence and to have helped bring different communities together in one kingdom. Local legends link it to a wealthy widow, Bilikisu Sungbo, in whose memory it is said to have been built. When it was built is disputed. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Bronserna i Igbo-Ukwu gjuts (`igbo-ukwu-bronserna`)
+
+- År: 801 CE · plats: Igbo-Ukwu, delstaten Anambra (i dag Nigeria)
+- Stil: Bysantinsk ikon och insulär bokmålning (`tidig-medeltid`)
+- Spara som: `images/incoming/igbo-ukwu-bronserna.jpg`
+
+```text
+Style: early medieval art: Byzantine icon with gold leaf background, or Insular illuminated manuscript in the style of the Book of Kells and the Lindisfarne Gospels with interlaced knotwork, spirals and zoomorphic borders. Subject: The bronzes of Igbo-Ukwu are cast — Igbo-Ukwu, Anambra State (now Nigeria), 801 CE. What happened (show only this, do not add details): At Igbo-Ukwu in south-eastern Nigeria, Isaiah Anozie found bronze objects while digging by his house in 1938. The archaeologist Thurstan Shaw excavated three sites in 1959 and 1964 and found more than 700 high-quality objects of copper, bronze and iron, among them ritual vessels, and about 165,000 beads of glass, carnelian and stone. The metal was of local origin, while many of the glass beads were probably made from glass from Mesopotamia and Iran, a sign of long-distance trade. The finds showed that such skilled metalwork had developed long before contact with Europe. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Handelsstaden Gao-Saney vid Nigerfloden (`gao-saney-handelsstad`)
+
+- År: 700 CE · plats: Gao-Saney nära Gao vid Nigerfloden (i dag Mali)
+- Stil: Geometriska mönster, kalligrafi och arkitektur (`islamisk`)
+- Spara som: `images/incoming/gao-saney-handelsstad.jpg`
+
+```text
+Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: The trading town of Gao-Saney on the Niger — Gao-Saney near Gao on the Niger River (now Mali), 700 CE. What happened (show only this, do not add details): The settlement mound of Gao-Saney, seven kilometres from Gao in present-day Mali, is almost certainly the town called Sarneh in Arabic writings. People lived there from about 700. The finds show that in the 8th to 10th centuries the site traded in glass and copper on such a scale that, among known sites south of the Sahara, only Igbo-Ukwu has yielded more such traces. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Koutoubiamoskén byggs i Marrakech (`koutoubiamosken-byggs`)
+
+- År: 1147 CE · plats: Marrakech, almohadkalifatet (i dag Marocko)
+- Stil: Geometriska mönster, kalligrafi och arkitektur (`islamisk`)
+- Spara som: `images/incoming/koutoubiamosken-byggs.jpg`
+
+```text
+Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: The Koutoubia Mosque is built in Marrakesh — Marrakesh, Almohad Caliphate (now Morocco), 1147 CE. What happened (show only this, do not add details): When the Almohads under the caliph Abd al-Mu'min took Marrakesh from the Almoravids in 1147, they started work on a new great mosque that same year, according to the usual dating. The building standing today is a second, entirely new mosque from around 1158. Its 77-metre minaret was perhaps finished around 1195 under Ya'qub al-Mansur. The Koutoubia is counted among the most important buildings of Almohad and Moroccan architecture. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Swahilistaden Gedi grundas (`gedi-grundas`)
+
+- År: 1001 CE · plats: Gedi nära kusten i Kilifi county (i dag Kenya)
+- Stil: Illuminerad handskrift (`medeltid`)
+- Spara som: `images/incoming/gedi-grundas.jpg`
+
+```text
+Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapis blue and vermilion, decorated initial and vine border, flat perspective. Subject: The Swahili town of Gedi is founded — Gedi near the coast in Kilifi County (now Kenya), 1001 CE. What happened (show only this, do not add details): Gedi is one of many medieval Swahili towns along the East African coast of the Indian Ocean, in present-day Kenya. The earliest evidence of settlement is a grave marker radiocarbon-dated to between 1041 and 1278, which places the founding in the 11th or early 12th century. The inhabitants adopted Islam in the 12th century, and three mosques were built one on top of another between the 12th and 14th centuries. The town lived on trade, had about 2,500 inhabitants at its peak and was abandoned in the middle of the 17th century. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Timbuktu blir en fast bosättning (`timbuktu-blir-fast-bosattning`)
+
+- År: 1100 CE · plats: Timbuktu, söder om Sahara nära Nigerfloden (i dag Mali)
+- Stil: Geometriska mönster, kalligrafi och arkitektur (`islamisk`)
+- Spara som: `images/incoming/timbuktu-blir-fast-bosattning.jpg`
+
+```text
+Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: Timbuktu becomes a permanent settlement — Timbuktu, south of the Sahara near the Niger River (now Mali), 1100 CE. What happened (show only this, do not add details): On the southern fringe of the Sahara, some 20 km north of the Niger River in present-day Mali, the site was at first used only at certain seasons. Early in the 12th century Timbuktu became a place where people lived all year round. The town's great role came later: after Mansa Musa's visit around 1325 the trade in salt, gold and ivory flourished, and Timbuktu became an important Islamic centre. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Stora moskén i Kilwa får sin norra bönehall (`kilwas-stora-moske-norra-hallen`)
+
+- År: 1131 CE · plats: Kilwa Kisiwani (i dag Tanzania)
+- Stil: Illuminerad handskrift (`medeltid`)
+- Spara som: `images/incoming/kilwas-stora-moske-norra-hallen.jpg`
+
+```text
+Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapis blue and vermilion, decorated initial and vine border, flat perspective. Subject: The Great Mosque of Kilwa gets its northern prayer hall — Kilwa Kisiwani (now Tanzania), 1131 CE. What happened (show only this, do not add details): The Great Mosque of Kilwa, on the island of Kilwa Kisiwani in present-day Tanzania, is one of the oldest partly surviving mosques on the Swahili coast. It was probably founded as early as the 10th century, but the first major building phase is the smaller northern prayer hall. In the 14th century the sultan al-Hasan ibn Sulaiman extended the mosque to the south with a great dome. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Kung War Jabi inför sharia i Takrur (`war-jabi-infor-sharia-i-takrur`)
+
+- År: 1035 CE · plats: Takrur vid Senegalfloden (i dag Senegal och Mauretanien)
+- Stil: Geometriska mönster, kalligrafi och arkitektur (`islamisk`)
+- Spara som: `images/incoming/war-jabi-infor-sharia-i-takrur.jpg`
+
+```text
+Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: King War Jabi introduces sharia in Takrur — Takrur on the Senegal River (now Senegal and Mauritania), 1035 CE. What happened (show only this, do not add details): Takrur was a state on the Senegal River in present-day Senegal that was at its height in the 11th and 12th centuries, roughly at the same time as the Ghana Empire. In 1035 King War Jabi introduced sharia and became the first ruler in the Sahel to officially adopt Islamic orthodoxy. He also waged a holy war against the king of Silla, subjugating its people and converting them to Islam. He died around 1040–1041. His son Lebi formed an alliance with the Almoravids against the Ghana Empire, and Takrur controlled trading posts on the route from the salt mines of Awlil on the coast to the interior. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Zagwedynastin tar makten i norra Etiopien (`zagwedynastin`)
+
+- År: 1137 CE · plats: Lasta i norra Etiopien
+- Stil: Geometriska mönster, kalligrafi och arkitektur (`islamisk`)
+- Spara som: `images/incoming/zagwedynastin.jpg`
+
+```text
+Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: The Zagwe dynasty takes power in northern Ethiopia — Lasta in northern Ethiopia, 1137 CE. What happened (show only this, do not add details): The Zagwe dynasty was an Agaw royal house that ruled the northern parts of present-day Ethiopia and Eritrea from about 1137 to 1270, with its centre of power in Lasta. According to Ethiopian traditions, the dynasty's founder Mara Takla Haymanot overthrew the old royal line in 1137. The dynasty's best-known king is Gebre Meskel Lalibela, who is credited with the rock-hewn churches of Lalibela. In 1270 the last Zagwe king was killed in battle against Yekuno Amlak, who founded the Solomonic dynasty. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Jordbävningen 1303 skadar Faros fyr i Alexandria (`jordbavningen-1303-alexandria`)
+
+- År: 1303 CE · plats: Alexandria och Kairo (jordbävningens centrum mellan Kreta och Rhodos)
+- Stil: Geometriska mönster, kalligrafi och arkitektur (`islamisk`)
+- Spara som: `images/incoming/jordbavningen-1303-alexandria.jpg`
+
+```text
+Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: The earthquake of 1303 damages the Lighthouse of Alexandria — Alexandria and Cairo (earthquake centre between Crete and Rhodes), 1303 CE. What happened (show only this, do not add details): At about dawn on 8 August 1303 the eastern Mediterranean was shaken by an earthquake, estimated at about magnitude 8, centred somewhere between Crete and Rhodes. The tsunami that followed caused massive flooding in Alexandria, where many ships were destroyed and some were carried up to about 3 km inland. Houses collapsed and many people died, most of the city walls were destroyed and the Lighthouse of Alexandria, one of the Seven Wonders of the World, was badly damaged. In Cairo minarets toppled, and much of the white limestone casing fell from the Great Pyramid of Giza. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Nilen uteblir och svält drabbar Egypten (`svalten-i-egypten-1200`)
+
+- År: 1200 CE · plats: Egypten
+- Stil: Geometriska mönster, kalligrafi och arkitektur (`islamisk`)
+- Spara som: `images/incoming/svalten-i-egypten-1200.jpg`
+
+```text
+Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: The Nile fails and famine strikes Egypt — Egypt, 1200 CE. What happened (show only this, do not add details): The physician and scholar Abd al-Latif al-Baghdadi, born in Baghdad, was living in Egypt when the Nile failed to overflow its banks. The missing flood caused a severe famine, and according to his detailed account the situation became so dire that many people turned to cannibalism. During the famine in the year 597 of the Islamic calendar (1200) he examined a large number of skeletons and concluded that the ancient physician Galen had been wrong about the formation of the lower jaw, the coccyx and the sacrum. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Ett fuktigare klimat vid Limpopo när Mapungubwe växer fram (`fuktigare-klimat-vid-limpopo`)
+
+- År: 950 CE · plats: Nordöstra Sydafrika, vid Limpopo (Pafuri i norra Krugerparken)
+- Stil: Bysantinsk ikon och insulär bokmålning (`tidig-medeltid`)
+- Spara som: `images/incoming/fuktigare-klimat-vid-limpopo.jpg`
+
+```text
+Style: early medieval art: Byzantine icon with gold leaf background, or Insular illuminated manuscript in the style of the Book of Kells and the Lindisfarne Gospels with interlaced knotwork, spirals and zoomorphic borders. Subject: A wetter climate on the Limpopo as Mapungubwe rises — North-eastern South Africa, on the Limpopo (Pafuri in the northern Kruger National Park), 950 CE. What happened (show only this, do not add details): A 2025 study compares the dates of burials from South Africa's Iron Age with climate data. In north-eastern South Africa, carbon isotopes in baobab trees at Pafuri show that the Medieval Climate Anomaly, about 950–1250, was relatively humid, and the number of burials rose, especially around the Limpopo, where the state of Mapungubwe arose. After about 1300 the north-east also became drier, roughly when Mapungubwe was fairly abruptly abandoned, but researchers have long debated what role the climate played in that. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Gravarna från den kisaliska tiden i Upembasänkan (`kisaliska-gravarna`)
+
+- År: 700 CE · plats: Norra delen av Upembasänkan (i dag Demokratiska republiken Kongo)
+- Stil: Bysantinsk ikon och insulär bokmålning (`tidig-medeltid`)
+- Spara som: `images/incoming/kisaliska-gravarna.jpg`
+
+```text
+Style: early medieval art: Byzantine icon with gold leaf background, or Insular illuminated manuscript in the style of the Book of Kells and the Lindisfarne Gospels with interlaced knotwork, spirals and zoomorphic borders. Subject: The Kisalian graves of the Upemba Depression — The northern Upemba Depression (now the Democratic Republic of the Congo), 700 CE. What happened (show only this, do not add details): In the northern part of the Upemba Depression in the present-day Democratic Republic of the Congo, archaeologists have found nearly 200 graves in five cemeteries, among them Sanga. They date from the Early Kisalian phase (700–900) and the Classic Kisalian phase (900–1200). The grave goods of pottery, iron, copper, bone and ivory point to metalworking, long-distance trade and social hierarchy. Many customs of the Luba people, who live in the area today, can be traced back to this period. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Stelen från La Mojarra med istmisk skrift (`la-mojarra-stele-1`)
+
+- År: 156 CE · plats: La Mojarra vid floden Acula, Veracruz, Mexiko
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/la-mojarra-stele-1.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: La Mojarra Stela 1 with Isthmian script — La Mojarra on the Acula River, Veracruz, Mexico, 156 CE. What happened (show only this, do not add details): The stela is a four-ton limestone slab from the Epi-Olmec culture. It carries about 535 signs in the Isthmian script and is among the earliest known written texts in Mesoamerica. Two Long Count dates correspond to May 143 and July 156, and the stela is dated by the later one. John Justeson and Terrence Kaufman have proposed a reading in which the text mentions, among other things, a solar eclipse and Venus, but other scholars, including Michael Coe and Stephen Houston, dispute it. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Svår torka på Yucatánhalvön (`torka-pa-yucatan-150-250`)
+
+- År: 150 CE · plats: Yucatánhalvön, Mexiko (punkten: Ría Lagartos, en av provplatserna)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/torka-pa-yucatan-150-250.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Severe drought on the Yucatán Peninsula — The Yucatán Peninsula, Mexico (the point: Ría Lagartos, one of the sampling sites), 150 CE. What happened (show only this, do not add details): Towards the end of the Maya Late Preclassic period, between about 150 and 250, the Yucatán Peninsula was hit by drought. A 2022 study of pollen in lakes and lagoons in Mexico and Guatemala summarises that rainfall over most of the peninsula fell by at least 20 per cent compared with the preceding period, and that it was the most severe drought in the northern Yucatán in the last 2,000 years. The researchers argue that during the dry period maize became a way of coping with harsh conditions. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Helgedomen Pachacámac (`pachacamac`)
+
+- År: 200 CE · plats: Pachacámac i Lurínflodens dal, söder om Lima, Peru
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/pachacamac.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The sanctuary of Pachacamac — Pachacamac in the Lurín valley, south of Lima, Peru, 200 CE. What happened (show only this, do not add details): Pachacamac is an archaeological site of about 600 hectares in the Lurín valley, about 40 kilometres south-east of Lima. It is named after Pacha Kamaq, the ‘Earth Maker’, whom the coastal peoples here regarded as the creator god. According to the source, the site was settled around the year 200 and then flourished for about 1,300 years, until the Spanish arrived. Between January and April 1533 Hernando Pizarro travelled to Pachacamac and defiled the temple. The large religious complex is credited to the Lima culture, and in front of the temple was a raised space where pilgrims could leave offerings. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Pilgrimsplatsen Cahuachi (`cahuachi`)
+
+- År: 1 CE · plats: Cahuachi i Nazcadalen, södra Peru
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/cahuachi.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The pilgrimage centre of Cahuachi — Cahuachi in the Nazca valley, southern Peru, 1 CE. What happened (show only this, do not add details): From about the year 1 to 500, Cahuachi was a major ceremonial centre of the Nazca culture. It lies on the south side of the Nazca River and overlooks some of the Nazca Lines. More than 40 mounds with adobe buildings cover about 1.5 square kilometres. For a long time researchers believed Cahuachi was the capital of the Nazca state, but few people lived there all year round. Instead, the site is now interpreted as a pilgrimage centre that many visited before and during major ceremonies. Newer research suggests that 40 of the mounds are natural hills reshaped to look built. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Stenstatyerna i San Agustín (`san-agustins-statyer`)
+
+- År: 5 CE · plats: San Agustín i departementet Huila, Colombia
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/san-agustins-statyer.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The stone statues of San Agustín — San Agustín in the Huila Department, Colombia, 5 CE. What happened (show only this, do not add details): In the mountains along the upper course of the Magdalena River in southern Colombia lies the largest collection of religious monuments and megalithic sculptures in Latin America, and the site is regarded as the world’s largest necropolis. The statues, thought to belong to the graves, show both humans and animals such as crocodiles, bats and jaguars, and the tallest is about seven metres. When they were carved is uncertain, but they are believed to date from about the years 5–400. Who made them is unknown, since the area is largely unexcavated. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Mogollonkulturen växer fram (`mogollonkulturen`)
+
+- År: 200 CE · plats: Sydvästra USA och norra Mexiko (punkten: Mimbres, New Mexico)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/mogollonkulturen.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The Mogollon culture emerges — The south-western United States and northern Mexico (the point: Mimbres, New Mexico), 200 CE. What happened (show only this, do not add details): The Mogollon culture is the archaeologists’ name for a people of southern New Mexico and Arizona, western Texas and northern Mexico, whose culture according to the source takes shape around the year 200. The earliest villages consisted of a few deep pit houses, round or oval. Archaeologists recognise the culture by brown pottery built from clay coils scraped smooth, by its pit houses and by its own ceremonial buildings. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Hohokam får nya grödor genom handel (`nya-grodor-hos-hohokam`)
+
+- År: 300 CE · plats: Mellersta Gilafloden, Arizona (punkten: Snaketown i Hohokam Pima National Monument)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/nya-grodor-hos-hohokam.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: New crops reach the Hohokam through trade — The middle Gila River, Arizona (the point: Snaketown in Hohokam Pima National Monument), 300 CE. What happened (show only this, do not add details): The early Hohokam lived in small villages along the middle Gila River in present-day Arizona and grew maize and beans. Between about 300 and 500 a range of new crops was added, according to the source probably through trade with peoples in today’s Mexico: cotton, tepary beans and other beans, two kinds of squash and an amaranth plant. The Hohokam also dug canals to bring river water to their fields, and they later became known for their large irrigation systems. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Ceremonihögarna i Pinson (`pinson-mounds`)
+
+- År: 1 CE · plats: Pinson Mounds i Madison County, Tennessee, USA
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/pinson-mounds.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The ceremonial mounds of Pinson — Pinson Mounds in Madison County, Tennessee, USA, 1 CE. What happened (show only this, do not add details): Pinson Mounds in western Tennessee is the largest group of Middle Woodland mounds in the United States and was probably built around the years 1–500. On a plateau above the wetlands of the Forked Deer River are 17 mounds built wholly or partly by people, a semicircular earthen enclosure about 366 metres across and several habitation areas. The largest, Sauls’ Mound, is 22 metres high and the second-highest surviving prehistoric mound in the United States. Archaeologists believe the complex was built mainly for religious ceremonies, and several of the mounds contain burials. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Kanotfärder till Bahamas (`tainofolk-nar-bahamas`)
+
+- År: 500 CE · plats: Bahamas (punkten: Inagua, en av de föreslagna första anhalterna)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/tainofolk-nar-bahamas.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Canoe voyages to the Bahamas — The Bahamas (the point: Inagua, one of the proposed first landfalls), 500 CE. What happened (show only this, do not add details): Sometime between about 500 and 800, Taíno people from Hispaniola, Cuba or both began crossing the sea in dugout canoes to the Bahamas. Which route the first ones took is not known. Researchers have proposed voyages from Hispaniola to the Caicos Islands, from Hispaniola or eastern Cuba to Great Inagua, and from central Cuba to Long Island in the middle of the archipelago. The islands’ Indigenous people are known as the Lucayans. Some scholars count them as a branch of the Taíno, others do not. The Lucayans were the first Indigenous Americans whom Columbus met, in October 1492. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Casarabekulturens högar och kanaler (`casarabekulturen`)
+
+- År: 400 CE · plats: Llanos de Moxos kring Casarabe, departementet Beni, Bolivia
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/casarabekulturen.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The mounds and canals of the Casarabe culture — The Llanos de Moxos around Casarabe, Beni Department, Bolivia, 400 CE. What happened (show only this, do not add details): In the Llanos de Moxos, the seasonally flooded plains of the Bolivian Amazon, the Casarabe culture built a dense network of settlements over at least 4,500 square kilometres from about 400 to 1400. A 2025 study estimates that the population at its peak was between 10,000 and 100,000 people within an area of 5,020 square kilometres, and sees this as support for the idea that the culture lived in a kind of low-density city. Other researchers think a small population could have built the earthworks slowly over a long time. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Vulkanen Glacier Peak får ett utbrott (`glacier-peak-utbrott-omkring-200`)
+
+- År: 150 CE · plats: Glacier Peak i Kaskadbergen, Washington, USA
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/glacier-peak-utbrott-omkring-200.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: An eruption of Glacier Peak — Glacier Peak in the Cascades, Washington, USA, 150 CE. What happened (show only this, do not add details): Glacier Peak is one of the five major stratovolcanoes in the state of Washington. Dating of ash layers and radiocarbon dating show that it erupted around the year 200, with an uncertainty of about 50 years. The eruptions that could be assessed rated 2–4 on the VEI scale, smaller than the 1980 eruption of Mount St. Helens, which rated 5. The volcano’s largest mudflows, known as lahars, occurred about 5,900 and 1,800 years ago in connection with the growth of lava domes. Both times the mudflows travelled down the Skagit River all the way to Puget Sound. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## El Mollekulturen i norra Chile (`el-mollekulturen`)
+
+- År: 300 CE · plats: Tvärdalarna i Norte Chico, Chile (punkten: Elquiflodens mynning)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/el-mollekulturen.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The El Molle culture in northern Chile — The Transverse Valleys of Norte Chico, Chile (the point: the mouth of the Elqui River), 300 CE. What happened (show only this, do not add details): The El Molle culture lived in the Transverse Valleys of Norte Chico in Chile from about 300 to 700. It is known above all for its pottery. For a long time it coexisted with the Las Ánimas culture, which took over between 800 and 1000 and which may have learned copper working from the El Molle people. Several archaeologists, among them Grete Mostny, see links between El Molle and cultures of north-western Argentina. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Guld- och platinasmeder på La Tolita (`la-tolita-storhetstid`)
+
+- År: 90 CE · plats: Ön La Tolita, provinsen Esmeraldas, Ecuador
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/la-tolita-storhetstid.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Gold and platinum smiths of La Tolita — La Tolita island, Esmeraldas Province, Ecuador, 90 CE. What happened (show only this, do not add details): The Tumaco-La Tolita culture lived on the coast of northern Ecuador and southern Colombia and is known for earthen mounds (tolas), pottery and above all metalwork. According to the source, its smiths were the first in the world known to work platinum. Because the metal melts at such a high temperature, they mixed platinum powder with gold or silver and made objects in white and yellow. On La Tolita island a village grew into a small town, and during the Late Tolita period, about 90–400, an estimated 5,000 people lived there. After that the island was abandoned, for unknown reasons. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Spår av en loppburen bakterie hos ett barn vid Ballito Bay (`rickettsia-felis-vid-ballito`)
+
+- År: 14 CE · plats: Nära Ballito i KwaZulu-Natal, Sydafrika (punkten är orten Ballito)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/rickettsia-felis-vid-ballito.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Traces of a flea-borne bacterium in a child at Ballito Bay — Near Ballito in KwaZulu-Natal, South Africa (the point is the town of Ballito), 14 CE. What happened (show only this, do not add details): A child from a group of hunter-gatherers who lived near present-day Ballito in KwaZulu-Natal was excavated in the 1960s. In 2023, researchers reported that they had found DNA from the bacterium Rickettsia felis in the child’s bones and had reconstructed the bacterium’s genome. It had been regarded as a new cause of human disease since it was first linked to illness in Texas in 1994, but according to the study it was present in southern Africa about 2,000 years ago, among people who neither kept livestock nor farmed. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Caelius Aurelianus för över Soranos läkekonst till latin (`caelius-aurelianus-oversatter-soranos`)
+
+- År: 400 CE · plats: Sicca i Numidien, dagens El Kef i Tunisien (hans hemstad)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/caelius-aurelianus-oversatter-soranos.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Caelius Aurelianus renders Soranus’s medicine into Latin — Sicca in Numidia, present-day El Kef in Tunisia (his home town), 400 CE. What happened (show only this, do not add details): A Greek medical treatise on acute and chronic diseases, written by Soranus of Ephesus in the 2nd century, is known today only through a Latin translation. It was made by Caelius Aurelianus, a physician and writer from Sicca in Numidia, present-day El Kef in Tunisia. In the few places where Soranus’s Greek survives for comparison, Caelius can be seen to keep to the wording of his model while leaving parts out. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Den sista kända silfiumplantan skänks till Nero (`sista-silfiumstjalken`)
+
+- År: 54 CE · plats: Kyrenaika, östra Libyen
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/sista-silfiumstjalken.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The last known silphium plant is given to Nero — Cyrenaica, eastern Libya, 54 CE. What happened (show only this, do not add details): Silphium grew only in a narrow area of the steppe in southern Cyrenaica, in present-day eastern Libya. According to Pliny the Elder, the last known stalk was found in Cyrenaica and sent as a curiosity to Emperor Nero, who reigned from 54 to 68. The plant is said to have died out in Roman times, and today no one knows for certain which species it was. Overgrazing and overharvesting have long been given as the causes, but more recent research argues that desertification was the main one. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Skogen på Laikipiaplatån ger vika för öppnare land (`skogen-oppnas-pa-laikipiaplatan`)
+
+- År: 335 CE · plats: Marura Swamp på Laikipiaplatån, Kenya
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/skogen-oppnas-pa-laikipiaplatan.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The forest on the Laikipia Plateau gives way to more open land — Marura Swamp on the Laikipia Plateau, Kenya, 335 CE. What happened (show only this, do not add details): Researchers have studied pollen, spores and charcoal in a sediment core from Marura Swamp on the Laikipia Plateau in Kenya. From about 2268 to 1615 calibrated years before present, the site was surrounded by dense montane forest dominated by Podocarpus. Around 1615 years before present, roughly AD 335, a mosaic of open woodland and grassland took over, and it still shapes the area today. According to the researchers, the shift may be linked to the spread of farming and herding, while the climate was changing as well. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Fem år av torka i romerska Nordafrika (`torka-i-romerska-nordafrika-under-hadrianus`)
+
+- År: 123 CE · plats: Romerska Nordafrika (punkten är Timgad i dagens Algeriet)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/torka-i-romerska-nordafrika-under-hadrianus.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Five years of drought in Roman North Africa — Roman North Africa (the point is Timgad in present-day Algeria), 123 CE. What happened (show only this, do not add details): According to the sources, dry conditions returned to parts of the Roman Empire under Emperor Hadrian, and Roman North Africa is said to have suffered five years of drought. The drought reportedly ended when Hadrian visited the region and rain finally fell again. The water shortage may have been one reason why Carthage was given a long aqueduct from the springs at Zaghouan, so that the city no longer depended on rainwater. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Amazigher från Nordafrika slår sig ner på Kanarieöarna (`amazigher-befolkar-kanarieoarna`)
+
+- År: 101 CE · plats: Kanarieöarna
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/amazigher-befolkar-kanarieoarna.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Amazigh people from North Africa settle the Canary Islands — Canary Islands, 101 CE. What happened (show only this, do not add details): The Canary Islands received their first permanent population about 1,800 years ago, sometime between the 2nd and 5th centuries. The settlers shared genetic, linguistic and cultural traits with today’s Amazigh (Berber) peoples of the Maghreb and probably came from north-western Africa. Afterwards the islanders lived with almost no contact with each other or with the mainland until European seafarers arrived in the 14th and 15th centuries. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## En by växer fram vid Kirikongo (`byn-kirikongo-vaxer-fram`)
+
+- År: 100 CE · plats: Kirikongo vid Mouhounfloden, Burkina Faso
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/byn-kirikongo-vaxer-fram.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: A village grows up at Kirikongo — Kirikongo on the Mouhoun River, Burkina Faso, 100 CE. What happened (show only this, do not add details): Kirikongo in Burkina Faso shows how a small settlement in the bend of the Mouhoun River could grow during the Iron Age. It all began with a single household around AD 100. Four centuries later several families lived there in earthen houses with clay floors, and none of them seems to have ranked above the others. Over time the village grew to thirteen mounds covering 37 hectares, and people lived there until about 1700. According to the source, the area belonged to the ancestors of today’s Bwa. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Suetonius Paulinus leder romerska soldater över Atlasbergen (`suetonius-paulinus-over-atlasbergen`)
+
+- År: 41 CE · plats: Atlasbergen i romerska Mauretanien, dagens Marocko (punkten är bergskedjan enligt Wikidata)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/suetonius-paulinus-over-atlasbergen.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Suetonius Paulinus leads Roman troops across the Atlas Mountains — The Atlas Mountains in Roman Mauretania, present-day Morocco (the point is the mountain range according to Wikidata), 41 CE. What happened (show only this, do not add details): The first Roman commander to take troops across the Atlas Mountains was Gaius Suetonius Paulinus, in 41. He had just become governor of the Roman province of Mauretania, in present-day northern Morocco, and had put down a revolt there together with Gnaeus Hosidius Geta. His account of the mountain country survives through Pliny the Elder, who quotes it in his Natural History. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Adulis, Aksumrikets handelsplats vid Röda havet (`handelshamnen-adulis`)
+
+- År: 1 CE · plats: Adulis vid Zulabukten, Eritrea
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/handelshamnen-adulis.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Adulis, the Aksumite trading town on the Red Sea — Adulis on the Gulf of Zula, Eritrea, 1 CE. What happened (show only this, do not add details): According to several ancient geographers, baboons and other live animals were among the goods sold in Adulis, the Aksumite port town on the Gulf of Zula on the Red Sea, about 40 kilometres south of present-day Massawa in Eritrea. From the 1st to the 7th century AD the town was a busy trading centre. Pliny the Elder is the first European to mention it, and the sailing guide known as the Periplus of the Erythraean Sea lists ivory, hides and slaves among the goods shipped from there. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Akvedukten från Zaghouan leder vatten till Karthago (`akvedukten-fran-zaghouan`)
+
+- År: 101 CE · plats: Zaghouan, Tunisien (där akvedukten börjar)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/akvedukten-fran-zaghouan.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The Zaghouan aqueduct carries water to Carthage — Zaghouan, Tunisia (where the aqueduct begins), 101 CE. What happened (show only this, do not add details): In the first half of the 2nd century the Romans built an aqueduct that carried water to Carthage from springs in the Djebel Zaghouan, about 60 kilometres south of the city. Including all its branch channels it was 132 kilometres long, among the longest in the Roman Empire. The water was moved by gravity alone: over a little more than 90 kilometres the channel dropped 264 metres, and the water took a day and a half to two days to arrive. The aqueduct could deliver between 17 and 32 million litres a day. A sacred fountain building with a crescent-shaped portico was erected over the main spring. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Martianus Capella samlar de sju fria konsterna i en bok (`martianus-capella-och-de-sju-fria-konsterna`)
+
+- År: 410 CE · plats: Karthago, Tunisien
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/martianus-capella-och-de-sju-fria-konsterna.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Martianus Capella gathers the seven liberal arts in one book — Carthage, Tunisia, 410 CE. What happened (show only this, do not add details): Martianus Capella was a jurist and learned Latin writer in Roman North Africa. He wrote his only known work, De nuptiis Philologiae et Mercurii (On the Marriage of Philology and Mercury), after Alaric’s sack of Rome in 410, but apparently before the Vandals conquered North Africa in 429. Among the wedding gifts for Philology are seven maids, the seven liberal arts: grammar, dialectic, rhetoric, geometry, arithmetic, astronomy and harmony. The work greatly influenced how learning was organised in Europe right up to the 12th century. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Burakulturen i nedre Nigerdalen (`burakulturen`)
+
+- År: 200 CE · plats: Bura i sydvästra Niger (punkten enligt Wikidata)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/burakulturen.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The Bura culture in the lower Niger valley — Bura in south-western Niger (point according to Wikidata), 200 CE. What happened (show only this, do not add details): Terracotta figures of riders, the oldest known in the Niger region, are among the finds of the Bura culture in the lower Niger valley, in south-western Niger and south-eastern Burkina Faso. Radiocarbon dates place the culture from the 3rd century AD to the 13th century. The dead lay beneath terracotta vessels and wore quartzite beads, brass nose rings and bracelets of iron or brass. Hooked iron arrowheads have also been found. Because the sites only became known in 1975 and excavation began in 1983, the culture is still poorly explored, and how it relates to later kingdoms is unclear. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Garimaevangelierna skrivs på ge’ez (`garimaevangelierna`)
+
+- År: 390 CE · plats: Abba Garima-klostret, Etiopien
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/garimaevangelierna.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The Garima Gospels are written in Ge’ez — Abba Garima Monastery, Ethiopia, 390 CE. What happened (show only this, do not add details): The Garima Gospels are ancient manuscripts in Ge’ez, the language of the Kingdom of Aksum, containing all four Gospels. Radiocarbon dating gives the older manuscript, Garima 2, an age of about 390–570 and the younger one, Garima 1, about 530–660. Garima 2 is believed to be the oldest surviving complete illustrated Christian manuscript, with pictures that include portraits of the Evangelists. Before the dating, Western scholars thought the books came from about 1100 or later. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Augustinus skriver Bekännelser (`augustinus-skriver-bekannelser`)
+
+- År: 397 CE · plats: Hippo Regius, dagens Annaba i Algeriet (där Augustinus var biskop)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/augustinus-skriver-bekannelser.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Augustine writes the Confessions — Hippo Regius, present-day Annaba in Algeria (where Augustine was bishop), 397 CE. What happened (show only this, do not add details): The Confessions is Augustine’s account of his own life, written as prayers addressed to God. He wrote the thirteen Latin books between 397 and 400, shortly after becoming bishop of Hippo Regius, present-day Annaba in Algeria, in 396; he stayed there until his death in 430. In the Middle Ages many Christian writers followed its example, and Henry Chadwick has called it one of the great masterpieces of Western literature. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Handynastins folkräkning år 2 (`han-folkrakningen-ar-2`)
+
+- År: 2 CE · plats: Chang'an (dagens Xi'an), Västra Hans huvudstad, Kina
+- Stil: Tuschmålning på silkesrulle (`kina-tusch`)
+- Spara som: `images/incoming/han-folkrakningen-ar-2.jpg`
+
+```text
+Style: Chinese ink and wash painting on a silk hand scroll, misty mountains and water, fine brushwork, muted mineral colours. Subject: The Han census of AD 2 — Chang'an (modern Xi'an), capital of the Western Han, China, 2 CE. What happened (show only this, do not add details): How many people lived in the Han Empire? The chronicle known as the Book of Han has preserved much of the census that the Western Han carried out in AD 2. It arrived at 57,671,400 people in 12,366,470 households. The figure covers only families that paid tax, because the state wanted to know what revenue and how many soldiers it could count on. Modern scholars consider the count to have been fairly accurate. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Gula floden byter lopp (`gula-floden-byter-lopp-ar-11`)
+
+- År: 11 CE · plats: Wei-kommendanturen i södra Hebei och norra Henan, Kina; punkten är Ye, kommendanturens huvudort
+- Stil: Tuschmålning på silkesrulle (`kina-tusch`)
+- Spara som: `images/incoming/gula-floden-byter-lopp-ar-11.jpg`
+
+```text
+Style: Chinese ink and wash painting on a silk hand scroll, misty mountains and water, fine brushwork, muted mineral colours. Subject: The Yellow River changes course — Wei Commandery in southern Hebei and northern Henan, China; the point is Ye, the seat of the commandery, 11 CE. What happened (show only this, do not add details): Silt in the Yellow River settles on the bottom and raises the water year after year, and in AD 11 the embankments no longer held. The river broke through in Wei Commandery and found a new way to the sea past Pingyuan and Jinan, the second major recorded change of course. The floods were among the things that brought down Wang Mang’s regime. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Gan Ying söker vägen till Rom (`gan-ying-mot-rom`)
+
+- År: 97 CE · plats: Charax Spasinu i Characene vid Persiska viken, i dagens Irak (Tiaozhi i den kinesiska krönikan)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/gan-ying-mot-rom.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Gan Ying seeks the way to Rome — Charax Spasinu in Characene on the Persian Gulf, in present-day Iraq (Tiaozhi in the Chinese chronicle), 97 CE. What happened (show only this, do not add details): The Chinese knew of a great empire far to the west that they called Daqin, and in AD 97 the general Ban Chao sent his subordinate Gan Ying to find out more about it. Daqin was the Roman Empire. Gan Ying reached Tiaozhi by a great sea, and the chronicle Hou Hanshu says that no one before him had got so far. There, Parthian sailors talked him out of sailing on: with good winds the voyage took three months, but with contrary winds it could take two years, and seafarers used to bring food for three years. Gan Ying gave up and turned home without having seen Rome. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Sändebud från Rom når Hanriket (`sandebud-fran-rom-via-rinan`)
+
+- År: 166 CE · plats: Rinan, Hanrikets sydligaste kommendantur i dagens centrala Vietnam; punkten är Huế
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/sandebud-fran-rom-via-rinan.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Envoys from Rome reach Han China — Rinan, the southernmost Han commandery, in present-day central Vietnam; the point is Huế, 166 CE. What happened (show only this, do not add details): Ivory, rhinoceros horn and tortoiseshell were what the strangers brought with them when, in AD 166, they entered the Han Empire at the frontier of Rinan, in the far south. They said they had been sent by Andun, king of Daqin, that is, Rome. The name fits the emperors Antoninus Pius and Marcus Aurelius Antoninus, but Antoninus Pius had already died in 161. The chronicle Hou Hanshu writes that the two empires then had direct contact with each other for the first time. Several historians believe they were Roman merchants rather than an embassy from the emperor. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Kinesiska astronomer ser en gäststjärna (`gaststjarnan-sn-185`)
+
+- År: 185 CE · plats: Luoyang, Östra Hans huvudstad, Kina (var iakttagelsen gjordes anges inte)
+- Stil: Tuschmålning på silkesrulle (`kina-tusch`)
+- Spara som: `images/incoming/gaststjarnan-sn-185.jpg`
+
+```text
+Style: Chinese ink and wash painting on a silk hand scroll, misty mountains and water, fine brushwork, muted mineral colours. Subject: Chinese astronomers record a guest star — Luoyang, capital of the Eastern Han, China (where the observation was made is not stated), 185 CE. What happened (show only this, do not add details): In December AD 185 a new light appeared in the southern sky, in the asterism the Chinese called the Southern Gate, between Alpha and Epsilon Centauri. The astronomers wrote that it was the size of half a bamboo mat and showed changing colours. The light gradually faded and disappeared in the sixth month of the following year, after about eight months. The record in the chronicle Hou Hanshu is believed to be the oldest surviving description of a supernova. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Ge Hongs handbok med botemedel för nödfall (`ge-hongs-handbok-mot-feber`)
+
+- År: 340 CE · plats: Luofushan, Guangdong, Kina, där Ge Hong bodde och samlade läkeväxter (var boken skrevs anges inte)
+- Stil: Tuschmålning på silkesrulle (`kina-tusch`)
+- Spara som: `images/incoming/ge-hongs-handbok-mot-feber.jpg`
+
+```text
+Style: Chinese ink and wash painting on a silk hand scroll, misty mountains and water, fine brushwork, muted mineral colours. Subject: Ge Hong’s handbook of emergency remedies — Mount Luofu, Guangdong, China, where Ge Hong lived and gathered medicinal plants (where the book was written is not stated), 340 CE. What happened (show only this, do not add details): The physician and philosopher Ge Hong collected remedies for acute conditions in a handbook, and in it he recommends sweet wormwood, Artemisia annua, against recurring fevers, a typical sign of malaria. The Chinese scientist Tu Youyou noticed that the water was to be cold, because hot water destroys the active substance, and so she tried extraction at a low temperature. This led to the discovery of artemisinin, which was rewarded with part of the 2015 Nobel Prize in Physiology or Medicine. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Jordbävning och brand ödelägger Nicomedia (`jordbavningen-i-nicomedia-358`)
+
+- År: 358 CE · plats: Nicomedia, dagens İzmit, Turkiet
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/jordbavningen-i-nicomedia-358.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Earthquake and fire devastate Nicomedia — Nicomedia, modern İzmit, Turkey, 358 CE. What happened (show only this, do not add details): Under Diocletian, Nicomedia was the leading capital of the Roman Empire in the east, until in 330 Constantine chose nearby Constantinople instead. On 24 August 358 a powerful earthquake shattered large parts of the city, and what was left standing was laid waste by fire. Nicomedia rose from the ruins, but the new city was smaller than the old one. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Jordbävningarna i Galileen år 363 (`jordbavningarna-i-galileen-363`)
+
+- År: 363 CE · plats: Galileen, norra Israel; skadorna nådde ända till Petra i Jordanien
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/jordbavningarna-i-galileen-363.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The Galilee earthquakes of 363 — Galilee, northern Israel; the damage reached as far as Petra in Jordan, 363 CE. What happened (show only this, do not add details): Far south of Galilee, at Petra in present-day Jordan, the damage was devastating when two powerful earthquakes struck one after the other on 18 and 19 May 363. That same year the Temple in Jerusalem was to be rebuilt on the orders of the emperor Julian, but the work never happened. Ancient historians such as Sozomen pointed to the earthquake as the cause; today it is also noted that the change of ruler after Julian’s death may have halted the plans. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Palmyras tulltaxa (`palmyras-tulltaxa`)
+
+- År: 101 CE · plats: Palmyra, Homs, Syrien
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/palmyras-tulltaxa.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The Palmyra Tariff — Palmyra, Homs, Syria, 101 CE. What happened (show only this, do not add details): In the Hermitage in Saint Petersburg stands a large limestone slab from the desert city of Palmyra in Syria. On the stone, which dates from the 2nd century, the city recorded how much duty different goods cost when they were brought through Palmyra and which officials were in charge of trade. The text is written in both Greek and Palmyrene and is the longest Canaanite or Aramaic inscription on stone ever found. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Muzirispapyrusen (`muzirispapyrusen`)
+
+- År: 101 CE · plats: Muziris, en hamn i dagens Kerala, Indien; punkten är Pattanam, en av de föreslagna platserna
+- Stil: Fornindisk stenrelief (`indien-relief`)
+- Spara som: `images/incoming/muzirispapyrusen.jpg`
+
+```text
+Style: ancient Indian stone relief in the manner of early Buddhist stupa carvings, sandstone, carved figures in shallow relief. Subject: The Muziris papyrus — Muziris, a port in present-day Kerala, India; the point is Pattanam, one of the proposed sites, 101 CE. What happened (show only this, do not add details): A shipload from Muziris in southern India was worth about 9 million sesterces. The cargo, above all pepper and other spices, was brought home on the Roman merchant ship Hermapollon, and we know of it through a Greek papyrus from the 2nd century. The papyrus contains a contract between a financier and a merchant in Alexandria who imported the goods. Although only parts of the text survive, it has become an important source on how trade and loans were regulated in antiquity. Muziris was known for its spice trade with the Middle East and the Mediterranean world. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Järnpelaren i Delhi (`jarnpelaren-i-delhi`)
+
+- År: 375 CE · plats: Qutbkomplexet i Mehrauli, Delhi, Indien (pelaren stod troligen först någon annanstans)
+- Stil: Fornindisk stenrelief (`indien-relief`)
+- Spara som: `images/incoming/jarnpelaren-i-delhi.jpg`
+
+```text
+Style: ancient Indian stone relief in the manner of early Buddhist stupa carvings, sandstone, carved figures in shallow relief. Subject: The iron pillar of Delhi — The Qutb complex in Mehrauli, Delhi, India (the pillar probably first stood elsewhere), 375 CE. What happened (show only this, do not add details): How can iron stand outdoors for more than 1,500 years without rusting away? That question has made the pillar in Delhi famous among archaeologists and materials scientists alike. It is 7.21 metres high and 41 centimetres in diameter, weighs more than six tonnes and was made under King Chandragupta II, who reigned around 375–415. The iron contains a lot of phosphorus, and an even, crystalline layer of iron phosphate has formed on the surface that protects it from Delhi’s climate. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Gwanggaetostelen (`gwanggaetostelen`)
+
+- År: 414 CE · plats: Ji'an vid floden Yalu, Jilin, Kina, då huvudstad i Goguryeo
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/gwanggaetostelen.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The Gwanggaeto Stele — Ji'an on the Yalu River, Jilin, China, then the capital of Goguryeo, 414 CE. What happened (show only this, do not add details): Nearly 1,800 characters in Classical Chinese cover all four sides of a granite stone in Ji'an on the Yalu River. It is carved from a single block, about 6.4 metres high and almost four metres round. The stone was set up in 414 at the tomb of Gwanggaeto the Great, king of the Korean kingdom of Goguryeo, on the orders of his son Jangsu. Ji'an was then the capital of Goguryeo but today lies in north-eastern China. The inscription is among the most important sources for the history and myths of Goguryeo, and how it should be read has become a point of dispute between the countries of East Asia. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Daisen kofun, Japans största gravhög (`daisen-kofun`)
+
+- År: 450 CE · plats: Mozu-gravfältet i Sakai, Osaka prefektur, Japan
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/daisen-kofun.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Daisen Kofun, the largest burial mound in Japan — The Mozu Kofun Group in Sakai, Osaka Prefecture, Japan, 450 CE. What happened (show only this, do not add details): The burial mound Daisen Kofun in Sakai is 486 metres long and surrounded by a moat. It is the largest of Japan’s kofun and is thought to have been built over about 20 years in the middle of the 5th century. Who lies there cannot be established, but it is usually counted as the tomb of Emperor Nintoku, and the Imperial Household Agency of Japan treats it as such. From the late 3rd century to the 6th century more than 20,000 such mounds were raised over Japan’s rulers, and the era has been named the Kofun period after them. Since 2019 Daisen Kofun has been part of the Mozu–Furuichi World Heritage Site. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Offerpålarna i Kutai (`offerpalarna-i-kutai`)
+
+- År: 350 CE · plats: Muara Kaman vid floden Mahakam, Östra Kalimantan, Indonesien
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/offerpalarna-i-kutai.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The sacrificial posts of Kutai — Muara Kaman on the Mahakam River, East Kalimantan, Indonesia, 350 CE. What happened (show only this, do not add details): Seven stone pillars with inscriptions in Sanskrit have been found by the Mahakam River on Borneo. They are called yupa, sacrificial posts, and were made during the reign of King Mulavarman. The texts tell that he gave the Brahmins thousands of cattle and large amounts of gold, and they name three generations of rulers: Kudungga, his son Aswawarman and his grandson Mulavarman. The name Kudungga is not Sanskrit, and he is assumed to have been a local chief. The inscriptions are regarded as the earliest known evidence of Indian influence in the Malay world, and the kingdom of Kutai as one of the first in Indonesian history. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Loulan överges, troligen när vattnet sinar (`loulan-overges`)
+
+- År: 330 CE · plats: Ruinerna av Loulan vid den uttorkade sjön Lop Nur, Bayingolin, Xinjiang, Kina
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/loulan-overges.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Loulan is abandoned, probably as the water runs out — The ruins of Loulan by the dried-up lake of Lop Nur, Bayingolin, Xinjiang, China, 330 CE. What happened (show only this, do not add details): The oasis city of Loulan by the lake of Lop Nur was an important stopping place on the Silk Road as early as the 2nd century BC. The kingdom had already been renamed Shanshan in 77 BC, but the town kept the name Loulan. When the Tarim River, which gave the town its water, changed its course, there was probably too little water left, and by 330 the town stood empty. Today Lop Nur has dried up entirely, and the ruins lie in the middle of the desert. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Yingpanmannen vid Sidenvägen (`yingpanmannen`)
+
+- År: 245 CE · plats: Yingpangravfältet i Lop Nur-området, Yuli härad, Xinjiang, Kina; punkten är häradet
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/yingpanmannen.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The Yingpan Man on the Silk Road — Yingpan cemetery in the Lop Nur region, Yuli County, Xinjiang, China; the point is the county, 245 CE. What happened (show only this, do not add details): The dryness of the desert has preserved a man who was buried on the Silk Road about 1,700 years ago. He was found in 1995 and was unusually tall, about 1.9 metres, and around 30 years old when he died. His face was covered by a white hemp mask with a golden diadem, and he wore a woollen garment embroidered with naked putti, goats, bulls and pomegranate trees. Radiocarbon dating gives the years 245–385. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Släktband i gravarna i Imdang och Joyeong (`slakten-i-imdang-och-joyeong`)
+
+- År: 301 CE · plats: Gravfälten Imdang och Joyeong i Gyeongsan, Norra Gyeongsang, Sydkorea; punkten är staden
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/slakten-i-imdang-och-joyeong.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Family ties in the Imdang and Joyeong tombs — The Imdang and Joyeong burial grounds in Gyeongsan, North Gyeongsang, South Korea; the point is the city, 301 CE. What happened (show only this, do not add details): In Gyeongsan in south-eastern Korea, archaeologists have since 1982 investigated more than 1,600 graves of a local elite in the kingdom of Silla. The graves were built over about 100 years between the 4th and 6th centuries, and in many of them sacrificed people followed the grave owner in death, a custom that according to historical records was banned by the king in 502. Five people had parents who were closely related, both among the grave owners and among the sacrificed, and genetically the two groups could not be told apart. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Torka i Sasanidernas Persien (`torka-i-sasanidernas-persien`)
+
+- År: 480 CE · plats: Sasanidernas Persien; punkten är Neorsjön nära Ardabil i nordvästra Iran, en av platserna där torkan syns
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/torka-i-sasanidernas-persien.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Drought in Sasanian Persia — Sasanian Persia; the point is Neor Lake near Ardabil in north-western Iran, one of the places where the drought shows, 480 CE. What happened (show only this, do not add details): Lake sediments and cave stalagmites show that the climate in the Sasanian Empire became much drier around 480. Yet the empire grew and farming expanded in those same years. The researchers think that qanats, underground channels that carry groundwater and so cope better with dry years, together with varied and flexible farming may have softened the effects. The authors stress that climate data from the region still have large gaps. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Faxians pilgrimsresa till Indien (`faxians-pilgrimsresa`)
+
+- År: 399 CE · plats: Laoshan på Shandonghalvön, Kina, där Faxian gick i land 412; resan började i Chang'an
+- Stil: Tuschmålning på silkesrulle (`kina-tusch`)
+- Spara som: `images/incoming/faxians-pilgrimsresa.jpg`
+
+```text
+Style: Chinese ink and wash painting on a silk hand scroll, misty mountains and water, fine brushwork, muted mineral colours. Subject: Faxian’s pilgrimage to India — Mount Lao on the Shandong Peninsula, China, where Faxian landed in 412; the journey began in Chang'an, 399 CE. What happened (show only this, do not add details): The monastic rules available in China were incomplete, and so in 399 the monk Faxian, around 60 years old, set out from Chang'an to fetch scriptures from India. He travelled west along the Silk Road, entered India from the north-west and stayed there for about ten years, among other places in Pataliputra. His account of the journey is an important independent source on Buddhism in India at that time. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Rabatakinskriften (`rabatakinskriften`)
+
+- År: 101 CE · plats: Rabatak nära Surkh Kotal, på gränsen mellan provinserna Baghlan och Samangan, Afghanistan
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/rabatakinskriften.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The Rabatak inscription — Rabatak near Surkh Kotal, on the border between Baghlan and Samangan provinces, Afghanistan, 101 CE. What happened (show only this, do not add details): When Afghan mujahideen were digging a trench on top of an artificial hill at Rabatak in 1993, they found a stone with text in Bactrian written in Greek letters. The inscription dates from the 2nd century and concerns the emperor Kanishka, who according to the text received the kingship from Nana and all the gods and who inaugurated year one. The stone gives important information about the line of the Kushan dynasty. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Vattenkvarnarna i Barbegal (`vattenkvarnarna-i-barbegal`)
+
+- År: 101 CE · plats: Barbegal vid Fontvieille, nära Arles, Frankrike
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/vattenkvarnarna-i-barbegal.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The water mills of Barbegal — Barbegal near Fontvieille, close to Arles, France, 101 CE. What happened (show only this, do not add details): The Romans built a mill complex at Barbegal outside Arles. Water from an aqueduct drove 16 wheels standing in two parallel rows along a steep hillside. No larger mill installation from antiquity is known. The mills may have ground several tonnes of flour a day and worked from the early 2nd century until towards the end of the 3rd. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Bronstavlan från Coligny visar en gallisk kalender (`kalendern-fran-coligny`)
+
+- År: 101 CE · plats: Coligny, Ain, Frankrike (orten där tavlan hittades)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/kalendern-fran-coligny.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The Coligny plaque shows a Gaulish calendar — Coligny, Ain, France (where the plaque was found), 101 CE. What happened (show only this, do not add details): A bronze plaque made in Roman Gaul in the 2nd century, probably towards its end, carries a calendar in Gaulish written in Latin letters. It follows both moon and sun in a five-year cycle of twelve lunar months a year plus two inserted months. About 40 per cent survives. The plaque was found in 1897. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Romarna bryter guld i stor skala i Las Médulas (`guldgruvan-i-las-medulas`)
+
+- År: 51 CE · plats: Las Médulas nära Ponferrada, León, Spanien
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/guldgruvan-i-las-medulas.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The Romans mine gold on a large scale at Las Médulas — Las Médulas near Ponferrada, León, Spain, 51 CE. What happened (show only this, do not add details): In the second half of the 1st century the Romans began large-scale gold mining at Las Médulas. At least seven long channels brought water there to make the mountains collapse, a method described by Pliny the Elder in 77. The site became the most important gold mine of the Roman Empire and left a striking landscape. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Herkules torn, en romersk fyr vid Atlanten (`herkules-torn-i-a-coruna`)
+
+- År: 71 CE · plats: A Coruña, Galicien, Spanien
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/herkules-torn-i-a-coruna.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The Tower of Hercules, a Roman lighthouse on the Atlantic — A Coruña, Galicia, Spain, 71 CE. What happened (show only this, do not add details): The Tower of Hercules is a Roman lighthouse from the late 1st century, perhaps built or rebuilt under Emperor Trajan. An inscription names the architect Gaius Sevius Lupus from present-day Coimbra. The tower was restored in the 18th century, and no other Roman lighthouse is both fully preserved and in use today. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Trajanus bro över nedre Donau (`trajanus-bro-over-donau`)
+
+- År: 103 CE · plats: Donau vid Drobeta-Turnu Severin, Rumänien, och Kladovo, Serbien
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/trajanus-bro-over-donau.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Trajan’s Bridge over the lower Danube — The Danube at Drobeta-Turnu Severin, Romania, and Kladovo, Serbia, 103 CE. What happened (show only this, do not add details): The bridge at present-day Drobeta-Turnu Severin was the first over the lower Danube. Designed by Apollodorus of Damascus, it was built in 103–105 so that troops could reach Dacia. At 1,135 metres long it rested on 20 masonry piers carrying wooden arches. It functioned for only 165 years; parts of the piers survive. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Gruvstaden Alburnus Maior nämns på en vaxtavla (`vaxtavlan-fran-alburnus-maior`)
+
+- År: 131 CE · plats: Roșia Montană (Alburnus Maior), Alba, Rumänien
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/vaxtavlan-fran-alburnus-maior.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The mining town of Alburnus Maior is named on a wax tablet — Roșia Montană (Alburnus Maior), Alba, Romania, 131 CE. What happened (show only this, do not add details): On 6 February 131 a wax tablet was written that is the earliest known mention of Alburnus Maior, today’s Roșia Montană in Transylvania. The Romans founded the place under Trajan as a mining town, with settlers from Illyria. Mine galleries, tools, cemeteries and 25 wax tablets have been found there. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Nero börjar gräva en kanal genom Korinthiska näset (`nero-och-korinthkanalen`)
+
+- År: 67 CE · plats: Korinthiska näset, Grekland
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/nero-och-korinthkanalen.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Nero starts digging a canal across the Isthmus of Corinth — Isthmus of Corinth, Greece, 67 CE. What happened (show only this, do not add details): In 67 Emperor Nero himself broke the ground with a pickaxe for a canal across the Isthmus of Corinth. About 6,000 prisoners of war from Judea dug from both sides, but the work was abandoned when Nero died shortly afterwards. According to Suetonius they managed to dig about 700 metres. The modern canal follows the same route. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Runorna från Vimose (`runorna-fran-vimose`)
+
+- År: 160 CE · plats: Vimose, nordvästra Fyn, Danmark
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/runorna-fran-vimose.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The runes from Vimose — Vimose, north-west Funen, Denmark, 160 CE. What happened (show only this, do not add details): The bog of Vimose in north-west Funen has yielded some of the earliest Elder Futhark inscriptions that can be dated. A comb from about 160 carries the word harja and is considered the oldest datable runic inscription known. Most of the other objects with runes date from about 200–300. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Eketorps borg byggs på Öland (`eketorps-borg-byggs`)
+
+- År: 400 CE · plats: Eketorp, sydöstra Öland, Sverige
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/eketorps-borg-byggs.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Eketorp fort is built on Öland — Eketorp, south-eastern Öland, Sweden, 400 CE. What happened (show only this, do not add details): Around 400 a round stone fort was built at Eketorp on Öland. It is thought to have been a refuge in case of attack and a place for religious ceremonies. At first it was about 57 metres across. In the next century the wall was moved out to about 80 metres, with some fifty small rooms and buildings in the centre and in the wall. The fort was abandoned in the mid-7th century. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Damhjortar förs till Britannien (`damhjortar-fors-till-britannien`)
+
+- År: 1 CE · plats: Fishbourne nära Chichester, England (där fynden gjordes)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/damhjortar-fors-till-britannien.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Fallow deer are brought to Britain — Fishbourne near Chichester, England (where the finds were made), 1 CE. What happened (show only this, do not add details): Finds at the Roman palace at Fishbourne show that fallow deer were brought to southern England in the 1st century. In Roman times people spread the fallow deer across much of Europe. The British population died out after the Roman period, and new animals were later brought there from Anatolia. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Spetälska hos en ung man i Great Chesterford (`spetalska-i-great-chesterford`)
+
+- År: 415 CE · plats: Great Chesterford, Essex, England
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/spetalska-i-great-chesterford.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Leprosy in a young man at Great Chesterford — Great Chesterford, Essex, England, 415 CE. What happened (show only this, do not add details): A young man buried at Great Chesterford between 415 and 545 had lepromatous leprosy. Lipids and the bacterium’s DNA confirm it. It is so far the earliest radiocarbon-dated case in Britain confirmed in both ways, and isotopes suggest that he probably came from a place outside Britain. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Arvsmassan från det romerska gravfältet i York (`gravfaltet-vid-driffield-terrace`)
+
+- År: 101 CE · plats: York, England (punkten är staden; gravfältet ligger vid Driffield Terrace)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/gravfaltet-vid-driffield-terrace.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: DNA from the Roman cemetery in York — York, England (the point is the city; the cemetery is at Driffield Terrace), 101 CE. What happened (show only this, do not add details): At Driffield Terrace in York a cemetery from the 2nd to the 4th century was excavated, where an unusually large share of the dead had been decapitated. Researchers have sequenced the DNA of seven of them. Six resemble today’s Celtic populations of Britain, especially in Wales, while one man has affinities pointing towards the Middle East. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Mannen i båtgraven i Fallward hade spetälska (`spetalska-i-fallward`)
+
+- År: 426 CE · plats: Fallward vid Wremen, Cuxhaven, Tyskland (punkten är Wremen)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/spetalska-i-fallward.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The man in the Fallward boat grave had leprosy — Fallward near Wremen, Cuxhaven, Germany (the point is Wremen), 426 CE. What happened (show only this, do not add details): At Fallward near the North Sea coast a man was buried in an oak boat more than four metres long in the second quarter of the 5th century. The grave goods showed Roman influence, among them carved furniture and a military belt. His DNA shows that he carried the leprosy bacterium and that he may have come from a population on the Roman frontier. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Romerska föremål vid Drumanagh på Irlands östkust (`romerska-fynd-vid-drumanagh`)
+
+- År: 71 CE · plats: Drumanagh vid Loughshinny, grevskapet Dublin, Irland
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/romerska-fynd-vid-drumanagh.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Roman objects at Drumanagh on Ireland’s east coast — Drumanagh near Loughshinny, County Dublin, Ireland, 71 CE. What happened (show only this, do not add details): The Drumanagh headland has a large Iron Age promontory fort where Roman coins, ornaments and pottery have been found, and in 2025 the first intact Roman pot in Ireland. On nearby Lambay Island there were graves with Roman brooches of a style found in Roman Britain from the late 1st century. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Kallt och torrt i södra Italien (`kyla-i-syditalien-245-275`)
+
+- År: 245 CE · plats: Södra Italien (punkten är borrkärnan i Tarantobukten)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/kyla-i-syditalien-245-275.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Cold and dry in southern Italy — Southern Italy (the point is the sediment core in the Gulf of Taranto), 245 CE. What happened (show only this, do not add details): A sediment core from the seabed in the Gulf of Taranto shows how the climate varied in southern Italy. After a warmer spell the temperature fell sharply from about 245 and reached its lowest around 265–275, a level not reached again until about 518. The cold and dry period coincided with the Plague of Cyprian. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Aska från Vesuvius når Konstantinopel (`vesuvius-472`)
+
+- År: 472 CE · plats: Vesuvius vid Neapelbukten, Italien
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/vesuvius-472.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Ash from Vesuvius reaches Constantinople — Vesuvius by the Bay of Naples, Italy, 472 CE. What happened (show only this, do not add details): In the eruption of Vesuvius in 472 the ash travelled as far as Constantinople, more than 1,200 kilometres away, where ashfall was reported. The eruption was sub-Plinian and thus smaller than the one that buried Pompeii in 79. Eruptions of that size have recurred more often than the large ones, a few hundred years apart. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Arvsmassa från gravplatser med gotisk anknytning i Bulgarien (`goternas-gravar-i-bulgarien`)
+
+- År: 320 CE · plats: Aquae Calidae vid Burgas, Bulgarien (en av två gravplatser; den andra är Khan Omurtags aul vid Sjumen)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/goternas-gravar-i-bulgarien.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: DNA from Gothic-associated burial sites in Bulgaria — Aquae Calidae near Burgas, Bulgaria (one of two burial sites; the other is the Aul of Khan Omurtag near Shumen), 320 CE. What happened (show only this, do not add details): Researchers have sequenced the DNA of 37 people from two Gothic-associated burial sites dating from about 320–489: Aquae Calidae near Burgas and the Aul of Khan Omurtag near Shumen. The dead were not a single population. The Goths in the Balkans seem to have formed from migration, alliances and peoples on the Roman frontier. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Ambryms stora kaldera bildas (`ambryms-kaldera`)
+
+- År: 50 CE · plats: Ambrym, Vanuatu (punkten är öns mitt)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/ambryms-kaldera.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Ambrym's great caldera forms — Ambrym, Vanuatu (the point is the centre of the island), 50 CE. What happened (show only this, do not add details): Ambrym in Vanuatu is a large basaltic volcano. Around the year 50 it had a huge Plinian eruption, which left behind a caldera about 12 kilometres wide. The eruption has been given a value of 6 on the VEI, the scale that measures how explosive volcanic eruptions are. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Kost och hälsa på gravfältet vid Sigatoka (`kost-och-halsa-vid-sigatoka`)
+
+- År: 62 CE · plats: Sanddynerna vid Sigatoka på Viti Levus sydvästkust, Fiji
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/kost-och-halsa-vid-sigatoka.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Diet and health at the Sigatoka burial ground — The Sigatoka Sand Dunes on the southwest coast of Viti Levu, Fiji, 62 CE. What happened (show only this, do not add details): For about 600 years, from around the year 60, people were buried in the sand dunes at Sigatoka. Isotopes in bones and teeth show more food from the sea than at other burial grounds in the southwest Pacific. Earlier studies of the skeletons suggest good health and adequate nutrition. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Vulkanutbrott tömmer södra Taveuni (`utbrott-tommer-sodra-taveuni`)
+
+- År: 300 CE · plats: Taveuni, Fiji (punkten är öns mitt; utbrotten drabbade den södra delen)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/utbrott-tommer-sodra-taveuni.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Volcanic eruptions empty southern Taveuni — Taveuni, Fiji (the point is the centre of the island; the eruptions struck the southern part), 300 CE. What happened (show only this, do not add details): All of the at least 58 eruptions that Taveuni in Fiji has had since people settled there have struck the southern two thirds of the island. After major eruptions between about 300 and 500 the southern part was abandoned, and it remained deserted until about 1100. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Havsytan står nästan still i Franska Polynesien (`havsytan-star-nastan-still-i-franska-polynesien`)
+
+- År: 350 CE · plats: Franska Polynesien, tolv öar i fyra ögrupper (punkten är Bora Bora, en av öarna i studien)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/havsytan-star-nastan-still-i-franska-polynesien.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Sea level almost stands still in French Polynesia — French Polynesia, twelve islands in four archipelagos (the point is Bora Bora, one of the islands in the study), 350 CE. What happened (show only this, do not add details): Dated corals on twelve islands in French Polynesia show that sea level fell by an average of 0.3 mm a year between 3,600 and 1,200 years ago, but unevenly. Large microatolls from 1,600–1,400 years ago suggest that it then stood almost still. Traces of storms are most frequent 2,500–1,500 years ago. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Finlands äldsta daterade höns fanns på Åland (`aldsta-hona-i-finland-pa-aland`)
+
+- År: 266 CE · plats: Kvarnbo i Saltvik, Åland, Finland (punkten är byn)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/aldsta-hona-i-finland-pa-aland.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Finland's oldest dated chicken remains came from Åland — Kvarnbo in Saltvik, Åland, Finland (the point is the village), 266 CE. What happened (show only this, do not add details): A chicken bone from a stone-lined post hole at the Kvarnbo settlement on Åland is radiocarbon dated to 266–541. It is the oldest directly dated chicken find in Finland. The bird had a maternal lineage missing in the study's other ancient chickens. Chickens from Sweden may have helped make Åland's chickens different. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Gravar av estnisk typ vid Kroggårdsmalmen (`gravar-av-estnisk-typ-vid-kroggardsmalmen`)
+
+- År: 1 CE · plats: Kroggårdsmalmen i Karis (Raseborg), Nyland, Finland
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/gravar-av-estnisk-typ-vid-kroggardsmalmen.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Graves of Estonian type at Kroggårdsmalmen — Kroggårdsmalmen in Karis (Karjaa, Raseborg), Uusimaa, Finland, 1 CE. What happened (show only this, do not add details): At Kroggårdsmalmen in Karis the dead were buried unburnt in the early Roman Iron Age. The graves are square stone frames split into cells for one or two people and covered by low stone mounds. This type, the tarand grave, is common in Estonia and northern Latvia. The site seems to have served only a few generations. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Handelsplatsen på Helgö växer fram (`handelsplatsen-pa-helgo`)
+
+- År: 200 CE · plats: Helgö i Mälaren, Ekerö kommun, Sverige (punkten är öns mitt; boplatsen låg på öns nordöstra del)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/handelsplatsen-pa-helgo.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The trading place on Helgö emerges — Helgö in Lake Mälaren, Ekerö Municipality, Sweden (the point is the middle of the island; the settlement lay in its north-eastern part), 200 CE. What happened (show only this, do not add details): Around the year 200 a community that both traded and made goods arose on the island of Helgö in Lake Mälaren, some five centuries before Birka. The place lived on into the 9th century. Finds show that skilled craftsmen were already working gold here in the 5th century. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Fynden på fjällens isfält blir fler (`fynden-pa-fjallens-isfalt-okar`)
+
+- År: 201 CE · plats: Isfälten i Jotunheimen och fjällen runt omkring, Innlandet (tidigare Oppland), Norge (punkten är Lendbreen, ett av isfälten)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/fynden-pa-fjallens-isfalt-okar.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Finds on the mountain ice patches increase — The ice patches of Jotunheimen and the surrounding mountains, Innlandet (formerly Oppland), Norway (the point is Lendbreen, one of the ice patches), 201 CE. What happened (show only this, do not add details): Melting ice patches in Jotunheimen and the nearby mountains have yielded over 2,000 finds, many from reindeer hunting. Radiocarbon dates of 153 objects show that dated finds rise quickly around the 3rd century. At the same time, archaeology shows permanent farming settlement spreading in the mountain valleys of Oppland. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Hobygraven på Lolland (`hobygraven-pa-lolland`)
+
+- År: 1 CE · plats: Hoby på Lolland, Danmark
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/hobygraven-pa-lolland.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The Hoby grave on Lolland — Hoby on Lolland, Denmark, 1 CE. What happened (show only this, do not add details): In the 1st century a man was buried in a wooden coffin at Hoby on Lolland. With him lay a Roman table service from Italy, including two silver cups with scenes from the Iliad. His teeth suggest he was local. The service has been read as a sign that a local elite copied Roman drinking customs. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Hästarna i Litauens gravar (`hastarna-i-litauens-gravar`)
+
+- År: 201 CE · plats: Litauen (punkten är landets mitt; hästarna kommer från sex gravplatser)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/hastarna-i-litauens-gravar.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The horses in Lithuania's graves — Lithuania (the point is the middle of the country; the horses come from six burial sites), 201 CE. What happened (show only this, do not add details): In Lithuania horses were buried from the Roman Iron Age until Christianisation in 1387. Sixteen horses from the 3rd–7th centuries, from six burial sites, averaged 130 cm at the withers. They were unusually large compared with the Viking Age horses there, which averaged 124 cm, but small next to horses in central and western Europe. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Tjernjahovkulturen (`tjerniachovkulturen`)
+
+- År: 101 CE · plats: Ukraina, Moldavien, Rumänien och västra Ryssland (punkten är mitt i Ukraina; den genetiska studien gäller en grav i Kurskregionen i västra Ryssland)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/tjerniachovkulturen.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Chernyakhov culture — Ukraine, Moldova, Romania and western Russia (the point is the middle of Ukraine; the genetic study concerns a grave in the Kursk region of western Russia), 101 CE. What happened (show only this, do not add details): The Chernyakhov culture existed from the 2nd or 3rd century to the 5th century in today's Ukraine, Moldova and Romania. People stayed in fixed places and lived mostly on grain, and tools for tilling and harvesting are frequent finds. Amphorae from the Roman Empire among the finds point to trade contacts. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Imenkovokulturen vid mellersta Volga (`imenkovokulturen-vid-volga`)
+
+- År: 301 CE · plats: Mellersta Volga, Ryssland (punkten är byn Imenkovo i Tatarstan, som kulturen fått sitt namn efter)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/imenkovokulturen-vid-volga.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The Imenkovo culture on the Middle Volga — The Middle Volga, Russia (the point is the village of Imenkovo in Tatarstan, after which the culture is named), 301 CE. What happened (show only this, do not add details): From the 4th to the 7th century the Imenkovo culture existed on the Middle Volga. Its people ploughed with iron tools and grew barley, wheat and rye; they also kept livestock and made pottery and metal goods. Its techniques influenced neighbouring Finno-Ugric groups. Which people carried the culture is disputed. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Claudius tunnel ska sänka Fucinosjön (`claudius-tunnel-vid-fucinosjon`)
+
+- År: 41 CE · plats: Claudius tunnlar vid berget Salviano nära Avezzano, Abruzzo, Italien
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/claudius-tunnel-vid-fucinosjon.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Claudius's tunnel to lower the Fucine Lake — The Tunnels of Claudius at Monte Salviano near Avezzano, Abruzzo, Italy, 41 CE. What happened (show only this, do not add details): Emperor Claudius had a 5.6 km tunnel dug through Monte Salviano to keep down the level of the Fucine Lake and lead part of its water to the river Liri. According to Suetonius the work needed 30,000 workers and took eleven years, from 41 to 52. How well the tunnel worked is uncertain. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Baiae börjar sjunka i havet (`baiae-sjunker-i-havet`)
+
+- År: 201 CE · plats: Baiae (Baia) i Bacoli vid Neapelbukten, Italien
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/baiae-sjunker-i-havet.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Baiae begins to sink into the sea — Baiae (Baia) in Bacoli on the Gulf of Naples, Italy, 201 CE. What happened (show only this, do not add details): Baiae was a Roman resort on the Gulf of Naples. Bradyseism, slow ground movements in the volcanic area, lowered the coast below sea level, apparently in two phases: between the 3rd and 5th centuries and more a century later. Early in the 4th century, water began to cover a palace there. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Malaria bland barnen vid Lugnano (`malaria-i-barngravarna-vid-lugnano`)
+
+- År: 450 CE · plats: Lugnano in Teverina, Umbrien, Italien (punkten är orten; villan vid Poggio Gramignano ligger i närheten)
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/malaria-i-barngravarna-vid-lugnano.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Malaria among the children at Lugnano — Lugnano in Teverina, Umbria, Italy (the point is the town; the villa at Poggio Gramignano is nearby), 450 CE. What happened (show only this, do not add details): In the mid-5th century at least 47 children up to three years old were buried in the rooms of a decaying Roman villa near Lugnano in Teverina. DNA of the malaria parasite Plasmodium falciparum has been found in one of the children, and research suggests that many of the dead were victims of malaria. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Idrottande kvinnor i Villa Romana del Casale (`idrottande-kvinnor-i-villa-romana-del-casale`)
+
+- År: 300 CE · plats: Villa Romana del Casale vid Piazza Armerina, Sicilien, Italien
+- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Spara som: `images/incoming/idrottande-kvinnor-i-villa-romana-del-casale.jpg`
+
+```text
+Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: Women athletes in the Villa Romana del Casale — Villa Romana del Casale near Piazza Armerina, Sicily, Italy, 300 CE. What happened (show only this, do not add details): The Roman country house Villa Romana del Casale in Sicily was built in the first quarter of the 4th century. One room later received a new mosaic, laid over the original floor, showing women in athletic contests. The villa's mosaics include women athletes whose two-piece outfits look like today's swimsuits. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Knut den store blir kung över England (`knut-blir-kung-av-england`)
+
+- År: 1016 CE · plats: England
+- Stil: Illuminerad handskrift (`medeltid`)
+- Spara som: `images/incoming/knut-blir-kung-av-england.jpg`
+
+```text
+Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapis blue and vermilion, decorated initial and vine border, flat perspective. Subject: Cnut the Great becomes king of England — England, 1016 CE. What happened (show only this, do not add details): When Edmund Ironside died on 30 November 1016, the West Saxons accepted Cnut as king of all of England. Under an agreement made on an island near Deerhurst, Cnut was to inherit the whole kingdom on Edmund's death. Cnut later also became king of Denmark in 1018 and of Norway in 1028, and England became part of the North Sea Empire. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Slaget vid Stiklestad (`slaget-vid-stiklestad`)
+
+- År: 1030 CE · plats: Stiklestad i Verdal, Trøndelag, Norge
+- Stil: Broderi i stil med Bayeuxtapeten (`bayeux`)
+- Spara som: `images/incoming/slaget-vid-stiklestad.jpg`
+
+```text
+Style: embroidered linen panel in the style of the Bayeux Tapestry, wool thread in terracotta, ochre, green and blue, continuous frieze with border bands. Subject: The Battle of Stiklestad — Stiklestad in Verdal, Trøndelag, Norway, 1030 CE. What happened (show only this, do not add details): At the farm of Stiklestad in Verdalen a peasant army loyal to Cnut the Great defeated King Olaf Haraldsson, who was killed in the battle. Olaf later became the patron saint of Norway. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Slaget vid Hastings (`slaget-vid-hastings`)
+
+- År: 1066 CE · plats: Battle nära Hastings, England
+- Stil: Broderi i stil med Bayeuxtapeten (`bayeux`)
+- Spara som: `images/incoming/slaget-vid-hastings.jpg`
+
+```text
+Style: embroidered linen panel in the style of the Bayeux Tapestry, wool thread in terracotta, ochre, green and blue, continuous frieze with border bands. Subject: The Battle of Hastings — Battle near Hastings, England, 1066 CE. What happened (show only this, do not add details): On 14 October 1066 William of Normandy defeated the English king Harold Godwinson near Hastings, where the town of Battle stands today. Harold was killed in the battle. William was crowned king of England in Westminster Abbey on Christmas Day 1066, and the battle began the Norman Conquest of England. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Imjinkriget (`imjinkriget`)
@@ -4533,7 +7243,7 @@ Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engravin
 - Spara som: `images/incoming/goa-1510.jpg`
 
 ```text
-Style: Persian, Mughal or Ottoman miniature painting, jewel-like colours, gold borders, elevated viewpoint, intricate patterns. Subject: Portugal conquers Goa — Old Goa, India, 1510 CE. What happened (show only this, do not add details): The Portuguese governor Afonso de Albuquerque takes the city of Goa from the Bijapur Sultanate, with the support of Timoji and his troops. He first took the city in February 1510 but was driven out by the sultan Ismail Adil Shah in May; on 25 November the city is stormed again. The soldiers are allowed to plunder it for four days, and the Muslims who have not fled are killed on the governor's orders. Goa becomes the capital of Portuguese India and remains Portuguese for over 450 years, until India takes the territory in December 1961. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Persian, Mughal or Ottoman miniature painting, jewel-like colours, gold borders, elevated viewpoint, intricate patterns. Subject: Portugal conquers Goa — Old Goa, India, 1510 CE. What happened (show only this, do not add details): The Portuguese governor Afonso de Albuquerque takes the city of Goa from the Bijapur Sultanate, with the support of Timoji and his troops. The soldiers are allowed to plunder it for four days, and the Muslims who have not fled are killed on the governor's orders. Goa becomes the capital of Portuguese India and remains Portuguese for over 450 years, until India takes the territory in December 1961. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Nederländarna grundar Kapkolonin (`kapkolonin-1652`)
@@ -4543,7 +7253,7 @@ Style: Persian, Mughal or Ottoman miniature painting, jewel-like colours, gold b
 - Spara som: `images/incoming/kapkolonin-1652.jpg`
 
 ```text
-Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engraving with watercolour wash. Subject: The Dutch found the Cape Colony — Cape Town, South Africa, 1652 CE. What happened (show only this, do not add details): In 1652 an expedition from the Dutch East India Company under Jan van Riebeeck founds a station at the Cape of Good Hope, where the company's ships travelling between the Netherlands and Batavia can obtain fresh supplies. It becomes Cape Town and the beginning of the Cape Colony. The land at the foot of Table Mountain was the grazing ground of the Khoikhoi, and when the settlers took it, the first of the wars between the Khoikhoi and the Dutch began. War and smallpox, including in 1713 and 1755, then broke down Khoikhoi societies, and they were driven out beyond the borders of the colony. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engraving with watercolour wash. Subject: The Dutch found the Cape Colony — Cape Town, South Africa, 1652 CE. What happened (show only this, do not add details): In 1652 an expedition from the Dutch East India Company under Jan van Riebeeck founds a station at the Cape of Good Hope. It becomes Cape Town and the beginning of the Cape Colony. The land at the foot of Table Mountain was the grazing ground of the Khoikhoi, and when the settlers took it, the first of the wars between the Khoikhoi and the Dutch began. War and smallpox, including in 1713 and 1755, then broke down Khoikhoi societies, and they were driven out beyond the borders of the colony. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Cocoliztli, den stora farsoten i Mexiko (`cocoliztli-1545`)
@@ -4553,7 +7263,7 @@ Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engravin
 - Spara som: `images/incoming/cocoliztli-1545.jpg`
 
 ```text
-Style: Aztec (Mexica) codex painting on bark paper or deerskin, bold black outlines, flat red, blue, yellow and green, glyph-like stylised figures and temples. Subject: Cocoliztli, the great epidemic in Mexico — The highlands of Mexico, New Spain (probably first in the area around Puebla), 1545 CE. What happened (show only this, do not add details): Between 1545 and 1548 the highlands of Mexico are struck by an epidemic with high fever and bleeding, which the Aztecs call cocoliztli, “plague” in Nahuatl. An estimated 5–15 million people die, up to 80 per cent of the indigenous population, including about 800,000 in the Valley of Mexico. It is one of the worst population catastrophes in history. The indigenous population is hit hardest, because after the conquest it had been forced together into new villages, weakened by war and forced labour, and the epidemic comes during a long period of severe drought. The shortage of labour leads to famine, and the Spaniards seize the land left behind by the dead. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Aztec (Mexica) codex painting on bark paper or deerskin, bold black outlines, flat red, blue, yellow and green, glyph-like stylised figures and temples. Subject: Cocoliztli, the great epidemic in Mexico — The highlands of Mexico, New Spain (probably first in the area around Puebla), 1545 CE. What happened (show only this, do not add details): Between 1545 and 1548 the highlands of Mexico are struck by an epidemic with high fever and bleeding, which the Aztecs call cocoliztli, “plague” in Nahuatl. An estimated 5–15 million people die, up to 80 per cent of the indigenous population, including about 800,000 in the Valley of Mexico. It is one of the worst population catastrophes in history. The shortage of labour leads to famine, and the Spaniards seize the land left behind by the dead. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Cocoliztli slår till igen (`cocoliztli-1576`)
@@ -4573,7 +7283,7 @@ Style: Renaissance woodcut or copper engraving, fine black hatching and cross-ha
 - Spara som: `images/incoming/mita-i-potosi-1573.jpg`
 
 ```text
-Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: The forced labour system mit'a begins in the silver mines of Potosí — Potosí, Viceroyalty of Peru (today Bolivia), 1573 CE. What happened (show only this, do not add details): The viceroy Francisco de Toledo turns the labour obligation of the Inca Empire, mit'a, into forced labour for Spain's silver mines on the mountain Cerro Rico. The first workers arrive in Potosí in 1573. The villages in an area of almost 520,000 square kilometres, from southern Peru through present-day Bolivia, must send every seventh adult man, about 13,000 men a year. They carry ore in sacks of 45–135 kilograms up ladders in narrow shafts, and many die in accidents, of pneumonia and of mercury poisoning. Thousands flee their villages to escape. By the end of the 17th century Upper Peru has lost almost half of its indigenous population compared with a little over a hundred years earlier. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: The forced labour system mit'a begins in the silver mines of Potosí — Potosí, Viceroyalty of Peru (today Bolivia), 1573 CE. What happened (show only this, do not add details): The viceroy Francisco de Toledo turns the labour obligation of the Inca Empire, mit'a, into forced labour for Spain's silver mines on the mountain Cerro Rico. The first workers arrive in Potosí in 1573. The villages must send every seventh adult man, about 13,000 men a year. They carry ore in sacks of 45–135 kilograms up ladders in narrow shafts, and many die in accidents, of pneumonia and of mercury poisoning. By the end of the 17th century Upper Peru has lost almost half of its indigenous population compared with a little over a hundred years earlier. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Smittkoppor drabbar eora-folket vid Sydney (`smittkoppor-sydney-1789`)
@@ -4583,7 +7293,7 @@ Style: Renaissance woodcut or copper engraving, fine black hatching and cross-ha
 - Spara som: `images/incoming/smittkoppor-sydney-1789.jpg`
 
 ```text
-Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engraving with watercolour wash. Subject: Smallpox strikes the Eora people at Sydney — Port Jackson at Sydney, the land of the Eora people, Australia, 1789 CE. What happened (show only this, do not add details): About 16 months after the British colony was founded, an epidemic breaks out among the indigenous peoples around Port Jackson. It probably began in March 1789 and died down in early May. In April the British notice that the canoes have disappeared from the bay, and they find sick and dead people in the rock crevices. Both the governor Arthur Phillip and the Eora man Bennelong believed that about half of the Eora people in the Sydney area died. Arabanoo, who lived in the colony and cared for the sick, also died. None of the British colonists appears to have fallen ill, but a sailor from North America died. The historian Peter Dowling argues that the epidemic probably made it impossible for the indigenous peoples to drive the colony away during its first years. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engraving with watercolour wash. Subject: Smallpox strikes the Eora people at Sydney — Port Jackson at Sydney, the land of the Eora people, Australia, 1789 CE. What happened (show only this, do not add details): About 16 months after the British colony was founded, an epidemic breaks out among the indigenous peoples around Port Jackson. Both the governor Arthur Phillip and the Eora man Bennelong believed that about half of the Eora people in the Sydney area died. The historian Peter Dowling argues that the epidemic probably made it impossible for the indigenous peoples to drive the colony away during its first years. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Den transatlantiska slavhandeln (`atlantiska-slavhandeln`)
@@ -4593,7 +7303,7 @@ Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engravin
 - Spara som: `images/incoming/atlantiska-slavhandeln.jpg`
 
 ```text
-Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: The transatlantic slave trade — West and Central Africa to the Americas (Gorée, Senegal, as an example), 1519 CE. What happened (show only this, do not add details): For more than 300 years enslaved Africans were carried by ship across the Atlantic to the Americas. The first known direct voyage from Africa took place in 1519, and the last known slave ship to Cuba arrived in 1867. Most came from West and Central Africa and were forced to work on plantations, in mines and in households. According to current estimates about 12.75 million people were loaded onto slave ships, and up to 2 million of them died during the voyage. Portugal, Britain, Spain and France were among the largest slave-trading nations. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: The transatlantic slave trade — West and Central Africa to the Americas (Gorée, Senegal, as an example), 1519 CE. What happened (show only this, do not add details): For more than 300 years enslaved Africans were carried by ship across the Atlantic to the Americas. The first known direct voyage from Africa took place in 1519, and the last known slave ship to Cuba arrived in 1867. Most came from West and Central Africa and were forced to work on plantations, in mines and in households. According to current estimates about 12.75 million people were loaded onto slave ships, and up to 2 million of them died during the voyage. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Japan stänger sig (sakoku) (`sakoku-japan-stanger`)
@@ -4613,7 +7323,7 @@ Style: Japanese ukiyo-e woodblock print, bold outlines, flat colour areas, Pruss
 - Spara som: `images/incoming/magellan-nar-guam.jpg`
 
 ```text
-Style: Renaissance portolan chart on vellum with compass roses, rhumb lines, sailing ships and decorative sea, coastlines drawn in ink and colour. Subject: Magellan's fleet reaches Guam — Guam in the Marianas, traditionally at Umatac (today Guam, USA), 1521 CE. What happened (show only this, do not add details): On 6 March 1521 Magellan's Spanish expedition reached the Marianas and anchored at Guam, after three months and twenty days across the Pacific. It was the first known contact between Europeans and the Chamorro people. Chamorros came out in fast outrigger canoes and took objects from the ships, especially anything made of iron; according to one historian they had a different view of ownership than the sailors, and Magellan called the island the Island of Thieves. After a clash in which at least one Chamorro was killed, Magellan had 40–50 houses burned and seven men killed, and on 9 March the fleet sailed on. The landing place is traditionally given as Umatac, but it may have been Tumon. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Renaissance portolan chart on vellum with compass roses, rhumb lines, sailing ships and decorative sea, coastlines drawn in ink and colour. Subject: Magellan's fleet reaches Guam — Guam in the Marianas, traditionally at Umatac (today Guam, USA), 1521 CE. What happened (show only this, do not add details): On 6 March 1521 Magellan's Spanish expedition reached the Marianas and anchored at Guam, after three months and twenty days across the Pacific. It was the first known contact between Europeans and the Chamorro people. After a clash in which at least one Chamorro was killed, Magellan had 40–50 houses burned and seven men killed, and on 9 March the fleet sailed on. The landing place is traditionally given as Umatac, but it may have been Tumon. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Mendaña når Salomonöarna (`mendana-nar-salomonoarna`)
@@ -4623,7 +7333,7 @@ Style: Renaissance portolan chart on vellum with compass roses, rhumb lines, sai
 - Spara som: `images/incoming/mendana-nar-salomonoarna.jpg`
 
 ```text
-Style: Renaissance portolan chart on vellum with compass roses, rhumb lines, sailing ships and decorative sea, coastlines drawn in ink and colour. Subject: Mendaña reaches the Solomon Islands — Santa Isabel (today the Solomon Islands), 1568 CE. What happened (show only this, do not add details): The Spanish navigator Álvaro de Mendaña left Callao in Peru in November 1567 with two ships and about 150 people. On 7 February 1568 the expedition sighted Santa Isabel and landed there a few days later, as the first known Europeans in the Solomon Islands; the islands received the name Islas Salomon after the return home. The Spaniards also explored, among other places, Malaita, Guadalcanal and Makira. When they tried to trade for food, the encounters with the islanders time and again went from friendly reception to misunderstandings, thefts and violent reprisals. In August 1568 they decided to turn back to Peru. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Renaissance portolan chart on vellum with compass roses, rhumb lines, sailing ships and decorative sea, coastlines drawn in ink and colour. Subject: Mendaña reaches the Solomon Islands — Santa Isabel (today the Solomon Islands), 1568 CE. What happened (show only this, do not add details): The Spanish navigator Álvaro de Mendaña left Callao in Peru in November 1567 with two ships and about 150 people. On 7 February 1568 the expedition sighted Santa Isabel and landed there a few days later, as the first known Europeans in the Solomon Islands. When they tried to trade for food, the encounters with the islanders time and again went from friendly reception to misunderstandings, thefts and violent reprisals. In August 1568 they decided to turn back to Peru. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Queirós på Espiritu Santo (`queiros-pa-espiritu-santo`)
@@ -4633,7 +7343,7 @@ Style: Renaissance portolan chart on vellum with compass roses, rhumb lines, sai
 - Spara som: `images/incoming/queiros-pa-espiritu-santo.jpg`
 
 ```text
-Style: Renaissance portolan chart on vellum with compass roses, rhumb lines, sailing ships and decorative sea, coastlines drawn in ink and colour. Subject: Queirós on Espiritu Santo — Espiritu Santo (today Vanuatu), 1606 CE. What happened (show only this, do not add details): In May 1606 Pedro Fernandes de Queirós, a Portuguese navigator in Spanish service, reached the islands that are today Vanuatu. He landed on a large island that he believed was part of the sought-after southern continent and called it Austrialia del Espíritu Santo; the island is still called Espiritu Santo. Queirós wanted to found a colony there, Nova Jerusalem, but within a few weeks the plan was abandoned because of the hostility of the ni-Vanuatu and disagreement among the crew. After six weeks the ships sailed away from there. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Renaissance portolan chart on vellum with compass roses, rhumb lines, sailing ships and decorative sea, coastlines drawn in ink and colour. Subject: Queirós on Espiritu Santo — Espiritu Santo (today Vanuatu), 1606 CE. What happened (show only this, do not add details): In May 1606 Pedro Fernandes de Queirós, a Portuguese navigator in Spanish service, reached the islands that are today Vanuatu. He landed on a large island that he believed was part of the sought-after southern continent and called it Austrialia del Espíritu Santo; the island is still called Espiritu Santo. Queirós wanted to found a colony there, Nova Jerusalem, but within a few weeks the plan was abandoned because of the hostility of the ni-Vanuatu and disagreement among the crew. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Willem Janszoon och Duyfken når Australien (`duyfken-nar-australien`)
@@ -4663,7 +7373,7 @@ Style: Renaissance portolan chart on vellum with compass roses, rhumb lines, sai
 - Spara som: `images/incoming/hartogs-tennplatta.jpg`
 
 ```text
-Style: Renaissance portolan chart on vellum with compass roses, rhumb lines, sailing ships and decorative sea, coastlines drawn in ink and colour. Subject: Dirk Hartog leaves a pewter plate at Shark Bay — Dirk Hartog Island at Shark Bay (today Western Australia, Australia), 1616 CE. What happened (show only this, do not add details): On 25 October 1616 the Dutch East India Company's ship Eendracht, with Dirk Hartog as skipper, came to an island off Shark Bay that today is called Dirk Hartog Island. It was the second known European landing in Australia and the first on the west coast. Before the ship sailed on on 27 October, Hartog nailed a pewter plate to a post with an inscription about the visit. The plate was found in 1697 by Willem de Vlamingh and is today in the Rijksmuseum in Amsterdam. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Renaissance portolan chart on vellum with compass roses, rhumb lines, sailing ships and decorative sea, coastlines drawn in ink and colour. Subject: Dirk Hartog leaves a pewter plate at Shark Bay — Dirk Hartog Island at Shark Bay (today Western Australia, Australia), 1616 CE. What happened (show only this, do not add details): On 25 October 1616 the Dutch East India Company's ship Eendracht, with Dirk Hartog as skipper, came to an island off Shark Bay that today is called Dirk Hartog Island. It was the second known European landing in Australia and the first on the west coast. Before the ship sailed on on 27 October, Hartog nailed a pewter plate to a post with an inscription about the visit. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Abel Tasman når Tasmanien (`tasman-nar-tasmanien`)
@@ -4673,7 +7383,7 @@ Style: Renaissance portolan chart on vellum with compass roses, rhumb lines, sai
 - Spara som: `images/incoming/tasman-nar-tasmanien.jpg`
 
 ```text
-Style: Renaissance portolan chart on vellum with compass roses, rhumb lines, sailing ships and decorative sea, coastlines drawn in ink and colour. Subject: Abel Tasman reaches Tasmania — The west coast of Tasmania north of Macquarie Harbour (today Australia), 1642 CE. What happened (show only this, do not add details): On 24 November 1642 Abel Tasman, on a voyage of discovery for the Dutch East India Company, sighted the west coast of Tasmania north of Macquarie Harbour. He called the land Van Diemen's Land after the governor-general of the Dutch East Indies, and today the island bears Tasman's name. On 3 December he formally claimed the land. After a further two days along the east coast he turned east to continue the search for the sought-after southern continent. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Renaissance portolan chart on vellum with compass roses, rhumb lines, sailing ships and decorative sea, coastlines drawn in ink and colour. Subject: Abel Tasman reaches Tasmania — The west coast of Tasmania north of Macquarie Harbour (today Australia), 1642 CE. What happened (show only this, do not add details): On 24 November 1642 Abel Tasman, on a voyage of discovery for the Dutch East India Company, sighted the west coast of Tasmania north of Macquarie Harbour. He called the land Van Diemen's Land after the governor-general of the Dutch East Indies, and today the island bears Tasman's name. On 3 December he formally claimed the land. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## De spansk-chamorriska krigen (`spansk-chamorriska-krigen`)
@@ -4683,7 +7393,7 @@ Style: Renaissance portolan chart on vellum with compass roses, rhumb lines, sai
 - Spara som: `images/incoming/spansk-chamorriska-krigen.jpg`
 
 ```text
-Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engraving with watercolour wash. Subject: The Spanish–Chamorro Wars — The Marianas, began at Hagåtña on Guam (today Guam and the Northern Mariana Islands, USA), 1670 CE. What happened (show only this, do not add details): From 1670 to 1699 the Chamorro people of the Marianas resisted Spanish colonisation. The Spaniards had founded a permanent Jesuit mission at Hagåtña on Guam in 1668, and forced conversions, attempts to destroy ancestral shrines and cultural misunderstandings led in 1670 to a siege of Hagåtña driven by the chief Hurao. After Matå'pang killed the missionary San Vitores in 1672, the Spaniards burned villages, and most of the inhabitants of about 180 villages on Guam were moved to seven places. The Spaniards and the Chamorros on their side prevailed, and by 1699 the population of the northern islands had also been brought to Guam. The violence of the Spaniards and their allies against the Chamorro people has been described as a brutal genocide. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engraving with watercolour wash. Subject: The Spanish–Chamorro Wars — The Marianas, began at Hagåtña on Guam (today Guam and the Northern Mariana Islands, USA), 1670 CE. What happened (show only this, do not add details): From 1670 to 1699 the Chamorro people of the Marianas resisted Spanish colonisation. After Matå'pang killed the missionary San Vitores in 1672, the Spaniards burned villages, and most of the inhabitants of about 180 villages on Guam were moved to seven places. The violence of the Spaniards and their allies against the Chamorro people has been described as a brutal genocide. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Funjsultanatet grundas i Sennar (`funjsultanatet-grundas`)
@@ -4713,7 +7423,7 @@ Style: Renaissance woodcut or copper engraving, fine black hatching and cross-ha
 - Spara som: `images/incoming/fort-jesus-byggs.jpg`
 
 ```text
-Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: The Portuguese build Fort Jesus in Mombasa — Mombasa Island (today Kenya), 1593 CE. What happened (show only this, do not add details): Between 1593 and 1596 Fort Jesus was built on Mombasa Island to protect the old harbour. The fortress was designed by the Italian architect Giovanni Battista Cairati, but building materials, masonry technique and labour probably came from the Swahili people. It was Portugal's only fort on the Swahili coast. After a siege in 1696–1698, Arabs from Oman took the fort, which largely put an end to the Portuguese presence on the coast. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: The Portuguese build Fort Jesus in Mombasa — Mombasa Island (today Kenya), 1593 CE. What happened (show only this, do not add details): Between 1593 and 1596 Fort Jesus was built on Mombasa Island to protect the old harbour. The fortress was designed by the Italian architect Giovanni Battista Cairati, but building materials, masonry technique and labour probably came from the Swahili people. After a siege in 1696–1698, Arabs from Oman took the fort, which largely put an end to the Portuguese presence on the coast. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Nzinga, drottning av Ndongo och Matamba (`nzinga-drottning-av-ndongo`)
@@ -4723,7 +7433,7 @@ Style: Renaissance woodcut or copper engraving, fine black hatching and cross-ha
 - Spara som: `images/incoming/nzinga-drottning-av-ndongo.jpg`
 
 ```text
-Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: Nzinga, queen of Ndongo and Matamba — Kabasa, capital of Ndongo (today Caculo Cabaça, Angola), 1624 CE. What happened (show only this, do not add details): In 1624 Nzinga took power in Ndongo, a Mbundu kingdom in present-day northern Angola, after her brother. She fought for decades against Portugal, which declared war on Ndongo in 1626. She conquered the neighbouring kingdom of Matamba in 1631–1635 and allied herself with the Dutch. A peace treaty with Portugal was signed in 1656, and she ruled until her death on 17 December 1663. She was born and died in the capital Kabasa. Today she is seen as an important historical figure in Angola. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: Nzinga, queen of Ndongo and Matamba — Kabasa, capital of Ndongo (today Caculo Cabaça, Angola), 1624 CE. What happened (show only this, do not add details): In 1624 Nzinga took power in Ndongo, a Mbundu kingdom in present-day northern Angola, after her brother. She fought for decades against Portugal, which declared war on Ndongo in 1626. She conquered the neighbouring kingdom of Matamba in 1631–1635 and allied herself with the Dutch. A peace treaty with Portugal was signed in 1656, and she ruled until her death on 17 December 1663. Today she is seen as an important historical figure in Angola. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Fasilides gör Gondar till Etiopiens huvudstad (`gondar-blir-etiopiens-huvudstad`)
@@ -4833,7 +7543,7 @@ Style: natural history plate, hand-coloured copper engraving of the subject with
 - Spara som: `images/incoming/cook-gar-i-land-turanganui.jpg`
 
 ```text
-Style: late 18th- or 19th-century engraving from a Pacific voyage account, fine line work, sepia. Subject: Cook lands at Tūranganui-a-Kiwa — Tūranganui-a-Kiwa (Poverty Bay), today Gisborne, New Zealand, 1769 CE. What happened (show only this, do not add details): On 6 October 1769 James Cook's ship Endeavour sights land off the east coast of the North Island, and shortly afterwards Cook and a group of sailors go ashore at the Tūranganui River in Poverty Bay. His crew is the second known group of Europeans to reach New Zealand, 127 years after Abel Tasman, and Cook is the first known European to go ashore. The first encounters with Māori turned violent, and several Māori were killed. Further south, at Anaura Bay and Tolaga Bay, the encounters were more peaceful, and the Tahitian Tupaia interpreted. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: late 18th- or 19th-century engraving from a Pacific voyage account, fine line work, sepia. Subject: Cook lands at Tūranganui-a-Kiwa — Tūranganui-a-Kiwa (Poverty Bay), today Gisborne, New Zealand, 1769 CE. What happened (show only this, do not add details): On 6 October 1769 James Cook's ship Endeavour sights land off the east coast of the North Island, and shortly afterwards Cook and a group of sailors go ashore at the Tūranganui River in Poverty Bay. His crew is the second known group of Europeans to reach New Zealand, 127 years after Abel Tasman, and Cook is the first known European to go ashore. The first encounters with Māori turned violent, and several Māori were killed. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Hans Egede kommer till Grönland (`hans-egede-kommer-till-gronland`)
@@ -5113,7 +7823,7 @@ Style: scientific plate, hand-coloured copper engraving of instruments and diagr
 - Spara som: `images/incoming/saavedra-over-stilla-havet.jpg`
 
 ```text
-Style: Renaissance portolan chart on vellum with compass roses, rhumb lines, sailing ships and decorative sea, coastlines drawn in ink and colour. Subject: Saavedra sails from Mexico across the Pacific — Rongelap and Ailinginae, Marshall Islands, 1527 CE. What happened (show only this, do not add details): In October 1527 the Spanish navigator Álvaro de Saavedra left Zihuatanejo in Mexico with three ships. Hernán Cortés had sent him to search for a missing Spanish fleet and to find new lands and spices. Two of the ships vanished in December. The third, La Florida, sighted the atolls of Utirik and Rongelap–Ailinginae in the Marshall Islands around the turn of the year, reached the Philippines in February and arrived at Tidore in the Moluccas in March 1528. Two attempts to sail back east failed, and Saavedra died during the second in 1529. On the way the crew met islanders who already lived on the islands. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Renaissance portolan chart on vellum with compass roses, rhumb lines, sailing ships and decorative sea, coastlines drawn in ink and colour. Subject: Saavedra sails from Mexico across the Pacific — Rongelap and Ailinginae, Marshall Islands, 1527 CE. What happened (show only this, do not add details): In October 1527 the Spanish navigator Álvaro de Saavedra left Zihuatanejo in Mexico with three ships. Two of the ships vanished in December. The third, La Florida, sighted the atolls of Utirik and Rongelap–Ailinginae in the Marshall Islands around the turn of the year, reached the Philippines in February and arrived at Tidore in the Moluccas in March 1528. Two attempts to sail back east failed, and Saavedra died during the second in 1529. On the way the crew met islanders who already lived on the islands. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Rosettastenen hittas (`rosettastenen-hittas`)
@@ -5123,7 +7833,7 @@ Style: Renaissance portolan chart on vellum with compass roses, rhumb lines, sai
 - Spara som: `images/incoming/rosettastenen-hittas.jpg`
 
 ```text
-Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: The Rosetta Stone is found — Fort Julien near Rashid (Rosetta), Egypt, 1799 CE. What happened (show only this, do not add details): In mid-July 1799, during the French invasion of Egypt, French soldiers were demolishing a wall in Fort Julien near the port of Rashid in the Nile Delta. Lieutenant Pierre-François Bouchard noticed that one of the stones bore inscriptions. The stone carries the same text in three versions: in hieroglyphs, in Demotic script and in Greek. It became the key to the hieroglyphs, and in 1822 Jean-François Champollion in Paris announced how the scripts could be read. The British army took the stone in 1801, and since 1802 it has been on display at the British Museum in London. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: The Rosetta Stone is found — Fort Julien near Rashid (Rosetta), Egypt, 1799 CE. What happened (show only this, do not add details): In mid-July 1799, during the French invasion of Egypt, French soldiers were demolishing a wall in Fort Julien near the port of Rashid in the Nile Delta. Lieutenant Pierre-François Bouchard noticed that one of the stones bore inscriptions. The stone carries the same text in three versions: in hieroglyphs, in Demotic script and in Greek. It became the key to the hieroglyphs, and in 1822 Jean-François Champollion in Paris announced how the scripts could be read. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Universitetet San Marcos grundas i Lima (`san-marcos-universitet-1551`)
@@ -5163,7 +7873,7 @@ Style: Renaissance woodcut or copper engraving, fine black hatching and cross-ha
 - Spara som: `images/incoming/sor-juana-respuesta-1691.jpg`
 
 ```text
-Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engraving with watercolour wash. Subject: Sor Juana defends women's right to education — Mexico City, New Spain (now Mexico), 1691 CE. What happened (show only this, do not add details): Sor Juana Inés de la Cruz was a nun in the convent of Santa Paula in Mexico City, where she studied, wrote and built up a large library. In 1691 she wrote the letter Respuesta a Sor Filotea de la Cruz in reply to criticism from the bishop of Puebla, who wrote under the name “Sor Filotea”. The letter is regarded as the first work from the Western Hemisphere to defend women's right to education. She is counted among the most important women writers in Spanish. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engraving with watercolour wash. Subject: Sor Juana defends women's right to education — Mexico City, New Spain (now Mexico), 1691 CE. What happened (show only this, do not add details): Sor Juana Inés de la Cruz was a nun in the convent of Santa Paula in Mexico City, where she studied, wrote and built up a large library. In 1691 she wrote the letter Respuesta a Sor Filotea de la Cruz in reply to criticism from the bishop of Puebla, who wrote under the name “Sor Filotea”. The letter is regarded as the first work from the Western Hemisphere to defend women's right to education. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Guldrushen i Minas Gerais börjar (`guld-i-minas-gerais-1695`)
@@ -5173,7 +7883,7 @@ Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engravin
 - Spara som: `images/incoming/guld-i-minas-gerais-1695.jpg`
 
 ```text
-Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engraving with watercolour wash. Subject: The gold rush in Minas Gerais begins — Minas Gerais, Brazil (the marker is at Ouro Preto, formerly Vila Rica), 1695 CE. What happened (show only this, do not add details): Bandeirantes, small groups who explored the interior of Brazil, found large gold deposits in the mountains of Minas Gerais in the 1690s. In 1695 Manuel Borba Gato found gold at the Rio das Velhas, and the gold rush began. It made Vila Rica, now Ouro Preto, the centre of the largest gold-producing area. More than 400,000 Portuguese and 500,000 enslaved Africans came to the gold region to work in the mines. According to the source the Brazilian gold rush became the longest in the world. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engraving with watercolour wash. Subject: The gold rush in Minas Gerais begins — Minas Gerais, Brazil (the marker is at Ouro Preto, formerly Vila Rica), 1695 CE. What happened (show only this, do not add details): Bandeirantes, small groups who explored the interior of Brazil, found large gold deposits in the mountains of Minas Gerais in the 1690s. In 1695 Manuel Borba Gato found gold at the Rio das Velhas, and the gold rush began. It made Vila Rica, now Ouro Preto, the centre of the largest gold-producing area. More than 400,000 Portuguese and 500,000 enslaved Africans came to the gold region to work in the mines. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Alexander von Humboldts resa i Amerika (`humboldt-i-amerika`)
@@ -5193,7 +7903,7 @@ Style: scientific plate, hand-coloured copper engraving of instruments and diagr
 - Spara som: `images/incoming/oyoriket.jpg`
 
 ```text
-Style: West African textile patterns and cast bronze relief plaques in the style of the Benin Bronzes, rich patina, decorative background rosettes. Subject: The Oyo Empire becomes a great power — Oyo-Ile (Old Oyo), the empire’s capital, in present-day Nigeria, 1608 CE. What happened (show only this, do not add details): Oyo was a Yoruba empire in present-day western Nigeria and Benin. Around 1535 the Nupe occupied Oyo, and the royal dynasty took refuge in Borgu. During the 17th century the empire was rebuilt, more centralised than before and with armour and a large cavalry. Around 1680 it covered over 150,000 km², and in the 18th century it was at the height of its power. The king, the alaafin, was chosen by the Oyo Mesi council, and the council and the Ogboni society kept his power in check. From 1728 Dahomey had to pay tribute, and after eleven invasions Oyo finally subjugated it in 1748. From 1754 the empire was weakened by internal power struggles, and in 1835 the capital Oyo-Ile was destroyed. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: West African textile patterns and cast bronze relief plaques in the style of the Benin Bronzes, rich patina, decorative background rosettes. Subject: The Oyo Empire becomes a great power — Oyo-Ile (Old Oyo), the empire’s capital, in present-day Nigeria, 1608 CE. What happened (show only this, do not add details): Oyo was a Yoruba empire in present-day western Nigeria and Benin. Around 1680 it covered over 150,000 km², and in the 18th century it was at the height of its power. The king, the alaafin, was chosen by the Oyo Mesi council, and the council and the Ogboni society kept his power in check. From 1754 the empire was weakened by internal power struggles, and in 1835 the capital Oyo-Ile was destroyed. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Befriade slavar grundar Freetown (`freetown-grundas`)
@@ -5203,7 +7913,7 @@ Style: West African textile patterns and cast bronze relief plaques in the style
 - Spara som: `images/incoming/freetown-grundas.jpg`
 
 ```text
-Style: West African textile patterns and cast bronze relief plaques in the style of the Benin Bronzes, rich patina, decorative background rosettes. Subject: Freed slaves found Freetown — Freetown, Sierra Leone, 1792 CE. What happened (show only this, do not add details): On 11 March 1792 Freetown in Sierra Leone was founded by African Americans who had been enslaved. Several of them had escaped to the British forces during the American Revolution and been given their freedom, but in Nova Scotia in British North America they met a harsh climate and racial discrimination. More than 1,100 of them sailed in 15 ships to Sierra Leone with the abolitionist John Clarkson, and 64 died on the way. At a large cotton tree they held a thanksgiving service, and the place was named Free Town. An earlier attempt, a settlement from 1787, had been burnt down in 1789. Freetown became a settlement for free and freed Africans, and their descendants are known as Creoles. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: West African textile patterns and cast bronze relief plaques in the style of the Benin Bronzes, rich patina, decorative background rosettes. Subject: Freed slaves found Freetown — Freetown, Sierra Leone, 1792 CE. What happened (show only this, do not add details): On 11 March 1792 Freetown in Sierra Leone was founded by African Americans who had been enslaved. More than 1,100 of them sailed in 15 ships to Sierra Leone with the abolitionist John Clarkson, and 64 died on the way. At a large cotton tree they held a thanksgiving service, and the place was named Free Town. Freetown became a settlement for free and freed Africans, and their descendants are known as Creoles. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## De lärdas storhetstid i Timbuktu (`larda-i-timbuktu-sankore`)
@@ -5213,7 +7923,7 @@ Style: West African textile patterns and cast bronze relief plaques in the style
 - Spara som: `images/incoming/larda-i-timbuktu-sankore.jpg`
 
 ```text
-Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: The heyday of the scholars of Timbuktu — The Sankoré Mosque, Timbuktu, Mali, 1501 CE. What happened (show only this, do not add details): The Sankoré Mosque in Timbuktu was built in the 14th or early 15th century with money from a Tuareg woman. It became a gathering point for scholars who taught their own students. There was no centralised teaching institution like the medieval European universities, but it is sometimes called the University of Sankoré. Its heyday came in the 16th century, under Askia Muhammad. The city then had an estimated 150–180 Qur’anic schools with 4,000–9,000 pupils, and around 200–300 people from wealthy families went on to higher study. Some scholars built up large private libraries. After Morocco had brought down the Songhai Empire in 1591, Moroccan troops arrested many scholars in 1594, among them Ahmad Baba, and deported them to Morocco with their manuscript collections. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: The heyday of the scholars of Timbuktu — The Sankoré Mosque, Timbuktu, Mali, 1501 CE. What happened (show only this, do not add details): The Sankoré Mosque in Timbuktu was built in the 14th or early 15th century with money from a Tuareg woman. It became a gathering point for scholars who taught their own students. Its heyday came in the 16th century, under Askia Muhammad. After Morocco had brought down the Songhai Empire in 1591, Moroccan troops arrested many scholars in 1594, among them Ahmad Baba, and deported them to Morocco with their manuscript collections. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Reformationen införs i Danmark (`reformationen-i-danmark`)
@@ -5253,7 +7963,7 @@ Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engravin
 - Spara som: `images/incoming/safaviderna-tar-makten-1501.jpg`
 
 ```text
-Style: Persian, Mughal or Ottoman miniature painting, jewel-like colours, gold borders, elevated viewpoint, intricate patterns. Subject: Ismail I becomes shah and the Safavids take power in Iran — Tabriz, north-western Iran, 1501 CE. What happened (show only this, do not add details): Ismail led the Safavid movement and was only twelve when he began his conquests. His army defeated the Aq Qoyunlu at the Battle of Sharur, although it was heavily outnumbered. After taking Tabriz in 1501 he took the title king of Iran and made the city his capital. Ismail made Twelver Shia Islam the official religion of the realm, which the source counts among the most important turning points in the history of Islam. The Safavids ruled Iran until 1736. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Persian, Mughal or Ottoman miniature painting, jewel-like colours, gold borders, elevated viewpoint, intricate patterns. Subject: Ismail I becomes shah and the Safavids take power in Iran — Tabriz, north-western Iran, 1501 CE. What happened (show only this, do not add details): Ismail led the Safavid movement and was only twelve when he began his conquests. After taking Tabriz in 1501 he took the title king of Iran and made the city his capital. Ismail made Twelver Shia Islam the official religion of the realm, which the source counts among the most important turning points in the history of Islam. The Safavids ruled Iran until 1736. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Jordbävningen i Shaanxi (`jordbavningen-i-shaanxi-1556`)
@@ -5263,7 +7973,7 @@ Style: Persian, Mughal or Ottoman miniature painting, jewel-like colours, gold b
 - Spara som: `images/incoming/jordbavningen-i-shaanxi-1556.jpg`
 
 ```text
-Style: Chinese ink and wash painting on a silk hand scroll, misty mountains and water, fine brushwork, muted mineral colours. Subject: The Shaanxi earthquake — Huaxian (now Huazhou) in the Wei River valley, Shaanxi, Ming China, 1556 CE. What happened (show only this, do not add details): Early in the morning of 23 January 1556 the Wei River valley in Shaanxi was struck by one of the deadliest earthquakes in history. Most people in the area lived in yaodongs, cave dwellings dug into cliffs of loess, and when they collapsed those sleeping inside were buried. The city of Huaxian was completely destroyed. Modern estimates by China’s earthquake administration put the deaths in the quake itself at about 100,000. Afterwards more than 700,000 people died or moved away because of famine and epidemics, so that the registered population fell by 830,000. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Chinese ink and wash painting on a silk hand scroll, misty mountains and water, fine brushwork, muted mineral colours. Subject: The Shaanxi earthquake — Huaxian (now Huazhou) in the Wei River valley, Shaanxi, Ming China, 1556 CE. What happened (show only this, do not add details): Early in the morning of 23 January 1556 the Wei River valley in Shaanxi was struck by one of the deadliest earthquakes in history. Most people in the area lived in yaodongs, cave dwellings dug into cliffs of loess, and when they collapsed those sleeping inside were buried. Modern estimates by China’s earthquake administration put the deaths in the quake itself at about 100,000. Afterwards more than 700,000 people died or moved away because of famine and epidemics, so that the registered population fell by 830,000. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Svälten i Bengalen 1770 (`svalten-i-bengalen-1770`)
@@ -5273,7 +7983,7 @@ Style: Chinese ink and wash painting on a silk hand scroll, misty mountains and 
 - Spara som: `images/incoming/svalten-i-bengalen-1770.jpg`
 
 ```text
-Style: Persian, Mughal or Ottoman miniature painting, jewel-like colours, gold borders, elevated viewpoint, intricate patterns. Subject: The Great Bengal famine of 1770 — Bengal and Bihar, now India and Bangladesh (the marker is in Murshidabad), 1769 CE. What happened (show only this, do not add details): In 1769–1770 Bengal and Bihar were hit by a famine that affected some 30 million people. The harvests failed in 1768 and 1769, and smallpox spread at the same time. The British East India Company had been granted the right to collect taxes in Bengal, but not responsibility for civil administration. The Company gave little relief, did not lower taxes and bought large amounts of rice for its army. By the summer of 1770 people were dying everywhere, and many of the dead were spinners and weavers. How many died is disputed. The famine helped the Company take over the whole administration soon afterwards. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Persian, Mughal or Ottoman miniature painting, jewel-like colours, gold borders, elevated viewpoint, intricate patterns. Subject: The Great Bengal famine of 1770 — Bengal and Bihar, now India and Bangladesh (the marker is in Murshidabad), 1769 CE. What happened (show only this, do not add details): In 1769–1770 Bengal and Bihar were hit by a famine that affected some 30 million people. The British East India Company had been granted the right to collect taxes in Bengal, but not responsibility for civil administration. The Company gave little relief, did not lower taxes and bought large amounts of rice for its army. How many died is disputed. The famine helped the Company take over the whole administration soon afterwards. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Sjuårskriget (`sjuarskriget`)
@@ -5283,7 +7993,7 @@ Style: Persian, Mughal or Ottoman miniature painting, jewel-like colours, gold b
 - Spara som: `images/incoming/sjuarskriget.jpg`
 
 ```text
-Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engraving with watercolour wash. Subject: The Seven Years’ War — Europe, North America, India, West Africa and the Philippines (the marker is at Jumonville Glen in the Ohio Country, where fighting broke out in 1754), 1756 CE. What happened (show only this, do not add details): The Seven Years’ War was a global conflict between the great powers, mainly in Europe but also in North America and India. The main parties were Great Britain and Prussia against France and Austria. Fighting in the Ohio Country in North America had begun as early as 1754, and on 17 May 1756 Britain formally declared war on France. On 29 August 1756 Frederick the Great led Prussian troops across the border into Saxony. The war ended in 1763 with the Treaty of Paris and the Treaty of Hubertusburg. France ceded its possessions in North America east of the Mississippi, and Great Britain gained large territories and much influence at the expense of France and Spain. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engraving with watercolour wash. Subject: The Seven Years’ War — Europe, North America, India, West Africa and the Philippines (the marker is at Jumonville Glen in the Ohio Country, where fighting broke out in 1754), 1756 CE. What happened (show only this, do not add details): The Seven Years’ War was a global conflict between the great powers, mainly in Europe but also in North America and India. The main parties were Great Britain and Prussia against France and Austria. The war ended in 1763 with the Treaty of Paris and the Treaty of Hubertusburg. France ceded its possessions in North America east of the Mississippi, and Great Britain gained large territories and much influence at the expense of France and Spain. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Michelangelo målar Sixtinska kapellets tak (`sixtinska-kapellets-tak`)
@@ -5303,7 +8013,7 @@ Style: Renaissance woodcut or copper engraving, fine black hatching and cross-ha
 - Spara som: `images/incoming/encyclopedien-ges-ut.jpg`
 
 ```text
-Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engraving with watercolour wash. Subject: The Encyclopédie begins to be published — Paris, France, 1751 CE. What happened (show only this, do not add details): In June 1751 the first volume of the Encyclopédie appears in France, with Denis Diderot as editor and Jean le Rond d'Alembert as co-editor until 1758 or 1759. The last volume came out in 1772, and more than a hundred people wrote articles. The Encyclopédie is best known as an expression of the ideas of the Enlightenment and helped to spread them. In 1759 the authorities suspended the permission to print the work, but the work continued in secret. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engraving with watercolour wash. Subject: The Encyclopédie begins to be published — Paris, France, 1751 CE. What happened (show only this, do not add details): In June 1751 the first volume of the Encyclopédie appears in France, with Denis Diderot as editor and Jean le Rond d'Alembert as co-editor until 1758 or 1759. The last volume came out in 1772, and more than a hundred people wrote articles. The Encyclopédie is best known as an expression of the ideas of the Enlightenment and helped to spread them. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Kant svarar på frågan ”Vad är upplysning?” (`kant-vad-ar-upplysning`)
@@ -5313,7 +8023,7 @@ Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engravin
 - Spara som: `images/incoming/kant-vad-ar-upplysning.jpg`
 
 ```text
-Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engraving with watercolour wash. Subject: Kant answers the question “What is Enlightenment?” — Berlin, Prussia (today Germany), 1784 CE. What happened (show only this, do not add details): In the December 1784 issue of the journal Berlinische Monatsschrift the philosopher Immanuel Kant, who worked at the University of Königsberg, answers the question of what enlightenment is. He describes enlightenment as humankind leaving an immaturity for which it is itself to blame, and gives it the motto Sapere aude: dare to use your own understanding. Several well-known thinkers answered the same question, but Kant's answer became the best known. After the essay, Aufklärung became the German name for the Enlightenment. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engraving with watercolour wash. Subject: Kant answers the question “What is Enlightenment?” — Berlin, Prussia (today Germany), 1784 CE. What happened (show only this, do not add details): In the December 1784 issue of the journal Berlinische Monatsschrift the philosopher Immanuel Kant, who worked at the University of Königsberg, answers the question of what enlightenment is. He describes enlightenment as humankind leaving an immaturity for which it is itself to blame, and gives it the motto Sapere aude: dare to use your own understanding. After the essay, Aufklärung became the German name for the Enlightenment. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Jordbävningen i Lissabon (`jordbavningen-i-lissabon-1755`)
@@ -5323,7 +8033,7 @@ Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engravin
 - Spara som: `images/incoming/jordbavningen-i-lissabon-1755.jpg`
 
 ```text
-Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engraving with watercolour wash. Subject: The Lisbon earthquake — Lisbon, Portugal, 1755 CE. What happened (show only this, do not add details): On the morning of 1 November 1755, at about 9.40 on All Saints’ Day, Lisbon was struck by a powerful earthquake. Its epicentre lay in the Atlantic, about 200 km west-south-west of Cape St. Vincent, and its magnitude is estimated at 7.7 or more. About 40 minutes later a tsunami swept over the harbour and the city centre, and candles lit for the holiday started fires that became a firestorm. According to the source 85% of the city’s buildings were destroyed, and 30,000–40,000 people died in Lisbon and perhaps another 10,000 in Morocco. The disaster left its mark on Enlightenment thought: Voltaire used it against the idea that the world is the best possible one, and Kant tried to explain earthquakes by natural causes. The Marquis of Pombal ordered a survey of the parishes about the earthquake and is therefore regarded as a forerunner of modern seismology. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engraving with watercolour wash. Subject: The Lisbon earthquake — Lisbon, Portugal, 1755 CE. What happened (show only this, do not add details): On the morning of 1 November 1755, at about 9.40 on All Saints’ Day, Lisbon was struck by a powerful earthquake. About 40 minutes later a tsunami swept over the harbour and the city centre, and candles lit for the holiday started fires that became a firestorm. According to the source 85% of the city’s buildings were destroyed, and 30,000–40,000 people died in Lisbon and perhaps another 10,000 in Morocco. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Första opiumkriget (`forsta-opiumkriget`)
@@ -6133,7 +8843,7 @@ Style: Chinese ink and wash painting on a silk hand scroll, misty mountains and 
 - Spara som: `images/incoming/slavhandeln-forbjuds-1807.jpg`
 
 ```text
-Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: Britain Bans the Slave Trade — The British Parliament, London, 1807 CE. What happened (show only this, do not add details): The British Parliament passes a law banning the slave trade across the Atlantic throughout the British Empire, after 18 years of attempts. The law receives royal assent on 25 March 1807 and takes effect on 1 May. It does not free those who are already enslaved; slavery remains legal in most of the empire until 1833. British ships had until then carried about a third of all enslaved people across the Atlantic, roughly 3.5 million people. Behind the ban lay both campaigns in Britain and the resistance of the enslaved themselves: revolts on board ship and in the Americas drove the debate forward. The trade continued illegally, and over a quarter of all those carried across the Atlantic were shipped after 1807. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: Britain Bans the Slave Trade — The British Parliament, London, 1807 CE. What happened (show only this, do not add details): The British Parliament passes a law banning the slave trade across the Atlantic throughout the British Empire, after 18 years of attempts. It does not free those who are already enslaved; slavery remains legal in most of the empire until 1833. Behind the ban lay both campaigns in Britain and the resistance of the enslaved themselves: revolts on board ship and in the Americas drove the debate forward. The trade continued illegally, and over a quarter of all those carried across the Atlantic were shipped after 1807. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Tårarnas väg (`tararnas-vag`)
@@ -6143,7 +8853,7 @@ Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an
 - Spara som: `images/incoming/tararnas-vag.jpg`
 
 ```text
-Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: The Trail of Tears — The south-eastern USA to Indian Territory, present-day Oklahoma (the Cherokee march began at Red Clay, Tennessee), 1830 CE. What happened (show only this, do not add details): After US President Andrew Jackson signed the Indian Removal Act on 28 May 1830, about 60,000 people from the Cherokee, Muscogee (Creek), Seminole, Chickasaw and Choctaw nations are forced out of their homelands in the south-eastern USA to Indian Territory west of the Mississippi River. The Choctaw are forced first, in 1831, and the Cherokee last: in May 1838 the army is ordered to remove them, and in the winter of 1838–1839 they walk about 1,600 kilometres, most of them on foot. Thousands die of disease, starvation and cold on the way or shortly afterwards. Scholars describe the removal as ethnic cleansing or genocide. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: The Trail of Tears — The south-eastern USA to Indian Territory, present-day Oklahoma (the Cherokee march began at Red Clay, Tennessee), 1830 CE. What happened (show only this, do not add details): After US President Andrew Jackson signed the Indian Removal Act on 28 May 1830, about 60,000 people from the Cherokee, Muscogee (Creek), Seminole, Chickasaw and Choctaw nations are forced out of their homelands in the south-eastern USA to Indian Territory west of the Mississippi River. Thousands die of disease, starvation and cold on the way or shortly afterwards. Scholars describe the removal as ethnic cleansing or genocide. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Kongofristaten, Leopold II:s privata koloni (`kongofristaten`)
@@ -6153,7 +8863,7 @@ Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an
 - Spara som: `images/incoming/kongofristaten.jpg`
 
 ```text
-Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: The Congo Free State, Leopold II's Private Colony — The Congo Free State, today the Democratic Republic of the Congo (capital Boma), 1885 CE. What happened (show only this, do not add details): After the Berlin Conference, King Leopold II of Belgium gets the European powers to recognise him as ruler of almost the whole Congo Basin, an area of 2.35 million square kilometres. The Congo Free State is his private property, not Belgium's, and he never visits it. The people are forced to collect wild rubber and ivory, and the army, the Force Publique, and the concession companies punish with murder, flogging, burned villages and severed hands. Together with diseases such as sleeping sickness, starvation and flight, the population falls sharply. Missionaries' testimony and Roger Casement's report in 1904 prompt an international protest, and in 1908 Belgium takes over the territory as a colony, the Belgian Congo. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: The Congo Free State, Leopold II's Private Colony — The Congo Free State, today the Democratic Republic of the Congo (capital Boma), 1885 CE. What happened (show only this, do not add details): After the Berlin Conference, King Leopold II of Belgium gets the European powers to recognise him as ruler of almost the whole Congo Basin. The people are forced to collect wild rubber and ivory, and the army, the Force Publique, and the concession companies punish with murder, flogging, burned villages and severed hands. Together with diseases such as sleeping sickness, starvation and flight, the population falls sharply. Missionaries' testimony and Roger Casement's report in 1904 prompt an international protest, and in 1908 Belgium takes over the territory as a colony, the Belgian Congo. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Brasilien förklarar sig självständigt (`brasiliens-sjalvstandighet`)
@@ -6163,7 +8873,7 @@ Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an
 - Spara som: `images/incoming/brasiliens-sjalvstandighet.jpg`
 
 ```text
-Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: Brazil Declares Independence — By the Ipiranga brook, São Paulo, Brazil, 1822 CE. What happened (show only this, do not add details): On 7 September 1822 Prince Regent Pedro of Braganza declared Brazil independent from Portugal, by the Ipiranga brook in São Paulo. The event is called the Cry of Ipiranga and the day is celebrated as Brazil's national day. Pedro was proclaimed emperor in October the same year, and the country became the Empire of Brazil. A war against the Portuguese forces followed, and the last Portuguese soldiers left the country in 1824. Portugal recognised Brazil's independence in a treaty on 29 August 1825. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: Brazil Declares Independence — By the Ipiranga brook, São Paulo, Brazil, 1822 CE. What happened (show only this, do not add details): On 7 September 1822 Prince Regent Pedro of Braganza declared Brazil independent from Portugal, by the Ipiranga brook in São Paulo. The event is called the Cry of Ipiranga and the day is celebrated as Brazil's national day. Pedro was proclaimed emperor in October the same year, and the country became the Empire of Brazil. Portugal recognised Brazil's independence in a treaty on 29 August 1825. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Usman dan Fodio grundar Sokotokalifatet (`sokotokalifatet-grundas`)
@@ -6203,7 +8913,7 @@ Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an
 - Spara som: `images/incoming/boskapspesten-i-afrika.jpg`
 
 ```text
-Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: Rinderpest Strikes Africa — Eastern and southern Africa (the point is in Maasailand, Tanzania), 1890 CE. What happened (show only this, do not add details): In the 1890s the rinderpest virus spread across Africa, mainly in the east and south. South of the Zambezi more than 5.2 million cattle died, and wild animals such as buffalo and giraffe were also affected. It led to famine: according to estimates, a third of Ethiopia's population and two thirds of the Maasai people in Tanzania died. The disease had been introduced with infected cattle from Asia, which were to feed the Italian troops during the war between Italy and Ethiopia in 1887–1889. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: Rinderpest Strikes Africa — Eastern and southern Africa (the point is in Maasailand, Tanzania), 1890 CE. What happened (show only this, do not add details): In the 1890s the rinderpest virus spread across Africa, mainly in the east and south. South of the Zambezi more than 5.2 million cattle died. It led to famine: according to estimates, a third of Ethiopia's population and two thirds of the Maasai people in Tanzania died. The disease had been introduced with infected cattle from Asia, which were to feed the Italian troops during the war between Italy and Ethiopia in 1887–1889. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Guldrushen i Victoria (`guldrushen-i-victoria`)
@@ -6213,7 +8923,7 @@ Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an
 - Spara som: `images/incoming/guldrushen-i-victoria.jpg`
 
 ```text
-Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: The Victorian Gold Rush — Ballarat and other goldfields in Victoria (Australia), 1851 CE. What happened (show only this, do not add details): From 1851 to the end of the 1860s gold was found in several places in the colony of Victoria, including Ballarat, Bendigo, Castlemaine, Daylesford and Beechworth. People flocked there and Melbourne became very rich. In the record year 1856 almost 95 tonnes of gold were mined. The gold diggers pushed for more democracy, but Chinese gold diggers met with riots and special taxes, something that became a basis for the White Australia policy. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: The Victorian Gold Rush — Ballarat and other goldfields in Victoria (Australia), 1851 CE. What happened (show only this, do not add details): From 1851 to the end of the 1860s gold was found in several places in the colony of Victoria, including Ballarat, Bendigo, Castlemaine, Daylesford and Beechworth. In the record year 1856 almost 95 tonnes of gold were mined. The gold diggers pushed for more democracy, but Chinese gold diggers met with riots and special taxes, something that became a basis for the White Australia policy. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Telegraflinjen genom Australien blir klar (`telegraflinjen-genom-australien`)
@@ -6253,7 +8963,7 @@ Style: late 18th- or 19th-century engraving from a Pacific voyage account, fine 
 - Spara som: `images/incoming/muskotkrigen.jpg`
 
 ```text
-Style: late 18th- or 19th-century engraving from a Pacific voyage account, fine line work, sepia. Subject: The Musket Wars — All of New Zealand, including the Chatham Islands (the first known battle with muskets was at Moremonui in Northland), 1806 CE. What happened (show only this, do not add details): A long series of battles and raids between Māori iwi after the Māori began to acquire muskets. The first known use in fighting between tribes was at Moremonui in 1807. From about 1818 the Ngāpuhi under Hongi Hika attacked tribes across the North Island, and the violence peaked in 1832–1833. In 1835 Ngāti Mutunga and Ngāti Tama invaded the Chatham Islands (Rēkohu), killed about a tenth of the Moriori and enslaved the survivors. The wars killed tens of thousands of people and redrew the tribes' boundaries before the Treaty of Waitangi in 1840. The historian Angela Ballara has questioned the term and sees the wars as a continuation of older Māori custom (tikanga), but bloodier because of the weapons. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: late 18th- or 19th-century engraving from a Pacific voyage account, fine line work, sepia. Subject: The Musket Wars — All of New Zealand, including the Chatham Islands (the first known battle with muskets was at Moremonui in Northland), 1806 CE. What happened (show only this, do not add details): A long series of battles and raids between Māori iwi after the Māori began to acquire muskets. From about 1818 the Ngāpuhi under Hongi Hika attacked tribes across the North Island, and the violence peaked in 1832–1833. The wars killed tens of thousands of people and redrew the tribes' boundaries before the Treaty of Waitangi in 1840. The historian Angela Ballara has questioned the term and sees the wars as a continuation of older Māori custom (tikanga), but bloodier because of the weapons. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## He Whakaputanga – självständighetsförklaringen (`he-whakaputanga`)
@@ -6263,7 +8973,7 @@ Style: late 18th- or 19th-century engraving from a Pacific voyage account, fine 
 - Spara som: `images/incoming/he-whakaputanga.jpg`
 
 ```text
-Style: late 18th- or 19th-century engraving from a Pacific voyage account, fine line work, sepia. Subject: He Whakaputanga – the Declaration of Independence — Waitangi, Bay of Islands, New Zealand, 1835 CE. What happened (show only this, do not add details): On 28 October 1835 chiefs from northern New Zealand sign He Whakaputanga o te Rangatiratanga o Nu Tireni at Waitangi, in the presence of the British Resident James Busby. They declare the country independent under the name of the United Tribes of New Zealand (Te Wakaminenga o nga Hapu o Nu Tireni), and all power is to rest with the chiefs collectively. The background was concern about lawless British subjects and fear that France would claim the islands. More chiefs signed afterwards, 52 in all by 1839. The document is displayed today at the National Library of New Zealand together with the Treaty of Waitangi. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: late 18th- or 19th-century engraving from a Pacific voyage account, fine line work, sepia. Subject: He Whakaputanga – the Declaration of Independence — Waitangi, Bay of Islands, New Zealand, 1835 CE. What happened (show only this, do not add details): On 28 October 1835 chiefs from northern New Zealand sign He Whakaputanga o te Rangatiratanga o Nu Tireni at Waitangi, in the presence of the British Resident James Busby. They declare the country independent under the name of the United Tribes of New Zealand (Te Wakaminenga o nga Hapu o Nu Tireni), and all power is to rest with the chiefs collectively. The background was concern about lawless British subjects and fear that France would claim the islands. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Hobson utropar brittisk suveränitet (`hobsons-suveranitetsproklamationer`)
@@ -6273,7 +8983,7 @@ Style: late 18th- or 19th-century engraving from a Pacific voyage account, fine 
 - Spara som: `images/incoming/hobsons-suveranitetsproklamationer.jpg`
 
 ```text
-Style: late 18th- or 19th-century engraving from a Pacific voyage account, fine line work, sepia. Subject: Hobson proclaims British sovereignty — New Zealand, 1840 CE. What happened (show only this, do not add details): On 21 May 1840 Lieutenant-Governor William Hobson proclaims British sovereignty over New Zealand in two proclamations. The North Island is claimed on the grounds that it was ceded through the Treaty of Waitangi, and the South Island and Stewart Island on the grounds of Cook's discovery in 1769. Two days later he declares illegal the government that the New Zealand Company's settlers had formed at Port Nicholson (Wellington). What the treaty meant for sovereignty is disputed, because the Māori text speaks of kawanatanga, governance. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: late 18th- or 19th-century engraving from a Pacific voyage account, fine line work, sepia. Subject: Hobson proclaims British sovereignty — New Zealand, 1840 CE. What happened (show only this, do not add details): On 21 May 1840 Lieutenant-Governor William Hobson proclaims British sovereignty over New Zealand in two proclamations. The North Island is claimed on the grounds that it was ceded through the Treaty of Waitangi, and the South Island and Stewart Island on the grounds of Cook's discovery in 1769. What the treaty meant for sovereignty is disputed, because the Māori text speaks of kawanatanga, governance. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Nya Zeeland blir egen kronkoloni (`nya-zeeland-egen-kronkoloni`)
@@ -6283,7 +8993,7 @@ Style: late 18th- or 19th-century engraving from a Pacific voyage account, fine 
 - Spara som: `images/incoming/nya-zeeland-egen-kronkoloni.jpg`
 
 ```text
-Style: late 18th- or 19th-century engraving from a Pacific voyage account, fine line work, sepia. Subject: New Zealand becomes a separate Crown colony — New Zealand, 1841 CE. What happened (show only this, do not add details): By a royal charter of 16 November 1840 the British government decides that New Zealand is to be separated from the colony of New South Wales. On 3 May 1841 the country becomes a separate Crown colony, and Hobson is sworn in as governor. The first organs of government, an Executive Council and a Legislative Council, are established to assist the governor. For many years after 1840 British sovereignty was in practice largely nominal. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: late 18th- or 19th-century engraving from a Pacific voyage account, fine line work, sepia. Subject: New Zealand becomes a separate Crown colony — New Zealand, 1841 CE. What happened (show only this, do not add details): By a royal charter of 16 November 1840 the British government decides that New Zealand is to be separated from the colony of New South Wales. On 3 May 1841 the country becomes a separate Crown colony, and Hobson is sworn in as governor. For many years after 1840 British sovereignty was in practice largely nominal. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Nya Zeeland får självstyre genom konstitutionen 1852 (`konstitutionen-1852`)
@@ -6293,7 +9003,7 @@ Style: late 18th- or 19th-century engraving from a Pacific voyage account, fine 
 - Spara som: `images/incoming/konstitutionen-1852.jpg`
 
 ```text
-Style: late 18th- or 19th-century engraving from a Pacific voyage account, fine line work, sepia. Subject: New Zealand gains self-government through the 1852 constitution — New Zealand (the act was passed by the Parliament in London), 1852 CE. What happened (show only this, do not add details): On 30 June 1852 the New Zealand Constitution Act receives royal assent. The act was passed by the British Parliament and gives the colony self-government with representative assemblies. It takes effect when Governor George Grey issues a proclamation on 17 January 1853. The first provincial elections are held in 1853, and Parliament meets for the first time in 1854. The franchise excluded all women, most Māori and everyone who was not British. The act remained part of New Zealand's constitution until it was replaced by the Constitution Act 1986. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: late 18th- or 19th-century engraving from a Pacific voyage account, fine line work, sepia. Subject: New Zealand gains self-government through the 1852 constitution — New Zealand (the act was passed by the Parliament in London), 1852 CE. What happened (show only this, do not add details): On 30 June 1852 the New Zealand Constitution Act receives royal assent. The act was passed by the British Parliament and gives the colony self-government with representative assemblies. It takes effect when Governor George Grey issues a proclamation on 17 January 1853. The franchise excluded all women, most Māori and everyone who was not British. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Kīngitanga: den förste maorikungen kröns (`kingitanga-forsta-maorikungen`)
@@ -6303,7 +9013,7 @@ Style: late 18th- or 19th-century engraving from a Pacific voyage account, fine 
 - Spara som: `images/incoming/kingitanga-forsta-maorikungen.jpg`
 
 ```text
-Style: late 18th- or 19th-century engraving from a Pacific voyage account, fine line work, sepia. Subject: Kīngitanga: the first Māori king is crowned — Ngāruawāhia, Waikato, New Zealand, 1858 CE. What happened (show only this, do not add details): In the 1850s the King movement, Kīngitanga, emerges among iwi on the North Island, partly to slow the sale of land to the settlers. The Waikato chief Te Wherowhero accepts in September 1857 and is crowned in June 1858 at Ngāruawāhia, taking the name Pōtatau. Over time the movement acquired its own flag, newspaper (Te Hokioi), laws and magistrates, and the colonial government saw it as a challenge to the British monarchy. It was one of the reasons for the invasion of the Waikato in 1863. Several large iwi, among them Ngāpuhi, Tūhoe and Ngāti Porou, have not joined it. The movement still exists today, with its seat at Tūrangawaewae marae in Ngāruawāhia. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: late 18th- or 19th-century engraving from a Pacific voyage account, fine line work, sepia. Subject: Kīngitanga: the first Māori king is crowned — Ngāruawāhia, Waikato, New Zealand, 1858 CE. What happened (show only this, do not add details): In the 1850s the King movement, Kīngitanga, emerges among iwi on the North Island, partly to slow the sale of land to the settlers. The Waikato chief Te Wherowhero accepts in September 1857 and is crowned in June 1858 at Ngāruawāhia, taking the name Pōtatau. Several large iwi, among them Ngāpuhi, Tūhoe and Ngāti Porou, have not joined it. The movement still exists today, with its seat at Tūrangawaewae marae in Ngāruawāhia. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## New Zealand Settlements Act: maorisk mark konfiskeras (`markkonfiskeringarna-1863`)
@@ -6313,7 +9023,7 @@ Style: late 18th- or 19th-century engraving from a Pacific voyage account, fine 
 - Spara som: `images/incoming/markkonfiskeringarna-1863.jpg`
 
 ```text
-Style: late 18th- or 19th-century engraving from a Pacific voyage account, fine line work, sepia. Subject: New Zealand Settlements Act: Māori land is confiscated — Waikato, Taranaki and the Bay of Plenty, North Island, New Zealand, 1863 CE. What happened (show only this, do not add details): On 5 November 1863 the New Zealand Settlements Bill is introduced in Parliament, and it becomes law with only two votes against it in each house. The act lets the government take land from tribes regarded as having been in rebellion after 1 January 1863. The land was to become military settlements, and what was left over was to be sold to pay for the war. In practice the confiscations made little distinction between “loyal” and “rebel” tribes. The Waitangi Tribunal and later settlements have taken them up. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: late 18th- or 19th-century engraving from a Pacific voyage account, fine line work, sepia. Subject: New Zealand Settlements Act: Māori land is confiscated — Waikato, Taranaki and the Bay of Plenty, North Island, New Zealand, 1863 CE. What happened (show only this, do not add details): On 5 November 1863 the New Zealand Settlements Bill is introduced in Parliament, and it becomes law with only two votes against it in each house. The act lets the government take land from tribes regarded as having been in rebellion after 1 January 1863. The land was to become military settlements, and what was left over was to be sold to pay for the war. In practice the confiscations made little distinction between “loyal” and “rebel” tribes. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Kielfreden: Grönland stannar hos Danmark (`kielfreden-gronland`)
@@ -6423,7 +9133,7 @@ Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an
 - Spara som: `images/incoming/kristi-kyrka-grundas-1830.jpg`
 
 ```text
-Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: Joseph Smith founds the first church of the Latter Day Saint movement — Fayette or Manchester, New York State, United States, 1830 CE. What happened (show only this, do not add details): On 6 April 1830 Joseph Smith, Oliver Cowdery and about 30 believers met to formally organise the Church of Christ. It was the first organisation built on the Book of Mormon, which Smith had just published, and it counts as the beginning of the Latter Day Saint movement. From 1829 believers in three towns in New York State had already called themselves the Church of Christ. Later names included the Church of Jesus Christ of Latter Day Saints. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: Joseph Smith founds the first church of the Latter Day Saint movement — Fayette or Manchester, New York State, United States, 1830 CE. What happened (show only this, do not add details): On 6 April 1830 Joseph Smith, Oliver Cowdery and about 30 believers met to formally organise the Church of Christ. It was the first organisation built on the Book of Mormon, which Smith had just published, and it counts as the beginning of the Latter Day Saint movement. Later names included the Church of Jesus Christ of Latter Day Saints. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Báb träder fram i Shiraz (`bab-framtrader-1844`)
@@ -6433,7 +9143,7 @@ Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an
 - Spara som: `images/incoming/bab-framtrader-1844.jpg`
 
 ```text
-Style: Persian, Mughal or Ottoman miniature painting, jewel-like colours, gold borders, elevated viewpoint, intricate patterns. Subject: The Báb declares his mission in Shiraz — Shiraz, Iran, 1844 CE. What happened (show only this, do not add details): On the evening of 22 May 1844 the merchant ʻAlí-Muḥammad invited Mullá Husayn to his house in Shiraz and told him of his mission. Mullá Husayn became the first to accept his claims. ʻAlí-Muḥammad called himself the Báb, “the gate”, and founded Bábism. He wrote that his task was to prepare for an even greater messenger. The clergy and the government turned against him, and in 1850 he was executed in Tabriz. The Báb is also one of the central figures of the Baháʼí Faith. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Persian, Mughal or Ottoman miniature painting, jewel-like colours, gold borders, elevated viewpoint, intricate patterns. Subject: The Báb declares his mission in Shiraz — Shiraz, Iran, 1844 CE. What happened (show only this, do not add details): On the evening of 22 May 1844 the merchant ʻAlí-Muḥammad invited Mullá Husayn to his house in Shiraz and told him of his mission. ʻAlí-Muḥammad called himself the Báb, “the gate”, and founded Bábism. He wrote that his task was to prepare for an even greater messenger. The clergy and the government turned against him, and in 1850 he was executed in Tabriz. The Báb is also one of the central figures of the Baháʼí Faith. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Den första testmatchen i cricket (`forsta-testmatchen-i-cricket`)
@@ -6453,7 +9163,7 @@ Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an
 - Spara som: `images/incoming/shaka-bygger-zuluriket.jpg`
 
 ```text
-Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: Shaka builds the Zulu Kingdom — Zululand, in present-day KwaZulu-Natal, South Africa, 1816 CE. What happened (show only this, do not add details): The Zulu Kingdom in Southern Africa arose during the Mfecane, a turbulent period when many new states were formed. Shaka became king of the Zulu with the help of Dingiswayo, leader of the Mthethwa, and after Dingiswayo’s death around 1816 he took over the whole Mthethwa alliance. He built a standing army, the amabutho, with new battle techniques, strict discipline and short stabbing spears instead of long throwing spears. His clan of a few thousand people grew to 45,000 as neighbouring clans were absorbed, and by 1822 the kingdom covered about 210,000 km². The wars drove other peoples to flee, and the Ngoni fled as far as present-day Tanzania and Malawi. Shaka was assassinated in 1828, and his half-brother Dingane, one of the assassins, became king. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: Shaka builds the Zulu Kingdom — Zululand, in present-day KwaZulu-Natal, South Africa, 1816 CE. What happened (show only this, do not add details): The Zulu Kingdom in Southern Africa arose during the Mfecane, a turbulent period when many new states were formed. Shaka became king of the Zulu with the help of Dingiswayo, leader of the Mthethwa. He built a standing army, the amabutho, with new battle techniques, strict discipline and short stabbing spears instead of long throwing spears. Shaka was assassinated in 1828, and his half-brother Dingane, one of the assassins, became king. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Diamantruschen i Kimberley (`diamanterna-i-kimberley`)
@@ -6463,7 +9173,7 @@ Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an
 - Spara som: `images/incoming/diamanterna-i-kimberley.jpg`
 
 ```text
-Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: The Kimberley diamond rush — The Big Hole in Kimberley, South Africa, 1871 CE. What happened (show only this, do not add details): In 1871 diamonds were found on the hill of Colesberg Kopje, in present-day South Africa. The scramble for claims gave the place the name New Rush, and by 1872 about 50,000 people lived in the diggers’ camp. From July 1871 to 1914 up to 50,000 miners dug out the Big Hole with picks and shovels, a hole of 17 hectares that became 240 metres deep. Many died in accidents, and the heat, the lack of water and the unsanitary conditions also took lives. In 1888 the mines were merged into the company De Beers Consolidated Mines, with Cecil Rhodes among its leaders. Work in the hole ceased on 14 August 1914. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: The Kimberley diamond rush — The Big Hole in Kimberley, South Africa, 1871 CE. What happened (show only this, do not add details): In 1871 diamonds were found on the hill of Colesberg Kopje, in present-day South Africa. From July 1871 to 1914 up to 50,000 miners dug out the Big Hole with picks and shovels, a hole of 17 hectares that became 240 metres deep. Many died in accidents, and the heat, the lack of water and the unsanitary conditions also took lives. Work in the hole ceased on 14 August 1914. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Muhammad Ahmad utropar sig till Mahdi (`muhammad-ahmad-utropar-sig-till-mahdi`)
@@ -6473,7 +9183,7 @@ Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an
 - Spara som: `images/incoming/muhammad-ahmad-utropar-sig-till-mahdi.jpg`
 
 ```text
-Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: Muhammad Ahmad proclaims himself the Mahdi — Sudan; his followers gathered on Aba Island in the White Nile, 1881 CE. What happened (show only this, do not add details): On 29 June 1881 the Sudanese religious leader Muhammad Ahmad declared that he was the Mahdi, a promised leader who would prepare the way for the second coming of Jesus. His followers had their base on Aba Island in the White Nile. A small force sent to arrest him there was overwhelmed on 11 August 1881, and the uprising began to grow. In January 1885 the Mahdists took Khartoum, and Charles Gordon, who was defending the city, was killed. Muhammad Ahmad died of typhus five months later and was buried in Omdurman, but the Mahdist state lasted until the Anglo-Egyptian conquest of Sudan in 1899. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: Muhammad Ahmad proclaims himself the Mahdi — Sudan; his followers gathered on Aba Island in the White Nile, 1881 CE. What happened (show only this, do not add details): On 29 June 1881 the Sudanese religious leader Muhammad Ahmad declared that he was the Mahdi, a promised leader who would prepare the way for the second coming of Jesus. In January 1885 the Mahdists took Khartoum, and Charles Gordon, who was defending the city, was killed. Muhammad Ahmad died of typhus five months later and was buried in Omdurman, but the Mahdist state lasted until the Anglo-Egyptian conquest of Sudan in 1899. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Said bin Sultan flyttar sin huvudstad till Zanzibar (`said-bin-sultan-flyttar-till-zanzibar`)
@@ -6483,7 +9193,7 @@ Style: Islamic art: intricate geometric tile patterns, arabesques and decorative
 - Spara som: `images/incoming/said-bin-sultan-flyttar-till-zanzibar.jpg`
 
 ```text
-Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: Said bin Sultan moves his capital to Zanzibar — Stone Town, Zanzibar, Tanzania, 1840 CE. What happened (show only this, do not add details): In 1840 Said bin Sultan, Sultan of Muscat and Oman, moved his capital from Muscat on the Arabian Peninsula to Stone Town on the island of Zanzibar off the coast of East Africa. The capital then stayed there throughout the empire’s heyday. During his reign two treaties, the Moresby Treaty of 1822 and the Hamerton Treaty of 1845, restricted the slave trade from Zanzibar. When Said died in 1856 his realm was divided: his son Thuwaini became Sultan of Muscat and Oman, and his son Majid Sultan of Zanzibar. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: Said bin Sultan moves his capital to Zanzibar — Stone Town, Zanzibar, Tanzania, 1840 CE. What happened (show only this, do not add details): In 1840 Said bin Sultan, Sultan of Muscat and Oman, moved his capital from Muscat on the Arabian Peninsula to Stone Town on the island of Zanzibar off the coast of East Africa. During his reign two treaties, the Moresby Treaty of 1822 and the Hamerton Treaty of 1845, restricted the slave trade from Zanzibar. When Said died in 1856 his realm was divided: his son Thuwaini became Sultan of Muscat and Oman, and his son Majid Sultan of Zanzibar. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## De två sista säkra garfåglarna dödas (`garfagelns-sista-pa-eldey`)
@@ -6523,7 +9233,7 @@ Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an
 - Spara som: `images/incoming/royal-national-park.jpg`
 
 ```text
-Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: Australia's first national park — Royal National Park south of Sydney, Australia, 1879 CE. What happened (show only this, do not add details): On 26 April 1879 Royal National Park south of Sydney in New South Wales was proclaimed, seven years after Yellowstone. It was the first national park in Australia, and was at first called simply National Park; it got the name Royal in 1955. The park was founded by John Robertson, then acting premier of the colony of New South Wales. The park contains coastal rainforest that escaped the development that destroyed such forest elsewhere. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: Australia's first national park — Royal National Park south of Sydney, Australia, 1879 CE. What happened (show only this, do not add details): On 26 April 1879 Royal National Park south of Sydney in New South Wales was proclaimed, seven years after Yellowstone. It was the first national park in Australia, and was at first called simply National Park; it got the name Royal in 1955. The park was founded by John Robertson, then acting premier of the colony of New South Wales. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Arrhenius räknar på koldioxid och jordens temperatur (`arrhenius-koldioxid-och-temperatur`)
@@ -6553,7 +9263,7 @@ Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an
 - Spara som: `images/incoming/mexikansk-amerikanska-kriget.jpg`
 
 ```text
-Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: The Mexican–American War — Texas, New Mexico, California and Mexico (the marker is north of the Rio Grande, where the war began), 1846 CE. What happened (show only this, do not add details): The war was an invasion of Mexico by the United States. It followed the US annexation of Texas in 1845, and the border between Texas and Mexico was disputed. On 25 April 1846 Mexican cavalry attacked an American patrol in the disputed area north of the Rio Grande. American troops landed at Veracruz and took Mexico City in September 1847. In the Treaty of Guadalupe Hidalgo on 2 February 1848 Mexico ceded large parts of what is now the south-western United States. According to the source 1,733 American soldiers were killed in action and 11,550 died of disease, and about 5,000 Mexican soldiers were killed in action. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: The Mexican–American War — Texas, New Mexico, California and Mexico (the marker is north of the Rio Grande, where the war began), 1846 CE. What happened (show only this, do not add details): The war was an invasion of Mexico by the United States. It followed the US annexation of Texas in 1845, and the border between Texas and Mexico was disputed. In the Treaty of Guadalupe Hidalgo on 2 February 1848 Mexico ceded large parts of what is now the south-western United States. According to the source 1,733 American soldiers were killed in action and 11,550 died of disease, and about 5,000 Mexican soldiers were killed in action. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Guldrushen i Kalifornien (`guldrushen-i-kalifornien`)
@@ -6633,7 +9343,7 @@ Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an
 - Spara som: `images/incoming/boxarupproret.jpg`
 
 ```text
-Style: Chinese ink and wash painting on a silk hand scroll, misty mountains and water, fine brushwork, muted mineral colours. Subject: The Boxer Rebellion — Northern China, from Shandong to Tianjin and Beijing (the marker is in Shandong, where the movement began), 1899 CE. What happened (show only this, do not add details): The Boxers were a movement among villagers in northern China that turned against foreign influence and Christian missionaries. From 1899 the movement spread across Shandong and the North China Plain. The Boxers destroyed railways, among other things, and attacked and killed Chinese Christians and missionaries. In June 1900 they besieged the Legation Quarter in Beijing, where diplomats, missionaries, soldiers and some Chinese Christians had taken refuge, and Empress Dowager Cixi backed them. An alliance of eight foreign powers sent troops, defeated the imperial army at Tianjin and reached Beijing on 14 August 1900, after a siege that had lasted 55 days. The capital was then looted, and suspected Boxers were executed without trial. In the Boxer Protocol of 7 September 1901 China was forced to pay an indemnity of 450 million taels of silver over 39 years. According to the source about 32,000 Chinese Christians and 200 Western missionaries were killed, and about 100,000 people died in total. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Chinese ink and wash painting on a silk hand scroll, misty mountains and water, fine brushwork, muted mineral colours. Subject: The Boxer Rebellion — Northern China, from Shandong to Tianjin and Beijing (the marker is in Shandong, where the movement began), 1899 CE. What happened (show only this, do not add details): The Boxers were a movement among villagers in northern China that turned against foreign influence and Christian missionaries. In June 1900 they besieged the Legation Quarter in Beijing, and Empress Dowager Cixi backed them. An alliance of eight foreign powers sent troops, defeated the imperial army at Tianjin and reached Beijing on 14 August 1900. According to the source about 32,000 Chinese Christians and 200 Western missionaries were killed, and about 100,000 people died in total. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Wienkongressen (`wienkongressen`)
@@ -6643,7 +9353,7 @@ Style: Chinese ink and wash painting on a silk hand scroll, misty mountains and 
 - Spara som: `images/incoming/wienkongressen.jpg`
 
 ```text
-Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: The Congress of Vienna — Vienna, Austria, 1814 CE. What happened (show only this, do not add details): From September 1814 to June 1815 the states of Europe met in Vienna to settle a long-term peace after the French Revolutionary and Napoleonic Wars. Austria’s Klemens von Metternich chaired the congress. The victors Austria, Britain, Prussia and Russia, and France through Talleyrand, sought a balance of power in which the great powers would keep each other in check. Russia gained most of the Duchy of Warsaw, Prussia among other things parts of Saxony and Swedish Pomerania, and Austria Lombardy–Venetia. The German Confederation of 39 states was formed, the Netherlands and the Southern Netherlands were united as one kingdom, and Switzerland’s neutrality was guaranteed. The congress also condemned the slave trade. The Final Act was signed on 9 June 1815, nine days before the Battle of Waterloo. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: The Congress of Vienna — Vienna, Austria, 1814 CE. What happened (show only this, do not add details): From September 1814 to June 1815 the states of Europe met in Vienna to settle a long-term peace after the French Revolutionary and Napoleonic Wars. The victors Austria, Britain, Prussia and Russia, and France through Talleyrand, sought a balance of power in which the great powers would keep each other in check. The Final Act was signed on 9 June 1815, nine days before the Battle of Waterloo. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Revolutionerna 1848 (`revolutionerna-1848`)
@@ -6653,7 +9363,7 @@ Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an
 - Spara som: `images/incoming/revolutionerna-1848.jpg`
 
 ```text
-Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: The revolutions of 1848 — Europe (the marker is in Palermo, Sicily, where the first revolution began), 1848 CE. What happened (show only this, do not add details): The revolutions of 1848, also called the Springtime of the Peoples, were a wave of uprisings in Europe. The first began in Palermo, Sicily, in January 1848, and in February the July Monarchy in France was overthrown and the Second Republic proclaimed. More than fifty countries were affected. Reformers demanded among other things elected parliaments, freedom of the press, freedom of association and universal manhood suffrage, and many wanted to build nation states. Many of the revolutions were quickly suppressed, and tens of thousands of people were killed. But serfdom was abolished in Austria and Hungary, absolute monarchy ended in Denmark and the Netherlands gained representative government. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: The revolutions of 1848 — Europe (the marker is in Palermo, Sicily, where the first revolution began), 1848 CE. What happened (show only this, do not add details): The revolutions of 1848, also called the Springtime of the Peoples, were a wave of uprisings in Europe. Reformers demanded among other things elected parliaments, freedom of the press, freedom of association and universal manhood suffrage, and many wanted to build nation states. Many of the revolutions were quickly suppressed, and tens of thousands of people were killed. But serfdom was abolished in Austria and Hungary, absolute monarchy ended in Denmark and the Netherlands gained representative government. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Kungariket Italien utropas (`kungariket-italien-utropas`)
@@ -7113,7 +9823,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/caledon-bay-krisen.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Caledon Bay crisis — Caledon Bay, Arnhem Land, Northern Territory, 1932 CE. What happened (show only this, do not add details): In 1932–1933 Yolngu men kill five Japanese trepang fishermen, two white men and a police officer, according to later Yolngu accounts as revenge for how the men had treated Yolngu women and the elder Wonggu. The police want to send a punitive expedition, but after protests the government stops it for fear of another Coniston. The Yolngu elder Dhakiyarr Wirrpanda is sentenced to death, but in 1934 the High Court overturns the sentence in the case of Tuckiar v The King, the first case brought by an Aboriginal man to be heard there. The conflict is counted as one of the last on the frontier. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Caledon Bay crisis — Caledon Bay, Arnhem Land, Northern Territory, 1932 CE. What happened (show only this, do not add details): In 1932–1933 Yolngu men kill five Japanese trepang fishermen, two white men and a police officer, according to later Yolngu accounts as revenge for how the men had treated Yolngu women and the elder Wonggu. The Yolngu elder Dhakiyarr Wirrpanda is sentenced to death, but in 1934 the High Court overturns the sentence in the case of Tuckiar v The King, the first case brought by an Aboriginal man to be heard there. The conflict is counted as one of the last on the frontier. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Emukriget (`emukriget`)
@@ -7123,7 +9833,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/emukriget.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Emu War — Campion in the Wheatbelt, Western Australia, 1932 CE. What happened (show only this, do not add details): During the Great Depression, settlers in Western Australia, many of them First World War veterans, complain that about 20,000 emus are destroying their wheat. The Minister of Defence sends three soldiers with two machine guns. Between 2 November and 10 December 1932 the army makes two attempts to shoot the emus, but the birds scatter in small, fast groups and the operation becomes expensive and gives poor results. The press dubs it the “Emu War”. The government said no to further military efforts, and bounties and fencing were used instead. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Emu War — Campion in the Wheatbelt, Western Australia, 1932 CE. What happened (show only this, do not add details): During the Great Depression, settlers in Western Australia complain that about 20,000 emus are destroying their wheat. The Minister of Defence sends three soldiers with two machine guns. Between 2 November and 10 December 1932 the army makes two attempts to shoot the emus, but the birds scatter in small, fast groups and the operation becomes expensive and gives poor results. The press dubs it the “Emu War”. The government said no to further military efforts, and bounties and fencing were used instead. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Folkmordet på herero och nama (`herero-och-nama-folkmordet`)
@@ -7133,7 +9843,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/herero-och-nama-folkmordet.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The genocide of the Herero and Nama — German South West Africa, today Namibia (the uprising began around Okahandja), 1904 CE. What happened (show only this, do not add details): On 12 January 1904 the Herero people under Samuel Maharero rise against German colonial rule, which had taken their land and cattle. After the Battle of Waterberg on 11 August 1904 most Herero flee into the Omaheke Desert, where many die of thirst and starvation. The German commander Lothar von Trotha orders that all Herero men are to be executed, but in practice women and children are killed too. Those who survive are locked up in concentration camps where about half die of disease, starvation and forced labour. The Nama under Hendrik Witbooi rise in September 1904 and fight until 1908. About 40,000–80,000 Herero, 80 per cent of the people, and about 10,000 Nama, half of the people, die. Germany recognised in 2015 that it was a genocide. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The genocide of the Herero and Nama — German South West Africa, today Namibia (the uprising began around Okahandja), 1904 CE. What happened (show only this, do not add details): On 12 January 1904 the Herero people under Samuel Maharero rise against German colonial rule, which had taken their land and cattle. The German commander Lothar von Trotha orders that all Herero men are to be executed, but in practice women and children are killed too. About 40,000–80,000 Herero, 80 per cent of the people, and about 10,000 Nama, half of the people, die. Germany recognised in 2015 that it was a genocide. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Panamakanalen öppnas (`panamakanalen-oppnas`)
@@ -7143,7 +9853,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/panamakanalen-oppnas.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Panama Canal opens — The Panama Canal, Panama, 1914 CE. What happened (show only this, do not add details): On 15 August 1914 the Panama Canal was formally opened, when the cargo ship SS Ancon passed through. The canal is about 82 kilometres long and links the Atlantic with the Pacific across the Isthmus of Panama, so that ships avoid the long and dangerous route around the southern tip of South America. France began the construction in 1881 but gave up in 1889, and the United States took over the work in 1904. About 5,600 workers died of disease and accidents during the American construction period. Panama took over control of the canal in 1999. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Panama Canal opens — The Panama Canal, Panama, 1914 CE. What happened (show only this, do not add details): On 15 August 1914 the Panama Canal was formally opened, when the cargo ship SS Ancon passed through. The canal is about 82 kilometres long and links the Atlantic with the Pacific across the Isthmus of Panama, so that ships avoid the long and dangerous route around the southern tip of South America. France began the construction in 1881 but gave up in 1889, and the United States took over the work in 1904. About 5,600 workers died of disease and accidents during the American construction period. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Mont Pelée förstör Saint-Pierre (`mont-pelee-1902`)
@@ -7163,7 +9873,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/insulin-forsta-patienten.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The first insulin treatment — Toronto General Hospital, Toronto, Canada, 1922 CE. What happened (show only this, do not add details): Frederick Banting and Charles Best isolated insulin at the University of Toronto in 1921. On 11 January 1922 the 14-year-old Leonard Thompson, who lay dying of diabetes at Toronto General Hospital, received the first insulin injection. The extract was too impure, but James Collip improved it, and a new dose on 23 January worked. In November 1922 a chemist at the pharmaceutical company Eli Lilly found a way to produce large quantities of purified insulin, and soon it was sold to the public. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The first insulin treatment — Toronto General Hospital, Toronto, Canada, 1922 CE. What happened (show only this, do not add details): Frederick Banting and Charles Best isolated insulin at the University of Toronto in 1921. On 11 January 1922 the 14-year-old Leonard Thompson, who lay dying of diabetes at Toronto General Hospital, received the first insulin injection. The extract was too impure, but James Collip improved it, and a new dose on 23 January worked. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Australien blir en federation (`australiska-federationen`)
@@ -7173,7 +9883,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/australiska-federationen.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: Australia becomes a federation — Sydney, where the federation was celebrated (Australia), 1901 CE. What happened (show only this, do not add details): On 1 January 1901 Australia's constitution came into force. The six British colonies New South Wales, Queensland, South Australia, Tasmania, Victoria and Western Australia became states in the Commonwealth of Australia. They kept their own parliaments but gained a joint federal government. Fiji and New Zealand took part in the negotiations but chose to stay outside. In Sydney the day was celebrated with a procession of about 10,000 participants. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: Australia becomes a federation — Sydney, where the federation was celebrated (Australia), 1901 CE. What happened (show only this, do not add details): On 1 January 1901 Australia's constitution came into force. The six British colonies New South Wales, Queensland, South Australia, Tasmania, Victoria and Western Australia became states in the Commonwealth of Australia. They kept their own parliaments but gained a joint federal government. Fiji and New Zealand took part in the negotiations but chose to stay outside. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Nya Zeeland blir dominion (`nya-zeeland-blir-dominion`)
@@ -7183,7 +9893,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/nya-zeeland-blir-dominion.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: New Zealand becomes a dominion — New Zealand, 1907 CE. What happened (show only this, do not add details): New Zealand had chosen not to join the Australian federation. After the 1907 Imperial Conference and at the request of the country's parliament, King Edward VII issues a proclamation, dated 9 September 1907, that the colony is to be called the Dominion of New Zealand. On 26 September Prime Minister Joseph Ward reads out the proclamation on the steps of Parliament, and the day becomes Dominion Day. The change was mainly symbolic, and Britain kept control of defence and partly of foreign affairs. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: New Zealand becomes a dominion — New Zealand, 1907 CE. What happened (show only this, do not add details): After the 1907 Imperial Conference and at the request of the country's parliament, King Edward VII issues a proclamation, dated 9 September 1907, that the colony is to be called the Dominion of New Zealand. On 26 September Prime Minister Joseph Ward reads out the proclamation on the steps of Parliament, and the day becomes Dominion Day. The change was mainly symbolic, and Britain kept control of defence and partly of foreign affairs. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Östgrönlandsmålet (`ostgronlandsmalet`)
@@ -7233,7 +9943,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/gulag.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Gulag, the Soviet system of labour camps — The Soviet Union (the administration was in Moscow), 1930 CE. What happened (show only this, do not add details): On 25 April 1930 the Soviet security service OGPU set up an administration for labour camps, the Gulag. The camps were spread across the Soviet Union and were at their largest from the 1930s to the early 1950s. About 18 million people were held in camps and labour colonies in 1930–1953. Researchers most often estimate that 1.5–1.7 million died there or shortly after release. What was left of the administration was dissolved on 25 January 1960. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Gulag, the Soviet system of labour camps — The Soviet Union (the administration was in Moscow), 1930 CE. What happened (show only this, do not add details): On 25 April 1930 the Soviet security service OGPU set up an administration for labour camps, the Gulag. The camps were spread across the Soviet Union and were at their largest from the 1930s to the early 1950s. About 18 million people were held in camps and labour colonies in 1930–1953. Researchers most often estimate that 1.5–1.7 million died there or shortly after release. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Holodomor, svälten i Ukraina (`holodomor`)
@@ -7273,7 +9983,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/de-forsta-nobelprisen.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The first Nobel Prizes are awarded — Royal Swedish Academy of Music building, Stockholm, Sweden, 1901 CE. What happened (show only this, do not add details): On 10 December 1901, the fifth anniversary of Alfred Nobel’s death, the first Nobel Prizes were awarded. The Stockholm ceremony took place in the great hall of the Royal Swedish Academy of Music building in Stockholm. In his will Nobel had set out five prizes: physics, chemistry, physiology or medicine, literature and peace. The Peace Prize is awarded in Norway, the others in Stockholm. The first prize in physics went to Wilhelm Röntgen for the discovery of X-rays. The economics prize in Nobel’s memory was only created in 1968. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The first Nobel Prizes are awarded — Royal Swedish Academy of Music building, Stockholm, Sweden, 1901 CE. What happened (show only this, do not add details): On 10 December 1901, the fifth anniversary of Alfred Nobel’s death, the first Nobel Prizes were awarded. In his will Nobel had set out five prizes: physics, chemistry, physiology or medicine, literature and peace. The Peace Prize is awarded in Norway, the others in Stockholm. The first prize in physics went to Wilhelm Röntgen for the discovery of X-rays. The economics prize in Nobel’s memory was only created in 1968. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Hiram Bingham kommer till Machu Picchu (`bingham-vid-machu-picchu`)
@@ -7283,7 +9993,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/bingham-vid-machu-picchu.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: Hiram Bingham reaches Machu Picchu — Machu Picchu, Peru, 1911 CE. What happened (show only this, do not add details): On 24 July 1911 the American historian Hiram Bingham was led up to the Inca ruins of Machu Picchu by the farmer and innkeeper Melchor Arteaga. Bingham was looking for the lost capital of the Neo-Inca state, which later turned out to be Vilcabamba. The site was known locally: on the mountain two Quechua farmers, Richarte and Alvarez, were working the old terraces, and in 1902 Agustín Lizárraga had written his name and the year in charcoal on a window of the Temple of the Three Windows. Bingham first wrote that Lizárraga was the discoverer of Machu Picchu but later played down his role. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: Hiram Bingham reaches Machu Picchu — Machu Picchu, Peru, 1911 CE. What happened (show only this, do not add details): On 24 July 1911 the American historian Hiram Bingham was led up to the Inca ruins of Machu Picchu by the farmer and innkeeper Melchor Arteaga. The site was known locally: on the mountain two Quechua farmers, Richarte and Alvarez, were working the old terraces, and in 1902 Agustín Lizárraga had written his name and the year in charcoal on a window of the Temple of the Three Windows. Bingham first wrote that Lizárraga was the discoverer of Machu Picchu but later played down his role. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Raja Harishchandra, Indiens första långfilm (`raja-harishchandra-har-premiar`)
@@ -7293,7 +10003,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/raja-harishchandra-har-premiar.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: Raja Harishchandra, India’s first feature film — Bombay (Mumbai), India, 1913 CE. What happened (show only this, do not add details): On 21 April 1913 the silent film Raja Harishchandra premiered at the Olympia Theatre in Bombay, and on 3 May it opened to the public at a cinema in the Girgaon district. Dadasaheb Phalke directed and produced it, and it is often considered India’s first feature film. It is based on the legend of King Harishchandra. No women were available for the parts, so men also played the female roles. The film was a success and laid the foundation for the country’s film industry. Only the first and last reels survive. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: Raja Harishchandra, India’s first feature film — Bombay (Mumbai), India, 1913 CE. What happened (show only this, do not add details): On 21 April 1913 the silent film Raja Harishchandra premiered at the Olympia Theatre in Bombay, and on 3 May it opened to the public at a cinema in the Girgaon district. Dadasaheb Phalke directed and produced it, and it is often considered India’s first feature film. No women were available for the parts, so men also played the female roles. The film was a success and laid the foundation for the country’s film industry. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Simon Kimbangu börjar predika i Belgiska Kongo (`kimbangu-predikar-1921`)
@@ -7303,7 +10013,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/kimbangu-predikar-1921.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: Simon Kimbangu begins preaching in the Belgian Congo — Around Nkamba, Belgian Congo (today DR Congo), 1921 CE. What happened (show only this, do not add details): In April 1921 Simon Kimbangu, a catechist in a Baptist mission, began preaching and, according to his followers, healing the sick, and large crowds came to listen. The movement became the beginning of Kimbanguism, one of the large independent African churches. The Belgian colonial authorities saw it as a threat, and in June they tried to arrest him. In September he gave himself up, and he remained in prison until his death in 1951. The church was banned but spread in secret, and in 1959 it was recognised by the Belgian authorities. Its headquarters are in Nkamba. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: Simon Kimbangu begins preaching in the Belgian Congo — Around Nkamba, Belgian Congo (today DR Congo), 1921 CE. What happened (show only this, do not add details): In April 1921 Simon Kimbangu, a catechist in a Baptist mission, began preaching and, according to his followers, healing the sick, and large crowds came to listen. The movement became the beginning of Kimbanguism, one of the large independent African churches. The Belgian colonial authorities saw it as a threat, and in June they tried to arrest him. In September he gave himself up, and he remained in prison until his death in 1951. The church was banned but spread in secret, and in 1959 it was recognised by the Belgian authorities. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Tutankhamons grav hittas (`tutankhamons-grav-hittas`)
@@ -7313,7 +10023,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/tutankhamons-grav-hittas.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: Tutankhamun’s tomb is found — Valley of the Kings, Egypt, 1922 CE. What happened (show only this, do not add details): On 4 November 1922 excavators led by Howard Carter, with George Herbert, Earl of Carnarvon, as patron, found a first step in the Valley of the Kings. It led to tomb KV62, where the Eighteenth Dynasty pharaoh Tutankhamun had been buried. Robbers had entered twice shortly after the burial, but the mummy and most of the grave goods remained, because the entrance had been covered by debris. On 26 November they reached the antechamber. The find became the most famous in the history of Egyptology. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: Tutankhamun’s tomb is found — Valley of the Kings, Egypt, 1922 CE. What happened (show only this, do not add details): On 4 November 1922 excavators led by Howard Carter, with George Herbert, Earl of Carnarvon, as patron, found a first step in the Valley of the Kings. It led to tomb KV62, where the Eighteenth Dynasty pharaoh Tutankhamun had been buried. Robbers had entered twice shortly after the burial, but the mummy and most of the grave goods remained, because the entrance had been covered by debris. The find became the most famous in the history of Egyptology. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Bretton Woods-konferensen (`bretton-woods-konferensen`)
@@ -7333,7 +10043,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/maji-maji-upproret.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Maji Maji Rebellion — The Matumbi Hills in southern Tanzania (then German East Africa), where the uprising began, 1905 CE. What happened (show only this, do not add details): In July 1905 peoples in German East Africa, present-day Tanzania, rose up against German colonial rule. On 31 July the Matumbi marched on Samanga and destroyed the cotton crop and a trading post. The spirit medium Kinjikitile Ngwale gave his followers a war medicine of water, maji in Swahili, mixed with castor oil and millet seeds, which was to turn German bullets into water. The uprising spread to several peoples, among them the Ngindo, Ngoni and Yao. The Germans burned villages and fields and deliberately caused a famine, tactics that scholars have described as genocidal. When the uprising was crushed in August 1907, 75,000–300,000 people had died, most of them from starvation. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Maji Maji Rebellion — The Matumbi Hills in southern Tanzania (then German East Africa), where the uprising began, 1905 CE. What happened (show only this, do not add details): In July 1905 peoples in German East Africa, present-day Tanzania, rose up against German colonial rule. The spirit medium Kinjikitile Ngwale gave his followers a war medicine of water, maji in Swahili, which was to turn German bullets into water. The Germans burned villages and fields and deliberately caused a famine, tactics that scholars have described as genocidal. When the uprising was crushed in August 1907, 75,000–300,000 people had died, most of them from starvation. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Sverige inrättar Europas första nationalparker (`sveriges-forsta-nationalparker`)
@@ -7363,7 +10073,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/krugerparken.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: Kruger becomes South Africa's first national park — Kruger National Park, north-eastern South Africa, 1926 CE. What happened (show only this, do not add details): On 11 June 1926 the South African parliament passed a national parks law, and Kruger National Park became the country's first national park. The park was formed from the Sabi and Singwitsi game reserves and the farms around them. The area had first been protected in 1898 by the government of the South African Republic, to control hunting and protect the dwindling animal populations. The peoples living in the reserve were removed over the following decades, and in 1969 the government forcibly relocated about 1,500 Makuleke people from the northern part of the park. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: Kruger becomes South Africa's first national park — Kruger National Park, north-eastern South Africa, 1926 CE. What happened (show only this, do not add details): On 11 June 1926 the South African parliament passed a national parks law, and Kruger National Park became the country's first national park. The area had first been protected in 1898 by the government of the South African Republic, to control hunting and protect the dwindling animal populations. The peoples living in the reserve were removed over the following decades, and in 1969 the government forcibly relocated about 1,500 Makuleke people from the northern part of the park. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Dust Bowl: torka och dammstormar på prärien (`dust-bowl`)
@@ -7373,7 +10083,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/dust-bowl.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Dust Bowl: drought and dust storms on the prairie — The prairies of the Great Plains, USA and Canada, 1930 CE. What happened (show only this, do not add details): In the 1930s the prairies of North America were hit by severe drought and huge dust storms. Farmers had ploughed up the deep-rooted prairie grasses, and when the drought came the loose soil blew away in clouds that sometimes darkened the sky. The drought came in three waves: 1934, 1936 and 1939–1940. Tens of thousands of poor families left their farms, many of them for California. The point is at Boise City in Oklahoma, where a reporter witnessed the dust storms of 14 April 1935. When his article was rewritten, the phenomenon got the name Dust Bowl. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Dust Bowl: drought and dust storms on the prairie — The prairies of the Great Plains, USA and Canada, 1930 CE. What happened (show only this, do not add details): In the 1930s the prairies of North America were hit by severe drought and huge dust storms. Farmers had ploughed up the deep-rooted prairie grasses, and when the drought came the loose soil blew away in clouds that sometimes darkened the sky. The drought came in three waves: 1934, 1936 and 1939–1940. Tens of thousands of poor families left their farms, many of them for California. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Den sista kända pungvargen dör (`den-sista-pungvargen-dor`)
@@ -7383,7 +10093,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/den-sista-pungvargen-dor.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The last known thylacine dies — Hobart Zoo (Beaumaris Zoo), Hobart, Tasmania, Australia, 1936 CE. What happened (show only this, do not add details): On 7 September 1936 the last known thylacine died at the zoo in Hobart, Tasmania. The thylacine was a carnivorous marsupial, and in Tasmania it was heavily persecuted in the 19th century because it was seen as a threat to sheep. Between 1888 and 1909 the Tasmanian government paid bounties for it. The Tasmanian government protected the species on 10 July 1936, 59 days before the last animal died. Since 1996, 7 September has been Australia's National Threatened Species Day. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The last known thylacine dies — Hobart Zoo (Beaumaris Zoo), Hobart, Tasmania, Australia, 1936 CE. What happened (show only this, do not add details): On 7 September 1936 the last known thylacine died at the zoo in Hobart, Tasmania. The thylacine was a carnivorous marsupial, and in Tasmania it was heavily persecuted in the 19th century because it was seen as a threat to sheep. Between 1888 and 1909 the Tasmanian government paid bounties for it. The Tasmanian government protected the species on 10 July 1936, 59 days before the last animal died. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Gabriela Mistral får Nobelpriset i litteratur (`gabriela-mistral-nobelpris-1945`)
@@ -7403,7 +10113,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/einsteins-artiklar-1905.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: Einstein's four papers — Bern, Switzerland, 1905 CE. What happened (show only this, do not add details): In 1905 Albert Einstein published four papers in the German journal Annalen der Physik. They dealt with the photoelectric effect, Brownian motion, the special theory of relativity and the relation between mass and energy, E = mc². Einstein was then working at the patent office in Bern and wrote most of the papers in his flat in the city. The work on the photoelectric effect later earned him the Nobel Prize in Physics. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: Einstein's four papers — Bern, Switzerland, 1905 CE. What happened (show only this, do not add details): In 1905 Albert Einstein published four papers in the German journal Annalen der Physik. They dealt with the photoelectric effect, Brownian motion, the special theory of relativity and the relation between mass and energy, E = mc². The work on the photoelectric effect later earned him the Nobel Prize in Physics. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Wegener lägger fram kontinentaldriften (`wegener-kontinentaldriften`)
@@ -7413,7 +10123,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/wegener-kontinentaldriften.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: Wegener presents continental drift — Senckenberg Museum, Frankfurt am Main, 1912 CE. What happened (show only this, do not add details): On 6 January 1912 the German meteorologist and polar researcher Alfred Wegener put forward the idea that the continents slowly move, in a lecture at the Senckenberg Museum in Frankfurt am Main. He argued that they had once been joined in a single landmass, which he called Pangaea. Others had had similar thoughts, but Wegener developed them most fully. Many geologists rejected the idea, because no one could explain what would drive the movement. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: Wegener presents continental drift — Senckenberg Museum, Frankfurt am Main, 1912 CE. What happened (show only this, do not add details): On 6 January 1912 the German meteorologist and polar researcher Alfred Wegener put forward the idea that the continents slowly move, in a lecture at the Senckenberg Museum in Frankfurt am Main. He argued that they had once been joined in a single landmass, which he called Pangaea. Many geologists rejected the idea, because no one could explain what would drive the movement. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Taungbarnet hittas (`taungbarnet-hittas`)
@@ -7483,7 +10193,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/chicago-pile-1.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The first nuclear reactor starts — Stagg Field, University of Chicago, United States, 1942 CE. What happened (show only this, do not add details): On 2 December 1942 a team led by Enrico Fermi started the first self-sustaining chain reaction created by humans, in the Chicago Pile-1 reactor under the stands of Stagg Field at the University of Chicago. The reactor was a pile of graphite blocks with uranium, without radiation shielding or cooling. The experiment was secret and part of the Manhattan Project, the Allied effort to build nuclear weapons during the Second World War. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The first nuclear reactor starts — Stagg Field, University of Chicago, United States, 1942 CE. What happened (show only this, do not add details): On 2 December 1942 a team led by Enrico Fermi started the first self-sustaining chain reaction created by humans, in the Chicago Pile-1 reactor under the stands of Stagg Field at the University of Chicago. The experiment was secret and part of the Manhattan Project, the Allied effort to build nuclear weapons during the Second World War. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Kvinnor får rösträtt till riksdagen i Danmark (`kvinnlig-rostratt-danmark-1915`)
@@ -7523,7 +10233,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/armeniska-folkmordet.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Armenian genocide — The Ottoman Empire, from Anatolia to the Syrian desert (the marker is in Constantinople, now Istanbul, where the arrests began on 24 April 1915), 1915 CE. What happened (show only this, do not add details): During the First World War the Armenian people and their identity in the Ottoman Empire were systematically destroyed. It was led by the ruling Committee of Union and Progress. On 24 April 1915 the Ottoman authorities arrested and deported hundreds of Armenian intellectuals and leaders in Constantinople. On the orders of Talaat Pasha, an estimated 800,000–1.2 million Armenians were sent on death marches from Anatolia to the Syrian desert in 1915 and 1916, without food or water and subjected to robbery, rape and massacres. About 100,000–200,000 women and children were forced to convert to Islam. The state killing had mostly stopped by early 1917. Estimates of the number of dead range from 600,000 to 1.5 million. Almost all historians outside Turkey regard it as a genocide, and 36 countries have recognised it (2026). The Turkish government maintains that the deportations were a legitimate measure that cannot be called genocide. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Armenian genocide — The Ottoman Empire, from Anatolia to the Syrian desert (the marker is in Constantinople, now Istanbul, where the arrests began on 24 April 1915), 1915 CE. What happened (show only this, do not add details): During the First World War the Armenian people and their identity in the Ottoman Empire were systematically destroyed. On the orders of Talaat Pasha, an estimated 800,000–1.2 million Armenians were sent on death marches from Anatolia to the Syrian desert in 1915 and 1916. Estimates of the number of dead range from 600,000 to 1.5 million. Almost all historians outside Turkey regard it as a genocide, and 36 countries have recognised it (2026). The Turkish government maintains that the deportations were a legitimate measure that cannot be called genocide. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Turkiska frihetskriget (`turkiska-frihetskriget`)
@@ -7533,7 +10243,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/turkiska-frihetskriget.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Turkish War of Independence — Anatolia and eastern Thrace (the marker is in Smyrna, now İzmir, where the war began), 1919 CE. What happened (show only this, do not add details): After its defeat in the First World War the Ottoman Empire was occupied and partitioned by the Allies. On 15 May 1919 Greek troops landed in Smyrna (İzmir) with Allied backing, which is counted as the start of the war. The Turkish National Movement under Mustafa Kemal, later called Atatürk, set up its own government in Ankara and declared illegal the Treaty of Sèvres, which the Sultan’s government had signed. The Turkish forces defeated the French in the south, partitioned Armenia with the Bolsheviks and, after the Battle of the Sakarya and the Great Offensive, drove out the Greek forces. The war ended with the recapture of İzmir and the Armistice of Mudanya. With the Treaty of Lausanne on 24 July 1923 the government in Ankara was recognised, and on 29 October 1923 the Republic of Turkey was proclaimed. According to the source 13,000 Turkish and 19,362 Greek soldiers were killed; many Greek and Armenian civilians were also killed. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Turkish War of Independence — Anatolia and eastern Thrace (the marker is in Smyrna, now İzmir, where the war began), 1919 CE. What happened (show only this, do not add details): On 15 May 1919 Greek troops landed in Smyrna (İzmir) with Allied backing, which is counted as the start of the war. The Turkish National Movement under Mustafa Kemal, later called Atatürk, set up its own government in Ankara. With the Treaty of Lausanne on 24 July 1923 the government in Ankara was recognised, and on 29 October 1923 the Republic of Turkey was proclaimed. According to the source 13,000 Turkish and 19,362 Greek soldiers were killed; many Greek and Armenian civilians were also killed. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Rysk-japanska kriget (`rysk-japanska-kriget`)
@@ -7543,7 +10253,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/rysk-japanska-kriget.jpg`
 
 ```text
-Style: Chinese ink and wash painting on a silk hand scroll, misty mountains and water, fine brushwork, muted mineral colours. Subject: The Russo-Japanese War — Manchuria, Korea, the Yellow Sea and the Sea of Japan (the marker is at Port Arthur, in present-day Lüshunkou, where the war began), 1904 CE. What happened (show only this, do not add details): Russia and Japan fought over influence in Manchuria and Korea. On the night of 8 to 9 February 1904 Japanese destroyers attacked the Russian fleet at Port Arthur without warning. Japanese troops landed in Korea and pushed into Manchuria. Port Arthur fell in January 1905 and Mukden in March of the same year. In May 1905 the Japanese fleet destroyed at Tsushima the Russian fleet that had sailed from the Baltic Sea. In the peace of Portsmouth in the United States on 5 September 1905, with President Theodore Roosevelt as mediator, Japan received Russia’s lease on the Liaodong Peninsula, the South Manchuria Railway and the southern half of Sakhalin, and Russia’s recognition of Japan’s interests in Korea. The victory made Japan a great power, and the defeat contributed to the unrest in Russia in 1905. According to the source between 43,300 and 71,453 died on the Russian side and between 80,378 and 86,100 on the Japanese side. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Chinese ink and wash painting on a silk hand scroll, misty mountains and water, fine brushwork, muted mineral colours. Subject: The Russo-Japanese War — Manchuria, Korea, the Yellow Sea and the Sea of Japan (the marker is at Port Arthur, in present-day Lüshunkou, where the war began), 1904 CE. What happened (show only this, do not add details): Russia and Japan fought over influence in Manchuria and Korea. On the night of 8 to 9 February 1904 Japanese destroyers attacked the Russian fleet at Port Arthur without warning. The victory made Japan a great power, and the defeat contributed to the unrest in Russia in 1905. According to the source between 43,300 and 71,453 died on the Russian side and between 80,378 and 86,100 on the Japanese side. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Revolutionen 1911: Qingdynastin faller (`xinhairevolutionen`)
@@ -7553,7 +10263,7 @@ Style: Chinese ink and wash painting on a silk hand scroll, misty mountains and 
 - Spara som: `images/incoming/xinhairevolutionen.jpg`
 
 ```text
-Style: Chinese ink and wash painting on a silk hand scroll, misty mountains and water, fine brushwork, muted mineral colours. Subject: The 1911 Revolution: the fall of the Qing dynasty — China (the marker is in Wuchang, in present-day Wuhan, where the revolution began), 1911 CE. What happened (show only this, do not add details): On 10 October 1911 soldiers of the New Army rose in revolt in Wuchang. Similar revolts broke out around the country, and revolutionaries in province after province renounced the Qing dynasty. A provisional government was formed in Nanjing, and on 1 January 1912 the Republic of China was proclaimed with Sun Yat-sen as president. After negotiations with Yuan Shikai, the army leader whom the court had made prime minister, the six-year-old emperor Puyi abdicated on 12 February 1912. This ended the 267-year rule of the Qing dynasty, and with it more than two millennia of imperial rule in China. Sun Yat-sen stepped down in favour of Yuan Shikai, who became president in March 1912. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Chinese ink and wash painting on a silk hand scroll, misty mountains and water, fine brushwork, muted mineral colours. Subject: The 1911 Revolution: the fall of the Qing dynasty — China (the marker is in Wuchang, in present-day Wuhan, where the revolution began), 1911 CE. What happened (show only this, do not add details): On 10 October 1911 soldiers of the New Army rose in revolt in Wuchang. A provisional government was formed in Nanjing, and on 1 January 1912 the Republic of China was proclaimed with Sun Yat-sen as president. After negotiations with Yuan Shikai, the six-year-old emperor Puyi abdicated on 12 February 1912. This ended the 267-year rule of the Qing dynasty, and with it more than two millennia of imperial rule in China. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Andra kinesisk-japanska kriget (`andra-kinesisk-japanska-kriget`)
@@ -7563,7 +10273,7 @@ Style: Chinese ink and wash painting on a silk hand scroll, misty mountains and 
 - Spara som: `images/incoming/andra-kinesisk-japanska-kriget.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Second Sino-Japanese War — China, Burma, Korea, Indochina and Taiwan (the marker is at the Marco Polo Bridge near Beijing, where the war began), 1937 CE. What happened (show only this, do not add details): The war between the Republic of China and the Empire of Japan began on 7 July 1937 with the incident at the Marco Polo Bridge near Beijing and became a full-scale Japanese invasion. Japan took Shanghai and the capital Nanjing in 1937 and Wuhan in 1938, and the Chinese government moved to Chongqing. Communist forces waged guerrilla war against the Japanese. After Japan’s attack on Pearl Harbor in December 1941 the war became intertwined with the Second World War, and China received help from the United States and Britain. Japan formally surrendered on 2 September 1945. According to the source about 20 million people died, most of them Chinese civilians. Japan carried out the largest attacks with biological weapons in history, which killed at least 200,000 people, and also used chemical weapons. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Second Sino-Japanese War — China, Burma, Korea, Indochina and Taiwan (the marker is at the Marco Polo Bridge near Beijing, where the war began), 1937 CE. What happened (show only this, do not add details): The war between the Republic of China and the Empire of Japan began on 7 July 1937 with the incident at the Marco Polo Bridge near Beijing and became a full-scale Japanese invasion. Japan took Shanghai and the capital Nanjing in 1937 and Wuhan in 1938, and the Chinese government moved to Chongqing. Japan formally surrendered on 2 September 1945. According to the source about 20 million people died, most of them Chinese civilians. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Nanjingmassakern (`nanjingmassakern`)
@@ -7573,7 +10283,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/nanjingmassakern.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Nanjing Massacre — Nanjing and the surrounding countryside, China, 1937 CE. What happened (show only this, do not add details): On 13 December 1937 the Japanese army took Nanjing, the capital of the Republic of China. In the following weeks Japanese soldiers murdered civilians and prisoners of war, raped women and girls and burned a third of the city. Thousands of captured Chinese soldiers were executed in violation of the laws of war. A committee of Westerners, among them the German John Rabe, set up a safety zone that according to the source saved at least 200,000 lives. After the war the commander Iwane Matsui and several others were convicted of war crimes and executed. How many were killed is disputed; newer estimates are between 100,000 and 200,000. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Nanjing Massacre — Nanjing and the surrounding countryside, China, 1937 CE. What happened (show only this, do not add details): On 13 December 1937 the Japanese army took Nanjing, the capital of the Republic of China. In the following weeks Japanese soldiers murdered civilians and prisoners of war, raped women and girls and burned a third of the city. A committee of Westerners, among them the German John Rabe, set up a safety zone that according to the source saved at least 200,000 lives. How many were killed is disputed; newer estimates are between 100,000 and 200,000. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Versaillesfreden (`versaillesfreden`)
@@ -7583,7 +10293,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/versaillesfreden.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Treaty of Versailles — The Hall of Mirrors, Versailles, France, 1919 CE. What happened (show only this, do not add details): On 28 June 1919, exactly five years after the assassination of Archduke Franz Ferdinand, the peace treaty was signed in the Hall of Mirrors at the Palace of Versailles. It ended the state of war between Germany and most of the Allied Powers and came into force on 10 January 1920. Germany had to disarm, give up territory and pay reparations to the Entente powers. The country lost 65,000 km² and 7 million people. In Article 231, the so-called war guilt clause, Germany accepted that Germany and her allies were responsible for the loss and damage of the war. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Treaty of Versailles — The Hall of Mirrors, Versailles, France, 1919 CE. What happened (show only this, do not add details): On 28 June 1919, exactly five years after the assassination of Archduke Franz Ferdinand, the peace treaty was signed in the Hall of Mirrors at the Palace of Versailles. Germany had to disarm, give up territory and pay reparations to the Entente powers. The country lost 65,000 km² and 7 million people. In Article 231, the so-called war guilt clause, Germany accepted that Germany and her allies were responsible for the loss and damage of the war. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Spanska inbördeskriget (`spanska-inbordeskriget`)
@@ -7593,7 +10303,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/spanska-inbordeskriget.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Spanish Civil War — Spain and Spanish Morocco (the marker is in Tétouan, capital of Spanish Morocco; the uprising began in Spanish Morocco), 1936 CE. What happened (show only this, do not add details): The war began after a partly failed military coup against the left-wing Popular Front government. The uprising started in Spanish Morocco on 17 July 1936 and spread to the garrisons on the mainland the next day. The coup succeeded in parts of northern, western and southern Spain but failed in Madrid, Barcelona and Valencia. The Republicans received support from the Soviet Union and Mexico and from volunteers in the International Brigades. The Nationalists were supported by Nazi Germany among others, whose Condor Legion bombed Guernica on 26 April 1937. On 1 April 1939 Franco declared victory, and his regime lasted until 1975. Hundreds of thousands of Republicans fled, most of them to camps in southern France. Estimates of the number of dead vary widely, from 250,000 to 1 million. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Spanish Civil War — Spain and Spanish Morocco (the marker is in Tétouan, capital of Spanish Morocco; the uprising began in Spanish Morocco), 1936 CE. What happened (show only this, do not add details): The war began after a partly failed military coup against the left-wing Popular Front government. The uprising started in Spanish Morocco on 17 July 1936 and spread to the garrisons on the mainland the next day. On 1 April 1939 Franco declared victory, and his regime lasted until 1975. Estimates of the number of dead vary widely, from 250,000 to 1 million. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Svälten i Bengalen (`svalten-i-bengalen-1943`)
@@ -7603,7 +10313,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/svalten-i-bengalen-1943.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Bengal famine — Bengal Province, British India (present-day Bangladesh and West Bengal); many sought relief in Calcutta, 1943 CE. What happened (show only this, do not add details): During the Second World War, Bengal in British India was struck by famine. An estimated 800,000 to 3.8 million people died of starvation, malaria and other diseases. Wartime inflation, the loss of rice imports from Japanese-occupied Burma, British wartime measures, trade barriers between provinces and a cyclone with flooding and rice crop disease all contributed, but how much each cause mattered is debated. More than half of the deaths came in 1944, from disease after the food shortage itself had eased. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Bengal famine — Bengal Province, British India (present-day Bangladesh and West Bengal); many sought relief in Calcutta, 1943 CE. What happened (show only this, do not add details): During the Second World War, Bengal in British India was struck by famine. An estimated 800,000 to 3.8 million people died of starvation, malaria and other diseases. Wartime inflation, the loss of rice imports from Japanese-occupied Burma, British wartime measures, trade barriers between provinces and a cyclone with flooding and rice crop disease all contributed, but how much each cause mattered is debated. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Svälten i Henan (`svalten-i-henan-1942`)
@@ -7623,7 +10333,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/jordbavningen-i-erzincan-1939.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Erzincan earthquake — Erzincan, eastern Turkey, 1939 CE. What happened (show only this, do not add details): In the night before 27 December 1939 an earthquake of magnitude 7.8 shook Erzincan Province in eastern Turkey. The ground ruptured along about 360 km of the North Anatolian Fault, and the quake caused a tsunami of 1–3 m on the Black Sea coast. 32,968 people died, making it the deadliest natural disaster in Turkey in the 20th century. Because it struck in the middle of winter, aid was hard to bring to the affected areas. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Erzincan earthquake — Erzincan, eastern Turkey, 1939 CE. What happened (show only this, do not add details): In the night before 27 December 1939 an earthquake of magnitude 7.8 shook Erzincan Province in eastern Turkey. The ground ruptured along about 360 km of the North Anatolian Fault, and the quake caused a tsunami of 1–3 m on the Black Sea coast. 32,968 people died, making it the deadliest natural disaster in Turkey in the 20th century. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Lahoreresolutionen kräver egna muslimska stater (`lahoreresolutionen-1940`)
@@ -7633,7 +10343,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/lahoreresolutionen-1940.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Lahore Resolution calls for Muslim states — Lahore, Punjab, British India (now Pakistan), 1940 CE. What happened (show only this, do not add details): On 23 March 1940 the All-India Muslim League, meeting in Lahore, adopted a resolution calling for "independent states" in the parts of British India where Muslims were in the majority, in the north-west and the east. It was presented by A. K. Fazlul Huq, the Prime Minister of Bengal. Later called the Pakistan Resolution, it became the foundation of the Pakistan Movement, and after it the name Pakistan came into wide use. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Lahore Resolution calls for Muslim states — Lahore, Punjab, British India (now Pakistan), 1940 CE. What happened (show only this, do not add details): On 23 March 1940 the All-India Muslim League, meeting in Lahore, adopted a resolution calling for "independent states" in the parts of British India where Muslims were in the majority, in the north-west and the east. Later called the Pakistan Resolution, it became the foundation of the Pakistan Movement, and after it the name Pakistan came into wide use. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Tata-institutet för grundforskning grundas (`tata-institutet-grundas-1945`)
@@ -7643,7 +10353,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/tata-institutet-grundas-1945.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Tata Institute of Fundamental Research is founded — Indian Institute of Science, Bangalore, British India (moved to Bombay the same year), 1945 CE. What happened (show only this, do not add details): On 1 June 1945 the Tata Institute of Fundamental Research (TIFR) was founded with money from one of the Tata family trusts, after the physicist Homi J. Bhabha had asked for support for a research institute. Bhabha became its first director. The institute began on the campus of the Indian Institute of Science in Bangalore and moved to Bombay the same year. In 1949 TIFR was designated the centre for India’s large-scale nuclear research projects. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Tata Institute of Fundamental Research is founded — Indian Institute of Science, Bangalore, British India (moved to Bombay the same year), 1945 CE. What happened (show only this, do not add details): On 1 June 1945 the Tata Institute of Fundamental Research (TIFR) was founded with money from one of the Tata family trusts, after the physicist Homi J. Bhabha had asked for support for a research institute. The institute began on the campus of the Indian Institute of Science in Bangalore and moved to Bombay the same year. In 1949 TIFR was designated the centre for India’s large-scale nuclear research projects. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Ho Chi Minh utropar Vietnams självständighet (`vietnams-sjalvstandighetsforklaring-1945`)
@@ -7693,7 +10403,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/ancs-ungdomsforbund-grundas-1944.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The ANC Youth League is founded — Johannesburg, South Africa (the idea was born in Walter Sisulu’s home in Orlando, Soweto), 1944 CE. What happened (show only this, do not add details): In March 1944 the ANC Youth League held its first conference, attended by about 200 people. Young activists, among them Anton Lembede, Walter Sisulu, Oliver Tambo and Nelson Mandela, felt that the older generation’s deputations to the government had won Black South Africans no rights. Lembede was elected president. The Youth League brought forward a new generation of leaders, and by the end of the 1940s it had gained control of the ANC. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The ANC Youth League is founded — Johannesburg, South Africa (the idea was born in Walter Sisulu’s home in Orlando, Soweto), 1944 CE. What happened (show only this, do not add details): In March 1944 the ANC Youth League held its first conference, attended by about 200 people. Young activists, among them Anton Lembede, Walter Sisulu, Oliver Tambo and Nelson Mandela, felt that the older generation’s deputations to the government had won Black South Africans no rights. The Youth League brought forward a new generation of leaders, and by the end of the 1940s it had gained control of the ANC. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Universitetet i Alexandria blir självständigt (`universitetet-i-alexandria-1942`)
@@ -7733,7 +10443,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/westminsterstadgan-antas-i-australien-1942.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: Australia adopts the Statute of Westminster — Provisional Parliament House (Old Parliament House), seat of Parliament 1927–1988, Canberra, Australia, 1942 CE. What happened (show only this, do not add details): On 9 October 1942 an Australian act adopting the Statute of Westminster of 1931 received Royal Assent. From then on the British Parliament could no longer legislate for Australia without the request and consent of the Australian Parliament. The act applied retroactively from 3 September 1939, the day Australia entered the Second World War. Its value was mainly symbolic, showing the world that Australia was independent. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: Australia adopts the Statute of Westminster — Provisional Parliament House (Old Parliament House), seat of Parliament 1927–1988, Canberra, Australia, 1942 CE. What happened (show only this, do not add details): On 9 October 1942 an Australian act adopting the Statute of Westminster of 1931 received Royal Assent. From then on the British Parliament could no longer legislate for Australia without the request and consent of the Australian Parliament. The act applied retroactively from 3 September 1939, the day Australia entered the Second World War. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Vulkanen Ruapehu får utbrott (`ruapehus-utbrott-1945`)
@@ -7743,7 +10453,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/ruapehus-utbrott-1945.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: Mount Ruapehu erupts — Mount Ruapehu, North Island, New Zealand, 1945 CE. What happened (show only this, do not add details): After several weeks of volcanic tremors, Mount Ruapehu on New Zealand’s North Island began erupting in March 1945; the first sign was seen on 8 March. A lava dome grew in the crater lake, which had been emptied of water by July. The eruptions increased from August to November and had ended by January. Ash spread across most of the North Island. A dam of ash that formed at the lake’s outlet collapsed in 1953 and caused the Tangiwai disaster. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: Mount Ruapehu erupts — Mount Ruapehu, North Island, New Zealand, 1945 CE. What happened (show only this, do not add details): After several weeks of volcanic tremors, Mount Ruapehu on New Zealand’s North Island began erupting in March 1945; the first sign was seen on 8 March. A lava dome grew in the crater lake, which had been emptied of water by July. The eruptions increased from August to November and had ended by January. A dam of ash that formed at the lake’s outlet collapsed in 1953 and caused the Tangiwai disaster. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Nya Zeelands hundraårsutställning (`nya-zeelands-hundraarsutstallning-1939`)
@@ -7773,7 +10483,7 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 - Spara som: `images/incoming/jordbavningen-i-san-juan-1944.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The San Juan earthquake — San Juan, western Argentina, 1944 CE. What happened (show only this, do not add details): On 15 January 1944 an earthquake destroyed much of the city of San Juan in western Argentina. About 10,000 people died, a tenth of the city’s inhabitants, and a third of the province’s population became homeless. It is considered the worst natural disaster in Argentina’s history. During the fundraising for the victims, Colonel Juan Perón met his future wife Eva Duarte, and the rebuilding gave the city new building rules for earthquakes. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The San Juan earthquake — San Juan, western Argentina, 1944 CE. What happened (show only this, do not add details): On 15 January 1944 an earthquake destroyed much of the city of San Juan in western Argentina. About 10,000 people died, a tenth of the city’s inhabitants, and a third of the province’s population became homeless. During the fundraising for the victims, Colonel Juan Perón met his future wife Eva Duarte, and the rebuilding gave the city new building rules for earthquakes. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Brasilien samlar sina arbetslagar (`brasiliens-arbetsratt-clt-1943`)
@@ -8223,7 +10933,7 @@ Style: muted documentary editorial illustration, gouache and ink, restrained col
 - Spara som: `images/incoming/faltaget-i-kambodja-1970.jpg`
 
 ```text
-Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: The Cambodian Campaign — Eastern Cambodia, including the area known as the Parrot's Beak, 1970 CE. What happened (show only this, do not add details): From 29 April 1970 South Vietnamese forces, and from 1 May American forces, enter eastern Cambodia. The aim is the roughly 40,000 soldiers of the North Vietnamese Army and the NLF who have bases across the border. The campaign follows the deposition of Prince Norodom Sihanouk by General Lon Nol. The American operations last until 30 June and the South Vietnamese ones until 22 July. The leadership of the North Vietnamese forces escapes. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: The Cambodian Campaign — Eastern Cambodia, including the area known as the Parrot's Beak, 1970 CE. What happened (show only this, do not add details): From 29 April 1970 South Vietnamese forces, and from 1 May American forces, enter eastern Cambodia. The aim is the roughly 40,000 soldiers of the North Vietnamese Army and the NLF who have bases across the border. The campaign follows the deposition of Prince Norodom Sihanouk by General Lon Nol. The leadership of the North Vietnamese forces escapes. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Operation Lam Son 719 i Laos (`operation-lam-son-719`)
@@ -8263,7 +10973,7 @@ Style: muted documentary editorial illustration, gouache and ink, restrained col
 - Spara som: `images/incoming/afrikas-ar-1960.jpg`
 
 ```text
-Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: Africa's Year: 17 colonies become independent — Africa (first Cameroon, with the capital Yaoundé, on 1 January), 1960 CE. What happened (show only this, do not add details): During 1960, 17 African colonies become independent: 14 from France, two from the United Kingdom and one from Belgium. The number of independent countries in Africa rises from nine to 26. First is Cameroon on 1 January, followed by, among others, Togo, Madagascar, Somalia, both Congos and Nigeria on 1 October. It is the high point of the African independence movements. In the same year the armed struggle against apartheid begins in South Africa, and in the Congo Prime Minister Patrice Lumumba is overthrown, and is then tortured and executed. In December the UN General Assembly adopts a declaration that all peoples have the right to self-determination. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: Africa's Year: 17 colonies become independent — Africa (first Cameroon, with the capital Yaoundé, on 1 January), 1960 CE. What happened (show only this, do not add details): During 1960, 17 African colonies become independent: 14 from France, two from the United Kingdom and one from Belgium. The number of independent countries in Africa rises from nine to 26. It is the high point of the African independence movements. In December the UN General Assembly adopts a declaration that all peoples have the right to self-determination. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Folkrepubliken Kina utropas (`folkrepubliken-kina-utropas`)
@@ -8513,7 +11223,7 @@ Style: mid-century space age poster art and modern illustration, retro-futurist,
 - Spara som: `images/incoming/westminsterstadgan-antas-1947.jpg`
 
 ```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: New Zealand adopts the Statute of Westminster — Wellington, New Zealand, 1947 CE. What happened (show only this, do not add details): New Zealand's parliament passes the Statute of Westminster Adoption Act, which receives royal assent on 25 November 1947. The country thereby adopts the Statute of Westminster, the British act of 1931 that gave the dominions full sovereignty, as the last dominion to do so. At the time it was seen as a necessary constitutional step and not as a change in the relationship with Britain, but today it is regarded as an important step towards independence. The act was replaced by the Constitution Act 1986. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: New Zealand adopts the Statute of Westminster — Wellington, New Zealand, 1947 CE. What happened (show only this, do not add details): New Zealand's parliament passes the Statute of Westminster Adoption Act, which receives royal assent on 25 November 1947. The country thereby adopts the Statute of Westminster, the British act of 1931 that gave the dominions full sovereignty, as the last dominion to do so. At the time it was seen as a necessary constitutional step and not as a change in the relationship with Britain, but today it is regarded as an important step towards independence. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Waitangitribunalen inrättas (`waitangitribunalen-inrattas`)
@@ -8563,7 +11273,7 @@ Style: mid-century space age poster art and modern illustration, retro-futurist,
 - Spara som: `images/incoming/everest-bestigs-1953.jpg`
 
 ```text
-Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: Tenzing Norgay and Edmund Hillary reach the summit of Mount Everest — Mount Everest, on the border between Nepal and China, 1953 CE. What happened (show only this, do not add details): At 11.30 a.m. on 29 May 1953 Tenzing Norgay and Edmund Hillary reached the summit of the world’s highest mountain. They belonged to the ninth expedition to attempt the summit, a British expedition led by John Hunt, and it was the first confirmed ascent. George Mallory had disappeared on the mountain during an earlier expedition in 1924. Sherpas carried loads to the higher camps. The news reached London on the morning of 2 June, the day of Queen Elizabeth II’s coronation. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: Tenzing Norgay and Edmund Hillary reach the summit of Mount Everest — Mount Everest, on the border between Nepal and China, 1953 CE. What happened (show only this, do not add details): At 11.30 a.m. on 29 May 1953 Tenzing Norgay and Edmund Hillary reached the summit of the world’s highest mountain. They belonged to the ninth expedition to attempt the summit, a British expedition led by John Hunt, and it was the first confirmed ascent. Sherpas carried loads to the higher camps. The news reached London on the morning of 2 June, the day of Queen Elizabeth II’s coronation. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Ambedkar och hundratusentals anhängare går över till buddhismen (`ambedkar-blir-buddhist`)
@@ -8573,7 +11283,7 @@ Style: mid-century space age poster art and modern illustration, retro-futurist,
 - Spara som: `images/incoming/ambedkar-blir-buddhist.jpg`
 
 ```text
-Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: Ambedkar and hundreds of thousands of followers convert to Buddhism — Deekshabhoomi, Nagpur, India, 1956 CE. What happened (show only this, do not add details): On 14 October 1956 B. R. Ambedkar converted to Buddhism at Deekshabhoomi in Nagpur, more than 20 years after he had declared his intention to do so. He had written that Buddhism was the only way to equality for those regarded as untouchables. At the same ceremony a very large number of his followers, mainly Dalits, also converted, and two days later more than 300,000 more in Chandrapur. Ambedkar inspired many further mass conversions, and Deekshabhoomi became a place of pilgrimage. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: Ambedkar and hundreds of thousands of followers convert to Buddhism — Deekshabhoomi, Nagpur, India, 1956 CE. What happened (show only this, do not add details): On 14 October 1956 B. R. Ambedkar converted to Buddhism at Deekshabhoomi in Nagpur, more than 20 years after he had declared his intention to do so. He had written that Buddhism was the only way to equality for those regarded as untouchables. At the same ceremony a very large number of his followers, mainly Dalits, also converted, and two days later more than 300,000 more in Chandrapur. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Trieste når botten av Challengerdjupet (`trieste-nar-challengerdjupet`)
@@ -8583,7 +11293,7 @@ Style: mid-century space age poster art and modern illustration, retro-futurist,
 - Spara som: `images/incoming/trieste-nar-challengerdjupet.jpg`
 
 ```text
-Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: Trieste reaches the bottom of the Challenger Deep — Challenger Deep, Mariana Trench, Pacific Ocean near Guam, 1960 CE. What happened (show only this, do not add details): On 23 January 1960 the bathyscaphe Trieste reached the bottom of the Challenger Deep, the deepest part of the Mariana Trench and the deepest point on Earth’s seabed. It was the first time a crewed vessel had got there. On board were the Swiss oceanographer Jacques Piccard and Don Walsh, a lieutenant in the US Navy. Trieste had been designed by Jacques’s father Auguste Piccard and built in Italy, and the dive was the goal of the US Navy’s Project Nekton near Guam. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: Trieste reaches the bottom of the Challenger Deep — Challenger Deep, Mariana Trench, Pacific Ocean near Guam, 1960 CE. What happened (show only this, do not add details): On 23 January 1960 the bathyscaphe Trieste reached the bottom of the Challenger Deep, the deepest part of the Mariana Trench and the deepest point on Earth’s seabed. It was the first time a crewed vessel had got there. On board were the Swiss oceanographer Jacques Piccard and Don Walsh, a lieutenant in the US Navy. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## OPEC grundas i Bagdad (`opec-grundas`)
@@ -8603,7 +11313,7 @@ Style: mid-century space age poster art and modern illustration, retro-futurist,
 - Spara som: `images/incoming/andra-vatikankonciliet.jpg`
 
 ```text
-Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The Second Vatican Council — St. Peter's Basilica, Vatican City, 1962 CE. What happened (show only this, do not add details): From 11 October 1962 to 8 December 1965 the bishops of the Catholic Church met in four sessions in St. Peter’s Basilica. The council was convened by Pope John XXIII and concluded under Paul VI. Nearly 2,500 bishops took part at some point, along with non-Catholic observers. They adopted sixteen documents, including on the liturgy, the Church’s relationship with the modern world, religious freedom and other religions. The liturgy, which for centuries had been celebrated almost entirely in Latin, could now be celebrated in the people’s own languages. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The Second Vatican Council — St. Peter's Basilica, Vatican City, 1962 CE. What happened (show only this, do not add details): From 11 October 1962 to 8 December 1965 the bishops of the Catholic Church met in four sessions in St. Peter’s Basilica. The council was convened by Pope John XXIII and concluded under Paul VI. They adopted sixteen documents, including on the liturgy, the Church’s relationship with the modern world, religious freedom and other religions. The liturgy, which for centuries had been celebrated almost entirely in Latin, could now be celebrated in the people’s own languages. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Festac ’77, den stora afrikanska kulturfestivalen i Lagos (`festac-77`)
@@ -8613,7 +11323,7 @@ Style: mid-century space age poster art and modern illustration, retro-futurist,
 - Spara som: `images/incoming/festac-77.jpg`
 
 ```text
-Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: Festac ’77, the great African arts festival in Lagos — National Theatre and other venues in Lagos, Nigeria, 1977 CE. What happened (show only this, do not add details): From 15 January to 12 February 1977 the Second World Black and African Festival of Arts and Culture was held in Lagos. The festival showcased African music, art, literature, drama, dance and religion. Around 16,000 participants from 56 African nations and countries of the African diaspora performed, among them Miriam Makeba, Franco Luambo Makiadi, Gilberto Gil and Stevie Wonder, and around 500,000 spectators came. It was the largest pan-African gathering up to then. The National Theatre in Iganmu was built for the festival. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: Festac ’77, the great African arts festival in Lagos — National Theatre and other venues in Lagos, Nigeria, 1977 CE. What happened (show only this, do not add details): From 15 January to 12 February 1977 the Second World Black and African Festival of Arts and Culture was held in Lagos. Around 16,000 participants from 56 African nations and countries of the African diaspora performed, among them Miriam Makeba, Franco Luambo Makiadi, Gilberto Gil and Stevie Wonder, and around 500,000 spectators came. It was the largest pan-African gathering up to then. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Höga dammen vid Assuan byggs (`hoga-dammen-vid-assuan`)
@@ -8623,7 +11333,7 @@ Style: mid-century space age poster art and modern illustration, retro-futurist,
 - Spara som: `images/incoming/hoga-dammen-vid-assuan.jpg`
 
 ```text
-Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The Aswan High Dam is built — The Aswan High Dam, Egypt, 1960 CE. What happened (show only this, do not add details): On 9 January 1960 Egypt began building the Aswan High Dam on the Nile, with help from the Soviet Union, which also sent technicians and heavy machinery. The dam was completed on 21 July 1970. It was meant to control the Nile floods and provide electricity and water. Behind the dam Lake Nasser formed, flooding much of Lower Nubia, and 100,000–120,000 people were resettled in Sudan and Egypt. The temples of Abu Simbel were moved up to the shore in UNESCO’s campaign to save the monuments of Nubia. When the dam first reached peak output in 1970 it produced around half of Egypt’s electricity, and the country’s irrigated area grew by a third. The silt now settles in the lake, and the dam is blamed for erosion of the Nile Delta coast and for soil salinity. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The Aswan High Dam is built — The Aswan High Dam, Egypt, 1960 CE. What happened (show only this, do not add details): On 9 January 1960 Egypt began building the Aswan High Dam on the Nile, with help from the Soviet Union. It was meant to control the Nile floods and provide electricity and water. Behind the dam Lake Nasser formed, flooding much of Lower Nubia, and 100,000–120,000 people were resettled in Sudan and Egypt. The silt now settles in the lake, and the dam is blamed for erosion of the Nile Delta coast and for soil salinity. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Torkan i Sahel (`torkan-i-sahel`)
@@ -8633,7 +11343,7 @@ Style: mid-century space age poster art and modern illustration, retro-futurist,
 - Spara som: `images/incoming/torkan-i-sahel.jpg`
 
 ```text
-Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The Sahel drought — The Sahel, the belt south of the Sahara from Mauritania to Chad, 1968 CE. What happened (show only this, do not add details): From the late 1960s the Sahel, the belt south of the Sahara, was struck by a long drought. It was most severe in 1968–1974 and again in the early and mid-1980s. Famine and displacement hit hard in, among others, Mauritania, Mali, Chad, Niger and Upper Volta, today Burkina Faso. During the drought of 1968–1973 up to 100,000 people and a third of the livestock died. For a long time the drought was thought to be caused mainly by overgrazing, deforestation and poor land management. Later research has instead pointed to changing sea surface temperatures and to air pollution from Eurasia and North America. Since the 1980s summer rainfall in the Sahel has been increasing again. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The Sahel drought — The Sahel, the belt south of the Sahara from Mauritania to Chad, 1968 CE. What happened (show only this, do not add details): From the late 1960s the Sahel, the belt south of the Sahara, was struck by a long drought. During the drought of 1968–1973 up to 100,000 people and a third of the livestock died. For a long time the drought was thought to be caused mainly by overgrazing, deforestation and poor land management. Later research has instead pointed to changing sea surface temperatures and to air pollution from Eurasia and North America. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Sowetoupproret (`sowetoupproret`)
@@ -8643,7 +11353,7 @@ Style: mid-century space age poster art and modern illustration, retro-futurist,
 - Spara som: `images/incoming/sowetoupproret.jpg`
 
 ```text
-Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: The Soweto uprising — Orlando West, Soweto, South Africa, 1976 CE. What happened (show only this, do not add details): On 16 June 1976 Black schoolchildren in Soweto, South Africa, came out to protest against a decree of 1974 that required Black schools to teach in Afrikaans and English in equal measure. According to one estimate about 20,000 students took part. The police opened fire, and among the first to be killed were 15-year-old Hastings Ndlovu and 12-year-old Hector Pieterson. Sam Nzima’s photograph of Hector Pieterson became the symbol of the uprising. The violence in Soweto died down on 18 June, but the unrest spread across the country. The death tolls differ: the government first reported 23 students killed, other figures speak of 176 dead on the first day alone, the Cillié Commission counted 575 dead by February 1977, and The Times more than 700 across the country by the end of 1976. Today 16 June is a public holiday in South Africa, Youth Day. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: The Soweto uprising — Orlando West, Soweto, South Africa, 1976 CE. What happened (show only this, do not add details): On 16 June 1976 Black schoolchildren in Soweto, South Africa, came out to protest against a decree of 1974 that required Black schools to teach in Afrikaans and English in equal measure. The police opened fire, and among the first to be killed were 15-year-old Hastings Ndlovu and 12-year-old Hector Pieterson. The death tolls differ: the government first reported 23 students killed, other figures speak of 176 dead on the first day alone, the Cillié Commission counted 575 dead by February 1977, and The Times more than 700 across the country by the end of 1976. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Ebola upptäcks i Yambuku (`ebola-upptacks-i-yambuku`)
@@ -8653,7 +11363,7 @@ Style: muted documentary editorial illustration, gouache and ink, restrained col
 - Spara som: `images/incoming/ebola-upptacks-i-yambuku.jpg`
 
 ```text
-Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: Ebola is discovered in Yambuku — Yambuku, Democratic Republic of the Congo (then Zaire), 1976 CE. What happened (show only this, do not add details): On 26 August 1976 an outbreak of an unknown disease began in the small village of Yambuku in Zaire, today the Democratic Republic of the Congo. The Congolese doctor Jean-Jacques Muyembe-Tamfum took a blood sample from a Belgian nun, and with that sample Peter Piot identified a previously unknown virus. Piot concluded that the nuns had unknowingly started the epidemic by giving unnecessary vitamin injections to pregnant women, with syringes and needles that were not sterilised. In Zaire 318 people fell ill and 280 died, 88 per cent. In the same year, from June to November, the first known outbreak, in Nzara in present-day South Sudan had infected 284 and killed 151. The virus was named after the Ebola River. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: Ebola is discovered in Yambuku — Yambuku, Democratic Republic of the Congo (then Zaire), 1976 CE. What happened (show only this, do not add details): On 26 August 1976 an outbreak of an unknown disease began in the small village of Yambuku in Zaire, today the Democratic Republic of the Congo. The Congolese doctor Jean-Jacques Muyembe-Tamfum took a blood sample from a Belgian nun, and with that sample Peter Piot identified a previously unknown virus. In Zaire 318 people fell ill and 280 died, 88 per cent. The virus was named after the Ebola River. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Angolas inbördeskrig (`angolas-inbordeskrig`)
@@ -8663,7 +11373,7 @@ Style: mid-century space age poster art and modern illustration, retro-futurist,
 - Spara som: `images/incoming/angolas-inbordeskrig.jpg`
 
 ```text
-Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: The Angolan Civil War — Angola; the war began in and around the capital, Luanda, 1975 CE. What happened (show only this, do not add details): The civil war in Angola began when the country became independent from Portugal in November 1975 and lasted, with interruptions, until 2002. It was a power struggle between two former liberation movements: the communist MPLA, helped by Cuban soldiers and supported by the Soviet Union, and the anti-communist UNITA, backed by the United States and South Africa. The war is widely seen as a Cold War proxy conflict. The major fighting came in three rounds, 1975–1991, 1992–1994 and 1998–2002. By the time the MPLA won in 2002, 500,000–800,000 people had died and over a million had been displaced within the country, and land mines still injure and kill civilians. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: The Angolan Civil War — Angola; the war began in and around the capital, Luanda, 1975 CE. What happened (show only this, do not add details): The civil war in Angola began when the country became independent from Portugal in November 1975 and lasted, with interruptions, until 2002. It was a power struggle between two former liberation movements: the communist MPLA, helped by Cuban soldiers and supported by the Soviet Union, and the anti-communist UNITA, backed by the United States and South Africa. By the time the MPLA won in 2002, 500,000–800,000 people had died and over a million had been displaced within the country, and land mines still injure and kill civilians. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Aralsjön börjar krympa (`aralsjon-borjar-krympa`)
@@ -8673,7 +11383,7 @@ Style: muted documentary editorial illustration, gouache and ink, restrained col
 - Spara som: `images/incoming/aralsjon-borjar-krympa.jpg`
 
 ```text
-Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The Aral Sea begins to shrink — The Aral Sea, between Kazakhstan and Uzbekistan (then the Soviet Union), 1960 CE. What happened (show only this, do not add details): In the early 1960s the Soviet Union diverted the Amu Darya and Syr Darya rivers, which fed the Aral Sea, to irrigate the desert and grow cotton. The Aral Sea had been the fourth-largest lake in the world, with an area of 68,000 km², and now began to shrink. By 2007 it had fallen to 10 per cent of its original size and split into four lakes. In 2010 UN Secretary-General Ban Ki-moon called it one of the planet's worst environmental disasters. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The Aral Sea begins to shrink — The Aral Sea, between Kazakhstan and Uzbekistan (then the Soviet Union), 1960 CE. What happened (show only this, do not add details): In the early 1960s the Soviet Union diverted the Amu Darya and Syr Darya rivers, which fed the Aral Sea, to irrigate the desert and grow cotton. The Aral Sea had been the fourth-largest lake in the world, with an area of 68,000 km², and now began to shrink. By 2007 it had fallen to 10 per cent of its original size and split into four lakes. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Ramsarkonventionen om våtmarker (`ramsarkonventionen`)
@@ -8693,7 +11403,7 @@ Style: mid-century space age poster art and modern illustration, retro-futurist,
 - Spara som: `images/incoming/stockholmskonferensen-1972.jpg`
 
 ```text
-Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The UN environment conference in Stockholm — Stockholm, Sweden, 1972 CE. What happened (show only this, do not add details): From 5 to 16 June 1972 the UN Conference on the Human Environment was held in Stockholm. Sweden had proposed the conference in 1968, and the UN General Assembly decided in 1969 to hold it. The Canadian Maurice Strong led it. The Soviet Union and the other Warsaw Pact countries boycotted the conference because East Germany was not allowed to take part. The conference led to the creation of the UN Environment Programme, UNEP, with its headquarters in Nairobi, Kenya, the first UN agency based in a developing country. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The UN environment conference in Stockholm — Stockholm, Sweden, 1972 CE. What happened (show only this, do not add details): From 5 to 16 June 1972 the UN Conference on the Human Environment was held in Stockholm. Sweden had proposed the conference in 1968, and the UN General Assembly decided in 1969 to hold it. The conference led to the creation of the UN Environment Programme, UNEP, with its headquarters in Nairobi, Kenya, the first UN agency based in a developing country. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## CITES: avtalet mot handel med hotade arter (`cites-washingtonkonventionen`)
@@ -8703,7 +11413,7 @@ Style: mid-century space age poster art and modern illustration, retro-futurist,
 - Spara som: `images/incoming/cites-washingtonkonventionen.jpg`
 
 ```text
-Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: CITES: the treaty against trade in endangered species — Washington, D.C., USA, 1973 CE. What happened (show only this, do not add details): On 3 March 1973 the text of the Convention on International Trade in Endangered Species, CITES, was finalised at a meeting in Washington of representatives of 80 countries. The treaty is meant to ensure that international trade in wild animals and plants does not threaten the survival of the species. It entered into force on 1 July 1975, after ten countries had ratified it. Today CITES gives varying degrees of protection to more than 40,900 species. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: CITES: the treaty against trade in endangered species — Washington, D.C., USA, 1973 CE. What happened (show only this, do not add details): On 3 March 1973 the text of the Convention on International Trade in Endangered Species, CITES, was finalised at a meeting in Washington of representatives of 80 countries. The treaty is meant to ensure that international trade in wild animals and plants does not threaten the survival of the species. It entered into force on 1 July 1975, after ten countries had ratified it. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Stora barriärrevet blir marinpark (`stora-barriarrevets-marinpark`)
@@ -8733,7 +11443,7 @@ Style: mid-century space age poster art and modern illustration, retro-futurist,
 - Spara som: `images/incoming/medellinkonferensen-1968.jpg`
 
 ```text
-Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The bishops at Medellín take the side of the poor — Medellín, Colombia, 1968 CE. What happened (show only this, do not add details): In 1968 the Catholic bishops of Latin America met in Medellín in Colombia to apply the Second Vatican Council to Latin America. Its 16 documents dealt with the Church in a changing Latin America, with a focus on the poor and oppressed. The bishops said that the Church should take “a preferential option for the poor” and approved base communities in which the poor could learn to read by reading the Bible. They held that poverty and hunger could be prevented. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The bishops at Medellín take the side of the poor — Medellín, Colombia, 1968 CE. What happened (show only this, do not add details): In 1968 the Catholic bishops of Latin America met in Medellín in Colombia to apply the Second Vatican Council to Latin America. Its 16 documents dealt with the Church in a changing Latin America, with a focus on the poor and oppressed. The bishops said that the Church should take “a preferential option for the poor” and approved base communities in which the poor could learn to read by reading the Bible. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Operation Condor (`operation-condor`)
@@ -8743,7 +11453,7 @@ Style: mid-century space age poster art and modern illustration, retro-futurist,
 - Spara som: `images/incoming/operation-condor.jpg`
 
 ```text
-Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: Operation Condor — The Southern Cone of South America (the marker is in Santiago, Chile, where the cooperation was set up), 1975 CE. What happened (show only this, do not add details): Operation Condor was cooperation between the right-wing dictatorships of the Southern Cone of South America to persecute left-wing sympathisers, with intelligence operations and assassinations, including across borders. On 25 November 1975 the intelligence chiefs of Argentina, Bolivia, Paraguay and Uruguay met the head of Chile's secret police in Santiago; Brazil signed in June 1976. The United States financed the covert operations. The cooperation ended when the Argentine junta fell in 1983. How many were killed is disputed: estimates range from about 50,000 to 80,000 dead, and according to one of them about 400,000 people were imprisoned. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: Operation Condor — The Southern Cone of South America (the marker is in Santiago, Chile, where the cooperation was set up), 1975 CE. What happened (show only this, do not add details): Operation Condor was cooperation between the right-wing dictatorships of the Southern Cone of South America to persecute left-wing sympathisers, with intelligence operations and assassinations, including across borders. The United States financed the covert operations. The cooperation ended when the Argentine junta fell in 1983. How many were killed is disputed: estimates range from about 50,000 to 80,000 dead, and according to one of them about 400,000 people were imprisoned. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## César Lattes fångar pioner på Chacaltaya (`lattes-chacaltaya-1947`)
@@ -8773,7 +11483,7 @@ Style: muted documentary editorial illustration, gouache and ink, restrained col
 - Spara som: `images/incoming/iranska-revolutionen.jpg`
 
 ```text
-Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: The Iranian Revolution — Iran (the marker is in Tehran), 1978 CE. What happened (show only this, do not add details): Protests against the Shah, Mohammad Reza Pahlavi, began in October 1977 and during 1978 grew into a broad uprising in which communists, socialists and Islamists, among others, took part. On 16 January 1979 the Shah left Iran. On 1 February the Islamist cleric Ruhollah Khomeini returned from exile and was greeted by several million people in Tehran. On 11 February the army declared itself neutral and the monarchy fell. In a referendum in March 1979, 98 per cent voted for an Islamic republic, and in December 1979 Khomeini became Supreme Leader of Iran. This ended Iran’s monarchy. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: The Iranian Revolution — Iran (the marker is in Tehran), 1978 CE. What happened (show only this, do not add details): Protests against the Shah, Mohammad Reza Pahlavi, began in October 1977 and during 1978 grew into a broad uprising in which communists, socialists and Islamists, among others, took part. On 11 February the army declared itself neutral and the monarchy fell. In a referendum in March 1979, 98 per cent voted for an Islamic republic, and in December 1979 Khomeini became Supreme Leader of Iran. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Folkmordet i Kambodja (`folkmordet-i-kambodja`)
@@ -8783,7 +11493,7 @@ Style: muted documentary editorial illustration, gouache and ink, restrained col
 - Spara som: `images/incoming/folkmordet-i-kambodja.jpg`
 
 ```text
-Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: The Cambodian genocide — Democratic Kampuchea, now Cambodia (the marker is in Phnom Penh), 1975 CE. What happened (show only this, do not add details): On 17 April 1975 the Khmer Rouge took the capital, Phnom Penh. Under the dictator Pol Pot they wanted to turn the country into an agrarian state. The cities were emptied and people were forced into labour camps in the countryside, where executions, forced labour, torture, starvation and disease were widespread. The persecution was aimed at former military and political leaders, the educated middle class and minorities such as the Chinese, the Vietnamese and the Cham, who are mostly Muslim. About 20,000 people were taken to the S-21 prison, and only seven adults survived. By January 1979, 1.5–2 million people had died, 20–25 per cent of the 1975 population. The genocide ended when Vietnam invaded the country and overthrew the Khmer Rouge in January 1979. In 2018 a court set up by Cambodia and the United Nations convicted two of the regime’s leaders, Nuon Chea and Khieu Samphan, of genocide against the Vietnamese, and Nuon Chea also of genocide against the Cham. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: The Cambodian genocide — Democratic Kampuchea, now Cambodia (the marker is in Phnom Penh), 1975 CE. What happened (show only this, do not add details): On 17 April 1975 the Khmer Rouge took the capital, Phnom Penh. Under the dictator Pol Pot they wanted to turn the country into an agrarian state. By January 1979, 1.5–2 million people had died, 20–25 per cent of the 1975 population. The genocide ended when Vietnam invaded the country and overthrew the Khmer Rouge in January 1979. In 2018 a court set up by Cambodia and the United Nations convicted two of the regime’s leaders, Nuon Chea and Khieu Samphan, of genocide against the Vietnamese, and Nuon Chea also of genocide against the Cham. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Stora språnget (`stora-spranget`)
@@ -8793,7 +11503,7 @@ Style: muted documentary editorial illustration, gouache and ink, restrained col
 - Spara som: `images/incoming/stora-spranget.jpg`
 
 ```text
-Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: The Great Leap Forward — China (the marker is in Beijing), 1958 CE. What happened (show only this, do not add details): The Great Leap Forward was a campaign that the chairman of the Communist Party, Mao Zedong, launched in 1958 to turn China quickly into an industrial country. Private ownership was abolished, farmers were gathered into people’s communes and many were set to making steel in small furnaces in the countryside. Local officials reported larger harvests than the real ones, and the state collected grain according to the false figures. This led to the Great Chinese Famine of 1959–1961, which according to the source cost between 15 and 55 million lives and was the largest or second-largest famine in history. The campaign lasted until 1962. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: The Great Leap Forward — China (the marker is in Beijing), 1958 CE. What happened (show only this, do not add details): The Great Leap Forward was a campaign that the chairman of the Communist Party, Mao Zedong, launched in 1958 to turn China quickly into an industrial country. Local officials reported larger harvests than the real ones, and the state collected grain according to the false figures. This led to the Great Chinese Famine of 1959–1961, which according to the source cost between 15 and 55 million lives and was the largest or second-largest famine in history. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Ungernrevolten (`ungernrevolten-1956`)
@@ -8813,7 +11523,7 @@ Style: muted documentary editorial illustration, gouache and ink, restrained col
 - Spara som: `images/incoming/ideal-x-containerfartyget.jpg`
 
 ```text
-Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The Ideal X and container shipping — Port Newark, New Jersey, USA, 1956 CE. What happened (show only this, do not add details): On 26 April 1956 the ship Ideal X loaded 58 containers at Port Newark, New Jersey, and sailed to Houston, Texas, where 58 trucks were waiting for them. The Ideal X was a converted tanker owned by Malcom McLean’s Pan-Atlantic Steamship Company, and she became the first commercially successful container ship. According to Wikipedia’s article on globalization, the invention of shipping containers in 1956 helped make trade global. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The Ideal X and container shipping — Port Newark, New Jersey, USA, 1956 CE. What happened (show only this, do not add details): On 26 April 1956 the ship Ideal X loaded 58 containers at Port Newark, New Jersey, and sailed to Houston, Texas, where 58 trucks were waiting for them. The Ideal X was a converted tanker owned by Malcom McLean’s Pan-Atlantic Steamship Company, and she became the first commercially successful container ship. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Pragvåren (`pragvaren`)
@@ -8823,7 +11533,7 @@ Style: mid-century space age poster art and modern illustration, retro-futurist,
 - Spara som: `images/incoming/pragvaren.jpg`
 
 ```text
-Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: The Prague Spring — Prague, Czechoslovakia (now the Czech Republic), 1968 CE. What happened (show only this, do not add details): The Prague Spring began on 5 January 1968, when the reformer Alexander Dubček was elected First Secretary of the Communist Party of Czechoslovakia. The reforms brought greater freedom for the media, speech and travel, and the economy was partly decentralised. In April Dubček presented a programme he called socialism with a human face. On the night of 20–21 August 1968 the Soviet Union and several other Warsaw Pact countries invaded Czechoslovakia. In April 1969 Dubček was replaced by Gustáv Husák, and during the so-called normalisation almost all the reforms were reversed. The only formal change that remained was the division of the country into a Czech and a Slovak socialist republic. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: The Prague Spring — Prague, Czechoslovakia (now the Czech Republic), 1968 CE. What happened (show only this, do not add details): The Prague Spring began on 5 January 1968, when the reformer Alexander Dubček was elected First Secretary of the Communist Party of Czechoslovakia. In April Dubček presented a programme he called socialism with a human face. On the night of 20–21 August 1968 the Soviet Union and several other Warsaw Pact countries invaded Czechoslovakia. In April 1969 Dubček was replaced by Gustáv Husák, and during the so-called normalisation almost all the reforms were reversed. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Rysslands invasion av Ukraina (`rysslands-invasion-av-ukraina`)
@@ -8843,7 +11553,7 @@ Style: muted documentary editorial illustration, gouache and ink, restrained col
 - Spara som: `images/incoming/fn-resolution-es-11-1.jpg`
 
 ```text
-Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: The UN General Assembly condemns the invasion — UN Headquarters, New York, 2022 CE. What happened (show only this, do not add details): On 2 March 2022 the UN General Assembly, at an emergency special session, deplores in the strongest terms Russia's aggression against Ukraine and demands that Russia immediately and unconditionally withdraw all its forces. Resolution ES-11/1, “Aggression against Ukraine”, is adopted with 141 votes in favour, 5 against and 35 abstentions. It also deplores Belarus's involvement. A draft in the Security Council had been blocked by a veto the day after the invasion. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: The UN General Assembly condemns the invasion — UN Headquarters, New York, 2022 CE. What happened (show only this, do not add details): On 2 March 2022 the UN General Assembly, at an emergency special session, deplores in the strongest terms Russia's aggression against Ukraine and demands that Russia immediately and unconditionally withdraw all its forces. Resolution ES-11/1, “Aggression against Ukraine”, is adopted with 141 votes in favour, 5 against and 35 abstentions. A draft in the Security Council had been blocked by a veto the day after the invasion. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Massakern i Butja (`massakern-i-butja`)
@@ -8973,7 +11683,7 @@ Style: muted documentary editorial illustration, gouache and ink, restrained col
 - Spara som: `images/incoming/halabja-1988.jpg`
 
 ```text
-Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: The Halabja gas attack — Halabja, Iraqi Kurdistan, 1988 CE. What happened (show only this, do not add details): On 16 March 1988, two days after Iran has taken the town, Iraq attacks Halabja with chemical weapons. Between 3,200 and 5,000 people, most of them Kurdish civilians, are killed and 7,000–10,000 injured. The UN investigation found that mustard gas and nerve agents had been used. The attack was part of Iraq's Anfal campaign and is the largest attack with chemical weapons against a populated area in history. The US military intelligence service first pointed to Iran, but most of the evidence later showed that Iraq was behind it. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: The Halabja gas attack — Halabja, Iraqi Kurdistan, 1988 CE. What happened (show only this, do not add details): On 16 March 1988, two days after Iran has taken the town, Iraq attacks Halabja with chemical weapons. Between 3,200 and 5,000 people, most of them Kurdish civilians, are killed and 7,000–10,000 injured. The attack was part of Iraq's Anfal campaign and is the largest attack with chemical weapons against a populated area in history. The US military intelligence service first pointed to Iran, but most of the evidence later showed that Iraq was behind it. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Vapenvila enligt FN:s resolution 598 (`vapenvilan-iran-irak-1988`)
@@ -9203,7 +11913,7 @@ Style: muted documentary editorial illustration, gouache and ink, restrained col
 - Spara som: `images/incoming/andra-slaget-om-falluja.jpg`
 
 ```text
-Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: The Second Battle of Fallujah — Fallujah, Anbar Province, 2004 CE. What happened (show only this, do not add details): On 7 November 2004 American, Iraqi and British forces attack the insurgent groups in Fallujah, among them al-Qaeda in Iraq. For six weeks the war's bloodiest fighting takes place, which has been described as the hardest street fighting for American troops since the Vietnam War. Just over 100 coalition soldiers are killed, as are 1,200–2,000 insurgents according to the coalition's estimate. 581–670 civilians were killed according to Iraq Body Count and about 800 according to the Red Cross. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: The Second Battle of Fallujah — Fallujah, Anbar Province, 2004 CE. What happened (show only this, do not add details): On 7 November 2004 American, Iraqi and British forces attack the insurgent groups in Fallujah, among them al-Qaeda in Iraq. For six weeks the war's bloodiest fighting takes place. Just over 100 coalition soldiers are killed, as are 1,200–2,000 insurgents according to the coalition's estimate. 581–670 civilians were killed according to Iraq Body Count and about 800 according to the Red Cross. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Attentatet mot al-Askarimoskén (`attentatet-mot-al-askarimosken`)
@@ -9293,7 +12003,7 @@ Style: mid-century space age poster art and modern illustration, retro-futurist,
 - Spara som: `images/incoming/euron-infors.jpg`
 
 ```text
-Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The euro is introduced — The euro area (the European Central Bank in Frankfurt, Germany), 1999 CE. What happened (show only this, do not add details): On 1 January 1999, the euro was introduced as an account currency on the financial markets, for bank transfers and electronic payments. The exchange rates between the currencies of the first eleven participating countries were then fixed. Euro banknotes and coins did not arrive until 1 January 2002, and after about two months they had replaced the old national currencies. The euro is managed by the European Central Bank and the central banks of the euro area countries. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The euro is introduced — The euro area (the European Central Bank in Frankfurt, Germany), 1999 CE. What happened (show only this, do not add details): On 1 January 1999, the euro was introduced as an account currency on the financial markets, for bank transfers and electronic payments. The exchange rates between the currencies of the first eleven participating countries were then fixed. Euro banknotes and coins did not arrive until 1 January 2002, and after about two months they had replaced the old national currencies. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Olympiska sommarspelen i Sydney (`olympiska-sommarspelen-i-sydney-2000`)
@@ -9313,7 +12023,7 @@ Style: mid-century space age poster art and modern illustration, retro-futurist,
 - Spara som: `images/incoming/black-saturday-branderna-2009.jpg`
 
 ```text
-Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The Black Saturday bushfires in Victoria — The state of Victoria (Australia), 2009 CE. What happened (show only this, do not add details): On Saturday 7 February 2009, a series of forest and bush fires burn across the state of Victoria in extreme fire weather; up to 400 individual fires are recorded that day, which is called Black Saturday. 173 people die, the greatest loss of life in a bushfire in Australia's history. Over 2,000 homes are destroyed. The fires continue until mid-March, and a royal commission is appointed afterwards. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The Black Saturday bushfires in Victoria — The state of Victoria (Australia), 2009 CE. What happened (show only this, do not add details): On Saturday 7 February 2009, a series of forest and bush fires burn across the state of Victoria in extreme fire weather; up to 400 individual fires are recorded that day, which is called Black Saturday. 173 people die, the greatest loss of life in a bushfire in Australia's history. Over 2,000 homes are destroyed. The fires continue until mid-March. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Jordbävningen i Christchurch (`jordbavningen-i-christchurch-2011`)
@@ -9333,7 +12043,7 @@ Style: mid-century space age poster art and modern illustration, retro-futurist,
 - Spara som: `images/incoming/samoa-hoppar-over-en-dag-2011.jpg`
 
 ```text
-Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: Samoa skips a day and switches sides of the date line — Samoa, with the capital Apia (Samoa), 2011 CE. What happened (show only this, do not add details): After Thursday 29 December 2011, Samoa goes straight to Saturday 31 December, so that Friday 30 December never occurs there. The country switches from UTC−11 to UTC+13 and ends up west of the date line instead of east of it. The prime minister said the change would make trade easier with New Zealand, Australia, China and other parts of Asia. Since then, Samoa has been one of the first places on Earth where each new day begins. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: Samoa skips a day and switches sides of the date line — Samoa, with the capital Apia (Samoa), 2011 CE. What happened (show only this, do not add details): After Thursday 29 December 2011, Samoa goes straight to Saturday 31 December, so that Friday 30 December never occurs there. The country switches from UTC−11 to UTC+13 and ends up west of the date line instead of east of it. The prime minister said the change would make trade easier with New Zealand, Australia, China and other parts of Asia. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Massblekning av koraller på Stora barriärrevet (`massblekning-stora-barriarrevet-2016`)
@@ -9443,7 +12153,7 @@ Style: muted documentary editorial illustration, gouache and ink, restrained col
 - Spara som: `images/incoming/ebolaepidemin-i-vastafrika.jpg`
 
 ```text
-Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The Ebola epidemic in West Africa — Méliandou in Guinea, and then Liberia and Sierra Leone, 2013 CE. What happened (show only this, do not add details): The Ebola epidemic in West Africa is the most widespread outbreak of the disease in history. The first cases are recorded in Guinea in December 2013, and a small child who died in the village of Méliandou is widely regarded as the first case. The disease spreads mainly to Liberia and Sierra Leone, and the number of cases is at its highest in October 2014. Over 28,000 people are infected and over 11,000 die, and the WHO believes the true extent is larger. On 9 June 2016 the epidemic is declared over. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The Ebola epidemic in West Africa — Méliandou in Guinea, and then Liberia and Sierra Leone, 2013 CE. What happened (show only this, do not add details): The Ebola epidemic in West Africa is the most widespread outbreak of the disease in history. The first cases are recorded in Guinea in December 2013. The disease spreads mainly to Liberia and Sierra Leone, and the number of cases is at its highest in October 2014. Over 28,000 people are infected and over 11,000 die, and the WHO believes the true extent is larger. On 9 June 2016 the epidemic is declared over. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Afrikanska frihandelsområdet AfCFTA grundas (`afrikanska-frihandelsomradet`)
@@ -9453,7 +12163,7 @@ Style: mid-century space age poster art and modern illustration, retro-futurist,
 - Spara som: `images/incoming/afrikanska-frihandelsomradet.jpg`
 
 ```text
-Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The African Continental Free Trade Area, AfCFTA, is founded — Kigali, Rwanda, 2018 CE. What happened (show only this, do not add details): On 21 March 2018, 44 of the African Union's 55 member states sign the agreement on an African Continental Free Trade Area (AfCFTA) in Kigali in Rwanda. The agreement enters into force on 30 May 2019, and trading under the agreement officially begins on 1 January 2021. The countries promise to remove tariffs on most goods and services over 5 to 13 years. Measured by number of member countries, it is the world's largest free trade area after the WTO. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The African Continental Free Trade Area, AfCFTA, is founded — Kigali, Rwanda, 2018 CE. What happened (show only this, do not add details): On 21 March 2018, 44 of the African Union's 55 member states sign the agreement on an African Continental Free Trade Area (AfCFTA) in Kigali in Rwanda. The agreement enters into force on 30 May 2019, and trading under the agreement officially begins on 1 January 2021. The countries promise to remove tariffs on most goods and services over 5 to 13 years. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Barack Obama väljs till USA:s president (`obama-valjs-till-president`)
@@ -9473,7 +12183,7 @@ Style: muted documentary editorial illustration, gouache and ink, restrained col
 - Spara som: `images/incoming/gruvarbetarna-i-copiapo-raddas.jpg`
 
 ```text
-Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The 33 miners in Chile are rescued — The San José mine near Copiapó, Atacama Desert, Chile, 2010 CE. What happened (show only this, do not add details): On 5 August 2010, the San José mine in the Atacama Desert, about 45 kilometres north of Copiapó in Chile, collapses. 33 miners are trapped about 700 metres underground. Seventeen days after the accident a note comes up with a drill: the 33 are well in the shelter. On 13 October 2010, 69 days after the collapse, they are all hoisted up one at a time in a specially built capsule, while an estimated 5.3 million people follow it via live video. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The 33 miners in Chile are rescued — The San José mine near Copiapó, Atacama Desert, Chile, 2010 CE. What happened (show only this, do not add details): On 5 August 2010, the San José mine in the Atacama Desert, about 45 kilometres north of Copiapó in Chile, collapses. 33 miners are trapped about 700 metres underground. Seventeen days after the accident a note comes up with a drill: the 33 are well in the shelter. On 13 October 2010, 69 days after the collapse, they are all hoisted up one at a time in a specially built capsule. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Fredsavtalet mellan Colombia och FARC (`fredsavtalet-med-farc`)
@@ -9493,7 +12203,7 @@ Style: muted documentary editorial illustration, gouache and ink, restrained col
 - Spara som: `images/incoming/os-i-rio-2016.jpg`
 
 ```text
-Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The Summer Olympics in Rio de Janeiro — Rio de Janeiro, Brazil (main venue Maracanã), 2016 CE. What happened (show only this, do not add details): From 5 to 21 August 2016, the Summer Olympics are held in Rio de Janeiro, the first Olympic Games in South America and in a Portuguese-speaking country. Athletes from 207 nations compete for 306 sets of medals in 28 sports, and Kosovo, South Sudan and a refugee team take part for the first time. Maracanã is the main venue of the Games. The USA wins the most golds (46), and the host nation Brazil achieves its best Olympic result with seven golds. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The Summer Olympics in Rio de Janeiro — Rio de Janeiro, Brazil (main venue Maracanã), 2016 CE. What happened (show only this, do not add details): From 5 to 21 August 2016, the Summer Olympics are held in Rio de Janeiro, the first Olympic Games in South America and in a Portuguese-speaking country. Athletes from 207 nations compete for 306 sets of medals in 28 sports, and Kosovo, South Sudan and a refugee team take part for the first time. The USA wins the most golds (46), and the host nation Brazil achieves its best Olympic result with seven golds. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Vanuatu blir självständigt (`vanuatu-blir-sjalvstandigt`)
@@ -9533,7 +12243,7 @@ Style: muted documentary editorial illustration, gouache and ink, restrained col
 - Spara som: `images/incoming/constitution-act-1986.jpg`
 
 ```text
-Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: New Zealand gets its own constitution act — Wellington, New Zealand, 1986 CE. What happened (show only this, do not add details): On 13 December 1986 Parliament unanimously passes the Constitution Act 1986, which applies from 1 January 1987. The act replaces the constitution of 1852 and the Westminster act of 1947, and it removes the British Parliament's ability to make laws for New Zealand. It sets out the roles of the monarch, the governor-general, ministers and judges. Even so, New Zealand has no written constitution in a single document, but a number of acts. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: New Zealand gets its own constitution act — Wellington, New Zealand, 1986 CE. What happened (show only this, do not add details): On 13 December 1986 Parliament unanimously passes the Constitution Act 1986, which applies from 1 January 1987. The act replaces the constitution of 1852 and the Westminster act of 1947, and it removes the British Parliament's ability to make laws for New Zealand. Even so, New Zealand has no written constitution in a single document, but a number of acts. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Maori blir officiellt språk (`maori-officiellt-sprak`)
@@ -9543,7 +12253,7 @@ Style: muted documentary editorial illustration, gouache and ink, restrained col
 - Spara som: `images/incoming/maori-officiellt-sprak.jpg`
 
 ```text
-Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: Māori becomes an official language — New Zealand, 1987 CE. What happened (show only this, do not add details): With the Maori Language Act 1987 (Te Ture mō te Reo Māori), Māori, te reo Māori, becomes an official language of New Zealand, and its speakers gain the right to use it in legal settings such as courts. The act also establishes a language commission, which in 1991 was given the name Te Taura Whiri i te Reo Māori. It came after many years of Māori campaigning and partly in response to the Waitangi Tribunal's finding that the language is a treasure (taonga) protected by the treaty. The act was replaced in 2016 by a new language act. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: Māori becomes an official language — New Zealand, 1987 CE. What happened (show only this, do not add details): With the Maori Language Act 1987 (Te Ture mō te Reo Māori), Māori, te reo Māori, becomes an official language of New Zealand, and its speakers gain the right to use it in legal settings such as courts. The act also establishes a language commission, which in 1991 was given the name Te Taura Whiri i te Reo Māori. It came after many years of Māori campaigning and partly in response to the Waitangi Tribunal's finding that the language is a treasure (taonga) protected by the treaty. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Kronan ber Waikato-Tainui om ursäkt (`waikato-tainui-uppgorelsen`)
@@ -9553,7 +12263,7 @@ Style: mid-century space age poster art and modern illustration, retro-futurist,
 - Spara som: `images/incoming/waikato-tainui-uppgorelsen.jpg`
 
 ```text
-Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: The Crown apologises to Waikato-Tainui — Waikato, New Zealand, 1995 CE. What happened (show only this, do not add details): In the first major settlement of historical claims to confiscated land (raupatu), Waikato-Tainui receive redress worth 170 million dollars, in cash and land owned by the Crown. The settlement act contains the Crown's formal apology for the invasion of the Waikato and for the indiscriminate confiscations that followed. Queen Elizabeth II gave it royal assent in person during her visit to New Zealand in 1995. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: The Crown apologises to Waikato-Tainui — Waikato, New Zealand, 1995 CE. What happened (show only this, do not add details): In the first major settlement of historical claims to confiscated land (raupatu), Waikato-Tainui receive redress worth 170 million dollars, in cash and land owned by the Crown. The settlement act contains the Crown's formal apology for the invasion of the Waikato and for the indiscriminate confiscations that followed. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Grönland lämnar EG (`gronland-lamnar-eg`)
@@ -9623,7 +12333,7 @@ Style: muted documentary editorial illustration, gouache and ink, restrained col
 - Spara som: `images/incoming/asienkrisen-1997.jpg`
 
 ```text
-Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The Asian financial crisis begins in Thailand — Thailand, 1997 CE. What happened (show only this, do not add details): On 2 July 1997 the government of Thailand was forced to float the baht, because the country no longer had enough foreign currency to hold its peg to the US dollar. Capital fled almost at once, and the crisis spread across much of East and Southeast Asia. South Korea, Indonesia and Thailand were hit hardest, and Hong Kong, Laos, Malaysia and the Philippines were also hurt. Currencies and stock markets fell and private debt rose steeply. The recovery in 1998–1999 was nevertheless rapid. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The Asian financial crisis begins in Thailand — Thailand, 1997 CE. What happened (show only this, do not add details): On 2 July 1997 the government of Thailand was forced to float the baht, because the country no longer had enough foreign currency to hold its peg to the US dollar. Capital fled almost at once, and the crisis spread across much of East and Southeast Asia. South Korea, Indonesia and Thailand were hit hardest, and Hong Kong, Laos, Malaysia and the Philippines were also hurt. The recovery in 1998–1999 was nevertheless rapid. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Buddhastatyerna i Bamiyan förstörs (`bamiyan-buddhorna-forstors`)
@@ -9633,7 +12343,7 @@ Style: mid-century space age poster art and modern illustration, retro-futurist,
 - Spara som: `images/incoming/bamiyan-buddhorna-forstors.jpg`
 
 ```text
-Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The Buddhas of Bamiyan are destroyed — Bamiyan Valley, Afghanistan, 2001 CE. What happened (show only this, do not add details): In March 2001 the Taliban destroyed the two giant Buddha statues carved into the cliff in the Bamiyan Valley. The Taliban leader Mullah Muhammad Omar had ordered on 26 February that all statues in Afghanistan be destroyed. According to radiocarbon dating, the smaller statue was built between 544 and 595 and the larger between 591 and 644. The destruction was condemned in Afghanistan and around the world. In 2003 the site became a UNESCO World Heritage Site. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The Buddhas of Bamiyan are destroyed — Bamiyan Valley, Afghanistan, 2001 CE. What happened (show only this, do not add details): In March 2001 the Taliban destroyed the two giant Buddha statues carved into the cliff in the Bamiyan Valley. The Taliban leader Mullah Muhammad Omar had ordered on 26 February that all statues in Afghanistan be destroyed. According to radiocarbon dating, the smaller statue was built between 544 and 595 and the larger between 591 and 644. The destruction was condemned in Afghanistan and around the world. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Franciskus väljs till den förste påven från Amerika (`pavevalet-2013`)
@@ -9643,7 +12353,7 @@ Style: mid-century space age poster art and modern illustration, retro-futurist,
 - Spara som: `images/incoming/pavevalet-2013.jpg`
 
 ```text
-Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: Francis is elected the first pope from the Americas — Sistine Chapel, Vatican City, 2013 CE. What happened (show only this, do not add details): On 12–13 March 2013 the cardinals gathered in the Sistine Chapel to elect a successor to Benedict XVI, who had resigned on 28 February. Of 117 eligible cardinal electors, all but two took part. On the fifth ballot they elected Jorge Mario Bergoglio, archbishop of Buenos Aires, who took the name Francis. He was the first Jesuit and the first Latin American pope, and the first pope born or raised outside Europe since Gregory III in the 8th century. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: Francis is elected the first pope from the Americas — Sistine Chapel, Vatican City, 2013 CE. What happened (show only this, do not add details): On 12–13 March 2013 the cardinals gathered in the Sistine Chapel to elect a successor to Benedict XVI, who had resigned on 28 February. On the fifth ballot they elected Jorge Mario Bergoglio, archbishop of Buenos Aires, who took the name Francis. He was the first Jesuit and the first Latin American pope, and the first pope born or raised outside Europe since Gregory III in the 8th century. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Svälten i Etiopien (`svalten-i-etiopien-1983-1985`)
@@ -9653,7 +12363,7 @@ Style: mid-century space age poster art and modern illustration, retro-futurist,
 - Spara som: `images/incoming/svalten-i-etiopien-1983-1985.jpg`
 
 ```text
-Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The famine in Ethiopia — Northern Ethiopia, above all Tigray, Wollo and Eritrea, 1983 CE. What happened (show only this, do not add details): In 1983–1985 Ethiopia was struck by a severe famine. In the autumn of 1984 Tigray, Wollo and Eritrea were hit hardest, and Begemder was affected too. The causes were drought, the civil war and the policies of the military regime, the Derg, which according to the source deliberately made the famine worse; Human Rights Watch holds that more than half of the deaths were due to human rights abuses. In 1985 and 1986 about 600,000 people were moved, many by force, and according to Human Rights Watch at least 50,000 died as a result of the forced resettlement. Estimates of how many died in the famine range from about 300,000 to 1.2 million. A BBC report in October 1984 and the Live Aid concert in July 1985 made the famine known around the world and raised aid. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: mid-century space age poster art and modern illustration, retro-futurist, screen-printed flat colours, starfields and orbit lines, optimistic graphic style. Subject: The famine in Ethiopia — Northern Ethiopia, above all Tigray, Wollo and Eritrea, 1983 CE. What happened (show only this, do not add details): In 1983–1985 Ethiopia was struck by a severe famine. The causes were drought, the civil war and the policies of the military regime, the Derg, which according to the source deliberately made the famine worse; Human Rights Watch holds that more than half of the deaths were due to human rights abuses. Estimates of how many died in the famine range from about 300,000 to 1.2 million. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## FN:s klimatpanel IPCC bildas (`ipcc-bildas`)
@@ -9703,5 +12413,5 @@ Style: mid-century space age poster art and modern illustration, retro-futurist,
 - Spara som: `images/incoming/himmelska-fridens-torg-1989.jpg`
 
 ```text
-Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: The Tiananmen Square protests and massacre — Tiananmen Square, Beijing, China, 1989 CE. What happened (show only this, do not add details): After the death of the reform-minded former party leader Hu Yaobang in April 1989, students and workers gathered in Tiananmen Square in Beijing. They demanded, among other things, action against corruption and inflation, and the students called for democracy and freedom of the press and of speech. On 17 May about one million people were in the square, and the protests spread to some 400 cities. The government declared martial law on 20 May. During the night of 3 to 4 June the army moved into central Beijing, and many demonstrators, bystanders and soldiers were killed, most of them along Chang’an Avenue west of the square. Estimates of the number of dead range from several hundred to a few thousand. Many were then arrested, and the events are today among the most censored topics in China. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
+Style: muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine. Subject: The Tiananmen Square protests and massacre — Tiananmen Square, Beijing, China, 1989 CE. What happened (show only this, do not add details): After the death of the reform-minded former party leader Hu Yaobang in April 1989, students and workers gathered in Tiananmen Square in Beijing. During the night of 3 to 4 June the army moved into central Beijing, and many demonstrators, bystanders and soldiers were killed. Estimates of the number of dead range from several hundred to a few thousand. Many were then arrested, and the events are today among the most censored topics in China. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details.
 ```
