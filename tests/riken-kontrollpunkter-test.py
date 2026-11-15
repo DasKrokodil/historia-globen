@@ -97,7 +97,8 @@ MINMAYA = (140.45, 41.2)
 HAIKOU = (110.3488, 20.0186)
 SANYA = (109.5036, 18.2533)
 TAIPEI = (121.5625, 25.0375)
-HAINAN_PUNKTER = ((HAIKOU, 'Haikou'), (SANYA, 'Sanya'))
+DINGHAI = (122.1068, 30.0198)  # Zhoushanön, ur en.wikipedia "Dinghai, Zhoushan"
+HAINAN_PUNKTER = ((HAIKOU, 'Haikou'), (SANYA, 'Sanya'), (DINGHAI, 'Dinghai'))
 # Nära trepunkterna (geografen, #1534): punkter i Cliopatrias Sudan 2014 där Centralafrikanska republikens och Etiopiens förenklade
 # gränser når in. Sudans gräns längs Sydsudan får inte läggas över dem, så att marken bara ritas i en stat
 NARA_CAF = (23.96, 8.71)
@@ -279,8 +280,8 @@ PUNKTER = [
     *[('nordkorea', p, n, y, False) for p, n in KOREA_SYD for y in (1948, 1960)],
     *[('usa', p, n, y, True) for p, n in ((FAJARDO, 'Fajardo'), (HUMACAO, 'Humacao')) for y in (1948, 1950, 1953, 1960, 1966)],
     *[('usa', MINMAYA, 'Minmaya', y, True) for y in (1948, 1950, 1952)],
-    # Hainan (#1499): Folkrepubliken Kina intog ön 16 april–1 maj 1950. Cliopatrias Republiken Kina 1950–2023 (Taiwan) omfattar ön,
-    # men den ritas inte i Taiwan; Taipei ligger kvar i Taiwan
+    # Hainan och Zhoushan (#1499): Folkrepubliken Kina intog Hainan 16 april–1 maj 1950 och Zhoushan 17 maj 1950. Cliopatrias
+    # Republiken Kina 1950–2023 (Taiwan) omfattar öarna, men de ritas inte i Taiwan; Taipei ligger kvar i Taiwan
     *[('kina', p, n, y, True) for p, n in HAINAN_PUNKTER for y in (1950, 1952, 1953, 1960, 2023, 2024)],
     *[('taiwan', p, n, y, False) for p, n in HAINAN_PUNKTER for y in (1950, 1952, 1953, 1960, 2023, 2024)],
     *[('taiwan', TAIPEI, 'Taipei', y, True) for y in (1950, 1960, 2023, 2024)],
