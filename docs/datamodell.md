@@ -516,6 +516,8 @@ Kolonialvälden och moderna imperier (R5, #71): franska kolonialväldet (Cliopat
 
 **Tidigmedeltidens Brittiska öar (#1744, DasKrokodils ja 2026-11-15).** Fyra nya grupper ur Cliopatria v0.2.1 med Cliopatrias gränser och år och Wikidatas namn och id: `wessex` (534–935, Q105313), `mercia` (534–883, Q105092), `northumbria` (612–935, Q107299) och `dal-riata` (Dalriada, 540–899, Q111471). Cliopatrias Mercia 884–925 är bara en yta på 44 km² och visas inte (`years`). Grupperna förenklas finare (0,05 grader och två decimaler), annars överlappar grannarna varandra av förenklingen (0 i Cliopatria). Kvar är Isle of Man 626–632, som Cliopatria själv räknar till både Northumbria och Dalriada. Avvikelserna mot Wikipedia och Wikidata står i varje `mapNote`.
 
+**Karelen mellan Kalmarunionen och Moskvariket (#1743).** `moskvariket` förenklas som `kalmarunionen` (0,1 grader i `OVERRIDES`), så att Karelen inte ritas i båda rikena 1475–1525 av förenklingen (0,32 kvadratgrader förut, 0,10 nu; i Cliopatria nästan 0). Mot Sverige och Litauen minskar överlappen också, men mot Sibirkhanatet ökar det (0,22 till 0,61 kvadratgrader 1475–1481, 0 i Cliopatria), eftersom grannarna förenklas var för sig. Holstein ritas både i Kalmarunionen och i Tysk-romerska riket från 1459, och det är avsiktligt: `EXTEND` för `tysk-romerska-riket` (#336) lägger till Kalmarunionens och Danmark-Norges del i Holstein i riket.
+
 **Osäkra gränser (#73).** Ett rike vars gräns källan uttryckligen kallar osäker, vag eller flytande får fältet `uncertainBorder` på gruppen i `empires/index.json`. Det skrivs för hand, som `facts`, och `tools/riken.py` behåller det när filen skrivs om:
 
 ```json
