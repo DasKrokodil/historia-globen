@@ -2227,7 +2227,7 @@ async function run(browser, vp) {
       if (await note.count() !== 1) throw new Error('händelsens not saknas som hopfälld rad');
       if (await note.evaluate(d => d.open) || await about.evaluate(d => d.open)) throw new Error('noten eller Om uppgifterna är öppna från början');
       if (!(await note.locator('summary').textContent()).trim()) throw new Error('notens rubrik syns inte på raden');
-      if (!/^Om uppgifterna · \d+ källor?/.test((await about.locator(':scope > summary').textContent()).trim())) throw new Error('raden Om uppgifterna saknar antal källor');
+      if (!/^Källor och osäkerhet · \d+ källor?/.test((await about.locator(':scope > summary').textContent()).trim())) throw new Error('raden Källor och osäkerhet saknar antal källor');
       for (const d of [note, about]) {
         const box = await d.locator(':scope > summary').boundingBox();
         if (!box || box.height < 43) throw new Error(`träffytan är ${box?.height} px hög, minst 44 px krävs`);
@@ -10843,7 +10843,7 @@ async function run(browser, vp) {
     const event = await panelEvent(page, { text: 'Cheopspyramiden' });
     await event.waitFor({ state: 'visible', timeout: T.step });
     await event.click();
-    await visible('#detail .uncertainty-row');
+    await page.waitForSelector('#detail .uncertainty-row', { state: 'attached', timeout: T.step }); // ligger hopfälld i Källor och osäkerhet (#1792)
     const text = (await page.textContent('#detail .uncertainty-row')).replace(/\s+/g, ' ').trim();
     if (!/Historisk osäkerhet:.*dateringen är ungefärlig/.test(text)) throw new Error(`osäkerhetsraden saknar ungefärlig datering: ${text}`);
     if (!(await page.locator('#detail .review-badge').count())) throw new Error('faktarutan saknar en separat rad för källkontroll');
@@ -10863,8 +10863,13 @@ async function run(browser, vp) {
     if (order.places) throw new Error('platsen står två gånger i faktarutan');
     const mark = page.locator('#detail .meta [data-unc-mark]');
     if (!(await mark.count())) throw new Error('datumraden saknar markeringen för osäkerhet');
+    // Osäkerheten står en gång i datumraden, och raden Historisk osäkerhet ligger hopfälld i Källor och osäkerhet (#1792)
+    if (await mark.count() !== 1) throw new Error(`datumraden har ${await mark.count()} markeringar för osäkerhet, väntade en`);
+    if (!(await page.locator('#detail details.detail-about #detail-uncertainty').count())) throw new Error('raden Historisk osäkerhet ligger inte i Källor och osäkerhet');
+    await page.locator('#detail details.detail-about').evaluate(d => { d.open = false; }); // raden fälls ihop: markeringen ska öppna den
     await mark.first().click();
     if (await page.evaluate(() => document.activeElement?.id) !== 'detail-uncertainty') throw new Error('markeringen leder inte till raden Historisk osäkerhet');
+    if (!(await page.locator('#detail details.detail-about').evaluate(d => d.open))) throw new Error('markeringen öppnade inte Källor och osäkerhet');
     return text;
   });
 

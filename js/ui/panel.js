@@ -4,6 +4,7 @@ import { buildAreaCurve } from './areacurve.js';
 import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatOffset, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg, flagUrl, isVisibleReview, eventTags, needDetails, misconceptionsFor, roundWindow, groupDigits, tagViewNote } from '../model.js';
 import { ui, LANG, langAttr } from '../i18n.js';
 import { MIN_YEAR } from '../timeline.js';
+import { MAX_YEAR } from '../state.js';
 import { eventCitation } from './citation.js';
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -914,19 +915,22 @@ export class Panel {
     // Platsen står en gång, i datumraden; mobilens knapp "Visa på globen" har platsen i sitt namn (#607).
     // Datumraden får en kort markering när händelsen har raden Historisk osäkerhet (#606).
     const unc = uncertaintyRow(e, this.uncertainty, evidence.marker('uncertainty'));
+    // Datumraden i två rader (#1792): rad 1 är datumet med en enda markering för det osäkra (och hur länge sedan, för djup tid), rad 2 platsen
+    // (kort, klippt till två rader i CSS) och kategorin. Hela platstexten, skalnoten och Historisk osäkerhet ligger i raden Källor och osäkerhet.
+    const ago = inDeepTime(e) ? ui('time.yearsAgo', { n: groupDigits(Math.round((MAX_YEAR - e.start) / 1000) * 1000) }) : '';
+    const placeText = t(e.place), placeLong = placeText.length > 70;
+    const mark = unc ? (uncertaintyMark(e, 'date', this.uncertainty) || uncertaintyMark(e, 'place', this.uncertainty)) : '';
     this.detail.innerHTML = `
       <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
       <h3${langAttr(e.title)}>${esc(t(e.title))}</h3>
-      <div class="meta">${esc(formatEventTime(e))}${evidence.marker('date')}${unc ? uncertaintyMark(e, 'date', this.uncertainty) : ''} · ${esc(t(e.place))}${evidence.marker('location')}${unc ? uncertaintyMark(e, 'place', this.uncertainty) : ''} · ${esc(t(CAT[e.category]?.name))}</div>
-      ${beforeTimelineStart(e) ? `<p class="scale-note">${esc(ui('detail.beforeScale', { year: formatYear(MIN_YEAR) }))}</p>` : ''}
-      ${inDeepTime(e) ? `<p class="scale-note">${esc(ui('detail.yearsAgo'))}</p>` : ''}
+      <div class="meta meta-when">${esc(formatEventTime(e))}${evidence.marker('date')}${mark}${ago ? ` · <span class="meta-ago">${esc(ago)}</span>` : ''}</div>
+      <div class="meta meta-where"><span class="meta-place">${esc(placeText)}</span>${evidence.marker('location')} · ${esc(t(CAT[e.category]?.name))}</div>
       ${tagMarks(e, this.tags)}
       ${this.onShowPlace ? `<button type="button" class="place-row" data-show-place aria-label="${esc(ui('detail.showPlaceLabel', { place: t(e.place) }))}"><span class="place-pin" aria-hidden="true"></span><span class="place-go">${esc(ui('detail.showPlace'))}</span></button>` : ''}
       ${figure(e, this.srcById, evidence.marker('image'))}
       ${loading ? loadingHtml() : `<p${langAttr(e.summary)}>${esc(t(e.summary))}${evidence.marker('summary')}</p>`}
       ${e.note ? `<details class="detail-note"${noteOpen ? ' open' : ''}><summary>${esc(t(e.note.title))}</summary><p>${esc(t(e.note.text))}</p></details>` : ''}
       ${loading ? '' : mythsHtml(misconceptionsFor(e.id), this.srcById, pending)}
-      ${unc}
       ${e._war ? `<p class="war-link">${esc(ui('detail.partOf'))} <button type="button" class="link-btn" data-goto="${esc(e._war.id)}">${esc(t(e._war.title))}</button></p>` : ''}
       ${e.kind === 'war' ? `<button type="button" class="chip-btn focus-btn" data-focus="${esc(e.id)}">▶ ${esc(ui('detail.followWar'))}</button>` : ''}
       ${e._battles?.length ? `<div class="war-list"><h4>${esc(ui('detail.battles'))}</h4><ol>${e._battles.map(b =>
@@ -934,6 +938,10 @@ export class Panel {
       ${empireList(e._empires ?? e._war?._empires)}
       ${(() => { const h = this.huntFor?.(e); return h ? `<button type="button" class="chip-btn hunt-add" data-hunt${h.disabled ? ' disabled' : ''}>${esc(h.label)}</button>` : ''; })()}
       <details class="detail-about"${aboutOpen ? ' open' : ''}><summary>${esc(String(ui('detail.aboutData')[srcs.length === 1 ? 0 : 1]).replace('{n}', srcs.length))} · ${esc(reviewLabel(e.review, 'Händelsen'))}</summary>
+        ${unc}
+        ${placeLong ? `<p class="detail-place-full"><b>${esc(ui('place.label'))}:</b> ${esc(placeText)}</p>` : ''}
+        ${beforeTimelineStart(e) ? `<p class="scale-note">${esc(ui('detail.beforeScale', { year: formatYear(MIN_YEAR) }))}</p>` : ''}
+        ${inDeepTime(e) ? `<p class="scale-note">${esc(ui('detail.yearsAgo'))}</p>` : ''}
         ${evidence.sources || srcLine(srcs, pending)}
         ${pending ? '' : howWeKnowRow(srcs, e.review, sourcesDisagree(e), this.howTour?.())}
         <div class="detail-actions">
@@ -959,6 +967,7 @@ export class Panel {
     });
     // Markeringen i datumraden visar förklaringen och flyttar fokus dit (#606)
     this.detail.querySelector('[data-unc-mark]')?.addEventListener('click', () => {
+      this.detail.querySelector('details.detail-about')?.setAttribute('open', ''); // raden ligger i Källor och osäkerhet (#1792)
       const row = this.detail.querySelector('#detail-uncertainty');
       row?.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
       row?.focus({ preventScroll: true });
