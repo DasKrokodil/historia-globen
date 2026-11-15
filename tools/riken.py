@@ -105,6 +105,9 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              # nämner någon ändring, så perioderna slås ihop under 10 procent
              'fria-staden-danzig': (0.02, 0.1, 0.005),
              # Luxemburg och Singapore är små
+             # Sydkorea (#1500): med 0,2 grader blir Jeju en smal triangel och Taeans kust försvinner; förut doldes det 1948–1966
+             # av USA:s yta över Korea
+             'sydkorea': (0.05, MERGE, MIN_AREA),
              'luxemburg': (0.03, 0.02, 0.005), 'singapore': (0.02, 0.02, 0.005),
              # Malaysias förenklade gräns täckte annars en del av Singapore över Johorsundet
              'malaysia': (0.03, 0.02, 0.02),
@@ -1875,6 +1878,11 @@ BRD_MOT_NEDERLANDERNA = ('snitt', ('skillnad', ('clio', 'Federal Republic of Ger
 # ogenomskurna gränser inte läggs över grannarnas förenklade gränser (geografen, #1534). Den korta biten öster om 34,033 grader följer förenklingen
 SUDANGRANSEN = [(24.15, 8.3, 25.2, 10.6), (25.2, 8.9, 32.2, 10.9), (32.2, 9.2, 34.033, 12.4)]
 
+# Rutorna längs gränsen mellan Sydkorea och Nordkorea (#1500): 38:e breddgraden 1948–1952 och stilleståndslinjen från 1953
+# (Cliopatrias gränser 1950 och 1960; 1960 är samma som 2024). Rutorna täcker halvön från Västkoreanska viken till Japanska havet
+KOREA38 = [(124.5, 37.6, 129.0, 38.5)]
+KOREAGRANSEN = [(124.5, 37.5, 129.0, 38.8)]
+
 DISPUTED = {
     # Krim och Sevastopol: Cliopatria räknar halvön till Ryssland från 2014 och till Ukraina bara till och med 2023.
     # Sverige erkänner inte annekteringen (UD, uttalande 30 september 2022), så halvön ritas som Ukraina.
@@ -1923,6 +1931,13 @@ DISPUTED = {
                            'remove': ['sovjetunionen'], 'add': []},
     # Irak från 2006: Cliopatria räknar landet till USA 2006–2023 (från 2014 samtidigt med Irak)
     'irak-usa': {'area': ('clio', 'Iraqi Republic', 2005), 'from': 2006, 'remove': ['usa'], 'add': []},
+    # Sydkorea 1948–1966 (#1500): Cliopatrias USA-post 1947–1966 omfattar Koreahalvön söder om 38:e breddgraden och Jeju,
+    # samtidigt som Republic of Korea finns från 1948. Den amerikanska militärregeringen (USAMGIK) styrde södra Korea från
+    # 9 september 1945 till 15 augusti 1948, då Republiken Korea bildades (wp-usamgik, wp-south-korea). USA ritas därför
+    # över Korea bara 1946–1947 och klipps bort från 1948. Rutorna täcker USA:s del på fastlandet (124,9–129,7 grader öst,
+    # 34,3–38,1 nord) och Jeju, men inte Tsushima (söder om 34,6 grader och öster om 129,0) eller Kyushu
+    'sydkorea-usa': {'area': ('rutor', [(124.5, 34.2, 129.0, 38.3), (128.0, 34.6, 129.9, 38.3), (125.9, 33.0, 127.2, 33.75)]),
+                     'from': 1948, 'to': 1966, 'remove': ['usa'], 'add': []},
     # Västberlin och Östberlin 1949–1990 (#1731, beslut 2026-11-15-vastberlin-grans.md). Cliopatrias hål i DDR för Västberlin
     # stämmer bara ungefär (det täcker delar av Östberlin, och södra Västberlin ligger i DDR) och saknas 1973–1975.
     # Västberlin är i stället gränsen ur "Verlauf der Berliner Mauer, 1989" (tools/vastberlin.geojson, byggd med
@@ -2174,6 +2189,18 @@ DISPUTED = {
                            'strict': True, 'efter': True, 'remove': ['sydsudan'], 'add': ['sudan']},
     'sydsudan-mot-sudan': {'area': ('snitt', ('clio', 'South Sudan', 2014), ('rutor', SUDANGRANSEN)), 'from': 2011,
                            'strict': True, 'efter': True, 'remove': ['sudan'], 'add': ['sydsudan']},
+    # Gränsen mellan Sydkorea och Nordkorea (#1500): Cliopatrias gränser delar inget område, men förenklingen (0,2 grader)
+    # lämnar en remsa utan stat längs 38:e breddgraden 1948–1952 (cirka 4 700 km2) och fält längs stilleståndslinjen från 1953.
+    # Förut täckte USA:s yta remsan 1948–1966. I rutorna längs gränsen läggs båda ländernas ogenomskurna gräns i Cliopatria
+    # tillbaka efter förenklingen, och var och en klipps ur grannen (som Sudan och Sydsudan)
+    'sydkorea-38': {'area': ('snitt', ('clio', 'Republic of Korea', 1950), ('rutor', KOREA38)), 'from': 1948, 'to': 1952,
+                    'strict': True, 'efter': True, 'remove': ['nordkorea'], 'add': ['sydkorea']},
+    'nordkorea-38': {'area': ('snitt', ('clio', "Democratic People's Republic of Korea", 1950), ('rutor', KOREA38)), 'from': 1948,
+                     'to': 1952, 'strict': True, 'efter': True, 'remove': ['sydkorea'], 'add': ['nordkorea']},
+    'sydkorea-dmz': {'area': ('snitt', ('clio', 'Republic of Korea', 1960), ('rutor', KOREAGRANSEN)), 'from': 1953,
+                     'strict': True, 'efter': True, 'remove': ['nordkorea'], 'add': ['sydkorea']},
+    'nordkorea-dmz': {'area': ('snitt', ('clio', "Democratic People's Republic of Korea", 1960), ('rutor', KOREAGRANSEN)),
+                      'from': 1953, 'strict': True, 'efter': True, 'remove': ['sydkorea'], 'add': ['nordkorea']},
     # Zanzibar (#1534): Tanganyika och Zanzibar gick samman 26 april 1964 (FN, un-member-tanzania). Cliopatria saknar Pemba helt
     # och räknar Unguja till Tanzania först från 1967, och förenklingen tar bort Unguja. Öarna (Unguja och Pemba i Tanzanias gräns i
     # Natural Earth) läggs till Tanzania från 1964, efter förenklingen

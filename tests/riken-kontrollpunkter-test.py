@@ -84,6 +84,11 @@ JUBA = (31.5825, 4.8539)
 KHARTOUM = (32.5, 15.6)
 ZANZIBAR = (39.199, -6.165)
 WETE = (39.728, -5.057)
+# #1500, ur en.wikipedia (kontrollerat 2026-11-15): Seoul, Busan och Daegu i Sydkorea
+SEOUL = (126.99, 37.56)
+BUSAN = (129.075, 35.18)
+DAEGU = (128.60167, 35.87167)
+KOREA_SYD = ((SEOUL, 'Seoul'), (BUSAN, 'Busan'), (DAEGU, 'Daegu'))
 # Nära trepunkterna (geografen, #1534): punkter i Cliopatrias Sudan 2014 där Centralafrikanska republikens och Etiopiens förenklade
 # gränser når in. Sudans gräns längs Sydsudan får inte läggas över dem, så att marken bara ritas i en stat
 NARA_CAF = (23.96, 8.71)
@@ -257,6 +262,12 @@ PUNKTER = [
                                               (NARA_ETIOPIEN, 'nära trepunkten vid Etiopien')) for y in (2011, 2012, 2020)],
     *[('centralafrikanska-republiken', NARA_CAF, 'nära trepunkten vid Centralafrikanska republiken', y, True) for y in (2012, 2020)],
     *[('etiopien', NARA_ETIOPIEN, 'nära trepunkten vid Etiopien', y, True) for y in (2012, 2020)],
+    # Sydkorea (#1500): USA:s militärregering (USAMGIK) till 15 augusti 1948, Republiken Korea från dess. Cliopatrias USA-yta över
+    # Korea 1948–1966 ritas inte
+    *[('usa', p, n, y, True) for p, n in KOREA_SYD for y in (1946, 1947)],
+    *[('sydkorea', p, n, y, True) for p, n in KOREA_SYD for y in (1948, 1950, 1953, 1960, 1966, 1967, 2024)],
+    *[('usa', p, n, y, False) for p, n in KOREA_SYD for y in (1948, 1950, 1953, 1960, 1966, 1967)],
+    *[('nordkorea', p, n, y, False) for p, n in KOREA_SYD for y in (1948, 1960)],
 ]
 
 
