@@ -661,6 +661,7 @@ export function loadOrtnamn(id) {
   if (!ortnamnPromises.has(id)) {
     ortnamnPromises.set(id, getJSON(`data/ortnamn/${id}.json`).then(doc => (doc?.place === id ? doc : null)).catch(err => {
       console.warn('Ortnamnen kunde inte laddas', err);
+      ortnamnPromises.delete(id); // ett tillfälligt nätfel: nästa gång vyn öppnas försöker den igen
       return null;
     }));
   }

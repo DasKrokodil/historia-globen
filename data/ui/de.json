@@ -390,6 +390,8 @@
   "regionView.open": "Faktenfeld öffnen: Nr. {n}, {title}",
   "regionView.marks": "Ereignisse auf der Karte: {place}",
   "regionView.keys": "Mit den Pfeiltasten wechseln Sie in der Reihenfolge der Liste zwischen den Markierungen. Die Eingabetaste hebt eine Markierung hervor, ein weiteres Drücken öffnet das Faktenfeld. Die Eingabetaste auf einem Stapel oder Schild fächert sie auf, Escape klappt sie wieder zu.",
+  "regionView.placeCut": [" nahe ", " bei ", " außerhalb ", " nördlich von ", " westlich von ", " östlich von ", " südlich von ", " und ", " zwischen "],
+  "regionView.placePrefix": ["nördlich von ", "westlich von ", "östlich von ", "südlich von ", "nahe ", "bei "],
   "regionView.legend": "Gestrichelter Ring: ungefährer Ort",
   "regionView.pileApprox": ["davon {n} mit ungefährem Ort", "davon {n} mit ungefährem Ort"],
   "regionView.fanOpen": ["{name} aufgefächert, {n} Ereignis", "{name} aufgefächert, {n} Ereignisse"],

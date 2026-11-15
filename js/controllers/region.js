@@ -18,10 +18,9 @@ import { regionEligible, regionSize, freeArea } from '../region-frame.js';
 import { regionItems } from '../region-markers.js';
 import { visibleEvents } from '../focus/place.js';
 import { OVERLAY_IDS } from '../surfaces.js';
-import { t, loadOrtnamn } from '../model.js';
+import { t, loadOrtnamn, pluralUi } from '../model.js';
 import { ui } from '../i18n.js';
 import { say } from '../ui/status.js';
-import { plural } from '../ui/region-marks.js';
 
 /** Arket i mobil fälls ihop med en övergång: ramen räknas om när den är klar, om man inte har flyttat kartan under tiden. */
 const REFIT_MS = 450;
@@ -61,7 +60,8 @@ export function createRegion(app) {
     return freeArea({ w: box.width, h: box.height }, [$('detail'), $('focus-bar'), $('pause-note'), chip].map(el => rect(el, box)), shape);
   }
   const roomy = () => { const f = flatMap.regionFree(); return !!f && f.w >= MIN_FREE.w && f.h >= MIN_FREE.h; };
-  // Det som ligger ovanpå kartan, utan luft (också zoomknapparna): ortnamnen ritas inte där (#1642)
+  // Det som ligger ovanpå kartan (också zoomknapparna): ortnamnen och brickan läggs inte där (#1642). rect() lägger till luften GAP
+  // för ramen; här dras den av igen, så att rutorna är elementens egna
   flatMap.regionCovers = () => {
     const box = flatMap.canvas.getBoundingClientRect();
     return [$('detail'), $('focus-bar'), $('pause-note'), chip, document.querySelector('#flat-view .flat-zoom')].map(el => rect(el, box)).filter(Boolean)
@@ -75,6 +75,10 @@ export function createRegion(app) {
   /** Raderna i listan får markörernas nummer (och märket för hela platsen eller ungefärlig plats) medan vyn är öppen. */
   function decorate() {
     if (!place || !marks.active) return;
+    // Raderna och markörerna ska vara samma händelser i samma ordning; gäller kortet en annan lista (ett nytt urval för platsen)
+    // räknas markörerna om ur platsens händelser, så att numren aldrig pekar på fel rad
+    const ids = rows().map(b => b.dataset.themeEvent);
+    if (ids.length && ids.join() !== marks.content.items.map(it => it.e.id).join()) sync();
     for (const b of rows()) {
       const n = marks.numberOf(b.dataset.themeEvent);
       if (n == null || b.querySelector('.region-num')) continue;
@@ -86,6 +90,13 @@ export function createRegion(app) {
     }
     $('detail').classList.add('region-numbered');
     markRows(marks.mark ? [marks.mark] : []);
+  }
+  /** Markörerna räknas om ur platsens händelser (listans ordning), med samma markering om händelsen finns kvar. */
+  function sync() {
+    const mark = marks.mark;
+    marks.setContent({ place, events: placeEventsOf(place) });
+    if (mark && marks.numberOf(mark) != null) marks.setMark(mark, { open: false });
+    for (const el of $('detail').querySelectorAll('.region-num')) el.remove();
   }
   function undecorate() {
     for (const el of $('detail').querySelectorAll('.region-num')) el.remove();
@@ -124,7 +135,7 @@ export function createRegion(app) {
   /** Statusraden: "Skåne, 21 händelser, 7 gäller hela Skåne". */
   function countText(p, items) {
     const whole = items.filter(it => it.whole).length, name = t(p.name);
-    return [plural('regionView.count', items.length), ...(whole ? [plural('regionView.whole', whole, { place: name })] : [])].join(', ');
+    return [pluralUi('regionView.count', items.length), ...(whole ? [pluralUi('regionView.whole', whole, { place: name })] : [])].join(', ');
   }
 
   /** Får platsen regionvyn? Bara när den är liten nog (region-frame.js). */
@@ -151,6 +162,8 @@ export function createRegion(app) {
     title.textContent = ui('regionView.title', { place: name });
     note.textContent = layerNote.textContent = ui('regionView.note');
     back.textContent = ui('regionView.leave');
+    // Förklaringen till den streckade ringen runt markörer med ungefärlig plats (#1642), också i mobil
+    $('flat-region-legend-text').textContent = ui('regionView.legend');
     chip.hidden = false; // först: rutan tar plats, och ramen räknas utan den
     layerNote.hidden = false;
     $('app').classList.add('region-view');
@@ -213,7 +226,9 @@ export function createRegion(app) {
   // Vyn hör till platsen man följer: slutar man följa den (eller följer något annat) lämnas den
   store.subscribe(({ type }) => {
     if (type !== 'focus' || !flatMap.region) return;
-    if (state.focus?.type !== 'place' || state.focus.place?.id !== flatMap.region) flatMap.leaveRegion();
+    if (state.focus?.type !== 'place' || state.focus.place?.id !== flatMap.region) { flatMap.leaveRegion(); return; }
+    // Samma plats med ett nytt fokus (en adress eller Sök och följ startar den igen): markörerna följer dess lista
+    if (place && marks.active && placeEventsOf(place).map(e => e.id).join() !== marks.content.items.map(it => it.e.id).join()) { sync(); decorate(); }
   });
 
   // Escape lämnar regionvyn, men först det som ligger ovanpå (OVERLAY_IDS och stängregistrets grupper). Lyssnaren ligger på

@@ -160,6 +160,8 @@
   "regionView.open": "Öppna faktarutan: {n}. {title}",
   "regionView.marks": "Händelserna på kartan: {place}",
   "regionView.keys": "Piltangenterna går mellan markörerna i listans ordning. Enter markerar en markör, och Enter en gång till öppnar faktarutan. Enter på en hög eller bricka fäller ut den, och Escape fäller ihop den.",
+  "regionView.placeCut": [" nära ", " vid ", " utanför ", " norr om ", " väster om ", " öster om ", " söder om ", " och ", " mellan "],
+  "regionView.placePrefix": ["norr om ", "väster om ", "öster om ", "söder om ", "nära ", "vid "],
   "regionView.legend": "Streckad ring: ungefärlig plats",
   "regionView.pileApprox": ["varav {n} med ungefärlig plats", "varav {n} med ungefärlig plats"],
   "regionView.fanOpen": ["{name} utfälld, {n} händelse", "{name} utfälld, {n} händelser"],

@@ -390,6 +390,8 @@
   "regionView.open": "Ouvrir la fiche : {n}. {title}",
   "regionView.marks": "Événements sur la carte : {place}",
   "regionView.keys": "Les touches fléchées passent d’un marqueur à l’autre dans l’ordre de la liste. Entrée met un marqueur en évidence, et une seconde pression sur Entrée ouvre la fiche. Entrée sur une pile ou une étiquette la déploie, et Échap la referme.",
+  "regionView.placeCut": [" près de ", " aux environs de ", " au nord de ", " à l’ouest de ", " à l’est de ", " au sud de ", " et ", " entre ", " à côté de "],
+  "regionView.placePrefix": ["au nord de ", "à l’ouest de ", "à l’est de ", "au sud de ", "près de ", "aux environs de "],
   "regionView.legend": "Anneau en pointillé : lieu approximatif",
   "regionView.pileApprox": ["dont {n} au lieu approximatif", "dont {n} au lieu approximatif"],
   "regionView.fanOpen": ["Déployé : {name}, {n} événement", "Déployé : {name}, {n} événements"],

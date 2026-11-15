@@ -10,7 +10,7 @@ import { regionFrame } from '../js/region-frame.js';
 import { isVisibleReview, CAT } from '../js/model.js';
 import {
   wholePlace, regionItems, groupMarkers, pileName, yearSpan, fanLayout, rowLayout, nameCandidates, placeNames, crossesEdge, tagSpot,
-  namePriority, km, PILE_PX, MARK_PX,
+  namePriority, km, placeWord, brickSpot, PILE_PX, PILE_PX_TOUCH, MARK_PX,
 } from '../js/region-markers.js';
 
 const read = p => JSON.parse(readFileSync(new URL(`../${p}`, import.meta.url), 'utf8'));
@@ -45,19 +45,26 @@ test('numret är radens nummer i listan, i listans ordning, och varje händelse 
 test('brickan: bara ungefärliga händelser vars plats är hela platsen; andra ungefärliga står kvar på sin punkt', () => {
   const sk = regionItems(listOf('skane'), place('skane'));
   const whole = sk.filter(it => it.whole);
-  assert.ok(whole.length >= 5, `Skåne har händelser som gäller hela landskapet (${whole.length})`);
+  assert.ok(whole.length >= 3, `Skåne har händelser som gäller hela landskapet (${whole.length})`);
   for (const it of whole) {
     assert.ok(['region', 'country'].includes(it.e.locationPrecision), `${it.e.id} är ungefärlig`);
-    assert.ok(it.e.place.sv.startsWith('Skåne'), `${it.e.id}: ${it.e.place.sv}`);
+    assert.ok(/^Skåne( \(markören i [^()]+\))?$/.test(it.e.place.sv), `${it.e.id}: ${it.e.place.sv}`);
   }
-  // Ungefärliga händelser på en del av platsen (Barum, Uppåkra) står kvar som markörer och märks som ungefärliga
+  // Ungefärliga händelser på en del av platsen (Barum, Uppåkra) och de som nämner mer än platsen (Skånska kriget, snapphanarna)
+  // står kvar som markörer och märks som ungefärliga
   const partial = sk.filter(it => it.approx && !it.whole);
-  assert.ok(partial.length >= 1, 'Skåne har ungefärliga händelser på en del av platsen');
-  for (const it of partial) assert.ok(!it.e.place.sv.startsWith('Skåne'), it.e.place.sv);
+  assert.ok(partial.length >= 4, 'Skåne har ungefärliga händelser på en del av platsen');
+  for (const it of partial) assert.notEqual(it.e.place.sv, 'Skåne', it.e.place.sv);
+  assert.ok(partial.some(it => /^Skåne, /.test(it.e.place.sv)), 'en platstext som börjar med Skåne och fortsätter står på sin punkt');
   // En exakt plats hamnar aldrig i brickan, även om platstexten börjar med platsens namn
   assert.equal(wholePlace({ place: { sv: 'Skåne' } }, place('skane')), false);
   assert.equal(wholePlace({ locationPrecision: 'region', place: { sv: 'Skånes kust' } }, place('skane')), false, 'ett annat ord');
-  assert.equal(wholePlace({ locationPrecision: 'region', place: { sv: 'Skåne, Bohuslän' } }, place('skane')), true);
+  // Bara exakt platsens namn, eller namnet följt av "(markören i …)": allt annat står på sin punkt
+  assert.equal(wholePlace({ locationPrecision: 'region', place: { sv: 'Skåne' } }, place('skane')), true);
+  for (const where of ['Skåne, Bohuslän', 'Skåne, Bohuslän, Östersjön och Nordtyskland', 'Skåne, särskilt Göinge och norra Skåne',
+    'Skåne (freden slöts vid floden Ejdern)', 'Skåne och Blekinge']) {
+    assert.equal(wholePlace({ locationPrecision: 'region', place: { sv: where } }, place('skane')), false, where);
+  }
   assert.equal(wholePlace({ locationPrecision: 'country', place: { sv: 'Danmark (markören i Köpenhamn)' } }, place('danmark')), true);
   // Danmark: händelserna med hela landet som plats (country) står i brickan, Köpenhamn (ungefärlig) står kvar på sin punkt
   const dk = regionItems(listOf('danmark'), place('danmark'));
@@ -105,6 +112,34 @@ test('solfjädern börjar högst upp och flyttas in på ytan; brickans rad bryts
 });
 function close(a, b, eps = 1e-6) { assert.ok(Math.abs(a - b) <= eps, `${a} mot ${b}`); }
 
+test('högens namn är ortnamn, inte fraser: platstexten kapas vid "nära", "vid", "utanför", "norr om" och "och"', () => {
+  const words = JSON.parse(readFileSync(new URL('../data/ui/sv.json', import.meta.url), 'utf8'));
+  const w = { cut: words['regionView.placeCut'], prefix: words['regionView.placePrefix'] };
+  assert.equal(placeWord('Gallehus nära Møgeltønder, Danmark', w), 'Gallehus');
+  assert.equal(placeWord('Norr om Lund, Skåne', w), 'Lund');
+  assert.equal(placeWord('Ylleshed utanför Landskrona, Skåne', w), 'Ylleshed');
+  assert.equal(placeWord('Lund och Malmö, Skåne', w), 'Lund');
+  assert.equal(placeWord('Barum vid Oppmannasjön, nordost om Kristianstad', w), 'Barum');
+  assert.equal(placeWord('Bjældskovdal, väster om Silkeborg', w), 'Bjældskovdal');
+  assert.equal(placeWord('Lund, Skåne'), 'Lund', 'utan ord: första ledet');
+  // Alla fem språk har orden som listor
+  for (const l of ['sv', 'en', 'de', 'es', 'fr']) {
+    const d = JSON.parse(readFileSync(new URL(`../data/ui/${l}.json`, import.meta.url), 'utf8'));
+    assert.ok(Array.isArray(d['regionView.placeCut']) && d['regionView.placeCut'].every(x => /^ .+ $/.test(x)), `${l}: placeCut`);
+    assert.ok(Array.isArray(d['regionView.placePrefix']) && d['regionView.placePrefix'].length, `${l}: placePrefix`);
+  }
+  // Högarna i Skåne och Danmark får ortnamn utan "nära", "vid" och "om"
+  for (const id of ['skane', 'danmark']) {
+    const doc = read(`data/ortnamn/${id}.json`);
+    for (const r of [PILE_PX, PILE_PX_TOUCH]) {
+      for (const p of groupMarkers(regionItems(listOf(id), place(id)), screenOf(id), r).piles) {
+        const name = pileName(p.members, doc, tx, w);
+        assert.ok(name && !/ (nära|vid|utanför|om|och) /i.test(name), `${id}: ${name}`);
+      }
+    }
+  }
+});
+
 test('högens namn: orten när de flesta ligger där, annars två namn', () => {
   const ort = { places: [{ name: { sv: 'Malmö' }, coordinates: [13.023, 55.599] }] };
   const m = (place, lon, lat) => ({ e: { place: { sv: place }, _lon: lon, _lat: lat } });
@@ -147,6 +182,40 @@ test('ortnamnen: prioritet, inga krockar med varandra eller markörerna, och ald
   const out = placeNames(two, { W: 300, H: 300, measure: t => t.length * 7, blocked: [{ x0: 60, y0: 80, x1: 96, y1: 120 }, { x0: 100, y0: 70, x1: 200, y1: 92 }, { x0: 100, y0: 108, x1: 200, y1: 130 }] });
   assert.deepEqual(out.map(n => n.id), ['a']);
   assert.equal(out[0].align, 'left');
+});
+
+test('pekskärm: med högradien 36 px ligger markörer och högar så långt isär att tryckytorna (44 px) går in högst 8 px (Danmark i 400 px)', () => {
+  assert.ok(PILE_PX_TOUCH >= 36 && PILE_PX_TOUCH > PILE_PX);
+  // Mobilens ram: 400 × 520 karta med platsen i den övre delen (arket nere)
+  for (const id of ['skane', 'danmark']) {
+    const g = groupMarkers(regionItems(listOf(id), place(id)), screenOf(id, { w: 400, h: 520 }, { x: 0, y: 60, w: 400, h: 380 }), PILE_PX_TOUCH);
+    const pts = [...g.singles.map(s => s.p), ...g.piles];
+    for (let i = 0; i < pts.length; i++) for (let j = i + 1; j < pts.length; j++) {
+      assert.ok(Math.hypot(pts[i].x - pts[j].x, pts[i].y - pts[j].y) >= PILE_PX_TOUCH - 1e-9, `${id}: två tryckytor går in i varandra`);
+    }
+  }
+  // Tryckytorna i CSS: markören 24 + 2 · 10, högen 30 + 2 · 7, brickan 30 + 2 · 7
+  const css = readFileSync(new URL('../css/style.css', import.meta.url), 'utf8');
+  assert.match(css, /\.rmark::before \{[^}]*inset: -10px/);
+  assert.match(css, /\.rpile::before \{[^}]*inset: -7px/);
+  assert.match(css, /\.rbrick::before \{[^}]*inset: -7px/);
+});
+
+test('brickan väjer för zoomknapparna och kortet, i sidled eller nedåt', () => {
+  const zoom = { x0: 340, y0: 10, x1: 390, y1: 230 };
+  const s = brickSpot({ x: 330, y: 60 }, { w: 140, h: 44 }, [zoom], 400, 600);
+  assert.ok(s.x + 70 <= zoom.x0 || s.y - 44 >= zoom.y1, `brickan ligger på zoomknapparna: ${JSON.stringify(s)}`);
+  assert.ok(s.x - 70 >= 6 && s.x + 70 <= 394, 'brickan ryms på kartan');
+  // Ingenting i vägen: brickan står där den ska
+  assert.deepEqual(brickSpot({ x: 200, y: 80 }, { w: 140, h: 44 }, [], 400, 600), { x: 200, y: 80 });
+});
+
+test('raderna i platsens kort är knappar med data-theme-event, som regionvyn läser (panel.js och region.js hör ihop)', () => {
+  const panel = readFileSync(new URL('../js/ui/panel.js', import.meta.url), 'utf8');
+  const region = readFileSync(new URL('../js/controllers/region.js', import.meta.url), 'utf8');
+  assert.match(panel, /<button type="button" class="theme-event" data-theme-event="\$\{esc\(e\.id\)\}">/, 'raderna i showSelection');
+  assert.match(region, /querySelectorAll\('\[data-theme-event\]'\)/, 'regionvyn läser raderna med samma attribut');
+  assert.match(region, /dataset\.themeEvent/);
 });
 
 test('högens namn står där det är fritt, och helst inte över kantlinjen', () => {

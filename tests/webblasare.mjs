@@ -2962,7 +2962,8 @@ async function run(browser, vp) {
         if (!brick || brick.text !== `Hela ${name} · ${whole}` || whole !== Number(m[2])) throw new Error(`brickan: ${brick?.text}, ${whole} rader gäller hela platsen, statusraden ${m[2]}`);
         // Markörerna: numret är radens nummer för samma händelse; skarpa (24 px i skärmpixlar), ungefärliga märkta
         const markers = s.buttons.filter(b => b.cls.includes('rmark'));
-        if (!markers.length) throw new Error('inga markörer');
+        // (i mobil är högradien större, 44 px, och de flesta markörer kan ligga i högar)
+        if (!markers.length && !s.buttons.some(b => b.cls.includes('rpile'))) throw new Error('inga markörer eller högar');
         for (const b of markers) {
           const row = s.rows.find(r => r.id === b.event);
           if (!row || row.i + 1 !== b.n || b.text !== String(b.n)) throw new Error(`markören ${b.text} (${b.event}) stämmer inte med raden ${row?.i + 1}`);
@@ -2974,10 +2975,14 @@ async function run(browser, vp) {
         // Högarna: ortnamn och antal i aria-label, och de händelser som inte är markörer finns i en hög eller i brickan
         const piles = s.buttons.filter(b => b.cls.includes('rpile'));
         for (const p of piles) {
-          if (!/: \d+ händelser nära varandra, .+, nummer [\d, ]+ i listan$/.test(p.label)) throw new Error(`högens aria-label: ${p.label}`);
+          if (!/: \d+ händelser nära varandra, .+, nummer [\d, ]+ i listan(, varav \d+ med ungefärlig plats)?$/.test(p.label)) throw new Error(`högens aria-label: ${p.label}`);
+          // Antalet skrivs "×N", så att det inte läses som ett nummer i listan
+          if (!/^×\d+/.test(p.text)) throw new Error(`högens antal: ${p.text}`);
+          // Högens namn är ett ortnamn, inte en fras
+          if (/ (nära|vid|utanför|om|och) /.test(p.label.split(':')[0])) throw new Error(`högens namn: ${p.label}`);
           if (coversHit(s, p.box)) throw new Error(`högen ${p.label} ligger under kortet`);
         }
-        const inPiles = piles.flatMap(p => /nummer ([\d, ]+) i listan$/.exec(p.label)[1].split(', ').map(Number));
+        const inPiles = piles.flatMap(p => /nummer ([\d, ]+) i listan/.exec(p.label)[1].split(', ').map(Number));
         const shown = new Set([...markers.map(b => b.n), ...inPiles, ...s.rows.filter(r => r.whole).map(r => r.i + 1)]);
         if (shown.size !== s.rows.length) throw new Error(`${s.rows.length - shown.size} händelser syns inte på kartan`);
         // Tab-ordningen följer listan: brickan först, sedan markörer och högar efter numret
@@ -3000,10 +3005,12 @@ async function run(browser, vp) {
       // Högen (Lund) med tangentbordet: Enter fäller ut den, fokus går till första markören, och alla händelser i högen syns
       const pile = tp.locator('.region-marks .rpile').first();
       const pileLabel = await pile.getAttribute('aria-label');
-      const nums = /nummer ([\d, ]+) i listan$/.exec(pileLabel)[1].split(', ').map(Number);
+      const nums = /nummer ([\d, ]+) i listan/.exec(pileLabel)[1].split(', ').map(Number);
       await pile.focus();
       await tp.keyboard.press('Enter');
       await tp.waitForFunction(() => document.querySelector('.region-marks .rpile[aria-expanded="true"]') && document.activeElement?.classList.contains('rfan'), null, { timeout: T.step });
+      // Statusraden säger att högen är utfälld och hur många händelser den har
+      await tp.waitForFunction(n => new RegExp(` utfälld, ${n} händelser$`).test(document.getElementById('screen-reader-status').textContent.trim()), nums.length, { timeout: T.step });
       let s = await regionMarksState(tp);
       const fan = s.buttons.filter(b => b.cls.includes('rfan'));
       if (fan.map(b => b.n).join() !== nums.join()) throw new Error(`solfjädern visar ${fan.map(b => b.n).join(', ')}, högen säger ${nums.join(', ')}`);
@@ -3024,6 +3031,8 @@ async function run(browser, vp) {
       const label = s.buttons.find(b => b.cls.includes('region-label'));
       const row = s.rows.find(r => r.marked);
       if (marked?.n !== nums[1] || !label?.text.startsWith(`${nums[1]} · `) || row?.i + 1 !== nums[1]) throw new Error(`markeringen: markör ${marked?.n}, etikett ${label?.text}, rad ${row?.i + 1}`);
+      // Den markerade markörens namn säger steg två
+      if (!/markerad, Enter öppnar faktarutan$/.test(marked.label)) throw new Error(`den markerade markörens namn: ${marked.label}`);
       if (coversHit(s, label.box)) throw new Error('etiketten ligger under kortet');
       // Escape fäller ihop solfjädern, fokus går tillbaka till högen, och regionvyn står kvar
       await tp.keyboard.press('Escape');
@@ -3052,6 +3061,47 @@ async function run(browser, vp) {
       if (!(await tp.evaluate(id => document.querySelector(`#detail [data-theme-event="${id}"]`).classList.contains('is-region-marked'), target.id))) throw new Error('raden i fokus fick ingen ram');
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
       return `högen ${nums.join(', ')}; bricka ${brickFan.join(', ')}`;
+    } finally { await tctx.close(); }
+  });
+
+  await check('regionvyns markörer: tryckytor på 44 px, brickan väjer för zoomknapparna och regionrutan förklarar den streckade ringen (#1642)', async () => {
+    const { tp, tctx, errs } = await placeTapPage('#y=1827&f=place:danmark', 'markor3');
+    try {
+      const out = [];
+      // I mobil prövas också 360 px; i dator bara den vanliga bredden
+      for (const width of vp.width <= 760 ? [400, 360] : [vp.width]) {
+        if (width !== vp.width) {
+          await tp.setViewportSize({ width, height: vp.height });
+          await tp.goto(`${BASE}?ny=markor3w${width}#y=1827&f=place:danmark`);
+          await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        }
+        await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+        await openRegion(tp, 'danmark');
+        await regionSettled(tp);
+        const r = await tp.evaluate(() => {
+          const zoom = document.querySelector('#flat-view .flat-zoom');
+          const hitsZoom = (x, y) => { const el = document.elementFromPoint(x, y); return !!el && zoom.contains(el); };
+          // Tryckytan: knappen plus ::before (inset), i CSS-pixlar
+          const target = el => { const b = el.getBoundingClientRect(), cs = getComputedStyle(el, '::before'); const ins = cs.content === 'none' ? 0 : -parseFloat(cs.top) || 0; return { w: b.width + 2 * ins, h: b.height + 2 * ins }; };
+          const narrow = matchMedia('(pointer: coarse), (max-width: 760px)').matches;
+          const small = [...document.querySelectorAll('.region-marks .rmark, .region-marks .rpile, .region-marks .rbrick')].filter(b => !b.hidden && !b.inert)
+            .map(b => ({ cls: b.className.split(' ')[0], ...target(b) })).filter(t => t.w < 43.5 || t.h < 43.5);
+          const brick = document.querySelector('.region-marks .rbrick')?.getBoundingClientRect();
+          const edges = brick ? [[brick.left + 1, brick.top + brick.height / 2], [brick.right - 1, brick.top + brick.height / 2], [brick.left + brick.width / 2, brick.top + 1], [brick.left + brick.width / 2, brick.bottom - 1]] : [];
+          const legend = document.getElementById('flat-region-legend');
+          return { narrow, small, brick: !!brick, onZoom: edges.filter(([x, y]) => hitsZoom(x, y)).length,
+            legend: legend && legend.getClientRects().length ? legend.textContent.trim() : '', sw: document.documentElement.scrollWidth > innerWidth };
+        });
+        if (r.narrow && r.small.length) throw new Error(`${width} px: tryckytor under 44 px: ${JSON.stringify(r.small.slice(0, 3))}`);
+        if (!r.brick) throw new Error(`${width} px: brickan syns inte`);
+        if (r.onZoom) throw new Error(`${width} px: brickan ligger under zoomknapparna vid ${r.onZoom} kanter`);
+        if (r.legend !== 'Streckad ring: ungefärlig plats') throw new Error(`${width} px: regionrutans förklaring: "${r.legend}"`);
+        if (r.sw) throw new Error(`${width} px: horisontell scroll`);
+        out.push(`${width} px ok`);
+      }
+      if (vp.width <= 760) await tp.setViewportSize({ width: vp.width, height: vp.height });
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return out.join(', ');
     } finally { await tctx.close(); }
   });
 
