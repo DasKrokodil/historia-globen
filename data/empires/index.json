@@ -9577,7 +9577,7 @@
     {
      "id": "kungariket-cusco",
      "name": {
-      "sv": "Kingdom of Cusco",
+      "sv": "Kungariket Cusco",
       "en": "Kingdom of Cusco",
       "de": "Königreich von Cusco",
       "es": "Curacazgo del Cuzco",
@@ -9820,7 +9820,7 @@
     "kungariket-cusco": {
      "facts": {
       "summary": {
-       "sv": "Kingdom of Cusco var inkafolkets lilla stadsstat kring staden Cusco i Anderna, i dagens Peru. Ur den växte Inkariket.",
+       "sv": "Kungariket Cusco var inkafolkets lilla stadsstat kring staden Cusco i Anderna, i dagens Peru. Ur den växte Inkariket.",
        "en": "The Kingdom of Cusco was the small city-state of the Incas around the city of Cusco in the Andes, in present-day Peru. The Inca Empire grew out of it.",
        "de": "Das Königreich von Cusco war der kleine Stadtstaat der Inka um die Stadt Cusco in den Anden, im heutigen Peru. Aus ihm ging das Inkareich hervor.",
        "es": "El Curacazgo del Cuzco fue la pequeña ciudad-Estado de los incas en torno a la ciudad del Cuzco, en los Andes, en el actual Perú. De él surgió el Imperio inca.",
@@ -9997,9 +9997,9 @@
   {
    "id": "purepecha",
    "name": {
-    "sv": "Purépecha Empire",
+    "sv": "Purépechariket",
     "en": "Purépecha Empire",
-    "de": "Purépecha Empire",
+    "de": "Purépecha-Reich",
     "es": "Imperio purépecha",
     "fr": "Royaume tarasque"
    },
@@ -10011,9 +10011,9 @@
     {
      "id": "purepecha",
      "name": {
-      "sv": "Purépecha Empire",
+      "sv": "Purépechariket",
       "en": "Purépecha Empire",
-      "de": "Purépecha Empire",
+      "de": "Purépecha-Reich",
       "es": "Imperio purépecha",
       "fr": "Royaume tarasque"
      },
@@ -10025,9 +10025,9 @@
    ],
    "facts": {
     "summary": {
-     "sv": "Purépecha Empire var purépechafolkets rike i dagens Mexiko, med huvudstaden Tzintzuntzan vid Pátzcuarosjön. Det var samtida med Aztekriket och dess rival, och när spanjorerna kom var det enligt Wikipedia den näst största staten i Mesoamerika. Det kallas också Tarascan Empire, ett namn som troligen kommer från spanjorerna och som är impopulärt i de flesta purépechasamhällen.",
+     "sv": "Purépechariket var purépechafolkets rike i dagens Mexiko, med huvudstaden Tzintzuntzan vid Pátzcuarosjön. Det var samtida med Aztekriket och dess rival, och när spanjorerna kom var det enligt Wikipedia den näst största staten i Mesoamerika. På engelska kallas det också Tarascan Empire, ett namn som troligen kommer från spanjorerna och som är impopulärt i de flesta purépechasamhällen.",
      "en": "The Purépecha Empire was the state of the Purépecha people in present-day Mexico, with its capital Tzintzuntzan on Lake Pátzcuaro. It was a contemporary and rival of the Aztec Empire, and when the Spaniards came it was, according to Wikipedia, the second-largest state in Mesoamerica. It is also called the Tarascan Empire, a name that probably comes from the Spaniards and that is unpopular in most Purépecha communities.",
-     "de": "Das Purépecha-Reich (englisch Purépecha Empire) war der Staat des Volkes der Purépecha im heutigen Mexiko, mit der Hauptstadt Tzintzuntzan am Pátzcuaro-See. Es bestand zur gleichen Zeit wie das Aztekenreich und war dessen Rivale, und als die Spanier kamen, war es laut Wikipedia der zweitgrößte Staat Mesoamerikas. Es wird auch Tarascan Empire genannt, ein Name, der wahrscheinlich von den Spaniern stammt und in den meisten Purépecha-Gemeinschaften unbeliebt ist.",
+     "de": "Das Purépecha-Reich war der Staat des Volkes der Purépecha im heutigen Mexiko, mit der Hauptstadt Tzintzuntzan am Pátzcuaro-See. Es bestand zur gleichen Zeit wie das Aztekenreich und war dessen Rivale, und als die Spanier kamen, war es laut Wikipedia der zweitgrößte Staat Mesoamerikas. Auf Englisch wird es auch Tarascan Empire genannt, ein Name, der wahrscheinlich von den Spaniern stammt und in den meisten Purépecha-Gemeinschaften unbeliebt ist.",
      "es": "El Imperio purépecha fue el Estado del pueblo purépecha en el actual México, con capital en Tzintzuntzan, junto al lago de Pátzcuaro. Fue contemporáneo y rival del Imperio azteca, y cuando llegaron los españoles era, según Wikipedia, el segundo Estado más grande de Mesoamérica. También se le llama Imperio tarasco, un nombre que probablemente procede de los españoles y que es impopular en la mayoría de las comunidades purépechas.",
      "fr": "Le royaume tarasque, ou Empire purépecha, était l'État du peuple purépecha dans l'actuel Mexique, avec pour capitale Tzintzuntzan, au bord du lac de Pátzcuaro. Contemporain et rival de l'Empire aztèque, il était, selon Wikipédia, le deuxième plus grand État de Mésoamérique à l'arrivée des Espagnols. Le nom « tarasque » vient probablement des Espagnols et il est impopulaire dans la plupart des communautés purépechas."
     },
@@ -10453,7 +10453,7 @@
   {
    "id": "funjsultanatet",
    "name": {
-    "sv": "Funj Sultanate",
+    "sv": "Sultanatet Sennar",
     "en": "Funj Sultanate",
     "de": "Sultanat von Sannar",
     "es": "Sultanato de Sennar",
@@ -10467,7 +10467,7 @@
     {
      "id": "funjsultanatet",
      "name": {
-      "sv": "Funj Sultanate",
+      "sv": "Sultanatet Sennar",
       "en": "Funj Sultanate",
       "de": "Sultanat von Sannar",
       "es": "Sultanato de Sennar",
@@ -10481,7 +10481,7 @@
    ],
    "facts": {
     "summary": {
-     "sv": "Funj Sultanate, även kallat sultanatet Sennar, var ett islamiskt kungarike i dagens Sudan, nordvästra Eritrea och västra Etiopien, med huvudstaden Sennar vid Blå Nilen. Som störst, i slutet av 1600-talet, sträckte det sig från Nilens tredje katarakt söderut till Etiopiska höglandets västra kant och från Röda havet västerut till Kordofan.",
+     "sv": "Sultanatet Sennar, på engelska även Funj Sultanate, var ett islamiskt kungarike i dagens Sudan, nordvästra Eritrea och västra Etiopien, med huvudstaden Sennar vid Blå Nilen. Som störst, i slutet av 1600-talet, sträckte det sig från Nilens tredje katarakt söderut till Etiopiska höglandets västra kant och från Röda havet västerut till Kordofan.",
      "en": "The Funj Sultanate, also called the Sultanate of Sennar, was an Islamic kingdom in present-day Sudan, north-western Eritrea and western Ethiopia, with its capital at Sennar on the Blue Nile. At its greatest extent, in the late 17th century, it reached from the Third Cataract of the Nile south to the western edge of the Ethiopian Highlands, and from the Red Sea west to Kordofan.",
      "de": "Das Sultanat von Sannar, auch Funj-Sultanat genannt, war ein islamisches Königreich im heutigen Sudan, im Nordwesten Eritreas und im Westen Äthiopiens, mit der Hauptstadt Sennar am Blauen Nil. In seiner größten Ausdehnung, im späten 17. Jahrhundert, reichte es vom dritten Nilkatarakt nach Süden bis an den Westrand des Äthiopischen Hochlands und vom Roten Meer nach Westen bis Kordofan.",
      "es": "El sultanato de Sennar, también llamado sultanato funj, fue un reino islámico en el actual Sudán, el noroeste de Eritrea y el oeste de Etiopía, con capital en Sennar, a orillas del Nilo Azul. En su máxima extensión, a finales del siglo XVII, se extendía desde la tercera catarata del Nilo hacia el sur hasta el borde occidental del macizo etíope, y desde el mar Rojo hacia el oeste hasta Kordofán.",
@@ -31717,7 +31717,7 @@
     {
      "id": "hijaz-och-najd",
      "name": {
-      "sv": "Kingdom of Nejd and Hejaz",
+      "sv": "Kungariket Hijaz och Najd",
       "en": "Kingdom of Nejd and Hejaz",
       "de": "Königreich Hedschas und Nadschd",
       "es": "Reino del Nejd y del Hiyaz",
@@ -41187,7 +41187,7 @@
   {
    "id": "rustamider",
    "name": {
-    "sv": "Rustamid dynasty",
+    "sv": "Rustamiderna",
     "en": "Rustamid dynasty",
     "de": "Rustamiden",
     "es": "Rostomitas",
@@ -41201,7 +41201,7 @@
     {
      "id": "rustamider",
      "name": {
-      "sv": "Rustamid dynasty",
+      "sv": "Rustamiderna",
       "en": "Rustamid dynasty",
       "de": "Rustamiden",
       "es": "Rostomitas",
@@ -42281,9 +42281,9 @@
   {
    "id": "western-chalukya-empire",
    "name": {
-    "sv": "Western Chalukya Empire",
+    "sv": "Västra Chalukyariket",
     "en": "Western Chalukya Empire",
-    "de": "Western Chalukya Empire",
+    "de": "Chalukyas von Kalyani",
     "es": "Imperio de Chalukya Occidental",
     "fr": "Chalukya occidentaux"
    },
@@ -42295,9 +42295,9 @@
     {
      "id": "western-chalukya-empire",
      "name": {
-      "sv": "Western Chalukya Empire",
+      "sv": "Västra Chalukyariket",
       "en": "Western Chalukya Empire",
-      "de": "Western Chalukya Empire",
+      "de": "Chalukyas von Kalyani",
       "es": "Imperio de Chalukya Occidental",
       "fr": "Chalukya occidentaux"
      },
@@ -42311,7 +42311,7 @@
   {
    "id": "pagan-kingdom",
    "name": {
-    "sv": "Pagan kingdom",
+    "sv": "Kungariket Pagan",
     "en": "Pagan kingdom",
     "de": "Königreich von Bagan",
     "es": "Reino de Pagan",
@@ -42325,7 +42325,7 @@
     {
      "id": "pagan-kingdom",
      "name": {
-      "sv": "Pagan kingdom",
+      "sv": "Kungariket Pagan",
       "en": "Pagan kingdom",
       "de": "Königreich von Bagan",
       "es": "Reino de Pagan",
@@ -42341,7 +42341,7 @@
   {
    "id": "rasulid-dynasty",
    "name": {
-    "sv": "Rasulid dynasty",
+    "sv": "Rasuliderna",
     "en": "Rasulid dynasty",
     "de": "Rasuliden",
     "es": "Dinastía rasúlida",
@@ -42355,7 +42355,7 @@
     {
      "id": "rasulid-dynasty",
      "name": {
-      "sv": "Rasulid dynasty",
+      "sv": "Rasuliderna",
       "en": "Rasulid dynasty",
       "de": "Rasuliden",
       "es": "Dinastía rasúlida",
@@ -42371,9 +42371,9 @@
   {
    "id": "chola-empire",
    "name": {
-    "sv": "Chola Empire",
+    "sv": "Cholariket",
     "en": "Chola Empire",
-    "de": "Chola Empire",
+    "de": "Chola-Reich",
     "es": "Imperio Chola",
     "fr": "Empire Chola"
    },
@@ -42385,9 +42385,9 @@
     {
      "id": "chola-empire",
      "name": {
-      "sv": "Chola Empire",
+      "sv": "Cholariket",
       "en": "Chola Empire",
-      "de": "Chola Empire",
+      "de": "Chola-Reich",
       "es": "Imperio Chola",
       "fr": "Empire Chola"
      },
