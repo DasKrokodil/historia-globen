@@ -15,6 +15,11 @@
 // Den ofullbordade begäran (steg 3, DasKrokodil 2026-11-15): WebKit skickar aldrig requestfailed för en hämtning som avbryts av ett
 // sidbyte (körningarna 43575810806 och 43680977726: alla kvarvarande sidfel hade "misslyckade begäranden: inga"). En begäran som
 // misslyckades på riktigt (till exempel nekad anslutning) får requestfailed och är inte längre ofullbordad, så den fäller fortfarande.
+// Inga motbevis (steg 3, andra delen, DasKrokodil 2026-11-15): spåren per fil i körning 43689485698 visade att WebKit inte heller
+// skickar request för den avbrutna hämtningen. Sidfelet kom före varje request för adressen som Playwright såg (till exempel
+// "sidfel +408 ms under sidbyte 2" mot "request +652 ms, requestfinished +1108 ms"), eller så syntes ingen request alls
+// (data/land-10m.json). Villkor 4 går alltså inte att observera i WebKit. Därför räcker det också att adressen saknar motbevis under
+// kontrollen: ingen requestfailed med annan text än ett avbrott, och inget svar med status 400 eller högre. Villkor 1–3 gäller som förut.
 // Ett 404, ett fel utanför ett sidbyte och ett fel från en annan webbplats fäller fortfarande kontrollen.
 //
 // Konsolfel (#1561): Firefox (och WebKit) skriver en avbruten hämtning som ett konsolfel utan adress när sidans egen .catch loggar den:
@@ -68,6 +73,7 @@ export function skapaAbortWatch({ siteHost, filtered = () => {}, register = () =
     };
     let navigating = 0, navSerial = 0; // navSerial räknar sidbytena, så att en konsolrad hör ihop med avbrott under just sitt sidbyte
     const candidates = [], aborted = new Set(), failedTexts = new Map(); // failedTexts: adress till texterna på alla misslyckade begäranden
+    const realFail = new Set(); // motbevis (steg 3): adresser med requestfailed som inte är ett avbrott, eller ett svar med status >= 400
     const consoleCandidates = [], abortedOwnNav = new Set(); // abortedOwnNav: sidbyten där en begäran till den egna webbplatsen avbröts
     const isOwn = r => urlKey(r.url())?.host === siteHost;
     const pendingKeys = new Map(); // egen begäran till dess nyckel (urlKey), så länge den är ofullbordad (villkor 4, steg 3)
@@ -81,7 +87,7 @@ export function skapaAbortWatch({ siteHost, filtered = () => {}, register = () =
       if (pendingKeys.has(r)) track(r.url(), 'requestfinished');
       pending.delete(r); pendingKeys.delete(r);
       if (FONT_HOST.test(urlKey(r.url())?.host ?? '')) return;
-      try { Promise.resolve(r.response?.()).then(res => { const st = res?.status?.(); if (st >= 400) note(`svar ${st}: ${shortUrl(r.url())}`); }).catch(() => {}); } catch { /* fakesidor i proven saknar response() */ }
+      try { Promise.resolve(r.response?.()).then(res => { const st = res?.status?.(); if (st >= 400) { note(`svar ${st}: ${shortUrl(r.url())}`); const k = urlKey(r.url())?.key; if (k) { realFail.add(k); track(r.url(), `svar ${st}`); } } }).catch(() => {}); } catch { /* fakesidor i proven saknar response() */ }
     });
     p.on('framenavigated', f => { if (!p.mainFrame || f === p.mainFrame()) note(`navigerade till ${shortUrl(f?.url?.() ?? '')}`); });
     p.on('load', () => note('load'));
@@ -95,7 +101,7 @@ export function skapaAbortWatch({ siteHost, filtered = () => {}, register = () =
       // checks." när avbrottet kom mitt i hämtningen och WebKit klassar det som åtkomstkontroll (så skrev testet före #1393, då samma
       // regex gällde både sidfel och begäran). Raden räknas bara när den nämner just begärans egen adress (steg 2).
       const own = text.match(WEBKIT_ABORT);
-      if (!/cancel|abort/i.test(text) && !(own && k && urlKey(own[1])?.key === k.key)) return;
+      if (!/cancel|abort/i.test(text) && !(own && k && urlKey(own[1])?.key === k.key)) { if (k) realFail.add(k.key); return; }
       if (k) aborted.add(k.key);
       if (k?.host === siteHost) abortedOwnNav.add(navSerial);
     });
@@ -133,7 +139,7 @@ export function skapaAbortWatch({ siteHost, filtered = () => {}, register = () =
       },
       /** Sidfelen och konsolraderna som ändå är riktiga fel (ingen avbruten begäran). Räknar de bortfiltrerade. */
       settle() {
-        const real = candidates.filter(c => !aborted.has(c.key) && !c.pending);
+        const real = candidates.filter(c => !aborted.has(c.key) && !c.pending && realFail.has(c.key));
         const realConsole = consoleCandidates.filter(c => !abortedOwnNav.has(c.serial));
         filtered(candidates.length - real.length + consoleCandidates.length - realConsole.length);
         candidates.length = 0;
@@ -142,7 +148,7 @@ export function skapaAbortWatch({ siteHost, filtered = () => {}, register = () =
         const consoleReal = realConsole.map(c => `konsol: ${c.text} (under sidbyte, men ingen begäran till den egna webbplatsen avbröts; misslyckade begäranden: ${allFailed})${watch.consoleDiag(c.text)}`);
         // Villkor 4 uppfylldes inte: texten säger vad webbläsaren rapporterade som misslyckad begäran för adressen, så att en körning i
         // WebKit visar varför felet inte räknades bort (ett sidfel utan den raden kom utanför ett sidbyte). Villkoren är oförändrade.
-        return [...real.map(c => `${c.message} (ingen avbruten eller ofullbordad begäran för adressen; misslyckade begäranden: ${failedTexts.get(c.key)?.join(' | ') || 'inga'}; spår: ${[...(trail.get(c.key) ?? ['ingen request för adressen']), c.at].join(', ')})`), ...consoleReal];
+        return [...real.map(c => `${c.message} (ingen avbruten eller ofullbordad begäran för adressen, och adressen misslyckades på riktigt; misslyckade begäranden: ${failedTexts.get(c.key)?.join(' | ') || 'inga'}; spår: ${[...(trail.get(c.key) ?? ['ingen request för adressen']), c.at].join(', ')})`), ...consoleReal];
       },
     };
     register(watch);

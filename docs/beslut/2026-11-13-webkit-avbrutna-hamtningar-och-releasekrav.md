@@ -53,5 +53,18 @@ Det döljer inte riktiga fel:
 
 Enhetsprov för fallen finns i `tests/avbrutna-hamtningar.test.mjs`. Ett sidfel som ändå fäller får texten `(ingen avbruten eller ofullbordad begäran för adressen; …)`. Konsolfiltret för Firefox (#1561, villkor 3 för konsolfel) ändras inte här. WebKit går inte att köra i molnmiljön, så effekten redovisas ur CI med etiketten `alla-webbläsare`.
 
+## Uppdatering 2026-11-15 (steg 3, andra delen: inga motbevis räcker i WebKit)
+Första körningen med regeln ovan (43685349202) räknade bort 30 avbrutna hämtningar, men sex kontroller föll ändå. Därför fick felraden ett spår per fil. Körning 43689485698 visade två mönster för de egna filerna (144 felrader):
+- **Sidfelet kom före varje begäran som Playwright såg för adressen**, till exempel `sidfel +408 ms under sidbyte 2` mot `request +652 ms, requestfinished +1108 ms`. Den avbrutna hämtningen syntes alltså aldrig. Det som syntes var en senare, lyckad hämtning av samma fil.
+- **Ingen begäran alls syntes för adressen** (`data/land-10m.json`).
+
+WebKit skickar alltså varken `request` eller `requestfailed` för en hämtning som avbryts av ett sidbyte, så villkor 4 går inte att observera där.
+
+**Beslut (DasKrokodil 2026-11-15, "gör alla rättningar du vill"):** villkor 4 är uppfyllt också när adressen **saknar motbevis** under kontrollen: ingen `requestfailed` med annan text än ett avbrott, och inget svar med status 400 eller högre. Villkor 1–3 gäller som förut: under sidans eget sidbyte, WebKits exakta text och den egna webbplatsen.
+
+Ett sidfel för en egen fil som misslyckades på riktigt (nekad anslutning, 404, 500) fäller fortfarande. Det gör också ett fel utanför ett sidbyte och ett fel för en annan webbplats. Felraden har kvar spåret per fil.
+
+`touchPage()` i `tests/webblasare.mjs` lägger nu sina `goto` och `reload` genom `abortWatch()`. Därmed får också kontrollerna som byggs på den, bland dem #1255, samma filter. Enhetsprov finns i `tests/avbrutna-hamtningar.test.mjs`.
+
 ## Berör
 `tests/webblasare.mjs`, `tests/avbrutna-hamtningar.mjs` (`abortWatch()`), `docs/DEPLOYMENT.md` (Firefox och WebKit i testet, release), [2026-11-08-firefox-webkit-testet-888](2026-11-08-firefox-webkit-testet-888.md), #1393, #1174, #1419.

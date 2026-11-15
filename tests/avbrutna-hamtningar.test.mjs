@@ -157,19 +157,20 @@ test('fäller: sidfel under sidbyte utan någon avbruten begäran, och texten s�
   assert.equal(filtrerade(), 0);
 });
 
-test('fäller: sidfel under sidbyte där ingen begäran alls misslyckades', async () => {
-  const { sidan, aw } = uppsattning();
+// Steg 3, andra delen: WebKit skickar varken request eller requestfailed för en hämtning som avbryts av ett sidbyte (körning 43689485698)
+test('räknas bort: sidfel under sidbyte utan motbevis, även när ingen begäran syntes för adressen (WebKit)', async () => {
+  const { sidan, aw, filtrerade } = uppsattning();
   sidan.goto = async () => { aw.defer(rad('/data/a.json')); };
   await aw.goto('x');
-  const kvar = aw.settle();
-  assert.equal(kvar.length, 1);
-  assert.match(kvar[0], /misslyckade begäranden: inga/);
+  assert.deepEqual(aw.settle(), []);
+  assert.equal(filtrerade(), 1);
 });
 
-test('fäller: en avbruten begäran för en annan adress räknar inte bort sidfelet', async () => {
+test('fäller: en avbruten begäran för en annan adress räknar inte bort sidfelet när adressen själv misslyckades', async () => {
   const { sidan, aw } = uppsattning();
   sidan.goto = async () => {
     aw.defer(rad('/data/a.json'));
+    sidan.emit('requestfailed', begaran('/data/a.json', 'net::ERR_CONNECTION_REFUSED'));
     sidan.emit('requestfailed', begaran('/data/b.json', 'cancelled'));
   };
   await aw.goto('x');
@@ -179,7 +180,7 @@ test('fäller: en avbruten begäran för en annan adress räknar inte bort sidfe
 test('en bevakning som kontrollen glömde att avgöra kan avgöras av den som kör kontrollen (register)', async () => {
   const { sidan, aw, registrerade } = uppsattning();
   assert.deepEqual(registrerade, [aw]);
-  sidan.goto = async () => { aw.defer(rad('/data/a.json')); };
+  sidan.goto = async () => { aw.defer(rad('/data/a.json')); sidan.emit('requestfailed', begaran('/data/a.json', 'net::ERR_CONNECTION_REFUSED')); };
   await aw.goto('x');
   assert.equal(registrerade.flatMap(w => w.settle()).length, 1);
   assert.deepEqual(registrerade.flatMap(w => w.settle()), []); // avgjort en gång, inte två
@@ -196,23 +197,34 @@ test('räknas bort: WebKit, sidfel under sidbyte för en egen begäran som aldri
   assert.equal(filtrerade(), 1);
 });
 
-test('fäller: sidfel för en egen begäran som redan var klar när felet kom', async () => {
-  const { sidan, aw } = uppsattning();
+test('räknas bort: sidfel för en egen fil som hämtats klart tidigare och avbryts vid sidbytet (mönstret i WebKit-spåren)', async () => {
+  const { sidan, aw, filtrerade } = uppsattning();
   const a = begaran('/data/a.json');
   sidan.emit('request', a);
   sidan.emit('requestfinished', a);
   sidan.goto = async () => { aw.defer(rad('/data/a.json')); };
   await aw.goto('x');
+  assert.deepEqual(aw.settle(), []);
+  assert.equal(filtrerade(), 1);
+});
+
+test('fäller: sidfel för en egen fil som fick ett svar med status 500 under kontrollen, och spåret visar svaret', async () => {
+  const { sidan, aw } = uppsattning();
+  const a = { ...begaran('/data/a.json'), response: () => ({ status: () => 500 }) };
+  sidan.emit('request', a);
+  sidan.emit('requestfinished', a);
+  await new Promise(r => setTimeout(r, 0)); // svaret läses asynkront
+  sidan.goto = async () => { aw.defer(rad('/data/a.json')); };
+  await aw.goto('x');
   const kvar = aw.settle();
   assert.equal(kvar.length, 1);
-  assert.match(kvar[0], /ingen avbruten eller ofullbordad begäran/);
-  // Spåret visar vad webbläsaren rapporterade för just den filen, och när sidfelet kom
-  assert.match(kvar[0], /spår: request \+\d+ ms, requestfinished \+\d+ ms, sidfel \+\d+ ms under sidbyte 1\)/);
+  assert.match(kvar[0], /misslyckades på riktigt/);
+  assert.match(kvar[0], /spår: request \+\d+ ms, requestfinished \+\d+ ms, svar 500 \+\d+ ms, sidfel \+\d+ ms under sidbyte 1\)/);
 });
 
 test('spåret säger när ingen request alls syntes för adressen', async () => {
   const { sidan, aw } = uppsattning();
-  sidan.goto = async () => { aw.defer(rad('/data/a.json')); };
+  sidan.goto = async () => { aw.defer(rad('/data/a.json')); sidan.emit('requestfailed', begaran('/data/a.json', 'net::ERR_CONNECTION_REFUSED')); };
   await aw.goto('x');
   assert.match(aw.settle()[0], /spår: ingen request för adressen, sidfel \+\d+ ms under sidbyte 1\)/);
 });
@@ -230,7 +242,7 @@ test('fäller: sidfel för en egen begäran som misslyckades på riktigt (nekad 
 test('fäller: en ofullbordad begäran för en annan adress, eller utanför sidbyte, räknar inte bort sidfelet', async () => {
   const { sidan, aw } = uppsattning();
   sidan.emit('request', begaran('/data/b.json'));
-  sidan.goto = async () => { aw.defer(rad('/data/a.json')); };
+  sidan.goto = async () => { aw.defer(rad('/data/a.json')); sidan.emit('requestfailed', begaran('/data/a.json', 'net::ERR_CONNECTION_REFUSED')); };
   await aw.goto('x');
   assert.equal(aw.settle().length, 1);
   sidan.emit('request', begaran('/data/c.json'));
