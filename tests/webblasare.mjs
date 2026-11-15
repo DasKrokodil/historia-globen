@@ -1822,6 +1822,45 @@ async function run(browser, vp) {
     }
   });
 
+  // #1793: turkortet. Nästa och Lämna turen syns utan rullning, texten är i stycken med rubriker, och rubriken står inte två gånger i mobil.
+  await check('turkortet: Nästa och Lämna turen syns utan rullning, texten har stycken med rubriker och turens namn står en gång i mobil (#1793)', async () => {
+    const lp = await context.newPage();
+    const errs = [];
+    lp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+      }
+      const narrowCard = page.viewportSize().width <= 760;
+      await lp.setViewportSize(narrowCard ? { width: 400, height: 800 } : { width: 1280, height: 800 });
+      await lp.goto(`${BASE}?ny=1793#t=det-har-har-du-hort&s=kinesiska-muren`);
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await lp.waitForSelector('#tour-card:not([hidden])', { timeout: T.step });
+      await lp.waitForFunction(() => document.querySelectorAll('#tour-text p').length >= 3, null, { timeout: T.step });
+      const card = await lp.evaluate(() => {
+        const r = id => document.getElementById(id).getBoundingClientRect(), inView = id => { const b = r(id); return b.top >= 0 && b.bottom <= innerHeight && b.width > 0; };
+        return {
+          next: inView('tour-next'), end: inView('tour-end'), back: inView('tour-back'),
+          labels: [...document.querySelectorAll('#tour-text .tour-part-label')].map(e => e.textContent.trim()),
+          paras: [...document.querySelectorAll('#tour-text p:not(.tour-part-label)')].length,
+          nameShown: document.getElementById('tour-name').getClientRects().length > 0,
+          wide: document.scrollingElement.scrollWidth > innerWidth + 1,
+          text: document.getElementById('tour-text').textContent,
+        };
+      });
+      if (!card.next || !card.end || !card.back) throw new Error(`knapparna syns inte utan rullning: Nästa ${card.next}, Lämna turen ${card.end}, Föregående ${card.back}`);
+      if (card.labels.join('|') !== 'Det sägs|Vad källorna säger' || card.paras !== 2) throw new Error(`stycken och rubriker: ${JSON.stringify(card.labels)}, ${card.paras} stycken`);
+      if (/\n/.test(card.text.trim()) === false && card.text.length < 100) throw new Error('texten saknas');
+      if (narrowCard && card.nameShown) throw new Error('turens namn står både i kortet och i turraden i mobil');
+      if (card.wide) throw new Error('turkortet ger horisontell rullning');
+      if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
+      return `steg 2: Nästa, Föregående och Lämna turen inom fönstret, två stycken med rubrikerna ${card.labels.join(' och ')}${narrowCard ? ', turens namn en gång' : ''}`;
+    } finally {
+      await lp.close();
+    }
+  });
+
   // #1790 och #1791: platskortets ordning, raden Om kartan och källor, knappen i regionvyn och tryck på platsen i Fokus
   await check('platskortet: listan före anteckningarna, Om kartan och källor hopfälld, regionvyn tar bort knappen och ett tryck på platsen öppnar kortet (#1790, #1791)', async () => {
     const lp = await context.newPage();

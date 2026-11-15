@@ -515,7 +515,7 @@
     <p id="tour-chapter" class="tour-chapter" hidden></p>
     <h3 id="tour-title" class="tour-title"></h3>
     <p id="tour-status" class="tour-status" hidden></p>
-    <p id="tour-text" class="tour-text"></p>
+    <div id="tour-text" class="tour-text"></div>
     <div id="tour-question" class="tour-question" hidden><span id="tour-question-label" class="tour-question-label"></span> <span id="tour-question-text"></span></div>
     <div class="tour-links">
       <button id="tour-read" class="link-btn" type="button" aria-controls="detail"></button>
@@ -526,13 +526,16 @@
       <p class="tour-lesson-end-label" data-i18n="lesson.next">Fortsätt med ett uppdrag</p>
       <div id="tour-lesson-end-list" class="tour-links"></div>
     </div>
-    <div class="tour-actions">
-      <button id="tour-back" class="chip-btn" type="button"></button>
-      <button id="tour-next" class="tour-next" type="button"></button>
-    </div>
-    <!-- Foten (#1572): en tydlig, benämnd utgång; turraden under kortet säger redan att turen styr tiden -->
-    <div class="tour-foot">
-      <button id="tour-end" class="tour-end" type="button"></button>
+    <!-- Knapparna och foten ligger i en gemensam fastklistrad rad längst ned i kortet (#1793): de syns alltid, också när texten rullar -->
+    <div class="tour-bar">
+      <div class="tour-actions">
+        <button id="tour-back" class="chip-btn" type="button"></button>
+        <button id="tour-next" class="tour-next" type="button"></button>
+      </div>
+      <!-- Foten (#1572): en tydlig, benämnd utgång; turraden under kortet säger redan att turen styr tiden -->
+      <div class="tour-foot">
+        <button id="tour-end" class="tour-end" type="button"></button>
+      </div>
     </div>
   </section>
 

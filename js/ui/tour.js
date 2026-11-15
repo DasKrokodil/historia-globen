@@ -313,7 +313,7 @@ export class TourPlayer {
     this.drawMeter(n);
     this.title.textContent = t(step.title);
     this.title.hidden = !step.title;
-    this.text.textContent = t(step.text);
+    this.renderText(step);
     // Berättelseläget (#247): kapitlet ovanför rubriken och en fråga att fundera på under texten
     this.chapter.textContent = t(step.chapter);
     this.chapter.hidden = !step.chapter;
@@ -337,7 +337,7 @@ export class TourPlayer {
     // Pausraden säger också varför tidsknapparna är låsta (#1280)
     const locked = t(this.labels.locked);
     const note = [fill(t(this.labels.paused), { title: t(this.tour.title) }), locked].filter(Boolean).join(' · ');
-    const say = sentences([this.progress.textContent, t(step.chapter), t(step.title), this.status.hidden ? '' : this.status.textContent, t(step.text), t(step.question)]);
+    const say = sentences([this.progress.textContent, t(step.chapter), t(step.title), this.status.hidden ? '' : this.status.textContent, t(step.text).replace(/\s*\n\n+\s*/g, ' '), t(step.question)]);
     // Slutkortet har ingen pausrad, men skärmläsaren ska höra steget och att det var det sista (#878)
     const end = !this.last ? '' : app.lesson?.active ? ui('lesson.endAnnounce', { exit: ui('lesson.exit') }) : ui('tour.endAnnounce');
     // Kortet som steget öppnar på dator (en händelse eller en plats) säger sin rubrik när det öppnas (main.js, prioritet 2) och tog förut bort
@@ -354,6 +354,26 @@ export class TourPlayer {
     if (placeShown && cardOpens) placeShown.then(shown => { if (this.tour && this.stepVersion === stepVersion && !this.huntHidden && this.step === step) speak(shown ? this.cardHeading() : ''); });
     else if (step.open && cardOpens) speak(this.cardHeading());
     else if (this.last) speak('');
+  }
+
+  /**
+   * Stegets text i stycken (#1793): en tom rad i texten (\n\n) börjar ett nytt stycke, och partLabels (nycklar i data/turer/index.json, labels,
+   * som "Det sägs" och "Vad källorna säger") ger ett stycke en liten rubrik. Orden är desamma som förut; bara uppdelningen är ny.
+   */
+  renderText(step) {
+    const parts = String(t(step.text) ?? '').split(/\n\n+/);
+    const nodes = parts.flatMap((part, i) => {
+      const key = step.partLabels?.[i], label = key ? t(this.labels[key]) : '';
+      const para = document.createElement('p');
+      para.textContent = part;
+      if (i === 0) para.className = 'tour-lead';
+      if (!label) return [para];
+      const head = document.createElement('p');
+      head.className = 'tour-part-label';
+      head.textContent = label;
+      return [head, para];
+    });
+    this.text.replaceChildren(...nodes);
   }
 
   /** Knappens text för steget: Läs om händelsen eller Läs om platsen (båda i data/turer/index.json, labels, #1464). */

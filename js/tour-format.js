@@ -34,6 +34,8 @@
 //   place   valfri plats (id i data/platser.json, #1163) vars kort öppnas, med platsens kontur på kartan. Ett steg öppnar
 //           antingen en händelse (open) eller en plats (place), inte båda. Kortet följer stegets kamera och år: turen startar
 //           inget Fokus (det skulle avsluta turen), och knappen Visa i Platt karta finns inte i en tur
+//   partLabels valfritt (#1793): rubrik över varje stycke i texten (en tom rad, \n\n, börjar ett nytt stycke), som nycklar i data/turer/index.json
+//           (labels, till exempel said och sourcesSay) eller null utan rubrik; en post per stycke. Alla språk har lika många stycken som svenskan.
 //   mark    valfritt (#1785): en markör med namn på kartan vid stegets plats, för steg som handlar om en plats utan att öppna en händelse
 //           eller en plats: { label: text per språk, lat?, lon?, approx? }. Utan lat och lon står markören på kamerans mitt (camera).
 //           approx: true ritar ringen streckad ("ungefärlig plats"), för något som är långt eller som markören bara pekar ut en punkt på
@@ -44,6 +46,7 @@ export const TOUR_REVIEW = ['draft', 'source-checked', 'two-sources'];
 export const STEP_STATUS = ['belagt', 'omtvistat', 'okant'];
 export const LESSON_GRADES = ['F-3', '4-6', '7-9', 'gy'];
 const ID = /^[a-z0-9-]+$/;
+const ID_KEY = /^[A-Za-z][A-Za-z0-9-]*$/;
 
 const isText = v => !!v && typeof v === 'object' && !Array.isArray(v) && typeof v.sv === 'string' && v.sv.trim() !== '';
 const isNum = v => typeof v === 'number' && Number.isFinite(v);
@@ -91,9 +94,22 @@ export function tourProblems(tour, known = {}) {
       if (s.open != null) say(`${where}: ett steg öppnar antingen en händelse (open) eller en plats (place), inte båda.`);
     }
     if (s.mark != null) markProblems(s.mark).forEach(msg => say(`${where}: ${msg}`));
+    if (isText(s.text)) partsProblems(s).forEach(msg => say(`${where}: ${msg}`));
     if (!Array.isArray(s.sources) || !s.sources.length) say(`${where}: källor saknas (sources).`);
     else for (const id of s.sources) if (known.sources && !known.sources.has(id)) say(`${where}: källan ${id} finns inte.`);
   });
+  return out;
+}
+
+/** Styckena i ett stegs text (#1793): lika många i alla språk, och partLabels med en post per stycke. */
+function partsProblems(s) {
+  const count = txt => String(txt ?? '').split(/\n\n+/).length;
+  const n = count(s.text.sv), out = [];
+  for (const [lang, txt] of Object.entries(s.text)) if (typeof txt === 'string' && txt.trim() && count(txt) !== n) out.push(`texten på ${lang} har ${count(txt)} stycken, svenskan ${n}.`);
+  if (s.partLabels != null) {
+    if (!Array.isArray(s.partLabels) || s.partLabels.length !== n) out.push(`partLabels ska vara en lista med ett värde per stycke (${n}).`);
+    else if (!s.partLabels.every(k => k === null || (typeof k === 'string' && ID_KEY.test(k)))) out.push('partLabels ska vara nycklar eller null.');
+  }
   return out;
 }
 

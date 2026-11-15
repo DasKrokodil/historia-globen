@@ -90,6 +90,7 @@
         "layers": { "type": "array", "items": { "type": "string", "pattern": "^[a-z0-9-]+$" } },
         "open": { "type": "string", "pattern": "^[a-z0-9-]+$" },
         "place": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "partLabels": { "type": "array", "items": { "type": ["string", "null"], "pattern": "^[A-Za-z][A-Za-z0-9-]*$" } },
         "mark": {
           "type": "object",
           "required": ["label"],

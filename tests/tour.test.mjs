@@ -227,3 +227,31 @@ test('Det här har du hört: händelserna av utom där steget har en egen hände
   assert.equal(marked['kinesiska-muren'].approx, true, 'muren är lång: markören är en ungefärlig punkt');
   for (const [id, m] of Object.entries(marked)) for (const lang of ['sv', 'en', 'de', 'es', 'fr']) assert.ok(m.label[lang], `${id}: namn på ${lang} saknas`);
 });
+
+// Turkortets text i stycken (#1793): lika många stycken i alla språk, rubriker per stycke ur data/turer/index.json
+test('stycken och partLabels kontrolleras (#1793)', () => {
+  const two = { sv: 'Ett.\n\nTvå.', en: 'One.\n\nTwo.' };
+  assert.deepEqual(tourProblems(tour({ steps: [step({ text: two, partLabels: ['said', 'sourcesSay'] }), step({ id: 'b', text: two, partLabels: [null, 'sourcesSay'] })] }), known), []);
+  const bad = tourProblems(tour({ steps: [
+    step({ text: { sv: 'Ett.\n\nTvå.', en: 'One. Two.' } }),
+    step({ id: 'b', text: two, partLabels: ['said'] }),
+    step({ id: 'c', text: two, partLabels: [1, 'sourcesSay'] }),
+  ] }), known).join('\n');
+  for (const part of ['har 1 stycken, svenskan 2', 'ett värde per stycke', 'nycklar eller null']) assert.match(bad, new RegExp(part), `saknar ${part}`);
+});
+
+test('Det här har du hört: stycken med rubriker på alla fem språk, orden oförändrade (#1793)', async () => {
+  const { readFileSync } = await import('node:fs');
+  const data = JSON.parse(readFileSync(new URL('../data/turer/det-har-har-du-hort.json', import.meta.url)));
+  const index = JSON.parse(readFileSync(new URL('../data/turer/index.json', import.meta.url)));
+  for (const key of ['said', 'sourcesSay']) for (const lang of ['sv', 'en', 'de', 'es', 'fr']) assert.ok(index.labels[key]?.[lang], `rubriken ${key} saknas på ${lang}`);
+  for (const st of data.steps) {
+    const n = st.text.sv.split(/\n\n+/).length;
+    assert.ok(n >= 2, `${st.id}: texten är ett enda stycke`);
+    assert.equal(st.partLabels.length, n, `${st.id}: partLabels`);
+    for (const key of st.partLabels.filter(Boolean)) assert.ok(index.labels[key], `${st.id}: rubriken ${key} finns inte i index.json`);
+    for (const lang of ['en', 'de', 'es', 'fr']) assert.equal(st.text[lang].split(/\n\n+/).length, n, `${st.id}: ${lang} har ett annat antal stycken`);
+  }
+  const wash = data.steps.find(st => st.id === 'washingtons-tander');
+  assert.deepEqual(wash.partLabels, [null, 'said', 'sourcesSay'], 'Washington: sammanhang, det sägs, vad källorna säger');
+});

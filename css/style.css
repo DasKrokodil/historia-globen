@@ -1120,6 +1120,20 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 .tour-actions { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-top: 14px; }
 .tour-actions .chip-btn { margin-right: auto; }
 .tour-actions .chip-btn[hidden] { display: none; }
+/* Turkortet (#1793): texten i stycken med små rubriker (Det sägs, Vad källorna säger), och Nästa och Lämna turen ligger fast längst ned i alla
+   höjder när kortet rullar (förut bara under 600 px höjd). Foten ytterst, knapparna ovanför den; högre specificitet än lektionens utfyllnad. */
+.tour-text p { margin: 0 0 8px; font: inherit; }
+.tour-text p:last-child { margin-bottom: 0; }
+.tour-part-label { margin: 12px 0 3px !important; font: 600 11px/1.3 var(--f-mono) !important; letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
+.tour-part-label:first-child { margin-top: 0 !important; }
+.app.app.app .tour-card { padding-bottom: 0; scrollbar-width: thin; scrollbar-color: var(--brass-deep) var(--night-2); }
+.tour-card .tour-bar { position: sticky; bottom: 0; background: var(--night-2); }
+.tour-card .tour-actions { margin-top: 0; padding: 8px 0 0; }
+.tour-card .tour-foot { margin-top: 0; padding: 2px 0 8px; }
+@media (max-width: 760px) {
+  .tour-card .tour-name { display: none; } /* turens namn står redan i turraden under kortet; kortets namn hämtas ändå av aria-labelledby */
+  .tour-part-label { font-size: 12px !important; } /* text på minst 12 px i mobil */
+}
 .tour-next { min-height: 44px; padding: 8px 16px; border: 1px solid var(--brass); border-radius: 999px; background: var(--brass); color: var(--night); font: 600 13px/1 var(--f-body); cursor: pointer; }
 .tour-foot { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-top: 6px; padding-top: 2px; border-top: 1px solid var(--control-line); }
 /* Lämna turen (#1572): en benämnd länk i kortets fot, minst 44 px hög; ingen pillerknapp bredvid Nästa */
@@ -2799,8 +2813,8 @@ span.theme-event:hover { background: none; outline: none; }
   .app.app.app.pause-var .tour-card { --tour-bottom: calc(var(--pause-top) + 8px); }
   .tour-card .tour-name { display: none; } /* turens namn står redan i turraden under kortet; kortets namn hämtas ändå av aria-labelledby */
   /* Nästa och Lämna turen ligger fast längst ned när kortet rullar (#1310, #1572): foten ytterst, knapparna ovanför den */
-  .tour-card .tour-actions { position: sticky; bottom: 47px; margin-top: 8px; padding: 8px 0 0; background: var(--night-2); }
-  .tour-card .tour-foot { position: sticky; bottom: 0; margin-top: 0; padding: 2px 0 8px; background: var(--night-2); }
+  .tour-card .tour-actions { margin-top: 0; padding: 8px 0 0; }
+  .tour-card .tour-foot { margin-top: 0; padding: 2px 0 8px; }
   .app.app.app #detail, .app.app.app #funfact { scrollbar-width: thin; scrollbar-color: var(--brass-deep) var(--night-3); }
 }
 @media (max-height: 600px) and (min-width: 761px) and (max-width: 1100px) {
@@ -2836,9 +2850,7 @@ span.theme-event:hover { background: none; outline: none; }
   .app.touring .year-jump { min-height: 44px; align-items: center; }
   .app.touring .year-big { font-size: 30px; }
   .app.touring .year-era { font-size: 16px; }
-  .app.touring .tour-card .tour-actions { bottom: 55px; } /* den 44 px höga utgången och fotens utfyllnad */
   /* Lektionen lämnas från sitt band; den dolda Lämna turen-knappen ska inte reservera en tom fot. */
-  .app.touring.lesson .tour-card .tour-actions { bottom: 0; }
   .app.touring.lesson .tour-card .tour-foot { display: none; }
 }
 
