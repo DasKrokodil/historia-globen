@@ -14,11 +14,11 @@ const htmlKeys = new Set([...html.matchAll(/data-i18n(?:-[a-z-]+)?="([^"]+)"/g)]
 // Svenskan i index.html används direkt (applyStatic byter bara andra språk). Därför måste varje data-i18n-text
 // börja som exakt samma text som sv.json, annars kan svenska besökare se ett gammalt knappnamn (#1708).
 function staticTexts(source) {
-  const found = new Map(), stack = [], voids = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'source', 'track', 'wbr']);
+  const found = [], stack = [], voids = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'source', 'track', 'wbr']);
   for (const token of source.match(/<[^>]+>|[^<]+/g) ?? []) {
     if (token.startsWith('</')) {
       const current = stack.pop();
-      if (current?.key) found.set(current.key, current.text.replace(/\s+/g, ' ').trim());
+      if (current?.key) found.push([current.key, current.text.replace(/\s+/g, ' ').trim()]);
     } else if (token.startsWith('<')) {
       if (/^<!|^<\?/.test(token)) continue;
       if (/^<\//.test(token)) continue;
@@ -26,7 +26,7 @@ function staticTexts(source) {
       const node = { key, text: '' };
       if (!voids.has(/^<\s*([\w-]+)/.exec(token)?.[1]?.toLowerCase()) && !/\/>$/.test(token)) stack.push(node);
     } else {
-      for (const node of stack) node.text += token;
+      if (stack.length) stack.at(-1).text += token;
     }
   }
   return found;
