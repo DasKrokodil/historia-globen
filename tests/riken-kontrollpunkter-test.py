@@ -45,6 +45,12 @@ SLUBICE = (14.567, 52.35)  # Q200709
 ZGORZELEC = (15.0, 51.153)  # Q147929
 HELDBURG = (10.725, 50.28)  # Q1601702
 ZELENOGRADSK = (20.483, 54.95)  # Q5584
+# #1755, ur Wikidata: Lindau Q153969, Zweibrücken Q16017, Kaiserslautern Q3758, Selb Q49812, Reuver Q1019527
+LINDAU = (9.684, 47.546)
+ZWEIBRUCKEN = (7.361, 49.249)
+KAISERSLAUTERN = (7.769, 49.445)
+SELB = (12.133, 50.167)
+REUVER = (6.079, 51.285)
 # Berlin 1949–1990 (#1731), ur Wikidata: Västberlin och Östberlin
 VASTBERLIN = {'Charlottenburg': (13.3, 52.517), 'Spandau': (13.2, 52.55), 'Wedding': (13.343, 52.55), 'Kreuzberg': (13.383, 52.488),
               'Neukölln': (13.45, 52.483), 'Steglitz': (13.333, 52.467), 'Zehlendorf': (13.259, 52.434)}
@@ -106,6 +112,26 @@ PUNKTER = [
     *[(g, p, n, y, False) for g, y in (('osttyskland', 1970), ('tyskland', 2000)) for p, n in ((SLUBICE, 'Słubice'), (ZGORZELEC, 'Zgorzelec'))],
     *[('osttyskland', HELDBURG, 'Heldburg', y, True) for y in (1950, 1970)],
     *[('sovjetunionen', ZELENOGRADSK, 'Zelenogradsk', y, True) for y in (1950, 1970)],
+    # Äldre gränsfel kring Tyskland (#1755)
+    *[('vasttyskland', LINDAU, 'Lindau', y, True) for y in (1955, 1970, 1990)],
+    ('tyskland', LINDAU, 'Lindau', 2000, True),
+    *[(g, LINDAU, 'Lindau', 2000, False) for g in ('osterrike', 'schweiz')],
+    *[('weimarrepubliken', p, n, 1931, True) for p, n in ((ZWEIBRUCKEN, 'Zweibrücken'), (KAISERSLAUTERN, 'Kaiserslautern'))],
+    *[('nazityskland', ZWEIBRUCKEN, 'Zweibrücken', y, True) for y in (1933, 1934)],
+    ('franska-kolonialvaldet', KAISERSLAUTERN, 'Kaiserslautern', 1931, False),
+    ('franska-kolonialvaldet', KAISERSLAUTERN, 'Kaiserslautern', 1925, True),
+    *[('weimarrepubliken', SAARBRUCKEN_WD, 'Saarbrücken', y, False) for y in (1925, 1931)],
+    *[('nazityskland', FORBACH, 'Forbach', y, False) for y in (1935, 1937, 1939)],
+    *[('franska-kolonialvaldet', FORBACH, 'Forbach', y, True) for y in (1935, 1939)],
+    *[('tjeckoslovakien', SELB, 'Selb', y, False) for y in (1947, 1960, 1990)],
+    *[('vasttyskland', SELB, 'Selb', y, True) for y in (1950, 1970, 1990)],
+    ('tjeckien', SELB, 'Selb', 2000, False),
+    *[('nederlanderna', GANGELT, 'Gangelt', y, False) for y in (1950, 1955, 1962)],
+    *[('vasttyskland', GANGELT, 'Gangelt', y, True) for y in (1950, 1955, 1962)],
+    *[('nederlanderna', REUVER, 'Reuver', y, True) for y in (1955, 1970, 2000)],
+    *[(g, REUVER, 'Reuver', y, False) for g, y in (('vasttyskland', 1955), ('vasttyskland', 1970), ('tyskland', 2000))],
+    ('sovjetunionen', BALTIJSK, 'Baltijsk', 1990, True),
+    *[('ryska-federationen', BALTIJSK, 'Baltijsk', y, True) for y in (1992, 2000, 2013, 2020)],
     # Fria staden Danzig 1920–1939 (#1746), utan Memelområdet (Klaipėda Q776965)
     *[('fria-staden-danzig', DANZIG, 'Danzig', y, True) for y in (1920, 1925, 1937, 1939)],
     *[('fria-staden-danzig', (21.135, 55.713), 'Klaipėda', y, False) for y in (1920, 1922, 1923, 1930)],
