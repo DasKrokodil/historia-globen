@@ -39,6 +39,7 @@ js/search-index.js    sökningens index och matchning (#570)
 js/place-search.js    "Vad hände här?": platsförslag och händelser inom 300 km, i tidsordning (#15)
 js/region-frame.js    regionvyns ramning: vilka platser som får vyn (högst 5 grader på marken i Platt vy, 15–60 grader på globen), den fria ytan, skalan med cos(mittbredden) och globflygets ram; delas med testerna (#1641, #1644)
 js/region-markers.js  regionvyns markörer: numrering i listans ordning, brickan för hela platsen, högar, solfjäder och ortnamn utan krockar; delas med testerna (#1642)
+js/area-lookup.js    punkt mot rike med marginal: vilket rike eller religionsområde en punkt ligger i, annars det närmaste inom 0,05 grader (#1524), delas med testerna
 js/place-geo.js       vilka händelser som ligger inom en plats gräns, platsen under en punkt vid tryck och gränsrutan för inramning i Platt vy, delas med testerna (#579, #1161)
 js/route-steps.js     stegningen mellan en resas stopp: Föregående och Nästa stopp i pausraden (#1380)
 js/theme-stops.js     stoppen när man följer en plats eller ett tema: urval och ordning, flera samma år köas (#1255, #1620)
