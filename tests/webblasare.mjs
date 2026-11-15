@@ -9813,6 +9813,92 @@ async function run(browser, vp) {
       return `${out.join(', ')}; fritt efter turen`;
     } finally { await wp.close(); }
   });
+  // #1713: de nya korten ingick inte i #1309:s ursprungliga tre menyprov.
+  await check('För lärare och Inställningar har dialogroll och håller Tab inom kortet (#1713)', async () => {
+    const wp = await context.newPage();
+    const errs = [];
+    wp.on('pageerror', e => errs.push(e.message));
+    try {
+      await wp.setViewportSize({ width: vp.width > 760 ? 1280 : 400, height: 800 });
+      if (THREE_LOCAL) {
+        await wp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+        await wp.route(u => isFont(u.href), r => r.abort());
+      }
+      await wp.goto(`${BASE}#y=1325`);
+      await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      for (const id of ['teacher', 'settings']) {
+        if (!await wp.isVisible(`#btn-${id}`)) await wp.click(vp.width > 760 ? '#btn-more' : '#more-toggle');
+        if (vp.width <= 760) {
+          const small = await wp.locator('.action-label, .extra-label').evaluateAll(els => els.filter(e => parseFloat(getComputedStyle(e).fontSize) < 12).length);
+          if (small) throw new Error('menyns grupprubriker är under 12 px');
+        }
+        await wp.click(`#btn-${id}`);
+        await wp.waitForSelector(`#${id}`, { state: 'visible', timeout: T.step });
+        if (await wp.getAttribute(`#${id}`, 'role') !== 'dialog') throw new Error(`${id} saknar dialogroll`);
+        if (await wp.getAttribute(`#btn-${id}`, 'aria-haspopup') !== 'dialog') throw new Error(`${id}: öppnaren saknar dialogsemantik`);
+        if (await wp.evaluate(() => document.activeElement?.id) !== `${id}-close`) throw new Error(`${id}: fokus går inte till Stäng`);
+        if (vp.width <= 760) {
+          const sizes = await wp.locator(`#${id} .teacher-h, #${id} .teacher-lesson-meta, #${id} .layer-subheading`).evaluateAll(els => els.map(e => parseFloat(getComputedStyle(e).fontSize)));
+          if (!sizes.length || sizes.some(x => x < 12)) throw new Error(`${id}: text under 12 px (${sizes})`);
+        }
+        await wp.keyboard.press('Shift+Tab');
+        if (!await wp.evaluate(id => document.getElementById(id).contains(document.activeElement), id)) throw new Error(`${id}: Shift+Tab lämnade kortet`);
+        await wp.keyboard.press('Tab');
+        if (await wp.evaluate(() => document.activeElement?.id) !== `${id}-close`) throw new Error(`${id}: Tab kom inte tillbaka till Stäng`);
+        for (let n = 0; n < 20; n++) {
+          await wp.keyboard.press('Tab');
+          if (!await wp.evaluate(id => document.getElementById(id).contains(document.activeElement), id)) throw new Error(`${id}: Tab ${n + 1} gick till sidan bakom`);
+        }
+        await wp.keyboard.press('Escape');
+        await wp.waitForSelector(`#${id}`, { state: 'hidden', timeout: T.step });
+        if (await wp.evaluate(() => document.activeElement?.id) !== (vp.width > 760 ? 'btn-more' : 'more-toggle')) throw new Error(`${id}: Escape gav inte fokus tillbaka till Mer/Meny`);
+      }
+      if (errs.length) throw new Error(errs.join('; '));
+      return 'namngivna dialoger, minst 12 px i mobil, Tab/Shift+Tab stannar inne och Escape återgår';
+    } finally { await wp.close(); }
+  });
+
+  await check('nya mobilytor har läsbar text och platskortets rubriker går att trycka på (#1713)', async () => {
+    const width = vp.width > 760 ? 1280 : 400;
+    const { tp, tctx, errs } = await touchPage({ width, height: 800 });
+    try {
+      await tp.goto(`${BASE}#y=1700&f=place:sverige`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+      if (width <= 760) {
+        const fonts = await tp.locator('.detail-selection .story-label, .detail-selection .meta, .place-emblem figcaption, #focus-state, .religion-legend .rl-title').evaluateAll(els => els.map(e => parseFloat(getComputedStyle(e).fontSize)));
+        if (fonts.length < 4 || fonts.some(n => n < 12)) throw new Error(`platskort/fokusrad/teckenförklaring har text under 12 px: ${fonts}`);
+      }
+      const summaries = tp.locator('.detail-selection .theme-event-list > summary');
+      const count = await summaries.count();
+      if (count < 2) throw new Error('platskortet saknar de två fällbara listorna');
+      for (let i = 0; i < count; i++) {
+        const summary = summaries.nth(i);
+        await summary.scrollIntoViewIfNeeded();
+        const b = await summary.boundingBox();
+        if (!b || b.height < (width <= 760 ? 44 : 24)) throw new Error(`platskortets summary är bara ${b?.height} px hög`);
+        const before = await summary.evaluate(e => e.parentElement.open);
+        await summary.tap();
+        if (await summary.evaluate(e => e.parentElement.open) === before) throw new Error('tryck på platskortets rubrik fällde inte ut/ihop listan');
+      }
+      await tp.click('#detail [data-close]');
+      if (width <= 760) {
+        const play = await tp.locator('#focus-action').boundingBox();
+        if (!play || play.width < 44 || play.height < 44) throw new Error(`Spela är bara ${play?.width} × ${play?.height}`);
+        if (!await tp.locator('#focus-action').evaluate(e => { const b = e.getBoundingClientRect(); return e.contains(document.elementFromPoint(b.x + b.width / 2, b.y + b.height / 2)); })) throw new Error('Spela täcks av en annan yta');
+        await tp.goto(`${BASE}#y=1827&f=place:skane`);
+        await tp.waitForFunction(() => /Skåne/.test(document.getElementById('focus-title').textContent), null, { timeout: T.step });
+        await tp.locator('#detail [data-selection-action]').click();
+        await tp.waitForSelector('#flat-region', { state: 'visible', timeout: T.step });
+        const region = await tp.locator('#flat-region .flat-region-name, #flat-region .flat-region-legend').evaluateAll(els => els.map(e => parseFloat(getComputedStyle(e).fontSize)));
+        if (region.length !== 2 || region.some(x => x < 12)) throw new Error(`regionvyns text är under 12 px: ${region}`);
+      }
+      if (await tp.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1)) throw new Error('rättningen ger horisontell scroll');
+      if (errs.length) throw new Error(errs.join('; '));
+      return 'platskortets listor fungerar med pekning; text, Spela och regionvyn uppfyller mobilmåtten';
+    } finally { await tctx.close(); }
+  });
+
   // #1309: i mobil ska träffytor vara minst 44 × 44 px (själva knappen eller dess osynliga förlängning), ingen text vara under 12 px och
   // Lager, Sök och följ och Turer ha en synlig stängknapp. Kartans etiketter och klungor och tidsskalans små märken (.tff) ingår inte än.
   await check('mobil: träffytor på 44 px, text på minst 12 px och stängknapp i menyerna (#1309)', async () => {

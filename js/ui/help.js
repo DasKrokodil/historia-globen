@@ -13,7 +13,17 @@ export class Help {
       this.close();
     };
     for (const type of ['pointerdown', 'wheel', 'keydown']) document.addEventListener(type, away, { capture: true, passive: true });
-    root.addEventListener('keydown', e => { if (e.key === 'Escape') this.close(true); });
+    root.addEventListener('keydown', e => {
+      if (e.key === 'Escape') this.close(true);
+      // För lärare och Inställningar är dialoger (#1713). Tab stannar bland deras synliga kontroller;
+      // Escape och ett tryck utanför stänger som förut. Den vanliga hjälpens tangentbeteende ändras inte.
+      if (e.key !== 'Tab' || root.getAttribute('role') !== 'dialog') return;
+      const items = [...root.querySelectorAll('button, a[href], input, select, textarea, summary, [tabindex]')]
+        .filter(el => el.tabIndex >= 0 && !el.matches(':disabled') && el.getClientRects().length && getComputedStyle(el).visibility !== 'hidden');
+      const first = items[0], last = items.at(-1);
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
   }
 
   /** Öppna hjälpen. Från knappen flyttas fokus till Stäng, så att tangentbordsanvändare hittar den. */

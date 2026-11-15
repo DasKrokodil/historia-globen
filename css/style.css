@@ -2678,6 +2678,10 @@ span.theme-event:hover { background: none; outline: none; }
 .place-flat { margin-right: 6px; }
 .chip-btn[hidden] { display: none; }
 
+/* Plats- och temakortens fällbara listor behöver en verklig tryckyta även med mus (#1713).
+   Behåll list-item så att webbläsarens triangel visar att raden kan fällas ut. */
+.detail-selection .theme-event-list > summary { box-sizing: border-box; min-height: 24px; padding-block: 4px; }
+
 /* ---------- Mobil: träffytor på 44 px, text på minst 12 px och en stängknapp i menyerna (#1309) ----------
    Tryckytan görs 44 × 44 med ett osynligt ::after när själva knappen är mindre, så att raderna inte växer. Raderna ligger i
    dokumentordning och varje knapp är positionerad, så en grannes synliga yta går före en annans förlängning. */
@@ -2693,6 +2697,11 @@ span.theme-event:hover { background: none; outline: none; }
   .review-badge, .controls .speed, .controls .step, .tick, .timeline-legend summary, .timeline-legend, .layer-heading, .focus-sort-label,
   .focus-sort .chip-btn, .layer-note, .focus-group-count, .tour-lesson-meta, .view-chip, .view-chip-desc, .empire-legend-button { font-size: 12px; }
   .focus-group-toggle, .focus-group-toggle > span { font-size: 12px; }
+  /* Ytor som tillkommit efter det första mobilprovet (#1713). */
+  .action-label, .extra-label, .layer-subheading, .teacher-h, .teacher-lesson-meta, .flat-region-name, .flat-region-legend,
+  .detail-selection .story-label, .detail-selection .meta, .place-emblem, .focus-state, .religion-legend .rl-title { font-size: 12px; }
+  .focus-action { min-width: 44px; min-height: 44px; }
+  .detail-selection .theme-event-list > summary { min-height: 44px; padding-block: 14px; }
   .timeline-legend summary::before { inset: -10px -8px -20px; } /* 44 px hög tryckyta, nedåt och uppåt över skalan */
   /* Täta rader (flikarna och sorteringen i Sök och följ, förvalen i Lager): ytan är en verklig höjd som med raden mellan chipsen
      blir 44 px, så att förlängningen inte krockar med raden ovanför och under */
