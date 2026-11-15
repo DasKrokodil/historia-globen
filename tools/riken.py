@@ -1764,6 +1764,13 @@ EXTEND = {
 # tools/ne-omstridda-omraden.geojson (Natural Earth, public domain, byggd med tools/ne_omstridda.py). Från året
 # `from` tas området bort ur grupperna i `remove` och läggs till grupperna i `add`. Ytan (areaKm2) räknas då fram
 # ur den nya gränsen.
+# Saarområdet 1920–1935 (#1730, #1750): Frankrikes gräns 1931 minus gränsen 1932 i Cliopatria, inom Tysklands gräns i Natural Earth
+SAAR = ('snitt', (('French Third Republic', 1931), ('French Third Republic', 1932)), ('ne', ['tyskland']))
+# Rutan längs gränsen mellan DDR och Västtyskland (väst, syd, öst, nord), #1750
+INNERTYSKA = (9.8, 50.25, 12.05, 54.2)
+# Rutan längs Oder–Neisse-gränsen, #1750
+ODER = (13.7, 50.75, 15.2, 54.45)
+
 DISPUTED = {
     # Krim och Sevastopol: Cliopatria räknar halvön till Ryssland från 2014 och till Ukraina bara till och med 2023.
     # Sverige erkänner inte annekteringen (UD, uttalande 30 september 2022), så halvön ritas som Ukraina.
@@ -1832,9 +1839,10 @@ DISPUTED = {
     # (en.wikipedia "Territory of the Saar Basin"); Cliopatria räknar det till Frankrike till och med 1931 och till
     # Weimarrepubliken 1932–1935. Det visas utan stat 1920–1934. Området är Frankrikes gräns 1931 minus gränsen 1932.
     # strict: förenklingen av Frankrike (0,3 grader) buktar annars in över Saarbrücken, också 1935–1939
-    'saar-nf': {'area': (('French Third Republic', 1931), ('French Third Republic', 1932)), 'from': 1920, 'to': 1934,
+    # Området klipps mot Tysklands gräns i Natural Earth, annars räknas också en bit av Lorraine (Forbach) dit (#1750)
+    'saar-nf': {'area': SAAR, 'from': 1920, 'to': 1934,
                 'strict': True, 'remove': ['weimarrepubliken', 'nazityskland'], 'add': []},
-    'saar-frankrike': {'area': (('French Third Republic', 1931), ('French Third Republic', 1932)), 'from': 1920,
+    'saar-frankrike': {'area': SAAR, 'from': 1920,
                        'to': 1939, 'strict': True, 'remove': ['franska-kolonialvaldet'], 'add': []},
     # Kehl: Cliopatria räknar staden till Förbundsrepubliken från 1950 och till Fjärde republiken till och med 1949
     # (en.wikipedia "Kehl": frigiven i 42 delar 29 juli 1949–8 april 1953). Fjärde republiken har sin gräns från 1949
@@ -1845,7 +1853,9 @@ DISPUTED = {
     # (en.wikipedia "Dutch annexation of German territory after the Second World War"). Cliopatria räknar dem till
     # Nederländerna alla år. Området är den del av Cliopatrias Nederländerna som ligger inom Tysklands gräns i Natural
     # Earth (utan Duivelsberg, som är kvar i Nederländerna)
-    'selfkant-elten': {'area': ('ne-snitt', 'tyskland', ('Netherlands', 1970)), 'from': 1963, 'strict': True,
+    # Hela Tysklands sida av gränsen mot Nederländerna läggs till (rutan längs gränsen), så att inga tomma fält blir kvar där
+    # Nederländernas förenklade gräns har klippts bort (Gangelt, #1750)
+    'selfkant-elten': {'area': ('snitt', ('ne', ['tyskland']), ('rutor', [(5.85, 50.75, 7.3, 53.7)])), 'from': 1963, 'strict': True,
                        'remove': [], 'add': ['vasttyskland', 'tyskland']},
     # Ur Nederländerna klipps hela Tysklands gräns i Natural Earth, så att den förenklade gränsen inte buktar in igen
     'selfkant-elten-nl': {'area': ('ne', ['tyskland']), 'from': 1963, 'strict': True, 'remove': ['nederlanderna'], 'add': []},
@@ -1854,12 +1864,36 @@ DISPUTED = {
     # läggs till Västtyskland
     'granslander-ddr': {'area': ('ne', ['vasttyska-granslander']), 'from': 1949, 'to': 1990, 'strict': True,
                         'remove': ['osttyskland'], 'add': []},
-    'granslander-brd': {'area': ('ne-snitt', 'vasttyska-granslander', ('German Democratic Republic', 1960)), 'from': 1950,
+    'granslander-brd': {'area': ('snitt', ('ne', ['vasttyska-granslander']), ('rutor', [INNERTYSKA])), 'from': 1950,
                         'to': 1990, 'strict': True, 'remove': [], 'add': ['vasttyskland']},
+    # Och från andra hållet (#1750): DDR:s delstater klipps ur Västtyskland och läggs till DDR inom en ruta längs gränsen
+    # (Mödlareuth, Amt Neuhaus och Hirschberg låg i DDR). Rutan når inte Polen, Tjeckoslovakien eller Berlin
+    'ostlander-brd': {'area': ('ne', ['osttyska-lander']), 'from': 1950, 'to': 1990, 'strict': True,
+                      'remove': ['vasttyskland'], 'add': []},
+    'ostlander-ddr': {'area': ('snitt', ('ne', ['osttyska-lander']), ('rutor', [INNERTYSKA])), 'from': 1949, 'to': 1990,
+                      'strict': True, 'remove': [], 'add': ['osttyskland']},
+    # Samma gräns för den sovjetiska zonen 1945–1948, som Cliopatria ritar som en del av Sovjetunionen (Ratzeburg låg i
+    # den brittiska zonen, Mödlareuth och Hirschberg i den sovjetiska)
+    'granslander-sovjetzon': {'area': ('ne', ['vasttyska-granslander']), 'from': 1945, 'to': 1948, 'strict': True,
+                              'remove': ['sovjetunionen'], 'add': []},
+    'ostlander-sovjetzon': {'area': ('snitt', ('ne', ['osttyska-lander']), ('rutor', [INNERTYSKA])), 'from': 1945, 'to': 1948,
+                            'strict': True, 'remove': [], 'add': ['sovjetunionen']},
     # Polen 1945–1952 (#1332, docs/beslut/2026-11-13-ockupation-och-inbordeskrig.md): Cliopatria saknar Polen och räknar
     # landet till Sovjetunionen. Polen visas med sin gräns 1953 (fill i GROUPS), och den klipps bort ur Sovjetunionen
-    'polen-sovjet': {'area': ('clio', 'Republic of Poland', 1953), 'from': 1945, 'to': 1952,
+    'polen-sovjet': {'area': ('skillnad', ('clio', 'Republic of Poland', 1953), ('ne', ['tyskland'])), 'from': 1945, 'to': 1952,
+                     'strict': True,
                      'remove': ['sovjetunionen'], 'add': []},
+    # Oder–Neisse (#1750): Cliopatrias Polen sträcker sig väster om gränsen (Frankfurt an der Oder och Görlitz ligger i
+    # Polen). Tysklands gräns i Natural Earth klipps ur Polen, och den tyska sidan längs gränsen läggs till DDR och Tyskland
+    'oder-polen': {'area': ('ne', ['tyskland']), 'from': 1945, 'strict': True, 'remove': ['polen'], 'add': []},
+    'oder-ddr': {'area': ('snitt', ('ne', ['osttyska-lander']), ('rutor', [ODER])), 'from': 1949, 'to': 1990, 'strict': True,
+                 'remove': [], 'add': ['osttyskland']},
+    'oder-tyskland': {'area': ('snitt', ('ne', ['tyskland']), ('rutor', [ODER])), 'from': 1991, 'strict': True,
+                      'remove': [], 'add': ['tyskland']},
+    # Kaliningradområdet (#1750): Sovjetunionen förenklas med 0,3 grader, och sedan perioderna delades 1949 och 1953
+    # försvann en remsa längs kusten (Baltijsk). Sovjetunionens gräns 1960 i en ruta kring området läggs tillbaka
+    'kaliningrad': {'area': ('snitt', ('clio', 'Union of Soviet Socialist Republics', 1960), ('rutor', [(19.4, 54.2, 22.95, 55.4)])),
+                    'from': 1945, 'to': 1989, 'strict': True, 'remove': [], 'add': ['sovjetunionen']},
     # Nazi Germany har småbitar (mest vatten mellan grannarnas gränser) i länder som Tyskland aldrig höll eller ännu inte
     # hade ockuperat. ('rutor', [(väst, syd, öst, nord), ...]) med 'parts': bara de delar av riket som ligger helt inne i en
     # ruta tas bort, så att rutan aldrig klipper i rikets sammanhängande yta
@@ -1899,6 +1933,8 @@ def disputed_areas(by_name):
             return unary_union([ne[i] for i in a[1]])
         if a[0] == 'geojson':  # alla områden i en GeoJSON-fil i repot (Västberlin, #1731)
             return unary_union([shape(f['geometry']).buffer(0) for f in json.loads((ROOT / a[1]).read_text())['features']])
+        if a[0] == 'snitt':  # det som två områden har gemensamt (#1750)
+            return area(a[1]).intersection(area(a[2]))
         if a[0] == 'skillnad':  # ett område minus ett annat (Östberlin, #1731)
             return area(a[1]).difference(area(a[2]))
         if a[0] == 'rutor':  # rutor (väst, syd, öst, nord), för källfel med 'parts' (#1706)
@@ -1938,6 +1974,19 @@ def polygons_only(g):
         return g
     parts = [x for x in getattr(g, 'geoms', []) if x.geom_type in ('Polygon', 'MultiPolygon')]
     return unary_union(parts) if parts else Polygon()
+
+
+def valid_rounded(g, nd):
+    """Geometrin som GeoJSON avrundad till nd decimaler. Blir den ogiltig av klippningen eller avrundningen görs den giltig
+    och avrundas igen (#1750)."""
+    geo = {'type': mapping(g)['type'], 'coordinates': rnd(mapping(g)['coordinates'], nd)}
+    for _ in range(3):
+        if shape(geo).is_valid:
+            break
+        # make_valid behåller ytan (buffer(0) kan tappa halva en polygon som korsar sig själv)
+        g = polygons_only(shapely.make_valid(shape(geo)))
+        geo = {'type': mapping(g)['type'], 'coordinates': rnd(mapping(g)['coordinates'], nd)}
+    return geo
 
 
 def drop_parts_within(g, area):
@@ -2421,12 +2470,12 @@ def main():
                     g = q['_g']
                     for a, r in on:
                         g = polygons_only(g.difference(a) if r else unary_union([g, a]))
-                    q['geometry'] = {'type': mapping(g)['type'], 'coordinates': rnd(mapping(g)['coordinates'], DECIMALS.get(gid, 1))}
+                    q['geometry'] = valid_rounded(g, DECIMALS.get(gid, 1))
                     if '_home' in q:
                         hg = q['_home']
                         for a, r in on:
                             hg = polygons_only(hg.difference(a)) if r else hg
-                        q['homeland'] = {'type': mapping(hg)['type'], 'coordinates': rnd(mapping(hg)['coordinates'])}
+                        q['homeland'] = valid_rounded(hg, 1)
                 del q['_shape']
                 q.pop('_g', None)
                 q.pop('_home', None)
@@ -2541,6 +2590,9 @@ def main():
              'Västberlin och Östberlin 1949–1990 (#1731): Västberlins gräns kommer ur Verlauf der Berliner Mauer, 1989 (Geoportal '
              'Berlin, Datenlizenz Deutschland – Zero 2.0, tools/vastberlin.py) och klipps ur DDR; Östberlin är hela Berlin i Natural '
              'Earth admin 1 minus Västberlin och räknas till DDR. '
+             'Rättningar efter #1730 (#1750): Saarområdet är klippt mot Tysklands gräns i Natural Earth, gränsen mellan DDR (och den '
+             'sovjetiska zonen 1945–1948) och Västtyskland följer delstaterna i Natural Earth på båda sidor, Tysklands gräns mot '
+             'Nederländerna och Polen följer Natural Earth, och Kaliningradområdet har Sovjetunionens gräns 1960 i Cliopatria. '
              'Små stater (#722): tolv länder som Cliopatria saknar i nutid eller har fel gräns för har gränsen ur Natural Earth '
              '(ne_10m_admin_0_countries 5.1.1, public domain), från självständigheten, och polity.point = true: de visas som en punkt med namn.')
     (out / 'index.json').write_text(json.dumps({'schema': 'historia-globen/empires-index@1', 'notes': notes, 'groups': index},
