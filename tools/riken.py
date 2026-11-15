@@ -1812,10 +1812,14 @@ DISPUTED = {
                            'remove': ['sovjetunionen'], 'add': []},
     # Irak från 2006: Cliopatria räknar landet till USA 2006–2023 (från 2014 samtidigt med Irak)
     'irak-usa': {'area': ('clio', 'Iraqi Republic', 2005), 'from': 2006, 'remove': ['usa'], 'add': []},
-    # Källfel i Cliopatria, Tyskland 1920–1990 (#1706). DDR 1973–1975 saknar hålet för Västberlin, som Cliopatria har
-    # alla andra år 1949–1990; området är DDR:s gräns 1973 minus gränsen 1972
-    'vastberlin-ddr': {'area': (('German Democratic Republic', 1973), ('German Democratic Republic', 1972)),
-                       'from': 1973, 'to': 1975, 'remove': ['osttyskland'], 'add': []},
+    # Västberlin och Östberlin 1949–1990 (#1731, beslut 2026-11-15-vastberlin-grans.md). Cliopatrias hål i DDR för Västberlin
+    # stämmer bara ungefär (det täcker delar av Östberlin, och södra Västberlin ligger i DDR) och saknas 1973–1975.
+    # Västberlin är i stället gränsen ur "Verlauf der Berliner Mauer, 1989" (tools/vastberlin.geojson, byggd med
+    # tools/vastberlin.py), som klipps ur DDR, och Östberlin (hela Berlin i Natural Earth admin 1 minus Västberlin) läggs till DDR
+    'ostberlin-ddr': {'area': ('skillnad', ('ne', ['berlin']), ('geojson', 'tools/vastberlin.geojson')), 'from': 1949,
+                      'to': 1990, 'strict': True, 'remove': [], 'add': ['osttyskland']},
+    'vastberlin-ddr': {'area': ('geojson', 'tools/vastberlin.geojson'), 'from': 1949, 'to': 1990, 'strict': True,
+                       'remove': ['osttyskland'], 'add': []},
     # Femte republiken: Cliopatria räknar en bit av Västberlin (den franska sektorn) till Frankrike 1958–2023. Den syns med
     # den finare förenklingen ovan och tas bort
     'frankrike-berlin': {'area': ('rutor', [(13.0, 52.3, 13.8, 52.8)]), 'parts': True,
@@ -1893,6 +1897,10 @@ def disputed_areas(by_name):
             return at(a[1], a[2])
         if a[0] == 'ne':
             return unary_union([ne[i] for i in a[1]])
+        if a[0] == 'geojson':  # alla områden i en GeoJSON-fil i repot (Västberlin, #1731)
+            return unary_union([shape(f['geometry']).buffer(0) for f in json.loads((ROOT / a[1]).read_text())['features']])
+        if a[0] == 'skillnad':  # ett område minus ett annat (Östberlin, #1731)
+            return area(a[1]).difference(area(a[2]))
         if a[0] == 'rutor':  # rutor (väst, syd, öst, nord), för källfel med 'parts' (#1706)
             return unary_union([box(*r) for r in a[1]])
         if a[0] == 'ne-snitt':  # ett land i Natural Earth snittat med en Cliopatria-post ett visst år
@@ -2523,13 +2531,16 @@ def main():
              'Ockupation och inbördeskrig (#1332): där Cliopatria efter 1945 ritar en ockupationsmakt eller en part i ett inbördeskrig '
              'i stället för en stat, visas den internationellt erkända staten med sin egen gräns i Cliopatria ett närliggande år (fill i '
              'tools/riken.py), och makten klipps bort de åren; där är areaKm2 Cliopatrias yta för den gränsen. '
-             'Källfel i Cliopatria, Tyskland 1920–1990 (#1706): Västberlin räknas inte till DDR 1973–1975 och inte till Femte franska '
+             'Källfel i Cliopatria, Tyskland 1920–1990 (#1706): Västberlin räknas inte till Femte franska '
              'republiken; Nazi Germanys småbitar i Sverige, ryska Karelen och Levanten, och före ockupationerna i Norge, Estland och '
              'på Naxos, är borttagna (DISPUTED i tools/riken.py). Västtyskland delas 1958, när Saarland kommer med i Cliopatria. '
              'Fortsättning (#1730): Saarområdet visas utan stat 1920–1934 (Nationernas förbund), Kehl hör inte till Frankrike från 1950, '
              'Selfkant och Elten hör till Västtyskland från 1963 (gränsen ur Natural Earth), gränsen mellan DDR och Västtyskland följer '
              'Västtysklands delstater i Natural Earth (ne_10m_admin_1_states_provinces 5.1.2), och Polen 1945–1952 visas med gränsen '
              '1953. Områden med strict i DISPUTED klipps bort eller läggs till också efter förenklingen. '
+             'Västberlin och Östberlin 1949–1990 (#1731): Västberlins gräns kommer ur Verlauf der Berliner Mauer, 1989 (Geoportal '
+             'Berlin, Datenlizenz Deutschland – Zero 2.0, tools/vastberlin.py) och klipps ur DDR; Östberlin är hela Berlin i Natural '
+             'Earth admin 1 minus Västberlin och räknas till DDR. '
              'Små stater (#722): tolv länder som Cliopatria saknar i nutid eller har fel gräns för har gränsen ur Natural Earth '
              '(ne_10m_admin_0_countries 5.1.1, public domain), från självständigheten, och polity.point = true: de visas som en punkt med namn.')
     (out / 'index.json').write_text(json.dumps({'schema': 'historia-globen/empires-index@1', 'notes': notes, 'groups': index},

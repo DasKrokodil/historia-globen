@@ -738,6 +738,8 @@
     { "id": "wp-nazi-germany", "title": "Nazi Germany – Wikipedia", "url": "https://en.wikipedia.org/wiki/Nazi_Germany", "license": "CC BY-SA 4.0", "checked": "2026-11-13" },
     { "id": "wp-west-germany", "title": "West Germany – Wikipedia", "url": "https://en.wikipedia.org/wiki/West_Germany", "license": "CC BY-SA 4.0", "checked": "2026-11-13" },
     { "id": "wp-east-germany", "title": "East Germany – Wikipedia", "url": "https://en.wikipedia.org/wiki/East_Germany", "license": "CC BY-SA 4.0", "checked": "2026-11-13" },
+    { "id": "berlin-mauer-1989", "title": "Verlauf der Berliner Mauer, 1989 (WFS, Geoportal Berlin; Forum für Geschichte und Gegenwart e.V. och Senatsverwaltung für Stadtentwicklung, Bauen und Wohnen Berlin)", "url": "https://datenregister.berlin.de/dataset/verlauf-der-berliner-mauer-1989-wfs-3dcda64c", "license": "Datenlizenz Deutschland – Zero – Version 2.0", "checked": "2026-11-15" },
+    { "id": "wp-east-berlin", "title": "East Berlin – Wikipedia", "url": "https://en.wikipedia.org/wiki/East_Berlin", "license": "CC BY-SA 4.0", "checked": "2026-11-15" },
     { "id": "wp-west-berlin", "title": "West Berlin – Wikipedia", "url": "https://en.wikipedia.org/wiki/West_Berlin", "license": "CC BY-SA 4.0", "checked": "2026-11-15" },
     { "id": "wp-territory-of-the-saar-basin", "title": "Territory of the Saar Basin – Wikipedia", "url": "https://en.wikipedia.org/wiki/Territory_of_the_Saar_Basin", "license": "CC BY-SA 4.0", "checked": "2026-11-15" },
     { "id": "wp-kehl", "title": "Kehl – Wikipedia", "url": "https://en.wikipedia.org/wiki/Kehl", "license": "CC BY-SA 4.0", "checked": "2026-11-15" },

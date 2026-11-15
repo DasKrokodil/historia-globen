@@ -50,7 +50,8 @@ AREAS = {
 COUNTRIES = {'azerbajdzjan': 'AZE', 'tyskland': 'DEU'}  # Tyskland: Selfkant och Elten efter 1963 (#1730)
 # Små stater (#722), ur samma fil men förenklade till bara 0,002 grader och avrundade till 0,001 grad
 # Delstater ur ne_10m_admin_1_states_provinces (adm1_code), sammanslagna och förenklade till 0,01 grad (#1730)
-STATES = {'vasttyska-granslander': ['DEU-1579', 'DEU-1576', 'DEU-1574', 'DEU-1591']}
+STATES = {'vasttyska-granslander': ['DEU-1579', 'DEU-1576', 'DEU-1574', 'DEU-1591'],
+          'berlin': ['DEU-1599']}  # hela Berlin; Östberlin är Berlin minus Västberlin (tools/vastberlin.geojson, #1731)
 SMALL = {'saint-kitts-och-nevis': 'KNA', 'mikronesiska-federationen': 'FSM', 'kiribati': 'KIR', 'komorerna': 'COM',
          'liechtenstein': 'LIE', 'maldiverna': 'MDV', 'marshalloarna': 'MHL', 'nauru': 'NRU', 'samoa': 'WSM',
          'san-marino': 'SMR', 'tonga': 'TON', 'tuvalu': 'TUV', 'andorra': 'AND', 'monaco': 'MCO'}
