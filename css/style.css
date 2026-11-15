@@ -2746,6 +2746,27 @@ span.theme-event:hover { background: none; outline: none; }
   #detail { max-height: min(52dvh, calc(100dvh - var(--ff-b) - 120px)); }
 }
 
+/* ---------- Liggande telefon: faktarutan går att nå (#1667) ----------
+   Uppmätt i Playwright (800 × 360, 640 × 360 och 360 × 640, platskortet för Skåne öppet). Stående telefon (360 × 640) var
+   redan hel. I liggande läge tar knapparna uppe, fokusraden, tidsreglaget och tidslinjen cirka 270 av 360 px, så kortet får
+   under 100 px, och två saker gjorde knapparna i kortet oåtkomliga:
+   1. 800 × 360 (bred layout, men låg): knapparna överst (två rader, 98 px) låg över kortets övre hälft, med krysset och
+      "Visa i regionvy" under sig. Medan kortet är öppet lämnar knapparna därför plats åt det; kryssets tryck (eller Escape) ger
+      dem tillbaka. De är dolda med visibility, så att de inte heller går att nå med Tab medan de är övertäckta.
+   2. 640 × 360 (smal layout): arket i läget "helt" stannade ovanför fokusraden och blev bara cirka 150 px högt, med knappen i
+      kortet långt ned. På en pekskärm (en liggande telefon) fortsätter det i stället ned till kanten, över fokusraden och
+      tidsreglaget (de är tillbaka när arket fälls ihop med handtaget). Med mus gäller regeln från #1310 oförändrad: vid 200 %
+      zoom (640 × 400) får arket inte täcka tidsreglaget. Under en tur och i lektionsläget gäller de egna reglerna som förut. */
+@media (min-width: 761px) and (max-height: 500px) {
+  .app:has(#detail:not([hidden])) .top-actions { visibility: hidden; }
+}
+@media (max-width: 760px) and (max-height: 500px) and (pointer: coarse) {
+  .app.app.app:not(.touring) #detail[data-sheet="full"] {
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 8px);
+    max-height: calc(100dvh - var(--tour-top) - 8px - env(safe-area-inset-bottom, 0px));
+  }
+}
+
 /* Raden om projektet sist i Om källorna (#1575) */
 .src-about { margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--line); font-size: 13px; color: var(--parchment-dim); }
 .src-about a { color: var(--brass); }
