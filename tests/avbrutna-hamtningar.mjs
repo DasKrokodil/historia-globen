@@ -72,8 +72,13 @@ export function skapaAbortWatch({ siteHost, filtered = () => {}, register = () =
     const isOwn = r => urlKey(r.url())?.host === siteHost;
     const pendingKeys = new Map(); // egen begäran till dess nyckel (urlKey), så länge den är ofullbordad (villkor 4, steg 3)
     const isPending = key => [...pendingKeys.values()].includes(key);
-    p.on('request', r => { if (isOwn(r)) { pending.set(r, shortUrl(r.url())); pendingKeys.set(r, urlKey(r.url())?.key); } });
+    // Spår per egen adress (steg 3, diagnos): när begäran skickades, blev klar eller misslyckades, och när sidfelet kom. Skrivs bara på
+    // ett sidfel som ändå fäller kontrollen, så att en körning i WebKit visar vad webbläsaren rapporterade för just den filen.
+    const trail = new Map();
+    const track = (u, what) => { const k = urlKey(u)?.key; if (!k) return; const l = trail.get(k) ?? []; l.push(`${what} +${now() - t0} ms`); if (l.length > 12) l.shift(); trail.set(k, l); };
+    p.on('request', r => { if (isOwn(r)) { pending.set(r, shortUrl(r.url())); pendingKeys.set(r, urlKey(r.url())?.key); track(r.url(), `request${navigating ? ` (sidbyte ${navSerial})` : ''}`); } });
     p.on('requestfinished', r => {
+      if (pendingKeys.has(r)) track(r.url(), 'requestfinished');
       pending.delete(r); pendingKeys.delete(r);
       if (FONT_HOST.test(urlKey(r.url())?.host ?? '')) return;
       try { Promise.resolve(r.response?.()).then(res => { const st = res?.status?.(); if (st >= 400) note(`svar ${st}: ${shortUrl(r.url())}`); }).catch(() => {}); } catch { /* fakesidor i proven saknar response() */ }
@@ -82,6 +87,7 @@ export function skapaAbortWatch({ siteHost, filtered = () => {}, register = () =
     p.on('load', () => note('load'));
     p.on('requestfailed', r => {
       const k = urlKey(r.url()), text = r.failure()?.errorText ?? '';
+      if (pendingKeys.has(r)) track(r.url(), `requestfailed (${text || 'ingen text'})`);
       pending.delete(r); pendingKeys.delete(r);
       if (!FONT_HOST.test(k?.host ?? '')) note(`requestfailed: ${shortUrl(r.url())} (${text || 'ingen text'})`);
       if (k) failedTexts.set(k.key, [...(failedTexts.get(k.key) ?? []), text]);
@@ -110,7 +116,7 @@ export function skapaAbortWatch({ siteHost, filtered = () => {}, register = () =
         const m = String(message ?? '').match(WEBKIT_ABORT);
         const k = m && urlKey(m[1]);
         if (!k || k.host !== siteHost) return false;
-        candidates.push({ key: k.key, message, pending: isPending(k.key) }); // ofullbordad just när sidfelet kom (villkor 4, steg 3)
+        candidates.push({ key: k.key, message, pending: isPending(k.key), at: `sidfel +${now() - t0} ms under sidbyte ${navSerial}` }); // ofullbordad just när sidfelet kom (villkor 4, steg 3)
         return true;
       },
       /** true om konsolraden kan vara en avbruten hämtning och väntar på settle(); false om den räknas som fel direkt (#1561). */
@@ -136,7 +142,7 @@ export function skapaAbortWatch({ siteHost, filtered = () => {}, register = () =
         const consoleReal = realConsole.map(c => `konsol: ${c.text} (under sidbyte, men ingen begäran till den egna webbplatsen avbröts; misslyckade begäranden: ${allFailed})${watch.consoleDiag(c.text)}`);
         // Villkor 4 uppfylldes inte: texten säger vad webbläsaren rapporterade som misslyckad begäran för adressen, så att en körning i
         // WebKit visar varför felet inte räknades bort (ett sidfel utan den raden kom utanför ett sidbyte). Villkoren är oförändrade.
-        return [...real.map(c => `${c.message} (ingen avbruten eller ofullbordad begäran för adressen; misslyckade begäranden: ${failedTexts.get(c.key)?.join(' | ') || 'inga'})`), ...consoleReal];
+        return [...real.map(c => `${c.message} (ingen avbruten eller ofullbordad begäran för adressen; misslyckade begäranden: ${failedTexts.get(c.key)?.join(' | ') || 'inga'}; spår: ${[...(trail.get(c.key) ?? ['ingen request för adressen']), c.at].join(', ')})`), ...consoleReal];
       },
     };
     register(watch);

@@ -206,6 +206,15 @@ test('fäller: sidfel för en egen begäran som redan var klar när felet kom', 
   const kvar = aw.settle();
   assert.equal(kvar.length, 1);
   assert.match(kvar[0], /ingen avbruten eller ofullbordad begäran/);
+  // Spåret visar vad webbläsaren rapporterade för just den filen, och när sidfelet kom
+  assert.match(kvar[0], /spår: request \+\d+ ms, requestfinished \+\d+ ms, sidfel \+\d+ ms under sidbyte 1\)/);
+});
+
+test('spåret säger när ingen request alls syntes för adressen', async () => {
+  const { sidan, aw } = uppsattning();
+  sidan.goto = async () => { aw.defer(rad('/data/a.json')); };
+  await aw.goto('x');
+  assert.match(aw.settle()[0], /spår: ingen request för adressen, sidfel \+\d+ ms under sidbyte 1\)/);
 });
 
 test('fäller: sidfel för en egen begäran som misslyckades på riktigt (nekad anslutning)', async () => {
