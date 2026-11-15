@@ -3184,11 +3184,18 @@ async function run(browser, vp) {
     // Reglerna för liggande telefon gäller bara med pointer: coarse. Chromium ger det redan med hasTouch, Firefox först med isMobile:
     // utan det var arket i läget helt lika lågt som halvt i Firefox, och draget i handtaget gav halvt (#1174)
     const { tp, tctx, errs } = await touchPage({ isMobile: true });
-    try {
+    // Firefox-jobbet nådde två gånger tidsgränsen på 60 minuter i datorbredden med den här kontrollen, utan logg (#1667). En gräns
+    // på 4 minuter med det steg kontrollen stod på gör ett stopp till ett fel med plats, och resten av sviten hinner köras.
+    let stage = 'start';
+    let limitTimer;
+    const limit = new Promise((_, reject) => { limitTimer = setTimeout(() => reject(new Error(`kontrollen stannade i mer än 4 minuter vid: ${stage}`)), 240000); });
+    const run = (async () => {
       if (!(await tp.evaluate(() => matchMedia('(pointer: coarse)').matches))) throw new Error('sidan har inte pointer: coarse, så provet prövar inte en telefon');
       const out = [];
       for (const [width, height] of [[800, 360], [844, 390], [640, 360], [667, 375]]) {
+        stage = `${width} × ${height}: storlek`;
         await tp.setViewportSize({ width, height });
+        stage = `${width} × ${height}: sidan laddas`;
         await tp.goto(`${BASE}?ny=liggande1667w${width}#y=1827&f=place:skane`);
         await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
         await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
@@ -3198,6 +3205,7 @@ async function run(browser, vp) {
         const sheet = () => tp.evaluate(() => document.getElementById('detail').dataset.sheet);
         // I smal layout är arket halvt: ett drag uppåt i handtaget ska ge helt, som en användare gör för att nå knappen
         if (!wide) {
+          stage = `${name}: drag i handtaget`;
           const hb = await tp.locator('#detail-handle').boundingBox();
           await tp.mouse.move(hb.x + hb.width / 2, hb.y + hb.height / 2);
           await tp.mouse.down();
@@ -3210,6 +3218,7 @@ async function run(browser, vp) {
             throw new Error(`${name}: drag uppåt i handtaget gav läget ${await sheet()}, inte helt (arkets höjd i lägena: ${JSON.stringify(h)})`);
           }
         }
+        stage = `${name}: kryss och knapp`;
         const probe = sel => tp.evaluate(s => {
           const el = document.querySelector(s);
           if (!el) return { missing: true };
@@ -3239,6 +3248,7 @@ async function run(browser, vp) {
           });
           if (!over.reaches) throw new Error(`${name}: arket fortsätter inte ned över fokusraden (${over.tall} px högt)`);
           if (over.covered.length) throw new Error(`${name}: arket täcker kontroller som går att fokusera: ${over.covered.join(', ')}`);
+          stage = `${name}: arket fälls ihop`;
           // Arket fälls ihop: fokusraden ska åter gå att trycka på (den låg under det fullt utfällda arket)
           await tp.click('#detail-handle');
           await tp.waitForFunction(() => document.getElementById('detail').dataset.sheet !== 'full', null, { timeout: T.step });
@@ -3250,11 +3260,13 @@ async function run(browser, vp) {
           await tp.waitForFunction(() => document.getElementById('detail').dataset.sheet === 'full', null, { timeout: T.step });
           await tp.waitForTimeout(300);
         }
+        stage = `${name}: Visa i regionvy`;
         await tp.locator('#detail [data-selection-action]').scrollIntoViewIfNeeded();
         await tp.click('#detail [data-selection-action]');
         await tp.waitForFunction(() => !document.getElementById('flat-view').hidden, null, { timeout: T.step });
         out.push(`${name} ok`);
         if (wide) {
+          stage = `${name}: krysset och händelsekortet`;
           // Kortet stängs med krysset och knapparna överst kommer tillbaka
           await tp.click('#detail .detail-close');
           await tp.waitForFunction(() => document.getElementById('detail').hidden, null, { timeout: T.step });
@@ -3275,7 +3287,14 @@ async function run(browser, vp) {
       }
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
       return out.join(', ');
-    } finally { await tctx.close(); }
+    })();
+    try {
+      return await Promise.race([run, limit]);
+    } finally {
+      clearTimeout(limitTimer);
+      run.catch(() => {}); // har gränsen slagit till fortsätter run i bakgrunden tills sammanhanget stängs
+      await Promise.race([tctx.close().catch(() => {}), new Promise(r => setTimeout(r, 10000))]);
+    }
   });
 
   // #1696: ett kort som öppnades från Sök och följ gav fokus till Samtidigt när det stängdes med Escape. Fokus ska gå tillbaka till knappen
