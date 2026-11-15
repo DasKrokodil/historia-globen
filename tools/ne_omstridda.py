@@ -16,8 +16,16 @@ Små stater som Cliopatria saknar eller har fel gräns för (#722, Rikards beslu
 ne_10m_admin_0_countries (SMALL nedan). De förenklas nästan inte, så att atollerna finns kvar, och visas som
 punkter på kartan.
 
-Kör från projektets rot, med de uppackade shapefilerna:
-    python3 tools/ne_omstridda.py <ne_10m_admin_0_disputed_areas.shp> <ne_10m_admin_0_countries.shp>
+Västtysklands delstater längs gränsen mot DDR (Schleswig-Holstein, Niedersachsen, Hessen och Bayern) tas ur
+ne_10m_admin_1_states_provinces (version 5.1.2, samma fil som tools/platser_gransar.py), eftersom Cliopatrias gräns mellan
+DDR och Västtyskland är grov (Ratzeburg ligger i Cliopatrias DDR, #1730).
+
+Kring Tyskland (#1755) tas också Frankrikes, Nederländernas, Kaliningradområdets, Litauens och Tjeckiens gränser ur
+ne_10m_admin_0_countries, bara inom en ruta (CLIPPED), och Saarlands gräns ur admin 1.
+
+Kör från projektets rot, med de uppackade shapefilerna och delstaternas GeoJSON:
+    python3 tools/ne_omstridda.py <ne_10m_admin_0_disputed_areas.shp> <ne_10m_admin_0_countries.shp> \
+        <ne_10m_admin_1_states_provinces.geojson>
 Kräver pyshp och shapely (pip install pyshp shapely).
 """
 import json
@@ -25,7 +33,8 @@ import sys
 from pathlib import Path
 
 import shapefile
-from shapely.geometry import mapping, shape
+from shapely.geometry import box, mapping, shape
+from shapely.ops import unary_union
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / 'tools/ne-omstridda-omraden.geojson'
@@ -41,8 +50,20 @@ AREAS = {
     'transnistrien': 'Transnistria',
 }
 # Länders gränser ur ne_10m_admin_0_countries (ADM0_A3), förenklade till 0,01 grad
-COUNTRIES = {'azerbajdzjan': 'AZE'}
+COUNTRIES = {'azerbajdzjan': 'AZE', 'tyskland': 'DEU', 'polen-ne': 'POL'}  # Tyskland: Selfkant och Elten efter 1963 (#1730)
+# Länder som bara behövs i en ruta (väst, syd, öst, nord), förenklade som Tyskland (#1755): Frankrikes europeiska del
+# (gränsen mot Tyskland, Forbach), Nederländerna i Europa (gränsen mot Tyskland), Kaliningradområdet med grannarna Polen och
+# Litauen, och Tjeckien längs gränsen mot Tyskland (Selb)
+CLIPPED = {'frankrike-ne': ('FRA', (-5.5, 41.0, 10.0, 51.5)), 'nederlanderna-ne': ('NLD', (3.0, 50.6, 7.5, 53.8)),
+           'kaliningrad-ne': ('RUS', (19.4, 54.2, 22.95, 55.4)), 'litauen-ne': ('LTU', (19.4, 54.2, 22.95, 55.4)),
+           'tjeckien-ne': ('CZE', (11.9, 48.5, 15.1, 51.1))}
 # Små stater (#722), ur samma fil men förenklade till bara 0,002 grader och avrundade till 0,001 grad
+# Delstater ur ne_10m_admin_1_states_provinces (adm1_code), sammanslagna och förenklade till 0,003 grader (#1730, #1750)
+STATES = {'vasttyska-granslander': ['DEU-1579', 'DEU-1576', 'DEU-1574', 'DEU-1591'],
+          'berlin': ['DEU-1599'],
+          'saarland': ['DEU-1581'],  # Saarområdet 1920–1935 ligger inom Saarland (Zweibrücken låg utanför, #1755)
+          # DDR:s delstater (Mecklenburg-Vorpommern, Brandenburg, Sachsen-Anhalt, Thüringen och Sachsen), #1750
+          'osttyska-lander': ['DEU-3488', 'DEU-3487', 'DEU-1600', 'DEU-1577', 'DEU-1601']}  # hela Berlin; Östberlin är Berlin minus Västberlin (tools/vastberlin.geojson, #1731)
 SMALL = {'saint-kitts-och-nevis': 'KNA', 'mikronesiska-federationen': 'FSM', 'kiribati': 'KIR', 'komorerna': 'COM',
          'liechtenstein': 'LIE', 'maldiverna': 'MDV', 'marshalloarna': 'MHL', 'nauru': 'NRU', 'samoa': 'WSM',
          'san-marino': 'SMR', 'tonga': 'TON', 'tuvalu': 'TUV', 'andorra': 'AND', 'monaco': 'MCO'}
@@ -77,10 +98,27 @@ def main():
             a = dict(zip(fields, s.record))
             for key, a3 in {**COUNTRIES, **SMALL}.items():
                 if a['ADM0_A3'] == a3:
-                    tol = 0.002 if key in SMALL else 0.01
+                    # Tyskland finare (0,003 grader), annars hamnar Görlitz vid Neisse utanför gränsen (#1750)
+                    tol = 0.002 if key in SMALL else 0.003 if key in ('tyskland', 'polen-ne') else 0.01
                     m = mapping(shape(s.shape.__geo_interface__).buffer(0).simplify(tol, preserve_topology=True))
                     feats.append({'type': 'Feature', 'properties': {'id': key, 'name': a['NAME'], 'note': 'ne_10m_admin_0_countries'},
                                   'geometry': {'type': m['type'], 'coordinates': rnd(m['coordinates'])}})
+            for key, (a3, ruta) in CLIPPED.items():
+                if a['ADM0_A3'] == a3:
+                    g = shape(s.shape.__geo_interface__).buffer(0).intersection(box(*ruta))
+                    # bara ytor: snittet med rutan kan ge linjer och punkter där gränsen följer rutans kant
+                    g = unary_union([q for q in getattr(g, 'geoms', [g]) if q.geom_type in ('Polygon', 'MultiPolygon')])
+                    m = mapping(g.simplify(0.003, preserve_topology=True))
+                    feats.append({'type': 'Feature', 'properties': {'id': key, 'name': a['NAME'], 'note': 'ne_10m_admin_0_countries, inom rutan'},
+                                  'geometry': {'type': m['type'], 'coordinates': rnd(m['coordinates'])}})
+    if len(sys.argv) > 3:
+        states = {f['properties']['adm1_code']: f for f in json.loads(Path(sys.argv[3]).read_text())['features']}
+        for key, codes in STATES.items():
+            g = unary_union([shape(states[c]['geometry']).buffer(0) for c in codes])
+            m = mapping(g.simplify(0.003, preserve_topology=True))  # som Tyskland (#1750)
+            feats.append({'type': 'Feature', 'properties': {'id': key, 'name': ', '.join(states[c]['properties']['name'] for c in codes),
+                                                            'note': 'ne_10m_admin_1_states_provinces 5.1.2'},
+                          'geometry': {'type': m['type'], 'coordinates': rnd(m['coordinates'])}})
     doc = {'type': 'FeatureCollection',
            'source': 'Natural Earth 1:10m, ne_10m_admin_0_disputed_areas och ne_10m_admin_0_countries 5.1.1 (public domain), '
                      'uttaget med tools/ne_omstridda.py',

@@ -60,7 +60,7 @@ _headers              Cloudflare Pages cache-regler (no-cache, så att en releas
 css/style.css
 js/main.js            startar allt och kopplar ihop registret, tidslinjen och panelerna
 js/controllers/       main.js uppdelad: val, fokus, faktarutor, omritning, uppspelning, berättelse, etiketter (#402), adressen (#501), tidsintervallet (range.js, #755), raden om en trasig länk (link-notice.js, #1324) återgång efter hopp (jump-back.js, #997), fokus när faktarutan stängs (detail-focus.js, #1436), tryck på platsens kontur (places.js, #1161), regionvyn i Platt vy (region.js, #1641, markörerna och listan #1642) och presentationsläget (presentation.js, #488, #1315)
-js/state.js           det gemensamma tillståndet som lagren läser (år, fokus, filter, valda lager, #338), åtgärder och JSON (#403), och lägeskontraktet med uteslutningstabellen (#893)
+js/state.js           det gemensamma tillståndet som lagren läser (år, fokus, filter, valda lager, #338), åtgärder och JSON (#403), och lägeskontraktet med uteslutningstabellen (#893); teman och platser är fokustyper, inga egna lägen
 js/surfaces.js        stängregistret för ytor: menyerna och sidopanelen anmäler sig i grupper och en öppnad yta stänger sin grupp (#894)
 js/layers/registry.js lagerregistret: rader i Lager, ritordning, dämpning i fokus, teckenförklaring (#338)
 js/layers/index.js    lagerlistan: alla lager som anmäler sig i registret (#338)
@@ -69,6 +69,7 @@ js/model.js           språk, kategorier, tidsformat, laddning av data
 js/i18n.js            språkval och gränssnittets texter på valt språk (#63)
 js/globe.js           3D-globen (three.js), ekvirektangulär rendering
 js/globe-detail.js    skarpt utsnitt av kartan vid inzoomning
+js/period-range.js    epok som intervall: periodToRange klipper vid tidslinjens början och går till i dag för öppna perioder (#965)
 js/timeline.js        tidsreglage, segmenterad tidsskala, nuvarande år
 js/layers/events.js   lager: händelser som punkter
 js/layers/areas.js    lager: riken som områden som ändras över tid
@@ -78,14 +79,19 @@ js/layers/borders.js  lager: dagens landsgränser (av som standard)
 js/layers/places.js   lager: konturen av platsen man följer i Fokus (#579) och de prickade konturerna runt platser med kort när man har zoomat in (#1161)
 js/layers/spread.js   lager: människans spridning, antagna områden och vågor i förhistorien (#1094)
 js/place-geo.js       vilka händelser som ligger inom en plats gräns, platsen under en punkt vid tryck och gränsrutan för inramning i Platt vy, delas med testerna (#579, #1161)
-js/region-frame.js    regionvyns ramning: vilka platser som får den (högst 5 grader på marken), den fria ytan och skalan med cos(mittbredden), delas med testerna (#1641)
+js/region-frame.js    regionvyns ramning: vilka platser som får den (högst 5 grader på marken i Platt vy, 15–60 grader på globen), den fria ytan, skalan med cos(mittbredden) och globflygets ram, delas med testerna (#1641, #1644)
 js/region-markers.js  regionvyns markörer: numrering i listans ordning, brickan för hela platsen, högar, solfjäder och ortnamn utan krockar, delas med testerna (#1642)
 js/layers/religions.js lager: religioner som områden, med symboler i områdena (#271)
 js/layers/origins.js  religionens symbol där den uppstod, som klickbar markör (#271)
 js/layers/empiremarks.js rikenas symboler mitt i områdena, som klickbara markörer (#301)
 js/layers/wars.js     lager: krigsområden runt krigets slag
 js/layers/lines.js    lager: vägar och resor som ritas fram över tiden (#38)
+js/layers/images.js   bildlager: tidsstyrda rasterbilder ur data/bildlager.json på kartans lagerbild (#54, #1325)
 js/layers/discovery.js lager: upptäcktsvyn med dimma som lyfts över Europa, grannarna och dit resorna når, havsmonster och kompassrosor (#101)
+js/ui/areacurve.js    rikets yta över tid som SVG-kurva i faktarutan (#77)
+js/ui/citation.js     kopierbara hänvisningar till händelsens registrerade källor (#844)
+js/ui/legend.js       teckenförklaring, klickruta för religioner och information om dämpade lager (#166, #235)
+js/ui/status.js       gemensam statusrad för skärmläsare med prioritet för faktarutans rubrik (#1419)
 js/ui/panel.js        "Samtidigt i världen" per världsdel, kategorifilter och detaljvy
 js/ui/funfact.js      Samtidigt-kortet (fun facts, när ett krig bröt ut) och bågar på globen
 js/ui/sources.js      sidan Om källorna (knappen Källor)
@@ -110,6 +116,7 @@ js/ui/lesson.js       lektionsläget: länken m=lektion döljer menyerna, låser
 js/tour-format.js     turformatets kontroll, delas med testerna (#47)
 js/ui/flatmap.js      Platt vy: platt karta med zoom och panorering (knappen Platt vy)
 js/ui/region-marks.js regionvyns numrerade markörer, bricka, högar och ortnamn som knappar och på kartans canvas (#1642)
+js/ui/globe-region.js samma markörer ovanpå globen när den har flugit in till en stor plats (regionvyn på globen, #1644)
 js/ui/poster.js       A4-affisch som PNG från Platt vy (knappen Affisch)
 js/ui/feedback.js     formuläret Lämna förslag / Rapportera faktafel (avstängt som standard, docs/feedback.md)
 js/feedback-rules.js  förslagens kategorier, gränser och validering (delas med serverfunktionen)
@@ -127,9 +134,11 @@ images/events/        bilder till händelser (historiska bilder och märkta illu
 images/karta/         upptäcktsvyns detaljer ur gamla kartor (havsmonster och kompassros, public domain)
 images/lager/         bildlagrens bilder: nattljus 2016 (NASA) och istidens kust, en bild per modellsteg 10 000–80 000 år sedan (#1096)
 images/incoming/      nya bilder innan de konverteras
+schemas/              JSON Schema för innehållsformaten, bland annat händelser, riken, turer, teman, platser och bildlager
 tools/                hjälpskript som körs för hand (Python): riken, religioner, bildpromptar, bildkonvertering och licensmanifest
 docs/                 dokumentation: arkitektur, datamodell, beslutslogg, källarbete, bildpromptar, omstridda gränser och Sveriges hållning (omstridda-granser.md, #644); docs/bilder/ har skärmbilderna i README; docs/granskningar/ tar emot externa granskningar
 .orchestra/           arbetsflödet dirigenten och orkestern (MIT-licens)
+data/LICENSE          licens för data: CC BY 4.0
 data/handelser/       händelserna, en redigeringsfil per period; här redigeras händelser (#394)
 data/events.json      alla händelser i en fil, byggd ur data/handelser/ (redigeras inte)
 data/funfacts.json    fun facts, kopplade till händelser
@@ -137,7 +146,8 @@ data/missuppfattningar.json  vanliga historiska missuppfattningar och var de kom
 data/quiz.json        quizets tidsfrågor (Vad kom först?, Vad låg närmast?, #846); pekar bara på händelser med id, svaret räknas ur deras årtal
 data/platser.json          platser: kort om platsers historia med dagens gräns som kontur, följs i Fokus (#579); gränserna hämtas med tools/platser_gransar.py ur Natural Earth
 data/ortnamn/              ortnamn för regionvyn (#1643): en fil per plats med orter, grannländer och hav på fem språk ur Natural Earth; skrivs av tools/ortnamn.py
-data/teman.json            teman: namngivna urval av händelser som följs i Fokus (#398); tom tills första temat skrivs (#105)
+data/bildlager.json   bildlager: tidsstyrda rasterbilder och deras källor, bland annat nattljus och istidens kust (#54, #1325)
+data/teman.json            teman: namngivna urval av händelser som följs i Fokus (#398); innehåller temat Teknik (#105)
 data/perioder.json         epoker i fyra indelningar: Lgr22 (fem perioder), Nordens forntid (stenålder, bronsålder, järnålder enligt Historiska museet), antiken och industrialiseringen, med årtal, källa och förenklingstext; epokknapparna i intervallformuläret läser den (#845, #965)
 data/intro.json       introduktionens startår, texter och referenser till befintliga händelser/fun facts (#363, #516)
 data/uppdrag.json     elevuppdragen (Samtidighetsjakten): år, spann, antal världsdelar och texter (#741)
@@ -151,6 +161,7 @@ data/land-10m.json    finare kust (Natural Earth 1:10m), laddas först när det 
 tools/riken.py        bygger rikesfilerna ur Cliopatria
 tools/riken_bevara.py det riken.py behåller vid ombyggnad: handskrivna fält som flags och översatta namn (#1220)
 tools/riken_namn.py   hämtar rikenas namn på tyska, spanska och franska ur Wikidata; riken.py bevarar dem (#676, #644)
+tools/forenkling_matning.py mäter överlapp mellan grannriken när de förenklas var för sig eller tillsammans (shapely.coverage_simplify), ändrar inga filer (#1765)
 tools/ne_omstridda.py tar ut omstridda områden ur Natural Earth till tools/ne-omstridda-omraden.geojson, som riken.py läser (#644)
 tools/dela_data.py    bygger events.json ur data/handelser/ och delar upp händelser och riken i data/genererat/, med en fil per språk (körs efter varje ändring)
 tools/oversattning.py spärren mot oöversatta texter och kontrollen av inaktuella översättningar (#675)
@@ -256,7 +267,7 @@ Se också [licenssammanställningen](CONTENT-LICENSE.md), [tredjepartsnotiserna]
 - **Antiken i Asien** (#1598) bygger på engelska Wikipedia (CC BY-SA), med koordinater ur Wikipedia och Wikidata (CC0), och vetenskapliga artiklar under CC BY, lästa i fulltext via Europe PMC och PubMed Central: i första omgången (före år 1) en om spetälska i Balathal, i andra omgången (år 1–500) tre om Yingpanmannen i Xinjiang, släktskapen i gravfälten Imdang och Joyeong i Korea och torkan i Sasanidiska riket. Sammanfattningarna är egna och ingen text är kopierad.
 - **Antiken i Europa** (#1634) bygger på engelska Wikipedia (CC BY-SA), med koordinater ur Wikipedia och Wikidata (CC0), och vetenskapliga artiklar under CC BY, i första omgången (år 1–500) fem lästa i fulltext via Europe PMC (damhjorten i Europa, spetälska i Great Chesterford och Fallward, arvsmassan från gravfältet i York och klimatet i Tarantobukten) och en där bara sammanfattningen kunde läsas (gotiska gravplatser i Bulgarien), och i andra omgången (före år 1) fem till, lästa i fulltext på PubMed Central (pest i bronsålderns Britannien, klimat och befolkning i Centraleuropa omkring 2200 f.Kr., hirs i bronsålderns Polen, Elfenbensdamen i Valencina och megalitgravarna vid Kap Trafalgar). Sammanfattningarna är egna och ingen text är kopierad.
 - **Förhistorien och människans spridning** (#1093, #1094) bygger på vetenskapliga artiklar under CC BY, lästa i fulltext via Europe PMC, och några stängda artiklar som bara är länkade (beslut 2026-11-12). Sammanfattningarna är egna och ingen text är kopierad. Platserna som spridningens områden och vågor ritas runt är fyndplatser ur händelserna eller koordinater ur Wikidata (CC0). Artiklarna står i källregistret.
-- **Omstridda gränser i nutid** (#644) följer Sveriges officiella hållning enligt Utrikesdepartementets sidor på regeringen.se (bara länkade, ingen text kopierad). Fallen och källorna står i [docs/omstridda-granser.md](docs/omstridda-granser.md). Där Cliopatria saknar gränsen (Västbanken, Östra Jerusalem, Gaza och Golanhöjderna, och Staten Palestina från 2014) kommer den ur Natural Earths omstridda områden (`ne_10m_admin_0_disputed_areas` 5.1.1, public domain), uttagna med `tools/ne_omstridda.py`. Tolv små stater som Cliopatria saknar (#722), och Andorra och Monaco (#719, med Cliopatrias årtal), har dagens gräns ur Natural Earths länder (`ne_10m_admin_0_countries` 5.1.1, public domain), med samma skript, och årtalen för självständigheten ur Wikidata (CC0) och Wikipedia (CC BY-SA, bara länkad).
+- **Omstridda gränser i nutid** (#644) följer Sveriges officiella hållning enligt Utrikesdepartementets sidor på regeringen.se (bara länkade, ingen text kopierad). Fallen och källorna står i [docs/omstridda-granser.md](docs/omstridda-granser.md). Där Cliopatria saknar gränsen (Västbanken, Östra Jerusalem, Gaza och Golanhöjderna, och Staten Palestina från 2014) kommer den ur Natural Earths omstridda områden (`ne_10m_admin_0_disputed_areas` 5.1.1, public domain), uttagna med `tools/ne_omstridda.py`. Tolv små stater som Cliopatria saknar (#722), och Andorra och Monaco (#719, med Cliopatrias årtal), har dagens gräns ur Natural Earths länder (`ne_10m_admin_0_countries` 5.1.1, public domain), med samma skript; med samma skript tas också Tysklands gräns för Selfkant och Elten och Västtysklands delstater längs gränsen mot DDR (`ne_10m_admin_1_states_provinces` 5.1.2), där Cliopatrias gränser är fel (#1730), och hela Berlin, där Östberlin är Berlin minus Västberlin. **Västberlins gräns 1949–1990** (#1731) kommer ur [Verlauf der Berliner Mauer, 1989](https://datenregister.berlin.de/dataset/verlauf-der-berliner-mauer-1989-wfs-3dcda64c) (Geoportal Berlin, Datenlizenz Deutschland – Zero – Version 2.0, utan villkor), uttagen med `tools/vastberlin.py`; och årtalen för självständigheten ur Wikidata (CC0) och Wikipedia (CC BY-SA, bara länkad).
 - **Religionerna** i `data/religions.json` använder gränser från samma Cliopatria-data, sammanslagna per religion och förenklade. Varje rikes religion kommer från faktarutan på rikets Wikipedia-sida (CC BY-SA), och sidorna listas i filen. Årtalen för när en del riken blev kristna kommer från Wikipedia och länkas från källregistret. Ändringar: varje rikes religion räknas fram ur faktarutans text, och ett område behåller sin religion när riket som följer saknar religion i faktarutan (`tools/religioner.py`). Klickrutan använder varje rikes egen, förenklade gräns ur samma Cliopatria-data (`data/religions-polities.json`, `tools/religioner_riken.py`).
 - **Utkasten om slag** i `data/utkast/hced.json` kommer från [Historical Conflict Event Dataset](https://whgazetteer.org/datasets/1415/places) (Charles Miller, 2022, Harvard Dataverse, https://doi.org/10.7910/DVN/6ZFC0V) via World Historical Gazetteer. Datasetet har licensen [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/), och WHG:s egna tillägg har [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Ändringar: ett urval, omräknade årtal och egna texter (`tools/hced.py`). Utkasten visas inte på globen förrän de är källkontrollerade.
 - **Dödssiffror i krigens berättelser** kommer delvis från [UCDP Battle-related Deaths Dataset](https://ucdp.uu.se/downloads/) (Uppsala Conflict Data Program, version 26.1; Davies, Pettersson och Öberg 2026, *Journal of Peace Research* 63(4)), licensierat under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Ändringar: summerade per krig och återgivna i egna texter.

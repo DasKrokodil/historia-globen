@@ -381,6 +381,8 @@
   "regionView.shown": "Close-up map: {place}, {events}. Only the place’s border and events are shown; Escape or “Leave the close-up map” returns to the Flat map.",
   "regionView.left": "The close-up map is closed. The Flat map shows {place}.",
   "regionView.reset": "The close-up map frames {place} again.",
+  "regionView.shownGlobe": "Close-up map on the globe: {place}, {events}. Only the place’s border and events are shown; Escape or “Leave the close-up map” returns to the whole globe.",
+  "regionView.leftGlobe": "The close-up map is closed. The globe shows {place}.",
   "regionView.count": ["{n} event", "{n} events"],
   "regionView.whole": ["{n} applies to the whole of {place}", "{n} apply to the whole of {place}"],
   "regionView.brick": "All of {place}",
@@ -401,7 +403,7 @@
   "place.noneHere": "No place with its own card is in the middle of the view. Choose a place under Search and follow → Places.",
   "place.hereKey": "{place}: a place with a card. Press Enter to follow it.",
   "place.enterBusy.fokus": "Enter does not open a place while you are following something. Choose “Back to all of time” first.",
-  "place.enterBusy.tur": "Enter does not open a place during a tour. Choose “End the tour” first.",
+  "place.enterBusy.tur": "Enter does not open a place during a tour. Choose “Leave the tour” first.",
   "place.enterBusy.lektion": "Enter does not open a place in lesson mode. Places open only through the lesson’s steps.",
   "place.enterBusy.intervall": "Enter does not open a place while a time range is shown. Choose “Back to a single year” first.",
   "place.rangeEnded": "The time range {range} ended when the place began to be followed. For the year {year}, the place is shown.",
@@ -989,5 +991,5 @@
   "teacher.presentation": "Presentation mode",
   "teacher.presentationText": "For a projector or big screen: larger text and larger buttons. Exit with the button at the top right.",
   "teacher.more": "How to share a lesson and print sheets",
-  "teacher.shareText": "Students get the lesson through the link on the teacher sheet, or through Share under More: if you share in the middle of a lesson, they start at the same step. The bar at the top has Show the whole globe: the lesson then ends and the site becomes the ordinary one, at the same year."
+  "teacher.shareText": "Students get the lesson through the link on the teacher sheet, or through Share under More: if you share in the middle of a lesson, they start at the same step. The bar at the top has Leave the lesson: the lesson then ends and the site becomes the ordinary one, at the same year."
 }

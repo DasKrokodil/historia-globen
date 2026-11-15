@@ -381,6 +381,8 @@
   "regionView.shown": "Mapa de cerca: {place}, {events}. Solo se muestran la frontera y los acontecimientos del lugar. Con Escape o con el botón «Salir del mapa de cerca» vuelve al mapa plano.",
   "regionView.left": "El mapa de cerca está cerrado. El mapa plano muestra {place}.",
   "regionView.reset": "El mapa de cerca vuelve a encuadrar {place}.",
+  "regionView.shownGlobe": "Mapa de cerca en el globo: {place}, {events}. Solo se muestran la frontera y los acontecimientos del lugar. Con Escape o con el botón «Salir del mapa de cerca» vuelve al globo entero.",
+  "regionView.leftGlobe": "El mapa de cerca está cerrado. El globo muestra {place}.",
   "regionView.count": ["{n} acontecimiento", "{n} acontecimientos"],
   "regionView.whole": ["{n} se refiere a todo el lugar", "{n} se refieren a todo el lugar"],
   "regionView.brick": "Todo el lugar: {place}",
@@ -401,7 +403,7 @@
   "place.noneHere": "Ningún lugar con ficha propia está en el centro de la vista. Elija un lugar en «Buscar y seguir» → «Lugares».",
   "place.hereKey": "{place}: un lugar con ficha. Pulse Intro para seguirlo.",
   "place.enterBusy.fokus": "Intro no abre un lugar mientras usted sigue algo. Elija primero «Volver a todo el tiempo».",
-  "place.enterBusy.tur": "Intro no abre un lugar durante un recorrido. Elija primero «Terminar el recorrido».",
+  "place.enterBusy.tur": "Intro no abre un lugar durante un recorrido. Elija primero «Salir del recorrido».",
   "place.enterBusy.lektion": "Intro no abre un lugar en el modo lección. Los lugares solo se abren con los pasos de la lección.",
   "place.enterBusy.intervall": "Intro no abre un lugar mientras se muestra un intervalo de tiempo. Elija primero «Volver a un solo año».",
   "place.rangeEnded": "El intervalo de tiempo {range} terminó cuando se empezó a seguir el lugar. Para el año {year} se muestra el lugar.",
@@ -989,5 +991,5 @@
   "teacher.presentation": "Modo presentación",
   "teacher.presentationText": "Para un proyector o una pantalla grande: texto y botones más grandes. Salga con el botón de la esquina superior derecha.",
   "teacher.more": "Cómo compartir una lección e imprimir las hojas",
-  "teacher.shareText": "El alumnado recibe la lección mediante el enlace de la hoja del profesorado o con Compartir, en Más: si comparte en mitad de la lección, empezarán en el mismo paso. La barra superior tiene Mostrar todo el globo: entonces termina la lección y el sitio vuelve a ser el habitual, en el mismo año."
+  "teacher.shareText": "El alumnado recibe la lección mediante el enlace de la hoja del profesorado o con Compartir, en Más: si comparte en mitad de la lección, empezarán en el mismo paso. La barra superior tiene Salir de la lección: entonces termina la lección y el sitio vuelve a ser el habitual, en el mismo año."
 }

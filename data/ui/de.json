@@ -381,6 +381,8 @@
   "regionView.shown": "Nahkarte: {place}, {events}. Es werden nur die Grenze und die Ereignisse des Ortes gezeigt. Mit Escape oder der Schaltfläche „Nahkarte verlassen“ gelangen Sie zurück zur Flachen Karte.",
   "regionView.left": "Die Nahkarte ist geschlossen. Die Flache Karte zeigt {place}.",
   "regionView.reset": "Die Nahkarte zeigt {place} wieder ganz.",
+  "regionView.shownGlobe": "Nahkarte auf dem Globus: {place}, {events}. Es werden nur die Grenze und die Ereignisse des Ortes gezeigt. Mit Escape oder der Schaltfläche „Nahkarte verlassen“ gelangen Sie zurück zum ganzen Globus.",
+  "regionView.leftGlobe": "Die Nahkarte ist geschlossen. Der Globus zeigt {place}.",
   "regionView.count": ["{n} Ereignis", "{n} Ereignisse"],
   "regionView.whole": ["{n} für den ganzen Ort", "{n} für den ganzen Ort"],
   "regionView.brick": "Der ganze Ort: {place}",
@@ -401,7 +403,7 @@
   "place.noneHere": "In der Bildmitte liegt kein Ort mit eigener Karte. Wählen Sie unter „Suchen und folgen“ → „Orte“ einen Ort.",
   "place.hereKey": "{place}: ein Ort mit Karte. Drücken Sie die Eingabetaste, um ihm zu folgen.",
   "place.enterBusy.fokus": "Die Eingabetaste öffnet keinen Ort, solange Sie etwas folgen. Wählen Sie zuerst „Zurück zur ganzen Zeit“.",
-  "place.enterBusy.tur": "Die Eingabetaste öffnet während einer Tour keinen Ort. Wählen Sie zuerst „Tour beenden“.",
+  "place.enterBusy.tur": "Die Eingabetaste öffnet während einer Tour keinen Ort. Wählen Sie zuerst „Tour verlassen“.",
   "place.enterBusy.lektion": "Die Eingabetaste öffnet im Unterrichtsmodus keinen Ort. Orte öffnen sich nur durch die Schritte der Lektion.",
   "place.enterBusy.intervall": "Die Eingabetaste öffnet keinen Ort, solange ein Zeitraum angezeigt wird. Wählen Sie zuerst „Zurück zu einem Jahr“.",
   "place.rangeEnded": "Der Zeitraum {range} endete, sobald dem Ort gefolgt wurde. Für das Jahr {year} wird der Ort angezeigt.",
@@ -989,5 +991,5 @@
   "teacher.presentation": "Präsentationsmodus",
   "teacher.presentationText": "Für Beamer und Großbildschirm: größere Schrift und größere Schaltflächen. Beenden Sie den Modus mit der Schaltfläche oben rechts.",
   "teacher.more": "So teilen Sie eine Unterrichtsstunde und drucken Blätter",
-  "teacher.shareText": "Die Schülerinnen und Schüler erhalten die Stunde über den Link auf dem Lehrerblatt oder über Teilen unter Mehr: Wenn Sie mitten in der Stunde teilen, beginnen sie am selben Schritt. Die Leiste am oberen Rand hat „Ganzen Globus anzeigen“: Dann endet die Stunde, und die Seite wird zur gewöhnlichen Seite, im selben Jahr."
+  "teacher.shareText": "Die Schülerinnen und Schüler erhalten die Stunde über den Link auf dem Lehrerblatt oder über Teilen unter Mehr: Wenn Sie mitten in der Stunde teilen, beginnen sie am selben Schritt. Die Leiste am oberen Rand hat „Lektion verlassen“: Dann endet die Stunde, und die Seite wird zur gewöhnlichen Seite, im selben Jahr."
 }

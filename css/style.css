@@ -251,7 +251,7 @@ body {
   font: 500 12px/1 var(--f-mono); color: var(--parchment); background: var(--night); border: 0; cursor: pointer;
 }
 .jump-era { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 8px; }
-.jump-era > span { margin-right: auto; font: 500 11px/1.3 var(--f-mono); color: var(--dim); }
+.jump-era > span { margin-right: auto; font: 500 11px/1.3 var(--f-mono); color: var(--parchment-dim); }
 .jump-era-btn { padding: 0 10px; border: 1px solid var(--control-line); border-radius: 8px; }
 .jump-era .jump-era-btn { min-height: 44px; }
 .jump-era-btn[aria-pressed="true"] { background: var(--brass); color: var(--night); }
@@ -1340,6 +1340,13 @@ html.calm .year-tip { animation: none; }
 .flat-region-back:hover { border-color: var(--brass); color: var(--brass); }
 .flat-region-back:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
 .app.region-view .religion-legend { display: none; }
+/* Regionvyn på globen (#1644): markörerna ligger i ett eget lager över klotet (ekrar och ortnamn på dess canvas), och globens
+   vanliga etiketter och klungor döljs, som medaljerna (js/controllers/region.js). Rutan står där religionernas förklaring står. */
+.globe-region { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.globe-region[hidden] { display: none; }
+.globe-region-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.globe-region-chip { top: 140px; z-index: var(--z-kartforklaring); }
+.app.globe-region-view .labels { visibility: hidden; }
 /* Regionvyns markörer (#1642): numrerade markörer i kategorins färg med mörk kant, högar med ortnamn och årsspann, brickan för
    händelser som gäller hela platsen och etiketten vid den markerade markören. Alla är knappar i kartans etikettlager. */
 .region-marks { position: absolute; inset: 0; pointer-events: none; isolation: isolate; }
@@ -1420,6 +1427,7 @@ html.calm .year-tip { animation: none; }
   .flat-region-legend { order: 3; flex-basis: 100%; margin: 0 0 4px; font-size: 11.5px; }
   .flat-region-note { display: none; }
   .flat-region-back { min-height: 44px; flex: none; }
+  .globe-region-chip { top: 112px; max-width: calc(100% - var(--gut) - var(--gut-r)); }
 }
 
 /* ---------- källor ---------- */
@@ -2389,6 +2397,9 @@ details.used-by summary:hover { color: var(--parchment); }
 .extra-menu {
   display: none; position: absolute; z-index: var(--z-meny); top: calc(100% + 8px); right: 0;
   flex-direction: column; align-items: stretch; gap: 4px; min-width: 190px; padding: 6px;
+  /* Låg höjd (#1712): alla val i Mer ska nås utan att flytta hela sidan. 124 px är den högsta
+     toppraden i 800 px bred vy; 22 px lämnar 8 px vid nederkanten efter menyens kant och padding. */
+  max-height: calc(100dvh - 146px); overflow-y: auto; overscroll-behavior: contain;
   background: color-mix(in srgb, var(--night-2) 96%, transparent); border: 1px solid var(--line); border-radius: var(--r);
   box-shadow: 0 8px 28px rgba(0, 0, 0, .5);
 }
@@ -2737,6 +2748,13 @@ span.theme-event:hover { background: none; outline: none; }
   .app { --tour-top: calc(var(--tablet-actions-height, 98px) + 120px); } /* årtalet ligger under knapparna på en platta yta (#992) */
   .app.lesson, .app.lesson-notice { --tour-top: calc(var(--tablet-actions-height, 98px) + 172px); }
 }
+/* Låg, bred yta (#1695): Sök och följ får inte låta flikarna ta hela den lilla menyn.
+   Flikarna går att rulla i sidled i sitt eget fält och listan får alltid plats att rulla till sista träffen. */
+@media (min-width: 761px) and (max-height: 500px) {
+  .focus-head { max-height: min(160px, calc(100dvh - 210px)); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: var(--brass-deep) var(--night-3); }
+  .focus-tabs { flex-wrap: nowrap; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; }
+  .focus-body { min-height: 72px; }
+}
 @media (max-height: 600px) and (max-width: 760px) {
   .app { --tour-top: 76px; }
   .app.lesson, .app.lesson-notice { --tour-top: 130px; }
@@ -2744,6 +2762,25 @@ span.theme-event:hover { background: none; outline: none; }
   /* Faktarutan som ark: rubrik, datum och text får mer än handtaget och rubriken, och bilden tar inte hela arket i helt läge */
   .detail-fig img { aspect-ratio: auto; height: clamp(90px, 28vh, 180px); }
   #detail { max-height: min(52dvh, calc(100dvh - var(--ff-b) - 120px)); }
+}
+
+/* Liggande pekskärm i bred layout (#1694): plattans topprad och det stora årtalet lämnade bara 16 px åt turkortet.
+   Under turen ger menyraden plats åt ett kompakt årtal, och kortet rullar ovanför turraden som i smal layout. */
+@media (min-width: 761px) and (max-width: 1100px) and (max-height: 480px) and (pointer: coarse) {
+  .app.touring { --tour-top: 64px; }
+  .app.touring.lesson, .app.touring.lesson-notice { --tour-top: 116px; }
+  .app.touring .top-actions { visibility: hidden; }
+  .app.app.touring .masthead { top: calc(env(safe-area-inset-top, 0px) + 6px); margin-top: 0; }
+  .app.app.touring.lesson .masthead { top: calc(env(safe-area-inset-top, 0px) + 58px); }
+  .app.touring .masthead :is(.brand, .segment-note) { display: none; }
+  .app.touring .year-readout { margin-top: 0; min-height: 44px; align-items: center; }
+  .app.touring .year-jump { min-height: 44px; align-items: center; }
+  .app.touring .year-big { font-size: 30px; }
+  .app.touring .year-era { font-size: 16px; }
+  .app.touring .tour-card .tour-actions { bottom: 55px; } /* den 44 px höga utgången och fotens utfyllnad */
+  /* Lektionen lämnas från sitt band; den dolda Lämna turen-knappen ska inte reservera en tom fot. */
+  .app.touring.lesson .tour-card .tour-actions { bottom: 0; }
+  .app.touring.lesson .tour-card .tour-foot { display: none; }
 }
 
 /* ---------- Liggande telefon: faktarutan går att nå (#1667) ----------

@@ -12,7 +12,7 @@
 Natural Earth saknar små orter som är viktiga i händelserna. Wikidata är CC0, används redan som andra källa, och etiketterna finns på alla fem språk för de flesta orter.
 
 ## Att veta
-En orts prick får inte ligga under en markör (`placeNames` i `js/region-markers.js`), och orterna här ligger där händelserna är. De ritas därför inte som egna namn i dag; de ger högarna deras namn (`pileName`). Om en ort under en enskild markör ska få ett eget namn är en fråga om utseende och avgörs separat.
+En orts prick får inte ligga under en markör (`placeNames` i `js/region-markers.js`), och orterna här ligger där händelserna är. De ritas därför inte som egna namn i dag; de ger högarna deras namn (`pileName`). Om en ort under en enskild markör ska få ett eget namn är en fråga om utseende och avgörs separat. Avgjort i #1682: se [2026-11-15-ortnamn-bredvid-markor-1682.md](2026-11-15-ortnamn-bredvid-markor-1682.md).
 
 ## Berör
 `data/ortnamn-komplettering.json`, `data/ortnamn/skane.json`, `data/ortnamn/danmark.json`, `tools/ortnamn.py`, `schemas/ortnamn.schema.json`, `scripts/validate-site.py`, `tests/regionvy-markorer.test.mjs`, README.md, THIRD-PARTY-NOTICES.md, docs/datamodell.md, docs/arkitektur.md.

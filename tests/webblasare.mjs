@@ -1336,9 +1336,9 @@ async function run(browser, vp) {
   // skolflödet fråga → underlag → svar → återgång med riktig pekning. Enskilda prov för bild (#884), källregister vid
   // utskrift (#879) och turfil vid sidladdning (#877) finns redan; här prövas att felet mitt i sessionen ger besked och
   // att sidan kommer tillbaka när felet är över, utan omladdning. Egen sida med pekning (hasTouch) för varje prov.
-  // extra: fler inställningar för sammanhanget, till exempel isMobile när provet kräver pointer: coarse också i Firefox (#1667)
-  const touchPage = async (extra = {}) => {
-    const tctx = await newTestContext(browser, { viewport: { width: vp.width, height: vp.height }, deviceScaleFactor: 1, hasTouch: true, ...extra });
+  // viewport: sidans storlek. extra: fler inställningar för sammanhanget, till exempel isMobile när provet kräver pointer: coarse också i Firefox (#1667)
+  const touchPage = async (viewport = vp, extra = {}) => {
+    const tctx = await newTestContext(browser, { viewport: { width: viewport.width, height: viewport.height }, deviceScaleFactor: 1, hasTouch: true, ...extra });
     const tp = await tctx.newPage();
     const errs = [];
     // Avbrutna hämtningar under sidbyte (#1393, steg 3): goto och reload på sidan går genom abortWatch, så att WebKits sidfel för en
@@ -1875,6 +1875,66 @@ async function run(browser, vp) {
     }
   });
 
+  // #1712: den fristående Mer-menyn i 800 px bred vy och mobilens Meny i 640 px bred vy får inte
+  // lägga de sista valen under nederkanten. Varje val rullas fram, mäts i fönstret och trycks med riktig touch.
+  await check('Mer i låg höjd: alla val går att rulla fram och trycka på (#1712)', async () => {
+    const actions = [
+      ['#btn-intro', '#intro'], ['#btn-help', '#help'], ['#btn-sources', '#sources-dialog'], ['#btn-teacher', '#teacher'],
+      ['#btn-settings', '#settings'], ['#btn-share', null], ['#btn-feedback', '#feedback'], ['#btn-support', 'popup'],
+    ];
+    const notes = [];
+    for (const size of [{ width: 800, height: 360 }, { width: 640, height: 360 }]) {
+      const { tp, tctx, errs } = await touchPage(size);
+      try {
+        await tp.addInitScript(() => {
+          window.__shared = [];
+          Object.defineProperty(navigator, 'share', { value: undefined, configurable: true });
+          Object.defineProperty(navigator, 'clipboard', { value: { writeText: async text => window.__shared.push(text) }, configurable: true });
+        });
+        await tp.goto(`${BASE}?ny=1712-${size.width}`);
+        await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        const open = async () => {
+          if (await tp.isVisible('#extra-menu')) return;
+          if (await tp.isVisible('#more-toggle')) await tapReal(tp, '#more-toggle', `${size.width} px: Meny`);
+          else await tapReal(tp, '#btn-more', `${size.width} px: Mer`);
+          await tp.waitForSelector('#extra-menu', { state: 'visible', timeout: T.step });
+        };
+        for (const [id, opened] of actions) {
+          await open();
+          const item = tp.locator(id);
+          await item.scrollIntoViewIfNeeded();
+          const inside = await item.evaluate(el => {
+            const r = el.getBoundingClientRect();
+            return r.top >= 0 && r.bottom <= innerHeight && r.left >= 0 && r.right <= innerWidth;
+          });
+          if (!inside) throw new Error(`${size.width} px: ${id} går inte att rulla helt fram i fönstret`);
+          if (opened === 'popup') {
+            const popup = tp.waitForEvent('popup', { timeout: T.step });
+            await tapReal(tp, id, `${size.width} px: ${id}`);
+            await (await popup).close();
+          } else {
+            const shared = opened === null ? await tp.evaluate(() => window.__shared.length) : null;
+            await tapReal(tp, id, `${size.width} px: ${id}`);
+            if (opened) {
+              await tp.waitForSelector(`${opened}:not([hidden])`, { timeout: T.step });
+              await tp.keyboard.press('Escape');
+              await tp.waitForSelector(opened, { state: 'hidden', timeout: T.step });
+            } else {
+              await tp.waitForFunction(n => window.__shared.length > n, shared, { timeout: T.step });
+            }
+          }
+          if (await tp.isVisible('#extra-menu')) {
+            await tp.keyboard.press('Escape');
+            await tp.waitForSelector('#extra-menu', { state: 'hidden', timeout: T.step });
+          }
+        }
+        if (errs.length) throw new Error(`${size.width} px: ${errs.join(' | ')}`);
+        notes.push(`${size.width}×${size.height}`);
+      } finally { await tctx.close(); }
+    }
+    return `${notes.join(' och ')}: Kom igång, Hjälp, Källor, För lärare, Inställningar, Dela, Lämna förslag och Stöd rullas fram och trycks med touch`;
+  });
+
   // #1572: i lektionsläget skalas text och kort för projektor från 1 600 px
   await check('lektionsläget skalas för projektor från 1 600 px (#1572)', async () => {
     const lp = await context.newPage();
@@ -2407,7 +2467,10 @@ async function run(browser, vp) {
     try {
       const doc = await (await tctx.request.get(`${BASE}data/platser.json`)).json();
       const places = doc.places.filter(p => p.review !== 'draft' && p.emblems?.length);
-      for (const id of ['sverige', 'danmark']) if (!places.some(p => p.id === id)) throw new Error(`platsen ${id} saknar emblem i data/platser.json`);
+      for (const id of ['sverige', 'danmark', 'skane']) if (!places.some(p => p.id === id)) throw new Error(`platsen ${id} saknar emblem i data/platser.json`);
+      // Skåne har landskapsvapnet (#1619); vapenflaggan gick inte att hämta från Wikimedia Commons och visas inte
+      const skane = places.find(p => p.id === 'skane');
+      if (!skane.emblems.some(e => e.kind === 'arms' && e.file === 'skane-arms')) throw new Error('Skåne saknar landskapsvapnet');
       const notes = [];
       for (const place of places) {
         await tp.goto(`${BASE}?ny=emblem-${place.id}#y=1900&f=place:${place.id}`);
@@ -2645,20 +2708,25 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
+  // Sverige (#1644): sedan regionvy steg 2 flyger globen in för Grönland och Aotearoa, medan Sverige väntar på DasKrokodils bedömning
+  // och har kvar Visa i Platt karta. Provet gällde förut Grönland; det prövar nu att Sverige är oförändrat
+  const followsSweden = pg => pg.waitForFunction(() => !document.getElementById('focus-bar').hidden && /Sverige/.test(document.getElementById('focus-title').textContent)
+    && !!document.querySelector('#detail .place-type'), null, { timeout: T.step });
   await check('Visa i Platt karta ramar in platsen, och ett tryck i Platt vy öppnar kortet (#1161)', async () => {
-    const { tp, tctx, errs } = await placeTapPage('#y=1000&f=place:gronland', 'platstryck3');
+    const { tp, tctx, errs } = await placeTapPage('#y=1000&f=place:sverige', 'platstryck3');
     try {
-      await followsGreenland(tp);
+      await followsSweden(tp);
       const button = tp.locator('#detail [data-selection-action]');
       await button.waitFor({ state: 'visible', timeout: T.step });
       if (!/Visa i Platt karta/.test(await button.textContent())) throw new Error(`knappen heter ${await button.textContent()}`);
-      if (!/Grönland/.test(await button.getAttribute('aria-label'))) throw new Error('knappens aria-label nämner inte platsen');
+      if (!/Sverige/.test(await button.getAttribute('aria-label'))) throw new Error('knappens aria-label nämner inte platsen');
       if (!(await tp.isHidden('#flat-view'))) throw new Error('Platt vy var öppen före knappen');
       await button.click();
       await tp.waitForFunction(() => !document.getElementById('flat-view').hidden, null, { timeout: T.step });
-      // Vyn byts utan eget läge: Platt karta är vald, platsen följs fortfarande och kartan är inramad på Grönland
+      // Vyn byts utan eget läge: Platt karta är vald, platsen följs fortfarande och kartan är inramad på Sverige, utan regionvy
       if ((await tp.getAttribute('#btn-flat', 'aria-pressed')) !== 'true') throw new Error('Platt karta är inte vald i Vy');
-      if (!/Grönland/.test(await tp.textContent('#focus-title'))) throw new Error('platsen följs inte längre');
+      if (!/Sverige/.test(await tp.textContent('#focus-title'))) throw new Error('platsen följs inte längre');
+      if (await tp.evaluate(() => !!document.getElementById('flat-view').dataset.region || !document.getElementById('globe-region').hidden)) throw new Error('Sverige fick en regionvy');
       const frame = async () => tp.evaluate(() => {
         const [lat, lon, zoom] = document.getElementById('flat-view').dataset.view.split(',').map(Number);
         const r = document.getElementById('flat-canvas').getBoundingClientRect(), base = Math.max(r.width / 4096, r.height / 2048), scale = base * zoom;
@@ -2666,25 +2734,25 @@ async function run(browser, vp) {
       });
       await tp.waitForFunction(() => Number(document.getElementById('flat-view').dataset.view.split(',')[2]) > 1.2, null, { timeout: T.step });
       const f = await frame();
-      // Hela Grönland (73° V–12° V, 59° N–84° N) ryms i kartans ruta
-      if (f.lon - f.halfLon > -73 || f.lon + f.halfLon < -12 || f.lat - f.halfLat > 59 || f.lat + f.halfLat < 84) throw new Error(`Grönland ryms inte i kartan: mitt ${f.lat},${f.lon}, halva ${f.halfLat}×${f.halfLon} grader`);
+      // Hela Sverige (11° Ö–24° Ö, 55° N–69° N) ryms i kartans ruta
+      if (f.lon - f.halfLon > 11 || f.lon + f.halfLon < 24 || f.lat - f.halfLat > 55 || f.lat + f.halfLat < 69) throw new Error(`Sverige ryms inte i kartan: mitt ${f.lat},${f.lon}, halva ${f.halfLat}×${f.halfLon} grader`);
       if (f.halfLon > 90) throw new Error(`kartan är inte inzoomad: halva bredden ${f.halfLon} grader`);
       // Skärmläsaren får veta vad som hände
-      if (!/Platt karta öppen med Grönland i bild/.test(await tp.textContent('#screen-reader-status'))) throw new Error('statusraden säger inte att platsen visas');
+      if (!/Platt karta öppen med Sverige i bild/.test(await tp.textContent('#screen-reader-status'))) throw new Error('statusraden säger inte att platsen visas');
       // Avsluta platsen, och tryck sedan på konturen i Platt vy (kartan står kvar inramad, konturen syns därför)
       const focusLeft = async () => { await tp.evaluate(() => document.querySelector('#detail [data-end-theme]')?.click()); await tp.waitForFunction(() => document.getElementById('focus-bar').hidden, null, { timeout: T.step }); };
       await focusLeft();
-      // Inlandsisen (75° N 40° V) på skärmen, räknat ur kartans mitt och zoom: i mobilbredd kan kartan inte centreras på Grönland
-      // (den kan inte rullas förbi polerna), så mitten av ytan är inte Grönland. Trycket med finger väntar ett ögonblick på ett dubbeltryck
+      // Jämtland (63,5° N 15° Ö, inne i Sverige men inte i Skåne) på skärmen, räknat ur kartans mitt och zoom. Trycket med finger
+      // väntar ett ögonblick på ett dubbeltryck
       const { cx, cy } = await tp.evaluate(() => {
         const [lat, lon, zoom] = document.getElementById('flat-view').dataset.view.split(',').map(Number);
         const r = document.getElementById('flat-canvas').getBoundingClientRect(), scale = Math.max(r.width / 4096, r.height / 2048) * zoom;
-        return { cx: r.left + r.width / 2 + (-40 - lon) / 360 * 4096 * scale, cy: r.top + r.height / 2 + (lat - 75) / 180 * 2048 * scale };
+        return { cx: r.left + r.width / 2 + (15 - lon) / 360 * 4096 * scale, cy: r.top + r.height / 2 + (lat - 63.5) / 180 * 2048 * scale };
       });
       await tp.mouse.move(cx, cy);
       await tp.waitForFunction(() => document.getElementById('flat-canvas').classList.contains('on-place'), null, { timeout: T.step });
       await tp.touchscreen.tap(cx, cy);
-      await followsGreenland(tp);
+      await followsSweden(tp);
       if ((await tp.getAttribute('#btn-flat', 'aria-pressed')) !== 'true') throw new Error('Platt vy stängdes av trycket');
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
       return `inramad: mitt ${f.lat},${f.lon}, zoom ${f.zoom}`;
@@ -2719,6 +2787,170 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
+  // #1644: regionvyn på globen (steg 2). Kamerans kärna skiljer synfältet från avståndet; utan regionvyn ska globens kamera vara
+  // exakt densamma som förut. Renderingsstatusen data-camera på globens canvas är "synfält,höjd,avstånd,förskjutning x,y,vridning".
+  /** Den vanliga globens kamera räknad med formeln före #1644 (Globe._resize): avståndet ur synfältet 35°, kameran 0,06 under mitten. */
+  const baseCamera = (w, h, zoom) => {
+    const aspect = w / h, k = w <= 760 && aspect < 1 ? 1.1 : 1.32, fit = k / Math.tan(17.5 * Math.PI / 180);
+    return { fov: 35, y: -0.06, z: (aspect < 1 ? fit / aspect : fit) / zoom };
+  };
+  const globeCamera = pg => pg.evaluate(() => {
+    const [fov, y, z, ox, oy, tilt] = (document.getElementById('globe-canvas').dataset.camera ?? '').split(',').map(Number);
+    const c = document.getElementById('globe-canvas');
+    return { fov, y, z, ox, oy, tilt, w: c.clientWidth, h: c.clientHeight };
+  });
+  await check('regionvyn på globen: den vanliga globens kamera har samma synfält, höjd och avstånd som förut, också efter zoom (#1644)', async () => {
+    const { tp, tctx, errs } = await placeTapPage('#y=1500&c=20,10,1.5', 'globkamera1');
+    try {
+      const want = async zoom => {
+        await tp.waitForTimeout(300);
+        const c = await globeCamera(tp), b = baseCamera(c.w, c.h, zoom);
+        if (c.fov !== b.fov || Math.abs(c.y - b.y) > 1e-4 || Math.abs(c.z - b.z) > 2e-3 || c.ox || c.oy) {
+          throw new Error(`kameran vid zoom ${zoom}: ${JSON.stringify(c)} mot ${JSON.stringify(b)}`);
+        }
+        return c;
+      };
+      const a = await want(1.5);
+      // Två steg in med tangentbordet (+ zoomar 1,2 gånger): samma formel, inget annat synfält
+      await tp.focus('#globe-canvas');
+      await tp.keyboard.press('+');
+      await tp.keyboard.press('+');
+      const b = await want(1.5 * 1.2 * 1.2);
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `kameran ${a.fov}°, ${a.z.toFixed(3)} och ${b.z.toFixed(3)} från mitten, som förut`;
+    } finally { await tctx.close(); }
+  });
+
+  /** Väntar tills globens regionvy är öppen för platsen och kameran har stannat (data-camera står still). */
+  const globeRegionSettled = async (pg, id) => {
+    await pg.waitForFunction(x => document.getElementById('globe-region').dataset.region === x
+      && /^12,/.test(document.getElementById('globe-canvas').dataset.camera ?? ''), id, { timeout: T.step });
+    let last = '';
+    for (let i = 0; i < 20; i++) {
+      await pg.waitForTimeout(250);
+      const now = await pg.evaluate(() => `${document.getElementById('globe-canvas').dataset.camera}|${document.getElementById('globe-region').dataset.regionBox}`);
+      if (now === last) break;
+      last = now;
+    }
+  };
+  /** Läget i globens regionvy: platsens ruta, den fria ytan (utan kortet och fokusraden) och vad som syns. */
+  const globeRegionInfo = pg => pg.evaluate(() => {
+    const d = document.getElementById('globe-region').dataset, rect = id => { const el = document.getElementById(id); if (!el || el.hidden) return null; const r = el.getBoundingClientRect(); return r.width ? r : null; };
+    const [x0, y0, x1, y1] = (d.regionBox ?? '').split(',').map(Number);
+    const card = rect('detail'), bar = rect('focus-bar');
+    return { region: d.region ?? null, box: { x0, y0, x1, y1 }, w: innerWidth, h: innerHeight, card: card && { left: card.left, top: card.top }, barTop: bar?.top ?? null,
+      marks: d.regionMarks ?? null, names: Number(d.regionNames ?? 0), flat: !document.getElementById('flat-view').hidden,
+      chip: document.getElementById('globe-region-chip').hidden ? null : document.getElementById('globe-region-name').textContent.trim(),
+      globePressed: document.getElementById('btn-globe').getAttribute('aria-pressed'), buttons: document.querySelectorAll('#globe-region-labels .rmark, #globe-region-labels .rpile, #globe-region-labels .rbrick').length,
+      status: document.getElementById('screen-reader-status').textContent.replace(/\s+/g, ' ').trim() };
+  });
+  /** Escape tills globens regionvy är stängd (först stängs det som ligger ovanpå, som kortet), högst tre gånger. Ger antalet tryck. */
+  const escapeGlobeRegion = async pg => {
+    for (let i = 1; i <= 3; i++) {
+      await pg.keyboard.press('Escape');
+      await pg.waitForTimeout(250);
+      if (await pg.evaluate(() => document.getElementById('globe-region').hidden)) return i;
+    }
+    throw new Error('Escape lämnade inte globens regionvy');
+  };
+  await check('regionvyn på globen: Visa i regionvy flyger in till Grönland och Aotearoa, hela platsen i den fria ytan, och Escape flyger tillbaka (#1644)', async () => {
+    const { tp, tctx, errs } = await placeTapPage('#y=1721&f=place:gronland', 'globregion1');
+    try {
+      const out = [];
+      for (const [id, name, hash, zoom] of [['gronland', 'Grönland', '#y=1721&f=place:gronland', 1.6], ['aotearoa', 'Nya Zeeland (Aotearoa)', '#y=1840&f=place:aotearoa', 2.2]]) {
+        if (id !== 'gronland') { await tp.goto(`${BASE}?ny=globregion1b${hash}`); await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load }); }
+        await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+        const button = tp.locator('#detail [data-selection-action]');
+        if (!/Visa i regionvy/.test(await button.textContent())) throw new Error(`${id}: knappen heter ${await button.textContent()}`);
+        await button.focus();
+        await tp.keyboard.press('Enter');
+        await globeRegionSettled(tp, id);
+        const v = await globeRegionInfo(tp);
+        // Globen, inte Platt vy: Glob är vald i Vy, rutan och statusraden säger vilken plats som visas
+        if (v.flat || v.globePressed !== 'true') throw new Error(`${id}: Platt vy öppnades eller Glob är inte vald: ${JSON.stringify(v)}`);
+        if (v.chip !== `Regionvy: ${name}`) throw new Error(`${id}: rutan säger ${v.chip}`);
+        if (!v.status.startsWith(`Regionvy på globen: ${name},`)) throw new Error(`${id}: statusraden säger ${v.status}`);
+        // Hela platsen syns, utanför kortet (dator) och ovanför fokusraden, och fyller en stor del av höjden eller bredden
+        const b = v.box, m = 4;
+        if (!(b.x0 >= -m && b.y0 >= -m && b.x1 <= v.w + m && b.y1 <= (v.barTop ?? v.h) + m)) throw new Error(`${id}: platsen ryms inte i bilden: ${JSON.stringify(v)}`);
+        if (v.card && v.card.left > v.w / 2 && b.x1 > v.card.left + m) throw new Error(`${id}: kortet täcker platsen: ${JSON.stringify(v)}`);
+        if (v.card && v.card.left < v.w / 4 && b.y1 > v.card.top + m) throw new Error(`${id}: arket täcker platsen: ${JSON.stringify(v)}`);
+        if (b.y1 - b.y0 < 150 && b.x1 - b.x0 < 150) throw new Error(`${id}: platsen är för liten: ${JSON.stringify(b)}`);
+        // Aotearoa korsar datumgränsen: platsen är en ö-grupp, inte hela jorden
+        if (b.x1 - b.x0 > v.w * 0.8) throw new Error(`${id}: platsen är ${b.x1 - b.x0} px bred`);
+        // Markörerna från steg 1b ligger på globen, och ortnamnen ritas
+        if (!v.buttons || !v.marks || !(v.names > 0)) throw new Error(`${id}: inga markörer eller ortnamn på globen: ${JSON.stringify(v)}`);
+        // Escape: först kortet, sedan regionvyn; kameran flyger tillbaka till exakt samma globkamera som platsen hade
+        const presses = await escapeGlobeRegion(tp);
+        await tp.waitForFunction(() => /^35,/.test(document.getElementById('globe-canvas').dataset.camera ?? ''), null, { timeout: T.step });
+        await tp.waitForTimeout(400);
+        const c = await globeCamera(tp), want = baseCamera(c.w, c.h, zoom);
+        if (c.fov !== 35 || Math.abs(c.y + 0.06) > 1e-4 || Math.abs(c.z - want.z) > 2e-3 || c.ox || c.oy) throw new Error(`${id}: kameran efter regionvyn: ${JSON.stringify(c)} mot ${JSON.stringify(want)}`);
+        // Klotet är vridet tillbaka innanför den vanliga globens gräns mot polen (71,6°, 1,25 radianer); i vyn får Grönland ligga norr om den
+        if (!(Math.abs(c.tilt) <= 1.25 + 1e-4)) throw new Error(`${id}: klotet är vridet ${c.tilt} radianer mot polen efter regionvyn`);
+        if (!(await tp.evaluate(() => document.activeElement?.id === 'globe-canvas'))) throw new Error(`${id}: fokus gick inte till globen`);
+        if (!new RegExp(`Regionvyn är stängd\\. Globen visar ${name.replace(/[()]/g, '\\$&')}`).test(await tp.textContent('#screen-reader-status'))) throw new Error(`${id}: statusraden säger inte att regionvyn stängdes`);
+        if (!(await tp.isVisible('#focus-bar'))) throw new Error(`${id}: Escape slutade följa platsen`);
+        out.push(`${id} ${Math.round(b.x1 - b.x0)}×${Math.round(b.y1 - b.y0)} px, ${presses} Escape`);
+      }
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return out.join('; ');
+    } finally { await tctx.close(); }
+  });
+  await check('regionvyn på globen: listan och markörerna hör ihop, medaljerna är dolda, och Platt karta, att sluta följa och fem flygningar lämnar inget kvar (#1644)', async () => {
+    const { tp, tctx, errs } = await placeTapPage('#y=1721&f=place:gronland', 'globregion2');
+    try {
+      const enter = async () => {
+        await tp.waitForSelector('#detail [data-selection-action]', { state: 'visible', timeout: T.step });
+        await tp.locator('#detail [data-selection-action]').focus();
+        await tp.keyboard.press('Enter');
+        await globeRegionSettled(tp, 'gronland');
+      };
+      await enter();
+      // Raderna i listan får markörernas nummer, och globens vanliga etiketter är dolda
+      const nums = await tp.evaluate(() => document.querySelectorAll('#detail .region-num').length);
+      const rows = await tp.evaluate(() => document.querySelectorAll('#detail [data-theme-event]').length);
+      if (!rows || nums !== rows) throw new Error(`listan har ${rows} rader och ${nums} nummer`);
+      if (await tp.evaluate(() => getComputedStyle(document.getElementById('labels')).visibility !== 'hidden')) throw new Error('globens etiketter syns i regionvyn');
+      // Markören är en knapp i listans ordning: Enter markerar den och raden i listan får en ram
+      const first = tp.locator('#globe-region-labels .rmark, #globe-region-labels .rpile').first();
+      await first.focus();
+      await tp.keyboard.press('Enter');
+      await tp.waitForFunction(() => !!document.querySelector('#detail .is-region-marked') || document.querySelector('#globe-region-labels [aria-expanded="true"]'), null, { timeout: T.step });
+      // Platt karta lämnar globens regionvy, utan regionvy i Platt vy (Grönland är för stor för den)
+      await tp.keyboard.press('Escape'); // en utfälld hög fälls ihop först
+      // Knapparna i Vy ligger i menyn Meny i smal skärm: trycket görs direkt på knappen
+      await tp.evaluate(() => document.getElementById('btn-flat').click());
+      await tp.waitForFunction(() => !document.getElementById('flat-view').hidden && document.getElementById('globe-region').hidden, null, { timeout: T.step });
+      if (await tp.evaluate(() => !!document.getElementById('flat-view').dataset.region)) throw new Error('Platt vy fick en regionvy för Grönland');
+      if (await tp.evaluate(() => document.querySelectorAll('#detail .region-num').length)) throw new Error('listans nummer står kvar efter regionvyn');
+      await tp.evaluate(() => document.getElementById('btn-globe').click());
+      // Fem flygningar in och ut: inga knappar, inget minne och inga lyssnare som växer
+      // Det som bevisar något är antalet element i sidan (exakt). JS-minnet skrivs bara ut: utan precise-memory-info är det för grovt
+      const heap = () => tp.evaluate(() => performance.memory?.usedJSHeapSize ?? 0);
+      const nodes = () => tp.evaluate(() => document.getElementsByTagName('*').length);
+      const sizes = [], counts = [];
+      for (let i = 0; i < 5; i++) {
+        await tp.evaluate(() => document.getElementById('detail').hidden && document.getElementById('focus-facts')?.click());
+        await enter();
+        await escapeGlobeRegion(tp);
+        await tp.waitForFunction(() => /^35,/.test(document.getElementById('globe-canvas').dataset.camera ?? ''), null, { timeout: T.step });
+        if (await tp.evaluate(() => document.querySelectorAll('#globe-region-labels button').length)) throw new Error('knapparna står kvar efter regionvyn');
+        await tp.evaluate(() => window.gc?.());
+        sizes.push(await heap());
+        counts.push(await nodes());
+      }
+      if (counts.at(-1) > counts[1]) throw new Error(`sidan får fler element för varje flygning: ${counts.join(', ')}`);
+      // Att sluta följa platsen lämnar regionvyn
+      await tp.evaluate(() => document.getElementById('detail').hidden && document.getElementById('focus-facts')?.click());
+      await enter();
+      await tp.click('#focus-exit');
+      await tp.waitForFunction(() => document.getElementById('globe-region').hidden && document.getElementById('globe-region-chip').hidden, null, { timeout: T.step });
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `${rows} rader med nummer; element ${counts.join(', ')}; minnet ${sizes.map(x => (x / 1e6).toFixed(1)).join(', ')} MB`;
+    } finally { await tctx.close(); }
+  });
+
   // #1641: regionvyn. Visa i Platt karta för en liten plats (Skåne, Danmark; upp till cirka 5 grader på marken, js/region-frame.js)
   // ger en skarp, inzoomad karta med en sluten kantlinje i skärmpixlar. Kontrollerna läser renderingsstatusen på #flat-view
   // (data-region, data-region-box, data-region-ppd, data-region-sharp) och mäter bildpunkterna längs platsens gräns på kartans canvas.
@@ -2749,7 +2981,7 @@ async function run(browser, vp) {
     const { tp, tctx, errs } = await placeTapPage('#y=1827&f=place:skane', 'region1');
     try {
       await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
-      // Knappen säger att den öppnar regionvyn (Grönland och Sverige har kvar Visa i Platt karta)
+      // Knappen säger att den öppnar regionvyn (Sverige har kvar Visa i Platt karta; Grönland och Aotearoa får globflyget, #1644)
       if (!/Visa i regionvy/.test(await tp.textContent('#detail [data-selection-action]'))) throw new Error(`knappen heter ${await tp.textContent('#detail [data-selection-action]')}`);
       await openRegion(tp, 'skane');
       await regionSettled(tp);
@@ -2818,7 +3050,7 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
-  await check('regionvyn: Lämna regionvyn och Escape går tillbaka till Platt karta, Danmark får vyn och Grönland inte (#1641)', async () => {
+  await check('regionvyn: Lämna regionvyn och Escape går tillbaka till Platt karta, Danmark får vyn och Sverige inte (#1641)', async () => {
     const { tp, tctx, errs } = await placeTapPage('#y=1827&f=place:skane', 'region2');
     try {
       const flatView = () => tp.evaluate(() => ({ open: !document.getElementById('flat-view').hidden, region: document.getElementById('flat-view').dataset.region ?? null,
@@ -2848,7 +3080,7 @@ async function run(browser, vp) {
       await regionOff();
       v = await flatView();
       if (!v.open || !v.following) throw new Error(`Escape gjorde mer än att lämna regionvyn: ${JSON.stringify(v)}`);
-      // Danmark får regionvyn, Grönland (större än 5 grader) ramas in som förut
+      // Danmark får regionvyn, Sverige (större än 5 grader, väntar på DasKrokodils bedömning, #1644) ramas in som förut
       await tp.goto(`${BASE}?ny=region3#y=1827&f=place:danmark`);
       await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
@@ -2857,16 +3089,16 @@ async function run(browser, vp) {
       // Att sluta följa platsen lämnar regionvyn
       await tp.click('#focus-exit');
       await regionOff();
-      await tp.goto(`${BASE}?ny=region4#y=1000&f=place:gronland`);
+      await tp.goto(`${BASE}?ny=region4#y=1000&f=place:sverige`);
       await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
       await tp.click('#detail [data-selection-action]');
       await tp.waitForFunction(() => !document.getElementById('flat-view').hidden, null, { timeout: T.step });
       await tp.waitForTimeout(400);
       v = await flatView();
-      if (v.region || v.chip) throw new Error(`Grönland fick regionvyn: ${JSON.stringify(v)}`);
+      if (v.region || v.chip) throw new Error(`Sverige fick regionvyn: ${JSON.stringify(v)}`);
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
-      return 'Lämna regionvyn, Escape (efter kortet) och att sluta följa lämnar vyn; Danmark får den, Grönland inte';
+      return 'Lämna regionvyn, Escape (efter kortet) och att sluta följa lämnar vyn; Danmark får den, Sverige inte';
     } finally { await tctx.close(); }
   });
 
@@ -2951,7 +3183,7 @@ async function run(browser, vp) {
       num: b.querySelector('.region-num')?.textContent ?? null, whole: !!b.querySelector('.region-num.is-whole'), marked: b.classList.contains('is-region-marked') }));
     const covers = ['detail', 'focus-bar', 'flat-region'].map(id => rel(document.getElementById(id))).filter(Boolean);
     const d = document.getElementById('flat-view').dataset;
-    return { buttons, rows, covers, marks: d.regionMarks ?? '', names: Number(d.regionNames ?? 0), w: cr.width, h: cr.height,
+    return { buttons, rows, covers, marks: d.regionMarks ?? '', names: Number(d.regionNames ?? 0), beside: d.regionNamesBeside ?? '', w: cr.width, h: cr.height,
       status: document.getElementById('screen-reader-status').textContent.trim(), focus: document.activeElement?.className ?? '' };
   });
   const coversHit = (s, b) => s.covers.some(c => b.x0 < c.x1 && b.x1 > c.x0 && b.y0 < c.y1 && b.y1 > c.y0);
@@ -3010,7 +3242,10 @@ async function run(browser, vp) {
         const order = s.buttons.filter(b => !b.cls.includes('glabel')).map(b => (b.cls.includes('rbrick') ? 0 : b.n ?? Number(/nummer (\d+)/.exec(b.label)?.[1])));
         if (order.some((n, i) => i && n < order[i - 1])) throw new Error(`knapparnas ordning följer inte listan: ${order.join(', ')}`);
         if (await tp.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw new Error('horisontell scroll i regionvyn');
-        out.push(`${name}: ${markers.length} markörer, ${piles.length} högar, bricka ${whole}, ${s.names} ortnamn`);
+        // En ort med händelser under en enskild markör får sitt namn bredvid markören, utan prick (#1682); en hög har redan ortens namn
+        const beside = s.beside ? s.beside.split('|') : [];
+        if (id === 'skane' && !beside.length) throw new Error('Skåne: ingen ort fick sitt namn bredvid en enskild markör (Helsingborg under markören)');
+        out.push(`${name}: ${markers.length} markörer, ${piles.length} högar, bricka ${whole}, ${s.names} ortnamn (${beside.length} bredvid en markör: ${beside.join(', ') || '–'})`);
       }
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
       return out.join('; ');
@@ -3183,7 +3418,7 @@ async function run(browser, vp) {
   await check('liggande telefon: kortets kryss och knapp går att trycka på, och inget täckt går att fokusera, vid fyra storlekar (#1667)', async () => {
     // Reglerna för liggande telefon gäller bara med pointer: coarse. Chromium ger det redan med hasTouch, Firefox först med isMobile:
     // utan det var arket i läget helt lika lågt som halvt i Firefox, och draget i handtaget gav halvt (#1174)
-    const { tp, tctx, errs } = await touchPage({ isMobile: true });
+    const { tp, tctx, errs } = await touchPage(vp, { isMobile: true });
     // Firefox-jobbet nådde två gånger tidsgränsen på 60 minuter i datorbredden med den här kontrollen, utan logg (#1667). En gräns
     // på 4 minuter med det steg kontrollen stod på gör ett stopp till ett fel med plats, och resten av sviten hinner köras.
     let stage = 'start';
@@ -3295,6 +3530,34 @@ async function run(browser, vp) {
       run.catch(() => {}); // har gränsen slagit till fortsätter run i bakgrunden tills sammanhanget stängs
       await Promise.race([tctx.close().catch(() => {}), new Promise(r => setTimeout(r, 10000))]);
     }
+  });
+
+  // #1695: vid 800 × 360 ska Sök och följ hålla sig i skärmen och sista träffen ska kunna nås i listans egen rullning.
+  await check('liggande låg skärm: Sök och följ rullar till sista träffen vid 800 × 360 (#1695)', async () => {
+    const { tp, tctx, errs } = await touchPage();
+    try {
+      await tp.setViewportSize({ width: 800, height: 360 });
+      await tp.goto(`${BASE}?ny=sok1695#y=1325`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.click('#btn-focus');
+      await tp.waitForSelector('#focus-menu:not([hidden])', { state: 'visible', timeout: T.step });
+      await tp.fill('#focus-menu .focus-search', 'a');
+      const last = tp.locator('#focus-menu .focus-body [data-key]').last();
+      await last.waitFor({ state: 'visible', timeout: T.step });
+      await last.scrollIntoViewIfNeeded();
+      const layout = await tp.evaluate(() => {
+        const menu = document.getElementById('focus-menu'), body = menu.querySelector('.focus-body'), last = body.querySelector('[data-key]:last-child');
+        const m = menu.getBoundingClientRect(), b = body.getBoundingClientRect(), r = last.getBoundingClientRect();
+        return { menuBottom: m.bottom, bodyHeight: b.height, bodyScroll: body.scrollHeight, lastTop: r.top, lastBottom: r.bottom, bodyTop: b.top, bodyBottom: b.bottom, wide: document.documentElement.scrollWidth > innerWidth };
+      });
+      if (layout.menuBottom > 360.5) throw new Error(`menyn slutar vid ${Math.round(layout.menuBottom)} px, under skärmen`);
+      if (layout.bodyHeight < 72) throw new Error(`resultatlistan är bara ${Math.round(layout.bodyHeight)} px hög`);
+      if (layout.bodyScroll <= layout.bodyHeight) throw new Error('resultatlistan går inte att rulla');
+      if (layout.lastTop < layout.bodyTop - 1 || layout.lastBottom > Math.min(layout.bodyBottom, layout.menuBottom, 360) + 1) throw new Error('sista träffen nås inte efter rullning');
+      if (layout.wide) throw new Error('menyn ger horisontell scroll på sidan');
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `menyn slutar vid ${Math.round(layout.menuBottom)} px; listan ${Math.round(layout.bodyHeight)} px och sista träffen nås`;
+    } finally { await tctx.close(); }
   });
 
   // #1696: ett kort som öppnades från Sök och följ gav fokus till Samtidigt när det stängdes med Escape. Fokus ska gå tillbaka till knappen
@@ -3464,8 +3727,15 @@ async function run(browser, vp) {
       if (notes.length !== 2 || !/dagens gräns/.test(notes[0]) || !/oavsett/.test(notes[1])) throw new Error(`Fokus-kortets noter är fel: ${notes.join(' | ')}`);
       if (!/^Plats$/.test((await tp.textContent('#detail .story-label')).trim())) throw new Error('Fokus-kortets etikett är inte Plats');
       if (await tp.getAttribute('#detail', 'aria-label') !== 'Om platsen') throw new Error('Fokus-kortet heter inte Om platsen för skärmläsare');
+      // Adressen skrivs när den läses av nästa gång (var 700:e ms, js/controllers/address.js), inte direkt: vänta på den.
+      // Firefox och WebKit hann annars inte, och provet läste adressen från turen (#1174).
+      const hashOk = h => /f=place:gronland/.test(h) && !/(^#|&)t=/.test(h) && !/&s=/.test(h);
+      try {
+        await tp.waitForFunction(src => new RegExp(src[0]).test(location.hash) && !new RegExp(src[1]).test(location.hash) && !new RegExp(src[2]).test(location.hash),
+          ['f=place:gronland', '(^#|&)t=', '&s='], { timeout: T.step });
+      } catch { /* felet nedan säger vad adressen är */ }
       const hash = await tp.evaluate(() => location.hash);
-      if (!/f=place:gronland/.test(hash) || /(^#|&)t=/.test(hash) || /(^|&)s=/.test(hash)) throw new Error(`adressen efter Fokus är fel (turen ska vara borta): ${hash}`);
+      if (!hashOk(hash)) throw new Error(`adressen efter Fokus är fel (turen ska vara borta): ${hash}`);
       // Turens egna delar är borta: inget turkort, ingen läs-knapp, ingen "Avsluta turen" och tidsreglaget är fritt igen
       for (const id of ['tour-card', 'tour-read', 'tour-end']) if (await tp.isVisible(`#${id}`)) throw new Error(`#${id} syns efter att Fokus avslutade turen`);
       // Avsluta platsen stänger kortet, och turen kommer inte tillbaka
@@ -3543,15 +3813,21 @@ async function run(browser, vp) {
   // rullat (krysset är sticky). Smal skärm: max-width gäller. Bred skärm: en touch-sida med isMobile (Playwright ändrar pointer: coarse bara då).
   const targets = pg => pg.evaluate(() => {
     const d = document.getElementById('detail'), b = d.querySelector('.detail-close');
-    const at = (x, y) => !!document.elementFromPoint(x, y)?.closest('.detail-close');
+    // Firefox på Linux har rullningslister som ligger över kortets högra kant och träffas av elementFromPoint, också när
+    // de inte syns. På en touchskärm tar en rullningslist inte emot tryck, så den döljs medan provet mäter (#1174).
+    d.style.scrollbarWidth = 'none';
+    const name = el => el ? `${el.tagName.toLowerCase()}${el.id ? '#' + el.id : ''}${el.classList.length ? '.' + [...el.classList].join('.') : ''}` : 'inget';
+    const misses = [];
+    const at = (x, y, side) => { const el = document.elementFromPoint(x, y); if (el?.closest('.detail-close')) return true; misses.push(`${side}: ${name(el)}`); return false; };
     const measure = () => { const r = b.getBoundingClientRect(), mid = { x: r.left + r.width / 2, y: r.top + r.height / 2 };
-      return { w: Math.round(r.width), left: at(r.left - 6, mid.y), right: at(r.right + 6, mid.y), up: at(mid.x, r.top - 6), down: at(mid.x, r.bottom + 6) }; };
+      return { w: Math.round(r.width), left: at(r.left - 6, mid.y, 'vänster'), right: at(r.right + 6, mid.y, 'höger'), up: at(mid.x, r.top - 6, 'upp'), down: at(mid.x, r.bottom + 6, 'ner') }; };
     const rows = [...d.querySelectorAll('[data-theme-event]')].map(x => Math.round(x.getBoundingClientRect().height * 10) / 10);
     const top = measure();
     d.scrollTop = 150; // kortet rullat: krysset ligger kvar överst
     const scrolled = { ...measure(), scrolled: d.scrollTop };
     d.scrollTop = 0;
-    return { rows, top, scrolled, coarse: matchMedia('(pointer: coarse)').matches };
+    d.style.scrollbarWidth = '';
+    return { rows, top, scrolled, misses, coarse: matchMedia('(pointer: coarse)').matches };
   });
   const touchTargets = async (pg, what, needCoarse) => {
     await followGreenlandFromMenu(pg);
@@ -3562,7 +3838,7 @@ async function run(browser, vp) {
     if (needCoarse && !r.coarse) throw new Error(`${what}: sidan har inte pointer: coarse, så provet prövar ingenting`);
     if (r.rows.length < 5 || r.rows.some(h => h < 44)) throw new Error(`${what}: raderna i händelselistan är för låga för touch: ${r.rows.join(', ')} px`);
     for (const [state, m] of [['överst', r.top], ['rullat', r.scrolled]]) {
-      if (!m.left || !m.right || !m.up || !m.down) throw new Error(`${what}: krysset har för liten träffyta (${state}): ${JSON.stringify(m)}`);
+      if (!m.left || !m.right || !m.up || !m.down) throw new Error(`${what}: krysset har för liten träffyta (${state}): ${JSON.stringify(m)}; träffade i stället ${r.misses.join(', ')}`);
     }
     if (!r.scrolled.scrolled) throw new Error(`${what}: kortet gick inte att rulla, så "rullat" prövades inte`);
     return `${r.rows.length} rader på minst ${Math.min(...r.rows)} px; krysset (${r.top.w} px) träffas 6 px utanför knappen åt alla håll, överst och rullat`;
@@ -3738,15 +4014,16 @@ async function run(browser, vp) {
       if (seen.overlap.length) throw new Error(`${what}: beskedraden täcker ${seen.overlap.join(', ')}`);
       if (seen.wide) throw new Error(`${what}: horisontell scroll med beskedraden`);
     };
-    // 1. Platsen följs: stäng kortet, och Enter på globen öppnar det igen. Samma på Platt karta.
-    const a = await placeTapPage('#y=1000&f=place:gronland', 'platsenter1');
+    // 1. Platsen följs: stäng kortet, och Enter på globen öppnar det igen. Samma på Platt karta. Sverige, vars knapp öppnar Platt karta
+    // (Grönland flyger in på globen sedan #1644)
+    const a = await placeTapPage('#y=1000&f=place:sverige', 'platsenter1');
     try {
-      await followsGreenland(a.tp);
+      await followsSweden(a.tp);
       await a.tp.click('#detail [data-close]');
       await a.tp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
       await a.tp.focus('#globe-canvas');
       await a.tp.keyboard.press('Enter');
-      await followsGreenland(a.tp);
+      await followsSweden(a.tp);
       if (!(await a.tp.isVisible('#detail .place-type'))) throw new Error('Enter öppnade inte platskortet igen på globen');
       // Platt karta: knappen i kortet byter vy, kortet stängs, och Enter på kartan öppnar det igen
       await a.tp.click('#detail [data-selection-action]');
@@ -3755,7 +4032,7 @@ async function run(browser, vp) {
       await a.tp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
       await a.tp.focus('#flat-canvas');
       await a.tp.keyboard.press('Enter');
-      await followsGreenland(a.tp);
+      await followsSweden(a.tp);
       if ((await a.tp.getAttribute('#btn-flat', 'aria-pressed')) !== 'true') throw new Error('Platt vy stängdes av Enter');
       if (a.errs.length) throw new Error(`fel i konsolen: ${a.errs.join(' | ')}`);
     } finally { await a.tctx.close(); }
@@ -4112,10 +4389,10 @@ async function run(browser, vp) {
       if (!year.includes(String(Math.abs(first.start <= 0 ? first.start - 1 : first.start)))) throw new Error(`tiden står inte på första händelsens år (${first.start}): "${year}"`);
       // I smal skärm öppnas inte faktarutan vid pausen, så att kartan syns (som för krigets stopp); händelsen markeras på globen
       if (vp.width > 760 && await tp.isHidden('#detail')) throw new Error('faktarutan visar inte händelsen vid pausen');
-      // #1620: Skånes viktiga händelser (major eller top) är pauserna, i tidsordning och utan att någon hoppas över,
-      // också trohetseden och försvenskningen som båda är 1658: efter den första visar nästa Spela den andra utan att tiden
-      // flyttas förbi året (kön i playback.js). Pauser av annat slag (till exempel Samtidigt-kort) räknas inte.
-      const skane = ['uppakra', 'lund-grundas', 'skane-under-magnus-eriksson', 'trohetseden-i-malmo', 'forsvenskningen-av-skane', 'slaget-vid-lund', 'freden-i-lund', 'oresundsbron-oppnas'];
+      // #1620, #1675: Skånes viktiga händelser (major eller top) är pauserna, i tidsordning och utan att någon hoppas över.
+      // Pauser av annat slag (till exempel Samtidigt-kort) räknas inte. Sedan #1675 har ingen plats två pauser samma år, så kön
+      // för flera stopp samma år (playback.js) prövas med påhittade händelser i tests/theme-stops.test.mjs.
+      const skane = ['uppakra', 'forsvenskningen-av-skane', 'slaget-vid-lund'];
       const byId = Object.fromEntries((events.events ?? events).map(e => [e.id, e]));
       for (const id of skane) if (!byId[id]?.major && !byId[id]?.top) throw new Error(`${id} är inte markerad som viktig (major eller top)`);
       await tp.goto(`${BASE}?ny=plats4#y=-200&f=place:skane`);
@@ -4124,27 +4401,24 @@ async function run(browser, vp) {
       const stops = [];
       for (let i = 0; i < 20 && stops.length < skane.length; i++) {
         await tp.evaluate(() => { document.getElementById('pause-text').textContent = ''; document.getElementById('focus-action').click(); });
-        await tp.waitForFunction(() => document.getElementById('focus-action').dataset.action !== 'pause' && document.getElementById('pause-text').textContent !== '', null, { timeout: T.step * 3 })
+        await tp.waitForFunction(() => document.getElementById('focus-action').dataset.action !== 'pause' && document.getElementById('pause-text').textContent !== '', null, { timeout: T.step * 8 }) // från Uppåkra (−99) till 1658 är långt (#1675)
           .catch(() => { throw new Error(`uppspelningen pausade inte efter ${stops.join(', ') || 'starten'}`); });
         const text = await tp.evaluate(() => document.getElementById('pause-text').textContent);
         const hit = skane.find(id => text === `Pausad vid ${byId[id].title.sv}`);
         if (hit) stops.push(hit);
         else if (Object.values(byId).some(e => text === `Pausad vid ${e.title?.sv}`)) throw new Error(`pausade vid en händelse som inte är markerad: "${text}" (efter ${stops.join(', ')})`);
-        if (hit === 'trohetseden-i-malmo') {
-          await tp.screenshot({ path: path.join(OUT, `${vp.name}-1620-skane-paus-1658.png`) });
-          // Raden "Nästa paus" pekar på nästa stopp samma år, inte på stoppet man står på (#1620)
-          const next = await tp.evaluate(() => ['next-pause', 'pause-next'].map(id => document.getElementById(id).textContent).join(' | '));
-          if (!next.includes(byId['forsvenskningen-av-skane'].title.sv) || next.includes(byId['trohetseden-i-malmo'].title.sv)) throw new Error(`"Nästa paus" vid trohetseden: "${next}"`);
-        }
         if (hit === 'forsvenskningen-av-skane') {
           const at = await tp.evaluate(() => document.getElementById('focus-state').textContent);
-          if (!at.includes('1658')) throw new Error(`tiden står inte på 1658 vid den andra pausen samma år: "${at}"`);
-          await tp.screenshot({ path: path.join(OUT, `${vp.name}-1620-skane-paus-1658-andra.png`) });
+          if (!at.includes('1658')) throw new Error(`tiden står inte på 1658 vid pausen för försvenskningen: "${at}"`);
+          await tp.screenshot({ path: path.join(OUT, `${vp.name}-1620-skane-paus-1658.png`) });
+          // Raden "Nästa paus" pekar aldrig på stoppet man står på (#1620); för en plats visar den bara ett köat stopp samma år
+          const next = await tp.evaluate(() => ['next-pause', 'pause-next'].map(id => document.getElementById(id).textContent).join(' | '));
+          if (next.includes(byId['forsvenskningen-av-skane'].title.sv)) throw new Error(`"Nästa paus" vid försvenskningen: "${next}"`);
         }
       }
       if (stops.join() !== skane.join()) throw new Error(`pauserna i Skåne: ${stops.join(' → ')}; väntade ${skane.join(' → ')}`);
-      // Fokusbyte under pausen (#1620): Skåne pausad vid trohetseden 1658, sedan Sverige samma år. Årets stopp tappas inte:
-      // Spela i Sverige pausar vid trohetseden och sedan försvenskningen, båda 1658.
+      // Fokusbyte under pausen (#1620): Skåne pausad vid försvenskningen 1658, sedan Sverige samma år. Årets stopp tappas inte:
+      // Spela i Sverige pausar vid försvenskningen 1658, som också är Sveriges stopp.
       await tp.goto(`${BASE}?ny=plats5#y=1650&f=place:skane`);
       await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await tp.waitForFunction(() => !document.getElementById('focus-bar').hidden && /Skåne/.test(document.getElementById('focus-title').textContent), null, { timeout: T.step });
@@ -4156,22 +4430,22 @@ async function run(browser, vp) {
       };
       const want = id => `Pausad vid ${byId[id].title.sv}`;
       const s1 = await pauseOnce('Skåne från 1650');
-      if (s1 !== want('trohetseden-i-malmo')) throw new Error(`Skåne från 1650 pausade vid "${s1}"`);
+      if (s1 !== want('forsvenskningen-av-skane')) throw new Error(`Skåne från 1650 pausade vid "${s1}"`);
       await tp.evaluate(() => { location.hash = '#y=1658&f=place:sverige'; });
       await tp.waitForFunction(() => /Sverige/.test(document.getElementById('focus-title').textContent), null, { timeout: T.step });
-      const swapped = [await pauseOnce('Sverige 1658, första'), await pauseOnce('Sverige 1658, andra')];
-      if (swapped.join() !== [want('trohetseden-i-malmo'), want('forsvenskningen-av-skane')].join()) throw new Error(`efter bytet till Sverige 1658: ${swapped.join(' → ')}`);
+      const swapped = [await pauseOnce('Sverige 1658')];
+      if (swapped.join() !== [want('forsvenskningen-av-skane')].join()) throw new Error(`efter bytet till Sverige 1658: ${swapped.join(' → ')}`);
       if (!(await tp.evaluate(() => document.getElementById('focus-state').textContent)).includes('1658')) throw new Error('tiden flyttades förbi 1658 efter bytet');
-      // Pauserna av i Lager medan kön har ett stopp (#1620): Fortsätt visar inte kön utan spelar vidare
+      // Pauserna av i Lager under en paus (#1620): Fortsätt pausar inte vid nästa stopp utan spelar vidare
       await tp.evaluate(() => { location.hash = '#y=1650&f=place:skane'; });
       await tp.waitForFunction(() => /Skåne/.test(document.getElementById('focus-title').textContent), null, { timeout: T.step });
       const s2 = await pauseOnce('Skåne från 1650 före valet');
-      if (s2 !== want('trohetseden-i-malmo')) throw new Error(`Skåne från 1650 (andra gången) pausade vid "${s2}"`);
+      if (s2 !== want('forsvenskningen-av-skane')) throw new Error(`Skåne från 1650 (andra gången) pausade vid "${s2}"`);
       await tp.evaluate(() => { for (const box of document.querySelectorAll('input[data-pause="theme"]')) { box.checked = false; box.dispatchEvent(new Event('change', { bubbles: true })); } });
       await tp.evaluate(() => document.getElementById('focus-action').click());
-      const playingOn = await tp.evaluate(() => document.getElementById('focus-action').dataset.action === 'pause' && !document.getElementById('pause-text').textContent.includes('Försvenskningen'));
+      const playingOn = await tp.evaluate(() => document.getElementById('focus-action').dataset.action === 'pause' && !document.getElementById('pause-text').textContent.includes('Slaget vid Lund'));
       await tp.evaluate(() => { const a = document.getElementById('focus-action'); if (a.dataset.action === 'pause') a.click(); for (const box of document.querySelectorAll('input[data-pause="theme"]')) { box.checked = true; box.dispatchEvent(new Event('change', { bubbles: true })); } });
-      if (!playingOn) throw new Error('Fortsätt visade det köade stoppet fast pauserna var avstängda i Lager');
+      if (!playingOn) throw new Error('Fortsätt pausade vid nästa stopp fast pauserna var avstängda i Lager');
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
       return `pausade vid första händelsen (${first.start}): ${pause}; Skåne: ${stops.join(" → ")}; byte till Sverige 1658: ${swapped.length} stopp`;
     } finally { await tctx.close(); }
@@ -4326,6 +4600,57 @@ async function run(browser, vp) {
         await pp.screenshot({ path: path.join(OUT, `1310-turkort-${yta.width}x${yta.height}.png`) });
         out.push(`${yta.namn}: kortet ${Math.round(a.card.height)} px${a.scrollable ? ' (rullbart, knapparna fasta)' : ''}, Nästa och Avsluta i bild, turraden ryms`);
       } finally { await context.close(); }
+    }
+    return out.join('; ');
+  });
+
+  // #1694: breda liggande pekskärmar fick bara 16 px turkort. Jämför med de smala storlekar som redan fungerade.
+  await check('liggande pekskärm: tur och lektion har nåbara knappar vid låg höjd (#1694)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet (provar själv fyra pekskärmsstorlekar)';
+    const out = [];
+    for (const [width, height] of [[800, 360], [844, 390], [640, 360], [667, 375]]) {
+      for (const lesson of [false, true]) {
+        const { tp, tctx, errs } = await touchPage({ width, height });
+        try {
+          await tp.goto(`${BASE}#t=andra-varldskriget${lesson ? '&m=lektion' : ''}`, { waitUntil: 'domcontentloaded' });
+          await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+          await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+          await tp.waitForSelector('#pause-note', { state: 'visible', timeout: T.step });
+          const measure = () => tp.evaluate(lesson => {
+            const rect = e => { const b = e.getBoundingClientRect(); return { top: b.top, bottom: b.bottom, left: b.left, right: b.right, height: b.height }; };
+            const card = document.getElementById('tour-card'), c = rect(card);
+            const hit = id => {
+              const el = document.getElementById(id), b = rect(el);
+              const free = y => { const target = document.elementFromPoint((b.left + b.right) / 2, y); return !!target && (target === el || el.contains(target)); };
+              // Bred layout rättas här: hela knappens höjd ska vara fri. Smal layout jämförs med sin fungerande mittpunkt.
+              const points = innerWidth > 760 ? [b.top + 1, (b.top + b.bottom) / 2, b.bottom - 1] : [(b.top + b.bottom) / 2];
+              return { ...b, ok: b.height > 0 && b.top >= 0 && b.bottom <= innerHeight && points.every(free) };
+            };
+            return { card: c, next: hit('tour-next'), exit: hit(lesson ? 'lesson-exit' : 'tour-end'), year: hit('year-jump'),
+              note: rect(document.getElementById('pause-note')), text: rect(document.getElementById('tour-text')),
+              actions: rect(card.querySelector('.tour-actions')), coarse: matchMedia('(pointer: coarse)').matches,
+              scroll: document.documentElement.scrollWidth > innerWidth };
+          }, lesson);
+          const a = await measure(), label = `${width} × ${height}, ${lesson ? 'lektion' : 'tur'}`;
+          if (!a.coarse) throw new Error(`${label}: provet emulerar ingen pekskärm`);
+          if (!a.next.ok || !a.exit.ok || !a.year.ok) throw new Error(`${label}: Nästa, utgången eller årtalet täcks: ${JSON.stringify(a)}`);
+          if (a.next.height < 44) throw new Error(`${label}: Nästa har för liten tryckyta`);
+          if (a.card.top < 0 || a.card.bottom > a.note.top || a.scroll) throw new Error(`${label}: kortet täcker turraden eller sidan rullar i sidled`);
+          await tp.evaluate(() => { const c = document.getElementById('tour-card'); c.scrollTop = c.scrollHeight; });
+          const b = await measure();
+          if (!b.next.ok || !b.exit.ok || b.text.bottom > b.actions.top + 1) throw new Error(`${label}: textens slut eller knapparna nås inte efter rullning`);
+          // Riktig pekning: nästa steg går att öppna och turen/lektionen går att lämna.
+          const progress = await tp.textContent('#tour-progress');
+          await tp.tap('#tour-next');
+          await tp.waitForFunction(before => document.getElementById('tour-progress').textContent !== before, progress, { timeout: T.step });
+          if (lesson) await leaveLesson(tp);
+          else await tp.tap('#tour-end');
+          await tp.waitForSelector('#tour-card', { state: 'hidden', timeout: T.step });
+          if (!lesson && !await tp.isVisible('.top-actions')) throw new Error(`${label}: menyraden kom inte tillbaka efter turen`);
+          if (errs.length) throw new Error(`${label}: sidfel ${errs.join('; ')}`);
+          out.push(`${label}: kortet ${Math.round(a.card.height)} px, knappar och text nås`);
+        } finally { await tctx.close(); }
+      }
     }
     return out.join('; ');
   });
@@ -8061,6 +8386,48 @@ async function run(browser, vp) {
     }
     return 'direktlänk, omladdning och Bakåt/Framåt behåller låset; året låst till 1939–1945; Tab når utgången; slutkortet står kvar; utgången behåller året; utan lektionstur eller tur inget läge';
   });
+  // #1181: vanliga turer släpper också Översikt, även när inget lager behöver bytas.
+  await check('vanlig tur från Översikt visar alla händelser och återställer urvalet (#1181)', async () => {
+    const tp = await context.newPage();
+    const errors = [];
+    tp.on('pageerror', e => errors.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await tp.route(u => isFont(u.href), r => r.abort());
+      }
+      // Samma lager som Översikt i alla steg: testet får inte passera genom ett lagerbyte.
+      await tp.route(u => /data\/turer\/andra-varldskriget\.json/.test(u.href), async r => {
+        const res = await r.fetch();
+        const doc = await res.json();
+        for (const step of doc.steps) step.layers = ['events', 'funfacts', 'areas'];
+        await r.fulfill({ response: res, json: doc });
+      });
+      // 1939 är den här turens första steg; välj uttryckligen Översikt före turen.
+      await tp.goto(`${BASE}#g=oversikt&t=andra-varldskriget`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      await tp.waitForFunction(() => document.querySelector('#layer-menu [data-view="oversikt"]')?.getAttribute('aria-pressed') === 'false', null, { timeout: T.step });
+      const ids = await tp.evaluate(() => [...document.querySelectorAll('#event-list .event-btn')].map(b => b.dataset.id));
+      const outside = await tp.evaluate(async list => {
+        const events = (await (await fetch('data/events.json')).json()).events;
+        return list.filter(id => events.find(e => e.id === id)?.significance !== 1);
+      }, ids);
+      if (!outside.length) throw new Error(`turen visar ${ids.length} händelser men ingen utanför Översikt`);
+      if (!await tp.evaluate(() => document.getElementById('panel-tag-note').hidden)) throw new Error('urvalsraden syns i turen');
+      if (/[#&]g=/.test(await tp.evaluate(() => location.hash))) throw new Error('adressen har kvar ett urval i turen');
+      // Ett senare steg får inte ersätta den sparade vyn; turens slut återställer Översikt.
+      await tp.click('#tour-next');
+      await tp.click('#tour-end');
+      await tp.waitForSelector('#tour-card', { state: 'hidden', timeout: T.step });
+      await tp.waitForFunction(() => document.querySelector('#layer-menu [data-view="oversikt"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
+      await tp.waitForFunction(() => /([?&#])g=oversikt(?:&|$)/.test(location.hash), null, { timeout: T.step });
+      if (await tp.evaluate(() => document.getElementById('panel-tag-note').hidden)) throw new Error('urvalsraden saknas efter turen');
+      if (errors.length) throw new Error(`konsolfel: ${errors.join('; ')}`);
+      return `${ids.length} händelser i turen, ${outside.length} utanför Översikt; utgången återställer Översikt`;
+    } finally { await tp.close(); }
+  });
   // #1139: lektionsläget visar alltid alla händelser i lektionens år, också när lektionens lager är exakt Översikts tre lager
   // (då slår turen inte av något lager, och vyns urval skulle annars ligga kvar). Utgången ("Lämna lektionen") ger tillbaka
   // Översikt som det var före lektionen. Lektionens lager skrivs om i testet så att de blir lika med Översikts.
@@ -8106,6 +8473,65 @@ async function run(browser, vp) {
       if (await lp.evaluate(() => document.getElementById('panel-tag-note').hidden)) throw new Error('urvalsraden saknas när Översikt är tillbaka efter lektionen');
       if (errors.length) throw new Error(`konsolfel: ${errors.join('; ')}`);
       return `lektionen visar ${ids.length} händelser år 1939, varav ${outside.length} utanför Översikt; utgången ger Översikt tillbaka`;
+    } finally { await lp.close(); }
+  });
+  // #1709: jakten ska inte täckas av slutkortet eller erbjuda sista stegets händelse utanför uppdragets år.
+  await check('lektionens jakt lämnar plats åt uppdraget och återgår till slutkortet (#1709)', async () => {
+    const lp = await context.newPage();
+    const errors = [];
+    lp.on('pageerror', e => errors.push(e.message));
+    try {
+      await lp.setViewportSize({ width: vp.width > 760 ? 1280 : 400, height: 800 });
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await lp.route(u => isFont(u.href), r => r.abort());
+      }
+      // Detta är lektionens sista steg och uppdraget som gav felet i #1709.
+      await lp.goto(`${BASE}#t=vikingatiden-och-varlden&m=lektion&s=ghana`);
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await lp.waitForSelector('#tour-lesson-end', { state: 'visible', timeout: T.step });
+      const startHunt = async () => {
+        await lp.click('#tour-lesson-end-list button');
+        await lp.waitForSelector('#hunt', { state: 'visible', timeout: T.step });
+        await lp.waitForSelector('#tour-card', { state: 'hidden', timeout: T.step });
+        await lp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
+        if ((await lp.textContent('#year-big')).trim() !== '1000') throw new Error('jakten står inte på sitt år 1000');
+        if (!await lp.isVisible('#lesson-band')) throw new Error('jakten avslutade lektionen');
+        const task = await lp.evaluate(() => {
+          const e = document.getElementById('hunt-task'), b = e.getBoundingClientRect(), root = document.getElementById('hunt').getBoundingClientRect();
+          return { top: b.top, bottom: b.bottom, rootBottom: root.bottom,
+            free: !!document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2)?.closest('#hunt') };
+        });
+        if (!task.free || task.bottom > task.rootBottom || task.top < 0) throw new Error(`uppdragstexten är täckt eller klippt: ${JSON.stringify(task)}`);
+      };
+      await startHunt();
+      // Eleven kan välja en samtida händelse, inte bara se uppdraget.
+      if (await lp.isHidden('#panel')) await lp.click('#btn-panel');
+      await lp.locator('#event-list .event-btn[data-id="lund-grundas"]').first().click();
+      await lp.waitForSelector('#detail [data-hunt]', { state: 'visible', timeout: T.step });
+      await lp.click('#detail [data-hunt]');
+      if (!/räknas/.test(await lp.textContent('#hunt-message'))) throw new Error('en giltig händelse gick inte att lägga till');
+      await lp.click('#detail [data-close]');
+      await lp.waitForFunction(() => new URLSearchParams(location.hash.slice(1)).has('u'), null, { timeout: T.step });
+      // En delad länk/omladdning återskapar samma fria jaktvy.
+      await lp.reload();
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await lp.waitForSelector('#hunt', { state: 'visible', timeout: T.step });
+      if (await lp.isVisible('#tour-card') || await lp.isVisible('#detail')) throw new Error('slutkort eller faktaruta kom tillbaka vid omladdning');
+      await lp.click('#hunt-close');
+      await lp.waitForSelector('#hunt', { state: 'hidden', timeout: T.step });
+      await lp.waitForSelector('#tour-lesson-end', { state: 'visible', timeout: T.step });
+      if ((await lp.textContent('#year-big')).trim() !== '1000') throw new Error('året flyttades när jakten avslutades');
+      if (!await lp.evaluate(() => document.activeElement?.matches('#tour-lesson-end-list button'))) throw new Error('fokus återgick inte till den synliga jaktknappen');
+      // Knappen som skapats om fungerar igen. Lektionen kan sedan lämnas från bandet.
+      await startHunt();
+      await leaveLesson(lp);
+      if (await lp.isVisible('#tour-card') || await lp.isVisible('#lesson-band')) throw new Error('lektionen gick inte att lämna under jakten');
+      await lp.click('#hunt-close');
+      if (await lp.isVisible('#tour-card')) throw new Error('ett gammalt slutkort öppnades efter att lektionen lämnats');
+      if (errors.length) throw new Error(`sidfel: ${errors.join('; ')}`);
+      return 'fri uppdragstext, gamla faktarutan stängd, omladdning och återgång med fokus fungerar';
     } finally { await lp.close(); }
   });
   // #1340: uppdrag knyts till lektionen i data (fältet lesson i data/uppdrag.json). Efter sista steget visar slutkortet
@@ -9287,6 +9713,12 @@ async function run(browser, vp) {
       const open = async hash => {
         await wpAw.goto(`${BASE}?lang=sv&ny=u${loads++}${hash}`);
         await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        // Laddningsrutan döljs innan adressen läses (js/main.js: address.start() kommer efteråt), så reglaget står först på
+        // startåret 1325. Vänta på länkens år; WebKit hann annars inte, och provet läste 1325 (#1174)
+        const y = Number(new URLSearchParams(hash.slice(1)).get('y'));
+        try {
+          await wp.waitForFunction(v => Number(document.getElementById('track').getAttribute('aria-valuenow')) === v, y, { timeout: T.step });
+        } catch { /* felet nedan säger vilket år reglaget står på */ }
         await wp.waitForFunction(() => document.getElementById('panel-sub')?.textContent.length > 5, null, { timeout: T.step });
       };
       // En gammal länk med exakt år öppnas oavrundad, men rubriken och det upplästa värdet är avrundade

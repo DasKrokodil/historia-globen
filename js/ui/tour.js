@@ -59,7 +59,7 @@ export class TourPlayer {
       for (const p of problems) console.warn(p);
       return !problems.length && isVisibleReview(tour.review);
     });
-    this.tour = null; this.index = 0; this.target = null; this.opener = null;
+    this.tour = null; this.index = 0; this.target = null; this.opener = null; this.huntHidden = false; this.stepVersion = 0;
     this.button.hidden = !this.tours.length;
     if (!this.tours.length) return;
 
@@ -266,6 +266,8 @@ export class TourPlayer {
     if (app.store) app.store.enter('tur', this.tour ? null : app.snapshot());
     else if (hadFocus) app.endFocus(false);
     if (hadFocus && app.lesson?.active) app.lesson.applyLock(); // endFocus släpper tidslåset (#795)
+    // Turen visar alla händelser i turens år (#1181). Spara vyn först ovan; end återställer urvalet efter lagren.
+    app.layers.setTag(null);
     this.tour = tour; this.opener = opener; this.target = null;
     this.name.textContent = t(tour.title);
     this.card.hidden = false;
@@ -278,6 +280,10 @@ export class TourPlayer {
   /** Visar steg i: året, kameran, lagren och faktarutan, och pausar tidslinjen med turens namn. */
   go(i) {
     if (!this.tour) return;
+    this.huntHidden = false;
+    this.card.hidden = false;
+    this.app.root.classList.add('touring');
+    const stepVersion = this.stepVersion = (this.stepVersion ?? 0) + 1;
     const { app } = this, { timeline, globe, flatMap } = app;
     this.index = Math.max(0, Math.min(i, this.tour.steps.length - 1));
     this.target = null;
@@ -342,7 +348,7 @@ export class TourPlayer {
     };
     if (this.last) timeline.pause(); // ingen pausrad i sista steget
     else timeline.pause(note, true, cardOpens ? '' : say); // med ett kort sägs uppläsningen av speak nedan, inte här
-    if (placeShown && cardOpens) placeShown.then(shown => { if (this.tour && this.step === step) speak(shown ? this.cardHeading() : ''); });
+    if (placeShown && cardOpens) placeShown.then(shown => { if (this.tour && this.stepVersion === stepVersion && !this.huntHidden && this.step === step) speak(shown ? this.cardHeading() : ''); });
     else if (step.open && cardOpens) speak(this.cardHeading());
     else if (this.last) speak('');
   }
@@ -368,7 +374,8 @@ export class TourPlayer {
    * Platserna laddas först nu, så steget kan ha bytts när de kommer: då visas inget.
    */
   showPlace(step, card, focus = false) {
-    return Promise.resolve(this.app.places?.openStep(step.place, { card, focus, current: () => !!this.tour && this.step === step })).then(Boolean, () => false); // en plats som inte gick att ladda: stegets text läses ändå
+    const stepVersion = this.stepVersion;
+    return Promise.resolve(this.app.places?.openStep(step.place, { card, focus, current: () => !!this.tour && this.stepVersion === stepVersion && !this.huntHidden && this.step === step })).then(Boolean, () => false); // en plats som inte gick att ladda: stegets text läses ändå
   }
 
   /** Stegindikatorn i kortet (#1280): ett streck per steg, de gjorda och det nuvarande fyllda. Bara en tillägg till
@@ -388,11 +395,35 @@ export class TourPlayer {
   lift() {
     const { globe, narrow } = this.app;
     requestAnimationFrame(() => {
-      if (!this.tour || !narrow.matches) return globe.setViewLift(0);
+      if (!this.tour || this.card.hidden || !narrow.matches) return globe.setViewLift(0);
       const top = document.querySelector('.top-actions')?.getBoundingClientRect().bottom ?? 0;
       const cardTop = this.card.getBoundingClientRect().top;
       globe.setViewLift(Math.max(0, globe.centerY() - (top + cardTop) / 2));
     });
+  }
+
+  /** Lektionens slutkort lämnar plats åt jakten; lektionen och dess sparade vy fortsätter (#1709). */
+  hideForHunt() {
+    if (!this.last || !this.app.lesson?.active) return;
+    this.huntHidden = true;
+    this.stepVersion = (this.stepVersion ?? 0) + 1; // avbryt också platskort som fortfarande laddas
+    this.card.hidden = true;
+    this.app.root.classList.remove('touring'); // faktarutan ska också få jaktens vanliga plats när eleven öppnar en händelse
+    this.target = null;
+    this.app.places?.closeStep();
+    this.app.select(null, false);
+    this.app.globe.setViewLift(0);
+  }
+
+  /** Slutkortet visas igen när jakten slutar. Året står kvar, som vid andra utgångar ur jakten. */
+  resumeAfterHunt() {
+    if (!this.huntHidden || !this.tour) return null;
+    this.huntHidden = false;
+    this.card.hidden = false;
+    this.app.root.classList.add('touring');
+    this.app.select(null, false);
+    this.lift();
+    return this.card.querySelector('#tour-lesson-end-list button') ?? this.back;
   }
 
   /** Slår på stegets lager och av de andra som vyerna styr, genom Lager (samma väg som när besökaren väljer). */
@@ -419,7 +450,7 @@ export class TourPlayer {
     const restore = app.store?.leave(['tur', 'lektion'], takenBy) ?? {};
     app.lesson?.leave(); // en tur som slutar tar lektionsläget med sig (#795)
     this.next.hidden = false;
-    this.tour = null; this.target = null;
+    this.tour = null; this.target = null; this.huntHidden = false;
     this.card.hidden = true;
     app.root.classList.remove('touring');
     app.globe.setViewLift(0);
@@ -431,7 +462,7 @@ export class TourPlayer {
       app.layers.set(id, on);
       app.layers.onChange(id, on);
     }
-    // Vyns urval (Översikt) efter lagren: ett lagerbyte ovan lämnar vyn, och en lektion släppte urvalet när den började (#1139)
+    // Vyns urval (Översikt) efter lagren: ett lagerbyte ovan lämnar vyn; turen och lektionen släppte urvalet vid start (#1139, #1181)
     if ('tag' in restore) app.layers.setTag(restore.tag);
     if (restore.focus) app.startFocus(restore.focus);
     if (restore.camera) { app.globe.flyTo(restore.camera.lat, restore.camera.lon); app.globe.setZoom(restore.camera.zoom); }

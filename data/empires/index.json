@@ -1,6 +1,6 @@
 {
  "schema": "historia-globen/empires-index@1",
- "notes": "Riken som områden (lagertyp område), ett rike per fil. Utdrag ur Cliopatria, datafil cliopatria_polities_only_v021 (version 0.2.1, Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/23128623), byggt med tools/riken.py. Ändringar: geometrin är förenklad (Douglas-Peucker 0.2 grader, koordinater avrundade till 0.1 grad, öar under cirka 200 km2 borttagna) och på varandra följande perioder där gränsen ändras mindre än 2 procent är sammanslagna. Brittiska, spanska och portugisiska imperiet är förenklade hårdare (0.3 grader, 8 procent, öar under cirka 800 km2 borttagna), liksom Ryssland, Sovjetunionen, Japan och franska kolonialväldet (0.3 grader, 5 procent, öar under cirka 800 km2 borttagna) och nederländska kolonialväldet (0.3 grader, 8 procent). Rester i Cliopatria, perioder under 1 procent av postens största yta som till största delen ligger utanför postens övriga yta (till exempel Kingdom of Denmark 1402–1406, 73 km2 i Lappland), är borttagna (#1333). start/end är Cliopatrias årtal oförändrade (astronomiska år). Namn inom parentes i Cliopatria, till exempel (British Empire), är Cliopatrias sammanslagning av ett imperiums alla delar. Bysantinska riket ingår i Romarriket som fortsättningen på Östromerska riket. index.json listar varje rike (grupp) med färg, tidsspann och fil; filen laddas först när riket behövs. areaKm2 är Cliopatrias yta för den första perioden i ett sammanslaget spann. label = [lon, lat] där namnet skrivs ut. Tysk-romerska riket efter 1458 är ihopbyggt av flera riken i Cliopatria, klippta mot rikets gräns 1458 utan Ungern och Tyska ordens Preussen (EXTEND i tools/riken.py, #336); där är areaKm2 räknad ur den byggda gränsen. Kolonialvälden och moderna imperier (R5, #71): parts listar Cliopatria-poster som är ihopslagna år för år till ett rike (Tyska riket med German Africa, Etiopiska kejsardömet med Ethiopia till 1974); då är areaKm2 summan av posternas ytor. homeland (#74) är moderlandet i ett utspritt välde: Cliopatria-posterna för moderlandet (polity.homeland) inom ett fönster runt moderlandet, och per period dess gräns (period.homeland); label står då i moderlandet. För Japan, där Cliopatria inte skiljer på Japan och kolonierna, är moderlandet huvudöarna och Ryukyuöarna, avgränsade med en polygon ur rikets eget område. index.json har då homeland.name, moderlandets namn. Försvunna länder (R6, #72): vanished är landets årtal enligt källorna (founded, dissolved), föregångare och efterträdare (predecessors, successors; group pekar på ett rike i den här filen, wikidata är kontrollerat). Preussen visas 1526–1806, eftersom Cliopatria från 1807 räknar landet till andra riken. Neutrala Moresnet saknas i Cliopatria och har ingen fil, bara en punkt (vanished.point). Sverige (#70): Cliopatrias \"Swedish Empire\" 1612–1814 är delad i två delar med samma gränser, Svenska stormaktsväldet till och med 1721 (freden i Nystad) och Sverige 1722–1814. Inflytande (#75): polity.influence är områden som enligt Cliopatrias relationsposter (typ RELATION, \"Allegiance of A to B\" och \"Vassalage of A to B\") lydde under riket utan att höra till det: relationens område minus rikets eget område samma år, förenklat som riket, ytor under cirka 3 000 km2 borttagna. Lydriken som själva är delar av samma grupp (khanaten under Yuan) är inte med. index.json sammanfattar dem i influence. Osäker gräns (#73): uncertainBorder på gruppen i index.json skrivs för hand med källa (note, sources, review) och ger polity.uncertainBorder i rikets fil. Omstridda gränser i nutid (#644): följer Sveriges officiella hållning enligt UD (DISPUTED i tools/riken.py, docs/omstridda-granser.md). Krim och Sevastopol räknas till Ukraina även från 2014, och inte till Ryska federationen. Västbanken med Östra Jerusalem, Gaza och Golanhöjderna räknas inte till Israel från 1967; Staten Palestina (Västbanken med Östra Jerusalem och Gaza) visas från 2014, då Sverige erkände den. De gränserna kommer ur Natural Earth (ne_10m_admin_0_disputed_areas 5.1.1, public domain), och gruppen har då borderSource. Där är areaKm2 räknad ur den nya gränsen. Ockupation och inbördeskrig (#1332): där Cliopatria efter 1945 ritar en ockupationsmakt eller en part i ett inbördeskrig i stället för en stat, visas den internationellt erkända staten med sin egen gräns i Cliopatria ett närliggande år (fill i tools/riken.py), och makten klipps bort de åren; där är areaKm2 Cliopatrias yta för den gränsen. Små stater (#722): tolv länder som Cliopatria saknar i nutid eller har fel gräns för har gränsen ur Natural Earth (ne_10m_admin_0_countries 5.1.1, public domain), från självständigheten, och polity.point = true: de visas som en punkt med namn.",
+ "notes": "Riken som områden (lagertyp område), ett rike per fil. Utdrag ur Cliopatria, datafil cliopatria_polities_only_v021 (version 0.2.1, Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/23128623), byggt med tools/riken.py. Ändringar: geometrin är förenklad (Douglas-Peucker 0.2 grader, koordinater avrundade till 0.1 grad, öar under cirka 200 km2 borttagna) och på varandra följande perioder där gränsen ändras mindre än 2 procent är sammanslagna. Brittiska, spanska och portugisiska imperiet är förenklade hårdare (0.3 grader, 8 procent, öar under cirka 800 km2 borttagna), liksom Ryssland, Sovjetunionen, Japan och franska kolonialväldet (0.3 grader, 5 procent, öar under cirka 800 km2 borttagna) och nederländska kolonialväldet (0.3 grader, 8 procent). Rester i Cliopatria, perioder under 1 procent av postens största yta som till största delen ligger utanför postens övriga yta (till exempel Kingdom of Denmark 1402–1406, 73 km2 i Lappland), är borttagna (#1333). start/end är Cliopatrias årtal oförändrade (astronomiska år). Namn inom parentes i Cliopatria, till exempel (British Empire), är Cliopatrias sammanslagning av ett imperiums alla delar. Bysantinska riket ingår i Romarriket som fortsättningen på Östromerska riket. index.json listar varje rike (grupp) med färg, tidsspann och fil; filen laddas först när riket behövs. areaKm2 är Cliopatrias yta för den första perioden i ett sammanslaget spann. label = [lon, lat] där namnet skrivs ut. Tysk-romerska riket efter 1458 är ihopbyggt av flera riken i Cliopatria, klippta mot rikets gräns 1458 utan Ungern och Tyska ordens Preussen (EXTEND i tools/riken.py, #336); där är areaKm2 räknad ur den byggda gränsen. Kolonialvälden och moderna imperier (R5, #71): parts listar Cliopatria-poster som är ihopslagna år för år till ett rike (Tyska riket med German Africa, Etiopiska kejsardömet med Ethiopia till 1974); då är areaKm2 summan av posternas ytor. homeland (#74) är moderlandet i ett utspritt välde: Cliopatria-posterna för moderlandet (polity.homeland) inom ett fönster runt moderlandet, och per period dess gräns (period.homeland); label står då i moderlandet. För Japan, där Cliopatria inte skiljer på Japan och kolonierna, är moderlandet huvudöarna och Ryukyuöarna, avgränsade med en polygon ur rikets eget område. index.json har då homeland.name, moderlandets namn. Försvunna länder (R6, #72): vanished är landets årtal enligt källorna (founded, dissolved), föregångare och efterträdare (predecessors, successors; group pekar på ett rike i den här filen, wikidata är kontrollerat). Preussen visas 1526–1806, eftersom Cliopatria från 1807 räknar landet till andra riken. Neutrala Moresnet saknas i Cliopatria och har ingen fil, bara en punkt (vanished.point). Sverige (#70): Cliopatrias \"Swedish Empire\" 1612–1814 är delad i två delar med samma gränser, Svenska stormaktsväldet till och med 1721 (freden i Nystad) och Sverige 1722–1814. Inflytande (#75): polity.influence är områden som enligt Cliopatrias relationsposter (typ RELATION, \"Allegiance of A to B\" och \"Vassalage of A to B\") lydde under riket utan att höra till det: relationens område minus rikets eget område samma år, förenklat som riket, ytor under cirka 3 000 km2 borttagna. Lydriken som själva är delar av samma grupp (khanaten under Yuan) är inte med. index.json sammanfattar dem i influence. Osäker gräns (#73): uncertainBorder på gruppen i index.json skrivs för hand med källa (note, sources, review) och ger polity.uncertainBorder i rikets fil. Omstridda gränser i nutid (#644): följer Sveriges officiella hållning enligt UD (DISPUTED i tools/riken.py, docs/omstridda-granser.md). Krim och Sevastopol räknas till Ukraina även från 2014, och inte till Ryska federationen. Västbanken med Östra Jerusalem, Gaza och Golanhöjderna räknas inte till Israel från 1967; Staten Palestina (Västbanken med Östra Jerusalem och Gaza) visas från 2014, då Sverige erkände den. De gränserna kommer ur Natural Earth (ne_10m_admin_0_disputed_areas 5.1.1, public domain), och gruppen har då borderSource. Där är areaKm2 räknad ur den nya gränsen. Ockupation och inbördeskrig (#1332): där Cliopatria efter 1945 ritar en ockupationsmakt eller en part i ett inbördeskrig i stället för en stat, visas den internationellt erkända staten med sin egen gräns i Cliopatria ett närliggande år (fill i tools/riken.py), och makten klipps bort de åren; där är areaKm2 Cliopatrias yta för den gränsen. Källfel i Cliopatria, Tyskland 1920–1990 (#1706): Västberlin räknas inte till Femte franska republiken; Nazi Germanys småbitar i Sverige, ryska Karelen och Levanten, och före ockupationerna i Norge, Estland och på Naxos, är borttagna (DISPUTED i tools/riken.py). Västtyskland delas 1958, när Saarland kommer med i Cliopatria. Fortsättning (#1730): Saarområdet visas utan stat 1920–1934 (Nationernas förbund), Kehl hör inte till Frankrike från 1950, Selfkant och Elten hör till Västtyskland från 1963 (gränsen ur Natural Earth), gränsen mellan DDR och Västtyskland följer Västtysklands delstater i Natural Earth (ne_10m_admin_1_states_provinces 5.1.2), och Polen 1945–1952 visas med gränsen 1953. Områden med strict i DISPUTED klipps bort eller läggs till också efter förenklingen. Västberlin och Östberlin 1949–1990 (#1731): Västberlins gräns kommer ur Verlauf der Berliner Mauer, 1989 (Geoportal Berlin, Datenlizenz Deutschland – Zero 2.0, tools/vastberlin.py) och klipps ur DDR; Östberlin är hela Berlin i Natural Earth admin 1 minus Västberlin och räknas till DDR. Rättningar efter #1730 (#1750): Saarområdet är klippt mot Tysklands gräns i Natural Earth, gränsen mellan DDR (och den sovjetiska zonen 1945–1948) och Västtyskland följer delstaterna i Natural Earth på båda sidor, Tysklands gräns mot Nederländerna och Polen följer Natural Earth, och Kaliningradområdet har Sovjetunionens gräns 1960 i Cliopatria. Äldre gränsfel kring Tyskland (#1755): Saarområdet är klippt mot Saarlands gräns i Natural Earth; gränsen mellan Frankrike och Tyskland följer Natural Earth 1930–1939 och gränsen mellan Tjeckoslovakien (Tjeckien) och Tyskland från 1945; Nederländernas sida av gränsen mot Tyskland följer Natural Earth från 1950; Lindau ligger i Västtyskland från 1955 och i Tyskland; Kaliningradområdet har Rysslands gräns i Natural Earth från 1990. Områden med efter i DISPUTED klipps eller läggs till bara efter förenklingen. Små stater (#722): tolv länder som Cliopatria saknar i nutid eller har fel gräns för har gränsen ur Natural Earth (ne_10m_admin_0_countries 5.1.1, public domain), från självständigheten, och polity.point = true: de visas som en punkt med namn.",
  "groups": [
   {
    "id": "romarriket",
@@ -9577,7 +9577,7 @@
     {
      "id": "kungariket-cusco",
      "name": {
-      "sv": "Kingdom of Cusco",
+      "sv": "Kungariket Cusco",
       "en": "Kingdom of Cusco",
       "de": "Königreich von Cusco",
       "es": "Curacazgo del Cuzco",
@@ -9820,7 +9820,7 @@
     "kungariket-cusco": {
      "facts": {
       "summary": {
-       "sv": "Kingdom of Cusco var inkafolkets lilla stadsstat kring staden Cusco i Anderna, i dagens Peru. Ur den växte Inkariket.",
+       "sv": "Kungariket Cusco var inkafolkets lilla stadsstat kring staden Cusco i Anderna, i dagens Peru. Ur den växte Inkariket.",
        "en": "The Kingdom of Cusco was the small city-state of the Incas around the city of Cusco in the Andes, in present-day Peru. The Inca Empire grew out of it.",
        "de": "Das Königreich von Cusco war der kleine Stadtstaat der Inka um die Stadt Cusco in den Anden, im heutigen Peru. Aus ihm ging das Inkareich hervor.",
        "es": "El Curacazgo del Cuzco fue la pequeña ciudad-Estado de los incas en torno a la ciudad del Cuzco, en los Andes, en el actual Perú. De él surgió el Imperio inca.",
@@ -9997,9 +9997,9 @@
   {
    "id": "purepecha",
    "name": {
-    "sv": "Purépecha Empire",
+    "sv": "Purépechariket",
     "en": "Purépecha Empire",
-    "de": "Purépecha Empire",
+    "de": "Purépecha-Reich",
     "es": "Imperio purépecha",
     "fr": "Royaume tarasque"
    },
@@ -10011,9 +10011,9 @@
     {
      "id": "purepecha",
      "name": {
-      "sv": "Purépecha Empire",
+      "sv": "Purépechariket",
       "en": "Purépecha Empire",
-      "de": "Purépecha Empire",
+      "de": "Purépecha-Reich",
       "es": "Imperio purépecha",
       "fr": "Royaume tarasque"
      },
@@ -10025,9 +10025,9 @@
    ],
    "facts": {
     "summary": {
-     "sv": "Purépecha Empire var purépechafolkets rike i dagens Mexiko, med huvudstaden Tzintzuntzan vid Pátzcuarosjön. Det var samtida med Aztekriket och dess rival, och när spanjorerna kom var det enligt Wikipedia den näst största staten i Mesoamerika. Det kallas också Tarascan Empire, ett namn som troligen kommer från spanjorerna och som är impopulärt i de flesta purépechasamhällen.",
+     "sv": "Purépechariket var purépechafolkets rike i dagens Mexiko, med huvudstaden Tzintzuntzan vid Pátzcuarosjön. Det var samtida med Aztekriket och dess rival, och när spanjorerna kom var det enligt Wikipedia den näst största staten i Mesoamerika. På engelska kallas det också Tarascan Empire, ett namn som troligen kommer från spanjorerna och som är impopulärt i de flesta purépechasamhällen.",
      "en": "The Purépecha Empire was the state of the Purépecha people in present-day Mexico, with its capital Tzintzuntzan on Lake Pátzcuaro. It was a contemporary and rival of the Aztec Empire, and when the Spaniards came it was, according to Wikipedia, the second-largest state in Mesoamerica. It is also called the Tarascan Empire, a name that probably comes from the Spaniards and that is unpopular in most Purépecha communities.",
-     "de": "Das Purépecha-Reich (englisch Purépecha Empire) war der Staat des Volkes der Purépecha im heutigen Mexiko, mit der Hauptstadt Tzintzuntzan am Pátzcuaro-See. Es bestand zur gleichen Zeit wie das Aztekenreich und war dessen Rivale, und als die Spanier kamen, war es laut Wikipedia der zweitgrößte Staat Mesoamerikas. Es wird auch Tarascan Empire genannt, ein Name, der wahrscheinlich von den Spaniern stammt und in den meisten Purépecha-Gemeinschaften unbeliebt ist.",
+     "de": "Das Purépecha-Reich war der Staat des Volkes der Purépecha im heutigen Mexiko, mit der Hauptstadt Tzintzuntzan am Pátzcuaro-See. Es bestand zur gleichen Zeit wie das Aztekenreich und war dessen Rivale, und als die Spanier kamen, war es laut Wikipedia der zweitgrößte Staat Mesoamerikas. Auf Englisch wird es auch Tarascan Empire genannt, ein Name, der wahrscheinlich von den Spaniern stammt und in den meisten Purépecha-Gemeinschaften unbeliebt ist.",
      "es": "El Imperio purépecha fue el Estado del pueblo purépecha en el actual México, con capital en Tzintzuntzan, junto al lago de Pátzcuaro. Fue contemporáneo y rival del Imperio azteca, y cuando llegaron los españoles era, según Wikipedia, el segundo Estado más grande de Mesoamérica. También se le llama Imperio tarasco, un nombre que probablemente procede de los españoles y que es impopular en la mayoría de las comunidades purépechas.",
      "fr": "Le royaume tarasque, ou Empire purépecha, était l'État du peuple purépecha dans l'actuel Mexique, avec pour capitale Tzintzuntzan, au bord du lac de Pátzcuaro. Contemporain et rival de l'Empire aztèque, il était, selon Wikipédia, le deuxième plus grand État de Mésoamérique à l'arrivée des Espagnols. Le nom « tarasque » vient probablement des Espagnols et il est impopulaire dans la plupart des communautés purépechas."
     },
@@ -10453,7 +10453,7 @@
   {
    "id": "funjsultanatet",
    "name": {
-    "sv": "Funj Sultanate",
+    "sv": "Sultanatet Sennar",
     "en": "Funj Sultanate",
     "de": "Sultanat von Sannar",
     "es": "Sultanato de Sennar",
@@ -10467,7 +10467,7 @@
     {
      "id": "funjsultanatet",
      "name": {
-      "sv": "Funj Sultanate",
+      "sv": "Sultanatet Sennar",
       "en": "Funj Sultanate",
       "de": "Sultanat von Sannar",
       "es": "Sultanato de Sennar",
@@ -10481,7 +10481,7 @@
    ],
    "facts": {
     "summary": {
-     "sv": "Funj Sultanate, även kallat sultanatet Sennar, var ett islamiskt kungarike i dagens Sudan, nordvästra Eritrea och västra Etiopien, med huvudstaden Sennar vid Blå Nilen. Som störst, i slutet av 1600-talet, sträckte det sig från Nilens tredje katarakt söderut till Etiopiska höglandets västra kant och från Röda havet västerut till Kordofan.",
+     "sv": "Sultanatet Sennar, på engelska även Funj Sultanate, var ett islamiskt kungarike i dagens Sudan, nordvästra Eritrea och västra Etiopien, med huvudstaden Sennar vid Blå Nilen. Som störst, i slutet av 1600-talet, sträckte det sig från Nilens tredje katarakt söderut till Etiopiska höglandets västra kant och från Röda havet västerut till Kordofan.",
      "en": "The Funj Sultanate, also called the Sultanate of Sennar, was an Islamic kingdom in present-day Sudan, north-western Eritrea and western Ethiopia, with its capital at Sennar on the Blue Nile. At its greatest extent, in the late 17th century, it reached from the Third Cataract of the Nile south to the western edge of the Ethiopian Highlands, and from the Red Sea west to Kordofan.",
      "de": "Das Sultanat von Sannar, auch Funj-Sultanat genannt, war ein islamisches Königreich im heutigen Sudan, im Nordwesten Eritreas und im Westen Äthiopiens, mit der Hauptstadt Sennar am Blauen Nil. In seiner größten Ausdehnung, im späten 17. Jahrhundert, reichte es vom dritten Nilkatarakt nach Süden bis an den Westrand des Äthiopischen Hochlands und vom Roten Meer nach Westen bis Kordofan.",
      "es": "El sultanato de Sennar, también llamado sultanato funj, fue un reino islámico en el actual Sudán, el noroeste de Eritrea y el oeste de Etiopía, con capital en Sennar, a orillas del Nilo Azul. En su máxima extensión, a finales del siglo XVII, se extendía desde la tercera catarata del Nilo hacia el sur hasta el borde occidental del macizo etíope, y desde el mar Rojo hacia el oeste hasta Kordofán.",
@@ -14732,14 +14732,21 @@
      }
     ],
     "mapNote": {
-     "sv": "Källan räknar det andra kolonialväldet från 1830; de flesta kolonier blev självständiga 1954–1962 och de sista 1977–1980. Kartan visar Frankrike med kolonier 1815–1957 och saknar åren 1943–1944. Kartans delar heter efter Frankrikes styrelseskick (kungadömet, andra republiken, andra kejsardömet, tredje republiken, Vichyregimen och fjärde republiken).",
-     "en": "The source counts the second colonial empire from 1830; most colonies became independent in 1954–1962 and the last in 1977–1980. The map shows France with colonies 1815–1957 and lacks the years 1943–1944. The map's parts are named after France's form of government (the kingdom, the Second Republic, the Second Empire, the Third Republic, the Vichy regime and the Fourth Republic)."
+     "sv": "Källan räknar det andra kolonialväldet från 1830; de flesta kolonier blev självständiga 1954–1962 och de sista 1977–1980. Kartan visar Frankrike med kolonier 1815–1957 och saknar åren 1943–1944. Kartans delar heter efter Frankrikes styrelseskick (kungadömet, andra republiken, andra kejsardömet, tredje republiken, Vichyregimen och fjärde republiken). Saarområdet, som styrdes av Nationernas förbund 1920–1935, räknas inte till Frankrike 1920–1939, fast Cliopatria räknar det dit till och med 1931. Källorna skiljer sig om Kehl: enligt Wikipedia lämnades staden tillbaka i 42 delar 29 juli 1949–8 april 1953, och i Cliopatria hör den till Västtyskland från 1950. Kartan följer Cliopatria. Cliopatria räknar den franska ockupationszonen i Rhenlandet till Frankrike till och med 1929, och kartan följer Cliopatria; Rhenlandet förblev tyskt. Gränsen mot Tyskland följer Natural Earth 1930–1939. Cliopatria räknar också en bit vid Lindau och Wangen im Allgäu till Frankrike 1950–1957; den tas bort. Natural Earths gräns ligger ungefär en kilometer fel vid floden Lauter, så Wissembourg och Lauterbourg, som hörde till Frankrike, kan ritas i Tyskland.",
+     "en": "The source counts the second colonial empire from 1830; most colonies became independent in 1954–1962 and the last in 1977–1980. The map shows France with colonies 1815–1957 and lacks the years 1943–1944. The map's parts are named after France's form of government (the kingdom, the Second Republic, the Second Empire, the Third Republic, the Vichy regime and the Fourth Republic). The Saar territory, governed by the League of Nations in 1920–1935, is not counted to France in 1920–1939, although Cliopatria counts it there until 1931. The sources differ on Kehl: according to Wikipedia the town was handed back in 42 parts between 29 July 1949 and 8 April 1953, and in Cliopatria it belongs to West Germany from 1950. The map follows Cliopatria. Cliopatria counts the French occupation zone in the Rhineland to France up to and including 1929, and the map follows Cliopatria; the Rhineland remained German. The border with Germany follows Natural Earth in 1930–1939. Cliopatria also counts a patch near Lindau and Wangen im Allgäu to France in 1950–1957; it is removed. Natural Earth's border is about one kilometre off along the river Lauter, so Wissembourg and Lauterbourg, which belonged to France, may be drawn in Germany.",
+     "de": "Die Quelle rechnet das zweite Kolonialreich ab 1830; die meisten Kolonien wurden 1954–1962 unabhängig, die letzten 1977–1980. Die Karte zeigt Frankreich mit Kolonien 1815–1957, die Jahre 1943–1944 fehlen. Die Teile der Karte sind nach Frankreichs Staatsform benannt (Königreich, Zweite Republik, Zweites Kaiserreich, Dritte Republik, Vichy-Regime und Vierte Republik). Das Saargebiet, das 1920–1935 vom Völkerbund verwaltet wurde, wird 1920–1939 nicht zu Frankreich gerechnet, obwohl Cliopatria es bis 1931 dazuzählt. Die Quellen unterscheiden sich bei Kehl: Laut Wikipedia wurde die Stadt vom 29. Juli 1949 bis 8. April 1953 in 42 Teilen zurückgegeben, und bei Cliopatria gehört sie ab 1950 zu Westdeutschland. Die Karte folgt Cliopatria. Cliopatria rechnet die französische Besatzungszone im Rheinland bis einschließlich 1929 Frankreich zu, und die Karte folgt Cliopatria; das Rheinland blieb deutsch. Die Grenze zu Deutschland folgt 1930–1939 Natural Earth. Cliopatria rechnet außerdem ein Stück bei Lindau und Wangen im Allgäu 1950–1957 Frankreich zu; es ist entfernt. Die Grenze von Natural Earth liegt an der Lauter etwa einen Kilometer daneben, daher können Wissembourg und Lauterbourg, die zu Frankreich gehörten, in Deutschland eingezeichnet sein.",
+     "es": "La fuente cuenta el segundo imperio colonial desde 1830; la mayoría de las colonias se independizaron en 1954–1962 y las últimas en 1977–1980. El mapa muestra Francia con sus colonias en 1815–1957 y no incluye los años 1943–1944. Las partes del mapa llevan el nombre de la forma de gobierno de Francia (el reino, la Segunda República, el Segundo Imperio, la Tercera República, el régimen de Vichy y la Cuarta República). El territorio del Sarre, gobernado por la Sociedad de Naciones en 1920–1935, no se atribuye a Francia en 1920–1939, aunque Cliopatria lo incluye hasta 1931. Las fuentes difieren sobre Kehl: según Wikipedia, la ciudad se devolvió en 42 partes entre el 29 de julio de 1949 y el 8 de abril de 1953, y en Cliopatria pertenece a Alemania Occidental desde 1950. El mapa sigue a Cliopatria. Cliopatria atribuye la zona de ocupación francesa en Renania a Francia hasta 1929 inclusive, y el mapa sigue a Cliopatria; Renania siguió siendo alemana. La frontera con Alemania sigue Natural Earth en 1930–1939. Cliopatria también atribuye a Francia una zona cerca de Lindau y Wangen im Allgäu en 1950–1957; se ha eliminado. La frontera de Natural Earth se desvía aproximadamente un kilómetro a lo largo del río Lauter, por lo que Wissembourg y Lauterbourg, que pertenecían a Francia, pueden aparecer en Alemania.",
+     "fr": "La source fait commencer le second empire colonial en 1830 ; la plupart des colonies devinrent indépendantes en 1954–1962 et les dernières en 1977–1980. La carte montre la France avec ses colonies en 1815–1957 et ne couvre pas les années 1943–1944. Les parties de la carte portent le nom du régime de la France (le royaume, la Deuxième République, le Second Empire, la Troisième République, le régime de Vichy et la Quatrième République). Le territoire de la Sarre, administré par la Société des Nations en 1920–1935, n'est pas rattaché à la France en 1920–1939, bien que Cliopatria l'y compte jusqu'en 1931. Les sources divergent sur Kehl : selon Wikipédia, la ville fut restituée en 42 parties entre le 29 juillet 1949 et le 8 avril 1953, et dans Cliopatria elle appartient à l'Allemagne de l'Ouest à partir de 1950. La carte suit Cliopatria. Cliopatria attribue la zone d'occupation française en Rhénanie à la France jusqu'en 1929 inclus, et la carte suit Cliopatria ; la Rhénanie resta allemande. La frontière avec l'Allemagne suit Natural Earth en 1930–1939. Cliopatria attribue aussi à la France un morceau près de Lindau et de Wangen im Allgäu en 1950–1957 ; il est supprimé. La frontière de Natural Earth est décalée d'environ un kilomètre le long de la Lauter ; Wissembourg et Lauterbourg, qui appartenaient à la France, peuvent donc apparaître en Allemagne."
     },
     "sources": [
      "wp-french-colonial-empire",
      "wp-algerian-war",
      "whe-scramble-for-africa",
-     "wp-flag-of-france"
+     "wp-flag-of-france",
+     "wp-territory-of-the-saar-basin",
+     "wp-kehl",
+     "wp-occupation-of-the-rhineland",
+     "natural-earth-lander"
     ],
     "review": "source-checked"
    },
@@ -15635,15 +15642,20 @@
      }
     ],
     "mapNote": {
-     "sv": "Källorna anger 9 november 1918–23 mars 1933 (Wikipedia) och 1918–1933 (Wikidata). Kartan visar republiken 1920–1932. Cliopatria har republiken från 1920, så 1919 visas Tyska riket. Cliopatria har den också till och med 1935, men åren 1933–1935 visas här som Nazityskland, eftersom källorna låter republiken sluta 1933.",
-     "en": "The sources give 9 November 1918–23 March 1933 (Wikipedia) and 1918–1933 (Wikidata). The map shows the republic in 1920–1932. Cliopatria has the republic from 1920, so 1919 shows the German Empire. Cliopatria also has it up to and including 1935, but the years 1933–1935 are shown here as Nazi Germany, since the sources end the republic in 1933.",
-     "de": "Die Quellen nennen den 9. November 1918 bis 23. März 1933 (Wikipedia) und 1918–1933 (Wikidata). Die Karte zeigt die Republik 1920–1932. Cliopatria führt die Republik ab 1920, daher ist 1919 das Deutsche Kaiserreich zu sehen. Cliopatria führt sie auch bis einschließlich 1935, doch die Jahre 1933–1935 werden hier als NS-Staat gezeigt, da die Republik laut den Quellen 1933 endete.",
-     "es": "Las fuentes indican del 9 de noviembre de 1918 al 23 de marzo de 1933 (Wikipedia) y 1918–1933 (Wikidata). El mapa muestra la república en 1920–1932. Cliopatria la incluye a partir de 1920, por lo que en 1919 aparece el Imperio alemán. Cliopatria la mantiene también hasta 1935 inclusive, pero los años 1933–1935 se muestran aquí como Alemania nazi, ya que según las fuentes la república terminó en 1933.",
-     "fr": "Les sources indiquent du 9 novembre 1918 au 23 mars 1933 (Wikipédia) et 1918–1933 (Wikidata). La carte montre la république en 1920–1932. Cliopatria la fait commencer en 1920, si bien qu'en 1919 apparaît l'Empire allemand. Cliopatria la prolonge aussi jusqu'en 1935 inclus, mais les années 1933–1935 sont montrées ici comme le Troisième Reich, puisque selon les sources la république prit fin en 1933."
+     "sv": "Källorna anger 9 november 1918–23 mars 1933 (Wikipedia) och 1918–1933 (Wikidata). Kartan visar republiken 1920–1932. Cliopatria har republiken från 1920, så 1919 visas Tyska riket. Cliopatria har den också till och med 1935, men åren 1933–1935 visas här som Nazityskland, eftersom källorna låter republiken sluta 1933. Saarområdet styrdes av Nationernas förbund 1920 till 1 mars 1935 och visas utan stat de åren. Cliopatria räknar det till Frankrike till och med 1931 och till republiken från 1932. Saarområdet följer Saarlands gräns i Natural Earth, så att Zweibrücken, som låg utanför, visas i republiken. Rhenlandet var ockuperat av de allierade till 30 juni 1930 men förblev tyskt; Cliopatria räknar ockupationszonerna till Frankrike, Belgien och Storbritannien, som längst till och med 1929, och kartan följer Cliopatria. Därefter följer gränsen mot Frankrike Natural Earth 1930–1932. Cliopatria räknar Forbach i Lorraine till republiken 1932; kartan visar det i Frankrike. Natural Earths gräns ligger ungefär en kilometer fel vid floden Lauter, så Wissembourg och Lauterbourg, som hörde till Frankrike, kan ritas i Tyskland.",
+     "en": "The sources give 9 November 1918–23 March 1933 (Wikipedia) and 1918–1933 (Wikidata). The map shows the republic in 1920–1932. Cliopatria has the republic from 1920, so 1919 shows the German Empire. Cliopatria also has it up to and including 1935, but the years 1933–1935 are shown here as Nazi Germany, since the sources end the republic in 1933. The Saar territory was governed by the League of Nations from 1920 to 1 March 1935 and is shown without a state in those years. Cliopatria counts it to France until 1931 and to the republic from 1932. The Saar territory follows the border of Saarland in Natural Earth, so Zweibrücken, which lay outside it, is shown in the republic. The Rhineland was occupied by the Allies until 30 June 1930 but remained German; Cliopatria counts the occupation zones to France, Belgium and Britain, at most up to and including 1929, and the map follows Cliopatria. After that the border with France follows Natural Earth in 1930–1932. Cliopatria counts Forbach in Lorraine to the republic in 1932; the map shows it in France. Natural Earth's border is about one kilometre off along the river Lauter, so Wissembourg and Lauterbourg, which belonged to France, may be drawn in Germany.",
+     "de": "Die Quellen nennen den 9. November 1918 bis 23. März 1933 (Wikipedia) und 1918–1933 (Wikidata). Die Karte zeigt die Republik 1920–1932. Cliopatria führt die Republik ab 1920, daher ist 1919 das Deutsche Kaiserreich zu sehen. Cliopatria führt sie auch bis einschließlich 1935, doch die Jahre 1933–1935 werden hier als NS-Staat gezeigt, da die Republik laut den Quellen 1933 endete. Das Saargebiet wurde von 1920 bis zum 1. März 1935 vom Völkerbund verwaltet und wird in diesen Jahren ohne Staat gezeigt. Cliopatria rechnet es bis 1931 Frankreich und ab 1932 der Republik zu. Das Saargebiet folgt der Grenze des Saarlands bei Natural Earth, daher wird Zweibrücken, das außerhalb lag, in der Republik gezeigt. Das Rheinland war bis zum 30. Juni 1930 von den Alliierten besetzt, blieb aber deutsch; Cliopatria rechnet die Besatzungszonen Frankreich, Belgien und Großbritannien zu, längstens bis einschließlich 1929, und die Karte folgt Cliopatria. Danach folgt die Grenze zu Frankreich 1930–1932 Natural Earth. Cliopatria rechnet Forbach in Lothringen 1932 der Republik zu; die Karte zeigt es in Frankreich. Die Grenze von Natural Earth liegt an der Lauter etwa einen Kilometer daneben, daher können Wissembourg und Lauterbourg, die zu Frankreich gehörten, in Deutschland eingezeichnet sein.",
+     "es": "Las fuentes indican del 9 de noviembre de 1918 al 23 de marzo de 1933 (Wikipedia) y 1918–1933 (Wikidata). El mapa muestra la república en 1920–1932. Cliopatria la incluye a partir de 1920, por lo que en 1919 aparece el Imperio alemán. Cliopatria la mantiene también hasta 1935 inclusive, pero los años 1933–1935 se muestran aquí como Alemania nazi, ya que según las fuentes la república terminó en 1933. El territorio del Sarre estuvo gobernado por la Sociedad de Naciones de 1920 al 1 de marzo de 1935 y se muestra sin Estado en esos años. Cliopatria lo atribuye a Francia hasta 1931 y a la república desde 1932. El territorio del Sarre sigue la frontera del Sarre en Natural Earth, por lo que Zweibrücken, que quedaba fuera, aparece en la república. Renania estuvo ocupada por los Aliados hasta el 30 de junio de 1930, pero siguió siendo alemana; Cliopatria atribuye las zonas de ocupación a Francia, Bélgica y Gran Bretaña, como máximo hasta 1929 inclusive, y el mapa sigue a Cliopatria. Después, la frontera con Francia sigue Natural Earth en 1930–1932. Cliopatria atribuye Forbach, en Lorena, a la república en 1932; el mapa lo muestra en Francia. La frontera de Natural Earth se desvía aproximadamente un kilómetro a lo largo del río Lauter, por lo que Wissembourg y Lauterbourg, que pertenecían a Francia, pueden aparecer en Alemania.",
+     "fr": "Les sources indiquent du 9 novembre 1918 au 23 mars 1933 (Wikipédia) et 1918–1933 (Wikidata). La carte montre la république en 1920–1932. Cliopatria la fait commencer en 1920, si bien qu'en 1919 apparaît l'Empire allemand. Cliopatria la prolonge aussi jusqu'en 1935 inclus, mais les années 1933–1935 sont montrées ici comme le Troisième Reich, puisque selon les sources la république prit fin en 1933. Le territoire du bassin de la Sarre fut administré par la Société des Nations de 1920 au 1er mars 1935 et apparaît sans État ces années-là. Cliopatria le rattache à la France jusqu'en 1931 et à la république à partir de 1932. Le territoire du bassin de la Sarre suit la frontière de la Sarre dans Natural Earth ; Zweibrücken, qui se trouvait en dehors, apparaît donc dans la république. La Rhénanie fut occupée par les Alliés jusqu'au 30 juin 1930, mais resta allemande ; Cliopatria attribue les zones d'occupation à la France, à la Belgique et au Royaume-Uni, au plus tard jusqu'en 1929 inclus, et la carte suit Cliopatria. Ensuite, la frontière avec la France suit Natural Earth en 1930–1932. Cliopatria attribue Forbach, en Lorraine, à la république en 1932 ; la carte le montre en France. La frontière de Natural Earth est décalée d'environ un kilomètre le long de la Lauter ; Wissembourg et Lauterbourg, qui appartenaient à la France, peuvent donc apparaître en Allemagne."
     },
     "sources": [
      "wp-weimar-republic",
-     "wd-weimar-republic"
+     "wd-weimar-republic",
+     "wp-territory-of-the-saar-basin",
+     "wp-occupation-of-the-rhineland",
+     "dewp-saargebiet",
+     "natural-earth-lander",
+     "natural-earth-admin1"
     ],
     "review": "source-checked"
    }
@@ -15948,15 +15960,17 @@
      }
     ],
     "mapNote": {
-     "sv": "Källorna anger 1933–1945: från 30 januari 1933 till kapitulationen 8 maj 1945 (Wikipedia), eller 15 mars 1933–23 maj 1945 (Wikidata). Kartan visar staten 1933–1944. Cliopatria har den först från 1936; åren 1933–1935 visas här med Cliopatrias gräns för Weimarrepubliken. Cliopatria slutar 1944, och 1945 visar kartan ockupationszonerna. Området 1938–1944 följer Cliopatrias perioder och omfattar ockuperade länder.",
-     "en": "The sources give 1933–1945: from 30 January 1933 to the surrender on 8 May 1945 (Wikipedia), or 15 March 1933–23 May 1945 (Wikidata). The map shows the state in 1933–1944. Cliopatria only has it from 1936; the years 1933–1935 are shown here with Cliopatria's border for the Weimar Republic. Cliopatria ends in 1944, and in 1945 the map shows the occupation zones. The area in 1938–1944 follows Cliopatria's periods and includes occupied countries.",
-     "de": "Die Quellen nennen 1933–1945: vom 30. Januar 1933 bis zur Kapitulation am 8. Mai 1945 (Wikipedia) oder 15. März 1933 bis 23. Mai 1945 (Wikidata). Die Karte zeigt den Staat 1933–1944. Cliopatria führt ihn erst ab 1936; die Jahre 1933–1935 werden hier mit Cliopatrias Grenze der Weimarer Republik gezeigt. Cliopatria endet 1944, und 1945 zeigt die Karte die Besatzungszonen. Das Gebiet 1938–1944 folgt Cliopatrias Zeitabschnitten und umfasst besetzte Länder.",
-     "es": "Las fuentes indican 1933–1945: del 30 de enero de 1933 a la capitulación del 8 de mayo de 1945 (Wikipedia), o del 15 de marzo de 1933 al 23 de mayo de 1945 (Wikidata). El mapa muestra el Estado en 1933–1944. Cliopatria solo lo incluye a partir de 1936; los años 1933–1935 se muestran aquí con la frontera de Cliopatria para la República de Weimar. Cliopatria termina en 1944, y en 1945 el mapa muestra las zonas de ocupación. El territorio de 1938–1944 sigue los periodos de Cliopatria e incluye países ocupados.",
-     "fr": "Les sources indiquent 1933–1945 : du 30 janvier 1933 à la capitulation du 8 mai 1945 (Wikipédia), ou du 15 mars 1933 au 23 mai 1945 (Wikidata). La carte montre l'État en 1933–1944. Cliopatria ne le fait commencer qu'en 1936 ; les années 1933–1935 sont montrées ici avec la frontière de Cliopatria pour la république de Weimar. Cliopatria s'arrête en 1944, et en 1945 la carte montre les zones d'occupation. Le territoire de 1938–1944 suit les périodes de Cliopatria et comprend des pays occupés."
+     "sv": "Källorna anger 1933–1945: från 30 januari 1933 till kapitulationen 8 maj 1945 (Wikipedia), eller 15 mars 1933–23 maj 1945 (Wikidata). Kartan visar staten 1933–1944. Cliopatria har den först från 1936; åren 1933–1935 visas här med Cliopatrias gräns för Weimarrepubliken. Cliopatria slutar 1944, och 1945 visar kartan ockupationszonerna. Området 1938–1944 följer Cliopatrias perioder och omfattar ockuperade länder. Cliopatria räknar också några småbitar utanför riket till Nazityskland: i Stockholms skärgård, i ryska Karelen och i Levanten, och före ockupationerna vid Trondheim, i Finnmark, vid Peipussjön och på Naxos. De är källfel och är borttagna. Saarområdet visas som en del av riket från 1935, när det återförenades med Tyskland 1 mars 1935. Gränsen mot Frankrike följer Natural Earth 1933–1939. Cliopatria räknar Forbach i Lorraine till riket före 1940; kartan visar det i Frankrike till och med 1939. Natural Earths gräns ligger ungefär en kilometer fel vid floden Lauter, så Wissembourg och Lauterbourg, som hörde till Frankrike, kan ritas i Tyskland.",
+     "en": "The sources give 1933–1945: from 30 January 1933 to the surrender on 8 May 1945 (Wikipedia), or 15 March 1933–23 May 1945 (Wikidata). The map shows the state in 1933–1944. Cliopatria only has it from 1936; the years 1933–1935 are shown here with Cliopatria's border for the Weimar Republic. Cliopatria ends in 1944, and in 1945 the map shows the occupation zones. The area in 1938–1944 follows Cliopatria's periods and includes occupied countries. Cliopatria also counts some small patches outside the state to Nazi Germany: in the Stockholm archipelago, in Russian Karelia and in the Levant, and before the occupations near Trondheim, in Finnmark, near Lake Peipus and on Naxos. These are errors in the source and have been removed. The Saar territory is shown as part of the state from 1935, when it was reunited with Germany on 1 March 1935. The border with France follows Natural Earth in 1933–1939. Cliopatria counts Forbach in Lorraine to the state before 1940; the map shows it in France up to and including 1939. Natural Earth's border is about one kilometre off along the river Lauter, so Wissembourg and Lauterbourg, which belonged to France, may be drawn in Germany.",
+     "de": "Die Quellen nennen 1933–1945: vom 30. Januar 1933 bis zur Kapitulation am 8. Mai 1945 (Wikipedia) oder 15. März 1933 bis 23. Mai 1945 (Wikidata). Die Karte zeigt den Staat 1933–1944. Cliopatria führt ihn erst ab 1936; die Jahre 1933–1935 werden hier mit Cliopatrias Grenze der Weimarer Republik gezeigt. Cliopatria endet 1944, und 1945 zeigt die Karte die Besatzungszonen. Das Gebiet 1938–1944 folgt Cliopatrias Zeitabschnitten und umfasst besetzte Länder. Cliopatria rechnet dem NS-Staat außerdem einige kleine Flächen außerhalb des Staates zu: in den Stockholmer Schären, im russischen Karelien und in der Levante sowie vor den Besetzungen bei Trondheim, in der Finnmark, am Peipussee und auf Naxos. Das sind Fehler in der Quelle; sie wurden entfernt. Das Saargebiet wird ab 1935 als Teil des Staates gezeigt, als es am 1. März 1935 wieder mit Deutschland vereinigt wurde. Die Grenze zu Frankreich folgt 1933–1939 Natural Earth. Cliopatria rechnet Forbach in Lothringen schon vor 1940 dem Reich zu; die Karte zeigt es bis einschließlich 1939 in Frankreich. Die Grenze von Natural Earth liegt an der Lauter etwa einen Kilometer daneben, daher können Wissembourg und Lauterbourg, die zu Frankreich gehörten, in Deutschland eingezeichnet sein.",
+     "es": "Las fuentes indican 1933–1945: del 30 de enero de 1933 a la capitulación del 8 de mayo de 1945 (Wikipedia), o del 15 de marzo de 1933 al 23 de mayo de 1945 (Wikidata). El mapa muestra el Estado en 1933–1944. Cliopatria solo lo incluye a partir de 1936; los años 1933–1935 se muestran aquí con la frontera de Cliopatria para la República de Weimar. Cliopatria termina en 1944, y en 1945 el mapa muestra las zonas de ocupación. El territorio de 1938–1944 sigue los periodos de Cliopatria e incluye países ocupados. Cliopatria atribuye además a la Alemania nazi algunas pequeñas zonas fuera del Estado: en el archipiélago de Estocolmo, en la Carelia rusa y en el Levante, y antes de las ocupaciones cerca de Trondheim, en Finnmark, junto al lago Peipus y en Naxos. Son errores de la fuente y se han eliminado. El territorio del Sarre aparece como parte del Estado desde 1935, cuando se reunificó con Alemania el 1 de marzo de 1935. La frontera con Francia sigue Natural Earth en 1933–1939. Cliopatria atribuye Forbach, en Lorena, al Estado antes de 1940; el mapa lo muestra en Francia hasta 1939 inclusive. La frontera de Natural Earth se desvía aproximadamente un kilómetro a lo largo del río Lauter, por lo que Wissembourg y Lauterbourg, que pertenecían a Francia, pueden aparecer en Alemania.",
+     "fr": "Les sources indiquent 1933–1945 : du 30 janvier 1933 à la capitulation du 8 mai 1945 (Wikipédia), ou du 15 mars 1933 au 23 mai 1945 (Wikidata). La carte montre l'État en 1933–1944. Cliopatria ne le fait commencer qu'en 1936 ; les années 1933–1935 sont montrées ici avec la frontière de Cliopatria pour la république de Weimar. Cliopatria s'arrête en 1944, et en 1945 la carte montre les zones d'occupation. Le territoire de 1938–1944 suit les périodes de Cliopatria et comprend des pays occupés. Cliopatria attribue en outre au Troisième Reich quelques petites zones hors de l'État : dans l'archipel de Stockholm, en Carélie russe et au Levant, et avant les occupations près de Trondheim, dans le Finnmark, près du lac Peïpous et à Naxos. Ce sont des erreurs de la source, qui ont été retirées. Le territoire de la Sarre apparaît comme partie de l'État à partir de 1935, lorsqu'il fut réuni à l'Allemagne le 1er mars 1935. La frontière avec la France suit Natural Earth en 1933–1939. Cliopatria attribue Forbach, en Lorraine, à l'État avant 1940 ; la carte le montre en France jusqu'en 1939 inclus. La frontière de Natural Earth est décalée d'environ un kilomètre le long de la Lauter ; Wissembourg et Lauterbourg, qui appartenaient à la France, peuvent donc apparaître en Allemagne."
     },
     "sources": [
      "wp-nazi-germany",
-     "wd-nazi-germany"
+     "wd-nazi-germany",
+     "wp-territory-of-the-saar-basin",
+     "natural-earth-lander"
     ],
     "review": "source-checked"
    }
@@ -16202,15 +16216,21 @@
      }
     ],
     "mapNote": {
-     "sv": "Källorna anger 23 maj 1949–3 oktober 1990. Kartan visar landet 1950–1990 som i Cliopatria. Åren 1945–1949 visar kartan ockupationszonerna som delar av USA, Storbritannien och Frankrike, som i Cliopatria. Cliopatria räknar dessutom västra Tyskland till USA 1947–1966; från 1950 klipps det bort.",
-     "en": "The sources give 23 May 1949–3 October 1990. The map shows the country in 1950–1990, as in Cliopatria. For 1945–1949 the map shows the occupation zones as parts of the United States, Britain and France, as in Cliopatria. Cliopatria also counts western Germany to the United States in 1947–1966; from 1950 this is clipped away.",
-     "de": "Die Quellen nennen den 23. Mai 1949 bis 3. Oktober 1990. Die Karte zeigt das Land wie Cliopatria 1950–1990. Für 1945–1949 zeigt die Karte wie Cliopatria die Besatzungszonen als Teile der USA, Großbritanniens und Frankreichs. Cliopatria rechnet Westdeutschland außerdem 1947–1966 den USA zu; ab 1950 wird das herausgeschnitten.",
-     "es": "Las fuentes indican del 23 de mayo de 1949 al 3 de octubre de 1990. El mapa muestra el país en 1950–1990, como Cliopatria. Para 1945–1949 el mapa muestra las zonas de ocupación como partes de Estados Unidos, el Reino Unido y Francia, como Cliopatria. Cliopatria atribuye además el oeste de Alemania a Estados Unidos en 1947–1966; a partir de 1950 eso se recorta.",
-     "fr": "Les sources indiquent du 23 mai 1949 au 3 octobre 1990. La carte montre le pays en 1950–1990, comme Cliopatria. Pour 1945–1949, la carte montre les zones d'occupation comme des parties des États-Unis, du Royaume-Uni et de la France, comme Cliopatria. Cliopatria rattache en outre l'ouest de l'Allemagne aux États-Unis en 1947–1966 ; à partir de 1950, cette partie est retirée."
+     "sv": "Källorna anger 23 maj 1949–3 oktober 1990. Kartan visar landet 1950–1990 som i Cliopatria. Åren 1945–1949 visar kartan ockupationszonerna som delar av USA, Storbritannien och Frankrike, som i Cliopatria. Cliopatria räknar dessutom västra Tyskland till USA 1947–1966; från 1950 klipps det bort. Källorna skiljer sig om Saarland: enligt Wikipedia blev det en del av Förbundsrepubliken 1 januari 1957, i Cliopatria först 1958. Kartan visar Saarland i Västtyskland från 1958, som i Cliopatria, och inte längre i Frankrike efter 1957. Västberlin visas utan stat: det var en enklav under de västallierade 1948–1990 och hörde formellt inte till Förbundsrepubliken. Selfkant och Elten, som Nederländerna annekterade 23 april 1949, visas i Västtyskland från 1963; de lämnades tillbaka 1 augusti 1963. Cliopatria räknar dem till Nederländerna alla år, så deras gräns kommer ur Natural Earth. Cliopatrias gräns mot DDR är grov (Ratzeburg i Schleswig-Holstein ligger i Cliopatrias DDR), så kartan följer delstatsgränserna i Natural Earth där. Där Cliopatrias västliga ockupationszoner inte når fram till gränsen mot den sovjetiska zonen visas en del av området utan stat 1945–1949, till exempel Ratzeburg. Lindau hörde till den franska zonen och återförenades med Bayern 1 september 1955. Cliopatria saknar stat där från 1950, så kartan visar Lindau i Västtyskland från 1955, med gränsen ur Natural Earth, och utan stat 1950–1954. Gränserna mot Nederländerna och Tjeckoslovakien följer också Natural Earth.",
+     "en": "The sources give 23 May 1949–3 October 1990. The map shows the country in 1950–1990, as in Cliopatria. For 1945–1949 the map shows the occupation zones as parts of the United States, Britain and France, as in Cliopatria. Cliopatria also counts western Germany to the United States in 1947–1966; from 1950 this is clipped away. The sources differ on the Saarland: according to Wikipedia it became part of the Federal Republic on 1 January 1957, in Cliopatria only in 1958. The map shows the Saarland in West Germany from 1958, as in Cliopatria, and no longer in France after 1957. West Berlin is shown without a state: it was an enclave under the Western Allies in 1948–1990 and formally not part of the Federal Republic. Selfkant and Elten, annexed by the Netherlands on 23 April 1949, are shown in West Germany from 1963; they were returned on 1 August 1963. Cliopatria counts them to the Netherlands in all years, so their border comes from Natural Earth. Cliopatria's border with the GDR is coarse (Ratzeburg in Schleswig-Holstein lies in Cliopatria's GDR), so the map follows the state borders in Natural Earth there. Where Cliopatria's western occupation zones do not reach the border with the Soviet zone, part of the area is shown without a state in 1945–1949, for example Ratzeburg. Lindau belonged to the French zone and was reincorporated into Bavaria on 1 September 1955. Cliopatria has no state there from 1950, so the map shows Lindau in West Germany from 1955, with the border from Natural Earth, and without a state in 1950–1954. The borders with the Netherlands and Czechoslovakia also follow Natural Earth.",
+     "de": "Die Quellen nennen den 23. Mai 1949 bis 3. Oktober 1990. Die Karte zeigt das Land wie Cliopatria 1950–1990. Für 1945–1949 zeigt die Karte wie Cliopatria die Besatzungszonen als Teile der USA, Großbritanniens und Frankreichs. Cliopatria rechnet Westdeutschland außerdem 1947–1966 den USA zu; ab 1950 wird das herausgeschnitten. Die Quellen unterscheiden sich beim Saarland: Laut Wikipedia wurde es am 1. Januar 1957 Teil der Bundesrepublik, bei Cliopatria erst 1958. Die Karte zeigt das Saarland wie Cliopatria ab 1958 in Westdeutschland und nach 1957 nicht mehr in Frankreich. West-Berlin wird ohne Staat gezeigt: Es war 1948–1990 eine Enklave unter den Westalliierten und formal kein Teil der Bundesrepublik. Selfkant und Elten, die die Niederlande am 23. April 1949 annektierten, werden ab 1963 in Westdeutschland gezeigt; sie wurden am 1. August 1963 zurückgegeben. Cliopatria rechnet sie in allen Jahren den Niederlanden zu, daher stammt ihre Grenze aus Natural Earth. Cliopatrias Grenze zur DDR ist grob (Ratzeburg in Schleswig-Holstein liegt in Cliopatrias DDR), daher folgt die Karte dort den Ländergrenzen in Natural Earth. Wo Cliopatrias westliche Besatzungszonen nicht bis an die Grenze zur sowjetischen Zone reichen, wird ein Teil des Gebiets 1945–1949 ohne Staat gezeigt, zum Beispiel Ratzeburg. Lindau gehörte zur französischen Zone und wurde am 1. September 1955 wieder in Bayern eingegliedert. Cliopatria führt dort ab 1950 keinen Staat, daher zeigt die Karte Lindau ab 1955 in Westdeutschland, mit der Grenze von Natural Earth, und 1950–1954 ohne Staat. Auch die Grenzen zu den Niederlanden und zur Tschechoslowakei folgen Natural Earth.",
+     "es": "Las fuentes indican del 23 de mayo de 1949 al 3 de octubre de 1990. El mapa muestra el país en 1950–1990, como Cliopatria. Para 1945–1949 el mapa muestra las zonas de ocupación como partes de Estados Unidos, el Reino Unido y Francia, como Cliopatria. Cliopatria atribuye además el oeste de Alemania a Estados Unidos en 1947–1966; a partir de 1950 eso se recorta. Las fuentes difieren sobre el Sarre: según Wikipedia pasó a formar parte de la República Federal el 1 de enero de 1957, y según Cliopatria solo en 1958. El mapa muestra el Sarre en Alemania Occidental a partir de 1958, como Cliopatria, y ya no en Francia después de 1957. Berlín Oeste se muestra sin Estado: fue un enclave bajo los Aliados occidentales en 1948–1990 y formalmente no formaba parte de la República Federal. Selfkant y Elten, anexionados por los Países Bajos el 23 de abril de 1949, aparecen en Alemania Occidental desde 1963; fueron devueltos el 1 de agosto de 1963. Cliopatria los atribuye a los Países Bajos en todos los años, por lo que su frontera procede de Natural Earth. La frontera de Cliopatria con la RDA es aproximada (Ratzeburg, en Schleswig-Holstein, queda en la RDA de Cliopatria), así que allí el mapa sigue los límites de los estados federados de Natural Earth. Donde las zonas de ocupación occidentales de Cliopatria no llegan hasta la frontera con la zona soviética, parte del territorio aparece sin Estado en 1945–1949, por ejemplo Ratzeburg. Lindau pertenecía a la zona francesa y se reincorporó a Baviera el 1 de septiembre de 1955. Cliopatria no tiene ningún Estado allí desde 1950, por lo que el mapa muestra Lindau en Alemania Occidental desde 1955, con la frontera de Natural Earth, y sin Estado en 1950–1954. Las fronteras con los Países Bajos y Checoslovaquia también siguen Natural Earth.",
+     "fr": "Les sources indiquent du 23 mai 1949 au 3 octobre 1990. La carte montre le pays en 1950–1990, comme Cliopatria. Pour 1945–1949, la carte montre les zones d'occupation comme des parties des États-Unis, du Royaume-Uni et de la France, comme Cliopatria. Cliopatria rattache en outre l'ouest de l'Allemagne aux États-Unis en 1947–1966 ; à partir de 1950, cette partie est retirée. Les sources divergent sur la Sarre : selon Wikipédia, elle devint partie de la République fédérale le 1er janvier 1957, selon Cliopatria seulement en 1958. La carte montre la Sarre en Allemagne de l'Ouest à partir de 1958, comme Cliopatria, et plus en France après 1957. Berlin-Ouest est montré sans État : c'était une enclave sous l'autorité des Alliés occidentaux en 1948–1990, qui ne faisait pas formellement partie de la République fédérale. Selfkant et Elten, annexés par les Pays-Bas le 23 avril 1949, apparaissent en Allemagne de l'Ouest à partir de 1963 ; ils furent restitués le 1er août 1963. Cliopatria les rattache aux Pays-Bas toutes les années, si bien que leur frontière provient de Natural Earth. La frontière de Cliopatria avec la RDA est approximative (Ratzeburg, dans le Schleswig-Holstein, se trouve dans la RDA de Cliopatria), donc la carte y suit les limites des Länder de Natural Earth. Là où les zones d'occupation occidentales de Cliopatria n'atteignent pas la limite de la zone soviétique, une partie du territoire apparaît sans État en 1945–1949, par exemple Ratzeburg. Lindau appartenait à la zone française et fut réintégrée à la Bavière le 1er septembre 1955. Cliopatria n'a aucun État à cet endroit à partir de 1950 ; la carte montre donc Lindau en Allemagne de l'Ouest à partir de 1955, avec la frontière de Natural Earth, et sans État en 1950–1954. Les frontières avec les Pays-Bas et la Tchécoslovaquie suivent aussi Natural Earth."
     },
     "sources": [
      "wp-west-germany",
-     "wd-west-germany"
+     "wd-west-germany",
+     "wp-saar-protectorate",
+     "wp-west-berlin",
+     "wp-dutch-annexation-1949",
+     "natural-earth-lander",
+     "natural-earth-admin1",
+     "dewp-landkreis-lindau"
     ],
     "review": "source-checked"
    }
@@ -16483,16 +16503,21 @@
      }
     ],
     "mapNote": {
-     "sv": "Källorna anger 7 oktober 1949–3 oktober 1990, och kartan visar landet 1949–1990 som i Cliopatria. Åren 1945–1948 visar kartan den sovjetiska zonen som en del av Sovjetunionen, som i Cliopatria.",
-     "en": "The sources give 7 October 1949–3 October 1990, and the map shows the country in 1949–1990, as in Cliopatria. For 1945–1948 the map shows the Soviet zone as part of the Soviet Union, as in Cliopatria.",
-     "de": "Die Quellen nennen den 7. Oktober 1949 bis 3. Oktober 1990, und die Karte zeigt das Land wie Cliopatria 1949–1990. Für 1945–1948 zeigt die Karte wie Cliopatria die sowjetische Zone als Teil der Sowjetunion.",
-     "es": "Las fuentes indican del 7 de octubre de 1949 al 3 de octubre de 1990, y el mapa muestra el país en 1949–1990, como Cliopatria. Para 1945–1948 el mapa muestra la zona soviética como parte de la Unión Soviética, como Cliopatria.",
-     "fr": "Les sources indiquent du 7 octobre 1949 au 3 octobre 1990, et la carte montre le pays en 1949–1990, comme Cliopatria. Pour 1945–1948, la carte montre la zone soviétique comme une partie de l'Union soviétique, comme Cliopatria."
+     "sv": "Källorna anger 7 oktober 1949–3 oktober 1990, och kartan visar landet 1949–1990 som i Cliopatria. Åren 1945–1948 visar kartan den sovjetiska zonen som en del av Sovjetunionen, som i Cliopatria. Västberlin var en enklav och hörde inte till DDR. Cliopatrias hål i DDR för Västberlin stämmer bara ungefär och saknas 1973–1975, så kartan använder Västberlins gräns ur Berlins öppna data (Verlauf der Berliner Mauer, 1989, efter ett flygfoto 25 april 1989). Östberlin visas som en del av DDR, som DDR själv räknade det; västmakterna erkände inte Östberlin som DDR:s huvudstad. Cliopatrias gränser mot Västtyskland och Polen är grova (Ratzeburg i Schleswig-Holstein ligger i Cliopatrias DDR, och Frankfurt an der Oder i Cliopatrias Polen), så kartan följer där delstaternas och Tysklands gränser i Natural Earth.",
+     "en": "The sources give 7 October 1949–3 October 1990, and the map shows the country in 1949–1990, as in Cliopatria. For 1945–1948 the map shows the Soviet zone as part of the Soviet Union, as in Cliopatria. West Berlin was an enclave and not part of the GDR. Cliopatria's hole in the GDR for West Berlin is only approximate and is missing in 1973–1975, so the map uses West Berlin's border from Berlin's open data (Verlauf der Berliner Mauer, 1989, based on an aerial photograph of 25 April 1989). East Berlin is shown as part of the GDR, as the GDR itself counted it; the Western powers did not recognise East Berlin as the GDR's capital. Cliopatria's borders with West Germany and Poland are coarse (Ratzeburg in Schleswig-Holstein lies in Cliopatria's GDR, and Frankfurt an der Oder in Cliopatria's Poland), so the map follows the state borders and Germany's border in Natural Earth there.",
+     "de": "Die Quellen nennen den 7. Oktober 1949 bis 3. Oktober 1990, und die Karte zeigt das Land wie Cliopatria 1949–1990. Für 1945–1948 zeigt die Karte wie Cliopatria die sowjetische Zone als Teil der Sowjetunion. West-Berlin war eine Enklave und gehörte nicht zur DDR. Cliopatrias Loch in der DDR für West-Berlin stimmt nur ungefähr und fehlt 1973–1975, daher verwendet die Karte die Grenze West-Berlins aus den offenen Daten Berlins (Verlauf der Berliner Mauer, 1989, nach einem Luftbild vom 25. April 1989). Ost-Berlin wird als Teil der DDR gezeigt, wie die DDR selbst es zählte; die Westmächte erkannten Ost-Berlin nicht als Hauptstadt der DDR an. Cliopatrias Grenzen zu Westdeutschland und Polen sind grob (Ratzeburg in Schleswig-Holstein liegt in Cliopatrias DDR und Frankfurt (Oder) in Cliopatrias Polen), daher folgt die Karte dort den Ländergrenzen und der Grenze Deutschlands in Natural Earth.",
+     "es": "Las fuentes indican del 7 de octubre de 1949 al 3 de octubre de 1990, y el mapa muestra el país en 1949–1990, como Cliopatria. Para 1945–1948 el mapa muestra la zona soviética como parte de la Unión Soviética, como Cliopatria. Berlín Oeste era un enclave y no formaba parte de la RDA. El hueco de Cliopatria en la RDA para Berlín Oeste solo es aproximado y falta en 1973–1975, así que el mapa usa la frontera de Berlín Oeste de los datos abiertos de Berlín (Verlauf der Berliner Mauer, 1989, a partir de una fotografía aérea del 25 de abril de 1989). Berlín Este aparece como parte de la RDA, tal como la contaba la propia RDA; las potencias occidentales no reconocieron Berlín Este como capital de la RDA. Las fronteras de Cliopatria con Alemania Occidental y Polonia son aproximadas (Ratzeburg, en Schleswig-Holstein, queda en la RDA de Cliopatria, y Fráncfort del Óder en la Polonia de Cliopatria), así que allí el mapa sigue los límites de los estados federados y la frontera de Alemania de Natural Earth.",
+     "fr": "Les sources indiquent du 7 octobre 1949 au 3 octobre 1990, et la carte montre le pays en 1949–1990, comme Cliopatria. Pour 1945–1948, la carte montre la zone soviétique comme une partie de l'Union soviétique, comme Cliopatria. Berlin-Ouest était une enclave et ne faisait pas partie de la RDA. Le trou de Cliopatria dans la RDA pour Berlin-Ouest n'est qu'approximatif et manque en 1973–1975 ; la carte utilise donc la frontière de Berlin-Ouest tirée des données ouvertes de Berlin (Verlauf der Berliner Mauer, 1989, d'après une photographie aérienne du 25 avril 1989). Berlin-Est apparaît comme partie de la RDA, comme la RDA elle-même le comptait ; les puissances occidentales ne reconnurent pas Berlin-Est comme capitale de la RDA. Les frontières de Cliopatria avec l'Allemagne de l'Ouest et la Pologne sont approximatives (Ratzeburg, dans le Schleswig-Holstein, se trouve dans la RDA de Cliopatria, et Francfort-sur-l'Oder dans la Pologne de Cliopatria), donc la carte y suit les limites des Länder et la frontière de l'Allemagne de Natural Earth."
     },
     "sources": [
      "wp-east-germany",
      "wd-east-germany",
-     "wp-berlin-wall"
+     "wp-berlin-wall",
+     "wp-west-berlin",
+     "natural-earth-admin1",
+     "berlin-mauer-1989",
+     "wp-east-berlin",
+     "natural-earth-lander"
     ],
     "review": "source-checked"
    }
@@ -17897,13 +17922,17 @@
      }
     ],
     "mapNote": {
-     "sv": "Källan och kartan anger samma år, 1922–1991.",
-     "en": "The source and the map give the same years, 1922–1991."
+     "sv": "Källan och kartan anger samma år, 1922–1991. Åren 1945–1952 räknar Cliopatria Polen till Sovjetunionen. Kartan visar i stället Polen, med Polens gräns i Cliopatria 1953. 1990–1991 har Kaliningradområdet Rysslands gräns ur Natural Earth.",
+     "en": "The source and the map give the same years, 1922–1991. In 1945–1952 Cliopatria counts Poland to the Soviet Union. The map shows Poland instead, with Poland's border in Cliopatria in 1953. In 1990–1991 the Kaliningrad region has Russia's border from Natural Earth.",
+     "de": "Quelle und Karte nennen dieselben Jahre, 1922–1991. In den Jahren 1945–1952 rechnet Cliopatria Polen der Sowjetunion zu. Die Karte zeigt stattdessen Polen, mit Polens Grenze bei Cliopatria von 1953. 1990–1991 hat das Gebiet Kaliningrad die Grenze Russlands von Natural Earth.",
+     "es": "La fuente y el mapa indican los mismos años, 1922–1991. En 1945–1952 Cliopatria atribuye Polonia a la Unión Soviética. El mapa muestra en su lugar Polonia, con la frontera de Polonia en Cliopatria en 1953. En 1990–1991, la región de Kaliningrado tiene la frontera de Rusia de Natural Earth.",
+     "fr": "La source et la carte indiquent les mêmes années, 1922–1991. En 1945–1952, Cliopatria rattache la Pologne à l'Union soviétique. La carte montre à la place la Pologne, avec sa frontière dans Cliopatria en 1953. En 1990–1991, la région de Kaliningrad a la frontière de la Russie de Natural Earth."
     },
     "sources": [
      "wp-soviet-union",
      "wp-state-emblem-ussr",
-     "wp-hammer-and-sickle"
+     "wp-hammer-and-sickle",
+     "natural-earth-lander"
     ],
     "review": "source-checked"
    },
@@ -19126,11 +19155,11 @@
      }
     ],
     "mapNote": {
-     "sv": "Källorna anger 1918–1992. Kartan visar landet 1919–1938 och 1947–1991. Cliopatria räknar landet till Nazityskland 1939–1944 och till Sovjetunionen 1945–1946 och 1969–1990. Åren 1969–1990 visar kartan i stället Tjeckoslovakien, med landets gräns 1968 i Cliopatria (densamma som 1991), enligt Historia-globens beslut att rita den internationellt erkända staten vid ockupation. Warszawapakten invaderade landet 20–21 augusti 1968, och sovjetiska trupper stod sedan kvar i landet tills de drogs tillbaka 1990–1991.",
-     "en": "The sources give 1918–1992. The map shows the country in 1919–1938 and 1947–1991. Cliopatria counts the country as part of Nazi Germany in 1939–1944 and of the Soviet Union in 1945–1946 and 1969–1990. In 1969–1990 the map instead shows Czechoslovakia, with the country's 1968 border in Cliopatria (the same as in 1991), by decision of Historia-globen to show the internationally recognised state in times of occupation. The Warsaw Pact invaded the country on 20–21 August 1968, and Soviet troops then remained in the country until they were withdrawn in 1990–1991.",
-     "de": "Die Quellen nennen 1918–1992. Die Karte zeigt das Land 1919–1938 und 1947–1991. Cliopatria zählt das Land 1939–1944 zum NS-Staat und 1945–1946 sowie 1969–1990 zur Sowjetunion. In den Jahren 1969–1990 zeigt die Karte stattdessen die Tschechoslowakei, mit der Grenze des Landes von 1968 in Cliopatria (dieselbe wie 1991), nach der Entscheidung von Historia-globen, bei Besatzung den international anerkannten Staat zu zeigen. Der Warschauer Pakt marschierte am 20. und 21. August 1968 in das Land ein, und sowjetische Truppen blieben danach im Land, bis sie 1990–1991 abgezogen wurden.",
-     "es": "Las fuentes indican 1918–1992. El mapa muestra el país en 1919–1938 y 1947–1991. Cliopatria cuenta el país como parte de la Alemania nazi en 1939–1944 y de la Unión Soviética en 1945–1946 y 1969–1990. En 1969–1990 el mapa muestra en cambio Checoslovaquia, con la frontera del país de 1968 en Cliopatria (la misma que en 1991), por decisión de Historia-globen de mostrar el Estado reconocido internacionalmente en caso de ocupación. El Pacto de Varsovia invadió el país el 20 y 21 de agosto de 1968, y después las tropas soviéticas permanecieron en el país hasta su retirada en 1990–1991.",
-     "fr": "Les sources indiquent 1918–1992. La carte montre le pays de 1919 à 1938 et de 1947 à 1991. Cliopatria compte le pays comme partie de l'Allemagne nazie de 1939 à 1944 et de l'Union soviétique en 1945–1946 et de 1969 à 1990. De 1969 à 1990, la carte montre au contraire la Tchécoslovaquie, avec la frontière du pays de 1968 dans Cliopatria (la même qu'en 1991), sur décision d'Historia-globen de montrer l'État reconnu internationalement en cas d'occupation. Le pacte de Varsovie envahit le pays les 20 et 21 août 1968, puis les troupes soviétiques restèrent dans le pays jusqu'à leur retrait en 1990–1991."
+     "sv": "Källorna anger 1918–1992. Kartan visar landet 1919–1938 och 1947–1991. Cliopatria räknar landet till Nazityskland 1939–1944 och till Sovjetunionen 1945–1946 och 1969–1990. Åren 1969–1990 visar kartan i stället Tjeckoslovakien, med landets gräns 1968 i Cliopatria (densamma som 1991), enligt Historia-globens beslut att rita den internationellt erkända staten vid ockupation. Warszawapakten invaderade landet 20–21 augusti 1968, och sovjetiska trupper stod sedan kvar i landet tills de drogs tillbaka 1990–1991. Från 1945 följer gränsen mot Tyskland Natural Earth på båda sidor.",
+     "en": "The sources give 1918–1992. The map shows the country in 1919–1938 and 1947–1991. Cliopatria counts the country as part of Nazi Germany in 1939–1944 and of the Soviet Union in 1945–1946 and 1969–1990. In 1969–1990 the map instead shows Czechoslovakia, with the country's 1968 border in Cliopatria (the same as in 1991), by decision of Historia-globen to show the internationally recognised state in times of occupation. The Warsaw Pact invaded the country on 20–21 August 1968, and Soviet troops then remained in the country until they were withdrawn in 1990–1991. From 1945 the border with Germany follows Natural Earth on both sides.",
+     "de": "Die Quellen nennen 1918–1992. Die Karte zeigt das Land 1919–1938 und 1947–1991. Cliopatria zählt das Land 1939–1944 zum NS-Staat und 1945–1946 sowie 1969–1990 zur Sowjetunion. In den Jahren 1969–1990 zeigt die Karte stattdessen die Tschechoslowakei, mit der Grenze des Landes von 1968 in Cliopatria (dieselbe wie 1991), nach der Entscheidung von Historia-globen, bei Besatzung den international anerkannten Staat zu zeigen. Der Warschauer Pakt marschierte am 20. und 21. August 1968 in das Land ein, und sowjetische Truppen blieben danach im Land, bis sie 1990–1991 abgezogen wurden. Ab 1945 folgt die Grenze zu Deutschland auf beiden Seiten Natural Earth.",
+     "es": "Las fuentes indican 1918–1992. El mapa muestra el país en 1919–1938 y 1947–1991. Cliopatria cuenta el país como parte de la Alemania nazi en 1939–1944 y de la Unión Soviética en 1945–1946 y 1969–1990. En 1969–1990 el mapa muestra en cambio Checoslovaquia, con la frontera del país de 1968 en Cliopatria (la misma que en 1991), por decisión de Historia-globen de mostrar el Estado reconocido internacionalmente en caso de ocupación. El Pacto de Varsovia invadió el país el 20 y 21 de agosto de 1968, y después las tropas soviéticas permanecieron en el país hasta su retirada en 1990–1991. Desde 1945, la frontera con Alemania sigue Natural Earth en ambos lados.",
+     "fr": "Les sources indiquent 1918–1992. La carte montre le pays de 1919 à 1938 et de 1947 à 1991. Cliopatria compte le pays comme partie de l'Allemagne nazie de 1939 à 1944 et de l'Union soviétique en 1945–1946 et de 1969 à 1990. De 1969 à 1990, la carte montre au contraire la Tchécoslovaquie, avec la frontière du pays de 1968 dans Cliopatria (la même qu'en 1991), sur décision d'Historia-globen de montrer l'État reconnu internationalement en cas d'occupation. Le pacte de Varsovie envahit le pays les 20 et 21 août 1968, puis les troupes soviétiques restèrent dans le pays jusqu'à leur retrait en 1990–1991. À partir de 1945, la frontière avec l'Allemagne suit Natural Earth des deux côtés."
     },
     "sources": [
      "wp-czechoslovakia",
@@ -19139,7 +19168,8 @@
      "wp-warsaw-pact-invasion-of-czechoslovakia",
      "wp-central-group-of-forces",
      "wd-czechoslovakia",
-     "cliopatria"
+     "cliopatria",
+     "natural-earth-lander"
     ],
     "review": "source-checked"
    },
@@ -31320,14 +31350,15 @@
      }
     ],
     "mapNote": {
-     "sv": "Kartan visar Ryska federationen från 1992; enligt källorna upplöstes Sovjetunionen i december 1991. Krim och Sevastopol räknas inte till Ryssland, eftersom kartan i omstridda gränser följer Sveriges officiella hållning enligt UD: Sverige erkänner inte annekteringen 2014 (kontrollerad 2026-11-06). Cliopatria räknar Krim till Ryssland 2014–2024. De områden i Ukraina som Ryssland har ockuperat sedan 2022 räknas inte heller till Ryssland. Kartan slutar 2024 och säger inget om läget därefter.",
-     "en": "The map shows the Russian Federation from 1992; according to the sources the Soviet Union was dissolved in December 1991. Crimea and Sevastopol are not counted as part of Russia, because in disputed borders the map follows Sweden's official position according to the Swedish Foreign Ministry (UD): Sweden does not recognise the annexation of 2014 (checked 2026-11-06). Cliopatria counts Crimea as part of Russia in 2014–2024. The areas in Ukraine that Russia has occupied since 2022 are not counted as part of Russia either. The map ends in 2024 and says nothing about the situation after that."
+     "sv": "Kartan visar Ryska federationen från 1992; enligt källorna upplöstes Sovjetunionen i december 1991. Krim och Sevastopol räknas inte till Ryssland, eftersom kartan i omstridda gränser följer Sveriges officiella hållning enligt UD: Sverige erkänner inte annekteringen 2014 (kontrollerad 2026-11-06). Cliopatria räknar Krim till Ryssland 2014–2024. De områden i Ukraina som Ryssland har ockuperat sedan 2022 räknas inte heller till Ryssland. Kartan slutar 2024 och säger inget om läget därefter. Kaliningradområdet har Rysslands gräns ur Natural Earth, eftersom den förenklade gränsen annars lämnar stora tomma ytor (till exempel Baltijsk).",
+     "en": "The map shows the Russian Federation from 1992; according to the sources the Soviet Union was dissolved in December 1991. Crimea and Sevastopol are not counted as part of Russia, because in disputed borders the map follows Sweden's official position according to the Swedish Foreign Ministry (UD): Sweden does not recognise the annexation of 2014 (checked 2026-11-06). Cliopatria counts Crimea as part of Russia in 2014–2024. The areas in Ukraine that Russia has occupied since 2022 are not counted as part of Russia either. The map ends in 2024 and says nothing about the situation after that. The Kaliningrad region has Russia's border from Natural Earth, since the simplified border would otherwise leave large empty areas (for example Baltiysk)."
     },
     "sources": [
      "wp-russia",
      "wd-russia",
      "wp-dissolution-of-the-soviet-union",
-     "ud-annekteringar-ukraina-2022"
+     "ud-annekteringar-ukraina-2022",
+     "natural-earth-lander"
     ],
     "review": "source-checked"
    },
@@ -31714,7 +31745,7 @@
     {
      "id": "hijaz-och-najd",
      "name": {
-      "sv": "Kingdom of Nejd and Hejaz",
+      "sv": "Kungariket Hijaz och Najd",
       "en": "Kingdom of Nejd and Hejaz",
       "de": "Königreich Hedschas und Nadschd",
       "es": "Reino del Nejd y del Hiyaz",
@@ -33783,7 +33814,22 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Gränserna mot Nederländerna, Polen och Tjeckien och kring Lindau följer Natural Earth, eftersom Cliopatrias gräns är grov där och saknar Lindau. Natural Earths gräns mot Frankrike ligger ungefär en kilometer fel vid floden Lauter, så Wissembourg och Lauterbourg, som hör till Frankrike, ritas i Tyskland.",
+     "en": "The borders with the Netherlands, Poland and Czechia and around Lindau follow Natural Earth, since Cliopatria's border is coarse there and lacks Lindau. Natural Earth's border with France is about one kilometre off along the river Lauter, so Wissembourg and Lauterbourg, which belong to France, are drawn in Germany.",
+     "de": "Die Grenzen zu den Niederlanden, Polen und Tschechien sowie um Lindau folgen Natural Earth, da die Grenze bei Cliopatria dort grob ist und Lindau fehlt. Die Grenze von Natural Earth zu Frankreich liegt an der Lauter etwa einen Kilometer daneben, daher sind Wissembourg und Lauterbourg, die zu Frankreich gehören, in Deutschland eingezeichnet.",
+     "es": "Las fronteras con los Países Bajos, Polonia y Chequia y en torno a Lindau siguen Natural Earth, ya que la frontera de Cliopatria es aproximada allí y no incluye Lindau. La frontera de Natural Earth con Francia se desvía aproximadamente un kilómetro a lo largo del río Lauter, por lo que Wissembourg y Lauterbourg, que pertenecen a Francia, aparecen en Alemania.",
+     "fr": "Les frontières avec les Pays-Bas, la Pologne et la Tchéquie et autour de Lindau suivent Natural Earth, car la frontière de Cliopatria y est grossière et n'inclut pas Lindau. La frontière de Natural Earth avec la France est décalée d'environ un kilomètre le long de la Lauter ; Wissembourg et Lauterbourg, qui appartiennent à la France, apparaissent donc en Allemagne."
+    },
+    "sources": [
+     "cliopatria",
+     "natural-earth-lander",
+     "dewp-landkreis-lindau"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "malaysia",
@@ -34015,6 +34061,110 @@
    ]
   },
   {
+   "id": "fria-staden-danzig",
+   "name": {
+    "sv": "Fria staden Danzig",
+    "en": "Free City of Danzig",
+    "de": "Freie Stadt Danzig",
+    "es": "Ciudad libre de Dánzig",
+    "fr": "Ville libre de Dantzig"
+   },
+   "color": "#b8864a",
+   "from": 1920,
+   "to": 1939,
+   "file": "data/empires/fria-staden-danzig.json",
+   "polities": [
+    {
+     "id": "fria-staden-danzig",
+     "name": {
+      "sv": "Fria staden Danzig",
+      "en": "Free City of Danzig",
+      "de": "Freie Stadt Danzig",
+      "es": "Ciudad libre de Dánzig",
+      "fr": "Ville libre de Dantzig"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Fria staden Danzig var en stadsstat kring Danzig, i dag Gdańsk i Polen, under Nationernas förbunds skydd 1920–1939. Polen skötte utrikespolitik, försvar, tull, järnvägar och post. Nazityskland tog staden 1 september 1939, när anfallet på Polen började.",
+     "en": "The Free City of Danzig was a city-state around Danzig, today Gdańsk in Poland, under the protection of the League of Nations in 1920–1939. Poland was in charge of foreign policy, defence, customs, railways and post. Nazi Germany took the city on 1 September 1939, when the attack on Poland began.",
+     "de": "Die Freie Stadt Danzig war ein Stadtstaat um Danzig, heute Gdańsk in Polen, unter dem Schutz des Völkerbunds 1920–1939. Polen war für Außenpolitik, Verteidigung, Zoll, Eisenbahn und Post zuständig. Der NS-Staat nahm die Stadt am 1. September 1939 ein, als der Angriff auf Polen begann.",
+     "es": "La Ciudad libre de Dánzig fue una ciudad-Estado en torno a Dánzig, hoy Gdańsk en Polonia, bajo la protección de la Sociedad de Naciones en 1920–1939. Polonia se encargaba de la política exterior, la defensa, las aduanas, los ferrocarriles y el correo. La Alemania nazi tomó la ciudad el 1 de septiembre de 1939, cuando comenzó el ataque a Polonia.",
+     "fr": "La Ville libre de Dantzig était une cité-État autour de Dantzig, aujourd'hui Gdańsk en Pologne, placée sous la protection de la Société des Nations de 1920 à 1939. La Pologne était chargée de la politique étrangère, de la défense, des douanes, des chemins de fer et des postes. L'Allemagne nazie s'empara de la ville le 1er septembre 1939, au début de l'attaque contre la Pologne."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod",
+       "en": "When and where it arose",
+       "de": "Entstehung",
+       "es": "Cuándo y dónde surgió",
+       "fr": "Quand et où il est apparu"
+      },
+      "text": {
+       "sv": "Fristaden bildades 15 november 1920 enligt artikel 100 i Versaillesfreden från 1919.",
+       "en": "The Free City was established on 15 November 1920 under Article 100 of the Treaty of Versailles of 1919.",
+       "de": "Die Freie Stadt wurde am 15. November 1920 nach Artikel 100 des Versailler Vertrags von 1919 gegründet.",
+       "es": "La Ciudad libre se fundó el 15 de noviembre de 1920 según el artículo 100 del Tratado de Versalles de 1919.",
+       "fr": "La Ville libre fut créée le 15 novembre 1920 en vertu de l'article 100 du traité de Versailles de 1919."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade",
+       "en": "How it ended",
+       "de": "Wie es endete",
+       "es": "Cómo terminó",
+       "fr": "Comment il a pris fin"
+      },
+      "text": {
+       "sv": "Nazityskland tog staden 1 september 1939 och annekterade den formellt i oktober 1939. Efter kriget blev staden helt en del av Polen enligt Potsdamöverenskommelsen 1945.",
+       "en": "Nazi Germany took the city on 1 September 1939 and formally annexed it in October 1939. After the war the city was fully integrated into Poland under the Potsdam Agreement of 1945.",
+       "de": "Der NS-Staat nahm die Stadt am 1. September 1939 ein und annektierte sie im Oktober 1939 formell. Nach dem Krieg wurde die Stadt gemäß dem Potsdamer Abkommen von 1945 vollständig Teil Polens.",
+       "es": "La Alemania nazi tomó la ciudad el 1 de septiembre de 1939 y la anexionó formalmente en octubre de 1939. Tras la guerra, la ciudad quedó plenamente integrada en Polonia según el Acuerdo de Potsdam de 1945.",
+       "fr": "L'Allemagne nazie s'empara de la ville le 1er septembre 1939 et l'annexa formellement en octobre 1939. Après la guerre, la ville fut pleinement intégrée à la Pologne en vertu des accords de Potsdam de 1945."
+      }
+     },
+     {
+      "label": {
+       "sv": "Befolkning och yta",
+       "en": "Population and area",
+       "de": "Bevölkerung und Fläche",
+       "es": "Población y superficie",
+       "fr": "Population et superficie"
+      },
+      "text": {
+       "sv": "366 730 invånare vid folkräkningen 1923. Ytan var 1 952 km² år 1928.",
+       "en": "366,730 inhabitants in the 1923 census. The area was 1,952 km² in 1928.",
+       "de": "366.730 Einwohner bei der Volkszählung 1923. Die Fläche betrug 1928 1.952 km².",
+       "es": "366 730 habitantes en el censo de 1923. La superficie era de 1952 km² en 1928.",
+       "fr": "366 730 habitants au recensement de 1923. La superficie était de 1 952 km² en 1928."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna anger 15 november 1920–1 september 1939 (Wikidata och Wikipedia), och kartan visar fristaden 1920–1939 som i Cliopatria. Cliopatrias yta är större än den Wikipedia anger (1 952 km² år 1928). Cliopatria räknar också Memelområdet till fristaden 1919–1935. Det är ett källfel och är borttaget: området förvaltades av Ambassadörskonferensen med franska trupper till 1923 och annekterades av Litauen 19 januari 1923. Cliopatrias gräns för fristaden stämmer bara ungefär: Zoppot (Sopot), som hörde till fristaden, ligger på kartan i Polen, och Marienburg (Malbork), som hörde till Ostpreussen, ligger i fristaden.",
+     "en": "The sources give 15 November 1920–1 September 1939 (Wikidata and Wikipedia), and the map shows the Free City in 1920–1939, as in Cliopatria. Cliopatria's area is larger than the one Wikipedia gives (1,952 km² in 1928). Cliopatria also counts the Memel Territory to the Free City in 1919–1935. This is an error in the source and has been removed: the territory was administered by the Conference of Ambassadors with French troops until 1923 and was annexed by Lithuania on 19 January 1923. Cliopatria's border for the Free City is only approximate: Zoppot (Sopot), which belonged to the Free City, lies in Poland on the map, and Marienburg (Malbork), which belonged to East Prussia, lies in the Free City.",
+     "de": "Die Quellen nennen den 15. November 1920 bis 1. September 1939 (Wikidata und Wikipedia), und die Karte zeigt die Freie Stadt wie Cliopatria 1920–1939. Cliopatrias Fläche ist größer als die von Wikipedia genannte (1.952 km² im Jahr 1928). Cliopatria rechnet außerdem das Memelland 1919–1935 der Freien Stadt zu. Das ist ein Fehler in der Quelle und wurde entfernt: Das Gebiet wurde bis 1923 von der Botschafterkonferenz mit französischen Truppen verwaltet und am 19. Januar 1923 von Litauen annektiert. Cliopatrias Grenze der Freien Stadt stimmt nur ungefähr: Zoppot (Sopot), das zur Freien Stadt gehörte, liegt auf der Karte in Polen, und Marienburg (Malbork), das zu Ostpreußen gehörte, liegt in der Freien Stadt.",
+     "es": "Las fuentes indican del 15 de noviembre de 1920 al 1 de septiembre de 1939 (Wikidata y Wikipedia), y el mapa muestra la Ciudad libre en 1920–1939, como Cliopatria. La superficie de Cliopatria es mayor que la que indica Wikipedia (1952 km² en 1928). Cliopatria atribuye además el territorio de Memel a la Ciudad libre en 1919–1935. Es un error de la fuente y se ha eliminado: el territorio estuvo administrado por la Conferencia de Embajadores con tropas francesas hasta 1923 y fue anexionado por Lituania el 19 de enero de 1923. La frontera de Cliopatria para la Ciudad libre solo es aproximada: Zoppot (Sopot), que pertenecía a la Ciudad libre, queda en Polonia en el mapa, y Marienburg (Malbork), que pertenecía a Prusia Oriental, queda en la Ciudad libre.",
+     "fr": "Les sources indiquent du 15 novembre 1920 au 1er septembre 1939 (Wikidata et Wikipédia), et la carte montre la Ville libre en 1920–1939, comme Cliopatria. La superficie de Cliopatria est plus grande que celle indiquée par Wikipédia (1 952 km² en 1928). Cliopatria rattache en outre le territoire de Memel à la Ville libre en 1919–1935. C'est une erreur de la source, qui a été retirée : le territoire fut administré par la Conférence des ambassadeurs avec des troupes françaises jusqu'en 1923 et fut annexé par la Lituanie le 19 janvier 1923. La frontière de Cliopatria pour la Ville libre n'est qu'approximative : Zoppot (Sopot), qui appartenait à la Ville libre, se trouve en Pologne sur la carte, et Marienburg (Malbork), qui appartenait à la Prusse-Orientale, se trouve dans la Ville libre."
+    },
+    "sources": [
+     "wp-free-city-of-danzig",
+     "wd-free-city-of-danzig",
+     "wp-klaipeda-region",
+     "wp-sopot",
+     "wp-malbork"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
    "id": "polen",
    "modernState": true,
    "name": {
@@ -34075,7 +34225,21 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Cliopatria saknar Polen 1940–1952 och räknar landet till Sovjetunionen 1945–1952. Kartan visar Polen 1945–1952 med Polens gräns i Cliopatria 1953, så gränsbytet med Sovjetunionen 1951 (cirka 480 km², i kraft 5 juni 1951) syns inte. Cliopatrias gräns sträcker sig väster om Oder–Neisse (till exempel Frankfurt an der Oder och Görlitz); där följer kartan Tysklands gräns i Natural Earth.",
+     "en": "Cliopatria lacks Poland in 1940–1952 and counts the country to the Soviet Union in 1945–1952. The map shows Poland in 1945–1952 with Poland's border in Cliopatria in 1953, so the border exchange with the Soviet Union in 1951 (about 480 km², in force from 5 June 1951) is not shown. Cliopatria's border extends west of the Oder–Neisse line (for example Frankfurt an der Oder and Görlitz); there the map follows Germany's border in Natural Earth.",
+     "de": "Cliopatria führt Polen 1940–1952 nicht und rechnet das Land 1945–1952 der Sowjetunion zu. Die Karte zeigt Polen 1945–1952 mit Polens Grenze bei Cliopatria von 1953, daher ist der Gebietsaustausch mit der Sowjetunion 1951 (etwa 480 km², in Kraft ab 5. Juni 1951) nicht zu sehen. Cliopatrias Grenze reicht westlich über die Oder-Neiße-Linie hinaus (zum Beispiel Frankfurt (Oder) und Görlitz); dort folgt die Karte der Grenze Deutschlands in Natural Earth.",
+     "es": "Cliopatria no incluye Polonia en 1940–1952 y atribuye el país a la Unión Soviética en 1945–1952. El mapa muestra Polonia en 1945–1952 con la frontera de Polonia en Cliopatria en 1953, por lo que no se ve el intercambio territorial con la Unión Soviética de 1951 (unos 480 km², en vigor desde el 5 de junio de 1951). La frontera de Cliopatria se extiende al oeste de la línea Óder-Neisse (por ejemplo, Fráncfort del Óder y Görlitz); allí el mapa sigue la frontera de Alemania de Natural Earth.",
+     "fr": "Cliopatria ne comprend pas la Pologne en 1940–1952 et rattache le pays à l'Union soviétique en 1945–1952. La carte montre la Pologne en 1945–1952 avec sa frontière dans Cliopatria en 1953 ; l'échange de territoires avec l'Union soviétique de 1951 (environ 480 km², en vigueur à partir du 5 juin 1951) n'apparaît donc pas. La frontière de Cliopatria s'étend à l'ouest de la ligne Oder-Neisse (par exemple Francfort-sur-l'Oder et Görlitz) ; la carte y suit la frontière de l'Allemagne de Natural Earth."
+    },
+    "sources": [
+     "wp-1951-polish-soviet-exchange",
+     "natural-earth-lander"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "oman",
@@ -36789,7 +36953,21 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Selfkant och Elten, som Nederländerna annekterade 23 april 1949, visas i Nederländerna 1950–1962 och i Västtyskland från 1963; de lämnades tillbaka 1 augusti 1963. Cliopatria räknar dem till Nederländerna alla år. Från 1963 följer gränsen mot Tyskland Tysklands gräns i Natural Earth. Från 1950 följer Nederländernas sida av gränsen Natural Earth, eftersom den förenklade gränsen annars tar med Gangelt, som Cliopatria räknar till Västtyskland.",
+     "en": "Selfkant and Elten, annexed by the Netherlands on 23 April 1949, are shown in the Netherlands in 1950–1962 and in West Germany from 1963; they were returned on 1 August 1963. Cliopatria counts them to the Netherlands in all years. From 1963 the border with Germany follows Germany's border in Natural Earth. From 1950 the Dutch side of the border follows Natural Earth, since the simplified border would otherwise include Gangelt, which Cliopatria counts to West Germany.",
+     "de": "Selfkant und Elten, die die Niederlande am 23. April 1949 annektierten, werden 1950–1962 in den Niederlanden und ab 1963 in Westdeutschland gezeigt; sie wurden am 1. August 1963 zurückgegeben. Cliopatria rechnet sie in allen Jahren den Niederlanden zu. Ab 1963 folgt die Grenze zu Deutschland der Grenze Deutschlands in Natural Earth. Ab 1950 folgt die niederländische Seite der Grenze Natural Earth, da die vereinfachte Grenze sonst Gangelt einschließen würde, das Cliopatria Westdeutschland zurechnet.",
+     "es": "Selfkant y Elten, anexionados por los Países Bajos el 23 de abril de 1949, aparecen en los Países Bajos en 1950–1962 y en Alemania Occidental desde 1963; fueron devueltos el 1 de agosto de 1963. Cliopatria los atribuye a los Países Bajos en todos los años. Desde 1963 la frontera con Alemania sigue la frontera de Alemania de Natural Earth. Desde 1950, el lado neerlandés de la frontera sigue Natural Earth, ya que la frontera simplificada incluiría Gangelt, que Cliopatria atribuye a Alemania Occidental.",
+     "fr": "Selfkant et Elten, annexés par les Pays-Bas le 23 avril 1949, apparaissent aux Pays-Bas en 1950–1962 et en Allemagne de l'Ouest à partir de 1963 ; ils furent restitués le 1er août 1963. Cliopatria les rattache aux Pays-Bas toutes les années. À partir de 1963, la frontière avec l'Allemagne suit la frontière de l'Allemagne de Natural Earth. À partir de 1950, le côté néerlandais de la frontière suit Natural Earth, car la frontière simplifiée engloberait sinon Gangelt, que Cliopatria attribue à l'Allemagne de l'Ouest."
+    },
+    "sources": [
+     "wp-dutch-annexation-1949",
+     "natural-earth-lander"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "salomonoarna",
@@ -39229,8 +39407,104 @@
       "cliopatria"
      ],
      "review": "source-checked"
+    },
+    {
+     "id": "england-1072",
+     "name": {
+      "sv": "Kungariket England",
+      "en": "Kingdom of England",
+      "de": "Königreich England",
+      "es": "Reino de Inglaterra",
+      "fr": "Royaume d'Angleterre"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "engelska-samvaldet",
+     "name": {
+      "sv": "Engelska samväldet",
+      "en": "Commonwealth of England",
+      "de": "Commonwealth of England",
+      "es": "Mancomunidad de Inglaterra",
+      "fr": "Commonwealth d'Angleterre"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
     }
-   ]
+   ],
+   "polityFacts": {
+    "england-1072": {
+     "facts": {
+      "summary": {
+       "sv": "Cliopatria kallar Kungariket England 1072–1168 för Norman England, efter normandernas erövring. Erövringen inleddes 1066 med invasionen, slaget vid Hastings 14 oktober och Vilhelms kröning i Westminster Abbey 25 december 1066. Enligt svenska Wikipedia kom det sista upproret i början av 1071.",
+       "en": "Cliopatria calls the Kingdom of England in 1072–1168 Norman England, after the Norman conquest. The conquest began in 1066 with the invasion, the Battle of Hastings on 14 October and William's coronation in Westminster Abbey on 25 December 1066. According to Swedish Wikipedia the last uprising came at the beginning of 1071.",
+       "de": "Cliopatria nennt das Königreich England 1072–1168 Norman England, nach der normannischen Eroberung. Die Eroberung begann 1066 mit der Invasion, der Schlacht bei Hastings am 14. Oktober und Wilhelms Krönung in der Westminster Abbey am 25. Dezember 1066. Laut der schwedischen Wikipedia kam der letzte Aufstand Anfang 1071.",
+       "es": "Cliopatria llama al Reino de Inglaterra en 1072–1168 Norman England, por la conquista normanda. La conquista comenzó en 1066 con la invasión, la batalla de Hastings el 14 de octubre y la coronación de Guillermo en la abadía de Westminster el 25 de diciembre de 1066. Según la Wikipedia en sueco, el último levantamiento se produjo a comienzos de 1071.",
+       "fr": "Cliopatria appelle le royaume d'Angleterre en 1072–1168 Norman England, d'après la conquête normande. La conquête commença en 1066 avec l'invasion, la bataille de Hastings le 14 octobre et le couronnement de Guillaume à l'abbaye de Westminster le 25 décembre 1066. Selon la Wikipédia en suédois, le dernier soulèvement eut lieu au début de 1071."
+      },
+      "items": [],
+      "mapNote": {
+       "sv": "Kartan följer Cliopatria: Kungariket England under normandisk tid 1072–1168, därefter det angevinska riket 1169–1209. Cliopatrias Wikidata-id för perioden gäller erövringen som händelse, inte riket, och används inte. Gränserna är Cliopatrias uppskattning.",
+       "en": "The map follows Cliopatria: the Kingdom of England in the Norman period in 1072–1168, then the Angevin Empire in 1169–1209. Cliopatria's Wikidata ID for the period refers to the conquest as an event, not the kingdom, and is not used. The borders are Cliopatria's estimate.",
+       "de": "Die Karte folgt Cliopatria: das Königreich England in normannischer Zeit 1072–1168, danach das Angevinische Reich 1169–1209. Die Wikidata-ID von Cliopatria für diesen Zeitraum bezeichnet die Eroberung als Ereignis, nicht das Reich, und wird nicht verwendet. Die Grenzen sind eine Schätzung von Cliopatria.",
+       "es": "El mapa sigue a Cliopatria: el Reino de Inglaterra en época normanda en 1072–1168 y después el Imperio angevino en 1169–1209. El identificador de Wikidata que da Cliopatria para el período se refiere a la conquista como acontecimiento, no al reino, y no se usa. Las fronteras son una estimación de Cliopatria.",
+       "fr": "La carte suit Cliopatria : le royaume d'Angleterre à l'époque normande en 1072–1168, puis l'Empire angevin en 1169–1209. L'identifiant Wikidata que Cliopatria donne pour la période désigne la conquête en tant qu'événement, non le royaume, et n'est pas utilisé. Les frontières sont une estimation de Cliopatria."
+      },
+      "sources": [
+       "wp-sv-normandernas-erovring",
+       "cliopatria"
+      ],
+      "review": "source-checked"
+     }
+    },
+    "engelska-samvaldet": {
+     "facts": {
+      "summary": {
+       "sv": "Engelska samväldet var den republik som styrde England efter att Karl I avrättats 30 januari 1649. Rumpparlamentet förklarade England som samvälde 19 maj 1649. Från 1653 var Oliver Cromwell lordprotektor, och samväldet omfattade då också Skottland och Irland.",
+       "en": "The Commonwealth of England was the republic that governed England after Charles I was executed on 30 January 1649. The Rump Parliament declared England a commonwealth on 19 May 1649. From 1653 Oliver Cromwell was Lord Protector, and the Commonwealth then also included Scotland and Ireland.",
+       "de": "Das Commonwealth of England war die Republik, die England regierte, nachdem Karl I. am 30. Januar 1649 hingerichtet worden war. Das Rumpfparlament erklärte England am 19. Mai 1649 zum Commonwealth. Ab 1653 war Oliver Cromwell Lordprotektor, und das Commonwealth umfasste nun auch Schottland und Irland.",
+       "es": "La Mancomunidad de Inglaterra fue la república que gobernó Inglaterra después de que Carlos I fuera ejecutado el 30 de enero de 1649. El Parlamento Rabadilla declaró Inglaterra una mancomunidad el 19 de mayo de 1649. Desde 1653 Oliver Cromwell fue lord protector, y la Mancomunidad incluyó entonces también a Escocia e Irlanda.",
+       "fr": "Le Commonwealth d'Angleterre fut la république qui gouverna l'Angleterre après l'exécution de Charles Ier le 30 janvier 1649. Le Parlement croupion déclara l'Angleterre république le 19 mai 1649. À partir de 1653, Oliver Cromwell fut lord-protecteur, et le Commonwealth comprit alors aussi l'Écosse et l'Irlande."
+      },
+      "items": [
+       {
+        "label": {
+         "sv": "Hur det slutade",
+         "en": "How it ended",
+         "de": "Wie es endete",
+         "es": "Cómo terminó",
+         "fr": "Comment il a pris fin"
+        },
+        "text": {
+         "sv": "Karl II utfärdade Bredadeklarationen 4 april 1660 och kom till London 29 maj 1660, och monarkin återupprättades.",
+         "en": "Charles II issued the Declaration of Breda on 4 April 1660 and arrived in London on 29 May 1660, and the monarchy was restored.",
+         "de": "Karl II. erließ am 4. April 1660 die Erklärung von Breda und traf am 29. Mai 1660 in London ein; die Monarchie wurde wiederhergestellt.",
+         "es": "Carlos II emitió la Declaración de Breda el 4 de abril de 1660 y llegó a Londres el 29 de mayo de 1660, y la monarquía fue restaurada.",
+         "fr": "Charles II publia la déclaration de Breda le 4 avril 1660 et arriva à Londres le 29 mai 1660, et la monarchie fut restaurée."
+        }
+       }
+      ],
+      "mapNote": {
+       "sv": "Källorna skiljer sig. Kartan följer Cliopatria: Engelska samväldet 1645–1661, med Skottland från 1653. Wikipedia och Wikidata anger 1649–1660. 1645–1652 ritas både samväldet och Kungariket England, som i Cliopatria; där deras områden ligger insprängda i varandra överlappar de förenklade gränserna något. Gränserna är Cliopatrias uppskattning.",
+       "en": "The sources differ. The map follows Cliopatria: the Commonwealth of England in 1645–1661, with Scotland from 1653. Wikipedia and Wikidata give 1649–1660. In 1645–1652 both the Commonwealth and the Kingdom of England are drawn, as in Cliopatria; where their areas are interspersed, the simplified borders overlap somewhat. The borders are Cliopatria's estimate.",
+       "de": "Die Quellen weichen voneinander ab. Die Karte folgt Cliopatria: das Commonwealth of England 1645–1661, ab 1653 mit Schottland. Wikipedia und Wikidata nennen 1649–1660. 1645–1652 werden wie bei Cliopatria sowohl das Commonwealth als auch das Königreich England gezeigt; wo ihre Gebiete ineinandergreifen, überlappen sich die vereinfachten Grenzen etwas. Die Grenzen sind eine Schätzung von Cliopatria.",
+       "es": "Las fuentes difieren. El mapa sigue a Cliopatria: la Mancomunidad de Inglaterra en 1645–1661, con Escocia desde 1653. Wikipedia y Wikidata indican 1649–1660. En 1645–1652 se dibujan tanto la Mancomunidad como el Reino de Inglaterra, como en Cliopatria; donde sus territorios se entremezclan, las fronteras simplificadas se superponen algo. Las fronteras son una estimación de Cliopatria.",
+       "fr": "Les sources divergent. La carte suit Cliopatria : le Commonwealth d'Angleterre en 1645–1661, avec l'Écosse à partir de 1653. Wikipédia et Wikidata indiquent 1649–1660. En 1645–1652, le Commonwealth et le royaume d'Angleterre sont tous deux dessinés, comme dans Cliopatria ; là où leurs territoires s'entremêlent, les frontières simplifiées se chevauchent quelque peu. Les frontières sont une estimation de Cliopatria."
+      },
+      "sources": [
+       "wp-commonwealth-of-england",
+       "wd-engelska-samvaldet",
+       "cliopatria"
+      ],
+      "review": "source-checked"
+     }
+    }
+   }
   },
   {
    "id": "norgesvaldet",
@@ -39386,8 +39660,8 @@
     "summary": {
      "sv": "Nordsjöväldet var en personalunion mellan England, Danmark och Norge under Knut den store. Svenska Wikipedia anger 1016–1042: väldet började när Knut kröntes till kung av England 1016 och upphörde när hans son Hardeknut dog 1042.",
      "en": "The North Sea Empire was a personal union of England, Denmark and Norway under Cnut the Great. Swedish Wikipedia gives 1016–1042: the empire began when Cnut was crowned king of England in 1016 and ended when his son Harthacnut died in 1042.",
-     "de": "Das Nordseereich war eine Personalunion von England, Dänemark und Norwegen unter Knut dem Großen. Die schwedische Wikipedia nennt 1016–1042: Das Reich begann, als Knut 1016 zum König von England gekrönt wurde, und endete, als sein Sohn Hardeknut 1042 starb.",
-     "es": "El Imperio del Mar del Norte fue una unión personal de Inglaterra, Dinamarca y Noruega bajo Canuto el Grande. La Wikipedia en sueco indica 1016–1042: el imperio comenzó cuando Canuto fue coronado rey de Inglaterra en 1016 y terminó cuando murió su hijo Canuto Hardeknud en 1042.",
+     "de": "Das Nordseereich war eine Personalunion von England, Dänemark und Norwegen unter Knut dem Großen. Die schwedische Wikipedia nennt 1016–1042: Das Reich begann, als Knut 1016 zum König von England gekrönt wurde, und endete, als sein Sohn Hardiknut 1042 starb.",
+     "es": "El Imperio del Mar del Norte fue una unión personal de Inglaterra, Dinamarca y Noruega bajo Canuto el Grande. La Wikipedia en sueco indica 1016–1042: el imperio comenzó cuando Canuto fue coronado rey de Inglaterra en 1016 y terminó cuando murió su hijo Canuto Hardeknut en 1042.",
      "fr": "L'Empire anglo-scandinave était une union personnelle de l'Angleterre, du Danemark et de la Norvège sous Knut le Grand. La Wikipédia en suédois indique 1016–1042 : l'empire commença lorsque Knut fut couronné roi d'Angleterre en 1016 et prit fin à la mort de son fils Hardeknut en 1042."
     },
     "items": [
@@ -39400,11 +39674,11 @@
        "fr": "Quand et où il est apparu"
       },
       "text": {
-       "sv": "Sven Tveskägg erövrade England 1013, och Knut den store fick makten där 1016. Knut blev kung av Danmark 1018 eller 1019 (engelska Wikipedia anger båda åren) och tog över Norge 1028. Efter slaget vid Helgeå 1026 hävdade han att han styrde en del av Sverige; svenska Wikipedia skriver att han möjligen regerade Västergötland.",
-       "en": "Sweyn Forkbeard conquered England in 1013, and Cnut the Great gained power there in 1016. Cnut became king of Denmark in 1018 or 1019 (English Wikipedia gives both years) and took over Norway in 1028. After the Battle of Helgeå in 1026 he claimed to rule part of Sweden; Swedish Wikipedia writes that he possibly ruled Västergötland.",
-       "de": "Sven Gabelbart eroberte England 1013, und Knut der Große kam dort 1016 an die Macht. Knut wurde 1018 oder 1019 König von Dänemark (die englische Wikipedia nennt beide Jahre) und übernahm 1028 Norwegen. Nach der Schlacht am Helgeå 1026 beanspruchte er, einen Teil Schwedens zu beherrschen; die schwedische Wikipedia schreibt, dass er möglicherweise über Västergötland herrschte.",
-       "es": "Svend Barba de Horquilla conquistó Inglaterra en 1013, y Canuto el Grande se hizo con el poder allí en 1016. Canuto fue rey de Dinamarca desde 1018 o 1019 (la Wikipedia en inglés da ambos años) y tomó Noruega en 1028. Tras la batalla de Helgeå en 1026 afirmó gobernar una parte de Suecia; la Wikipedia en sueco escribe que posiblemente gobernó Västergötland.",
-       "fr": "Sven à la Barbe fourchue conquit l'Angleterre en 1013, et Knut le Grand y prit le pouvoir en 1016. Knut devint roi de Danemark en 1018 ou 1019 (la Wikipédia en anglais donne les deux années) et prit la Norvège en 1028. Après la bataille de Helgeå en 1026, il prétendit régner sur une partie de la Suède ; la Wikipédia en suédois écrit qu'il régna peut-être sur le Västergötland."
+       "sv": "Sven Tveskägg erövrade England 1013, och Knut den store fick makten där 1016. Knut blev kung av Danmark när brodern Harald dog 1018 eller 1019 (engelska Wikipedia) och tog över Norge 1028. Efter slaget vid Helgeå 1026 hävdade han att han styrde en del av Sverige; svenska Wikipedia skriver att han möjligen regerade Västergötland.",
+       "en": "Sweyn Forkbeard conquered England in 1013, and Cnut the Great gained power there in 1016. Cnut became king of Denmark when his brother Harald died in 1018 or 1019 (English Wikipedia) and took over Norway in 1028. After the Battle of Helgeå in 1026 he claimed to rule part of Sweden; Swedish Wikipedia writes that he possibly ruled Västergötland.",
+       "de": "Sven Gabelbart eroberte England 1013, und Knut der Große kam dort 1016 an die Macht. Knut wurde König von Dänemark, als sein Bruder Harald 1018 oder 1019 starb (englische Wikipedia), und übernahm 1028 Norwegen. Nach der Schlacht am Helgeå 1026 beanspruchte er, einen Teil Schwedens zu beherrschen; die schwedische Wikipedia schreibt, dass er möglicherweise über Västergötland herrschte.",
+       "es": "Svend Barba de Horquilla conquistó Inglaterra en 1013, y Canuto el Grande se hizo con el poder allí en 1016. Canuto fue rey de Dinamarca cuando murió su hermano Harald en 1018 o 1019 (Wikipedia en inglés) y tomó Noruega en 1028. Tras la batalla de Helgeå en 1026 afirmó gobernar una parte de Suecia; la Wikipedia en sueco escribe que posiblemente gobernó Västergötland.",
+       "fr": "Sven à la Barbe fourchue conquit l'Angleterre en 1013, et Knut le Grand y prit le pouvoir en 1016. Knut devint roi de Danemark à la mort de son frère Harald en 1018 ou 1019 (Wikipédia en anglais) et prit la Norvège en 1028. Après la bataille de Helgeå en 1026, il prétendit régner sur une partie de la Suède ; la Wikipédia en suédois écrit qu'il régna peut-être sur le Västergötland."
       }
      },
      {
@@ -39418,18 +39692,18 @@
       "text": {
        "sv": "Enligt engelska Wikipedia föll väldet sönder direkt när Knut dog 1035. Hardeknut var kung av Danmark 1035–1042 och av England 1040–1042. När han dog 8 juni 1042 blev Magnus den gode, kung av Norge sedan 1035, också kung av Danmark, fram till sin död 25 oktober 1047. Därefter var Sven Estridsson kung av Danmark 1047–1076.",
        "en": "According to English Wikipedia the empire collapsed immediately when Cnut died in 1035. Harthacnut was king of Denmark in 1035–1042 and of England in 1040–1042. When he died on 8 June 1042, Magnus the Good, king of Norway since 1035, also became king of Denmark, until his death on 25 October 1047. After that Sweyn Estridsson was king of Denmark in 1047–1076.",
-       "de": "Laut der englischen Wikipedia zerfiel das Reich sofort, als Knut 1035 starb. Hardeknut war 1035–1042 König von Dänemark und 1040–1042 König von England. Als er am 8. Juni 1042 starb, wurde Magnus der Gute, seit 1035 König von Norwegen, auch König von Dänemark, bis zu seinem Tod am 25. Oktober 1047. Danach war Sven Estridsson 1047–1076 König von Dänemark.",
-       "es": "Según la Wikipedia en inglés, el imperio se desintegró en cuanto murió Canuto en 1035. Canuto Hardeknud fue rey de Dinamarca en 1035–1042 y de Inglaterra en 1040–1042. Cuando murió el 8 de junio de 1042, Magnus el Bueno, rey de Noruega desde 1035, pasó a ser también rey de Dinamarca, hasta su muerte el 25 de octubre de 1047. Después, Svend Estridsen fue rey de Dinamarca en 1047–1076.",
+       "de": "Laut der englischen Wikipedia zerfiel das Reich sofort, als Knut 1035 starb. Hardiknut war 1035–1042 König von Dänemark und 1040–1042 König von England. Als er am 8. Juni 1042 starb, wurde Magnus der Gute, seit 1035 König von Norwegen, auch König von Dänemark, bis zu seinem Tod am 25. Oktober 1047. Danach war Sven Estridsson 1047–1076 König von Dänemark.",
+       "es": "Según la Wikipedia en inglés, el imperio se desintegró en cuanto murió Canuto en 1035. Canuto Hardeknut fue rey de Dinamarca en 1035–1042 y de Inglaterra en 1040–1042. Cuando murió el 8 de junio de 1042, Magnus el Bueno, rey de Noruega desde 1035, pasó a ser también rey de Dinamarca, hasta su muerte el 25 de octubre de 1047. Después, Svend Estridsen fue rey de Dinamarca en 1047–1076.",
        "fr": "Selon la Wikipédia en anglais, l'empire s'effondra dès la mort de Knut en 1035. Hardeknut fut roi de Danemark en 1035–1042 et d'Angleterre en 1040–1042. À sa mort, le 8 juin 1042, Magnus le Bon, roi de Norvège depuis 1035, devint aussi roi de Danemark, jusqu'à sa mort le 25 octobre 1047. Ensuite, Sven Estridsen fut roi de Danemark en 1047–1076."
       }
      }
     ],
     "mapNote": {
-     "sv": "Källorna skiljer sig. Kartan följer Cliopatria: Nordsjöväldet 1018–1039 (med Norge från 1028), Danmark–England 1040–1045 och Norge–Danmark 1046–1055. Enligt regentlängderna på Wikipedia föll väldet 1035, Hardeknut styrde Danmark och England 1040–1042 och Magnus den gode Norge och Danmark 1042–1047. Wikidata anger 1016–1035 för väldet. Gränserna är Cliopatrias uppskattning. De norröna öarna och norra Skottland räknas 1028–1039 till Norgesväldet, som i Cliopatria.",
-     "en": "The sources differ. The map follows Cliopatria: the North Sea Empire in 1018–1039 (with Norway from 1028), Denmark–England in 1040–1045 and Norway–Denmark in 1046–1055. According to the lists of rulers on Wikipedia the empire fell in 1035, Harthacnut ruled Denmark and England in 1040–1042 and Magnus the Good Norway and Denmark in 1042–1047. Wikidata gives 1016–1035 for the empire. The borders are Cliopatria's estimate. The Norse islands and northern Scotland are counted to the Old Kingdom of Norway in 1028–1039, as in Cliopatria.",
-     "de": "Die Quellen weichen voneinander ab. Die Karte folgt Cliopatria: das Nordseereich 1018–1039 (ab 1028 mit Norwegen), Dänemark–England 1040–1045 und Norwegen–Dänemark 1046–1055. Nach den Herrscherlisten in der Wikipedia zerfiel das Reich 1035, Hardeknut herrschte 1040–1042 über Dänemark und England und Magnus der Gute 1042–1047 über Norwegen und Dänemark. Wikidata nennt 1016–1035 für das Reich. Die Grenzen sind eine Schätzung von Cliopatria. Die nordischen Inseln und Nordschottland werden 1028–1039 wie bei Cliopatria zum Königreich Norwegen gezählt.",
-     "es": "Las fuentes difieren. El mapa sigue a Cliopatria: el Imperio del Mar del Norte en 1018–1039 (con Noruega desde 1028), Dinamarca–Inglaterra en 1040–1045 y Noruega–Dinamarca en 1046–1055. Según las listas de soberanos de Wikipedia, el imperio cayó en 1035, Canuto Hardeknud gobernó Dinamarca e Inglaterra en 1040–1042 y Magnus el Bueno Noruega y Dinamarca en 1042–1047. Wikidata indica 1016–1035 para el imperio. Las fronteras son una estimación de Cliopatria. Las islas nórdicas y el norte de Escocia se cuentan en 1028–1039 en el Reino de Noruega, como en Cliopatria.",
-     "fr": "Les sources divergent. La carte suit Cliopatria : l'Empire anglo-scandinave en 1018–1039 (avec la Norvège à partir de 1028), Danemark–Angleterre en 1040–1045 et Norvège–Danemark en 1046–1055. Selon les listes de souverains de Wikipédia, l'empire s'effondra en 1035, Hardeknut régna sur le Danemark et l'Angleterre en 1040–1042 et Magnus le Bon sur la Norvège et le Danemark en 1042–1047. Wikidata indique 1016–1035 pour l'empire. Les frontières sont une estimation de Cliopatria. Les îles nordiques et le nord de l'Écosse sont comptés en 1028–1039 dans le royaume de Norvège, comme dans Cliopatria."
+     "sv": "Källorna skiljer sig. Kartan följer Cliopatria: Nordsjöväldet 1018–1039 (med Norge från 1028), Danmark–England 1040–1045 och Norge–Danmark 1046–1055. Engelska Wikipedia skriver att väldet föll sönder när Knut dog 1035 men räknar det till 1042, svenska Wikipedia räknar 1016–1042 och Wikidata 1016–1035. Enligt regentlängderna styrde Hardeknut Danmark och England 1040–1042 och Magnus den gode Norge och Danmark 1042–1047. Gränserna är Cliopatrias uppskattning. Norra och västra Skottland och öarna där räknas 1028–1039 till Norgesväldet, och Västergötland, som Knut möjligen styrde, till Sverige, som i Cliopatria.",
+     "en": "The sources differ. The map follows Cliopatria: the North Sea Empire in 1018–1039 (with Norway from 1028), Denmark–England in 1040–1045 and Norway–Denmark in 1046–1055. English Wikipedia writes that the empire fell apart when Cnut died in 1035 but counts it until 1042, Swedish Wikipedia counts 1016–1042 and Wikidata 1016–1035. According to the lists of rulers, Harthacnut ruled Denmark and England in 1040–1042 and Magnus the Good Norway and Denmark in 1042–1047. The borders are Cliopatria's estimate. Northern and western Scotland and the islands there are counted to the Old Kingdom of Norway in 1028–1039, and Västergötland, which Cnut possibly ruled, to Sweden, as in Cliopatria.",
+     "de": "Die Quellen weichen voneinander ab. Die Karte folgt Cliopatria: das Nordseereich 1018–1039 (ab 1028 mit Norwegen), Dänemark–England 1040–1045 und Norwegen–Dänemark 1046–1055. Die englische Wikipedia schreibt, dass das Reich zerfiel, als Knut 1035 starb, rechnet es aber bis 1042; die schwedische Wikipedia rechnet 1016–1042 und Wikidata 1016–1035. Nach den Herrscherlisten herrschte Hardiknut 1040–1042 über Dänemark und England und Magnus der Gute 1042–1047 über Norwegen und Dänemark. Die Grenzen sind eine Schätzung von Cliopatria. Nord- und Westschottland und die Inseln dort werden 1028–1039 zum Königreich Norwegen gezählt und Västergötland, über das Knut möglicherweise herrschte, zu Schweden, wie bei Cliopatria.",
+     "es": "Las fuentes difieren. El mapa sigue a Cliopatria: el Imperio del Mar del Norte en 1018–1039 (con Noruega desde 1028), Dinamarca–Inglaterra en 1040–1045 y Noruega–Dinamarca en 1046–1055. La Wikipedia en inglés escribe que el imperio se desintegró cuando murió Canuto en 1035, pero lo cuenta hasta 1042; la Wikipedia en sueco cuenta 1016–1042 y Wikidata 1016–1035. Según las listas de soberanos, Canuto Hardeknut gobernó Dinamarca e Inglaterra en 1040–1042 y Magnus el Bueno Noruega y Dinamarca en 1042–1047. Las fronteras son una estimación de Cliopatria. El norte y el oeste de Escocia y sus islas se cuentan en 1028–1039 en el Reino de Noruega, y Västergötland, que Canuto posiblemente gobernó, en Suecia, como en Cliopatria.",
+     "fr": "Les sources divergent. La carte suit Cliopatria : l'Empire anglo-scandinave en 1018–1039 (avec la Norvège à partir de 1028), Danemark–Angleterre en 1040–1045 et Norvège–Danemark en 1046–1055. La Wikipédia en anglais écrit que l'empire s'effondra à la mort de Knut en 1035 mais le compte jusqu'en 1042 ; la Wikipédia en suédois compte 1016–1042 et Wikidata 1016–1035. Selon les listes de souverains, Hardeknut régna sur le Danemark et l'Angleterre en 1040–1042 et Magnus le Bon sur la Norvège et le Danemark en 1042–1047. Les frontières sont une estimation de Cliopatria. Le nord et l'ouest de l'Écosse et leurs îles sont comptés en 1028–1039 dans le royaume de Norvège, et le Västergötland, sur lequel Knut régna peut-être, dans la Suède, comme dans Cliopatria."
     },
     "sources": [
      "wp-sv-nordsjovaldet",
@@ -39438,6 +39712,619 @@
      "wp-harthacnut",
      "wp-magnus-the-good",
      "wp-sweyn-ii"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "kungariket-skottland",
+   "name": {
+    "sv": "Kungariket Skottland",
+    "en": "Kingdom of Scotland",
+    "de": "Königreich Schottland",
+    "es": "Reino de Escocia",
+    "fr": "Royaume d'Écosse"
+   },
+   "color": "#4a6aa0",
+   "from": 900,
+   "to": 1608,
+   "file": "data/empires/kungariket-skottland.json",
+   "polities": [
+    {
+     "id": "alba",
+     "name": {
+      "sv": "Alba",
+      "en": "Kingdom of Alba",
+      "de": "Alba",
+      "es": "Reino de Alba",
+      "fr": "Alba"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "kungariket-skottland",
+     "name": {
+      "sv": "Kungariket Skottland",
+      "en": "Kingdom of Scotland",
+      "de": "Königreich Schottland",
+      "es": "Reino de Escocia",
+      "fr": "Royaume d'Écosse"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Kungariket Skottland i norra Storbritannien. Engelska Wikipedia kallar riket Alba från Donald II:s död år 900 till Alexander III:s död 1286. Kronan förenades med Englands 1603, och 1707 slogs rikena ihop till Storbritannien.",
+     "en": "The Kingdom of Scotland in northern Great Britain. English Wikipedia calls the kingdom Alba from the death of Donald II in 900 to the death of Alexander III in 1286. The crown was united with England's in 1603, and in 1707 the kingdoms were merged into Great Britain.",
+     "de": "Das Königreich Schottland im Norden Großbritanniens. Die englische Wikipedia nennt das Reich Alba vom Tod Donalds II. im Jahr 900 bis zum Tod Alexanders III. 1286. Die Krone wurde 1603 mit der englischen vereint, und 1707 wurden die Reiche zu Großbritannien zusammengeschlossen.",
+     "es": "El Reino de Escocia, en el norte de Gran Bretaña. La Wikipedia en inglés llama al reino Alba desde la muerte de Donald II en el año 900 hasta la muerte de Alejandro III en 1286. La corona se unió a la de Inglaterra en 1603, y en 1707 los reinos se fusionaron en Gran Bretaña.",
+     "fr": "Le royaume d'Écosse, dans le nord de la Grande-Bretagne. La Wikipédia en anglais appelle le royaume Alba de la mort de Donald II en 900 à la mort d'Alexandre III en 1286. La couronne fut unie à celle de l'Angleterre en 1603, et en 1707 les royaumes furent réunis en Grande-Bretagne."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod",
+       "en": "When and where it arose",
+       "de": "Entstehung",
+       "es": "Cuándo y dónde surgió",
+       "fr": "Quand et où il est apparu"
+      },
+      "text": {
+       "sv": "Donald II, som dog år 900, var den förste som kallades rí Alban, kung av Alba. Enligt engelska Wikipedia finns inget under hans regering som visar att Skottland grundades då. Riket utvidgades senare: Fortriu lades till på 900-talet och Moray räknades in först i början av 1200-talet.",
+       "en": "Donald II, who died in 900, was the first to be called rí Alban, king of Alba. According to English Wikipedia there is nothing about his reign that shows that Scotland was founded then. The kingdom was enlarged later: Fortriu was added in the 10th century and Moray was only included in the early 13th century.",
+       "de": "Donald II., der im Jahr 900 starb, wurde als Erster rí Alban genannt, König von Alba. Laut der englischen Wikipedia zeigt nichts an seiner Herrschaft, dass Schottland damals gegründet wurde. Das Reich wurde später erweitert: Fortriu kam im 10. Jahrhundert hinzu, und Moray wurde erst Anfang des 13. Jahrhunderts einbezogen.",
+       "es": "Donald II, que murió en el año 900, fue el primero en ser llamado rí Alban, rey de Alba. Según la Wikipedia en inglés, nada en su reinado muestra que Escocia se fundara entonces. El reino se amplió más tarde: Fortriu se añadió en el siglo X y Moray solo se incluyó a comienzos del siglo XIII.",
+       "fr": "Donald II, mort en 900, fut le premier à être appelé rí Alban, roi d'Alba. Selon la Wikipédia en anglais, rien dans son règne ne montre que l'Écosse fut fondée alors. Le royaume s'agrandit plus tard : le Fortriu fut ajouté au Xe siècle et le Moray ne fut intégré qu'au début du XIIIe siècle."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade",
+       "en": "How it ended",
+       "de": "Wie es endete",
+       "es": "Cómo terminó",
+       "fr": "Comment il a pris fin"
+      },
+      "text": {
+       "sv": "Jakob VI av Skottland blev också kung av England 1603, en personalunion där länderna behöll egna institutioner. Genom unionsakterna slogs rikena ihop till Kungariket Storbritannien; unionen trädde i kraft 1 maj 1707.",
+       "en": "James VI of Scotland also became king of England in 1603, a personal union in which the countries kept their own institutions. Through the Acts of Union the kingdoms were merged into the Kingdom of Great Britain; the union came into force on 1 May 1707.",
+       "de": "Jakob VI. von Schottland wurde 1603 auch König von England, eine Personalunion, in der die Länder ihre eigenen Institutionen behielten. Durch die Unionsakte wurden die Reiche zum Königreich Großbritannien zusammengeschlossen; die Union trat am 1. Mai 1707 in Kraft.",
+       "es": "Jacobo VI de Escocia pasó a ser también rey de Inglaterra en 1603, una unión personal en la que los países conservaron sus propias instituciones. Mediante las Actas de Unión los reinos se fusionaron en el Reino de Gran Bretaña; la unión entró en vigor el 1 de mayo de 1707.",
+       "fr": "Jacques VI d'Écosse devint aussi roi d'Angleterre en 1603, une union personnelle dans laquelle les pays conservèrent leurs propres institutions. Par les Actes d'Union, les royaumes furent réunis en royaume de Grande-Bretagne ; l'union entra en vigueur le 1er mai 1707."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad",
+       "en": "Capital",
+       "de": "Hauptstadt",
+       "es": "Capital",
+       "fr": "Capitale"
+      },
+      "text": {
+       "sv": "Scone (cirka 843–1069), Dunfermline (cirka 1069–1452) och Edinburgh (efter cirka 1452), enligt engelska Wikipedia.",
+       "en": "Scone (about 843–1069), Dunfermline (about 1069–1452) and Edinburgh (after about 1452), according to English Wikipedia.",
+       "de": "Scone (etwa 843–1069), Dunfermline (etwa 1069–1452) und Edinburgh (nach etwa 1452), laut der englischen Wikipedia.",
+       "es": "Scone (hacia 843–1069), Dunfermline (hacia 1069–1452) y Edimburgo (desde hacia 1452), según la Wikipedia en inglés.",
+       "fr": "Scone (vers 843–1069), Dunfermline (vers 1069–1452) et Édimbourg (après 1452 environ), selon la Wikipédia en anglais."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna skiljer sig. Kartan följer Cliopatria: Alba 900–1293 och Kungariket Skottland 1294–1304 och 1314–1608. Engelska Wikipedia och Wikidata sätter gränsen mellan Alba och Kungariket Skottland vid 1286, och Wikidata anger 843–1707 för Kungariket Skottland. 1305–1313, 1609–1639 och 1662–1708 räknar Cliopatria Skottland till Kungariket England, och så visar kartan det. 1640–1652 hör Skottland i Cliopatria inte till något rike, så de åren är Skottland nästan tomt, och 1653–1661 räknas det till Engelska samväldet. Cliopatria räknar Isle of Man till både Skottland och England under delar av 1300- och 1400-talen, och 1552–1608 delar av dagens Nordirland till Skottland. Gränserna är Cliopatrias uppskattning.",
+     "en": "The sources differ. The map follows Cliopatria: Alba in 900–1293 and the Kingdom of Scotland in 1294–1304 and 1314–1608. English Wikipedia and Wikidata put the boundary between Alba and the Kingdom of Scotland at 1286, and Wikidata gives 843–1707 for the Kingdom of Scotland. In 1305–1313, 1609–1639 and 1662–1708 Cliopatria counts Scotland to the Kingdom of England, and the map shows it that way. In 1640–1652 Scotland belongs to no state in Cliopatria, so in those years Scotland is almost empty, and in 1653–1661 it is counted to the Commonwealth of England. Cliopatria counts the Isle of Man to both Scotland and England during parts of the 14th and 15th centuries, and in 1552–1608 parts of present-day Northern Ireland to Scotland. The borders are Cliopatria's estimate.",
+     "de": "Die Quellen weichen voneinander ab. Die Karte folgt Cliopatria: Alba 900–1293 und das Königreich Schottland 1294–1304 und 1314–1608. Die englische Wikipedia und Wikidata setzen die Grenze zwischen Alba und dem Königreich Schottland bei 1286, und Wikidata nennt 843–1707 für das Königreich Schottland. 1305–1313, 1609–1639 und 1662–1708 zählt Cliopatria Schottland zum Königreich England, und so zeigt es die Karte. 1640–1652 gehört Schottland bei Cliopatria zu keinem Reich, in diesen Jahren ist Schottland daher fast leer, und 1653–1661 wird es zum Commonwealth of England gezählt. Cliopatria zählt die Isle of Man in Teilen des 14. und 15. Jahrhunderts zu Schottland und zu England, und 1552–1608 Teile des heutigen Nordirlands zu Schottland. Die Grenzen sind eine Schätzung von Cliopatria.",
+     "es": "Las fuentes difieren. El mapa sigue a Cliopatria: Alba en 900–1293 y el Reino de Escocia en 1294–1304 y 1314–1608. La Wikipedia en inglés y Wikidata sitúan el límite entre Alba y el Reino de Escocia en 1286, y Wikidata indica 843–1707 para el Reino de Escocia. En 1305–1313, 1609–1639 y 1662–1708 Cliopatria cuenta Escocia en el Reino de Inglaterra, y así lo muestra el mapa. En 1640–1652 Escocia no pertenece a ningún Estado en Cliopatria, por lo que esos años aparece casi vacía, y en 1653–1661 se cuenta en la Mancomunidad de Inglaterra. Cliopatria cuenta la isla de Man tanto en Escocia como en Inglaterra durante partes de los siglos XIV y XV, y en 1552–1608 partes de la actual Irlanda del Norte en Escocia. Las fronteras son una estimación de Cliopatria.",
+     "fr": "Les sources divergent. La carte suit Cliopatria : Alba en 900–1293 et le royaume d'Écosse en 1294–1304 et 1314–1608. La Wikipédia en anglais et Wikidata placent la limite entre Alba et le royaume d'Écosse en 1286, et Wikidata indique 843–1707 pour le royaume d'Écosse. En 1305–1313, 1609–1639 et 1662–1708, Cliopatria compte l'Écosse dans le royaume d'Angleterre, et la carte la montre ainsi. En 1640–1652, l'Écosse n'appartient à aucun État dans Cliopatria, elle est donc presque vide ces années-là, et en 1653–1661 elle est comptée dans le Commonwealth d'Angleterre. Cliopatria compte l'île de Man à la fois dans l'Écosse et dans l'Angleterre pendant une partie des XIVe et XVe siècles, et en 1552–1608 des parties de l'actuelle Irlande du Nord dans l'Écosse. Les frontières sont une estimation de Cliopatria."
+    },
+    "sources": [
+     "wp-kingdom-of-alba",
+     "wp-kingdom-of-scotland",
+     "wd-alba",
+     "wd-kungariket-skottland"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "kungariket-man",
+   "name": {
+    "sv": "Kungariket Man",
+    "en": "Kingdom of the Isles",
+    "de": "Königreich der Inseln",
+    "es": "Reino de Mann y las Islas",
+    "fr": "Royaume de Man et des Îles"
+   },
+   "color": "#5a8a8a",
+   "from": 1085,
+   "to": 1401,
+   "file": "data/empires/kungariket-man.json",
+   "polities": [
+    {
+     "id": "kungariket-man",
+     "name": {
+      "sv": "Kungariket Man",
+      "en": "Kingdom of the Isles",
+      "de": "Königreich der Inseln",
+      "es": "Reino de Mann y las Islas",
+      "fr": "Royaume de Man et des Îles"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "isle-of-man",
+     "name": {
+      "sv": "Isle of Man",
+      "en": "Isle of Man",
+      "de": "Isle of Man",
+      "es": "Isla de Man",
+      "fr": "Île de Man"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Kungariket Man omfattade Isle of Man, öarna i Firth of Clyde och Inre och Yttre Hebriderna. Enligt engelska Wikipedia stod det länge under norsk överhöghet. Genom Perthfördraget 1266 överläts öarna och Man till Skottland.",
+     "en": "The Kingdom of the Isles comprised the Isle of Man, the islands of the Firth of Clyde and the Inner and Outer Hebrides. According to English Wikipedia it was long under Norwegian suzerainty. Through the Treaty of Perth in 1266 the islands and Man were ceded to Scotland.",
+     "de": "Das Königreich der Inseln umfasste die Isle of Man, die Inseln im Firth of Clyde sowie die Inneren und Äußeren Hebriden. Laut der englischen Wikipedia stand es lange unter norwegischer Oberhoheit. Durch den Vertrag von Perth 1266 wurden die Inseln und Man an Schottland abgetreten.",
+     "es": "El Reino de Mann y las Islas comprendía la isla de Man, las islas del Firth of Clyde y las Hébridas Interiores y Exteriores. Según la Wikipedia en inglés estuvo mucho tiempo bajo soberanía noruega. Por el Tratado de Perth de 1266 las islas y Man fueron cedidas a Escocia.",
+     "fr": "Le royaume de Man et des Îles comprenait l'île de Man, les îles du Firth of Clyde et les Hébrides intérieures et extérieures. Selon la Wikipédia en anglais, il fut longtemps sous suzeraineté norvégienne. Par le traité de Perth de 1266, les îles et Man furent cédées à l'Écosse."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod",
+       "en": "When and where it arose",
+       "de": "Entstehung",
+       "es": "Cuándo y dónde surgió",
+       "fr": "Quand et où il est apparu"
+      },
+      "text": {
+       "sv": "Engelska Wikipedia anger att riket bildades omkring 849. Godred Crovan tog Isle of Man 1079, och 1164 delades riket mellan Crovan-ätten och Somerled-ätten.",
+       "en": "English Wikipedia states that the kingdom was formed around 849. Godred Crovan took the Isle of Man in 1079, and in 1164 the kingdom was divided between the Crovan and Somerled dynasties.",
+       "de": "Die englische Wikipedia gibt an, dass das Reich um 849 entstand. Godred Crovan nahm 1079 die Isle of Man ein, und 1164 wurde das Reich zwischen den Dynastien Crovan und Somerled geteilt.",
+       "es": "La Wikipedia en inglés indica que el reino se formó hacia 849. Godred Crovan tomó la isla de Man en 1079, y en 1164 el reino se dividió entre las dinastías de Crovan y de Somerled.",
+       "fr": "La Wikipédia en anglais indique que le royaume fut formé vers 849. Godred Crovan prit l'île de Man en 1079, et en 1164 le royaume fut partagé entre les dynasties de Crovan et de Somerled."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade",
+       "en": "How it ended",
+       "de": "Wie es endete",
+       "es": "Cómo terminó",
+       "fr": "Comment il a pris fin"
+      },
+      "text": {
+       "sv": "Efter Håkon Håkonssons misslyckade fälttåg och hans död på Orkney i december 1263 överläts öarna och Man till Skottland genom Perthfördraget 1266. Enligt artikeln om Isle of Mans historia blev den skotska kontrollen fast först 1275. På 1300-talet styrdes ön ibland av England och ibland av Skottland, och 1405 gav Henrik IV den till John Stanley.",
+       "en": "After Haakon Haakonarson's failed expedition and his death on Orkney in December 1263, the islands and Man were ceded to Scotland through the Treaty of Perth in 1266. According to the article on the history of the Isle of Man, Scottish control only became firm in 1275. In the 14th century the island was sometimes under English and sometimes under Scottish rule, and in 1405 Henry IV granted it to John Stanley.",
+       "de": "Nach dem gescheiterten Feldzug Håkon Håkonssons und seinem Tod auf Orkney im Dezember 1263 wurden die Inseln und Man durch den Vertrag von Perth 1266 an Schottland abgetreten. Laut dem Artikel zur Geschichte der Isle of Man wurde die schottische Kontrolle erst 1275 gefestigt. Im 14. Jahrhundert stand die Insel mal unter englischer, mal unter schottischer Herrschaft, und 1405 übertrug Heinrich IV. sie John Stanley.",
+       "es": "Tras la fallida expedición de Haakon Haakonarson y su muerte en las Orcadas en diciembre de 1263, las islas y Man fueron cedidas a Escocia por el Tratado de Perth de 1266. Según el artículo sobre la historia de la isla de Man, el control escocés solo se consolidó en 1275. En el siglo XIV la isla estuvo unas veces bajo dominio inglés y otras bajo dominio escocés, y en 1405 Enrique IV se la concedió a John Stanley.",
+       "fr": "Après l'expédition manquée de Håkon Håkonsson et sa mort aux Orcades en décembre 1263, les îles et Man furent cédées à l'Écosse par le traité de Perth de 1266. Selon l'article sur l'histoire de l'île de Man, le contrôle écossais ne devint ferme qu'en 1275. Au XIVe siècle, l'île fut tantôt sous domination anglaise, tantôt sous domination écossaise, et en 1405 Henri IV la donna à John Stanley."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna skiljer sig. Kartan följer Cliopatria: Kungariket Man 1085–1271 och Isle of Man 1344–1401. Engelska Wikipedia anger att riket bildades omkring 849 och att öarna gick till Skottland 1265 eller 1266, och Wikidata anger 900–1266. Cliopatria räknar öarna också till Norge och Isle of Man 1344–1401 också till Skottland; på kartan visas de de åren bara här. Cliopatria räknar 1094–1168 också ett område kring Dublin till riket. Gränserna är Cliopatrias uppskattning.",
+     "en": "The sources differ. The map follows Cliopatria: the Kingdom of the Isles in 1085–1271 and the Isle of Man in 1344–1401. English Wikipedia states that the kingdom was formed around 849 and that the islands passed to Scotland in 1265 or 1266, and Wikidata gives 900–1266. Cliopatria also counts the islands to Norway and the Isle of Man in 1344–1401 also to Scotland; on the map they are shown only here in those years. In 1094–1168 Cliopatria also counts an area around Dublin to the kingdom. The borders are Cliopatria's estimate.",
+     "de": "Die Quellen weichen voneinander ab. Die Karte folgt Cliopatria: das Königreich der Inseln 1085–1271 und die Isle of Man 1344–1401. Die englische Wikipedia gibt an, dass das Reich um 849 entstand und die Inseln 1265 oder 1266 an Schottland fielen, und Wikidata nennt 900–1266. Cliopatria zählt die Inseln auch zu Norwegen und die Isle of Man 1344–1401 auch zu Schottland; auf der Karte werden sie in diesen Jahren nur hier gezeigt. 1094–1168 zählt Cliopatria auch ein Gebiet um Dublin zum Reich. Die Grenzen sind eine Schätzung von Cliopatria.",
+     "es": "Las fuentes difieren. El mapa sigue a Cliopatria: el Reino de Mann y las Islas en 1085–1271 y la isla de Man en 1344–1401. La Wikipedia en inglés indica que el reino se formó hacia 849 y que las islas pasaron a Escocia en 1265 o 1266, y Wikidata indica 900–1266. Cliopatria cuenta las islas también en Noruega y la isla de Man en 1344–1401 también en Escocia; en el mapa se muestran esos años solo aquí. En 1094–1168 Cliopatria cuenta también una zona en torno a Dublín en el reino. Las fronteras son una estimación de Cliopatria.",
+     "fr": "Les sources divergent. La carte suit Cliopatria : le royaume de Man et des Îles en 1085–1271 et l'île de Man en 1344–1401. La Wikipédia en anglais indique que le royaume fut formé vers 849 et que les îles passèrent à l'Écosse en 1265 ou 1266, et Wikidata indique 900–1266. Cliopatria compte aussi les îles dans la Norvège et l'île de Man en 1344–1401 aussi dans l'Écosse ; sur la carte, elles ne sont montrées ici que ces années-là. En 1094–1168, Cliopatria compte aussi une zone autour de Dublin dans le royaume. Les frontières sont une estimation de Cliopatria."
+    },
+    "sources": [
+     "wp-kingdom-of-the-isles",
+     "wp-history-isle-of-man",
+     "wd-kungariket-man"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "wessex",
+   "name": {
+    "sv": "Wessex",
+    "en": "Kingdom of Wessex",
+    "de": "Königreich Wessex",
+    "es": "Reino de Wessex",
+    "fr": "Wessex"
+   },
+   "color": "#b0566a",
+   "from": 534,
+   "to": 935,
+   "file": "data/empires/wessex.json",
+   "polities": [
+    {
+     "id": "wessex",
+     "name": {
+      "sv": "Wessex",
+      "en": "Kingdom of Wessex",
+      "de": "Königreich Wessex",
+      "es": "Reino de Wessex",
+      "fr": "Wessex"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Wessex var ett angelsaxiskt kungarike i södra England. Engelska Wikipedia anger omkring 519 till omkring 927. Alfred den store tog omkring 886 titeln kung över anglosaxarna, och 927 erövrade Æthelstan York och kallade sig kung över engelsmännen.",
+     "en": "Wessex was an Anglo-Saxon kingdom in southern England. English Wikipedia gives about 519 to about 927. Around 886 Alfred the Great took the title King of the Anglo-Saxons, and in 927 Æthelstan conquered York and called himself King of the English.",
+     "de": "Wessex war ein angelsächsisches Königreich im Süden Englands. Die englische Wikipedia nennt etwa 519 bis etwa 927. Um 886 nahm Alfred der Große den Titel König der Angelsachsen an, und 927 eroberte Æthelstan York und nannte sich König der Engländer.",
+     "es": "Wessex fue un reino anglosajón del sur de Inglaterra. La Wikipedia en inglés indica desde hacia 519 hasta hacia 927. Hacia 886 Alfredo el Grande adoptó el título de rey de los anglosajones, y en 927 Æthelstan conquistó York y se llamó rey de los ingleses.",
+     "fr": "Le Wessex était un royaume anglo-saxon du sud de l'Angleterre. La Wikipédia en anglais indique d'environ 519 à environ 927. Vers 886, Alfred le Grand prit le titre de roi des Anglo-Saxons, et en 927 Æthelstan conquit York et se fit appeler roi des Anglais."
+    },
+    "items": [],
+    "mapNote": {
+     "sv": "Källorna skiljer sig. Kartan följer Cliopatria: Wessex 534–935. Engelska Wikipedia anger omkring 519–927, och Wikidata 519–927. Gränserna är Cliopatrias uppskattning.",
+     "en": "The sources differ. The map follows Cliopatria: Wessex in 534–935. English Wikipedia gives about 519–927, and Wikidata 519–927. The borders are Cliopatria's estimate.",
+     "de": "Die Quellen weichen voneinander ab. Die Karte folgt Cliopatria: Wessex 534–935. Die englische Wikipedia nennt etwa 519–927 und Wikidata 519–927. Die Grenzen sind eine Schätzung von Cliopatria.",
+     "es": "Las fuentes difieren. El mapa sigue a Cliopatria: Wessex en 534–935. La Wikipedia en inglés indica hacia 519–927, y Wikidata 519–927. Las fronteras son una estimación de Cliopatria.",
+     "fr": "Les sources divergent. La carte suit Cliopatria : le Wessex en 534–935. La Wikipédia en anglais indique environ 519–927, et Wikidata 519–927. Les frontières sont une estimation de Cliopatria."
+    },
+    "sources": [
+     "wp-wessex",
+     "wd-wessex"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "mercia",
+   "name": {
+    "sv": "Mercia",
+    "en": "Kingdom of Mercia",
+    "de": "Mercia",
+    "es": "Reino de Mercia",
+    "fr": "Mercie"
+   },
+   "color": "#9a7a3a",
+   "from": 534,
+   "to": 883,
+   "file": "data/empires/mercia.json",
+   "polities": [
+    {
+     "id": "mercia",
+     "name": {
+      "sv": "Mercia",
+      "en": "Kingdom of Mercia",
+      "de": "Mercia",
+      "es": "Reino de Mercia",
+      "fr": "Mercie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Mercia var ett angelsaxiskt kungarike i dagens Midlands, kring floden Trent och dess biflöden. Enligt engelska Wikipedia flyttade hovet runt i riket utan fast huvudstad; Tamworth var ett viktigt säte.",
+     "en": "Mercia was an Anglo-Saxon kingdom in the present-day Midlands, centred on the River Trent and its tributaries. According to English Wikipedia the court moved around the kingdom without a fixed capital; Tamworth was an important seat.",
+     "de": "Mercia war ein angelsächsisches Königreich in den heutigen Midlands, rund um den Fluss Trent und seine Nebenflüsse. Laut der englischen Wikipedia zog der Hof ohne feste Hauptstadt durch das Reich; Tamworth war ein wichtiger Sitz.",
+     "es": "Mercia fue un reino anglosajón en las actuales Midlands, en torno al río Trent y sus afluentes. Según la Wikipedia en inglés, la corte se desplazaba por el reino sin una capital fija; Tamworth fue una sede importante.",
+     "fr": "La Mercie était un royaume anglo-saxon situé dans les actuelles Midlands, autour de la rivière Trent et de ses affluents. Selon la Wikipédia en anglais, la cour se déplaçait dans le royaume sans capitale fixe ; Tamworth était un siège important."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "Hur det slutade",
+       "en": "How it ended",
+       "de": "Wie es endete",
+       "es": "Cómo terminó",
+       "fr": "Comment il a pris fin"
+      },
+      "text": {
+       "sv": "Danelagen tog stora delar av Mercia i slutet av 800-talet. Den siste kungen, Ceolwulf II, dog 879, och riket verkar då ha förlorat sitt politiska oberoende. Efter Æthelflæds död 918 tog Edvard av Wessex över.",
+       "en": "The Danelaw absorbed much of Mercia in the late 9th century. The last king, Ceolwulf II, died in 879, and the kingdom then appears to have lost its political independence. After Æthelflæd's death in 918 Edward of Wessex took over.",
+       "de": "Das Danelag nahm im späten 9. Jahrhundert große Teile Mercias ein. Der letzte König, Ceolwulf II., starb 879, und das Reich scheint damals seine politische Unabhängigkeit verloren zu haben. Nach Æthelflæds Tod 918 übernahm Eduard von Wessex.",
+       "es": "El Danelaw absorbió gran parte de Mercia a finales del siglo IX. El último rey, Ceolwulf II, murió en 879, y el reino parece haber perdido entonces su independencia política. Tras la muerte de Æthelflæd en 918, Eduardo de Wessex tomó el control.",
+       "fr": "Le Danelaw absorba une grande partie de la Mercie à la fin du IXe siècle. Le dernier roi, Ceolwulf II, mourut en 879, et le royaume semble alors avoir perdu son indépendance politique. Après la mort d'Æthelflæd en 918, Édouard de Wessex prit le pouvoir."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna skiljer sig. Kartan följer Cliopatria: Mercia 534–883. Cliopatria har Mercia också 884–925, men bara som en yta på 44 km², som inte visas. Engelska Wikipedia och Wikidata anger 527–918. Gränserna är Cliopatrias uppskattning.",
+     "en": "The sources differ. The map follows Cliopatria: Mercia in 534–883. Cliopatria also has Mercia in 884–925, but only as an area of 44 km², which is not shown. English Wikipedia and Wikidata give 527–918. The borders are Cliopatria's estimate.",
+     "de": "Die Quellen weichen voneinander ab. Die Karte folgt Cliopatria: Mercia 534–883. Cliopatria hat Mercia auch 884–925, aber nur als Fläche von 44 km², die nicht gezeigt wird. Die englische Wikipedia und Wikidata nennen 527–918. Die Grenzen sind eine Schätzung von Cliopatria.",
+     "es": "Las fuentes difieren. El mapa sigue a Cliopatria: Mercia en 534–883. Cliopatria tiene Mercia también en 884–925, pero solo como una superficie de 44 km², que no se muestra. La Wikipedia en inglés y Wikidata indican 527–918. Las fronteras son una estimación de Cliopatria.",
+     "fr": "Les sources divergent. La carte suit Cliopatria : la Mercie en 534–883. Cliopatria a aussi la Mercie en 884–925, mais seulement comme une surface de 44 km², qui n'est pas montrée. La Wikipédia en anglais et Wikidata indiquent 527–918. Les frontières sont une estimation de Cliopatria."
+    },
+    "sources": [
+     "wp-mercia",
+     "wd-mercia"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "northumbria",
+   "name": {
+    "sv": "Northumbria",
+    "en": "Kingdom of Northumbria",
+    "de": "Northumbria",
+    "es": "Reino de Northumbria",
+    "fr": "Northumbrie"
+   },
+   "color": "#6a7ab0",
+   "from": 612,
+   "to": 935,
+   "file": "data/empires/northumbria.json",
+   "polities": [
+    {
+     "id": "northumbria",
+     "name": {
+      "sv": "Northumbria",
+      "en": "Kingdom of Northumbria",
+      "de": "Northumbria",
+      "es": "Reino de Northumbria",
+      "fr": "Northumbrie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Northumbria var ett angelsaxiskt kungarike i dagens södra Skottland och norra England, från Humber, Peak District och floden Mersey i söder till Firth of Forth i norr. Det började som två riken, Deira i söder och Bernicia i norr, som enades under bernicianska kungar.",
+     "en": "Northumbria was an Anglo-Saxon kingdom in present-day southern Scotland and northern England, from the Humber, the Peak District and the River Mersey in the south to the Firth of Forth in the north. It began as two kingdoms, Deira in the south and Bernicia in the north, which were united under Bernician kings.",
+     "de": "Northumbria war ein angelsächsisches Königreich im heutigen Südschottland und Nordengland, vom Humber, dem Peak District und dem Fluss Mersey im Süden bis zum Firth of Forth im Norden. Es begann als zwei Reiche, Deira im Süden und Bernicia im Norden, die unter bernizischen Königen vereint wurden.",
+     "es": "Northumbria fue un reino anglosajón en el actual sur de Escocia y el norte de Inglaterra, desde el Humber, el Peak District y el río Mersey en el sur hasta el Firth of Forth en el norte. Comenzó como dos reinos, Deira en el sur y Bernicia en el norte, que se unieron bajo reyes bernicios.",
+     "fr": "La Northumbrie était un royaume anglo-saxon situé dans l'actuel sud de l'Écosse et le nord de l'Angleterre, de l'Humber, du Peak District et de la Mersey au sud jusqu'au Firth of Forth au nord. Elle commença comme deux royaumes, Deira au sud et Bernicie au nord, réunis sous des rois berniciens."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "Hur det slutade",
+       "en": "How it ended",
+       "de": "Wie es endete",
+       "es": "Cómo terminó",
+       "fr": "Comment il a pris fin"
+      },
+      "text": {
+       "sv": "Vikingar erövrade Deira 867, som sedan blev kungariket York. Bernicia godtog kung Æthelstans styre 927, och 954 drev kung Eadred ut den siste vikingakungen.",
+       "en": "Vikings conquered Deira in 867, which then became the Kingdom of York. Bernicia accepted the rule of King Æthelstan in 927, and in 954 King Eadred expelled the last Viking king.",
+       "de": "Wikinger eroberten 867 Deira, das danach das Königreich York wurde. Bernicia erkannte 927 die Herrschaft König Æthelstans an, und 954 vertrieb König Eadred den letzten Wikingerkönig.",
+       "es": "Los vikingos conquistaron Deira en 867, que después se convirtió en el Reino de York. Bernicia aceptó el gobierno del rey Æthelstan en 927, y en 954 el rey Eadred expulsó al último rey vikingo.",
+       "fr": "Les Vikings conquirent Deira en 867, qui devint ensuite le royaume d'York. La Bernicie accepta l'autorité du roi Æthelstan en 927, et en 954 le roi Eadred chassa le dernier roi viking."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna skiljer sig. Kartan följer Cliopatria: Northumbria 612–935. Engelska Wikipedia anger 654 i faktarutan men skriver att de bernicianska kungarna styrde efter 651, och Wikidata anger 653–954. Cliopatria räknar Isle of Man till både Northumbria och Dalriada 626–632. Gränserna är Cliopatrias uppskattning.",
+     "en": "The sources differ. The map follows Cliopatria: Northumbria in 612–935. English Wikipedia gives 654 in its infobox but writes that the Bernician kings ruled after 651, and Wikidata gives 653–954. Cliopatria counts the Isle of Man to both Northumbria and Dál Riata in 626–632. The borders are Cliopatria's estimate.",
+     "de": "Die Quellen weichen voneinander ab. Die Karte folgt Cliopatria: Northumbria 612–935. Die englische Wikipedia nennt in der Infobox 654, schreibt aber, dass die bernizischen Könige ab 651 herrschten, und Wikidata nennt 653–954. Cliopatria zählt die Isle of Man 626–632 sowohl zu Northumbria als auch zu Dalriada. Die Grenzen sind eine Schätzung von Cliopatria.",
+     "es": "Las fuentes difieren. El mapa sigue a Cliopatria: Northumbria en 612–935. La Wikipedia en inglés indica 654 en su ficha, pero escribe que los reyes bernicios gobernaron desde 651, y Wikidata indica 653–954. Cliopatria cuenta la isla de Man tanto en Northumbria como en Dalriada en 626–632. Las fronteras son una estimación de Cliopatria.",
+     "fr": "Les sources divergent. La carte suit Cliopatria : la Northumbrie en 612–935. La Wikipédia en anglais indique 654 dans son infobox mais écrit que les rois berniciens régnèrent après 651, et Wikidata indique 653–954. Cliopatria compte l'île de Man à la fois dans la Northumbrie et dans le Dál Riata en 626–632. Les frontières sont une estimation de Cliopatria."
+    },
+    "sources": [
+     "wp-northumbria",
+     "wd-northumbria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "dal-riata",
+   "name": {
+    "sv": "Dalriada",
+    "en": "Dál Riata",
+    "de": "Dalriada",
+    "es": "Reino de Dalriada",
+    "fr": "Dál Riata"
+   },
+   "color": "#5a9a8a",
+   "from": 540,
+   "to": 899,
+   "file": "data/empires/dal-riata.json",
+   "polities": [
+    {
+     "id": "dal-riata",
+     "name": {
+      "sv": "Dalriada",
+      "en": "Dál Riata",
+      "de": "Dalriada",
+      "es": "Reino de Dalriada",
+      "fr": "Dál Riata"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Dalriada var ett gaeliskt kungarike som omfattade Skottlands västkust och nordöstra Irland. Kullen med borgen Dunadd anses ha varit huvudstad.",
+     "en": "Dál Riata was a Gaelic kingdom that encompassed the western seaboard of Scotland and north-eastern Ireland. The hillfort of Dunadd is believed to have been its capital.",
+     "de": "Dalriada war ein gälisches Königreich, das die Westküste Schottlands und den Nordosten Irlands umfasste. Die Hügelfestung Dunadd gilt als seine Hauptstadt.",
+     "es": "Dalriada fue un reino gaélico que abarcaba la costa occidental de Escocia y el noreste de Irlanda. Se cree que el fuerte de la colina de Dunadd fue su capital.",
+     "fr": "Le Dál Riata était un royaume gaélique qui englobait la côte ouest de l'Écosse et le nord-est de l'Irlande. Le fort de colline de Dunadd passe pour avoir été sa capitale."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "Hur det slutade",
+       "en": "How it ended",
+       "de": "Wie es endete",
+       "es": "Cómo terminó",
+       "fr": "Comment il a pris fin"
+      },
+      "text": {
+       "sv": "Rikets självständighet tog slut någon gång på 800-talet, när det gick samman med pikternas land och bildade kungariket Alba. Cináed mac Ailpín blev kung över pikterna 843.",
+       "en": "The kingdom's independence ended sometime in the 9th century, when it merged with Pictland to form the Kingdom of Alba. Cináed mac Ailpín became king of the Picts in 843.",
+       "de": "Die Unabhängigkeit des Reiches endete irgendwann im 9. Jahrhundert, als es sich mit dem Land der Pikten zum Königreich Alba vereinte. Cináed mac Ailpín wurde 843 König der Pikten.",
+       "es": "La independencia del reino terminó en algún momento del siglo IX, cuando se unió con el país de los pictos para formar el Reino de Alba. Cináed mac Ailpín se convirtió en rey de los pictos en 843.",
+       "fr": "L'indépendance du royaume prit fin à un moment du IXe siècle, lorsqu'il s'unit au pays des Pictes pour former le royaume d'Alba. Cináed mac Ailpín devint roi des Pictes en 843."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna skiljer sig. Kartan följer Cliopatria: Dalriada 540–899, därefter Alba. Engelska Wikipedia anger 498–850 och Wikidata 498–843. Cliopatria räknar Isle of Man till både Dalriada och Northumbria 626–632. Gränserna är Cliopatrias uppskattning.",
+     "en": "The sources differ. The map follows Cliopatria: Dál Riata in 540–899, then Alba. English Wikipedia gives 498–850 and Wikidata 498–843. Cliopatria counts the Isle of Man to both Dál Riata and Northumbria in 626–632. The borders are Cliopatria's estimate.",
+     "de": "Die Quellen weichen voneinander ab. Die Karte folgt Cliopatria: Dalriada 540–899, danach Alba. Die englische Wikipedia nennt 498–850 und Wikidata 498–843. Cliopatria zählt die Isle of Man 626–632 sowohl zu Dalriada als auch zu Northumbria. Die Grenzen sind eine Schätzung von Cliopatria.",
+     "es": "Las fuentes difieren. El mapa sigue a Cliopatria: Dalriada en 540–899 y después Alba. La Wikipedia en inglés indica 498–850 y Wikidata 498–843. Cliopatria cuenta la isla de Man tanto en Dalriada como en Northumbria en 626–632. Las fronteras son una estimación de Cliopatria.",
+     "fr": "Les sources divergent. La carte suit Cliopatria : le Dál Riata en 540–899, puis Alba. La Wikipédia en anglais indique 498–850 et Wikidata 498–843. Cliopatria compte l'île de Man à la fois dans le Dál Riata et dans la Northumbrie en 626–632. Les frontières sont une estimation de Cliopatria."
+    },
+    "sources": [
+     "wp-dal-riata",
+     "wd-dal-riata"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "strathclyde",
+   "name": {
+    "sv": "Strathclyde",
+    "en": "Kingdom of Strathclyde",
+    "de": "Königreich Strathclyde",
+    "es": "Reino de Strathclyde",
+    "fr": "Royaume de Strathclyde"
+   },
+   "color": "#6a9a5a",
+   "from": 644,
+   "to": 1033,
+   "file": "data/empires/strathclyde.json",
+   "polities": [
+    {
+     "id": "strathclyde",
+     "name": {
+      "sv": "Strathclyde",
+      "en": "Kingdom of Strathclyde",
+      "de": "Königreich Strathclyde",
+      "es": "Reino de Strathclyde",
+      "fr": "Royaume de Strathclyde"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Strathclyde var ett kungarike i dagens södra Skottland och nordvästra England. Centrum låg först vid Dumbarton Rock. Efter att Dumbarton plundrats 870 verkar huvudstaden enligt engelska Wikipedia ha flyttat till Govan, och riket blev känt som Strathclyde.",
+     "en": "Strathclyde was a kingdom in present-day southern Scotland and north-west England. Its centre was first at Dumbarton Rock. After Dumbarton was sacked in 870 the capital seems, according to English Wikipedia, to have moved to Govan, and the kingdom became known as Strathclyde.",
+     "de": "Strathclyde war ein Königreich im heutigen Südschottland und Nordwestengland. Sein Zentrum lag zuerst am Dumbarton Rock. Nachdem Dumbarton 870 geplündert worden war, zog die Hauptstadt laut der englischen Wikipedia offenbar nach Govan, und das Reich wurde als Strathclyde bekannt.",
+     "es": "Strathclyde fue un reino en el actual sur de Escocia y el noroeste de Inglaterra. Su centro estuvo primero en Dumbarton Rock. Tras el saqueo de Dumbarton en 870, la capital parece haberse trasladado, según la Wikipedia en inglés, a Govan, y el reino pasó a conocerse como Strathclyde.",
+     "fr": "Le Strathclyde était un royaume situé dans l'actuel sud de l'Écosse et le nord-ouest de l'Angleterre. Son centre se trouvait d'abord à Dumbarton Rock. Après le sac de Dumbarton en 870, la capitale semble, selon la Wikipédia en anglais, s'être déplacée à Govan, et le royaume prit le nom de Strathclyde."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "Hur det slutade",
+       "en": "How it ended",
+       "de": "Wie es endete",
+       "es": "Cómo terminó",
+       "fr": "Comment il a pris fin"
+      },
+      "text": {
+       "sv": "Riket verkar ha erövrats av skottarna efter 1018 men före 1054, troligen under Máel Coluim mac Cináeda, som dog 1034. Engelska Wikipedia anger att det införlivades med Kungariket Skottland omkring 1030.",
+       "en": "The kingdom appears to have been conquered by the Scots after 1018 but before 1054, probably under Máel Coluim mac Cináeda, who died in 1034. English Wikipedia states that it was incorporated into the Kingdom of Scotland around 1030.",
+       "de": "Das Reich wurde offenbar nach 1018, aber vor 1054 von den Schotten erobert, wahrscheinlich unter Máel Coluim mac Cináeda, der 1034 starb. Die englische Wikipedia gibt an, dass es um 1030 in das Königreich Schottland eingegliedert wurde.",
+       "es": "El reino parece haber sido conquistado por los escoceses después de 1018 pero antes de 1054, probablemente bajo Máel Coluim mac Cináeda, que murió en 1034. La Wikipedia en inglés indica que se incorporó al Reino de Escocia hacia 1030.",
+       "fr": "Le royaume semble avoir été conquis par les Écossais après 1018 mais avant 1054, probablement sous Máel Coluim mac Cináeda, mort en 1034. La Wikipédia en anglais indique qu'il fut intégré au royaume d'Écosse vers 1030."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna skiljer sig. Kartan följer Cliopatria: Strathclyde 644–1033. Engelska Wikipedia anger 400-talet till omkring 1030 och Wikidata 410–1058. Wikipedia beskriver riket i dagens södra Skottland och nordvästra England, men Cliopatrias gräns täcker bara södra Skottland. Gränserna är Cliopatrias uppskattning.",
+     "en": "The sources differ. The map follows Cliopatria: Strathclyde in 644–1033. English Wikipedia gives the 5th century to about 1030 and Wikidata 410–1058. Wikipedia describes the kingdom in present-day southern Scotland and north-west England, but Cliopatria's border only covers southern Scotland. The borders are Cliopatria's estimate.",
+     "de": "Die Quellen weichen voneinander ab. Die Karte folgt Cliopatria: Strathclyde 644–1033. Die englische Wikipedia nennt das 5. Jahrhundert bis etwa 1030 und Wikidata 410–1058. Die Wikipedia beschreibt das Reich im heutigen Südschottland und Nordwestengland, aber die Grenze bei Cliopatria umfasst nur Südschottland. Die Grenzen sind eine Schätzung von Cliopatria.",
+     "es": "Las fuentes difieren. El mapa sigue a Cliopatria: Strathclyde en 644–1033. La Wikipedia en inglés indica desde el siglo V hasta hacia 1030 y Wikidata 410–1058. Wikipedia describe el reino en el actual sur de Escocia y el noroeste de Inglaterra, pero la frontera de Cliopatria solo abarca el sur de Escocia. Las fronteras son una estimación de Cliopatria.",
+     "fr": "Les sources divergent. La carte suit Cliopatria : le Strathclyde en 644–1033. La Wikipédia en anglais indique du Ve siècle à 1030 environ et Wikidata 410–1058. Wikipédia décrit le royaume dans l'actuel sud de l'Écosse et le nord-ouest de l'Angleterre, mais la frontière de Cliopatria ne couvre que le sud de l'Écosse. Les frontières sont une estimation de Cliopatria."
+    },
+    "sources": [
+     "wp-kingdom-of-strathclyde",
+     "wd-strathclyde"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "jamtland",
+   "name": {
+    "sv": "Jämtland",
+    "en": "Jämtland",
+    "de": "Jämtland",
+    "es": "Jämtland",
+    "fr": "Jämtland"
+   },
+   "color": "#8a6ab0",
+   "from": 947,
+   "to": 1187,
+   "file": "data/empires/jamtland.json",
+   "polities": [
+    {
+     "id": "jamtland",
+     "name": {
+      "sv": "Jämtland",
+      "en": "Jämtland",
+      "de": "Jämtland",
+      "es": "Jämtland",
+      "fr": "Jämtland"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Jämtland i dagens mellersta Sverige hade ett eget ting, Jamtamót. Norge erövrade Jämtland 1178.",
+     "en": "Jämtland in present-day central Sweden had its own assembly, the Jamtamót. Norway conquered Jämtland in 1178.",
+     "de": "Jämtland im heutigen Mittelschweden hatte ein eigenes Thing, das Jamtamót. Norwegen eroberte Jämtland 1178.",
+     "es": "Jämtland, en el actual centro de Suecia, tenía su propia asamblea, el Jamtamót. Noruega conquistó Jämtland en 1178.",
+     "fr": "Le Jämtland, dans l'actuel centre de la Suède, avait sa propre assemblée, le Jamtamót. La Norvège conquit le Jämtland en 1178."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "Hur det slutade",
+       "en": "How it ended",
+       "de": "Wie es endete",
+       "es": "Cómo terminó",
+       "fr": "Comment il a pris fin"
+      },
+      "text": {
+       "sv": "Norge erövrade Jämtland 1178, och det förblev norskt i över 450 år. År 1645 avträddes Jämtland till Sverige vid freden i Brömsebro.",
+       "en": "Norway conquered Jämtland in 1178, and it remained Norwegian for over 450 years. In 1645 Jämtland was ceded to Sweden in the Treaty of Brömsebro.",
+       "de": "Norwegen eroberte Jämtland 1178, und es blieb über 450 Jahre norwegisch. 1645 wurde Jämtland im Frieden von Brömsebro an Schweden abgetreten.",
+       "es": "Noruega conquistó Jämtland en 1178, y siguió siendo noruego durante más de 450 años. En 1645 Jämtland fue cedido a Suecia por el Tratado de Brömsebro.",
+       "fr": "La Norvège conquit le Jämtland en 1178, et il resta norvégien pendant plus de 450 ans. En 1645, le Jämtland fut cédé à la Suède par le traité de Brömsebro."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna skiljer sig. Kartan följer Cliopatria: Jämtland 947–1187. Engelska Wikipedia säger att Norge erövrade Jämtland 1178. Gränserna är Cliopatrias uppskattning.",
+     "en": "The sources differ. The map follows Cliopatria: Jämtland in 947–1187. English Wikipedia says that Norway conquered Jämtland in 1178. The borders are Cliopatria's estimate.",
+     "de": "Die Quellen weichen voneinander ab. Die Karte folgt Cliopatria: Jämtland 947–1187. Die englische Wikipedia sagt, dass Norwegen Jämtland 1178 eroberte. Die Grenzen sind eine Schätzung von Cliopatria.",
+     "es": "Las fuentes difieren. El mapa sigue a Cliopatria: Jämtland en 947–1187. La Wikipedia en inglés dice que Noruega conquistó Jämtland en 1178. Las fronteras son una estimación de Cliopatria.",
+     "fr": "Les sources divergent. La carte suit Cliopatria : le Jämtland en 947–1187. La Wikipédia en anglais dit que la Norvège conquit le Jämtland en 1178. Les frontières sont une estimation de Cliopatria."
+    },
+    "sources": [
+     "wp-jamtland"
     ],
     "review": "source-checked"
    }
@@ -40931,7 +41818,7 @@
   {
    "id": "rustamider",
    "name": {
-    "sv": "Rustamid dynasty",
+    "sv": "Rustamiderna",
     "en": "Rustamid dynasty",
     "de": "Rustamiden",
     "es": "Rostomitas",
@@ -40945,7 +41832,7 @@
     {
      "id": "rustamider",
      "name": {
-      "sv": "Rustamid dynasty",
+      "sv": "Rustamiderna",
       "en": "Rustamid dynasty",
       "de": "Rustamiden",
       "es": "Rostomitas",
@@ -42025,9 +42912,9 @@
   {
    "id": "western-chalukya-empire",
    "name": {
-    "sv": "Western Chalukya Empire",
+    "sv": "Västra Chalukyariket",
     "en": "Western Chalukya Empire",
-    "de": "Western Chalukya Empire",
+    "de": "Chalukyas von Kalyani",
     "es": "Imperio de Chalukya Occidental",
     "fr": "Chalukya occidentaux"
    },
@@ -42039,9 +42926,9 @@
     {
      "id": "western-chalukya-empire",
      "name": {
-      "sv": "Western Chalukya Empire",
+      "sv": "Västra Chalukyariket",
       "en": "Western Chalukya Empire",
-      "de": "Western Chalukya Empire",
+      "de": "Chalukyas von Kalyani",
       "es": "Imperio de Chalukya Occidental",
       "fr": "Chalukya occidentaux"
      },
@@ -42055,7 +42942,7 @@
   {
    "id": "pagan-kingdom",
    "name": {
-    "sv": "Pagan kingdom",
+    "sv": "Kungariket Pagan",
     "en": "Pagan kingdom",
     "de": "Königreich von Bagan",
     "es": "Reino de Pagan",
@@ -42069,7 +42956,7 @@
     {
      "id": "pagan-kingdom",
      "name": {
-      "sv": "Pagan kingdom",
+      "sv": "Kungariket Pagan",
       "en": "Pagan kingdom",
       "de": "Königreich von Bagan",
       "es": "Reino de Pagan",
@@ -42085,7 +42972,7 @@
   {
    "id": "rasulid-dynasty",
    "name": {
-    "sv": "Rasulid dynasty",
+    "sv": "Rasuliderna",
     "en": "Rasulid dynasty",
     "de": "Rasuliden",
     "es": "Dinastía rasúlida",
@@ -42099,7 +42986,7 @@
     {
      "id": "rasulid-dynasty",
      "name": {
-      "sv": "Rasulid dynasty",
+      "sv": "Rasuliderna",
       "en": "Rasulid dynasty",
       "de": "Rasuliden",
       "es": "Dinastía rasúlida",
@@ -42115,9 +43002,9 @@
   {
    "id": "chola-empire",
    "name": {
-    "sv": "Chola Empire",
+    "sv": "Cholariket",
     "en": "Chola Empire",
-    "de": "Chola Empire",
+    "de": "Chola-Reich",
     "es": "Imperio Chola",
     "fr": "Empire Chola"
    },
@@ -42129,9 +43016,9 @@
     {
      "id": "chola-empire",
      "name": {
-      "sv": "Chola Empire",
+      "sv": "Cholariket",
       "en": "Chola Empire",
-      "de": "Chola Empire",
+      "de": "Chola-Reich",
       "es": "Imperio Chola",
       "fr": "Empire Chola"
      },

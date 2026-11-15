@@ -124,6 +124,7 @@ export const MODE_RULES = {
   },
   tur: {
     when: { fokus: 'avslutar', lektion: 'samtidigt', jakt: 'samtidigt', intervall: 'avslutar' },
+    // Turen släpper vyns urval efter ögonblicksbilden och återställer det när den slutar (#1181), som lektionen.
     restore: ['layers', 'focus', 'camera', 'tag'], takes: ['layers', 'focus', 'camera'],
     timeLock: 'låst', // turen styr tiden: reglaget går inte att dra, klicka eller flytta med tangenter eller stegknappar (#1322)
   },

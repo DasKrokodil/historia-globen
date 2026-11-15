@@ -15,10 +15,9 @@ for (const e of events) { [e._lon, e._lat] = e.location?.coordinates ?? []; }
 const places = json('data/platser.json').places.filter(p => p.review !== 'draft');
 const important = place => themeStops(visibleEvents(place, events)).filter(e => e.top || e.major);
 
-// Undantag från taket nio: Sverige omfattar Skåne, så alla Skånes markerade händelser räknas också i Sverige
-// (#1620: 8 i historikerns lista för Sverige + 6 som bara står under Skåne = 14). Urvalet är historikerns; ett lägre
-// tak kräver DasKrokodils beslut.
-const MAX_OK = { sverige: 14 };
+// Undantag från taket nio: inga sedan #1675, då Sverige gick från 14 till 9 pauser enligt historikerns lista som
+// DasKrokodil godkände. Ett undantag läggs bara till efter DasKrokodils beslut.
+const MAX_OK = {};
 
 test('platserna finns och har händelser', () => {
   assert.ok(places.length > 0, 'inga platser i data/platser.json');
@@ -33,9 +32,10 @@ test('varje plats har minst en och högst nio viktiga händelser (top eller majo
   }
 });
 
-test('Skånes pauser går från Uppåkra till Öresundsbron, med båda 1658 i tur och ordning (#1620)', () => {
-  const skane = places.find(p => p.id === 'skane');
-  assert.ok(skane, 'Skåne saknas i data/platser.json');
-  assert.deepEqual(important(skane).map(e => e.id), ['uppakra', 'lund-grundas', 'skane-under-magnus-eriksson',
-    'trohetseden-i-malmo', 'forsvenskningen-av-skane', 'slaget-vid-lund', 'freden-i-lund', 'oresundsbron-oppnas']);
+test('Skånes och Sveriges pauser följer listan som DasKrokodil godkände (#1620, #1675)', () => {
+  const skane = places.find(p => p.id === 'skane'), sverige = places.find(p => p.id === 'sverige');
+  assert.ok(skane && sverige, 'Skåne eller Sverige saknas i data/platser.json');
+  assert.deepEqual(important(skane).map(e => e.id), ['uppakra', 'forsvenskningen-av-skane', 'slaget-vid-lund']);
+  assert.deepEqual(important(sverige).map(e => e.id), ['hallristningarna-i-tanum', 'uppakra', 'kalmarunionen-bildas', 'gustav-vasa',
+    'forsvenskningen-av-skane', 'slaget-vid-lund', 'regeringsformen-1809', 'kvinnor-rostar-1921', 'sverige-gar-med-i-eu']);
 });

@@ -40,14 +40,8 @@ export const SATTS_I_JS = {
   '--focus-top': 'js/main.js: fokusradens höjd, på app-elementet',
   '--pause-top': 'js/main.js: pausradens höjd, på app-elementet',
 };
-// Känt fel som väntar på egen rättning: `.jump-era > span` använder --dim, som aldrig har definierats,
-// så färgen ärvs. Ta bort posten när variabeln definieras eller byts mot --parchment-dim.
-export const KANDA_FEL = {
-  '--dim': 'css/style.css: .jump-era > span (se Nya issues i #1471)',
-};
-
 const css = readFileSync(new URL('../css/style.css', import.meta.url), 'utf8');
-const allowed = { ...SATTS_I_JS, ...KANDA_FEL };
+const allowed = SATTS_I_JS;
 
 function jsFiles(dir, root = new URL('../', import.meta.url)) {
   const out = [];

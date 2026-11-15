@@ -421,7 +421,7 @@ async function start() {
   // Knappen Visa i Platt karta i platsens kort (#1161): vyn byts och kartan ramar in platsen. På smal skärm fälls kortet ihop till
   // litet läge så att kartan syns, och fokus går till dess handtag (knappen är då inte synlig)
   panel.onPlaceFlat = place => {
-    app.places.showInFlat(place);
+    app.places.showInFlat(place); // en stor plats får regionvyn på globen (#1644), där arket också fälls ihop
     if (narrow.matches) { detailSheet.set('closed'); detailSheet.handle.focus({ preventScroll: true }); }
   };
   panel.onShowPlace = e => {
@@ -443,6 +443,8 @@ async function start() {
     if (!routeClick(ll, x, y)) app.places.tap(ll); // sist: platsens kort (#1161). Platt vy har inget dubbeltryck som zoomar, så trycket väntar inte
   };
   globe.onClick = (x, y, pointerType) => {
+    // Regionvyn på globen (#1644): medaljerna är dolda och markörerna är knappar; ett tryck bredvid dem fäller ihop och avmarkerar
+    if (app.region?.globeOpen) { app.region.background(); return; }
     const hit = globe.pick(x, y, layer.sprites.filter(s => s.visible));
     relLegend.hidePop(); routePop.hide(); popClick++;
     app.select(hit ? hit.userData.event.id : null);
@@ -653,7 +655,7 @@ async function start() {
     root: $('hunt'), title: $('hunt-title'), task: $('hunt-task'), years: $('hunt-years'), progress: $('hunt-progress'),
     list: $('hunt-list'), message: $('hunt-message'), done: $('hunt-done'), reflection: $('hunt-reflection'),
     sources: $('hunt-sources'), closeBtn: $('hunt-close'), endBtn: $('hunt-end'),
-  }, await loadMissions(), { timeline, byId: data.byId, srcById: data.srcById, onChange: refreshDetail, fallbackFocus: () => $('btn-more'), store, get lesson() { return app.lesson; } });
+  }, await loadMissions(), { timeline, byId: data.byId, srcById: data.srcById, onChange: refreshDetail, fallbackFocus: () => $('btn-more'), store, get lesson() { return app.lesson; }, get tour() { return app.tour; } });
   app.hunt = hunt;
   panel.huntFor = e => hunt.buttonFor(e);
   panel.onHunt = e => hunt.add(e);

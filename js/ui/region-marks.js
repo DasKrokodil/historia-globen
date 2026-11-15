@@ -161,7 +161,7 @@ export class RegionMarks {
     if (this.open && this.open !== 'brick' && !openPile) this.open = null; // högen finns inte längre (zoomat in)
     const want = []; // [key, el, x, y] i listans ordning
     const covers = map.regionCovers?.() ?? [];
-    const blocked = [...covers];
+    const blocked = [...covers], singleBoxes = []; // singleBoxes: de enskilda markörerna, för orter som får sitt namn bredvid (#1682)
     const visible = (x, y, m = 0) => x >= -m && x <= W + m && y >= -m && y <= H + m;
     const hl = id => id && (id === this.mark || id === this.hover);
     const R = MARK_PX / 2;
@@ -214,7 +214,8 @@ export class RegionMarks {
         setUnder(el, low);
         want.push([`mark:${it.e.id}`, el, it.p.x, it.p.y]);
         if (low) continue;
-        blocked.push(box(it.p.x, it.p.y, R + (it.approx ? 8 : 3))); // den streckade ringen runt en ungefärlig plats är större
+        const mb = box(it.p.x, it.p.y, R + (it.approx ? 8 : 3)); // den streckade ringen runt en ungefärlig plats är större
+        blocked.push(mb); singleBoxes.push(mb);
         if (hl(it.e.id)) labels.push({ it, x: it.p.x, y: it.p.y });
       } else {
         const { p } = entry;
@@ -291,13 +292,14 @@ export class RegionMarks {
 
     // Ortnamnen: efter markörerna, så att de viker för dem; bara de som inte korsar platsens kantlinje
     const cands = (c.cands ?? []).map(cd => ({ ...cd, p: toScreen(cd.at[1], cd.at[0]) }));
-    const names = placeNames(cands, { W, H, blocked, measure: (text, kind) => this._textWidth(ctx, text, kind), crosses });
+    const names = placeNames(cands, { W, H, blocked, marks: singleBoxes, measure: (text, kind) => this._textWidth(ctx, text, kind), crosses });
     this._drawNames(ctx, names);
 
     this._place(want);
     this.state = { shown: want.map(([k]) => k), names: names.map(n => n.id) };
     map.root.dataset.regionMarks = `${L.singles.length},${L.piles.length},${L.brick.length}`;
     map.root.dataset.regionNames = String(names.length); // renderingsstatus för webbläsartestet: hur många ortnamn som ritades
+    map.root.dataset.regionNamesBeside = names.filter(n => n.dotless).map(n => n.text).join('|'); // orter som står bredvid en markör utan prick (#1682)
   }
 
   _drawNames(ctx, names) {
@@ -309,7 +311,7 @@ export class RegionMarks {
       ctx.font = FONT[nm.kind];
       ctx.textAlign = nm.align;
       const text = nm.kind === 'neighbour' ? nm.text.toLocaleUpperCase() : nm.text;
-      if (nm.kind === 'place') {
+      if (nm.kind === 'place' && !nm.dotless) { // en ort under en markör har ingen prick: markören är pricken
         ctx.beginPath(); ctx.arc(nm.p.x, nm.p.y, 2.6, 0, Math.PI * 2);
         ctx.fillStyle = cssVar('--parchment'); ctx.strokeStyle = cssVar('--night'); ctx.lineWidth = 1.5;
         ctx.fill(); ctx.stroke();
