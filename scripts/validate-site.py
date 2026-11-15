@@ -87,7 +87,9 @@ def load(path):
 
 
 def type_matches(value, expected):
-    """Kontrollerna som schemana använder; bool är inte ett heltal i JSON Schema."""
+    """Kontrollerna som schemana använder; bool är inte ett heltal i JSON Schema. En lista av typer ("string", "null") räcker med en."""
+    if isinstance(expected, list):
+        return any(type_matches(value, one) for one in expected)
     return {
         'object': isinstance(value, dict),
         'array': isinstance(value, list),
