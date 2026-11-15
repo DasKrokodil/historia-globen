@@ -26,7 +26,7 @@ Läs detta först och sök sedan upp det avsnitt du behöver.
 - Hoppa i tiden (#140) – stegknappar, årtal och datum i samma ruta; `YYYY`, `YYYYMMDD`, `YYMMDD` och `YYYY-MM-DD` ger samma direktiva flöde som ett år.
 - Tangentbord och skärmläsare (#139) – Tab, Enter och tangenter på globen.
 - Mobilen (#361) – layouten i smal skärm.
-- Låg höjd och 200 % zoom (#1310) – längst ned i `css/style.css`: under 880 px höjd i datorbredd får faktarutan mer höjd och en lägre bild, och under 600 px höjd (200 % zoom, liggande telefon) räknas turkortets plats ur turraden (`--pause-top`) i stället för ett fast avstånd, kortet rullar och Nästa och Avsluta står fast längst ned. Stor skärm och stående mobil är oförändrade.
+- Låg höjd och 200 % zoom (#1310) – längst ned i `css/style.css`: under 880 px höjd i datorbredd får faktarutan mer höjd och en lägre bild, och under 600 px höjd (200 % zoom, liggande telefon) räknas turkortets plats ur turraden (`--pause-top`) i stället för ett fast avstånd, kortet rullar och Nästa och Avsluta står fast längst ned. Stor skärm och stående mobil är oförändrade. **Liggande telefon (#1667):** vid 761 px bredd och uppåt och under 500 px höjd (800 × 360) lämnar knapparna överst (`.top-actions`) plats åt faktarutan medan den är öppen (`visibility: hidden`), och på en pekskärm i smal layout (640 × 360) fortsätter arket i läget helt ned till kanten, över fokusraden och tidsreglaget. Med mus gäller regeln från #1310: arket täcker inte tidsreglaget.
 - Pekskärmar och zoom (#191) – webbläsarens zoom avstängd, globens egen zoom.
 - Fokusläget – följa ett krig, ett rike, en religion, en resa eller ett tema, och dämpning av andra lager.
 - Faktarutan om en religion (#90) – när och hur religionens ruta visas.

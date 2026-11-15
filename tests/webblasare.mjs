@@ -3166,6 +3166,71 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
+  // #1667: liggande telefon. Uppmätt: vid 800 × 360 låg knapparna överst över kortets övre hälft (krysset och "Visa i regionvy" under
+  // dem) och vid 640 × 360 blev arket i läget helt bara cirka 150 px högt, så att knappen i kortet aldrig syntes. Provet går till
+  // varje storlek och kontrollerar att krysset och knappen i platskortet går att trycka på (knappen nås i kortet med rullning), att
+  // knapparna överst lämnar plats åt kortet och kommer tillbaka när det stängs, och att fokusraden går att nå igen när arket fälls ihop.
+  await check('liggande telefon: platskortets kryss och knapp går att trycka på vid 800 × 360 och 640 × 360 (#1667)', async () => {
+    const { tp, tctx, errs } = await touchPage();
+    try {
+      const out = [];
+      for (const [width, height] of [[800, 360], [640, 360]]) {
+        await tp.setViewportSize({ width, height });
+        await tp.goto(`${BASE}?ny=liggande1667w${width}#y=1827&f=place:skane`);
+        await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+        await tp.waitForTimeout(600);
+        const wide = width > 760;
+        // I smal layout är arket halvt: tryck på handtaget ger helt, som en användare gör för att nå knappen
+        if (!wide) {
+          await tp.click('#detail-handle');
+          await tp.waitForFunction(() => document.getElementById('detail').dataset.sheet === 'full', null, { timeout: T.step });
+          await tp.waitForTimeout(300);
+        }
+        const probe = sel => tp.evaluate(s => {
+          const el = document.querySelector(s);
+          if (!el) return { missing: true };
+          el.scrollIntoView({ block: 'nearest' });
+          const b = el.getBoundingClientRect(), d = document.getElementById('detail').getBoundingClientRect();
+          const top = document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2);
+          return { ok: top === el || el.contains(top), by: top?.id || top?.className?.toString().slice(0, 30) || '?', inside: b.top >= d.top - 1 && b.bottom <= d.bottom + 1 && b.bottom <= innerHeight && b.top >= 0 };
+        }, sel);
+        for (const [what, sel] of [['krysset', '#detail .detail-close'], ['Visa i regionvy', '#detail [data-selection-action]']]) {
+          const r = await probe(sel);
+          if (r.missing) throw new Error(`${width} × ${height}: ${what} saknas`);
+          if (!r.ok) throw new Error(`${width} × ${height}: ${what} täcks av ${r.by}`);
+          if (!r.inside) throw new Error(`${width} × ${height}: ${what} ligger utanför kortet eller skärmen`);
+        }
+        const hiddenActions = await tp.evaluate(() => getComputedStyle(document.querySelector('.top-actions')).visibility === 'hidden');
+        if (hiddenActions !== wide) throw new Error(`${width} × ${height}: knapparna överst ${hiddenActions ? 'är dolda' : 'syns'} med kortet öppet`);
+        if (!wide) {
+          // Arket fälls ihop: fokusraden ska åter gå att trycka på (den låg under det fullt utfällda arket)
+          await tp.click('#detail-handle');
+          await tp.waitForFunction(() => document.getElementById('detail').dataset.sheet !== 'full', null, { timeout: T.step });
+          await tp.waitForTimeout(300);
+          const focusOk = await tp.evaluate(() => { const b = document.getElementById('focus-action').getBoundingClientRect(); const top = document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2); return top === document.getElementById('focus-action') || document.getElementById('focus-action').contains(top); });
+          if (!focusOk) throw new Error(`${width} × ${height}: fokusraden täcks efter att arket fällts ihop`);
+          // Handtaget stegar helt → litet → halvt → helt: två tryck till helt läge igen
+          for (let i = 0; i < 2; i++) await tp.click('#detail-handle');
+          await tp.waitForFunction(() => document.getElementById('detail').dataset.sheet === 'full', null, { timeout: T.step });
+          await tp.waitForTimeout(300);
+        }
+        await tp.locator('#detail [data-selection-action]').scrollIntoViewIfNeeded();
+        await tp.click('#detail [data-selection-action]');
+        await tp.waitForFunction(() => !document.getElementById('flat-view').hidden, null, { timeout: T.step });
+        out.push(`${width} × ${height} ok`);
+        if (wide) {
+          // Kortet stängs med krysset och knapparna överst kommer tillbaka
+          await tp.click('#detail .detail-close');
+          await tp.waitForFunction(() => document.getElementById('detail').hidden, null, { timeout: T.step });
+          if (await tp.evaluate(() => getComputedStyle(document.querySelector('.top-actions')).visibility === 'hidden')) throw new Error(`${width} × ${height}: knapparna överst kom inte tillbaka när kortet stängdes`);
+        }
+      }
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return out.join(', ');
+    } finally { await tctx.close(); }
+  });
+
   // #1163: platser i turens steg, i lektionsläget och i tidsintervallet. Turen är en provtur som läggs in i turlistan med route:
   // ingen riktig tur har något steg med en plats än, och provet ska inte vänta på att en sådan skrivs. Steget öppnar Grönland
   // (data/platser.json) med stegfältet place.
