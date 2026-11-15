@@ -314,6 +314,7 @@ export class TourPlayer {
     this.title.textContent = t(step.title);
     this.title.hidden = !step.title;
     this.renderText(step);
+    this.renderFigure(step);
     // Berättelseläget (#247): kapitlet ovanför rubriken och en fråga att fundera på under texten
     this.chapter.textContent = t(step.chapter);
     this.chapter.hidden = !step.chapter;
@@ -354,6 +355,20 @@ export class TourPlayer {
     if (placeShown && cardOpens) placeShown.then(shown => { if (this.tour && this.stepVersion === stepVersion && !this.huntHidden && this.step === step) speak(shown ? this.cardHeading() : ''); });
     else if (step.open && cardOpens) speak(this.cardHeading());
     else if (this.last) speak('');
+  }
+
+  /** Bilden i steget (#1794): bildtexten är alt-texten, krediten och licensen står under, och bilden öppnas i full storlek med ett tryck. */
+  renderFigure(step) {
+    const fig = document.getElementById('tour-figure'), img = step.image;
+    if (!fig) return;
+    fig.hidden = !img;
+    if (!img) return;
+    const caption = t(img.caption);
+    document.getElementById('tour-figure-img').src = img.file;
+    document.getElementById('tour-figure-img').alt = caption;
+    document.getElementById('tour-figure-link').href = img.file;
+    document.getElementById('tour-figure-caption').textContent = caption; // en illustrations bildtext säger själv att det är en illustration (bildreglerna i CLAUDE.md)
+    document.getElementById('tour-figure-credit').textContent = [img.credit, img.license].filter(Boolean).join(' · ');
   }
 
   /**

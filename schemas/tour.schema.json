@@ -90,6 +90,18 @@
         "layers": { "type": "array", "items": { "type": "string", "pattern": "^[a-z0-9-]+$" } },
         "open": { "type": "string", "pattern": "^[a-z0-9-]+$" },
         "place": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "image": {
+          "type": "object",
+          "required": ["file", "kind", "caption", "credit", "license", "source"],
+          "properties": {
+            "file": { "type": "string", "pattern": "^images/turer/[a-z0-9-]+\\.webp$" },
+            "kind": { "type": "string", "enum": ["photo", "illustration"] },
+            "caption": { "$ref": "#/$defs/text" },
+            "credit": { "type": "string" },
+            "license": { "type": "string" },
+            "source": { "type": "string" }
+          }
+        },
         "partLabels": { "type": "array", "items": { "type": ["string", "null"], "pattern": "^[A-Za-z][A-Za-z0-9-]*$" } },
         "mark": {
           "type": "object",

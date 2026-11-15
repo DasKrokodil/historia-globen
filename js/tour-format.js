@@ -34,6 +34,9 @@
 //   place   valfri plats (id i data/platser.json, #1163) vars kort öppnas, med platsens kontur på kartan. Ett steg öppnar
 //           antingen en händelse (open) eller en plats (place), inte båda. Kortet följer stegets kamera och år: turen startar
 //           inget Fokus (det skulle avsluta turen), och knappen Visa i Platt karta finns inte i en tur
+//   image   valfritt (#1794): en bild i stegets kort: { file: images/turer/<namn>.webp, kind: photo|illustration, caption: text per språk, credit,
+//           license, source: id i data/sources.json (filsidan på Wikimedia Commons) }. Bara en riktig bild vars licens har kontrollerats på filsidan
+//           (public domain, CC0, CC BY, CC BY-SA); en illustration märks i bildtexten. Bildtexten är alt-texten.
 //   partLabels valfritt (#1793): rubrik över varje stycke i texten (en tom rad, \n\n, börjar ett nytt stycke), som nycklar i data/turer/index.json
 //           (labels, till exempel said och sourcesSay) eller null utan rubrik; en post per stycke. Alla språk har lika många stycken som svenskan.
 //   mark    valfritt (#1785): en markör med namn på kartan vid stegets plats, för steg som handlar om en plats utan att öppna en händelse
@@ -94,10 +97,25 @@ export function tourProblems(tour, known = {}) {
       if (s.open != null) say(`${where}: ett steg öppnar antingen en händelse (open) eller en plats (place), inte båda.`);
     }
     if (s.mark != null) markProblems(s.mark).forEach(msg => say(`${where}: ${msg}`));
+    if (s.image != null) imageProblems(s.image, known).forEach(msg => say(`${where}: ${msg}`));
     if (isText(s.text)) partsProblems(s).forEach(msg => say(`${where}: ${msg}`));
     if (!Array.isArray(s.sources) || !s.sources.length) say(`${where}: källor saknas (sources).`);
     else for (const id of s.sources) if (known.sources && !known.sources.has(id)) say(`${where}: källan ${id} finns inte.`);
   });
+  return out;
+}
+
+/** Bilden i ett steg (image, #1794): fil, slag, bildtext per språk, kredit, licens och källa. Returnerar problemen utan stegets namn. */
+function imageProblems(img, known) {
+  if (!img || typeof img !== 'object' || Array.isArray(img)) return ['bilden (image) ska vara ett objekt.'];
+  const out = [];
+  if (typeof img.file !== 'string' || !/^images\/turer\/[a-z0-9-]+\.webp$/.test(img.file)) out.push('bildfilen ska heta images/turer/<namn>.webp.');
+  if (!['photo', 'illustration'].includes(img.kind)) out.push('bildens slag (kind) ska vara photo eller illustration.');
+  if (!isText(img.caption)) out.push('bildtexten saknas (image.caption.sv).');
+  else if (img.kind === 'illustration' && !/illustration/i.test(img.caption.sv)) out.push('en illustrations bildtext ska säga att den är en illustration.');
+  if (typeof img.credit !== 'string' || !img.credit.trim()) out.push('bildens kredit saknas (image.credit).');
+  if (typeof img.license !== 'string' || !img.license.trim()) out.push('bildens licens saknas (image.license).');
+  if (typeof img.source !== 'string' || (known.sources && !known.sources.has(img.source))) out.push(`bildens källa ${img.source} finns inte i källregistret.`);
   return out;
 }
 

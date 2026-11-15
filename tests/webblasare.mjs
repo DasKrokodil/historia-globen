@@ -1861,6 +1861,53 @@ async function run(browser, vp) {
     }
   });
 
+  // #1794: bilden i turkortet. Ingen bild ligger i turen ännu (den väntar på en licenskontrollerad fil), så kontrollen lägger in ett steg med en
+  // bild i webbläsaren (turens JSON och en befintlig bildfil i stället för en ny) och provar visningen: alt och kredit, och att kortet ryms.
+  await check('turkortet: en bild i steget visas med bildtext och kredit, och Nästa syns fortfarande utan rullning (#1794)', async () => {
+    const lp = await context.newPage();
+    const errs = [];
+    lp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+      }
+      const narrowImg = page.viewportSize().width <= 760;
+      await lp.setViewportSize(narrowImg ? { width: 400, height: 800 } : { width: 1280, height: 800 });
+      await lp.route('**/data/turer/det-har-har-du-hort.json', async r => {
+        const resp = await r.fetch(), json = await resp.json();
+        json.steps.find(st => st.id === 'kinesiska-muren').image = { file: 'images/turer/provbild.webp', kind: 'photo',
+          caption: { sv: 'Provbild: en bildtext som säger vad bilden visar.' }, credit: 'Wikimedia Commons', license: 'CC0', source: 'nasa-great-wall' };
+        await r.fulfill({ response: resp, json });
+      });
+      await lp.route('**/images/turer/provbild.webp', r => r.fulfill({ status: 200, contentType: 'image/webp', body: fs.readFileSync(new URL('../images/events/columbus.webp', import.meta.url)) }));
+      await lp.goto(`${BASE}?ny=1794#t=det-har-har-du-hort&s=kinesiska-muren`);
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await lp.waitForSelector('#tour-figure:not([hidden])', { timeout: T.step });
+      await lp.waitForFunction(() => document.getElementById('tour-figure-img').complete && document.getElementById('tour-figure-img').naturalWidth > 0, null, { timeout: T.step });
+      const fig = await lp.evaluate(() => {
+        const b = id => document.getElementById(id).getBoundingClientRect(), img = document.getElementById('tour-figure-img');
+        return { alt: img.alt, caption: document.getElementById('tour-figure-caption').textContent, credit: document.getElementById('tour-figure-credit').textContent,
+          href: document.getElementById('tour-figure-link').getAttribute('href'), imgH: Math.round(b('tour-figure-img').height), imgW: Math.round(b('tour-figure-img').width),
+          next: b('tour-next').top >= 0 && b('tour-next').bottom <= innerHeight, end: b('tour-end').top >= 0 && b('tour-end').bottom <= innerHeight,
+          wide: document.scrollingElement.scrollWidth > innerWidth + 1 };
+      });
+      if (fig.alt !== fig.caption || !/^Provbild/.test(fig.alt)) throw new Error(`alt-texten är inte bildtexten: "${fig.alt}" mot "${fig.caption}"`);
+      if (fig.credit !== 'Wikimedia Commons · CC0') throw new Error(`krediten är "${fig.credit}"`);
+      if (fig.href !== 'images/turer/provbild.webp') throw new Error(`bilden länkar till ${fig.href}`);
+      if (narrowImg ? fig.imgH > 100 : fig.imgH > 155) throw new Error(`bilden är ${fig.imgH} px hög`);
+      if (!fig.next || !fig.end) throw new Error(`Nästa (${fig.next}) och Lämna turen (${fig.end}) syns inte utan rullning med bilden`);
+      if (fig.wide) throw new Error('bilden ger horisontell rullning');
+      // Ett steg utan bild döljer figuren
+      await lp.click('#tour-next');
+      await lp.waitForFunction(() => document.getElementById('tour-figure').hidden, null, { timeout: T.step });
+      if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
+      return `bild ${fig.imgW} × ${fig.imgH} px med bildtexten som alt, kredit och länk till full storlek; Nästa och Lämna turen i bild; figuren göms i ett steg utan bild`;
+    } finally {
+      await lp.close();
+    }
+  });
+
   // #1790 och #1791: platskortets ordning, raden Om kartan och källor, knappen i regionvyn och tryck på platsen i Fokus
   await check('platskortet: listan före anteckningarna, Om kartan och källor hopfälld, regionvyn tar bort knappen och ett tryck på platsen öppnar kortet (#1790, #1791)', async () => {
     const lp = await context.newPage();

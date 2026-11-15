@@ -255,3 +255,19 @@ test('Det här har du hört: stycken med rubriker på alla fem språk, orden of�
   const wash = data.steps.find(st => st.id === 'washingtons-tander');
   assert.deepEqual(wash.partLabels, [null, 'said', 'sourcesSay'], 'Washington: sammanhang, det sägs, vad källorna säger');
 });
+
+// Bild i ett steg (#1794): fil, slag, bildtext per språk, kredit, licens och källa
+test('bilden i ett steg kontrolleras (#1794)', () => {
+  const ok = { file: 'images/turer/muren.webp', kind: 'photo', caption: { sv: 'Kinesiska muren.' }, credit: 'Wikimedia Commons', license: 'CC0', source: 's1' };
+  assert.deepEqual(tourProblems(tour({ steps: [step({ image: ok })] }), known), []);
+  const bad = tourProblems(tour({ steps: [
+    step({ image: { ...ok, file: 'images/events/x.webp' } }),
+    step({ id: 'b', image: { ...ok, kind: 'foto' } }),
+    step({ id: 'c', image: { ...ok, caption: {} } }),
+    step({ id: 'd', image: { ...ok, kind: 'illustration', caption: { sv: 'Muren.' } } }),
+    step({ id: 'e', image: { ...ok, credit: '', license: '' } }),
+    step({ id: 'f', image: { ...ok, source: 'saknas' } }),
+    step({ id: 'g', image: 'bild.webp' }),
+  ] }), known).join('\n');
+  for (const part of ['images/turer/<namn>.webp', 'photo eller illustration', 'bildtexten saknas', 'är en illustration', 'kredit saknas', 'licens saknas', 'finns inte i källregistret', 'ska vara ett objekt']) assert.match(bad, new RegExp(part), `saknar ${part}`);
+});
