@@ -2389,6 +2389,9 @@ details.used-by summary:hover { color: var(--parchment); }
 .extra-menu {
   display: none; position: absolute; z-index: var(--z-meny); top: calc(100% + 8px); right: 0;
   flex-direction: column; align-items: stretch; gap: 4px; min-width: 190px; padding: 6px;
+  /* Låg höjd (#1712): alla val i Mer ska nås utan att flytta hela sidan. 124 px är den högsta
+     toppraden i 800 px bred vy; 22 px lämnar 8 px vid nederkanten efter menyens kant och padding. */
+  max-height: calc(100dvh - 146px); overflow-y: auto; overscroll-behavior: contain;
   background: color-mix(in srgb, var(--night-2) 96%, transparent); border: 1px solid var(--line); border-radius: var(--r);
   box-shadow: 0 8px 28px rgba(0, 0, 0, .5);
 }
