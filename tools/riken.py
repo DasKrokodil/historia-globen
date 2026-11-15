@@ -403,7 +403,8 @@ GROUPS = {
     # R6 Försvunna länder (#72). Österrike-Ungern och Sovjetunionen ovan hör också dit. Årtal, föregångare
     # och efterträdare (vanished) skrivs för hand i index.json och behålls, som facts.
     'kalmarunionen': ('Kalmarunionen', 'Kalmar Union', [
-        ('(Kalmar Union)', 'kalmarunionen', 'Kalmarunionen', '#c84b4b'),
+        # splits 1475: Orkney och Shetland lämnar unionen i Cliopatria och hör till Kungariket Skottland från 1475 (#1721)
+        ('(Kalmar Union)', 'kalmarunionen', 'Kalmarunionen', '#c84b4b', {'splits': (1475,)}),
     ]),
     'preussen': ('Preussen', 'Prussia', [
         ('Duchy of Prussia', 'hertigdomet-preussen', 'Hertigdömet Preussen', '#4a6fa0'),
@@ -1280,6 +1281,18 @@ GROUPS = {
     # Medeltidens luckor, andra omgången (#645): Nordafrikas och Främre Orientens kalifat och dynastier, Polen, Bulgarien, Nubien
     # och Kara-Khitan. Svenska namn är Wikidatas svenska etiketter. Danmark (Cliopatrias Danish Realm) väntar: Cliopatrias Wikidata-id
     # Q756617 är dagens Danmark. Kingdom of Poland har Q577867, som Wikidata daterar 1025–1385 medan Cliopatrias post sträcker sig 962–1449.
+    # Skottland, Strathclyde och Jämtland (#1721, DasKrokodils ja 2026-11-15): Cliopatrias poster med deras egna år. Cliopatrias
+    # Wikidata-id för Strathclyde (Q124661, en förvaltningsregion 1975–1996) och Jaemtland (Q211661, landskapet) gäller annat.
+    'kungariket-skottland': ('Kungariket Skottland', 'Kingdom of Scotland', [
+        ('Kingdom of Alba', 'alba', 'Alba', '#4a6aa0', {'en': 'Kingdom of Alba', 'wikidata': 'Q1991742'}),
+        ('Kingdom of Scotland', 'kungariket-skottland', 'Kungariket Skottland', '#4a6aa0', {'en': 'Kingdom of Scotland', 'wikidata': 'Q230791'}),
+    ]),
+    'strathclyde': ('Strathclyde', 'Kingdom of Strathclyde', [
+        ('Strathclyde', 'strathclyde', 'Strathclyde', '#6a9a5a', {'en': 'Kingdom of Strathclyde', 'wikidata': None}),
+    ]),
+    'jamtland': ('Jämtland', 'Jämtland', [
+        ('Jaemtland', 'jamtland', 'Jämtland', '#8a6ab0', {'en': 'Jämtland', 'wikidata': None}),
+    ]),
     'fatimiderna': ('Fatimider', 'Fatimid Caliphate', [
         ('Fatimid Caliphate', 'fatimiderna', 'Fatimider', '#8aa04a', {'en': 'Fatimid Caliphate'}),
     ]),

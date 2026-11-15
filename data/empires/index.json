@@ -39443,6 +39443,259 @@
    }
   },
   {
+   "id": "kungariket-skottland",
+   "name": {
+    "sv": "Kungariket Skottland",
+    "en": "Kingdom of Scotland",
+    "de": "Königreich Schottland",
+    "es": "Reino de Escocia",
+    "fr": "Royaume d'Écosse"
+   },
+   "color": "#4a6aa0",
+   "from": 900,
+   "to": 1608,
+   "file": "data/empires/kungariket-skottland.json",
+   "polities": [
+    {
+     "id": "alba",
+     "name": {
+      "sv": "Alba",
+      "en": "Kingdom of Alba",
+      "de": "Alba",
+      "es": "Reino de Alba",
+      "fr": "Alba"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "kungariket-skottland",
+     "name": {
+      "sv": "Kungariket Skottland",
+      "en": "Kingdom of Scotland",
+      "de": "Königreich Schottland",
+      "es": "Reino de Escocia",
+      "fr": "Royaume d'Écosse"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Kungariket Skottland i norra Storbritannien. Engelska Wikipedia kallar riket Alba från Donald II:s död år 900 till Alexander III:s död 1286. Kronan förenades med Englands 1603, och 1707 slogs rikena ihop till Storbritannien.",
+     "en": "The Kingdom of Scotland in northern Great Britain. English Wikipedia calls the kingdom Alba from the death of Donald II in 900 to the death of Alexander III in 1286. The crown was united with England's in 1603, and in 1707 the kingdoms were merged into Great Britain.",
+     "de": "Das Königreich Schottland im Norden Großbritanniens. Die englische Wikipedia nennt das Reich Alba vom Tod Donalds II. im Jahr 900 bis zum Tod Alexanders III. 1286. Die Krone wurde 1603 mit der englischen vereint, und 1707 wurden die Reiche zu Großbritannien zusammengeschlossen.",
+     "es": "El Reino de Escocia, en el norte de Gran Bretaña. La Wikipedia en inglés llama al reino Alba desde la muerte de Donald II en el año 900 hasta la muerte de Alejandro III en 1286. La corona se unió a la de Inglaterra en 1603, y en 1707 los reinos se fusionaron en Gran Bretaña.",
+     "fr": "Le royaume d'Écosse, dans le nord de la Grande-Bretagne. La Wikipédia en anglais appelle le royaume Alba de la mort de Donald II en 900 à la mort d'Alexandre III en 1286. La couronne fut unie à celle de l'Angleterre en 1603, et en 1707 les royaumes furent réunis en Grande-Bretagne."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod",
+       "en": "When and where it arose",
+       "de": "Entstehung",
+       "es": "Cuándo y dónde surgió",
+       "fr": "Quand et où il est apparu"
+      },
+      "text": {
+       "sv": "Donald II, som dog år 900, var den förste som kallades rí Alban, kung av Alba. Enligt engelska Wikipedia var det ingen tydlig grundning: riket växte fram gradvis, Fortriu lades till på 900-talet och Moray räknades in först i början av 1200-talet.",
+       "en": "Donald II, who died in 900, was the first to be called rí Alban, king of Alba. According to English Wikipedia this was no clear foundation: the kingdom grew gradually, Fortriu was added in the 10th century and Moray was only included in the early 13th century.",
+       "de": "Donald II., der im Jahr 900 starb, wurde als Erster rí Alban genannt, König von Alba. Laut der englischen Wikipedia war das keine klare Gründung: Das Reich wuchs allmählich, Fortriu kam im 10. Jahrhundert hinzu, und Moray wurde erst Anfang des 13. Jahrhunderts einbezogen.",
+       "es": "Donald II, que murió en el año 900, fue el primero en ser llamado rí Alban, rey de Alba. Según la Wikipedia en inglés no hubo una fundación clara: el reino creció poco a poco, Fortriu se añadió en el siglo X y Moray solo se incluyó a comienzos del siglo XIII.",
+       "fr": "Donald II, mort en 900, fut le premier à être appelé rí Alban, roi d'Alba. Selon la Wikipédia en anglais, il n'y eut pas de fondation nette : le royaume s'agrandit peu à peu, le Fortriu fut ajouté au Xe siècle et le Moray ne fut intégré qu'au début du XIIIe siècle."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade",
+       "en": "How it ended",
+       "de": "Wie es endete",
+       "es": "Cómo terminó",
+       "fr": "Comment il a pris fin"
+      },
+      "text": {
+       "sv": "Jakob VI av Skottland blev också kung av England 1603, en personalunion där länderna behöll egna institutioner. Genom unionsakterna slogs rikena ihop till Storbritannien, som trädde i kraft 1 maj 1707.",
+       "en": "James VI of Scotland also became king of England in 1603, a personal union in which the countries kept their own institutions. Through the Acts of Union the kingdoms were merged into Great Britain, which came into force on 1 May 1707.",
+       "de": "Jakob VI. von Schottland wurde 1603 auch König von England, eine Personalunion, in der die Länder ihre eigenen Institutionen behielten. Durch die Unionsakte wurden die Reiche zu Großbritannien zusammengeschlossen, das am 1. Mai 1707 in Kraft trat.",
+       "es": "Jacobo VI de Escocia pasó a ser también rey de Inglaterra en 1603, una unión personal en la que los países conservaron sus propias instituciones. Mediante las Actas de Unión los reinos se fusionaron en Gran Bretaña, que entró en vigor el 1 de mayo de 1707.",
+       "fr": "Jacques VI d'Écosse devint aussi roi d'Angleterre en 1603, une union personnelle dans laquelle les pays conservèrent leurs propres institutions. Par les Actes d'Union, les royaumes furent réunis en Grande-Bretagne, entrée en vigueur le 1er mai 1707."
+      }
+     },
+     {
+      "label": {
+       "sv": "Huvudstad",
+       "en": "Capital",
+       "de": "Hauptstadt",
+       "es": "Capital",
+       "fr": "Capitale"
+      },
+      "text": {
+       "sv": "Scone (cirka 843–1069), Dunfermline (cirka 1069–1452) och Edinburgh (efter cirka 1452), enligt engelska Wikipedia.",
+       "en": "Scone (about 843–1069), Dunfermline (about 1069–1452) and Edinburgh (after about 1452), according to English Wikipedia.",
+       "de": "Scone (etwa 843–1069), Dunfermline (etwa 1069–1452) und Edinburgh (nach etwa 1452), laut der englischen Wikipedia.",
+       "es": "Scone (hacia 843–1069), Dunfermline (hacia 1069–1452) y Edimburgo (después de hacia 1452), según la Wikipedia en inglés.",
+       "fr": "Scone (vers 843–1069), Dunfermline (vers 1069–1452) et Édimbourg (après 1452 environ), selon la Wikipédia en anglais."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna skiljer sig. Kartan följer Cliopatria: Alba 900–1293 och Kungariket Skottland 1294–1304 och 1314–1608. Engelska Wikipedia sätter gränsen mellan Alba och Kungariket Skottland vid 1286, och Wikidata anger 843–1707 för Kungariket Skottland. Åren 1305–1313, under självständighetskrigen, och under större delen av 1609–1708 räknar Cliopatria Skottland till Kungariket England, och så visar kartan det. Gränserna är Cliopatrias uppskattning.",
+     "en": "The sources differ. The map follows Cliopatria: Alba in 900–1293 and the Kingdom of Scotland in 1294–1304 and 1314–1608. English Wikipedia puts the boundary between Alba and the Kingdom of Scotland at 1286, and Wikidata gives 843–1707 for the Kingdom of Scotland. In 1305–1313, during the wars of independence, and for most of 1609–1708 Cliopatria counts Scotland to the Kingdom of England, and the map shows it that way. The borders are Cliopatria's estimate.",
+     "de": "Die Quellen weichen voneinander ab. Die Karte folgt Cliopatria: Alba 900–1293 und das Königreich Schottland 1294–1304 und 1314–1608. Die englische Wikipedia setzt die Grenze zwischen Alba und dem Königreich Schottland bei 1286, und Wikidata nennt 843–1707 für das Königreich Schottland. 1305–1313, während der Unabhängigkeitskriege, und den größten Teil von 1609–1708 zählt Cliopatria Schottland zum Königreich England, und so zeigt es die Karte. Die Grenzen sind eine Schätzung von Cliopatria.",
+     "es": "Las fuentes difieren. El mapa sigue a Cliopatria: Alba en 900–1293 y el Reino de Escocia en 1294–1304 y 1314–1608. La Wikipedia en inglés sitúa el límite entre Alba y el Reino de Escocia en 1286, y Wikidata indica 843–1707 para el Reino de Escocia. En 1305–1313, durante las guerras de independencia, y durante la mayor parte de 1609–1708 Cliopatria cuenta Escocia en el Reino de Inglaterra, y así lo muestra el mapa. Las fronteras son una estimación de Cliopatria.",
+     "fr": "Les sources divergent. La carte suit Cliopatria : Alba en 900–1293 et le royaume d'Écosse en 1294–1304 et 1314–1608. La Wikipédia en anglais place la limite entre Alba et le royaume d'Écosse en 1286, et Wikidata indique 843–1707 pour le royaume d'Écosse. En 1305–1313, pendant les guerres d'indépendance, et pendant la plus grande partie de 1609–1708, Cliopatria compte l'Écosse dans le royaume d'Angleterre, et la carte la montre ainsi. Les frontières sont une estimation de Cliopatria."
+    },
+    "sources": [
+     "wp-kingdom-of-alba",
+     "wp-kingdom-of-scotland",
+     "wd-alba",
+     "wd-kungariket-skottland"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "strathclyde",
+   "name": {
+    "sv": "Strathclyde",
+    "en": "Kingdom of Strathclyde",
+    "de": "Strathclyde",
+    "es": "Strathclyde",
+    "fr": "Strathclyde"
+   },
+   "color": "#6a9a5a",
+   "from": 644,
+   "to": 1033,
+   "file": "data/empires/strathclyde.json",
+   "polities": [
+    {
+     "id": "strathclyde",
+     "name": {
+      "sv": "Strathclyde",
+      "en": "Kingdom of Strathclyde",
+      "de": "Strathclyde",
+      "es": "Strathclyde",
+      "fr": "Strathclyde"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Strathclyde var ett kungarike i dagens södra Skottland och nordvästra England. Centrum låg först vid Dumbarton Rock. Efter att Dumbarton plundrats 870 flyttade huvudstaden enligt engelska Wikipedia till Govan, och riket blev känt som Strathclyde.",
+     "en": "Strathclyde was a kingdom in present-day southern Scotland and north-west England. Its centre was first at Dumbarton Rock. After Dumbarton was sacked in 870 the capital moved, according to English Wikipedia, to Govan, and the kingdom became known as Strathclyde.",
+     "de": "Strathclyde war ein Königreich im heutigen Südschottland und Nordwestengland. Sein Zentrum lag zuerst am Dumbarton Rock. Nachdem Dumbarton 870 geplündert worden war, zog die Hauptstadt laut der englischen Wikipedia nach Govan, und das Reich wurde als Strathclyde bekannt.",
+     "es": "Strathclyde fue un reino en el actual sur de Escocia y el noroeste de Inglaterra. Su centro estuvo primero en Dumbarton Rock. Tras el saqueo de Dumbarton en 870, la capital se trasladó, según la Wikipedia en inglés, a Govan, y el reino pasó a conocerse como Strathclyde.",
+     "fr": "Le Strathclyde était un royaume situé dans l'actuel sud de l'Écosse et le nord-ouest de l'Angleterre. Son centre se trouvait d'abord à Dumbarton Rock. Après le sac de Dumbarton en 870, la capitale se déplaça, selon la Wikipédia en anglais, à Govan, et le royaume prit le nom de Strathclyde."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "Hur det slutade",
+       "en": "How it ended",
+       "de": "Wie es endete",
+       "es": "Cómo terminó",
+       "fr": "Comment il a pris fin"
+      },
+      "text": {
+       "sv": "Riket erövrades av skottarna efter 1018 men före 1054, troligen under Máel Coluim mac Cináeda, som dog 1034. Engelska Wikipedia anger att det införlivades med Kungariket Skottland omkring 1030.",
+       "en": "The kingdom was conquered by the Scots after 1018 but before 1054, probably under Máel Coluim mac Cináeda, who died in 1034. English Wikipedia states that it was incorporated into the Kingdom of Scotland around 1030.",
+       "de": "Das Reich wurde nach 1018, aber vor 1054 von den Schotten erobert, wahrscheinlich unter Máel Coluim mac Cináeda, der 1034 starb. Die englische Wikipedia gibt an, dass es um 1030 in das Königreich Schottland eingegliedert wurde.",
+       "es": "El reino fue conquistado por los escoceses después de 1018 pero antes de 1054, probablemente bajo Máel Coluim mac Cináeda, que murió en 1034. La Wikipedia en inglés indica que se incorporó al Reino de Escocia hacia 1030.",
+       "fr": "Le royaume fut conquis par les Écossais après 1018 mais avant 1054, probablement sous Máel Coluim mac Cináeda, mort en 1034. La Wikipédia en anglais indique qu'il fut intégré au royaume d'Écosse vers 1030."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna skiljer sig. Kartan följer Cliopatria: Strathclyde 644–1033. Engelska Wikipedia anger 400-talet till omkring 1030. Gränserna är Cliopatrias uppskattning.",
+     "en": "The sources differ. The map follows Cliopatria: Strathclyde in 644–1033. English Wikipedia gives the 5th century to about 1030. The borders are Cliopatria's estimate.",
+     "de": "Die Quellen weichen voneinander ab. Die Karte folgt Cliopatria: Strathclyde 644–1033. Die englische Wikipedia nennt das 5. Jahrhundert bis etwa 1030. Die Grenzen sind eine Schätzung von Cliopatria.",
+     "es": "Las fuentes difieren. El mapa sigue a Cliopatria: Strathclyde en 644–1033. La Wikipedia en inglés indica desde el siglo V hasta hacia 1030. Las fronteras son una estimación de Cliopatria.",
+     "fr": "Les sources divergent. La carte suit Cliopatria : le Strathclyde en 644–1033. La Wikipédia en anglais indique du Ve siècle à 1030 environ. Les frontières sont une estimation de Cliopatria."
+    },
+    "sources": [
+     "wp-kingdom-of-strathclyde"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "jamtland",
+   "name": {
+    "sv": "Jämtland",
+    "en": "Jämtland",
+    "de": "Jämtland",
+    "es": "Jämtland",
+    "fr": "Jämtland"
+   },
+   "color": "#8a6ab0",
+   "from": 947,
+   "to": 1187,
+   "file": "data/empires/jamtland.json",
+   "polities": [
+    {
+     "id": "jamtland",
+     "name": {
+      "sv": "Jämtland",
+      "en": "Jämtland",
+      "de": "Jämtland",
+      "es": "Jämtland",
+      "fr": "Jämtland"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Jämtland i dagens mellersta Sverige hade ett eget ting, Jamtamót, som enligt engelska Wikipedia uppstod kort efter att Islands allting inrättades år 930. Norge erövrade Jämtland 1178.",
+     "en": "Jämtland in present-day central Sweden had its own assembly, the Jamtamót, which according to English Wikipedia arose shortly after the Icelandic Althing was instituted in 930. Norway conquered Jämtland in 1178.",
+     "de": "Jämtland im heutigen Mittelschweden hatte ein eigenes Thing, das Jamtamót, das laut der englischen Wikipedia kurz nach der Einrichtung des isländischen Althing im Jahr 930 entstand. Norwegen eroberte Jämtland 1178.",
+     "es": "Jämtland, en el actual centro de Suecia, tenía su propia asamblea, el Jamtamót, que según la Wikipedia en inglés surgió poco después de que se instituyera el Althing de Islandia en 930. Noruega conquistó Jämtland en 1178.",
+     "fr": "Le Jämtland, dans l'actuel centre de la Suède, avait sa propre assemblée, le Jamtamót, qui selon la Wikipédia en anglais apparut peu après l'institution de l'Althing islandais en 930. La Norvège conquit le Jämtland en 1178."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "Hur det slutade",
+       "en": "How it ended",
+       "de": "Wie es endete",
+       "es": "Cómo terminó",
+       "fr": "Comment il a pris fin"
+      },
+      "text": {
+       "sv": "Norge erövrade Jämtland 1178, och det förblev norskt i över 450 år. År 1645 avträddes Jämtland till Sverige vid freden i Brömsebro.",
+       "en": "Norway conquered Jämtland in 1178, and it remained Norwegian for over 450 years. In 1645 Jämtland was ceded to Sweden in the Treaty of Brömsebro.",
+       "de": "Norwegen eroberte Jämtland 1178, und es blieb über 450 Jahre norwegisch. 1645 wurde Jämtland im Frieden von Brömsebro an Schweden abgetreten.",
+       "es": "Noruega conquistó Jämtland en 1178, y siguió siendo noruego durante más de 450 años. En 1645 Jämtland fue cedido a Suecia por el Tratado de Brömsebro.",
+       "fr": "La Norvège conquit le Jämtland en 1178, et il resta norvégien pendant plus de 450 ans. En 1645, le Jämtland fut cédé à la Suède par le traité de Brömsebro."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna skiljer sig. Kartan följer Cliopatria: Jämtland 947–1187. Engelska Wikipedia säger att Norge erövrade Jämtland 1178. Gränserna är Cliopatrias uppskattning.",
+     "en": "The sources differ. The map follows Cliopatria: Jämtland in 947–1187. English Wikipedia says that Norway conquered Jämtland in 1178. The borders are Cliopatria's estimate.",
+     "de": "Die Quellen weichen voneinander ab. Die Karte folgt Cliopatria: Jämtland 947–1187. Die englische Wikipedia sagt, dass Norwegen Jämtland 1178 eroberte. Die Grenzen sind eine Schätzung von Cliopatria.",
+     "es": "Las fuentes difieren. El mapa sigue a Cliopatria: Jämtland en 947–1187. La Wikipedia en inglés dice que Noruega conquistó Jämtland en 1178. Las fronteras son una estimación de Cliopatria.",
+     "fr": "Les sources divergent. La carte suit Cliopatria : le Jämtland en 947–1187. La Wikipédia en anglais dit que la Norvège conquit le Jämtland en 1178. Les frontières sont une estimation de Cliopatria."
+    },
+    "sources": [
+     "wp-jamtland"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
    "id": "fatimiderna",
    "name": {
     "sv": "Fatimider",
