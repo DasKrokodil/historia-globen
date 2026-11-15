@@ -18,6 +18,21 @@
       }
     },
     {
+      "eventId": "alltinget-grundas",
+      "eventTitle": "Alltinget grundas på Island",
+      "file": "images/events/alltinget-grundas.webp",
+      "kind": "historisk",
+      "credit": "W. G. Collingwood / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-alltinget-grundas",
+        "title": "Althingi (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Althingi.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-13"
+      }
+    },
+    {
       "eventId": "angkor-wat",
       "eventTitle": "Angkor Wat byggs",
       "file": "images/events/angkor-wat.webp",
@@ -285,6 +300,21 @@
       }
     },
     {
+      "eventId": "broad-street-kolera-1854",
+      "eventTitle": "John Snow och koleran på Broad Street",
+      "file": "images/events/broad-street-kolera-1854.webp",
+      "kind": "historisk",
+      "credit": "John Snow / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-broad-street-kolera-1854",
+        "title": "Snow-cholera-map-1 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Snow-cholera-map-1.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-13"
+      }
+    },
+    {
       "eventId": "buddha",
       "eventTitle": "Buddha grundar buddhismen",
       "file": "images/events/buddha.webp",
@@ -438,6 +468,21 @@
       }
     },
     {
+      "eventId": "curie-polonium-radium",
+      "eventTitle": "Marie och Pierre Curie upptäcker polonium och radium",
+      "file": "images/events/curie-polonium-radium.webp",
+      "kind": "historisk",
+      "credit": "Okänd fotograf / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-curie-polonium-radium",
+        "title": "Pierre and Marie Curie (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Pierre_and_Marie_Curie.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-13"
+      }
+    },
+    {
       "eventId": "darwin-fods",
       "eventTitle": "Charles Darwin föds",
       "file": "images/events/darwin-fods.webp",
@@ -579,6 +624,21 @@
         "url": "https://www.loc.gov/pictures/item/2022635976/",
         "license": "No known restrictions on publication",
         "checked": "2026-10-29"
+      }
+    },
+    {
+      "eventId": "emigrationen-fran-sverige",
+      "eventTitle": "Emigrationen från Sverige till Amerika",
+      "file": "images/events/emigrationen-fran-sverige.webp",
+      "kind": "historisk",
+      "credit": "American Stereoscopic Company / Library of Congress, Prints & Photographs Division (LC-DIG-stereo-1s38142)",
+      "license": "Inga kända restriktioner (Library of Congress)",
+      "source": {
+        "id": "loc-bild-emigrationen-fran-sverige",
+        "title": "Emigrants at Göteborg, Sweden, boarding steamer Calypso (Wilson Line) for England and America, 1905 (Library of Congress)",
+        "url": "https://www.loc.gov/pictures/item/2022643646/",
+        "license": "No known restrictions on publication",
+        "checked": "2026-11-13"
       }
     },
     {
@@ -846,6 +906,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Code_of_Hammurabi_(Louvre_Sb_8)-31434550325.jpg",
         "license": "CC BY 2.0",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "hansan-vaxer-fram",
+      "eventTitle": "Hansan växer fram",
+      "file": "images/events/hansan-vaxer-fram.webp",
+      "kind": "historisk",
+      "credit": "Underwood & Underwood / Library of Congress, Prints & Photographs Division (LC-DIG-stereo-1s33774)",
+      "license": "Inga kända restriktioner (Library of Congress)",
+      "source": {
+        "id": "loc-bild-hansan-vaxer-fram",
+        "title": "Warehouses in the famous old Hanseatic quarter, Bergen, Norway, 1905 (Library of Congress)",
+        "url": "https://www.loc.gov/pictures/item/2021635929/",
+        "license": "No known restrictions on publication",
+        "checked": "2026-11-13"
       }
     },
     {
@@ -1200,6 +1275,21 @@
       }
     },
     {
+      "eventId": "koch-tuberkelbakterien",
+      "eventTitle": "Koch presenterar tuberkelbakterien",
+      "file": "images/events/koch-tuberkelbakterien.webp",
+      "kind": "historisk",
+      "credit": "Bain News Service / Library of Congress, Prints & Photographs Division (LC-DIG-ggbain-00798)",
+      "license": "Inga kända restriktioner (Library of Congress)",
+      "source": {
+        "id": "loc-bild-koch-tuberkelbakterien",
+        "title": "Dr. Robert Koch and wife (Bain News Service, Library of Congress)",
+        "url": "https://www.loc.gov/pictures/item/2014680794/",
+        "license": "No known restrictions on publication",
+        "checked": "2026-11-13"
+      }
+    },
+    {
       "eventId": "kokodafalttaget",
       "eventTitle": "Kokodafälttåget",
       "file": "images/events/kokodafalttaget.webp",
@@ -1212,6 +1302,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Australian_39th_Battalion_after_the_Kokoda_Track_campaign_1942_(AWM_013289).jpg",
         "license": "Public domain",
         "checked": "2026-11-09"
+      }
+    },
+    {
+      "eventId": "kommunistiska-manifestet",
+      "eventTitle": "Kommunistiska manifestet ges ut",
+      "file": "images/events/kommunistiska-manifestet.webp",
+      "kind": "historisk",
+      "credit": "Karl Marx och Friedrich Engels / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-kommunistiska-manifestet",
+        "title": "Manifest der kommunistischen Partei (Marx) 001 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Manifest_der_kommunistischen_Partei_%28Marx%29_001.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-13"
       }
     },
     {
@@ -1441,6 +1546,36 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "lister-antiseptik",
+      "eventTitle": "Lister behandlar sår med karbolsyra",
+      "file": "images/events/lister-antiseptik.webp",
+      "kind": "historisk",
+      "credit": "Wellcome Collection / Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "source": {
+        "id": "commons-bild-lister-antiseptik",
+        "title": "Use of the Lister carbolic spray, Antiseptic surgery, 1882. Wellcome M0003436 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Use_of_the_Lister_carbolic_spray%2C_Antiseptic_surgery%2C_1882._Wellcome_M0003436.jpg",
+        "license": "CC BY 4.0",
+        "checked": "2026-11-13"
+      }
+    },
+    {
+      "eventId": "lunds-domkyrka-invigs",
+      "eventTitle": "Lunds domkyrka invigs",
+      "file": "images/events/lunds-domkyrka-invigs.webp",
+      "kind": "historisk",
+      "credit": "Kallekn / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-lunds-domkyrka-invigs",
+        "title": "Lunds domkyrka1 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Lunds_domkyrka1.jpeg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-13"
+      }
     },
     {
       "eventId": "luthers-teser",
@@ -2151,6 +2286,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Marche_sel.jpg",
         "license": "Public domain",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "semmelweis-handtvatt",
+      "eventTitle": "Semmelweis inför handtvätt med klorkalk",
+      "file": "images/events/semmelweis-handtvatt.webp",
+      "kind": "historisk",
+      "credit": "Jenő Doby / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-semmelweis-handtvatt",
+        "title": "Semmelweis Ignác (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Semmelweis_Ign%C3%A1c.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-13"
       }
     },
     {
@@ -3186,6 +3336,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Treatyofwaitangi.jpg",
         "license": "Public domain",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "watt-separat-kondensor",
+      "eventTitle": "Watt kommer på den separata kondensorn",
+      "file": "images/events/watt-separat-kondensor.webp",
+      "kind": "historisk",
+      "credit": "Library of Congress, Prints & Photographs Division (LC-USZ62-110376)",
+      "license": "Inga kända restriktioner (Library of Congress)",
+      "source": {
+        "id": "loc-bild-watt-separat-kondensor",
+        "title": "Steam engine - Mr. Watt's double steam engine from his specification of 1782, 1822 (Library of Congress)",
+        "url": "https://www.loc.gov/pictures/item/2006691752/",
+        "license": "No known restrictions on publication",
+        "checked": "2026-11-13"
       }
     },
     {

@@ -3,6 +3,7 @@
 // vilka händelser, fun facts, riken, religioner, kartlager och bilder som pekar på varje källa.
 import { t, settings, loadReligions, loadForSources } from '../model.js';
 import { ui } from '../i18n.js';
+import { imageRows } from '../layers/images.js';
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 // Sökningen bryr sig inte om stora bokstäver eller accenter (å, ä, ö räknas som a, a, o)
@@ -35,7 +36,7 @@ async function loadVersion() {
 }
 
 /** Räknar fram vilka uppgifter som pekar på varje källa, grupp för grupp. */
-function collect({ sources, events, funfacts, polities, empireGroups = [], land, borders, discovery }, religionsDoc) {
+function collect({ sources, events, funfacts, polities, empireGroups = [], land, borders, discovery, imageLayers }, religionsDoc) {
   const groups = Object.fromEntries(GROUPS.map(g => [g.id, { ...g, uses: new Map(), items: [] }]));
   const add = (gid, ids, label, review, item = true) => {
     const g = groups[gid];
@@ -78,6 +79,8 @@ function collect({ sources, events, funfacts, polities, empireGroups = [], land,
   if (borders?.source) add('maps', [borders.source], ui('sources.modernBorders'), null);
   // Upptäcktsvyns kartbilder (#101): havsmonster och kompassrosor ur gamla kartor, public domain
   for (const d of new Map((discovery?.decorations ?? []).map(d => [d.source, d])).values()) if (d.source) add('maps', [d.source], ui('sources.discovery', { title: t(d.title) }), null, false);
+  // Bildlagren (#54, #1325): varje skiva som sidan visar (imageRows tar bort utkast) med sin källa och granskningsstatus (#1410)
+  for (const row of imageRows(imageLayers)) for (const x of row.slices) add('maps', x.sources ?? [], ui('sources.imageLayer', { title: t(x.title) }), x.review);
   // Bilder (#195): varje bild på globen listas med ursprung och licens, även illustrationer utan extern källa.
   // De räknas inte som uppgifter med granskningsnivå; bara historiska bilder med image.source får en post i källtabellen.
   const shownEvents = events.filter(e => e.image && (settings.showDrafts || e.review !== 'draft'));
@@ -105,6 +108,7 @@ export class SourcesDialog {
     Object.assign(this, { root, body, data, openBtn });
     this.versionPromise = null;
     this.onSettings = () => {};
+    this.onFeedback = () => {}; // Lämna förslag i raden om projektet (main.js öppnar formuläret)
     this.query = '';
     this.group = null;
     this.status = '';   // statusfiltret (#517): '' = alla, annars en nyckel i LEVELS
@@ -165,6 +169,8 @@ export class SourcesDialog {
         <p>${esc(ui('sources.urval.p3'))}</p>
         <p>${esc(ui('sources.urval.p4'))}</p>
         <p>${esc(ui('sources.urval.p5'))}</p>
+        <!-- Om projektet (#1575): licenser, en ingång för förslag och stöd där tvivlet uppstår, och länken till källkoden -->
+        <p class="src-about">${esc(ui('sources.about'))} <button type="button" class="link-btn" data-open-feedback aria-haspopup="dialog" aria-controls="feedback">${esc(ui('help.feedbackBtn'))}</button> · <a href="https://ko-fi.com/historiagloben" target="_blank" rel="noopener noreferrer" aria-label="${esc(ui('help.kofiLabel'))}">${esc(ui('more.support'))}<span aria-hidden="true"> ↗</span></a> · <a href="https://github.com/DasKrokodil/historia-globen" target="_blank" rel="noopener noreferrer">${esc(ui('sources.sourceCode'))}<span aria-hidden="true"> ↗</span><span class="sr-only"> ${esc(ui('legend.newTab'))}</span></a></p>
       </section>
       <h3>${esc(ui('sources.current'))}</h3>
       <p class="src-total">${total(religionsDoc)}</p>
@@ -187,6 +193,7 @@ export class SourcesDialog {
       </div>
       <p class="src-version" hidden></p>`;
     this.body.querySelector('[data-all]')?.addEventListener('click', () => this.open());
+    this.body.querySelector('[data-open-feedback]')?.addEventListener('click', () => this.onFeedback());
     this.body.querySelector('#show-drafts').addEventListener('change', e => {
       settings.showDrafts = e.target.checked;
       this.onSettings();

@@ -16,6 +16,10 @@
 //   update(s)   väljer vad som syns (beslut 2) och returnerar det; körs vid varje omritning
 //   z           platsen i ritordningen (se Z nedan); drawOverlay(ctx, W, H) ritar lagret på lagerbilden.
 //               passes = [{ z, draw(ctx, W, H) }] i stället, för ett lager som ritar på flera ställen i ordningen
+//   region      sant om lagret också ritas i regionvyns skarpa karta i Platt vy (#1641). Där är bilden mycket större än
+//               4096 × 2048, och ett lager som räknar sina mått i bildpunkter (linjer, sken, namn: W / 2048) skulle bli
+//               grovt; bara lager som räknar i skärmpixlar anmäler sig. drawOverlay får då ett fjärde argument,
+//               view = { region: true, unit }, där unit är bildpunkter per skärmpixel
 //   fade        { name, own(focus) }: lagret dämpas i fokusläget när det inte hör till det man följer (#235)
 //   legend(s)   del av teckenförklaringen, till exempel { items } eller { war }; delarna slås ihop
 //   markers(s)  uppdaterar lagrets 3D-markörer när det är känt vilka lager som är dämpade
@@ -34,6 +38,7 @@ export const Z = {
   borders: 30,    // dagens gränser
   places: 35,     // konturen av platsen man följer (#579)
   discovery: 40,  // upptäcktsvyns dimma, portolanlinjer och havsmonster (#101)
+  spread: 45,     // människans spridning: antagna områden och vågor i förhistorien (#1094)
   routes: 50,     // vägar och resor (#38)
   wars: 60,       // krigsområden (#27)
   events: 70,     // händelsernas sken
@@ -178,14 +183,17 @@ export class LayerRegistry {
   /**
    * Ritar alla lager på lagerbilden i ordning efter z, nedifrån och upp. Dämpade lager ritas via
    * drawFaded(draw, alpha), som lägger dem genomskinligt på bilden (Globe.drawFaded).
+   * view (#1641): { region: true, unit } i regionvyns skarpa karta; då ritas bara lagren med `region` i sin post, och de får
+   * view som fjärde argument. I regionvyn på globen (#1644) är view { region: true } utan unit: lagret räknar då måttet själv ur
+   * bildens storlek (placePx), eftersom globens 4096-bild och skarpa utsnitt ritas som vanligt.
    */
-  draw(ctx, W, H, state, drawFaded) {
-    const passes = this.entries.flatMap(e => (e.passes ?? (e.drawOverlay ? [{ z: e.z, draw: e.drawOverlay }] : []))
-      .map(p => ({ ...p, id: e.id })));
+  draw(ctx, W, H, state, drawFaded, view = null) {
+    const passes = this.entries.filter(e => !view?.region || e.region)
+      .flatMap(e => (e.passes ?? (e.drawOverlay ? [{ z: e.z, draw: e.drawOverlay }] : [])).map(p => ({ ...p, id: e.id })));
     passes.sort((a, b) => a.z - b.z);
     for (const p of passes) {
-      if (state.faded.has(p.id)) drawFaded((c, w, h) => p.draw(c, w, h), FADE);
-      else p.draw(ctx, W, H);
+      if (state.faded.has(p.id)) drawFaded((c, w, h) => p.draw(c, w, h, view), FADE);
+      else p.draw(ctx, W, H, view);
     }
   }
 }

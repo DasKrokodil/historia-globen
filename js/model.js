@@ -153,8 +153,16 @@ export function groupDigits(n) {
     .map(p => p.type === 'group' ? GROUP_SEP : p.value).join('');
 }
 
+/** Ett tal med högst en decimal på språkets sätt: "2,5" på svenska, tyska, spanska och franska, "2.5" på engelska (#1101). Utan tusentalsavgränsare, för tal under 10. */
+export function formatDecimal(n) {
+  return new Intl.NumberFormat(NUM_LOCALE, { maximumFractionDigits: 1, useGrouping: false }).format(n);
+}
+
 /** Kort årtal för listor: "551 f.Kr.", "793", "1325", "300 000 f.Kr.". */
 export function formatYear(y) {
+  // Före 10 000 f.Kr. är årtalen tusental (#1320): i datan skrivs djup tid som Y-66000000 ("för 66 miljoner år sedan"), och som
+  // astronomiskt år vore det 66 000 001 f.Kr. Mellan 10 000 och 3000 f.Kr. lämnas källornas årtal orörda.
+  if (y <= -10000) y = roundToStep(y);
   return isBCE(y) ? `${groupDigits(bce(y))} ${BCE_TXT}` : groupDigits(y);
 }
 
@@ -180,7 +188,8 @@ export function centuryOf(y) {
   return { bce: isBCE(y), c: Math.floor(n / 100) + 1, hundred: Math.floor(n / 100) * 100 };
 }
 
-const ROMAN = [[10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']];
+// Upp till 100 (århundrade 100 = 9900–9999 f.Kr., #1101): förut saknades L och C, så 5000 f.Kr. blev "XXXXXI" i stället för "LI"
+const ROMAN = [[100, 'C'], [90, 'XC'], [50, 'L'], [40, 'XL'], [10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']];
 const roman = n => ROMAN.reduce((out, [v, r]) => { while (n >= v) { out += r; n -= v; } return out; }, '');
 /** Engelskans ordningstal: 1st, 2nd, 3rd, 14th, 21st. Suffixen ligger i språkfilen (time.ordSuffix), tom i övriga språk. */
 function ordinal(n) {
@@ -211,9 +220,29 @@ export function roundWindow(n) {
   return n < 30 ? Math.max(5, Math.round(n / 5) * 5) : Math.round(n / 10) * 10;
 }
 
+/**
+ * Fönstret före och efter året som avrundade tal (#1319): { before, after, same }. `same` är sant när de två sidorna blir
+ * lika långa efter avrundningen; då visas fönstret med "±" som förut, annars skrivs båda sidorna i klartext.
+ */
+export function roundWindowSpan({ before, after }) {
+  const b = roundWindow(before), a = roundWindow(after);
+  return { before: b, after: a, same: b === a };
+}
+
 /** Text ur språkfilen som är en lista [en, flera] ("±1 år", "±3 år"), med {n} ersatt och eventuella andra värden i vars. */
 export function pluralUi(key, n, vars = {}) {
   return String(ui(key)[n === 1 ? 0 : 1]).replace(/\{(\w+)\}/g, (m, k) => ({ n, ...vars })[k] ?? m);
+}
+
+/**
+ * Raden som förklarar en vy med smalt urval (#1379): vyn Framsteg visar bara händelser som källan själv beskriver som
+ * framsteg, och det är få. Antalet räknas ur datan (count = händelser med taggen), aldrig skrivet i texten. Ger '' för
+ * taggar utan egen rad (Översikt har sin egen i Samtidigt, #1139) och när ingen händelse har taggen (då gäller tomläget).
+ */
+const TAG_VIEW_NOTE = { framsteg: 'view.progressNote' };
+export function tagViewNote(tag, count) {
+  const key = TAG_VIEW_NOTE[tag];
+  return key && count > 0 ? pluralUi(key, count, { count }) : '';
 }
 
 /**
@@ -229,15 +258,24 @@ export function formatDirection(when, year, eventYear) {
 }
 
 /**
- * Förhistoriens år visas avrundade (inför v6.3.0): i segmentet 100 000–3000 f.Kr. är ett steg på reglaget hundratals år, så
- * "99 001 f.Kr." eller "7413 f.Kr." låtsas en exakthet som inte finns. Före 10 000 f.Kr. avrundas året till närmaste tusental,
- * som århundraderaden redan gör (formatCentury), och 10 000–3000 f.Kr. till närmaste hundratal. 3000 f.Kr. och senare lämnas orörda.
+ * Reglagets upplösning (#1320, beslut 2026-11-13): hur många år ett steg är, som en enda källa för avrundningen av året,
+ * stegknapparna, piltangenterna, uppspelningens fart och det som skärmläsaren läser upp. Tusental före 10 000 f.Kr. och
+ * hundratal till 3000 f.Kr., där ett steg på reglaget är hundratals år; därefter hela år. `to` är det sista året i delen.
  */
-export function roundPrehistoric(y) {
-  if (y < -9999) return 1 - Math.round(bce(y) / 1000) * 1000;
-  if (y < -2999) return 1 - Math.round(bce(y) / 100) * 100;
-  return y;
+export const RESOLUTION = [{ to: -10000, step: 1000 }, { to: -3000, step: 100 }, { to: Infinity, step: 1 }];
+/** Upplösningen vid ett år: 1000, 100 eller 1. */
+export const stepAt = y => RESOLUTION.find(r => y <= r.to).step;
+
+/**
+ * Året avrundat till reglagets upplösning (#1320). Avrundningen görs i f.Kr.-tal, så att 100 000 f.Kr. och 7400 f.Kr. blir runda
+ * i visningen: "99 001 f.Kr." eller "7413 f.Kr." låtsas en exakthet som inte finns. 3000 f.Kr. och senare lämnas orörda.
+ */
+export function roundToStep(y) {
+  const step = stepAt(y);
+  return step === 1 ? y : 1 - Math.round(bce(y) / step) * step;
 }
+/** Samma som roundToStep (namnet från v6.3.0). */
+export const roundPrehistoric = roundToStep;
 
 /**
  * Ett stort avstånd i år avrundat (inför v6.3.0): från 1000 år till närmaste hundratal och från 10 000 år till närmaste tusental,
@@ -261,6 +299,13 @@ export function yearParts(y) {
   if (y < 1000) return [String(y), CE_TXT];
   return [groupDigits(y), ''];
 }
+
+/** Intervallet som text: "1914–1918", "500–400 f.Kr." eller "50 f.Kr.–50". Ger [siffror, tideräkning] för huvudet (#755). */
+export function rangeParts(from, to) {
+  const [n1, e1] = yearParts(from), [n2, e2] = yearParts(to);
+  return e1 === e2 ? [`${n1}–${n2}`, e1] : [`${formatYear(from)}–${formatYear(to)}`, ''];
+}
+export const rangeText = (from, to) => rangeParts(from, to).filter(Boolean).join(' ');
 
 /** Tolkar ett inskrivet år till astronomiskt år, eller null. "2600 f.Kr.", "44 fkr", "300 BC" och
  *  "-500" blir före vår tideräkning; "1969", "800 e.Kr." och "AD 800" efter. Utan tideräkning i texten
@@ -345,6 +390,22 @@ export function formatDate(iso) {
   const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
   return m && isValidDate(Number(m[1]), Number(m[2]), Number(m[3]))
     ? formatCalendarDate(Number(m[1]), Number(m[2]), Number(m[3]), m[1]) : (iso || '');
+}
+
+// EDTF:s årstidskoder (nivå 1): 21 vår, 22 sommar, 23 höst, 24 vinter. Texterna ligger i språkfilerna (time.season.*, #1473).
+const SEASONS = { 21: 'spring', 22: 'summer', 23: 'autumn', 24: 'winter' };
+
+/**
+ * Datumet för ett stopp på en resa (#376): egen etikett, dagsdatum, en årstid ur edtf ("1405-23" blir "hösten 1405" på svenska,
+ * "autumn 1405" på engelska) eller edtf som det står. Texterna kommer ur språkfilen (#1473), aldrig ur koden.
+ * Samma funktion används av pausraden, stegknapparna och tidslinjemärkena (routeStops i lines.js).
+ */
+export function stopDate(place) {
+  if (place.dateLabel) return t(place.dateLabel);
+  if (place.date) return formatDate(place.date);
+  const season = /^(-?\d{4})-(2[1-4])$/.exec(place.edtf ?? '');
+  if (season) return ui(`time.season.${SEASONS[season[2]]}`, { year: formatYear(Number(season[1])) });
+  return place.edtf ?? '';
 }
 
 /** Tid för en händelse enligt dess precision och EDTF-markering. */
@@ -579,14 +640,34 @@ export function loadPerioder() {
  * gången Fokusmenyn öppnas eller en plats i adressen börjar. Bara kontrollerade platser (inte draft) behålls; en
  * fil som saknas eller inte går att läsa ger en tom lista.
  */
-let placesPromise = null;
+let placesPromise = null, placesList = [];
 export function loadPlaces() {
   placesPromise ??= getJSON('data/platser.json').then(doc => (Array.isArray(doc?.places) ? doc.places : [])
     .filter(p => p && typeof p.id === 'string' && p.boundary?.geometry && isVisibleReview(p.review))).catch(err => {
     console.warn('Platser kunde inte laddas', err);
     return [];
-  });
+  }).then(list => (placesList = list));
   return placesPromise;
+}
+/** Platserna som redan har laddats (tom lista före loadPlaces). Regionvyn öppnas från ett platskort, så då finns de (#1674). */
+export const loadedPlaces = () => placesList;
+
+/**
+ * Ortnamn för regionvyn (data/ortnamn/<plats>.json, #1643, #1642): orter, grannländer och hav runt en plats, skrivna av
+ * tools/ortnamn.py ur Natural Earth. Laddas först när regionvyn öppnas för platsen, en gång per plats. En fil som saknas eller inte
+ * går att läsa ger null; regionvyn fungerar ändå, utan namn.
+ */
+const ortnamnPromises = new Map();
+export function loadOrtnamn(id) {
+  if (!/^[a-z0-9-]+$/.test(String(id))) return Promise.resolve(null);
+  if (!ortnamnPromises.has(id)) {
+    ortnamnPromises.set(id, getJSON(`data/ortnamn/${id}.json`).then(doc => (doc?.place === id ? doc : null)).catch(err => {
+      console.warn('Ortnamnen kunde inte laddas', err);
+      ortnamnPromises.delete(id); // ett tillfälligt nätfel: nästa gång vyn öppnas försöker den igen
+      return null;
+    }));
+  }
+  return ortnamnPromises.get(id);
 }
 
 let themesPromise = null;
@@ -692,6 +773,14 @@ export function loadBorders() {
   bordersPromise ??= getJSON('data/borders.json').then(doc => (DATA.borders = doc))
     .catch(err => { bordersPromise = null; throw err; });
   return bordersPromise;
+}
+
+/** Människans spridning (data/spridning.json, #1094) och källregistret, när lagret slås på. */
+let spreadPromise = null;
+export function loadSpread() {
+  spreadPromise ??= Promise.all([getJSON('data/spridning.json'), loadSources()]).then(([doc]) => doc)
+    .catch(err => { spreadPromise = null; throw err; });
+  return spreadPromise;
 }
 
 /** Allt som Om källorna räknar med: källregistret, alla händelsers källor och bilder, rikenas faktarutor och gränserna. */

@@ -41,9 +41,11 @@ Artigt tilltal i alla språk, så att tyska, spanska och franska är lika:
 - Månader skrivs med liten bokstav på båda språken: `14 de julio de 1789`, `14 juillet 1789`.
 - **Datum i gränssnittet (#983):** `formatDate` och datum med dagprecision i `formatEventTime` följer språkets datumformat. Tyska har punkt efter dagen (`4. Juli 1776`), spanska har `de` före månad och år. Svenska och engelska behåller dag–månad–år (`4 juli 1776`, `4 July 1776`); franska följer exemplet ovan. `Intl.DateTimeFormat` ger ordningen och skiljetecknen (engelska med `en-GB`); månadsnamnen hämtas fortfarande ur språkfilen och årtalet följer modellens tideräkning. Inga datum i innehållet ändras.
 
+- **Årstider i stoppens datum (#1473):** `stopDate` i `model.js` skriver en årstid ur edtf (`1405-21` till `1405-24`) med nycklarna `time.season.spring|summer|autumn|winter` och `{year}`. Svenska bestämd form (`hösten 1405`), engelska `autumn 1405` (brittiskt), tyska `Herbst 1405` (`Frühjahr` för våren), spanska `otoño de 1405` (alltid med `de`) och franska `automne 1405` (utan artikel). Samma former som i resornas egna etiketter (`dateLabel`) i `data/routes/`.
+
 ## 3. Siffror och tecken
 
-- **Tusental** (mängd, inte år): **franska** har hårt mellanrum från fyra siffror, "4 000 ans". **Spanska** har mellanrum först från fem siffror, "4000 años" men "40 000 años", enligt RAE (Diccionario panhispánico de dudas, "números", § 2a; beslut 2026-11-12, [docs/beslut/2026-11-12-spanska-tusental.md](beslut/2026-11-12-spanska-tusental.md)). Som år alltid utan mellanrum.
+- **Tusental** (mängd, inte år): **franska** har hårt mellanrum från fyra siffror, "4 000 ans". **Spanska** har mellanrum först från fem siffror, "4000 años" men "40 000 años" (hårt mellanrum U+00A0, så att talet inte bryts över två rader, #1385), enligt RAE (Diccionario panhispánico de dudas, "números", § 2a; beslut 2026-11-12, [docs/beslut/2026-11-12-spanska-tusental.md](beslut/2026-11-12-spanska-tusental.md)). Som år alltid utan mellanrum.
 - **Decimaler** med komma: `3,5 millones`, `3,5 millions`.
 - **Citattecken:** spanska `«…»`, franska `« … »` med hårda mellanrum innanför tecknen.
 - **Fransk typografi:** hårt mellanrum före `:`, `;`, `?`, `!` och `»`, och efter `«`. Apostrof `’` eller `'` som i gränssnittet; var konsekvent i samma fil.
@@ -83,7 +85,9 @@ Artigt tilltal i alla språk, så att tyska, spanska och franska är lika:
 | Grafisk symbol | Graphic symbol | Símbolo gráfico | Symbole graphique |
 | Visste du att …? | Did you know? | ¿Sabía que…? (artigt) | Le saviez-vous ? |
 | Översikt (vy) | Overview | Resumen | Aperçu |
+| Framsteg (vy och tagg, #555; förklaringsraden #1379 skriver samma ord, de: *Fortschritt*) | Progress | Progreso | Progrès |
 | Upptäcktsresor (vy och lager; inte kategorin) | Voyages of discovery | Viajes de descubrimiento | Grandes découvertes |
+| Föregående stopp / Nästa stopp (resa, #1380) | Previous stop / Next stop (de: *Vorherige Station* / *Nächste Station*) | Parada anterior / Parada siguiente | Étape précédente / Étape suivante |
 | Historia-globen (produktnamnet) | Historia-globen | Historia-globen | Historia-globen |
 
 **Ordval enligt #1140 (beslut 2026-11-11, [2026-11-11-ordval-1140](beslut/2026-11-11-ordval-1140.md)).** Tyska kolumnen står här eftersom tabellen saknar den: menyn *Suchen und folgen*, läget *folgen* (etikett *Sie folgen*), *Überblick* (vy), *Entdeckungsreisen* (vy och lager), *Wussten Sie?* (kortet och teckenförklaringen). Reglerna:
@@ -349,3 +353,99 @@ Profeten skrivs *Mahoma* och flykten till Medina *la hégira* (etablerade spansk
 | shinto | sintoísmo |
 | kinesisk religion (konfucianism, daoism) | religión china (confucianismo, taoísmo) |
 | Nyckelår (rubrik i faktarutan) | Años clave |
+
+## 16. Språkfynd ur expertgranskningen v6.3.0 (#1385)
+
+Rättat 2026-11-14 efter [expertgranskningen före v6.3.0](granskningar/2026-11-13-expertgranskning-v6-3-0.md). Formerna gäller från nu i nya och ändrade texter.
+
+| Svenska | Engelska | Tyska | Spanska | Franska |
+|---|---|---|---|---|
+| söva (före en operation) | *anaesthetise* (inte *put to sleep*, som också betyder avliva) | – | – | – |
+| Källorna skiljer sig | The sources differ | – | *Las fuentes difieren* (inte *Las fuentes no coinciden*) | *Les sources divergent* (13.4) |
+| Om tiden (rubrik i en anteckning om datering) | About the time | *Zur Datierung* (inte *Zur Zeit*, som betyder "för närvarande") | – | – |
+| folkvandringstiden, folkvandringen | – | *Völkerwanderung* | – | – |
+| lager (i Lager-menyn och teckenförklaringen) | layer | Ebene | capa | *calque* överallt (inte *couche*; *couche* får stå om jordlager i händelsetexter) |
+| inom {tid} från {år} | within {time} of {year} | – | – | *à moins de {within} de {at}* (inte *dans un rayon de*, som är ett avstånd) |
+| flaggetikett | – | *Flagge von Niger*, *Flagge von Mali*, *Flagge von Benin* (som *Flagge von Sierra Leone*) | – | – |
+| Licens: public domain (bildtext) | – | – | *Licencia: dominio público* | – |
+| Lgr22, årskurs 7–9 | Lgr22 (the Swedish compulsory school curriculum), years 7–9 | – | – | *Lgr22 (le programme suédois de l'école obligatoire)*, *classes 7 à 9 (numérotation suédoise)* första gången i en text |
+
+**Rikesnamn (kontrollerade 2026-11-14 mot öppnade artiklar på målspråkets Wikipedia):**
+
+| Svenska | Tyska | Spanska | Franska | Anmärkning |
+|---|---|---|---|---|
+| Xixia (Västra Xia) | *Westliche Xia* (inte *Tanguten*, som är folket, eller *Westlich-Xia*); i löptext *die Westliche Xia*, *der Westlichen Xia* | – | – | de.wikipedia "Westliche Xia-Dynastie": "Das Reich der Westlichen Xia-Dynastie", "Geschichte der Westlichen Xia" |
+| Heftaliter | – | *Heftalitas* | *Hephtalites* | es.wikipedia "Heftalita" (omdirigering från *Heftalitas*); fr.wikipedia "Shvetahûna" (omdirigering från *Hephtalites*, i texten "Ephthalites ou Hephthalites") |
+| Aghlabider | – | *Aglabíes* | – | es.wikipedia "Aglabí" (omdirigering från *Aglabíes*, i texten "Los aglabíes") |
+| Egyptens gamla rike | *Altes Reich* | – | *Ancien Empire* | utan "von Ägypten" och "de l'Égypte": riket står redan i gruppen Egypten |
+| Norra Yuan | *Nördliche Yuan-Dynastie* (bindestreck) | – | – | |
+
+- **Versal i spanska och franska rikesnamn:** första ordet får versal även när det är ett vanligt substantiv (*Reino visigodo*, *Dinastía Sui*, *Royaume de France*, *Dynastie Liao*), övriga ord följer avsnitt 3 (*Royaume ouïghour de Qocho*). Årtal hör inte till namnet (*Royaume de Norvège*, inte *royaume de Norvège (872-1397)*).
+
+## 17. Land, rike, stat, nation, plats och tema (#1266)
+
+Definitionerna står i [docs/produkt/13-ordlista.md](produkt/13-ordlista.md) ("Land, rike, stat, nation, plats och tema"). Tabellen ger ordet på varje språk. Där gränssnittet redan har ett ord står nyckeln, och ordet ändras inte här; ändringar görs i egna ärenden. Tilltalet följer avsnitt 1 (artigt, utom i texter för elever till och med 13 år).
+
+| Svenska | Engelska | Tyska | Spanska | Franska | I `data/ui/` |
+|---|---|---|---|---|---|
+| plats (samlingsordet, gruppen) | place, Places | Ort, Orte (i dag; se fråga 1 nedan) | lugar, Lugares | lieu, Lieux | `place.label`, `focus.tab.places` |
+| land | country | Land | país | pays | `place.type.country`, `review.subject.Landet` |
+| försvunnet land | former country (fliken: Vanished countries) | ehemaliges Land (fliken: Verschwundene Länder) | país desaparecido | pays disparu | `facts.kind.vanished`, `focus.tab.vanished` |
+| självstyrt område | autonomous territory | autonomes Gebiet | territorio autónomo | territoire autonome | `place.type.autonomous` |
+| rike | empire | Reich | imperio | empire | `facts.kind.empire`, `layer.areas` (se avsnitt 7, 9 och 11) |
+| stat | state | Staat | Estado | État | inget eget ord i gränssnittet |
+| nation | nation | Nation | nación | nation | inget eget ord i gränssnittet |
+| region (= världsdel) | continent | Kontinent | continente | continent | `region.<id>`, `hunt.progress`, `legend.continentNote` |
+| tema | theme | Thema | tema | thème | `theme.label`, `focus.tab.themes` |
+| regionvy (Platt vy inzoomad på en liten plats, #1641) | close-up map | Nahkarte | mapa de cerca | vue rapprochée | `regionView.*`, `place.regionMap` |
+| fliken "Vad hände här?" (händelser nära en plats, #15; hette tidigare Plats) | What happened here? | Was geschah hier? | ¿Qué pasó aquí? | Que s’est-il passé ici ? (hårt mellanrum före frågetecknet) | `focus.tab.place` |
+
+- **Land är inte rike på något språk.** *Country/Land/país/pays* är dagens land med dagens gräns; *empire/Reich/imperio/empire* är rikets historiska gräns. Översätt aldrig "landet" med *empire* eller *Reich*, eller "riket" med *country*.
+- **Stat och nation används inte som synonymer till land.** *Nation*, *nación* och franska *nation* betyder folket, inte området. Delstaterna i USA heter *estados* respektive *États* (avsnitt 17.1).
+- **Region** översätts inte med *region*, *Region*, *región* eller *région*, eftersom det på målspråken oftast betyder en del av ett land. Gränssnittet säger redan *continent*, *Kontinent*, *continente* och *continent*.
+- **Regionvy** (#1641) är namnet på vyn i svenskan, så som DasKrokodil skrev det i issuet; *region* ensamt betyder fortfarande världsdel. På de andra språken heter vyn efter vad den gör, en karta på nära håll: *close-up map*, *Nahkarte*, *mapa de cerca*, *vue rapprochée* (franskan efter språkgranskningen 2026-11-14: en vy, inte ett nytt kartblad). Knappen i platskortet säger det: *Visa i regionvy*, *Show on close-up map*, *Auf der Nahkarte zeigen*, *Ver en el mapa de cerca*, *Voir dans la vue rapprochée*.
+- **Regionvyns markörer** (#1642): *markör* är *marker*, *Markierung*, *marcador*, *marqueur* (som i övriga gränssnittet). *Hög* (markörer nära varandra på kartan) är *stack*, *Stapel*, *pila*, *pile*; *fälla ut* och *fälla ihop* är *fan out / fold up*, *auffächern / zuklappen*, *desplegar / plegar*, *déployer / refermer*. *Brickan* för händelser som gäller hela platsen är *badge*, *Schild*, *etiqueta*, *étiquette* (franskans *étiquette* är också ordet för kartans etiketter; det står kvar tills ett bättre ord hittas), och dess text är *Hela {plats}*, *All of {place}*, *Der ganze Ort: {Ort}* (inte *Ganz {Ort}*, som går sönder för platser med artikel: *ganz die Schweiz*), och på spanska och franska *Todo el lugar: {lugar}* och *Tout le lieu : {lieu}*, eftersom ett landsnamn där kräver artikel efter kön (*toda Escania*, *tout le Danemark*) och mallen inte kan välja den (avsnitt 17.2). *Markera* (en markör eller rad får ram) är *highlight*, *hervorheben*, *resaltar*, *mettre en évidence*. *Faktarutan* är *fact box*, *Faktenfeld* (som i övriga de.json), *ficha*, *fiche*. Tangenten *Enter* är *Enter*, *Eingabetaste*, *Intro*, *Entrée*, och piltangenterna på franska *touches fléchées* (som `help.s4t`). Nummer i listan skrivs *Nr.* på tyska och *n°* på franska. *Ungefärlig plats* är `place.approx`; *streckad ring* är *dashed ring*, *gestrichelter Ring*, *anillo discontinuo*, *anneau en pointillé*. Orden som kapar en platstext till ett ortnamn (`regionView.placeCut`, `regionView.placePrefix`) är listor per språk, med mellanslag runt orden.
+
+### 17.1 Platstyper (för kommande platser; läggs i `place.type.<typ>` när typen byggs)
+
+Förslag till typer som ännu inte finns i datan. Kolumnen "Kontrollerad" anger öppnad källa; rader med `–` kontrolleras mot målspråkets Wikipedia när typen byggs (avsnitt 4, regel 5).
+
+| Svenska | Engelska | Tyska | Spanska | Franska | Kontrollerad |
+|---|---|---|---|---|---|
+| landskap (Sverige) | province (på kortet: Province) | Landschaft (historische Provinz) | provincia histórica | province historique | de: 2026-11-14, de.wikipedia "Landskap (Schweden)": "Landskap ist die schwedische Bezeichnung für eine historische Provinz"; aldrig *Provinz* ensamt, eftersom de.wikipedia "Provinz (Schweden)" leder till *Län*. en: 2026-11-14, en.wikipedia "Provinces of Sweden" ("The 25 provinces of Sweden are historical, geographical and cultural regions"); es: 2026-11-14, es.wikipedia "Escania" ("la provincia histórica o comarca (landskap) más meridional de Suecia"); fr: 2026-11-14, fr.wikipedia "Scanie" ("une province historique en Suède"). Byggd i `place.type.landskap` (#1159) |
+| Bundesland (Tyskland, Österrike) | – | Land / Bundesland | – | – | de: 2026-11-14, de.wikipedia "Land (Deutschland)": *Land* är den officiella termen, "im allgemeinen Sprachgebrauch oft auch Bundesland genannt"; Österrike är inte kontrollerat. På kortet *Bundesland*, inte *Land*, eftersom *Land* redan är typen för ett land (`place.type.country`) |
+| kanton (Schweiz) | – | Kanton | – | – | de: 2026-11-14, de.wikipedia "Schweiz": "26 teilsouveränen Kantonen" |
+| delstat (USA) | state | Bundesstaat (på kortet: US-Bundesstaat, förslag från `sprak-de`) | estado | État | de: 2026-11-14, de.wikipedia "Vereinigte Staaten" ("50 Bundesstaaten"); es: es.wikipedia "Estados Unidos" ("cincuenta estados"); fr: fr.wikipedia "États-Unis" ("cinquante États"); en: – |
+
+### 17.2 Landsnamn med artikel och preposition (byggd, #1479)
+
+**Regel:** `partOf` i `data/platser.json` lagrar **hela frasen per språk**, med den preposition och artikel som landet kräver, och mallen `place.typeOf` är bara `{type} {of}` på alla språk (ingen fast preposition i `data/ui/`). Kortets typrad är då typen följd av frasen: *Landskap i Sverige*, *Landschaft in Schweden*. Varje fras kontrolleras mot målspråkets Wikipedia när platsen byggs (avsnitt 4, regel 5), och schemat kräver en inledande preposition per språk, så att ett bart landsnamn avvisas. Skriv frasen så som språket säger den, aldrig ihopsatt för hand ur ett landsnamn. Beslut: [2026-11-14-landsnamn-med-artikel-1479.md](beslut/2026-11-14-landsnamn-med-artikel-1479.md).
+
+**Fall från #1266 där en fast preposition blir fel** (kontrollerade mot målspråkets Wikipedia 2026-11-14; det enda i det här avsnittet som är källkontrollerat):
+
+| Språk | Fast preposition fungerar | Kräver egen fras |
+|---|---|---|
+| Tyska | *in Schweden*, *in Dänemark*, *in Neuseeland* | *in der Schweiz* (de.wikipedia "Schweiz": "Die Schweiz …"), *in den USA* / *in den Vereinigten Staaten* (de.wikipedia "Vereinigte Staaten": "Die Vereinigten Staaten von Amerika", förkortat USA) |
+| Franska | *en Suède* (femininum) | *au Danemark* (fr.wikipedia "Danemark": "Le Danemark …"), *aux États-Unis* (fr.wikipedia "États-Unis": "Les États-Unis …") |
+| Engelska | *in Sweden*, *in Denmark* | *in the United States* (artikeln *the* behövs) |
+| Spanska | *en Suecia*, *en Estados Unidos* (es.wikipedia "Estados Unidos" skriver namnet utan *los*) | – |
+
+**Regler per språk för den som skriver en fras.** Reglerna är mönster för skribenten, inte uppgifter om världen. Alla exempel är *exempel, ej källkontrollerade här*: varje fras kontrolleras mot målspråkets Wikipedia (*Le/La/Les …*, *Die/Der …*, *El/La/Los …*, *The …*) när platsen byggs, och landets kön, tal och artikel avgörs av den källan, inte av namnet.
+
+| Språk | Regel | Exempelformer (ej källkontrollerade här) |
+|---|---|---|
+| Tyska | *in* + kasus (dativ). Femininum *in der* (*in der Schweiz*), plural *in den* (*in den USA*), maskulinum och neutrum *im* (*in* + *dem*). Öar följer ofta *auf*. Kontrollera mot de.wikipedia. Som standard för delstatsfraser föreslår `sprak-de` *in den USA* (förslag från `sprak-de`, inte beslut) | *in Schweden*, *in der Schweiz*, *in den USA*, *im …*, *auf …* |
+| Franska | Femininum eller maskulinum som börjar på vokal: *en*. Maskulinum som börjar på konsonant: *au*. Plural: *aux*. Öar och småstater tar ofta *à*. Delstat, region och kanton: *dans* + artikel. Könet syns inte på namnet, så fr.wikipedia (*Le/La/Les …*) avgör | *en Suède*, *au …*, *aux États-Unis*, *à …*, *dans le …* |
+| Spanska | Artikeln står kvar efter *en*: *el*, *la*, *los*, *las*. *en* + *el* blir aldrig *al* eller *del*, så det är ingen kontraktion. *en Estados Unidos* och *en los Estados Unidos* är båda godtagbara; välj en form och använd den konsekvent. Mönster med artikel | *en Suecia*, *en el …*, *en los …*, *en las …* |
+| Engelska | Artikeln *the* är det som oftast fallerar. Öar tar ofta *on*. Välj en form och använd den konsekvent (*the United Kingdom* eller *the UK*). *the* skrivs med liten bokstav mitt i frasen | *in Sweden*, *in the …*, *on …* |
+
+**Frasen väljs för platsens typ.** Ett landskap kan ta *de* på spanska (öppen fråga i 17.3) medan ett land tar *en*; en delstat eller kanton kan ta *dans* på franska. Skribenten skriver därför den form som passar just typen och landet, inte en gemensam mall. **Schemakontrollen är bara ett nät:** den kräver en inledande preposition per språk (se beslutsfilen) och kan inte avgöra om artikel, kön eller kasus är rätt.
+
+Skåne (#1159) är den första platsen med `partOf` och har frasen på alla fem språk: *i Sverige*, *in Sweden*, *in Schweden*, *en Suecia*, *en Suède*. Typraden är oförändrad (*Landskap i Sverige*, *Province in Sweden*, *Landschaft in Schweden*, *Provincia histórica en Suecia*, *Province historique en Suède*). Exemplen i högra kolumnen finns bara som provdata i `tests/platskort-landsnamn.test.mjs`; ingen plats i datan har dem än, och varje ny fras kontrolleras mot källan när platsen byggs. Fall att tänka på: Grönland "i Danmarks rike" på franska, en kanton, en amerikansk delstat.
+
+### 17.3 Öppna frågor (ändras inte i #1266)
+
+1. **Tyska samlingsordet: *Orte* eller *Gebiete*?** `sprak-de` föreslog *Gebiete* (planeringen i `docs/granskningar/2026-11-12-planering-regionhistoria.md`, punkt 11). Att tänka på före beslutet: *Gebiet* används redan i `data/ui/de.json` för andra områden (krigsområdet i `legend.warNote`, religionens område i `pop.religion`, Människans spridning i `layer.spreadNote` och typen *Autonomes Gebiet*), så ett kort om Grönland skulle få rubriken *Gebiet* och typen *Autonomes Gebiet*. Ändras det berörs `focus.tab.places` (*Orte*), `place.label` (*Ort*) och de övriga `place.*`-texterna med *Ort* i `data/ui/de.json`. Avgörs av DasKrokodil efter granskning av `sprak-de`.
+2. **Neuseeland/Aotearoa:** datan skriver *Neuseeland (Aotearoa)*, och de.wikipedia "Neuseeland" ger *Aotearoa* som maoriskt namn i inledningen. Ingen ändring behövs; samma mönster gäller de andra språken i `data/platser.json`.
+3. **Spanska typraden för landskap: *en* eller *de*?** I dag *Provincia histórica en Suecia* (oförändrat från före #1479). `sprak-es` anmärker att *de* är normalt för administrativa indelningar (*… de Suecia*). Frasen i `data/platser.json` är hel per språk, så ändringen är en datarad (Skånes `partOf.es`), ingen kodändring. Avgörs av DasKrokodil efter granskning av `sprak-es`.
+4. **Grönlands fras på franska.** *au Danemark* (som i tabellen ovan) eller ett förslag som *dans le Royaume du Danemark* (förslag, ej källkontrollerat här)? Grönland är en plats av typen `autonomous`, och Grönland ligger i Danmarks rike snarare än i Danmark. Kontrolleras mot fr.wikipedia när Grönland får `partOf`; avgörs av DasKrokodil.

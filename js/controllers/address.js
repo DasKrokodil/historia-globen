@@ -14,6 +14,10 @@
 //   adress utan m (eller utan tur) avslutar läget; Framåt startar det igen.
 // - Ett tidsintervall (#755) står som y (från) och y2 (till). Det ställs in efter året och i stället för ett fokus, eftersom
 //   intervallet och Fokus utesluter varandra; en adress utan y2 stänger ett intervall som är valt.
+// - Felkanalen (#1324): vad i länken som inte gick att öppna (en tur, något att följa eller ett år) samlas i en lista med
+//   { kind, why, value }. js/url-state.js (decodeProblems) lägger dit det som inte går att tolka; här läggs det till som bara
+//   datan kan avgöra (turen eller kriget finns inte). Listan går till raden (js/controllers/link-notice.js). Länken öppnas
+//   som förut och adressen skrivs inte om till något annat än förut.
 // - Knappen Dela kopierar länken, eller öppnar telefonens delningsmeny där den finns.
 // - Versionsräknaren (#865, #893): varje inställning av vyen (start, länk, Bakåt/Framåt) får ett nytt nummer, och bara
 //   den senaste får skriva år och kamera efter en väntan. Medan den pågår skrivs inget i adressen. Bakåt och Framåt
@@ -21,8 +25,9 @@
 //   förlorad. Vilka lägen som får börja står i lägeskontraktet (MODE_RULES i js/state.js).
 
 import { toJSON } from '../state.js';
-import { encodeHash, decodeHash, decodeTour, decodeMission, decodeMode, decodeRole, isNewStep, LESSON_MODE } from '../url-state.js';
+import { encodeHash, decodeHash, decodeProblems, decodeTour, decodeMission, decodeMode, decodeRole, isNewStep, LESSON_MODE } from '../url-state.js';
 import { ui } from '../i18n.js';
+import { imageAliases } from '../layers/images.js';
 
 const POLL_MS = 700;
 
@@ -68,18 +73,36 @@ export function createAddress(app) {
   /** Finns det man följer i datan? (en gammal länk kan peka på något som har bytt namn) */
   function focusExists(key) {
     const [type, id] = key.split(':');
-    if (type === 'war') return data.byId[id]?.kind === 'war';
-    if (type === 'empire') return data.empireGroups.some(g => g.id === id);
-    return true; // religioner och resor laddas först vid fokus; startFocus avbryter själv om de saknas
+    // Posten (js/focus/, #1327) kan svara direkt för krig och riken; det som laddas först vid fokus har ingen
+    // exists(), och då avbryter startFocus själv om det saknas
+    return app.focusTypes.get(type)?.exists?.(id) ?? true;
   }
 
-  /** Ställer in vyn efter en läst hash (decodeHash). */
+  /**
+   * Visar felkanalens problem för en länk (#1324): det som inte gick att tolka (decodeProblems) och det som `found` har
+   * lagt till (det som saknas i datan). Ett problem per slag, och den som saknas i datan gäller före formen.
+   */
+  function announce(hash, search, found = []) {
+    const all = [...found, ...decodeProblems(hash, search)];
+    const order = ['tour', 'focus', 'year'];
+    app.linkNotice?.show(order.flatMap(kind => all.filter(p => p.kind === kind).slice(0, 1)));
+  }
+
+  /** Varför en tur i länken inte startade (#1324): 'fetch' när turerna inte gick att hämta, annars 'missing'. */
+  const tourProblem = id => ({ kind: 'tour', why: app.lesson?.whyNot(id) === 'fetch' ? 'fetch' : 'missing', value: id });
+
+  /** Ställer in vyn efter en läst hash (decodeHash). Ger det som saknas i datan (felkanalen, #1324), eller null när en nyare adress tog över. */
   async function apply(s) {
+    const found = [];
+    const focusId = s.focus?.split(':')[1] ?? ''; // namnet i raden är id:t, utan typen
     const mine = ++version;
     app.store.ticket('fokus'); // adressen är en nyare begäran om Fokus, också när den inte har något: ett äldre fokus som laddas börjar inte
+    app.clearFocusNotice?.(); // beskedet "platsen är inte tillgänglig" hörde till den förra länken; startFocus visar det igen om den här också saknar något (#1162)
     try {
       if (s.layers) {
-        const want = new Set(s.layers);
+        // Äldre lager-id i en delad länk (l=images) pekar på lagrets nuvarande id (aliases i data/bildlager.json, #1325)
+        const renamed = imageAliases(data.imageLayers);
+        const want = new Set(s.layers.map(name => renamed[name] ?? name));
         for (const name of Object.keys(layers.on)) {
           const on = want.has(name);
           if (!!layers.on[name] !== on) { layers.set(name, on); layers.onChange(name, on); }
@@ -100,21 +123,32 @@ export function createAddress(app) {
       const focusNow = state.focus ? `${state.focus.type}:${state.focus.id}` : null;
       if (s.focus !== focusNow) {
         if (s.focus && focusExists(s.focus)) {
-          let started = false;
-          try { started = await app.startFocus(s.focus); } catch (err) { console.warn('Fokus i länken kunde inte öppnas', err); }
+          let started = false, crashed = false;
+          try { started = await app.startFocus(s.focus); } catch (err) { crashed = true; console.warn('Fokus i länken kunde inte öppnas', err); }
           // Medan fokuset laddades kan en nyare adress ha tagit över, eller ett läge som krockar (en tur, en lektion) ha
           // börjat; då började fokuset inte (lägeskontraktet, #893). Den nya ägaren har året och kameran, och den gamla
           // adressen skriver inte över dem (#865)
-          if (mine !== version || !started) return;
+          if (mine !== version) return null;
+          if (!started) {
+            // Typen sa nej utan att ett läge eller en nyare adress stod i vägen och utan eget besked (tema och plats har ett): id:t finns inte
+            if (!crashed && app.store.canEnter('fokus') && app.$('focus-notice').hidden) found.push({ kind: 'focus', why: 'missing', value: focusId });
+            return found;
+          }
           timeline.year = s.year; // fokus kan ha flyttat året till sin start
-        } else if (state.focus) app.endFocus();
+        } else {
+          if (s.focus) found.push({ kind: 'focus', why: 'missing', value: focusId }); // typen har sagt att id:t inte finns
+          if (state.focus) app.endFocus();
+        }
       }
+      // En länk till ett stopp på en resa och Bakåt eller Framåt mellan stoppen visar stoppet i pausraden igen (#1380)
+      if (state.focusRoute) app.playback.restoreStop();
       if (s.camera) { globe.flyTo(s.camera.lat, s.camera.lon, 600); globe.setZoom(s.camera.zoom); }
       app.refresh();
     } finally {
       // En nyare inställning har annars redan tagit över (done och settle är dess)
       if (mine === version) { done = mine; settle(); }
     }
+    return mine === version ? found : null; // null: en nyare adress har tagit över, och den berättar själv
   }
 
   /**
@@ -138,8 +172,8 @@ export function createAddress(app) {
     return ok;
   }
 
-  /** force: skriv nu, utan att vänta tills vyn står still (flush, #882). */
-  function write(force = false) {
+  /** force: skriv nu, utan att vänta tills vyn står still (flush, #882). push: ändringen blir en egen post i historiken (resans stopp, #1380). */
+  function write(force = false, push = false) {
     if (done !== version) return; // en inställning av vyen pågår
     const cur = current(), pos = position();
     const hash = hashOf(cur, pos);
@@ -152,7 +186,7 @@ export function createAddress(app) {
     // Vänta tills vyn står still, utom när ett läge eller turens steg har bytts: det skrivs direkt (#882, #893)
     if (!force && !newTour && !timeline.playing && hash !== seenHash) { seenHash = hash; return; }
     const url = `${location.pathname}${search()}${hash}`;
-    if (newTour || isNewStep(written, cur, { playing: timeline.playing })) history.pushState(null, '', url);
+    if (newTour || push || isNewStep(written, cur, { playing: timeline.playing })) history.pushState(null, '', url);
     else history.replaceState(null, '', url);
     written = cur; writtenHash = seenHash = hash;
   }
@@ -170,23 +204,31 @@ export function createAddress(app) {
         if (m && m !== mission()) app.hunt?.start(m);
         else if (!m && app.hunt?.active) app.hunt.end(false);
       };
-      const tl = decodeTour(location.hash);
+      const tl = decodeTour(location.hash), lessonWanted = !!decodeMode(location.hash);
+      const found = [];
       if (tl) {
         const mine = ++version; // turen tar över från en inställning som pågår
-        if (applyTour(tl, !!decodeMode(location.hash))) { followMission(); done = mine; settle(); return; }
+        if (applyTour(tl, lessonWanted)) { followMission(); done = mine; settle(); return; }
         done = mine;
+        if (!lessonWanted) found.push(tourProblem(tl.id)); // en lektionslänk förklaras av bandet (#877)
       }
       if (app.tour?.active) app.tour.end(); // tar lektionsläget med sig (js/ui/tour.js)
       followMission();
       const t = decodeHash(location.hash);
-      if (t) apply(t); else { done = ++version; settle(); }
+      if (t) apply(t).then(more => { if (more) announce(location.hash, location.search, [...found, ...more]); });
+      else { done = ++version; settle(); announce(location.hash, location.search, found); }
     });
+    // Länken som den var när sidan öppnades: adressen skrivs om längre ner, och felkanalen ska läsa den ursprungliga
+    const hash = location.hash, query = location.search;
     // En tur i länken går före en delad vy; finns turen inte läses resten av länken som vanligt
-    const touring = read && applyTour(decodeTour(location.hash, location.search), !!decodeMode(location.hash), !!decodeRole(location.hash));
+    const tl = read ? decodeTour(hash, query) : null, lessonWanted = !!decodeMode(hash);
+    const touring = read && applyTour(tl, lessonWanted, !!decodeRole(location.hash));
     // Den vanliga hashen går före den korta, äldre ?c=-formen om båda finns i en länk.
     const s = read && !touring ? (decodeHash(location.hash) ?? legacyCamera()) : null;
     const before = version;
-    if (s) await apply(s);
+    // Felkanalen (#1324): turen som inte startade (en lektionslänk förklaras av bandet, #877) och det apply() inte hittade
+    const found = tl && !touring && !lessonWanted ? [tourProblem(tl.id)] : [];
+    if (s) found.push(...(await apply(s) ?? []));
     setInterval(write, POLL_MS);
     // Har Bakåt eller en ändrad hash tagit över medan startens inställning pågick, äger den adressen nu
     if (version !== before + (s ? 1 : 0)) return touring || !!s;
@@ -197,6 +239,8 @@ export function createAddress(app) {
     settle();
     history.replaceState(null, '', `${location.pathname}${search()}${writtenHash}`);
     legacyCameraInSearch = false; // ?c= är nu borta ur adressen (#1141): flaggan hör till första läsningen och nollställs här, inte i settle(), som apply() anropar före den här raden
+    // Raden om en trasig länk visas sist, så att ingenting som startade i länken stänger den. En tur i länken läser inte resten
+    if (read && !touring) announce(hash, query, found);
     return touring || hunting || !!s;
   }
 
@@ -225,8 +269,9 @@ export function createAddress(app) {
   /**
    * Skriver vyn i adressen nu. Språkbytet (js/i18n.js) laddar om sidan direkt och tar adressen som den står; utan flush
    * står steget före senaste Nästa kvar (adressen skrivs annars först när vyn har stått still, #882).
+   * push: skriv som en egen post i historiken, så att Bakåt går tillbaka till föregående stopp på en resa (#1380).
    */
-  function flush() { write(true); }
+  function flush({ push = false } = {}) { write(true, push); }
 
   return { start, link, share, flush };
 }

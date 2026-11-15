@@ -12,12 +12,19 @@
   --parchment-dim: #a9a08c;/* sekundär text */
   --brass: #d6b06a;        /* accent: mässing */
   --brass-deep: #9c7a3c;
+  --brass-light: color-mix(in srgb, var(--brass) 70%, #fff); /* ljusare mässing (#e2c897): fokusring, rubrik på epokgrupperna och hovring på fokusknappen (#1471). 11,6:1 mot --night, 10,6:1 mot --night-2 */
   --ocean: #13324a;
   --land: #c8b48a;
+  --shelf: #d6c496;         /* istidens kust (#1096): torrlagd yta, samma ton som bilderna i images/lager/istidens-kust-*.webp */
+  --shelf-ink: #503a19;     /* istidens kust: snedstreck och kustlinje */
+  --ice: #f1f4f6;           /* istidens kust (#1564): inlandsis i modellen, samma ton som i bilderna */
+  --ice-edge: #788a96;      /* istidens kust: isens kant mot isfritt land */
   --danger: #e0675a;
   --ok: #8fc48e;
   --medal: #10202c;        /* markörernas botten (#242), samma som GROUND i layers/events.js */
   --gold-dot: #f1d98a;     /* markörernas punkt för betydelse */
+  --map-sea-label: #a9cde4; /* regionvyns havsnamn (#1642): ljusblått med mörk kant, 8,9:1 mot --night och 7,7:1 mot --ocean */
+  --map-land-label: #e2d6b8;/* regionvyns grannländer (#1642): versaler med mörk kant */
   /* Lagerordning för ytorna (#894), lägst först. Siffrorna är oförändrade; namnen gör ordningen läsbar.
      kort < tur < panel (och faktaruta över turkort) < band (lektionsbandet, utfällda ark) < meny. */
   --z-kort: 13;            /* faktarutan, jaktkortet och andra kort som ligger på kartan */
@@ -161,6 +168,7 @@ body {
 .globe-canvas:focus-visible { outline-offset: -3px; }
 .glabel-hover { z-index: 1; border-color: var(--label-hover-border); }
 .globe-canvas.on-marker { cursor: pointer; }
+.globe-canvas.on-place:not(.dragging) { cursor: pointer; } /* handen över en plats med kort (#1161) */
 .glabel .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 6px; vertical-align: 1px; }
 @media (max-width: 760px) {
   /* Etiketten får samma 44 px träffyta som övriga mobilkontroller utan att täcka kartan visuellt. */
@@ -243,7 +251,7 @@ body {
   font: 500 12px/1 var(--f-mono); color: var(--parchment); background: var(--night); border: 0; cursor: pointer;
 }
 .jump-era { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 8px; }
-.jump-era > span { margin-right: auto; font: 500 11px/1.3 var(--f-mono); color: var(--dim); }
+.jump-era > span { margin-right: auto; font: 500 11px/1.3 var(--f-mono); color: var(--parchment-dim); }
 .jump-era-btn { padding: 0 10px; border: 1px solid var(--control-line); border-radius: 8px; }
 .jump-era .jump-era-btn { min-height: 44px; }
 .jump-era-btn[aria-pressed="true"] { background: var(--brass); color: var(--night); }
@@ -364,7 +372,8 @@ body {
 }
 
 /* ---------- presentationsläge (#488) ----------
-   Aktiveras bara av ?presentation=1. Normalvyn får inga ändrade variabler eller mått. */
+   Aktiveras bara av ?presentation=1 och bara från 761 px (#1457): js/controllers/presentation.js sätter ingen klass i smal
+   skärm, så Avsluta kan inte täcka årtalet där. Normalvyn får inga ändrade variabler eller mått. */
 .presentation-exit { display: none; align-items: center; min-height: 44px; text-decoration: none; }
 .presentation-mode .presentation-exit { display: inline-flex; }
 .presentation-mode .top-actions { gap: 12px; }
@@ -480,15 +489,32 @@ body {
 .layer-note { flex-basis: 100%; padding-left: 26px; font: 400 11px/1.3 var(--f-mono); color: var(--parchment-dim); }
 /* Grupper och förinställda vyer i Lager (#357) */
 .layer-subheading { margin: 8px 10px 2px; font: 500 10.5px/1 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--parchment-dim); }
-.view-chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 6px 10px 8px; }
+.view-chips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; padding: 6px 10px 8px; }
+/* Förvalen som kort (#1574): namnet och en mening om vad vyn visar på kartan */
 .view-chip {
-  display: inline-flex; align-items: center; min-height: 32px; padding: 6px 12px;
-  font: 500 12.5px/1 var(--f-body); color: var(--parchment);
-  background: transparent; border: 1px solid var(--control-line); border-radius: 999px; cursor: pointer;
+  display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 3px; min-height: 44px; padding: 8px 10px; text-align: left;
+  font: 500 12.5px/1.2 var(--f-body); color: var(--parchment);
+  background: transparent; border: 1px solid var(--control-line); border-radius: 10px; cursor: pointer;
 }
+.view-chip-name { font-weight: 600; }
+.view-chip-desc { font: 400 11px/1.3 var(--f-body); color: var(--parchment-dim); }
 .view-chip:hover { background: var(--night-3); border-color: var(--brass-deep); }
 .view-chip[aria-pressed="true"] { background: var(--brass); border-color: var(--brass); color: var(--night); }
-.view-custom { cursor: default; border-style: dashed; border-color: var(--brass-deep); color: var(--brass); font-style: italic; }
+.view-chip[aria-pressed="true"] .view-chip-desc { color: color-mix(in srgb, var(--night) 80%, transparent); }
+#layer-menu { width: min(460px, calc(100vw - 32px)); }
+/* Grupperna i Fler val (#1574): hopfällda, med antalet påslagna lager på raden */
+.layer-sect { border-top: 1px solid var(--line); }
+.layer-sect > summary {
+  display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 10px; cursor: pointer; list-style: none;
+  font: 600 11px/1.2 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass);
+}
+.layer-sect > summary::-webkit-details-marker { display: none; }
+.layer-sect > summary::after { content: ""; margin-left: auto; width: 7px; height: 7px; border: solid currentColor; border-width: 0 2px 2px 0; transform: rotate(45deg) translateY(-2px); transition: transform .15s; }
+.layer-sect[open] > summary::after { transform: rotate(-135deg) translateY(-1px); }
+.layer-sect > summary:focus-visible { outline: 2px solid var(--brass); outline-offset: -2px; border-radius: 6px; }
+.layer-sect-count { font: 400 11px/1.2 var(--f-mono); letter-spacing: 0; text-transform: none; color: var(--parchment-dim); }
+.layer-group:has(.layer-sect) .layer-heading { display: none; }
+.view-custom { grid-column: 1 / -1; align-items: center; cursor: default; border-style: dashed; border-color: var(--brass-deep); color: var(--brass); font-style: italic; }
 .view-custom[hidden] { display: none; }
 .layer-customize {
   display: flex; align-items: center; justify-content: center; gap: 8px;
@@ -501,7 +527,7 @@ body {
 .layer-action { min-height: 44px; padding: 6px 8px; color: var(--parchment); background: var(--night-3); border: 1px solid var(--control-line); border-radius: 8px; font: 500 12.5px/1.2 var(--f-body); cursor: pointer; }
 .layer-action:hover { border-color: var(--brass-deep); }
 .layer-action-status { grid-column: 1 / -1; margin: 0; color: var(--parchment-dim); font-size: 12px; line-height: 1.35; }
-.layer-view-status { margin: 6px 0 0; color: var(--parchment-dim); font-size: 12.5px; line-height: 1.4; }
+.layer-view-status { margin: 6px 0 0; padding: 0 10px 8px; color: var(--parchment-dim); font-size: 12.5px; line-height: 1.4; }
 .panel-enable-events { min-height: 44px; margin: 0 10px 12px; }
 .layer-customize-chev {
   width: 6px; height: 6px; border: solid currentColor; border-width: 0 1.5px 1.5px 0;
@@ -741,7 +767,10 @@ body {
   box-shadow: 0 6px 18px rgba(0,0,0,.35);
   cursor: pointer;
 }
-.ff-tab .count { background: #7a5a1f; color: var(--parchment); }
+.ff-tab .count { /* siffran på fliken: luft, rundning och en variabel i stället för en hårdkodad färg (#1387) */
+  display: inline-block; min-width: 18px; margin-left: 4px; padding: 2px 6px; border-radius: 999px;
+  background: var(--ff-ink-soft); color: var(--parchment); font: 600 11px/1 var(--f-mono); text-align: center;
+}
 .ff-text { margin: 8px 0 10px; font: 400 19px/1.32 var(--f-display); text-wrap: pretty; }
 /* Rikets berättelse (#171): rubrik med årtal, kort text och ibland en rad om kartan */
 .ff-story-head { display: block; }
@@ -830,6 +859,43 @@ body {
   font: 400 14px/1 var(--f-display); color: var(--brass);
 }
 .help-steps b { display: block; font: 600 13.5px/1.3 var(--f-body); color: var(--parchment); }
+/* För lärare (#1315): samma kort som hjälpen. Lektionerna, utskriften och de tre knapparna (quiz, jakt, presentationsläge). */
+.help-teacher { margin: 8px 0 0; border-top: 1px solid var(--line); padding-top: 6px; font: 400 12px/1.4 var(--f-body); color: var(--parchment-dim); }
+.help-teacher .link-btn { font-size: 12.5px; padding: 2px 0; }
+/* Kortet är högt och öppnas ur menyn Mer: det ligger i menylagret, annars täcks det av Samtidigt-kortet i mobilen */
+.teacher-card { z-index: var(--z-meny); width: min(380px, calc(100vw - 32px)); }
+@media (max-width: 760px) { .teacher-card { width: auto; } .teacher-card .panel-x { min-width: 44px; min-height: 44px; } }
+/* Inställningar (#1574): öppnas ur Mer som För lärare och ligger i menylagret; raderna är samma som i Lager */
+.settings-card { z-index: var(--z-meny); width: min(380px, calc(100vw - 32px)); }
+.settings-rows { margin-top: 4px; }
+.settings-rows .layer-row { padding: 9px 6px; }
+.settings-rows .layer-subheading { margin: 10px 6px 2px; }
+@media (max-width: 760px) { .settings-card { width: auto; } .settings-card .panel-x { min-width: 44px; min-height: 44px; } .settings-rows .layer-row { min-height: 44px; } }
+.teacher-intro, .teacher-text { margin: 8px 0 0; font: 400 13px/1.45 var(--f-body); color: var(--parchment-dim); }
+.teacher-section { margin-top: 10px; border-top: 1px solid var(--line); padding-top: 8px; }
+.teacher-h { margin: 0; font: 500 11px/1.2 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
+.teacher-section .teacher-text { margin-top: 4px; }
+.teacher-more { margin-top: 10px; border-top: 1px solid var(--line); padding-top: 6px; }
+.teacher-more summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; font: 600 13px/1.4 var(--f-body); color: var(--brass); }
+.teacher-more summary:focus-visible { outline: 2px solid var(--brass-light); outline-offset: 2px; border-radius: 4px; }
+.teacher-h-print { margin-top: 10px; }
+.teacher-lessons, .teacher-actions { list-style: none; margin: 8px 0 0; padding: 0; }
+.teacher-lessons[hidden], .teacher-empty[hidden] { display: none; }
+.teacher-lesson { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 2px 10px; padding: 8px 0; }
+.teacher-lesson + .teacher-lesson { border-top: 1px solid var(--line); }
+.teacher-lesson-title { grid-column: 1; font: 400 17px/1.2 var(--f-display); color: var(--parchment); }
+.teacher-lesson-meta { grid-column: 1; font: 500 11px/1.3 var(--f-mono); letter-spacing: .06em; color: var(--brass); }
+.teacher-lesson-start { grid-column: 2; grid-row: 1 / span 2; }
+.teacher-lesson-copy { grid-column: 1 / -1; justify-self: start; min-height: 24px; font-size: 12.5px; }
+@media (max-width: 760px) { .teacher-lesson-copy { min-height: 44px; } }
+.teacher-actions { display: grid; gap: 6px; margin-top: 10px; border-top: 1px solid var(--line); padding-top: 8px; }
+.teacher-actions li[hidden] { display: none; }
+.teacher-item { position: relative; display: grid; gap: 3px; width: 100%; min-height: 44px; padding: 9px 30px 9px 12px; border: 1px solid var(--control-line); border-radius: 8px; background: none; color: var(--parchment); text-align: left; cursor: pointer; }
+.teacher-item::after { content: "\203A"; position: absolute; right: 12px; top: 50%; transform: translateY(-50%); font: 400 22px/1 var(--f-body); color: var(--brass); }
+.teacher-item:hover { background: color-mix(in srgb, var(--brass) 14%, transparent); }
+.teacher-item:focus-visible { outline: 2px solid var(--brass-light); outline-offset: -2px; }
+.teacher-item-title { font: 400 17px/1.2 var(--f-display); }
+.teacher-item-text { font: 400 12.5px/1.4 var(--f-body); color: var(--parchment-dim); }
 /* Markörer och klungor (#242, #243): små exempel på medaljen och klungan */
 .help-marks { margin-top: 6px; border-top: 1px solid var(--line); padding-top: 6px; }
 .help-marks summary { cursor: pointer; font: 600 13px/1.4 var(--f-body); color: var(--brass); padding: 4px 0; }
@@ -918,10 +984,27 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
   backdrop-filter: blur(6px); box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
 }
 .tour-card[hidden] { display: none; }
+/* Lektionsläget på projektor (#1572): från 1 600 px större text och ett bredare kort, och från 2 200 px ännu större */
+@media (min-width: 1600px) {
+  .app.lesson .tour-card { width: 480px; padding: 18px 20px 14px; }
+  .app.lesson .tour-title { font-size: 28px; }
+  .app.lesson .tour-text { font-size: 18px; }
+  .app.lesson .tour-question { font-size: 17px; }
+  .app.lesson .tour-progress, .app.lesson .tour-name { font-size: 13px; }
+  .app.lesson .lesson-band-title, .app.lesson .lesson-exit { font-size: 15px; }
+  .app.lesson .lesson-exit { min-height: 38px; }
+}
+@media (min-width: 2200px) {
+  .app.lesson .tour-card { width: 600px; }
+  .app.lesson .tour-title { font-size: 34px; }
+  .app.lesson .tour-text { font-size: 22px; }
+  .app.lesson .tour-question { font-size: 21px; }
+}
 .app.touring .funfact, .app.touring .ff-tab { display: none; }
 /* Turkortets Nästa är den enda framåtknappen och Avsluta finns där (#999): pausraden visar bara var i turen man är */
 .app.touring #pause-go { display: none !important; }
-.timebar .tour-locked, .timebar .tour-locked:hover { opacity: .35; cursor: default; }
+.timebar .time-locked, .timebar .time-locked:hover { opacity: .35; cursor: default; }
+#year-jump.time-locked, #year-jump.time-locked:hover { cursor: default; } /* tidslåset (#1322): i tur och, för stegknapparna, i lektion */
 /* ---------- lektionsläget (#795) ----------
    Bandet överst och menyerna som läraren inte vill att eleverna ska nå. Turens egna knappar står kvar;
    utgången är "Visa hela globen" i bandet, så Avsluta i kortet och pausraden döljs. */
@@ -945,7 +1028,7 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 .lesson-notice .lesson-band-title { flex: 1; }
 .app.lesson .view-mode, .app.lesson #btn-layers, .app.lesson #btn-focus, .app.lesson #btn-tour, .app.lesson #btn-intro,
 .app.lesson #filters, .app.lesson #panel-filters, .app.lesson .focus-btn, .app.lesson [data-follow-war],
-.app.lesson #btn-hunt, .app.lesson #tour-print, .app.lesson #tour-copy-teacher, .app.lesson #tour-close, .app.lesson #tour-end, .app.lesson .story-tour { display: none !important; }
+.app.lesson #btn-teacher, .app.lesson .help-teacher, .app.lesson #btn-support, .app.lesson .app.lesson #tour-close, .app.lesson #tour-end, .app.lesson .story-tour { display: none !important; }
 .tour-lesson-end { margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--control-line); }
 .tour-lesson-end[hidden] { display: none; }
 .tour-lesson-end-label { margin: 0; font: 500 11px/1.2 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
@@ -1000,18 +1083,25 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 .tour-actions .chip-btn { margin-right: auto; }
 .tour-actions .chip-btn[hidden] { display: none; }
 .tour-next { min-height: 44px; padding: 8px 16px; border: 1px solid var(--brass); border-radius: 999px; background: var(--brass); color: var(--night); font: 600 13px/1 var(--f-body); cursor: pointer; }
-.tour-end { min-height: 44px; padding: 8px 16px; border: 1px solid var(--control-line); border-radius: 999px; background: transparent; color: var(--parchment); font: 500 13px/1 var(--f-body); cursor: pointer; }
-.tour-end:hover { border-color: var(--brass-deep); }
+.tour-foot { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-top: 6px; padding-top: 2px; border-top: 1px solid var(--control-line); }
+/* Lämna turen (#1572): en benämnd länk i kortets fot, minst 44 px hög; ingen pillerknapp bredvid Nästa */
+.tour-end { min-height: 44px; padding: 0 4px; border: 0; background: transparent; color: var(--brass); font: 600 13px/1 var(--f-body); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.tour-end:hover { color: var(--parchment); }
 .tour-end[hidden] { display: none; }
 .tour-next:focus-visible, .tour-end:focus-visible, .tour-pick:focus-visible { outline: 2px solid var(--brass-light); outline-offset: 2px; }
 .tour-menu { width: min(360px, calc(100vw - 32px)); }
 .tour-list { list-style: none; margin: 0; padding: 0; }
 .tour-group-title { margin-top: 10px; }
-.tour-pick { display: grid; gap: 4px; width: 100%; min-height: 44px; padding: 9px 10px; border: 0; border-radius: 8px; background: none; color: var(--parchment); text-align: left; cursor: pointer; }
+.tour-row { border-radius: 8px; }
+/* Turens rad (#1573): rubrik med vinkel på en tät rad; sammanfattning och startknappar fälls ut */
+.tour-pick { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; box-sizing: border-box; min-height: 44px; padding: 8px 10px; border: 0; border-radius: 8px; background: none; color: var(--parchment); text-align: left; cursor: pointer; list-style: none; }
+.tour-pick::-webkit-details-marker { display: none; }
+.tour-pick::after { content: ""; flex: none; width: 7px; height: 7px; border: solid var(--brass); border-width: 0 2px 2px 0; transform: rotate(45deg) translateY(-2px); transition: transform .15s; }
+.tour-row[open] > .tour-pick::after { transform: rotate(-135deg) translateY(-1px); }
 .tour-pick:hover { background: color-mix(in srgb, var(--brass) 14%, transparent); }
-.tour-pick-title { font: 400 18px/1.15 var(--f-display); }
-.tour-pick-meta { font: 400 13px/1.35 var(--f-body); color: var(--parchment-dim); }
-.tour-pick-meta[hidden] { display: none; }
+.tour-pick-title { font: 400 17px/1.2 var(--f-display); }
+.tour-pick-meta { margin: 0; padding: 0 10px 4px; font: 400 13px/1.4 var(--f-body); color: var(--parchment-dim); }
+.tour-row-body { padding-bottom: 4px; }
 .tour-lesson-row { display: flex; align-items: center; justify-content: space-between; gap: 8px 10px; flex-wrap: wrap; padding: 0 10px 8px; }
 .tour-lesson-meta { font: 500 11px/1.3 var(--f-mono); letter-spacing: .06em; color: var(--brass); }
 .tour-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-left: auto; }
@@ -1025,6 +1115,16 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
   .tour-text { font-size: 15px; }
   .tour-links .link-btn { min-height: 44px; }
   .tour-next, .tour-end, .tour-actions .chip-btn { min-height: 44px; }
+  /* Faktarutan under en tur i smal skärm (#1582): turkortet krymper till steg, stegindikator och Föregående/Nästa, och arket står
+     ovanför det, så att Nästa går att nå utan att först stänga faktarutan. Kortet är 104 px högt (--tour-reading-h) och står som förut 136 eller 196 px från botten (--tour-card-b) och växer tillbaka när rutan stängs. */
+  .app.touring { --tour-reading-h: 104px; --tour-card-b: 136px; }
+  .app.touring:has(.pause-note:not([hidden])) { --tour-card-b: 196px; }
+  .app.touring:has(#detail:not([hidden])) .tour-card :is(.tour-name, .tour-chapter, .tour-title, .tour-status, .tour-text, .tour-question, .tour-links, .tour-lesson-end, .tour-foot) { display: none; }
+  .app.touring:has(#detail:not([hidden])) #detail { bottom: calc(var(--tour-card-b) + var(--tour-reading-h) + 8px); }
+  .app.touring:has(#detail:not([hidden])) #detail:not([data-sheet="full"]):not(.sheet-dragging) { max-height: min(40dvh, calc(100dvh - var(--tour-card-b) - var(--tour-reading-h) - 8px - 190px)); }
+  .app.touring:has(#detail:not([hidden])) #detail[data-sheet="full"], .app.touring:has(#detail:not([hidden])) #detail.sheet-dragging { max-height: calc(100dvh - var(--tour-card-b) - var(--tour-reading-h) - 8px - 72px - env(safe-area-inset-top, 0px)); }
+  .app.touring.lesson:has(#detail:not([hidden])) #detail[data-sheet="full"], .app.touring.lesson:has(#detail:not([hidden])) #detail.sheet-dragging { max-height: calc(100dvh - var(--tour-card-b) - var(--tour-reading-h) - 8px - 112px - env(safe-area-inset-top, 0px)); }
+  .app.touring.lesson-teacher:has(#detail:not([hidden])) #detail[data-sheet="full"], .app.touring.lesson-teacher:has(#detail:not([hidden])) #detail.sheet-dragging { max-height: calc(100dvh - var(--tour-card-b) - var(--tour-reading-h) - 8px - 142px - env(safe-area-inset-top, 0px)); }
 }
 
 /* ---------- tidslinjen ---------- */
@@ -1057,8 +1157,14 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 .track-segments { position: absolute; left: 0; right: 0; top: 14px; height: 8px; display: flex; }
 .seg { height: 100%; border: 1px solid var(--line); border-right: 0; background: var(--night-2); }
 .seg:first-child { border-radius: 4px 0 0 4px; }
-.seg:last-child { border-right: 1px solid var(--line); border-radius: 0 4px 4px 0; }
-.seg:nth-child(even) { background: var(--night-3); }
+.seg:last-of-type { border-right: 1px solid var(--line); border-radius: 0 4px 4px 0; }
+.seg:nth-of-type(even) { background: var(--night-3); }
+/* Skarvarna (#1313): där skalan byter. Ett avbrott i axeln, två tunna streck med mörkt mellanrum, högre än fältet så att de syns
+   även mellan prickarna. Bara för ögat: reglaget är tabbstoppet och skarvarna förklaras i skalraden och teckenförklaringen. */
+.seam, .tl-seam { display: inline-block; box-sizing: border-box; width: 5px; border: solid var(--parchment-dim); border-width: 0 1px; background: var(--night); transform: skewX(-18deg); }
+.seam { position: absolute; z-index: 1; top: -4px; height: 16px; margin-left: -2.5px; pointer-events: none; } /* över prickarna, så att skarven syns även där det finns många händelser */
+.tl-item .tl-seam { height: 12px; background: var(--night); }
+@media (max-width: 560px) { .tl-item-seam { display: none; } } /* raden rymmer inte "ny skala" på alla språk i mobil (de, es, fr klipps); skalraden förklarar skarven när man flyttar året */
 .track-dots, .track-ff { position: absolute; left: 0; right: 0; top: 0; height: 30px; pointer-events: none; }
 .tdot, .tspan, .tff, .troute { appearance: none; border: 0; padding: 0; cursor: pointer; pointer-events: auto; }
 .tdot { position: absolute; top: 15px; width: 6px; height: 6px; margin-left: -3px; border-radius: 50%; }
@@ -1074,12 +1180,15 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
    yta på 24 px skulle stjäla drag och klick i reglaget intill varje markering (två befintliga kontroller föll när det prövades).
    WCAG 2.5.8 godtar det som "likvärdig kontroll": varje markering har ett alternativ i Samtidigt-listan, och reglaget är tabbstoppet (#1003). */
 .tdot:focus-visible, .tspan:focus-visible, .tff:focus-visible, .troute:focus-visible { outline: 2px solid var(--parchment); outline-offset: 3px; z-index: 2; }
-/* Engångstips vid tidslinjen (#996) */
-.year-tip { display: flex; align-items: center; justify-content: center; gap: 6px; margin: 2px 0 0; font: 500 12px/1.3 var(--f-body); color: var(--brass-light, var(--brass)); animation: tip-in .4s ease-out; }
+/* Engångstips vid tidslinjen (#996). Tipset ligger över tidsradens nedersta rad, där teckenförklaringen står, och tar ingen höjd (#1302):
+   som rad i flödet gjorde det tidsraden 22 px högre medan det syntes, så att stegknapparna täckte Samtidigt-kortet (mobil) och fokusraden låg över
+   dem. Teckenförklaringen döljs medan tipset syns, eftersom de delar raden. Tipset visas inte i tur, lektion eller Fokus. */
+.year-tip { position: absolute; left: var(--gut); right: var(--gut-r); bottom: env(safe-area-inset-bottom, 0px); height: 20px; display: flex; align-items: center; justify-content: center; gap: 6px; margin: 0; font: 500 12px/1.3 var(--f-body); color: var(--brass-light, var(--brass)); animation: tip-in .4s ease-out; }
 .year-tip[hidden] { display: none; }
 .year-tip-close { min-width: 44px; min-height: 44px; margin: -12px 0; background: none; border: 0; color: inherit; font-size: 18px; line-height: 1; cursor: pointer; }
 .year-tip-close:focus-visible { outline: 2px solid var(--brass); outline-offset: -4px; border-radius: 6px; }
-.app.lesson .year-tip { display: none; }
+.app.lesson .year-tip, .app.touring .year-tip, .app.focusing .year-tip { display: none; }
+.app:not(.lesson):not(.touring):not(.focusing) .timeline-legend:has(~ .year-tip:not([hidden])) { visibility: hidden; }
 @keyframes tip-in { from { opacity: 0; } to { opacity: 1; } }
 html.calm .year-tip { animation: none; }
 @media (prefers-reduced-motion: reduce) { .year-tip { animation: none; } }
@@ -1096,6 +1205,10 @@ html.calm .year-tip { animation: none; }
 .tl-diamond { width: 8px; height: 8px; transform: rotate(45deg); border-radius: 1px; }
 .tl-bar { width: 3px; height: 12px; border-radius: 2px; }
 .app.lesson .timeline-legend { display: none; }
+.timeline-scale-note { display: flex; align-items: center; height: 14px; margin: 0 0 -14px; white-space: nowrap; overflow: hidden; font: 400 11px/14px var(--f-mono); color: var(--brass); }
+.timeline-scale-note[hidden] { display: none; }
+.timeline-scale-note:not([hidden]) + .timeline-legend { visibility: hidden; } /* samma lucka: teckenförklaringen tonas ned medan skalraden syns, som vid engångstipset */
+.app.lesson .timeline-scale-note, .app.touring .timeline-scale-note, .app.focusing .timeline-scale-note { display: none; }
 .timeline-mark-note { margin: -2px 0 0; min-height: 16px; font: 400 11px/1.3 var(--f-mono); color: var(--parchment-dim); }
 .thumb {
   position: absolute; top: 4px; width: 0; height: 28px;
@@ -1171,7 +1284,7 @@ html.calm .year-tip { animation: none; }
 .flat-box { position: absolute; left: 0; right: 0; top: 70px; height: calc(100% - 200px); overflow: hidden; }
 .flat-canvas { display: block; width: 100%; height: 100%; touch-action: none; cursor: grab; }
 .flat-canvas.dragging { cursor: grabbing; }
-.flat-canvas.on-marker:not(.dragging) { cursor: pointer; }
+.flat-canvas.on-marker:not(.dragging), .flat-canvas.on-place:not(.dragging) { cursor: pointer; }
 /* Händelsernas klungor och etiketter i Platt vy (#313): samma knappar som på globen, ovanpå kartan */
 .flat-labels { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
 .flat-canvas:focus-visible { outline: 2px solid var(--brass); outline-offset: -3px; }
@@ -1193,6 +1306,129 @@ html.calm .year-tip { animation: none; }
 .flat-zbtn:hover { border-color: var(--brass); color: var(--brass); }
 .flat-poster { width: auto; min-width: 40px; padding: 0 10px; font-size: 13px; }
 @media (max-width: 760px) { .flat-zbtn { width: 44px; height: 44px; } }
+/* Zoomknapparna täcks aldrig av faktarutan (#1660). På dator ligger kortet vid högerkanten och kan vara högre än avståndet till
+   knapparna, så så länge det är öppet flyttas knapparna till vänster om det: kortets yttre bredd + 12 px luft. Bredden på
+   .detail-card gäller innehållet (content-box), så fyllningen och kanten läggs till: 2 × 16 + 2 px i vanligt läge, 2 × 22 + 2 px i
+   presentationsläget (samma bredder som .detail-card och presentationsläget har; webbläsartestet mäter att inget täcks). I mobil
+   ligger kortet som ark nertill och knapparna uppe till höger, som förut. */
+@media (min-width: 761px) {
+  .app:has(#detail:not([hidden])) .flat-zoom { right: calc(var(--gut-r) + min(360px, calc(100vw - 32px)) + 34px + 12px); }
+  .app.presentation-mode:has(#detail:not([hidden])) .flat-zoom { right: calc(var(--gut-r) + min(460px, calc(100vw - 48px)) + 46px + 12px); }
+}
+@media (min-width: 1600px) {
+  .app.presentation-mode:has(#detail:not([hidden])) .flat-zoom { right: calc(var(--gut-r) + min(520px, calc(100vw - 64px)) + 46px + 12px); }
+}
+/* Regionvyn (#1641): rutan uppe till vänster säger vilken plats som visas och har vägen ut. Rikenas och religionernas
+   förklaring döljs där, eftersom de lagren inte ritas i regionvyn (js/controllers/region.js räknar ramen utan rutan). */
+.flat-region {
+  position: absolute; left: var(--gut); top: 16px; max-width: min(280px, calc(100% - var(--gut) - 76px));
+  padding: 8px 12px 10px; box-sizing: border-box;
+  background: color-mix(in srgb, var(--night-2) 92%, transparent);
+  border: 1px solid var(--brass-deep); border-radius: var(--r);
+  font: 400 12.5px/1.4 var(--f-body); color: var(--parchment);
+}
+.flat-region[hidden] { display: none; }
+.flat-region-name { margin: 0; font: 400 11px/1.3 var(--f-mono); color: var(--brass); letter-spacing: .04em; }
+.flat-region-note { margin: 3px 0 6px; opacity: .85; }
+/* Förklaringen till den streckade ringen (#1642): en kort rad med en liten ring, samma streckade ring som markörerna */
+.flat-region-legend { display: flex; align-items: center; gap: 6px; margin: 0 0 6px; font: 400 12px/1.3 var(--f-body); }
+.flat-region-ring { flex: none; width: 12px; height: 12px; border-radius: 50%; border: 2px dashed var(--parchment); box-sizing: border-box; }
+.flat-region-back {
+  min-height: 32px; padding: 4px 12px; font: 500 13px/1.2 var(--f-body);
+  color: var(--parchment); background: transparent; border: 1px solid var(--brass-deep); border-radius: 999px; cursor: pointer;
+}
+.flat-region-back:hover { border-color: var(--brass); color: var(--brass); }
+.flat-region-back:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+.app.region-view .religion-legend { display: none; }
+/* Regionvyn på globen (#1644): markörerna ligger i ett eget lager över klotet (ekrar och ortnamn på dess canvas), och globens
+   vanliga etiketter och klungor döljs, som medaljerna (js/controllers/region.js). Rutan står där religionernas förklaring står. */
+.globe-region { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.globe-region[hidden] { display: none; }
+.globe-region-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.globe-region-chip { top: 140px; z-index: var(--z-kartforklaring); }
+.app.globe-region-view .labels { visibility: hidden; }
+/* Regionvyns markörer (#1642): numrerade markörer i kategorins färg med mörk kant, högar med ortnamn och årsspann, brickan för
+   händelser som gäller hela platsen och etiketten vid den markerade markören. Alla är knappar i kartans etikettlager. */
+.region-marks { position: absolute; inset: 0; pointer-events: none; isolation: isolate; }
+.region-marks[hidden] { display: none; }
+.rmark, .rpile, .rbrick { position: absolute; left: 0; top: 0; pointer-events: auto; cursor: pointer; box-sizing: border-box; }
+.rmark {
+  width: 24px; height: 24px; padding: 0; border: 0; border-radius: 50%;
+  display: grid; place-items: center;
+  font: 600 11px/1 var(--f-mono); color: var(--night);
+  background: var(--c, var(--brass));
+  /* Mörk kant: markören syns både på pergamentfärgat land och på mörkt hav */
+  box-shadow: 0 0 0 2px var(--night), 0 0 0 3px color-mix(in srgb, var(--parchment) 55%, transparent);
+}
+/* Ungefärlig plats: en streckad ring runt markören, inte en exakt prick */
+.rmark.is-approx::after {
+  content: ""; position: absolute; inset: -6px; border-radius: 50%;
+  border: 2px dashed var(--parchment); box-shadow: 0 0 0 1px var(--night), inset 0 0 0 1px var(--night);
+  pointer-events: none;
+}
+.rmark.is-marked { box-shadow: 0 0 0 2px var(--night), 0 0 0 5px var(--brass), 0 0 0 6.5px var(--night); z-index: 3; }
+.rmark.rfan { z-index: 2; }
+.rmark.in-brick::after { display: none; } /* under brickan: brickan säger redan att händelsen gäller hela platsen */
+.rmark.is-under, .rpile.is-under { opacity: .3; }
+.rmark.rfan.is-marked { z-index: 3; }
+.rpile {
+  width: 30px; height: 30px; padding: 0; display: grid; place-items: center;
+  font: 600 10.5px/1 var(--f-mono); letter-spacing: -.02em; color: var(--parchment); background: var(--night);
+  border: 2px solid var(--brass); border-radius: 50%;
+  /* Högen: en rund bricka till bakom, förskjuten, som en hög mynt */
+  box-shadow: 0 0 0 1.5px var(--night), 3px 3px 0 0 var(--night-3), 3px 3px 0 1.5px var(--brass-deep);
+}
+/* Högens namn och årsspann: bredvid brickan, där regionvyn hittar plats (data-tag sätts i js/ui/region-marks.js) */
+.rpile-tag {
+  position: absolute; display: grid; gap: 1px; padding: 2px 7px; border-radius: 6px; white-space: nowrap; text-align: left;
+  background: color-mix(in srgb, var(--night) 88%, transparent); border: 1px solid var(--brass-deep);
+  visibility: hidden; left: calc(100% + 4px); top: 50%; transform: translateY(-50%);
+}
+.rpile[data-tag="right"] .rpile-tag, .rpile[data-tag="left"] .rpile-tag, .rpile[data-tag="above"] .rpile-tag, .rpile[data-tag="below"] .rpile-tag { visibility: visible; }
+.rpile[data-tag="left"] .rpile-tag { left: auto; right: calc(100% + 4px); text-align: right; }
+.rpile[data-tag="above"] .rpile-tag { left: 50%; top: auto; bottom: calc(100% + 4px); transform: translateX(-50%); text-align: center; }
+.rpile[data-tag="below"] .rpile-tag { left: 50%; top: calc(100% + 4px); transform: translateX(-50%); text-align: center; }
+.rpile-name { font: 600 12px/1.2 var(--f-body); color: var(--parchment); }
+.rpile-years { font: 400 10.5px/1.2 var(--f-mono); color: var(--parchment-dim); }
+.rpile.tag-short .rpile-years { display: none; } /* kort etikett: bara namnet, när namnet och årsspannet inte ryms */
+.rpile[aria-expanded="true"] { border-color: var(--brass-light); background: var(--night-2); }
+.rpile.is-marked, .rpile.is-hover, .rbrick.is-marked { outline: 3px solid var(--brass-light); outline-offset: 2px; }
+.rbrick {
+  min-height: 30px; padding: 4px 12px; white-space: nowrap;
+  font: 600 12.5px/1.2 var(--f-body); color: var(--parchment);
+  background: color-mix(in srgb, var(--night) 94%, transparent);
+  border: 2px dashed var(--brass); border-radius: 999px;
+  box-shadow: 0 0 0 1.5px var(--night);
+}
+.rbrick[aria-expanded="true"] { border-style: solid; border-color: var(--brass-light); }
+.rmark:focus-visible, .rpile:focus-visible, .rbrick:focus-visible, .region-label:focus-visible { outline: 2px solid var(--brass-light); outline-offset: 4px; }
+.region-label { z-index: 4; border-color: var(--brass); }
+/* Pekskärm: 44 px träffyta runt markörerna utan att de ritas större */
+@media (max-width: 760px), (pointer: coarse) {
+  .rmark::before { content: ""; position: absolute; inset: -10px; border-radius: 50%; }
+  /* Högen (30 px) och brickan (30 px hög) får också 44 px tryckyta */
+  .rpile::before { content: ""; position: absolute; inset: -7px; border-radius: 50%; }
+  .rbrick::before { content: ""; position: absolute; inset: -7px -4px; border-radius: 999px; }
+}
+/* Raderna i platsens lista får markörernas nummer medan regionvyn är öppen, och en ram när de är markerade */
+.region-num {
+  display: inline-grid; place-items: center; min-width: 20px; height: 20px; margin-right: 6px; padding: 0 3px; box-sizing: border-box;
+  vertical-align: 1px; border-radius: 50%; font: 600 10.5px/1 var(--f-mono); color: var(--night); background: var(--brass);
+}
+.region-num.is-whole { border-radius: 6px; }
+.region-num.is-approx { outline: 1.5px dashed var(--card-dim, var(--parchment-dim)); outline-offset: 1.5px; }
+.theme-event.is-region-marked { outline: 2px solid var(--brass); background: rgba(255, 255, 255, .06); }
+/* Raden överst i Lager medan regionvyn är öppen: valen i menyn gäller inte kartan just då */
+.layer-region-note { margin: 0 0 8px; padding: 6px 8px; font: 400 12px/1.35 var(--f-body); color: var(--parchment); border-left: 2px solid var(--brass); }
+.layer-region-note[hidden] { display: none; }
+/* Mobil: bara rubriken och knappen på en rad (texten säger statusraden och Lager), så att platsen får plats */
+@media (max-width: 760px) {
+  .flat-region { top: 36px; display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; padding: 4px 4px 4px 10px; }
+  .flat-region-legend { order: 3; flex-basis: 100%; margin: 0 0 4px; font-size: 11.5px; }
+  .flat-region-note { display: none; }
+  .flat-region-back { min-height: 44px; flex: none; }
+  .globe-region-chip { top: 112px; max-width: calc(100% - var(--gut) - var(--gut-r)); }
+}
 
 /* ---------- källor ---------- */
 .sheet {
@@ -1319,6 +1555,24 @@ details.used-by summary:hover { color: var(--parchment); }
   font: 600 12px/1 var(--f-mono); color: var(--night); background: var(--brass);
   border: 1px solid var(--brass); border-radius: 999px; padding: 6px 12px; cursor: pointer; white-space: nowrap;
 }
+/* Föregående och Nästa stopp när man följer en resa (#1380): i pausraden bredvid Fortsätt. Mönstret från jump-back (#997):
+   32 px hög i bred skärm och minst 44 px i smal skärm (WCAG 2.5.8). Raden blir en rundad ruta i stället för ett piller när
+   knapparna syns, eftersom den då ofta bryts på två rader. */
+.pause-step[hidden] { display: none; }
+.pause-step {
+  font: 600 12px/1 var(--f-mono); color: var(--brass); background: none; white-space: nowrap; cursor: pointer;
+  border: 1px solid var(--control-line); border-radius: 999px; padding: 6px 12px; min-height: 32px;
+}
+.pause-step:hover { background: var(--night-3); }
+.pause-note:has(.pause-step:not([hidden])) { border-radius: var(--r); }
+.pause-note:has(.pause-step:not([hidden])) .pause-go { min-height: 32px; }
+@media (max-width: 760px) {
+  .pause-step, .pause-note:has(.pause-step:not([hidden])) .pause-go { min-height: 44px; }
+  /* Texten överst och knapparna på en rad under, lika breda, så att raden inte blir högre än två rader knappar (mätt vid 400 px) */
+  .pause-note:has(.pause-step:not([hidden])) { gap: 6px; padding-right: 6px; }
+  .pause-note:has(.pause-step:not([hidden])) :is(#pause-text, .pause-more) { flex-basis: 100%; }
+  .pause-note:has(.pause-step:not([hidden])) :is(.pause-step, .pause-go) { flex: 1 1 auto; padding-inline: 8px; }
+}
 /* "Nästa paus: …" när man följer ett krig (#244): diskret till höger om knapparna i bred skärm,
    i pausraden när skärmen är smalare, så att tidsraden inte blir högre */
 .controls { position: relative; }
@@ -1384,6 +1638,41 @@ details.used-by summary:hover { color: var(--parchment); }
   border: 1px solid var(--line); border-radius: var(--r); font-size: 13px; line-height: 1.4; text-align: center;
 }
 .focus-notice[hidden] { display: none; }
+/* Besked om en trasig länk (#1324): samma plats och utseende som .focus-notice, men i lagret --z-band och med ogenomskinlig botten, så att
+   raden ligger över kort som ligger kvar (Samtidigt-kortet i bred skärm). Kortet tar emot klick (Stäng) medan statusraden runt det släpper
+   igenom dem till kartan. */
+.link-notice {
+  position: absolute; z-index: var(--z-band); left: 50%; bottom: 118px; transform: translateX(-50%);
+  width: max-content; max-width: min(520px, calc(100vw - 32px)); margin: 0; pointer-events: none;
+}
+.link-notice-card {
+  display: flex; align-items: center; gap: 12px; padding: 9px 13px; pointer-events: auto;
+  color: var(--parchment-dim); background: var(--night-2);
+  border: 1px solid var(--line); border-radius: var(--r); font-size: 13px; line-height: 1.4;
+}
+.link-notice-card[hidden] { display: none; }
+/* #1454: medan man följer något ligger fokusraden på samma plats (bottom: 118px) och raden hamnar ovanför den, så att Tillbaka till hela tiden syns */
+@media (min-width: 761px) {
+  .app.focusing .link-notice { bottom: 176px; }
+  /* Faktarutan ligger till höger (cirka 410 px): raden flyttas åt vänster och smalnar, så att den inte täcker texten i den */
+  .app.has-detail .link-notice { left: calc(50% - 200px); max-width: min(520px, calc(100vw - 460px)); }
+}
+/* Visas Fokus-beskedet samtidigt (en trasig tur och ett tema som saknas i samma länk) ligger raden ovanför det, så att de inte täcker varandra */
+.focus-notice:not([hidden]) ~ .link-notice { bottom: 214px; }
+/* Smal skärm: raden ligger under årtalet i stället för över tidsreglaget, eftersom startläget öppnar Samtidigt-kortet som ett ark där nere och
+   raden inte ska dölja det. Himlen ovanför globen är tom, och inget ligger ovanpå förrän besökaren agerar (då stängs raden). */
+@media (max-width: 760px) {
+  .link-notice, .focus-notice:not([hidden]) ~ .link-notice { top: calc(env(safe-area-inset-top, 0px) + 96px); bottom: auto; }
+  /* Lektionsbandet (#795) skjuter ner årtalet: raden följer med, 90 px under årtalets överkant som annars (masthead + 90 px, rad 992–1003) */
+  /* Tidsintervallets rad (#755) är högre än sin text, eftersom knappen Tillbaka till ett år har 44 px hög träffyta: raden ligger under den */
+  body:has(.range-bar:not([hidden])) .link-notice { top: calc(env(safe-area-inset-top, 0px) + 126px); }
+  .app.lesson .link-notice { top: calc(env(safe-area-inset-top, 0px) + 152px); }
+  .app.lesson-teacher .link-notice { top: calc(env(safe-area-inset-top, 0px) + 182px); }
+  .app.lesson-notice .link-notice { top: calc(env(safe-area-inset-top, 0px) + 202px); }
+}
+.link-notice-text { margin: 0; flex: 1 1 auto; }
+.link-notice-card .link-btn { flex: none; min-height: 32px; font: inherit; white-space: nowrap; }
+@media (max-width: 760px) { .link-notice-card .link-btn { min-height: 44px; } }
 /* Fokusåtgärden samlar uppspelningen i samma rad, så tidsraden inte visar två primära knappar. */
 .app.focusing #btn-play { display: none; }
 
@@ -1467,6 +1756,7 @@ details.used-by summary:hover { color: var(--parchment); }
   .controls .speed { max-width: 62px; font-size: 11px; }
   .speed .unit-long { display: none; }
   .speed .unit-short { display: inline; }
+
   .pause-note { border-radius: var(--r); justify-content: space-between; width: auto; }
   .focus-bar {
     left: var(--gut); right: var(--gut-r); transform: none; max-width: none;
@@ -1607,9 +1897,23 @@ details.used-by summary:hover { color: var(--parchment); }
 
 /* Faktaruta i faktarutan, till exempel "Om år 0" (#123) */
 .scale-note { margin: 4px 0 8px; font: 400 11.5px/1.4 var(--f-mono); color: var(--card-dim); }
-.detail-note { margin: 10px 0; padding: 8px 10px; border-left: 3px solid var(--card-accent); background: color-mix(in srgb, var(--card-accent) 10%, transparent); border-radius: 0 6px 6px 0; }
-.detail-note h4 { margin: 0 0 2px; font: 600 11px/1.2 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--card-accent); }
-.detail-note p { margin: 0; font-size: 13.5px; line-height: 1.45; }
+.detail-note { margin: 10px 0; padding: 0 10px; border-left: 3px solid var(--card-accent); background: color-mix(in srgb, var(--card-accent) 10%, transparent); border-radius: 0 6px 6px 0; }
+/* Noten (#1571): en rad med synlig rubrik och vinkel; texten fälls ut. Samma uttryck som Om uppgifterna. */
+.detail-note > summary, .detail-about > summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 44px; cursor: pointer; list-style: none;
+  font: 600 11px/1.3 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--card-accent, var(--brass));
+}
+.detail-note > summary::-webkit-details-marker, .detail-about > summary::-webkit-details-marker { display: none; }
+.detail-note > summary::after, .detail-about > summary::after {
+  content: ""; flex: none; width: 7px; height: 7px; border: solid currentColor; border-width: 0 2px 2px 0;
+  transform: rotate(45deg) translateY(-2px); transition: transform .15s;
+}
+.detail-note[open] > summary::after, .detail-about[open] > summary::after { transform: rotate(-135deg) translateY(-1px); }
+.detail-note > summary:focus-visible, .detail-about > summary:focus-visible { outline: 2px solid var(--card-accent, var(--brass)); outline-offset: 2px; border-radius: 3px; }
+.detail-note p { margin: 0 0 10px; font-size: 13.5px; line-height: 1.45; }
+/* "Om uppgifterna" (#1571): källor, hur vi vet, status, kopiera och rapportera i ett hopfällt avsnitt sist i kortet */
+.detail-about { margin: 10px 0 0; border-top: 1px solid var(--card-line, var(--line)); }
+.detail-about > summary { text-transform: none; letter-spacing: normal; font: 600 12.5px/1.3 var(--f-body); }
 /* Vanlig missuppfattning i faktarutan (#838): samma ruta som anteckningen, med fet etikett före varje stycke */
 .detail-myth p { margin: 4px 0 0; }
 .detail-myth b { font-weight: 600; }
@@ -1689,6 +1993,12 @@ details.used-by summary:hover { color: var(--parchment); }
   border: 1.5px solid var(--war); box-sizing: border-box;
   background: repeating-linear-gradient(-45deg, var(--war) 0 1.2px, color-mix(in srgb, var(--war) 14%, transparent) 1.2px 3.5px);
 }
+/* istidens kust (#1096): ljus yta med snedstreck och mörk kant, som i bilden */
+.religion-legend .rl-images + .rl-images, .religion-legend .rl-body > :not(.rl-images) + .rl-images { margin-top: 6px; padding-top: 4px; border-top: 1px solid var(--line); }
+.religion-legend .rl-image-text { display: block; margin: 3px 0 0; font: 400 12px/1.4 var(--f-body); color: var(--parchment-dim); }
+.religion-legend .rl-image-text .swatch { display: inline-block; vertical-align: -1px; }
+.religion-legend .rl-shelf { border-bottom: 2px solid var(--shelf-ink); box-sizing: border-box; background: repeating-linear-gradient(45deg, var(--shelf-ink) 0 1.2px, var(--shelf) 1.2px 5px); }
+.religion-legend .rl-ice { border: 1px solid var(--ice-edge); box-sizing: border-box; background: var(--ice); }
 .religion-legend .rl-fade { display: block; margin-top: 6px; padding-top: 4px; border-top: 1px solid var(--line); }
 .religion-legend .rl-fade .link-btn { font: inherit; padding: 0; }
 .religion-legend .rl-body > .rl-fade:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
@@ -1714,7 +2024,41 @@ details.used-by summary:hover { color: var(--parchment); }
 .religion-legend .rl-coverage-note { display: block; margin-top: 0; }
 .religion-legend .rl-credit { display: block; }
 .religion-legend .rl-credit a { color: var(--brass); }
-.religion-legend:has(.rl-disc) { max-width: 260px; }
+/* Hopfällda avsnitt i Upptäcktsvyns panel (#1571): rubrik med vinkel, 44 px hög; filsidorna som stora rutor i en rullbar lista */
+.religion-legend .rl-sect { margin: 4px 0 0; border-top: 1px solid var(--line); }
+.religion-legend .rl-sect > summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 44px; cursor: pointer; list-style: none;
+  font: 600 11px/1.3 var(--f-mono); color: var(--brass);
+}
+.religion-legend .rl-sect > summary::-webkit-details-marker { display: none; }
+.religion-legend .rl-sect > summary::after {
+  content: ""; flex: none; width: 7px; height: 7px; border: solid currentColor; border-width: 0 2px 2px 0;
+  transform: rotate(45deg) translateY(-2px); transition: transform .15s;
+}
+.religion-legend .rl-sect[open] > summary::after { transform: rotate(-135deg) translateY(-1px); }
+.religion-legend .rl-sect > summary:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; border-radius: 3px; }
+.religion-legend .rl-files { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; padding: 0; list-style: none; max-height: 34vh; overflow-y: auto; }
+.religion-legend .rl-files a {
+  display: inline-flex; align-items: center; justify-content: center; min-width: 36px; min-height: 36px; box-sizing: border-box;
+  border: 1px solid var(--brass-deep); border-radius: 6px; font: 600 12px/1 var(--f-mono); text-decoration: none; color: var(--brass);
+}
+.religion-legend .rl-files a:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+/* Människans spridning (#1417): varje post har en rubrik (så att en skärmläsare kan hoppa mellan dem) som ser ut som
+   den feta texten förut, och källänkarna har minst 24 × 24 px träffyta */
+.religion-legend .rl-spread-head { display: inline; margin: 0; font: inherit; font-weight: 700; letter-spacing: normal; text-transform: none; color: inherit; }
+.religion-legend .rl-spread-src { display: inline-flex; align-items: center; justify-content: center; min-width: 24px; min-height: 24px; color: var(--brass); }
+/* Sammanfattningen sätts i brödtextens typsnitt (som i faktarutan), inte i mono (#1418). I smal skärm är den hopfälld per post
+   bakom en riktig knapp i rubriken; knappen är minst 24 px hög och har samma utseende som rubriken. */
+.religion-legend .rl-spread-text { display: block; margin: 3px 0 0; font: 400 12px/1.4 var(--f-body); color: var(--parchment-dim); }
+.religion-legend .rl-spread-text[hidden] { display: none; }
+.religion-legend .rl-spread-toggle {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 24px; margin: 0; padding: 0; border: 0; background: none;
+  font: inherit; font-weight: 700; color: inherit; text-align: left; cursor: pointer;
+}
+.religion-legend .rl-spread-toggle:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+.religion-legend .rl-spread-toggle .rl-chev { flex: none; }
+.religion-legend .rl-spread-toggle[aria-expanded="true"] .rl-chev { transform: rotate(-135deg) translateY(-1px); }
+.religion-legend:has(.rl-disc), .religion-legend:has(.rl-images) { max-width: 260px; }
 .layer-sub .rel-about { display: block; margin: 6px 10px 2px; padding: 4px 10px; border-color: var(--brass-deep); }
 .religion-pop {
   position: absolute; z-index: var(--z-kartruta); width: min(260px, calc(100% - 16px)); box-sizing: border-box;
@@ -1731,16 +2075,33 @@ details.used-by summary:hover { color: var(--parchment); }
 .religion-pop .rp-wiki { display: block; width: fit-content; margin: 8px 0 0; color: var(--brass); font-size: 12px; }
 .religion-pop .rp-wiki:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
 /* Klickrutan för vägar och resor (#38): samma ruta som religionernas, med källorna som länkar */
-.route-pop { overflow-y: auto; overscroll-behavior: contain; }
-.route-pop .rp-src {font-size: 12px; color: var(--parchment-dim); }
+/* Bredare ruta och hopfällda avsnitt (#1571): sammanfattningen och "Läs mer" ska synas utan rullning; noten (oenighet,
+   osäkerhet) står som en rad med synlig rubrik och vinkel, och källorna med status sist i ett hopfällt avsnitt */
+.route-pop { overflow-y: auto; overscroll-behavior: contain; width: min(340px, calc(100% - 16px)); }
+.route-pop .rp-summary { font-size: 13.5px; line-height: 1.55; max-width: 60ch; text-wrap: pretty; }
+.route-pop .rp-summary + .rp-summary { margin-top: 6px; }
+.route-pop .rp-disc { margin: 8px 0 0; font-size: 12.5px; line-height: 1.45; }
+.route-pop .rp-disc > summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 44px; padding: 0 2px; cursor: pointer;
+  list-style: none; font-weight: 600; color: var(--brass);
+}
+.route-pop .rp-disc > summary::-webkit-details-marker { display: none; }
+.route-pop .rp-disc > summary::after {
+  content: ""; flex: none; width: 7px; height: 7px; border: solid currentColor; border-width: 0 2px 2px 0;
+  transform: rotate(45deg) translateY(-2px); transition: transform .15s;
+}
+.route-pop .rp-disc[open] > summary::after { transform: rotate(-135deg) translateY(-1px); }
+.route-pop .rp-disc > summary:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; border-radius: 3px; }
+.route-pop .rp-note-d { border-left: 2px solid var(--brass-deep); background: rgba(0, 0, 0, .18); padding: 0 8px; }
+.route-pop .rp-note-d p { margin: 0 0 8px; }
+.route-pop .rp-about { border-top: 1px solid var(--line); }
+.route-pop .rp-src { font-size: 12px; color: var(--parchment-dim); }
 .route-pop .rp-src a { color: var(--brass); }
-.route-pop .rp-note-box { padding: 6px 8px; border-left: 2px solid var(--brass-deep); background: rgba(0, 0, 0, .18); font-size: 12px; }
-.route-pop .rp-note-box strong { display: block; color: var(--brass); font-weight: 600; }
 .route-pop .rp-src a:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
 @media (max-width: 760px) {
   /* smalare än rubrikens högra grannar (knapparna uppe till höger), 44 px hög tryckyta, borta när panelen är öppen */
   .religion-legend { max-width: 172px; font-size: 11px; padding-top: 0; padding-bottom: 0; }
-  .religion-legend:has(.rl-disc) { max-width: 210px; }
+  .religion-legend:has(.rl-disc), .religion-legend:has(.rl-images) { max-width: 210px; }
   .religion-legend .rl-disc { font-size: 11px; padding: 4px 6px; }
   .religion-legend .rl-body { padding-bottom: 6px; }
   .religion-legend .rl-toggle { min-height: 40px; }
@@ -1841,7 +2202,9 @@ details.used-by summary:hover { color: var(--parchment); }
 .rel-sym { width: 16px; height: 16px; flex: none; display: inline-block; vertical-align: -3px; }
 .layer-subrow .rel-sym, .focus-item .rel-sym { margin-left: -4px; }
 .religion-legend .rel-sym { width: 15px; height: 15px; margin-left: -3px; }
-.detail h3 .rel-sym-h { width: 22px; height: 22px; margin-right: 8px; vertical-align: -3px; }
+/* Rubrikens tecken är stort nog att läsa (2026-11-14): höjden styr och bredden följer teckningen (flaggor är 3:2, religionernas symboler kvadratiska) */
+.detail h3:has(.rel-sym-h) { display: flex; align-items: center; gap: 10px; }
+.detail h3 .rel-sym-h { width: auto; height: 44px; max-width: 72px; margin: 0; vertical-align: baseline; }
 .place-emblems { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: flex-start; margin: 6px 0 10px; }
 .place-emblem { margin: 0; display: flex; flex-direction: column; gap: 4px; max-width: 150px; font-size: 0.85em; }
 .place-emblem img { height: 44px; width: auto; align-self: flex-start; }
@@ -1918,6 +2281,13 @@ details.used-by summary:hover { color: var(--parchment); }
   background: none; border: 1px solid transparent; border-radius: 6px; cursor: pointer;
 }
 .lang-notice-close:hover, .lang-notice-close:focus-visible { border-color: var(--brass); outline: none; }
+@media (min-width: 761px) {
+  /* Knapparna blir två rader på tyska, spanska och franska. Upplysningen ankras därför vid knappradens underkant,
+     inte vid språkknappen, så att den aldrig ligger över Samtidigt eller Sök och följ (#1378). Listan stängs när
+     upplysningen finns, så att språkknappen kan vara utan ankare så länge. */
+  .lang-wrap:has(.lang-notice) { position: static; }
+  .lang-notice { top: calc(100% + 8px); right: 0; }
+}
 @media (max-width: 760px) {
   /* Språkknappen sitter till vänster i mobil: upplysningen läggs över hela bredden i stället (#1308) */
   .lang-notice { position: fixed; top: 56px; left: 16px; right: 16px; width: auto; }
@@ -2027,11 +2397,18 @@ details.used-by summary:hover { color: var(--parchment); }
 .extra-menu {
   display: none; position: absolute; z-index: var(--z-meny); top: calc(100% + 8px); right: 0;
   flex-direction: column; align-items: stretch; gap: 4px; min-width: 190px; padding: 6px;
+  /* Låg höjd (#1712): alla val i Mer ska nås utan att flytta hela sidan. 124 px är den högsta
+     toppraden i 800 px bred vy; 22 px lämnar 8 px vid nederkanten efter menyens kant och padding. */
+  max-height: calc(100dvh - 146px); overflow-y: auto; overscroll-behavior: contain;
   background: color-mix(in srgb, var(--night-2) 96%, transparent); border: 1px solid var(--line); border-radius: var(--r);
   box-shadow: 0 8px 28px rgba(0, 0, 0, .5);
 }
 .extra-open .extra-menu { display: flex; }
 .extra-menu .chip-btn { text-align: left; }
+/* Mer i grupper (#1575): små rubriker över raderna; Stöd är en länk men ser ut som de andra */
+.extra-label { padding: 6px 4px 0; font: 500 10.5px/1.2 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--brass); }
+.extra-label:first-child { padding-top: 0; }
+.extra-menu a.chip-btn { display: inline-flex; align-items: center; gap: 4px; text-decoration: none; }
 .place-row { display: none; }
 #detail > .sheet-handle { display: none; }
 @media (max-width: 760px) {
@@ -2043,9 +2420,10 @@ details.used-by summary:hover { color: var(--parchment); }
   .year-big, .year-jump.fine .year-big { font-size: 30px; line-height: 1; }
   .year-era, .year-jump.fine .year-era { font-size: 13px; line-height: 1.1; }
   .year-big, .year-era, .segment-note { text-shadow: 0 1px 6px var(--night), 0 0 2px var(--night); } /* läsbart när globen är inzoomad */
-  /* Engångstipset (#996) och teckenförklaringen delar de sista pixlarna under reglaget och överlappade (#1138). Tipset gör timebar högre, och fokusraden ligger på
-     ett fast avstånd (bottom: 118px), så att flytta ned tipset skulle täcka knapparna. Medan tipset visas döljs därför raden; den kommer tillbaka vid första draget. */
-  .timeline-legend:has(~ .year-tip:not([hidden])) { visibility: hidden; }
+  /* Engångstipset (#996) och teckenförklaringen delar de sista pixlarna under reglaget (#1138). Tipset döljer raden medan det syns (reglerna vid .year-tip,
+     för alla bredder sedan #1302) och tar ingen höjd, så att tidsraden, kortet och fokusraden ligger som utan tips. I smal skärm ligger årtalen på samma
+     rad som tipset och är dolda medan det syns; de kommer tillbaka vid första draget. */
+  .app:not(.lesson):not(.touring):not(.focusing) .timebar:has(.year-tip:not([hidden])) .ticks { visibility: hidden; }
   .segment-note, .year-readout:has(.year-jump.fine) + .segment-note {
     /* Raden radbryts (#1134): hela meningen ska synas på 400 px, på alla språk, i stället för att klippas med ellips */
     margin: 3px 0 0; font-size: 10px; letter-spacing: .05em; line-height: 1.35; white-space: normal; overflow-wrap: anywhere;
@@ -2087,15 +2465,25 @@ details.used-by summary:hover { color: var(--parchment); }
     padding: 8px 0 0; border: 0; border-top: 1px solid var(--line); border-radius: 0; background: none; box-shadow: none;
   }
   .extra-menu .chip-btn { flex: 1 1 auto; text-align: center; }
+  .extra-label { flex: 1 0 100%; padding: 6px 2px 0; }
 
   /* Tidslinjen: knapparna 34 px synligt och 44 px tryckyta, lägre band med årtalen */
   .timebar { padding-top: 6px; padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 6px); }
   .controls { margin-bottom: 6px; }
+  /* Teckenförklaringen och skalraden (#1313) ligger i den nedre marginalen, som här bara är 6 px: de lyfts 2 px (högre krockar de med årtalens nederkant)
+     så att texten inte klipps av skärmens underkant. Marginalerna räknas så att raden inte ändrar tidsradens höjd. */
+  .timeline-legend { margin: -2px 0 -10px; }
+  .timeline-scale-note { margin: -2px 0 -14px; }
   /* Tryckytorna (::after) möts mitt i mellanrummen: 44 px höga och i 400 px minst 44 px breda */
   .controls :is(.step, .play) { position: relative; height: 34px; }
   .controls :is(.step, .play)::after { content: ""; position: absolute; inset: -6px -3px; }
   .controls .play { flex: 0 0 46px; max-width: none; }
   .controls .speed { flex: 0 0 50px; max-width: none; overflow: visible; }
+  /* Förhistorien (#1320): stegen är tusentals år. De yttersta knapparna (±100 steg, hela segment) döljs, så att de andra
+     rymmer "−10 000" i vanlig textstorlek (ingen text under 12 px, #1309); piltangenterna och PageUp/PageDown finns kvar */
+  .controls.prehistory .step:is([data-step="-100"], [data-step="100"]) { display: none; }
+  .controls.prehistory .step { max-width: 66px; }
+  .controls.prehistory .speed { flex-basis: 70px; } /* "100 000/s" (fart 100 vid 100 000 f.Kr.) är 65 px i 12 px text (#1101) */
   .track { height: 48px; }
   /* Ett krig kan ha många namn på kort avstånd. På mobil visar vi namnet närmast
      reglaget; alla band behåller full beskrivning i titel och tillgänglighetsnamn. */
@@ -2276,5 +2664,160 @@ details.used-by summary:hover { color: var(--parchment); }
 .theme-event:hover, .theme-event:focus-visible { background: rgba(255, 255, 255, .08); outline: 1px solid var(--brass, #c9a24b); }
 .theme-event-year { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--card-dim); margin-right: 6px; }
 .theme-event-note { font-style: italic; color: var(--card-dim); }
+/* Rikena i landskortet (#1448): en rad i en tur är text, inte en knapp (ingen pekare); en lucka är en läsbar rad i samma storlek */
+span.theme-event { cursor: default; }
+span.theme-event:hover { background: none; outline: none; }
+.place-empire-gap { padding: 6px 4px; font-size: 13px; line-height: 1.4; font-style: italic; color: var(--card-dim); }
+.place-empire-list > .theme-filter-note { margin: 4px 0 0; }
+.place-empire-note { margin: 0 4px 4px; font-size: 12px; line-height: 1.4; color: var(--card-dim); }
+/* Träffytor på touch (#1464): raderna i händelselistan är minst 44 px höga (18 px text och 13 + 13 px luft),
+   och krysset når 44 px på alla kort även på en bred skärm med touch, också i liggande telefon (#1667; i smal skärm ger #detail .detail-close::after det redan). */
+@media (max-width: 760px), (pointer: coarse) { .detail-selection .theme-event { padding-block: 13px; } }
+@media (pointer: coarse) { .detail-card .detail-close::after { content: ""; position: absolute; inset: -8px; } }
 .theme-exit { margin: 2px 0 6px; }
+.place-flat { margin-right: 6px; }
 .chip-btn[hidden] { display: none; }
+
+/* Plats- och temakortens fällbara listor behöver en verklig tryckyta även med mus (#1713).
+   Behåll list-item så att webbläsarens triangel visar att raden kan fällas ut. */
+.detail-selection .theme-event-list > summary { box-sizing: border-box; min-height: 24px; padding-block: 4px; }
+
+/* ---------- Mobil: träffytor på 44 px, text på minst 12 px och en stängknapp i menyerna (#1309) ----------
+   Tryckytan görs 44 × 44 med ett osynligt ::after när själva knappen är mindre, så att raderna inte växer. Raderna ligger i
+   dokumentordning och varje knapp är positionerad, så en grannes synliga yta går före en annans förlängning. */
+@media (max-width: 760px) {
+  :is(.filter, .view-chip, .link-btn, .ff-chip, .ff-handle, .timeline-legend summary, .panel-x, .focus-tabs .chip-btn, .focus-sort .chip-btn,
+      .timebar .step, .timebar .play) { position: relative; }
+  :is(.filter, .view-chip, .link-btn, .ff-chip, .ff-handle, .panel-x, .focus-tabs .chip-btn, .focus-sort .chip-btn,
+      .timebar .step, .timebar .play)::after {
+    content: ""; position: absolute; left: 50%; top: 50%; width: max(100%, 44px); height: max(100%, 44px); transform: translate(-50%, -50%);
+  }
+  /* Text på minst 12 px */
+  .segment-note, .chip-btn .count, .filter, .panel-filters .filter, .region-count, .ff-name, .ff-more, .ff-badge, .ff-pre, .ff-sep, .ff-kind, .ff-pager, .ff-drag-hint,
+  .review-badge, .controls .speed, .controls .step, .tick, .timeline-legend summary, .timeline-legend, .layer-heading, .focus-sort-label,
+  .focus-sort .chip-btn, .layer-note, .focus-group-count, .tour-lesson-meta, .view-chip, .view-chip-desc, .empire-legend-button { font-size: 12px; }
+  .focus-group-toggle, .focus-group-toggle > span { font-size: 12px; }
+  /* Ytor som tillkommit efter det första mobilprovet (#1713). */
+  .action-label, .extra-label, .layer-subheading, .teacher-h, .teacher-lesson-meta, .flat-region-name, .flat-region-legend,
+  .detail-selection .story-label, .detail-selection .meta, .place-emblem, .focus-state, .religion-legend .rl-title { font-size: 12px; }
+  .focus-action { min-width: 44px; min-height: 44px; }
+  .detail-selection .theme-event-list > summary { min-height: 44px; padding-block: 14px; }
+  .timeline-legend summary::before { inset: -10px -8px -20px; } /* 44 px hög tryckyta, nedåt och uppåt över skalan */
+  /* Täta rader (flikarna och sorteringen i Sök och följ, förvalen i Lager): ytan är en verklig höjd som med raden mellan chipsen
+     blir 44 px, så att förlängningen inte krockar med raden ovanför och under */
+  .focus-tabs .chip-btn, .focus-sort .chip-btn { min-height: 40px; }
+  .view-chip { min-height: 38px; }
+  .view-chips { gap: 6px; }
+  .focus-search { min-height: 44px; }
+  .place-flat, .theme-exit { min-height: 44px; } /* knapparna i tema- och platskorten (#1161) */
+  /* Stängknappen i Lager, Sök och följ och Turer: menyerna fyller nästan hela skärmen och har annars bara Escape och knappen bakom */
+  .menu-x {
+    display: grid; place-items: center; float: right; position: sticky; top: 0; z-index: 1;
+    width: 44px; height: 44px; margin: -6px -6px 0 0; padding: 0;
+    font: 500 24px/1 var(--f-body); color: var(--parchment);
+    background: color-mix(in srgb, var(--night-2) 96%, transparent); border: 0; border-radius: var(--r); cursor: pointer;
+  }
+  .menu-x:hover, .menu-x:focus-visible { color: var(--brass); outline: 2px solid var(--brass); outline-offset: -4px; }
+}
+@media (min-width: 761px) { .menu-x { display: none; } }
+
+/* ---------- Låg höjd och 200 % zoom: faktarutan, turkortet och turraden får plats (#1310) ----------
+   Korten ligger förankrade nedtill, och deras högsta höjd var "skärmens höjd minus ett fast avstånd uppåt". På en låg yta
+   (1280 × 800 på en bärbar, 1366 × 768, och 200 % zoom, som är en 640 × 400-yta i CSS-pixlar) blev det för lite eller inget:
+   faktarutan visade bara rubrik och bild, och turkortet blev 28 px högt med Nästa utanför skärmen. Reglerna gäller bara låg höjd,
+   så den vanliga stora skärmen (1400 × 900 och uppåt) och mobil stående (400 × 800) är oförändrade. */
+
+/* Bärbar dator: faktarutan får mer höjd och bilden mindre, så att texten syns under bilden. Krysset är redan "sticky" och följer med vid rullning. */
+@media (min-width: 761px) and (max-height: 880px) {
+  .detail-card { max-height: max(150px, min(56vh, calc(100dvh - 330px))); scrollbar-width: thin; scrollbar-color: var(--brass-deep) var(--night-3); }
+  .detail-fig img { aspect-ratio: auto; height: clamp(110px, 22vh, 220px); }
+}
+
+/* Låg yta, alla bredder (200 % zoom och liggande telefon): turkortet tar plats ovanför turraden i stället för att räknas ur ett fast avstånd,
+   rullar i sig självt, och Nästa och Avsluta ligger kvar längst ned medan texten rullar. Fler klasser än reglerna ovan (som har
+   :has(.pause-note:not([hidden]))), så att den här vinner. Turraden (pausraden) ligger oförändrad. */
+@media (max-height: 600px) {
+  .app { --tour-top: 150px; }
+  .app.lesson, .app.lesson-notice { --tour-top: 200px; } /* lektionsbandet (52 px) ovanpå */
+  .app.app.app .tour-card {
+    --tour-bottom: 136px;
+    bottom: var(--tour-bottom);
+    max-height: calc(100dvh - var(--tour-bottom) - var(--tour-top));
+    padding-bottom: 0;
+    scrollbar-width: thin; scrollbar-color: var(--brass-deep) var(--night-2);
+  }
+  .app.app.app.pause-var .tour-card { --tour-bottom: calc(var(--pause-top) + 8px); }
+  .tour-card .tour-name { display: none; } /* turens namn står redan i turraden under kortet; kortets namn hämtas ändå av aria-labelledby */
+  /* Nästa och Lämna turen ligger fast längst ned när kortet rullar (#1310, #1572): foten ytterst, knapparna ovanför den */
+  .tour-card .tour-actions { position: sticky; bottom: 47px; margin-top: 8px; padding: 8px 0 0; background: var(--night-2); }
+  .tour-card .tour-foot { position: sticky; bottom: 0; margin-top: 0; padding: 2px 0 8px; background: var(--night-2); }
+  .app.app.app #detail, .app.app.app #funfact { scrollbar-width: thin; scrollbar-color: var(--brass-deep) var(--night-3); }
+}
+@media (max-height: 600px) and (min-width: 761px) and (max-width: 1100px) {
+  .app { --tour-top: calc(var(--tablet-actions-height, 98px) + 120px); } /* årtalet ligger under knapparna på en platta yta (#992) */
+  .app.lesson, .app.lesson-notice { --tour-top: calc(var(--tablet-actions-height, 98px) + 172px); }
+}
+/* Låg, bred yta (#1695): Sök och följ får inte låta flikarna ta hela den lilla menyn.
+   Flikarna går att rulla i sidled i sitt eget fält och listan får alltid plats att rulla till sista träffen. */
+@media (min-width: 761px) and (max-height: 500px) {
+  .focus-head { max-height: min(160px, calc(100dvh - 210px)); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: var(--brass-deep) var(--night-3); }
+  .focus-tabs { flex-wrap: nowrap; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; }
+  .focus-body { min-height: 72px; }
+}
+@media (max-height: 600px) and (max-width: 760px) {
+  .app { --tour-top: 76px; }
+  .app.lesson, .app.lesson-notice { --tour-top: 130px; }
+  .app.lesson-teacher { --tour-top: 170px; }
+  /* Faktarutan som ark: rubrik, datum och text får mer än handtaget och rubriken, och bilden tar inte hela arket i helt läge */
+  .detail-fig img { aspect-ratio: auto; height: clamp(90px, 28vh, 180px); }
+  #detail { max-height: min(52dvh, calc(100dvh - var(--ff-b) - 120px)); }
+}
+
+/* Liggande pekskärm i bred layout (#1694): plattans topprad och det stora årtalet lämnade bara 16 px åt turkortet.
+   Under turen ger menyraden plats åt ett kompakt årtal, och kortet rullar ovanför turraden som i smal layout. */
+@media (min-width: 761px) and (max-width: 1100px) and (max-height: 480px) and (pointer: coarse) {
+  .app.touring { --tour-top: 64px; }
+  .app.touring.lesson, .app.touring.lesson-notice { --tour-top: 116px; }
+  .app.touring .top-actions { visibility: hidden; }
+  .app.app.touring .masthead { top: calc(env(safe-area-inset-top, 0px) + 6px); margin-top: 0; }
+  .app.app.touring.lesson .masthead { top: calc(env(safe-area-inset-top, 0px) + 58px); }
+  .app.touring .masthead :is(.brand, .segment-note) { display: none; }
+  .app.touring .year-readout { margin-top: 0; min-height: 44px; align-items: center; }
+  .app.touring .year-jump { min-height: 44px; align-items: center; }
+  .app.touring .year-big { font-size: 30px; }
+  .app.touring .year-era { font-size: 16px; }
+  .app.touring .tour-card .tour-actions { bottom: 55px; } /* den 44 px höga utgången och fotens utfyllnad */
+  /* Lektionen lämnas från sitt band; den dolda Lämna turen-knappen ska inte reservera en tom fot. */
+  .app.touring.lesson .tour-card .tour-actions { bottom: 0; }
+  .app.touring.lesson .tour-card .tour-foot { display: none; }
+}
+
+/* ---------- Liggande telefon: faktarutan går att nå (#1667) ----------
+   Uppmätt i Playwright (800 × 360, 640 × 360 och 360 × 640, platskortet för Skåne öppet). Stående telefon (360 × 640) var
+   redan hel. I liggande läge tar knapparna uppe, fokusraden, tidsreglaget och tidslinjen cirka 270 av 360 px, så kortet får
+   under 100 px, och två saker gjorde knapparna i kortet oåtkomliga:
+   1. 800 × 360 (bred layout, men låg): knapparna överst (två rader, 98 px) låg över kortets övre hälft, med krysset och
+      "Visa i regionvy" under sig. Medan kortet är öppet lämnar knapparna därför plats åt det; kryssets tryck (eller Escape) ger
+      dem tillbaka. De är dolda med visibility, så att de inte heller går att nå med Tab medan de är övertäckta.
+   2. 640 × 360 (smal layout): arket i läget "helt" stannade ovanför fokusraden och blev bara cirka 150 px högt, med knappen i
+      kortet långt ned. På en pekskärm (en liggande telefon) fortsätter det i stället ned till kanten, över fokusraden och
+      tidsreglaget (de är tillbaka när arket fälls ihop med handtaget). Med mus gäller regeln från #1310 oförändrad: vid 200 %
+      zoom (640 × 400) får arket inte täcka tidsreglaget. Under en tur och i lektionsläget gäller de egna reglerna som förut. */
+/* Tröskeln 480 px: knapparna överst (två rader) överlappar kortet under cirka 475 px höjd (uppmätt). */
+@media (min-width: 761px) and (max-height: 480px) {
+  .app:has(#detail:not([hidden])) .top-actions { visibility: hidden; }
+}
+/* Tröskeln 440 px: en liggande telefon är 360–430 px hög; 640 × 400 med mus (200 % zoom) följer #1310 och tas inte med (pointer). */
+@media (max-width: 760px) and (max-height: 440px) and (pointer: coarse) {
+  .app.app.app:not(.touring) #detail[data-sheet="full"], .app.app.app:not(.touring) #detail.sheet-dragging {
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 8px);
+    max-height: calc(100dvh - var(--tour-top) - 8px - env(safe-area-inset-bottom, 0px));
+  }
+  /* Det som arket täcker går inte heller att nå med Tab eller skärmläsare medan arket är helt (WCAG 2.4.11); layouten ändras inte */
+  .app.app.app:not(.touring):has(#detail[data-sheet="full"]:not([hidden])) :is(.timebar, #focus-bar, #pause-note, .religion-legend) { visibility: hidden; }
+}
+
+/* Raden om projektet sist i Om källorna (#1575) */
+.src-about { margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--line); font-size: 13px; color: var(--parchment-dim); }
+.src-about a { color: var(--brass); }
+.src-about a:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }

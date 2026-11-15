@@ -2,7 +2,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { MIN_GAP, MAX_SPAN, MIN_PRECISION, MAX_PAIR_GAP, gapBetween, distance, isSafelyWrong, makeQuestion, nextQuestion, quizFunfacts, shuffle } from '../js/quiz-rules.js';
+import { MIN_GAP, MAX_SPAN, MIN_PRECISION, gapBetween, distance, isSafelyWrong, makeQuestion, nextQuestion, quizFunfacts, shuffle } from '../js/quiz-rules.js';
 
 const json = p => JSON.parse(readFileSync(new URL(`../${p}`, import.meta.url), 'utf8'));
 const visible = r => r === 'source-checked' || r === 'two-sources';
@@ -36,7 +36,7 @@ test('reglerna för ett säkert felaktigt svar', () => {
 });
 
 test('en fråga har A, rätt svar ur samma fun fact och två säkert felaktiga svar, i blandad ordning', () => {
-  const events = [ev('a', 1500), ev('b', 1505), ev('c', 1000), ev('d', 2000), ev('e', 1450)];
+  const events = [ev('a', 1500), ev('b', 1500, 1505), ev('c', 1000), ev('d', 2000), ev('e', 1450)];
   const byId = Object.fromEntries(events.map(e => [e.id, e]));
   const ff = { id: 'f', events: ['a', 'b'], review: 'source-checked' };
   const q = makeQuestion(ff, byId, events, visible, seeded(3));
@@ -60,6 +60,13 @@ test('en fun fact som jämför avstånd i tid blir ingen fråga om samtidighet',
   assert.equal(gapBetween(ev('x', 1900, 1910), ev('y', 1950)), 40);
 });
 
+test('ett par som inte pågår samma år blir ingen fråga om samtidighet (#1311)', () => {
+  const events = [ev('solpyramiden', 200), ev('taupo', 232), ev('c', 1000), ev('d', 1500)];
+  const byId = Object.fromEntries(events.map(e => [e.id, e]));
+  const ff = { id: 'nara', events: ['solpyramiden', 'taupo'], review: 'source-checked' };
+  assert.equal(makeQuestion(ff, byId, events, visible), null, '32 år isär är nära i tid, inte samtidigt');
+});
+
 test('blandningen behåller alla poster', () => {
   const list = [1, 2, 3, 4, 5];
   assert.deepEqual(shuffle(list, seeded(7)).sort(), list);
@@ -67,7 +74,7 @@ test('blandningen behåller alla poster', () => {
 });
 
 test('frågorna upprepas inte förrän alla har kommit', () => {
-  const events = [ev('a', 1500), ev('b', 1505), ev('c', 1000), ev('d', 2000), ev('x', 800), ev('y', 805), ev('z', 1300)];
+  const events = [ev('a', 1500), ev('b', 1500), ev('c', 1000), ev('d', 2000), ev('x', 800), ev('y', 800), ev('z', 1300)];
   const byId = Object.fromEntries(events.map(e => [e.id, e]));
   const ffs = [{ id: 'f1', events: ['a', 'b'], review: 'source-checked' }, { id: 'f2', events: ['x', 'y'], review: 'source-checked' }];
   const asked = new Set(['f1']);
@@ -84,7 +91,7 @@ test('riktig data: varje fun fact som kan bli en fråga ger säkert felaktiga sv
       const q = makeQuestion(f, byId, events, visible, seeded(seed));
       if (!q) continue;
       assert.ok(f.events.includes(q.a.id) && f.events.includes(q.answer.id), f.id);
-      assert.ok(gapBetween(q.a, q.answer) <= MAX_PAIR_GAP, `${f.id}: ${q.a.id} och ${q.answer.id} ligger inte samtidigt`);
+      assert.equal(gapBetween(q.a, q.answer), 0, `${f.id}: ${q.a.id} och ${q.answer.id} pågår inte samma år`);
       for (const o of q.options.filter(o => o !== q.answer)) {
         assert.ok(isSafelyWrong(o, q.a, q.answer, f, visible), `${f.id}: ${o.id} är inte säkert fel`);
         assert.ok(o.precision >= MIN_PRECISION && o.end - o.start <= MAX_SPAN, `${f.id}: ${o.id}`);

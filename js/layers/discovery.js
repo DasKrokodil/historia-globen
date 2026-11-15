@@ -30,7 +30,7 @@
 // vägarna) ändras; att lyfta den görs med destination-out.
 import { t, loadSources, sourcesReady, loadEmpire, isVisibleReview } from '../model.js';
 import { traceWrapped, segDist } from './lines.js';
-import { tracePath } from './area-style.js';
+import { tracePath, strokeEdge } from './area-style.js';
 import { Z } from './registry.js';
 import { ui } from '../i18n.js';
 
@@ -82,6 +82,7 @@ export function entry({ data, refresh, registry }) {
 }
 
 const SCALE = 0.5;           // dimbildens upplösning i förhållande till lagerbilden
+const COVERAGE_DELAY_MS = 400; // dimman ska ha stått stilla så här länge innan täckningen mäts
 const FINE_STEP = 0.01;      // i fokusläget för korta krig görs dimman om högst var hundradels år
 const cssVar = (name, fallback) => getComputedStyle(document.documentElement).getPropertyValue(name).trim() || fallback;
 const clamp01 = v => Math.max(0, Math.min(1, v));
@@ -406,7 +407,7 @@ export class DiscoveryLayer {
     const reached = this.reached ?? [], lifted = this.lifted ?? [];
     const X = lon => (lon + 180) * deg, Y = lat => (90 - lat) / 180 * h;
     const areas = ctx => { for (const g of lifted) { tracePath(ctx, g, X, Y); ctx.fill('evenodd'); } };
-    const edges = ctx => { for (const g of lifted) { tracePath(ctx, g, X, Y); ctx.stroke(); } };
+    const edges = ctx => { for (const g of lifted) { tracePath(ctx, g, X, Y); strokeEdge(ctx, g, X, Y); } };
     const each = () => { for (const pts of reached) traceWrapped(c, pts.length > 1 ? pts : [pts[0], pts[0]], w, h, ctx => ctx.stroke()); };
     c.lineJoin = 'round'; c.lineCap = 'round';
     const width = (fog.corridorDeg ?? 7) * deg, soft = fog.soften ?? 0.6;
@@ -437,9 +438,22 @@ export class DiscoveryLayer {
       areas(c);
     }
     c.globalCompositeOperation = 'source-over'; c.globalAlpha = 1;
-    const coverage = this._coverage();
-    if (coverage !== this.coverage) { this.coverage = coverage; this.onCoverage(); }
+    this._scheduleCoverage();
     this.fogDirty = false;
+  }
+
+  /**
+   * Mätaren läser tillbaka dimbilden, och en tillbakaläsning tvingar fram hela ritningen och stoppar tråden (mätt:
+   * över en sekund per år i en webbläsare utan grafikkort). Under uppspelning och vridning kom den för varje år och
+   * gjorde att globen laggade. Den görs därför först när dimman har stått stilla en kort stund.
+   */
+  _scheduleCoverage() {
+    clearTimeout(this._coverageTimer);
+    this._coverageTimer = setTimeout(() => {
+      if (!this.enabled || !this.fogCanvas) return;
+      const coverage = this._coverage();
+      if (coverage !== this.coverage) { this.coverage = coverage; this.onCoverage(); }
+    }, COVERAGE_DELAY_MS);
   }
 
   /**

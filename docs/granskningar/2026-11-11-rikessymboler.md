@@ -103,6 +103,111 @@ Fullständiga uppgifter finns i tabellerna per världsdel. "Belagd från" är de
 - **Slutår:** rikenas slutår i `index.json` är inte jämförda med källorna. Almohaderna står till exempel till 1343, men dynastin slutade 1269.
 - **Grönland:** har egen flagga sedan 1985 men inget eget område på kartan (se #1189).
 
+## Uppföljning 2026-11-14: Europa omgång 2 (#1152)
+
+Byggt på grenen `claude/issue-1152-europa-2`. Källorna öppnades 2026-11-14.
+
+**Steg 1, historiska symboler** (`kind: symbol`):
+
+| Rike | Visas | Anmärkning |
+|---|---|---|
+| Storfurstendömet Litauen | 1410–1449 | Vytis, fanan vid Grunwald enligt Flag of Lithuania. Ritad förenklad efter statsflaggan, som infördes i lag 2004 (nuvarande utformning antagen 2010) |
+| Norgesväldet | lejonet 1250–1284, med krona och yxa 1285–1401 | Coat of arms of Norway: lejonet på Håkon den unges sigill 1250, yxan på Erik Magnussons sigill 1285. Inte "cirka 1200": inget kungligt lejonvapen är belagt före 1250. Källorna skiljer sig (rikets artikel säger 1100- eller 1200-talet) |
+| Konungariket Danmark | fanan 1370–1624, Dannebrog som flagga (`flag`) 1625–1939 | Gelre: cirka 1340–1370 enligt Wikipedia, 1395–1402 enligt Commons filsida (Källorna skiljer sig). 1625 som erkänd nationsflagga enligt Dannebrog-artikelns faktaruta. Gruppen omfattar också Danmark-Norge och Danmark 1815–1939. Flaggans bild har måtten från 1748 även 1625–1747. Medaljens plats (efter historikergranskningen, beslutet 2026-11-12 om medaljplats): Cliopatrias etikettpunkt låg på Island 1814–1921 och på en yta om 73 km² i norra Finland 1402–1406. `labelAt` sätter Jylland [9.4, 56.4] för 1814–1921 (punkten ligger inne i källans yta alla de åren, kontrollerat med skript) och ingen medalj 1402–1406. Danmark-Norge 1526–1813 står kvar i Norge |
+| Kastilianska kronan | 1400–1474 | Heraldry of Castile: fyrdelningen sedan 1230, men avsnittet är märkt som otillräckligt belagt, så året 1400 från beslutet gäller. Faktarutan anger inte lejonets färg, eftersom texten i källorna inte gör det; teckningen följer bilden på Commons. Från 1475 förenades Kastiliens och Aragoniens vapen, därför slutar symbolen 1474 |
+
+**Steg 2, nutida flaggor** (`flag`, från gruppens eller delens start och aldrig före antagandet): Portugal 1976–, Serbien 2006– (delen Serbien; Förbundsrepubliken Jugoslavien och Serbien och Montenegro får ingen flagga), Kroatien 1992–, Slovakien 1992–, Albanien 1992– (1991 hade flaggan stjärnan, inte ritad), Moldavien 1992–, Nordmakedonien 1995– (Kutlesh-flaggan 1992–1995 inte ritad), Slovenien 1992–, Kosovo 2008– (`docs/omstridda-granser.md`), Montenegro 2006– och Malta 1967–. Riksvapnen är kraftigt förenklade.
+
+**Återstår i Europa:**
+- Moskvariket: väntar på en andra källa för sigillets år (1489).
+- "vänta" i tabellen: Spanien, Rumänien, Belarus, Grekland, Ungern, Österrike, Lettland, Litauen (nutida), Bosnien och Hercegovina, Estland, Kungariket England, Kungariket Ungern och Första bulgariska riket. Var och en behöver en andra källa eller ett beslut.
+- Äldre flaggor för nutida stater som inte är byggda: Bulgarien före 1990, Italien före 1946, Tyskland före 1991, Albanien 1991, Nordmakedonien 1992–1995 och Schweiz 1648–1815.
+- "ingen": Novgorod, Córdoba, Frankerriket, Kalmarunionen och Neutrala Moresnet byggs inte.
+
+Därmed har alla rader i tabellen "Europa" med "bygg" en symbol eller flagga, utom Moskvariket.
+
+**Expertgranskning 2026-11-14 (historiker och geograf, före ihopslagning).** Båda lämnade synpunkter och inget blockerande. Källorna öppnades om 2026-11-14.
+
+Rättat i den här pull requesten:
+- **Kastilien:** lejonets färg står inte längre i faktarutan (rättat i en tidigare commit).
+- **Danmark, Gelre:** faktarutan redovisar nu tre värden för vapenbokens ålder: omkring 1340–1370 i Wikipedias artikel om Dannebrog, före 1396 i artikeln om vapenboken och 1395–1402 på Commons filsida. Artikeln om vapenboken är ny källa (`wp-gelre-armorial`). Fanans start 1370 är oförändrad.
+- **Danmark, yta:** kungafanan är delad i två spann, 1370–1401 och 1526–1624. Åren 1407–1525 har Konungariket Danmark ingen yta (Kalmarunionen ligger där). Åren 1402–1406 är en prick på 73 km² som inte får medalj (tidigare commit).
+- **Licenser i `data/sources.json`**, rättade mot filsidorna på Commons: Kroatien (PD-OpenClipart och CC0, PD-Croatia-exempt), Slovakien (PD-SlovakGov), Montenegro (PD-SCGGov, filsidan säger att statusen är antagen) och Malta (filsidans Malta-mall och CC Public Domain Mark 1.0).
+- **README och datamodellen** kallade flaggfilerna "egna teckningar". De är förenklade, och för flera bygger de på Commons-filer. Kontrollerat för Slovakien, Slovenien och Nordmakedonien: emblemens banor är desamma som i Commons-filen, medan de enkla färgfälten är egna.
+
+Öppet för DasKrokodils beslut:
+- **Kungafanans start:** 1370 eller 1395. Källorna avgör inte.
+- **SVG-filerna för Slovenien, Nordmakedonien och Montenegro:** public domain-grunden är osäker på Commons själv, och banorna är kopierade. Ska de ritas om eller behållas med en not?
+- **Kastiliens lejon** är ritat i purpur (`#8a1c4e`). Ingen öppnad källa anger färgen, och faktarutan säger inget om den.
+- **Litauen 1410–1449:** slutåret är rikets slut i datan, inte något källan säger om fanan.
+- **Malta** visas från 1967 (rikets start i datan) trots att flaggan antogs 1964. **Nordmakedonien** 1992–1994 och **Serbien** 1992–2005 saknar tecken.
+
+Luckor (blockerar inte): Andorra, Liechtenstein och San Marino saknar flagga. Enligt geografens räkning har Europa nu symbol eller flagga på 35 av 54 grupper (65 %), mot Asien 20 av 67 och Afrika 14 av 60, så nästa omgångar bör gå dit.
+
+## Uppföljning 2026-11-14: Asien omgång 2 (#1153)
+
+Byggt på grenen `claude/issue-1153-asien-2`. Källorna öppnades 2026-11-14: "Flag of …" på Wikipedia för åren och Commons-filsidan för licensen (alla public domain, märkta insignia). Teckningarna i `img/flags/` följer Commons-filernas geometri; fält och ränder följer flaggans proportion och emblemen behåller sin form.
+
+| Grupp | Visas | Anmärkning |
+|---|---|---|
+| Israel | 1948–2024 | Antagen 1948-10-28 |
+| Palestina | 2014–2024 | Gruppen börjar med Sveriges erkännande 2014 (`docs/omstridda-granser.md`); flaggan antogs av PLO 1964 och av staten Palestina 1988 |
+| Taiwan | 1950–2024 | Etiketten säger "Republiken Kinas flagga", eftersom flaggan är Republiken Kinas (på Taiwan sedan 1945) |
+| Sydvietnam | 1956–1975 | Republiken Vietnams flagga (1955) |
+| Libanon | 1990–2024 | Cedern helt grön sedan 1990-09-21. Flaggan 1943–1990 med brun stam är inte ritad, eftersom Commons-filen inte gick att hämta (429); 1944–1989 är en lucka |
+| Filippinerna | 1947–2024 | Mönstret från 1936. Blåa nyansen har växlat (1955, 1985, 1986, 1998); teckningen har dagens färger |
+| Malaysia | 1963–2024 | 14 ränder och 14-uddig stjärna sedan 1963-09-16 |
+| Nordkorea | 1948–2024 | Proportionen 1:2 som gällde till mars 2026 |
+| Sydkorea | 1949–2024 | Dagens geometri sedan 1949-10-15; flaggan 1948–1949 hade en annan utformning och är en lucka |
+| Kirgizistan | 1992–2023 och 2024 | Solens strålar rätades ut genom lagen 2023-12-26 |
+| Tadzjikistan | 1992–2024 | Antagen 1992-11-24 |
+| Mongoliet | 1945–1991 och 1992–2024 | Stjärnan togs bort 1992-02-12; 1926–1944 är en lucka |
+| Cypern | 1961–2005 och 2006–2024 | Kvistar, färger och proportion ändrades 2006-04-24 |
+
+**Väntar i Asien:**
+- **Detaljrika emblem som inte går att förenkla utan att hitta på eller förvränga:** Bhutan (draken), Saudiarabien (trosbekännelsen i skrift; dessutom varianterna 1926–1973 okontrollerade), Brunei (rikets vapen), Kazakstan (örnen och ornamentet) och Turkmenistan (mattmönstren; versionen 1992–2000 är okontrollerad).
+- **Iran och Irak** (helt eller inte alls): takbir i skrift i båda och okontrollerade varianter (Irak 1959–1963 och 1963–2008; källorna skiljer sig om Irans första flagga, 1905 eller 1907).
+- **Korea (Joseon och kejsardömet):** taegukgi-varianterna skiljer sig mellan filerna (1882, november 1882, 1899) och året skiljer (1882 eller 1883); filen från 1899 är CC BY-SA.
+- **Äldre flaggor:** Libanon 1944–1989 (filen ska hämtas), Sydkorea 1948, Mongoliet 1926–1944, Georgien 1918–2003.
+
+**Rättat efter granskningen (#1497):** Israels medalj stod på Sinai 1956–1957, 1967–1972 och 1976–1982, där Cliopatria räknar Sinai till Israel. `labelAt` sätter [34.7, 31.4] de åren, enligt beslutet 2026-11-12 om medaljens plats. Kontrollskriptet jämför nu varje etikettpunkt med Natural Earth admin-0.
+
+## Uppföljning 2026-11-14: Afrika omgång 2 (#1154)
+
+Byggt på grenen `claude/issue-1154-afrika-2`. Källorna öppnades 2026-11-14: "Flag of …" på Wikipedia för antagandeåret och Commons-filsidan för licensen. Alla filer är public domain; alla utom Djibouti, Sudan 1956 och Kamerun 1957 är märkta insignia. Teckningarna i `img/flags/` följer Commons-filernas geometri; fält och ränder följer proportionen 3:2 och stjärnor och emblem behåller sin form. Ingen flagga visas före antagandeåret eller utanför gruppens år.
+
+| Grupp | Visas | Anmärkning |
+|---|---|---|
+| Liberia | 1848–2024 | Antagen 1847-08-24; gruppen börjar 1848 |
+| Tunisien | 1956–2024 | Beyns flagga. Källorna skiljer sig om ursprunget (1827 i faktarutan, 1831 enligt regeringen), men det gäller tiden före gruppen. Statsflagga i konstitutionen 1959-06-01, lagfäst 1999 |
+| Algeriet | 1963–2024 | Antagen 1962-07-03; gruppen börjar 1963 |
+| Gambia | 1967–2024 | Antagen 1965-02-18 |
+| Guinea-Bissau | 1973–2024 | Antagen 1973-09-24 |
+| São Tomé och Príncipe | 1976–2024 | Antagen 1975-07-12 |
+| Djibouti | 1979–2024 | Antagen 1977-06-27 (faktarutan) |
+| Namibia | 1990–2024 | Antagen 1990-03-21 |
+| Centralafrikanska republiken | 1961–2024 | Antagen 1958-12-01, oförändrad även under kejsardömet 1976–1979 |
+| Mauritius | 1969–2024 | Antagen 1968-03-12 |
+| Sydsudan | 2014–2024 | Antagen 2005, nationsflagga 2011-07-09. Teckningen har den form som fastställdes 2023-08-25 (ljusblå triangel, upprätt stjärna); före 2023 var mörkblå triangel och lutande stjärna vanliga varianter |
+| Marocko | 1915–2024 | Sultanens dahir 1915-11-17. Gruppen har ingen yta 1912–1955, så flaggan syns på kartan från 1956 |
+| Sudan | 1956–1969 och 1970–2024 | Blått-gult-grönt från självständigheten 1956-01-01; rött-vitt-svart med grön triangel från 1970-05-20. Artikeln säger både att den första flaggan övergavs efter kuppen 1969 och att den användes till 1970; på årsnivå gäller den nya från 1970 |
+| Mauretanien | 1961–2016 och 2017–2024 | Första flaggan antagen 1959-04-01; den nya med röda band genom dekret 2017-10-25 och hissad 2017-11-28, så den visas från 2017 |
+| Kamerun | 1960 och 1975–2024 | Trikoloren enligt lag 1957-10-26, bekräftad i konstitutionen 1960-02-21; stjärnan i det röda fältet från 1975-05-20. Förbundsrepublikens flagga med två stjärnor (1961–1974) är inte ritad (lucka): Commons-filen gick inte att hämta (429), och artikeln anger inte stjärnornas exakta plats |
+| Tanzania | 1964–2024 | Antagen 1964-06-30 efter unionen med Zanzibar. Tanganyikas flagga 1961–1963 är inte ritad (lucka), eftersom Commons-filen inte gick att hämta (429) |
+| Rwanda | 2002–2024 | Antagen 2001-12-31, alltså från 2002 på årsnivå. Flaggan med svart R (1961–2001) är inte ritad (lucka), eftersom Commons-filen inte gick att hämta (429) |
+
+**Källorna skiljer sig:** Tunisiens ursprung (1827 eller 1831), Sudans första flagga (övergiven efter kuppen 1969 eller använd till 1970; filnamnet säger 1956–1970) och Övre Voltas flagga (1960 i Wikipedia, 1959–1984 på Commons filsida). Inget av fallen ändrar vilka år som visas, eftersom grupperna börjar senare eller bytet sker på samma år.
+
+**Väntar i Afrika:**
+- **Commons-filerna gick inte att hämta (429) under arbetet:** Burkina Faso (Övre Volta 1961–1983 och Burkina Faso från 1984), Kamerun 1961–1974, Tanganyika 1961–1963 och Rwanda 1963–2001. Åren och licenserna är lästa; bara teckningarna saknas.
+- **Emblem som behöver ritas förenklat ur Commons-filen:** Kenya (Maasai-sköld och spjut), Uganda (kronkranen), Zambia (örnen), Angola (macheten och kugghjulet), Zimbabwe (Zimbabwefågeln), Eswatini (skölden med spjut och tofsar) och Eritrea (olivkvisten; 1993 års version är inte öppnad).
+- **Flera flaggor efter varandra:** Libyen, Egypten från 1922, Kongo-Kinshasa, Kongo-Brazzaville, Malawi, Lesotho, Burundi, Moçambique, Etiopien (1975–1987 och från 2009) och Ekvatorialguinea (nuvarande).
+- "vänta" och "ingen" i tabellen är inte prövade igen.
+
+**Expertgranskning:** arbetaren kunde inte kalla in `historiker` och `geograf` (inget verktyg för underagenter). Fakta, källor och etikettpunkter granskas separat av en Claude Code som inte byggde ändringen.
+
+**Medaljens plats:** etikettpunkten för varje grupp och år med flagga ligger inom Cliopatrias yta och i rätt land i Natural Earth 1:50m admin-0 (kontrollskriptet från #1194 och #1497). Ingen `labelAt` behövdes. Wikidata-id för varje del är kontrollerat mot Wikidata (till exempel Q1014 Liberia, Q958 Sydsudan, Q1049 Sudan).
+
 ## Tabeller per världsdel
 
 Kolumner: id, rike, sort, vad symbolen är, källa, bild på Commons med licens, säkerhet, rekommendation och anmärkning.

@@ -6,7 +6,8 @@ import { loadAll, loadAllEventDetails, loadReligionPolities, loadRoutes, loadSou
 import { buildIndex, search as searchIndex } from './search-index.js';
 import { placeSuggestions, eventsNear, RADIUS_KM } from './place-search.js';
 import { applyStatic, setupLangPicker, takeReturnYear, LANG_INFO, ui } from './i18n.js';
-import { Globe } from './globe.js';
+import { bindStatus, say } from './ui/status.js';
+import { Globe, paintBase } from './globe.js';
 import { Timeline, setupYearJump } from './timeline.js';
 import { LAYERS } from './layers/index.js';
 import { hasTag } from './layers/events.js';
@@ -28,18 +29,24 @@ import { Feedback } from './ui/feedback.js';
 import { Sheet } from './ui/sheet.js';
 import { ViewMenu, ExtraMenu } from './ui/viewmenu.js';
 import { ViewMode } from './ui/viewmode.js';
-import { createStore, toJSON } from './state.js';
+import { createStore, toJSON, timeLock } from './state.js';
 import { LayerRegistry } from './layers/registry.js';
 import { createSelection } from './controllers/selection.js';
 import { createFacts } from './controllers/facts.js';
 import { createFocus } from './controllers/focus.js';
+import { createDetailFocus } from './controllers/detail-focus.js';
 import { createRender } from './controllers/render.js';
 import { createPlayback } from './controllers/playback.js';
 import { createRange } from './controllers/range.js';
 import { createLabels } from './controllers/labels.js';
+import { createPlaces } from './controllers/places.js';
+import { createRegion } from './controllers/region.js';
 import { createAddress } from './controllers/address.js';
 import { createJumpBack } from './controllers/jump-back.js';
-import { createSurfaces } from './surfaces.js';
+import { createLinkNotice } from './controllers/link-notice.js';
+import { createPresentation } from './controllers/presentation.js';
+import { TeacherGuide } from './ui/teacher.js';
+import { createSurfaces, OVERLAY_IDS } from './surfaces.js';
 
 const $ = id => document.getElementById(id);
 
@@ -68,17 +75,8 @@ async function start() {
   // Språket (#63): sidans fasta texter på valt språk innan något annat skriver i dem
   applyStatic();
   $('lang-note').hidden = !!LANG_INFO.complete;
-  // Presentationsläget är avsiktligt bara en delbar adressparameter. Det sparar inget val och
-  // påverkar därför inte nästa besök utan parametern.
-  const presentation = new URLSearchParams(location.search).get('presentation') === '1';
-  const presentationExit = $('presentation-exit');
-  $('app').classList.toggle('presentation-mode', presentation);
-  presentationExit.hidden = !presentation;
-  if (presentation) {
-    const exit = new URL(location.href);
-    exit.searchParams.delete('presentation');
-    presentationExit.href = `${exit.pathname}${exit.search}${exit.hash}`;
-  }
+  // Presentationsläget (#488): ?presentation=1 i adressen, eller knappen i För lärare (#1315). Det sparar inget val.
+  const presentation = createPresentation({ $, flush: () => app.address?.flush() });
   // Lagrens grupper och förinställda vyer (#357) är en liten fil; den hämtas samtidigt med resten
   const [data, views, introData, toursData] = await Promise.all([loadAll(), loadViews(), loadIntro(), loadTours()]);
   const globe = new Globe($('globe-canvas'), $('year-jump'));
@@ -88,6 +86,8 @@ async function start() {
     root: $('flat-view'), box: $('flat-box'), canvas: $('flat-canvas'),
     zoomIn: $('flat-in'), zoomOut: $('flat-out'), reset: $('flat-reset'),
     sources: () => [globe.baseCanvas, globe.overlayCanvas],
+    // Regionvyns skarpa grundkarta (#1641): samma ritning som globens utsnitt, med den finare kusten när den har laddats
+    base: (ctx, W, H, widths) => { const land = globe.detail.fineLand ?? globe._land; if (land) paintBase(ctx, W, H, land, widths); },
     onToggle: open => {
       app.viewMode?.sync();
       globe.setFlatView(open); // Platt vy behåller 4096 × 2048 även när mobilens glob är mindre (#390)
@@ -127,7 +127,7 @@ async function start() {
     showEmpireFacts: (id, polity) => app.showEmpireFacts(id, polity),
   };
   // Lagren anmäler sig i registret (layers/index.js), och raderna i Lager byggs ur det (före LayerMenu nedan)
-  for (const make of LAYERS) registry.add(make(env));
+  for (const make of LAYERS) for (const entry of [make(env)].flat()) registry.add(entry);
   registry.buildMenu($('layer-menu'), views?.groups);
   // Lagren som main.js gör mer med än att rita: klick, fokus, listan och etiketterna
   const layer = registry.get('events'), areas = registry.get('areas'), religions = registry.get('religions'), routes = registry.get('routes');
@@ -135,6 +135,7 @@ async function start() {
     root: $('panel'), list: $('event-list'), filters: $('filters'), chips: $('panel-filters'), detail: $('detail'),
     sub: $('panel-sub'), count: $('panel-count'), toggle: $('btn-panel'), close: $('panel-close'),
   }, data, { empireLegend: views?.empireLegend, uncertainty: views?.uncertainty, panel: views?.panel, tags: views?.tags });
+  bindStatus($('screen-reader-status')); // statusraden för skärmläsare har en enda väg in (js/ui/status.js, #1419)
   const ff = new FunFacts({
     root: $('funfact'), text: $('ff-text'), events: $('ff-events'), review: $('ff-review'),
     pager: $('ff-pager'), next: $('ff-next'), srcBtn: $('ff-sources'),
@@ -148,10 +149,13 @@ async function start() {
 
   const timeline = new Timeline({
     track: $('track'), thumb: $('thumb'), segs: $('track-segments'), ticks: $('ticks'),
-    dots: $('track-dots'), ffMarks: $('track-ff'), chapters: $('track-chapters'), warMarks: $('track-war'), markNote: $('timeline-mark-note'), playBtn: $('btn-play'), playIcon: $('play-icon'), pauseNote: $('pause-note'), pauseText: $('pause-text'),
+    dots: $('track-dots'), ffMarks: $('track-ff'), chapters: $('track-chapters'), warMarks: $('track-war'), markNote: $('timeline-mark-note'), scaleNote: $('timeline-scale-note'), playBtn: $('btn-play'), playIcon: $('play-icon'), pauseNote: $('pause-note'), pauseText: $('pause-text'),
     pauseGo: $('pause-go'), status: $('screen-reader-status'),
     stepBtns: document.querySelectorAll('.step[data-step]'), speedBtn: $('btn-speed'),
   });
+  // Tidslåset (#1322): reglaget låses i en tur, och i en lektion stannar det inom lektionens år (timeLock i js/state.js)
+  timeline.lock = () => timeLock(store.state.modes, app.lesson?.lock?.years ?? null);
+  store.subscribe(({ type }) => { if (type === 'mode') timeline.syncLock(); });
   ff.setSurpriseRange(() => timeline.focus);
   const yearJump = setupYearJump(timeline, {
     button: $('year-jump'), pop: $('jump-pop'), input: $('jump-input'), msg: $('jump-msg'), epochs: $('jump-epochs'),
@@ -159,11 +163,11 @@ async function start() {
     onSelect: id => app.select(id, false), // raderna i datumresultatet (#590); året är redan rätt
     onOpen: () => app.surfaces.opened('jump'), // årshoppet och intervallformuläret stänger varandra (#1141)
   });
-  app.surfaces.register('jump', 'popover', () => yearJump.close());
+  app.surfaces.register('jump', 'popover', () => yearJump.close(), { isOpen: () => !$('jump-pop').hidden, opener: $('year-jump') });
 
 
   // Lagerväljaren: vilka lager som syns. Raderna och startläget kommer från registret.
-  const layers = new LayerMenu({ button: $('btn-layers'), menu: $('layer-menu'),
+  const layers = new LayerMenu({ button: $('btn-layers'), menu: $('layer-menu'), settings: $('settings'),
     views: views && { ...views, controlled: registry.viewLayers(views.groups),
       tagCount: tag => data.events.filter(e => hasTag(e, tag) && isVisibleReview(e.review)).length } });
   // En vy med tagg (#555), till exempel Framsteg, visar bara händelser med taggen
@@ -292,8 +296,8 @@ async function start() {
   };
   // Fokus (att följa ett krig, rike, en religion eller resa) stoppas av lektionsläget (#795) och av de andra lägen som
   // tabellen MODE_RULES i js/state.js säger (#893): en länk i en faktaruta eller en gammal adress kan inte släppa låset
-  const startFocus = key => (store.canEnter('fokus') ? focusCtl.startFocus(key) : Promise.resolve(false));
-  Object.assign(app, { startFocus, endFocus: focusCtl.endFocus, founding: focusCtl.founding, focusMenu: focusCtl.focusMenu, showThemeCard: focusCtl.showThemeCard, showPlaceCard: focusCtl.showPlaceCard });
+  const startFocus = (key, opts) => (store.canEnter('fokus') ? focusCtl.startFocus(key, opts) : Promise.resolve(false));
+  Object.assign(app, { startFocus, endFocus: focusCtl.endFocus, founding: focusCtl.founding, focusMenu: focusCtl.focusMenu, showFocusFacts: focusCtl.showFacts, clearFocusNotice: focusCtl.clearNotice });
   const render = createRender(app);
   Object.assign(app, { render, refresh: render.refresh, syncNameScale: render.syncNameScale, storyFor: render.storyFor });
   const jumpBack = createJumpBack(app);
@@ -310,6 +314,10 @@ async function start() {
   app.playback = createPlayback(app);
   // Tidsintervallet (#755): läget 'intervall' i lägeskontraktet, med formuläret i årshoppet och raden under årtalet
   app.range = createRange(app);
+  // Tryck på en plats med kort (#1161): konturerna, trycket, tangentbordets Enter och knappen Visa i Platt karta
+  app.places = createPlaces(app);
+  // Regionvyn (#1641): Visa i Platt karta för en liten plats ger en skarp, inzoomad karta med kantlinje
+  app.region = createRegion(app);
 
   panel.onSelect = (...a) => app.select(...a);
   panel.onFocus = id => app.startFocus(`war:${id}`);
@@ -317,20 +325,27 @@ async function start() {
   // efterträdare eller föregångare som finns som rike (#72, follow) börjar följas direkt.
   // I lektionsläget (#795) följs ingenting: ett rike öppnar bara sin faktaruta
   panel.onEmpire = (id, follow = false) => ((!follow || app.lesson?.active) && app.showEmpireFacts(id)) || app.startFocus(`empire:${id}`);
+  // Följ riket i landskortet (#1448): riket följs från periodens år, så att länken "Sverige-Norge 1815–1904" inte börjar år 980.
+  // I lektionsläget följs ingenting, som ovan: riket öppnar bara sin faktaruta
+  // Följ riket ersätter platsen (Fokus-typerna utesluter varandra; kortet säger det). Rikets faktarutor är redan laddade för kortet, så
+  // rikets kort ritas direkt, och tangentbordsfokus flyttas dit (knappen som trycktes finns inte längre)
+  panel.onPlaceEmpire = async r => {
+    if (app.lesson?.active) return app.showEmpireFacts(r.empire);
+    const started = await app.startFocus(`empire:${r.empire}`, { within: { from: r.from, to: r.to, name: t(r.name) } });
+    if (started && !document.querySelector('#detail')?.contains(document.activeElement)) {
+      const target = !$('detail').hidden ? $('detail').querySelector('[data-close]') : $('focus-facts').hidden ? $('focus-exit') : $('focus-facts');
+      target?.focus({ preventScroll: true });
+    }
+    return started;
+  };
   $('focus-exit').addEventListener('click', () => {
-    const theme = state.focus?.type === 'theme' || state.focus?.type === 'place';
+    const selection = focusCtl.isSelection(); // ett tema eller en plats (#1327): fokus går tillbaka till knappen
     app.endFocus();
-    if (theme) $('btn-focus').focus({ preventScroll: true });
+    if (selection) $('btn-focus').focus({ preventScroll: true });
   });
-  // Knappen Fakta i fokusraden öppnar rikets eller religionens faktaruta igen (#170)
-  $('focus-facts').addEventListener('click', () => {
-    const focus = state.focus;
-    if (focus?.type === 'empire') app.showEmpireFacts(focus.id);
-    else if (focus?.type === 'religion') app.showReligionFacts(focus.id, false);
-    else if (focus?.type === 'theme') app.showThemeCard();
-    else if (focus?.type === 'place') app.showPlaceCard();
-  });
-  panel.onThemeEvent = id => app.select(id);
+  // Knappen Fakta i fokusraden öppnar faktarutan eller kortet för det man följer igen (#170); posten i js/focus/ vet vilket
+  $('focus-facts').addEventListener('click', () => focusCtl.showFacts());
+  panel.onThemeEvent = id => app.select(id, !app.tour?.active); // i en tur styr steget året: en rad i platsens kort hoppar inte (#1163)
   panel.onEndTheme = () => {
     app.endFocus();
     $('btn-focus').focus({ preventScroll: true });
@@ -343,28 +358,26 @@ async function start() {
   // Fokus och skärmläsare (#1138): hela kortet byts via innerHTML, så #detail är inte aria-live (allt lästes om vid varje byte).
   // I stället säger statusraden rubriken en gång per ny ruta. Kom man från Samtidigt-kortet, som döljs, går fokus till Stäng
   // och tillbaka till samma knapp när rutan stängs (kortet ritas om, så knappen hittas på id eller händelse-id).
-  let detailTitle = '', cardFocus = null;
+  // Fokus flyttas direkt, inte i nästa bildruta (#1436): se js/controllers/detail-focus.js
+  let detailTitle = '';
+  const detailFocus = createDetailFocus({ $ });
+  app.detailFocus = detailFocus; // Sök och följ säger till när ett val pågår, så att kortet hittar tillbaka till knappen (#1696)
   panel.onDetailChange = open => {
-    const detail = $('detail'), card = $('funfact'), active = document.activeElement;
+    const detail = $('detail'), active = document.activeElement;
     if (open) {
-      if (!cardFocus && card.contains(active)) cardFocus = active.dataset?.id ? { chip: active.dataset.id } : { id: active.id };
+      // Ett kort eller en rad i Samtidigt-listan (#1323): fokus går till Stäng, och tillbaka när rutan stängs
+      const fromSurface = detailFocus.open(active);
       ff.setDetailOpen(true);
-      if (cardFocus) detail.querySelector('[data-close]')?.focus({ preventScroll: true });
+      if (fromSurface) detail.querySelector('[data-close]')?.focus({ preventScroll: true });
       const title = detail.querySelector('h3')?.textContent.trim() ?? '';
-      if (title && title !== detailTitle) $('screen-reader-status').textContent = `${ui('detail.label')}: ${title}`;
+      const kind = detail.classList.contains('detail-selection') ? detail.querySelector('.story-label')?.textContent.trim() : ''; // Plats och Tema i stället för Om händelsen, också i en turs steg där inget Fokus pågår (#1163)
+      if (title && title !== detailTitle) say(`${kind || ui('detail.label')}: ${title}`, 'faktaruta', { priority: 2, immediate: true }); // går före Samtidigt-kortet och pausraden (#1419)
       detailTitle = title;
       return;
     }
-    const back = cardFocus, wasInDetail = !active || active === document.body || detail.contains(active);
     ff.setDetailOpen(false);
-    // I smal skärm döljs kortet av klassen has-detail tills omritningen har tagit bort den, så fokus flyttas efter den
-    if (back && wasInDetail) requestAnimationFrame(() => {
-      const now = document.activeElement;
-      if (now && now !== document.body && !detail.contains(now)) return; // besökaren har redan flyttat fokus
-      const own = back.chip ? $('ff-events').querySelector(`.ff-chip[data-id="${CSS.escape(back.chip)}"]`) : back.id && $(back.id);
-      [own, $('ff-next'), $('ff-handle')].find(el => el && !el.hidden && el.getClientRects().length)?.focus({ preventScroll: true });
-    });
-    cardFocus = null; detailTitle = '';
+    detailFocus.close(active);
+    detailTitle = '';
   };
   // Kortets källor (#337): rikets berättelse har egna, fun facts och krigskort ärver händelsernas, som har laddats
   // när dialogen visar dem (Om källorna laddar alla händelsers källor först)
@@ -405,6 +418,12 @@ async function start() {
     window.addEventListener('resize', lift);
   }
   // Platsraden i faktarutan (#312, bara smal skärm): fäller ihop rutan till litet läge och visar markören på globen
+  // Knappen Visa i Platt karta i platsens kort (#1161): vyn byts och kartan ramar in platsen. På smal skärm fälls kortet ihop till
+  // litet läge så att kartan syns, och fokus går till dess handtag (knappen är då inte synlig)
+  panel.onPlaceFlat = place => {
+    app.places.showInFlat(place); // en stor plats får regionvyn på globen (#1644), där arket också fälls ihop
+    if (narrow.matches) { detailSheet.set('closed'); detailSheet.handle.focus({ preventScroll: true }); }
+  };
   panel.onShowPlace = e => {
     detailSheet.set('closed');
     globe.flyTo(e._lat, e._lon);
@@ -421,20 +440,25 @@ async function start() {
   // I Platt vy: klick bredvid markörerna (#38)
   flatMap.onMapClick = (ll, x, y) => {
     relLegend.hidePop(); routePop.hide(); popClick++;
-    routeClick(ll, x, y);
+    if (!routeClick(ll, x, y)) app.places.tap(ll); // sist: platsens kort (#1161). Platt vy har inget dubbeltryck som zoomar, så trycket väntar inte
   };
-  globe.onClick = (x, y) => {
+  globe.onClick = (x, y, pointerType) => {
+    // Regionvyn på globen (#1644): medaljerna är dolda och markörerna är knappar; ett tryck bredvid dem fäller ihop och avmarkerar
+    if (app.region?.globeOpen) { app.region.background(); return; }
     const hit = globe.pick(x, y, layer.sprites.filter(s => s.visible));
     relLegend.hidePop(); routePop.hide(); popClick++;
     app.select(hit ? hit.userData.event.id : null);
     // Händelsemarkörer har företräde, sedan vägar och resor (de ritas ovanpå områdena)
     if (!hit && routes.active.length && routeClick(globe.pickLatLon(x, y), x, y)) return;
     // Annars: vilken religion ligger under klicket? (#166)
+    let rh = null;
     if (!hit && religions.enabled && !state.faded.has('religions') && religions.active.length) {
       const ll = globe.pickLatLon(x, y);
-      const rh = ll && religions.hitTest(ll.lon, ll.lat);
+      rh = ll && religions.hitTest(ll.lon, ll.lat);
       if (rh) showReligionPop(rh, ll, x, y);
     }
+    // Sist: konturen av en plats med kort (#1161). Markörer, vägar och religioner har företräde och är oförändrade
+    if (!hit && !rh) app.places.tap(globe.pickLatLon(x, y), pointerType === 'touch' || pointerType === 'pen');
   };
   // Riket på just den platsen (#194): rikenas gränser laddas vid det första klicket.
   // Ett senare klick vinner om laddningen hinner bli klar efter det.
@@ -473,10 +497,17 @@ async function start() {
       posterButton.disabled = false;
     }
   });
+  // Stängknappen i Lager, Sök och följ och Turer (mobil, #1309): menyerna fyller nästan hela skärmen. Knappen gör samma sak som
+  // knappen som öppnade menyn, så att stängregistret och fokus beter sig som vid ett vanligt stängande.
+  document.addEventListener('click', e => {
+    const x = e.target.closest?.('.menu-x');
+    const opener = x && { 'layer-menu': 'btn-layers', 'focus-menu': 'btn-focus', 'tour-menu': 'btn-tour' }[x.closest('.layer-menu')?.id];
+    if (opener) $(opener).click();
+  });
   // Escape stänger Platt vy, men först det som ligger ovanpå (menyer, Hjälp, förslagsformuläret, panelen, faktarutan)
   document.addEventListener('keydown', e => {
     if (e.key !== 'Escape' || flatMap.hidden) return;
-    const open = ['help', 'feedback', 'layer-menu', 'focus-menu', 'sources-dialog', 'jump-pop', 'detail', 'religion-pop', 'route-pop'].some(id => !$(id).hidden);
+    const open = OVERLAY_IDS.some(id => !$(id).hidden);
     // Escape i turens kort avslutar turen (js/ui/tour.js), inte Platt vy
     if (open || $('app').classList.contains('panel-open') || $('tour-card').contains(document.activeElement)) return;
     flatMap.setOpen(false);
@@ -548,9 +579,13 @@ async function start() {
   const help = new Help({
     root: $('help'), button: $('btn-help'), close: $('help-close'),
   });
+  // Inställningar (#1574): rörelse och pauser, flyttade från Lager till Mer
+  const settingsCard = new Help({ root: $('settings'), button: $('btn-settings'), close: $('settings-close') });
   // Besökarnas förslag (docs/feedback.md): från Hjälp och från faktarutans "Rapportera faktafel"
   const feedback = new Feedback($('feedback'));
   $('help-feedback').addEventListener('click', () => { help.close(false); feedback.open({ opener: $('btn-help') }); });
+  $('btn-feedback').addEventListener('click', () => feedback.open({ opener: $('btn-feedback') })); // Lämna förslag i Mer (#1575)
+  sources.onFeedback = () => { sources.hide(); feedback.open({ opener: $('btn-sources') }); }; // och i raden om projektet i Om källorna
   const report = (object, btn) => {
     object.year = Math.round(timeline.year);
     feedback.open({ opener: btn, event: object.type === 'event' ? data.byId[object.id] : null, object });
@@ -606,30 +641,24 @@ async function start() {
     try { localStorage.setItem('hg-teckenforklaring', tLegend.open ? 'hopfalld' : 'oppen'); } catch { /* utan lagring */ }
   });
 
-  // Quiz (#65): frågor ur befintliga fun facts, startas från Mer. Knappen döljs om datan inte räcker till en fråga.
-  const quizButton = $('btn-quiz');
+  // Quiz (#65): frågor ur befintliga fun facts, startas från För lärare (#1575). Raden där döljs om datan inte räcker till en fråga.
   const quiz = new Quiz({
     root: $('quiz'), closeBtn: $('quiz-close'), score: $('quiz-score'), event: $('quiz-event'), eventTitle: $('quiz-event-title'),
     eventMeta: $('quiz-event-meta'), question: $('quiz-question'), options: $('quiz-options'), result: $('quiz-result'),
     verdict: $('quiz-verdict'), funfact: $('quiz-funfact'), sources: $('quiz-sources'), next: $('quiz-next'),
     title: $('quiz-title'), origin: $('quiz-origin'),
   }, data, { fallbackFocus: () => $('btn-more') });
-  quizButton.hidden = !quiz.ready;
-  quizButton.addEventListener('click', () => { help.close(false); quiz.open(quizButton); });
 
-  // Samtidighetsjakten (#741): ett elevuppdrag. Knappen i faktarutan finns bara medan jakten pågår.
-  const huntButton = $('btn-hunt');
+  // Samtidighetsjakten (#741): ett elevuppdrag, startas från För lärare (#1575). Knappen i faktarutan finns bara medan jakten pågår.
   const refreshDetail = () => { if (panel.selectedId && !$('detail').hidden) panel.showDetail(data.byId[panel.selectedId]); };
   const hunt = new Hunt({
     root: $('hunt'), title: $('hunt-title'), task: $('hunt-task'), years: $('hunt-years'), progress: $('hunt-progress'),
     list: $('hunt-list'), message: $('hunt-message'), done: $('hunt-done'), reflection: $('hunt-reflection'),
     sources: $('hunt-sources'), closeBtn: $('hunt-close'), endBtn: $('hunt-end'),
-  }, await loadMissions(), { timeline, byId: data.byId, srcById: data.srcById, onChange: refreshDetail, fallbackFocus: () => $('btn-more'), store, get lesson() { return app.lesson; } });
+  }, await loadMissions(), { timeline, byId: data.byId, srcById: data.srcById, onChange: refreshDetail, fallbackFocus: () => $('btn-more'), store, get lesson() { return app.lesson; }, get tour() { return app.tour; } });
   app.hunt = hunt;
   panel.huntFor = e => hunt.buttonFor(e);
   panel.onHunt = e => hunt.add(e);
-  huntButton.hidden = !hunt.ready;
-  huntButton.addEventListener('click', () => { help.close(false); hunt.start(null, huntButton); });
 
   // Guidade turer (#47): en tur är data i data/turer/, och spelaren styr tidslinjen, kameran, Lager och faktarutan
   const tour = new TourPlayer({
@@ -637,12 +666,11 @@ async function start() {
     card: $('tour-card'), progress: $('tour-progress'), meter: $('tour-meter'), name: $('tour-name'), title: $('tour-title'), text: $('tour-text'),
     read: $('tour-read'), srcBtn: $('tour-sources'), back: $('tour-back'), next: $('tour-next'), closeBtn: $('tour-close'), endBtn: $('tour-end'),
     chapter: $('tour-chapter'), question: $('tour-question'), questionLabel: $('tour-question-label'), questionText: $('tour-question-text'), status: $('tour-status'),
-    printBtn: $('tour-print'),
-    printStatus: $('tour-print-status'),
-    copyTeacherBtn: $('tour-copy-teacher'),
   }, toursData, {
     printRoot: $('print-sheet'),
     get lesson() { return app.lesson; }, // lektionsläget (#795) skapas efter spelaren
+    get places() { return app.places; }, // turens steg med en plats (#1163)
+    get linkNotice() { return app.linkNotice; }, // raden efter att turen lämnats (#1572)
     timeline, globe, flatMap, layers, narrow, root: $('app'), events: data.byId,
     layerIds: new Set(registry.entries.map(e => e.id)), controlled: registry.viewLayers(views?.groups), empires: new Set(data.empireGroups.map(g => g.id)),
     select: (id, jump) => app.select(id, jump),
@@ -660,20 +688,46 @@ async function start() {
   store.onExit('tur', takenBy => tour.end({ takenBy }));
   store.onExit('lektion', takenBy => tour.end({ takenBy })); // lektionen hör till sin tur och slutar med den
   store.onExit('jakt', () => hunt.end(false));
+  let teacher = null; // För lärare (#1315) skapas efter lektionsläget; closeMenus nedan anropas först när sidan körs
   // Lektionsläget (#795): en lektionslänk (m=lektion) startar turen med menyerna dolda och bandet överst
   app.lesson = new LessonMode({
     band: $('lesson-band'), title: $('lesson-band-title'), exit: $('lesson-exit'), printBtn: $('lesson-print'), printStatus: $('lesson-print-status'),
-    notice: $('lesson-notice'), noticeText: $('lesson-notice-text'), retry: $('lesson-retry'), noticeClose: $('lesson-notice-close'), endLinks: $('tour-lesson-end'), endList: $('tour-lesson-end-list'),
-  }, { root: $('app'), printRoot: $('print-sheet'), timeline, tour, hunt, toursData, store, layers, snapshot: () => app.modeSnapshot(), closeMenus: () => { surfaces.closeAll(); help.close(false); } });
+    confirm: $('lesson-confirm'), confirmNo: $('lesson-confirm-no'), confirmYes: $('lesson-confirm-yes'), notice: $('lesson-notice'), noticeText: $('lesson-notice-text'), retry: $('lesson-retry'), noticeClose: $('lesson-notice-close'), endLinks: $('tour-lesson-end'), endList: $('tour-lesson-end-list'),
+  }, { root: $('app'), printRoot: $('print-sheet'), timeline, tour, hunt, toursData, store, layers, snapshot: () => app.modeSnapshot(), closeMenus: () => { surfaces.closeAll(); help.close(false); teacher?.close(false); } });
+  // För lärare (#1315): lektionerna, utskriften, quizet, jakten och presentationsläget under Mer
+  teacher = new TeacherGuide({
+    root: $('teacher'), button: $('btn-teacher'), close: $('teacher-close'), list: $('teacher-lessons'), empty: $('teacher-lessons-empty'),
+    quizBtn: $('teacher-quiz'), quizRow: $('teacher-quiz-row'), huntBtn: $('teacher-hunt'), linkStatus: $('teacher-link-status'), huntRow: $('teacher-hunt-row'), presentationBtn: $('teacher-presentation'), presentationRow: $('teacher-presentation-row'),
+  }, { tour, quiz, hunt, presentation, narrow, get lesson() { return app.lesson; } });
+  $('help-teacher').addEventListener('click', () => { help.close(false); teacher.open(true); });
   // Berättelseläget (#247): krigets första kort får "Följ berättelsen" när en tur berättar om kriget
   panel.tourFor = id => { const x = tour.forWar(id); return x && { id: x.id, label: tour.storyLabel(x) }; };
   // Rikens fall (#499): rikets faktaruta får en knapp när en tur följer rikets fall
   panel.empireTourFor = id => { const x = tour.forEmpire(id); return x && { id: x.id, label: tour.storyLabel(x, 'fall') }; };
   panel.onTour = (id, btn) => tour.start(id, btn);
   panel.howTour = () => { const x = tour.tours?.find(y => y.id === 'hur-vet-vi-det-har'); return x ? { id: x.id, label: t(x.title) } : null; };
-  tour.onOpen = () => surfaces.closeAll();
+  tour.onOpen = () => surfaces.opened('tours'); // Turer-menyn är en egen yta i gruppen meny (#1323): closeAll() skulle stänga den nyss öppnade menyn
+  // Dialogerna och Escape (#1323, js/surfaces.js). Dialogerna är en grupp: bara en är öppen, och en öppnad dialog pausar
+  // uppspelningen och nedräkningen, som inte fortsätter av sig själva. Registret märker öppnandet på attributet hidden, så att
+  // dialogernas egen kod inte ändras. Escape stänger det översta öppna (dialog, årshopp eller intervallformulär, jakt, Turer-menyn)
+  // också när fokus ligger utanför ytan, och fokus går tillbaka till ytans knapp.
+  surfaces.onDialogOpen = () => { timeline.pause(); app.playback.stopCountdown(); };
+  surfaces.watch('help', $('help'), 'dialog', refocus => help.close(refocus !== false), { opener: $('btn-help') });
+  surfaces.watch('settings', $('settings'), 'dialog', refocus => settingsCard.close(refocus !== false), { opener: $('btn-settings') });
+  surfaces.watch('teacher', $('teacher'), 'dialog', refocus => teacher.close(refocus !== false), { opener: $('btn-teacher') });
+  surfaces.watch('sources', $('sources-dialog'), 'dialog', () => sources.hide(), { opener: $('btn-sources') });
+  surfaces.watch('intro', $('intro'), 'dialog', refocus => intro.close(refocus !== false), { opener: $('btn-intro') });
+  surfaces.watch('quiz', $('quiz'), 'dialog', refocus => quiz.close(refocus !== false), { opener: $('btn-teacher') });
+  surfaces.watch('feedback', $('feedback'), 'dialog', () => feedback.close());
+  surfaces.watch('hunt', $('hunt'), 'uppdrag', refocus => hunt.end(refocus !== false), { opener: $('btn-teacher') });
+  surfaces.register('tours', 'meny', () => tour.closeMenu(), { isOpen: () => !$('tour-menu').hidden, opener: $('btn-tour'), central: true });
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Escape' || e.defaultPrevented) return;
+    if (surfaces.escape()) { e.preventDefault(); e.stopPropagation(); }
+  }, true);
   // Tillståndet i adressen (#501) och knappen Dela (#64). En tur i adressen (t och s, eller ?tur=<id>) startar
   // direkt vid rätt steg och går före en delad vy (#736), till exempel från en lektion eller ett test.
+  app.linkNotice = createLinkNotice(app); // raden om en trasig länk (#1324); adressen fyller i den
   const address = createAddress(app);
   app.address = address;
   await address.start();
@@ -682,7 +736,7 @@ async function start() {
   shareBtn.addEventListener('click', () => address.share(text => {
     const label = shareBtn.textContent;
     shareBtn.textContent = text;
-    $('screen-reader-status').textContent = text;
+    say(text, 'dela', { priority: 1, immediate: true });
     clearTimeout(shareTimer);
     shareTimer = setTimeout(() => { shareBtn.textContent = label; }, 2500);
   }));

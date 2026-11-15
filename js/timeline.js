@@ -1,7 +1,8 @@
 // Tidsreglaget äger det nuvarande året (arkitekturprincip 3).
 // Beslut 4: segmenterad skala där nutiden får mer plats än forntiden.
-import { formatYear, groupDigits, formatDate, isBCE, bce, BCE_TXT, parseYear, parseYearInput, yearParts, edtfSpan, dayParts, formatDay, monthStarts, roundDay, MONTHS_SHORT, CE_TXT, isVisibleReview, t, roundPrehistoric } from './model.js';
+import { formatYear, groupDigits, formatDate, isBCE, bce, BCE_TXT, parseYear, parseYearInput, yearParts, edtfSpan, dayParts, formatDay, monthStarts, roundDay, MONTHS_SHORT, CE_TXT, isVisibleReview, t, roundPrehistoric, roundToStep, stepAt, formatDecimal, pluralUi } from './model.js';
 import { selectEventsForDate } from './date-events.js';
+import { say, clearStatus } from './ui/status.js';
 import { ui } from './i18n.js';
 import { MIN_YEAR, MAX_YEAR } from './state.js'; // gränserna bor i state.js (#1141), så att url-state.js inte behöver importera hela tidsreglaget
 export { MIN_YEAR, MAX_YEAR };
@@ -25,6 +26,7 @@ const TICKS = [
   [1200, 3], [1400, 2], [1600, 3], [1800, 1], [1900, 2], [1950, 3], [2000, 1],
 ];
 
+const TICK_CHAR_PX = 6.3; // årtalens typsnitt (IBM Plex Mono, 10,5 px) är 0,6 em bredare per tecken
 const clampY = y => Math.max(MIN_YEAR, Math.min(MAX_YEAR, y));
 // Gränsen mellan två segment är ett runt årtal: -500 (astronomiskt) är 501 f.Kr., men segmentet heter 500 f.Kr. Ett år som
 // redan är runt i f.Kr. (-2999 är 3000 f.Kr., -99999 är 100 000 f.Kr.) behålls (#1088).
@@ -37,7 +39,46 @@ export function segmentLabel(s) {
   return `${formatYear(from)}–${formatYear(to)}`;
 }
 const segFor = y => SEGMENTS.find(s => y <= s.to) ?? SEGMENTS.at(-1);
+/** Segmentet som ett år ligger i (den synliga skalan, #1313). */
+export const segmentAt = y => segFor(clampY(y));
+
+/**
+ * Skalan i ett segment (#1313): hur många år en tiondel av tidslinjen rymmer där, räknat ur segmentets egna fält
+ * ((to - from) år på (b - a) av tidslinjen), avrundat till två gällande siffror ("cirka 370 år", inte "369,2"). Inga tal skrivs för hand:
+ * ändras SEGMENTS ändras texterna med.
+ */
+export function yearsPerTenth(s) {
+  const exact = (s.to - s.from) / (s.b - s.a) / 10;
+  const unit = 10 ** Math.max(0, Math.floor(Math.log10(exact)) - 1);
+  return Math.round(exact / unit) * unit;
+}
+/** Skarvarna: lägena på tidslinjen där ett segment slutar och nästa börjar, med skalan på var sida. */
+export const SEAMS = SEGMENTS.slice(0, -1).map((s, i) => ({ at: s.b, year: nominal(s.to), before: s, after: SEGMENTS[i + 1] }));
+const fmtScale = s => groupDigits(yearsPerTenth(s));
+/** Skalraden för ett år: "Här är en tiondel av tidslinjen ≈ 370 år", eller vid ett segmentbyte "Ny skala: en tiondel ≈ 370 år (förut 690)". */
+export function scaleText(y, from = null) {
+  const s = segmentAt(y), f = from && from !== s ? from : null;
+  return f ? ui('scale.new', { n: fmtScale(s), m: fmtScale(f) }) : ui('scale.here', { n: fmtScale(s) });
+}
+/** Samma för skärmläsare, med hela meningen. */
+export const scaleTextFull = (y, from) => ui('scale.newFull', { n: fmtScale(segmentAt(y)), m: fmtScale(from) });
 const segForPos = p => SEGMENTS.find(s => p <= s.b) ?? SEGMENTS.at(-1);
+
+/**
+ * Steget mellan årtalen på fokusskalan (#1321): det minsta jämna steget (1, 2, 5, 10, 20, 25, 50 … 100 000 år och
+ * vidare) där spannet ger högst `fit` årtal. Förut slutade listan vid 1000 och föll till 2000, så ett spann på
+ * 60 000 år gav trettio årtal där fyra till elva får plats.
+ */
+export function focusTickStep(span, fit) {
+  for (let base = 1; ; base *= 10) {
+    for (const m of [1, 2, 5]) {
+      const step = base * m;
+      if (span / step <= fit) return step;
+      // 25, 250, 2500 … ligger mellan 20 och 50 i de små stegen (som förut)
+      if (m === 2 && span / (base * 2.5) <= fit && base >= 10) return base * 2.5;
+    }
+  }
+}
 
 export function yearToPos(y) {
   y = clampY(y);
@@ -60,23 +101,24 @@ function yearAtPos(p) {
   return s.from + (p - s.a) / (s.b - s.a) * (s.to - s.from);
 }
 /**
- * Samtidigt-fönstret räknat i reglagets läge (minsta delen av #1319, inför v6.3.0): kanterna är läget ± fraction, och det
- * kortaste avståndet till dem används lika långt åt båda hållen. Inom ett segment blir det samma som yearsAcross. Vid en
- * segmentgräns tar det glesa segmentet inte längre över, så förhistorien får ±2 115 år vid 5000 f.Kr. i stället för ±11 640
- * år i hela segmentet. Vid reglagets ändar används den kant som finns.
+ * Samtidigt-fönstret räknat i reglagets läge (#1319, beslut 2026-11-13): kanterna är läget minus och plus `fraction` av
+ * reglaget, och varje kant översätts till år för sig. Fönstret kan därför bli olika långt före och efter året vid en
+ * segmentgräns: vid 5000 f.Kr. är det cirka 11 640 år bakåt, i förhistoriens glesa segment, men bara cirka 2 100 år framåt,
+ * där segmentet efter 3000 f.Kr. är tätare. Inom ett segment är de två lika långa (samma som yearsAcross).
+ * Vid reglagets ändar finns bara en kant; den används åt båda hållen (1,2 % av reglaget går inte att mäta bortom slutet).
  */
-export function windowAround(y, fraction) {
+export function windowEdges(y, fraction) {
   y = clampY(y);
-  const p = yearToPos(y), d = [];
-  if (p - fraction >= 0) d.push(y - yearAtPos(p - fraction));
-  if (p + fraction <= 1) d.push(yearAtPos(p + fraction) - y);
-  return d.length ? Math.min(...d) : yearsAcross(y, fraction);
+  const p = yearToPos(y);
+  const lo = p - fraction >= 0 ? y - yearAtPos(p - fraction) : null;
+  const hi = p + fraction <= 1 ? yearAtPos(p + fraction) - y : null;
+  return { before: lo ?? hi, after: hi ?? lo };
 }
 
 /** Uppspelningens nivåer i år per sekund. */
 const SPEEDS = [1, 5, 25, 100];
 // Under 10 år/s visas en decimal, annars heltal, så att knappen blir kort (till exempel "17 år/s" i stället för "17,17 år/s")
-const fmtNum = r => String(r < 10 ? Math.round(r * 10) / 10 : Math.round(r)).replace('.', ',');
+const fmtNum = r => r < 10 ? formatDecimal(r) : groupDigits(Math.round(r)); // "25 000 år/s" i förhistorien (#1320); decimaltecknet följer språket (#1101)
 const fmtRate = r => ui('time.rateYears', { rate: fmtNum(r) });
 // I fokusläget för korta krig (#204) räknas farten och stegen i dagar
 const DAYS_PER_YEAR = 365.25;
@@ -87,10 +129,11 @@ const ICON_PAUSE = 'M4 2.5h3v11H4zM9 2.5h3v11H9z';
 const ICON_AGAIN = 'M8 2.5V0L4.2 3.6 8 7.2V4.5a3.5 3.5 0 1 1-3.5 3.5h-2A5.5 5.5 0 1 0 8 2.5z';
 const fmtDays = r => { const n = fmtNum(r * DAYS_PER_YEAR); return ui('time.rateDays', { rate: n, unit: dayUnit(n) }); };
 
+const SCALE_NOTE_MS = 5000; // så länge skalraden står kvar efter sista flytten (#1313)
 const DENSITY_LIMIT = 80; // fler händelsemärken än så blir ett täthetsband i översikten (#1000)
 
 export class Timeline extends EventTarget {
-  constructor({ track, thumb, segs, ticks, dots, ffMarks, chapters, warMarks, markNote, playBtn, playIcon, stepBtns, speedBtn, pauseNote, pauseText, pauseGo, status }) {
+  constructor({ track, thumb, segs, ticks, dots, ffMarks, chapters, warMarks, markNote, scaleNote, playBtn, playIcon, stepBtns, speedBtn, pauseNote, pauseText, pauseGo, status }) {
     super();
     Object.assign(this, { track, thumb, playBtn, playIcon, speedBtn, pauseNote, pauseText, pauseGo, status, stepBtns, segsEl: segs, ticksEl: ticks });
     this._year = 1325;
@@ -102,12 +145,16 @@ export class Timeline extends EventTarget {
     this.focus = null; // { from, to, fine }: tidslinjen inzoomad på ett spann (fokusläge, #109)
     this.range = null; // tidsintervallet { from, to } (#755), eller null
     this.focusLocked = false; // lektionsläget (#795) låser spannet: ett datum i årshoppet släpper det inte
+    // Tidslåset (#1322): en funktion som ger { locked: true }, { locked: false, from, to } eller null (js/state.js, timeLock).
+    // Den läses vid varje drag, klick, tangent och stegknapp; det som koden själv sätter (timeline.year = …) påverkas inte.
+    this.lock = () => null;
+    this.lockReason = ''; // hovertexten på de låsta stegknapparna
     // fine: ett kort krig (#204). Då är året ett decimaltal avrundat till hela dagar, och skalan,
     // stegen och farten räknas i dagar och månader.
     // Hastighet i år per sekund (#164). Det gamla sparade värdet ('hg-speed', ×-faktor) ignoreras.
     this.speed = 25;
     try { const v = Number(localStorage.getItem('hg-speed-ars')); if (SPEEDS.includes(v)) this.speed = v; } catch { /* utan lagring */ }
-    this.dotsEl = dots; this.ffEl = ffMarks; this.chaptersEl = chapters; this.warEl = warMarks; this.markNote = markNote;
+    this.dotsEl = dots; this.ffEl = ffMarks; this.chaptersEl = chapters; this.warEl = warMarks; this.markNote = markNote; this.scaleNoteEl = scaleNote; this._scaleTimer = 0;
     this._story = null; // kapitel och markeringar när man följer ett krig (#244)
     this._drawScale();
     addEventListener('resize', () => { if (this.focus) { this._drawScale(); this._drawStory(); } else this._hideOverlaps(); }); // antal årtal beror på bredden
@@ -124,19 +171,101 @@ export class Timeline extends EventTarget {
     // Dra i reglaget
     const setFromX = x => {
       const r = track.getBoundingClientRect();
-      this.year = this.toYear((x - r.left) / r.width);
+      this.setByUser(this.toYear((x - r.left) / r.width));
     };
-    track.addEventListener('pointerdown', e => { track.setPointerCapture(e.pointerId); this.pause(); setFromX(e.clientX); });
+    track.addEventListener('pointerdown', e => { if (this.locked) return; track.setPointerCapture(e.pointerId); this._held = true; this.pause(); setFromX(e.clientX); });
+    for (const ev of ['pointerup', 'pointercancel', 'lostpointercapture']) track.addEventListener(ev, () => { this._held = false; });
+    // Tangentbordet (#1313): reglaget som får fokus visar skalan vid året, så att den som aldrig drar också ser den
+    track.addEventListener('focus', () => { if (!this.locked && !this.focus && !this.range) this._showScale(segFor(this._year)); });
     track.addEventListener('pointermove', e => { if (track.hasPointerCapture(e.pointerId)) setFromX(e.clientX); });
     track.addEventListener('keydown', e => {
+      if (this.locked) return;
       const big = e.shiftKey ? 10 : 1;
-      const map = { ArrowLeft: -big, ArrowRight: big, ArrowDown: -big, ArrowUp: big, PageDown: -100, PageUp: 100 };
-      if (e.key in map) { this.year += map[e.key] * this.stepUnit; e.preventDefault(); }
-      if (e.key === 'Home') { this.year = MIN_YEAR; e.preventDefault(); }
-      if (e.key === 'End') { this.year = MAX_YEAR; e.preventDefault(); }
+      // PageUp/PageDown är ett större steg (#1089): hundra år i historisk tid, men tio steg där upplösningen är grövre, så att
+      // ett tryck i förhistorien blir 10 000 eller 1000 år och inte hoppar över hela tidslinjen
+      const page = !this.focus && stepAt(this._year) > 1 ? 10 : 100;
+      const map = { ArrowLeft: -big, ArrowRight: big, ArrowDown: -big, ArrowUp: big, PageDown: -page, PageUp: page };
+      if (e.key in map) { this.setByUser(this.stepFrom(this.year, map[e.key])); e.preventDefault(); }
+      if (e.key === 'Home') { this.setByUser(MIN_YEAR); e.preventDefault(); }
+      if (e.key === 'End') { this.setByUser(MAX_YEAR); e.preventDefault(); }
     });
-    for (const b of stepBtns) b.addEventListener('click', () => { this.pause(); this.year += Number(b.dataset.step) * this.stepUnit; });
-    playBtn.addEventListener('click', () => (this.playing ? this.pause() : this.play()));
+    for (const b of stepBtns) b.addEventListener('click', () => { if (this.locked) return; this.pause(); this.setByUser(this.stepFrom(this.year, Number(b.dataset.step))); });
+    playBtn.addEventListener('click', () => { if (this.locked) return; this.playing ? this.pause() : this.play(); });
+  }
+
+  /** Är reglaget låst för besökaren (tidslåset, #1322)? */
+  get locked() { return this.lock()?.locked === true; }
+
+  /** Besökarens drag, klick, tangent eller stegknapp: ett lås gäller, och i en lektion stannar året inom lektionens år (#1322). */
+  setByUser(y) {
+    const l = this.lock();
+    if (l?.locked) return;
+    const before = this.focus ? null : stepAt(this._year);
+    const segBefore = this.focus || this.range ? null : segFor(this._year);
+    this.year = l?.from != null ? Math.max(l.from, Math.min(l.to, y)) : y;
+    this._showScale(segBefore);
+    // Ny upplösning efter ett drag, en tangent eller en stegknapp (#1089): skärmläsaren får veta hur långt ett steg nu är.
+    // Beskedet läses i statusraden tillsammans med året (takeStepNote, js/controllers/render.js), så att det inte skrivs över.
+    if (before != null && stepAt(this._year) !== before) this._stepNote = pluralUi('time.stepNow', stepAt(this._year), { n: groupDigits(stepAt(this._year)) }); // "1 år", "100 år" (#1101)
+    // Ny skala efter ett drag över en skarv (#1313): sägs också för skärmläsaren, i samma rad som året
+    if (segBefore && segFor(this._year) !== segBefore) this._stepNote = [scaleTextFull(this._year, segBefore), this._stepNote].filter(Boolean).join(' ');
+  }
+  /**
+   * Skalraden (#1313): en rad under tidslinjen, i samma lucka som teckenförklaringen (som tonas ned medan raden syns), som säger vad en tiondel av
+   * tidslinjen är vid året besökaren står på, och vid en skarv att skalan ändras. Den visas när besökaren flyttar året
+   * (drag, tangent, stegknapp, hopp) eller när uppspelningen passerar en skarv, och försvinner efter en stund, men inte medan
+   * fingret ligger kvar. Visas aldrig i fokusläge eller intervall, som har egna skalor. Raden är dold för skärmläsare (aria-hidden):
+   * de får samma sak i statusraden (takeStepNote).
+   */
+  _showScale(segBefore) {
+    const el = this.scaleNoteEl;
+    if (!el) return;
+    if (this.focus || this.range) { this._hideScale(); return; }
+    const now = segFor(this._year);
+    // Efter en skarv står "Ny skala … (förut …)" kvar medan raden syns, även om draget fortsätter i det nya segmentet
+    if (segBefore && segBefore !== now) this._scaleFrom = segBefore;
+    else if (el.hidden) this._scaleFrom = null;
+    el.textContent = scaleText(this._year, this._scaleFrom);
+    el.hidden = false;
+    clearTimeout(this._scaleTimer);
+    this._scaleTimer = setTimeout(() => (this._held ? this._showScale(segFor(this._year)) : this._hideScale()), SCALE_NOTE_MS); // ligger fingret kvar står raden kvar
+  }
+  _hideScale() { clearTimeout(this._scaleTimer); this._scaleFrom = null; if (this.scaleNoteEl) this.scaleNoteEl.hidden = true; }
+  /** Beskedet om ny upplösning sedan senast, eller tom text. Läses en gång. */
+  takeStepNote() { const n = this._stepNote ?? ''; this._stepNote = ''; return n; }
+  /**
+   * Det som skärmläsaren läser för reglaget (#1089): årtalet, och före 10 000 f.Kr. också hur länge sedan det var, avrundat till
+   * tusental ("50 000 f.Kr., för cirka 52 000 år sedan"), enligt ordlistan för förhistorien (docs/ordlista-oversattning.md, 13.2).
+   */
+  valueText(y) {
+    const text = this.format(y);
+    if (this.focus || stepAt(y) < 1000) return text;
+    const ago = Math.round((MAX_YEAR - y) / 1000) * 1000;
+    return `${text}, ${ui('time.yearsAgo', { n: groupDigits(ago) })}`;
+  }
+
+  /**
+   * Visar låset (#1322): stegknapparna och spelknappen tonas ned och går inte att nå medan reglaget är låst, och reglaget får
+   * aria-disabled. Anropas när ett läge börjar eller slutar (js/main.js). Förklaringen (lockReason) står som hovertext på stegknapparna.
+   */
+  syncLock() {
+    const on = this.locked;
+    for (const b of [...this.stepBtns, this.playBtn]) {
+      b.disabled = on;
+      b.classList.toggle('time-locked', on);
+      // Spelknappens text styrs av _labelPlay och playback.js, så bara stegknapparna får förklaringen
+      if (b === this.playBtn) continue;
+      if (on && this.lockReason) {
+        if (b.dataset.beforeLock == null) b.dataset.beforeLock = b.getAttribute('title') ?? '';
+        b.title = this.lockReason;
+      } else if (b.dataset.beforeLock != null) {
+        if (b.dataset.beforeLock) b.title = b.dataset.beforeLock; else b.removeAttribute('title');
+        delete b.dataset.beforeLock;
+      }
+    }
+    this.track.classList.toggle('time-locked', on);
+    if (on) this.track.setAttribute('aria-disabled', 'true'); else this.track.removeAttribute('aria-disabled');
+    this.dispatchEvent(new CustomEvent('lockchange', { detail: { locked: on } })); // årshoppet följer med (setupYearJump)
   }
 
   /** Position (0–1) på reglaget för ett år, och tvärtom. I fokusläge är skalan linjär över spannet. */
@@ -146,13 +275,22 @@ export class Timeline extends EventTarget {
     return Math.max(0, Math.min(1, (y - from) / (to - from)));
   }
   toYear(p) {
-    if (!this.focus) return posToYear(p);
+    if (!this.focus) return roundToStep(posToYear(p)); // reglagets upplösning (#1320): tusental eller hundratal i förhistorien
     const { from, to } = this.focus;
     const y = from + Math.max(0, Math.min(1, p)) * (to - from);
     return this.focus.fine ? y : Math.round(y);
   }
-  /** Ett steg (knapparna och piltangenterna): ett år, eller en dag i fokusläget för korta krig. */
-  get stepUnit() { return this.focus?.fine ? 1 / DAYS_PER_YEAR : 1; }
+  /**
+   * Ett steg (knapparna och piltangenterna): en dag i fokusläget för korta krig, ett år i Fokus, och annars reglagets
+   * upplösning vid året (#1320): tusen år före 10 000 f.Kr., hundra år till 3000 f.Kr. och sedan ett år.
+   */
+  get stepUnit() { return this.focus?.fine ? 1 / DAYS_PER_YEAR : this.focus ? 1 : stepAt(this._year); }
+  /** Ett steg på n enheter från året, landat på upplösningen (#1320). Bakåt över en gräns räknas med den grövre upplösningen. */
+  stepFrom(y, n) {
+    if (this.focus) return y + n * this.stepUnit;
+    const unit = n < 0 ? stepAt(y - 1) : stepAt(y);
+    return roundToStep(y + n * unit);
+  }
   /** Händelsens tid på reglaget: hela år, eller datum ur edtf i fokusläget för korta krig. */
   spanOf(e) { return this.focus?.fine ? edtfSpan(e) : [e.start, e.end]; }
   /** Året som text och som [stort, litet] för huvudet: "1879", eller "22 jan 1879" för korta krig. */
@@ -161,10 +299,19 @@ export class Timeline extends EventTarget {
   formatParts(y) { return this.focus?.fine ? dayParts(this._lastDay(y)) : yearParts(roundPrehistoric(y)); }
   // Spannets slut är början av dagen efter krigets sista dag; där visas den sista dagen
   _lastDay(y) { return Math.min(y, this.focus.to - 0.5 / DAYS_PER_YEAR); }
-  /** Hur många år före och efter som räknas som "samtidigt". */
+  /**
+   * Hur många år före och efter som räknas som "samtidigt" (#1319): { before, after }. Utanför Fokus är det 1,2 % av reglaget
+   * åt varje håll, så att längden kan skilja sig vid en segmentgräns. I Fokus är det lika långt åt båda hållen.
+   */
+  windowSpan(y) {
+    if (this.focus?.fine) { const d = (this.focus.to - this.focus.from) * 0.03; return { before: d, after: d }; } // några dagar
+    if (this.focus) { const d = Math.max(1, (this.focus.to - this.focus.from) * 0.03); return { before: d, after: d }; }
+    return windowEdges(y, 0.012);
+  }
+  /** Den längre av de två sidorna, för det som bara behöver ett tal (till exempel Fokus-menyns avstånd). */
   windowYears(y) {
-    if (this.focus?.fine) return (this.focus.to - this.focus.from) * 0.03; // några dagar
-    return this.focus ? Math.max(1, (this.focus.to - this.focus.from) * 0.03) : windowAround(y, 0.012);
+    const { before, after } = this.windowSpan(y);
+    return Math.max(before, after);
   }
 
   /**
@@ -192,6 +339,7 @@ export class Timeline extends EventTarget {
   setFocus(range) {
     this.pause();
     this.focus = range;
+    if (range) this._hideScale(); // fokusläget har egen skala (#1313)
     if (!range) this._story = null; // kapitel och markeringar hör till det man följer
     if (!range?.fine) this._year = Math.floor(this._year); // utanför korta krig är året ett heltal
     this._labelSpeed();
@@ -212,8 +360,10 @@ export class Timeline extends EventTarget {
       const { from, to } = this.focus, span = to - from;
       // Så många årtal som får plats utan att överlappa, på jämna år. Före vår
       // tideräkning räknas jämnheten på det visade året (700 f.Kr. = -699).
-      const fit = Math.max(3, Math.floor(this.track.clientWidth / 90));
-      const step = [1, 2, 5, 10, 20, 25, 50, 100, 200, 250, 500, 1000].find(s => span / s <= fit) ?? 2000;
+      // Årtalen ska inte ligga över varandra: ett långt årtal ("100 000 av. J.-C.", 17 tecken) behöver mer plats än 90 px (#1101)
+      const slot = Math.max(90, Math.max(formatYear(from).length, formatYear(to).length) * TICK_CHAR_PX + 8);
+      const fit = Math.max(3, Math.floor(this.track.clientWidth / slot));
+      const step = focusTickStep(span, fit);
       for (let v = Math.ceil(from / step) * step; v <= to + step; v += step) {
         const y = v < 0 ? v + 1 : v;
         if (v === 0 || y < from || y > to) continue;
@@ -230,7 +380,13 @@ export class Timeline extends EventTarget {
     }
     for (const s of SEGMENTS) {
       const d = document.createElement('div');
-      d.className = 'seg'; d.style.width = `${(s.b - s.a) * 100}%`; d.title = segmentLabel(s);
+      d.className = 'seg'; d.style.width = `${(s.b - s.a) * 100}%`; d.title = ui('scale.seg', { label: segmentLabel(s), n: fmtScale(s) });
+      this.segsEl.append(d);
+    }
+    // Skarvarna (#1313): där skalan byter. Ett tecken som ett avbrott i en axel, bara för ögat (reglaget är tabbstoppet)
+    for (const seam of SEAMS) {
+      const d = document.createElement('i'); // i, inte div: .seg:last-of-type och :nth-of-type(even) räknar bara segmenten
+      d.className = 'seam'; d.style.left = `${seam.at * 100}%`; d.setAttribute('aria-hidden', 'true');
       this.segsEl.append(d);
     }
     for (const [y, level] of TICKS) {
@@ -246,18 +402,24 @@ export class Timeline extends EventTarget {
   }
 
   /**
-   * Döljer årtal på skalan som skulle krocka med ett viktigare årtal (#63). Bredden beror på språket:
-   * "1000 av. J.-C." är längre än "1000 f.Kr.". Nivå 1 behålls alltid, sedan nivå 2 och 3 där de får plats.
+   * Döljer årtal på skalan som skulle krocka med ett viktigare årtal (#63, #1101). Bredden beror på språket:
+   * "100 000 av. J.-C." och "1 apr. J.-C." är mycket längre än "100 000 f.Kr." och "1 e.Kr.", och i 400 px ryms inte alla fem
+   * årtalen i nivå 1 på franska. Företräde har skalans första årtal (hur långt bakåt skalan går), sedan det senare före det
+   * tidigare inom samma nivå (modern tid före 1 e.Kr.), och nivå 1 före 2 och 3. Ett årtal som krockar med ett som redan behållits
+   * döljs (visibility), det tar fortfarande plats så att de andra inte flyttar sig.
    */
   _hideOverlaps() {
     const ticks = [...this.ticksEl.querySelectorAll('.tick[data-level]')];
     for (const d of ticks) d.classList.remove('tick-hidden');
+    const left = d => d.getBoundingClientRect().left;
     const kept = [];
     for (const level of ['1', '2', '3']) {
-      for (const d of ticks.filter(t => t.dataset.level === level)) {
+      const group = ticks.filter(t => t.dataset.level === level);
+      if (level === '1') group.sort((a, b) => (b.classList.contains('first') - a.classList.contains('first')) || left(b) - left(a));
+      for (const d of group) {
         const r = d.getBoundingClientRect();
         if (!r.width) continue; // dold av bredden (lvl2 och lvl3 i smal skärm)
-        if (level !== '1' && kept.some(k => r.left < k.right + 6 && r.right > k.left - 6)) { d.classList.add('tick-hidden'); continue; }
+        if (kept.some(k => r.left < k.right + 6 && r.right > k.left - 6)) { d.classList.add('tick-hidden'); continue; }
         kept.push(r);
       }
     }
@@ -293,7 +455,11 @@ export class Timeline extends EventTarget {
     y = clampY(this.focus?.fine ? roundDay(y) : Math.round(y));
     if (this.focus) y = Math.max(this.focus.from, Math.min(this.focus.to, y)); // stanna inom fokusspannet
     if (y === this._year) return;
+    const stepChanged = !this.focus && stepAt(y) !== stepAt(this._year);
+    const segBefore = this.playing && !this.focus && !this.range ? segFor(this._year) : null;
     this._year = y;
+    if (segBefore && segFor(y) !== segBefore) this._showScale(segBefore); // uppspelningen passerar en skarv (#1313)
+    if (stepChanged) { this._labelSpeed(); this._labelSteps(); } // ny upplösning: stegen och farten byter tal (#1320)
     this._render();
     this.dispatchEvent(new CustomEvent('change', { detail: { year: y } }));
   }
@@ -435,7 +601,7 @@ export class Timeline extends EventTarget {
   /** År per sekund just nu. I fokusläge ungefär en tiondel av nivån, och längre spann
    *  (till exempel en religion) skalas upp så att de tar högst cirka en och en halv minut (#164). */
   get yearsPerSecond() {
-    if (!this.focus) return this.speed;
+    if (!this.focus) return this.speed * stepAt(this._year); // i förhistorien hundra eller tusen gånger fortare (#1320)
     const span = this.focus.to - this.focus.from;
     // Korta krig (#204): hela kriget på cirka en minut vid standardnivån (25)
     if (this.focus.fine) return (this.speed / 25) * span / 60;
@@ -444,6 +610,13 @@ export class Timeline extends EventTarget {
   _labelSpeed() {
     const r = this.yearsPerSecond, fine = this.focus?.fine, t = fine ? fmtDays(r) : fmtRate(r);
     this.speedBtn.textContent = t;
+    // År: i smal skärm står bara "/s" efter talet (CSS), så att knappen får plats. Förut gällde det bara tusentals år per sekund i
+    // förhistorien (#1320), men "25 ans/s" och "25 años/s" är bredare än knappen på 400 px också i modern tid (#1101).
+    if (!fine) {
+      const num = fmtNum(r), unit = t.slice(t.indexOf(num) + num.length); // enheten som språkfilen skriver den, med sitt mellanrum
+      this.speedBtn.classList.toggle('long', r >= 1000);
+      this.speedBtn.replaceChildren(num, ...[['unit-long', unit], ['unit-short', '/s']].map(([cls, text]) => Object.assign(document.createElement('span'), { className: cls, textContent: text })));
+    }
     // Dagar: i smal skärm står bara "d/s" (CSS), så att knappen får plats
     if (fine) {
       const n = fmtNum(r * DAYS_PER_YEAR);
@@ -454,11 +627,15 @@ export class Timeline extends EventTarget {
   }
   /** Stegknapparnas namn: år, eller dagar i fokusläget för korta krig. */
   _labelSteps() {
+    const scale = this.focus ? 1 : stepAt(this._year); // reglagets upplösning (#1320): −1 är tusen år före 10 000 f.Kr.
+    this.stepBtns[0]?.parentElement?.classList.toggle('prehistory', scale > 1); // smal skärm: färre och bredare knappar (CSS)
     for (const b of this.stepBtns) {
-      const n = Number(b.dataset.step), a = Math.abs(n);
+      const n = Number(b.dataset.step), a = Math.abs(n) * scale;
       const unit = ui(this.focus?.fine ? 'time.dayNames' : 'time.yearNames')[a === 1 ? 0 : 1];
-      b.setAttribute('aria-label', ui('time.step', { n: a, unit, direction: ui(n < 0 ? 'time.backward' : 'time.forward') }));
+      b.textContent = `${n < 0 ? '\u2212' : '+'}${groupDigits(a)}`;
+      b.setAttribute('aria-label', ui('time.step', { n: groupDigits(a), unit, direction: ui(n < 0 ? 'time.backward' : 'time.forward') }));
       b.title = b.getAttribute('aria-label');
+      if (this.locked && this.lockReason) b.title = this.lockReason; // låset visar sin förklaring (#1322)
     }
   }
   /** I slutet (fokusets slut eller sista året) och utan något kvar att visa börjar nästa uppspelning om. */
@@ -499,7 +676,7 @@ export class Timeline extends EventTarget {
       const dt = Math.min(0.1, (now - last) / 1000); last = now;
       if (this._year !== shown) yf = this._year; // året flyttades utifrån (till exempel hopp vid krig)
       yf += dt * this.yearsPerSecond;
-      this.year = yf;
+      this.year = this.focus ? yf : roundToStep(yf); // i förhistorien hela tusental eller hundratal (#1320)
       if (!this.playing) return; // pausad av den som lyssnar på change (till exempel vid krigets slut), med sin paustext
       shown = this._year;
       if (this._year >= end) { this.pause(); return; }
@@ -532,19 +709,15 @@ export class Timeline extends EventTarget {
       box.querySelector('#pause-more-text').textContent = more ? more.text : '';
     }
     if (announcement) this._announce(announcement);
-    else if (this.status) this.status.textContent = '';
+    else clearStatus('pausnotis');
+    // Den som äger något i pausraden (resans stegknappar, #1380) vet då när raden har bytt text eller försvunnit
+    this.dispatchEvent(new CustomEvent('pausenote', { detail: { text: text || null } }));
   }
   /** Den här raden finns alltid i DOM:en, så att skärmläsaren säkert får ändringen. */
   /** Läser upp text för skärmläsare utan att visa en pausrad (till exempel turens slutkort, #878). */
-  announce(text) { this._announce(text); }
-  _announce(text) {
-    if (!this.status) return;
-    const request = (this._announceRequest ?? 0) + 1;
-    this._announceRequest = request;
-    this.status.textContent = '';
-    requestAnimationFrame(() => {
-      if (this._announceRequest === request) this.status.textContent = text;
-    });
+  announce(text, priority = 0) { this._announce(text, priority); }
+  _announce(text, priority = 0) {
+    say(text, 'pausnotis', { priority }); // via statusraden (js/ui/status.js, #1419)
   }
 
   _render() {
@@ -556,10 +729,10 @@ export class Timeline extends EventTarget {
     this.track.setAttribute('aria-valuemax', String(this.focus ? this.focus.to : MAX_YEAR));
     this.track.setAttribute('aria-valuenow', String(this._year));
     // Med ett intervall (#755) läser skärmläsaren hela intervallet, inte bara handtagets år
-    this.track.setAttribute('aria-valuetext', this.range ? `${this.format(this.range.from)}–${this.format(this.range.to)}` : this.format(this._year));
+    this.track.setAttribute('aria-valuetext', this.range ? `${this.format(this.range.from)}–${this.format(this.range.to)}` : this.valueText(this._year));
     this._labelPlay(); // i slutet heter knappen "Spela igen"
   }
-  init(y) { this._year = clampY(y); this._render(); this.dispatchEvent(new CustomEvent('change', { detail: { year: this._year } })); }
+  init(y) { this._year = clampY(y); this._labelSpeed(); this._labelSteps(); this._render(); this.dispatchEvent(new CustomEvent('change', { detail: { year: this._year } })); }
 }
 
 
@@ -645,7 +818,13 @@ export function setupYearJump(timeline, { button, pop, input, msg, epochs, event
   SEGMENTS.forEach((s, i) => chip(segmentLabel(s), i ? s.from + 1 : s.from, false));
   chip(ui('jump.today'), MAX_YEAR);
 
+  // Tidslåset (#1322): i en tur går året inte att byta med årshoppet heller
+  timeline.addEventListener('lockchange', e => {
+    button.classList.toggle('time-locked', e.detail.locked);
+    if (e.detail.locked) { button.setAttribute('aria-disabled', 'true'); close(); } else button.removeAttribute('aria-disabled');
+  });
   button.addEventListener('click', () => {
+    if (timeline.locked) return;
     if (!pop.hidden && result && !result.hidden) {
       input.focus();
       return;

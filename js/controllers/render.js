@@ -2,7 +2,7 @@
 // som syns (beslut 2), ritar lagerbilden (beslut 1) och uppdaterar listan, teckenförklaringarna och årtalet.
 // Sist får uppspelningen (playback.js) se om något ska pausa. Här finns också namnens storlek efter zoom
 // (#154, #271, #301, #358) och rikets berättelse för Samtidigt-kortet (#171).
-import { loadEventDetails, formatCentury, formatEventTime, formatYear, pluralUi, roundWindow, groupDigits, t } from '../model.js';
+import { loadEventDetails, formatCentury, formatEventTime, formatYear, pluralUi, roundWindow, roundWindowSpan, groupDigits, t } from '../model.js';
 import { LANG, ui } from '../i18n.js';
 import { ZOOM_LEVELS, zoomLevel, pxPerImg, zoomView, eventKeepouts } from '../ui/zoomlevels.js';
 import { empireStory } from '../ui/funfact.js';
@@ -26,16 +26,34 @@ export function createRender(app) {
   // stund, och inte under uppspelning, i ett intervall (egen live-rad, #977), i en tur eller medan en pausrad syns (de har
   // egna uppläsningar). Ett år utan Samtidigt-kort säger det. Kortets text följer med bara om ett nytt kort lästes upp under
   // tiden, annars skulle den här raden skriva över den.
+  // Årtalet och knapparna överst delar raden i smal skärm (#1101): "100 000" i 30 px täcks av språkknappen på franska i 400 px, där
+  // knapparna är bredare. Typstorleken minskas ett steg i taget tills årtalet ryms, men inte under 18 px. Bara långa årtal
+  // (fem tecken eller fler, alltså förhistorien och intervall) mäts, så att vanliga år inte kostar någon mätning.
+  function fitYear() {
+    const big = $('year-big'), actions = document.querySelector('.top-actions');
+    big.style.fontSize = '';
+    if (innerWidth > 760 || big.textContent.length < 5 || !actions) return;
+    const row = actions.getBoundingClientRect();
+    if (!row.width) return;
+    const clash = () => { const b = big.getBoundingClientRect(); return b.right > row.left - 8 && b.bottom > row.top && b.top < row.bottom; };
+    for (let size = parseFloat(getComputedStyle(big).fontSize); size > 18 && clash();) big.style.fontSize = `${--size}px`;
+  }
+  addEventListener('resize', fitYear);
+  document.fonts?.ready.then(fitYear); // måtten ändras när typsnittet har laddats
+
   let statusYear = null, statusTimer = 0, statusCard = '';
   const capital = s => (s ? s[0].toLocaleUpperCase(LANG) + s.slice(1) : s);
   function announceYear() {
     statusTimer = 0;
     if (timeline.playing || state.range || app.tour?.active || !$('pause-note').hidden) return;
     const year = timeline.year, fine = !!state.focus?.fine;
-    const at = fine ? ui('time.onDate', { date: timeline.format(year) }) : ui('panel.atYear', { year: formatYear(Math.floor(year)) });
-    const n = visible.length;
+    // Året som i rubriken, i förhistorien avrundat till reglagets upplösning (#1320)
+    const at = fine ? ui('time.onDate', { date: timeline.format(year) }) : ui('panel.atYear', { year: timeline.format(Math.floor(year)) });
+    const n = visible.filter(v => v.inside).length; // samma tal som märket på Samtidigt: det som pågår (#1320)
     const count = String(ui('status.hits')[n === 1 ? 0 : 1]).replace('{n}', groupDigits(n));
     const parts = [capital(ui('status.year', { at, count }))];
+    const stepNote = timeline.takeStepNote(); // ny upplösning i förhistorien (#1089)
+    if (stepNote) parts.push(stepNote);
     if (ff.announcedKey && ff.announcedKey !== statusCard) parts.push(ff.announcement()); // ett nytt kort lästes upp medan året byttes
     else if (!fine && ff.enabled && !ff.active.length) parts.push(ui('status.noCard'));
     timeline.announce(parts.join(' '));
@@ -46,7 +64,7 @@ export function createRender(app) {
   // zoomar in (men inte under 0,25, då blir texten för oskarp) och tonas sedan ut, så att de
   // inte täcker markörerna (#154). Värdena ändras i steg och bilden ritas om först 150 ms efter
   // att zoomandet stannat. Platt vy (och en fysisk glob) får grundstorleken.
-  const zoomMag = () => { const d = globe.baseDist; return Math.max(1, (d - 1) / (d / globe.zoom - 1)); }; // förstoring i mitten av klotet
+  const zoomMag = () => globe.magnification(); // förstoring i mitten av klotet (också i regionvyn på globen, #1644)
   // Religionernas namn i områdena syns bara vid nära zoom på globen, utzoomat och i Platt vy bara symbolen (#271)
   const NAMES_MAG = 2.4;
   const religionNames = () => $('flat-view').hidden && zoomMag() >= NAMES_MAG;
@@ -54,6 +72,18 @@ export function createRender(app) {
   const empireNames = () => !$('flat-view').hidden || zoomMag() >= NAMES_MAG;
   // Nutida staters flaggor (#1193) syns bara vid nära zoom på globen och i Platt vy från nivån Inzoomat; annars namnet
   const modernFlags = () => $('flat-view').hidden ? zoomMag() >= NAMES_MAG : zoomLevel(pxPerImg(globe, flatMap)) >= 2;
+  // Platsernas prickade konturer och tryck på dem (#1161): i vanligt läge (aldrig i Fokus, tur, lektion eller intervall) och inzoomat:
+  // på globen vid samma nära zoom som religionernas namn, i Platt vy när kartan är förstorad (zoom 1 visar hela världen). Nivån
+  // Inzoomat för flaggorna räcker inte: en inramad plats i mobilbredd når den aldrig
+  const PLACE_FLAT_ZOOM = 1.2; // en inramad plats i mobilbredd (400 px, högt format) får zoom omkring 1,4
+  const placeHints = () => !!app.places?.allowed() && ($('flat-view').hidden ? zoomMag() >= NAMES_MAG : flatMap.zoom >= PLACE_FLAT_ZOOM);
+  // Konturens bredd räknas i skärmpixlar (bildpunkter på 4096-bilden per skärmpixel), annars blir den hårfin när kartan visas litet
+  // och grov när den visas stort (#1627). Två värdesiffror: vid stark förstoring är talet litet, och det får aldrig bli 0
+  const placePx = () => Number((1 / pxPerImg(globe, flatMap)).toPrecision(2));
+  // Platsens linje ritas i Fokus på en plats, i en turs steg med en plats (#1163) och som markeringar (placeHints): i alla tre
+  // räknas den om när zoomen ändras (#1641), annars blir den lika bred som vid förra omritningen
+  const places = registry.get('places');
+  const placeLine = l => l.placeHints || state.focus?.type === 'place' || !!places?.step;
   function nameStyle() {
     if (!$('flat-view').hidden) return [ZOOM_LEVELS[zoomLevel(flatMap.scale)].flatScale, 1]; // efter zoomnivån (#358)
     const mag = zoomMag();
@@ -68,7 +98,7 @@ export function createRender(app) {
       const [sc, al] = nameStyle();
       const l = state.labels;
       // Ny zoomnivå (#358) ändrar vilka rikesnamn och medaljer som får plats
-      if (l.scale !== sc || l.alpha !== al || l.religionNames !== religionNames() || l.empireNames !== empireNames() || l.modernFlags !== modernFlags()
+      if (l.scale !== sc || l.alpha !== al || l.religionNames !== religionNames() || l.empireNames !== empireNames() || l.modernFlags !== modernFlags() || l.placeHints !== placeHints() || (placeLine(l) && Math.abs(Math.log(l.placePx / placePx())) > 0.12)
         || areas.view.level !== zoomLevel(pxPerImg(globe, flatMap))) refresh();
     }, 150);
   };
@@ -78,15 +108,21 @@ export function createRender(app) {
   // I fokusläget dämpas påslagna lager som inte hör till det man följer (#235); "Behåll mina lager" visar dem som vanligt.
   // Under en övergång för riken (#78) ritas bara lagerbilden om, en gång per bildruta, tills övergången är klar;
   // annars ritas inget mellan refresh.
-  globe.detail.setLayers((ctx, W, H, drawFaded) => registry.draw(ctx, W, H, state, drawFaded));
+  // Regionvyn på globen (#1644): som i Platt vys regionvy ritas bara lagren som räknar i skärmpixlar (platsens linje med omgivningen
+  // nedtonad); world-lagren kommer tillbaka när vyn lämnas. Utan den är allt som förut
+  const globeView = () => (app.region?.globeOpen ? { region: true } : null);
+  globe.detail.setLayers((ctx, W, H, drawFaded) => registry.draw(ctx, W, H, state, drawFaded, globeView()));
+  // Regionvyns skarpa karta i Platt vy (#1641): bara lagren som räknar i skärmpixlar (`region` i posten), unit = bildpunkter per skärmpixel
+  flatMap.setRegionLayers((ctx, W, H, drawFaded, unit) => registry.draw(ctx, W, H, state, drawFaded, { region: true, unit }));
   let overlayRaf = 0;
   function drawOverlay() {
     cancelAnimationFrame(overlayRaf); overlayRaf = 0;
     const ctx = globe.overlayContext();
-    registry.draw(ctx, globe.overlayCanvas.width, globe.overlayCanvas.height, state, (draw, alpha) => globe.drawFaded(draw, alpha));
+    registry.draw(ctx, globe.overlayCanvas.width, globe.overlayCanvas.height, state, (draw, alpha) => globe.drawFaded(draw, alpha), globeView());
     globe.commitOverlay();
     globe.detail.layersChanged(); // det skarpa utsnittet vid inzoomning ritas om när det blir stilla
     flatMap.draw(); // Platt vy ritas om med samma bilder (gör inget när den är stängd)
+    flatMap.regionLayersChanged(); // regionvyns skarpa karta ritas om när det blir stilla (#1641)
     if (registry.animating()) overlayRaf = requestAnimationFrame(drawOverlay);
   }
 
@@ -105,7 +141,8 @@ export function createRender(app) {
     const focus = state.focus;
     // Namn och symboler på lagerbilden efter zoom och vy (#154, #271, #301)
     const [scale, alpha] = nameStyle();
-    state.labels = { scale, alpha, religionNames: religionNames(), empireNames: empireNames(), modernFlags: modernFlags() };
+    state.labels = { scale, alpha, religionNames: religionNames(), empireNames: empireNames(), modernFlags: modernFlags(), placeHints: placeHints(), placePx: placePx() };
+    if (state.labels.placeHints) app.places.ensure(); // platsernas gränser (165 kB) laddas först när man har zoomat in
     // I fokusläget för korta krig är året ett decimaltal (#204). Händelser och krig får då sina
     // datum ur edtf (span), medan riken, religioner och fun facts får det hela året som förut.
     const year = timeline.year, wholeYear = Math.floor(year), fine = !!focus?.fine;
@@ -115,11 +152,12 @@ export function createRender(app) {
     const playing = timeline.playing;
     // Med ett tidsintervall (#755) gäller hela intervallet och inget tidsfönster runt året
     const range = state.range;
-    const window = range ? 0 : timeline.windowYears(year);
+    const windowSpan = range ? { before: 0, after: 0 } : timeline.windowSpan(year); // före och efter kan vara olika långa (#1319)
+    const window = Math.max(windowSpan.before, windowSpan.after);
     // Tidslinjen äger året; tillståndet speglar det (#403)
     // Riken och religioner visas för intervallets slutår (alternativ A i förstudien, #756); utan intervall för året
     const areaYear = range ? Math.floor(range.to) : wholeYear;
-    app.store.mirror({ year, wholeYear, areaYear, fine, window, span, playing, filters: panel.filters });
+    app.store.mirror({ year, wholeYear, areaYear, fine, window, windowBefore: windowSpan.before, windowAfter: windowSpan.after, span, playing, filters: panel.filters });
     // Statusraden (#1305): första ritningen läses inte upp, och inte heller uppspelningens år
     const yearKey = fine ? year : wholeYear;
     if (statusYear !== null && yearKey !== statusYear && !playing && !range) {
@@ -131,7 +169,12 @@ export function createRender(app) {
     // Singular och plural ur språkfilen ([en, flera]), till exempel "±1 dag" och "±3 dagar"
     // Talet med språkets tusentalsavgränsare, så att förhistoriens fönster blir "±12 000 år" (#1088)
     const plural = (key, n) => String(ui(key)[n === 1 ? 0 : 1]).replace('{n}', groupDigits(n));
-    const within = fine ? plural('time.withinDays', Math.round(window * 365.25)) : plural('time.withinYears', roundWindow(window)); // avrundat (#1191)
+    // Vid en segmentgräns är fönstret olika långt före och efter året (#1319): då skrivs båda sidorna i klartext, annars "±"
+    const shownSpan = roundWindowSpan(windowSpan);
+    const asym = !shownSpan.same;
+    const spanVars = { before: groupDigits(shownSpan.before), after: groupDigits(shownSpan.after) };
+    const within = fine ? plural('time.withinDays', Math.round(window * 365.25))
+      : asym ? ui('time.withinYearsAsym', spanVars) : plural('time.withinYears', roundWindow(window)); // avrundat (#1191)
     ff.story = focus?.type === 'empire' ? storyFor(focus.id) : [];
     ff.setAnnouncements(!range);
     ff.update(wholeYear, panel.filters, focus?.eventIds ?? null);
@@ -144,13 +187,13 @@ export function createRender(app) {
     const rangeLabel = range && rangeText(range.from, range.to);
     // Ett tema (#398) och en plats (#579) är urval av händelser: ett år utan träff förklaras, med nästa händelse
     const nextThemeEvent = focus?.themeEvents && !visible.length ? focus.themeEvents.find(e => e.start > wholeYear) : null;
-    const emptyKey = focus?.type === 'place' ? 'place' : 'theme';
+    const emptyText = app.focusTypes.of(focus)?.empty; // urvalets egna texter står i dess post (js/focus/, #1327)
     const themeEmpty = !focus?.themeEvents || visible.length ? null : nextThemeEvent
-      ? ui(`${emptyKey}.emptyYearNext`, { next: `${formatEventTime(nextThemeEvent)} · ${t(nextThemeEvent.title)}` })
-      : ui(`${emptyKey}.emptyYear`);
+      ? ui(emptyText.next, { next: `${formatEventTime(nextThemeEvent)} · ${t(nextThemeEvent.title)}` })
+      : ui(emptyText.year);
     panel.render(visible, wholeYear, window, eventsOn, range ? { at: ui('range.at', { range: rangeLabel }), bare: rangeLabel, within, range }
       : fine ? { at: ui('time.onDate', { date: timeline.format(year) }), bare: timeline.format(year), within, fine: true }
-      : themeEmpty ? { themeEmpty } : null);
+      : themeEmpty ? { themeEmpty, within } : { within });
     // Etiketten "Områden visas för år N" (#756) när riken eller religioner syns, och hur många markörer gränsen döljer
     app.range?.render(visible.filter(v => v.inside).length, { areasYear: areas.enabled || religions.enabled ? areaYear : null, capped: layer.capped });
     // Samma markörer i Platt vy (#313): de som syns på klotet, de i listan får klustras och etikett
@@ -167,7 +210,7 @@ export function createRender(app) {
     if (routePop.route && !routes.active.some(a => a.route === routePop.route)) routePop.hide(); // vägen syns inte längre
     const legend = registry.legend(state);
     relLegend.update(legend.items ?? [], { areas: !!legend.areas, war: !!legend.war, fadable: registry.fadable(state).map(e => e.name), keep: !!layers.on.keep,
-      discovery: legend.discovery ?? null });
+      discovery: legend.discovery ?? null, spread: legend.spread ?? null, images: legend.images ?? null });
     empireLegend.update(legend.empires ?? [], views?.empireLegend ?? {});
     empireLegendButton.hidden = !layers.on.areas || !(legend.empires?.length);
     if (empireLegendButton.hidden && !$('empire-legend').hidden) empireLegend.onClose();
@@ -179,12 +222,15 @@ export function createRender(app) {
     const [num, era] = range ? rangeParts(range.from, range.to) : timeline.formatParts(year);
     $('year-big').textContent = num;
     $('year-era').textContent = era;
+    fitYear();
     $('year-jump').classList.toggle('fine', fine);
     $('year-segment').textContent = range ? ui('range.segment')
       : focus ? pluralUi(fine ? 'time.followDays' : 'time.followYears', fine ? Math.round(window * 365.25) : Math.round(window), { name: focus.short })
+      : asym ? ui('time.windowYearsAsym', { where: formatCentury(year), ...spanVars })
       : pluralUi(youngReaders() ? 'time.windowYearsWords' : 'time.windowYears', roundWindow(window), { where: formatCentury(year), n: groupDigits(roundWindow(window)) });
     // Tonade markörer är nära i tid, inte samtida (#1191): förklaringen står i title och som dold text för skärmläsare
-    const windowNote = range || focus ? '' : pluralUi('time.windowNote', roundWindow(window), { n: groupDigits(roundWindow(window)) });
+    const windowNote = range || focus ? '' : asym ? ui('time.windowNoteAsym', spanVars)
+      : pluralUi('time.windowNote', roundWindow(window), { n: groupDigits(roundWindow(window)) });
     $('year-segment').title = windowNote;
     $('year-window-note').textContent = windowNote;
     // Pauserna i uppspelningen: krigets och resans stopp, grundanden, rikets nyckelår och krig som bryter ut

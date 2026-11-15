@@ -3,11 +3,25 @@
 // mellan de platser som hör ihop. Det kan fällas ihop till en flik (#120).
 // I smal skärm (högst 760 px) är kortet en panel underifrån med tre lägen (#239): stängd (handtag och
 // rubrikraden), halv och hel. Man drar i handtaget eller trycker på det, och kortet stängs när man drar i globen.
-import { CAT, REVIEW, REGIONS, region, t, formatYear, formatEventTime, styleFor, isVisibleReview, reviewLabel, REVIEW_SUBJECT_HELP, needDetails } from '../model.js';
+import { CAT, REVIEW, REGIONS, region, t, formatYear, formatEventTime, styleFor, isVisibleReview, reviewLabel, REVIEW_SUBJECT_HELP, needDetails, pluralUi } from '../model.js';
+import { funfactTiming } from '../samtidighet.js';
 import { ui } from '../i18n.js';
+import { say, clearStatus } from './status.js';
 
 // Kortets slag (funfact, war, empire, vanished); rubriken står i ff.kind.<slag> i data/ui/ (#670)
 const kindLabel = kind => ui(`ff.kind.${kind}`);
+
+/**
+ * Relationen i tid för en fun fact, enligt definitionen av "samtidigt" (#1311): "Samtidigt", "Ungefär samtidigt",
+ * "Nära i tid: 33 år isär" (med "cirka" när ett årtal är ungefärligt) eller "Jämför avstånd i tid". Tom utan relation.
+ */
+export function relationLabel(f, byId) {
+  const { relation, years, approx } = funfactTiming(f, byId);
+  if (relation === 'together') return ui(approx ? 'ff.relation.togetherApprox' : 'ff.relation.together');
+  if (relation === 'near') return pluralUi(approx ? 'ff.relation.nearApprox' : 'ff.relation.near', years);
+  if (relation === 'apart') return ui('ff.relation.apart');
+  return '';
+}
 
 /**
  * Rikets berättelse (#171): rikets nyckelår (facts.milestones i empires/index.json) som kort
@@ -353,23 +367,17 @@ export class FunFacts {
   setAnnouncements(enabled) {
     if (this.announcementsEnabled === enabled) return;
     this.announcementsEnabled = enabled;
-    this._announceRequest = (this._announceRequest ?? 0) + 1; // avbryt även en redan köad bildruta
     this._announcedKey = '';
-    if (!enabled && this.status) this.status.textContent = '';
+    if (!enabled) clearStatus('funfact');
   }
 
   _announce(f) {
-    if (!this.status || !this.announcementsEnabled) return;
+    if (!this.announcementsEnabled) return;
     const text = this.announcement();
     const key = `${f.id}:${this.index}:${text}`;
     if (key === this._announcedKey) return;
     this._announcedKey = key;
-    const request = (this._announceRequest ?? 0) + 1;
-    this._announceRequest = request;
-    this.status.textContent = '';
-    requestAnimationFrame(() => {
-      if (this._announceRequest === request) this.status.textContent = text;
-    });
+    say(text, 'funfact'); // via statusraden (js/ui/status.js, #1419): faktarutans rubrik går före
   }
 
   _show() {
@@ -385,7 +393,7 @@ export class FunFacts {
     this.root.classList.toggle('ff-story', story);
     this.root.classList.remove('ff-open');
     if (this.pre) this.pre.hidden = story;
-    this.kind.textContent = story ? `${kindLabel(f.vanished ? 'vanished' : 'empire')} · ${f.empire}` : kindLabel(f.kind ?? 'funfact');
+    this.kind.textContent = story ? `${kindLabel(f.vanished ? 'vanished' : 'empire')} · ${f.empire}` : f.kind ? kindLabel(f.kind) : [kindLabel('funfact'), relationLabel(f, this.byId)].filter(Boolean).join(' · ');
     const evs = f.events.map(id => this.byId[id]);
     // Bilderna står i händelsernas långa fält, som laddas per period (#337): kortet ritas om när de har kommit
     needDetails(evs, { sources: false })?.then(() => { if (this.active[this.index] === f) this._show(); }).catch(err => console.error(err));

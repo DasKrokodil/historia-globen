@@ -12,6 +12,7 @@
 import { glyph } from './events.js';
 import { t } from '../model.js';
 import { Z } from './registry.js';
+import { traceRing, strokeEdge } from './area-style.js';
 // origins.js hämtar ORIGIN_R härifrån; det används först när medaljerna ritas, så den ömsesidiga importen går bra
 import { OriginMarkers } from './origins.js';
 import { ui } from '../i18n.js';
@@ -190,10 +191,7 @@ export class ReligionsLayer {
       const g = snapshot.geometry;
       ctx.beginPath();
       for (const rings of g.type === 'Polygon' ? [g.coordinates] : g.coordinates) {
-        for (const ring of rings) {
-          ring.forEach(([lon, lat], i) => i ? ctx.lineTo(X(lon), Y(lat)) : ctx.moveTo(X(lon), Y(lat)));
-          ctx.closePath();
-        }
+        for (const ring of rings) traceRing(ctx, ring, X, Y); // också över datumlinjen (#1227)
       }
       // Osäkra områden ritas ljusare och med streckad kant, ärvda (#269) ännu ljusare med prickad kant
       // (visa osäkerhet öppet). Markerad religion (#271): starkare fyllning och kant, de andra tonas ner.
@@ -206,7 +204,7 @@ export class ReligionsLayer {
       ctx.strokeStyle = lit ? NAME : religion.color;
       ctx.lineWidth = (lit ? 2.4 : 1.4) * k;
       ctx.setLineDash(sure ? [] : inherited ? [1.5 * k, 3.5 * k] : [6 * k, 4 * k]);
-      ctx.stroke();
+      strokeEdge(ctx, g, X, Y); // utan sömmen vid datumlinjen (#1227)
       ctx.setLineDash([]);
       ctx.globalAlpha = 1;
     }

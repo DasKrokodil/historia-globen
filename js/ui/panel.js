@@ -1,7 +1,7 @@
 // "Samtidigt i världen": lista över synliga händelser per världsdel, kategorifilter
 // (i lagermenyn, #120, och som chips ovanför listan, #311) och faktarutan.
 import { buildAreaCurve } from './areacurve.js';
-import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatOffset, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg, flagUrl, isVisibleReview, eventTags, needDetails, misconceptionsFor, roundWindow } from '../model.js';
+import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatOffset, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg, flagUrl, isVisibleReview, eventTags, needDetails, misconceptionsFor, roundWindow, groupDigits, tagViewNote } from '../model.js';
 import { ui, LANG, langAttr } from '../i18n.js';
 import { MIN_YEAR } from '../timeline.js';
 import { eventCitation } from './citation.js';
@@ -99,6 +99,9 @@ function sourceLink(source, target = false) {
 
 /** Börjar händelsen före tidslinjens första år (#942)? Reglaget kan då inte stå på dess första år. */
 export const beforeTimelineStart = e => Number.isFinite(e?.start) && e.start < MIN_YEAR;
+
+/** Förhistoria före 10 000 f.Kr.: texten räknar i år sedan medan årtalen står i f.Kr., så faktarutan förklarar skillnaden (#1384). */
+const inDeepTime = e => Number.isFinite(e?.start) && e.start < -9999;
 
 /** Källornas kontrollnivå och den historiska osäkerheten är olika saker (#364). */
 export const uncertaintyRow = (e, copy = {}, evidence = '') => {
@@ -282,6 +285,7 @@ export class Panel {
     this.onSources = () => {};
     this.onFocus = () => {};
     this.onEmpire = () => {}; // (rikets id) => rikets faktaruta (#76)
+    this.onPlaceEmpire = null; // ({ empire, from, to }) => följ riket från landskortet (#1448); kopplas i main.js
     this.onOpen = () => {};
     this.onDetailChange = () => {};
     this.onEnableEvents = () => {};
@@ -289,6 +293,7 @@ export class Panel {
     this.onReport = null; // (objekt, knapp) => öppnar formuläret "Rapportera faktafel" (js/ui/feedback.js)
     this.onShowPlace = null; // (händelse) => platsraden i mobil (#312): fäller ihop rutan och visar markören på globen
     this.onEndTheme = () => {};
+    this.onPlaceFlat = null; // (plats) => Visa i Platt karta (#1161): knappen i platsens kort visas bara när återanropet finns
     this.selectedId = null;
     this.shown = null; // det faktarutan visar just nu; en rad som laddas klart ritar bara om samma ruta (#337)
     this.expandedRegions = new Set();
@@ -353,16 +358,29 @@ export class Panel {
     if (open) this.onOpen();
   }
 
-  /** Raden överst när vyn Översikt är på (#1139): ett urval, antalet räknat ur datan och en knapp till alla händelser. */
+  /**
+   * Raden överst när vyn Översikt (#1139) eller Framsteg (#1379) är på: vyn är ett urval, antalet räknas ur datan och en knapp
+   * går till alla händelser. Framsteg säger att vyn bara visar det källan själv beskriver som framsteg, och hur få de är.
+   */
   updateTagNote(eventsOn = true) {
     if (!this.tagNote) return;
-    const count = this.tagCounts.get('oversikt') ?? 0;
-    const on = eventsOn && this.tag === 'oversikt' && count > 0;
+    const count = this.tag ? this.tagCounts.get(this.tag) ?? 0 : 0;
+    const text = this.tag === 'oversikt' ? ui('panel.overviewNote', { count: overviewCount(count) }) : tagViewNote(this.tag, count);
+    const on = eventsOn && count > 0 && !!text;
     this.tagNote.hidden = !on;
     if (!on) return;
-    this.tagNoteText.textContent = ui('panel.overviewNote', { count: overviewCount(count) });
+    this.tagNoteText.textContent = text;
     this.tagNoteAll.textContent = ui('panel.overviewAll');
     this.tagNoteAll.setAttribute('aria-label', ui('panel.overviewAllLabel'));
+  }
+
+  /**
+   * Knappens tillgängliga namn börjar med den synliga texten ("Samtidigt, 10 träffar: …"), så att röststyrning som säger
+   * knappens ord hittar den (WCAG 2.5.3, Label in Name, #1387). Det synliga ordet är första textnoden i knappen.
+   */
+  accessibleName(text) {
+    const visible = [...this.toggle.childNodes].find(n => n.nodeType === 3 && n.textContent.trim())?.textContent.trim();
+    return visible ? `${visible}, ${text}` : text;
   }
 
   /**
@@ -375,7 +393,7 @@ export class Panel {
     this.updateTagNote(eventsOn);
     if (!eventsOn) {
       this.count.textContent = '0';
-      this.toggle.setAttribute('aria-label', t(this.copy.eventsOff));
+      this.toggle.setAttribute('aria-label', this.accessibleName(t(this.copy.eventsOff)));
       this.sub.textContent = t(this.copy.eventsOff);
       const help = document.createElement('p');
       help.className = 'empty-note';
@@ -400,11 +418,12 @@ export class Panel {
     const copy = key => t(this.copy[key]) || key;
     const summary = copy('summary');
     const summaryText = summary.replace('{count}', visible.length).replace('{inside}', inside).replace('{near}', near);
-    this.count.textContent = String(range ? inside : visible.length);
-    this.toggle.setAttribute('aria-label', summaryText);
+    // Märket räknar bara det som pågår (#1320, beslut 2026-11-13): det som bara ligger nära i tid står i raden och listan
+    this.count.textContent = String(inside);
+    this.toggle.setAttribute('aria-label', this.accessibleName(summaryText));
     // at = "år 1879" eller "den 3 maj 1940" (fokusläget för korta krig, #204); bare = samma tid utan "år"/"den"
     const at = labels?.at ?? ui('panel.atYear', { year: formatYear(year) }), bare = labels?.bare ?? formatYear(year);
-    const within = labels?.within ?? plural('time.withinYears', roundWindow(window), { n: roundWindow(window) }); // samma avrundade tal som raden under årtalet (#1191)
+    const within = labels?.within ?? plural('time.withinYears', roundWindow(window), { n: groupDigits(roundWindow(window)) }); // samma avrundade tal som raden under årtalet (#1191)
     const parts = [];
     parts.push(inside ? plural('panel.inside', inside, { at }) : ui('panel.noneAt', { at }));
     if (near) parts.push(ui('panel.near', { count: near, within }));
@@ -412,7 +431,7 @@ export class Panel {
     const partialCount = range ? visible.filter(v => v.partial).length : 0;
     if (partialCount) parts.push(plural('range.partialCount', partialCount, { count: partialCount }));
     // I intervallet finns inget "nära": raden säger hur många som pågår under intervallet och hur många som sticker ut
-    if (range) this.toggle.setAttribute('aria-label', stop(parts.join(', ')));
+    if (range) this.toggle.setAttribute('aria-label', this.accessibleName(stop(parts.join(', '))));
     const cause = labels?.themeEmpty ? null : emptyCause({ visibleCount: visible.length, filters: this.filters, total: this.allCategories?.size });
     const filtersOff = cause === 'filters', filtersSome = cause === 'some';
     this.sub.textContent = visible.length ? stop(range ? parts.join(', ') : `${summaryText}. ${parts.join(', ')}`)
@@ -499,8 +518,16 @@ export class Panel {
     return !!pending;
   }
 
-  /** Samma signal används av alla slags faktarutor: händelse, rike, religion och berättelse. */
-  setDetailOpen(open) {
+  /**
+   * Samma signal används av alla slags faktarutor: händelse, rike, religion och berättelse. Det öppna kortets namn för skärmläsare är Om händelsen (detail.label) om inget annat sägs: platsens
+   * kort heter Om platsen (#1464). Varje öppning sätter namnet, så att ett kort inte ärver det förra kortets.
+   */
+  setDetailOpen(open, label = ui('detail.label')) {
+    if (open) {
+      // Namnet ägs härifrån: attributet för språkbytet (index.html) tas bort, så att applyStatic() aldrig sätter tillbaka Om händelsen på ett öppet kort
+      this.detail.removeAttribute?.('data-i18n-aria-label');
+      this.detail.setAttribute('aria-label', label);
+    }
     this.detail.hidden = !open;
     this.onDetailChange(open);
   }
@@ -563,68 +590,77 @@ export class Panel {
   }
 
   /**
-   * Introduktionskortet för ett tema i Fokus (#398): vad temat samlar, och dess händelser i tidsordning som knappar
-   * som öppnar faktarutan. En händelse före tidslinjens början (#942) märks, eftersom reglaget inte når dit.
+   * Kortet för ett urval i Fokus (#1327): ett tema (#398) eller en plats (#579). Fokustypens post i js/focus/ ger
+   * innehållet, och kortet är samma för alla urval:
+   *   label    etiketten överst ("Tema", "Plats")
+   *   name     namnet, text per språk
+   *   lead     valfri rad under namnet (platsens typ)
+   *   emblems  valfria flaggor och vapen (#1160): egna SVG:er i img/flags/ med bildtext, kredit och licens;
+   *            filsidorna läggs till bland källorna
+   *   intro    inledningen, text per språk
+   *   action   valfri knapp direkt efter inledningen, { text, label, run } (platsens Visa i Platt karta, #1161); label är knappens aria-label och ska börja med text
+   *   notes    de fasta raderna under inledningen (att filtren inte gäller, att linjen är dagens gräns)
+   *   exit     texten på knappen som lämnar urvalet; utan text finns ingen knapp (platsens kort i en turs steg, #1163, där inget Fokus pågår)
+   *   summary  rubriken för listan ("14 händelser")
+   *   events   händelserna i tidsordning, som knappar som öppnar faktarutan. En händelse före tidslinjens
+   *            början (#942) märks, eftersom reglaget inte når dit
+   *   sources  källornas id
+   *   banner   valfri rad direkt under namnet, synlig utan att rulla (att ett tidsintervall avslutades när platsen började följas, #1163)
+   *   focus    false: kortet tar inte tangentbordsfokus (platsens kort i en turs steg, #1163: fokus ska ligga kvar på Nästa)
+   *   ariaLabel kortets namn för skärmläsare; utan namn gäller Om händelsen (platsens kort heter Om platsen, #1464)
    */
-  showTheme(theme, events) {
-    this.selectedId = null;
-    this.detail.className = `detail detail-card frame-${styleFor(events[0], this.styles).frame}`;
-    const srcs = (theme.sources ?? []).map(id => this.srcById[id]).filter(Boolean);
-    const items = events.map(e => `<li><button type="button" class="theme-event" data-theme-event="${esc(e.id)}"><span class="theme-event-year">${esc(formatEventTime(e))}</span> <span${langAttr(e.title)}>${esc(t(e.title))}</span>${e.start < MIN_YEAR ? ` <span class="theme-event-note">${esc(ui('theme.beforeScale'))}</span>` : ''}</button></li>`).join('');
-    this.detail.innerHTML = `
-      <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
-      <div class="story-label">${esc(ui('theme.label'))}</div>
-      <h3>${esc(t(theme.name))}</h3>
-      <div class="story"><p>${esc(t(theme.intro))}</p>
-      <p class="theme-filter-note">${esc(ui('theme.filters'))}</p>
-      <button type="button" class="chip-btn theme-exit" data-end-theme>${esc(ui('theme.exit'))}</button>
-      <details class="theme-event-list"${matchMedia('(max-width: 760px)').matches ? '' : ' open'}>
-        <summary>${esc(ui('theme.events', { count: events.length }))}</summary>
-        <ul class="theme-events">${items}</ul>
-      </details></div>
-      ${srcs.length ? srcLine(srcs, false) : ''}`;
-    this.detail.scrollTop = 0;
-    this.setDetailOpen(true);
-    this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
-    this.detail.querySelector('[data-end-theme]').addEventListener('click', () => this.onEndTheme());
-    for (const b of this.detail.querySelectorAll('[data-theme-event]')) b.addEventListener('click', () => this.onThemeEvent?.(b.dataset.themeEvent));
-    this.detail.querySelector('[data-close]').focus({ preventScroll: true });
-  }
-
   /**
-   * Platsens kort (#579): namn, typ, en kort inledning, den fasta raden om att linjen är dagens gräns, och händelserna
-   * inom gränsen i tidsordning. Bygger på temakortet; knapparna Avsluta och händelserna använder samma återanrop.
+   * Kortet för ett urval (tema eller plats). empires (#1448, bara platser med periods): { title, note, follow, rows }, där en rad är
+   * { years, name, label, run } (run saknas i en tur: raden är då bara text) eller { gap } (en lucka, en läsbar rad).
    */
-  showPlace(place, events) {
+  showSelection({ label, name, lead = '', emblems = [], intro, action = null, notes = [], exit, empires = null, summary, events, sources = [], focus = true, banner = '', ariaLabel }) {
     this.selectedId = null;
-    this.detail.className = `detail detail-card frame-${styleFor(events[0], this.styles).frame}`;
-    // Flagga och vapen (#1160): egna SVG:er i img/flags/ med bildtext, kredit och licens; filsidorna står bland källorna
-    const emblems = (place.emblems ?? []).filter(em => flagUrl(em));
-    const srcs = [...new Set([...(place.sources ?? []), ...emblems.map(em => em.source)])].map(id => this.srcById[id]).filter(Boolean);
-    const emblemHtml = emblems.length ? `<div class="place-emblems">${emblems.map(em => `<figure class="place-emblem place-emblem-${esc(em.kind)}"><img src="${esc(flagUrl(em))}" alt="${esc(t(em.caption))}"><figcaption>${esc(t(em.caption))}<span class="meta">${esc(em.credit)} · ${esc(em.license)}</span></figcaption></figure>`).join('')}</div>` : '';
+    this.detail.className = `detail detail-card detail-selection frame-${styleFor(events[0], this.styles).frame}`; // detail-selection: main.js läser upp etiketten (Plats, Tema), också när inget Fokus pågår (#1163)
+    const shown = (emblems ?? []).filter(em => flagUrl(em));
+    const srcs = [...new Set([...(sources ?? []), ...shown.map(em => em.source)])].map(id => this.srcById[id]).filter(Boolean);
+    const emblemHtml = shown.length ? `<div class="place-emblems">${shown.map(em => `<figure class="place-emblem place-emblem-${esc(em.kind)}"><img src="${esc(flagUrl(em))}" alt="${esc(t(em.caption))}"><figcaption>${esc(t(em.caption))}<span class="meta">${esc(em.credit)} · ${esc(em.license)}</span></figcaption></figure>`).join('')}</div>` : '';
+    const open = matchMedia('(max-width: 760px)').matches ? '' : ' open';
+    // Rikena i landskortet (#1448): riktiga knappar med hela namnet för skärmläsare ("Följ riket Sverige 1612–1721"), luckorna som rader
+    // Namnet för skärmläsare har samma ordning som den synliga texten (WCAG 2.5.3): "1815–1904 Sverige-Norge, Följ riket".
+    // Rikets egen rad Om kartan (mapNote, Kalmarunionen) står som en liten rad under knappen, inte i den, och beskriver knappen.
+    const empireNote = (r, i) => r.mapNote ? `<p class="place-empire-note" id="place-empire-note-${i}"${langAttr(r.mapNote)}>${esc(t(r.mapNote))}</p>` : '';
+    const empireItem = (r, i) => r.gap ? `<li class="place-empire-gap">${esc(r.gap)}</li>`
+      : `<li>${r.run ? `<button type="button" class="theme-event" data-place-empire="${i}" aria-label="${esc(r.label)}"${r.mapNote ? ` aria-describedby="place-empire-note-${i}"` : ''}>` : '<span class="theme-event">'}<span class="theme-event-year">${esc(r.years)}</span> <span${langAttr(r.name)}>${esc(t(r.name))}</span>${r.run ? ` <span class="theme-event-note" aria-hidden="true">${esc(empires.follow)}</span></button>` : '</span>'}${empireNote(r, i)}</li>`;
+    // Förklaringen står under listan, så att raderna syns först i smal skärm (#1448)
+    const empireHtml = empires?.rows?.length ? `<details class="theme-event-list place-empire-list"${open}>
+        <summary>${esc(empires.title)}</summary>
+        <ul class="theme-events place-empires">${empires.rows.map(empireItem).join('')}</ul>
+        <p class="theme-filter-note place-empires-note">${esc(empires.note)}</p>
+      </details>` : '';
+    // Raderna är knappar med data-theme-event i händelsernas ordning. Regionvyn (js/controllers/region.js, #1642) läser dem: den sätter
+    // markörernas nummer först på raderna och en ram på den markerade raden, och följer kortet med en MutationObserver. Ändras
+    // markupen här ändras regionvyn också (provet i tests/regionvy-markorer.test.mjs fallerar då)
     const items = events.map(e => `<li><button type="button" class="theme-event" data-theme-event="${esc(e.id)}"><span class="theme-event-year">${esc(formatEventTime(e))}</span> <span${langAttr(e.title)}>${esc(t(e.title))}</span>${e.start < MIN_YEAR ? ` <span class="theme-event-note">${esc(ui('theme.beforeScale'))}</span>` : ''}</button></li>`).join('');
-    const type = ui(`place.type.${place.type}`), of = place.partOf ? t(place.partOf) : '';
     this.detail.innerHTML = `
       <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
-      <div class="story-label">${esc(ui('place.label'))}</div>
-      <h3>${esc(t(place.name))}</h3>
-      <div class="story"><p class="place-type">${esc(of ? ui('place.typeOf', { type, of }) : type)}</p>
+      <div class="story-label">${esc(label)}</div>
+      <h3>${esc(t(name))}</h3>
+      ${banner ? `<p class="theme-filter-note place-banner">${esc(banner)}</p>` : ''}
+      <div class="story">${lead ? `<p class="place-type">${esc(lead)}</p>` : ''}
       ${emblemHtml}
-      <p>${esc(t(place.intro))}</p>
-      <p class="theme-filter-note">${esc(ui('place.borderNote'))}</p>
-      <p class="theme-filter-note">${esc(ui('place.filters'))}</p>
-      <button type="button" class="chip-btn theme-exit" data-end-theme>${esc(ui('place.exit'))}</button>
-      <details class="theme-event-list"${matchMedia('(max-width: 760px)').matches ? '' : ' open'}>
-        <summary>${esc(ui('place.events', { count: events.length }))}</summary>
+      <p>${esc(t(intro))}</p>
+      ${action ? `<button type="button" class="chip-btn theme-exit place-flat" data-selection-action aria-label="${esc(action.label ?? action.text)}">${esc(action.text)}</button>` : ''}
+      ${notes.map(note => `<p class="theme-filter-note">${esc(note)}</p>`).join('\n      ')}
+      ${exit ? `<button type="button" class="chip-btn theme-exit" data-end-theme>${esc(exit)}</button>` : ''}
+      ${empireHtml}
+      <details class="theme-event-list"${open}>
+        <summary>${esc(summary)}</summary>
         <ul class="theme-events">${items}</ul>
       </details></div>
       ${srcs.length ? srcLine(srcs, false) : ''}`;
     this.detail.scrollTop = 0;
-    this.setDetailOpen(true);
+    this.setDetailOpen(true, ariaLabel);
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
-    this.detail.querySelector('[data-end-theme]').addEventListener('click', () => this.onEndTheme());
+    this.detail.querySelector('[data-end-theme]')?.addEventListener('click', () => this.onEndTheme());
+    this.detail.querySelector('[data-selection-action]')?.addEventListener('click', () => action.run());
     for (const b of this.detail.querySelectorAll('[data-theme-event]')) b.addEventListener('click', () => this.onThemeEvent?.(b.dataset.themeEvent));
-    this.detail.querySelector('[data-close]').focus({ preventScroll: true });
+    for (const b of this.detail.querySelectorAll('[data-place-empire]')) b.addEventListener('click', () => empires.rows[+b.dataset.placeEmpire].run());
+    if (focus) this.detail.querySelector('[data-close]').focus({ preventScroll: true });
   }
 
   /** Knappen "Rapportera faktafel" skickar bara objektets typ och id till formuläret. */
@@ -707,11 +743,13 @@ export class Panel {
     this.curve = null;
     this.detail.className = `detail detail-card${place ? ` frame-${styleFor(place, this.styles).frame}` : ''}`;
     delete this.detail.dataset.style;
+    // Ritas rutan om (källorna kom, #1448) medan tangentbordsfokus låg i den, hamnar fokus på krysset igen i stället för på body
+    const hadFocus = typeof document !== 'undefined' && this.detail.contains(document.activeElement);
     this.detail.innerHTML = `
       <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
       <div class="story-label"><span class="swatch" style="background:${esc(color)}"></span>${esc(ui(`facts.kind.${kind}`))}</div>
       <h3>${symbol}${esc(name)}</h3>
-      ${symbol && symbolKind ? `<p class="symbol-kind" data-symbol-kind="${esc(symbolKind)}">${esc(ui(`facts.symbolKind.${symbolKind}`))}</p>` : ''}
+      ${symbol && symbolKind && symbolKind !== 'symbol' ? `<p class="symbol-kind" data-symbol-kind="${esc(symbolKind)}">${esc(ui(`facts.symbolKind.${symbolKind}`))}</p>` : ''}
       ${t(f.summary) ? `<p>${esc(t(f.summary))}</p>` : ''}
       ${fall ? `<button type="button" class="story-tour" data-tour="${esc(fall.id)}">${esc(fall.label)}</button>` : ''}
       ${body}`;
@@ -724,6 +762,7 @@ export class Panel {
     this.bindReviewInfo();
     if (report) this.bindReport(report.year);
     this.detail.querySelector('[data-tour]')?.addEventListener('click', ev => this.onTour?.(ev.currentTarget.dataset.tour, ev.currentTarget));
+    if (hadFocus) this.detail.querySelector('[data-close]').focus({ preventScroll: true });
   }
 
   /**
@@ -773,8 +812,11 @@ export class Panel {
     // Kortets ram följer händelsens tidsålder, med eller utan bild (#129)
     const st = styleFor(e, this.styles);
     // En omritning för samma händelse (när detaljfilen har laddats) behåller öppna märkningar
-    const keepOpen = this.detail.dataset.eventId === e.id
-      ? [...this.detail.querySelectorAll('details.tag-mark[open]')].map(d => d.dataset.tag) : [];
+    const same = this.detail.dataset.eventId === e.id;
+    const keepOpen = same ? [...this.detail.querySelectorAll('details.tag-mark[open]')].map(d => d.dataset.tag) : [];
+    // Noten och Om uppgifterna (#1571) står kvar öppna när samma händelse ritas om
+    const noteOpen = same && !!this.detail.querySelector('details.detail-note[open]');
+    const aboutOpen = same && !!this.detail.querySelector('details.detail-about[open]');
     this.detail.dataset.eventId = e.id;
     this.detail.className = `detail detail-card frame-${st.frame}`;
     this.detail.dataset.style = st.variant?.id ?? st.style.id;
@@ -787,11 +829,12 @@ export class Panel {
       <h3${langAttr(e.title)}>${esc(t(e.title))}</h3>
       <div class="meta">${esc(formatEventTime(e))}${evidence.marker('date')}${unc ? uncertaintyMark(e, 'date', this.uncertainty) : ''} · ${esc(t(e.place))}${evidence.marker('location')}${unc ? uncertaintyMark(e, 'place', this.uncertainty) : ''} · ${esc(t(CAT[e.category]?.name))}</div>
       ${beforeTimelineStart(e) ? `<p class="scale-note">${esc(ui('detail.beforeScale', { year: formatYear(MIN_YEAR) }))}</p>` : ''}
+      ${inDeepTime(e) ? `<p class="scale-note">${esc(ui('detail.yearsAgo'))}</p>` : ''}
       ${tagMarks(e, this.tags)}
       ${this.onShowPlace ? `<button type="button" class="place-row" data-show-place aria-label="${esc(ui('detail.showPlaceLabel', { place: t(e.place) }))}"><span class="place-pin" aria-hidden="true"></span><span class="place-go">${esc(ui('detail.showPlace'))}</span></button>` : ''}
       ${figure(e, this.srcById, evidence.marker('image'))}
       ${loading ? loadingHtml() : `<p${langAttr(e.summary)}>${esc(t(e.summary))}${evidence.marker('summary')}</p>`}
-      ${e.note ? `<aside class="detail-note"><h4>${esc(t(e.note.title))}</h4><p>${esc(t(e.note.text))}</p></aside>` : ''}
+      ${e.note ? `<details class="detail-note"${noteOpen ? ' open' : ''}><summary>${esc(t(e.note.title))}</summary><p>${esc(t(e.note.text))}</p></details>` : ''}
       ${loading ? '' : mythsHtml(misconceptionsFor(e.id), this.srcById, pending)}
       ${unc}
       ${e._war ? `<p class="war-link">${esc(ui('detail.partOf'))} <button type="button" class="link-btn" data-goto="${esc(e._war.id)}">${esc(t(e._war.title))}</button></p>` : ''}
@@ -799,14 +842,18 @@ export class Panel {
       ${e._battles?.length ? `<div class="war-list"><h4>${esc(ui('detail.battles'))}</h4><ol>${e._battles.map(b =>
         `<li><button type="button" class="link-btn" data-goto="${esc(b.id)}">${esc(t(b.title))}</button> <span class="meta">${esc(formatEventTime(b))}</span></li>`).join('')}</ol></div>` : ''}
       ${empireList(e._empires ?? e._war?._empires)}
-      ${evidence.sources || srcLine(srcs, pending)}
-      ${pending ? '' : howWeKnowRow(srcs, e.review, sourcesDisagree(e), this.howTour?.())}
       ${(() => { const h = this.huntFor?.(e); return h ? `<button type="button" class="chip-btn hunt-add" data-hunt${h.disabled ? ' disabled' : ''}>${esc(h.label)}</button>` : ''; })()}
-      <div class="detail-actions">
-        ${reviewRow(e.review, 'Händelsen')}
-        ${loading ? '' : `<button type="button" class="link-btn" data-citation>${esc(ui('citation.copy'))}</button><span data-citation-status role="status" aria-live="polite"></span>`}
-        ${this.onReport ? reportBtn({ type: 'event', id: e.id, label: t(e.title) }) : ''}
-      </div>`;
+      <details class="detail-about"${aboutOpen ? ' open' : ''}><summary>${esc(String(ui('detail.aboutData')[srcs.length === 1 ? 0 : 1]).replace('{n}', srcs.length))} · ${esc(reviewLabel(e.review, 'Händelsen'))}</summary>
+        ${evidence.sources || srcLine(srcs, pending)}
+        ${pending ? '' : howWeKnowRow(srcs, e.review, sourcesDisagree(e), this.howTour?.())}
+        <div class="detail-actions">
+          ${reviewRow(e.review, 'Händelsen')}
+          ${loading ? '' : `<button type="button" class="link-btn" data-citation>${esc(ui('citation.copy'))}</button><span data-citation-status role="status" aria-live="polite"></span>`}
+          ${this.onReport ? reportBtn({ type: 'event', id: e.id, label: t(e.title) }) : ''}
+        </div>
+      </details>`;
+    // En källhänvisning [n] i texten pekar på en rad i Om uppgifterna: öppna avsnittet först, så att länken har något att hoppa till
+    for (const a of this.detail.querySelectorAll('.evidence-ref a')) a.addEventListener('click', () => { this.detail.querySelector('details.detail-about')?.setAttribute('open', ''); });
     for (const tag of keepOpen) this.detail.querySelector(`details.tag-mark[data-tag="${CSS.escape(tag)}"]`)?.setAttribute('open', '');
     this.detail.scrollTop = 0;
     this.setDetailOpen(true);

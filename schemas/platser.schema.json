@@ -12,9 +12,9 @@
         "required": ["id", "type", "name", "intro", "view", "boundary", "sources", "review"],
         "properties": {
           "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-          "type": { "enum": ["autonomous", "country"], "description": "Typen visas som en egen rad på kortet; ui() har place.type.<typ> på alla språk." },
+          "type": { "enum": ["autonomous", "country", "landskap"], "description": "Typen visas som en egen rad på kortet; ui() har place.type.<typ> på alla språk." },
           "name": { "$ref": "#/$defs/text" },
-          "partOf": { "$ref": "#/$defs/text" },
+          "partOf": { "$ref": "#/$defs/phrase" },
           "intro": { "$ref": "#/$defs/text" },
           "view": {
             "type": "object",
@@ -26,19 +26,57 @@
           },
           "boundary": {
             "type": "object",
-            "required": ["source", "ne", "geometry"],
+            "required": ["source", "geometry", "neighbourKm", "neighbours"],
+            "oneOf": [{ "required": ["ne"] }, { "required": ["admin1"] }],
             "properties": {
               "source": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-              "ne": { "type": "string", "pattern": "^[0-9]+$", "description": "ISO 3166-1 numeriskt id i Natural Earth (tools/platser_gransar.py)." },
+              "ne": { "type": "string", "pattern": "^[0-9]+$", "description": "Land: ISO 3166-1 numeriskt id i Natural Earth (tools/platser_gransar.py)." },
+              "admin1": { "type": "string", "pattern": "^[A-Z]{3}-[0-9]+$", "description": "Län eller delstat: adm1_code i Natural Earth 1:10m admin 1." },
+              "note": { "$ref": "#/$defs/text", "description": "Extra rad på kortet om vad konturen är, när den inte är platsens egen gräns (länet för landskapet Skåne)." },
               "exclude": { "type": "array", "items": { "type": "array", "minItems": 4, "maxItems": 4, "items": { "type": "number" } } },
               "geometry": {
                 "type": "object",
                 "required": ["type", "coordinates"],
                 "properties": { "type": { "enum": ["Polygon", "MultiPolygon"] }, "coordinates": { "type": "array", "minItems": 1 } }
+              },
+              "neighbourKm": { "type": "number", "minimum": 20, "description": "Hur många km från gränsen grannländerna är kompletta (#1449). Minst kustmarginalen COAST_MARGIN_KM i js/place-geo.js; skrivs av tools/platser_gransar.py." },
+              "neighbours": {
+                "type": "array",
+                "description": "Grannländerna (#1449): andra länders polygoner i Natural Earth admin 0, bara de delar som ligger inom neighbourKm från gränsen. En punkt inom kustmarginalen som ligger inne i en av dem hör inte till platsen. Platsens eget land är inte med. Tom lista om inget land ligger så nära. Skrivs av tools/platser_gransar.py, redigeras inte.",
+                "items": {
+                  "type": "object",
+                  "required": ["name", "geometry"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "name": { "type": "string", "pattern": ".+", "description": "Landets namn i Natural Earth (engelska), bara för den som läser filen." },
+                    "ne": { "type": "string", "pattern": "^[0-9]+$", "description": "ISO 3166-1 numeriskt id i Natural Earth; saknas för länder utan id (Kosovo)." },
+                    "geometry": {
+                      "type": "object",
+                      "required": ["type", "coordinates"],
+                      "properties": { "type": { "enum": ["Polygon", "MultiPolygon"] }, "coordinates": { "type": "array", "minItems": 1 } }
+                    }
+                  }
+                }
               }
             }
           },
           "emblems": {"type": "array", "description": "Flagga och vapen på kortet (#1160): en egen SVG i img/flags/, bildtext på alla språk, kredit, licens och källa (filsidan i sources.json).", "items": {"type": "object", "required": ["kind", "file", "caption", "credit", "license", "source"], "additionalProperties": false, "properties": {"kind": {"enum": ["flag", "arms"]}, "file": {"type": "string", "pattern": "^[a-z0-9-]+$"}, "caption": {"type": "object", "required": ["sv"]}, "credit": {"type": "string"}, "license": {"type": "string"}, "source": {"type": "string"}}}},
+          "periods": {
+            "type": "array",
+            "minItems": 1,
+            "description": "Rikena i landskortet (#1448): de riken i data/empires/ vars område på kartan motsvarar platsen, i tidsordning. Bara id och år, inga egna texter: namnet är rikets eget (polity) och åren måste vara början och slut på rikets egna perioder utan lucka emellan (kontrolleras av scripts/validate-site.py). Länkarna startar Fokus på riket.",
+            "items": {
+              "type": "object",
+              "required": ["empire", "polity", "from", "to"],
+              "additionalProperties": false,
+              "properties": {
+                "empire": { "type": "string", "pattern": "^[a-z0-9-]+$", "description": "Gruppens id i data/empires/index.json; Följ riket startar Fokus på den." },
+                "polity": { "type": "string", "pattern": "^[a-z0-9-]+$", "description": "Delen (polity) i gruppen vars namn och perioder gäller, till exempel sverige-norge i gruppen svenska-stormaktsvaldet." },
+                "from": { "type": "integer", "description": "Första året; början på en av delens perioder i rikets fil." },
+                "to": { "type": "integer", "description": "Sista året; slutet på en av delens perioder i rikets fil." }
+              }
+            }
+          },
           "sources": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^[a-z0-9-]+$" } },
           "review": { "enum": ["draft", "source-checked", "two-sources"] },
           "placeholder": { "type": "boolean" }
@@ -47,6 +85,18 @@
     }
   },
   "$defs": {
+    "phrase": {
+      "type": "object",
+      "description": "Hela frasen per språk för vad platsen ingår i, med den preposition och artikel som landet kräver (#1479): sv \"i Sverige\", de \"in Schweden\", fr \"en Suède\". Kortet skriver \"{typ} {fras}\" (place.typeOf) och lägger aldrig till en preposition själv. Varje språk måste börja med en preposition (sv i/på, en in/on/at, de in/im/auf/an, es en, fr en/au/aux/à/dans/sur), så att ett bart landsnamn avvisas. Kontrollen är bara ett nät: den avgör inte om artikel, kön eller kasus är rätt, och behövs en preposition som saknas i listan utökas listan här (docs/ordlista-oversattning.md 17.2).",
+      "required": ["sv", "en", "de", "es", "fr"],
+      "properties": {
+        "sv": { "type": "string", "pattern": "^(i|på) \\S.*$" },
+        "en": { "type": "string", "pattern": "^(in|on|at) \\S.*$" },
+        "de": { "type": "string", "pattern": "^(in|im|auf|an) \\S.*$" },
+        "es": { "type": "string", "pattern": "^en \\S.*$" },
+        "fr": { "type": "string", "pattern": "^(en|au|aux|à|dans|sur) \\S.*$" }
+      }
+    },
     "text": {
       "type": "object",
       "required": ["sv", "en", "de", "es", "fr"],

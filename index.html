@@ -56,19 +56,38 @@
   <p>Historia-globen är en interaktiv jordglob för att utforska vad som hände samtidigt i världens historia. Sidan behöver JavaScript för globen och tidslinjen. <a href="data/sources.json">Om källorna och källregistret</a>.</p>
 </noscript>
 <div class="app" id="app">
-  <canvas id="globe-canvas" class="globe-canvas" tabindex="0" role="region" aria-roledescription="interaktiv jordglob" data-i18n-aria-roledescription="globe.role" aria-label="Snurrbar jordglob. Dra för att snurra, scrolla eller nyp för att zooma. Med tangentbord: piltangenter snurrar, plus och minus zoomar, Escape går till årskontrollen. Händelserna finns också i listan Samtidigt i världen." data-i18n-aria-label="globe.label"></canvas>
+  <canvas id="globe-canvas" class="globe-canvas" tabindex="0" role="region" aria-roledescription="interaktiv jordglob" data-i18n-aria-roledescription="globe.role" aria-label="Snurrbar jordglob. Dra för att snurra, scrolla eller nyp för att zooma. Med tangentbord: piltangenter snurrar, plus och minus zoomar, Escape går till årskontrollen. Enter följer platsen i mitten av vyn, om den har ett kort. Händelserna finns också i listan Samtidigt i världen." data-i18n-aria-label="globe.label"></canvas>
   <div id="labels" class="labels"></div>
+  <!-- Regionvyn på globen (#1644): markörerna och ortnamnen ovanpå klotet när det har flugit in till en stor plats, och rutan med
+       vägen ut; texterna skrivs av js/controllers/region.js -->
+  <div id="globe-region" class="globe-region" hidden>
+    <canvas id="globe-region-canvas" class="globe-region-canvas" aria-hidden="true"></canvas>
+    <div id="globe-region-labels" class="flat-labels globe-region-labels"></div>
+  </div>
+  <div id="globe-region-chip" class="flat-region globe-region-chip" role="group" aria-labelledby="globe-region-name" hidden>
+    <p id="globe-region-name" class="flat-region-name"></p>
+    <p id="globe-region-note" class="flat-region-note"></p>
+    <p class="flat-region-legend"><span class="flat-region-ring" aria-hidden="true"></span><span id="globe-region-legend-text"></span></p>
+    <button id="globe-region-back" class="flat-region-back" type="button"></button>
+  </div>
 
   <!-- Platt vy (#292) ligger direkt efter globen, så att årtalet, korten och panelerna hamnar ovanpå kartan -->
   <div id="flat-view" class="flat-view" hidden>
     <div id="flat-box" class="flat-box">
-      <canvas id="flat-canvas" class="flat-canvas" tabindex="0" role="img" aria-roledescription="karta" data-i18n-aria-roledescription="flat.role" aria-label="Världen som en platt karta. Dra för att panorera, scrolla eller nyp för att zooma. Med tangentbord: piltangenter panorerar, plus och minus zoomar, 0 återställer. Händelsernas etiketter nås med Tab, och händelserna finns också i listan Samtidigt i världen." data-i18n-aria-label="flat.label"></canvas>
+      <canvas id="flat-canvas" class="flat-canvas" tabindex="0" role="img" aria-roledescription="karta" data-i18n-aria-roledescription="flat.role" aria-label="Världen som en platt karta. Dra för att panorera, scrolla eller nyp för att zooma. Med tangentbord: piltangenter panorerar, plus och minus zoomar, 0 återställer. Enter följer platsen i mitten av kartan, om den har ett kort. Händelsernas etiketter nås med Tab, och händelserna finns också i listan Samtidigt i världen." data-i18n-aria-label="flat.label"></canvas>
       <div id="flat-labels" class="flat-labels"></div>
       <div class="flat-zoom" role="group" aria-label="Zooma kartan" data-i18n-aria-label="flat.zoom">
         <button id="flat-in" class="flat-zbtn" type="button" aria-label="Zooma in" data-i18n-aria-label="flat.in" title="Zooma in" data-i18n-title="flat.in">+</button>
         <button id="flat-out" class="flat-zbtn" type="button" aria-label="Zooma ut" data-i18n-aria-label="flat.out" title="Zooma ut" data-i18n-title="flat.out">−</button>
         <button id="flat-reset" class="flat-zbtn" type="button" aria-label="Återställ kartan" data-i18n-aria-label="flat.reset" title="Återställ kartan" data-i18n-title="flat.reset"><svg viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         <button id="flat-poster" class="flat-zbtn flat-poster" type="button"></button>
+      </div>
+      <!-- Regionvyn (#1641): vilken plats som visas och vägen ut; texterna skrivs av js/controllers/region.js -->
+      <div id="flat-region" class="flat-region" role="group" aria-labelledby="flat-region-name" hidden>
+        <p id="flat-region-name" class="flat-region-name"></p>
+        <p id="flat-region-note" class="flat-region-note"></p>
+        <p id="flat-region-legend" class="flat-region-legend"><span class="flat-region-ring" aria-hidden="true"></span><span id="flat-region-legend-text"></span></p>
+        <button id="flat-region-back" class="flat-region-back" type="button"></button>
       </div>
     </div>
   </div>
@@ -77,8 +96,14 @@
   <section id="lesson-band" class="lesson-band" aria-labelledby="lesson-band-title" hidden>
     <p id="lesson-band-title" class="lesson-band-title"></p>
     <button id="lesson-print" class="lesson-exit" type="button" hidden></button>
-    <button id="lesson-exit" class="lesson-exit" type="button" data-i18n="lesson.exit">Visa hela globen</button>
+    <button id="lesson-exit" class="lesson-exit" type="button" data-i18n="lesson.exit">Lämna lektionen</button>
     <p id="lesson-print-status" class="lesson-print-status" role="status" hidden></p>
+  </section>
+  <!-- Eleven bekräftar innan lektionen lämnas (#1572); läraren lämnar direkt. Samma plats och utseende som förklaringen nedan (js/ui/lesson.js) -->
+  <section id="lesson-confirm" class="lesson-band lesson-notice" role="group" aria-labelledby="lesson-confirm-text" hidden>
+    <p id="lesson-confirm-text" class="lesson-band-title" data-i18n="lesson.confirm">Lämna lektionen? Då visas hela globen.</p>
+    <button id="lesson-confirm-no" class="lesson-exit" type="button" data-i18n="lesson.confirmNo">Stanna kvar</button>
+    <button id="lesson-confirm-yes" class="lesson-exit" type="button" data-i18n="lesson.confirmYes">Ja, lämna</button>
   </section>
   <!-- En lektionslänk som inte gick att starta (#877): förklaring i stället för en tyst, vanlig glob -->
   <section id="lesson-notice" class="lesson-band lesson-notice" role="alert" hidden>
@@ -157,16 +182,24 @@
       <div class="extra-wrap">
         <button id="btn-more" class="chip-btn extra-toggle" type="button" aria-expanded="false" aria-controls="extra-menu" title="Källor, hjälp och dela" data-i18n-title="top.moreTitle"><span class="extra-dots" aria-hidden="true"></span><span data-i18n="top.more">Mer</span></button>
         <div id="extra-menu" class="extra-menu" role="group" aria-label="Mer" data-i18n-aria-label="top.more">
+          <!-- Mer i tre grupper (#1575): Lär dig, För skolan och Hjälp projektet. Stöd och Lämna förslag är egna, lågmälda rader. -->
+          <span class="extra-label" data-i18n="more.learn">Lär dig</span>
           <!-- Kom igång (#996): introduktionen i tre stilla steg; öppnas aldrig av sig själv (#516) -->
           <button id="btn-intro" class="chip-btn" type="button" aria-controls="intro"></button>
-          <button id="btn-sources" class="chip-btn" type="button" title="Om källorna: källpolicy och källregister" data-i18n-title="top.sourcesTitle" data-i18n="top.sources">Källor</button>
           <button id="btn-help" class="chip-btn" type="button" aria-expanded="false" aria-controls="help" data-i18n="top.help">Hjälp</button>
-          <!-- Quiz (#65): "Vad hände samtidigt som …?" ur befintliga fun facts (js/ui/quiz.js, js/quiz-rules.js) -->
-          <!-- Samtidighetsjakten (#741): ett elevuppdrag ur data/uppdrag.json (js/ui/uppdrag.js, js/uppdrag-rules.js) -->
-          <button id="btn-hunt" class="chip-btn" type="button" aria-controls="hunt" hidden title="Hitta händelser på olika kontinenter samtidigt" data-i18n-title="top.huntTitle" data-i18n="top.hunt">Samtidighetsjakten</button>
-          <button id="btn-quiz" class="chip-btn" type="button" aria-controls="quiz" hidden title="Vad hände samtidigt? Frågor ur fun facts" data-i18n-title="top.quizTitle" data-i18n="top.quiz">Quiz</button>
+          <button id="btn-sources" class="chip-btn" type="button" title="Om källorna: källpolicy och källregister" data-i18n-title="top.sourcesTitle" data-i18n="top.sources">Källor</button>
+          <span class="extra-label" data-i18n="more.school">För skolan</span>
+          <!-- För lärare (#1315): lektioner, utskrift, quiz, jakt och presentationsläge på ett ställe (js/ui/teacher.js). Quiz (#65) och Samtidighetsjakten (#741) har bara den ingången (#1575). -->
+          <button id="btn-teacher" class="chip-btn" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="teacher" title="Lektioner, utskrift, quiz och storskärm" data-i18n-title="top.teacherTitle" data-i18n="top.teacher">För lärare</button>
+          <span class="extra-label" data-i18n="more.customize">Anpassa</span>
+          <!-- Inställningar (#1574): Lugn rörelse och Pausa vid, flyttade från Lager -->
+          <button id="btn-settings" class="chip-btn" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="settings" data-i18n="top.settings">Inställningar</button>
+          <span class="extra-label" data-i18n="more.project">Hjälp projektet</span>
           <!-- Dela (#64): länken till vyn som den ser ut nu, med år, kamera, fokus, lager och kategorier (#501) -->
           <button id="btn-share" class="chip-btn" type="button" title="Kopiera en länk till den här vyn" data-i18n-title="share.title" data-i18n="share.button">Dela</button>
+          <button id="btn-feedback" class="chip-btn" type="button" aria-haspopup="dialog" aria-controls="feedback" data-i18n="help.feedbackBtn">Lämna förslag</button>
+          <!-- Stöd (#1575): flyttat hit från Hjälp; en länk ut ur sidan, öppnas i en ny flik och döljs för elever i lektionsläget -->
+          <a id="btn-support" class="chip-btn" href="https://ko-fi.com/historiagloben" target="_blank" rel="noopener noreferrer" aria-label="Stöd Historia-globen på Ko-fi (öppnas i en ny flik)" data-i18n-aria-label="help.kofiLabel"><span data-i18n="more.support">Stöd</span><span aria-hidden="true"> ↗</span></a>
         </div>
       </div>
     </div>
@@ -177,11 +210,12 @@
       <h2 id="help-title" class="help-title" data-i18n="help.title">Så använder du globen</h2>
       <button id="help-close" class="panel-x" type="button" aria-label="Stäng hjälpen" data-i18n-aria-label="help.close">×</button>
     </div>
-    <p id="lang-note" class="help-lang" data-i18n="lang.beta" hidden>Översättningen pågår.</p>
+    <p id="lang-note" class="help-lang" data-i18n="lang.beta" hidden>Översättningen pågår. Händelser, berättelser och en del knappar visas än så länge på svenska.</p>
     <ol class="help-steps">
       <li><b data-i18n="help.s1">Dra globen</b> <span data-i18n="help.s1t">Snurra med fingret eller musen. Nyp eller scrolla för att zooma.</span></li>
       <li><b data-i18n="help.s2">Byt år</b> <span data-i18n="help.s2t">Tryck på årtalet eller dra i tidslinjen.</span></li>
       <li><b data-i18n="help.s3">Följ en berättelse</b> <span data-i18n="help.s3t">Välj ett krig, ett rike eller en religion under Sök och följ.</span></li>
+      <li><b data-i18n="help.s4">Läs om en plats</b> <span data-i18n="help.s4t">Zooma in: en prickad kontur runt en plats betyder att den har ett kort. Tryck på konturen, eller flytta vyn med piltangenterna så att platsen ligger i mitten och tryck Enter.</span></li>
     </ol>
     <details class="help-marks">
       <summary data-i18n="help.marks">Markörer, klungor och religioner</summary>
@@ -195,9 +229,73 @@
         <li><svg class="hm" viewBox="0 0 32 32" aria-hidden="true"><circle class="hm-ring" cx="16" cy="16" r="10"/><circle cx="16" cy="16" r="7.6" fill="none" stroke="#b8433a" stroke-width="1"/><image href="img/icons/aquila.svg" x="10.5" y="10.5" width="11" height="11"/></svg><span data-i18n="help.m7">Riken: en medalj mitt i ett rike visar rikets symbol, till exempel örnen för Rom. Peka på den för att se namnet och klicka för att läsa om riket. Zoomar man in står namnet under symbolen.</span></li>
       </ul>
     </details>
-    <p class="help-support" data-i18n="help.support">Historia-globen är gratis att använda. Vill du bidra till drift och vidareutveckling kan du lämna ett frivilligt stöd.
-      <a href="https://ko-fi.com/historiagloben" target="_blank" rel="noopener noreferrer" aria-label="Stöd Historia-globen på Ko-fi (öppnas i en ny flik)" data-i18n-aria-label="help.kofiLabel" data-i18n="help.kofi">Stöd Historia-globen<span aria-hidden="true"> ↗</span></a></p>
+    <p class="help-teacher" data-i18n="help.teacher">Undervisar du? <button id="help-teacher" class="link-btn" type="button" aria-controls="teacher" data-i18n="help.teacherBtn">Öppna För lärare</button></p>
     <p class="help-feedback" data-i18n="help.feedback">Saknar du något eller har du hittat ett fel? <button id="help-feedback" class="link-btn" type="button" aria-haspopup="dialog" aria-controls="feedback" data-i18n="help.feedbackBtn">Lämna förslag</button></p>
+  </aside>
+
+  <!-- Inställningar (#1574): rörelse och vad uppspelningen pausar vid. Flyttat hit från Lager; samma kort som Hjälp (js/ui/help.js).
+       LayerMenu läser rutorna härifrån (data-calm och data-pause). -->
+  <aside id="settings" class="help-card settings-card" role="dialog" aria-modal="false" aria-labelledby="settings-title" hidden>
+    <div class="help-head">
+      <h2 id="settings-title" class="help-title" data-i18n="top.settings">Inställningar</h2>
+      <button id="settings-close" class="panel-x" type="button" aria-label="Stäng Inställningar" data-i18n-aria-label="settings.close">×</button>
+    </div>
+    <div class="settings-rows">
+      <div class="layer-subheading" data-i18n="layers.motion">Rörelse</div>
+      <label class="layer-row"><input type="checkbox" data-calm> <span data-i18n="layers.calm">Lugn rörelse</span> <span class="layer-note" data-i18n="layers.calmNote">ingen automatisk snurr, globen hoppar i stället för att flyga, inga övergångar · följer webbläsarens inställning för reducerad rörelse</span></label>
+      <div class="layer-subheading" data-i18n="layers.pauseAt">Pausa uppspelningen vid</div>
+      <label class="layer-row"><input type="checkbox" data-pause="funfacts" checked aria-label="Pausa vid Samtidigt-kortet" data-i18n-aria-label="layers.pFfLabel"> <span data-i18n="layers.pFf">Samtidigt-kortet</span> <span class="layer-note" data-i18n="layers.pFfNote">fun facts och annat som hände samtidigt</span></label>
+      <label class="layer-row"><input type="checkbox" data-pause="focusFunfacts" aria-label="Pausa vid Samtidigt-kortet även när du följer en händelse" data-i18n-aria-label="layers.pFocusLabel"> <span data-i18n="layers.pFocus">Samtidigt-kortet även när du följer en händelse</span> <span class="layer-note" data-i18n="layers.pFocusNote">annars pausar uppspelningen bara vid det man följer</span></label>
+      <label class="layer-row"><input type="checkbox" data-pause="ffAuto" checked aria-label="Fortsätt själv efter Samtidigt-kortet" data-i18n-aria-label="layers.pAutoLabel"> <span data-i18n="layers.pAuto">Fortsätt själv efter Samtidigt-kortet</span> <span class="layer-note" data-i18n="layers.pAutoNote">nedräkning efter textens längd; av = står still tills du trycker Fortsätt</span></label>
+      <label class="layer-row"><input type="checkbox" data-pause="wars"> <span data-i18n="layers.pWars">När ett krig bryter ut</span></label>
+      <label class="layer-row"><input type="checkbox" data-pause="major" checked> <span data-i18n="layers.pMajor">Stora händelser när man följer ett krig</span></label>
+      <label class="layer-row"><input type="checkbox" data-pause="empire" checked> <span data-i18n="layers.pEmpire">Nyckelår när man följer ett rike</span> <span class="layer-note" data-i18n="layers.pEmpireNote">varför riket växer eller krymper</span></label>
+      <label class="layer-row"><input type="checkbox" data-pause="route" checked> <span data-i18n="layers.pRoute">Stopp när man följer en resa</span> <span class="layer-note" data-i18n="layers.pRouteNote">platser med datum i resans data</span></label>
+      <label class="layer-row"><input type="checkbox" data-pause="theme" checked> <span data-i18n="layers.pTheme">Händelser när man följer en plats eller ett tema</span> <span class="layer-note" data-i18n="layers.pThemeNote">de viktiga först; finns inga, alla</span></label>
+    </div>
+  </aside>
+
+  <!-- För lärare (#1315): samma kort som Hjälp (js/ui/help.js, js/ui/teacher.js). Lektionerna fylls i ur turerna. -->
+  <aside id="teacher" class="help-card teacher-card" role="dialog" aria-modal="false" aria-labelledby="teacher-title" hidden>
+    <div class="help-head">
+      <h2 id="teacher-title" class="help-title" data-i18n="top.teacher">För lärare</h2>
+      <button id="teacher-close" class="panel-x" type="button" aria-label="Stäng För lärare" data-i18n-aria-label="teacher.close">×</button>
+    </div>
+    <p class="teacher-intro" data-i18n="teacher.intro">Ingen inloggning och inga elevkonton behövs, och sidan sparar ingenting om eleverna.</p>
+    <section class="teacher-section" aria-labelledby="teacher-lessons-h">
+      <h3 id="teacher-lessons-h" class="teacher-h" data-i18n="teacher.lessons">Lektioner</h3>
+      <p class="teacher-text" data-i18n="teacher.lessonsText">Färdiga lektioner. I lektionsläget döljs de flesta menyerna och tiden stannar inom lektionens år.</p>
+      <ul id="teacher-lessons" class="teacher-lessons"></ul>
+      <p id="teacher-lessons-empty" class="teacher-text teacher-empty" hidden data-i18n="teacher.noLessons">Lektionerna kunde inte hämtas just nu. Ladda om sidan och försök igen.</p>
+      <!-- Besked efter Kopiera lärarlänk (#1583) -->
+      <p id="teacher-link-status" class="tour-print-status" role="status" hidden></p>
+    </section>
+    <ul class="teacher-actions">
+      <li id="teacher-quiz-row">
+        <button id="teacher-quiz" class="teacher-item" type="button" aria-controls="quiz">
+          <span class="teacher-item-title" data-i18n="top.quiz">Quiz</span>
+          <span class="teacher-item-text" data-i18n="teacher.quizText">Frågor om vad som hände samtidigt, ur sidans fun facts. Varje svar visar källorna.</span>
+        </button>
+      </li>
+      <li id="teacher-hunt-row">
+        <button id="teacher-hunt" class="teacher-item" type="button" aria-controls="hunt">
+          <span class="teacher-item-title" data-i18n="top.hunt">Samtidighetsjakten</span>
+          <span class="teacher-item-text" data-i18n="teacher.huntText">Ett fristående uppdrag för eleverna, inte kopplat till lektionerna: hitta händelser på olika världsdelar som hände samtidigt.</span>
+        </button>
+      </li>
+      <li id="teacher-presentation-row">
+        <button id="teacher-presentation" class="teacher-item" type="button">
+          <span class="teacher-item-title" data-i18n="teacher.presentation">Presentationsläge</span>
+          <span class="teacher-item-text" data-i18n="teacher.presentationText">För projektor och storskärm: större text och större knappar. Avsluta med knappen uppe till höger.</span>
+        </button>
+      </li>
+    </ul>
+    <details class="teacher-more">
+      <summary data-i18n="teacher.more">Så delar du lektionen och skriver ut</summary>
+      <p class="teacher-text" data-i18n="teacher.shareText">Eleverna får lektionen med länken på lärarbladet, eller med Dela under Mer: delar du mitt i lektionen börjar de på samma steg. Bandet överst har Lämna lektionen: då slutar lektionen och sidan blir den vanliga, med samma år.</p>
+      <h3 class="teacher-h teacher-h-print" data-i18n="teacher.print">Utskrift</h3>
+      <p class="teacher-text" data-i18n="teacher.printText">Starta en lektion ovan och välj Skriv ut elev- och lärarblad i bandet överst. Elevbladet har frågor med plats för svar. Lärarbladet har årskurs, tid, förkunskaper, instruktion, koppling till läroplanen och frågorna. Knappen finns bara för dig som lärare, och den försvinner om du laddar om sidan under lektionen. Vill du ha en länk som ger knappen: välj Kopiera lärarlänk vid lektionen ovan.</p>
+    </details>
   </aside>
 
   <aside id="intro" class="intro-dialog" role="dialog" aria-modal="true" aria-labelledby="intro-title" hidden>
@@ -354,28 +452,16 @@
   <div id="focus-menu" class="layer-menu" hidden role="group" aria-label="Sök och följ" data-i18n-aria-label="top.focus"></div>
   <!-- Guidade turer (#47): listan över turerna i data/turer/index.json (js/ui/tour.js) -->
   <div id="tour-menu" class="layer-menu tour-menu" hidden role="group" aria-labelledby="tour-menu-title">
+    <button type="button" class="menu-x" data-i18n-aria-label="common.close" aria-label="Stäng">×</button>
     <p id="tour-menu-title" class="layer-heading"></p>
     <ul id="tour-list" class="tour-list"></ul>
   </div>
 
   <div id="layer-menu" class="layer-menu" hidden role="group" aria-label="Lager" data-i18n-aria-label="top.layers">
     <!-- De förinställda vyerna (data/vyer.json, #357) och raderna för lagren i grupper byggs av lagerregistret
-         (js/layers/index.js och registry.js, #338). Gruppen Inställningar nedan får rubriken och sina rader därifrån. -->
+         (js/layers/index.js och registry.js, #338). Rörelse och pauser ligger i Mer › Inställningar (#1574). -->
     <div class="layer-heading" data-i18n="layers.categories">Kategorier</div>
     <div id="filters" class="filters" role="group" aria-label="Kategorier" data-i18n-aria-label="layers.categories"></div>
-    <div data-group="settings">
-      <div class="layer-subheading" data-i18n="layers.motion">Rörelse</div>
-      <label class="layer-row"><input type="checkbox" data-calm> <span data-i18n="layers.calm">Lugn rörelse</span> <span class="layer-note" data-i18n="layers.calmNote">ingen automatisk snurr, globen hoppar i stället för att flyga, inga övergångar · följer webbläsarens inställning för reducerad rörelse</span></label>
-      <div class="layer-subheading" data-i18n="layers.pauseAt">Pausa uppspelningen vid</div>
-      <label class="layer-row"><input type="checkbox" data-pause="funfacts" checked aria-label="Pausa vid Samtidigt-kortet" data-i18n-aria-label="layers.pFfLabel"> <span data-i18n="layers.pFf">Samtidigt-kortet</span> <span class="layer-note" data-i18n="layers.pFfNote">fun facts och annat som hände samtidigt</span></label>
-      <label class="layer-row"><input type="checkbox" data-pause="focusFunfacts" aria-label="Pausa vid Samtidigt-kortet även när du följer en händelse" data-i18n-aria-label="layers.pFocusLabel"> <span data-i18n="layers.pFocus">Samtidigt-kortet även när du följer en händelse</span> <span class="layer-note" data-i18n="layers.pFocusNote">annars pausar uppspelningen bara vid det man följer</span></label>
-      <label class="layer-row"><input type="checkbox" data-pause="ffAuto" checked aria-label="Fortsätt själv efter Samtidigt-kortet" data-i18n-aria-label="layers.pAutoLabel"> <span data-i18n="layers.pAuto">Fortsätt själv efter Samtidigt-kortet</span> <span class="layer-note" data-i18n="layers.pAutoNote">nedräkning efter textens längd; av = står still tills du trycker Fortsätt</span></label>
-      <label class="layer-row"><input type="checkbox" data-pause="wars"> <span data-i18n="layers.pWars">När ett krig bryter ut</span></label>
-      <label class="layer-row"><input type="checkbox" data-pause="major" checked> <span data-i18n="layers.pMajor">Stora händelser när man följer ett krig</span></label>
-      <label class="layer-row"><input type="checkbox" data-pause="empire" checked> <span data-i18n="layers.pEmpire">Nyckelår när man följer ett rike</span> <span class="layer-note" data-i18n="layers.pEmpireNote">varför riket växer eller krymper</span></label>
-      <label class="layer-row"><input type="checkbox" data-pause="route" checked> <span data-i18n="layers.pRoute">Stopp när man följer en resa</span> <span class="layer-note" data-i18n="layers.pRouteNote">platser med datum i resans data</span></label>
-      <label class="layer-row"><input type="checkbox" data-pause="theme" checked> <span data-i18n="layers.pTheme">Händelser när man följer en plats eller ett tema</span> <span class="layer-note" data-i18n="layers.pThemeNote">de viktiga först; finns inga, alla</span></label>
-    </div>
   </div>
 
   <aside id="panel" class="panel" aria-label="Samtidigt i världen" data-i18n-aria-label="panel.title">
@@ -417,7 +503,8 @@
   <section id="tour-card" class="tour-card" aria-labelledby="tour-name" hidden>
     <div class="tour-head">
       <p id="tour-progress" class="tour-progress"></p>
-      <button id="tour-close" class="panel-x" type="button" aria-label="Avsluta turen" data-i18n-aria-label="tour.close">×</button>
+      <!-- Kryssknappen är dold (#1572): Lämna turen i kortets fot är den enda utgången, så att det inte finns tre knappar som gör samma sak -->
+      <button id="tour-close" class="panel-x" type="button" aria-label="Avsluta turen" data-i18n-aria-label="tour.close" hidden>×</button>
     </div>
     <div id="tour-meter" class="tour-meter" aria-hidden="true"></div>
     <h2 id="tour-name" class="tour-name"></h2>
@@ -429,12 +516,7 @@
     <div class="tour-links">
       <button id="tour-read" class="link-btn" type="button" aria-controls="detail"></button>
       <button id="tour-sources" class="link-btn" type="button"></button>
-      <!-- Skriv ut (#738): elevblad och lärarblad ur turens lärarfält, bara i lektionsturer -->
-      <button id="tour-print" class="link-btn" type="button" hidden></button>
-      <!-- Kopiera lärarlänk (#930): lektionslänken med r=lararen, bara för lektionsturer i den fria vyn -->
-      <button id="tour-copy-teacher" class="link-btn" type="button" hidden></button>
     </div>
-    <p id="tour-print-status" class="tour-print-status" role="status" hidden></p>
     <!-- Slutkortet i en lektion (#795): länkar till lektionens uppdrag -->
     <div id="tour-lesson-end" class="tour-lesson-end" hidden>
       <p class="tour-lesson-end-label" data-i18n="lesson.next">Fortsätt med ett uppdrag</p>
@@ -442,8 +524,11 @@
     </div>
     <div class="tour-actions">
       <button id="tour-back" class="chip-btn" type="button"></button>
-      <button id="tour-end" class="tour-end" type="button"></button>
       <button id="tour-next" class="tour-next" type="button"></button>
+    </div>
+    <!-- Foten (#1572): en tydlig, benämnd utgång; turraden under kortet säger redan att turen styr tiden -->
+    <div class="tour-foot">
+      <button id="tour-end" class="tour-end" type="button"></button>
     </div>
   </section>
 
@@ -459,6 +544,14 @@
     </div>
   </div>
   <p id="focus-notice" class="focus-notice" role="status" aria-live="polite" hidden></p>
+  <!-- Besked om en trasig länk (#1324): en tur, ett krig eller ett år i adressen som inte gick att öppna. Statusraden finns hela tiden så att skärmläsaren hör texten när kortet visas -->
+  <div id="link-notice" class="link-notice" role="status" aria-live="polite">
+    <div id="link-notice-card" class="link-notice-card" hidden>
+      <p id="link-notice-text" class="link-notice-text"></p>
+      <button id="link-notice-action" class="link-btn" type="button" hidden></button>
+      <button id="link-notice-close" class="link-btn" type="button" data-i18n="common.close">Stäng</button>
+    </div>
+  </div>
 
   <footer class="timebar">
     <div id="pause-note" class="pause-note" role="status" hidden>
@@ -467,6 +560,8 @@
       <span id="pause-next" class="pause-next" hidden></span>
       <span id="pause-countdown" class="pause-countdown" aria-hidden="true" hidden></span>
       <button id="pause-finish" class="pause-finish" type="button" hidden data-i18n="play.finish">Spela klart &#9654;</button>
+      <button id="pause-prev-stop" class="pause-step" type="button" hidden data-i18n="route.prevStop">Föregående stopp</button>
+      <button id="pause-next-stop" class="pause-step" type="button" hidden data-i18n="route.nextStop">Nästa stopp</button>
       <button id="pause-go" class="pause-go" type="button" aria-describedby="pause-text" data-i18n="play.continue">&#9654; Fortsätt</button>
     </div>
     <div class="controls">
@@ -497,11 +592,14 @@
       <div class="thumb" id="thumb"><span class="thumb-line"></span></div>
       <div class="ticks" id="ticks"></div>
     </div>
+    <!-- Skalraden (#1313): vad en tiondel av tidslinjen är här, och att skalan ändras vid en skarv. Ligger i teckenförklaringens lucka och visas bara en stund efter att året flyttats (js/timeline.js); skärmläsare får samma sak i statusraden -->
+    <p id="timeline-scale-note" class="timeline-scale-note" aria-hidden="true" hidden></p>
     <details id="timeline-legend" class="timeline-legend" open>
       <summary data-i18n="tlegend.title">Tecken</summary>
       <span class="tl-item"><i class="tl-dot" aria-hidden="true"></i><span data-i18n="tlegend.event">händelse</span></span>
       <span class="tl-item"><i class="tl-diamond" aria-hidden="true"></i><span data-i18n="tlegend.funfact">Visste du?</span></span>
       <span class="tl-item"><i class="tl-bar" aria-hidden="true"></i><span data-i18n="tlegend.route">resa</span></span>
+      <span class="tl-item tl-item-seam"><i class="tl-seam" aria-hidden="true"></i><span data-i18n="tlegend.seam">ny skala</span></span>
     </details>
     <p id="timeline-mark-note" class="timeline-mark-note" aria-live="polite" hidden></p>
     <!-- Engångstips (#996): visas vid första besöket, försvinner efter första draget i tidslinjen (js/main.js) -->

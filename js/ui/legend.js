@@ -16,6 +16,13 @@ const GAP = 10; // luft mellan förklaringen och det som ligger under
 const HINT_KEY = 'hg-rel-tip'; // tipsraden har visats (#308)
 const DISCOVERY_KEY = 'hg-discovery-legend-open'; // den hopfällda upptäcktsvyn (#375)
 
+/** Tecknet för en post i människans spridning (#1094), som på kartan (layers/spread.js): formen bär betydelsen, inte färgen. */
+function spreadSwatch({ kind, certainty, color }) {
+  const c = esc(color);
+  if (kind === 'area') return `background:repeating-linear-gradient(45deg,${c} 0 1.5px,transparent 1.5px 5px);border:1.5px dashed ${c};box-sizing:border-box`;
+  return `background:none;width:26px;height:0;flex:none;align-self:center;border-top:3px ${certainty === 'huvudvag' ? 'dashed' : 'dotted'} ${c}`;
+}
+
 export class ReligionLegend {
   constructor({ legend, pop }) {
     Object.assign(this, { legend, pop });
@@ -27,9 +34,11 @@ export class ReligionLegend {
     // Byter man fönsterbredd över gränsen gäller standardläget för den nya bredden.
     const wide = matchMedia('(min-width: 761px)');
     this.open = wide.matches;
+    this.narrow = !wide.matches; // människans spridning: posterna är hopfällda i smal skärm (#1418)
+    this.spreadOpen = new Set(); // de poster (rubrikerna) som är utfällda i smal skärm
     this.discoveryOpen = true;
     try { this.discoveryOpen = sessionStorage.getItem(DISCOVERY_KEY) !== '0'; } catch { /* utan lagring */ }
-    wide.addEventListener('change', () => { this.open = wide.matches; this.render(); this.fit(); });
+    wide.addEventListener('change', () => { this.open = wide.matches; this.narrow = !wide.matches; this.render(); this.fit(); });
     legend.addEventListener('click', e => {
       if (e.target.closest('[data-hint-close]')) { this.closeHint(); return; }
       if (e.target.closest('[data-about]')) { this.onAbout(); return; }
@@ -37,6 +46,8 @@ export class ReligionLegend {
       if (keep) { this.onKeep(keep.dataset.keep === '1'); return; }
       const li = e.target.closest('li[data-religion]');
       if (li) { this.onPin(li.dataset.religion); return; }
+      const more = e.target.closest('[data-spread-toggle]');
+      if (more) { this.toggleSpread(more.dataset.spreadToggle); return; }
       if (!e.target.closest('.rl-toggle')) return;
       if (this.focus?.discovery) {
         this.discoveryOpen = !this.discoveryOpen;
@@ -44,6 +55,12 @@ export class ReligionLegend {
       } else this.open = !this.open;
       this.render(); this.fit();
     });
+    // Upptäcktsvyns hopfällda avsnitt (#1571): öppet läge minns vi här, så att det står kvar när panelen ritas om
+    this.sect = { read: false, images: false };
+    this.legend.addEventListener('toggle', e => {
+      const d = e.target.closest?.('details[data-sect]');
+      if (d && this.sect[d.dataset.sect] !== d.open) { this.sect[d.dataset.sect] = d.open; this.fitSoon(); }
+    }, true);
     this.fit = this.fit.bind(this);
     this.fitSoon = () => { cancelAnimationFrame(this._raf); this._raf = requestAnimationFrame(this.fit); };
     addEventListener('resize', this.fitSoon);
@@ -91,6 +108,11 @@ export class ReligionLegend {
    * items från ReligionsLayer.legendItems(). focus (valfritt, fokusläget): war = ett följt krigs områden syns,
    * fadable = namnen på lager som dämpas (eller skulle dämpas) och keep = om de visas som vanligt (#235).
    * discovery (upptäcktsvyn, #101) = { perspective, credit, sources: [{ title, url }], coverage } eller null.
+   * spread (människans spridning, #1094) = { items: [{ kind, certainty, color, title, summary, note, sources }], coast } eller null;
+   *   coast = raden om kusten (#1565): modellens kust och is, eller dagens kust utanför modellens spann; tom utan områden;
+   * listan är också kartans textalternativ (#1106).
+   * images (bildlagren, #1096) = [{ id, title, text, keys: [{ swatch, text }], sources: [{ title, url }] }] eller null: skivor med en text om
+   * osäkerheten, till exempel istidens kust, som annars bara syns som färg.
    * Finns inget att förklara döljs rutan.
    */
   update(items, focus = {}) {
@@ -100,11 +122,12 @@ export class ReligionLegend {
   }
 
   render() {
-    const items = this.items ?? [], { areas = false, war = false, fadable = [], keep = false, discovery = null } = this.focus ?? {};
-    if (!items.length && !areas && !war && !fadable.length && !discovery) { this.legend.hidden = true; this.legend.textContent = ''; this._html = ''; return; }
+    const items = this.items ?? [], { areas = false, war = false, fadable = [], keep = false, discovery = null, spread = null, images = null } = this.focus ?? {};
+    if (!items.length && !areas && !war && !fadable.length && !discovery && !spread && !images) { this.legend.hidden = true; this.legend.textContent = ''; this._html = ''; return; }
     const unsure = items.some(i => i.unsure), inherited = items.some(i => i.inherited);
-    const title = (items.length ? 1 : 0) + (areas ? 1 : 0) + (war ? 1 : 0) + (discovery ? 1 : 0) > 1 ? ui('legend.title')
-      : items.length ? ui('legend.religions') : areas ? ui('legend.empires') : war ? ui('legend.warAreas') : discovery ? discovery.title : ui('legend.followLayers');
+    const title = (items.length ? 1 : 0) + (areas ? 1 : 0) + (war ? 1 : 0) + (discovery ? 1 : 0) + (spread ? 1 : 0) + (images?.length ?? 0) > 1 ? ui('legend.title')
+      : items.length ? ui('legend.religions') : areas ? ui('legend.empires') : war ? ui('legend.warAreas') : discovery ? discovery.title
+      : spread ? ui('legend.spread') : images ? images[0].title : ui('legend.followLayers');
     const open = discovery ? this.discoveryOpen : this.open;
     const religionsHtml = !items.length ? '' : `<ul>${items.map(({ religion: r, sure, unsure: u, inherited: i }) =>
       `<li data-religion="${esc(r.id)}" tabindex="0" role="button" aria-pressed="${this.pinned === r.id}" class="${this.highlight === r.id ? 'on' : ''}" title="${esc(ui('legend.highlightReligion', { religion: religionName(r) }))}"><span class="swatch" style="background:${esc(r.color)}"></span>${symbolImg(r)}<span class="rl-name">${esc(t(r.name))}${
@@ -116,6 +139,28 @@ export class ReligionLegend {
       <p class="rl-note">${esc(ui('legend.continentNote'))}</p></div>`;
     const areasHtml = !areas ? '' : `<div class="rl-areas">${this.empireLegend?.softEdge ? `<p class="rl-note"><span class="swatch rl-soft"></span>${esc(this.empireLegend.softEdge)}</p>` : ''}
       ${this.empireLegend?.influence ? `<p class="rl-note"><span class="swatch rl-influence"></span>${esc(this.empireLegend.influence)}</p>` : ''}</div>`;
+    // Människans spridning (#1094): samma tecken som på kartan (område med snedstreck och streckad kant, våg med streck
+    // eller prickar), vad varje post bygger på och dess källor. Listan är kartans textalternativ (#1106).
+    // I smal skärm (#1418) visas bara namn, tecken och säkerhet per post; sammanfattningen, noten och källorna fälls ut per
+    // post med en riktig knapp i rubriken (aria-expanded, tangentbord). I bred skärm står allt utfällt som förut.
+    const narrow = !!this.narrow;
+    const spreadHtml = !spread ? '' : `<div class="rl-spread" style="margin-top:6px;padding-top:4px;border-top:1px solid var(--line)"><p class="rl-note">${esc(ui('legend.spreadNote'))}</p>${spread.coast ? `<p class="rl-note" data-spread-coast>${esc(spread.coast)}</p>` : ''}<ul>${spread.items.map((i, n) => {
+      const isOpen = !narrow || this.spreadOpen?.has(i.title), id = `rl-spread-more-${n}`;
+      const head = narrow
+        ? `<button type="button" class="rl-spread-toggle" data-spread-toggle="${esc(i.title)}" aria-expanded="${isOpen}" aria-controls="${id}"><span>${esc(i.title)}</span><span class="sr-only">, ${esc(ui('legend.spreadDetails'))}</span><span class="rl-chev" aria-hidden="true"></span></button>`
+        : esc(i.title);
+      return `<li class="rl-spread-item" style="display:block;margin-top:6px"><div class="rl-note rl-row"><span class="swatch" aria-hidden="true" style="${spreadSwatch(i)}"></span>${i.kind === 'wave' && i.certainty !== 'huvudvag' ? '<span aria-hidden="true">?</span>' : ''}<span><h3 class="rl-spread-head">${head}</h3> <em>(${esc(ui(`spread.certainty.${i.certainty}`))})</em></span></div>
+        <p class="rl-spread-text" id="${id}" ${isOpen ? '' : 'hidden'}>${esc(i.summary)}${i.note ? ` ${esc(i.note)}` : ''}${i.sources.length ? ` ${esc(ui('legend.spreadSources'))} ${
+          i.sources.map((s, k) => `<a class="rl-spread-src" href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${k + 1}<span class="sr-only"> ${esc(s.title)} ${esc(ui('legend.newTab'))}</span></a>`).join(', ')}.` : ''}</p></li>`;
+    }).join('')}</ul></div>`;
+    // Bildlagren (#1096): ett tecken som på kartan (ljus yta med snedstreck och mörk kant), osäkerheten i text och källorna.
+    // När bara bildlagret förklaras står skivans rubrik i knappen (så att "modell" syns hopfälld i mobil) och upprepas inte.
+    // Har raden keys (#1564) står ett tecken per ytstil på egen rad, och rubriken och texten står utan tecken.
+    const imagesHtml = !images ? '' : images.map(n => { const keyed = !!n.keys?.length; return `<div class="rl-images" data-image-note="${esc(n.id)}">
+      ${n.title === title ? '' : `<p class="rl-note rl-row">${keyed ? '' : '<span class="swatch rl-shelf" aria-hidden="true"></span>'}<strong>${esc(n.title)}</strong></p>`}
+      ${keyed ? n.keys.map(k => `<p class="rl-note rl-row" data-image-key="${esc(k.swatch)}"><span class="swatch rl-${esc(k.swatch)}" aria-hidden="true"></span>${esc(k.text)}</p>`).join('') : ''}
+      <p class="rl-image-text">${n.title === title && !keyed ? '<span class="swatch rl-shelf" aria-hidden="true"></span> ' : ''}${esc(n.text)}${n.sources.length ? ` ${esc(ui('legend.spreadSources'))} ${
+        n.sources.map((src, k) => `<a class="rl-spread-src" href="${esc(src.url)}" target="_blank" rel="noopener noreferrer">${k + 1}<span class="sr-only"> ${esc(src.title)} ${esc(ui('legend.newTab'))}</span></a>`).join(', ')}.` : ''}</p></div>`; }).join('');
     // Vad symbolerna betyder (#271)
     const symbolsHtml = !items.length ? '' : `<p class="rl-note rl-sym-note">${esc(ui('legend.symbolsNote'))}</p>`;
     // Faktarutan på begäran (#308), när någon religion som syns har en
@@ -126,9 +171,14 @@ export class ReligionLegend {
     // så att den inte täcker kartan i mobil. Den korta rubriken ligger kvar i knappen.
     const coverageHtml = !discovery || discovery.coverage == null ? '' : `<p class="rl-coverage" role="status">${esc(ui('discovery.coverage', { percent: discovery.coverage }))}</p>
       <p class="rl-note rl-coverage-note">${esc(ui('discovery.coverageNote'))}</p>`;
-    const discHtml = !discovery ? '' : `<p class="rl-disc" role="note">${esc(discovery.perspective)}</p>`;
-    const creditHtml = !discovery ? '' : `<p class="rl-note rl-credit">${esc(discovery.credit)}${discovery.sources?.length ? ` ${esc(ui('legend.filePages'))} ${
-      discovery.sources.map((s, i) => `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${i + 1}<span class="sr-only"> ${esc(s.title)} ${esc(ui('legend.newTab'))}</span></a>`).join(', ')}.` : ''}</p>`;
+    const discHtml = !discovery ? '' : `<details class="rl-sect" data-sect="read"${this.sect.read ? ' open' : ''}><summary>${esc(ui('discovery.readTitle'))}</summary><p class="rl-disc" role="note">${esc(discovery.perspective)}</p></details>`;
+    // Kartbildernas kredit och filsidor (#1571): krediten står kvar att läsa i ett hopfällt avsnitt med antalet filsidor på raden;
+    // filsidorna är 36 px stora rutor i en rullbar lista (under 24 px är träffytan för liten)
+    const nSrc = discovery?.sources?.length ?? 0;
+    const imagesTitle = n => String(ui('discovery.imagesTitle')[n === 1 ? 0 : 1]).replace('{n}', n);
+    const creditHtml = !discovery ? '' : !nSrc ? `<p class="rl-note rl-credit">${esc(discovery.credit)}</p>`
+      : `<details class="rl-sect" data-sect="images"${this.sect.images ? ' open' : ''}><summary>${esc(imagesTitle(nSrc))}</summary><p class="rl-note rl-credit">${esc(discovery.credit)} ${esc(ui('legend.filePages'))}</p><ul class="rl-files">${
+        discovery.sources.map((s, i) => `<li><a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${i + 1}<span class="sr-only"> ${esc(s.title)} ${esc(ui('legend.newTab'))}</span></a></li>`).join('')}</ul></details>`;
     const joined = fadable.join(ui('legend.and'));
     const names = LANG === 'sv' ? joined.toLowerCase().replace(/^./, c => c.toUpperCase()) : joined;
     const fadeHtml = !fadable.length ? '' : `<p class="rl-note rl-fade">${keep
@@ -143,16 +193,25 @@ export class ReligionLegend {
       items.length > shown.length ? `<span class="rl-more">+${items.length - shown.length}</span>` : ''}${
       war ? `<span class="rl-dot rl-hatch" style="--war:${esc(CAT.krig.color)}" title="${esc(ui('legend.warTheatre'))}"></span>` : ''}</span>`;
     const html = `<button type="button" class="rl-toggle" aria-expanded="${open}" aria-controls="rl-body"><span class="rl-title">${esc(title)}</span><span class="rl-chev" aria-hidden="true"></span>${dotsHtml}</button>${hintHtml}
-      <div id="rl-body" class="rl-body" ${open ? '' : 'hidden'}>${coverageHtml}${discHtml}${aboutHtml}${religionsHtml}${symbolsHtml}${areasHtml}${warHtml}${creditHtml}${fadeHtml}</div>`;
+      <div id="rl-body" class="rl-body" ${open ? '' : 'hidden'}>${coverageHtml}${discHtml}${aboutHtml}${religionsHtml}${symbolsHtml}${areasHtml}${warHtml}${spreadHtml}${imagesHtml}${creditHtml}${fadeHtml}</div>`;
     // Samma innehåll ritas inte om, så att musen och tangentbordets fokus ligger kvar på raden (#271)
     if (html !== this._html) {
       const focused = this.legend.contains(document.activeElement) && document.activeElement.dataset.religion;
+      const focusedMore = this.legend.contains(document.activeElement) ? document.activeElement.dataset?.spreadToggle : undefined;
       const scroll = this.legend.querySelector('.rl-body')?.scrollTop ?? 0;
       this.legend.innerHTML = this._html = html;
       const body = this.legend.querySelector('.rl-body'); if (body) body.scrollTop = scroll;
       if (focused) this.legend.querySelector(`[data-religion="${focused}"]`)?.focus({ preventScroll: true });
+      if (focusedMore !== undefined) [...this.legend.querySelectorAll('[data-spread-toggle]')].find(b => b.dataset.spreadToggle === focusedMore)?.focus({ preventScroll: true });
     }
     this.legend.hidden = false;
+  }
+
+  /** Fäller ut eller ihop en post i människans spridning (smal skärm, #1418); tangentbordsfokus ligger kvar på knappen. */
+  toggleSpread(title) {
+    if (!this.spreadOpen) this.spreadOpen = new Set();
+    if (!this.spreadOpen.delete(title)) this.spreadOpen.add(title);
+    this.render(); this.fit();
   }
 
   /** Lägger förklaringen under rubriken uppe till vänster och begränsar listans höjd så att den slutar
@@ -273,7 +332,7 @@ export class EmpireLegend {
     this.onPin = () => {};
     this.onClose = () => {};
     const wide = matchMedia('(min-width: 761px)');
-    wide.addEventListener('change', () => { this.open = wide.matches; this.render(); this.fit(); });
+    wide.addEventListener('change', () => { this.open = wide.matches; this.narrow = !wide.matches; this.render(); this.fit(); });
     legend.addEventListener('click', e => {
       const close = e.target.closest('[data-empire-close]');
       if (close) { this.onClose(); return; }

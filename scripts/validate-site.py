@@ -27,6 +27,8 @@ Kontroller:
      skriptet (tools/dela_data.py i repot) och jämför med dem i dist/. Den hittar också händelser som
      ligger i fel periodfil och id som finns två gånger.
  11. Licensmanifesten (#393) stämmer med data/sources.json och bilduppgifterna i data/events.json.
+ 12. Mjuka varningar (stoppar inte bygget): teman med få världsdelar och länder som är för tunna enligt
+     hållbarhetsriktlinjen (#1269, COUNTRY_* nedan).
 
 Användning: python3 scripts/validate-site.py [dist]
 """
@@ -47,6 +49,14 @@ FORBIDDEN = ['.git/', '.github/', '.claude/', '.orchestra/', 'docs/', 'tools/', 
              'functions/', 'tests/']  # functions/ publiceras av Cloudflare Pages från repots rot, inte via dist/
 FORBIDDEN_NAMES = {'CLAUDE.md', 'README.md', '.DS_Store', '__pycache__', '.gitignore'}
 FORBIDDEN_SUFFIXES = {'.py', '.pyc', '.sh', '.md'}
+
+# Hållbarhetsriktlinjen för länder (#1269): en mjuk VARNING (stderr, stoppar inte bygget) när ett land av typen `country`
+# har för lite att visa. Tre av fyra trösklar är historikerns och arkitektens förslag i #1259, inget beslut: de kan
+# justeras efter pilotens utvärdering (#1274). Golvet på 5 händelser (err nedan) är ett krav och ändras inte här.
+COUNTRY_MIN_EVENTS = 12      # synliga händelser inom gräns
+COUNTRY_MIN_CENTURIES = 4    # olika sekler (start // 100) bland dem
+COUNTRY_MIN_CATEGORIES = 3   # kategorier utöver krig
+COUNTRY_MAX_WAR_SHARE = 0.5  # andel krigshändelser (kind == "war" eller kategorin krig); mer än så varnar
 
 errors = []
 
@@ -280,8 +290,12 @@ for d in (discovery or {}).get('decorations', []):
     exists(d.get('file', ''), f"data/upptackt.json ({d.get('id')}, file)")
 # Tidsstyrda rasterbilder (#54)
 image_layers = load('data/bildlager.json') if (DIST / 'data/bildlager.json').is_file() else None
-for layer in (image_layers or {}).get('layers', []):
-    exists(layer.get('file', ''), f"data/bildlager.json ({layer.get('id')}, file)")
+image_slices = [(row, part) for row in (image_layers or {}).get('layers', []) if isinstance(row, dict)
+                for part in row.get('slices', []) if isinstance(part, dict)]
+for row, part in image_slices:
+    exists(str(part.get('file', '')), f"data/bildlager.json ({part.get('id')}, file)")
+    if part.get('mask'):  # masken för spridningslagret (#1565)
+        exists(str(part['mask']), f"data/bildlager.json ({part.get('id')}, mask)")
 
 # 8. Källor och fun facts
 sources = load('data/sources.json') or {'sources': []}
@@ -289,6 +303,10 @@ src_ids = {s['id'] for s in sources['sources']}
 ev_ids = {e['id'] for e in events['events']}
 evidence_fields = {'summary', 'date', 'location', 'image', 'uncertainty'}
 for e in events['events']:
+    # Hela platsen (#1674): scope "place" betyder att händelsen gäller hela den minsta platsen i data/platser.json som den ligger i,
+    # och punkten står bara för platsen. Då är platsen ungefärlig; att punkten ligger i en plats kontrolleras under 8f
+    if e.get('scope') == 'place' and e.get('locationPrecision') not in ('region', 'country'):
+        err(f"data/events.json ({e['id']}): scope \"place\" kräver locationPrecision region eller country (punkten står för hela platsen)")
     for s in e.get('sources', []) + (e.get('story') or {}).get('sources', []):
         if s not in src_ids:
             err(f"data/events.json ({e['id']}): källan {s} finns inte i sources.json")
@@ -320,9 +338,23 @@ for path, r in routes:
 for d in (discovery or {}).get('decorations', []):
     if d.get('source') and d['source'] not in src_ids:
         err(f"data/upptackt.json ({d.get('id')}): källan {d['source']} finns inte i sources.json")
-for layer in (image_layers or {}).get('layers', []):
-    if layer.get('source') and layer['source'] not in src_ids:
-        err(f"data/bildlager.json ({layer.get('id')}): källan {layer['source']} finns inte i sources.json")
+for row, part in image_slices:
+    for s in part.get('sources', []) if isinstance(part.get('sources'), list) else []:
+        if s not in src_ids:
+            err(f"data/bildlager.json ({part.get('id')}): källan {s} finns inte i sources.json")
+# Människans spridning (#1094): källorna och händelserna som platserna pekar på
+spread = load('data/spridning.json') if (DIST / 'data/spridning.json').is_file() else None
+for item in (spread or {}).get('items', []):
+    for s in item.get('sources', []):
+        if s not in src_ids:
+            err(f"data/spridning.json ({item.get('id')}): källan {s} finns inte i sources.json")
+    for place in item.get('places', []) + [p for part in item.get('parts', []) for p in part] + [p for path in item.get('paths', []) for p in path]:
+        if 'event' in place and place['event'] not in ev_ids:
+            err(f"data/spridning.json ({item.get('id')}): händelsen {place['event']} finns inte i events.json")
+        elif place.get('coordSource') and place['coordSource'] not in src_ids:
+            err(f"data/spridning.json ({item.get('id')}): koordinatens källa {place['coordSource']} finns inte i sources.json")
+        elif 'event' not in place and not (isinstance(place.get('coord'), list) and len(place['coord']) == 2):
+            err(f"data/spridning.json ({item.get('id')}): en plats saknar event och coord")
 funfacts = load('data/funfacts.json') or {'funfacts': []}
 for f in funfacts['funfacts']:
     for i in f.get('events', []):
@@ -397,6 +429,91 @@ validate_schema_file('data/funfacts.json', funfacts, 'funfact.schema.json')
 validate_schema_file('data/turer/index.json', tours_index or {}, 'tours-index.schema.json')
 for path, tour in tours:
     validate_schema_file(path, tour, 'tour.schema.json')
+
+# 8b2. Bildlager (#54, formatet @2 i #1325): schemat och det som den lilla schemakontrollen inte kan uttrycka.
+IMAGE_ROW_KEYS = {'id', 'kind', 'aliases', 'group', 'name', 'note', 'label', 'keys', 'slices'}
+IMAGE_SLICE_KEYS = {'id', 'title', 'format', 'file', 'mask', 'width', 'height', 'from', 'to', 'bounds', 'opacity',
+                    'caveat', 'sources', 'review', 'license'}
+IMAGE_MAX_PIXELS = 4096 * 2048  # en avkodad bild på 4096 × 2048 tar cirka 32 MB i minnet
+
+
+def image_layer_problems(doc, reserved, groups):
+    """Fel i data/bildlager.json utöver schemat. reserved = andra lagers id, groups = grupperna i vyer.json."""
+    found, names, slice_ids = [], {}, set()
+    for row in doc.get('layers', []):
+        if not isinstance(row, dict):
+            continue
+        rid = row.get('id', '?')
+        for key in sorted(set(row) - IMAGE_ROW_KEYS):
+            found.append(f'({rid}): okänt fält {key!r}')
+        for name in [rid] + [a for a in row.get('aliases', []) if isinstance(a, str)]:
+            if name in reserved:
+                found.append(f'({rid}): id eller alias {name!r} används redan av ett annat lager')
+            if name in names:
+                found.append(f'({rid}): id eller alias {name!r} används också av raden {names[name]}')
+            names[name] = rid
+        if groups and row.get('group') is not None and row['group'] not in groups:
+            found.append(f"({rid}): gruppen {row['group']!r} finns inte i data/vyer.json")
+        if row.get('kind') == 'grund' and 'label' not in row:
+            found.append(f'({rid}): kind "grund" kräver label (en växlande grundkarta är alltid märkt)')
+        spans = []
+        for part in row.get('slices', []) if isinstance(row.get('slices'), list) else []:
+            if not isinstance(part, dict):
+                continue
+            sid = part.get('id', '?')
+            for key in sorted(set(part) - IMAGE_SLICE_KEYS):
+                found.append(f'({sid}): okänt fält {key!r}')
+            if sid in slice_ids:
+                found.append(f'({sid}): id finns flera gånger')
+            slice_ids.add(sid)
+            fmt, file = part.get('format'), str(part.get('file', ''))
+            if fmt == 'raster':
+                if file.endswith('.json'):
+                    found.append(f'({sid}): format "raster" ska peka på en bildfil, inte {file}')
+                w, h = part.get('width'), part.get('height')
+                if not isinstance(w, int) or not isinstance(h, int):
+                    found.append(f'({sid}): format "raster" kräver width och height')
+                elif w * h > IMAGE_MAX_PIXELS:
+                    found.append(f'({sid}): bilden är {w} × {h}, mer än {IMAGE_MAX_PIXELS} bildpunkter')
+            elif fmt == 'vektor':
+                if not file.endswith('.json'):
+                    found.append(f'({sid}): format "vektor" ska peka på en JSON-fil, inte {file}')
+                if 'bounds' in part:
+                    found.append(f'({sid}): bounds gäller bara format "raster"')
+            b = part.get('bounds')
+            if isinstance(b, list):
+                if len(b) != 4 or not all(isinstance(x, (int, float)) and not isinstance(x, bool) for x in b):
+                    found.append(f'({sid}): bounds ska vara fyra tal, [väst, syd, öst, nord]')
+                elif not (b[0] < b[2] and b[1] < b[3] and -90 <= b[1] and b[3] <= 90):
+                    found.append(f'({sid}): bounds ska ha väst < öst och syd < nord, med syd och nord inom ±90')
+            start, end = part.get('from'), part.get('to')
+            if isinstance(start, int):
+                if isinstance(end, int) and end < start:
+                    found.append(f'({sid}): to ({end}) är före from ({start})')
+                spans.append((start, end if isinstance(end, int) else float('inf'), sid))
+        spans.sort()
+        for (_, end, a), (start, _, b) in zip(spans, spans[1:]):
+            if start <= end:
+                found.append(f'({rid}): skivorna {a} och {b} överlappar i tid')
+    return found
+
+
+if image_layers is not None:
+    validate_schema_file('data/bildlager.json', image_layers, 'bildlager.schema.json')
+    # Lagrens id står i js/layers/index.js (LAYERS); "images" där är bildlagrens egna rader, inte ett lager-id.
+    try:
+        listed = re.search(r'export const LAYERS = \[([^\]]*)\]', (ROOT / 'js/layers/index.js').read_text(encoding='utf-8'))
+    except OSError:
+        listed = None
+    if not listed:
+        err('js/layers/index.js: hittar inte LAYERS, så bildlagrens id kan inte kontrolleras')
+    reserved_layers = {x.strip() for x in listed.group(1).split(',')} - {'images', ''} if listed else set()
+    try:
+        view_groups = {g.get('id') for g in json.loads((ROOT / 'data/vyer.json').read_text(encoding='utf-8')).get('groups', [])}
+    except (OSError, ValueError):
+        view_groups = set()
+    for problem in image_layer_problems(image_layers, reserved_layers, view_groups):
+        err(f'data/bildlager.json {problem}')
 
 # 8c. Missuppfattningar (#838): filen publiceras (scripts/build-site.sh, sedan #858) och appen läser den; här kontrolleras den ur repot.
 misc_path = ROOT / 'data' / 'missuppfattningar.json'
@@ -560,6 +677,28 @@ if themes_doc is not None:
         if before:
             print(f"validate-site: VARNING: {where}: börjar före tidslinjens början: {', '.join(before)}", file=sys.stderr)
 
+# --- hållbarhetsvarning start (#1269; tests/hallbarhet-test.py kör exakt det här blocket)
+def country_warnings(inside):
+    """Orden för de villkor i hållbarhetsriktlinjen som ett land bryter mot. `inside` är de synliga händelserna inom
+    gränsen (samma urval som kravet på fem händelser). Tom lista när landet håller riktlinjen."""
+    def is_war(e):
+        return e.get('kind') == 'war' or e.get('category') == 'krig'
+    found = []
+    if len(inside) < COUNTRY_MIN_EVENTS:
+        found.append(f'bara {len(inside)} synliga händelser inom gränsen (minst {COUNTRY_MIN_EVENTS} önskas)')
+    centuries = {e.get('start', 0) // 100 for e in inside}
+    if len(centuries) < COUNTRY_MIN_CENTURIES:
+        found.append(f'händelserna sprids över bara {len(centuries)} sekel (minst {COUNTRY_MIN_CENTURIES} önskas)')
+    categories = {e.get('category') for e in inside if not is_war(e)}
+    if len(categories) < COUNTRY_MIN_CATEGORIES:
+        found.append(f'bara {len(categories)} kategorier utöver krig (minst {COUNTRY_MIN_CATEGORIES} önskas)')
+    wars = sum(1 for e in inside if is_war(e))
+    if inside and wars / len(inside) > COUNTRY_MAX_WAR_SHARE:
+        found.append(f'{wars} av {len(inside)} händelser är krig ({round(100 * wars / len(inside))} %, högst {round(100 * COUNTRY_MAX_WAR_SHARE)} % önskas)')
+    return found
+# --- hållbarhetsvarning slut
+
+
 # 8f. Platser (#579): kurerade kort om platsers historia med dagens gräns som kontur. Händelserna ligger inom gränsen
 # (räknas vid körning i js/place-geo.js), så här kontrolleras källor, gräns och att det finns något att visa.
 places_doc = load('data/platser.json') if (DIST / 'data/platser.json').is_file() else None
@@ -567,31 +706,69 @@ if places_doc is not None:
     validate_schema_file('data/platser.json', places_doc, 'platser.schema.json')
     ev_all = [e for e in events['events'] if e.get('review') in VISIBLE and e['location']['type'] == 'Point']
     seen_places = set()
+    scoped_in = set()  # händelser med scope "place" som ligger i någon plats (#1674)
+
+    def unwrapped(ring):
+        """Som unwrapped i js/place-geo.js (#1268): ringen med varje punkt på den längdgrad som är närmast den förra, och dess spann."""
+        pts, prev = [], None
+        for x, y in ring:
+            if prev is not None:
+                x = x - 360 * round((x - prev) / 360)
+            prev = x
+            pts.append((x, y))
+        return pts, min(p[0] for p in pts), max(p[0] for p in pts)
 
     def in_ring(ring, lon, lat):
-        inside = False
-        j = len(ring) - 1
-        for i in range(len(ring)):
-            xi, yi = ring[i]; xj, yj = ring[j]
-            if (yi > lat) != (yj > lat) and lon < (xj - xi) * (lat - yi) / (yj - yi) + xi:
-                inside = not inside
-            j = i
-        return inside
+        """Som inRing i js/place-geo.js: jämn-udda-regeln med punkten som lon och lon ± 360."""
+        pts, lo, hi = unwrapped(ring)
+        for shift in (0, 360, -360):
+            x = lon + shift
+            if x < lo or x > hi:
+                continue
+            inside = False
+            j = len(pts) - 1
+            for i in range(len(pts)):
+                xi, yi = pts[i]; xj, yj = pts[j]
+                if (yi > lat) != (yj > lat) and x < (xj - xi) * (lat - yi) / (yj - yi) + xi:
+                    inside = not inside
+                j = i
+            if inside:
+                return True
+        return False
 
     def edge_km(polys, lon, lat):
-        """Som edgeKm i js/place-geo.js: kortaste avståndet till gränsen i km."""
+        """Som edgeKm i js/place-geo.js: kortaste avståndet till gränsen i km, med uppvikta ringar, punkten som lon och
+        lon ± 360, och utan segment där båda ändpunkterna ligger på ±180 (sömmen vid datumlinjen, #1268)."""
         k = math.cos(math.radians(lat))
         best = float('inf')
         for poly in polys:
             for ring in poly:
-                for i in range(1, len(ring)):
-                    ax, ay = (ring[i - 1][0] - lon) * k, ring[i - 1][1] - lat
-                    bx, by = (ring[i][0] - lon) * k, ring[i][1] - lat
-                    dx, dy = bx - ax, by - ay
-                    ln = dx * dx + dy * dy
-                    u = max(0, min(1, -(ax * dx + ay * dy) / ln)) if ln else 0
-                    best = min(best, math.hypot(ax + u * dx, ay + u * dy) * 111.2)
+                pts, lo, hi = unwrapped(ring)
+                for shift in (0, 360, -360):
+                    px = lon + shift
+                    if max(lo - px, px - hi, 0) * k * 111.2 >= best:
+                        continue
+                    for i in range(1, len(pts)):
+                        if abs(ring[i - 1][0]) == 180 and abs(ring[i][0]) == 180:
+                            continue
+                        ax, ay = (pts[i - 1][0] - px) * k, pts[i - 1][1] - lat
+                        bx, by = (pts[i][0] - px) * k, pts[i][1] - lat
+                        dx, dy = bx - ax, by - ay
+                        ln = dx * dx + dy * dy
+                        u = max(0, min(1, -(ax * dx + ay * dy) / ln)) if ln else 0
+                        best = min(best, math.hypot(ax + u * dx, ay + u * dy) * 111.2)
         return best
+
+    COAST_MARGIN_KM = 20  # som COAST_MARGIN_KM i js/place-geo.js (tests/platser-granser-test.py jämför de två)
+
+    def inside_polys(plys, lon, lat):
+        """Som inGeometry i js/place-geo.js: punkten ligger i en polygon och inte i något av dess hål."""
+        return any(in_ring(poly[0], lon, lat) and not any(in_ring(h, lon, lat) for h in poly[1:]) for poly in plys)
+
+    def in_place(polys, nb_polys, lon, lat):
+        """Som inPlace i js/place-geo.js (#1449): inom gränsen, eller inom kustmarginalen och inte inne i ett annat lands polygon
+        (grannländerna, nb_polys). En punkt på land räknas till landet den ligger i; marginalen är för det som hamnat i havet."""
+        return inside_polys(polys, lon, lat) or (edge_km(polys, lon, lat) <= COAST_MARGIN_KM and not inside_polys(nb_polys, lon, lat))
 
     for pl in places_doc.get('places', []):
         pid = pl.get('id', '?')
@@ -604,22 +781,122 @@ if places_doc is not None:
         for s_ in pl.get('sources', []) + [pl.get('boundary', {}).get('source')]:
             if s_ not in src_ids:
                 err(f'{where}: källan {s_} finns inte i sources.json')
+        # Flagga och vapen på kortet (#1160, #1619): filen finns, filsidan står bland källorna och bildtexten har alla fem språk
+        for em in pl.get('emblems', []):
+            exists(f"img/flags/{em.get('file', '')}.svg", f"emblemet {em.get('file', '')} ({where})")
+            if em.get('source') not in src_ids:
+                err(f"{where}: emblemets källa {em.get('source')} finns inte i sources.json")
+            missing = [lang for lang in ('sv', 'en', 'de', 'es', 'fr') if not (em.get('caption') or {}).get(lang)]
+            if missing:
+                err(f"{where}: bildtexten till emblemet {em.get('file', '')} saknar {', '.join(missing)}")
         geom = pl.get('boundary', {}).get('geometry', {})
         polys = [geom['coordinates']] if geom.get('type') == 'Polygon' else geom.get('coordinates', [])
-        for poly in polys:
-            for ring in poly:
-                if len(ring) < 4 or ring[0] != ring[-1]:
-                    err(f'{where}: en ring i gränsen är inte sluten eller har färre än fyra punkter')
-                    break
-                if any(not (-180 <= x <= 180 and -90 <= y <= 90) for x, y in ring):
-                    err(f'{where}: en koordinat i gränsen ligger utanför jordklotet')
-                    break
-        def within(e):
-            lon, lat = e['location']['coordinates'][:2]
-            return any(in_ring(poly[0], lon, lat) and not any(in_ring(h, lon, lat) for h in poly[1:]) for poly in polys) or edge_km(polys, lon, lat) <= 20  # COAST_MARGIN_KM
-        inside = [e for e in ev_all if within(e)]
+        # Grannländerna (#1449): andra länders polygoner nära gränsen, skrivna av tools/platser_gransar.py. Kustmarginalen gäller inte för
+        # en punkt som ligger inne i en av dem. Listan är obligatorisk (ett kort utan den går tillbaka till den gamla marginalen) och måste
+        # täcka minst marginalen (boundary.neighbourKm).
+        nb_list = pl.get('boundary', {}).get('neighbours')
+        if nb_list is None:
+            err(f'{where}: boundary.neighbours saknas; kör python3 tools/platser_gransar.py (#1449)')
+            nb_list = []
+        elif pl['boundary'].get('neighbourKm', 0) < COAST_MARGIN_KM:
+            err(f"{where}: boundary.neighbourKm ({pl['boundary'].get('neighbourKm')}) är mindre än kustmarginalen ({COAST_MARGIN_KM} km); kör python3 tools/platser_gransar.py (#1449)")
+        nb_polys = []
+        for nb in nb_list:
+            ng = nb.get('geometry', {})
+            nb_polys.extend([ng['coordinates']] if ng.get('type') == 'Polygon' else ng.get('coordinates', []))
+        for label, plys in (('gränsen', polys), ('en grannes gräns', nb_polys)):
+            for poly in plys:
+                for ring in poly:
+                    if len(ring) < 4 or ring[0] != ring[-1]:
+                        err(f'{where}: en ring i {label} är inte sluten eller har färre än fyra punkter')
+                        break
+                    if any(not (-180 <= x <= 180 and -90 <= y <= 90) for x, y in ring):
+                        err(f'{where}: en koordinat i {label} ligger utanför jordklotet')
+                        break
+                    if any(abs(a[0] - b[0]) > 180 for a, b in zip(ring, ring[1:])):
+                        err(f'{where}: en ring i {label} hoppar mer än 180 grader i längdgrad (korsar datumlinjen); dela den vid 180° med tools/platser_gransar.py (#1268)')
+                        break
+        inside = [e for e in ev_all if in_place(polys, nb_polys, *e['location']['coordinates'][:2])]
         if len(inside) < 5:
             err(f'{where}: minst 5 synliga händelser ska ligga inom gränsen, men det är {len(inside)}')
+        # Rikena i landskortet (#1448): bara id och år, och åren hämtas ur rikets egna data. from är början och to slutet på
+        # någon av delens perioder i rikets fil, och perioderna emellan följer på varandra utan lucka. Listan står i tidsordning.
+        prev_from = None
+        if pl.get('periods') and 'cliopatria' not in pl.get('sources', []):
+            err(f'{where}: en plats med periods ska ha källan cliopatria (rikenas gränser och år) i sources')
+        for i, per in enumerate(pl.get('periods', [])):
+            at = f"{where}, periods[{i}] ({per.get('empire')}/{per.get('polity')} {per.get('from')}–{per.get('to')})"
+            grp = next((g for g in (empires or {}).get('groups', []) if g.get('id') == per.get('empire')), None)
+            if grp is None:
+                err(f'{at}: riket finns inte i data/empires/index.json')
+                continue
+            if per.get('polity') not in {p.get('id') for p in grp.get('polities', [])}:
+                err(f"{at}: delen {per.get('polity')} finns inte i gruppen {grp['id']}")
+                continue
+            if not grp.get('file') or not (DIST / grp['file']).is_file():
+                err(f'{at}: riket har ingen fil med perioder')
+                continue
+            pol = next((p for p in load(grp['file']).get('polities', []) if p.get('id') == per['polity']), None)
+            spans = sorted((q['start'], q['end']) for q in (pol or {}).get('periods', []))
+            starts = [a for a, _ in spans]
+            if per.get('from') not in starts or per.get('to') not in [b for _, b in spans] or per['from'] > per['to']:
+                err(f"{at}: åren är inte början och slut på perioder i {grp['file']} ({per['polity']}); hämta dem ur rikets data")
+                continue
+            run = spans[starts.index(per['from']):]
+            end = run[0][1]
+            for a, b in run[1:]:
+                if end >= per['to'] or a != end + 1:
+                    break
+                end = b
+            if end != per['to']:
+                err(f"{at}: {per['polity']} har en lucka mellan {per['from']} och {per['to']} i {grp['file']}; dela perioden vid luckan")
+            if prev_from is not None and per['from'] < prev_from:
+                err(f'{at}: perioderna ska stå i tidsordning (efter from)')
+            prev_from = per['from']
+        for e in inside if pl.get('review') in VISIBLE else []:  # som loadPlaces i js/model.js: bara platser som får visas
+            if e.get('scope') == 'place':
+                scoped_in.add(e['id'])
+        if pl.get('type') == 'country':
+            for why in country_warnings(inside):
+                print(f'validate-site: VARNING: {where}: hållbarhetsriktlinjen (#1269): {why}', file=sys.stderr)
+
+    # Ett scope "place" som inte ligger i någon plats säger ingenting och är troligen ett fel (#1674)
+    for e in ev_all:
+        if e.get('scope') == 'place' and e['id'] not in scoped_in:
+            err(f"data/events.json ({e['id']}): scope \"place\" men händelsen ligger inte i någon plats i data/platser.json som får visas")
+
+# 8g. Ortnamn för regionvyn (#1643): en fil per plats i data/ortnamn/, skriven av tools/ortnamn.py ur Natural Earth. Schemat (fem språk,
+# id och koordinater), att filen hör till en plats i data/platser.json, att källan finns och att grannländerna är platsens egna.
+if places_doc is not None:
+    by_place = {pl.get('id'): pl for pl in places_doc.get('places', [])}
+    for pid in sorted(by_place):
+        if not (DIST / f'data/ortnamn/{pid}.json').is_file():
+            err(f'data/ortnamn/{pid}.json saknas; kör python3 tools/ortnamn.py (#1643)')
+    for f in sorted((DIST / 'data/ortnamn').glob('*.json')) if (DIST / 'data/ortnamn').is_dir() else []:
+        path = rel(f)
+        doc = load(path)
+        if doc is None:
+            continue
+        validate_schema_file(path, doc, 'ortnamn.schema.json')
+        if doc.get('place') != f.stem or f.stem not in by_place:
+            err(f"{path}: platsen {doc.get('place')} ska heta som filen och finnas i data/platser.json")
+            continue
+        if doc.get('source') not in src_ids:
+            err(f"{path}: källan {doc.get('source')} finns inte i sources.json")
+        for pl in doc.get('places', []):
+            if str(pl.get('id', '')).startswith('wd-') and (pl.get('source') not in src_ids or pl.get('id') != f"wd-{pl.get('wikidata')}"):
+                err(f"{path}: orten {pl.get('id')} ur kompletteringen ska ha source i sources.json och wikidata som id (#1676)")
+        own = {str(n.get('ne')) for n in by_place[f.stem]['boundary'].get('neighbours', [])}
+        for nb in doc.get('neighbours', []):
+            if str(nb.get('ne')) not in own:
+                err(f"{path}: grannlandet {nb.get('ne')} finns inte i platsens boundary.neighbours; kör python3 tools/ortnamn.py")
+
+# Turens stegfält place (#1163): platsen finns i data/platser.json och är inte ett utkast (ett kort utan synlig plats öppnas inte)
+place_ids = {pl.get('id') for pl in (places_doc or {}).get('places', []) if pl.get('review') != 'draft'}
+for path, tour in tours:
+    for i, step in enumerate(tour.get('steps', [])):
+        if step.get('place') and step['place'] not in place_ids:
+            err(f"{path} (steg {i + 1}, {step.get('id', '?')}): platsen {step['place']} finns inte i data/platser.json eller är ett utkast")
 
 # 9. Krigets riken (#76): empires är grupp-id i data/empires/index.json
 group_ids = {g.get('id') for g in (empires or {}).get('groups', [])}

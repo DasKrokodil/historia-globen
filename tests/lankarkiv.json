@@ -567,6 +567,37 @@
     "mission": null,
     "role": "lararen"
    }
+  },
+  {
+   "what": "bildlagret med sitt äldre id images, som i dag är ett alias för nattljus (#1325)",
+   "versions": [
+    "v6.2.0"
+   ],
+   "hash": "#y=2016&c=20,10,1.6&l=events,areas,images",
+   "expected": {
+    "state": {
+     "v": 1,
+     "year": 2016,
+     "camera": {
+      "lat": 20,
+      "lon": 10,
+      "zoom": 1.6
+     },
+     "focus": null,
+     "layers": [
+      "areas",
+      "events",
+      "images"
+     ],
+     "filters": null,
+     "tag": null,
+     "calm": false
+    },
+    "tour": null,
+    "mode": null,
+    "mission": null,
+    "role": null
+   }
   }
  ]
 }

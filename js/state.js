@@ -21,7 +21,9 @@ export function createState() {
     wholeYear: 0,     // hela året, som riken, religioner och fun facts använder
     areaYear: 0,      // året som riken och religioner ritas för: wholeYear, men i ett tidsintervall slutåret (#756)
     fine: false,      // fokusläget för ett kort krig: tiden räknas i dagar (#204)
-    window: 0,        // hur många år runt året som räknas som "samtidigt" (tidslinjens fönster)
+    window: 0,        // hur många år runt året som räknas som "samtidigt" (tidslinjens fönster): den längre sidan
+    windowBefore: 0,  // fönstret före året (#1319); vid en segmentgräns är det inte lika långt som efter
+    windowAfter: 0,   // fönstret efter året
     // Tidsintervallet (#569, #755): { from, to } eller null. from är året (year), to är slutåret. Läget 'intervall' i
     // lägeskontraktet (MODE_RULES nedan); det utesluter Fokus och uppspelning.
     range: null,
@@ -80,7 +82,13 @@ export function snapshot(state) {
 
 /** Versionen av JSON-formatet. Höjs om fälten ändras på ett sätt som gamla länkar inte klarar. */
 export const STATE_VERSION = 1;
-const FOCUS_TYPES = ['war', 'empire', 'religion', 'route', 'theme', 'place']; // theme (#398) och place (#579): ett tema och en plats är fokus, inget eget läge
+/**
+ * Reserverade namn i tillståndet (#397, beslut 2026-11-13): fält som en senare version ska använda och som ingen annan
+ * del får ta. `domain` är tidsdomänen, alltså om globen visar människans historia eller jordens historia (version 8).
+ * Den byggs inte nu: toJSON() skriver den inte, och fromJSON() hoppar över den som andra okända fält.
+ */
+export const RESERVED_STATE_KEYS = ['domain'];
+export const FOCUS_TYPES = ['war', 'empire', 'religion', 'route', 'theme', 'place']; // theme (#398) och place (#579): ett tema och en plats är fokus, inget eget läge; varje typ har en post i js/focus/ (#1327)
 
 // ---------------------------------------------------------------------------------------------------------
 // Lägeskontraktet (#893, beslut docs/beslut/2026-11-08-lagen.md)
@@ -116,7 +124,9 @@ export const MODE_RULES = {
   },
   tur: {
     when: { fokus: 'avslutar', lektion: 'samtidigt', jakt: 'samtidigt', intervall: 'avslutar' },
+    // Turen släpper vyns urval efter ögonblicksbilden och återställer det när den slutar (#1181), som lektionen.
     restore: ['layers', 'focus', 'camera', 'tag'], takes: ['layers', 'focus', 'camera'],
+    timeLock: 'låst', // turen styr tiden: reglaget går inte att dra, klicka eller flytta med tangenter eller stegknappar (#1322)
   },
   lektion: {
     // Lektionen börjar före sin tur (js/ui/lesson.js); en jakt utanför lektionens år avslutas.
@@ -124,6 +134,7 @@ export const MODE_RULES = {
     // (tag, till exempel Översikt) och utgången återställer urvalet som det var, tillsammans med lagren.
     when: { fokus: 'avslutar', tur: 'samtidigt', jakt: 'villkor', intervall: 'avslutar' },
     restore: ['layers', 'camera', 'tag'], takes: ['layers', 'focus', 'camera'], // aldrig fokus: utgången behåller lektionens år (#881)
+    timeLock: 'lektionsår', // reglaget stannar inom lektionens år (turens lock.years), och en tur i lektionen låser det helt (#1322)
   },
   jakt: {
     // I en lektion bara uppdrag inom lektionens år (#741, #795)
@@ -136,6 +147,19 @@ export const MODE_RULES = {
     restore: [], takes: ['focus'],
   },
 };
+
+/**
+ * Tidslåset (#1322): vad besökaren får göra med reglaget medan lägena pågår (drag, klick, tangenter och stegknappar; det som
+ * ett läge själv sätter, till exempel en turs steg, går alltid). Det strängaste läget gäller.
+ * active: de pågående lägena ([{ mode }] eller lägesnamn), lessonYears: lektionens år [från, till] eller null.
+ * Ger { locked: true } (reglaget är låst), { locked: false, from, to } (bara inom de åren) eller null (fritt).
+ */
+export function timeLock(active, lessonYears = null) {
+  const rules = active.map(x => MODE_RULES[x.mode ?? x]?.timeLock).filter(Boolean);
+  if (rules.includes('låst')) return { locked: true };
+  if (rules.includes('lektionsår') && lessonYears) return { locked: false, from: lessonYears[0], to: lessonYears[1] };
+  return null;
+}
 
 /** Vad som händer när läget mode börjar medan other pågår ('samtidigt' när tabellen inte säger något). */
 export function modeRelation(mode, other) {
@@ -288,6 +312,12 @@ export function toJSON(state, camera = null) {
   };
 }
 
+/** Det man följer som { type, id } ur `<typ>:<id>` i adressen (#1324), eller null när formen eller typen är okänd (FOCUS_TYPES). */
+export function parseFocusKey(text) {
+  const m = typeof text === 'string' && text.match(/^([a-z]+):([A-Za-z0-9_-]+)$/);
+  return m && FOCUS_TYPES.includes(m[1]) ? { type: m[1], id: m[2] } : null;
+}
+
 /**
  * Läser tillståndet ur JSON (en sträng eller ett objekt från toJSON). Kontrollerar typerna, rättar
  * kameran inom jordens gränser och hoppar över okända fält. Ett fel kastas med en förklaring på svenska;
@@ -305,9 +335,9 @@ export function fromJSON(value) {
   };
   let focus = null;
   if (doc.focus != null) {
-    const m = typeof doc.focus === 'string' && doc.focus.match(/^([a-z]+):([A-Za-z0-9_-]+)$/);
-    if (!m || !FOCUS_TYPES.includes(m[1])) throw new Error(`Okänt fokus: ${doc.focus}.`);
-    focus = `${m[1]}:${m[2]}`;
+    const parsed = parseFocusKey(doc.focus);
+    if (!parsed) throw new Error(`Okänt fokus: ${doc.focus}.`);
+    focus = `${parsed.type}:${parsed.id}`;
   }
   let camera = null;
   if (doc.camera != null) {

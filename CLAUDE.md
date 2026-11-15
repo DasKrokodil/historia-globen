@@ -16,7 +16,7 @@ Historia-globen är en snurrbar jordglob i webbläsaren. Man drar i tiden och se
 1. **Inget byggsteg.** Vanliga ES-moduler som webbläsaren läser direkt. Inga ramverk (React m.fl.), ingen bundler, ingen server-backend. Det ska gå att köra med `python3 -m http.server`. Undantag: functions/api/feedback.js, beslut 2026-10-30 (besökarnas förslag, se docs/feedback.md).
 2. **Data skild från kod.** All innehållsdata ligger i `data/*.json`. Hårdkoda aldrig händelser, texter eller årtal i JS.
 3. **Ett år styr allt.** `Timeline` äger nuvarande år och skickar `change`, och i fokusläget för korta krig räknas året i delar av år (månader och dagar, #204). Lager och paneler lyssnar och ritar om. Ett tidsintervall (#755) är året plus ett valfritt slutår (`state.range`); det utesluter Fokus och uppspelning, och riken och religioner visas för slutåret (`state.areaYear`, #756; docs/arkitektur.md, "Tidsintervallet").
-4. **Ekvirektangulär rendering (beslut 1).** Allt som ritas på klotet ritas först på en ekvirektangulär canvas (`baseCanvas` 4096×2048 för grundkartan, `overlayCanvas` 4096×2048 för lager) som läggs på sfären. Klickbara markörer och bågar ligger som 3D-objekt ovanpå. Skälet: samma platta bild visas som karta i "Platt vy" och ska kunna skickas till en fysisk globskärm. Bryt inte detta.
+4. **Ekvirektangulär rendering (beslut 1).** Allt som ritas på klotet ritas först på en ekvirektangulär canvas (`baseCanvas` 4096×2048 för grundkartan, `overlayCanvas` 4096×2048 för lager) som läggs på sfären. Klickbara markörer och bågar ligger som 3D-objekt ovanpå. Skälet: samma platta bild visas som karta i "Platt vy" och ska kunna skickas till en fysisk globskärm. Bryt inte detta. **Regionvyn (#1641)** är en tredje, skärmbunden ritväg bredvid de två och bryter inte mot punkten: en lokal ekvirektangulär bild med skalan cos(mittbredden) i öst–väst, ritad bara på skärmen när en liten plats visas inzoomad. Den exporteras inte: affischen och en fysisk globskärm får 4096-bilderna som förut ([docs/beslut/2026-11-14-regionvy-steg-1a-1641.md](docs/beslut/2026-11-14-regionvy-steg-1a-1641.md)).
 5. **Lager som moduler (beslut 2).** Fem lagertyper: punkt (händelser), linje (handelsvägar, migration, fronter), område (riken, utbredning), bildlager (nattljus, klimat) och tur (guidade fördjupningar som data). Varje lager har samma gränssnitt: `update(state)` som returnerar det som syns, och `drawOverlay(ctx, W, H)`. Varje lager anmäler sig i lagerregistret (`js/layers/registry.js`, #338) med en post från sin egen fil.
 6. **three.js** laddas som ES-modul från `https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js`. Exakt version, ändra bara medvetet. Inga andra externa beroenden utan att fråga.
 
@@ -30,14 +30,20 @@ AGENTS.md             regler för Codex och andra agenter; pekar på CLAUDE.md
 _headers              Cloudflare Pages cache-regler (no-cache, så att en release inte blandas med gamla filer)
 css/style.css
 js/main.js            startar allt och kopplar ihop delarna
-js/controllers/       main.js uppdelad i val, fokus, faktarutor, omritning, uppspelning, berättelse, etiketter (#402), adressen (#501), tidsintervallet (range.js, #755) och återgång efter hopp (jump-back.js, #997)
+js/controllers/       main.js uppdelad i val, fokus, faktarutor, omritning, uppspelning, berättelse, etiketter (#402), adressen (#501), tidsintervallet (range.js, #755), raden om en trasig länk (link-notice.js, #1324), återgång efter hopp (jump-back.js, #997), tryck på platsens kontur (places.js, #1161), fokus när faktarutan stängs (detail-focus.js, #1436) och presentationsläget (presentation.js, #488, #1315)
+js/controllers/region.js regionvyn i Platt vy: knappen "Visa i regionvy", ramen, rutan, markörerna och listan som hör ihop, Escape och vägen ut (#1641, #1642)
 js/model.js           språk, kategorier, granskningsstatus, tidsformat, laddning
 js/i18n.js            språkval och gränssnittets texter: ui('nyckel') ur data/ui/<språk>.json och data-i18n i index.html (#63)
 js/url-state.js       adressformatet för delbara länkar och Bakåt/Framåt (#501, #64)
 js/search-index.js    sökningens index och matchning (#570)
 js/place-search.js    "Vad hände här?": platsförslag och händelser inom 300 km, i tidsordning (#15)
+js/region-frame.js    regionvyns ramning: vilka platser som får vyn (högst 5 grader på marken i Platt vy, 15–60 grader på globen), den fria ytan, skalan med cos(mittbredden) och globflygets ram; delas med testerna (#1641, #1644)
+js/region-markers.js  regionvyns markörer: numrering i listans ordning, brickan för hela platsen, högar, solfjäder och ortnamn utan krockar; delas med testerna (#1642)
+js/place-geo.js       vilka händelser som ligger inom en plats gräns, platsen under en punkt vid tryck och gränsrutan för inramning i Platt vy, delas med testerna (#579, #1161)
+js/route-steps.js     stegningen mellan en resas stopp: Föregående och Nästa stopp i pausraden (#1380)
+js/theme-stops.js     stoppen när man följer en plats eller ett tema: urval och ordning, flera samma år köas (#1255, #1620)
 js/date-events.js     återanvändbart urval av händelser för år eller exakt datum (#483, #489, #485)
-js/state.js           det gemensamma tillståndet (år, fokus, lager, filter) som lagren läser (#338), med åtgärder, prenumeration och JSON (#403), och lägeskontraktet (#893)
+js/state.js           det gemensamma tillståndet (år, fokus, lager, filter) som lagren läser (#338), med åtgärder, prenumeration och JSON (#403), och lägeskontraktet (#893); teman och platser är fokustyper, inga egna lägen
 js/surfaces.js        stängregistret för ytor: menyerna och sidopanelen anmäler sig i grupper och en öppnad yta stänger sin grupp (#894)
 js/globe.js           3D-globen, kamera, styrning, ekvirektangulära canvasar, bågar
 js/globe-detail.js    skarpt utsnitt av kartan vid inzoomning: samma ritning i högre upplösning för det som syns
@@ -45,21 +51,48 @@ js/period-range.js    epok som intervall: periodToRange klipper vid tidslinjens 
 js/timeline.js        tidsreglage, segmenterad skala, uppspelning
 js/layers/registry.js lagerregistret: ritordning, Lager-menyn, uppdatering och toning (#338)
 js/layers/index.js    listan över lagren i Lager-menyns ordning; ett nytt lager läggs till här (#338)
+js/focus/             fokustyperna som poster (#1327): registry.js (registret och kontraktet), index.js (listan) och en fil per typ (krig, rike, religion, resa, tema, plats)
+js/layers/area-style.js  mjuk kant för osäkra gränser och prickat inflytande (lydriken)
+js/layers/area-transition.js  mjuk övergång när ett rike byter period, delas eller slås ihop (#78)
+js/layers/areas.js    lager: riken som områden som ändras över tid
+js/layers/borders.js  lager: dagens landsgränser (av som standard)
+js/layers/empiremarks.js rikenas symboler mitt i områdena, som klickbara markörer (#301)
+js/layers/origins.js  religionens symbol där den uppstod, som klickbar markör (#271)
+js/layers/places.js   lager: konturen av platsen man följer i Fokus (#579) och de prickade konturerna runt platser med kort när man har zoomat in (#1161)
+js/layers/religions.js lager: religioner som områden, med symboler i områdena (#271)
+js/layers/wars.js     lager: krigsområden runt krigets slag
 js/layers/events.js   punktlager: händelser
 js/layers/lines.js    linjelager: vägar och resor som ritas fram över tiden (#38)
+js/layers/images.js   bildlager: tidsstyrda rasterbilder ur data/bildlager.json på kartans lagerbild (#54, #1325)
 js/layers/discovery.js upptäcktsvyn: gammal kartstil, havsmonster och dimma som resorna lyfter (#101)
+js/layers/spread.js   människans spridning: antagna områden och vågor i förhistorien som tolkningar (#1094)
+js/ui/clusters.js     klustring av händelser som ligger nära varandra
+js/ui/focusmenu.js    fokusmenyn: välj ett krig, rike eller en religion att följa
+js/ui/help.js         kort hjälp i tre steg för nya besökare (knappen Hjälp)
+js/ui/layers.js       lagerväljaren: slå av och på lager
+js/ui/sheet.js        faktarutan som ark nedifrån i mobilen (litet, halvt, helt)
+js/ui/viewmenu.js     mobilmenyn Meny (Lager, Fokus, Turer, Platt vy, Kom igång, Källor, Hjälp, #530)
+js/ui/zoomlevels.js   vad som syns på vilken zoomnivå: tre nivåer och tröskelvärden (#358)
+js/ui/areacurve.js    rikets yta över tid som SVG-kurva i faktarutan (#77)
+js/ui/citation.js     kopierbara hänvisningar till händelsens registrerade källor (#844)
+js/ui/legend.js       teckenförklaring, klickruta för religioner och information om dämpade lager (#166, #235)
+js/ui/status.js       gemensam statusrad för skärmläsare med prioritet för faktarutans rubrik (#1419)
 js/ui/panel.js        "Samtidigt i världen" per världsdel, filter, detaljvy
 js/ui/funfact.js      Samtidigt-kortet (fun facts m.m.) och bågar
 js/ui/sources.js      sidan Om källorna
 js/ui/flatmap.js      Platt vy: platt karta med zoom och panorering
+js/ui/region-marks.js regionvyns numrerade markörer, bricka, högar och ortnamn som knappar och på kartans canvas (#1642)
+js/ui/globe-region.js samma markörer ovanpå globen när den har flugit in till en stor plats (regionvyn på globen, #1644)
 js/ui/poster.js       A4-affisch som PNG från Platt vy
 js/ui/routepop.js     klickrutan för vägar och resor
 js/ui/intro.js        frivillig introduktion till samtidighet i tre stilla steg (#363)
-js/ui/quiz.js         quizet "Vad hände samtidigt?" under Mer, frågor ur befintliga fun facts (#65)
+js/ui/quiz.js         quizet "Vad hände samtidigt?" från För lärare, frågor ur befintliga fun facts (#65)
+js/ui/teacher.js      "För lärare" under Mer: lektioner, utskrift, quiz, jakt och knapp för presentationsläget; kortet är en dialog i stängregistret (#1315)
 js/ui/print-sheet.js  utskrift av en lektionstur: elevblad och lärarblad ur turens lärarfält (#738)
-js/ui/uppdrag.js      elevuppdraget Samtidighetsjakten under Mer, med knappen i faktarutan (#741)
+js/ui/uppdrag.js      elevuppdraget Samtidighetsjakten från För lärare, med knappen i faktarutan (#741)
 js/uppdrag-rules.js   jaktens regler: år, världsdel och vad som räknas, delas med testerna (#741)
 js/quiz-rules.js      quizets regler: frågor och säkert felaktiga svar, delas med testerna (#65)
+js/samtidighet.js     definitionen av "samtidigt" och "nära i tid" för fun facts, quiz och jakt, delas med testerna (#1311)
 js/ui/viewmode.js     vyväljaren: Glob, Platt karta och Upptäcktsresor (#651)
 js/ui/tour.js         guidade turer: spelar upp en tur ur data/turer/ steg för steg (#47)
 js/ui/lesson.js       lektionsläget: länken m=lektion döljer menyerna, låser år och lager och visar bandet med "Visa hela globen" (#795)
@@ -69,11 +102,16 @@ js/feedback-rules.js  förslagens kategorier, gränser och validering (delas med
 functions/api/feedback.js  Cloudflare Pages Function som skapar issues i ett privat repo (enda undantaget från punkt 1)
 tests/                tester för functions/ och CSS-lagerordningen (#1065) med node:test (node --test 'tests/*.test.mjs')
 tests/webblasare.mjs  webbläsartest med Playwright, körs i GitHub Actions för varje PR (#339); delas i tre Chromium-jobb med BREDD, ENDAST och UTAN (tests/urval.mjs, tests/jobb.json, #864)
+data/LICENSE          licens för data: CC BY 4.0
 data/handelser/       händelserna, en redigeringsfil per period (fkr.json, 1-1499.json … 1946-1979.json, 1980-.json); här redigeras händelser (#394)
 data/events.json      alla händelser i en fil, byggs av tools/dela_data.py ur data/handelser/; redigeras inte
 data/funfacts.json    fun facts (kopplade till händelse-id)
 data/missuppfattningar.json vanliga historiska missuppfattningar: påstående, vad källorna säger och ursprung (#838); visas i faktarutan för händelserna i `events`
-data/teman.json        teman: namngivna urval av händelser som följs i Fokus (#398); tom tills första temat skrivs (#105)
+data/platser.json          platser: kort om platsers historia med dagens gräns som kontur, följs i Fokus (#579); gränserna hämtas med tools/platser_gransar.py ur Natural Earth
+data/quiz.json        quizets tidsfrågor (Vad kom först?, Vad låg närmast?, #846); pekar bara på händelser med id, svaret räknas ur deras årtal
+data/upptackt-europa.json Europa som hemregion i upptäcktsvyn, lyft från början (#872); byggs med tools/europa_dimma.py ur Natural Earth
+data/bildlager.json   bildlager: tidsstyrda rasterbilder och deras källor, bland annat nattljus och istidens kust (#54, #1325)
+data/teman.json        teman: namngivna urval av händelser som följs i Fokus (#398); innehåller temat Teknik (#105)
 data/perioder.json    epoker i fyra indelningar: Lgr22 (fem perioder), Nordens forntid (stenålder, bronsålder, järnålder enligt Historiska museet), antiken och industrialiseringen, med årtal, källa och förenklingstext; epokknapparna i intervallformuläret läser den (#845, #965)
 data/intro.json       introduktionens steg och referenser till befintliga händelser/fun facts (#363)
 data/uppdrag.json     elevuppdragen (Samtidighetsjakten): år, spann, antal världsdelar och texter (#741)
@@ -81,13 +119,18 @@ data/turer/           guidade turer: index.json och en fil per tur (#47, beslut 
 data/sources.json     källregister
 data/version.json     versionsnummer och länk till releaserna
 data/licenses.json    genererat register över källornas licensuppgifter (#393)
+data/borders.json     dagens landsgränser (Natural Earth)
 data/land.json        grundkarta: Natural Earth 1:50m, färdigprojicerad SVG-path i 4096×2048
 data/land-10m.json    finare kust: Natural Earth 1:10m, samma format; laddas först när utsnittet vid inzoomning används (tools/land_10m.mjs)
 data/empires/         riken: index.json och en fil per rike, byggs med tools/riken.py ur Cliopatria
 data/routes/          vägar och resor: index.json listar filerna, en fil per resa eller väg (#38)
 data/genererat/       händelser och riken uppdelade i mindre filer som sidan laddar (#337), med en fil per språk ovanpå (#675); skrivs av tools/dela_data.py, redigeras inte
 data/oversattning.json spärren mot oöversatta texter och registret över översättningar (#675); skrivs av tools/oversattning.py, publiceras inte
+data/ortnamn-komplettering.json orter som Natural Earth saknar, med namn och punkt ur Wikidata (CC0), som tools/ortnamn.py lägger till (#1676); publiceras inte
+data/textlangd.json   spärren mot långa faktatexter: sammanfattningar över 300 tecken per fil, som bara får minska (#1599); skrivs av tools/textlangd.py, publiceras inte
 data/upptackt.json    upptäcktsvyn: perspektivrad, dimma och kartbilder (#101)
+data/ortnamn/         ortnamn för regionvyn (#1643): en fil per plats med orter, grannländer och hav på fem språk ur Natural Earth; skrivs av tools/ortnamn.py, redigeras inte
+data/spridning.json   människans spridning: områden och vågor med platser ur händelser och Wikidata (#1094)
 data/vyer.json        grupperna och de förinställda vyerna i Lager (#357)
 data/ui/              gränssnittets texter: sprak.json (språken, vem som översatte och granskade) och en fil per språk (#63)
 data/religions.json   religioner som områden (statsreligion per rike ur Cliopatria) och faktarutor
@@ -97,7 +140,10 @@ data/utkast/          utkast från massimport (draft), läses inte av appen; hce
 images/events/        bilder till händelser, <händelse-id>.webp, 800 × 600
 images/licenses.json  genererat register över händelsebildernas licenser (#393)
 images/karta/         kartbilder till upptäcktsvyn (public domain, ur gamla kartor)
+images/lager/         bildlagrens bilder: nattljus 2016 (NASA) och istidens kust, en bild per modellsteg 10 000–80 000 år sedan (#1096)
 images/incoming/      Rikards nya bilder, innan de konverteras
+img/                  sidans ikon, markörernas symboler i icons/ och rikesflaggorna i flags/
+schemas/              JSON Schema för innehållsformaten, bland annat händelser, riken, turer, teman, platser och bildlager
 tools/                hjälpskript som körs för hand; tools/license_manifests.py genererar licensmanifesten, och dela_data.py körs efter ändring i data/handelser/ eller empires/index.json
 docs/                 dokumentation: produkt (vision, användare, användningsfall, UX, granskningslinser i docs/produkt/), arkitektur, datamodell, beslutslogg, källarbete, bildpromptar, publicering (DEPLOYMENT.md), besökarnas förslag (feedback.md), externa granskningar (granskningar/)
 scripts/              build-site.sh kopierar webbplatsens filer till dist/ och kör validate-site.py (publicering, ingen kodändring); pages-function-check.sh startar formulärets funktion som Cloudflare (#663); kontrolltackning.mjs bevisar att varje webbläsarkontroll ligger i exakt ett CI-jobb (#864)
@@ -157,6 +203,7 @@ Varje händelse kan få en bild i fältet `image` (fil, `kind`, stil, bildtext, 
 5. **Spårbarhet.** Spara stil, verktyg, datum och exakt prompt för varje illustration i `image`.
 6. **Filer.** `images/events/<händelse-id>.webp`, 800 × 600 pixlar, helst under 150 kB. `python3 tools/bilder_in.py` konverterar bilder från `images/incoming/` och fyller i `image` i händelsens fil i `data/handelser/` från bildloggen `images/incoming/bildlogg.json`. `python3 tools/bildpromptar.py` skriver promptar till `docs/bildpromptar.md`. Lägg aldrig API-nycklar för bildverktyg i repot.
 7. **Platshållare** har `"placeholder": true` och märks "Platshållare" i kortet tills den riktiga bilden finns.
+8. **Människoarter:** riktiga fynd först, inga ansiktsrekonstruktioner som standard, fast bildtext på illustrationer och granskning av `forhistoriker` ([docs/beslut/2026-11-14-rekonstruktioner-av-manniskoarter.md](docs/beslut/2026-11-14-rekonstruktioner-av-manniskoarter.md), #1105).
 
 ## Utseende
 
@@ -171,7 +218,7 @@ Rikard gillar stilen. Behåll den:
 
 1. `python3 -m http.server 8000` och öppna http://localhost:8000.
 2. Inga fel i konsolen. Globen snurrar, tidslinjen går att dra, uppspelning fungerar, fun facts dyker upp, "Platt vy" och "Källor" (sidan Om källorna) öppnas.
-3. Kontrollera all JSON (`python3 -m json.tool data/*.json`) och att varje `sources`-id finns i `sources.json` och varje händelse-id i `funfacts.json` finns i `events.json`. Händelser redigeras i `data/handelser/<period>.json` (perioden efter startåret), inte i `events.json` (#394). Har du ändrat en fil i `data/handelser/` eller `data/empires/index.json`: kör `python3 tools/dela_data.py` och checka in `data/events.json` och `data/genererat/` (sidan läser de uppdelade filerna, #337). Har du ändrat innehåll: kör `python3 tools/oversattning.py` och checka in `data/oversattning.json` (#675); den stoppar ny text utan översättning och inaktuella översättningar.
+3. Kontrollera all JSON (`python3 -m json.tool data/*.json`) och att varje `sources`-id finns i `sources.json` och varje händelse-id i `funfacts.json` finns i `events.json`. Händelser redigeras i `data/handelser/<period>.json` (perioden efter startåret), inte i `events.json` (#394). Har du ändrat en fil i `data/handelser/` eller `data/empires/index.json`: kör `python3 tools/dela_data.py` och checka in `data/events.json` och `data/genererat/` (sidan läser de uppdelade filerna, #337). Har du ändrat innehåll: kör `python3 tools/oversattning.py` och checka in `data/oversattning.json` (#675); den stoppar ny text utan översättning och inaktuella översättningar. Har du ändrat en `summary` i `data/handelser/` eller `data/routes/`: kör `python3 tools/textlangd.py` och checka in `data/textlangd.json`; den stoppar fler sammanfattningar över 300 tecken (#1599, docs/beslut/2026-11-14-kortare-faktatexter.md).
 4. Testa både desktop och mobilbredd.
 5. Ändras formuläret för förslag eller `functions/`: kör `node --test 'tests/*.test.mjs'` (se docs/feedback.md).
 6. **Röd kontroll (beslut 2026-11-05, skärpt samma dag):** läs loggen och hitta den första felande kontrollen, rätta högst en gång och bara om felet är trivialt (kör bara den felande kontrollen: `ENDAST="<del av namnet>" node tests/webblasare.mjs <port>`), annars lämna en överlämningsrapport och sätt `behöver hjälp` (Codex och Copilot gör så, och Claude Code tar över vid kökontrollen). **Faller samma kontroll i flera pull requests (beslut 2026-11-11):** samla uppgifterna i ett och samma issue (sök först efter det, lägg en kommentar med pull request, körning, jobb, felrad och datum; skapa annars ett bug-issue) i stället för ett nytt issue per pull request. Se [AGENTS.md](AGENTS.md#röd-kontroll-eller-slut-på-tid-samma-regel-för-alla-agenter-beslut-2026-11-05-skärpt-samma-dag).
@@ -187,6 +234,7 @@ Rikard gillar stilen. Behåll den:
 - **Produktdokumentation och granskningslinser (beslut 2026-11-08):** [docs/produkt/](docs/produkt/README.md) beskriver vision och mål, användare och intressenter, användningsfall, arkitektur i bilder och UX. Varje UX-genomgång, blind-spots-runda, arkitekturanalys, täckningsrunda och release-rapport tar på sig de linser som berörs i [06-granskningsperspektiv.md](docs/produkt/06-granskningsperspektiv.md) (senior UX, arkitekt, historielärare, elever, historieintresserad, tillgänglighet, historiker) och uppdaterar dokumenten i samma pull request som ändringen. Personor och upplevelser är antaganden tills en riktig observation finns.
 - **UX-genomgång (beslut 2026-11-01, utökat 2026-11-02):** en gång om dagen när något nytt har slagits ihop, och alltid inför en release, går Claude Code igenom dev.historiagloben.se i dator- och mobilbredd: tidslinjen, uppspelning, Samtidigt, en händelse, Lager, Fokus (ett rike och ett krig till slutet), bildlagret, Platt vy och Källor. Leta efter konsolfel, sådant som är svårt att hitta eller läsa och sådant som krockar. Den separata, självkritiska **blind-spots-analysen** görs av Codex (se "Codex kör löpande"), inte av Claude Code; den ställer andra frågor än den första rundan: vad tar vi för givet, vad händer när data saknas eller bara delvis finns, ser en reservlösning ut som ett fel, är skillnaden mellan urval och full lista tydlig, och vad händer i laddning, paus, byte och övergångar? Testa särskilt tomma, delvis tomma och blandade lägen, till exempel händelser med och utan bilder. Ett användarfynd som testet missade ska inte bara läggas till som en punkt; det ska också leda till en ändring av testmetoden. Fynden blir issues enligt punkten ovan. Nya fynd efter granskningen förs in som daterade uppföljningar i granskningsrapporten eller på berört issue. Gör också en **täckningsrunda** (beslut 2026-11-03): saknas det fakta eller länder vi borde ha? Kontrollera täckningen per tidsperiod, världsdel och kategori (händelser, riken, fun facts, bilder, källor), tomma celler och glapp, skev balans (till exempel krig mot övrigt, negativt mot positivt) och vilka länder eller riken som saknas efter ett visst år. Listan över det som borde finnas ska bygga på källor (till exempel Cliopatria, Wikidata och etablerade referenslistor), inte på minnet. Resultatet blir en daterad täckningsrapport som Claude Code triagerar till issues; mätningen av var det är tomt görs med `python3 tools/tackning.py` (#563), och listan över vad som saknas bygger på öppnade källor. Varje fullständig analys ska också **benchmarka mot andra sidor och spel** (beslut 2026-11-03): historieatlaser och tidslinjer, geografi- och kunskapsspel, skolmaterial och dataportaler. Syftet är idéer vi kan bli inspirerade av, inte kopiering. Inför en release skrivs en kort rapport i release-PR:en (#150, del C). Hittas inget skrivs inget till Rikard.
 - **Byggorder (lärdom 2026-11-03):** agenterna väntar på etiketten `redo`, inte på en kommentar. När Claude Code skriver en byggorder sätts `redo` **i samma steg**, och ordern ska stå i issuet (kommentar eller text). Villkor som "starta efter #N" skrivs i ordern, och etiketten sätts först när villkoret är uppfyllt, annars börjar Codex för tidigt. Vid granskning av en röd svit: leta först efter den första felande kontrollen, eftersom följdfel är vanliga.
+- **Skärmbilder i issues (beslut 2026-11-14, [docs/beslut/2026-11-14-skarmbilder-i-issues.md](docs/beslut/2026-11-14-skarmbilder-i-issues.md)):** buggar, visuella ändringar och förslag som DasKrokodil ska ta ställning till får skärmbilder (dator 1280 px och mobil 400 px, en bild per alternativ A, B, C, före och efter vid buggar) i issuet eller en kommentar. Bilderna tas med Playwright, sparas som WebP under cirka 150 kB och pushas till grenen `skarmbilder` (`issue-<N>/<fil>.webp`, aldrig `main`), och länkas via raw.githubusercontent.com. Går en bild inte att ta skrivs det öppet; en skärmbild hittas aldrig på.
 - **Arbetssätt för Claude Code i molnet:** `gh pr create` fungerar inte (GraphQL är blockerat); skapa pull requests med `gh api repos/<ägare>/<repo>/pulls` (REST). Wikidata-API:et ger 429 vid många anrop: vänta och hämta färre poster; kunde den andra källan inte jämföras blir nivån `source-checked`, aldrig `two-sources`.
 - **"Ta issue #N":** läs issuet, ställ frågor om något är oklart, bygg på en egen gren och öppna en pull request som skriver `Closes #N`. **Ett issue slutar alltid med en pull request (beslut 2026-11-11):** när du har byggt ett issue öppnar du pull requesten direkt, utan att fråga DasKrokodil först. Det gäller även om issuet bara delvis blir klart; skriv då i pull requesten vad som återstår i stället för `Closes #N`.
 - **Pull requests** beskrivs på svenska: vad som ändrats, varför, och hur Rikard testar det. Små, avgränsade PR:er hellre än en stor.
@@ -229,14 +277,14 @@ Rikard gillar stilen. Behåll den:
 | 6.1.0 Tidsintervall, plats och epoker | Ersätter "Version 5.2" (beslut 2026-11-08, docs/beslut/2026-11-08-version-6-1-0.md): tidsintervall (#569 i #754–#756), "Vad hände här?" (#15), faktarutans förklaring (#786) och epoker enligt svenska läroplanen (#845, #476, listan godkänns först). Lägeskontraktet (#893) ska vara avgjort före #755; sök och delbara länkar släpptes redan i v5.0.0 |
 | 6.2.0 UI/UX uppdatering | Nästa efter 6.1.0 (beslut 2026-11-09, docs/beslut/2026-11-09-ui-ux-efter-6-1-0.md): rättningarna ur UX-granskningen i `docs/ux-review/` (#991–#1004) och de UX-ärenden som flyttats dit (#571, #868, #894, #937, #977, #979–#981). Målet är att sidan känns lugnare och lättare att förstå: ett tydligt "samtidigt", färre samtidiga ytor och ett ord per sak |
 | 6.2.1 Rättningar efter 6.2.0 | Klar; släpps i v6.3.0 |
-| 6.3.0 Teman | Temamotorn (#398, `data/teman.json`, tema som grupp i Fokus) med teknik (#105) som första tema (beslut 2026-11-08, docs/beslut/2026-11-08-teman-fore-version-7.md). Före releasen också faktafelen #1344–#1346 och en minsta rättning av "samtidigt" och årtalen i förhistorien |
+| 6.3.0 Teman | Temamotorn (#398, `data/teman.json`, tema som fokustyp (`theme`), inget eget läge) med teknik (#105) som första tema (beslut 2026-11-08, docs/beslut/2026-11-08-teman-fore-version-7.md). Före releasen också faktafelen #1344–#1346 och en minsta rättning av "samtidigt" och årtalen i förhistorien |
 | 6.3.1 Rättningar och reglagets grund | Små buggar ur helganalysen (#1302–#1305, #1334, #1326), tidslås i tur och lektion (#1322), stängregistret (#1323) och reglagets grund (#1319–#1321), som flyttades hit från 7.0 |
 | 6.4.0 Länder och platser | Sverige och Danmark som länder (#1262–#1264), Norden i forntiden (#1339), skolkopplingen (#1265) och platserna (#1159–#1164). Övriga pilotländer ligger i "Länder: omgång 2" och väntar på utvärderingen #1274 (beslut 2026-11-12, länderna före regionerna) |
 | 6.5.0 Skolan och samtidigt | Definitionen av "samtidigt" (#1311) först, sedan lektionsblad (#1316), uppdrag per lektion (#1340), "För lärare" (#1315), quizet (#1314), lärarfält i fall-turerna (#1279), missuppfattningar (#1229) och Lgr22-listan (#1342) |
 | 7.0 Tidsmodell och reglage | Tidslinje i nivåer (#49) och synlig tidsskala (#1313); reglagets grund görs redan i 6.3.1 |
 | 7.1 Människoarter | Människoarter (#11), bildlager v2 (#1325), fokustyper som poster (#1327) och förhistorien utöver människans spridning (#1338) |
 | 7.2 Lärarstöd för förhistorien | Epoker för förhistorien (#1343, beslutsfil 2026-11-13) och lärarstöd. Version 7 som helhet följer riktningen 2026-11-10 (docs/beslut/2026-11-10-version-7-riktning.md): människans läge cirka 100 000 år bakåt, förhistorien högst cirka 10 % av reglaget, jordens historia först i version 8 |
-| 8 Jordens historia | Eget läge med geologisk tidslinje och forntida kartor (#12, #51–#53) |
+| 8 Jordens historia | Eget läge med geologisk tidslinje och forntida kartor (#397, #51–#53). Designen är beslutad 2026-11-14 (docs/beslut/2026-11-14-jordens-historia-design.md): karta för fanerozoikum först, PaleoCoastlines som kartkälla, tid som år före nutid, och de osynliga grundstegen först (#1511–#1513, #1420); delissues #1510–#1521 |
 | 9 Atlas och jämförelse | Jämför två tider (#248), historiska kartor (#249), skolatlasens bildlager (#8, #9, #55) |
 
 Parallella spår (milstolpar utan versionsnummer, görs bredvid huvudversionerna):

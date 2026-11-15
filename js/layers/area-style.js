@@ -4,16 +4,45 @@
 
 const polygons = g => g.type === 'Polygon' ? [g.coordinates] : g.coordinates;
 
+/** Är segmentet sömmen där datan delats vid datumlinjen (#1268, #1227)? Båda ändpunkterna ligger på −180 eller 180. Samma regel
+ *  som `edgeKm` i place-geo.js. Sömmen är ingen gräns: fyllningen behöver den, men strokningen ska hoppa över den. */
+const isSeam = (a, b) => Math.abs(a[0]) === 180 && Math.abs(b[0]) === 180;
+
+const seamCache = new WeakMap();
+/** Har geometrin (Polygon eller MultiPolygon) minst ett sömsegment? Sparas per geometri, så att omritningen inte räknar om. */
+export function hasSeam(geometry) {
+  let has = seamCache.get(geometry);
+  if (has === undefined) {
+    has = polygons(geometry).some(rings => rings.some(ring => ring.some((p, i) => i && isSeam(ring[i - 1], p))));
+    seamCache.set(geometry, has);
+  }
+  return has;
+}
+
 /**
  * Lägger en ring (en yttre gräns eller ett hål) som en del av banan i ctx (#1097). Ringen vecklas ut som linjerna i
  * lines.js (unwrap): varje punkt läggs på den längdgrad som ligger närmast den förra, så att en ring som korsar
  * datumlinjen (180°) går den korta vägen över den och inte tvärs över hela kartan. Hamnar den utvecklade ringen utanför
  * −180…180 läggs den en gång till, ett varv förskjuten, så att båda kanterna av den platta bilden får sin del; det som
  * hamnar utanför bilden klipps bort. X och Y räknar längd- och breddgrad till bildpunkter (X är linjär i längdgraden).
+ *
+ * `skipSeams` (#1227) lägger ringen som öppna linjer för strokning: segment där båda ändpunkterna ligger på ±180 (sömmen
+ * där datan delats vid datumlinjen) hoppas över, så att sömmen inte syns som en linje längs kartans kant (på globen en
+ * prickad linje längs 180°-meridianen). En ring utan söm läggs som förut, sluten. Banan fylls inte med skipSeams:
+ * fyllningen läggs alltid utan, så att den är oförändrad.
  */
-export function traceRing(ctx, ring, X, Y) {
+export function traceRing(ctx, ring, X, Y, skipSeams = false) {
+  let seq = ring, seam = null;
+  if (skipSeams && ring.some((p, i) => i && isSeam(ring[i - 1], p))) {
+    // Börja efter en söm, så att varje linje är sammanhängande (ringen är sluten: sista punkten är den första)
+    const closed = ring.length > 1 && ring[0][0] === ring.at(-1)[0] && ring[0][1] === ring.at(-1)[1];
+    const core = closed ? ring.slice(0, -1) : ring, n = core.length;
+    const s = core.findIndex((p, i) => isSeam(core[(i + n - 1) % n], p));
+    seq = [...core.slice(s), ...core.slice(0, s), core[s]];
+    seam = seq.map((p, i) => i > 0 && isSeam(seq[i - 1], p));
+  }
   let prev = null, min = Infinity, max = -Infinity;
-  const pts = ring.map(([lon, lat]) => {
+  const pts = seq.map(([lon, lat]) => {
     const l = prev === null ? lon : lon - 360 * Math.round((lon - prev) / 360);
     prev = l; min = Math.min(min, l); max = Math.max(max, l);
     return [l, lat];
@@ -22,29 +51,43 @@ export function traceRing(ctx, ring, X, Y) {
   if (max > 180) shifts.push(-360);
   if (min < -180) shifts.push(360);
   for (const s of shifts) {
-    pts.forEach(([lon, lat], i) => i ? ctx.lineTo(X(lon + s), Y(lat)) : ctx.moveTo(X(lon + s), Y(lat)));
-    ctx.closePath();
+    pts.forEach(([lon, lat], i) => i && !seam?.[i] ? ctx.lineTo(X(lon + s), Y(lat)) : ctx.moveTo(X(lon + s), Y(lat)));
+    if (!seam) ctx.closePath();
   }
 }
 
-/** Lägger rikets gräns som en bana i ctx (alla delar och hål). */
-export function tracePath(ctx, geometry, X, Y) {
+/** Lägger rikets gräns som en bana i ctx (alla delar och hål). `skipSeams`: som i traceRing, för strokning (#1227). */
+export function tracePath(ctx, geometry, X, Y, skipSeams = false) {
   ctx.beginPath();
   for (const rings of polygons(geometry)) {
-    for (const ring of rings) traceRing(ctx, ring, X, Y);
+    for (const ring of rings) traceRing(ctx, ring, X, Y, skipSeams);
   }
+}
+
+/**
+ * Strokar gränsen som banan i ctx ligger (tracePath eller traceRing för samma geometri), men utan sömmen vid datumlinjen
+ * (#1227). Geometrier utan söm, alltså nästan alla, strokas som förut ur den lagda banan; har geometrin en söm byggs en
+ * andra bana med öppna linjer som strokas i stället. Fyllningen använder alltid den första banan. Kräver Path2D (webbläsaren).
+ */
+export function strokeEdge(ctx, geometry, X, Y) {
+  if (!hasSeam(geometry)) return ctx.stroke();
+  const edge = new Path2D();
+  for (const rings of polygons(geometry)) {
+    for (const ring of rings) traceRing(edge, ring, X, Y, true);
+  }
+  ctx.stroke(edge);
 }
 
 /** Mjuk kant för ett rike med osäker gräns (#73). Banan ska redan vara lagd (tracePath).
  *  I stället för en skarp linje läggs tre breda, svaga linjer på varandra: tätast vid gränsen och
  *  allt svagare utåt, så att kanten flyter ut. Fyllningen är lite ljusare än för andra riken. */
-export function softEdge(ctx, color, k) {
+export function softEdge(ctx, color, k, stroke = () => ctx.stroke()) {
   ctx.fillStyle = rgba(color, 0.26);
   ctx.fill('evenodd');
   for (const [w, a] of SOFT) {
     ctx.strokeStyle = rgba(color, a);
     ctx.lineWidth = w * k;
-    ctx.stroke();
+    stroke(); // strokeEdge i areas.js: utan sömmen vid datumlinjen (#1227)
   }
 }
 const SOFT = [[14, 0.06], [9, 0.08], [5, 0.1]]; // [linjebredd, styrka], från ytterst till innerst
@@ -74,7 +117,7 @@ export function drawInfluence(ctx, list, X, Y, k) {
     ctx.setLineDash([5 * k, 4 * k]);
     ctx.strokeStyle = rgba(polity.color, 0.8);
     ctx.lineWidth = 1.2 * k;
-    ctx.stroke();
+    strokeEdge(ctx, item.geometry, X, Y);
     ctx.setLineDash([]);
   }
   ctx.restore();

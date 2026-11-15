@@ -72,11 +72,14 @@ for f in img/icons/*.svg; do copy "$f"; done
 ls img/flags/*.svg >/dev/null 2>&1 || fail "inga flaggor i img/flags/"
 for f in img/flags/*.svg; do copy "$f"; done
 
-# Datafiler som js/model.js och UI-modulerna laddar, inklusive introduktionen (#363) och elevuppdragen (#741)
-for f in events funfacts missuppfattningar quiz perioder teman platser intro uppdrag sources land land-10m borders styles religions religions-polities upptackt upptackt-europa bildlager vyer version; do
+# Datafiler som js/model.js och UI-modulerna laddar, inklusive introduktionen (#363) och elevuppdragen (#741) och människans spridning (#1094)
+for f in events funfacts missuppfattningar quiz perioder teman platser intro uppdrag sources land land-10m borders styles religions religions-polities upptackt upptackt-europa bildlager vyer version spridning; do
   copy "data/$f.json"
 done
 copy data/licenses.json
+
+# Ortnamn för regionvyn (#1643): en fil per plats, skriven av tools/ortnamn.py
+for f in data/ortnamn/*.json; do [ -f "$f" ] && copy "$f"; done
 copy images/licenses.json
 
 # Gränssnittets språk (#63): sprak.json och en fil per språk som js/i18n.js laddar
@@ -143,8 +146,11 @@ PY
 while IFS= read -r f; do copy "$f"; done < <(python3 -I - <<'PY'
 import json
 for layer in json.load(open('data/bildlager.json')).get('layers', []):
-    if layer.get('file'):
-        print(layer['file'])
+    for part in layer.get('slices', []):
+        if part.get('file'):
+            print(part['file'])
+        if part.get('mask'):  # masken för spridningslagret (#1565)
+            print(part['mask'])
 PY
 )
 

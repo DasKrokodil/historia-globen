@@ -75,7 +75,8 @@ EVENTS_NOTES = ('start/end = astronomiska år (ISO 8601): 0 = 1 f.Kr., -1 = 2 f.
                 '(7 = århundrade, 8 = decennium, 9 = år, 11 = dag). location = GeoJSON [lon, lat]. review: draft | '
                 'source-checked | two-sources. kind = "war" för krig (spann); partOf = krigets id för slag och '
                 'händelser i ett krig. top = true för krigets enda viktigaste händelse, som syns även utzoomat; '
-                'major = true för viktiga händelser där fokusläget pausar; i fokusläge syns krigets alla händelser. '
+                'major = true för viktiga händelser där uppspelningen pausar i fokusläget: krigets stora händelser, och '
+                'platsens och temats viktiga händelser (#1255, #1620); i fokusläge syns krigets alla händelser. '
                 'icon = namn på en ikon i img/icons/ (valfritt). empires = grupp-id i data/empires/index.json för '
                 'riken som var krigförande part i ett krig (valfritt, #76); slagen ärver dem via partOf.')
 

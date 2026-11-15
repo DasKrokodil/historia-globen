@@ -10,7 +10,7 @@
 import { t, isVisibleReview, loadEmpire } from '../model.js';
 import { glyph, flag, drawFlag } from './events.js';
 import { drawMedal, ORIGIN_R } from './religions.js';
-import { softEdge, influenceAt, drawInfluence, traceRing } from './area-style.js';
+import { softEdge, influenceAt, drawInfluence, traceRing, strokeEdge } from './area-style.js';
 import { AreaTransition, MAX_JUMP_YEARS } from './area-transition.js';
 import { EmpireMarkers } from './empiremarks.js';
 import { Z } from './registry.js';
@@ -146,7 +146,7 @@ export class AreasLayer {
     for (const { polity, period } of this.active) {
       const d = L.get(akey(polity, period));
       // På label-punkten, eller strax bredvid om den platsen var upptagen (_layout)
-      if (d?.medal) out.push({ key: polity.id, ...d.medal, polity, lon: d.px / 2048 * 360 - 180, lat: 90 - d.py / 1024 * 180 });
+      if (d?.medal) out.push({ key: polity.id, ...d.medal, polity, area: period.areaKm2 ?? 0, lon: d.px / 2048 * 360 - 180, lat: 90 - d.py / 1024 * 180 });
     }
     return out;
   }
@@ -379,13 +379,13 @@ export class AreasLayer {
         for (const ring of rings) traceRing(ctx, ring, X, Y); // också över datumlinjen (#1097)
       }
       if (polity.uncertainBorder) { // osäker gräns: mjuk kant (#73)
-        ctx.globalAlpha = alpha; softEdge(ctx, polity.color, k); ctx.globalAlpha = 1; continue;
+        ctx.globalAlpha = alpha; softEdge(ctx, polity.color, k, () => strokeEdge(ctx, period.geometry, X, Y)); ctx.globalAlpha = 1; continue;
       }
       ctx.fillStyle = hexA(polity.color, 0.32 * alpha);
       ctx.fill('evenodd');
       ctx.strokeStyle = hexA(polity.color, 0.95 * alpha);
       ctx.lineWidth = 1.6 * k;
-      ctx.stroke();
+      strokeEdge(ctx, period.geometry, X, Y); // utan sömmen vid datumlinjen (#1227)
     }
     // Inflytandet (#75) ovanpå: glesa prickar, så att ett lydrike som själv är ett rike på kartan syns igenom
     const influence = this.influence ?? [];
@@ -411,10 +411,10 @@ export class AreasLayer {
       ctx.fill('evenodd');
       ctx.strokeStyle = 'rgba(16,22,30,0.85)';
       ctx.lineWidth = 5 * k;
-      ctx.stroke();
+      strokeEdge(ctx, period.homeland, X, Y);
       ctx.strokeStyle = polity.color;
       ctx.lineWidth = 2.6 * k;
-      ctx.stroke();
+      strokeEdge(ctx, period.homeland, X, Y);
     }
     ctx.globalAlpha = 1;
     // Namnen och medaljerna sist, så att de hamnar ovanpå alla områden. Vilka som syns och var namnen står
@@ -444,7 +444,7 @@ export class AreasLayer {
       if (!d) continue;
       ctx.globalAlpha = alpha;
       // Rike med symbol (#301): medaljen på label-punkten
-      if (d.medal?.kind === 'flag') drawFlag(ctx, d.px * k, d.py * k, R, this._flag(d.medal.symbol), d.medal.symbol);
+      if (d.medal?.kind === 'flag') drawFlag(ctx, d.px * k, d.py * k, R, this._flag(d.medal.symbol), d.medal.symbol, d.medal.flagKind);
       else if (d.medal) drawMedal(ctx, d.px * k, d.py * k, R, polity.color, this._glyph(d.medal.symbol));
       // Huvudland (#74) utan symbol: mässingsstjärnan i moderlandet
       if (d.star) star(ctx, d.px * k, d.py * k, 7 * k * this.labelScale);

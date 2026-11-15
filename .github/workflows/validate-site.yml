@@ -33,12 +33,26 @@ jobs:
         run: python3 -I tests/significance-test.py
       - name: Kontrollera att en ombyggnad av rikena behåller flaggor, handskrivna fält och översatta namn (#1220)
         run: python3 -I tests/riken-bevara-test.py
+      - name: Kontrollera kontrollpunkter i rikenas gränser, till exempel Västberlin och Saarbrücken (#1706)
+        run: python3 -I tests/riken-kontrollpunkter-test.py
+      - name: Kontrollera att rikenas svenska namn inte är de engelska (#1702)
+        run: python3 -I tests/riken-namn-test.py
+      - name: Kontrollera att platsernas gränser delas vid datumlinjen och att JS och Python räknar lika (#1268)
+        run: python3 -I tests/platser-granser-test.py
+      - name: Kontrollera att hållbarhetsvarningen för länder skrivs för ett land som bryter mot riktlinjen och inte stoppar bygget (#1269)
+        run: python3 -I tests/hallbarhet-test.py
       - name: Kontrollera att bilder_in.py fyller i image för händelser på flera rader och på en rad (#1288)
         run: python3 -I tests/bilder-in-test.py
+      - name: Kontrollera att religionslagret räknar rubriker som Official och State and majority som officiell religion (#1609)
+        run: python3 -I tests/religioner-test.py
       - name: Översätt samtidigt - inga nya oöversatta texter och inga inaktuella översättningar (#675)
         run: python3 -I tools/oversattning.py --check
       - name: Kontrollera att texterna per språk och spärren stoppar medvetna fel (#675)
         run: python3 -I tests/oversattning-test.py
+      - name: Kortare faktatexter - inga fler sammanfattningar över 300 tecken (#1599)
+        run: python3 -I tools/textlangd.py --check
+      - name: Kontrollera att spärren mot långa faktatexter stoppar en för lång text (#1599)
+        run: python3 -I tests/textlangd-test.py
       - uses: actions/setup-node@v4
         with:
           node-version: '22'

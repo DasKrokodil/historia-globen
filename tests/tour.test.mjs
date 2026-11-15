@@ -5,6 +5,7 @@ import { readFileSync } from 'node:fs';
 import { tourProblems, TOUR_VERSION } from '../js/tour-format.js';
 import { isVisibleReview } from '../js/model.js';
 import { eventRegion } from '../js/uppdrag-rules.js';
+import { imageRows } from '../js/layers/images.js';
 
 const read = p => JSON.parse(readFileSync(new URL(`../${p}`, import.meta.url), 'utf8'));
 const step = (over = {}) => ({ id: 'a', at: 1200, camera: { lat: 0, lon: 0, zoom: 1.4 }, text: { sv: 'Text.' }, layers: ['events'], sources: ['s1'], ...over });
@@ -104,6 +105,18 @@ test('lektionsläget (lesson.lock) kontrolleras och får inte ge tomma lägen (#
   assert.match(tourProblems(tour({ lesson: lesson([]) }), k).join(), /lesson\.lock ska vara ett objekt/);
 });
 
+test('stegfältet place öppnar en plats och kontrolleras mot platserna (#1163)', () => {
+  const k = { ...known, places: new Set(['gronland', 'aotearoa']) };
+  assert.deepEqual(tourProblems(tour({ steps: [step({ place: 'gronland' }), step({ id: 'b', open: 'e1' })] }), k), []);
+  // Utan places i known (webbläsaren, där platserna laddas först när de behövs) kontrolleras bara formen
+  assert.deepEqual(tourProblems(tour({ steps: [step({ place: 'vad-som-helst' })] }), known), []);
+  assert.match(tourProblems(tour({ steps: [step({ place: 'atlantis' })] }), k).join(), /platsen atlantis finns inte/);
+  assert.match(tourProblems(tour({ steps: [step({ place: 'Fel Tecken' })] }), known).join(), /platsen Fel Tecken finns inte/);
+  assert.match(tourProblems(tour({ steps: [step({ place: 5 })] }), known).join(), /platsen 5 finns inte/);
+  // Ett steg öppnar en händelse eller en plats, inte båda
+  assert.match(tourProblems(tour({ steps: [step({ place: 'gronland', open: 'e1' })] }), k).join(), /antingen en händelse \(open\) eller en plats \(place\)/);
+});
+
 test('en tur utan steg eller med fel typ', () => {
   assert.equal(tourProblems(null).length, 1);
   assert.match(tourProblems(tour({ steps: [] })).join(), /inga steg/);
@@ -118,14 +131,18 @@ test('turerna i data/turer/ följer formatet och pekar på befintliga händelser
   const events = new Set(read('data/events.json').events.map(e => e.id));
   const sources = new Set(read('data/sources.json').sources.map(s => s.id));
   const empires = new Set(read('data/empires/index.json').groups.map(g => g.id));
+  const places = new Set(read('data/platser.json').places.filter(p => p.review !== 'draft').map(p => p.id)); // stegfältet place (#1163)
   // Lagrens id: posterna i js/layers/index.js heter som lagren (events, areas, …)
   const list = readFileSync(new URL('../js/layers/index.js', import.meta.url), 'utf8').match(/export const LAYERS = \[([^\]]*)\]/)[1];
   const layers = new Set(list.split(',').map(x => x.trim()).filter(Boolean));
+  // Bildlagren ger en post per rad i data/bildlager.json (#1325): radernas id är lager-id, inte "images"
+  layers.delete('images');
+  for (const row of imageRows(read('data/bildlager.json'))) layers.add(row.id);
   assert.ok(index.tours.length > 0);
   for (const id of index.tours) {
     const t = read(`data/turer/${id}.json`);
     assert.equal(t.id, id, 'filnamnet och id ska vara samma');
-    assert.deepEqual(tourProblems(t, { events, sources, layers, empires, regionsIn }), []);
+    assert.deepEqual(tourProblems(t, { events, sources, layers, empires, places, regionsIn }), []);
   }
 });
 

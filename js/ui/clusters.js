@@ -5,11 +5,12 @@ const RADIUS = 30; // px på skärmen
 
 /**
  * items: [{ e, p, keep }] där p = skärmposition och keep = får inte klustras.
+ * radius: hur nära (skärmpixlar) två händelser ska ligga för att slås ihop; regionvyns högar (#1642) använder en mindre radie.
  * Returnerar { singles: [item], clusters: [{ x, y, members: [item] }] }.
  */
-export function cluster(items) {
+export function cluster(items, radius = RADIUS) {
   const singles = [], groups = [];
-  const cell = RADIUS, grid = new Map();
+  const cell = radius, grid = new Map();
   const keyOf = (x, y) => `${Math.floor(x / cell)},${Math.floor(y / cell)}`;
   for (const it of items) {
     if (it.keep) { singles.push(it); continue; }
@@ -18,7 +19,7 @@ export function cluster(items) {
     for (let dx = -1; dx <= 1 && !target; dx++) {
       for (let dy = -1; dy <= 1 && !target; dy++) {
         for (const gr of grid.get(`${cx + dx},${cy + dy}`) ?? []) {
-          if (Math.hypot(gr.x - it.p.x, gr.y - it.p.y) < RADIUS) { target = gr; break; }
+          if (Math.hypot(gr.x - it.p.x, gr.y - it.p.y) < radius) { target = gr; break; }
         }
       }
     }
@@ -98,7 +99,13 @@ export function placeLabels(singles, { W, H, hoverId, markers, badges, blocked =
       // Ett pågående krig får lägga etiketten över rikesnamn, och sist bredvid markören eller en rad längre bort (#1022)
       const side = dx => ({ x0: p.x + dx - (dx < 0 ? w : 0), x1: p.x + dx + (dx < 0 ? 0 : w), y0: p.y - h / 2, y1: p.y + h / 2 });
       const inside = b => b.x0 >= 4 && b.x1 <= W - 4;
-      box = [above, below, side(-off), side(off), { ...above, y0: above.y0 - h - 2, y1: above.y1 - h - 2 }, { ...below, y0: below.y0 + h + 2, y1: below.y1 + h + 2 }]
+      // Är klungorna tätt runt markören (en klunga ovanför, en under och en bredvid) ryms ingen av platserna ovan. Då söks platsen
+      // vidare åt sidan, steg för steg bort från markören, på markörens egen rad (#1538: Första världskriget 1916 i mobil, när
+      // Verdun och Versaillesfreden bildar en klunga alldeles intill). Klungor, knappar, markörer och andra etiketter är fortfarande
+      // fasta hinder; bara rikesnamnen (soft) får etiketten ligga över.
+      const farSides = [];
+      for (let dx = off + 12; dx <= W; dx += 12) farSides.push(side(-dx), side(dx));
+      box = [above, below, side(-off), side(off), { ...above, y0: above.y0 - h - 2, y1: above.y1 - h - 2 }, { ...below, y0: below.y0 + h + 2, y1: below.y1 + h + 2 }, ...farSides]
         .find(b => inside(b) && free(b, false));
       // Sist av allt: ovanför eller under markören, över grannmarkörer (inte över klungor, knappar eller andra etiketter),
       // så att det som pågår och är viktigast alltid får en etikett (#1022, mobilbredd 1916)

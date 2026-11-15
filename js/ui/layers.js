@@ -1,7 +1,7 @@
 // Lagerväljaren: en meny där man slår av och på lager (händelser, fun facts, riken, religioner, dagens gränser m.m.).
 // Raderna, deras grupper och startläget kommer från lagerregistret (layers/registry.js, #338, #357).
 // Överst står de förinställda vyerna ur data/vyer.json (#357): en vy slår på sina lager och av de andra.
-import { t } from '../model.js';
+import { t, tagViewNote } from '../model.js';
 import { ui } from '../i18n.js';
 
 async function getJSON(path) {
@@ -37,7 +37,7 @@ export async function loadViews() {
         [id, Object.fromEntries(Object.entries(texts).map(([k, text]) => [k, t(text)]))])),
       layerActions: Object.fromEntries(Object.entries(doc.layerActions ?? {}).map(([id, text]) => [id, t(text)])),
       groups: doc.groups.map(g => ({ ...g, name: t(g.name) })),
-      views: doc.views.map(v => ({ ...v, name: t(v.name) })),
+      views: doc.views.map(v => ({ ...v, name: t(v.name), description: v.description ? t(v.description) : '' })),
       defaultView: doc.defaultView,
     };
   } catch (err) {
@@ -52,9 +52,10 @@ export class LayerMenu {
    * controlled är lagren som vyerna styr; de andra raderna (till exempel "Behåll mina lager") rörs inte.
    * En vy med tag (#555) visar bara händelser med den taggen; tagCount(tag) ger hur många händelser som har den,
    * så att vyn kan säga att den är tom.
+   * settings (#1574): kortet Inställningar i Mer med rutorna data-calm och data-pause; utan det läses de ur menyn.
    */
-  constructor({ button, menu, views = null }) {
-    Object.assign(this, { button, menu });
+  constructor({ button, menu, settings = menu, views = null }) {
+    Object.assign(this, { button, menu, settings });
     this.onChange = () => {};
     this.onTag = () => {};
     this.on = {};
@@ -63,7 +64,7 @@ export class LayerMenu {
       this.on[input.dataset.layer] = input.checked;
       input.addEventListener('change', () => {
         this.on[input.dataset.layer] = input.checked;
-        this.setTag(null); // ett eget val av lager lämnar vyn med taggen
+        if (input.dataset.layer === 'events') this.setTag(null); // bara Händelser-lagret lämnar urvalet; andra lager rör det inte (#1580)
         this.syncView();
         this.onChange(input.dataset.layer, input.checked);
       });
@@ -73,7 +74,7 @@ export class LayerMenu {
     this.pause = {};
     let saved = {};
     try { saved = JSON.parse(localStorage.getItem('hg-pause') || '{}'); } catch { /* utan lagring */ }
-    for (const input of menu.querySelectorAll('input[data-pause]')) {
+    for (const input of settings.querySelectorAll('input[data-pause]')) {
       if (input.dataset.pause in saved) input.checked = saved[input.dataset.pause];
       this.pause[input.dataset.pause] = input.checked;
       input.addEventListener('change', () => {
@@ -83,7 +84,7 @@ export class LayerMenu {
     }
     // Lugn rörelse (#246): följer webbläsarens prefers-reduced-motion tills man själv väljer. Valet sparas.
     this.onCalm = () => {};
-    const calmInput = menu.querySelector('input[data-calm]');
+    const calmInput = settings.querySelector('input[data-calm]');
     this.calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
     try { const s = localStorage.getItem('hg-calm'); if (s !== null) this.calm = s === '1'; } catch { /* utan lagring */ }
     const applyCalm = () => { document.documentElement.classList.toggle('calm', this.calm); this.onCalm(this.calm); };
@@ -109,7 +110,7 @@ export class LayerMenu {
     const input = this.menu.querySelector(`input[data-layer="${name}"]`);
     if (input) input.checked = on;
     this.on[name] = on;
-    if (this.views?.controlled.includes(name)) this.setTag(null);
+    if (name === 'events' && this.views?.controlled.includes(name)) this.setTag(null);
     this.syncView();
   }
 
@@ -141,7 +142,16 @@ export class LayerMenu {
     this.viewBtns = views.views.map(v => {
       const btn = document.createElement('button');
       btn.type = 'button'; btn.className = 'view-chip'; btn.dataset.view = v.id;
-      btn.textContent = v.name;
+      // Ett förval är ett kort med namnet och en mening om vad det visar på kartan (#1574). Det tillgängliga namnet är bara namnet;
+      // meningen läses som beskrivning.
+      const label = document.createElement('span'); label.className = 'view-chip-name'; label.textContent = v.name;
+      btn.append(label);
+      if (v.description) {
+        const desc = document.createElement('span'); desc.className = 'view-chip-desc'; desc.id = `view-desc-${v.id}`; desc.textContent = v.description;
+        btn.append(desc);
+        btn.setAttribute('aria-describedby', desc.id);
+      }
+      btn.setAttribute('aria-label', v.name);
       btn.setAttribute('aria-pressed', 'false');
       btn.addEventListener('click', () => this.applyView(v.id));
       row.append(btn);
@@ -163,6 +173,8 @@ export class LayerMenu {
     this.customBox.className = 'layer-custom'; this.customBox.id = 'layer-custom';
     while (this.menu.firstChild) this.customBox.append(this.menu.firstChild);
     this.addLayerActions(views);
+    this.collapseGroups();
+    this.collapseCategories();
     let customOpen = false;
     try { customOpen = sessionStorage.getItem('hg-layer-customize') === '1'; } catch { /* utan lagring */ }
     this.customBtn.addEventListener('click', () => this.setCustomOpen(this.customBox.hidden));
@@ -173,8 +185,67 @@ export class LayerMenu {
     this.viewStatus.hidden = true;
     box.append(head, row, this.viewStatus, this.customBtn);
     this.menu.append(box, this.customBox);
+    // Stängknappen i mobil (#1309): först i menyn. Den ligger här och inte i index.html, eftersom raderna i menyn flyttas in i "Anpassa själv".
+    const close = document.createElement('button');
+    close.type = 'button'; close.className = 'menu-x'; close.textContent = '×'; close.setAttribute('aria-label', ui('common.close'));
+    this.menu.prepend(close);
     this.setCustomOpen(customOpen, false);
     this.syncView();
+  }
+
+  /**
+   * Grupperna i Fler val (#1574) är hopfällda avsnitt med antalet påslagna lager på raden ("Makt, tro och gränser · 1 av 4 på").
+   * Gruppens rubrik (som aria-labelledby pekar på) står kvar dold; gruppen med bara "Behåll mina lager" (data-group="settings") har en enda rad och lämnas öppen.
+   */
+  collapseGroups() {
+    this.sects = [];
+    for (const box of this.customBox.querySelectorAll('.layer-group:not([data-group="settings"])')) {
+      const head = box.querySelector(':scope > .layer-heading');
+      if (!head) continue;
+      const details = document.createElement('details');
+      details.className = 'layer-sect';
+      const summary = document.createElement('summary');
+      const title = document.createElement('span'); title.className = 'layer-sect-title'; title.textContent = head.textContent;
+      const count = document.createElement('span'); count.className = 'layer-sect-count';
+      summary.append(title, count);
+      head.hidden = true;
+      details.append(summary, ...[...box.children].filter(c => c !== head));
+      box.append(details);
+      this.sects.push({ box, count });
+    }
+  }
+
+  /**
+   * Kategorierna är en egen hopfälld grupp i Fler val (#1574) med antalet valda på raden ("14 av 14 på").
+   * Knapparna sätts av panelen (js/ui/panel.js) och följer aria-pressed, som också ändras från Samtidigt-panelen; raden följer med.
+   */
+  collapseCategories() {
+    const head = this.customBox.querySelector(':scope > .layer-heading[data-i18n="layers.categories"]');
+    const filters = this.customBox.querySelector('#filters');
+    if (!head || !filters) return;
+    const details = document.createElement('details');
+    details.className = 'layer-sect layer-cats';
+    const summary = document.createElement('summary');
+    const title = document.createElement('span'); title.className = 'layer-sect-title'; title.textContent = head.textContent;
+    const count = document.createElement('span'); count.className = 'layer-sect-count';
+    summary.append(title, count);
+    head.hidden = true;
+    filters.before(details);
+    details.append(summary, filters);
+    const sync = () => {
+      const pills = [...filters.querySelectorAll('[data-cat]')];
+      count.textContent = pills.length ? ui('layers.groupCount', { on: pills.filter(b => b.getAttribute('aria-pressed') === 'true').length, total: pills.length }) : '';
+    };
+    new MutationObserver(sync).observe(filters, { subtree: true, childList: true, attributes: true, attributeFilter: ['aria-pressed'] });
+    sync();
+  }
+
+  /** Antalet påslagna lager i varje grupp på gruppens rad. */
+  syncGroups() {
+    for (const { box, count } of this.sects ?? []) {
+      const inputs = [...box.querySelectorAll('input[data-layer]')];
+      count.textContent = ui('layers.groupCount', { on: inputs.filter(i => i.checked).length, total: inputs.length });
+    }
   }
 
   /** Snabbvalen stänger alla kontrollerade lager eller återgår till Standard. */
@@ -194,7 +265,7 @@ export class LayerMenu {
     restore.className = 'layer-action';
     restore.textContent = labels.restore;
     restore.setAttribute('aria-label', labels.restoreLabel);
-    restore.addEventListener('click', () => this.applyView('standard'));
+    restore.addEventListener('click', () => this.applyView(this.views.defaultView ?? 'standard', true)); // startvyn, inte förvalet Standard (#1579)
     this.actionStatus = document.createElement('p');
     this.actionStatus.className = 'layer-action-status';
     this.actionStatus.setAttribute('role', 'status');
@@ -221,7 +292,7 @@ export class LayerMenu {
   }
 
   /** Slår på vyns lager och av de andra som vyerna styr; onChange anropas för varje lager som ändras. */
-  applyView(id) {
+  applyView(id, restored = false) {
     const view = this.views?.views.find(v => v.id === id);
     if (!view) return;
     const changed = [];
@@ -236,7 +307,7 @@ export class LayerMenu {
     const tagChanged = (view.tag ?? null) !== this.tag;
     this.tag = view.tag ?? null;
     this.syncView();
-    if (id === 'standard' && this.actionStatus) this.actionStatus.textContent = this.views.layerActions.standardRestored;
+    if (restored && this.actionStatus) this.actionStatus.textContent = this.views.layerActions.standardRestored;
     if (tagChanged) this.onTag(this.tag);
     for (const [name, on] of changed) this.onChange(name, on);
   }
@@ -244,13 +315,18 @@ export class LayerMenu {
   /** Markerar vyn som stämmer, eller visar Anpassad. */
   syncView() {
     if (!this.views) return;
+    this.syncGroups();
     const cur = this.currentView();
     for (const btn of this.viewBtns) btn.setAttribute('aria-pressed', String(btn.dataset.view === cur));
     this.customChip.hidden = cur !== null;
     this.menu.dataset.view = cur ?? 'custom';
-    const empty = this.tag && !(this.views.tagCount?.(this.tag) > 0) ? this.views.tags?.[this.tag]?.empty : '';
-    this.viewStatus.textContent = empty || '';
-    this.viewStatus.hidden = !empty;
+    // Raden under vyvalet (#555, #1379): tomt läge om ingen händelse har taggen, annars en förklaring av urvalet
+    // (vyn Framsteg visar bara det källan själv kallar framsteg) med antalet räknat ur datan. Samma text sätts inte om,
+    // så att statusraden inte läses upp igen när valen ändras utan att vyn byts.
+    const tagged = this.tag ? this.views.tagCount?.(this.tag) ?? 0 : 0;
+    const note = this.tag ? (tagged > 0 ? tagViewNote(this.tag, tagged) : this.views.tags?.[this.tag]?.empty) : '';
+    if (this.viewStatus.textContent !== (note || '')) this.viewStatus.textContent = note || '';
+    this.viewStatus.hidden = !note;
     if (this.actionStatus) {
       this.actionStatus.textContent = cur === 'bara-kartan' ? this.views.layerActions.allOff : '';
     }
@@ -299,7 +375,8 @@ export class LayerMenu {
     this.menu.hidden = false;
     this.button.setAttribute('aria-expanded', 'true');
     this.onOpen();
-    this.menu.querySelector('input,button')?.focus({ preventScroll: true }); // fokus in i menyn (#246)
+    // Fokus in i menyn (#246): första synliga kontrollen. Kryssknappen är dold på dator och kan inte få fokus (#1578)
+    [...this.menu.querySelectorAll('input,button')].find(el => el.getClientRects().length > 0)?.focus({ preventScroll: true });
   }
   close() {
     const had = this.menu.contains(document.activeElement);
