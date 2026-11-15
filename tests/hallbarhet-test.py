@@ -104,11 +104,17 @@ else:
             fil = kopia / 'data' / 'platser.json'
             doc = json.loads(fil.read_text(encoding='utf-8'))
             mall = copy.deepcopy(next(p for p in doc['places'] if p['type'] == 'country'))
+            orig_id = mall['id']
             mall['id'] = 'provland'
             mall['boundary']['geometry'] = {'type': 'Polygon', 'coordinates': [[
                 [lon0 - r, lat0 - r], [lon0 + r, lat0 - r], [lon0 + r, lat0 + r], [lon0 - r, lat0 + r], [lon0 - r, lat0 - r]]]}
             doc['places'].append(mall)
             fil.write_text(json.dumps(doc, ensure_ascii=False), encoding='utf-8')
+            # Valideringen kräver en ortnamnsfil per plats (#1643): provlandet får mallens, med sitt eget namn. Grannländerna
+            # stämmer, eftersom provlandet behåller mallens boundary.neighbours (#1659)
+            ort = json.loads((kopia / 'data' / 'ortnamn' / f'{orig_id}.json').read_text(encoding='utf-8'))
+            ort['place'] = 'provland'
+            (kopia / 'data' / 'ortnamn' / 'provland.json').write_text(json.dumps(ort, ensure_ascii=False), encoding='utf-8')
             run = subprocess.run([sys.executable, '-I', str(ROOT / 'scripts' / 'validate-site.py'), str(kopia)],
                                  capture_output=True, text=True, timeout=300)
             check(run.returncode == 0, f'varningen får inte stoppa bygget (utgångskod {run.returncode}): {run.stderr[-800:]}')
