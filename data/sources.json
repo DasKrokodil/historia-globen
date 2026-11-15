@@ -3241,6 +3241,14 @@
     {"id": "un-member-south-sudan", "title": "South Sudan – Member States, Förenta nationerna (un.org)", "url": "https://www.un.org/en/about-us/member-states/south-sudan", "license": "© Förenta nationerna (bara länkad, ingen text kopierad)", "checked": "2026-11-15"},
     {"id": "un-member-tanzania", "title": "United Republic of Tanzania – Member States, Förenta nationerna (un.org)", "url": "https://www.un.org/en/about-us/member-states/united-republic-of-tanzania", "license": "© Förenta nationerna (bara länkad, ingen text kopierad)", "checked": "2026-11-15"},
     {"id": "wp-zanzibar", "title": "Zanzibar – Wikipedia", "url": "https://en.wikipedia.org/wiki/Zanzibar", "license": "CC BY-SA 4.0", "checked": "2026-11-15"},
-    {"id": "wp-abyei", "title": "Abyei – Wikipedia", "url": "https://en.wikipedia.org/wiki/Abyei", "license": "CC BY-SA 4.0", "checked": "2026-11-15"}
+    {"id": "wp-abyei", "title": "Abyei – Wikipedia", "url": "https://en.wikipedia.org/wiki/Abyei", "license": "CC BY-SA 4.0", "checked": "2026-11-15"},
+    {"id": "wp-treaty-of-copenhagen-1660", "title": "Treaty of Copenhagen (1660) – Wikipedia", "url": "https://en.wikipedia.org/wiki/Treaty_of_Copenhagen_(1660)", "license": "CC BY-SA 4.0", "checked": "2026-11-15"},
+    {"id": "wp-cape-guardafui", "title": "Cape Guardafui – Wikipedia", "url": "https://en.wikipedia.org/wiki/Cape_Guardafui", "license": "CC BY-SA 4.0", "checked": "2026-11-15"},
+    {"id": "wp-astrakhan", "title": "Astrakhan – Wikipedia", "url": "https://en.wikipedia.org/wiki/Astrakhan", "license": "CC BY-SA 4.0", "checked": "2026-11-15"},
+    {"id": "wp-sarai", "title": "Sarai (city) – Wikipedia", "url": "https://en.wikipedia.org/wiki/Sarai_(city)", "license": "CC BY-SA 4.0", "checked": "2026-11-15"},
+    {"id": "wp-chittagong", "title": "Chittagong – Wikipedia", "url": "https://en.wikipedia.org/wiki/Chittagong", "license": "CC BY-SA 4.0", "checked": "2026-11-15"},
+    {"id": "wp-kinshasa", "title": "Kinshasa – Wikipedia", "url": "https://en.wikipedia.org/wiki/Kinshasa", "license": "CC BY-SA 4.0", "checked": "2026-11-15"},
+    {"id": "wp-grans-kongo", "title": "Democratic Republic of the Congo–Republic of the Congo border – Wikipedia", "url": "https://en.wikipedia.org/wiki/Democratic_Republic_of_the_Congo%E2%80%93Republic_of_the_Congo_border", "license": "CC BY-SA 4.0", "checked": "2026-11-15"},
+    {"id": "wp-newfoundland-and-labrador", "title": "Newfoundland and Labrador – Wikipedia", "url": "https://en.wikipedia.org/wiki/Newfoundland_and_Labrador", "license": "CC BY-SA 4.0", "checked": "2026-11-15"}
 ]
 }

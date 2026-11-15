@@ -746,6 +746,7 @@
             "wp-ibn-battuta",
             "wp-mogadishu",
             "wp-kilwa-kisiwani",
+            "wp-cape-guardafui",
             "wikidata"
           ]
         },
@@ -926,6 +927,8 @@
           ],
           "sources": [
             "wp-ibn-battuta",
+            "wp-astrakhan",
+            "wp-sarai",
             "wikidata"
           ]
         },
@@ -1033,6 +1036,7 @@
           ],
           "sources": [
             "wp-ibn-battuta",
+            "wp-chittagong",
             "wikidata"
           ]
         },
