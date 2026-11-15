@@ -1280,11 +1280,18 @@ GROUPS = {
         ('Norman England', 'england-1072', 'Kungariket England', '#c04a6a', {'en': 'Kingdom of England', 'wikidata': None}),
         ('Commonwealth of England', 'engelska-samvaldet', 'Engelska samväldet', '#c04a6a', {'en': 'Commonwealth of England', 'wikidata': 'Q330362'}),
     ]),
+    # Öarna (Kingdom of the Isles 1085–1176, Kingdom of Mann 1177–1271) ritar Cliopatria både som eget kungarike och i Norge; de
+    # klipps bort ur Norgesväldet och visas som Kungariket Man (#1742).
     # Norge ingår i Nordsjöväldet 1028–1039 i Cliopatria, som också har Old Kingdom of Norway de åren; Norge klipps bort ur
     # Norgesväldet då, så att det inte ritas två gånger (#1602).
     'norgesvaldet': ('Norgesväldet', 'Old Kingdom of Norway', [
         ('Old Kingdom of Norway', 'norgesvaldet', 'Norgesväldet', '#4a8a9a', {'en': 'Old Kingdom of Norway', 'wikidata': 'Q2196956',
-                                                                          'minus': [('North Sea Empire', 1028, 1039)], 'minusKeepWestOf': 4.0}),
+                                                                          'minus': [('North Sea Empire', 1028, 1039), ('Kingdom of the Isles', 1085, 1176),
+                                                                                    ('Kingdom of Mann', 1177, 1271),
+                                                                                    # Cliopatrias Norge 1066–1187 har en bit av Yorkshire som
+                                                                                    # också är England; den klipps bort (#1742)
+                                                                                    ('Norman England', 1072, 1168), ('Angevin Empire', 1169, 1187)],
+                                                                          'minusKeepWestOf': (4.0, ('North Sea Empire',))}),
     ]),
     # Nordsjöväldet (#1602, DasKrokodils beslut 2026-11-15, alternativ A): Cliopatrias tre poster med deras egna gränser och år.
     # Regentlängderna säger något annat (Danmark–England 1040–1042, Norge–Danmark 1042–1047); det står öppet i faktarutan.
@@ -1304,7 +1311,15 @@ GROUPS = {
         ('Kingdom of Alba', 'alba', 'Alba', '#4a6aa0', {'en': 'Kingdom of Alba', 'wikidata': 'Q1991742'}),
         # splits 1552 och 1556: Cliopatrias del av dagens Nordirland ska inte slås ihop bort vid den finare förenklingen
         ('Kingdom of Scotland', 'kungariket-skottland', 'Kungariket Skottland', '#4a6aa0', {'en': 'Kingdom of Scotland', 'wikidata': 'Q230791',
-                                                                                         'splits': (1552, 1556)}),
+                                                                                         'splits': (1344, 1402, 1552, 1556),
+                                                                                         # Isle of Man 1344–1401 är egen post i Cliopatria (#1742)
+                                                                                         'minus': [('Isle of Man', 1344, 1401)]}),
+    ]),
+    # Kungariket Man (#1742, DasKrokodils ja 2026-11-15): Cliopatrias Kingdom of the Isles 1085–1176 och Kingdom of Mann 1177–1271
+    # som en del (båda Q459188), och Isle of Man 1344–1401 som egen del; Cliopatrias Q9676 är dagens kronbesittning och används inte.
+    'kungariket-man': ('Kungariket Man', 'Kingdom of the Isles', [
+        (['Kingdom of the Isles', 'Kingdom of Mann'], 'kungariket-man', 'Kungariket Man', '#5a8a8a', {'en': 'Kingdom of the Isles', 'wikidata': 'Q459188'}),
+        ('Isle of Man', 'isle-of-man', 'Isle of Man', '#5a8a8a', {'en': 'Isle of Man', 'wikidata': None}),
     ]),
     'strathclyde': ('Strathclyde', 'Kingdom of Strathclyde', [
         ('Strathclyde', 'strathclyde', 'Strathclyde', '#6a9a5a', {'en': 'Kingdom of Strathclyde', 'wikidata': 'Q225890'}),
@@ -1986,9 +2001,13 @@ def minus_others(items, names, by_name, keep_west_of=None):
                 # keep_west_of (längdgrad): av det som klippningen lämnar behålls bara delar vars mitt ligger väster om den. Öster om
                 # den blir bara remsor kvar där två Cliopatria-gränser inte är ritade exakt lika, inget eget område (Norge ur
                 # Nordsjöväldet 1028–1039: kvar blir norra och västra Skottland och öarna, men inte remsor vid norska kusten, #1602)
-                if keep_west_of is not None and not ng.is_empty:
+                # keep_west_of = (längdgrad, namn): gäller bara de år någon av de namngivna staterna klipps (#1742), så att
+                # andra minus samma grupp inte tar bort fastlandet
+                kw = keep_west_of[0] if keep_west_of and any(f['properties']['Name'] in keep_west_of[1] for f in feats
+                                                             if start(f) <= s <= end(f)) else None
+                if kw is not None and not ng.is_empty:
                     parts = [q for q in (ng.geoms if hasattr(ng, 'geoms') else [ng])
-                             if q.geom_type == 'Polygon' and q.centroid.x < keep_west_of]
+                             if q.geom_type == 'Polygon' and q.centroid.x < kw]
                     ng = MultiPolygon(parts) if len(parts) > 1 else (parts[0] if parts else Polygon())
                 out.append((s, e - 1, ng, km2(ng)))
             else:

@@ -39675,6 +39675,106 @@
    }
   },
   {
+   "id": "kungariket-man",
+   "name": {
+    "sv": "Kungariket Man",
+    "en": "Kingdom of the Isles",
+    "de": "Königreich der Inseln",
+    "es": "Reino de Mann y las Islas",
+    "fr": "Royaume de Man et des Îles"
+   },
+   "color": "#5a8a8a",
+   "from": 1085,
+   "to": 1401,
+   "file": "data/empires/kungariket-man.json",
+   "polities": [
+    {
+     "id": "kungariket-man",
+     "name": {
+      "sv": "Kungariket Man",
+      "en": "Kingdom of the Isles",
+      "de": "Königreich der Inseln",
+      "es": "Reino de Mann y las Islas",
+      "fr": "Royaume de Man et des Îles"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "isle-of-man",
+     "name": {
+      "sv": "Isle of Man",
+      "en": "Isle of Man",
+      "de": "Isle of Man",
+      "es": "Isla de Man",
+      "fr": "Île de Man"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Kungariket Man omfattade Isle of Man, öarna i Firth of Clyde och Inre och Yttre Hebriderna. Enligt engelska Wikipedia stod det länge under norsk överhöghet. Genom Perthfördraget 1266 överläts öarna och Man till Skottland.",
+     "en": "The Kingdom of the Isles comprised the Isle of Man, the islands of the Firth of Clyde and the Inner and Outer Hebrides. According to English Wikipedia it was long under Norwegian suzerainty. Through the Treaty of Perth in 1266 the islands and Man were ceded to Scotland.",
+     "de": "Das Königreich der Inseln umfasste die Isle of Man, die Inseln im Firth of Clyde sowie die Inneren und Äußeren Hebriden. Laut der englischen Wikipedia stand es lange unter norwegischer Oberhoheit. Durch den Vertrag von Perth 1266 wurden die Inseln und Man an Schottland abgetreten.",
+     "es": "El Reino de Mann y las Islas comprendía la isla de Man, las islas del Firth of Clyde y las Hébridas Interiores y Exteriores. Según la Wikipedia en inglés estuvo mucho tiempo bajo soberanía noruega. Por el Tratado de Perth de 1266 las islas y Man fueron cedidas a Escocia.",
+     "fr": "Le royaume de Man et des Îles comprenait l'île de Man, les îles du Firth of Clyde et les Hébrides intérieures et extérieures. Selon la Wikipédia en anglais, il fut longtemps sous suzeraineté norvégienne. Par le traité de Perth de 1266, les îles et Man furent cédées à l'Écosse."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod",
+       "en": "When and where it arose",
+       "de": "Entstehung",
+       "es": "Cuándo y dónde surgió",
+       "fr": "Quand et où il est apparu"
+      },
+      "text": {
+       "sv": "Engelska Wikipedia anger att riket bildades omkring 849. Godred Crovan tog Isle of Man 1079, och 1164 delades riket mellan Crovan-ätten och Somerled-ätten.",
+       "en": "English Wikipedia states that the kingdom was formed around 849. Godred Crovan took the Isle of Man in 1079, and in 1164 the kingdom was divided between the Crovan and Somerled dynasties.",
+       "de": "Die englische Wikipedia gibt an, dass das Reich um 849 entstand. Godred Crovan nahm 1079 die Isle of Man ein, und 1164 wurde das Reich zwischen den Dynastien Crovan und Somerled geteilt.",
+       "es": "La Wikipedia en inglés indica que el reino se formó hacia 849. Godred Crovan tomó la isla de Man en 1079, y en 1164 el reino se dividió entre las dinastías de Crovan y de Somerled.",
+       "fr": "La Wikipédia en anglais indique que le royaume fut formé vers 849. Godred Crovan prit l'île de Man en 1079, et en 1164 le royaume fut partagé entre les dynasties de Crovan et de Somerled."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade",
+       "en": "How it ended",
+       "de": "Wie es endete",
+       "es": "Cómo terminó",
+       "fr": "Comment il a pris fin"
+      },
+      "text": {
+       "sv": "Efter Håkon Håkonssons misslyckade fälttåg och hans död på Orkney i december 1263 överläts öarna och Man till Skottland genom Perthfördraget 1266. Enligt artikeln om Isle of Mans historia blev den skotska kontrollen fast först 1275. På 1300-talet styrdes ön ibland av England och ibland av Skottland, och 1405 gav Henrik IV den till John Stanley.",
+       "en": "After Haakon Haakonarson's failed expedition and his death on Orkney in December 1263, the islands and Man were ceded to Scotland through the Treaty of Perth in 1266. According to the article on the history of the Isle of Man, Scottish control only became firm in 1275. In the 14th century the island was sometimes under English and sometimes under Scottish rule, and in 1405 Henry IV granted it to John Stanley.",
+       "de": "Nach dem gescheiterten Feldzug Håkon Håkonssons und seinem Tod auf Orkney im Dezember 1263 wurden die Inseln und Man durch den Vertrag von Perth 1266 an Schottland abgetreten. Laut dem Artikel zur Geschichte der Isle of Man wurde die schottische Kontrolle erst 1275 gefestigt. Im 14. Jahrhundert stand die Insel mal unter englischer, mal unter schottischer Herrschaft, und 1405 übertrug Heinrich IV. sie John Stanley.",
+       "es": "Tras la fallida expedición de Haakon Haakonarson y su muerte en las Orcadas en diciembre de 1263, las islas y Man fueron cedidas a Escocia por el Tratado de Perth de 1266. Según el artículo sobre la historia de la isla de Man, el control escocés solo se consolidó en 1275. En el siglo XIV la isla estuvo unas veces bajo dominio inglés y otras bajo dominio escocés, y en 1405 Enrique IV se la concedió a John Stanley.",
+       "fr": "Après l'expédition manquée de Håkon Håkonsson et sa mort aux Orcades en décembre 1263, les îles et Man furent cédées à l'Écosse par le traité de Perth de 1266. Selon l'article sur l'histoire de l'île de Man, le contrôle écossais ne devint ferme qu'en 1275. Au XIVe siècle, l'île fut tantôt sous domination anglaise, tantôt sous domination écossaise, et en 1405 Henri IV la donna à John Stanley."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna skiljer sig. Kartan följer Cliopatria: Kungariket Man 1085–1271 och Isle of Man 1344–1401. Engelska Wikipedia anger att riket bildades omkring 849 och att öarna gick till Skottland 1265 eller 1266, och Wikidata anger 900–1266. Cliopatria räknar öarna också till Norge och Isle of Man 1344–1401 också till Skottland; på kartan visas de de åren bara här. Cliopatria räknar 1094–1168 också ett område kring Dublin till riket. Gränserna är Cliopatrias uppskattning.",
+     "en": "The sources differ. The map follows Cliopatria: the Kingdom of the Isles in 1085–1271 and the Isle of Man in 1344–1401. English Wikipedia states that the kingdom was formed around 849 and that the islands passed to Scotland in 1265 or 1266, and Wikidata gives 900–1266. Cliopatria also counts the islands to Norway and the Isle of Man in 1344–1401 also to Scotland; on the map they are shown only here in those years. In 1094–1168 Cliopatria also counts an area around Dublin to the kingdom. The borders are Cliopatria's estimate.",
+     "de": "Die Quellen weichen voneinander ab. Die Karte folgt Cliopatria: das Königreich der Inseln 1085–1271 und die Isle of Man 1344–1401. Die englische Wikipedia gibt an, dass das Reich um 849 entstand und die Inseln 1265 oder 1266 an Schottland fielen, und Wikidata nennt 900–1266. Cliopatria zählt die Inseln auch zu Norwegen und die Isle of Man 1344–1401 auch zu Schottland; auf der Karte werden sie in diesen Jahren nur hier gezeigt. 1094–1168 zählt Cliopatria auch ein Gebiet um Dublin zum Reich. Die Grenzen sind eine Schätzung von Cliopatria.",
+     "es": "Las fuentes difieren. El mapa sigue a Cliopatria: el Reino de Mann y las Islas en 1085–1271 y la isla de Man en 1344–1401. La Wikipedia en inglés indica que el reino se formó hacia 849 y que las islas pasaron a Escocia en 1265 o 1266, y Wikidata indica 900–1266. Cliopatria cuenta las islas también en Noruega y la isla de Man en 1344–1401 también en Escocia; en el mapa se muestran esos años solo aquí. En 1094–1168 Cliopatria cuenta también una zona en torno a Dublín en el reino. Las fronteras son una estimación de Cliopatria.",
+     "fr": "Les sources divergent. La carte suit Cliopatria : le royaume de Man et des Îles en 1085–1271 et l'île de Man en 1344–1401. La Wikipédia en anglais indique que le royaume fut formé vers 849 et que les îles passèrent à l'Écosse en 1265 ou 1266, et Wikidata indique 900–1266. Cliopatria compte aussi les îles dans la Norvège et l'île de Man en 1344–1401 aussi dans l'Écosse ; sur la carte, elles ne sont montrées ici que ces années-là. En 1094–1168, Cliopatria compte aussi une zone autour de Dublin dans le royaume. Les frontières sont une estimation de Cliopatria."
+    },
+    "sources": [
+     "wp-kingdom-of-the-isles",
+     "wp-history-isle-of-man",
+     "wd-kungariket-man"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
    "id": "strathclyde",
    "name": {
     "sv": "Strathclyde",
