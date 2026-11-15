@@ -21130,20 +21130,6 @@
    },
    "emblems": [
     {
-     "kind": "flag",
-     "file": "skane-banner",
-     "caption": {
-      "sv": "Skånes landskapsflagga (vapenflagga)",
-      "en": "Provincial flag of Scania (banner of arms)",
-      "de": "Provinzflagge von Schonen (Wappenbanner)",
-      "es": "Bandera provincial de Escania (bandera de armas)",
-      "fr": "Drapeau provincial de Scanie (bannière armoriée)"
-     },
-     "credit": "Tgbsww efter Lokal_Profil, Wikimedia Commons",
-     "license": "CC BY-SA 3.0",
-     "source": "commons-vapenflagga-skane"
-    },
-    {
      "kind": "arms",
      "file": "skane-arms",
      "caption": {
@@ -21164,8 +21150,6 @@
     "lex-skane",
     "wp-sv-skane",
     "wp-sv-skane-lan",
-    "wp-sv-skanes-flagga",
-    "commons-vapenflagga-skane",
     "commons-landskapsvapen-skane"
    ],
    "review": "source-checked"
