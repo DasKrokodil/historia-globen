@@ -390,6 +390,8 @@
   "regionView.open": "Open the fact box: {n}. {title}",
   "regionView.marks": "Events on the map: {place}",
   "regionView.keys": "The arrow keys move between the markers in the order of the events list. Enter highlights a marker, and pressing Enter again opens the fact box. Enter on a stack or badge fans it out, and Escape folds it up.",
+  "regionView.placeCut": [" near ", " at ", " outside ", " north of ", " west of ", " east of ", " south of ", " and ", " between "],
+  "regionView.placePrefix": ["north of ", "west of ", "east of ", "south of ", "near ", "by "],
   "regionView.legend": "Dashed ring: approximate location",
   "regionView.pileApprox": ["{n} of them with an approximate location", "{n} of them with an approximate location"],
   "regionView.fanOpen": ["{name} fanned out, {n} event", "{name} fanned out, {n} events"],

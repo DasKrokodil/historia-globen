@@ -390,6 +390,8 @@
   "regionView.open": "Abrir la ficha: {n}. {title}",
   "regionView.marks": "Acontecimientos en el mapa: {place}",
   "regionView.keys": "Las flechas pasan de un marcador a otro en el orden de la lista. Intro resalta un marcador y otro Intro abre la ficha. Intro sobre una pila o etiqueta la despliega, y Escape la vuelve a plegar.",
+  "regionView.placeCut": [" cerca de ", " junto a ", " en las afueras de ", " al norte de ", " al oeste de ", " al este de ", " al sur de ", " y ", " entre "],
+  "regionView.placePrefix": ["al norte de ", "al oeste de ", "al este de ", "al sur de ", "cerca de ", "junto a "],
   "regionView.legend": "Anillo discontinuo: lugar aproximado",
   "regionView.pileApprox": ["{n} de ellos con lugar aproximado", "{n} de ellos con lugar aproximado"],
   "regionView.fanOpen": ["Desplegado: {name}, {n} acontecimiento", "Desplegado: {name}, {n} acontecimientos"],

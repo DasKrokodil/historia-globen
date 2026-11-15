@@ -4,13 +4,18 @@
 //
 // Numret är radens nummer i listan "Händelser på platsen" (platsens händelser i tidsordning, js/focus/place.js), så att kartan och
 // listan säger samma sak. En händelse vars plats är hela platsen ("Skåne", "Danmark (markören i Köpenhamn)") ritas inte som en prick
-// på en påhittad punkt utan står i brickan "Hela Skåne". En händelse med ungefärlig plats som gäller en del av platsen (Barum,
-// Trundholms mosse) står kvar på sin punkt och märks som ungefärlig. Händelser som hamnar på samma ställe på skärmen läggs i en
+// på en påhittad punkt utan står i brickan "Hela Skåne". Alla andra händelser med ungefärlig plats (Barum, Trundholms mosse, "Skåne,
+// Bohuslän, Östersjön och Nordtyskland") står kvar på sin punkt och märks som ungefärliga. Händelser som hamnar på samma ställe på skärmen läggs i en
 // hög med ortnamn och årsspann, med samma klustring som globen (js/ui/clusters.js).
 import { cluster } from './ui/clusters.js';
 
 /** Högens radie i skärmpixlar: markörer närmare än så läggs i en hög (markören är 24 px bred och högens bricka 30 px). */
 export const PILE_PX = 28;
+/**
+ * Högens radie på pekskärm och smal skärm. Tryckytan är 44 px; med 36 px går två tryckytor in högst 8 px i varandra medan de synliga
+ * markörerna (24 och 30 px) ligger isär. 44 px gjorde Danmark i 400 px till två högar, så 36 är kompromissen (36–44 i granskningen).
+ */
+export const PILE_PX_TOUCH = 36;
 /** Markörens storlek och luften mellan markörerna i en solfjäder (skärmpixlar). */
 export const MARK_PX = 26, FAN_GAP = 8;
 /** Högens runda bricka med antalet (skärmpixlar). */
@@ -29,16 +34,19 @@ export function km([lon1, lat1], [lon2, lat2]) {
 
 /**
  * Gäller händelsen hela platsen? Bara när platsen är ungefärlig (`locationPrecision` `region` eller `country`) och händelsens egen
- * platstext börjar med platsens namn ("Skåne", "Skåne, särskilt Göinge", "Danmark (markören i Köpenhamn)"). Båda texterna jämförs på
- * svenska, som datan skrivs först på (CLAUDE.md, Språk), så att svaret är detsamma på alla språk. "Barum vid Oppmannasjön" och
- * "Köpenhamn (ungefärlig)" gäller en del av platsen och står kvar på sin punkt.
+ * platstext är exakt platsens namn ("Skåne") eller namnet följt av "(markören i …)" ("Danmark (markören i Köpenhamn)"). Allt annat,
+ * till exempel "Skåne, Bohuslän, Östersjön och Nordtyskland", "Skåne, särskilt Göinge" eller "Skåne (freden slöts vid floden Ejdern)",
+ * gäller inte hela platsen och står kvar på sin punkt som ungefärlig. Båda texterna jämförs på svenska, som datan skrivs först på
+ * (CLAUDE.md, Språk), så att svaret är detsamma på alla språk. Det är en heuristik på svensk platstext: ett eget fält i händelsen är
+ * rätt väg och kräver ett beslut (docs/beslut/2026-11-14-regionvy-steg-1b-1642.md).
  */
 export function wholePlace(e, place) {
   if (!e?.locationPrecision) return false;
   const name = String(place?.name?.sv ?? '').trim();
   const where = String(typeof e.place === 'string' ? e.place : e.place?.sv ?? '').trim();
   if (!name || !where.startsWith(name)) return false;
-  return where.length === name.length || /^[\s,(;:–-]/.test(where.slice(name.length));
+  const rest = where.slice(name.length).trim();
+  return rest === '' || /^\(markören i [^()]+\)$/.test(rest);
 }
 
 /**
@@ -59,15 +67,17 @@ export function groupMarkers(items, toScreen, radius = PILE_PX) {
   const { singles, clusters } = cluster(pts, radius);
   const mid = members => ({ x: members.reduce((s, m) => s + m.p.x, 0) / members.length, y: members.reduce((s, m) => s + m.p.y, 0) / members.length });
   // Klustringen utgår från högens första markör. Högen ritas i medlemmarnas mitt, så en markör eller hög som hamnar närmare den
-  // mitten än radien läggs i samma hög, annars ligger de ovanpå varandra
+  // mitten än radien läggs i samma hög, annars ligger de ovanpå varandra. En hög får dock inte bli bredare än radien åt något håll
+  // från sin mitt än 1,5 gånger radien (spread), så att den inte växer kedjevis över hela platsen
+  const spread = g => { const c = mid(g); return Math.max(...g.map(m => Math.hypot(m.p.x - c.x, m.p.y - c.y))); };
   let groups = clusters.map(c => [...c.members]), rest = [...singles];
   for (let changed = true; changed;) {
     changed = false;
     for (let i = 0; i < groups.length && !changed; i++) {
       const c = mid(groups[i]);
-      const s = rest.find(it => Math.hypot(it.p.x - c.x, it.p.y - c.y) < radius);
+      const s = rest.find(it => Math.hypot(it.p.x - c.x, it.p.y - c.y) < radius && spread([...groups[i], it]) <= radius * 1.5);
       if (s) { groups[i].push(s); rest = rest.filter(it => it !== s); changed = true; continue; }
-      const j = groups.findIndex((g, k) => k !== i && Math.hypot(mid(g).x - c.x, mid(g).y - c.y) < radius);
+      const j = groups.findIndex((g, k) => k !== i && Math.hypot(mid(g).x - c.x, mid(g).y - c.y) < radius && spread([...groups[i], ...g]) <= radius * 1.5);
       if (j >= 0) { groups[i].push(...groups[j]); groups = groups.filter((_, k) => k !== j); changed = true; }
     }
   }
@@ -85,11 +95,27 @@ export function yearSpan(members) {
 }
 
 /**
- * Högens namn. Varje händelse får ett namn: den närmaste orten ur ortnamnsfilen inom NAME_KM, annars första ledet i händelsens egen
- * platstext ("Lund, Skåne" ger Lund). Har fler än hälften av händelserna samma namn blir det högens namn; annars de två vanligaste,
- * med "…" om det finns fler ("Egtved, Jelling …"). tx plockar text på sidans språk (t()). Inga namn står i koden: allt kommer ur datan.
+ * Ortnamnet i en platstext: första ledet (före komma, parentes eller semikolon), utan ett inledande "norr om" och kapat vid "vid",
+ * "nära", "utanför", "och" och liknande, så att det blir ett ortnamn och inte en fras ("Gallehus nära Møgeltønder" ger Gallehus,
+ * "Norr om Lund" ger Lund, "Lund och Malmö" ger Lund). words = { cut, prefix }: orden på sidans språk ur data/ui
+ * (`regionView.placeCut`, `regionView.placePrefix`), med mellanslag runt; utan dem bara första ledet.
  */
-export function pileName(members, names, tx) {
+export function placeWord(text, words = {}) {
+  let s = String(text ?? '').split(/[,(;]/)[0].trim();
+  const low = () => s.toLocaleLowerCase();
+  for (const p of words.prefix ?? []) if (low().startsWith(p.toLocaleLowerCase())) { s = s.slice(p.length).trim(); break; }
+  let at = s.length;
+  for (const c of words.cut ?? []) { const i = low().indexOf(c.toLocaleLowerCase()); if (i > 0 && i < at) at = i; }
+  return s.slice(0, at).trim();
+}
+
+/**
+ * Högens namn. Varje händelse får ett namn: den närmaste orten ur ortnamnsfilen inom NAME_KM, annars ortnamnet i händelsens egen
+ * platstext (placeWord). Har fler än hälften av händelserna samma namn blir det högens namn; annars de två vanligaste, med "…" om
+ * det finns fler ("Egtved, Jelling …"). tx plockar text på sidans språk (t()), words är orden som placeWord kapar vid. Inga namn
+ * står i koden: allt kommer ur datan.
+ */
+export function pileName(members, names, tx, words = {}) {
   const counts = new Map();
   for (const m of members) {
     let best = null, bestKm = NAME_KM;
@@ -97,7 +123,7 @@ export function pileName(members, names, tx) {
       const d = km(pl.coordinates, [m.e._lon, m.e._lat]);
       if (d <= bestKm) { best = pl; bestKm = d; }
     }
-    const name = best ? tx(best.name) : String(tx(m.e.place) ?? '').split(/[,(;]/)[0].trim();
+    const name = best ? tx(best.name) : placeWord(tx(m.e.place), words);
     if (name) counts.set(name, (counts.get(name) ?? 0) + 1);
   }
   const sorted = [...counts].sort((a, b) => b[1] - a[1]); // stabil: vid lika många den som kom först i listan
@@ -154,6 +180,23 @@ export function tagSpot(c, { w, h }, off, blocked, W, H, crosses = () => false, 
   const free = opts.map(o => ({ side: o.side, box: { x0: o.x0, y0: o.y0, x1: o.x0 + w, y1: o.y0 + h } }))
     .filter(({ box }) => box.x0 >= 2 && box.y0 >= 2 && box.x1 <= W - 2 && box.y1 <= H - 2 && !blocked.some(b => overlaps(box, b)));
   return free.find(o => !crosses(o.box)) ?? free[0] ?? null;
+}
+
+/**
+ * Var brickan ska stå: helst vid nominal ({ x, y } = nedre mitten), men inte på något i covers (zoomknapparna, kortet, rutan).
+ * size = { w, h } är tryckytan. Brickan flyttas i sidled förbi det som täcker, annars ned under det. Ger { x, y }.
+ */
+export function brickSpot(nominal, { w, h }, covers, W, H, pad = 6) {
+  const boxAt = (x, y) => ({ x0: x - w / 2, y0: y - h, x1: x + w / 2, y1: y });
+  const fits = (x, y) => { const b = boxAt(x, y); return b.x0 >= pad && b.x1 <= W - pad && b.y0 >= pad && b.y1 <= H - pad && !covers.some(c => overlaps(b, c)); };
+  const clampX = x => Math.min(Math.max(x, w / 2 + pad), W - w / 2 - pad);
+  const x0 = clampX(nominal.x), y0 = Math.min(Math.max(nominal.y, h + pad), H - pad);
+  if (fits(x0, y0)) return { x: x0, y: y0 };
+  const tries = [];
+  for (const c of covers) tries.push({ x: clampX(c.x0 - w / 2 - pad), y: y0 }, { x: clampX(c.x1 + w / 2 + pad), y: y0 });
+  tries.sort((a, b) => Math.abs(a.x - x0) - Math.abs(b.x - x0));
+  for (const c of covers) tries.push({ x: x0, y: c.y1 + h + pad });
+  return tries.find(t => fits(t.x, t.y)) ?? { x: x0, y: y0 };
 }
 
 /** Ordningen som namnen prövas i: orter med händelser, sedan grannländer, sedan hav och övriga orter efter storlek (rank). */

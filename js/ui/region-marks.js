@@ -8,17 +8,21 @@
 // högarna, brickan och etiketten är riktiga knappar med aria-label i kartans etikettlager, i listans ordning, så att Tab går i
 // samma ordning som listan och piltangenterna går mellan dem. Enter på en markör markerar den (raden i listan får ram), Enter igen
 // eller etiketten öppnar faktarutan; Enter på en hög eller brickan fäller ut den, och Escape fäller ihop (controllers/region.js).
-import { regionItems, groupMarkers, pileName, yearSpan, fanLayout, rowLayout, nameCandidates, placeNames, crossesEdge, tagSpot, MARK_PX, PILE_BADGE } from '../region-markers.js';
+import { regionItems, groupMarkers, pileName, yearSpan, fanLayout, rowLayout, nameCandidates, placeNames, crossesEdge, tagSpot, brickSpot,
+  MARK_PX, PILE_BADGE, PILE_PX, PILE_PX_TOUCH } from '../region-markers.js';
 import { inGeometry } from '../place-geo.js';
-import { CAT, t, formatEventTime } from '../model.js';
+import { CAT, t, formatEventTime, pluralUi } from '../model.js';
 import { ui } from '../i18n.js';
+import { say } from './status.js';
 
 const span = (from, to) => formatEventTime({ start: from, end: to, edtf: '' });
-/** Text i ental eller flertal ur språkfilen ([en, flera]) med {n} och övriga variabler ifyllda. */
-export function plural(key, n, vars = {}) {
-  const v = ui(key);
-  return String(Array.isArray(v) ? v[n === 1 ? 0 : 1] : v).replace(/\{(\w+)\}/g, (m, k) => (k === 'n' ? String(n) : vars[k] ?? m));
-}
+/** Pekskärm eller smal skärm: tryckytan är 44 px, och högarnas radie växer så att tryckytorna inte går in i varandra. */
+const touchLike = () => typeof matchMedia === 'function' && matchMedia('(pointer: coarse), (max-width: 760px)').matches;
+/** Beskeden på statusraden när något fälls ut, fälls ihop eller markeras på kartan (svaret på ett tryck). */
+const tell = text => say(text, 'plats', { priority: 2, immediate: true });
+/** Orden som kapar en platstext till ett ortnamn (högens namn), på sidans språk. */
+const list = key => { const v = ui(key); return Array.isArray(v) ? v : []; };
+const placeWords = () => ({ cut: list('regionView.placeCut'), prefix: list('regionView.placePrefix') });
 /** Fonterna för ortnamnen på kartan (samma familjer som sidan: Instrument Sans och IM Fell English, CLAUDE.md, Utseende). */
 const FONT = {
   place: '600 11.5px "Instrument Sans", system-ui, sans-serif',
@@ -143,7 +147,8 @@ export class RegionMarks {
       if (sel && c.byId.has(sel)) { this.mark = sel; this._wantOpen = sel; }
     }
     const toScreen = (lat, lon) => map._toScreen(lat, lon, W);
-    const L = this._layout = groupMarkers(c.items, toScreen);
+    const touch = touchLike();
+    const L = this._layout = groupMarkers(c.items, toScreen, touch ? PILE_PX_TOUCH : PILE_PX);
     // Det som ska fällas ut: högen eller brickan med den markerade raden
     if (this._wantOpen) {
       const id = this._wantOpen;
@@ -155,25 +160,29 @@ export class RegionMarks {
     const openPile = this.open && this.open !== 'brick' ? L.piles.find(p => p.members.some(m => m.e.id === this.open)) : null;
     if (this.open && this.open !== 'brick' && !openPile) this.open = null; // högen finns inte längre (zoomat in)
     const want = []; // [key, el, x, y] i listans ordning
-    const blocked = map.regionCovers?.() ?? [];
+    const covers = map.regionCovers?.() ?? [];
+    const blocked = [...covers];
     const visible = (x, y, m = 0) => x >= -m && x <= W + m && y >= -m && y <= H + m;
     const hl = id => id && (id === this.mark || id === this.hover);
     const R = MARK_PX / 2;
 
-    // Brickan vid platsens namn: ovanför platsens ruta, inne på kartan
+    // Brickan vid platsens namn: ovanför platsens ruta, inne på kartan, och inte under zoomknapparna, kortet eller rutan (med hela
+    // tryckytan, 44 px på pekskärm)
     const b = map._region?.bounds;
     let brickPos = null;
-    if (L.brick.length && b) {
+    const brickEl = L.brick.length && b ? this._brick(L.brick, c.place) : null;
+    if (brickEl) {
       const top = toScreen(b.north, (b.west + b.east) / 2);
-      brickPos = { x: Math.min(Math.max(top.x, 70), W - 70), y: Math.max(top.y - 8, 40) };
+      const size = { w: (brickEl._w ?? 140) + (touch ? 8 : 0), h: touch ? 44 : 34 };
+      brickPos = brickSpot({ x: top.x, y: top.y - 8 - (touch ? 7 : 0) }, size, covers, W, H);
+      if (touch) brickPos.y -= 7; // nedre kanten på den synliga brickan, tryckytan sticker ut 7 px under
     }
-    const brickEl = brickPos ? this._brick(L.brick, c.place) : null;
     // Den utfällda solfjäderns yta: markörer och högar under den tonas ned och går inte att trycka på medan den är utfälld
     // Solfjädern ryms i den fria delen av kartan (inte under kortet, arket eller fokusraden, region-frame.js freeArea)
     const fr = map.regionFree?.() ?? { x: 0, y: 0, w: W, h: H };
     const fanAt = openPile && fanLayout(openPile.members.length, { x: openPile.x - fr.x, y: openPile.y - fr.y }, { W: fr.w, H: fr.h, minR: PILE_BADGE / 2 + R + 14 });
     const fan = fanAt ? { ...fanAt, cx: fanAt.cx + fr.x, cy: fanAt.cy + fr.y, points: fanAt.points.map(q => ({ x: q.x + fr.x, y: q.y + fr.y })) } : null;
-    const brickRow = this.open === 'brick' && brickPos ? rowLayout(L.brick.length, { x: brickPos.x, y: brickPos.y + 6 }, { W }) : null;
+    const brickRow = this.open === 'brick' && brickPos ? rowLayout(L.brick.length, { x: brickPos.x, y: brickPos.y + (touch ? 12 : 6) }, { W }) : null;
     const under = (x, y, r) => (fan && Math.hypot(x - fan.cx, y - fan.cy) < fan.r + R + r)
       || (brickRow && brickRow.some(q => Math.abs(q.x - x) < R + r && Math.abs(q.y - y) < R + r));
 
@@ -188,7 +197,7 @@ export class RegionMarks {
       if (entry.kind === 'brick') {
         want.push(['brick', brickEl, brickPos.x, brickPos.y]);
         const bw = brickEl._w ?? 120;
-        blocked.push({ x0: brickPos.x - bw / 2, y0: brickPos.y - 34, x1: brickPos.x + bw / 2, y1: brickPos.y });
+        blocked.push({ x0: brickPos.x - bw / 2, y0: brickPos.y - 34, x1: brickPos.x + bw / 2, y1: brickPos.y + (touch ? 7 : 0) });
         brickEl.classList.toggle('is-marked', L.brick.some(it => hl(it.e.id)) && this.open !== 'brick');
         if (brickRow) {
           const pts = brickRow;
@@ -237,10 +246,18 @@ export class RegionMarks {
     const geom = c.place?.boundary?.geometry;
     const inside = (x, y) => { const ll = map._lonLat({ x, y }); return !!geom && inGeometry(geom, ll.lon, ll.lat); };
     const crosses = bx => crossesEdge(bx, inside);
+    // Ryms inte namnet med årsspannet prövas bara namnet (en kort etikett), så att högen nästan alltid har ett namn
     for (const { el, p } of tags) {
       const tag = el.querySelector('.rpile-tag');
-      if (tag._w === undefined) { tag._w = tag.offsetWidth || 90; tag._h = tag.offsetHeight || 30; }
-      const spot = tagSpot(p, { w: tag._w, h: tag._h }, PILE_BADGE / 2 + 4, blocked, W, H, crosses);
+      if (tag._w === undefined) {
+        el.classList.remove('tag-short');
+        tag._w = tag.offsetWidth || 90; tag._h = tag.offsetHeight || 30;
+        el.classList.add('tag-short');
+        tag._ws = tag.offsetWidth || 60; tag._hs = tag.offsetHeight || 18;
+      }
+      let spot = tagSpot(p, { w: tag._w, h: tag._h }, PILE_BADGE / 2 + 4, blocked, W, H, crosses), short = false;
+      if (!spot) { spot = tagSpot(p, { w: tag._ws, h: tag._hs }, PILE_BADGE / 2 + 4, blocked, W, H, crosses); short = !!spot; }
+      el.classList.toggle('tag-short', short);
       el.dataset.tag = spot?.side ?? 'none';
       if (spot) blocked.push(spot.box);
     }
@@ -359,8 +376,9 @@ export class RegionMarks {
       b.type = 'button'; b.className = 'rmark';
       b.addEventListener('click', () => {
         // Första trycket markerar (raden i listan får ram), nästa öppnar faktarutan
-        if (this.mark === it.e.id) this.onSelect?.(it.e.id);
-        else this.setMark(it.e.id, { open: false, from: 'map' });
+        if (this.mark === it.e.id) { this.onSelect?.(it.e.id); return; }
+        this.setMark(it.e.id, { open: false, from: 'map' });
+        tell(ui('regionView.marked', { n: it.n, title: t(it.e.title) }));
       });
       b.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') this.setHover(it.e.id); });
       b.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') this.setHover(null); });
@@ -372,13 +390,15 @@ export class RegionMarks {
       el.style.setProperty('--c', CAT[it.e.category]?.color ?? cssVar('--brass'));
       el.classList.toggle('is-approx', it.approx);
       el.dataset.event = it.e.id; el.dataset.n = String(it.n);
-      el.setAttribute('aria-label', `${ui('regionView.markLabel', { n: it.n, title: t(it.e.title), time: formatEventTime(it.e) })}${it.approx ? `, ${ui('place.approx')}` : ''}`);
+      el._label = `${ui('regionView.markLabel', { n: it.n, title: t(it.e.title), time: formatEventTime(it.e) })}${it.approx ? `, ${ui('place.approx')}` : ''}`;
     }
     el.classList.toggle('rfan', fan);
     el.classList.toggle('in-brick', fan && it.whole); // brickan säger redan att platsen är hela platsen
     const on = it.e.id === this.mark;
     el.classList.toggle('is-marked', on || it.e.id === this.hover);
     el.setAttribute('aria-pressed', String(on));
+    // Markerad: namnet säger steg två, att Enter eller ett tryck till öppnar faktarutan
+    el.setAttribute('aria-label', on ? `${el._label}, ${ui('regionView.markedHint')}` : el._label);
     return el;
   }
 
@@ -390,10 +410,11 @@ export class RegionMarks {
       b.innerHTML = '<span class="rpile-count" aria-hidden="true"></span><span class="rpile-tag" aria-hidden="true"><span class="rpile-name"></span><span class="rpile-years"></span></span>';
       b.addEventListener('click', () => {
         const ids = (b._ids ?? []);
-        if (this.open && ids.includes(this.open)) { this.closeFan(); return; }
+        if (this.open && ids.includes(this.open)) { this.closeFan(); tell(ui('regionView.fanClosed', { name: b._name })); return; }
         this.open = ids[0];
         this._focusAfter = `fan:${ids[0]}`;
         this.map.draw();
+        tell(pluralUi('regionView.fanOpen', ids.length, { name: b._name }));
       });
       b.addEventListener('mouseenter', () => { b.classList.add('is-hover'); });
       b.addEventListener('mouseleave', () => { b.classList.remove('is-hover'); });
@@ -403,19 +424,23 @@ export class RegionMarks {
     if (el._sig !== sig) {
       el._sig = sig; el._ids = ids;
       const c = this.content;
-      const name = c.pileNames.get(sig) ?? pileName(p.members, this.names, t);
+      const name = c.pileNames.get(sig) ?? pileName(p.members, this.names, t, placeWords());
       c.pileNames.set(sig, name);
+      el._name = name;
       const { from, to } = yearSpan(p.members);
-      const years = span(from, to), count = plural('regionView.count', ids.length);
-      el.querySelector('.rpile-count').textContent = String(ids.length);
+      const years = span(from, to), count = pluralUi('regionView.count', ids.length);
+      // Hur många av händelserna i högen som har ungefärlig plats, i namnet för skärmläsare och i ledtexten
+      const approx = p.members.filter(m => m.approx).length;
+      const label = `${ui('regionView.pileLabel', { name, count, years, numbers: p.members.map(m => m.n).join(', ') })}${approx ? `, ${pluralUi('regionView.pileApprox', approx)}` : ''}`;
       el.querySelector('.rpile-name').textContent = name;
       el.querySelector('.rpile-years').textContent = years;
-      el.setAttribute('aria-label', ui('regionView.pileLabel', { name, count, years, numbers: p.members.map(m => m.n).join(', ') }));
+      el.setAttribute('aria-label', label);
+      el.title = label;
       el.querySelector('.rpile-tag')._w = undefined;
     }
     el.setAttribute('aria-expanded', String(isOpen));
-    // Utfälld visar högen ett kryss i stället för antalet, så att antalet inte läses som en händelses nummer i ringen runt den
-    el.querySelector('.rpile-count').textContent = isOpen ? '×' : String(ids.length);
+    // Antalet skrivs "×10", så att det inte förväxlas med ett nummer i listan; utfälld visar högen ett minus (fäll ihop)
+    el.querySelector('.rpile-count').textContent = isOpen ? '−' : `×${ids.length}`;
     return el;
   }
 
@@ -425,11 +450,13 @@ export class RegionMarks {
       const b = document.createElement('button');
       b.type = 'button'; b.className = 'rbrick';
       b.addEventListener('click', () => {
-        if (this.open === 'brick') { this.closeFan(); this.onMark?.([], 'brick'); return; }
+        const name = ui('regionView.brick', { place: t(this.content?.place?.name) });
+        if (this.open === 'brick') { this.closeFan(); this.onMark?.([], 'brick'); tell(ui('regionView.fanClosed', { name })); return; }
         this.open = 'brick';
         this._focusAfter = `fan:${this.brickIds[0]}`;
         this.map.draw();
         this.onMark?.(this.brickIds, 'brick'); // raderna i listan får ram
+        tell(pluralUi('regionView.fanOpen', this.brickIds.length, { name }));
       });
       return b;
     });
@@ -437,7 +464,7 @@ export class RegionMarks {
     if (el._sig !== sig) {
       el._sig = sig;
       el.textContent = `${ui('regionView.brick', { place: name })} · ${items.length}`;
-      el.setAttribute('aria-label', ui('regionView.brickLabel', { place: name, count: plural('regionView.count', items.length), numbers: items.map(it => it.n).join(', ') }));
+      el.setAttribute('aria-label', ui('regionView.brickLabel', { place: name, count: pluralUi('regionView.count', items.length), numbers: items.map(it => it.n).join(', ') }));
       el._w = undefined;
     }
     el.setAttribute('aria-expanded', String(this.open === 'brick'));
