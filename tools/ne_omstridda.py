@@ -16,8 +16,13 @@ Små stater som Cliopatria saknar eller har fel gräns för (#722, Rikards beslu
 ne_10m_admin_0_countries (SMALL nedan). De förenklas nästan inte, så att atollerna finns kvar, och visas som
 punkter på kartan.
 
-Kör från projektets rot, med de uppackade shapefilerna:
-    python3 tools/ne_omstridda.py <ne_10m_admin_0_disputed_areas.shp> <ne_10m_admin_0_countries.shp>
+Västtysklands delstater längs gränsen mot DDR (Schleswig-Holstein, Niedersachsen, Hessen och Bayern) tas ur
+ne_10m_admin_1_states_provinces (version 5.1.2, samma fil som tools/platser_gransar.py), eftersom Cliopatrias gräns mellan
+DDR och Västtyskland är grov (Ratzeburg ligger i Cliopatrias DDR, #1730).
+
+Kör från projektets rot, med de uppackade shapefilerna och delstaternas GeoJSON:
+    python3 tools/ne_omstridda.py <ne_10m_admin_0_disputed_areas.shp> <ne_10m_admin_0_countries.shp> \
+        <ne_10m_admin_1_states_provinces.geojson>
 Kräver pyshp och shapely (pip install pyshp shapely).
 """
 import json
@@ -26,6 +31,7 @@ from pathlib import Path
 
 import shapefile
 from shapely.geometry import mapping, shape
+from shapely.ops import unary_union
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / 'tools/ne-omstridda-omraden.geojson'
@@ -41,8 +47,10 @@ AREAS = {
     'transnistrien': 'Transnistria',
 }
 # Länders gränser ur ne_10m_admin_0_countries (ADM0_A3), förenklade till 0,01 grad
-COUNTRIES = {'azerbajdzjan': 'AZE'}
+COUNTRIES = {'azerbajdzjan': 'AZE', 'tyskland': 'DEU'}  # Tyskland: Selfkant och Elten efter 1963 (#1730)
 # Små stater (#722), ur samma fil men förenklade till bara 0,002 grader och avrundade till 0,001 grad
+# Delstater ur ne_10m_admin_1_states_provinces (adm1_code), sammanslagna och förenklade till 0,01 grad (#1730)
+STATES = {'vasttyska-granslander': ['DEU-1579', 'DEU-1576', 'DEU-1574', 'DEU-1591']}
 SMALL = {'saint-kitts-och-nevis': 'KNA', 'mikronesiska-federationen': 'FSM', 'kiribati': 'KIR', 'komorerna': 'COM',
          'liechtenstein': 'LIE', 'maldiverna': 'MDV', 'marshalloarna': 'MHL', 'nauru': 'NRU', 'samoa': 'WSM',
          'san-marino': 'SMR', 'tonga': 'TON', 'tuvalu': 'TUV', 'andorra': 'AND', 'monaco': 'MCO'}
@@ -81,6 +89,14 @@ def main():
                     m = mapping(shape(s.shape.__geo_interface__).buffer(0).simplify(tol, preserve_topology=True))
                     feats.append({'type': 'Feature', 'properties': {'id': key, 'name': a['NAME'], 'note': 'ne_10m_admin_0_countries'},
                                   'geometry': {'type': m['type'], 'coordinates': rnd(m['coordinates'])}})
+    if len(sys.argv) > 3:
+        states = {f['properties']['adm1_code']: f for f in json.loads(Path(sys.argv[3]).read_text())['features']}
+        for key, codes in STATES.items():
+            g = unary_union([shape(states[c]['geometry']).buffer(0) for c in codes])
+            m = mapping(g.simplify(0.01, preserve_topology=True))
+            feats.append({'type': 'Feature', 'properties': {'id': key, 'name': ', '.join(states[c]['properties']['name'] for c in codes),
+                                                            'note': 'ne_10m_admin_1_states_provinces 5.1.2'},
+                          'geometry': {'type': m['type'], 'coordinates': rnd(m['coordinates'])}})
     doc = {'type': 'FeatureCollection',
            'source': 'Natural Earth 1:10m, ne_10m_admin_0_disputed_areas och ne_10m_admin_0_countries 5.1.1 (public domain), '
                      'uttaget med tools/ne_omstridda.py',
