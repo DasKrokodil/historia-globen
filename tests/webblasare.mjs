@@ -1336,8 +1336,8 @@ async function run(browser, vp) {
   // skolflödet fråga → underlag → svar → återgång med riktig pekning. Enskilda prov för bild (#884), källregister vid
   // utskrift (#879) och turfil vid sidladdning (#877) finns redan; här prövas att felet mitt i sessionen ger besked och
   // att sidan kommer tillbaka när felet är över, utan omladdning. Egen sida med pekning (hasTouch) för varje prov.
-  const touchPage = async () => {
-    const tctx = await newTestContext(browser, { viewport: { width: vp.width, height: vp.height }, deviceScaleFactor: 1, hasTouch: true });
+  const touchPage = async (viewport = vp) => {
+    const tctx = await newTestContext(browser, { viewport: { width: viewport.width, height: viewport.height }, deviceScaleFactor: 1, hasTouch: true });
     const tp = await tctx.newPage();
     const errs = [];
     // Avbrutna hämtningar under sidbyte (#1393, steg 3): goto och reload på sidan går genom abortWatch, så att WebKits sidfel för en
@@ -1872,6 +1872,66 @@ async function run(browser, vp) {
     } finally {
       await lp.close();
     }
+  });
+
+  // #1712: den fristående Mer-menyn i 800 px bred vy och mobilens Meny i 640 px bred vy får inte
+  // lägga de sista valen under nederkanten. Varje val rullas fram, mäts i fönstret och trycks med riktig touch.
+  await check('Mer i låg höjd: alla val går att rulla fram och trycka på (#1712)', async () => {
+    const actions = [
+      ['#btn-intro', '#intro'], ['#btn-help', '#help'], ['#btn-sources', '#sources-dialog'], ['#btn-teacher', '#teacher'],
+      ['#btn-settings', '#settings'], ['#btn-share', null], ['#btn-feedback', '#feedback'], ['#btn-support', 'popup'],
+    ];
+    const notes = [];
+    for (const size of [{ width: 800, height: 360 }, { width: 640, height: 360 }]) {
+      const { tp, tctx, errs } = await touchPage(size);
+      try {
+        await tp.addInitScript(() => {
+          window.__shared = [];
+          Object.defineProperty(navigator, 'share', { value: undefined, configurable: true });
+          Object.defineProperty(navigator, 'clipboard', { value: { writeText: async text => window.__shared.push(text) }, configurable: true });
+        });
+        await tp.goto(`${BASE}?ny=1712-${size.width}`);
+        await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        const open = async () => {
+          if (await tp.isVisible('#extra-menu')) return;
+          if (await tp.isVisible('#more-toggle')) await tapReal(tp, '#more-toggle', `${size.width} px: Meny`);
+          else await tapReal(tp, '#btn-more', `${size.width} px: Mer`);
+          await tp.waitForSelector('#extra-menu', { state: 'visible', timeout: T.step });
+        };
+        for (const [id, opened] of actions) {
+          await open();
+          const item = tp.locator(id);
+          await item.scrollIntoViewIfNeeded();
+          const inside = await item.evaluate(el => {
+            const r = el.getBoundingClientRect();
+            return r.top >= 0 && r.bottom <= innerHeight && r.left >= 0 && r.right <= innerWidth;
+          });
+          if (!inside) throw new Error(`${size.width} px: ${id} går inte att rulla helt fram i fönstret`);
+          if (opened === 'popup') {
+            const popup = tp.waitForEvent('popup', { timeout: T.step });
+            await tapReal(tp, id, `${size.width} px: ${id}`);
+            await (await popup).close();
+          } else {
+            const shared = opened === null ? await tp.evaluate(() => window.__shared.length) : null;
+            await tapReal(tp, id, `${size.width} px: ${id}`);
+            if (opened) {
+              await tp.waitForSelector(`${opened}:not([hidden])`, { timeout: T.step });
+              await tp.keyboard.press('Escape');
+              await tp.waitForSelector(opened, { state: 'hidden', timeout: T.step });
+            } else {
+              await tp.waitForFunction(n => window.__shared.length > n, shared, { timeout: T.step });
+            }
+          }
+          if (await tp.isVisible('#extra-menu')) {
+            await tp.keyboard.press('Escape');
+            await tp.waitForSelector('#extra-menu', { state: 'hidden', timeout: T.step });
+          }
+        }
+        if (errs.length) throw new Error(`${size.width} px: ${errs.join(' | ')}`);
+        notes.push(`${size.width}×${size.height}`);
+      } finally { await tctx.close(); }
+    }
+    return `${notes.join(' och ')}: Kom igång, Hjälp, Källor, För lärare, Inställningar, Dela, Lämna förslag och Stöd rullas fram och trycks med touch`;
   });
 
   // #1572: i lektionsläget skalas text och kort för projektor från 1 600 px
