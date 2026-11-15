@@ -2659,10 +2659,10 @@ span.theme-event:hover { background: none; outline: none; }
 .place-empire-gap { padding: 6px 4px; font-size: 13px; line-height: 1.4; font-style: italic; color: var(--card-dim); }
 .place-empire-list > .theme-filter-note { margin: 4px 0 0; }
 .place-empire-note { margin: 0 4px 4px; font-size: 12px; line-height: 1.4; color: var(--card-dim); }
-/* Träffytor på touch (#1464), bara för platsens och temats kort: raderna i händelselistan är minst 44 px höga (18 px text och 13 + 13 px luft),
-   och krysset når 44 px även på en bred skärm med touch (i smal skärm ger #detail .detail-close::after det redan). */
+/* Träffytor på touch (#1464): raderna i händelselistan är minst 44 px höga (18 px text och 13 + 13 px luft),
+   och krysset når 44 px på alla kort även på en bred skärm med touch, också i liggande telefon (#1667; i smal skärm ger #detail .detail-close::after det redan). */
 @media (max-width: 760px), (pointer: coarse) { .detail-selection .theme-event { padding-block: 13px; } }
-@media (pointer: coarse) { .detail-selection .detail-close::after { content: ""; position: absolute; inset: -8px; } }
+@media (pointer: coarse) { .detail-card .detail-close::after { content: ""; position: absolute; inset: -8px; } }
 .theme-exit { margin: 2px 0 6px; }
 .place-flat { margin-right: 6px; }
 .chip-btn[hidden] { display: none; }
@@ -2757,14 +2757,18 @@ span.theme-event:hover { background: none; outline: none; }
       kortet långt ned. På en pekskärm (en liggande telefon) fortsätter det i stället ned till kanten, över fokusraden och
       tidsreglaget (de är tillbaka när arket fälls ihop med handtaget). Med mus gäller regeln från #1310 oförändrad: vid 200 %
       zoom (640 × 400) får arket inte täcka tidsreglaget. Under en tur och i lektionsläget gäller de egna reglerna som förut. */
-@media (min-width: 761px) and (max-height: 500px) {
+/* Tröskeln 480 px: knapparna överst (två rader) överlappar kortet under cirka 475 px höjd (uppmätt). */
+@media (min-width: 761px) and (max-height: 480px) {
   .app:has(#detail:not([hidden])) .top-actions { visibility: hidden; }
 }
-@media (max-width: 760px) and (max-height: 500px) and (pointer: coarse) {
-  .app.app.app:not(.touring) #detail[data-sheet="full"] {
+/* Tröskeln 440 px: en liggande telefon är 360–430 px hög; 640 × 400 med mus (200 % zoom) följer #1310 och tas inte med (pointer). */
+@media (max-width: 760px) and (max-height: 440px) and (pointer: coarse) {
+  .app.app.app:not(.touring) #detail[data-sheet="full"], .app.app.app:not(.touring) #detail.sheet-dragging {
     bottom: calc(env(safe-area-inset-bottom, 0px) + 8px);
     max-height: calc(100dvh - var(--tour-top) - 8px - env(safe-area-inset-bottom, 0px));
   }
+  /* Det som arket täcker går inte heller att nå med Tab eller skärmläsare medan arket är helt (WCAG 2.4.11); layouten ändras inte */
+  .app.app.app:not(.touring):has(#detail[data-sheet="full"]:not([hidden])) :is(.timebar, #focus-bar, #pause-note, .religion-legend) { visibility: hidden; }
 }
 
 /* Raden om projektet sist i Om källorna (#1575) */
