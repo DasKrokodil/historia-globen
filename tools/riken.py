@@ -1937,7 +1937,7 @@ DISPUTED = {
     # över Korea bara 1946–1947 och klipps bort från 1948. Rutorna täcker USA:s del på fastlandet (124,9–129,7 grader öst,
     # 34,3–38,1 nord) och Jeju, men inte Tsushima (söder om 34,6 grader och öster om 129,0) eller Kyushu
     'sydkorea-usa': {'area': ('rutor', [(124.5, 34.2, 129.0, 38.3), (128.0, 34.6, 129.9, 38.3), (125.9, 33.0, 127.2, 33.75)]),
-                     'from': 1948, 'to': 1966, 'remove': ['usa'], 'add': []},
+                     'from': 1948, 'to': 1966, 'strict': True, 'efter': True, 'remove': ['usa'], 'add': []},
     # Västberlin och Östberlin 1949–1990 (#1731, beslut 2026-11-15-vastberlin-grans.md). Cliopatrias hål i DDR för Västberlin
     # stämmer bara ungefär (det täcker delar av Östberlin, och södra Västberlin ligger i DDR) och saknas 1973–1975.
     # Västberlin är i stället gränsen ur "Verlauf der Berliner Mauer, 1989" (tools/vastberlin.geojson, byggd med
