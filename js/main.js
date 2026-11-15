@@ -361,6 +361,7 @@ async function start() {
   // Fokus flyttas direkt, inte i nästa bildruta (#1436): se js/controllers/detail-focus.js
   let detailTitle = '';
   const detailFocus = createDetailFocus({ $ });
+  app.detailFocus = detailFocus; // Sök och följ säger till när ett val pågår, så att kortet hittar tillbaka till knappen (#1696)
   panel.onDetailChange = open => {
     const detail = $('detail'), active = document.activeElement;
     if (open) {

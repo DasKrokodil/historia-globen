@@ -3270,6 +3270,38 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
+  // #1696: ett kort som öppnades från Sök och följ gav fokus till Samtidigt när det stängdes med Escape. Fokus ska gå tillbaka till knappen
+  // man kom från (i smal skärm Meny, där Sök och följ ligger i en stängd meny). Provas med mus (klick på raden) och tangentbord (Enter).
+  await check('fokus efter Escape: ett kort som öppnades från Sök och följ ger fokus tillbaka dit, med mus och tangentbord (#1696)', async () => {
+    const { tp, tctx, errs } = await placeTapPage('#y=1827', 'escape1696');
+    try {
+      const returnButton = vp.width <= 760 ? 'more-toggle' : 'btn-focus'; // mobilens stängda meny använder sin synliga Meny-knapp (#530)
+      const out = [];
+      for (const [how, place, query] of [['mus', 'skane', 'Skåne'], ['tangentbord', 'danmark', 'Danmark']]) {
+        if (await tp.isHidden('#btn-focus') && await tp.isVisible('#more-toggle')) await tp.click('#more-toggle');
+        if (await tp.isHidden('#btn-focus') && await tp.isVisible('#btn-more')) await tp.click('#btn-more');
+        await tp.click('#btn-focus');
+        await tp.waitForSelector('#focus-menu:not([hidden])', { timeout: T.step });
+        await tp.fill('#focus-menu .focus-search', query);
+        const row = tp.locator(`#focus-menu [data-key="place:${place}"]`).first();
+        await row.waitFor({ state: 'visible', timeout: T.step });
+        if (how === 'mus') await row.click();
+        else { await row.focus(); await tp.keyboard.press('Enter'); }
+        await tp.waitForSelector('#detail:not([hidden]) .place-type', { state: 'visible', timeout: T.step });
+        await tp.keyboard.press('Escape');
+        await tp.waitForFunction(() => document.getElementById('detail').hidden, null, { timeout: T.step });
+        await tp.waitForFunction(id => document.activeElement?.id === id, returnButton, { timeout: T.step }).catch(async () => {
+          const now = await tp.evaluate(() => document.activeElement?.id || document.activeElement?.className?.toString().slice(0, 30) || document.activeElement?.tagName);
+          throw new Error(`${how}: fokus efter Escape står på ${now}, inte på ${returnButton}`);
+        });
+        out.push(`${how}: ${returnButton}`);
+        // Platsen följs fortfarande; nästa varv byter till en annan plats
+      }
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return out.join(', ');
+    } finally { await tctx.close(); }
+  });
+
   // #1163: platser i turens steg, i lektionsläget och i tidsintervallet. Turen är en provtur som läggs in i turlistan med route:
   // ingen riktig tur har något steg med en plats än, och provet ska inte vänta på att en sådan skrivs. Steget öppnar Grönland
   // (data/platser.json) med stegfältet place.

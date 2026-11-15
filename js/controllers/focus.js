@@ -194,7 +194,11 @@ export function createFocus(app) {
     for (const post of types.all()) await post.menuLoad?.();
     focusMenu.setGroups(types.menu());
   };
-  focusMenu.onPick = key => startFocus(key);
+  // Kortet som valet öppnar hör till menyknappen (#1696): Escape och Stäng ger fokus tillbaka dit, inte till Samtidigt
+  focusMenu.onPick = async key => {
+    app.detailFocus?.pickFromMenu(true);
+    try { return await startFocus(key); } finally { app.detailFocus?.pickFromMenu(false); }
+  };
   /** Beskedet om en länk till något som saknas (#1162) hör till den länken: en nyare adress, Bakåt eller Framåt tar bort det. */
   const clearNotice = () => { $('focus-notice').hidden = true; };
 

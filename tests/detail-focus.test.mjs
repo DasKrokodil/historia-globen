@@ -35,6 +35,9 @@ function setup() {
   el['event-list'] = make('event-list', { parent: el.panel });
   el.row = make('row', { parent: el['event-list'], data: 'e1', cls: '.event-btn' });
   el['btn-panel'] = make('btn-panel');
+  el['btn-focus'] = make('btn-focus');
+  el['more-toggle'] = make('more-toggle');
+  el['btn-more'] = make('btn-more', { hidden: true });
   el.tour = make('tour-next');
   const queue = [], laters = [];
   const f = createDetailFocus({ $: id => el[id], doc, esc: s => s, defer: fn => queue.push(fn), later: fn => laters.push(fn) });
@@ -132,4 +135,56 @@ test('säkerhetsnätet: kunde inget fokuseras i mikrotasken försöker nästa bi
   el['btn-panel'].hidden = false;
   laters.shift()();
   assert.equal(doc.activeElement, el['btn-panel']);
+});
+
+// Ett kort som öppnas från menyn Sök och följ (#1696): Escape och Stäng ger fokus tillbaka till menyknappen, inte till Samtidigt.
+test('valt i Sök och följ: fokus på Stäng går tillbaka till knappen Sök och följ (#1696)', () => {
+  const { doc, el, f, flush, close } = setup();
+  f.pickFromMenu(true);
+  assert.equal(f.open(el['btn-focus']), false, 'fokus flyttas inte till Stäng av detail-focus; kortet gör det själv');
+  f.pickFromMenu(false);
+  close(el.close);
+  flush();
+  assert.equal(doc.activeElement, el['btn-focus']);
+});
+
+test('valt i Sök och följ i smal skärm: knappen ligger i en stängd meny, fokus går till Meny (#1696)', () => {
+  const { doc, el, f, flush, close } = setup();
+  el['btn-focus'].hidden = true;
+  f.pickFromMenu(true);
+  f.open(doc.body);
+  f.pickFromMenu(false);
+  close(el.close);
+  flush();
+  assert.equal(doc.activeElement, el['more-toggle']);
+});
+
+test('ett kort som öppnas efter att valet är klart får inte menyns öppnare (#1696)', () => {
+  const { doc, el, f, flush, close } = setup();
+  f.pickFromMenu(true);
+  f.pickFromMenu(false);
+  f.open(el.tour);
+  close(el.close);
+  flush();
+  assert.equal(doc.activeElement, el['btn-panel'], 'utan öppnare gäller reserven: knappen Samtidigt');
+});
+
+test('valt i Sök och följ men fokus står kvar utanför kortet: inget flyttas (#1696)', () => {
+  const { doc, el, f, flush, close } = setup();
+  f.pickFromMenu(true);
+  f.open(el['btn-focus']);
+  f.pickFromMenu(false);
+  close(el['btn-focus']);
+  flush();
+  assert.equal(doc.activeElement, el['btn-focus']);
+});
+
+test('en rad i Samtidigt-listan vinner över menyvalet: tillbaka till raden (#1696)', () => {
+  const { doc, el, f, flush, close } = setup();
+  f.pickFromMenu(true);
+  f.open(el.row);
+  f.pickFromMenu(false);
+  close(el.close);
+  flush();
+  assert.equal(doc.activeElement, el.row);
 });
