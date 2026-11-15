@@ -76,6 +76,9 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              'nordsjovaldet': (0.1, MERGE, MIN_AREA),
              # Strathclyde och Skottland finare, annars blir Strathclyde en fyrhörning och överlappar Alba (geografen, #1721)
              'strathclyde': (0.05, MERGE, MIN_AREA), 'kungariket-skottland': (0.05, MERGE, MIN_AREA),
+             # De angelsaxiska rikena och Dalriada finare, annars överlappar grannarna varandra (#1744)
+             'wessex': (0.05, MERGE, MIN_AREA), 'mercia': (0.05, MERGE, MIN_AREA), 'northumbria': (0.05, MERGE, MIN_AREA),
+             'dal-riata': (0.05, MERGE, MIN_AREA),
              'kina': (0.3, 0.05, 0.08), 'indonesien': (0.2, 0.05, 0.05),
              # Gambia (cirka 30 km bred längs floden) och Libanon är smala: finare förenkling för dem och grannarna Senegal och
              # Syrien, annars täcker grannarnas förenklade gräns en stor del av landet
@@ -1329,6 +1332,20 @@ GROUPS = {
         (['Kingdom of the Isles', 'Kingdom of Mann'], 'kungariket-man', 'Kungariket Man', '#5a8a8a', {'en': 'Kingdom of the Isles', 'wikidata': 'Q459188'}),
         ('Isle of Man', 'isle-of-man', 'Isle of Man', '#5a8a8a', {'en': 'Isle of Man', 'wikidata': None}),
     ]),
+    # Tidigmedeltidens Brittiska öar (#1744, DasKrokodils ja 2026-11-15): Cliopatrias poster med deras egna år och Wikidata.
+    'wessex': ('Wessex', 'Kingdom of Wessex', [
+        ('Kingdom of Wessex', 'wessex', 'Wessex', '#b0566a', {'en': 'Kingdom of Wessex', 'wikidata': 'Q105313'}),
+    ]),
+    'mercia': ('Mercia', 'Kingdom of Mercia', [
+        # years: Cliopatrias Mercia 884–925 är en rest på 44 km² och visas inte (#1744)
+        ('Kingdom of Mercia', 'mercia', 'Mercia', '#9a7a3a', {'en': 'Kingdom of Mercia', 'wikidata': 'Q105092', 'years': (534, 883)}),
+    ]),
+    'northumbria': ('Northumbria', 'Kingdom of Northumbria', [
+        ('Kingdom of Northumbria', 'northumbria', 'Northumbria', '#6a7ab0', {'en': 'Kingdom of Northumbria', 'wikidata': 'Q107299'}),
+    ]),
+    'dal-riata': ('Dalriada', 'Dál Riata', [
+        ('Dál Riata', 'dal-riata', 'Dalriada', '#5a9a8a', {'en': 'Dál Riata', 'wikidata': 'Q111471'}),
+    ]),
     'strathclyde': ('Strathclyde', 'Kingdom of Strathclyde', [
         ('Strathclyde', 'strathclyde', 'Strathclyde', '#6a9a5a', {'en': 'Kingdom of Strathclyde', 'wikidata': 'Q225890'}),
     ]),
@@ -2145,6 +2162,7 @@ def extend(by_name, ext):
 DECIMALS = {'israel': 2, 'palestina': 2, 'osttyskland': 2, 'vasttyskland': 2, 'tyskland': 2, 'nederlanderna': 2, **{g: 3 for g in SMALL_STATES},
             'chimor': 2, 'purepecha': 2, 'inkariket': 2,  # #556
             'strathclyde': 2, 'kungariket-skottland': 2,  # #1721
+            'wessex': 2, 'mercia': 2, 'northumbria': 2, 'dal-riata': 2,  # #1744
             'oyoriket': 2, 'ashantiriket': 2, 'gronland-koloni': 2, 'danska-indien': 3, 'danska-guldkusten': 3}  # #1388
 
 
