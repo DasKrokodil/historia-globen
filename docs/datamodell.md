@@ -299,6 +299,9 @@ Ett tema är fokus av typen `theme`, så läget är `fokus` och raden Fokus i ut
 
 `MODE_RULES` i `js/state.js` ändrades 2026-11-11 (beslut [2026-11-11-oversikt-urval-och-lektion-1139](beslut/2026-11-11-oversikt-urval-och-lektion-1139.md)): fältlistan `restore` för `lektion` och `tur` har fått ett nytt fält, `tag` (vyns urval, till exempel Översikt, #868), och fältet finns också i ögonblicksbilden (`app.modeSnapshot`). Betydelsen: **lektionen visar alltid alla händelser i lektionens år**. När lektionen börjar släpps urvalet, och "Visa hela globen" återställer det som det var före lektionen, på samma sätt som lagren. Båda lägena måste ha `tag` i `restore`, eftersom en utgång bara återställer fält som alla lägen som slutar tillåter (det strängaste bestämmer). `takes` och uteslutningstabellen (`when`) är oförändrade. En äldre bild utan `tag` återställer inget urval.
 
+
+**Vanliga turer följer samma regel (#1181, [beslut 2026-11-15](beslut/2026-11-15-turer-visar-alla-handelser-1181.md)).** `TourPlayer.start` släpper också vyns urval, efter att ögonblicksbilden sparats. Utgången återställer urvalet med den befintliga `restore`-listan för `tur`. Det gäller alla vanliga turer, utan ett nytt fält i turformatet; byte mellan turer behåller bilden från före den första turen. Uteslutningstabellen, `takes` och lektionslägets regel är oförändrade.
+
 ### Teman och epoker (`perioder.json`)
 
 Båda är ett namngivet urval med text på fem språk och källor, och de delar fältnamnen `id`, `name`, `sources` och `review`. De är ändå två filer: en epok väljer ett **tidsspann** och blir ett tidsintervall (läget `intervall`), ett tema väljer en **lista med händelser** och blir ett fokus. Lägena utesluter varandra enligt kontraktet, så en besökare kan inte råka ha båda på. Ett tema om en period är ett tema vars händelser ligger i perioden; en epok listar aldrig händelser. Får en epok en introduktion heter fältet `intro`, som här.

@@ -266,6 +266,8 @@ export class TourPlayer {
     if (app.store) app.store.enter('tur', this.tour ? null : app.snapshot());
     else if (hadFocus) app.endFocus(false);
     if (hadFocus && app.lesson?.active) app.lesson.applyLock(); // endFocus släpper tidslåset (#795)
+    // Turen visar alla händelser i turens år (#1181). Spara vyn först ovan; end återställer urvalet efter lagren.
+    app.layers.setTag(null);
     this.tour = tour; this.opener = opener; this.target = null;
     this.name.textContent = t(tour.title);
     this.card.hidden = false;
@@ -431,7 +433,7 @@ export class TourPlayer {
       app.layers.set(id, on);
       app.layers.onChange(id, on);
     }
-    // Vyns urval (Översikt) efter lagren: ett lagerbyte ovan lämnar vyn, och en lektion släppte urvalet när den började (#1139)
+    // Vyns urval (Översikt) efter lagren: ett lagerbyte ovan lämnar vyn; turen och lektionen släppte urvalet vid start (#1139, #1181)
     if ('tag' in restore) app.layers.setTag(restore.tag);
     if (restore.focus) app.startFocus(restore.focus);
     if (restore.camera) { app.globe.flyTo(restore.camera.lat, restore.camera.lon); app.globe.setZoom(restore.camera.zoom); }
