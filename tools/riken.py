@@ -3006,6 +3006,9 @@ def main():
              'Sydsudan och Zanzibar (#1534): Sydsudan visas från självständigheten 2011 med sin gräns i Cliopatria 2014 (Cliopatria '
              'har landet först från 2014), Sudan 2011–2013 likaså med gränsen 2014, och gränsen mellan dem följer Cliopatrias ogenomskurna '
              'gränser; Unguja och Pemba (Zanzibar) hör till Tanzania från 1964, med öarnas gräns i Natural Earth. '
+             'Sydkorea (#1500): Cliopatria räknar södra Korea till USA 1946–1966; kartan visar USA där bara 1946–1947 (den amerikanska '
+             'militärregeringen till 15 augusti 1948) och Sydkorea från 1948, och gränsen mellan Sydkorea och Nordkorea följer '
+             'Cliopatrias ogenomskurna gränser. '
              'Små stater (#722): tolv länder som Cliopatria saknar i nutid eller har fel gräns för har gränsen ur Natural Earth '
              '(ne_10m_admin_0_countries 5.1.1, public domain), från självständigheten, och polity.point = true: de visas som en punkt med namn.')
     (out / 'index.json').write_text(json.dumps({'schema': 'historia-globen/empires-index@1', 'notes': notes, 'groups': index},
