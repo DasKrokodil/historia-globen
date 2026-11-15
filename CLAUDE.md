@@ -16,7 +16,7 @@ Historia-globen är en snurrbar jordglob i webbläsaren. Man drar i tiden och se
 1. **Inget byggsteg.** Vanliga ES-moduler som webbläsaren läser direkt. Inga ramverk (React m.fl.), ingen bundler, ingen server-backend. Det ska gå att köra med `python3 -m http.server`. Undantag: functions/api/feedback.js, beslut 2026-10-30 (besökarnas förslag, se docs/feedback.md).
 2. **Data skild från kod.** All innehållsdata ligger i `data/*.json`. Hårdkoda aldrig händelser, texter eller årtal i JS.
 3. **Ett år styr allt.** `Timeline` äger nuvarande år och skickar `change`, och i fokusläget för korta krig räknas året i delar av år (månader och dagar, #204). Lager och paneler lyssnar och ritar om. Ett tidsintervall (#755) är året plus ett valfritt slutår (`state.range`); det utesluter Fokus och uppspelning, och riken och religioner visas för slutåret (`state.areaYear`, #756; docs/arkitektur.md, "Tidsintervallet").
-4. **Ekvirektangulär rendering (beslut 1).** Allt som ritas på klotet ritas först på en ekvirektangulär canvas (`baseCanvas` 4096×2048 för grundkartan, `overlayCanvas` 4096×2048 för lager) som läggs på sfären. Klickbara markörer och bågar ligger som 3D-objekt ovanpå. Skälet: samma platta bild visas som karta i "Platt vy" och ska kunna skickas till en fysisk globskärm. Bryt inte detta.
+4. **Ekvirektangulär rendering (beslut 1).** Allt som ritas på klotet ritas först på en ekvirektangulär canvas (`baseCanvas` 4096×2048 för grundkartan, `overlayCanvas` 4096×2048 för lager) som läggs på sfären. Klickbara markörer och bågar ligger som 3D-objekt ovanpå. Skälet: samma platta bild visas som karta i "Platt vy" och ska kunna skickas till en fysisk globskärm. Bryt inte detta. **Regionvyn (#1641)** är en tredje, skärmbunden ritväg bredvid de två och bryter inte mot punkten: en lokal ekvirektangulär bild med skalan cos(mittbredden) i öst–väst, ritad bara på skärmen när en liten plats visas inzoomad. Den exporteras inte: affischen och en fysisk globskärm får 4096-bilderna som förut ([docs/beslut/2026-11-14-regionvy-steg-1a-1641.md](docs/beslut/2026-11-14-regionvy-steg-1a-1641.md)).
 5. **Lager som moduler (beslut 2).** Fem lagertyper: punkt (händelser), linje (handelsvägar, migration, fronter), område (riken, utbredning), bildlager (nattljus, klimat) och tur (guidade fördjupningar som data). Varje lager har samma gränssnitt: `update(state)` som returnerar det som syns, och `drawOverlay(ctx, W, H)`. Varje lager anmäler sig i lagerregistret (`js/layers/registry.js`, #338) med en post från sin egen fil.
 6. **three.js** laddas som ES-modul från `https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js`. Exakt version, ändra bara medvetet. Inga andra externa beroenden utan att fråga.
 
@@ -31,11 +31,14 @@ _headers              Cloudflare Pages cache-regler (no-cache, så att en releas
 css/style.css
 js/main.js            startar allt och kopplar ihop delarna
 js/controllers/       main.js uppdelad i val, fokus, faktarutor, omritning, uppspelning, berättelse, etiketter (#402), adressen (#501), tidsintervallet (range.js, #755), raden om en trasig länk (link-notice.js, #1324), återgång efter hopp (jump-back.js, #997), tryck på platsens kontur (places.js, #1161) och presentationsläget (presentation.js, #488, #1315)
+js/controllers/region.js regionvyn i Platt vy: knappen "Visa i regionvy", ramen, rutan, markörerna och listan som hör ihop, Escape och vägen ut (#1641, #1642)
 js/model.js           språk, kategorier, granskningsstatus, tidsformat, laddning
 js/i18n.js            språkval och gränssnittets texter: ui('nyckel') ur data/ui/<språk>.json och data-i18n i index.html (#63)
 js/url-state.js       adressformatet för delbara länkar och Bakåt/Framåt (#501, #64)
 js/search-index.js    sökningens index och matchning (#570)
 js/place-search.js    "Vad hände här?": platsförslag och händelser inom 300 km, i tidsordning (#15)
+js/region-frame.js    regionvyns ramning: vilka platser som får vyn (högst 5 grader på marken), den fria ytan och skalan med cos(mittbredden); delas med testerna (#1641)
+js/region-markers.js  regionvyns markörer: numrering i listans ordning, brickan för hela platsen, högar, solfjäder och ortnamn utan krockar; delas med testerna (#1642)
 js/date-events.js     återanvändbart urval av händelser för år eller exakt datum (#483, #489, #485)
 js/state.js           det gemensamma tillståndet (år, fokus, lager, filter) som lagren läser (#338), med åtgärder, prenumeration och JSON (#403), och lägeskontraktet (#893)
 js/surfaces.js        stängregistret för ytor: menyerna och sidopanelen anmäler sig i grupper och en öppnad yta stänger sin grupp (#894)
@@ -54,6 +57,7 @@ js/ui/panel.js        "Samtidigt i världen" per världsdel, filter, detaljvy
 js/ui/funfact.js      Samtidigt-kortet (fun facts m.m.) och bågar
 js/ui/sources.js      sidan Om källorna
 js/ui/flatmap.js      Platt vy: platt karta med zoom och panorering
+js/ui/region-marks.js regionvyns numrerade markörer, bricka, högar och ortnamn som knappar och på kartans canvas (#1642)
 js/ui/poster.js       A4-affisch som PNG från Platt vy
 js/ui/routepop.js     klickrutan för vägar och resor
 js/ui/intro.js        frivillig introduktion till samtidighet i tre stilla steg (#363)
