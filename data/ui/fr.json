@@ -401,7 +401,7 @@
   "place.noneHere": "Aucun lieu avec fiche propre n’est au centre de la vue. Choisissez un lieu dans « Chercher et suivre » → « Lieux ».",
   "place.hereKey": "{place} : un lieu avec fiche. Appuyez sur Entrée pour le suivre.",
   "place.enterBusy.fokus": "La touche Entrée n’ouvre pas de lieu pendant que vous suivez quelque chose. Choisissez d’abord « Revenir à toute la chronologie ».",
-  "place.enterBusy.tur": "La touche Entrée n’ouvre pas de lieu pendant une visite. Choisissez d’abord « Terminer la visite ».",
+  "place.enterBusy.tur": "La touche Entrée n’ouvre pas de lieu pendant une visite. Choisissez d’abord « Quitter la visite ».",
   "place.enterBusy.lektion": "La touche Entrée n’ouvre pas de lieu en mode leçon. Les lieux ne s’ouvrent que par les étapes de la leçon.",
   "place.enterBusy.intervall": "La touche Entrée n’ouvre pas de lieu pendant qu’un intervalle de temps est affiché. Choisissez d’abord « Revenir à une seule année ».",
   "place.rangeEnded": "L’intervalle de temps {range} s’est terminé lorsque le lieu a été suivi. Pour l’année {year}, le lieu est affiché.",
@@ -989,5 +989,5 @@
   "teacher.presentation": "Mode présentation",
   "teacher.presentationText": "Pour un projecteur ou un grand écran : texte et boutons plus grands. Quittez le mode avec le bouton en haut à droite.",
   "teacher.more": "Comment partager une leçon et imprimer les fiches",
-  "teacher.shareText": "Les élèves reçoivent la leçon par le lien de la fiche enseignant ou par Partager, sous Plus : si vous partagez en cours de leçon, ils commencent à la même étape. La barre en haut propose Afficher tout le globe : la leçon prend alors fin et le site redevient le site habituel, à la même année."
+  "teacher.shareText": "Les élèves reçoivent la leçon par le lien de la fiche enseignant ou par Partager, sous Plus : si vous partagez en cours de leçon, ils commencent à la même étape. La barre en haut propose Quitter la leçon : la leçon prend alors fin et le site redevient le site habituel, à la même année."
 }
