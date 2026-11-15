@@ -91,6 +91,7 @@ data/empires/         riken: index.json och en fil per rike, byggs med tools/rik
 data/routes/          vägar och resor: index.json listar filerna, en fil per resa eller väg (#38)
 data/genererat/       händelser och riken uppdelade i mindre filer som sidan laddar (#337), med en fil per språk ovanpå (#675); skrivs av tools/dela_data.py, redigeras inte
 data/oversattning.json spärren mot oöversatta texter och registret över översättningar (#675); skrivs av tools/oversattning.py, publiceras inte
+data/ortnamn-komplettering.json orter som Natural Earth saknar, med namn och punkt ur Wikidata (CC0), som tools/ortnamn.py lägger till (#1676); publiceras inte
 data/textlangd.json   spärren mot långa faktatexter: sammanfattningar över 300 tecken per fil, som bara får minska (#1599); skrivs av tools/textlangd.py, publiceras inte
 data/upptackt.json    upptäcktsvyn: perspektivrad, dimma och kartbilder (#101)
 data/ortnamn/         ortnamn för regionvyn (#1643): en fil per plats med orter, grannländer och hav på fem språk ur Natural Earth; skrivs av tools/ortnamn.py, redigeras inte

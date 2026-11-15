@@ -238,3 +238,29 @@ test('numret på markören går att läsa: mörk siffra mot kategorins färg, mi
     assert.ok(ratio >= 4.5, `${id} (${c.color}) mot ${night}: ${ratio.toFixed(2)}:1`);
   }
 });
+
+test('kompletteringen ur Wikidata (#1676): orterna står i platsens fil med källa och ligger inom NAME_KM från sina händelser', () => {
+  const extra = read('data/ortnamn-komplettering.json');
+  const sourceIds = new Set(read('data/sources.json').sources.map(s => s.id));
+  assert.ok(sourceIds.has(extra.source), `källan ${extra.source} finns i sources.json`);
+  const byId = new Map(events.map(e => [e.id, e]));
+  for (const [id, list] of Object.entries(extra.places)) {
+    const doc = read(`data/ortnamn/${id}.json`);
+    const inPlace = new Set(listOf(id).map(e => e.id));
+    for (const o of list) {
+      const p = doc.places.find(q => q.id === `wd-${o.wikidata}`);
+      assert.ok(p, `${id}: ${o.name.sv} saknas i data/ortnamn/${id}.json; kör python3 tools/ortnamn.py`);
+      assert.equal(p.source, extra.source);
+      assert.deepEqual(p.name, o.name);
+      assert.ok(o.events.length, `${id}: ${o.name.sv} har inga händelser`);
+      for (const eid of o.events) {
+        const e = byId.get(eid);
+        assert.ok(e && inPlace.has(eid), `${id}: händelsen ${eid} finns inte på platsen`);
+        assert.ok(km(p.coordinates, [e._lon, e._lat]) <= 5, `${id}: ${o.name.sv} ligger mer än 5 km från ${eid}`);
+      }
+    }
+  }
+  // Högen vid Lund heter Lund efter orten i filen, inte efter platstexten (#1676)
+  const lund = listOf('skane').filter(e => /^lund|freden-i-lund|slaget-vid-lund/.test(e.id)).map(e => ({ e }));
+  assert.equal(pileName(lund, read('data/ortnamn/skane.json'), tx), 'Lund');
+});
