@@ -72,6 +72,8 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              'danmark': (0.1, 0.05, 0.08),
              'konungariket-danmark': (0.1, MERGE, MIN_AREA), 'kalmarunionen': (0.1, MERGE, MIN_AREA),
              'svenska-stormaktsvaldet': (0.1, MERGE, MIN_AREA),
+             # Nordsjöväldet som Danmark, så att den danska kusten inte hoppar 1017/1018 och 1055/1056 (#1602, geografen)
+             'nordsjovaldet': (0.1, MERGE, MIN_AREA),
              'kina': (0.3, 0.05, 0.08), 'indonesien': (0.2, 0.05, 0.05),
              # Gambia (cirka 30 km bred längs floden) och Libanon är smala: finare förenkling för dem och grannarna Senegal och
              # Syrien, annars täcker grannarnas förenklade gräns en stor del av landet
@@ -1265,15 +1267,15 @@ GROUPS = {
     # Norgesväldet då, så att det inte ritas två gånger (#1602).
     'norgesvaldet': ('Norgesväldet', 'Old Kingdom of Norway', [
         ('Old Kingdom of Norway', 'norgesvaldet', 'Norgesväldet', '#4a8a9a', {'en': 'Old Kingdom of Norway', 'wikidata': 'Q2196956',
-                                                                          'minus': [('North Sea Empire', 1028, 1039)]}),
+                                                                          'minus': [('North Sea Empire', 1028, 1039)], 'minusKeepWestOf': 4.0}),
     ]),
     # Nordsjöväldet (#1602, DasKrokodils beslut 2026-11-15, alternativ A): Cliopatrias tre poster med deras egna gränser och år.
     # Regentlängderna säger något annat (Danmark–England 1040–1042, Norge–Danmark 1042–1047); det står öppet i faktarutan.
     # Cliopatrias Wikidata-id för Denmark-England (Q111953993) och Norway-Denmark (Q62651) gäller andra saker och används inte.
     'nordsjovaldet': ('Nordsjöväldet', 'North Sea Empire', [
         ('North Sea Empire', 'nordsjovaldet', 'Nordsjöväldet', '#b0604a', {'en': 'North Sea Empire', 'wikidata': 'Q3281269'}),
-        ('Denmark-England', 'danmark-england', 'Danmark–England', '#b0604a', {'en': 'Denmark–England'}),
-        ('Norway-Denmark', 'norge-danmark', 'Norge–Danmark', '#b0604a', {'en': 'Norway–Denmark'}),
+        ('Denmark-England', 'danmark-england', 'Danmark–England', '#b0604a', {'en': 'Denmark–England', 'wikidata': None}),
+        ('Norway-Denmark', 'norge-danmark', 'Norge–Danmark', '#b0604a', {'en': 'Norway–Denmark', 'wikidata': None}),
     ]),
     # Medeltidens luckor, andra omgången (#645): Nordafrikas och Främre Orientens kalifat och dynastier, Polen, Bulgarien, Nubien
     # och Kara-Khitan. Svenska namn är Wikidatas svenska etiketter. Danmark (Cliopatrias Danish Realm) väntar: Cliopatrias Wikidata-id
@@ -1839,7 +1841,7 @@ def cut_parts(g, cut):
     return MultiPolygon(out) if len(out) > 1 else out[0]
 
 
-def minus_others(items, names, by_name):
+def minus_others(items, names, by_name, keep_west_of=None):
     """Klipper bort andra Cliopatria-stater (names) ur en dels perioder de år de finns (#644). Cliopatria räknar ibland
     ett område både till en stat och till dess forna kolonialmakt, till exempel Algeriet och Djibouti till Femte franska
     republiken 1961–2023. Perioderna delas där någon av staterna börjar eller slutar."""
@@ -1860,6 +1862,13 @@ def minus_others(items, names, by_name):
             if on:
                 # Med (namn, från, till) klipps bara de delar som träffas (cut_parts, #1381); övriga minus som förut
                 ng = cut_parts(g, unary_union(on)) if last else g.difference(unary_union(on))
+                # keep_west_of (längdgrad): av det som klippningen lämnar behålls bara delar vars mitt ligger väster om den. Öster om
+                # den blir bara remsor kvar där två Cliopatria-gränser inte är ritade exakt lika, inget eget område (Norge ur
+                # Nordsjöväldet 1028–1039: kvar blir norra och västra Skottland och öarna, men inte remsor vid norska kusten, #1602)
+                if keep_west_of is not None and not ng.is_empty:
+                    parts = [q for q in (ng.geoms if hasattr(ng, 'geoms') else [ng])
+                             if q.geom_type == 'Polygon' and q.centroid.x < keep_west_of]
+                    ng = MultiPolygon(parts) if len(parts) > 1 else (parts[0] if parts else Polygon())
                 out.append((s, e - 1, ng, km2(ng)))
             else:
                 out.append((s, e - 1, g, ar))
@@ -2231,7 +2240,7 @@ def main():
             if opts.get('prepend'):
                 base = [(*opts['prepend'], Polygon(), 0)] + base
             if opts.get('minus'):
-                base = minus_others(base, opts['minus'], by_name)
+                base = minus_others(base, opts['minus'], by_name, opts.get('minusKeepWestOf'))
             # clip: bara den del av posten som ligger i rutan (väst, syd, öst, nord). Används där en Cliopatria-post är flera
             # kolonier som inte hänger ihop, så att rutan inte drar någon ny gräns (Italienska kolonier i Afrika, #1330)
             if opts.get('clip'):
@@ -2283,13 +2292,16 @@ def main():
                 print('saknas i Cliopatria:', cname)
                 continue
             first = cname[0] if isinstance(cname, list) else cname
-            wd = opts.get('wikidata') or by_name[first][0]['properties'].get('Wikidata')
+            # 'wikidata': None betyder inget id: Cliopatrias id gäller ibland något annat (Denmark-England, #1602)
+            wd = opts['wikidata'] if 'wikidata' in opts else by_name[first][0]['properties'].get('Wikidata')
             pname = with_old({'sv': psv, 'en': opts.get('en', (first or '').strip('()'))}, ('polity', gid, pid))
             polity = {'id': pid, 'group': gid, 'name': pname, 'wikidata': wd,
                       'color': color,
                       'sources': (['cliopatria', 'natural-earth-lander'] if opts.get('ne') else ['cliopatria']) if first
                                  else ['natural-earth-lander'] if opts.get('ne') else ['natural-earth-omstridda'],
                       'review': 'source-checked', 'periods': merged}
+            if wd is None:
+                del polity['wikidata']  # inget verifierat id (#1602)
             if opts.get('point'):
                 polity['point'] = True  # för litet för kartan: visas som en punkt med namn (#722)
             if isinstance(cname, list):
