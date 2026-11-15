@@ -221,15 +221,32 @@ export function nameCandidates(doc, events, tx) {
  * Namnen utan krockar (enkel girig placering i prioritetsordning). cands: nameCandidates med skärmpunkt p ({ x, y }). measure(text,
  * kind) ger textens bredd i px. blocked: rutor där inget namn får ligga (markörer, högar, brickan, etiketter, kortet). crosses(box)
  * ger true när rutan skulle ligga över platsens kantlinje (en del inne i platsen och en del utanför). En ort ritas med en prick och
- * namnet till höger, vänster, över eller under; grannländer och hav centreras på sin punkt. Ger [{ ...cand, box, x, y, align }] där
- * (x, y) är textens ankare (mitt i höjd).
+ * namnet till höger, vänster, över eller under; grannländer och hav centreras på sin punkt. En ort med händelser vars punkt ligger
+ * under en enskild markör (marks: markörernas rutor, #1682) får namnet bredvid markören och ingen egen prick (markören är pricken);
+ * en hög har redan sin ort som namn. Ger [{ ...cand, box, x, y, align, dotless }] där (x, y) är textens ankare (mitt i höjd).
  */
-export function placeNames(cands, { W, H, blocked = [], measure, crosses = () => false, max = 18 }) {
+export function placeNames(cands, { W, H, blocked = [], marks = [], measure, crosses = () => false, max = 18 }) {
   const placed = [], out = [];
   for (const c of cands) {
     if (out.length >= max || !c.p) continue;
     const { x, y } = c.p;
     const h = c.kind === 'place' ? 14 : 15, w = measure(c.text, c.kind) + 2;
+    const mark = c.kind === 'place' && c.hasEvents ? marks.find(m => x >= m.x0 && x <= m.x1 && y >= m.y0 && y <= m.y1) : null;
+    if (mark) {
+      const my = (mark.y0 + mark.y1) / 2, mx = (mark.x0 + mark.x1) / 2;
+      const beside = [{ x0: mark.x1 + 2, y0: my - h / 2, align: 'left', tx: mark.x1 + 3 }, { x0: mark.x0 - 2 - w, y0: my - h / 2, align: 'right', tx: mark.x0 - 3 },
+        { x0: mx - w / 2, y0: mark.y0 - 2 - h, align: 'center', tx: mx }, { x0: mx - w / 2, y0: mark.y1 + 2, align: 'center', tx: mx }];
+      for (const o of beside) {
+        const box = { x0: o.x0, y0: o.y0, x1: o.x0 + w, y1: o.y0 + h };
+        if (box.x0 < 2 || box.y0 < 2 || box.x1 > W - 2 || box.y1 > H - 2) continue;
+        const airy = { x0: box.x0 - 4, y0: box.y0 - 1, x1: box.x1 + 4, y1: box.y1 + 1 };
+        if (blocked.some(b => overlaps(box, b)) || placed.some(b => overlaps(airy, b)) || crosses(box)) continue;
+        placed.push(box);
+        out.push({ ...c, box, x: o.tx, y: box.y0 + h / 2, align: o.align, dotless: true });
+        break;
+      }
+      continue;
+    }
     const opts = c.kind === 'place'
       ? [{ x0: x + 6, y0: y - h / 2, align: 'left', tx: x + 7 }, { x0: x - 6 - w, y0: y - h / 2, align: 'right', tx: x - 7 },
         { x0: x - w / 2, y0: y - 5 - h, align: 'center', tx: x }, { x0: x - w / 2, y0: y + 5, align: 'center', tx: x }]

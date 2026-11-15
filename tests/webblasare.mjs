@@ -3182,7 +3182,7 @@ async function run(browser, vp) {
       num: b.querySelector('.region-num')?.textContent ?? null, whole: !!b.querySelector('.region-num.is-whole'), marked: b.classList.contains('is-region-marked') }));
     const covers = ['detail', 'focus-bar', 'flat-region'].map(id => rel(document.getElementById(id))).filter(Boolean);
     const d = document.getElementById('flat-view').dataset;
-    return { buttons, rows, covers, marks: d.regionMarks ?? '', names: Number(d.regionNames ?? 0), w: cr.width, h: cr.height,
+    return { buttons, rows, covers, marks: d.regionMarks ?? '', names: Number(d.regionNames ?? 0), beside: d.regionNamesBeside ?? '', w: cr.width, h: cr.height,
       status: document.getElementById('screen-reader-status').textContent.trim(), focus: document.activeElement?.className ?? '' };
   });
   const coversHit = (s, b) => s.covers.some(c => b.x0 < c.x1 && b.x1 > c.x0 && b.y0 < c.y1 && b.y1 > c.y0);
@@ -3241,7 +3241,10 @@ async function run(browser, vp) {
         const order = s.buttons.filter(b => !b.cls.includes('glabel')).map(b => (b.cls.includes('rbrick') ? 0 : b.n ?? Number(/nummer (\d+)/.exec(b.label)?.[1])));
         if (order.some((n, i) => i && n < order[i - 1])) throw new Error(`knapparnas ordning följer inte listan: ${order.join(', ')}`);
         if (await tp.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw new Error('horisontell scroll i regionvyn');
-        out.push(`${name}: ${markers.length} markörer, ${piles.length} högar, bricka ${whole}, ${s.names} ortnamn`);
+        // En ort med händelser under en enskild markör får sitt namn bredvid markören, utan prick (#1682); en hög har redan ortens namn
+        const beside = s.beside ? s.beside.split('|') : [];
+        if (id === 'skane' && !beside.length) throw new Error('Skåne: ingen ort fick sitt namn bredvid en enskild markör (Helsingborg under markören)');
+        out.push(`${name}: ${markers.length} markörer, ${piles.length} högar, bricka ${whole}, ${s.names} ortnamn (${beside.length} bredvid en markör: ${beside.join(', ') || '–'})`);
       }
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
       return out.join('; ');

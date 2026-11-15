@@ -207,6 +207,41 @@ test('ortnamnen: prioritet, inga krockar med varandra eller markörerna, och ald
   assert.equal(out[0].align, 'left');
 });
 
+test('en ort med händelser under en enskild markör får sitt namn bredvid markören, utan prick (#1682)', () => {
+  const mark = { x0: 85, y0: 85, x1: 115, y1: 115 };
+  const cand = { id: 'a', kind: 'place', text: 'Vordingborg', hasEvents: true, p: { x: 100, y: 100 } };
+  const measure = t => t.length * 7;
+  const out = placeNames([cand], { W: 400, H: 300, blocked: [mark], marks: [mark], measure });
+  assert.equal(out.length, 1);
+  assert.equal(out[0].dotless, true);
+  assert.equal(out[0].align, 'left');
+  assert.ok(!overlaps(out[0].box, mark), 'namnet ligger inte på markören');
+  assert.ok(out[0].box.x0 >= mark.x1, 'bredvid markören, till höger');
+  // Är högersidan upptagen väljs en annan sida; ryms ingen sida utelämnas namnet
+  const right = { x0: 116, y0: 80, x1: 300, y1: 120 };
+  const other = placeNames([cand], { W: 400, H: 300, blocked: [mark, right], marks: [mark], measure });
+  assert.equal(other[0].align, 'right');
+  const boxed = [mark, right, { x0: 0, y0: 0, x1: 84, y1: 300 }, { x0: 0, y0: 0, x1: 400, y1: 84 }, { x0: 0, y0: 116, x1: 400, y1: 300 }];
+  assert.deepEqual(placeNames([cand], { W: 400, H: 300, blocked: boxed, marks: [mark], measure }), []);
+  // Utan markör under punkten, eller för en ort utan händelser, gäller det vanliga: prick och namn, och under en markör inget namn
+  assert.equal(placeNames([cand], { W: 400, H: 300, blocked: [mark], marks: [], measure }).length, 0);
+  assert.equal(placeNames([{ ...cand, hasEvents: false }], { W: 400, H: 300, blocked: [mark], marks: [mark], measure }).length, 0);
+  const free = placeNames([cand], { W: 400, H: 300, measure });
+  assert.ok(free.length === 1 && !free[0].dotless);
+});
+
+test('Danmark: Vordingborg och andra orter med händelser under en enskild markör får ett namn (#1682)', () => {
+  const doc = read('data/ortnamn/danmark.json'), list = listOf('danmark'), toScreen = screenOf('danmark');
+  const cands = nameCandidates(doc, list, tx).map(c => ({ ...c, p: toScreen(c.at[1], c.at[0]) }));
+  const g = groupMarkers(regionItems(list, place('danmark')), toScreen);
+  const marks = g.singles.map(s => ({ x0: s.p.x - 15, y0: s.p.y - 15, x1: s.p.x + 15, y1: s.p.y + 15 }));
+  const blocked = [...marks, ...g.piles.map(p => ({ x0: p.x - 18, y0: p.y - 18, x1: p.x + 18, y1: p.y + 18 }))];
+  const placed = placeNames(cands, { W: 1280, H: 560, blocked, marks, measure: t => t.length * 7 });
+  const dotless = placed.filter(n => n.dotless);
+  assert.ok(dotless.length >= 1, 'minst en ort har fått sitt namn bredvid en markör');
+  for (const n of dotless) assert.ok(!blocked.some(b => overlaps(n.box, b)), `${n.text} ligger på en markör`);
+});
+
 test('pekskärm: med högradien 36 px ligger markörer och högar så långt isär att tryckytorna (44 px) går in högst 8 px (Danmark i 400 px)', () => {
   assert.ok(PILE_PX_TOUCH >= 36 && PILE_PX_TOUCH > PILE_PX);
   // Mobilens ram: 400 × 520 karta med platsen i den övre delen (arket nere)
