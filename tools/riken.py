@@ -2099,7 +2099,7 @@ DISPUTED = {
     'tjeckoslovakien-zoner-1945': {'area': ('ne', ['tjeckien-ne']), 'from': 1945, 'to': 1946, 'strict': True, 'efter': True,
                                    'remove': ['usa', 'sovjetunionen'], 'add': []},
     # Kuwait 1990 (#1469): Irak invaderade landet 2 augusti 1990 och annekterade det; FN:s säkerhetsråd förklarade annekteringen
-    # ogiltig 9 augusti 1990 (resolution 662), och landet befriades i februari 1991 (wp-iraqi-invasion-kuwait, wp-unsc-662).
+    # olaglig ("illegal") 9 augusti 1990 (resolution 662), och landet befriades i februari 1991 (wp-iraqi-invasion-kuwait, wp-unsc-662).
     # Cliopatria räknar landet till Irak 1990; Kuwaits gräns 1989 (fill i GROUPS) klipps bort ur Irak efter förenklingen, och Iraks
     # yta räknas utan Kuwait (yta). Både den ogenomskurna och den förenklade gränsen klipps bort, så att Irak inte ritas på kuwaitisk
     # mark och inte under Kuwaits förenklade gräns (annars cirka 600 km² i båda länderna)
