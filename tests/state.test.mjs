@@ -108,6 +108,18 @@ test('en utgång återställer bara ur de lägen som slutar, och det strängaste
   assert.deepEqual(exitRestore([{ mode: 'jakt', snapshot: null }, ...tour], ['jakt']), {});
 });
 
+// #1181: byte mellan turer behåller urvalet från före den första turen.
+test('vanliga turer återställer det ursprungliga urvalet också efter byte av tur (#1181)', () => {
+  for (const tag of ['oversikt', 'framsteg', null]) {
+    const store = createStore();
+    const before = { layers: { events: true }, focus: null, camera: { lat: 1, lon: 2, zoom: 1 }, tag };
+    store.enter('tur', before);
+    store.setTag(null);
+    store.enter('tur', { ...before, tag: null });
+    assert.deepEqual(store.leave(['tur', 'lektion']), before);
+  }
+});
+
 // #1139: lektionen visar alltid alla händelser i lektionens år. Vyns urval (tag, till exempel Översikt) släpps när lektionen
 // börjar, och utgången ("Visa hela globen") återställer det som det var, på samma sätt som lagren.
 test('lektionens utgång återställer vyns urval (tag) tillsammans med lagren (#1139)', () => {

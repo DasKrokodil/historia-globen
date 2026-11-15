@@ -8308,6 +8308,48 @@ async function run(browser, vp) {
     }
     return 'direktlänk, omladdning och Bakåt/Framåt behåller låset; året låst till 1939–1945; Tab når utgången; slutkortet står kvar; utgången behåller året; utan lektionstur eller tur inget läge';
   });
+  // #1181: vanliga turer släpper också Översikt, även när inget lager behöver bytas.
+  await check('vanlig tur från Översikt visar alla händelser och återställer urvalet (#1181)', async () => {
+    const tp = await context.newPage();
+    const errors = [];
+    tp.on('pageerror', e => errors.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await tp.route(u => isFont(u.href), r => r.abort());
+      }
+      // Samma lager som Översikt i alla steg: testet får inte passera genom ett lagerbyte.
+      await tp.route(u => /data\/turer\/andra-varldskriget\.json/.test(u.href), async r => {
+        const res = await r.fetch();
+        const doc = await res.json();
+        for (const step of doc.steps) step.layers = ['events', 'funfacts', 'areas'];
+        await r.fulfill({ response: res, json: doc });
+      });
+      // 1939 är den här turens första steg; välj uttryckligen Översikt före turen.
+      await tp.goto(`${BASE}#g=oversikt&t=andra-varldskriget`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+      await tp.waitForFunction(() => document.querySelector('#layer-menu [data-view="oversikt"]')?.getAttribute('aria-pressed') === 'false', null, { timeout: T.step });
+      const ids = await tp.evaluate(() => [...document.querySelectorAll('#event-list .event-btn')].map(b => b.dataset.id));
+      const outside = await tp.evaluate(async list => {
+        const events = (await (await fetch('data/events.json')).json()).events;
+        return list.filter(id => events.find(e => e.id === id)?.significance !== 1);
+      }, ids);
+      if (!outside.length) throw new Error(`turen visar ${ids.length} händelser men ingen utanför Översikt`);
+      if (!await tp.evaluate(() => document.getElementById('panel-tag-note').hidden)) throw new Error('urvalsraden syns i turen');
+      if (/[#&]g=/.test(await tp.evaluate(() => location.hash))) throw new Error('adressen har kvar ett urval i turen');
+      // Ett senare steg får inte ersätta den sparade vyn; turens slut återställer Översikt.
+      await tp.click('#tour-next');
+      await tp.click('#tour-end');
+      await tp.waitForSelector('#tour-card', { state: 'hidden', timeout: T.step });
+      await tp.waitForFunction(() => document.querySelector('#layer-menu [data-view="oversikt"]')?.getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
+      await tp.waitForFunction(() => /([?&#])g=oversikt(?:&|$)/.test(location.hash), null, { timeout: T.step });
+      if (await tp.evaluate(() => document.getElementById('panel-tag-note').hidden)) throw new Error('urvalsraden saknas efter turen');
+      if (errors.length) throw new Error(`konsolfel: ${errors.join('; ')}`);
+      return `${ids.length} händelser i turen, ${outside.length} utanför Översikt; utgången återställer Översikt`;
+    } finally { await tp.close(); }
+  });
   // #1139: lektionsläget visar alltid alla händelser i lektionens år, också när lektionens lager är exakt Översikts tre lager
   // (då slår turen inte av något lager, och vyns urval skulle annars ligga kvar). Utgången ("Lämna lektionen") ger tillbaka
   // Översikt som det var före lektionen. Lektionens lager skrivs om i testet så att de blir lika med Översikts.
