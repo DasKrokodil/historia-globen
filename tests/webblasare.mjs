@@ -4362,10 +4362,10 @@ async function run(browser, vp) {
       if (!year.includes(String(Math.abs(first.start <= 0 ? first.start - 1 : first.start)))) throw new Error(`tiden står inte på första händelsens år (${first.start}): "${year}"`);
       // I smal skärm öppnas inte faktarutan vid pausen, så att kartan syns (som för krigets stopp); händelsen markeras på globen
       if (vp.width > 760 && await tp.isHidden('#detail')) throw new Error('faktarutan visar inte händelsen vid pausen');
-      // #1620: Skånes viktiga händelser (major eller top) är pauserna, i tidsordning och utan att någon hoppas över,
-      // också trohetseden och försvenskningen som båda är 1658: efter den första visar nästa Spela den andra utan att tiden
-      // flyttas förbi året (kön i playback.js). Pauser av annat slag (till exempel Samtidigt-kort) räknas inte.
-      const skane = ['uppakra', 'lund-grundas', 'skane-under-magnus-eriksson', 'trohetseden-i-malmo', 'forsvenskningen-av-skane', 'slaget-vid-lund', 'freden-i-lund', 'oresundsbron-oppnas'];
+      // #1620, #1675: Skånes viktiga händelser (major eller top) är pauserna, i tidsordning och utan att någon hoppas över.
+      // Pauser av annat slag (till exempel Samtidigt-kort) räknas inte. Sedan #1675 har ingen plats två pauser samma år, så kön
+      // för flera stopp samma år (playback.js) prövas med påhittade händelser i tests/theme-stops.test.mjs.
+      const skane = ['uppakra', 'forsvenskningen-av-skane', 'slaget-vid-lund'];
       const byId = Object.fromEntries((events.events ?? events).map(e => [e.id, e]));
       for (const id of skane) if (!byId[id]?.major && !byId[id]?.top) throw new Error(`${id} är inte markerad som viktig (major eller top)`);
       await tp.goto(`${BASE}?ny=plats4#y=-200&f=place:skane`);
@@ -4374,27 +4374,24 @@ async function run(browser, vp) {
       const stops = [];
       for (let i = 0; i < 20 && stops.length < skane.length; i++) {
         await tp.evaluate(() => { document.getElementById('pause-text').textContent = ''; document.getElementById('focus-action').click(); });
-        await tp.waitForFunction(() => document.getElementById('focus-action').dataset.action !== 'pause' && document.getElementById('pause-text').textContent !== '', null, { timeout: T.step * 3 })
+        await tp.waitForFunction(() => document.getElementById('focus-action').dataset.action !== 'pause' && document.getElementById('pause-text').textContent !== '', null, { timeout: T.step * 8 }) // från Uppåkra (−99) till 1658 är långt (#1675)
           .catch(() => { throw new Error(`uppspelningen pausade inte efter ${stops.join(', ') || 'starten'}`); });
         const text = await tp.evaluate(() => document.getElementById('pause-text').textContent);
         const hit = skane.find(id => text === `Pausad vid ${byId[id].title.sv}`);
         if (hit) stops.push(hit);
         else if (Object.values(byId).some(e => text === `Pausad vid ${e.title?.sv}`)) throw new Error(`pausade vid en händelse som inte är markerad: "${text}" (efter ${stops.join(', ')})`);
-        if (hit === 'trohetseden-i-malmo') {
-          await tp.screenshot({ path: path.join(OUT, `${vp.name}-1620-skane-paus-1658.png`) });
-          // Raden "Nästa paus" pekar på nästa stopp samma år, inte på stoppet man står på (#1620)
-          const next = await tp.evaluate(() => ['next-pause', 'pause-next'].map(id => document.getElementById(id).textContent).join(' | '));
-          if (!next.includes(byId['forsvenskningen-av-skane'].title.sv) || next.includes(byId['trohetseden-i-malmo'].title.sv)) throw new Error(`"Nästa paus" vid trohetseden: "${next}"`);
-        }
         if (hit === 'forsvenskningen-av-skane') {
           const at = await tp.evaluate(() => document.getElementById('focus-state').textContent);
-          if (!at.includes('1658')) throw new Error(`tiden står inte på 1658 vid den andra pausen samma år: "${at}"`);
-          await tp.screenshot({ path: path.join(OUT, `${vp.name}-1620-skane-paus-1658-andra.png`) });
+          if (!at.includes('1658')) throw new Error(`tiden står inte på 1658 vid pausen för försvenskningen: "${at}"`);
+          await tp.screenshot({ path: path.join(OUT, `${vp.name}-1620-skane-paus-1658.png`) });
+          // Raden "Nästa paus" pekar aldrig på stoppet man står på (#1620); för en plats visar den bara ett köat stopp samma år
+          const next = await tp.evaluate(() => ['next-pause', 'pause-next'].map(id => document.getElementById(id).textContent).join(' | '));
+          if (next.includes(byId['forsvenskningen-av-skane'].title.sv)) throw new Error(`"Nästa paus" vid försvenskningen: "${next}"`);
         }
       }
       if (stops.join() !== skane.join()) throw new Error(`pauserna i Skåne: ${stops.join(' → ')}; väntade ${skane.join(' → ')}`);
-      // Fokusbyte under pausen (#1620): Skåne pausad vid trohetseden 1658, sedan Sverige samma år. Årets stopp tappas inte:
-      // Spela i Sverige pausar vid trohetseden och sedan försvenskningen, båda 1658.
+      // Fokusbyte under pausen (#1620): Skåne pausad vid försvenskningen 1658, sedan Sverige samma år. Årets stopp tappas inte:
+      // Spela i Sverige pausar vid försvenskningen 1658, som också är Sveriges stopp.
       await tp.goto(`${BASE}?ny=plats5#y=1650&f=place:skane`);
       await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await tp.waitForFunction(() => !document.getElementById('focus-bar').hidden && /Skåne/.test(document.getElementById('focus-title').textContent), null, { timeout: T.step });
@@ -4406,22 +4403,22 @@ async function run(browser, vp) {
       };
       const want = id => `Pausad vid ${byId[id].title.sv}`;
       const s1 = await pauseOnce('Skåne från 1650');
-      if (s1 !== want('trohetseden-i-malmo')) throw new Error(`Skåne från 1650 pausade vid "${s1}"`);
+      if (s1 !== want('forsvenskningen-av-skane')) throw new Error(`Skåne från 1650 pausade vid "${s1}"`);
       await tp.evaluate(() => { location.hash = '#y=1658&f=place:sverige'; });
       await tp.waitForFunction(() => /Sverige/.test(document.getElementById('focus-title').textContent), null, { timeout: T.step });
-      const swapped = [await pauseOnce('Sverige 1658, första'), await pauseOnce('Sverige 1658, andra')];
-      if (swapped.join() !== [want('trohetseden-i-malmo'), want('forsvenskningen-av-skane')].join()) throw new Error(`efter bytet till Sverige 1658: ${swapped.join(' → ')}`);
+      const swapped = [await pauseOnce('Sverige 1658')];
+      if (swapped.join() !== [want('forsvenskningen-av-skane')].join()) throw new Error(`efter bytet till Sverige 1658: ${swapped.join(' → ')}`);
       if (!(await tp.evaluate(() => document.getElementById('focus-state').textContent)).includes('1658')) throw new Error('tiden flyttades förbi 1658 efter bytet');
-      // Pauserna av i Lager medan kön har ett stopp (#1620): Fortsätt visar inte kön utan spelar vidare
+      // Pauserna av i Lager under en paus (#1620): Fortsätt pausar inte vid nästa stopp utan spelar vidare
       await tp.evaluate(() => { location.hash = '#y=1650&f=place:skane'; });
       await tp.waitForFunction(() => /Skåne/.test(document.getElementById('focus-title').textContent), null, { timeout: T.step });
       const s2 = await pauseOnce('Skåne från 1650 före valet');
-      if (s2 !== want('trohetseden-i-malmo')) throw new Error(`Skåne från 1650 (andra gången) pausade vid "${s2}"`);
+      if (s2 !== want('forsvenskningen-av-skane')) throw new Error(`Skåne från 1650 (andra gången) pausade vid "${s2}"`);
       await tp.evaluate(() => { for (const box of document.querySelectorAll('input[data-pause="theme"]')) { box.checked = false; box.dispatchEvent(new Event('change', { bubbles: true })); } });
       await tp.evaluate(() => document.getElementById('focus-action').click());
-      const playingOn = await tp.evaluate(() => document.getElementById('focus-action').dataset.action === 'pause' && !document.getElementById('pause-text').textContent.includes('Försvenskningen'));
+      const playingOn = await tp.evaluate(() => document.getElementById('focus-action').dataset.action === 'pause' && !document.getElementById('pause-text').textContent.includes('Slaget vid Lund'));
       await tp.evaluate(() => { const a = document.getElementById('focus-action'); if (a.dataset.action === 'pause') a.click(); for (const box of document.querySelectorAll('input[data-pause="theme"]')) { box.checked = true; box.dispatchEvent(new Event('change', { bubbles: true })); } });
-      if (!playingOn) throw new Error('Fortsätt visade det köade stoppet fast pauserna var avstängda i Lager');
+      if (!playingOn) throw new Error('Fortsätt pausade vid nästa stopp fast pauserna var avstängda i Lager');
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
       return `pausade vid första händelsen (${first.start}): ${pause}; Skåne: ${stops.join(" → ")}; byte till Sverige 1658: ${swapped.length} stopp`;
     } finally { await tctx.close(); }
