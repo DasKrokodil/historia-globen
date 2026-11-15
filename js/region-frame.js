@@ -69,3 +69,70 @@ export function freeArea(view, rects, shape = null) {
   }
   return { x: x0, y: y0, w: Math.max(1, x1 - x0), h: Math.max(1, y1 - y0) };
 }
+
+// ---- Regionvy steg 2 (#1644): globen flyger in för stora platser -------------------------------------------------------------
+// En stor plats (Aotearoa, Grönland) förvrängs av den platta kartan, också med cos-skalan: Grönland spänner 24 breddgrader och Aotearoa
+// korsar datumgränsen. Där flyger globen in i stället, med ett smalt synfält ("teleoptik"), så att bilden blir nästan en ortografisk
+// projektion med mitten i platsen: sfären ger platsen rätt form. Ramningen är samma regel som i Platt vy (platsen fyller REGION_FILL av
+// den fria ytan och ligger mitt i den), räknad på klotet i stället för på kartan.
+
+/** Platser större än så här (grader på marken, regionSize) får globflyget. Sverige (13,7) väntar på DasKrokodils bedömning efter
+ *  steg 1 (beslut 2026-11-15) och ligger därför under gränsen; Aotearoa (cirka 18) och Grönland (23,8) ligger över. Mellan
+ *  REGION_MAX_DEG och den här gränsen ramas platsen in i Platt vy som förut. */
+export const GLOBE_MIN_DEG = 15;
+/** Större platser än så här visas hellre som hela klotet (ingen plats i dag är så stor). */
+export const GLOBE_MAX_DEG = 60;
+/** Synfältet i regionvyn på globen, i grader (den vanliga globen har 35). Smalt, så att perspektivet nästan försvinner. */
+export const GLOBE_REGION_FOV = 12;
+
+/** Får platsen globflyget? bounds som placeBounds ger. */
+export function globeRegionEligible(bounds) {
+  const { ground } = regionSize(bounds);
+  return Number.isFinite(ground) && ground > GLOBE_MIN_DEG && ground <= GLOBE_MAX_DEG;
+}
+
+/** Punkten (lon, lat) i ortografisk projektion med mitten i (lat0, lon0), i klotradier: x österut, y norrut, z mot betraktaren. */
+export function orthographic(lon, lat, lat0, lon0) {
+  const p = lat * DEG, p0 = lat0 * DEG, dl = (lon - lon0) * DEG;
+  return {
+    x: Math.cos(p) * Math.sin(dl),
+    y: Math.cos(p0) * Math.sin(p) - Math.sin(p0) * Math.cos(p) * Math.cos(dl),
+    z: Math.sin(p0) * Math.sin(p) + Math.cos(p0) * Math.cos(p) * Math.cos(dl),
+  };
+}
+
+/** De yttre ringarnas punkter i en Polygon eller MultiPolygon. */
+export function outerPoints(geometry) {
+  const polys = geometry.type === 'Polygon' ? [geometry.coordinates] : geometry.coordinates;
+  return polys.flatMap(poly => poly[0]);
+}
+
+/**
+ * Ramen för globflyget. geometry: platsens gräns (GeoJSON). bounds: placeBounds. free = { x, y, w, h }: den fria ytan på globens
+ * canvas i skärmpixlar. Mitten (lat, lon) är rutans mitt; platsens utbredning räknas i ortografisk projektion kring den, så att
+ * datumgränsen (Aotearoa) och polens närhet (Grönland) inte spelar någon roll.
+ * Ger { lat, lon, pxPerR, cx, cy, fov }: klotets vridning, skärmpixlar per klotradie mitt i bilden och var på canvasen (cx, cy)
+ * projektionens mitt ska ligga, så att platsens ruta hamnar mitt i den fria ytan.
+ */
+export function globeFrame(geometry, bounds, free, { fill = REGION_FILL, fov = GLOBE_REGION_FOV } = {}) {
+  const lat = (bounds.north + bounds.south) / 2;
+  const lon = ((((bounds.west + bounds.east) / 2) + 540) % 360) - 180;
+  let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+  for (const [plon, plat] of outerPoints(geometry)) {
+    const p = orthographic(plon, plat, lat, lon);
+    if (p.z <= 0) continue; // på baksidan (ingen plats i dag är så stor)
+    x0 = Math.min(x0, p.x); x1 = Math.max(x1, p.x); y0 = Math.min(y0, p.y); y1 = Math.max(y1, p.y);
+  }
+  if (!(x1 > x0) || !(y1 > y0)) return null;
+  const pxPerR = Math.min(free.w * fill / (x1 - x0), free.h * fill / (y1 - y0));
+  // Rutans mitt (mx, my) ska hamna i den fria ytans mitt; skärmens y växer nedåt
+  const mx = (x0 + x1) / 2, my = (y0 + y1) / 2;
+  return { lat, lon, pxPerR, fov, cx: free.x + free.w / 2 - mx * pxPerR, cy: free.y + free.h / 2 + my * pxPerR,
+    box: { x0: free.x + free.w / 2 - (x1 - x0) / 2 * pxPerR, x1: free.x + free.w / 2 + (x1 - x0) / 2 * pxPerR,
+      y0: free.y + free.h / 2 - (y1 - y0) / 2 * pxPerR, y1: free.y + free.h / 2 + (y1 - y0) / 2 * pxPerR } };
+}
+
+/** Kamerans avstånd från klotets mitt som ger pxPerR skärmpixlar per klotradie mitt i bilden, med synfältet fov och höjden h. */
+export function cameraDistance(pxPerR, h, fov) {
+  return 1 + h / (2 * Math.tan(fov / 2 * DEG) * pxPerR);
+}

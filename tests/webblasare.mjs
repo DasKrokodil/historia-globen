@@ -2718,6 +2718,40 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
+  // #1644: regionvyn på globen (steg 2). Kamerans kärna skiljer synfältet från avståndet; utan regionvyn ska globens kamera vara
+  // exakt densamma som förut. Renderingsstatusen data-camera på globens canvas är "synfält,höjd,avstånd,förskjutning x,y".
+  /** Den vanliga globens kamera räknad med formeln före #1644 (Globe._resize): avståndet ur synfältet 35°, kameran 0,06 under mitten. */
+  const baseCamera = (w, h, zoom) => {
+    const aspect = w / h, k = w <= 760 && aspect < 1 ? 1.1 : 1.32, fit = k / Math.tan(17.5 * Math.PI / 180);
+    return { fov: 35, y: -0.06, z: (aspect < 1 ? fit / aspect : fit) / zoom };
+  };
+  const globeCamera = pg => pg.evaluate(() => {
+    const [fov, y, z, ox, oy] = (document.getElementById('globe-canvas').dataset.camera ?? '').split(',').map(Number);
+    const c = document.getElementById('globe-canvas');
+    return { fov, y, z, ox, oy, w: c.clientWidth, h: c.clientHeight };
+  });
+  await check('regionvyn på globen: den vanliga globens kamera har samma synfält, höjd och avstånd som förut, också efter zoom (#1644)', async () => {
+    const { tp, tctx, errs } = await placeTapPage('#y=1500&c=20,10,1.5', 'globkamera1');
+    try {
+      const want = async zoom => {
+        await tp.waitForTimeout(300);
+        const c = await globeCamera(tp), b = baseCamera(c.w, c.h, zoom);
+        if (c.fov !== b.fov || Math.abs(c.y - b.y) > 1e-4 || Math.abs(c.z - b.z) > 2e-3 || c.ox || c.oy) {
+          throw new Error(`kameran vid zoom ${zoom}: ${JSON.stringify(c)} mot ${JSON.stringify(b)}`);
+        }
+        return c;
+      };
+      const a = await want(1.5);
+      // Två steg in med tangentbordet (+ zoomar 1,2 gånger): samma formel, inget annat synfält
+      await tp.focus('#globe-canvas');
+      await tp.keyboard.press('+');
+      await tp.keyboard.press('+');
+      const b = await want(1.5 * 1.2 * 1.2);
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `kameran ${a.fov}°, ${a.z.toFixed(3)} och ${b.z.toFixed(3)} från mitten, som förut`;
+    } finally { await tctx.close(); }
+  });
+
   // #1641: regionvyn. Visa i Platt karta för en liten plats (Skåne, Danmark; upp till cirka 5 grader på marken, js/region-frame.js)
   // ger en skarp, inzoomad karta med en sluten kantlinje i skärmpixlar. Kontrollerna läser renderingsstatusen på #flat-view
   // (data-region, data-region-box, data-region-ppd, data-region-sharp) och mäter bildpunkterna längs platsens gräns på kartans canvas.

@@ -64,7 +64,7 @@ export function createRender(app) {
   // zoomar in (men inte under 0,25, då blir texten för oskarp) och tonas sedan ut, så att de
   // inte täcker markörerna (#154). Värdena ändras i steg och bilden ritas om först 150 ms efter
   // att zoomandet stannat. Platt vy (och en fysisk glob) får grundstorleken.
-  const zoomMag = () => { const d = globe.baseDist; return Math.max(1, (d - 1) / (d / globe.zoom - 1)); }; // förstoring i mitten av klotet
+  const zoomMag = () => globe.magnification(); // förstoring i mitten av klotet (också i regionvyn på globen, #1644)
   // Religionernas namn i områdena syns bara vid nära zoom på globen, utzoomat och i Platt vy bara symbolen (#271)
   const NAMES_MAG = 2.4;
   const religionNames = () => $('flat-view').hidden && zoomMag() >= NAMES_MAG;
