@@ -111,6 +111,17 @@ GANDER = (-54.5886, 48.9572)
 NARA_CAF = (23.96, 8.71)
 NARA_ETIOPIEN = (34.18, 9.89)
 PASSAU = (13.461, 48.575)
+# #1469, ur en.wikipedia (infoboxarna, öppnade 2026-11-15; Wikidata svarade med 429): Prag, Budapest, Bukarest, Sofia, Kuwait City,
+# Muskat och Freistadt i Mühlviertel. Warszawa står ovan (Q270)
+PRAG = (14.42139, 50.0875)
+BUDAPEST = (19.05139, 47.4925)
+BUKAREST = (26.10389, 44.4325)
+SOFIA = (23.33, 42.70)
+KUWAIT_CITY = (47.97833, 29.36972)
+MUSKAT = (58.40833, 23.58889)
+FREISTADT = (14.5052, 48.51146)
+OSTEUROPA = ((PRAG, 'Prag', 'tjeckoslovakien'), (BUDAPEST, 'Budapest', 'ungern'), (BUKAREST, 'Bukarest', 'rumanien'),
+             (SOFIA, 'Sofia', 'bulgarien'), (FREISTADT, 'Freistadt', 'osterrike'))
 # Berlin 1949–1990 (#1731), ur Wikidata: Västberlin och Östberlin
 VASTBERLIN = {'Charlottenburg': (13.3, 52.517), 'Spandau': (13.2, 52.55), 'Wedding': (13.343, 52.55), 'Kreuzberg': (13.383, 52.488),
               'Neukölln': (13.45, 52.483), 'Steglitz': (13.333, 52.467), 'Zehlendorf': (13.259, 52.434)}
@@ -312,6 +323,24 @@ PUNKTER = [
     ('brittiska-imperiet', GANDER, 'Gander', 1948, True),
     *[('brittiska-imperiet', GANDER, 'Gander', y, False) for y in (1949, 1950, 1952)],
     *[('kanada', GANDER, 'Gander', y, True) for y in (1949, 1952, 1953, 2000)],
+    # Ockupation efter 1945 (#1469): den erkända staten, inte makten. Polen 1953–1989 (Sovjetunionen delas 1953, #1730)
+    *[('polen', WARSZAWA, 'Warszawa', y, True) for y in (1953, 1956, 1970, 1989)],
+    *[('sovjetunionen', WARSZAWA, 'Warszawa', y, False) for y in (1953, 1956, 1970, 1989)],
+    # Östeuropa och Mühlviertel 1945–1946: landet, inte Sovjetunionen
+    *[(g, p, n, y, True) for p, n, g in OSTEUROPA for y in (1945, 1946, 1947)],
+    *[('sovjetunionen', p, n, y, False) for p, n, _g in OSTEUROPA for y in (1945, 1946)],
+    # Österrike 1945 i stället för de fyra zonerna
+    *[(g, FREISTADT, 'Freistadt', 1945, False) for g in ('usa', 'brittiska-imperiet', 'franska-kolonialvaldet')],
+    *[('osterrike', BREGENZ, 'Bregenz', 1945, True)],
+    *[('franska-kolonialvaldet', BREGENZ, 'Bregenz', 1945, False)],
+    # Ungern 1956–1957 (Cliopatria: "Hungarian Nationalists")
+    *[('ungern', BUDAPEST, 'Budapest', y, True) for y in (1955, 1956, 1957, 1958)],
+    *[('sovjetunionen', BUDAPEST, 'Budapest', y, False) for y in (1956, 1957)],
+    # Kuwait 1990: inte Irak (Kuwait City ligger cirka 500 m utanför Kuwaits förenklade kust och står i NARA)
+    *[('irak', KUWAIT_CITY, 'Kuwait City', y, False) for y in (1989, 1990, 1991)],
+    # Muskat från 1973 i Oman. 1956–1972 räknas staden till Brittiska imperiet som i Cliopatria, och 1946–1955 ligger den utanför
+    # Muskat och Oman (fall som står öppna, docs/omstridda-granser.md); de åren prövas inte här
+    *[('oman', MUSKAT, 'Muskat', y, True) for y in (1973, 2000, 2024)],
 ]
 
 # Punkter som ligger precis utanför den förenklade kusten men som uppslaget hittar inom marginalen (AREA_MARGIN_DEG i
@@ -320,6 +349,8 @@ PUNKTER = [
 NARA = [
     *[('gronland-koloni', NUUK, 'Nuuk', y) for y in (1734, 1750, 1800, 1900, 1940)],
     *[('danmark', NUUK, 'Nuuk', y) for y in (1946, 1979, 2000, 2024)],
+    # Kuwait City ligger cirka 500 m utanför Kuwaits förenklade kust (#1469)
+    *[('kuwait', KUWAIT_CITY, 'Kuwait City', y) for y in (1961, 1989, 1990, 1991, 2024)],
 ]
 MARGINAL = 0.05
 

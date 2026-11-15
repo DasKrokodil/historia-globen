@@ -454,8 +454,10 @@ GROUPS = {
     ]),
     'tjeckoslovakien': ('Tjeckoslovakien', 'Czechoslovakia', [
         # Cliopatria ritar landet som Sovjetunionen 1969–1990 (#1332): där ritas Tjeckoslovakien med sin egen gräns 1968,
-        # som är densamma som 1991 i Cliopatria (docs/beslut/2026-11-13-ockupation-och-inbordeskrig.md)
-        ('Czechoslovakia', 'tjeckoslovakien', 'Tjeckoslovakien', '#c06a3a', {'fill': [(1969, 1990, ('Czechoslovakia', 1968))]}),
+        # som är densamma som 1991 i Cliopatria (docs/beslut/2026-11-13-ockupation-och-inbordeskrig.md). Likaså 1945–1946 (#1469):
+        # där ritas landet med sin gräns 1947, som skiljer sig 0,1 procent från gränsen 1949–1952
+        ('Czechoslovakia', 'tjeckoslovakien', 'Tjeckoslovakien', '#c06a3a',
+         {'fill': [(1945, 1946, ('Czechoslovakia', 1947)), (1969, 1990, ('Czechoslovakia', 1968))]}),
     ]),
     'storcolombia': ('Storcolombia', 'Gran Colombia', [
         ('Gran Colombia', 'storcolombia', 'Storcolombia', '#d4b13a'),
@@ -546,7 +548,9 @@ GROUPS = {
     ]),
     'kuwait': ('Kuwait', 'Kuwait', [
         # Cliopatria har emiratet 1757–1872 och från 1991 som Kuwait, och staten 1961–1989 som State of Kuwait
-        (['Kuwait', 'State of Kuwait'], 'kuwait', 'Kuwait', '#a0507a', {'en': 'Kuwait', 'wikidata': 'Q817'}),
+        # Cliopatria räknar landet till Irak 1990 (#1469): det året ritas Kuwait med sin gräns 1989, som är densamma som 1991
+        (['Kuwait', 'State of Kuwait'], 'kuwait', 'Kuwait', '#a0507a',
+         {'en': 'Kuwait', 'wikidata': 'Q817', 'fill': [(1990, 1990, ('State of Kuwait', 1989))]}),
     ]),
     # R7 (#407), tredje omgången: Sydasien (Bangladeshs befrielsekrig, det afghansk-marathiska kriget, Afghanistan 2001)
     'indien': ('Indien', 'India', [
@@ -919,7 +923,10 @@ GROUPS = {
     # Nutida stater, sjätte omgången (#644)
     # Cliopatria anger Q203493 (Kungariket Rumänien) också för Rumänien efter 1989; rätt id är Q218
     'rumanien': ('Rumänien', 'Romania', [
-        ('Kingdom of Romania', 'kungariket-rumanien', 'Kungariket Rumänien', '#3a8a9a', {'en': 'Kingdom of Romania'}),
+        # Cliopatria räknar landet till Sovjetunionen 1945–1946 (#1469): de åren ritas landet med sin gräns 1947, som är densamma som
+        # 1948–1986 (docs/beslut/2026-11-13-ockupation-och-inbordeskrig.md)
+        ('Kingdom of Romania', 'kungariket-rumanien', 'Kungariket Rumänien', '#3a8a9a',
+         {'en': 'Kingdom of Romania', 'fill': [(1945, 1946, ('Kingdom of Romania', 1947))]}),
         ('Socialist Republic of Romania', 'socialistiska-republiken-rumanien', 'Socialistiska republiken Rumänien', '#3a8a9a',
          {'en': 'Socialist Republic of Romania'}),
         ('Romania', 'rumanien', 'Rumänien', '#3a8a9a', {'en': 'Romania', 'wikidata': 'Q218'}),
@@ -998,7 +1005,13 @@ GROUPS = {
     # och anger folkrepublikens id också för republiken; posterna slås ihop till Bulgarien (Q219)
     'bulgarien': ('Bulgarien', 'Bulgaria', [
         (['Principality of Bulgaria', 'Kingdom of Bulgaria', "People's Republic of Bulgaria", 'Republic of Bulgaria'],
-         'bulgarien', 'Bulgarien', '#4aa070', {'en': 'Bulgaria', 'wikidata': 'Q219'}),
+         'bulgarien', 'Bulgarien', '#4aa070', {'en': 'Bulgaria', 'wikidata': 'Q219',
+                                               # Cliopatria räknar landet till Sovjetunionen 1945–1946 (#1469): de åren ritas landet
+                                               # med sin gräns 1948, som är densamma som 1949–1991 (gränsen 1947 skiljer sig
+                                               # 0,7 procent längs gränsen mot Grekland och används inte). splits 1947: perioden
+                                               # 1947–2024 har kvar gränsen 1947 som förut
+                                               'fill': [(1945, 1946, ("People's Republic of Bulgaria", 1948))],
+                                               'splits': (1947,)}),
     ]),
     'guatemala': ('Guatemala', 'Guatemala', [
         ('Guatemala', 'guatemala', 'Guatemala', '#8a6ab0', {'en': 'Guatemala'}),
@@ -1017,12 +1030,18 @@ GROUPS = {
     # Cliopatrias tre poster (republiken 1919–1943, Hungary och folkrepubliken) överlappar inte; Cliopatria anger
     # Q28513 (Österrike-Ungern) för Hungary, rätt id är Q28
     'ungern': ('Ungern', 'Hungary', [
+        # Cliopatria räknar landet till Sovjetunionen 1945–1946 och ritar det som "Hungarian Nationalists" 1956–1957 (#1469): de åren
+        # ritas landet med sin gräns 1947 och 1955, som är densamma som 1950 och 1958 (docs/beslut/2026-11-13-ockupation-och-inbordeskrig.md)
         (['Hungarian Republic', 'Hungary', "Hungarian People's Republic"], 'ungern', 'Ungern', '#c0703a',
-         {'en': 'Hungary', 'wikidata': 'Q28'}),
+         {'en': 'Hungary', 'wikidata': 'Q28',
+          'fill': [(1945, 1946, ('Hungary', 1947)), (1956, 1957, ("Hungarian People's Republic", 1955))]}),
     ]),
     # Cliopatria anger Q187830 (Österrikes historia) för andra republiken; rätt id är Q40
     'osterrike': ('Österrike', 'Austria', [
-        (['Republic of Austria', 'Second Republic of Austria'], 'osterrike', 'Österrike', '#c04050', {'en': 'Austria', 'wikidata': 'Q40'}),
+        # Cliopatria ritar landet som de fyra ockupationszonerna 1945 och utan den sovjetiska zonen 1946 (#1469): de åren ritas landet med
+        # sin gräns 1947, samma post till 1991 (docs/beslut/2026-11-13-ockupation-och-inbordeskrig.md)
+        (['Republic of Austria', 'Second Republic of Austria'], 'osterrike', 'Österrike', '#c04050',
+         {'en': 'Austria', 'wikidata': 'Q40', 'fill': [(1945, 1946, ('Second Republic of Austria', 1947))]}),
     ]),
     'panama': ('Panama', 'Panama', [
         ('Republic of Panama', 'panama', 'Panama', '#5a9ac0', {'en': 'Panama'}),
@@ -1897,6 +1916,13 @@ KINSHASA_SIDAN = ('ne', ['kongo-kinshasa-ne'])
 BRAZZAVILLE_SIDAN = ('skillnad', ('ne', ['kongo-brazzaville-ne']), ('ne', ['kongo-kinshasa-ne']))
 # Newfoundland och Labrador (#1707): rutan runt provinsen, för Brittiska imperiets delar där från 1949
 NEWFOUNDLAND = (-68.0, 46.4, -52.0, 61.0)
+# Östeuropa 1945–1946 (#1469): från Bayerns östra spets (Passau, 13,5 grader öst) till Svarta havet och från Grekland till
+# Tjeckoslovakiens sydgräns, men inte norrut till den sovjetiska zonen i Tyskland eller Polen
+SOVJET_VAST = [(13.8, 40.5, 30.5, 49.6)]
+# Rumäniens gräns mot Sovjetunionen (Bukovina, Prut och Donaudeltat), söder om Ungern och norr om Dobrudja
+RUMANIEN_OST = [(24.0, 45.2, 30.0, 48.4)]
+# Österrike med en marginal på 0,05 grader (9,53–17,16 grader öst, 46,37–49,02 nord)
+OSTERRIKE_RUTA = (9.48, 46.32, 17.21, 49.07)
 
 DISPUTED = {
     # Krim och Sevastopol: Cliopatria räknar halvön till Ryssland från 2014 och till Ukraina bara till och med 2023.
@@ -2040,6 +2066,45 @@ DISPUTED = {
     'polen-sovjet': {'area': ('skillnad', ('clio', 'Republic of Poland', 1953), ('ne', ['tyskland'])), 'from': 1945, 'to': 1952,
                      'strict': True,
                      'remove': ['sovjetunionen'], 'add': []},
+    # Östeuropa 1945–1946 (#1469, samma beslut): Cliopatria räknar Tjeckoslovakien, Ungern, Rumänien och Bulgarien till Sovjetunionen.
+    # De ritas med sina egna gränser 1947 (Bulgarien 1948; fill i GROUPS), som klipps bort ur Sovjetunionen efter förenklingen.
+    # Länderna fanns som stater, och Ungern, Rumänien och Bulgarien stod under allierade kontrollkommissioner med sovjetiskt
+    # ordförandeskap tills fredsfördragen i Paris 10 februari 1947 (wp-allied-control-commission, wp-paris-peace-treaties-1947)
+    'osteuropa-sovjet': {'area': ('clio-union', [('Czechoslovakia', 1947), ('Hungary', 1947), ('Kingdom of Romania', 1947),
+                                                 ("People's Republic of Bulgaria", 1948)]),
+                         'from': 1945, 'to': 1946, 'strict': True, 'efter': True, 'remove': ['sovjetunionen'], 'add': []},
+    # Sovjetunionens förenklade gräns (0,3 grader) gick 1945–1946 också ut över Jugoslavien, Grekland, Turkiet och Svarta havet, och
+    # efter klippningen blev de remsorna kvar. I rutan SOVJET_VAST klipps därför allt utom Sovjetunionens egen gräns 1947 i Cliopatria
+    # bort de åren, efter förenklingen. Rutan når inte den sovjetiska zonen i Tyskland (norr om 49,6 grader och väster om 14,9)
+    'osteuropa-sovjet-rester': {'area': ('skillnad', ('rutor', SOVJET_VAST), ('clio', 'Union of Soviet Socialist Republics', 1947)),
+                                'from': 1945, 'to': 1946, 'strict': True, 'efter': True, 'remove': ['sovjetunionen'], 'add': []},
+    # Rumäniens förenklade gräns (0,2 grader) når inte fram till gränsen mot Sovjetunionen i norr och öster (vid Suceava, Botoșani och
+    # Galați), och Sovjetunionen klipps med den ogenomskurna gränsen. Där läggs Rumäniens ogenomskurna gräns 1947 tillbaka efter
+    # förenklingen de åren, annars blir fält på cirka 2 500 km² utan stat (1947–1989 ritas de som Sovjetunionen, som förut)
+    'osteuropa-rumanien': {'area': ('snitt', ('clio', 'Kingdom of Romania', 1947), ('rutor', RUMANIEN_OST)),
+                           'from': 1945, 'to': 1946, 'strict': True, 'efter': True, 'remove': [], 'add': ['rumanien']},
+    # Österrike 1945–1946 (#1469): Renners provisoriska regering tillträdde 27 april 1945 och erkändes av västmakterna 20 oktober 1945;
+    # landet var ockuperat i fyra zoner till 1955 (wp-allied-occupied-austria). Cliopatria ritar zonerna 1945 och den sovjetiska zonen
+    # (Niederösterreich, Burgenland, Mühlviertel och delar av Wien) 1946. Österrike ritas med sin gräns 1947, som klipps bort ur de fyra
+    # makterna efter förenklingen: Sovjetunionen 1945–1946, de tre västmakterna bara 1945, så att deras perioder delas som förut
+    # från 1946 (de har inte Österrike 1946 i Cliopatria)
+    'osterrike-zoner': {'area': ('clio', 'Second Republic of Austria', 1947), 'from': 1945, 'to': 1946, 'strict': True, 'efter': True,
+                        'remove': ['sovjetunionen'], 'add': []},
+    # För västmakterna är området rutan kring Österrike utom Tyskland i Natural Earth (där zonerna i Tyskland står kvar), eftersom deras
+    # förenklade gränser annars blir kvar som remsor över Österrikes förenklade gräns mot Italien och Jugoslavien (cirka 2 000 km²)
+    'osterrike-zoner-1945': {'area': ('skillnad', ('rutor', [OSTERRIKE_RUTA]), ('ne', ['tyskland'])), 'from': 1945, 'to': 1945,
+                             'strict': True, 'efter': True, 'remove': ['usa', 'brittiska-imperiet', 'franska-kolonialvaldet'], 'add': []},
+    # och Tjeckoslovakiens sida mot Tyskland (som tjeckoslovakien-zoner 1947–1949 nedan), där USA:s och Sovjetunionens förenklade
+    # gränser annars ligger över Tjeckoslovakiens
+    'tjeckoslovakien-zoner-1945': {'area': ('ne', ['tjeckien-ne']), 'from': 1945, 'to': 1946, 'strict': True, 'efter': True,
+                                   'remove': ['usa', 'sovjetunionen'], 'add': []},
+    # Kuwait 1990 (#1469): Irak invaderade landet 2 augusti 1990 och annekterade det; FN:s säkerhetsråd förklarade annekteringen
+    # ogiltig 9 augusti 1990 (resolution 662), och landet befriades i februari 1991 (wp-iraqi-invasion-kuwait, wp-unsc-662).
+    # Cliopatria räknar landet till Irak 1990; Kuwaits gräns 1989 (fill i GROUPS) klipps bort ur Irak efter förenklingen, och Iraks
+    # yta räknas utan Kuwait (yta). Både den ogenomskurna och den förenklade gränsen klipps bort, så att Irak inte ritas på kuwaitisk
+    # mark och inte under Kuwaits förenklade gräns (annars cirka 600 km² i båda länderna)
+    'kuwait-irak': {'area': ('union', ('clio', 'State of Kuwait', 1989), ('forenklad', 'State of Kuwait', 1989)), 'from': 1990,
+                    'to': 1990, 'strict': True, 'efter': True, 'yta': True, 'remove': ['irak'], 'add': []},
     # Oder–Neisse (#1750): Cliopatrias Polen sträcker sig väster om gränsen (Frankfurt an der Oder och Görlitz ligger i
     # Polen). Tysklands gräns i Natural Earth klipps ur Polen, och den tyska sidan längs gränsen läggs till DDR och Tyskland
     'oder-polen': {'area': ('ne', ['tyskland']), 'from': 1945, 'strict': True, 'remove': ['polen'], 'add': []},
@@ -2254,8 +2319,8 @@ DISPUTED = {
                                'vasttyskland', 'tyskland'], 'add': ['schweiz']},
     'alp-schweiz-zoner': {'area': ('snitt', ('ne', ['schweiz-ne']), ALP), 'from': 1945, 'to': 1949, 'strict': True, 'efter': True,
                           'remove': ['usa'], 'add': []},
-    # Österrike 1919–1937 och från 1946 (Vorarlberg förblev österrikiskt efter folkomröstningen 1919, en.wikipedia "Vorarlberg");
-    # Nazityskland 1938–1944. 1945 följer Cliopatria (Vorarlberg i den franska zonen)
+    # Österrike 1919–1937 och från 1945 (Vorarlberg förblev österrikiskt efter folkomröstningen 1919, en.wikipedia "Vorarlberg");
+    # Nazityskland 1938–1944. 1945 ritas Österrike i stället för ockupationszonerna (osterrike-zoner, #1469)
     'alp-osterrike': {'area': ('snitt', ('ne', ['osterrike-ne']), ALP), 'from': 1919, 'strict': True, 'efter': True,
                       'remove': ['schweiz', 'tyska-riket', 'weimarrepubliken', 'vasttyskland', 'tyskland'], 'add': ['osterrike']},
     'alp-osterrike-1933': {'area': ('snitt', ('ne', ['osterrike-ne']), ALP), 'from': 1933, 'to': 1937, 'strict': True, 'efter': True,
@@ -2264,6 +2329,9 @@ DISPUTED = {
                                 'efter': True, 'remove': [], 'add': ['nazityskland']},
     'alp-osterrike-zoner': {'area': ('snitt', ('ne', ['osterrike-ne']), ALP), 'from': 1946, 'strict': True, 'efter': True,
                             'remove': ['usa', 'franska-kolonialvaldet'], 'add': []},
+    # och 1945, då Cliopatria ritar zonerna i stället för Österrike (#1469); egen post, så att perioderna delas som förut från 1946
+    'alp-osterrike-zoner-1945': {'area': ('snitt', ('ne', ['osterrike-ne']), ALP), 'from': 1945, 'to': 1945, 'strict': True,
+                                 'efter': True, 'remove': ['usa', 'franska-kolonialvaldet'], 'add': []},
     # Tysklands mark: Tyska riket 1919, Weimarrepubliken, Nazityskland, Västtyskland och Tyskland (var och en bara sina år)
     'alp-tyskland': {'area': ('snitt', ('ne', ['tyskland']), ALP), 'from': 1919, 'strict': True, 'efter': True,
                      'remove': ['schweiz', 'osterrike'], 'add': ['tyska-riket', 'weimarrepubliken', 'nazityskland', 'vasttyskland', 'tyskland']},
@@ -2359,6 +2427,11 @@ def disputed_areas(by_name):
             return area(a[1]).difference(area(a[2]))
         if a[0] == 'rutor':  # rutor (väst, syd, öst, nord), för källfel med 'parts' (#1706)
             return unary_union([box(*r) for r in a[1]])
+        if a[0] == 'forenklad':  # en stats gräns ett visst år, förenklad och avrundad som kartans gräns (TOL, en decimal; #1469)
+            g = at(a[1], a[2]).simplify(TOL, preserve_topology=True)
+            return shape({'type': mapping(g)['type'], 'coordinates': rnd(mapping(g)['coordinates'])}).buffer(0)
+        if a[0] == 'union':  # flera områden tillsammans (#1469)
+            return unary_union([area(x) for x in a[1:]])
         if a[0] == 'ne-snitt':  # ett land i Natural Earth snittat med en Cliopatria-post ett visst år
             return ne[a[1]].intersection(at(*a[2]))
         return at(*a[0]).difference(at(*a[1]))
