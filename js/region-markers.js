@@ -199,7 +199,9 @@ export function placeNames(cands, { W, H, blocked = [], measure, crosses = () =>
       // Ortens prick hör till namnet: den får inte heller ligga på något
       const dot = c.kind === 'place' ? { x0: x - 3, y0: y - 3, x1: x + 3, y1: y + 3 } : null;
       if (box.x0 < 2 || box.y0 < 2 || box.x1 > W - 2 || box.y1 > H - 2) continue;
-      if ([...blocked, ...placed].some(b => overlaps(box, b) || (dot && overlaps(dot, b)))) continue;
+      // Lite luft mellan två namn, så att de inte läses ihop ("Göteborg SVERIGE")
+      const airy = { x0: box.x0 - 4, y0: box.y0 - 1, x1: box.x1 + 4, y1: box.y1 + 1 };
+      if (blocked.some(b => overlaps(box, b) || (dot && overlaps(dot, b))) || placed.some(b => overlaps(airy, b) || (dot && overlaps(dot, b)))) continue;
       if (crosses(box)) continue;
       placed.push(box);
       if (dot) placed.push(dot);
