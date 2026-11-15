@@ -39326,6 +39326,123 @@
    ]
   },
   {
+   "id": "nordsjovaldet",
+   "name": {
+    "sv": "Nordsjöväldet",
+    "en": "North Sea Empire",
+    "de": "Nordseereich",
+    "es": "Imperio del Mar del Norte",
+    "fr": "Empire anglo-scandinave"
+   },
+   "color": "#b0604a",
+   "from": 1018,
+   "to": 1055,
+   "file": "data/empires/nordsjovaldet.json",
+   "polities": [
+    {
+     "id": "nordsjovaldet",
+     "name": {
+      "sv": "Nordsjöväldet",
+      "en": "North Sea Empire",
+      "de": "Nordseereich",
+      "es": "Imperio del Mar del Norte",
+      "fr": "Empire anglo-scandinave"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "danmark-england",
+     "name": {
+      "sv": "Danmark–England",
+      "en": "Denmark–England",
+      "de": "Dänemark–England",
+      "es": "Dinamarca–Inglaterra",
+      "fr": "Danemark–Angleterre"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "norge-danmark",
+     "name": {
+      "sv": "Norge–Danmark",
+      "en": "Norway–Denmark",
+      "de": "Norwegen–Dänemark",
+      "es": "Noruega–Dinamarca",
+      "fr": "Norvège–Danemark"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Nordsjöväldet var en personalunion mellan England, Danmark och Norge under Knut den store. Svenska Wikipedia anger 1016–1042: väldet började när Knut kröntes till kung av England 1016 och upphörde när hans son Hardeknut dog 1042.",
+     "en": "The North Sea Empire was a personal union of England, Denmark and Norway under Cnut the Great. Swedish Wikipedia gives 1016–1042: the empire began when Cnut was crowned king of England in 1016 and ended when his son Harthacnut died in 1042.",
+     "de": "Das Nordseereich war eine Personalunion von England, Dänemark und Norwegen unter Knut dem Großen. Die schwedische Wikipedia nennt 1016–1042: Das Reich begann, als Knut 1016 zum König von England gekrönt wurde, und endete, als sein Sohn Hardeknut 1042 starb.",
+     "es": "El Imperio del Mar del Norte fue una unión personal de Inglaterra, Dinamarca y Noruega bajo Canuto el Grande. La Wikipedia en sueco indica 1016–1042: el imperio comenzó cuando Canuto fue coronado rey de Inglaterra en 1016 y terminó cuando murió su hijo Canuto Hardeknud en 1042.",
+     "fr": "L'Empire anglo-scandinave était une union personnelle de l'Angleterre, du Danemark et de la Norvège sous Knut le Grand. La Wikipédia en suédois indique 1016–1042 : l'empire commença lorsque Knut fut couronné roi d'Angleterre en 1016 et prit fin à la mort de son fils Hardeknut en 1042."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod",
+       "en": "When and where it arose",
+       "de": "Entstehung",
+       "es": "Cuándo y dónde surgió",
+       "fr": "Quand et où il est apparu"
+      },
+      "text": {
+       "sv": "Sven Tveskägg erövrade England 1013, och Knut den store fick makten där 1016. Knut blev kung av Danmark 1018 eller 1019 (engelska Wikipedia anger båda åren) och tog över Norge 1028. Efter slaget vid Helgeå 1026 hävdade han att han styrde en del av Sverige; svenska Wikipedia skriver att han möjligen regerade Västergötland.",
+       "en": "Sweyn Forkbeard conquered England in 1013, and Cnut the Great gained power there in 1016. Cnut became king of Denmark in 1018 or 1019 (English Wikipedia gives both years) and took over Norway in 1028. After the Battle of Helgeå in 1026 he claimed to rule part of Sweden; Swedish Wikipedia writes that he possibly ruled Västergötland.",
+       "de": "Sven Gabelbart eroberte England 1013, und Knut der Große kam dort 1016 an die Macht. Knut wurde 1018 oder 1019 König von Dänemark (die englische Wikipedia nennt beide Jahre) und übernahm 1028 Norwegen. Nach der Schlacht am Helgeå 1026 beanspruchte er, einen Teil Schwedens zu beherrschen; die schwedische Wikipedia schreibt, dass er möglicherweise über Västergötland herrschte.",
+       "es": "Svend Barba de Horquilla conquistó Inglaterra en 1013, y Canuto el Grande se hizo con el poder allí en 1016. Canuto fue rey de Dinamarca desde 1018 o 1019 (la Wikipedia en inglés da ambos años) y tomó Noruega en 1028. Tras la batalla de Helgeå en 1026 afirmó gobernar una parte de Suecia; la Wikipedia en sueco escribe que posiblemente gobernó Västergötland.",
+       "fr": "Sven à la Barbe fourchue conquit l'Angleterre en 1013, et Knut le Grand y prit le pouvoir en 1016. Knut devint roi de Danemark en 1018 ou 1019 (la Wikipédia en anglais donne les deux années) et prit la Norvège en 1028. Après la bataille de Helgeå en 1026, il prétendit régner sur une partie de la Suède ; la Wikipédia en suédois écrit qu'il régna peut-être sur le Västergötland."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade",
+       "en": "How it ended",
+       "de": "Wie es endete",
+       "es": "Cómo terminó",
+       "fr": "Comment il a pris fin"
+      },
+      "text": {
+       "sv": "Enligt engelska Wikipedia föll väldet sönder direkt när Knut dog 1035. Hardeknut var kung av Danmark 1035–1042 och av England 1040–1042. När han dog 8 juni 1042 blev Magnus den gode, kung av Norge sedan 1035, också kung av Danmark, fram till sin död 25 oktober 1047. Därefter var Sven Estridsson kung av Danmark 1047–1076.",
+       "en": "According to English Wikipedia the empire collapsed immediately when Cnut died in 1035. Harthacnut was king of Denmark in 1035–1042 and of England in 1040–1042. When he died on 8 June 1042, Magnus the Good, king of Norway since 1035, also became king of Denmark, until his death on 25 October 1047. After that Sweyn Estridsson was king of Denmark in 1047–1076.",
+       "de": "Laut der englischen Wikipedia zerfiel das Reich sofort, als Knut 1035 starb. Hardeknut war 1035–1042 König von Dänemark und 1040–1042 König von England. Als er am 8. Juni 1042 starb, wurde Magnus der Gute, seit 1035 König von Norwegen, auch König von Dänemark, bis zu seinem Tod am 25. Oktober 1047. Danach war Sven Estridsson 1047–1076 König von Dänemark.",
+       "es": "Según la Wikipedia en inglés, el imperio se desintegró en cuanto murió Canuto en 1035. Canuto Hardeknud fue rey de Dinamarca en 1035–1042 y de Inglaterra en 1040–1042. Cuando murió el 8 de junio de 1042, Magnus el Bueno, rey de Noruega desde 1035, pasó a ser también rey de Dinamarca, hasta su muerte el 25 de octubre de 1047. Después, Svend Estridsen fue rey de Dinamarca en 1047–1076.",
+       "fr": "Selon la Wikipédia en anglais, l'empire s'effondra dès la mort de Knut en 1035. Hardeknut fut roi de Danemark en 1035–1042 et d'Angleterre en 1040–1042. À sa mort, le 8 juin 1042, Magnus le Bon, roi de Norvège depuis 1035, devint aussi roi de Danemark, jusqu'à sa mort le 25 octobre 1047. Ensuite, Sven Estridsen fut roi de Danemark en 1047–1076."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna skiljer sig. Kartan följer Cliopatria: Nordsjöväldet 1018–1039 (med Norge från 1028), Danmark–England 1040–1045 och Norge–Danmark 1046–1055. Enligt regentlängderna på Wikipedia föll väldet 1035, Hardeknut styrde Danmark och England 1040–1042 och Magnus den gode Norge och Danmark 1042–1047. Wikidata anger 1016–1035 för väldet. Gränserna är Cliopatrias uppskattning. De norröna öarna och norra Skottland räknas 1028–1039 till Norgesväldet, som i Cliopatria.",
+     "en": "The sources differ. The map follows Cliopatria: the North Sea Empire in 1018–1039 (with Norway from 1028), Denmark–England in 1040–1045 and Norway–Denmark in 1046–1055. According to the lists of rulers on Wikipedia the empire fell in 1035, Harthacnut ruled Denmark and England in 1040–1042 and Magnus the Good Norway and Denmark in 1042–1047. Wikidata gives 1016–1035 for the empire. The borders are Cliopatria's estimate. The Norse islands and northern Scotland are counted to the Old Kingdom of Norway in 1028–1039, as in Cliopatria.",
+     "de": "Die Quellen weichen voneinander ab. Die Karte folgt Cliopatria: das Nordseereich 1018–1039 (ab 1028 mit Norwegen), Dänemark–England 1040–1045 und Norwegen–Dänemark 1046–1055. Nach den Herrscherlisten in der Wikipedia zerfiel das Reich 1035, Hardeknut herrschte 1040–1042 über Dänemark und England und Magnus der Gute 1042–1047 über Norwegen und Dänemark. Wikidata nennt 1016–1035 für das Reich. Die Grenzen sind eine Schätzung von Cliopatria. Die nordischen Inseln und Nordschottland werden 1028–1039 wie bei Cliopatria zum Königreich Norwegen gezählt.",
+     "es": "Las fuentes difieren. El mapa sigue a Cliopatria: el Imperio del Mar del Norte en 1018–1039 (con Noruega desde 1028), Dinamarca–Inglaterra en 1040–1045 y Noruega–Dinamarca en 1046–1055. Según las listas de soberanos de Wikipedia, el imperio cayó en 1035, Canuto Hardeknud gobernó Dinamarca e Inglaterra en 1040–1042 y Magnus el Bueno Noruega y Dinamarca en 1042–1047. Wikidata indica 1016–1035 para el imperio. Las fronteras son una estimación de Cliopatria. Las islas nórdicas y el norte de Escocia se cuentan en 1028–1039 en el Reino de Noruega, como en Cliopatria.",
+     "fr": "Les sources divergent. La carte suit Cliopatria : l'Empire anglo-scandinave en 1018–1039 (avec la Norvège à partir de 1028), Danemark–Angleterre en 1040–1045 et Norvège–Danemark en 1046–1055. Selon les listes de souverains de Wikipédia, l'empire s'effondra en 1035, Hardeknut régna sur le Danemark et l'Angleterre en 1040–1042 et Magnus le Bon sur la Norvège et le Danemark en 1042–1047. Wikidata indique 1016–1035 pour l'empire. Les frontières sont une estimation de Cliopatria. Les îles nordiques et le nord de l'Écosse sont comptés en 1028–1039 dans le royaume de Norvège, comme dans Cliopatria."
+    },
+    "sources": [
+     "wp-sv-nordsjovaldet",
+     "wp-north-sea-empire",
+     "wd-nordsjovaldet",
+     "wp-harthacnut",
+     "wp-magnus-the-good",
+     "wp-sweyn-ii"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
    "id": "fatimiderna",
    "name": {
     "sv": "Fatimider",

@@ -19783,6 +19783,24 @@
      "to": 1017
     },
     {
+     "empire": "nordsjovaldet",
+     "polity": "nordsjovaldet",
+     "from": 1018,
+     "to": 1039
+    },
+    {
+     "empire": "nordsjovaldet",
+     "polity": "danmark-england",
+     "from": 1040,
+     "to": 1045
+    },
+    {
+     "empire": "nordsjovaldet",
+     "polity": "norge-danmark",
+     "from": 1046,
+     "to": 1055
+    },
+    {
      "empire": "konungariket-danmark",
      "polity": "konungariket-danmark",
      "from": 1056,
