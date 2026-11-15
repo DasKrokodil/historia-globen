@@ -2578,6 +2578,44 @@ async function run(browser, vp) {
     return `Sverige ${sverige.length} och Danmark ${danmark.length} händelser`;
   });
 
+  // #1524: punkt mot rike har en marginal (js/area-lookup.js). Rikenas gränser är förenklade, så Köpenhamn (55,676° N, 12,569° Ö) ligger
+  // strax utanför Danmarks, Kalmarunionens och Danmark-Norges gräns. Kontrollen slår upp punkten mot riktig data i sidan: rikenas perioder
+  // (data/empires/) och religionslagrets klick (hitTest och polityAt, data/religions*.json). Havet utanför får fortfarande inget rike.
+  await check('punkt mot rike har en liten marginal: Köpenhamn ligger i Danmark, havet får inget rike (#1524)', async () => {
+    const r = await page.evaluate(async () => {
+      const { areaAt } = await import('./js/area-lookup.js');
+      const { ReligionsLayer } = await import('./js/layers/religions.js');
+      const get = async u => (await fetch(u)).json();
+      const files = await Promise.all(['danmark', 'konungariket-danmark', 'kalmarunionen'].map(f => get(`data/empires/${f}.json`)));
+      const polities = files.flatMap(f => f.polities);
+      const itemsAt = year => polities.flatMap(p => p.periods.filter(q => q.start <= year && year <= q.end).map(q => ({ id: p.id, geometry: q.geometry })));
+      const out = { empires: {}, sea: [] };
+      for (const year of [1100, 1450, 1700, 1900, 1950]) out.empires[year] = areaAt(itemsAt(year), 12.569, 55.676).items.map(i => i.id);
+      for (const year of [1100, 1700, 1950]) out.sea.push(areaAt(itemsAt(year), 3, 56.5).items.length);
+      // Religionslagret: klicket vid Köpenhamn och i Nordsjön
+      const [rel, shapes] = await Promise.all([get('data/religions.json'), get('data/religions-polities.json')]);
+      const layer = new ReligionsLayer();
+      layer.setData(rel.religions); layer.setPolities(rel.polities); layer.enabled = true;
+      out.religion = {};
+      for (const year of [1300, 1800, 1950]) {
+        layer.update({ year });
+        const hit = layer.hitTest(12.569, 55.676);
+        out.religion[year] = { religion: hit?.religion.id ?? null, here: hit ? layer.polityAt(hit, 12.569, 55.676, shapes.polities).map(p => p.name) : null, sea: layer.hitTest(3, 56.5) === null };
+      }
+      return out;
+    });
+    for (const [year, ids] of Object.entries(r.empires)) {
+      if (ids.length !== 1 || !/danmark|kalmar/.test(ids[0])) throw new Error(`${year}: Köpenhamn hamnar i ${JSON.stringify(ids)}, väntade Danmark, Kalmarunionen eller Danmark-Norge`);
+    }
+    if (r.sea.some(n => n)) throw new Error(`Nordsjön fick ett rike: ${JSON.stringify(r.sea)}`);
+    for (const [year, x] of Object.entries(r.religion)) {
+      if (x.religion !== 'kristendom') throw new Error(`${year}: klicket vid Köpenhamn träffar inte religionens område (${x.religion})`);
+      if (!/Denmark/.test(x.here?.[0] ?? '')) throw new Error(`${year}: riket vid Köpenhamn är ${JSON.stringify(x.here)}, väntade Denmark`);
+      if (!x.sea) throw new Error(`${year}: Nordsjön träffar ett religionsområde`);
+    }
+    return `Köpenhamn: ${Object.values(r.empires).map(a => a[0]).join(', ')}; religionslagret: ${Object.values(r.religion).map(x => x.here[0]).join(', ')}`;
+  });
+
   // #1448: rikena i landskortet. Raderna räknas ur data/platser.json (periods) och data/empires/index.json, aldrig ur testet: en knapp per
   // period med hela namnet för skärmläsare, en rad per lucka (år mellan perioderna som ingen period täcker), och knappen följer gruppen från
   // periodens första år när året ligger utanför perioden. Danmark prövas med tangentbordet (Enter på knappen).

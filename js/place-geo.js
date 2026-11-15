@@ -49,10 +49,12 @@ export function inGeometry(geometry, lon, lat) {
  * Kortaste avståndet i km från punkten till geometrins kant (platt närmevärde, duger för några tiotal km). Ringen viks upp
  * och punkten prövas som lon och lon ± 360, så att 179,5° och −179,5° är en grad från varandra. Segment där båda ändpunkterna
  * ligger på ±180 är sömmen där datan delats vid datumlinjen (#1268) och räknas inte som kust.
+ * `within` (valfri, #1524): sökningen ger upp bortom det avståndet och svarar då `within`; ringar vars ruta ligger längre bort
+ * hoppas över, så att ett uppslag med liten marginal över stora geometrier (riken, religioner) går fort.
  */
-export function edgeKm(geometry, lon, lat) {
+export function edgeKm(geometry, lon, lat, within = Infinity) {
   const k = Math.cos(lat * Math.PI / 180);
-  let best = Infinity;
+  let best = within;
   for (const poly of geometry.type === 'Polygon' ? [geometry.coordinates] : geometry.coordinates) {
     for (const ring of poly) {
       const { pts, min, max } = unwrapped(ring);

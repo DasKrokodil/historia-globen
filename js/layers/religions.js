@@ -16,6 +16,8 @@ import { traceRing, strokeEdge } from './area-style.js';
 // origins.js hämtar ORIGIN_R härifrån; det används först när medaljerna ritas, så den ömsesidiga importen går bra
 import { OriginMarkers } from './origins.js';
 import { ui } from '../i18n.js';
+import { areaAt, RELIGION_MARGIN_DEG } from '../area-lookup.js';
+import { inGeometry } from '../place-geo.js';
 
 /**
  * Lagrets post i registret (#338): av som standard, med en undermeny i Lager som main.js fyller när datan har
@@ -71,6 +73,12 @@ export function drawMedal(ctx, cx, cy, R, color, img) {
   else { ctx.fillStyle = color; ctx.beginPath(); ctx.arc(cx, cy, R * 0.3, 0, Math.PI * 2); ctx.fill(); }
 }
 
+/**
+ * Marginalen för rikena vid ett klick på ett religionsområde (grader på marken, #194): klicket ligger redan i området, så riket
+ * är nära även när de förenklade kanterna missar. Äldre och större än AREA_MARGIN_DEG, och oförändrad sedan #194.
+ */
+const POLITY_MARGIN_DEG = 0.5;
+
 export class ReligionsLayer {
   constructor() {
     this.religions = []; // fylls när datan har laddats, första gången lagret slås på
@@ -121,16 +129,16 @@ export class ReligionsLayer {
    * Vilket område ligger punkten (lon, lat) i? Säkra områden prövas före osäkra och osäkra före ärvda.
    * Returnerar { religion, snapshot, polities } eller null. Områdena är sammanslagna, så
    * vilket rike som ligger just där tas fram med polityAt() när rikenas gränser har laddats.
+   * Ligger punkten inte i något område men strax utanför (en kuststad vid de förenklade kanterna, Köpenhamn, #1524) väljs
+   * det närmaste området inom RELIGION_MARGIN_DEG; uppslaget görs av areaAt i js/area-lookup.js. Kartans gränser är oförändrade.
    */
   hitTest(lon, lat) {
     const rank = s => s.inherited ? 2 : s.sure !== false ? 0 : 1;
     const sorted = [...this.active].sort((a, b) => rank(a.snapshot) - rank(b.snapshot));
-    for (const { religion, snapshot } of sorted) {
-      if (contains(snapshot.geometry, lon, lat)) {
-        return { religion, snapshot, polities: snapshot.polities.map(n => this.polities.get(n) ?? { name: n }) };
-      }
-    }
-    return null;
+    const { items: [found] } = areaAt(sorted, lon, lat, { geometry: a => a.snapshot.geometry, margin: RELIGION_MARGIN_DEG });
+    if (!found) return null;
+    const { religion, snapshot } = found;
+    return { religion, snapshot, polities: snapshot.polities.map(n => this.polities.get(n) ?? { name: n }) };
   }
 
   /**
@@ -139,7 +147,7 @@ export class ReligionsLayer {
    * prövas, med den period som gällde när ögonblicksbilden börjar (samma urval som ritas).
    * Ligger flera riken över varandra kommer enskilda skeden före sammanslagningar och
    * sedan det minsta riket först. Hamnar klicket precis utanför
-   * alla (förenklade kanter) tas det närmaste riket inom en halv grad. Returnerar en lista
+   * alla (förenklade kanter) tas det närmaste riket inom POLITY_MARGIN_DEG (areaAt, #1524). Returnerar en lista
    * med uppgifter om rikena, tom om inget hittas.
    */
   polityAt(hit, lon, lat, shapes) {
@@ -152,14 +160,9 @@ export class ReligionsLayer {
     // Namn inom parentes, till exempel (Kingdom of France), är Cliopatrias sammanslagning av ett
     // rikes alla skeden. De kommer efter det enskilda skedet, till exempel Kingdom of France.
     const agg = c => /^\(.*\)$/.test(c.p.name);
-    const inside = cands.filter(c => contains(c.g, lon, lat)).map(c => ({ ...c, area: bboxArea(c.g) }));
-    if (inside.length) return inside.sort((a, b) => agg(a) - agg(b) || a.area - b.area).map(c => c.p);
-    let best = null, bestD = 0.5;
-    for (const c of cands) {
-      const d = distance(c.g, lon, lat);
-      if (d < bestD) { best = c.p; bestD = d; }
-    }
-    return best ? [best] : [];
+    const { items, viaMargin } = areaAt(cands, lon, lat, { geometry: c => c.g, margin: POLITY_MARGIN_DEG });
+    if (viaMargin) return items.map(c => c.p);
+    return items.map(c => ({ ...c, area: bboxArea(c.g) })).sort((a, b) => agg(a) - agg(b) || a.area - b.area).map(c => c.p);
   }
 
   update({ year }) {
@@ -280,7 +283,7 @@ function centersOf(snapshot) {
     const poly = { type: 'Polygon', coordinates: rings };
     let best = null;
     const tryAt = (lon, lat) => {
-      if (!contains(poly, lon, lat)) return;
+      if (!inGeometry(poly, lon, lat)) return;
       const r = distance(poly, lon, lat);
       if (!best || r > best.r) best = { lon, lat, r, w: x1 - x0 };
     };
@@ -297,18 +300,6 @@ function centersOf(snapshot) {
 }
 
 const ringsOf = g => (g.type === 'Polygon' ? [g.coordinates] : g.coordinates).flat();
-
-/** Punkt i polygon (evenodd, som ritningen), i lon/lat. */
-function contains(g, lon, lat) {
-  let inside = false;
-  for (const ring of ringsOf(g)) {
-    for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
-      const [xi, yi] = ring[i], [xj, yj] = ring[j];
-      if ((yi > lat) !== (yj > lat) && lon < (xj - xi) * (lat - yi) / (yj - yi) + xi) inside = !inside;
-    }
-  }
-  return inside;
-}
 
 /** Ytan av områdets omskrivna rektangel (kvadratgrader), för att välja det minsta riket. */
 function bboxArea(g) {
