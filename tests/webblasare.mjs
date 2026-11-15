@@ -2733,7 +2733,7 @@ async function run(browser, vp) {
       await openRegion(tp, 'skane');
       await regionSettled(tp);
       // Statusraden och rutan säger vilken plats regionvyn visar, och rutan har vägen ut
-      await tp.waitForFunction(() => /^Regionvy: Skåne\./.test(document.getElementById('screen-reader-status').textContent.trim()), null, { timeout: T.step });
+      await tp.waitForFunction(() => /^Regionvy: Skåne[.,]/.test(document.getElementById('screen-reader-status').textContent.trim()), null, { timeout: T.step });
       if ((await tp.textContent('#flat-region-name')).trim() !== 'Regionvy: Skåne') throw new Error(`rutan säger ${await tp.textContent('#flat-region-name')}`);
       if (!/Lämna regionvyn/.test(await tp.textContent('#flat-region-back'))) throw new Error('rutan saknar Lämna regionvyn');
       if ((await tp.getAttribute('#btn-flat', 'aria-pressed')) !== 'true') throw new Error('Platt karta är inte vald i Vy');
@@ -2912,6 +2912,146 @@ async function run(browser, vp) {
       await tp.waitForFunction(() => !document.getElementById('flat-view').dataset.region && document.getElementById('flat-region').hidden, null, { timeout: T.step });
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
       return `utanför ${px.outDim} nedtonade och ${px.outFull} fulla landpunkter; ${a.paints}→${c.paints} skarpa ritningar; ${a.ppd}→${e.ppd} px per grad`;
+    } finally { await tctx.close(); }
+  });
+
+  // #1642: regionvyns markörer. Platsens händelser får numrerade markörer (numret är raden i listan "Händelser på platsen"), händelser
+  // som gäller hela platsen står i brickan "Hela Skåne", markörer på samma ställe i en hög som fälls ut som en solfjäder, och ortnamnen
+  // ritas för orientering. Kontrollerna läser knapparna i .region-marks, raderna i kortet och renderingsstatusen på #flat-view
+  // (data-region-marks: markörer, högar och brickans antal; data-region-names: ortnamnen som ritades).
+  /** Markörerna, högarna och brickan som syns, och raderna i listan med sina nummer. */
+  const regionMarksState = pg => pg.evaluate(() => {
+    const cr = document.getElementById('flat-canvas').getBoundingClientRect();
+    const rel = el => { if (!el || el.hidden || !el.getClientRects().length) return null; const b = el.getBoundingClientRect(); return { x0: b.left - cr.left, y0: b.top - cr.top, x1: b.right - cr.left, y1: b.bottom - cr.top, w: b.width, h: b.height }; };
+    const buttons = [...document.querySelectorAll('.region-marks button')].filter(b => !b.hidden && !b.inert).map(b => ({
+      cls: b.className, text: b.textContent.trim(), label: b.getAttribute('aria-label') ?? '', n: b.dataset.n ? Number(b.dataset.n) : null, event: b.dataset.event ?? null,
+      expanded: b.getAttribute('aria-expanded'), pressed: b.getAttribute('aria-pressed'), box: rel(b) }));
+    const rows = [...document.querySelectorAll('#detail [data-theme-event]')].map((b, i) => ({ i, id: b.dataset.themeEvent,
+      num: b.querySelector('.region-num')?.textContent ?? null, whole: !!b.querySelector('.region-num.is-whole'), marked: b.classList.contains('is-region-marked') }));
+    const covers = ['detail', 'focus-bar', 'flat-region'].map(id => rel(document.getElementById(id))).filter(Boolean);
+    const d = document.getElementById('flat-view').dataset;
+    return { buttons, rows, covers, marks: d.regionMarks ?? '', names: Number(d.regionNames ?? 0), w: cr.width, h: cr.height,
+      status: document.getElementById('screen-reader-status').textContent.trim(), focus: document.activeElement?.className ?? '' };
+  });
+  const coversHit = (s, b) => s.covers.some(c => b.x0 < c.x1 && b.x1 > c.x0 && b.y0 < c.y1 && b.y1 > c.y0);
+  await check('regionvyns markörer: Skåne och Danmark får numrerade markörer, bricka och högar skarpt, numret stämmer med raden och kortet täcker dem inte (#1642)', async () => {
+    const { tp, tctx, errs } = await placeTapPage('#y=1827&f=place:skane', 'markor1');
+    try {
+      const out = [];
+      for (const [id, name] of [['skane', 'Skåne'], ['danmark', 'Danmark']]) {
+        if (id === 'danmark') {
+          await tp.goto(`${BASE}?ny=markor1dk#y=1827&f=place:danmark`);
+          await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        }
+        await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+        await openRegion(tp, id);
+        await regionSettled(tp);
+        // Ortnamnen laddas när vyn öppnas och ritas på kartan
+        await tp.waitForFunction(() => Number(document.getElementById('flat-view').dataset.regionNames ?? 0) >= 2, null, { timeout: T.step });
+        const s = await regionMarksState(tp);
+        // Statusraden säger hur många händelser och hur många som gäller hela platsen
+        const m = new RegExp(`^Regionvy: ${name}, (\\d+) händelser, (\\d+) gäller hela ${name}\\.`).exec(s.status);
+        if (!m) throw new Error(`statusraden: ${s.status}`);
+        if (Number(m[1]) !== s.rows.length) throw new Error(`statusraden säger ${m[1]} händelser, listan har ${s.rows.length}`);
+        // Raderna har nummer 1, 2, … i listans ordning
+        const bad = s.rows.filter(r => r.num !== String(r.i + 1));
+        if (bad.length) throw new Error(`raderna har fel nummer: ${bad.slice(0, 3).map(r => `${r.id}=${r.num}`).join(', ')}`);
+        // Brickan: "Hela Skåne · N", N = raderna som gäller hela platsen = statusradens tal
+        const brick = s.buttons.find(b => b.cls.includes('rbrick'));
+        const whole = s.rows.filter(r => r.whole).length;
+        if (!brick || brick.text !== `Hela ${name} · ${whole}` || whole !== Number(m[2])) throw new Error(`brickan: ${brick?.text}, ${whole} rader gäller hela platsen, statusraden ${m[2]}`);
+        // Markörerna: numret är radens nummer för samma händelse; skarpa (24 px i skärmpixlar), ungefärliga märkta
+        const markers = s.buttons.filter(b => b.cls.includes('rmark'));
+        if (!markers.length) throw new Error('inga markörer');
+        for (const b of markers) {
+          const row = s.rows.find(r => r.id === b.event);
+          if (!row || row.i + 1 !== b.n || b.text !== String(b.n)) throw new Error(`markören ${b.text} (${b.event}) stämmer inte med raden ${row?.i + 1}`);
+          if (Math.abs(b.box.w - 24) > 1 || Math.abs(b.box.h - 24) > 1) throw new Error(`markören ${b.n} är ${b.box.w}×${b.box.h} px`);
+          if (b.cls.includes('is-approx') !== /ungefärlig plats/.test(b.label)) throw new Error(`markören ${b.n}: märkningen och aria-label säger olika om platsen`);
+          if (!b.label.startsWith(`${b.n}. `)) throw new Error(`markörens aria-label: ${b.label}`);
+          if (coversHit(s, b.box)) throw new Error(`markören ${b.n} ligger under kortet, fokusraden eller rutan`);
+        }
+        // Högarna: ortnamn och antal i aria-label, och de händelser som inte är markörer finns i en hög eller i brickan
+        const piles = s.buttons.filter(b => b.cls.includes('rpile'));
+        for (const p of piles) {
+          if (!/: \d+ händelser nära varandra, .+, nummer [\d, ]+ i listan$/.test(p.label)) throw new Error(`högens aria-label: ${p.label}`);
+          if (coversHit(s, p.box)) throw new Error(`högen ${p.label} ligger under kortet`);
+        }
+        const inPiles = piles.flatMap(p => /nummer ([\d, ]+) i listan$/.exec(p.label)[1].split(', ').map(Number));
+        const shown = new Set([...markers.map(b => b.n), ...inPiles, ...s.rows.filter(r => r.whole).map(r => r.i + 1)]);
+        if (shown.size !== s.rows.length) throw new Error(`${s.rows.length - shown.size} händelser syns inte på kartan`);
+        // Tab-ordningen följer listan: brickan först, sedan markörer och högar efter numret
+        const order = s.buttons.filter(b => !b.cls.includes('glabel')).map(b => (b.cls.includes('rbrick') ? 0 : b.n ?? Number(/nummer (\d+)/.exec(b.label)?.[1])));
+        if (order.some((n, i) => i && n < order[i - 1])) throw new Error(`knapparnas ordning följer inte listan: ${order.join(', ')}`);
+        if (await tp.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw new Error('horisontell scroll i regionvyn');
+        out.push(`${name}: ${markers.length} markörer, ${piles.length} högar, bricka ${whole}, ${s.names} ortnamn`);
+      }
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return out.join('; ');
+    } finally { await tctx.close(); }
+  });
+
+  await check('regionvyns markörer: rad och markör markerar varandra, högen fälls ut som solfjäder med Enter, piltangenter och Escape (#1642)', async () => {
+    const { tp, tctx, errs } = await placeTapPage('#y=1827&f=place:skane', 'markor2');
+    try {
+      await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+      await openRegion(tp, 'skane');
+      await regionSettled(tp);
+      // Högen (Lund) med tangentbordet: Enter fäller ut den, fokus går till första markören, och alla händelser i högen syns
+      const pile = tp.locator('.region-marks .rpile').first();
+      const pileLabel = await pile.getAttribute('aria-label');
+      const nums = /nummer ([\d, ]+) i listan$/.exec(pileLabel)[1].split(', ').map(Number);
+      await pile.focus();
+      await tp.keyboard.press('Enter');
+      await tp.waitForFunction(() => document.querySelector('.region-marks .rpile[aria-expanded="true"]') && document.activeElement?.classList.contains('rfan'), null, { timeout: T.step });
+      let s = await regionMarksState(tp);
+      const fan = s.buttons.filter(b => b.cls.includes('rfan'));
+      if (fan.map(b => b.n).join() !== nums.join()) throw new Error(`solfjädern visar ${fan.map(b => b.n).join(', ')}, högen säger ${nums.join(', ')}`);
+      // Solfjäderns markörer ligger isär och inte under kortet
+      for (let i = 0; i < fan.length; i++) for (let j = i + 1; j < fan.length; j++) {
+        const a = fan[i].box, b = fan[j].box;
+        if (Math.hypot((a.x0 + a.x1 - b.x0 - b.x1) / 2, (a.y0 + a.y1 - b.y0 - b.y1) / 2) < 22) throw new Error(`markörerna ${fan[i].n} och ${fan[j].n} ligger på varandra`);
+      }
+      if (fan.some(b => coversHit(s, b.box))) throw new Error('solfjädern ligger under kortet');
+      // Pil åt höger går till nästa markör; Enter markerar den: markören, etiketten och raden får ram
+      await tp.keyboard.press('ArrowRight');
+      const focused = await tp.evaluate(() => Number(document.activeElement?.dataset.n));
+      if (focused !== nums[1]) throw new Error(`pilen gick till ${focused}, inte ${nums[1]}`);
+      await tp.keyboard.press('Enter');
+      await tp.waitForSelector('.region-marks .region-label', { state: 'visible', timeout: T.step });
+      s = await regionMarksState(tp);
+      const marked = s.buttons.find(b => b.pressed === 'true');
+      const label = s.buttons.find(b => b.cls.includes('region-label'));
+      const row = s.rows.find(r => r.marked);
+      if (marked?.n !== nums[1] || !label?.text.startsWith(`${nums[1]} · `) || row?.i + 1 !== nums[1]) throw new Error(`markeringen: markör ${marked?.n}, etikett ${label?.text}, rad ${row?.i + 1}`);
+      if (coversHit(s, label.box)) throw new Error('etiketten ligger under kortet');
+      // Escape fäller ihop solfjädern, fokus går tillbaka till högen, och regionvyn står kvar
+      await tp.keyboard.press('Escape');
+      await tp.waitForFunction(() => document.querySelector('.region-marks .rpile')?.getAttribute('aria-expanded') === 'false' && document.activeElement?.classList.contains('rpile'), null, { timeout: T.step });
+      if ((await tp.evaluate(() => document.getElementById('flat-view').dataset.region)) !== 'skane') throw new Error('Escape lämnade regionvyn i stället för att fälla ihop högen');
+      // Brickan: ett tryck fäller ut händelserna som gäller hela platsen, och deras rader får ram
+      await tp.click('.region-marks .rbrick');
+      await tp.waitForFunction(() => document.querySelector('.region-marks .rbrick')?.getAttribute('aria-expanded') === 'true', null, { timeout: T.step });
+      s = await regionMarksState(tp);
+      const wholeRows = s.rows.filter(r => r.whole);
+      if (!wholeRows.length || wholeRows.some(r => !r.marked)) throw new Error('brickans rader fick ingen ram');
+      const brickFan = s.buttons.filter(b => b.cls.includes('in-brick')).map(b => b.n);
+      if (brickFan.join() !== wholeRows.map(r => r.i + 1).join()) throw new Error(`brickan visar ${brickFan.join(', ')}`);
+      // Etiketten öppnar faktarutan för händelsen
+      await tp.click(`.region-marks .rmark[data-n="${brickFan[0]}"]`);
+      await tp.click('.region-marks .region-label');
+      await tp.waitForFunction(() => document.querySelector('#detail h3') && !document.querySelector('#detail .place-type'), null, { timeout: T.step });
+      // Raden markerar markören: Fakta visar platsens kort igen, och fokus på en rad i listan fäller ut högen den ligger i och ger
+      // markören ram (i mobil är arket hopfällt och listan stängd: båda fälls ut först, som när besökaren öppnar dem)
+      await tp.click('#focus-facts');
+      await tp.waitForSelector('#detail .place-type', { state: 'attached', timeout: T.step });
+      if (vp.width <= 760) { await tp.click('#detail-handle'); await tp.waitForTimeout(400); }
+      const target = s.rows.find(r => r.i + 1 === nums[nums.length - 1]);
+      await tp.evaluate(id => { const b = document.querySelector(`#detail [data-theme-event="${id}"]`); b.closest('details').open = true; b.focus(); }, target.id);
+      await tp.waitForFunction(id => document.querySelector(`.region-marks .rmark[data-event="${id}"]`)?.getAttribute('aria-pressed') === 'true', target.id, { timeout: T.step });
+      if (!(await tp.evaluate(id => document.querySelector(`#detail [data-theme-event="${id}"]`).classList.contains('is-region-marked'), target.id))) throw new Error('raden i fokus fick ingen ram');
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `högen ${nums.join(', ')}; bricka ${brickFan.join(', ')}`;
     } finally { await tctx.close(); }
   });
 

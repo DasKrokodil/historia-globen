@@ -78,6 +78,7 @@ export class RegionMarks {
     if (this.box) this.box.hidden = true;
     this.state = { shown: [], names: [] };
     delete this.map.root.dataset.regionMarks;
+    delete this.map.root.dataset.regionNames;
   }
 
   get active() { return !!this.content; }
@@ -278,6 +279,7 @@ export class RegionMarks {
     this._place(want);
     this.state = { shown: want.map(([k]) => k), names: names.map(n => n.id) };
     map.root.dataset.regionMarks = `${L.singles.length},${L.piles.length},${L.brick.length}`;
+    map.root.dataset.regionNames = String(names.length); // renderingsstatus för webbläsartestet: hur många ortnamn som ritades
   }
 
   _drawNames(ctx, names) {
