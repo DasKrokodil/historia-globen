@@ -51,6 +51,15 @@ ZWEIBRUCKEN = (7.361, 49.249)
 KAISERSLAUTERN = (7.769, 49.445)
 SELB = (12.133, 50.167)
 REUVER = (6.079, 51.285)
+# Efter geografens granskning av #1755, ur Wikidata: Homburg Q7040, Kybartai Q1004295, Pagėgiai Q643376, Furth im Wald Q502370,
+# Schengen Q183841, Perl Q662505, Zittau Q157200
+HOMBURG = (7.333, 49.317)
+KYBARTAI = (22.756, 54.639)
+PAGEGIAI = (21.906, 55.136)
+FURTH = (12.84, 49.31)
+SCHENGEN = (6.36, 49.47)
+PERL = (6.385, 49.474)
+ZITTAU = (14.807, 50.896)
 # Berlin 1949–1990 (#1731), ur Wikidata: Västberlin och Östberlin
 VASTBERLIN = {'Charlottenburg': (13.3, 52.517), 'Spandau': (13.2, 52.55), 'Wedding': (13.343, 52.55), 'Kreuzberg': (13.383, 52.488),
               'Neukölln': (13.45, 52.483), 'Steglitz': (13.333, 52.467), 'Zehlendorf': (13.259, 52.434)}
@@ -113,7 +122,7 @@ PUNKTER = [
     *[('osttyskland', HELDBURG, 'Heldburg', y, True) for y in (1950, 1970)],
     *[('sovjetunionen', ZELENOGRADSK, 'Zelenogradsk', y, True) for y in (1950, 1970)],
     # Äldre gränsfel kring Tyskland (#1755)
-    *[('vasttyskland', LINDAU, 'Lindau', y, True) for y in (1955, 1970, 1990)],
+    *[('vasttyskland', LINDAU, 'Lindau', y, True) for y in (1950, 1952, 1955, 1970, 1990)],
     ('tyskland', LINDAU, 'Lindau', 2000, True),
     *[(g, LINDAU, 'Lindau', 2000, False) for g in ('osterrike', 'schweiz')],
     *[('weimarrepubliken', p, n, 1931, True) for p, n in ((ZWEIBRUCKEN, 'Zweibrücken'), (KAISERSLAUTERN, 'Kaiserslautern'))],
@@ -131,6 +140,17 @@ PUNKTER = [
     *[('nederlanderna', REUVER, 'Reuver', y, True) for y in (1955, 1970, 2000)],
     *[(g, REUVER, 'Reuver', y, False) for g, y in (('vasttyskland', 1955), ('vasttyskland', 1970), ('tyskland', 2000))],
     ('sovjetunionen', BALTIJSK, 'Baltijsk', 1990, True),
+    # Homburg låg i Saarområdet 1920–1935 (de.wikipedia "Homburg")
+    *[(g, HOMBURG, 'Homburg', y, False) for g, y in (('weimarrepubliken', 1925), ('weimarrepubliken', 1931), ('nazityskland', 1934),
+                                                    ('franska-kolonialvaldet', 1925))],
+    ('nazityskland', HOMBURG, 'Homburg', 1936, True),
+    *[('litauen', p, n, y, True) for p, n in ((KYBARTAI, 'Kybartai'), (PAGEGIAI, 'Pagėgiai')) for y in (1991, 2000, 2020)],
+    *[(g, KYBARTAI, 'Kybartai', y, False) for g, y in (('sovjetunionen', 1991), ('ryska-federationen', 2000))],
+    *[('tjeckoslovakien', FURTH, 'Furth im Wald', y, False) for y in (1960, 1990)],
+    ('vasttyskland', FURTH, 'Furth im Wald', 1970, True),
+    *[(g, FURTH, 'Furth im Wald', 2000, ska) for g, ska in (('tjeckien', False), ('tyskland', True))],
+    *[('tjeckien', ZITTAU, 'Zittau', y, False) for y in (1992, 2000)],
+    *[('franska-kolonialvaldet', p, n, y, False) for p, n in ((SCHENGEN, 'Schengen'), (PERL, 'Perl')) for y in (1931, 1935)],
     *[('ryska-federationen', BALTIJSK, 'Baltijsk', y, True) for y in (1992, 2000, 2013, 2020)],
     # Fria staden Danzig 1920–1939 (#1746), utan Memelområdet (Klaipėda Q776965)
     *[('fria-staden-danzig', DANZIG, 'Danzig', y, True) for y in (1920, 1925, 1937, 1939)],

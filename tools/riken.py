@@ -1822,9 +1822,10 @@ EXTEND = {
 # `from` tas området bort ur grupperna i `remove` och läggs till grupperna i `add`. Ytan (areaKm2) räknas då fram
 # ur den nya gränsen.
 # Saarområdet 1920–1935 (#1730, #1750): Frankrikes gräns 1931 minus gränsen 1932 i Cliopatria, inom Tysklands gräns i Natural Earth
-# Klipps mot Saarlands gräns (Natural Earth admin 1), inte hela Tysklands: Frankrikes gräns 1931 minus 1932 tar annars också
-# med en bit av Pfalz kring Zweibrücken, som låg utanför Saarområdet och visades utan stat 1920–1934 (#1755)
-SAAR = ('snitt', (('French Third Republic', 1931), ('French Third Republic', 1932)), ('ne', ['saarland']))
+# Saarområdet är Saarlands nuvarande gräns (Natural Earth admin 1), som ungefär motsvarar det (#1755). Frankrikes gräns 1931 minus
+# 1932 i Cliopatria tog förut också med en bit av Pfalz kring Zweibrücken, som låg utanför, men inte Homburg, som låg inom
+# (de.wikipedia "Saargebiet" och "Homburg")
+SAAR = ('ne', ['saarland'])
 # Rutan längs gränsen mellan DDR och Västtyskland (väst, syd, öst, nord), #1750
 INNERTYSKA = (9.8, 50.15, 12.3, 54.2)  # syd 50,15 och öst 12,3: hela Thüringens och Bayerns gräns (#1750)
 # Rutan längs Oder–Neisse-gränsen, #1750
@@ -2001,13 +2002,19 @@ DISPUTED = {
                              'remove': [], 'add': ['nazityskland']},
     'gransen-frankrike': {'area': FRANSKA_SIDAN, 'from': 1930, 'to': 1939, 'strict': True, 'efter': True,
                           'remove': [], 'add': ['franska-kolonialvaldet']},
+    # Perioden 1930–1931 förenklas för sig och buktar då in över Schweiz och Luxemburg; deras gränser i Cliopatria klipps bort
+    'frankrike-1930-grannar': {'area': ('clio-union', [('Swiss Confederation', 1930), ('Luxembourg', 1930)]), 'from': 1930,
+                               'to': 1931, 'strict': True, 'efter': True, 'remove': ['franska-kolonialvaldet'], 'add': []},
+    # och Schweiz förenklade gräns buktar ut över fransk mark (Jura, Genève); Frankrike i Natural Earth klipps ur Schweiz 1930–1939
+    'schweiz-frankrike': {'area': ('ne', ['frankrike-ne']), 'from': 1930, 'to': 1939, 'strict': True, 'efter': True,
+                          'remove': ['schweiz'], 'add': []},
     'gransen-frankrike-tyska-sidan': {'area': TYSKA_SIDAN, 'from': 1930, 'to': 1939, 'strict': True, 'efter': True,
                                       'remove': ['franska-kolonialvaldet'], 'add': []},
     # Lindau: Cliopatria har ingen stat där från 1950. Landkreis Lindau hörde till den franska zonen och återförenades med Bayern
-    # 1 september 1955 (de.wikipedia "Landkreis Lindau (Bodensee)"). Tysklands gräns i Natural Earth i rutan läggs till
-    # Västtyskland från 1955 och till Tyskland, och klipps ur Fjärde republiken (som har en bit vid Wangen till 1957).
-    # 1950–1954 visas Lindau utan stat
-    'lindau-brd': {'area': ('snitt', ('ne', ['tyskland']), ('rutor', [LINDAU])), 'from': 1955, 'to': 1990, 'strict': True, 'efter': True,
+    # 1 september 1955 (de.wikipedia "Landkreis Lindau (Bodensee)"), men staden och kretsen var med i förbundsdagsvalet 1949
+    # (en.wikipedia "Oberallgäu (electoral district)"). Tysklands gräns i Natural Earth i rutan läggs till Västtyskland från 1950
+    # och till Tyskland, och klipps ur Fjärde republiken (som har en bit vid Wangen till 1957)
+    'lindau-brd': {'area': ('snitt', ('ne', ['tyskland']), ('rutor', [LINDAU])), 'from': 1950, 'to': 1990, 'strict': True, 'efter': True,
                    'remove': [], 'add': ['vasttyskland']},
     'lindau-tyskland': {'area': ('snitt', ('ne', ['tyskland']), ('rutor', [LINDAU])), 'from': 1991, 'strict': True, 'efter': True,
                         'remove': [], 'add': ['tyskland']},
@@ -2030,11 +2037,11 @@ DISPUTED = {
                               'to': 1990, 'strict': True, 'efter': True, 'remove': [], 'add': ['osttyskland']},
     'tjeckiska-gransen-tyskland': {'area': ('snitt', ('ne', ['tyskland']), ('rutor', [TJECKISKA_GRANSEN])), 'from': 1991,
                                    'strict': True, 'efter': True, 'remove': [], 'add': ['tyskland']},
-    # Tjeckien från 1993 och Österrike: deras förenklade gränser går annars in över den tyska (och för Österrike den tjeckiska)
+    # Tjeckien (från 1992 i Cliopatria) och Österrike: deras förenklade gränser går annars in över den tyska (och för Österrike den tjeckiska)
     # sidan, som nu följer Natural Earth
-    'tjeckiska-gransen-tjeckien': {'area': ('snitt', ('ne', ['tyskland']), ('rutor', [TJECKISKA_GRANSEN])), 'from': 1993,
+    'tjeckiska-gransen-tjeckien': {'area': ('snitt', ('ne', ['tyskland']), ('rutor', [TJECKISKA_GRANSEN])), 'from': 1992,
                                    'strict': True, 'efter': True, 'remove': ['tjeckien'], 'add': []},
-    'tjeckiska-sidan-tjeckien': {'area': ('ne', ['tjeckien-ne']), 'from': 1993, 'strict': True, 'efter': True,
+    'tjeckiska-sidan-tjeckien': {'area': ('ne', ['tjeckien-ne']), 'from': 1992, 'strict': True, 'efter': True,
                                  'remove': [], 'add': ['tjeckien']},
     'tjeckiska-gransen-osterrike': {'area': ('snitt', ('ne', ['tyskland', 'tjeckien-ne']), ('rutor', [TJECKISKA_GRANSEN])),
                                     'from': 1945, 'strict': True, 'efter': True, 'remove': ['osterrike'], 'add': []},
@@ -2060,6 +2067,9 @@ DISPUTED = {
                           'remove': ['polen'], 'add': []},
     'litauen-kaliningrad': {'area': ('ne', ['kaliningrad-ne']), 'from': 1990, 'strict': True, 'efter': True,
                             'remove': ['litauen'], 'add': []},
+    # och Litauens sida av gränsen läggs till Litauen, vars förenklade gräns annars inte når fram (Kybartai, Pagėgiai)
+    'litauen-ne': {'area': ('ne', ['litauen-ne']), 'from': 1990, 'strict': True, 'efter': True,
+                   'remove': [], 'add': ['litauen']},
     'kaliningrad-grannar': {'area': ('snitt', ('ne', ['polen-ne', 'litauen-ne']), ('rutor', [KALININGRAD])), 'from': 1990,
                             'strict': True, 'efter': True, 'remove': ['sovjetunionen', 'ryska-federationen'], 'add': []},
     'danzig-memel': {'area': ('rutor', [(20.8, 55.0, 22.6, 56.0)]), 'parts': True, 'from': 1919, 'to': 1935,
@@ -2670,19 +2680,33 @@ def main():
                         print(f'delas efter storlek (#1732): {gid} {pid} {q["start"]}, {big} km2')
                 merged.append(q)
             for q in merged:
-                on = [(a, r) for d, a, r in strict if d['from'] <= q['start'] and q['end'] <= d.get('to', 9999)]
-                if on:
+                active = [(d, a, r) for d, a, r in strict if d['from'] <= q['start'] and q['end'] <= d.get('to', 9999)]
+                on = [(a, r) for d, a, r in active if not d.get('efter')]
+                # efter (#1755): läggs på efter avrundningen, så att gränsen ur Natural Earth inte blir trappsteg på 0,1 grad.
+                # Bara de nya gränsbitarna får tre decimaler
+                post = [(a, r) for d, a, r in active if d.get('efter')]
+                if on or post:
                     # Förenklingen kan bukta in över ett område som är borttaget ur Cliopatrias gräns (Saarbrücken och
                     # Kehl ligger några km från gränsen, franska kolonialväldet förenklas med 0,3 grader), så det klipps igen
                     g = q['_g']
                     for a, r in on:
                         g = polygons_only(g.difference(a) if r else unary_union([g, a]))
                     q['geometry'] = valid_rounded(g, DECIMALS.get(gid, 1))
+                    if post:
+                        g = shape(q['geometry'])
+                        for a, r in post:
+                            g = polygons_only(g.difference(a) if r else unary_union([g, a]))
+                        q['geometry'] = valid_rounded(g, 3)
                     if '_home' in q:
                         hg = q['_home']
                         for a, r in on:
                             hg = polygons_only(hg.difference(a)) if r else hg
                         q['homeland'] = valid_rounded(hg, 1)
+                        if any(r for a, r in post):
+                            hg = shape(q['homeland'])
+                            for a, r in post:
+                                hg = polygons_only(hg.difference(a)) if r else hg
+                            q['homeland'] = valid_rounded(hg, 3)
                 del q['_shape']
                 q.pop('_g', None)
                 q.pop('_raw', None)
@@ -2805,7 +2829,7 @@ def main():
              'Nederländerna och Polen följer Natural Earth, och Kaliningradområdet har Sovjetunionens gräns 1960 i Cliopatria. '
              'Äldre gränsfel kring Tyskland (#1755): Saarområdet är klippt mot Saarlands gräns i Natural Earth; gränsen mellan '
              'Frankrike och Tyskland följer Natural Earth 1930–1939 och gränsen mellan Tjeckoslovakien (Tjeckien) och Tyskland från '
-             '1945; Nederländernas sida av gränsen mot Tyskland följer Natural Earth från 1950; Lindau ligger i Västtyskland från 1955 '
+             '1945; Nederländernas sida av gränsen mot Tyskland följer Natural Earth från 1950; Lindau ligger i Västtyskland från 1950 '
              'och i Tyskland; Kaliningradområdet har Rysslands gräns i Natural Earth från 1990. Områden med efter i DISPUTED klipps '
              'eller läggs till bara efter förenklingen. '
              'Små stater (#722): tolv länder som Cliopatria saknar i nutid eller har fel gräns för har gränsen ur Natural Earth '
