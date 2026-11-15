@@ -161,6 +161,7 @@ data/land-10m.json    finare kust (Natural Earth 1:10m), laddas först när det 
 tools/riken.py        bygger rikesfilerna ur Cliopatria
 tools/riken_bevara.py det riken.py behåller vid ombyggnad: handskrivna fält som flags och översatta namn (#1220)
 tools/riken_namn.py   hämtar rikenas namn på tyska, spanska och franska ur Wikidata; riken.py bevarar dem (#676, #644)
+tools/forenkling_matning.py mäter överlapp mellan grannriken när de förenklas var för sig eller tillsammans (shapely.coverage_simplify), ändrar inga filer (#1765)
 tools/ne_omstridda.py tar ut omstridda områden ur Natural Earth till tools/ne-omstridda-omraden.geojson, som riken.py läser (#644)
 tools/dela_data.py    bygger events.json ur data/handelser/ och delar upp händelser och riken i data/genererat/, med en fil per språk (körs efter varje ändring)
 tools/oversattning.py spärren mot oöversatta texter och kontrollen av inaktuella översättningar (#675)
