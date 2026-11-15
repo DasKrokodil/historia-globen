@@ -3119,6 +3119,53 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
+  // #1660: i Platt vy låg zoomknapparna (+, −, Återställ, Affisch) under faktarutan på dator så fort kortet var öppet, och kortet är
+  // öppet när man kommer in via platsens knapp. Provet följer Skåne, öppnar regionvyn (där zoom och Återställ används mest) och sedan
+  // vanlig Platt karta, och kontrollerar i båda att varje knapp ligger utanför kortet, att det är knappen som ligger överst i dess
+  // mitt och att ett tryck zoomar. Bredden är datorns eller mobilens, som för de andra kontrollerna.
+  await check('Platt vy: zoomknapparna täcks inte av faktarutan, varken i Platt karta eller i regionvyn (#1660)', async () => {
+    const { tp, tctx, errs } = await placeTapPage('#y=1827&f=place:skane', 'zoomknappar1660');
+    try {
+      // Kortet når knapparna först när fönstret är lågt (kortet är högst 38 % av höjden, och mer på en låg skärm): 1280 × 720 är
+      // en vanlig bärbar. Vid 1400 × 900 ligger det under dem och felet syns inte
+      if (vp.width > 760) await tp.setViewportSize({ width: 1280, height: 720 });
+      await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+      // Regionvyn först: knappen i kortet öppnar den (Skåne är en liten plats), och kortet står kvar öppet
+      await openRegion(tp, 'skane');
+      await regionSettled(tp);
+      const covered = () => tp.evaluate(() => {
+        const detail = document.getElementById('detail');
+        if (detail.hidden) return ['kortet är stängt, provet gäller kortet öppet'];
+        const d = detail.getBoundingClientRect(), out = [];
+        for (const id of ['flat-in', 'flat-out', 'flat-reset', 'flat-poster']) {
+          const el = document.getElementById(id), b = el.getBoundingClientRect();
+          const el2 = document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2);
+          if (el2 !== el && !el.contains(el2)) out.push(`${id}: ${el2?.id || el2?.className || '?'} ligger överst`);
+          if (b.left < d.right && b.right > d.left && b.top < d.bottom && b.bottom > d.top) out.push(`${id} överlappar kortet`);
+          if (b.left < 0 || b.right > innerWidth) out.push(`${id} ligger utanför skärmen`);
+        }
+        return out;
+      });
+      const zoomOf = () => tp.evaluate(() => Number(document.getElementById('flat-view').dataset.view.split(',')[2]));
+      const region = await covered();
+      if (region.length) throw new Error(`regionvyn: ${region.join('; ')}`);
+      const z0 = await zoomOf();
+      await tp.click('#flat-out');
+      await tp.waitForFunction(z => Number(document.getElementById('flat-view').dataset.view.split(',')[2]) < z, z0, { timeout: T.step });
+      // Sedan vanlig Platt karta: Lämna regionvyn ramar in platsen i Platt vy och kortet står kvar
+      await tp.click('#flat-region-back');
+      await tp.waitForFunction(() => document.getElementById('flat-region').hidden, null, { timeout: T.step });
+      await tp.waitForTimeout(600);
+      const flat = await covered();
+      if (flat.length) throw new Error(`Platt karta: ${flat.join('; ')}`);
+      const z1 = await zoomOf();
+      await tp.click('#flat-out'); // Platt vy står på högsta zoom efter inramningen av Skåne, så här går det bara ut
+      await tp.waitForFunction(z => Number(document.getElementById('flat-view').dataset.view.split(',')[2]) < z, z1, { timeout: T.step });
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return 'knapparna fria och zoomar i Platt karta och regionvyn';
+    } finally { await tctx.close(); }
+  });
+
   // #1163: platser i turens steg, i lektionsläget och i tidsintervallet. Turen är en provtur som läggs in i turlistan med route:
   // ingen riktig tur har något steg med en plats än, och provet ska inte vänta på att en sådan skrivs. Steget öppnar Grönland
   // (data/platser.json) med stegfältet place.
