@@ -47,7 +47,7 @@ AREAS = {
     'transnistrien': 'Transnistria',
 }
 # Länders gränser ur ne_10m_admin_0_countries (ADM0_A3), förenklade till 0,01 grad
-COUNTRIES = {'azerbajdzjan': 'AZE', 'tyskland': 'DEU'}  # Tyskland: Selfkant och Elten efter 1963 (#1730)
+COUNTRIES = {'azerbajdzjan': 'AZE', 'tyskland': 'DEU', 'polen-ne': 'POL'}  # Tyskland: Selfkant och Elten efter 1963 (#1730)
 # Små stater (#722), ur samma fil men förenklade till bara 0,002 grader och avrundade till 0,001 grad
 # Delstater ur ne_10m_admin_1_states_provinces (adm1_code), sammanslagna och förenklade till 0,003 grader (#1730, #1750)
 STATES = {'vasttyska-granslander': ['DEU-1579', 'DEU-1576', 'DEU-1574', 'DEU-1591'],
@@ -89,7 +89,7 @@ def main():
             for key, a3 in {**COUNTRIES, **SMALL}.items():
                 if a['ADM0_A3'] == a3:
                     # Tyskland finare (0,003 grader), annars hamnar Görlitz vid Neisse utanför gränsen (#1750)
-                    tol = 0.002 if key in SMALL else 0.003 if key == 'tyskland' else 0.01
+                    tol = 0.002 if key in SMALL else 0.003 if key in ('tyskland', 'polen-ne') else 0.01
                     m = mapping(shape(s.shape.__geo_interface__).buffer(0).simplify(tol, preserve_topology=True))
                     feats.append({'type': 'Feature', 'properties': {'id': key, 'name': a['NAME'], 'note': 'ne_10m_admin_0_countries'},
                                   'geometry': {'type': m['type'], 'coordinates': rnd(m['coordinates'])}})
