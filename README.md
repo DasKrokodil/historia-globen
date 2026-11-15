@@ -78,6 +78,7 @@ js/layers/area-transition.js  mjuk övergång när ett rike byter period, delas 
 js/layers/borders.js  lager: dagens landsgränser (av som standard)
 js/layers/places.js   lager: konturen av platsen man följer i Fokus (#579) och de prickade konturerna runt platser med kort när man har zoomat in (#1161)
 js/layers/spread.js   lager: människans spridning, antagna områden och vågor i förhistorien (#1094)
+js/area-lookup.js    punkt mot rike med marginal: vilket rike eller religionsområde en punkt ligger i, annars det närmaste inom 0,05 grader (#1524), delas med testerna
 js/place-geo.js       vilka händelser som ligger inom en plats gräns, platsen under en punkt vid tryck och gränsrutan för inramning i Platt vy, delas med testerna (#579, #1161)
 js/region-frame.js    regionvyns ramning: vilka platser som får den (högst 5 grader på marken i Platt vy, 15–60 grader på globen), den fria ytan, skalan med cos(mittbredden) och globflygets ram, delas med testerna (#1641, #1644)
 js/region-markers.js  regionvyns markörer: numrering i listans ordning, brickan för hela platsen, högar, solfjäder och ortnamn utan krockar, delas med testerna (#1642)
