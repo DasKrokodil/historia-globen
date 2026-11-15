@@ -3174,24 +3174,33 @@ async function run(browser, vp) {
 
   // #1667: liggande telefon. Uppmätt: vid 800 × 360 låg knapparna överst över kortets övre hälft (krysset och "Visa i regionvy" under
   // dem) och vid 640 × 360 blev arket i läget helt bara cirka 150 px högt, så att knappen i kortet aldrig syntes. Provet går till
-  // varje storlek och kontrollerar att krysset och knappen i platskortet går att trycka på (knappen nås i kortet med rullning), att
-  // knapparna överst lämnar plats åt kortet och kommer tillbaka när det stängs, och att fokusraden går att nå igen när arket fälls ihop.
-  await check('liggande telefon: platskortets kryss och knapp går att trycka på vid 800 × 360 och 640 × 360 (#1667)', async () => {
+  // fyra storlekar (två riktiga telefoner: 844 × 390 och 667 × 375) och kontrollerar att krysset och knappen i platskortet går att
+  // trycka på (knappen nås i kortet med rullning), att knapparna överst lämnar plats åt kortet och kommer tillbaka när det stängs, och
+  // i smal layout: att arket fortsätter ned över fokusraden (annars klarar även `main` provet), att inget som arket täcker går att
+  // fokusera (WCAG 2.4.11), att drag i handtaget når läget helt, att fokusraden går att nå igen när arket fälls ihop och att krysset
+  // på ett händelsekort har tryckyta på 44 px i bred layout.
+  await check('liggande telefon: kortets kryss och knapp går att trycka på, och inget täckt går att fokusera, vid fyra storlekar (#1667)', async () => {
     const { tp, tctx, errs } = await touchPage();
     try {
       const out = [];
-      for (const [width, height] of [[800, 360], [640, 360]]) {
+      for (const [width, height] of [[800, 360], [844, 390], [640, 360], [667, 375]]) {
         await tp.setViewportSize({ width, height });
         await tp.goto(`${BASE}?ny=liggande1667w${width}#y=1827&f=place:skane`);
         await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
         await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
         await tp.waitForTimeout(600);
         const wide = width > 760;
-        // I smal layout är arket halvt: tryck på handtaget ger helt, som en användare gör för att nå knappen
+        const name = `${width} × ${height}`;
+        const sheet = () => tp.evaluate(() => document.getElementById('detail').dataset.sheet);
+        // I smal layout är arket halvt: ett drag uppåt i handtaget ska ge helt, som en användare gör för att nå knappen
         if (!wide) {
-          await tp.click('#detail-handle');
-          await tp.waitForFunction(() => document.getElementById('detail').dataset.sheet === 'full', null, { timeout: T.step });
-          await tp.waitForTimeout(300);
+          const hb = await tp.locator('#detail-handle').boundingBox();
+          await tp.mouse.move(hb.x + hb.width / 2, hb.y + hb.height / 2);
+          await tp.mouse.down();
+          for (let i = 1; i <= 12; i++) await tp.mouse.move(hb.x + hb.width / 2, hb.y + hb.height / 2 - i * 20);
+          await tp.mouse.up();
+          await tp.waitForTimeout(400);
+          if (await sheet() !== 'full') throw new Error(`${name}: drag uppåt i handtaget gav läget ${await sheet()}, inte helt`);
         }
         const probe = sel => tp.evaluate(s => {
           const el = document.querySelector(s);
@@ -3203,19 +3212,31 @@ async function run(browser, vp) {
         }, sel);
         for (const [what, sel] of [['krysset', '#detail .detail-close'], ['Visa i regionvy', '#detail [data-selection-action]']]) {
           const r = await probe(sel);
-          if (r.missing) throw new Error(`${width} × ${height}: ${what} saknas`);
-          if (!r.ok) throw new Error(`${width} × ${height}: ${what} täcks av ${r.by}`);
-          if (!r.inside) throw new Error(`${width} × ${height}: ${what} ligger utanför kortet eller skärmen`);
+          if (r.missing) throw new Error(`${name}: ${what} saknas`);
+          if (!r.ok) throw new Error(`${name}: ${what} täcks av ${r.by}`);
+          if (!r.inside) throw new Error(`${name}: ${what} ligger utanför kortet eller skärmen`);
         }
         const hiddenActions = await tp.evaluate(() => getComputedStyle(document.querySelector('.top-actions')).visibility === 'hidden');
-        if (hiddenActions !== wide) throw new Error(`${width} × ${height}: knapparna överst ${hiddenActions ? 'är dolda' : 'syns'} med kortet öppet`);
+        if (hiddenActions !== wide) throw new Error(`${name}: knapparna överst ${hiddenActions ? 'är dolda' : 'syns'} med kortet öppet`);
         if (!wide) {
+          // Arket ska fortsätta ned över fokusraden (annars är det lika högt som före ändringen), och det som det täcker ska inte gå att fokusera
+          const over = await tp.evaluate(() => {
+            const d = document.getElementById('detail'), db = d.getBoundingClientRect();
+            const bar = document.getElementById('focus-action').getBoundingClientRect();
+            const hit = e => { const b = e.getBoundingClientRect(); return b.width > 1 && b.height > 1 && d.contains(document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2)); };
+            // Kartans canvas fyller hela ytan och ligger alltid delvis under ett ark, som i stående mobil; den räknas inte
+            const focusable = [...document.querySelectorAll('button, a[href], input, select, textarea, [tabindex]:not([tabindex="-1"])')]
+              .filter(e => !d.contains(e) && !e.matches('#globe-canvas, #flat-canvas') && getComputedStyle(e).visibility !== 'hidden' && !e.closest('[hidden], [inert]') && hit(e));
+            return { reaches: db.bottom > bar.top, tall: Math.round(db.height), covered: focusable.map(e => e.id || e.className?.toString().slice(0, 24) || e.tagName).slice(0, 5) };
+          });
+          if (!over.reaches) throw new Error(`${name}: arket fortsätter inte ned över fokusraden (${over.tall} px högt)`);
+          if (over.covered.length) throw new Error(`${name}: arket täcker kontroller som går att fokusera: ${over.covered.join(', ')}`);
           // Arket fälls ihop: fokusraden ska åter gå att trycka på (den låg under det fullt utfällda arket)
           await tp.click('#detail-handle');
           await tp.waitForFunction(() => document.getElementById('detail').dataset.sheet !== 'full', null, { timeout: T.step });
           await tp.waitForTimeout(300);
-          const focusOk = await tp.evaluate(() => { const b = document.getElementById('focus-action').getBoundingClientRect(); const top = document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2); return top === document.getElementById('focus-action') || document.getElementById('focus-action').contains(top); });
-          if (!focusOk) throw new Error(`${width} × ${height}: fokusraden täcks efter att arket fällts ihop`);
+          const focusOk = await tp.evaluate(() => { const b = document.getElementById('focus-action').getBoundingClientRect(); const top = document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2); return getComputedStyle(document.getElementById('focus-action')).visibility !== 'hidden' && (top === document.getElementById('focus-action') || document.getElementById('focus-action').contains(top)); });
+          if (!focusOk) throw new Error(`${name}: fokusraden täcks eller är dold efter att arket fällts ihop`);
           // Handtaget stegar helt → litet → halvt → helt: två tryck till helt läge igen
           for (let i = 0; i < 2; i++) await tp.click('#detail-handle');
           await tp.waitForFunction(() => document.getElementById('detail').dataset.sheet === 'full', null, { timeout: T.step });
@@ -3224,12 +3245,24 @@ async function run(browser, vp) {
         await tp.locator('#detail [data-selection-action]').scrollIntoViewIfNeeded();
         await tp.click('#detail [data-selection-action]');
         await tp.waitForFunction(() => !document.getElementById('flat-view').hidden, null, { timeout: T.step });
-        out.push(`${width} × ${height} ok`);
+        out.push(`${name} ok`);
         if (wide) {
           // Kortet stängs med krysset och knapparna överst kommer tillbaka
           await tp.click('#detail .detail-close');
           await tp.waitForFunction(() => document.getElementById('detail').hidden, null, { timeout: T.step });
-          if (await tp.evaluate(() => getComputedStyle(document.querySelector('.top-actions')).visibility === 'hidden')) throw new Error(`${width} × ${height}: knapparna överst kom inte tillbaka när kortet stängdes`);
+          if (await tp.evaluate(() => getComputedStyle(document.querySelector('.top-actions')).visibility === 'hidden')) throw new Error(`${name}: knapparna överst kom inte tillbaka när kortet stängdes`);
+          // Krysset på ett händelsekort (inte bara platskortet) har tryckyta på 44 px: 28 px knapp plus 8 px åt varje håll
+          await tp.click('#btn-panel');
+          const ev = tp.locator('.event-btn').first();
+          await ev.scrollIntoViewIfNeeded();
+          await ev.click();
+          await tp.waitForSelector('#detail:not([hidden]) .detail-close', { timeout: T.step });
+          const tap = await tp.evaluate(() => {
+            const c = document.querySelector('#detail .detail-close'), b = c.getBoundingClientRect(), cs = getComputedStyle(c, '::after');
+            const inset = cs.content === 'none' ? 0 : -parseFloat(cs.top) || 0;
+            return { w: b.width + 2 * inset, h: b.height + 2 * inset, place: !!document.querySelector('#detail .place-type') };
+          });
+          if (tap.w < 43.5 || tap.h < 43.5) throw new Error(`${name}: krysset på ett händelsekort har tryckyta ${Math.round(tap.w)} × ${Math.round(tap.h)} px`);
         }
       }
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
