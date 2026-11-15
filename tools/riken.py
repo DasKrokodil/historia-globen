@@ -1261,8 +1261,19 @@ GROUPS = {
     'kungariket-england': ('Kungariket England', 'Kingdom of England', [
         ('Kingdom of England', 'kungariket-england', 'Kungariket England', '#c04a6a', {'en': 'Kingdom of England'}),
     ]),
+    # Norge ingår i Nordsjöväldet 1028–1039 i Cliopatria, som också har Old Kingdom of Norway de åren; Norge klipps bort ur
+    # Norgesväldet då, så att det inte ritas två gånger (#1602).
     'norgesvaldet': ('Norgesväldet', 'Old Kingdom of Norway', [
-        ('Old Kingdom of Norway', 'norgesvaldet', 'Norgesväldet', '#4a8a9a', {'en': 'Old Kingdom of Norway', 'wikidata': 'Q2196956'}),
+        ('Old Kingdom of Norway', 'norgesvaldet', 'Norgesväldet', '#4a8a9a', {'en': 'Old Kingdom of Norway', 'wikidata': 'Q2196956',
+                                                                          'minus': [('North Sea Empire', 1028, 1039)]}),
+    ]),
+    # Nordsjöväldet (#1602, DasKrokodils beslut 2026-11-15, alternativ A): Cliopatrias tre poster med deras egna gränser och år.
+    # Regentlängderna säger något annat (Danmark–England 1040–1042, Norge–Danmark 1042–1047); det står öppet i faktarutan.
+    # Cliopatrias Wikidata-id för Denmark-England (Q111953993) och Norway-Denmark (Q62651) gäller andra saker och används inte.
+    'nordsjovaldet': ('Nordsjöväldet', 'North Sea Empire', [
+        ('North Sea Empire', 'nordsjovaldet', 'Nordsjöväldet', '#b0604a', {'en': 'North Sea Empire', 'wikidata': 'Q3281269'}),
+        ('Denmark-England', 'danmark-england', 'Danmark–England', '#b0604a', {'en': 'Denmark–England'}),
+        ('Norway-Denmark', 'norge-danmark', 'Norge–Danmark', '#b0604a', {'en': 'Norway–Denmark'}),
     ]),
     # Medeltidens luckor, andra omgången (#645): Nordafrikas och Främre Orientens kalifat och dynastier, Polen, Bulgarien, Nubien
     # och Kara-Khitan. Svenska namn är Wikidatas svenska etiketter. Danmark (Cliopatrias Danish Realm) väntar: Cliopatrias Wikidata-id
