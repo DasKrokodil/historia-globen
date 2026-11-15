@@ -2,7 +2,7 @@
 // som syns (beslut 2), ritar lagerbilden (beslut 1) och uppdaterar listan, teckenförklaringarna och årtalet.
 // Sist får uppspelningen (playback.js) se om något ska pausa. Här finns också namnens storlek efter zoom
 // (#154, #271, #301, #358) och rikets berättelse för Samtidigt-kortet (#171).
-import { loadEventDetails, formatCentury, formatEventTime, formatYear, pluralUi, roundWindow, roundWindowSpan, groupDigits, t } from '../model.js';
+import { loadEventDetails, formatWindowYear, formatEventTime, formatYear, pluralUi, roundWindow, roundWindowSpan, groupDigits, t } from '../model.js';
 import { LANG, ui } from '../i18n.js';
 import { ZOOM_LEVELS, zoomLevel, pxPerImg, zoomView, eventKeepouts } from '../ui/zoomlevels.js';
 import { empireStory } from '../ui/funfact.js';
@@ -226,8 +226,8 @@ export function createRender(app) {
     $('year-jump').classList.toggle('fine', fine);
     $('year-segment').textContent = range ? ui('range.segment')
       : focus ? pluralUi(fine ? 'time.followDays' : 'time.followYears', fine ? Math.round(window * 365.25) : Math.round(window), { name: focus.short })
-      : asym ? ui('time.windowYearsAsym', { where: formatCentury(year), ...spanVars })
-      : pluralUi(youngReaders() ? 'time.windowYearsWords' : 'time.windowYears', roundWindow(window), { where: formatCentury(year), n: groupDigits(roundWindow(window)) });
+      : asym ? ui('time.windowYearsAsym', { where: formatWindowYear(year), ...spanVars })
+      : pluralUi(youngReaders() ? 'time.windowYearsWords' : 'time.windowYears', roundWindow(window), { where: formatWindowYear(year), n: groupDigits(roundWindow(window)) });
     // Tonade markörer är nära i tid, inte samtida (#1191): förklaringen står i title och som dold text för skärmläsare
     const windowNote = range || focus ? '' : asym ? ui('time.windowNoteAsym', spanVars)
       : pluralUi('time.windowNote', roundWindow(window), { n: groupDigits(roundWindow(window)) });

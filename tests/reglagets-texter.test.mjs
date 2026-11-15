@@ -65,3 +65,14 @@ test('romerska siffror räcker till femtionde och hundrade århundradet (spanska
   assert.equal(run('fr', 'm.formatCentury(1325)'), 'XIVe siècle'); // oförändrat
   assert.equal(run('es', 'm.formatCentury(-549)'), 'siglo VI a. C.');
 });
+
+test('tidsfönstret visar år före 3000 f.Kr. och århundrade från gränsen (#1536)', () => {
+  const want = {
+    sv: ['5000 f.Kr.', '3000-talet f.Kr.'],
+    en: ['5000 BC', '31st century BC'],
+    de: ['5.000 v. Chr.', '31. Jahrhundert v. Chr.'],
+    es: ['5000 a. C.', 'siglo XXXI a. C.'],
+    fr: ['5000 av. J.-C.', 'XXXIe siècle av. J.-C.'],
+  };
+  for (const l of LANGS) assert.deepEqual(run(l, '[-4999, -2999].map(m.formatWindowYear)'), want[l], l);
+});
