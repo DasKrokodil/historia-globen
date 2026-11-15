@@ -32,6 +32,11 @@ WARSZAWA = (21.011, 52.23)  # Q270
 KALININGRAD = (20.5, 54.717)  # Q1829
 AMSTERDAM = (4.883, 52.367)  # Q727
 RATZEBURG = (10.757, 53.702)  # Q490025
+# Berlin 1949–1990 (#1731), ur Wikidata: Västberlin och Östberlin
+VASTBERLIN = {'Charlottenburg': (13.3, 52.517), 'Spandau': (13.2, 52.55), 'Wedding': (13.343, 52.55), 'Kreuzberg': (13.383, 52.488),
+              'Neukölln': (13.45, 52.483), 'Steglitz': (13.333, 52.467), 'Zehlendorf': (13.259, 52.434)}
+# Q162049, Q158083, Q675187, Q308928, Q4071168, Q700211, Q324402
+OSTBERLIN = {'Berlin-Mitte': (13.407, 52.519), 'Pankow': (13.4, 52.567), 'Köpenick': (13.577, 52.446)}  # Q2013767, Q163012, Q521521
 
 # (grupp, punkt, namn, år, ska ligga i riket)
 PUNKTER = [
@@ -57,6 +62,10 @@ PUNKTER = [
     *[('vasttyskland', p, n, y, True) for p, n in ((SELFKANT, 'Selfkant'), (ELTEN, 'Elten')) for y in (1963, 1980)],
     *[('tyskland', p, n, 2000, True) for p, n in ((SELFKANT, 'Selfkant'), (ELTEN, 'Elten'))],
     ('nederlanderna', AMSTERDAM, 'Amsterdam', 1980, True),
+    # Västberlin utanför DDR och Östberlin i DDR 1949–1990 (#1731); Västberlin visas utan stat
+    *[('osttyskland', p, n, y, False) for n, p in VASTBERLIN.items() for y in (1949, 1961, 1974, 1990)],
+    *[('vasttyskland', p, n, y, False) for n, p in VASTBERLIN.items() for y in (1961, 1990)],
+    *[('osttyskland', p, n, y, True) for n, p in OSTBERLIN.items() for y in (1949, 1961, 1974, 1990)],
     # Ratzeburg i Västtyskland, inte i DDR; städer nära gränsen ligger kvar på rätt sida
     *[('osttyskland', RATZEBURG, 'Ratzeburg', y, False) for y in (1949, 1960, 1980, 1990)],
     *[('vasttyskland', RATZEBURG, 'Ratzeburg', y, True) for y in (1960, 1980)],

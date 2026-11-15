@@ -963,6 +963,7 @@
         "wp-early-history-of-tonga",
         "wp-early-muslim-conquests",
         "wp-earths-circumference",
+        "wp-east-berlin",
         "wp-east-francia",
         "wp-east-germany",
         "wp-easter-island",
@@ -2891,6 +2892,12 @@
       "license": "CC0 1.0 och public domain (PD-flag)",
       "sourceIds": [
         "commons-flagga-tuvalu"
+      ]
+    },
+    {
+      "license": "Datenlizenz Deutschland – Zero – Version 2.0",
+      "sourceIds": [
+        "berlin-mauer-1989"
       ]
     },
     {
