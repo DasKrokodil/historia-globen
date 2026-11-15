@@ -291,7 +291,7 @@ test('jaktens kontroll är gemensam för tema och plats och räknar världsdelar
 });
 
 test('platsens text om en omöjlig jakt finns på alla fem språken, i du-form (elevtext, #1439)', () => {
-  const du = { sv: /\bdu\b/, en: /\bif you\b/, de: /\bBeende\b.*\bwillst\b/, es: /\bTermina\b.*\bquieres\b/, fr: /\bTermine\b.*\bveux\b/ };
+  const du = { sv: /\bdu\b/, en: /\bif you\b/, de: /\bFolge\b.*\bwillst\b/, es: /\bDeja de seguir\b.*\bquieres\b/, fr: /\bsuis\b.*\bveux\b/ }; // Sluta följa platsen (#1790)
   for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
     const texts = json(`data/ui/${lang}.json`);
     assert.ok(texts['place.huntImpossible'], `${lang}: place.huntImpossible`);

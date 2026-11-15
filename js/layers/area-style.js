@@ -20,6 +20,32 @@ export function hasSeam(geometry) {
 }
 
 /**
+ * Ligger punkten (lon, lat) på områdets yta? Strålmetoden över varje polygon i geometrin: yttre ringen, minus hålen.
+ * Längden följer ringen över datumlinjen på samma sätt som traceRing, och punkten prövas också ett varv åt vardera hållet.
+ * Områdeslagret använder den för en medalj som flyttas från label-punkten: den ska stå på rikets egen yta, inte bara inom
+ * ytterrutan (areas.js, _layout).
+ */
+export function covers(geometry, lon, lat) {
+  const inside = ring => {
+    let prev = null;
+    const pts = ring.map(([x, y]) => {
+      const l = prev === null ? x : x - 360 * Math.round((x - prev) / 360);
+      prev = l;
+      return [l, y];
+    });
+    return [0, 360, -360].some(shift => {
+      let hit = false;
+      for (let i = 0, j = pts.length - 1; i < pts.length; j = i++) {
+        const [xi, yi] = pts[i], [xj, yj] = pts[j];
+        if ((yi > lat) !== (yj > lat) && lon + shift < (xj - xi) * (lat - yi) / (yj - yi) + xi) hit = !hit;
+      }
+      return hit;
+    });
+  };
+  return polygons(geometry).some(rings => inside(rings[0]) && !rings.slice(1).some(inside));
+}
+
+/**
  * Lägger en ring (en yttre gräns eller ett hål) som en del av banan i ctx (#1097). Ringen vecklas ut som linjerna i
  * lines.js (unwrap): varje punkt läggs på den längdgrad som ligger närmast den förra, så att en ring som korsar
  * datumlinjen (180°) går den korta vägen över den och inte tvärs över hela kartan. Hamnar den utvecklade ringen utanför

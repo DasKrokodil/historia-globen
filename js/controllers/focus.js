@@ -78,6 +78,10 @@ export function createFocus(app) {
     globe.setZoom(f.zoom);
     $('focus-title').textContent = f.title;
     $('focus-facts').hidden = !post.facts?.has(f);
+    // Platsens knapp heter Om platsen i stället för det anonyma Fakta (#1790); data-i18n följer med vid språkbyte
+    const factsKey = f.type === 'place' ? 'place.cardLabel' : 'focus.facts';
+    $('focus-facts').dataset.i18n = factsKey;
+    $('focus-facts').textContent = ui(factsKey);
     $('focus-bar').hidden = false;
     $('app').classList.add('focusing');
     app.surfaces.closeGroup('sidopanel'); // listan stängs så att det man följer syns

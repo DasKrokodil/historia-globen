@@ -444,7 +444,7 @@ async function start() {
   };
   globe.onClick = (x, y, pointerType) => {
     // Regionvyn på globen (#1644): medaljerna är dolda och markörerna är knappar; ett tryck bredvid dem fäller ihop och avmarkerar
-    if (app.region?.globeOpen) { app.region.background(); return; }
+    if (app.region?.globeOpen) { app.region.background(); app.places.tap(globe.pickLatLon(x, y), pointerType === 'touch' || pointerType === 'pen'); return; } // och ett tryck på platsen öppnar kortet (#1791)
     const hit = globe.pick(x, y, layer.sprites.filter(s => s.visible));
     relLegend.hidePop(); routePop.hide(); popClick++;
     app.select(hit ? hit.userData.event.id : null);

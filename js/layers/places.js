@@ -19,7 +19,7 @@ export function entry() {
     // Konturerna runt platserna med kort (#1161) beror på zoomen, som ändras utan att valen i Lager gör det (och apply() körs då
     // inte), så de styrs av hints här i stället för av enabled
     update: s => {
-      if (layer.step && !s.modes?.some(m => m.mode === 'tur')) layer.step = null; // turens steg lånar ut platsen: utan tur ritas den inte, vilken väg turen än slutade på (#1163)
+      if ((layer.step || layer.stepMark) && !s.modes?.some(m => m.mode === 'tur')) { layer.step = null; layer.stepMark = null; } // turens steg lånar ut platsen och markören: utan tur ritas de inte, vilken väg turen än slutade på (#1163, #1785)
       layer.place = s.focus?.type === 'place' ? s.focus.place : null;
       layer.hints = !s.focus && !!s.labels?.placeHints;
       layer.px = s.labels?.placePx ?? 1; // bildpunkter per skärmpixel
@@ -32,7 +32,7 @@ export function entry() {
 }
 
 export class PlacesLayer {
-  constructor() { this.place = null; this.step = null; this.cards = []; this.hints = false; this.px = 1; this.enabled = false; this._paths = new Map(); }
+  constructor() { this.place = null; this.step = null; this.stepMark = null; this.cards = []; this.hints = false; this.px = 1; this.enabled = false; this._paths = new Map(); }
 
   /**
    * Konturen som banor på lagerbilden W × H: `fill` för fyllningen och `edge` för strokningen. Ringarna läggs med traceRing
@@ -76,7 +76,12 @@ export class PlacesLayer {
     if (this.hints && this.cards.length && !view?.region) return this.drawHints(ctx, W, H, view);
     // Platsen som ett turssteg öppnar (#1163) ritas som i Fokus, utan att något Fokus pågår (controllers/places.js sätter step)
     const place = this.enabled && this.place?.boundary?.geometry ? this.place : this.step;
-    if (!place?.boundary?.geometry) return;
+    if (place?.boundary?.geometry) this.drawPlace(ctx, W, H, view, place);
+    if (this.stepMark) this.drawMark(ctx, W, H, view);
+  }
+
+  /** Konturen av platsen (Fokus eller turens steg), se drawOverlay. */
+  drawPlace(ctx, W, H, view, place) {
     const { fill, edge } = this.path(place, W, H);
     const unit = this.unit(W, view), core = Math.max(1, 2.5 * unit);
     ctx.save();
@@ -97,6 +102,46 @@ export class PlacesLayer {
       ctx.strokeStyle = color;
       ctx.lineWidth = w;
       ctx.stroke(edge);
+    }
+    ctx.restore();
+  }
+
+  /**
+   * Markören i ett turssteg (#1785, fältet mark): en ring med en punkt i mitten och platsens namn bredvid, i skärmpixlar som konturen
+   * (mörk kant under, ljus kärna). Streckad ring när platsen är ungefärlig (approx), som på regionvyns markörer.
+   */
+  drawMark(ctx, W, H, view = null) {
+    const m = this.stepMark, unit = this.unit(W, view);
+    const x = (m.lon + 180) / 360 * W, y = (90 - m.lat) / 180 * H, r = 11 * unit;
+    ctx.save();
+    ctx.lineJoin = 'round';
+    // Bilden trycks ihop i sidled med cos(breddgrad) när den läggs på klotet: ritas ringen och namnet bredare med samma faktor ser de
+    // runda och normala ut på globen (i Platt vy blir de något bredare, som kartan själv)
+    ctx.translate(x, y);
+    ctx.scale(1 / Math.max(0.35, Math.cos(m.lat * Math.PI / 180)), 1);
+    ctx.translate(-x, -y);
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, Math.PI * 2);
+    for (const [color, w] of [['rgba(12,24,44,0.75)', 5.5 * unit], ['rgba(246,230,190,0.98)', 2.5 * unit]]) {
+      ctx.setLineDash(m.approx ? [6 * unit, 4.5 * unit] : []);
+      ctx.strokeStyle = color;
+      ctx.lineWidth = w;
+      ctx.stroke();
+    }
+    ctx.setLineDash([]);
+    ctx.fillStyle = 'rgba(214,168,79,1)';
+    ctx.beginPath();
+    ctx.arc(x, y, 3.2 * unit, 0, Math.PI * 2);
+    ctx.fill();
+    if (m.label) {
+      ctx.font = `italic ${17 * unit}px "IM Fell English", Georgia, serif`;
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'middle';
+      ctx.lineWidth = 3.4 * unit;
+      ctx.strokeStyle = 'rgba(12,24,44,0.85)';
+      ctx.strokeText(m.label, x + r + 7 * unit, y);
+      ctx.fillStyle = 'rgba(250,240,214,1)';
+      ctx.fillText(m.label, x + r + 7 * unit, y);
     }
     ctx.restore();
   }

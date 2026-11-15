@@ -218,7 +218,7 @@ export function createRegion(app) {
   function showChip(p, w) {
     const c = chips[w], name = t(p.name);
     c.title.textContent = ui('regionView.title', { place: name });
-    c.note.textContent = layerNote.textContent = ui('regionView.note');
+    c.note.textContent = layerNote.textContent = `${ui('regionView.note')} ${ui('regionView.tap')}`; // och hur man får fakta (#1791)
     c.back.textContent = ui('regionView.leave');
     // Förklaringen till den streckade ringen runt markörer med ungefärlig plats (#1642), också i mobil
     c.legend.textContent = ui('regionView.legend');
