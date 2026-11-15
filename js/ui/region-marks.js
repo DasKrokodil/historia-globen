@@ -168,7 +168,10 @@ export class RegionMarks {
     }
     const brickEl = brickPos ? this._brick(L.brick, c.place) : null;
     // Den utfällda solfjäderns yta: markörer och högar under den tonas ned och går inte att trycka på medan den är utfälld
-    const fan = openPile ? fanLayout(openPile.members.length, openPile, { W, H, minR: PILE_BADGE / 2 + R + 14 }) : null;
+    // Solfjädern ryms i den fria delen av kartan (inte under kortet, arket eller fokusraden, region-frame.js freeArea)
+    const fr = map.regionFree?.() ?? { x: 0, y: 0, w: W, h: H };
+    const fanAt = openPile && fanLayout(openPile.members.length, { x: openPile.x - fr.x, y: openPile.y - fr.y }, { W: fr.w, H: fr.h, minR: PILE_BADGE / 2 + R + 14 });
+    const fan = fanAt ? { ...fanAt, cx: fanAt.cx + fr.x, cy: fanAt.cy + fr.y, points: fanAt.points.map(q => ({ x: q.x + fr.x, y: q.y + fr.y })) } : null;
     const brickRow = this.open === 'brick' && brickPos ? rowLayout(L.brick.length, { x: brickPos.x, y: brickPos.y + 6 }, { W }) : null;
     const under = (x, y, r) => (fan && Math.hypot(x - fan.cx, y - fan.cy) < fan.r + R + r)
       || (brickRow && brickRow.some(q => Math.abs(q.x - x) < R + r && Math.abs(q.y - y) < R + r));
@@ -369,6 +372,7 @@ export class RegionMarks {
       el.setAttribute('aria-label', `${ui('regionView.markLabel', { n: it.n, title: t(it.e.title), time: formatEventTime(it.e) })}${it.approx ? `, ${ui('place.approx')}` : ''}`);
     }
     el.classList.toggle('rfan', fan);
+    el.classList.toggle('in-brick', fan && it.whole); // brickan säger redan att platsen är hela platsen
     const on = it.e.id === this.mark;
     el.classList.toggle('is-marked', on || it.e.id === this.hover);
     el.setAttribute('aria-pressed', String(on));
