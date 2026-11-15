@@ -4,13 +4,17 @@ import { loadPlaces, loadEmpireFacts, t, isVisibleReview, formatYear, rangeText 
 import { ui } from '../i18n.js';
 import { say } from '../ui/status.js';
 import { placeEvents, placeBounds } from '../place-geo.js';
-import { regionEligible } from '../region-frame.js';
+import { regionEligible, globeRegionEligible } from '../region-frame.js';
 import { formatYearSpan } from '../controllers/facts.js';
 import { langs, selectionSpan, warnHuntImpossible } from './util.js';
 
-/** Knappen i platskortet: "Visa i regionvy" för en plats som får regionvyn (js/region-frame.js), annars "Visa i Platt karta". */
+/**
+ * Knappen i platskortet: "Visa i regionvy" för en plats som får regionvyn (js/region-frame.js), i Platt vy (Skåne, Danmark) eller på
+ * globen (Aotearoa, Grönland, #1644), annars "Visa i Platt karta" (Sverige).
+ */
 function flatAction(place, run) {
-  const key = place.boundary?.geometry && regionEligible(placeBounds(place)) ? 'place.regionMap' : 'place.flatMap';
+  const b = place.boundary?.geometry ? placeBounds(place) : null;
+  const key = b && (regionEligible(b) || globeRegionEligible(b)) ? 'place.regionMap' : 'place.flatMap';
   return { text: ui(key), label: `${ui(key)}: ${t(place.name)}`, run };
 }
 

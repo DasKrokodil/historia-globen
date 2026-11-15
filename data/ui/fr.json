@@ -381,6 +381,8 @@
   "regionView.shown": "Vue rapprochée : {place}, {events}. Seuls la frontière et les événements du lieu sont affichés ; Échap ou le bouton « Quitter la vue rapprochée » ramène à la carte plane.",
   "regionView.left": "La vue rapprochée est fermée. La carte plane montre {place}.",
   "regionView.reset": "La vue rapprochée recadre de nouveau {place}.",
+  "regionView.shownGlobe": "Vue rapprochée sur le globe : {place}, {events}. Seuls la frontière et les événements du lieu sont affichés ; Échap ou le bouton « Quitter la vue rapprochée » ramène au globe entier.",
+  "regionView.leftGlobe": "La vue rapprochée est fermée. Le globe montre {place}.",
   "regionView.count": ["{n} événement", "{n} événements"],
   "regionView.whole": ["{n} concerne tout le lieu", "{n} concernent tout le lieu"],
   "regionView.brick": "Tout le lieu : {place}",

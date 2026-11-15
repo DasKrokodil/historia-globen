@@ -381,6 +381,8 @@
   "regionView.shown": "Mapa de cerca: {place}, {events}. Solo se muestran la frontera y los acontecimientos del lugar. Con Escape o con el botón «Salir del mapa de cerca» vuelve al mapa plano.",
   "regionView.left": "El mapa de cerca está cerrado. El mapa plano muestra {place}.",
   "regionView.reset": "El mapa de cerca vuelve a encuadrar {place}.",
+  "regionView.shownGlobe": "Mapa de cerca en el globo: {place}, {events}. Solo se muestran la frontera y los acontecimientos del lugar. Con Escape o con el botón «Salir del mapa de cerca» vuelve al globo entero.",
+  "regionView.leftGlobe": "El mapa de cerca está cerrado. El globo muestra {place}.",
   "regionView.count": ["{n} acontecimiento", "{n} acontecimientos"],
   "regionView.whole": ["{n} se refiere a todo el lugar", "{n} se refieren a todo el lugar"],
   "regionView.brick": "Todo el lugar: {place}",

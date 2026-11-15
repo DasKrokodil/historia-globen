@@ -381,6 +381,8 @@
   "regionView.shown": "Close-up map: {place}, {events}. Only the place’s border and events are shown; Escape or “Leave the close-up map” returns to the Flat map.",
   "regionView.left": "The close-up map is closed. The Flat map shows {place}.",
   "regionView.reset": "The close-up map frames {place} again.",
+  "regionView.shownGlobe": "Close-up map on the globe: {place}, {events}. Only the place’s border and events are shown; Escape or “Leave the close-up map” returns to the whole globe.",
+  "regionView.leftGlobe": "The close-up map is closed. The globe shows {place}.",
   "regionView.count": ["{n} event", "{n} events"],
   "regionView.whole": ["{n} applies to the whole of {place}", "{n} apply to the whole of {place}"],
   "regionView.brick": "All of {place}",
