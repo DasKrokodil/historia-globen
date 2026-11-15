@@ -1870,7 +1870,7 @@
     {"id": "lex-nuuk", "title": "Nuuk – Lex", "url": "https://lex.dk/Nuuk", "license": "© Lex (bara länkad, ingen text kopierad)", "checked": "2026-11-10"},
     {"id": "lex-kgh", "title": "Den Kongelige Grønlandske Handel – Lex (Simon Mølholm Olesen)", "url": "https://lex.dk/Den_Kongelige_Gr%C3%B8nlandske_Handel", "license": "CC BY-SA 3.0 (artikeltexten, märkt fri genbrug; bara länkad, ingen text kopierad)", "checked": "2026-11-10"},
     {"id": "lex-gronlands-historie-1500-1979", "title": "Grønlands historie 1500–1979 – Lex (Axel Kjær Sørensen)", "url": "https://lex.dk/Gr%C3%B8nlands_historie_1500-1979", "license": "© Lex (bara länkad, ingen text kopierad)", "checked": "2026-11-10"},
-    {"id": "lex-kielerfreden", "title": "Kielerfreden – Lex", "url": "https://lex.dk/Kielerfreden", "license": "© Lex (bara länkad, ingen text kopierad)", "checked": "2026-11-10"},
+    {"id": "lex-kielerfreden", "title": "Kielerfreden – Lex", "url": "https://lex.dk/Kielerfreden", "license": "© Lex (bara länkad, ingen text kopierad)", "checked": "2026-11-15"},
     {"id": "lex-ostgronlandssagen", "title": "Østgrønlandssagen – Lex (Tyge Lehmann)", "url": "https://lex.dk/%C3%98stgr%C3%B8nlandssagen", "license": "© Lex (bara länkad, ingen text kopierad)", "checked": "2026-11-10"},
     {"id": "lex-forsvarsaftale-1941", "title": "Forsvarsaftale for Grønland af 1941 – Lex (Klaus Georg Hansen)", "url": "https://lex.dk/Forsvarsaftale_for_Gr%C3%B8nland_af_1941", "license": "© Lex (bara länkad, ingen text kopierad)", "checked": "2026-11-10"},
     {"id": "lex-gronlands-forfatningshistorie", "title": "Grønlands forfatningsretslige historie – Lex (Klaus Georg Hansen)", "url": "https://lex.dk/Gr%C3%B8nlands_forfatningsretslige_historie", "license": "© Lex (bara länkad, ingen text kopierad)", "checked": "2026-11-10"},
@@ -1887,7 +1887,7 @@
     {"id": "wp-hans-egede", "title": "Hans Egede – Wikipedia", "url": "https://en.wikipedia.org/wiki/Hans_Egede", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
     {"id": "wp-nuuk", "title": "Nuuk – Wikipedia", "url": "https://en.wikipedia.org/wiki/Nuuk", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
     {"id": "wp-royal-greenland-trading-department", "title": "Royal Greenland Trading Department – Wikipedia", "url": "https://en.wikipedia.org/wiki/Royal_Greenland_Trading_Department", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
-    {"id": "wp-treaty-of-kiel", "title": "Treaty of Kiel – Wikipedia", "url": "https://en.wikipedia.org/wiki/Treaty_of_Kiel", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
+    {"id": "wp-treaty-of-kiel", "title": "Treaty of Kiel – Wikipedia", "url": "https://en.wikipedia.org/wiki/Treaty_of_Kiel", "license": "CC BY-SA 4.0", "checked": "2026-11-15"},
     {"id": "wp-henrik-kauffmann", "title": "Henrik Kauffmann – Wikipedia", "url": "https://en.wikipedia.org/wiki/Henrik_Kauffmann", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
     {"id": "wp-greenland-home-rule-referendum-1979", "title": "1979 Greenlandic home rule referendum – Wikipedia", "url": "https://en.wikipedia.org/wiki/1979_Greenlandic_home_rule_referendum", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
     {"id": "wp-greenland-ec-referendum-1982", "title": "1982 Greenlandic European Communities membership referendum – Wikipedia", "url": "https://en.wikipedia.org/wiki/1982_Greenlandic_European_Communities_membership_referendum", "license": "CC BY-SA 4.0", "checked": "2026-11-10"},
@@ -3250,6 +3250,10 @@
     {"id": "wp-kinshasa", "title": "Kinshasa – Wikipedia", "url": "https://en.wikipedia.org/wiki/Kinshasa", "license": "CC BY-SA 4.0", "checked": "2026-11-15"},
     {"id": "wp-grans-kongo", "title": "Democratic Republic of the Congo–Republic of the Congo border – Wikipedia", "url": "https://en.wikipedia.org/wiki/Democratic_Republic_of_the_Congo%E2%80%93Republic_of_the_Congo_border", "license": "CC BY-SA 4.0", "checked": "2026-11-15"},
     {"id": "wp-newfoundland-and-labrador", "title": "Newfoundland and Labrador – Wikipedia", "url": "https://en.wikipedia.org/wiki/Newfoundland_and_Labrador", "license": "CC BY-SA 4.0", "checked": "2026-11-15"},
-    {"id": "wp-madurai", "title": "Madurai – Wikipedia", "url": "https://en.wikipedia.org/wiki/Madurai", "license": "CC BY-SA 4.0", "checked": "2026-11-15"}
+    {"id": "wp-madurai", "title": "Madurai – Wikipedia", "url": "https://en.wikipedia.org/wiki/Madurai", "license": "CC BY-SA 4.0", "checked": "2026-11-15"},
+    {"id": "wp-ghaznavid-empire", "title": "Ghaznavid Empire – Wikipedia", "url": "https://en.wikipedia.org/wiki/Ghaznavid_Empire", "license": "CC BY-SA 4.0", "checked": "2026-11-15"},
+    {"id": "wd-ghaznavid-empire", "title": "Ghaznavid Empire (Q249578) – Wikidata", "url": "https://www.wikidata.org/wiki/Q249578", "license": "CC0", "checked": "2026-11-15"},
+    {"id": "wd-ghaznavids", "title": "Ghaznavids (Q12844800) – Wikidata", "url": "https://www.wikidata.org/wiki/Q12844800", "license": "CC0", "checked": "2026-11-15"},
+    {"id": "wp-denmark-norway", "title": "Denmark–Norway – Wikipedia", "url": "https://en.wikipedia.org/wiki/Denmark%E2%80%93Norway", "license": "CC BY-SA 4.0", "checked": "2026-11-15"}
 ]
 }
