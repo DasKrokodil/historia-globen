@@ -1346,6 +1346,7 @@ html.calm .year-tip { animation: none; }
 }
 .rmark.is-marked { box-shadow: 0 0 0 2px var(--night), 0 0 0 5px var(--brass), 0 0 0 6.5px var(--night); z-index: 3; }
 .rmark.rfan { z-index: 2; }
+.rmark.in-brick::after { display: none; } /* under brickan: brickan säger redan att händelsen gäller hela platsen */
 .rmark.is-under, .rpile.is-under { opacity: .3; }
 .rmark.rfan.is-marked { z-index: 3; }
 .rpile {
