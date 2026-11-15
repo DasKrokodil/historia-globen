@@ -1870,9 +1870,10 @@ FRANSKA_SIDAN = ('snitt', ('ne', ['frankrike-ne']), ('rutor', [FRANSKA_GRANSEN])
 BRD_MOT_NEDERLANDERNA = ('snitt', ('skillnad', ('clio', 'Federal Republic of Germany', 1955), ('ne', ['nederlanderna-ne'])),
                          ('snitt', ('ne', ['tyskland']), ('rutor', [(5.85, 50.75, 7.3, 53.7)])))
 
-# Rutorna längs gränsen mellan Sudan och Sydsudan i Cliopatria 2014 (från trepunkten vid Centralafrikanska republiken, 24,15 grader
-# öst, till den vid Etiopien, 34,05 grader öst), med minst 0,2 graders marginal (#1534)
-SUDANGRANSEN = [(23.8, 8.3, 25.2, 10.6), (25.2, 8.9, 32.2, 10.9), (32.2, 9.2, 34.3, 12.4)]
+# Rutorna längs gränsen mellan Sudan och Sydsudan i Cliopatria 2014, från trepunkten vid Centralafrikanska republiken (24,149 grader
+# öst) till den vid Etiopien (34,033 grader öst; gränsen når 34,05 strax norr om den). Rutorna slutar vid trepunkterna, så att Sudans och Sydsudans
+# ogenomskurna gränser inte läggs över grannarnas förenklade gränser (geografen, #1534). Den korta biten öster om 34,033 grader följer förenklingen
+SUDANGRANSEN = [(24.15, 8.3, 25.2, 10.6), (25.2, 8.9, 32.2, 10.9), (32.2, 9.2, 34.033, 12.4)]
 
 DISPUTED = {
     # Krim och Sevastopol: Cliopatria räknar halvön till Ryssland från 2014 och till Ukraina bara till och med 2023.
