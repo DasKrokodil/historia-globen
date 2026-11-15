@@ -1336,8 +1336,9 @@ async function run(browser, vp) {
   // skolflödet fråga → underlag → svar → återgång med riktig pekning. Enskilda prov för bild (#884), källregister vid
   // utskrift (#879) och turfil vid sidladdning (#877) finns redan; här prövas att felet mitt i sessionen ger besked och
   // att sidan kommer tillbaka när felet är över, utan omladdning. Egen sida med pekning (hasTouch) för varje prov.
-  const touchPage = async () => {
-    const tctx = await newTestContext(browser, { viewport: { width: vp.width, height: vp.height }, deviceScaleFactor: 1, hasTouch: true });
+  // extra: fler inställningar för sammanhanget, till exempel isMobile när provet kräver pointer: coarse också i Firefox (#1667)
+  const touchPage = async (extra = {}) => {
+    const tctx = await newTestContext(browser, { viewport: { width: vp.width, height: vp.height }, deviceScaleFactor: 1, hasTouch: true, ...extra });
     const tp = await tctx.newPage();
     const errs = [];
     // Avbrutna hämtningar under sidbyte (#1393, steg 3): goto och reload på sidan går genom abortWatch, så att WebKits sidfel för en
@@ -3180,8 +3181,11 @@ async function run(browser, vp) {
   // fokusera (WCAG 2.4.11), att drag i handtaget når läget helt, att fokusraden går att nå igen när arket fälls ihop och att krysset
   // på ett händelsekort har tryckyta på 44 px i bred layout.
   await check('liggande telefon: kortets kryss och knapp går att trycka på, och inget täckt går att fokusera, vid fyra storlekar (#1667)', async () => {
-    const { tp, tctx, errs } = await touchPage();
+    // Reglerna för liggande telefon gäller bara med pointer: coarse. Chromium ger det redan med hasTouch, Firefox först med isMobile:
+    // utan det var arket i läget helt lika lågt som halvt i Firefox, och draget i handtaget gav halvt (#1174)
+    const { tp, tctx, errs } = await touchPage({ isMobile: true });
     try {
+      if (!(await tp.evaluate(() => matchMedia('(pointer: coarse)').matches))) throw new Error('sidan har inte pointer: coarse, så provet prövar inte en telefon');
       const out = [];
       for (const [width, height] of [[800, 360], [844, 390], [640, 360], [667, 375]]) {
         await tp.setViewportSize({ width, height });
@@ -3200,7 +3204,11 @@ async function run(browser, vp) {
           for (let i = 1; i <= 12; i++) await tp.mouse.move(hb.x + hb.width / 2, hb.y + hb.height / 2 - i * 20);
           await tp.mouse.up();
           await tp.waitForTimeout(400);
-          if (await sheet() !== 'full') throw new Error(`${name}: drag uppåt i handtaget gav läget ${await sheet()}, inte helt`);
+          if (await sheet() !== 'full') {
+            const h = await tp.evaluate(() => { const d = document.getElementById('detail'), ds = d.dataset, cur = ds.sheet, o = {};
+              for (const s of ['closed', 'half', 'full']) { ds.sheet = s; o[s] = Math.round(d.getBoundingClientRect().height); } ds.sheet = cur; return o; });
+            throw new Error(`${name}: drag uppåt i handtaget gav läget ${await sheet()}, inte helt (arkets höjd i lägena: ${JSON.stringify(h)})`);
+          }
         }
         const probe = sel => tp.evaluate(s => {
           const el = document.querySelector(s);
