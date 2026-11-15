@@ -2748,6 +2748,13 @@ span.theme-event:hover { background: none; outline: none; }
   .app { --tour-top: calc(var(--tablet-actions-height, 98px) + 120px); } /* årtalet ligger under knapparna på en platta yta (#992) */
   .app.lesson, .app.lesson-notice { --tour-top: calc(var(--tablet-actions-height, 98px) + 172px); }
 }
+/* Låg, bred yta (#1695): Sök och följ får inte låta flikarna ta hela den lilla menyn.
+   Flikarna går att rulla i sidled i sitt eget fält och listan får alltid plats att rulla till sista träffen. */
+@media (min-width: 761px) and (max-height: 500px) {
+  .focus-head { max-height: min(160px, calc(100dvh - 210px)); overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: var(--brass-deep) var(--night-3); }
+  .focus-tabs { flex-wrap: nowrap; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; }
+  .focus-body { min-height: 72px; }
+}
 @media (max-height: 600px) and (max-width: 760px) {
   .app { --tour-top: 76px; }
   .app.lesson, .app.lesson-notice { --tour-top: 130px; }
