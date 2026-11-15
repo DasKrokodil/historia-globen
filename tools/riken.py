@@ -2212,12 +2212,6 @@ DISPUTED = {
                                              ('ne', ['vasttyska-granslander'])),
                                     'from': 1945, 'to': 1949, 'strict': True, 'efter': True, 'remove': ['usa'],
                                     'add': ['franska-kolonialvaldet']},
-    # Och norr om rutan, kring Leutkirch (Kreis Wangen i Württemberg-Hohenzollern), där Cliopatria räknar en bit till den amerikanska zonen
-    # men den förenklade gränsen inte når fram: Baden-Württemberg söder om 48,1 grader (Ulm och Württemberg-Baden, den amerikanska
-    # zonens del av Württemberg, ligger norr om det) läggs till den franska zonen och klipps ur USA
-    'franskzon-leutkirch': {'area': ('snitt', ('skillnad', ('ne', ['tyskland']), ('ne', ['vasttyska-granslander'])),
-                                     ('rutor', [(9.5, 47.85, 10.3, 48.1)])),
-                            'from': 1945, 'to': 1949, 'strict': True, 'efter': True, 'remove': ['usa'], 'add': ['franska-kolonialvaldet']},
     # och Tjeckoslovakiens sida, som Cliopatria 1947–1949 ritar också i USA och Sovjetunionen
     'tjeckoslovakien-zoner': {'area': ('ne', ['tjeckien-ne']), 'from': 1947, 'to': 1949, 'strict': True, 'efter': True,
                               'remove': ['usa', 'sovjetunionen'], 'add': []},
