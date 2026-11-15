@@ -77,6 +77,9 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              # Syrien, annars täcker grannarnas förenklade gräns en stor del av landet
              'gambia': (0.05, 0.02, 0.02), 'libanon': (0.05, 0.02, 0.02),
              'senegal': (0.05, 0.02, 0.02), 'syrien': (0.05, 0.005, 0.02),
+             # Tyskland 1949–1990 och Frankrike (#1706): med 0,2 grader fylls Västberlin i DDR-ytan och Frankrikes gräns
+             # buktar in över Saarland (Saarbrücken ligger cirka 5 km från gränsen)
+             'osttyskland': (0.05, MERGE, MIN_AREA), 'vasttyskland': (0.05, MERGE, MIN_AREA), 'frankrike': (0.1, MERGE, MIN_AREA),
              # Luxemburg och Singapore är små
              'luxemburg': (0.03, 0.02, 0.005), 'singapore': (0.02, 0.02, 0.005),
              # Malaysias förenklade gräns täckte annars en del av Singapore över Johorsundet
@@ -378,7 +381,9 @@ GROUPS = {
         (['Nazi Germany', 'Weimar Republic'], 'nazityskland', 'Nazityskland', '#5e5258', {'en': 'Nazi Germany', 'years': (1933, 1944)}),
     ]),
     'vasttyskland': ('Västtyskland', 'West Germany', [
-        ('Federal Republic of Germany', 'vasttyskland', 'Västtyskland', '#c0a040', {'en': 'West Germany'}),
+        # Saarland hör till Förbundsrepubliken från 1958 i Cliopatria (1 januari 1957 enligt Wikipedia, #1706). Ändringen är
+        # cirka 1 procent av ytan och slogs förut ihop med 1950–1957, så att Saarland saknades till 1990
+        ('Federal Republic of Germany', 'vasttyskland', 'Västtyskland', '#c0a040', {'en': 'West Germany', 'splits': (1958,)}),
     ]),
     'osttyskland': ('Östtyskland', 'East Germany', [
         ('German Democratic Republic', 'osttyskland', 'Östtyskland', '#b0604a', {'en': 'East Germany'}),
@@ -1778,6 +1783,29 @@ DISPUTED = {
                            'remove': ['sovjetunionen'], 'add': []},
     # Irak från 2006: Cliopatria räknar landet till USA 2006–2023 (från 2014 samtidigt med Irak)
     'irak-usa': {'area': ('clio', 'Iraqi Republic', 2005), 'from': 2006, 'remove': ['usa'], 'add': []},
+    # Källfel i Cliopatria, Tyskland 1920–1990 (#1706). DDR 1973–1975 saknar hålet för Västberlin, som Cliopatria har
+    # alla andra år 1949–1990; området är DDR:s gräns 1973 minus gränsen 1972
+    'vastberlin-ddr': {'area': (('German Democratic Republic', 1973), ('German Democratic Republic', 1972)),
+                       'from': 1973, 'to': 1975, 'remove': ['osttyskland'], 'add': []},
+    # Femte republiken: Cliopatria räknar en bit av Västberlin (den franska sektorn) till Frankrike 1958–2023. Den syns med
+    # den finare förenklingen ovan och tas bort
+    'frankrike-berlin': {'area': ('rutor', [(13.0, 52.3, 13.8, 52.8)]), 'parts': True,
+                         'from': 1958, 'remove': ['frankrike'], 'add': []},
+    # Nazi Germany har småbitar (mest vatten mellan grannarnas gränser) i länder som Tyskland aldrig höll eller ännu inte
+    # hade ockuperat. ('rutor', [(väst, syd, öst, nord), ...]) med 'parts': bara de delar av riket som ligger helt inne i en
+    # ruta tas bort, så att rutan aldrig klipper i rikets sammanhängande yta
+    'nazityskland-sverige': {'area': ('rutor', [(18.2, 59.2, 18.8, 59.6)]), 'parts': True,  # Stockholms skärgård
+                             'from': 1933, 'to': 1944, 'remove': ['nazityskland'], 'add': []},
+    'nazityskland-norge': {'area': ('rutor', [(10.3, 63.4, 10.9, 63.7), (21.6, 70.0, 22.1, 70.5)]), 'parts': True,
+                           'from': 1933, 'to': 1939, 'remove': ['nazityskland'], 'add': []},  # Trondheim och Finnmark före 1940
+    'nazityskland-karelen': {'area': ('rutor', [(33.8, 61.0, 36.3, 63.4)]), 'parts': True,  # ryska Karelen
+                             'from': 1933, 'to': 1944, 'remove': ['nazityskland'], 'add': []},
+    'nazityskland-estland': {'area': ('rutor', [(27.6, 57.7, 28.2, 59.1)]), 'parts': True,  # Peipus och Pskov före 1941
+                             'from': 1933, 'to': 1940, 'remove': ['nazityskland'], 'add': []},
+    'nazityskland-naxos': {'area': ('rutor', [(25.2, 36.9, 25.7, 37.3)]), 'parts': True,  # Naxos före 1941
+                           'from': 1933, 'to': 1940, 'remove': ['nazityskland'], 'add': []},
+    'nazityskland-levanten': {'area': ('rutor', [(35.6, 32.6, 36.0, 33.4)]), 'parts': True,
+                              'from': 1933, 'to': 1944, 'remove': ['nazityskland'], 'add': []},
 }
 
 
@@ -1800,6 +1828,8 @@ def disputed_areas(by_name):
             return at(a[1], a[2])
         if a[0] == 'ne':
             return unary_union([ne[i] for i in a[1]])
+        if a[0] == 'rutor':  # rutor (väst, syd, öst, nord), för källfel med 'parts' (#1706)
+            return unary_union([box(*r) for r in a[1]])
         if a[0] == 'ne-snitt':  # ett land i Natural Earth snittat med en Cliopatria-post ett visst år
             return ne[a[1]].intersection(at(*a[2]))
         return at(*a[0]).difference(at(*a[1]))
@@ -1820,10 +1850,22 @@ def apply_disputed(items, gid, areas):
                 if s < d['from'] or s > last:
                     out.append((s, e, g, ar))
                     continue
-                ng = g.difference(areas[key]) if op == 'remove' else unary_union([g, areas[key]])
+                if op == 'remove' and d.get('parts'):
+                    ng = drop_parts_within(g, areas[key])
+                else:
+                    ng = g.difference(areas[key]) if op == 'remove' else unary_union([g, areas[key]])
                 out.append((s, e, ng, km2(ng)))
         items = out
     return items
+
+
+def drop_parts_within(g, area):
+    """g utan de delar av en multipolygon som ligger helt inne i area (källfel, #1706). Övriga delar är oförändrade."""
+    parts = list(g.geoms) if g.geom_type == 'MultiPolygon' else [g]
+    keep = [q for q in parts if not q.within(area)]
+    if not keep:
+        return Polygon()
+    return MultiPolygon(keep) if len(keep) > 1 else keep[0]
 
 
 def cut_parts(g, cut):
@@ -1931,7 +1973,7 @@ def extend(by_name, ext):
 
 
 # Koordinaterna avrundas till 0.1 grad, utom för små länder där gränsen annars hamnar fel (#644)
-DECIMALS = {'israel': 2, 'palestina': 2, **{g: 3 for g in SMALL_STATES},
+DECIMALS = {'israel': 2, 'palestina': 2, 'osttyskland': 2, 'vasttyskland': 2, **{g: 3 for g in SMALL_STATES},
             'chimor': 2, 'purepecha': 2, 'inkariket': 2,  # #556
             'oyoriket': 2, 'ashantiriket': 2, 'gronland-koloni': 2, 'danska-indien': 3, 'danska-guldkusten': 3}  # #1388
 
@@ -2377,6 +2419,9 @@ def main():
              'Ockupation och inbördeskrig (#1332): där Cliopatria efter 1945 ritar en ockupationsmakt eller en part i ett inbördeskrig '
              'i stället för en stat, visas den internationellt erkända staten med sin egen gräns i Cliopatria ett närliggande år (fill i '
              'tools/riken.py), och makten klipps bort de åren; där är areaKm2 Cliopatrias yta för den gränsen. '
+             'Källfel i Cliopatria, Tyskland 1920–1990 (#1706): Västberlin räknas inte till DDR 1973–1975 och inte till Femte franska '
+             'republiken; Nazi Germanys småbitar i Sverige, ryska Karelen och Levanten, och före ockupationerna i Norge, Estland och '
+             'på Naxos, är borttagna (DISPUTED i tools/riken.py). Västtyskland delas 1958, när Saarland kommer med i Cliopatria. '
              'Små stater (#722): tolv länder som Cliopatria saknar i nutid eller har fel gräns för har gränsen ur Natural Earth '
              '(ne_10m_admin_0_countries 5.1.1, public domain), från självständigheten, och polity.point = true: de visas som en punkt med namn.')
     (out / 'index.json').write_text(json.dumps({'schema': 'historia-globen/empires-index@1', 'notes': notes, 'groups': index},

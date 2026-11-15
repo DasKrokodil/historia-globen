@@ -738,6 +738,8 @@
     { "id": "wp-nazi-germany", "title": "Nazi Germany – Wikipedia", "url": "https://en.wikipedia.org/wiki/Nazi_Germany", "license": "CC BY-SA 4.0", "checked": "2026-11-13" },
     { "id": "wp-west-germany", "title": "West Germany – Wikipedia", "url": "https://en.wikipedia.org/wiki/West_Germany", "license": "CC BY-SA 4.0", "checked": "2026-11-13" },
     { "id": "wp-east-germany", "title": "East Germany – Wikipedia", "url": "https://en.wikipedia.org/wiki/East_Germany", "license": "CC BY-SA 4.0", "checked": "2026-11-13" },
+    { "id": "wp-west-berlin", "title": "West Berlin – Wikipedia", "url": "https://en.wikipedia.org/wiki/West_Berlin", "license": "CC BY-SA 4.0", "checked": "2026-11-15" },
+    { "id": "wp-saar-protectorate", "title": "Saar Protectorate – Wikipedia", "url": "https://en.wikipedia.org/wiki/Saar_Protectorate", "license": "CC BY-SA 4.0", "checked": "2026-11-15" },
     { "id": "wd-weimar-republic", "title": "Weimar Republic (Q41304) – Wikidata", "url": "https://www.wikidata.org/wiki/Q41304", "license": "CC0", "checked": "2026-11-13" },
     { "id": "wd-nazi-germany", "title": "Nazi Germany (Q7318) – Wikidata", "url": "https://www.wikidata.org/wiki/Q7318", "license": "CC0", "checked": "2026-11-13" },
     { "id": "wd-west-germany", "title": "West Germany (Q713750) – Wikidata", "url": "https://www.wikidata.org/wiki/Q713750", "license": "CC0", "checked": "2026-11-13" },
