@@ -78,6 +78,16 @@ ALTKIRCH = (7.239, 47.623)
 DELLE = (6.998, 47.507)
 FERRETTE = (7.316, 47.494)
 ZWIESEL = (13.233, 49.017)
+# #1534, ur en.wikipedia (Wikidata svarade inte): Juba, Khartoum, Zanzibar City och Wete (på Pemba). Chake-Chake, Pembas
+# huvudort, används inte: punkten ligger cirka 150 m utanför Natural Earths kust, i viken vid staden
+JUBA = (31.5825, 4.8539)
+KHARTOUM = (32.5, 15.6)
+ZANZIBAR = (39.199, -6.165)
+WETE = (39.728, -5.057)
+# Nära trepunkterna (geografen, #1534): punkter i Cliopatrias Sudan 2014 där Centralafrikanska republikens och Etiopiens förenklade
+# gränser når in. Sudans gräns längs Sydsudan får inte läggas över dem, så att marken bara ritas i en stat
+NARA_CAF = (23.96, 8.71)
+NARA_ETIOPIEN = (34.18, 9.89)
 PASSAU = (13.461, 48.575)
 # Berlin 1949–1990 (#1731), ur Wikidata: Västberlin och Östberlin
 VASTBERLIN = {'Charlottenburg': (13.3, 52.517), 'Spandau': (13.2, 52.55), 'Wedding': (13.343, 52.55), 'Kreuzberg': (13.383, 52.488),
@@ -235,6 +245,18 @@ PUNKTER = [
     # (en.wikipedia "Swedish Pomerania"); kartan följer Cliopatria och freden, så Stralsund är svenskt till 1813
     *[('svenska-stormaktsvaldet', (13.0819, 54.3092), 'Stralsund', y, True) for y in (1809, 1813)],
     *[('svenska-stormaktsvaldet', (13.0819, 54.3092), 'Stralsund', y, False) for y in (1814, 1816)],
+    # Sydsudan självständigt 9 juli 2011 och Zanzibar i Tanzania från 26 april 1964 (FN), #1534
+    ('sudan', JUBA, 'Juba', 2010, True),
+    *[('sydsudan', JUBA, 'Juba', y, True) for y in (2011, 2012, 2013, 2014, 2024)],
+    *[('sudan', JUBA, 'Juba', y, False) for y in (2011, 2012, 2013, 2014, 2024)],
+    *[('sudan', KHARTOUM, 'Khartoum', y, True) for y in (1956, 2010, 2011, 2012, 2024)],
+    *[('sydsudan', KHARTOUM, 'Khartoum', y, False) for y in (2011, 2024)],
+    *[('tanzania', p, n, y, True) for p, n in ((ZANZIBAR, 'Zanzibar'), (WETE, 'Wete')) for y in (1964, 1966, 1967, 2000, 2024)],
+    *[('tanzania', p, n, 1963, False) for p, n in ((ZANZIBAR, 'Zanzibar'), (WETE, 'Wete'))],
+    *[('sudan', p, n, y, False) for p, n in ((NARA_CAF, 'nära trepunkten vid Centralafrikanska republiken'),
+                                              (NARA_ETIOPIEN, 'nära trepunkten vid Etiopien')) for y in (2011, 2012, 2020)],
+    *[('centralafrikanska-republiken', NARA_CAF, 'nära trepunkten vid Centralafrikanska republiken', y, True) for y in (2012, 2020)],
+    *[('etiopien', NARA_ETIOPIEN, 'nära trepunkten vid Etiopien', y, True) for y in (2012, 2020)],
 ]
 
 

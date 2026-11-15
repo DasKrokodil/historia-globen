@@ -431,6 +431,7 @@
         "wp-abisko-national-park",
         "wp-aboriginal-tasmanians",
         "wp-absalon",
+        "wp-abyei",
         "wp-achaemenid-empire",
         "wp-acosta-nu",
         "wp-adena-culture",
@@ -2733,6 +2734,7 @@
         "wp-zacatecas-1914",
         "wp-zaghouan-aqueduct",
         "wp-zagwe",
+        "wp-zanzibar",
         "wp-zhang-heng",
         "wp-zhang-qian",
         "wp-zheng-he",
@@ -3795,6 +3797,8 @@
     {
       "license": "© Förenta nationerna (bara länkad, ingen text kopierad)",
       "sourceIds": [
+        "un-member-south-sudan",
+        "un-member-tanzania",
         "un-rio-1992",
         "un-stockholm-1972",
         "unfccc-convention-text",

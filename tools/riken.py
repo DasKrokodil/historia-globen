@@ -713,8 +713,11 @@ GROUPS = {
          {'en': 'Kingdom of Nejd and Hejaz', 'wikidata': 'Q1756546'}),
         ('Kingdom of Saudi Arabia', 'saudiarabien', 'Saudiarabien', '#8a7a2f', {'en': 'Saudi Arabia'}),
     ]),
+    # Sydsudan blev självständigt 9 juli 2011 (FN, un-member-south-sudan), men Cliopatria räknar Sydsudan till Sudan till och med
+    # 2013 och har South Sudan först från 2014 (#1534). Åren 2011–2013 får Sudan sin egen gräns i Cliopatria 2014 och Sydsudan
+    # sin gräns 2014 (fill), så att gränsen mellan länderna är densamma som 2014
     'sudan': ('Sudan', 'Sudan', [
-        ('Republic of Sudan', 'sudan', 'Sudan', '#a0703a', {'en': 'Sudan'}),
+        ('Republic of Sudan', 'sudan', 'Sudan', '#a0703a', {'en': 'Sudan', 'fill': [(2011, 2013, ('Republic of Sudan', 2014))]}),
     ]),
     # Cliopatria anger Q17435890 (Libyens historia under Gaddafi) för Libyska arabrepubliken; delen får Q1016
     'libyen': ('Libyen', 'Libya', [
@@ -788,7 +791,7 @@ GROUPS = {
         ('Madagascar', 'madagaskar', 'Madagaskar', '#9a6ab0', {'en': 'Madagascar'}),
     ]),
     'sydsudan': ('Sydsudan', 'South Sudan', [
-        ('South Sudan', 'sydsudan', 'Sydsudan', '#c06a8a', {'en': 'South Sudan'}),
+        ('South Sudan', 'sydsudan', 'Sydsudan', '#c06a8a', {'en': 'South Sudan', 'fill': [(2011, 2013, ('South Sudan', 2014))]}),
     ]),
     'kenya': ('Kenya', 'Kenya', [
         ('Republic of Kenya', 'kenya', 'Kenya', '#b05050', {'en': 'Kenya'}),
@@ -1867,6 +1870,11 @@ FRANSKA_SIDAN = ('snitt', ('ne', ['frankrike-ne']), ('rutor', [FRANSKA_GRANSEN])
 BRD_MOT_NEDERLANDERNA = ('snitt', ('skillnad', ('clio', 'Federal Republic of Germany', 1955), ('ne', ['nederlanderna-ne'])),
                          ('snitt', ('ne', ['tyskland']), ('rutor', [(5.85, 50.75, 7.3, 53.7)])))
 
+# Rutorna längs gränsen mellan Sudan och Sydsudan i Cliopatria 2014, från trepunkten vid Centralafrikanska republiken (24,149 grader
+# öst) till den vid Etiopien (34,033 grader öst; gränsen når 34,05 strax norr om den). Rutorna slutar vid trepunkterna, så att Sudans och Sydsudans
+# ogenomskurna gränser inte läggs över grannarnas förenklade gränser (geografen, #1534). Den korta biten öster om 34,033 grader följer förenklingen
+SUDANGRANSEN = [(24.15, 8.3, 25.2, 10.6), (25.2, 8.9, 32.2, 10.9), (32.2, 9.2, 34.033, 12.4)]
+
 DISPUTED = {
     # Krim och Sevastopol: Cliopatria räknar halvön till Ryssland från 2014 och till Ukraina bara till och med 2023.
     # Sverige erkänner inte annekteringen (UD, uttalande 30 september 2022), så halvön ritas som Ukraina.
@@ -2159,6 +2167,18 @@ DISPUTED = {
                            'from': 1933, 'to': 1940, 'remove': ['nazityskland'], 'add': []},
     'nazityskland-levanten': {'area': ('rutor', [(35.6, 32.6, 36.0, 33.4)]), 'parts': True,
                               'from': 1933, 'to': 1944, 'remove': ['nazityskland'], 'add': []},
+    # Gränsen mellan Sudan och Sydsudan (#1534): Cliopatrias gränser 2014 delar inget område, men förenklingen (0,2 grader) ritar
+    # cirka 1 400 km2 i båda länderna och lämnar cirka 2 500 km2 utan stat längs gränsen. I rutorna längs gränsen (SUDANGRANSEN)
+    # läggs båda ländernas ogenomskurna gräns i Cliopatria 2014 tillbaka efter förenklingen, och var och en klipps ur grannen
+    'sudan-mot-sydsudan': {'area': ('snitt', ('clio', 'Republic of Sudan', 2014), ('rutor', SUDANGRANSEN)), 'from': 2011,
+                           'strict': True, 'efter': True, 'remove': ['sydsudan'], 'add': ['sudan']},
+    'sydsudan-mot-sudan': {'area': ('snitt', ('clio', 'South Sudan', 2014), ('rutor', SUDANGRANSEN)), 'from': 2011,
+                           'strict': True, 'efter': True, 'remove': ['sudan'], 'add': ['sydsudan']},
+    # Zanzibar (#1534): Tanganyika och Zanzibar gick samman 26 april 1964 (FN, un-member-tanzania). Cliopatria saknar Pemba helt
+    # och räknar Unguja till Tanzania först från 1967, och förenklingen tar bort Unguja. Öarna (Unguja och Pemba i Tanzanias gräns i
+    # Natural Earth) läggs till Tanzania från 1964, efter förenklingen
+    'zanzibar-tanzania': {'area': ('ne', ['unguja-ne', 'pemba-ne']), 'from': 1964, 'strict': True, 'efter': True,
+                          'remove': [], 'add': ['tanzania']},
     # Bodensee, Basel och Vorarlberg (#1771): i rutorna ALP följer gränserna mellan Tyskland, Schweiz, Österrike och Frankrike
     # Natural Earth från 1919. Varje lands mark läggs till den stat som höll den och klipps ur grannarna. Källfel i Cliopatria:
     # Hörbranz i Weimarrepubliken och Nazityskland 1920–1937, Konstanz i Schweiz till 1949, Kreuzlingen i Förbundsrepubliken från
@@ -2956,6 +2976,9 @@ def main():
              'Kuriska näset i Sovjetunionen 1945–1989); gränsen mellan Frankrike och Schweiz följer Natural Earth från 1919 (Frankrikes sida 1919–1939 och från 1945); '
              'den amerikanska zonen (Bayern) och den sovjetiska (Sachsen och Thüringen) når 1945–1949 fram till gränserna mot '
              'Tjeckoslovakien, Polen och Österrike, och den franska (Baden-Württemberg) till Bodensee, med delstaternas gränser i Natural Earth. '
+             'Sydsudan och Zanzibar (#1534): Sydsudan visas från självständigheten 2011 med sin gräns i Cliopatria 2014 (Cliopatria '
+             'har landet först från 2014), Sudan 2011–2013 likaså med gränsen 2014, och gränsen mellan dem följer Cliopatrias ogenomskurna '
+             'gränser; Unguja och Pemba (Zanzibar) hör till Tanzania från 1964, med öarnas gräns i Natural Earth. '
              'Små stater (#722): tolv länder som Cliopatria saknar i nutid eller har fel gräns för har gränsen ur Natural Earth '
              '(ne_10m_admin_0_countries 5.1.1, public domain), från självständigheten, och polity.point = true: de visas som en punkt med namn.')
     (out / 'index.json').write_text(json.dumps({'schema': 'historia-globen/empires-index@1', 'notes': notes, 'groups': index},
