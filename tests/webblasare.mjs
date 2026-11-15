@@ -4051,7 +4051,7 @@ async function run(browser, vp) {
     const c = await placeTourPage('#t=test-plats', 'platsenter3');
     try {
       await c.tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
-      await enterSays(c.tp, /Enter öppnar ingen plats under en tur\. Välj ”Avsluta turen” först\./, 'tur');
+      await enterSays(c.tp, /Enter öppnar ingen plats under en tur\. Välj ”Lämna turen” först\./, 'tur');
       if (!(await c.tp.isVisible('#tour-card'))) throw new Error('Enter avslutade turen');
       if (c.errs.length) throw new Error(`fel i konsolen: ${c.errs.join(' | ')}`);
     } finally { await c.tctx.close(); }
