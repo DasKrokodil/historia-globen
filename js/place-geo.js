@@ -153,6 +153,21 @@ export function inPlace(place, lon, lat) {
   return inGeometry(g, lon, lat) || (edgeKm(g, lon, lat) <= COAST_MARGIN_KM && !inNeighbour(place, lon, lat));
 }
 
+/**
+ * Den minsta platsen som punkten hör till enligt inPlace (gränsen med kustmarginalen, samma som platsens händelser), eller null.
+ * Till för händelser som gäller hela sin plats (`scope: "place"`, #1674): Skåne går före Sverige, och Köpenhamns punkt, som ligger
+ * utanför den grova kusten, hör ändå till Danmark. Ytan är rutans, som i placeAt.
+ */
+export function smallestPlace(places, lon, lat) {
+  let best = null, bestArea = Infinity;
+  for (const place of places) {
+    if (!place.boundary?.geometry) continue;
+    const area = rawBox(place.boundary.geometry).area;
+    if (area < bestArea && inPlace(place, lon, lat)) { best = place; bestArea = area; }
+  }
+  return best;
+}
+
 /** Händelserna (med _lon och _lat, som model.js sätter) som ligger inom platsens gräns, i tidsordning. */
 export function placeEvents(place, events) {
   return events.filter(e => e._lon != null && inPlace(place, e._lon, e._lat)).sort((a, b) => a.start - b.start);

@@ -853,7 +853,7 @@ if places_doc is not None:
             if prev_from is not None and per['from'] < prev_from:
                 err(f'{at}: perioderna ska stå i tidsordning (efter from)')
             prev_from = per['from']
-        for e in inside:
+        for e in inside if pl.get('review') in VISIBLE else []:  # som loadPlaces i js/model.js: bara platser som får visas
             if e.get('scope') == 'place':
                 scoped_in.add(e['id'])
         if pl.get('type') == 'country':
@@ -863,7 +863,7 @@ if places_doc is not None:
     # Ett scope "place" som inte ligger i någon plats säger ingenting och är troligen ett fel (#1674)
     for e in ev_all:
         if e.get('scope') == 'place' and e['id'] not in scoped_in:
-            err(f"data/events.json ({e['id']}): scope \"place\" men händelsen ligger inte i någon plats i data/platser.json")
+            err(f"data/events.json ({e['id']}): scope \"place\" men händelsen ligger inte i någon plats i data/platser.json som får visas")
 
 # 8g. Ortnamn för regionvyn (#1643): en fil per plats i data/ortnamn/, skriven av tools/ortnamn.py ur Natural Earth. Schemat (fem språk,
 # id och koordinater), att filen hör till en plats i data/platser.json, att källan finns och att grannländerna är platsens egna.

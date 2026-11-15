@@ -14,7 +14,7 @@ import {
 } from '../js/region-markers.js';
 
 const read = p => JSON.parse(readFileSync(new URL(`../${p}`, import.meta.url), 'utf8'));
-const places = read('data/platser.json').places;
+const places = read('data/platser.json').places.filter(p => isVisibleReview(p.review));
 const place = id => places.find(p => p.id === id);
 const events = read('data/events.json').events;
 for (const e of events) if (e.location?.type === 'Point') [e._lon, e._lat] = e.location.coordinates;
@@ -81,8 +81,14 @@ test('wholePlace läser fältet, inte platstexten: fält, saknat fält och en mi
   assert.equal(wholePlace({ ...at({ scope: 'place' }), locationPrecision: undefined }, place('skane'), places), false);
   // Fältet gäller den minsta platsen händelsen ligger i: en skånsk händelse är "Hela Skåne", men i Sverige en ungefärlig markör
   assert.equal(wholePlace(at({ scope: 'place' }), place('sverige'), places), false, 'Skåne ligger i Sverige');
-  // Utan listan över platser görs ingen sådan prövning (reserv när platserna inte har laddats)
-  assert.equal(wholePlace(at({ scope: 'place' }), place('sverige')), true);
+  // Utan listan över platser ger ingen händelse brickan (hellre en markör än fel plats)
+  assert.equal(wholePlace(at({ scope: 'place' }), place('skane')), false);
+  assert.equal(wholePlace(at({ scope: 'place' }), place('sverige')), false);
+  // Köpenhamns punkt ligger utanför den grova kusten men inom kustmarginalen: den hör ändå till Danmark, och är hela Danmark
+  assert.equal(wholePlace({ scope: 'place', locationPrecision: 'country', _lon: 12.5689, _lat: 55.6761 }, place('danmark'), places), true);
+  assert.equal(wholePlace({ scope: 'place', locationPrecision: 'country', _lon: 12.5689, _lat: 55.6761 }, place('sverige'), places), false);
+  // En punkt utanför alla platser är aldrig hela platsen
+  assert.equal(wholePlace({ scope: 'place', locationPrecision: 'region', _lon: 150, _lat: -5 }, place('danmark'), places), false);
   // Platsen saknas
   assert.equal(wholePlace(at({ scope: 'place' }), null, places), false);
   // En svensk händelse för hela landet med punkten i Stockholm (inte i någon mindre plats) gäller hela Sverige
