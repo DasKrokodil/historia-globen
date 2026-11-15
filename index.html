@@ -190,10 +190,10 @@
           <button id="btn-sources" class="chip-btn" type="button" title="Om källorna: källpolicy och källregister" data-i18n-title="top.sourcesTitle" data-i18n="top.sources">Källor</button>
           <span class="extra-label" data-i18n="more.school">För skolan</span>
           <!-- För lärare (#1315): lektioner, utskrift, quiz, jakt och presentationsläge på ett ställe (js/ui/teacher.js). Quiz (#65) och Samtidighetsjakten (#741) har bara den ingången (#1575). -->
-          <button id="btn-teacher" class="chip-btn" type="button" aria-expanded="false" aria-controls="teacher" title="Lektioner, utskrift, quiz och storskärm" data-i18n-title="top.teacherTitle" data-i18n="top.teacher">För lärare</button>
+          <button id="btn-teacher" class="chip-btn" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="teacher" title="Lektioner, utskrift, quiz och storskärm" data-i18n-title="top.teacherTitle" data-i18n="top.teacher">För lärare</button>
           <span class="extra-label" data-i18n="more.customize">Anpassa</span>
           <!-- Inställningar (#1574): Lugn rörelse och Pausa vid, flyttade från Lager -->
-          <button id="btn-settings" class="chip-btn" type="button" aria-expanded="false" aria-controls="settings" data-i18n="top.settings">Inställningar</button>
+          <button id="btn-settings" class="chip-btn" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="settings" data-i18n="top.settings">Inställningar</button>
           <span class="extra-label" data-i18n="more.project">Hjälp projektet</span>
           <!-- Dela (#64): länken till vyn som den ser ut nu, med år, kamera, fokus, lager och kategorier (#501) -->
           <button id="btn-share" class="chip-btn" type="button" title="Kopiera en länk till den här vyn" data-i18n-title="share.title" data-i18n="share.button">Dela</button>
@@ -235,7 +235,7 @@
 
   <!-- Inställningar (#1574): rörelse och vad uppspelningen pausar vid. Flyttat hit från Lager; samma kort som Hjälp (js/ui/help.js).
        LayerMenu läser rutorna härifrån (data-calm och data-pause). -->
-  <aside id="settings" class="help-card settings-card" aria-labelledby="settings-title" hidden>
+  <aside id="settings" class="help-card settings-card" role="dialog" aria-modal="false" aria-labelledby="settings-title" hidden>
     <div class="help-head">
       <h2 id="settings-title" class="help-title" data-i18n="top.settings">Inställningar</h2>
       <button id="settings-close" class="panel-x" type="button" aria-label="Stäng Inställningar" data-i18n-aria-label="settings.close">×</button>
@@ -256,7 +256,7 @@
   </aside>
 
   <!-- För lärare (#1315): samma kort som Hjälp (js/ui/help.js, js/ui/teacher.js). Lektionerna fylls i ur turerna. -->
-  <aside id="teacher" class="help-card teacher-card" aria-labelledby="teacher-title" hidden>
+  <aside id="teacher" class="help-card teacher-card" role="dialog" aria-modal="false" aria-labelledby="teacher-title" hidden>
     <div class="help-head">
       <h2 id="teacher-title" class="help-title" data-i18n="top.teacher">För lärare</h2>
       <button id="teacher-close" class="panel-x" type="button" aria-label="Stäng För lärare" data-i18n-aria-label="teacher.close">×</button>

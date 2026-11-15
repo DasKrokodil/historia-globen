@@ -35,6 +35,16 @@ ROOT = Path(__file__).resolve().parent.parent
 # KEEP (fält i index.json som skrivs för hand och behålls, bland annat flags och modernState) står i tools/riken_bevara.py (#1220)
 TOL = 0.2      # förenkling i grader (Douglas-Peucker)
 MERGE = 0.02   # slå ihop perioder där gränsen ändras mindre än så här stor del av ytan
+# Perioder från SPLIT_FROM slås inte ihop när gränsen ändras med en sammanhängande del som är större än SPLIT_KM2
+# och större än SPLIT_SHARE av riket, även om ändringen är mindre än MERGE (#1732: Hatay, 0,6 procent av Turkiet,
+# kom till Turkiet 1939 men försvann i sammanslagningen). SPLIT_SHARE håller tillväxten nere i de stora imperierna
+# (DasKrokodil 2026-11-15: filerna växer cirka 10 procent i stället för 15 med bara km2-gränsen).
+# Räknas på Cliopatrias ogenomskurna gränser; smala remsor (under cirka 2 * SLIVER grader breda) räknas inte,
+# eftersom samma gräns är något olika ritad olika år i Cliopatria.
+SPLIT_FROM = 1800
+SPLIT_KM2 = 2000
+SPLIT_SHARE = 0.005
+SLIVER = 0.02
 MIN_AREA = 0.02  # öar mindre än så här (kvadratgrader, cirka 200 km2) tas bort
 # Rester (#1333): en period i en Cliopatria-post som är mindre än REMNANT_SHARE av postens största period och
 # till mindre än REMNANT_INSIDE av sin yta ligger utanför postens övriga, större perioder hoppas över (drop_remnants)
@@ -2371,6 +2381,21 @@ def homeland_shape(by_name, names, window, raw, year, tol, min_area):
     return None if g.is_empty else g
 
 
+def big_change(a, b):
+    """Största sammanhängande del (km2) av gränsändringen mellan perioderna a och b, om den är större än SPLIT_KM2
+    och SPLIT_SHARE av a:s yta och b börjar SPLIT_FROM eller senare, annars 0 (#1732). a är den period vars form
+    gäller om de slås ihop."""
+    if b['start'] < SPLIT_FROM:
+        return 0
+    d = a['_raw'].symmetric_difference(b['_raw'])
+    if d.is_empty:
+        return 0
+    d = d.buffer(-SLIVER).buffer(SLIVER)
+    parts = getattr(d, 'geoms', [d])
+    big = max((km2(x) for x in parts if not x.is_empty), default=0)
+    return round(big) if big > max(SPLIT_KM2, SPLIT_SHARE * a['areaKm2']) else 0
+
+
 def same_homeland(a, b, merge):
     """Perioder slås bara ihop om moderlandet också är nästan detsamma (eller saknas i båda)."""
     ha, hb = a.get('_home'), b.get('_home')
@@ -2616,7 +2641,7 @@ def main():
                 # label i GROUPS ersätter den uträknade punkten (små stater: huvudstaden, #722)
                 lab = list(opts['label']) if opts.get('label') else [round(c.x, 1), round(c.y, 1)]
                 q = {'start': start, 'end': end, 'areaKm2': round(area),
-                     'label': lab, '_shape': gc, '_g': g,
+                     'label': lab, '_shape': gc, '_g': g, '_raw': raw,
                      'geometry': {'type': mapping(g)['type'], 'coordinates': rnd(mapping(g)['coordinates'], DECIMALS.get(gid, 1))}}
                 # Huvudlandet (#74): den del av riket som är moderlandet. Den ritas kraftigare och får rikets namn.
                 if home and 'homeland' in opts:
@@ -2638,8 +2663,11 @@ def main():
                 if merged and merged[-1]['end'] + 1 >= q['start'] and q['start'] not in splits:
                     a, b = merged[-1]['_shape'], q['_shape']
                     if a.symmetric_difference(b).area < merge * a.area and same_homeland(merged[-1], q, merge):
-                        merged[-1]['end'] = q['end']
-                        continue
+                        big = big_change(merged[-1], q)
+                        if not big:
+                            merged[-1]['end'] = q['end']
+                            continue
+                        print(f'delas efter storlek (#1732): {gid} {pid} {q["start"]}, {big} km2')
                 merged.append(q)
             for q in merged:
                 on = [(a, r) for d, a, r in strict if d['from'] <= q['start'] and q['end'] <= d.get('to', 9999)]
@@ -2657,6 +2685,7 @@ def main():
                         q['homeland'] = valid_rounded(hg, 1)
                 del q['_shape']
                 q.pop('_g', None)
+                q.pop('_raw', None)
                 q.pop('_home', None)
             if not merged:
                 print('saknas i Cliopatria:', cname)
@@ -2722,6 +2751,8 @@ def main():
              '(version 0.2.1, Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/23128623), byggt med tools/riken.py. '
              f'Ändringar: geometrin är förenklad (Douglas-Peucker {TOL} grader, koordinater avrundade till 0.1 grad, öar under cirka 200 km2 '
              f'borttagna) och på varandra följande perioder där gränsen ändras mindre än {round(MERGE * 100)} procent är sammanslagna. '
+             f'Från {SPLIT_FROM} slås perioder ändå inte ihop när en sammanhängande del av gränsändringen är större än '
+             f'{SPLIT_KM2} km2 och {SPLIT_SHARE * 100:.1f} procent av riket (#1732), så att till exempel Hatay syns i Turkiet från 1939. '
              'Brittiska, spanska och portugisiska imperiet är förenklade hårdare (0.3 grader, 8 procent, öar under cirka 800 km2 borttagna), '
              'liksom Ryssland, Sovjetunionen, Japan och franska kolonialväldet (0.3 grader, 5 procent, öar under cirka 800 km2 borttagna) och nederländska kolonialväldet (0.3 grader, 8 procent). '
              'Rester i Cliopatria, perioder under 1 procent av postens största yta som till största delen ligger utanför postens '

@@ -157,6 +157,14 @@ PUNKTER = [
     ('nazityskland', CHARLOTTENBURG, 'Charlottenburg', 1937, True),
     ('nazityskland', SAARBRUCKEN, 'Saarbrücken', 1937, True),
     ('nazityskland', TRONDHEIM, 'Trondheim', 1941, True),
+    # Perioder delas efter storlek från 1800 (#1732). Koordinater ur en.wikipedia (Antakya, Stralsund), öppnade 2026-11-15.
+    # Hatay kom till Turkiet i juli 1939 (en.wikipedia "Hatay State"); förut slogs perioden ihop med formen från 1924.
+    *[('turkiet', (36.1606, 36.2025), 'Antakya', y, False) for y in (1924, 1930, 1938)],
+    *[('turkiet', (36.1606, 36.2025), 'Antakya', y, True) for y in (1939, 1950, 2000, 2024)],
+    # Svenska Pommern avträddes i Kielfreden 14 januari 1814 och lämnades över till Preussen 23 oktober 1815
+    # (en.wikipedia "Swedish Pomerania"); kartan följer Cliopatria och freden, så Stralsund är svenskt till 1813
+    *[('svenska-stormaktsvaldet', (13.0819, 54.3092), 'Stralsund', y, True) for y in (1809, 1813)],
+    *[('svenska-stormaktsvaldet', (13.0819, 54.3092), 'Stralsund', y, False) for y in (1814, 1816)],
 ]
 
 
