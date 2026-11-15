@@ -3502,6 +3502,34 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
+  // #1695: vid 800 × 360 ska Sök och följ hålla sig i skärmen och sista träffen ska kunna nås i listans egen rullning.
+  await check('liggande låg skärm: Sök och följ rullar till sista träffen vid 800 × 360 (#1695)', async () => {
+    const { tp, tctx, errs } = await touchPage();
+    try {
+      await tp.setViewportSize({ width: 800, height: 360 });
+      await tp.goto(`${BASE}?ny=sok1695#y=1325`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.click('#btn-focus');
+      await tp.waitForSelector('#focus-menu:not([hidden])', { state: 'visible', timeout: T.step });
+      await tp.fill('#focus-menu .focus-search', 'a');
+      const last = tp.locator('#focus-menu .focus-body [data-key]').last();
+      await last.waitFor({ state: 'visible', timeout: T.step });
+      await last.scrollIntoViewIfNeeded();
+      const layout = await tp.evaluate(() => {
+        const menu = document.getElementById('focus-menu'), body = menu.querySelector('.focus-body'), last = body.querySelector('[data-key]:last-child');
+        const m = menu.getBoundingClientRect(), b = body.getBoundingClientRect(), r = last.getBoundingClientRect();
+        return { menuBottom: m.bottom, bodyHeight: b.height, bodyScroll: body.scrollHeight, lastTop: r.top, lastBottom: r.bottom, bodyTop: b.top, bodyBottom: b.bottom, wide: document.documentElement.scrollWidth > innerWidth };
+      });
+      if (layout.menuBottom > 360.5) throw new Error(`menyn slutar vid ${Math.round(layout.menuBottom)} px, under skärmen`);
+      if (layout.bodyHeight < 72) throw new Error(`resultatlistan är bara ${Math.round(layout.bodyHeight)} px hög`);
+      if (layout.bodyScroll <= layout.bodyHeight) throw new Error('resultatlistan går inte att rulla');
+      if (layout.lastTop < layout.bodyTop - 1 || layout.lastBottom > Math.min(layout.bodyBottom, layout.menuBottom, 360) + 1) throw new Error('sista träffen nås inte efter rullning');
+      if (layout.wide) throw new Error('menyn ger horisontell scroll på sidan');
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `menyn slutar vid ${Math.round(layout.menuBottom)} px; listan ${Math.round(layout.bodyHeight)} px och sista träffen nås`;
+    } finally { await tctx.close(); }
+  });
+
   // #1696: ett kort som öppnades från Sök och följ gav fokus till Samtidigt när det stängdes med Escape. Fokus ska gå tillbaka till knappen
   // man kom från (i smal skärm Meny, där Sök och följ ligger i en stängd meny). Provas med mus (klick på raden) och tangentbord (Enter).
   await check('fokus efter Escape: ett kort som öppnades från Sök och följ ger fokus tillbaka dit, med mus och tangentbord (#1696)', async () => {
