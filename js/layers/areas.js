@@ -10,7 +10,7 @@
 import { t, isVisibleReview, loadEmpire } from '../model.js';
 import { glyph, flag, drawFlag } from './events.js';
 import { drawMedal, ORIGIN_R } from './religions.js';
-import { softEdge, influenceAt, drawInfluence, traceRing, strokeEdge } from './area-style.js';
+import { softEdge, influenceAt, drawInfluence, traceRing, strokeEdge, covers } from './area-style.js';
 import { AreaTransition, MAX_JUMP_YEARS } from './area-transition.js';
 import { EmpireMarkers } from './empiremarks.js';
 import { Z } from './registry.js';
@@ -212,11 +212,15 @@ export class AreasLayer {
         // inte alls syns bara området. Namnet står under medaljen (eller ovanför); ryms det inte syns bara medaljen.
         // På globen har 3D-medaljen samma storlek överallt, men bilden pressas ihop mot polerna: rutan blir bredare där.
         const rx = v.minMedalPx ? Rm / Math.max(0.3, Math.cos(period.label[1] * Math.PI / 180)) : Rm;
+        // En flyttad medalj ska stå på rikets egen yta, inte bara inom ytterrutan: Danmark–Norges ruta spänner över Grönland, Island
+        // och Norge, och en flagga i havet väster om Norge såg ut att höra till England som har sitt namn där (covers).
         const b = bbox(period);
-        const spot = [[0, 0], [0, -2.2], [0, 2.2], [-2.2, 0], [2.2, 0], [-2.2, -2.2], [2.2, -2.2], [-2.2, 2.2], [2.2, 2.2]]
+        const spot = [[0, 0], [0, -2.2], [0, 2.2], [-2.2, 0], [2.2, 0], [-2.2, -2.2], [2.2, -2.2], [-2.2, 2.2], [2.2, 2.2],
+          [-1.6, -1.6], [1.6, -1.6], [-1.6, 1.6], [1.6, 1.6], [0, -3.3], [0, 3.3], [-3.3, 0], [3.3, 0]] // de sista prövas när ytan är smal
           .map(([dx, dy]) => [px + dx * rx, py + dy * Rm])
           .find(([x, y], i) => (keep && i === 0) || (free({ x0: x - rx, x1: x + rx, y0: y - Rm, y1: y + Rm }) &&
-            (i === 0 || (x > X(b.minLon) + rx && x < X(b.maxLon) - rx && y > Y(b.maxLat) + Rm && y < Y(b.minLat) - Rm))));
+            (i === 0 || (x > X(b.minLon) + rx && x < X(b.maxLon) - rx && y > Y(b.maxLat) + Rm && y < Y(b.minLat) - Rm
+              && covers(period.geometry, x / 2048 * 360 - 180, 90 - y / 1024 * 180)))));
         if (!spot) return;
         const [mx, my] = spot;
         take({ x0: mx - rx, x1: mx + rx, y0: my - Rm, y1: my + Rm });
