@@ -1221,7 +1221,7 @@ async function run(browser, vp) {
   // Samtidighetsjakten (#741): starta från Mer, lägg händelser i jakten från faktarutan, samma världsdel ger besked,
   // tre världsdelar ger frågan och källorna, uppdraget står i adressen, Escape avslutar och fokus kommer tillbaka
   await check('Samtidighetsjakten räknar världsdelar och år ur datan (#741)', async () => {
-    try { return await huntCheck(); } catch (err) { if (await page.isVisible('#hunt')) await page.click('#hunt-end'); throw err; }
+    try { return await huntCheck(); } catch (err) { if (await page.isVisible('#hunt')) await page.click('#hunt-end', { timeout: 3000 }).catch(() => {}); throw err; } // städningen får inte dölja det riktiga felet
   });
   async function huntCheck() {
     await teacherItem('#teacher-hunt');
@@ -1237,7 +1237,10 @@ async function run(browser, vp) {
       await btn.click();
       await page.waitForSelector('#detail [data-hunt]', { state: 'visible', timeout: T.step });
       await page.click('#detail [data-hunt]');
-      return (await page.textContent('#hunt-message')).trim();
+      const message = (await page.textContent('#hunt-message')).trim();
+      // Som en elev: stäng faktarutan, som annars täcker nedre delen av listan i Samtidigt (nästa rad kan ligga under den), innan nästa händelse
+      if (await page.isVisible('#detail [data-close]')) await page.click('#detail [data-close]');
+      return message;
     };
     await add('columbus');
     await add('bartolomeu-dias-rundar-afrika');
@@ -5521,7 +5524,7 @@ async function run(browser, vp) {
       // Raden ligger överst i rutan, ovanför kategorierna och listan, och ger ingen sidscroll
       const order = await page.evaluate(() => {
         const y = id => document.getElementById(id).getBoundingClientRect().top;
-        return y('panel-tag-note') < y('panel-filters') && y('panel-filters') < y('event-list');
+        return y('panel-tag-note') < y('panel-filter-toggle') && y('panel-filter-toggle') < y('event-list'); // chipsen är ihopfällda bakom filterknappen (#1782)
       });
       if (!order) throw new Error('urvalsraden ligger inte ovanför kategorierna och listan');
       if (await page.evaluate(() => document.scrollingElement.scrollWidth > innerWidth + 1)) throw new Error('urvalsraden ger horisontell scroll');
