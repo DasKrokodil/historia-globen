@@ -79,6 +79,8 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              # De angelsaxiska rikena och Dalriada finare, annars överlappar grannarna varandra (#1744)
              'wessex': (0.05, MERGE, MIN_AREA), 'mercia': (0.05, MERGE, MIN_AREA), 'northumbria': (0.05, MERGE, MIN_AREA),
              'dal-riata': (0.05, MERGE, MIN_AREA),
+             # Moskvariket som Kalmarunionen, så att Karelen inte ritas i båda av förenklingen (#1743)
+             'moskvariket': (0.1, MERGE, MIN_AREA),
              'kina': (0.3, 0.05, 0.08), 'indonesien': (0.2, 0.05, 0.05),
              # Gambia (cirka 30 km bred längs floden) och Libanon är smala: finare förenkling för dem och grannarna Senegal och
              # Syrien, annars täcker grannarnas förenklade gräns en stor del av landet
