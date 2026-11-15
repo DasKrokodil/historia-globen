@@ -33,7 +33,7 @@ KALININGRAD = (20.5, 54.717)  # Q1829
 AMSTERDAM = (4.883, 52.367)  # Q727
 RATZEBURG = (10.757, 53.702)  # Q490025
 # #1750, ur Wikidata: Baltijsk Q5660, Forbach Q22703, Mödlareuth Q672150, Hirschberg Q630383, Amt Neuhaus Q479687,
-# Gangelt Q204793, Frankfurt (Oder) Q4024, Görlitz Q4077
+# Gangelt Q204793, Frankfurt (Oder) Q4024. Görlitz (Q4077) används inte: Wikidatas punkt ligger i Polen enligt Natural Earth
 BALTIJSK = (19.917, 54.65)
 FORBACH = (6.9, 49.188)
 MODLAREUTH = (11.883, 50.415)
@@ -41,7 +41,10 @@ HIRSCHBERG = (11.82, 50.406)
 AMT_NEUHAUS = (10.932, 53.285)
 GANGELT = (6.0, 50.983)
 FRANKFURT_ODER = (14.552, 52.342)
-GORLITZ = (14.991, 51.156)
+SLUBICE = (14.567, 52.35)  # Q200709
+ZGORZELEC = (15.0, 51.153)  # Q147929
+HELDBURG = (10.725, 50.28)  # Q1601702
+ZELENOGRADSK = (20.483, 54.95)  # Q5584
 # Berlin 1949–1990 (#1731), ur Wikidata: Västberlin och Östberlin
 VASTBERLIN = {'Charlottenburg': (13.3, 52.517), 'Spandau': (13.2, 52.55), 'Wedding': (13.343, 52.55), 'Kreuzberg': (13.383, 52.488),
               'Neukölln': (13.45, 52.483), 'Steglitz': (13.333, 52.467), 'Zehlendorf': (13.259, 52.434)}
@@ -98,11 +101,19 @@ PUNKTER = [
     ('tyskland', GANGELT, 'Gangelt', 2000, True),
     *[('osttyskland', FRANKFURT_ODER, 'Frankfurt (Oder)', y, True) for y in (1950, 1970)],
     ('tyskland', FRANKFURT_ODER, 'Frankfurt (Oder)', 2000, True),
-    *[('polen', p, n, y, False) for p, n in ((FRANKFURT_ODER, 'Frankfurt (Oder)'), (GORLITZ, 'Görlitz')) for y in (1946, 1950, 1970, 2000)],
+    *[('polen', FRANKFURT_ODER, 'Frankfurt (Oder)', y, False) for y in (1946, 1950, 1970, 2000)],
+    *[('polen', p, n, y, True) for p, n in ((SLUBICE, 'Słubice'), (ZGORZELEC, 'Zgorzelec')) for y in (1946, 1950, 1970, 2000)],
+    *[(g, p, n, y, False) for g, y in (('osttyskland', 1970), ('tyskland', 2000)) for p, n in ((SLUBICE, 'Słubice'), (ZGORZELEC, 'Zgorzelec'))],
+    *[('osttyskland', HELDBURG, 'Heldburg', y, True) for y in (1950, 1970)],
+    *[('sovjetunionen', ZELENOGRADSK, 'Zelenogradsk', y, True) for y in (1950, 1970)],
     # Fria staden Danzig 1920–1939 (#1746), utan Memelområdet (Klaipėda Q776965)
     *[('fria-staden-danzig', DANZIG, 'Danzig', y, True) for y in (1920, 1925, 1937, 1939)],
     *[('fria-staden-danzig', (21.135, 55.713), 'Klaipėda', y, False) for y in (1920, 1922, 1923, 1930)],
     ('nazityskland', DANZIG, 'Danzig', 1940, True),
+    # Elbląg (Q104712) i Ostpreussen och Gdynia (Q385) i Polen, inte i fristaden
+    *[(g, (19.409, 54.152), 'Elbląg', y, True) for g, y in (('weimarrepubliken', 1925), ('nazityskland', 1937))],
+    *[('fria-staden-danzig', p, n, y, False) for p, n in (((19.409, 54.152), 'Elbląg'), ((18.54, 54.518), 'Gdynia')) for y in (1925, 1937)],
+    *[('polen', (18.54, 54.518), 'Gdynia', y, True) for y in (1925, 1937)],
     ('polen', DANZIG, 'Danzig', 1945, True),
     # Eupen i Belgien 1920–1939 och från 1945
     *[('belgien', EUPEN, 'Eupen', y, True) for y in (1925, 1935, 1950, 2000)],
