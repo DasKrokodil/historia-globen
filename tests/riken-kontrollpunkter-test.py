@@ -5,6 +5,7 @@ Provet läser data/empires/<grupp>.json och testar punkt i polygon (jämnt–udd
 i CI: python3 -I tests/riken-kontrollpunkter-test.py. En ny kontrollpunkt läggs till i PUNKTER när ett gränsfel rättas.
 """
 import json
+import math
 import sys
 from pathlib import Path
 
@@ -99,6 +100,12 @@ SANYA = (109.5036, 18.2533)
 TAIPEI = (121.5625, 25.0375)
 DINGHAI = (122.1068, 30.0198)  # Zhoushanön, ur en.wikipedia "Dinghai, Zhoushan"
 HAINAN_PUNKTER = ((HAIKOU, 'Haikou'), (SANYA, 'Sanya'), (DINGHAI, 'Dinghai'))
+# #1707, ur Wikidata: Kinshasa Q3838, Brazzaville Q3844 och Nuuk Q226; Gander ur en.wikipedia "Gander, Newfoundland and Labrador"
+# (48° 57′ 26″ N, 54° 35′ 19″ V). Alla öppnade 2026-11-15
+KINSHASA = (15.3119, -4.3219)
+BRAZZAVILLE = (15.2711, -4.2694)
+NUUK = (-51.7333, 64.175)
+GANDER = (-54.5886, 48.9572)
 # Nära trepunkterna (geografen, #1534): punkter i Cliopatrias Sudan 2014 där Centralafrikanska republikens och Etiopiens förenklade
 # gränser når in. Sudans gräns längs Sydsudan får inte läggas över dem, så att marken bara ritas i en stat
 NARA_CAF = (23.96, 8.71)
@@ -286,7 +293,35 @@ PUNKTER = [
     *[('taiwan', p, n, y, False) for p, n in HAINAN_PUNKTER for y in (1950, 1952, 1953, 1960, 2023, 2024)],
     *[('taiwan', TAIPEI, 'Taipei', y, True) for y in (1950, 1960, 2023, 2024)],
     *[('kina', TAIPEI, 'Taipei', y, False) for y in (1950, 1960, 2023, 2024)],
+    # Kinshasa och Brazzaville (#1707): Kinshasa på Pool Malebos södra strand, Brazzaville på andra sidan floden (wp-kinshasa).
+    # Frankrike saknas i hela Franska Ekvatorialafrika 1940–1944 i Cliopatria, så Brazzaville är utan stat de åren
+    *[('belgiska-kongo', KINSHASA, 'Kinshasa', y, True) for y in (1890, 1900, 1908, 1920, 1940, 1959)],
+    *[('kongo-kinshasa', KINSHASA, 'Kinshasa', y, True) for y in (1960, 1961, 1970, 2000, 2024)],
+    *[(g, KINSHASA, 'Kinshasa', y, False) for g, y in (('franska-kolonialvaldet', 1890), ('franska-kolonialvaldet', 1920),
+                                                      ('franska-kolonialvaldet', 1952), ('frankrike', 1959), ('frankrike', 1960),
+                                                      ('kongo-brazzaville', 1961), ('kongo-brazzaville', 1970),
+                                                      ('kongo-brazzaville', 2024))],
+    *[(g, BRAZZAVILLE, 'Brazzaville', y, True) for g, y in (('franska-kolonialvaldet', 1895), ('franska-kolonialvaldet', 1920),
+                                                           ('franska-kolonialvaldet', 1957), ('frankrike', 1958), ('frankrike', 1960),
+                                                           ('kongo-brazzaville', 1961), ('kongo-brazzaville', 2024))],
+    *[(g, BRAZZAVILLE, 'Brazzaville', y, False) for g, y in (('belgiska-kongo', 1890), ('belgiska-kongo', 1920),
+                                                            ('belgiska-kongo', 1940), ('belgiska-kongo', 1959),
+                                                            ('kongo-kinshasa', 1960), ('kongo-kinshasa', 2024))],
+    # Gander (#1707): Newfoundland gick med i Kanada 31 mars 1949 (wp-newfoundland-and-labrador), och ligger inte samtidigt i
+    # Brittiska imperiet
+    ('brittiska-imperiet', GANDER, 'Gander', 1948, True),
+    *[('brittiska-imperiet', GANDER, 'Gander', y, False) for y in (1949, 1950, 1952)],
+    *[('kanada', GANDER, 'Gander', y, True) for y in (1949, 1952, 1953, 2000)],
 ]
+
+# Punkter som ligger precis utanför den förenklade kusten men som uppslaget hittar inom marginalen (AREA_MARGIN_DEG i
+# js/area-lookup.js, 0,05 grader, längdgrader skalade med cos(latitud), beslut 2026-11-15, #1524): (grupp, punkt, namn, år).
+# Nuuk ligger utanför också i Cliopatria och i Natural Earth 1:10m (#1707), så kartan kan inte rätta det med de källor vi har
+NARA = [
+    *[('gronland-koloni', NUUK, 'Nuuk', y) for y in (1734, 1750, 1800, 1900, 1940)],
+    *[('danmark', NUUK, 'Nuuk', y) for y in (1946, 1979, 2000, 2024)],
+]
+MARGINAL = 0.05
 
 
 def in_ring(pt, ring):
@@ -319,7 +354,39 @@ for gid, pt, namn, year, ska in PUNKTER:
     if in_group(gid, pt, year) != ska:
         fel.append(f'{namn} {pt} år {year}: {"saknas i" if ska else "ligger i"} {gid}')
 
+
+def seg_dist(p, a, b, c):
+    """Avståndet i grader från p till sträckan a–b, med längdgrader skalade med c = cos(latitud), som areaAt()."""
+    px, py, ax, ay, bx, by = p[0] * c, p[1], a[0] * c, a[1], b[0] * c, b[1]
+    dx, dy = bx - ax, by - ay
+    t = 0 if dx == dy == 0 else max(0, min(1, ((px - ax) * dx + (py - ay) * dy) / (dx * dx + dy * dy)))
+    return ((px - ax - t * dx) ** 2 + (py - ay - t * dy) ** 2) ** 0.5
+
+
+def near_group(gid, pt, year):
+    """Närmaste avstånd i grader från punkten till gruppens gräns ett visst år (0 om punkten ligger i gruppen)."""
+    if in_group(gid, pt, year):
+        return 0
+    doc = json.loads((ROOT / f'data/empires/{gid}.json').read_text(encoding='utf-8'))
+    c = math.cos(math.radians(pt[1]))
+    best = math.inf
+    for p in doc['polities']:
+        for q in p['periods']:
+            if not q['start'] <= year <= q['end']:
+                continue
+            g = q['geometry']
+            for poly in (g['coordinates'] if g['type'] == 'MultiPolygon' else [g['coordinates']]):
+                for ring in poly:
+                    best = min(best, *(seg_dist(pt, a, b, c) for a, b in zip(ring, ring[1:] + ring[:1])))
+    return best
+
+
+for gid, pt, namn, year in NARA:
+    d = near_group(gid, pt, year)
+    if d > MARGINAL:
+        fel.append(f'{namn} {pt} år {year}: {d:.3f} grader från {gid}, mer än marginalen {MARGINAL}')
+
 if fel:
     print('\n'.join(fel))
     sys.exit(1)
-print(f'riken-kontrollpunkter: {len(PUNKTER)} kontrollpunkter stämmer')
+print(f'riken-kontrollpunkter: {len(PUNKTER)} kontrollpunkter och {len(NARA)} inom marginalen stämmer')

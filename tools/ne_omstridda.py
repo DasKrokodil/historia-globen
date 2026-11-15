@@ -63,7 +63,10 @@ CLIPPED = {'frankrike-ne': ('FRA', (-5.5, 41.0, 10.0, 51.5)), 'nederlanderna-ne'
            # Schweiz och Österrike längs gränserna mot Tyskland och Frankrike och vid Bodensee, Basel och Vorarlberg (#1771)
            'schweiz-ne': ('CHE', (5.9, 45.8, 10.5, 47.85)), 'osterrike-ne': ('AUT', (7.5, 47.0, 14.1, 48.9)),
            # Zanzibar (#1534): Unguja och Pemba ur Tanzanias gräns, var sin ruta som inte når fastlandet (Tanga, Bagamoyo)
-           'unguja-ne': ('TZA', (39.17, -6.5, 39.6, -5.7)), 'pemba-ne': ('TZA', (39.55, -5.5, 39.9, -4.85))}
+           'unguja-ne': ('TZA', (39.17, -6.5, 39.6, -5.7)), 'pemba-ne': ('TZA', (39.55, -5.5, 39.9, -4.85)),
+           # Kinshasa och Brazzaville vid Pool Malebo (#1707): de två Kongos sidor av floden, så att Kinshasa inte hamnar på
+           # Brazzavillesidan efter förenklingen
+           'kongo-kinshasa-ne': ('COD', (14.6, -4.8, 15.9, -3.8)), 'kongo-brazzaville-ne': ('COG', (14.6, -4.8, 15.9, -3.8))}
 # Små stater (#722), ur samma fil men förenklade till bara 0,002 grader och avrundade till 0,001 grad
 # Delstater ur ne_10m_admin_1_states_provinces (adm1_code), sammanslagna och förenklade till 0,003 grader (#1730, #1750)
 STATES = {'vasttyska-granslander': ['DEU-1579', 'DEU-1576', 'DEU-1574', 'DEU-1591'],
