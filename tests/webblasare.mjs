@@ -1822,6 +1822,88 @@ async function run(browser, vp) {
     }
   });
 
+  // #1790 och #1791: platskortets ordning, raden Om kartan och källor, knappen i regionvyn och tryck på platsen i Fokus
+  await check('platskortet: listan före anteckningarna, Om kartan och källor hopfälld, regionvyn tar bort knappen och ett tryck på platsen öppnar kortet (#1790, #1791)', async () => {
+    const lp = await context.newPage();
+    const errs = [];
+    lp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+      }
+      await lp.goto(`${BASE}?ny=1790#y=1325&f=place:aotearoa`);
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await lp.waitForSelector('#detail.detail-selection [data-selection-action]', { state: 'attached', timeout: T.load });
+      const card = await lp.evaluate(() => {
+        const q = sel => document.querySelector(sel), y = el => el.getBoundingClientRect().top;
+        const about = q('#detail .place-about');
+        return {
+          action: q('#detail [data-selection-action]').textContent.trim(),
+          exit: q('#detail [data-end-theme]').textContent.trim(),
+          exitIsLink: q('#detail [data-end-theme]').classList.contains('link-btn'),
+          order: y(q('#detail [data-selection-action]')) < y(q('#detail .theme-event-list')) && y(q('#detail .theme-event-list')) < y(about) && y(about) < y(q('#detail [data-end-theme]')),
+          eventsOpen: q('#detail .theme-event-list').open,
+          aboutOpen: about.open,
+          aboutNotes: about.querySelectorAll('.theme-filter-note').length,
+          credit: about.querySelector('.place-credit')?.textContent ?? '',
+          notesOutside: [...document.querySelectorAll('#detail .theme-filter-note')].filter(n => !n.closest('.place-about')).length,
+          facts: q('#focus-facts').textContent.trim(),
+        };
+      });
+      if (card.action !== 'Visa händelserna på kartan') throw new Error(`knappen heter "${card.action}"`);
+      if (card.exit !== 'Sluta följa platsen' || !card.exitIsLink) throw new Error(`utgången är "${card.exit}" (länk: ${card.exitIsLink})`);
+      if (!card.order || !card.eventsOpen) throw new Error(`ordningen är inte knapp, händelselista, Om kartan och källor, Sluta följa (listan öppen: ${card.eventsOpen})`);
+      if (card.aboutOpen || card.aboutNotes !== 2 || card.notesOutside !== 0) throw new Error(`Om kartan och källor: öppen ${card.aboutOpen}, ${card.aboutNotes} anteckningar i raden, ${card.notesOutside} utanför`);
+      if (!/Wikimedia Commons/.test(card.credit)) throw new Error(`flaggans källa ligger inte i raden: "${card.credit}"`);
+      if (card.facts !== 'Om platsen') throw new Error(`fokusknappen heter "${card.facts}"`);
+      // Regionvyn: knappen i kortet göms (rutan har Lämna regionvyn) och rutan säger hur man får fakta
+      await lp.evaluate(() => document.querySelector('#detail [data-selection-action]').scrollIntoView({ block: 'nearest' }));
+      await lp.click('#detail [data-selection-action]');
+      await lp.waitForSelector('#globe-region-chip', { state: 'visible', timeout: T.step });
+      if (await lp.locator('#detail [data-selection-action]').isVisible()) throw new Error('knappen står kvar i kortet medan regionvyn är öppen');
+      const chipText = (await lp.textContent('#globe-region-chip')).replace(/\s+/g, ' ');
+      if (!/Tryck på en markör eller på platsen för fakta/.test(chipText)) throw new Error(`rutan säger inte hur man får fakta: "${chipText}"`);
+      if (await lp.locator('button:visible', { hasText: 'Lämna regionvyn' }).count() !== 1) throw new Error('Lämna regionvyn finns inte exakt en gång');
+      await lp.locator('button:visible', { hasText: 'Lämna regionvyn' }).click();
+      await lp.waitForSelector('#globe-region-chip', { state: 'hidden', timeout: T.step });
+      // Tryck på platsen i Fokus: kortet öppnas igen utan nytt Fokus (försök runt mitten, eftersom en markör kan ligga i vägen)
+      await lp.goto(`${BASE}?ny=1791#y=1325&f=place:skane`);
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await lp.waitForSelector('#detail.detail-selection', { state: 'visible', timeout: T.load });
+      await lp.click('#detail [data-close]');
+      await lp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
+      const box = await lp.locator('#globe-canvas').boundingBox();
+      const mouseTap = box.width >= 600; // trycket provas med mus på dator: hovringen (handen) går inte att återskapa med emulerad mobil, och ett rutnät av fingertryck skulle zooma (dubbeltryck)
+      if (mouseTap) {
+      // Skåne ligger inte i bildens mitt (kameran lyfts över fokusraden): pekaren blir en hand över platsen, så ett rutnät av musrörelser hittar den
+      const onPlace = [];
+      const cols = 12, rows = 12;
+      for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
+        const x = box.x + box.width * (0.25 + 0.5 * c / (cols - 1)), y = box.y + box.height * (0.04 + 0.6 * r / (rows - 1));
+        await lp.mouse.move(x, y);
+        await lp.waitForTimeout(40);
+        if (await lp.evaluate(() => document.getElementById('globe-canvas').classList.contains('on-place'))) onPlace.push([x, y]);
+      }
+      if (!onPlace.length) throw new Error('pekaren blir inte en hand över platsen man följer');
+      let reopened = false;
+      // Klicka på punkterna tills kortet öppnas igen (en händelsemarkör som ligger på platsen öppnar sin egen ruta, som då stängs)
+      for (const [x, y] of onPlace.slice(0, 12)) {
+        await lp.mouse.click(x, y);
+        await lp.waitForTimeout(700);
+        if (await lp.locator('#detail.detail-selection').isVisible()) { reopened = true; break; }
+        if (await lp.locator('#detail').isVisible()) { await lp.click('#detail [data-close]'); await lp.waitForSelector('#detail', { state: 'hidden', timeout: T.step }); }
+      }
+      if (!reopened) throw new Error('ett tryck på Skåne i Fokus öppnade inte platskortet');
+      if (!(await lp.evaluate(() => location.hash.includes('f=place:skane')))) throw new Error('trycket ändrade Fokus');
+      }
+      if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
+      return `knapp, händelselista, Om kartan och källor (hopfälld, två anteckningar, flaggans källa) och Sluta följa platsen; regionvyn döljer knappen och säger hur man får fakta; ${mouseTap ? 'ett tryck på Skåne öppnar kortet utan nytt Fokus' : 'trycket på platsen provas bara med mus på dator'}`;
+    } finally {
+      await lp.close();
+    }
+  });
+
   // #1571 (pilot): resans klickruta. Noten ("Källorna skiljer sig") är en hopfälld rad med synlig rubrik, källorna och
   // statusen ligger i en hopfälld rad sist, och "Läs mer" ryms utan rullning. Rutan visas direkt via RoutePop (en kopia av
   // main.js som levereras bara här och lägger rutan på window), så kontrollen inte beror på var en väg ligger på kartan.
@@ -2538,6 +2620,7 @@ async function run(browser, vp) {
         await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
         await tp.waitForSelector('#detail .place-emblems', { state: 'visible', timeout: T.step });
         await tp.waitForFunction(() => [...document.querySelectorAll('#detail .place-emblem img')].every(i => i.complete), null, { timeout: T.step });
+        const about = await tp.evaluate(() => document.querySelector('#detail .place-about')?.textContent ?? ''); // flaggans källa ligger hopfälld längst ned (#1790)
         const shown = await tp.evaluate(() => {
           const card = document.getElementById('detail').getBoundingClientRect();
           return [...document.querySelectorAll('#detail .place-emblem')].map(f => {
@@ -2552,7 +2635,10 @@ async function run(browser, vp) {
           if (s.src !== `img/flags/${em.file}.svg`) throw new Error(`${place.id}: emblem ${i + 1} har fel fil (${s.src})`);
           if (!s.w) throw new Error(`${place.id}: bilden ${em.file}.svg laddades inte`);
           if (s.alt !== em.caption.sv) throw new Error(`${place.id}: alt-texten "${s.alt}" är inte bildtexten "${em.caption.sv}"`);
-          if (!s.caption.includes(em.caption.sv) || !s.caption.includes(em.license)) throw new Error(`${place.id}: bildtexten saknar namn eller licens: "${s.caption}"`);
+          if (!s.caption.includes(em.caption.sv)) throw new Error(`${place.id}: bildtexten saknar namn: "${s.caption}"`);
+          // Licens som kräver namnuppgift (CC BY, CC BY-SA) står vid bilden; public domain ligger i raden Om kartan och källor (#1790)
+          const credited = /CC BY/i.test(em.license) ? s.caption.includes(em.license) && s.caption.includes(em.credit) : about.includes(em.license) && about.includes(em.credit);
+          if (!credited) throw new Error(`${place.id}: krediten och licensen "${em.credit} · ${em.license}" står inte där de ska (bildtext: "${s.caption}", Om kartan och källor: "${about.slice(0, 120)}")`);
           if (!s.inside) throw new Error(`${place.id}: bilden ${em.file}.svg går utanför kortet`);
           if (s.h > 60) throw new Error(`${place.id}: bilden ${em.file}.svg är ${Math.round(s.h)} px hög`);
         });
@@ -2583,7 +2669,7 @@ async function run(browser, vp) {
       await tp.waitForFunction(() => location.hash.includes('f=place:gronland'), null, { timeout: T.step });
       await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
       const msg = (await tp.textContent('#hunt-message')).trim();
-      if (!/Platsen/.test(msg) || !/Avsluta platsen/.test(msg)) throw new Error(`jakten sa inte att uppdraget inte går att klara inom platsen: "${msg}"`);
+      if (!/Platsen/.test(msg) || !/Sluta följa platsen/.test(msg)) throw new Error(`jakten sa inte att uppdraget inte går att klara inom platsen: "${msg}"`);
       if (!(await tp.getAttribute('#hunt-message', 'class')).includes('is-no')) throw new Error('meddelandet har inte det röda tillståndet');
       if (await tp.getAttribute('#hunt-message', 'aria-live') !== 'polite') throw new Error('meddelanderaden är ingen live-region');
       // Jakten och platsen pågår samtidigt, och jakten går att avsluta med knappen
@@ -2922,7 +3008,7 @@ async function run(browser, vp) {
         if (id !== 'gronland') { await tp.goto(`${BASE}?ny=globregion1b${hash}`); await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load }); }
         await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
         const button = tp.locator('#detail [data-selection-action]');
-        if (!/Visa i regionvy/.test(await button.textContent())) throw new Error(`${id}: knappen heter ${await button.textContent()}`);
+        if (!/Visa händelserna på kartan/.test(await button.textContent())) throw new Error(`${id}: knappen heter ${await button.textContent()}`);
         await button.focus();
         await tp.keyboard.press('Enter');
         await globeRegionSettled(tp, id);
@@ -3043,7 +3129,7 @@ async function run(browser, vp) {
     try {
       await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
       // Knappen säger att den öppnar regionvyn (Sverige har kvar Visa i Platt karta; Grönland och Aotearoa får globflyget, #1644)
-      if (!/Visa i regionvy/.test(await tp.textContent('#detail [data-selection-action]'))) throw new Error(`knappen heter ${await tp.textContent('#detail [data-selection-action]')}`);
+      if (!/Visa händelserna på kartan/.test(await tp.textContent('#detail [data-selection-action]'))) throw new Error(`knappen heter ${await tp.textContent('#detail [data-selection-action]')}`);
       await openRegion(tp, 'skane');
       await regionSettled(tp);
       // Statusraden och rutan säger vilken plats regionvyn visar, och rutan har vägen ut
@@ -3952,7 +4038,7 @@ async function run(browser, vp) {
       if ((await tp.textContent('#year-big')).trim() !== '1000') throw new Error('lektionens år ändrades');
       if (await tp.evaluate(() => { const el = document.getElementById('btn-focus'); return !!el && el.getClientRects().length > 0; })) throw new Error('Sök och följ syns i lektionsläget');
       // En rad i kortets lista öppnar händelsen men hoppar inte året, som annars (jump) skulle flytta det inom lektionens spann
-      if (narrowVp) await tp.click('#detail .theme-event-list summary');
+      if (!(await tp.locator('#detail .theme-event-list').first().evaluate(d => d.open))) await tp.click('#detail .theme-event-list summary'); // platsens lista är uppfälld (#1790)
       await tp.click('#detail [data-theme-event]');
       await tp.waitForFunction(() => !document.querySelector('#detail .place-type'), null, { timeout: T.step });
       if ((await tp.textContent('#year-big')).trim() !== '1000') throw new Error(`en rad i platskortet hoppade året: ${await tp.textContent('#year-big')}`);

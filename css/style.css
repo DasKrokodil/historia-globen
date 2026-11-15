@@ -2245,7 +2245,7 @@ details.used-by summary:hover { color: var(--parchment); }
 .detail h3 .rel-sym-h { width: auto; height: 44px; max-width: 72px; margin: 0; vertical-align: baseline; }
 .place-emblems { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: flex-start; margin: 6px 0 10px; }
 .place-emblem { margin: 0; display: flex; flex-direction: column; gap: 4px; max-width: 150px; font-size: 0.85em; }
-.place-emblem img { height: 44px; width: auto; align-self: flex-start; }
+.place-emblem img { height: 32px; width: auto; align-self: flex-start; }
 .place-emblem-flag img { border: 1px solid var(--brass); }
 .place-emblem .meta { display: block; }
 @media (max-width: 760px) { .religion-legend .rel-sym { width: 13px; height: 13px; } }
@@ -2714,6 +2714,12 @@ span.theme-event:hover { background: none; outline: none; }
 @media (pointer: coarse) { .detail-card .detail-close::after { content: ""; position: absolute; inset: -8px; } }
 .theme-exit { margin: 2px 0 6px; }
 .place-flat { margin-right: 6px; }
+/* Platsens kort (#1790): Sluta följa platsen är en textlänk sist, och i regionvyn har rutan redan Lämna regionvyn, så kortets knapp göms där */
+.place-exit { display: inline-block; margin: 10px 0 2px; }
+.region-view #detail [data-selection-action] { display: none; }
+.place-about > summary { color: var(--card-dim, var(--parchment-dim)); }
+.place-about .theme-filter-note, .place-credit { margin: 6px 0; }
+.place-credit { color: var(--card-dim, var(--parchment-dim)); font-size: 0.9em; }
 .chip-btn[hidden] { display: none; }
 
 /* Plats- och temakortens fällbara listor behöver en verklig tryckyta även med mus (#1713).
@@ -2749,7 +2755,7 @@ span.theme-event:hover { background: none; outline: none; }
   .view-chip { min-height: 38px; }
   .view-chips { gap: 6px; }
   .focus-search { min-height: 44px; }
-  .place-flat, .theme-exit { min-height: 44px; } /* knapparna i tema- och platskorten (#1161) */
+  .place-flat, .theme-exit, .place-exit { min-height: 44px; } /* knapparna i tema- och platskorten (#1161) */
   /* Stängknappen i Lager, Sök och följ och Turer: menyerna fyller nästan hela skärmen och har annars bara Escape och knappen bakom */
   .menu-x {
     display: grid; place-items: center; float: right; position: sticky; top: 0; z-index: 1;

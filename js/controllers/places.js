@@ -6,7 +6,8 @@
 // kortet igen, och i övriga lägen där man följer något säger statusraden varför ingenting händer (#1454).
 //
 // Vad som syns är det som går att trycka på: konturerna (layers/places.js) och trycken gäller bara inzoomat och i vanligt
-// läge (controllers/render.js, placeHints), aldrig i Fokus, tur, lektion eller intervall. Ett tryck som träffar en
+// läge (controllers/render.js, placeHints), aldrig i tur, lektion eller intervall. Följer man platsen (Fokus, regionvyn) öppnar ett tryck
+// på den kortet igen (#1791). Ett tryck som träffar en
 // händelsemarkör, en väg eller en religion hanteras som förut (main.js) och kommer aldrig hit.
 import { loadPlaces, isVisibleReview, t } from '../model.js';
 import { placeAt, placeEvents, placeBounds } from '../place-geo.js';
@@ -30,6 +31,9 @@ export function createPlaces(app) {
   const allowed = () => !state.focus && !state.modes.some(m => m.mode !== 'jakt');
   /** Syns konturerna just nu, och är platserna laddade? Då går ett tryck på dem att göra. */
   const hintsOn = () => !!state.labels?.placeHints && cards.length > 0;
+  /** Platsen man följer (Fokus på en plats, också i regionvyn, #1791): ett tryck på dess yta öppnar kortet igen, utan nytt Fokus. */
+  const followed = () => (state.focus?.type === 'place' && state.focus.place?.boundary?.geometry ? state.focus.place : null);
+  const inFollowed = ll => { const p = followed(); return !!(p && ll && placeAt([p], ll.lon, ll.lat)); };
 
   /** Laddar platserna en gång. Bara de som har minst en synlig händelse har ett kort (som i Sök och följ). */
   function ensure() {
@@ -49,6 +53,12 @@ export function createPlaces(app) {
   /** Ett tryck på globen eller kartan som inte träffade något annat. touch: tryck med finger eller penna. */
   function tap(ll, touch = false) {
     clearTimeout(pending);
+    // Följer man platsen öppnar ett tryck på den kortet igen (som knappen Om platsen); statusraden läser upp kortets rubrik (main.js)
+    if (inFollowed(ll)) {
+      const reopen = () => { if (inFollowed(ll)) app.showFocusFacts(); };
+      if (touch) pending = setTimeout(reopen, TOUCH_WAIT_MS); else reopen();
+      return true;
+    }
     if (!allowed() || !hintsOn()) return false;
     const place = at(ll);
     if (!place) return false;
@@ -66,12 +76,12 @@ export function createPlaces(app) {
     const set = on => canvas.classList.toggle('on-place', on);
     canvas.addEventListener('pointermove', e => {
       cancelAnimationFrame(raf);
-      if (e.pointerType !== 'mouse' || e.buttons || !hintsOn() || !allowed()) { set(false); return; }
-      raf = requestAnimationFrame(() => set(!!at(globe.pickLatLon(e.clientX, e.clientY))));
+      if (e.pointerType !== 'mouse' || e.buttons || (!followed() && (!hintsOn() || !allowed()))) { set(false); return; }
+      raf = requestAnimationFrame(() => { const ll = globe.pickLatLon(e.clientX, e.clientY); set(followed() ? inFollowed(ll) : !!at(ll)); });
     });
     canvas.addEventListener('pointerleave', () => { cancelAnimationFrame(raf); set(false); });
   }
-  flatMap.placeAt = ll => allowed() && hintsOn() && !!at(ll);
+  flatMap.placeAt = ll => (followed() ? inFollowed(ll) : allowed() && hintsOn() && !!at(ll));
 
   // ---- tangentbord och skärmläsare -------------------------------------------------------------------------------
   const flatOpen = () => !$('flat-view').hidden;

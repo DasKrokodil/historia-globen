@@ -692,12 +692,15 @@ export class Panel {
    * Kortet för ett urval (tema eller plats). empires (#1448, bara platser med periods): { title, note, follow, rows }, där en rad är
    * { years, name, label, run } (run saknas i en tur: raden är då bara text) eller { gap } (en lucka, en läsbar rad).
    */
-  showSelection({ label, name, lead = '', emblems = [], intro, action = null, notes = [], exit, empires = null, summary, events, sources = [], focus = true, banner = '', ariaLabel }) {
+  showSelection({ label, name, lead = '', emblems = [], intro, action = null, notes = [], exit, empires = null, summary, events, sources = [], focus = true, banner = '', ariaLabel, aboutLabel = null }) {
     this.selectedId = null;
     this.detail.className = `detail detail-card detail-selection frame-${styleFor(events[0], this.styles).frame}`; // detail-selection: main.js läser upp etiketten (Plats, Tema), också när inget Fokus pågår (#1163)
     const shown = (emblems ?? []).filter(em => flagUrl(em));
     const srcs = [...new Set([...(sources ?? []), ...shown.map(em => em.source)])].map(id => this.srcById[id]).filter(Boolean);
-    const emblemHtml = shown.length ? `<div class="place-emblems">${shown.map(em => `<figure class="place-emblem place-emblem-${esc(em.kind)}"><img src="${esc(flagUrl(em))}" alt="${esc(t(em.caption))}"><figcaption>${esc(t(em.caption))}<span class="meta">${esc(em.credit)} · ${esc(em.license)}</span></figcaption></figure>`).join('')}</div>` : '';
+    // Platsens kort (aboutLabel, #1790): bilder vars licens kräver namnuppgift (CC BY, CC BY-SA) behåller en kort kreditrad vid bilden; övriga
+    // krediter (public domain) ligger i den hopfällda raden Om kartan och källor
+    const placeCard = !!aboutLabel, needsCredit = em => /CC BY/i.test(em.license ?? '');
+    const emblemHtml = shown.length ? `<div class="place-emblems">${shown.map(em => `<figure class="place-emblem place-emblem-${esc(em.kind)}"><img src="${esc(flagUrl(em))}" alt="${esc(t(em.caption))}"><figcaption>${esc(t(em.caption))}${placeCard && !needsCredit(em) ? '' : `<span class="meta">${esc(em.credit)} · ${esc(em.license)}</span>`}</figcaption></figure>`).join('')}</div>` : '';
     const open = matchMedia('(max-width: 760px)').matches ? '' : ' open';
     // Rikena i landskortet (#1448): riktiga knappar med hela namnet för skärmläsare ("Följ riket Sverige 1612–1721"), luckorna som rader
     // Namnet för skärmläsare har samma ordning som den synliga texten (WCAG 2.5.3): "1815–1904 Sverige-Norge, Följ riket".
@@ -715,6 +718,21 @@ export class Panel {
     // markörernas nummer först på raderna och en ram på den markerade raden, och följer kortet med en MutationObserver. Ändras
     // markupen här ändras regionvyn också (provet i tests/regionvy-markorer.test.mjs fallerar då)
     const items = events.map(e => `<li><button type="button" class="theme-event" data-theme-event="${esc(e.id)}"><span class="theme-event-year">${esc(formatEventTime(e))}</span> <span${langAttr(e.title)}>${esc(t(e.title))}</span>${e.start < MIN_YEAR ? ` <span class="theme-event-note">${esc(ui('theme.beforeScale'))}</span>` : ''}</button></li>`).join('');
+    const actionHtml = action ? `<button type="button" class="chip-btn theme-exit place-flat" data-selection-action aria-label="${esc(action.label ?? action.text)}">${esc(action.text)}</button>` : '';
+    const notesHtml = notes.map(note => `<p class="theme-filter-note">${esc(note)}</p>`).join('\n      ');
+    // Platsens kort: Sluta följa platsen är en textlänk sist (Avsluta lät som att kortet stängs), temats kort har sin knapp som förut
+    const exitHtml = exit ? (placeCard ? `<button type="button" class="link-btn place-exit" data-end-theme>${esc(exit)}</button>` : `<button type="button" class="chip-btn theme-exit" data-end-theme>${esc(exit)}</button>`) : '';
+    const eventsHtml = `<details class="theme-event-list"${placeCard ? ' open' : open}>
+        <summary>${esc(summary)}</summary>
+        <ul class="theme-events">${items}</ul>
+      </details>`;
+    // Om kartan och källor (#1790): flaggans källa, kartanteckningarna och källorna, hopfällt längst ned i platsens kort
+    const credits = shown.filter(em => !needsCredit(em)).map(em => `<p class="place-credit">${esc(t(em.caption))}: ${esc(em.credit)} · ${esc(em.license)}</p>`).join('');
+    const aboutHtml = placeCard ? `<details class="theme-event-list place-about">
+        <summary>${esc(aboutLabel)}</summary>
+        ${credits}${notesHtml}${srcs.length ? srcLine(srcs, false) : ''}
+      </details>` : '';
+    const body = placeCard ? [actionHtml, eventsHtml, empireHtml, aboutHtml, exitHtml] : [actionHtml, notesHtml, exitHtml, empireHtml, eventsHtml];
     this.detail.innerHTML = `
       <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
       <div class="story-label">${esc(label)}</div>
@@ -723,15 +741,8 @@ export class Panel {
       <div class="story">${lead ? `<p class="place-type">${esc(lead)}</p>` : ''}
       ${emblemHtml}
       <p>${esc(t(intro))}</p>
-      ${action ? `<button type="button" class="chip-btn theme-exit place-flat" data-selection-action aria-label="${esc(action.label ?? action.text)}">${esc(action.text)}</button>` : ''}
-      ${notes.map(note => `<p class="theme-filter-note">${esc(note)}</p>`).join('\n      ')}
-      ${exit ? `<button type="button" class="chip-btn theme-exit" data-end-theme>${esc(exit)}</button>` : ''}
-      ${empireHtml}
-      <details class="theme-event-list"${open}>
-        <summary>${esc(summary)}</summary>
-        <ul class="theme-events">${items}</ul>
-      </details></div>
-      ${srcs.length ? srcLine(srcs, false) : ''}`;
+      ${body.filter(Boolean).join('\n      ')}</div>
+      ${!placeCard && srcs.length ? srcLine(srcs, false) : ''}`;
     this.detail.scrollTop = 0;
     this.setDetailOpen(true, ariaLabel);
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
