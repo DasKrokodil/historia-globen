@@ -99,6 +99,11 @@ PUNKTER = [
     *[('osttyskland', FRANKFURT_ODER, 'Frankfurt (Oder)', y, True) for y in (1950, 1970)],
     ('tyskland', FRANKFURT_ODER, 'Frankfurt (Oder)', 2000, True),
     *[('polen', p, n, y, False) for p, n in ((FRANKFURT_ODER, 'Frankfurt (Oder)'), (GORLITZ, 'Görlitz')) for y in (1946, 1950, 1970, 2000)],
+    # Fria staden Danzig 1920–1939 (#1746), utan Memelområdet (Klaipėda Q776965)
+    *[('fria-staden-danzig', DANZIG, 'Danzig', y, True) for y in (1920, 1925, 1937, 1939)],
+    *[('fria-staden-danzig', (21.135, 55.713), 'Klaipėda', y, False) for y in (1920, 1922, 1923, 1930)],
+    ('nazityskland', DANZIG, 'Danzig', 1940, True),
+    ('polen', DANZIG, 'Danzig', 1945, True),
     # Eupen i Belgien 1920–1939 och från 1945
     *[('belgien', EUPEN, 'Eupen', y, True) for y in (1925, 1935, 1950, 2000)],
     # Polen 1945–1952 med gränsen 1953, inte i Sovjetunionen; Sovjetunionen behåller Kaliningrad

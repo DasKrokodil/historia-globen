@@ -34035,6 +34035,108 @@
    ]
   },
   {
+   "id": "fria-staden-danzig",
+   "name": {
+    "sv": "Fria staden Danzig",
+    "en": "Free City of Danzig",
+    "de": "Freie Stadt Danzig",
+    "es": "Ciudad libre de Dánzig",
+    "fr": "Ville libre de Dantzig"
+   },
+   "color": "#b8864a",
+   "from": 1920,
+   "to": 1939,
+   "file": "data/empires/fria-staden-danzig.json",
+   "polities": [
+    {
+     "id": "fria-staden-danzig",
+     "name": {
+      "sv": "Fria staden Danzig",
+      "en": "Free City of Danzig",
+      "de": "Freie Stadt Danzig",
+      "es": "Ciudad libre de Dánzig",
+      "fr": "Ville libre de Dantzig"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "summary": {
+     "sv": "Fria staden Danzig var en stadsstat kring Danzig, i dag Gdańsk i Polen, under Nationernas förbunds skydd 1920–1939. Polen skötte utrikespolitik, försvar, tull, järnvägar och post. Nazityskland tog staden 1 september 1939, när anfallet på Polen började.",
+     "en": "The Free City of Danzig was a city-state around Danzig, today Gdańsk in Poland, under the protection of the League of Nations in 1920–1939. Poland was in charge of foreign policy, defence, customs, railways and post. Nazi Germany took the city on 1 September 1939, when the attack on Poland began.",
+     "de": "Die Freie Stadt Danzig war ein Stadtstaat um Danzig, heute Gdańsk in Polen, unter dem Schutz des Völkerbunds 1920–1939. Polen war für Außenpolitik, Verteidigung, Zoll, Eisenbahn und Post zuständig. Der NS-Staat nahm die Stadt am 1. September 1939 ein, als der Angriff auf Polen begann.",
+     "es": "La Ciudad libre de Dánzig fue una ciudad-Estado en torno a Dánzig, hoy Gdańsk en Polonia, bajo la protección de la Sociedad de Naciones en 1920–1939. Polonia se encargaba de la política exterior, la defensa, las aduanas, los ferrocarriles y el correo. La Alemania nazi tomó la ciudad el 1 de septiembre de 1939, cuando comenzó el ataque a Polonia.",
+     "fr": "La Ville libre de Dantzig était une cité-État autour de Dantzig, aujourd'hui Gdańsk en Pologne, placée sous la protection de la Société des Nations de 1920 à 1939. La Pologne était chargée de la politique étrangère, de la défense, des douanes, des chemins de fer et des postes. L'Allemagne nazie s'empara de la ville le 1er septembre 1939, au début de l'attaque contre la Pologne."
+    },
+    "items": [
+     {
+      "label": {
+       "sv": "När och var det uppstod",
+       "en": "When and where it arose",
+       "de": "Entstehung",
+       "es": "Cuándo y dónde surgió",
+       "fr": "Quand et où il est apparu"
+      },
+      "text": {
+       "sv": "Fristaden bildades 15 november 1920 enligt artikel 100 i Versaillesfreden från 1919.",
+       "en": "The Free City was established on 15 November 1920 under Article 100 of the Treaty of Versailles of 1919.",
+       "de": "Die Freie Stadt wurde am 15. November 1920 nach Artikel 100 des Versailler Vertrags von 1919 gegründet.",
+       "es": "La Ciudad libre se fundó el 15 de noviembre de 1920 según el artículo 100 del Tratado de Versalles de 1919.",
+       "fr": "La Ville libre fut créée le 15 novembre 1920 en vertu de l'article 100 du traité de Versailles de 1919."
+      }
+     },
+     {
+      "label": {
+       "sv": "Hur det slutade",
+       "en": "How it ended",
+       "de": "Wie es endete",
+       "es": "Cómo terminó",
+       "fr": "Comment il a pris fin"
+      },
+      "text": {
+       "sv": "Nazityskland tog staden 1 september 1939 och annekterade den formellt i oktober 1939. Efter kriget blev staden helt en del av Polen enligt Potsdamöverenskommelsen 1945.",
+       "en": "Nazi Germany took the city on 1 September 1939 and formally annexed it in October 1939. After the war the city was fully integrated into Poland under the Potsdam Agreement of 1945.",
+       "de": "Der NS-Staat nahm die Stadt am 1. September 1939 ein und annektierte sie im Oktober 1939 formell. Nach dem Krieg wurde die Stadt gemäß dem Potsdamer Abkommen von 1945 vollständig Teil Polens.",
+       "es": "La Alemania nazi tomó la ciudad el 1 de septiembre de 1939 y la anexionó formalmente en octubre de 1939. Tras la guerra, la ciudad quedó plenamente integrada en Polonia según el Acuerdo de Potsdam de 1945.",
+       "fr": "L'Allemagne nazie s'empara de la ville le 1er septembre 1939 et l'annexa formellement en octobre 1939. Après la guerre, la ville fut pleinement intégrée à la Pologne en vertu des accords de Potsdam de 1945."
+      }
+     },
+     {
+      "label": {
+       "sv": "Befolkning och yta",
+       "en": "Population and area",
+       "de": "Bevölkerung und Fläche",
+       "es": "Población y superficie",
+       "fr": "Population et superficie"
+      },
+      "text": {
+       "sv": "366 730 invånare vid folkräkningen 1923. Ytan var 1 952 km² år 1928.",
+       "en": "366,730 inhabitants in the 1923 census. The area was 1,952 km² in 1928.",
+       "de": "366.730 Einwohner bei der Volkszählung 1923. Die Fläche betrug 1928 1.952 km².",
+       "es": "366 730 habitantes en el censo de 1923. La superficie era de 1952 km² en 1928.",
+       "fr": "366 730 habitants au recensement de 1923. La superficie était de 1 952 km² en 1928."
+      }
+     }
+    ],
+    "mapNote": {
+     "sv": "Källorna anger 15 november 1920–1 september 1939 (Wikidata och Wikipedia), och kartan visar fristaden 1920–1939 som i Cliopatria. Cliopatrias yta är större än den Wikipedia anger (1 952 km² år 1928). Cliopatria räknar också Memelområdet till fristaden 1919–1935. Det är ett källfel och är borttaget: området förvaltades av Ambassadörskonferensen med franska trupper till 1923 och annekterades av Litauen 19 januari 1923.",
+     "en": "The sources give 15 November 1920–1 September 1939 (Wikidata and Wikipedia), and the map shows the Free City in 1920–1939, as in Cliopatria. Cliopatria's area is larger than the one Wikipedia gives (1,952 km² in 1928). Cliopatria also counts the Memel Territory to the Free City in 1919–1935. This is an error in the source and has been removed: the territory was administered by the Conference of Ambassadors with French troops until 1923 and was annexed by Lithuania on 19 January 1923.",
+     "de": "Die Quellen nennen den 15. November 1920 bis 1. September 1939 (Wikidata und Wikipedia), und die Karte zeigt die Freie Stadt wie Cliopatria 1920–1939. Cliopatrias Fläche ist größer als die von Wikipedia genannte (1.952 km² im Jahr 1928). Cliopatria rechnet außerdem das Memelland 1919–1935 der Freien Stadt zu. Das ist ein Fehler in der Quelle und wurde entfernt: Das Gebiet wurde bis 1923 von der Botschafterkonferenz mit französischen Truppen verwaltet und am 19. Januar 1923 von Litauen annektiert.",
+     "es": "Las fuentes indican del 15 de noviembre de 1920 al 1 de septiembre de 1939 (Wikidata y Wikipedia), y el mapa muestra la Ciudad libre en 1920–1939, como Cliopatria. La superficie de Cliopatria es mayor que la que indica Wikipedia (1952 km² en 1928). Cliopatria atribuye además el territorio de Memel a la Ciudad libre en 1919–1935. Es un error de la fuente y se ha eliminado: el territorio estuvo administrado por la Conferencia de Embajadores con tropas francesas hasta 1923 y fue anexionado por Lituania el 19 de enero de 1923.",
+     "fr": "Les sources indiquent du 15 novembre 1920 au 1er septembre 1939 (Wikidata et Wikipédia), et la carte montre la Ville libre en 1920–1939, comme Cliopatria. La superficie de Cliopatria est plus grande que celle indiquée par Wikipédia (1 952 km² en 1928). Cliopatria rattache en outre le territoire de Memel à la Ville libre en 1919–1935. C'est une erreur de la source, qui a été retirée : le territoire fut administré par la Conférence des ambassadeurs avec des troupes françaises jusqu'en 1923 et fut annexé par la Lituanie le 19 janvier 1923."
+    },
+    "sources": [
+     "wp-free-city-of-danzig",
+     "wd-free-city-of-danzig",
+     "wp-klaipeda-region"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
    "id": "polen",
    "modernState": true,
    "name": {

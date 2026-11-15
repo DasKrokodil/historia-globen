@@ -84,7 +84,8 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              # Tyskland 1949–1990 och Frankrike (#1706): med 0,2 grader fylls Västberlin i DDR-ytan och Frankrikes gräns
              # buktar in över Saarland (Saarbrücken ligger cirka 5 km från gränsen)
              'osttyskland': (0.05, MERGE, MIN_AREA), 'vasttyskland': (0.05, MERGE, MIN_AREA), 'frankrike': (0.1, MERGE, MIN_AREA),
-             'belgien': (0.05, MERGE, MIN_AREA),  # Eupen ligger cirka 15 km från gränsen mot Tyskland (#1730)
+             'belgien': (0.05, MERGE, MIN_AREA),
+             'fria-staden-danzig': (0.02, MERGE, 0.005),  # cirka 2 000 km2 (#1746)  # Eupen ligger cirka 15 km från gränsen mot Tyskland (#1730)
              # Luxemburg och Singapore är små
              'luxemburg': (0.03, 0.02, 0.005), 'singapore': (0.02, 0.02, 0.005),
              # Malaysias förenklade gräns täckte annars en del av Singapore över Johorsundet
@@ -849,6 +850,13 @@ GROUPS = {
     ]),
     'elfenbenskusten': ('Elfenbenskusten', 'Ivory Coast', [
         ("Republic of Côte d'Ivoire", 'elfenbenskusten', 'Elfenbenskusten', '#5aa06a', {'en': 'Ivory Coast'}),
+    ]),
+    # Fria staden Danzig 1920–1939 (#1746): under Nationernas förbunds skydd från 15 november 1920 till annekteringen
+    # 1 september 1939 (Wikidata Q216173, en.wikipedia "Free City of Danzig"). Cliopatrias post har också fristaden under
+    # Napoleon 1809–1811, som inte är med, och räknar Memelområdet dit 1919–1935 (borttaget i DISPUTED)
+    'fria-staden-danzig': ('Fria staden Danzig', 'Free City of Danzig', [
+        ('Free City of Danzig', 'fria-staden-danzig', 'Fria staden Danzig', '#b8864a',
+         {'en': 'Free City of Danzig', 'wikidata': 'Q216173', 'years': (1920, 1939)}),
     ]),
     # Cliopatria saknar Polen 1940–1952; 1945–1952 visas Polen med gränsen 1953 (#1730)
     'polen': ('Polen', 'Poland', [
@@ -1909,6 +1917,10 @@ DISPUTED = {
     # försvann en remsa längs kusten (Baltijsk). Sovjetunionens gräns 1960 i en ruta kring området läggs tillbaka
     'kaliningrad': {'area': ('snitt', ('clio', 'Union of Soviet Socialist Republics', 1960), ('rutor', [(19.4, 54.2, 22.95, 55.4)])),
                     'from': 1945, 'to': 1989, 'strict': True, 'remove': [], 'add': ['sovjetunionen']},
+    # Fria staden Danzig (#1746): Cliopatria räknar Memelområdet till fristaden 1919–1935. Det förvaltades av de allierade
+    # till 1923 och hörde sedan till Litauen; delen tas bort som källfel
+    'danzig-memel': {'area': ('rutor', [(20.8, 55.0, 22.6, 56.0)]), 'parts': True, 'from': 1919, 'to': 1935,
+                     'remove': ['fria-staden-danzig'], 'add': []},
     # Nazi Germany har småbitar (mest vatten mellan grannarnas gränser) i länder som Tyskland aldrig höll eller ännu inte
     # hade ockuperat. ('rutor', [(väst, syd, öst, nord), ...]) med 'parts': bara de delar av riket som ligger helt inne i en
     # ruta tas bort, så att rutan aldrig klipper i rikets sammanhängande yta
