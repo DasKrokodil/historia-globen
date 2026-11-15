@@ -11,6 +11,27 @@ const sv = json('data/ui/sv.json');
 const html = read('index.html');
 const htmlKeys = new Set([...html.matchAll(/data-i18n(?:-[a-z-]+)?="([^"]+)"/g)].map(m => m[1]));
 
+// Svenskan i index.html används direkt (applyStatic byter bara andra språk). Därför måste varje data-i18n-text
+// börja som exakt samma text som sv.json, annars kan svenska besökare se ett gammalt knappnamn (#1708).
+function staticTexts(source) {
+  const found = new Map(), stack = [], voids = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'source', 'track', 'wbr']);
+  for (const token of source.match(/<[^>]+>|[^<]+/g) ?? []) {
+    if (token.startsWith('</')) {
+      const current = stack.pop();
+      if (current?.key) found.set(current.key, current.text.replace(/\s+/g, ' ').trim());
+    } else if (token.startsWith('<')) {
+      if (/^<!|^<\?/.test(token)) continue;
+      if (/^<\//.test(token)) continue;
+      const key = /\sdata-i18n="([^"]+)"/.exec(token)?.[1] ?? null;
+      const node = { key, text: '' };
+      if (!voids.has(/^<\s*([\w-]+)/.exec(token)?.[1]?.toLowerCase()) && !/\/>$/.test(token)) stack.push(node);
+    } else {
+      for (const node of stack) node.text += token;
+    }
+  }
+  return found;
+}
+
 test('sprak.json har svenska som grundspråk och unika språk', () => {
   assert.equal(meta.default, 'sv');
   const ids = meta.languages.map(l => l.id);
@@ -50,6 +71,10 @@ for (const l of meta.languages.filter(l => l.id !== 'sv')) {
 test('nycklarna i index.html finns i något språk', () => {
   const all = new Set(meta.languages.flatMap(l => Object.keys(json(`data/ui/${l.id}.json`))));
   for (const k of htmlKeys) assert.ok(all.has(k), `${k} finns inte i någon språkfil`);
+});
+
+test('data-i18n i index.html har samma svenska standardtext som sv.json', () => {
+  for (const [key, text] of staticTexts(html)) assert.equal(text, sv[key], `${key} i index.html`);
 });
 
 // #1303: svenska är grundspråket och reserven sist (ui() i js/i18n.js: valt språk, engelska, svenska). En nyckel som
