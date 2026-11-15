@@ -32,6 +32,16 @@ WARSZAWA = (21.011, 52.23)  # Q270
 KALININGRAD = (20.5, 54.717)  # Q1829
 AMSTERDAM = (4.883, 52.367)  # Q727
 RATZEBURG = (10.757, 53.702)  # Q490025
+# #1750, ur Wikidata: Baltijsk Q5660, Forbach Q22703, Mödlareuth Q672150, Hirschberg Q630383, Amt Neuhaus Q479687,
+# Gangelt Q204793, Frankfurt (Oder) Q4024, Görlitz Q4077
+BALTIJSK = (19.917, 54.65)
+FORBACH = (6.9, 49.188)
+MODLAREUTH = (11.883, 50.415)
+HIRSCHBERG = (11.82, 50.406)
+AMT_NEUHAUS = (10.932, 53.285)
+GANGELT = (6.0, 50.983)
+FRANKFURT_ODER = (14.552, 52.342)
+GORLITZ = (14.991, 51.156)
 # Berlin 1949–1990 (#1731), ur Wikidata: Västberlin och Östberlin
 VASTBERLIN = {'Charlottenburg': (13.3, 52.517), 'Spandau': (13.2, 52.55), 'Wedding': (13.343, 52.55), 'Kreuzberg': (13.383, 52.488),
               'Neukölln': (13.45, 52.483), 'Steglitz': (13.333, 52.467), 'Zehlendorf': (13.259, 52.434)}
@@ -75,6 +85,20 @@ PUNKTER = [
                                                        ((11.64, 52.132), 'Magdeburg'), ((11.167, 50.35), 'Sonneberg'))],
     *[('vasttyskland', p, n, 1970, True) for p, n in (((10.686, 53.87), 'Lübeck'), ((9.498, 51.316), 'Kassel'),
                                                         ((11.917, 50.317), 'Hof'), ((10.787, 52.423), 'Wolfsburg'))],
+    # Felen som #1745 införde (#1750)
+    *[('sovjetunionen', BALTIJSK, 'Baltijsk', y, True) for y in (1946, 1950, 1960, 1985)],
+    *[('franska-kolonialvaldet', FORBACH, 'Forbach', y, True) for y in (1925, 1933, 1936, 1955)],
+    *[(g, FORBACH, 'Forbach', y, False) for g in ('weimarrepubliken', 'nazityskland') for y in (1925, 1932, 1934)],
+    *[('osttyskland', p, n, y, True) for p, n in ((MODLAREUTH, 'Mödlareuth'), (HIRSCHBERG, 'Hirschberg'), (AMT_NEUHAUS, 'Amt Neuhaus'))
+      for y in (1950, 1970, 1990)],
+    *[('vasttyskland', p, n, y, False) for p, n in ((MODLAREUTH, 'Mödlareuth'), (HIRSCHBERG, 'Hirschberg'), (AMT_NEUHAUS, 'Amt Neuhaus'))
+      for y in (1950, 1970, 1990)],
+    *[('sovjetunionen', p, n, 1947, True) for p, n in ((MODLAREUTH, 'Mödlareuth'), (HIRSCHBERG, 'Hirschberg'))],
+    ('sovjetunionen', RATZEBURG, 'Ratzeburg', 1947, False),
+    ('tyskland', GANGELT, 'Gangelt', 2000, True),
+    *[('osttyskland', FRANKFURT_ODER, 'Frankfurt (Oder)', y, True) for y in (1950, 1970)],
+    ('tyskland', FRANKFURT_ODER, 'Frankfurt (Oder)', 2000, True),
+    *[('polen', p, n, y, False) for p, n in ((FRANKFURT_ODER, 'Frankfurt (Oder)'), (GORLITZ, 'Görlitz')) for y in (1946, 1950, 1970, 2000)],
     # Eupen i Belgien 1920–1939 och från 1945
     *[('belgien', EUPEN, 'Eupen', y, True) for y in (1925, 1935, 1950, 2000)],
     # Polen 1945–1952 med gränsen 1953, inte i Sovjetunionen; Sovjetunionen behåller Kaliningrad
