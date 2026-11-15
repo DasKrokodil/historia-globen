@@ -3491,15 +3491,21 @@ async function run(browser, vp) {
   // rullat (krysset är sticky). Smal skärm: max-width gäller. Bred skärm: en touch-sida med isMobile (Playwright ändrar pointer: coarse bara då).
   const targets = pg => pg.evaluate(() => {
     const d = document.getElementById('detail'), b = d.querySelector('.detail-close');
-    const at = (x, y) => !!document.elementFromPoint(x, y)?.closest('.detail-close');
+    // Firefox på Linux har rullningslister som ligger över kortets högra kant och träffas av elementFromPoint, också när
+    // de inte syns. På en touchskärm tar en rullningslist inte emot tryck, så den döljs medan provet mäter (#1174).
+    d.style.scrollbarWidth = 'none';
+    const name = el => el ? `${el.tagName.toLowerCase()}${el.id ? '#' + el.id : ''}${el.classList.length ? '.' + [...el.classList].join('.') : ''}` : 'inget';
+    const misses = [];
+    const at = (x, y, side) => { const el = document.elementFromPoint(x, y); if (el?.closest('.detail-close')) return true; misses.push(`${side}: ${name(el)}`); return false; };
     const measure = () => { const r = b.getBoundingClientRect(), mid = { x: r.left + r.width / 2, y: r.top + r.height / 2 };
-      return { w: Math.round(r.width), left: at(r.left - 6, mid.y), right: at(r.right + 6, mid.y), up: at(mid.x, r.top - 6), down: at(mid.x, r.bottom + 6) }; };
+      return { w: Math.round(r.width), left: at(r.left - 6, mid.y, 'vänster'), right: at(r.right + 6, mid.y, 'höger'), up: at(mid.x, r.top - 6, 'upp'), down: at(mid.x, r.bottom + 6, 'ner') }; };
     const rows = [...d.querySelectorAll('[data-theme-event]')].map(x => Math.round(x.getBoundingClientRect().height * 10) / 10);
     const top = measure();
     d.scrollTop = 150; // kortet rullat: krysset ligger kvar överst
     const scrolled = { ...measure(), scrolled: d.scrollTop };
     d.scrollTop = 0;
-    return { rows, top, scrolled, coarse: matchMedia('(pointer: coarse)').matches };
+    d.style.scrollbarWidth = '';
+    return { rows, top, scrolled, misses, coarse: matchMedia('(pointer: coarse)').matches };
   });
   const touchTargets = async (pg, what, needCoarse) => {
     await followGreenlandFromMenu(pg);
@@ -3510,7 +3516,7 @@ async function run(browser, vp) {
     if (needCoarse && !r.coarse) throw new Error(`${what}: sidan har inte pointer: coarse, så provet prövar ingenting`);
     if (r.rows.length < 5 || r.rows.some(h => h < 44)) throw new Error(`${what}: raderna i händelselistan är för låga för touch: ${r.rows.join(', ')} px`);
     for (const [state, m] of [['överst', r.top], ['rullat', r.scrolled]]) {
-      if (!m.left || !m.right || !m.up || !m.down) throw new Error(`${what}: krysset har för liten träffyta (${state}): ${JSON.stringify(m)}`);
+      if (!m.left || !m.right || !m.up || !m.down) throw new Error(`${what}: krysset har för liten träffyta (${state}): ${JSON.stringify(m)}; träffade i stället ${r.misses.join(', ')}`);
     }
     if (!r.scrolled.scrolled) throw new Error(`${what}: kortet gick inte att rulla, så "rullat" prövades inte`);
     return `${r.rows.length} rader på minst ${Math.min(...r.rows)} px; krysset (${r.top.w} px) träffas 6 px utanför knappen åt alla håll, överst och rullat`;
