@@ -397,6 +397,11 @@ export class Globe {
       if (e.ctrlKey || e.metaKey || e.altKey) return;
       // Enter är tangentbordets tryck (#1161): platsen i mitten av vyn, om den har ett kort
       if (e.key === 'Enter' && this.onActivate) { e.preventDefault(); this.onActivate(); return; }
+      // En pil under en flygning (till exempel till adressens kamera direkt efter laddningen) utgår från flygningens mål, som
+      // Globe.view redan säger, och inte från där klotet råkade vara mitt i flygningen (#1606)
+      if (this._fly && /^Arrow(Left|Right|Up|Down)$/.test(e.key)) {
+        this.group.rotation.x = this._fly.tx; this.group.rotation.y = this._fly.ty;
+      }
       const step = (e.shiftKey ? 0.24 : 0.1) / this.zoom;
       let handled = true;
       if (e.key === 'ArrowLeft') this.group.rotation.y += step;

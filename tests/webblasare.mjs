@@ -2585,10 +2585,24 @@ async function run(browser, vp) {
   // #1161: tryck på konturen av en plats. Konturerna syns och går att trycka på bara inzoomat och i vanligt läge; trycket
   // öppnar kortet (Fokus av typen place) på globen och i Platt vy, och knappen Visa i Platt karta ramar in platsen.
   // Grönland (isen i norr, 76° N 40° V) ligger fritt från markörer och etiketter vid år 1000, också i mobilbredd.
+  // Adressens kamera (c=) flyger dit på 600 ms efter laddningen. Kontrollerna rör globen först när flygningen dit har landat
+  // (hg:globe-flight med phase 'end' på adressens latitud, js/globe.js): i Firefox och WebKit hann pilen eller pekaren annars
+  // före flygningen, så att mitten inte var Grönland (#1606). Lyssnaren sätts före sidan, eftersom flygningen börjar under laddningen.
   const placeTapPage = async (hash, name) => {
     const t = await touchPage();
+    await t.tp.addInitScript(() => {
+      window.__placeFlights = [];
+      document.addEventListener('hg:globe-flight', e => window.__placeFlights.push(e.detail), true);
+    });
     await t.tp.goto(`${BASE}?ny=${name}${hash}`);
     await t.tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+    const cam = /[#&]c=(-?[\d.]+),/.exec(hash);
+    if (cam) {
+      await t.tp.waitForFunction(lat => {
+        const last = window.__placeFlights.at(-1), x = Math.max(-1.25, Math.min(1.25, lat * Math.PI / 180));
+        return last?.phase === 'end' && Math.abs(last.x - x) < 1e-3;
+      }, Number(cam[1]), { timeout: T.step });
+    }
     return t;
   };
   // dy: andel av höjden ovanför mitten. Mobilens etiketter (Alltinget) ligger i mitten vid år 1000, så inzoomat trycker vi högre upp på isen
