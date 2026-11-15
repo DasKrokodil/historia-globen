@@ -5,6 +5,7 @@
 // Klickbara markörer och bågar ligger som 3D-objekt ovanpå.
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
 import { GlobeDetail } from './globe-detail.js';
+import { cameraDistance } from './region-frame.js';
 
 export { THREE };
 export const R = 1;
@@ -306,8 +307,12 @@ export class Globe {
     this.invalidate();
   }
 
+  /**
+   * Zoomen på den vanliga globen. I regionvyn (#1644) sätter den bara zoomen som globen får tillbaka när vyn lämnas (en tur, en adress
+   * eller Fokus anger den absolut); hjulet, + och −, dubbeltrycket och nypningen zoomar regionvyn med zoomBy.
+   */
   setZoom(z) {
-    if (this.region) { this._regionZoomTo(this.region.rz * z / this.zoom); return; } // relativt: hjulet, + och −
+    if (this.region) { this.zoom = Math.min(3.2, Math.max(0.8, z)); this.onZoom?.(this.zoom); return; }
     this.zoom = Math.min(3.2, Math.max(0.8, z));
     this.camera.position.z = this.baseDist / this.zoom;
     this._refreshArcs();
@@ -315,10 +320,21 @@ export class Globe {
     this.invalidate();
   }
 
+  /** Besökarens zoom med faktorn f: regionvyns zoom när den är öppen, annars globens. */
+  zoomBy(f) {
+    if (this.region) this._regionZoomTo(this.region.rz * f);
+    else this.setZoom(this.zoom * f);
+  }
+
   /** Tid (performance.now) då användaren senast vred, zoomade eller tryckte på globen (#165). */
   lastUserInput = -Infinity;
 
-  flyTo(lat, lon, ms = 1100) {
+  flyTo(lat, lon, ms = 1100, { force = false } = {}) {
+    // I regionvyn (#1644) flyttas klotet bara om punkten inte syns i bilden (en vald händelse, uppspelningen), som reveal() i Platt vy
+    if (this.region && !force) {
+      if (this._onScreen(lat, lon)) return;
+      this.region.moved = true; // klotet flyttas bort från ramen: den räknas inte om när storleken ändras
+    }
     const theta = (lon + 180) * DEG;
     let ty = Math.PI / 2 - theta;
     const cy = this.group.rotation.y;
@@ -375,12 +391,13 @@ export class Globe {
       if (!target) return false;
       this.region = { frame, rz: 1, moved: false, target };
       this.autoRotate = false;
-      this.flyTo(target.lat, target.lon, ms);
+      this.flyTo(target.lat, target.lon, ms, { force: true });
     } else {
       if (!this.region) return false;
       this.region = null;
       // Tillbaka innanför den vanliga gränsen mot polerna (Grönland ligger annars över 71,6°)
-      if (Math.abs(this.group.rotation.x) > MAX_TILT) this.flyTo(this.view.lat, this.view.lon, ms);
+      // view läser målet under en flygning, så att en vy som lämnas mitt i flygningen inte fortsätter mot 71,7°
+      if (Math.abs(this.view.lat * DEG) > MAX_TILT) this.flyTo(this.view.lat, this.view.lon, ms, { force: true });
     }
     this._pose = { t0: performance.now(), ms, from, to: null };
     this.invalidate();
@@ -394,7 +411,7 @@ export class Globe {
     if (!target) return;
     const from = this._currentPose();
     Object.assign(this.region, { target, rz: 1, moved: false });
-    this.flyTo(target.lat, target.lon, ms);
+    this.flyTo(target.lat, target.lon, ms, { force: true });
     this._pose = { t0: performance.now(), ms: this.calm ? 1 : ms, from, to: null };
     this.onZoom?.(this.zoom);
   }
@@ -414,6 +431,14 @@ export class Globe {
     if (!this.region && !this._pose) return Math.max(1, (d - 1) / (d / this.zoom - 1));
     const h = this.canvas.clientHeight || 1, base = h / (2 * (d - R) * Math.tan(BASE_FOV / 2 * DEG));
     return Math.max(1, this.pxPerR() / base);
+  }
+
+  /** Ligger punkten på framsidan och inne i bilden, med 40 px marginal? */
+  _onScreen(lat, lon) {
+    this.camera.updateMatrixWorld();
+    this.group.updateMatrixWorld();
+    const p = this.project(latLonToVec3(lat, lon)), w = this.canvas.clientWidth, h = this.canvas.clientHeight;
+    return p.facing > 0 && p.x > 40 && p.x < w - 40 && p.y > 40 && p.y < h - 40;
   }
 
   _tilt(x) {
@@ -474,7 +499,7 @@ export class Globe {
 
   _applyPose(p) {
     const w = this.canvas.clientWidth || 1, h = this.canvas.clientHeight || 1;
-    const dist = R + h / (2 * Math.tan(p.fov / 2 * DEG) * p.pxPerR);
+    const dist = cameraDistance(p.pxPerR, h, p.fov);
     this.camera.fov = p.fov;
     this.camera.position.set(0, p.camY, dist);
     this.camera.lookAt(0, p.camY, 0);
@@ -503,7 +528,7 @@ export class Globe {
       if (pts.size === 2) {
         const [a, b] = [...pts.values()];
         const f = Math.hypot(a.x - b.x, a.y - b.y) / (pinch0 || 1);
-        if (this.region) this._regionZoomTo(zoom0 * f); else this.setZoom(zoom0 * f);
+        if (this.region) this._regionZoomTo(zoom0 * f); else this.setZoom(zoom0 * f); // från nypningens början, inte stegvis
         moved += 10; return;
       }
       const dx = e.clientX - last.x, dy = e.clientY - last.y;
@@ -529,8 +554,8 @@ export class Globe {
           lastTap = null;
           this.onDoubleTap?.(); // första trycket kan ha väntat på att bli ett platstryck (#1161)
           const at = this.pickLatLon(e.clientX, e.clientY);
-          if (at) this.flyTo(at.lat, at.lon, 500);
-          this.setZoom(this.zoom * 1.6);
+          if (at) this.flyTo(at.lat, at.lon, 500, { force: true });
+          this.zoomBy(1.6);
           return;
         }
         lastTap = { x: e.clientX, y: e.clientY, t: now };
@@ -563,8 +588,8 @@ export class Globe {
       else if (e.key === 'ArrowRight') this.group.rotation.y -= step;
       else if (e.key === 'ArrowUp') this.group.rotation.x = this._tilt(this.group.rotation.x + step);
       else if (e.key === 'ArrowDown') this.group.rotation.x = this._tilt(this.group.rotation.x - step);
-      else if (e.key === '+' || e.key === '=') this.setZoom(this.zoom * 1.2);
-      else if (e.key === '-' || e.key === '_') this.setZoom(this.zoom / 1.2);
+      else if (e.key === '+' || e.key === '=') this.zoomBy(1.2);
+      else if (e.key === '-' || e.key === '_') this.zoomBy(1 / 1.2);
       else handled = false;
       if (!handled) return;
       e.preventDefault();
@@ -583,7 +608,7 @@ export class Globe {
       e.preventDefault();
       // Nypningens steg är mycket mindre än mushjulets, så de får en större faktor.
       const k = e.ctrlKey ? 0.01 : (e.deltaMode === 1 ? 0.04 : 0.0012);
-      this.setZoom(this.zoom * Math.exp(-e.deltaY * k));
+      this.zoomBy(Math.exp(-e.deltaY * k));
     }, { passive: false });
   }
 
@@ -696,10 +721,17 @@ export class Globe {
     if (sig !== this._viewSig) {
       this._viewSig = sig;
       this.detail.touch();
-      // Renderingsstatus för proven (som data-view i Platt vy): synfält, kamerans höjd och avstånd, förskjutningen och regionvyn (#1644)
-      const c = this.camera, v = c.view;
-      this.canvas.dataset.camera = [c.fov, c.position.y, c.position.z, v?.enabled ? v.offsetX : 0, v?.enabled ? v.offsetY : 0].map(n => Number(n.toFixed(4))).join(',');
+      this._statusDue = true;
     }
+    // Renderingsstatus för proven (som data-view i Platt vy): synfält, kamerans höjd och avstånd, förskjutningen och vridningen mot
+    // polen (#1644). Skrivs när vyn har stannat, och under rörelse högst var 250:e ms, så att den vanliga globen inte får en
+    // skrivning i sidan per bildruta
+    if (this._statusDue && (!moving || t - (this._statusT ?? -1e9) > 250)) {
+      this._statusDue = false;
+      this._statusT = t;
+      const c = this.camera, v = c.view;
+      this.canvas.dataset.camera = [c.fov, c.position.y, c.position.z, v?.enabled ? v.offsetX : 0, v?.enabled ? v.offsetY : 0, this.group.rotation.x].map(n => Number(n.toFixed(4))).join(',');
+    } else if (this._statusDue) this._needsRender = true; // en bild till när rörelsen har stannat, så att statusen blir den sista
     this.group.updateMatrixWorld();
     for (const { cb } of this.frameCallbacks) cb(t);
     this.renderer.render(this.scene, this.camera);

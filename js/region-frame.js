@@ -77,8 +77,10 @@ export function freeArea(view, rects, shape = null) {
 // den fria ytan och ligger mitt i den), räknad på klotet i stället för på kartan.
 
 /** Platser större än så här (grader på marken, regionSize) får globflyget. Sverige (13,7) väntar på DasKrokodils bedömning efter
- *  steg 1 (beslut 2026-11-15) och ligger därför under gränsen; Aotearoa (cirka 18) och Grönland (23,8) ligger över. Mellan
- *  REGION_MAX_DEG och den här gränsen ramas platsen in i Platt vy som förut. */
+ *  steg 1 (beslut 2026-11-15) och ligger därför under gränsen; Aotearoa (18,1) och Grönland (23,8) ligger över. Mellan
+ *  REGION_MAX_DEG och den här gränsen ramas platsen in i Platt vy som förut. Obs: Aotearoa ligger över gränsen tack vare de
+ *  subantarktiska öarna (Campbellön sätter sydgränsen, 52,6° S); utan dem och Aucklandöarna vore höjden cirka 13 grader, under 15.
+ *  Ändras gränsen i data/platser.json ska regeln prövas igen (geografens granskning 2026-11-15). */
 export const GLOBE_MIN_DEG = 15;
 /** Större platser än så här visas hellre som hela klotet (ingen plats i dag är så stor). */
 export const GLOBE_MAX_DEG = 60;
