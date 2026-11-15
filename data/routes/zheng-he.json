@@ -1077,11 +1077,11 @@
           "from": 1417.41,
           "to": 1418.5,
           "edtf": "1417-05-31/1418",
-          "path": [[118.7, 24.9],[118.8, 24.8],[117.8, 23.0],[115.5, 22.2],[113.5, 21.5],[111.6, 19.8],[111.3, 18.0],[109.7, 15.5],[109.35, 13.8],[109.7, 12.2],[109.2, 10.9],[107.5, 9.0],[104.5, 6.0],[103.45, 3.8],[104.5, 1.6],[104.8, 1.35],[105.0, 0.0],[107.0, -1.0],[107.0, -4.5],[108.0, -5.3],[110.4, -6.6],[108.0, -5.3],[106.5, -3.4],[106.2, -3.05],[105.95, -2.85],[105.85, -2.65],[105.6, -2.4],[105.3, -2.2],[105.0, -2.1],[104.9, -2.25],[104.9, -1.7],[104.75, -2.4],[104.8, -3.0],[104.75, -2.4],[104.9, -1.7],[104.9, -2.25],[105.0, -2.0],[105.0, -1.5],[105.4, -0.1],[105.2, 0.1],[105.0, 0.0],[104.8, 1.35],[104.2, 1.3],[103.7, 1.15],[102.6, 1.65],[102.3, 2.2],[101.8, 2.3],[101.5, 2.6],[101.0, 2.7],[100.4, 3.6],[99.0, 4.6],[97.8, 5.5],[97.2, 5.35],[96.2, 5.7],[95.3, 5.7],[94.5, 5.8],[90.0, 5.8],[84.0, 5.6],[81.0, 5.7],[80.2, 5.8],[79.75, 6.5],[79.65, 6.9],[79.0, 7.2],[77.3, 7.7],[76.4, 8.85],[76.1, 9.95],[75.6, 11.25]],
+          "path": [[118.6, 24.9],[118.8, 24.8],[117.8, 23.0],[115.5, 22.2],[113.5, 21.5],[111.6, 19.8],[111.3, 18.0],[109.7, 15.5],[109.35, 13.8],[109.7, 12.2],[109.2, 10.9],[107.5, 9.0],[104.5, 6.0],[103.45, 3.8],[104.5, 1.6],[104.8, 1.35],[105.0, 0.0],[107.0, -1.0],[107.0, -4.5],[108.0, -5.3],[110.4, -6.6],[108.0, -5.3],[106.5, -3.4],[106.2, -3.05],[105.95, -2.85],[105.85, -2.65],[105.6, -2.4],[105.3, -2.2],[105.0, -2.1],[104.9, -2.25],[104.9, -1.7],[104.75, -2.4],[104.8, -3.0],[104.75, -2.4],[104.9, -1.7],[104.9, -2.25],[105.0, -2.0],[105.0, -1.5],[105.4, -0.1],[105.2, 0.1],[105.0, 0.0],[104.8, 1.35],[104.2, 1.3],[103.7, 1.15],[102.6, 1.65],[102.3, 2.2],[101.8, 2.3],[101.5, 2.6],[101.0, 2.7],[100.4, 3.6],[99.0, 4.6],[97.8, 5.5],[97.2, 5.35],[96.2, 5.7],[95.3, 5.7],[94.5, 5.8],[90.0, 5.8],[84.0, 5.6],[81.0, 5.7],[80.2, 5.8],[79.75, 6.5],[79.65, 6.9],[79.0, 7.2],[77.3, 7.7],[76.4, 8.85],[76.1, 9.95],[75.6, 11.25]],
           "uncertain": true,
           "places": [
             {
-              "at": [118.7, 24.9],
+              "at": [118.6, 24.9],
               "name": {
                 "sv": "Quanzhou",
                 "en": "Quanzhou",
@@ -1200,7 +1200,7 @@
               }
             }
           ],
-          "sources": ["wp-ming-treasure-voyages"]
+          "sources": ["wp-ming-treasure-voyages", "wikidata"]
         },
         {
           "from": 1418.5,
@@ -1290,11 +1290,11 @@
             {
               "at": [118.8, 32.1],
               "name": {
-                "sv": "Kina",
-                "en": "China",
-                "de": "China",
-                "es": "China",
-                "fr": "Chine"
+                "sv": "Kina (markören i Nanjing)",
+                "en": "China (marker at Nanjing)",
+                "de": "China (Markierung in Nanjing)",
+                "es": "China (marcador en Nankín)",
+                "fr": "Chine (repère à Nankin)"
               },
               "date": "1419-08-08",
               "dateLabel": {
@@ -1563,11 +1563,11 @@
             {
               "at": [118.8, 32.1],
               "name": {
-                "sv": "Kina",
-                "en": "China",
-                "de": "China",
-                "es": "China",
-                "fr": "Chine"
+                "sv": "Kina (markören i Nanjing)",
+                "en": "China (marker at Nanjing)",
+                "de": "China (Markierung in Nanjing)",
+                "es": "China (marcador en Nankín)",
+                "fr": "Chine (repère à Nankin)"
               },
               "date": "1422-09-03",
               "dateLabel": {
@@ -1835,19 +1835,19 @@
             {
               "at": [93.8, 7.0],
               "name": {
-                "sv": "Cuilanxu",
-                "en": "Cuilanxu",
-                "de": "Cuilanxu",
-                "es": "Cuilanxu",
-                "fr": "Cuilanxu"
+                "sv": "Cuilanxu (troligen Stora Nikobaren)",
+                "en": "Cuilanxu (probably Great Nicobar)",
+                "de": "Cuilanxu (wahrscheinlich Groß-Nikobar)",
+                "es": "Cuilanxu (probablemente Gran Nicobar)",
+                "fr": "Cuilanxu (probablement Grande Nicobar)"
               },
               "date": "1432-11-14",
               "dateLabel": {
-                "sv": "14 november 1432, troligen Stora Nikobaren",
-                "en": "14 November 1432, probably Great Nicobar",
-                "de": "14. November 1432, wahrscheinlich Groß-Nikobar",
-                "es": "14 de noviembre de 1432, probablemente Gran Nicobar",
-                "fr": "14 novembre 1432, probablement Grande Nicobar"
+                "sv": "14 november 1432: låg för ankar i tre dagar på grund av vind och vågor",
+                "en": "14 November 1432: lay at anchor for three days because of wind and waves",
+                "de": "14. November 1432: lag wegen Wind und Wellen drei Tage vor Anker",
+                "es": "14 de noviembre de 1432: fondeó tres días por el viento y las olas",
+                "fr": "14 novembre 1432 : resta trois jours au mouillage à cause du vent et des vagues"
               }
             },
             {
