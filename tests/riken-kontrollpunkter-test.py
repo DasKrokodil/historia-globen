@@ -19,6 +19,19 @@ KARELEN = (35.0, 62.5)
 NAXOS = (25.45, 37.1)
 LEVANTEN = (35.86, 33.0)
 WANGEN = (9.83, 47.69)  # Wangen im Allgäu
+# #1730, koordinater ur Wikidata
+SAARBRUCKEN_WD = (7.0, 49.233)  # Q1724
+SELFKANT = (5.917, 51.017)  # Q204743
+ELTEN = (6.16, 51.871)  # Q895714
+KEHL = (7.809, 48.571)  # Q15979
+EUPEN = (6.033, 50.633)  # Q151831
+STETTIN = (14.555, 53.425)  # Q393
+DANZIG = (18.654, 54.348)  # Q1792
+STRASBOURG = (7.752, 48.573)  # Q6602
+WARSZAWA = (21.011, 52.23)  # Q270
+KALININGRAD = (20.5, 54.717)  # Q1829
+AMSTERDAM = (4.883, 52.367)  # Q727
+RATZEBURG = (10.757, 53.702)  # Q490025
 
 # (grupp, punkt, namn, år, ska ligga i riket)
 PUNKTER = [
@@ -29,6 +42,36 @@ PUNKTER = [
     *[('frankrike', SAARBRUCKEN, 'Saarbrücken', y, False) for y in (1958, 1960, 1980, 2024)],
     *[('frankrike', CHARLOTTENBURG, 'Charlottenburg', y, False) for y in (1958, 1960, 1961, 1980)],
     *[('frankrike', WANGEN, 'Wangen im Allgäu', y, False) for y in (1958, 1960, 1980, 2024)],
+    # Saar under Nationernas förbund 1920–1934, tysk från 1935 (#1730)
+    *[(g, SAARBRUCKEN_WD, 'Saarbrücken', y, False) for g in ('weimarrepubliken', 'nazityskland', 'franska-kolonialvaldet')
+      for y in (1920, 1925, 1932, 1933, 1934)],
+    *[('franska-kolonialvaldet', SAARBRUCKEN_WD, 'Saarbrücken', y, False) for y in (1935, 1937, 1939)],
+    *[('nazityskland', SAARBRUCKEN_WD, 'Saarbrücken', y, True) for y in (1935, 1937, 1939)],
+    # Kehl: Västtyskland från 1950, inte samtidigt Frankrike
+    *[('franska-kolonialvaldet', KEHL, 'Kehl', y, False) for y in (1950, 1955, 1957)],
+    *[('vasttyskland', KEHL, 'Kehl', y, True) for y in (1950, 1957)],
+    ('franska-kolonialvaldet', STRASBOURG, 'Strasbourg', 1955, True),
+    # Selfkant och Elten: Nederländerna 1950–1962, Tyskland från 1963
+    *[('nederlanderna', p, n, 1955, True) for p, n in ((SELFKANT, 'Selfkant'), (ELTEN, 'Elten'))],
+    *[('nederlanderna', p, n, y, False) for p, n in ((SELFKANT, 'Selfkant'), (ELTEN, 'Elten')) for y in (1963, 1980, 2000)],
+    *[('vasttyskland', p, n, y, True) for p, n in ((SELFKANT, 'Selfkant'), (ELTEN, 'Elten')) for y in (1963, 1980)],
+    *[('tyskland', p, n, 2000, True) for p, n in ((SELFKANT, 'Selfkant'), (ELTEN, 'Elten'))],
+    ('nederlanderna', AMSTERDAM, 'Amsterdam', 1980, True),
+    # Ratzeburg i Västtyskland, inte i DDR; städer nära gränsen ligger kvar på rätt sida
+    *[('osttyskland', RATZEBURG, 'Ratzeburg', y, False) for y in (1949, 1960, 1980, 1990)],
+    *[('vasttyskland', RATZEBURG, 'Ratzeburg', y, True) for y in (1960, 1980)],
+    # (Wikidata: Schwerin Q1709, Erfurt Q1729, Magdeburg Q1733, Sonneberg Q499278, Lübeck Q2843, Kassel Q2865, Hof Q6938,
+    # Wolfsburg Q3014)
+    *[('osttyskland', p, n, 1970, True) for p, n in (((11.415, 53.629), 'Schwerin'), ((11.029, 50.978), 'Erfurt'),
+                                                       ((11.64, 52.132), 'Magdeburg'), ((11.167, 50.35), 'Sonneberg'))],
+    *[('vasttyskland', p, n, 1970, True) for p, n in (((10.686, 53.87), 'Lübeck'), ((9.498, 51.316), 'Kassel'),
+                                                        ((11.917, 50.317), 'Hof'), ((10.787, 52.423), 'Wolfsburg'))],
+    # Eupen i Belgien 1920–1939 och från 1945
+    *[('belgien', EUPEN, 'Eupen', y, True) for y in (1925, 1935, 1950, 2000)],
+    # Polen 1945–1952 med gränsen 1953, inte i Sovjetunionen; Sovjetunionen behåller Kaliningrad
+    *[('polen', p, n, y, True) for p, n in ((STETTIN, 'Stettin'), (DANZIG, 'Danzig'), (WARSZAWA, 'Warszawa')) for y in (1945, 1950, 1960)],
+    *[('sovjetunionen', p, n, y, False) for p, n in ((STETTIN, 'Stettin'), (DANZIG, 'Danzig'), (WARSZAWA, 'Warszawa')) for y in (1945, 1950, 1960, 1980)],
+    *[('sovjetunionen', KALININGRAD, 'Kaliningrad', y, True) for y in (1946, 1960)],
     *[('nazityskland', VAXHOLM, 'Vaxholm', y, False) for y in range(1933, 1945)],
     *[('nazityskland', KARELEN, 'ryska Karelen', y, False) for y in range(1933, 1945)],
     *[('nazityskland', LEVANTEN, 'Levanten', y, False) for y in range(1933, 1945)],

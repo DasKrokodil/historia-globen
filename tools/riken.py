@@ -82,6 +82,7 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              # Tyskland 1949–1990 och Frankrike (#1706): med 0,2 grader fylls Västberlin i DDR-ytan och Frankrikes gräns
              # buktar in över Saarland (Saarbrücken ligger cirka 5 km från gränsen)
              'osttyskland': (0.05, MERGE, MIN_AREA), 'vasttyskland': (0.05, MERGE, MIN_AREA), 'frankrike': (0.1, MERGE, MIN_AREA),
+             'belgien': (0.05, MERGE, MIN_AREA),  # Eupen ligger cirka 15 km från gränsen mot Tyskland (#1730)
              # Luxemburg och Singapore är små
              'luxemburg': (0.03, 0.02, 0.005), 'singapore': (0.02, 0.02, 0.005),
              # Malaysias förenklade gräns täckte annars en del av Singapore över Johorsundet
@@ -404,7 +405,8 @@ GROUPS = {
     'sovjetunionen': ('Sovjetunionen', 'Soviet Union', [
         # Cliopatria räknar Litauen till Sovjetunionen till och med 1991, fast Litauen är eget land från 1990 (#644)
         # Perioden delas 1949, när DDR bildas, annars ligger den sovjetiska zonen kvar över DDR till 1952 (#1329)
-        ('Union of Soviet Socialist Republics', 'sovjetunionen', 'Sovjetunionen', '#9a2a3a', {'minus': ['Republic of Lithuania'], 'splits': (1949, 1990)}),
+        # och 1953, när Polen kommer med i Cliopatria, annars ligger Polen kvar i Sovjetunionen till 1989 (#1730)
+        ('Union of Soviet Socialist Republics', 'sovjetunionen', 'Sovjetunionen', '#9a2a3a', {'minus': ['Republic of Lithuania'], 'splits': (1949, 1953, 1990)}),
     ]),
     # R6 Försvunna länder (#72). Österrike-Ungern och Sovjetunionen ovan hör också dit. Årtal, föregångare
     # och efterträdare (vanished) skrivs för hand i index.json och behålls, som facts.
@@ -845,10 +847,11 @@ GROUPS = {
     'elfenbenskusten': ('Elfenbenskusten', 'Ivory Coast', [
         ("Republic of Côte d'Ivoire", 'elfenbenskusten', 'Elfenbenskusten', '#5aa06a', {'en': 'Ivory Coast'}),
     ]),
-    # Cliopatria saknar Polen 1940–1952
+    # Cliopatria saknar Polen 1940–1952; 1945–1952 visas Polen med gränsen 1953 (#1730)
     'polen': ('Polen', 'Poland', [
         ('Second Polish Republic', 'andra-polska-republiken', 'Andra polska republiken', '#c04050', {'en': 'Second Polish Republic'}),
-        ('Republic of Poland', 'polen', 'Polen', '#c04050', {'en': 'Poland'}),
+        # 1945–1952 med gränsen 1953 (#1730, #1332): Cliopatria räknar landet till Sovjetunionen de åren
+        ('Republic of Poland', 'polen', 'Polen', '#c04050', {'en': 'Poland', 'fill': [(1945, 1952, ('Republic of Poland', 1953))]}),
     ]),
     # Oman 1744–1899 och från 1973, Muskat och Oman 1900–1955. Cliopatria saknar Muskat och Oman 1947–1955 och har i
     # stället en post "Qatar Protectorate" med exakt samma gräns som Muskat och Oman 1946; de åren ritas Muskat och Oman
@@ -1811,6 +1814,38 @@ DISPUTED = {
     # till Frankrike 1950–2023; i Femte republiken tas den bort
     'frankrike-lindau': {'area': ('rutor', [(9.3, 47.3, 10.4, 48.0)]), 'parts': True,
                          'from': 1958, 'remove': ['frankrike'], 'add': []},
+    # Tyskland 1920–1990, fortsättning (#1730). Saarområdet styrdes av Nationernas förbund 1920 till 1 mars 1935
+    # (en.wikipedia "Territory of the Saar Basin"); Cliopatria räknar det till Frankrike till och med 1931 och till
+    # Weimarrepubliken 1932–1935. Det visas utan stat 1920–1934. Området är Frankrikes gräns 1931 minus gränsen 1932.
+    # strict: förenklingen av Frankrike (0,3 grader) buktar annars in över Saarbrücken, också 1935–1939
+    'saar-nf': {'area': (('French Third Republic', 1931), ('French Third Republic', 1932)), 'from': 1920, 'to': 1934,
+                'strict': True, 'remove': ['weimarrepubliken', 'nazityskland'], 'add': []},
+    'saar-frankrike': {'area': (('French Third Republic', 1931), ('French Third Republic', 1932)), 'from': 1920,
+                       'to': 1939, 'strict': True, 'remove': ['franska-kolonialvaldet'], 'add': []},
+    # Kehl: Cliopatria räknar staden till Förbundsrepubliken från 1950 och till Fjärde republiken till och med 1949
+    # (en.wikipedia "Kehl": frigiven i 42 delar 29 juli 1949–8 april 1953). Fjärde republiken har sin gräns från 1949
+    # också 1950–1957 efter sammanslagningen och förenklingen; Västtysklands gräns klipps bort ur den från 1950
+    'kehl': {'area': ('clio', 'Federal Republic of Germany', 1950), 'from': 1950, 'to': 1957, 'strict': True,
+             'remove': ['franska-kolonialvaldet'], 'add': []},
+    # Selfkant och Elten: annekterade av Nederländerna 23 april 1949 och tillbaka till Västtyskland 1 augusti 1963
+    # (en.wikipedia "Dutch annexation of German territory after the Second World War"). Cliopatria räknar dem till
+    # Nederländerna alla år. Området är den del av Cliopatrias Nederländerna som ligger inom Tysklands gräns i Natural
+    # Earth (utan Duivelsberg, som är kvar i Nederländerna)
+    'selfkant-elten': {'area': ('ne-snitt', 'tyskland', ('Netherlands', 1970)), 'from': 1963, 'strict': True,
+                       'remove': [], 'add': ['vasttyskland', 'tyskland']},
+    # Ur Nederländerna klipps hela Tysklands gräns i Natural Earth, så att den förenklade gränsen inte buktar in igen
+    'selfkant-elten-nl': {'area': ('ne', ['tyskland']), 'from': 1963, 'strict': True, 'remove': ['nederlanderna'], 'add': []},
+    # Ratzeburg: Cliopatrias gräns mellan DDR och Västtyskland är grov, och Ratzeburg i Schleswig-Holstein ligger i DDR.
+    # Västtysklands delstater längs gränsen (Natural Earth admin 1) klipps ur DDR, och den del av DDR som ligger i dem
+    # läggs till Västtyskland
+    'granslander-ddr': {'area': ('ne', ['vasttyska-granslander']), 'from': 1949, 'to': 1990, 'strict': True,
+                        'remove': ['osttyskland'], 'add': []},
+    'granslander-brd': {'area': ('ne-snitt', 'vasttyska-granslander', ('German Democratic Republic', 1960)), 'from': 1950,
+                        'to': 1990, 'strict': True, 'remove': [], 'add': ['vasttyskland']},
+    # Polen 1945–1952 (#1332, docs/beslut/2026-11-13-ockupation-och-inbordeskrig.md): Cliopatria saknar Polen och räknar
+    # landet till Sovjetunionen. Polen visas med sin gräns 1953 (fill i GROUPS), och den klipps bort ur Sovjetunionen
+    'polen-sovjet': {'area': ('clio', 'Republic of Poland', 1953), 'from': 1945, 'to': 1952,
+                     'remove': ['sovjetunionen'], 'add': []},
     # Nazi Germany har småbitar (mest vatten mellan grannarnas gränser) i länder som Tyskland aldrig höll eller ännu inte
     # hade ockuperat. ('rutor', [(väst, syd, öst, nord), ...]) med 'parts': bara de delar av riket som ligger helt inne i en
     # ruta tas bort, så att rutan aldrig klipper i rikets sammanhängande yta
@@ -1877,6 +1912,14 @@ def apply_disputed(items, gid, areas):
                 out.append((s, e, ng, km2(ng)))
         items = out
     return items
+
+
+def polygons_only(g):
+    """Bara polygonerna i en geometri (en differens kan ge en GeometryCollection med linjer och punkter, #1730)."""
+    if g.geom_type in ('Polygon', 'MultiPolygon'):
+        return g
+    parts = [x for x in getattr(g, 'geoms', []) if x.geom_type in ('Polygon', 'MultiPolygon')]
+    return unary_union(parts) if parts else Polygon()
 
 
 def drop_parts_within(g, area):
@@ -2000,7 +2043,8 @@ def extend(by_name, ext):
 
 
 # Koordinaterna avrundas till 0.1 grad, utom för små länder där gränsen annars hamnar fel (#644)
-DECIMALS = {'israel': 2, 'palestina': 2, 'osttyskland': 2, 'vasttyskland': 2, **{g: 3 for g in SMALL_STATES},
+# tyskland och nederlanderna med två decimaler: Selfkant och Elten är cirka 0,1 grad breda (#1730)
+DECIMALS = {'israel': 2, 'palestina': 2, 'osttyskland': 2, 'vasttyskland': 2, 'tyskland': 2, 'nederlanderna': 2, **{g: 3 for g in SMALL_STATES},
             'chimor': 2, 'purepecha': 2, 'inkariket': 2,  # #556
             'oyoriket': 2, 'ashantiriket': 2, 'gronland-koloni': 2, 'danska-indien': 3, 'danska-guldkusten': 3}  # #1388
 
@@ -2325,7 +2369,7 @@ def main():
                 # label i GROUPS ersätter den uträknade punkten (små stater: huvudstaden, #722)
                 lab = list(opts['label']) if opts.get('label') else [round(c.x, 1), round(c.y, 1)]
                 q = {'start': start, 'end': end, 'areaKm2': round(area),
-                     'label': lab, '_shape': gc,
+                     'label': lab, '_shape': gc, '_g': g,
                      'geometry': {'type': mapping(g)['type'], 'coordinates': rnd(mapping(g)['coordinates'], DECIMALS.get(gid, 1))}}
                 # Huvudlandet (#74): den del av riket som är moderlandet. Den ritas kraftigare och får rikets namn.
                 if home and 'homeland' in opts:
@@ -2336,17 +2380,36 @@ def main():
                         q['homeland'] = {'type': mapping(hg)['type'], 'coordinates': rnd(mapping(hg)['coordinates'])}
                         q['_home'] = hg
                 periods.append(q)
+            # strict (#1730): områden i DISPUTED som klipps bort också efter förenklingen, och vars år delar perioderna
+            # (borttagna ur gruppen, eller tillagda med add), så att en liten ändring inte slås ihop med perioden före
+            strict = [(d, disputed[k], gid in d['remove']) for k, d in DISPUTED.items()
+                      if d.get('strict') and (gid in d['remove'] or gid in d['add'])]
+            splits = set(opts.get('splits', ())) | {y for d, _a, _r in strict for y in (d['from'], d.get('to', 9999) + 1)}
             merged = []
             for q in periods:
                 # splits: år där perioderna aldrig slås ihop, så att en liten men viktig ändring syns (#644)
-                if merged and merged[-1]['end'] + 1 >= q['start'] and q['start'] not in opts.get('splits', ()):
+                if merged and merged[-1]['end'] + 1 >= q['start'] and q['start'] not in splits:
                     a, b = merged[-1]['_shape'], q['_shape']
                     if a.symmetric_difference(b).area < merge * a.area and same_homeland(merged[-1], q, merge):
                         merged[-1]['end'] = q['end']
                         continue
                 merged.append(q)
             for q in merged:
+                on = [(a, r) for d, a, r in strict if d['from'] <= q['start'] and q['end'] <= d.get('to', 9999)]
+                if on:
+                    # Förenklingen kan bukta in över ett område som är borttaget ur Cliopatrias gräns (Saarbrücken och
+                    # Kehl ligger några km från gränsen, franska kolonialväldet förenklas med 0,3 grader), så det klipps igen
+                    g = q['_g']
+                    for a, r in on:
+                        g = polygons_only(g.difference(a) if r else unary_union([g, a]))
+                    q['geometry'] = {'type': mapping(g)['type'], 'coordinates': rnd(mapping(g)['coordinates'], DECIMALS.get(gid, 1))}
+                    if '_home' in q:
+                        hg = q['_home']
+                        for a, r in on:
+                            hg = polygons_only(hg.difference(a)) if r else hg
+                        q['homeland'] = {'type': mapping(hg)['type'], 'coordinates': rnd(mapping(hg)['coordinates'])}
                 del q['_shape']
+                q.pop('_g', None)
                 q.pop('_home', None)
             if not merged:
                 print('saknas i Cliopatria:', cname)
@@ -2452,6 +2515,10 @@ def main():
              'Källfel i Cliopatria, Tyskland 1920–1990 (#1706): Västberlin räknas inte till DDR 1973–1975 och inte till Femte franska '
              'republiken; Nazi Germanys småbitar i Sverige, ryska Karelen och Levanten, och före ockupationerna i Norge, Estland och '
              'på Naxos, är borttagna (DISPUTED i tools/riken.py). Västtyskland delas 1958, när Saarland kommer med i Cliopatria. '
+             'Fortsättning (#1730): Saarområdet visas utan stat 1920–1934 (Nationernas förbund), Kehl hör inte till Frankrike från 1950, '
+             'Selfkant och Elten hör till Västtyskland från 1963 (gränsen ur Natural Earth), gränsen mellan DDR och Västtyskland följer '
+             'Västtysklands delstater i Natural Earth (ne_10m_admin_1_states_provinces 5.1.2), och Polen 1945–1952 visas med gränsen '
+             '1953. Områden med strict i DISPUTED klipps bort eller läggs till också efter förenklingen. '
              'Små stater (#722): tolv länder som Cliopatria saknar i nutid eller har fel gräns för har gränsen ur Natural Earth '
              '(ne_10m_admin_0_countries 5.1.1, public domain), från självständigheten, och polity.point = true: de visas som en punkt med namn.')
     (out / 'index.json').write_text(json.dumps({'schema': 'historia-globen/empires-index@1', 'notes': notes, 'groups': index},
