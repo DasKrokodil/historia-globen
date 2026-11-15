@@ -23,6 +23,8 @@
   --ok: #8fc48e;
   --medal: #10202c;        /* markörernas botten (#242), samma som GROUND i layers/events.js */
   --gold-dot: #f1d98a;     /* markörernas punkt för betydelse */
+  --map-sea-label: #a9cde4; /* regionvyns havsnamn (#1642): ljusblått med mörk kant, 8,9:1 mot --night och 7,7:1 mot --ocean */
+  --map-land-label: #e2d6b8;/* regionvyns grannländer (#1642): versaler med mörk kant */
   /* Lagerordning för ytorna (#894), lägst först. Siffrorna är oförändrade; namnen gör ordningen läsbar.
      kort < tur < panel (och faktaruta över turkort) < band (lektionsbandet, utfällda ark) < meny. */
   --z-kort: 13;            /* faktarutan, jaktkortet och andra kort som ligger på kartan */
@@ -1323,6 +1325,72 @@ html.calm .year-tip { animation: none; }
 .flat-region-back:hover { border-color: var(--brass); color: var(--brass); }
 .flat-region-back:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
 .app.region-view .religion-legend { display: none; }
+/* Regionvyns markörer (#1642): numrerade markörer i kategorins färg med mörk kant, högar med ortnamn och årsspann, brickan för
+   händelser som gäller hela platsen och etiketten vid den markerade markören. Alla är knappar i kartans etikettlager. */
+.region-marks { position: absolute; inset: 0; pointer-events: none; isolation: isolate; }
+.region-marks[hidden] { display: none; }
+.rmark, .rpile, .rbrick { position: absolute; left: 0; top: 0; pointer-events: auto; cursor: pointer; box-sizing: border-box; }
+.rmark {
+  width: 24px; height: 24px; padding: 0; border: 0; border-radius: 50%;
+  display: grid; place-items: center;
+  font: 600 11px/1 var(--f-mono); color: var(--night);
+  background: var(--c, var(--brass));
+  /* Mörk kant: markören syns både på pergamentfärgat land och på mörkt hav */
+  box-shadow: 0 0 0 2px var(--night), 0 0 0 3px color-mix(in srgb, var(--parchment) 55%, transparent);
+}
+/* Ungefärlig plats: en streckad ring runt markören, inte en exakt prick */
+.rmark.is-approx::after {
+  content: ""; position: absolute; inset: -6px; border-radius: 50%;
+  border: 2px dashed var(--parchment); box-shadow: 0 0 0 1px var(--night), inset 0 0 0 1px var(--night);
+  pointer-events: none;
+}
+.rmark.is-marked { box-shadow: 0 0 0 2px var(--night), 0 0 0 5px var(--brass), 0 0 0 6.5px var(--night); z-index: 3; }
+.rmark.rfan { z-index: 2; }
+.rmark.is-under, .rpile.is-under { opacity: .3; }
+.rmark.rfan.is-marked { z-index: 3; }
+.rpile {
+  width: 30px; height: 30px; padding: 0; display: grid; place-items: center;
+  font: 600 12px/1 var(--f-mono); color: var(--parchment); background: var(--night);
+  border: 2px solid var(--brass); border-radius: 50%;
+  /* Högen: en rund bricka till bakom, förskjuten, som en hög mynt */
+  box-shadow: 0 0 0 1.5px var(--night), 3px 3px 0 0 var(--night-3), 3px 3px 0 1.5px var(--brass-deep);
+}
+/* Högens namn och årsspann: bredvid brickan, där regionvyn hittar plats (data-tag sätts i js/ui/region-marks.js) */
+.rpile-tag {
+  position: absolute; display: grid; gap: 1px; padding: 2px 7px; border-radius: 6px; white-space: nowrap; text-align: left;
+  background: color-mix(in srgb, var(--night) 88%, transparent); border: 1px solid var(--brass-deep);
+  visibility: hidden; left: calc(100% + 4px); top: 50%; transform: translateY(-50%);
+}
+.rpile[data-tag="right"] .rpile-tag, .rpile[data-tag="left"] .rpile-tag, .rpile[data-tag="above"] .rpile-tag, .rpile[data-tag="below"] .rpile-tag { visibility: visible; }
+.rpile[data-tag="left"] .rpile-tag { left: auto; right: calc(100% + 4px); text-align: right; }
+.rpile[data-tag="above"] .rpile-tag { left: 50%; top: auto; bottom: calc(100% + 4px); transform: translateX(-50%); text-align: center; }
+.rpile[data-tag="below"] .rpile-tag { left: 50%; top: calc(100% + 4px); transform: translateX(-50%); text-align: center; }
+.rpile-name { font: 600 12px/1.2 var(--f-body); color: var(--parchment); }
+.rpile-years { font: 400 10.5px/1.2 var(--f-mono); color: var(--parchment-dim); }
+.rpile[aria-expanded="true"] { border-color: var(--brass-light); background: var(--night-2); }
+.rpile.is-marked, .rpile.is-hover, .rbrick.is-marked { outline: 3px solid var(--brass-light); outline-offset: 2px; }
+.rbrick {
+  min-height: 30px; padding: 4px 12px; white-space: nowrap;
+  font: 600 12.5px/1.2 var(--f-body); color: var(--parchment);
+  background: color-mix(in srgb, var(--night) 94%, transparent);
+  border: 2px dashed var(--brass); border-radius: 999px;
+  box-shadow: 0 0 0 1.5px var(--night);
+}
+.rbrick[aria-expanded="true"] { border-style: solid; border-color: var(--brass-light); }
+.rmark:focus-visible, .rpile:focus-visible, .rbrick:focus-visible, .region-label:focus-visible { outline: 2px solid var(--brass-light); outline-offset: 4px; }
+.region-label { z-index: 4; border-color: var(--brass); }
+/* Pekskärm: 44 px träffyta runt markörerna utan att de ritas större */
+@media (max-width: 760px), (pointer: coarse) {
+  .rmark::before { content: ""; position: absolute; inset: -10px; border-radius: 50%; }
+}
+/* Raderna i platsens lista får markörernas nummer medan regionvyn är öppen, och en ram när de är markerade */
+.region-num {
+  display: inline-grid; place-items: center; min-width: 20px; height: 20px; margin-right: 6px; padding: 0 3px; box-sizing: border-box;
+  vertical-align: 1px; border-radius: 50%; font: 600 10.5px/1 var(--f-mono); color: var(--night); background: var(--brass);
+}
+.region-num.is-whole { border-radius: 6px; }
+.region-num.is-approx { outline: 1.5px dashed var(--card-dim, var(--parchment-dim)); outline-offset: 1.5px; }
+.theme-event.is-region-marked { outline: 2px solid var(--brass); background: rgba(255, 255, 255, .06); }
 /* Raden överst i Lager medan regionvyn är öppen: valen i menyn gäller inte kartan just då */
 .layer-region-note { margin: 0 0 8px; padding: 6px 8px; font: 400 12px/1.35 var(--f-body); color: var(--parchment); border-left: 2px solid var(--brass); }
 .layer-region-note[hidden] { display: none; }
