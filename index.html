@@ -58,6 +58,18 @@
 <div class="app" id="app">
   <canvas id="globe-canvas" class="globe-canvas" tabindex="0" role="region" aria-roledescription="interaktiv jordglob" data-i18n-aria-roledescription="globe.role" aria-label="Snurrbar jordglob. Dra för att snurra, scrolla eller nyp för att zooma. Med tangentbord: piltangenter snurrar, plus och minus zoomar, Escape går till årskontrollen. Enter följer platsen i mitten av vyn, om den har ett kort. Händelserna finns också i listan Samtidigt i världen." data-i18n-aria-label="globe.label"></canvas>
   <div id="labels" class="labels"></div>
+  <!-- Regionvyn på globen (#1644): markörerna och ortnamnen ovanpå klotet när det har flugit in till en stor plats, och rutan med
+       vägen ut; texterna skrivs av js/controllers/region.js -->
+  <div id="globe-region" class="globe-region" hidden>
+    <canvas id="globe-region-canvas" class="globe-region-canvas" aria-hidden="true"></canvas>
+    <div id="globe-region-labels" class="flat-labels globe-region-labels"></div>
+  </div>
+  <div id="globe-region-chip" class="flat-region globe-region-chip" role="group" aria-labelledby="globe-region-name" hidden>
+    <p id="globe-region-name" class="flat-region-name"></p>
+    <p id="globe-region-note" class="flat-region-note"></p>
+    <p class="flat-region-legend"><span class="flat-region-ring" aria-hidden="true"></span><span id="globe-region-legend-text"></span></p>
+    <button id="globe-region-back" class="flat-region-back" type="button"></button>
+  </div>
 
   <!-- Platt vy (#292) ligger direkt efter globen, så att årtalet, korten och panelerna hamnar ovanpå kartan -->
   <div id="flat-view" class="flat-view" hidden>

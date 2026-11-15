@@ -184,7 +184,8 @@ export class LayerRegistry {
    * Ritar alla lager på lagerbilden i ordning efter z, nedifrån och upp. Dämpade lager ritas via
    * drawFaded(draw, alpha), som lägger dem genomskinligt på bilden (Globe.drawFaded).
    * view (#1641): { region: true, unit } i regionvyns skarpa karta; då ritas bara lagren med `region` i sin post, och de får
-   * view som fjärde argument.
+   * view som fjärde argument. I regionvyn på globen (#1644) är view { region: true } utan unit: lagret räknar då måttet själv ur
+   * bildens storlek (placePx), eftersom globens 4096-bild och skarpa utsnitt ritas som vanligt.
    */
   draw(ctx, W, H, state, drawFaded, view = null) {
     const passes = this.entries.filter(e => !view?.region || e.region)

@@ -108,14 +108,17 @@ export function createRender(app) {
   // I fokusläget dämpas påslagna lager som inte hör till det man följer (#235); "Behåll mina lager" visar dem som vanligt.
   // Under en övergång för riken (#78) ritas bara lagerbilden om, en gång per bildruta, tills övergången är klar;
   // annars ritas inget mellan refresh.
-  globe.detail.setLayers((ctx, W, H, drawFaded) => registry.draw(ctx, W, H, state, drawFaded));
+  // Regionvyn på globen (#1644): som i Platt vys regionvy ritas bara lagren som räknar i skärmpixlar (platsens linje med omgivningen
+  // nedtonad); world-lagren kommer tillbaka när vyn lämnas. Utan den är allt som förut
+  const globeView = () => (app.region?.globeOpen ? { region: true } : null);
+  globe.detail.setLayers((ctx, W, H, drawFaded) => registry.draw(ctx, W, H, state, drawFaded, globeView()));
   // Regionvyns skarpa karta i Platt vy (#1641): bara lagren som räknar i skärmpixlar (`region` i posten), unit = bildpunkter per skärmpixel
   flatMap.setRegionLayers((ctx, W, H, drawFaded, unit) => registry.draw(ctx, W, H, state, drawFaded, { region: true, unit }));
   let overlayRaf = 0;
   function drawOverlay() {
     cancelAnimationFrame(overlayRaf); overlayRaf = 0;
     const ctx = globe.overlayContext();
-    registry.draw(ctx, globe.overlayCanvas.width, globe.overlayCanvas.height, state, (draw, alpha) => globe.drawFaded(draw, alpha));
+    registry.draw(ctx, globe.overlayCanvas.width, globe.overlayCanvas.height, state, (draw, alpha) => globe.drawFaded(draw, alpha), globeView());
     globe.commitOverlay();
     globe.detail.layersChanged(); // det skarpa utsnittet vid inzoomning ritas om när det blir stilla
     flatMap.draw(); // Platt vy ritas om med samma bilder (gör inget när den är stängd)

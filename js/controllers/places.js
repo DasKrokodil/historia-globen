@@ -131,6 +131,8 @@ export function createPlaces(app) {
    * cirka 5 grader, Skåne och Danmark) får regionvyn i stället (#1641, controllers/region.js): en skarp, inzoomad karta.
    */
   function showInFlat(place) {
+    // En stor plats (Aotearoa, Grönland) får regionvyn på globen (#1644): globen flyger in, och Platt vy öppnas inte
+    if (app.region?.onGlobe(place)) { app.region.enter(place); return; }
     app.viewMode.set('flat');
     if (app.region?.eligible(place)) { app.region.enter(place); return; }
     // På bred skärm ligger kortet till höger och täcker kartan: inramningen räknar bara med ytan till vänster om det
