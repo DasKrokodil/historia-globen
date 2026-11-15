@@ -217,6 +217,8 @@ En fil per plats i `data/platser.json`, `data/ortnamn/<platsens id>.json`, så a
 
 **Storlek (mätt 2026-11-14):** före fanns inga ortnamn (0 byte). Efter: fem filer på sammanlagt 46,6 kB (9,1 kB med gzip). Skåne 2,2 kB (0,7 kB gzip, 8 orter, 1 grannland, 3 hav), Danmark 8,4 kB (2,1 kB gzip), Aotearoa 10,1 kB, Sverige och Grönland 13,0 kB vardera (cirka 3 kB gzip). Natural Earths filer som verktyget läser är tillsammans 34 MB. En omkörning ger samma filer byte för byte.
 
+**Användning (#1642):** regionvyn laddar filen när vyn öppnas för platsen (`loadOrtnamn()` i `js/model.js`) och ritar orter, grannländer och hav utan krockar med markörerna och utan att lägga dem över platsens kantlinje (`js/region-markers.js`). En ort inom 5 km från en händelse räknas som en ort med händelser, går före i placeringen och ger en hög markörer sitt namn.
+
 ## `teman.json`: teman (#398)
 
 **Fastställt format (#950, beslut [2026-11-08-temaformat-398.md](beslut/2026-11-08-temaformat-398.md), frågorna 1–4 på #398 besvarade av DasKrokodil 2026-11-08), byggt i #962:** filen `data/teman.json` (tom lista), schemat `schemas/teman.schema.json`, kontrollen i `scripts/validate-site.py` och temat i Fokus. Ett tema är ett **namngivet urval av befintliga händelser** med en introduktion, till exempel teknik (#105). Temat lägger inte till några fakta: allt historiskt innehåll ligger kvar i händelserna och deras källor.

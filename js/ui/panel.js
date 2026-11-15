@@ -632,6 +632,9 @@ export class Panel {
         <ul class="theme-events place-empires">${empires.rows.map(empireItem).join('')}</ul>
         <p class="theme-filter-note place-empires-note">${esc(empires.note)}</p>
       </details>` : '';
+    // Raderna är knappar med data-theme-event i händelsernas ordning. Regionvyn (js/controllers/region.js, #1642) läser dem: den sätter
+    // markörernas nummer först på raderna och en ram på den markerade raden, och följer kortet med en MutationObserver. Ändras
+    // markupen här ändras regionvyn också (provet i tests/regionvy-markorer.test.mjs fallerar då)
     const items = events.map(e => `<li><button type="button" class="theme-event" data-theme-event="${esc(e.id)}"><span class="theme-event-year">${esc(formatEventTime(e))}</span> <span${langAttr(e.title)}>${esc(t(e.title))}</span>${e.start < MIN_YEAR ? ` <span class="theme-event-note">${esc(ui('theme.beforeScale'))}</span>` : ''}</button></li>`).join('');
     this.detail.innerHTML = `
       <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>

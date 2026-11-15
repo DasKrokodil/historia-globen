@@ -5,11 +5,12 @@ const RADIUS = 30; // px på skärmen
 
 /**
  * items: [{ e, p, keep }] där p = skärmposition och keep = får inte klustras.
+ * radius: hur nära (skärmpixlar) två händelser ska ligga för att slås ihop; regionvyns högar (#1642) använder en mindre radie.
  * Returnerar { singles: [item], clusters: [{ x, y, members: [item] }] }.
  */
-export function cluster(items) {
+export function cluster(items, radius = RADIUS) {
   const singles = [], groups = [];
-  const cell = RADIUS, grid = new Map();
+  const cell = radius, grid = new Map();
   const keyOf = (x, y) => `${Math.floor(x / cell)},${Math.floor(y / cell)}`;
   for (const it of items) {
     if (it.keep) { singles.push(it); continue; }
@@ -18,7 +19,7 @@ export function cluster(items) {
     for (let dx = -1; dx <= 1 && !target; dx++) {
       for (let dy = -1; dy <= 1 && !target; dy++) {
         for (const gr of grid.get(`${cx + dx},${cy + dy}`) ?? []) {
-          if (Math.hypot(gr.x - it.p.x, gr.y - it.p.y) < RADIUS) { target = gr; break; }
+          if (Math.hypot(gr.x - it.p.x, gr.y - it.p.y) < radius) { target = gr; break; }
         }
       }
     }

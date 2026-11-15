@@ -650,6 +650,24 @@ export function loadPlaces() {
   return placesPromise;
 }
 
+/**
+ * Ortnamn för regionvyn (data/ortnamn/<plats>.json, #1643, #1642): orter, grannländer och hav runt en plats, skrivna av
+ * tools/ortnamn.py ur Natural Earth. Laddas först när regionvyn öppnas för platsen, en gång per plats. En fil som saknas eller inte
+ * går att läsa ger null; regionvyn fungerar ändå, utan namn.
+ */
+const ortnamnPromises = new Map();
+export function loadOrtnamn(id) {
+  if (!/^[a-z0-9-]+$/.test(String(id))) return Promise.resolve(null);
+  if (!ortnamnPromises.has(id)) {
+    ortnamnPromises.set(id, getJSON(`data/ortnamn/${id}.json`).then(doc => (doc?.place === id ? doc : null)).catch(err => {
+      console.warn('Ortnamnen kunde inte laddas', err);
+      ortnamnPromises.delete(id); // ett tillfälligt nätfel: nästa gång vyn öppnas försöker den igen
+      return null;
+    }));
+  }
+  return ortnamnPromises.get(id);
+}
+
 let themesPromise = null;
 export function loadThemes() {
   themesPromise ??= getJSON('data/teman.json').then(doc => (Array.isArray(doc?.themes) ? doc.themes : [])
