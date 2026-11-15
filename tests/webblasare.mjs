@@ -3418,23 +3418,30 @@ async function run(browser, vp) {
   await check('liggande telefon: kortets kryss och knapp går att trycka på, och inget täckt går att fokusera, vid fyra storlekar (#1667)', async () => {
     // Reglerna för liggande telefon gäller bara med pointer: coarse. Chromium ger det redan med hasTouch, Firefox först med isMobile:
     // utan det var arket i läget helt lika lågt som halvt i Firefox, och draget i handtaget gav halvt (#1174)
-    const { tp, tctx, errs } = await touchPage(vp, { isMobile: true });
+    // Varje storlek får ett eget sammanhang med storleken från början: setViewportSize på en sida med isMobile blev aldrig klar i
+    // Firefox (kontrollen stannade vid "800 × 360: storlek", körning 43723342500)
+    let tp, tctx;
+    const contexts = [], errLists = [];
     // Firefox-jobbet nådde två gånger tidsgränsen på 60 minuter i datorbredden med den här kontrollen, utan logg (#1667). En gräns
     // på 4 minuter med det steg kontrollen stod på gör ett stopp till ett fel med plats, och resten av sviten hinner köras.
     let stage = 'start';
     let limitTimer;
     const limit = new Promise((_, reject) => { limitTimer = setTimeout(() => reject(new Error(`kontrollen stannade i mer än 4 minuter vid: ${stage}`)), 240000); });
     const run = (async () => {
-      if (!(await tp.evaluate(() => matchMedia('(pointer: coarse)').matches))) throw new Error('sidan har inte pointer: coarse, så provet prövar inte en telefon');
       const out = [];
       for (const [width, height] of [[800, 360], [844, 390], [640, 360], [667, 375]]) {
-        stage = `${width} × ${height}: storlek`;
-        await tp.setViewportSize({ width, height });
+        stage = `${width} × ${height}: ny sida i den storleken`;
+        if (tctx) await tctx.close().catch(() => {});
+        const pg = await touchPage({ width, height }, { isMobile: true });
+        ({ tp, tctx } = pg);
+        contexts.push(tctx);
+        errLists.push(pg.errs); // sidfelen från varje sida (touchPage räknar redan bort avbrutna hämtningar)
         stage = `${width} × ${height}: sidan laddas`;
         await tp.goto(`${BASE}?ny=liggande1667w${width}#y=1827&f=place:skane`);
         await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
         await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
         await tp.waitForTimeout(600);
+        if (!(await tp.evaluate(() => matchMedia('(pointer: coarse)').matches))) throw new Error(`${width} × ${height}: sidan har inte pointer: coarse, så provet prövar inte en telefon`);
         const wide = width > 760;
         const name = `${width} × ${height}`;
         const sheet = () => tp.evaluate(() => document.getElementById('detail').dataset.sheet);
@@ -3520,6 +3527,7 @@ async function run(browser, vp) {
           if (tap.w < 43.5 || tap.h < 43.5) throw new Error(`${name}: krysset på ett händelsekort har tryckyta ${Math.round(tap.w)} × ${Math.round(tap.h)} px`);
         }
       }
+      const errs = errLists.flat();
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
       return out.join(', ');
     })();
@@ -3528,7 +3536,7 @@ async function run(browser, vp) {
     } finally {
       clearTimeout(limitTimer);
       run.catch(() => {}); // har gränsen slagit till fortsätter run i bakgrunden tills sammanhanget stängs
-      await Promise.race([tctx.close().catch(() => {}), new Promise(r => setTimeout(r, 10000))]);
+      await Promise.race([Promise.all(contexts.map(c => c.close().catch(() => {}))), new Promise(r => setTimeout(r, 10000))]);
     }
   });
 
