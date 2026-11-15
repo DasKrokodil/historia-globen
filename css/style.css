@@ -1306,6 +1306,18 @@ html.calm .year-tip { animation: none; }
 .flat-zbtn:hover { border-color: var(--brass); color: var(--brass); }
 .flat-poster { width: auto; min-width: 40px; padding: 0 10px; font-size: 13px; }
 @media (max-width: 760px) { .flat-zbtn { width: 44px; height: 44px; } }
+/* Zoomknapparna täcks aldrig av faktarutan (#1660). På dator ligger kortet vid högerkanten och kan vara högre än avståndet till
+   knapparna, så så länge det är öppet flyttas knapparna till vänster om det: kortets yttre bredd + 12 px luft. Bredden på
+   .detail-card gäller innehållet (content-box), så fyllningen och kanten läggs till: 2 × 16 + 2 px i vanligt läge, 2 × 22 + 2 px i
+   presentationsläget (samma bredder som .detail-card och presentationsläget har; webbläsartestet mäter att inget täcks). I mobil
+   ligger kortet som ark nertill och knapparna uppe till höger, som förut. */
+@media (min-width: 761px) {
+  .app:has(#detail:not([hidden])) .flat-zoom { right: calc(var(--gut-r) + min(360px, calc(100vw - 32px)) + 34px + 12px); }
+  .app.presentation-mode:has(#detail:not([hidden])) .flat-zoom { right: calc(var(--gut-r) + min(460px, calc(100vw - 48px)) + 46px + 12px); }
+}
+@media (min-width: 1600px) {
+  .app.presentation-mode:has(#detail:not([hidden])) .flat-zoom { right: calc(var(--gut-r) + min(520px, calc(100vw - 64px)) + 46px + 12px); }
+}
 /* Regionvyn (#1641): rutan uppe till vänster säger vilken plats som visas och har vägen ut. Rikenas och religionernas
    förklaring döljs där, eftersom de lagren inte ritas i regionvyn (js/controllers/region.js räknar ramen utan rutan). */
 .flat-region {
