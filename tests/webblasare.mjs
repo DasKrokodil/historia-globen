@@ -3519,7 +3519,8 @@ async function run(browser, vp) {
       await last.waitFor({ state: 'visible', timeout: T.step });
       await last.scrollIntoViewIfNeeded();
       const layout = await tp.evaluate(() => {
-        const menu = document.getElementById('focus-menu'), body = menu.querySelector('.focus-body'), last = body.querySelector('[data-key]:last-child');
+        // samma rad som locator(...).last() ovan: den sista i hela listan, inte den sista i sin grupp (:last-child)
+        const menu = document.getElementById('focus-menu'), body = menu.querySelector('.focus-body'), last = [...body.querySelectorAll('[data-key]')].pop();
         const m = menu.getBoundingClientRect(), b = body.getBoundingClientRect(), r = last.getBoundingClientRect();
         return { menuBottom: m.bottom, bodyHeight: b.height, bodyScroll: body.scrollHeight, lastTop: r.top, lastBottom: r.bottom, bodyTop: b.top, bodyBottom: b.bottom, wide: document.documentElement.scrollWidth > innerWidth };
       });
@@ -4024,7 +4025,7 @@ async function run(browser, vp) {
     const c = await placeTourPage('#t=test-plats', 'platsenter3');
     try {
       await c.tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
-      await enterSays(c.tp, /Enter öppnar ingen plats under en tur\. Välj ”Avsluta turen” först\./, 'tur');
+      await enterSays(c.tp, /Enter öppnar ingen plats under en tur\. Välj ”Lämna turen” först\./, 'tur');
       if (!(await c.tp.isVisible('#tour-card'))) throw new Error('Enter avslutade turen');
       if (c.errs.length) throw new Error(`fel i konsolen: ${c.errs.join(' | ')}`);
     } finally { await c.tctx.close(); }
