@@ -4577,6 +4577,57 @@ async function run(browser, vp) {
     return out.join('; ');
   });
 
+  // #1694: breda liggande pekskärmar fick bara 16 px turkort. Jämför med de smala storlekar som redan fungerade.
+  await check('liggande pekskärm: tur och lektion har nåbara knappar vid låg höjd (#1694)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet (provar själv fyra pekskärmsstorlekar)';
+    const out = [];
+    for (const [width, height] of [[800, 360], [844, 390], [640, 360], [667, 375]]) {
+      for (const lesson of [false, true]) {
+        const { tp, tctx, errs } = await touchPage({ width, height });
+        try {
+          await tp.goto(`${BASE}#t=andra-varldskriget${lesson ? '&m=lektion' : ''}`, { waitUntil: 'domcontentloaded' });
+          await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+          await tp.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
+          await tp.waitForSelector('#pause-note', { state: 'visible', timeout: T.step });
+          const measure = () => tp.evaluate(lesson => {
+            const rect = e => { const b = e.getBoundingClientRect(); return { top: b.top, bottom: b.bottom, left: b.left, right: b.right, height: b.height }; };
+            const card = document.getElementById('tour-card'), c = rect(card);
+            const hit = id => {
+              const el = document.getElementById(id), b = rect(el);
+              const free = y => { const target = document.elementFromPoint((b.left + b.right) / 2, y); return !!target && (target === el || el.contains(target)); };
+              // Bred layout rättas här: hela knappens höjd ska vara fri. Smal layout jämförs med sin fungerande mittpunkt.
+              const points = innerWidth > 760 ? [b.top + 1, (b.top + b.bottom) / 2, b.bottom - 1] : [(b.top + b.bottom) / 2];
+              return { ...b, ok: b.height > 0 && b.top >= 0 && b.bottom <= innerHeight && points.every(free) };
+            };
+            return { card: c, next: hit('tour-next'), exit: hit(lesson ? 'lesson-exit' : 'tour-end'), year: hit('year-jump'),
+              note: rect(document.getElementById('pause-note')), text: rect(document.getElementById('tour-text')),
+              actions: rect(card.querySelector('.tour-actions')), coarse: matchMedia('(pointer: coarse)').matches,
+              scroll: document.documentElement.scrollWidth > innerWidth };
+          }, lesson);
+          const a = await measure(), label = `${width} × ${height}, ${lesson ? 'lektion' : 'tur'}`;
+          if (!a.coarse) throw new Error(`${label}: provet emulerar ingen pekskärm`);
+          if (!a.next.ok || !a.exit.ok || !a.year.ok) throw new Error(`${label}: Nästa, utgången eller årtalet täcks: ${JSON.stringify(a)}`);
+          if (a.next.height < 44) throw new Error(`${label}: Nästa har för liten tryckyta`);
+          if (a.card.top < 0 || a.card.bottom > a.note.top || a.scroll) throw new Error(`${label}: kortet täcker turraden eller sidan rullar i sidled`);
+          await tp.evaluate(() => { const c = document.getElementById('tour-card'); c.scrollTop = c.scrollHeight; });
+          const b = await measure();
+          if (!b.next.ok || !b.exit.ok || b.text.bottom > b.actions.top + 1) throw new Error(`${label}: textens slut eller knapparna nås inte efter rullning`);
+          // Riktig pekning: nästa steg går att öppna och turen/lektionen går att lämna.
+          const progress = await tp.textContent('#tour-progress');
+          await tp.tap('#tour-next');
+          await tp.waitForFunction(before => document.getElementById('tour-progress').textContent !== before, progress, { timeout: T.step });
+          if (lesson) await leaveLesson(tp);
+          else await tp.tap('#tour-end');
+          await tp.waitForSelector('#tour-card', { state: 'hidden', timeout: T.step });
+          if (!lesson && !await tp.isVisible('.top-actions')) throw new Error(`${label}: menyraden kom inte tillbaka efter turen`);
+          if (errs.length) throw new Error(`${label}: sidfel ${errs.join('; ')}`);
+          out.push(`${label}: kortet ${Math.round(a.card.height)} px, knappar och text nås`);
+        } finally { await tctx.close(); }
+      }
+    }
+    return out.join('; ');
+  });
+
   await check('Samtidigt-kortet går till nästa händelse', async () => {
     await visible('#funfact');
     if (await page.locator('#panel').isHidden()) await page.click('#btn-panel');

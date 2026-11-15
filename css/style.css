@@ -2764,6 +2764,25 @@ span.theme-event:hover { background: none; outline: none; }
   #detail { max-height: min(52dvh, calc(100dvh - var(--ff-b) - 120px)); }
 }
 
+/* Liggande pekskärm i bred layout (#1694): plattans topprad och det stora årtalet lämnade bara 16 px åt turkortet.
+   Under turen ger menyraden plats åt ett kompakt årtal, och kortet rullar ovanför turraden som i smal layout. */
+@media (min-width: 761px) and (max-width: 1100px) and (max-height: 480px) and (pointer: coarse) {
+  .app.touring { --tour-top: 64px; }
+  .app.touring.lesson, .app.touring.lesson-notice { --tour-top: 116px; }
+  .app.touring .top-actions { visibility: hidden; }
+  .app.app.touring .masthead { top: calc(env(safe-area-inset-top, 0px) + 6px); margin-top: 0; }
+  .app.app.touring.lesson .masthead { top: calc(env(safe-area-inset-top, 0px) + 58px); }
+  .app.touring .masthead :is(.brand, .segment-note) { display: none; }
+  .app.touring .year-readout { margin-top: 0; min-height: 44px; align-items: center; }
+  .app.touring .year-jump { min-height: 44px; align-items: center; }
+  .app.touring .year-big { font-size: 30px; }
+  .app.touring .year-era { font-size: 16px; }
+  .app.touring .tour-card .tour-actions { bottom: 55px; } /* den 44 px höga utgången och fotens utfyllnad */
+  /* Lektionen lämnas från sitt band; den dolda Lämna turen-knappen ska inte reservera en tom fot. */
+  .app.touring.lesson .tour-card .tour-actions { bottom: 0; }
+  .app.touring.lesson .tour-card .tour-foot { display: none; }
+}
+
 /* ---------- Liggande telefon: faktarutan går att nå (#1667) ----------
    Uppmätt i Playwright (800 × 360, 640 × 360 och 360 × 640, platskortet för Skåne öppet). Stående telefon (360 × 640) var
    redan hel. I liggande läge tar knapparna uppe, fokusraden, tidsreglaget och tidslinjen cirka 270 av 360 px, så kortet får
