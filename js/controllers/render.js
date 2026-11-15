@@ -83,7 +83,7 @@ export function createRender(app) {
   // Platsens linje ritas i Fokus på en plats, i en turs steg med en plats (#1163) och som markeringar (placeHints): i alla tre
   // räknas den om när zoomen ändras (#1641), annars blir den lika bred som vid förra omritningen
   const places = registry.get('places');
-  const placeLine = l => l.placeHints || state.focus?.type === 'place' || !!places?.step;
+  const placeLine = l => l.placeHints || state.focus?.type === 'place' || !!places?.step || !!places?.stepMark; // också markören i ett turssteg (#1785)
   function nameStyle() {
     if (!$('flat-view').hidden) return [ZOOM_LEVELS[zoomLevel(flatMap.scale)].flatScale, 1]; // efter zoomnivån (#358)
     const mag = zoomMag();

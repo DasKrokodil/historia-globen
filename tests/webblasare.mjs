@@ -1779,6 +1779,46 @@ async function run(browser, vp) {
     }
   });
 
+  // #1784 och #1785: turen "Det här har du hört". Steg utan egen händelse visar inga händelser, ett steg om en plats har en markör med namn,
+  // och Columbus resa syns i steg 5 (lagret Resor är på).
+  await check('turen Det här har du hört: inga orelaterade händelser, markör med namn på platsen och Columbus resa i steg 5 (#1784, #1785)', async () => {
+    const lp = await context.newPage();
+    const errs = [];
+    lp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+      }
+      let loads = 0;
+      const step = async id => {
+        await lp.goto(`${BASE}?ny=1784${loads++}#t=det-har-har-du-hort&s=${id}`);
+        await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await lp.waitForSelector('#tour-card:not([hidden])', { timeout: T.step });
+        await lp.waitForFunction(() => document.getElementById('tour-card').dataset.mark !== undefined, null, { timeout: T.step }); // steget har ritats
+        return lp.evaluate(() => ({
+          mark: document.getElementById('tour-card').dataset.mark,
+          count: document.getElementById('panel-count').textContent.trim(),
+          routes: document.querySelector('input[data-layer="routes"]')?.checked ?? null,
+          events: document.querySelector('input[data-layer="events"]')?.checked ?? null,
+        }));
+      };
+      const muren = await step('kinesiska-muren');
+      if (muren.mark !== 'Kinesiska muren') throw new Error(`steget om muren har markören "${muren.mark}"`);
+      if (muren.events !== false || muren.count !== '0') throw new Error(`steget om muren visar händelser (lager ${muren.events}, räknare ${muren.count})`);
+      const ny = await step('washingtons-tander');
+      if (ny.mark !== 'Federal Hall, New York' || ny.events !== false) throw new Error(`steget om Washington: markören "${ny.mark}", händelser ${ny.events}`);
+      const frankrike = await step('lat-dem-ata-kakor');
+      if (frankrike.mark !== '' || frankrike.events !== false) throw new Error(`steget om Marie Antoinette: markören "${frankrike.mark}", händelser ${frankrike.events}`);
+      const columbus = await step('platt-jord');
+      if (columbus.events !== true || columbus.routes !== true || columbus.mark !== '') throw new Error(`steget om Columbus: händelser ${columbus.events}, resor ${columbus.routes}, markör "${columbus.mark}"`);
+      if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
+      return 'muren och Washington: markör med namn och inga händelser; Marie Antoinette: ingen markör; Columbus: händelser och resa';
+    } finally {
+      await lp.close();
+    }
+  });
+
   // #1571 (pilot): resans klickruta. Noten ("Källorna skiljer sig") är en hopfälld rad med synlig rubrik, källorna och
   // statusen ligger i en hopfälld rad sist, och "Läs mer" ryms utan rullning. Rutan visas direkt via RoutePop (en kopia av
   // main.js som levereras bara här och lägger rutan på window), så kontrollen inte beror på var en väg ligger på kartan.

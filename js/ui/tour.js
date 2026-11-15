@@ -295,6 +295,9 @@ export class TourPlayer {
     // I smal skärm markeras händelsen bara på globen (krigets händelser syns annars inte utzoomat), och
     // faktarutan öppnas med "Läs om händelsen", så att arket inte täcker kortet
     app.places?.closeStep(); // platsens kontur från förra steget (#1163); omritningen nedan tar bort den
+    // En markör med namn vid stegets plats (#1785): på kamerans mitt om steget inte anger en egen plats
+    if (step.mark) app.places?.markStep({ lat: step.mark.lat ?? step.camera.lat, lon: step.mark.lon ?? step.camera.lon, label: t(step.mark.label), approx: !!step.mark.approx });
+    this.card.dataset.mark = step.mark ? t(step.mark.label) : ''; // för webbläsartestet
     if (step.open && !app.narrow.matches) app.select(step.open, false);
     else if (step.open) app.mark(step.open);
     else app.select(null, false);

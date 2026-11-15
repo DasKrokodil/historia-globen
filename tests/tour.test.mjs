@@ -197,3 +197,33 @@ test('turen Vad vet vi egentligen? (#948) har sex steg som öppnar händelser, m
     for (const [l, re] of Object.entries(informal)) for (const f of ['question', 'text', 'title', 'chapter']) assert.ok(!re.test(s[f][l]), `${s.id}.${f}.${l}: du-form`);
   }
 });
+
+// Markören på kartan i ett steg (#1785): namn per språk, valfri plats och valfritt ungefärlig
+test('markören i ett steg kontrolleras (#1785)', () => {
+  const ok = { label: { sv: 'Federal Hall, New York', en: 'Federal Hall, New York' } };
+  assert.deepEqual(tourProblems(tour({ steps: [step({ mark: ok }), step({ id: 'b', mark: { ...ok, lat: 40.4, lon: 116.5, approx: true } })] }), known), []);
+  const bad = tourProblems(tour({ steps: [
+    step({ mark: { label: {} } }),
+    step({ id: 'b', mark: { label: { sv: 'X' }, lat: 40 } }),
+    step({ id: 'c', mark: { label: { sv: 'X' }, lat: 95, lon: 0 } }),
+    step({ id: 'd', mark: { label: { sv: 'X' }, approx: 'ja' } }),
+    step({ id: 'e', mark: 'plats' }),
+  ] }), known).join('\n');
+  for (const part of ['markörens namn saknas', 'både lat och lon', 'utanför jorden', 'approx ska vara', 'ska vara ett objekt']) assert.match(bad, new RegExp(part), `saknar ${part}`);
+});
+
+// Turen Det här har du hört (#1784, #1785): händelserna är av i steg utan egen händelse, en plats har en markör och Columbus resa är på
+test('Det här har du hört: händelserna av utom där steget har en egen händelse, och markörer på platserna', async () => {
+  const { readFileSync } = await import('node:fs');
+  const data = JSON.parse(readFileSync(new URL('../data/turer/det-har-har-du-hort.json', import.meta.url)));
+  assert.deepEqual(tourProblems(data, {}), []);
+  for (const st of data.steps) {
+    if (st.open) assert.ok(st.layers.includes('events'), `${st.id} öppnar en händelse och ska visa händelser`);
+    else assert.ok(!st.layers.includes('events'), `${st.id} har ingen egen händelse och ska inte visa andras`);
+  }
+  assert.ok(data.steps.find(st => st.id === 'platt-jord').layers.includes('routes'), 'Columbus resa är på i steg 5');
+  const marked = Object.fromEntries(data.steps.filter(st => st.mark).map(st => [st.id, st.mark]));
+  assert.deepEqual(Object.keys(marked), ['washingtons-tander', 'kinesiska-muren', 'sfinxens-nasa', 'el-dorado']);
+  assert.equal(marked['kinesiska-muren'].approx, true, 'muren är lång: markören är en ungefärlig punkt');
+  for (const [id, m] of Object.entries(marked)) for (const lang of ['sv', 'en', 'de', 'es', 'fr']) assert.ok(m.label[lang], `${id}: namn på ${lang} saknas`);
+});

@@ -160,8 +160,10 @@ export function createPlaces(app) {
     app.refresh();
     return true;
   }
-  /** Turens steg slutar visa platsen: konturen tas bort vid nästa omritning (den som anropar ritar om). */
-  function closeStep() { layer.step = null; }
+  /** Turens steg slutar visa platsen och markören: de tas bort vid nästa omritning (den som anropar ritar om). */
+  function closeStep() { layer.step = null; layer.stepMark = null; }
+  /** Ett steg med en markör (#1785, fältet mark i turformatet): ringen och namnet ritas på kartan vid nästa omritning. */
+  function markStep({ lat, lon, label, approx = false }) { layer.stepMark = { lat, lon, label, approx }; }
 
-  return { allowed, ensure, tap, showInFlat, openStep, closeStep, cards: () => cards };
+  return { allowed, ensure, tap, showInFlat, openStep, closeStep, markStep, cards: () => cards };
 }

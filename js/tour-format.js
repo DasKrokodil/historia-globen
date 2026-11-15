@@ -34,6 +34,9 @@
 //   place   valfri plats (id i data/platser.json, #1163) vars kort öppnas, med platsens kontur på kartan. Ett steg öppnar
 //           antingen en händelse (open) eller en plats (place), inte båda. Kortet följer stegets kamera och år: turen startar
 //           inget Fokus (det skulle avsluta turen), och knappen Visa i Platt karta finns inte i en tur
+//   mark    valfritt (#1785): en markör med namn på kartan vid stegets plats, för steg som handlar om en plats utan att öppna en händelse
+//           eller en plats: { label: text per språk, lat?, lon?, approx? }. Utan lat och lon står markören på kamerans mitt (camera).
+//           approx: true ritar ringen streckad ("ungefärlig plats"), för något som är långt eller som markören bara pekar ut en punkt på
 //   sources källorna för stegets text (id i data/sources.json)
 
 export const TOUR_VERSION = 1;
@@ -87,9 +90,21 @@ export function tourProblems(tour, known = {}) {
       if (typeof s.place !== 'string' || !ID.test(s.place) || (known.places && !known.places.has(s.place))) say(`${where}: platsen ${s.place} finns inte.`);
       if (s.open != null) say(`${where}: ett steg öppnar antingen en händelse (open) eller en plats (place), inte båda.`);
     }
+    if (s.mark != null) markProblems(s.mark).forEach(msg => say(`${where}: ${msg}`));
     if (!Array.isArray(s.sources) || !s.sources.length) say(`${where}: källor saknas (sources).`);
     else for (const id of s.sources) if (known.sources && !known.sources.has(id)) say(`${where}: källan ${id} finns inte.`);
   });
+  return out;
+}
+
+/** Markören på kartan (mark, #1785): namn per språk, valfri plats och valfritt ungefärlig. Returnerar problemen utan stegets namn. */
+function markProblems(m) {
+  if (!m || typeof m !== 'object' || Array.isArray(m)) return ['markören (mark) ska vara ett objekt.'];
+  const out = [];
+  if (!isText(m.label)) out.push('markörens namn saknas (mark.label.sv).');
+  if ((m.lat != null) !== (m.lon != null)) out.push('markören ska ha både lat och lon, eller ingen av dem.');
+  else if (m.lat != null && (!isNum(m.lat) || !isNum(m.lon) || Math.abs(m.lat) > 90 || Math.abs(m.lon) > 180)) out.push('markörens plats (lat och lon) ligger utanför jorden.');
+  if (m.approx != null && typeof m.approx !== 'boolean') out.push('mark.approx ska vara true eller false.');
   return out;
 }
 
