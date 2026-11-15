@@ -74,6 +74,8 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              'svenska-stormaktsvaldet': (0.1, MERGE, MIN_AREA),
              # Nordsjöväldet som Danmark, så att den danska kusten inte hoppar 1017/1018 och 1055/1056 (#1602, geografen)
              'nordsjovaldet': (0.1, MERGE, MIN_AREA),
+             # Strathclyde och Skottland finare, annars blir Strathclyde en fyrhörning och överlappar Alba (geografen, #1721)
+             'strathclyde': (0.05, MERGE, MIN_AREA), 'kungariket-skottland': (0.05, MERGE, MIN_AREA),
              'kina': (0.3, 0.05, 0.08), 'indonesien': (0.2, 0.05, 0.05),
              # Gambia (cirka 30 km bred längs floden) och Libanon är smala: finare förenkling för dem och grannarna Senegal och
              # Syrien, annars täcker grannarnas förenklade gräns en stor del av landet
@@ -409,8 +411,9 @@ GROUPS = {
     # R6 Försvunna länder (#72). Österrike-Ungern och Sovjetunionen ovan hör också dit. Årtal, föregångare
     # och efterträdare (vanished) skrivs för hand i index.json och behålls, som facts.
     'kalmarunionen': ('Kalmarunionen', 'Kalmar Union', [
+        # splits 1459: Holstein kommer med i Cliopatrias Kalmarunion (geografen, #1721)
         # splits 1475: Orkney och Shetland lämnar unionen i Cliopatria och hör till Kungariket Skottland från 1475 (#1721)
-        ('(Kalmar Union)', 'kalmarunionen', 'Kalmarunionen', '#c84b4b', {'splits': (1475,)}),
+        ('(Kalmar Union)', 'kalmarunionen', 'Kalmarunionen', '#c84b4b', {'splits': (1459, 1475)}),
     ]),
     'preussen': ('Preussen', 'Prussia', [
         ('Duchy of Prussia', 'hertigdomet-preussen', 'Hertigdömet Preussen', '#4a6fa0'),
@@ -1288,13 +1291,16 @@ GROUPS = {
     # och Kara-Khitan. Svenska namn är Wikidatas svenska etiketter. Danmark (Cliopatrias Danish Realm) väntar: Cliopatrias Wikidata-id
     # Q756617 är dagens Danmark. Kingdom of Poland har Q577867, som Wikidata daterar 1025–1385 medan Cliopatrias post sträcker sig 962–1449.
     # Skottland, Strathclyde och Jämtland (#1721, DasKrokodils ja 2026-11-15): Cliopatrias poster med deras egna år. Cliopatrias
-    # Wikidata-id för Strathclyde (Q124661, en förvaltningsregion 1975–1996) och Jaemtland (Q211661, landskapet) gäller annat.
+    # Wikidata-id för Strathclyde (Q124661, en förvaltningsregion 1975–1996) och Jaemtland (Q211661, landskapet) gäller annat;
+    # Strathclyde får kungarikets id Q225890 (historikern).
     'kungariket-skottland': ('Kungariket Skottland', 'Kingdom of Scotland', [
         ('Kingdom of Alba', 'alba', 'Alba', '#4a6aa0', {'en': 'Kingdom of Alba', 'wikidata': 'Q1991742'}),
-        ('Kingdom of Scotland', 'kungariket-skottland', 'Kungariket Skottland', '#4a6aa0', {'en': 'Kingdom of Scotland', 'wikidata': 'Q230791'}),
+        # splits 1552 och 1556: Cliopatrias del av dagens Nordirland ska inte slås ihop bort vid den finare förenklingen
+        ('Kingdom of Scotland', 'kungariket-skottland', 'Kungariket Skottland', '#4a6aa0', {'en': 'Kingdom of Scotland', 'wikidata': 'Q230791',
+                                                                                         'splits': (1552, 1556)}),
     ]),
     'strathclyde': ('Strathclyde', 'Kingdom of Strathclyde', [
-        ('Strathclyde', 'strathclyde', 'Strathclyde', '#6a9a5a', {'en': 'Kingdom of Strathclyde', 'wikidata': None}),
+        ('Strathclyde', 'strathclyde', 'Strathclyde', '#6a9a5a', {'en': 'Kingdom of Strathclyde', 'wikidata': 'Q225890'}),
     ]),
     'jamtland': ('Jämtland', 'Jämtland', [
         ('Jaemtland', 'jamtland', 'Jämtland', '#8a6ab0', {'en': 'Jämtland', 'wikidata': None}),
@@ -2002,6 +2008,7 @@ def extend(by_name, ext):
 # Koordinaterna avrundas till 0.1 grad, utom för små länder där gränsen annars hamnar fel (#644)
 DECIMALS = {'israel': 2, 'palestina': 2, 'osttyskland': 2, 'vasttyskland': 2, **{g: 3 for g in SMALL_STATES},
             'chimor': 2, 'purepecha': 2, 'inkariket': 2,  # #556
+            'strathclyde': 2, 'kungariket-skottland': 2,  # #1721
             'oyoriket': 2, 'ashantiriket': 2, 'gronland-koloni': 2, 'danska-indien': 3, 'danska-guldkusten': 3}  # #1388
 
 
