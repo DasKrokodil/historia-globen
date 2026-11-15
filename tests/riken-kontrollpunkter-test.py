@@ -60,6 +60,21 @@ FURTH = (12.84, 49.31)
 SCHENGEN = (6.36, 49.47)
 PERL = (6.385, 49.474)
 ZITTAU = (14.807, 50.896)
+# #1771, ur Wikidata: Bregenz Q1737, Hörbranz Q261132, Lochau Q668055, Basel Q78, Riehen Q5262, Weil am Rhein Q61909,
+# Kreuzlingen Q63905, Schaffhausen Q9009, Nida Q1004306, Zwiesel Q163091, Passau Q4190. Ermland: polsk mark vid gränsen mot
+# Kaliningradområdet (geografen, 2026-11-15)
+BREGENZ = (9.749, 47.505)
+HORBRANZ = (9.753, 47.555)
+LOCHAU = (9.752, 47.53)
+BASEL = (7.588, 47.558)
+RIEHEN = (7.649, 47.581)
+WEIL = (7.611, 47.595)
+KREUZLINGEN = (9.178, 47.646)
+SCHAFFHAUSEN = (8.634, 47.697)
+NIDA = (21.005, 55.304)
+ERMLAND = (20.55, 54.36)
+ZWIESEL = (13.233, 49.017)
+PASSAU = (13.461, 48.575)
 # Berlin 1949–1990 (#1731), ur Wikidata: Västberlin och Östberlin
 VASTBERLIN = {'Charlottenburg': (13.3, 52.517), 'Spandau': (13.2, 52.55), 'Wedding': (13.343, 52.55), 'Kreuzberg': (13.383, 52.488),
               'Neukölln': (13.45, 52.483), 'Steglitz': (13.333, 52.467), 'Zehlendorf': (13.259, 52.434)}
@@ -150,6 +165,31 @@ PUNKTER = [
     ('vasttyskland', FURTH, 'Furth im Wald', 1970, True),
     *[(g, FURTH, 'Furth im Wald', 2000, ska) for g, ska in (('tjeckien', False), ('tyskland', True))],
     *[('tjeckien', ZITTAU, 'Zittau', y, False) for y in (1992, 2000)],
+    # Bodensee, Basel, Vorarlberg, Kuriska näset och Ermland (#1771)
+    *[('osterrike', p, n, y, True) for p, n in ((BREGENZ, 'Bregenz'), (HORBRANZ, 'Hörbranz'), (LOCHAU, 'Lochau'))
+      for y in (1919, 1925, 1937, 1946, 1970, 2000, 2024)],
+    *[(g, p, n, y, False) for p, n in ((BREGENZ, 'Bregenz'), (HORBRANZ, 'Hörbranz'), (LOCHAU, 'Lochau'))
+      for g, y in (('weimarrepubliken', 1925), ('nazityskland', 1935), ('vasttyskland', 1970), ('tyskland', 2000))],
+    *[('nazityskland', p, n, 1940, True) for p, n in ((BREGENZ, 'Bregenz'), (HORBRANZ, 'Hörbranz'))],
+    *[('schweiz', p, n, y, True) for p, n in ((BASEL, 'Basel'), (RIEHEN, 'Riehen'), (KREUZLINGEN, 'Kreuzlingen'),
+                                             (SCHAFFHAUSEN, 'Schaffhausen')) for y in (1925, 1942, 1947, 1970, 2000, 2024)],
+    *[(g, p, n, y, False) for p, n in ((BASEL, 'Basel'), (RIEHEN, 'Riehen'), (KREUZLINGEN, 'Kreuzlingen'), (SCHAFFHAUSEN, 'Schaffhausen'))
+      for g, y in (('weimarrepubliken', 1925), ('nazityskland', 1942), ('franska-kolonialvaldet', 1947), ('vasttyskland', 1970),
+                   ('tyskland', 2000))],
+    # Konstanz testas inte: Natural Earth (1:10m, både länder och delstater) lägger gamla stan söder om Seerhein i Schweiz,
+    # cirka 0,8 km från gränsen, och kartan följer Natural Earth där (Om kartan)
+    *[(g, WEIL, 'Weil am Rhein', y, True)
+      for g, y in (('weimarrepubliken', 1925), ('nazityskland', 1937), ('franska-kolonialvaldet', 1947), ('vasttyskland', 1970),
+                   ('tyskland', 2000), ('tyskland', 2024))],
+    *[('schweiz', WEIL, 'Weil am Rhein', y, False) for y in (1925, 1947, 1970, 2000)],
+    ('sovjetunionen', NIDA, 'Nida', 1960, True),
+    *[('litauen', NIDA, 'Nida', y, True) for y in (1990, 2000, 2024)],
+    *[('polen', ERMLAND, 'Ermland (20,55, 54,36)', y, True) for y in (1946, 1970, 1990, 2000, 2024)],
+    *[(g, ERMLAND, 'Ermland (20,55, 54,36)', y, False) for g, y in (('sovjetunionen', 1960), ('ryska-federationen', 2000))],
+    *[('sovjetunionen', ZITTAU, 'Zittau', y, True) for y in (1945, 1946, 1948)],
+    *[('tjeckoslovakien', ZITTAU, 'Zittau', y, False) for y in (1947, 1960)],
+    *[('usa', p, n, y, True) for p, n in ((ZWIESEL, 'Zwiesel'), (PASSAU, 'Passau')) for y in (1945, 1946, 1949)],
+    *[('osterrike', PASSAU, 'Passau', y, False) for y in (1947, 1970, 2000)],
     *[('franska-kolonialvaldet', p, n, y, False) for p, n in ((SCHENGEN, 'Schengen'), (PERL, 'Perl')) for y in (1931, 1935)],
     *[('ryska-federationen', BALTIJSK, 'Baltijsk', y, True) for y in (1992, 2000, 2013, 2020)],
     # Fria staden Danzig 1920–1939 (#1746), utan Memelområdet (Klaipėda Q776965)

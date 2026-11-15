@@ -1839,6 +1839,16 @@ KALININGRAD = (19.4, 54.2, 22.95, 55.4)
 FRANSKA_GRANSEN = (6.3, 47.62, 8.4, 49.5)  # utan Luxemburg och Schweiz
 # Rutan längs gränsen mellan Tjeckoslovakien och Tyskland (Bayern och Sachsen), #1755
 TJECKISKA_GRANSEN = (11.9, 48.5, 15.1, 51.1)
+# Rutorna vid Bodensee och Hochrhein (Basel, Schaffhausen, Konstanz, Vorarlberg) och längs gränsen mellan Österrike och Tyskland
+# från Allgäu till Passau (#1771). Gränserna mellan Tyskland, Schweiz och Österrike har i stort sett inte ändrats sedan 1919 (en.wikipedia
+# "Germany–Switzerland border", "Austria–Switzerland border" och "Austria–Germany border"), så där följer de Natural Earth från
+# 1919: Cliopatrias och förenklingens gränser lägger annars Bregenz i Tyskland, Kreuzlingen i Västtyskland och Basel utan stat.
+# Natural Earth följer Seerhein vid Konstanz, så gamla stan (tysk) ritas i Schweiz; det står i Om kartan
+HOCHRHEIN = (7.5, 47.2, 10.5, 47.85)
+ALPGRANSEN = (10.5, 47.25, 14.0, 48.8)
+ALP = ('rutor', [HOCHRHEIN, ALPGRANSEN])
+# Kaliningradområdet och Ermland-Masuriens gräns mot det (samma som 'kaliningrad-polen'), #1771
+ERMLAND = (19.4, 54.0, 22.95, 55.4)
 TYSKA_SIDAN = ('snitt', ('ne', ['tyskland']), ('rutor', [FRANSKA_GRANSEN]))
 FRANSKA_SIDAN = ('snitt', ('ne', ['frankrike-ne']), ('rutor', [FRANSKA_GRANSEN]))
 # Tysklands sida av gränsen mot Nederländerna 1950–1962 enligt Förbundsrepublikens gräns i Cliopatria 1955 (utan Selfkant och
@@ -2058,7 +2068,8 @@ DISPUTED = {
                          'remove': [], 'add': ['nederlanderna']},
     # Kaliningradområdet 1990–2024: Sovjetunionens och Ryska federationens förenklade gränser lämnar stora tomma ytor (Baltijsk
     # utan stat 1992–2013). Rysslands gräns i Natural Earth i rutan läggs tillbaka, och Polen och Litauen i Natural Earth klipps bort
-    'kaliningrad-sovjet': {'area': ('ne', ['kaliningrad-ne']), 'from': 1990, 'to': 1991, 'strict': True, 'efter': True,
+    # Från 1945 (#1771): Sovjetunionens förenklade gräns lämnar annars rysk mark vid gränsen mot Polen utan stat 1945–1989
+    'kaliningrad-sovjet': {'area': ('ne', ['kaliningrad-ne']), 'from': 1945, 'to': 1991, 'strict': True, 'efter': True,
                            'remove': [], 'add': ['sovjetunionen']},
     'kaliningrad-ryssland': {'area': ('ne', ['kaliningrad-ne']), 'from': 1992, 'strict': True, 'efter': True,
                              'remove': [], 'add': ['ryska-federationen']},
@@ -2072,6 +2083,28 @@ DISPUTED = {
                    'remove': [], 'add': ['litauen']},
     'kaliningrad-grannar': {'area': ('snitt', ('ne', ['polen-ne', 'litauen-ne']), ('rutor', [KALININGRAD])), 'from': 1990,
                             'strict': True, 'efter': True, 'remove': ['sovjetunionen', 'ryska-federationen'], 'add': []},
+    # Ermland (#1771): Polens förenklade gräns når inte fram till gränsen mot Kaliningradområdet, så polsk mark vid (20,55, 54,36) var
+    # utan stat från 1945 (Cliopatria räknar den till Sovjetunionen och Ryssland, som klipps bort ovan). Polen i Natural Earth i rutan
+    # läggs till Polen
+    'polen-ermland': {'area': ('snitt', ('ne', ['polen-ne']), ('rutor', [ERMLAND])), 'from': 1945, 'strict': True, 'efter': True,
+                      'remove': [], 'add': ['polen']},
+    # och klipps ur Sovjetunionen också efter avrundningen ('kaliningrad-polen' klipps före den, och avrundningen till 0,1 grad
+    # lägger tillbaka en remsa polsk mark)
+    'ermland-sovjet': {'area': ('snitt', ('ne', ['polen-ne']), ('rutor', [ERMLAND])), 'from': 1945, 'to': 1991, 'strict': True,
+                       'efter': True, 'remove': ['sovjetunionen'], 'add': []},
+    # Vid trelandspunkten med Litauen (Suwałki) går Polens och Litauens förenklade gränser in i varandra
+    'polen-litauen': {'area': ('ne', ['litauen-ne']), 'from': 1945, 'strict': True, 'efter': True, 'remove': ['polen'], 'add': []},
+    'litauen-polen': {'area': ('snitt', ('ne', ['polen-ne']), ('rutor', [ERMLAND])), 'from': 1990, 'strict': True, 'efter': True,
+                      'remove': ['litauen'], 'add': []},
+    # och vid trelandspunkten med Tjeckoslovakien (Zittau) Polens och Tjeckoslovakiens; Polens sida i rutan (Bogatynia) läggs till Polen
+    'polen-tjeckien': {'area': ('ne', ['tjeckien-ne']), 'from': 1945, 'strict': True, 'efter': True, 'remove': ['polen'], 'add': []},
+    'tjeckien-polen': {'area': ('snitt', ('ne', ['polen-ne']), ('rutor', [TJECKISKA_GRANSEN])), 'from': 1945, 'strict': True,
+                       'efter': True, 'remove': ['tjeckoslovakien', 'tjeckien', 'sovjetunionen'], 'add': ['polen']},
+    # Kuriska näset (#1771): Cliopatria har ingen stat på näset. Den litauiska delen med Nida hörde till Litauen från 1945
+    # (en.wikipedia "Curonian Spit"); Litauen i Natural Earth (rutan når 55,75 grader nord) läggs till Sovjetunionen 1945–1989.
+    # Från 1990 läggs den till Litauen ('litauen-ne' ovan)
+    'litauen-sovjet': {'area': ('ne', ['litauen-ne']), 'from': 1945, 'to': 1989, 'strict': True, 'efter': True,
+                       'remove': [], 'add': ['sovjetunionen']},
     'danzig-memel': {'area': ('rutor', [(20.8, 55.0, 22.6, 56.0)]), 'parts': True, 'from': 1919, 'to': 1935,
                      'remove': ['fria-staden-danzig'], 'add': []},
     # Cliopatrias gräns för fristaden överlappar grannarnas (Polen i väster, Ostpreussen i öster); grannarnas gränser i
@@ -2097,6 +2130,62 @@ DISPUTED = {
                            'from': 1933, 'to': 1940, 'remove': ['nazityskland'], 'add': []},
     'nazityskland-levanten': {'area': ('rutor', [(35.6, 32.6, 36.0, 33.4)]), 'parts': True,
                               'from': 1933, 'to': 1944, 'remove': ['nazityskland'], 'add': []},
+    # Bodensee, Basel och Vorarlberg (#1771): i rutorna ALP följer gränserna mellan Tyskland, Schweiz, Österrike och Frankrike
+    # Natural Earth från 1919. Varje lands mark läggs till den stat som höll den och klipps ur grannarna. Källfel i Cliopatria:
+    # Hörbranz i Weimarrepubliken och Nazityskland 1920–1937, Konstanz i Schweiz till 1949, Kreuzlingen i Förbundsrepubliken från
+    # 1950, Basel i Fjärde republiken 1946–1949 och Riehen i Nazityskland 1940–1944 (Schweiz invaderades aldrig, en.wikipedia
+    # "Switzerland during the World Wars"). Tysk mark 1945–1949 följer ockupationszonerna i Cliopatria, utom Bayern (nedan)
+    'alp-schweiz': {'area': ('snitt', ('ne', ['schweiz-ne']), ALP), 'from': 1919, 'strict': True, 'efter': True,
+                    'remove': ['osterrike', 'tyska-riket', 'weimarrepubliken', 'nazityskland', 'franska-kolonialvaldet', 'frankrike',
+                               'vasttyskland', 'tyskland'], 'add': ['schweiz']},
+    'alp-schweiz-zoner': {'area': ('snitt', ('ne', ['schweiz-ne']), ALP), 'from': 1945, 'to': 1949, 'strict': True, 'efter': True,
+                          'remove': ['usa'], 'add': []},
+    # Österrike 1919–1937 och från 1946 (Vorarlberg förblev österrikiskt efter folkomröstningen 1919, en.wikipedia "Vorarlberg");
+    # Nazityskland 1938–1944. 1945 följer Cliopatria (Vorarlberg i den franska zonen)
+    'alp-osterrike': {'area': ('snitt', ('ne', ['osterrike-ne']), ALP), 'from': 1919, 'strict': True, 'efter': True,
+                      'remove': ['schweiz', 'tyska-riket', 'weimarrepubliken', 'vasttyskland', 'tyskland'], 'add': ['osterrike']},
+    'alp-osterrike-1933': {'area': ('snitt', ('ne', ['osterrike-ne']), ALP), 'from': 1933, 'to': 1937, 'strict': True, 'efter': True,
+                           'remove': ['nazityskland'], 'add': []},
+    'alp-osterrike-anschluss': {'area': ('snitt', ('ne', ['osterrike-ne']), ALP), 'from': 1938, 'to': 1944, 'strict': True,
+                                'efter': True, 'remove': [], 'add': ['nazityskland']},
+    'alp-osterrike-zoner': {'area': ('snitt', ('ne', ['osterrike-ne']), ALP), 'from': 1946, 'strict': True, 'efter': True,
+                            'remove': ['usa', 'franska-kolonialvaldet'], 'add': []},
+    # Tysklands mark: Tyska riket 1919, Weimarrepubliken, Nazityskland, Västtyskland och Tyskland (var och en bara sina år)
+    'alp-tyskland': {'area': ('snitt', ('ne', ['tyskland']), ALP), 'from': 1919, 'strict': True, 'efter': True,
+                     'remove': ['schweiz', 'osterrike'], 'add': ['tyska-riket', 'weimarrepubliken', 'nazityskland', 'vasttyskland', 'tyskland']},
+    'alp-tyskland-frankrike': {'area': ('snitt', ('ne', ['tyskland']), ALP), 'from': 1919, 'to': 1944, 'strict': True, 'efter': True,
+                               'remove': ['franska-kolonialvaldet'], 'add': []},
+    'alp-tyskland-frankrike-1950': {'area': ('snitt', ('ne', ['tyskland']), ALP), 'from': 1950, 'strict': True, 'efter': True,
+                                    'remove': ['franska-kolonialvaldet', 'frankrike'], 'add': []},
+    # Frankrikes mark vid Basel (Saint-Louis, Sundgau). 1940–1944 följer Cliopatria (Alsace annekterat i praktiken)
+    'alp-frankrike-schweiz': {'area': ('snitt', ('ne', ['frankrike-ne']), ALP), 'from': 1919, 'strict': True, 'efter': True,
+                              'remove': ['schweiz'], 'add': []},
+    'alp-frankrike': {'area': ('snitt', ('ne', ['frankrike-ne']), ALP), 'from': 1919, 'to': 1939, 'strict': True, 'efter': True,
+                      'remove': ['tyska-riket', 'weimarrepubliken', 'nazityskland'], 'add': ['franska-kolonialvaldet']},
+    'alp-frankrike-1945': {'area': ('snitt', ('ne', ['frankrike-ne']), ALP), 'from': 1945, 'strict': True, 'efter': True,
+                           'remove': ['vasttyskland', 'tyskland'], 'add': ['franska-kolonialvaldet', 'frankrike']},
+    # Liechtenstein ur Natural Earth: Österrikes och Schweiz förenklade gränser går in över landet
+    'alp-liechtenstein': {'area': ('ne', ['liechtenstein']), 'from': 1919, 'strict': True, 'efter': True,
+                          'remove': ['osterrike', 'schweiz'], 'add': []},
+    # Bayern och Sachsen 1945–1949 (#1771): Cliopatrias zoner når inte fram till gränserna mot Tjeckoslovakien och Österrike, så
+    # tyskt land vid Zittau, i Bayerska skogen och vid Passau var utan stat. Den amerikanska zonen omfattade Bayern utom Lindau och
+    # den sovjetiska Sachsen och Thüringen (en.wikipedia "Allied-occupied Germany"); delstaterna i Natural Earth i rutorna läggs till
+    'usazon-bayern': {'area': ('snitt', ('ne', ['vasttyska-granslander']), ('rutor', [TJECKISKA_GRANSEN, ALPGRANSEN])),
+                      'from': 1945, 'to': 1949, 'strict': True, 'efter': True, 'remove': ['sovjetunionen'], 'add': ['usa']},
+    # (delstaterna snittas med Tyskland i Natural Earth, eftersom deras gräns vid Neisse inte är exakt densamma)
+    'sovjetzon-sachsen': {'area': ('skillnad', ('snitt', ('snitt', ('ne', ['osttyska-lander']), ('ne', ['tyskland'])),
+                                                ('rutor', [TJECKISKA_GRANSEN, ODER])), ('ne', ['berlin'])),
+                          'from': 1945, 'to': 1948, 'strict': True, 'efter': True, 'remove': ['usa'], 'add': ['sovjetunionen']},
+    # Södra Baden och Württemberg-Hohenzollern hörde till den franska zonen (samma källa): Baden-Württemberg i Natural Earth i rutan
+    # vid Bodensee (Tyskland utom Bayern) läggs till Fjärde republiken 1945–1949. Bayerns del (Lindau i den franska zonen, resten i
+    # den amerikanska) följer Cliopatria, eftersom gränsen för Landkreis Lindau inte finns i våra källor
+    'franskzon-baden-wurttemberg': {'area': ('skillnad', ('snitt', ('ne', ['tyskland']), ('rutor', [HOCHRHEIN])),
+                                             ('ne', ['vasttyska-granslander'])),
+                                    'from': 1945, 'to': 1949, 'strict': True, 'efter': True, 'remove': ['usa'],
+                                    'add': ['franska-kolonialvaldet']},
+    # och Tjeckoslovakiens sida, som Cliopatria 1947–1949 ritar också i USA och Sovjetunionen
+    'tjeckoslovakien-zoner': {'area': ('ne', ['tjeckien-ne']), 'from': 1947, 'to': 1949, 'strict': True, 'efter': True,
+                              'remove': ['usa', 'sovjetunionen'], 'add': []},
 }
 
 
@@ -2830,8 +2919,13 @@ def main():
              'Äldre gränsfel kring Tyskland (#1755): Saarområdet är klippt mot Saarlands gräns i Natural Earth; gränsen mellan '
              'Frankrike och Tyskland följer Natural Earth 1930–1939 och gränsen mellan Tjeckoslovakien (Tjeckien) och Tyskland från '
              '1945; Nederländernas sida av gränsen mot Tyskland följer Natural Earth från 1950; Lindau ligger i Västtyskland från 1950 '
-             'och i Tyskland; Kaliningradområdet har Rysslands gräns i Natural Earth från 1990. Områden med efter i DISPUTED klipps '
+             'och i Tyskland; Kaliningradområdet har Rysslands gräns i Natural Earth från 1945. Områden med efter i DISPUTED klipps '
              'eller läggs till bara efter förenklingen. '
+             'Bodensee, Basel, Vorarlberg, Kuriska näset och Ermland (#1771): gränserna mellan Tyskland, Schweiz, Österrike och Frankrike '
+             'vid Bodensee och Basel och längs gränsen mellan Österrike och Tyskland följer Natural Earth från 1919; Polens och Litauens '
+             'gränser mot Kaliningradområdet följer Natural Earth från 1945 (Litauen från 1990, Kuriska näset i Sovjetunionen 1945–1989); '
+             'den amerikanska zonen (Bayern) och den sovjetiska (Sachsen och Thüringen) når 1945–1949 fram till gränserna mot '
+             'Tjeckoslovakien, Polen och Österrike, och den franska (Baden-Württemberg) till Bodensee, med delstaternas gränser i Natural Earth. '
              'Små stater (#722): tolv länder som Cliopatria saknar i nutid eller har fel gräns för har gränsen ur Natural Earth '
              '(ne_10m_admin_0_countries 5.1.1, public domain), från självständigheten, och polity.point = true: de visas som en punkt med namn.')
     (out / 'index.json').write_text(json.dumps({'schema': 'historia-globen/empires-index@1', 'notes': notes, 'groups': index},
