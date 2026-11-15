@@ -303,6 +303,10 @@ src_ids = {s['id'] for s in sources['sources']}
 ev_ids = {e['id'] for e in events['events']}
 evidence_fields = {'summary', 'date', 'location', 'image', 'uncertainty'}
 for e in events['events']:
+    # Hela platsen (#1674): scope "place" betyder att händelsen gäller hela den minsta platsen i data/platser.json som den ligger i,
+    # och punkten står bara för platsen. Då är platsen ungefärlig; att punkten ligger i en plats kontrolleras under 8f
+    if e.get('scope') == 'place' and e.get('locationPrecision') not in ('region', 'country'):
+        err(f"data/events.json ({e['id']}): scope \"place\" kräver locationPrecision region eller country (punkten står för hela platsen)")
     for s in e.get('sources', []) + (e.get('story') or {}).get('sources', []):
         if s not in src_ids:
             err(f"data/events.json ({e['id']}): källan {s} finns inte i sources.json")
@@ -702,6 +706,7 @@ if places_doc is not None:
     validate_schema_file('data/platser.json', places_doc, 'platser.schema.json')
     ev_all = [e for e in events['events'] if e.get('review') in VISIBLE and e['location']['type'] == 'Point']
     seen_places = set()
+    scoped_in = set()  # händelser med scope "place" som ligger i någon plats (#1674)
 
     def unwrapped(ring):
         """Som unwrapped i js/place-geo.js (#1268): ringen med varje punkt på den längdgrad som är närmast den förra, och dess spann."""
@@ -848,9 +853,17 @@ if places_doc is not None:
             if prev_from is not None and per['from'] < prev_from:
                 err(f'{at}: perioderna ska stå i tidsordning (efter from)')
             prev_from = per['from']
+        for e in inside:
+            if e.get('scope') == 'place':
+                scoped_in.add(e['id'])
         if pl.get('type') == 'country':
             for why in country_warnings(inside):
                 print(f'validate-site: VARNING: {where}: hållbarhetsriktlinjen (#1269): {why}', file=sys.stderr)
+
+    # Ett scope "place" som inte ligger i någon plats säger ingenting och är troligen ett fel (#1674)
+    for e in ev_all:
+        if e.get('scope') == 'place' and e['id'] not in scoped_in:
+            err(f"data/events.json ({e['id']}): scope \"place\" men händelsen ligger inte i någon plats i data/platser.json")
 
 # 8g. Ortnamn för regionvyn (#1643): en fil per plats i data/ortnamn/, skriven av tools/ortnamn.py ur Natural Earth. Schemat (fem språk,
 # id och koordinater), att filen hör till en plats i data/platser.json, att källan finns och att grannländerna är platsens egna.

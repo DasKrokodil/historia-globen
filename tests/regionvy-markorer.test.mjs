@@ -42,34 +42,51 @@ test('numret är radens nummer i listan, i listans ordning, och varje händelse 
   }
 });
 
-test('brickan: bara ungefärliga händelser vars plats är hela platsen; andra ungefärliga står kvar på sin punkt', () => {
-  const sk = regionItems(listOf('skane'), place('skane'));
+test('brickan: händelser med scope "place" och ungefärlig plats; andra ungefärliga står kvar på sin punkt (#1674)', () => {
+  const sk = regionItems(listOf('skane'), place('skane'), places);
   const whole = sk.filter(it => it.whole);
-  assert.ok(whole.length >= 3, `Skåne har händelser som gäller hela landskapet (${whole.length})`);
+  // Urvalet som historikern föreslog (#1674): samma fyra som textregeln i steg 1b gav
+  assert.deepEqual(whole.map(it => it.e.id),
+    ['skane-under-magnus-eriksson', 'forsvenskningen-av-skane', 'skanes-generalguvernement-upphor', 'skane-lan-bildas']);
   for (const it of whole) {
+    assert.equal(it.e.scope, 'place', it.e.id);
     assert.ok(['region', 'country'].includes(it.e.locationPrecision), `${it.e.id} är ungefärlig`);
-    assert.ok(/^Skåne( \(markören i [^()]+\))?$/.test(it.e.place.sv), `${it.e.id}: ${it.e.place.sv}`);
   }
   // Ungefärliga händelser på en del av platsen (Barum, Uppåkra) och de som nämner mer än platsen (Skånska kriget, snapphanarna)
-  // står kvar som markörer och märks som ungefärliga
+  // har inget scope och står kvar som markörer, märkta som ungefärliga
   const partial = sk.filter(it => it.approx && !it.whole);
   assert.ok(partial.length >= 4, 'Skåne har ungefärliga händelser på en del av platsen');
-  for (const it of partial) assert.notEqual(it.e.place.sv, 'Skåne', it.e.place.sv);
   assert.ok(partial.some(it => /^Skåne, /.test(it.e.place.sv)), 'en platstext som börjar med Skåne och fortsätter står på sin punkt');
-  // En exakt plats hamnar aldrig i brickan, även om platstexten börjar med platsens namn
-  assert.equal(wholePlace({ place: { sv: 'Skåne' } }, place('skane')), false);
-  assert.equal(wholePlace({ locationPrecision: 'region', place: { sv: 'Skånes kust' } }, place('skane')), false, 'ett annat ord');
-  // Bara exakt platsens namn, eller namnet följt av "(markören i …)": allt annat står på sin punkt
-  assert.equal(wholePlace({ locationPrecision: 'region', place: { sv: 'Skåne' } }, place('skane')), true);
-  for (const where of ['Skåne, Bohuslän', 'Skåne, Bohuslän, Östersjön och Nordtyskland', 'Skåne, särskilt Göinge och norra Skåne',
-    'Skåne (freden slöts vid floden Ejdern)', 'Skåne och Blekinge']) {
-    assert.equal(wholePlace({ locationPrecision: 'region', place: { sv: where } }, place('skane')), false, where);
-  }
-  assert.equal(wholePlace({ locationPrecision: 'country', place: { sv: 'Danmark (markören i Köpenhamn)' } }, place('danmark')), true);
-  // Danmark: händelserna med hela landet som plats (country) står i brickan, Köpenhamn (ungefärlig) står kvar på sin punkt
-  const dk = regionItems(listOf('danmark'), place('danmark'));
-  assert.ok(dk.filter(it => it.whole).every(it => it.e.place.sv.startsWith('Danmark')));
+  const dk = regionItems(listOf('danmark'), place('danmark'), places);
+  assert.deepEqual(dk.filter(it => it.whole).map(it => it.e.id),
+    ['stavnsbandet-upphavs', 'grundloven-1849', 'kvinnlig-rostratt-danmark-1915', 'danmark-gar-med-i-eg']);
   assert.ok(dk.some(it => it.approx && !it.whole), 'Danmark har ungefärliga händelser på en del av landet');
+  // Varje händelse med scope "place" i datan är ungefärlig (validate-site.py kräver det)
+  for (const e of events.filter(e => e.scope)) {
+    assert.equal(e.scope, 'place', e.id);
+    assert.ok(['region', 'country'].includes(e.locationPrecision), `${e.id}: scope "place" kräver locationPrecision`);
+  }
+});
+
+test('wholePlace läser fältet, inte platstexten: fält, saknat fält och en mindre plats inom platsen (#1674)', () => {
+  const at = (extra = {}) => ({ locationPrecision: 'region', _lon: 13.6167, _lat: 55.8, place: { sv: 'Skåne' }, ...extra });
+  // Fältet satt: hela platsen
+  assert.equal(wholePlace(at({ scope: 'place' }), place('skane'), places), true);
+  // Saknat fält: aldrig brickan, inte ens när platstexten är exakt platsens namn (textregeln är borta)
+  assert.equal(wholePlace(at(), place('skane'), places), false);
+  assert.equal(wholePlace({ ...at(), locationPrecision: 'country', place: { sv: 'Danmark (markören i Köpenhamn)' } }, place('danmark'), places), false);
+  // Ett okänt värde räknas inte
+  assert.equal(wholePlace(at({ scope: 'country' }), place('skane'), places), false);
+  // Fältet utan ungefärlig plats (en exakt punkt) ger ingen bricka
+  assert.equal(wholePlace({ ...at({ scope: 'place' }), locationPrecision: undefined }, place('skane'), places), false);
+  // Fältet gäller den minsta platsen händelsen ligger i: en skånsk händelse är "Hela Skåne", men i Sverige en ungefärlig markör
+  assert.equal(wholePlace(at({ scope: 'place' }), place('sverige'), places), false, 'Skåne ligger i Sverige');
+  // Utan listan över platser görs ingen sådan prövning (reserv när platserna inte har laddats)
+  assert.equal(wholePlace(at({ scope: 'place' }), place('sverige')), true);
+  // Platsen saknas
+  assert.equal(wholePlace(at({ scope: 'place' }), null, places), false);
+  // En svensk händelse för hela landet med punkten i Stockholm (inte i någon mindre plats) gäller hela Sverige
+  assert.equal(wholePlace({ scope: 'place', locationPrecision: 'country', _lon: 18.0686, _lat: 59.3294 }, place('sverige'), places), true);
 });
 
 test('högar: händelser på samma punkt och inom högens radie läggs ihop, i listans ordning; brickans händelser aldrig', () => {
