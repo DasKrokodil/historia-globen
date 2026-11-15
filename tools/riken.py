@@ -1883,6 +1883,15 @@ SUDANGRANSEN = [(24.15, 8.3, 25.2, 10.6), (25.2, 8.9, 32.2, 10.9), (32.2, 9.2, 3
 KOREA38 = [(124.5, 37.6, 129.0, 38.5)]
 KOREAGRANSEN = [(124.5, 37.5, 129.0, 38.8)]
 
+# Hainan (#1499): rutan runt ön. I Cliopatria når Hainan 20,151 grader nord och fastlandet (Leizhouhalvön) börjar vid 20,215,
+# så rutan som Folkrepublikens ö hämtas ur slutar vid 20,18 och når inte fastlandet. Rutan som ön klipps ur Taiwan med slutar
+# vid 20,25, eftersom Taiwans förenklade gräns är avrundad till 0,1 grad (20,2); Taiwan har inget annat i den rutan
+HAINAN = (108.4, 18.0, 111.3, 20.18)
+HAINAN_TAIWAN = (108.4, 18.0, 111.3, 20.25)
+# Zhoushan (#1499): rutan runt Zhoushanön (Dinghai). Taiwan har bara ön i rutan; Folkrepubliken får ön ur Republiken Kinas gräns
+# 1950 i Cliopatria (samma som Folkrepubliken 1953), som inte har något fastland, så rutan behöver inte undvika Ningbos kust
+ZHOUSHAN = (121.95, 29.95, 122.35, 30.25)
+
 DISPUTED = {
     # Krim och Sevastopol: Cliopatria räknar halvön till Ryssland från 2014 och till Ukraina bara till och med 2023.
     # Sverige erkänner inte annekteringen (UD, uttalande 30 september 2022), så halvön ritas som Ukraina.
@@ -1938,6 +1947,29 @@ DISPUTED = {
     # 34,3–38,1 nord) och Jeju, men inte Tsushima (söder om 34,6 grader och öster om 129,0) eller Kyushu
     'sydkorea-usa': {'area': ('rutor', [(124.5, 34.2, 129.0, 38.3), (128.0, 34.6, 129.9, 38.3), (125.9, 33.0, 127.2, 33.75)]),
                      'from': 1948, 'to': 1966, 'strict': True, 'efter': True, 'remove': ['usa'], 'add': []},
+    # Hainan från 1950 (#1499): Cliopatrias Republic of China 1950–2023 (Taiwan hos oss) omfattar Hainan, och People's Republic
+    # of China har ön först från 1953, så ön ritades som Taiwan 1950–2023 och dessutom som Kina 1953–2023. Folkrepubliken
+    # intog ön i april 1950 och hade hela ön 1 maj (wp-hainan-battle: landstigning 16 april; wp-hainan nämner också 10 april), och
+    # Nationalisternas nederlag på Hainan rapporterades från Taipei 27 april 1950 (frus-1950-hainan). Ön tas ur Taiwan från 1950
+    # och läggs till Folkrepubliken med Cliopatrias egen gräns för ön (Folkrepubliken 1953, samma som Republiken Kina 1950), efter
+    # förenklingen. Med yta räknas ytan (areaKm2) med ändringen, eftersom ön är nästan halva Taiwans yta i Cliopatria
+    'hainan-taiwan': {'area': ('rutor', [HAINAN_TAIWAN]), 'from': 1950, 'strict': True, 'efter': True, 'yta': True,
+                      'remove': ['taiwan'], 'add': []},
+    # Folkrepublikens förenklade ö (från 1953) tas först bort, så att ön har samma gräns alla år från 1950: bara delar som ligger
+    # helt i rutan (parts), så att fastlandets förenklade gräns inte skärs om (utan yta, eftersom ön redan ingår i ytan från 1953)
+    'hainan-kina-forenklad': {'area': ('rutor', [HAINAN_TAIWAN]), 'parts': True,
+                              'from': 1950, 'strict': True, 'efter': True, 'remove': ['kina'], 'add': []},
+    'hainan-kina': {'area': ('snitt', ('clio', "People's Republic of China", 1953), ('rutor', [HAINAN])), 'from': 1950,
+                    'strict': True, 'efter': True, 'yta': True, 'remove': [], 'add': ['kina']},
+    # Zhoushanöarna från 1950 (#1499): Folkrepubliken tog Zhoushan 17 maj 1950 (wp-zhoushan-islands), men Cliopatria räknar
+    # Zhoushanön till Republic of China 1950–2023 och till People's Republic of China först från 1953. Ön tas ur Taiwan och läggs
+    # till Folkrepubliken från 1950 med Cliopatrias gräns (Republiken Kina 1950 i rutan). Folkrepublikens förenklade gräns har inte
+    # ön (den är mindre än MIN_AREA för Kina), så inget behöver tas bort först. Delarna vid Xiangshan (121,7–122,0 Ö, 29,2–29,7 N)
+    # och vid Fujian (119,8–120,2 Ö, 26,5–26,8 N) är inte kontrollerade med källa och ändras inte
+    'zhoushan-taiwan': {'area': ('rutor', [ZHOUSHAN]), 'from': 1950, 'strict': True, 'efter': True, 'yta': True,
+                        'remove': ['taiwan'], 'add': []},
+    'zhoushan-kina': {'area': ('snitt', ('clio', 'Republic of China', 1950), ('rutor', [ZHOUSHAN])), 'from': 1950,
+                      'strict': True, 'efter': True, 'yta': True, 'remove': [], 'add': ['kina']},
     # Västberlin och Östberlin 1949–1990 (#1731, beslut 2026-11-15-vastberlin-grans.md). Cliopatrias hål i DDR för Västberlin
     # stämmer bara ungefär (det täcker delar av Östberlin, och södra Västberlin ligger i DDR) och saknas 1973–1975.
     # Västberlin är i stället gränsen ur "Verlauf der Berliner Mauer, 1989" (tools/vastberlin.geojson, byggd med
@@ -2315,6 +2347,9 @@ def apply_disputed(items, gid, areas):
                 # rättning inte ändrar hur resten av gränsen förenklas. Perioderna delas ändå vid årtalen; ytan (areaKm2)
                 # räknas utan området
                 if s < d['from'] or s > last or d.get('efter'):
+                    # yta (#1499): ytan räknas ändå med området, när det är en stor del av riket (Hainan i Taiwan)
+                    if d.get('efter') and d.get('yta') and d['from'] <= s <= last:
+                        ar = ar - km2(g.intersection(areas[key])) if op == 'remove' else ar + km2(areas[key].difference(g))
                     out.append((s, e, g, ar))
                     continue
                 if op == 'remove' and d.get('parts'):
@@ -2849,16 +2884,21 @@ def main():
                 on = [(a, r) for d, a, r in active if not d.get('efter')]
                 # efter (#1755): läggs på efter avrundningen, så att gränsen ur Natural Earth inte blir trappsteg på 0,1 grad.
                 # Bara de nya gränsbitarna får tre decimaler
-                post = [(a, r) for d, a, r in active if d.get('efter')]
-                if on or post:
+                post = [(a, r) for d, a, r in active if d.get('efter') and not (r and d.get('parts'))]
+                # efter med parts (#1499): bara de delar som ligger helt i området tas bort efter förenklingen, så att en ö kan tas
+                # bort utan att fastlandets gräns i samma ruta skärs om (Folkrepublikens förenklade Hainan)
+                post_parts = [a for d, a, r in active if d.get('efter') and r and d.get('parts')]
+                if on or post or post_parts:
                     # Förenklingen kan bukta in över ett område som är borttaget ur Cliopatrias gräns (Saarbrücken och
                     # Kehl ligger några km från gränsen, franska kolonialväldet förenklas med 0,3 grader), så det klipps igen
                     g = q['_g']
                     for a, r in on:
                         g = polygons_only(g.difference(a) if r else unary_union([g, a]))
                     q['geometry'] = valid_rounded(g, DECIMALS.get(gid, 1))
-                    if post:
+                    if post or post_parts:
                         g = shape(q['geometry'])
+                        for a in post_parts:
+                            g = drop_parts_within(g, a)
                         for a, r in post:
                             g = polygons_only(g.difference(a) if r else unary_union([g, a]))
                         q['geometry'] = valid_rounded(g, 3)
@@ -3009,6 +3049,9 @@ def main():
              'Sydkorea (#1500): Cliopatria räknar södra Korea till USA 1946–1966; kartan visar USA där bara 1946–1947 (den amerikanska '
              'militärregeringen till 15 augusti 1948) och Sydkorea från 1948, och gränsen mellan Sydkorea och Nordkorea följer '
              'Cliopatrias ogenomskurna gränser. '
+             'Hainan (#1499): Cliopatria räknar ön till Republiken Kina (Taiwan) 1950–2023 och till Folkrepubliken Kina först från 1953; '
+             'kartan visar ön som Folkrepubliken Kina från 1950, med Cliopatrias gräns för ön, och areaKm2 räknas med ändringen (yta i DISPUTED). '
+             'Zhoushanön likaså (Folkrepubliken tog Zhoushan 17 maj 1950). '
              'Små stater (#722): tolv länder som Cliopatria saknar i nutid eller har fel gräns för har gränsen ur Natural Earth '
              '(ne_10m_admin_0_countries 5.1.1, public domain), från självständigheten, och polity.point = true: de visas som en punkt med namn.')
     (out / 'index.json').write_text(json.dumps({'schema': 'historia-globen/empires-index@1', 'notes': notes, 'groups': index},
