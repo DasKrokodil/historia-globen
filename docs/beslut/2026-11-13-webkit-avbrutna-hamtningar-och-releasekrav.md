@@ -40,5 +40,18 @@ Körning 43624749998 på pull request #1601 (commit e4fcd15) gav för kontrollen
 
 Rättningen är ren mätning: `newTestContext()` i `tests/webblasare.mjs` skapar nu varje kontext i testet och lägger `textifyConsoleErrors()` (`tests/avbrutna-hamtningar.mjs`) som initskript. `Error` och `DOMException` blir strängen `Namn: meddelande` (till exempel `TypeError: NetworkError when attempting to fetch resource.`) innan de når konsolen; alla andra argument skickas oförändrade och det ursprungliga anropet görs alltid. Enhetsprov: exakt sträng, `DOMException`, orörda argument, originalanrop och att funktionen är fristående när den skickas som text. **Villkoren i filtret (#1393, #1561) är oförändrade.** Villkor 3 kan fortfarande inte uppfyllas i Firefox och WebKit (ingen `requestfailed`), så en avbruten hämtning under ett sidbyte räknas inte bort där, men raden visar nu tidslinjen och därmed orsaken. Firefox och WebKit gick inte att köra i molnmiljön; Firefox-jobbet i CI avgör nästa steg.
 
+## Uppdatering 2026-11-15 (steg 3: en ofullbordad egen begäran uppfyller villkor 4, DasKrokodil i #1393)
+WebKit-jobben efter steg 2 (körning 43575810806 på #1531 och 43680977726 på #1632) hade fortfarande 4–5 kontroller som föll av `… due to access control checks.` för den egna webbplatsens filer (`data/genererat/…`, `data/routes/index.json`, `img/icons/…`). Alla felrader hade diagnosen `(ingen avbruten begäran för adressen; misslyckade begäranden: inga)`. Den raden skrivs bara för ett sidfel som kom **under** sidans eget sidbyte, med WebKits exakta text och för den egna webbplatsen (villkor 1–3), så det enda som saknades var villkor 4. WebKit skickar alltså ingen `requestfailed` alls för en hämtning som avbryts av ett sidbyte, och villkor 4 kunde aldrig uppfyllas där.
+
+**Beslut (DasKrokodil 2026-11-15, alternativ (a) i uppdateringen ovan):** villkor 4 uppfylls också när samma adress var en **ofullbordad egen begäran** när sidfelet kom: sidan hade skickat den (`request`), men den hade varken blivit klar (`requestfinished`) eller misslyckats (`requestfailed`). Villkor 1–3 är oförändrade.
+
+Det döljer inte riktiga fel:
+- En begäran som misslyckas på riktigt (nekad anslutning, avbrott i nätet) får `requestfailed` och är då inte längre ofullbordad.
+- En fil som redan har hämtats klart är inte ofullbordad.
+- En ofullbordad begäran för en **annan** adress räcker inte.
+- Fel utanför ett sidbyte, ett 404 (annan text) och fel för en annan webbplats fäller som förut.
+
+Enhetsprov för fallen finns i `tests/avbrutna-hamtningar.test.mjs`. Ett sidfel som ändå fäller får texten `(ingen avbruten eller ofullbordad begäran för adressen; …)`. Konsolfiltret för Firefox (#1561, villkor 3 för konsolfel) ändras inte här. WebKit går inte att köra i molnmiljön, så effekten redovisas ur CI med etiketten `alla-webbläsare`.
+
 ## Berör
 `tests/webblasare.mjs`, `tests/avbrutna-hamtningar.mjs` (`abortWatch()`), `docs/DEPLOYMENT.md` (Firefox och WebKit i testet, release), [2026-11-08-firefox-webkit-testet-888](2026-11-08-firefox-webkit-testet-888.md), #1393, #1174, #1419.
