@@ -18,6 +18,7 @@ FINNMARK = (21.85, 70.25)
 KARELEN = (35.0, 62.5)
 NAXOS = (25.45, 37.1)
 LEVANTEN = (35.86, 33.0)
+WANGEN = (9.83, 47.69)  # Wangen im Allgäu
 
 # (grupp, punkt, namn, år, ska ligga i riket)
 PUNKTER = [
@@ -27,6 +28,7 @@ PUNKTER = [
     ('vasttyskland', SAARBRUCKEN, 'Saarbrücken', 1990, True),
     *[('frankrike', SAARBRUCKEN, 'Saarbrücken', y, False) for y in (1958, 1960, 1980, 2024)],
     *[('frankrike', CHARLOTTENBURG, 'Charlottenburg', y, False) for y in (1958, 1960, 1961, 1980)],
+    *[('frankrike', WANGEN, 'Wangen im Allgäu', y, False) for y in (1958, 1960, 1980, 2024)],
     *[('nazityskland', VAXHOLM, 'Vaxholm', y, False) for y in range(1933, 1945)],
     *[('nazityskland', KARELEN, 'ryska Karelen', y, False) for y in range(1933, 1945)],
     *[('nazityskland', LEVANTEN, 'Levanten', y, False) for y in range(1933, 1945)],

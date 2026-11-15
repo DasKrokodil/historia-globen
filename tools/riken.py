@@ -1791,6 +1791,10 @@ DISPUTED = {
     # den finare förenklingen ovan och tas bort
     'frankrike-berlin': {'area': ('rutor', [(13.0, 52.3, 13.8, 52.8)]), 'parts': True,
                          'from': 1958, 'remove': ['frankrike'], 'add': []},
+    # Cliopatria räknar också en bit vid Wangen im Allgäu (den franska zonens Lindau, som kom tillbaka till Bayern 1955)
+    # till Frankrike 1950–2023; i Femte republiken tas den bort
+    'frankrike-lindau': {'area': ('rutor', [(9.3, 47.3, 10.4, 48.0)]), 'parts': True,
+                         'from': 1958, 'remove': ['frankrike'], 'add': []},
     # Nazi Germany har småbitar (mest vatten mellan grannarnas gränser) i länder som Tyskland aldrig höll eller ännu inte
     # hade ockuperat. ('rutor', [(väst, syd, öst, nord), ...]) med 'parts': bara de delar av riket som ligger helt inne i en
     # ruta tas bort, så att rutan aldrig klipper i rikets sammanhängande yta
@@ -1800,7 +1804,7 @@ DISPUTED = {
                            'from': 1933, 'to': 1939, 'remove': ['nazityskland'], 'add': []},  # Trondheim och Finnmark före 1940
     'nazityskland-karelen': {'area': ('rutor', [(33.8, 61.0, 36.3, 63.4)]), 'parts': True,  # ryska Karelen
                              'from': 1933, 'to': 1944, 'remove': ['nazityskland'], 'add': []},
-    'nazityskland-estland': {'area': ('rutor', [(27.6, 57.7, 28.2, 59.1)]), 'parts': True,  # Peipus och Pskov före 1941
+    'nazityskland-estland': {'area': ('rutor', [(27.6, 57.7, 28.2, 59.1)]), 'parts': True,  # vid Peipussjön före 1941
                              'from': 1933, 'to': 1940, 'remove': ['nazityskland'], 'add': []},
     'nazityskland-naxos': {'area': ('rutor', [(25.2, 36.9, 25.7, 37.3)]), 'parts': True,  # Naxos före 1941
                            'from': 1933, 'to': 1940, 'remove': ['nazityskland'], 'add': []},
