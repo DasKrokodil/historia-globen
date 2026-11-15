@@ -421,7 +421,7 @@ async function start() {
   // Knappen Visa i Platt karta i platsens kort (#1161): vyn byts och kartan ramar in platsen. På smal skärm fälls kortet ihop till
   // litet läge så att kartan syns, och fokus går till dess handtag (knappen är då inte synlig)
   panel.onPlaceFlat = place => {
-    app.places.showInFlat(place);
+    app.places.showInFlat(place); // en stor plats får regionvyn på globen (#1644), där arket också fälls ihop
     if (narrow.matches) { detailSheet.set('closed'); detailSheet.handle.focus({ preventScroll: true }); }
   };
   panel.onShowPlace = e => {
@@ -443,6 +443,8 @@ async function start() {
     if (!routeClick(ll, x, y)) app.places.tap(ll); // sist: platsens kort (#1161). Platt vy har inget dubbeltryck som zoomar, så trycket väntar inte
   };
   globe.onClick = (x, y, pointerType) => {
+    // Regionvyn på globen (#1644): medaljerna är dolda och markörerna är knappar; ett tryck bredvid dem fäller ihop och avmarkerar
+    if (app.region?.globeOpen) { app.region.background(); return; }
     const hit = globe.pick(x, y, layer.sprites.filter(s => s.visible));
     relLegend.hidePop(); routePop.hide(); popClick++;
     app.select(hit ? hit.userData.event.id : null);

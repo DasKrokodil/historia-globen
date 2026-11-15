@@ -381,6 +381,8 @@
   "regionView.shown": "Nahkarte: {place}, {events}. Es werden nur die Grenze und die Ereignisse des Ortes gezeigt. Mit Escape oder der Schaltfläche „Nahkarte verlassen“ gelangen Sie zurück zur Flachen Karte.",
   "regionView.left": "Die Nahkarte ist geschlossen. Die Flache Karte zeigt {place}.",
   "regionView.reset": "Die Nahkarte zeigt {place} wieder ganz.",
+  "regionView.shownGlobe": "Nahkarte auf dem Globus: {place}, {events}. Es werden nur die Grenze und die Ereignisse des Ortes gezeigt. Mit Escape oder der Schaltfläche „Nahkarte verlassen“ gelangen Sie zurück zum ganzen Globus.",
+  "regionView.leftGlobe": "Die Nahkarte ist geschlossen. Der Globus zeigt {place}.",
   "regionView.count": ["{n} Ereignis", "{n} Ereignisse"],
   "regionView.whole": ["{n} für den ganzen Ort", "{n} für den ganzen Ort"],
   "regionView.brick": "Der ganze Ort: {place}",

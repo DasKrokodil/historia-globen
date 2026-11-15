@@ -151,6 +151,8 @@
   "regionView.shown": "Regionvy: {place}, {events}. Bara platsens gräns och händelser visas; Escape eller ”Lämna regionvyn” går tillbaka till Platt karta.",
   "regionView.left": "Regionvyn är stängd. Platt karta visar {place}.",
   "regionView.reset": "Regionvyn ramar in {place} igen.",
+  "regionView.shownGlobe": "Regionvy på globen: {place}, {events}. Bara platsens gräns och händelser visas; Escape eller ”Lämna regionvyn” går tillbaka till hela globen.",
+  "regionView.leftGlobe": "Regionvyn är stängd. Globen visar {place}.",
   "regionView.count": ["{n} händelse", "{n} händelser"],
   "regionView.whole": ["{n} gäller hela {place}", "{n} gäller hela {place}"],
   "regionView.brick": "Hela {place}",

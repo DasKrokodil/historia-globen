@@ -37,7 +37,7 @@ js/i18n.js            språkval och gränssnittets texter: ui('nyckel') ur data/
 js/url-state.js       adressformatet för delbara länkar och Bakåt/Framåt (#501, #64)
 js/search-index.js    sökningens index och matchning (#570)
 js/place-search.js    "Vad hände här?": platsförslag och händelser inom 300 km, i tidsordning (#15)
-js/region-frame.js    regionvyns ramning: vilka platser som får vyn (högst 5 grader på marken), den fria ytan och skalan med cos(mittbredden); delas med testerna (#1641)
+js/region-frame.js    regionvyns ramning: vilka platser som får vyn (högst 5 grader på marken i Platt vy, 15–60 grader på globen), den fria ytan, skalan med cos(mittbredden) och globflygets ram; delas med testerna (#1641, #1644)
 js/region-markers.js  regionvyns markörer: numrering i listans ordning, brickan för hela platsen, högar, solfjäder och ortnamn utan krockar; delas med testerna (#1642)
 js/date-events.js     återanvändbart urval av händelser för år eller exakt datum (#483, #489, #485)
 js/state.js           det gemensamma tillståndet (år, fokus, lager, filter) som lagren läser (#338), med åtgärder, prenumeration och JSON (#403), och lägeskontraktet (#893)
@@ -58,6 +58,7 @@ js/ui/funfact.js      Samtidigt-kortet (fun facts m.m.) och bågar
 js/ui/sources.js      sidan Om källorna
 js/ui/flatmap.js      Platt vy: platt karta med zoom och panorering
 js/ui/region-marks.js regionvyns numrerade markörer, bricka, högar och ortnamn som knappar och på kartans canvas (#1642)
+js/ui/globe-region.js samma markörer ovanpå globen när den har flugit in till en stor plats (regionvyn på globen, #1644)
 js/ui/poster.js       A4-affisch som PNG från Platt vy
 js/ui/routepop.js     klickrutan för vägar och resor
 js/ui/intro.js        frivillig introduktion till samtidighet i tre stilla steg (#363)
