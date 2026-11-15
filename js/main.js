@@ -7,7 +7,7 @@ import { buildIndex, search as searchIndex } from './search-index.js';
 import { placeSuggestions, eventsNear, RADIUS_KM } from './place-search.js';
 import { applyStatic, setupLangPicker, takeReturnYear, LANG_INFO, ui } from './i18n.js';
 import { bindStatus, say } from './ui/status.js';
-import { Globe } from './globe.js';
+import { Globe, paintBase } from './globe.js';
 import { Timeline, setupYearJump } from './timeline.js';
 import { LAYERS } from './layers/index.js';
 import { hasTag } from './layers/events.js';
@@ -40,12 +40,13 @@ import { createPlayback } from './controllers/playback.js';
 import { createRange } from './controllers/range.js';
 import { createLabels } from './controllers/labels.js';
 import { createPlaces } from './controllers/places.js';
+import { createRegion } from './controllers/region.js';
 import { createAddress } from './controllers/address.js';
 import { createJumpBack } from './controllers/jump-back.js';
 import { createLinkNotice } from './controllers/link-notice.js';
 import { createPresentation } from './controllers/presentation.js';
 import { TeacherGuide } from './ui/teacher.js';
-import { createSurfaces } from './surfaces.js';
+import { createSurfaces, OVERLAY_IDS } from './surfaces.js';
 
 const $ = id => document.getElementById(id);
 
@@ -85,6 +86,8 @@ async function start() {
     root: $('flat-view'), box: $('flat-box'), canvas: $('flat-canvas'),
     zoomIn: $('flat-in'), zoomOut: $('flat-out'), reset: $('flat-reset'),
     sources: () => [globe.baseCanvas, globe.overlayCanvas],
+    // Regionvyns skarpa grundkarta (#1641): samma ritning som globens utsnitt, med den finare kusten när den har laddats
+    base: (ctx, W, H, widths) => { const land = globe.detail.fineLand ?? globe._land; if (land) paintBase(ctx, W, H, land, widths); },
     onToggle: open => {
       app.viewMode?.sync();
       globe.setFlatView(open); // Platt vy behåller 4096 × 2048 även när mobilens glob är mindre (#390)
@@ -313,6 +316,8 @@ async function start() {
   app.range = createRange(app);
   // Tryck på en plats med kort (#1161): konturerna, trycket, tangentbordets Enter och knappen Visa i Platt karta
   app.places = createPlaces(app);
+  // Regionvyn (#1641): Visa i Platt karta för en liten plats ger en skarp, inzoomad karta med kantlinje
+  app.region = createRegion(app);
 
   panel.onSelect = (...a) => app.select(...a);
   panel.onFocus = id => app.startFocus(`war:${id}`);
@@ -499,7 +504,7 @@ async function start() {
   // Escape stänger Platt vy, men först det som ligger ovanpå (menyer, Hjälp, förslagsformuläret, panelen, faktarutan)
   document.addEventListener('keydown', e => {
     if (e.key !== 'Escape' || flatMap.hidden) return;
-    const open = ['help', 'teacher', 'feedback', 'settings', 'layer-menu', 'focus-menu', 'sources-dialog', 'jump-pop', 'detail', 'religion-pop', 'route-pop'].some(id => !$(id).hidden);
+    const open = OVERLAY_IDS.some(id => !$(id).hidden);
     // Escape i turens kort avslutar turen (js/ui/tour.js), inte Platt vy
     if (open || $('app').classList.contains('panel-open') || $('tour-card').contains(document.activeElement)) return;
     flatMap.setOpen(false);

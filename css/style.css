@@ -1304,6 +1304,34 @@ html.calm .year-tip { animation: none; }
 .flat-zbtn:hover { border-color: var(--brass); color: var(--brass); }
 .flat-poster { width: auto; min-width: 40px; padding: 0 10px; font-size: 13px; }
 @media (max-width: 760px) { .flat-zbtn { width: 44px; height: 44px; } }
+/* Regionvyn (#1641): rutan uppe till vänster säger vilken plats som visas och har vägen ut. Rikenas och religionernas
+   förklaring döljs där, eftersom de lagren inte ritas i regionvyn (js/controllers/region.js räknar ramen utan rutan). */
+.flat-region {
+  position: absolute; left: var(--gut); top: 16px; max-width: min(280px, calc(100% - var(--gut) - 76px));
+  padding: 8px 12px 10px; box-sizing: border-box;
+  background: color-mix(in srgb, var(--night-2) 92%, transparent);
+  border: 1px solid var(--brass-deep); border-radius: var(--r);
+  font: 400 12.5px/1.4 var(--f-body); color: var(--parchment);
+}
+.flat-region[hidden] { display: none; }
+.flat-region-name { margin: 0; font: 400 11px/1.3 var(--f-mono); color: var(--brass); letter-spacing: .04em; }
+.flat-region-note { margin: 3px 0 6px; opacity: .85; }
+.flat-region-back {
+  min-height: 32px; padding: 4px 12px; font: 500 13px/1.2 var(--f-body);
+  color: var(--parchment); background: transparent; border: 1px solid var(--brass-deep); border-radius: 999px; cursor: pointer;
+}
+.flat-region-back:hover { border-color: var(--brass); color: var(--brass); }
+.flat-region-back:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+.app.region-view .religion-legend { display: none; }
+/* Raden överst i Lager medan regionvyn är öppen: valen i menyn gäller inte kartan just då */
+.layer-region-note { margin: 0 0 8px; padding: 6px 8px; font: 400 12px/1.35 var(--f-body); color: var(--parchment); border-left: 2px solid var(--brass); }
+.layer-region-note[hidden] { display: none; }
+/* Mobil: bara rubriken och knappen på en rad (texten säger statusraden och Lager), så att platsen får plats */
+@media (max-width: 760px) {
+  .flat-region { top: 36px; display: flex; align-items: center; gap: 8px; padding: 4px 4px 4px 10px; }
+  .flat-region-note { display: none; }
+  .flat-region-back { min-height: 44px; flex: none; }
+}
 
 /* ---------- källor ---------- */
 .sheet {

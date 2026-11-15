@@ -23,6 +23,12 @@ export const CLOSES = {
   besked: [],
 };
 
+/**
+ * Ytorna som ligger ovanpå kartan och tar Escape före lägena (#1641): så länge någon av dem är öppen lämnar Escape varken
+ * regionvyn, Fokus på ett urval eller Platt vy. En lista, delad av js/main.js, js/controllers/focus.js och js/controllers/region.js.
+ */
+export const OVERLAY_IDS = ['detail', 'focus-menu', 'layer-menu', 'help', 'teacher', 'settings', 'feedback', 'sources-dialog', 'jump-pop', 'religion-pop', 'route-pop'];
+
 // Escape stänger det översta öppna i den första gruppen som har något öppet (#1323). Menyerna och sidopanelen har egna
 // Escape-lyssnare och tas bara med när de är anmälda med `central: true` (Turer-menyn, vars lyssnare kräver fokus i menyn).
 const ESCAPE_ORDER = ['dialog', 'popover', 'uppdrag', 'besked', 'meny'];

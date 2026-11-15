@@ -5,6 +5,9 @@
 // läge (state.labels.placeHints, som controllers/render.js räknar ut); den visar att ett tryck på platsen öppnar kortet.
 // Vilka platser det gäller ger controllers/places.js i `cards`. I en turs steg med en plats (#1163) ritas den platsens kontur
 // på samma sätt som i Fokus (`step`), eftersom kortet säger att linjen på kartan är dagens gräns.
+// Alla mått räknas i skärmpixlar (#1641): `px` är bildpunkter på 4096-bilden per skärmpixel (controllers/render.js), så att
+// linjen är lika bred hur stor kartan än visas. I regionvyns skarpa karta (Platt vy, #1641) ger registret måttet direkt
+// (`view.unit`), och där tonas omgivningen utanför platsen ned.
 import { Z } from './registry.js';
 import { traceRing, hasSeam } from './area-style.js';
 
@@ -22,7 +25,9 @@ export function entry() {
       layer.px = s.labels?.placePx ?? 1; // bildpunkter per skärmpixel
       return layer.place;
     },
-    drawOverlay: (ctx, W, H) => layer.drawOverlay(ctx, W, H),
+    // Ritas också i regionvyns skarpa karta (#1641): måtten är skärmpixlar, så linjen blir rätt vid regionzoom
+    region: true,
+    drawOverlay: (ctx, W, H, view) => layer.drawOverlay(ctx, W, H, view),
   };
 }
 
@@ -55,30 +60,54 @@ export class PlacesLayer {
     return paths;
   }
 
-  drawOverlay(ctx, W, H) {
-    if (this.hints && this.cards.length) return this.drawHints(ctx, W, H);
+  /**
+   * Bildpunkter per skärmpixel på bilden W × H: ur registrets vy när den anger det (regionvyn), annars ur `px`, som gäller
+   * 4096-bilden; bilden kan ritas i annan storlek (det skarpa utsnittet), därför gånger W / 4096.
+   */
+  unit(W, view) { return view?.unit ?? this.px * W / 4096; }
+
+  /**
+   * Platsen man följer, eller turens steg (#1163): en sluten linje med ljus kärna och mörk kant åt båda håll (som markeringarna
+   * runt platser med kort, men hel), och en svag fyllning. Bredden räknas i skärmpixlar (#1627, #1641): förr i bildpunkter
+   * (bredd W / 1400, streck W / 300), och i Platt vy vid max zoom blev strecken så långa att Skåne fick fyra fläckar.
+   * I regionvyn (view.region) tonas omgivningen utanför platsen ned i stället för att platsen fylls.
+   */
+  drawOverlay(ctx, W, H, view = null) {
+    if (this.hints && this.cards.length && !view?.region) return this.drawHints(ctx, W, H, view);
     // Platsen som ett turssteg öppnar (#1163) ritas som i Fokus, utan att något Fokus pågår (controllers/places.js sätter step)
     const place = this.enabled && this.place?.boundary?.geometry ? this.place : this.step;
     if (!place?.boundary?.geometry) return;
     const { fill, edge } = this.path(place, W, H);
+    const unit = this.unit(W, view), core = Math.max(1, 2.5 * unit);
     ctx.save();
     ctx.lineJoin = 'round';
-    ctx.fillStyle = 'rgba(214,168,79,0.16)';
-    ctx.fill(fill, 'evenodd');
-    ctx.strokeStyle = 'rgba(241,223,180,0.95)';
-    ctx.lineWidth = Math.max(2, W / 1400);
-    ctx.setLineDash([W / 300, W / 450]);
-    ctx.stroke(edge);
+    if (view?.region) {
+      // Omgivningen nedtonad cirka 25 %: allt utom platsen (jämn-udda, så att öar i platsen inte tonas)
+      const outside = new Path2D();
+      outside.rect(-W, -H, 3 * W, 3 * H);
+      outside.addPath(fill);
+      ctx.fillStyle = 'rgba(6,12,20,0.25)';
+      ctx.fill(outside, 'evenodd');
+    } else {
+      ctx.fillStyle = 'rgba(214,168,79,0.16)';
+      ctx.fill(fill, 'evenodd');
+    }
+    // Mörk kant under, så att den ljusa kärnan syns både mot det ljusa landet och mot havet
+    for (const [color, w] of [['rgba(12,24,44,0.6)', core + 3 * unit], ['rgba(246,230,190,0.95)', core]]) {
+      ctx.strokeStyle = color;
+      ctx.lineWidth = w;
+      ctx.stroke(edge);
+    }
     ctx.restore();
   }
 
   /** Tunna, prickade konturer runt platserna som har ett kort (#1161): ingen fyllning, så att kartan under syns. */
-  drawHints(ctx, W, H) {
+  drawHints(ctx, W, H, view = null) {
     ctx.save();
     ctx.lineJoin = 'round';
-    // Mått i skärmpixlar (px bildpunkter per skärmpixel, på 4096-bilden): en kärna på 2 px med en kant på 1 px åt varje håll,
-    // och streck på 7 px med 5 px mellanrum, hur stor kartan än visas. Bilden kan ritas i annan storlek (skarpa utsnittet): k
-    const k = W / 4096, unit = this.px * k, width = Math.max(1, 2 * unit);
+    // Mått i skärmpixlar (unit): en kärna på 2 px med en kant på 1 px åt varje håll, och streck på 7 px med 5 px mellanrum,
+    // hur stor kartan än visas
+    const unit = this.unit(W, view), width = Math.max(1, 2 * unit);
     ctx.setLineDash([7 * unit, 5 * unit]);
     // Först en mörk kant under, så att de ljusa strecken syns både mot pergamentfärgat land och mot havet
     for (const [color, w] of [['rgba(12,24,44,0.55)', width + 2 * unit], ['rgba(246,230,190,0.95)', width]]) {
