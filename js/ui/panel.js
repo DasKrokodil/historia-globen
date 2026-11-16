@@ -178,7 +178,7 @@ const reportBtn = ({ type, id, label }) => `<button type="button" class="link-bt
  */
 const reviewRow = (status, subj) => {
   const rv = REVIEW[status] ?? REVIEW.draft;
-  return `<span class="review-badge ${rv.cls}" title="${esc(REVIEW_SUBJECT_HELP[subj])}">${esc(reviewLabel(status, subj))}</span>
+  return `<span class="review-badge ${rv.cls}" title="${esc(REVIEW_SUBJECT_HELP[subj] ?? ui(`review.subjectHelp.${subj}`))}">${esc(reviewLabel(status, subj))}</span>
     <button type="button" class="review-info" data-review-info aria-expanded="false" aria-controls="review-help" aria-label="${esc(ui('review.info'))}" title="${esc(ui('review.info'))}">i</button>
     <p class="review-explain">${esc(ui('review.explain'))}</p>
     <div id="review-help" class="review-help" hidden>
@@ -789,7 +789,7 @@ export class Panel {
    * föregångare och vad det blev. Efterträdare som finns som riken är knappar som börjar följa det riket.
    */
   showFacts(opts) {
-    const { kind, name, color, symbol = '', symbolKind = null, facts: f, origin = null, place = origin, milestonesTitle = ui('facts.milestones'), mapNote = '', curveId = '', wars = [], lineage = null, empireMap = false, empireId = null } = opts;
+    const { kind, kindWord = null, name, color, symbol = '', symbolKind = null, facts: f, origin = null, place = origin, milestonesTitle = ui('facts.milestones'), mapNote = '', curveId = '', wars = [], lineage = null, empireMap = false, empireId = null } = opts;
     const fall = empireId ? this.empireTourFor?.(empireId) : null; // rikets fall som tur (#499)
     // Rikets krig (#76): krig som anger riket i empires, i tidsordning; bara de som syns enligt granskningsstatusen
     const shownWars = wars.filter(w => isVisibleReview(w.review));
@@ -800,13 +800,14 @@ export class Panel {
       if (c && c[0] === curveId) this.setCurve(...c);
     });
     this.curveArgs = null;
-    // kind: 'empire', 'vanished' (försvunnet land) eller 'religion'; namnet som visas står i facts.kind.<kind>
-    const subj = kind === 'empire' ? 'Riket' : kind === 'vanished' ? 'Landet' : 'Religionen';
+    // kind: 'empire', 'vanished' (försvunnet land), 'area' (område som inte är en stat, #1300) eller 'religion';
+    // namnet som visas står i facts.kind.<kind>, för ett område följt av typordet (kindWord)
+    const subj = kind === 'empire' ? 'Riket' : kind === 'vanished' ? 'Landet' : kind === 'area' ? 'Området' : 'Religionen';
     const srcs = [...new Set([...(f.sources ?? []), ...(f.milestones ?? []).flatMap(m => m.sources ?? []), ...(lineage?.sources ?? [])])]
       .map(id => this.srcById[id]).filter(Boolean);
     // Riken har ofta mer fördjupning än ryms i det mobila arket. Sammanfattningen
     // står därför alltid först, medan utveckling och kartans underlag öppnas vid behov (#359).
-    const isEmpire = kind === 'empire' || kind === 'vanished';
+    const isEmpire = kind === 'empire' || kind === 'vanished' || kind === 'area';
     const overview = `${lineage ? lineageHtml(lineage) : ''}
       <dl class="religion-facts">${(f.items ?? []).map(it => `<dt>${esc(t(it.label))}</dt><dd>${esc(t(it.text))}</dd>`).join('')}</dl>`;
     // Ett land med bara gräns och en not (kartan före fakta, #644) har inget att visa under Kortfattat
@@ -838,7 +839,7 @@ export class Panel {
     const hadFocus = typeof document !== 'undefined' && this.detail.contains(document.activeElement);
     this.detail.innerHTML = `
       <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
-      <div class="story-label"><span class="swatch" style="background:${esc(color)}"></span>${esc(ui(`facts.kind.${kind}`))}</div>
+      <div class="story-label"><span class="swatch" style="background:${esc(color)}"></span>${esc([ui(`facts.kind.${kind}`), kindWord].filter(Boolean).join(' · '))}</div>
       <h3>${symbol}${esc(name)}</h3>
       ${symbol && symbolKind && symbolKind !== 'symbol' ? `<p class="symbol-kind" data-symbol-kind="${esc(symbolKind)}">${esc(ui(`facts.symbolKind.${symbolKind}`))}</p>` : ''}
       ${t(f.summary) ? `<p>${esc(t(f.summary))}</p>` : ''}
