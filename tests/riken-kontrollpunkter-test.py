@@ -5,6 +5,7 @@ Provet läser data/empires/<grupp>.json och testar punkt i polygon (jämnt–udd
 i CI: python3 -I tests/riken-kontrollpunkter-test.py. En ny kontrollpunkt läggs till i PUNKTER när ett gränsfel rättas.
 """
 import json
+import math
 import sys
 from pathlib import Path
 
@@ -78,6 +79,32 @@ ALTKIRCH = (7.239, 47.623)
 DELLE = (6.998, 47.507)
 FERRETTE = (7.316, 47.494)
 ZWIESEL = (13.233, 49.017)
+# #1781, ur Wikidata (SPARQL, 2026-11-16): Konstanz Q3834, Świnoujście Q41599, Wolin Q1862, Międzyzdroje Q148615, Ahlbeck Q149899,
+# Pontarlier Q214540, Morteau Q200832, Jougne Q923421, Les Rousses Q818555, Gex Q202451, Annemasse Q212901, Thonon (Thonon-les-Bains
+# ligger vid 6,48, 46,37; samma punkt som i Cliopatria-provet), La Chaux-de-Fonds Q68124, Porrentruy Q68256, Vallorbe Q68587,
+# Genève Q71, Leutkirch im Allgäu Q539645, Isny im Allgäu Q513446, Bad Wurzach Q506838, Memmingen Q14825, Oberstaufen Q32202664,
+# Weiler-Simmerberg Q537453, Schaffhausen och Bregenz som ovan
+KONSTANZ = (9.175, 47.663)
+SWINOUJSCIE = (14.247, 53.91)
+WOLIN = (14.611, 53.841)
+MIEDZYZDROJE = (14.451, 53.928)
+AHLBECK = (14.188, 53.94)
+PONTARLIER = (6.355, 46.906)
+MORTEAU = (6.606, 47.058)
+JOUGNE = (6.388, 46.764)
+LES_ROUSSES = (6.062, 46.486)
+GEX = (6.058, 46.333)
+ANNEMASSE = (6.236, 46.195)
+LA_CHAUX = (6.83, 47.1)
+PORRENTRUY = (7.083, 47.417)
+VALLORBE = (6.383, 46.717)
+GENEVE = (6.15, 46.2)
+LEUTKIRCH = (10.022, 47.826)
+ISNY = (10.039, 47.692)
+BAD_WURZACH = (9.899, 47.909)
+MEMMINGEN = (10.181, 47.988)
+OBERSTAUFEN = (10.022, 47.556)
+WEILER = (9.933, 47.583)
 # #1534, ur en.wikipedia (Wikidata svarade inte): Juba, Khartoum, Zanzibar City och Wete (på Pemba). Chake-Chake, Pembas
 # huvudort, används inte: punkten ligger cirka 150 m utanför Natural Earths kust, i viken vid staden
 JUBA = (31.5825, 4.8539)
@@ -93,19 +120,73 @@ KOREA_SYD = ((SEOUL, 'Seoul'), (BUSAN, 'Busan'), (DAEGU, 'Daegu'))
 FAJARDO = (-65.65, 18.33)
 HUMACAO = (-65.83, 18.15)
 MINMAYA = (140.45, 41.2)
+# #1499, ur en.wikipedia (kontrollerat 2026-11-15): Haikou och Sanya på Hainan, Taipei på Taiwan
+HAIKOU = (110.3488, 20.0186)
+SANYA = (109.5036, 18.2533)
+TAIPEI = (121.5625, 25.0375)
+DINGHAI = (122.1068, 30.0198)  # Zhoushanön, ur en.wikipedia "Dinghai, Zhoushan"
+HAINAN_PUNKTER = ((HAIKOU, 'Haikou'), (SANYA, 'Sanya'), (DINGHAI, 'Dinghai'))
+# #1797, ur en.wikipedia (öppnade 2026-11-16): Xiangshans huvudort ("Xiangshan County, Zhejiang"), Changchun i Xiapu
+# ("Changchun Town", den ort på en.wikipedia som ligger närmast Cliopatrias del vid Xiapu), Kaohsiung och Magong
+XIANGSHAN_ORT = (121.866, 29.475)
+CHANGCHUN = (120.03972, 26.72917)
+KAOHSIUNG = (120.2975, 22.615)
+MAGONG = (119.583, 23.567)
+# #1707, ur Wikidata: Kinshasa Q3838, Brazzaville Q3844 och Nuuk Q226; Gander ur en.wikipedia "Gander, Newfoundland and Labrador"
+# (48° 57′ 26″ N, 54° 35′ 19″ V). Alla öppnade 2026-11-15
+KINSHASA = (15.3119, -4.3219)
+BRAZZAVILLE = (15.2711, -4.2694)
+NUUK = (-51.7333, 64.175)
+GANDER = (-54.5886, 48.9572)
+# #1787, ur Wikidata (wbgetentities, P625, öppnade 2026-11-16): Mombasa Q225641, Tanga Q152902, Lamu Q272799, Malindi Q271411,
+# Bagamoyo Q799843, Kilwa Kisiwani Q1741475, Kilwa Kivinje Q654318 och Dar es Salaam Q1960
+MOMBASA = (39.6667, -4.05)
+TANGA = (39.1, -5.0667)
+LAMU = (40.9003, -2.2686)
+MALINDI = (40.1167, -3.2194)
+BAGAMOYO = (38.9, -6.4333)
+KILWA_KISIWANI = (39.5172, -8.9817)
+KILWA_KIVINJE = (39.4133, -8.7478)
+DAR_ES_SALAAM = (39.2803, -6.8161)
+VANGA = (39.2194, -4.6607)  # Q2510244, Kenyas sydligaste ort vid gränsen mot Tanzania (geografen, 2026-11-16)
+OA_TANGANYIKA = ((TANGA, 'Tanga'), (BAGAMOYO, 'Bagamoyo'), (KILWA_KIVINJE, 'Kilwa Kivinje'), (DAR_ES_SALAAM, 'Dar es Salaam'))
 # Nära trepunkterna (geografen, #1534): punkter i Cliopatrias Sudan 2014 där Centralafrikanska republikens och Etiopiens förenklade
 # gränser når in. Sudans gräns längs Sydsudan får inte läggas över dem, så att marken bara ritas i en stat
 NARA_CAF = (23.96, 8.71)
 NARA_ETIOPIEN = (34.18, 9.89)
 PASSAU = (13.461, 48.575)
+# #1469, ur en.wikipedia (infoboxarna, öppnade 2026-11-15; Wikidata svarade med 429): Prag, Budapest, Bukarest, Sofia, Kuwait City,
+# Muskat och Freistadt i Mühlviertel. Warszawa står ovan (Q270)
+PRAG = (14.42139, 50.0875)
+BUDAPEST = (19.05139, 47.4925)
+BUKAREST = (26.10389, 44.4325)
+SOFIA = (23.33, 42.70)
+KUWAIT_CITY = (47.97833, 29.36972)
+MUSKAT = (58.40833, 23.58889)
+FREISTADT = (14.5052, 48.51146)
+OSTEUROPA = ((PRAG, 'Prag', 'tjeckoslovakien'), (BUDAPEST, 'Budapest', 'ungern'), (BUKAREST, 'Bukarest', 'rumanien'),
+             (SOFIA, 'Sofia', 'bulgarien'), (FREISTADT, 'Freistadt', 'osterrike'))
 # Berlin 1949–1990 (#1731), ur Wikidata: Västberlin och Östberlin
 VASTBERLIN = {'Charlottenburg': (13.3, 52.517), 'Spandau': (13.2, 52.55), 'Wedding': (13.343, 52.55), 'Kreuzberg': (13.383, 52.488),
               'Neukölln': (13.45, 52.483), 'Steglitz': (13.333, 52.467), 'Zehlendorf': (13.259, 52.434)}
 # Q162049, Q158083, Q675187, Q308928, Q4071168, Q700211, Q324402
 OSTBERLIN = {'Berlin-Mitte': (13.407, 52.519), 'Pankow': (13.4, 52.567), 'Köpenick': (13.577, 52.446)}  # Q2013767, Q163012, Q521521
 
+# #1443: Tenochtitlan ur en.wikipedia "Tenochtitlan" (19° 26′ N, 99° 8′ V) och Texcoco ur Wikidata Q2047652, båda öppnade 2026-11-16
+TENOCHTITLAN = (-99.1333, 19.4333)
+TEXCOCO = (-98.8967, 19.5294)
+MEXIKODALEN = ((TENOCHTITLAN, 'Tenochtitlan'), (TEXCOCO, 'Texcoco'))
+
 # (grupp, punkt, namn, år, ska ligga i riket)
 PUNKTER = [
+    # Mexikodalen (#1443, DasKrokodils svar A 2026-11-14). Punkterna visar läget som det är, inte som det borde vara: Cliopatrias
+    # ytor för Tenochtitlan och Texcoco 1326–1428 ser förväxlade ut och ingen av dem innehåller sin stad, men ytorna står kvar som
+    # i källan (rutan Om kartan). Byts ytorna senare, med en andra källa, ska de här punkterna ändras i samma pull request
+    *[('aztekriket', p, n, y, False) for p, n in MEXIKODALEN for y in (1326, 1400, 1428)],
+    *[('texcoco', p, n, y, False) for p, n in MEXIKODALEN for y in (1202, 1325, 1326, 1400, 1428)],
+    # Förbundets yta 1429–1439 innehåller Texcoco men inte Tenochtitlan (omkring 6 km utanför i källan); från 1440 båda
+    ('aztekriket', TEXCOCO, 'Texcoco', 1430, True), ('aztekriket', TENOCHTITLAN, 'Tenochtitlan', 1430, False),
+    *[('aztekriket', p, n, y, True) for p, n in MEXIKODALEN for y in (1440, 1475, 1500, 1520)],
     *[('osttyskland', CHARLOTTENBURG, 'Charlottenburg', y, False) for y in (1949, 1961, 1973, 1974, 1975, 1980, 1990)],
     ('vasttyskland', SAARBRUCKEN, 'Saarbrücken', 1960, True),
     ('vasttyskland', SAARBRUCKEN, 'Saarbrücken', 1980, True),
@@ -262,6 +343,19 @@ PUNKTER = [
     *[('sydsudan', KHARTOUM, 'Khartoum', y, False) for y in (2011, 2024)],
     *[('tanzania', p, n, y, True) for p, n in ((ZANZIBAR, 'Zanzibar'), (WETE, 'Wete')) for y in (1964, 1966, 1967, 2000, 2024)],
     *[('tanzania', p, n, 1963, False) for p, n in ((ZANZIBAR, 'Zanzibar'), (WETE, 'Wete'))],
+    # Östafrikas kust (#1787): Natural Earths kust i rutorna, och orterna i den stat som Cliopatria har vid kusten de åren
+    *[('tanzania', p, n, y, True) for p, n in OA_TANGANYIKA for y in (1961, 1964, 2000, 2024)],
+    *[('tyska-riket', p, n, y, True) for p, n in OA_TANGANYIKA for y in (1890, 1900, 1916)],
+    *[('brittiska-imperiet', p, n, y, True) for p, n in OA_TANGANYIKA for y in (1918, 1930, 1944, 1950, 1960)],
+    *[('oman', p, n, y, True) for p, n in ((TANGA, 'Tanga'), (BAGAMOYO, 'Bagamoyo'), (DAR_ES_SALAAM, 'Dar es Salaam'))
+      for y in (1744, 1800, 1814)],
+    *[('kenya', MALINDI, 'Malindi', y, True) for y in (1963, 2000, 2024)],
+    *[('brittiska-imperiet', MALINDI, 'Malindi', y, True) for y in (1890, 1900, 1950, 1962)],
+    *[('brittiska-imperiet', ZANZIBAR, 'Zanzibar', y, True) for y in (1890, 1911, 1922, 1946, 1956, 1962)],
+    *[('kenya', p, n, y, False) for p, n in OA_TANGANYIKA for y in (1963, 2024)],
+    *[('tanzania', MALINDI, 'Malindi', y, False) for y in (1963, 2024)],
+    *[('tanzania', VANGA, 'Vanga', y, False) for y in (1961, 1963, 2024)],
+    *[('tyska-riket', VANGA, 'Vanga', y, False) for y in (1890, 1900, 1916)],
     *[('sudan', p, n, y, False) for p, n in ((NARA_CAF, 'nära trepunkten vid Centralafrikanska republiken'),
                                               (NARA_ETIOPIEN, 'nära trepunkten vid Etiopien')) for y in (2011, 2012, 2020)],
     *[('centralafrikanska-republiken', NARA_CAF, 'nära trepunkten vid Centralafrikanska republiken', y, True) for y in (2012, 2020)],
@@ -274,7 +368,116 @@ PUNKTER = [
     *[('nordkorea', p, n, y, False) for p, n in KOREA_SYD for y in (1948, 1960)],
     *[('usa', p, n, y, True) for p, n in ((FAJARDO, 'Fajardo'), (HUMACAO, 'Humacao')) for y in (1948, 1950, 1953, 1960, 1966)],
     *[('usa', MINMAYA, 'Minmaya', y, True) for y in (1948, 1950, 1952)],
+    # Hainan och Zhoushan (#1499): Folkrepubliken Kina intog Hainan 16 april–1 maj 1950 och Zhoushan 17 maj 1950. Cliopatrias
+    # Republiken Kina 1950–2023 (Taiwan) omfattar öarna, men de ritas inte i Taiwan; Taipei ligger kvar i Taiwan
+    *[('kina', p, n, y, True) for p, n in HAINAN_PUNKTER for y in (1950, 1952, 1953, 1960, 2023, 2024)],
+    *[('taiwan', p, n, y, False) for p, n in HAINAN_PUNKTER for y in (1950, 1952, 1953, 1960, 2023, 2024)],
+    *[('taiwan', TAIPEI, 'Taipei', y, True) for y in (1950, 1960, 2023, 2024)],
+    *[('kina', TAIPEI, 'Taipei', y, False) for y in (1950, 1960, 2023, 2024)],
+    # Kusten vid Xiangshan och Xiapu (#1797): kommunisterna hade hela fastlandet utom Hainan och Tibet i december 1949
+    # (wp-retreat-roc-taiwan), så Cliopatrias delar av Republiken Kina där ritas i Kina och inte i Taiwan. Kaohsiung ligger i Taiwan
+    *[('kina', XIANGSHAN_ORT, 'Xiangshan', y, True) for y in (1950, 1952, 1953, 1960, 2023, 2024)],
+    *[('taiwan', p, n, y, False) for p, n in ((XIANGSHAN_ORT, 'Xiangshan'), (CHANGCHUN, 'Changchun'))
+      for y in (1950, 1952, 1953, 1960, 2023, 2024)],
+    *[('taiwan', KAOHSIUNG, 'Kaohsiung', y, True) for y in (1950, 1960, 2023, 2024)],
+    *[('kina', KAOHSIUNG, 'Kaohsiung', y, False) for y in (1950, 1960, 2023, 2024)],
+    # Penghu (Magong) saknas i Cliopatria och ritas i ingen stat (docs/omstridda-granser.md, Kvar)
+    *[(g, MAGONG, 'Magong', y, False) for g in ('taiwan', 'kina') for y in (1950, 2000, 2024)],
+    # Kinshasa och Brazzaville (#1707): Kinshasa på Pool Malebos södra strand, Brazzaville på andra sidan floden (wp-kinshasa).
+    # Frankrike saknas i hela Franska Ekvatorialafrika 1940–1944 i Cliopatria, så Brazzaville är utan stat de åren
+    *[('belgiska-kongo', KINSHASA, 'Kinshasa', y, True) for y in (1890, 1900, 1908, 1920, 1940, 1959)],
+    *[('kongo-kinshasa', KINSHASA, 'Kinshasa', y, True) for y in (1960, 1961, 1970, 2000, 2024)],
+    *[(g, KINSHASA, 'Kinshasa', y, False) for g, y in (('franska-kolonialvaldet', 1890), ('franska-kolonialvaldet', 1920),
+                                                      ('franska-kolonialvaldet', 1952), ('frankrike', 1959), ('frankrike', 1960),
+                                                      ('kongo-brazzaville', 1961), ('kongo-brazzaville', 1970),
+                                                      ('kongo-brazzaville', 2024))],
+    *[(g, BRAZZAVILLE, 'Brazzaville', y, True) for g, y in (('franska-kolonialvaldet', 1895), ('franska-kolonialvaldet', 1920),
+                                                           ('franska-kolonialvaldet', 1957), ('frankrike', 1958), ('frankrike', 1960),
+                                                           ('kongo-brazzaville', 1961), ('kongo-brazzaville', 2024))],
+    *[(g, BRAZZAVILLE, 'Brazzaville', y, False) for g, y in (('belgiska-kongo', 1890), ('belgiska-kongo', 1920),
+                                                            ('belgiska-kongo', 1940), ('belgiska-kongo', 1959),
+                                                            ('kongo-kinshasa', 1960), ('kongo-kinshasa', 2024))],
+    # Gander (#1707): Newfoundland gick med i Kanada 31 mars 1949 (wp-newfoundland-and-labrador), och ligger inte samtidigt i
+    # Brittiska imperiet
+    ('brittiska-imperiet', GANDER, 'Gander', 1948, True),
+    *[('brittiska-imperiet', GANDER, 'Gander', y, False) for y in (1949, 1950, 1952)],
+    *[('kanada', GANDER, 'Gander', y, True) for y in (1949, 1952, 1953, 2000)],
+    # Ockupation efter 1945 (#1469): den erkända staten, inte makten. Polen 1953–1989 (Sovjetunionen delas 1953, #1730)
+    *[('polen', WARSZAWA, 'Warszawa', y, True) for y in (1953, 1956, 1970, 1989)],
+    *[('sovjetunionen', WARSZAWA, 'Warszawa', y, False) for y in (1953, 1956, 1970, 1989)],
+    # Östeuropa och Mühlviertel 1945–1946: landet, inte Sovjetunionen
+    *[(g, p, n, y, True) for p, n, g in OSTEUROPA for y in (1945, 1946, 1947)],
+    *[('sovjetunionen', p, n, y, False) for p, n, _g in OSTEUROPA for y in (1945, 1946)],
+    # Österrike 1945 i stället för de fyra zonerna
+    *[(g, FREISTADT, 'Freistadt', 1945, False) for g in ('usa', 'brittiska-imperiet', 'franska-kolonialvaldet')],
+    *[('osterrike', BREGENZ, 'Bregenz', 1945, True)],
+    *[('franska-kolonialvaldet', BREGENZ, 'Bregenz', 1945, False)],
+    # Ungern 1956–1957 (Cliopatria: "Hungarian Nationalists")
+    *[('ungern', BUDAPEST, 'Budapest', y, True) for y in (1955, 1956, 1957, 1958)],
+    *[('sovjetunionen', BUDAPEST, 'Budapest', y, False) for y in (1956, 1957)],
+    # Kuwait 1990: inte Irak (Kuwait City ligger cirka 500 m utanför Kuwaits förenklade kust och står i NARA)
+    *[('irak', KUWAIT_CITY, 'Kuwait City', y, False) for y in (1989, 1990, 1991)],
+    # Muskat från 1973 i Oman. 1956–1972 räknas staden till Brittiska imperiet som i Cliopatria, och 1946–1955 ligger den utanför
+    # Muskat och Oman (fall som står öppna, docs/omstridda-granser.md); de åren prövas inte här
+    *[('oman', MUSKAT, 'Muskat', y, True) for y in (1973, 2000, 2024)],
+    # Före 1919 (#1781): Basel, Riehen och Schaffhausen i Schweiz, Bregenz i Österrike-Ungern, Weil am Rhein och Saint-Louis-sidan
+    # i Tyska riket
+    *[('schweiz', p, n, y, True) for p, n in ((BASEL, 'Basel'), (RIEHEN, 'Riehen'), (SCHAFFHAUSEN, 'Schaffhausen'))
+      for y in (1820, 1870, 1871, 1900, 1915, 1918)],
+    *[('tyska-riket', p, n, y, False) for p, n in ((BASEL, 'Basel'), (RIEHEN, 'Riehen'), (SCHAFFHAUSEN, 'Schaffhausen'), (BREGENZ, 'Bregenz'))
+      for y in (1871, 1900, 1915, 1918)],
+    *[('osterrike-ungern', BREGENZ, 'Bregenz', y, True) for y in (1868, 1900, 1918)],
+    *[('tyska-riket', WEIL, 'Weil am Rhein', y, True) for y in (1871, 1900, 1915)],
+    *[('schweiz', WEIL, 'Weil am Rhein', y, False) for y in (1871, 1900, 1915)],
+    # Oder (#1781): Świnoujście och västra Wolin i Polen från 1945, inte i Sovjetunionen; Ahlbeck i DDR
+    *[('polen', p, n, y, True) for p, n in ((SWINOUJSCIE, 'Świnoujście'), (WOLIN, 'Wolin'), (MIEDZYZDROJE, 'Międzyzdroje'))
+      for y in (1945, 1946, 1949, 1952, 1953, 1990, 2024)],
+    *[(g, SWINOUJSCIE, 'Świnoujście', y, False) for g, y in (('sovjetunionen', 1946), ('sovjetunionen', 1949), ('osttyskland', 1949),
+                                                               ('tyskland', 2000))],
+    *[('osttyskland', AHLBECK, 'Ahlbeck', y, True) for y in (1949, 1952, 1990)],
+    *[('sovjetunionen', AHLBECK, 'Ahlbeck', y, False) for y in (1949, 1952)],
+    # Jura 1940–1944 (#1781): Frankrikes sida som i Cliopatria (Nazityskland, Vichyregimen, Italien 1943), Schweiz sida i Schweiz
+    *[('nazityskland', p, n, y, True) for p, n in ((PONTARLIER, 'Pontarlier'), (MORTEAU, 'Morteau'), (JOUGNE, 'Jougne'),
+                                                   (LES_ROUSSES, 'Les Rousses'), (GEX, 'Gex'), (DELLE, 'Delle')) for y in (1940, 1942, 1944)],
+    *[('italien', ANNEMASSE, 'Annemasse', 1943, True), ('nazityskland', ANNEMASSE, 'Annemasse', 1944, True)],
+    *[('schweiz', p, n, y, True) for p, n in ((LA_CHAUX, 'La Chaux-de-Fonds'), (PORRENTRUY, 'Porrentruy'), (VALLORBE, 'Vallorbe'),
+                                              (GENEVE, 'Genève')) for y in (1940, 1942, 1943, 1944)],
+    *[(g, p, n, y, False) for p, n in ((LA_CHAUX, 'La Chaux-de-Fonds'), (PORRENTRUY, 'Porrentruy'), (VALLORBE, 'Vallorbe'),
+                                       (GENEVE, 'Genève')) for g, y in (('nazityskland', 1942), ('franska-kolonialvaldet', 1942),
+                                                                        ('italien', 1943), ('nazityskland', 1944))],
+    # Västra Allgäu 1945–1949 (#1781): Wangen och Bad Wurzach i den franska zonen, Memmingen och Oberstaufen i den amerikanska.
+    # Weiler (källorna skiljer sig), Leutkirch och Isny (Cliopatrias USA, franska zonen genom #1771) prövas bara i DUBBEL
+    *[('franska-kolonialvaldet', p, n, y, True) for p, n in ((WANGEN, 'Wangen im Allgäu'), (BAD_WURZACH, 'Bad Wurzach'))
+      for y in (1945, 1946, 1949)],
+    *[('usa', p, n, y, False) for p, n in ((WANGEN, 'Wangen im Allgäu'), (BAD_WURZACH, 'Bad Wurzach')) for y in (1945, 1946, 1949)],
+    *[('usa', p, n, y, True) for p, n in ((MEMMINGEN, 'Memmingen'), (OBERSTAUFEN, 'Oberstaufen')) for y in (1945, 1946, 1949)],
 ]
+
+# Punkter som ligger precis utanför den förenklade kusten men som uppslaget hittar inom marginalen (AREA_MARGIN_DEG i
+# js/area-lookup.js, 0,05 grader, längdgrader skalade med cos(latitud), beslut 2026-11-15, #1524): (grupp, punkt, namn, år).
+# Nuuk ligger utanför också i Cliopatria och i Natural Earth 1:10m (#1707), så kartan kan inte rätta det med de källor vi har
+NARA = [
+    # Changchun (#1797) ligger strax utanför Kinas förenklade kust, inom marginalen
+    *[('kina', CHANGCHUN, 'Changchun', y) for y in (1950, 1953, 2000, 2024)],
+    *[('gronland-koloni', NUUK, 'Nuuk', y) for y in (1734, 1750, 1800, 1900, 1940)],
+    *[('danmark', NUUK, 'Nuuk', y) for y in (1946, 1979, 2000, 2024)],
+    # Kuwait City ligger cirka 500 m utanför Kuwaits förenklade kust (#1469)
+    *[('kuwait', KUWAIT_CITY, 'Kuwait City', y) for y in (1961, 1989, 1990, 1991, 2024)],
+    # Mombasa och Lamu ligger på öar och Kilwa Kisiwani på en ö som Natural Earth 1:10m saknar; orterna ligger 1,5–3,5 km utanför
+    # Natural Earths kust (#1787)
+    *[('kenya', p, n, y) for p, n in ((MOMBASA, 'Mombasa'), (LAMU, 'Lamu')) for y in (1963, 2000, 2024)],
+    *[('brittiska-imperiet', p, n, y) for p, n in ((MOMBASA, 'Mombasa'), (LAMU, 'Lamu')) for y in (1895, 1920, 1944, 1950, 1962)],
+    ('brittiska-imperiet', MOMBASA, 'Mombasa', 1824),
+    *[('oman', MOMBASA, 'Mombasa', y) for y in (1744, 1800, 1814)],
+    ('spanska-imperiet', MOMBASA, 'Mombasa', 1600), ('portugisiska-imperiet', MOMBASA, 'Mombasa', 1650),
+    # Vanga ligger på kenyanska sidan, cirka 100 m utanför Natural Earths kust
+    *[('kenya', VANGA, 'Vanga', y) for y in (1963, 2000, 2024)],
+    *[('brittiska-imperiet', VANGA, 'Vanga', y) for y in (1890, 1900, 1918, 1950, 1962)],
+    ('oman', VANGA, 'Vanga', 1744),
+    *[(g, KILWA_KISIWANI, 'Kilwa Kisiwani', y) for g, y in (('tyska-riket', 1900), ('brittiska-imperiet', 1920),
+                                                           ('brittiska-imperiet', 1950), ('tanzania', 1961), ('tanzania', 2024))],
+]
+MARGINAL = 0.05
 
 
 def in_ring(pt, ring):
@@ -303,11 +506,59 @@ ruta = {'type': 'Polygon', 'coordinates': [[[0, 0], [10, 0], [10, 10], [0, 10], 
 if not in_geometry((1, 1), ruta) or in_geometry((5, 5), ruta) or in_geometry((11, 5), ruta):
     fel.append('punkt i polygon med hål ger fel svar')
 
+# Orter som inte får ritas i två stater samma år (#1781). Konstanz ritas i Schweiz eftersom Natural Earth följer Seerhein (Om kartan)
+DUBBEL = [
+    *[(('kina', 'taiwan'), XIANGSHAN_ORT, 'Xiangshan', y) for y in (1950, 1953, 2000, 2023)],
+    *[(('schweiz', 'tyska-riket'), KONSTANZ, 'Konstanz', y) for y in (1871, 1900, 1918)],
+    *[(('osttyskland', 'sovjetunionen', 'polen'), p, n, y) for p, n in ((AHLBECK, 'Ahlbeck'), (SWINOUJSCIE, 'Świnoujście'))
+      for y in (1946, 1949, 1952)],
+    *[(('franska-kolonialvaldet', 'nazityskland', 'italien', 'schweiz'), p, n, y) for p, n in ((PONTARLIER, 'Pontarlier'), (GEX, 'Gex'),
+                                                                                            (GENEVE, 'Genève')) for y in (1940, 1942, 1943, 1944)],
+    *[(('franska-kolonialvaldet', 'usa'), p, n, y) for p, n in ((WEILER, 'Weiler-Simmerberg'), (LEUTKIRCH, 'Leutkirch'), (ISNY, 'Isny'), (MEMMINGEN, 'Memmingen'))
+      for y in (1945, 1946, 1949)],
+]
+for grupper, pt, namn, year in DUBBEL:
+    i = [g for g in grupper if in_group(g, pt, year)]
+    if len(i) != 1:
+        fel.append(f'{namn} {pt} år {year}: i {len(i)} av {", ".join(grupper)} ({", ".join(i) or "ingen"})')
+
 for gid, pt, namn, year, ska in PUNKTER:
     if in_group(gid, pt, year) != ska:
         fel.append(f'{namn} {pt} år {year}: {"saknas i" if ska else "ligger i"} {gid}')
 
+
+def seg_dist(p, a, b, c):
+    """Avståndet i grader från p till sträckan a–b, med längdgrader skalade med c = cos(latitud), som areaAt()."""
+    px, py, ax, ay, bx, by = p[0] * c, p[1], a[0] * c, a[1], b[0] * c, b[1]
+    dx, dy = bx - ax, by - ay
+    t = 0 if dx == dy == 0 else max(0, min(1, ((px - ax) * dx + (py - ay) * dy) / (dx * dx + dy * dy)))
+    return ((px - ax - t * dx) ** 2 + (py - ay - t * dy) ** 2) ** 0.5
+
+
+def near_group(gid, pt, year):
+    """Närmaste avstånd i grader från punkten till gruppens gräns ett visst år (0 om punkten ligger i gruppen)."""
+    if in_group(gid, pt, year):
+        return 0
+    doc = json.loads((ROOT / f'data/empires/{gid}.json').read_text(encoding='utf-8'))
+    c = math.cos(math.radians(pt[1]))
+    best = math.inf
+    for p in doc['polities']:
+        for q in p['periods']:
+            if not q['start'] <= year <= q['end']:
+                continue
+            g = q['geometry']
+            for poly in (g['coordinates'] if g['type'] == 'MultiPolygon' else [g['coordinates']]):
+                for ring in poly:
+                    best = min(best, *(seg_dist(pt, a, b, c) for a, b in zip(ring, ring[1:] + ring[:1])))
+    return best
+
+
+for gid, pt, namn, year in NARA:
+    d = near_group(gid, pt, year)
+    if d > MARGINAL:
+        fel.append(f'{namn} {pt} år {year}: {d:.3f} grader från {gid}, mer än marginalen {MARGINAL}')
+
 if fel:
     print('\n'.join(fel))
     sys.exit(1)
-print(f'riken-kontrollpunkter: {len(PUNKTER)} kontrollpunkter stämmer')
+print(f'riken-kontrollpunkter: {len(PUNKTER)} kontrollpunkter och {len(NARA)} inom marginalen stämmer')

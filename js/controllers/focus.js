@@ -78,6 +78,10 @@ export function createFocus(app) {
     globe.setZoom(f.zoom);
     $('focus-title').textContent = f.title;
     $('focus-facts').hidden = !post.facts?.has(f);
+    // Platsens knapp heter Om platsen i stället för det anonyma Fakta (#1790); data-i18n följer med vid språkbyte
+    const factsKey = f.type === 'place' ? 'place.cardLabel' : 'focus.facts';
+    $('focus-facts').dataset.i18n = factsKey;
+    $('focus-facts').textContent = ui(factsKey);
     $('focus-bar').hidden = false;
     $('app').classList.add('focusing');
     app.surfaces.closeGroup('sidopanel'); // listan stängs så att det man följer syns
@@ -123,6 +127,16 @@ export function createFocus(app) {
   }
   // Raden behövs bara innan man börjar spela: under uppspelningen gör den fokusraden högre och krockar med pausraden (#647)
   timeline.addEventListener('playstate', () => { if (timeline.playing && movedBack) showMoved(null); });
+  // Raden säger året tiden flyttades till. Står året inte längre där (slutkortet, ett hopp, en länk som pekar efter slutet, dragning)
+  // stämmer den inte, och då försvinner den; en vald period (#1448) står kvar, utan "Tiden flyttades" och Tillbaka (#1857).
+  // Toleransen är en dag i fokusläget för korta krig och ett halvt år annars, så att avrundningen när året sätts inte räknas.
+  timeline.addEventListener('change', () => {
+    const m = movedBack;
+    if (!m || m.moved === false) return;
+    const tol = timeline.focus?.fine ? 1 / 365.25 : 0.5;
+    if (Math.abs(timeline.year - m.startYear) <= tol) return;
+    showMoved(m.period ? { ...m, moved: false } : null);
+  });
   // Tillbaka lämnar fokus och går till året man stod på, eftersom det ligger utanför spannet
   $('focus-moved-back').addEventListener('click', () => {
     const y = movedBack?.prevYear;

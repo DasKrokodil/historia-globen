@@ -197,3 +197,123 @@ test('turen Vad vet vi egentligen? (#948) har sex steg som öppnar händelser, m
     for (const [l, re] of Object.entries(informal)) for (const f of ['question', 'text', 'title', 'chapter']) assert.ok(!re.test(s[f][l]), `${s.id}.${f}.${l}: du-form`);
   }
 });
+
+// Markören på kartan i ett steg (#1785): namn per språk, valfri plats och valfritt ungefärlig
+test('markören i ett steg kontrolleras (#1785)', () => {
+  const ok = { label: { sv: 'Federal Hall, New York', en: 'Federal Hall, New York' } };
+  assert.deepEqual(tourProblems(tour({ steps: [step({ mark: ok }), step({ id: 'b', mark: { ...ok, lat: 40.4, lon: 116.5, approx: true } })] }), known), []);
+  const bad = tourProblems(tour({ steps: [
+    step({ mark: { label: {} } }),
+    step({ id: 'b', mark: { label: { sv: 'X' }, lat: 40 } }),
+    step({ id: 'c', mark: { label: { sv: 'X' }, lat: 95, lon: 0 } }),
+    step({ id: 'd', mark: { label: { sv: 'X' }, approx: 'ja' } }),
+    step({ id: 'e', mark: 'plats' }),
+  ] }), known).join('\n');
+  for (const part of ['markörens namn saknas', 'både lat och lon', 'utanför jorden', 'approx ska vara', 'ska vara ett objekt']) assert.match(bad, new RegExp(part), `saknar ${part}`);
+});
+
+// Turen Det här har du hört (#1784, #1785): händelserna är av i steg utan egen händelse, en plats har en markör och Columbus resa är på
+test('Det här har du hört: händelserna av utom där steget har en egen händelse, och markörer på platserna', async () => {
+  const { readFileSync } = await import('node:fs');
+  const data = JSON.parse(readFileSync(new URL('../data/turer/det-har-har-du-hort.json', import.meta.url)));
+  assert.deepEqual(tourProblems(data, {}), []);
+  for (const st of data.steps) {
+    if (st.open) assert.ok(st.layers.includes('events'), `${st.id} öppnar en händelse och ska visa händelser`);
+    else assert.ok(!st.layers.includes('events'), `${st.id} har ingen egen händelse och ska inte visa andras`);
+  }
+  assert.ok(data.steps.find(st => st.id === 'platt-jord').layers.includes('routes'), 'Columbus resa är på i steg 5');
+  const marked = Object.fromEntries(data.steps.filter(st => st.mark).map(st => [st.id, st.mark]));
+  assert.deepEqual(Object.keys(marked), ['washingtons-tander', 'kinesiska-muren', 'sfinxens-nasa', 'el-dorado']);
+  assert.equal(marked['kinesiska-muren'].approx, true, 'muren är lång: markören är en ungefärlig punkt');
+  for (const [id, m] of Object.entries(marked)) for (const lang of ['sv', 'en', 'de', 'es', 'fr']) assert.ok(m.label[lang], `${id}: namn på ${lang} saknas`);
+});
+
+// Turkortets text i stycken (#1793): lika många stycken i alla språk, rubriker per stycke ur data/turer/index.json
+test('stycken och partLabels kontrolleras (#1793)', () => {
+  const two = { sv: 'Ett.\n\nTvå.', en: 'One.\n\nTwo.' };
+  assert.deepEqual(tourProblems(tour({ steps: [step({ text: two, partLabels: ['said', 'sourcesSay'] }), step({ id: 'b', text: two, partLabels: [null, 'sourcesSay'] })] }), known), []);
+  const bad = tourProblems(tour({ steps: [
+    step({ text: { sv: 'Ett.\n\nTvå.', en: 'One. Two.' } }),
+    step({ id: 'b', text: two, partLabels: ['said'] }),
+    step({ id: 'c', text: two, partLabels: [1, 'sourcesSay'] }),
+  ] }), known).join('\n');
+  for (const part of ['har 1 stycken, svenskan 2', 'ett värde per stycke', 'nycklar eller null']) assert.match(bad, new RegExp(part), `saknar ${part}`);
+});
+
+test('Det här har du hört: stycken med rubriker på alla fem språk, orden oförändrade (#1793)', async () => {
+  const { readFileSync } = await import('node:fs');
+  const data = JSON.parse(readFileSync(new URL('../data/turer/det-har-har-du-hort.json', import.meta.url)));
+  const index = JSON.parse(readFileSync(new URL('../data/turer/index.json', import.meta.url)));
+  for (const key of ['said', 'sourcesSay']) for (const lang of ['sv', 'en', 'de', 'es', 'fr']) assert.ok(index.labels[key]?.[lang], `rubriken ${key} saknas på ${lang}`);
+  for (const st of data.steps) {
+    const n = st.text.sv.split(/\n\n+/).length;
+    assert.ok(n >= 2, `${st.id}: texten är ett enda stycke`);
+    assert.equal(st.partLabels.length, n, `${st.id}: partLabels`);
+    for (const key of st.partLabels.filter(Boolean)) assert.ok(index.labels[key], `${st.id}: rubriken ${key} finns inte i index.json`);
+    for (const lang of ['en', 'de', 'es', 'fr']) assert.equal(st.text[lang].split(/\n\n+/).length, n, `${st.id}: ${lang} har ett annat antal stycken`);
+  }
+  const wash = data.steps.find(st => st.id === 'washingtons-tander');
+  assert.deepEqual(wash.partLabels, [null, 'said', 'sourcesSay'], 'Washington: sammanhang, det sägs, vad källorna säger');
+});
+
+// Bild i ett steg (#1794): fil, slag, bildtext per språk, kredit, licens och källa
+test('bilden i ett steg kontrolleras (#1794)', () => {
+  const ok = { file: 'images/turer/muren.webp', kind: 'photo', caption: { sv: 'Kinesiska muren.' }, credit: 'Wikimedia Commons', license: 'CC0', source: 's1' };
+  assert.deepEqual(tourProblems(tour({ steps: [step({ image: ok })] }), known), []);
+  const bad = tourProblems(tour({ steps: [
+    step({ image: { ...ok, file: 'images/events/x.webp' } }),
+    step({ id: 'b', image: { ...ok, kind: 'foto' } }),
+    step({ id: 'c', image: { ...ok, caption: {} } }),
+    step({ id: 'd', image: { ...ok, kind: 'illustration', caption: { sv: 'Muren.' } } }),
+    step({ id: 'e', image: { ...ok, credit: '', license: '' } }),
+    step({ id: 'f', image: { ...ok, source: 'saknas' } }),
+    step({ id: 'g', image: 'bild.webp' }),
+  ] }), known).join('\n');
+  for (const part of ['images/turer/<namn>.webp', 'photo eller illustration', 'bildtexten saknas', 'är en illustration', 'kredit saknas', 'licens saknas', 'finns inte i källregistret', 'ska vara ett objekt']) assert.match(bad, new RegExp(part), `saknar ${part}`);
+});
+
+test('Det här har du hört: Kinesiska muren har en CC0-bild med bildtext på alla fem språk och en post i licensregistret (#1794)', () => {
+  const t = read('data/turer/det-har-har-du-hort.json');
+  const st = t.steps.find(s => s.id === 'kinesiska-muren');
+  assert.ok(st.image, 'steget har ingen bild');
+  assert.ok(readFileSync(new URL(`../${st.image.file}`, import.meta.url)).length > 10000, 'bildfilen saknas');
+  assert.equal(st.image.license, 'CC0 1.0');
+  for (const l of ['sv', 'en', 'de', 'es', 'fr']) assert.ok(st.image.caption[l], `bildtext saknas på ${l}`);
+  const src = read('data/sources.json').sources.find(s => s.id === st.image.source);
+  assert.ok(src, 'bildkällan saknas i sources.json');
+  assert.match(src.url, /commons\.wikimedia\.org\/wiki\/File:/);
+  assert.ok(st.sources.includes(st.image.source), 'bildens källa ska stå bland stegets källor');
+  const manifest = read('images/licenses.json');
+  assert.ok(manifest.tourImages.some(i => i.stepId === 'kinesiska-muren' && i.license === 'CC0 1.0'), 'bilden saknas i images/licenses.json');
+});
+
+// Linje på kartan i ett steg (#1785): filen, namnet och källan
+test('linjen i ett steg kontrolleras (#1785)', () => {
+  const ok = { file: 'data/turer/linjer/muren.json', label: { sv: 'Muren' }, source: 's1' };
+  assert.deepEqual(tourProblems(tour({ steps: [step({ line: ok })] }), known), []);
+  const bad = tourProblems(tour({ steps: [
+    step({ line: { ...ok, file: 'data/muren.json' } }),
+    step({ id: 'b', line: { ...ok, label: {} } }),
+    step({ id: 'c', line: { ...ok, source: 'saknas' } }),
+    step({ id: 'd', line: 'muren.json' }),
+  ] }), known).join('\n');
+  for (const part of ['data/turer/linjer/<namn>.json', 'linjens namn saknas', 'linjens källa saknas finns inte', 'ska vara ett objekt']) assert.match(bad, new RegExp(part), `saknar ${part}`);
+});
+
+test('Det här har du hört: Mingmuren som linje har källa med licens, namn på fem språk och en text som säger att det är Mingmuren (#1785)', () => {
+  const t = read('data/turer/det-har-har-du-hort.json');
+  const st = t.steps.find(s => s.id === 'kinesiska-muren');
+  const line = read(st.line.file);
+  assert.equal(line.source, st.line.source);
+  assert.ok(st.sources.includes(st.line.source), 'linjens källa ska stå bland stegets källor');
+  const src = read('data/sources.json').sources.find(s => s.id === st.line.source);
+  assert.equal(src.license, 'MIT');
+  assert.match(src.url, /github\.com\/Adl3rAi\//);
+  for (const l of ['sv', 'en', 'de', 'es', 'fr']) {
+    assert.ok(st.line.label[l], `linjens namn saknas på ${l}`);
+    assert.match(st.text[l], /1368–1644/, `texten säger inte vilken mur linjen är på ${l}`);
+  }
+  assert.ok(line.lines.length > 100 && line.lines.every(l => l.length >= 2 && l.every(([lon, lat]) => Math.abs(lon) <= 180 && Math.abs(lat) <= 90)));
+  const lons = line.lines.flat().map(p => p[0]);
+  assert.ok(Math.min(...lons) > 97 && Math.max(...lons) < 126, 'linjen ska ligga i Kina');
+});

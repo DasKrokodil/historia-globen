@@ -1,6 +1,6 @@
 {
   "about": "Grupperna och de förinställda vyerna i Lager (#357, #380). Varje lager anger sin grupp i lagerregistret (fältet group). En vy slår på lagren i layers och slår av de andra lagren i grupper som inte är inställningar. Stämmer valen inte med någon vy visas custom. De enskilda valen ligger bakom customize. En vy med tag (#555) visar bara händelser med den taggen (fältet tags i händelsen); texterna för taggen står i tags.",
-  "title": { "sv": "Vad vill du se på kartan?", "en": "What do you want to see on the map?", "de": "Was möchten Sie auf der Karte sehen?", "es": "¿Qué desea ver en el mapa?", "fr": "Que souhaitez-vous voir sur la carte ?" },
+  "title": { "sv": "Vad vill du se på kartan?", "en": "What do you want to see on the map?", "de": "Was möchten Sie auf der Karte sehen?", "es": "¿Qué desea ver en el mapa?", "fr": "Que souhaitez-vous voir sur la carte ?" },
   "custom": { "sv": "Anpassad", "en": "Custom", "de": "Angepasst", "es": "Personalizada", "fr": "Personnalisée" },
   "customize": { "sv": "Fler val", "en": "More options", "de": "Weitere Optionen", "es": "Más opciones", "fr": "Plus d’options" },
   "defaultView": "oversikt",
@@ -11,7 +11,7 @@
     "surprise": { "sv": "Visste du?", "en": "Did you know?", "de": "Wussten Sie schon?", "fr": "Le saviez-vous ?", "es": "¿Sabía que…?" }
   },
   "panel": {
-    "summary": { "sv": "{count} träffar: {inside} pågår, {near} nära", "en": "{count} matches: {inside} ongoing, {near} nearby", "de": "{count} Treffer: {inside} laufend, {near} in der Nähe", "es": "{count} resultados: {inside} en curso, {near} cerca", "fr": "{count} résultats : {inside} en cours, {near} à proximité" },
+    "summary": { "sv": "{inside} pågår, {near} nära", "en": "{inside} ongoing, {near} nearby", "de": "{inside} laufend, {near} in der Nähe", "es": "{inside} en curso, {near} cerca", "fr": "{inside} en cours, {near} à proximité" },
     "showMore": { "sv": "Visa {count} till i {region}", "en": "Show {count} more in {region}", "de": "{count} weitere in {region} zeigen", "es": "Mostrar {count} más en {region}", "fr": "Afficher {count} de plus en {region}" },
     "showLess": { "sv": "Visa färre", "en": "Show fewer", "de": "Weniger zeigen", "es": "Mostrar menos", "fr": "Afficher moins" },
     "longRunning": { "sv": "Pågår sedan länge ({count})", "en": "Ongoing for a long time ({count})", "de": "Seit Langem laufend ({count})", "es": "En curso desde hace mucho ({count})", "fr": "En cours depuis longtemps ({count})" },

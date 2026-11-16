@@ -5,6 +5,7 @@
 // I upptäcktsvyn (#101) står där vad "upptäckt" och dimman betyder, och krediten för kartbilderna.
 import { t, CAT, formatYear, symbolImg } from '../model.js';
 import { ui, LANG } from '../i18n.js';
+import { areaKindWord } from '../area-kind.js';
 
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const cleanName = n => String(n).replace(/^\((.*)\)$/, '$1'); // "(Kingdom of France)" → "Kingdom of France"
@@ -368,14 +369,20 @@ export class EmpireLegend {
 
   render() {
     if (!this.visible || !this.items.length) { this.legend.hidden = true; this.legend.textContent = ''; this._html = ''; return; }
-    const colonies = this.items.filter(item => item.colonial).sort(byName);
-    const others = this.items.filter(item => !item.colonial).sort(byName);
+    // Områden som inte är en stat (#1300) i en egen lista, med mönsterruta och typord i stället för stjärnan
+    const areas = this.items.filter(item => item.group.areaKind).sort(byName);
+    const colonies = this.items.filter(item => item.colonial && !item.group.areaKind).sort(byName);
+    const others = this.items.filter(item => !item.colonial && !item.group.areaKind).sort(byName);
     const item = ({ group, colonial }) => {
       const name = t(group.name);
-      const label = colonial ? `${name} · ${this.text.colonies ?? ui('legend.colonies')}` : name;
-      const mark = symbolImg(group) || '<span class="el-star" aria-hidden="true">★</span>';
-      return `<li data-empire="${esc(group.id)}" tabindex="0" role="button" aria-pressed="${this.pinned === group.id}" class="${this.highlight === group.id ? 'on' : ''}" title="${esc(this.text.highlight ?? ui('legend.highlightEmpire'))}"><span class="swatch" style="background:${esc(group.color)}"></span>${mark}<span class="rl-name">${esc(label)}</span></li>`;
+      const kindWord = areaKindWord(group.areaKind);
+      const label = kindWord ? `${name} · ${kindWord}` : colonial ? `${name} · ${this.text.colonies ?? ui('legend.colonies')}` : name;
+      const mark = kindWord ? `<span class="el-area" aria-hidden="true" style="--area:${esc(group.color)}"></span>`
+        : symbolImg(group) || '<span class="el-star" aria-hidden="true">★</span>';
+      const aria = kindWord ? ` aria-label="${esc(`${name}, ${kindWord}`)}"` : '';
+      return `<li data-empire="${esc(group.id)}" tabindex="0" role="button"${aria} aria-pressed="${this.pinned === group.id}" class="${this.highlight === group.id ? 'on' : ''}" title="${esc(this.text.highlight ?? ui('legend.highlightEmpire'))}"><span class="swatch" style="background:${esc(group.color)}"></span>${mark}<span class="rl-name">${esc(label)}</span></li>`;
     };
+    const areasHtml = areas.length ? `<p class="el-heading">${esc(ui('legend.areaKinds'))}</p><ul>${areas.map(item).join('')}</ul>` : '';
     const more = (this.text.more ?? ui('legend.moreEmpires')).replace('{count}', others.length);
     const coloniesHtml = colonies.length ? `<p class="el-heading">${esc(this.text.colonial ?? ui('legend.colonialEmpires'))}</p><ul>${colonies.map(item).join('')}</ul>` : '';
     const othersHtml = others.length ? `<details class="el-more"><summary>${esc(more)}</summary><ul>${others.map(item).join('')}</ul></details>` : '';
@@ -384,7 +391,7 @@ export class EmpireLegend {
       this.items.length > 10 ? `<span class="rl-more">+${this.items.length - 10}</span>` : ''}</span>`;
     const html = `<button type="button" class="rl-toggle el-toggle" aria-expanded="${this.open}" aria-controls="el-body"><span class="rl-title">${esc(this.text.title ?? ui('legend.empires'))}</span><span class="rl-chev" aria-hidden="true"></span>${dots}</button>
       <button type="button" class="el-close" data-empire-close aria-label="${esc(ui('legend.closeEmpires'))}">×</button>
-      <div id="el-body" class="rl-body" ${this.open ? '' : 'hidden'}>${coloniesHtml}${othersHtml}<p class="rl-note el-note">${esc(this.text.highlight ?? ui('legend.highlightEmpire'))}</p></div>`;
+      <div id="el-body" class="rl-body" ${this.open ? '' : 'hidden'}>${coloniesHtml}${areasHtml}${othersHtml}<p class="rl-note el-note">${esc(this.text.highlight ?? ui('legend.highlightEmpire'))}</p></div>`;
     if (html !== this._html) {
       const focused = this.legend.contains(document.activeElement) && document.activeElement.dataset.empire;
       const scroll = this.legend.querySelector('.rl-body')?.scrollTop ?? 0;

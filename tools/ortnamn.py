@@ -16,7 +16,9 @@ Innehållet:
   10 minst), så att vyn kan gallra efter skala.
 - neighbours: grannländerna i boundary.neighbours (#1449; vilka länder det är skrivs alltså inte här), med namn ur
   ne_10m_admin_0_countries (ISO_N3, eller ISO_N3_EH när ISO_N3 är −99 som för Norge) och en punkt för namnet inne i landet och
-  inom ramen.
+  inom ramen. Efter dem, med sea: true, länder utan landgräns mot platsen som har någon punkt inom marginalen från platsens
+  gräns (#1690, Island vid Grönland), de närmaste först, med namnets punkt på landets delar inom marginalen. Platsens eget land
+  (för ett län landet vars ADM0_A3 står först i adm1_code) är inte med.
 - seas: hav, sund och vikar ur ne_10m_geography_marine_polys som ligger inom ramen, högst MAX_SEAS, med en punkt för namnet.
 Punkten för ett namn är den punkt i ett rutnät över ramen som ligger inne i området och längst från dess kant och ramens kant
 (en enkel "pol för otillgänglighet"). Ett område utan en enda sådan punkt tas inte med.
@@ -194,6 +196,69 @@ def km_between(a, b):
     return math.hypot((a[0] - b[0]) * KM_PER_DEG * math.cos(lat0), (a[1] - b[1]) * KM_PER_DEG)
 
 
+def own_iso(place, countries):
+    """ISO 3166-1 numeriskt id för platsens eget land: boundary.ne, eller för ett län (boundary.admin1, till exempel SWE-3429)
+    landet vars ADM0_A3 står först i adm1_code (Natural Earths egen kod för landet)."""
+    b = place['boundary']
+    if b.get('ne'):
+        return str(b['ne'])
+    a3 = str(b.get('admin1', '')).split('-')[0]
+    for f in countries['features']:
+        if f['properties'].get('ADM0_A3') == a3:
+            return str(iso_n3(f['properties']))
+    return None
+
+
+def boundary_points(place):
+    """Platsens gränspunkter som numpy-fält [lon, lat] i radianer (alla ringar)."""
+    pts = [p for poly in place['boundary']['geometry']['coordinates'] for ring in poly for p in ring]
+    return np.radians(np.asarray(pts, dtype=float))
+
+
+def min_km(a, b):
+    """Kortaste avståndet i km (storcirkel) mellan någon punkt i a och någon i b, båda [lon, lat] i radianer."""
+    best = np.inf
+    for i in range(0, len(b), 4000):
+        c = b[i:i + 4000]
+        dlat = c[None, :, 1] - a[:, None, 1]
+        dlon = c[None, :, 0] - a[:, None, 0]
+        h = np.sin(dlat / 2) ** 2 + np.cos(a[:, None, 1]) * np.cos(c[None, :, 1]) * np.sin(dlon / 2) ** 2
+        best = min(best, float(h.min()))
+    return 2 * 6371.0 * math.asin(math.sqrt(min(1.0, max(0.0, best))))
+
+
+def sea_neighbours(place, countries, fr, pad_km, skip):
+    """Länder utan landgräns mot platsen som ändå ligger inom marginalen (#1690): någon punkt i landets polygon inom pad_km från
+    platsens gräns, till exempel Island vid Grönland. skip: id som inte ska med (platsens eget land och grannarna med landgräns).
+    Ger [(km, iso, feature, geometry)] med de närmaste först, där geometry bara har landets delar (polygoner) inom marginalen, så
+    att namnet hamnar på den del som syns nära platsen (Svalbard, inte fastlandet, för Norge vid Grönland). Bara landets punkter i
+    ramen prövas, så att resten av världen inte räknas."""
+    own = boundary_points(place)
+    out = []
+    for f in countries['features']:
+        iso = str(iso_n3(f['properties']))
+        if iso in skip or iso in ('None', '-99'):
+            continue
+        g = f['geometry']
+        near, best = [], math.inf
+        for poly in (g['coordinates'] if g['type'] == 'MultiPolygon' else [g['coordinates']]):
+            rings = rings_of({'type': 'Polygon', 'coordinates': [poly[0]]}, fr)
+            if not rings:
+                continue
+            pts = np.concatenate(rings)
+            pts = pts[(pts[:, 0] >= fr[0]) & (pts[:, 0] <= fr[2]) & (pts[:, 1] >= fr[1]) & (pts[:, 1] <= fr[3])]
+            if not len(pts):
+                continue
+            km = min_km(own, np.radians(pts))
+            if km <= pad_km:
+                near.append(poly)
+                best = min(best, km)
+        if near:
+            out.append((round(best), iso, f, {'type': 'MultiPolygon', 'coordinates': near}))
+    out.sort(key=lambda t: (t[0], t[1]))
+    return out
+
+
 def build(place, ne_places, marine, countries):
     fr, own, pad_km = frame(place)
     out = {'schema': 'historia-globen/ortnamn@1', 'place': place['id'], 'source': SOURCE,
@@ -242,6 +307,17 @@ def build(place, ne_places, marine, countries):
             continue
         nm, fb = names(f['properties'], True)
         item = {'ne': str(nb['ne']), 'label': pt, 'name': nm}
+        if fb:
+            item['fallback'] = fb
+        out['neighbours'].append(item)
+    # Länder över havet inom marginalen (#1690): efter grannarna med landgräns, med sea: true
+    skip = {str(nb.get('ne')) for nb in place['boundary']['neighbours']} | {own_iso(place, countries)}
+    for _, iso, f, near in sea_neighbours(place, countries, fr, pad_km, skip):
+        pt = label_point(near, fr)
+        if pt is None:
+            continue
+        nm, fb = names(f['properties'], True)
+        item = {'ne': iso, 'label': pt, 'name': nm, 'sea': True}
         if fb:
             item['fallback'] = fb
         out['neighbours'].append(item)

@@ -46,13 +46,23 @@ export function wholePlace(e, place, places = []) {
   return smallestPlace(places, e._lon, e._lat)?.id === place.id;
 }
 
+/** Har händelsen börjat vid året? Hela år räknas (en händelse som börjar 1997,8 har börjat 1997). */
+export const startedBy = (e, year) => Math.floor(e.start) <= Math.floor(year);
+
 /**
  * Platsens händelser som rader: { e, n, whole, approx }. n är radens nummer i listan (1, 2, …), i samma ordning som listan
  * (händelserna kommer i tidsordning från visibleEvents i js/focus/place.js). approx: platsen är ungefärlig.
+ *
+ * year (#1786): bara händelser som har börjat vid året blir rader. Numren räknas ändå över hela listan, så att en markör har samma
+ * nummer som sin rad i listan "Händelser på platsen" (som visar hela historien) och numren kan ha luckor. Utan year: alla rader.
  */
-export function regionItems(events, place, places = []) {
-  return (events ?? []).map((e, i) => ({ e, n: i + 1, whole: wholePlace(e, place, places), approx: !!e.locationPrecision }));
+export function regionItems(events, place, places = [], year = null) {
+  return (events ?? []).map((e, i) => ({ e, n: i + 1, whole: wholePlace(e, place, places), approx: !!e.locationPrecision }))
+    .filter(it => year == null || !Number.isFinite(year) || startedBy(it.e, year));
 }
+
+/** Den första händelsen som inte har börjat vid året (för raden "Nästa: …" när kartan är tom), annars null. */
+export const nextEvent = (events, year) => (events ?? []).find(e => !startedBy(e, year)) ?? null;
 
 /**
  * Markörerna på skärmen. toScreen(lat, lon) ger { x, y } i kartans pixlar. Ger { brick, singles, piles }: brick är raderna som gäller
@@ -193,26 +203,36 @@ export function brickSpot(nominal, { w, h }, covers, W, H, pad = 6) {
   for (const c of covers) tries.push({ x: clampX(c.x0 - w / 2 - pad), y: y0 }, { x: clampX(c.x1 + w / 2 + pad), y: y0 });
   tries.sort((a, b) => Math.abs(a.x - x0) - Math.abs(b.x - x0));
   for (const c of covers) tries.push({ x: x0, y: c.y1 + h + pad });
-  return tries.find(t => fits(t.x, t.y)) ?? { x: x0, y: y0 };
+  const found = tries.find(t => fits(t.x, t.y));
+  if (found) return found;
+  // Låg yta ovanför arket i mobil (#1863): pröva också i sidled förbi en ruta och samtidigt ovanför eller under en annan, närmast först
+  const xs = [x0, ...covers.flatMap(c => [clampX(c.x0 - w / 2 - pad), clampX(c.x1 + w / 2 + pad)])];
+  const ys = [y0, ...covers.flatMap(c => [c.y1 + h + pad, c.y0 - pad])];
+  const grid = xs.flatMap(x => ys.map(y => ({ x, y }))).sort((a, b) => Math.hypot(a.x - x0, a.y - y0) - Math.hypot(b.x - x0, b.y - y0));
+  return grid.find(t => fits(t.x, t.y)) ?? { x: x0, y: y0 };
 }
 
-/** Ordningen som namnen prövas i: orter med händelser, sedan grannländer, sedan hav och övriga orter efter storlek (rank). */
+/**
+ * Ordningen som namnen prövas i: orter med händelser, sedan grannländer (först de med landgräns, sedan länder över havet inom
+ * marginalen, #1690), sedan hav och övriga orter efter storlek (rank).
+ */
 export function namePriority(c) {
   if (c.kind === 'place') return (c.hasEvents ? 0 : 2) + (c.rank ?? 10) / 100;
-  if (c.kind === 'neighbour') return 1;
+  if (c.kind === 'neighbour') return c.sea ? 1.5 : 1;
   return 2 + (c.rank ?? 10) / 100;
 }
 
 /**
  * Kandidaterna ur ortnamnsfilen (data/ortnamn/<plats>.json): orter, grannländer och hav, med text på sidans språk (tx), punkt och
- * om en ort har händelser (någon händelse inom NAME_KM). Ger [{ id, kind, rank, at: [lon, lat], text, hasEvents }].
+ * om en ort har händelser (någon händelse inom NAME_KM). Ger [{ id, kind, rank, at: [lon, lat], text, hasEvents, sea }], där sea
+ * säger att grannlandet ligger över havet (#1690).
  */
 export function nameCandidates(doc, events, tx) {
   if (!doc) return [];
   const pts = (events ?? []).filter(e => e._lon != null).map(e => [e._lon, e._lat]);
   const out = [];
   for (const p of doc.places ?? []) out.push({ id: p.id, kind: 'place', rank: p.rank, at: p.coordinates, text: tx(p.name), hasEvents: pts.some(q => km(q, p.coordinates) <= NAME_KM) });
-  for (const nb of doc.neighbours ?? []) out.push({ id: `nb-${nb.ne}`, kind: 'neighbour', at: nb.label, text: tx(nb.name) });
+  for (const nb of doc.neighbours ?? []) out.push({ id: `nb-${nb.ne}`, kind: 'neighbour', at: nb.label, text: tx(nb.name), sea: nb.sea === true });
   for (const s of doc.seas ?? []) out.push({ id: s.id, kind: 'sea', rank: s.rank, at: s.label, text: tx(s.name) });
   return out.filter(c => c.text && Array.isArray(c.at)).sort((a, b) => namePriority(a) - namePriority(b));
 }

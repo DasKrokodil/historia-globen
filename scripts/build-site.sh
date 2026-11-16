@@ -14,6 +14,7 @@
 #   data/empires/         index.json och rikesfilerna som index.json pekar på (fältet file)
 #   data/routes/          index.json och filerna med vägar och resor som index.json listar (fältet files, #38)
 #   data/turer/           index.json och en fil per guidad tur som index.json listar (#47)
+#   images/turer/, data/turer/linjer/  bilderna och linjerna som turernas steg pekar på (image.file, line.file, #1794, #1785)
 #   data/ui/              gränssnittets texter: sprak.json och en fil per språk (#63)
 #   images/events/        bilderna som events.json pekar på (image.file)
 #   images/karta/         upptäcktsvyns bilder som data/upptackt.json pekar på (decorations[].file, #101)
@@ -121,6 +122,17 @@ while IFS= read -r f; do copy "data/turer/$f.json"; done < <(python3 -I - <<'PY'
 import json
 for t in json.load(open('data/turer/index.json')).get('tours', []):
     print(t)
+PY
+)
+
+# Bilder och linjer i turernas steg (#1794, #1785): steps[].image.file och steps[].line.file
+while IFS= read -r f; do copy "$f"; done < <(python3 -I - <<'PY'
+import json
+for t in json.load(open('data/turer/index.json')).get('tours', []):
+    for s in json.load(open(f'data/turer/{t}.json')).get('steps', []):
+        for key in ('image', 'line'):
+            if (s.get(key) or {}).get('file'):
+                print(s[key]['file'])
 PY
 )
 

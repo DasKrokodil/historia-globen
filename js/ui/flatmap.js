@@ -204,6 +204,11 @@ export class FlatMap {
     this.onZoom?.();
   }
 
+  /** Kartans mitt och zoom som { lat, lon, zoom }, så att den kan ställas tillbaka med setView (regionvyn lämnar kartan som den var, #1864). */
+  camera() {
+    return { lat: 90 - this.cy / IMG_H * 180, lon: this.cx / IMG_W * 360 - 180, zoom: this.zoom };
+  }
+
   /** Öppna eller stäng Platt vy. */
   setOpen(open) {
     if (open === !this.hidden) return;
@@ -213,13 +218,22 @@ export class FlatMap {
     this.onToggle?.(open);
   }
 
+  /**
+   * Var kartans ruta hamnar på sidan ({ top, height } i skärmpixlar): mellan knapparna uppe och tidslinjens knappar nere. Går att
+   * fråga också medan Platt vy är stängd, så att platskortet kan säga om regionvyn ryms innan knappen trycks (#1692).
+   */
+  layoutSpan() {
+    const top = document.querySelector('.top-actions').getBoundingClientRect().bottom + 8;
+    const bottom = document.querySelector('.timebar .controls').getBoundingClientRect().top - 8;
+    return { top: Math.round(top), height: Math.max(120, Math.round(bottom - top)) };
+  }
+
   /** Mät ytan mellan knapparna uppe och tidslinjens knappar nere. Pausraden och fokusraden ligger
    *  ovanpå kartan, så att kartan inte hoppar när de visas. */
   _layout() {
-    const top = document.querySelector('.top-actions').getBoundingClientRect().bottom + 8;
-    const bottom = document.querySelector('.timebar .controls').getBoundingClientRect().top - 8;
-    this.box.style.top = `${Math.round(top)}px`;
-    this.box.style.height = `${Math.max(120, Math.round(bottom - top))}px`;
+    const { top, height } = this.layoutSpan();
+    this.box.style.top = `${top}px`;
+    this.box.style.height = `${height}px`;
     const r = this.box.getBoundingClientRect();
     const keep = this._region && this.w ? this.scale : 0; // regionvyns skala före, för en karta man har flyttat själv
     this.dpr = Math.min(3, window.devicePixelRatio || 1);

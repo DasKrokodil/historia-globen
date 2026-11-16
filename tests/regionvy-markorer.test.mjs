@@ -10,7 +10,7 @@ import { regionFrame } from '../js/region-frame.js';
 import { isVisibleReview, CAT } from '../js/model.js';
 import {
   wholePlace, regionItems, groupMarkers, pileName, yearSpan, fanLayout, rowLayout, nameCandidates, placeNames, crossesEdge, tagSpot,
-  namePriority, km, placeWord, brickSpot, PILE_PX, PILE_PX_TOUCH, MARK_PX,
+  namePriority, km, placeWord, brickSpot, startedBy, nextEvent, PILE_PX, PILE_PX_TOUCH, MARK_PX,
 } from '../js/region-markers.js';
 
 const read = p => JSON.parse(readFileSync(new URL(`../${p}`, import.meta.url), 'utf8'));
@@ -42,6 +42,31 @@ test('numret är radens nummer i listan, i listans ordning, och varje händelse 
   }
 });
 
+test('året styr kartan (#1786): bara händelser som har börjat, med numren från hela listan', () => {
+  for (const id of ['skane', 'danmark']) {
+    const list = listOf(id), all = regionItems(list, place(id), places);
+    // Ett år mitt i historien: delar av listan har börjat, och numren är radnumren i hela listan (luckor tillåtna)
+    const year = Math.floor(list[Math.floor(list.length / 2)].start);
+    const items = regionItems(list, place(id), places, year);
+    assert.ok(items.length > 0 && items.length < all.length, `${id}: några men inte alla har börjat`);
+    assert.deepEqual(items.map(it => it.e.id), list.filter(e => startedBy(e, year)).map(e => e.id));
+    for (const it of items) assert.equal(it.n, list.indexOf(it.e) + 1, `${id}: ${it.e.id} behåller radens nummer`);
+    assert.ok(items.every(it => Math.floor(it.e.start) <= year), `${id}: ingen framtida händelse`);
+    // Långt före allt: inga markörer, och nästa händelse är listans första
+    const none = regionItems(list, place(id), places, -100000);
+    assert.equal(none.length, 0);
+    assert.equal(nextEvent(list, -100000), list[0]);
+    // Efter allt: alla syns och ingen är nästa
+    assert.equal(regionItems(list, place(id), places, 3000).length, all.length);
+    assert.equal(nextEvent(list, 3000), null);
+    // Utan år: alla rader, som förut
+    assert.equal(regionItems(list, place(id), places, null).length, all.length);
+    // Hela år räknas: en händelse som börjar 1997,8 har börjat 1997
+    assert.equal(startedBy({ start: 1997.8 }, 1997), true);
+    assert.equal(startedBy({ start: 1998 }, 1997), false);
+  }
+});
+
 test('brickan: händelser med scope "place" och ungefärlig plats; andra ungefärliga står kvar på sin punkt (#1674)', () => {
   const sk = regionItems(listOf('skane'), place('skane'), places);
   const whole = sk.filter(it => it.whole);
@@ -61,10 +86,19 @@ test('brickan: händelser med scope "place" och ungefärlig plats; andra ungefä
   assert.deepEqual(dk.filter(it => it.whole).map(it => it.e.id),
     ['stavnsbandet-upphavs', 'grundloven-1849', 'kvinnlig-rostratt-danmark-1915', 'danmark-gar-med-i-eg']);
   assert.ok(dk.some(it => it.approx && !it.whole), 'Danmark har ungefärliga händelser på en del av landet');
-  // Varje händelse med scope "place" i datan är ungefärlig (validate-site.py kräver det)
+  // Varje händelse med scope ("place" eller "wide", #1806) i datan är ungefärlig (validate-site.py kräver det)
   for (const e of events.filter(e => e.scope)) {
-    assert.equal(e.scope, 'place', e.id);
-    assert.ok(['region', 'country'].includes(e.locationPrecision), `${e.id}: scope "place" kräver locationPrecision`);
+    assert.ok(['place', 'wide'].includes(e.scope), `${e.id}: okänt scope ${e.scope}`);
+    assert.ok(['region', 'country'].includes(e.locationPrecision), `${e.id}: scope "${e.scope}" kräver locationPrecision`);
+  }
+});
+
+test('scope "wide" (#1806): regionvyns lista och markörer saknar händelser för ett större område än platsen', () => {
+  // Yngre dryas gäller norra halvklotet; markören i Allerød gör den inte till en av Danmarks rader eller markörer
+  const dk = regionItems(listOf('danmark'), place('danmark'), places);
+  assert.equal(dk.some(it => it.e.id === 'yngre-dryas'), false, 'Yngre dryas står inte i Danmarks regionvy');
+  for (const e of events.filter(e => e.scope === 'wide')) {
+    for (const p of places) assert.equal(listOf(p.id).some(x => x.id === e.id), false, `${e.id} står i ${p.id}s lista`);
   }
 });
 
@@ -321,4 +355,37 @@ test('kompletteringen ur Wikidata (#1676): orterna står i platsens fil med käl
   // Högen vid Lund heter Lund efter orten i filen, inte efter platstexten (#1676)
   const lund = listOf('skane').filter(e => /^lund|freden-i-lund|slaget-vid-lund/.test(e.id)).map(e => ({ e }));
   assert.equal(pileName(lund, read('data/ortnamn/skane.json'), tx), 'Lund');
+});
+
+test('länder över havet inom marginalen får namn (#1690): Island vid Grönland, efter grannarna med landgräns och aldrig det egna landet', () => {
+  const LANGS = ['sv', 'en', 'de', 'es', 'fr'];
+  for (const p of places) {
+    const doc = read(`data/ortnamn/${p.id}.json`);
+    const land = new Set(p.boundary.neighbours.map(n => String(n.ne)));
+    let seenSea = false;
+    for (const nb of doc.neighbours) {
+      for (const l of LANGS) assert.ok(nb.name[l], `${p.id}: ${nb.ne} saknar namn på ${l}`);
+      if (nb.sea) {
+        seenSea = true;
+        assert.equal(nb.sea, true);
+        assert.ok(!land.has(nb.ne), `${p.id}: ${nb.ne} har landgräns men står som land över havet`);
+        assert.notEqual(nb.ne, String(p.boundary.ne), `${p.id}: det egna landet står som granne`);
+      } else {
+        assert.ok(!seenSea, `${p.id}: grannarna med landgräns ska stå före länderna över havet`);
+        assert.ok(land.has(nb.ne), `${p.id}: ${nb.ne} saknas i boundary.neighbours`);
+      }
+    }
+  }
+  const gronland = read('data/ortnamn/gronland.json').neighbours;
+  const island = gronland.find(n => n.ne === '352');
+  assert.ok(island?.sea, 'Island står som land över havet vid Grönland');
+  assert.deepEqual(island.name, { sv: 'Island', en: 'Iceland', de: 'Island', es: 'Islandia', fr: 'Islande' });
+  assert.ok(gronland.some(n => n.ne === '124' && !n.sea), 'Kanada står kvar som granne med landgräns');
+  // Skåne: Sverige är länets eget land och namnges inte som granne
+  assert.ok(!read('data/ortnamn/skane.json').neighbours.some(n => n.ne === '752'), 'Sverige står inte som granne till Skåne');
+  // Prioriteten: grannar med landgräns, sedan länder över havet, sedan orter utan händelser
+  const cands = nameCandidates({ places: [{ id: 'o', name: { sv: 'Ort' }, rank: 0, coordinates: [0, 0] }],
+    neighbours: [{ ne: '1', sea: true, label: [1, 1], name: { sv: 'Hav' } }, { ne: '2', label: [2, 2], name: { sv: 'Land' } }] }, [], tx);
+  assert.deepEqual(cands.map(c => c.id), ['nb-2', 'nb-1', 'o']);
+  assert.equal(cands[1].sea, true);
 });

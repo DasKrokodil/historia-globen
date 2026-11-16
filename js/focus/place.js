@@ -4,18 +4,23 @@ import { loadPlaces, loadEmpireFacts, t, isVisibleReview, formatYear, rangeText 
 import { ui } from '../i18n.js';
 import { say } from '../ui/status.js';
 import { placeEvents, placeBounds } from '../place-geo.js';
-import { regionEligible, globeRegionEligible } from '../region-frame.js';
+import { regionButtonKey } from '../region-frame.js';
 import { formatYearSpan } from '../controllers/facts.js';
 import { langs, selectionSpan, warnHuntImpossible } from './util.js';
 
 /**
- * Knappen i platskortet: "Visa i regionvy" för en plats som får regionvyn (js/region-frame.js), i Platt vy (Skåne, Danmark) eller på
- * globen (Aotearoa, Grönland, #1644), annars "Visa i Platt karta" (Sverige).
+ * Knappen i platskortet: "Visa i regionvyn" för en plats som får regionvyn (js/region-frame.js), i Platt vy (Skåne, Danmark) eller
+ * på globen (Aotearoa, Grönland, #1644), annars "Visa på Platt karta" (Sverige; ord ändrade i #1864). En liten plats får regionvyn i
+ * Platt vy bara när den fria ytan rymmer den (#1692): är fönstret för litet, till exempel en liggande telefon, ramas platsen in i
+ * Platt vy, och då säger knappen det. key är textens nyckel (controllers/region.js, buttonKey), annars bara platsens storlek.
  */
-function flatAction(place, run) {
-  const b = place.boundary?.geometry ? placeBounds(place) : null;
-  const key = b && (regionEligible(b) || globeRegionEligible(b)) ? 'place.regionMap' : 'place.flatMap';
+export function flatAction(place, run, key = placeButtonKey(place)) {
   return { text: ui(key), label: `${ui(key)}: ${t(place.name)}`, run };
+}
+
+/** Knappens textnyckel när ytan inte är känd: regionvyn för en plats som får den, annars Platt karta. */
+function placeButtonKey(place) {
+  return regionButtonKey(place.boundary?.geometry ? placeBounds(place) : null);
 }
 
 /**
@@ -52,14 +57,15 @@ export function showPlaceCard(app, place, events, { follow = true, note = '', fo
   panel.showSelection({ label: ui('place.label'), name: place.name, lead: placeLead(place), emblems: place.emblems,
     intro: place.intro,
     // Visa i Platt karta (#1161): byter vy och ramar in platsen; knappen finns när main.js har kopplat återanropet
-    // En liten plats får regionvyn (#1641), och knappen säger det
-    action: follow && panel.onPlaceFlat ? flatAction(place, () => panel.onPlaceFlat(place)) : null,
+    // En liten plats får regionvyn (#1641), och knappen säger det, men bara när den ryms (#1692, controllers/region.js)
+    action: follow && panel.onPlaceFlat ? flatAction(place, () => panel.onPlaceFlat(place), app.region?.buttonKey(place)) : null,
     // boundary.note (#1159): en fast rad om vad konturen är när den inte är platsens egen gräns (Skåne läns gräns för landskapet Skåne)
     notes: [ui('place.borderNote'), ...(place.boundary?.note ? [t(place.boundary.note)] : []), ...(follow ? [ui('place.filters')] : [])], banner: note, exit: follow ? ui('place.exit') : null,
-    empires, summary: ui('place.events', { count: events.length }), events, sources: place.sources, focus, ariaLabel: ui('place.cardLabel') });
+    empires, summary: ui('place.events', { count: events.length }), events, sources: place.sources, focus, ariaLabel: ui('place.cardLabel'), aboutLabel: ui('place.about') });
   app.surfaces.closeGroup('meny');
   if (app.narrow.matches) app.surfaces.closeGroup('sidopanel');
   $('app').classList.add('has-detail');
+  app.region?.refreshButton?.(follow ? place : null); // kortet syns nu: knappens text räknas om på det som täcker kartan (#1692)
 }
 
 /**

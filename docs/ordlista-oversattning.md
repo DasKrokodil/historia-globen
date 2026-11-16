@@ -49,6 +49,7 @@ Artigt tilltal i alla språk, så att tyska, spanska och franska är lika:
 - **Decimaler** med komma: `3,5 millones`, `3,5 millions`.
 - **Citattecken:** spanska `«…»`, franska `« … »` med hårda mellanrum innanför tecknen.
 - **Fransk typografi:** hårt mellanrum före `:`, `;`, `?`, `!` och `»`, och efter `«`. Apostrof `’` eller `'` som i gränssnittet; var konsekvent i samma fil.
+- **Kontroll (#1715):** `tests/typografi-fr-es.test.mjs` stoppar vanligt mellanrum där hårt mellanrum (U+00A0) ska stå: i franskan före `: ; ? !` och `»`, efter `«` och i tal från fyra siffror, i spanskan i tal från fem siffror.
 - **Spanska frågor och utrop:** inledande `¿` och `¡`.
 - **Kolon i rubriker:** liten bokstav efter kolon, om inte egennamn.
 - **Versaler:** i rubriker och namn följer spanska och franska den inhemska regeln, bara första ordet och egennamn med versal. Alltså `Imperio romano` och `Empire romain`, inte `Imperio Romano` som på tyska och engelska.
@@ -198,6 +199,16 @@ Titel och epitet skrivs med liten bokstav i löpande text (`el rey Luis XIV`, `l
 
 Kolumnen "Kontrollerad" är `–` tills någon har öppnat en källa på målspråket och jämfört. Då skrivs datum och källa där (till exempel `2026-11-12, es.wikipedia`). Riken som inte står här: följ regel 1–5 i avsnitt 4. Lägg till det i tabellen i samma pull request så att nästa omgång använder samma namn.
 
+
+### 9.1 Områden som inte är en stat (#1300)
+
+Typorden för `areaKind` (`area.kind.<värde>` i `data/ui/`). De ersätter ordet "rike" i teckenförklaringen, faktarutan och kortet för ett sådant område. Granskas av `sprak-*` före release.
+
+| `areaKind` | Svenska | Engelska | Tyska | Spanska | Franska |
+|---|---|---|---|---|---|
+| `city-states` | stadsstäder | city-states | Stadtstaaten | ciudades-Estado | cités-États |
+| `culture` | kulturområde | culture area | Kulturraum | área cultural | aire culturelle |
+| kortets rubrik (`facts.kind.area`) | Område som inte var en stat | Area that was not a state | Gebiet, das kein Staat war | Zona que no era un Estado | Zone qui n’était pas un État |
 
 ## 10. Kontrollera innan en pull request öppnas
 
@@ -403,7 +414,7 @@ Definitionerna står i [docs/produkt/13-ordlista.md](produkt/13-ordlista.md) ("L
 - **Land är inte rike på något språk.** *Country/Land/país/pays* är dagens land med dagens gräns; *empire/Reich/imperio/empire* är rikets historiska gräns. Översätt aldrig "landet" med *empire* eller *Reich*, eller "riket" med *country*.
 - **Stat och nation används inte som synonymer till land.** *Nation*, *nación* och franska *nation* betyder folket, inte området. Delstaterna i USA heter *estados* respektive *États* (avsnitt 17.1).
 - **Region** översätts inte med *region*, *Region*, *región* eller *région*, eftersom det på målspråken oftast betyder en del av ett land. Gränssnittet säger redan *continent*, *Kontinent*, *continente* och *continent*.
-- **Regionvy** (#1641) är namnet på vyn i svenskan, så som DasKrokodil skrev det i issuet; *region* ensamt betyder fortfarande världsdel. På de andra språken heter vyn efter vad den gör, en karta på nära håll: *close-up map*, *Nahkarte*, *mapa de cerca*, *vue rapprochée* (franskan efter språkgranskningen 2026-11-14: en vy, inte ett nytt kartblad). Knappen i platskortet säger det: *Visa i regionvy*, *Show on close-up map*, *Auf der Nahkarte zeigen*, *Ver en el mapa de cerca*, *Voir dans la vue rapprochée*.
+- **Regionvy** (#1641) är namnet på vyn i svenskan, så som DasKrokodil skrev det i issuet; *region* ensamt betyder fortfarande världsdel. På de andra språken heter vyn efter vad den gör, en karta på nära håll: *close-up map*, *Nahkarte*, *mapa de cerca*, *vue rapprochée* (franskan efter språkgranskningen 2026-11-14: en vy, inte ett nytt kartblad). Knappen i platskortet heter sedan #1864 *Visa i regionvyn*, *Show in the close-up map*, *In der Nahkarte zeigen*, *Ver en el mapa de cerca*, *Voir dans la vue rapprochée* (`place.regionMap`; före #1864 *Visa händelserna på kartan* och motsvarande, som inte sa vart man kom) och ordet *regionvy* står i rutan efteråt (`regionView.title`). Ryms inte regionvyn (en liggande telefon, ett lågt fönster) heter knappen i stället *Visa på Platt karta*, *Show on Flat map*, *Auf der Flachen Karte zeigen*, *Ver en el mapa plano*, *Voir sur la carte plane* (`place.flatMap`, samma text som för Sverige), så att den inte lovar mer än den ger (#1692). När regionvyn lämnas säger statusraden vart man kom tillbaka (#1864): *Tillbaka till Platt karta / globen / Upptäcktsresor*, *Back to the Flat map / the globe / Voyages of discovery*, *Zurück zur Flachen Karte / zum Globus / zu den Entdeckungsreisen*, *De vuelta al mapa plano / al globo / a los viajes de descubrimiento*, *Retour à la carte plane / au globe / aux grandes découvertes* (`regionView.left`, `regionView.leftGlobe`, `regionView.leftDiscovery`); namnen är vyväljarens egna (Glob, Platt karta och Upptäcktsresor, avsnittet om upptäcktsvyn ovan). Inga nya termer.
 - **Regionvyns markörer** (#1642): *markör* är *marker*, *Markierung*, *marcador*, *marqueur* (som i övriga gränssnittet). *Hög* (markörer nära varandra på kartan) är *stack*, *Stapel*, *pila*, *pile*; *fälla ut* och *fälla ihop* är *fan out / fold up*, *auffächern / zuklappen*, *desplegar / plegar*, *déployer / refermer*. *Brickan* för händelser som gäller hela platsen är *badge*, *Schild*, *etiqueta*, *étiquette* (franskans *étiquette* är också ordet för kartans etiketter; det står kvar tills ett bättre ord hittas), och dess text är *Hela {plats}*, *All of {place}*, *Der ganze Ort: {Ort}* (inte *Ganz {Ort}*, som går sönder för platser med artikel: *ganz die Schweiz*), och på spanska och franska *Todo el lugar: {lugar}* och *Tout le lieu : {lieu}*, eftersom ett landsnamn där kräver artikel efter kön (*toda Escania*, *tout le Danemark*) och mallen inte kan välja den (avsnitt 17.2). *Markera* (en markör eller rad får ram) är *highlight*, *hervorheben*, *resaltar*, *mettre en évidence*. *Faktarutan* är *fact box*, *Faktenfeld* (som i övriga de.json), *ficha*, *fiche*. Tangenten *Enter* är *Enter*, *Eingabetaste*, *Intro*, *Entrée*, och piltangenterna på franska *touches fléchées* (som `help.s4t`). Nummer i listan skrivs *Nr.* på tyska och *n°* på franska. *Ungefärlig plats* är `place.approx`; *streckad ring* är *dashed ring*, *gestrichelter Ring*, *anillo discontinuo*, *anneau en pointillé*. Orden som kapar en platstext till ett ortnamn (`regionView.placeCut`, `regionView.placePrefix`) är listor per språk, med mellanslag runt orden.
 
 ### 17.1 Platstyper (för kommande platser; läggs i `place.type.<typ>` när typen byggs)

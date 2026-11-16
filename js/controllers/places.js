@@ -1,12 +1,13 @@
 // Tryck på en plats (#1161, del av #579): ett tryck på konturen av en plats med kort öppnar kortet (Fokus av typen place),
-// både på globen och i Platt vy, och knappen "Visa i Platt karta" i kortet byter vy och ramar in platsen.
+// både på globen och i Platt vy, och knappen "Visa på Platt karta" i kortet byter vy och ramar in platsen.
 // Ett tryck är en genväg: Sök och följ → Platser räcker fortfarande för den som använder tangentbord eller skärmläsare.
 // Tangentbordets motsvarighet är Enter på globen eller kartan, som följer platsen i mitten av vyn; och efter att man har
 // flyttat vyn med tangenterna säger statusraden vilken plats med kort som ligger i mitten. Enter i Fokus på en plats öppnar
 // kortet igen, och i övriga lägen där man följer något säger statusraden varför ingenting händer (#1454).
 //
 // Vad som syns är det som går att trycka på: konturerna (layers/places.js) och trycken gäller bara inzoomat och i vanligt
-// läge (controllers/render.js, placeHints), aldrig i Fokus, tur, lektion eller intervall. Ett tryck som träffar en
+// läge (controllers/render.js, placeHints), aldrig i tur, lektion eller intervall. Följer man platsen (Fokus, regionvyn) öppnar ett tryck
+// på den kortet igen (#1791). Ett tryck som träffar en
 // händelsemarkör, en väg eller en religion hanteras som förut (main.js) och kommer aldrig hit.
 import { loadPlaces, isVisibleReview, t } from '../model.js';
 import { placeAt, placeEvents, placeBounds } from '../place-geo.js';
@@ -30,6 +31,9 @@ export function createPlaces(app) {
   const allowed = () => !state.focus && !state.modes.some(m => m.mode !== 'jakt');
   /** Syns konturerna just nu, och är platserna laddade? Då går ett tryck på dem att göra. */
   const hintsOn = () => !!state.labels?.placeHints && cards.length > 0;
+  /** Platsen man följer (Fokus på en plats, också i regionvyn, #1791): ett tryck på dess yta öppnar kortet igen, utan nytt Fokus. */
+  const followed = () => (state.focus?.type === 'place' && state.focus.place?.boundary?.geometry ? state.focus.place : null);
+  const inFollowed = ll => { const p = followed(); return !!(p && ll && placeAt([p], ll.lon, ll.lat)); };
 
   /** Laddar platserna en gång. Bara de som har minst en synlig händelse har ett kort (som i Sök och följ). */
   function ensure() {
@@ -49,6 +53,12 @@ export function createPlaces(app) {
   /** Ett tryck på globen eller kartan som inte träffade något annat. touch: tryck med finger eller penna. */
   function tap(ll, touch = false) {
     clearTimeout(pending);
+    // Följer man platsen öppnar ett tryck på den kortet igen (som knappen Om platsen); statusraden läser upp kortets rubrik (main.js)
+    if (inFollowed(ll)) {
+      const reopen = () => { if (inFollowed(ll)) app.showFocusFacts(); };
+      if (touch) pending = setTimeout(reopen, TOUCH_WAIT_MS); else reopen();
+      return true;
+    }
     if (!allowed() || !hintsOn()) return false;
     const place = at(ll);
     if (!place) return false;
@@ -66,12 +76,12 @@ export function createPlaces(app) {
     const set = on => canvas.classList.toggle('on-place', on);
     canvas.addEventListener('pointermove', e => {
       cancelAnimationFrame(raf);
-      if (e.pointerType !== 'mouse' || e.buttons || !hintsOn() || !allowed()) { set(false); return; }
-      raf = requestAnimationFrame(() => set(!!at(globe.pickLatLon(e.clientX, e.clientY))));
+      if (e.pointerType !== 'mouse' || e.buttons || (!followed() && (!hintsOn() || !allowed()))) { set(false); return; }
+      raf = requestAnimationFrame(() => { const ll = globe.pickLatLon(e.clientX, e.clientY); set(followed() ? inFollowed(ll) : !!at(ll)); });
     });
     canvas.addEventListener('pointerleave', () => { cancelAnimationFrame(raf); set(false); });
   }
-  flatMap.placeAt = ll => allowed() && hintsOn() && !!at(ll);
+  flatMap.placeAt = ll => (followed() ? inFollowed(ll) : allowed() && hintsOn() && !!at(ll));
 
   // ---- tangentbord och skärmläsare -------------------------------------------------------------------------------
   const flatOpen = () => !$('flat-view').hidden;
@@ -125,12 +135,14 @@ export function createPlaces(app) {
     });
   }
 
-  // ---- knappen "Visa i Platt karta" i platsens kort --------------------------------------------------------------
+  // ---- knappen "Visa på Platt karta" i platsens kort --------------------------------------------------------------
   /**
    * Byt till Platt karta och ram in platsen. Kameran på globen flyger inte, och inget eget läge börjar. En liten plats (upp till
    * cirka 5 grader, Skåne och Danmark) får regionvyn i stället (#1641, controllers/region.js): en skarp, inzoomad karta.
    */
   function showInFlat(place) {
+    // Regionvyn kommer ihåg vyn och kameran man kommer från, innan vyn byts, så att Lämna regionvyn kan ställa tillbaka dem (#1864)
+    if (app.region?.eligible(place)) app.region.rememberOrigin();
     // En stor plats (Aotearoa, Grönland) får regionvyn på globen (#1644): globen flyger in, och Platt vy öppnas inte
     if (app.region?.onGlobe(place)) { app.region.enter(place); return; }
     app.viewMode.set('flat');
@@ -160,8 +172,30 @@ export function createPlaces(app) {
     app.refresh();
     return true;
   }
-  /** Turens steg slutar visa platsen: konturen tas bort vid nästa omritning (den som anropar ritar om). */
-  function closeStep() { layer.step = null; }
+  /** Turens steg slutar visa platsen och markören: de tas bort vid nästa omritning (den som anropar ritar om). */
+  function closeStep() { layer.step = null; layer.stepMark = null; layer.stepLine = null; }
+  /** Ett steg med en markör (#1785, fältet mark i turformatet): ringen och namnet ritas på kartan vid nästa omritning. */
+  function markStep({ lat, lon, label, approx = false }) { layer.stepMark = { lat, lon, label, approx }; }
 
-  return { allowed, ensure, tap, showInFlat, openStep, closeStep, cards: () => cards };
+  /**
+   * Ett steg med en linje (#1785, fältet line): filen med linjerna läses (en gång) och ritas vid nästa omritning. current() ger false när turen
+   * har gått vidare medan filen lästes; då ritas inget. Misslyckas läsningen ritas ingen linje, och steget fungerar som förut.
+   */
+  const lineFiles = new Map();
+  async function lineStep({ file, label = '', current = () => true }) {
+    if (!lineFiles.has(file)) lineFiles.set(file, fetch(file).then(r => { if (!r.ok) throw new Error(`${file}: ${r.status}`); return r.json(); }));
+    try {
+      const data = await lineFiles.get(file);
+      if (!current()) return false;
+      layer.stepLine = { lines: data.lines ?? [], label };
+      app.refresh();
+      return true;
+    } catch (err) {
+      lineFiles.delete(file);
+      console.warn('Linjen i turens steg kunde inte läsas', err);
+      return false;
+    }
+  }
+
+  return { allowed, ensure, tap, showInFlat, openStep, closeStep, markStep, lineStep, cards: () => cards };
 }

@@ -32,7 +32,7 @@
     },
     "neighbours": {
       "type": "array",
-      "description": "Grannländerna i boundary.neighbours i data/platser.json, med namn ur ne_10m_admin_0_countries och en punkt för namnet inne i landet och inom ramen.",
+      "description": "Grannländerna i boundary.neighbours i data/platser.json och, efter dem med sea: true, länder utan landgräns mot platsen inom padKm (#1690), med namn ur ne_10m_admin_0_countries och en punkt för namnet inne i landet och inom ramen.",
       "items": {
         "type": "object",
         "required": ["ne", "label", "name"],
@@ -41,7 +41,8 @@
           "ne": { "type": "string", "pattern": "^[0-9]+$", "description": "ISO 3166-1 numeriskt id, samma som i boundary.neighbours." },
           "label": { "$ref": "#/$defs/point" },
           "name": { "$ref": "#/$defs/text" },
-          "fallback": { "$ref": "#/$defs/fallback" }
+          "fallback": { "$ref": "#/$defs/fallback" },
+          "sea": { "const": true, "description": "Landet har ingen landgräns mot platsen men ligger inom padKm från dess gräns (#1690), till exempel Island vid Grönland. Saknas för grannarna i boundary.neighbours." }
         }
       }
     },

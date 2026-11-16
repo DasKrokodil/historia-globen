@@ -287,6 +287,7 @@ export class TourPlayer {
     const { app } = this, { timeline, globe, flatMap } = app;
     this.index = Math.max(0, Math.min(i, this.tour.steps.length - 1));
     this.target = null;
+    this.card.scrollTop = 0; // nytt steg börjar överst: stegräknaren, rubriken och bilden syns (#1856)
     const step = this.step;
     timeline.pause();
     this.setLayers(app.lesson?.layers ?? step.layers); // en lektion kan låsa lagren för hela turen (#795)
@@ -295,6 +296,12 @@ export class TourPlayer {
     // I smal skärm markeras händelsen bara på globen (krigets händelser syns annars inte utzoomat), och
     // faktarutan öppnas med "Läs om händelsen", så att arket inte täcker kortet
     app.places?.closeStep(); // platsens kontur från förra steget (#1163); omritningen nedan tar bort den
+    // En markör med namn vid stegets plats (#1785): på kamerans mitt om steget inte anger en egen plats
+    if (step.mark) app.places?.markStep({ lat: step.mark.lat ?? step.camera.lat, lon: step.mark.lon ?? step.camera.lon, label: t(step.mark.label), approx: !!step.mark.approx });
+    // En linje på kartan (#1785): läses och ritas när filen har kommit, om turen fortfarande står kvar på steget
+    if (step.line) app.places?.lineStep({ file: step.line.file, label: t(step.line.label), current: () => this.stepVersion === stepVersion });
+    this.card.dataset.line = step.line ? step.line.file : '';
+    this.card.dataset.mark = step.mark ? t(step.mark.label) : ''; // för webbläsartestet
     if (step.open && !app.narrow.matches) app.select(step.open, false);
     else if (step.open) app.mark(step.open);
     else app.select(null, false);
@@ -310,7 +317,8 @@ export class TourPlayer {
     this.drawMeter(n);
     this.title.textContent = t(step.title);
     this.title.hidden = !step.title;
-    this.text.textContent = t(step.text);
+    this.renderText(step);
+    this.renderFigure(step);
     // Berättelseläget (#247): kapitlet ovanför rubriken och en fråga att fundera på under texten
     this.chapter.textContent = t(step.chapter);
     this.chapter.hidden = !step.chapter;
@@ -334,7 +342,7 @@ export class TourPlayer {
     // Pausraden säger också varför tidsknapparna är låsta (#1280)
     const locked = t(this.labels.locked);
     const note = [fill(t(this.labels.paused), { title: t(this.tour.title) }), locked].filter(Boolean).join(' · ');
-    const say = sentences([this.progress.textContent, t(step.chapter), t(step.title), this.status.hidden ? '' : this.status.textContent, t(step.text), t(step.question)]);
+    const say = sentences([this.progress.textContent, t(step.chapter), t(step.title), this.status.hidden ? '' : this.status.textContent, t(step.text).replace(/\s*\n\n+\s*/g, ' '), t(step.question)]);
     // Slutkortet har ingen pausrad, men skärmläsaren ska höra steget och att det var det sista (#878)
     const end = !this.last ? '' : app.lesson?.active ? ui('lesson.endAnnounce', { exit: ui('lesson.exit') }) : ui('tour.endAnnounce');
     // Kortet som steget öppnar på dator (en händelse eller en plats) säger sin rubrik när det öppnas (main.js, prioritet 2) och tog förut bort
@@ -351,6 +359,40 @@ export class TourPlayer {
     if (placeShown && cardOpens) placeShown.then(shown => { if (this.tour && this.stepVersion === stepVersion && !this.huntHidden && this.step === step) speak(shown ? this.cardHeading() : ''); });
     else if (step.open && cardOpens) speak(this.cardHeading());
     else if (this.last) speak('');
+  }
+
+  /** Bilden i steget (#1794): bildtexten är alt-texten, krediten och licensen står under, och bilden öppnas i full storlek med ett tryck. */
+  renderFigure(step) {
+    const fig = document.getElementById('tour-figure'), img = step.image;
+    if (!fig) return;
+    fig.hidden = !img;
+    if (!img) return;
+    const caption = t(img.caption);
+    document.getElementById('tour-figure-img').src = img.file;
+    document.getElementById('tour-figure-img').alt = caption;
+    document.getElementById('tour-figure-link').href = img.file;
+    document.getElementById('tour-figure-caption').textContent = caption; // en illustrations bildtext säger själv att det är en illustration (bildreglerna i CLAUDE.md)
+    document.getElementById('tour-figure-credit').textContent = [img.credit, img.license].filter(Boolean).join(' · ');
+  }
+
+  /**
+   * Stegets text i stycken (#1793): en tom rad i texten (\n\n) börjar ett nytt stycke, och partLabels (nycklar i data/turer/index.json, labels,
+   * som "Det sägs" och "Vad källorna säger") ger ett stycke en liten rubrik. Orden är desamma som förut; bara uppdelningen är ny.
+   */
+  renderText(step) {
+    const parts = String(t(step.text) ?? '').split(/\n\n+/);
+    const nodes = parts.flatMap((part, i) => {
+      const key = step.partLabels?.[i], label = key ? t(this.labels[key]) : '';
+      const para = document.createElement('p');
+      para.textContent = part;
+      if (i === 0) para.className = 'tour-lead';
+      if (!label) return [para];
+      const head = document.createElement('p');
+      head.className = 'tour-part-label';
+      head.textContent = label;
+      return [head, para];
+    });
+    this.text.replaceChildren(...nodes);
   }
 
   /** Knappens text för steget: Läs om händelsen eller Läs om platsen (båda i data/turer/index.json, labels, #1464). */

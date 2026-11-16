@@ -87,7 +87,9 @@ def load(path):
 
 
 def type_matches(value, expected):
-    """Kontrollerna som schemana använder; bool är inte ett heltal i JSON Schema."""
+    """Kontrollerna som schemana använder; bool är inte ett heltal i JSON Schema. En lista av typer ("string", "null") räcker med en."""
+    if isinstance(expected, list):
+        return any(type_matches(value, one) for one in expected)
     return {
         'object': isinstance(value, dict),
         'array': isinstance(value, list),
@@ -235,6 +237,17 @@ for g in (empires or {}).get('groups', []):
     for x in v.get('predecessors', []) + v.get('successors', []):
         if x.get('group') and x['group'] not in group_ids:
             err(f"data/empires/index.json ({g.get('id')}): gruppen {x['group']} finns inte")
+    # Område som inte är en stat (#1300, areaKind): faktarutan är obligatorisk, och inget som hör till en stat
+    if g.get('areaKind'):
+        where = f"data/empires/index.json ({g.get('id')})"
+        if not g.get('facts'):
+            err(f'{where}: ett område med areaKind måste ha en faktaruta (facts), beslutet 2026-11-13 punkt 6')
+        for field in ('symbol', 'flags', 'capitals', 'modernState'):
+            if g.get(field):
+                err(f'{where}: ett område med areaKind får inte ha {field} (ingen medalj, flagga eller huvudstad, punkt 5)')
+        if any((pf or {}).get('symbol') for pf in (g.get('polityFacts') or {}).values()):
+            err(f'{where}: ett område med areaKind får inte ha symbol i polityFacts (punkt 5)')
+area_groups = {g.get('id') for g in (empires or {}).get('groups', []) if g.get('areaKind')}
 
 # Vägar och resor (#38): filerna i index.json finns och går att läsa (JSON-syntaxen kontrolleras i steg 3)
 routes = []
@@ -307,6 +320,10 @@ for e in events['events']:
     # och punkten står bara för platsen. Då är platsen ungefärlig; att punkten ligger i en plats kontrolleras under 8f
     if e.get('scope') == 'place' and e.get('locationPrecision') not in ('region', 'country'):
         err(f"data/events.json ({e['id']}): scope \"place\" kräver locationPrecision region eller country (punkten står för hela platsen)")
+    # Större område (#1806): scope "wide" betyder att händelsen gäller ett område som är större än den minsta platsen markören
+    # ligger i, och markören visar bara var området finns. Då är platsen ungefärlig; att punkten ligger i en plats kontrolleras under 8f
+    if e.get('scope') == 'wide' and e.get('locationPrecision') not in ('region', 'country'):
+        err(f"data/events.json ({e['id']}): scope \"wide\" kräver locationPrecision region eller country (markören visar bara var området finns)")
     for s in e.get('sources', []) + (e.get('story') or {}).get('sources', []):
         if s not in src_ids:
             err(f"data/events.json ({e['id']}): källan {s} finns inte i sources.json")
@@ -402,6 +419,9 @@ for tid in (tours_index or {}).get('tours', []):
         where = f"{path} (steg {i + 1}, {step.get('id', '?')})"
         if step.get('open') and step['open'] not in ev_ids:
             err(f"{where}: händelsen {step['open']} finns inte i events.json")
+        for key in ('image', 'line'):  # bilden och linjen i steget (#1794, #1785) ska finnas i den byggda sidan
+            if step.get(key):
+                exists(step[key].get('file', ''), f'{where} ({key})')
         if not step.get('sources'):
             err(f'{where}: källor saknas (sources)')
         for src in step.get('sources', []):
@@ -816,7 +836,9 @@ if places_doc is not None:
                     if any(abs(a[0] - b[0]) > 180 for a, b in zip(ring, ring[1:])):
                         err(f'{where}: en ring i {label} hoppar mer än 180 grader i längdgrad (korsar datumlinjen); dela den vid 180° med tools/platser_gransar.py (#1268)')
                         break
-        inside = [e for e in ev_all if in_place(polys, nb_polys, *e['location']['coordinates'][:2])]
+        inside_all = [e for e in ev_all if in_place(polys, nb_polys, *e['location']['coordinates'][:2])]
+        # Som placeEvents i js/place-geo.js: scope "wide" (#1806) gäller ett större område och är inte platsens händelse
+        inside = [e for e in inside_all if e.get('scope') != 'wide']
         if len(inside) < 5:
             err(f'{where}: minst 5 synliga händelser ska ligga inom gränsen, men det är {len(inside)}')
         # Rikena i landskortet (#1448): bara id och år, och åren hämtas ur rikets egna data. from är början och to slutet på
@@ -853,17 +875,17 @@ if places_doc is not None:
             if prev_from is not None and per['from'] < prev_from:
                 err(f'{at}: perioderna ska stå i tidsordning (efter from)')
             prev_from = per['from']
-        for e in inside if pl.get('review') in VISIBLE else []:  # som loadPlaces i js/model.js: bara platser som får visas
-            if e.get('scope') == 'place':
+        for e in inside_all if pl.get('review') in VISIBLE else []:  # som loadPlaces i js/model.js: bara platser som får visas
+            if e.get('scope') in ('place', 'wide'):
                 scoped_in.add(e['id'])
         if pl.get('type') == 'country':
             for why in country_warnings(inside):
                 print(f'validate-site: VARNING: {where}: hållbarhetsriktlinjen (#1269): {why}', file=sys.stderr)
 
-    # Ett scope "place" som inte ligger i någon plats säger ingenting och är troligen ett fel (#1674)
+    # Ett scope ("place", #1674, eller "wide", #1806) som inte ligger i någon plats säger ingenting och är troligen ett fel
     for e in ev_all:
-        if e.get('scope') == 'place' and e['id'] not in scoped_in:
-            err(f"data/events.json ({e['id']}): scope \"place\" men händelsen ligger inte i någon plats i data/platser.json som får visas")
+        if e.get('scope') in ('place', 'wide') and e['id'] not in scoped_in:
+            err(f"data/events.json ({e['id']}): scope \"{e['scope']}\" men händelsen ligger inte i någon plats i data/platser.json som får visas")
 
 # 8g. Ortnamn för regionvyn (#1643): en fil per plats i data/ortnamn/, skriven av tools/ortnamn.py ur Natural Earth. Schemat (fem språk,
 # id och koordinater), att filen hör till en plats i data/platser.json, att källan finns och att grannländerna är platsens egna.
@@ -888,7 +910,11 @@ if places_doc is not None:
                 err(f"{path}: orten {pl.get('id')} ur kompletteringen ska ha source i sources.json och wikidata som id (#1676)")
         own = {str(n.get('ne')) for n in by_place[f.stem]['boundary'].get('neighbours', [])}
         for nb in doc.get('neighbours', []):
-            if str(nb.get('ne')) not in own:
+            if nb.get('sea') is True:
+                # Land över havet inom marginalen (#1690): inte en granne med landgräns och inte platsens eget land
+                if str(nb.get('ne')) in own or str(nb.get('ne')) == str(by_place[f.stem]['boundary'].get('ne')):
+                    err(f"{path}: landet {nb.get('ne')} har sea: true men är platsens eget land eller granne med landgräns; kör python3 tools/ortnamn.py (#1690)")
+            elif str(nb.get('ne')) not in own:
                 err(f"{path}: grannlandet {nb.get('ne')} finns inte i platsens boundary.neighbours; kör python3 tools/ortnamn.py")
 
 # Turens stegfält place (#1163): platsen finns i data/platser.json och är inte ett utkast (ett kort utan synlig plats öppnas inte)
@@ -911,6 +937,8 @@ for e in events['events']:
     for g in e['empires']:
         if g not in group_ids:
             err(f"data/events.json ({e['id']}): riket {g} finns inte i data/empires/index.json")
+        elif g in area_groups:
+            err(f"data/events.json ({e['id']}): {g} är ett område som inte är en stat (areaKind, #1300), och ett krig får inte peka på det")
 
 # 10. Byggda händelsefiler och uppdelade filer (#337, #394): samma innehåll som tools/dela_data.py skriver
 # ur redigeringsfilerna i repot (data/handelser/ publiceras inte, så de läses från ROOT, inte från dist/)

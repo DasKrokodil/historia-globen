@@ -170,7 +170,12 @@ export function smallestPlace(places, lon, lat) {
   return best;
 }
 
-/** Händelserna (med _lon och _lat, som model.js sätter) som ligger inom platsens gräns, i tidsordning. */
+/**
+ * Händelserna (med _lon och _lat, som model.js sätter) som ligger inom platsens gräns, i tidsordning. En händelse med
+ * `scope: "wide"` (#1806) gäller ett större område än platsen (ett halvklot, en kultur över flera länder, en följd i ett annat
+ * land) och markören visar bara var området finns, så den räknas inte som platsens händelse: platskortet, platsens händelser i
+ * Fokus och regionvyns lista läser alla den här funktionen. På globen visas den som vanligt.
+ */
 export function placeEvents(place, events) {
-  return events.filter(e => e._lon != null && inPlace(place, e._lon, e._lat)).sort((a, b) => a.start - b.start);
+  return events.filter(e => e._lon != null && e.scope !== 'wide' && inPlace(place, e._lon, e._lat)).sort((a, b) => a.start - b.start);
 }

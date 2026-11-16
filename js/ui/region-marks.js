@@ -8,7 +8,7 @@
 // högarna, brickan och etiketten är riktiga knappar med aria-label i kartans etikettlager, i listans ordning, så att Tab går i
 // samma ordning som listan och piltangenterna går mellan dem. Enter på en markör markerar den (raden i listan får ram), Enter igen
 // eller etiketten öppnar faktarutan; Enter på en hög eller brickan fäller ut den, och Escape fäller ihop (controllers/region.js).
-import { regionItems, groupMarkers, pileName, yearSpan, fanLayout, rowLayout, nameCandidates, placeNames, crossesEdge, tagSpot, brickSpot,
+import { regionItems, nextEvent, groupMarkers, pileName, yearSpan, fanLayout, rowLayout, nameCandidates, placeNames, crossesEdge, tagSpot, brickSpot,
   MARK_PX, PILE_BADGE, PILE_PX, PILE_PX_TOUCH } from '../region-markers.js';
 import { inGeometry } from '../place-geo.js';
 import { CAT, t, formatEventTime, pluralUi } from '../model.js';
@@ -49,10 +49,15 @@ export class RegionMarks {
     this.state = { shown: [], names: [] }; // det som ritades senast (renderingsstatus och prov)
   }
 
-  /** Platsens händelser (listans ordning), platsen och alla platser (för brickan, #1674). Nollställer markering och solfjäder. */
-  setContent({ place, events, places = [] }) {
-    const items = regionItems(events, place, places);
-    this.content = { place, items, byId: new Map(items.map(it => [it.e.id, it])) };
+  /**
+   * Platsens händelser (listans ordning), platsen och alla platser (för brickan, #1674). Nollställer markering och solfjäder.
+   * year (#1786): bara händelser som har börjat vid året får markörer; `all` är hela listans id (raderna i kortet) och
+   * `next` den första som inte har börjat.
+   */
+  setContent({ place, events, places = [], year = null }) {
+    const items = regionItems(events, place, places, year);
+    this.content = { place, items, byId: new Map(items.map(it => [it.e.id, it])), all: (events ?? []).map(e => e.id), year,
+      next: items.length === (events ?? []).length ? null : nextEvent(events, year) };
     this.mark = this.hover = this.open = this._wantOpen = null;
     this._lastSel = null;
     this._refreshCands();
@@ -83,6 +88,7 @@ export class RegionMarks {
     this.state = { shown: [], names: [] };
     delete this.map.root.dataset.regionMarks;
     delete this.map.root.dataset.regionNames;
+    delete this.map.root.dataset.regionNamesCountries;
   }
 
   get active() { return !!this.content; }
@@ -300,6 +306,7 @@ export class RegionMarks {
     map.root.dataset.regionMarks = `${L.singles.length},${L.piles.length},${L.brick.length}`;
     map.root.dataset.regionNames = String(names.length); // renderingsstatus för webbläsartestet: hur många ortnamn som ritades
     map.root.dataset.regionNamesBeside = names.filter(n => n.dotless).map(n => n.text).join('|'); // orter som står bredvid en markör utan prick (#1682)
+    map.root.dataset.regionNamesCountries = names.filter(n => n.kind === 'neighbour').map(n => n.id).join('|'); // ländernas namn som ritades, nb-<ISO-id> (#1690)
   }
 
   _drawNames(ctx, names) {
