@@ -356,3 +356,36 @@ test('kompletteringen ur Wikidata (#1676): orterna står i platsens fil med käl
   const lund = listOf('skane').filter(e => /^lund|freden-i-lund|slaget-vid-lund/.test(e.id)).map(e => ({ e }));
   assert.equal(pileName(lund, read('data/ortnamn/skane.json'), tx), 'Lund');
 });
+
+test('länder över havet inom marginalen får namn (#1690): Island vid Grönland, efter grannarna med landgräns och aldrig det egna landet', () => {
+  const LANGS = ['sv', 'en', 'de', 'es', 'fr'];
+  for (const p of places) {
+    const doc = read(`data/ortnamn/${p.id}.json`);
+    const land = new Set(p.boundary.neighbours.map(n => String(n.ne)));
+    let seenSea = false;
+    for (const nb of doc.neighbours) {
+      for (const l of LANGS) assert.ok(nb.name[l], `${p.id}: ${nb.ne} saknar namn på ${l}`);
+      if (nb.sea) {
+        seenSea = true;
+        assert.equal(nb.sea, true);
+        assert.ok(!land.has(nb.ne), `${p.id}: ${nb.ne} har landgräns men står som land över havet`);
+        assert.notEqual(nb.ne, String(p.boundary.ne), `${p.id}: det egna landet står som granne`);
+      } else {
+        assert.ok(!seenSea, `${p.id}: grannarna med landgräns ska stå före länderna över havet`);
+        assert.ok(land.has(nb.ne), `${p.id}: ${nb.ne} saknas i boundary.neighbours`);
+      }
+    }
+  }
+  const gronland = read('data/ortnamn/gronland.json').neighbours;
+  const island = gronland.find(n => n.ne === '352');
+  assert.ok(island?.sea, 'Island står som land över havet vid Grönland');
+  assert.deepEqual(island.name, { sv: 'Island', en: 'Iceland', de: 'Island', es: 'Islandia', fr: 'Islande' });
+  assert.ok(gronland.some(n => n.ne === '124' && !n.sea), 'Kanada står kvar som granne med landgräns');
+  // Skåne: Sverige är länets eget land och namnges inte som granne
+  assert.ok(!read('data/ortnamn/skane.json').neighbours.some(n => n.ne === '752'), 'Sverige står inte som granne till Skåne');
+  // Prioriteten: grannar med landgräns, sedan länder över havet, sedan orter utan händelser
+  const cands = nameCandidates({ places: [{ id: 'o', name: { sv: 'Ort' }, rank: 0, coordinates: [0, 0] }],
+    neighbours: [{ ne: '1', sea: true, label: [1, 1], name: { sv: 'Hav' } }, { ne: '2', label: [2, 2], name: { sv: 'Land' } }] }, [], tx);
+  assert.deepEqual(cands.map(c => c.id), ['nb-2', 'nb-1', 'o']);
+  assert.equal(cands[1].sea, true);
+});

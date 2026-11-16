@@ -88,6 +88,7 @@ export class RegionMarks {
     this.state = { shown: [], names: [] };
     delete this.map.root.dataset.regionMarks;
     delete this.map.root.dataset.regionNames;
+    delete this.map.root.dataset.regionNamesCountries;
   }
 
   get active() { return !!this.content; }
@@ -305,6 +306,7 @@ export class RegionMarks {
     map.root.dataset.regionMarks = `${L.singles.length},${L.piles.length},${L.brick.length}`;
     map.root.dataset.regionNames = String(names.length); // renderingsstatus för webbläsartestet: hur många ortnamn som ritades
     map.root.dataset.regionNamesBeside = names.filter(n => n.dotless).map(n => n.text).join('|'); // orter som står bredvid en markör utan prick (#1682)
+    map.root.dataset.regionNamesCountries = names.filter(n => n.kind === 'neighbour').map(n => n.id).join('|'); // ländernas namn som ritades, nb-<ISO-id> (#1690)
   }
 
   _drawNames(ctx, names) {

@@ -96,6 +96,8 @@ def ortnamn_cases():
         ('ort utan id', lambda d: d['places'][0].pop('id'), "obligatoriska fältet 'id' saknas"),
         ('koordinat utanför jorden', lambda d: d['seas'][0].update(label=[200, 55]), 'större än maximum 180'),
         ('tomt namn', lambda d: d['neighbours'][0]['name'].update(sv=''), "matchar inte pattern '.+'"),
+        ('granne med landgräns som land över havet (#1690)', lambda d: d['neighbours'][0].update(sea=True), 'har sea: true men'),
+        ('land över havet som inte står i boundary.neighbours utan sea', lambda d: d['neighbours'].append({'ne': '352', 'label': [12.5, 55.5], 'name': d['neighbours'][0]['name']}), 'finns inte i platsens boundary.neighbours'),
     ]
 
 

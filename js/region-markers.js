@@ -212,23 +212,27 @@ export function brickSpot(nominal, { w, h }, covers, W, H, pad = 6) {
   return grid.find(t => fits(t.x, t.y)) ?? { x: x0, y: y0 };
 }
 
-/** Ordningen som namnen prövas i: orter med händelser, sedan grannländer, sedan hav och övriga orter efter storlek (rank). */
+/**
+ * Ordningen som namnen prövas i: orter med händelser, sedan grannländer (först de med landgräns, sedan länder över havet inom
+ * marginalen, #1690), sedan hav och övriga orter efter storlek (rank).
+ */
 export function namePriority(c) {
   if (c.kind === 'place') return (c.hasEvents ? 0 : 2) + (c.rank ?? 10) / 100;
-  if (c.kind === 'neighbour') return 1;
+  if (c.kind === 'neighbour') return c.sea ? 1.5 : 1;
   return 2 + (c.rank ?? 10) / 100;
 }
 
 /**
  * Kandidaterna ur ortnamnsfilen (data/ortnamn/<plats>.json): orter, grannländer och hav, med text på sidans språk (tx), punkt och
- * om en ort har händelser (någon händelse inom NAME_KM). Ger [{ id, kind, rank, at: [lon, lat], text, hasEvents }].
+ * om en ort har händelser (någon händelse inom NAME_KM). Ger [{ id, kind, rank, at: [lon, lat], text, hasEvents, sea }], där sea
+ * säger att grannlandet ligger över havet (#1690).
  */
 export function nameCandidates(doc, events, tx) {
   if (!doc) return [];
   const pts = (events ?? []).filter(e => e._lon != null).map(e => [e._lon, e._lat]);
   const out = [];
   for (const p of doc.places ?? []) out.push({ id: p.id, kind: 'place', rank: p.rank, at: p.coordinates, text: tx(p.name), hasEvents: pts.some(q => km(q, p.coordinates) <= NAME_KM) });
-  for (const nb of doc.neighbours ?? []) out.push({ id: `nb-${nb.ne}`, kind: 'neighbour', at: nb.label, text: tx(nb.name) });
+  for (const nb of doc.neighbours ?? []) out.push({ id: `nb-${nb.ne}`, kind: 'neighbour', at: nb.label, text: tx(nb.name), sea: nb.sea === true });
   for (const s of doc.seas ?? []) out.push({ id: s.id, kind: 'sea', rank: s.rank, at: s.label, text: tx(s.name) });
   return out.filter(c => c.text && Array.isArray(c.at)).sort((a, b) => namePriority(a) - namePriority(b));
 }
