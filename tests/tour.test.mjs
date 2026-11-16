@@ -286,3 +286,34 @@ test('Det här har du hört: Kinesiska muren har en CC0-bild med bildtext på al
   const manifest = read('images/licenses.json');
   assert.ok(manifest.tourImages.some(i => i.stepId === 'kinesiska-muren' && i.license === 'CC0 1.0'), 'bilden saknas i images/licenses.json');
 });
+
+// Linje på kartan i ett steg (#1785): filen, namnet och källan
+test('linjen i ett steg kontrolleras (#1785)', () => {
+  const ok = { file: 'data/turer/linjer/muren.json', label: { sv: 'Muren' }, source: 's1' };
+  assert.deepEqual(tourProblems(tour({ steps: [step({ line: ok })] }), known), []);
+  const bad = tourProblems(tour({ steps: [
+    step({ line: { ...ok, file: 'data/muren.json' } }),
+    step({ id: 'b', line: { ...ok, label: {} } }),
+    step({ id: 'c', line: { ...ok, source: 'saknas' } }),
+    step({ id: 'd', line: 'muren.json' }),
+  ] }), known).join('\n');
+  for (const part of ['data/turer/linjer/<namn>.json', 'linjens namn saknas', 'linjens källa saknas finns inte', 'ska vara ett objekt']) assert.match(bad, new RegExp(part), `saknar ${part}`);
+});
+
+test('Det här har du hört: Mingmuren som linje har källa med licens, namn på fem språk och en text som säger att det är Mingmuren (#1785)', () => {
+  const t = read('data/turer/det-har-har-du-hort.json');
+  const st = t.steps.find(s => s.id === 'kinesiska-muren');
+  const line = read(st.line.file);
+  assert.equal(line.source, st.line.source);
+  assert.ok(st.sources.includes(st.line.source), 'linjens källa ska stå bland stegets källor');
+  const src = read('data/sources.json').sources.find(s => s.id === st.line.source);
+  assert.equal(src.license, 'MIT');
+  assert.match(src.url, /github\.com\/Adl3rAi\//);
+  for (const l of ['sv', 'en', 'de', 'es', 'fr']) {
+    assert.ok(st.line.label[l], `linjens namn saknas på ${l}`);
+    assert.match(st.text[l], /1368–1644/, `texten säger inte vilken mur linjen är på ${l}`);
+  }
+  assert.ok(line.lines.length > 100 && line.lines.every(l => l.length >= 2 && l.every(([lon, lat]) => Math.abs(lon) <= 180 && Math.abs(lat) <= 90)));
+  const lons = line.lines.flat().map(p => p[0]);
+  assert.ok(Math.min(...lons) > 97 && Math.max(...lons) < 126, 'linjen ska ligga i Kina');
+});

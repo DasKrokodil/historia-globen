@@ -404,6 +404,9 @@ for tid in (tours_index or {}).get('tours', []):
         where = f"{path} (steg {i + 1}, {step.get('id', '?')})"
         if step.get('open') and step['open'] not in ev_ids:
             err(f"{where}: händelsen {step['open']} finns inte i events.json")
+        for key in ('image', 'line'):  # bilden och linjen i steget (#1794, #1785) ska finnas i den byggda sidan
+            if step.get(key):
+                exists(step[key].get('file', ''), f'{where} ({key})')
         if not step.get('sources'):
             err(f'{where}: källor saknas (sources)')
         for src in step.get('sources', []):

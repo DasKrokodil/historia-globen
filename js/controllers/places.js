@@ -171,9 +171,29 @@ export function createPlaces(app) {
     return true;
   }
   /** Turens steg slutar visa platsen och markören: de tas bort vid nästa omritning (den som anropar ritar om). */
-  function closeStep() { layer.step = null; layer.stepMark = null; }
+  function closeStep() { layer.step = null; layer.stepMark = null; layer.stepLine = null; }
   /** Ett steg med en markör (#1785, fältet mark i turformatet): ringen och namnet ritas på kartan vid nästa omritning. */
   function markStep({ lat, lon, label, approx = false }) { layer.stepMark = { lat, lon, label, approx }; }
 
-  return { allowed, ensure, tap, showInFlat, openStep, closeStep, markStep, cards: () => cards };
+  /**
+   * Ett steg med en linje (#1785, fältet line): filen med linjerna läses (en gång) och ritas vid nästa omritning. current() ger false när turen
+   * har gått vidare medan filen lästes; då ritas inget. Misslyckas läsningen ritas ingen linje, och steget fungerar som förut.
+   */
+  const lineFiles = new Map();
+  async function lineStep({ file, label = '', current = () => true }) {
+    if (!lineFiles.has(file)) lineFiles.set(file, fetch(file).then(r => { if (!r.ok) throw new Error(`${file}: ${r.status}`); return r.json(); }));
+    try {
+      const data = await lineFiles.get(file);
+      if (!current()) return false;
+      layer.stepLine = { lines: data.lines ?? [], label };
+      app.refresh();
+      return true;
+    } catch (err) {
+      lineFiles.delete(file);
+      console.warn('Linjen i turens steg kunde inte läsas', err);
+      return false;
+    }
+  }
+
+  return { allowed, ensure, tap, showInFlat, openStep, closeStep, markStep, lineStep, cards: () => cards };
 }
