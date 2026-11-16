@@ -4353,6 +4353,76 @@ async function run(browser, vp) {
     }
   });
 
+  // #1693: på en låg yta ligger knappen i platskortet direkt under rubriken, så att den syns utan rullning. Förut låg den efter den
+  // långa brödtexten (och kortet var bara cirka 70 px högt vid 800 × 360), så att den nåddes med rullning som inte syns på pekskärm.
+  // Provet mäter utan att rulla: kortets scrollTop är 0 och knappen ligger inom kortet och skärmen vid 800 × 360 (bred) och, i läget helt,
+  // 640 × 360 (smal; i läget halvt är arket 90 px högt och rymmer bara rubriken, men knappen ligger ändå före inledningen).
+  // Ordningen är bara i bilden (CSS order): knappen står kvar efter inledningen i markupen och krysset och knappen är de två första som
+  // går att tabba till (WCAG 2.4.3). Vid 1280 × 800 och 400 × 800 är ordningen oförändrad: knappen ligger efter inledningen.
+  await check('platskortets knapp ligger direkt under rubriken på låg yta och syns utan rullning (#1693)', async () => {
+    const contexts = [], errLists = [], out = [];
+    const open = async (width, height, extra = {}) => {
+      const pg = await touchPage({ width, height }, extra);
+      contexts.push(pg.tctx);
+      errLists.push(pg.errs);
+      await pg.tp.goto(`${BASE}?ny=knapp1693w${width}h${height}#y=1827&f=place:skane`);
+      await pg.tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await pg.tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+      await pg.tp.waitForTimeout(800);
+      return pg;
+    };
+    // Utan scrollIntoView: det som mäts är det besökaren ser när kortet har öppnats
+    const measure = tp => tp.evaluate(() => {
+      const d = document.getElementById('detail'), db = d.getBoundingClientRect(), btn = d.querySelector('[data-selection-action]');
+      const b = btn.getBoundingClientRect(), intro = [...d.querySelectorAll('.story > p')].find(p => !p.classList.contains('place-type'));
+      const h3 = d.querySelector('h3').getBoundingClientRect(), top = document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2);
+      const tabbable = [...d.querySelectorAll('button, summary, a[href], [tabindex]:not([tabindex="-1"])')].filter(e => e.getClientRects().length && !e.classList.contains('sheet-handle')).slice(0, 2).map(e => e.className.toString().split(' ')[0] || e.tagName);
+      return { scrollTop: d.scrollTop, inside: b.top >= db.top && b.bottom <= db.bottom + 0.5 && b.bottom <= innerHeight && b.top >= 0, covered: !(top === btn || btn.contains(top)),
+        aboveIntro: b.top < intro.getBoundingClientRect().top, belowHeading: b.top >= h3.bottom - 1, afterIntroInMarkup: !!(intro.compareDocumentPosition(btn) & Node.DOCUMENT_POSITION_FOLLOWING),
+        height: Math.round(b.height), width: Math.round(b.width), tabbable, cardTop: Math.round(db.top), cardBottom: Math.round(db.bottom), btnTop: Math.round(b.top), btnBottom: Math.round(b.bottom) };
+    });
+    try {
+      // 1. Låg yta: knappen ligger före inledningen och syns utan rullning
+      for (const [width, height] of [[800, 360], [640, 360]]) {
+        const name = `${width} × ${height}`, wide = width > 760;
+        const { tp } = await open(width, height, { isMobile: true });
+        if (!wide) {
+          // Smal layout: arket är halvt när kortet öppnas, och i läget halvt (90 px) syns bara rubriken. Före inledningen gäller redan där
+          const half = await measure(tp);
+          if (!half.aboveIntro) throw new Error(`${name} (halvt): knappen ligger inte före inledningen`);
+          await tp.click('#detail-handle');
+          await tp.waitForFunction(() => document.getElementById('detail').dataset.sheet === 'full', null, { timeout: T.step });
+          await tp.waitForTimeout(400);
+        }
+        const m = await measure(tp);
+        if (m.scrollTop !== 0) throw new Error(`${name}: kortet har rullats (${m.scrollTop} px) innan knappen mättes`);
+        if (!m.aboveIntro) throw new Error(`${name}: knappen ligger inte före inledningen (knappen ${m.btnTop}–${m.btnBottom} px)`);
+        if (!m.belowHeading) throw new Error(`${name}: knappen ligger inte under rubriken`);
+        if (!m.inside) throw new Error(`${name}: knappen syns inte utan rullning (kortet ${m.cardTop}–${m.cardBottom} px, knappen ${m.btnTop}–${m.btnBottom} px, skärmen ${height} px)`);
+        if (m.covered) throw new Error(`${name}: knappen täcks av något annat`);
+        if (m.height < 43.5 || m.width < 43.5) throw new Error(`${name}: knappen är ${m.width} × ${m.height} px, under 44 px på en pekskärm`);
+        if (!m.afterIntroInMarkup) throw new Error(`${name}: knappen har flyttats i markupen (ska ligga kvar efter inledningen; ordningen görs med CSS order)`);
+        if (m.tabbable[0] !== 'detail-close' || m.tabbable[1] !== 'chip-btn') throw new Error(`${name}: tangentbordsordningen i kortet börjar med ${m.tabbable.join(', ')}, inte krysset och knappen`);
+        out.push(`${name}: knappen ${m.btnTop}–${m.btnBottom} px utan rullning`);
+      }
+      // 2. Hög yta: ordningen är oförändrad, knappen ligger efter inledningen
+      for (const [width, height, touch] of [[1280, 800, false], [400, 800, true]]) {
+        const name = `${width} × ${height}`;
+        const { tp } = await open(width, height, touch ? { isMobile: true } : {});
+        const m = await measure(tp);
+        if (m.aboveIntro) throw new Error(`${name}: knappen har flyttats före inledningen på en hög skärm`);
+        if (!m.afterIntroInMarkup) throw new Error(`${name}: knappen ligger inte efter inledningen i markupen`);
+        if (width === 1280 && !m.inside) throw new Error(`${name}: knappen syns inte utan rullning (kortet ${m.cardTop}–${m.cardBottom} px, knappen ${m.btnTop}–${m.btnBottom} px)`);
+        out.push(`${name}: oförändrad ordning`);
+      }
+      const errs = errLists.flat();
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return out.join(', ');
+    } finally {
+      await Promise.race([Promise.all(contexts.map(c => c.close().catch(() => {}))), new Promise(r => setTimeout(r, 10000))]);
+    }
+  });
+
   // #1695: vid 800 × 360 ska Sök och följ hålla sig i skärmen och sista träffen ska kunna nås i listans egen rullning.
   await check('liggande låg skärm: Sök och följ rullar till sista träffen vid 800 × 360 (#1695)', async () => {
     const { tp, tctx, errs } = await touchPage();
