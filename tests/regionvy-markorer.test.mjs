@@ -61,10 +61,19 @@ test('brickan: händelser med scope "place" och ungefärlig plats; andra ungefä
   assert.deepEqual(dk.filter(it => it.whole).map(it => it.e.id),
     ['stavnsbandet-upphavs', 'grundloven-1849', 'kvinnlig-rostratt-danmark-1915', 'danmark-gar-med-i-eg']);
   assert.ok(dk.some(it => it.approx && !it.whole), 'Danmark har ungefärliga händelser på en del av landet');
-  // Varje händelse med scope "place" i datan är ungefärlig (validate-site.py kräver det)
+  // Varje händelse med scope ("place" eller "wide", #1806) i datan är ungefärlig (validate-site.py kräver det)
   for (const e of events.filter(e => e.scope)) {
-    assert.equal(e.scope, 'place', e.id);
-    assert.ok(['region', 'country'].includes(e.locationPrecision), `${e.id}: scope "place" kräver locationPrecision`);
+    assert.ok(['place', 'wide'].includes(e.scope), `${e.id}: okänt scope ${e.scope}`);
+    assert.ok(['region', 'country'].includes(e.locationPrecision), `${e.id}: scope "${e.scope}" kräver locationPrecision`);
+  }
+});
+
+test('scope "wide" (#1806): regionvyns lista och markörer saknar händelser för ett större område än platsen', () => {
+  // Yngre dryas gäller norra halvklotet; markören i Allerød gör den inte till en av Danmarks rader eller markörer
+  const dk = regionItems(listOf('danmark'), place('danmark'), places);
+  assert.equal(dk.some(it => it.e.id === 'yngre-dryas'), false, 'Yngre dryas står inte i Danmarks regionvy');
+  for (const e of events.filter(e => e.scope === 'wide')) {
+    for (const p of places) assert.equal(listOf(p.id).some(x => x.id === e.id), false, `${e.id} står i ${p.id}s lista`);
   }
 });
 
