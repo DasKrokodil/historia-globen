@@ -287,6 +287,7 @@ export class TourPlayer {
     const { app } = this, { timeline, globe, flatMap } = app;
     this.index = Math.max(0, Math.min(i, this.tour.steps.length - 1));
     this.target = null;
+    this.card.scrollTop = 0; // nytt steg börjar överst: stegräknaren, rubriken och bilden syns (#1856)
     const step = this.step;
     timeline.pause();
     this.setLayers(app.lesson?.layers ?? step.layers); // en lektion kan låsa lagren för hela turen (#795)

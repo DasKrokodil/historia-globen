@@ -454,6 +454,8 @@ export class Panel {
     parts.push(inside ? plural('panel.inside', inside, { at }) : ui('panel.noneAt', { at }));
     if (near) parts.push(ui('panel.near', { count: near, within }));
     const stop = text => text.endsWith('.') ? text : `${text}.`; // "f.Kr." slutar redan med punkt (#991)
+    // En tid som slutar med punkt ("95 000 f.Kr.") före meningens punkt ger annars "f.Kr.." (#1862); tre punkter rörs inte
+    const oneStop = text => String(text).replace(/(?<!\.)\.\.(?!\.)/g, '.');
     const partialCount = range ? visible.filter(v => v.partial).length : 0;
     if (partialCount) parts.push(plural('range.partialCount', partialCount, { count: partialCount }));
     // I intervallet finns inget "nära": raden säger hur många som pågår under intervallet och hur många som sticker ut
@@ -461,19 +463,10 @@ export class Panel {
     const cause = labels?.themeEmpty ? null : emptyCause({ visibleCount: visible.length, filters: this.filters, total: this.allCategories?.size });
     const filtersOff = cause === 'filters', filtersSome = cause === 'some';
     // Raden säger en gång vad som pågår och vad som är nära (beslut i #1782: inte "träffar" och inte samma sak två gånger)
-    this.sub.textContent = visible.length ? stop(parts.join(', '))
+    // Är listan tom av ett kategorifilter säger raden det, också i en vy med urval: det är filtret och inte urvalet som döljer (#1862)
+    this.sub.textContent = oneStop(visible.length ? stop(parts.join(', '))
       : range && !filtersOff ? ui('range.empty', { range: bare })
-      : ui(filtersOff && !(this.tag && this.tags[this.tag]) ? 'panel.filtersOff' : filtersSome ? 'panel.filtersSome' : 'panel.empty', { within, at: bare });
-    const tagCopy = this.tag && this.tags[this.tag];
-    if (!visible.length && tagCopy) {
-      // Vyn med tagg (#555): säg om ingen händelse har taggen ännu, eller om det bara är tomt kring året
-      const note = document.createElement('p');
-      note.className = 'empty-note tag-empty';
-      note.textContent = this.tagCounts.get(this.tag) ? (tagCopy.none ?? '').replace('{within}', within).replace('{at}', bare) : tagCopy.empty;
-      this.sub.textContent = note.textContent;
-      this.list.replaceChildren(note);
-      return;
-    }
+      : ui(filtersOff ? 'panel.filtersOff' : filtersSome ? 'panel.filtersSome' : 'panel.empty', { within, at: bare }));
     if (filtersOff || filtersSome) {
       // Alla kategorier av (#886): det är filtret som döljer händelserna, så dragning i tidslinjen hjälper inte.
       // Några av (#1304): filtret kan dölja dem, så raden säger det och knappen visar alla kategorier igen
@@ -492,8 +485,19 @@ export class Panel {
       this.list.replaceChildren(help, reset);
       return;
     }
+    const tagCopy = this.tag && this.tags[this.tag];
+    if (!visible.length && tagCopy) {
+      // Vyn med tagg (#555): säg om ingen händelse har taggen ännu, eller om det bara är tomt kring året. Meningen står en
+      // gång, i listan; raden under rubriken är tom i stället för att upprepa den (#1862)
+      const note = document.createElement('p');
+      note.className = 'empty-note tag-empty';
+      note.textContent = oneStop(this.tagCounts.get(this.tag) ? (tagCopy.none ?? '').replace('{within}', within).replace('{at}', bare) : tagCopy.empty);
+      this.sub.textContent = '';
+      this.list.replaceChildren(note);
+      return;
+    }
     if (!visible.length && labels?.themeEmpty) {
-      this.sub.textContent = labels.themeEmpty;
+      this.sub.textContent = ''; // meningen står en gång, i listan (#1862)
       this.list.innerHTML = `<p class="empty-note">${esc(labels.themeEmpty)}</p>`;
       return;
     }
