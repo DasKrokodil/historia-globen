@@ -1885,6 +1885,15 @@ REMSA_PL = ('snitt', ('snitt', ('ne', ['polen-ne']), ('rutor', [ERMLAND])), RYSK
 LITAUEN_UTAN_RU = ('ne', ['litauen-ne'])
 # Jura och Sundgau: Frankrikes gräns mot Schweiz från Genève till Basel
 JURA = (5.9, 46.1, 7.6, 47.65)
+# Frankrikes sida i rutan JURA 1940–1944 (#1781), delad som i Cliopatria mellan Nazityskland, Vichyregimen (1940–1942) och
+# Kungariket Italien (1943); den fransk mark som Cliopatria räknar till Schweiz går till den innehavare den gränsar mest mot
+JURA_FR = ('snitt', ('ne', ['frankrike-ne']), ('rutor', [JURA]))
+JURA_NAZI, JURA_VICHY, JURA_ITALIEN = ['Nazi Germany'], ['Vichy France', '(Vichy France)'], ['Kingdom of Italy']
+# Västra Allgäu 1945–1949 (#1781): Württembergs del (Kreis Wangen, Ravensburg, Tettnang och södra Biberach, alla i
+# Württemberg-Hohenzollern) och Bayerns del, där Cliopatrias franska zon (Lindau) skiljs från den amerikanska
+ALLGAU = (9.5, 47.25, 10.5, 48.1)
+ALLGAU_BW = ('skillnad', ('snitt', ('ne', ['tyskland']), ('rutor', [ALLGAU])), ('ne', ['vasttyska-granslander']))
+ALLGAU_BY = ('snitt', ('snitt', ('ne', ['tyskland']), ('ne', ['vasttyska-granslander'])), ('rutor', [ALLGAU]))
 TYSKA_SIDAN = ('snitt', ('ne', ['tyskland']), ('rutor', [FRANSKA_GRANSEN]))
 FRANSKA_SIDAN = ('snitt', ('ne', ['frankrike-ne']), ('rutor', [FRANSKA_GRANSEN]))
 # Tysklands sida av gränsen mot Nederländerna 1950–1962 enligt Förbundsrepublikens gräns i Cliopatria 1955 (utan Selfkant och
@@ -2119,6 +2128,25 @@ DISPUTED = {
     # förenklade gränsen inte buktar in över Słubice och Zgorzelec
     'oder-ej-tyskland': {'area': ('skillnad', ('rutor', [ODER]), ('ne', ['tyskland'])), 'from': 1949, 'strict': True,
                          'remove': ['osttyskland', 'tyskland'], 'add': []},
+    # Świnoujście (#1781): Cliopatria saknar Usedom och västra Wolin, så Świnoujście var utan stat från 1945. Gränsen från
+    # Potsdam går strax väster om staden, och polsk förvaltning tog över i juli 1945 (en.wikipedia "Świnoujście"). Polens sida i
+    # rutan enligt Natural Earth läggs till Polen från 1945, efter förenklingen
+    'oder-polen-oarna': {'area': ('skillnad', ('snitt', ('ne', ['polen-ne']), ('rutor', [ODER])), ('ne', ['tyskland'])),
+                         'from': 1945, 'strict': True, 'efter': True, 'remove': ['osttyskland', 'tyskland'], 'add': ['polen']},
+    # och Tysklands sida (Usedom och Altwarp) till DDR och Tyskland, där delstaternas gräns i Natural Earth och avrundningen till
+    # två decimaler inte når kusten (Peenemünde)
+    'oder-ddr-usedom': {'area': ('snitt', ('ne', ['tyskland']), ('rutor', [ODER])), 'from': 1949, 'strict': True,
+                        'efter': True, 'remove': [], 'add': ['osttyskland', 'tyskland']},
+    # Polens gräns är avrundad till två decimaler och gick därefter in över DDR:s och Tysklands gräns (cirka 20 km²); Tysklands sida
+    # i rutan klipps ur Polen efter förenklingen, så att gränsen längs Oder och Neisse är Natural Earths på båda sidor
+    'oder-polen-efter': {'area': ('snitt', ('ne', ['tyskland']), ('rutor', [ODER])), 'from': 1945, 'strict': True, 'efter': True,
+                         'remove': ['polen'], 'add': []},
+    # Cliopatrias Sovjetunionen har kvar Västpommern och en remsa väster om Oder till 1952, så Sovjetunionen ritades över Polen
+    # 1945–1952 och över DDR 1949–1952 (Stettiner Haff). Polens sida klipps ur Sovjetunionen 1945–1952 och Tysklands 1949–1952
+    'oder-sovjet-polen': {'area': ('skillnad', ('snitt', ('ne', ['polen-ne']), ('rutor', [ODER])), ('ne', ['tyskland'])),
+                          'from': 1945, 'to': 1952, 'strict': True, 'efter': True, 'remove': ['sovjetunionen'], 'add': []},
+    'oder-sovjet-ddr': {'area': ('snitt', ('ne', ['tyskland']), ('rutor', [ODER])), 'from': 1949, 'to': 1952, 'strict': True,
+                        'efter': True, 'remove': ['sovjetunionen'], 'add': []},
     # Kaliningradområdet (#1750): Sovjetunionen förenklas med 0,3 grader, och sedan perioderna delades 1949 och 1953
     # försvann en remsa längs kusten (Baltijsk). Sovjetunionens gräns 1960 i en ruta kring området läggs tillbaka, utom Polen
     # enligt Natural Earth
@@ -2167,6 +2195,24 @@ DISPUTED = {
                                'efter': True, 'remove': ['schweiz'], 'add': []},
     'jura-schweiz': {'area': ('snitt', ('ne', ['schweiz-ne']), ('rutor', [JURA])), 'from': 1919, 'strict': True, 'efter': True,
                      'remove': ['franska-kolonialvaldet', 'frankrike', 'nazityskland'], 'add': ['schweiz']},
+    # Cliopatrias Italien 1943 ligger över Genève (#1781): Schweiz i Natural Earth i rutan klipps ur Italien det året
+    'jura-schweiz-italien': {'area': ('snitt', ('ne', ['schweiz-ne']), ('rutor', [JURA])), 'from': 1943, 'to': 1943, 'strict': True,
+                             'efter': True, 'remove': ['italien'], 'add': []},
+    # 1940–1944 (#1781): Frankrikes sida följer också Natural Earth. Cliopatria delar den mellan Nazityskland (ockuperade zonen och
+    # Elsass), Vichyregimen (1940–1942) och Italien (1943), och räknar en remsa längs gränsen till Schweiz (Delle, Jougne,
+    # Bois-d'Amont, Pays de Gex); varje del av remsan går till den innehavare den gränsar mest mot (holder_part). Linjen
+    # mellan zonerna är Cliopatrias. Demarkationslinjen började vid gränsen sydväst om Genève och Pays de Gex låg öster om den
+    # (fr.wikipedia "Ligne de démarcation (France)"), så remsan vid Gex hör till Nazityskland, som i Cliopatria vid Les Rousses
+    'jura-nazi-1940': {'area': ('innehavare', JURA_FR, 'Swiss Confederation', 1940, JURA_NAZI, [JURA_VICHY]), 'from': 1940,
+                       'to': 1942, 'strict': True, 'efter': True, 'remove': ['franska-kolonialvaldet'], 'add': ['nazityskland']},
+    'jura-vichy-1940': {'area': ('innehavare', JURA_FR, 'Swiss Confederation', 1940, JURA_VICHY, [JURA_NAZI]), 'from': 1940,
+                        'to': 1942, 'strict': True, 'efter': True, 'remove': ['nazityskland'], 'add': ['franska-kolonialvaldet']},
+    'jura-nazi-1943': {'area': ('innehavare', JURA_FR, 'Swiss Confederation', 1943, JURA_NAZI, [JURA_ITALIEN]), 'from': 1943,
+                       'to': 1943, 'strict': True, 'efter': True, 'remove': ['italien'], 'add': ['nazityskland']},
+    'jura-italien-1943': {'area': ('innehavare', JURA_FR, 'Swiss Confederation', 1943, JURA_ITALIEN, [JURA_NAZI]), 'from': 1943,
+                          'to': 1943, 'strict': True, 'efter': True, 'remove': ['nazityskland'], 'add': ['italien']},
+    'jura-nazi-1944': {'area': JURA_FR, 'from': 1944, 'to': 1944, 'strict': True, 'efter': True, 'remove': ['italien'],
+                       'add': ['nazityskland']},
     'gransen-frankrike-tyska-sidan': {'area': TYSKA_SIDAN, 'from': 1930, 'to': 1939, 'strict': True, 'efter': True,
                                       'remove': ['franska-kolonialvaldet'], 'add': []},
     # Lindau: Cliopatria har ingen stat där från 1950. Landkreis Lindau hörde till den franska zonen och återförenades med Bayern
@@ -2349,6 +2395,26 @@ DISPUTED = {
     # Liechtenstein ur Natural Earth: Österrikes och Schweiz förenklade gränser går in över landet
     'alp-liechtenstein': {'area': ('ne', ['liechtenstein']), 'from': 1919, 'strict': True, 'efter': True,
                           'remove': ['osterrike', 'schweiz'], 'add': []},
+    # Före 1919 (#1781): Basel var utan stat 1871–1918 och Konstanz ritades i både Tyska riket och Schweiz. Gränsen mellan Tyskland
+    # och Schweiz har med små ändringar legat fast sedan 1651 (en.wikipedia "Germany–Switzerland border"), och gränsen mellan
+    # Österrike och Schweiz är från 1798 och var Österrikiska kejsardömets och Österrike-Ungerns västgräns (en.wikipedia
+    # "Austria–Switzerland border"). Elsass med Saint-Louis hörde till Tyska riket 1871–1918 (en.wikipedia "Alsace–Lorraine").
+    # I rutan HOCHRHEIN följer gränserna därför Natural Earth också före 1919: Schweiz från 1815 (gruppens perioder börjar då),
+    # Tyska riket från 1871 och Österrike-Ungern från 1868. Före 1871 finns ingen grupp för Baden, Württemberg och Bayern, så den
+    # tyska sidan är utan stat
+    'hochrhein-schweiz-1815': {'area': ('snitt', ('ne', ['schweiz-ne']), ('rutor', [HOCHRHEIN])), 'from': 1815, 'to': 1918,
+                               'strict': True, 'efter': True, 'remove': ['tyska-riket', 'osterrike-ungern'], 'add': ['schweiz']},
+    'hochrhein-ej-schweiz-1815': {'area': ('skillnad', ('rutor', [HOCHRHEIN]), ('ne', ['schweiz-ne'])), 'from': 1815, 'to': 1918,
+                                  'strict': True, 'efter': True, 'remove': ['schweiz'], 'add': []},
+    'hochrhein-tyskland-1871': {'area': ('snitt', ('ne', ['tyskland', 'frankrike-ne']), ('rutor', [HOCHRHEIN])), 'from': 1871,
+                                'to': 1918, 'strict': True, 'efter': True, 'remove': [], 'add': ['tyska-riket']},
+    # (egen post från 1868, så att Österrike-Ungerns perioder inte delas 1871)
+    'hochrhein-ej-osterrike-1868': {'area': ('snitt', ('ne', ['tyskland', 'frankrike-ne']), ('rutor', [HOCHRHEIN])), 'from': 1868,
+                                    'to': 1918, 'strict': True, 'efter': True, 'remove': ['osterrike-ungern'], 'add': []},
+    'hochrhein-osterrike-1868': {'area': ('snitt', ('ne', ['osterrike-ne']), ('rutor', [HOCHRHEIN])), 'from': 1868, 'to': 1918,
+                                 'strict': True, 'efter': True, 'remove': ['tyska-riket'], 'add': ['osterrike-ungern']},
+    'hochrhein-liechtenstein-1868': {'area': ('snitt', ('ne', ['liechtenstein']), ('rutor', [HOCHRHEIN])), 'from': 1868, 'to': 1918,
+                                     'strict': True, 'efter': True, 'remove': ['osterrike-ungern'], 'add': []},
     # Bayern och Sachsen 1945–1949 (#1771): Cliopatrias zoner når inte fram till gränserna mot Tjeckoslovakien och Österrike, så
     # tyskt land vid Zittau, i Bayerska skogen och vid Passau var utan stat. Den amerikanska zonen omfattade Bayern utom Lindau och
     # den sovjetiska Sachsen och Thüringen (en.wikipedia "Allied-occupied Germany"); delstaterna i Natural Earth i rutorna läggs till
@@ -2365,6 +2431,22 @@ DISPUTED = {
                                              ('ne', ['vasttyska-granslander'])),
                                     'from': 1945, 'to': 1949, 'strict': True, 'efter': True, 'remove': ['usa'],
                                     'add': ['franska-kolonialvaldet']},
+    # Västra Allgäu 1945–1949 (#1781): fält kring Leutkirch, Weiler och Oberstaufen var utan stat. Kreis Wangen (Leutkirch, Isny,
+    # Wangen, Bad Wurzach) hörde till den franska zonen och Württemberg-Hohenzollern (de.wikipedia "Landkreis Wangen" och
+    # "Württemberg-Hohenzollern", som också nämner Ravensburg, Tettnang och Biberach), men Cliopatria räknar Isny och Leutkirch
+    # till USA. Württembergs del av rutan läggs till Fjärde republiken och klipps ur USA. I Bayern var Lindau den enda kretsen i
+    # den franska zonen; gränsen för kretsen finns inte i våra källor, så Bayerns del följer Cliopatrias franska zon och resten
+    # läggs till USA (Natural Earth admin 1 för gränsen mellan Bayern och Württemberg)
+    'allgau-wurttemberg': {'area': ALLGAU_BW, 'from': 1945, 'to': 1949, 'strict': True, 'efter': True, 'remove': ['usa'],
+                           'add': ['franska-kolonialvaldet']},
+    'allgau-bayern-usa-1945': {'area': ('skillnad', ALLGAU_BY, ('clio', 'French Fourth Republic', 1945)), 'from': 1945, 'to': 1945,
+                               'strict': True, 'efter': True, 'remove': ['franska-kolonialvaldet'], 'add': ['usa']},
+    'allgau-bayern-fr-1945': {'area': ('snitt', ALLGAU_BY, ('clio', 'French Fourth Republic', 1945)), 'from': 1945, 'to': 1945,
+                              'strict': True, 'efter': True, 'remove': ['usa'], 'add': ['franska-kolonialvaldet']},
+    'allgau-bayern-usa': {'area': ('skillnad', ALLGAU_BY, ('clio', 'French Fourth Republic', 1946)), 'from': 1946, 'to': 1949,
+                          'strict': True, 'efter': True, 'remove': ['franska-kolonialvaldet'], 'add': ['usa']},
+    'allgau-bayern-fr': {'area': ('snitt', ALLGAU_BY, ('clio', 'French Fourth Republic', 1946)), 'from': 1946, 'to': 1949,
+                         'strict': True, 'efter': True, 'remove': ['usa'], 'add': ['franska-kolonialvaldet']},
     # och Tjeckoslovakiens sida, som Cliopatria 1947–1949 ritar också i USA och Sovjetunionen
     'tjeckoslovakien-zoner': {'area': ('ne', ['tjeckien-ne']), 'from': 1947, 'to': 1949, 'strict': True, 'efter': True,
                               'remove': ['usa', 'sovjetunionen'], 'add': []},
@@ -2404,6 +2486,30 @@ def ne_shapes():
             for f in json.loads((ROOT / 'tools/ne-omstridda-omraden.geojson').read_text())['features']}
 
 
+def holder_part(land, wrong, y, holder, others, by_name):
+    """Den del av land (Natural Earth) som Cliopatria räknar till holder år y (#1781).
+
+    Alla Cliopatria-poster med namnen räknas (till exempel både 'Vichy France' och '(Vichy France)'). Land som Cliopatria i
+    stället räknar till grannen wrong (källfel: fransk mark i Schweiz 1940–1944) delas inte: varje sammanhängande del går till
+    den innehavare den har längst gräns mot i Cliopatria, bland holder och others, så att ingen ny linje dras genom den."""
+    def union(names):
+        names = [names] if isinstance(names, str) else names
+        return unary_union([shape(f['geometry']).buffer(0) for n in names for f in by_name.get(n, [])
+                            if f['properties']['FromYear'] <= y <= f['properties']['ToYear']])
+    own = union(holder)
+    rest = [union(n) for n in others]
+    out = land.intersection(own)
+    strip = polygons_only(land.intersection(union(wrong)).difference(own))
+    for p in getattr(strip, 'geoms', [strip]):
+        if p.is_empty:
+            continue
+        edge = p.buffer(0.002)
+        mine = edge.intersection(own).area
+        if mine > 0 and all(mine >= edge.intersection(r).area for r in rest):
+            out = out.union(p)
+    return out
+
+
 def disputed_areas(by_name):
     """Områdena i DISPUTED som geometrier: {namn: geometri}."""
     def at(name, y):
@@ -2434,6 +2540,8 @@ def disputed_areas(by_name):
             return unary_union([area(x) for x in a[1:]])
         if a[0] == 'ne-snitt':  # ett land i Natural Earth snittat med en Cliopatria-post ett visst år
             return ne[a[1]].intersection(at(*a[2]))
+        if a[0] == 'innehavare':  # (#1781) ('innehavare', mark, felaktig granne, år, innehavare, [andra innehavare])
+            return holder_part(area(a[1]), a[2], a[3], a[4], a[5], by_name)
         return at(*a[0]).difference(at(*a[1]))
     return {k: area(d['area']) for k, d in DISPUTED.items()}
 
