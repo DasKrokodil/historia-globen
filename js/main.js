@@ -382,7 +382,7 @@ async function start() {
   // Kortets källor (#337): rikets berättelse har egna, fun facts och krigskort ärver händelsernas, som har laddats
   // när dialogen visar dem (Om källorna laddar alla händelsers källor först)
   ff.onSources = f => sources.open(() => f.kind === 'empire' ? f.sources
-    : [...new Set(f.events.flatMap(id => data.byId[id]?.sources ?? []))]);
+    : [...new Set(f.events.flatMap(id => data.byId[id]?.sources ?? []))], f.kind ? 'card' : 'funfact'); // rätt ord överst (#1860)
   panel.onSources = () => sources.open(); // knappen Om källorna under (i) vid granskningsstatusen (#310)
   sources.onSettings = (...a) => app.refresh(...a);
 
@@ -679,7 +679,7 @@ async function start() {
     focusKey: () => (state.focus ? `${state.focus.type}:${state.focus.id}` : null),
     startFocus: key => app.startFocus(key), endFocus: redraw => app.endFocus(redraw),
     store, snapshot: () => app.modeSnapshot(),
-    openSources: ids => sources.open(() => ids),
+    openSources: ids => sources.open(() => ids, 'tour'), // "det här steget i turen" (#1860)
     fallbackFocus: () => $('track'),
   });
   app.tour = tour;

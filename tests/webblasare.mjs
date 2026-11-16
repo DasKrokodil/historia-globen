@@ -1837,6 +1837,44 @@ async function run(browser, vp) {
     } finally { await ap.close(); }
   });
 
+  // #1860: raden överst i Källor säger varifrån man kom: ett steg i en tur, eller en fun fact i Samtidigt-kortet
+  await check('Källor säger turens steg eller fun facten efter varifrån man kom (#1860)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet';
+    const sp = await context.newPage();
+    const spAw = abortWatch(sp);
+    const errs = [];
+    sp.on('pageerror', e => { if (!spAw.defer(e.message)) errs.push(e.message); });
+    try {
+      if (THREE_LOCAL) {
+        await sp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+        await sp.route(u => isFont(u.href), r => r.abort());
+      }
+      const want = key => sp.evaluate(async k => (await import('./js/i18n.js')).ui(k), key);
+      const topLine = async () => {
+        await sp.waitForSelector('#sources-dialog:not([hidden]) #sources-body p strong', { timeout: T.load });
+        return (await sp.textContent('#sources-body p strong')).trim();
+      };
+      // Ett steg i en tur
+      await spAw.goto(`${BASE}?ny=1860a#t=det-har-har-du-hort&s=washingtons-tander`);
+      await sp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await sp.waitForSelector('#tour-card:not([hidden])', { timeout: T.load });
+      await sp.click('#tour-sources');
+      const tour = await topLine(), tourWant = await want('sources.highlight.tour');
+      if (tour !== tourWant) throw new Error(`från turen: "${tour}", väntat "${tourWant}"`);
+      await sp.click('#sources-close');
+      // En fun fact i Samtidigt-kortet år 1325 (Mansa Musa och Ibn Battuta)
+      await spAw.goto(`${BASE}?ny=1860b#y=1325`);
+      await sp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await sp.waitForSelector('#ff-sources', { state: 'visible', timeout: T.load });
+      await sp.click('#ff-sources');
+      const ff = await topLine(), ffWant = await want('sources.highlight');
+      if (ff !== ffWant) throw new Error(`från fun facten: "${ff}", väntat "${ffWant}"`);
+      errs.push(...spAw.settle());
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return `turen: "${tour}", fun facten: "${ff}"`;
+    } finally { await sp.close(); }
+  });
+
   await check('rikets tecken: flagga, symbol eller modern återgivning (#1148)', async () => {
     const lp = await context.newPage();
     const errs = [];
