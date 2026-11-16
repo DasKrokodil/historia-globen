@@ -1,5 +1,5 @@
 // Knappen i platskortet lovar bara regionvyn när den ryms (#1692): texten följer om den fria ytan rymmer regionvyn (MIN_FREE i
-// js/region-frame.js), annars heter knappen "Visa i Platt karta". Regeln är ren (regionButtonKey, hasRoom) och delas av beslutet när
+// js/region-frame.js), annars heter knappen "Visa på Platt karta" (orden ändrades i #1864, regeln är oförändrad). Regeln är ren (regionButtonKey, hasRoom) och delas av beslutet när
 // vyn öppnas och av texten; mätningen av den fria ytan och att texten följer fönstret prövas av webbläsartestet
 // (tests/webblasare.mjs, "platskortets knapp säger Platt karta när regionvy inte ryms").
 // Kör: node --test 'tests/*.test.mjs'

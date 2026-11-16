@@ -2297,7 +2297,7 @@ async function run(browser, vp) {
           facts: q('#focus-facts').textContent.trim(),
         };
       });
-      if (card.action !== 'Visa händelserna på kartan') throw new Error(`knappen heter "${card.action}"`);
+      if (card.action !== 'Visa i regionvyn') throw new Error(`knappen heter "${card.action}"`);
       if (card.exit !== 'Sluta följa platsen' || !card.exitIsLink) throw new Error(`utgången är "${card.exit}" (länk: ${card.exitIsLink})`);
       if (!card.order || !card.eventsOpen) throw new Error(`ordningen är inte knapp, händelselista, Om kartan och källor, Sluta följa (listan öppen: ${card.eventsOpen})`);
       if (card.aboutOpen || card.aboutNotes !== 2 || card.notesOutside !== 0) throw new Error(`Om kartan och källor: öppen ${card.aboutOpen}, ${card.aboutNotes} anteckningar i raden, ${card.notesOutside} utanför`);
@@ -3349,7 +3349,7 @@ async function run(browser, vp) {
       await followsSweden(tp);
       const button = tp.locator('#detail [data-selection-action]');
       await button.waitFor({ state: 'visible', timeout: T.step });
-      if (!/Visa i Platt karta/.test(await button.textContent())) throw new Error(`knappen heter ${await button.textContent()}`);
+      if (!/Visa på Platt karta/.test(await button.textContent())) throw new Error(`knappen heter ${await button.textContent()}`);
       if (!/Sverige/.test(await button.getAttribute('aria-label'))) throw new Error('knappens aria-label nämner inte platsen');
       if (!(await tp.isHidden('#flat-view'))) throw new Error('Platt vy var öppen före knappen');
       await button.click();
@@ -3492,7 +3492,7 @@ async function run(browser, vp) {
         if (id !== 'gronland') { await tp.goto(`${BASE}?ny=globregion1b${hash}`); await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load }); }
         await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
         const button = tp.locator('#detail [data-selection-action]');
-        if (!/Visa händelserna på kartan/.test(await button.textContent())) throw new Error(`${id}: knappen heter ${await button.textContent()}`);
+        if (!/Visa i regionvyn/.test(await button.textContent())) throw new Error(`${id}: knappen heter ${await button.textContent()}`);
         await button.focus();
         await tp.keyboard.press('Enter');
         await globeRegionSettled(tp, id);
@@ -3520,7 +3520,7 @@ async function run(browser, vp) {
         // Klotet är vridet tillbaka innanför den vanliga globens gräns mot polen (71,6°, 1,25 radianer); i vyn får Grönland ligga norr om den
         if (!(Math.abs(c.tilt) <= 1.25 + 1e-4)) throw new Error(`${id}: klotet är vridet ${c.tilt} radianer mot polen efter regionvyn`);
         if (!(await tp.evaluate(() => document.activeElement?.id === 'globe-canvas'))) throw new Error(`${id}: fokus gick inte till globen`);
-        if (!new RegExp(`Regionvyn är stängd\\. Globen visar ${name.replace(/[()]/g, '\\$&')}`).test(await tp.textContent('#screen-reader-status'))) throw new Error(`${id}: statusraden säger inte att regionvyn stängdes`);
+        if (!/Regionvyn är stängd\. Tillbaka till globen\./.test(await tp.textContent('#screen-reader-status'))) throw new Error(`${id}: statusraden säger inte att regionvyn stängdes och att globen är tillbaka (#1864)`);
         if (!(await tp.isVisible('#focus-bar'))) throw new Error(`${id}: Escape slutade följa platsen`);
         out.push(`${id} ${Math.round(b.x1 - b.x0)}×${Math.round(b.y1 - b.y0)} px, ${presses} Escape`);
       }
@@ -3631,7 +3631,7 @@ async function run(browser, vp) {
     try {
       await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
       // Knappen säger att den öppnar regionvyn (Sverige har kvar Visa i Platt karta; Grönland och Aotearoa får globflyget, #1644)
-      if (!/Visa händelserna på kartan/.test(await tp.textContent('#detail [data-selection-action]'))) throw new Error(`knappen heter ${await tp.textContent('#detail [data-selection-action]')}`);
+      if (!/Visa i regionvyn/.test(await tp.textContent('#detail [data-selection-action]'))) throw new Error(`knappen heter ${await tp.textContent('#detail [data-selection-action]')}`);
       await openRegion(tp, 'skane');
       await regionSettled(tp);
       // Statusraden och rutan säger vilken plats regionvyn visar, och rutan har vägen ut
@@ -3699,23 +3699,24 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
-  await check('regionvyn: Lämna regionvyn och Escape går tillbaka till Platt karta, Danmark får vyn och Sverige inte (#1641)', async () => {
+  await check('regionvyn: Lämna regionvyn och Escape går tillbaka till vyn man kom från (globen), Danmark får vyn och Sverige inte (#1641, #1864)', async () => {
     const { tp, tctx, errs } = await placeTapPage('#y=1827&f=place:skane', 'region2');
     try {
       const flatView = () => tp.evaluate(() => ({ open: !document.getElementById('flat-view').hidden, region: document.getElementById('flat-view').dataset.region ?? null,
         zoom: Number(document.getElementById('flat-view').dataset.view.split(',')[2]), chip: !document.getElementById('flat-region').hidden,
         following: !document.getElementById('focus-bar').hidden }));
-      // Regionvyn är lämnad och kartan har ritats om (zoomen står i data-view efter nästa bildruta)
-      const regionOff = () => tp.waitForFunction(() => { const d = document.getElementById('flat-view').dataset; return !d.region && Number(d.view.split(',')[2]) <= 10; }, null, { timeout: T.step });
+      // Regionvyn är lämnad: Platt vy stängd (man kom från globen, #1864) och kartan utan regionvy
+      const regionOff = () => tp.waitForFunction(() => { const d = document.getElementById('flat-view').dataset; return !d.region && document.getElementById('flat-view').hidden && document.getElementById('flat-region').hidden; }, null, { timeout: T.step });
       await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
       await openRegion(tp, 'skane');
-      // Lämna regionvyn: Platt karta som förut, platsen följs fortfarande och statusraden säger det
+      // Lämna regionvyn: tillbaka till globen, som man kom från (#1864); platsen följs fortfarande och statusraden säger det
       await tp.click('#flat-region-back');
       await regionOff();
       let v = await flatView();
-      if (!v.open || v.chip || !v.following || v.zoom > 10) throw new Error(`efter Lämna regionvyn: ${JSON.stringify(v)}`);
-      await tp.waitForFunction(() => /Regionvyn är stängd/.test(document.getElementById('screen-reader-status').textContent), null, { timeout: T.step });
-      if (!(await tp.evaluate(() => document.activeElement?.id === 'flat-canvas'))) throw new Error('fokus gick inte till kartan efter Lämna regionvyn');
+      if (v.open || v.chip || !v.following) throw new Error(`efter Lämna regionvyn: ${JSON.stringify(v)}`);
+      if ((await tp.getAttribute('#btn-globe', 'aria-pressed')) !== 'true') throw new Error('Glob är inte vald i Vy efter Lämna regionvyn');
+      await tp.waitForFunction(() => /Regionvyn är stängd\. Tillbaka till globen\./.test(document.getElementById('screen-reader-status').textContent), null, { timeout: T.step });
+      if (!(await tp.evaluate(() => document.activeElement?.id === 'globe-canvas'))) throw new Error('fokus gick inte till globen efter Lämna regionvyn');
       // Escape: först stängs kortet som ligger ovanpå, sedan lämnas regionvyn, och Fokus och Platt vy står kvar
       if (await tp.isHidden('#detail')) await tp.click('#focus-facts');
       if (vp.width <= 760) { await tp.click('#detail-handle'); await tp.waitForTimeout(300); }
@@ -3728,16 +3729,17 @@ async function run(browser, vp) {
       await tp.keyboard.press('Escape');
       await regionOff();
       v = await flatView();
-      if (!v.open || !v.following) throw new Error(`Escape gjorde mer än att lämna regionvyn: ${JSON.stringify(v)}`);
+      if (v.open || !v.following) throw new Error(`Escape gjorde mer än att lämna regionvyn och gå tillbaka till globen: ${JSON.stringify(v)}`);
       // Danmark får regionvyn, Sverige (större än 5 grader, väntar på DasKrokodils bedömning, #1644) ramas in som förut
       await tp.goto(`${BASE}?ny=region3#y=1827&f=place:danmark`);
       await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
       await openRegion(tp, 'danmark');
       if ((await tp.textContent('#flat-region-name')).trim() !== 'Regionvy: Danmark') throw new Error('rutan säger inte Danmark');
-      // Att sluta följa platsen lämnar regionvyn
+      // Att sluta följa platsen lämnar regionvyn men inte vyn: Platt vy står kvar där den är (bara Lämna regionvyn och Escape återställer, #1864)
       await tp.click('#focus-exit');
-      await regionOff();
+      await tp.waitForFunction(() => !document.getElementById('flat-view').dataset.region && document.getElementById('flat-region').hidden, null, { timeout: T.step });
+      if (!(await flatView()).open) throw new Error('att sluta följa platsen stängde Platt vy');
       await tp.goto(`${BASE}?ny=region4#y=1000&f=place:sverige`);
       await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
@@ -4149,15 +4151,23 @@ async function run(browser, vp) {
       const z0 = await zoomOf();
       await tp.click('#flat-out');
       await tp.waitForFunction(z => Number(document.getElementById('flat-view').dataset.view.split(',')[2]) < z, z0, { timeout: T.step });
-      // Sedan vanlig Platt karta: Lämna regionvyn ramar in platsen i Platt vy och kortet står kvar
+      // Sedan vanlig Platt karta: Lämna regionvyn går tillbaka till globen (#1864, man kom från den); kortet står kvar, och Platt karta
+      // öppnas med knappen Vy i stället för att regionvyn lämnas i Platt vy som förut
       await tp.click('#flat-region-back');
-      await tp.waitForFunction(() => document.getElementById('flat-region').hidden, null, { timeout: T.step });
+      await tp.waitForFunction(() => document.getElementById('flat-region').hidden && document.getElementById('flat-view').hidden, null, { timeout: T.step });
+      await tp.evaluate(() => document.getElementById('btn-flat').click()); // i mobil ligger knappen i menyn
+      await tp.waitForFunction(() => !document.getElementById('flat-view').hidden, null, { timeout: T.step });
       await tp.waitForTimeout(600);
       const flat = await covered();
       if (flat.length) throw new Error(`Platt karta: ${flat.join('; ')}`);
       const z1 = await zoomOf();
-      await tp.click('#flat-out'); // Platt vy står på högsta zoom efter inramningen av Skåne, så här går det bara ut
-      await tp.waitForFunction(z => Number(document.getElementById('flat-view').dataset.view.split(',')[2]) < z, z1, { timeout: T.step });
+      // Zoomen ligger kvar från regionvyn (högst 10) eller är 1: ett steg ut när det går, annars in, och sedan åt andra hållet
+      const first = [z1 > 1.5 ? '#flat-out' : '#flat-in'];
+      await tp.click(first[0]);
+      await tp.waitForFunction(([z, out]) => { const v = Number(document.getElementById('flat-view').dataset.view.split(',')[2]); return out ? v < z : v > z; }, [z1, first[0] === '#flat-out'], { timeout: T.step });
+      const z2 = await zoomOf();
+      await tp.click(first[0] === '#flat-out' ? '#flat-in' : '#flat-out');
+      await tp.waitForFunction(([z, out]) => { const v = Number(document.getElementById('flat-view').dataset.view.split(',')[2]); return out ? v > z : v < z; }, [z2, first[0] === '#flat-out'], { timeout: T.step });
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
       return 'knapparna fria och zoomar i Platt karta och regionvyn';
     } finally { await tctx.close(); }
@@ -4304,11 +4314,11 @@ async function run(browser, vp) {
 
   // #1692: knappen i platskortet lovar bara regionvyn när den ryms. Vid 800 × 360 och 640 × 360 (liggande telefon) lämnar kortet eller
   // arket, fokusraden och knapparna ingen yta för regionvyn (MIN_FREE, 230 × 150 px), och platsen ramas in i Platt karta: knappen
-  // ska då heta "Visa i Platt karta" i stället för "Visa händelserna på kartan". Provet trycker på knappen vid fyra storlekar och
+  // ska då heta "Visa på Platt karta" i stället för "Visa i regionvyn" (orden ändrades i #1864, regeln är #1692:s). Provet trycker på knappen vid fyra storlekar och
   // kontrollerar att texten stämmer med det som händer (rutan Regionvy visas eller visas inte), att Sverige alltid har Platt karta och
   // Grönland (regionvyn på globen, ingen gräns för ytan) alltid regionvyn, och att texten följer fönstret när det ändrar storlek.
   await check('platskortets knapp säger Platt karta när regionvy inte ryms, och följer fönstret (#1692)', async () => {
-    const REGION = 'Visa händelserna på kartan', FLAT = 'Visa i Platt karta';
+    const REGION = 'Visa i regionvyn', FLAT = 'Visa på Platt karta';
     const contexts = [], errLists = [], out = [];
     const open = async (width, height, hash, extra = {}) => {
       const pg = await touchPage({ width, height }, extra);
@@ -4362,6 +4372,135 @@ async function run(browser, vp) {
         const label = await tp.getAttribute('#detail [data-selection-action]', 'aria-label');
         if (!label.startsWith(REGION)) throw new Error(`knappens namn för skärmläsare följde inte med: "${label}"`);
         out.push('följer fönstret');
+      }
+      const errs = errLists.flat();
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return out.join(', ');
+    } finally {
+      await Promise.race([Promise.all(contexts.map(c => c.close().catch(() => {}))), new Promise(r => setTimeout(r, 10000))]);
+    }
+  });
+
+  // #1864: Lämna regionvyn ställer tillbaka vyn man kom från, med kameran. Fyra vägar in: Skåne från globen (regionvyn öppnas i Platt vy och
+  // Lämna flyger tillbaka till globen), Grönland från globen (regionvyn på globen: kameran tillbaka dit globen tittade, inte kvar över
+  // platsen), Grönland från Platt karta (tillbaka till Platt karta med kartan som den stod) och Skåne från Platt karta (regionvyn i
+  // samma vy: kartan som den stod, inte inramad på platsen). Globens kamera läses ur adressen (c=lat,lon,zoom) och kartans ur data-view
+  // på #flat-view. Bakåt och Framåt: antalet poster i historiken ändras inte av att regionvyn lämnas.
+  await check('regionvyn: Lämna regionvyn ställer tillbaka vyn man kom från, med kameran, från globen och från Platt karta (#1864)', async () => {
+    const contexts = [], errLists = [], out = [];
+    const open = async (id, year) => {
+      const pg = await placeTapPage(`#y=${year}&f=place:${id}`, `atergang1864${id}${contexts.length}`);
+      contexts.push(pg.tctx);
+      errLists.push(pg.errs);
+      await pg.tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+      await pg.tp.waitForTimeout(1500);
+      return pg.tp;
+    };
+    const globeCam = tp => tp.evaluate(() => { const c = new URLSearchParams(location.hash.slice(1)).get('c')?.split(',').map(Number); return c ? { lat: c[0], lon: c[1], zoom: c[2] } : null; });
+    /** Adressen skrivs med en fördröjning på över en sekund efter att kameran har flyttats: vänta tills den har stått still tre avläsningar i rad. */
+    const stableGlobe = async tp => {
+      let last = '', same = 0, now = null;
+      await tp.waitForTimeout(1500);
+      for (let i = 0; i < 20 && same < 2; i++) {
+        await tp.waitForTimeout(500);
+        now = await globeCam(tp);
+        same = JSON.stringify(now) === last ? same + 1 : 0;
+        last = JSON.stringify(now);
+      }
+      return now;
+    };
+    const sameGlobe = (a, b) => a && b && Math.abs(a.lat - b.lat) < 0.5 && Math.abs((((a.lon - b.lon) + 540) % 360) - 180) < 0.5 && Math.abs(a.zoom - b.zoom) < 0.01;
+    const flatView = tp => tp.evaluate(() => { const [lat, lon, zoom] = document.getElementById('flat-view').dataset.view.split(',').map(Number); return { lat, lon, zoom, open: !document.getElementById('flat-view').hidden }; });
+    const sameFlat = (a, b) => Math.abs(a.lat - b.lat) < 0.05 && Math.abs(a.lon - b.lon) < 0.05 && Math.abs(a.zoom - b.zoom) < 0.02;
+    const status = tp => tp.evaluate(() => document.getElementById('screen-reader-status').textContent.replace(/\s+/g, ' ').trim());
+    const pressedView = tp => tp.evaluate(() => ['btn-globe', 'btn-flat', 'btn-discovery'].find(id => document.getElementById(id).getAttribute('aria-pressed') === 'true'));
+    const enterByKey = async tp => { const b = tp.locator('#detail [data-selection-action]'); await b.waitFor({ state: 'visible', timeout: T.step }); await b.focus(); await tp.keyboard.press('Enter'); };
+    const history = tp => tp.evaluate(() => history.length);
+    /** Globens flygning har landat (adressen skrivs när den är klar). */
+    const flightEnd = tp => tp.waitForFunction(() => window.__placeFlights.at(-1)?.phase === 'end', null, { timeout: T.step });
+    /** Platt karta flyttad med tangenterna, så att kameran inte är den som inramningen av platsen ger. */
+    const moveFlat = async tp => {
+      await tp.focus('#flat-canvas');
+      for (let i = 0; i < 3; i++) await tp.keyboard.press('ArrowLeft');
+      await tp.keyboard.press('+');
+      await tp.waitForTimeout(500);
+    };
+    try {
+      // 1. Skåne från globen: regionvyn öppnas i Platt vy, och Lämna regionvyn flyger tillbaka till globen
+      {
+        const tp = await open('skane', 1827);
+        await tp.focus('#globe-canvas');
+        for (let i = 0; i < 6; i++) await tp.keyboard.press('ArrowRight');
+        const c0 = await stableGlobe(tp);
+        await enterByKey(tp);
+        await regionOn(tp, 'skane');
+        const h0 = await history(tp);
+        await tp.click('#flat-region-back');
+        await tp.waitForFunction(() => document.getElementById('flat-view').hidden && document.getElementById('flat-region').hidden, null, { timeout: T.step });
+        await flightEnd(tp);
+        if (await pressedView(tp) !== 'btn-globe') throw new Error('Skåne från globen: Glob är inte vald efter Lämna regionvyn');
+        const c1 = await stableGlobe(tp);
+        if (!sameGlobe(c0, c1)) throw new Error(`Skåne från globen: globen tittar på ${JSON.stringify(c1)}, den stod på ${JSON.stringify(c0)}`);
+        if (!/Regionvyn är stängd\. Tillbaka till globen\./.test(await status(tp))) throw new Error(`Skåne från globen: statusraden säger "${await status(tp)}"`);
+        if (!(await tp.evaluate(() => document.activeElement?.id === 'globe-canvas'))) throw new Error('Skåne från globen: fokus gick inte till globen');
+        if (await history(tp) !== h0) throw new Error('Skåne från globen: Lämna regionvyn ändrade historiken (Bakåt och Framåt)');
+        if (!(await tp.isVisible('#focus-bar'))) throw new Error('Skåne från globen: platsen följs inte längre');
+        out.push('Skåne från globen → globen');
+      }
+      // 2. Grönland från globen: regionvyn på globen, kameran tillbaka dit globen tittade
+      {
+        const tp = await open('gronland', 1721);
+        await tp.focus('#globe-canvas');
+        for (let i = 0; i < 6; i++) await tp.keyboard.press('ArrowRight');
+        const c0 = await stableGlobe(tp);
+        await enterByKey(tp);
+        await globeRegionSettled(tp, 'gronland');
+        const inRegion = await stableGlobe(tp);
+        if (sameGlobe(c0, inRegion)) throw new Error('Grönland från globen: kameran flög inte in, provet säger då inget');
+        await tp.click('#globe-region-back');
+        await tp.waitForFunction(() => document.getElementById('globe-region').hidden && /^35,/.test(document.getElementById('globe-canvas').dataset.camera ?? ''), null, { timeout: T.step });
+        await flightEnd(tp);
+        const c1 = await stableGlobe(tp);
+        if (!sameGlobe(c0, c1)) throw new Error(`Grönland från globen: globen tittar på ${JSON.stringify(c1)}, den stod på ${JSON.stringify(c0)}`);
+        if (!/Regionvyn är stängd\. Tillbaka till globen\./.test(await status(tp))) throw new Error(`Grönland från globen: statusraden säger "${await status(tp)}"`);
+        out.push('Grönland från globen → globen');
+      }
+      // 3. Grönland från Platt karta: regionvyn på globen, och Lämna regionvyn öppnar Platt karta igen med kartan som den stod
+      {
+        const tp = await open('gronland', 1721);
+        await tp.evaluate(() => document.getElementById('btn-flat').click()); // i mobil ligger knappen i menyn
+        await tp.waitForFunction(() => !document.getElementById('flat-view').hidden, null, { timeout: T.step });
+        await moveFlat(tp);
+        const v0 = await flatView(tp);
+        await enterByKey(tp);
+        await globeRegionSettled(tp, 'gronland');
+        if (!(await tp.isHidden('#flat-view'))) throw new Error('Grönland från Platt karta: Platt vy står kvar öppen i globens regionvy');
+        await tp.click('#globe-region-back');
+        await tp.waitForFunction(() => !document.getElementById('flat-view').hidden && document.getElementById('globe-region').hidden, null, { timeout: T.step });
+        await tp.waitForTimeout(500);
+        const v1 = await flatView(tp);
+        if (!sameFlat(v0, v1)) throw new Error(`Grönland från Platt karta: kartan står på ${JSON.stringify(v1)}, den stod på ${JSON.stringify(v0)}`);
+        if (await pressedView(tp) !== 'btn-flat') throw new Error('Grönland från Platt karta: Platt karta är inte vald efter Lämna regionvyn');
+        if (!/Regionvyn är stängd\. Tillbaka till Platt karta\./.test(await status(tp))) throw new Error(`Grönland från Platt karta: statusraden säger "${await status(tp)}"`);
+        if (!(await tp.evaluate(() => document.activeElement?.id === 'flat-canvas'))) throw new Error('Grönland från Platt karta: fokus gick inte till kartan');
+        out.push('Grönland från Platt karta → Platt karta');
+      }
+      // 4. Skåne från Platt karta: regionvyn i samma vy, och kartan står som den stod i stället för att platsen ramas in
+      {
+        const tp = await open('skane', 1827);
+        await tp.evaluate(() => document.getElementById('btn-flat').click()); // i mobil ligger knappen i menyn
+        await tp.waitForFunction(() => !document.getElementById('flat-view').hidden, null, { timeout: T.step });
+        await moveFlat(tp);
+        const v0 = await flatView(tp);
+        await enterByKey(tp);
+        await regionOn(tp, 'skane');
+        await tp.click('#flat-region-back');
+        await tp.waitForFunction(() => document.getElementById('flat-region').hidden && !document.getElementById('flat-view').dataset.region, null, { timeout: T.step });
+        await tp.waitForTimeout(500);
+        const v1 = await flatView(tp);
+        if (!v1.open || !sameFlat(v0, v1)) throw new Error(`Skåne från Platt karta: kartan står på ${JSON.stringify(v1)}, den stod på ${JSON.stringify(v0)}`);
+        if (!/Regionvyn är stängd\. Tillbaka till Platt karta\./.test(await status(tp))) throw new Error(`Skåne från Platt karta: statusraden säger "${await status(tp)}"`);
+        out.push('Skåne från Platt karta → Platt karta');
       }
       const errs = errLists.flat();
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);

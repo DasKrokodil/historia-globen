@@ -9,8 +9,8 @@ import { formatYearSpan } from '../controllers/facts.js';
 import { langs, selectionSpan, warnHuntImpossible } from './util.js';
 
 /**
- * Knappen i platskortet: "Visa händelserna på kartan" för en plats som får regionvyn (js/region-frame.js), i Platt vy (Skåne,
- * Danmark) eller på globen (Aotearoa, Grönland, #1644), annars "Visa i Platt karta" (Sverige). En liten plats får regionvyn i
+ * Knappen i platskortet: "Visa i regionvyn" för en plats som får regionvyn (js/region-frame.js), i Platt vy (Skåne, Danmark) eller
+ * på globen (Aotearoa, Grönland, #1644), annars "Visa på Platt karta" (Sverige; ord ändrade i #1864). En liten plats får regionvyn i
  * Platt vy bara när den fria ytan rymmer den (#1692): är fönstret för litet, till exempel en liggande telefon, ramas platsen in i
  * Platt vy, och då säger knappen det. key är textens nyckel (controllers/region.js, buttonKey), annars bara platsens storlek.
  */

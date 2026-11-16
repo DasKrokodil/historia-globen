@@ -204,6 +204,11 @@ export class FlatMap {
     this.onZoom?.();
   }
 
+  /** Kartans mitt och zoom som { lat, lon, zoom }, så att den kan ställas tillbaka med setView (regionvyn lämnar kartan som den var, #1864). */
+  camera() {
+    return { lat: 90 - this.cy / IMG_H * 180, lon: this.cx / IMG_W * 360 - 180, zoom: this.zoom };
+  }
+
   /** Öppna eller stäng Platt vy. */
   setOpen(open) {
     if (open === !this.hidden) return;
