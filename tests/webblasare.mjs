@@ -1813,6 +1813,69 @@ async function run(browser, vp) {
     return out.join(', ');
   });
 
+  // #1859: Samtidigt-kortet i mobil. Granskningsraden flödar aldrig över Källor (oavsett hur lång "Visste du?" är och därmed hur
+  // smal raden blir), metaraden har läsbar radhöjd, "1 av 4" delas inte och länkarnas tryckytor är 44 px höga och träffar rätt knapp.
+  await check('Samtidigt-kortet i mobil: granskningsraden, metaraden och tryckytorna (#1859)', async () => {
+    if (vp.width > 760) return 'körs i mobiljobbet';
+    const fp = await context.newPage();
+    const fpAw = abortWatch(fp);
+    const errs = [];
+    fp.on('pageerror', e => { if (!fpAw.defer(e.message)) errs.push(e.message); });
+    try {
+      if (THREE_LOCAL) {
+        await fp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+        await fp.route(u => isFont(u.href), r => r.abort());
+      }
+      await fpAw.goto(`${BASE}?ny=1859#y=1325`);
+      await fp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await fp.waitForSelector('#funfact:not([hidden]) #ff-sources', { timeout: T.load });
+      const r = await fp.evaluate(() => {
+        const fails = [];
+        const ff = document.getElementById('funfact');
+        const surprise = document.getElementById('ff-surprise'), src = document.getElementById('ff-sources'), rv = document.getElementById('ff-review');
+        const original = surprise.textContent;
+        // Granskningsraden mot Källor: "Visste du?" görs längre steg för steg, så att raden smalnar av
+        for (let n = 0; n <= 14; n++) {
+          surprise.textContent = original.split('→')[0].trim() + ' ' + 'x'.repeat(n);
+          const rng = document.createRange(); rng.selectNodeContents(rv);
+          const sr = src.getBoundingClientRect();
+          if ([...rng.getClientRects()].some(t => t.right > sr.left + 1 && t.left < sr.right && t.bottom > sr.top && t.top < sr.bottom)) {
+            fails.push(`granskningsraden ligger över Källor när raden är ${Math.round(rv.getBoundingClientRect().width)} px bred`);
+            break;
+          }
+        }
+        surprise.textContent = original;
+        // Metaraden: radhöjd minst 1,3 gånger texten, och sidräknaren på en rad
+        const eb = getComputedStyle(document.querySelector('.ff-eyebrow'));
+        if (parseFloat(eb.lineHeight) < parseFloat(eb.fontSize) * 1.29) fails.push(`metaradens radhöjd ${eb.lineHeight} på ${eb.fontSize}`);
+        const pager = document.getElementById('ff-pager');
+        if (pager.textContent.trim()) {
+          const rng = document.createRange(); rng.selectNodeContents(pager);
+          const tops = new Set([...rng.getClientRects()].map(t => Math.round(t.top)));
+          if (tops.size > 1) fails.push(`"${pager.textContent}" delas på ${tops.size} rader`);
+        }
+        // Tryckytorna: 21 px ovanför och under mitten (44 px hög yta) träffar samma knapp. Före #1859 hamnade fotens yta 32 px ovanför länken.
+        const hit = [];
+        for (const el of [src, document.getElementById('ff-next'), surprise, ff.querySelector('.ff-chip')]) {
+          if (!el || !el.offsetParent) continue;
+          const b = el.getBoundingClientRect();
+          const cx = b.left + b.width / 2, cy = b.top + b.height / 2;
+          // Chipsen rullar under den fasta knappraden i halvöppet läge (#706), så för dem prövas bara ytan uppåt
+          for (const dy of el.classList.contains('ff-chip') ? [-21] : [-21, 21]) {
+            const at = document.elementFromPoint(cx, cy + dy);
+            if (!at || !el.contains(at)) fails.push(`${el.id || el.className} träffas inte ${dy} px från mitten (${at?.id || at?.className || at?.tagName})`);
+          }
+          hit.push(el.id || 'chip');
+        }
+        return { fails, hit, state: ff.className };
+      });
+      if (r.fails.length) throw new Error(`${r.fails.join('; ')} (${r.state})`);
+      errs.push(...fpAw.settle());
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return `inget överlapp, metaraden och sidräknaren läsbara, 44 px för ${r.hit.join(', ')}`;
+    } finally { await fp.close(); }
+  });
+
   await check('områden som inte är en stat: mönster, teckenförklaring och faktaruta (#1300)', async () => {
     if (vp.width <= 760) return 'körs i datorjobbet';
     const ap = await context.newPage();
@@ -1880,6 +1943,45 @@ async function run(browser, vp) {
       if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
       return `"${word}" i teckenförklaringen och kortet (${card.label}); ljushetens spridning ${spread.area.toFixed(1)} mot ${spread.empire.toFixed(1)} för ett rike`;
     } finally { await ap.close(); }
+  });
+
+  // #1857: raden "Tiden flyttades till …" säger året tiden står på, eller försvinner när året har gått vidare
+  await check('raden "Tiden flyttades" säger rätt år eller försvinner (#1857)', async () => {
+    const mp = await context.newPage();
+    const mpAw = abortWatch(mp);
+    const errs = [];
+    mp.on('pageerror', e => { if (!mpAw.defer(e.message)) errs.push(e.message); });
+    try {
+      if (THREE_LOCAL) {
+        await mp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+        await mp.route(u => isFont(u.href), r => r.abort());
+      }
+      const state = () => mp.evaluate(() => ({ shown: !document.getElementById('focus-moved').hidden,
+        text: document.getElementById('focus-moved-text').textContent.trim(), year: document.getElementById('year-big').textContent.trim() }));
+      // 1. En länk med ett år efter rikets slut: året hamnar på slutet, och raden får inte säga rikets första år
+      await mpAw.goto(`${BASE}?ny=1857#y=1950&f=empire:khmerriket`);
+      await mp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await mp.waitForSelector('#focus-bar:not([hidden])', { timeout: T.load });
+      await mp.waitForTimeout(500);
+      const a = await state();
+      if (a.shown && !a.text.includes(a.year)) throw new Error(`raden säger "${a.text}" men året är ${a.year}`);
+      // 2. Fokus startas från ett år utanför spannet: raden syns med startåret, och försvinner när året flyttas därifrån
+      await mp.evaluate(() => { location.hash = '#y=1950'; });
+      await mp.waitForFunction(() => document.getElementById('focus-bar').hidden, null, { timeout: T.step }).catch(() => {});
+      await mp.evaluate(() => { location.hash = '#y=1950&f=empire:khmerriket'; });
+      await mp.waitForSelector('#focus-bar:not([hidden])', { timeout: T.load });
+      await mp.waitForTimeout(300);
+      const b = await state();
+      if (b.shown && !b.text.includes(b.year)) throw new Error(`efter fokus säger raden "${b.text}" men året är ${b.year}`);
+      await mp.evaluate(() => { const r = document.getElementById('track'); r.focus(); });
+      await mp.keyboard.press('PageUp'); // hundra år framåt
+      await mp.waitForTimeout(300);
+      const c = await state();
+      if (c.shown && /\S/.test(c.text) && !c.text.includes(c.year)) throw new Error(`efter hoppet säger raden "${c.text}" men året är ${c.year}`);
+      errs.push(...mpAw.settle());
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return `länk efter slutet: ${a.shown ? `"${a.text}"` : 'ingen rad'} (år ${a.year}); efter hoppet: ${c.shown ? `"${c.text}"` : 'ingen rad'} (år ${c.year})`;
+    } finally { await mp.close(); }
   });
 
   // #1862: Samtidigt-listans tomma läge säger en sak en gång, utan "f.Kr..", och skyller på filtret när det är filtret
@@ -3949,6 +4051,50 @@ async function run(browser, vp) {
       if (vp.width <= 760) await tp.setViewportSize({ width: vp.width, height: vp.height });
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
       return out.join(', ');
+    } finally { await tctx.close(); }
+  });
+
+  // #1863: i mobil ramas Skåne in ovanför arket när en händelse öppnas, och den valda markören (en hög eller en enskild markör) hamnade
+  // under zoomknapparna uppe till höger, brickan "Hela Skåne" under +. Nu räknas zoomknapparna bort ur den fria ytan också i mobil.
+  await check('regionvyn i mobil: den valda markören och brickan ligger fritt ovanför arket, inte under zoomknapparna (#1863)', async () => {
+    if (vp.width > 760) return 'körs i mobiljobbet';
+    const { tp, tctx, errs } = await placeTapPage('#y=1827&f=place:skane', 'markor1863');
+    try {
+      await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+      await openRegion(tp, 'skane');
+      await regionSettled(tp);
+      // Slaget vid Helsingborg: markören med numret i listan trycks två gånger (markera, sedan öppna kortet)
+      const n = await tp.evaluate(() => [...document.querySelectorAll('#detail [data-theme-event]')]
+        .find(r => /Helsingborg/.test(r.textContent))?.querySelector('.region-num')?.textContent.trim());
+      if (!n) throw new Error('Slaget vid Helsingborg har inget nummer i listan');
+      for (let i = 0; i < 2; i++) {
+        const m = tp.locator(`.region-marks .rmark[data-n="${n}"]`);
+        if (!await m.isVisible()) break; // efter första trycket kan den ligga i en hög
+        await m.tap();
+        await regionSettled(tp);
+      }
+      await tp.waitForFunction(() => /Helsingborg/.test(document.querySelector('#detail h2, #detail h3')?.textContent || ''), null, { timeout: T.step });
+      await regionSettled(tp);
+      const r = await tp.evaluate(() => {
+        const box = el => { const b = el?.getBoundingClientRect(); return b && b.width && b.height ? b : null; };
+        const controls = [...document.querySelectorAll('#flat-view .flat-zoom button'), document.getElementById('flat-region'), document.getElementById('detail'), document.getElementById('focus-bar')]
+          .map(el => ({ el, b: box(el) })).filter(c => c.b && c.el.offsetParent);
+        const hit = (b, c) => b.left < c.b.right && b.right > c.b.left && b.top < c.b.bottom && b.bottom > c.b.top;
+        const name = el => el.id || el.getAttribute('aria-label') || el.textContent.trim();
+        const sel = document.querySelector('.region-marks .is-marked:not([hidden])');
+        const brick = document.querySelector('.region-marks .rbrick:not([hidden])');
+        const zoom = [...document.querySelectorAll('#flat-view .flat-zoom button')].map(el => ({ el, b: box(el) })).filter(c => c.b);
+        return {
+          sel: sel ? sel.className : null,
+          selOver: sel ? controls.filter(c => hit(box(sel), c)).map(c => name(c.el)) : [],
+          brickOver: brick ? zoom.filter(c => hit(box(brick), c)).map(c => name(c.el)) : [],
+        };
+      });
+      if (!r.sel) throw new Error('ingen markör är markerad efter trycket');
+      if (r.selOver.length) throw new Error(`den valda markören (${r.sel}) ligger under ${r.selOver.join(', ')}`);
+      if (r.brickOver.length) throw new Error(`brickan ligger under zoomknapparna: ${r.brickOver.join(', ')}`);
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `markör ${n} öppnad, den valda (${r.sel.split(' ')[0]}) och brickan ligger fritt`;
     } finally { await tctx.close(); }
   });
 
