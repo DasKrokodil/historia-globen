@@ -2479,6 +2479,96 @@ DISPUTED = {
                               'yta': True, 'remove': ['brittiska-imperiet'], 'add': []},
 }
 
+# Östafrikas kust (#1787): Cliopatrias kust från Lamu till Kilwa ligger några km inåt land jämfört med Natural Earth (Mombasa, Tanga,
+# Malindi och Kilwa Kivinje ligger 2–4 km utanför och Kilwa Kisiwani cirka 13 km), och förenklingen (0,2–0,3 grader) lade orterna
+# 7–20 km utanför. Längs hela kusten från Somalia till Rovuma används Natural Earths land för Kenya och Tanzania (tools/ne_omstridda.py),
+# utan Unguja, Pemba och Mafia. Landen slutar vid gränserna mot Somalia och Moçambique, och rutornas kanter inåt land går genom
+# gränspunkter i Natural Earth, så att kusten inte får något trappsteg (geografen, 2026-11-16). Marken går varje år till den stat som
+# Cliopatria räknar den till; kustremsan som Cliopatria inte räknar till någon stat går till den stat den har längst gräns mot det
+# året (kust_part). Gränsen mellan Kenya och Tanzania följer Natural Earth i rutorna: på var sin sida går Cliopatrias mark för
+# grannen över gränsen (som där bara skiljer sig några km från Natural Earth) till statens egen sida (OA_KUST, "också"), så att
+# gränsen inte går ut genom en rutkant (geografen, Vanga). Kusten är Natural Earths, och ingen linje dras
+OA_OAR = ('rutor', [(39.17, -6.5, 39.6, -5.7), (39.55, -5.5, 39.9, -4.85), (39.58, -8.1, 39.95, -7.6)])  # Unguja, Pemba och Mafia
+OA_KEN = ('ne', ['kenya-kust-ne'])
+OA_TZA = ('skillnad', ('ne', ['tanzania-kust-ne']), OA_OAR)
+OA_MARK = ('union', OA_KEN, OA_TZA)
+# grupp: Cliopatrias poster för gruppen vid kusten
+OA_INNEHAVARE = {'spanska-imperiet': ['(Spanish Empire)'], 'portugisiska-imperiet': ['(Portuguese Empire)', 'Portuguese Republic', 'Estado Novo'],
+                 'oman': ['Sultanate of Oman'], 'brittiska-imperiet': ['(British Empire)'], 'tyska-riket': ['German Africa'],
+                 'kenya': ['Republic of Kenya'], 'tanzania': ['Tanzania']}
+# (sida, mark, grupp, från, till eller None, grupper som klipps, grupper vars mark på sidan också går till gruppen): intervallen där
+# Cliopatrias gränser vid kusten är desamma (kontrollerat vid varje brytpunkt i Cliopatria 1500–2024). 1917 delar Cliopatria
+# Tanzanias kust mellan Tyska riket och Brittiska imperiet längs en linje som går ut genom rutans västra kant; det året följer hela
+# kusten därför förenklingen. Portugal (Moçambique) har en bit norr om Rovuma i Cliopatria 1890–1917 och 1919–1975 (Kingdom of
+# Portugal och Portuguese Republic); 1918 räknar Cliopatria den till Brittiska imperiet. Kenyas och
+# Tanzanias land klipps ur Portugal (1890–1975) och Moçambique (från 1976), vars förenklade gränser annars går in över Natural
+# Earths gräns vid Rovuma (geografen). Kenyas sida klipps ur grannen i söder. Där den förenklade gränsen för staten på Kenyas sida
+# går in över Tanzanias land väster om rutan, klipps den i stället ur staten på Tanzanias sida i rutan (OA_GRANS, oa_grans), så att
+# gränsen mellan dem följer den förenklade gränsen ända fram och inte rutans kant
+# Likadant vid Rovuma: Portugals bit norr om floden (som i Cliopatria) klipps ur grannarnas förenklade gränser
+OA_GRANS = [('tyska-riket', 'brittiska-imperiet', 1890, 1916), ('tanzania', 'brittiska-imperiet', 1961, 1962),
+            ('tanzania', 'kenya', 1963, 2024), ('tyska-riket', 'portugisiska-imperiet', 1890, 1917),
+            ('brittiska-imperiet', 'portugisiska-imperiet', 1919, 1962), ('tanzania', 'portugisiska-imperiet', 1961, 1975)]
+OA_KUST = [
+    ('ken', OA_KEN, 'spanska-imperiet', 1595, 1639, [], []), ('ken', OA_KEN, 'portugisiska-imperiet', 1640, 1699, [], []),
+    ('ken', OA_KEN, 'oman', 1744, 1813, [], []), ('ken', OA_KEN, 'oman', 1814, 1814, [], []),
+    ('tza', OA_TZA, 'oman', 1744, 1813, [], []), ('tza', OA_TZA, 'oman', 1814, 1814, [], []),
+    ('ken', OA_KEN, 'brittiska-imperiet', 1824, 1827, [], []),
+    *[('ken', OA_KEN, 'brittiska-imperiet', a, b, ['tyska-riket'], ['tyska-riket']) for a, b in ((1890, 1894), (1895, 1914), (1915, 1915), (1916, 1916))],
+    *[('tza', OA_TZA, 'tyska-riket', a, b, [], ['brittiska-imperiet']) for a, b in ((1890, 1894), (1895, 1914), (1915, 1915), (1916, 1916))],
+    ('tza', OA_TZA, 'portugisiska-imperiet', 1890, 1894, [], []), ('tza', OA_TZA, 'portugisiska-imperiet', 1895, 1917, [], []),
+    ('tza', OA_TZA, 'portugisiska-imperiet', 1919, 1975, [], []),
+    *[(sida, mark, 'brittiska-imperiet', a, b, [], []) for sida, mark in (('ken', OA_KEN), ('tza', OA_TZA))
+      for a, b in ((1918, 1918), (1919, 1940), (1941, 1959), (1960, 1960))],
+    ('ken', OA_KEN, 'brittiska-imperiet', 1961, 1962, [], ['tanzania']),
+    ('tza', OA_TZA, 'tanzania', 1961, None, [], ['kenya', 'brittiska-imperiet']),
+    ('ken', OA_KEN, 'kenya', 1963, None, [], ['tanzania']),
+    # Unguja (Zanzibar) i Brittiska imperiet 1890–1962, som i Cliopatria: förenklingen lade Zanzibar stad utanför vissa år
+    ('unguja', ('ne', ['unguja-ne']), 'brittiska-imperiet', 1890, 1962, [], []),
+]
+DISPUTED['kust-rovuma-portugal'] = {'area': OA_MARK, 'from': 1890, 'to': 1975, 'strict': True, 'efter': True, 'dec': 5,
+                                    'remove': ['portugisiska-imperiet'], 'add': []}
+DISPUTED['kust-rovuma-mocambique'] = {'area': OA_MARK, 'from': 1976, 'strict': True, 'efter': True, 'dec': 5,
+                                      'remove': ['mocambique'], 'add': []}
+for _sida, _mark, _gid, _fran, _till, _klipp, _ocksa in OA_KUST:
+    DISPUTED[f'kust-{_sida}-{_gid}-{_fran}'] = {'area': ('kust', _mark, _fran, _gid, tuple(_ocksa)), 'from': _fran, 'strict': True,
+                                                 'efter': True, 'dec': 5, 'remove': _klipp, 'add': [_gid],
+                                                 **({'to': _till} if _till else {})}
+
+
+def oa_grans(out):
+    """Klipper ut statens gräns på Kenyas sida (förenklad, som den skrivits) ur staten på Tanzanias sida, inom Tanzanias land i rutan
+    (#1787). Bara de delar som når området räknas om; övriga behåller sina koordinater. Görs efter att alla grupper skrivits."""
+    tza = ne_shapes()['tanzania-kust-ne'].difference(unary_union([box(*r) for r in OA_OAR[1]]))
+    docs = {}
+    for t, k, a, b in OA_GRANS:
+        for g in (t, k):
+            docs.setdefault(g, json.loads((out / f'{g}.json').read_text()))
+        kp = [(q['start'], q['end'], shape(q['geometry'])) for p in docs[k]['polities'] for q in p['periods']]
+        for p in docs[t]['polities']:
+            for q in p['periods']:
+                lo, hi = max(q['start'], a), min(q['end'], b)
+                if lo > hi:
+                    continue
+                cut = unary_union([polygons_only(shapely.make_valid(g)) for s0, e0, g in kp if s0 <= hi and e0 >= lo]).intersection(tza)
+                cut = polygons_only(cut)
+                if cut.is_empty or cut.area < 1e-9:
+                    continue
+                g = shape(q['geometry'])
+                rest = list(g.geoms) if g.geom_type == 'MultiPolygon' else [g]
+                hit = [polygons_only(shapely.make_valid(x)) for x in rest if x.intersects(cut)]
+                rest = [x for x in rest if not x.intersects(cut)]
+                ng = polygons_only(unary_union(hit).difference(cut)) if hit else Polygon()
+                polys = [mapping(x)['coordinates'] for x in rest]
+                if not ng.is_empty:
+                    nw = valid_rounded(ng, 5)
+                    polys += nw['coordinates'] if nw['type'] == 'MultiPolygon' else [nw['coordinates']]
+                polys = [json.loads(json.dumps(c)) for c in polys]
+                q['geometry'] = ({'type': 'Polygon', 'coordinates': polys[0]} if len(polys) == 1
+                                 else {'type': 'MultiPolygon', 'coordinates': polys})
+    for t in {t for t, *_ in OA_GRANS}:
+        (out / f'{t}.json').write_text(json.dumps(docs[t], ensure_ascii=False, separators=(',', ':')))
+
 
 def ne_shapes():
     """Områdena och länderna i tools/ne-omstridda-omraden.geojson (Natural Earth): {id: geometri}."""
@@ -2508,6 +2598,50 @@ def holder_part(land, wrong, y, holder, others, by_name):
         if mine > 0 and all(mine >= edge.intersection(r).area for r in rest):
             out = out.union(p)
     return out
+
+
+_OA_CACHE = {}
+OA_REF = 2024  # året vars stater i Cliopatria täcker hela fastlandet i rutorna (Kenya, Tanzania)
+
+
+def kust_part(land, y, gid, by_name, also=()):
+    """Den del av land (Natural Earths kust i en ruta) som går till gruppen gid år y (#1787).
+
+    Land som Cliopatria räknar till gruppens poster (OA_INNEHAVARE) det året går till gruppen. Kustremsan, det land som ligger
+    utanför både statens gräns det året och Cliopatrias kust år OA_REF (då Kenya och Tanzania täcker hela fastlandet), delas
+    inte: varje sammanhängande del går till gruppen om den har längre gräns mot gruppen än mot varje annan stat och mot land
+    utan stat det året, som i holder_part. Inlandet som Cliopatria lämnar utan stat (före kolonialtiden) fylls alltså inte, och
+    kustremsan framför det inte heller."""
+    key = (land.wkb, id(by_name))
+    if key not in _OA_CACHE:
+        env = box(*land.buffer(0.3).bounds)
+        feats = [(f['properties']['Name'], f['properties']['FromYear'], f['properties']['ToYear'],
+                  shape(f['geometry']).buffer(0).intersection(env))
+                 for fs in by_name.values() for f in fs if box(*shape(f['geometry']).bounds).intersects(env)]
+        feats = [x for x in feats if not x[3].is_empty]
+        _OA_CACHE[key] = (feats, unary_union([g for _n, a, b, g in feats if a <= OA_REF <= b]))
+    feats, ref = _OA_CACHE[key]
+    now = {}
+    for n, a, b, g in feats:
+        if a <= y <= b:
+            now[n] = unary_union([now[n], g]) if n in now else g
+    names = OA_INNEHAVARE[gid] + [n for g in also for n in OA_INNEHAVARE[g]]  # also: grannens mark på samma sida
+    own = unary_union([now[n] for n in names if n in now])
+    out = polygons_only(land.intersection(own))
+    taken = unary_union(list(now.values())) if now else Polygon()
+    remsa = polygons_only(land.difference(taken).difference(ref))
+    # land utan stat det året; smala remsor (under cirka 2 * SLIVER grader breda) räknas inte, eftersom de bara är skillnaden
+    # mellan hur olika poster i Cliopatria ritar samma kust
+    utan = polygons_only(land.intersection(ref).difference(taken)).buffer(-SLIVER).buffer(SLIVER)
+    for p in getattr(remsa, 'geoms', [remsa]):
+        if p.is_empty:
+            continue
+        edge = p.buffer(0.002)
+        mine = edge.intersection(own).area
+        if mine > 0 and mine >= edge.intersection(utan).area and all(mine >= edge.intersection(g).area
+                                                                       for n, g in now.items() if n not in names):
+            out = out.union(p)
+    return polygons_only(out)
 
 
 def zone_part(land, y, side, anchor, by_name):
@@ -2568,6 +2702,8 @@ def disputed_areas(by_name):
             return zone_part(area(a[1]), a[2], a[3], a[4], by_name)
         if a[0] == 'innehavare':  # (#1781) ('innehavare', mark, felaktig granne, år, innehavare, [andra innehavare])
             return holder_part(area(a[1]), a[2], a[3], a[4], a[5], by_name)
+        if a[0] == 'kust':  # (#1787) ('kust', mark, år, grupp): Natural Earths kustmark som Cliopatria räknar till gruppen det året
+            return kust_part(area(a[1]), a[2], a[3], by_name, a[4] if len(a) > 4 else ())
         return at(*a[0]).difference(at(*a[1]))
     return {k: area(d['area']) for k, d in DISPUTED.items()}
 
@@ -3124,17 +3260,23 @@ def main():
                 on = [(a, r) for d, a, r in active if not d.get('efter')]
                 # efter (#1755): läggs på efter avrundningen, så att gränsen ur Natural Earth inte blir trappsteg på 0,1 grad.
                 # Bara de nya gränsbitarna får tre decimaler
-                post = [(a, r) for d, a, r in active if d.get('efter') and not (r and d.get('parts'))]
+                post = [(a, r) for d, a, r in active if d.get('efter') and not (r and d.get('parts')) and not d.get('dec')]
+                # dec (#1787): läggs på sist och avrundas till fler decimaler, så att skärningspunkterna mellan den förenklade gränsen
+                # och rutans kant inte flyttas av avrundningen och gränsen utanför rutan blir exakt som förut
+                post_dec = [(a, r, d['dec']) for d, a, r in active if d.get('efter') and d.get('dec')]
                 # efter med parts (#1499): bara de delar som ligger helt i området tas bort efter förenklingen, så att en ö kan tas
                 # bort utan att fastlandets gräns i samma ruta skärs om (Folkrepublikens förenklade Hainan)
                 post_parts = [a for d, a, r in active if d.get('efter') and r and d.get('parts')]
-                if on or post or post_parts:
+                if on or post or post_parts or post_dec:
                     # Förenklingen kan bukta in över ett område som är borttaget ur Cliopatrias gräns (Saarbrücken och
                     # Kehl ligger några km från gränsen, franska kolonialväldet förenklas med 0,3 grader), så det klipps igen
                     g = q['_g']
                     for a, r in on:
                         g = polygons_only(g.difference(a) if r else unary_union([g, a]))
-                    q['geometry'] = valid_rounded(g, DECIMALS.get(gid, 1))
+                    # Bara med dec (#1787) behåller gränsen sina koordinater som utan DISPUTED (också en ogiltig geometri långt
+                    # bort görs inte om), så att rikets gräns utanför rutan blir exakt som förut
+                    if on or post or post_parts:
+                        q['geometry'] = valid_rounded(g, DECIMALS.get(gid, 1))
                     if post or post_parts:
                         g = shape(q['geometry'])
                         for a in post_parts:
@@ -3142,6 +3284,26 @@ def main():
                         for a, r in post:
                             g = polygons_only(g.difference(a) if r else unary_union([g, a]))
                         q['geometry'] = valid_rounded(g, 3)
+                    if post_dec:
+                        # Bara de delar av gränsen som området når räknas om; övriga delar behåller sina koordinater, så att
+                        # rikets gräns utanför rutan blir exakt som förut (också där den sedan förut inte är en giltig geometri)
+                        g = shape(q['geometry'])
+                        rest = list(g.geoms) if g.geom_type == 'MultiPolygon' else [g]
+                        touched = []
+                        for a, r, _nd in post_dec:
+                            hit = [x for x in rest + touched if x.intersects(a)]
+                            rest = [x for x in rest if not x.intersects(a)]
+                            hit = [polygons_only(shapely.make_valid(x)) for x in hit]  # de delar som räknas om görs giltiga
+                            ng = polygons_only(unary_union(hit).difference(a) if r else unary_union(hit + [a]))
+                            touched = [x for x in touched if not x.intersects(a)] + list(getattr(ng, 'geoms', [ng]))
+                        touched = [x for x in touched if not x.is_empty]
+                        new = valid_rounded(unary_union(touched), max(nd for _a, _r, nd in post_dec)) if touched else None
+                        polys = [mapping(x)['coordinates'] for x in rest]
+                        if new:
+                            polys += new['coordinates'] if new['type'] == 'MultiPolygon' else [new['coordinates']]
+                        polys = [json.loads(json.dumps(c)) for c in polys]
+                        q['geometry'] = ({'type': 'Polygon', 'coordinates': polys[0]} if len(polys) == 1
+                                         else {'type': 'MultiPolygon', 'coordinates': polys})
                     if '_home' in q:
                         hg = q['_home']
                         for a, r in on:
@@ -3216,6 +3378,7 @@ def main():
         index[-1] = order_like(index[-1], groups_old.get(gid))  # samma fältordning som förut, så att diffen blir tom (#1220)
         size = (out / f'{gid}.json').stat().st_size
         print(f'{gid}: {len(polities)} riken, {sum(len(p["periods"]) for p in polities)} perioder, {size // 1000} kB')
+    oa_grans(out)  # Östafrikas kust (#1787): gränsen mellan Kenyas och Tanzanias sida vid rutans kant
     notes = ('Riken som områden (lagertyp område), ett rike per fil. Utdrag ur Cliopatria, datafil cliopatria_polities_only_v021 '
              '(version 0.2.1, Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/23128623), byggt med tools/riken.py. '
              f'Ändringar: geometrin är förenklad (Douglas-Peucker {TOL} grader, koordinater avrundade till 0.1 grad, öar under cirka 200 km2 '
@@ -3286,6 +3449,9 @@ def main():
              'Sydsudan och Zanzibar (#1534): Sydsudan visas från självständigheten 2011 med sin gräns i Cliopatria 2014 (Cliopatria '
              'har landet först från 2014), Sudan 2011–2013 likaså med gränsen 2014, och gränsen mellan dem följer Cliopatrias ogenomskurna '
              'gränser; Unguja och Pemba (Zanzibar) hör till Tanzania från 1964, med öarnas gräns i Natural Earth. '
+             'Östafrikas kust (#1787): Kenyas och Tanzanias land från Somalia till Rovuma och Unguja följer Natural Earth, och nära kusten '
+             'också gränserna mellan Kenya och Tanzania och mot Somalia och Moçambique; marken går varje år till den stat som Cliopatria '
+             'räknar den till, och kustremsan utanför Cliopatrias kust till den stat den har längst gräns mot (kust i DISPUTED). '
              'Sydkorea (#1500): Cliopatria räknar södra Korea till USA 1946–1966; kartan visar USA där bara 1946–1947 (den amerikanska '
              'militärregeringen till 15 augusti 1948) och Sydkorea från 1948, och gränsen mellan Sydkorea och Nordkorea följer '
              'Cliopatrias ogenomskurna gränser. '
