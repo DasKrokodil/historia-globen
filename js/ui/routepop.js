@@ -4,7 +4,7 @@ import { CAT, MONTHS_SHORT, t, formatYear, formatEventTime, reviewLabel, needDet
 import { ui } from '../i18n.js';
 
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-const KIND = { voyage: 'Resa', trade: 'Handelsväg' };
+const kindLabel = kind => ui(`route.kind.${kind}`);
 
 /** Långa sammanfattningar delas i korta stycken om högst två meningar, så att texten inte blir en vägg (#1571). Texten ändras inte. */
 function paragraphs(text) {
@@ -25,7 +25,7 @@ function edtfText(s) {
 /** Etappens tid ur edtf, annars ur from och to (hela år). */
 function legTime(leg) {
   const parts = (leg.edtf ?? '').split('/').map(edtfText);
-  const approx = (leg.edtf ?? '').includes('~') ? 'cirka ' : '';
+  const approx = (leg.edtf ?? '').includes('~') ? ui('route.approx') : '';
   if (leg.edtf && parts.every(Boolean)) return approx + parts.join('–');
   const a = Math.floor(leg.from), b = Math.floor(leg.to);
   return a === b ? formatYear(a) : `${formatYear(a)}–${formatYear(b)}`;
@@ -56,7 +56,7 @@ export class RoutePop {
     const col = CAT[route.category]?.color ?? '#f1dfb4';
     const ids = [...new Set([...(route.sources ?? []), ...(leg?.sources ?? [])])];
     const links = ids.map(id => this.srcById[id]).filter(Boolean).map(s => /^https:\/\//.test(s.url ?? '')
-      ? `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(t(s.title))}<span class="sr-only"> (öppnas i en ny flik)</span></a>`
+      ? `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(t(s.title))}<span class="sr-only"> ${esc(ui('common.opensNewTab'))}</span></a>`
       : esc(t(s.title)));
     const ev = route.event && this.byId[route.event];
     const multi = (route.legs?.length ?? 0) > 1;
@@ -67,17 +67,17 @@ export class RoutePop {
     this.route = route; this.leg = leg;
     // Ordning (#1571): rubrik, tid, sammanfattning, noten som en hopfälld rad (oenigheten syns alltid som en rad), Läs mer,
     // och sist en hopfälld rad med källor och status. Osäkerhet göms inte: noten har sin rubrik synlig.
-    this.pop.innerHTML = `<button type="button" class="detail-close" data-close aria-label="Stäng">×</button>
+    this.pop.innerHTML = `<button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
       <div class="rp-head"><span class="swatch" style="background:${esc(col)}"></span><strong>${esc(t(route.title))}</strong></div>
-      <p class="rp-note">${esc(KIND[route.kind] ?? 'Väg')} · ${esc(formatEventTime(route))}</p>
-      ${multi && leg ? `<p class="rp-note">Etapp: ${esc(legTime(leg))}${leg.uncertain ? ' · osäker väg (streckad)' : ''}</p>`
-        : leg?.uncertain ? '<p class="rp-note">Osäker väg (streckad)</p>' : ''}
+      <p class="rp-note">${esc(kindLabel(route.kind))} · ${esc(formatEventTime(route))}</p>
+      ${multi && leg ? `<p class="rp-note">${esc(ui('route.leg'))}: ${esc(legTime(leg))}${leg.uncertain ? ` · ${esc(ui('route.uncertain'))}` : ''}</p>`
+        : leg?.uncertain ? `<p class="rp-note">${esc(ui('route.uncertain'))}</p>` : ''}
       ${route.summary ? paragraphs(t(route.summary)).map(x => `<p class="rp-summary">${esc(x)}</p>`).join('') : ''}
       ${route.note ? `<details class="rp-disc rp-note-d"${noteOpen ? ' open' : ''}><summary>${esc(t(route.note.title))}</summary><p>${esc(t(route.note.text))}</p></details>` : ''}
-      ${ev ? `<button type="button" class="info-btn rp-more" data-event="${esc(ev.id)}">Läs mer om ${esc(t(ev.title))}</button>` : ''}
-      <details class="rp-disc rp-about"${aboutOpen ? ' open' : ''}><summary>${esc(ui('route.sourcesCount', { n: ids.length }))} · ${esc(reviewLabel(route.review, route.kind === 'trade' ? 'Vägen' : 'Resan'))}</summary>
+      ${ev ? `<button type="button" class="info-btn rp-more" data-event="${esc(ev.id)}">${esc(ui('route.readMore', { title: t(ev.title) }))}</button>` : ''}
+      <details class="rp-disc rp-about"${aboutOpen ? ' open' : ''}><summary>${esc(ui('route.sourcesCount', { n: ids.length }))} · ${esc(reviewLabel(route.review, kindLabel(route.kind)))}</summary>
         ${links.length ? `<p class="rp-src">${links.join(', ')}</p>` : ''}
-        ${this.onReport ? `<button type="button" class="link-btn report-btn" data-report="${esc(route.id)}" aria-haspopup="dialog" aria-controls="feedback">Rapportera faktafel</button>` : ''}
+        ${this.onReport ? `<button type="button" class="link-btn report-btn" data-report="${esc(route.id)}" aria-haspopup="dialog" aria-controls="feedback">${esc(ui('feedback.reportCorrection'))}</button>` : ''}
       </details>`;
     this.pop.setAttribute('aria-label', t(route.title));
     this.pop.hidden = false;
