@@ -1837,6 +1837,43 @@ async function run(browser, vp) {
     } finally { await ap.close(); }
   });
 
+  // #1862: Samtidigt-listans tomma läge säger en sak en gång, utan "f.Kr..", och skyller på filtret när det är filtret
+  await check('Samtidigt tomt: en mening, ingen dubbel punkt och filtret som orsak (#1862)', async () => {
+    const ep = await context.newPage();
+    const epAw = abortWatch(ep);
+    const errs = [];
+    ep.on('pageerror', e => { if (!epAw.defer(e.message)) errs.push(e.message); });
+    try {
+      if (THREE_LOCAL) {
+        await ep.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+        await ep.route(u => isFont(u.href), r => r.abort());
+      }
+      const read = async hash => {
+        await epAw.goto(`${BASE}?ny=1862${hash.length}${hash}`);
+        await ep.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        if (await ep.locator('#panel').isHidden()) await ep.click('#btn-panel');
+        await ep.waitForSelector('#panel:not([hidden]) #event-list .empty-note', { timeout: T.load });
+        return ep.evaluate(() => ({ sub: document.getElementById('panel-sub').textContent.trim(),
+          notes: [...document.querySelectorAll('#event-list .empty-note')].map(n => n.textContent.trim()),
+          tagEmpty: !!document.querySelector('#event-list .tag-empty'), reset: !!document.querySelector('#event-list .panel-show-all-categories') }));
+      };
+      // 1. Översikt utan något inom fönstret: meningen en gång, och "f.Kr." följs inte av en till punkt
+      const a = await read('#y=-95000&g=oversikt');
+      const all = [a.sub, ...a.notes].filter(Boolean);
+      if (new Set(all).size !== all.length) throw new Error(`samma mening två gånger: ${JSON.stringify(all)}`);
+      if (all.some(x => /(?<!\.)\.\.(?!\.)/.test(x))) throw new Error(`dubbel punkt: ${JSON.stringify(all)}`);
+      if (!a.tagEmpty) throw new Error('tomläget för Översikt saknas');
+      // 2. Ett kategorifilter döljer allt: raden och knappen gäller filtret, inte Översikt
+      const b = await read('#y=1325&k=sport&g=oversikt');
+      const filterText = await ep.evaluate(async () => (await import('./js/i18n.js')).ui('panel.filtersSome', { within: '', at: '' }).split('{')[0].slice(0, 12));
+      if (b.tagEmpty || !b.reset) throw new Error(`filtret är inte orsaken: ${JSON.stringify(b)}`);
+      if (!b.sub.startsWith(filterText.trim())) throw new Error(`raden skyller inte på filtret: ${b.sub}`);
+      errs.push(...epAw.settle());
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return `Översikt: "${all.join(' | ')}"; filtret: "${b.sub}"`;
+    } finally { await ep.close(); }
+  });
+
   // #1860: raden överst i Källor säger varifrån man kom: ett steg i en tur, eller en fun fact i Samtidigt-kortet
   await check('Källor säger turens steg eller fun facten efter varifrån man kom (#1860)', async () => {
     if (vp.width <= 760) return 'körs i datorjobbet';
