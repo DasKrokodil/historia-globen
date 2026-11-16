@@ -125,12 +125,27 @@
       },
       "sources": [
         "nasa-great-wall",
-        "wp-great-wall"
+        "wp-great-wall",
+        "commons-muren-mutianyu"
       ],
       "partLabels": [
         "said",
         "sourcesSay"
-      ]
+      ],
+      "image": {
+        "file": "images/turer/kinesiska-muren.webp",
+        "kind": "photo",
+        "caption": {
+          "sv": "Kinesiska muren vid Mutianyu, nära Peking, juli 2006.",
+          "en": "The Great Wall of China at Mutianyu, near Beijing, July 2006.",
+          "de": "Die Chinesische Mauer bei Mutianyu, nahe Peking, Juli 2006.",
+          "es": "La Gran Muralla china en Mutianyu, cerca de Pekín, julio de 2006.",
+          "fr": "La Grande Muraille de Chine à Mutianyu, près de Pékin, juillet 2006."
+        },
+        "credit": "Wikimedia Commons",
+        "license": "CC0 1.0",
+        "source": "commons-muren-mutianyu"
+      }
     },
     {
       "id": "sfinxens-nasa",

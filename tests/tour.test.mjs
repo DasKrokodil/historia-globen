@@ -271,3 +271,18 @@ test('bilden i ett steg kontrolleras (#1794)', () => {
   ] }), known).join('\n');
   for (const part of ['images/turer/<namn>.webp', 'photo eller illustration', 'bildtexten saknas', 'är en illustration', 'kredit saknas', 'licens saknas', 'finns inte i källregistret', 'ska vara ett objekt']) assert.match(bad, new RegExp(part), `saknar ${part}`);
 });
+
+test('Det här har du hört: Kinesiska muren har en CC0-bild med bildtext på alla fem språk och en post i licensregistret (#1794)', () => {
+  const t = read('data/turer/det-har-har-du-hort.json');
+  const st = t.steps.find(s => s.id === 'kinesiska-muren');
+  assert.ok(st.image, 'steget har ingen bild');
+  assert.ok(readFileSync(new URL(`../${st.image.file}`, import.meta.url)).length > 10000, 'bildfilen saknas');
+  assert.equal(st.image.license, 'CC0 1.0');
+  for (const l of ['sv', 'en', 'de', 'es', 'fr']) assert.ok(st.image.caption[l], `bildtext saknas på ${l}`);
+  const src = read('data/sources.json').sources.find(s => s.id === st.image.source);
+  assert.ok(src, 'bildkällan saknas i sources.json');
+  assert.match(src.url, /commons\.wikimedia\.org\/wiki\/File:/);
+  assert.ok(st.sources.includes(st.image.source), 'bildens källa ska stå bland stegets källor');
+  const manifest = read('images/licenses.json');
+  assert.ok(manifest.tourImages.some(i => i.stepId === 'kinesiska-muren' && i.license === 'CC0 1.0'), 'bilden saknas i images/licenses.json');
+});
