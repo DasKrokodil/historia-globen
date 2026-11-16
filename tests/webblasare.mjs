@@ -4284,6 +4284,75 @@ async function run(browser, vp) {
     }
   });
 
+  // #1692: knappen i platskortet lovar bara regionvyn när den ryms. Vid 800 × 360 och 640 × 360 (liggande telefon) lämnar kortet eller
+  // arket, fokusraden och knapparna ingen yta för regionvyn (MIN_FREE, 230 × 150 px), och platsen ramas in i Platt karta: knappen
+  // ska då heta "Visa i Platt karta" i stället för "Visa händelserna på kartan". Provet trycker på knappen vid fyra storlekar och
+  // kontrollerar att texten stämmer med det som händer (rutan Regionvy visas eller visas inte), att Sverige alltid har Platt karta och
+  // Grönland (regionvyn på globen, ingen gräns för ytan) alltid regionvyn, och att texten följer fönstret när det ändrar storlek.
+  await check('platskortets knapp säger Platt karta när regionvy inte ryms, och följer fönstret (#1692)', async () => {
+    const REGION = 'Visa händelserna på kartan', FLAT = 'Visa i Platt karta';
+    const contexts = [], errLists = [], out = [];
+    const open = async (width, height, hash, extra = {}) => {
+      const pg = await touchPage({ width, height }, extra);
+      contexts.push(pg.tctx);
+      errLists.push(pg.errs);
+      await pg.tp.goto(`${BASE}?ny=knapp1692w${width}h${height}${hash}`);
+      await pg.tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await pg.tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+      await pg.tp.waitForTimeout(600);
+      return pg;
+    };
+    const button = async tp => ({ text: (await tp.textContent('#detail [data-selection-action]')).trim(), label: await tp.getAttribute('#detail [data-selection-action]', 'aria-label') });
+    const regionShown = tp => tp.evaluate(() => { const c = document.getElementById('flat-region'); return !c.hidden && c.getClientRects().length > 0; });
+    try {
+      // 1. Fyra storlekar: texten före trycket och vad trycket ger
+      for (const [width, height, room] of [[800, 360, false], [640, 360, false], [400, 800, true], [1280, 800, true]]) {
+        const name = `${width} × ${height}`;
+        const { tp } = await open(width, height, '#y=1827&f=place:skane', { isMobile: width <= 760 || height <= 400 });
+        const b = await button(tp);
+        if (b.text !== (room ? REGION : FLAT)) throw new Error(`${name}: knappen heter "${b.text}", men regionvyn ${room ? 'ryms' : 'ryms inte'} och den ska heta "${room ? REGION : FLAT}"`);
+        if (!b.label.startsWith(b.text) || !/Skåne/.test(b.label)) throw new Error(`${name}: knappens namn för skärmläsare är "${b.label}"`);
+        await tp.locator('#detail [data-selection-action]').scrollIntoViewIfNeeded();
+        await tp.click('#detail [data-selection-action]');
+        await tp.waitForFunction(() => !document.getElementById('flat-view').hidden, null, { timeout: T.step });
+        // Smal layout fäller ihop arket och mäter om efter 450 ms (REFIT_MS): vänta tills läget har lagt sig
+        await tp.waitForTimeout(1200);
+        const shown = await regionShown(tp);
+        if (shown !== room) throw new Error(`${name}: knappen hette "${b.text}" men ${shown ? 'regionvyn öppnades' : 'regionvyn öppnades inte (Platt karta)'}`);
+        out.push(`${name}: ${room ? 'regionvy' : 'Platt karta'}`);
+      }
+      // 2. Sverige får aldrig regionvyn och Grönland alltid (regionvyn på globen), också på en låg skärm
+      {
+        const { tp } = await open(1280, 800, '#y=1827&f=place:sverige');
+        const b = await button(tp);
+        if (b.text !== FLAT) throw new Error(`Sverige: knappen heter "${b.text}"`);
+        const g = await open(800, 360, '#y=1721&f=place:gronland', { isMobile: true });
+        const gb = await button(g.tp);
+        if (gb.text !== REGION) throw new Error(`Grönland vid 800 × 360: knappen heter "${gb.text}"`);
+      }
+      // 3. Fönstret ändrar storlek med kortet öppet (utan isMobile: setViewportSize på en sida med isMobile blev aldrig klar i Firefox, #1667)
+      {
+        const { tp } = await open(1280, 800, '#y=1827&f=place:skane');
+        const text = () => tp.evaluate(() => document.querySelector('#detail [data-selection-action]')?.textContent.trim());
+        if (await text() !== REGION) throw new Error(`1280 × 800 före ändringen: knappen heter "${await text()}"`);
+        await tp.setViewportSize({ width: 800, height: 360 });
+        await tp.waitForFunction(t => document.querySelector('#detail [data-selection-action]')?.textContent.trim() === t, FLAT, { timeout: T.step })
+          .catch(async () => { throw new Error(`knappen blev inte "${FLAT}" när fönstret blev 800 × 360 (den heter "${await text()}")`); });
+        await tp.setViewportSize({ width: 1280, height: 800 });
+        await tp.waitForFunction(t => document.querySelector('#detail [data-selection-action]')?.textContent.trim() === t, REGION, { timeout: T.step })
+          .catch(async () => { throw new Error(`knappen blev inte "${REGION}" när fönstret blev 1280 × 800 igen (den heter "${await text()}")`); });
+        const label = await tp.getAttribute('#detail [data-selection-action]', 'aria-label');
+        if (!label.startsWith(REGION)) throw new Error(`knappens namn för skärmläsare följde inte med: "${label}"`);
+        out.push('följer fönstret');
+      }
+      const errs = errLists.flat();
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return out.join(', ');
+    } finally {
+      await Promise.race([Promise.all(contexts.map(c => c.close().catch(() => {}))), new Promise(r => setTimeout(r, 10000))]);
+    }
+  });
+
   // #1695: vid 800 × 360 ska Sök och följ hålla sig i skärmen och sista träffen ska kunna nås i listans egen rullning.
   await check('liggande låg skärm: Sök och följ rullar till sista träffen vid 800 × 360 (#1695)', async () => {
     const { tp, tctx, errs } = await touchPage();
