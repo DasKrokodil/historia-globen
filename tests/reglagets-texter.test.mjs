@@ -70,7 +70,7 @@ test('tidsfönstret visar år före 3000 f.Kr. och århundrade från gränsen (#
   const want = {
     sv: ['5000 f.Kr.', '3000-talet f.Kr.'],
     en: ['5000 BC', '31st century BC'],
-    de: ['5.000 v. Chr.', '31. Jahrhundert v. Chr.'],
+    de: ['5000 v. Chr.', '31. Jahrhundert v. Chr.'], // formatYear grupperar först från fem siffror (#1085)
     es: ['5000 a. C.', 'siglo XXXI a. C.'],
     fr: ['5000 av. J.-C.', 'XXXIe siècle av. J.-C.'],
   };
