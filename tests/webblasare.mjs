@@ -1768,6 +1768,51 @@ async function run(browser, vp) {
     } finally { await tp.close(); }
   });
 
+  // #1858: krigets kort (bakgrund och slutkort) ligger under knappraden överst i en bärbar skärm, både när raden "Tiden flyttades"
+  // syns och när pausraden "Pausad: kriget är slut" också syns
+  await check('krigets kort ligger under knappraden i låg dator (#1858)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet';
+    const out = [];
+    for (const [w, h] of [[1280, 800], [1366, 768]]) {
+      const wp = await context.newPage();
+      const wpAw = abortWatch(wp);
+      const errs = [];
+      wp.on('pageerror', e => { if (!wpAw.defer(e.message)) errs.push(e.message); });
+      try {
+        await wp.setViewportSize({ width: w, height: h });
+        if (THREE_LOCAL) {
+          await wp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+          await wp.route(u => isFont(u.href), r => r.abort());
+        }
+        await wpAw.goto(`${BASE}?ny=1858#y=1879.55&f=war:anglo-zuluiska-kriget&l=wars,events`);
+        await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await wp.waitForSelector('#detail:not([hidden]) .story-label', { timeout: T.load });
+        const measure = async when => {
+          const r = await wp.evaluate(() => {
+            const card = document.getElementById('detail').getBoundingClientRect();
+            const hits = [...document.querySelectorAll('.top-actions button')]
+              .filter(b => b.offsetParent)
+              .map(b => ({ t: b.textContent.trim(), r: b.getBoundingClientRect() }))
+              .filter(({ r }) => r.left < card.right && r.right > card.left && r.top < card.bottom && r.bottom > card.top)
+              .map(({ t, r }) => `${t} (${Math.round(r.top)}–${Math.round(r.bottom)})`);
+            return { top: Math.round(card.top), hits };
+          });
+          if (r.hits.length) throw new Error(`${w}×${h}, ${when}: kortet (överkant ${r.top}) täcker ${r.hits.join(', ')}`);
+          return r.top;
+        };
+        const introTop = await measure('bakgrunden');
+        await wp.click('#focus-action');
+        await wp.waitForFunction(() => /slut/i.test(document.querySelector('#detail:not([hidden]) .story-label')?.textContent || '')
+          && !document.querySelector('.pause-note')?.hidden, null, { timeout: T.step * 2 });
+        const endTop = await measure('slutkortet med pausraden');
+        errs.push(...wpAw.settle());
+        if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+        out.push(`${w}×${h}: överkant ${introTop} och ${endTop} px`);
+      } finally { await wp.close(); }
+    }
+    return out.join(', ');
+  });
+
   await check('områden som inte är en stat: mönster, teckenförklaring och faktaruta (#1300)', async () => {
     if (vp.width <= 760) return 'körs i datorjobbet';
     const ap = await context.newPage();
