@@ -42,6 +42,7 @@
 //   mark    valfritt (#1785): en markör med namn på kartan vid stegets plats, för steg som handlar om en plats utan att öppna en händelse
 //           eller en plats: { label: text per språk, lat?, lon?, approx? }. Utan lat och lon står markören på kamerans mitt (camera).
 //           approx: true ritar ringen streckad ("ungefärlig plats"), för något som är långt eller som markören bara pekar ut en punkt på
+//   line    valfritt (#1785): linjer på kartan i stegets stil, som en mur: { file: data/turer/linjer/<namn>.json, label: text per språk, namnet som ritas under linjens mittersta punkt, source: id i data/sources.json }. Filen har lines (lista av linjer med [lon, lat]) och source.
 //   sources källorna för stegets text (id i data/sources.json)
 
 export const TOUR_VERSION = 1;
@@ -97,6 +98,7 @@ export function tourProblems(tour, known = {}) {
       if (s.open != null) say(`${where}: ett steg öppnar antingen en händelse (open) eller en plats (place), inte båda.`);
     }
     if (s.mark != null) markProblems(s.mark).forEach(msg => say(`${where}: ${msg}`));
+    if (s.line != null) lineProblems(s.line, known).forEach(msg => say(`${where}: ${msg}`));
     if (s.image != null) imageProblems(s.image, known).forEach(msg => say(`${where}: ${msg}`));
     if (isText(s.text)) partsProblems(s).forEach(msg => say(`${where}: ${msg}`));
     if (!Array.isArray(s.sources) || !s.sources.length) say(`${where}: källor saknas (sources).`);
@@ -106,6 +108,16 @@ export function tourProblems(tour, known = {}) {
 }
 
 /** Bilden i ett steg (image, #1794): fil, slag, bildtext per språk, kredit, licens och källa. Returnerar problemen utan stegets namn. */
+/** Linjen på kartan (line, #1785): filen, namnet och källan (som ska vara samma som filens). Returnerar problemen utan stegets namn. */
+function lineProblems(line, known) {
+  if (!line || typeof line !== 'object' || Array.isArray(line)) return ['linjen (line) ska vara ett objekt.'];
+  const out = [];
+  if (typeof line.file !== 'string' || !/^data\/turer\/linjer\/[a-z0-9-]+\.json$/.test(line.file)) out.push('linjens fil ska heta data/turer/linjer/<namn>.json.');
+  if (!isText(line.label)) out.push('linjens namn saknas (line.label.sv).');
+  if (typeof line.source !== 'string' || (known.sources && !known.sources.has(line.source))) out.push(`linjens källa ${line.source} finns inte i källregistret.`);
+  return out;
+}
+
 function imageProblems(img, known) {
   if (!img || typeof img !== 'object' || Array.isArray(img)) return ['bilden (image) ska vara ett objekt.'];
   const out = [];
