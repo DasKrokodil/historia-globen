@@ -1128,9 +1128,38 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 .tour-figure[hidden] { display: none; }
 .tour-figure a { display: block; }
 .tour-figure img { display: block; width: 100%; aspect-ratio: 16 / 9; max-height: 150px; object-fit: cover; border-radius: 6px; border: 1px solid var(--brass-deep); background: var(--night-3); }
-.tour-figure figcaption { margin-top: 4px; font: 400 12.5px/1.35 var(--f-body); color: var(--parchment-dim); }
-.tour-figure .meta { font: 400 11.5px/1.35 var(--f-mono); }
-@media (max-width: 760px) { .tour-figure img { max-height: 96px; } .tour-figure figcaption { font-size: 12px; } .tour-figure .meta { font-size: 12px; } }
+.tour-figure-cap { margin: 4px 0 0; font: 400 12.5px/1.35 var(--f-body); color: var(--parchment-dim); }
+.tour-figure-cap .meta { font: 400 12px/1.35 var(--f-mono); }
+@media (max-width: 760px) { .tour-figure img { max-height: 96px; } .tour-figure-cap { font-size: 12px; } .tour-figure-cap .meta { font-size: 12px; } }
+/* Lång text (#1866): bilden dras ihop så att texten får plats. Dator: en lägre bild. Smal skärm: en tumnagel bredvid rubriken (kortet flyttar länken dit),
+   som öppnar bilden stor med ett tryck. Bildtexten flyttas under texten. */
+.tour-figure.is-compact img { max-height: 84px; }
+.tour-text + .tour-figure-cap { margin-top: 12px; }
+.tour-headrow { display: flex; align-items: flex-start; gap: 10px; }
+.tour-headrow .tour-title { flex: 1 1 auto; min-width: 0; }
+.tour-title:focus { outline: none; } /* rubriken tar emot fokus när slutkortet öppnas (så att den läses upp), men den är ingen knapp: ingen ram */
+.tour-thumb { flex: none; display: block; margin-top: 6px; border-radius: 6px; }
+.tour-thumb img { display: block; width: 76px; height: 57px; object-fit: cover; border-radius: 6px; border: 1px solid var(--brass-deep); background: var(--night-3); }
+.tour-thumb:focus-visible { outline: 2px solid var(--brass-light); outline-offset: 2px; }
+/* Rullningssignalen (#1866): en tonad nederkant ovanför knapparna och raden Fortsätt läsa, så länge kortet har mer att rulla */
+.tour-more { position: absolute; left: 0; right: 0; bottom: 100%; box-sizing: border-box; display: flex; align-items: flex-end; justify-content: center; gap: 6px; height: 36px; padding: 0 0 5px; border: 0; background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--night-2) 92%, transparent) 70%, var(--night-2)); color: var(--brass); font: 600 12px/1.2 var(--f-mono); letter-spacing: .06em; cursor: pointer; }
+.tour-more[hidden] { display: none; }
+.tour-more:hover { color: var(--parchment); }
+.tour-more:focus-visible { outline: 2px solid var(--brass-light); outline-offset: -2px; }
+@media (pointer: coarse) { .tour-more { height: 48px; padding-bottom: 8px; } }
+/* Slutkortet (#1866): Klar i sista steget visar det i turkortet. Stegets delar göms, resten av kortet är detsamma */
+.tour-card.is-ending :is(.tour-chapter, .tour-status, .tour-figure, .tour-text, .tour-figure-cap, .tour-question, .tour-links, .tour-thumb) { display: none; }
+.tour-endcard { --card-ink: var(--parchment); --card-line: var(--control-line); --card-accent: var(--brass); --card-dim: var(--parchment-dim); margin: 8px 0 0; font: 400 15px/1.45 var(--f-body); color: var(--parchment); }
+.tour-endcard[hidden] { display: none; }
+.tour-endcard-lead { margin: 0 0 8px; color: var(--parchment-dim); }
+.tour-endcard .takeaway-box { margin: 6px 0 8px; padding: 0; border: 0; }
+.tour-endcard .takeaway-box > h4 { display: none; } /* kortets rubrik säger redan Det viktigaste att ta med sig */
+.tour-endcard .takeaway-src { font-size: 12px; }
+.tour-recap { margin: 0 0 6px; padding-left: 22px; }
+.tour-recap li { margin: 0 0 6px; }
+.tour-recap li::marker { color: var(--brass); font-family: var(--f-mono); }
+.tour-recap-omtvistat::marker { color: var(--parchment); }
+
 .tour-text p { margin: 0 0 8px; font: inherit; }
 .tour-text p:last-child { margin-bottom: 0; }
 .tour-part-label { margin: 12px 0 3px !important; font: 600 11px/1.3 var(--f-mono) !important; letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
@@ -1180,7 +1209,7 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
      ovanför det, så att Nästa går att nå utan att först stänga faktarutan. Kortet är 104 px högt (--tour-reading-h) och står som förut 136 eller 196 px från botten (--tour-card-b) och växer tillbaka när rutan stängs. */
   .app.touring { --tour-reading-h: 104px; --tour-card-b: 136px; }
   .app.touring:has(.pause-note:not([hidden])) { --tour-card-b: 196px; }
-  .app.touring:has(#detail:not([hidden])) .tour-card :is(.tour-name, .tour-chapter, .tour-title, .tour-status, .tour-text, .tour-question, .tour-links, .tour-lesson-end, .tour-foot) { display: none; }
+  .app.touring:has(#detail:not([hidden])) .tour-card :is(.tour-name, .tour-chapter, .tour-headrow, .tour-status, .tour-figure, .tour-text, .tour-figure-cap, .tour-question, .tour-links, .tour-lesson-end, .tour-endcard, .tour-more, .tour-foot) { display: none; }
   .app.touring:has(#detail:not([hidden])) #detail { bottom: calc(var(--tour-card-b) + var(--tour-reading-h) + 8px); }
   .app.touring:has(#detail:not([hidden])) #detail:not([data-sheet="full"]):not(.sheet-dragging) { max-height: min(40dvh, calc(100dvh - var(--tour-card-b) - var(--tour-reading-h) - 8px - 190px)); }
   .app.touring:has(#detail:not([hidden])) #detail[data-sheet="full"], .app.touring:has(#detail:not([hidden])) #detail.sheet-dragging { max-height: calc(100dvh - var(--tour-card-b) - var(--tour-reading-h) - 8px - 72px - env(safe-area-inset-top, 0px)); }
@@ -1952,7 +1981,6 @@ details.used-by summary:hover { color: var(--parchment); }
 .takeaways { margin: 0 0 6px; padding-left: 18px; }
 .takeaways li { margin: 0 0 7px; }
 .takeaway-src { display: block; margin-top: 2px; font: 400 11.5px/1.35 var(--f-mono); color: var(--card-dim); }
-.takeaway-src::before { content: "Källa: "; }
 .takeaway-src a { color: inherit; }
 .parties { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .parties strong { font-size: 13px; }
