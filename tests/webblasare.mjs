@@ -2212,7 +2212,8 @@ async function run(browser, vp) {
       await lp.route('**/images/turer/provbild.webp', r => r.fulfill({ status: 200, contentType: 'image/webp', body: fs.readFileSync(new URL('../images/events/columbus.webp', import.meta.url)) }));
       await lp.goto(`${BASE}?ny=1794#t=det-har-har-du-hort&s=kinesiska-muren`);
       await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
-      await lp.waitForSelector('#tour-figure:not([hidden])', { timeout: T.step });
+      // Stegets text är lång, så bilden är en tumnagel i smal skärm (#1866) och figuren själv är dold där
+      await lp.waitForSelector(narrowImg ? '#tour-headrow .tour-thumb' : '#tour-figure:not([hidden])', { timeout: T.step });
       await lp.waitForFunction(() => document.getElementById('tour-figure-img').complete && document.getElementById('tour-figure-img').naturalWidth > 0, null, { timeout: T.step });
       const fig = await lp.evaluate(() => {
         const b = id => document.getElementById(id).getBoundingClientRect(), img = document.getElementById('tour-figure-img');
@@ -2229,7 +2230,7 @@ async function run(browser, vp) {
       if (fig.wide) throw new Error('bilden ger horisontell rullning');
       // Ett steg utan bild döljer figuren
       await lp.click('#tour-next');
-      await lp.waitForFunction(() => document.getElementById('tour-figure').hidden, null, { timeout: T.step });
+      await lp.waitForFunction(() => document.getElementById('tour-figure').hidden && !document.querySelector('#tour-headrow .tour-thumb'), null, { timeout: T.step });
       if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
       return `bild ${fig.imgW} × ${fig.imgH} px med bildtexten som alt, kredit och länk till full storlek; Nästa och Lämna turen i bild; figuren göms i ett steg utan bild`;
     } finally {
@@ -2263,6 +2264,195 @@ async function run(browser, vp) {
       if (bad.length) throw new Error(`linjefilen kunde inte läsas: ${bad.join('; ')}`);
       if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
       return `${data.lines.length} linjer lästes (${resp.status()}); kortet bär filen i steget och inte i nästa`;
+    } finally {
+      await lp.close();
+    }
+  });
+
+  // #1866: turkortet med lång text. Bilden dras ihop (tumnagel bredvid rubriken i smal skärm, en lägre bild annars) och bildtexten kommer efter
+  // texten; med kort text står bilden som förut. En tonad nederkant och raden Fortsätt läsa syns bara när kortet har mer att rulla.
+  await check('turkortet: lång text drar ihop bilden och flyttar bildtexten, och Fortsätt läsa syns bara när kortet kan rullas (#1866)', async () => {
+    const lp = await context.newPage();
+    const errs = [];
+    lp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+      }
+      const narrowCard = page.viewportSize().width <= 760;
+      await lp.setViewportSize(narrowCard ? { width: 400, height: 800 } : { width: 1280, height: 800 });
+      let short = false;
+      await lp.route('**/data/turer/det-har-har-du-hort.json', async r => {
+        const resp = await r.fetch(), json = await resp.json();
+        if (short) { const st = json.steps.find(x => x.id === 'kinesiska-muren'); st.text = { sv: 'En kort text som ryms.' }; delete st.partLabels; delete st.question; delete st.chapter; } // stycken och rubriker hör ihop (tour-format.js)
+        await r.fulfill({ response: resp, json });
+      });
+      const load = async tag => {
+        await lp.goto(`${BASE}?ny=1866${tag}#t=det-har-har-du-hort&s=kinesiska-muren`);
+        await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await lp.waitForSelector('#tour-card:not([hidden])', { timeout: T.step });
+        await lp.waitForFunction(() => document.getElementById('tour-figure-img').complete && document.getElementById('tour-figure-img').naturalWidth > 0, null, { timeout: T.step });
+      };
+      const measure = () => lp.evaluate(() => {
+        const q = id => document.getElementById(id), r = id => q(id).getBoundingClientRect(), card = q('tour-card');
+        const more = q('tour-more');
+        return {
+          imgH: Math.round(r('tour-figure-img').height), imgW: Math.round(r('tour-figure-img').width),
+          thumb: q('tour-figure-link').classList.contains('tour-thumb'), inHead: q('tour-headrow').contains(q('tour-figure-link')),
+          figShown: q('tour-figure').getClientRects().length > 0,
+          capAfterText: q('tour-text').nextElementSibling === q('tour-figure-cap'), capInFigure: q('tour-figure').contains(q('tour-figure-cap')),
+          capShown: q('tour-figure-cap').getClientRects().length > 0, capText: q('tour-figure-caption').textContent.length > 10,
+          label: q('tour-figure-link').getAttribute('aria-label'), href: q('tour-figure-link').getAttribute('href'), target: q('tour-figure-link').target,
+          headTop: r('tour-title').top, thumbTop: r('tour-figure-link').top,
+          canScroll: card.scrollHeight - card.clientHeight > 8, moreShown: !more.hidden && more.getClientRects().length > 0, moreText: more.textContent.trim(), moreH: Math.round(more.getBoundingClientRect().height),
+          coarse: matchMedia('(pointer: coarse)').matches, scrollTop: Math.round(card.scrollTop),
+          next: r('tour-next').top >= 0 && r('tour-next').bottom <= innerHeight, wide: document.scrollingElement.scrollWidth > innerWidth + 1,
+        };
+      });
+      await load('a');
+      const long = await measure();
+      if (!long.href.endsWith('kinesiska-muren.webp') || long.target !== '_blank' || !/Öppna bilden i full storlek/.test(long.label ?? '')) throw new Error(`bildlänken: ${long.href}, ${long.target}, "${long.label}"`);
+      if (!long.capAfterText || long.capInFigure || !long.capShown || !long.capText) throw new Error(`bildtexten ligger inte efter texten (efter ${long.capAfterText}, i figuren ${long.capInFigure})`);
+      if (narrowCard) {
+        if (!long.thumb || !long.inHead || long.figShown) throw new Error(`ingen tumnagel bredvid rubriken (tumnagel ${long.thumb}, i raden ${long.inHead}, figuren syns ${long.figShown})`);
+        if (long.imgW < 44 || long.imgH < 44 || long.imgW > 96) throw new Error(`tumnageln är ${long.imgW} × ${long.imgH} px`);
+        if (Math.abs(long.thumbTop - long.headTop) > 14) throw new Error(`tumnageln ligger inte vid rubriken (${long.thumbTop} mot ${long.headTop})`);
+      } else {
+        if (long.thumb || !long.figShown || long.imgH > 90) throw new Error(`på dator ska bilden vara lägre, inte en tumnagel: ${long.imgH} px, tumnagel ${long.thumb}`);
+      }
+      // Rullningssignalen: kortet har mer att rulla, raden syns och rullar en bit, och den försvinner nere vid slutet
+      if (!long.canScroll || !long.moreShown || long.moreText !== 'Fortsätt läsa ↓') throw new Error(`rullningssignalen: kan rullas ${long.canScroll}, syns ${long.moreShown}, "${long.moreText}"`);
+      if (long.moreH < (long.coarse ? 44 : 24)) throw new Error(`Fortsätt läsa är ${long.moreH} px hög`);
+      if (!long.next) throw new Error('Nästa syns inte utan rullning');
+      await lp.click('#tour-more');
+      await lp.waitForFunction(() => document.getElementById('tour-card').scrollTop > 20, null, { timeout: T.step });
+      await lp.evaluate(() => { const c = document.getElementById('tour-card'); c.scrollTop = c.scrollHeight; });
+      await lp.waitForFunction(() => document.getElementById('tour-more').hidden, null, { timeout: T.step });
+      if (long.wide || (await measure()).wide) throw new Error('turkortet ger horisontell rullning');
+      // Kort text: bilden står som förut, med bildtexten under bilden, och inget att rulla
+      short = true;
+      await load('b');
+      const small = await measure();
+      if (small.thumb || !small.figShown || !small.capInFigure || small.capAfterText) throw new Error(`kort text: bilden ska stå som förut (tumnagel ${small.thumb}, figur ${small.figShown}, bildtext i figuren ${small.capInFigure})`);
+      if (small.imgH < 95) throw new Error(`kort text: bilden är ${small.imgH} px, väntade den fulla bilden`);
+      if (small.moreShown) throw new Error('Fortsätt läsa syns fast kortet ryms');
+      if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
+      return `lång text: ${narrowCard ? `tumnagel ${long.imgW} × ${long.imgH} px bredvid rubriken` : `bild ${long.imgW} × ${long.imgH} px`}, bildtexten efter texten, Fortsätt läsa (${long.moreH} px) rullar och försvinner nedtill; kort text: full bild ${small.imgH} px och ingen rullningsrad`;
+    } finally {
+      await lp.close();
+    }
+  });
+
+  // #1866: slutkortet. Klar i sista steget öppnar det i turkortet (turen pågår, så Samtidigt väntar), Föregående går tillbaka, Starta om turen börjar om
+  // och Stäng lämnar turen utan raden "Turen är slut". En krigstur visar krigets punkter att ta med sig (#500) med källor, andra turer stegens rubriker.
+  await check('turkortet: Klar öppnar slutkortet med stegens rubriker, Samtidigt väntar och Stäng lämnar turen (#1866)', async () => {
+    const lp = await context.newPage();
+    const errs = [];
+    lp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+      }
+      await lp.setViewportSize(page.viewportSize().width <= 760 ? { width: 400, height: 800 } : { width: 1280, height: 800 });
+      await lp.goto(`${BASE}?ny=1866s#t=det-har-har-du-hort&s=el-dorado`);
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await lp.waitForSelector('#tour-card:not([hidden])', { timeout: T.step });
+      await lp.waitForFunction(() => /^Steg 6 av 6/.test(document.getElementById('tour-progress').textContent), null, { timeout: T.step });
+      const row = () => lp.evaluate(() => {
+        const r = id => document.getElementById(id).getBoundingClientRect();
+        return { back: r('tour-back'), next: r('tour-next'), nextText: document.getElementById('tour-next').textContent.trim() };
+      });
+      // Klar ligger på samma rad som Föregående
+      const last = await row();
+      if (last.nextText !== 'Klar' || Math.abs(last.back.top - last.next.top) > 8) throw new Error(`Klar: "${last.nextText}", Föregående ${Math.round(last.back.top)} px, Klar ${Math.round(last.next.top)} px`);
+      await lp.click('#tour-next');
+      await lp.waitForSelector('#tour-endcard:not([hidden])', { timeout: T.step });
+      const card = await lp.evaluate(() => {
+        const q = id => document.getElementById(id), visible = el => !!el && el.getClientRects().length > 0;
+        return {
+          ending: q('tour-card').classList.contains('is-ending'), touring: q('app').classList.contains('touring'),
+          title: q('tour-title').textContent.trim(), lead: q('tour-endcard-lead').textContent.trim(), items: [...q('tour-endcard-body').querySelectorAll('li')].map(li => li.textContent.trim()),
+          next: q('tour-next').textContent.trim(), end: q('tour-end').textContent.trim(), endShown: visible(q('tour-end')), back: visible(q('tour-back')),
+          text: visible(q('tour-text')), figure: visible(q('tour-figure')), links: visible(q('tour-read')) || visible(q('tour-sources')),
+          funfact: visible(q('funfact')), notice: visible(q('link-notice-card')), focus: document.activeElement?.id,
+          inView: ['tour-next', 'tour-back', 'tour-end'].every(id => { const b = q(id).getBoundingClientRect(); return b.top >= 0 && b.bottom <= innerHeight; }),
+          wide: document.scrollingElement.scrollWidth > innerWidth + 1,
+          said: q('screen-reader-status').textContent.trim(),
+        };
+      });
+      if (!card.ending || !card.touring) throw new Error(`slutkortet: läget ending ${card.ending}, touring ${card.touring}`);
+      if (card.title !== 'Det här gick vi igenom' || !/^Turen är slut\. Du står kvar på år 1537\.$/.test(card.lead)) throw new Error(`rubrik "${card.title}", rad "${card.lead}"`);
+      if (card.items.length !== 6 || !/El Dorado/.test(card.items[5])) throw new Error(`listan har ${card.items.length} rubriker: ${card.items.join(' | ')}`);
+      if (card.next !== 'Stäng' || card.end !== 'Starta om turen' || !card.endShown || !card.back) throw new Error(`knapparna: "${card.next}", "${card.end}", synlig ${card.endShown}, Föregående ${card.back}`);
+      if (card.text || card.figure || card.links) throw new Error(`stegets delar syns på slutkortet (text ${card.text}, bild ${card.figure}, länkar ${card.links})`);
+      if (card.funfact || card.notice) throw new Error(`Samtidigt-kortet (${card.funfact}) eller raden Turen är slut (${card.notice}) syns medan slutkortet står`);
+      if (card.focus !== 'tour-title') throw new Error(`fokus ligger på ${card.focus}, inte på rubriken`);
+      if (!card.inView) throw new Error('knapparna syns inte utan rullning på slutkortet');
+      if (card.wide) throw new Error('slutkortet ger horisontell rullning');
+      if (!/Turen är slut/.test(card.said)) throw new Error(`skärmläsaren hörde "${card.said}"`);
+      // Föregående: sista steget igen. Klar: slutkortet igen.
+      await lp.click('#tour-back');
+      await lp.waitForFunction(() => document.getElementById('tour-endcard').hidden && !document.getElementById('tour-text').hidden && /^Steg 6 av 6/.test(document.getElementById('tour-progress').textContent), null, { timeout: T.step });
+      if ((await row()).nextText !== 'Klar') throw new Error('Klar är inte tillbaka på sista steget efter Föregående');
+      await lp.click('#tour-next');
+      await lp.waitForSelector('#tour-endcard:not([hidden])', { timeout: T.step });
+      // Starta om turen: steg 1, slutkortet borta, ingen rad om att turen är slut
+      await lp.click('#tour-end');
+      await lp.waitForFunction(() => /^Steg 1 av 6/.test(document.getElementById('tour-progress').textContent) && document.getElementById('tour-endcard').hidden, null, { timeout: T.step });
+      if (await lp.isVisible('#link-notice-card')) throw new Error('raden Turen är slut visas efter Starta om turen');
+      if ((await row()).nextText === 'Stäng') throw new Error('Stäng ligger kvar som Nästa efter omstart');
+      // Stäng: turen är slut, Samtidigt får sin plats tillbaka och ingen rad om att turen är slut följer (slutkortet har redan sagt det)
+      await lp.goto(`${BASE}?ny=1866t#t=det-har-har-du-hort&s=el-dorado`);
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await lp.waitForSelector('#tour-card:not([hidden])', { timeout: T.step });
+      await lp.click('#tour-next');
+      await lp.waitForSelector('#tour-endcard:not([hidden])', { timeout: T.step });
+      await lp.click('#tour-next');
+      await lp.waitForSelector('#tour-card', { state: 'hidden', timeout: T.step });
+      const after = await lp.evaluate(() => ({ touring: document.getElementById('app').classList.contains('touring'), ending: document.getElementById('tour-card').classList.contains('is-ending'), notice: !!document.getElementById('link-notice-card') && document.getElementById('link-notice-card').getClientRects().length > 0, hash: location.hash }));
+      if (after.touring || after.ending || after.notice || /t=/.test(after.hash)) throw new Error(`efter Stäng: touring ${after.touring}, slutkort ${after.ending}, rad ${after.notice}, adress ${after.hash}`);
+      if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
+      return 'Klar på samma rad som Föregående; slutkortet har sex rubriker, Samtidigt och raden väntar, fokus på rubriken; Föregående, Starta om turen och Stäng fungerar';
+    } finally {
+      await lp.close();
+    }
+  });
+
+  await check('turkortet: slutkortet för en krigstur visar krigets punkter att ta med sig med källor (#1866, #500)', async () => {
+    const lp = await context.newPage();
+    const errs = [];
+    lp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+      }
+      await lp.setViewportSize(page.viewportSize().width <= 760 ? { width: 400, height: 800 } : { width: 1280, height: 800 });
+      await lp.goto(`${BASE}?ny=1866k#t=forsta-varldskriget&s=compiegne`);
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await lp.waitForSelector('#tour-card:not([hidden])', { timeout: T.step });
+      await lp.waitForFunction(() => /^Steg 14 av 14/.test(document.getElementById('tour-progress').textContent), null, { timeout: T.step });
+      await lp.click('#tour-next');
+      await lp.waitForSelector('#tour-endcard:not([hidden]) .takeaway-box', { timeout: T.step });
+      const w = await lp.evaluate(() => {
+        const body = document.getElementById('tour-endcard-body');
+        return {
+          title: document.getElementById('tour-title').textContent.trim(), n: body.querySelectorAll('.takeaways li').length,
+          withSource: [...body.querySelectorAll('.takeaways li')].filter(li => li.querySelector('.takeaway-src a')).length,
+          srcLabel: body.querySelector('.takeaway-src')?.textContent.trim().split(' ')[0], head: !!body.querySelector('.takeaway-head'),
+          boxHeading: body.querySelector('.takeaway-box > h4')?.getClientRects().length ?? 0, list: !!body.querySelector('.tour-recap'),
+          next: document.getElementById('tour-next').textContent.trim(),
+        };
+      });
+      if (w.title !== 'Det viktigaste att ta med sig' || w.list) throw new Error(`rubrik "${w.title}", stegens lista ${w.list}`);
+      if (w.n < 3 || w.withSource !== w.n) throw new Error(`${w.n} punkter, ${w.withSource} med källa`);
+      if (w.srcLabel !== 'Källa:' || !w.head) throw new Error(`källraden börjar med "${w.srcLabel}", statusrubriker ${w.head}`);
+      if (w.boxHeading) throw new Error('rutans rubrik står två gånger på slutkortet');
+      if (w.next !== 'Stäng') throw new Error(`Nästa heter "${w.next}"`);
+      if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
+      return `${w.n} punkter ur krigets berättelse, alla med källa, under rubriken Det viktigaste att ta med sig`;
     } finally {
       await lp.close();
     }
@@ -4717,7 +4907,9 @@ async function run(browser, vp) {
       await stepIs(tp, 3);
       await tp.waitForTimeout(600);
       if (!(await tp.isHidden('#detail'))) throw new Error('platsens kort låg kvar i ett steg utan plats');
-      // Klar (sista steget) stänger kortet och lämnar ingen plats kvar
+      // Klar (sista steget) öppnar slutkortet (#1866) och Stäng lämnar turen: ingen plats kvar
+      await tp.click('#tour-next');
+      await tp.waitForSelector('#tour-endcard:not([hidden])', { timeout: T.step });
       await tp.click('#tour-next');
       await tp.waitForSelector('#tour-card', { state: 'hidden', timeout: T.step });
       if (!(await tp.isHidden('#detail')) || !(await tp.isHidden('#focus-bar'))) throw new Error('kortet eller fokusraden låg kvar efter turen');

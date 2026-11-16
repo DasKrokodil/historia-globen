@@ -42,14 +42,14 @@ const EVIDENCE_FIELDS = ['summary', 'date', 'location', 'image', 'uncertainty'];
 // vad källorna säger. Rubrikerna är vanlig svenska, så att osäkerheten förklaras i ord och inte med en symbol.
 const TAKEAWAY_GROUPS = ['belagt', 'omtvistat', 'okant'];
 /** Punkterna under sina rubriker, var och en med sin egen källa. Tom text när kriget saknar punkter. */
-function takeawaysHtml(items, srcById, pending) {
+export function takeawaysHtml(items, srcById, pending) {
   if (!items?.length) return '';
   const groups = TAKEAWAY_GROUPS.map(status => {
     const title = ui(`story.takeaway.${status}`);
     const own = items.filter(x => x.status === status);
     if (!own.length) return '';
     return `<h5 class="takeaway-head takeaway-${status}">${esc(title)}</h5><ul class="takeaways">${own.map(x => `<li>${esc(t(x.text))}${
-      pending ? '' : `<span class="takeaway-src">${(x.sources ?? []).map(id => srcById[id]).filter(Boolean)
+      pending ? '' : `<span class="takeaway-src">${esc(ui('detail.source'))} ${(x.sources ?? []).map(id => srcById[id]).filter(Boolean)
         .map(src => `<a href="${esc(src.url)}" target="_blank" rel="noopener">${esc(src.title)}</a>`).join(', ')}</span>`}</li>`).join('')}</ul>`;
   }).join('');
   const head = esc(ui('story.takeaways'));

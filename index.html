@@ -515,18 +515,27 @@
     <div id="tour-meter" class="tour-meter" aria-hidden="true"></div>
     <h2 id="tour-name" class="tour-name"></h2>
     <p id="tour-chapter" class="tour-chapter" hidden></p>
-    <h3 id="tour-title" class="tour-title"></h3>
+    <div id="tour-headrow" class="tour-headrow">
+      <h3 id="tour-title" class="tour-title" tabindex="-1"></h3>
+    </div>
     <p id="tour-status" class="tour-status" hidden></p>
-    <!-- Bild i steget (#1794): en riktig, licenskontrollerad bild; saknas fältet image i steget är figuren dold -->
+    <!-- Bild i steget (#1794): en riktig, licenskontrollerad bild; saknas fältet image i steget är figuren dold.
+         Är texten lång (#1866) dras bilden ihop: i smal skärm flyttas länken till en tumnagel bredvid rubriken, och bildtexten
+         flyttas under texten (js/ui/tour.js, renderFigure). -->
     <figure id="tour-figure" class="tour-figure" hidden>
       <a id="tour-figure-link" target="_blank" rel="noopener"><img id="tour-figure-img" alt="" loading="lazy" decoding="async"></a>
-      <figcaption><span id="tour-figure-caption"></span> <span id="tour-figure-credit" class="meta"></span></figcaption>
+      <figcaption id="tour-figure-cap"><span id="tour-figure-caption"></span> <span id="tour-figure-credit" class="meta"></span></figcaption>
     </figure>
     <div id="tour-text" class="tour-text"></div>
     <div id="tour-question" class="tour-question" hidden><span id="tour-question-label" class="tour-question-label"></span> <span id="tour-question-text"></span></div>
     <div class="tour-links">
       <button id="tour-read" class="link-btn" type="button" aria-controls="detail"></button>
       <button id="tour-sources" class="link-btn" type="button"></button>
+    </div>
+    <!-- Slutkortet (#1866): efter Klar i sista steget, med det viktigaste att ta med sig (krigets story.takeaways, #500) eller stegens rubriker -->
+    <div id="tour-endcard" class="tour-endcard" hidden>
+      <p id="tour-endcard-lead" class="tour-endcard-lead"></p>
+      <div id="tour-endcard-body" class="tour-endcard-body"></div>
     </div>
     <!-- Slutkortet i en lektion (#795): länkar till lektionens uppdrag -->
     <div id="tour-lesson-end" class="tour-lesson-end" hidden>
@@ -535,6 +544,8 @@
     </div>
     <!-- Knapparna och foten ligger i en gemensam fastklistrad rad längst ned i kortet (#1793): de syns alltid, också när texten rullar -->
     <div class="tour-bar">
+      <!-- Rullningssignalen (#1866): tonad nederkant och raden Fortsätt läsa när kortet har mer att rulla -->
+      <button id="tour-more" class="tour-more" type="button" hidden><span data-i18n="tour.more">Fortsätt läsa</span> <span aria-hidden="true">↓</span></button>
       <div class="tour-actions">
         <button id="tour-back" class="chip-btn" type="button"></button>
         <button id="tour-next" class="tour-next" type="button"></button>
