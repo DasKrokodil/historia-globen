@@ -3475,11 +3475,11 @@ async function run(browser, vp) {
     return `${a}; ${b}`;
   });
 
-  // #1161: tryck på konturen av en plats. Konturerna syns och går att trycka på bara inzoomat och i vanligt läge; trycket
-  // öppnar kortet (Fokus av typen place) på globen och i Platt vy, och knappen Visa i Platt karta ramar in platsen.
+  // #1161: tryck på konturen av en plats. Konturerna syns och går att trycka på bara inzoomat i vanligt läge, och för den
+  // plats man redan följer; trycket öppnar kortet på globen och i Platt vy, och knappen Visa i Platt karta ramar in platsen.
   // Grönland (isen i norr, 76° N 40° V) ligger fritt från markörer och etiketter vid år 1000, också i mobilbredd.
   // Adressens kamera (c=) flyger dit på 600 ms efter laddningen. Kontrollerna rör globen först när flygningen dit har landat
-  // (hg:globe-flight med phase 'end' på adressens latitud, js/globe.js): i Firefox och WebKit hann pilen eller pekaren annars
+  // (hg:globe-flight med phase 'end' vid flygningens eget mål, js/globe.js): i Firefox och WebKit hann pilen eller pekaren annars
   // före flygningen, så att mitten inte var Grönland (#1606). Lyssnaren sätts före sidan, eftersom flygningen börjar under laddningen.
   const placeTapPage = async (hash, name) => {
     const t = await touchPage();
@@ -3489,12 +3489,14 @@ async function run(browser, vp) {
     });
     await t.tp.goto(`${BASE}?ny=${name}${hash}`);
     await t.tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
-    const cam = /[#&]c=(-?[\d.]+),/.exec(hash);
-    if (cam) {
-      await t.tp.waitForFunction(lat => {
-        const last = window.__placeFlights.at(-1), x = Math.max(-1.25, Math.min(1.25, lat * Math.PI / 180));
-        return last?.phase === 'end' && Math.abs(last.x - x) < 1e-3;
-      }, Number(cam[1]), { timeout: T.step });
+    if (/[#&]c=/.test(hash)) {
+      await t.tp.waitForFunction(() => {
+        const start = window.__placeFlights.filter(f => f.phase === 'start').at(-1);
+        const end = window.__placeFlights.at(-1);
+        return !!start && end?.phase === 'end'
+          && Math.abs(end.x - start.targetX) < 1e-3
+          && Math.abs(end.y - start.targetY) < 1e-3;
+      }, null, { timeout: T.step });
     }
     return t;
   };
@@ -3522,12 +3524,17 @@ async function run(browser, vp) {
       await tp.mouse.click(at.x, at.y);
       await followsGreenland(tp);
       await tp.waitForFunction(() => location.hash.includes('f=place:gronland'), null, { timeout: T.step });
-      // I Fokus finns ingen hand och ingen ny kontur att trycka på
-      await tp.mouse.move(at.x + 3, at.y + 3);
-      await tp.waitForTimeout(250);
-      if ((await tp.getAttribute('#globe-canvas', 'class')).includes('on-place')) throw new Error('handen visades över en plats i Fokus');
+      // I Fokus är den följda platsens kontur fortfarande en genväg till kortet (#1791): stäng kortet, och öppna det igen från kartan.
+      await tp.click('#detail [data-close]');
+      await tp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
+      // När Fokus har följt platsen ligger den mitt på globen (på mobil flyttas den alltså från det första träffläget högre upp).
+      const followedAt = await centreOf(tp);
+      await tp.mouse.move(followedAt.x, followedAt.y);
+      await tp.waitForFunction(() => document.getElementById('globe-canvas').classList.contains('on-place'), null, { timeout: T.step });
+      await tp.mouse.click(followedAt.x, followedAt.y);
+      await tp.waitForSelector('#detail', { state: 'visible', timeout: T.step });
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
-      return 'handen och trycket gäller bara inzoomat, och kortet öppnas';
+      return 'handen och trycket gäller inzoomat, och öppnar kortet igen för platsen i Fokus';
     } finally { await tctx.close(); }
   });
 
