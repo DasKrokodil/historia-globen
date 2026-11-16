@@ -148,6 +148,7 @@
   "place.flatShown": "Platt karta öppen med {place} i bild.",
   "regionView.title": "Regionvy: {place}",
   "regionView.note": "Bara platsens gräns och händelser visas här.",
+  "regionView.next": "Inga händelser har börjat här än. Nästa: {next}.",
   "regionView.tap": "Tryck på en markör eller på platsen för fakta.",
   "regionView.leave": "Lämna regionvyn",
   "regionView.shown": "Regionvy: {place}, {events}. Bara platsens gräns och händelser visas; Escape eller ”Lämna regionvyn” går tillbaka till Platt karta.",

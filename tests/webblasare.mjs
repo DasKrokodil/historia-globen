@@ -3170,7 +3170,7 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
   await check('regionvyn på globen: listan och markörerna hör ihop, medaljerna är dolda, och Platt karta, att sluta följa och fem flygningar lämnar inget kvar (#1644)', async () => {
-    const { tp, tctx, errs } = await placeTapPage('#y=1721&f=place:gronland', 'globregion2');
+    const { tp, tctx, errs } = await placeTapPage('#y=2024&f=place:gronland', 'globregion2');
     try {
       const enter = async () => {
         await tp.waitForSelector('#detail [data-selection-action]', { state: 'visible', timeout: T.step });
@@ -3460,12 +3460,12 @@ async function run(browser, vp) {
   });
   const coversHit = (s, b) => s.covers.some(c => b.x0 < c.x1 && b.x1 > c.x0 && b.y0 < c.y1 && b.y1 > c.y0);
   await check('regionvyns markörer: Skåne och Danmark får numrerade markörer, bricka och högar skarpt, numret stämmer med raden och kortet täcker dem inte (#1642)', async () => {
-    const { tp, tctx, errs } = await placeTapPage('#y=1827&f=place:skane', 'markor1');
+    const { tp, tctx, errs } = await placeTapPage('#y=2024&f=place:skane', 'markor1');
     try {
       const out = [];
       for (const [id, name] of [['skane', 'Skåne'], ['danmark', 'Danmark']]) {
         if (id === 'danmark') {
-          await tp.goto(`${BASE}?ny=markor1dk#y=1827&f=place:danmark`);
+          await tp.goto(`${BASE}?ny=markor1dk#y=2024&f=place:danmark`);
           await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
         }
         await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
@@ -3525,7 +3525,7 @@ async function run(browser, vp) {
   });
 
   await check('regionvyns markörer: rad och markör markerar varandra, högen fälls ut som solfjäder med Enter, piltangenter och Escape (#1642)', async () => {
-    const { tp, tctx, errs } = await placeTapPage('#y=1827&f=place:skane', 'markor2');
+    const { tp, tctx, errs } = await placeTapPage('#y=2024&f=place:skane', 'markor2');
     try {
       await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
       await openRegion(tp, 'skane');
@@ -3583,12 +3583,49 @@ async function run(browser, vp) {
       await tp.click('#focus-facts');
       await tp.waitForSelector('#detail .place-type', { state: 'attached', timeout: T.step });
       if (vp.width <= 760) { await tp.click('#detail-handle'); await tp.waitForTimeout(400); }
-      const target = s.rows.find(r => r.i + 1 === nums[nums.length - 1]);
+      // Faktarutan flyttade året till händelsens (1332), och kartan visar bara det som har börjat (#1786): raden är den sista i högen som
+      // inte ligger efter den valda händelsen (nummer 7 i listan)
+      const target = s.rows.find(r => r.i + 1 === nums.filter(n => n <= 7).pop());
       await tp.evaluate(id => { const b = document.querySelector(`#detail [data-theme-event="${id}"]`); b.closest('details').open = true; b.focus(); }, target.id);
       await tp.waitForFunction(id => document.querySelector(`.region-marks .rmark[data-event="${id}"]`)?.getAttribute('aria-pressed') === 'true', target.id, { timeout: T.step });
       if (!(await tp.evaluate(id => document.querySelector(`#detail [data-theme-event="${id}"]`).classList.contains('is-region-marked'), target.id))) throw new Error('raden i fokus fick ingen ram');
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
       return `högen ${nums.join(', ')}; bricka ${brickFan.join(', ')}`;
+    } finally { await tctx.close(); }
+  });
+
+  // #1786: kartan i regionvyn visar bara händelser som har börjat vid årets tid; listan i kortet visar hela historien med samma nummer.
+  // I Fokus på en plats stannar året inom platsens händelser (7000 f.Kr.–2000 för Skåne), så den första händelsen har alltid börjat;
+  // raden "Nästa" när ingen har börjat provas av enhetsprovet (nextEvent i tests/regionvy-markorer.test.mjs).
+  await check('regionvyns markörer: bara det som har börjat vid året syns, listan har hela historien med samma nummer och följer året (#1786)', async () => {
+    const { tp, tctx, errs } = await placeTapPage('#y=2000&f=place:skane', 'markor1786');
+    try {
+      await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+      await openRegion(tp, 'skane');
+      await regionSettled(tp);
+      let s = await regionMarksState(tp);
+      const total = s.rows.length;
+      if (!/^Regionvy: Skåne, 21 händelser/.test(s.status) || total !== 21) throw new Error(`år 2000: ${total} rader, statusraden: ${s.status}`);
+      // Tidslinjens början (Hem): bara den första händelsen har börjat, men listan har alla rader och numren står kvar
+      await tp.focus('#track');
+      await tp.keyboard.press('Home');
+      await tp.waitForFunction(() => document.getElementById('flat-view').dataset.regionMarks === '1,0,0', null, { timeout: T.step });
+      await regionSettled(tp);
+      s = await regionMarksState(tp);
+      if (s.rows.length !== total) throw new Error(`listan har ${s.rows.length} rader i stället för ${total} när året dras tillbaka`);
+      const numbered = s.rows.filter(r => r.num);
+      if (numbered.length !== 1 || numbered[0].num !== '1') throw new Error(`rader med nummer i början: ${JSON.stringify(numbered)}`);
+      const marks = s.buttons.filter(b => b.n != null);
+      if (marks.length !== 1 || marks[0].n !== 1) throw new Error(`markörer i början: ${JSON.stringify(marks.map(b => b.n))}`);
+      if (await tp.evaluate(() => !document.getElementById('flat-region-next').hidden)) throw new Error('raden Nästa står när en händelse har börjat');
+      // Året dras fram till slutet: alla rader har sitt nummer igen
+      await tp.keyboard.press('End');
+      await tp.waitForFunction(n => document.querySelectorAll('#detail .region-num').length === n, total, { timeout: T.step });
+      s = await regionMarksState(tp);
+      const bad = s.rows.filter(r => r.num !== String(r.i + 1));
+      if (bad.length) throw new Error(`rader utan rätt nummer i slutet: ${bad.slice(0, 3).map(r => r.id).join(', ')}`);
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `7000 f.Kr.: 1 markör och ${total} rader i listan (bara rad 1 numrerad); 2000: alla ${total} numrerade`;
     } finally { await tctx.close(); }
   });
 

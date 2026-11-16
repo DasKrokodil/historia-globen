@@ -378,6 +378,7 @@
   "place.flatShown": "Mapa plano abierto con {place} a la vista.",
   "regionView.title": "Mapa de cerca: {place}",
   "regionView.note": "Aquí solo se muestran la frontera y los acontecimientos del lugar.",
+  "regionView.next": "Aún no ha comenzado ningún acontecimiento aquí. El siguiente: {next}.",
   "regionView.tap": "Un toque en un marcador o en el lugar muestra los datos.",
   "regionView.leave": "Salir del mapa de cerca",
   "regionView.shown": "Mapa de cerca: {place}, {events}. Solo se muestran la frontera y los acontecimientos del lugar. Con Escape o con el botón «Salir del mapa de cerca» vuelve al mapa plano.",

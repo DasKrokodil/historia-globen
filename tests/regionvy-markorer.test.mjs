@@ -10,7 +10,7 @@ import { regionFrame } from '../js/region-frame.js';
 import { isVisibleReview, CAT } from '../js/model.js';
 import {
   wholePlace, regionItems, groupMarkers, pileName, yearSpan, fanLayout, rowLayout, nameCandidates, placeNames, crossesEdge, tagSpot,
-  namePriority, km, placeWord, brickSpot, PILE_PX, PILE_PX_TOUCH, MARK_PX,
+  namePriority, km, placeWord, brickSpot, startedBy, nextEvent, PILE_PX, PILE_PX_TOUCH, MARK_PX,
 } from '../js/region-markers.js';
 
 const read = p => JSON.parse(readFileSync(new URL(`../${p}`, import.meta.url), 'utf8'));
@@ -39,6 +39,31 @@ test('numret är radens nummer i listan, i listans ordning, och varje händelse 
     const g = groupMarkers(items, screenOf(id));
     const all = [...g.brick, ...g.singles, ...g.piles.flatMap(p => p.members)].map(it => it.n).sort((a, b) => a - b);
     assert.deepEqual(all, items.map(it => it.n), `${id}: varje rad finns på kartan en gång`);
+  }
+});
+
+test('året styr kartan (#1786): bara händelser som har börjat, med numren från hela listan', () => {
+  for (const id of ['skane', 'danmark']) {
+    const list = listOf(id), all = regionItems(list, place(id), places);
+    // Ett år mitt i historien: delar av listan har börjat, och numren är radnumren i hela listan (luckor tillåtna)
+    const year = Math.floor(list[Math.floor(list.length / 2)].start);
+    const items = regionItems(list, place(id), places, year);
+    assert.ok(items.length > 0 && items.length < all.length, `${id}: några men inte alla har börjat`);
+    assert.deepEqual(items.map(it => it.e.id), list.filter(e => startedBy(e, year)).map(e => e.id));
+    for (const it of items) assert.equal(it.n, list.indexOf(it.e) + 1, `${id}: ${it.e.id} behåller radens nummer`);
+    assert.ok(items.every(it => Math.floor(it.e.start) <= year), `${id}: ingen framtida händelse`);
+    // Långt före allt: inga markörer, och nästa händelse är listans första
+    const none = regionItems(list, place(id), places, -100000);
+    assert.equal(none.length, 0);
+    assert.equal(nextEvent(list, -100000), list[0]);
+    // Efter allt: alla syns och ingen är nästa
+    assert.equal(regionItems(list, place(id), places, 3000).length, all.length);
+    assert.equal(nextEvent(list, 3000), null);
+    // Utan år: alla rader, som förut
+    assert.equal(regionItems(list, place(id), places, null).length, all.length);
+    // Hela år räknas: en händelse som börjar 1997,8 har börjat 1997
+    assert.equal(startedBy({ start: 1997.8 }, 1997), true);
+    assert.equal(startedBy({ start: 1998 }, 1997), false);
   }
 });
 

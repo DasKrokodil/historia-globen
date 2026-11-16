@@ -11,7 +11,7 @@
 // Markörerna (#1642, steg 1b): platsens händelser får numrerade markörer, där numret är raden i listan "Händelser på platsen" i
 // kortet (raderna får samma nummer medan vyn är öppen). Händelser som gäller hela platsen (`scope: "place"`, #1674) står i brickan "Hela Skåne", markörer på
 // samma ställe i en hög som fälls ut, och ortnamnen (data/ortnamn/<plats>.json) laddas när vyn öppnas (js/ui/region-marks.js).
-// Lista och karta hör ihop: en rad i fokus eller under musen markerar markören, en markerad markör ger raden en ram, och Escape
+// Kartan visar bara det som har börjat vid årets tid, listan hela historien med samma nummer (#1786). Lista och karta hör ihop: en rad i fokus eller under musen markerar markören, en markerad markör ger raden en ram, och Escape
 // fäller först ihop en utfälld hög.
 //
 // Globflyget (#1644, steg 2): en stor plats (Aotearoa och Grönland; fler än 15 och högst 60 grader på marken, js/region-frame.js)
@@ -21,10 +21,10 @@
 import { placeBounds } from '../place-geo.js';
 import { regionEligible, regionSize, freeArea, globeRegionEligible, globeFrame } from '../region-frame.js';
 import { GlobeRegion } from '../ui/globe-region.js';
-import { regionItems } from '../region-markers.js';
+import { regionItems, startedBy } from '../region-markers.js';
 import { visibleEvents } from '../focus/place.js';
 import { OVERLAY_IDS } from '../surfaces.js';
-import { t, loadOrtnamn, pluralUi, loadedPlaces } from '../model.js';
+import { t, loadOrtnamn, pluralUi, loadedPlaces, formatEventTime } from '../model.js';
 import { ui } from '../i18n.js';
 import { say } from '../ui/status.js';
 
@@ -55,8 +55,8 @@ export function createRegion(app) {
   };
   /** Rutan med vilken plats som visas och vägen ut: i Platt vy och på globen var sin, med samma texter. */
   const chips = {
-    flat: { chip: $('flat-region'), title: $('flat-region-name'), note: $('flat-region-note'), back: $('flat-region-back'), legend: $('flat-region-legend-text') },
-    globe: { chip: $('globe-region-chip'), title: $('globe-region-name'), note: $('globe-region-note'), back: $('globe-region-back'), legend: $('globe-region-legend-text') },
+    flat: { chip: $('flat-region'), title: $('flat-region-name'), note: $('flat-region-note'), back: $('flat-region-back'), legend: $('flat-region-legend-text'), next: $('flat-region-next') },
+    globe: { chip: $('globe-region-chip'), title: $('globe-region-name'), note: $('globe-region-note'), back: $('globe-region-back'), legend: $('globe-region-legend-text'), next: $('globe-region-next') },
   };
   const chip = chips.flat.chip;
   /** Är vyn öppen för platsen just nu? */
@@ -117,6 +117,13 @@ export function createRegion(app) {
   // ---- markörerna och listan (#1642) -------------------------------------------------------------------------------
   /** Platsens händelser i listans ordning: samma som kortet visar (Fokus på platsen), annars ur platsens gräns. */
   const placeEventsOf = p => (state.focus?.type === 'place' && state.focus.place?.id === p.id ? state.focus.themeEvents : visibleEvents(p, data.events)) ?? [];
+  /**
+   * Året som kartan visar (#1786): bara händelser som har börjat vid det får markörer. Listan i kortet visar hela historien, med
+   * samma nummer. I ett tidsintervall är det slutåret, som för riken (areaYear).
+   */
+  const regionYear = () => state.areaYear ?? state.year;
+  /** Platsens händelser som kartan visar: de som har börjat vid året. */
+  const startedOf = (p, events = placeEventsOf(p)) => events.filter(e => startedBy(e, regionYear()));
   const rows = () => [...$('detail').querySelectorAll('[data-theme-event]')];
   /** Raderna i listan får markörernas nummer (och märket för hela platsen eller ungefärlig plats) medan vyn är öppen. */
   function decorate() {
@@ -124,7 +131,7 @@ export function createRegion(app) {
     // Raderna och markörerna ska vara samma händelser i samma ordning; gäller kortet en annan lista (ett nytt urval för platsen)
     // räknas markörerna om ur platsens händelser, så att numren aldrig pekar på fel rad
     const ids = rows().map(b => b.dataset.themeEvent);
-    if (ids.length && ids.join() !== marks.content.items.map(it => it.e.id).join()) sync();
+    if (ids.length && ids.join() !== marks.content.all.join()) sync();
     for (const b of rows()) {
       const n = marks.numberOf(b.dataset.themeEvent);
       if (n == null || b.querySelector('.region-num')) continue;
@@ -140,7 +147,8 @@ export function createRegion(app) {
   /** Markörerna räknas om ur platsens händelser (listans ordning), med samma markering om händelsen finns kvar. */
   function sync() {
     const mark = marks.mark;
-    marks.setContent({ place, events: placeEventsOf(place), places: loadedPlaces() });
+    marks.setContent({ place, events: placeEventsOf(place), places: loadedPlaces(), year: regionYear() });
+    showNext();
     if (mark && marks.numberOf(mark) != null) marks.setMark(mark, { open: false });
     for (const el of $('detail').querySelectorAll('.region-num')) el.remove();
   }
@@ -177,6 +185,25 @@ export function createRegion(app) {
     marks.setHover(e.target.closest?.('[data-theme-event]')?.dataset.themeEvent ?? null);
   });
   $('detail').addEventListener('pointerleave', () => { if (place && marks.active) marks.setHover(null); });
+
+  /**
+   * Raden i rutan när inget har börjat än: vad som är nästa händelse (#1786), som Fokus gör när ett år är tomt. Står kvar i mobil,
+   * där rutans övriga text är dold, eftersom en tom karta annars inte förklaras.
+   */
+  function showNext() {
+    const next = marks.active && !marks.content.items.length ? marks.content.next : null;
+    for (const c of Object.values(chips)) {
+      c.next.hidden = !next;
+      c.next.textContent = next ? ui('regionView.next', { next: `${formatEventTime(next)} · ${t(next.title)}` }) : '';
+    }
+  }
+
+  /** Året ändras (reglaget, uppspelning, ett intervall): markörerna räknas om bara när något har börjat eller inte längre gäller. */
+  function followYear() {
+    if (!place || !marks.active) return;
+    const now = startedOf(place).map(e => e.id).join();
+    if (now !== marks.content.items.map(it => it.e.id).join()) { sync(); decorate(); }
+  }
 
   /** Statusraden: "Skåne, 21 händelser, 7 gäller hela Skåne". */
   function countText(p, items) {
@@ -231,7 +258,8 @@ export function createRegion(app) {
   /** Markörerna i listans ordning, ortnamnen när filen har laddats och beskedet på statusraden. */
   function fill(p) {
     const events = placeEventsOf(p);
-    marks.setContent({ place: p, events, places: loadedPlaces() });
+    marks.setContent({ place: p, events, places: loadedPlaces(), year: regionYear() });
+    showNext();
     decorate();
     loadOrtnamn(p.id).then(doc => { if (doc && openId() === p.id && place === p) marks.setNames(doc); });
     return events;
@@ -258,7 +286,7 @@ export function createRegion(app) {
     clearTimeout(refit);
     // I mobil fälls arket ihop strax efter: ramen räknas om när det har skett, om man inte har flyttat klotet
     refit = setTimeout(() => { if (where === 'globe' && globeView.region === p.id && !globe.regionMoved) globe.resetRegion(); }, REFIT_MS);
-    say(ui('regionView.shownGlobe', { place: t(p.name), events: countText(p, regionItems(events, p, loadedPlaces())) }), 'plats', { priority: 2, immediate: true });
+    say(ui('regionView.shownGlobe', { place: t(p.name), events: countText(p, regionItems(events, p, loadedPlaces(), regionYear())) }), 'plats', { priority: 2, immediate: true });
   }
 
   /** Globens regionvy stängs: kameran flyger tillbaka till den vanliga globen. */
@@ -294,7 +322,7 @@ export function createRegion(app) {
       if (!flatMap.regionMoved) flatMap.fitRegion();
       if (!roomy()) fallBack(p);
     }, REFIT_MS);
-    say(ui('regionView.shown', { place: name, events: countText(p, regionItems(events, p, loadedPlaces())) }), 'plats', { priority: 2, immediate: true }); // som faktarutans rubrik: svaret på knappen
+    say(ui('regionView.shown', { place: name, events: countText(p, regionItems(events, p, loadedPlaces(), regionYear())) }), 'plats', { priority: 2, immediate: true }); // som faktarutans rubrik: svaret på knappen
   }
 
   /** Lämna regionvyn med knappen eller Escape: Platt vy som förut, med platsen inramad, och fokus på kartan. På globen flyger
@@ -358,13 +386,14 @@ export function createRegion(app) {
 
   // Vyn hör till platsen man följer: slutar man följa den (eller följer något annat) lämnas den
   store.subscribe(({ type }) => {
+    if ((type === 'year' || type === 'range') && isOpen()) { followYear(); return; }
     if (type !== 'focus' || !isOpen()) return;
     if (state.focus?.type !== 'place' || state.focus.place?.id !== openId()) {
       if (where === 'globe') closeGlobe(); else flatMap.leaveRegion();
       return;
     }
     // Samma plats med ett nytt fokus (en adress eller Sök och följ startar den igen): markörerna följer dess lista
-    if (place && marks.active && placeEventsOf(place).map(e => e.id).join() !== marks.content.items.map(it => it.e.id).join()) { sync(); decorate(); }
+    if (place && marks.active && placeEventsOf(place).map(e => e.id).join() !== marks.content.all.join()) { sync(); decorate(); }
   });
 
   // Escape lämnar regionvyn, men först det som ligger ovanpå (OVERLAY_IDS och stängregistrets grupper). Lyssnaren ligger på

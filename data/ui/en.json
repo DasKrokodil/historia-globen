@@ -378,6 +378,7 @@
   "place.flatShown": "Flat map open with {place} in view.",
   "regionView.title": "Close-up map: {place}",
   "regionView.note": "Only the place’s border and events are shown here.",
+  "regionView.next": "No events have begun here yet. Next: {next}.",
   "regionView.tap": "Tap a marker or the place for facts.",
   "regionView.leave": "Leave the close-up map",
   "regionView.shown": "Close-up map: {place}, {events}. Only the place’s border and events are shown; Escape or “Leave the close-up map” returns to the Flat map.",
