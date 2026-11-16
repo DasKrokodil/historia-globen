@@ -2190,6 +2190,14 @@ details.used-by summary:hover { color: var(--parchment); }
 .app.app.app.focusing.pause-var .focus-bar { bottom: calc(var(--pause-top) + 8px); }
 .app.app.focusing.focus-var :is(.funfact, .ff-tab, .detail-card) { bottom: calc(var(--focus-top) + 8px); }
 .app.app.focusing.focus-var :is(.funfact, .ff-tab) { max-height: calc(100dvh - var(--focus-top) - 8px - 150px); }
+/* Faktarutan (och krigets kort, #1858) får samma tak i dator: under knappraden överst (som slutar cirka 112 px ned) oavsett
+   om raden "Tiden flyttades" eller pausraden syns. 150 px = knappraden, 8 px luft och kortets padding och kant. */
+@media (min-width: 761px) {
+  .app.app.focusing.focus-var .detail-card { max-height: min(38vh, calc(100dvh - var(--focus-top) - 8px - 150px)); }
+}
+@media (min-width: 761px) and (max-height: 880px) {
+  .app.app.focusing.focus-var .detail-card { max-height: min(56vh, calc(100dvh - var(--focus-top) - 8px - 150px)); }
+}
 @media (max-width: 760px) {
   .app.app.focusing.focus-var :is(.funfact, .ff-tab) { max-height: calc(100dvh - var(--focus-top) - 8px - 176px); }
   .app.app.focusing.focus-var .detail-card { max-height: min(40vh, calc(100dvh - var(--focus-top) - 8px - 176px)); }
