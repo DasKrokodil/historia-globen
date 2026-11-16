@@ -4702,6 +4702,65 @@ async function run(browser, vp) {
     }
   });
 
+  // #1900: på en liggande telefon (800 × 360 och 640 × 360) hamnade rutan i globens regionvy bakom tidsreglaget och teckenförklaringen,
+  // så "Lämna regionvyn" inte gick att trycka på; på en pekskärm finns inget Escape. Provet öppnar Grönland (en stor plats, som får
+  // regionvyn på globen) med pekskärm, mäter vad som ligger överst mitt på knappen och rutan i fönstret, trycker på knappen (Playwright
+  // vägrar om något annat tar emot trycket) och kontrollerar att regionvyn är lämnad. Normal höjd (1280 × 800 och 400 × 800) mäts också,
+  // så att placeringen där är oförändrad: rutan under årtalets ruta, och ändå inte täckt.
+  await check('regionvyn: Lämna regionvyn går att trycka på på låg yta, och rutan står som förut i normal höjd (#1900)', async () => {
+    const contexts = [], errLists = [], out = [];
+    try {
+      for (const [width, height] of [[800, 360], [640, 360], [1280, 800], [400, 800]]) {
+        const name = `${width} × ${height}`;
+        const pg = await touchPage({ width, height }, { isMobile: true });
+        const tp = pg.tp;
+        contexts.push(pg.tctx);
+        errLists.push(pg.errs);
+        await tp.addInitScript(() => {
+          window.__placeFlights = [];
+          document.addEventListener('hg:globe-flight', e => window.__placeFlights.push(e.detail), true);
+        });
+        await tp.goto(`${BASE}?ny=regionvy1900w${width}#y=1721&f=place:gronland`);
+        await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+        await tp.waitForTimeout(1500);
+        const b = tp.locator('#detail [data-selection-action]');
+        await b.waitFor({ state: 'visible', timeout: T.step });
+        await b.focus();
+        await tp.keyboard.press('Enter');
+        await globeRegionSettled(tp, 'gronland');
+        await tp.waitForSelector('#globe-region-chip', { state: 'visible', timeout: T.step });
+        const m = await tp.evaluate(() => {
+          const back = document.getElementById('globe-region-back').getBoundingClientRect(), chip = document.getElementById('globe-region-chip').getBoundingClientRect();
+          const top = document.elementFromPoint(back.left + back.width / 2, back.top + back.height / 2);
+          const masthead = document.querySelector('.masthead').getBoundingClientRect();
+          return { hit: top?.id ?? `${top?.tagName}.${top?.className}`, back: { w: back.width, h: back.height, top: back.top, bottom: back.bottom }, chipTop: chip.top, chipBottom: chip.bottom, mastheadBottom: masthead.bottom, mastheadTop: masthead.top, vh: innerHeight, coarse: matchMedia('(pointer: coarse)').matches };
+        });
+        if (!m.coarse) throw new Error(`${name}: sidan har inte pointer: coarse, så provet prövar inte en telefon`);
+        if (m.hit !== 'globe-region-back') throw new Error(`${name}: det som tar emot trycket mitt på "Lämna regionvyn" är ${m.hit}`);
+        if (m.back.top < 0 || m.back.bottom > m.vh) throw new Error(`${name}: knappen ligger utanför fönstret (${Math.round(m.back.top)}–${Math.round(m.back.bottom)} av ${m.vh})`);
+        if ((height < 700 || width <= 760) && m.back.h < 44 - 0.5) throw new Error(`${name}: knappen är ${m.back.h} px hög på pekskärm i låg eller smal yta, minst 44 px`);
+        if (height >= 700) {
+          // Normal höjd: rutan står under årtalets ruta, som förut
+          if (Math.abs(m.chipTop - (m.mastheadBottom + 8)) > 2) throw new Error(`${name}: rutan står på ${Math.round(m.chipTop)}, förut direkt under årtalets ruta (${Math.round(m.mastheadBottom + 8)})`);
+        } else if (m.chipTop < m.mastheadBottom && m.chipBottom > m.mastheadTop) {
+          throw new Error(`${name}: rutan (${Math.round(m.chipTop)}–${Math.round(m.chipBottom)}) täcker årtalets ruta (${Math.round(m.mastheadTop)}–${Math.round(m.mastheadBottom)})`);
+        }
+        if (height < 700) {
+          await tp.click('#globe-region-back', { timeout: T.step });
+          await tp.waitForFunction(() => document.getElementById('globe-region').hidden && document.getElementById('globe-region-chip').hidden, null, { timeout: T.step });
+          if (!(await tp.isVisible('#focus-bar'))) throw new Error(`${name}: platsen följs inte längre efter Lämna regionvyn`);
+          out.push(`${name} → lämnad med fingret`);
+        } else out.push(`${name} → rutan oförändrad`);
+      }
+      const errs = errLists.flat();
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return out.join(', ');
+    } finally {
+      await Promise.race([Promise.all(contexts.map(c => c.close().catch(() => {}))), new Promise(r => setTimeout(r, 10000))]);
+    }
+  });
+
   // #1693: på en låg yta ligger knappen i platskortet direkt under rubriken, så att den syns utan rullning. Förut låg den efter den
   // långa brödtexten (och kortet var bara cirka 70 px högt vid 800 × 360), så att den nåddes med rullning som inte syns på pekskärm.
   // Provet mäter utan att rulla: kortets scrollTop är 0 och knappen ligger inom kortet och skärmen vid 800 × 360 (bred) och, i läget helt,
