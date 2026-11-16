@@ -259,3 +259,15 @@ test('grannländer: bara grannens land stänger ute, inte resten av platsens ege
   assert.equal(inNeighbour(skane, 13.0, 56.45), false, 'mitt i länet');
   assert.equal(inNeighbour(skane, 12.55, 55.68), true, 'Köpenhamns land är Danmark');
 });
+
+test('scope "wide" (#1806): händelser för ett större område än platsen räknas inte som platsens händelser', () => {
+  const ev = (id, start, lon, lat, extra = {}) => ({ id, start, _lon: lon, _lat: lat, ...extra });
+  const got = placeEvents(square('ruta', 0, 0, 10, 10), [
+    ev('vid', 1, 5, 5, { scope: 'wide', locationPrecision: 'region' }), ev('hela', 2, 5, 5, { scope: 'place', locationPrecision: 'region' }), ev('inne', 0, 6, 6),
+  ]);
+  assert.deepEqual(got.map(e => e.id), ['inne', 'hela'], 'bara "wide" hoppas över; "place" och händelser utan fält står kvar');
+  // Yngre dryas gäller norra halvklotet; markören i Allerød gör den inte till Danmarks händelse
+  const dryas = realEvents.find(e => e.id === 'yngre-dryas');
+  assert.ok(inPlace(place('danmark'), dryas._lon, dryas._lat), 'markören ligger i Danmark');
+  assert.equal(idsIn('danmark').has('yngre-dryas'), false, 'Yngre dryas står inte bland Danmarks händelser');
+});
