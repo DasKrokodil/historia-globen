@@ -7,32 +7,17 @@
 // Händelser skickar bara id:t för titel och tid. Övriga faktarutor skickar en validerad
 // objektmarkör; adressen rensas alltid från sökparametrar och fragment.
 import { FEEDBACK_CATEGORIES, LIMITS, validateFeedback } from '../feedback-rules.js';
+import { ui } from '../i18n.js';
 import { t, formatEventTime } from '../model.js';
 
 const TURNSTILE_SRC = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
 
-const MESSAGES = {
-  category: { required: 'Välj vad förslaget gäller.', invalid: 'Välj vad förslaget gäller.' },
-  description: {
-    required: 'Skriv en beskrivning.',
-    too_short: `Beskrivningen behöver minst ${LIMITS.descriptionMin} tecken.`,
-    too_long: `Beskrivningen får vara högst ${LIMITS.descriptionMax} tecken.`,
-    invalid: 'Beskrivningen gick inte att läsa.',
-  },
-  source: { too_long: `Källan får vara högst ${LIMITS.sourceMax} tecken.`, invalid: 'Källan gick inte att läsa.' },
-  email: {
-    too_long: `E-postadressen får vara högst ${LIMITS.emailMax} tecken.`,
-    invalid: 'Skriv en e-postadress som namn@exempel.se, eller lämna fältet tomt.',
-  },
-};
+const message = (field, error) => ui(`feedback.error.${field}.${error}`, {
+  descriptionMin: LIMITS.descriptionMin, descriptionMax: LIMITS.descriptionMax,
+  sourceMax: LIMITS.sourceMax, emailMax: LIMITS.emailMax,
+});
 const FIELD_ORDER = ['category', 'description', 'source', 'email'];
-const SERVER_ERRORS = {
-  disabled: 'Formuläret är inte öppet ännu. Använd länkarna till GitHub ovan, eller försök igen senare.',
-  turnstile_failed: 'Kontrollen av att du är en människa gick inte igenom. Försök igen.',
-  rate_limited: 'Du har skickat många förslag på kort tid. Vänta en stund och försök igen.',
-  busy: 'Det är fullt just nu. Vänta en stund och försök igen.',
-  unknown_event: 'Händelsen hittades inte. Ladda om sidan och försök igen.',
-};
+const serverError = error => ui(`feedback.server.${error}`);
 
 let turnstileLoading = null;
 function loadTurnstile() {
@@ -67,7 +52,7 @@ export class Feedback {
     this.sending = false;
     this.serverClosed = false; // servern svarade att formuläret är avstängt (#1581): då ska länkarna till GitHub synas
 
-    for (const c of FEEDBACK_CATEGORIES) this.category.add(new Option(c.label, c.id));
+    for (const c of FEEDBACK_CATEGORIES) this.category.add(new Option(ui(`feedback.category.${c.id}`), c.id));
 
     this.closeBtn.addEventListener('click', () => this.close());
     $('fb-cancel').addEventListener('click', () => this.close()); // Avbryt i den fasta raden nedtill (#310), samma som Stäng
@@ -151,13 +136,13 @@ export class Feedback {
     this.eventBox.hidden = !show;
     if (show) {
       this.eventTitle.textContent = this.event ? t(this.event.title) : `${this.object.label} (${this.object.id})`;
-      this.eventTime.textContent = this.event ? formatEventTime(this.event) : `år ${this.object.year}`;
+      this.eventTime.textContent = this.event ? formatEventTime(this.event) : ui('feedback.objectYear', { year: this.object.year });
     }
   }
 
   renderCount() {
     const n = this.description.value.trim().length;
-    this.count.textContent = n ? `${n} av ${LIMITS.descriptionMax}.` : '';
+    this.count.textContent = n ? ui('feedback.count', { n, max: LIMITS.descriptionMax }) : '';
   }
 
   mountTurnstile() {
@@ -172,7 +157,7 @@ export class Feedback {
         'error-callback': () => { this.token = ''; },
       });
     }).catch(() => {
-      this.setStatus('Kontrollen av att du är en människa kunde inte laddas. Kontrollera anslutningen och försök igen.', true);
+      this.setStatus(ui('feedback.turnstileLoadFailed'), true);
     });
   }
 
@@ -196,18 +181,18 @@ export class Feedback {
     const names = FIELD_ORDER.filter(n => errors[n]);
     for (const n of FIELD_ORDER) {
       const el = this.fieldEl(n), err = this.root.querySelector(`#fb-${n}-err`);
-      const msg = errors[n] ? (MESSAGES[n]?.[errors[n]] ?? 'Kontrollera fältet.') : '';
+      const msg = errors[n] ? message(n, errors[n]) : '';
       if (msg) el.setAttribute('aria-invalid', 'true'); else el.removeAttribute('aria-invalid');
       err.textContent = msg; err.hidden = !msg;
     }
     if (!names.length) { this.errorsEl.hidden = true; this.errorsEl.textContent = ''; return; }
     const label = n => this.root.querySelector(`label[for="fb-${n}"]`).firstChild.textContent.trim();
-    this.errorsEl.innerHTML = `<p>${names.length === 1 ? 'Rätta ett fält:' : `Rätta ${names.length} fält:`}</p><ul></ul>`;
+    this.errorsEl.innerHTML = `<p>${ui(names.length === 1 ? 'feedback.errorSummary.one' : 'feedback.errorSummary.many', { n: names.length })}</p><ul></ul>`;
     const ul = this.errorsEl.querySelector('ul');
     for (const n of names) {
       const li = document.createElement('li'), a = document.createElement('a');
       a.href = `#fb-${n}`; a.dataset.field = n;
-      a.textContent = `${label(n)} – ${MESSAGES[n]?.[errors[n]] ?? 'Kontrollera fältet.'}`;
+      a.textContent = `${label(n)} – ${message(n, errors[n])}`;
       li.append(a); ul.append(li);
     }
     this.errorsEl.hidden = false;
@@ -230,8 +215,8 @@ export class Feedback {
     const { errors, value } = validateFeedback(input);
     this.showErrors(errors);
     if (Object.keys(errors).length) return;
-    if (!this.enabled) { this.setStatus('Formuläret är inte öppet ännu. Använd länkarna till GitHub ovan.', true); return; }
-    if (!this.token) { this.setStatus('Vänta tills kontrollen av att du är en människa är klar, och försök igen.', true); return; }
+    if (!this.enabled) { this.setStatus(ui('feedback.server.disabled'), true); return; }
+    if (!this.token) { this.setStatus(ui('feedback.waitForTurnstile'), true); return; }
 
     const body = { category: value.category, description: value.description, turnstileToken: this.token, website: this.website.value };
     if (value.source) body.source = value.source;
@@ -246,7 +231,7 @@ export class Feedback {
 
     this.sending = true; this.applyMode();
     this.form.setAttribute('aria-busy', 'true');
-    this.setStatus('Skickar …');
+    this.setStatus(ui('feedback.sending'));
     let res = null, out = null;
     try {
       res = await fetch(this.endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body), credentials: 'same-origin' });
@@ -269,11 +254,10 @@ export class Feedback {
     if (res?.status === 400 && out?.fields) {
       this.setStatus('');
       this.showErrors(out.fields);
-      if (!Object.keys(out.fields).some(k => FIELD_ORDER.includes(k))) this.setStatus(SERVER_ERRORS[out.error] ?? 'Förslaget kunde inte tas emot. Kontrollera fälten och försök igen.', true);
+      if (!Object.keys(out.fields).some(k => FIELD_ORDER.includes(k))) this.setStatus(serverError(out.error) || ui('feedback.receiveFailed'), true);
       return;
     }
-    const msg = !res ? 'Förslaget kunde inte skickas. Kontrollera anslutningen och försök igen. Det du har skrivit finns kvar.'
-      : (SERVER_ERRORS[out?.error] ?? 'Förslaget kunde inte skickas just nu. Försök igen senare. Det du har skrivit finns kvar.');
+    const msg = !res ? ui('feedback.networkFailed') : (serverError(out?.error) || ui('feedback.sendFailed'));
     this.setStatus(msg, true);
   }
 }

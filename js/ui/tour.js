@@ -64,7 +64,7 @@ export class TourPlayer {
     if (!this.tours.length) return;
 
     const label = key => t(this.labels[key]) || '';
-    this.button.textContent = label('button') || 'Turer';
+    this.button.textContent = label('button') || ui('tour.button');
     this.menuTitle.textContent = label('menuTitle');
     this.back.textContent = `← ${label('back')}`;
     this.closeBtn.setAttribute('aria-label', label('end'));
@@ -73,7 +73,7 @@ export class TourPlayer {
     if (this.endBtn) this.endBtn.textContent = label('end');
     this.read.textContent = label('read');
     this.srcBtn.textContent = label('sources');
-    this.questionLabel.textContent = label('question') || 'Att fundera på:';
+    this.questionLabel.textContent = label('question') || ui('tour.question');
     this.buildMenu();
 
     this.button.addEventListener('click', () => (this.menu.hidden ? this.openMenu() : this.closeMenu()));
