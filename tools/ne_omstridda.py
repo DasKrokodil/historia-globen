@@ -71,7 +71,10 @@ CLIPPED = {'frankrike-ne': ('FRA', (-5.5, 41.0, 10.0, 51.5)), 'nederlanderna-ne'
            # Östafrikas kust (#1787): Kenyas och Tanzanias kust från Somalia till Rovuma. Landen slutar vid sina gränser i Natural
            # Earth; rutornas kanter inåt land går genom gränspunkter i Natural Earth (Kenya och Tanzania 39,1058 / -4,6163, Kenya och
            # Somalia 41,0561 / -0,9696) och söder om Rovuma (Tanzania till 12 grader syd), så att kusten inte får något trappsteg
-           'kenya-kust-ne': ('KEN', (39.1058, -4.75, 41.7, -0.9696)), 'tanzania-kust-ne': ('TZA', (38.0, -12.0, 40.6, -4.6163))}
+           'kenya-kust-ne': ('KEN', (39.1058, -4.75, 41.7, -0.9696)), 'tanzania-kust-ne': ('TZA', (38.0, -12.0, 40.6, -4.6163)),
+           # Kaohsiung (#1797): Taiwans land i rutan runt Kaohsiung (samma ruta som KAOHSIUNG i tools/riken.py), som läggs till Taiwans
+           # förenklade kust, så att staden hamnar i Taiwan utan att något hav läggs till
+           'taiwan-kaohsiung-ne': ('TWN', (120.15, 22.33, 120.55, 22.85))}
 # Rutor i CLIPPED som förenklas tillsammans (shapely.coverage_simplify, 0,02), så att gränsen mellan Kenya och Tanzania blir exakt
 # densamma i båda och inget dubbelritas eller blir tomt längs den. Kusten läggs i varje period för Brittiska imperiet och de andra
 # staterna vid kusten, så den förenklas mer än 0,003 grader, annars växer filerna mycket (#1787)

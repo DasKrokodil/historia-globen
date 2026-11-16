@@ -1923,8 +1923,8 @@ ZHOUSHAN = (121.95, 29.95, 122.35, 30.25)
 # 29,2–29,7 N) och Fujian (119,8–120,2 Ö, 26,5–26,8 N). Taiwan har inget annat i rutorna, och de når inte Zhoushanrutan
 XIANGSHAN = (121.65, 29.15, 122.05, 29.75)
 XIAPU = (119.75, 26.45, 120.25, 26.85)
-# Kaohsiung (#1797): rutan runt den bit där Cliopatrias kust ligger väster om Taiwans förenklade kust (120,17–120,49 Ö,
-# 22,34–22,84 N). Längs rutans kanter ligger Cliopatrias land inne i den förenklade gränsen eller saknas, så ingen kant syns
+# Kaohsiung (#1797): rutan runt Kaohsiung, där Taiwans land i Natural Earth (TWN) ligger väster om Taiwans förenklade kust
+# (120,23–120,39 Ö, 22,48–22,74 N). Längs rutans kanter ligger Natural Earths land inne i den förenklade gränsen, så ingen kant syns
 KAOHSIUNG = (120.15, 22.33, 120.55, 22.85)
 # Pool Malebo (#1707): de två Kongos sidor av floden i Natural Earth, i rutan (14,6–15,9 Ö, 4,8–3,8 S) som tools/ne_omstridda.py
 # klipper ut. Brazzavillesidan räknas utan det som också ligger på Kinshasasidan (avrundningen ger en remsa på cirka 0,06 km²)
@@ -2026,12 +2026,16 @@ DISPUTED = {
     # rutan når räknas om, och resten av gränserna är som förut
     **{f'{_namn}-taiwan': {'area': ('rutor', [_ruta]), 'from': 1950, 'strict': True, 'efter': True, 'yta': True, 'dec': 5,
                            'remove': ['taiwan'], 'add': []} for _namn, _ruta in (('xiangshan', XIANGSHAN), ('xiapu', XIAPU))},
+    # Utan to: Kina 2024 får också delarna, fast Cliopatrias Republiken Kina 2024 inte har dem. Med to 2023 delas Kinas period
+    # 1953–2024 vid 2024, och den nya perioden 2024 förenklas för sig ur Cliopatria 2024 och skiljer sig långt utanför rutorna
+    # (cirka 1,1 grad² nytt tomt land vid kusten), så delarna får gälla alla år från 1950 (docs/omstridda-granser.md)
     **{f'{_namn}-kina': {'area': ('hela-delar', ('forenklad', 'Republic of China', 1950), ('rutor', [_ruta])), 'from': 1950,
                          'strict': True, 'efter': True, 'yta': True, 'dec': 5, 'remove': [], 'add': ['kina']}
        for _namn, _ruta in (('xiangshan', XIANGSHAN), ('xiapu', XIAPU))},
     # Kaohsiung (#1797): Cliopatria har staden i Republiken Kina, men den förenklade kusten lade den cirka 1 km utanför. I rutan
-    # läggs Cliopatrias egen gräns till Taiwan efter förenklingen (samma 1950 och 2024 i rutan); utanför rutan är gränsen som förut
-    'kaohsiung-taiwan': {'area': ('snitt', ('clio', 'Republic of China', 1950), ('rutor', [KAOHSIUNG])), 'from': 1950,
+    # läggs Taiwans land ur Natural Earth (TWN, tools/ne_omstridda.py) till efter förenklingen, så att bara land läggs till;
+    # Cliopatrias kust där ligger upp till cirka 11 km ute i sundet (geografen). Utanför rutan är gränsen som förut
+    'kaohsiung-taiwan': {'area': ('ne', ['taiwan-kaohsiung-ne']), 'from': 1950,
                          'strict': True, 'efter': True, 'dec': 5, 'remove': [], 'add': ['taiwan']},
     # Västberlin och Östberlin 1949–1990 (#1731, beslut 2026-11-15-vastberlin-grans.md). Cliopatrias hål i DDR för Västberlin
     # stämmer bara ungefär (det täcker delar av Östberlin, och södra Västberlin ligger i DDR) och saknas 1973–1975.
