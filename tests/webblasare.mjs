@@ -1768,6 +1768,69 @@ async function run(browser, vp) {
     } finally { await tp.close(); }
   });
 
+  // #1859: Samtidigt-kortet i mobil. Granskningsraden flödar aldrig över Källor (oavsett hur lång "Visste du?" är och därmed hur
+  // smal raden blir), metaraden har läsbar radhöjd, "1 av 4" delas inte och länkarnas tryckytor är 44 px höga och träffar rätt knapp.
+  await check('Samtidigt-kortet i mobil: granskningsraden, metaraden och tryckytorna (#1859)', async () => {
+    if (vp.width > 760) return 'körs i mobiljobbet';
+    const fp = await context.newPage();
+    const fpAw = abortWatch(fp);
+    const errs = [];
+    fp.on('pageerror', e => { if (!fpAw.defer(e.message)) errs.push(e.message); });
+    try {
+      if (THREE_LOCAL) {
+        await fp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+        await fp.route(u => isFont(u.href), r => r.abort());
+      }
+      await fpAw.goto(`${BASE}?ny=1859#y=1325`);
+      await fp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await fp.waitForSelector('#funfact:not([hidden]) #ff-sources', { timeout: T.load });
+      const r = await fp.evaluate(() => {
+        const fails = [];
+        const ff = document.getElementById('funfact');
+        const surprise = document.getElementById('ff-surprise'), src = document.getElementById('ff-sources'), rv = document.getElementById('ff-review');
+        const original = surprise.textContent;
+        // Granskningsraden mot Källor: "Visste du?" görs längre steg för steg, så att raden smalnar av
+        for (let n = 0; n <= 14; n++) {
+          surprise.textContent = original.split('→')[0].trim() + ' ' + 'x'.repeat(n);
+          const rng = document.createRange(); rng.selectNodeContents(rv);
+          const sr = src.getBoundingClientRect();
+          if ([...rng.getClientRects()].some(t => t.right > sr.left + 1 && t.left < sr.right && t.bottom > sr.top && t.top < sr.bottom)) {
+            fails.push(`granskningsraden ligger över Källor när raden är ${Math.round(rv.getBoundingClientRect().width)} px bred`);
+            break;
+          }
+        }
+        surprise.textContent = original;
+        // Metaraden: radhöjd minst 1,3 gånger texten, och sidräknaren på en rad
+        const eb = getComputedStyle(document.querySelector('.ff-eyebrow'));
+        if (parseFloat(eb.lineHeight) < parseFloat(eb.fontSize) * 1.29) fails.push(`metaradens radhöjd ${eb.lineHeight} på ${eb.fontSize}`);
+        const pager = document.getElementById('ff-pager');
+        if (pager.textContent.trim()) {
+          const rng = document.createRange(); rng.selectNodeContents(pager);
+          const tops = new Set([...rng.getClientRects()].map(t => Math.round(t.top)));
+          if (tops.size > 1) fails.push(`"${pager.textContent}" delas på ${tops.size} rader`);
+        }
+        // Tryckytorna: 21 px ovanför och under mitten (44 px hög yta) träffar samma knapp. Före #1859 hamnade fotens yta 32 px ovanför länken.
+        const hit = [];
+        for (const el of [src, document.getElementById('ff-next'), surprise, ff.querySelector('.ff-chip')]) {
+          if (!el || !el.offsetParent) continue;
+          const b = el.getBoundingClientRect();
+          const cx = b.left + b.width / 2, cy = b.top + b.height / 2;
+          // Chipsen rullar under den fasta knappraden i halvöppet läge (#706), så för dem prövas bara ytan uppåt
+          for (const dy of el.classList.contains('ff-chip') ? [-21] : [-21, 21]) {
+            const at = document.elementFromPoint(cx, cy + dy);
+            if (!at || !el.contains(at)) fails.push(`${el.id || el.className} träffas inte ${dy} px från mitten (${at?.id || at?.className || at?.tagName})`);
+          }
+          hit.push(el.id || 'chip');
+        }
+        return { fails, hit, state: ff.className };
+      });
+      if (r.fails.length) throw new Error(`${r.fails.join('; ')} (${r.state})`);
+      errs.push(...fpAw.settle());
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return `inget överlapp, metaraden och sidräknaren läsbara, 44 px för ${r.hit.join(', ')}`;
+    } finally { await fp.close(); }
+  });
+
   await check('områden som inte är en stat: mönster, teckenförklaring och faktaruta (#1300)', async () => {
     if (vp.width <= 760) return 'körs i datorjobbet';
     const ap = await context.newPage();
