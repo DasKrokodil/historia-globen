@@ -8033,12 +8033,12 @@ async function run(browser, vp) {
           await ppAw.goto(`${BASE}?lang=${lang}#y=2000`);
           await pp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
           // Modern tid, ett år vid hundratalsupplösningen och reglagets första år: tre olika längder på knappar, årtal och tidsfönster
-          for (const year of [2000, -5000, -99999]) {
+          for (const year of [2000, -4999, -2999, -99999]) {
             await pp.evaluate(y => { location.hash = `#y=${y}`; }, year);
             await pp.waitForFunction(y => Math.abs(Number(document.getElementById('track').getAttribute('aria-valuenow')) - y) <= 1000, year, { timeout: T.step });
             await pp.waitForTimeout(300); // knapparnas texter och skalans årtal ritas om efter bytet
             const r = await pp.evaluate(async () => {
-              const { formatYear } = await import('./js/model.js');
+              const { formatYear, formatWindowYear } = await import('./js/model.js');
               const { MIN_YEAR } = await import('./js/timeline.js');
               const out = { problems: [], first: formatYear(MIN_YEAR) };
               const shown = e => { const b = e.getBoundingClientRect(); return b.width > 0 && b.height > 0 && getComputedStyle(e).visibility !== 'hidden'; };
@@ -8067,12 +8067,14 @@ async function run(browser, vp) {
               if (note.getBoundingClientRect().right > innerWidth + 0.5) out.problems.push(`tidsfönstrets rad går utanför skärmen: ${note.textContent}`);
               if (/[XVILC]{6,}/.test(note.textContent)) out.problems.push(`ogiltigt romerskt tal: ${note.textContent}`);
               out.note = note.textContent;
+              out.windowYear = formatWindowYear(Number(document.getElementById('track').getAttribute('aria-valuenow')));
               return out;
             });
             const where = `${lang} ${width} px, år ${year}`;
             if (r.problems.length) throw new Error(`${where}: ${r.problems.join('; ')}`);
             if (!r.hasFirst) throw new Error(`${where}: skalan saknar sitt första årtal "${r.first}": ${r.ticks.join(', ')}`);
             if (!r.hasModern) throw new Error(`${where}: skalan saknar 2000: ${r.ticks.join(', ')}`);
+            if ((year === -4999 || year === -2999) && !r.note.startsWith(`${r.windowYear} ·`)) throw new Error(`${where}: tidsfönstret börjar inte med året "${r.windowYear}": ${r.note}`);
           }
           // Snabbhoppen i årshoppet: segmentens namn ryms i sina rutor
           await pp.click('#year-jump');

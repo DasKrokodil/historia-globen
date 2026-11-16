@@ -209,6 +209,11 @@ export function formatCentury(y) {
   return ui(key, { n });
 }
 
+/** Tidsfönstrets rad visar ett enskilt år före 3000 f.Kr., där århundraden blir för grova (#1536). */
+export function formatWindowYear(y) {
+  return y < -2999 ? formatYear(y) : formatCentury(y);
+}
+
 /**
  * Tidsfönstret avrundat för visning (#1191): fönstret är en andel av tidslinjen och blir därför ojämnt (38, 72, 120, cirka
  * 11 år). Raden visar ett avrundat tal, till närmaste 5 under 30 år och annars till närmaste 10 (11 → 10, 38 → 40,
