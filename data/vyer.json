@@ -1,6 +1,6 @@
 {
   "about": "Grupperna och de förinställda vyerna i Lager (#357, #380). Varje lager anger sin grupp i lagerregistret (fältet group). En vy slår på lagren i layers och slår av de andra lagren i grupper som inte är inställningar. Stämmer valen inte med någon vy visas custom. De enskilda valen ligger bakom customize. En vy med tag (#555) visar bara händelser med den taggen (fältet tags i händelsen); texterna för taggen står i tags.",
-  "title": { "sv": "Vad vill du se på kartan?", "en": "What do you want to see on the map?", "de": "Was möchten Sie auf der Karte sehen?", "es": "¿Qué desea ver en el mapa?", "fr": "Que souhaitez-vous voir sur la carte ?" },
+  "title": { "sv": "Vad vill du se på kartan?", "en": "What do you want to see on the map?", "de": "Was möchten Sie auf der Karte sehen?", "es": "¿Qué desea ver en el mapa?", "fr": "Que souhaitez-vous voir sur la carte ?" },
   "custom": { "sv": "Anpassad", "en": "Custom", "de": "Angepasst", "es": "Personalizada", "fr": "Personnalisée" },
   "customize": { "sv": "Fler val", "en": "More options", "de": "Weitere Optionen", "es": "Más opciones", "fr": "Plus d’options" },
   "defaultView": "oversikt",

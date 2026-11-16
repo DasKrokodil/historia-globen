@@ -49,6 +49,7 @@ Artigt tilltal i alla språk, så att tyska, spanska och franska är lika:
 - **Decimaler** med komma: `3,5 millones`, `3,5 millions`.
 - **Citattecken:** spanska `«…»`, franska `« … »` med hårda mellanrum innanför tecknen.
 - **Fransk typografi:** hårt mellanrum före `:`, `;`, `?`, `!` och `»`, och efter `«`. Apostrof `’` eller `'` som i gränssnittet; var konsekvent i samma fil.
+- **Kontroll (#1715):** `tests/typografi-fr-es.test.mjs` stoppar vanligt mellanrum där hårt mellanrum (U+00A0) ska stå: i franskan före `: ; ? !` och `»`, efter `«` och i tal från fyra siffror, i spanskan i tal från fem siffror.
 - **Spanska frågor och utrop:** inledande `¿` och `¡`.
 - **Kolon i rubriker:** liten bokstav efter kolon, om inte egennamn.
 - **Versaler:** i rubriker och namn följer spanska och franska den inhemska regeln, bara första ordet och egennamn med versal. Alltså `Imperio romano` och `Empire romain`, inte `Imperio Romano` som på tyska och engelska.
