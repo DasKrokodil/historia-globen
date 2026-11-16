@@ -3144,7 +3144,9 @@ async function run(browser, vp) {
       await tp.waitForFunction(() => !document.getElementById('focus-bar').hidden, null, { timeout: T.step });
       if (await tp.isHidden('#btn-panel') && await tp.isVisible('#more-toggle')) await tp.click('#more-toggle');
       await tp.click('#btn-panel');
-      await tp.waitForFunction(() => /Inga händelser i temat.*Nästa:/.test(document.getElementById('panel-sub').textContent), null, { timeout: T.step });
+      // Tomlägesmeningen står en gång i listan (inte dubblerad på underraden, #1862/#1886).
+      await tp.waitForFunction(() => /Inga händelser i temat.*Nästa:/.test(document.getElementById('event-list').textContent)
+        && !document.getElementById('panel-sub').textContent.trim(), null, { timeout: T.step });
 
       // 7. Ett okänt tema i länken ger startläget och ett lugnt besked
       await tp.goto(`${BASE}?ny=tema2#y=120&f=theme:finns-inte`);
