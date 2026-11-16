@@ -342,13 +342,28 @@ export function createRegion(app) {
   /**
    * Globens ruta står under årtalets ruta (överst till vänster), där religionernas förklaring annars står. Höjden räknas ur rutans
    * underkant, eftersom raden "Följer …" kan bli två rader på andra språk (UX-granskningen 2026-11-15); i smal skärm under
-   * knapparna överst också.
+   * knapparna överst också. På en låg yta (högst 480 px, liggande telefon) ryms inte alltid rutan där: årtalets ruta och fokusraden
+   * tar höjden, och rutan hamnade bakom tidsreglaget så att "Lämna regionvyn" inte gick att trycka på (#1900). Då står den ovanför
+   * årtalets ruta om den ryms där, annars så högt upp som den kan utan att nå ned till raderna nertill.
    */
   function placeGlobeChip() {
-    const app0 = $('app').getBoundingClientRect();
-    const bottoms = [document.querySelector('.masthead'), ...(app.narrow.matches ? [document.querySelector('.top-actions')] : [])]
+    const chip = chips.globe.chip, app0 = $('app').getBoundingClientRect();
+    const masthead = document.querySelector('.masthead');
+    const bottoms = [masthead, ...(app.narrow.matches ? [document.querySelector('.top-actions')] : [])]
       .map(el => el?.getBoundingClientRect()).filter(r => r?.height).map(r => r.bottom - app0.top);
-    if (bottoms.length) chips.globe.chip.style.top = `${Math.round(Math.max(...bottoms) + 8)}px`;
+    if (!bottoms.length) return;
+    let top = Math.round(Math.max(...bottoms) + 8);
+    if (matchMedia('(max-height: 480px)').matches) {
+      const h = chip.getBoundingClientRect().height;
+      const lower = [document.querySelector('.timebar'), $('focus-bar'), $('pause-note')]
+        .map(el => el?.getBoundingClientRect()).filter(r => r?.height).map(r => r.top - app0.top);
+      const limit = (lower.length ? Math.min(...lower) : app0.height) - 4;
+      if (top + h > limit) {
+        const m = masthead?.getBoundingClientRect();
+        top = m?.height && m.top - app0.top - 8 >= h + 8 ? 8 : Math.max(8, Math.round(limit - h));
+      }
+    }
+    chip.style.top = `${top}px`;
   }
 
   /** Rutans texter och de delar som är lika i Platt vy och på globen. */

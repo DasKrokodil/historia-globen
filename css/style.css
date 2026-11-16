@@ -49,6 +49,7 @@
   --z-kartruta: 12;       /* klickrutor för religioner samt vägar och resor */
   --z-tidslinje: 13;      /* tidsreglaget, över kartans klickrutor */
   --z-fokus: 14;          /* fokusfältet, över tidsreglaget */
+  --z-regionruta: 15;     /* regionvyns ruta på globen i låg yta: över fokusfältet och kortet, under menyerna (#1900) */
   --print-ink: #111;       /* utskriften av en lektionstur (#738): svart text på vitt papper */
   --print-paper: #fff;
   --print-line: #666;      /* skrivrader och avdelare på papperet */
@@ -1492,6 +1493,21 @@ html.calm .year-tip { animation: none; }
   .flat-region-next { order: 2; flex-basis: 100%; margin: 0 0 2px; font-size: 11.5px; }
   .flat-region-back { min-height: 44px; flex: none; }
   .globe-region-chip { top: 112px; max-width: calc(100% - var(--gut) - var(--gut-r)); }
+}
+/* Regionvyn på globen på låg yta (#1900): på en liggande telefon (högst 480 px) ligger rutan i samma kompakta form som i smal skärm
+   (rubrik och knapp på en rad, utan den längre texten, som statusraden och Lager säger) och över fokusraden, kortet och tidsreglaget,
+   så att "Lämna regionvyn" aldrig täcks: på en pekskärm finns inget Escape. Läget (under årtalet, annars ovanför det) väljer
+   placeGlobeChip() i js/controllers/region.js. Normal höjd är oförändrad. */
+@media (max-height: 480px) {
+  .globe-region-chip { z-index: var(--z-regionruta); display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; padding: 4px 4px 4px 10px; }
+  .globe-region-chip[hidden] { display: none; }
+  .globe-region-chip .flat-region-note { display: none; }
+  .globe-region-chip .flat-region-next { order: 2; flex-basis: 100%; margin: 0 0 2px; font-size: 11.5px; }
+  .globe-region-chip .flat-region-legend { order: 3; flex-basis: 100%; margin: 0 0 4px; font-size: 11.5px; }
+  .globe-region-chip .flat-region-back { flex: none; }
+}
+@media (max-height: 480px) and (pointer: coarse) {
+  .globe-region-chip .flat-region-back { min-height: 44px; }
 }
 
 /* ---------- källor ---------- */
