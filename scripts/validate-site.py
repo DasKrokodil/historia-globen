@@ -309,6 +309,10 @@ for e in events['events']:
     # och punkten står bara för platsen. Då är platsen ungefärlig; att punkten ligger i en plats kontrolleras under 8f
     if e.get('scope') == 'place' and e.get('locationPrecision') not in ('region', 'country'):
         err(f"data/events.json ({e['id']}): scope \"place\" kräver locationPrecision region eller country (punkten står för hela platsen)")
+    # Större område (#1806): scope "wide" betyder att händelsen gäller ett område som är större än den minsta platsen markören
+    # ligger i, och markören visar bara var området finns. Då är platsen ungefärlig; att punkten ligger i en plats kontrolleras under 8f
+    if e.get('scope') == 'wide' and e.get('locationPrecision') not in ('region', 'country'):
+        err(f"data/events.json ({e['id']}): scope \"wide\" kräver locationPrecision region eller country (markören visar bara var området finns)")
     for s in e.get('sources', []) + (e.get('story') or {}).get('sources', []):
         if s not in src_ids:
             err(f"data/events.json ({e['id']}): källan {s} finns inte i sources.json")
@@ -818,7 +822,9 @@ if places_doc is not None:
                     if any(abs(a[0] - b[0]) > 180 for a, b in zip(ring, ring[1:])):
                         err(f'{where}: en ring i {label} hoppar mer än 180 grader i längdgrad (korsar datumlinjen); dela den vid 180° med tools/platser_gransar.py (#1268)')
                         break
-        inside = [e for e in ev_all if in_place(polys, nb_polys, *e['location']['coordinates'][:2])]
+        inside_all = [e for e in ev_all if in_place(polys, nb_polys, *e['location']['coordinates'][:2])]
+        # Som placeEvents i js/place-geo.js: scope "wide" (#1806) gäller ett större område och är inte platsens händelse
+        inside = [e for e in inside_all if e.get('scope') != 'wide']
         if len(inside) < 5:
             err(f'{where}: minst 5 synliga händelser ska ligga inom gränsen, men det är {len(inside)}')
         # Rikena i landskortet (#1448): bara id och år, och åren hämtas ur rikets egna data. from är början och to slutet på
@@ -855,17 +861,17 @@ if places_doc is not None:
             if prev_from is not None and per['from'] < prev_from:
                 err(f'{at}: perioderna ska stå i tidsordning (efter from)')
             prev_from = per['from']
-        for e in inside if pl.get('review') in VISIBLE else []:  # som loadPlaces i js/model.js: bara platser som får visas
-            if e.get('scope') == 'place':
+        for e in inside_all if pl.get('review') in VISIBLE else []:  # som loadPlaces i js/model.js: bara platser som får visas
+            if e.get('scope') in ('place', 'wide'):
                 scoped_in.add(e['id'])
         if pl.get('type') == 'country':
             for why in country_warnings(inside):
                 print(f'validate-site: VARNING: {where}: hållbarhetsriktlinjen (#1269): {why}', file=sys.stderr)
 
-    # Ett scope "place" som inte ligger i någon plats säger ingenting och är troligen ett fel (#1674)
+    # Ett scope ("place", #1674, eller "wide", #1806) som inte ligger i någon plats säger ingenting och är troligen ett fel
     for e in ev_all:
-        if e.get('scope') == 'place' and e['id'] not in scoped_in:
-            err(f"data/events.json ({e['id']}): scope \"place\" men händelsen ligger inte i någon plats i data/platser.json som får visas")
+        if e.get('scope') in ('place', 'wide') and e['id'] not in scoped_in:
+            err(f"data/events.json ({e['id']}): scope \"{e['scope']}\" men händelsen ligger inte i någon plats i data/platser.json som får visas")
 
 # 8g. Ortnamn för regionvyn (#1643): en fil per plats i data/ortnamn/, skriven av tools/ortnamn.py ur Natural Earth. Schemat (fem språk,
 # id och koordinater), att filen hör till en plats i data/platser.json, att källan finns och att grannländerna är platsens egna.
