@@ -2752,9 +2752,8 @@ span.theme-event:hover { background: none; outline: none; }
 @media (pointer: coarse) { .detail-card .detail-close::after { content: ""; position: absolute; inset: -8px; } }
 .theme-exit { margin: 2px 0 6px; }
 .place-flat { margin-right: 6px; }
-/* Platsens kort (#1790): Sluta följa platsen är en textlänk sist, och i regionvyn har rutan redan Lämna regionvyn, så kortets knapp göms där */
+/* Platsens kort (#1790): Sluta följa platsen är en textlänk sist. Knappen vid rubriken göms inte i regionvyn: den heter då Lämna regionvyn och lämnar den (#1688) */
 .place-exit { display: inline-block; margin: 10px 0 2px; }
-.region-view #detail [data-selection-action] { display: none; }
 /* Händelsekortets datumrad (#1792): datumet först, platsen (klippt till två rader) och kategorin på raden under */
 .detail-card .meta-where { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.4em; }
 .detail-card .meta-place { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }

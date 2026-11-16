@@ -164,8 +164,11 @@ export function createRegion(app) {
     ];
     return freeArea({ w: box.width, h: box.height }, covers, shape);
   }
-  /** Texten på knappen i kortet för platsen p: regionvyn när den ryms, annars Platt karta (region-frame.js, regionButtonKey). */
+  /** Är regionvyn öppen för just platsen p (i Platt vy eller på globen)? Då heter knappen i kortet Lämna regionvyn (#1688). */
+  const openFor = p => !!p && where != null && openId() === p.id && isOpen();
+  /** Texten på knappen i kortet för platsen p: Lämna regionvyn när vyn är öppen, annars regionvyn när den ryms, annars Platt karta (region-frame.js, regionButtonKey). */
   function buttonKey(p) {
+    if (openFor(p)) return 'regionView.leave'; // medan vyn är öppen lämnar knappen den (#1688)
     if (!p?.boundary?.geometry) return 'place.flatMap';
     const b = placeBounds(p);
     // Föll öppnandet nyss tillbaka i den här storleken är svaret nej, hur det än såg ut i förväg
@@ -375,6 +378,7 @@ export function createRegion(app) {
     globe.markerGroup.visible = globe.arcGroup.visible = false; // händelsernas medaljer och bågarna: markörerna ersätter dem
     globe.setRegion(() => globeFrame(geom, b, globeFree()));
     const events = fill(p);
+    refreshButton(); // knappen i kortet heter nu Lämna regionvyn (#1688)
     app.refresh(); // lagerbilden utan världslagren, och platsens linje med omgivningen nedtonad
     clearTimeout(refit);
     // I mobil fälls arket ihop strax efter: ramen räknas om när det har skett, om man inte har flyttat klotet
@@ -407,6 +411,7 @@ export function createRegion(app) {
     if (!app.narrow.matches && !roomy()) { fallBack(p); return; }
     // Markörerna i listans ordning, och ortnamnen när filen har laddats (först nu, bara för den här platsen)
     const events = fill(p);
+    refreshButton(); // knappen i kortet heter nu Lämna regionvyn (#1688)
     // Den finare kusten (1:10m, samma som globens utsnitt) laddas en gång; kartan ritas om med den när den kommer
     globe.detail.loadFineLand?.()?.then(land => { if (land) flatMap.regionLayersChanged(); });
     clearTimeout(refit);
@@ -419,19 +424,20 @@ export function createRegion(app) {
   }
 
   /** Lämna regionvyn med knappen eller Escape: Platt vy som förut, med platsen inramad, och fokus på kartan. På globen flyger
-   *  kameran tillbaka till den vanliga globen, och fokus går till globen. */
-  function leave() {
+   *  kameran tillbaka till den vanliga globen, och fokus går till globen. Med keepFocus (knappen i platskortet, #1688) står fokus kvar
+   *  på knappen, som får sin vanliga text igen; statusraden säger det som hände i båda fallen. */
+  function leave({ keepFocus = false } = {}) {
     const p = place;
     if (where === 'globe') {
       if (!p || !globeView.region) return;
       closeGlobe({ quiet: false });
-      globe.canvas.focus({ preventScroll: true });
+      if (!keepFocus) globe.canvas.focus({ preventScroll: true });
       return;
     }
     if (!p || !flatMap.region) return;
     flatMap.leaveRegion({ quiet: false });
     frameFlat(p);
-    flatMap.canvas.focus({ preventScroll: true });
+    if (!keepFocus) flatMap.canvas.focus({ preventScroll: true });
   }
 
   // Kartan säger till när vyn slutar, vad som än avslutade den (knappen, en tur, Platt vy som stängs)
@@ -448,12 +454,13 @@ export function createRegion(app) {
     chips.flat.chip.hidden = chips.globe.chip.hidden = true;
     layerNote.hidden = true;
     $('app').classList.remove('region-view');
+    refreshButton(); // knappen i kortet får sin vanliga text igen (#1688)
     if (!quiet && was) say(ui(leftKey, { place: t(was.name) }), 'plats', { priority: 2, immediate: true });
   }
   // Återställ i regionvyn ramar in platsen igen och säger det
   flatMap.onRegionReset = () => { if (place) say(ui('regionView.reset', { place: t(place.name) }), 'plats', { priority: 2, immediate: true }); };
-  chips.flat.back.addEventListener('click', leave);
-  chips.globe.back.addEventListener('click', leave);
+  chips.flat.back.addEventListener('click', () => leave());
+  chips.globe.back.addEventListener('click', () => leave());
   // Platt vy eller Upptäcktsresor öppnas medan globen visar regionvyn: vyn hör till globen och lämnas tyst
   const onToggle = flatMap.onToggle;
   flatMap.onToggle = open => { if (open && where === 'globe') closeGlobe(); onToggle?.(open); };
@@ -521,5 +528,5 @@ export function createRegion(app) {
   /** Ett tryck på klotet bredvid knapparna i globens regionvy: solfjädern fälls ihop och markeringen tas bort (main.js). */
   const background = () => globeView.regionMarks.background();
 
-  return { eligible, onGlobe, enter, leave, background, buttonKey, refreshButton, get place() { return place; }, get globeOpen() { return where === 'globe' && globeView.region != null; } };
+  return { eligible, onGlobe, enter, leave, openFor, background, buttonKey, refreshButton, get place() { return place; }, get globeOpen() { return where === 'globe' && globeView.region != null; } };
 }

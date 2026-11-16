@@ -2303,15 +2303,15 @@ async function run(browser, vp) {
       if (card.aboutOpen || card.aboutNotes !== 2 || card.notesOutside !== 0) throw new Error(`Om kartan och källor: öppen ${card.aboutOpen}, ${card.aboutNotes} anteckningar i raden, ${card.notesOutside} utanför`);
       if (!/Wikimedia Commons/.test(card.credit)) throw new Error(`flaggans källa ligger inte i raden: "${card.credit}"`);
       if (card.facts !== 'Om platsen') throw new Error(`fokusknappen heter "${card.facts}"`);
-      // Regionvyn: knappen i kortet göms (rutan har Lämna regionvyn) och rutan säger hur man får fakta
+      // Regionvyn: knappen i kortet heter Lämna regionvyn medan vyn är öppen (#1688, förut göms den), rutan har samma knapp och säger hur man får fakta
       await lp.evaluate(() => document.querySelector('#detail [data-selection-action]').scrollIntoView({ block: 'nearest' }));
       await lp.click('#detail [data-selection-action]');
       await lp.waitForSelector('#globe-region-chip', { state: 'visible', timeout: T.step });
-      if (await lp.locator('#detail [data-selection-action]').isVisible()) throw new Error('knappen står kvar i kortet medan regionvyn är öppen');
+      if ((await lp.textContent('#detail [data-selection-action]')).trim() !== 'Lämna regionvyn') throw new Error(`knappen i kortet heter "${await lp.textContent('#detail [data-selection-action]')}" medan regionvyn är öppen`);
       const chipText = (await lp.textContent('#globe-region-chip')).replace(/\s+/g, ' ');
       if (!/Tryck på en markör eller på platsen för fakta/.test(chipText)) throw new Error(`rutan säger inte hur man får fakta: "${chipText}"`);
-      if (await lp.locator('button:visible', { hasText: 'Lämna regionvyn' }).count() !== 1) throw new Error('Lämna regionvyn finns inte exakt en gång');
-      await lp.locator('button:visible', { hasText: 'Lämna regionvyn' }).click();
+      if (await lp.locator('#globe-region-chip button', { hasText: 'Lämna regionvyn' }).count() !== 1) throw new Error('Lämna regionvyn finns inte exakt en gång i rutan');
+      await lp.locator('#globe-region-chip button', { hasText: 'Lämna regionvyn' }).click();
       await lp.waitForSelector('#globe-region-chip', { state: 'hidden', timeout: T.step });
       // Tryck på platsen i Fokus: kortet öppnas igen utan nytt Fokus (försök runt mitten, eftersom en markör kan ligga i vägen)
       await lp.goto(`${BASE}?ny=1791#y=1325&f=place:skane`);
@@ -4414,6 +4414,98 @@ async function run(browser, vp) {
         if (!m.afterIntroInMarkup) throw new Error(`${name}: knappen ligger inte efter inledningen i markupen`);
         if (width === 1280 && !m.inside) throw new Error(`${name}: knappen syns inte utan rullning (kortet ${m.cardTop}–${m.cardBottom} px, knappen ${m.btnTop}–${m.btnBottom} px)`);
         out.push(`${name}: oförändrad ordning`);
+      }
+      const errs = errLists.flat();
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return out.join(', ');
+    } finally {
+      await Promise.race([Promise.all(contexts.map(c => c.close().catch(() => {}))), new Promise(r => setTimeout(r, 10000))]);
+    }
+  });
+
+  // #1688: medan regionvyn är öppen heter knappen i platskortet "Lämna regionvyn", och ett tryck på den lämnar vyn. Förut stängde ett nytt
+  // tryck på "Visa händelserna på kartan" vyn tyst och öppnade den igen (kameran flög en gång till och statusraden läste upp samma besked).
+  // Provet gäller Platt vys regionvy (Skåne, Danmark) och globens (Grönland, Aotearoa), i dator (1280 × 800) och mobil (400 × 800): knappen
+  // byter text och namn för skärmläsare, trycket med tangentbordet lämnar vyn utan ny öppning eller ny flygning, fokus står kvar på knappen,
+  // statusraden säger att vyn är stängd och knappen får sin vanliga text igen. Ett andra tryck öppnar vyn som vanligt.
+  await check('platskortets knapp heter Lämna medan regionvy är öppen och lämnar den (#1688)', async () => {
+    const REGION = 'Visa händelserna på kartan', LEAVE = 'Lämna regionvyn';
+    const contexts = [], errLists = [], out = [];
+    const cases = [
+      { id: 'skane', name: 'Skåne', hash: '#y=1827&f=place:skane', where: 'flat', left: /Regionvyn är stängd\. Platt karta visar Skåne/ },
+      { id: 'danmark', name: 'Danmark', hash: '#y=1710&f=place:danmark', where: 'flat', left: /Regionvyn är stängd\. Platt karta visar Danmark/ },
+      { id: 'gronland', name: 'Grönland', hash: '#y=1721&f=place:gronland', where: 'globe', left: /Regionvyn är stängd\. Globen visar Grönland/ },
+      { id: 'aotearoa', name: 'Nya Zeeland \\(Aotearoa\\)', hash: '#y=1840&f=place:aotearoa', where: 'globe', left: /Regionvyn är stängd\. Globen visar Nya Zeeland \(Aotearoa\)/ },
+    ];
+    const btn = '#detail [data-selection-action]';
+    try {
+      for (const mobile of [false, true]) {
+        for (const c of cases) {
+          const name = `${c.id} i ${mobile ? 'mobil 400 × 800' : 'dator 1280 × 800'}`;
+          const pg = await touchPage({ width: mobile ? 400 : 1280, height: 800 }, mobile ? { isMobile: true } : {});
+          contexts.push(pg.tctx);
+          errLists.push(pg.errs);
+          const tp = pg.tp;
+          await tp.addInitScript(() => {
+            window.__flights = 0;
+            document.addEventListener('hg:globe-flight', e => { if (e.detail?.phase === 'start') window.__flights++; }, true);
+          });
+          await tp.goto(`${BASE}?ny=lamna1688${c.id}${mobile ? 'm' : 'd'}${c.hash}`);
+          await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+          await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+          await tp.waitForTimeout(600);
+          const chip = c.where === 'globe' ? '#globe-region-chip' : '#flat-region';
+          const text = () => tp.evaluate(s => document.querySelector(s)?.textContent.trim(), btn);
+          const label = () => tp.getAttribute(btn, 'aria-label');
+          const status = () => tp.evaluate(() => document.getElementById('screen-reader-status').textContent.trim());
+          const nameRe = new RegExp(c.name);
+          // 1. Före: den vanliga texten. Tangentbord: fokus på knappen och Enter
+          if (await text() !== REGION) throw new Error(`${name}: knappen heter "${await text()}" före trycket, inte "${REGION}"`);
+          await tp.locator(btn).scrollIntoViewIfNeeded();
+          await tp.locator(btn).focus();
+          await tp.keyboard.press('Enter');
+          await tp.waitForSelector(chip, { state: 'visible', timeout: T.step });
+          await tp.waitForTimeout(mobile ? 1300 : 700); // mobil: arket fälls ihop och ramen räknas om efter 450 ms
+          // 2. Knappen heter Lämna regionvyn, med platsens namn för skärmläsare
+          if (await text() !== LEAVE) throw new Error(`${name}: knappen heter "${await text()}" medan regionvyn är öppen, inte "${LEAVE}"`);
+          const lb = await label();
+          if (!lb.startsWith(LEAVE) || !nameRe.test(lb)) throw new Error(`${name}: knappens namn för skärmläsare är "${lb}"`);
+          // I mobil har arket fällts ihop till litet läge: öppna det så att knappen syns (handtaget stegar mot helt)
+          if (mobile) {
+            for (let i = 0; i < 3 && await tp.evaluate(() => document.getElementById('detail').dataset.sheet !== 'full'); i++) { await tp.click('#detail-handle'); await tp.waitForTimeout(350); }
+          }
+          const box = await tp.evaluate(s => {
+            const el = document.querySelector(s); el.scrollIntoView({ block: 'nearest' });
+            const b = el.getBoundingClientRect(), top = document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2);
+            return { w: b.width, h: b.height, visible: b.width > 0 && b.height > 0, covered: !(top === el || el.contains(top)), text: getComputedStyle(el).fontSize };
+          }, btn);
+          if (!box.visible || box.covered) throw new Error(`${name}: knappen Lämna regionvyn syns inte eller täcks (${JSON.stringify(box)})`);
+          if (box.h < (mobile ? 43.5 : 24) || box.w < 24 || parseFloat(box.text) < 12) throw new Error(`${name}: knappen är ${box.w} × ${box.h} px med ${box.text} text, för liten`);
+          // 3. Tryck med tangentbordet: vyn lämnas, ingen ny öppning, fokus står kvar och statusraden säger vad som hände
+          const flights = await tp.evaluate(() => window.__flights);
+          await tp.locator(btn).focus();
+          await tp.keyboard.press('Enter');
+          await tp.waitForSelector(chip, { state: 'hidden', timeout: T.step });
+          await tp.waitForFunction(re => new RegExp(re).test(document.getElementById('screen-reader-status').textContent), c.left.source, { timeout: T.step })
+            .catch(async () => { throw new Error(`${name}: statusraden säger "${await status()}", inte att vyn är stängd`); });
+          await tp.waitForTimeout(1500); // en dubbel öppning skulle synas här: rutan tillbaka, ett nytt besked, en flygning till
+          if (await tp.isVisible(chip)) throw new Error(`${name}: regionvyn öppnades igen efter att knappen lämnat den`);
+          if (!c.left.test(await status())) throw new Error(`${name}: statusraden säger "${await status()}" en stund efter Lämna`);
+          if (await text() !== REGION) throw new Error(`${name}: knappen heter "${await text()}" efter Lämna, inte "${REGION}"`);
+          const after = await tp.evaluate(() => ({ focus: document.activeElement?.matches('#detail [data-selection-action]'), region: document.getElementById('app').classList.contains('region-view'), hash: location.hash }));
+          if (!after.focus) throw new Error(`${name}: fokus stod inte kvar på knappen efter Lämna`);
+          if (after.region) throw new Error(`${name}: sidan har kvar klassen region-view`);
+          if (!new RegExp(`f=place:${c.id}`).test(after.hash)) throw new Error(`${name}: platsen följs inte längre (${after.hash})`);
+          const extra = (await tp.evaluate(() => window.__flights)) - flights;
+          if (extra > (c.where === 'globe' ? 1 : 0)) throw new Error(`${name}: ${extra} flygningar efter Lämna (en tillbaka till globen i högst fall)`);
+          // 4. Ett nytt tryck öppnar vyn som vanligt
+          await tp.keyboard.press('Enter');
+          await tp.waitForSelector(chip, { state: 'visible', timeout: T.step });
+          await tp.waitForTimeout(300);
+          if (await text() !== LEAVE) throw new Error(`${name}: knappen heter "${await text()}" när vyn har öppnats igen`);
+          out.push(`${name} ok`);
+          await pg.tctx.close().catch(() => {});
+        }
       }
       const errs = errLists.flat();
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
