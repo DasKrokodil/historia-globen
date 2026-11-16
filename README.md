@@ -156,7 +156,8 @@ data/turer/           guidade turer: index.json och en fil per tur med steg (år
 data/sources.json     källregister
 data/version.json     versionsnummer och länk till releaserna
 data/licenses.json    genererat register över källornas licensuppgifter
-images/licenses.json  genererat register över händelsebildernas licenser (#393)
+images/turer/         bilder till steg i guidade turer, <namn>.webp, 800 × 600 (#1794)
+images/licenses.json  genererat register över händelse- och turbildernas licenser (#393)
 data/land.json        grundkarta (Natural Earth 1:50m)
 data/land-10m.json    finare kust (Natural Earth 1:10m), laddas först när det skarpa utsnittet används; byggs med tools/land_10m.mjs
 tools/riken.py        bygger rikesfilerna ur Cliopatria
@@ -274,6 +275,7 @@ Se också [licenssammanställningen](CONTENT-LICENSE.md), [tredjepartsnotiserna]
 - **Dödssiffror i krigens berättelser** kommer delvis från [UCDP Battle-related Deaths Dataset](https://ucdp.uu.se/downloads/) (Uppsala Conflict Data Program, version 26.1; Davies, Pettersson och Öberg 2026, *Journal of Peace Research* 63(4)), licensierat under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Ändringar: summerade per krig och återgivna i egna texter.
 - **Krigens år och intensitet före 1989** (till exempel Algeriet och Biafra) kommer delvis från [UCDP/PRIO Armed Conflict Dataset](https://ucdp.uu.se/downloads/) (Uppsala Conflict Data Program och PRIO, version 26.1; Gleditsch m.fl. 2002, *Journal of Peace Research* 39(5); Davies, Pettersson och Öberg 2026), licensierat under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Ändringar: start, slut och intensitet återgivna i egna texter.
 - **Ikonerna** i `img/icons/` och sidans ikon (`img/favicon.svg` med PNG-versioner) är egna teckningar för projektet och licensieras som koden (GPL v3.0). **Flaggorna** i `img/flags/` är förenklade teckningar, men flera bygger på filer som är public domain på Wikimedia Commons: i till exempel Slovakiens, Sloveniens och Nordmakedoniens flaggor har de detaljerade banorna (emblem och solstrålar) samma form som i Commons-filen, medan de enkla färgfälten är egna. Filsidan för varje flagga står som källa i `data/sources.json`, och licensgrunden ska läsas där.
+- **Bilder i turkortet** (`images/turer/`, #1794): samma regler som för händelsebilder. Kinesiska muren vid Mutianyu (Wikimedia Commons, CC0 1.0, filsidan som källa i `data/sources.json`) är den första; licensen står i bildtexten och i `images/licenses.json` (`tourImages`).
 - **Bilder i faktarutan** (`images/events/`):
   - **Historiska bilder** kommer från [Wikimedia Commons](https://commons.wikimedia.org/) (public domain, CC0, CC BY eller CC BY-SA) och från [Library of Congress](https://www.loc.gov/pictures/) (poster märkta "No known restrictions on publication"). Varje bild behåller sin egen licens, som står i bildtexten tillsammans med upphov och länk till filsidan eller arkivposten. Filsidan eller arkivposten finns i källregistret.
   - **Illustrationer** i en tidsålders bildtradition är tydligt märkta "inte en historisk bild" i bildtexten. Verktyg, datum och prompt sparas i händelsens fält `image` (`data/handelser/`). De licensieras under CC BY 4.0 som övrig data, i den mån de alls omfattas av upphovsrätt.
