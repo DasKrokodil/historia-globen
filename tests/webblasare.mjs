@@ -2045,6 +2045,12 @@ async function run(browser, vp) {
       await sp.click('#tour-sources');
       const tour = await topLine(), tourWant = await want('sources.highlight.tour');
       if (tour !== tourWant) throw new Error(`från turen: "${tour}", väntat "${tourWant}"`);
+      await sp.waitForSelector('#sources-body .src-list a', { timeout: T.load });
+      const first = await sp.evaluate(() => {
+        const body = document.getElementById('sources-body'), method = body.querySelector('.src-method');
+        return { closed: !method.open, sourcesFirst: !!(body.querySelector('.src-list').compareDocumentPosition(method) & Node.DOCUMENT_POSITION_FOLLOWING) };
+      });
+      if (!first.closed || !first.sourcesFirst) throw new Error(`källorna visas inte före den hopfällda metodtexten: ${JSON.stringify(first)}`);
       await sp.click('#sources-close');
       // En fun fact i Samtidigt-kortet år 1325 (Mansa Musa och Ibn Battuta)
       await spAw.goto(`${BASE}?ny=1860b#y=1325`);
@@ -2053,9 +2059,13 @@ async function run(browser, vp) {
       await sp.click('#ff-sources');
       const ff = await topLine(), ffWant = await want('sources.highlight');
       if (ff !== ffWant) throw new Error(`från fun facten: "${ff}", väntat "${ffWant}"`);
+      for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+        const policy = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'data', 'ui', `${lang}.json`), 'utf8'))['sources.policy4'];
+        if (/claude/i.test(policy)) throw new Error(`${lang}: verktygsnamnet står kvar i källpolicyn`);
+      }
       errs.push(...spAw.settle());
       if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
-      return `turen: "${tour}", fun facten: "${ff}"`;
+      return `turen: "${tour}", fun facten: "${ff}"; källor först och metodtexten hopfälld`;
     } finally { await sp.close(); }
   });
 
@@ -9085,7 +9095,8 @@ async function run(browser, vp) {
     }, null, { timeout: T.step });
     // Om urvalet (#916): rubriken och de fem styckena finns, och ingen rå textnyckel syns
     const urval = page.locator('.src-urval');
-    await urval.waitFor({ state: 'visible', timeout: T.step });
+    await urval.waitFor({ state: 'attached', timeout: T.step });
+    if (await page.locator('.src-method').evaluate(el => el.open)) throw new Error('Hur vi kontrollerar källor är öppen från början');
     // Raden om projektet (#1575) står sist i avsnittet men är inget stycke om urvalet
     if (await urval.locator('p:not(.src-about)').count() !== 5) throw new Error('Om urvalet har inte fem stycken');
     if (/sources\.urval/.test(await urval.textContent())) throw new Error('Om urvalet visar en rå textnyckel');
