@@ -2272,6 +2272,8 @@
     { "id": "wd-tarascan-state", "title": "Tarascan State (Q2605410) – Wikidata", "url": "https://www.wikidata.org/wiki/Q2605410", "license": "CC0", "checked": "2026-11-13" },
     { "id": "wp-tetzcoco", "title": "Tetzcoco (altepetl) – Wikipedia", "url": "https://en.wikipedia.org/wiki/Tetzcoco_(altepetl)", "license": "CC BY-SA 4.0", "checked": "2026-11-16" },
     { "id": "wd-texcoco", "title": "Texcoco (Q2047652) – Wikidata", "url": "https://www.wikidata.org/wiki/Q2047652", "license": "CC0", "checked": "2026-11-16" },
+    { "id": "wp-tlacopan", "title": "Tlacopan – Wikipedia", "url": "https://en.wikipedia.org/wiki/Tlacopan", "license": "CC BY-SA 4.0", "checked": "2026-11-16" },
+    { "id": "wd-tacuba", "title": "Tacuba (Q7674191) – Wikidata", "url": "https://www.wikidata.org/wiki/Q7674191", "license": "CC0", "checked": "2026-11-16" },
     { "id": "wp-tzintzuntzan-site", "title": "Tzintzuntzan (Mesoamerican site) – Wikipedia", "url": "https://en.wikipedia.org/wiki/Tzintzuntzan_(Mesoamerican_site)", "license": "CC BY-SA 4.0", "checked": "2026-11-13" },
     { "id": "wp-kingdom-of-cusco", "title": "Kingdom of Cusco – Wikipedia", "url": "https://en.wikipedia.org/wiki/Kingdom_of_Cusco", "license": "CC BY-SA 4.0", "checked": "2026-11-13" },
     { "id": "wd-kingdom-of-cusco", "title": "Kingdom of Cusco (Q2314963) – Wikidata", "url": "https://www.wikidata.org/wiki/Q2314963", "license": "CC0", "checked": "2026-11-13" },
