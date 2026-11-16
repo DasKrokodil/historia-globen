@@ -14,3 +14,11 @@ De fem frågorna: **1 Förväntan**, **2 Först**, **3 Ointressant**, **4 Tillst
 | 2026-11-15 | Turkort i en tur (steg 1 och 2) | Andra händelser var tända under turen, och texten var svår att läsa i ett svep. | 4 Tillstånd: lager som inte hör till steget; 3 Ointressant; 5 Läsbarhet. | #1784, #1785, #1793 |
 | 2026-11-15 | Samtidigt-panelen | Menyn var oöverskådlig. | 2 Först: vad syns i första synfältet. | #1782 |
 | 2026-11-15 | Kartan över Europa | Danska flaggan hamnade i havet. | 4 Tillstånd: symbolen ligger utanför områdets yta. | |
+
+## Frågor som lagts till efter baslinjen (2026-11-16)
+
+Se [baslinjegenomgången](2026-11-16-baslinje-per-yta.md), avsnittet "Vad genomgången lärde oss":
+
+- **Fråga 2 (Först):** vilken text syns i kortet utan rullning, och finns en signal om att det finns mer?
+- **Fråga 3 (Ointressant):** använder två ytor samma ord för olika saker (till exempel "Samtidigt")?
+- **Fråga 4 (Tillstånd):** nollställs rullningen när innehållet byts, och vad händer när en annan yta öppnas medan den här är öppen?
