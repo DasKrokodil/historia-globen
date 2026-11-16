@@ -123,14 +123,18 @@ export class SourcesDialog {
    * Källregistret, händelsernas källor och rikenas faktarutor laddas första gången dialogen öppnas (#337);
    * under tiden står "Laddar källorna…" i dialogen.
    */
-  open(highlightIds = null) {
+  /**
+   * subject (#1860): vad urvalet gäller, så att raden överst säger rätt ord: 'funfact' (fun fact, standard), 'card'
+   * (Samtidigt-kortet när det är ett krig eller ett rikes berättelse) eller 'tour' (ett steg i en tur).
+   */
+  open(highlightIds = null, subject = 'funfact') {
     const token = this.opening = {};
     if (!this.prepared) {
       this.body.innerHTML = `<p class="detail-loading" role="status">${esc(ui('sources.loading'))}</p>`;
       this._reveal();
       loadForSources().then(() => {
         this.prepared = true;
-        if (this.opening === token && !this.root.hidden) this.open(highlightIds);
+        if (this.opening === token && !this.root.hidden) this.open(highlightIds, subject);
       }).catch(err => { console.error(err); this.body.innerHTML = `<p>${esc(ui('sources.loadFailed'))}</p>`; });
       return;
     }
@@ -156,7 +160,7 @@ export class SourcesDialog {
     };
 
     this.body.innerHTML = `
-      ${highlightIds ? `<p><strong>${esc(ui('sources.highlight'))}</strong> <button type="button" class="link-btn" data-all>${esc(ui('sources.showAll'))}</button></p>` : ''}
+      ${highlightIds ? `<p><strong>${esc(ui(subject === 'funfact' ? 'sources.highlight' : `sources.highlight.${subject}`))}</strong> <button type="button" class="link-btn" data-all>${esc(ui('sources.showAll'))}</button></p>` : ''}
       ${this.summaryHtml()}
       <h3>${esc(ui('sources.policyTitle'))}</h3>
       <ol>
