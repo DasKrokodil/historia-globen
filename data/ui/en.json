@@ -232,6 +232,7 @@
   "layers.pThemeNote": "the important ones first; if there are none, all",
   "common.close": "Close",
   "panel.title": "Meanwhile in the world",
+  "panel.waitsTour": "Meanwhile waits until the tour is over",
   "panel.filters": "Categories in the list and on the globe",
   "detail.label": "About the event",
   "ff.card": "The Meanwhile card",

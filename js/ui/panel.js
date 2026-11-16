@@ -3,6 +3,7 @@
 import { buildAreaCurve } from './areacurve.js';
 import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatOffset, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg, flagUrl, isVisibleReview, eventTags, needDetails, misconceptionsFor, roundWindow, groupDigits, tagViewNote } from '../model.js';
 import { ui, LANG, langAttr } from '../i18n.js';
+import { say } from './status.js';
 import { MIN_YEAR } from '../timeline.js';
 import { MAX_YEAR } from '../state.js';
 import { eventCitation } from './citation.js';
@@ -331,6 +332,7 @@ export class Panel {
 
     this.syncFilterToggle();
     toggle.addEventListener('click', () => {
+      if (this.waiting) { say(this.waitingText(), 'samtidigt', { priority: 1, immediate: true }); return; } // inaktiv under en tur (#1865)
       this.setOpen(!root.classList.contains('open'));
       if (root.classList.contains('open')) close?.focus({ preventScroll: true }); // fokus in i panelen (#246)
     });
@@ -360,8 +362,36 @@ export class Panel {
     this.filterToggle.setAttribute('aria-expanded', String(open));
   }
 
+  /** Förklaringen på knappen medan den väntar (#1865): hovertexten och knappens tillgängliga namn, som börjar med det synliga ordet. */
+  waitingText() { return ui('panel.waitsTour'); }
+
+  /**
+   * Under en tur väntar Samtidigt (#1865): knappen är nedtonad och inaktiv med aria-disabled (den kan fortfarande få fokus, så att
+   * förklaringen når tangentbord och skärmläsare). Hovertexten och det tillgängliga namnet säger varför, och ett tryck eller Enter
+   * läser upp förklaringen i stället för att öppna listan. En öppen lista stängs: turen har valt vad kartan visar, och listan
+   * skulle ligga över turkortet. Anropas av main.js när klassen touring ändras. Namnet är annars antalet träffar (accessibleName).
+   */
+  setWaiting(on) {
+    on = !!on;
+    if (this.waiting === on) return;
+    this.waiting = on;
+    const { toggle } = this;
+    toggle.classList?.toggle('is-waiting', on);
+    if (on) {
+      toggle.setAttribute('aria-disabled', 'true');
+      toggle.setAttribute('title', this.waitingText());
+      toggle.setAttribute('aria-label', this.waitingText());
+      if (this.root.classList?.contains('open')) this.setOpen(false);
+    } else {
+      toggle.removeAttribute('aria-disabled');
+      toggle.removeAttribute('title');
+      if (this.realLabel) toggle.setAttribute('aria-label', this.realLabel); // omritningen under turen lämnade väntetexten
+    }
+  }
+
   /** Öppna eller stäng listan "Samtidigt i världen". */
   setOpen(open) {
+    if (open && this.waiting) return;
     if (open) {
       // Under knappgruppen uppe till höger, som i smal skärm kan ligga på flera rader
       const r = (this.toggle.closest('.top-actions') ?? this.toggle).getBoundingClientRect();
@@ -404,7 +434,8 @@ export class Panel {
    */
   accessibleName(text) {
     const visible = [...this.toggle.childNodes].find(n => n.nodeType === 3 && n.textContent.trim())?.textContent.trim();
-    return visible ? `${visible}, ${text}` : text;
+    this.realLabel = visible ? `${visible}, ${text}` : text; // återställs när turen är slut (setWaiting)
+    return this.waiting ? this.waitingText() : this.realLabel;
   }
 
   /**
@@ -699,7 +730,9 @@ export class Panel {
    */
   showSelection({ label, name, lead = '', emblems = [], intro, action = null, notes = [], exit, empires = null, summary, events, sources = [], focus = true, banner = '', ariaLabel, aboutLabel = null }) {
     this.selectedId = null;
-    this.detail.className = `detail detail-card detail-selection frame-${styleFor(events[0], this.styles).frame}`; // detail-selection: main.js läser upp etiketten (Plats, Tema), också när inget Fokus pågår (#1163)
+    this.detail.className = `detail detail-card detail-selection${aboutLabel ? ' detail-place' : ''} frame-${styleFor(events[0], this.styles).frame}`;
+    // detail-selection: main.js läser upp etiketten (Plats, Tema), också när inget Fokus pågår (#1163). detail-place: platskortet, som är
+    // en egen yta i stängregistret (kort, #1865)
     const shown = (emblems ?? []).filter(em => flagUrl(em));
     const srcs = [...new Set([...(sources ?? []), ...shown.map(em => em.source)])].map(id => this.srcById[id]).filter(Boolean);
     // Platsens kort (aboutLabel, #1790): bilder vars licens kräver namnuppgift (CC BY, CC BY-SA) behåller en kort kreditrad vid bilden; övriga

@@ -33,7 +33,7 @@ function fakeApp() {
     panel: { showStory: note('showStory'), showSelection: note('showSelection') },
     layers: { applyView: note('applyView') },
     store: { setSelected: note('setSelected') },
-    surfaces: { closeAll: note('closeAll'), closeGroup: note('closeGroup') },
+    surfaces: { closeAll: note('closeAll'), closeGroup: note('closeGroup'), opened: note('opened') },
     narrow: { matches: false },
     showEmpireFacts: note('showEmpireFacts'), showReligionFacts: note('showReligionFacts'), select: note('select'), setReligions: note('setReligions'),
   };
@@ -319,8 +319,9 @@ test('plats: kortet har typraden, noten om dagens gräns och platsens emblem', (
   const doc = json('data/platser.json').places[0];
   const f = { type: 'place', id: doc.id, place: doc, themeEvents: [events[0]] };
   place.start(f);
-  assert.deepEqual(app.calls.map(c => c[0]), ['setSelected', 'showSelection', 'closeGroup', 'class']);
+  assert.deepEqual(app.calls.map(c => c[0]), ['setSelected', 'showSelection', 'closeGroup', 'opened', 'class']);
   assert.deepEqual(app.calls[2].slice(1), ['meny']);
+  assert.deepEqual(app.calls[3].slice(1), ['place-card']); // platskortet stänger Samtidigt-panelen i stängregistret (#1865)
   const card = app.calls[1][1];
   assert.equal(card.name, doc.name);
   assert.ok(card.lead);

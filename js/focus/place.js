@@ -63,7 +63,7 @@ export function showPlaceCard(app, place, events, { follow = true, note = '', fo
     notes: [ui('place.borderNote'), ...(place.boundary?.note ? [t(place.boundary.note)] : []), ...(follow ? [ui('place.filters')] : [])], banner: note, exit: follow ? ui('place.exit') : null,
     empires, summary: ui('place.events', { count: events.length }), events, sources: place.sources, focus, ariaLabel: ui('place.cardLabel'), aboutLabel: ui('place.about') });
   app.surfaces.closeGroup('meny');
-  if (app.narrow.matches) app.surfaces.closeGroup('sidopanel');
+  app.surfaces.opened('place-card'); // Samtidigt-panelen stängs, i bred skärm också (#1865): kortet och listan delar plats
   $('app').classList.add('has-detail');
   app.region?.refreshButton?.(follow ? place : null); // kortet syns nu: knappens text räknas om på det som täcker kartan (#1692)
 }
