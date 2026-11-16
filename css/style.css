@@ -365,6 +365,10 @@ body {
 }
 .chip-btn:hover { border-color: var(--brass-deep); }
 .chip-btn[aria-pressed="true"], #btn-layers[aria-expanded="true"] { background: var(--brass); color: var(--night); border-color: var(--brass); }
+/* Samtidigt väntar under en tur (#1865): nedtonad och utan hoverton, men kvar i tabbordningen så att förklaringen når tangentbord och skärmläsare */
+.panel-toggle.is-waiting { color: var(--parchment-dim); border-color: var(--line); cursor: default; } /* dämpad text och ram i stället för genomskinlighet, så att kartan inte lyser igenom knappen */
+.panel-toggle.is-waiting:hover { border-color: var(--line); }
+.panel-toggle.is-waiting .count { background: var(--parchment-dim); }
 .chip-btn .count {
   display: inline-block; min-width: 18px; margin-left: 4px;
   padding: 2px 5px; border-radius: 999px;

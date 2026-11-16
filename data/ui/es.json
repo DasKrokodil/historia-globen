@@ -232,6 +232,7 @@
   "layers.pThemeNote": "los importantes primero; si no hay, todos",
   "common.close": "Cerrar",
   "panel.title": "Al mismo tiempo en el mundo",
+  "panel.waitsTour": "«Al mismo tiempo» espera hasta que termine el recorrido",
   "panel.filters": "Categorías en la lista y en el globo",
   "detail.label": "Sobre el acontecimiento",
   "ff.card": "La tarjeta Al mismo tiempo",

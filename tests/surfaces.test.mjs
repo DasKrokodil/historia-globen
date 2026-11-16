@@ -146,3 +146,41 @@ test('Escape stänger raden om en trasig länk, efter dialoger, popovers och jak
   assert.deepEqual(closed, ['hjalp', 'besked']);
   assert.equal(s.escape(), false);
 });
+
+// Platskortet och Samtidigt-panelen (#1865): en yta åt gången, den som öppnas sist vinner
+function kortSetup() {
+  const log = [], open = new Set();
+  const s = createSurfaces();
+  const add = (id, group, opts = {}) => s.register(id, group, () => { open.delete(id); log.push(id); }, { isOpen: () => open.has(id), ...opts });
+  add('panel', 'sidopanel'); add('place-card', 'kort', { central: false }); add('layers', 'meny'); add('help', 'dialog');
+  const show = id => { open.add(id); s.opened(id); };
+  return { s, log, open, show };
+}
+
+test('en öppnad sidopanel stänger platskortet, och ett öppnat platskort stänger sidopanelen (#1865)', () => {
+  const { log, open, show } = kortSetup();
+  show('place-card');
+  show('panel');
+  assert.deepEqual(log, ['place-card']);
+  assert.deepEqual([...open], ['panel']);
+  log.length = 0;
+  show('place-card');
+  assert.deepEqual(log, ['panel']);
+  assert.deepEqual([...open], ['place-card']);
+});
+
+test('platskortet rörs inte av closeGroup("sidopanel") eller closeAll, som en vald händelse och menyerna anropar (#1865)', () => {
+  const { s, log, show } = kortSetup();
+  show('place-card');
+  s.closeGroup('sidopanel');
+  s.closeAll();
+  assert.ok(!log.includes('place-card'));
+});
+
+test('ett platskort stänger inte menyer eller dialoger, och Escape tar inte med det (lyssnaren ligger i panelen, #1865)', () => {
+  const { s, log, show } = kortSetup();
+  show('layers');
+  show('place-card');
+  assert.ok(!log.includes('layers') && !log.includes('help'));
+  assert.equal(s.escape(), false); // inget centralt öppet: panel.js stänger kortet
+});

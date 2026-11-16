@@ -2430,6 +2430,127 @@ async function run(browser, vp) {
     }
   });
 
+  // Samtidigt väntar under en tur (#1865, beslut 2026-11-16): knappen är inaktiv med förklaring så länge turen pågår (också medan slutkortet står)
+  await check('Samtidigt väntar under en tur: knappen är inaktiv med förklaring, en öppen lista stängs och knappen fungerar igen efter turen (#1865)', async () => {
+    const lp = await context.newPage();
+    const errs = [];
+    lp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+      }
+      await lp.setViewportSize(page.viewportSize().width <= 760 ? { width: 400, height: 800 } : { width: 1280, height: 800 });
+      const btn = () => lp.evaluate(() => {
+        const b = document.getElementById('btn-panel'), r = b.getBoundingClientRect();
+        return { disabled: b.getAttribute('aria-disabled'), title: b.getAttribute('title'), label: b.getAttribute('aria-label'), waiting: b.classList.contains('is-waiting'),
+          color: getComputedStyle(b).color, open: document.getElementById('panel').classList.contains('open'), expanded: b.getAttribute('aria-expanded'), w: r.width, h: r.height,
+          visible: r.width > 0 && r.height > 0, said: document.getElementById('screen-reader-status').textContent.trim() };
+      });
+      // Utan tur: knappen är som vanligt
+      await lp.goto(`${BASE}?ny=1865a#y=1789`);
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      const plain = await btn();
+      if (plain.disabled !== null || plain.title !== null || plain.waiting) throw new Error(`knappen är inaktiv utan tur: ${JSON.stringify(plain)}`);
+      // En öppen lista stängs när en tur startar (adressen startar turen i samma sida)
+      await lp.click('#btn-panel');
+      await lp.waitForSelector('#panel.open', { timeout: T.step });
+      await lp.evaluate(() => { location.hash = 't=det-har-har-du-hort&s=washingtons-tander'; });
+      await lp.waitForSelector('#tour-card:not([hidden])', { timeout: T.step });
+      await lp.waitForFunction(() => document.getElementById('btn-panel').getAttribute('aria-disabled') === 'true', null, { timeout: T.step });
+      const during = await btn();
+      if (during.open || during.expanded !== 'false') throw new Error(`listan står kvar när turen startar: ${JSON.stringify(during)}`);
+      if (during.title !== 'Samtidigt väntar tills turen är slut' || during.label !== 'Samtidigt väntar tills turen är slut') throw new Error(`förklaringen saknas: titel "${during.title}", namn "${during.label}"`);
+      if (!during.waiting || during.color === plain.color) throw new Error(`knappen är inte nedtonad (textfärg ${during.color} som utan tur)`);
+      if (!during.visible || during.h < 24) throw new Error(`knappen syns inte eller är för låg: ${Math.round(during.w)} × ${Math.round(during.h)} px`);
+      // Ett tryck med musen och Enter med tangentbordet öppnar inte listan utan läser upp förklaringen; knappen kan få fokus
+      await lp.click('#btn-panel', { force: true });
+      let now = await btn();
+      if (now.open || now.said !== 'Samtidigt väntar tills turen är slut') throw new Error(`tryck: listan öppen ${now.open}, statusraden "${now.said}"`);
+      await lp.evaluate(() => { document.getElementById('screen-reader-status').textContent = ''; document.getElementById('btn-panel').focus(); });
+      if (await lp.evaluate(() => document.activeElement?.id) !== 'btn-panel') throw new Error('den inaktiva knappen kan inte få fokus (tangentbord och skärmläsare når inte förklaringen)');
+      await lp.keyboard.press('Enter');
+      now = await btn();
+      if (now.open || now.said !== 'Samtidigt väntar tills turen är slut') throw new Error(`Enter: listan öppen ${now.open}, statusraden "${now.said}"`);
+      // Slutkortet hör till turen: Samtidigt väntar också där (#1866)
+      for (let i = 0; i < 12 && !(await lp.isVisible('#tour-endcard')); i++) await lp.click('#tour-next');
+      await lp.waitForSelector('#tour-endcard:not([hidden])', { timeout: T.step });
+      if ((await btn()).disabled !== 'true') throw new Error('Samtidigt är aktivt medan slutkortet står');
+      // Stäng lämnar turen: knappen är aktiv igen, med sitt vanliga namn, och listan öppnas
+      await lp.click('#tour-next');
+      await lp.waitForSelector('#tour-card', { state: 'hidden', timeout: T.step });
+      await lp.waitForFunction(() => document.getElementById('btn-panel').getAttribute('aria-disabled') === null, null, { timeout: T.step });
+      const after = await btn();
+      if (after.title !== null || after.waiting || after.color !== plain.color || !/^Samtidigt, /.test(after.label ?? '')) throw new Error(`efter turen: ${JSON.stringify(after)}`);
+      await lp.click('#btn-panel');
+      await lp.waitForSelector('#panel.open', { timeout: T.step });
+      if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
+      return 'knappen nedtonad med hovertext och namn "Samtidigt väntar tills turen är slut", kvar i fokusordningen, tryck och Enter läser upp förklaringen, en öppen lista stängs när turen startar, väntar också på slutkortet och fungerar igen efter Stäng';
+    } finally {
+      await lp.close();
+    }
+  });
+
+  // Samtidigt-panelen och platskortet (#1865, beslut 2026-11-16): en yta åt gången, den som öppnas sist vinner, och Escape stänger först den ytan
+  await check('Samtidigt och platskortet: en öppnad yta stänger den andra, den som öppnas sist vinner, och Escape stänger en åt gången (#1865)', async () => {
+    const lp = await context.newPage();
+    const errs = [];
+    lp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+      }
+      const narrow = page.viewportSize().width <= 760;
+      await lp.setViewportSize(narrow ? { width: 400, height: 800 } : { width: 1280, height: 800 });
+      await lp.goto(`${BASE}?ny=1865b#y=1325&f=place:skane`);
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await lp.waitForSelector('#detail.detail-place', { state: 'visible', timeout: T.load });
+      const state = () => lp.evaluate(() => {
+        const d = document.getElementById('detail'), a = document.getElementById('app');
+        return { card: !d.hidden && d.classList.contains('detail-place'), panel: document.getElementById('panel').classList.contains('open'), following: a.classList.contains('focusing'),
+          region: a.classList.contains('region-view'), focus: document.activeElement?.id ?? '' };
+      });
+      const want = (label, s, exp) => { for (const k of Object.keys(exp)) if (s[k] !== exp[k]) throw new Error(`${label}: ${k} ${s[k]}, väntade ${exp[k]} (${JSON.stringify(s)})`); };
+      const panelClosed = () => lp.waitForFunction(() => !document.getElementById('panel').classList.contains('open'), null, { timeout: T.step });
+      want('start', await state(), { card: true, panel: false, following: true });
+      // Panelen öppnas sist: kortet stänger som med krysset (platsen följs kvar), också i bred skärm där de förut la sig över varandra
+      await lp.click('#btn-panel');
+      await lp.waitForSelector('#panel.open', { timeout: T.step });
+      want('panelen öppnad', await state(), { card: false, panel: true, following: true });
+      await lp.keyboard.press('Escape');
+      await panelClosed();
+      want('Escape stänger panelen', await state(), { card: false, panel: false, following: true, focus: 'btn-panel' });
+      // Om platsen öppnar kortet igen
+      await lp.click('#focus-facts');
+      await lp.waitForSelector('#detail.detail-place', { state: 'visible', timeout: T.step });
+      want('Om platsen', await state(), { card: true, panel: false, following: true });
+      // Kortet öppnas sist: panelen stängs
+      await lp.click('#btn-panel');
+      await lp.waitForSelector('#panel.open', { timeout: T.step });
+      await lp.click('#focus-facts');
+      await lp.waitForSelector('#detail.detail-place', { state: 'visible', timeout: T.step });
+      await panelClosed();
+      want('kortet öppnat sist', await state(), { card: true, panel: false, following: true });
+      // Regionvyn: panelen stänger kortet men inte vyn, och Escape stänger panelen först och lämnar sedan vyn
+      await lp.click('#detail [data-selection-action]');
+      await lp.waitForFunction(() => document.getElementById('app').classList.contains('region-view'), null, { timeout: T.step });
+      await lp.click('#btn-panel');
+      await lp.waitForSelector('#panel.open', { timeout: T.step });
+      want('regionvyn och panelen', await state(), { card: false, panel: true, region: true, following: true });
+      await lp.keyboard.press('Escape');
+      await panelClosed();
+      want('Escape 1 stänger panelen', await state(), { card: false, panel: false, region: true, following: true });
+      await lp.keyboard.press('Escape');
+      await lp.waitForFunction(() => !document.getElementById('app').classList.contains('region-view'), null, { timeout: T.step });
+      want('Escape 2 lämnar regionvyn', await state(), { panel: false, region: false, following: true });
+      if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
+      return `${narrow ? 'mobil' : 'dator'}: panelen stänger platskortet och kortet panelen, den som öppnas sist vinner; platsen följs kvar och Om platsen öppnar kortet; i regionvyn stänger Escape panelen före vyn`;
+    } finally {
+      await lp.close();
+    }
+  });
+
   await check('turkortet: slutkortet för en krigstur visar krigets punkter att ta med sig med källor (#1866, #500)', async () => {
     const lp = await context.newPage();
     const errs = [];

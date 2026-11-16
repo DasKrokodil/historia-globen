@@ -532,7 +532,10 @@ async function start() {
 
   // Menyerna uppe till höger och sidopanelen: en öppnad yta stänger sin grupp (js/surfaces.js, #894)
   const { surfaces } = app;
-  surfaces.register('panel', 'sidopanel', () => panel.setOpen(false));
+  surfaces.register('panel', 'sidopanel', () => panel.setOpen(false), { isOpen: () => panel.root.classList.contains('open') });
+  // Platskortet (#1865) stänger som krysset (platsen följs kvar) och har egen Escape-lyssnare i panel.js, så det är inte med i det centrala Escape
+  const placeCardOpen = () => !$('detail').hidden && $('detail').classList.contains('detail-place');
+  surfaces.register('place-card', 'kort', () => { if (placeCardOpen()) app.select(null, false); }, { isOpen: placeCardOpen, central: false });
   surfaces.register('layers', 'meny', () => layers.close());
   surfaces.register('focus', 'meny', () => app.focusMenu.close());
   // Mobilens Meny och datorns Mer stängs när en annan meny öppnas, till exempel språklistan (#1167)
@@ -540,6 +543,10 @@ async function start() {
   surfaces.register('extra', 'meny', () => { if (extraMenu.isOpen) extraMenu.set(false); });
   panel.onOpen = () => { surfaces.opened('panel'); app.orientToPanelHighlight(); };
   layers.onOpen = () => surfaces.opened('layers');
+  // Under en tur väntar Samtidigt (#1865): knappen är inaktiv så länge klassen touring står på sidan (turen, lektionen och slutkortet)
+  const syncPanelWait = () => panel.setWaiting($('app').classList.contains('touring'));
+  new MutationObserver(syncPanelWait).observe($('app'), { attributes: true, attributeFilter: ['class'] });
+  syncPanelWait();
 
   // Sök och följ (#651, tidigare Sök #570): händelserna söks i samma ruta som det man kan följa. En händelse öppnas
   // på sitt år (lagret Händelser och händelsens kategori slås på om de är av); resten börjar följas i Fokus.

@@ -232,6 +232,7 @@
   "layers.pThemeNote": "les importants d’abord ; sinon, tous",
   "common.close": "Fermer",
   "panel.title": "Au même moment dans le monde",
+  "panel.waitsTour": "« Au même moment » attend la fin de la visite",
   "panel.filters": "Catégories dans la liste et sur le globe",
   "detail.label": "À propos de l’événement",
   "ff.card": "La carte Au même moment",
