@@ -10,7 +10,7 @@
 import { t, isVisibleReview, loadEmpire } from '../model.js';
 import { glyph, flag, drawFlag } from './events.js';
 import { drawMedal, ORIGIN_R } from './religions.js';
-import { softEdge, influenceAt, drawInfluence, traceRing, strokeEdge, covers } from './area-style.js';
+import { softEdge, influenceAt, drawInfluence, traceRing, strokeEdge, covers, areaFirst, areaPattern } from './area-style.js';
 import { AreaTransition, MAX_JUMP_YEARS } from './area-transition.js';
 import { EmpireMarkers } from './empiremarks.js';
 import { Z } from './registry.js';
@@ -32,8 +32,11 @@ export function entry({ globe, data, labelsEl, refreshSoon, showEmpireFacts }) {
   const empireById = new Map(data.empireGroups.map(g => [g.id, g]));
   // Nutida stat (modernState, #1193): flaggan bara vid nära zoom (near) eller när man följer landet; annars namnet som
   // för riken utan symbol. Faktarutan och Fokus läser flaggorna själva och visar dem alltid.
+  // Område som inte är en stat (#1300): eget mönster under rikena och ingen medalj, flagga eller huvudstad
+  layer.areaKindOf = polity => empireById.get(polity.group)?.areaKind ?? null;
   layer.markOf = (polity, year, near = true) => {
     const g = empireById.get(polity.group);
+    if (g?.areaKind) return null; // ingen medalj eller flagga för ett område som inte är en stat (punkt 5)
     const own = g?.polityFacts?.[polity.id];
     if (g?.modernState && !near && layer.onlyGroup !== g.id) return null;
     const currentFlag = (own?.flags ?? g?.flags ?? []).find(f => year >= f.from && year <= f.to);
@@ -197,8 +200,10 @@ export class AreasLayer {
       return { polity, x, y };
     });
     // label: null (#1189): ingen medalj och inget namn de åren, bara området
+    // Riken får namnplats före områden som inte är en stat (#1300)
+    const isArea = a => (this.areaKindOf?.(a.polity) ? 1 : 0);
     const cands = this.active.filter(a => !a.polity.point && a.period.label).map(a => ({ ...a, area: a.period.areaKm2 ?? 0 }))
-      .sort((a, b) => b.area - a.area);
+      .sort((a, b) => isArea(a) - isArea(b) || b.area - a.area);
     const limit = keep ? Infinity : (ZOOM_LEVELS[v.level] ?? ZOOM_LEVELS[0]).names;
     const offsets = [-1.05, 1.15, -2.2, 2.3, -3.35, 3.45];
     cands.forEach(({ polity, period }, rank) => {
@@ -375,12 +380,22 @@ export class AreasLayer {
     ctx.save();
     ctx.lineJoin = 'round';
     // Under en övergång (#78) ritas gamla och nya läget, var och en med sin alpha; annars är alpha 1
-    const items = this.transition.items(this.active);
+    // Områden som inte är en stat (#1300) först, så att rikena ritas ovanpå dem
+    const items = areaFirst(this.transition.items(this.active), p => this.areaKindOf?.(p));
     for (const { polity, period, alpha: transitionAlpha } of items) {
       const alpha = transitionAlpha * (!this.highlight || polity.group === this.highlight ? 1 : 0.25);
       ctx.beginPath();
       for (const rings of polygons(period.geometry)) {
         for (const ring of rings) traceRing(ctx, ring, X, Y); // också över datumlinjen (#1097)
+      }
+      if (this.areaKindOf?.(polity)) { // område som inte är en stat (#1300): svag fyllning, ringmönster och tunn kant
+        ctx.fillStyle = hexA(polity.color, 0.12 * alpha);
+        ctx.fill('evenodd');
+        ctx.globalAlpha = alpha; ctx.fillStyle = areaPattern(ctx, polity.color, k); ctx.fill('evenodd'); ctx.globalAlpha = 1;
+        ctx.strokeStyle = hexA(polity.color, 0.7 * alpha);
+        ctx.lineWidth = 1.1 * k;
+        strokeEdge(ctx, period.geometry, X, Y);
+        continue;
       }
       if (polity.uncertainBorder) { // osäker gräns: mjuk kant (#73)
         ctx.globalAlpha = alpha; softEdge(ctx, polity.color, k, () => strokeEdge(ctx, period.geometry, X, Y)); ctx.globalAlpha = 1; continue;

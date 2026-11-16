@@ -2302,6 +2302,9 @@ details.used-by summary:hover { color: var(--parchment); }
 .empire-legend li[data-empire][aria-pressed="true"] { box-shadow: inset 2px 0 0 var(--brass); }
 .empire-legend li[data-empire]:focus-visible, .empire-legend :is(.el-close, .el-more summary):focus-visible { outline: 2px solid var(--brass); outline-offset: 0; }
 .empire-legend .el-star { width: 16px; color: var(--brass); text-align: center; font-size: 15px; line-height: 1; }
+/* Område som inte är en stat (#1300): samma ringmönster som på kartan, i rikets färg (--area), i stället för stjärnan */
+.empire-legend .el-area { width: 16px; height: 16px; flex: none; border: 1px solid var(--area, var(--brass)); border-radius: 3px;
+  background: radial-gradient(circle, transparent 1.6px, var(--area, var(--brass)) 1.7px, var(--area, var(--brass)) 2.4px, transparent 2.5px) 0 0 / 8px 8px; }
 .empire-legend .el-note { display: block; }
 @media (max-width: 760px) {
   .empire-legend .el-close { top: 0; min-width: 36px; min-height: 36px; }

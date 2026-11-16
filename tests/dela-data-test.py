@@ -75,4 +75,13 @@ rejects('okänd fil i data/handelser/', extra_file, 'data/handelser/medeltid.jso
 rejects('events.json ändrad för hand', hand_edit_events_json, 'data/events.json stämmer inte med redigeringsfilerna')
 rejects('redigeringsfil ändrad utan att skriptet kördes', edit_period('1800-1899', change_title),
         'data/events.json stämmer inte med redigeringsfilerna')
+# Område som inte är en stat (#1300): areaKind förs vidare till riken.json, utan att hamna i språkfilerna
+_g = {'id': 'prov-omrade', 'areaKind': 'city-states', 'name': {'sv': 'Prov', 'en': 'Test', 'de': 'Probe'},
+      'facts': {'sv': 'Faktaruta', 'de': 'Faktenfeld'}, 'polities': []}
+_out = dela_data.build_from([], {'groups': [_g]}, ('sv', 'de'))
+_riken = json.loads(_out['data/genererat/riken.json'])['groups'][0]
+if _riken.get('areaKind') != 'city-states' or not _riken.get('hasFacts'):
+    raise SystemExit(f'areaKind eller hasFacts saknas i riken.json: {_riken}')
+if 'areaKind' in json.dumps(_out.get('data/genererat/riken.de.json', '')):
+    raise SystemExit('areaKind hamnade i språkfilen riken.de.json')
 print('dela-data-test: ok (fel periodfil, dubbla id, okänd fil, handredigerad events.json och glömd körning underkänns)')

@@ -2,6 +2,7 @@
 // (#402, del av #389). Uppgifterna står i religions.json och empires/index.json; här väljs bara vad som visas.
 import { loadReligions, loadEmpire, loadEmpireFacts, t, symbolUrl, symbolImg, flagImg, formatEventTime } from '../model.js';
 import { ui } from '../i18n.js';
+import { areaKindWord } from '../area-kind.js';
 
 export const formatYearSpan = (a, b) => formatEventTime({ start: a, end: b, edtf: '' });
 
@@ -93,7 +94,9 @@ export function createFacts(app) {
     const wars = own ? (g._wars ?? []).filter(w => w.end >= from && w.start <= to) : g._wars;
     // Ett försvunnet land (#72) har årtal, föregångare och efterträdare; ett land utan gräns visas som en punkt
     const lineage = g.vanished && !own ? { ...g.vanished, groups: data.empireGroups } : null;
-    panel.showFacts({ kind: lineage ? 'vanished' : 'empire', name: t(own ? polity.name : g.name), color: g.color, facts, place, curveId, empireId: own ? null : g.id,
+    // Område som inte är en stat (#1300): kortet säger typordet och aldrig "rike"; rapporten behåller typen empire (feedback-rules.js)
+    const kind = lineage ? 'vanished' : g.areaKind ? 'area' : 'empire';
+    panel.showFacts({ kind, kindWord: areaKindWord(g.areaKind), name: t(own ? polity.name : g.name), color: g.color, facts, place, curveId, empireId: own || g.areaKind ? null : g.id,
       symbol: sym, symbolKind, wars, lineage,
       empireMap: !!g.file,
       report: { type: lineage ? 'vanished-country' : 'empire', id: own ? polity.id : g.id, label: t(own ? polity.name : g.name), year: Math.round(timeline.year) },

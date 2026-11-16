@@ -165,6 +165,35 @@ function stipple(ctx, color, k) {
   return stipples.get(key);
 }
 
+/**
+ * Områden som inte är en stat (#1300) ritas först, under alla riken (beslutet 2026-11-13, punkt 7). kindOf(polity) ger
+ * areaKind eller null. Ordningen inom varje del är oförändrad, och utan områden ges samma lista tillbaka.
+ */
+export function areaFirst(items, kindOf) {
+  const areas = [], rest = [];
+  for (const it of items) (kindOf(it.polity) ? areas : rest).push(it);
+  return areas.length ? [...areas, ...rest] : items;
+}
+
+// Mönstret för ett område som inte är en stat (#1300): små ringar i rutnät. Snedstreck (krig, spridning), prickar
+// (inflytande) och mjuk eller streckad kant betyder redan annat. Rutan är större än prickmönstrets (18 mot 9 i
+// grundmåttet 2048), så att ringarna inte smälter ihop till en färgton i mobilens halva upplösning.
+const ringPatterns = new Map();
+export function areaPattern(ctx, color, k) {
+  const kk = Math.round(k * 4) / 4; // avrundat, så att utsnittet vid inzoomning inte skapar ett mönster per zoomsteg
+  const key = `${color}|${kk}`;
+  if (!ringPatterns.has(key)) {
+    const s = Math.max(8, Math.round(18 * kk)), r = Math.max(1.5, 3.4 * kk);
+    const c = typeof OffscreenCanvas !== 'undefined' ? new OffscreenCanvas(s, s) : Object.assign(document.createElement('canvas'), { width: s, height: s });
+    const g = c.getContext('2d');
+    g.strokeStyle = rgba(color, 0.95);
+    g.lineWidth = Math.max(1, 1.3 * kk);
+    g.beginPath(); g.arc(s / 2, s / 2, r, 0, Math.PI * 2); g.stroke();
+    ringPatterns.set(key, ctx.createPattern(c, 'repeat'));
+  }
+  return ringPatterns.get(key);
+}
+
 function rgba(hex, a) {
   const n = parseInt(hex.slice(1), 16);
   return `rgba(${n >> 16},${(n >> 8) & 255},${n & 255},${a.toFixed(3)})`;

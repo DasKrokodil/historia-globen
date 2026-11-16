@@ -200,6 +200,16 @@ Titel och epitet skrivs med liten bokstav i löpande text (`el rey Luis XIV`, `l
 Kolumnen "Kontrollerad" är `–` tills någon har öppnat en källa på målspråket och jämfört. Då skrivs datum och källa där (till exempel `2026-11-12, es.wikipedia`). Riken som inte står här: följ regel 1–5 i avsnitt 4. Lägg till det i tabellen i samma pull request så att nästa omgång använder samma namn.
 
 
+### 9.1 Områden som inte är en stat (#1300)
+
+Typorden för `areaKind` (`area.kind.<värde>` i `data/ui/`). De ersätter ordet "rike" i teckenförklaringen, faktarutan och kortet för ett sådant område. Granskas av `sprak-*` före release.
+
+| `areaKind` | Svenska | Engelska | Tyska | Spanska | Franska |
+|---|---|---|---|---|---|
+| `city-states` | stadsstäder | city-states | Stadtstaaten | ciudades-Estado | cités-États |
+| `culture` | kulturområde | culture area | Kulturraum | área cultural | aire culturelle |
+| kortets rubrik (`facts.kind.area`) | Område som inte var en stat | Area that was not a state | Gebiet, das kein Staat war | Zona que no era un Estado | Zone qui n’était pas un État |
+
 ## 10. Kontrollera innan en pull request öppnas
 
 1. Tilltalet är artigt överallt (avsnitt 1).

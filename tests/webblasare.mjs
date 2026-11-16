@@ -1731,6 +1731,78 @@ async function run(browser, vp) {
 
   // #1148: faktarutan och markörens skärmläsartext skiljer flagga, symbol och modern återgivning. Japans flagga
   // görs här till en modern återgivning (bara i testet), Osmanska riket har en vanlig flagga och Rom bara en symbol.
+  // #1300 steg (a): formatet för områden som inte är en stat finns, men ingen sådan grupp i datan än. Testet märker
+  // Chimor som stadsstäder via fetch-intercept (inga fakta ändras i repot) och provar teckenförklaringen, faktarutan och
+  // att mönstret skiljer sig från ett rikes fyllning i mobilens upplösning (k = 1), inte bara i färg (WCAG 1.4.1).
+  await check('områden som inte är en stat: mönster, teckenförklaring och faktaruta (#1300)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet';
+    const ap = await context.newPage();
+    const apAw = abortWatch(ap);
+    const errs = [];
+    ap.on('pageerror', e => { if (!apAw.defer(e.message)) errs.push(e.message); });
+    try {
+      if (THREE_LOCAL) {
+        await ap.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+        await ap.route(u => isFont(u.href), r => r.abort());
+      }
+      await ap.route(/data\/genererat\/riken\.json(\?|$)/, async r => {
+        const res = await r.fetch(); const doc = await res.json();
+        const g = doc.groups.find(x => x.id === 'chimor');
+        if (g) g.areaKind = 'city-states';
+        await r.fulfill({ response: res, body: JSON.stringify(doc), contentType: 'application/json' });
+      });
+      await apAw.goto(`${BASE}?ny=1300#y=1300&l=areas,events`);
+      await ap.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      const word = await ap.evaluate(async () => (await import('./js/area-kind.js')).areaKindWord('city-states'));
+      // 1. Teckenförklaringen: egen lista, mönsterruta i stället för stjärnan, typordet i namnet och i aria-label
+      if (await ap.isHidden('.empire-legend-button')) {
+        if (await ap.isVisible('#more-toggle')) await ap.click('#more-toggle');
+        await ap.click('#btn-layers');
+      }
+      await ap.locator('.empire-legend-button').click();
+      await ap.waitForSelector('#empire-legend:not([hidden])', { timeout: T.step });
+      if (await ap.locator('#empire-legend #el-body').isHidden()) await ap.click('#empire-legend .el-toggle');
+      const row = await ap.evaluate(() => {
+        const li = document.querySelector('#empire-legend li[data-empire="chimor"]');
+        return li && { aria: li.getAttribute('aria-label'), text: li.textContent, area: !!li.querySelector('.el-area'), star: !!li.querySelector('.el-star') };
+      });
+      if (!row) throw new Error('Chimor saknas i rikesförklaringen år 1300');
+      if (!row.area || row.star) throw new Error(`raden har ingen mönsterruta eller har stjärnan: ${JSON.stringify(row)}`);
+      if (!row.aria?.includes(word) || !row.text.includes(word)) throw new Error(`typordet "${word}" saknas i raden: ${JSON.stringify(row)}`);
+      await ap.click('#empire-legend [data-empire-close]');
+      // 2. Faktarutan: typordet i stället för ordet rike
+      await ap.evaluate(() => { location.hash = '#y=1300&l=areas,events&f=empire:chimor'; });
+      await ap.waitForSelector('#detail .story-label', { timeout: T.load });
+      const card = await ap.evaluate(() => ({ label: document.querySelector('#detail .story-label')?.textContent.trim() ?? '',
+        badge: document.querySelector('#detail .review-badge')?.textContent.trim() ?? '' }));
+      const kindLabel = await ap.evaluate(async () => (await import('./js/i18n.js')).ui('facts.kind.area'));
+      if (!card.label.includes(word) || !card.label.includes(kindLabel)) throw new Error(`kortets rubrik: ${card.label}`);
+      if (/\brike/i.test(card.label) || /\bRiket\b/.test(card.badge)) throw new Error(`kortet säger rike: ${card.label} | ${card.badge}`);
+      // 3. Mönstret mot ett rikes fyllning i mobilens upplösning (k = 1): ljusheten varierar inuti, inte bara färgen
+      const spread = await ap.evaluate(async () => {
+        const { areaPattern } = await import('./js/layers/area-style.js');
+        const measure = fillArea => {
+          const c = document.createElement('canvas'); c.width = c.height = 120;
+          const g = c.getContext('2d'); g.fillStyle = '#e8d7b0'; g.fillRect(0, 0, 120, 120); // pergamentfärgat land
+          g.beginPath(); g.rect(10, 10, 100, 100); fillArea(g);
+          const px = g.getImageData(20, 20, 80, 80).data, lum = [];
+          for (let i = 0; i < px.length; i += 4) lum.push(0.2126 * px[i] + 0.7152 * px[i + 1] + 0.0722 * px[i + 2]);
+          const mean = lum.reduce((a, b) => a + b, 0) / lum.length;
+          return Math.sqrt(lum.reduce((a, b) => a + (b - mean) ** 2, 0) / lum.length);
+        };
+        const color = '#8a3b8f';
+        return {
+          empire: measure(g => { g.fillStyle = 'rgba(138,59,143,0.32)'; g.fill(); }),
+          area: measure(g => { g.fillStyle = 'rgba(138,59,143,0.12)'; g.fill(); g.fillStyle = areaPattern(g, color, 1); g.fill(); }),
+        };
+      });
+      if (!(spread.area > 8 && spread.empire < 1)) throw new Error(`mönstret skiljer sig inte från en jämn fyllning: ${JSON.stringify(spread)}`);
+      errs.push(...apAw.settle());
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return `"${word}" i teckenförklaringen och kortet (${card.label}); ljushetens spridning ${spread.area.toFixed(1)} mot ${spread.empire.toFixed(1)} för ett rike`;
+    } finally { await ap.close(); }
+  });
+
   await check('rikets tecken: flagga, symbol eller modern återgivning (#1148)', async () => {
     const lp = await context.newPage();
     const errs = [];

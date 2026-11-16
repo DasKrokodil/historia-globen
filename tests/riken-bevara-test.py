@@ -24,6 +24,9 @@ def check(ok, msg):
 
 # Enhetsprov
 check('flags' in KEEP, 'flags saknas i KEEP: flaggorna försvinner vid ombyggnad')
+check('areaKind' in KEEP, 'areaKind saknas i KEEP: områden som inte är en stat blir riken vid ombyggnad (#1300)')
+check(kept_fields({'id': 'x', 'areaKind': 'culture', 'facts': {'sv': 'a'}}).get('areaKind') == 'culture',
+      'kept_fields för inte över areaKind (#1300)')
 check(keep_langs({'sv': 'Rom', 'en': 'Rome'}, {'sv': 'Rom', 'en': 'Rome', 'de': 'Rom'}) == {'sv': 'Rom', 'en': 'Rome', 'de': 'Rom'},
       'keep_langs för inte över tyskan')
 check(keep_langs({'sv': 'Nytt', 'en': 'New'}, {'sv': 'Gammalt', 'en': 'Old', 'de': 'Alt'}) == {'sv': 'Nytt', 'en': 'New'},

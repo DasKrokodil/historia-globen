@@ -237,6 +237,17 @@ for g in (empires or {}).get('groups', []):
     for x in v.get('predecessors', []) + v.get('successors', []):
         if x.get('group') and x['group'] not in group_ids:
             err(f"data/empires/index.json ({g.get('id')}): gruppen {x['group']} finns inte")
+    # Område som inte är en stat (#1300, areaKind): faktarutan är obligatorisk, och inget som hör till en stat
+    if g.get('areaKind'):
+        where = f"data/empires/index.json ({g.get('id')})"
+        if not g.get('facts'):
+            err(f'{where}: ett område med areaKind måste ha en faktaruta (facts), beslutet 2026-11-13 punkt 6')
+        for field in ('symbol', 'flags', 'capitals', 'modernState'):
+            if g.get(field):
+                err(f'{where}: ett område med areaKind får inte ha {field} (ingen medalj, flagga eller huvudstad, punkt 5)')
+        if any((pf or {}).get('symbol') for pf in (g.get('polityFacts') or {}).values()):
+            err(f'{where}: ett område med areaKind får inte ha symbol i polityFacts (punkt 5)')
+area_groups = {g.get('id') for g in (empires or {}).get('groups', []) if g.get('areaKind')}
 
 # Vägar och resor (#38): filerna i index.json finns och går att läsa (JSON-syntaxen kontrolleras i steg 3)
 routes = []
@@ -922,6 +933,8 @@ for e in events['events']:
     for g in e['empires']:
         if g not in group_ids:
             err(f"data/events.json ({e['id']}): riket {g} finns inte i data/empires/index.json")
+        elif g in area_groups:
+            err(f"data/events.json ({e['id']}): {g} är ett område som inte är en stat (areaKind, #1300), och ett krig får inte peka på det")
 
 # 10. Byggda händelsefiler och uppdelade filer (#337, #394): samma innehåll som tools/dela_data.py skriver
 # ur redigeringsfilerna i repot (data/handelser/ publiceras inte, så de läses från ROOT, inte från dist/)
