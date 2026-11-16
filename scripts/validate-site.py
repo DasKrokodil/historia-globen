@@ -910,7 +910,11 @@ if places_doc is not None:
                 err(f"{path}: orten {pl.get('id')} ur kompletteringen ska ha source i sources.json och wikidata som id (#1676)")
         own = {str(n.get('ne')) for n in by_place[f.stem]['boundary'].get('neighbours', [])}
         for nb in doc.get('neighbours', []):
-            if str(nb.get('ne')) not in own:
+            if nb.get('sea') is True:
+                # Land över havet inom marginalen (#1690): inte en granne med landgräns och inte platsens eget land
+                if str(nb.get('ne')) in own or str(nb.get('ne')) == str(by_place[f.stem]['boundary'].get('ne')):
+                    err(f"{path}: landet {nb.get('ne')} har sea: true men är platsens eget land eller granne med landgräns; kör python3 tools/ortnamn.py (#1690)")
+            elif str(nb.get('ne')) not in own:
                 err(f"{path}: grannlandet {nb.get('ne')} finns inte i platsens boundary.neighbours; kör python3 tools/ortnamn.py")
 
 # Turens stegfält place (#1163): platsen finns i data/platser.json och är inte ett utkast (ett kort utan synlig plats öppnas inte)

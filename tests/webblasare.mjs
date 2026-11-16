@@ -3582,6 +3582,24 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
+  // #1690: länder över havet inom platsens marginal (sea: true i data/ortnamn/) namnges på globen. Island ligger inom padKm från
+  // Grönland men har ingen landgräns mot det; förut syntes bara Reykjavík. data-region-names-countries är ländernas namn som ritades.
+  await check('regionvyn på globen: Island får sitt namn vid Grönland fast landet inte har landgräns mot platsen (#1690)', async () => {
+    const { tp, tctx, errs } = await placeTapPage('#y=1721&f=place:gronland', 'globregion1690');
+    try {
+      await tp.waitForSelector('#detail [data-selection-action]', { state: 'visible', timeout: T.step });
+      await tp.locator('#detail [data-selection-action]').focus();
+      await tp.keyboard.press('Enter');
+      await globeRegionSettled(tp, 'gronland');
+      const shown = await tp.evaluate(() => (document.getElementById('globe-region').dataset.regionNamesCountries ?? '').split('|').filter(Boolean));
+      if (!shown.includes('nb-352')) throw new Error(`Islands namn ritades inte; länderna som ritades: ${shown.join(', ') || 'inga'}`);
+      await escapeGlobeRegion(tp);
+      if (await tp.evaluate(() => 'regionNamesCountries' in document.getElementById('globe-region').dataset)) throw new Error('ländernas namn står kvar efter regionvyn');
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `länderna som ritades: ${shown.join(', ')}`;
+    } finally { await tctx.close(); }
+  });
+
   // #1641: regionvyn. Visa i Platt karta för en liten plats (Skåne, Danmark; upp till cirka 5 grader på marken, js/region-frame.js)
   // ger en skarp, inzoomad karta med en sluten kantlinje i skärmpixlar. Kontrollerna läser renderingsstatusen på #flat-view
   // (data-region, data-region-box, data-region-ppd, data-region-sharp) och mäter bildpunkterna längs platsens gräns på kartans canvas.
