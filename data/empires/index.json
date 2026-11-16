@@ -3260,12 +3260,17 @@
      }
     ],
     "mapNote": {
-     "sv": "Källan låter imperiet börja i slutet av 1500-talet och nämner 1997 som slutet för många.",
-     "en": "The source has the empire begin in the late 16th century and mentions 1997 as the end for many."
+     "sv": "Källan låter imperiet börja i slutet av 1500-talet och nämner 1997 som slutet för många. Cliopatria räknar Muskat och Oman till imperiet 1956–1972, och kartan följer det. Landet var i praktiken ett brittiskt skyddat land och de jure självständigt (den uppgiften saknar källhänvisning i Wikipedia). Sultanatet Oman utropades 9 augusti 1970.",
+     "en": "The source has the empire begin in the late 16th century and mentions 1997 as the end for many. Cliopatria counts Muscat and Oman as part of the empire in 1956–1972, and the map follows it. The country was in practice a British protected state and de jure sovereign (that statement lacks a citation in Wikipedia). The Sultanate of Oman was proclaimed on 9 August 1970.",
+     "de": "Die Quelle lässt das Empire im späten 16. Jahrhundert beginnen und nennt 1997 als das Ende für viele. Cliopatria zählt Maskat und Oman 1956–1972 zum Empire, und die Karte folgt dem. Das Land war faktisch ein britisches Schutzgebiet und de jure souverän (diese Angabe hat in Wikipedia keinen Beleg). Das Sultanat Oman wurde am 9. August 1970 ausgerufen.",
+     "es": "La fuente sitúa el comienzo del imperio a finales del siglo XVI y menciona 1997 como el final para muchos. Cliopatria cuenta Mascate y Omán como parte del imperio en 1956–1972, y el mapa lo sigue. En la práctica, el país era un Estado protegido británico y de iure soberano (ese dato no tiene referencia en Wikipedia). El Sultanato de Omán se proclamó el 9 de agosto de 1970.",
+     "fr": "La source fait commencer l'empire à la fin du XVIe siècle et mentionne 1997 comme la fin pour beaucoup. Cliopatria compte Mascate et Oman comme partie de l'empire en 1956–1972, et la carte suit ce choix. Le pays était en pratique un État protégé britannique et souverain de jure (cette indication n'a pas de référence dans Wikipédia). Le sultanat d'Oman fut proclamé le 9 août 1970."
     },
     "sources": [
      "wp-british-empire",
-     "wp-tudor-crown"
+     "wp-tudor-crown",
+     "cliopatria",
+     "wp-muscat-and-oman"
     ],
     "review": "source-checked"
    },
