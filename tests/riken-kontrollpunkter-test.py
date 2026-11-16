@@ -142,6 +142,7 @@ BAGAMOYO = (38.9, -6.4333)
 KILWA_KISIWANI = (39.5172, -8.9817)
 KILWA_KIVINJE = (39.4133, -8.7478)
 DAR_ES_SALAAM = (39.2803, -6.8161)
+VANGA = (39.2194, -4.6607)  # Q2510244, Kenyas sydligaste ort vid gränsen mot Tanzania (geografen, 2026-11-16)
 OA_TANGANYIKA = ((TANGA, 'Tanga'), (BAGAMOYO, 'Bagamoyo'), (KILWA_KIVINJE, 'Kilwa Kivinje'), (DAR_ES_SALAAM, 'Dar es Salaam'))
 # Nära trepunkterna (geografen, #1534): punkter i Cliopatrias Sudan 2014 där Centralafrikanska republikens och Etiopiens förenklade
 # gränser når in. Sudans gräns längs Sydsudan får inte läggas över dem, så att marken bara ritas i en stat
@@ -334,6 +335,8 @@ PUNKTER = [
     *[('brittiska-imperiet', ZANZIBAR, 'Zanzibar', y, True) for y in (1890, 1911, 1922, 1946, 1956, 1962)],
     *[('kenya', p, n, y, False) for p, n in OA_TANGANYIKA for y in (1963, 2024)],
     *[('tanzania', MALINDI, 'Malindi', y, False) for y in (1963, 2024)],
+    *[('tanzania', VANGA, 'Vanga', y, False) for y in (1961, 1963, 2024)],
+    *[('tyska-riket', VANGA, 'Vanga', y, False) for y in (1890, 1900, 1916)],
     *[('sudan', p, n, y, False) for p, n in ((NARA_CAF, 'nära trepunkten vid Centralafrikanska republiken'),
                                               (NARA_ETIOPIEN, 'nära trepunkten vid Etiopien')) for y in (2011, 2012, 2020)],
     *[('centralafrikanska-republiken', NARA_CAF, 'nära trepunkten vid Centralafrikanska republiken', y, True) for y in (2012, 2020)],
@@ -437,6 +440,10 @@ NARA = [
     ('brittiska-imperiet', MOMBASA, 'Mombasa', 1824),
     *[('oman', MOMBASA, 'Mombasa', y) for y in (1744, 1800, 1814)],
     ('spanska-imperiet', MOMBASA, 'Mombasa', 1600), ('portugisiska-imperiet', MOMBASA, 'Mombasa', 1650),
+    # Vanga ligger på kenyanska sidan, cirka 100 m utanför Natural Earths kust
+    *[('kenya', VANGA, 'Vanga', y) for y in (1963, 2000, 2024)],
+    *[('brittiska-imperiet', VANGA, 'Vanga', y) for y in (1890, 1900, 1918, 1950, 1962)],
+    ('oman', VANGA, 'Vanga', 1744),
     *[(g, KILWA_KISIWANI, 'Kilwa Kisiwani', y) for g, y in (('tyska-riket', 1900), ('brittiska-imperiet', 1920),
                                                            ('brittiska-imperiet', 1950), ('tanzania', 1961), ('tanzania', 2024))],
 ]
