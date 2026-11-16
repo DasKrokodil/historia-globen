@@ -93,6 +93,30 @@ export function globeRegionEligible(bounds) {
   return Number.isFinite(ground) && ground > GLOBE_MIN_DEG && ground <= GLOBE_MAX_DEG;
 }
 
+/**
+ * Den minsta fria yta (skärmpixlar) där regionvyn är till nytta: platsen fyller 65 % av den, alltså minst cirka 150 × 100 px.
+ * Är ytan mindre (till exempel en liggande telefon med arket uppe) ramas platsen in i Platt vy som förut (controllers/region.js).
+ */
+export const MIN_FREE = { w: 230, h: 150 };
+
+/** Ryms regionvyn i den fria ytan (freeArea)? Samma regel för beslutet när vyn öppnas och för texten på knappen i platskortet (#1692). */
+export function hasRoom(free) {
+  return !!free && free.w >= MIN_FREE.w && free.h >= MIN_FREE.h;
+}
+
+/**
+ * Texten på knappen i platskortet (#1692): 'place.regionMap' när knappen ger regionvyn och 'place.flatMap' ("Visa i Platt karta")
+ * när platsen i stället ramas in i Platt vy. bounds = platsens gränsruta (placeBounds), free = den fria ytan som regionvyn skulle
+ * få (freeArea), eller undefined när den inte är känd (då antas den rymmas). En stor plats får regionvyn på globen, som inte har
+ * någon gräns för ytan; en liten plats i Platt vy bara när den fria ytan rymmer den; Sverige och andra platser aldrig.
+ */
+export function regionButtonKey(bounds, free) {
+  if (!bounds) return 'place.flatMap';
+  if (globeRegionEligible(bounds)) return 'place.regionMap';
+  if (!regionEligible(bounds)) return 'place.flatMap';
+  return free === undefined || hasRoom(free) ? 'place.regionMap' : 'place.flatMap';
+}
+
 /** Punkten (lon, lat) i ortografisk projektion med mitten i (lat0, lon0), i klotradier: x österut, y norrut, z mot betraktaren. */
 export function orthographic(lon, lat, lat0, lon0) {
   const p = lat * DEG, p0 = lat0 * DEG, dl = (lon - lon0) * DEG;

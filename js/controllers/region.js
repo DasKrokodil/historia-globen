@@ -19,10 +19,10 @@
 // med samma ruta, markörer, bricka, högar, ortnamn, lista och vägar ut som i Platt vy (js/ui/globe-region.js). Sverige väntar på
 // DasKrokodils bedömning och ramas in i Platt vy som förut (beslut 2026-11-15).
 import { placeBounds } from '../place-geo.js';
-import { regionEligible, regionSize, freeArea, globeRegionEligible, globeFrame } from '../region-frame.js';
+import { regionEligible, regionSize, freeArea, globeRegionEligible, globeFrame, MIN_FREE, hasRoom, regionButtonKey } from '../region-frame.js';
 import { GlobeRegion } from '../ui/globe-region.js';
 import { regionItems, startedBy } from '../region-markers.js';
-import { visibleEvents } from '../focus/place.js';
+import { visibleEvents, flatAction } from '../focus/place.js';
 import { OVERLAY_IDS } from '../surfaces.js';
 import { t, loadOrtnamn, pluralUi, loadedPlaces, formatEventTime } from '../model.js';
 import { ui } from '../i18n.js';
@@ -32,11 +32,17 @@ import { say } from '../ui/status.js';
 const REFIT_MS = 450;
 /** Luft mellan platsens ram och det som täcker kartan (skärmpixlar). */
 const GAP = 8;
+/** Den minsta fria ytan för regionvyn bor i region-frame.js (knappen i platskortet läser samma regel, #1692). */
+export { MIN_FREE };
 /**
- * Den minsta fria yta (skärmpixlar) där regionvyn är till nytta: platsen fyller 65 % av den, alltså minst cirka 150 × 100 px.
- * Är ytan mindre (till exempel en liggande telefon med arket uppe) ramas platsen in i Platt vy som förut.
+ * Zoomknapparna är inte uppe när platskortet ritas, så deras mått räknas inte ur sidan utan ur dessa mått (uppmätta i Playwright
+ * 2026-11-16): 44 × 194 px i mobil och 65 × 178 px på dator; de ligger 12 px under kartans överkant och 16 px från sidans kant (på
+ * dator 12 px till vänster om kortet medan det är öppet, css/style.css .flat-zoom). Regionvyns ruta mäts i stället på en osynlig
+ * kopia (chipRect), eftersom raderna i den bryts olika efter språk och bredd. Bara knappens text hänger på måtten: beslutet när
+ * vyn öppnas mäter de riktiga elementen.
  */
-export const MIN_FREE = { w: 230, h: 150 };
+const ZOOM = { narrow: { w: 44, h: 194 }, wide: { w: 65, h: 178 } };
+const GUT = 16, ZOOM_TOP = 12, ZOOM_GAP = 12;
 
 export function createRegion(app) {
   const { $, state, data, flatMap, globe, store, surfaces } = app;
@@ -72,8 +78,11 @@ export function createRegion(app) {
   /** Rutan för ett element i kartans pixlar, med luft runt, eller null när det inte syns. */
   function rect(el, box) {
     if (!el || el.hidden || !el.getClientRects().length) return null;
-    const r = el.getBoundingClientRect();
-    if (!r.width || !r.height) return null;
+    return padded(el.getBoundingClientRect(), box);
+  }
+  /** Rutan r ({ left, top, right, bottom }, sidans pixlar) i kartans pixlar med luft runt, eller null när den är tom. */
+  function padded(r, box) {
+    if (!r || !(r.right - r.left) || !(r.bottom - r.top)) return null;
     return { x0: r.left - box.left - GAP, y0: r.top - box.top - GAP, x1: r.right - box.left + GAP, y1: r.bottom - box.top + GAP };
   }
   /**
@@ -91,7 +100,87 @@ export function createRegion(app) {
     const zoom = narrow || !$('detail').hidden ? document.querySelector('#flat-view .flat-zoom') : null;
     return freeArea({ w: box.width, h: box.height }, [$('detail'), $('focus-bar'), $('pause-note'), chip, zoom].map(el => rect(el, box)), shape);
   }
-  const roomy = () => { const f = flatMap.regionFree(); return !!f && f.w >= MIN_FREE.w && f.h >= MIN_FREE.h; };
+  const roomy = () => hasRoom(flatMap.regionFree());
+
+  // ---- texten på knappen i platskortet (#1692) ---------------------------------------------------------------------
+  // Knappen lovar bara regionvyn när den ryms: annars ramas platsen in i Platt vy, och knappen säger det ("Visa i Platt karta").
+  // Ytan är inte känd förrän Platt vy är öppen, så den räknas i förväg på samma sätt som free(): kartans ruta (flatMap.layoutSpan)
+  // minus kortet, fokusraden och pausraden, och i mobil arket i litet läge (det fälls ihop när knappen trycks) och zoomknapparna.
+  /** Fönstrets storlek, så att ett besked om att ytan var för liten bara gäller i den storleken. */
+  const sizeKey = () => `${innerWidth}x${innerHeight}`;
+  /** Platsen och storleken där öppnandet av regionvyn föll tillbaka till Platt vy fast ytan såg ut att räcka (se fallBack). */
+  let tooSmall = null;
+  /** Arkets ruta i litet läge: det är det läget det har när regionvyn mäter ytan efter att knappen har tryckts (main.js). */
+  function closedSheetRect(card) {
+    const was = card.dataset.sheet;
+    if (!was || was === 'closed' || card.classList.contains('sheet-dragging')) return card.getBoundingClientRect();
+    // Ett ark i litet läge har mindre att rulla: rullningen läggs tillbaka, annars hamnar kortet överst när knappen ritas om
+    const scroll = card.scrollTop;
+    card.dataset.sheet = 'closed';
+    const r = card.getBoundingClientRect(); // ingen övergång på arkets mått, så rutan är den slutliga direkt
+    card.dataset.sheet = was;
+    card.scrollTop = scroll;
+    return r;
+  }
+  /**
+   * Regionvyns ruta för platsen p som den skulle stå i kartans ruta box ({ left, top }): en osynlig kopia av rutan med samma texter
+   * (showChip) mäts och tas bort direkt. Läget uppe till vänster kommer ur samma CSS som den riktiga rutan har.
+   */
+  function chipRect(p, box, root) {
+    const probe = chips.flat.chip.cloneNode(true);
+    probe.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
+    probe.removeAttribute('id');
+    probe.hidden = false;
+    probe.setAttribute('aria-hidden', 'true');
+    probe.style.visibility = 'hidden';
+    probe.style.pointerEvents = 'none';
+    const text = (sel, value) => { const el = probe.querySelector(sel); if (el) el.textContent = value; };
+    text('.flat-region-name', ui('regionView.title', { place: t(p.name) }));
+    text('.flat-region-note', `${ui('regionView.note')} ${ui('regionView.tap')}`);
+    text('.flat-region-legend > span:last-child', ui('regionView.legend'));
+    text('.flat-region-back', ui('regionView.leave'));
+    $('app').appendChild(probe);
+    try {
+      const r = probe.getBoundingClientRect(), cs = getComputedStyle(probe);
+      // Rutan ligger i kartans ruta (left och top räknas från den), kopian i sidan: räkna om till samma ställe
+      const left = root.left + (parseFloat(cs.left) || 0), top = box.top + (parseFloat(cs.top) || 0);
+      return { left, top, right: left + r.width, bottom: top + r.height };
+    } finally { probe.remove(); }
+  }
+  /** Den fria ytan regionvyn skulle få för platsen p om knappen trycktes nu, eller null när kartans yta inte går att mäta. */
+  function freeBeforeEnter(p) {
+    const root = $('app').getBoundingClientRect(), span = flatMap.layoutSpan();
+    if (!root.width || !span.height) return null;
+    const box = { left: root.left, top: span.top, width: root.width, height: span.height };
+    const shape = p?.boundary?.geometry ? regionSize(placeBounds(p)) : null;
+    const narrow = !matchMedia('(min-width: 761px)').matches, card = $('detail'), kind = narrow ? 'narrow' : 'wide';
+    const cardOpen = !card.hidden && card.getClientRects().length > 0;
+    const cardRect = cardOpen ? (narrow ? closedSheetRect(card) : card.getBoundingClientRect()) : null;
+    const z = ZOOM[kind];
+    const zoomRight = !narrow && cardRect ? cardRect.left - ZOOM_GAP : root.right - GUT, zoomTop = box.top + ZOOM_TOP;
+    const covers = [
+      padded(cardRect, box), rect($('focus-bar'), box), rect($('pause-note'), box), padded(chipRect(p, box, root), box),
+      narrow || cardRect ? padded({ left: zoomRight - z.w, top: zoomTop, right: zoomRight, bottom: zoomTop + z.h }, box) : null,
+    ];
+    return freeArea({ w: box.width, h: box.height }, covers, shape);
+  }
+  /** Texten på knappen i kortet för platsen p: regionvyn när den ryms, annars Platt karta (region-frame.js, regionButtonKey). */
+  function buttonKey(p) {
+    if (!p?.boundary?.geometry) return 'place.flatMap';
+    const b = placeBounds(p);
+    // Föll öppnandet nyss tillbaka i den här storleken är svaret nej, hur det än såg ut i förväg
+    if (tooSmall?.id === p.id && tooSmall.size === sizeKey() && regionEligible(b)) return 'place.flatMap';
+    return regionButtonKey(b, regionEligible(b) && !globeRegionEligible(b) ? freeBeforeEnter(p) ?? undefined : undefined);
+  }
+  /** Knappen i platskortet som är öppet nu får rätt text (fönstret ändrade storlek, arket eller fokusraden ändrade höjd, eller kortet för `shown` har just ritats). */
+  function refreshButton(shown = null) {
+    const p = shown ?? (state.focus?.type === 'place' ? state.focus.place : null);
+    const btn = p && !$('detail').hidden ? $('detail').querySelector('[data-selection-action]') : null;
+    if (!btn) return;
+    const a = flatAction(p, null, buttonKey(p));
+    if (btn.textContent !== a.text) btn.textContent = a.text;
+    if (btn.getAttribute('aria-label') !== a.label) btn.setAttribute('aria-label', a.label);
+  }
   /**
    * Den fria delen av globen (#1644): klotets canvas täcker hela sidan, så här dras också knapparna och årtalet överst och tidslinjen
    * nertill bort, utöver kortet eller arket, fokusraden, pausraden och rutan. Samma regel som i Platt vy (freeArea).
@@ -226,9 +315,11 @@ export function createRegion(app) {
 
   /** För liten yta för regionvyn: lämna den tyst och visa platsen i Platt vy som förut, med samma besked som där. */
   function fallBack(p) {
+    tooSmall = { id: p.id, size: sizeKey() }; // och knappen i kortet säger det (#1692)
     flatMap.leaveRegion();
     frameFlat(p);
     say(ui('place.flatShown', { place: t(p.name) }), 'plats', { priority: 2, immediate: true });
+    refreshButton();
   }
 
   /**
@@ -385,6 +476,14 @@ export function createRegion(app) {
     for (const id of ['detail', 'focus-bar']) if ($(id)) ro.observe($(id));
     if (document.querySelector('.masthead')) ro.observe(document.querySelector('.masthead')); // årtalets ruta växer (#1644)
   }
+  // Texten på knappen i platskortet följer fönstret (#1692): storleken ändras, telefonen vänds, arket eller fokusraden ändrar höjd, och
+  // knapparna uppe eller tidsreglaget ändrar höjd (språk, tidsintervall). En gång per bildruta, och bara när kortet har en knapp.
+  if (typeof ResizeObserver !== 'undefined') {
+    let frame = 0;
+    const ro = new ResizeObserver(() => { cancelAnimationFrame(frame); frame = requestAnimationFrame(() => refreshButton()); });
+    for (const el of [$('app'), $('detail'), $('focus-bar'), document.querySelector('.top-actions'), document.querySelector('.timebar')]) if (el) ro.observe(el);
+  }
+  app.narrow.addEventListener?.('change', () => refreshButton());
 
   // Vyn hör till platsen man följer: slutar man följa den (eller följer något annat) lämnas den
   store.subscribe(({ type }) => {
@@ -422,5 +521,5 @@ export function createRegion(app) {
   /** Ett tryck på klotet bredvid knapparna i globens regionvy: solfjädern fälls ihop och markeringen tas bort (main.js). */
   const background = () => globeView.regionMarks.background();
 
-  return { eligible, onGlobe, enter, leave, background, get place() { return place; }, get globeOpen() { return where === 'globe' && globeView.region != null; } };
+  return { eligible, onGlobe, enter, leave, background, buttonKey, refreshButton, get place() { return place; }, get globeOpen() { return where === 'globe' && globeView.region != null; } };
 }
