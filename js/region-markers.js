@@ -46,13 +46,23 @@ export function wholePlace(e, place, places = []) {
   return smallestPlace(places, e._lon, e._lat)?.id === place.id;
 }
 
+/** Har händelsen börjat vid året? Hela år räknas (en händelse som börjar 1997,8 har börjat 1997). */
+export const startedBy = (e, year) => Math.floor(e.start) <= Math.floor(year);
+
 /**
  * Platsens händelser som rader: { e, n, whole, approx }. n är radens nummer i listan (1, 2, …), i samma ordning som listan
  * (händelserna kommer i tidsordning från visibleEvents i js/focus/place.js). approx: platsen är ungefärlig.
+ *
+ * year (#1786): bara händelser som har börjat vid året blir rader. Numren räknas ändå över hela listan, så att en markör har samma
+ * nummer som sin rad i listan "Händelser på platsen" (som visar hela historien) och numren kan ha luckor. Utan year: alla rader.
  */
-export function regionItems(events, place, places = []) {
-  return (events ?? []).map((e, i) => ({ e, n: i + 1, whole: wholePlace(e, place, places), approx: !!e.locationPrecision }));
+export function regionItems(events, place, places = [], year = null) {
+  return (events ?? []).map((e, i) => ({ e, n: i + 1, whole: wholePlace(e, place, places), approx: !!e.locationPrecision }))
+    .filter(it => year == null || !Number.isFinite(year) || startedBy(it.e, year));
 }
+
+/** Den första händelsen som inte har börjat vid året (för raden "Nästa: …" när kartan är tom), annars null. */
+export const nextEvent = (events, year) => (events ?? []).find(e => !startedBy(e, year)) ?? null;
 
 /**
  * Markörerna på skärmen. toScreen(lat, lon) ger { x, y } i kartans pixlar. Ger { brick, singles, piles }: brick är raderna som gäller

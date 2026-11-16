@@ -378,6 +378,7 @@
   "place.flatShown": "Flache Karte geöffnet, {place} im Bild.",
   "regionView.title": "Nahkarte: {place}",
   "regionView.note": "Hier werden nur die Grenze und die Ereignisse des Ortes gezeigt.",
+  "regionView.next": "Hier hat noch kein Ereignis begonnen. Als Nächstes: {next}.",
   "regionView.tap": "Markierung oder Ort antippen für Fakten.",
   "regionView.leave": "Nahkarte verlassen",
   "regionView.shown": "Nahkarte: {place}, {events}. Es werden nur die Grenze und die Ereignisse des Ortes gezeigt. Mit Escape oder der Schaltfläche „Nahkarte verlassen“ gelangen Sie zurück zur Flachen Karte.",

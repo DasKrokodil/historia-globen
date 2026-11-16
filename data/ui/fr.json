@@ -378,6 +378,7 @@
   "place.flatShown": "Carte plane ouverte avec {place} à l’écran.",
   "regionView.title": "Vue rapprochée : {place}",
   "regionView.note": "Seuls la frontière et les événements du lieu sont affichés ici.",
+  "regionView.next": "Aucun événement n’a encore commencé ici. Le suivant : {next}.",
   "regionView.tap": "Un appui sur un marqueur ou sur le lieu affiche les faits.",
   "regionView.leave": "Quitter la vue rapprochée",
   "regionView.shown": "Vue rapprochée : {place}, {events}. Seuls la frontière et les événements du lieu sont affichés ; Échap ou le bouton « Quitter la vue rapprochée » ramène à la carte plane.",
