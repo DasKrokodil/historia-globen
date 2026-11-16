@@ -172,8 +172,21 @@ VASTBERLIN = {'Charlottenburg': (13.3, 52.517), 'Spandau': (13.2, 52.55), 'Weddi
 # Q162049, Q158083, Q675187, Q308928, Q4071168, Q700211, Q324402
 OSTBERLIN = {'Berlin-Mitte': (13.407, 52.519), 'Pankow': (13.4, 52.567), 'Köpenick': (13.577, 52.446)}  # Q2013767, Q163012, Q521521
 
+# #1443: Tenochtitlan ur en.wikipedia "Tenochtitlan" (19° 26′ N, 99° 8′ V) och Texcoco ur Wikidata Q2047652, båda öppnade 2026-11-16
+TENOCHTITLAN = (-99.1333, 19.4333)
+TEXCOCO = (-98.8967, 19.5294)
+MEXIKODALEN = ((TENOCHTITLAN, 'Tenochtitlan'), (TEXCOCO, 'Texcoco'))
+
 # (grupp, punkt, namn, år, ska ligga i riket)
 PUNKTER = [
+    # Mexikodalen (#1443, DasKrokodils svar A 2026-11-14). Punkterna visar läget som det är, inte som det borde vara: Cliopatrias
+    # ytor för Tenochtitlan och Texcoco 1326–1428 ser förväxlade ut och ingen av dem innehåller sin stad, men ytorna står kvar som
+    # i källan (rutan Om kartan). Byts ytorna senare, med en andra källa, ska de här punkterna ändras i samma pull request
+    *[('aztekriket', p, n, y, False) for p, n in MEXIKODALEN for y in (1326, 1400, 1428)],
+    *[('texcoco', p, n, y, False) for p, n in MEXIKODALEN for y in (1202, 1325, 1326, 1400, 1428)],
+    # Förbundets yta 1429–1439 innehåller Texcoco men inte Tenochtitlan (omkring 6 km utanför i källan); från 1440 båda
+    ('aztekriket', TEXCOCO, 'Texcoco', 1430, True), ('aztekriket', TENOCHTITLAN, 'Tenochtitlan', 1430, False),
+    *[('aztekriket', p, n, y, True) for p, n in MEXIKODALEN for y in (1440, 1475, 1500, 1520)],
     *[('osttyskland', CHARLOTTENBURG, 'Charlottenburg', y, False) for y in (1949, 1961, 1973, 1974, 1975, 1980, 1990)],
     ('vasttyskland', SAARBRUCKEN, 'Saarbrücken', 1960, True),
     ('vasttyskland', SAARBRUCKEN, 'Saarbrücken', 1980, True),

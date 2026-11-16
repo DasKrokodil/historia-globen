@@ -127,6 +127,9 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              'danska-indien': (0.002, 0.02, 0), 'danska-guldkusten': (0.002, 0.02, 0),
              # Amerika före 1429 (#556): små riken (2 000–100 000 km²) blir annars fyrhörningar
              'chimor': (0.03, 0.02, 0.005), 'purepecha': (0.03, 0.02, 0.005), 'inkariket': (0.05, 0.02, 0.02),
+             # Aztekriket och Texcoco (#1443): med 0,2 grader blir Tenochtitlan (cirka 2 400 km²) en triangel, och förbundet
+             # överlappar Purépecha med cirka 1 000 km² 1475–1520
+             'aztekriket': (0.03, 0.02, 0.005), 'texcoco': (0.03, 0.02, 0.005),
              # Små stater ur Natural Earth (#722): nästan ingen förenkling, och alla öar behålls
              **{g: (0.002, 0.02, 0) for g in SMALL_STATES}}
 
@@ -269,6 +272,14 @@ GROUPS = {
         ('Tenochtitlan', 'tenochtitlan', 'Tenochtitlan', '#8f4a2a'),
         ('Aztec Triple Alliance', 'aztekiska-trippelalliansen', 'Aztekiska trippelalliansen', '#8f4a2a'),
     ]),
+    # Texcoco (#1443, DasKrokodils svar A 2026-11-14): stadsstaten Tetzcoco, Cliopatria 1202–1428. Cliopatria länkar
+    # förgreningssidan Q1178043; staten är Q2047652. Wikidatas svenska etikett är "Texcoco (altepetl)", med en förtydligande
+    # parentes; namnet är "Texcoco" som i Aztekrikets faktaruta. Cliopatrias ytor för Texcoco och Tenochtitlan 1326–1428 ser
+    # förväxlade ut (ingen av ytorna innehåller sin stad), men det är inte bevisat, så ytorna står kvar som i källan och
+    # avvikelsen står i mapNote. Namnet matchas exakt, så "Puebloans - Aztec Regional System" kommer inte med
+    'texcoco': ('Texcoco', 'Texcoco', [
+        ('Texcoco', 'texcoco', 'Texcoco', '#a39a3c', {'en': 'Texcoco', 'wikidata': 'Q2047652'}),
+    ]),
     'inkariket': ('Inkariket', 'Inca Empire', [
         # Amerika före 1429 (#556): Cliopatrias `Cuzco` är kungariket Cusco, inkarikets föregångare. Cliopatria
         # anger staden (Q5582862); kungariket är Q2314963, som saknar svensk etikett. Det svenska namnet följer svenska
@@ -279,8 +290,7 @@ GROUPS = {
     # Amerika före 1429 (#556, luckan ur #1388). Inte med, eftersom de inte är en stat och väntar på formatet i
     # #1300 (docs/beslut/2026-11-13-omraden-som-inte-ar-stat-1300.md): Olmec Civilization, Zapotec Civilization,
     # Mayan City-States, Later Mayan City-States, Classic Veracruz Culture, Puebloans, Teotihuacan (Q172613 är en
-    # forntida stad) och Toltec (Q187897 är ett folk). Texcoco väntar också: Cliopatrias ytor för Texcoco och
-    # Tenochtitlan ser ut att vara förväxlade (staden Tenochtitlan ligger 23 km från sin egen yta).
+    # forntida stad) och Toltec (Q187897 är ett folk). Texcoco är med sedan #1443 (gruppen ovan).
     # Cliopatrias `Chimor` (911–1187) och `Chimu Empire` (1188–1481) är samma stat (båda Q581741) och slås ihop
     'chimor': ('Chimor', 'Chimor', [
         (['Chimor', 'Chimu Empire'], 'chimor', 'Chimor', '#c47a3d', {'en': 'Chimor'}),
@@ -2916,6 +2926,7 @@ def extend(by_name, ext):
 # decimaler, annars hamnar Słubice och Zgorzelec vid Oder–Neisse utanför Polen (#1750)
 DECIMALS = {'israel': 2, 'palestina': 2, 'osttyskland': 2, 'vasttyskland': 2, 'tyskland': 2, 'nederlanderna': 2, 'polen': 2, 'fria-staden-danzig': 2, **{g: 3 for g in SMALL_STATES},
             'chimor': 2, 'purepecha': 2, 'inkariket': 2,  # #556
+            'aztekriket': 2, 'texcoco': 2,  # #1443
             'strathclyde': 2, 'kungariket-skottland': 2,  # #1721
             'wessex': 2, 'mercia': 2, 'northumbria': 2, 'dal-riata': 2,  # #1744
             'oyoriket': 2, 'ashantiriket': 2, 'gronland-koloni': 2, 'danska-indien': 3, 'danska-guldkusten': 3}  # #1388
