@@ -2493,20 +2493,22 @@ OA_KEN = ('ne', ['kenya-kust-ne'])
 OA_TZA = ('skillnad', ('ne', ['tanzania-kust-ne']), OA_OAR)
 OA_MARK = ('union', OA_KEN, OA_TZA)
 # grupp: Cliopatrias poster för gruppen vid kusten
-OA_INNEHAVARE = {'spanska-imperiet': ['(Spanish Empire)'], 'portugisiska-imperiet': ['(Portuguese Empire)'],
+OA_INNEHAVARE = {'spanska-imperiet': ['(Spanish Empire)'], 'portugisiska-imperiet': ['(Portuguese Empire)', 'Portuguese Republic', 'Estado Novo'],
                  'oman': ['Sultanate of Oman'], 'brittiska-imperiet': ['(British Empire)'], 'tyska-riket': ['German Africa'],
                  'kenya': ['Republic of Kenya'], 'tanzania': ['Tanzania']}
 # (sida, mark, grupp, från, till eller None, grupper som klipps, grupper vars mark på sidan också går till gruppen): intervallen där
 # Cliopatrias gränser vid kusten är desamma (kontrollerat vid varje brytpunkt i Cliopatria 1500–2024). 1917 delar Cliopatria
 # Tanzanias kust mellan Tyska riket och Brittiska imperiet längs en linje som går ut genom rutans västra kant; det året följer hela
-# kusten därför förenklingen. Portugal (Moçambique) har en bit norr om Rovuma i Cliopatria 1890–1910; den läggs till 1890–1913,
-# eftersom ett slut 1910 skulle dela Portugals period 1895–1913 vid 1911 och ändra gränsen i hela imperiet 1911–1913. Kenyas och
+# kusten därför förenklingen. Portugal (Moçambique) har en bit norr om Rovuma i Cliopatria 1890–1917 och 1919–1975 (Kingdom of
+# Portugal och Portuguese Republic); 1918 räknar Cliopatria den till Brittiska imperiet. Kenyas och
 # Tanzanias land klipps ur Portugal (1890–1975) och Moçambique (från 1976), vars förenklade gränser annars går in över Natural
 # Earths gräns vid Rovuma (geografen). Kenyas sida klipps ur grannen i söder. Där den förenklade gränsen för staten på Kenyas sida
 # går in över Tanzanias land väster om rutan, klipps den i stället ur staten på Tanzanias sida i rutan (OA_GRANS, oa_grans), så att
 # gränsen mellan dem följer den förenklade gränsen ända fram och inte rutans kant
+# Likadant vid Rovuma: Portugals bit norr om floden (som i Cliopatria) klipps ur grannarnas förenklade gränser
 OA_GRANS = [('tyska-riket', 'brittiska-imperiet', 1890, 1916), ('tanzania', 'brittiska-imperiet', 1961, 1962),
-            ('tanzania', 'kenya', 1963, 2024)]
+            ('tanzania', 'kenya', 1963, 2024), ('tyska-riket', 'portugisiska-imperiet', 1890, 1917),
+            ('brittiska-imperiet', 'portugisiska-imperiet', 1919, 1962), ('tanzania', 'portugisiska-imperiet', 1961, 1975)]
 OA_KUST = [
     ('ken', OA_KEN, 'spanska-imperiet', 1595, 1639, [], []), ('ken', OA_KEN, 'portugisiska-imperiet', 1640, 1699, [], []),
     ('ken', OA_KEN, 'oman', 1744, 1813, [], []), ('ken', OA_KEN, 'oman', 1814, 1814, [], []),
@@ -2514,7 +2516,8 @@ OA_KUST = [
     ('ken', OA_KEN, 'brittiska-imperiet', 1824, 1827, [], []),
     *[('ken', OA_KEN, 'brittiska-imperiet', a, b, ['tyska-riket'], ['tyska-riket']) for a, b in ((1890, 1894), (1895, 1914), (1915, 1915), (1916, 1916))],
     *[('tza', OA_TZA, 'tyska-riket', a, b, [], ['brittiska-imperiet']) for a, b in ((1890, 1894), (1895, 1914), (1915, 1915), (1916, 1916))],
-    ('tza', OA_TZA, 'portugisiska-imperiet', 1890, 1894, [], []), ('tza', OA_TZA, 'portugisiska-imperiet', 1895, 1913, [], []),
+    ('tza', OA_TZA, 'portugisiska-imperiet', 1890, 1894, [], []), ('tza', OA_TZA, 'portugisiska-imperiet', 1895, 1917, [], []),
+    ('tza', OA_TZA, 'portugisiska-imperiet', 1919, 1975, [], []),
     *[(sida, mark, 'brittiska-imperiet', a, b, [], []) for sida, mark in (('ken', OA_KEN), ('tza', OA_TZA))
       for a, b in ((1918, 1918), (1919, 1940), (1941, 1959), (1960, 1960))],
     ('ken', OA_KEN, 'brittiska-imperiet', 1961, 1962, [], ['tanzania']),
