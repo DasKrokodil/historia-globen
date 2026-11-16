@@ -132,6 +132,17 @@ KINSHASA = (15.3119, -4.3219)
 BRAZZAVILLE = (15.2711, -4.2694)
 NUUK = (-51.7333, 64.175)
 GANDER = (-54.5886, 48.9572)
+# #1787, ur Wikidata (wbgetentities, P625, öppnade 2026-11-16): Mombasa Q225641, Tanga Q152902, Lamu Q272799, Malindi Q271411,
+# Bagamoyo Q799843, Kilwa Kisiwani Q1741475, Kilwa Kivinje Q654318 och Dar es Salaam Q1960
+MOMBASA = (39.6667, -4.05)
+TANGA = (39.1, -5.0667)
+LAMU = (40.9003, -2.2686)
+MALINDI = (40.1167, -3.2194)
+BAGAMOYO = (38.9, -6.4333)
+KILWA_KISIWANI = (39.5172, -8.9817)
+KILWA_KIVINJE = (39.4133, -8.7478)
+DAR_ES_SALAAM = (39.2803, -6.8161)
+OA_TANGANYIKA = ((TANGA, 'Tanga'), (BAGAMOYO, 'Bagamoyo'), (KILWA_KIVINJE, 'Kilwa Kivinje'), (DAR_ES_SALAAM, 'Dar es Salaam'))
 # Nära trepunkterna (geografen, #1534): punkter i Cliopatrias Sudan 2014 där Centralafrikanska republikens och Etiopiens förenklade
 # gränser når in. Sudans gräns längs Sydsudan får inte läggas över dem, så att marken bara ritas i en stat
 NARA_CAF = (23.96, 8.71)
@@ -312,6 +323,17 @@ PUNKTER = [
     *[('sydsudan', KHARTOUM, 'Khartoum', y, False) for y in (2011, 2024)],
     *[('tanzania', p, n, y, True) for p, n in ((ZANZIBAR, 'Zanzibar'), (WETE, 'Wete')) for y in (1964, 1966, 1967, 2000, 2024)],
     *[('tanzania', p, n, 1963, False) for p, n in ((ZANZIBAR, 'Zanzibar'), (WETE, 'Wete'))],
+    # Östafrikas kust (#1787): Natural Earths kust i rutorna, och orterna i den stat som Cliopatria har vid kusten de åren
+    *[('tanzania', p, n, y, True) for p, n in OA_TANGANYIKA for y in (1961, 1964, 2000, 2024)],
+    *[('tyska-riket', p, n, y, True) for p, n in OA_TANGANYIKA for y in (1890, 1900, 1916)],
+    *[('brittiska-imperiet', p, n, y, True) for p, n in OA_TANGANYIKA for y in (1918, 1930, 1944, 1950, 1960)],
+    *[('oman', p, n, y, True) for p, n in ((TANGA, 'Tanga'), (BAGAMOYO, 'Bagamoyo'), (DAR_ES_SALAAM, 'Dar es Salaam'))
+      for y in (1744, 1800, 1814)],
+    *[('kenya', MALINDI, 'Malindi', y, True) for y in (1963, 2000, 2024)],
+    *[('brittiska-imperiet', MALINDI, 'Malindi', y, True) for y in (1890, 1900, 1950, 1962)],
+    *[('brittiska-imperiet', ZANZIBAR, 'Zanzibar', y, True) for y in (1890, 1911, 1922, 1946, 1956, 1962)],
+    *[('kenya', p, n, y, False) for p, n in OA_TANGANYIKA for y in (1963, 2024)],
+    *[('tanzania', MALINDI, 'Malindi', y, False) for y in (1963, 2024)],
     *[('sudan', p, n, y, False) for p, n in ((NARA_CAF, 'nära trepunkten vid Centralafrikanska republiken'),
                                               (NARA_ETIOPIEN, 'nära trepunkten vid Etiopien')) for y in (2011, 2012, 2020)],
     *[('centralafrikanska-republiken', NARA_CAF, 'nära trepunkten vid Centralafrikanska republiken', y, True) for y in (2012, 2020)],
@@ -408,6 +430,15 @@ NARA = [
     *[('danmark', NUUK, 'Nuuk', y) for y in (1946, 1979, 2000, 2024)],
     # Kuwait City ligger cirka 500 m utanför Kuwaits förenklade kust (#1469)
     *[('kuwait', KUWAIT_CITY, 'Kuwait City', y) for y in (1961, 1989, 1990, 1991, 2024)],
+    # Mombasa och Lamu ligger på öar och Kilwa Kisiwani på en ö som Natural Earth 1:10m saknar; orterna ligger 1,5–3,5 km utanför
+    # Natural Earths kust (#1787)
+    *[('kenya', p, n, y) for p, n in ((MOMBASA, 'Mombasa'), (LAMU, 'Lamu')) for y in (1963, 2000, 2024)],
+    *[('brittiska-imperiet', p, n, y) for p, n in ((MOMBASA, 'Mombasa'), (LAMU, 'Lamu')) for y in (1895, 1920, 1944, 1950, 1962)],
+    ('brittiska-imperiet', MOMBASA, 'Mombasa', 1824),
+    *[('oman', MOMBASA, 'Mombasa', y) for y in (1744, 1800, 1814)],
+    ('spanska-imperiet', MOMBASA, 'Mombasa', 1600), ('portugisiska-imperiet', MOMBASA, 'Mombasa', 1650),
+    *[(g, KILWA_KISIWANI, 'Kilwa Kisiwani', y) for g, y in (('tyska-riket', 1900), ('brittiska-imperiet', 1920),
+                                                           ('brittiska-imperiet', 1950), ('tanzania', 1961), ('tanzania', 2024))],
 ]
 MARGINAL = 0.05
 

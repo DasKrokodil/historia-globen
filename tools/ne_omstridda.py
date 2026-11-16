@@ -66,7 +66,13 @@ CLIPPED = {'frankrike-ne': ('FRA', (-5.5, 41.0, 10.0, 51.5)), 'nederlanderna-ne'
            'unguja-ne': ('TZA', (39.17, -6.5, 39.6, -5.7)), 'pemba-ne': ('TZA', (39.55, -5.5, 39.9, -4.85)),
            # Kinshasa och Brazzaville vid Pool Malebo (#1707): de två Kongos sidor av floden, så att Kinshasa inte hamnar på
            # Brazzavillesidan efter förenklingen
-           'kongo-kinshasa-ne': ('COD', (14.6, -4.8, 15.9, -3.8)), 'kongo-brazzaville-ne': ('COG', (14.6, -4.8, 15.9, -3.8))}
+           'kongo-kinshasa-ne': ('COD', (14.6, -4.8, 15.9, -3.8)), 'kongo-brazzaville-ne': ('COG', (14.6, -4.8, 15.9, -3.8)),
+           # Östafrikas kust (#1787): Kenyas kust från Mombasa till Lamu och Tanzanias fastlandskust från Tanga till Kilwa. Rutorna
+           # når inte gränsen mellan länderna vid kusten (4,68 grader syd) och inte gränsen mot Somalia (1,66 grader syd)
+           'kenya-kust-ne': ('KEN', (39.05, -4.55, 41.6, -1.75)), 'tanzania-kust-ne': ('TZA', (38.6, -9.05, 39.6, -4.8))}
+# Förenkling för en ruta i CLIPPED (grader), annars 0,003: Östafrikas kust förenklas som länderna (0,01), eftersom den läggs i
+# varje period för Brittiska imperiet och de andra staterna vid kusten och filerna annars växer mycket (#1787)
+CLIPPED_TOL = {'kenya-kust-ne': 0.01, 'tanzania-kust-ne': 0.01}
 # Små stater (#722), ur samma fil men förenklade till bara 0,002 grader och avrundade till 0,001 grad
 # Delstater ur ne_10m_admin_1_states_provinces (adm1_code), sammanslagna och förenklade till 0,003 grader (#1730, #1750)
 STATES = {'vasttyska-granslander': ['DEU-1579', 'DEU-1576', 'DEU-1574', 'DEU-1591'],
@@ -118,7 +124,7 @@ def main():
                     g = shape(s.shape.__geo_interface__).buffer(0).intersection(box(*ruta))
                     # bara ytor: snittet med rutan kan ge linjer och punkter där gränsen följer rutans kant
                     g = unary_union([q for q in getattr(g, 'geoms', [g]) if q.geom_type in ('Polygon', 'MultiPolygon')])
-                    m = mapping(g.simplify(0.003, preserve_topology=True))
+                    m = mapping(g.simplify(CLIPPED_TOL.get(key, 0.003), preserve_topology=True))
                     feats.append({'type': 'Feature', 'properties': {'id': key, 'name': a['NAME'], 'note': 'ne_10m_admin_0_countries, inom rutan'},
                                   'geometry': {'type': m['type'], 'coordinates': rnd(m['coordinates'])}})
     if len(sys.argv) > 3:
