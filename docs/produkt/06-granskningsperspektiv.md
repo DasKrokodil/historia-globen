@@ -40,6 +40,8 @@ Linserna 9 (barn F–3) och 10 (spelaren) har inga egna kolumner än. Använd 10
 
 *Agent: `ux-tillganglighet` (lins 1 och 7), `.claude/agents/ux-tillganglighet.md`.*
 
+*Genomgång per yta (2026-11-16, #1799):* utöver granskning av enskilda ändringar går agenten igenom varje yta som en besökares uppgift med fem frågor (förväntan, först, ointressant, tillstånd, läsbarhet och mobil). Den ingår i expertgranskningen före varje release och körs som baslinje för alla ytor. Fynd som missades loggas i `docs/ux-review/fynd-som-missades.md`.
+
 **Blicken:** helheten ur ett människocentrerat perspektiv. Är värdet tydligt, är vägen kort, är hierarkin begriplig, och håller utseendet och mönstren ihop?
 
 **Frågor**
