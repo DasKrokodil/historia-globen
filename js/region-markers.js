@@ -203,7 +203,13 @@ export function brickSpot(nominal, { w, h }, covers, W, H, pad = 6) {
   for (const c of covers) tries.push({ x: clampX(c.x0 - w / 2 - pad), y: y0 }, { x: clampX(c.x1 + w / 2 + pad), y: y0 });
   tries.sort((a, b) => Math.abs(a.x - x0) - Math.abs(b.x - x0));
   for (const c of covers) tries.push({ x: x0, y: c.y1 + h + pad });
-  return tries.find(t => fits(t.x, t.y)) ?? { x: x0, y: y0 };
+  const found = tries.find(t => fits(t.x, t.y));
+  if (found) return found;
+  // Låg yta ovanför arket i mobil (#1863): pröva också i sidled förbi en ruta och samtidigt ovanför eller under en annan, närmast först
+  const xs = [x0, ...covers.flatMap(c => [clampX(c.x0 - w / 2 - pad), clampX(c.x1 + w / 2 + pad)])];
+  const ys = [y0, ...covers.flatMap(c => [c.y1 + h + pad, c.y0 - pad])];
+  const grid = xs.flatMap(x => ys.map(y => ({ x, y }))).sort((a, b) => Math.hypot(a.x - x0, a.y - y0) - Math.hypot(b.x - x0, b.y - y0));
+  return grid.find(t => fits(t.x, t.y)) ?? { x: x0, y: y0 };
 }
 
 /** Ordningen som namnen prövas i: orter med händelser, sedan grannländer, sedan hav och övriga orter efter storlek (rank). */

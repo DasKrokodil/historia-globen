@@ -3907,6 +3907,50 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
+  // #1863: i mobil ramas Skåne in ovanför arket när en händelse öppnas, och den valda markören (en hög eller en enskild markör) hamnade
+  // under zoomknapparna uppe till höger, brickan "Hela Skåne" under +. Nu räknas zoomknapparna bort ur den fria ytan också i mobil.
+  await check('regionvyn i mobil: den valda markören och brickan ligger fritt ovanför arket, inte under zoomknapparna (#1863)', async () => {
+    if (vp.width > 760) return 'körs i mobiljobbet';
+    const { tp, tctx, errs } = await placeTapPage('#y=1827&f=place:skane', 'markor1863');
+    try {
+      await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+      await openRegion(tp, 'skane');
+      await regionSettled(tp);
+      // Slaget vid Helsingborg: markören med numret i listan trycks två gånger (markera, sedan öppna kortet)
+      const n = await tp.evaluate(() => [...document.querySelectorAll('#detail [data-theme-event]')]
+        .find(r => /Helsingborg/.test(r.textContent))?.querySelector('.region-num')?.textContent.trim());
+      if (!n) throw new Error('Slaget vid Helsingborg har inget nummer i listan');
+      for (let i = 0; i < 2; i++) {
+        const m = tp.locator(`.region-marks .rmark[data-n="${n}"]`);
+        if (!await m.isVisible()) break; // efter första trycket kan den ligga i en hög
+        await m.tap();
+        await regionSettled(tp);
+      }
+      await tp.waitForFunction(() => /Helsingborg/.test(document.querySelector('#detail h2, #detail h3')?.textContent || ''), null, { timeout: T.step });
+      await regionSettled(tp);
+      const r = await tp.evaluate(() => {
+        const box = el => { const b = el?.getBoundingClientRect(); return b && b.width && b.height ? b : null; };
+        const controls = [...document.querySelectorAll('#flat-view .flat-zoom button'), document.getElementById('flat-region'), document.getElementById('detail'), document.getElementById('focus-bar')]
+          .map(el => ({ el, b: box(el) })).filter(c => c.b && c.el.offsetParent);
+        const hit = (b, c) => b.left < c.b.right && b.right > c.b.left && b.top < c.b.bottom && b.bottom > c.b.top;
+        const name = el => el.id || el.getAttribute('aria-label') || el.textContent.trim();
+        const sel = document.querySelector('.region-marks .is-marked:not([hidden])');
+        const brick = document.querySelector('.region-marks .rbrick:not([hidden])');
+        const zoom = [...document.querySelectorAll('#flat-view .flat-zoom button')].map(el => ({ el, b: box(el) })).filter(c => c.b);
+        return {
+          sel: sel ? sel.className : null,
+          selOver: sel ? controls.filter(c => hit(box(sel), c)).map(c => name(c.el)) : [],
+          brickOver: brick ? zoom.filter(c => hit(box(brick), c)).map(c => name(c.el)) : [],
+        };
+      });
+      if (!r.sel) throw new Error('ingen markör är markerad efter trycket');
+      if (r.selOver.length) throw new Error(`den valda markören (${r.sel}) ligger under ${r.selOver.join(', ')}`);
+      if (r.brickOver.length) throw new Error(`brickan ligger under zoomknapparna: ${r.brickOver.join(', ')}`);
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `markör ${n} öppnad, den valda (${r.sel.split(' ')[0]}) och brickan ligger fritt`;
+    } finally { await tctx.close(); }
+  });
+
   // #1660: i Platt vy låg zoomknapparna (+, −, Återställ, Affisch) under faktarutan på dator så fort kortet var öppet, och kortet är
   // öppet när man kommer in via platsens knapp. Provet följer Skåne, öppnar regionvyn (där zoom och Återställ används mest) och sedan
   // vanlig Platt karta, och kontrollerar i båda att varje knapp ligger utanför kortet, att det är knappen som ligger överst i dess

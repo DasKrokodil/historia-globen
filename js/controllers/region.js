@@ -85,8 +85,10 @@ export function createRegion(app) {
     const box = flatMap.canvas.getBoundingClientRect();
     const shape = place?.boundary?.geometry ? regionSize(placeBounds(place)) : null;
     // På dator ligger zoomknapparna till vänster om kortet medan det är öppet (#1660), alltså inne i den fria ytan: platsen ramas
-    // då in vid sidan av dem. Annars ligger de vid högerkanten, där de alltid legat, och i mobil uppe till höger som förut.
-    const zoom = !$('detail').hidden && matchMedia('(min-width: 761px)').matches ? document.querySelector('#flat-view .flat-zoom') : null;
+    // då in vid sidan av dem. Annars ligger de vid högerkanten, där de alltid legat. I mobil ligger de uppe till höger inne i kartan,
+    // och ramen ovanför arket hamnade under dem (#1863): där räknas de alltid bort, så att ingen markör eller bricka ligger under dem.
+    const narrow = !matchMedia('(min-width: 761px)').matches;
+    const zoom = narrow || !$('detail').hidden ? document.querySelector('#flat-view .flat-zoom') : null;
     return freeArea({ w: box.width, h: box.height }, [$('detail'), $('focus-bar'), $('pause-note'), chip, zoom].map(el => rect(el, box)), shape);
   }
   const roomy = () => { const f = flatMap.regionFree(); return !!f && f.w >= MIN_FREE.w && f.h >= MIN_FREE.h; };
