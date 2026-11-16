@@ -392,10 +392,11 @@ PUNKTER = [
     *[(g, p, n, y, False) for p, n in ((LA_CHAUX, 'La Chaux-de-Fonds'), (PORRENTRUY, 'Porrentruy'), (VALLORBE, 'Vallorbe'),
                                        (GENEVE, 'Genève')) for g, y in (('nazityskland', 1942), ('franska-kolonialvaldet', 1942),
                                                                         ('italien', 1943), ('nazityskland', 1944))],
-    # Västra Allgäu 1945–1949 (#1781): Kreis Wangen i den franska zonen, Memmingen och Oberallgäu i den amerikanska
-    *[('franska-kolonialvaldet', p, n, y, True) for p, n in ((LEUTKIRCH, 'Leutkirch'), (ISNY, 'Isny'), (BAD_WURZACH, 'Bad Wurzach'))
+    # Västra Allgäu 1945–1949 (#1781): Wangen och Bad Wurzach i den franska zonen, Memmingen och Oberstaufen i den amerikanska.
+    # Weiler (källorna skiljer sig), Leutkirch och Isny (Cliopatrias USA, franska zonen genom #1771) prövas bara i DUBBEL
+    *[('franska-kolonialvaldet', p, n, y, True) for p, n in ((WANGEN, 'Wangen im Allgäu'), (BAD_WURZACH, 'Bad Wurzach'))
       for y in (1945, 1946, 1949)],
-    *[('usa', p, n, y, False) for p, n in ((LEUTKIRCH, 'Leutkirch'), (ISNY, 'Isny'), (BAD_WURZACH, 'Bad Wurzach')) for y in (1945, 1946, 1949)],
+    *[('usa', p, n, y, False) for p, n in ((WANGEN, 'Wangen im Allgäu'), (BAD_WURZACH, 'Bad Wurzach')) for y in (1945, 1946, 1949)],
     *[('usa', p, n, y, True) for p, n in ((MEMMINGEN, 'Memmingen'), (OBERSTAUFEN, 'Oberstaufen')) for y in (1945, 1946, 1949)],
 ]
 
@@ -444,7 +445,7 @@ DUBBEL = [
       for y in (1946, 1949, 1952)],
     *[(('franska-kolonialvaldet', 'nazityskland', 'italien', 'schweiz'), p, n, y) for p, n in ((PONTARLIER, 'Pontarlier'), (GEX, 'Gex'),
                                                                                             (GENEVE, 'Genève')) for y in (1940, 1942, 1943, 1944)],
-    *[(('franska-kolonialvaldet', 'usa'), p, n, y) for p, n in ((WEILER, 'Weiler-Simmerberg'), (LEUTKIRCH, 'Leutkirch'), (MEMMINGEN, 'Memmingen'))
+    *[(('franska-kolonialvaldet', 'usa'), p, n, y) for p, n in ((WEILER, 'Weiler-Simmerberg'), (LEUTKIRCH, 'Leutkirch'), (ISNY, 'Isny'), (MEMMINGEN, 'Memmingen'))
       for y in (1945, 1946, 1949)],
 ]
 for grupper, pt, namn, year in DUBBEL:

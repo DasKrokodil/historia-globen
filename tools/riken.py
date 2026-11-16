@@ -1889,11 +1889,11 @@ JURA = (5.9, 46.1, 7.6, 47.65)
 # Kungariket Italien (1943); den fransk mark som Cliopatria räknar till Schweiz går till den innehavare den gränsar mest mot
 JURA_FR = ('snitt', ('ne', ['frankrike-ne']), ('rutor', [JURA]))
 JURA_NAZI, JURA_VICHY, JURA_ITALIEN = ['Nazi Germany'], ['Vichy France', '(Vichy France)'], ['Kingdom of Italy']
-# Västra Allgäu 1945–1949 (#1781): Württembergs del (Kreis Wangen, Ravensburg, Tettnang och södra Biberach, alla i
-# Württemberg-Hohenzollern) och Bayerns del, där Cliopatrias franska zon (Lindau) skiljs från den amerikanska
+# Västra Allgäu 1945–1949 (#1781): Bayerns mark i rutan delas mellan den franska och den amerikanska zonen längs Cliopatrias egen
+# linje (zone_part). Bara Cliopatrias franska del kring Lindau (LINDAU_PUNKT) räknas som fransk
 ALLGAU = (9.5, 47.25, 10.5, 48.1)
-ALLGAU_BW = ('skillnad', ('snitt', ('ne', ['tyskland']), ('rutor', [ALLGAU])), ('ne', ['vasttyska-granslander']))
 ALLGAU_BY = ('snitt', ('snitt', ('ne', ['tyskland']), ('ne', ['vasttyska-granslander'])), ('rutor', [ALLGAU]))
+LINDAU_PUNKT = (9.684, 47.546)  # Lindau, Q153969
 TYSKA_SIDAN = ('snitt', ('ne', ['tyskland']), ('rutor', [FRANSKA_GRANSEN]))
 FRANSKA_SIDAN = ('snitt', ('ne', ['frankrike-ne']), ('rutor', [FRANSKA_GRANSEN]))
 # Tysklands sida av gränsen mot Nederländerna 1950–1962 enligt Förbundsrepublikens gräns i Cliopatria 1955 (utan Selfkant och
@@ -2396,8 +2396,8 @@ DISPUTED = {
     'alp-liechtenstein': {'area': ('ne', ['liechtenstein']), 'from': 1919, 'strict': True, 'efter': True,
                           'remove': ['osterrike', 'schweiz'], 'add': []},
     # Före 1919 (#1781): Basel var utan stat 1871–1918 och Konstanz ritades i både Tyska riket och Schweiz. Gränsen mellan Tyskland
-    # och Schweiz har med små ändringar legat fast sedan 1651 (en.wikipedia "Germany–Switzerland border"), och gränsen mellan
-    # Österrike och Schweiz är från 1798 och var Österrikiska kejsardömets och Österrike-Ungerns västgräns (en.wikipedia
+    # och Schweiz har i stort sett legat fast sedan 1501 (Rafzerfeld kom till Zürich 1651; en.wikipedia "Germany–Switzerland
+    # border"), och gränsen mellan Österrike och Schweiz är från 1798 och var Österrikiska kejsardömets och Österrike-Ungerns västgräns (en.wikipedia
     # "Austria–Switzerland border"). Elsass med Saint-Louis hörde till Tyska riket 1871–1918 (en.wikipedia "Alsace–Lorraine").
     # I rutan HOCHRHEIN följer gränserna därför Natural Earth också före 1919: Schweiz från 1815 (gruppens perioder börjar då),
     # Tyska riket från 1871 och Österrike-Ungern från 1868. Före 1871 finns ingen grupp för Baden, Württemberg och Bayern, så den
@@ -2431,22 +2431,22 @@ DISPUTED = {
                                              ('ne', ['vasttyska-granslander'])),
                                     'from': 1945, 'to': 1949, 'strict': True, 'efter': True, 'remove': ['usa'],
                                     'add': ['franska-kolonialvaldet']},
-    # Västra Allgäu 1945–1949 (#1781): fält kring Leutkirch, Weiler och Oberstaufen var utan stat. Kreis Wangen (Leutkirch, Isny,
-    # Wangen, Bad Wurzach) hörde till den franska zonen och Württemberg-Hohenzollern (de.wikipedia "Landkreis Wangen" och
-    # "Württemberg-Hohenzollern", som också nämner Ravensburg, Tettnang och Biberach), men Cliopatria räknar Isny och Leutkirch
-    # till USA. Württembergs del av rutan läggs till Fjärde republiken och klipps ur USA. I Bayern var Lindau den enda kretsen i
-    # den franska zonen; gränsen för kretsen finns inte i våra källor, så Bayerns del följer Cliopatrias franska zon och resten
-    # läggs till USA (Natural Earth admin 1 för gränsen mellan Bayern och Württemberg)
-    'allgau-wurttemberg': {'area': ALLGAU_BW, 'from': 1945, 'to': 1949, 'strict': True, 'efter': True, 'remove': ['usa'],
-                           'add': ['franska-kolonialvaldet']},
-    'allgau-bayern-usa-1945': {'area': ('skillnad', ALLGAU_BY, ('clio', 'French Fourth Republic', 1945)), 'from': 1945, 'to': 1945,
-                               'strict': True, 'efter': True, 'remove': ['franska-kolonialvaldet'], 'add': ['usa']},
-    'allgau-bayern-fr-1945': {'area': ('snitt', ALLGAU_BY, ('clio', 'French Fourth Republic', 1945)), 'from': 1945, 'to': 1945,
-                              'strict': True, 'efter': True, 'remove': ['usa'], 'add': ['franska-kolonialvaldet']},
-    'allgau-bayern-usa': {'area': ('skillnad', ALLGAU_BY, ('clio', 'French Fourth Republic', 1946)), 'from': 1946, 'to': 1949,
-                          'strict': True, 'efter': True, 'remove': ['franska-kolonialvaldet'], 'add': ['usa']},
-    'allgau-bayern-fr': {'area': ('snitt', ALLGAU_BY, ('clio', 'French Fourth Republic', 1946)), 'from': 1946, 'to': 1949,
-                         'strict': True, 'efter': True, 'remove': ['usa'], 'add': ['franska-kolonialvaldet']},
+    # Västra Allgäu 1945–1949 (#1781): fält kring Weiler och Oberstaufen i Bayern var utan stat. Bayerns mark i rutan ALLGAU (Natural
+    # Earth admin 1) delas mellan den franska zonen och USA längs Cliopatrias egen linje (zone_part), så att ingen ny linje dras; i
+    # Bayern räknas bara Cliopatrias franska yta kring Lindau som fransk, inte de bitar av den franska zonen i Österrike som
+    # Cliopatria 1945 ritar in över Bayern vid Oberstdorf. Källorna skiljer sig om Weiler im Allgäu: Landkreis Lindau (franska
+    # zonen) enligt de.wikipedia "Landkreis Lindau (Bodensee)", USA i Cliopatria. Württemberg följer Cliopatria: en ifyllning där
+    # gav en zongräns längs rutans nordkant (geografen), eftersom Cliopatrias USA i Württemberg (Isny, Leutkirch, Ulm) är en enda
+    # sammanhängande yta. Fältet kring Leutkirch och Memmingen är därför kvar utan stat, och Isny och Leutkirch, som hörde till den
+    # franska zonen (de.wikipedia "Landkreis Wangen"), står i Om kartan som källfel
+    'allgau-bayern-usa-1945': {'area': ('zon', ALLGAU_BY, 1945, 'us', LINDAU_PUNKT), 'from': 1945, 'to': 1945, 'strict': True,
+        'efter': True, 'remove': ['franska-kolonialvaldet'], 'add': ['usa']},
+    'allgau-bayern-fr-1945': {'area': ('zon', ALLGAU_BY, 1945, 'fr', LINDAU_PUNKT), 'from': 1945, 'to': 1945, 'strict': True,
+        'efter': True, 'remove': ['usa'], 'add': ['franska-kolonialvaldet']},
+    'allgau-bayern-usa': {'area': ('zon', ALLGAU_BY, 1946, 'us', LINDAU_PUNKT), 'from': 1946, 'to': 1949, 'strict': True,
+        'efter': True, 'remove': ['franska-kolonialvaldet'], 'add': ['usa']},
+    'allgau-bayern-fr': {'area': ('zon', ALLGAU_BY, 1946, 'fr', LINDAU_PUNKT), 'from': 1946, 'to': 1949, 'strict': True,
+        'efter': True, 'remove': ['usa'], 'add': ['franska-kolonialvaldet']},
     # och Tjeckoslovakiens sida, som Cliopatria 1947–1949 ritar också i USA och Sovjetunionen
     'tjeckoslovakien-zoner': {'area': ('ne', ['tjeckien-ne']), 'from': 1947, 'to': 1949, 'strict': True, 'efter': True,
                               'remove': ['usa', 'sovjetunionen'], 'add': []},
@@ -2510,6 +2510,30 @@ def holder_part(land, wrong, y, holder, others, by_name):
     return out
 
 
+def zone_part(land, y, side, anchor, by_name):
+    """Den franska ('fr') eller amerikanska ('us') delen av land år y, längs Cliopatrias linje mellan zonerna (#1781).
+
+    Fransk är land i Cliopatrias Fjärde republik (med anchor bara de sammanhängande delar som innehåller punkten), amerikansk land
+    i Cliopatrias USA utom den franska delen. Resten (där Cliopatrias gränser inte når fram eller där en annan stat ligger över
+    marken) delas inte: varje sammanhängande del går till den zon den har längst gräns mot, så att ingen ny linje dras."""
+    def union(name):
+        return unary_union([shape(f['geometry']).buffer(0) for f in by_name.get(name, [])
+                            if f['properties']['FromYear'] <= y <= f['properties']['ToYear']])
+    fr = polygons_only(land.intersection(union('French Fourth Republic')))
+    if anchor is not None:
+        pt = shapely.Point(anchor)
+        fr = unary_union([p for p in getattr(fr, 'geoms', [fr]) if not p.is_empty and p.buffer(0.001).contains(pt)])
+    us = polygons_only(land.intersection(union('United States of America')).difference(fr))
+    rest = polygons_only(land.difference(fr).difference(us))
+    add_fr, add_us = [fr], [us]
+    for p in getattr(rest, 'geoms', [rest]):
+        if p.is_empty:
+            continue
+        edge = p.buffer(0.002)
+        (add_fr if edge.intersection(fr).area > edge.intersection(us).area else add_us).append(p)
+    return unary_union(add_fr if side == 'fr' else add_us)
+
+
 def disputed_areas(by_name):
     """Områdena i DISPUTED som geometrier: {namn: geometri}."""
     def at(name, y):
@@ -2540,6 +2564,8 @@ def disputed_areas(by_name):
             return unary_union([area(x) for x in a[1:]])
         if a[0] == 'ne-snitt':  # ett land i Natural Earth snittat med en Cliopatria-post ett visst år
             return ne[a[1]].intersection(at(*a[2]))
+        if a[0] == 'zon':  # (#1781) ('zon', mark, år, 'fr' eller 'us', punkt som den franska delen ska innehålla eller None)
+            return zone_part(area(a[1]), a[2], a[3], a[4], by_name)
         if a[0] == 'innehavare':  # (#1781) ('innehavare', mark, felaktig granne, år, innehavare, [andra innehavare])
             return holder_part(area(a[1]), a[2], a[3], a[4], a[5], by_name)
         return at(*a[0]).difference(at(*a[1]))
