@@ -1734,6 +1734,40 @@ async function run(browser, vp) {
   // #1300 steg (a): formatet för områden som inte är en stat finns, men ingen sådan grupp i datan än. Testet märker
   // Chimor som stadsstäder via fetch-intercept (inga fakta ändras i repot) och provar teckenförklaringen, faktarutan och
   // att mönstret skiljer sig från ett rikes fyllning i mobilens upplösning (k = 1), inte bara i färg (WCAG 1.4.1).
+  // #1856: ett nytt steg i turen börjar överst i kortet, också efter Föregående, så att stegräknaren och rubriken syns
+  await check('turkortet rullas upp när steget byts (#1856)', async () => {
+    const tp = await context.newPage();
+    const tpAw = abortWatch(tp);
+    const errs = [];
+    tp.on('pageerror', e => { if (!tpAw.defer(e.message)) errs.push(e.message); });
+    try {
+      if (THREE_LOCAL) {
+        await tp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+        await tp.route(u => isFont(u.href), r => r.abort());
+      }
+      await tpAw.goto(`${BASE}?ny=1856#t=det-har-har-du-hort&s=washingtons-tander`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForSelector('#tour-card:not([hidden])', { timeout: T.load });
+      const out = [];
+      for (const btn of ['#tour-next', '#tour-back']) {
+        // Kortet görs lågt, så att det alltid går att rulla, och rullas ned innan steget byts
+        const scrolled = await tp.evaluate(() => {
+          const c = document.getElementById('tour-card'); c.style.maxHeight = '180px'; c.scrollTop = c.scrollHeight; return c.scrollTop;
+        });
+        if (scrolled < 20) throw new Error(`kortet gick inte att rulla före ${btn} (${scrolled} px)`);
+        const before = (await tp.textContent('#tour-progress')).trim();
+        await tp.click(btn);
+        await tp.waitForFunction(b => document.getElementById('tour-progress')?.textContent.trim() !== b, before, { timeout: T.step });
+        const top = await tp.evaluate(() => document.getElementById('tour-card').scrollTop);
+        if (top !== 0) throw new Error(`efter ${btn} står kortet nedrullat ${top} px`);
+        out.push(`${btn}: ${scrolled} → 0 px`);
+      }
+      errs.push(...tpAw.settle());
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return out.join(', ');
+    } finally { await tp.close(); }
+  });
+
   await check('områden som inte är en stat: mönster, teckenförklaring och faktaruta (#1300)', async () => {
     if (vp.width <= 760) return 'körs i datorjobbet';
     const ap = await context.newPage();
