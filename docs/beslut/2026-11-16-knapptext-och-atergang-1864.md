@@ -1,0 +1,21 @@
+# Regionvyn: knapptexten säger vart man kommer, och Lämna regionvyn återställer vyn man kom från (#1864)
+
+Datum: 2026-11-16. Beslut av DasKrokodil i #1864 ("Ja, enligt rekommendationerna"). Hittat i UX-genomgången per yta (#1799, fynd 1.2).
+
+## Beslut
+
+1. **Lämna regionvyn återställer alltid vyn man kom från, med kameran.** Knappen "Lämna regionvyn" och Escape ställer tillbaka Glob, Platt karta eller Upptäcktsresor, och kameran som den stod: globens mitt och zoom (`globe.view`), kartans mitt och zoom (`flatMap.camera()`). Det gäller både regionvyn i Platt vy (Skåne och Danmark från globen lämnar tillbaka till globen, inte kvar i Platt karta) och på globen (Aotearoa och Grönland från Platt karta lämnar tillbaka till Platt karta; från globen flyger kameran tillbaka dit den tittade förut, inte kvar över platsen). Vyn och kameran läses i `places.showInFlat()` (via `app.region.rememberOrigin()`) innan vyn byts, och glöms när regionvyn är slut.
+2. **Knapptexten säger vad som händer.** `place.regionMap` heter "Visa i regionvyn" (förut "Visa händelserna på kartan") och `place.flatMap` "Visa på Platt karta" (förut "Visa i Platt karta"); de andra språken i `data/ui/*.json` och i ordlistan. Vilken av dem knappen har bestäms som förut av #1692:s regel: regionvyn när den ryms (`regionButtonKey()` i `js/region-frame.js`, `MIN_FREE`), annars Platt karta.
+3. **Sverige** har ingen egen knapp med egen regel: det är samma knapp, `place.flatMap`, eftersom Sverige aldrig får regionvyn (regeln i punkt 2 ger den). En knapp per resultat.
+4. **Statusraden säger vart man kom tillbaka** (`regionView.left`: Platt karta, `regionView.leftGlobe`: globen, `regionView.leftDiscovery`: Upptäcktsresor), och `regionView.shown` och `regionView.shownGlobe` säger att Escape och "Lämna regionvyn" går tillbaka till föregående vy. Fokus går till den vyns karta eller glob.
+
+## Avgränsning
+
+- Bara knappen och Escape återställer. Att sluta följa platsen, en tur, en adress, Upptäcktsresor som slås på eller att Platt vy stängs lämnar regionvyn tyst och lämnar vyn där den står, eftersom något annat då styr kameran.
+- Adressen (`js/url-state.js`, `js/controllers/address.js`) bär ingen regionvy och ändras inte; Bakåt och Framåt fungerar som förut. Stängregistret (`js/surfaces.js`) och Escape-reglerna i `js/controllers/region.js` är oförändrade.
+- Knappen "Lämna regionvyn" heter som förut: #1688 (namnet i kortet) ligger hos DasKrokodil och är inte byggt här. Knappen i platskortet göms som förut medan regionvyn är öppen (#1790).
+- Ändrade prov (sagt öppet, eftersom de provade det gamla beteendet eller de gamla orden): i `tests/webblasare.mjs` har de nya orden ersatt de gamla i fem kontroller som bara läser knappens text (#1790 platskortet, #1161 Sverige, #1644 globen, #1641 Skåne, #1692 knappens text; i globkontrollen säger statusraden nu "Tillbaka till globen" i stället för "Globen visar …"). Två kontroller provade själva beteendet och är omskrivna: "Lämna regionvyn och Escape går tillbaka till vyn man kom från" (#1641, #1864) provar nu att man kommer tillbaka till globen, att Glob är vald och att fokus går till globen, och att sluta följa platsen lämnar Platt vy där den står (förut krävdes Platt karta inramad), och zoomknappskontrollen (#1660) öppnar vanlig Platt karta med knappen Vy efter att regionvyn har lämnats, eftersom Lämna regionvyn inte längre lämnar kvar Platt karta. Ingen kontroll är borttagen eller försvagad; en ny kontroll ("Lämna regionvyn ställer tillbaka vyn man kom från, med kameran", #1864) provar globens kamera i adressen, kartans mitt och zoom, vyn, statusraden, fokus och att historiken inte ändras, för Skåne och Grönland från både globen och Platt karta, i dator- och mobilbredd.
+
+## Öppen fråga till DasKrokodil
+
+Skåne och Danmark öppnas i Platt vy, så från globen byter knappen vy. Den heter ändå "Visa i regionvyn" när regionvyn ryms (#1692:s regel behölls), medan "Visa på Platt karta" bara står när regionvyn inte ryms och platsen bara ramas in i Platt vy. Frågan är om knappen från globen ska heta "Visa på Platt karta" för en liten plats också när regionvyn ryms (säger att vyn byts, men blandar ihop de två resultaten igen), eller om "Visa i regionvyn" är nog nu när Lämna regionvyn tar tillbaka till globen. Förslag: behåll som det är. Ändras det är det en rad i `regionButtonKey()`.

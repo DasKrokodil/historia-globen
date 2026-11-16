@@ -1,5 +1,5 @@
 // Tryck på en plats (#1161, del av #579): ett tryck på konturen av en plats med kort öppnar kortet (Fokus av typen place),
-// både på globen och i Platt vy, och knappen "Visa i Platt karta" i kortet byter vy och ramar in platsen.
+// både på globen och i Platt vy, och knappen "Visa på Platt karta" i kortet byter vy och ramar in platsen.
 // Ett tryck är en genväg: Sök och följ → Platser räcker fortfarande för den som använder tangentbord eller skärmläsare.
 // Tangentbordets motsvarighet är Enter på globen eller kartan, som följer platsen i mitten av vyn; och efter att man har
 // flyttat vyn med tangenterna säger statusraden vilken plats med kort som ligger i mitten. Enter i Fokus på en plats öppnar
@@ -135,12 +135,14 @@ export function createPlaces(app) {
     });
   }
 
-  // ---- knappen "Visa i Platt karta" i platsens kort --------------------------------------------------------------
+  // ---- knappen "Visa på Platt karta" i platsens kort --------------------------------------------------------------
   /**
    * Byt till Platt karta och ram in platsen. Kameran på globen flyger inte, och inget eget läge börjar. En liten plats (upp till
    * cirka 5 grader, Skåne och Danmark) får regionvyn i stället (#1641, controllers/region.js): en skarp, inzoomad karta.
    */
   function showInFlat(place) {
+    // Regionvyn kommer ihåg vyn och kameran man kommer från, innan vyn byts, så att Lämna regionvyn kan ställa tillbaka dem (#1864)
+    if (app.region?.eligible(place)) app.region.rememberOrigin();
     // En stor plats (Aotearoa, Grönland) får regionvyn på globen (#1644): globen flyger in, och Platt vy öppnas inte
     if (app.region?.onGlobe(place)) { app.region.enter(place); return; }
     app.viewMode.set('flat');

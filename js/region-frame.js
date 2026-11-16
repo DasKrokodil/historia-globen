@@ -105,7 +105,7 @@ export function hasRoom(free) {
 }
 
 /**
- * Texten på knappen i platskortet (#1692): 'place.regionMap' när knappen ger regionvyn och 'place.flatMap' ("Visa i Platt karta")
+ * Texten på knappen i platskortet (#1692): 'place.regionMap' när knappen ger regionvyn och 'place.flatMap' ("Visa på Platt karta")
  * när platsen i stället ramas in i Platt vy. bounds = platsens gränsruta (placeBounds), free = den fria ytan som regionvyn skulle
  * få (freeArea), eller undefined när den inte är känd (då antas den rymmas). En stor plats får regionvyn på globen, som inte har
  * någon gräns för ytan; en liten plats i Platt vy bara när den fria ytan rymmer den; Sverige och andra platser aldrig.
