@@ -256,14 +256,22 @@ export function placeNames(cands, { W, H, blocked = [], marks = [], measure, cro
       const my = (mark.y0 + mark.y1) / 2, mx = (mark.x0 + mark.x1) / 2;
       const beside = [{ x0: mark.x1 + 2, y0: my - h / 2, align: 'left', tx: mark.x1 + 3 }, { x0: mark.x0 - 2 - w, y0: my - h / 2, align: 'right', tx: mark.x0 - 3 },
         { x0: mx - w / 2, y0: mark.y0 - 2 - h, align: 'center', tx: mx }, { x0: mx - w / 2, y0: mark.y1 + 2, align: 'center', tx: mx }];
-      for (const o of beside) {
-        const box = { x0: o.x0, y0: o.y0, x1: o.x0 + w, y1: o.y0 + h };
-        if (box.x0 < 2 || box.y0 < 2 || box.x1 > W - 2 || box.y1 > H - 2) continue;
-        const airy = { x0: box.x0 - 4, y0: box.y0 - 1, x1: box.x1 + 4, y1: box.y1 + 1 };
-        if (blocked.some(b => overlaps(box, b)) || placed.some(b => overlaps(airy, b)) || crosses(box)) continue;
-        placed.push(box);
-        out.push({ ...c, box, x: o.tx, y: box.y0 + h / 2, align: o.align, dotless: true });
-        break;
+      // En markör kan hamna precis vid platsens kant när kartan väjer för en annan kontroll. Försök alltid först utan att
+      // korsa kanten, men låt namnet följa sin egen markör som sista utväg: annars försvinner ortnamnet helt trots att
+      // markören är synlig (#1897).
+      for (const allowEdge of [false, true]) {
+        let placedBeside = false;
+        for (const o of beside) {
+          const box = { x0: o.x0, y0: o.y0, x1: o.x0 + w, y1: o.y0 + h };
+          if (box.x0 < 2 || box.y0 < 2 || box.x1 > W - 2 || box.y1 > H - 2) continue;
+          const airy = { x0: box.x0 - 4, y0: box.y0 - 1, x1: box.x1 + 4, y1: box.y1 + 1 };
+          if (blocked.some(b => overlaps(box, b)) || placed.some(b => overlaps(airy, b)) || (!allowEdge && crosses(box))) continue;
+          placed.push(box);
+          out.push({ ...c, box, x: o.tx, y: box.y0 + h / 2, align: o.align, dotless: true });
+          placedBeside = true;
+          break;
+        }
+        if (placedBeside) break;
       }
       continue;
     }

@@ -255,6 +255,11 @@ test('en ort med händelser under en enskild markör får sitt namn bredvid mark
   const right = { x0: 116, y0: 80, x1: 300, y1: 120 };
   const other = placeNames([cand], { W: 400, H: 300, blocked: [mark, right], marks: [mark], measure });
   assert.equal(other[0].align, 'right');
+  // När kartan har väjt för en annan kontroll kan markören hamna vid platsens kant. Namnet får då använda en plats som
+  // korsar kanten hellre än att försvinna helt (#1897); utan en sådan fallback blir ortnamnet borta i mobil.
+  const edge = placeNames([cand], { W: 400, H: 300, blocked: [mark], marks: [mark], measure, crosses: () => true });
+  assert.equal(edge.length, 1);
+  assert.equal(edge[0].dotless, true);
   const boxed = [mark, right, { x0: 0, y0: 0, x1: 84, y1: 300 }, { x0: 0, y0: 0, x1: 400, y1: 84 }, { x0: 0, y0: 116, x1: 400, y1: 300 }];
   assert.deepEqual(placeNames([cand], { W: 400, H: 300, blocked: boxed, marks: [mark], measure }), []);
   // Utan markör under punkten, eller för en ort utan händelser, gäller det vanliga: prick och namn, och under en markör inget namn
