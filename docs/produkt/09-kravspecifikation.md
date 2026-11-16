@@ -54,7 +54,7 @@ Det här är en *produktkravsspecifikation*: den säger **vad** sidan ska uppfyl
 |---|---|---|---|---|---|---|
 | K-KÄR-01 | Ett år ska styra allt: tidslinjen äger året och alla lager och paneler följer det. | CLAUDE.md: Arkitektur 3 | M | T | Beslutat | Ej verifierat |
 | K-KÄR-02 | Besökaren ska kunna dra i tiden, stega, hoppa till ett år eller datum och spela upp. | UC2 | M | T | Beslutat | Ej verifierat |
-| K-KÄR-03 | En förstagångsbesökare ska utan förklaring se ett samband (Samtidigt-kortet) och förstå vad globen gör. | M1, UC1 | M | G, O | Beslutat | Ej verifierat |
+| K-KÄR-03 | En förstagångsbesökare ska utan förklaring se ett samband (Visste du?-kortet) och förstå vad globen gör. | M1, UC1 | M | G, O | Beslutat | Ej verifierat |
 | K-KÄR-04 | Händelser ska kunna läsas med källa, bild, osäkerhet och granskningsnivå. | UC3 | M | T, G | Beslutat | Ej verifierat |
 | K-KÄR-05 | Besökaren ska kunna följa ett krig, ett rike eller en religion i fokusläge och komma tillbaka till det hen var. | UC4 | M | T | Beslutat | Delvis (adress och Fokus, #865) |
 | K-KÄR-06 | Besökaren ska kunna söka efter händelser, platser och år. | UC6 | B | T | Beslutat | Ej verifierat |

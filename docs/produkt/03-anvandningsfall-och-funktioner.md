@@ -8,7 +8,7 @@ Aktörerna (A–I) står i [02](02-anvandare-och-intressenter.md). Status: **fin
 
 | ID | Aktör | Mål | Kort flöde | Funktioner | Status |
 |---|---|---|---|---|---|
-| UC1 | F, A | Förstå vad globen gör | Öppna sidan, se globen och Samtidigt-kortet, kanske introduktionen, dra i tiden | Glob, tidslinje, Samtidigt-kort, introduktion, Hjälp | finns; hur väl ingången fungerar utan förklaring är obelagt |
+| UC1 | F, A | Förstå vad globen gör | Öppna sidan, se globen och Visste du?-kortet, kanske introduktionen, dra i tiden | Glob, tidslinje, Visste du?-kort, introduktion, Hjälp | finns; hur väl ingången fungerar utan förklaring är obelagt |
 | UC2 | A, F | Se vad som hände samtidigt vid ett år | Dra eller skriv ett år, läs Samtidigt i världen per världsdel | Tidslinje, Hoppa i tiden, Samtidigt-listan | finns |
 | UC3 | A | Läsa om en händelse och se källan | Klicka en markör eller lista, läs faktarutan, öppna källan | Faktaruta, bild med licens, källor, granskningsnivå | finns |
 | UC4 | A, D | Följa ett krig, ett rike eller en religion | Sök och följ → välj → uppspelning pausar vid viktiga händelser → slutkort | Fokusläge, krigsområden, riken, religioner | finns |
@@ -51,7 +51,7 @@ Per område: vad som finns och var det ligger i koden. Detaljer i [arkitektur.md
 | **Tid** | Tidslinje (segmenterad skala), uppspelning med hastigheter och pauser, hopp till år/datum, delar av år i fokusläge | `js/timeline.js` | UC1, UC2 |
 | **Rum** | 3D-glob, kamera, zoom, skarpt utsnitt vid inzoomning; Platt vy | `js/globe.js`, `js/globe-detail.js`, `js/ui/flatmap.js` | UC1, UC8 |
 | **Innehållslager** | Händelser, riken, religioner, krigsområden, dagens gränser, vägar och resor, upptäcktsvyn | `js/layers/*` | UC2–UC4, UC8 |
-| **Läsning** | Samtidigt i världen, Samtidigt-kortet, faktarutor (händelse, rike, religion, krig) | `js/ui/panel.js`, `js/ui/funfact.js` | UC2, UC3 |
+| **Läsning** | Samtidigt i världen, Visste du?-kortet, faktarutor (händelse, rike, religion, krig) | `js/ui/panel.js`, `js/ui/funfact.js` | UC2, UC3 |
 | **Utforska** | Sök och följ (Fokus, Sök), Lager, Vy, Meny/Mer | `js/ui/focusmenu.js`, `layers.js`, `viewmode.js`, `viewmenu.js` | UC4, UC6, UC9 |
 | **Berättelser** | Guidade turer, berättelseläge, slutkort, rikens fall | `js/ui/tour.js`, `js/tour-format.js` | UC5 |
 | **Lärande** | Introduktion, Quiz, Samtidighetsjakten, lektionsläge, utskrift, lärarfält | `js/ui/intro.js`, `quiz.js`, `uppdrag.js`, `lesson.js`, `print-sheet.js` | UC1, UC11–UC13 |

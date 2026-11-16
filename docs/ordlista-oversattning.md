@@ -75,7 +75,8 @@ Artigt tilltal i alla språk, så att tyska, spanska och franska är lika:
 
 | Svenska | Engelska | Spanska | Franska |
 |---|---|---|---|
-| Samtidigt (kortet) | Meanwhile | Al mismo tiempo | Au même moment |
+| Samtidigt (knappen och listan "Samtidigt i världen": pågående händelser; ändrat från "kortet" 2026-11-16, #1867) | Meanwhile | Al mismo tiempo | Au même moment |
+| Visste du? (kortet med fun facts, #1867; samma ord som knappen i kortet och teckenförklaringen) | Did you know? | ¿Sabía que…? (artigt) | Le saviez-vous ? |
 | Sök och följ (menyn) / följer (läget) | Search and follow / following | Buscar y seguir / siguiendo | Chercher et suivre / vous suivez |
 | Fakta | Facts | Datos | Faits |
 | Läs mer | Read more | Leer más | Lire la suite |
@@ -96,6 +97,7 @@ Artigt tilltal i alla språk, så att tyska, spanska och franska är lika:
 - **"Fokus" finns inte i gränssnittet.** Menyn heter Sök och följ, läget heter "följer" (verbet från knappen), och texterna säger "när du följer en händelse". Engelska "Focus"/"focus mode", tyska "Fokus"/"Fokusmodus", spanska "Enfoque"/"modo Enfoque" och franska "Focus"/"mode Focus" används inte längre. Filnamn, funktionsnamn, `f=` i adressen och data-attribut får behålla `focus`.
 - **Ett namn för upptäcktsvyn:** Upptäcktsresor (se tabellen). Kategorin `upptackter` (avsnitt 6: "Upptäcktsresor", *Viajes de exploración*, *Voyages d'exploration*) är en kategori och ändras inte. "Upptäcktsvyn", "discovery view", "Entdeckungsansicht", "vista de exploración" och "vue d'exploration" används inte.
 - **Teckenförklaringens tecken för fun facts** har samma ord som kortet: *Visste du?*, *Did you know?*, *Wussten Sie?*, *¿Sabía que…?*, *Le saviez-vous ?* (inte "samband", *connection*, *Zusammenhang*, *conexión*, *lien*: det som visas är samtidighet, inte orsak och verkan).
+- **Kortets namn, Visste du?-kortet (beslut 2026-11-16, #1867):** kortet med fun facts heter *Visste du?* på svenska, *Did you know?* på engelska, *Wussten Sie?* på tyska, *¿Sabía que…?* på spanska och *Le saviez-vous ?* på franska (hårt mellanrum före ?), och knappen i verktygsfältet heter fortfarande *Samtidigt* (*Meanwhile*, *Gleichzeitig*, *Al mismo tiempo*, *Au même moment*). I löpande text sätts namnet inom citattecken efter språkets regel, med kortordet före: sv *Visste du?-kortet*, en *the “Did you know?” card*, de *die Karte „Wussten Sie?“*, es *la tarjeta «¿Sabía que…?»*, fr *la carte « Le saviez-vous ? »* (hårda mellanrum innanför « »). Siffran efter namnet ("Visste du? 4") är antalet kort och ska inte förväxlas med siffran på knappen Samtidigt.
 - **Produktnamnet "Historia-globen" översätts aldrig**, inte heller på affischen eller i källhänvisningar (`poster.title`, `citation.*`): en källhänvisning ska vara lik det som står på sidan.
 
 ## 6. Kategorier (`CATEGORIES`, ur `data/ui/`; ändras inte)

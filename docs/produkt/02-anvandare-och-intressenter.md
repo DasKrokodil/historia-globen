@@ -13,7 +13,7 @@ Huvudgruppen är "normala människor med ett intresse för historia"; skolan är
 | C | Elev 10–13 år (åk 4–6) | Sekundär (skolan, bonus) | Ja: lektion 2, Samtidighetsjakten (du-form) |
 | D | Elev 13–16 år (åk 7–9) | Sekundär (skolan, bonus) | Ja: lektion 1, quiz |
 | E | Gymnasieelev (16–19) och äldre | Sekundär: hela skoltiden ska täckas | Delvis: samma innehåll, ingen egen väg |
-| F | Nyfiken förstagångsbesökare | Sekundär, men ingången för alla | Ja: introduktion, Samtidigt-kort |
+| F | Nyfiken förstagångsbesökare | Sekundär, men ingången för alla | Ja: introduktion, Visste du?-kort |
 | G | Bidragsgivare och granskare (faktafel, förslag) | Sekundär | Ja: Rapportera faktafel, förslagsformulär |
 | H | Besökare med funktionsnedsättning | Tvärgående | Delvis: tangentbord, lugn rörelse, kontrast; ingen skärmläsarattest |
 | I | Besökare vid fysisk glob | **Parkerad** (beslut 2026-11-08) | Arkitekturen tillåter det, men inget byggs för det nu |

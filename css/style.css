@@ -815,6 +815,7 @@ body {
   display: inline-block; min-width: 18px; margin-left: 4px; padding: 2px 6px; border-radius: 999px;
   background: var(--ff-ink-soft); color: var(--parchment); font: 600 11px/1 var(--f-mono); text-align: center;
 }
+.ff-peek-count { display: none; } /* siffran i den stängda panelen i smal skärm ("Visste du? 4", #1867) */
 .ff-text { margin: 8px 0 10px; font: 400 19px/1.32 var(--f-display); text-wrap: pretty; }
 /* Rikets berättelse (#171): rubrik med årtal, kort text och ibland en rad om kartan */
 .ff-story-head { display: block; }
@@ -2313,6 +2314,12 @@ details.used-by summary:hover { color: var(--parchment); }
   #funfact.ff-s-closed { padding-bottom: 10px; animation: none; }
   #funfact.ff-s-closed :is(.ff-pics, .ff-text, .ff-events, .ff-foot) { display: none; }
   #funfact.ff-s-closed .ff-eyebrow { cursor: pointer; min-height: 22px; }
+  /* Den stängda panelen är en rad: "Visste du? 4" (#1867). Rikets berättelse har ingen sådan rad och behåller sin rubrik och sin räknare. */
+  #funfact.ff-s-closed:not(.ff-story) :is(.ff-sep, .ff-kind, .ff-pager) { display: none; }
+  #funfact.ff-s-closed:not(.ff-story) .ff-peek-count {
+    display: inline-block; min-width: 18px; margin-left: 2px; padding: 2px 6px; border-radius: 999px; box-sizing: border-box;
+    background: var(--ff-ink-soft); color: var(--parchment); font: 600 12px/1 var(--f-mono); letter-spacing: 0; text-align: center;
+  }
   #funfact.ff-dragging { overflow: hidden; transition: none; }
   #funfact.ff-dragging :is(.ff-pics, .ff-text, .ff-foot) { display: revert; }
   #funfact.ff-dragging .ff-pics:not([hidden]) { display: grid; }

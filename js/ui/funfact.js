@@ -1,5 +1,5 @@
-// Samtidigt-kortet: fun facts och annat som hände samtidigt (till exempel när ett krig
-// bryter ut). Kortet visas när året ligger inom postens intervall, med bågar på globen
+// Visste du?-kortet (hette Samtidigt-kortet till #1867; knappen och listan heter fortfarande Samtidigt): fun facts och annat som hände
+// samtidigt (till exempel när ett krig bryter ut). Kortet visas när året ligger inom postens intervall, med bågar på globen
 // mellan de platser som hör ihop. Det kan fällas ihop till en flik (#120).
 // I smal skärm (högst 760 px) är kortet en panel underifrån med tre lägen (#239): stängd (handtag och
 // rubrikraden), halv och hel. Man drar i handtaget eller trycker på det, och kortet stängs när man drar i globen.
@@ -100,8 +100,11 @@ export class FunFacts {
     this.surpriseRecent = [];
     this.requestedId = null;
     this.onSurprise = () => {};
-    this.minimized = false;
-    try { this.minimized = localStorage.getItem('hg-ff-min') === '1'; } catch { /* utan lagring */ }
+    // Kortet startar litet (#1867, "Visste du? 4": fliken i dator, stängd panel i mobil), så att globen syns först. Det öppnas när
+    // besökaren trycker på det. Ett eget val sparas: öppnat (0) blir kvar öppet nästa gång, ihopfällt (1) likaså; utan val startar kortet litet.
+    this.minimized = true;
+    try { this.minimized = localStorage.getItem('hg-ff-min') !== '0'; } catch { /* utan lagring */ }
+    this.peekCount = this.root.querySelector('#ff-peek-count');
     // Panelen i smal skärm (#239): ihopfällt kort (minimized) visas som stängd panel i stället för en flik.
     // autoClosed: stängd av att man drar i globen. Det sparas inte, och nästa nya kort öppnar panelen igen.
     this.sheet = 'half'; this.autoClosed = false;
@@ -386,7 +389,11 @@ export class FunFacts {
     // I smal skärm är det ihopfällda kortet en stängd panel, inte en flik (#239)
     const asSheet = narrow.matches;
     this.tab.hidden = !f || (!this.minimized && !this.detailOpen) || asSheet;
-    this.tabCount.textContent = String(this.active.length);
+    // Siffran är antalet kort i "Visste du?" (inte händelserna i Samtidigt-listan); fliken, raden i den stängda panelen och knappens namn säger samma sak
+    const count = String(this.active.length);
+    this.tabCount.textContent = count;
+    if (this.peekCount) this.peekCount.textContent = count;
+    this.tab.setAttribute('aria-label', ui('ff.show', { n: count }));
     this._syncSheet();
     if (!f || (this.minimized && !asSheet) || (this.detailOpen && !asSheet)) { this.root.hidden = true; this.root.dataset.funfactId = ''; if (!(f && this.detailOpen && !asSheet)) this._announcedKey = ''; /* faktarutan som täcker kortet ska inte få det uppläst igen när den stängs (#1138) */ this.onArcs([]); return; }
     this.root.dataset.funfactId = f.id;

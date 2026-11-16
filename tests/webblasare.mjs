@@ -197,6 +197,10 @@ async function waitDiag(pg, label, sink, selector, timeout) {
 async function newTestContext(browser, opts) {
   const c = await browser.newContext(opts);
   await c.addInitScript(textifyConsoleErrors);
+  // Visste du?-kortet startar litet för en ny besökare (#1867). De flesta kontroller prövar kortets innehåll och börjar därför som en
+  // besökare som har öppnat det (hg-ff-min = 0, ett eget val som sparas). Ett eget val som redan finns rörs inte. Kontrollerna som prövar
+  // startläget tar bort valet på sin egen sida (fp.addInitScript med removeItem), och körs då som en ny besökare.
+  await c.addInitScript(() => { try { if (localStorage.getItem('hg-ff-min') == null) localStorage.setItem('hg-ff-min', '0'); } catch { /* utan lagring */ } });
   return c;
 }
 
@@ -1873,6 +1877,106 @@ async function run(browser, vp) {
       errs.push(...fpAw.settle());
       if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
       return `inget överlapp, metaraden och sidräknaren läsbara, 44 px för ${r.hit.join(', ')}`;
+    } finally { await fp.close(); }
+  });
+
+  // #1867: Samtidigt-kortet heter Visste du? och startar litet. Knappen i verktygsfältet heter fortfarande Samtidigt och räknar pågående
+  // händelser; kortets siffra räknar kort. En ny besökare ser globen först: i dator är kortet fliken "Visste du? 4", i mobil en stängd panel
+  // med en rad. Ett tryck öppnar kortet, och ett eget val (öppnat eller ihopfällt) kommer tillbaka vid nästa besök. Namnet på fem språk.
+  await check('Visste du?-kortet startar litet, öppnas vid tryck och heter likadant överallt (#1867)', async () => {
+    const mobile = vp.width <= 760;
+    const names = { sv: 'Visste du?', en: 'Did you know?', de: 'Wussten Sie?', es: '¿Sabía que…?', fr: 'Le saviez-vous ?' };
+    const fp = await context.newPage();
+    const fpAw = abortWatch(fp);
+    const errs = [];
+    fp.on('pageerror', e => { if (!fpAw.defer(e.message)) errs.push(e.message); });
+    // En ny besökare: inget sparat val (kontextens startskript låtsas annars att kortet har öppnats). Flaggan i sessionStorage släpper
+    // det egna valet fram när kontrollen själv har tryckt på kortet och laddar om.
+    await fp.addInitScript(() => { try { if (!sessionStorage.getItem('prov1867')) localStorage.removeItem('hg-ff-min'); } catch { /* utan lagring */ } });
+    const flat = s => s.replace(/\s+/g, ' ').trim();
+    const state = () => fp.evaluate(() => {
+      const ff = document.getElementById('funfact'), tab = document.getElementById('ff-tab');
+      const box = el => { const r = el.getBoundingClientRect(); return { top: r.top, height: r.height, width: r.width }; };
+      const peek = document.getElementById('ff-peek-count');
+      return {
+        card: !ff.hidden && ff.getClientRects().length > 0, tab: !tab.hidden && tab.getClientRects().length > 0,
+        cls: ff.className, cardBox: ff.hidden ? null : box(ff), tabBox: tab.hidden ? null : box(tab), vh: innerHeight,
+        tabText: tab.textContent, tabLabel: tab.getAttribute('aria-label'), cardLabel: ff.getAttribute('aria-label'),
+        eyebrow: ff.querySelector('.ff-eyebrow').innerText, pager: document.getElementById('ff-pager').textContent.trim(),
+        peekSize: peek ? parseFloat(getComputedStyle(peek).fontSize) : 0, peekShown: peek ? getComputedStyle(peek).display !== 'none' : false,
+        panelBtn: document.getElementById('btn-panel').textContent, panelCount: document.getElementById('panel-count').textContent,
+        handleLabel: document.getElementById('ff-handle').getAttribute('aria-label'),
+      };
+    });
+    const load = async (lang, hash = '#y=1325') => {
+      await fpAw.goto(`${BASE}?ny=1867-${lang}-${Date.now()}&lang=${lang}${hash}`);
+      await fp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      if (await fp.isVisible('#intro')) await fp.click('#intro-close');
+      if (await fp.isVisible('#help')) await fp.click('#help-close');
+      await fp.waitForFunction(() => document.getElementById('funfact').dataset.funfactId || !document.getElementById('ff-tab').hidden, null, { timeout: T.step });
+    };
+    try {
+      if (THREE_LOCAL) {
+        await fp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+        await fp.route(u => isFont(u.href), r => r.abort());
+      }
+      // 1. Startläget på svenska
+      await load('sv');
+      const s0 = await state();
+      const n = Number(flat(mobile ? s0.eyebrow : s0.tabText).replace(/^\D+/, ''));
+      if (!(n >= 2)) throw new Error(`siffran ${n} (${flat(mobile ? s0.eyebrow : s0.tabText)}); året 1325 ska ha flera kort`);
+      if (mobile) {
+        if (!s0.card || !/ff-s-closed/.test(s0.cls)) throw new Error(`mobil: panelen ska starta stängd men är ${s0.cls}`);
+        if (s0.cardBox.height > 72 || s0.cardBox.top < s0.vh * 0.7) throw new Error(`mobil: den stängda panelen är för stor (${Math.round(s0.cardBox.height)} px hög, överkant ${Math.round(s0.cardBox.top)} av ${s0.vh})`);
+        if (flat(s0.eyebrow).toLowerCase() !== `visste du? ${n}`) throw new Error(`mobil: raden i den stängda panelen säger "${flat(s0.eyebrow)}", väntade "Visste du? ${n}"`);
+        if (!s0.peekShown || s0.peekSize < 12) throw new Error(`mobil: siffran i raden syns inte eller är under 12 px (${s0.peekSize})`);
+        if (!/^Visste du\?-kortet, stängt/.test(s0.handleLabel)) throw new Error(`mobil: handtagets namn "${s0.handleLabel}"`);
+      } else {
+        if (s0.card) throw new Error('dator: kortet täcker globen vid start');
+        if (!s0.tab || flat(s0.tabText) !== `Visste du? ${n}`) throw new Error(`dator: fliken säger "${flat(s0.tabText)}", väntade "Visste du? ${n}"`);
+        if (s0.tabBox.height < 24 || s0.tabBox.width < 24) throw new Error(`dator: fliken är ${Math.round(s0.tabBox.width)}×${Math.round(s0.tabBox.height)} px`);
+        if (!s0.tabLabel.startsWith(`Visste du? ${n}`)) throw new Error(`dator: flikens namn "${s0.tabLabel}" börjar inte med den synliga texten`);
+      }
+      // Knappen i verktygsfältet heter kvar Samtidigt och har sin egen siffra (händelser som pågår, inte kort)
+      if (!/^\s*Samtidigt\b/.test(s0.panelBtn) || /Visste/.test(s0.panelBtn)) throw new Error(`knappen i verktygsfältet säger "${flat(s0.panelBtn)}"`);
+      if (!/^\d+$/.test(s0.panelCount)) throw new Error(`knappens siffra "${s0.panelCount}"`);
+      // 2. Tryck öppnar kortet; kortets rubrik och sidräknare använder samma namn och samma siffra
+      if (mobile) await fp.click('#ff-handle'); else await fp.click('#ff-tab');
+      await fp.waitForFunction(m => { const ff = document.getElementById('funfact'); return !ff.hidden && (m ? ff.classList.contains('ff-s-half') : true); }, mobile, { timeout: T.step });
+      const s1 = await state();
+      if (!/^visste du\?/i.test(flat(s1.eyebrow))) throw new Error(`öppnat kort: raden säger "${flat(s1.eyebrow)}"`);
+      if (s1.pager !== `1 av ${n}`) throw new Error(`öppnat kort: sidräknaren "${s1.pager}" men siffran var ${n}`);
+      if (s1.cardLabel !== 'Visste du?-kortet') throw new Error(`kortets namn för skärmläsare: "${s1.cardLabel}"`);
+      // 3. Valet sparas: ett öppnat kort är öppet efter omladdning
+      await fp.evaluate(() => sessionStorage.setItem('prov1867', '1'));
+      await fp.reload();
+      await fp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await fp.waitForFunction(() => !document.getElementById('funfact').hidden, null, { timeout: T.step });
+      const s2 = await state();
+      if (mobile ? /ff-s-closed/.test(s2.cls) : !s2.card) throw new Error(`öppnat kort är litet efter omladdning (${s2.cls})`);
+      // 4. Tangentbord: fliken (dator) och handtaget (mobil) är knappar som Enter öppnar
+      await fp.evaluate(() => { try { localStorage.setItem('hg-ff-min', '1'); } catch { /* */ } });
+      await fp.reload();
+      await fp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await fp.waitForFunction(() => document.getElementById('funfact').dataset.funfactId || !document.getElementById('ff-tab').hidden, null, { timeout: T.step });
+      await fp.focus(mobile ? '#ff-handle' : '#ff-tab');
+      await fp.keyboard.press('Enter');
+      await fp.waitForFunction(m => { const ff = document.getElementById('funfact'); return !ff.hidden && (m ? !ff.classList.contains('ff-s-closed') : true); }, mobile, { timeout: T.step });
+      // 5. Namnet på de fyra andra språken: fliken (dator) eller raden (mobil), och namnen för skärmläsare
+      await fp.evaluate(() => { try { sessionStorage.removeItem('prov1867'); } catch { /* */ } });
+      for (const lang of ['en', 'de', 'es', 'fr']) {
+        await load(lang);
+        const s = await state();
+        const shown = flat(mobile ? s.eyebrow : s.tabText).replace(/ /g, ' ');
+        const want = names[lang].replace(/ /g, ' ');
+        if (!shown.toLowerCase().startsWith(want.toLowerCase())) throw new Error(`${lang}: ${mobile ? 'raden' : 'fliken'} säger "${shown}", väntade att den börjar med "${want}"`);
+        if (/samtidigt|meanwhile|gleichzeitig|al mismo tiempo|au même moment/i.test(`${s.cardLabel} ${s.tabLabel ?? ''} ${s.handleLabel}`)) throw new Error(`${lang}: kortets namn för skärmläsare heter fortfarande Samtidigt: "${s.cardLabel}" / "${s.tabLabel}" / "${s.handleLabel}"`);
+        if (!mobile && !s.tabLabel.replace(/ /g, ' ').toLowerCase().startsWith(want.toLowerCase())) throw new Error(`${lang}: flikens namn "${s.tabLabel}" börjar inte med den synliga texten`);
+      }
+      errs.push(...fpAw.settle());
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return mobile ? 'stängd panel med en rad "Visste du? N", tryck öppnar, valet sparas, Enter på handtaget, namnet på fem språk'
+        : 'fliken "Visste du? N" i stället för kortet, tryck öppnar, valet sparas, Enter på fliken, knappen Samtidigt oförändrad, namnet på fem språk';
     } finally { await fp.close(); }
   });
 
@@ -6369,7 +6473,7 @@ async function run(browser, vp) {
     }
     if (!empty) throw new Error('hittade inget år utan Samtidigt-kort kring 1400');
     await saysYear(empty);
-    await page.waitForFunction(() => document.getElementById('screen-reader-status').textContent.includes('Inget Samtidigt-kort för det här året.'), null, { timeout: T.step });
+    await page.waitForFunction(() => document.getElementById('screen-reader-status').textContent.includes('Inget Visste du?-kort för det här året.'), null, { timeout: T.step });
     // 5. Under uppspelning läses året inte upp (#506)
     await page.evaluate(() => { document.getElementById('screen-reader-status').textContent = ''; });
     await page.click('#btn-play');
@@ -8185,7 +8289,7 @@ async function run(browser, vp) {
 
       const atCard = () => page.waitForFunction(() => {
         const note = document.getElementById('pause-note');
-        return note && !note.hidden && note.textContent.includes('Pausad vid ett nytt Samtidigt-kort');
+        return note && !note.hidden && note.textContent.includes('Pausad vid ett nytt Visste du?-kort');
       }, null, { timeout: T.step });
       const playLabel = () => page.locator('#btn-play').getAttribute('aria-label');
 

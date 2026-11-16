@@ -18,7 +18,7 @@ import { ui } from '../i18n.js';
 // Rader i Lager som inte är lager på kartan
 const funfacts = ({ data }) => ({ id: 'funfacts', name: ui('layer.funfacts'), group: 'people',
   menu: { on: true, aria: ui('layer.funfactsLabel'), note: ui('layer.funfactsNote') },
-  marks: s => !s.focus && s.layers.funfacts ? data.funfacts.map(f => ({ type: 'funfact', at: (f.show[0] + f.show[1]) / 2, label: 'Samtidigt' })) : [] });
+  marks: s => !s.focus && s.layers.funfacts ? data.funfacts.map(f => ({ type: 'funfact', at: (f.show[0] + f.show[1]) / 2, label: ui('tlegend.funfact') })) : [] }); // romben heter som kortet och teckenförklaringen: Visste du? (#1867)
 const keep = () => ({ id: 'keep', name: ui('layer.keep'), group: 'settings',
   menu: { on: false, note: ui('layer.keepNote') } });
 
