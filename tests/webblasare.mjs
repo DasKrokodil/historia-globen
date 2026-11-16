@@ -1851,7 +1851,7 @@ async function run(browser, vp) {
         };
       });
       if (!card.next || !card.end || !card.back) throw new Error(`knapparna syns inte utan rullning: Nästa ${card.next}, Lämna turen ${card.end}, Föregående ${card.back}`);
-      if (card.labels.join('|') !== 'Det sägs|Vad källorna säger' || card.paras !== 2) throw new Error(`stycken och rubriker: ${JSON.stringify(card.labels)}, ${card.paras} stycken`);
+      if (card.labels.join('|') !== 'Det sägs|Vad källorna säger' || card.paras !== 3) throw new Error(`stycken och rubriker: ${JSON.stringify(card.labels)}, ${card.paras} stycken`);
       if (/\n/.test(card.text.trim()) === false && card.text.length < 100) throw new Error('texten saknas');
       if (narrowCard && card.nameShown) throw new Error('turens namn står både i kortet och i turraden i mobil');
       if (card.wide) throw new Error('turkortet ger horisontell rullning');
@@ -1904,6 +1904,37 @@ async function run(browser, vp) {
       await lp.waitForFunction(() => document.getElementById('tour-figure').hidden, null, { timeout: T.step });
       if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
       return `bild ${fig.imgW} × ${fig.imgH} px med bildtexten som alt, kredit och länk till full storlek; Nästa och Lämna turen i bild; figuren göms i ett steg utan bild`;
+    } finally {
+      await lp.close();
+    }
+  });
+
+  // #1785: murens linje i turen. Filen ska läsas (200), kortet ska bära linjens fil och inga sidfel får uppstå, och steget efter ska ta bort linjen
+  await check('turkortet: Mingmuren ritas som linje i steget Kinesiska muren och tas bort i nästa steg (#1785)', async () => {
+    const lp = await context.newPage();
+    const errs = [], bad = [];
+    lp.on('pageerror', e => errs.push(e.message));
+    lp.on('response', r => { if (/data\/turer\/linjer\//.test(r.url()) && !r.ok()) bad.push(`${r.status()} ${r.url()}`); });
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+      }
+      await lp.setViewportSize(page.viewportSize().width <= 760 ? { width: 400, height: 800 } : { width: 1280, height: 800 });
+      const got = lp.waitForResponse(r => /data\/turer\/linjer\/muren-ming\.json/.test(r.url()), { timeout: T.load });
+      await lp.goto(`${BASE}?ny=1785#t=det-har-har-du-hort&s=kinesiska-muren`);
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      const resp = await got;
+      if (!resp.ok()) throw new Error(`linjefilen gav ${resp.status()}`);
+      const data = await resp.json();
+      if (!data.lines?.length) throw new Error('linjefilen saknar linjer');
+      const file = await lp.evaluate(() => document.getElementById('tour-card').dataset.line);
+      if (file !== 'data/turer/linjer/muren-ming.json') throw new Error(`kortet bär linjen "${file}"`);
+      await lp.click('#tour-next');
+      await lp.waitForFunction(() => !document.getElementById('tour-card').dataset.line, null, { timeout: T.step });
+      if (bad.length) throw new Error(`linjefilen kunde inte läsas: ${bad.join('; ')}`);
+      if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
+      return `${data.lines.length} linjer lästes (${resp.status()}); kortet bär filen i steget och inte i nästa`;
     } finally {
       await lp.close();
     }

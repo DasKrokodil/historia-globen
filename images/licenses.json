@@ -1,6 +1,6 @@
 {
   "schema": "historia-globen/event-image-licenses@1",
-  "scope": "data/events.json events[].image",
+  "scope": "data/events.json events[].image; data/turer/*.json steps[].image",
   "images": [
     {
       "eventId": "aksum-blir-kristet",
@@ -3399,6 +3399,23 @@
         "url": "https://commons.wikimedia.org/wiki/File:Wu_bei_zhi_LOC_2004633695-20.jpg",
         "license": "Public domain",
         "checked": "2026-11-06"
+      }
+    }
+  ],
+  "tourImages": [
+    {
+      "tourId": "det-har-har-du-hort",
+      "stepId": "kinesiska-muren",
+      "file": "images/turer/kinesiska-muren.webp",
+      "kind": "photo",
+      "credit": "Wikimedia Commons",
+      "license": "CC0 1.0",
+      "source": {
+        "id": "commons-muren-mutianyu",
+        "title": "Great Wall of China July 2006.JPG – Kinesiska muren vid Mutianyu nära Peking, juli 2006 (Wikimedia Commons, filsida; CC0 1.0 enligt filsidan)",
+        "url": "https://commons.wikimedia.org/wiki/File:Great_Wall_of_China_July_2006.JPG",
+        "license": "CC0 1.0",
+        "checked": "2026-11-16"
       }
     }
   ]

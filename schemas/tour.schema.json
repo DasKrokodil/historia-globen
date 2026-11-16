@@ -113,6 +113,15 @@
             "approx": { "type": "boolean" }
           }
         },
+        "line": {
+          "type": "object",
+          "required": ["file", "label", "source"],
+          "properties": {
+            "file": { "type": "string", "pattern": "^data/turer/linjer/[a-z0-9-]+\\.json$" },
+            "label": { "$ref": "#/$defs/text" },
+            "source": { "type": "string" }
+          }
+        },
         "sources": { "type": "array", "items": { "type": "string" } }
       }
     }

@@ -19,7 +19,7 @@ export function entry() {
     // Konturerna runt platserna med kort (#1161) beror på zoomen, som ändras utan att valen i Lager gör det (och apply() körs då
     // inte), så de styrs av hints här i stället för av enabled
     update: s => {
-      if ((layer.step || layer.stepMark) && !s.modes?.some(m => m.mode === 'tur')) { layer.step = null; layer.stepMark = null; } // turens steg lånar ut platsen och markören: utan tur ritas de inte, vilken väg turen än slutade på (#1163, #1785)
+      if ((layer.step || layer.stepMark || layer.stepLine) && !s.modes?.some(m => m.mode === 'tur')) { layer.step = null; layer.stepMark = null; layer.stepLine = null; } // turens steg lånar ut platsen och markören: utan tur ritas de inte, vilken väg turen än slutade på (#1163, #1785)
       layer.place = s.focus?.type === 'place' ? s.focus.place : null;
       layer.hints = !s.focus && !!s.labels?.placeHints;
       layer.px = s.labels?.placePx ?? 1; // bildpunkter per skärmpixel
@@ -32,7 +32,7 @@ export function entry() {
 }
 
 export class PlacesLayer {
-  constructor() { this.place = null; this.step = null; this.stepMark = null; this.cards = []; this.hints = false; this.px = 1; this.enabled = false; this._paths = new Map(); }
+  constructor() { this.place = null; this.step = null; this.stepMark = null; this.stepLine = null; this.cards = []; this.hints = false; this.px = 1; this.enabled = false; this._paths = new Map(); }
 
   /**
    * Konturen som banor på lagerbilden W × H: `fill` för fyllningen och `edge` för strokningen. Ringarna läggs med traceRing
@@ -77,6 +77,7 @@ export class PlacesLayer {
     // Platsen som ett turssteg öppnar (#1163) ritas som i Fokus, utan att något Fokus pågår (controllers/places.js sätter step)
     const place = this.enabled && this.place?.boundary?.geometry ? this.place : this.step;
     if (place?.boundary?.geometry) this.drawPlace(ctx, W, H, view, place);
+    if (this.stepLine) this.drawLine(ctx, W, H, view);
     if (this.stepMark) this.drawMark(ctx, W, H, view);
   }
 
@@ -102,6 +103,48 @@ export class PlacesLayer {
       ctx.strokeStyle = color;
       ctx.lineWidth = w;
       ctx.stroke(edge);
+    }
+    ctx.restore();
+  }
+
+  /**
+   * Linjen i ett turssteg (#1785, fältet line): öppna linjer i lon/lat (till exempel en mur), ritade som platsens kontur (mörk kant under, ljus
+   * kärna) men tunnare och streckade, eftersom sträckningen är ungefärlig. Namnet står under linjens mittersta punkt. Linjerna sluter inte och
+   * korsar inte datumgränsen, så de ritas rakt av.
+   */
+  drawLine(ctx, W, H, view = null) {
+    const { lines, label } = this.stepLine, unit = this.unit(W, view);
+    ctx.save();
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
+    const path = new Path2D();
+    for (const line of lines) line.forEach(([lon, lat], i) => {
+      const x = (lon + 180) / 360 * W, y = (90 - lat) / 180 * H;
+      if (i) path.lineTo(x, y); else path.moveTo(x, y);
+    });
+    for (const [color, w, dash] of [['rgba(12,24,44,0.65)', 3.6 * unit, []], ['rgba(246,230,190,0.95)', 1.5 * unit, [6 * unit, 3 * unit]]]) {
+      ctx.setLineDash(dash);
+      ctx.strokeStyle = color;
+      ctx.lineWidth = w;
+      ctx.stroke(path);
+    }
+    ctx.setLineDash([]);
+    if (label) {
+      // Namnet under linjens mittersta punkt (efter längdgrad), centrerat: det hamnar i bild även när kortet täcker ena änden av linjen.
+      // Samma sidledes kompensation som markören
+      const pts = lines.flat().sort((p, q) => p[0] - q[0]), [lon, lat] = pts[pts.length >> 1];
+      const x = (lon + 180) / 360 * W, y = (90 - lat) / 180 * H;
+      ctx.translate(x, y);
+      ctx.scale(1 / Math.max(0.35, Math.cos(lat * Math.PI / 180)), 1);
+      ctx.translate(-x, -y);
+      ctx.font = `italic ${17 * unit}px "IM Fell English", Georgia, serif`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'top';
+      ctx.lineWidth = 3.4 * unit;
+      ctx.strokeStyle = 'rgba(12,24,44,0.85)';
+      ctx.strokeText(label, x, y + 12 * unit);
+      ctx.fillStyle = 'rgba(250,240,214,1)';
+      ctx.fillText(label, x, y + 12 * unit);
     }
     ctx.restore();
   }

@@ -69,6 +69,29 @@ def build_manifests(root):
             'source': sources_by_id[source_id] if source_id is not None else None,
         })
 
+    # Bilderna i turernas steg (steps[].image, #1794): samma uppgifter, per tur och steg
+    tour_images = []
+    tour_index = read_json(root, 'data/turer/index.json')
+    for tour_id in tour_index.get('tours', []):
+        tour = read_json(root, f'data/turer/{tour_id}.json')
+        for step in tour.get('steps', []):
+            image = step.get('image')
+            if image is None:
+                continue
+            where = f'data/turer/{tour_id}.json ({step.get("id")}, image)'
+            source_id = required_text(image, 'source', where)
+            if source_id not in sources_by_id:
+                raise ValueError(f'{where}: bildkällan {source_id} saknas i sources.json')
+            tour_images.append({
+                'tourId': tour_id,
+                'stepId': required_text(step, 'id', f'data/turer/{tour_id}.json'),
+                'file': required_text(image, 'file', where),
+                'kind': required_text(image, 'kind', where),
+                'credit': required_text(image, 'credit', where),
+                'license': required_text(image, 'license', where),
+                'source': sources_by_id[source_id],
+            })
+
     data_manifest = {
         'schema': 'historia-globen/data-licenses@1',
         'projectDataLicense': DATA_LICENSE,
@@ -79,8 +102,9 @@ def build_manifests(root):
     }
     image_manifest = {
         'schema': 'historia-globen/event-image-licenses@1',
-        'scope': 'data/events.json events[].image',
+        'scope': 'data/events.json events[].image; data/turer/*.json steps[].image',
         'images': sorted(images, key=lambda image: image['eventId']),
+        'tourImages': sorted(tour_images, key=lambda image: (image['tourId'], image['stepId'])),
     }
     return {
         OUTPUTS[0]: data_manifest,
