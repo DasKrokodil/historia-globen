@@ -127,6 +127,16 @@ export function createFocus(app) {
   }
   // Raden behövs bara innan man börjar spela: under uppspelningen gör den fokusraden högre och krockar med pausraden (#647)
   timeline.addEventListener('playstate', () => { if (timeline.playing && movedBack) showMoved(null); });
+  // Raden säger året tiden flyttades till. Står året inte längre där (slutkortet, ett hopp, en länk som pekar efter slutet, dragning)
+  // stämmer den inte, och då försvinner den; en vald period (#1448) står kvar, utan "Tiden flyttades" och Tillbaka (#1857).
+  // Toleransen är en dag i fokusläget för korta krig och ett halvt år annars, så att avrundningen när året sätts inte räknas.
+  timeline.addEventListener('change', () => {
+    const m = movedBack;
+    if (!m || m.moved === false) return;
+    const tol = timeline.focus?.fine ? 1 / 365.25 : 0.5;
+    if (Math.abs(timeline.year - m.startYear) <= tol) return;
+    showMoved(m.period ? { ...m, moved: false } : null);
+  });
   // Tillbaka lämnar fokus och går till året man stod på, eftersom det ligger utanför spannet
   $('focus-moved-back').addEventListener('click', () => {
     const y = movedBack?.prevYear;

@@ -1837,6 +1837,45 @@ async function run(browser, vp) {
     } finally { await ap.close(); }
   });
 
+  // #1857: raden "Tiden flyttades till …" säger året tiden står på, eller försvinner när året har gått vidare
+  await check('raden "Tiden flyttades" säger rätt år eller försvinner (#1857)', async () => {
+    const mp = await context.newPage();
+    const mpAw = abortWatch(mp);
+    const errs = [];
+    mp.on('pageerror', e => { if (!mpAw.defer(e.message)) errs.push(e.message); });
+    try {
+      if (THREE_LOCAL) {
+        await mp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+        await mp.route(u => isFont(u.href), r => r.abort());
+      }
+      const state = () => mp.evaluate(() => ({ shown: !document.getElementById('focus-moved').hidden,
+        text: document.getElementById('focus-moved-text').textContent.trim(), year: document.getElementById('year-big').textContent.trim() }));
+      // 1. En länk med ett år efter rikets slut: året hamnar på slutet, och raden får inte säga rikets första år
+      await mpAw.goto(`${BASE}?ny=1857#y=1950&f=empire:khmerriket`);
+      await mp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await mp.waitForSelector('#focus-bar:not([hidden])', { timeout: T.load });
+      await mp.waitForTimeout(500);
+      const a = await state();
+      if (a.shown && !a.text.includes(a.year)) throw new Error(`raden säger "${a.text}" men året är ${a.year}`);
+      // 2. Fokus startas från ett år utanför spannet: raden syns med startåret, och försvinner när året flyttas därifrån
+      await mp.evaluate(() => { location.hash = '#y=1950'; });
+      await mp.waitForFunction(() => document.getElementById('focus-bar').hidden, null, { timeout: T.step }).catch(() => {});
+      await mp.evaluate(() => { location.hash = '#y=1950&f=empire:khmerriket'; });
+      await mp.waitForSelector('#focus-bar:not([hidden])', { timeout: T.load });
+      await mp.waitForTimeout(300);
+      const b = await state();
+      if (b.shown && !b.text.includes(b.year)) throw new Error(`efter fokus säger raden "${b.text}" men året är ${b.year}`);
+      await mp.evaluate(() => { const r = document.getElementById('track'); r.focus(); });
+      await mp.keyboard.press('PageUp'); // hundra år framåt
+      await mp.waitForTimeout(300);
+      const c = await state();
+      if (c.shown && /\S/.test(c.text) && !c.text.includes(c.year)) throw new Error(`efter hoppet säger raden "${c.text}" men året är ${c.year}`);
+      errs.push(...mpAw.settle());
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return `länk efter slutet: ${a.shown ? `"${a.text}"` : 'ingen rad'} (år ${a.year}); efter hoppet: ${c.shown ? `"${c.text}"` : 'ingen rad'} (år ${c.year})`;
+    } finally { await mp.close(); }
+  });
+
   // #1862: Samtidigt-listans tomma läge säger en sak en gång, utan "f.Kr..", och skyller på filtret när det är filtret
   await check('Samtidigt tomt: en mening, ingen dubbel punkt och filtret som orsak (#1862)', async () => {
     const ep = await context.newPage();
