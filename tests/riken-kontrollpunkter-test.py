@@ -79,6 +79,32 @@ ALTKIRCH = (7.239, 47.623)
 DELLE = (6.998, 47.507)
 FERRETTE = (7.316, 47.494)
 ZWIESEL = (13.233, 49.017)
+# #1781, ur Wikidata (SPARQL, 2026-11-16): Konstanz Q3834, Świnoujście Q41599, Wolin Q1862, Międzyzdroje Q148615, Ahlbeck Q149899,
+# Pontarlier Q214540, Morteau Q200832, Jougne Q923421, Les Rousses Q818555, Gex Q202451, Annemasse Q212901, Thonon (Thonon-les-Bains
+# ligger vid 6,48, 46,37; samma punkt som i Cliopatria-provet), La Chaux-de-Fonds Q68124, Porrentruy Q68256, Vallorbe Q68587,
+# Genève Q71, Leutkirch im Allgäu Q539645, Isny im Allgäu Q513446, Bad Wurzach Q506838, Memmingen Q14825, Oberstaufen Q32202664,
+# Weiler-Simmerberg Q537453, Schaffhausen och Bregenz som ovan
+KONSTANZ = (9.175, 47.663)
+SWINOUJSCIE = (14.247, 53.91)
+WOLIN = (14.611, 53.841)
+MIEDZYZDROJE = (14.451, 53.928)
+AHLBECK = (14.188, 53.94)
+PONTARLIER = (6.355, 46.906)
+MORTEAU = (6.606, 47.058)
+JOUGNE = (6.388, 46.764)
+LES_ROUSSES = (6.062, 46.486)
+GEX = (6.058, 46.333)
+ANNEMASSE = (6.236, 46.195)
+LA_CHAUX = (6.83, 47.1)
+PORRENTRUY = (7.083, 47.417)
+VALLORBE = (6.383, 46.717)
+GENEVE = (6.15, 46.2)
+LEUTKIRCH = (10.022, 47.826)
+ISNY = (10.039, 47.692)
+BAD_WURZACH = (9.899, 47.909)
+MEMMINGEN = (10.181, 47.988)
+OBERSTAUFEN = (10.022, 47.556)
+WEILER = (9.933, 47.583)
 # #1534, ur en.wikipedia (Wikidata svarade inte): Juba, Khartoum, Zanzibar City och Wete (på Pemba). Chake-Chake, Pembas
 # huvudort, används inte: punkten ligger cirka 150 m utanför Natural Earths kust, i viken vid staden
 JUBA = (31.5825, 4.8539)
@@ -341,6 +367,37 @@ PUNKTER = [
     # Muskat från 1973 i Oman. 1956–1972 räknas staden till Brittiska imperiet som i Cliopatria, och 1946–1955 ligger den utanför
     # Muskat och Oman (fall som står öppna, docs/omstridda-granser.md); de åren prövas inte här
     *[('oman', MUSKAT, 'Muskat', y, True) for y in (1973, 2000, 2024)],
+    # Före 1919 (#1781): Basel, Riehen och Schaffhausen i Schweiz, Bregenz i Österrike-Ungern, Weil am Rhein och Saint-Louis-sidan
+    # i Tyska riket
+    *[('schweiz', p, n, y, True) for p, n in ((BASEL, 'Basel'), (RIEHEN, 'Riehen'), (SCHAFFHAUSEN, 'Schaffhausen'))
+      for y in (1820, 1870, 1871, 1900, 1915, 1918)],
+    *[('tyska-riket', p, n, y, False) for p, n in ((BASEL, 'Basel'), (RIEHEN, 'Riehen'), (SCHAFFHAUSEN, 'Schaffhausen'), (BREGENZ, 'Bregenz'))
+      for y in (1871, 1900, 1915, 1918)],
+    *[('osterrike-ungern', BREGENZ, 'Bregenz', y, True) for y in (1868, 1900, 1918)],
+    *[('tyska-riket', WEIL, 'Weil am Rhein', y, True) for y in (1871, 1900, 1915)],
+    *[('schweiz', WEIL, 'Weil am Rhein', y, False) for y in (1871, 1900, 1915)],
+    # Oder (#1781): Świnoujście och västra Wolin i Polen från 1945, inte i Sovjetunionen; Ahlbeck i DDR
+    *[('polen', p, n, y, True) for p, n in ((SWINOUJSCIE, 'Świnoujście'), (WOLIN, 'Wolin'), (MIEDZYZDROJE, 'Międzyzdroje'))
+      for y in (1945, 1946, 1949, 1952, 1953, 1990, 2024)],
+    *[(g, SWINOUJSCIE, 'Świnoujście', y, False) for g, y in (('sovjetunionen', 1946), ('sovjetunionen', 1949), ('osttyskland', 1949),
+                                                               ('tyskland', 2000))],
+    *[('osttyskland', AHLBECK, 'Ahlbeck', y, True) for y in (1949, 1952, 1990)],
+    *[('sovjetunionen', AHLBECK, 'Ahlbeck', y, False) for y in (1949, 1952)],
+    # Jura 1940–1944 (#1781): Frankrikes sida som i Cliopatria (Nazityskland, Vichyregimen, Italien 1943), Schweiz sida i Schweiz
+    *[('nazityskland', p, n, y, True) for p, n in ((PONTARLIER, 'Pontarlier'), (MORTEAU, 'Morteau'), (JOUGNE, 'Jougne'),
+                                                   (LES_ROUSSES, 'Les Rousses'), (GEX, 'Gex'), (DELLE, 'Delle')) for y in (1940, 1942, 1944)],
+    *[('italien', ANNEMASSE, 'Annemasse', 1943, True), ('nazityskland', ANNEMASSE, 'Annemasse', 1944, True)],
+    *[('schweiz', p, n, y, True) for p, n in ((LA_CHAUX, 'La Chaux-de-Fonds'), (PORRENTRUY, 'Porrentruy'), (VALLORBE, 'Vallorbe'),
+                                              (GENEVE, 'Genève')) for y in (1940, 1942, 1943, 1944)],
+    *[(g, p, n, y, False) for p, n in ((LA_CHAUX, 'La Chaux-de-Fonds'), (PORRENTRUY, 'Porrentruy'), (VALLORBE, 'Vallorbe'),
+                                       (GENEVE, 'Genève')) for g, y in (('nazityskland', 1942), ('franska-kolonialvaldet', 1942),
+                                                                        ('italien', 1943), ('nazityskland', 1944))],
+    # Västra Allgäu 1945–1949 (#1781): Wangen och Bad Wurzach i den franska zonen, Memmingen och Oberstaufen i den amerikanska.
+    # Weiler (källorna skiljer sig), Leutkirch och Isny (Cliopatrias USA, franska zonen genom #1771) prövas bara i DUBBEL
+    *[('franska-kolonialvaldet', p, n, y, True) for p, n in ((WANGEN, 'Wangen im Allgäu'), (BAD_WURZACH, 'Bad Wurzach'))
+      for y in (1945, 1946, 1949)],
+    *[('usa', p, n, y, False) for p, n in ((WANGEN, 'Wangen im Allgäu'), (BAD_WURZACH, 'Bad Wurzach')) for y in (1945, 1946, 1949)],
+    *[('usa', p, n, y, True) for p, n in ((MEMMINGEN, 'Memmingen'), (OBERSTAUFEN, 'Oberstaufen')) for y in (1945, 1946, 1949)],
 ]
 
 # Punkter som ligger precis utanför den förenklade kusten men som uppslaget hittar inom marginalen (AREA_MARGIN_DEG i
@@ -380,6 +437,21 @@ fel = []
 ruta = {'type': 'Polygon', 'coordinates': [[[0, 0], [10, 0], [10, 10], [0, 10], [0, 0]], [[4, 4], [6, 4], [6, 6], [4, 6], [4, 4]]]}
 if not in_geometry((1, 1), ruta) or in_geometry((5, 5), ruta) or in_geometry((11, 5), ruta):
     fel.append('punkt i polygon med hål ger fel svar')
+
+# Orter som inte får ritas i två stater samma år (#1781). Konstanz ritas i Schweiz eftersom Natural Earth följer Seerhein (Om kartan)
+DUBBEL = [
+    *[(('schweiz', 'tyska-riket'), KONSTANZ, 'Konstanz', y) for y in (1871, 1900, 1918)],
+    *[(('osttyskland', 'sovjetunionen', 'polen'), p, n, y) for p, n in ((AHLBECK, 'Ahlbeck'), (SWINOUJSCIE, 'Świnoujście'))
+      for y in (1946, 1949, 1952)],
+    *[(('franska-kolonialvaldet', 'nazityskland', 'italien', 'schweiz'), p, n, y) for p, n in ((PONTARLIER, 'Pontarlier'), (GEX, 'Gex'),
+                                                                                            (GENEVE, 'Genève')) for y in (1940, 1942, 1943, 1944)],
+    *[(('franska-kolonialvaldet', 'usa'), p, n, y) for p, n in ((WEILER, 'Weiler-Simmerberg'), (LEUTKIRCH, 'Leutkirch'), (ISNY, 'Isny'), (MEMMINGEN, 'Memmingen'))
+      for y in (1945, 1946, 1949)],
+]
+for grupper, pt, namn, year in DUBBEL:
+    i = [g for g in grupper if in_group(g, pt, year)]
+    if len(i) != 1:
+        fel.append(f'{namn} {pt} år {year}: i {len(i)} av {", ".join(grupper)} ({", ".join(i) or "ingen"})')
 
 for gid, pt, namn, year, ska in PUNKTER:
     if in_group(gid, pt, year) != ska:
