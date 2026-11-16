@@ -126,6 +126,12 @@ SANYA = (109.5036, 18.2533)
 TAIPEI = (121.5625, 25.0375)
 DINGHAI = (122.1068, 30.0198)  # Zhoushanön, ur en.wikipedia "Dinghai, Zhoushan"
 HAINAN_PUNKTER = ((HAIKOU, 'Haikou'), (SANYA, 'Sanya'), (DINGHAI, 'Dinghai'))
+# #1797, ur en.wikipedia (öppnade 2026-11-16): Xiangshans huvudort ("Xiangshan County, Zhejiang"), Changchun i Xiapu
+# ("Changchun Town", den ort på en.wikipedia som ligger närmast Cliopatrias del vid Xiapu), Kaohsiung och Magong
+XIANGSHAN_ORT = (121.866, 29.475)
+CHANGCHUN = (120.03972, 26.72917)
+KAOHSIUNG = (120.2975, 22.615)
+MAGONG = (119.583, 23.567)
 # #1707, ur Wikidata: Kinshasa Q3838, Brazzaville Q3844 och Nuuk Q226; Gander ur en.wikipedia "Gander, Newfoundland and Labrador"
 # (48° 57′ 26″ N, 54° 35′ 19″ V). Alla öppnade 2026-11-15
 KINSHASA = (15.3119, -4.3219)
@@ -355,6 +361,15 @@ PUNKTER = [
     *[('taiwan', p, n, y, False) for p, n in HAINAN_PUNKTER for y in (1950, 1952, 1953, 1960, 2023, 2024)],
     *[('taiwan', TAIPEI, 'Taipei', y, True) for y in (1950, 1960, 2023, 2024)],
     *[('kina', TAIPEI, 'Taipei', y, False) for y in (1950, 1960, 2023, 2024)],
+    # Kusten vid Xiangshan och Xiapu (#1797): kommunisterna hade hela fastlandet utom Hainan och Tibet i december 1949
+    # (wp-retreat-roc-taiwan), så Cliopatrias delar av Republiken Kina där ritas i Kina och inte i Taiwan. Kaohsiung ligger i Taiwan
+    *[('kina', XIANGSHAN_ORT, 'Xiangshan', y, True) for y in (1950, 1952, 1953, 1960, 2023, 2024)],
+    *[('taiwan', p, n, y, False) for p, n in ((XIANGSHAN_ORT, 'Xiangshan'), (CHANGCHUN, 'Changchun'))
+      for y in (1950, 1952, 1953, 1960, 2023, 2024)],
+    *[('taiwan', KAOHSIUNG, 'Kaohsiung', y, True) for y in (1950, 1960, 2023, 2024)],
+    *[('kina', KAOHSIUNG, 'Kaohsiung', y, False) for y in (1950, 1960, 2023, 2024)],
+    # Penghu (Magong) saknas i Cliopatria och ritas i ingen stat (docs/omstridda-granser.md, Kvar)
+    *[(g, MAGONG, 'Magong', y, False) for g in ('taiwan', 'kina') for y in (1950, 2000, 2024)],
     # Kinshasa och Brazzaville (#1707): Kinshasa på Pool Malebos södra strand, Brazzaville på andra sidan floden (wp-kinshasa).
     # Frankrike saknas i hela Franska Ekvatorialafrika 1940–1944 i Cliopatria, så Brazzaville är utan stat de åren
     *[('belgiska-kongo', KINSHASA, 'Kinshasa', y, True) for y in (1890, 1900, 1908, 1920, 1940, 1959)],
@@ -429,6 +444,8 @@ PUNKTER = [
 # js/area-lookup.js, 0,05 grader, längdgrader skalade med cos(latitud), beslut 2026-11-15, #1524): (grupp, punkt, namn, år).
 # Nuuk ligger utanför också i Cliopatria och i Natural Earth 1:10m (#1707), så kartan kan inte rätta det med de källor vi har
 NARA = [
+    # Changchun (#1797) ligger strax utanför Kinas förenklade kust, inom marginalen
+    *[('kina', CHANGCHUN, 'Changchun', y) for y in (1950, 1953, 2000, 2024)],
     *[('gronland-koloni', NUUK, 'Nuuk', y) for y in (1734, 1750, 1800, 1900, 1940)],
     *[('danmark', NUUK, 'Nuuk', y) for y in (1946, 1979, 2000, 2024)],
     # Kuwait City ligger cirka 500 m utanför Kuwaits förenklade kust (#1469)
@@ -478,6 +495,7 @@ if not in_geometry((1, 1), ruta) or in_geometry((5, 5), ruta) or in_geometry((11
 
 # Orter som inte får ritas i två stater samma år (#1781). Konstanz ritas i Schweiz eftersom Natural Earth följer Seerhein (Om kartan)
 DUBBEL = [
+    *[(('kina', 'taiwan'), XIANGSHAN_ORT, 'Xiangshan', y) for y in (1950, 1953, 2000, 2023)],
     *[(('schweiz', 'tyska-riket'), KONSTANZ, 'Konstanz', y) for y in (1871, 1900, 1918)],
     *[(('osttyskland', 'sovjetunionen', 'polen'), p, n, y) for p, n in ((AHLBECK, 'Ahlbeck'), (SWINOUJSCIE, 'Świnoujście'))
       for y in (1946, 1949, 1952)],
