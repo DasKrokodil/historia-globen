@@ -1919,6 +1919,13 @@ HAINAN_TAIWAN = (108.4, 18.0, 111.3, 20.25)
 # Zhoushan (#1499): rutan runt Zhoushanön (Dinghai). Taiwan har bara ön i rutan; Folkrepubliken får ön ur Republiken Kinas gräns
 # 1950 i Cliopatria (samma som Folkrepubliken 1953), som inte har något fastland, så rutan behöver inte undvika Ningbos kust
 ZHOUSHAN = (121.95, 29.95, 122.35, 30.25)
+# Kustdelarna vid Xiangshan och Xiapu (#1797): rutorna runt Taiwans förenklade delar på fastlandet i Zhejiang (121,7–122,0 Ö,
+# 29,2–29,7 N) och Fujian (119,8–120,2 Ö, 26,5–26,8 N). Taiwan har inget annat i rutorna, och de når inte Zhoushanrutan
+XIANGSHAN = (121.65, 29.15, 122.05, 29.75)
+XIAPU = (119.75, 26.45, 120.25, 26.85)
+# Kaohsiung (#1797): rutan runt Kaohsiung, där Taiwans land i Natural Earth (TWN) ligger väster om Taiwans förenklade kust
+# (120,23–120,39 Ö, 22,48–22,74 N). Längs rutans kanter ligger Natural Earths land inne i den förenklade gränsen, så ingen kant syns
+KAOHSIUNG = (120.15, 22.33, 120.55, 22.85)
 # Pool Malebo (#1707): de två Kongos sidor av floden i Natural Earth, i rutan (14,6–15,9 Ö, 4,8–3,8 S) som tools/ne_omstridda.py
 # klipper ut. Brazzavillesidan räknas utan det som också ligger på Kinshasasidan (avrundningen ger en remsa på cirka 0,06 km²)
 KINSHASA_SIDAN = ('ne', ['kongo-kinshasa-ne'])
@@ -2005,12 +2012,31 @@ DISPUTED = {
     # Zhoushanöarna från 1950 (#1499): Folkrepubliken tog Zhoushan 17 maj 1950 (wp-zhoushan-islands), men Cliopatria räknar
     # Zhoushanön till Republic of China 1950–2023 och till People's Republic of China först från 1953. Ön tas ur Taiwan och läggs
     # till Folkrepubliken från 1950 med Cliopatrias gräns (Republiken Kina 1950 i rutan). Folkrepublikens förenklade gräns har inte
-    # ön (den är mindre än MIN_AREA för Kina), så inget behöver tas bort först. Delarna vid Xiangshan (121,7–122,0 Ö, 29,2–29,7 N)
-    # och vid Fujian (119,8–120,2 Ö, 26,5–26,8 N) är inte kontrollerade med källa och ändras inte
+    # ön (den är mindre än MIN_AREA för Kina), så inget behöver tas bort först
     'zhoushan-taiwan': {'area': ('rutor', [ZHOUSHAN]), 'from': 1950, 'strict': True, 'efter': True, 'yta': True,
                         'remove': ['taiwan'], 'add': []},
     'zhoushan-kina': {'area': ('snitt', ('clio', 'Republic of China', 1950), ('rutor', [ZHOUSHAN])), 'from': 1950,
                       'strict': True, 'efter': True, 'yta': True, 'remove': [], 'add': ['kina']},
+    # Fastlandet vid Xiangshan (Zhejiang) och Xiapu (Fujian) från 1950 (#1797): Cliopatria räknar två delar av fastlandets kust till
+    # Republic of China 1950–2023 (Xiangshans huvudort ligger i den ena, wp-xiangshan-county), och People's Republic of China har
+    # dem först från 1953. I december 1949 hade kommunisterna hela Kinas fastland utom Hainan och Tibet (wp-retreat-roc-taiwan).
+    # Taiwans förenklade delar tas bort, och samma förenklade delar (Republiken Kina 1950, förenklad som kartan, bara delar som
+    # ligger helt i rutan) läggs till Folkrepubliken från 1950, så att inget nytt tomt fält uppstår och ingen gräns följer rutans
+    # kant. dec: bara delarna som
+    # rutan når räknas om, och resten av gränserna är som förut
+    **{f'{_namn}-taiwan': {'area': ('rutor', [_ruta]), 'from': 1950, 'strict': True, 'efter': True, 'yta': True, 'dec': 5,
+                           'remove': ['taiwan'], 'add': []} for _namn, _ruta in (('xiangshan', XIANGSHAN), ('xiapu', XIAPU))},
+    # Utan to: Kina 2024 får också delarna, fast Cliopatrias Republiken Kina 2024 inte har dem. Med to 2023 delas Kinas period
+    # 1953–2024 vid 2024, och den nya perioden 2024 förenklas för sig ur Cliopatria 2024 och skiljer sig långt utanför rutorna
+    # (cirka 1,1 grad² nytt tomt land vid kusten), så delarna får gälla alla år från 1950 (docs/omstridda-granser.md)
+    **{f'{_namn}-kina': {'area': ('hela-delar', ('forenklad', 'Republic of China', 1950), ('rutor', [_ruta])), 'from': 1950,
+                         'strict': True, 'efter': True, 'yta': True, 'dec': 5, 'remove': [], 'add': ['kina']}
+       for _namn, _ruta in (('xiangshan', XIANGSHAN), ('xiapu', XIAPU))},
+    # Kaohsiung (#1797): Cliopatria har staden i Republiken Kina, men den förenklade kusten lade den cirka 1 km utanför. I rutan
+    # läggs Taiwans land ur Natural Earth (TWN, tools/ne_omstridda.py) till efter förenklingen, så att bara land läggs till;
+    # Cliopatrias kust där ligger upp till cirka 11 km ute i sundet (geografen). Utanför rutan är gränsen som förut
+    'kaohsiung-taiwan': {'area': ('ne', ['taiwan-kaohsiung-ne']), 'from': 1950,
+                         'strict': True, 'efter': True, 'dec': 5, 'remove': [], 'add': ['taiwan']},
     # Västberlin och Östberlin 1949–1990 (#1731, beslut 2026-11-15-vastberlin-grans.md). Cliopatrias hål i DDR för Västberlin
     # stämmer bara ungefär (det täcker delar av Östberlin, och södra Västberlin ligger i DDR) och saknas 1973–1975.
     # Västberlin är i stället gränsen ur "Verlauf der Berliner Mauer, 1989" (tools/vastberlin.geojson, byggd med
@@ -2694,6 +2720,9 @@ def disputed_areas(by_name):
         if a[0] == 'forenklad':  # en stats gräns ett visst år, förenklad och avrundad som kartans gräns (TOL, en decimal; #1469)
             g = at(a[1], a[2]).simplify(TOL, preserve_topology=True)
             return shape({'type': mapping(g)['type'], 'coordinates': rnd(mapping(g)['coordinates'])}).buffer(0)
+        if a[0] == 'hela-delar':  # (#1797) de delar av ett område som ligger helt i ett annat (rutan klipper ingen del)
+            inner, outer = area(a[1]), area(a[2])
+            return unary_union([p for p in getattr(inner, 'geoms', [inner]) if p.within(outer)])
         if a[0] == 'union':  # flera områden tillsammans (#1469)
             return unary_union([area(x) for x in a[1:]])
         if a[0] == 'ne-snitt':  # ett land i Natural Earth snittat med en Cliopatria-post ett visst år
