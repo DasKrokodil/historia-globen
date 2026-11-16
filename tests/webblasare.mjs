@@ -3459,6 +3459,31 @@ async function run(browser, vp) {
       status: document.getElementById('screen-reader-status').textContent.trim(), focus: document.activeElement?.className ?? '' };
   });
   const coversHit = (s, b) => s.covers.some(c => b.x0 < c.x1 && b.x1 > c.x0 && b.y0 < c.y1 && b.y1 > c.y0);
+  // #1806: scope "wide" betyder att händelsen gäller ett större område än platsen markören ligger i. Yngre dryas gäller norra
+  // halvklotet med markören i Allerød: den står inte i Danmarks platskort eller i regionvyns lista och markörer, men syns på globen.
+  await check('scope wide: Yngre dryas saknas i Danmarks platskort och regionvy men markören syns på globen (#1806)', async () => {
+    const { tp, tctx, errs } = await placeTapPage('#y=1827&f=place:danmark', 'wide1806');
+    try {
+      await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+      const inCard = await tp.evaluate(() => [...document.querySelectorAll('#detail [data-theme-event]')].map(b => b.dataset.themeEvent));
+      if (inCard.includes('yngre-dryas')) throw new Error('Yngre dryas står i Danmarks platskort');
+      if (!inCard.includes('grundloven-1849')) throw new Error('Danmarks platskort saknar sina egna händelser');
+      await openRegion(tp, 'danmark');
+      await regionSettled(tp);
+      const s = await regionMarksState(tp);
+      if (!s.rows.length) throw new Error('regionvyns lista är tom');
+      if (s.rows.some(r => r.id === 'yngre-dryas')) throw new Error('Yngre dryas står i regionvyns lista');
+      if (s.buttons.some(b => b.event === 'yngre-dryas')) throw new Error('Yngre dryas har en markör i regionvyn');
+      // Utan Fokus syns markören på globen som vanligt (samma urval som ritas, #flat-view data-visible-events)
+      await tp.goto(`${BASE}?ny=wide1806g#y=-10500`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForFunction(() => /(^|\s)yngre-dryas(\s|$)/.test(document.getElementById('flat-view').dataset.visibleEvents ?? ''), null, { timeout: T.step })
+        .catch(() => { throw new Error('Yngre dryas syns inte på globen år 10501 f.Kr.'); });
+      if (await tp.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw new Error('horisontell scroll');
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `${inCard.length} händelser i kortet och ${s.rows.length} i regionvyn utan Yngre dryas; markören syns på globen`;
+    } finally { await tctx.close(); }
+  });
   await check('regionvyns markörer: Skåne och Danmark får numrerade markörer, bricka och högar skarpt, numret stämmer med raden och kortet täcker dem inte (#1642)', async () => {
     const { tp, tctx, errs } = await placeTapPage('#y=1827&f=place:skane', 'markor1');
     try {
