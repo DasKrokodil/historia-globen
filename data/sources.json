@@ -3262,6 +3262,11 @@
     {"id": "wp-third-czechoslovak-republic", "title": "Third Czechoslovak Republic – Wikipedia", "url": "https://en.wikipedia.org/wiki/Third_Czechoslovak_Republic", "license": "CC BY-SA 4.0", "checked": "2026-11-15"},
     {"id": "wp-unsc-662", "title": "United Nations Security Council Resolution 662 – Wikipedia", "url": "https://en.wikipedia.org/wiki/United_Nations_Security_Council_Resolution_662", "license": "CC BY-SA 4.0", "checked": "2026-11-15"},
     {"id": "commons-muren-mutianyu", "title": "Great Wall of China July 2006.JPG – Kinesiska muren vid Mutianyu nära Peking, juli 2006 (Wikimedia Commons, filsida; CC0 1.0 enligt filsidan)", "url": "https://commons.wikimedia.org/wiki/File:Great_Wall_of_China_July_2006.JPG", "license": "CC0 1.0", "checked": "2026-11-16"},
-    {"id": "adl3rai-muren", "title": "The-Great-Wall-of-China-geodata av Adl3rAi (GitHub): Mingmuren som handritade linjer", "url": "https://github.com/Adl3rAi/The-Great-Wall-of-China-geodata", "license": "MIT", "checked": "2026-11-16"}
+    {"id": "adl3rai-muren", "title": "The-Great-Wall-of-China-geodata av Adl3rAi (GitHub): Mingmuren som handritade linjer", "url": "https://github.com/Adl3rAi/The-Great-Wall-of-China-geodata", "license": "MIT", "checked": "2026-11-16"},
+    {"id": "wp-alsace-lorraine", "title": "Alsace–Lorraine – Wikipedia", "url": "https://en.wikipedia.org/wiki/Alsace%E2%80%93Lorraine", "license": "CC BY-SA 4.0", "checked": "2026-11-16"},
+    {"id": "wp-swinoujscie", "title": "Świnoujście – Wikipedia", "url": "https://en.wikipedia.org/wiki/%C5%9Awinouj%C5%9Bcie", "license": "CC BY-SA 4.0", "checked": "2026-11-16"},
+    {"id": "frwp-ligne-de-demarcation", "title": "Ligne de démarcation (France) – Wikipedia (franska)", "url": "https://fr.wikipedia.org/wiki/Ligne_de_d%C3%A9marcation_(France)", "license": "CC BY-SA 4.0", "checked": "2026-11-16"},
+    {"id": "dewp-wurttemberg-hohenzollern", "title": "Württemberg-Hohenzollern – Wikipedia (tyska)", "url": "https://de.wikipedia.org/wiki/W%C3%BCrttemberg-Hohenzollern", "license": "CC BY-SA 4.0", "checked": "2026-11-16"},
+    {"id": "dewp-landkreis-wangen", "title": "Landkreis Wangen – Wikipedia (tyska)", "url": "https://de.wikipedia.org/wiki/Landkreis_Wangen", "license": "CC BY-SA 4.0", "checked": "2026-11-16"}
 ]
 }
