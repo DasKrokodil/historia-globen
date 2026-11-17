@@ -56,6 +56,16 @@ const detective = tour => (tour.lesson?.sourceDetective ?? []).map(d => {
   return i < 0 ? null : { step: tour.steps[i], n: i + 1, questions: d.questions ?? [] };
 }).filter(Boolean);
 
+/** Lektionens frivilliga uppdrag hämtas ur samma källa som slutkortet (#1461). */
+async function lessonMission(tour) {
+  try {
+    const response = await fetch('data/uppdrag.json');
+    if (!response.ok) return null;
+    const data = await response.json();
+    return (data.missions ?? []).find(m => m.lesson === tour.id) ?? null;
+  } catch { return null; }
+}
+
 /** Stegets rubrik som rad: "Steg 9: Stalingrad, 2 februari 1943". */
 const stepLabel = (step, n) => ui('print.step', { n, title: t(step.title) || '' }).replace(/:\s*$/, '');
 
@@ -70,7 +80,7 @@ function head(tour, kind, id) {
   return h;
 }
 
-function studentSheet(tour, srcById) {
+function studentSheet(tour, srcById, mission) {
   const page = el('section', 'print-page print-student');
   page.setAttribute('aria-labelledby', 'print-student-title');
   page.append(head(tour, ui('print.student'), 'print-student-title'));
@@ -90,6 +100,11 @@ function studentSheet(tour, srcById) {
   const exit = el('div', 'print-exit');
   exit.append(el('h2', null, ui('print.exit')), el('p', 'print-q', t(tour.lesson.exitTicket)), lines(3));
   page.append(exit);
+  if (mission) {
+    const task = el('div', 'print-exit');
+    task.append(el('h2', null, t(mission.title)), el('p', 'print-q', t(mission.task)), el('p', 'print-q', t(mission.reflection)), lines(4));
+    page.append(task);
+  }
   const sources = sourceBox(questions(tour), srcById);
   if (sources) page.append(sources);
   return page;
@@ -128,7 +143,7 @@ function detectiveSheet(tour, cases, srcById) {
   return page;
 }
 
-function teacherSheet(tour, srcById) {
+function teacherSheet(tour, srcById, mission) {
   const { lesson } = tour;
   const page = el('section', 'print-page print-teacher');
   page.setAttribute('aria-labelledby', 'print-teacher-title');
@@ -144,6 +159,11 @@ function teacherSheet(tour, srcById) {
   const how = el('div', 'print-block');
   how.append(el('h2', null, ui('print.instruction')), el('p', null, t(lesson.teacher)));
   page.append(how);
+  if (mission) {
+    const task = el('div', 'print-block');
+    task.append(el('h2', null, t(mission.title)), el('p', null, t(mission.task)), el('p', null, t(mission.reflection)));
+    page.append(task);
+  }
   const cur = el('div', 'print-block');
   cur.append(el('h2', null, ui('print.curriculum')));
   const ul = el('ul', 'print-curriculum');
@@ -183,9 +203,10 @@ export async function printLesson(tour, root, { print = () => window.print() } =
   let srcById;
   try { srcById = await loadSources(); } catch { return 'sources'; }
   const cases = detective(tour);
-  const sheets = [studentSheet(tour, srcById)];
+  const mission = await lessonMission(tour);
+  const sheets = [studentSheet(tour, srcById, mission)];
   if (cases.length) sheets.push(detectiveSheet(tour, cases, srcById));
-  root.replaceChildren(...sheets, teacherSheet(tour, srcById));
+  root.replaceChildren(...sheets, teacherSheet(tour, srcById, mission));
   root.hidden = false;
   const done = () => { root.hidden = true; root.replaceChildren(); removeEventListener('afterprint', done); };
   addEventListener('afterprint', done);
