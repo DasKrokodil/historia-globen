@@ -545,6 +545,7 @@
   "sources.about": "Un projet amateur au code source ouvert (GPL-3.0). Données sous CC BY 4.0.",
   "sources.sourceCode": "Code source",
   "detail.aboutData": ["Sources et incertitude · {n} source", "Sources et incertitude · {n} sources"],
+  "detail.imageCredit": "Image :",
   "route.sourcesCount": "Sources ({n})",
   "detail.sourceMissing": "manquante",
   "detail.beforeScale": "L’événement commence avant le début de la frise ({year}), le curseur ne peut donc pas afficher sa première année.",

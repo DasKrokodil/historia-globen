@@ -545,6 +545,7 @@
   "sources.about": "Un proyecto de aficionados con código abierto (GPL-3.0). Datos bajo CC BY 4.0.",
   "sources.sourceCode": "Código fuente",
   "detail.aboutData": ["Fuentes e incertidumbre · {n} fuente", "Fuentes e incertidumbre · {n} fuentes"],
+  "detail.imageCredit": "Imagen:",
   "route.sourcesCount": "Fuentes ({n})",
   "detail.sourceMissing": "falta",
   "detail.beforeScale": "El acontecimiento comienza antes del inicio de la línea de tiempo ({year}), por lo que el control no puede mostrar su primer año.",
