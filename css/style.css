@@ -2585,8 +2585,8 @@ details.used-by summary:hover { color: var(--parchment); }
   .more-menu .action-group + .action-group { padding-top: 8px; border-top: 1px solid var(--line); }
   .more-menu .chip-btn { height: 44px; text-align: left; }
   .more-menu .chip-btn::after { inset: 0; }
-  /* Vy: tre knappar bredvid varandra överst i menyn */
-  .more-menu .view-mode { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  /* Vy: Glob och Platt karta bredvid varandra. Stil står som egen grupp direkt under (#1577). */
+  .more-menu .view-mode { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .more-menu .view-mode .action-label { grid-column: 1 / -1; }
   .more-menu .view-mode .chip-btn { height: auto; min-height: 48px; padding: 6px 4px; text-align: center; white-space: normal; line-height: 1.15; hyphens: manual; }
   /* Mer: knappen behövs inte i mobilen, Källor, Hjälp och Dela står som en rad längst ner */
