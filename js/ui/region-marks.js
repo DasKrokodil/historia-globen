@@ -262,11 +262,15 @@ export class RegionMarks {
         tag._w = tag.offsetWidth || 90; tag._h = tag.offsetHeight || 30;
         el.classList.add('tag-short');
         tag._ws = tag.offsetWidth || 60; tag._hs = tag.offsetHeight || 18;
+        // Har namnet ännu ingen layout (första ritningen) är måtten bara reservvärden: spara dem inte, så att nästa ritning mäter
+        // på riktigt och inte lägger ett långt namn utanför bildens kant (#1687)
+        if (!tag.offsetWidth) { tag._unmeasured = true; }
       }
       let spot = tagSpot(p, { w: tag._w, h: tag._h }, PILE_BADGE / 2 + 4, blocked, W, H, crosses), short = false;
       if (!spot) { spot = tagSpot(p, { w: tag._ws, h: tag._hs }, PILE_BADGE / 2 + 4, blocked, W, H, crosses); short = !!spot; }
       el.classList.toggle('tag-short', short);
       el.dataset.tag = spot?.side ?? 'none';
+      if (tag._unmeasured) { tag._w = undefined; tag._unmeasured = false; }
       if (spot) blocked.push(spot.box);
     }
     // Etiketten vid den markerade markören (eller den under muspekaren, som går före): över, under, till höger eller vänster, där den
