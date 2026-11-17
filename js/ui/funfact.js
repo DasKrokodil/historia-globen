@@ -101,9 +101,11 @@ export class FunFacts {
     this.requestedId = null;
     this.onSurprise = () => {};
     // Kortet startar litet (#1867, "Visste du? 4": fliken i dator, stängd panel i mobil), så att globen syns först. Det öppnas när
-    // besökaren trycker på det. Ett eget val sparas: öppnat (0) blir kvar öppet nästa gång, ihopfällt (1) likaså; utan val startar kortet litet.
-    this.minimized = true;
-    try { this.minimized = localStorage.getItem('hg-ff-min') !== '0'; } catch { /* utan lagring */ }
+    // besökaren trycker på det, eller av sig självt när besökaren startar uppspelningen med Spela (openForPlay). Ett eget val sparas:
+    // öppnat (0) blir kvar öppet nästa gång, ihopfällt (1) likaså; utan val startar kortet litet. Den automatiska öppningen sparas aldrig:
+    // `chosen` är sant bara när besökaren har valt (sparat val vid start, eller ett tryck på kortet sedan dess), och då öppnar Spela inget.
+    this.minimized = true; this.chosen = false;
+    try { const saved = localStorage.getItem('hg-ff-min'); this.minimized = saved !== '0'; this.chosen = saved === '0' || saved === '1'; } catch { /* utan lagring */ }
     this.peekCount = this.root.querySelector('#ff-peek-count');
     // Panelen i smal skärm (#239): ihopfällt kort (minimized) visas som stängd panel i stället för en flik.
     // autoClosed: stängd av att man drar i globen. Det sparas inte, och nästa nya kort öppnar panelen igen.
@@ -183,9 +185,22 @@ export class FunFacts {
     if (fresh) this.onNew();
   }
 
+  /**
+   * Besökaren startade uppspelningen med Spela (#1867): ett litet kort öppnas, så att nya kort syns och uppspelningen pausar vid dem
+   * (playback.js pausar bara när kortet är öppet). Öppningen är automatisk och sparas därför inte (`hg-ff-min` rörs inte): nästa besök
+   * startar litet igen. Har besökaren själv valt, öppnat eller fällt ihop kortet (`chosen`), händer inget, så ett kort som besökaren har
+   * stängt står stängt. Fokus flyttas inte. Ger sant när kortet öppnades.
+   */
+  openForPlay() {
+    if (!this.minimized || this.chosen) return false;
+    this.minimized = false; this.autoClosed = false;
+    this._show();
+    return true;
+  }
+
   /** Fäll ihop kortet till en flik, eller öppna det igen. Valet sparas. */
   setMinimized(on) {
-    this.minimized = on; this.autoClosed = false;
+    this.minimized = on; this.autoClosed = false; this.chosen = true;
     try { localStorage.setItem('hg-ff-min', on ? '1' : '0'); } catch { /* utan lagring */ }
     this._show();
     if (!narrow.matches) (on ? this.tab : this.min).focus?.();

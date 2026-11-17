@@ -164,7 +164,7 @@ export class Timeline extends EventTarget {
       try { localStorage.setItem('hg-speed-ars', String(this.speed)); } catch { /* utan lagring */ }
       this._labelSpeed();
     });
-    pauseGo?.addEventListener('click', () => this.play());
+    pauseGo?.addEventListener('click', () => this.play({ byUser: true }));
     this._labelPlay();
     this._labelSpeed();
 
@@ -190,7 +190,7 @@ export class Timeline extends EventTarget {
       if (e.key === 'End') { this.setByUser(MAX_YEAR); e.preventDefault(); }
     });
     for (const b of stepBtns) b.addEventListener('click', () => { if (this.locked) return; this.pause(); this.setByUser(this.stepFrom(this.year, Number(b.dataset.step))); });
-    playBtn.addEventListener('click', () => { if (this.locked) return; this.playing ? this.pause() : this.play(); });
+    playBtn.addEventListener('click', () => { if (this.locked) return; this.playing ? this.pause() : this.play({ byUser: true }); });
   }
 
   /** Är reglaget låst för besökaren (tidslåset, #1322)? */
@@ -656,9 +656,15 @@ export class Timeline extends EventTarget {
   /** Läs om knappens läge, till exempel när slutkortet har visats utan att året ändrades. */
   refreshPlayLabel() { this._labelPlay(); }
 
-  play() {
+  /**
+   * Starta uppspelningen. `byUser` är sant när besökaren själv trycker på Spela, Fortsätt eller Spela igen (#1867): då skickas
+   * 'userplay' när uppspelningen har startat, med `resumed` (sant när den fortsätter efter en automatisk paus). Programmatiska
+   * starter (nedräkningen som fortsätter själv, Spela klart) anropar play() utan det och skickar ingen 'userplay'.
+   */
+  play({ byUser = false } = {}) {
     // Den som lyssnar kan ta över (preventDefault), till exempel för att visa nästa stopp i ett krig (#217)
     if (!this.dispatchEvent(new CustomEvent('beforeplay', { cancelable: true }))) return;
+    const resumed = this._resume;
     const end = this.focus ? this.focus.to : MAX_YEAR;
     // Börja om bara från slutet, och då har knappen hetat "Spela igen" (#232)
     if (this._year >= end) this.year = this.focus ? this.focus.from : MIN_YEAR;
@@ -668,6 +674,7 @@ export class Timeline extends EventTarget {
     const run = this._run = (this._run ?? 0) + 1; // bara en uppspelning åt gången
     this.playBtn.setAttribute('aria-pressed', 'true');
     this._labelPlay();
+    if (byUser) this.dispatchEvent(new CustomEvent('userplay', { detail: { resumed } }));
     let last = performance.now();
     let yf = this._year; // året som decimaltal, så att långsamma nivåer räknas upp jämnt
     let shown = this._year;

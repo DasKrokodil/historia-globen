@@ -26,3 +26,7 @@ Datum: 2026-11-16. Beslut av DasKrokodil i #1867 ("Ja, enligt rekommendationerna
 - **Ska ett öppnat kort komma ihåg att det var öppet?** Nu startar det öppet för den som en gång har öppnat det. Alternativ: starta alltid litet och spara bara att det fälldes ihop. Förslag: behåll, eftersom det är besökarens eget val.
 - **Hur ska ett litet kort se ut i dator?** Den befintliga fliken är byggd; ett smalare kort med en rad och en pil är ett nytt utseende och väntar på ett ja.
 - Kortet för krigets utbrott och rikets berättelse ligger i samma kort. Krigskortet säger nu "Visste du? · När ett krig bröt ut"; rikets berättelse har ingen namnrad som förut. Om krigskortet ska ha ett eget namn är en separat fråga.
+
+## Uppföljning 2026-11-17
+
+Frågorna ovan är avgjorda av DasKrokodil och byggda i [2026-11-17-visste-du-oppnas-vid-spela-1867.md](2026-11-17-visste-du-oppnas-vid-spela-1867.md): Spela öppnar kortet, ett litet kort pausar inte (oförändrat), ett öppnat kort kommer ihåg att det var öppet, den befintliga fliken behålls och krigskortet får inget eget namn.
