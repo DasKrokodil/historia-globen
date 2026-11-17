@@ -163,12 +163,15 @@
     </div>
     <button id="more-toggle" class="chip-btn more-toggle" type="button" aria-expanded="false" aria-controls="more-menu"><span id="more-label" data-i18n="top.menu">Meny</span><span class="more-chev" aria-hidden="true"></span></button>
     <div id="more-menu" class="more-menu">
-      <!-- Vy (#651): tre sätt att se världen sida vid sida. Glob, Platt karta (#292) och Upptäcktsresor (#101),
-           som är lagret discovery med resorna. Bara en åt gången (js/ui/viewmode.js). -->
+      <!-- Vy och stil (#1577): Glob och Platt karta (#292) väljer yta. Upptäcktsresor (#101) är en stil som
+           kan visas på båda ytorna; den styr lagret discovery med resorna (js/ui/viewmode.js). -->
       <div class="action-group view-mode" role="group" aria-labelledby="ag-mode">
         <span id="ag-mode" class="action-label" data-i18n="top.mode">Vy</span>
         <button id="btn-globe" class="chip-btn" type="button" aria-pressed="true" data-i18n="top.globe">Glob</button>
         <button id="btn-flat" class="chip-btn" type="button" aria-pressed="false" title="Visa världen som en platt karta" data-i18n-title="top.flatTitle" data-i18n="top.flat">Platt karta</button>
+      </div>
+      <div class="action-group style-mode" role="group" aria-labelledby="ag-style">
+        <span id="ag-style" class="action-label" data-i18n="top.style">Stil</span>
         <button id="btn-discovery" class="chip-btn" type="button" aria-pressed="false" title="Världen som européerna kände den, med dimma som resorna lyfter" data-i18n-title="top.discoveryTitle" data-i18n="top.discovery">Upptäckts&shy;resor</button>
       </div>
       <div class="action-group" role="group" aria-labelledby="ag-explore">

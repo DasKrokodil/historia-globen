@@ -1,22 +1,14 @@
-// Vyväljaren (#651): Glob, Platt karta och Upptäcktsresor sida vid sida i gruppen Vy, bara en åt gången.
-// - Glob: Platt vy stängd och upptäcktsvyn av.
-// - Platt karta: Platt vy (#292) öppen och upptäcktsvyn av. Ett nytt klick går tillbaka till Glob.
-// - Upptäcktsresor: lagret discovery (#101) och resorna på globen, som den gamla förinställningen Perspektiv. Ett nytt klick
-//   går tillbaka till Glob, som för Platt karta (2026-11-14).
+// Vy och stil (#1577): Glob och Platt karta är två ytor, medan Upptäcktsresor är en fristående stil.
+// Upptäcktsstilen är lagret discovery (#101) med resorna och fungerar därför både på globen och i Platt karta.
 // Knapparna följer också när Platt vy eller lagret slås på och av någon annanstans (Lager, adressen, en tur).
 export class ViewMode {
   /** buttons: { globe, flat, discovery }. flatMap: Platt vy. layers: Lager-menyn (set och onChange). */
   constructor(buttons, { flatMap, layers }) {
     Object.assign(this, { buttons, flatMap, layers });
-    buttons.globe.addEventListener('click', () => this.set('globe'));
-    buttons.flat.addEventListener('click', () => this.set(this.mode === 'flat' ? 'globe' : 'flat'));
-    buttons.discovery.addEventListener('click', () => this.set(this.mode === 'discovery' ? 'globe' : 'discovery'));
+    buttons.globe.addEventListener('click', () => this.setSurface('globe'));
+    buttons.flat.addEventListener('click', () => this.setSurface(this.flatMap.hidden ? 'flat' : 'globe'));
+    buttons.discovery.addEventListener('click', () => this.setDiscovery(!this.layers.on.discovery));
     this.sync();
-  }
-
-  get mode() {
-    if (!this.flatMap.hidden) return 'flat';
-    return this.layers.on.discovery ? 'discovery' : 'globe';
   }
 
   layer(name, on) {
@@ -25,16 +17,23 @@ export class ViewMode {
     this.layers.onChange(name, on);
   }
 
-  set(mode) {
-    if (mode === 'discovery') { this.layer('discovery', true); this.layer('routes', true); }
-    else this.layer('discovery', false);
-    this.flatMap.setOpen(mode === 'flat');
+  /** Väljer ytan utan att ändra den valda kartstilen. */
+  setSurface(surface) {
+    this.flatMap.setOpen(surface === 'flat');
     this.sync();
   }
 
-  /** Markerar den vy som syns nu. */
+  /** Slår på eller av upptäcktsstilen utan att byta mellan glob och platt karta. */
+  setDiscovery(on) {
+    if (on) this.layer('routes', true);
+    this.layer('discovery', on);
+    this.sync();
+  }
+
+  /** Markerar den valda ytan och stilen oberoende av varandra. */
   sync() {
-    const mode = this.mode;
-    for (const [id, b] of Object.entries(this.buttons)) b.setAttribute('aria-pressed', String(id === mode));
+    this.buttons.globe.setAttribute('aria-pressed', String(this.flatMap.hidden));
+    this.buttons.flat.setAttribute('aria-pressed', String(!this.flatMap.hidden));
+    this.buttons.discovery.setAttribute('aria-pressed', String(!!this.layers.on.discovery));
   }
 }

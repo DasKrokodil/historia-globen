@@ -7316,20 +7316,18 @@ async function run(browser, vp) {
     return 'fälls ihop och ut; valet sparas i sessionen';
   });
 
-  // Vyväljaren (#651): ett nytt klick på Upptäcktsresor går tillbaka till Glob, som för Platt karta (2026-11-14)
-  await check('ett nytt klick på Upptäcktsresor går tillbaka till Glob', async () => {
+  // Vy och stil (#1577): Upptäcktsresor kan kombineras med både Glob och Platt karta.
+  await check('Upptäcktsresor är en stil som kan visas på Platt karta', async () => {
     const pressed = id => page.getAttribute(id, 'aria-pressed');
     await clickView('#btn-discovery');
     await page.waitForFunction(() => document.getElementById('btn-discovery').getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
-    if (await pressed('#btn-globe') !== 'false') throw new Error('Glob är markerad medan Upptäcktsresor är på');
-    await clickView('#btn-discovery');
-    await page.waitForFunction(() => document.getElementById('btn-globe').getAttribute('aria-pressed') === 'true', null, { timeout: T.step });
-    if (await pressed('#btn-discovery') !== 'false') throw new Error('Upptäcktsresor står kvar som vald efter andra klicket');
-    await clickView('#btn-discovery');
+    if (await pressed('#btn-globe') !== 'true') throw new Error('Glob är inte vald medan Upptäcktsresor är på');
     await clickView('#btn-flat');
-    if (await pressed('#btn-flat') !== 'true') throw new Error('Platt karta kan inte väljas från Upptäcktsresor');
+    if (await pressed('#btn-flat') !== 'true' || await pressed('#btn-discovery') !== 'true') throw new Error('Platt karta och Upptäcktsresor kan inte vara valda samtidigt');
+    await clickView('#btn-discovery');
+    if (await pressed('#btn-flat') !== 'true' || await pressed('#btn-discovery') !== 'false') throw new Error('Stilen stängs inte utan att Platt karta ändras');
     await clickView('#btn-globe');
-    return 'andra klicket på Upptäcktsresor ger Glob';
+    return 'Glob/Platt karta och Upptäcktsresor väljs oberoende';
   });
 
   // #377, regel A: dimman lyfts över hela riket när en resa har nått dess område. USA används eftersom issuets
