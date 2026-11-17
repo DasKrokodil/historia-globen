@@ -19,18 +19,18 @@ export function t(obj) {
 // Fast kategorilista (beslut 7). Färgerna är valda för att synas mot mörk bakgrund.
 // count = ord i ental och flertal när en klunga säger vad den innehåller (#243), till exempel "3 krigshändelser".
 export const CATEGORIES = [
-  { id: 'natur',          name: { sv: 'Natur och djur' },                 color: '#8cc084', count: { sv: ['naturhändelse', 'naturhändelser'] } },
-  { id: 'manniskan',      name: { sv: 'Människans ursprung' },            color: '#c99263', count: { sv: ['händelse om människans ursprung', 'händelser om människans ursprung'] } },
-  { id: 'civilisationer', name: { sv: 'Civilisationer och riken' },       color: '#e3a33f', count: { sv: ['rike eller civilisation', 'riken och civilisationer'] } },
-  { id: 'religion',       name: { sv: 'Religion' },                       color: '#b892dc', count: { sv: ['religiös händelse', 'religiösa händelser'] } },
-  { id: 'vetenskap',      name: { sv: 'Vetenskap och uppfinningar' },     color: '#5fb6dd', count: { sv: ['vetenskaplig händelse', 'vetenskapliga händelser'] } },
+  { id: 'natur',          name: { sv: 'Natur och djur' },                 color: '#98c692', count: { sv: ['naturhändelse', 'naturhändelser'] } },
+  { id: 'manniskan',      name: { sv: 'Människans ursprung' },            color: '#c2956f', count: { sv: ['händelse om människans ursprung', 'händelser om människans ursprung'] } },
+  { id: 'civilisationer', name: { sv: 'Civilisationer och riken' },       color: '#efa536', count: { sv: ['rike eller civilisation', 'riken och civilisationer'] } },
+  { id: 'religion',       name: { sv: 'Religion' },                       color: '#bc8af1', count: { sv: ['religiös händelse', 'religiösa händelser'] } },
+  { id: 'vetenskap',      name: { sv: 'Vetenskap och uppfinningar' },     color: '#7bbbdc', count: { sv: ['vetenskaplig händelse', 'vetenskapliga händelser'] } },
   { id: 'upptackter',     name: { sv: 'Upptäcktsresor' },                 color: '#4fc6b2', count: { sv: ['upptäcktsresa', 'upptäcktsresor'] } },
   { id: 'krig',           name: { sv: 'Krig och konflikter' },            color: '#e5675a', count: { sv: ['krigshändelse', 'krigshändelser'] } },
-  { id: 'kultur',         name: { sv: 'Kultur och arkitektur' },          color: '#ec98bd', count: { sv: ['kulturhändelse', 'kulturhändelser'] } },
-  { id: 'sport',          name: { sv: 'Sport' },                          color: '#f28c45', count: { sv: ['sporthändelse', 'sporthändelser'] } },
-  { id: 'ekonomi',        name: { sv: 'Ekonomi och handel' },             color: '#a9bd5e', count: { sv: ['händelse i ekonomin', 'händelser i ekonomin'] } },
-  { id: 'halsa',          name: { sv: 'Hälsa och epidemier' },            color: '#d8d46e', count: { sv: ['hälsohändelse', 'hälsohändelser'] } },
-  { id: 'klimat',         name: { sv: 'Klimat' },                         color: '#7aa4e6', count: { sv: ['klimathändelse', 'klimathändelser'] } },
+  { id: 'kultur',         name: { sv: 'Kultur och arkitektur' },          color: '#f4aac4', count: { sv: ['kulturhändelse', 'kulturhändelser'] } },
+  { id: 'sport',          name: { sv: 'Sport' },                          color: '#e28546', count: { sv: ['sporthändelse', 'sporthändelser'] } },
+  { id: 'ekonomi',        name: { sv: 'Ekonomi och handel' },             color: '#b6c56f', count: { sv: ['händelse i ekonomin', 'händelser i ekonomin'] } },
+  { id: 'halsa',          name: { sv: 'Hälsa och epidemier' },            color: '#e6dd6f', count: { sv: ['hälsohändelse', 'hälsohändelser'] } },
+  { id: 'klimat',         name: { sv: 'Klimat' },                         color: '#7698c2', count: { sv: ['klimathändelse', 'klimathändelser'] } },
   // Katastrofer (#554, beslut 2026-11-03): natur- och teknikkatastrofer, svält. Inte epidemier (halsa) eller krig.
   // Violett, eftersom den skiljer sig från krig och de andra färgerna även vid simulerad färgblindhet.
   { id: 'katastrofer',    name: { sv: 'Katastrofer' },                    color: '#c256f5', count: { sv: ['katastrof', 'katastrofer'] } },

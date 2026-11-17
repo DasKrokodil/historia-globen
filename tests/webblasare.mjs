@@ -46,6 +46,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { list, urval, bredder, ALLTID } from './urval.mjs';
 import { skapaAbortWatch, ABORTED_FETCH, textifyConsoleErrors } from './avbrutna-hamtningar.mjs';
+import { kontrast, blanda } from './farg-berakning.mjs';
 
 const require = createRequire(import.meta.url);
 const playwright = require('playwright');
@@ -3388,6 +3389,71 @@ async function run(browser, vp) {
       if (!out.prevented) throw new Error(`nypning på ${out.cls} släpps igenom: Chrome zoomar hela sidan`);
       if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
       return `nypning på ${out.cls} fångas av globen`;
+    } finally {
+      await lp.close();
+    }
+  });
+
+  // #1318: etiketterna på globen har minst 4,5:1 mellan text och bakgrund, också de som vetter bort mot klotets kant, och "nära i tid"
+  // skiljs från "pågår" med mer än färgstyrka (kursiv). Kontrasten räknas på en riktig skärmbild: etikettens text och bakgrund (78 procents
+  // täckning) läggs med etikettens styrka över bilden av samma plats utan etiketter. Samma i dator- och mobilbredd.
+  await check('etiketterna: minst 4,5:1 och nära i tid skiljs från pågår med kursiv (#1318)', async () => {
+    const lp = await context.newPage();
+    const errs = [];
+    lp.on('pageerror', e => errs.push(e.message));
+    const color = str => { // "rgb(r, g, b)", "rgba(…)" och Chromes "color(srgb r g b / a)" (färgerna 0–1) → { rgb, a }
+      const n = (str.match(/-?[\d.]+/g) ?? []).map(Number);
+      const unit = /^color\(/.test(str) ? 255 : 1;
+      return { rgb: n.slice(0, 3).map(v => v * unit), a: n.length > 3 ? n[3] : 1 };
+    };
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await lp.route(u => isFont(u.href), r => r.abort());
+      }
+      await lp.emulateMedia({ reducedMotion: 'reduce' }); // globen står stilla mellan de två skärmbilderna
+      // Året och kameran: 1591 med Atlanten i mitten och med Afrika vid kanten (där de flesta etiketterna vetter bort), 1914 för det som pågår
+      const scener = [['1591', '15,-30,1.4'], ['1591', '20,30,1.4'], ['1914', '45,10,1.4'], ['1914', '30,100,1.4']];
+      let antal = 0, nara = 0, pagar = 0, kant = 0, lagsta = Infinity;
+      for (const [ar, kamera] of scener) {
+        await lp.goto('about:blank'); // en hel sidladdning per scen, inte bara en ny hash
+        await lp.goto(`${BASE}?lang=sv#y=${ar}&c=${kamera}`);
+        await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await lp.waitForFunction(() => [...document.querySelectorAll('#labels .glabel')].some(e => !e.hidden && e.offsetParent), null, { timeout: T.step });
+        await lp.waitForTimeout(800); // etiketterna placeras efter att kameran har stannat
+        const etiketter = await lp.evaluate(() => [...document.querySelectorAll('#labels .glabel')].filter(e => !e.hidden && e.offsetParent).map(e => {
+          const r = e.getBoundingClientRect(), cs = getComputedStyle(e);
+          return { text: e.textContent.trim(), aria: e.getAttribute('aria-label') ?? '', near: e.classList.contains('glabel-near'), italic: cs.fontStyle, opacity: parseFloat(cs.opacity),
+            color: cs.color, bg: cs.backgroundColor, x: r.left, y: r.top, w: r.width, h: r.height };
+        }));
+        await lp.addStyleTag({ content: '#labels { visibility: hidden !important }' });
+        await lp.waitForTimeout(150);
+        const bild = PNG.sync.read(await lp.screenshot());
+        await lp.evaluate(() => { for (const s of document.querySelectorAll('style')) if (s.textContent.includes('#labels { visibility: hidden !important }')) s.remove(); });
+        for (const l of etiketter) {
+          const x0 = Math.max(0, Math.floor(l.x)), x1 = Math.min(bild.width, Math.ceil(l.x + l.w)), y0 = Math.max(0, Math.floor(l.y)), y1 = Math.min(bild.height, Math.ceil(l.y + l.h));
+          if (x1 - x0 < 4 || y1 - y0 < 4) continue; // delvis utanför bilden
+          let n = 0; const under = [0, 0, 0];
+          for (let y = y0; y < y1; y++) for (let x = x0; x < x1; x++) { const i = (y * bild.width + x) * 4; n++; under[0] += bild.data[i]; under[1] += bild.data[i + 1]; under[2] += bild.data[i + 2]; }
+          const u = under.map(v => v / n), tx = color(l.color), bg = color(l.bg);
+          const bakgrund = blanda(blanda(bg.rgb, u, bg.a), u, l.opacity), skrift = blanda(tx.rgb, u, l.opacity);
+          const c = kontrast(skrift, bakgrund);
+          antal++; lagsta = Math.min(lagsta, c);
+          if (l.opacity < 1) kant++;
+          if (c < 4.5) throw new Error(`etiketten "${l.text}" (år ${ar}, kamera ${kamera}, styrka ${l.opacity.toFixed(2)}) har kontrasten ${c.toFixed(2)}:1, under 4,5:1`);
+          const sag = /har redan hänt|kommer senare/.test(l.aria), pagarNu = /pågår vid året/.test(l.aria);
+          if (sag) nara++; if (pagarNu) pagar++;
+          if (sag !== l.near) throw new Error(`etiketten "${l.text}": ${sag ? 'nära i tid' : 'pågår eller gäller ett helt krig'} men klassen glabel-near är ${l.near ? 'på' : 'av'}`);
+          if (l.near && l.italic !== 'italic') throw new Error(`etiketten "${l.text}" är nära i tid men står inte i kursiv (${l.italic})`);
+          if (!l.near && l.italic === 'italic') throw new Error(`etiketten "${l.text}" står i kursiv men är inte nära i tid`);
+        }
+      }
+      if (antal < 4) throw new Error(`bara ${antal} etiketter att mäta`);
+      if (!nara) throw new Error('ingen etikett för något som ligger nära i tid att mäta');
+      if (!pagar) throw new Error('ingen etikett för något som pågår att jämföra med');
+      if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
+      return `${antal} etiketter, lägsta kontrast ${lagsta.toFixed(1)}:1 (${kant} med styrka under 1), ${nara} nära i tid i kursiv, ${pagar} som pågår i rak stil`;
     } finally {
       await lp.close();
     }

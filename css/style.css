@@ -165,6 +165,10 @@ body {
 }
 .gcluster:hover::after, .gcluster:focus-visible::after { display: block; }
 .glabel { font-family: inherit; }
+/* Nära i tid (#1318): en händelse i tidsfönstret som inte pågår vid året står i kursiv, så att den skiljs från det som pågår med
+   något mer än färgstyrka. Instrument Sans har ingen egen kursiv (font-synthesis lutar den), så bredden är densamma och etiketterna
+   flyttar sig inte. Etiketterna är i övrigt lika starka: kontrasten kommer från labelOpacity i js/ui/clusters.js. */
+.glabel-near { font-style: italic; }
 .glabel:focus-visible, .gcluster:focus-visible, .globe-canvas:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
 .globe-canvas:focus-visible { outline-offset: -3px; }
 .glabel-hover { z-index: 1; border-color: var(--label-hover-border); }
