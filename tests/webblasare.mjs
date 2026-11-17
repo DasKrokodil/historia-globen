@@ -6777,7 +6777,8 @@ async function run(browser, vp) {
       return wanted.map(el => ({ name: el.id || el.className, ...size(el) }));
     }, vp.width <= 760);
     const min = vp.width <= 760 ? 44 : 24;
-    const tooSmall = targets.filter(t => t.width < min || t.height < min);
+    // 0,1 px marginal: längden räknas ur pseudoelementets avrundade left/right (fyra decimaler), så en yta på exakt 44 px kan bli 43,99
+    const tooSmall = targets.filter(t => t.width < min - 0.1 || t.height < min - 0.1);
     if (tooSmall.length) throw new Error(`${tooSmall.map(t => `${t.name} (${Math.round(t.width)} × ${Math.round(t.height)})`).join(', ')} är mindre än ${min} px`);
     return `${targets.length} små kontroller är minst ${min} × ${min} px`;
   });
@@ -11776,6 +11777,135 @@ async function run(browser, vp) {
       if (errs.length) throw new Error(errs.join('; '));
       return 'platskortets listor fungerar med pekning; text, Spela och regionvyn uppfyller mobilmåtten';
     } finally { await tctx.close(); }
+  });
+
+  // #1713, omgång 2: träffytor och textstorlek i korten, regionvyn, hjälpen, introduktionen och menyerna. Baslinjen (#1799) mätte 24–32 px höga
+  // knappar och länkar i korten och 9,5–11,5 px text i smal skärm, och i bred layout med pekning (liggande telefon, 800 × 360) hade hela
+  // knappraden 31–33 px höga knappar. Provet mäter rutan (eller dess osynliga ::before/::after) och textstorleken per yta; en yta som inte
+  // hittar de element den ska mäta är ett fel, så att provet inte blir grönt av att ytan saknas. Med mus (dator) gäller 24 px (WCAG 2.5.8);
+  // med pekning 44 px och minst 12 px text. Länkar i löpande text (".src") är undantagna: de ligger i en mening.
+  const mataYta = (pg, sels, min) => pg.evaluate(({ sels, min }) => {
+    const lagg = [], hittade = {};
+    for (const sel of sels) {
+      hittade[sel] = 0;
+      for (const e of document.querySelectorAll(sel)) {
+        const el = e.matches('input[type=checkbox]') && e.closest('label') ? e.closest('label') : e;
+        const r = el.getBoundingClientRect(), cs = getComputedStyle(el);
+        if (!r.width || !r.height || cs.visibility === 'hidden' || cs.display === 'none' || e.closest('[hidden]') || e.closest('.src:not(.evidence-sources)')) continue;
+        hittade[sel]++;
+        let w = r.width, h = r.height;
+        for (const pe of ['::before', '::after']) {
+          const ps = getComputedStyle(el, pe);
+          if (ps.content !== 'none' && ps.position === 'absolute') { w = Math.max(w, parseFloat(ps.width) || 0); h = Math.max(h, parseFloat(ps.height) || 0); }
+        }
+        if (w < min - 0.5 || h < min - 0.5) lagg.push(`${sel} "${(e.textContent || e.getAttribute('aria-label') || '').trim().slice(0, 22)}" ${Math.round(w)}×${Math.round(h)}`);
+      }
+    }
+    return { lagg, hittade };
+  }, { sels, min });
+  const mataText = (pg, sels, min = 12) => pg.evaluate(({ sels, min }) => {
+    const lagg = [], hittade = {};
+    for (const sel of sels) {
+      hittade[sel] = 0;
+      for (const e of document.querySelectorAll(sel)) {
+        const r = e.getBoundingClientRect(), cs = getComputedStyle(e);
+        if (!r.width || cs.visibility === 'hidden' || cs.display === 'none' || e.closest('[hidden]')) continue;
+        hittade[sel]++;
+        let fs = parseFloat(cs.fontSize);
+        if (e instanceof SVGTextElement) { const m = e.getScreenCTM(); if (m) fs *= Math.hypot(m.a, m.b); } // diagrammets text i bildpunkter
+        if (fs < min - 0.05) lagg.push(`${sel} "${(e.textContent || '').trim().slice(0, 22)}" ${Math.round(fs * 10) / 10} px`);
+      }
+    }
+    return { lagg, hittade };
+  }, { sels, min });
+  // Ytorna: hur de öppnas, vilka knappar som ska ha träffyta och vilken text som ska vara minst 12 px. `minst` är hur många element varje väljare ska hitta.
+  const ytor1713 = [
+    { namn: 'start och tidsreglaget', hash: '#y=1325', mal: ['.top-actions .chip-btn:not([hidden])', '.timebar .step', '.timebar .play'], text: [] },
+    { namn: 'Samtidigt-listan', hash: '#y=1325', gor: async p => { await p.click('#btn-panel'); await p.waitForSelector('#panel', { state: 'visible', timeout: T.step }); },
+      mal: ['#panel .panel-tab', '#panel .panel-filter-toggle', '#panel-close'], text: [] },
+    { namn: 'händelsekortet (Avignon)', hash: '#y=1325', gor: async p => { await p.click('#btn-panel'); await p.waitForSelector('#panel', { state: 'visible', timeout: T.step }); await p.click('#event-list .event-item >> nth=0'); await p.waitForSelector('#detail', { state: 'visible', timeout: T.step }); },
+      mal: ['#detail .review-info', '#detail .report-btn', '#detail .unc-mark'], valfri: ['#detail .evidence-group li > a'], text: ['#detail .meta', '#detail .review-info', '#detail .report-btn', '#detail summary'] },
+    { namn: 'händelsekortet (Korstågen, lista med länkar)', hash: '#y=1066', gor: async p => { await p.click('#btn-panel'); await p.waitForSelector('#panel', { state: 'visible', timeout: T.step }); await p.click('#event-list .event-item >> nth=1'); await p.waitForSelector('#detail', { state: 'visible', timeout: T.step }); },
+      mal: ['#detail .war-list .link-btn', '#detail .review-info', '#detail .report-btn'], text: ['#detail .war-list h4', '#detail .meta'] },
+    { namn: 'rikeskortet (Khmerriket)', hash: '#y=1200&f=empire:khmerriket', gor: async p => { await p.waitForSelector('#detail .story-label', { state: 'visible', timeout: T.step }); },
+      mal: ['#detail .facts-section > summary', '#detail .war-list .link-btn', '#detail .report-btn'], text: ['#detail .story-label', '#detail dt', '#detail h4', '#detail .ac-read', '#detail .ac-note', '#detail .ac-t'] },
+    { namn: 'krigskortet (Anglo-zuluiska kriget)', hash: '#y=1879&f=war:anglo-zuluiska-kriget', gor: async p => { await p.waitForSelector('#detail .story-label', { state: 'visible', timeout: T.step }); },
+      mal: ['#detail .empire-list .link-btn'], text: ['#detail .story-label', '#detail .story h4', '#detail .meta'] },
+    { namn: 'Hjälp', hash: '#y=1325', gor: async (p, bred) => { if (!await p.isVisible('#btn-help')) await p.click(bred ? '#btn-more' : '#more-toggle'); await p.click('#btn-help'); await p.waitForSelector('#help', { state: 'visible', timeout: T.step }); },
+      mal: ['#help-close', '#help details > summary', '#help-teacher', '#help-feedback'], text: [] },
+    { namn: 'introduktionen', hash: '#y=1325', gor: async (p, bred) => { if (!await p.isVisible('#btn-intro')) await p.click(bred ? '#btn-more' : '#more-toggle'); await p.click('#btn-intro'); await p.waitForSelector('#intro', { state: 'visible', timeout: T.step }); },
+      mal: ['#intro-close', '#intro-next', '#intro-skip'], text: ['#intro-progress', '.intro-event-label'] },
+    { namn: 'Inställningar', hash: '#y=1325', gor: async (p, bred) => { if (!await p.isVisible('#btn-settings')) await p.click(bred ? '#btn-more' : '#more-toggle'); await p.click('#btn-settings'); await p.waitForSelector('#settings', { state: 'visible', timeout: T.step }); },
+      mal: ['#settings .layer-row input[type=checkbox]'], text: [] },
+    { namn: 'Sök och följ', hash: '#y=1325', gor: async (p, bred) => { if (!await p.isVisible('#btn-focus')) await p.click(bred ? '#btn-more' : '#more-toggle'); await p.click('#btn-focus'); await p.waitForSelector('#focus-menu', { state: 'visible', timeout: T.step }); },
+      mal: ['#focus-menu .focus-sort .chip-btn', '#focus-menu .focus-group-toggle'], text: [] },
+    // Regionvyn erbjuds inte på en låg yta (800 × 360: knappen heter då "Visa på Platt karta"), så ytan mäts bara när det finns höjd
+    { namn: 'regionvyn (Skåne i Platt karta)', minHojd: 600, hash: '#y=1827&f=place:skane', gor: async p => {
+        await p.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+        await p.locator('#detail [data-selection-action]').click();
+        await p.waitForSelector('#flat-region', { state: 'visible', timeout: T.step });
+        await p.waitForSelector('#flat-view .rmark, #flat-view .rpile', { state: 'attached', timeout: T.step });
+      },
+      mal: ['.region-marks .rmark', '.region-marks .rpile', '.region-marks .rbrick'], text: ['.region-marks .rmark', '.region-marks .rpile-count', '.region-marks .rpile-years'] },
+  ];
+  const matYtor1713 = async (pek, storlek) => {
+    const min = pek ? 44 : 24, bred = storlek.width > 760;
+    const fel = [], mattes = [];
+    for (const yta of ytor1713) {
+      if (yta.minHojd && storlek.height < yta.minHojd) continue;
+      const { tp, tctx, errs } = pek ? await touchPage(storlek, { isMobile: true }) : { tp: await context.newPage(), tctx: null, errs: [] };
+      if (!pek) {
+        await tp.setViewportSize({ width: storlek.width, height: storlek.height });
+        tp.on('pageerror', e => errs.push(e.message));
+        if (THREE_LOCAL) {
+          const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+          await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+          await tp.route(u => isFont(u.href), r => r.abort());
+        }
+      }
+      try {
+        await tp.goto(`${BASE}?lang=sv${yta.hash}`);
+        await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await tp.waitForTimeout(300);
+        if (yta.gor) await yta.gor(tp, bred);
+        // Öppna alla hopfällda rader i kortet: knapparna och länkarna inuti ska också mätas (utom tidslinjens teckenförklaring)
+        await tp.evaluate(() => document.querySelectorAll('#detail details, #help details').forEach(d => { d.open = true; }));
+        await tp.waitForTimeout(200);
+        const y = await mataYta(tp, [...yta.mal, ...(yta.valfri ?? [])], min);
+        for (const v of yta.valfri ?? []) delete y.hittade[v]; // valfria väljare behöver inte finnas på ytan, men om de finns ska de mätas
+        const saknas = Object.entries(y.hittade).filter(([, n]) => !n).map(([s]) => s);
+        if (saknas.length) fel.push(`${yta.namn}: hittade inga ${saknas.join(', ')}`);
+        if (y.lagg.length) fel.push(`${yta.namn}: träffyta under ${min} px: ${y.lagg.slice(0, 6).join('; ')}`);
+        if (pek && yta.text.length) {
+          const tx = await mataText(tp, yta.text);
+          const tsaknas = Object.entries(tx.hittade).filter(([, n]) => !n).map(([s]) => s);
+          if (tsaknas.length) fel.push(`${yta.namn}: hittade ingen text i ${tsaknas.join(', ')}`);
+          if (tx.lagg.length) fel.push(`${yta.namn}: text under 12 px: ${tx.lagg.slice(0, 6).join('; ')}`);
+        }
+        if (await tp.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1)) fel.push(`${yta.namn}: horisontell scroll`);
+        if (errs.length) fel.push(`${yta.namn}: sidfel ${errs[0]}`);
+        mattes.push(yta.namn);
+      } catch (e) {
+        fel.push(`${yta.namn}: ${e.message.split('\n')[0]}`);
+      } finally { if (tctx) await tctx.close(); else await tp.close(); }
+    }
+    return { fel, mattes };
+  };
+  await check('träffytor och text i korten, Hjälp, introduktionen och menyerna: mobil och liggande telefon med pekning (#1713, omgång 2)', async () => {
+    if (vp.width > 760) return 'körs i mobiljobbet';
+    const delar = [];
+    for (const storlek of [{ width: 400, height: 800 }, { width: 800, height: 360 }]) {
+      const r = await matYtor1713(true, storlek);
+      if (r.fel.length) throw new Error(`${storlek.width} × ${storlek.height}: ${r.fel.join(' | ')}`);
+      delar.push(`${storlek.width} × ${storlek.height}: ${r.mattes.length} ytor`);
+    }
+    return `44 px träffyta och minst 12 px text i ${delar.join(', ')}`;
+  });
+  await check('träffytor med mus på dator: minst 24 px i korten, Hjälp, introduktionen och menyerna (#1713, omgång 2)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet';
+    const r = await matYtor1713(false, { width: 1280, height: 800 });
+    if (r.fel.length) throw new Error(r.fel.join(' | '));
+    return `minst 24 px i ${r.mattes.length} ytor (1280 × 800)`;
   });
 
   // #1309: i mobil ska träffytor vara minst 44 × 44 px (själva knappen eller dess osynliga förlängning), ingen text vara under 12 px och

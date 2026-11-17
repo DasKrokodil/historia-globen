@@ -2995,3 +2995,63 @@ span.theme-event:hover { background: none; outline: none; }
 .src-about { margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--line); font-size: 13px; color: var(--parchment-dim); }
 .src-about a { color: var(--brass); }
 .src-about a:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+
+/* ---------- Träffytor och text i korten och regionvyn, omgång 2 (#1713) ----------
+   Mätt i Playwright i 400 × 800 med pekning, 800 × 360 med pekning (bred layout) och 1280 × 800 med mus. Det som var under kravet
+   (minst 44 px träffyta på pekskärm, minst 24 px med mus enligt WCAG 2.5.8, och minst 12 px text på pekskärm och i smal skärm)
+   rättas här utan att layouten ändras mer än nödvändigt: den synliga storleken är densamma, ytan ligger i en osynlig ::after, och
+   text på 12 px sätts bara där det är smalt eller pekskärm (som #1309 och #1774; mus på bred skärm behåller sina 11–11,5 px).
+   Pseudoelementens inset räknas från knappens insida, innanför ramen: en ruta med 2 px ram behöver därför 2 px mer än utan ram. */
+
+/* Alla bredder: minst 24 px med mus (rader som var 14–22 px höga). Utseendet är oförändrat. */
+.facts-section > summary, .help-card details > summary, .detail-myth .myth-origin > summary { box-sizing: border-box; min-height: 24px; padding-block: 4px; }
+.detail .war-list .link-btn[data-year] { min-width: 24px; justify-content: center; }
+.detail .evidence-group li > a { display: inline-block; box-sizing: border-box; min-height: 24px; padding-block: 4px; }
+/* "i" vid granskningsstatusen (24 px med 1 px ram, så -11 px) och "osäkert" i datumraden: 44 px yta (förut 40 och 40) */
+.review-info::after { inset: -11px; }
+.unc-mark::after { inset: -14px -6px; }
+
+/* Sorteringsknapparna i Sök och följ var 22 px höga med mus; med pekning gäller 40 px + ytan (reglerna längre upp och här) */
+@media (min-width: 761px) { .focus-sort .chip-btn { min-height: 24px; } }
+
+/* Pekskärm och smal skärm: raderna i korten är minst 44 px höga och texten minst 12 px */
+@media (max-width: 760px), (pointer: coarse) {
+  /* Regionvyns hög och bricka har 2 px ram: ytan räknas från innersidan, så 30 px blev 40 px. 44 px med -9 px. */
+  .rpile::before { inset: -9px; }
+  .rbrick::before { inset: -9px -4px; }
+  .facts-section > summary, .help-card details > summary, .detail-myth .myth-origin > summary, .detail-selection .theme-event-list > summary,
+  .place-about > summary, .detail .rp-disc > summary { min-height: 44px; padding-block: 14px; }
+  /* Länkarna ligger tätt (24 px mellan raderna) och en osynlig förlängning räcker inte när grannen ligger över: raden själv är 44 px */
+  .detail .war-list .link-btn, .detail .empire-list .link-btn { min-height: 44px; }
+  .detail .evidence-group li > a { min-height: 44px; padding-block: 14px; }
+  .detail-actions { row-gap: 20px; }
+  .detail .focus-btn { min-height: 44px; }
+  :is(#sources-close, #src-q, #src-status) { min-height: 44px; box-sizing: border-box; }
+  .layer-customize, .panel-filter-toggle, .focus-group-toggle { min-height: 44px; }
+  /* Text på minst 12 px (förut 9,5–11,5 px) */
+  .detail .meta, .detail .story-label, .detail .story h4, .detail dt, .detail .war-list h4, .detail .war-list .meta, .detail .scale-note,
+  .detail .report-btn, .detail .review-info, .detail .review-badge, .detail .evidence-group h5, .detail .evidence-ref, .detail .fig-badge,
+  .detail .detail-note > summary, .detail figcaption, .detail-fig figcaption, .area-curve .ac-head, .area-curve .ac-note,
+  .intro-progress, .intro-event-label, .tour-progress, .tour-chapter, .lesson-band-title, .region-num, .src-group-meta,
+  .sheet-body .src-hits, .sheet-body label, .rmark, .rpile, .rpile-count, .rpile-years { font-size: 12px; }
+  /* Samma som i smal skärm (#1309), men också på en bred pekskärm (liggande telefon): där var de 11 px */
+  .segment-note, .chip-btn .count, .region-count, .panel-sec, .focus-label, .focus-state, .rl-title, .flat-region-name, .flat-region-legend, .flat-region-next,
+  .globe-region-chip .flat-region-next, .globe-region-chip .flat-region-legend { font-size: 12px; }
+  .year-readout:has(.year-jump.fine) + .segment-note { font-size: 12px; } /* raden under datumet i fokus för korta krig (#204) */
+  .ac-t, .ac-peak-t { font-size: 13px; } /* i diagrammets egna enheter (320 breda); visas cirka 12 px i 400 px */
+}
+
+/* Pekskärm i bred layout (liggande telefon, 800 × 360, och surfplatta): knapparna ovanpå, tidsreglaget och menyerna har 44 px yta.
+   Samma osynliga ::after som i smal skärm (#1309); den synliga storleken är oförändrad. Bara de som är statiska får position. */
+@media (min-width: 761px) and (pointer: coarse) {
+  :is(.top-actions .chip-btn, .focus-bar .chip-btn, .focus-tabs .chip-btn, .focus-sort .chip-btn, .layer-customize, #sources-close,
+      .timebar .step, .timebar .play, .panel-tab, .panel-filter-toggle, .link-btn, .focus-action, .focus-group-toggle) { position: relative; }
+  :is(.top-actions .chip-btn, .focus-bar .chip-btn, .focus-tabs .chip-btn, .focus-sort .chip-btn, .layer-customize, #sources-close,
+      .timebar .step, .timebar .play, .panel-tab, .panel-filter-toggle, .link-btn, .focus-action, .focus-group-toggle, .panel-x, .ff-tab)::after {
+    content: ""; position: absolute; left: 50%; top: 50%; width: max(100%, 44px); height: max(100%, 44px); transform: translate(-50%, -50%);
+  }
+  .focus-tabs .chip-btn, .focus-sort .chip-btn { min-height: 40px; }
+  .focus-search { min-height: 44px; }
+  .focus-action { min-width: 44px; min-height: 44px; }
+  .settings-rows .layer-row { min-height: 44px; }
+}
