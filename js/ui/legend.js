@@ -31,15 +31,14 @@ export class ReligionLegend {
     this.onKeep = () => {};
     this.onAbout = () => {}; // knappen "Läs om religionerna" (#308)
     this.hint = false;       // tipsraden visas (#308)
-    // Öppen som standard i dator, hopfälld till en knapp i mobil (#193). Valet ligger kvar när året ändras.
-    // Byter man fönsterbredd över gränsen gäller standardläget för den nya bredden.
+    // Hopfälld från början så att kartan är fri. Första gången religionslagret slås på öppnas den tillsammans med tipset (#1868).
     const wide = matchMedia('(min-width: 761px)');
-    this.open = wide.matches;
+    this.open = false;
     this.narrow = !wide.matches; // människans spridning: posterna är hopfällda i smal skärm (#1418)
     this.spreadOpen = new Set(); // de poster (rubrikerna) som är utfällda i smal skärm
     this.discoveryOpen = true;
     try { this.discoveryOpen = sessionStorage.getItem(DISCOVERY_KEY) !== '0'; } catch { /* utan lagring */ }
-    wide.addEventListener('change', () => { this.open = wide.matches; this.narrow = !wide.matches; this.render(); this.fit(); });
+    wide.addEventListener('change', () => { this.open = false; this.narrow = !wide.matches; this.render(); this.fit(); });
     legend.addEventListener('click', e => {
       if (e.target.closest('[data-hint-close]')) { this.closeHint(); return; }
       if (e.target.closest('[data-about]')) { this.onAbout(); return; }
@@ -96,7 +95,7 @@ export class ReligionLegend {
     try { seen = localStorage.getItem(HINT_KEY) === '1'; } catch { /* utan lagring */ }
     if (seen) return;
     try { localStorage.setItem(HINT_KEY, '1'); } catch { /* utan lagring */ }
-    this.hint = true;
+    this.hint = true; this.open = true;
     if (this.items) { this.render(); this.fit(); }
   }
   closeHint() {

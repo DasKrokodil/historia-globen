@@ -374,6 +374,7 @@
   "ff.kind.area": "Områdets berättelse",
   "review.subjectHelp.Området": "Statusen gäller områdets faktaruta och berättelse. Gränsen är forskarnas modell, inte en känd statsgräns. Varje händelse har en egen status i sin faktaruta.",
   "facts.milestones": "Nyckelår",
+  "facts.yearAt": "År {year}",
   "facts.stateReligion": "Statsreligion i riken",
   "facts.aboutMap": "Om kartan",
   "facts.aboutMapInline": "Om kartan:",

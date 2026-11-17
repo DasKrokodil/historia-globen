@@ -778,9 +778,9 @@ export class Panel {
    * religionens facts i religions.json. origin är händelsen där religionen uppstod,
    * som också är punkten på globen.
    */
-  showReligion(r, origin, report = null) {
+  showReligion(r, origin, report = null, year = null) {
     this.showFacts({ kind: 'religion', name: t(r.name), color: r.color, symbol: symbolImg(r, 'rel-sym rel-sym-h'), facts: r.facts, origin,
-      milestonesTitle: t(r.facts.milestonesTitle) || ui('facts.stateReligion'), report });
+      milestonesTitle: t(r.facts.milestonesTitle) || ui('facts.stateReligion'), report, year });
   }
 
   /**
@@ -793,7 +793,7 @@ export class Panel {
    * föregångare och vad det blev. Efterträdare som finns som riken är knappar som börjar följa det riket.
    */
   showFacts(opts) {
-    const { kind, kindWord = null, name, color, symbol = '', symbolKind = null, facts: f, origin = null, place = origin, milestonesTitle = ui('facts.milestones'), mapNote = '', curveId = '', wars = [], lineage = null, empireMap = false, empireId = null } = opts;
+    const { kind, kindWord = null, name, color, symbol = '', symbolKind = null, facts: f, origin = null, place = origin, milestonesTitle = ui('facts.milestones'), mapNote = '', curveId = '', wars = [], lineage = null, empireMap = false, empireId = null, year = null } = opts;
     const fall = empireId ? this.empireTourFor?.(empireId) : null; // rikets fall som tur (#499)
     // Rikets krig (#76): krig som anger riket i empires, i tidsordning; bara de som syns enligt granskningsstatusen
     const shownWars = wars.filter(w => isVisibleReview(w.review));
@@ -845,6 +845,7 @@ export class Panel {
       <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
       <div class="story-label"><span class="swatch" style="background:${esc(color)}"></span>${esc([ui(`facts.kind.${kind}`), kindWord].filter(Boolean).join(' · '))}</div>
       <h3>${symbol}${esc(name)}</h3>
+      ${Number.isFinite(year) ? `<p class="facts-year">${esc(ui('facts.yearAt', { year: formatYear(year) }))}</p>` : ''}
       ${symbol && symbolKind && symbolKind !== 'symbol' ? `<p class="symbol-kind" data-symbol-kind="${esc(symbolKind)}">${esc(ui(`facts.symbolKind.${symbolKind}`))}</p>` : ''}
       ${t(f.summary) ? `<p>${esc(t(f.summary))}</p>` : ''}
       ${fall ? `<button type="button" class="story-tour" data-tour="${esc(fall.id)}">${esc(fall.label)}</button>` : ''}
