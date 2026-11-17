@@ -227,7 +227,8 @@ export function createRender(app) {
     $('year-segment').textContent = range ? ui('range.segment')
       : focus ? pluralUi(fine ? 'time.followDays' : 'time.followYears', fine ? Math.round(window * 365.25) : Math.round(window), { name: focus.short })
       : asym ? ui('time.windowYearsAsym', { where: formatWindowYear(year), ...spanVars })
-      : pluralUi(youngReaders() ? 'time.windowYearsWords' : 'time.windowYears', roundWindow(window), { where: formatWindowYear(year), n: groupDigits(roundWindow(window)) });
+      // Tidsfönstret ska vara begripligt också på skärmen, inte bara i den dolda skärmläsartexten (#1307).
+      : pluralUi('time.windowYearsWords', roundWindow(window), { where: formatWindowYear(year), n: groupDigits(roundWindow(window)) });
     // Tonade markörer är nära i tid, inte samtida (#1191): förklaringen står i title och som dold text för skärmläsare
     const windowNote = range || focus ? '' : asym ? ui('time.windowNoteAsym', spanVars)
       : pluralUi('time.windowNote', roundWindow(window), { n: groupDigits(roundWindow(window)) });
