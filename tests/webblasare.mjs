@@ -11492,8 +11492,11 @@ async function run(browser, vp) {
       await wp.click('#btn-panel');
       const nearButton = wp.locator('#event-list .event-item.is-near .event-btn:visible').first();
       const direction = (await nearButton.locator('.meta').textContent()).split(' · ')[0];
-      const spoken = await nearButton.ariaSnapshot();
-      if (spoken.split(direction).length !== 2) throw new Error(`riktningen ska sägas en gång: ${spoken}`);
+      // Knappens aria-label sätter det tillgängliga namnet (och ersätter den synliga texten): riktningen står där exakt en gång.
+      // ariaSnapshot() räknas inte: den skriver både namnet och barntexten och visar därför frasen två gånger utan att den läses två gånger.
+      const spoken = (await nearButton.getAttribute('aria-label')) ?? '';
+      if (!/^(?:\d+ (?:år|dagar?) före|om \d+ (?:år|dagar?))$/.test(direction)) throw new Error(`raden saknar riktning: ${direction}`);
+      if (spoken.split(direction).length !== 2) throw new Error(`riktningen ska sägas en gång i knappens namn: ${spoken}`);
       // Klotets etiketter: "N år före (år)" och "om N år (år)", aldrig "slut" eller "börjar"
       rows.push(await want('#y=1916', /^1900-talet · ±\d*[05] år$/));
       // Etiketterna ritas om en bildruta efter att raden bytt text: vänta in dem (annars läses de gamla, #1138), men kräv fortfarande att etiketten finns
