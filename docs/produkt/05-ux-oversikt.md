@@ -60,6 +60,18 @@ Antagna "lyckade vägar". Varje flöde är också en testplan: den som granskar 
 
 **Visste du? (#997):** knappen visar nästa målår före hoppet. Efter hoppet finns raden ”Från … · Tillbaka” under årtalet; ett tryck återställer året, globens riktning och zoom. Raden försvinner efter tjugo sekunder eller nästa handling, medan webbläsarens Bakåt/Framåt också fungerar. Lugn rörelse följer besökarens inställning.
 
+## Sekundär information på korten: tre nivåer (#1571)
+
+Korten (händelsens faktaruta, resans ruta, Upptäcktsvyns panel) bär mer än läsaren behöver samtidigt: noteringar, källor, kredit och status. Mönstret, valt av DasKrokodil 2026-11-14 ([beslut](../beslut/2026-11-17-hopfallt-monster-1571.md)):
+
+| Nivå | Vad | Var |
+|---|---|---|
+| Alltid synligt | Bildens märkning "Illustration …, inte en historisk bild"; kredit för historiska bilder (andras verk); osäkert-märket i datumraden; notens rubrik som en rad med vinkel ("Källorna skiljer sig" syns utan att texten läses); Upptäcktsvyns täckningsrad | Vid bilden, i datumraden och som rad före sammanfattningens slut |
+| Hopfällt per notering | Själva noten | `details` direkt under raden, fälls ut med Enter eller Mellanslag, 44 px hög träffyta |
+| En sektion längst ned | "Källor och osäkerhet · N källor · status": osäkerhet, källor, Hur vet vi det här?, status, citera, rapportera, kredit och licens för egna illustrationer. Resans ruta: "Källor (N) · status". Upptäcktsvyn: "Kartbilder · N filsidor" | Sist i kortet |
+
+Osäkerhet och oenighet göms alltså aldrig (källpolicyn): bara texten bakom raden är hopfälld. Utfällda avsnitt står kvar när kortet ritas om. **Korta stycken:** långa texter delas i stycken om högst två meningar (`js/paragraphs.js`) i stället för ett enda block; orden är desamma. Kvar att besluta: om kredit för historiska bilder (andras verk) också får flyttas in i sektionen längst ned. Den juridiska bedömningen av CC BY och CC BY-SA är inte gjord, så krediten står kvar vid bilden tills DasKrokodil har avgjort det.
+
 ## Skärmstorlekar och lägen
 
 | Läge | Bredd | Särdrag |

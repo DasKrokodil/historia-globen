@@ -3118,6 +3118,51 @@ async function run(browser, vp) {
     }
   });
 
+  // #1571 (steg 4): en lång sammanfattning står i korta stycken (samma ord, bara radbrytning), och kredit och licens för våra egna
+  // illustrationer ligger i Källor och osäkerhet, medan märkningen "inte en historisk bild" och krediten för historiska bilder syns vid bilden.
+  await check('faktarutan: korta stycken och bildens kredit på rätt nivå (#1571)', async () => {
+    const lp = await context.newPage();
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await lp.route(u => isFont(u.href), r => r.abort());
+      }
+      const narrow = (lp.viewportSize()?.width ?? 1400) <= 760;
+      const open = async (year, id) => {
+        await lp.goto(`${BASE}?ny=1571#y=${year}`);
+        await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        if (await lp.isHidden('#panel')) await lp.click('#btn-panel');
+        await lp.waitForSelector('#panel', { state: 'visible', timeout: T.step });
+        const ev = await panelEvent(lp, { id });
+        await ev.waitFor({ state: 'visible', timeout: T.step });
+        await ev.click();
+        await lp.waitForSelector('#detail details.detail-about', { state: 'visible', timeout: T.step });
+        await lp.waitForSelector('#detail .detail-fig figcaption', { state: narrow ? 'attached' : 'visible', timeout: T.step }); // i mobilens ark är bilden dold tills arket är halvt
+      };
+      // Egen illustration (Sjöslaget vid Noryang, AI-genererad): märkningen syns, krediten ligger i Källor och osäkerhet
+      await open(1598, 'sjoslaget-vid-noryang');
+      const para = await lp.$$eval('#detail > p', ps => ps.filter(p => p.textContent.trim().length > 60).map(p => p.textContent.trim()));
+      if (para.length < 2) throw new Error(`den långa sammanfattningen står i ${para.length} stycke`);
+      if (para.some(p => p.length > 330)) throw new Error('ett stycke är fortfarande en vägg av text (över 330 tecken)');
+      const caption = (await lp.textContent('#detail .fig-caption')).trim();
+      if (!/inte en historisk bild/i.test(caption)) throw new Error(`märkningen "inte en historisk bild" syns inte: ${caption}`);
+      if (await lp.locator('#detail .fig-credit').count()) throw new Error('krediten för den egna illustrationen står kvar vid bilden');
+      if (await lp.locator('#detail .detail-image-credit').isVisible()) throw new Error('bildkrediten syns medan Källor och osäkerhet är hopfälld');
+      await lp.locator('#detail details.detail-about > summary').click();
+      const credit = (await lp.locator('#detail .detail-image-credit').textContent()).trim();
+      if (!/CC BY 4\.0/.test(credit)) throw new Error(`licensen saknas i bildkrediten: ${credit}`);
+      // Historisk bild (Plassey): krediten och licensen står kvar vid bilden, och ingen extra rad i Källor och osäkerhet
+      await open(1757, 'slaget-vid-plassey');
+      if (!(await lp.locator('#detail .fig-credit').count()) || (!narrow && !(await lp.locator('#detail .fig-credit').isVisible()))) throw new Error('krediten för den historiska bilden står inte vid bilden');
+      if (await lp.locator('#detail .detail-image-credit').count()) throw new Error('en historisk bild har kredit i Källor och osäkerhet');
+      if (await lp.evaluate(() => document.scrollingElement.scrollWidth > innerWidth + 1)) throw new Error('faktarutan ger horisontell scroll');
+      return `${para.length} stycken, märkningen och krediten på rätt nivå`;
+    } finally {
+      await lp.close();
+    }
+  });
+
   // #1572: turkortet har en enda, benämnd utgång ("Lämna turen" i kortets fot, ingen kryssknapp eller Avsluta bredvid Nästa), och efter
   // utgången står en rad "Turen är slut. Du står kvar på år …" med knappen "Starta om turen".
   await check('turkortet: Lämna turen är den enda utgången och en rad med Starta om turen följer (#1572)', async () => {

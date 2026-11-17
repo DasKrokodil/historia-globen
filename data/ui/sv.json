@@ -323,6 +323,7 @@
   "sources.about": "Ett hobbyprojekt med öppen källkod (GPL-3.0). Data under CC BY 4.0.",
   "sources.sourceCode": "Källkod",
   "detail.aboutData": ["Källor och osäkerhet · {n} källa", "Källor och osäkerhet · {n} källor"],
+  "detail.imageCredit": "Bild:",
   "route.sourcesCount": "Källor ({n})",
   "detail.sourceMissing": "saknas",
   "detail.beforeScale": "Händelsen börjar före tidslinjens början ({year}), så reglaget kan inte visa dess första år.",

@@ -2,18 +2,10 @@
 // namn, tid, sammanfattning, källor och "Läs mer" till den kopplade händelsen (fältet event).
 import { CAT, MONTHS_SHORT, t, formatYear, formatEventTime, reviewLabel, needDetails } from '../model.js';
 import { ui } from '../i18n.js';
+import { splitParagraphs } from '../paragraphs.js';
 
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const kindLabel = kind => ui(`route.kind.${kind}`);
-
-/** Långa sammanfattningar delas i korta stycken om högst två meningar, så att texten inte blir en vägg (#1571). Texten ändras inte. */
-function paragraphs(text) {
-  if (text.length < 260) return [text];
-  const sentences = text.split(/(?<=[.!?])\s+(?=\p{Lu})/u);
-  const out = [];
-  for (let i = 0; i < sentences.length; i += 2) out.push(sentences.slice(i, i + 2).join(' '));
-  return out;
-}
 
 /** En del av en EDTF-sträng som text: "3 aug 1492", "aug 1492" eller "1492". */
 function edtfText(s) {
@@ -72,7 +64,7 @@ export class RoutePop {
       <p class="rp-note">${esc(kindLabel(route.kind))} · ${esc(formatEventTime(route))}</p>
       ${multi && leg ? `<p class="rp-note">${esc(ui('route.leg'))}: ${esc(legTime(leg))}${leg.uncertain ? ` · ${esc(ui('route.uncertain'))}` : ''}</p>`
         : leg?.uncertain ? `<p class="rp-note">${esc(ui('route.uncertain'))}</p>` : ''}
-      ${route.summary ? paragraphs(t(route.summary)).map(x => `<p class="rp-summary">${esc(x)}</p>`).join('') : ''}
+      ${route.summary ? splitParagraphs(t(route.summary)).map(x => `<p class="rp-summary">${esc(x)}</p>`).join('') : ''}
       ${route.note ? `<details class="rp-disc rp-note-d"${noteOpen ? ' open' : ''}><summary>${esc(t(route.note.title))}</summary><p>${esc(t(route.note.text))}</p></details>` : ''}
       ${ev ? `<button type="button" class="info-btn rp-more" data-event="${esc(ev.id)}">${esc(ui('route.readMore', { title: t(ev.title) }))}</button>` : ''}
       <details class="rp-disc rp-about"${aboutOpen ? ' open' : ''}><summary>${esc(ui('route.sourcesCount', { n: ids.length }))} · ${esc(reviewLabel(route.review, kindLabel(route.kind)))}</summary>

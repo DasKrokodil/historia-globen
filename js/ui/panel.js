@@ -7,10 +7,13 @@ import { say } from './status.js';
 import { MIN_YEAR } from '../timeline.js';
 import { MAX_YEAR } from '../state.js';
 import { eventCitation } from './citation.js';
+import { splitParagraphs } from '../paragraphs.js';
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 // Gränssnittets texter hämtas med ui() ur data/ui/<språk>.json (#670). Ett antal [en, flera] väljs med plural().
 const plural = (key, n, vars = {}) => String(ui(key)[n === 1 ? 0 : 1]).replace(/\{(\w+)\}/g, (m, k) => (k === 'count' ? n : vars[k] ?? m));
+/** Långa faktatexter i korta stycken (#1571): samma ord, bara radbrytning mellan meningar. tail (källhänvisningen) hamnar sist i sista stycket. */
+const paras = (text, tail = '', attrs = '') => splitParagraphs(text).map((x, i, all) => `<p${attrs}>${esc(x)}${i === all.length - 1 ? tail : ''}</p>`).join('');
 const loadingHtml = () => `<p class="detail-loading" role="status">${esc(ui('detail.loading'))}</p>`;
 /** Världsdelens namn på valt språk; REGIONS i model.js är id:n (svenska). */
 export const regionName = r => ui(`region.${r}`);
@@ -139,16 +142,24 @@ const uncertaintyMark = (e, what, copy = {}) => {
 export function figure(e, srcById, evidence = '') {
   const img = e.image;
   if (!img) return '';
-  // Historiska bilder länkar licensen till filsidan i källregistret
-  const src = img.source && srcById[img.source];
-  const license = src ? `<a href="${esc(src.url)}" target="_blank" rel="noopener">${esc(img.license ?? src.license)}</a>` : esc(img.license ?? '');
-  const credit = [img.credit && esc(img.credit), license].filter(Boolean).join(' · ');
+  // Kredit och licens för våra egna illustrationer ligger i Källor och osäkerhet (#1571); bildens märkning "Illustration …, inte
+  // en historisk bild" står alltid kvar under bilden. Kredit för historiska bilder (andras verk) står kvar vid bilden.
+  const credit = img.kind === 'illustration' ? '' : imageCredit(e, srcById);
   return `<figure class="detail-fig${img.placeholder ? ' is-placeholder' : ''}">
     ${img.placeholder ? `<span class="fig-badge">${esc(ui('image.placeholder'))}</span>` : ''}
     <img src="${esc(img.file)}" alt="${esc(t(img.caption))}" loading="lazy" width="800" height="600">
     <figcaption><span class="fig-caption">${esc(t(img.caption))}</span>${evidence}
-      <span class="fig-credit">${credit}</span></figcaption>
+      ${credit ? `<span class="fig-credit">${credit}</span>` : ''}</figcaption>
   </figure>`;
+}
+
+/** Bildens kredit och licens som HTML; historiska bilder länkar licensen till filsidan i källregistret. */
+export function imageCredit(e, srcById) {
+  const img = e.image;
+  if (!img) return '';
+  const src = img.source && srcById[img.source];
+  const license = src ? `<a href="${esc(src.url)}" target="_blank" rel="noopener">${esc(img.license ?? src.license)}</a>` : esc(img.license ?? '');
+  return [img.credit && esc(img.credit), license].filter(Boolean).join(' · ');
 }
 
 /**
@@ -671,15 +682,15 @@ export class Panel {
     this.detail.className = `detail detail-card frame-${styleFor(war, this.styles).frame}`;
     const srcs = (s.sources ?? []).map(id => this.srcById[id]).filter(Boolean);
     const body = mode === 'intro' ? `
-      <p>${esc(t(s.intro))}</p>
+      ${paras(t(s.intro))}
       <h4>${esc(ui('story.parties'))}</h4>
       <div class="parties">${s.parties.map(p => `<div><strong>${esc(t(p.name))}</strong><p>${esc(t(p.members))}</p></div>`).join('')}</div>
       ${empireList(war._empires)}
       <p class="story-hint">${esc(ui('story.hint'))}</p>${(() => { const tour = this.tourFor?.(war.id); return tour ? `<button type="button" class="story-tour" data-tour="${esc(tour.id)}">${esc(tour.label)}</button>` : ''; })()}` : war.ongoing ? `
-      <h4>${esc(ui('story.today'))}</h4><p>${esc(t(s.outcome))}</p>
+      <h4>${esc(ui('story.today'))}</h4>${paras(t(s.outcome))}
       <h4>${esc(ui('story.deadSoFar'))}</h4><p>${esc(t(s.casualties))}</p>
       ${takeawaysHtml(s.takeaways, this.srcById, pending)}` : `
-      <h4>${esc(ui('story.outcome'))}</h4><p>${esc(t(s.outcome))}</p>
+      <h4>${esc(ui('story.outcome'))}</h4>${paras(t(s.outcome))}
       <h4>${esc(ui('story.dead'))}</h4><p>${esc(t(s.casualties))}</p>
       ${takeawaysHtml(s.takeaways, this.srcById, pending)}
       ${empireList(war._empires)}`;
@@ -880,7 +891,7 @@ export class Panel {
       <h3>${symbol}${esc(name)}</h3>
       ${Number.isFinite(year) ? `<p class="facts-year">${esc(ui('facts.yearAt', { year: formatYear(year) }))}</p>` : ''}
       ${symbol && symbolKind && symbolKind !== 'symbol' ? `<p class="symbol-kind" data-symbol-kind="${esc(symbolKind)}">${esc(ui(`facts.symbolKind.${symbolKind}`))}</p>` : ''}
-      ${t(f.summary) ? `<p>${esc(t(f.summary))}</p>` : ''}
+      ${paras(t(f.summary))}
       ${fall ? `<button type="button" class="story-tour" data-tour="${esc(fall.id)}">${esc(fall.label)}</button>` : ''}
       ${body}`;
     this.setDetailOpen(true);
@@ -967,7 +978,7 @@ export class Panel {
       ${tagMarks(e, this.tags)}
       ${this.onShowPlace ? `<button type="button" class="place-row" data-show-place aria-label="${esc(ui('detail.showPlaceLabel', { place: t(e.place) }))}"><span class="place-pin" aria-hidden="true"></span><span class="place-go">${esc(ui('detail.showPlace'))}</span></button>` : ''}
       ${figure(e, this.srcById, evidence.marker('image'))}
-      ${loading ? loadingHtml() : `<p${langAttr(e.summary)}>${esc(t(e.summary))}${evidence.marker('summary')}</p>`}
+      ${loading ? loadingHtml() : paras(t(e.summary), evidence.marker('summary'), langAttr(e.summary))}
       ${e.note ? `<details class="detail-note"${noteOpen ? ' open' : ''}><summary>${esc(t(e.note.title))}</summary><p>${esc(t(e.note.text))}</p></details>` : ''}
       ${loading ? '' : mythsHtml(misconceptionsFor(e.id), this.srcById, pending)}
       ${e._war ? `<p class="war-link">${esc(ui('detail.partOf'))} <button type="button" class="link-btn" data-goto="${esc(e._war.id)}">${esc(t(e._war.title))}</button></p>` : ''}
@@ -979,6 +990,7 @@ export class Panel {
       <details class="detail-about"${aboutOpen ? ' open' : ''}><summary>${esc(String(ui('detail.aboutData')[srcs.length === 1 ? 0 : 1]).replace('{n}', srcs.length))} · ${esc(reviewLabel(e.review, 'Händelsen'))}</summary>
         ${unc}
         ${placeLong ? `<p class="detail-place-full"><b>${esc(ui('place.label'))}:</b> ${esc(placeText)}</p>` : ''}
+        ${e.image?.kind === 'illustration' ? `<p class="detail-image-credit"><b>${esc(ui('detail.imageCredit'))}</b> ${imageCredit(e, this.srcById)}</p>` : ''}
         ${beforeTimelineStart(e) ? `<p class="scale-note">${esc(ui('detail.beforeScale', { year: formatYear(MIN_YEAR) }))}</p>` : ''}
         ${inDeepTime(e) ? `<p class="scale-note">${esc(ui('detail.yearsAgo'))}</p>` : ''}
         ${evidence.sources || srcLine(srcs, pending)}
