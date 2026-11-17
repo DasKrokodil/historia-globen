@@ -11908,6 +11908,100 @@ async function run(browser, vp) {
     return `minst 24 px i ${r.mattes.length} ytor (1280 × 800)`;
   });
 
+  // #1713, uppföljning: Samtidigt-fliken hade en osynlig 44 px yta (::after) som låg över datumknappen vid 800 × 360 och tog trycket på datumet,
+  // och Hjälpkortets två länkar (24 px höga, 44 px yta var) låg så tätt att ytorna gick in i varandra. Provet trycker med elementFromPoint:
+  // vid 800 × 360 ska varken Samtidigt-kortet eller fliken ligga över datumknappen (mitten och fyra punkter), fliken är 44 px hög och
+  // kortet och fliken ligger inte över årtalet; mitten av de två Hjälp-länkarna träffar länken själv och ytorna överlappar inte.
+  // Fokusraden (som i ett rikes fokus ligger över datumknappens nedre del vid 800 × 360) ingår inte i provet: den är ett eget fynd.
+  await check('Samtidigt-fliken och kortet stjäl inte trycket på datumet vid 800 × 360, och Hjälpens länkar har egna ytor (#1713, uppföljning)', async () => {
+    if (vp.width > 760) return 'körs i mobiljobbet';
+    const delar = [];
+    // 1. 800 × 360 med pekning: utan fokus, och i fokus på ett rike (Khmerriket) där Samtidigt-fliken finns kvar tills faktarutan öppnas
+    for (const [namn, hash] of [['utan fokus', '#y=1325'], ['fokus på Khmerriket', '#y=1200&f=empire:khmerriket']]) {
+      const { tp, tctx, errs } = await touchPage({ width: 800, height: 360 }, { isMobile: true });
+      try {
+        await tp.goto(`${BASE}?ny=flik1713${namn.length}${hash}`);
+        await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await tp.waitForFunction(() => { const v = id => { const e = document.getElementById(id); return !!e && !e.hidden && e.getClientRects().length > 0; }; return v('funfact') || v('ff-tab'); }, null, { timeout: T.step })
+          .catch(() => {}); // i ett rikes fokus öppnas faktarutan och döljer både kortet och fliken
+        await tp.waitForTimeout(500);
+        const mata = () => tp.evaluate(() => {
+          const rect = id => { const e = document.getElementById(id); if (!e || e.hidden || !e.getClientRects().length) return null; const r = e.getBoundingClientRect(); return { x: r.x, y: r.y, r: r.right, b: r.bottom, w: r.width, h: r.height }; };
+          const jump = document.querySelector('.year-jump'), jr = jump.getBoundingClientRect(), readout = document.querySelector('.year-readout').getBoundingClientRect();
+          const punkter = [[.5, .5], [.15, .5], [.85, .5], [.5, .15], [.5, .85]].map(([fx, fy]) => {
+            const h = document.elementFromPoint(jr.x + jr.width * fx, jr.y + jr.height * fy);
+            return { fx, fy, traff: jump.contains(h) ? 'knappen' : (h?.id || String(h?.className).slice(0, 30)) };
+          });
+          return { punkter, tab: rect('ff-tab'), card: rect('funfact'), readout: { x: readout.x, y: readout.y, r: readout.right, b: readout.bottom } };
+        });
+        const over = (a, c) => a && a.x < c.r && a.r > c.x && a.y < c.b && a.b > c.y;
+        let m = await mata();
+        const tillstand = [];
+        if (!m.tab && !m.card && namn === 'utan fokus') throw new Error(`${namn}: varken Samtidigt-kortet eller fliken syns`);
+        if (m.tab && !m.card && namn === 'utan fokus') { // kortet är ihopfällt: öppna det och mät båda lägena
+          tillstand.push('flik');
+          if (m.tab.h < 43.5) throw new Error(`${namn}: fliken är ${Math.round(m.tab.h)} px hög, ska vara minst 44`);
+          if (over(m.tab, m.readout)) throw new Error(`${namn}: fliken ligger över årtalet`);
+          const stal = m.punkter.filter(p => /ff-tab|funfact/.test(p.traff));
+          if (stal.length) throw new Error(`${namn}: fliken tar trycket på datumknappen vid ${stal.map(p => `${p.fx},${p.fy}`).join(' ')}`);
+          await tp.click('#ff-tab');
+          await tp.waitForFunction(() => { const e = document.getElementById('funfact'); return !e.hidden && e.getClientRects().length > 0; }, null, { timeout: T.step });
+          await tp.waitForTimeout(500);
+          m = await mata();
+        }
+        if (m.card) {
+          tillstand.push('kort');
+          if (over(m.card, m.readout)) throw new Error(`${namn}: Samtidigt-kortet ligger över årtalet (kortet x ${Math.round(m.card.x)}–${Math.round(m.card.r)}, y ${Math.round(m.card.y)}–${Math.round(m.card.b)})`);
+        }
+        const stal = m.punkter.filter(p => /ff-tab|funfact/.test(p.traff));
+        if (stal.length) throw new Error(`${namn}: ${tillstand.join(' och ') || 'Samtidigt'} tar trycket på datumknappen vid ${stal.map(p => `${p.fx},${p.fy}`).join(' ')}`);
+        if (namn === 'utan fokus' && m.punkter[0].traff !== 'knappen') throw new Error(`${namn}: datumknappens mitt träffar ${m.punkter[0].traff}`);
+        if (m.card && !tillstand.includes('flik')) { // kortet var öppet från början: fäll ihop det och mät fliken
+          await tp.click('#ff-min');
+          await tp.waitForFunction(() => { const e = document.getElementById('ff-tab'); return !e.hidden && e.getClientRects().length > 0; }, null, { timeout: T.step });
+          await tp.waitForTimeout(500);
+          m = await mata();
+          tillstand.push('flik');
+          if (m.tab.h < 43.5) throw new Error(`${namn}: fliken är ${Math.round(m.tab.h)} px hög, ska vara minst 44`);
+          if (over(m.tab, m.readout)) throw new Error(`${namn}: fliken ligger över årtalet`);
+          const stal2 = m.punkter.filter(p => /ff-tab|funfact/.test(p.traff));
+          if (stal2.length) throw new Error(`${namn}: fliken tar trycket på datumknappen vid ${stal2.map(p => `${p.fx},${p.fy}`).join(' ')}`);
+        }
+        if (errs.length) throw new Error(`${namn}: sidfel ${errs[0]}`);
+        delar.push(`${namn}: ${tillstand.join(' och ') || 'faktarutan ersätter kortet och fliken'}, datumet nås`);
+      } finally { await tctx.close(); }
+    }
+    // 2. Hjälp i 400 × 800: mitten av "Öppna För lärare" och "Lämna förslag" träffar länkarna själva, och 44 px-ytorna överlappar inte
+    {
+      const { tp, tctx, errs } = await touchPage({ width: 400, height: 800 }, { isMobile: true });
+      try {
+        await tp.goto(`${BASE}?lang=sv&ny=hjalp1713#y=1325`);
+        await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        if (!await tp.isVisible('#btn-help')) await tp.click('#more-toggle');
+        await tp.click('#btn-help');
+        await tp.waitForSelector('#help', { state: 'visible', timeout: T.step });
+        await tp.waitForTimeout(300);
+        const r = await tp.evaluate(() => ['help-teacher', 'help-feedback'].map(id => {
+          const e = document.getElementById(id);
+          if (!e || !e.getClientRects().length) return { id, saknas: true };
+          const b = e.getBoundingClientRect(), cx = b.x + b.width / 2, cy = b.y + b.height / 2, h = document.elementFromPoint(cx, cy);
+          const ps = getComputedStyle(e, '::after'), pb = getComputedStyle(e, '::before');
+          const yta = Math.max(b.height, ...[ps, pb].map(s => (s.content !== 'none' && s.position === 'absolute' ? parseFloat(s.height) || 0 : 0)));
+          return { id, cy, yta, traff: h === e ? 'länken' : (h?.id || String(h?.className).slice(0, 30)) };
+        }));
+        for (const l of r) {
+          if (l.saknas) throw new Error(`Hjälp: ${l.id} syns inte`);
+          if (l.traff !== 'länken') throw new Error(`Hjälp: mitten av ${l.id} träffar ${l.traff}`);
+        }
+        const glapp = r[1].cy - r[0].cy, kravs = Math.max(r[0].yta, r[1].yta) / 2 + Math.min(r[0].yta, r[1].yta) / 2 - 0.5;
+        if (glapp < kravs) throw new Error(`Hjälp: länkarnas centrum ligger ${Math.round(glapp)} px isär men ytorna (${Math.round(r[0].yta)} och ${Math.round(r[1].yta)} px) kräver ${Math.round(kravs)} px, så de överlappar`);
+        if (errs.length) throw new Error(`Hjälp: sidfel ${errs[0]}`);
+        delar.push(`Hjälp: länkarna ${Math.round(glapp)} px isär, ytorna ${Math.round(r[0].yta)} och ${Math.round(r[1].yta)} px`);
+      } finally { await tctx.close(); }
+    }
+    return delar.join('; ');
+  });
+
   // #1309: i mobil ska träffytor vara minst 44 × 44 px (själva knappen eller dess osynliga förlängning), ingen text vara under 12 px och
   // Lager, Sök och följ och Turer ha en synlig stängknapp. Kartans etiketter och klungor och tidsskalans små märken (.tff) ingår inte än.
   await check('mobil: träffytor på 44 px, text på minst 12 px och stängknapp i menyerna (#1309)', async () => {

@@ -2695,7 +2695,6 @@ details.used-by summary:hover { color: var(--parchment); }
   /* (i) och Rapportera faktafel: 44 px tryckyta utan att ytorna går in i varandra när raden bryts */
   #detail .detail-actions { min-height: 44px; gap: 22px 10px; }
   #detail .review-explain { margin-top: -12px; }
-  #detail .review-info::after { inset: -14px; }
   #detail .report-btn { position: relative; padding: 10px 0; }
   #detail .report-btn::after { content: ""; position: absolute; inset: -6px -4px; }
   #detail[data-sheet="full"], #detail.sheet-dragging { max-height: calc(100dvh - var(--ff-b) - 72px - env(safe-area-inset-top, 0px)); z-index: var(--z-band); }
@@ -3036,6 +3035,8 @@ span.theme-event:hover { background: none; outline: none; }
   .detail .war-list .link-btn, .detail .empire-list .link-btn { min-height: 44px; }
   .detail .evidence-group li > a { min-height: 44px; padding-block: 14px; }
   .detail-actions { row-gap: 20px; }
+  /* Hjälpkortets två länkar (24 px höga) har 44 px yta var: med 8 px mellan raderna överlappade ytorna cirka 5 px (#1713, uppföljning) */
+  .help-feedback { margin-top: 14px; }
   .detail .focus-btn { min-height: 44px; }
   :is(#sources-close, #src-q, #src-status) { min-height: 44px; box-sizing: border-box; }
   .layer-customize, .panel-filter-toggle, .focus-group-toggle { min-height: 44px; }
@@ -3058,11 +3059,13 @@ span.theme-event:hover { background: none; outline: none; }
   :is(.top-actions .chip-btn, .focus-bar .chip-btn, .focus-tabs .chip-btn, .focus-sort .chip-btn, .layer-customize, #sources-close,
       .timebar .step, .timebar .play, .panel-tab, .panel-filter-toggle, .link-btn, .focus-action, .focus-group-toggle) { position: relative; }
   :is(.top-actions .chip-btn, .focus-bar .chip-btn, .focus-tabs .chip-btn, .focus-sort .chip-btn, .layer-customize, #sources-close,
-      .timebar .step, .timebar .play, .panel-tab, .panel-filter-toggle, .link-btn, .focus-action, .focus-group-toggle, .panel-x, .ff-tab)::after {
+      .timebar .step, .timebar .play, .panel-tab, .panel-filter-toggle, .link-btn, .focus-action, .focus-group-toggle, .panel-x)::after {
     content: ""; position: absolute; left: 50%; top: 50%; width: max(100%, 44px); height: max(100%, 44px); transform: translate(-50%, -50%);
   }
   .focus-tabs .chip-btn, .focus-sort .chip-btn { min-height: 40px; }
   .focus-search { min-height: 44px; }
   .focus-action { min-width: 44px; min-height: 44px; }
+  /* Samtidigt-fliken är själv 44 px hög (som i smal skärm): en osynlig ::after på 44 px låg över årtalsknappen och stal trycket (#1713, uppföljning) */
+  .ff-tab { min-height: 44px; padding-top: 0; padding-bottom: 0; }
   .settings-rows .layer-row { min-height: 44px; }
 }
