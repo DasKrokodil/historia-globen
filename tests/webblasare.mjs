@@ -4170,6 +4170,26 @@ async function run(browser, vp) {
     }
     throw new Error('Escape lämnade inte globens regionvy');
   };
+  // #1687: högens namn mäts först när det har layout; ett reservmått från första ritningen la det långa namnet utanför bildens kant
+  await check('regionvyn på globen: högens namn ryms i bilden, också det långa namnet i mobil (#1687)', async () => {
+    const { tp, tctx, errs } = await placeTapPage('#y=1721&f=place:gronland', 'globregion1687');
+    try {
+      await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+      const button = tp.locator('#detail [data-selection-action]');
+      await button.focus();
+      await tp.keyboard.press('Enter');
+      await globeRegionSettled(tp, 'gronland');
+      const tags = await tp.evaluate(() => [...document.querySelectorAll('#globe-region-labels .rpile')].filter(e => e.dataset.tag && e.dataset.tag !== 'none').map(e => {
+        const r = e.querySelector('.rpile-tag').getBoundingClientRect();
+        return { name: e.querySelector('.rpile-name').textContent, x0: Math.round(r.left), x1: Math.round(r.right), w: innerWidth };
+      }));
+      if (!tags.length) throw new Error('ingen hög har ett synligt namn');
+      const out = tags.filter(t => t.x0 < 0 || t.x1 > t.w);
+      if (out.length) throw new Error(`namnet ligger utanför bilden: ${JSON.stringify(out)}`);
+      if (errs.length) throw new Error(`konsolfel: ${errs.join(' | ')}`);
+      return `${tags.length} högnamn, alla innanför bildens kanter (${tags[0].w} px bred)`;
+    } finally { await tctx.close(); }
+  });
   await check('regionvyn på globen: Visa i regionvy flyger in till Grönland och Aotearoa, hela platsen i den fria ytan, och Escape flyger tillbaka (#1644)', async () => {
     const { tp, tctx, errs } = await placeTapPage('#y=1721&f=place:gronland', 'globregion1');
     try {
