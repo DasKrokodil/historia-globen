@@ -24,8 +24,8 @@ export class LessonMode {
     Object.assign(this, els, { app });
     this.tour = null;
     this.teacher = false; // läraren har en knapp för elev- och lärarblad i bandet (#885); eleven i den vanliga länken har ingen
-    // Eleven får en fråga innan lektionen lämnas; läraren lämnar direkt (#1572)
-    this.exit.addEventListener('click', () => (this.teacher || !this.confirm ? this.exitToGlobe() : this.askExit()));
+    // Eleven får en fråga innan lektionen lämnas; läraren lämnar direkt (#1572). Klar i sista steget gör detsamma (#1861).
+    this.exit.addEventListener('click', () => this.finish(this.exit));
     this.confirmNo?.addEventListener('click', () => this.cancelExit());
     this.confirmYes?.addEventListener('click', () => { this.hideConfirm(); this.exitToGlobe(); });
     this.confirm?.addEventListener('keydown', e => { if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); this.cancelExit(); } });
@@ -33,6 +33,20 @@ export class LessonMode {
     // Adressen skrivs om till den vanliga vyn när länken inte blev en lektion, så länken sparas här (explain)
     this.retry?.addEventListener('click', () => { if (this.noticeUrl) history.replaceState(null, '', this.noticeUrl); location.reload(); });
     this.noticeClose?.addEventListener('click', () => this.hideNotice());
+    // Uppdragslänken står i kortets fasta rad (#1861); i låg skärm tar den för mycket av det som går att läsa och står kvar i det som rullar
+    this.low = window.matchMedia?.('(max-height: 600px)');
+    this.low?.addEventListener?.('change', () => this.placeEnd());
+  }
+
+  /**
+   * Flyttar uppdragsblocket (#tour-lesson-end) mellan kortets fasta rad (bredare och högre skärmar: länken syns alltid helt ovanför
+   * knapparna, #1861) och texten som rullar (låg skärm, där den fasta raden annars tar nästan hela kortet).
+   */
+  placeEnd() {
+    const bar = this.endLinks?.ownerDocument.getElementById('tour-bar');
+    if (!bar) return;
+    if (this.low?.matches) { if (this.endLinks.nextElementSibling !== bar) bar.before(this.endLinks); }
+    else if (this.endLinks.parentElement !== bar) bar.querySelector('.tour-actions')?.before(this.endLinks);
   }
 
   /** Varför en lektionslänk inte kan startas (#877): 'fetch' (turen gick inte att hämta), 'noLesson' eller 'unknown'. */
@@ -53,25 +67,44 @@ export class LessonMode {
     this.app.root.classList.add('lesson-notice');
   }
 
-  /** Frågan "Lämna lektionen?" tar bandets plats, med fokus på Stanna kvar. */
-  askExit() {
+  /**
+   * Slutet på lektionen, från Lämna lektionen i bandet eller Klar i kortets sista steg (#1861): läraren lämnar direkt, eleven får
+   * frågan först. from är knappen som öppnade frågan, så att Stanna kvar kan ge fokus tillbaka dit.
+   */
+  finish(from = this.exit) {
+    if (this.teacher || !this.confirm) return this.exitToGlobe();
+    this.askExit(from);
+  }
+
+  /** Frågan "Lämna lektionen?" tar bandets plats, med fokus på Stanna kvar. Den säger också vad som händer med vyn (#1861). */
+  askExit(from = this.exit) {
+    this.askedFrom = from;
     this.band.hidden = true;
     this.confirm.hidden = false;
-    this.app.root.classList.add('lesson-notice');
+    this.app.root.classList.add('lesson-notice', 'lesson-confirming');
+    // Frågan är längre än förklaringen (#1861) och kan ta tre rader i smal skärm: menyraden under den följer dess verkliga höjd (css, --lesson-confirm-h)
+    const fit = () => this.app.root.style.setProperty('--lesson-confirm-h', `${this.confirm.offsetHeight}px`);
+    fit();
+    this.confirmWatch?.disconnect();
+    if (typeof ResizeObserver === 'function') (this.confirmWatch = new ResizeObserver(fit)).observe(this.confirm);
     this.confirmNo.focus({ preventScroll: true });
   }
 
   /** Stanna kvar: bandet tillbaka och fokus på knappen som öppnade frågan. */
   cancelExit() {
     this.hideConfirm();
-    this.exit.focus({ preventScroll: true });
+    const from = this.askedFrom;
+    this.askedFrom = null;
+    (from?.isConnected && from.getClientRects().length ? from : this.exit).focus({ preventScroll: true });
   }
 
   hideConfirm() {
     if (!this.confirm || this.confirm.hidden) return;
     this.confirm.hidden = true;
     this.band.hidden = !this.tour;
-    this.app.root.classList.remove('lesson-notice');
+    this.app.root.classList.remove('lesson-notice', 'lesson-confirming');
+    this.confirmWatch?.disconnect();
+    this.app.root.style.removeProperty('--lesson-confirm-h');
   }
 
   hideNotice() {
@@ -173,6 +206,7 @@ export class LessonMode {
    * intervallet.
    */
   renderEnd(last) {
+    this.placeEnd();
     const hunt = this.app.hunt;
     const missions = last && this.tour && hunt ? missionsForLesson(hunt.missions, this.tour.id, this.lock?.years) : [];
     this.endLinks.hidden = !missions.length;

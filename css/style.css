@@ -1076,7 +1076,10 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 .app.lesson #btn-teacher, .app.lesson .help-teacher, .app.lesson #btn-support, .app.lesson .app.lesson #tour-close, .app.lesson #tour-end, .app.lesson .story-tour { display: none !important; }
 .tour-lesson-end { margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--control-line); }
 .tour-lesson-end[hidden] { display: none; }
-.tour-lesson-end-label { margin: 0; font: 500 11px/1.2 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
+.tour-lesson-end-label { margin: 0; font: 500 12px/1.2 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
+/* Uppdragslänken i kortets fasta rad (#1861, js/ui/lesson.js placeEnd): den syns helt ovanför knapparna och rullar inte under dem */
+.tour-bar .tour-lesson-end { margin-top: 0; padding: 8px 0 0; }
+.tour-bar .tour-lesson-end .tour-links { margin-top: 2px; }
 @media (max-width: 760px) {
   .lesson-band { gap: 8px; }
   .lesson-band-title { font-size: 11px; }
@@ -1086,8 +1089,12 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
   /* Förklaringen (#877) är längre än lektionsbandet: texten får en egen rad och knapparna en rad under */
   .lesson-notice { flex-wrap: wrap; justify-content: flex-end; }
   .lesson-notice .lesson-band-title { flex: 1 1 100%; }
+  #lesson-confirm-text { font-size: 12px; } /* frågan är två meningar (#1861): minst 12 px */
   .app.lesson-notice .masthead { top: calc(env(safe-area-inset-top, 0px) + 112px); }
   .app.lesson-notice .top-actions { top: calc(env(safe-area-inset-top, 0px) + 116px); }
+  /* Frågan om att lämna lektionen (#1861) är längre än förklaringen: menyraden står under dess verkliga höjd (js/ui/lesson.js, askExit) */
+  .app.lesson-confirming .masthead { top: calc(env(safe-area-inset-top, 0px) + var(--lesson-confirm-h, 98px) + 14px); }
+  .app.lesson-confirming .top-actions { top: calc(env(safe-area-inset-top, 0px) + var(--lesson-confirm-h, 98px) + 18px); }
   /* Lärarens knapp (#885): titeln får en egen rad och knapparna en rad under, som förklaringen ovan */
   .app.lesson-teacher .lesson-band { flex-wrap: wrap; justify-content: flex-end; }
   .app.lesson-teacher .lesson-band-title { flex: 1 1 100%; }

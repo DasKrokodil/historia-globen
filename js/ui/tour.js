@@ -339,10 +339,8 @@ export class TourPlayer {
     this.back.hidden = this.index === 0;
     if (this.endBtn) { this.endBtn.hidden = this.last; this.endBtn.textContent = t(this.labels.end); } // sista steget: Klar öppnar slutkortet (#1866)
     this.next.textContent = this.last ? t(this.labels.done) : `${t(this.labels.next)} →`;
-    // I en lektion står slutkortet kvar efter sista steget; utgången är "Visa hela globen" i bandet (#795)
-    const stay = this.last && !!app.lesson?.active;
-    if (stay && document.activeElement === this.next) this.back.focus({ preventScroll: true });
-    this.next.hidden = stay;
+    // I en lektion står slutkortet (uppdragslänkarna) kvar efter sista steget och Klar avslutar lektionen (#1861, som Lämna lektionen i bandet)
+    this.next.hidden = false;
     app.lesson?.renderEnd(this.last);
     // Pausraden visar turen och läses upp; Fortsätt där går till nästa steg (beforeplay ovan)
     // Pausraden säger också varför tidsknapparna är låsta (#1280)
@@ -350,7 +348,7 @@ export class TourPlayer {
     const note = [fill(t(this.labels.paused), { title: t(this.tour.title) }), locked].filter(Boolean).join(' · ');
     const say = sentences([this.progress.textContent, t(step.chapter), t(step.title), this.status.hidden ? '' : this.status.textContent, t(step.text).replace(/\s*\n\n+\s*/g, ' '), t(step.question)]);
     // Slutkortet har ingen pausrad, men skärmläsaren ska höra steget och att det var det sista (#878)
-    const end = !this.last ? '' : app.lesson?.active ? ui('lesson.endAnnounce', { exit: ui('lesson.exit') }) : ui('tour.endAnnounce');
+    const end = !this.last ? '' : app.lesson?.active ? ui('lesson.endAnnounce', { done: t(this.labels.done), exit: ui('lesson.exit') }) : ui('tour.endAnnounce');
     // Kortet som steget öppnar på dator (en händelse eller en plats) säger sin rubrik när det öppnas (main.js, prioritet 2) och tog förut bort
     // stegets text. Nu sägs stegets text och kortets rubrik som en enda uppläsning ("Steg 2 av 3. Platsen. Plats: Grönland", #1464).
     // En händelses kort öppnas direkt, en plats laddas först (showPlace): uppläsningen väntar då tills kortet har öppnats.
@@ -372,10 +370,12 @@ export class TourPlayer {
    * Slutkortet (#1866): Klar i sista steget öppnar det i turkortet i stället för att lämna turen. Det säger var man står, och visar det
    * viktigaste att ta med sig: för en krigstur krigets story.takeaways (#500, med källor), annars stegens rubriker ur turen. Turen pågår
    * fortfarande, så Samtidigt-kortet väntar tills slutkortet stängs (klassen touring). Stäng lämnar turen, och Starta om turen börjar om.
-   * Lektionen har sitt eget slut (#795) och kommer aldrig hit.
+   * Lektionen har sitt eget slut (#795): Klar i en lektion går till lektionens utgång (frågan till eleven, läraren lämnar direkt, #1861)
+   * och slutkortet med uppdragslänkarna står kvar.
    */
   finish() {
-    if (!this.tour || !this.last || this.app.lesson?.active) return this.end();
+    if (!this.tour || !this.last) return this.end();
+    if (this.app.lesson?.active) return this.app.lesson.finish(this.next);
     const war = this.tour.war ? this.app.events?.[this.tour.war] : null;
     const loading = war ? needDetails([war]) : null; // krigets berättelse ligger i de långa fälten, som laddas först när de behövs
     if (!loading) return this.showEndCard(war);
