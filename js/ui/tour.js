@@ -178,6 +178,10 @@ export class TourPlayer {
       const meta = document.createElement('p'); meta.className = 'tour-pick-meta'; meta.textContent = t(tour.summary);
       body.append(meta);
     }
+    if (tour.audience) {
+      const audience = document.createElement('p'); audience.className = 'tour-pick-audience'; audience.textContent = t(tour.audience);
+      body.append(audience);
+    }
     const lessonRow = document.createElement('div'); lessonRow.className = 'tour-lesson-row';
     const info = document.createElement('span'); info.className = 'tour-lesson-meta';
     const actions = document.createElement('span'); actions.className = 'tour-actions';
