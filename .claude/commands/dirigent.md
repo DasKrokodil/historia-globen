@@ -26,7 +26,7 @@ Agent-verktyget) eller stannar och skriver det i issuet. Byt aldrig modell själ
 ## Grenkö och PR
 Bygg färdigt på en gren och vänta inte på plats för PR (DasKrokodil har beslutat att grenkön gäller alla issues i
 dirigenttrådar). Räkna först hans öppna PR:er (`gh api "repos/DasKrokodil/historia-globen/pulls?state=open&per_page=100"`,
-bara `user.login` du kör som):
+bara `user.login` du kör som), och räkna inte de som bara ändrar `tests/`, dokumentation eller överlämningar, beslutet 2026-11-17):
 - **Färre än fyra:** öppna PR direkt med `gh api repos/DasKrokodil/historia-globen/pulls` (REST; `gh pr create` fungerar
   inte), med "Closes #N" eller "Del av #N" (vad som återstår), på svenska: vad som ändrats, varför, hur jag testar.
 - **Fyra eller fler:** pusha grenen, skriv i issuet "Gren claude/<namn> väntar på plats för PR", ta bort `pågår`, och öppna
