@@ -14,7 +14,7 @@ Pyramiderna byggs medan de sista mammutarna lever på Wrangelön. Oxford undervi
 ## Det här får du
 
 - **En snurrbar jordglob genom 5 000 år.** Dra i tidslinjen från 3000 f.Kr. till i dag, eller tryck ▶ och se världen förändras.
-- **Samtidigt-kortet.** Oväntade samband dyker upp av sig själva, till exempel att Mansa Musa och Ibn Battuta var på väg mot Mecka med ett års mellanrum.
+- **Visste du?-kortet.** Oväntade samband dyker upp av sig själva, till exempel att Mansa Musa och Ibn Battuta var på väg mot Mecka med ett års mellanrum.
 - **Krig och slag att följa.** Över 50 krig från alla världsdelar, från Kadesh och perserkrigen till Ukraina i dag. Varje krig har en berättelse: varför det började, vilka som stred, hur det slutade och hur många som dog, som spann och med vem som har räknat.
 - **Riken som växer och krymper,** från Romarriket och Handynastin till Mongolriket och Brittiska imperiet.
 - **Religioner över tid,** med egna symboler och faktarutor, och med en symbol där varje religion uppstod.
@@ -94,7 +94,7 @@ js/ui/citation.js     kopierbara hänvisningar till händelsens registrerade kä
 js/ui/legend.js       teckenförklaring, klickruta för religioner och information om dämpade lager (#166, #235)
 js/ui/status.js       gemensam statusrad för skärmläsare med prioritet för faktarutans rubrik (#1419)
 js/ui/panel.js        "Samtidigt i världen" per världsdel, kategorifilter och detaljvy
-js/ui/funfact.js      Samtidigt-kortet (fun facts, när ett krig bröt ut) och bågar på globen
+js/ui/funfact.js      Visste du?-kortet (fun facts, när ett krig bröt ut) och bågar på globen
 js/ui/sources.js      sidan Om källorna (knappen Källor)
 js/ui/help.js         kort hjälp i tre steg för nya besökare (knappen Hjälp)
 js/ui/teacher.js      "För lärare" under Mer: lektioner, utskrift, quiz, jakt och knapp för presentationsläget (#1315)

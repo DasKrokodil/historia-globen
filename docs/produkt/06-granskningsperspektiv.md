@@ -167,7 +167,7 @@ Linserna 9 (barn F–3) och 10 (spelaren) har inga egna kolumner än. Använd 10
 **Blicken:** ger det mig något jag inte redan vet, och kan jag lita på det?
 
 **Frågor**
-- **Överraskning och djup:** ger Samtidigt-kortet verkliga "aha"-ögonblick? Finns det djup att gräva i (riken, krig, religioner, turer)?
+- **Överraskning och djup:** ger Visste du?-kortet verkliga "aha"-ögonblick? Finns det djup att gräva i (riken, krig, religioner, turer)?
 - **Tillit:** källor synliga och klickbara? Visas oenighet? Känner jag att något är fel eller förenklat utan att det sägs?
 - **Täckning och balans:** saknas länder, perioder eller kategorier jag bryr mig om? Slagsida mot Europa eller krig? (`tools/tackning.py`)
 - **Utforskande:** hittar jag, söker jag, bläddrar jag fritt? Kan jag följa en tråd (ett land, en idé) över tid?
