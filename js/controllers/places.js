@@ -145,7 +145,7 @@ export function createPlaces(app) {
     if (app.region?.eligible(place)) app.region.rememberOrigin();
     // En stor plats (Aotearoa, Grönland) får regionvyn på globen (#1644): globen flyger in, och Platt vy öppnas inte
     if (app.region?.onGlobe(place)) { app.region.enter(place); return; }
-    app.viewMode.set('flat');
+    app.viewMode.setSurface('flat');
     if (app.region?.eligible(place)) { app.region.enter(place); return; }
     // På bred skärm ligger kortet till höger och täcker kartan: inramningen räknar bara med ytan till vänster om det
     const card = $('detail'), covered = !app.narrow.matches && !card.hidden ? Math.max(0, flatMap.canvas.getBoundingClientRect().right - card.getBoundingClientRect().left) : 0;

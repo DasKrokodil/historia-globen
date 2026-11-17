@@ -82,7 +82,7 @@ export function createRegion(app) {
   // Vyn och kameran läses innan vyn byts (rememberOrigin, anropad av places.showInFlat) och glöms när regionvyn är slut.
   let origin = null;
   /** Vyn och kameran just nu: globens (som ligger kvar medan Platt vy är öppen) och, i Platt vy, kartans. */
-  const capture = () => { const mode = app.viewMode.mode; return { mode, globe: globe.view, flat: mode === 'flat' ? flatMap.camera() : null }; };
+  const capture = () => { const mode = flatMap.hidden ? 'globe' : 'flat'; return { mode, globe: globe.view, flat: mode === 'flat' ? flatMap.camera() : null }; };
   /** Knappen i kortet trycktes: kom ihåg vyn man står i, om regionvyn inte redan är öppen (då gäller den första). */
   function rememberOrigin() { if (!isOpen()) origin = capture(); }
   /** Globen tittar där den gjorde före regionvyn: en flygning till samma punkt och samma zoom, om den har flyttats. */
@@ -401,7 +401,7 @@ export function createRegion(app) {
     origin = from;
     place = p;
     where = 'globe';
-    app.viewMode.set('globe');
+    app.viewMode.setSurface('globe');
     showChip(p, 'globe');
     $('app').classList.add('globe-region-view');
     const b = placeBounds(p), geom = p.boundary.geometry;
@@ -463,7 +463,7 @@ export function createRegion(app) {
     const p = place;
     if (where === 'globe') closeGlobe(); else flatMap.leaveRegion();
     const mode = o?.mode ?? 'flat'; // utan minne (ingen sådan väg i dag): Platt karta med platsen inramad, som förut
-    app.viewMode.set(mode);
+    app.viewMode.setSurface(mode);
     if (mode === 'flat') {
       if (o?.flat) flatMap.setView(o.flat.lat, o.flat.lon, o.flat.zoom); else frameFlat(p);
       flatMap.canvas.focus({ preventScroll: true });
