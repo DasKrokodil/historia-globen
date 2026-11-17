@@ -403,6 +403,7 @@
   "regionView.placePrefix": ["au nord de ", "à l’ouest de ", "à l’est de ", "au sud de ", "près de ", "aux environs de "],
   "regionView.legend": "Anneau en pointillé : lieu approximatif",
   "regionView.pileApprox": ["dont {n} au lieu approximatif", "dont {n} au lieu approximatif"],
+  "regionView.pileApproxPlace": "Lieu approximatif : {place}",
   "regionView.fanOpen": ["Déployé : {name}, {n} événement", "Déployé : {name}, {n} événements"],
   "regionView.fanClosed": "Refermé : {name}",
   "regionView.marked": "En évidence : n° {n}, {title}. Entrée ou une nouvelle pression ouvre la fiche.",

@@ -170,6 +170,7 @@
   "regionView.placePrefix": ["norr om ", "väster om ", "öster om ", "söder om ", "nära ", "vid "],
   "regionView.legend": "Streckad ring: ungefärlig plats",
   "regionView.pileApprox": ["varav {n} med ungefärlig plats", "varav {n} med ungefärlig plats"],
+  "regionView.pileApproxPlace": "Ungefärlig plats i {place}",
   "regionView.fanOpen": ["{name} utfälld, {n} händelse", "{name} utfälld, {n} händelser"],
   "regionView.fanClosed": "{name} hopfälld",
   "regionView.marked": "Markerad: {n}. {title}. Enter eller ett tryck till öppnar faktarutan.",

@@ -403,6 +403,7 @@
   "regionView.placePrefix": ["nördlich von ", "westlich von ", "östlich von ", "südlich von ", "nahe ", "bei "],
   "regionView.legend": "Gestrichelter Ring: ungefährer Ort",
   "regionView.pileApprox": ["davon {n} mit ungefährem Ort", "davon {n} mit ungefährem Ort"],
+  "regionView.pileApproxPlace": "Ungefährer Ort: {place}",
   "regionView.fanOpen": ["{name} aufgefächert, {n} Ereignis", "{name} aufgefächert, {n} Ereignisse"],
   "regionView.fanClosed": "{name} zugeklappt",
   "regionView.marked": "Hervorgehoben: Nr. {n}, {title}. Die Eingabetaste oder ein weiteres Tippen öffnet das Faktenfeld.",

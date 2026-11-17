@@ -403,6 +403,7 @@
   "regionView.placePrefix": ["north of ", "west of ", "east of ", "south of ", "near ", "by "],
   "regionView.legend": "Dashed ring: approximate location",
   "regionView.pileApprox": ["{n} of them with an approximate location", "{n} of them with an approximate location"],
+  "regionView.pileApproxPlace": "Approximate location in {place}",
   "regionView.fanOpen": ["{name} fanned out, {n} event", "{name} fanned out, {n} events"],
   "regionView.fanClosed": "{name} folded up",
   "regionView.marked": "Highlighted: {n}. {title}. Enter or another tap opens the fact box.",

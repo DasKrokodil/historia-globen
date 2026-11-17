@@ -403,6 +403,7 @@
   "regionView.placePrefix": ["al norte de ", "al oeste de ", "al este de ", "al sur de ", "cerca de ", "junto a "],
   "regionView.legend": "Anillo discontinuo: lugar aproximado",
   "regionView.pileApprox": ["{n} de ellos con lugar aproximado", "{n} de ellos con lugar aproximado"],
+  "regionView.pileApproxPlace": "Lugar aproximado: {place}",
   "regionView.fanOpen": ["Desplegado: {name}, {n} acontecimiento", "Desplegado: {name}, {n} acontecimientos"],
   "regionView.fanClosed": "Plegado: {name}",
   "regionView.marked": "Resaltado: {n}. {title}. Intro u otro toque abre la ficha.",
