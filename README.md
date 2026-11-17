@@ -68,6 +68,7 @@ js/focus/             fokustyperna som poster (#1327): registry.js (registret oc
 js/model.js           språk, kategorier, tidsformat, laddning av data
 js/i18n.js            språkval och gränssnittets texter på valt språk (#63)
 js/globe.js           3D-globen (three.js), ekvirektangulär rendering
+js/start-view.js      startbilden: kameran och startzoomen när sidan öppnas utan delad adress, delas med testerna (#1317)
 js/globe-detail.js    skarpt utsnitt av kartan vid inzoomning
 js/period-range.js    epok som intervall: periodToRange klipper vid tidslinjens början och går till i dag för öppna perioder (#965)
 js/timeline.js        tidsreglage, segmenterad tidsskala, nuvarande år
@@ -198,7 +199,7 @@ scripts/validate-site.py  kontrollerar dist/: JSON, filreferenser och att inga i
 scripts/pages-function-check.sh  startar formulärets Pages Function med wrangler, som Cloudflare gör (#663)
 scripts/kontrolltackning.mjs     bevisar att varje webbläsarkontroll körs i exakt ett CI-jobb (#864)
 functions/api/feedback.js  Cloudflare Pages Function för besökarnas förslag (publiceras från repots rot, inte via dist/)
-tests/                tester för serverfunktionen, etikettkontrollen, kategorifärgerna vid färgblindhet och etiketternas kontrast (farger.test.mjs, #1318) och CSS-lagerordningen (#1065) (node --test 'tests/*.test.mjs') och webbläsartestet tests/webblasare.mjs (Playwright, #339), som delas i tre jobb enligt tests/jobb.json (#864) och provtrycker varje knapp med tests/traffytor.mjs (#1932)
+tests/                tester för serverfunktionen, etikettkontrollen, kategorifärgerna vid färgblindhet och etiketternas kontrast (farger.test.mjs, #1318), Samtidigt-panelens färger (panelens-farger.test.mjs, #1317), startbildens regler (start-view.test.mjs, #1317) och CSS-lagerordningen (#1065) (node --test 'tests/*.test.mjs') och webbläsartestet tests/webblasare.mjs (Playwright, #339), som delas i tre jobb enligt tests/jobb.json (#864) och provtrycker varje knapp med tests/traffytor.mjs (#1932)
 .github/workflows/    GitHub Actions: bygger och kontrollerar dist/ vid push till main och PR mot main och production; browser-test.yml öppnar sidan i Chromium; release.yml skapar tagg och GitHub Release; etikettkontroll.yml (logik i .github/scripts/etikettkontroll.cjs) varnar när ett issue har flera ägare (etiketter eller tilldelning) eller både redo och pågår, städar etiketter efter en sammanslagen PR och påminner om ett pågår som legat orört i 7 dagar (#588)
 ```
 

@@ -691,6 +691,7 @@ body {
   box-shadow: inset 0 0 0 4px var(--vellum), inset 0 0 0 5px var(--rubric), 0 10px 30px rgba(0, 0, 0, .35);
   backdrop-filter: none;
 }
+#panel { scrollbar-color: var(--pn-control) var(--pn-tint); } /* också när låg yta (#1932) sätter egna färger på .panel: id:t går före */
 .panel :focus-visible { outline: 2px solid var(--pn-accent); outline-offset: 2px; }
 .panel .event-btn:focus-visible { outline-offset: -2px; }
 .panel-head, .panel-tag-note, .panel-filters, .panel-tabs { border-bottom-color: var(--pn-rule); }
