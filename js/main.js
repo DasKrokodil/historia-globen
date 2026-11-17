@@ -45,6 +45,7 @@ import { createAddress } from './controllers/address.js';
 import { createJumpBack } from './controllers/jump-back.js';
 import { createLinkNotice } from './controllers/link-notice.js';
 import { createPresentation } from './controllers/presentation.js';
+import { startView, WIDE_QUERY } from './start-view.js';
 import { TeacherGuide } from './ui/teacher.js';
 import { createSurfaces, OVERLAY_IDS } from './surfaces.js';
 
@@ -606,7 +607,10 @@ async function start() {
     beforeReload: () => app.address?.flush(), onOpen: () => surfaces.opened('lang'),
   });
   surfaces.register('lang', 'meny', () => langPicker.close());
-  globe.flyTo(34, -50, 1600);
+  // Startkameran (#1317): på dator börjar globen på lägsta zoom så att kortets händelser ligger fria från Visste du?-kortet; en delad adress anger själv kameran
+  const start = startView({ hash: location.hash, search: location.search, wide: matchMedia(WIDE_QUERY).matches });
+  globe.flyTo(start.lat, start.lon, 1600);
+  if (start.zoom !== 1) globe.setZoom(start.zoom);
   globe.autoRotate = false;
 
   // Frivillig introduktion (#363, #516): startas från Utforska och sätter bara då introduktionens år.

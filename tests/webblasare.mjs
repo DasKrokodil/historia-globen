@@ -3395,6 +3395,144 @@ async function run(browser, vp) {
     }
   });
 
+  // #1317 del 2: startbilden. På dator (bred, inte låg skärm) börjar globen på lägsta zoom, 0,8, så att kortets händelser ligger fria från
+  // Visste du?-kortet; i mobil och i låg yta är zoomen som förut (1). Bara första inladdningen utan adress får startzoomen: en delad länk utan
+  // kamera ger zoom 1 och en länk med kamera behåller sin. Zoomen läses ur adressen, som globen skriver (c=lat,lon,zoom). Reglerna står i js/start-view.js.
+  await check('startbilden: globen börjar på lägsta zoom på dator och som förut i mobil, och en delad adress rör inte kameran (#1317)', async () => {
+    const lp = await context.newPage();
+    const errs = [];
+    lp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await lp.route(u => isFont(u.href), r => r.abort());
+      }
+      const smal = page.viewportSize().width <= 760;
+      const zoomEfter = async (storlek, hash) => {
+        await lp.setViewportSize(storlek);
+        await lp.goto('about:blank'); // en hel sidladdning per fall
+        await lp.goto(`${BASE}?ny=1317${hash}`);
+        await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await lp.waitForFunction(() => /[#&]c=/.test(location.hash), null, { timeout: T.step }); // globen har skrivit kameran i adressen
+        return lp.evaluate(() => {
+          const c = new URLSearchParams(location.hash.slice(1)).get('c').split(',').map(Number);
+          return { lat: c[0], lon: c[1], zoom: c[2] };
+        });
+      };
+      const stor = smal ? { width: 400, height: 800 } : { width: 1280, height: 800 };
+      const start = await zoomEfter(stor, '');
+      const vantat = smal ? 1 : 0.8;
+      if (start.zoom !== vantat || start.lat !== 34 || start.lon !== -50) throw new Error(`utan adress i ${stor.width} px: ${JSON.stringify(start)}, väntade zoom ${vantat} över 34, -50`);
+      const utanKamera = await zoomEfter(stor, '#y=1325');
+      if (utanKamera.zoom !== 1) throw new Error(`en delad länk utan kamera ska ge zoom 1 som förut: ${JSON.stringify(utanKamera)}`);
+      const medKamera = await zoomEfter(stor, '#y=1325&c=34,-50,1.6');
+      if (medKamera.zoom !== 1.6) throw new Error(`en länk med kamera ska behålla sin zoom: ${JSON.stringify(medKamera)}`);
+      const lag = await zoomEfter({ width: 1280, height: 400 }, ''); // liggande telefon och andra låga ytor: ingen mindre glob
+      if (lag.zoom !== 1) throw new Error(`en låg yta (1280 × 400) ska ge zoom 1: ${JSON.stringify(lag)}`);
+      if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
+      return `${smal ? 'mobil' : 'dator'}: zoom ${start.zoom} utan adress, 1 för länk utan kamera och i låg yta, 1,6 för länk med kamera`;
+    } finally {
+      await lp.close();
+    }
+  });
+
+  // #1317 del 3: Samtidigt-panelen är en läsyta i faktarutans stil (pergament med guldram), och Visste du?-kortet behåller sitt ljusa pergament.
+  // Mäter de riktiga färgerna i den öppna panelen: text minst 4,5:1 mot sin bakgrund, kontrollramar minst 3:1, kategoriprickarna mot sin mörka
+  // botten, kategorichips minst 12 px text och 24 px höga och, på pekskärm, en tryckyta på 44 px. Samma i dator- och mobilbredd.
+  await check('Samtidigt-panelen har faktarutans pergament och guldram med läsbara färger, kortet behåller pergamentet (#1317)', async () => {
+    const lp = await context.newPage();
+    const errs = [];
+    lp.on('pageerror', e => errs.push(e.message));
+    const farg = str => { // "rgb(r, g, b)", "rgba(…)" och Chromes "color(srgb r g b / a)" → { rgb, a }
+      const n = (str.match(/-?[\d.]+/g) ?? []).map(Number);
+      const unit = /^color\(/.test(str) ? 255 : 1;
+      return { rgb: n.slice(0, 3).map(v => v * unit), a: n.length > 3 ? n[3] : 1 };
+    };
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await lp.route(u => isFont(u.href), r => r.abort());
+      }
+      const smal = page.viewportSize().width <= 760;
+      await lp.setViewportSize(smal ? { width: 400, height: 800 } : { width: 1280, height: 800 });
+      await lp.goto(`${BASE}?lang=sv&ny=1317b#y=1325`);
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await lp.click('#btn-panel');
+      await lp.waitForSelector('#panel.open .event-btn', { timeout: T.step });
+      const lasFiltret = async () => { // fäll upp kategorierna så att chipsen syns, och slå av ett
+        if (await lp.locator('.panel-filter-toggle').count() && await lp.locator('.panel-filter-toggle').getAttribute('aria-expanded') !== 'true') await lp.click('.panel-filter-toggle');
+        await lp.waitForSelector('#panel-filters .filter', { state: 'visible', timeout: T.step });
+        await lp.locator('#panel-filters .filter').nth(2).click({ force: true });
+        await lp.waitForSelector('#panel-filters .filter[aria-pressed="false"]', { timeout: T.step });
+      };
+      await lasFiltret();
+      const m = await lp.evaluate(() => {
+        const cs = el => getComputedStyle(el);
+        // Närmaste ogenomskinliga bakgrund, med genomskinliga lager lagda ovanpå varandra (uppifrån och ner)
+        const lager = el => { const r = []; for (let e = el; e; e = e.parentElement) { const b = cs(e).backgroundColor; if (b && b !== 'rgba(0, 0, 0, 0)' && b !== 'transparent') { r.push(b); if (!/rgba\([^)]*,\s*0?\.\d+\)/.test(b)) break; } } return r.reverse(); };
+        const info = (sel, what) => { const el = typeof sel === 'string' ? document.querySelector(sel) : sel; if (!el) return { what, saknas: true }; const s = cs(el), r = el.getBoundingClientRect();
+          return { what, color: s.color, bg: lager(el), border: s.borderTopColor, borderStyle: s.borderTopStyle, size: parseFloat(s.fontSize), w: r.width, h: r.height, opacity: parseFloat(s.opacity) }; };
+        const panel = document.getElementById('panel'), ps = cs(panel);
+        const ff = document.getElementById('funfact'), fs2 = ff ? cs(ff) : null;
+        const tab = document.querySelector('#panel .panel-tab[aria-selected="true"]'), tab2 = document.querySelector('#panel .panel-tab[aria-selected="false"]');
+        const on = [...document.querySelectorAll('#panel-filters .filter[aria-pressed="true"]')][0], off = document.querySelector('#panel-filters .filter[aria-pressed="false"]');
+        const dot = document.querySelector('#panel .event-btn .dot');
+        return {
+          panel: { bg: ps.backgroundColor, border: ps.borderTopColor, width: ps.borderTopWidth, shadow: ps.boxShadow },
+          funfact: fs2 ? { bg: fs2.backgroundColor, display: fs2.display } : null,
+          rader: [info('#panel .panel-head h2', 'rubrik'), info('#panel .panel-sub', 'underrubrik'), info('#panel .panel-tag-note', 'urvalsrad'), info('#panel .panel-tag-note .link-btn', 'länk'),
+            info('#panel .panel-filter-toggle', 'filterknapp'), info(tab, 'vald flik'), info(tab2, 'flik'), info('#panel .panel-sec', 'avsnittsrubrik'), info('#panel .event-btn .ttl', 'händelse'),
+            info('#panel .event-btn .meta', 'metarad'), info(on, 'chip på'), info(off, 'chip av'), info('#panel .panel-x', 'stäng')],
+          dot: dot ? { outline: cs(dot).outlineColor, outlineWidth: parseFloat(cs(dot).outlineWidth) } : null,
+          chips: [...document.querySelectorAll('#panel-filters .filter')].map(f => { const r = f.getBoundingClientRect(), s = cs(f); return { size: parseFloat(s.fontSize), h: r.height, after: parseFloat(getComputedStyle(f, '::after').height) || 0 }; }),
+          tabs: [...document.querySelectorAll('#panel .panel-tab')].filter(f => f.getBoundingClientRect().height > 0).map(f => { const r = f.getBoundingClientRect(); return { h: r.height, after: parseFloat(getComputedStyle(f, '::after').height) || 0 }; }),
+          rows: [...document.querySelectorAll('#panel .event-btn')].map(f => f.getBoundingClientRect().height).filter(h => h > 0), // de i dolda världsdelar har ingen höjd
+        };
+      });
+      const lum = c => { const [r, g, b] = c.map(v => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }); return 0.2126 * r + 0.7152 * g + 0.0722 * b; };
+      const kontrastPar = (a, b) => { const [x, y] = [lum(a), lum(b)]; return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
+      const bottna = lager => lager.reduce((under, l) => { const c = farg(l); return blanda(c.rgb, under, c.a); }, [0, 0, 0]);
+      // Panelens ram och bakgrund: guldramen och pergamentet (--gold och --vellum), kortet ljust som förut
+      const pb = farg(m.panel.bg), pr = farg(m.panel.border);
+      if (pb.a < 0.95 || Math.abs(pb.rgb[0] - 0xef) > 2 || Math.abs(pb.rgb[1] - 0xe3) > 2 || Math.abs(pb.rgb[2] - 0xc6) > 2) throw new Error(`panelens bakgrund är inte pergament (--vellum): ${m.panel.bg}`);
+      if (Math.abs(pr.rgb[0] - 0xc9) > 2 || Math.abs(pr.rgb[1] - 0xa2) > 2 || Math.abs(pr.rgb[2] - 0x4a) > 2 || parseFloat(m.panel.width) < 2) throw new Error(`panelens ram är inte guld, minst 2 px: ${m.panel.border} ${m.panel.width}`);
+      if (!/rgb\(156, 42, 30\)/.test(m.panel.shadow) && !/color\(srgb 0\.6/.test(m.panel.shadow)) throw new Error(`innerlinjen (--rubric) saknas i panelens ram: ${m.panel.shadow}`);
+      if (m.funfact) { const f = farg(m.funfact.bg); if (f.rgb[0] < 200 || f.rgb[1] < 190) throw new Error(`Visste du?-kortet har tappat sitt pergament: ${m.funfact.bg}`); }
+      const fel = [];
+      for (const r of m.rader) {
+        if (r.saknas) { if (!['länk', 'vald flik', 'flik', 'avsnittsrubrik'].includes(r.what)) fel.push(`${r.what} saknas`); continue; }
+        const under = bottna(r.bg.length ? r.bg : [m.panel.bg]);
+        const text = farg(r.color), skrift = blanda(text.rgb, under, text.a * (r.what === 'chip av' ? r.opacity : 1));
+        const kr = kontrastPar(skrift.map(Math.round), under.map(Math.round));
+        if (kr < 4.5) fel.push(`${r.what}: text ${kr.toFixed(2)}:1`);
+        if (['filterknapp', 'chip på', 'chip av', 'stäng', 'flik', 'vald flik'].includes(r.what)) {
+          const rb = farg(r.border), kb = kontrastPar(blanda(rb.rgb, under, rb.a).map(Math.round), under.map(Math.round));
+          if (r.borderStyle !== 'none' && kb < 3) fel.push(`${r.what}: ram ${kb.toFixed(2)}:1`);
+        }
+        if (r.what === 'chip av' && !(r.borderStyle === 'dashed' && r.opacity === 1)) fel.push(`chip av skiljs inte med streckad ram: ${r.borderStyle}, opacity ${r.opacity}`);
+      }
+      if (fel.length) throw new Error(fel.join('; '));
+      // Kategoriprickarna har markörernas mörka botten (--medal, #10202c) och syns mot den
+      if (!m.dot) throw new Error('ingen händelseprick i panelen');
+      const ring = farg(m.dot.outline);
+      if (m.dot.outlineWidth < 2 || ring.rgb[0] > 40 || ring.rgb[1] > 50 || ring.rgb[2] > 60) throw new Error(`pricken saknar mörk botten: ${m.dot.outline} ${m.dot.outlineWidth} px`);
+      // Storlekar: kategorichips minst 12 px text och 24 px höga; på pekskärm (smal skärm) minst 44 px yta; flikar och rader minst 24 px
+      for (const c of m.chips) {
+        if (c.size < 12) throw new Error(`en kategorichip har ${c.size} px text (minst 12)`);
+        if (c.h < 24) throw new Error(`en kategorichip är ${c.h.toFixed(1)} px hög (minst 24)`);
+        if (smal && Math.max(c.h, c.after) < 44) throw new Error(`en kategorichip har ${Math.max(c.h, c.after).toFixed(1)} px tryckyta i mobil (minst 44)`);
+      }
+      for (const tb of m.tabs) { if (Math.max(tb.h, tb.after) < (smal ? 44 : 24)) throw new Error(`en flik har ${tb.h.toFixed(1)} px yta`); }
+      for (const h of m.rows) if (h < 44) throw new Error(`en händelserad är ${h.toFixed(1)} px hög (minst 44)`);
+      if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
+      return `ram guld ${m.panel.width}, bakgrund pergament, ${m.rader.filter(r => !r.saknas).length} textrader ≥ 4,5:1, ${m.chips.length} chips ≥ 12 px och 24 px höga, pricken har mörk botten`;
+    } finally {
+      await lp.close();
+    }
+  });
+
   // #1318: etiketterna på globen har minst 4,5:1 mellan text och bakgrund, också de som vetter bort mot klotets kant, och "nära i tid"
   // skiljs från "pågår" med mer än färgstyrka (kursiv). Kontrasten räknas på en riktig skärmbild: etikettens text och bakgrund (78 procents
   // täckning) läggs med etikettens styrka över bilden av samma plats utan etiketter. Samma i dator- och mobilbredd.
