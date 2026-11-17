@@ -1,4 +1,4 @@
-// Tidsfönstret i vardagsspråk (#994) och riktning i tid (#995): århundrade, "N år före (år)" och "N år senare".
+// Tidsfönstret i vardagsspråk (#994) och riktning i tid (#995): århundrade, "N år före (år)" och "om N år".
 // Körs på svenska (språket är fast vid import). Astronomiska år: 0 = 1 f.Kr., så avståndet räknas rakt av.
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -48,12 +48,12 @@ test('årsbråkdelar räknas bort: kriget som slutade augusti 2021 är 5 år fö
   assert.equal(formatDirection('past', 2026.4, 2021), '5 år före (2021)');
 });
 
-test('panelen skriver "N år tidigare" och "N år senare", och dagar i fokusläget för korta krig', () => {
-  assert.equal(formatOffset('future', 1346 - 1325), '21 år senare');
-  assert.equal(formatOffset('past', 34), '34 år tidigare');
-  assert.equal(formatOffset('past', 0.4), '1 år tidigare'); // aldrig 0 år
-  assert.equal(formatOffset('future', 1 / 365.25, true), '1 dag senare');
-  assert.equal(formatOffset('past', 10 / 365.25, true), '10 dagar tidigare');
+test('panelen skriver "N år före" och "om N år", och dagar i fokusläget för korta krig', () => {
+  assert.equal(formatOffset('future', 1346 - 1325), 'om 21 år');
+  assert.equal(formatOffset('past', 34), '34 år före');
+  assert.equal(formatOffset('past', 0.4), '1 år före'); // aldrig 0 år
+  assert.equal(formatOffset('future', 1 / 365.25, true), 'om 1 dag');
+  assert.equal(formatOffset('past', 10 / 365.25, true), '10 dagar före');
 });
 
 test('listtexter med ental och flertal byter form', () => {
@@ -87,8 +87,8 @@ test('förhistoriens år avrundas: tusental före 10 000 f.Kr., hundratal till 3
 });
 
 test('stora avstånd avrundas: hundratal från 1000 år, tusental från 10 000 år (inför v6.3.0)', () => {
-  assert.equal(formatOffset('future', 1001), '1000 år senare');
-  assert.equal(formatOffset('past', 2115), '2100 år tidigare');
-  assert.equal(formatOffset('past', 999), '999 år tidigare');
-  assert.match(formatOffset('past', 11640), /^12.000 år tidigare$/);
+  assert.equal(formatOffset('future', 1001), 'om 1000 år');
+  assert.equal(formatOffset('past', 2115), '2100 år före');
+  assert.equal(formatOffset('past', 999), '999 år före');
+  assert.match(formatOffset('past', 11640), /^12.000 år före$/);
 });
