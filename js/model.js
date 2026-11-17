@@ -17,6 +17,8 @@ export function t(obj) {
 }
 
 // Fast kategorilista (beslut 7). Färgerna är valda för att synas mot mörk bakgrund.
+// Tio av färgerna justerades 2026-11-17 (#1318, docs/beslut/2026-11-17-kategorifarger-och-etiketter-1318.md) så att inga två utan egen form
+// blandas ihop vid simulerad färgblindhet; tests/farger.test.mjs låser det. Krigsfärgen står också i Hjälp (index.html).
 // count = ord i ental och flertal när en klunga säger vad den innehåller (#243), till exempel "3 krigshändelser".
 export const CATEGORIES = [
   { id: 'natur',          name: { sv: 'Natur och djur' },                 color: '#98c692', count: { sv: ['naturhändelse', 'naturhändelser'] } },

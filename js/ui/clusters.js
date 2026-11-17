@@ -62,12 +62,12 @@ export function clusterContents(members, CAT, t) {
 export const WAR_LABELS = 3;
 
 /**
- * Etiketterna vid klotets kant (#1318). Förut tonades en etikett ut jämnt när markören vände sig bort (ned till 5 procents
- * styrka), och då läste ingen texten: mätt på skärmbilder låg kontrasten mellan 1,2:1 och 4:1 över land. Nu är en etikett antingen
+ * Etiketterna vid klotets kant (#1318). Förut tonades en etikett ut jämnt när markören vände sig bort (nästan ända ned till
+ * noll), och då läste ingen texten: mätt på skärmbilder låg 12 procent av etiketterna under 4,5:1, ner till 1,1:1. Nu är en etikett antingen
  * läsbar eller dold. Från LABEL_FADE_FROM (cosinus för vinkeln mot kamerans riktning) och uppåt har den full styrka, ner till
  * LABEL_MIN_FACING tonar den bara till LABEL_MIN_OPACITY, och under det ritas ingen etikett (markören syns kvar).
  * Vid 85 procents styrka är kontrasten mellan etikettens text och bakgrund minst 4,5:1 även över det ljusaste underlaget
- * (inlandsisen i istidens kust, #f1f4f6); tests/etiketter.test.mjs räknar efter.
+ * (inlandsisen i istidens kust, #f1f4f6); tests/farger.test.mjs räknar efter.
  */
 export const LABEL_FADE_FROM = 0.45, LABEL_MIN_FACING = 0.3, LABEL_MIN_OPACITY = 0.85;
 /** Etikettens styrka (0–1) för en markör som vetter facing (0–1) mot kameran; 0 betyder att etiketten inte ritas. */
