@@ -98,6 +98,12 @@ def ortnamn_cases():
         ('tomt namn', lambda d: d['neighbours'][0]['name'].update(sv=''), "matchar inte pattern '.+'"),
         ('granne med landgräns som land över havet (#1690)', lambda d: d['neighbours'][0].update(sea=True), 'har sea: true men'),
         ('land över havet som inte står i boundary.neighbours utan sea', lambda d: d['neighbours'].append({'ne': '352', 'label': [12.5, 55.5], 'name': d['neighbours'][0]['name']}), 'finns inte i platsens boundary.neighbours'),
+        ('landsmarginalen saknas (#1690)', lambda d: d.pop('landPadKm'), "obligatoriska fältet 'landPadKm' saknas"),
+        ('landsmarginalen mindre än ortmarginalen (#1690)', lambda d: d.update(landPadKm=d['padKm'] - 1), 'är mindre än padKm'),
+        ('land över havet utan avstånd (#1690)', lambda d: d['neighbours'].append({'ne': '276', 'label': [12.5, 54.5], 'name': d['neighbours'][0]['name'], 'sea': True}), 'ska ha km högst landPadKm'),
+        ('land över havet utanför landsmarginalen (#1690)', lambda d: d['neighbours'].append({'ne': '276', 'label': [12.5, 54.5], 'name': d['neighbours'][0]['name'], 'sea': True, 'km': d['landPadKm'] + 1}), 'ska ha km högst landPadKm'),
+        ('avstånd för en granne med landgräns (#1690)', lambda d: d['neighbours'][0].update(km=10), 'har km eller far utan sea'),
+        ('far för en granne med landgräns (#1690)', lambda d: d['neighbours'][0].update(far=True), 'har km eller far utan sea'),
     ]
 
 

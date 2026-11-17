@@ -16,9 +16,13 @@ Innehållet:
   10 minst), så att vyn kan gallra efter skala.
 - neighbours: grannländerna i boundary.neighbours (#1449; vilka länder det är skrivs alltså inte här), med namn ur
   ne_10m_admin_0_countries (ISO_N3, eller ISO_N3_EH när ISO_N3 är −99 som för Norge) och en punkt för namnet inne i landet och
-  inom ramen. Efter dem, med sea: true, länder utan landgräns mot platsen som har någon punkt inom marginalen från platsens
-  gräns (#1690, Island vid Grönland), de närmaste först, med namnets punkt på landets delar inom marginalen. Platsens eget land
-  (för ett län landet vars ADM0_A3 står först i adm1_code) är inte med.
+  inom ramen. Efter dem, med sea: true och km (kortaste avståndet från platsens gräns), länder utan landgräns mot platsen som har
+  någon punkt inom landsmarginalen landPadKm från platsens gräns (#1690), de närmaste först. Landsmarginalen är platsens längsta
+  sida (LAND_PAD_SHARE, minst padKm), alltså större än ortmarginalen padKm (30 %). Namnets punkt läggs i första hand som förut på
+  landets delar inom padKm och inom ramen (Island vid Grönland). Ger de ingen punkt, läggs den på landets delar inom
+  landsmarginalen, i landsramen (ramen utvidgad med landsmarginalen åt öst och väst men inte åt nord och syd) och högst
+  landsmarginalen från platsens gräns, och landet får far: true (Australiens sydöstra del vid Aotearoa). Regionvyn prövar ett land
+  med far först efter orterna och haven. Platsens eget land (för ett län landet vars ADM0_A3 står först i adm1_code) är inte med.
 - seas: hav, sund och vikar ur ne_10m_geography_marine_polys som ligger inom ramen, högst MAX_SEAS, med en punkt för namnet.
 Punkten för ett namn är den punkt i ett rutnät över ramen som ligger inne i området och längst från dess kant och ramens kant
 (en enkel "pol för otillgänglighet"). Ett område utan en enda sådan punkt tas inte med.
@@ -59,6 +63,14 @@ MAX_PLACES = 60
 # närmaste omgivningen går före storstäder vid ramens kant (Moskva och London i Sveriges ram). rank i filen är oförändrad.
 OUTSIDE_PENALTY = 2
 MAX_SEAS = 12
+# Landsmarginalen (#1690, DasKrokodil 2026-11-16: länder får en större marginal än orter): ett land utan landgräns mot platsen
+# namnges när någon del av det ligger högst så här stor andel av platsens längsta sida från platsens gräns, alltså en platslängd
+# (orterna och ramen har PAD_SHARE, 30 %). Andelen i stället för de föreslagna fasta 1 000 km: Australiens fastland ligger 1 645 km
+# från Aotearoas gräns (de 619 km som mättes först var Macquarieön, för liten för en namnpunkt), och en fast marginal på över
+# 1 600 km skulle ge Skåne (ortmarginal 40 km) och Danmark (130 km) halva Europa. Aotearoa får 2 017 km, Grönland 2 645 km.
+# Namnets punkt läggs på den del av landet som ligger inom landsmarginalen, så att namnet står på sidan mot platsen (Australiens
+# sydöstra del, inte mitt i landet). Se docs/beslut/2026-11-17-landsmarginal-ortnamn-1690.md.
+LAND_PAD_SHARE = 1.0
 GRID = 48
 KM_PER_DEG = 111.2
 KOMPLETTERING = ROOT / 'data' / 'ortnamn-komplettering.json'
@@ -90,9 +102,10 @@ def names(props, upper):
     return out, fallback
 
 
-def frame(place):
+def frame(place, share=PAD_SHARE):
     """Ramen [väst, syd, öst, nord] i grader, utvikt så att väst < öst (öst kan vara över 180), platsens egen ruta utan
-    marginal och marginalen i km. Marginalen i längdgrad räknas med cos(mittbredden), som regionvyns lokala skala (#1627)."""
+    marginal och marginalen i km. Marginalen i längdgrad räknas med cos(mittbredden), som regionvyns lokala skala (#1627).
+    share är marginalens andel av rutans längsta sida: PAD_SHARE för ramen, LAND_PAD_SHARE för landsramen (#1690)."""
     pts = [p for poly in place['boundary']['geometry']['coordinates'] for ring in poly for p in ring]
     xs = [p[0] for p in pts]
     if max(xs) - min(xs) > 180:  # gränsen korsar datumlinjen: lägg de västra längdgraderna efter 180
@@ -101,10 +114,19 @@ def frame(place):
     w, e, s, n = min(xs), max(xs), min(ys), max(ys)
     lat0 = math.radians((s + n) / 2)
     span_km = max((e - w) * KM_PER_DEG * math.cos(lat0), (n - s) * KM_PER_DEG)
-    pad_km = max(PAD_MIN_KM, PAD_SHARE * span_km)
+    pad_km = max(PAD_MIN_KM, share * span_km)
     pad_y = pad_km / KM_PER_DEG
     pad_x = pad_km / (KM_PER_DEG * math.cos(lat0))
     return [w - pad_x, max(-90.0, s - pad_y), e + pad_x, min(90.0, n + pad_y)], [w, s, e, n], round(pad_km)
+
+
+def land_frame(place):
+    """Landsramen (#1690): ramen, utvidgad med landsmarginalen åt öst och väst men inte åt nord och syd, och landsmarginalen i km.
+    Skärmen är bredare än hög, så regionvyn visar mer av omgivningen i öst–väst än i nord–syd (Australien vid Aotearoa syns i dator,
+    Nya Kaledonien och Antarktis norr och söder om ramen gör det inte)."""
+    fr = frame(place)[0]
+    wide, _, land_km = frame(place, LAND_PAD_SHARE)
+    return [wide[0], fr[1], wide[2], fr[3]], land_km
 
 
 def lon_in(x, fr):
@@ -135,16 +157,37 @@ def rings_of(geom, fr):
     return out
 
 
-def label_point(geom, fr):
-    """Punkten i ett rutnät över ramen som ligger inne i området och längst från områdets och ramens kant, eller None."""
+def grid(fr):
+    """Rutnätets punkter över ramen (GRID × GRID, utan kanterna) som två platta fält med längd- och breddgrad."""
+    gx = np.linspace(fr[0], fr[2], GRID + 2)[1:-1]
+    gy = np.linspace(fr[1], fr[3], GRID + 2)[1:-1]
+    px, py = np.meshgrid(gx, gy)
+    return px.ravel(), py.ravel()
+
+
+def grid_km(fr, own):
+    """Varje rutnätspunkts kortaste avstånd i km (storcirkel) till platsens gränspunkter own ([lon, lat] i radianer)."""
+    px, py = grid(fr)
+    a = np.radians(np.stack([px, py], axis=1))
+    best = np.full(len(a), np.inf)
+    for i in range(0, len(own), 500):
+        c = own[i:i + 500]
+        dlat = c[None, :, 1] - a[:, None, 1]
+        dlon = c[None, :, 0] - a[:, None, 0]
+        h = np.sin(dlat / 2) ** 2 + np.cos(a[:, None, 1]) * np.cos(c[None, :, 1]) * np.sin(dlon / 2) ** 2
+        best = np.minimum(best, h.min(axis=1))
+    return 2 * 6371.0 * np.arcsin(np.sqrt(np.clip(best, 0.0, 1.0)))
+
+
+def label_point(geom, fr, reach=None):
+    """Punkten i ett rutnät över ramen som ligger inne i området och längst från områdets och ramens kant, eller None.
+    reach = (km, max_km): bara punkter högst max_km från platsens gräns (km per punkt ur grid_km), och den gränsen räknas som en
+    kant till (landsmarginalen, #1690)."""
     rings = rings_of(geom, fr)
     if not rings:
         return None
     cos0 = math.cos(math.radians((fr[1] + fr[3]) / 2))
-    gx = np.linspace(fr[0], fr[2], GRID + 2)[1:-1]
-    gy = np.linspace(fr[1], fr[3], GRID + 2)[1:-1]
-    px, py = np.meshgrid(gx, gy)
-    px, py = px.ravel(), py.ravel()
+    px, py = grid(fr)
     inside = np.zeros(px.shape, dtype=bool)
     dist = np.full(px.shape, np.inf)
     for r in rings:
@@ -166,6 +209,9 @@ def label_point(geom, fr):
             d = np.hypot(qx - (ax + t * dx), qy - (ay + t * dy)).min(axis=1)
             dist = np.minimum(dist, d)
     edge = np.minimum.reduce([(px - fr[0]) * cos0, (fr[2] - px) * cos0, py - fr[1], fr[3] - py])
+    if reach is not None:
+        km, max_km = reach
+        edge = np.minimum(edge, (max_km - km) / KM_PER_DEG)
     score = np.where(inside, np.minimum(dist, edge), -1)
     i = int(score.argmax())
     if score[i] <= 0:
@@ -228,11 +274,11 @@ def min_km(a, b):
 
 
 def sea_neighbours(place, countries, fr, pad_km, skip):
-    """Länder utan landgräns mot platsen som ändå ligger inom marginalen (#1690): någon punkt i landets polygon inom pad_km från
-    platsens gräns, till exempel Island vid Grönland. skip: id som inte ska med (platsens eget land och grannarna med landgräns).
-    Ger [(km, iso, feature, geometry)] med de närmaste först, där geometry bara har landets delar (polygoner) inom marginalen, så
-    att namnet hamnar på den del som syns nära platsen (Svalbard, inte fastlandet, för Norge vid Grönland). Bara landets punkter i
-    ramen prövas, så att resten av världen inte räknas."""
+    """Länder utan landgräns mot platsen som ändå ligger inom landsmarginalen (#1690): någon punkt i landets polygon inom pad_km
+    från platsens gräns, till exempel Island vid Grönland och Australien vid Aotearoa. fr är landsramen och pad_km landsmarginalen.
+    skip: id som inte ska med (platsens eget land och grannarna med landgräns). Ger [(km, iso, feature, geometry)] med de närmaste
+    först, där geometry bara har landets delar (polygoner) inom marginalen, så att namnet hamnar på den del som ligger nära platsen.
+    Bara landets punkter i landsramen prövas, så att resten av världen inte räknas."""
     own = boundary_points(place)
     out = []
     for f in countries['features']:
@@ -262,7 +308,8 @@ def sea_neighbours(place, countries, fr, pad_km, skip):
 def build(place, ne_places, marine, countries):
     fr, own, pad_km = frame(place)
     out = {'schema': 'historia-globen/ortnamn@1', 'place': place['id'], 'source': SOURCE,
-           'frame': [round(normal(fr[0]), 2), round(fr[1], 2), round(normal(fr[2]), 2), round(fr[3], 2)], 'padKm': pad_km}
+           'frame': [round(normal(fr[0]), 2), round(fr[1], 2), round(normal(fr[2]), 2), round(fr[3], 2)], 'padKm': pad_km,
+           'landPadKm': land_frame(place)[1]}
 
     found = []
     for f in ne_places['features']:
@@ -310,14 +357,24 @@ def build(place, ne_places, marine, countries):
         if fb:
             item['fallback'] = fb
         out['neighbours'].append(item)
-    # Länder över havet inom marginalen (#1690): efter grannarna med landgräns, med sea: true
+    # Länder över havet inom landsmarginalen (#1690): efter grannarna med landgräns, med sea: true. Landsramen är platsens ruta med
+    # landsmarginalen åt alla håll, och namnets punkt ligger inom landsmarginalen från platsens gräns.
+    lfr, land_km = land_frame(place)
+    reach = (grid_km(lfr, boundary_points(place)), land_km)
     skip = {str(nb.get('ne')) for nb in place['boundary']['neighbours']} | {own_iso(place, countries)}
-    for _, iso, f, near in sea_neighbours(place, countries, fr, pad_km, skip):
-        pt = label_point(near, fr)
+    # Först som förut: namnet på landets delar inom ortmarginalen och inom ramen (Island vid Grönland). Ger de ingen punkt, läggs
+    # namnet på delarna inom landsmarginalen och landet får far: true, så att regionvyn prövar det först efter orterna och haven.
+    close = {iso: near for _, iso, _, near in sea_neighbours(place, countries, fr, pad_km, skip)}
+    for km, iso, f, near in sea_neighbours(place, countries, lfr, land_km, skip):
+        pt, far = (label_point(close[iso], fr), False) if iso in close else (None, True)
+        if pt is None:
+            pt, far = label_point(near, lfr, reach), True
         if pt is None:
             continue
         nm, fb = names(f['properties'], True)
-        item = {'ne': iso, 'label': pt, 'name': nm, 'sea': True}
+        item = {'ne': iso, 'label': pt, 'name': nm, 'sea': True, 'km': km}
+        if far:
+            item['far'] = True
         if fb:
             item['fallback'] = fb
         out['neighbours'].append(item)

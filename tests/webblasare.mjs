@@ -4034,6 +4034,24 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
+  // #1690, landsmarginalen: Australien ligger 619 km (Macquarieön) till 1 645 km (fastlandet) från Aotearoas gräns, utanför ortmarginalen
+  // men inom landsmarginalen (landPadKm, far: true i data/ortnamn/aotearoa.json). I dator syns sydöstra Australien till vänster om
+  // Tasmanhavet och får sitt namn; i mobilbredd ligger Australien utanför bilden, och då ritas inget namn för det.
+  await check('regionvyn på globen: Australien får sitt namn vid Aotearoa i dator, med landsmarginalen (#1690)', async () => {
+    const { tp, tctx, errs } = await placeTapPage('#y=1840&f=place:aotearoa', 'globregion1690au');
+    try {
+      await tp.waitForSelector('#detail [data-selection-action]', { state: 'visible', timeout: T.step });
+      await tp.locator('#detail [data-selection-action]').focus();
+      await tp.keyboard.press('Enter');
+      await globeRegionSettled(tp, 'aotearoa');
+      const shown = await tp.evaluate(() => (document.getElementById('globe-region').dataset.regionNamesCountries ?? '').split('|').filter(Boolean));
+      if (vp.width > 760 && !shown.includes('nb-036')) throw new Error(`Australiens namn ritades inte i dator; länderna som ritades: ${shown.join(', ') || 'inga'}`);
+      await escapeGlobeRegion(tp);
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `länderna som ritades: ${shown.join(', ') || 'inga'}`;
+    } finally { await tctx.close(); }
+  });
+
   // #1641: regionvyn. Visa i Platt karta för en liten plats (Skåne, Danmark; upp till cirka 5 grader på marken, js/region-frame.js)
   // ger en skarp, inzoomad karta med en sluten kantlinje i skärmpixlar. Kontrollerna läser renderingsstatusen på #flat-view
   // (data-region, data-region-box, data-region-ppd, data-region-sharp) och mäter bildpunkterna längs platsens gräns på kartans canvas.

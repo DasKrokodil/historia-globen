@@ -909,11 +909,18 @@ if places_doc is not None:
             if str(pl.get('id', '')).startswith('wd-') and (pl.get('source') not in src_ids or pl.get('id') != f"wd-{pl.get('wikidata')}"):
                 err(f"{path}: orten {pl.get('id')} ur kompletteringen ska ha source i sources.json och wikidata som id (#1676)")
         own = {str(n.get('ne')) for n in by_place[f.stem]['boundary'].get('neighbours', [])}
+        if isinstance(doc.get('landPadKm'), int) and isinstance(doc.get('padKm'), int) and doc['landPadKm'] < doc['padKm']:
+            err(f"{path}: landPadKm ({doc['landPadKm']}) är mindre än padKm ({doc['padKm']}); kör python3 tools/ortnamn.py (#1690)")
         for nb in doc.get('neighbours', []):
             if nb.get('sea') is True:
                 # Land över havet inom marginalen (#1690): inte en granne med landgräns och inte platsens eget land
                 if str(nb.get('ne')) in own or str(nb.get('ne')) == str(by_place[f.stem]['boundary'].get('ne')):
                     err(f"{path}: landet {nb.get('ne')} har sea: true men är platsens eget land eller granne med landgräns; kör python3 tools/ortnamn.py (#1690)")
+                # Landsmarginalen (#1690): avståndet står med och ligger inom landPadKm
+                if not isinstance(nb.get('km'), int) or nb['km'] > doc.get('landPadKm', -1):
+                    err(f"{path}: landet {nb.get('ne')} över havet ska ha km högst landPadKm ({doc.get('landPadKm')}); kör python3 tools/ortnamn.py (#1690)")
+            elif 'km' in nb or 'far' in nb:
+                err(f"{path}: grannlandet {nb.get('ne')} har km eller far utan sea: true; kör python3 tools/ortnamn.py (#1690)")
             elif str(nb.get('ne')) not in own:
                 err(f"{path}: grannlandet {nb.get('ne')} finns inte i platsens boundary.neighbours; kör python3 tools/ortnamn.py")
 

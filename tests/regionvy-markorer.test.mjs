@@ -394,3 +394,56 @@ test('länder över havet inom marginalen får namn (#1690): Island vid Grönlan
   assert.deepEqual(cands.map(c => c.id), ['nb-2', 'nb-1', 'o']);
   assert.equal(cands[1].sea, true);
 });
+
+test('landsmarginalen (#1690): Australien får namn vid Aotearoa, på sidan mot platsen, och länderna längre bort tränger inte undan orterna', () => {
+  const rad = d => d * Math.PI / 180;
+  const gc = (a, b) => 2 * 6371 * Math.asin(Math.sqrt(Math.sin(rad(b[1] - a[1]) / 2) ** 2 + Math.cos(rad(a[1])) * Math.cos(rad(b[1])) * Math.sin(rad(b[0] - a[0]) / 2) ** 2));
+  const inLat = (pt, fr) => pt[1] >= fr[1] && pt[1] <= fr[3];
+  for (const p of places) {
+    const doc = read(`data/ortnamn/${p.id}.json`);
+    // Landsmarginalen är platsens längsta sida, minst ortmarginalen (som är 30 % av den)
+    assert.ok(doc.landPadKm >= doc.padKm, `${p.id}: landPadKm ${doc.landPadKm} är mindre än padKm ${doc.padKm}`);
+    if (doc.padKm > 25) assert.ok(Math.abs(doc.landPadKm - doc.padKm / 0.3) <= 5, `${p.id}: landPadKm ${doc.landPadKm} ska vara padKm / 0,3`);
+    const own = p.boundary.geometry.coordinates.flatMap(poly => poly.flatMap(r => r));
+    let lastKm = -1;
+    for (const nb of doc.neighbours.filter(n => n.sea)) {
+      // Alla fem språken ur Natural Earth, inget engelskt reservnamn
+      assert.equal(nb.fallback, undefined, `${p.id}: ${nb.name.sv} saknar språk ${nb.fallback}`);
+      assert.ok(Number.isInteger(nb.km) && nb.km <= doc.landPadKm, `${p.id}: ${nb.name.sv} ligger ${nb.km} km bort, landsmarginalen är ${doc.landPadKm}`);
+      assert.ok(nb.km >= lastKm, `${p.id}: länderna över havet ska stå med de närmaste först`);
+      lastKm = nb.km;
+      // Namnets punkt ligger inom ramens nord–sydled och inom landsmarginalen från platsens gräns (rutnätet ger lite slack)
+      assert.ok(inLat(nb.label, doc.frame), `${p.id}: ${nb.name.sv} står utanför ramens nord–sydled`);
+      const d = Math.min(...own.map(q => gc(nb.label, q)));
+      assert.ok(d <= doc.landPadKm + 50, `${p.id}: ${nb.name.sv} står ${Math.round(d)} km från gränsen, landsmarginalen är ${doc.landPadKm}`);
+      // Utan far står namnet som förut inne i ramen (på landets delar inom ortmarginalen)
+      if (!nb.far) {
+        assert.ok(nb.km <= doc.padKm, `${p.id}: ${nb.name.sv} utan far ligger ${nb.km} km bort, ortmarginalen är ${doc.padKm}`);
+        const [w, , e] = doc.frame, x = nb.label[0];
+        assert.ok(w <= e ? x >= w && x <= e : x >= w || x <= e, `${p.id}: ${nb.name.sv} utan far står utanför ramen`);
+      }
+    }
+  }
+  const aotearoa = read('data/ortnamn/aotearoa.json');
+  const au = aotearoa.neighbours.find(n => n.ne === '036');
+  assert.ok(au?.sea && au.far, 'Australien står som land över havet utanför ortmarginalen vid Aotearoa');
+  assert.deepEqual(au.name, { sv: 'Australien', en: 'Australia', de: 'Australien', es: 'Australia', fr: 'Australie' });
+  // Namnet står på fastlandet i sydost (Victoria och New South Wales), som syns i regionvyn i dator, inte mitt i landet
+  assert.ok(au.label[0] > 140 && au.label[0] < 154 && au.label[1] < -30 && au.label[1] > -40, `Australiens namn står vid ${au.label}`);
+  // Nya Kaledonien och Antarktis ligger inom landsmarginalen men norr och söder om ramen: inga namn
+  assert.ok(!aotearoa.neighbours.some(n => n.ne === '540' || n.ne === '010'), 'inga länder norr eller söder om Aotearoas ram');
+  // Island vid Grönland och Polen och Norge vid Danmark står kvar inom ortmarginalen, utan far
+  for (const [id, ne] of [['gronland', '352'], ['danmark', '616'], ['danmark', '578']]) {
+    assert.ok(read(`data/ortnamn/${id}.json`).neighbours.some(n => n.ne === ne && n.sea && !n.far), `${id}: ${ne} ska stå utan far`);
+  }
+  // Prioriteten: ett land med far prövas efter orter och hav, så att det bara får plats som blir över
+  const cands = nameCandidates({ padKm: 100, places: [{ id: 'o', name: { sv: 'Ort' }, rank: 9, coordinates: [0, 0] }],
+    seas: [{ id: 's', name: { sv: 'Hav' }, rank: 9, label: [3, 3] }],
+    neighbours: [{ ne: '1', sea: true, far: true, km: 900, label: [1, 1], name: { sv: 'Långt bort' } }, { ne: '2', sea: true, km: 50, label: [2, 2], name: { sv: 'Nära' } }] }, [], tx);
+  assert.deepEqual(cands.map(c => c.id), ['nb-2', 'o', 's', 'nb-1']);
+  assert.equal(cands[3].far, true);
+  // Fullt (max namn) betyder att landet med far inte ritas alls
+  const at = (c, i) => ({ ...c, p: { x: 40 + i * 120, y: 50 } });
+  const shown = placeNames(cands.map(at), { W: 600, H: 100, measure: () => 60, max: 3 });
+  assert.deepEqual(shown.map(n => n.id), ['nb-2', 'o', 's']);
+});
