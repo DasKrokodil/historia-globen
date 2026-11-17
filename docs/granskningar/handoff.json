@@ -1,6 +1,6 @@
 {
-  "status": "triaged",
-  "report": "docs/granskningar/2026-11-10-version-6-3-0.md",
-  "createdAt": "2026-11-10T05:12:53Z",
-  "triagedAt": "2026-11-13T07:00:00Z"
+  "status": "ready_for_triage",
+  "report": "docs/granskningar/2026-11-17-issue-1687-reproduktionssparr.md",
+  "createdAt": "2026-11-17T06:43:32Z",
+  "triagedAt": null
 }
