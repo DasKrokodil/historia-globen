@@ -16,9 +16,13 @@ Innehållet:
   10 minst), så att vyn kan gallra efter skala.
 - neighbours: grannländerna i boundary.neighbours (#1449; vilka länder det är skrivs alltså inte här), med namn ur
   ne_10m_admin_0_countries (ISO_N3, eller ISO_N3_EH när ISO_N3 är −99 som för Norge) och en punkt för namnet inne i landet och
-  inom ramen. Efter dem, med sea: true, länder utan landgräns mot platsen som har någon punkt inom marginalen från platsens
-  gräns (#1690, Island vid Grönland), de närmaste först, med namnets punkt på landets delar inom marginalen. Platsens eget land
-  (för ett län landet vars ADM0_A3 står först i adm1_code) är inte med.
+  inom ramen. Efter dem, med sea: true och km (kortaste avståndet från platsens gräns), länder utan landgräns mot platsen som har
+  någon punkt inom landsmarginalen landPadKm från platsens gräns (#1690), de närmaste först. Landsmarginalen är platsens längsta
+  sida (LAND_PAD_SHARE, minst padKm), alltså större än ortmarginalen padKm (30 %). Namnets punkt läggs i första hand som förut på
+  landets delar inom padKm och inom ramen (Island vid Grönland). Ger de ingen punkt, läggs den på landets delar inom
+  landsmarginalen, i landsramen (ramen utvidgad med landsmarginalen åt öst och väst men inte åt nord och syd) och högst
+  landsmarginalen från platsens gräns, och landet får far: true (Australiens sydöstra del vid Aotearoa). Regionvyn prövar ett land
+  med far först efter orterna och haven. Platsens eget land (för ett län landet vars ADM0_A3 står först i adm1_code) är inte med.
 - seas: hav, sund och vikar ur ne_10m_geography_marine_polys som ligger inom ramen, högst MAX_SEAS, med en punkt för namnet.
 Punkten för ett namn är den punkt i ett rutnät över ramen som ligger inne i området och längst från dess kant och ramens kant
 (en enkel "pol för otillgänglighet"). Ett område utan en enda sådan punkt tas inte med.
@@ -61,10 +65,11 @@ OUTSIDE_PENALTY = 2
 MAX_SEAS = 12
 # Landsmarginalen (#1690, DasKrokodil 2026-11-16: länder får en större marginal än orter): ett land utan landgräns mot platsen
 # namnges när någon del av det ligger högst så här stor andel av platsens längsta sida från platsens gräns, alltså en platslängd
-# (orterna och ramen har PAD_SHARE, 30 %). Andelen i stället för fasta 1 000 km: Australiens fastland ligger 1 645 km från Aotearoas
-# gräns (de 619 km som mättes först var Macquarieön), och en fast marginal på över 1 600 km skulle ge Skåne och Danmark halva Europa.
+# (orterna och ramen har PAD_SHARE, 30 %). Andelen i stället för de föreslagna fasta 1 000 km: Australiens fastland ligger 1 645 km
+# från Aotearoas gräns (de 619 km som mättes först var Macquarieön, för liten för en namnpunkt), och en fast marginal på över
+# 1 600 km skulle ge Skåne (ortmarginal 40 km) och Danmark (130 km) halva Europa. Aotearoa får 2 017 km, Grönland 2 645 km.
 # Namnets punkt läggs på den del av landet som ligger inom landsmarginalen, så att namnet står på sidan mot platsen (Australiens
-# sydöstra del, inte mitt i landet).
+# sydöstra del, inte mitt i landet). Se docs/beslut/2026-11-17-landsmarginal-ortnamn-1690.md.
 LAND_PAD_SHARE = 1.0
 GRID = 48
 KM_PER_DEG = 111.2
