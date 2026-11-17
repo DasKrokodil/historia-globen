@@ -47,6 +47,7 @@ import path from 'node:path';
 import { list, urval, bredder, ALLTID } from './urval.mjs';
 import { skapaAbortWatch, ABORTED_FETCH, textifyConsoleErrors } from './avbrutna-hamtningar.mjs';
 import { kontrast, blanda } from './farg-berakning.mjs';
+import { provaTraffytor } from './traffytor.mjs';
 
 const require = createRequire(import.meta.url);
 const playwright = require('playwright');
@@ -12127,6 +12128,102 @@ async function run(browser, vp) {
         if (errs.length) throw new Error(`Hjälp: sidfel ${errs[0]}`);
         delar.push(`Hjälp: länkarna ${Math.round(glapp)} px isär, ytorna ${Math.round(r[0].yta)} och ${Math.round(r[1].yta)} px`);
       } finally { await tctx.close(); }
+    }
+    return delar.join('; ');
+  });
+
+  // #1932: träffytor som tar tryck av varandra. De tidigare proven (#1309, #1667, #1713) mäter pseudoelementens storlek men inte överlapp, så
+  // ett fokusfält som låg över årtalet (mitten av datumknappen träffade fokusfältet vid 800 × 360), ett kort som blev 70 px högt och en
+  // lista som bara rymde sin rubrik syntes inte. Provet går igenom varje synlig knapp, länk och sammanfattning och provtrycker mitten,
+  // varje kants mitt och fyra hörn med document.elementFromPoint (tests/traffytor.mjs); träffen ska vara knappen själv. Det görs i
+  // liggande telefon (800 × 360 och en storlek till, med pekning), mobil 400 px och dator 1280 px, i fyra lägen: startläget, med
+  // Samtidigt-listan öppen (också rullad till slutet) och med Visste du?-kortet, ett rike i fokus (Khmerriket) och ett kort krig i fokus
+  // (Anglo-zuluiska kriget). Dessutom: årtalet ligger aldrig under fokusfältet, listan i liggande telefon har en läsbar höjd och kortet är
+  // inte 70 px. Teckenförklaringarna provas inte (#1307, någon annan). Mobiljobbet och datorjobbet tar olika storlekar, så att inget jobb
+  // gör allt: datorn 1280 × 800 med mus plus de två liggande, mobilen 400 × 800 plus de två liggande.
+  await check('träffytor: varje synlig knapp tar själv emot trycket i mitten och hörnen, i liggande telefon, mobil och dator (#1932)', async () => {
+    const storlekar = vp.width > 760
+      ? [{ width: 1280, height: 800, touch: false }, { width: 800, height: 360, touch: true }, { width: 844, height: 390, touch: true }]
+      : [{ width: 400, height: 800, touch: true }, { width: 800, height: 360, touch: true }, { width: 667, height: 375, touch: true }];
+    const lagen = [
+      { namn: 'startläget', hash: '#y=1325' },
+      { namn: 'Khmerriket i fokus', hash: '#y=1200&f=empire:khmerriket', fokus: true },
+      { namn: 'Anglo-zuluiska kriget i fokus', hash: '#y=1879.55&f=war:anglo-zuluiska-kriget&l=wars,events', fokus: true },
+    ];
+    const delar = [];
+    // Korten och arken glider på plats: provet väntar tills deras rutor står still (två lika mätningar i följd)
+    const stilla = async tp => {
+      let forra = '';
+      for (let i = 0; i < 30; i++) {
+        const nu = await tp.evaluate(() => ['funfact', 'ff-tab', 'panel', 'detail', 'focus-bar'].map(id => {
+          const e = document.getElementById(id);
+          if (!e || e.hidden || !e.getClientRects().length) return '-';
+          const r = e.getBoundingClientRect();
+          return [r.x, r.y, r.width, r.height].map(Math.round).join(',');
+        }).join('|'));
+        if (nu === forra) return;
+        forra = nu;
+        await tp.waitForTimeout(250);
+      }
+    };
+    const prova = async (tp, label) => {
+      await stilla(tp);
+      const r = await tp.evaluate(provaTraffytor);
+      if (r.fel.length) throw new Error(`${label}: ${r.fel.length} knapp(ar) tar inte själva trycket: ${r.fel.slice(0, 4).join(' | ')}`);
+      if (r.knappar < 5) throw new Error(`${label}: bara ${r.knappar} knappar provades, provet mäter inte det det ska`);
+      return r;
+    };
+    for (const { width, height, touch } of storlekar) {
+      const namn = `${width} × ${height}${touch ? ' med pekning' : ''}`;
+      const lag = width > 760 && height <= 480; // bred men låg: liggande telefon
+      for (const { namn: lage, hash, fokus } of lagen) {
+        const { tp, tctx, errs } = await touchPage({ width, height }, touch ? { isMobile: true } : { hasTouch: false });
+        const label = `${namn}, ${lage}`;
+        try {
+          await tp.goto(`${BASE}?ny=traff1932w${width}${lage.length}${hash}`);
+          await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+          if (fokus) await tp.waitForFunction(() => { const b = document.getElementById('focus-bar'); return !!b && !b.hidden && b.getClientRects().length > 0; }, null, { timeout: T.step });
+          await tp.waitForTimeout(700);
+          if (touch && !(await tp.evaluate(() => matchMedia('(pointer: coarse)').matches))) throw new Error(`${label}: sidan har inte pointer: coarse, så provet prövar inte en telefon`);
+          const delat = [];
+          const r0 = await prova(tp, label);
+          delat.push(`${r0.knappar} knappar`);
+          if (fokus) {
+            // Årtalet ligger fritt: dess nederkant ligger inte under fokusfältets överkant (fokusfältet täckte årtalets nedre del vid 800 × 360)
+            const g = await tp.evaluate(() => ({ year: document.querySelector('.year-jump').getBoundingClientRect().bottom, bar: document.getElementById('focus-bar').getBoundingClientRect().top }));
+            if (g.year > g.bar + 0.5) throw new Error(`${label}: årtalet slutar vid y ${Math.round(g.year)} men fokusfältet börjar vid y ${Math.round(g.bar)}`);
+          } else {
+            // Visste du?-kortet (en flik som fälls ut i bred layout, ett ark i smal) provas för sig, och sedan Samtidigt-listan
+            if (await tp.isVisible('#ff-tab')) { await tp.click('#ff-tab'); await tp.waitForFunction(() => { const e = document.getElementById('funfact'); return !!e && !e.hidden && e.getClientRects().length > 0; }, null, { timeout: T.step }); await tp.waitForTimeout(400); }
+            if (await tp.isVisible('#funfact')) {
+              await prova(tp, `${label} med Visste du?-kortet`);
+              if (lag) {
+                const h = await tp.evaluate(() => document.getElementById('funfact').getBoundingClientRect().height);
+                if (h < 96) throw new Error(`${label}: Visste du?-kortet är ${Math.round(h)} px högt (70 px före #1932, ska vara minst 96)`);
+                delat.push(`kortet ${Math.round(h)} px`);
+              }
+            }
+            if (!(await tp.isVisible('#btn-panel')) && await tp.isVisible('#more-toggle')) await tp.click('#more-toggle');
+            await tp.click('#btn-panel');
+            await tp.waitForFunction(() => document.getElementById('panel').classList.contains('open') && document.querySelectorAll('#event-list .event-btn').length > 0, null, { timeout: T.step });
+            await tp.waitForTimeout(400);
+            await prova(tp, `${label} med Samtidigt-listan öppen`);
+            if (lag) {
+              const h = await tp.evaluate(() => document.getElementById('panel').getBoundingClientRect().height);
+              if (h < 180) throw new Error(`${label}: Samtidigt-listan är ${Math.round(h)} px hög (93 px före #1932, ska vara minst 180)`);
+              delat.push(`listan ${Math.round(h)} px`);
+            }
+            // Rullad till slutet: de sista raderna och "Pågår sedan länge" ligger då nära kanten
+            await tp.evaluate(() => { for (const e of [document.getElementById('event-list'), document.getElementById('panel')]) e.scrollTop = e.scrollHeight; });
+            await tp.waitForTimeout(300);
+            const rader = await tp.evaluate(() => { const p = document.getElementById('panel').getBoundingClientRect(); return [...document.querySelectorAll('#event-list .event-btn')].filter(b => { const r = b.getBoundingClientRect(); return r.bottom > p.top + 20 && r.top < p.bottom - 20; }).length; });
+            if (!rader) throw new Error(`${label}: ingen rad i Samtidigt-listan syns efter att den rullats till slutet`);
+            await prova(tp, `${label} med Samtidigt-listan rullad till slutet`);
+          }
+          if (errs.length) throw new Error(`${label}: sidfel ${errs[0]}`);
+          delar.push(`${label}: ${delat.join(', ')}`);
+        } finally { await tctx.close(); }
+      }
     }
     return delar.join('; ');
   });

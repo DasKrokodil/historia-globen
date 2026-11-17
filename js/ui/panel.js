@@ -409,7 +409,9 @@ export class Panel {
       this.root.style.top = `${r.bottom + 8}px`;
       // Vid stor textzoom blir den effektiva höjden liten. Låt då listan använda nästan hela höjden och
       // rulla ovanpå tidslinjen, i stället för att dess innehåll försvinner bakom det reserverade utrymmet.
-      if (innerWidth <= 760 && innerHeight < 500) {
+      // Samma sak i en bred men låg yta (liggande telefon, 800 × 360): med 150 px reserverade för tidsreglaget blev listan 93 px hög och
+      // rymde bara rubriken (#1932). Den ligger då över tidsreglaget, som i smal skärm.
+      if (innerHeight < 500) {
         this.root.style.maxHeight = `calc(100dvh - ${r.bottom + 16}px)`;
       } else {
         // I dator går lådan ner till tidslinjen, i mobil täcker den högst 60 procent.
