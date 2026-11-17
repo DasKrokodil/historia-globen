@@ -7,7 +7,8 @@
    "name": {
     "sv": "Rom: kungadöme, republik, kejsardöme och Bysans",
     "en": "Rome: kingdom, republic, empire and Byzantium",
-    "de": "Rom: Königreich, Republik, Kaiserreich und Byzanz"
+    "de": "Rom: Königreich, Republik, Kaiserreich und Byzanz",
+    "fr": "Rome : royaume, république, empire et Byzance"
    },
    "color": "#b8433a",
    "from": -750,
@@ -19,7 +20,9 @@
      "name": {
       "sv": "Romerska kungadömet",
       "en": "Roman Kingdom",
-      "de": "Römisches Königreich"
+      "de": "Römisches Königreich",
+      "es": "Monarquía romana",
+      "fr": "royaume de Rome"
      },
      "sources": [
       "cliopatria"
@@ -31,7 +34,9 @@
      "name": {
       "sv": "Romerska republiken",
       "en": "Roman Republic",
-      "de": "Römische Republik"
+      "de": "Römische Republik",
+      "es": "República Romana",
+      "fr": "République romaine"
      },
      "sources": [
       "cliopatria"
@@ -43,7 +48,9 @@
      "name": {
       "sv": "Romerska kejsardömet",
       "en": "Roman Empire",
-      "de": "Römisches Kaiserreich"
+      "de": "Römisches Kaiserreich",
+      "es": "Imperio bizantino",
+      "fr": "Empire byzantin"
      },
      "sources": [
       "cliopatria"
@@ -55,7 +62,9 @@
      "name": {
       "sv": "Västromerska riket",
       "en": "Western Roman Empire",
-      "de": "Weströmisches Reich"
+      "de": "Weströmisches Reich",
+      "es": "Imperio romano de Occidente",
+      "fr": "Empire romain d'Occident"
      },
      "sources": [
       "cliopatria"
@@ -67,7 +76,9 @@
      "name": {
       "sv": "Östromerska riket",
       "en": "Eastern Roman Empire",
-      "de": "Oströmisches Reich"
+      "de": "Oströmisches Reich",
+      "es": "Imperio bizantino",
+      "fr": "Empire byzantin"
      },
      "sources": [
       "cliopatria"
@@ -79,7 +90,9 @@
      "name": {
       "sv": "Bysantinska riket",
       "en": "Byzantine Empire",
-      "de": "Byzantinisches Reich"
+      "de": "Byzantinisches Reich",
+      "es": "relaciones exteriores del Imperio bizantino",
+      "fr": "Empire byzantin"
      },
      "sources": [
       "cliopatria"
@@ -93,7 +106,8 @@
      "name": {
       "sv": "Östgoternas rike",
       "en": "Ostrogothic Kingdom",
-      "de": "Ostgotenreich"
+      "de": "Ostgotenreich",
+      "fr": "Royaume ostrogoth"
      },
      "relation": "allegiance",
      "from": 500,
@@ -104,7 +118,8 @@
      "name": {
       "sv": "Kyrkostaten",
       "en": "Papal States",
-      "de": "Kirchenstaat"
+      "de": "Kirchenstaat",
+      "fr": "États pontificaux"
      },
      "relation": "allegiance",
      "from": 757,
@@ -115,91 +130,106 @@
     "summary": {
      "sv": "Rom växte från en stad i mellersta Italien till ett rike runt hela Medelhavet. Gruppen på kartan omfattar kungadömet, republiken, kejsardömet och dess östra fortsättning, Bysantinska riket, som tillsammans spänner över mer än två årtusenden.",
      "en": "Rome grew from a city in central Italy into an empire around the whole Mediterranean. The group on the map comprises the kingdom, the republic, the empire and its eastern continuation, the Byzantine Empire, which together span more than two millennia.",
-     "de": "Rom wuchs von einer Stadt in Mittelitalien zu einem Reich rund um das ganze Mittelmeer. Die Gruppe auf der Karte umfasst das Königreich, die Republik, das Kaiserreich und seine östliche Fortsetzung, das Byzantinische Reich, die zusammen mehr als zwei Jahrtausende umspannen."
+     "de": "Rom wuchs von einer Stadt in Mittelitalien zu einem Reich rund um das ganze Mittelmeer. Die Gruppe auf der Karte umfasst das Königreich, die Republik, das Kaiserreich und seine östliche Fortsetzung, das Byzantinische Reich, die zusammen mehr als zwei Jahrtausende umspannen.",
+     "fr": "Rome est passée d’une ville d’Italie centrale à un empire autour de toute la Méditerranée. Le groupe sur la carte comprend le royaume, la république, l’empire et sa continuation orientale, l’Empire byzantin, qui couvrent ensemble plus de deux millénaires."
     },
     "items": [
      {
       "label": {
        "sv": "När och var det uppstod",
        "en": "When and where it arose",
-       "de": "Wann und wo es entstand"
+       "de": "Wann und wo es entstand",
+       "fr": "Quand et où il est apparu"
       },
       "text": {
        "sv": "Enligt traditionen grundades Rom cirka 753 f.Kr. vid floden Tibern i mellersta Italien. Kungadömet (cirka 753–509 f.Kr.) följdes av republiken (cirka 509–27 f.Kr.) och av kejsardömet från 27 f.Kr. Om kungatiden vet man lite säkert, eftersom berättelserna till stor del bygger på muntlig tradition.",
        "en": "According to tradition Rome was founded about 753 BC on the river Tiber in central Italy. The kingdom (about 753–509 BC) was followed by the republic (about 509–27 BC) and by the empire from 27 BC. Little is known with certainty about the time of the kings, since the accounts are largely based on oral tradition.",
-       "de": "Der Überlieferung nach wurde Rom um 753 v. Chr. am Fluss Tiber in Mittelitalien gegründet. Auf das Königreich (um 753–509 v. Chr.) folgten die Republik (um 509–27 v. Chr.) und ab 27 v. Chr. das Kaiserreich. Über die Königszeit weiß man wenig Sicheres, da die Berichte großenteils auf mündlicher Überlieferung beruhen."
+       "de": "Der Überlieferung nach wurde Rom um 753 v. Chr. am Fluss Tiber in Mittelitalien gegründet. Auf das Königreich (um 753–509 v. Chr.) folgten die Republik (um 509–27 v. Chr.) und ab 27 v. Chr. das Kaiserreich. Über die Königszeit weiß man wenig Sicheres, da die Berichte großenteils auf mündlicher Überlieferung beruhen.",
+       "fr": "Selon la tradition, Rome fut fondée vers 753 av. J.-C. sur le Tibre, en Italie centrale. Le royaume (vers 753–509 av. J.-C.) fut suivi par la république (vers 509–27 av. J.-C.), puis par l’empire à partir de 27 av. J.-C. On sait peu de choses avec certitude sur l’époque des rois, car les récits reposent en grande partie sur la tradition orale."
       }
      },
      {
       "label": {
        "sv": "Hur det slutade",
        "en": "How it ended",
-       "de": "Wie es endete"
+       "de": "Wie es endete",
+       "fr": "Comment il a pris fin"
       },
       "text": {
        "sv": "Riket delades flera gånger. Västromerska riket föll 476, när Romulus Augustus avsattes av Odoaker. Östromerska riket, som i efterhand kallats Bysantinska riket, fanns kvar tills osmanerna erövrade Konstantinopel 1453. Invånarna kallade själva sitt rike romerskt.",
        "en": "The empire was divided several times. The Western Roman Empire fell in 476, when Romulus Augustus was deposed by Odoacer. The Eastern Roman Empire, which has afterwards been called the Byzantine Empire, remained until the Ottomans conquered Constantinople in 1453. The inhabitants themselves called their empire Roman.",
-       "de": "Das Reich wurde mehrmals geteilt. Das Weströmische Reich fiel 476, als Romulus Augustus von Odoaker abgesetzt wurde. Das Oströmische Reich, das im Nachhinein Byzantinisches Reich genannt wurde, bestand fort, bis die Osmanen 1453 Konstantinopel eroberten. Die Einwohner selbst nannten ihr Reich römisch."
+       "de": "Das Reich wurde mehrmals geteilt. Das Weströmische Reich fiel 476, als Romulus Augustus von Odoaker abgesetzt wurde. Das Oströmische Reich, das im Nachhinein Byzantinisches Reich genannt wurde, bestand fort, bis die Osmanen 1453 Konstantinopel eroberten. Die Einwohner selbst nannten ihr Reich römisch.",
+       "fr": "L’empire fut divisé à plusieurs reprises. L’Empire romain d’Occident tomba en 476, lorsque Romulus Augustule fut déposé par Odoacre. L’Empire romain d’Orient, appelé après coup Empire byzantin, subsista jusqu’à ce que les Ottomans conquièrent Constantinople en 1453. Les habitants appelaient eux-mêmes leur empire romain."
       }
      },
      {
       "label": {
        "sv": "Huvudstäder",
        "en": "Capitals",
-       "de": "Hauptstädte"
+       "de": "Hauptstädte",
+       "fr": "Capitales"
       },
       "text": {
        "sv": "Rom. Konstantin den store flyttade kejsarsätet till Bysantion år 330 och döpte om staden till Konstantinopel, som sedan var huvudstad i öster fram till 1453.",
        "en": "Rome. Constantine the Great moved the imperial seat to Byzantium in 330 and renamed the city Constantinople, which was then the capital in the east until 1453.",
-       "de": "Rom. Konstantin der Große verlegte den Kaisersitz 330 nach Byzantion und benannte die Stadt in Konstantinopel um, das danach bis 1453 Hauptstadt im Osten war."
+       "de": "Rom. Konstantin der Große verlegte den Kaisersitz 330 nach Byzantion und benannte die Stadt in Konstantinopel um, das danach bis 1453 Hauptstadt im Osten war.",
+       "fr": "Rome. Constantin le Grand transféra le siège impérial à Byzance en 330 et renomma la ville Constantinople, qui fut ensuite la capitale de l’Orient jusqu’en 1453."
       }
      },
      {
       "label": {
        "sv": "Kända härskare",
        "en": "Famous rulers",
-       "de": "Bekannte Herrscher"
+       "de": "Bekannte Herrscher",
+       "fr": "Dirigeants connus"
       },
       "text": {
        "sv": "Romulus (den förste kungen enligt traditionen), Augustus (den förste kejsaren, från 27 f.Kr.), Trajanus (98–117), Konstantin den store (306–337, den förste kristne kejsaren) och Justinianus I (527–565) i Bysans.",
        "en": "Romulus (the first king according to tradition), Augustus (the first emperor, from 27 BC), Trajan (98–117), Constantine the Great (306–337, the first Christian emperor) and Justinian I (527–565) in Byzantium.",
-       "de": "Romulus (der Überlieferung nach der erste König), Augustus (der erste Kaiser, ab 27 v. Chr.), Trajan (98–117), Konstantin der Große (306–337, der erste christliche Kaiser) und Justinian I. (527–565) in Byzanz."
+       "de": "Romulus (der Überlieferung nach der erste König), Augustus (der erste Kaiser, ab 27 v. Chr.), Trajan (98–117), Konstantin der Große (306–337, der erste christliche Kaiser) und Justinian I. (527–565) in Byzanz.",
+       "fr": "Romulus (le premier roi selon la tradition), Auguste (le premier empereur, à partir de 27 av. J.-C.), Trajan (98–117), Constantin le Grand (306–337, le premier empereur chrétien) et Justinien Ier (527–565) à Byzance."
       }
      },
      {
       "label": {
        "sv": "Största utbredning",
        "en": "Greatest extent",
-       "de": "Größte Ausdehnung"
+       "de": "Größte Ausdehnung",
+       "fr": "Plus grande étendue"
       },
       "text": {
        "sv": "Kejsardömet var som störst under Trajanus, cirka 5 miljoner km² år 117 enligt uppskattningen i Wikipedias faktaruta. Bysantinska riket var som störst under Justinianus I, som en kort tid återtog stora delar av Italien och västra Medelhavets kuster.",
        "en": "The empire was at its largest under Trajan, about 5 million km² in the year 117 according to the estimate in Wikipedia's fact box. The Byzantine Empire was at its largest under Justinian I, who for a short time recovered large parts of Italy and the coasts of the western Mediterranean.",
-       "de": "Das Kaiserreich war unter Trajan am größten, etwa 5 Millionen km² im Jahr 117 nach der Schätzung in der Infobox der Wikipedia. Das Byzantinische Reich war unter Justinian I. am größten, der für kurze Zeit große Teile Italiens und der Küsten des westlichen Mittelmeers zurückeroberte."
+       "de": "Das Kaiserreich war unter Trajan am größten, etwa 5 Millionen km² im Jahr 117 nach der Schätzung in der Infobox der Wikipedia. Das Byzantinische Reich war unter Justinian I. am größten, der für kurze Zeit große Teile Italiens und der Küsten des westlichen Mittelmeers zurückeroberte.",
+       "fr": "L’empire atteignit son maximum sous Trajan, avec environ 5 millions de km² en 117 selon l’estimation de l’infobox de Wikipédia. L’Empire byzantin fut le plus étendu sous Justinien Ier, qui reprit brièvement de grandes parties de l’Italie et des côtes de la Méditerranée occidentale."
       }
      },
      {
       "label": {
        "sv": "Språk och religion",
        "en": "Language and religion",
-       "de": "Sprache und Religion"
+       "de": "Sprache und Religion",
+       "fr": "Langue et religion"
       },
       "text": {
        "sv": "Latin, och med tiden allt mer grekiska. I Bysans ersatte grekiskan latinet som officiellt språk. Romersk polyteism med kejsarkult, och från 380 nicensk kristendom som officiell religion.",
        "en": "Latin, and with time increasingly Greek. In Byzantium Greek replaced Latin as the official language. Roman polytheism with the imperial cult, and from 380 Nicene Christianity as the official religion.",
-       "de": "Latein und mit der Zeit immer mehr Griechisch. In Byzanz ersetzte das Griechische das Lateinische als Amtssprache. Römischer Polytheismus mit Kaiserkult und ab 380 das nizänische Christentum als offizielle Religion."
+       "de": "Latein und mit der Zeit immer mehr Griechisch. In Byzanz ersetzte das Griechische das Lateinische als Amtssprache. Römischer Polytheismus mit Kaiserkult und ab 380 das nizänische Christentum als offizielle Religion.",
+       "fr": "Le latin, puis de plus en plus le grec. À Byzance, le grec remplaça le latin comme langue officielle. Polythéisme romain avec culte impérial, puis christianisme nicéen comme religion officielle à partir de 380."
       }
      },
      {
       "label": {
        "sv": "Symbolen på kartan",
        "en": "The symbol on the map",
-       "de": "Das Symbol auf der Karte"
+       "de": "Das Symbol auf der Karte",
+       "fr": "Le symbole sur la carte"
       },
       "text": {
        "sv": "Örnen, aquila, var ett av Roms mest framträdande tecken, framför allt som legionernas fältstandar. Varje legion hade en örn, och att förlora den räknades som en stor skam. Enligt Plinius den äldre behölls örnen som enda standar efter 104 f.Kr., men andra källor visar att legionerna fortfarande använde andra djur en tid efter det. Kartan visar örnen för hela gruppen utom Bysantinska riket, som har en egen symbol.",
        "en": "The eagle, the aquila, was one of Rome's most prominent emblems, above all as the legions' field standard. Each legion had one eagle, and losing it was regarded as a great disgrace. According to Pliny the Elder the eagle was kept as the only standard after 104 BC, but other sources show that the legions still used other animals for some time after that. The map shows the eagle for the whole group except the Byzantine Empire, which has a symbol of its own.",
-       "de": "Der Adler, die Aquila, war eines der wichtigsten Zeichen Roms, vor allem als Feldzeichen der Legionen. Jede Legion hatte einen Adler, und ihn zu verlieren galt als große Schande. Nach Plinius dem Älteren wurde der Adler nach 104 v. Chr. als einziges Feldzeichen beibehalten, doch andere Quellen zeigen, dass die Legionen danach noch eine Zeit lang andere Tiere verwendeten. Die Karte zeigt den Adler für die ganze Gruppe außer dem Byzantinischen Reich, das ein eigenes Symbol hat."
+       "de": "Der Adler, die Aquila, war eines der wichtigsten Zeichen Roms, vor allem als Feldzeichen der Legionen. Jede Legion hatte einen Adler, und ihn zu verlieren galt als große Schande. Nach Plinius dem Älteren wurde der Adler nach 104 v. Chr. als einziges Feldzeichen beibehalten, doch andere Quellen zeigen, dass die Legionen danach noch eine Zeit lang andere Tiere verwendeten. Die Karte zeigt den Adler für die ganze Gruppe außer dem Byzantinischen Reich, das ein eigenes Symbol hat.",
+       "fr": "L’aigle, l’aquila, était l’un des emblèmes les plus marquants de Rome, surtout comme enseigne des légions. Chaque légion avait un aigle, et sa perte était considérée comme une grande honte. Selon Pline l’Ancien, l’aigle fut conservé comme seule enseigne après 104 av. J.-C., mais d’autres sources montrent que les légions utilisèrent encore d’autres animaux pendant un temps. La carte montre l’aigle pour l’ensemble du groupe, sauf pour l’Empire byzantin, qui a son propre symbole."
       }
      }
     ],
@@ -209,17 +239,20 @@
       "label": {
        "sv": "cirka 509 f.Kr.",
        "en": "about 509 BC",
-       "de": "um 509 v. Chr."
+       "de": "um 509 v. Chr.",
+       "fr": "vers 509 av. J.-C."
       },
       "title": {
        "sv": "Republiken införs",
        "en": "The republic is introduced",
-       "de": "Die Republik wird eingeführt"
+       "de": "Die Republik wird eingeführt",
+       "fr": "La république est instaurée"
       },
       "text": {
        "sv": "Kungarna störtas och republiken införs, enligt den traditionella dateringen. Rom styr då bara området närmast staden.",
        "en": "The kings are overthrown and the republic is introduced, according to the traditional dating. Rome then rules only the area closest to the city.",
-       "de": "Die Könige werden gestürzt und die Republik wird eingeführt, nach der traditionellen Datierung. Rom beherrscht damals nur das Gebiet nahe der Stadt."
+       "de": "Die Könige werden gestürzt und die Republik wird eingeführt, nach der traditionellen Datierung. Rom beherrscht damals nur das Gebiet nahe der Stadt.",
+       "fr": "Les rois sont renversés et la république est instaurée, selon la datation traditionnelle. Rome ne gouverne alors que la région la plus proche de la ville."
       },
       "sources": [
        "wp-roman-kingdom",
@@ -228,7 +261,8 @@
       "mapNote": {
        "sv": "På kartan börjar republiken 501 f.Kr., och kungadömet visas parallellt till 482 f.Kr.",
        "en": "On the map the republic begins in 501 BC, and the kingdom is shown in parallel until 482 BC.",
-       "de": "Auf der Karte beginnt die Republik 501 v. Chr., und das Königreich wird parallel bis 482 v. Chr. gezeigt."
+       "de": "Auf der Karte beginnt die Republik 501 v. Chr., und das Königreich wird parallel bis 482 v. Chr. gezeigt.",
+       "fr": "Sur la carte, la république commence en 501 av. J.-C. et le royaume est représenté parallèlement jusqu’en 482 av. J.-C."
       }
      },
      {
@@ -236,17 +270,20 @@
       "label": {
        "sv": "264–241 f.Kr.",
        "en": "264–241 BC",
-       "de": "264–241 v. Chr."
+       "de": "264–241 v. Chr.",
+       "fr": "264–241 av. J.-C."
       },
       "title": {
        "sv": "Första puniska kriget",
        "en": "The First Punic War",
-       "de": "Der Erste Punische Krieg"
+       "de": "Der Erste Punische Krieg",
+       "fr": "Première guerre punique"
       },
       "text": {
        "sv": "Under århundradet efter galliernas plundring av Rom har staden erövrat större delen av Italien. Nu börjar ett krig mot Karthago om Sicilien, som varar i 23 år. När Karthago besegras 241 f.Kr. blir Sicilien Roms första provins, och strax efter tar Rom även Sardinien från Karthago.",
        "en": "In the century after the Gauls' sack of Rome, the city has conquered most of Italy. Now a war against Carthage over Sicily begins, which lasts for 23 years. When Carthage is defeated in 241 BC, Sicily becomes Rome's first province, and soon afterwards Rome also takes Sardinia from Carthage.",
-       "de": "Im Jahrhundert nach der Plünderung Roms durch die Gallier hat die Stadt den größten Teil Italiens erobert. Nun beginnt ein Krieg gegen Karthago um Sizilien, der 23 Jahre dauert. Als Karthago 241 v. Chr. besiegt wird, wird Sizilien Roms erste Provinz, und kurz darauf nimmt Rom Karthago auch Sardinien ab."
+       "de": "Im Jahrhundert nach der Plünderung Roms durch die Gallier hat die Stadt den größten Teil Italiens erobert. Nun beginnt ein Krieg gegen Karthago um Sizilien, der 23 Jahre dauert. Als Karthago 241 v. Chr. besiegt wird, wird Sizilien Roms erste Provinz, und kurz darauf nimmt Rom Karthago auch Sardinien ab.",
+       "fr": "Au cours du siècle qui suit le sac de Rome par les Gaulois, la ville a conquis la majeure partie de l’Italie. Une guerre contre Carthage pour la Sicile commence alors et dure 23 ans. Lorsque Carthage est vaincue en 241 av. J.-C., la Sicile devient la première province romaine, et peu après Rome prend aussi la Sardaigne à Carthage."
       },
       "sources": [
        "wp-roman-republic",
@@ -255,7 +292,8 @@
       "mapNote": {
        "sv": "Kartan visar en jämn tillväxt under krigets första år och inget tydligt steg 241 f.Kr.",
        "en": "The map shows steady growth during the first years of the war and no clear step in 241 BC.",
-       "de": "Die Karte zeigt in den ersten Kriegsjahren ein gleichmäßiges Wachstum und keinen deutlichen Sprung 241 v. Chr."
+       "de": "Die Karte zeigt in den ersten Kriegsjahren ein gleichmäßiges Wachstum und keinen deutlichen Sprung 241 v. Chr.",
+       "fr": "La carte montre une croissance régulière durant les premières années de la guerre et aucun changement net en 241 av. J.-C."
       }
      },
      {
@@ -263,17 +301,20 @@
       "label": {
        "sv": "202 f.Kr.",
        "en": "202 BC",
-       "de": "202 v. Chr."
+       "de": "202 v. Chr.",
+       "fr": "202 av. J.-C."
       },
       "title": {
        "sv": "Seger över Hannibal",
        "en": "Victory over Hannibal",
-       "de": "Sieg über Hannibal"
+       "de": "Sieg über Hannibal",
+       "fr": "Victoire sur Hannibal"
       },
       "text": {
        "sv": "Rom besegrar Hannibal och Karthago vid Zama i andra puniska kriget. I freden året efter förlorar Karthago sina områden utanför Afrika, och Rom blir under årtiondena efter den ledande makten i Medelhavet.",
        "en": "Rome defeats Hannibal and Carthage at Zama in the Second Punic War. In the peace the year after, Carthage loses its territories outside Africa, and in the decades after that Rome becomes the leading power in the Mediterranean.",
-       "de": "Rom besiegt Hannibal und Karthago bei Zama im Zweiten Punischen Krieg. Im Frieden im Jahr darauf verliert Karthago seine Gebiete außerhalb Afrikas, und Rom wird in den folgenden Jahrzehnten zur führenden Macht im Mittelmeer."
+       "de": "Rom besiegt Hannibal und Karthago bei Zama im Zweiten Punischen Krieg. Im Frieden im Jahr darauf verliert Karthago seine Gebiete außerhalb Afrikas, und Rom wird in den folgenden Jahrzehnten zur führenden Macht im Mittelmeer.",
+       "fr": "Rome vainc Hannibal et Carthage à Zama lors de la deuxième guerre punique. Dans la paix conclue l’année suivante, Carthage perd ses territoires hors d’Afrique et, au cours des décennies suivantes, Rome devient la puissance dominante de la Méditerranée."
       },
       "sources": [
        "wp-roman-republic",
@@ -282,7 +323,8 @@
       "mapNote": {
        "sv": "Kartan visar en stor tillväxt 203–199 f.Kr. och sedan en minskning med cirka en tredjedel från 198 f.Kr.",
        "en": "The map shows great growth in 203–199 BC and then a decrease of about a third from 198 BC.",
-       "de": "Die Karte zeigt ein starkes Wachstum 203–199 v. Chr. und danach ab 198 v. Chr. eine Abnahme um etwa ein Drittel."
+       "de": "Die Karte zeigt ein starkes Wachstum 203–199 v. Chr. und danach ab 198 v. Chr. eine Abnahme um etwa ein Drittel.",
+       "fr": "La carte montre une forte croissance en 203–199 av. J.-C., puis une diminution d’environ un tiers à partir de 198 av. J.-C."
       }
      },
      {
@@ -290,17 +332,20 @@
       "label": {
        "sv": "146 f.Kr.",
        "en": "146 BC",
-       "de": "146 v. Chr."
+       "de": "146 v. Chr.",
+       "fr": "146 av. J.-C."
       },
       "title": {
        "sv": "Karthago och Korinth förstörs",
        "en": "Carthage and Corinth are destroyed",
-       "de": "Karthago und Korinth werden zerstört"
+       "de": "Karthago und Korinth werden zerstört",
+       "fr": "Carthage et Corinthe sont détruites"
       },
       "text": {
        "sv": "I tredje puniska kriget förstör Rom staden Karthago, och Karthagos land blir provinsen Africa. Samma år förstörs Korinth, och Grekland och Makedonien blir provinser som styrs direkt från Rom.",
        "en": "In the Third Punic War Rome destroys the city of Carthage, and Carthage's land becomes the province of Africa. The same year Corinth is destroyed, and Greece and Macedonia become provinces ruled directly from Rome.",
-       "de": "Im Dritten Punischen Krieg zerstört Rom die Stadt Karthago, und Karthagos Land wird die Provinz Africa. Im selben Jahr wird Korinth zerstört, und Griechenland und Makedonien werden Provinzen, die direkt von Rom aus regiert werden."
+       "de": "Im Dritten Punischen Krieg zerstört Rom die Stadt Karthago, und Karthagos Land wird die Provinz Africa. Im selben Jahr wird Korinth zerstört, und Griechenland und Makedonien werden Provinzen, die direkt von Rom aus regiert werden.",
+       "fr": "Lors de la troisième guerre punique, Rome détruit la ville de Carthage et le territoire de Carthage devient la province d’Afrique. La même année, Corinthe est détruite, et la Grèce et la Macédoine deviennent des provinces directement gouvernées depuis Rome."
       },
       "sources": [
        "wp-punic-wars",
@@ -312,17 +357,20 @@
       "label": {
        "sv": "58–50 f.Kr.",
        "en": "58–50 BC",
-       "de": "58–50 v. Chr."
+       "de": "58–50 v. Chr.",
+       "fr": "58–50 av. J.-C."
       },
       "title": {
        "sv": "Caesar erövrar Gallien",
        "en": "Caesar conquers Gaul",
-       "de": "Caesar erobert Gallien"
+       "de": "Caesar erobert Gallien",
+       "fr": "César conquiert la Gaule"
       },
       "text": {
        "sv": "Julius Caesar erövrar Gallien, ungefär dagens Frankrike, Belgien och Schweiz. Det avgörande slaget står vid Alesia 52 f.Kr. Krigen ger Caesar rikedom och anseende, och de leder fram till inbördeskriget som gör slut på republiken.",
        "en": "Julius Caesar conquers Gaul, roughly present-day France, Belgium and Switzerland. The decisive battle is at Alesia in 52 BC. The wars give Caesar wealth and prestige, and they lead to the civil war that ends the republic.",
-       "de": "Julius Caesar erobert Gallien, etwa das heutige Frankreich, Belgien und die Schweiz. Die entscheidende Schlacht findet 52 v. Chr. bei Alesia statt. Die Kriege bringen Caesar Reichtum und Ansehen, und sie führen zum Bürgerkrieg, der die Republik beendet."
+       "de": "Julius Caesar erobert Gallien, etwa das heutige Frankreich, Belgien und die Schweiz. Die entscheidende Schlacht findet 52 v. Chr. bei Alesia statt. Die Kriege bringen Caesar Reichtum und Ansehen, und sie führen zum Bürgerkrieg, der die Republik beendet.",
+       "fr": "Jules César conquiert la Gaule, soit approximativement la France, la Belgique et la Suisse actuelles. La bataille décisive a lieu à Alésia en 52 av. J.-C. Les guerres apportent à César richesse et prestige, et mènent à la guerre civile qui met fin à la république."
       },
       "sources": [
        "wp-gallic-wars"
@@ -330,7 +378,8 @@
       "mapNote": {
        "sv": "Kartan visar hela Gallien som romerskt från 51 f.Kr. Enligt källan blev Gallien en provins först 27 f.Kr.",
        "en": "The map shows the whole of Gaul as Roman from 51 BC. According to the source Gaul became a province only in 27 BC.",
-       "de": "Die Karte zeigt ganz Gallien ab 51 v. Chr. als römisch. Nach der Quelle wurde Gallien erst 27 v. Chr. eine Provinz."
+       "de": "Die Karte zeigt ganz Gallien ab 51 v. Chr. als römisch. Nach der Quelle wurde Gallien erst 27 v. Chr. eine Provinz.",
+       "fr": "La carte montre toute la Gaule comme romaine à partir de 51 av. J.-C. Selon la source, la Gaule ne devint une province qu’en 27 av. J.-C."
       }
      },
      {
@@ -338,17 +387,20 @@
       "label": {
        "sv": "31–30 f.Kr.",
        "en": "31–30 BC",
-       "de": "31–30 v. Chr."
+       "de": "31–30 v. Chr.",
+       "fr": "31–30 av. J.-C."
       },
       "title": {
        "sv": "Actium och Egypten",
        "en": "Actium and Egypt",
-       "de": "Actium und Ägypten"
+       "de": "Actium und Ägypten",
+       "fr": "Actium et l’Égypte"
       },
       "text": {
        "sv": "Octavianus flotta besegrar Marcus Antonius och Kleopatra vid Actium 31 f.Kr. Året efter erövras det ptolemaiska Egypten, och Antonius och Kleopatra tar sina liv. Därmed slutar en lång rad inbördeskrig.",
        "en": "Octavian's fleet defeats Mark Antony and Cleopatra at Actium in 31 BC. The year after, Ptolemaic Egypt is conquered, and Antony and Cleopatra take their own lives. With that a long series of civil wars ends.",
-       "de": "Octavians Flotte besiegt Marcus Antonius und Kleopatra bei Actium 31 v. Chr. Im Jahr darauf wird das ptolemäische Ägypten erobert, und Antonius und Kleopatra nehmen sich das Leben. Damit endet eine lange Reihe von Bürgerkriegen."
+       "de": "Octavians Flotte besiegt Marcus Antonius und Kleopatra bei Actium 31 v. Chr. Im Jahr darauf wird das ptolemäische Ägypten erobert, und Antonius und Kleopatra nehmen sich das Leben. Damit endet eine lange Reihe von Bürgerkriegen.",
+       "fr": "La flotte d’Octavien vainc Marc Antoine et Cléopâtre à Actium en 31 av. J.-C. L’année suivante, l’Égypte ptolémaïque est conquise, et Antoine et Cléopâtre se donnent la mort. Ainsi s’achève une longue série de guerres civiles."
       },
       "sources": [
        "wp-battle-actium",
@@ -363,17 +415,20 @@
       "label": {
        "sv": "27 f.Kr.",
        "en": "27 BC",
-       "de": "27 v. Chr."
+       "de": "27 v. Chr.",
+       "fr": "27 av. J.-C."
       },
       "title": {
        "sv": "Augustus blir kejsare",
        "en": "Augustus becomes emperor",
-       "de": "Augustus wird Kaiser"
+       "de": "Augustus wird Kaiser",
+       "fr": "Auguste devient empereur"
       },
       "text": {
        "sv": "Senaten ger Octavianus titeln Augustus. Han räknas som den förste romerske kejsaren.",
        "en": "The Senate gives Octavian the title Augustus. He is regarded as the first Roman emperor.",
-       "de": "Der Senat verleiht Octavian den Titel Augustus. Er gilt als der erste römische Kaiser."
+       "de": "Der Senat verleiht Octavian den Titel Augustus. Er gilt als der erste römische Kaiser.",
+       "fr": "Le Sénat donne à Octavien le titre d’Auguste. Il est considéré comme le premier empereur romain."
       },
       "sources": [
        "wp-roman-empire"
@@ -384,17 +439,20 @@
       "label": {
        "sv": "117",
        "en": "117",
-       "de": "117"
+       "de": "117",
+       "fr": "117"
       },
       "title": {
        "sv": "Som störst under Trajanus",
        "en": "At its largest under Trajan",
-       "de": "Am größten unter Trajan"
+       "de": "Am größten unter Trajan",
+       "fr": "À son maximum sous Trajan"
       },
       "text": {
        "sv": "Kejsardömet är som störst under Trajanus, cirka 5 miljoner km².",
        "en": "The empire is at its largest under Trajan, about 5 million km².",
-       "de": "Das Kaiserreich ist unter Trajan am größten, etwa 5 Millionen km²."
+       "de": "Das Kaiserreich ist unter Trajan am größten, etwa 5 Millionen km².",
+       "fr": "L’empire est à son maximum sous Trajan, avec environ 5 millions de km²."
       },
       "sources": [
        "wp-roman-empire"
@@ -405,17 +463,20 @@
       "label": {
        "sv": "260–274",
        "en": "260–274",
-       "de": "260–274"
+       "de": "260–274",
+       "fr": "260–274"
       },
       "title": {
        "sv": "Riket delas i tre",
        "en": "The empire splits in three",
-       "de": "Das Reich zerfällt in drei Teile"
+       "de": "Das Reich zerfällt in drei Teile",
+       "fr": "L’empire se divise en trois"
       },
       "text": {
        "sv": "Under 200-talets kris, med inbördeskrig, invasioner och pest, tas kejsar Valerianus till fånga av sasaniderna år 260. Samma år bryter Gallien, Britannien och Hispania loss som Galliska riket, och 267 blir de östra provinserna Palmyrenska riket. Aurelianus besegrar båda och har enat riket igen 274.",
        "en": "During the crisis of the 3rd century, with civil wars, invasions and plague, Emperor Valerian is taken prisoner by the Sasanians in 260. The same year Gaul, Britain and Hispania break away as the Gallic Empire, and in 267 the eastern provinces become the Palmyrene Empire. Aurelian defeats both and has united the empire again by 274.",
-       "de": "In der Krise des 3. Jahrhunderts, mit Bürgerkriegen, Invasionen und Pest, wird Kaiser Valerian 260 von den Sasaniden gefangen genommen. Im selben Jahr lösen sich Gallien, Britannien und Hispanien als Gallisches Sonderreich ab, und 267 werden die östlichen Provinzen zum Palmyrenischen Reich. Aurelian besiegt beide und hat das Reich 274 wieder vereint."
+       "de": "In der Krise des 3. Jahrhunderts, mit Bürgerkriegen, Invasionen und Pest, wird Kaiser Valerian 260 von den Sasaniden gefangen genommen. Im selben Jahr lösen sich Gallien, Britannien und Hispanien als Gallisches Sonderreich ab, und 267 werden die östlichen Provinzen zum Palmyrenischen Reich. Aurelian besiegt beide und hat das Reich 274 wieder vereint.",
+       "fr": "Durant la crise du IIIe siècle, marquée par les guerres civiles, les invasions et la peste, l’empereur Valérien est fait prisonnier par les Sassanides en 260. La même année, la Gaule, la Bretagne et l’Hispanie se séparent pour former l’Empire gaulois, et en 267 les provinces orientales deviennent l’Empire palmyrénien. Aurélien vainc les deux et a réuni l’empire en 274."
       },
       "sources": [
        "wp-crisis-third-century",
@@ -424,7 +485,8 @@
       "mapNote": {
        "sv": "Kartan visar delningen från 261, då ytan minskar med cirka 40 procent, och återföreningen i två steg, 270 och 283.",
        "en": "The map shows the split from 261, when the area shrinks by about 40 per cent, and the reunification in two steps, 270 and 283.",
-       "de": "Die Karte zeigt die Teilung ab 261, als die Fläche um etwa 40 Prozent schrumpft, und die Wiedervereinigung in zwei Schritten, 270 und 283."
+       "de": "Die Karte zeigt die Teilung ab 261, als die Fläche um etwa 40 Prozent schrumpft, und die Wiedervereinigung in zwei Schritten, 270 und 283.",
+       "fr": "La carte montre la division à partir de 261, quand la superficie diminue d’environ 40 %, puis la réunification en deux étapes, en 270 et 283."
       }
      },
      {
@@ -432,17 +494,20 @@
       "label": {
        "sv": "330",
        "en": "330",
-       "de": "330"
+       "de": "330",
+       "fr": "330"
       },
       "title": {
        "sv": "Konstantinopel blir huvudstad",
        "en": "Constantinople becomes the capital",
-       "de": "Konstantinopel wird Hauptstadt"
+       "de": "Konstantinopel wird Hauptstadt",
+       "fr": "Constantinople devient capitale"
       },
       "text": {
        "sv": "Konstantin den store flyttar kejsarsätet till Bysantion, som får namnet Konstantinopel.",
        "en": "Constantine the Great moves the imperial seat to Byzantium, which is given the name Constantinople.",
-       "de": "Konstantin der Große verlegt den Kaisersitz nach Byzantion, das den Namen Konstantinopel erhält."
+       "de": "Konstantin der Große verlegt den Kaisersitz nach Byzantion, das den Namen Konstantinopel erhält.",
+       "fr": "Constantin le Grand transfère le siège impérial à Byzance, qui reçoit le nom de Constantinople."
       },
       "sources": [
        "wp-roman-empire"
@@ -453,17 +518,20 @@
       "label": {
        "sv": "476",
        "en": "476",
-       "de": "476"
+       "de": "476",
+       "fr": "476"
       },
       "title": {
        "sv": "Västromerska riket faller",
        "en": "The Western Roman Empire falls",
-       "de": "Das Weströmische Reich fällt"
+       "de": "Das Weströmische Reich fällt",
+       "fr": "L’Empire romain d’Occident tombe"
       },
       "text": {
        "sv": "Riket har sedan 395 varit delat i en västlig och en östlig halva, och i stora delar av väst har nya kungadömen tagit makten. Västromerska riket faller när Odoaker avsätter Romulus Augustus. Östromerska riket lever vidare.",
        "en": "Since 395 the empire has been divided into a western and an eastern half, and in large parts of the west new kingdoms have taken power. The Western Roman Empire falls when Odoacer deposes Romulus Augustus. The Eastern Roman Empire lives on.",
-       "de": "Das Reich ist seit 395 in eine westliche und eine östliche Hälfte geteilt, und in großen Teilen des Westens haben neue Königreiche die Macht übernommen. Das Weströmische Reich fällt, als Odoaker Romulus Augustus absetzt. Das Oströmische Reich lebt weiter."
+       "de": "Das Reich ist seit 395 in eine westliche und eine östliche Hälfte geteilt, und in großen Teilen des Westens haben neue Königreiche die Macht übernommen. Das Weströmische Reich fällt, als Odoaker Romulus Augustus absetzt. Das Oströmische Reich lebt weiter.",
+       "fr": "Depuis 395, l’empire est divisé en une moitié occidentale et une moitié orientale, et de nouveaux royaumes ont pris le pouvoir dans de grandes parties de l’Occident. L’Empire romain d’Occident tombe lorsque Odoacre dépose Romulus Augustule. L’Empire romain d’Orient survit."
       },
       "sources": [
        "wp-roman-empire",
@@ -472,7 +540,8 @@
       "mapNote": {
        "sv": "Kartan visar Västromerska riket till och med 475.",
        "en": "The map shows the Western Roman Empire up to and including 475.",
-       "de": "Die Karte zeigt das Weströmische Reich bis einschließlich 475."
+       "de": "Die Karte zeigt das Weströmische Reich bis einschließlich 475.",
+       "fr": "La carte montre l’Empire romain d’Occident jusqu’en 475 inclus."
       }
      },
      {
@@ -480,17 +549,20 @@
       "label": {
        "sv": "533–554",
        "en": "533–554",
-       "de": "533–554"
+       "de": "533–554",
+       "fr": "533–554"
       },
       "title": {
        "sv": "Justinianus återerövringar",
        "en": "Justinian's reconquests",
-       "de": "Justinians Rückeroberungen"
+       "de": "Justinians Rückeroberungen",
+       "fr": "Les reconquêtes de Justinien"
       },
       "text": {
        "sv": "Justinianus I försöker ta tillbaka väst. Generalen Belisarius besegrar vandalernas rike i Nordafrika 533 och anfaller sedan Italien, där östgoternas rike i stort sett är slut 554. Under Justinianus är riket som störst under bysantinsk tid.",
        "en": "Justinian I tries to take back the west. The general Belisarius defeats the Vandal kingdom in North Africa in 533 and then attacks Italy, where the Ostrogothic kingdom is largely finished by 554. Under Justinian the empire is at its largest in Byzantine times.",
-       "de": "Justinian I. versucht, den Westen zurückzugewinnen. Der Feldherr Belisar besiegt 533 das Reich der Vandalen in Nordafrika und greift danach Italien an, wo das Ostgotenreich 554 im Wesentlichen am Ende ist. Unter Justinian ist das Reich in byzantinischer Zeit am größten."
+       "de": "Justinian I. versucht, den Westen zurückzugewinnen. Der Feldherr Belisar besiegt 533 das Reich der Vandalen in Nordafrika und greift danach Italien an, wo das Ostgotenreich 554 im Wesentlichen am Ende ist. Unter Justinian ist das Reich in byzantinischer Zeit am größten.",
+       "fr": "Justinien Ier tente de reprendre l’Occident. Le général Bélisaire vainc le royaume vandale en Afrique du Nord en 533, puis attaque l’Italie, où le royaume ostrogoth est en grande partie achevé en 554. Sous Justinien, l’empire atteint son maximum à l’époque byzantine."
       },
       "sources": [
        "wp-byzantine-empire"
@@ -501,17 +573,20 @@
       "label": {
        "sv": "634–641",
        "en": "634–641",
-       "de": "634–641"
+       "de": "634–641",
+       "fr": "634–641"
       },
       "title": {
        "sv": "Arabiska erövringar",
        "en": "Arab conquests",
-       "de": "Arabische Eroberungen"
+       "de": "Arabische Eroberungen",
+       "fr": "Conquêtes arabes"
       },
       "text": {
        "sv": "Efter ett långt krig mot Persien (602–628) är riket utmattat. Rashidunkalifatet erövrar Syrien 634–638, och vid floden Yarmuk förintas den bysantinska armén där. Även Egypten går förlorat för gott. När Herakleios dör 641 har riket mist sina rika östra provinser och upp till tre fjärdedelar av sina inkomster.",
        "en": "After a long war against Persia (602–628) the empire is exhausted. The Rashidun Caliphate conquers Syria in 634–638, and at the river Yarmuk the Byzantine army is annihilated. Egypt too is lost for good. When Heraclius dies in 641 the empire has lost its rich eastern provinces and up to three quarters of its revenues.",
-       "de": "Nach einem langen Krieg gegen Persien (602–628) ist das Reich erschöpft. Das Kalifat der Raschidun erobert 634–638 Syrien, und am Fluss Jarmuk wird das byzantinische Heer dort vernichtet. Auch Ägypten geht endgültig verloren. Als Herakleios 641 stirbt, hat das Reich seine reichen Ostprovinzen und bis zu drei Viertel seiner Einnahmen verloren."
+       "de": "Nach einem langen Krieg gegen Persien (602–628) ist das Reich erschöpft. Das Kalifat der Raschidun erobert 634–638 Syrien, und am Fluss Jarmuk wird das byzantinische Heer dort vernichtet. Auch Ägypten geht endgültig verloren. Als Herakleios 641 stirbt, hat das Reich seine reichen Ostprovinzen und bis zu drei Viertel seiner Einnahmen verloren.",
+       "fr": "Après une longue guerre contre la Perse (602–628), l’empire est épuisé. Le califat des Rachidoune conquiert la Syrie en 634–638 et, sur le fleuve Yarmouk, l’armée byzantine y est anéantie. L’Égypte aussi est perdue définitivement. Lorsque Héraclius meurt en 641, l’empire a perdu ses riches provinces orientales et jusqu’aux trois quarts de ses revenus."
       },
       "sources": [
        "wp-byzantine-empire",
@@ -520,7 +595,8 @@
       "mapNote": {
        "sv": "Kartan visar förlusterna i steg från 638 till 647.",
        "en": "The map shows the losses in steps from 638 to 647.",
-       "de": "Die Karte zeigt die Verluste in Schritten von 638 bis 647."
+       "de": "Die Karte zeigt die Verluste in Schritten von 638 bis 647.",
+       "fr": "La carte montre les pertes par étapes de 638 à 647."
       }
      },
      {
@@ -528,17 +604,20 @@
       "label": {
        "sv": "1071",
        "en": "1071",
-       "de": "1071"
+       "de": "1071",
+       "fr": "1071"
       },
       "title": {
        "sv": "Nederlaget vid Manzikert",
        "en": "The defeat at Manzikert",
-       "de": "Die Niederlage bei Manzikert"
+       "de": "Die Niederlage bei Manzikert",
+       "fr": "La défaite de Manzikert"
       },
       "text": {
        "sv": "Seldjukerna vinner en avgörande seger vid Manzikert och tar kejsar Romanos IV till fånga. Samma år faller Bari, rikets sista stad i Italien, till normanderna. Under ett årtionde av inbördesstrider tar turkiska styrkor stora delar av Anatolien, ända fram till Marmarasjön. Med hjälp av första korståget återtar Alexios I senare delar av västra Anatolien.",
        "en": "The Seljuks win a decisive victory at Manzikert and take Emperor Romanos IV prisoner. The same year Bari, the empire's last city in Italy, falls to the Normans. During a decade of civil strife Turkish forces take large parts of Anatolia, all the way to the Sea of Marmara. With the help of the First Crusade Alexios I later recovers parts of western Anatolia.",
-       "de": "Die Seldschuken erringen bei Manzikert einen entscheidenden Sieg und nehmen Kaiser Romanos IV. gefangen. Im selben Jahr fällt Bari, die letzte Stadt des Reiches in Italien, an die Normannen. In einem Jahrzehnt innerer Kämpfe nehmen türkische Truppen große Teile Anatoliens ein, bis zum Marmarameer. Mit Hilfe des Ersten Kreuzzugs gewinnt Alexios I. später Teile des westlichen Anatolien zurück."
+       "de": "Die Seldschuken erringen bei Manzikert einen entscheidenden Sieg und nehmen Kaiser Romanos IV. gefangen. Im selben Jahr fällt Bari, die letzte Stadt des Reiches in Italien, an die Normannen. In einem Jahrzehnt innerer Kämpfe nehmen türkische Truppen große Teile Anatoliens ein, bis zum Marmarameer. Mit Hilfe des Ersten Kreuzzugs gewinnt Alexios I. später Teile des westlichen Anatolien zurück.",
+       "fr": "Les Seldjoukides remportent une victoire décisive à Manzikert et font prisonnier l’empereur Romain IV. La même année, Bari, la dernière ville de l’empire en Italie, tombe aux mains des Normands. Pendant une décennie de guerres civiles, les forces turques prennent de grandes parties de l’Anatolie, jusqu’à la mer de Marmara. Avec l’aide de la première croisade, Alexis Ier reprend plus tard des parties de l’Anatolie occidentale."
       },
       "sources": [
        "wp-byzantine-empire"
@@ -546,7 +625,8 @@
       "mapNote": {
        "sv": "Kartan visar förlusten i Anatolien från 1085, då ytan halveras, och en del återtaget land från 1099.",
        "en": "The map shows the loss in Anatolia from 1085, when the area is halved, and some recovered land from 1099.",
-       "de": "Die Karte zeigt den Verlust in Anatolien ab 1085, als sich die Fläche halbiert, und etwas zurückgewonnenes Land ab 1099."
+       "de": "Die Karte zeigt den Verlust in Anatolien ab 1085, als sich die Fläche halbiert, und etwas zurückgewonnenes Land ab 1099.",
+       "fr": "La carte montre la perte de l’Anatolie à partir de 1085, quand la superficie est réduite de moitié, ainsi qu’une partie des territoires repris à partir de 1099."
       }
      },
      {
@@ -554,17 +634,20 @@
       "label": {
        "sv": "1204",
        "en": "1204",
-       "de": "1204"
+       "de": "1204",
+       "fr": "1204"
       },
       "title": {
        "sv": "Konstantinopel plundras",
        "en": "Constantinople is sacked",
-       "de": "Konstantinopel wird geplündert"
+       "de": "Konstantinopel wird geplündert",
+       "fr": "Constantinople est mise à sac"
       },
       "text": {
        "sv": "Fjärde korståget plundrar Konstantinopel och riket splittras. Staden återtas 1261, men riket blir efter det bara en regional makt.",
        "en": "The Fourth Crusade sacks Constantinople and the empire is split up. The city is retaken in 1261, but after that the empire is only a regional power.",
-       "de": "Der Vierte Kreuzzug plündert Konstantinopel, und das Reich zerfällt. Die Stadt wird 1261 zurückerobert, doch danach ist das Reich nur noch eine regionale Macht."
+       "de": "Der Vierte Kreuzzug plündert Konstantinopel, und das Reich zerfällt. Die Stadt wird 1261 zurückerobert, doch danach ist das Reich nur noch eine regionale Macht.",
+       "fr": "La quatrième croisade met Constantinople à sac et l’empire se divise. La ville est reprise en 1261, mais l’empire ne devient ensuite plus qu’une puissance régionale."
       },
       "sources": [
        "wp-byzantine-empire"
@@ -572,7 +655,8 @@
       "mapNote": {
        "sv": "Kartan visar nästan ingen yta för riket 1206–1226 och ingen alls 1227–1278. Nikaia, där riket levde vidare och som återtog Konstantinopel 1261, ingår inte i kartdatan för riket. Från 1279 syns riket igen.",
        "en": "The map shows almost no area for the empire in 1206–1226 and none at all in 1227–1278. Nicaea, where the empire lived on and which retook Constantinople in 1261, is not included in the map data for the empire. From 1279 the empire is visible again.",
-       "de": "Die Karte zeigt für das Reich 1206–1226 fast keine Fläche und 1227–1278 gar keine. Nikaia, wo das Reich weiterlebte und von wo aus Konstantinopel 1261 zurückerobert wurde, ist in den Kartendaten für das Reich nicht enthalten. Ab 1279 ist das Reich wieder zu sehen."
+       "de": "Die Karte zeigt für das Reich 1206–1226 fast keine Fläche und 1227–1278 gar keine. Nikaia, wo das Reich weiterlebte und von wo aus Konstantinopel 1261 zurückerobert wurde, ist in den Kartendaten für das Reich nicht enthalten. Ab 1279 ist das Reich wieder zu sehen.",
+       "fr": "La carte ne montre presque aucune superficie pour l’empire en 1206–1226, puis aucune en 1227–1278. Nicée, où l’empire survécut et qui reprit Constantinople en 1261, n’est pas incluse dans les données cartographiques de l’empire. À partir de 1279, l’empire est de nouveau visible."
       }
      },
      {
@@ -580,17 +664,20 @@
       "label": {
        "sv": "1453",
        "en": "1453",
-       "de": "1453"
+       "de": "1453",
+       "fr": "1453"
       },
       "title": {
        "sv": "Konstantinopel faller",
        "en": "Constantinople falls",
-       "de": "Konstantinopel fällt"
+       "de": "Konstantinopel fällt",
+       "fr": "Constantinople tombe"
       },
       "text": {
        "sv": "Osmanerna erövrar Konstantinopel, och Bysantinska riket upphör.",
        "en": "The Ottomans conquer Constantinople, and the Byzantine Empire ceases to exist.",
-       "de": "Die Osmanen erobern Konstantinopel, und das Byzantinische Reich hört auf zu bestehen."
+       "de": "Die Osmanen erobern Konstantinopel, und das Byzantinische Reich hört auf zu bestehen.",
+       "fr": "Les Ottomans conquièrent Constantinople et l’Empire byzantin cesse d’exister."
       },
       "sources": [
        "wp-byzantine-empire",
@@ -599,14 +686,16 @@
       "mapNote": {
        "sv": "Kartan visar en mycket liten rest av riket till och med 1474.",
        "en": "The map shows a very small remnant of the empire up to and including 1474.",
-       "de": "Die Karte zeigt bis einschließlich 1474 einen sehr kleinen Rest des Reiches."
+       "de": "Die Karte zeigt bis einschließlich 1474 einen sehr kleinen Rest des Reiches.",
+       "fr": "La carte montre un très petit reste de l’empire jusqu’en 1474 inclus."
       }
      }
     ],
     "mapNote": {
      "sv": "Källorna anger cirka 753 f.Kr. till 1453. Kartans sista år fram till 1474 visar bara en liten rest av Bysans. Cliopatria anger att Seleukidriket lydde under Romerska republiken 204–190 f.Kr., men det motsägs av källorna: Rom och Seleukidriket krigade 192–188 f.Kr. och slöt fred i Apameia 188 f.Kr. Därför visas det inte som inflytande.",
      "en": "The sources give about 753 BC to 1453. The last years of the map, up to 1474, show only a small remnant of Byzantium. Cliopatria states that the Seleucid Empire was subordinate to the Roman Republic in 204–190 BC, but this is contradicted by the sources: Rome and the Seleucid Empire were at war in 192–188 BC and made peace at Apamea in 188 BC. It is therefore not shown as influence.",
-     "de": "Die Quellen nennen etwa 753 v. Chr. bis 1453. Die letzten Jahre der Karte bis 1474 zeigen nur einen kleinen Rest von Byzanz. Cliopatria gibt an, dass das Seleukidenreich 204–190 v. Chr. der Römischen Republik unterstand, doch das widerspricht den Quellen: Rom und das Seleukidenreich führten 192–188 v. Chr. Krieg und schlossen 188 v. Chr. Frieden in Apameia. Deshalb wird es nicht als Einflussgebiet gezeigt."
+     "de": "Die Quellen nennen etwa 753 v. Chr. bis 1453. Die letzten Jahre der Karte bis 1474 zeigen nur einen kleinen Rest von Byzanz. Cliopatria gibt an, dass das Seleukidenreich 204–190 v. Chr. der Römischen Republik unterstand, doch das widerspricht den Quellen: Rom und das Seleukidenreich führten 192–188 v. Chr. Krieg und schlossen 188 v. Chr. Frieden in Apameia. Deshalb wird es nicht als Einflussgebiet gezeigt.",
+     "fr": "Les sources indiquent environ 753 av. J.-C. à 1453. Les dernières années de la carte, jusqu’en 1474, ne montrent qu’un petit reste de Byzance. Cliopatria indique que l’Empire séleucide était subordonné à la République romaine en 204–190 av. J.-C., mais les sources le contredisent : Rome et l’Empire séleucide furent en guerre en 192–188 av. J.-C. et conclurent la paix d’Apamée en 188 av. J.-C. Il n’est donc pas montré comme influence."
     },
     "sources": [
      "wp-roman-empire",
@@ -626,74 +715,86 @@
       "summary": {
        "sv": "Bysantinska riket var den östra fortsättningen på Romarriket, med Konstantinopel som huvudstad. Det överlevde Västroms fall på 400-talet och bestod till 1453. Namnet Bysans kom först efter rikets slut; invånarna kallade själva sitt rike romerskt och sig själva romare.",
        "en": "The Byzantine Empire was the eastern continuation of the Roman Empire, with Constantinople as its capital. It survived the fall of the West in the 5th century and lasted until 1453. The name Byzantium came only after the end of the empire; the inhabitants themselves called their empire Roman and themselves Romans.",
-       "de": "Das Byzantinische Reich war die östliche Fortsetzung des Römischen Reiches, mit Konstantinopel als Hauptstadt. Es überlebte den Fall Westroms im 5. Jahrhundert und bestand bis 1453. Der Name Byzanz kam erst nach dem Ende des Reiches auf; die Einwohner selbst nannten ihr Reich römisch und sich selbst Römer."
+       "de": "Das Byzantinische Reich war die östliche Fortsetzung des Römischen Reiches, mit Konstantinopel als Hauptstadt. Es überlebte den Fall Westroms im 5. Jahrhundert und bestand bis 1453. Der Name Byzanz kam erst nach dem Ende des Reiches auf; die Einwohner selbst nannten ihr Reich römisch und sich selbst Römer.",
+       "fr": "L’Empire byzantin était la continuation orientale de l’Empire romain, avec Constantinople pour capitale. Il survécut à la chute de l’Occident au Ve siècle et dura jusqu’en 1453. Le nom de Byzance n’apparut qu’après la fin de l’empire ; les habitants appelaient eux-mêmes leur empire romain et eux-mêmes Romains."
       },
       "items": [
        {
         "label": {
          "sv": "När och var det uppstod",
          "en": "When and where it arose",
-         "de": "Wann und wo es entstand"
+         "de": "Wann und wo es entstand",
+         "fr": "Quand et où il est apparu"
         },
         "text": {
          "sv": "Det finns ingen enighet om när Bysantinska riket började. Ofta anges 330, då Konstantin den store invigde Konstantinopel som ny huvudstad i öster. Andra räknar från 395, då riket delades efter Theodosius I:s död, och vissa forskare sätter början först på 600- eller 700-talet.",
          "en": "There is no agreement on when the Byzantine Empire began. Often 330 is given, when Constantine the Great inaugurated Constantinople as the new capital in the east. Others count from 395, when the empire was divided after the death of Theodosius I, and some scholars place the beginning only in the 7th or 8th century.",
-         "de": "Es gibt keine Einigkeit darüber, wann das Byzantinische Reich begann. Oft wird 330 angegeben, als Konstantin der Große Konstantinopel als neue Hauptstadt im Osten einweihte. Andere rechnen ab 395, als das Reich nach dem Tod Theodosius’ I. geteilt wurde, und manche Forscher setzen den Beginn erst im 7. oder 8. Jahrhundert an."
+         "de": "Es gibt keine Einigkeit darüber, wann das Byzantinische Reich begann. Oft wird 330 angegeben, als Konstantin der Große Konstantinopel als neue Hauptstadt im Osten einweihte. Andere rechnen ab 395, als das Reich nach dem Tod Theodosius’ I. geteilt wurde, und manche Forscher setzen den Beginn erst im 7. oder 8. Jahrhundert an.",
+         "fr": "Il n’existe pas de consensus sur le début de l’Empire byzantin. On donne souvent 330, lorsque Constantin le Grand inaugura Constantinople comme nouvelle capitale en Orient. D’autres comptent à partir de 395, lorsque l’empire fut divisé après la mort de Théodose Ier, et certains chercheurs ne situent le début qu’aux VIIe ou VIIIe siècles."
         }
        },
        {
         "label": {
          "sv": "Hur det slutade",
          "en": "How it ended",
-         "de": "Wie es endete"
+         "de": "Wie es endete",
+         "fr": "Comment il a pris fin"
         },
         "text": {
          "sv": "Den 29 maj 1453 erövrade osmanerna Konstantinopel. Den siste kejsaren, Konstantin XI, stupade i striderna, och riket upphörde.",
          "en": "On 29 May 1453 the Ottomans conquered Constantinople. The last emperor, Constantine XI, fell in the fighting, and the empire ceased to exist.",
-         "de": "Am 29. Mai 1453 eroberten die Osmanen Konstantinopel. Der letzte Kaiser, Konstantin XI., fiel in den Kämpfen, und das Reich hörte auf zu bestehen."
+         "de": "Am 29. Mai 1453 eroberten die Osmanen Konstantinopel. Der letzte Kaiser, Konstantin XI., fiel in den Kämpfen, und das Reich hörte auf zu bestehen.",
+         "fr": "Le 29 mai 1453, les Ottomans conquirent Constantinople. Le dernier empereur, Constantin XI, tomba au combat et l’empire cessa d’exister."
         }
        },
        {
         "label": {
          "sv": "Huvudstad",
          "en": "Capital",
-         "de": "Hauptstadt"
+         "de": "Hauptstadt",
+         "fr": "Capitale"
         },
         "text": {
          "sv": "Konstantinopel, dagens Istanbul, under hela rikets tid. Staden plundrades av fjärde korståget 1204 och återtogs 1261.",
          "en": "Constantinople, present-day Istanbul, throughout the empire's existence. The city was sacked by the Fourth Crusade in 1204 and retaken in 1261.",
-         "de": "Konstantinopel, das heutige Istanbul, während der ganzen Zeit des Reiches. Die Stadt wurde 1204 vom Vierten Kreuzzug geplündert und 1261 zurückerobert."
+         "de": "Konstantinopel, das heutige Istanbul, während der ganzen Zeit des Reiches. Die Stadt wurde 1204 vom Vierten Kreuzzug geplündert und 1261 zurückerobert.",
+         "fr": "Constantinople, l’actuelle Istanbul, pendant toute l’existence de l’empire. La ville fut mise à sac par la quatrième croisade en 1204 et reprise en 1261."
         }
        },
        {
         "label": {
          "sv": "Kända härskare",
          "en": "Famous rulers",
-         "de": "Bekannte Herrscher"
+         "de": "Bekannte Herrscher",
+         "fr": "Dirigeants connus"
         },
         "text": {
          "sv": "Justinianus I (527–565), då riket var som störst, Herakleios (610–641), Basileios II (976–1025), Alexios I Komnenos (1081–1118), Mikael VIII (1261–1282), som återtog Konstantinopel, och Konstantin XI (1449–1453).",
          "en": "Justinian I (527–565), when the empire was at its largest, Heraclius (610–641), Basil II (976–1025), Alexios I Komnenos (1081–1118), Michael VIII (1261–1282), who retook Constantinople, and Constantine XI (1449–1453).",
-         "de": "Justinian I. (527–565), als das Reich am größten war, Herakleios (610–641), Basileios II. (976–1025), Alexios I. Komnenos (1081–1118), Michael VIII. (1261–1282), der Konstantinopel zurückeroberte, und Konstantin XI. (1449–1453)."
+         "de": "Justinian I. (527–565), als das Reich am größten war, Herakleios (610–641), Basileios II. (976–1025), Alexios I. Komnenos (1081–1118), Michael VIII. (1261–1282), der Konstantinopel zurückeroberte, und Konstantin XI. (1449–1453).",
+         "fr": "Justinien Ier (527–565), lorsque l’empire était à son maximum, Héraclius (610–641), Basile II (976–1025), Alexis Ier Comnène (1081–1118), Michel VIII (1261–1282), qui reprit Constantinople, et Constantin XI (1449–1453)."
         }
        },
        {
         "label": {
          "sv": "Symbolen på kartan",
          "en": "The symbol on the map",
-         "de": "Das Symbol auf der Karte"
+         "de": "Das Symbol auf der Karte",
+         "fr": "Le symbole sur la carte"
         },
         "text": {
          "sv": "Dubbelörnen är det tecken som oftast förknippas med Bysans. Som prydnad finns den i bysantinsk konst från 900- och 1000-talet, men tillsammans med kejsaren är den säkert belagd först 1301, under Andronikos II Palaiologos. Under rikets sista århundraden bar kejsarfamiljen den på kläder och utrustning. Kartan visar den ändå för hela rikets tid, som en symbol för riket.",
          "en": "The double-headed eagle is the emblem most often associated with Byzantium. As an ornament it is found in Byzantine art from the 10th and 11th centuries, but together with the emperor it is securely attested only in 1301, under Andronikos II Palaiologos. In the empire's last centuries the imperial family wore it on clothing and equipment. The map nevertheless shows it for the whole of the empire's existence, as a symbol of the empire.",
-         "de": "Der Doppeladler ist das Zeichen, das am häufigsten mit Byzanz verbunden wird. Als Schmuck findet er sich in der byzantinischen Kunst des 10. und 11. Jahrhunderts, doch zusammen mit dem Kaiser ist er sicher erst 1301 belegt, unter Andronikos II. Palaiologos. In den letzten Jahrhunderten des Reiches trug die Kaiserfamilie ihn auf Kleidung und Ausrüstung. Die Karte zeigt ihn dennoch für die ganze Zeit des Reiches, als Symbol für das Reich."
+         "de": "Der Doppeladler ist das Zeichen, das am häufigsten mit Byzanz verbunden wird. Als Schmuck findet er sich in der byzantinischen Kunst des 10. und 11. Jahrhunderts, doch zusammen mit dem Kaiser ist er sicher erst 1301 belegt, unter Andronikos II. Palaiologos. In den letzten Jahrhunderten des Reiches trug die Kaiserfamilie ihn auf Kleidung und Ausrüstung. Die Karte zeigt ihn dennoch für die ganze Zeit des Reiches, als Symbol für das Reich.",
+         "fr": "L’aigle bicéphale est l’emblème le plus souvent associé à Byzance. Il se trouve comme ornement dans l’art byzantin des Xe et XIe siècles, mais il n’est attesté avec l’empereur avec certitude qu’en 1301, sous Andronic II Paléologue. Durant les derniers siècles de l’empire, la famille impériale le portait sur ses vêtements et son équipement. La carte le montre néanmoins pour toute la durée de l’empire, comme symbole de l’empire."
         }
        }
       ],
       "mapNote": {
        "sv": "I kartdatan heter riket Bysantinska riket från 633. Åren 395–632 visas som Östromerska riket, med Roms symbol.",
        "en": "In the map data the empire is called the Byzantine Empire from 633. The years 395–632 are shown as the Eastern Roman Empire, with Rome's symbol.",
-       "de": "In den Kartendaten heißt das Reich ab 633 Byzantinisches Reich. Die Jahre 395–632 werden als Oströmisches Reich gezeigt, mit dem Symbol Roms."
+       "de": "In den Kartendaten heißt das Reich ab 633 Byzantinisches Reich. Die Jahre 395–632 werden als Oströmisches Reich gezeigt, mit dem Symbol Roms.",
+       "fr": "Dans les données cartographiques, l’empire est appelé Empire byzantin à partir de 633. Les années 395–632 sont montrées comme l’Empire romain d’Orient, avec le symbole de Rome."
       },
       "sources": [
        "wp-byzantine-empire",
@@ -710,7 +811,8 @@
      "name": {
       "sv": "Rom",
       "en": "Rome",
-      "de": "Rom"
+      "de": "Rom",
+      "fr": "Rome"
      },
      "wikidata": "Q220",
      "at": [
@@ -728,7 +830,8 @@
      "name": {
       "sv": "Konstantinopel",
       "en": "Constantinople",
-      "de": "Konstantinopel"
+      "de": "Konstantinopel",
+      "fr": "Constantinople"
      },
      "wikidata": "Q16869",
      "at": [
