@@ -18,6 +18,7 @@
     "fr": "Moaï, casques vikings, pyramides, Napoléon, Machu Picchu et Marco Polo : six choses auxquelles beaucoup de gens croient, et comment tu peux découvrir d'où elles viennent."
   },
   "review": "source-checked",
+  "audience": {"sv":"Cirka 12–13 år","en":"About ages 12–13","de":"Etwa 12–13 Jahre","es":"Aproximadamente 12–13 años","fr":"Environ 12–13 ans"},
   "steps": [
     {
       "id": "moai",

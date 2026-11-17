@@ -68,6 +68,7 @@ export function tourProblems(tour, known = {}) {
   if (tour.version !== TOUR_VERSION) say(`okänd version ${tour.version}.`);
   if (typeof tour.id !== 'string' || !ID.test(tour.id)) say('id saknas eller har fel tecken.');
   if (!isText(tour.title)) say('titeln saknas (title.sv).');
+  if (tour.audience != null && !isText(tour.audience)) say('målgruppen ska vara text per språk.');
   if (!TOUR_REVIEW.includes(tour.review)) say(`okänd granskningsstatus ${tour.review}.`);
   if (tour.war != null && (typeof tour.war !== 'string' || (known.events && !known.events.has(tour.war)))) say(`kriget ${tour.war} finns inte.`);
   if (tour.empire != null && (typeof tour.empire !== 'string' || (known.empires && !known.empires.has(tour.empire)))) say(`riket ${tour.empire} finns inte.`);
