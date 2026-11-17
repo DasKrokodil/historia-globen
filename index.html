@@ -103,7 +103,7 @@
   </section>
   <!-- Eleven bekräftar innan lektionen lämnas (#1572); läraren lämnar direkt. Samma plats och utseende som förklaringen nedan (js/ui/lesson.js) -->
   <section id="lesson-confirm" class="lesson-band lesson-notice" role="group" aria-labelledby="lesson-confirm-text" hidden>
-    <p id="lesson-confirm-text" class="lesson-band-title" data-i18n="lesson.confirm">Lämna lektionen? Då visas hela globen.</p>
+    <p id="lesson-confirm-text" class="lesson-band-title"><span data-i18n="lesson.confirm">Lämna lektionen? Då visas hela globen.</span> <span data-i18n="lesson.confirmView">Året står kvar, men globens vy och lagren går tillbaka till hur de stod innan lektionen.</span></p>
     <button id="lesson-confirm-no" class="lesson-exit" type="button" data-i18n="lesson.confirmNo">Stanna kvar</button>
     <button id="lesson-confirm-yes" class="lesson-exit" type="button" data-i18n="lesson.confirmYes">Ja, lämna</button>
   </section>
@@ -540,13 +540,14 @@
       <p id="tour-endcard-lead" class="tour-endcard-lead"></p>
       <div id="tour-endcard-body" class="tour-endcard-body"></div>
     </div>
-    <!-- Slutkortet i en lektion (#795): länkar till lektionens uppdrag -->
+    <!-- Slutkortet i en lektion (#795): länkar till lektionens uppdrag. Står i den fasta raden ovanför knapparna (#1861) så att länken syns helt;
+         i låg skärm (max 600 px hög) står den kvar här i det som rullar (js/ui/lesson.js, placeEnd). -->
     <div id="tour-lesson-end" class="tour-lesson-end" hidden>
       <p class="tour-lesson-end-label" data-i18n="lesson.next">Fortsätt med ett uppdrag</p>
       <div id="tour-lesson-end-list" class="tour-links"></div>
     </div>
     <!-- Knapparna och foten ligger i en gemensam fastklistrad rad längst ned i kortet (#1793): de syns alltid, också när texten rullar -->
-    <div class="tour-bar">
+    <div id="tour-bar" class="tour-bar">
       <!-- Rullningssignalen (#1866): tonad nederkant och raden Fortsätt läsa när kortet har mer att rulla -->
       <button id="tour-more" class="tour-more" type="button" hidden><span data-i18n="tour.more">Fortsätt läsa</span> <span aria-hidden="true">↓</span></button>
       <div class="tour-actions">

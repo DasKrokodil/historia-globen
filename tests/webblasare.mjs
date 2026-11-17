@@ -9985,10 +9985,11 @@ async function run(browser, vp) {
         reached = await lessonPage.evaluate(() => document.activeElement?.id === 'lesson-exit');
       }
       if (!reached) throw new Error('Tab når inte "Lämna lektionen"');
-      // Turens slut: slutkortet står kvar, Escape avslutar inte, och det finns ingen Klar-knapp som tömmer läget
+      // Turens slut: slutkortet står kvar, Escape avslutar inte, och Klar (#1861) i stället för Nästa är en avslutande knapp som går till
+      // lektionens utgång: den lämnar inte lektionen på egen hand (frågan till eleven, #1572), och den provas i sin egen kontroll nedan
       for (let i = 0; i < 10; i++) await lessonPage.click('#tour-next');
       await lessonPage.waitForFunction(() => document.getElementById('tour-progress').textContent.includes('14 av 14'), null, { timeout: T.step });
-      await lessonPage.waitForSelector('#tour-next', { state: 'hidden', timeout: T.step });
+      await lessonPage.waitForFunction(() => { const b = document.getElementById('tour-next'); return !b.hidden && b.textContent.trim() === 'Klar'; }, null, { timeout: T.step });
       // Skärmläsaren hör även sista steget och att lektionen är slut (#878)
       await lessonPage.waitForFunction(() => /sista steget i lektionen/.test(document.getElementById('screen-reader-status')?.textContent ?? ''), null, { timeout: T.step });
       if (!/14 av 14/.test(await lessonPage.textContent('#screen-reader-status'))) throw new Error('uppläsningen av sista steget saknade stegets nummer');
@@ -10282,6 +10283,101 @@ async function run(browser, vp) {
       if (errors.length) throw new Error(`sidfel: ${errors.join('; ')}`);
       return 'fri uppdragstext, gamla faktarutan stängd, omladdning och återgång med fokus fungerar';
     } finally { await lp.close(); }
+  });
+  // #1861: lektionens sista steg. Uppdragslänken ligger helt ovanför de fasta knapparna (inte halvt under dem), sista steget har en
+  // avslutande knapp (Klar, nåbar med tangentbordet) som går till lektionens utgång, och frågan om att lämna lektionen säger vad som
+  // händer med vyn. Kortets rullning är oförändrad: ett nytt steg börjar överst (#1856).
+  await check('lektionens sista steg: uppdragslänken syns helt, Klar avslutar lektionen och frågan förklarar vyn (#1861)', async () => {
+    // Dator med mus på en vanlig sida; telefonen stående och liggande (800 × 360) med pekning, som en riktig telefon (pointer: coarse, #1667)
+    const sizes = vp.width > 760 ? [{ width: 1280, height: 800, touch: false }] : [{ width: 400, height: 800, touch: true }, { width: 800, height: 360, touch: true }];
+    let n = 0, lp, tctx;
+    const results = [];
+    const errors = [];
+    try {
+      for (const size of sizes) {
+        if (tctx) await tctx.close().catch(() => {});
+        else if (lp) await lp.close().catch(() => {});
+        tctx = null;
+        if (size.touch) {
+          const pg = await touchPage(size, { isMobile: true });
+          lp = pg.tp; tctx = pg.tctx;
+        } else {
+          lp = await context.newPage();
+          if (THREE_LOCAL) {
+            const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+            await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+            await lp.route(u => isFont(u.href), r => r.abort());
+          }
+          await lp.setViewportSize({ width: size.width, height: size.height });
+        }
+        lp.on('pageerror', e => errors.push(e.message));
+        await lp.goto(`${BASE}?ny=1861-${n++}#t=vikingatiden-och-varlden&m=lektion&s=ghana`);
+        await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await lp.waitForSelector('#tour-lesson-end-list button', { state: 'visible', timeout: T.step });
+        const where = `${size.width}×${size.height}`;
+        // Steget börjar överst (#1856) och Klar står på sin plats bredvid Föregående
+        const top = await lp.evaluate(() => document.getElementById('tour-card').scrollTop);
+        if (top !== 0) throw new Error(`${where}: kortet började inte överst (scrollTop ${top})`);
+        // I låg skärm står länken i det som rullar och ska synas helt när kortet är nedrullat; annars ska den synas helt direkt
+        if (size.height <= 600) await lp.evaluate(() => { const c = document.getElementById('tour-card'); c.scrollTop = c.scrollHeight; });
+        const seen = await lp.evaluate(() => {
+          const btn = document.querySelector('#tour-lesson-end-list button'), r = btn.getBoundingClientRect();
+          const bar = document.getElementById('tour-next').parentElement.getBoundingClientRect(), card = document.getElementById('tour-card').getBoundingClientRect();
+          const hit = (x, y) => document.elementFromPoint(x, y);
+          // Alla fyra hörn och mitten av länken ska vara länken själv: inget (fot, Fortsätt läsa, kortets kant) ligger över
+          const pts = [[r.left + 2, r.top + 2], [r.right - 2, r.top + 2], [r.left + 2, r.bottom - 2], [r.right - 2, r.bottom - 2], [r.left + r.width / 2, r.top + r.height / 2]];
+          return { top: r.top, bottom: r.bottom, height: r.height, barTop: bar.top, cardTop: card.top, vh: innerHeight,
+            covered: pts.filter(([x, y]) => hit(x, y) !== btn && !btn.contains(hit(x, y))).length,
+            label: btn.textContent.trim() };
+        });
+        if (seen.covered || seen.bottom > seen.barTop + 1 || seen.top < seen.cardTop || seen.bottom > seen.vh) throw new Error(`${where}: uppdragslänken är delvis dold: ${JSON.stringify(seen)}`);
+        if (seen.height < (size.width <= 760 ? 44 : 24)) throw new Error(`${where}: uppdragslänken är för liten att trycka på (${seen.height} px)`);
+        // Klar: synlig, rätt text, nåbar med Tab från Föregående
+        const klar = await lp.evaluate(() => { const b = document.getElementById('tour-next'); return { hidden: b.hidden, text: b.textContent.trim(), h: b.getBoundingClientRect().height, w: b.getBoundingClientRect().width }; });
+        if (klar.hidden || klar.text !== 'Klar') throw new Error(`${where}: sista steget har ingen Klar-knapp: ${JSON.stringify(klar)}`);
+        if (klar.h < 24 || klar.w < 24) throw new Error(`${where}: Klar är för liten (${klar.w}×${klar.h})`);
+        if (await lp.evaluate(() => document.scrollingElement.scrollWidth > innerWidth + 1)) throw new Error(`${where}: sista steget ger horisontell scroll`);
+        await lp.focus('#tour-back');
+        await lp.keyboard.press('Tab');
+        if (!await lp.evaluate(() => document.activeElement?.id === 'tour-next')) throw new Error(`${where}: Tab från Föregående når inte Klar`);
+        // Enter på Klar ger frågan till eleven (lektionen lämnas inte på egen hand), med en mening om vyn
+        await lp.keyboard.press('Enter');
+        await lp.waitForSelector('#lesson-confirm', { state: 'visible', timeout: T.step });
+        const ask = await lp.evaluate(() => {
+          const c = document.getElementById('lesson-confirm'), txt = document.getElementById('lesson-confirm-text'), m = document.querySelector('.masthead');
+          return { text: txt.textContent.replace(/\s+/g, ' ').trim(), size: parseFloat(getComputedStyle(txt).fontSize), bottom: c.getBoundingClientRect().bottom,
+            mastTop: m.getBoundingClientRect().top, mastShown: m.getClientRects().length > 0, focus: document.activeElement?.id, scrollW: document.scrollingElement.scrollWidth, w: innerWidth };
+        });
+        if (!/Lämna lektionen\?/.test(ask.text) || !/Året står kvar, men globens vy och lagren går tillbaka/.test(ask.text)) throw new Error(`${where}: frågan förklarar inte vyn: ${ask.text}`);
+        if (ask.size < 12) throw new Error(`${where}: frågans text är ${ask.size} px, minst 12`);
+        if (ask.focus !== 'lesson-confirm-no') throw new Error(`${where}: fokus ligger på ${ask.focus}, inte Stanna kvar`);
+        if (ask.scrollW > ask.w + 1) throw new Error(`${where}: frågan ger horisontell scroll`);
+        if (size.width <= 760 && ask.mastShown && ask.bottom > ask.mastTop + 1) throw new Error(`${where}: frågan (${ask.bottom}) täcker menyraden (${ask.mastTop})`);
+        // Stanna kvar: tillbaka till Klar, lektionen och året står kvar
+        const yearBefore = (await lp.textContent('#year-big')).trim();
+        await lp.click('#lesson-confirm-no');
+        await lp.waitForSelector('#lesson-confirm', { state: 'hidden', timeout: T.step });
+        if (!await lp.evaluate(() => document.activeElement?.id === 'tour-next')) throw new Error(`${where}: fokus gick inte tillbaka till Klar efter Stanna kvar`);
+        if (!await lp.isVisible('#lesson-band') || !await lp.isVisible('#tour-card')) throw new Error(`${where}: Stanna kvar lämnade lektionen`);
+        // Ja, lämna: lektionen slutar och året står kvar
+        await lp.click('#tour-next');
+        await lp.waitForSelector('#lesson-confirm', { state: 'visible', timeout: T.step });
+        await lp.click('#lesson-confirm-yes');
+        await lp.waitForSelector('#lesson-band', { state: 'hidden', timeout: T.step });
+        await lp.waitForSelector('#tour-card', { state: 'hidden', timeout: T.step });
+        if ((await lp.textContent('#year-big')).trim() !== yearBefore) throw new Error(`${where}: året ändrades när lektionen lämnades`);
+        results.push(where);
+      }
+      // Läraren lämnar direkt med Klar, som med Lämna lektionen (#1572)
+      await lp.goto(`${BASE}?ny=1861-t#t=vikingatiden-och-varlden&m=lektion&r=lararen&s=ghana`);
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await lp.waitForSelector('#tour-lesson-end-list button', { state: 'visible', timeout: T.step });
+      await lp.click('#tour-next');
+      await lp.waitForSelector('#lesson-band', { state: 'hidden', timeout: T.step });
+      if (await lp.isVisible('#lesson-confirm')) throw new Error('läraren fick en fråga efter Klar');
+      if (errors.length) throw new Error(`sidfel: ${errors.join('; ')}`);
+      return `uppdragslänken helt synlig, Klar nåbar och avslutande, frågan förklarar vyn (${results.join(', ')}); läraren lämnar direkt`;
+    } finally { if (tctx) await tctx.close().catch(() => {}); else await lp?.close().catch(() => {}); }
   });
   // #1340: uppdrag knyts till lektionen i data (fältet lesson i data/uppdrag.json). Efter sista steget visar slutkortet
   // lektionens eget uppdrag, inte år 1500; jakten börjar inom lektionens år och går att klara med händelserna där,
