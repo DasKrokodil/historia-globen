@@ -11447,7 +11447,7 @@ async function run(browser, vp) {
     return 'fem lektioner märkta (årskurs och tid), fall-turerna för årskurs 7–9, Starta som lektion ger bandet, steg 1 och 1939, m=lektion i adressen; vanliga turer utan lektionsknapp; Hur vet vi det här först och en Starta turen-knapp på varje tur (#1002)';
   });
   // #994 och #995: raden under årtalet säger århundradet och fönstret i klartext, och det som ligger före eller efter året
-  // säger hur långt ("4 år före (1912)", "21 år senare") i stället för "slut 1912"
+  // säger hur långt ("4 år före (1912)", "om 21 år") i stället för "slut 1912"
   await check('tidsfönstret i vardagsspråk och riktning i tid på etiketter och i listan (#994, #995)', async () => {
     const wp = await context.newPage();
     const wpAw = abortWatch(wp); // avbrutna hämtningar under sidbyte (#1393)
@@ -11485,7 +11485,18 @@ async function run(browser, vp) {
       if (!/nära i tid/.test(note.title) || note.sr !== note.title) throw new Error(`förklaringen av fönstret saknas: ${JSON.stringify(note)}`);
       // Listan: det som ligger nära året säger riktning
       const list = await metas();
-      if (!list.some(m => /^\d+ år (tidigare|senare) · /.test(m))) throw new Error('listan 1325 har ingen rad med "N år tidigare/senare"');
+      if (!list.some(m => /^(?:\d+ år före|om \d+ år) · /.test(m))) throw new Error('listan 1325 har ingen rad med "N år före/om N år"');
+      // #1306: sammanfattningen har en förklaring, och radens riktning hörs en gång i knappens tillgängliga namn.
+      const sub = (await wp.textContent('#panel-sub')).trim();
+      if ((sub.match(/pågår/g) ?? []).length !== 1 || /träffar/.test(sub)) throw new Error(`panelens sammanfattning upprepar sig: ${sub}`);
+      await wp.click('#btn-panel');
+      const nearButton = wp.locator('#event-list .event-item.is-near .event-btn:visible').first();
+      const direction = (await nearButton.locator('.meta').textContent()).split(' · ')[0];
+      // Knappens aria-label sätter det tillgängliga namnet (och ersätter den synliga texten): riktningen står där exakt en gång.
+      // ariaSnapshot() räknas inte: den skriver både namnet och barntexten och visar därför frasen två gånger utan att den läses två gånger.
+      const spoken = (await nearButton.getAttribute('aria-label')) ?? '';
+      if (!/^(?:\d+ (?:år|dagar?) före|om \d+ (?:år|dagar?))$/.test(direction)) throw new Error(`raden saknar riktning: ${direction}`);
+      if (spoken.split(direction).length !== 2) throw new Error(`riktningen ska sägas en gång i knappens namn: ${spoken}`);
       // Klotets etiketter: "N år före (år)" och "om N år (år)", aldrig "slut" eller "börjar"
       rows.push(await want('#y=1916', /^1900-talet · ±\d*[05] år$/));
       // Etiketterna ritas om en bildruta efter att raden bytt text: vänta in dem (annars läses de gamla, #1138), men kräv fortfarande att etiketten finns

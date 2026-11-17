@@ -104,3 +104,15 @@ test('varje ui("nyckel") i js/ finns i sv.json (annars hör svenska besökare en
   const missing = [...literal].filter(([k]) => !(k in sv) && !ONLY_NON_SV.has(k)).map(([k, f]) => `${k} (${[...new Set(f)].join(', ')})`);
   assert.deepEqual(missing, [], `sv.json saknar ${missing.join('; ')}: lägg nyckeln i alla fem språkfilerna (översätt samtidigt)`);
 });
+
+test('panelen och globen använder samma tidsord, och romben heter som kortet på fem språk (#1306)', () => {
+  for (const { id } of meta.languages) {
+    const d = json(`data/ui/${id}.json`);
+    for (const [panel, globe] of [['panel.earlier', 'time.beforeLabel'], ['panel.later', 'time.afterLabel']]) {
+      assert.deepEqual(d[panel], d[globe].map(s => s.replace(' ({year})', '')), `${id}: ${panel}`);
+    }
+    assert.equal(d['ff.kind.funfact'], d['ff.title'], `${id}: kortets rubrik`);
+    assert.equal(d['tlegend.funfact'], d['ff.title'], `${id}: teckenförklaringen`);
+    assert.ok(d['layer.funfacts'].includes(d['ff.title']), `${id}: Lager`);
+  }
+});
