@@ -673,6 +673,49 @@ body {
 .event-item.is-near .ttl { color: var(--parchment-dim); font-weight: 500; }
 .empty-note { padding: 12px 10px; color: var(--parchment-dim); font-size: 13px; line-height: 1.45; }
 
+/* ---------- Samtidigt-panelen i faktarutans stil (#1317, del 3) ----------
+   Panelen är en läsyta som faktarutan: pergament (--vellum) med guldram och en tunn rubrikröd innerlinje, som ramen "medeltid" i
+   faktarutan (.frame-medeltid). Besökaren ska känna igen en läsruta; Visste du?-kortet behåller sitt ljusa pergament. Färgerna är
+   egna variabler (--pn-*) här, så att resten av panelens regler ovan kan stå kvar och bara får nya värden.
+   Kontrast mot --vellum: text 11,9:1, dämpad text 5,4:1, rubrikrött 6,0:1, kontrollramar 4,1:1 (minst 3:1). Kategorifärgerna är
+   avstämda mot natthimlen (#1318) och når bara 1,1–2,8:1 mot pergament, så varje prick får samma mörka botten som markörerna på
+   globen (--medal) och syns lika bra som där. Chipsens av-läge visas med streckad ram och dämpad text, inte med genomskinlighet. */
+.panel {
+  --pn-bg: var(--vellum); --pn-ink: var(--vellum-ink); --pn-dim: #6a5838; --pn-accent: var(--rubric);
+  --pn-control: #7d6a43; --pn-rule: color-mix(in srgb, var(--gold) 55%, var(--vellum));
+  --pn-tint: color-mix(in srgb, var(--gold) 18%, var(--vellum));
+  box-sizing: border-box; padding: 6px; /* innerlinjen ligger 4–5 px in: avdelarna stannar innanför den */
+  color-scheme: light; /* rullningslisten och kontrollerna hör till pergamentet */
+  background: var(--pn-bg); color: var(--pn-ink);
+  border: 2px solid var(--gold);
+  box-shadow: inset 0 0 0 4px var(--vellum), inset 0 0 0 5px var(--rubric), 0 10px 30px rgba(0, 0, 0, .35);
+  backdrop-filter: none;
+}
+.panel :focus-visible { outline: 2px solid var(--pn-accent); outline-offset: 2px; }
+.panel .event-btn:focus-visible { outline-offset: -2px; }
+.panel-head, .panel-tag-note, .panel-filters, .panel-tabs { border-bottom-color: var(--pn-rule); }
+.panel-head h2 { color: var(--pn-ink); }
+.panel .panel-sub, .panel .panel-tag-note, .panel .empty-note, .panel .region-count, .panel .event-btn .meta { color: var(--pn-dim); }
+.panel .link-btn { color: var(--pn-accent); }
+.panel .panel-x { color: var(--pn-ink); background: transparent; border-color: var(--pn-control); }
+.panel .panel-x:hover { background: var(--pn-tint); }
+.panel .panel-filter-toggle { color: var(--pn-ink); background: var(--pn-tint); border-color: var(--pn-control); }
+.panel .panel-filter-toggle .arrow, .panel .panel-filter-toggle .on { color: var(--pn-accent); }
+/* Kategorichips: minst 12 px text och 24 px hög yta, på pekskärm 44 px med ::after (#1309) */
+.panel .filter, .panel-filters .filter { box-sizing: border-box; min-height: 24px; font-size: 12px; padding: 3px 9px 3px 7px; color: var(--pn-ink); background: var(--pn-tint); border-color: var(--pn-control); }
+.panel .filter .dot { width: 9px; height: 9px; outline: 2px solid var(--medal); }
+.panel .filter[aria-pressed="false"] { opacity: 1; color: var(--pn-dim); background: transparent; border-style: dashed; }
+.panel .filter[aria-pressed="false"] .dot { outline: 1.5px solid var(--pn-dim); }
+.panel .panel-tab { color: var(--pn-ink); border-color: var(--pn-control); }
+.panel .panel-tab[aria-selected="true"] { background: var(--gold); border-color: var(--pn-ink); color: var(--pn-ink); }
+.panel .panel-sec, .panel .region-head { color: var(--pn-accent); }
+.panel .panel-sec { font-size: 12px; }
+.panel .panel-sec-near, .panel .event-item.is-near .ttl { color: var(--pn-dim); }
+.panel .region-count { font-size: 12px; }
+.panel .panel-tab .region-count { color: inherit; opacity: 1; } /* antalet i fliken har flikens färg, också på den valda */
+.panel .event-item:hover, .panel .event-item.is-selected { background: var(--pn-tint); }
+.panel .event-btn .dot { outline: 2px solid var(--medal); }
+
 /* Faktarutan: ett eget kort som öppnas när man klickar på en händelse */
 .detail-card {
   position: absolute;
