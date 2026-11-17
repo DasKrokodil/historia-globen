@@ -741,7 +741,9 @@ export class Panel {
    */
   showSelection({ label, name, lead = '', emblems = [], intro, action = null, notes = [], exit, empires = null, summary, events, sources = [], focus = true, banner = '', ariaLabel, aboutLabel = null }) {
     this.selectedId = null;
-    this.detail.className = `detail detail-card detail-selection${aboutLabel ? ' detail-place' : ''} frame-${styleFor(events[0], this.styles).frame}`;
+    // Ingen tidsålderns ram (#1713, punkt 4): plats- och temakortet är en ruta för läsning, i samma neutrala mörka kort som rikes-, religions-
+    // och krigskorten. Ramen efter första händelsens epok gav olika kort för Skåne (grotta, 3,46:1) och Grönland (papyrus) och ockra text under AA.
+    this.detail.className = `detail detail-card detail-selection${aboutLabel ? ' detail-place' : ''}`;
     // detail-selection: main.js läser upp etiketten (Plats, Tema), också när inget Fokus pågår (#1163). detail-place: platskortet, som är
     // en egen yta i stängregistret (kort, #1865)
     const shown = (emblems ?? []).filter(em => flagUrl(em));

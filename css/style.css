@@ -2695,7 +2695,6 @@ details.used-by summary:hover { color: var(--parchment); }
   /* (i) och Rapportera faktafel: 44 px tryckyta utan att ytorna går in i varandra när raden bryts */
   #detail .detail-actions { min-height: 44px; gap: 22px 10px; }
   #detail .review-explain { margin-top: -12px; }
-  #detail .review-info::after { inset: -14px; }
   #detail .report-btn { position: relative; padding: 10px 0; }
   #detail .report-btn::after { content: ""; position: absolute; inset: -6px -4px; }
   #detail[data-sheet="full"], #detail.sheet-dragging { max-height: calc(100dvh - var(--ff-b) - 72px - env(safe-area-inset-top, 0px)); z-index: var(--z-band); }
@@ -2991,6 +2990,17 @@ span.theme-event:hover { background: none; outline: none; }
   .app.app.focusing.focus-var .detail-card { max-height: calc(100dvh - var(--focus-top) - 8px - 12px - 30px); }
 }
 
+/* Bred och låg (800 × 360, #1713 punkt 5): Samtidigt-kortet (Visste du?) och dess flik ligger nere till vänster, där årtalet står när ytan är så
+   låg (årtalet ligger under knapparna överst, cirka y 154–211, och kortet cirka y 150–220), så kortet täckte årtalet. Uppmätt i Playwright på
+   800 × 360 för 2601 f.Kr. och 1325. Kortet börjar därför till höger om årtalet (cirka 206 px med "f.Kr."; 216 px med luft) och är lika bredd som
+   förut. Medan faktarutan är öppen ligger den i högerkanten där kortet nu skulle hamna: då döljs kortet och fliken som i smal layout
+   (rad 1822, "faktarutan och fun fact-kortet delar plats"). */
+@media (min-width: 761px) and (max-height: 480px) {
+  .funfact, .ff-tab { left: calc(var(--gut) + 216px); }
+  .funfact { width: min(380px, calc(100vw - var(--gut) - 216px - var(--gut-r))); }
+  .app.has-detail .funfact, .app.has-detail .ff-tab { display: none; }
+}
+
 /* Raden om projektet sist i Om källorna (#1575) */
 .src-about { margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--line); font-size: 13px; color: var(--parchment-dim); }
 .src-about a { color: var(--brass); }
@@ -3025,6 +3035,8 @@ span.theme-event:hover { background: none; outline: none; }
   .detail .war-list .link-btn, .detail .empire-list .link-btn { min-height: 44px; }
   .detail .evidence-group li > a { min-height: 44px; padding-block: 14px; }
   .detail-actions { row-gap: 20px; }
+  /* Hjälpkortets två länkar (24 px höga) har 44 px yta var: med 8 px mellan raderna överlappade ytorna cirka 5 px (#1713, uppföljning) */
+  .help-feedback { margin-top: 14px; }
   .detail .focus-btn { min-height: 44px; }
   :is(#sources-close, #src-q, #src-status) { min-height: 44px; box-sizing: border-box; }
   .layer-customize, .panel-filter-toggle, .focus-group-toggle { min-height: 44px; }
@@ -3047,11 +3059,13 @@ span.theme-event:hover { background: none; outline: none; }
   :is(.top-actions .chip-btn, .focus-bar .chip-btn, .focus-tabs .chip-btn, .focus-sort .chip-btn, .layer-customize, #sources-close,
       .timebar .step, .timebar .play, .panel-tab, .panel-filter-toggle, .link-btn, .focus-action, .focus-group-toggle) { position: relative; }
   :is(.top-actions .chip-btn, .focus-bar .chip-btn, .focus-tabs .chip-btn, .focus-sort .chip-btn, .layer-customize, #sources-close,
-      .timebar .step, .timebar .play, .panel-tab, .panel-filter-toggle, .link-btn, .focus-action, .focus-group-toggle, .panel-x, .ff-tab)::after {
+      .timebar .step, .timebar .play, .panel-tab, .panel-filter-toggle, .link-btn, .focus-action, .focus-group-toggle, .panel-x)::after {
     content: ""; position: absolute; left: 50%; top: 50%; width: max(100%, 44px); height: max(100%, 44px); transform: translate(-50%, -50%);
   }
   .focus-tabs .chip-btn, .focus-sort .chip-btn { min-height: 40px; }
   .focus-search { min-height: 44px; }
   .focus-action { min-width: 44px; min-height: 44px; }
+  /* Samtidigt-fliken är själv 44 px hög (som i smal skärm): en osynlig ::after på 44 px låg över årtalsknappen och stal trycket (#1713, uppföljning) */
+  .ff-tab { min-height: 44px; padding-top: 0; padding-bottom: 0; }
   .settings-rows .layer-row { min-height: 44px; }
 }

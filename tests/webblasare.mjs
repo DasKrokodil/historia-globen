@@ -4476,6 +4476,49 @@ async function run(browser, vp) {
       status: document.getElementById('screen-reader-status').textContent.trim(), focus: document.activeElement?.className ?? '' };
   });
   const coversHit = (s, b) => s.covers.some(c => b.x0 < c.x1 && b.x1 > c.x0 && b.y0 < c.y1 && b.y1 > c.y0);
+  // #1713, punkt 7: högen med bara ungefärliga platser och platsens eget namn ("Skåne ×3") liknade brickan "Hela Skåne · 4" ovanför den,
+  // som dessutom låg utanför platsen, över grannen (Halland). Högen heter nu "Ungefärlig plats i Skåne" (etiketten och aria-label), och
+  // brickan ligger inne i platsens ruta, inte över någon markör eller hög, så att den inte läses som en ort. Orter och högar med egna
+  // namn (Lund) och högar med någon exakt plats behåller sitt namn.
+  await check('regionvyn: högen med ungefärlig plats heter Ungefärlig plats i Skåne och brickan ligger inne i platsen utan att täcka markörer (#1713, punkt 7)', async () => {
+    const { tp, tctx, errs } = await placeTapPage('#y=2024&f=place:skane', 'region1713');
+    try {
+      await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+      await openRegion(tp, 'skane');
+      await regionSettled(tp);
+      await tp.waitForFunction(() => Number(document.getElementById('flat-view').dataset.regionNames ?? 0) >= 2, null, { timeout: T.step });
+      const s = await regionMarksState(tp);
+      const piles = s.buttons.filter(b => b.cls.includes('rpile'));
+      const approx = piles.filter(p => /varav (\d+) med ungefärlig plats/.exec(p.label)?.[1] === /^[^:]+: (\d+) händelser/.exec(p.label)?.[1]);
+      if (!approx.length) throw new Error(`ingen hög har bara ungefärliga platser (högarna: ${piles.map(p => p.label.split(':')[0]).join(', ')})`);
+      for (const p of approx) {
+        if (!p.label.startsWith('Ungefärlig plats i Skåne: ')) throw new Error(`högens namn är "${p.label.split(':')[0]}", ska vara "Ungefärlig plats i Skåne"`);
+      }
+      const named = await tp.evaluate(() => [...document.querySelectorAll('.region-marks .rpile')].filter(b => b.dataset.tag && b.dataset.tag !== 'none').map(b => b.querySelector('.rpile-name').textContent));
+      if (!named.includes('Ungefärlig plats i Skåne')) throw new Error(`etiketten vid högen saknas eller är avkortad (synliga namn: ${named.join(', ') || 'inga'})`);
+      const lund = piles.find(p => p.label.startsWith('Lund: '));
+      if (!lund) throw new Error('högen Lund har ändrat namn');
+      const brick = s.buttons.find(b => b.cls.includes('rbrick'));
+      if (!brick) throw new Error('brickan syns inte');
+      const hit = s.buttons.filter(b => b !== brick && /rmark|rpile/.test(b.cls)).filter(b => b.box.x0 < brick.box.x1 && b.box.x1 > brick.box.x0 && b.box.y0 < brick.box.y1 && b.box.y1 > brick.box.y0);
+      if (hit.length) throw new Error(`brickan ligger över ${hit.map(b => b.text).join(', ')}`);
+      if (coversHit(s, brick.box)) throw new Error('brickan ligger under kortet, fokusraden eller rutan');
+      // Inne i platsen: brickans mitt ligger på platsens land (kartans canvas har pergamentfärgat land och blått hav; gränsen ritas som kantlinje),
+      // mätt som att mittpunkten inte har havets färg. Utan inzoomad karta finns inget annat sätt att veta det än att läsa bildpunkten.
+      const land = await tp.evaluate(b => {
+        const c = document.getElementById('flat-canvas'), ctx = c.getContext('2d'), k = c.width / c.getBoundingClientRect().width;
+        const px = (x, y) => Array.from(ctx.getImageData(Math.round(x * k), Math.round(y * k), 1, 1).data.slice(0, 3));
+        const cy = (b.y0 + b.y1) / 2, below = px((b.x0 + b.x1) / 2, b.y1 + 6), above = px((b.x0 + b.x1) / 2, b.y0 - 6);
+        return { below, above };
+      }, brick.box);
+      const isSea = ([r, g, bl]) => bl > r + 15; // havet är blått, landet pergament (rött över blått)
+      if (isSea(land.below)) throw new Error(`under brickan syns hav (${land.below}), brickan ligger inte inne på platsen`);
+      if (await tp.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw new Error('horisontell scroll i regionvyn');
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `högen heter ${approx.map(p => p.label.split(':')[0]).join(', ')}; Lund behåller sitt namn; brickan (${Math.round(brick.box.x0)}, ${Math.round(brick.box.y0)}) ligger över land utan att täcka markörer`;
+    } finally { await tctx.close(); }
+  });
+
   // #1806: scope "wide" betyder att händelsen gäller ett större område än platsen markören ligger i. Yngre dryas gäller norra
   // halvklotet med markören i Allerød: den står inte i Danmarks platskort eller i regionvyns lista och markörer, men syns på globen.
   await check('scope wide: Yngre dryas saknas i Danmarks platskort och regionvy men markören syns på globen (#1806)', async () => {
@@ -11906,6 +11949,170 @@ async function run(browser, vp) {
     const r = await matYtor1713(false, { width: 1280, height: 800 });
     if (r.fel.length) throw new Error(r.fel.join(' | '));
     return `minst 24 px i ${r.mattes.length} ytor (1280 × 800)`;
+  });
+
+  // #1713, uppföljning: Samtidigt-fliken hade en osynlig 44 px yta (::after) som låg över datumknappen vid 800 × 360 och tog trycket på datumet,
+  // och Hjälpkortets två länkar (24 px höga, 44 px yta var) låg så tätt att ytorna gick in i varandra. Provet trycker med elementFromPoint:
+  // vid 800 × 360 ska varken Samtidigt-kortet eller fliken ligga över datumknappen (mitten och fyra punkter), fliken är 44 px hög och
+  // kortet och fliken ligger inte över årtalet; mitten av de två Hjälp-länkarna träffar länken själv och ytorna överlappar inte.
+  // Fokusraden (som i ett rikes fokus ligger över datumknappens nedre del vid 800 × 360) ingår inte i provet: den är ett eget fynd.
+  await check('Samtidigt-fliken och kortet stjäl inte trycket på datumet vid 800 × 360, och Hjälpens länkar har egna ytor (#1713, uppföljning)', async () => {
+    if (vp.width > 760) return 'körs i mobiljobbet';
+    const delar = [];
+    // 1. 800 × 360 med pekning: utan fokus, och i fokus på ett rike (Khmerriket) där Samtidigt-fliken finns kvar tills faktarutan öppnas
+    for (const [namn, hash] of [['utan fokus', '#y=1325'], ['fokus på Khmerriket', '#y=1200&f=empire:khmerriket']]) {
+      const { tp, tctx, errs } = await touchPage({ width: 800, height: 360 }, { isMobile: true });
+      try {
+        await tp.goto(`${BASE}?ny=flik1713${namn.length}${hash}`);
+        await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await tp.waitForFunction(() => { const v = id => { const e = document.getElementById(id); return !!e && !e.hidden && e.getClientRects().length > 0; }; return v('funfact') || v('ff-tab'); }, null, { timeout: T.step })
+          .catch(() => {}); // i ett rikes fokus öppnas faktarutan och döljer både kortet och fliken
+        await tp.waitForTimeout(500);
+        const mata = () => tp.evaluate(() => {
+          const rect = id => { const e = document.getElementById(id); if (!e || e.hidden || !e.getClientRects().length) return null; const r = e.getBoundingClientRect(); return { x: r.x, y: r.y, r: r.right, b: r.bottom, w: r.width, h: r.height }; };
+          const jump = document.querySelector('.year-jump'), jr = jump.getBoundingClientRect(), readout = document.querySelector('.year-readout').getBoundingClientRect();
+          const punkter = [[.5, .5], [.15, .5], [.85, .5], [.5, .15], [.5, .85]].map(([fx, fy]) => {
+            const h = document.elementFromPoint(jr.x + jr.width * fx, jr.y + jr.height * fy);
+            return { fx, fy, traff: jump.contains(h) ? 'knappen' : (h?.id || String(h?.className).slice(0, 30)) };
+          });
+          return { punkter, tab: rect('ff-tab'), card: rect('funfact'), readout: { x: readout.x, y: readout.y, r: readout.right, b: readout.bottom } };
+        });
+        const over = (a, c) => a && a.x < c.r && a.r > c.x && a.y < c.b && a.b > c.y;
+        let m = await mata();
+        const tillstand = [];
+        if (!m.tab && !m.card && namn === 'utan fokus') throw new Error(`${namn}: varken Samtidigt-kortet eller fliken syns`);
+        if (m.tab && !m.card && namn === 'utan fokus') { // kortet är ihopfällt: öppna det och mät båda lägena
+          tillstand.push('flik');
+          if (m.tab.h < 43.5) throw new Error(`${namn}: fliken är ${Math.round(m.tab.h)} px hög, ska vara minst 44`);
+          if (over(m.tab, m.readout)) throw new Error(`${namn}: fliken ligger över årtalet`);
+          const stal = m.punkter.filter(p => /ff-tab|funfact/.test(p.traff));
+          if (stal.length) throw new Error(`${namn}: fliken tar trycket på datumknappen vid ${stal.map(p => `${p.fx},${p.fy}`).join(' ')}`);
+          await tp.click('#ff-tab');
+          await tp.waitForFunction(() => { const e = document.getElementById('funfact'); return !e.hidden && e.getClientRects().length > 0; }, null, { timeout: T.step });
+          await tp.waitForTimeout(500);
+          m = await mata();
+        }
+        if (m.card) {
+          tillstand.push('kort');
+          if (over(m.card, m.readout)) throw new Error(`${namn}: Samtidigt-kortet ligger över årtalet (kortet x ${Math.round(m.card.x)}–${Math.round(m.card.r)}, y ${Math.round(m.card.y)}–${Math.round(m.card.b)})`);
+        }
+        const stal = m.punkter.filter(p => /ff-tab|funfact/.test(p.traff));
+        if (stal.length) throw new Error(`${namn}: ${tillstand.join(' och ') || 'Samtidigt'} tar trycket på datumknappen vid ${stal.map(p => `${p.fx},${p.fy}`).join(' ')}`);
+        if (namn === 'utan fokus' && m.punkter[0].traff !== 'knappen') throw new Error(`${namn}: datumknappens mitt träffar ${m.punkter[0].traff}`);
+        if (m.card && !tillstand.includes('flik')) { // kortet var öppet från början: fäll ihop det och mät fliken
+          await tp.click('#ff-min');
+          await tp.waitForFunction(() => { const e = document.getElementById('ff-tab'); return !e.hidden && e.getClientRects().length > 0; }, null, { timeout: T.step });
+          await tp.waitForTimeout(500);
+          m = await mata();
+          tillstand.push('flik');
+          if (m.tab.h < 43.5) throw new Error(`${namn}: fliken är ${Math.round(m.tab.h)} px hög, ska vara minst 44`);
+          if (over(m.tab, m.readout)) throw new Error(`${namn}: fliken ligger över årtalet`);
+          const stal2 = m.punkter.filter(p => /ff-tab|funfact/.test(p.traff));
+          if (stal2.length) throw new Error(`${namn}: fliken tar trycket på datumknappen vid ${stal2.map(p => `${p.fx},${p.fy}`).join(' ')}`);
+        }
+        if (errs.length) throw new Error(`${namn}: sidfel ${errs[0]}`);
+        delar.push(`${namn}: ${tillstand.join(' och ') || 'faktarutan ersätter kortet och fliken'}, datumet nås`);
+      } finally { await tctx.close(); }
+    }
+    // 2. Hjälp i 400 × 800: mitten av "Öppna För lärare" och "Lämna förslag" träffar länkarna själva, och 44 px-ytorna överlappar inte
+    {
+      const { tp, tctx, errs } = await touchPage({ width: 400, height: 800 }, { isMobile: true });
+      try {
+        await tp.goto(`${BASE}?lang=sv&ny=hjalp1713#y=1325`);
+        await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        if (!await tp.isVisible('#btn-help')) await tp.click('#more-toggle');
+        await tp.click('#btn-help');
+        await tp.waitForSelector('#help', { state: 'visible', timeout: T.step });
+        await tp.waitForTimeout(300);
+        const r = await tp.evaluate(() => ['help-teacher', 'help-feedback'].map(id => {
+          const e = document.getElementById(id);
+          if (!e || !e.getClientRects().length) return { id, saknas: true };
+          const b = e.getBoundingClientRect(), cx = b.x + b.width / 2, cy = b.y + b.height / 2, h = document.elementFromPoint(cx, cy);
+          const ps = getComputedStyle(e, '::after'), pb = getComputedStyle(e, '::before');
+          const yta = Math.max(b.height, ...[ps, pb].map(s => (s.content !== 'none' && s.position === 'absolute' ? parseFloat(s.height) || 0 : 0)));
+          return { id, cy, yta, traff: h === e ? 'länken' : (h?.id || String(h?.className).slice(0, 30)) };
+        }));
+        for (const l of r) {
+          if (l.saknas) throw new Error(`Hjälp: ${l.id} syns inte`);
+          if (l.traff !== 'länken') throw new Error(`Hjälp: mitten av ${l.id} träffar ${l.traff}`);
+        }
+        const glapp = r[1].cy - r[0].cy, kravs = Math.max(r[0].yta, r[1].yta) / 2 + Math.min(r[0].yta, r[1].yta) / 2 - 0.5;
+        if (glapp < kravs) throw new Error(`Hjälp: länkarnas centrum ligger ${Math.round(glapp)} px isär men ytorna (${Math.round(r[0].yta)} och ${Math.round(r[1].yta)} px) kräver ${Math.round(kravs)} px, så de överlappar`);
+        if (errs.length) throw new Error(`Hjälp: sidfel ${errs[0]}`);
+        delar.push(`Hjälp: länkarna ${Math.round(glapp)} px isär, ytorna ${Math.round(r[0].yta)} och ${Math.round(r[1].yta)} px`);
+      } finally { await tctx.close(); }
+    }
+    return delar.join('; ');
+  });
+
+  // #1713, punkt 4: platskortet och temakortet hade tidsålderns ram efter första händelsens epok. Skåne, Sverige, Danmark och Aotearoa fick
+  // grottans ram, där ockra (--ochre) på sten (--stone) ger 3,46:1 för "PLATS", rubrikerna och krediterna (under AA, 4,5:1), och Grönland
+  // fick papyrus: olika kort för samma sorts yta. Plats- och temakortet har nu det neutrala mörka kortet (utan frame-*) som rikes-, religions-
+  // och krigskorten. Provet räknar kontrasten för all synlig text i kortet (med alla hopfällda rader öppna) mot kortets bakgrund, i
+  // sidans egna färger, och kräver minst 4,5:1 och ingen epokram. Händelsekortens epokramar provas inte här och är oförändrade.
+  await check('plats- och temakort: all text har minst 4,5:1 kontrast och ingen epokram, för Skåne, Sverige, Danmark, Aotearoa, Grönland och Teknik (#1713, punkt 4)', async () => {
+    const wp = await context.newPage();
+    const errs = [];
+    wp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await wp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await wp.route(u => isFont(u.href), r => r.abort());
+      }
+      const delar = [];
+      for (const [namn, hash] of [['Skåne', '#y=1700&f=place:skane'], ['Sverige', '#y=1700&f=place:sverige'], ['Danmark', '#y=1700&f=place:danmark'],
+        ['Aotearoa', '#y=1700&f=place:aotearoa'], ['Grönland', '#y=1000&f=place:gronland'], ['temat Teknik', '#y=1850&f=theme:teknik']]) {
+        await wp.goto(`${BASE}?lang=sv&ny=kontrast1713${namn.length}${hash}`);
+        await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await wp.waitForSelector('#detail:not([hidden]) .story-label', { state: 'visible', timeout: T.step });
+        await wp.waitForTimeout(300);
+        const r = await wp.evaluate(() => {
+          const d = document.getElementById('detail');
+          d.querySelectorAll('details').forEach(x => { x.open = true; });
+          const parse = s => {
+            const cs = s.match(/color\(srgb ([^)]+)\)/);
+            if (cs) { const v = cs[1].split(/[ \/]+/).map(Number); return { r: v[0] * 255, g: v[1] * 255, b: v[2] * 255, a: v[3] ?? 1 }; }
+            const v = s.match(/rgba?\(([^)]+)\)/)[1].split(/[ ,\/]+/).map(Number);
+            return { r: v[0], g: v[1], b: v[2], a: v[3] ?? 1 };
+          };
+          const over = (f, b) => ({ r: f.r * f.a + b.r * (1 - f.a), g: f.g * f.a + b.g * (1 - f.a), b: f.b * f.a + b.b * (1 - f.a), a: 1 });
+          const lum = ({ r, g, b }) => { const f = c => { c /= 255; return c <= .03928 ? c / 12.92 : ((c + .055) / 1.055) ** 2.4; }; return .2126 * f(r) + .7152 * f(g) + .0722 * f(b); };
+          const kontrast = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p); return (x + .05) / (y + .05); };
+          // Kortets bakgrund är nästan ogenomskinlig (96 %): räknas över både svart och vitt, det sämre värdet gäller
+          const bg = parse(getComputedStyle(d).backgroundColor);
+          const under = [{ r: 0, g: 0, b: 0, a: 1 }, { r: 255, g: 255, b: 255, a: 1 }];
+          let min = 99, svagast = '', antal = 0;
+          const seen = new Set(), wk = document.createTreeWalker(d, NodeFilter.SHOW_TEXT);
+          while (wk.nextNode()) {
+            const n = wk.currentNode;
+            if (!n.textContent.trim()) continue;
+            const el = n.parentElement;
+            if (seen.has(el)) continue;
+            seen.add(el);
+            const rb = el.getBoundingClientRect();
+            if (!rb.width || !rb.height || getComputedStyle(el).visibility === 'hidden') continue;
+            let op = 1;
+            for (let e = el; e && e !== d.parentElement; e = e.parentElement) op *= parseFloat(getComputedStyle(e).opacity);
+            let eg = null;
+            for (let e = el; e && e !== d; e = e.parentElement) { const c = getComputedStyle(e).backgroundColor; if (c && !/rgba\(0, 0, 0, 0\)|transparent/.test(c)) { eg = parse(c); break; } }
+            const fg0 = parse(getComputedStyle(el).color);
+            for (const u of under) {
+              const kort = over(bg, u), grund = eg ? over(eg, kort) : kort, fg = over({ ...fg0, a: fg0.a * op }, grund), c = kontrast(fg, grund);
+              if (c < min) { min = c; svagast = `${el.tagName.toLowerCase()}.${String(el.className).slice(0, 24)} "${n.textContent.trim().slice(0, 28)}"`; }
+            }
+            antal++;
+          }
+          return { min, svagast, antal, ram: [...d.classList].filter(c => c.startsWith('frame-')) };
+        });
+        if (r.antal < 10) throw new Error(`${namn}: bara ${r.antal} texter i kortet, kortet öppnades inte som väntat`);
+        if (r.ram.length) throw new Error(`${namn}: kortet har epokramen ${r.ram.join(', ')}`);
+        if (r.min < 4.5) throw new Error(`${namn}: kontrasten är ${r.min.toFixed(2)}:1 för ${r.svagast}, under 4,5:1`);
+        delar.push(`${namn} ${r.min.toFixed(2)}:1`);
+      }
+      if (errs.length) throw new Error(`sidfel ${errs[0]}`);
+      return `minst 4,5:1 och ingen epokram: ${delar.join(', ')}`;
+    } finally { await wp.close(); }
   });
 
   // #1309: i mobil ska träffytor vara minst 44 × 44 px (själva knappen eller dess osynliga förlängning), ingen text vara under 12 px och
