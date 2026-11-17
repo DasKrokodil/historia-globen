@@ -214,25 +214,28 @@ export function brickSpot(nominal, { w, h }, covers, W, H, pad = 6) {
 
 /**
  * Ordningen som namnen prövas i: orter med händelser, sedan grannländer (först de med landgräns, sedan länder över havet inom
- * marginalen, #1690), sedan hav och övriga orter efter storlek (rank).
+ * ortmarginalen, #1690), sedan hav och övriga orter efter storlek (rank), och sist länder över havet vars namn står inom den större
+ * landsmarginalen men utanför ortmarginalen (far, till exempel Australien vid Aotearoa). De sista får alltså bara plats som blir över och tränger aldrig undan
+ * en ort eller ett hav (på en stor skärm vid Grönland syns annars en rad länder i Europa i stället för Grönlands orter).
  */
 export function namePriority(c) {
   if (c.kind === 'place') return (c.hasEvents ? 0 : 2) + (c.rank ?? 10) / 100;
-  if (c.kind === 'neighbour') return c.sea ? 1.5 : 1;
+  if (c.kind === 'neighbour') return c.far ? 3 : c.sea ? 1.5 : 1;
   return 2 + (c.rank ?? 10) / 100;
 }
 
 /**
  * Kandidaterna ur ortnamnsfilen (data/ortnamn/<plats>.json): orter, grannländer och hav, med text på sidans språk (tx), punkt och
- * om en ort har händelser (någon händelse inom NAME_KM). Ger [{ id, kind, rank, at: [lon, lat], text, hasEvents, sea }], där sea
- * säger att grannlandet ligger över havet (#1690).
+ * om en ort har händelser (någon händelse inom NAME_KM). Ger [{ id, kind, rank, at: [lon, lat], text, hasEvents, sea, far }], där sea
+ * säger att grannlandet ligger över havet och far att namnet står på en del av landet utanför ortmarginalen, inom landsmarginalen (#1690).
  */
 export function nameCandidates(doc, events, tx) {
   if (!doc) return [];
   const pts = (events ?? []).filter(e => e._lon != null).map(e => [e._lon, e._lat]);
   const out = [];
   for (const p of doc.places ?? []) out.push({ id: p.id, kind: 'place', rank: p.rank, at: p.coordinates, text: tx(p.name), hasEvents: pts.some(q => km(q, p.coordinates) <= NAME_KM) });
-  for (const nb of doc.neighbours ?? []) out.push({ id: `nb-${nb.ne}`, kind: 'neighbour', at: nb.label, text: tx(nb.name), sea: nb.sea === true });
+  for (const nb of doc.neighbours ?? []) out.push({ id: `nb-${nb.ne}`, kind: 'neighbour', at: nb.label, text: tx(nb.name), sea: nb.sea === true,
+    far: nb.far === true });
   for (const s of doc.seas ?? []) out.push({ id: s.id, kind: 'sea', rank: s.rank, at: s.label, text: tx(s.name) });
   return out.filter(c => c.text && Array.isArray(c.at)).sort((a, b) => namePriority(a) - namePriority(b));
 }
