@@ -16,8 +16,13 @@ Datum: 2026-11-17
 
 - **Avsiktliga skikt räknas inte som fel.** Samtidigt-listan är en ruta som med flit ligger över tidsreglaget och fokusraden. En knapp vars ruta ligger helt inuti den provade knappens (krysset i ett arks handtag) har sin utökade yta över dess kant med flit. De yttersta 10 px av en kant provas inte: handtaget i Samtidigt-arket tar med flit 8 px över bildernas överkant, och bilderna behåller 44 px (#1309). En knapps mitt och hörn får aldrig tas.
 - **Knappar i rullande rutor** (kort och ark) som täcks i vila av ett fast fält (handtag, knapprad) provas också rullade till mitten, överkanten och nederkanten av rutan; ger något läge fria tryck är knappen felfri, annars är den ett fel. Rullningen återställs.
-- **Teckenförklaringarna provas inte** (religioner, riken, "Tecken" under tidsskalan): de hör till #1307, som någon annan tar. Teckenförklaringens knapp (`.rl-toggle`, "Riken") ligger i liggande telefon under fokusraden: förut under tidsreglagets knappar, nu under fokusraden, eftersom `js/ui/legend.js` lägger den 8 px under årtalsplattan. Den var otillgänglig före och är det efter; läget ska lösas i #1307.
+- **Teckenförklaringarna provas inte**, utom knapparna för religioner och riken (`.rl-toggle`, "Riken", "Krigsområden") i liggande telefon i fokus (`provaTraffytor({ forklaring: true })`). I övriga lägen hör teckenförklaringarna till #1307, som någon annan tar, och "Tecken" under tidsskalan har med flit en utökad yta över skalan (#1309).
+- **Teckenförklaringens knapp i liggande telefon i fokus.** `js/ui/legend.js` lägger knappen 8 px under årtalsplattan (`.masthead`). Förut låg plattan nedanför fokusraden, så knappen hamnade vid y 251 till vänster om tidsreglagets knappar: synlig och fri, men tidsreglagets rad (`div.controls`, en genomskinlig ruta över hela bredden med högre z-index) tog trycket. När årtalet flyttades upp (beslut 1) följde knappen med och hamnade vid y 183–220, under fokusraden, så att bara "R…" syntes. Det var en försämring av den här ändringen. Lösning i CSS, bara i samma läge som årtalets förankring: teckenförklaringen ligger vid `top: calc(100dvh - 110px)` (inline-stilen från legend.js överstyrs med `!important`), alltså fritt under fokusraden, och har samma z-index som fokusraden så att tidsreglagets rad inte tar trycket. Utseendet och den öppna listan är oförändrade, och provet fångar nu att knappen täcks.
 - **Kartans markörer och etiketter på globen** (`#labels`) och tidsskalans markörer provas inte; de ligger med flit under menyer och kort.
+
+## Kvarstående
+
+Fyndet i ux-granskningen att provet inte täcker alla ytor (till exempel faktarutans knappar när Samtidigt-listan är öppen i fokus, där knapparna överst är dolda) och att Samtidigt-kortet och -listan fortfarande är låga i liggande telefon (102 och 229 px vid 800 × 360, med rullning) är kvar; de är förbättrade men inte lösta.
 
 ## Mätt före (main efter #1927, Playwright, Chromium, pekskärm för liggande och mobil)
 

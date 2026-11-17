@@ -12166,9 +12166,9 @@ async function run(browser, vp) {
         await tp.waitForTimeout(250);
       }
     };
-    const prova = async (tp, label) => {
+    const prova = async (tp, label, forklaring = false) => {
       await stilla(tp);
-      const r = await tp.evaluate(provaTraffytor);
+      const r = await tp.evaluate(provaTraffytor, { forklaring });
       if (r.fel.length) throw new Error(`${label}: ${r.fel.length} knapp(ar) tar inte själva trycket: ${r.fel.slice(0, 4).join(' | ')}`);
       if (r.knappar < 5) throw new Error(`${label}: bara ${r.knappar} knappar provades, provet mäter inte det det ska`);
       return r;
@@ -12186,7 +12186,8 @@ async function run(browser, vp) {
           await tp.waitForTimeout(700);
           if (touch && !(await tp.evaluate(() => matchMedia('(pointer: coarse)').matches))) throw new Error(`${label}: sidan har inte pointer: coarse, så provet prövar inte en telefon`);
           const delat = [];
-          const r0 = await prova(tp, label);
+          // Teckenförklaringens knapp provas i liggande telefon i fokus: den lades under fokusraden när årtalet flyttades upp (#1932)
+          const r0 = await prova(tp, label, lag && fokus);
           delat.push(`${r0.knappar} knappar`);
           if (fokus) {
             // Årtalet ligger fritt: dess nederkant ligger inte under fokusfältets överkant (fokusfältet täckte årtalets nedre del vid 800 × 360)

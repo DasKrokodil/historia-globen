@@ -1,6 +1,6 @@
 // Prov av träffytor som tar tryck av varandra (#1932). Delas av tests/webblasare.mjs och mätningar för hand.
 //
-// Provet körs i sidan (Playwright: page.evaluate(provaTraffytor, valfria undantag)) och är ett fristående funktionsuttryck: det får
+// Provet körs i sidan (Playwright: page.evaluate(provaTraffytor, { undantag: [valfria väljare], forklaring: true })) och är ett fristående funktionsuttryck: det får
 // inte använda något utanför sin egen kropp. Det går igenom varje synlig knapp, länk och sammanfattning och provtrycker med
 // document.elementFromPoint: mitten, mitten av varje kant (10 px innanför, bara för knappar som är minst 30 px höga och breda) och fyra
 // hörn (30 procent av den kortaste sidan innanför, så att hörnen ligger inom en rundad eller piller-formad knapp). Träffen ska vara
@@ -18,11 +18,14 @@
 //   - En knapp vars ruta ligger helt inuti den provade knappens ruta (krysset i ett arks handtag) har sin utökade yta över dess kant med flit.
 //   - De yttersta 10 px av en kant: handtaget i Samtidigt-arket har med flit 8 px utökad yta över bildernas överkant, och bilderna behåller
 //     då 44 px (#1309). En knapps mitt och hörn får aldrig tas.
-// Teckenförklaringarna (religioner, riken, "Tecken" under tidsskalan) hör till #1307 och provas inte här; kartans markörer och
+// Teckenförklaringarna (religioner, riken, "Tecken" under tidsskalan) hör till #1307 och provas inte här, utom knapparna för religioner och riken i
+// liggande telefon i fokus (forklaring: true); kartans markörer och
 // etiketter på globen är egna spel (klustren ligger under menyer och kort med flit).
-export function provaTraffytor(undantag = []) {
+export function provaTraffytor({ undantag = [], forklaring = false } = {}) {
   const KONTROLL = 'button, a[href], summary, [role="button"]';
-  const SKIPPA = ['.religion-legend', '#religion-legend', '.empire-legend', '#empire-legend', '.empire-legend-button', '.timeline-legend',
+  // Teckenförklaringarna provas bara när anroparen ber om det (forklaring: true), i liggande telefon i fokus, där deras knapp låg under
+  // fokusraden efter att årtalet flyttats upp (#1932). I övriga lägen är de #1307:s, och "Tecken" under tidsskalan har med flit en utökad yta över skalan.
+  const SKIPPA = [...(forklaring ? [] : ['.religion-legend', '#religion-legend', '.empire-legend', '#empire-legend', '.empire-legend-button']), '.timeline-legend',
     '#labels', '#globe-canvas', '#flat-canvas', '.tspan', '.tdot', '.tff', ...undantag].join(', ');
   const namn = e => {
     if (!e) return 'ingenting';

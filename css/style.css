@@ -3022,6 +3022,11 @@ span.theme-event:hover { background: none; outline: none; }
       i en så låg ruta rullar hela listan, rubrik och filter först, så att raderna går att nå med ett drag. */
 @media (min-width: 761px) and (max-width: 1100px) and (max-height: 480px) {
   .app.app.focusing.focus-var:not(.lesson):not(.lesson-notice):not(.touring) .masthead { top: auto; bottom: calc(var(--focus-top) + 6px); margin-top: 0; }
+  /* Teckenförklaringens knapp (Riken, Krigsområden) lades av js/ui/legend.js 8 px under årtalsplattan och hamnade då under fokusraden. Den ligger
+     i stället fri under raden, till vänster om tidsreglagets knappar, där den låg förut (fokusraden slutar 118 px över kanten). Den ligger också över
+     tidsreglagets rad (z-index som fokusraden): raden är en genomskinlig ruta över hela bredden som annars tog trycket på knappen. Inline-stilen top
+     från legend.js måste överstyras; utseendet och den öppna listan är oförändrade. */
+  .app.app.focusing.focus-var:not(.lesson):not(.lesson-notice):not(.touring) .religion-legend { top: calc(100dvh - 110px) !important; z-index: var(--z-fokus); }
 }
 @media (min-width: 761px) and (max-height: 480px) {
   .funfact { max-height: calc(100dvh - 140px - 118px); }
