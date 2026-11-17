@@ -2574,6 +2574,8 @@ details.used-by summary:hover { color: var(--parchment); }
     /* Raden radbryts (#1134): hela meningen ska synas på 400 px, på alla språk, i stället för att klippas med ellips */
     margin: 3px 0 0; font-size: 10px; letter-spacing: .05em; line-height: 1.35; white-space: normal; overflow-wrap: anywhere;
   }
+  /* Teckenförklaringen får använda två korta rader i mobil i stället för att klippas vid 400 px (#1307). */
+  .timeline-legend { height: auto; min-height: 14px; flex-wrap: wrap; column-gap: 10px; row-gap: 2px; white-space: normal; overflow: visible; }
   /* Mobilmenyn (#530): bara Samtidigt och Meny i raden överst. Resten ligger i en nedfällbar panel under Meny. */
   .top-actions { flex-direction: row; flex-wrap: nowrap; align-items: center; gap: 3px; top: calc(env(safe-area-inset-top, 0px) + 6px); }
   /* 40 px synligt, 46 px tryckyta (::after räknas från knappens insida, innanför ramen) */
