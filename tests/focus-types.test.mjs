@@ -290,13 +290,18 @@ test('jaktens kontroll är gemensam för tema och plats och räknar världsdelar
   assert.equal(ok.message.textContent, '');
 });
 
-test('platsens text om en omöjlig jakt finns på alla fem språken, i du-form (elevtext, #1439)', () => {
-  const du = { sv: /\bdu\b/, en: /\bif you\b/, de: /\bFolge\b.*\bwillst\b/, es: /\bDeja de seguir\b.*\bquieres\b/, fr: /\bsuis\b.*\bveux\b/ }; // Sluta följa platsen (#1790)
+test('platsens text om en omöjlig jakt finns på alla fem språken och är opersonlig där tilltalet delas (#1439, #1710)', () => {
+  const directAddress = {
+    en: /\b(?:you|your)\b/i,
+    de: /\b(?:du|dich|dir|dein(?:e|en|em|er|es)?|Sie|Ihnen|Ihr(?:e|en|em|er|es)?)\b/,
+    es: /\b(?:tú|tu|te|ti|usted|ustedes|vosotros|vosotras|os|su|sus)\b/i,
+    fr: /\b(?:tu|te|toi|vous|votre|vos)\b/i
+  };
   for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
     const texts = json(`data/ui/${lang}.json`);
     assert.ok(texts['place.huntImpossible'], `${lang}: place.huntImpossible`);
-    assert.match(texts['place.huntImpossible'], du[lang], `${lang}: du-form`);
     assert.notEqual(texts['place.huntImpossible'], texts['theme.huntImpossible'], `${lang}: egen text för platsen`);
+    if (lang !== 'sv') assert.doesNotMatch(texts['place.huntImpossible'], directAddress[lang], `${lang}: opersonligt tilltal`);
   }
 });
 
