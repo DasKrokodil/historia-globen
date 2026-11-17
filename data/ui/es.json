@@ -596,6 +596,7 @@
   "review.subject.Området": "Zona",
   "review.subjectHelp.Området": "El estado se refiere a la ficha y el relato de la zona. La frontera es un modelo de los investigadores, no una frontera estatal conocida. Cada acontecimiento tiene su propio estado en su ficha.",
   "facts.milestones": "Años clave",
+  "facts.yearAt": "Año {year}",
   "facts.stateReligion": "Religión de Estado en imperios",
   "facts.aboutMap": "Sobre el mapa",
   "facts.aboutMapInline": "Sobre el mapa:",

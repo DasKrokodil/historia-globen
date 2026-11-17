@@ -54,7 +54,7 @@ export function createFacts(app) {
     if (!r?.facts) return false;
     const origin = data.byId[r.facts.origin];
     app.store.setSelected(origin?.id ?? null);
-    panel.showReligion(r, origin, { type: 'religion', id: r.id, label: t(r.name), year: Math.round(timeline.year) });
+    panel.showReligion(r, origin, { type: 'religion', id: r.id, label: t(r.name), year: Math.round(timeline.year) }, Math.round(timeline.year));
     // Menyerna stängs så att faktarutan och punkten syns
     app.surfaces.closeAll({ narrow: app.narrow.matches });
     if (origin && fly) globe.flyTo(origin._lat, origin._lon);
@@ -96,7 +96,7 @@ export function createFacts(app) {
     const lineage = g.vanished && !own ? { ...g.vanished, groups: data.empireGroups } : null;
     // Område som inte är en stat (#1300): kortet säger typordet och aldrig "rike"; rapporten behåller typen empire (feedback-rules.js)
     const kind = lineage ? 'vanished' : g.areaKind ? 'area' : 'empire';
-    panel.showFacts({ kind, kindWord: areaKindWord(g.areaKind), name: t(own ? polity.name : g.name), color: g.color, facts, place, curveId, empireId: own || g.areaKind ? null : g.id,
+    panel.showFacts({ kind, kindWord: areaKindWord(g.areaKind), name: t(own ? polity.name : g.name), color: g.color, facts, place, curveId, empireId: own || g.areaKind ? null : g.id, year: Math.round(timeline.year),
       symbol: sym, symbolKind, wars, lineage,
       empireMap: !!g.file,
       report: { type: lineage ? 'vanished-country' : 'empire', id: own ? polity.id : g.id, label: t(own ? polity.name : g.name), year: Math.round(timeline.year) },

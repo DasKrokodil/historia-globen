@@ -596,6 +596,7 @@
   "review.subject.Området": "Area",
   "review.subjectHelp.Området": "The status applies to the area’s fact box and story. The border is the researchers’ model, not a known state border. Each event has its own status in its fact box.",
   "facts.milestones": "Key years",
+  "facts.yearAt": "Year {year}",
   "facts.stateReligion": "State religion in empires",
   "facts.aboutMap": "About the map",
   "facts.aboutMapInline": "About the map:",

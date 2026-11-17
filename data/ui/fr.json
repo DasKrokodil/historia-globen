@@ -596,6 +596,7 @@
   "review.subject.Området": "Zone",
   "review.subjectHelp.Området": "Le statut porte sur la fiche et le récit de la zone. La frontière est un modèle des chercheurs, pas une frontière d’État connue. Chaque événement a son propre statut dans sa fiche.",
   "facts.milestones": "Années clés",
+  "facts.yearAt": "Année {year}",
   "facts.stateReligion": "Religion d’État dans les empires",
   "facts.aboutMap": "À propos de la carte",
   "facts.aboutMapInline": "À propos de la carte :",

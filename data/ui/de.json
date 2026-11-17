@@ -596,6 +596,7 @@
   "review.subject.Området": "Gebiet",
   "review.subjectHelp.Området": "Der Status gilt für Faktenfeld und Geschichte des Gebiets. Die Grenze ist ein Modell der Forschung, keine bekannte Staatsgrenze. Jedes Ereignis hat in seinem Faktenfeld einen eigenen Status.",
   "facts.milestones": "Schlüsseljahre",
+  "facts.yearAt": "Jahr {year}",
   "facts.stateReligion": "Staatsreligion in Reichen",
   "facts.aboutMap": "Über die Karte",
   "facts.aboutMapInline": "Über die Karte:",
