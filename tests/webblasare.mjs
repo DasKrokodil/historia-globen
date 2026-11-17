@@ -9923,9 +9923,11 @@ async function run(browser, vp) {
       }
       // Stil-gruppen (#1577, #1917) är ett eget block under Vy: hela gruppen och Upptäcktsresor-knappen ska vara dolda med display:none, så att
       // de inte heller går att nå med tangentbord. Regeln kontrolleras direkt eftersom Meny-panelen kan vara stängd.
-      for (const sel of ['.view-mode', '.style-mode', '#btn-discovery']) {
+      for (const sel of ['.view-mode', '.style-mode']) {
         if (await lessonPage.evaluate(s => getComputedStyle(document.querySelector(s)).display, sel) !== 'none') throw new Error(`${sel} är inte dold i lektionsläget (Stil-knappen får inte nås av elever)`);
       }
+      // Knappen själv ärver bara dolden från gruppen: ingen yta (ingen tangentbordsfokus) och gruppen ovan är dold.
+      if (await lessonPage.evaluate(() => document.getElementById('btn-discovery').getClientRects().length) !== 0) throw new Error('#btn-discovery har en yta i lektionsläget (Stil-knappen får inte nås av elever)');
       // Knappen ligger i Mer-menyn och har ingen yta medan den är stängd: kontrollera själva regeln, inte om den syns.
       // För lärare är ingången till Quiz och Samtidighetsjakten (#1575) och är dold för eleverna.
       if (await lessonPage.evaluate(() => getComputedStyle(document.getElementById('btn-teacher')).display) !== 'none') throw new Error('#btn-teacher är inte dold i lektionsläget');
