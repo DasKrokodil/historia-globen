@@ -1980,6 +1980,147 @@ async function run(browser, vp) {
     } finally { await fp.close(); }
   });
 
+  // #1867 (beslut 2026-11-17): kortet öppnas när besökaren startar uppspelningen med Spela, och inte av något annat som flyttar tiden. Den
+  // automatiska öppningen sparas inte som besökarens val (hg-ff-min), ett kort som besökaren stänger står stängt, ett medvetet ihopfällt kort
+  // ger ingen paus och ett redan öppet kort förblir öppet.
+  await check('Visste du?-kortet öppnas när Spela trycks, inte av andra tidsbyten, och öppningen sparas inte (#1867)', async () => {
+    const mobile = vp.width <= 760;
+    const fp = await context.newPage();
+    const fpAw = abortWatch(fp);
+    const errs = [];
+    fp.on('pageerror', e => { if (!fpAw.defer(e.message)) errs.push(e.message); });
+    // Utan sparat val som en ny besökare (kontextens startskript låtsas annars att kortet har öppnats). Flaggan släpper fram ett val som kontrollen själv sätter.
+    await fp.addInitScript(() => { try { if (!sessionStorage.getItem('prov1867b')) localStorage.removeItem('hg-ff-min'); } catch { /* utan lagring */ } });
+    const saved = () => fp.evaluate(() => { try { return localStorage.getItem('hg-ff-min'); } catch { return 'ingen lagring'; } });
+    const open = () => fp.evaluate(m => { const ff = document.getElementById('funfact'); return !ff.hidden && ff.getClientRects().length > 0 && !(m && ff.classList.contains('ff-s-closed')); }, mobile);
+    const frames = () => fp.evaluate(() => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(() => setTimeout(r, 150)))));
+    const yearNow = () => fp.evaluate(() => Number(document.getElementById('year-big').textContent.replace(/\s/g, '')));
+    const playLabel = () => fp.getAttribute('#btn-play', 'aria-label');
+    const pauseNote = () => fp.evaluate(() => { const n = document.getElementById('pause-note'); return n && !n.hidden ? n.textContent.replace(/\s+/g, ' ').trim() : ''; });
+    const atCard = () => fp.waitForFunction(() => { const n = document.getElementById('pause-note'); return n && !n.hidden && n.textContent.includes('Pausad vid ett nytt Visste du?-kort'); }, null, { timeout: T.step });
+    const cardOpen = () => fp.waitForFunction(m => { const ff = document.getElementById('funfact'); return !ff.hidden && !(m && ff.classList.contains('ff-s-closed')); }, mobile, { timeout: T.step });
+    const pastTarget = yr => fp.waitForFunction(y => Number(document.getElementById('year-big').textContent.replace(/\s/g, '')) > y || document.getElementById('btn-play').getAttribute('aria-label') !== 'Pausa', yr, { timeout: T.step });
+    const load = async hash => {
+      await fpAw.goto(`${BASE}?ny=1867b-${Date.now()}${hash}`);
+      await fp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      if (await fp.isVisible('#intro')) await fp.click('#intro-close');
+      if (await fp.isVisible('#help')) await fp.click('#help-close');
+      await fp.waitForFunction(() => document.getElementById('btn-play').getAttribute('aria-label') === 'Spela upp tiden', null, { timeout: T.step });
+      // Pausen vid nya kort är ett val i Inställningar: den ska vara på, och är det som standard
+      await fp.evaluate(() => { const box = document.querySelector('input[data-pause="funfacts"]'); if (box && !box.checked) box.click(); });
+      // Långsamt (1 år/s), så att kontrollen hinner stänga kortet före nästa kort; programmatiska tryck är snabbare än pekaren i en långsam sida
+      for (let i = 0; i < 6 && !(await fp.textContent('#btn-speed')).includes('1 år/s'); i++) await fp.evaluate(() => document.getElementById('btn-speed').click());
+      if (!(await fp.textContent('#btn-speed')).includes('1 år/s')) throw new Error('kunde inte välja 1 år/s');
+    };
+    const closeCard = async () => {
+      if (!mobile) { await fp.evaluate(() => document.getElementById('ff-min').click()); return; }
+      for (let i = 0; i < 3 && await open(); i++) await fp.evaluate(() => document.getElementById('ff-handle').click()); // handtaget stegar halv, hel, stängd
+    };
+    try {
+      if (THREE_LOCAL) {
+        await fp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+        await fp.route(u => isFont(u.href), r => r.abort());
+      }
+      // Ett kort som dyker upp ett år, med ett stilla fönster före det: uppspelningen från fem år före hinner öppna och stänga kortet som syns
+      await fpAw.goto(`${BASE}?ny=1867b-${Date.now()}`);
+      const target = await fp.evaluate(async () => {
+        const [factDoc, eventDoc] = await Promise.all([fetch('./data/funfacts.json').then(r => r.json()), fetch('./data/events.json').then(r => r.json())]);
+        const byId = new Map(eventDoc.events.map(e => [e.id, e]));
+        const warYears = eventDoc.events.filter(e => e.kind === 'war').map(e => e.start);
+        const ok = f => f.review !== 'draft' && f.kind !== 'empire' && Number.isInteger(f.show?.[0]) && f.events?.length && f.events.every(id => byId.has(id));
+        // Ett kort B som är nytt år B, med ett annat kort som syns fem år före (så att kortet syns när Spela trycks) och inget annat nytt kort
+        // eller krig som bryter ut däremellan
+        const fact = factDoc.funfacts
+          .filter(b => ok(b) && b.show[0] >= 1000 && b.show[0] <= 1900)
+          .filter(b => {
+            const from = b.show[0] - 5;
+            return !warYears.some(y => y >= from - 1 && y <= b.show[0] + 3)
+              && !factDoc.funfacts.some(o => o !== b && o.show?.[0] > from && o.show[0] <= b.show[0])
+              && factDoc.funfacts.some(a => a !== b && ok(a) && a.show[0] <= from && a.show[1] >= from);
+          })
+          .sort((a, b) => a.show[0] - b.show[0])[0];
+        return fact ? { id: fact.id, year: fact.show[0] } : null;
+      });
+      if (!target) throw new Error('hittade inget kort att testa');
+      const before = `#y=${target.year - 5}`;
+
+      // 1. Ny besökare: kortet är litet. Inget som flyttar tiden utan Spela öppnar det: steg, tangentbord, tryck och drag på reglaget, hopp via adressen
+      await load(before);
+      if (await open()) throw new Error('kortet är öppet vid start för en ny besökare');
+      await fp.evaluate(() => { for (const s of ['1', '-1']) document.querySelector(`.step[data-step="${s}"]`).click(); });
+      await frames();
+      if (await open()) throw new Error('+1/−1 öppnade kortet');
+      await fp.focus('#track');
+      for (const k of ['ArrowRight', 'ArrowLeft', 'PageUp', 'PageDown']) await fp.keyboard.press(k);
+      await frames();
+      if (await open()) throw new Error('tangentbordet på reglaget öppnade kortet');
+      const box = await fp.locator('#track').boundingBox();
+      const y = box.y + box.height / 2;
+      await fp.mouse.click(box.x + box.width * 0.6, y);
+      await fp.mouse.move(box.x + box.width * 0.7, y); await fp.mouse.down();
+      await fp.mouse.move(box.x + box.width * 0.55, y, { steps: 4 }); await fp.mouse.up();
+      await frames();
+      if (await open()) throw new Error('drag och tryck på reglaget öppnade kortet');
+      await fp.evaluate(() => { location.hash = '#y=1400'; });
+      await fp.waitForFunction(() => document.getElementById('year-big').textContent.replace(/\s/g, '') === '1400', null, { timeout: T.step });
+      await frames();
+      if (await open()) throw new Error('ett årshopp i adressen öppnade kortet');
+      if (await saved() !== null) throw new Error(`ett val sparades utan att besökaren valt: ${await saved()}`);
+
+      // 2. Spela öppnar kortet, pausen vid nya kort fungerar, och öppningen sparas inte
+      await load(before);
+      await fp.click('#btn-play');
+      await cardOpen();
+      if (await saved() !== null) throw new Error(`den automatiska öppningen sparades som besökarens val: hg-ff-min = ${await saved()}`);
+      await atCard();
+      if (!(await open())) throw new Error('kortet är inte öppet vid pausen');
+      if (await saved() !== null) throw new Error(`hg-ff-min ändrades under uppspelningen: ${await saved()}`);
+
+      // 3. Stänger besökaren kortet under uppspelningen står det stängt: ingen ny öppning, ingen paus. Valet sparas (det är besökarens)
+      await load(before);
+      await fp.click('#btn-play');
+      await cardOpen();
+      await closeCard();
+      if (await open()) throw new Error('kortet gick inte att stänga under uppspelningen');
+      if (await saved() !== '1') throw new Error(`besökarens eget stängande sparades inte: ${await saved()}`);
+      await pastTarget(target.year);
+      if (await playLabel() !== 'Pausa' || await pauseNote()) throw new Error(`uppspelningen pausade vid ett stängt kort: paus [${await pauseNote()}] knapp [${await playLabel()}], år ${await yearNow()}`);
+      if (await open()) throw new Error('kortet öppnades igen under samma uppspelning');
+      await fp.click('#btn-play'); // pausa
+      await fp.click('#btn-play'); // spela igen
+      await frames();
+      if (await open()) throw new Error('ett stängt kort öppnades av nästa Spela');
+      await fp.click('#btn-play');
+
+      // 4. Medvetet ihopfällt kort (sparat val): Spela öppnar det inte och uppspelningen pausar inte vid nya kort
+      await fp.evaluate(() => { try { sessionStorage.setItem('prov1867b', '1'); localStorage.setItem('hg-ff-min', '1'); } catch { /* */ } });
+      await load(before);
+      await fp.click('#btn-play');
+      await frames();
+      if (await open()) throw new Error('Spela öppnade ett kort som besökaren har fällt ihop');
+      await pastTarget(target.year);
+      if (await playLabel() !== 'Pausa' || await pauseNote()) throw new Error(`pausade vid ett ihopfällt kort: paus [${await pauseNote()}] knapp [${await playLabel()}]`);
+      if (await saved() !== '1') throw new Error(`det sparade valet ändrades: ${await saved()}`);
+      await fp.click('#btn-play');
+
+      // 5. Ett kort som besökaren har öppnat (sparat val) förblir öppet, utan att valet ändras, och pausar som förut
+      await fp.evaluate(() => { try { localStorage.setItem('hg-ff-min', '0'); } catch { /* */ } });
+      await load(before);
+      if (!(await open())) throw new Error('ett sparat öppet kort är litet vid start');
+      await fp.click('#btn-play');
+      await atCard();
+      if (!(await open()) || await saved() !== '0') throw new Error(`öppet kort efter Spela: ${await open()}, valet ${await saved()}`);
+      await fp.evaluate(() => { try { sessionStorage.removeItem('prov1867b'); } catch { /* */ } });
+
+      errs.push(...fpAw.settle());
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return `kortet startar litet, steg, tangentbord, drag och adresshopp öppnar det inte, Spela öppnar det (utan att spara) och pausen vid kort ${target.year} fungerar, stängt kort står stängt, ihopfällt kort ger ingen paus, öppet kort förblir öppet`;
+    } finally {
+      if (await fp.getAttribute('#btn-play', 'aria-label').catch(() => '') === 'Pausa') await fp.click('#btn-play').catch(() => {});
+      await fp.close();
+    }
+  });
+
   await check('områden som inte är en stat: mönster, teckenförklaring och faktaruta (#1300)', async () => {
     if (vp.width <= 760) return 'körs i datorjobbet';
     const ap = await context.newPage();

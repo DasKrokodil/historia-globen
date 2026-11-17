@@ -348,11 +348,22 @@ export function createPlayback(app) {
   $('focus-action').addEventListener('click', () => {
     if ($('focus-action').dataset.action === 'pause') timeline.pause();
     else if ($('focus-action').dataset.action === 'finish') playToEnd();
-    else timeline.play();
+    else timeline.play({ byUser: true });
     showNextPause();
   });
+  // Visste du?-kortet öppnas när besökaren startar uppspelningen med Spela (#1867), och bara då: drag i reglaget, steg, årshopp, turer,
+  // länkar och Fokus öppnar det inte, eftersom de flyttar tiden utan 'userplay'. Programmatiska starter (nedräkningen som fortsätter
+  // själv, Spela klart) anropar play() utan byUser. Fortsätt efter en automatisk paus (resumed) och Spela klart öppnar inget:
+  // där ska ett kort som besökaren har stängt stå stängt. Under en tur (klassen touring) och när platskortet (stängregistret
+  // js/surfaces.js, gruppen kort) eller faktarutan är öppen har en annan yta företräde, och kortet tvingas inte fram.
+  timeline.addEventListener('userplay', e => {
+    if (e.detail.resumed || finishing) return;
+    if ($('app').classList.contains('touring') || app.store.active('tur') || app.store.active('lektion')) return;
+    if (app.surfaces.anyOpen('kort') || ff.detailOpen) return;
+    ff.openForPlay();
+  });
   // Uppspelningen stannar vid en ny fun fact, så att man hinner läsa. Play fortsätter.
-  // Ihopfällt kort: ingen paus, eftersom kortet inte syns
+  // Ihopfällt kort: ingen paus, eftersom kortet inte syns. Spela öppnar ett litet kort som besökaren inte själv har valt (ff.openForPlay, #1867)
   // I fokusläget pausar uppspelningen som standard bara vid det man följer; Samtidigt-pausen är där ett eget val (#234)
   // Med valet "Fortsätt själv" (på som standard, #578) räknas pausen ned och uppspelningen fortsätter av sig själv.
   ff.onNew = () => {
