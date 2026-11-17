@@ -2991,6 +2991,17 @@ span.theme-event:hover { background: none; outline: none; }
   .app.app.focusing.focus-var .detail-card { max-height: calc(100dvh - var(--focus-top) - 8px - 12px - 30px); }
 }
 
+/* Bred och låg (800 × 360, #1713 punkt 5): Samtidigt-kortet (Visste du?) och dess flik ligger nere till vänster, där årtalet står när ytan är så
+   låg (årtalet ligger under knapparna överst, cirka y 154–211, och kortet cirka y 150–220), så kortet täckte årtalet. Uppmätt i Playwright på
+   800 × 360 för 2601 f.Kr. och 1325. Kortet börjar därför till höger om årtalet (cirka 206 px med "f.Kr."; 216 px med luft) och är lika bredd som
+   förut. Medan faktarutan är öppen ligger den i högerkanten där kortet nu skulle hamna: då döljs kortet och fliken som i smal layout
+   (rad 1822, "faktarutan och fun fact-kortet delar plats"). */
+@media (min-width: 761px) and (max-height: 480px) {
+  .funfact, .ff-tab { left: calc(var(--gut) + 216px); }
+  .funfact { width: min(380px, calc(100vw - var(--gut) - 216px - var(--gut-r))); }
+  .app.has-detail .funfact, .app.has-detail .ff-tab { display: none; }
+}
+
 /* Raden om projektet sist i Om källorna (#1575) */
 .src-about { margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--line); font-size: 13px; color: var(--parchment-dim); }
 .src-about a { color: var(--brass); }
