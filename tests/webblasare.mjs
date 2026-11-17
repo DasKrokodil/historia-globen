@@ -4476,6 +4476,49 @@ async function run(browser, vp) {
       status: document.getElementById('screen-reader-status').textContent.trim(), focus: document.activeElement?.className ?? '' };
   });
   const coversHit = (s, b) => s.covers.some(c => b.x0 < c.x1 && b.x1 > c.x0 && b.y0 < c.y1 && b.y1 > c.y0);
+  // #1713, punkt 7: högen med bara ungefärliga platser och platsens eget namn ("Skåne ×3") liknade brickan "Hela Skåne · 4" ovanför den,
+  // som dessutom låg utanför platsen, över grannen (Halland). Högen heter nu "Ungefärlig plats i Skåne" (etiketten och aria-label), och
+  // brickan ligger inne i platsens ruta, inte över någon markör eller hög, så att den inte läses som en ort. Orter och högar med egna
+  // namn (Lund) och högar med någon exakt plats behåller sitt namn.
+  await check('regionvyn: högen med ungefärlig plats heter Ungefärlig plats i Skåne och brickan ligger inne i platsen utan att täcka markörer (#1713, punkt 7)', async () => {
+    const { tp, tctx, errs } = await placeTapPage('#y=2024&f=place:skane', 'region1713');
+    try {
+      await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+      await openRegion(tp, 'skane');
+      await regionSettled(tp);
+      await tp.waitForFunction(() => Number(document.getElementById('flat-view').dataset.regionNames ?? 0) >= 2, null, { timeout: T.step });
+      const s = await regionMarksState(tp);
+      const piles = s.buttons.filter(b => b.cls.includes('rpile'));
+      const approx = piles.filter(p => /varav (\d+) med ungefärlig plats/.exec(p.label)?.[1] === /^[^:]+: (\d+) händelser/.exec(p.label)?.[1]);
+      if (!approx.length) throw new Error(`ingen hög har bara ungefärliga platser (högarna: ${piles.map(p => p.label.split(':')[0]).join(', ')})`);
+      for (const p of approx) {
+        if (!p.label.startsWith('Ungefärlig plats i Skåne: ')) throw new Error(`högens namn är "${p.label.split(':')[0]}", ska vara "Ungefärlig plats i Skåne"`);
+      }
+      const named = await tp.evaluate(() => [...document.querySelectorAll('.region-marks .rpile')].filter(b => b.dataset.tag && b.dataset.tag !== 'none').map(b => b.querySelector('.rpile-name').textContent));
+      if (!named.includes('Ungefärlig plats i Skåne')) throw new Error(`etiketten vid högen saknas eller är avkortad (synliga namn: ${named.join(', ') || 'inga'})`);
+      const lund = piles.find(p => p.label.startsWith('Lund: '));
+      if (!lund) throw new Error('högen Lund har ändrat namn');
+      const brick = s.buttons.find(b => b.cls.includes('rbrick'));
+      if (!brick) throw new Error('brickan syns inte');
+      const hit = s.buttons.filter(b => b !== brick && /rmark|rpile/.test(b.cls)).filter(b => b.box.x0 < brick.box.x1 && b.box.x1 > brick.box.x0 && b.box.y0 < brick.box.y1 && b.box.y1 > brick.box.y0);
+      if (hit.length) throw new Error(`brickan ligger över ${hit.map(b => b.text).join(', ')}`);
+      if (coversHit(s, brick.box)) throw new Error('brickan ligger under kortet, fokusraden eller rutan');
+      // Inne i platsen: brickans mitt ligger på platsens land (kartans canvas har pergamentfärgat land och blått hav; gränsen ritas som kantlinje),
+      // mätt som att mittpunkten inte har havets färg. Utan inzoomad karta finns inget annat sätt att veta det än att läsa bildpunkten.
+      const land = await tp.evaluate(b => {
+        const c = document.getElementById('flat-canvas'), ctx = c.getContext('2d'), k = c.width / c.getBoundingClientRect().width;
+        const px = (x, y) => Array.from(ctx.getImageData(Math.round(x * k), Math.round(y * k), 1, 1).data.slice(0, 3));
+        const cy = (b.y0 + b.y1) / 2, below = px((b.x0 + b.x1) / 2, b.y1 + 6), above = px((b.x0 + b.x1) / 2, b.y0 - 6);
+        return { below, above };
+      }, brick.box);
+      const isSea = ([r, g, bl]) => bl > r + 15; // havet är blått, landet pergament (rött över blått)
+      if (isSea(land.below)) throw new Error(`under brickan syns hav (${land.below}), brickan ligger inte inne på platsen`);
+      if (await tp.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw new Error('horisontell scroll i regionvyn');
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `högen heter ${approx.map(p => p.label.split(':')[0]).join(', ')}; Lund behåller sitt namn; brickan (${Math.round(brick.box.x0)}, ${Math.round(brick.box.y0)}) ligger över land utan att täcka markörer`;
+    } finally { await tctx.close(); }
+  });
+
   // #1806: scope "wide" betyder att händelsen gäller ett större område än platsen markören ligger i. Yngre dryas gäller norra
   // halvklotet med markören i Allerød: den står inte i Danmarks platskort eller i regionvyns lista och markörer, men syns på globen.
   await check('scope wide: Yngre dryas saknas i Danmarks platskort och regionvy men markören syns på globen (#1806)', async () => {
@@ -12000,6 +12043,76 @@ async function run(browser, vp) {
       } finally { await tctx.close(); }
     }
     return delar.join('; ');
+  });
+
+  // #1713, punkt 4: platskortet och temakortet hade tidsålderns ram efter första händelsens epok. Skåne, Sverige, Danmark och Aotearoa fick
+  // grottans ram, där ockra (--ochre) på sten (--stone) ger 3,46:1 för "PLATS", rubrikerna och krediterna (under AA, 4,5:1), och Grönland
+  // fick papyrus: olika kort för samma sorts yta. Plats- och temakortet har nu det neutrala mörka kortet (utan frame-*) som rikes-, religions-
+  // och krigskorten. Provet räknar kontrasten för all synlig text i kortet (med alla hopfällda rader öppna) mot kortets bakgrund, i
+  // sidans egna färger, och kräver minst 4,5:1 och ingen epokram. Händelsekortens epokramar provas inte här och är oförändrade.
+  await check('plats- och temakort: all text har minst 4,5:1 kontrast och ingen epokram, för Skåne, Sverige, Danmark, Aotearoa, Grönland och Teknik (#1713, punkt 4)', async () => {
+    const wp = await context.newPage();
+    const errs = [];
+    wp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await wp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await wp.route(u => isFont(u.href), r => r.abort());
+      }
+      const delar = [];
+      for (const [namn, hash] of [['Skåne', '#y=1700&f=place:skane'], ['Sverige', '#y=1700&f=place:sverige'], ['Danmark', '#y=1700&f=place:danmark'],
+        ['Aotearoa', '#y=1700&f=place:aotearoa'], ['Grönland', '#y=1000&f=place:gronland'], ['temat Teknik', '#y=1850&f=theme:teknik']]) {
+        await wp.goto(`${BASE}?lang=sv&ny=kontrast1713${namn.length}${hash}`);
+        await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await wp.waitForSelector('#detail:not([hidden]) .story-label', { state: 'visible', timeout: T.step });
+        await wp.waitForTimeout(300);
+        const r = await wp.evaluate(() => {
+          const d = document.getElementById('detail');
+          d.querySelectorAll('details').forEach(x => { x.open = true; });
+          const parse = s => {
+            const cs = s.match(/color\(srgb ([^)]+)\)/);
+            if (cs) { const v = cs[1].split(/[ \/]+/).map(Number); return { r: v[0] * 255, g: v[1] * 255, b: v[2] * 255, a: v[3] ?? 1 }; }
+            const v = s.match(/rgba?\(([^)]+)\)/)[1].split(/[ ,\/]+/).map(Number);
+            return { r: v[0], g: v[1], b: v[2], a: v[3] ?? 1 };
+          };
+          const over = (f, b) => ({ r: f.r * f.a + b.r * (1 - f.a), g: f.g * f.a + b.g * (1 - f.a), b: f.b * f.a + b.b * (1 - f.a), a: 1 });
+          const lum = ({ r, g, b }) => { const f = c => { c /= 255; return c <= .03928 ? c / 12.92 : ((c + .055) / 1.055) ** 2.4; }; return .2126 * f(r) + .7152 * f(g) + .0722 * f(b); };
+          const kontrast = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p); return (x + .05) / (y + .05); };
+          // Kortets bakgrund är nästan ogenomskinlig (96 %): räknas över både svart och vitt, det sämre värdet gäller
+          const bg = parse(getComputedStyle(d).backgroundColor);
+          const under = [{ r: 0, g: 0, b: 0, a: 1 }, { r: 255, g: 255, b: 255, a: 1 }];
+          let min = 99, svagast = '', antal = 0;
+          const seen = new Set(), wk = document.createTreeWalker(d, NodeFilter.SHOW_TEXT);
+          while (wk.nextNode()) {
+            const n = wk.currentNode;
+            if (!n.textContent.trim()) continue;
+            const el = n.parentElement;
+            if (seen.has(el)) continue;
+            seen.add(el);
+            const rb = el.getBoundingClientRect();
+            if (!rb.width || !rb.height || getComputedStyle(el).visibility === 'hidden') continue;
+            let op = 1;
+            for (let e = el; e && e !== d.parentElement; e = e.parentElement) op *= parseFloat(getComputedStyle(e).opacity);
+            let eg = null;
+            for (let e = el; e && e !== d; e = e.parentElement) { const c = getComputedStyle(e).backgroundColor; if (c && !/rgba\(0, 0, 0, 0\)|transparent/.test(c)) { eg = parse(c); break; } }
+            const fg0 = parse(getComputedStyle(el).color);
+            for (const u of under) {
+              const kort = over(bg, u), grund = eg ? over(eg, kort) : kort, fg = over({ ...fg0, a: fg0.a * op }, grund), c = kontrast(fg, grund);
+              if (c < min) { min = c; svagast = `${el.tagName.toLowerCase()}.${String(el.className).slice(0, 24)} "${n.textContent.trim().slice(0, 28)}"`; }
+            }
+            antal++;
+          }
+          return { min, svagast, antal, ram: [...d.classList].filter(c => c.startsWith('frame-')) };
+        });
+        if (r.antal < 10) throw new Error(`${namn}: bara ${r.antal} texter i kortet, kortet öppnades inte som väntat`);
+        if (r.ram.length) throw new Error(`${namn}: kortet har epokramen ${r.ram.join(', ')}`);
+        if (r.min < 4.5) throw new Error(`${namn}: kontrasten är ${r.min.toFixed(2)}:1 för ${r.svagast}, under 4,5:1`);
+        delar.push(`${namn} ${r.min.toFixed(2)}:1`);
+      }
+      if (errs.length) throw new Error(`sidfel ${errs[0]}`);
+      return `minst 4,5:1 och ingen epokram: ${delar.join(', ')}`;
+    } finally { await wp.close(); }
   });
 
   // #1309: i mobil ska träffytor vara minst 44 × 44 px (själva knappen eller dess osynliga förlängning), ingen text vara under 12 px och
