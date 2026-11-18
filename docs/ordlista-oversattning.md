@@ -401,7 +401,9 @@ Definitionerna står i [docs/produkt/13-ordlista.md](produkt/13-ordlista.md) ("L
 
 | Svenska | Engelska | Tyska | Spanska | Franska | I `data/ui/` |
 |---|---|---|---|---|---|
-| plats (samlingsordet, gruppen) | place, Places | Ort, Orte (i dag; se fråga 1 nedan) | lugar, Lugares | lieu, Lieux | `place.label`, `focus.tab.places` |
+| plats (samlingsordet) | place | Ort (i dag; se fråga 1 nedan) | lugar | lieu | `place.label` |
+| fliken "Länder och landskap" (platserna med eget kort, #1947; hette Platser till 2026-11-18) | Countries and provinces | Länder und Landschaften | Países y provincias históricas | Pays et provinces historiques | `focus.tab.places` |
+| landskap (plural, knappen "Landskap i Sverige" i Sök och följ, #1947) | Provinces | Landschaften | Provincias históricas | Provinces historiques | `place.types.landskap` |
 | land | country | Land | país | pays | `place.type.country`, `review.subject.Landet` |
 | försvunnet land | former country (fliken: Vanished countries) | ehemaliges Land (fliken: Verschwundene Länder) | país desaparecido | pays disparu | `facts.kind.vanished`, `focus.tab.vanished` |
 | självstyrt område | autonomous territory | autonomes Gebiet | territorio autónomo | territoire autonome | `place.type.autonomous` |
@@ -411,7 +413,7 @@ Definitionerna står i [docs/produkt/13-ordlista.md](produkt/13-ordlista.md) ("L
 | region (= världsdel) | continent | Kontinent | continente | continent | `region.<id>`, `hunt.progress`, `legend.continentNote` |
 | tema | theme | Thema | tema | thème | `theme.label`, `focus.tab.themes` |
 | regionvy (Platt vy inzoomad på en liten plats, #1641) | close-up map | Nahkarte | mapa de cerca | vue rapprochée | `regionView.*`, `place.regionMap` |
-| fliken "Vad hände här?" (händelser nära en plats, #15; hette tidigare Plats) | What happened here? | Was geschah hier? | ¿Qué pasó aquí? | Que s’est-il passé ici ? (hårt mellanrum före frågetecknet) | `focus.tab.place` |
+| fliken "Nära en plats" (händelser nära en plats, #15; hette Vad hände här? till 2026-11-18, #1947, och dessförinnan Plats) | Near a place | In der Nähe eines Ortes | Cerca de un lugar | Près d’un lieu | `focus.tab.place` |
 
 - **Land är inte rike på något språk.** *Country/Land/país/pays* är dagens land med dagens gräns; *empire/Reich/imperio/empire* är rikets historiska gräns. Översätt aldrig "landet" med *empire* eller *Reich*, eller "riket" med *country*.
 - **Stat och nation används inte som synonymer till land.** *Nation*, *nación* och franska *nation* betyder folket, inte området. Delstaterna i USA heter *estados* respektive *États* (avsnitt 17.1).
@@ -458,7 +460,7 @@ Skåne (#1159) är den första platsen med `partOf` och har frasen på alla fem 
 
 ### 17.3 Öppna frågor (ändras inte i #1266)
 
-1. **Tyska samlingsordet: *Orte* eller *Gebiete*?** `sprak-de` föreslog *Gebiete* (planeringen i `docs/granskningar/2026-11-12-planering-regionhistoria.md`, punkt 11). Att tänka på före beslutet: *Gebiet* används redan i `data/ui/de.json` för andra områden (krigsområdet i `legend.warNote`, religionens område i `pop.religion`, Människans spridning i `layer.spreadNote` och typen *Autonomes Gebiet*), så ett kort om Grönland skulle få rubriken *Gebiet* och typen *Autonomes Gebiet*. Ändras det berörs `focus.tab.places` (*Orte*), `place.label` (*Ort*) och de övriga `place.*`-texterna med *Ort* i `data/ui/de.json`. Avgörs av DasKrokodil efter granskning av `sprak-de`.
+1. **Tyska samlingsordet: *Orte* eller *Gebiete*?** `sprak-de` föreslog *Gebiete* (planeringen i `docs/granskningar/2026-11-12-planering-regionhistoria.md`, punkt 11). Att tänka på före beslutet: *Gebiet* används redan i `data/ui/de.json` för andra områden (krigsområdet i `legend.warNote`, religionens område i `pop.religion`, Människans spridning i `layer.spreadNote` och typen *Autonomes Gebiet*), så ett kort om Grönland skulle få rubriken *Gebiet* och typen *Autonomes Gebiet*. Ändras det berörs `place.label` (*Ort*) och de övriga `place.*`-texterna med *Ort* i `data/ui/de.json`; fliken `focus.tab.places` heter sedan #1947 (2026-11-18) *Länder und Landschaften* och berörs inte längre. Avgörs av DasKrokodil efter granskning av `sprak-de`.
 2. **Neuseeland/Aotearoa:** datan skriver *Neuseeland (Aotearoa)*, och de.wikipedia "Neuseeland" ger *Aotearoa* som maoriskt namn i inledningen. Ingen ändring behövs; samma mönster gäller de andra språken i `data/platser.json`.
 3. **Spanska typraden för landskap: *en* eller *de*?** I dag *Provincia histórica en Suecia* (oförändrat från före #1479). `sprak-es` anmärker att *de* är normalt för administrativa indelningar (*… de Suecia*). Frasen i `data/platser.json` är hel per språk, så ändringen är en datarad (Skånes `partOf.es`), ingen kodändring. Avgörs av DasKrokodil efter granskning av `sprak-es`.
 4. **Grönlands fras på franska.** *au Danemark* (som i tabellen ovan) eller ett förslag som *dans le Royaume du Danemark* (förslag, ej källkontrollerat här)? Grönland är en plats av typen `autonomous`, och Grönland ligger i Danmarks rike snarare än i Danmark. Kontrolleras mot fr.wikipedia när Grönland får `partOf`; avgörs av DasKrokodil.
