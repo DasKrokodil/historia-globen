@@ -5185,6 +5185,13 @@ async function run(browser, vp) {
         await tp.click('#detail [data-selection-action]');
         await tp.waitForFunction(() => !document.getElementById('flat-view').hidden, null, { timeout: T.step });
         out.push(`${name} ok`);
+        // #1952: på en låg liggande yta ryms regionvyn för Skåne (kortet fälls ihop när den öppnas), och Om platsen öppnar kortet igen
+        stage = `${name}: regionvyn fäller ihop kortet`;
+        await tp.waitForFunction(() => !document.getElementById('flat-region').hidden && document.getElementById('detail').hidden, null, { timeout: T.step });
+        await tp.click('#flat-region-back', { timeout: T.step });
+        await tp.waitForFunction(() => document.getElementById('flat-region').hidden, null, { timeout: T.step });
+        await tp.click('#focus-facts', { timeout: T.step });
+        await tp.waitForFunction(() => !document.getElementById('detail').hidden, null, { timeout: T.step });
         if (wide) {
           stage = `${name}: krysset och händelsekortet`;
           // Kortet stängs med krysset och knapparna överst kommer tillbaka
@@ -5218,9 +5225,11 @@ async function run(browser, vp) {
     }
   });
 
-  // #1692: knappen i platskortet lovar bara regionvyn när den ryms. Vid 800 × 360 och 640 × 360 (liggande telefon) lämnar kortet eller
-  // arket, fokusraden och knapparna ingen yta för regionvyn (MIN_FREE, 230 × 150 px), och platsen ramas in i Platt karta: knappen
-  // ska då heta "Visa på Platt karta" i stället för "Visa i regionvyn" (orden ändrades i #1864, regeln är #1692:s). Provet trycker på knappen vid fyra storlekar och
+  // #1692: knappen i platskortet lovar bara regionvyn när den ryms. Förut lämnade kortet eller arket, fokusraden och knapparna ingen yta
+  // för regionvyn (MIN_FREE, 230 × 150 px) vid 800 × 360 och 640 × 360 (liggande telefon), och platsen ramades in i Platt karta. Sedan
+  // #1952 fälls kortet ihop och fokusraden och rutan blir kompakta i en låg liggande yta, så regionvyn ryms där; knappen räknas i den
+  // formen. Den smala liggande ytan 600 × 375 ryms den inte i: knappen ska då heta "Visa på Platt karta" i stället för
+  // "Visa i regionvyn" (orden ändrades i #1864, regeln är #1692:s). Provet trycker på knappen vid fem storlekar och
   // kontrollerar att texten stämmer med det som händer (rutan Regionvy visas eller visas inte), att Sverige alltid har Platt karta och
   // Grönland (regionvyn på globen, ingen gräns för ytan) alltid regionvyn, och att texten följer fönstret när det ändrar storlek.
   await check('platskortets knapp säger Platt karta när regionvy inte ryms, och följer fönstret (#1692)', async () => {
@@ -5240,7 +5249,7 @@ async function run(browser, vp) {
     const regionShown = tp => tp.evaluate(() => { const c = document.getElementById('flat-region'); return !c.hidden && c.getClientRects().length > 0; });
     try {
       // 1. Fyra storlekar: texten före trycket och vad trycket ger
-      for (const [width, height, room] of [[800, 360, false], [640, 360, false], [400, 800, true], [1280, 800, true]]) {
+      for (const [width, height, room] of [[800, 360, true], [640, 360, true], [600, 375, false], [400, 800, true], [1280, 800, true]]) {
         const name = `${width} × ${height}`;
         const { tp } = await open(width, height, '#y=1827&f=place:skane', { isMobile: width <= 760 || height <= 400 });
         const b = await button(tp);
@@ -5269,9 +5278,9 @@ async function run(browser, vp) {
         const { tp } = await open(1280, 800, '#y=1827&f=place:skane');
         const text = () => tp.evaluate(() => document.querySelector('#detail [data-selection-action]')?.textContent.trim());
         if (await text() !== REGION) throw new Error(`1280 × 800 före ändringen: knappen heter "${await text()}"`);
-        await tp.setViewportSize({ width: 800, height: 360 });
+        await tp.setViewportSize({ width: 600, height: 375 });
         await tp.waitForFunction(t => document.querySelector('#detail [data-selection-action]')?.textContent.trim() === t, FLAT, { timeout: T.step })
-          .catch(async () => { throw new Error(`knappen blev inte "${FLAT}" när fönstret blev 800 × 360 (den heter "${await text()}")`); });
+          .catch(async () => { throw new Error(`knappen blev inte "${FLAT}" när fönstret blev 600 × 375 (den heter "${await text()}")`); });
         await tp.setViewportSize({ width: 1280, height: 800 });
         await tp.waitForFunction(t => document.querySelector('#detail [data-selection-action]')?.textContent.trim() === t, REGION, { timeout: T.step })
           .catch(async () => { throw new Error(`knappen blev inte "${REGION}" när fönstret blev 1280 × 800 igen (den heter "${await text()}")`); });
@@ -5282,6 +5291,178 @@ async function run(browser, vp) {
       const errs = errLists.flat();
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
       return out.join(', ');
+    } finally {
+      await Promise.race([Promise.all(contexts.map(c => c.close().catch(() => {}))), new Promise(r => setTimeout(r, 10000))]);
+    }
+  });
+
+  // #1952: regionvyn på en liggande telefon. Rutan, platskortet och fokusraden täckte 79–87 % av bilden vid 800 × 360 och 640 × 360, och
+  // platsens markörer låg utanför skärmen. Medan regionvyn är öppen i en låg liggande yta (högst 480 px, css/style.css och
+  // js/controllers/region.js) fälls kortet ihop, knapparna överst göms och fokusraden och rutan blir en rad var. Provet öppnar Aotearoa
+  // (regionvyn på globen) och Skåne (Platt karta) med pekskärm i smal och bred layout och mäter (a) hur stor del av kartan ovanför
+  // tidsreglaget som är fri (ett tryck når kartan; förut 19–37 %), (b) att mitten och de fyra hörnen (15 % innanför kanten, så att
+  // runda knappar inte räknas ut) av varje synlig knapp i rutan, fokusraden, tidsreglagets rad och zoomknapparna, och av markörerna,
+  // träffas av knappen själv, med elementFromPoint, och att knappens yta (också den osynliga i ::before och ::after) är minst 44 × 44 px,
+  // (c) att platsen ryms i den fria ytan utan att rutan eller fokusraden täcker den, och (d) att kortet kommer tillbaka med Om platsen,
+  // att Lämna regionvyn ger tillbaka knapparna överst och att fokus står på Lämna regionvyn när vyn öppnas med tangentbordet.
+  await check('regionvyn på en liggande telefon: kartan är fri, kortet fälls ihop och knappar och markörer går att trycka på, i glob och Platt karta (#1952)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet (provar själv sex pekskärmsstorlekar)';
+    const contexts = [], errLists = [], out = [];
+    const scenarios = [
+      { name: 'glob 800 × 360', width: 800, height: 360, id: 'aotearoa', hash: '#y=1840&f=place:aotearoa', globe: true },
+      { name: 'Platt karta 800 × 360', width: 800, height: 360, id: 'skane', hash: '#y=1827&f=place:skane', globe: false },
+      { name: 'glob 640 × 360', width: 640, height: 360, id: 'aotearoa', hash: '#y=1840&f=place:aotearoa', globe: true },
+      { name: 'Platt karta 640 × 360', width: 640, height: 360, id: 'skane', hash: '#y=1827&f=place:skane', globe: false },
+      { name: 'Platt karta 844 × 390', width: 844, height: 390, id: 'skane', hash: '#y=1827&f=place:skane', globe: false },
+      { name: 'Platt karta 667 × 375', width: 667, height: 375, id: 'skane', hash: '#y=1827&f=place:skane', globe: false },
+    ];
+    /** Det som mäts i sidan: fri andel av kartan, provtryck på knapparna och markörerna, och läget för kortet, knapparna och rutan. */
+    const measure = pg => pg.evaluate(() => {
+      const vis = el => { const r = el.getBoundingClientRect(), cs = getComputedStyle(el); return r.width > 0 && r.height > 0 && cs.visibility !== 'hidden' && cs.display !== 'none' && !el.closest('[hidden]'); };
+      const eff = el => {
+        const r = el.getBoundingClientRect();
+        let w = r.width, h = r.height;
+        for (const ps of ['::before', '::after']) {
+          const cs = getComputedStyle(el, ps);
+          if (cs.content !== 'none' && cs.position === 'absolute') { w = Math.max(w, parseFloat(cs.width) || 0); h = Math.max(h, parseFloat(cs.height) || 0); }
+        }
+        return { w, h };
+      };
+      const label = el => `${el.id || String(el.className).split(' ')[0] || el.tagName}${(el.textContent || '').trim() ? ` "${el.textContent.trim().slice(0, 14)}"` : ''}`;
+      const controls = document.querySelector('.timebar .controls').getBoundingClientRect();
+      let free = 0, total = 0;
+      for (let y = 4; y < controls.top - 8; y += 8) for (let x = 4; x < innerWidth; x += 8) { total++; if (document.elementFromPoint(x, y)?.tagName === 'CANVAS') free++; }
+      const sel = '#focus-bar button, #globe-region-chip button, #flat-region button, .timebar .controls button, .flat-zoom button, #globe-region-labels button, #flat-labels .rmark, #flat-labels .rpile, #flat-labels .rbrick';
+      const misses = [], small = [];
+      let buttons = 0, marks = 0;
+      for (const el of new Set(document.querySelectorAll(sel))) {
+        if (!vis(el)) continue;
+        const r = el.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2, isMark = el.matches('.rmark, .rpile, .rbrick');
+        if (isMark && (cx < 0 || cx > innerWidth || cy < 0 || cy > innerHeight)) continue; // en markör utanför bilden ritas inte
+        if (isMark) marks++; else buttons++;
+        const dx = Math.max(3, r.width * 0.15), dy = Math.max(3, r.height * 0.15);
+        for (const [x, y] of [[cx, cy], [r.left + dx, r.top + dy], [r.right - dx, r.top + dy], [r.left + dx, r.bottom - dy], [r.right - dx, r.bottom - dy]]) {
+          if (x < 0 || y < 0 || x >= innerWidth || y >= innerHeight) continue;
+          const t = document.elementFromPoint(x, y);
+          if (!(t === el || el.contains(t))) misses.push(`${label(el)} tas av ${t ? label(t) : 'inget'} vid ${Math.round(x)},${Math.round(y)}`);
+        }
+        const e = eff(el);
+        if (e.w < 43.5 || e.h < 43.5) small.push(`${label(el)} ${Math.round(e.w)} × ${Math.round(e.h)}`);
+      }
+      const rect = id => { const el = document.getElementById(id); if (!el || el.hidden || !el.getClientRects().length) return null; const r = el.getBoundingClientRect(); return { left: r.left, top: r.top, right: r.right, bottom: r.bottom, height: r.height }; };
+      const box = (document.getElementById('globe-region').hidden ? document.getElementById('flat-view').dataset.regionBox : document.getElementById('globe-region').dataset.regionBox ?? '').split(',').map(Number);
+      const canvasTop = document.getElementById('globe-region').hidden ? document.getElementById('flat-canvas').getBoundingClientRect().top : 0;
+      return {
+        freeShare: free / total, misses, small, buttons, marks,
+        cardHidden: document.getElementById('detail').hidden,
+        actionsHidden: getComputedStyle(document.querySelector('.top-actions')).visibility === 'hidden',
+        active: document.activeElement?.id ?? '', bar: rect('focus-bar'),
+        chip: rect(document.getElementById('globe-region-chip').hidden ? 'flat-region' : 'globe-region-chip'),
+        box: { x0: box[0], y0: box[1] + canvasTop, x1: box[2], y1: box[3] + canvasTop }, w: innerWidth,
+        status: document.getElementById('screen-reader-status').textContent.replace(/\s+/g, ' ').trim(),
+      };
+    });
+    try {
+      for (const [i, sc] of scenarios.entries()) {
+        const { name, width, height, id, hash, globe } = sc;
+        const pg = await touchPage({ width, height }, { isMobile: true });
+        const tp = pg.tp;
+        contexts.push(pg.tctx);
+        errLists.push(pg.errs);
+        await tp.goto(`${BASE}?ny=liggande1952n${i}${hash}`);
+        await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+        await tp.waitForTimeout(800);
+        if (!(await tp.evaluate(() => matchMedia('(pointer: coarse)').matches && matchMedia('(max-height: 480px) and (orientation: landscape)').matches))) throw new Error(`${name}: sidan är ingen låg liggande pekskärm`);
+        // Knappen lovar regionvyn (den ryms i den hopfällda formen, #1692) och öppnas med tangentbordet: fokus ska stå på Lämna regionvyn
+        const button = tp.locator('#detail [data-selection-action]');
+        await button.waitFor({ state: 'visible', timeout: T.step });
+        if (!/Visa i regionvyn/.test(await button.textContent())) throw new Error(`${name}: knappen heter "${await button.textContent()}"`);
+        await button.focus();
+        await tp.keyboard.press('Enter');
+        if (globe) await globeRegionSettled(tp, id); else { await regionOn(tp, id); await regionSettled(tp); }
+        await tp.waitForTimeout(500);
+        const m = await measure(tp);
+        const back = globe ? 'globe-region-back' : 'flat-region-back';
+        if (!m.cardHidden) throw new Error(`${name}: platskortet fälldes inte ihop när regionvyn öppnades`);
+        if (!m.actionsHidden) throw new Error(`${name}: knapparna överst syns i regionvyn`);
+        if (m.active !== back) throw new Error(`${name}: fokus står på "${m.active}", inte på Lämna regionvyn`);
+        if (!/Regionvy/.test(m.status)) throw new Error(`${name}: statusraden säger "${m.status}"`);
+        if (!(m.freeShare >= 0.45)) throw new Error(`${name}: bara ${Math.round(m.freeShare * 100)} % av kartan ovanför tidsreglaget är fri (minst 45 %)`);
+        if (!m.bar || m.bar.height > 70) throw new Error(`${name}: fokusraden är ${Math.round(m.bar?.height)} px hög, inte en rad`);
+        if (m.misses.length) throw new Error(`${name}: provtryck träffar fel element: ${m.misses.slice(0, 4).join(' | ')}`);
+        if (m.small.length) throw new Error(`${name}: träffytan är under 44 × 44 px: ${m.small.slice(0, 4).join(' | ')}`);
+        if (m.marks < 2 || m.buttons < 8) throw new Error(`${name}: ${m.marks} markörer och ${m.buttons} knappar syns (minst 2 och 8)`);
+        // Hela platsen ryms ovanför fokusraden och under rutan: varken rutan eller fokusraden täcker den
+        const b = m.box, k = 4;
+        if (!(b.x0 >= -k && b.y0 >= -k && b.x1 <= m.w + k && b.y1 <= m.bar.top + k)) throw new Error(`${name}: platsen ryms inte i bilden: ${JSON.stringify(b)} mot fokusraden på ${Math.round(m.bar.top)}`);
+        if (m.chip && !(b.x1 < m.chip.left - k || b.x0 > m.chip.right + k || b.y1 < m.chip.top - k || b.y0 > m.chip.bottom + k)) throw new Error(`${name}: rutan täcker platsen: ${JSON.stringify(b)} mot ${JSON.stringify(m.chip)}`);
+        // Om platsen öppnar kortet igen och regionvyn står kvar; kryss stänger kortet; Lämna regionvyn ger tillbaka knapparna överst
+        await tp.tap('#focus-facts', { timeout: T.step });
+        await tp.waitForFunction(() => !document.getElementById('detail').hidden && !document.getElementById(document.getElementById('globe-region').hidden ? 'flat-region' : 'globe-region-chip').hidden, null, { timeout: T.step });
+        await tp.tap('#detail .detail-close', { timeout: T.step });
+        await tp.waitForFunction(() => document.getElementById('detail').hidden, null, { timeout: T.step });
+        await tp.tap(`#${back}`, { timeout: T.step });
+        await tp.waitForFunction(() => document.getElementById('globe-region').hidden && document.getElementById('flat-region').hidden && document.getElementById('globe-region-chip').hidden, null, { timeout: T.step });
+        if (await tp.evaluate(() => getComputedStyle(document.querySelector('.top-actions')).visibility === 'hidden')) throw new Error(`${name}: knapparna överst kom inte tillbaka efter Lämna regionvyn`);
+        if (!(await tp.isVisible('#focus-bar'))) throw new Error(`${name}: platsen följs inte längre efter Lämna regionvyn`);
+        out.push(`${name}: ${Math.round(m.freeShare * 100)} % fri, ${m.buttons} knappar och ${m.marks} markörer provtryckta`);
+      }
+      const errs = errLists.flat();
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return out.join('; ');
+    } finally {
+      await Promise.race([Promise.all(contexts.map(c => c.close().catch(() => {}))), new Promise(r => setTimeout(r, 10000))]);
+    }
+  });
+  // #1952: reglerna för den låga liggande ytan får inte ändra något annat. Vid 1280 × 800 och 400 × 800 (stående) ska kortet stå kvar öppet
+  // när regionvyn öppnas, knapparna överst synas, årtalets rubrik och rutans text vara som förut, zoomknapparna ligga i en kolumn och
+  // Platt vys karta börja under knapparna.
+  await check('regionvyn: 1280 × 800 och 400 × 800 stående är oförändrade av reglerna för den låga liggande ytan (#1952)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet (provar själv båda storlekarna)';
+    const contexts = [], errLists = [], out = [];
+    try {
+      for (const [i, [width, height]] of [[1280, 800], [400, 800]].entries()) {
+        const name = `${width} × ${height}`;
+        const pg = await touchPage({ width, height }, { isMobile: true });
+        const tp = pg.tp;
+        contexts.push(pg.tctx);
+        errLists.push(pg.errs);
+        await tp.goto(`${BASE}?ny=oforandrad1952n${i}#y=1827&f=place:skane`);
+        await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+        await tp.waitForTimeout(800);
+        const button = tp.locator('#detail [data-selection-action]');
+        await button.waitFor({ state: 'visible', timeout: T.step });
+        await button.focus();
+        await tp.keyboard.press('Enter');
+        await regionOn(tp, 'skane');
+        await regionSettled(tp);
+        const m = await tp.evaluate(() => {
+          const cs = (sel, prop) => getComputedStyle(document.querySelector(sel))[prop];
+          const brand = document.querySelector('.masthead .brand').getBoundingClientRect();
+          return {
+            low: matchMedia('(max-height: 480px) and (orientation: landscape)').matches,
+            cardHidden: document.getElementById('detail').hidden, actions: cs('.top-actions', 'visibility'), zoom: cs('.flat-zoom', 'display'),
+            zoomTop: document.querySelector('.flat-zoom').getBoundingClientRect().top, canvasTop: document.getElementById('flat-canvas').getBoundingClientRect().top,
+            brandW: brand.width, yearPx: parseFloat(cs('.year-big', 'fontSize')), note: cs('#flat-region-note', 'display'), pillBack: document.getElementById('flat-region-back').getBoundingClientRect().height,
+          };
+        });
+        if (m.low) throw new Error(`${name}: räknas som låg liggande yta`);
+        if (m.cardHidden) throw new Error(`${name}: kortet fälldes ihop`);
+        if (m.actions === 'hidden') throw new Error(`${name}: knapparna överst är dolda i regionvyn`);
+        if (m.zoom !== 'flex') throw new Error(`${name}: zoomknapparna har display ${m.zoom}, inte flex`);
+        if (!(m.canvasTop >= 30)) throw new Error(`${name}: Platt vys karta börjar på ${Math.round(m.canvasTop)} px, under knapparna överst (minst 30 px)`);
+        if (width > 760) {
+          if (!(m.brandW > 50)) throw new Error(`${name}: rubriken är dold (${Math.round(m.brandW)} px bred)`);
+          if (!(m.yearPx > 30)) throw new Error(`${name}: årtalet är ${m.yearPx} px, förut större än 30 px`);
+          if (m.note === 'none') throw new Error(`${name}: rutans text är dold`);
+        }
+        out.push(`${name}: kortet öppet, knapparna överst syns, karta från ${Math.round(m.canvasTop)} px`);
+      }
+      const errs = errLists.flat();
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return out.join('; ');
     } finally {
       await Promise.race([Promise.all(contexts.map(c => c.close().catch(() => {}))), new Promise(r => setTimeout(r, 10000))]);
     }
@@ -12118,7 +12299,7 @@ async function run(browser, vp) {
       mal: ['#settings .layer-row input[type=checkbox]'], text: [] },
     { namn: 'Sök och följ', hash: '#y=1325', gor: async (p, bred) => { if (!await p.isVisible('#btn-focus')) await p.click(bred ? '#btn-more' : '#more-toggle'); await p.click('#btn-focus'); await p.waitForSelector('#focus-menu', { state: 'visible', timeout: T.step }); },
       mal: ['#focus-menu .focus-sort .chip-btn', '#focus-menu .focus-group-toggle'], text: [] },
-    // Regionvyn erbjuds inte på en låg yta (800 × 360: knappen heter då "Visa på Platt karta"), så ytan mäts bara när det finns höjd
+    // Mäts bara när det finns höjd: på en låg liggande yta (800 × 360) fälls kortet ihop när regionvyn öppnas och rutan och zoomknapparna har egna mått (#1952), som provas där
     { namn: 'regionvyn (Skåne i Platt karta)', minHojd: 600, hash: '#y=1827&f=place:skane', gor: async p => {
         await p.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
         await p.locator('#detail [data-selection-action]').click();
