@@ -973,15 +973,17 @@ async function run(browser, vp) {
     await clickView('#btn-flat');
     await jumpTo(1612);
     await page.click('#btn-panel'); await visible('#panel');
-    const old = page.locator('#event-list [data-long]');
-    if (!(await old.count()) || (await old.getAttribute('aria-expanded')) !== 'false') throw new Error('Oxford saknar hopfälld långvarig grupp år 1612');
+    const oxford = await panelEvent(page, { id: 'oxford' });
+    const group = await oxford.evaluate(el => {
+      const heading = el.closest('ol').previousElementSibling;
+      return { heading: heading.textContent, region: el.closest('[data-panel-region]')?.dataset.panelRegion };
+    });
+    if (!group.heading.startsWith('Pågick då') || group.region !== 'Europa') throw new Error(`Oxford saknar pågående grupp i sin världsdel: ${JSON.stringify(group)}`);
+    if (await page.locator('#event-list [data-long]').count()) throw new Error('den gamla separata långraden finns kvar');
     const panelText = (await page.textContent('#panel')).replace(/\s+/g, ' ');
     const panelLabel = (await page.getAttribute('#btn-panel', 'aria-label')) ?? '';
     if (!/\d+ pågår, \d+ nära/.test(panelLabel) || /träffar|\{count\}|\{inside\}|\{near\}/.test(`${panelLabel} ${panelText}`)) throw new Error(`panelen visar inte datastyrd sammanfattning (knappens namn: "${panelLabel}")`);
     if (await page.locator('#panel button').evaluateAll(buttons => buttons.some(b => ['longRunning', 'showMore', 'showLess', 'summary'].includes(b.textContent.trim())))) throw new Error('panelen visar en rå datanyckel');
-    if (!/Pågår sedan länge \(1\)/.test((await old.textContent()) ?? '')) throw new Error('långraden har fel synlig text');
-    await old.focus(); await page.keyboard.press('Enter');
-    if (!(await page.locator('#event-list .event-btn', { hasText: 'Undervisning i Oxford' }).count())) throw new Error('Oxford visas inte efter att långvarig grupp öppnas');
     await page.click('#panel-close');
     await clickView('#btn-flat');
     await page.click('#flat-reset'); await settleFlat();
@@ -991,7 +993,35 @@ async function run(browser, vp) {
     const more = page.locator('#event-list [data-panel-region]:not([hidden]) [data-region]').first();
     if (await more.count()) { if (!/Visa \d+ till i /.test((await more.textContent()) ?? '')) throw new Error('Visa fler saknar synlig datastyrd världsdel'); await more.focus(); await page.keyboard.press('Enter'); if ((await more.getAttribute('aria-expanded')) !== 'true') throw new Error('Visa fler öppnas inte med tangentbord'); }
     await jumpTo(1889);
-    return 'Oxford: vanlig 1100, hopfälld 1612; Visa fler nås med tangentbord';
+    return 'Oxford: Pågick då i Europa även 1612, markör bara 1100; Visa fler nås med tangentbord';
+  });
+
+  await check('Panelen visar tre tidsgrupper per världsdel (#1312)', async () => {
+    // Året hämtas ur den befintliga punktposten: gruppen följer dess startår om datan uppdateras.
+    const event = JSON.parse(fs.readFileSync(new URL('../data/events.json', import.meta.url), 'utf8')).events.find(e => e.id === 'eiffeltornet');
+    if (!event || event.start !== event.end) throw new Error('testets punktpost saknas eller har blivit ett spann');
+    await jumpTo(event.start);
+    if (await page.locator('#panel').isHidden()) await page.click('#btn-panel');
+    await panelEvent(page, { id: event.id });
+    const pane = page.locator('#event-list [data-panel-region]:not([hidden])');
+    for (const kind of ['happened', 'inside', 'near']) {
+      const heading = pane.locator(`.panel-sec-${kind}`);
+      if (!(await heading.isVisible())) throw new Error(`tidsgruppen ${kind} saknas`);
+    }
+    const happened = await pane.locator(`.event-btn[data-id="${event.id}"]`).evaluate(el => el.closest('ol').previousElementSibling.textContent);
+    if (!happened.startsWith(`Hände år ${event.start}`)) throw new Error(`punktposten ligger fel: ${happened}`);
+    // Alla rader, även bakom Visa fler, måste räknas exakt en gång i världsdelsfliken.
+    while (await pane.locator('[data-region][aria-expanded="false"]').count()) await pane.locator('[data-region][aria-expanded="false"]').first().click();
+    const counts = await pane.evaluate(el => {
+      const groups = [...el.querySelectorAll('.panel-sec')].map(h => ({ count: Number(h.querySelector('.region-count').textContent), rows: h.nextElementSibling.querySelectorAll('.event-btn').length }));
+      const ids = [...el.querySelectorAll('.event-btn')].map(b => b.dataset.id);
+      return { groups, ids };
+    });
+    if (counts.groups.some(g => g.count !== g.rows) || new Set(counts.ids).size !== counts.ids.length) throw new Error(`grupperna räknar rader fel: ${JSON.stringify(counts)}`);
+    const tabCount = Number(await page.locator('#panel-tabs [aria-selected="true"] .region-count').textContent());
+    if (tabCount !== counts.ids.length) throw new Error('världsdelsfliken räknar inte samma rader som de tre grupperna');
+    await page.click('#panel-close');
+    return 'Hände, Pågick då och Strax före eller efter; rätt år, rätt världsdel och varje rad räknad en gång';
   });
 
   // #1304: några kategorier av och noll träffar. Raden säger att urvalet kan dölja händelser, och knappen visar alla igen.

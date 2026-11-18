@@ -180,6 +180,8 @@ Utanför Fokus syns händelser inom tidsfönstret som inte pågår vid årets va
 - **Chips och flikar.** Kategorichipsen är minst 12 px och 24 px höga (11 px och cirka 21 px förut); på pekskärm och i smal skärm har de 44 px tryckyta genom `::after` (#1309). Av-läget visas med streckad ram, dämpad text och ihålig prick, inte med genomskinlighet (`opacity` .42 gav för svag text). Antalet i fliken och avsnittsrubrikerna är 12 px.
 - **Prov.** `tests/panelens-farger.test.mjs` räknar kontrasten ur CSS-variablerna; webbläsarkontrollen "Samtidigt-panelen har faktarutans pergament och guldram med läsbara färger, kortet behåller pergamentet (#1317)" mäter de riktiga elementen i dator och mobil.
 
+Panelens händelser delas per världsdel i **Hände år X**, **Pågick då** och **Strax före eller efter** (#1312). `panelTimeGroup` i `js/ui/panel.js` använder lagrets befintliga urval och `inside`: lika start/slut ger Hände, överlappande spann ger Pågick då och övriga träffar i tidsfönstret ger Strax före eller efter. I datumläget skiljs en daterad dag från ett datumspann med befintlig EDTF-tid. I ett intervall finns ingen nära-grupp. Gamla öppna spann ligger i sin världsdel under Pågick då; markörernas urval och panelens sammanfattningsräkning är oförändrade. Varje grupp har sitt eget Visa fler, och tomma grupper döljs. Se [beslutet](beslut/2026-11-18-panelens-tre-tidsgrupper-1312.md).
+
 ## Mindre trängsel på kartan (#358)
 
 Rikesnamn, rikesmedaljer och händelser trängdes i Europa när man såg hela kartan. Nu bestämmer zoomnivån hur mycket som syns, och inget rikesnamn eller ingen medalj ritas ovanpå en annan.
