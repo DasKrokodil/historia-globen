@@ -1,7 +1,7 @@
 // "Samtidigt i världen": lista över synliga händelser per världsdel, kategorifilter
 // (i lagermenyn, #120, och som chips ovanför listan, #311) och faktarutan.
 import { buildAreaCurve } from './areacurve.js';
-import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatOffset, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg, flagUrl, isVisibleReview, eventTags, needDetails, misconceptionsFor, roundWindow, groupDigits, tagViewNote } from '../model.js';
+import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatOffset, edtfHasDays, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg, flagUrl, isVisibleReview, eventTags, needDetails, misconceptionsFor, roundWindow, groupDigits, tagViewNote } from '../model.js';
 import { ui, LANG, langAttr } from '../i18n.js';
 import { say } from './status.js';
 import { MIN_YEAR } from '../timeline.js';
@@ -273,6 +273,17 @@ export function emptyCause({ visibleCount, filters, total = null }) {
 /** Antalet i raden "Översikt: ett urval, cirka N händelser" (#1139): avrundat till tiotal, men exakt under tio. */
 export const overviewCount = n => (n >= 10 ? Math.round(n / 10) * 10 : n);
 
+/** Tre tidsgrupper (#1312). Urvalet och inside kommer från händelselagret; datumläget skiljer en daterad dag från ett datumspann. */
+export function panelTimeGroup(v, { range = false, fine = false } = {}) {
+  if (!range && !v.inside && !v.longRunning) return 'near';
+  if (fine) {
+    // edtfSpan slutar efter sista dagen: en dag har också positiv längd. Jämför de inkluderande datumen i stället.
+    const dates = (v.e.edtf ?? '').replace(/[~?%]/g, '').split('/');
+    return edtfHasDays(v.e.edtf) && dates[0] === dates.at(-1) ? 'happened' : 'inside';
+  }
+  return v.e.start === v.e.end ? 'happened' : 'inside';
+}
+
 export class Panel {
   constructor({ root, list, filters, chips, detail, sub, count, toggle, close }, { events, srcById, styles }, { empireLegend = {}, uncertainty = {}, panel = {}, tags = {} } = {}) {
     Object.assign(this, { root, list, filtersEl: filters, detail, sub, count, toggle, srcById, styles, empireLegend, uncertainty });
@@ -310,7 +321,6 @@ export class Panel {
     this.selectedId = null;
     this.shown = null; // det faktarutan visar just nu; en rad som laddas klart ritar bara om samma ruta (#337)
     this.expandedRegions = new Set();
-    this.longOpen = false;
     this.copy = panel;
     // Filtret är ihopfällt som standard och listan har en flik per världsdel (beslut i #1782)
     this.chips = chips ?? null;
@@ -550,15 +560,14 @@ export class Panel {
       return;
     }
     // Grupperat per världsdel, i fast ordning, så att man ser vad som händer på olika håll. Listan har en flik per världsdel (beslut i
-    // #1782, alternativ C): den valda världsdelens händelser syns, med Pågår först och Nära i tid under. De andra världsdelarna ligger
+    // #1782, alternativ C): den valda världsdelens händelser syns, med Hände, Pågick då och Strax före eller efter. De andra världsdelarna ligger
     // kvar i sidan men är dolda (hidden), så att de inte läses upp och så att listan går att söka igenom som förut.
     const groups = new Map(REGIONS.map(r => [r, []]));
-    const old = [];
-    for (const v of visible) (v.longRunning ? old : groups.get(v.e._region ??= region(v.e._lat, v.e._lon))).push(v);
+    for (const v of visible) groups.get(v.e._region ??= region(v.e._lat, v.e._lon)).push(v);
     const rank = (a, b) => (b.e.top - a.e.top) || (b.e.major - a.e.major) || (b.inside - a.inside) || (Math.abs(a.e.start - year) - Math.abs(b.e.start - year)) || t(a.e.title).localeCompare(t(b.e.title), LANG);
     // I intervallet (#755): "delvis inom intervallet" och "osäkert datum" efter tiden och platsen
     const notes = (e, partial) => range ? [partial && ui('range.partial'), uncertainDate(e) && ui('range.uncertain')].filter(Boolean) : [];
-    // Det som bara ligger nära året säger hur långt före eller efter det ligger (#995): "21 år senare", "34 år tidigare"
+    // Det som bara ligger nära året säger hur långt före eller efter det ligger (#995): "om 21 år", "34 år före"
     // Hela år räknas ur årtalen som listan visar (fokusläget för korta krig räknar dagar ur dist), så att siffran går att räkna efter
     const offset = ({ e, inside, longRunning, when, dist }) => {
       if (range || inside || longRunning || (when !== 'past' && when !== 'future')) return [];
@@ -584,11 +593,11 @@ export class Panel {
     const focusedTab = this.tabs?.contains(document.activeElement) ? document.activeElement.dataset.tab : null;
     const CAP = 6; // fler än så ligger bakom "Visa N till"
     const section = (name, kind, vs) => {
-      const items = vs.filter(v => !!isInside(v) === (kind === 'inside'));
+      const items = vs.filter(v => panelTimeGroup(v, { range, fine: !!labels?.fine }) === kind);
       if (!items.length) return '';
       const open = this.expandedRegions.has(`${name}|${kind}`), shown = open ? items : items.slice(0, CAP), rest = items.length - shown.length;
       const more = items.length > CAP ? `<button type="button" class="link-btn panel-more" data-region="${esc(name)}" data-kind="${kind}" aria-expanded="${open}" aria-label="${esc(open ? ui('panel.showLessIn', { label: copy('showLess'), region: regionName(name) }) : copy('showMore').replace('{count}', rest).replace('{region}', regionName(name)))}">${esc(open ? copy('showLess') : copy('showMore').replace('{count}', rest).replace('{region}', regionName(name)))}</button>` : '';
-      return `<h3 class="panel-sec panel-sec-${kind}">${esc(ui(kind === 'inside' ? 'panel.groupInside' : 'panel.groupNear'))} <span class="region-count">${items.length}</span></h3>
+      return `<h3 class="panel-sec panel-sec-${kind}">${esc(ui(kind === 'happened' ? 'panel.groupHappened' : kind === 'inside' ? 'panel.groupInside' : 'panel.groupNear', { at }))} <span class="region-count">${items.length}</span></h3>
         <ol>${shown.map(v => row(v, name)).join('')}</ol>${more}`;
     };
     const panes = present.map(([name, vs]) => {
@@ -596,10 +605,10 @@ export class Panel {
       const i = REGIONS.indexOf(name), on = name === this.region;
       return { on, html: `
       <section class="region-group" role="tabpanel" id="panel-sec-${i}" aria-labelledby="panel-tab-${i}" data-panel-region="${esc(name)}"${on ? '' : ' hidden'}>
-        ${section(name, 'inside', vs)}${section(name, 'near', vs)}
+        ${section(name, 'happened', vs)}${section(name, 'inside', vs)}${section(name, 'near', vs)}
       </section>` };
     }).sort((a, b) => b.on - a.on); // den valda världsdelen först i sidan
-    this.list.innerHTML = panes.map(x => x.html).join('') + (old.length ? `<section class="region-group long-running"><button type="button" class="link-btn panel-more" data-long aria-expanded="${this.longOpen}">${esc(copy('longRunning').replace('{count}', old.length))}</button>${this.longOpen ? `<ol>${old.sort(rank).map(v => row(v)).join('')}</ol>` : ''}</section>` : '');
+    this.list.innerHTML = panes.map(x => x.html).join('');
     if (this.tabs && present.length) {
       this.tabs.innerHTML = present.map(([name, vs]) => {
         const i = REGIONS.indexOf(name), on = name === this.region;
@@ -633,7 +642,6 @@ export class Panel {
     // Riktiga knappar: Enter och mellanslag fungerar av sig själva
     for (const b of this.list.querySelectorAll('.event-btn')) b.addEventListener('click', () => this.onSelect(b.dataset.id));
     for (const b of this.list.querySelectorAll('[data-region]')) b.addEventListener('click', () => { const key = `${b.dataset.region}|${b.dataset.kind}`; this.expandedRegions.has(key) ? this.expandedRegions.delete(key) : this.expandedRegions.add(key); this.render(visible, year, window, eventsOn, labels); });
-    this.list.querySelector('[data-long]')?.addEventListener('click', () => { this.longOpen = !this.longOpen; this.render(visible, year, window, eventsOn, labels); });
   }
 
   /**
