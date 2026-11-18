@@ -4739,10 +4739,10 @@ async function run(browser, vp) {
       await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
       await openRegion(tp, 'danmark');
       if ((await tp.textContent('#flat-region-name')).trim() !== 'Regionvy: Danmark') throw new Error('rutan säger inte Danmark');
-      // Att sluta följa platsen lämnar regionvyn men inte vyn: Platt vy står kvar där den är (bara Lämna regionvyn och Escape återställer, #1864)
+      // Att sluta följa platsen ställer också tillbaka ursprungsvyn (#1949).
       await tp.click('#focus-exit');
       await tp.waitForFunction(() => !document.getElementById('flat-view').dataset.region && document.getElementById('flat-region').hidden, null, { timeout: T.step });
-      if (!(await flatView()).open) throw new Error('att sluta följa platsen stängde Platt vy');
+      if ((await flatView()).open) throw new Error('att sluta följa platsen gick inte tillbaka till globen (#1949)');
       await tp.goto(`${BASE}?ny=region4#y=1000&f=place:sverige`);
       await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
@@ -5735,6 +5735,65 @@ async function run(browser, vp) {
     } finally {
       await Promise.race([Promise.all(contexts.map(c => c.close().catch(() => {}))), new Promise(r => setTimeout(r, 10000))]);
     }
+  });
+
+  // #1949: avslut och fokusbyte ska använda samma återgång som Lämna regionvyn, även när regionvyn öppnades i Platt karta.
+  await check('regionvyn: avslut och fokusbyte ställer tillbaka ursprungsvyn (#1949)', async () => {
+    const errors = [], out = [];
+    for (const [id, origin, action] of [
+      ['skane', 'globe', 'exit'], ['skane', 'globe', 'switch'],
+      ['skane', 'flat', 'exit'], ['gronland', 'flat', 'exit'], ['gronland', 'globe', 'switch'],
+    ]) {
+      const p = await context.newPage();
+      p.on('pageerror', e => errors.push(e.message));
+      try {
+        if (THREE_LOCAL) {
+          await p.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', body: fs.readFileSync(THREE_LOCAL, 'utf8') }));
+          await p.route(u => isFont(u.href), r => r.abort());
+        }
+        await p.goto(`${BASE}?ny=1949-${id}-${origin}-${action}#y=1721&f=place:${id}`);
+        await p.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await p.waitForSelector('#detail [data-selection-action]', { state: 'visible', timeout: T.step });
+        if (origin === 'flat') {
+          if (await p.isHidden('#btn-flat') && await p.isVisible('#more-toggle')) await p.click('#more-toggle');
+          if (await p.isHidden('#btn-flat') && await p.isVisible('#btn-more')) await p.click('#btn-more');
+          await p.click('#btn-flat');
+        }
+        const flatBefore = await p.getAttribute('#flat-view', 'data-view');
+        await p.click('#detail [data-selection-action]');
+        if (id === 'gronland') await globeRegionSettled(p, id);
+        else await p.waitForFunction(x => document.getElementById('flat-view').dataset.region === x, id, { timeout: T.step });
+        if (action === 'exit') {
+          await p.click('#focus-exit');
+        } else {
+          if (await p.isHidden('#btn-focus')) {
+            if (await p.isVisible('#more-toggle')) await p.click('#more-toggle'); else await p.click('#btn-more');
+          }
+          await p.click('#btn-focus');
+          await p.click('#focus-menu [data-tab="Platser"]');
+          await p.fill('#focus-menu .focus-search', 'Danmark');
+          await p.click('#focus-menu [data-key="place:danmark"]');
+          await p.waitForFunction(() => location.hash.includes('f=place:danmark'), null, { timeout: T.step });
+        }
+        await p.waitForFunction(mode => {
+          const flat = document.getElementById('flat-view'), globe = document.getElementById('globe-region');
+          return !flat.dataset.region && !globe.dataset.region && flat.hidden === (mode === 'globe');
+        }, origin, { timeout: T.step });
+        if (action === 'exit') {
+          const expected = origin === 'globe' ? 'Regionvyn är stängd. Tillbaka till globen.' : 'Regionvyn är stängd. Tillbaka till Platt karta.';
+          const status = (await p.textContent('#screen-reader-status')).trim();
+          if (status !== expected) throw new Error(`${id}/${origin}: statusraden säger "${status}"`);
+          if (origin === 'flat' && await p.getAttribute('#flat-view', 'data-view') !== flatBefore) throw new Error(`${id}: Platt kartas kamera återställdes inte`);
+          if (!(await p.isHidden('#focus-bar'))) throw new Error(`${id}: fokusraden står kvar efter avslut`);
+        } else {
+          if (!(await p.isVisible('#detail .place-type'))) throw new Error(`${id}: det nya platskortet öppnades inte`);
+        }
+        if (await p.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw new Error(`${id}: horisontell scroll`);
+        out.push(`${id}/${origin}/${action}`);
+      } finally { await p.close(); }
+    }
+    if (errors.length) throw new Error(`fel i konsolen: ${errors.join(' | ')}`);
+    return out.join('; ');
   });
 
   // #1900: på en liggande telefon (800 × 360 och 640 × 360) hamnade rutan i globens regionvy bakom tidsreglaget och teckenförklaringen,
