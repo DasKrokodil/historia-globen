@@ -420,10 +420,12 @@ async function start() {
   }
   // Platsraden i faktarutan (#312, bara smal skärm): fäller ihop rutan till litet läge och visar markören på globen
   // Knappen Visa i Platt karta i platsens kort (#1161): vyn byts och kartan ramar in platsen. På smal skärm fälls kortet ihop till
-  // litet läge så att kartan syns, och fokus går till dess handtag (knappen är då inte synlig)
+  // litet läge så att kartan syns. Fokus läggs sist på Lämna regionvyn eller kartan, efter arkets omställning (#1950).
   panel.onPlaceFlat = place => {
     app.places.showInFlat(place); // en stor plats får regionvyn på globen (#1644), där arket också fälls ihop
-    if (narrow.matches) { detailSheet.set('closed'); detailSheet.handle.focus({ preventScroll: true }); }
+    if (narrow.matches) detailSheet.set('closed');
+    const target = app.region.globeOpen ? $('globe-region-back') : flatMap.region ? $('flat-region-back') : flatMap.canvas;
+    target.focus({ preventScroll: true });
   };
   panel.onShowPlace = e => {
     detailSheet.set('closed');
