@@ -81,6 +81,14 @@ Varje gång året ändras körs `refresh()` i `js/controllers/render.js` (före 
 
 Klickbara markörer, etiketter och bågar ligger ovanpå klotet som 3D-objekt och HTML, inte på den platta bilden. Etiketter som ligger nära varandra slås ihop till kluster (`ui/clusters.js`). I Platt vy ritas samma markörer, klungor, etiketter och bågar som ett lager ovanpå kartan (#313). Etiketterna hålls inom skärmen och läggs aldrig ovanpå andra markörer eller klusterbrickor (#142), och inte heller på rikesnamn och rikesmedaljer; är det upptaget ovanför markören läggs etiketten under den (#358). De läggs aldrig under knapparna och raderna längst ner (`UI_BOTTOM` i `main.js`, #318), och i smal skärm inte heller under rubriken, årtalet, knappgrupperna eller teckenförklaringen (`UI_OVER_GLOBE`, #289).
 
+## Tidsreglagets skalpost (#1511)
+
+`js/time-scale.js` exporterar `HUMAN_SCALE`, den enda skalposten. Den samlar segment, skalstreck, skarvar, upplösning, stegknapparnas nivåer, fartnivåer och skalans gränser (`from`, `to`). Värdena är oförändrade från det tidigare reglaget; ingen ny skala eller tidsdomän visas.
+
+`new Timeline(element, scale = HUMAN_SCALE)` tar emot posten. Instansen använder den för lägen och år, årsklippning, steg, fart, tidsfönster och skalan som ritas. De rena hjälpfunktionerna i `timeline.js` och `stepAt`/`roundToStep` i `model.js` tar också ett valfritt sista skalargument. De gamla exporterna `SEGMENTS`, `SEAMS` och `RESOLUTION` pekar på människans post, så befintliga anrop och testförväntningar består.
+
+Domänens `MIN_YEAR` och `MAX_YEAR` bor kvar i `state.js`. Adressformatet importerar dem därifrån och får inte tidsreglaget som beroende. Skalpostens egna gränser används bara av reglaget; årshoppets kontroll av ett inmatat år fortsätter använda hela domänens gränser. Uppdelningen i flera reglage görs separat (#1958).
+
 ## Moduler
 
 **CSS-lagerordning (#894, #1065):** `z-index` över 4 i `css/style.css` anges med `var(--z-…)` från `:root`. Lokala värden 0–4 inne i en yta får vara siffror. `tests/zindex.test.mjs` kontrollerar detta i det befintliga Node-testjobbet; ett fel anger väljare och radnummer. Kommentarer och strängar räknas inte som deklarationer. Ingen tillåtelselista behövs efter namngivningen i #1064. Lägg inte till nya undantag för nya ytor: välj ett befintligt lagernamn eller dokumentera ett nytt i [beslutet om lagerordning](beslut/2026-11-09-lagerordning.md).

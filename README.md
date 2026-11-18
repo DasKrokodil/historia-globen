@@ -72,6 +72,7 @@ js/start-view.js      startbilden: kameran och startzoomen när sidan öppnas ut
 js/globe-detail.js    skarpt utsnitt av kartan vid inzoomning
 js/period-range.js    epok som intervall: periodToRange klipper vid tidslinjens början och går till i dag för öppna perioder (#965)
 js/timeline.js        tidsreglage, segmenterad tidsskala, nuvarande år
+js/time-scale.js      människans skalpost: segment, upplösning, steg, fart och skalgränser (#1511)
 js/layers/events.js   lager: händelser som punkter
 js/layers/areas.js    lager: riken som områden som ändras över tid
 js/layers/area-style.js  mjuk kant för osäkra gränser och prickat inflytande (lydriken)

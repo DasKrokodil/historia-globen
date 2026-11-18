@@ -4,6 +4,7 @@
 // Språket väljs i js/i18n.js (#63): adressen, det sparade valet eller webbläsaren, annars svenska.
 // Gränssnittets texter hämtas med ui('nyckel') ur data/ui/<språk>.json.
 import { LANG, ui, hasUi } from './i18n.js';
+import { HUMAN_SCALE } from './time-scale.js';
 export { LANG, ui };
 const FALLBACK = ['en', 'sv'];
 
@@ -269,16 +270,16 @@ export function formatDirection(when, year, eventYear) {
  * stegknapparna, piltangenterna, uppspelningens fart och det som skärmläsaren läser upp. Tusental före 10 000 f.Kr. och
  * hundratal till 3000 f.Kr., där ett steg på reglaget är hundratals år; därefter hela år. `to` är det sista året i delen.
  */
-export const RESOLUTION = [{ to: -10000, step: 1000 }, { to: -3000, step: 100 }, { to: Infinity, step: 1 }];
+export const RESOLUTION = HUMAN_SCALE.resolution;
 /** Upplösningen vid ett år: 1000, 100 eller 1. */
-export const stepAt = y => RESOLUTION.find(r => y <= r.to).step;
+export const stepAt = (y, scale = HUMAN_SCALE) => scale.resolution.find(r => y <= r.to).step;
 
 /**
  * Året avrundat till reglagets upplösning (#1320). Avrundningen görs i f.Kr.-tal, så att 100 000 f.Kr. och 7400 f.Kr. blir runda
  * i visningen: "99 001 f.Kr." eller "7413 f.Kr." låtsas en exakthet som inte finns. 3000 f.Kr. och senare lämnas orörda.
  */
-export function roundToStep(y) {
-  const step = stepAt(y);
+export function roundToStep(y, scale = HUMAN_SCALE) {
+  const step = stepAt(y, scale);
   return step === 1 ? y : 1 - Math.round(bce(y) / step) * step;
 }
 /** Samma som roundToStep (namnet från v6.3.0). */
