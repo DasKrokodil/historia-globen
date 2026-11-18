@@ -3159,3 +3159,55 @@ span.theme-event:hover { background: none; outline: none; }
   .ff-tab { min-height: 44px; padding-top: 0; padding-bottom: 0; }
   .settings-rows .layer-row { min-height: 44px; }
 }
+
+/* ---------- Liggande telefon: regionvyn lämnar kartan fri (#1952) ----------
+   Uppmätt i Playwright (800 × 360 och 640 × 360, pekskärm, Aotearoa på globen): rutan, kortet, fokusraden (två rader), årtalet och
+   knapparna överst täckte 79–87 % av bilden, så regionvyn hade 13–21 % kvar och platsen låg bakom dem. Medan regionvyn är öppen
+   (.region-view) fälls därför det som inte behövs just då ihop, bara på en låg liggande yta (högst 480 px hög; stående telefon,
+   dator och surfplatta har kvar sina mått):
+   1. Platskortet stängs när vyn öppnas (js/controllers/region.js, foldCard); Om platsen i fokusraden öppnar det igen, och en markör
+      öppnar händelsens kort som förut. Listan med nummer finns kvar i kortet.
+   2. Knapparna överst är dolda som när kortet är öppet (#1667); Lämna regionvyn ger tillbaka dem.
+   3. Årtalet är bara årtalet (som under en tur, #1694): rubriken och raden under det döljs för ögat (men finns kvar för skärmläsare), och fokusraden säger samma sak.
+   4. Rutan är kompakt i Platt vy som på globen (#1900): rubrik och knapp överst, utan den långa texten.
+   5. Fokusraden är en rad: rubriken kortas med tre punkter i stället för att knapparna bryts till en andra rad.
+   6. Zoomknapparna i Platt vy ligger högre upp och i bred layout i två kolumner, och Platt vys karta börjar vid sidans överkant (flatmap.js, layoutSpan).
+   Alla knappar behåller sin storlek och 44 px träffyta; bara radbrytningar, utrymme och dolda rader ändras. */
+@media (max-height: 480px) and (orientation: landscape) {
+  .app.region-view .top-actions { visibility: hidden; }
+  /* Dolda för ögat men kvar för skärmläsare (h1 och raden under årtalet), som rubriken i smal layout */
+  .app.app.region-view .masthead :is(.brand, .segment-note) { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .app.app.region-view .masthead { padding-bottom: 2px; }
+  .app.region-view .year-readout { margin-top: 0; min-height: 44px; align-items: center; }
+  .app.region-view .year-big { font-size: 30px; }
+  .app.region-view .year-era { font-size: 16px; }
+  /* Rutan i Platt vy som den på globen (#1900): rubrik och knapp, utan den långa texten */
+  .app.region-view .flat-region:not([hidden]) { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; padding: 4px 4px 4px 10px; }
+  .app.region-view .flat-region .flat-region-note { display: none; }
+  .app.region-view .flat-region .flat-region-next { order: 2; flex-basis: 100%; margin: 0 0 2px; font-size: 11.5px; }
+  .app.region-view .flat-region .flat-region-legend { order: 3; flex-basis: 100%; margin: 0 0 4px; font-size: 11.5px; }
+  .app.region-view .flat-region .flat-region-back { flex: none; }
+  /* Zoomknapparna (Platt vy) är 44 px (i bred layout förut 40 px) och ligger tätare och högre upp (mått: region.js, ZOOM_LOW) */
+  .app.region-view .flat-zoom { top: 4px; gap: 4px; }
+  .app.region-view .flat-zoom .flat-zbtn { width: 44px; height: 44px; }
+  .app.region-view .flat-zoom .flat-poster { width: auto; }
+  .app.region-view .globe-region-chip, .app.region-view .flat-region { width: auto; max-width: min(280px, calc(100% - var(--gut) - var(--gut-r))); }
+  /* Årtalets platta i smal layout går annars över hela bredden och tonar ned zoomknapparna */
+  .app.app.region-view .masthead { right: auto; }
+  .app.region-view .focus-bar { flex-wrap: nowrap; }
+  .app.region-view .focus-bar .focus-title { flex: 1 1 0; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .app.region-view .focus-bar :is(.focus-state, .focus-action, .chip-btn) { flex: none; }
+}
+/* Bred layout (800 × 360): fyra knappar på 44 px nådde under fokusraden, så zoomknapparna ligger i två kolumner med Affisch över båda */
+@media (min-width: 761px) and (max-height: 480px) and (orientation: landscape) {
+  .app.region-view .flat-zoom { display: grid; grid-template-columns: repeat(2, 44px); }
+  .app.region-view .flat-zoom .flat-poster { grid-column: 1 / -1; }
+}
+/* Smal layout (640 × 360): årtalet står överst till vänster, så rutan i Platt vy ligger under det (som rutan på globen, placeGlobeChip) */
+@media (max-width: 760px) and (max-height: 480px) and (orientation: landscape) {
+  .app.region-view .flat-region { top: 62px; }
+}
+/* Pekskärm: Lämna regionvyn är 44 px hög också i Platt vy (på globen gäller det redan, #1900) */
+@media (max-height: 480px) and (orientation: landscape) and (pointer: coarse) {
+  .app.region-view .flat-region .flat-region-back { min-height: 44px; }
+}
