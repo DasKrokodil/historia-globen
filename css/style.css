@@ -1497,6 +1497,7 @@ html.calm .year-tip { animation: none; }
 .flat-region[hidden] { display: none; }
 .flat-region-name { margin: 0; font: 400 11px/1.3 var(--f-mono); color: var(--brass); letter-spacing: .04em; }
 .flat-region-note { margin: 3px 0 6px; opacity: .85; }
+.flat-region-context { display: none; margin: 0; }
 .flat-region-next { margin: 0 0 6px; font-weight: 600; }
 .flat-region-next[hidden] { display: none; }
 /* Förklaringen till den streckade ringen (#1642): en kort rad med en liten ring, samma streckade ring som markörerna */
@@ -1595,6 +1596,7 @@ html.calm .year-tip { animation: none; }
   .flat-region { top: 36px; display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; padding: 4px 4px 4px 10px; }
   .flat-region-legend { order: 3; flex-basis: 100%; margin: 0 0 4px; font-size: 11.5px; }
   .flat-region-note { display: none; }
+  .flat-region-context { display: block; order: 3; flex-basis: 100%; margin: 0 0 2px; font-size: 11.5px; }
   .flat-region-next { order: 2; flex-basis: 100%; margin: 0 0 2px; font-size: 11.5px; }
   .flat-region-back { min-height: 44px; flex: none; }
   .globe-region-chip { top: 112px; max-width: calc(100% - var(--gut) - var(--gut-r)); }
@@ -1607,6 +1609,7 @@ html.calm .year-tip { animation: none; }
   .globe-region-chip { z-index: var(--z-regionruta); display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; padding: 4px 4px 4px 10px; }
   .globe-region-chip[hidden] { display: none; }
   .globe-region-chip .flat-region-note { display: none; }
+  .globe-region-chip .flat-region-context { display: block; order: 3; flex-basis: 100%; margin: 0 0 2px; font-size: 11.5px; }
   .globe-region-chip .flat-region-next { order: 2; flex-basis: 100%; margin: 0 0 2px; font-size: 11.5px; }
   .globe-region-chip .flat-region-legend { order: 3; flex-basis: 100%; margin: 0 0 4px; font-size: 11.5px; }
   .globe-region-chip .flat-region-back { flex: none; }
@@ -3211,6 +3214,7 @@ span.theme-event:hover { background: none; outline: none; }
   /* Rutan i Platt vy som den på globen (#1900): rubrik och knapp, utan den långa texten */
   .app.region-view .flat-region:not([hidden]) { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; padding: 4px 4px 4px 10px; }
   .app.region-view .flat-region .flat-region-note { display: none; }
+  .app.region-view .flat-region .flat-region-context { display: block; order: 3; flex-basis: 100%; margin: 0 0 2px; font-size: 11.5px; }
   .app.region-view .flat-region .flat-region-next { order: 2; flex-basis: 100%; margin: 0 0 2px; font-size: 11.5px; }
   .app.region-view .flat-region .flat-region-legend { order: 3; flex-basis: 100%; margin: 0 0 4px; font-size: 11.5px; }
   .app.region-view .flat-region .flat-region-back { flex: none; }
