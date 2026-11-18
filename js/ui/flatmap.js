@@ -223,7 +223,11 @@ export class FlatMap {
    * fråga också medan Platt vy är stängd, så att platskortet kan säga om regionvyn ryms innan knappen trycks (#1692).
    */
   layoutSpan() {
-    const top = document.querySelector('.top-actions').getBoundingClientRect().bottom + 8;
+    const actions = document.querySelector('.top-actions');
+    // Regionvyn i en låg liggande yta (#1952): knapparna uppe är dolda (css/style.css), så kartan börjar vid sidans överkant i stället
+    // för 125 px ned, och regionvyn får en yta att rama in platsen i
+    const free = getComputedStyle(actions).visibility === 'hidden' && !!actions.closest('.app.region-view');
+    const top = free ? 0 : actions.getBoundingClientRect().bottom + 8;
     const bottom = document.querySelector('.timebar .controls').getBoundingClientRect().top - 8;
     return { top: Math.round(top), height: Math.max(120, Math.round(bottom - top)) };
   }
@@ -232,6 +236,7 @@ export class FlatMap {
    *  ovanpå kartan, så att kartan inte hoppar när de visas. */
   _layout() {
     const { top, height } = this.layoutSpan();
+    this._span = `${top},${height}`;
     this.box.style.top = `${top}px`;
     this.box.style.height = `${height}px`;
     const r = this.box.getBoundingClientRect();
@@ -340,7 +345,13 @@ export class FlatMap {
    * Börja regionvyn för platsen id med gränsrutan bounds (placeBounds). free() ger den fria delen av kartans yta
    * ({ x, y, w, h } i kartans pixlar, region-frame.js freeArea): där hamnar platsen och fyller cirka 65 % av den.
    */
+  /** Ytan mäts om när knapparna uppe har dolts eller kommit tillbaka med regionvyn (#1952); det ändrar inte deras storlek, så ResizeObserver märker det inte. */
+  relayout() {
+    if (!this.hidden && this._span !== (({ top, height }) => `${top},${height}`)(this.layoutSpan())) this._layout();
+  }
+
   enterRegion(id, bounds, free) {
+    this.relayout();
     if (!this.w || !this.h) return;
     this._region = { id, bounds, free, fitScale: 0, moved: false };
     this._sharp = null;
@@ -392,6 +403,7 @@ export class FlatMap {
     this.draw();
     this.onZoom?.();
     this.onRegion?.(null, id, { quiet });
+    this.relayout(); // klassen region-view är borta nu: kartan går tillbaka till sin vanliga yta (#1952)
   }
 
   _scheduleSharp() {
