@@ -2997,6 +2997,15 @@ span.theme-event:hover { background: none; outline: none; }
   .focus-tabs { flex-wrap: nowrap; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; }
   .focus-body { min-height: 72px; }
 }
+/* Liggande telefon (#1951): huvudet rullar bort med listan, så flera hela träffrader får plats.
+   top och max-height ersätter bara öppningskodens inline-mått i detta läge. Bakgrundsfiltret tas bort
+   så att stängknappen kan ligga fast mot skärmen; den täta bakgrunden behåller läsbarheten. */
+@media (max-height: 480px) and (max-width: 1100px) and (orientation: landscape) and (pointer: coarse) {
+  .focus-menu { display: block; top: 8px !important; max-height: calc(100dvh - 24px) !important; overflow-y: auto; overscroll-behavior: contain; z-index: var(--z-meny); backdrop-filter: none; background: var(--night-2); }
+  .focus-menu .focus-head { max-height: none; overflow: visible; padding-right: 54px; }
+  .focus-menu .focus-body { min-height: 0; overflow: visible; padding-right: 54px; }
+  .focus-menu .menu-x { display: grid; position: fixed; top: 14px; right: calc(var(--gut-r) + 6px); margin: 0; }
+}
 @media (max-height: 600px) and (max-width: 760px) {
   .app { --tour-top: 76px; }
   .app.lesson, .app.lesson-notice { --tour-top: 130px; }
