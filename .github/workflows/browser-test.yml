@@ -180,6 +180,12 @@ jobs:
           for i in $(seq 50); do curl -sf -o /dev/null "http://localhost:$PORT/" && exit 0; sleep 0.2; done
           echo "::error::webbservern svarar inte"; cat "$RUNNER_TEMP/server.log"; exit 1
 
+      - name: Tangentbordsfokus från platskort till karta (#1950)
+        if: matrix.test.browser == 'chromium' && matrix.test.jobb == 'plats'
+        env:
+          SKARMBILDER: skarmbilder
+        run: NODE_PATH="$RUNNER_TEMP/pw/node_modules" node tests/regionfokus.mjs "$PORT"
+
       - name: Kör webbläsartestet (tests/webblasare.mjs)
         env:
           BROWSER: ${{ matrix.test.browser }}
