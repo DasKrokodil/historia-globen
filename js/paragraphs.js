@@ -32,12 +32,15 @@ const ORDINAL_END = /(?:^|[\s(–-])\d{1,2}\.$/u;
 
 /** Meningarna i en text. Ett mellanrum efter . ! ? (och eventuell slutcitat) före en versal eller ett citattecken är ett möjligt brott; efter en förkortning eller initial är det inget. */
 export function sentences(text) {
-  const parts = String(text ?? '').trim().split(/(?<=[.!?…]["”»’)]?)\s+(?=[\p{Lu}«“"¿¡])/u);
+  // Skiljetecknet fångas så att ett hårt mellanslag ("28.\u00a0August") finns kvar när delarna sätts ihop igen
+  const pieces = String(text ?? '').trim().split(/(?<=[.!?…]["”»’)]?)(\s+)(?=[\p{Lu}«“"¿¡])/u);
   const out = [];
-  for (const part of parts) {
+  for (let i = 0; i < pieces.length; i += 2) {
+    const part = pieces[i];
+    const gap = pieces[i - 1];
     const prev = out[out.length - 1];
     const joined = prev && (ABBREVIATION_END.test(prev) || INITIAL_END.test(prev) || ORDINAL_END.test(prev) || (ERA_PART_END.test(prev) && ERA_START.test(part)));
-    if (joined) out[out.length - 1] = `${prev} ${part}`;
+    if (joined) out[out.length - 1] = `${prev}${gap}${part}`;
     else out.push(part);
   }
   return out;
