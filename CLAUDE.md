@@ -51,6 +51,7 @@ js/start-view.js      startbilden: kameran och startzoomen utan delad adress (#1
 js/globe-detail.js    skarpt utsnitt av kartan vid inzoomning: samma ritning i högre upplösning för det som syns
 js/period-range.js    epok som intervall: periodToRange klipper vid tidslinjens början och går till i dag för öppna perioder (#965)
 js/timeline.js        tidsreglage, segmenterad skala, uppspelning
+js/time-scale.js      människans skalpost: segment, upplösning, steg, fart och skalgränser (#1511)
 js/layers/registry.js lagerregistret: ritordning, Lager-menyn, uppdatering och toning (#338)
 js/layers/index.js    listan över lagren i Lager-menyns ordning; ett nytt lager läggs till här (#338)
 js/focus/             fokustyperna som poster (#1327): registry.js (registret och kontraktet), index.js (listan) och en fil per typ (krig, rike, religion, resa, tema, plats)
