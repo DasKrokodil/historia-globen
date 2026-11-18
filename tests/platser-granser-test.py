@@ -87,7 +87,10 @@ for pl in platser:
 
 # 3. JS och Python
 src = (ROOT / 'scripts' / 'validate-site.py').read_text(encoding='utf-8')
-a, b = src.index('    def unwrapped(ring):'), src.index('    for pl in places_doc.get')
+a = src.index('    def unwrapped(ring):')
+# Det finns också en tidigare platsloop för partOf-kontrollen. Slutet måste sökas
+# efter hjälpfunktionernas början, annars körs utdraget utan in_ring.
+b = src.index('    for pl in places_doc.get', a)
 ns = {'math': math}
 exec(textwrap.dedent(src[a:b]), ns)  # samma kod som validate-site.py kör, utan resten av skriptet
 fx = json.loads((ROOT / 'tests' / 'fixtures' / 'datumlinjen.json').read_text(encoding='utf-8'))
