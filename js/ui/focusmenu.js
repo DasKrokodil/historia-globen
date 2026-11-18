@@ -393,6 +393,7 @@ export class FocusMenu {
     this.menu.classList.toggle('focus-menu-low', low);
     this.menu.style.top = `${top}px`;
     this.menu.style.maxHeight = `calc(100dvh - ${top + 16}px)`;
+    this.menu.scrollTop = 0; // i liggande telefon rullar hela menyn; en ny öppning börjar vid sökrutan (#1951)
     this.menu.hidden = false;
     this.button.setAttribute('aria-expanded', 'true');
     this.onOpen();
