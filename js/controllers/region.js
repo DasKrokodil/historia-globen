@@ -570,7 +570,7 @@ export function createRegion(app) {
     if ((type === 'year' || type === 'range') && isOpen()) { followYear(); return; }
     if (type !== 'focus' || !isOpen()) return;
     if (state.focus?.type !== 'place' || state.focus.place?.id !== openId()) {
-      if (where === 'globe') closeGlobe(); else flatMap.leaveRegion();
+      leave(); // fokusbyte och avslut återställer också ursprungsvyn och säger vart besökaren kom (#1949)
       return;
     }
     // Samma plats med ett nytt fokus (en adress eller Sök och följ startar den igen): markörerna följer dess lista
