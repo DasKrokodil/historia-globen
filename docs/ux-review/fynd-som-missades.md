@@ -14,6 +14,7 @@ De fem frågorna: **1 Förväntan**, **2 Först**, **3 Ointressant**, **4 Tillst
 | 2026-11-15 | Turkort i en tur (steg 1 och 2) | Andra händelser var tända under turen, och texten var svår att läsa i ett svep. | 4 Tillstånd: lager som inte hör till steget; 3 Ointressant; 5 Läsbarhet. | #1784, #1785, #1793 |
 | 2026-11-15 | Samtidigt-panelen | Menyn var oöverskådlig. | 2 Först: vad syns i första synfältet. | #1782 |
 | 2026-11-15 | Kartan över Europa | Danska flaggan hamnade i havet. | 4 Tillstånd: symbolen ligger utanför områdets yta. | |
+| 2026-11-16 | Menyerna, vägen till länder och regionvyn | Vyn kändes bra, men vägen dit kändes inte logisk i menyerna. | 1 Förväntan, börjat före ytan: från startbilden, utan att veta vad ytan heter, vilka ord och hur många tryck leder dit? | #1853 |
 
 ## Frågor som lagts till efter baslinjen (2026-11-16)
 
