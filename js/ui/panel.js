@@ -723,6 +723,7 @@ export class Panel {
    *   label    etiketten överst ("Tema", "Plats")
    *   name     namnet, text per språk
    *   lead     valfri rad under namnet (platsens typ)
+   *   mapNote  valfri synlig rad om kartans nutida gräns, kust och ortnamn (#1956)
    *   emblems  valfria flaggor och vapen (#1160): egna SVG:er i img/flags/ med bildtext, kredit och licens;
    *            filsidorna läggs till bland källorna
    *   intro    inledningen, text per språk
@@ -741,7 +742,7 @@ export class Panel {
    * Kortet för ett urval (tema eller plats). empires (#1448, bara platser med periods): { title, note, follow, rows }, där en rad är
    * { years, name, label, run } (run saknas i en tur: raden är då bara text) eller { gap } (en lucka, en läsbar rad).
    */
-  showSelection({ label, name, lead = '', emblems = [], intro, action = null, notes = [], exit, empires = null, summary, events, sources = [], focus = true, banner = '', ariaLabel, aboutLabel = null }) {
+  showSelection({ label, name, lead = '', mapNote = '', emblems = [], intro, action = null, notes = [], exit, empires = null, summary, events, sources = [], focus = true, banner = '', ariaLabel, aboutLabel = null }) {
     this.selectedId = null;
     // Ingen tidsålderns ram (#1713, punkt 4): plats- och temakortet är en ruta för läsning, i samma neutrala mörka kort som rikes-, religions-
     // och krigskorten. Ramen efter första händelsens epok gav olika kort för Skåne (grotta, 3,46:1) och Grönland (papyrus) och ockra text under AA.
@@ -792,6 +793,7 @@ export class Panel {
       <h3>${esc(t(name))}</h3>
       ${banner ? `<p class="theme-filter-note place-banner">${esc(banner)}</p>` : ''}
       <div class="story">${lead ? `<p class="place-type">${esc(lead)}</p>` : ''}
+      ${mapNote ? `<p class="place-map-note">${esc(mapNote)}</p>` : ''}
       ${emblemHtml}
       <p>${esc(t(intro))}</p>
       ${body.filter(Boolean).join('\n      ')}</div>

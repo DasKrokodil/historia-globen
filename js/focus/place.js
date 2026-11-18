@@ -1,6 +1,6 @@
 // Fokustypen plats (#579): ett urval av händelser, valt med en geometri (dagens gräns i data/platser.json).
 // Draft-platser laddas aldrig.
-import { loadPlaces, loadedPlaces, loadEmpireFacts, t, isVisibleReview, formatYear, rangeText, region } from '../model.js';
+import { loadPlaces, loadedPlaces, loadEmpireFacts, t, isVisibleReview, formatYear, rangeText, region, pluralUi } from '../model.js';
 import { ui } from '../i18n.js';
 import { say } from '../ui/status.js';
 import { placeEvents, placeBounds } from '../place-geo.js';
@@ -59,7 +59,7 @@ export function showPlaceCard(app, place, events, { follow = true, note = '', fo
     note: [ui('place.empiresNote'), ...(follow ? [ui('place.followLeaves')] : [])].join(' '), follow: ui('place.followEmpireShort'), rows: periods } : null;
   app.store.setSelected(null);
   panel.showSelection({ label: ui('place.label'), name: place.name, lead: placeLead(place), emblems: place.emblems,
-    intro: place.intro,
+    intro: place.intro, mapNote: ui('place.mapContext'),
     // Visa i Platt karta (#1161): byter vy och ramar in platsen; knappen finns när main.js har kopplat återanropet
     // En liten plats får regionvyn (#1641), och knappen säger det, men bara när den ryms (#1692, controllers/region.js)
     action: follow && panel.onPlaceFlat ? flatAction(place, () => panel.onPlaceFlat(place), app.region?.buttonKey(place)) : null,
@@ -162,7 +162,7 @@ export function entry(app) {
     },
     facts: { has: () => true, show: f => showCard(f) },
     async menuLoad() { list ??= await loadPlaces(); },
-    // En plats visas med typ och antal händelser inom gränsen ("Självstyrt område · 17 händelser · 2500 f.Kr.–2009", #579).
+    // Spannet gäller händelser inom dagens gräns, inte när platsen existerade (#1956).
     // Listan är ett träd (#1947): världsdel → land → landskap. tree säger det till menyn, region är världsdelen (som i Samtidigt, ur
     // platsens mittpunkt med region() i model.js; ett landskap ärver landets) och parent landets id (partOf) för en plats i ett land.
     menu: () => [{ title: 'Platser', note: ui('focus.note.places'), tree: true, loading: !list, items: !list ? [] : list.map(pl => {
@@ -172,7 +172,7 @@ export function entry(app) {
       const parent = parentOf(pl, list), [lat, lon] = (parent ?? pl).view.center;
       return { key: `place:${pl.id}`, id: pl.id, parent: parent?.id ?? null, type: pl.type, region: region(lat, lon),
         nameIn: pl.nameIn ? t(pl.nameIn) : null, label: t(pl.name), terms: langs(pl.name),
-        sub: `${ui(`place.type.${pl.type}`)} · ${ui('focus.themeCount', { count: evs.length })} · ${formatYearSpan(evs[0].start, to)}`, from: evs[0].start, to };
+        sub: `${ui(`place.type.${pl.type}`)} · ${pluralUi('place.eventsWithin', evs.length, { count: evs.length })} · ${formatYearSpan(evs[0].start, to)}`, from: evs[0].start, to };
     }).filter(Boolean) }],
   };
 }
