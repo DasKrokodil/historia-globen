@@ -724,6 +724,23 @@ def country_warnings(inside):
 places_doc = load('data/platser.json') if (DIST / 'data/platser.json').is_file() else None
 if places_doc is not None:
     validate_schema_file('data/platser.json', places_doc, 'platser.schema.json')
+    # partOf är landets id (#1947, beslut 2026-11-18): landet finns, är ett land, har nameIn (frasen på kortet) och pekar inte vidare
+    places_by_id = {p.get('id'): p for p in places_doc.get('places', [])}
+    for pl in places_doc.get('places', []):
+        if 'partOf' not in pl:
+            continue
+        parent = places_by_id.get(pl['partOf'])
+        where = f"data/platser.json ({pl.get('id')})"
+        if parent is None:
+            err(f"{where}: partOf pekar på {pl['partOf']}, som inte finns i data/platser.json")
+        elif parent.get('type') != 'country':
+            err(f"{where}: partOf pekar på {pl['partOf']}, som inte är ett land (type country)")
+        elif not parent.get('nameIn'):
+            err(f"{where}: landet {pl['partOf']} saknar nameIn (landets namn med preposition, #1479)")
+        elif parent.get('partOf'):
+            err(f"{where}: landet {pl['partOf']} har själv partOf; listan har bara nivåerna land och landskap")
+        elif pl.get('review') in VISIBLE and parent.get('review') not in VISIBLE:
+            err(f"{where}: landet {pl['partOf']} är ett utkast men platsen visas")
     ev_all = [e for e in events['events'] if e.get('review') in VISIBLE and e['location']['type'] == 'Point']
     seen_places = set()
     scoped_in = set()  # händelser med scope "place" som ligger i någon plats (#1674)

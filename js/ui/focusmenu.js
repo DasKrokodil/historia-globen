@@ -3,25 +3,31 @@
 // Överst ligger en sökruta, flikar och sortering (#240, #311); de ligger kvar medan listan under rullar.
 // - Sökningen letar i alla namn en post har (svenska, engelska och för riken namnen på rikets delar,
 //   till exempel "Bysantinska riket" i Rom), även delar av namn och utan att bry sig om accenter.
-// - Flikarna: Alla, Händelser, Krig, Riken, Försvunna länder, Religioner, Resor, Teman (#398). Menyn öppnas alltid med Alla;
+// - Flikarna: Alla, Länder och landskap (#1947, id Platser), Händelser, Krig, Riken, Försvunna länder, Religioner, Resor, Teman (#398)
+//   och Nära en plats (id Plats, #15). Menyn öppnas alltid med Alla;
 //   bara sorteringen sparas i localStorage (#709). Sök och följ (#651): Sök (#570) ingår här. Händelser har ingen lista att bläddra i; de hittas
 //   när man skriver (searchEvents, ur js/search-index.js) och öppnas i stället för att följas.
 // - Sorteringen: Relevans visar det som pågår nära året man står på, närmast först, och resten bakom
 //   "Visa alla" (#121); Försvunna länder visas där alltid hela, i tidsordning (#72). Kronologiskt och
-//   Alfabetiskt visar allt.
+//   Alfabetiskt visar allt. Länder och landskap (#1947) är ett träd, världsdel → land → landskap, alltid i namnordning; där
+//   gäller ingen sortering och raden döljs. Varje nivå är en knapp med aria-expanded, som gruppernas rubriker.
+// - Gruppens antal är antalet rader som visas: under en sökning träffarna, inte hela gruppen (#1953).
 // - Tangentbord: pil ner från sökrutan går till listan, pilarna flyttar i listan, Enter väljer (i sökrutan
-//   den första träffen), Escape stänger. På dator får sökrutan fokus när menyn öppnas.
+//   den första träffen), Escape stänger. Pilarna hoppar över rader i en ihopfälld nivå. På dator får sökrutan fokus när menyn öppnas.
 import { ui } from '../i18n.js';
+import { REGIONS } from '../model.js';
 
 // Flikarnas och sorteringens id är svenska ord, eftersom sorteringens sparas i localStorage och flikarnas är
 // desamma som gruppernas id (focus.js). Det som visas hämtas med ui() på valt språk (#671).
 const EVENTS = 'Händelser';
-const PLACE = 'Plats'; // "Vad hände här?" (#15): händelser nära en plats ur datan
-const TABS = ['Alla', EVENTS, 'Krig', 'Riken', 'Försvunna länder', 'Religioner', 'Resor', 'Teman', 'Platser', PLACE];
+const PLACE = 'Plats'; // "Nära en plats" (#15, namnet sedan #1947): händelser nära en plats ur datan
+const PLACES = 'Platser'; // "Länder och landskap" (#1947): platserna med eget kort, direkt efter Alla
+const TABS = ['Alla', PLACES, EVENTS, 'Krig', 'Riken', 'Försvunna länder', 'Religioner', 'Resor', 'Teman', PLACE];
 const TAB_KEY = { Alla: 'all', [EVENTS]: 'events', Krig: 'wars', Riken: 'empires', 'Försvunna länder': 'vanished', Religioner: 'religions', Resor: 'routes', Teman: 'themes', Platser: 'places', [PLACE]: 'place' };
 /** Flikens eller gruppens namn på valt språk; ett okänt id visas som det är. */
 export const tabName = id => (TAB_KEY[id] ? ui(`focus.tab.${TAB_KEY[id]}`) : id);
 const SORTS = ['relevans', 'kronologiskt', 'alfabetiskt'];
+const LOW_MENU = 280; // px under knapparna: mindre än så räcker inte till huvudet och tre rader, och menyn läggs över knapparna (#1951)
 const sortName = id => ui(`focus.sort.${id}`);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 /** Gemener utan accenter, så att "osterrike" hittar Österrike och "bys" hittar Bysantinska riket. */
@@ -44,6 +50,7 @@ export class FocusMenu {
     this.showAll = false;
     this.showAllGroups = new Set();
     this.openGroup = null;
+    this.nodes = new Map(); // nivåerna i trädet Länder och landskap (#1947) som besökaren har fällt ut eller ihop: nod → öppen
     this.groupByAge = false;
     this.query = '';
     this.tab = 'Alla';
@@ -66,12 +73,13 @@ export class FocusMenu {
     this.body = menu.querySelector('.focus-body');
     this.live = menu.querySelector('.focus-live');
     this.input = menu.querySelector('.focus-search');
-    this.input.addEventListener('input', () => { this.query = this.input.value; if (this.tab === PLACE) this.place = null; this.body.scrollTop = 0; this.render(); });
+    this.input.addEventListener('input', () => { this.query = this.input.value; if (this.tab === PLACE) this.place = null; this.nodes.clear(); this.body.scrollTop = 0; this.render(); });
     const choose = (attr, key, prop) => {
       for (const b of menu.querySelectorAll(`[${attr}]`)) b.addEventListener('click', () => {
         this[prop] = b.getAttribute(attr);
         if (key) try { localStorage.setItem(key, this[prop]); } catch { /* utan lagring */ }
         for (const x of menu.querySelectorAll(`[${attr}]`)) x.setAttribute('aria-pressed', String(x === b));
+        b.scrollIntoView?.({ block: 'nearest', inline: 'nearest' }); // i mobil är flikarna en rullrad (#1947)
         this.body.scrollTop = 0;
         this.render();
       });
@@ -101,6 +109,7 @@ export class FocusMenu {
     this.showAll = false;
     this.showAllGroups.clear();
     this.openGroup = null;
+    this.nodes.clear();
     this.groupByAge = false;
     for (const b of this.menu.querySelectorAll('[data-tab]')) b.setAttribute('aria-pressed', String(b.dataset.tab === this.tab));
     for (const b of this.menu.querySelectorAll('[data-sort]')) b.setAttribute('aria-pressed', String(b.dataset.sort === this.sort));
@@ -121,7 +130,7 @@ export class FocusMenu {
     this.groups = groups.map(g => ({ ...g, items: g.items.map(it => ({ ...it, _terms: [...new Set([it.label, ...(it.terms ?? [])])].map(s => [s, norm(s)]) })) }));
     // Fliken Teman (#398) syns först när det finns minst ett tema; en tom flik ser ut som ett fel
     // Samma för Platser (#579). Om datan försvinner eller bara innehåller utkast får inte en dold flik ligga kvar som vald.
-    for (const title of ['Teman', 'Platser']) {
+    for (const title of ['Teman', PLACES]) {
       const tab = this.menu.querySelector(`[data-tab="${title}"]`);
       const has = this.groups.some(g => g.title === title && g.items.length);
       if (tab) tab.hidden = !has;
@@ -193,7 +202,8 @@ export class FocusMenu {
     if (this.tab === PLACE) return this.renderPlace();
     this.input.placeholder = ui('focus.placeholder');
     this.input.setAttribute('aria-label', ui('focus.searchLabel'));
-    this.menu.querySelector('.focus-sort').style.display = '';
+    // Sorteringen gäller inte trädet Länder och landskap (alltid i namnordning, #1947); raden döljs där och tar ingen plats i mobil
+    this.menu.querySelector('.focus-sort').style.display = this.tab === PLACES ? 'none' : '';
     const tm = this.time;
     const dist = it => !tm ? 0 : tm.year < it.from ? it.from - tm.year : tm.year > it.to ? tm.year - it.to : 0;
     const near = it => !tm || (it.to >= tm.from && it.from <= tm.to);
@@ -205,7 +215,7 @@ export class FocusMenu {
     const eventGroup = words.length && (this.tab === 'Alla' || this.tab === EVENTS)
       ? [{ title: EVENTS, pre: true, items: this.searchEvents(query) }] : [];
     const groups = [...this.groups, ...eventGroup].filter(g => this.tab === 'Alla' || g.title === this.tab).map(g => {
-      const cmp = this.sort === 'alfabetiskt' ? byName : this.sort === 'kronologiskt' || g.all ? chrono
+      const cmp = this.sort === 'alfabetiskt' || g.tree ? byName : this.sort === 'kronologiskt' || g.all ? chrono
         : (a, b) => dist(a) - dist(b) || byName(a, b);
       // Händelserna kommer färdigsorterade och färdigmatchade ur sökningen (search-index.js)
       if (g.pre) { found += g.items.length; return { ...g, total: g.items.length }; }
@@ -213,7 +223,8 @@ export class FocusMenu {
       // En öppen rullgardin visar alltid de närmaste åtta; sökning visar alla träffar.
       const items = words.length ? sorted.map(it => this.match(it, words)).filter(Boolean) : sorted;
       found += items.length;
-      return { ...g, total: sorted.length, items };
+      // Antalet är raderna som visas: under en sökning träffarna, inte hela gruppen (#1953). full behövs för trädets länder (#1947)
+      return { ...g, total: items.length, items, full: sorted };
     }).filter(g => g.items.length || (g.loading && !words.length));
     const q = words.length > 0;
     const activeHtml = [], activeText = [];
@@ -237,7 +248,7 @@ export class FocusMenu {
       <span class="focus-active-text"><strong>${esc(ui('focus.results', { count: found }))}</strong> · ${activeHtml.join(' · ')}</span>
       <button type="button" class="focus-clear" data-clear>${esc(ui('focus.clearAll'))}</button>
     </div>` : '';
-    const intro = !q && relevance && tm && groups.some(g => !g.all)
+    const intro = !q && relevance && tm && groups.some(g => !g.all && !g.tree)
       ? `<div class="layer-note pad">${esc(ui('focus.nearFirst', { window: tm.label }))}</div>` : '';
     const empty = esc(q ? ui('focus.noMatch', { query: this.query.trim() })
       : this.tab === EVENTS ? ui('focus.eventsHint') : ui('focus.nothing'));
@@ -250,6 +261,7 @@ export class FocusMenu {
     const groupItems = (g, expanded) => {
       if (!expanded) return '';
       if (!g.items.length) return g.loading ? `<div class="layer-note pad">${esc(ui('focus.loading'))}</div>` : '';
+      if (g.tree) return this.treeHtml(g, rows, q);
       // En vald flik är redan ett avgränsat urval. Visa därför hela gruppen så
       // att antalet i rubriken direkt motsvarar de synliga raderna; Alla behåller
       // sin korta, hopfällbara översikt.
@@ -268,10 +280,11 @@ export class FocusMenu {
     this.body.innerHTML = activeRow + intro + (groups.map(g => {
       const expanded = q || (this.tab !== 'Alla' ? true : this.openGroup === g.title);
       return `<section class="focus-group"><button type="button" class="focus-group-toggle" data-group="${esc(g.title)}" aria-expanded="${expanded}"><span>${esc(tabName(g.title))} <span class="focus-group-count">(${g.total})</span></span><span class="focus-group-chev" aria-hidden="true"></span></button>
-      ${g.note && own ? `<div class="layer-note pad focus-note">${esc(g.note)}</div>` : ''}${groupItems(g, expanded)}</section>`;
+      ${g.note && own && !g.tree ? `<div class="layer-note pad focus-note">${esc(g.note)}</div>` : ''}${groupItems(g, expanded)}${g.note && own && g.tree ? `<div class="layer-note pad focus-note">${esc(g.note)}</div>` : ''}</section>`;
     }).join('')
       || `<div class="layer-note pad">${empty}</div>`)
       ;
+    this.body.classList.toggle('focus-own-tab', this.tab !== 'Alla'); // gruppens rubrik döljs på sin egen flik i låg skärm (css, #1951)
     this.live.textContent = activeText.length ? `${ui('focus.results', { count: found })}. ${activeText.join('. ')}` : '';
     this.body.querySelector('[data-clear]')?.addEventListener('click', () => this.clearFilters());
     for (const b of this.body.querySelectorAll('[data-key]')) {
@@ -283,6 +296,12 @@ export class FocusMenu {
       this.render();
       [...this.body.querySelectorAll('[data-group]')].find(x => x.dataset.group === title)?.focus({ preventScroll: true });
     });
+    for (const b of this.body.querySelectorAll('[data-node]')) b.addEventListener('click', () => {
+      const node = b.dataset.node;
+      this.nodes.set(node, b.getAttribute('aria-expanded') !== 'true');
+      this.render();
+      [...this.body.querySelectorAll('[data-node]')].find(x => x.dataset.node === node)?.focus({ preventScroll: true });
+    });
     for (const b of this.body.querySelectorAll('[data-group-all]')) b.addEventListener('click', () => {
       this.showAllGroups.add(b.dataset.groupAll); this.render();
       [...this.body.querySelectorAll('[data-group-all]')].find(x => x.dataset.groupAll === b.dataset.groupAll)?.focus({ preventScroll: true });
@@ -293,11 +312,49 @@ export class FocusMenu {
     });
   }
 
+  /**
+   * Trädet Länder och landskap (#1947): världsdel → land → landskap. Världsdelarna i samma ordning som i Samtidigt (REGIONS i model.js),
+   * länderna och landskapen i namnordning. Varje nivå är en knapp med aria-expanded (inte role="tree"), och en ihopfälld nivås rader
+   * ligger kvar i sidan med hidden, så att aria-controls pekar på något och pilarna hoppar över dem. Världsdelarna är utfällda och
+   * landskapen ihopfällda från början; under en sökning är allt med träffar utfällt. Antalet är träffarna i nivån (#1953).
+   * Ett land som inte träffar men har landskap som gör det står kvar som rad, så att landskapet syns under sitt land.
+   */
+  treeHtml(g, rows, q) {
+    const hits = g.items, full = g.full ?? hits;
+    const open = (node, standard) => this.nodes.get(node) ?? (q || standard);
+    const domId = node => `focus-node-${node.replace(/[^a-z0-9]+/gi, '-')}`;
+    const toggle = (node, label, count, expanded, level) => `<button type="button" class="focus-node-toggle focus-node-${level}" data-node="${esc(node)}" aria-expanded="${expanded}" aria-controls="${domId(node)}"><span>${esc(label)} <span class="focus-group-count">(${count})</span></span><span class="focus-group-chev" aria-hidden="true"></span></button>`;
+    const body = (node, expanded, html) => `<div class="focus-node-body" id="${domId(node)}"${expanded ? '' : ' hidden'}>${html}</div>`;
+    const byId = new Map(full.map(it => [it.id, it]));
+    // En plats vars land saknas i listan (utkast eller inga händelser) står som ett eget land
+    const top = it => !it.parent || !byId.has(it.parent);
+    return REGIONS.map(r => {
+      const inRegion = hits.filter(it => it.region === r);
+      if (!inRegion.length) return '';
+      // Länderna: först de som bara står som land till ett landskap som träffar, sedan träffarna, så att träffens rad (med "också") vinner
+      const countries = [...new Map([...inRegion.filter(it => !top(it)).map(it => byId.get(it.parent)), ...inRegion.filter(top)]
+        .map(c => [c.id, c])).values()].sort(byName);
+      const html = countries.map(c => {
+        const kids = inRegion.filter(it => !top(it) && it.parent === c.id);
+        const types = [...new Set(kids.map(k => k.type))];
+        return rows([c]) + types.map(type => {
+          const list = kids.filter(k => k.type === type), node = `c:${c.id}:${type}`, expanded = open(node, false);
+          const kind = ui(`place.types.${type}`), label = c.nameIn ? ui('place.typeOf', { type: kind, of: c.nameIn }) : kind;
+          return `<div class="focus-node">${toggle(node, label, list.length, expanded, 'kids')}${body(node, expanded, rows(list))}</div>`;
+        }).join('');
+      }).join('');
+      const node = `r:${r}`, expanded = open(node, true);
+      return `<div class="focus-node">${toggle(node, ui(`region.${r}`), inRegion.length, expanded, 'region')}${body(node, expanded, html)}</div>`;
+    }).join('');
+  }
+
   /** Tangentbordet i menyn: pilarna mellan sökrutan och listan, och mellan flikarna och sorteringarna. */
   key(e) {
     const t = e.target;
-    const headings = [...this.body.querySelectorAll('[data-group]')];
-    const rows = [...this.body.querySelectorAll('button:not([data-group])')];
+    // Rader i en ihopfälld nivå (hidden) och rubriker som inte visas hoppas över (#1947, #1951)
+    const shown = b => b.getClientRects().length > 0;
+    const headings = [...this.body.querySelectorAll('[data-group]')].filter(shown);
+    const rows = [...this.body.querySelectorAll('button:not([data-group])')].filter(shown);
     const go = el => { if (el) { e.preventDefault(); el.focus(); el.scrollIntoView({ block: 'nearest' }); } };
     if (t === this.input) {
       if (e.key === 'ArrowDown') go(headings[0] ?? rows[0]);
@@ -330,8 +387,12 @@ export class FocusMenu {
 
   open() {
     const r = (this.button.closest('.top-actions') ?? this.button).getBoundingClientRect();
-    this.menu.style.top = `${r.bottom + 8}px`;
-    this.menu.style.maxHeight = `calc(100dvh - ${r.bottom + 24}px)`;
+    // Låg skärm (liggande telefon, 800 × 360, #1947, #1951): under knapparna rymdes bara huvudet, och ingen rad syntes. Där läggs menyn
+    // över knapparna i stället; den stängs med ×, Escape eller ett tryck utanför som förut.
+    const low = innerHeight - r.bottom < LOW_MENU, top = low ? 8 : r.bottom + 8;
+    this.menu.classList.toggle('focus-menu-low', low);
+    this.menu.style.top = `${top}px`;
+    this.menu.style.maxHeight = `calc(100dvh - ${top + 16}px)`;
     this.menu.hidden = false;
     this.button.setAttribute('aria-expanded', 'true');
     this.onOpen();

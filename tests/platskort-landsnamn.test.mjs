@@ -1,5 +1,6 @@
-// Platskortets typrad med landsnamn med artikel och preposition (#1479): `partOf` i data/platser.json är hela frasen per språk
-// ("in der Schweiz", "aux États-Unis") och mallen place.typeOf är "{type} {of}", så koden lägger aldrig till en preposition själv.
+// Platskortets typrad med landsnamn med artikel och preposition (#1479): `partOf` i data/platser.json är landets id (#1947, beslut
+// 2026-11-18) och landets `nameIn` är hela frasen per språk ("in der Schweiz", "aux États-Unis"); mallen place.typeOf är "{type} {of}",
+// så koden lägger aldrig till en preposition själv.
 // Körs med node --test 'tests/*.test.mjs'.
 // OBS: provplatserna och fraserna nedan är testfixturer som bara provar mallen och hur frasen sätts ihop med typen. De är inga riktiga
 // platser, ingen av dem finns i data/platser.json och frasernas form är inte källkontrollerad här; varje riktig fras kontrolleras
@@ -20,13 +21,13 @@ const FIXTURE_TYPES = {
   canton: { sv: 'Kanton', en: 'Canton', de: 'Kanton', es: 'Cantón', fr: 'Canton' },
 };
 
-/** placeLead på ett visst språk: texthämtarna läser språkfilen och språkets text, utan reservspråk. */
-const lead = (place, lang) => placeLead(place,
+/** placeLead på ett visst språk: texthämtarna läser språkfilen och språkets text, utan reservspråk. partOf slås upp i list (fixturens egen lista). */
+const lead = (place, lang, list = place.list ?? places) => placeLead(place,
   obj => (typeof obj === 'string' ? obj : obj[lang]),
   (key, vars) => {
     const fixture = FIXTURE_TYPES[key.replace(/^place\.type\./, '')]?.[lang];
     return (fixture ?? dicts[lang][key]).replace(/\{(\w+)\}/g, (m, k) => vars?.[k] ?? m);
-  });
+  }, list);
 
 const phrase = (sv, en, de, es, fr) => ({ sv, en, de, es, fr });
 
@@ -50,7 +51,8 @@ test('en plats utan partOf visar bara typen', () => {
 });
 
 test('landsnamn med artikel och annan preposition får rätt rad: frasen skrivs hel i datan (fixturer, inga riktiga platser)', () => {
-  const fixture = (type, partOf) => ({ type, partOf });
+  // Varje fixtur är en plats i ett land: landet (id "land") har frasen i nameIn och platsen pekar på det med partOf
+  const fixture = (type, nameIn) => ({ type, partOf: 'land', list: [{ id: 'land', type: 'country', nameIn }] });
   const canton = fixture('canton', phrase('i Schweiz', 'in Switzerland', 'in der Schweiz', 'en Suiza', 'en Suisse'));
   assert.equal(lead(canton, 'de'), 'Kanton in der Schweiz');
   assert.equal(lead(canton, 'fr'), 'Canton en Suisse');
@@ -73,13 +75,39 @@ test('mallen place.typeOf är "{type} {of}" på alla språk: ingen fast preposit
   for (const l of LANGS) assert.equal(dicts[l]['place.typeOf'], '{type} {of}', `place.typeOf på ${l}`);
 });
 
-test('varje partOf i datan är en hel fras på alla fem språk (preposition och landsnamn), aldrig bara landsnamnet', () => {
+test('varje partOf i datan pekar på ett land vars nameIn är en hel fras på alla fem språk (preposition och landsnamn) (#1947)', () => {
   const rule = json('schemas/platser.schema.json').$defs.phrase;
-  for (const p of places.filter(x => x.partOf)) {
+  const withPartOf = places.filter(x => x.partOf);
+  assert.ok(withPartOf.length, 'minst en plats (Skåne) har partOf');
+  for (const p of withPartOf) {
+    assert.equal(typeof p.partOf, 'string', `${p.id}.partOf är landets id, inte en fras`);
+    const land = places.find(x => x.id === p.partOf);
+    assert.ok(land, `${p.id}.partOf pekar på ${p.partOf}, som saknas`);
+    assert.equal(land.type, 'country', `${p.id}.partOf pekar på ${p.partOf}, som inte är ett land`);
+    assert.ok(!land.partOf, `landet ${land.id} ingår inte självt i något`);
     for (const l of LANGS) {
-      const text = p.partOf[l];
-      assert.ok(typeof text === 'string' && new RegExp(rule.properties[l].pattern).test(text), `${p.id}.partOf.${l} är inte en hel fras: "${text}"`);
+      const text = land.nameIn?.[l];
+      assert.ok(typeof text === 'string' && new RegExp(rule.properties[l].pattern).test(text), `${land.id}.nameIn.${l} är inte en hel fras: "${text}"`);
     }
+  }
+  // Varje nameIn i datan är en hel fras, också på ett land som ännu inget pekar på
+  for (const p of places.filter(x => x.nameIn)) for (const l of LANGS) assert.ok(new RegExp(rule.properties[l].pattern).test(p.nameIn[l]), `${p.id}.nameIn.${l}`);
+});
+
+test('en plats vars land saknas (utkast eller inte laddat) visar bara typen, aldrig en halv rad (#1947)', () => {
+  const skane = places.find(p => p.id === 'skane');
+  assert.equal(lead(skane, 'sv', places.filter(p => p.id !== 'sverige')), 'Landskap');
+  assert.equal(lead(skane, 'sv', []), 'Landskap');
+});
+
+test('typerna för platser i ett land har en pluralform i Sök och följ på alla fem språk ("Landskap i Sverige", #1947)', () => {
+  const sverige = places.find(p => p.id === 'sverige');
+  const rows = Object.fromEntries(LANGS.map(l => [l, dicts[l]['place.typeOf'].replace('{type}', dicts[l]['place.types.landskap']).replace('{of}', sverige.nameIn[l])]));
+  assert.deepEqual(rows, {
+    sv: 'Landskap i Sverige', en: 'Provinces in Sweden', de: 'Landschaften in Schweden', es: 'Provincias históricas en Suecia', fr: 'Provinces historiques en Suède',
+  });
+  for (const type of new Set(places.filter(p => p.partOf).map(p => p.type))) {
+    for (const l of LANGS) assert.ok(dicts[l][`place.types.${type}`], `place.types.${type} saknas på ${l}`);
   }
 });
 
@@ -87,7 +115,8 @@ test('schemat kräver en inledande preposition per språk: bara landsnamn avvisa
   const schema = json('schemas/platser.schema.json');
   const rule = schema.$defs.phrase;
   assert.deepEqual(rule.required, LANGS);
-  assert.equal(schema.properties.places.items.properties.partOf.$ref, '#/$defs/phrase');
+  assert.equal(schema.properties.places.items.properties.nameIn.$ref, '#/$defs/phrase');
+  assert.equal(schema.properties.places.items.properties.partOf.type, 'string');
   const ok = (lang, text) => new RegExp(rule.properties[lang].pattern).test(text);
   // Bara landsnamn (aldrig en fras) ska avvisas på alla språk
   for (const name of ['New Zealand', 'Sri Lanka', 'Czech Republic', 'Schweden', 'Sverige', 'Suède', 'Suecia']) {
@@ -104,9 +133,9 @@ test('schemat kräver en inledande preposition per språk: bara landsnamn avvisa
     fr: ['en Suisse', 'aux États-Unis', 'aux Pays-Bas', 'au Danemark'],
   };
   for (const l of LANGS) for (const text of good[l]) assert.ok(ok(l, text), `${l}: "${text}" avvisades`);
-  // Skånes fraser (datan) godtas
-  const skane = places.find(p => p.id === 'skane');
-  for (const l of LANGS) assert.ok(ok(l, skane.partOf[l]), `Skånes ${l}`);
+  // Sveriges fraser (datan, som Skåne pekar på) godtas
+  const sverige = places.find(p => p.id === 'sverige');
+  for (const l of LANGS) assert.ok(ok(l, sverige.nameIn[l]), `Sveriges ${l}`);
   // Prepositioner som listan ännu saknar avvisas, så den får utökas när en plats behöver dem (beslutsfilen)
   assert.ok(!ok('fr', 'chez les Pays-Bas'));
 });

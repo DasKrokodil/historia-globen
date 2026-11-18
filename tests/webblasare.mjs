@@ -3867,6 +3867,146 @@ async function run(browser, vp) {
     } finally { await tctx.close(); }
   });
 
+  // #1947, #1953: Sök och följ har fliken Länder och landskap direkt efter Alla och Nära en plats sist. Listan är ett träd världsdel → land →
+  // landskap, med knappar som har aria-expanded (inte role="tree"), världsdelarna i Samtidigts ordning (REGIONS) och landskapen ihopfällda
+  // under sitt land ("Landskap i Sverige", landets namn ur datan). Gruppens antal är träffarna under en sökning, inte hela gruppen.
+  const openLander = async (tp, hash, name) => {
+    await tp.goto(`${BASE}?ny=${name}${hash}`);
+    await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+    if (await tp.isHidden('#btn-focus') && await tp.isVisible('#more-toggle')) await tp.click('#more-toggle');
+    if (await tp.isHidden('#btn-focus') && await tp.isVisible('#btn-more')) await tp.click('#btn-more');
+    await tp.click('#btn-focus');
+    await tp.waitForSelector('#focus-menu [data-tab="Platser"]', { state: 'visible', timeout: T.step });
+    await tp.click('#focus-menu [data-tab="Platser"]');
+    await tp.locator('#focus-menu [data-key="place:danmark"]').waitFor({ state: 'visible', timeout: T.step });
+  };
+  await check('Länder och landskap: fliken efter Alla, världsdel → land → landskap i Samtidigts ordning och antalet träffar vid sökning (#1947, #1953)', async () => {
+    const { tp, tctx, errs } = await touchPage();
+    try {
+      await openLander(tp, '#y=1600', 'lander1947');
+      const tabs = await tp.evaluate(() => [...document.querySelectorAll('#focus-menu [data-tab]')].filter(b => !b.hidden).map(b => [b.dataset.tab, b.textContent.trim()]));
+      if (tabs[0]?.[0] !== 'Alla' || tabs[1]?.[0] !== 'Platser' || tabs[1][1] !== 'Länder och landskap') throw new Error(`flikarna börjar inte med Alla, Länder och landskap: ${tabs.map(t => t[1]).join(', ')}`);
+      if (tabs.at(-1)[0] !== 'Plats' || tabs.at(-1)[1] !== 'Nära en plats') throw new Error(`sista fliken är ${tabs.at(-1)[1]}, inte Nära en plats`);
+      if (await tp.locator('#focus-menu .focus-sort').isVisible()) throw new Error('sorteringsraden syns på fliken Länder och landskap');
+      if (await tp.locator('#focus-menu [role="tree"], #focus-menu [role="treeitem"]').count()) throw new Error('listan använder role="tree"');
+      const tree = await tp.evaluate(async () => {
+        const { REGIONS } = await import('./js/model.js');
+        const regions = [...document.querySelectorAll('#focus-menu [data-node^="r:"]')].map(b => ({ id: b.dataset.node.slice(2), expanded: b.getAttribute('aria-expanded'), body: document.getElementById(b.getAttribute('aria-controls')) }));
+        const rowsIn = r => [...r.body.querySelectorAll(':scope > [data-key]')].map(b => b.dataset.key);
+        return { REGIONS, regions: regions.map(r => ({ id: r.id, expanded: r.expanded, rows: rowsIn(r) })) };
+      });
+      const order = tree.regions.map(r => r.id);
+      const want = tree.REGIONS.filter(r => order.includes(r));
+      if (order.join() !== want.join()) throw new Error(`världsdelarna står ${order.join(', ')}, inte i Samtidigts ordning ${want.join(', ')}`);
+      if (tree.regions.some(r => r.expanded !== 'true')) throw new Error('en världsdel är ihopfälld från början');
+      const europa = tree.regions.find(r => r.id === 'Europa');
+      if (europa?.rows.join() !== 'place:danmark,place:sverige') throw new Error(`Europa visar ${europa?.rows.join(', ')}, inte Danmark och Sverige i namnordning`);
+      if (tree.regions.find(r => r.id === 'Amerika')?.rows.join() !== 'place:gronland') throw new Error('Grönland står inte under Amerika (som i Samtidigt)');
+      // Landskapen är ihopfällda under sitt land, och knappen säger landets namn ur datan
+      const kids = tp.locator('#focus-menu [data-node="c:sverige:landskap"]');
+      const kidsText = (await kids.textContent()).replace(/\s+/g, ' ').trim();
+      if (!/^Landskap i Sverige \(1\)$/.test(kidsText)) throw new Error(`landskapens knapp säger "${kidsText}", inte "Landskap i Sverige (1)"`);
+      if (await kids.getAttribute('aria-expanded') !== 'false') throw new Error('landskapen är utfällda från början');
+      if (await tp.locator('#focus-menu [data-key="place:skane"]').isVisible()) throw new Error('Skåne syns fast landskapen är ihopfällda');
+      await kids.click();
+      await tp.locator('#focus-menu [data-key="place:skane"]').waitFor({ state: 'visible', timeout: T.step });
+      if (await tp.locator('#focus-menu [data-node="c:sverige:landskap"]').getAttribute('aria-expanded') !== 'true') throw new Error('knappen säger inte att landskapen är utfällda');
+      const counts = async () => tp.evaluate(() => Object.fromEntries([...document.querySelectorAll('#focus-menu [data-group]')].map(b => {
+        const sec = b.closest('.focus-group');
+        return [b.dataset.group, { count: Number(b.querySelector('.focus-group-count').textContent.replace(/\D/g, '')), rows: sec.querySelectorAll('[data-key]').length }];
+      })));
+      // #1953: under en sökning är antalet träffarna. Platserna är fem; "skå" träffar bara Skåne, som står under Sverige (landet som rad till landskapet)
+      await tp.fill('#focus-menu .focus-search', 'skå');
+      await tp.waitForFunction(() => /\(1\)/.test(document.querySelector('#focus-menu [data-group="Platser"]')?.textContent ?? ''), null, { timeout: T.step });
+      const node = await tp.evaluate(() => ({
+        region: document.querySelector('#focus-menu [data-node="r:Europa"]')?.textContent.replace(/\s+/g, ' ').trim(),
+        kids: document.querySelector('#focus-menu [data-node="c:sverige:landskap"]')?.getAttribute('aria-expanded'),
+        others: [...document.querySelectorAll('#focus-menu [data-node^="r:"]')].map(b => b.dataset.node),
+      }));
+      if (node.region !== 'Europa (1)') throw new Error(`världsdelen säger "${node.region}" vid sökningen, inte "Europa (1)"`);
+      if (node.kids !== 'true') throw new Error('landskapen fälls inte ut när sökningen träffar ett landskap');
+      if (node.others.join() !== 'r:Europa') throw new Error(`världsdelar utan träff står kvar: ${node.others.join(', ')}`);
+      if (!(await tp.locator('#focus-menu [data-key="place:skane"]').isVisible())) throw new Error('Skåne syns inte vid sökningen');
+      // Alla flikar: varje grupps antal är lika med raderna den visar (Platser: "dan" träffar bara landet Danmark)
+      await tp.click('#focus-menu [data-tab="Alla"]');
+      await tp.fill('#focus-menu .focus-search', 'dan');
+      await tp.waitForFunction(() => document.querySelector('#focus-menu [data-group="Platser"]'), null, { timeout: T.step });
+      const all = await counts();
+      const wrong = Object.entries(all).filter(([, v]) => v.count !== v.rows);
+      if (wrong.length) throw new Error(`antalet stämmer inte med raderna: ${wrong.map(([g, v]) => `${g} (${v.count}) visar ${v.rows}`).join('; ')}`);
+      if (all.Platser?.count !== 1) throw new Error(`Platser säger (${all.Platser?.count}) vid sökningen "dan", inte (1)`);
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `flikarna ${tabs.slice(0, 2).map(t => t[1]).join(', ')} … ${tabs.at(-1)[1]}; världsdelarna ${order.join(', ')}; "skå" ger Europa (1); "dan": ${Object.entries(all).map(([g, v]) => `${g} ${v.count}`).join(', ')}`;
+    } finally { await tctx.close(); }
+  });
+
+  await check('Länder och landskap: pilarna hoppar över ihopfällda rader och knapparna fäller ut och ihop (#1947)', async () => {
+    const { tp, tctx, errs } = await touchPage();
+    try {
+      await openLander(tp, '#y=1600', 'pilar1947');
+      const at = () => tp.evaluate(() => { const a = document.activeElement; return a?.dataset.key ?? (a?.dataset.node ? `nod ${a.dataset.node}` : a?.className); });
+      const walk = async keys => { const out = []; for (const k of keys) { await tp.keyboard.press(k); out.push(await at()); } return out; };
+      await tp.locator('#focus-menu [data-node="r:Europa"]').focus();
+      const down = await walk(['ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown', 'ArrowDown']);
+      const want = ['place:danmark', 'place:sverige', 'nod c:sverige:landskap', 'nod r:Amerika', 'place:gronland'];
+      if (down.join() !== want.join()) throw new Error(`pil ner gick ${down.join(' → ')}, inte ${want.join(' → ')} (Skåne är ihopfällt och ska hoppas över)`);
+      // Fäll ut landskapen med Enter: nu kommer Skåne efter knappen
+      await tp.locator('#focus-menu [data-node="c:sverige:landskap"]').focus();
+      await tp.keyboard.press('Enter');
+      await tp.waitForFunction(() => document.querySelector('#focus-menu [data-node="c:sverige:landskap"]').getAttribute('aria-expanded') === 'true', null, { timeout: T.step });
+      if (await at() !== 'nod c:sverige:landskap') throw new Error(`fokus står på ${await at()} efter Enter, inte kvar på knappen`);
+      const open = await walk(['ArrowDown']);
+      if (open[0] !== 'place:skane') throw new Error(`pil ner efter utfällda landskap gick till ${open[0]}, inte Skåne`);
+      // Fäll ihop Europa med Enter: pil ner hoppar till nästa världsdel
+      await tp.locator('#focus-menu [data-node="r:Europa"]').focus();
+      await tp.keyboard.press('Enter');
+      await tp.waitForFunction(() => document.querySelector('#focus-menu [data-node="r:Europa"]').getAttribute('aria-expanded') === 'false', null, { timeout: T.step });
+      const shut = await walk(['ArrowDown']);
+      if (shut[0] !== 'nod r:Amerika') throw new Error(`pil ner från en ihopfälld världsdel gick till ${shut[0]}, inte Amerika`);
+      const controls = await tp.evaluate(() => { const b = document.querySelector('#focus-menu [data-node="r:Europa"]'); return document.getElementById(b.getAttribute('aria-controls'))?.hidden; });
+      if (controls !== true) throw new Error('aria-controls pekar inte på en dold lista när Europa är ihopfällt');
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return `${down.join(' → ')}; utfällt: Skåne efter knappen; ihopfällt Europa → Amerika`;
+    } finally { await tctx.close(); }
+  });
+
+  if (vp.name === 'mobil') {
+    await check('Länder och landskap i mobil 400 × 800 och liggande 800 × 360: flikarna är en rullrad och första landet syns utan att rulla (#1947)', async () => {
+      const out = [];
+      for (const size of [{ width: 400, height: 800 }, { width: 800, height: 360 }]) {
+        const { tp, tctx, errs } = await touchPage(size, { isMobile: true });
+        try {
+          await openLander(tp, '#y=1600', `mobil1947w${size.width}`);
+          const m = await tp.evaluate(() => {
+            const menu = document.getElementById('focus-menu'), body = menu.querySelector('.focus-body'), tabs = menu.querySelector('.focus-tabs');
+            const first = [...body.querySelectorAll('[data-key^="place:"]')].find(b => b.getClientRects().length);
+            const r = first.getBoundingClientRect(), b = body.getBoundingClientRect(), mr = menu.getBoundingClientRect();
+            const tops = new Set([...tabs.querySelectorAll('[data-tab]')].filter(x => !x.hidden).map(x => Math.round(x.getBoundingClientRect().top)));
+            return { key: first.dataset.key, top: r.top, bottom: r.bottom, bodyTop: b.top, bodyBottom: b.bottom, scrollTop: body.scrollTop, menuBottom: mr.bottom, tabRows: tops.size,
+              tabScroll: tabs.scrollWidth > tabs.clientWidth, wide: document.documentElement.scrollWidth > innerWidth, sort: getComputedStyle(menu.querySelector('.focus-sort')).display };
+          });
+          const where = `${size.width} × ${size.height}`;
+          if (m.key !== 'place:danmark') throw new Error(`${where}: första landet är ${m.key}, inte Danmark`);
+          if (m.scrollTop !== 0) throw new Error(`${where}: listan var rullad (${m.scrollTop} px)`);
+          if (m.bottom > Math.min(m.bodyBottom, m.menuBottom, size.height) + 1 || m.top < m.bodyTop - 1) throw new Error(`${where}: första landet ligger ${Math.round(m.top)}–${Math.round(m.bottom)} px, utanför listan (${Math.round(m.bodyTop)}–${Math.round(Math.min(m.bodyBottom, size.height))})`);
+          if (m.tabRows !== 1) throw new Error(`${where}: flikarna ligger på ${m.tabRows} rader, inte en rullrad`);
+          if (!m.tabScroll) throw new Error(`${where}: flikraden går inte att rulla i sidled`);
+          if (m.sort !== 'none') throw new Error(`${where}: sorteringsraden syns för platserna`);
+          if (m.wide) throw new Error(`${where}: sidan fick horisontell scroll`);
+          // Den valda fliken rullas fram i raden, och menyn går att stänga också när den ligger över knapparna (liggande)
+          await tp.click('#focus-menu [data-tab="Plats"]');
+          const tab = await tp.evaluate(() => { const t = document.querySelector('#focus-menu [data-tab="Plats"]').getBoundingClientRect(), r = document.querySelector('#focus-menu .focus-tabs').getBoundingClientRect(); return t.left >= r.left - 1 && t.right <= r.right + 1; });
+          if (!tab) throw new Error(`${where}: fliken Nära en plats rullades inte fram i raden`);
+          await tp.locator('#focus-menu .menu-x').click({ timeout: T.step });
+          await tp.waitForSelector('#focus-menu', { state: 'hidden', timeout: T.step });
+          if (errs.length) throw new Error(`${where}: fel i konsolen: ${errs.join(' | ')}`);
+          out.push(`${where}: Danmark ${Math.round(m.top)}–${Math.round(m.bottom)} px`);
+        } finally { await tctx.close(); }
+      }
+      return out.join('; ');
+    });
+  }
+
   // #1160, #1619: platskortets flagga och vapen. Varje plats med emblems i data/platser.json visar varje emblem som en bild
   // som laddas, med bildtexten som alt-text och synlig bildtext, kredit och licens, utan horisontell scroll och inom kortet.
   await check('platskortets flagga och vapen laddas med bildtext (#1160, #1619)', async () => {
@@ -4234,7 +4374,7 @@ async function run(browser, vp) {
       await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await tp.focus('#globe-canvas');
       await tp.keyboard.press('Enter');
-      await tp.waitForFunction(() => /Ingen plats med eget kort ligger i mitten\. Välj en plats under Sök och följ → Platser\./.test(document.getElementById('screen-reader-status').textContent), null, { timeout: T.step });
+      await tp.waitForFunction(() => /Ingen plats med eget kort ligger i mitten\. Välj en plats under Sök och följ → Länder och landskap\./.test(document.getElementById('screen-reader-status').textContent), null, { timeout: T.step });
       if (!(await tp.isHidden('#focus-bar'))) throw new Error('Enter startade ett fokus utan plats i mitten');
       // Globens text nämner tangenten
       if (!/Enter/.test(await tp.getAttribute('#globe-canvas', 'aria-label'))) throw new Error('globens beskrivning nämner inte Enter');
