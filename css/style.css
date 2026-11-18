@@ -457,6 +457,8 @@ body {
 /* Fokus (#311): huvudet (sökruta, flikar, sortering) ligger still och listan rullar under det */
 .focus-menu { width: min(400px, calc(100vw - 32px)); display: flex; flex-direction: column; overflow: hidden; padding: 6px 0 0; }
 .focus-menu[hidden] { display: none; }
+/* Låg skärm (#1951): menyn ligger över knapparna (js/ui/focusmenu.js, LOW_MENU); samma lager som knapparna och efter dem i sidan */
+.focus-menu.focus-menu-low { z-index: var(--z-meny); }
 .focus-head { flex: none; padding: 0 6px 6px; border-bottom: 1px solid var(--line); }
 .focus-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 0 6px 6px; }
 .focus-menu:focus { outline: none; }
@@ -479,6 +481,19 @@ body {
 .focus-group-toggle[aria-expanded="true"] .focus-group-chev { transform: rotate(225deg) translate(-1px, -1px); }
 .focus-age { padding: 9px 10px 4px; color: var(--parchment-dim); font: 500 10.5px/1 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; }
 @media (max-width: 760px) { .focus-group-toggle { min-height: 44px; } }
+/* Länder och landskap (#1947): världsdel → land → landskap. Varje nivå är en knapp med aria-expanded som gruppens rubrik, och en
+   ihopfälld nivå är hidden. Världsdelen är en lägre rubrik än gruppen; landskapen står indragna under sitt land. */
+.focus-node-toggle {
+  display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 36px; padding: 8px 10px;
+  color: var(--parchment-dim); background: transparent; border: 0; border-radius: 8px; font: 600 11px/1.2 var(--f-mono); letter-spacing: .06em;
+  text-align: left; text-transform: uppercase; cursor: pointer;
+}
+.focus-node-toggle:hover { background: var(--night-3); }
+.focus-node-toggle[aria-expanded="true"] .focus-group-chev { transform: rotate(225deg) translate(-1px, -1px); }
+.focus-node-kids { padding-left: 32px; color: var(--brass); font: 500 12.5px/1.2 var(--f-body); letter-spacing: 0; text-transform: none; }
+.focus-node-body .focus-node-body { margin-left: 26px; border-left: 1px solid var(--line); }
+@media (max-width: 760px), (pointer: coarse) { .focus-node-toggle { min-height: 44px; } }
+@media (max-width: 760px) { .focus-node-toggle { font-size: 12px; } .focus-node-kids { font-size: 13px; } }
 .focus-active {
   display: flex; align-items: center; gap: 10px; margin: 0 4px 4px; padding: 8px 10px;
   background: var(--night-3); border: 1px solid var(--line); border-radius: 8px;
@@ -2909,6 +2924,8 @@ span.theme-event:hover { background: none; outline: none; }
   /* Täta rader (flikarna och sorteringen i Sök och följ, förvalen i Lager): ytan är en verklig höjd som med raden mellan chipsen
      blir 44 px, så att förlängningen inte krockar med raden ovanför och under */
   .focus-tabs .chip-btn, .focus-sort .chip-btn { min-height: 40px; }
+  /* Flikarna i Sök och följ är en vågrät rullrad (#1947, rättar #1951 i grunden): tio flikar i flera rader tog halva menyn */
+  .focus-tabs { flex-wrap: nowrap; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; scrollbar-color: var(--brass-deep) var(--night-3); }
   .view-chip { min-height: 38px; }
   .view-chips { gap: 6px; }
   .focus-search { min-height: 44px; }
@@ -2923,6 +2940,16 @@ span.theme-event:hover { background: none; outline: none; }
   .menu-x:hover, .menu-x:focus-visible { color: var(--brass); outline: 2px solid var(--brass); outline-offset: -4px; }
 }
 @media (min-width: 761px) { .menu-x { display: none; } }
+/* Låg skärm (#1951): Sök och följ ligger över knapparna, också över sin egen knapp, så stängknappen behövs där som i smal skärm.
+   Gruppens rubrik på gruppens egen flik upprepar fliken och raden "N resultat · Filter" och tar en av de få raderna; den döljs där. */
+.focus-menu-low .menu-x {
+  display: grid; place-items: center; float: right; position: sticky; top: 0; z-index: 1;
+  width: 44px; height: 44px; margin: -6px -6px 0 0; padding: 0;
+  font: 500 24px/1 var(--f-body); color: var(--parchment);
+  background: color-mix(in srgb, var(--night-2) 96%, transparent); border: 0; border-radius: var(--r); cursor: pointer;
+}
+.focus-menu-low .menu-x:hover, .focus-menu-low .menu-x:focus-visible { color: var(--brass); outline: 2px solid var(--brass); outline-offset: -4px; }
+.focus-menu-low .focus-own-tab .focus-group-toggle { display: none; }
 
 /* ---------- Låg höjd och 200 % zoom: faktarutan, turkortet och turraden får plats (#1310) ----------
    Korten ligger förankrade nedtill, och deras högsta höjd var "skärmens höjd minus ett fast avstånd uppåt". På en låg yta

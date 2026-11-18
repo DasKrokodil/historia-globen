@@ -1,6 +1,6 @@
 // Fokustypen plats (#579): ett urval av händelser, valt med en geometri (dagens gräns i data/platser.json).
 // Draft-platser laddas aldrig.
-import { loadPlaces, loadEmpireFacts, t, isVisibleReview, formatYear, rangeText } from '../model.js';
+import { loadPlaces, loadedPlaces, loadEmpireFacts, t, isVisibleReview, formatYear, rangeText, region } from '../model.js';
 import { ui } from '../i18n.js';
 import { say } from '../ui/status.js';
 import { placeEvents, placeBounds } from '../place-geo.js';
@@ -23,13 +23,17 @@ function placeButtonKey(place) {
   return regionButtonKey(place.boundary?.geometry ? placeBounds(place) : null);
 }
 
+/** Landet som platsen ingår i (`partOf` är landets id, #1947), ur platserna som har laddats; null om platsen inte ingår i något. */
+export const parentOf = (place, places = loadedPlaces()) => (place.partOf ? places.find(p => p.id === place.partOf) ?? null : null);
+
 /**
- * Typraden under namnet (#1479): typen, och när platsen ingår i något (`partOf`) typen följd av frasen, till exempel "Landskap i Sverige".
- * `partOf` är hela frasen per språk, med preposition och artikel som landet kräver ("in der Schweiz", "aux États-Unis"), så koden
- * lägger aldrig till en preposition själv; mallen `place.typeOf` är bara "{type} {of}". tx och tui är texthämtarna (för prov per språk).
+ * Typraden under namnet (#1479): typen, och när platsen ingår i ett land (`partOf`, landets id, #1947) typen följd av landets
+ * `nameIn`, till exempel "Landskap i Sverige". `nameIn` är hela frasen per språk, med preposition och artikel som landet kräver
+ * ("in der Schweiz", "aux États-Unis"), så koden lägger aldrig till en preposition själv; mallen `place.typeOf` är bara "{type} {of}".
+ * tx och tui är texthämtarna (för prov per språk), places platserna som partOf slås upp i.
  */
-export function placeLead(place, tx = t, tui = ui) {
-  const type = tui(`place.type.${place.type}`), of = place.partOf ? tx(place.partOf) : '';
+export function placeLead(place, tx = t, tui = ui, places = loadedPlaces()) {
+  const type = tui(`place.type.${place.type}`), nameIn = parentOf(place, places)?.nameIn, of = nameIn ? tx(nameIn) : '';
   return of ? tui('place.typeOf', { type, of }) : type;
 }
 
@@ -158,12 +162,17 @@ export function entry(app) {
     },
     facts: { has: () => true, show: f => showCard(f) },
     async menuLoad() { list ??= await loadPlaces(); },
-    // En plats visas med typ och antal händelser inom gränsen ("Självstyrt område · 17 händelser · 2500 f.Kr.–2009", #579)
-    menu: () => [{ title: 'Platser', note: ui('focus.note.places'), loading: !list, items: !list ? [] : list.map(pl => {
+    // En plats visas med typ och antal händelser inom gränsen ("Självstyrt område · 17 händelser · 2500 f.Kr.–2009", #579).
+    // Listan är ett träd (#1947): världsdel → land → landskap. tree säger det till menyn, region är världsdelen (som i Samtidigt, ur
+    // platsens mittpunkt med region() i model.js; ett landskap ärver landets) och parent landets id (partOf) för en plats i ett land.
+    menu: () => [{ title: 'Platser', note: ui('focus.note.places'), tree: true, loading: !list, items: !list ? [] : list.map(pl => {
       const evs = visible(pl);
       if (!evs.length) return null;
       const to = Math.max(...evs.map(e => e.end));
-      return { key: `place:${pl.id}`, label: t(pl.name), terms: langs(pl.name), sub: `${ui(`place.type.${pl.type}`)} · ${ui('focus.themeCount', { count: evs.length })} · ${formatYearSpan(evs[0].start, to)}`, from: evs[0].start, to };
+      const parent = parentOf(pl, list), [lat, lon] = (parent ?? pl).view.center;
+      return { key: `place:${pl.id}`, id: pl.id, parent: parent?.id ?? null, type: pl.type, region: region(lat, lon),
+        nameIn: pl.nameIn ? t(pl.nameIn) : null, label: t(pl.name), terms: langs(pl.name),
+        sub: `${ui(`place.type.${pl.type}`)} · ${ui('focus.themeCount', { count: evs.length })} · ${formatYearSpan(evs[0].start, to)}`, from: evs[0].start, to };
     }).filter(Boolean) }],
   };
 }
