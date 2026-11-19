@@ -16,6 +16,7 @@ import { traceRing, strokeEdge } from './area-style.js';
 // origins.js hämtar ORIGIN_R härifrån; det används först när medaljerna ritas, så den ömsesidiga importen går bra
 import { OriginMarkers } from './origins.js';
 import { ui } from '../i18n.js';
+import { spanOf } from '../layer-coverage.js';
 import { areaAt, RELIGION_MARGIN_DEG } from '../area-lookup.js';
 import { inGeometry } from '../place-geo.js';
 
@@ -46,6 +47,8 @@ export function entry({ globe, labelsEl, refreshSoon, showReligionFacts }) {
       return layer.update({ year: s.areaYear }); // i ett tidsintervall slutåret (#756)
     },
     legend: s => ({ items: s.faded.has('religions') ? [] : layer.legendItems() }),
+    // Områdena finns från den tidigaste ögonblicksbildens start till den senaste slutet; datan laddas när lagret slås på (#1960)
+    coverage: s => ({ year: s.areaYear ?? s.wholeYear, span: layer.coverage() }),
     markers: s => origins.update(layer.stars, layer.enabled && !s.faded.has('religions')),
     frame: () => origins.frame(),
     covers: () => origins.eventIds,
@@ -100,6 +103,11 @@ export class ReligionsLayer {
     const gl = glyph(religion.symbol);
     if (!gl.ready && !gl._layer) { gl._layer = true; gl.waiting.push(() => this.onGlyph()); }
     return gl.ready ? gl.img : null;
+  }
+
+  /** Var områdena finns i tiden (spanOf, #1960); null innan datan har laddats. */
+  coverage() {
+    return spanOf(this.religions.flatMap(r => r.snapshots.map(x => ({ from: x.start, to: x.end }))));
   }
 
   /** Händelserna där religionerna uppstod, som Map från religionens id. */

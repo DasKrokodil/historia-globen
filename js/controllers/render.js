@@ -184,6 +184,7 @@ export function createRender(app) {
     // Alla lager väljer vad som syns (beslut 2), i registrets ordning
     visible = registry.update(state).events;
     timeline.setMarks(registry.marks(state), { curated: !!state.tag });
+    layers.setCoverage(registry.coverage(state)); // raden i Lager om påslagna lager som saknar data i året (#1960)
     prefetchDetails();
     const rangeLabel = range && rangeText(range.from, range.to);
     // Ett tema (#398) och en plats (#579) är urval av händelser: ett år utan träff förklaras, med nästa händelse

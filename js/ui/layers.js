@@ -1,7 +1,7 @@
 // Lagerväljaren: en meny där man slår av och på lager (händelser, fun facts, riken, religioner, dagens gränser m.m.).
 // Raderna, deras grupper och startläget kommer från lagerregistret (layers/registry.js, #338, #357).
 // Överst står de förinställda vyerna ur data/vyer.json (#357): en vy slår på sina lager och av de andra.
-import { t, tagViewNote } from '../model.js';
+import { t, tagViewNote, formatYear } from '../model.js';
 import { ui } from '../i18n.js';
 
 async function getJSON(path) {
@@ -103,6 +103,31 @@ export class LayerMenu {
       if (!menu.hidden && !menu.contains(e.target) && !button.contains(e.target)) this.close();
     });
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && !menu.hidden) { this.close(); button.focus(); } });
+  }
+
+  /**
+   * Raden under ett påslaget lager som saknar data i året (#1960): "Ingen data för året · finns från 2500 f.Kr.".
+   * gaps = registry.coverage(state), en Map från lagrets id till { side, limit, approx }. Raden är vanlig text i menyn och hör till
+   * lagrets ruta via aria-describedby (den ligger utanför etiketten, så att den inte blir en del av rutans namn). Texten sätts bara
+   * om när den ändras och raden är ingen live-region, så att skärmläsaren inte läser upp den varje gång året ändras.
+   */
+  setCoverage(gaps) {
+    this.coverageLines ??= new Map();
+    for (const input of this.menu.querySelectorAll('input[data-layer]')) {
+      const id = input.dataset.layer, gap = gaps.get(id);
+      let line = this.coverageLines.get(id);
+      if (!line) {
+        if (!gap) continue;
+        line = document.createElement('div');
+        line.className = 'layer-coverage'; line.id = `layer-coverage-${id}`; line.hidden = true;
+        input.closest('label').after(line);
+        this.coverageLines.set(id, line);
+      }
+      const text = gap ? ui(`layers.coverage${gap.side === 'before' ? 'Before' : 'After'}${gap.approx ? 'Approx' : ''}`, { year: formatYear(gap.limit) }) : '';
+      if (line.textContent !== text) line.textContent = text;
+      line.hidden = !gap;
+      if (gap) input.setAttribute('aria-describedby', line.id); else input.removeAttribute('aria-describedby');
+    }
   }
 
   /** Sätter ett lager av eller på utifrån, till exempel "keep" från teckenförklaringen (#235). */

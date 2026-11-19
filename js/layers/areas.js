@@ -16,6 +16,7 @@ import { EmpireMarkers } from './empiremarks.js';
 import { Z } from './registry.js';
 import { ZOOM_LEVELS } from '../ui/zoomlevels.js';
 import { ui } from '../i18n.js';
+import { spanOf } from '../layer-coverage.js';
 
 /**
  * Lagrets post i registret (#338): på som standard. I fokusläget syns riket man följer även om lagret är av, bara
@@ -84,6 +85,8 @@ export function entry({ globe, data, labelsEl, refreshSoon, showEmpireFacts }) {
       lastYear = s.areaYear;
       return out;
     },
+    // Rikena finns från det tidigaste rikets början till det senaste slutet i empires/index.json (#1960)
+    coverage: s => ({ year: s.areaYear ?? s.wholeYear, span: spanOf(data.empireGroups) }),
     markers: s => marks.update(layer.marks(), layer.enabled && !s.faded.has('areas')),
     frame: () => marks.frame(),
     animating: () => layer.animating,
