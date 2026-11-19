@@ -617,6 +617,8 @@
       <button id="btn-speed" class="step speed" type="button" title="Uppspelningshastighet: 25 år/s">25 år/s</button>
       <span id="next-pause" class="next-pause" hidden></span>
     </div>
+    <!-- Växlaren mellan tidsreglagen (#1959): "Före 3000 f.Kr." och "3000 f.Kr.–i dag". Knapparna skrivs av js/ui/level-switch.js; raden står före reglaget i tabbordningen och döljs i tur, lektion och Fokus (css) -->
+    <div id="scale-switch" class="level-switch scale-switch" role="group" aria-label="Tidsreglage" data-i18n-aria-label="time.switchLabel"></div>
     <div id="track" class="track" role="slider" tabindex="0" aria-label="År" data-i18n-aria-label="play.track" aria-valuemin="-2999" aria-valuemax="2026">
       <div class="track-segments" id="track-segments"></div>
       <div class="track-dots" id="track-dots"></div>

@@ -1399,6 +1399,38 @@ html.calm .year-tip { animation: none; }
 .timeline-scale-note[hidden] { display: none; }
 .timeline-scale-note:not([hidden]) + .timeline-legend { visibility: hidden; } /* samma lucka: teckenförklaringen tonas ned medan skalraden syns, som vid engångstipset */
 .app.lesson .timeline-scale-note, .app.touring .timeline-scale-note, .app.focusing .timeline-scale-note { display: none; }
+/* Växlaren mellan tidsreglagen (#1959) och nivåväxlarens form (js/ui/level-switch.js, delas med lägesväxlaren i #1517): nivåerna står från kant till kant
+   ovanför reglaget. Nivån man är på är nedtryckt; de andra är dörrar med en pil åt det håll nivån ligger, vid den kant man går ut genom. Knapparna är 24 px
+   höga och har en tryckyta på 44 px (::after, som stegknapparna); namnen är alltid de två reglagens, med eller utan pil. Raden tar plats i tidsraden
+   bara där det finns höjd att ta (se nedan): i bred skärm ligger den på samma rad som stegknapparna, som har gott om plats på sidorna. */
+.level-switch { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2px 8px; position: relative; min-height: 24px; margin: 0 0 4px; }
+.level-btn {
+  position: relative; display: inline-flex; align-items: center; gap: 5px; min-width: 24px; height: 24px; padding: 0 10px; box-sizing: border-box;
+  font: 500 12px/1 var(--f-body); white-space: nowrap; color: var(--brass); background: var(--night-2); border: 1px solid var(--brass-deep); border-radius: 12px; cursor: pointer;
+}
+.level-btn::after { content: ""; position: absolute; inset: -10px -4px; } /* tryckyta på 44 px (24 + 2 × 10), 8 px bredare än knappen */
+.level-btn[aria-pressed="true"] { color: var(--night); background: var(--brass); border-color: var(--brass); cursor: default; }
+.level-btn.is-door:hover { background: var(--night-3); border-color: var(--brass); }
+.level-btn:focus-visible { outline: 2px solid var(--parchment); outline-offset: 2px; }
+.level-arrow { font-size: 13px; line-height: 1; }
+.level-switch.level-locked .level-btn { opacity: .35; cursor: default; }
+.app.lesson .level-switch, .app.touring .level-switch, .app.focusing .level-switch { display: none; } /* tidslåset (#1322) och Fokus har egna skalor: växlaren visas inte */
+/* Stegknapparnas tryckytor (mobil) ligger över växlarens, så att knapparnas egna ytor aldrig täcks */
+.controls { z-index: 1; }
+/* Under 1101 px (smal skärm och liggande telefon) får växlaren en egen rad mellan stegknapparna och reglaget. Raden tar 26 px; de 26 pixlarna hämtas ur
+   tidsradens egna luft (övre kant, glapp och mellanrum), så att tidsraden blir högst cirka 18 px högre och korten ovanför ligger kvar */
+@media (max-width: 1100px) {
+  .app:not(.lesson):not(.touring):not(.focusing) .timebar { padding-top: 4px; }
+  .app:not(.lesson):not(.touring):not(.focusing) .controls { margin-bottom: 4px; }
+  .app:not(.lesson):not(.touring):not(.focusing) .level-switch { margin-bottom: 2px; }
+}
+/* Från 1101 px ligger knapparna i stegknapparnas rad, den första vid reglagets vänstra och den andra vid dess högra kant: tidsraden blir inte högre.
+   Läget räknas från tidsradens botten (stegknapparnas rad ligger alltid 76 px upp), eftersom pausraden kan växa ovanför. */
+@media (min-width: 1101px) {
+  .level-switch { position: absolute; left: var(--gut); right: var(--gut-r); bottom: calc(env(safe-area-inset-bottom, 0px) + 76px); min-height: 32px; margin: 0; flex-wrap: nowrap; pointer-events: none; }
+  .level-btn { pointer-events: auto; }
+  .presentation-mode .level-switch { bottom: calc(env(safe-area-inset-bottom, 0px) + 84px); min-height: 40px; }
+}
 .timeline-mark-note { margin: -2px 0 0; min-height: 16px; font: 400 11px/1.3 var(--f-mono); color: var(--parchment-dim); }
 .thumb {
   position: absolute; top: 4px; width: 0; height: 28px;

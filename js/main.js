@@ -9,6 +9,7 @@ import { applyStatic, setupLangPicker, takeReturnYear, LANG_INFO, ui } from './i
 import { bindStatus, say } from './ui/status.js';
 import { Globe, paintBase } from './globe.js';
 import { Timeline, setupYearJump } from './timeline.js';
+import { LevelSwitch } from './ui/level-switch.js';
 import { LAYERS } from './layers/index.js';
 import { hasTag } from './layers/events.js';
 import { Panel } from './ui/panel.js';
@@ -157,6 +158,14 @@ async function start() {
   // Tidslåset (#1322): reglaget låses i en tur, och i en lektion stannar det inom lektionens år (timeLock i js/state.js)
   timeline.lock = () => timeLock(store.state.modes, app.lesson?.lock?.years ?? null);
   store.subscribe(({ type }) => { if (type === 'mode') timeline.syncLock(); });
+  // Växlaren mellan tidsreglagen (#1959): två nivåer med reglagens namn, och den som är vald följer året (timeline.scale)
+  const scaleSwitch = new LevelSwitch($('scale-switch'), {
+    levels: timeline.scales.map(sc => ({ id: sc.id, name: timeline.scaleName(sc) })),
+    onSelect: id => timeline.goToScale(timeline.scales.find(sc => sc.id === id)),
+  });
+  const syncScaleSwitch = () => { scaleSwitch.setCurrent(timeline.scale.id); scaleSwitch.setDisabled(timeline.locked); };
+  timeline.addEventListener('change', syncScaleSwitch);
+  timeline.addEventListener('lockchange', syncScaleSwitch);
   ff.setSurpriseRange(() => timeline.focus);
   const yearJump = setupYearJump(timeline, {
     button: $('year-jump'), pop: $('jump-pop'), input: $('jump-input'), msg: $('jump-msg'), epochs: $('jump-epochs'),

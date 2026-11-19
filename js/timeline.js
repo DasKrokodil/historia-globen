@@ -3,7 +3,7 @@
 import { formatYear, groupDigits, formatDate, isBCE, bce, BCE_TXT, parseYear, parseYearInput, yearParts, edtfSpan, dayParts, formatDay, monthStarts, roundDay, MONTHS_SHORT, CE_TXT, isVisibleReview, t, roundPrehistoric, roundToStep, stepAt, formatDecimal, pluralUi } from './model.js';
 import { selectEventsForDate } from './date-events.js';
 import { say, clearStatus } from './ui/status.js';
-import { ui } from './i18n.js';
+import { LANG, ui } from './i18n.js';
 import { MIN_YEAR, MAX_YEAR } from './state.js'; // gränserna bor i state.js (#1141), så att url-state.js inte behöver importera hela tidsreglaget
 export { MIN_YEAR, MAX_YEAR };
 
@@ -41,9 +41,11 @@ export function yearsPerTenth(s) {
 export const SEAMS = HUMAN_SCALES.flatMap(s => s.seams);
 const fmtScale = s => groupDigits(yearsPerTenth(s));
 /** Skalraden för ett år: "Här är en tiondel av tidslinjen ≈ 370 år", eller vid ett segmentbyte "Ny skala: en tiondel ≈ 370 år (förut 690)". */
-export function scaleText(y, from = null, scale = scaleForYear(y)) {
+export function scaleText(y, from = null, scale = scaleForYear(y), name = '') {
   const s = segmentAt(y, scale), f = from && from !== s ? from : null;
-  return f ? ui('scale.new', { n: fmtScale(s), m: fmtScale(f) }) : ui('scale.here', { n: fmtScale(s) });
+  if (f) return ui('scale.new', { n: fmtScale(s), m: fmtScale(f) });
+  // Med reglagets namn (#1959): "Före 3000 f.Kr.: en tiondel ≈ 490 år", så att raden säger i text vilket reglage man är på
+  return name ? ui('scale.hereIn', { name, n: fmtScale(s) }) : ui('scale.here', { n: fmtScale(s) });
 }
 /** Samma för skärmläsare, med hela meningen. */
 export const scaleTextFull = (y, from, scale = scaleForYear(y)) => ui('scale.newFull', { n: fmtScale(segmentAt(y, scale)), m: fmtScale(from) });
@@ -240,7 +242,7 @@ export class Timeline extends EventTarget {
     // Efter en skarv står "Ny skala … (förut …)" kvar medan raden syns, även om draget fortsätter i det nya segmentet
     if (segBefore && segBefore !== now) this._scaleFrom = segBefore;
     else if (el.hidden) this._scaleFrom = null;
-    el.textContent = scaleText(this._year, this._scaleFrom, this.scale);
+    el.textContent = scaleText(this._year, this._scaleFrom, this.scale, this.scaleName(this.scale));
     el.hidden = false;
     clearTimeout(this._scaleTimer);
     this._scaleTimer = setTimeout(() => (this._held ? this._showScale(segFor(this._year, this.scale)) : this._hideScale()), SCALE_NOTE_MS); // ligger fingret kvar står raden kvar
@@ -530,6 +532,21 @@ export class Timeline extends EventTarget {
   _trackName(sc) {
     if (this.scales.length === 1) return '';
     return sc === this.scales[0] ? ui('time.trackFirst', { to: formatYear(nominal(sc.to)) }) : ui('time.trackLast', { from: formatYear(nominal(sc.from)) });
+  }
+  /** Reglagets synliga namn på växlaren (#1959): samma ord som i meningarna ("före 3000 f.Kr.") med stor bokstav, så "Före 3000 f.Kr." och "3000 f.Kr.–i dag". */
+  scaleName(sc) { const n = this._trackName(sc); return n ? n[0].toLocaleUpperCase(LANG) + n.slice(1) : ''; }
+  /**
+   * Växlaren (#1959): går till ett annat reglage. Året landar på kanten av det nya reglaget som ligger närmast det man står på, alltså
+   * det första året ("3000 f.Kr.", -2999) när reglaget ligger längre fram i tiden och det sista ("3001 f.Kr.", -3000) när det ligger
+   * före. Det är samma år som ett steg över gränsen når (`stepFrom`), så ett byte via växlaren och via stegknappen är ett och samma byte.
+   * Bytet är ett vanligt årsbyte för besökaren (`setByUser`): tidslåset gäller, och ett tidsintervall avslutas som vid ett drag.
+   */
+  goToScale(sc) {
+    if (this.locked || this.focus || sc === this.scale || !this.scales.includes(sc)) return null;
+    this.pause();
+    const year = sc.from > this.scale.to ? sc.from : sc.to;
+    this.setByUser(year);
+    return this._year;
   }
   /** Reglagets namn för skärmläsare ("År, före 3000 f.Kr."); utan namn (en enda skala) står "År" kvar ur index.html. */
   _trackLabel() { const name = this._trackName(this.scale); return name ? ui('time.trackLabel', { name }) : null; }
