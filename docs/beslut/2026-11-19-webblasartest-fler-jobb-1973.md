@@ -14,7 +14,7 @@
    - #1454: med pekning (fokusradens knappar 44 px) rör beskedraden fokusradens ram i 4 px. Kontrollen räknar innehållet, inte ram och luft.
    - #1866: statusraden fylls en stund efter att kortet öppnats; kontrollen väntar in den.
    - #1952: rutnätsmätningen (8 px steg) ligger på cirka 45 % och gav 44 % eller 45 %; golvet är 44 %.
-   - #1863: kontrollen fäller ut högen före trycket (markören ligger numera i en hög vid år 1827). Kontrollen är fortfarande röd, eftersom brickan "Hela Skåne" då hamnar under zoomknapparna: ett gränssnittsfel som lämnas över (se #1973), inte ett testfel.
+   - #1863: kontrollen fäller ut högen före trycket (markören ligger numera i en hög vid år 1827). Då syntes ett riktigt fel: brickan "Hela Skåne" hamnade under zoomknapparna i mobil. **DasKrokodil valde alternativ A (2026-11-19): brickan döljs medan faktarutan visar en händelse utanför brickan** och kommer tillbaka när kortet stängs (`brickHidden` i `js/ui/region-marks.js`). En bara markerad markör döljer den inte. Skälet: ytan ovanför arket är för trång, och kortet säger redan var händelsen ligger.
 
 ## Varför
 Mobilsviten i en körning gav inget svar efter 25 minuter (resultaten skrivs först när allt är klart), och i CI avbröts "mobil" och "dator, övrigt" vid tidsgränsen (mätt: dator, övrigt 23 min 49 s och mobil över 24 min 30 s på `main` 6bf2b26). Lokalt tog jobbet `dator2` 654 s och `mobil2` 674 s. Gränsen höjdes inte: tidigare beslut (docs/beslut/2026-11-14-webblasartest-fler-jobb-1649.md) delar hellre än att höja.
