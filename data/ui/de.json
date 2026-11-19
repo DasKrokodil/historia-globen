@@ -107,7 +107,7 @@
   "time.trackFirst": "vor {to}",
   "time.trackLast": "{from} bis heute",
   "time.trackLabel": "Jahr, {name}",
-  "time.trackNow": "Die Zeitleiste zeigt jetzt {name}.",
+  "time.trackNow": "Die Zeitleiste zeigt jetzt den Zeitraum {name}.",
   "jump.today": "Heute",
   "time.until": "bis {end}",
   "time.season.spring": "Frühjahr {year}",

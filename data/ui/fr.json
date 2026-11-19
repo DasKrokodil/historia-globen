@@ -107,7 +107,7 @@
   "time.trackFirst": "avant {to}",
   "time.trackLast": "de {from} à aujourd’hui",
   "time.trackLabel": "Année, {name}",
-  "time.trackNow": "La frise affiche maintenant {name}.",
+  "time.trackNow": "La frise affiche maintenant la période {name}.",
   "jump.today": "Aujourd’hui",
   "time.until": "jusqu’en {end}",
   "time.season.spring": "printemps {year}",

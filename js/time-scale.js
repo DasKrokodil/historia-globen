@@ -47,7 +47,8 @@ export const PREHISTORY_SCALE = {
   segments: prehistorySegments,
   ticks: [[MIN_YEAR, 1], [-79999, 3], [-59999, 2], [-39999, 3], [-19999, 2], [-9999, 1], [-7999, 2], [-4999, 2], [PREHISTORY_LAST, 1]],
   seams: seamsOf(prehistorySegments),
-  // Samtidigt-fönstret är aldrig kortare än så före 10 000 f.Kr., där fynden är glesa (#1958); `to` är sista året i delen.
+  // Samtidigt-fönstret är aldrig kortare än så åt varje håll före 10 000 f.Kr., där fynden är glesa, men golvet avtar mot slutet av delen
+  // (`to` är sista året i delen) så att det inte når in i den täta delen efter (#1958).
   windowMin: [{ to: -10000, years: 10000 }],
 };
 

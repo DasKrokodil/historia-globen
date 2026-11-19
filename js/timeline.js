@@ -98,15 +98,19 @@ function yearAtPos(p, scale) {
  * segmentgräns inom ett reglage: vid år 1000 är det cirka 75 år bakåt, i det glesare segmentet, men bara cirka 40 år framåt, där
  * segmentet efter 1000 är tätare. Fönstret räknas på reglaget som året hör till (#1958). Inom ett segment är de två lika långa (samma som yearsAcross).
  * Vid reglagets ändar finns bara en kant; den används åt båda hållen (1,2 % av reglaget går inte att mäta bortom slutet).
- * Reglagets post kan ange ett minsta fönster (`windowMin`): före 10 000 f.Kr. är det 10 000 år åt varje håll (#1958).
+ * Reglagets post kan ange ett minsta fönster (`windowMin`): före 10 000 f.Kr. är det 10 000 år åt varje håll, avtagande de sista 10 000 åren
+ * fram till 10 000 f.Kr. (#1958).
  */
 export function windowEdges(y, fraction, scale = scaleForYear(y)) {
   y = clampY(y, scale);
   const p = yearToPos(y, scale);
   const lo = p - fraction >= 0 ? y - yearAtPos(p - fraction, scale) : null;
   const hi = p + fraction <= 1 ? yearAtPos(p + fraction, scale) - y : null;
-  // Minsta fönster (#1958): i förhistoriens glesaste del är ett fönster på ett par tusen år ofta tomt, så reglagets post kan ange ett golv
-  const min = scale.windowMin?.find(m => y <= m.to)?.years ?? 0;
+  // Minsta fönster (#1958): i förhistoriens glesaste del är ett fönster på ett par tusen år ofta tomt, så reglagets post kan ange ett golv.
+  // Golvet avtar mot slutet av delen det gäller (`to`), så att fönstret aldrig når långt in i delen efter, där fynden är tätare:
+  // ett golv på 10 000 år vid 10 001 f.Kr. skulle fånga hundratals händelser vid 10 000 f.Kr. men 19 vid 9999 f.Kr. (docs/beslut/2026-11-19-tva-reglage-1958.md).
+  const rule = scale.windowMin?.find(m => y <= m.to);
+  const min = rule ? Math.min(rule.years, rule.to - y) : 0;
   return { before: Math.max(lo ?? hi, min), after: Math.max(hi ?? lo, min) };
 }
 
