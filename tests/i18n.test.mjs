@@ -130,3 +130,13 @@ for (const lang of ['sv', 'en', 'de', 'es', 'fr']) test(`${lang}: platsens kartn
     assert.equal(name, 'Platsens karta');
   }
 });
+
+// #1956: listraden, platskortet och Platsens karta säger att det som visas är händelser inom dagens gräns och dagens kust och ortnamn.
+for (const lang of ['sv', 'en', 'de', 'es', 'fr']) test(`${lang}: dagens gräns sägs i listraden, kortet och kartan (#1956)`, () => {
+  const copy = json(`data/ui/${lang}.json`);
+  assert.ok(copy['place.mapContext']?.trim(), 'kort kartrad saknas');
+  assert.ok(copy['regionView.note'].startsWith(copy['place.mapContext']), 'kartans långa rad börjar med samma korta rad som kortet');
+  const rows = copy['place.eventsWithin'];
+  assert.ok(Array.isArray(rows) && rows.length === 2 && rows.every(r => r.includes('{count}')), 'listraden har en form för en och en för flera händelser, med antalet');
+  assert.notEqual(rows[0], rows[1], 'entals- och flertalsformen skiljer sig');
+});
