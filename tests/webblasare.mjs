@@ -12924,6 +12924,169 @@ async function run(browser, vp) {
       return `${out.join(', ')}; fritt efter turen`;
     } finally { await wp.close(); }
   });
+  // #1959: växlaren mellan tidsreglagen ("Före 3000 f.Kr." och "3000 f.Kr.–i dag"). Knappar med reglagens egna namn, aria-pressed, en dörr med pil vid
+  // kanten, tryckyta på 44 px, före reglaget i tabbordningen, ingen horisontell scroll och inget som täcker årtalen eller stegknapparna. Ett tryck
+  // byter reglage och landar på kanten närmast (-2999 eller -3000); skalraden och statusraden säger vilket reglage man är på. Datorjobbet prövar
+  // 1280 px och en liggande telefon (800×360), mobiljobbet 400 px.
+  await check('växlaren mellan tidsreglagen: knappar, namn, tryckytor och byte i tre bredder (#1959)', async () => {
+    const layouts = vp.width > 760
+      ? [{ name: 'dator 1280×720', width: 1280, height: 720, extra: {} }, { name: 'liggande 800×360', width: 800, height: 360, extra: { isMobile: true } }]
+      : [{ name: 'mobil 400×800', width: 400, height: 800, extra: {} }];
+    const PRE_NAME = 'Före 3000 f.Kr.', HISTORY_NAME = '3000 f.Kr.–i dag';
+    const out = [];
+    for (const L of layouts) {
+      const { tp, tctx, errs } = await touchPage({ width: L.width, height: L.height }, L.extra);
+      try {
+        await tp.addInitScript(() => { try { localStorage.setItem('hg-pause', JSON.stringify({ funfacts: false, ffAuto: false, major: false, focusFunfacts: false, route: false, theme: false })); } catch { /* utan lagring */ } });
+        await tp.goto(`${BASE}?lang=sv&ny=v1959-${L.width}#y=-50000`);
+        await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await tp.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '-50000', null, { timeout: T.step });
+        await tp.keyboard.press('Escape');
+        const read = () => tp.evaluate(() => {
+          const tidy = t => t?.replace(/\s/g, ' ').trim();
+          const sw = document.getElementById('scale-switch'), tr = document.getElementById('track');
+          const btns = [...sw.querySelectorAll('.level-btn')];
+          const note = document.getElementById('timeline-scale-note');
+          return {
+            group: { role: sw.getAttribute('role'), label: sw.getAttribute('aria-label'), shown: getComputedStyle(sw).display !== 'none' },
+            names: btns.map(b => tidy(b.querySelector('.level-name').textContent)),
+            pressed: btns.map(b => b.getAttribute('aria-pressed')),
+            arrows: btns.map(b => tidy(b.querySelector('.level-arrow')?.textContent ?? '')),
+            access: btns.map(b => tidy(b.textContent).replace(/[→←]/g, '').trim()),
+            now: Number(tr.getAttribute('aria-valuenow')), label: tidy(tr.getAttribute('aria-label')), hash: location.hash,
+            note: note.hidden ? null : tidy(note.textContent), noteClipped: note.hidden ? false : note.scrollWidth > note.clientWidth + 1,
+            hscroll: document.documentElement.scrollWidth - document.documentElement.clientWidth,
+          };
+        });
+        const expect = (what, r, want) => { for (const [k, v] of Object.entries(want)) if (JSON.stringify(r[k]) !== JSON.stringify(v)) throw new Error(`${L.name}, ${what}: ${k} är ${JSON.stringify(r[k])}, väntat ${JSON.stringify(v)}`); };
+        // Namn, grupp, aria-pressed och pilen vid kanten: på det första reglaget är dörren den högra knappen med pil åt höger
+        const a = await read();
+        expect('första reglaget', a, { group: { role: 'group', label: 'Tidsreglage', shown: true }, names: [PRE_NAME, HISTORY_NAME], pressed: ['true', 'false'], arrows: ['', '→'], access: [PRE_NAME, HISTORY_NAME], label: 'År, före 3000 f.Kr.' });
+        if (a.hscroll > 0) throw new Error(`${L.name}: sidan scrollar i sidled (${a.hscroll} px)`);
+        // Geometri: 24 px synlig höjd, tryckyta (::after) på minst 44 px, ingen överlappning med stegknappar, årtal eller reglaget, ryms i bredden
+        const geo = await tp.evaluate(() => {
+          const rect = e => { const r = e.getBoundingClientRect(); return { x: r.x, y: r.y, r: r.right, b: r.bottom, w: r.width, h: r.height }; };
+          const hit = (a, b) => a.x < b.r && b.x < a.r && a.y < b.b && b.y < a.b;
+          const btns = [...document.querySelectorAll('#scale-switch .level-btn')];
+          const others = [...document.querySelectorAll('.timebar .controls :is(.step, .play)')].filter(e => e.getClientRects().length).map(rect);
+          const ticks = [...document.querySelectorAll('#ticks .tick')].filter(e => e.getClientRects().length && getComputedStyle(e).visibility !== 'hidden').map(rect);
+          const track = rect(document.getElementById('track'));
+          const seg = document.getElementById('year-segment'), segRect = seg && seg.getClientRects().length && seg.textContent.trim() ? rect(seg) : null;
+          const controls = rect(document.querySelector('.timebar .controls'));
+          return btns.map(b => {
+            const r = rect(b), after = getComputedStyle(b, '::after');
+            return { r, afterW: parseFloat(after.width), afterH: parseFloat(after.height), font: parseFloat(getComputedStyle(b).fontSize), inside: r.x >= 0 && r.r <= innerWidth,
+              stepHit: others.some(o => hit(r, o)), tickHit: ticks.some(t => hit(r, t)), trackHit: hit(r, track), noteHit: segRect ? hit(r, segRect) : false,
+              controlsOverNote: segRect ? hit(controls, segRect) : false };
+          });
+        });
+        geo.forEach((g, i) => {
+          const who = `${L.name}, knapp ${i + 1}`;
+          if (g.r.h < 24 - 0.5) throw new Error(`${who}: synlig höjd ${g.r.h} px (minst 24)`);
+          if (g.afterH < 44 - 0.5 || g.afterW < 44) throw new Error(`${who}: tryckytan är ${g.afterW}×${g.afterH} px (mål 44)`);
+          if (g.font < 12) throw new Error(`${who}: text ${g.font} px (minst 12)`);
+          if (!g.inside) throw new Error(`${who}: ligger utanför skärmen (${g.r.x}–${g.r.r})`);
+          if (g.stepHit) throw new Error(`${who}: täcker en stegknapp`);
+          if (g.tickHit) throw new Error(`${who}: täcker ett årtal på reglaget`);
+          if (g.trackHit) throw new Error(`${who}: täcker reglaget`);
+          if (g.noteHit) throw new Error(`${who}: täcker årtalets förklaring`);
+          if (g.controlsOverNote) throw new Error(`${who}: stegknapparna kommer upp i raden med årtalets förklaring`);
+        });
+        if (geo[1].r.x <= geo[0].r.r) throw new Error(`${L.name}: knapparna ligger inte åtskilda`);
+        // Tabbordning: växlaren före reglaget (knapp, knapp, reglaget)
+        await tp.focus('#scale-switch .level-btn');
+        await tp.keyboard.press('Tab');
+        if ((await tp.evaluate(() => document.activeElement?.dataset?.level)) !== 'human-history') throw new Error(`${L.name}: Tab från första knappen gick inte till andra knappen`);
+        await tp.keyboard.press('Tab');
+        if ((await tp.evaluate(() => document.activeElement?.id)) !== 'track') throw new Error(`${L.name}: Tab från växlaren gick inte till reglaget`);
+        if (!(await tp.evaluate(() => { const sw = document.getElementById('scale-switch'), tr = document.getElementById('track'); return !!(sw.compareDocumentPosition(tr) & Node.DOCUMENT_POSITION_FOLLOWING); }))) throw new Error(`${L.name}: växlaren ligger inte före reglaget`);
+        // Ett tryck på dörren: byter reglage, landar på 3000 f.Kr., pilen byter kant, skalraden och statusraden säger vilket reglage
+        await tapReal(tp, '#scale-switch .level-btn[data-level="human-history"]', 'dörren till 3000 f.Kr.–i dag');
+        await tp.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '-2999', null, { timeout: T.step })
+          .catch(async () => { throw new Error(`${L.name}: dörren gav året ${(await read()).now}`); });
+        const b = await read();
+        expect('efter dörren åt höger', b, { pressed: ['false', 'true'], arrows: ['←', ''], access: [PRE_NAME, HISTORY_NAME], label: 'År, 3000 f.Kr.–i dag', now: -2999 });
+        if (!b.note?.startsWith('3000 f.Kr.–i dag: en tiondel')) throw new Error(`${L.name}: skalraden säger "${b.note}" efter bytet`);
+        if (b.noteClipped) throw new Error(`${L.name}: skalraden klipps ("${b.note}")`);
+        await tp.waitForFunction(() => /[#&]y=-2999(&|$)/.test(location.hash), null, { timeout: T.step }) // adressen skrivs en stund efter bytet; ingen ny nyckel för reglaget
+          .catch(async () => { throw new Error(`${L.name}: adressen säger ${await tp.evaluate(() => location.hash)}`); });
+        if (/scale|reglage|track/i.test(await tp.evaluate(() => location.hash))) throw new Error(`${L.name}: adressen har fått ett fält för reglaget`);
+        await tp.waitForFunction(() => /Tidslinjen visar nu tiden 3000 f\.Kr\.–i dag/.test(document.getElementById('screen-reader-status').textContent), null, { timeout: T.step })
+          .catch(async () => { throw new Error(`${L.name}: statusraden säger "${await tp.textContent('#screen-reader-status')}" efter dörren`); });
+        const geoAfter = await tp.evaluate(() => [...document.querySelectorAll('#scale-switch .level-btn')].map(b => { const r = b.getBoundingClientRect(); return { x: r.x, r: r.right, w: innerWidth }; }));
+        if (geoAfter[0].x > 20 || geoAfter[1].r < geoAfter[1].w - 20) throw new Error(`${L.name}: knapparna ligger inte vid kanterna (${JSON.stringify(geoAfter)})`);
+        // Tillbaka: dörren åt vänster, sista året före 3000 f.Kr. är 3001 f.Kr. (-3000)
+        await tapReal(tp, '#scale-switch .level-btn[data-level="human-pre"]', 'dörren till Före 3000 f.Kr.');
+        await tp.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '-3000', null, { timeout: T.step })
+          .catch(async () => { throw new Error(`${L.name}: dörren tillbaka gav året ${(await read()).now}`); });
+        const c = await read();
+        expect('efter dörren åt vänster', c, { pressed: ['true', 'false'], arrows: ['', '→'], label: 'År, före 3000 f.Kr.', now: -3000 });
+        if (!c.note?.startsWith('Före 3000 f.Kr.: en tiondel')) throw new Error(`${L.name}: skalraden säger "${c.note}" efter bytet tillbaka`);
+        // Att trycka på knappen man redan är på ändrar ingenting; tangentbordet (Enter) fungerar som tryck
+        await tp.tap('#scale-switch .level-btn[data-level="human-pre"]');
+        if ((await read()).now !== -3000) throw new Error(`${L.name}: ett tryck på nuvarande reglage ändrade året`);
+        await tp.focus('#scale-switch .level-btn[data-level="human-history"]');
+        await tp.keyboard.press('Enter');
+        await tp.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '-2999', null, { timeout: T.step });
+        // Tidsraden täcker inget Samtidigt-kort eller faktaruta ovanför sig (växlaren gör den högre)
+        const gap = await tp.evaluate(() => {
+          const bar = document.querySelector('.timebar').getBoundingClientRect();
+          return [...document.querySelectorAll('#funfact:not([hidden]), #ff-tab:not([hidden]), #detail:not([hidden])')].map(e => ({ id: e.id, over: e.getBoundingClientRect().bottom - bar.top })).filter(x => x.over > 1);
+        });
+        if (gap.length) throw new Error(`${L.name}: tidsraden täcker ${JSON.stringify(gap)}`);
+        if (errs.length) throw new Error(`${L.name}: sidfel: ${errs[0]}`);
+        out.push(`${L.name}: ${geo[0].r.w.toFixed(0)}+${geo[1].r.w.toFixed(0)} px, tryckyta ${geo[0].afterW.toFixed(0)}×${geo[0].afterH.toFixed(0)}`);
+      } finally { await tctx.close(); }
+    }
+    return `${out.join('; ')}; namn, aria-pressed, dörr åt båda hållen (-2999, -3000), Tab före reglaget, skalrad och statusrad`;
+  });
+  // #1959: växlaren visas inte där tiden är låst eller har egen skala: i en tur, en lektion och Fokus. Den kommer tillbaka när läget slutar,
+  // och står då på reglaget som året hör till.
+  await check('växlaren är dold i en tur, en lektion och Fokus och kommer tillbaka efter (#1959)', async () => {
+    const wp = await context.newPage();
+    const errs = [];
+    const wpAw = abortWatch(wp);
+    wp.on('pageerror', e => { if (!wpAw.defer(e.message)) errs.push(e.message); });
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await wp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await wp.route(u => isFont(u.href), r => r.abort());
+      }
+      let loads = 0;
+      const open = async (hash, wait) => {
+        await wpAw.goto(`${BASE}?lang=sv&ny=v1959b${loads++}${hash}`);
+        await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        if (wait) await wp.waitForSelector(wait, { state: 'visible', timeout: T.step });
+      };
+      const shown = () => wp.evaluate(() => { const e = document.getElementById('scale-switch'); return e.getClientRects().length > 0 && getComputedStyle(e).visibility !== 'hidden'; });
+      const tabbable = () => wp.evaluate(() => [...document.querySelectorAll('#scale-switch .level-btn')].filter(b => b.getClientRects().length).length);
+      const out = [];
+      await open('#y=1325');
+      if (!(await shown())) throw new Error('växlaren syns inte i vanligt läge');
+      for (const [name, hash, wait] of [['tur', '#t=andra-varldskriget', '#tour-card'], ['lektion', '#t=andra-varldskriget&m=lektion', '#tour-card'], ['Fokus', '#y=1942&f=war:andra-varldskriget', '#focus-bar']]) {
+        await open(hash, wait);
+        if (await shown() || await tabbable()) throw new Error(`växlaren syns i ${name}`);
+        out.push(name);
+      }
+      // En tur som slutar: växlaren är tillbaka och följer året
+      await open('#t=andra-varldskriget', '#tour-card');
+      await wp.click('#tour-end');
+      await wp.waitForSelector('#tour-card', { state: 'hidden', timeout: T.step });
+      if (!(await shown())) throw new Error('växlaren kommer inte tillbaka när turen slutar');
+      const year = Number(await wp.getAttribute('#track', 'aria-valuenow'));
+      const pressed = await wp.evaluate(() => [...document.querySelectorAll('#scale-switch .level-btn')].map(b => b.getAttribute('aria-pressed')));
+      if (pressed.join() !== (year <= -3000 ? 'true,false' : 'false,true')) throw new Error(`efter turen (år ${year}) är knapparna ${pressed}`);
+      // Fokus som avslutas: samma sak
+      await open('#y=1942&f=war:andra-varldskriget', '#focus-bar');
+      await wp.click('#focus-exit');
+      await wp.waitForSelector('#focus-bar', { state: 'hidden', timeout: T.step });
+      if (!(await shown())) throw new Error('växlaren kommer inte tillbaka när Fokus slutar');
+      errs.push(...wpAw.settle());
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return `dold i ${out.join(', ')}; tillbaka när turen och Fokus slutar, på reglaget som året hör till`;
+    } finally { await wp.close(); }
+  });
   // #1713: de nya korten ingick inte i #1309:s ursprungliga tre menyprov.
   await check('För lärare och Inställningar har dialogroll och håller Tab inom kortet (#1713)', async () => {
     const wp = await context.newPage();

@@ -1408,7 +1408,7 @@ html.calm .year-tip { animation: none; }
   position: relative; display: inline-flex; align-items: center; gap: 5px; min-width: 24px; height: 24px; padding: 0 10px; box-sizing: border-box;
   font: 500 12px/1 var(--f-body); white-space: nowrap; color: var(--brass); background: var(--night-2); border: 1px solid var(--brass-deep); border-radius: 12px; cursor: pointer;
 }
-.level-btn::after { content: ""; position: absolute; inset: -10px -4px; } /* tryckyta på 44 px (24 + 2 × 10), 8 px bredare än knappen */
+.level-btn::after { content: ""; position: absolute; inset: -11px -5px; } /* tryckyta på 44 px: knappen är 24 px med 1 px kant, och ::after räknas från innerkanten (22 + 2 × 11) */
 .level-btn[aria-pressed="true"] { color: var(--night); background: var(--brass); border-color: var(--brass); cursor: default; }
 .level-btn.is-door:hover { background: var(--night-3); border-color: var(--brass); }
 .level-btn:focus-visible { outline: 2px solid var(--parchment); outline-offset: 2px; }
@@ -1424,10 +1424,14 @@ html.calm .year-tip { animation: none; }
   .app:not(.lesson):not(.touring):not(.focusing) .controls { margin-bottom: 4px; }
   .app:not(.lesson):not(.touring):not(.focusing) .level-switch { margin-bottom: 2px; }
 }
+/* Liggande telefon (högst 480 px hög, under 1101 px bred): reglaget är 48 px högt som i mobil, så att stegknapparna inte kommer upp i raden med årtalets förklaring */
+@media (max-height: 480px) and (max-width: 1100px) {
+  .app:not(.lesson):not(.touring):not(.focusing) .track { height: 48px; }
+}
 /* Från 1101 px ligger knapparna i stegknapparnas rad, den första vid reglagets vänstra och den andra vid dess högra kant: tidsraden blir inte högre.
    Läget räknas från tidsradens botten (stegknapparnas rad ligger alltid 76 px upp), eftersom pausraden kan växa ovanför. */
 @media (min-width: 1101px) {
-  .level-switch { position: absolute; left: var(--gut); right: var(--gut-r); bottom: calc(env(safe-area-inset-bottom, 0px) + 76px); min-height: 32px; margin: 0; flex-wrap: nowrap; pointer-events: none; }
+  .level-switch { position: absolute; z-index: 2; left: var(--gut); right: var(--gut-r); bottom: calc(env(safe-area-inset-bottom, 0px) + 76px); min-height: 32px; margin: 0; flex-wrap: nowrap; pointer-events: none; } /* över stegknapparnas rad (z-index 1), som annars täcker knapparna */
   .level-btn { pointer-events: auto; }
   .presentation-mode .level-switch { bottom: calc(env(safe-area-inset-bottom, 0px) + 84px); min-height: 40px; }
 }
@@ -2780,6 +2784,9 @@ details.used-by summary:hover { color: var(--parchment); }
   .app:has(.pause-note:not([hidden])) { --ff-b: 170px; }
   .app.focusing { --ff-b: 158px; }
   .app.focusing:has(.pause-note:not([hidden])) { --ff-b: 226px; }
+  /* Växlaren (#1959) har en egen rad här och gör tidsraden 22 px högre (den syns inte i tur, lektion och Fokus): korten börjar lika mycket högre */
+  .app:not(.lesson):not(.touring):not(.focusing) { --ff-b: 130px; }
+  .app:not(.lesson):not(.touring):not(.focusing):has(.pause-note:not([hidden])) { --ff-b: 192px; }
   /* Den uppmätta fokusraden (#183) gäller före de fasta avstånden ovan, också när pausraden syns (#627).
      Regeln med :has() ovan är lika specifik som den i #239 och står senare, så den vann annars, och arket
      hamnade bakom fokusraden när krigets slutkort öppnades med raden "Tiden flyttades". */

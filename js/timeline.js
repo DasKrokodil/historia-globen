@@ -7,7 +7,7 @@ import { LANG, ui } from './i18n.js';
 import { MIN_YEAR, MAX_YEAR } from './state.js'; // gränserna bor i state.js (#1141), så att url-state.js inte behöver importera hela tidsreglaget
 export { MIN_YEAR, MAX_YEAR };
 
-import { HUMAN_SCALE, HUMAN_SCALES, scaleForYear, nominal } from './time-scale.js';
+import { HUMAN_SCALE, HUMAN_SCALES, scaleForYear, scaleEntryYear, nominal } from './time-scale.js';
 export { HUMAN_SCALE, HUMAN_SCALES, scaleForYear };
 // Alla delar och skarvar i tidsordning, över båda reglagen (människans reglage är "Före 3000 f.Kr." och "3000 f.Kr.–i dag", #1958)
 export const SEGMENTS = HUMAN_SCALES.flatMap(s => s.segments);
@@ -219,7 +219,7 @@ export class Timeline extends EventTarget {
     const segBefore = this.focus || this.range ? null : segFor(this._year, this.scale);
     const scaleBefore = this.scale;
     this.year = l?.from != null ? Math.max(l.from, Math.min(l.to, y)) : y;
-    this._showScale(segBefore);
+    this._showScale(this.scale === scaleBefore ? segBefore : null); // byter reglage visar raden det nya reglagets namn i stället för "ny skala" (#1959)
     // Ny upplösning efter ett drag, en tangent eller en stegknapp (#1089): skärmläsaren får veta hur långt ett steg nu är.
     // Beskedet läses i statusraden tillsammans med året (takeStepNote, js/controllers/render.js), så att det inte skrivs över.
     if (before != null && stepAt(this._year, this.scale) !== before) this._stepNote = pluralUi('time.stepNow', stepAt(this._year, this.scale), { n: groupDigits(stepAt(this._year, this.scale)) }); // "1 år", "100 år" (#1101)
@@ -544,8 +544,7 @@ export class Timeline extends EventTarget {
   goToScale(sc) {
     if (this.locked || this.focus || sc === this.scale || !this.scales.includes(sc)) return null;
     this.pause();
-    const year = sc.from > this.scale.to ? sc.from : sc.to;
-    this.setByUser(year);
+    this.setByUser(scaleEntryYear(sc, this.scale));
     return this._year;
   }
   /** Reglagets namn för skärmläsare ("År, före 3000 f.Kr."); utan namn (en enda skala) står "År" kvar ur index.html. */
