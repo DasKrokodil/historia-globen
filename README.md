@@ -113,6 +113,7 @@ js/ui/uppdrag.js      elevuppdraget Samtidighetsjakten från För lärare, med k
 js/uppdrag-rules.js   jaktens regler: år, världsdel och vad som räknas, delas med testerna (#741)
 js/quiz-rules.js      quizets regler: frågor och säkert felaktiga svar, delas med testerna (#65)
 js/samtidighet.js     definitionen av "samtidigt" och "nära i tid" för fun facts, quiz och jakt, delas med testerna (#1311)
+js/layer-coverage.js  var ett lagers data finns i tiden (tidigaste from till senaste to) och när raden i Lager säger att ett påslaget lager saknar data i året, delas med testerna (#1960)
 js/paragraphs.js      långa faktatexter i korta stycken, ren presentation: orden är desamma, delas med testerna (#1571)
 js/ui/viewmode.js     vyväljaren: Glob, Platt karta och Upptäcktsresor (#651)
 js/ui/tour.js         guidade turer: spelar upp en tur ur data/turer/ steg för steg (knappen Turer, #47)
