@@ -12480,10 +12480,13 @@ async function run(browser, vp) {
       await wp.waitForFunction(() => document.getElementById('track').getAttribute('aria-label') === 'År, 3000 f.Kr.–i dag', null, { timeout: 8000 })
         .catch(async () => { throw new Error(`uppspelningen nådde aldrig det historiska reglaget: ${JSON.stringify(await read())}`); });
       const crossed = (await read()).now;
-      await wp.waitForFunction(y => Number(document.getElementById('track').getAttribute('aria-valuenow')) > y, crossed, { timeout: 5000 })
+      if (crossed < -2999) throw new Error(`reglaget byttes redan före gränsen, på ${crossed}`);
+      // Uppspelningen fortsätter i det nya reglaget. Den kan pausa av ett eget skäl (ett Samtidigt-kort, ett stopp i datan), och då visar
+      // pausraden det; en paus utan rad, eller som stannar året vid gränsen, vore bytets fel
+      await wp.waitForFunction(y => Number(document.getElementById('track').getAttribute('aria-valuenow')) > y || !document.getElementById('pause-note').hidden, crossed, { timeout: 5000 })
         .catch(() => { throw new Error(`uppspelningen stannade vid gränsen på ${crossed}`); });
-      if ((await wp.getAttribute('.timebar .controls .play', 'aria-pressed')) !== 'true') throw new Error('uppspelningen stoppades av bytet av reglage');
-      await wp.click('.timebar .controls .play'); // pausa
+      if (await wp.evaluate(() => document.getElementById('pause-note').hidden) && (await wp.getAttribute('.timebar .controls .play', 'aria-pressed')) !== 'true') throw new Error('uppspelningen stoppades av bytet av reglage');
+      if (await wp.getAttribute('.timebar .controls .play', 'aria-pressed') === 'true') await wp.click('.timebar .controls .play'); // pausa
       // Ett intervall som korsar gränsen: reglaget är startårets, bandet klipps vid kanten och får en pil (nordisk stenålder, -11999 till -1699)
       await open('#y=-11999&y2=-1699');
       const band = await wp.evaluate(() => {
