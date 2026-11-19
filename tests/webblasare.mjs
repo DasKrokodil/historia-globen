@@ -12329,7 +12329,7 @@ async function run(browser, vp) {
       if (!/före 3000/.test(await wp.getAttribute('#track', 'aria-label'))) throw new Error(`reglagets namn: ${await wp.getAttribute('#track', 'aria-label')}`);
       await press('ArrowRight', '2901 f.Kr.');
       if ((await wp.getAttribute('#track', 'aria-label')) !== 'År, 3000 f.Kr.–i dag') throw new Error(`reglagets namn efter gränsen: ${await wp.getAttribute('#track', 'aria-label')}`);
-      await wp.waitForFunction(() => /Tidslinjen visar nu 3000 f\.Kr\.–i dag/.test(document.getElementById('screen-reader-status').textContent), null, { timeout: T.step })
+      await wp.waitForFunction(() => /Tidslinjen visar nu tiden 3000 f\.Kr\.–i dag/.test(document.getElementById('screen-reader-status').textContent), null, { timeout: T.step })
         .catch(async () => { throw new Error(`statusraden säger "${await wp.textContent('#screen-reader-status')}" efter gränsen`); });
       await press('Home', '3000 f.Kr.'); // reglagets första år, inte domänens
       await press('ArrowLeft', '3100 f.Kr.'); // en pil bakåt över gränsen: hundra år, den grövre upplösningen
@@ -12452,7 +12452,7 @@ async function run(browser, vp) {
       await open('#y=-3099');
       await wp.click('.timebar .controls .step[data-step="1"]');
       expect('+1 från 3100 f.Kr.', await read(), { label: HISTORY, now: -2999, first: '3000 f.Kr.' });
-      await wp.waitForFunction(() => /Tidslinjen visar nu 3000 f\.Kr\.–i dag/.test(document.getElementById('screen-reader-status').textContent), null, { timeout: T.step })
+      await wp.waitForFunction(() => /Tidslinjen visar nu tiden 3000 f\.Kr\.–i dag/.test(document.getElementById('screen-reader-status').textContent), null, { timeout: T.step })
         .catch(async () => { throw new Error(`statusraden säger "${await wp.textContent('#screen-reader-status')}" efter steget över gränsen`); });
       // Övertoningen startar när reglaget byts, men inte med reducerad rörelse
       await wp.evaluate(() => {

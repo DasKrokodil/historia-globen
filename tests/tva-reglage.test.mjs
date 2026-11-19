@@ -162,13 +162,13 @@ test('byte av reglage: ett meddelande en gång, via ett steg, och skalan och år
   timeline.setByUser(-3099);
   assert.deepEqual(swaps, ['human-pre']);
   const note = timeline.takeStepNote();
-  assert.match(note, /Tidslinjen visar nu före 3000 f\.Kr\./);
+  assert.match(note, /Tidslinjen visar nu tiden före 3000 f\.Kr\./);
   assert.equal(timeline.takeStepNote(), '', 'meddelandet läses en gång');
   timeline.setByUser(-4000); // inom samma reglage: inget nytt byte
   assert.deepEqual(swaps, ['human-pre']);
   timeline.setByUser(-2999);
   assert.deepEqual(swaps, ['human-pre', 'human-history']);
-  assert.match(timeline.takeStepNote(), /Tidslinjen visar nu 3000 f\.Kr\.–i dag/);
+  assert.match(timeline.takeStepNote(), /Tidslinjen visar nu tiden 3000 f\.Kr\.–i dag/);
 });
 
 test('spann som slutar på gränsåret hör till båda reglagen, med regeln spanInScale (#1958)', () => {

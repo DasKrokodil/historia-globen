@@ -34,17 +34,27 @@ test('vid varje segmentgräns inom ett reglage är kanterna läget ± 1,2 % av r
   }
 });
 
-test('minsta fönstret: före 10 000 f.Kr. aldrig kortare än 10 000 år åt varje håll, därefter 1,2 % av reglaget (#1958)', () => {
+test('minsta fönstret: 10 000 år åt varje håll till 20 000 f.Kr., sedan avtagande fram till 10 000 f.Kr. (#1958)', () => {
   assert.deepEqual(PRE.windowMin, [{ to: -10000, years: 10000 }]);
   assert.equal(HISTORY.windowMin, undefined);
-  for (const y of [-99999, -50000, -20000, -10001, -10000]) {
+  for (const y of [-99999, -50000, -25000, -20001, -20000]) {
     assert.deepEqual(E(y), [10000, 10000], `år ${y}`);
     // golvet gäller för reglagets 1,2 % (2160 år här): det är golvet som ger 10 000, inte skalan
     assert.ok(yearsAcross(y, F, PRE) < 10000, `år ${y}`);
   }
-  assert.deepEqual(E(-9999), [2148, 168]);  // 10 000 f.Kr.: golvet är borta, kanterna är läget ± 1,2 % (före står kvar i det glesa segmentet)
-  assert.deepEqual(E(-8000), [168, 168]);   // 8001 f.Kr.
-  assert.deepEqual(E(-5000), [168, 168]);   // 5001 f.Kr.
+  // de sista 10 000 åren före 10 000 f.Kr. avtar golvet till avståndet till delens slut, så att fönstret inte når in i den täta delen efter
+  assert.deepEqual(E(-15000), [5000, 5000]);
+  assert.deepEqual(E(-12000), [2160, 2012]);  // golvet (2000) är under skalans egna kant (2012 framåt): skalan gäller
+  assert.deepEqual(E(-10001), [2160, 169]);   // 10 002 f.Kr.: skalans egna kanter
+  assert.deepEqual(E(-10000), [2160, 168]);   // 10 001 f.Kr., sista året i första delen
+  assert.deepEqual(E(-9999), [2148, 168]);    // 10 000 f.Kr.: ingen skarv i fönstret, golvet är borta
+  assert.deepEqual(E(-8000), [168, 168]);     // 8001 f.Kr.
+  assert.deepEqual(E(-5000), [168, 168]);     // 5001 f.Kr.
+  // fönstret når aldrig längre framåt än till delens slut plus skalans egen kant, hur golvet än avtar
+  for (let y = -20000; y <= -10000; y += 125) {
+    const { after } = windowEdges(y, F), own = windowEdges(y, F, { ...PRE, windowMin: undefined }).after;
+    assert.ok(after <= Math.max(own, -10000 - y) + 1e-6, `år ${y}: ${after} når för långt in i nästa del`);
+  }
   // golvet gäller bara om skalan ger mindre: ett fönster som redan är längre ändras inte
   assert.ok(Math.abs(windowEdges(-50000, 0.2, PRE).before - yearsAcross(-50000, 0.2, PRE)) < 1e-6);
 });
