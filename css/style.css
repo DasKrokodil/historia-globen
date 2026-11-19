@@ -549,7 +549,9 @@ body {
 .layer-sect > summary::after { content: ""; margin-left: auto; width: 7px; height: 7px; border: solid currentColor; border-width: 0 2px 2px 0; transform: rotate(45deg) translateY(-2px); transition: transform .15s; }
 .layer-sect[open] > summary::after { transform: rotate(-135deg) translateY(-1px); }
 .layer-sect > summary:focus-visible { outline: 2px solid var(--brass); outline-offset: -2px; border-radius: 6px; }
-.layer-sect-count { font: 400 11px/1.2 var(--f-mono); letter-spacing: 0; text-transform: none; color: var(--parchment-dim); }
+.layer-sect-count { font: 400 11px/1.2 var(--f-mono); letter-spacing: 0; text-transform: none; color: var(--parchment-dim); min-width: 0; }
+/* Räknaren kan få en andra del ("· 1 saknar data här", #1960) och bryter då rad i stället för att tränga ut pilen */
+.layer-sect-title, .layer-sect > summary::after { flex: none; }
 .layer-group:has(.layer-sect) .layer-heading { display: none; }
 .view-custom { grid-column: 1 / -1; align-items: center; cursor: default; border-style: dashed; border-color: var(--brass-deep); color: var(--brass); font-style: italic; }
 .view-custom[hidden] { display: none; }

@@ -552,6 +552,7 @@
   "layers.coverageBeforeApprox": "Aucune donnée pour cette année · données à partir d’environ {year}",
   "layers.coverageAfter": "Aucune donnée pour cette année · données jusqu’en {year}",
   "layers.coverageAfterApprox": "Aucune donnée pour cette année · données jusqu’à environ {year}",
+  "layers.groupMissing": ["{n} n’a pas de données ici", "{n} n’ont pas de données ici"],
   "more.learn": "Apprendre",
   "more.school": "Pour l’école",
   "more.project": "Aider le projet",

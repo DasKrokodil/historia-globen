@@ -8036,10 +8036,27 @@ async function run(browser, vp) {
       const el = document.getElementById(`layer-coverage-${id}`);
       return (!!el && !el.hidden && el.getClientRects().length > 0) === on;
     }, [id, on], { timeout: T.step });
+    // Räknaren på gruppens rad (#1960): "N av M på · K saknar data här", med K = raderna om data som saknas i gruppen just nu
+    const groupOf = id => page.locator(layerRow(id)).evaluate(el => {
+      const sect = el.closest('details.layer-sect'), summary = sect.querySelector(':scope > summary'), count = sect.querySelector('.layer-sect-count');
+      const shown = [...sect.querySelectorAll('.layer-coverage')].filter(r => !r.hidden), rows = shown.length;
+      const s = summary.getBoundingClientRect(), c = count.getBoundingClientRect();
+      return { text: count.textContent.trim(), rows, ids: shown.map(r => r.id), fits: c.right <= s.right + 1 && summary.scrollWidth <= summary.clientWidth + 1, live: !!count.closest('[aria-live],[role="status"]') };
+    });
+    const expectGroup = async (id, what) => {
+      const g = await groupOf(id);
+      const missing = / · (\d+) saknar data här$/.exec(g.text);
+      if (g.rows > 0 ? !missing || Number(missing[1]) !== g.rows : !!missing) throw new Error(`${what}: räknaren "${g.text}" stämmer inte med ${g.rows} rader om data som saknas`);
+      if (!g.fits) throw new Error(`${what}: räknaren "${g.text}" ryms inte i gruppens rad`);
+      if (g.live) throw new Error(`${what}: räknaren ligger i en live-region`);
+      return g;
+    };
     try {
       await jumpTo(1500);
       await setLayer('spread', true);
       await waitShown('spread', true);
+      const counted = await expectGroup('spread', 'spridningen år 1500');
+      if (counted.rows < 1 || !/ · 1 saknar data här$/.test(counted.text)) throw new Error(`räknaren i gruppen med Människans spridning saknar "· 1 saknar data här" år 1500: "${counted.text}"`);
       const row = await coverage('spread').evaluate((el, id) => {
         const input = document.querySelector(`#layer-menu input[data-layer="${id}"]`);
         const menu = document.getElementById('layer-menu');
@@ -8059,11 +8076,17 @@ async function run(browser, vp) {
       await jumpDeep(-20000);
       await waitShown('spread', false);
       if (await page.locator(layerRow('spread')).getAttribute('aria-describedby')) throw new Error('rutan pekar fortfarande på en dold rad');
+      const gone = await expectGroup('spread', 'spridningen år 20 000 f.Kr.');
+      // Resor och handelsvägar i samma grupp saknar data före år 129 f.Kr.; spridningen har data och räknas inte med
+      const routesRow = (await coverage('routes').count()) > 0 && await coverage('routes').evaluate(el => !el.hidden);
+      if (gone.rows !== (routesRow ? 1 : 0)) throw new Error(`räknaren räknar ${gone.rows} rader (${gone.ids}) när spridningen har data och vägarna ${routesRow ? 'saknar' : 'har'} data: "${gone.text}"`);
       // Riken saknas före sin början
       await setLayer('areas', true);
       await waitShown('areas', true);
       const areas = (await coverage('areas').textContent()).trim();
       if (!/^Ingen data för året · data från [^ ]+f\.Kr\.$/.test(areas)) throw new Error(`Riken år 20 000 f.Kr. fick raden "${areas}"`);
+      const power = await expectGroup('areas', 'Riken år 20 000 f.Kr.');
+      if (power.rows < 1) throw new Error(`gruppen med Riken saknar räknare år 20 000 f.Kr.: "${power.text}"`);
       // Texten sätts inte om när året ändras utan att läget gör det: samma textnod
       await coverage('areas').evaluate(el => { window.__hgCovText = el.firstChild; });
       await jumpDeep(-30000);
@@ -8074,6 +8097,8 @@ async function run(browser, vp) {
       // Ett avslaget lager får ingen rad
       await setLayer('spread', false);
       await waitShown('spread', false);
+      const off = await expectGroup('spread', 'avslagen spridning');
+      if (off.rows !== 0) throw new Error(`räknaren finns kvar när lagret är av: "${off.text}"`);
       return `spridningen år 1500: "${row.text}"; riken år 20 000 f.Kr.: "${areas}"`;
     } finally {
       for (const id of ['spread', 'areas']) await setLayer(id, was[id]);

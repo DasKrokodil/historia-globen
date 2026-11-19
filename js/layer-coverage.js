@@ -57,3 +57,9 @@ export function outsideCoverage(cov, year) {
   if (year > cov.to) return { side: 'after', limit: cov.approxTo ? roundApprox(cov.to) : cov.to, approx: !!cov.approxTo };
   return null;
 }
+
+/**
+ * Hur många av lagren i en grupp som är påslagna och saknar data i året (#1960): räknaren på gruppens rad i Lager.
+ * ids = lagrens id, isOn(id) = om rutan är ikryssad, gaps = svaret från registry.coverage (samma som raderna under lagren).
+ */
+export const countMissing = (ids, isOn, gaps) => ids.filter(id => isOn(id) && gaps?.has(id)).length;

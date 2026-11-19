@@ -326,6 +326,7 @@
   "layers.coverageBeforeApprox": "Ingen data för året · data från cirka {year}",
   "layers.coverageAfter": "Ingen data för året · data till {year}",
   "layers.coverageAfterApprox": "Ingen data för året · data till cirka {year}",
+  "layers.groupMissing": ["{n} saknar data här", "{n} saknar data här"],
   "help.feedbackBtn": "Lämna förslag",
   "help.kofiLabel": "Stöd Historia-globen på Ko-fi (öppnas i en ny flik)",
   "more.learn": "Lär dig",

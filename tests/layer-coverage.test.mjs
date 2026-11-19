@@ -3,7 +3,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { readFileSync } from 'node:fs';
-import { spanOf, edtfApprox, outsideCoverage, roundApprox, coverageYear } from '../js/layer-coverage.js';
+import { spanOf, edtfApprox, outsideCoverage, roundApprox, coverageYear, countMissing } from '../js/layer-coverage.js';
 import { formatYear } from '../js/model.js';
 import { LayerRegistry } from '../js/layers/registry.js';
 import { imageRows, sliceCoverage } from '../js/layers/images.js';
@@ -212,4 +212,28 @@ test('spridningens och istidens gränser blir rimliga efter avrundning och forma
     assert.doesNotMatch(coverageYear(limit, formatYear), / /, `årsformen för ${limit} har ett vanligt mellanrum`);
   }
   assert.match(coverageYear(-2500, formatYear), /^2501\u00a0f\.Kr\.$/);
+});
+
+test('räknaren på gruppens rad räknar påslagna lager med en rad om data som saknas, ur samma svar som raderna', () => {
+  const reg = new LayerRegistry();
+  const span = spanOf([{ from: -500, to: -100 }]);
+  for (const id of ['a', 'b', 'c', 'd']) reg.add({ id, coverage: () => ({ year: 1500, span }) });
+  const layers = { a: true, b: true, c: false, d: true };
+  const gaps = reg.coverage({ layers });
+  const group = ['a', 'b', 'c'];
+  assert.equal(countMissing(group, id => layers[id], gaps), 2, 'a och b är påslagna och saknar data; c är av');
+  assert.equal(countMissing(['d'], id => layers[id], gaps), 1);
+  assert.equal(countMissing(group, id => layers[id] && id !== 'a', gaps), 1, 'ett lager som slås av räknas direkt, före nästa omritning');
+  assert.equal(countMissing(group, () => true, new Map()), 0, 'inga rader, ingen räkning: markeringen visas inte vid noll');
+  assert.equal(countMissing(group, () => true, undefined), 0, 'före första omritningen finns inga rader');
+});
+
+test('räknarens text finns på fem språk som singular och plural med {n}', () => {
+  for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+    const text = read(`data/ui/${lang}.json`)['layers.groupMissing'];
+    assert.ok(Array.isArray(text) && text.length === 2, `${lang}: layers.groupMissing ska vara [en, flera]`);
+    for (const form of text) assert.match(form, /^\{n\} \S/, `${lang}: formen "${form}" ska börja med {n}`);
+  }
+  assert.deepEqual(read('data/ui/sv.json')['layers.groupMissing'], ['{n} saknar data här', '{n} saknar data här']);
+  assert.notEqual(read('data/ui/en.json')['layers.groupMissing'][0], read('data/ui/en.json')['layers.groupMissing'][1], 'engelskan böjer verbet: has/have');
 });
