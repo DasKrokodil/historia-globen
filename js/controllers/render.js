@@ -7,6 +7,7 @@ import { LANG, ui } from '../i18n.js';
 import { ZOOM_LEVELS, zoomLevel, pxPerImg, zoomView, eventKeepouts } from '../ui/zoomlevels.js';
 import { empireStory } from '../ui/funfact.js';
 import { rangeParts, rangeText } from './range.js';
+import { PREHISTORY_LAST } from '../time-scale.js';
 
 /**
  * Yngre läsare (#1191): en lektion för årskurs F-3 eller 4-6, eller Samtidighetsjakten, som riktar sig till elever upp till
@@ -193,7 +194,8 @@ export function createRender(app) {
       : ui(emptyText.year);
     panel.render(visible, wholeYear, window, eventsOn, range ? { at: ui('range.at', { range: rangeLabel }), bare: rangeLabel, within, range }
       : fine ? { at: ui('time.onDate', { date: timeline.format(year) }), bare: timeline.format(year), within, fine: true }
-      : themeEmpty ? { themeEmpty, within } : { within });
+      // Före 3000 f.Kr. säger en tom lista att det inte finns fynd i vår data där, inte att något saknas (#1958)
+      : themeEmpty ? { themeEmpty, within } : { within, prehistory: wholeYear <= PREHISTORY_LAST });
     // Etiketten "Områden visas för år N" (#756) när riken eller religioner syns, och hur många markörer gränsen döljer
     app.range?.render(visible.filter(v => v.inside).length, { areasYear: areas.enabled || religions.enabled ? areaYear : null, capped: layer.capped });
     // Samma markörer i Platt vy (#313): de som syns på klotet, de i listan får klustras och etikett
