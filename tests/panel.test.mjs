@@ -3,7 +3,7 @@ import test from 'node:test';
 import { MIN_YEAR } from '../js/state.js';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { uncertaintyRow, mythsHtml, emptyCause, beforeTimelineStart, overviewCount, panelTimeGroup } from '../js/ui/panel.js';
+import { uncertaintyRow, mythsHtml, emptyCause, emptyTextKey, beforeTimelineStart, overviewCount, panelTimeGroup } from '../js/ui/panel.js';
 
 const events = JSON.parse(readFileSync(new URL('../data/events.json', import.meta.url))).events;
 
@@ -47,6 +47,14 @@ test('tom lista: alla kategorier av ger filters, ett tomt år ger year, och en l
   assert.equal(emptyCause({ visibleCount: 0, filters: new Set(['krig']) }), 'year');
   assert.equal(emptyCause({ visibleCount: 3, filters: new Set() }), null);
   assert.equal(emptyCause({ visibleCount: 3, filters: new Set(['krig']) }), null);
+});
+
+// Meningen för tom lista (#1958): före 3000 f.Kr. säger den "Inga fynd i vår data", men ett kategorifilter förklaras alltid först
+test('tom lista: texten följer orsaken, och förhistorien får sin egen mening när det är året som är tomt', () => {
+  assert.equal(emptyTextKey({ cause: 'year' }), 'panel.empty');
+  assert.equal(emptyTextKey({ cause: 'year', prehistory: true }), 'panel.emptyPrehistory');
+  assert.equal(emptyTextKey({ cause: 'filters', prehistory: true }), 'panel.filtersOff');
+  assert.equal(emptyTextKey({ cause: 'some', prehistory: true }), 'panel.filtersSome');
 });
 
 // Några kategorier av och noll träffar (#1304): bara när antalet kategorier som finns är känt

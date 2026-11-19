@@ -270,6 +270,13 @@ export function emptyCause({ visibleCount, filters, total = null }) {
   return total != null && filters.size < total ? 'some' : 'year';
 }
 
+/**
+ * Meningen när listan är tom, som språkfilens nyckel: kategorifilter först, och annars att det inte finns något kring året. Före 3000 f.Kr.
+ * säger den att det inte finns några fynd i vår data där (`prehistory`, #1958), inte att något saknas i världen.
+ */
+export const emptyTextKey = ({ cause, prehistory = false }) =>
+  cause === 'filters' ? 'panel.filtersOff' : cause === 'some' ? 'panel.filtersSome' : prehistory ? 'panel.emptyPrehistory' : 'panel.empty';
+
 /** Antalet i raden "Översikt: ett urval, cirka N händelser" (#1139): avrundat till tiotal, men exakt under tio. */
 export const overviewCount = n => (n >= 10 ? Math.round(n / 10) * 10 : n);
 
@@ -520,7 +527,7 @@ export class Panel {
     // Är listan tom av ett kategorifilter säger raden det, också i en vy med urval: det är filtret och inte urvalet som döljer (#1862)
     this.sub.textContent = oneStop(visible.length ? stop(parts.join(', '))
       : range && !filtersOff ? ui('range.empty', { range: bare })
-      : ui(filtersOff ? 'panel.filtersOff' : filtersSome ? 'panel.filtersSome' : labels?.prehistory ? 'panel.emptyPrehistory' : 'panel.empty', { within, at: bare }));
+      : ui(emptyTextKey({ cause, prehistory: !!labels?.prehistory }), { within, at: bare }));
     if (filtersOff || filtersSome) {
       // Alla kategorier av (#886): det är filtret som döljer händelserna, så dragning i tidslinjen hjälper inte.
       // Några av (#1304): filtret kan dölja dem, så raden säger det och knappen visar alla kategorier igen

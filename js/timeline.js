@@ -95,8 +95,8 @@ function yearAtPos(p, scale) {
 /**
  * Samtidigt-fönstret räknat i reglagets läge (#1319, beslut 2026-11-13): kanterna är läget minus och plus `fraction` av
  * reglaget, och varje kant översätts till år för sig. Fönstret kan därför bli olika långt före och efter året vid en
- * segmentgräns: vid 5000 f.Kr. är det cirka 11 640 år bakåt, i förhistoriens glesa segment, men bara cirka 2 100 år framåt,
- * där segmentet efter 3000 f.Kr. är tätare. Inom ett segment är de två lika långa (samma som yearsAcross).
+ * segmentgräns inom ett reglage: vid år 1000 är det cirka 75 år bakåt, i det glesare segmentet, men bara cirka 40 år framåt, där
+ * segmentet efter 1000 är tätare. Fönstret räknas på reglaget som året hör till (#1958). Inom ett segment är de två lika långa (samma som yearsAcross).
  * Vid reglagets ändar finns bara en kant; den används åt båda hållen (1,2 % av reglaget går inte att mäta bortom slutet).
  * Reglagets post kan ange ett minsta fönster (`windowMin`): före 10 000 f.Kr. är det 10 000 år åt varje håll (#1958).
  */
