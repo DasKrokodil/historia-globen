@@ -935,7 +935,8 @@ async function run(browser, vp) {
     if (await page.isHidden('#jump-pop')) await page.click('#year-jump');
     await visible('#jump-epochs');
     const names = await page.locator('#jump-epochs .jump-epoch-name').allTextContents();
-    const want = ['100\u00a0000–3000 f.Kr.', '3000–500 f.Kr.', '500 f.Kr.–1000', '1000–1800', 'sedan 1800', 'Idag']; // förhistorien sedan #1088
+    // Förhistorien sedan #1088; sedan #1958 i två delar på reglaget Före 3000 f.Kr. och fyra på 3000 f.Kr.–i dag
+    const want = ['100\u00a0000–10\u00a0000 f.Kr.', '10\u00a0000–3000 f.Kr.', '3000–500 f.Kr.', '500 f.Kr.–1000', '1000–1800', 'sedan 1800', 'Idag'];
     if (JSON.stringify(names) !== JSON.stringify(want)) throw new Error(`snabbvalen heter ${JSON.stringify(names)}, väntade ${JSON.stringify(want)}`);
     const titles = await page.locator('#track-segments .seg[title]').evaluateAll(els => els.map(e => e.title));
     if (titles.some(x => /ålder|Antiken|Medeltid|Modern/i.test(x))) throw new Error(`segmenten har epoknamn: ${JSON.stringify(titles)}`);
@@ -10863,8 +10864,12 @@ async function run(browser, vp) {
       const ariaBounds = () => lessonPage.evaluate(() => { const t = document.getElementById('track'); return [t.getAttribute('aria-valuemin'), t.getAttribute('aria-valuemax')].join('..'); });
       if ((await ariaBounds()) !== '793..1068') throw new Error(`reglagets ARIA-gränser i vikingalektionen var ${await ariaBounds()} i stället för 793..1068`);
       await leaveLesson(lessonPage);
-      const { min: firstYear } = await timelineBounds(lessonPage);
-      await lessonPage.waitForFunction(min => document.getElementById('track').getAttribute('aria-valuemin') === String(min), firstYear, { timeout: T.step });
+      // Efter lektionen gäller reglagets egna gränser: det första året i reglaget som året hör till (#1958; Home går dit)
+      await lessonPage.waitForFunction(async () => {
+        const { scaleForYear } = await import('./js/timeline.js');
+        const t = document.getElementById('track');
+        return t.getAttribute('aria-valuemin') === String(scaleForYear(Number(t.getAttribute('aria-valuenow'))).from);
+      }, null, { timeout: T.step });
       if ((await ariaBounds()).startsWith('793')) throw new Error('ARIA-gränserna låg kvar efter Visa hela globen');
       await open(`${BASE}?ny=1#t=tre-platser-1325&m=lektion`);
       await lessonPage.waitForSelector('#tour-card', { state: 'visible', timeout: T.step });
