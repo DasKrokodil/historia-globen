@@ -8047,7 +8047,7 @@ async function run(browser, vp) {
         return { text: el.textContent.trim(), describedby: input.getAttribute('aria-describedby'), inLabel: !!el.closest('label'), live: !!el.closest('[aria-live],[role="status"],[role="alert"]'),
           checked: input.checked, inside: r.left >= m.left - 1 && r.right <= m.right + 1, menuOverflow: menu.scrollWidth - menu.clientWidth, opacity: getComputedStyle(el).opacity };
       }, 'spread');
-      if (!/^Ingen data för året · data till cirka .+ f\.Kr\.$/.test(row.text)) throw new Error(`Människans spridning år 1500 fick raden "${row.text}"`);
+      if (!/^Ingen data för året · data till cirka [^ ]+f\.Kr\.$/.test(row.text)) throw new Error(`Människans spridning år 1500 fick raden "${row.text}" (årsformen ska ha hårda mellanrum)`);
       if (row.describedby !== 'layer-coverage-spread') throw new Error(`rutan pekar på ${row.describedby} med aria-describedby`);
       if (row.inLabel) throw new Error('raden ligger i etiketten och blir en del av rutans namn');
       if (row.live) throw new Error('raden ligger i en live-region och läses upp varje gång året ändras');
@@ -8063,7 +8063,7 @@ async function run(browser, vp) {
       await setLayer('areas', true);
       await waitShown('areas', true);
       const areas = (await coverage('areas').textContent()).trim();
-      if (!/^Ingen data för året · data från .+ f\.Kr\.$/.test(areas)) throw new Error(`Riken år 20 000 f.Kr. fick raden "${areas}"`);
+      if (!/^Ingen data för året · data från [^ ]+f\.Kr\.$/.test(areas)) throw new Error(`Riken år 20 000 f.Kr. fick raden "${areas}"`);
       // Texten sätts inte om när året ändras utan att läget gör det: samma textnod
       await coverage('areas').evaluate(el => { window.__hgCovText = el.firstChild; });
       await jumpDeep(-30000);

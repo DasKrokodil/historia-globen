@@ -2,6 +2,7 @@
 // Raderna, deras grupper och startläget kommer från lagerregistret (layers/registry.js, #338, #357).
 // Överst står de förinställda vyerna ur data/vyer.json (#357): en vy slår på sina lager och av de andra.
 import { t, tagViewNote, formatYear } from '../model.js';
+import { coverageYear } from '../layer-coverage.js';
 import { ui } from '../i18n.js';
 
 async function getJSON(path) {
@@ -106,7 +107,7 @@ export class LayerMenu {
   }
 
   /**
-   * Raden under ett påslaget lager som saknar data i året (#1960): "Ingen data för året · finns från 2500 f.Kr.".
+   * Raden under ett påslaget lager som saknar data i året (#1960): "Ingen data för året · data från 2501 f.Kr." (-2500 astronomiskt; ett ungefärligt årtal är avrundat till 500 år, och årtalet har hårda mellanrum).
    * gaps = registry.coverage(state), en Map från lagrets id till { side, limit, approx }. Raden är vanlig text i menyn och hör till
    * lagrets ruta via aria-describedby (den ligger utanför etiketten, så att den inte blir en del av rutans namn). Texten sätts bara
    * om när den ändras och raden är ingen live-region, så att skärmläsaren inte läser upp den varje gång året ändras.
@@ -123,7 +124,7 @@ export class LayerMenu {
         input.closest('label').after(line);
         this.coverageLines.set(id, line);
       }
-      const text = gap ? ui(`layers.coverage${gap.side === 'before' ? 'Before' : 'After'}${gap.approx ? 'Approx' : ''}`, { year: formatYear(gap.limit) }) : '';
+      const text = gap ? ui(`layers.coverage${gap.side === 'before' ? 'Before' : 'After'}${gap.approx ? 'Approx' : ''}`, { year: coverageYear(gap.limit, formatYear) }) : '';
       if (line.textContent !== text) line.textContent = text;
       line.hidden = !gap;
       if (gap) input.setAttribute('aria-describedby', line.id); else input.removeAttribute('aria-describedby');

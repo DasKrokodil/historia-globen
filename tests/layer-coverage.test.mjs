@@ -3,7 +3,8 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { readFileSync } from 'node:fs';
-import { spanOf, edtfApprox, outsideCoverage } from '../js/layer-coverage.js';
+import { spanOf, edtfApprox, outsideCoverage, roundApprox, coverageYear } from '../js/layer-coverage.js';
+import { formatYear } from '../js/model.js';
 import { LayerRegistry } from '../js/layers/registry.js';
 import { imageRows, sliceCoverage } from '../js/layers/images.js';
 import { WarsLayer } from '../js/layers/wars.js';
@@ -111,7 +112,8 @@ test('bildlagren: täckningen räknas ur skivornas from och to, som sliceAt', ()
   assert.equal(coast.to, last.to);
   assert.equal(coast.approxTo, true, 'skivorna är modellsteg med caveat, så gränsen är cirka');
   assert.ok(coast.to < -2999, 'istidens kust slutar före 3000 f.Kr.');
-  assert.deepEqual(outsideCoverage(coast, 1500), { side: 'after', limit: coast.to, approx: true });
+  assert.deepEqual(outsideCoverage(coast, 1500), { side: 'after', limit: -5499, approx: true }, 'kanten -5550 (5551 f.Kr.) visas som cirka 5500 f.Kr.');
+  assert.equal(coverageYear(-5499, formatYear), '5500\u00a0f.Kr.');
   assert.equal(outsideCoverage(coast, -20000), null);
 });
 
@@ -146,7 +148,8 @@ test('människans spridning: posternas start och slut, ungefärliga enligt edtf,
   assert.equal(span.to, Math.max(...items.map(i => i.end)));
   assert.ok(span.to < -2999, 'spridningen slutar före 3000 f.Kr.');
   assert.equal(span.approxTo, true);
-  assert.deepEqual(outsideCoverage(span, 1500), { side: 'after', limit: span.to, approx: true });
+  assert.deepEqual(outsideCoverage(span, 1500), { side: 'after', limit: roundApprox(span.to), approx: true });
+  assert.equal(outsideCoverage(span, 1500).limit, -9999, '10 000 f.Kr. är redan ett jämnt tal');
 });
 
 test('religionerna: ögonblicksbildernas start och slut, okänd före laddning', () => {
@@ -167,4 +170,46 @@ test('rikena: tidigaste from och senaste to i empires/index.json, och reglaget f
   assert.equal(span.to, Math.max(...groups.map(g => g.to)));
   assert.deepEqual(outsideCoverage(span, -3000), { side: 'before', limit: span.from, approx: false }, 'riken saknas också 3000–2500 f.Kr.');
   assert.equal(outsideCoverage(span, 1500), null);
+});
+
+test('ungefärliga årtal avrundas till närmaste 500 år i det visade f.Kr.-året, inte i det astronomiska heltalet', () => {
+  assert.equal(roundApprox(-5550), -5499, '5551 f.Kr. blir 5500 f.Kr.');
+  assert.equal(roundApprox(-5499), -5499);
+  assert.equal(roundApprox(-5700), -5499, '5701 f.Kr. blir 5500 f.Kr.');
+  assert.equal(roundApprox(-5749), -5999, '5750 f.Kr. blir 6000 f.Kr.');
+  assert.equal(roundApprox(-9999), -9999, '10 000 f.Kr. är redan jämnt');
+  assert.equal(roundApprox(-297999), -297999, '298 000 f.Kr. är redan jämnt');
+  assert.equal(roundApprox(-79300), -79499, '79 301 f.Kr. blir 79 500 f.Kr.');
+  assert.equal(roundApprox(1066), 1000);
+  assert.equal(roundApprox(1250), 1500, 'tiotal och hundratal rundas uppåt vid halvvägs');
+  assert.equal(roundApprox(-100), -100, 'nära år 0 lämnas årtalet som det är, så att det inte blir 0');
+  assert.equal(roundApprox(100), 100);
+});
+
+test('avrundningen gäller bara ungefärliga gränser: exakta gränser visas som de är', () => {
+  assert.equal(outsideCoverage(spanOf([{ from: -2500, to: 2024 }]), -3000).limit, -2500, 'riken: 2501 f.Kr. rörs inte');
+  assert.equal(outsideCoverage(spanOf([{ from: -129, to: 1873 }]), 1900).limit, 1873, 'vägar');
+  assert.equal(outsideCoverage(spanOf([{ from: -1274, to: 2026 }]), -2000).limit, -1274, 'krig');
+  assert.equal(outsideCoverage(spanOf([{ from: -2500, to: 2024, approxFrom: true }]), -3000).limit, -2499, 'en ungefärlig gräns avrundas (2501 f.Kr. → 2500 f.Kr.)');
+});
+
+test('spridningens och istidens gränser blir rimliga efter avrundning och formatYear (ingen dubbelrundning)', () => {
+  const rows = Object.fromEntries(imageRows(read('data/bildlager.json')).map(r => [r.id, r]));
+  const coast = outsideCoverage(sliceCoverage(rows['istidens-kust'].slices), 1500);
+  assert.equal(formatYear(coast.limit), '5500 f.Kr.');
+  const spread = new SpreadLayer();
+  spread.setData(read('data/spridning.json'));
+  const span = spread.coverage();
+  const end = outsideCoverage(span, 1500);
+  assert.match(formatYear(end.limit), /^10\s000 f\.Kr\.$/, 'slutet cirka 10 000 f.Kr.');
+  // Starten (297 999 f.Kr.) ligger över 10 000 f.Kr., där formatYear själv avrundar till tusental: avrundningen här ändrar inte det
+  const start = outsideCoverage(span, -400000);
+  assert.equal(start.limit, -297999);
+  assert.equal(formatYear(start.limit), formatYear(-297999), 'inget extra steg för jämna tusental');
+  assert.match(formatYear(start.limit), /^298\s000 f\.Kr\.$/);
+  // Raden har aldrig ett vanligt mellanrum i årsformen
+  for (const limit of [coast.limit, end.limit, start.limit, -2500, 1873]) {
+    assert.doesNotMatch(coverageYear(limit, formatYear), / /, `årsformen för ${limit} har ett vanligt mellanrum`);
+  }
+  assert.match(coverageYear(-2500, formatYear), /^2501\u00a0f\.Kr\.$/);
 });

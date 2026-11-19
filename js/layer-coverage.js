@@ -32,13 +32,28 @@ export function edtfApprox(edtf) {
 }
 
 /**
+ * Ett ungefärligt årtal avrundat till närmaste 500 år (#1960), så att "cirka" inte låtsas vara exakt: kanten på en modellskiva
+ * (-5550) är ingen exakt gräns. Avrundningen görs på årtalet som visas, inte på det astronomiska heltalet, eftersom N f.Kr. är
+ * året 1 - N: 5551 f.Kr. (-5550) blir 5500 f.Kr. (-5499). Under 250 år från år 0 lämnas årtalet som det är, så att det inte blir 0.
+ */
+export function roundApprox(year) {
+  const shown = year <= 0 ? 1 - year : year;
+  const r = Math.round(shown / 500) * 500;
+  if (r === 0) return year;
+  return year <= 0 ? 1 - r : r;
+}
+
+/** Årtalet i raden med hårda mellanrum (U+00A0), så att raden inte bryts mellan siffran och "f.Kr." eller "BC". */
+export const coverageYear = (limit, format) => format(limit).replace(/ /g, '\u00a0');
+
+/**
  * Ligger året utanför täckningen? Då säger svaret vilken sida (before: datan börjar senare, after: den slutar tidigare),
- * gränsens år och om gränsen är ungefärlig. Inom täckningen, och utan känd täckning, är svaret null: raden visas bara när den hjälper.
+ * gränsens år (avrundat med roundApprox när gränsen är ungefärlig) och om gränsen är ungefärlig. Inom täckningen, och utan känd täckning, är svaret null: raden visas bara när den hjälper.
  * @returns {{ side: 'before' | 'after', limit: number, approx: boolean } | null}
  */
 export function outsideCoverage(cov, year) {
   if (!cov || !Number.isFinite(year)) return null;
-  if (year < cov.from) return { side: 'before', limit: cov.from, approx: !!cov.approxFrom };
-  if (year > cov.to) return { side: 'after', limit: cov.to, approx: !!cov.approxTo };
+  if (year < cov.from) return { side: 'before', limit: cov.approxFrom ? roundApprox(cov.from) : cov.from, approx: !!cov.approxFrom };
+  if (year > cov.to) return { side: 'after', limit: cov.approxTo ? roundApprox(cov.to) : cov.to, approx: !!cov.approxTo };
   return null;
 }
