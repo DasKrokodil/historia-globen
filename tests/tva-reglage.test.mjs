@@ -93,18 +93,27 @@ test('ett drag byter aldrig reglage: pointermove klipps vid det synliga reglaget
 test('steg, piltangenter och stegknappar går över gränsen utan stopp, åt båda hållen', t => {
   const { timeline, track } = build(t);
   timeline.year = -2999;
-  key(track, 'ArrowLeft');                 // −1 steg från 3000 f.Kr.: bakåt över gränsen räknas med den grövre upplösningen (100 år)
-  assert.equal(timeline.year, -3099);
+  key(track, 'ArrowLeft');                 // −1 steg från 3000 f.Kr. landar på första reglagets sista år, inget år hoppas över
+  assert.equal(timeline.year, -3000);
   assert.equal(timeline.scale, PRE);
   key(track, 'ArrowRight');                // +1 steg tillbaka: till 3000 f.Kr., första året i det historiska reglaget
   assert.equal(timeline.year, -2999);
   assert.equal(timeline.scale, HISTORY);
+  key(track, 'ArrowLeft'); key(track, 'ArrowLeft'); // ett steg till bakåt från -3000: hundra år, den grövre upplösningen
+  assert.equal(timeline.year, -3099);
+  key(track, 'ArrowRight');                // -3099 + ett steg (100 år) landar på 3000 f.Kr. (första året i det historiska reglaget)
+  assert.equal(timeline.year, -2999);
   key(track, 'PageDown');                  // hundra steg bakåt (10 000 år) hoppar över hela det första reglagets slut
   assert.ok(timeline.year < -9999 && timeline.scale === PRE);
   assert.equal(timeline.stepFrom(-3099, 1), -2999);
   assert.equal(timeline.stepFrom(-3099, 10), -2099);
   assert.equal(timeline.stepFrom(-2999, -10), -3999);
-  assert.equal(timeline.stepFrom(-3000, 1), -2900); // från reglagets sista år: 100 år framåt
+  // Gränsstegen (#1958): ett steg över gränsen landar på gränsens andra sida, åt båda hållen
+  assert.equal(timeline.stepFrom(-3000, 1), -2999);  // sista året före 3000 f.Kr. till 3000 f.Kr.: 3000–2902 f.Kr. hoppas inte över
+  assert.equal(timeline.stepFrom(-2999, -1), -3000);
+  assert.equal(timeline.stepFrom(-3000, -1), -3099); // och bort från gränsen är det hundra år som förut
+  assert.equal(timeline.stepFrom(-2999, 1), -2998);
+  assert.equal(timeline.stepFrom(-3000, 10), -2000); // större steg än ett räknas som förut
 });
 
 test('Home och End går till ändarna av reglaget som syns, inte till domänens', t => {
@@ -163,12 +172,16 @@ test('byte av reglage: ett meddelande en gång, via ett steg, och skalan och år
   assert.deepEqual(swaps, ['human-pre']);
   const note = timeline.takeStepNote();
   assert.match(note, /Tidslinjen visar nu tiden före 3000 f\.Kr\./);
+  assert.doesNotMatch(note, /\.\./, 'mallen har ingen slutpunkt, så namnets "f.Kr." ger en enda punkt');
+  assert.doesNotMatch(note, /Ny skala/, 'ett steg över gränsen ger ett besked om reglaget, inte också "Ny skala"');
   assert.equal(timeline.takeStepNote(), '', 'meddelandet läses en gång');
   timeline.setByUser(-4000); // inom samma reglage: inget nytt byte
   assert.deepEqual(swaps, ['human-pre']);
   timeline.setByUser(-2999);
   assert.deepEqual(swaps, ['human-pre', 'human-history']);
-  assert.match(timeline.takeStepNote(), /Tidslinjen visar nu tiden 3000 f\.Kr\.–i dag/);
+  const back = timeline.takeStepNote();
+  assert.match(back, /^Tidslinjen visar nu tiden 3000 f\.Kr\.–i dag\./); // slutpunkten läggs till när namnet inte slutar på punkt
+  assert.doesNotMatch(back, /\.\./);
 });
 
 test('spann som slutar på gränsåret hör till båda reglagen, med regeln spanInScale (#1958)', () => {
@@ -206,4 +219,26 @@ test('hjälpen nämner reglagens gräns men säger inte att förhistorien slutar
 
 test('alla delar finns kvar: sex delar i två reglage', () => {
   assert.equal(SEGMENTS.length, 6);
+});
+
+test('uppspelning över skarven: året går aldrig bakåt och reglaget byts en gång (#1958)', t => {
+  // Startår där hundrasteget landar på gränsen (-3299, -3199 …) och några rena; 1/60 s per bildruta, som uppspelningens egen räkning
+  for (const start of [-3300, -3299, -3200, -3199, -3400, -3500, -3700, -4100, -3001, -3000]) {
+    for (const speed of [5, 25, 100]) {
+      const { timeline } = build(t);
+      timeline.speed = speed;
+      timeline.year = start;
+      timeline.playing = true;
+      const swaps = [], years = [];
+      timeline.addEventListener('scalechange', e => swaps.push(e.detail.to.id));
+      let yf = timeline.year;
+      for (let frame = 0; frame < 60 * 40 && timeline.year < -2900; frame++) {
+        yf = timeline._advance(yf, 1 / 60);
+        years.push(timeline.year);
+      }
+      assert.ok(timeline.year >= -2900, `start ${start} (${speed} år/s) nådde bara ${timeline.year}`);
+      years.forEach((y, i) => { if (i) assert.ok(y >= years[i - 1], `start ${start}: året gick bakåt från ${years[i - 1]} till ${y}`); });
+      assert.deepEqual(swaps, ['human-history'], `start ${start}: reglaget byttes ${swaps.length} gånger`);
+    }
+  }
 });

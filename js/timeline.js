@@ -215,13 +215,15 @@ export class Timeline extends EventTarget {
     if (l?.locked) return;
     const before = this.focus ? null : stepAt(this._year, this.scale);
     const segBefore = this.focus || this.range ? null : segFor(this._year, this.scale);
+    const scaleBefore = this.scale;
     this.year = l?.from != null ? Math.max(l.from, Math.min(l.to, y)) : y;
     this._showScale(segBefore);
     // Ny upplösning efter ett drag, en tangent eller en stegknapp (#1089): skärmläsaren får veta hur långt ett steg nu är.
     // Beskedet läses i statusraden tillsammans med året (takeStepNote, js/controllers/render.js), så att det inte skrivs över.
     if (before != null && stepAt(this._year, this.scale) !== before) this._stepNote = pluralUi('time.stepNow', stepAt(this._year, this.scale), { n: groupDigits(stepAt(this._year, this.scale)) }); // "1 år", "100 år" (#1101)
     // Ny skala efter ett drag över en skarv (#1313): sägs också för skärmläsaren, i samma rad som året
-    if (segBefore && segFor(this._year, this.scale) !== segBefore) this._stepNote = [scaleTextFull(this._year, segBefore, this.scale), this._stepNote].filter(Boolean).join(' ');
+    // Byter reglaget säger meddelandet "Tidslinjen visar nu …" redan att skalan är en annan: då hoppar vi över "Ny skala …" (en rad, inte tre, #1958)
+    if (segBefore && this.scale === scaleBefore && segFor(this._year, this.scale) !== segBefore) this._stepNote = [scaleTextFull(this._year, segBefore, this.scale), this._stepNote].filter(Boolean).join(' ');
   }
   /**
    * Skalraden (#1313): en rad under tidslinjen, i samma lucka som teckenförklaringen (som tonas ned medan raden syns), som säger vad en tiondel av
@@ -303,6 +305,10 @@ export class Timeline extends EventTarget {
   /** Ett steg på n enheter från året, landat på upplösningen (#1320). Bakåt över en gräns räknas med den grövre upplösningen. */
   stepFrom(y, n) {
     if (this.focus) return y + n * this.stepUnit;
+    // Ett steg över gränsen mellan reglagen landar på gränsens andra sida: från första reglagets sista år (-3000) till det andra reglagets första
+    // (-2999) och tillbaka, så att inget år hoppas över (3000–2902 f.Kr.) och -3000 och -2999 inte blir samma uppläsning (#1958)
+    const seam = this.scales.slice(0, -1).map((s, i) => [s.to, this.scales[i + 1].from]).find(([last, first]) => (n === 1 && y === last) || (n === -1 && y === first));
+    if (seam) return n > 0 ? seam[1] : seam[0];
     const unit = n < 0 ? stepAt(y - 1, this.scaleAt(y - 1)) : stepAt(y, this.scaleAt(y));
     const to = y + n * unit; // ett steg kan landa i nästa reglage; reglaget byts då av sig självt (året styr, #1958)
     return roundToStep(to, this.scaleAt(to));
@@ -514,7 +520,9 @@ export class Timeline extends EventTarget {
     }
     // Skärmläsaren får beskedet en gång: med året i statusraden vid ett drag, ett steg eller en tangent (takeStepNote), och direkt när
     // uppspelningen passerar gränsen, eftersom året inte läses upp medan det spelar
-    const note = ui('time.trackNow', { name: this._trackName(this.scale) });
+    // Namnet slutar ofta på "f.Kr." och meddelandet får ändå bara en punkt; mallen i språkfilen har ingen slutpunkt
+    const sentence = ui('time.trackNow', { name: this._trackName(this.scale) });
+    const note = /[.!?]$/.test(sentence) ? sentence : `${sentence}.`;
     if (this.playing) this._announce(note); else this._trackNote = note;
     this.dispatchEvent(new CustomEvent('scalechange', { detail: { from, to: this.scale } }));
   }
@@ -749,8 +757,7 @@ export class Timeline extends EventTarget {
       if (!this.playing || run !== this._run) return;
       const dt = Math.min(0.1, (now - last) / 1000); last = now;
       if (this._year !== shown) yf = this._year; // året flyttades utifrån (till exempel hopp vid krig)
-      yf += dt * this.yearsPerSecond;
-      this.year = this.focus ? yf : roundToStep(yf, this.scaleAt(yf)); // i förhistorien hela tusental eller hundratal (#1320)
+      yf = this._advance(yf, dt);
       if (!this.playing) return; // pausad av den som lyssnar på change (till exempel vid krigets slut), med sin paustext
       shown = this._year;
       if (this._year >= end) { this.pause(); return; }
@@ -758,6 +765,20 @@ export class Timeline extends EventTarget {
     };
     requestAnimationFrame(step);
   }
+  /**
+   * Ett bildrutesteg i uppspelningen: flyttar året yf fram dt sekunder och sätter året. I förhistorien är året hela tusental eller hundratal
+   * (#1320). Året går aldrig bakåt under uppspelning (#1958): avrundningen av ett yf strax före 3000 f.Kr. (-3000) ger -2999, och nästa bildruta
+   * (yf mindre än -2999, med hela år som steg) avrundades då tillbaka till -3000 och reglaget byttes fram och tillbaka. Ligger året redan före
+   * yf:s avrundning står året kvar och yf hämtas ikapp. Ger det nya yf.
+   */
+  _advance(yf, dt) {
+    yf += dt * this.yearsPerSecond;
+    if (this.focus) { this.year = yf; return yf; }
+    const next = roundToStep(yf, this.scaleAt(yf));
+    this.year = Math.max(this._year, next);
+    return next < this._year ? this._year : yf;
+  }
+
   /** Pausar. Med `reason` (text) är det en automatisk paus: knappen blir "Fortsätt" och raden vid knappen visar varför.
    *  `always` visar raden även om uppspelningen redan stod still (nästa stopp i ett krig, #217).
    *  `more` ({ title, text }) är en fällbar rad i pausraden, till exempel resans not om att källorna skiljer sig (#647).
