@@ -520,7 +520,7 @@ export class Panel {
     // Är listan tom av ett kategorifilter säger raden det, också i en vy med urval: det är filtret och inte urvalet som döljer (#1862)
     this.sub.textContent = oneStop(visible.length ? stop(parts.join(', '))
       : range && !filtersOff ? ui('range.empty', { range: bare })
-      : ui(filtersOff ? 'panel.filtersOff' : filtersSome ? 'panel.filtersSome' : 'panel.empty', { within, at: bare }));
+      : ui(filtersOff ? 'panel.filtersOff' : filtersSome ? 'panel.filtersSome' : labels?.prehistory ? 'panel.emptyPrehistory' : 'panel.empty', { within, at: bare }));
     if (filtersOff || filtersSome) {
       // Alla kategorier av (#886): det är filtret som döljer händelserna, så dragning i tidslinjen hjälper inte.
       // Några av (#1304): filtret kan dölja dem, så raden säger det och knappen visar alla kategorier igen
