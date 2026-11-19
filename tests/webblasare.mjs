@@ -5636,6 +5636,61 @@ async function run(browser, vp) {
     }
   });
 
+  // #1956: platskortet och Platsens karta säger att gräns, kust och ortnamn är dagens. Kortet har raden synlig (inte bara under
+  // "Om kartan och källor") och kartans ruta har den synlig också i stående mobil, där den långa raden är dold. Provet läser texten ur
+  // språkfilen, så att det följer ordvalet, och mäter att raden syns och ryms i bredd. Låga liggande ytor ingår inte: där är raden dold med avsikt (kortet har den).
+  await check('regionvyn: dagens gräns, kust och ortnamn sägs synligt på kortet och i kartans ruta, dator och mobil (#1956)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet (provar själv båda storlekarna)';
+    const text = JSON.parse(fs.readFileSync(new URL('../data/ui/sv.json', import.meta.url), 'utf8'))['place.mapContext'];
+    const contexts = [], errLists = [], out = [];
+    try {
+      for (const [i, [width, height]] of [[1280, 800], [400, 800]].entries()) {
+        const name = `${width} × ${height}`;
+        const pg = await touchPage({ width, height }, { isMobile: true });
+        const tp = pg.tp;
+        contexts.push(pg.tctx);
+        errLists.push(pg.errs);
+        await tp.goto(`${BASE}?ny=dagensgrans1956n${i}#y=1827&f=place:skane`);
+        await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
+        await tp.waitForTimeout(800);
+        const card = await tp.evaluate(() => {
+          const el = document.querySelector('#detail .place-map-note');
+          if (!el) return null;
+          const r = el.getBoundingClientRect(), cs = getComputedStyle(el);
+          return { text: el.textContent.trim(), w: r.width, h: r.height, shown: cs.display !== 'none' && cs.visibility !== 'hidden', right: r.right, vw: innerWidth };
+        });
+        if (!card) throw new Error(`${name}: kortet saknar raden om dagens gräns`);
+        if (card.text !== text) throw new Error(`${name}: kortets rad är "${card.text}", väntade "${text}"`);
+        if (!card.shown || card.h < 8 || card.right > card.vw + 1) throw new Error(`${name}: kortets rad syns inte eller ryms inte (${Math.round(card.w)} × ${Math.round(card.h)}, höger kant ${Math.round(card.right)} av ${card.vw})`);
+        const button = tp.locator('#detail [data-selection-action]');
+        await button.waitFor({ state: 'visible', timeout: T.step });
+        await button.focus();
+        await tp.keyboard.press('Enter');
+        await regionOn(tp, 'skane');
+        await regionSettled(tp);
+        const map = await tp.evaluate(() => {
+          const visible = id => {
+            const el = document.getElementById(id), r = el.getBoundingClientRect(), cs = getComputedStyle(el);
+            return { text: el.textContent.trim(), shown: cs.display !== 'none' && cs.visibility !== 'hidden' && r.width > 0 && r.height > 0, right: r.right, vw: innerWidth };
+          };
+          return { note: visible('flat-region-note'), context: visible('flat-region-context') };
+        });
+        // Bred yta visar den långa raden (som börjar med texten), smal stående yta den korta
+        const row = width > 760 ? map.note : map.context;
+        if (!row.shown) throw new Error(`${name}: kartans rad om dagens gräns syns inte`);
+        if (!row.text.startsWith(text)) throw new Error(`${name}: kartans rad är "${row.text}", väntade att den börjar med "${text}"`);
+        if (row.right > row.vw + 1) throw new Error(`${name}: kartans rad går utanför bredden (${Math.round(row.right)} av ${row.vw})`);
+        out.push(`${name}: raden syns på kortet och i kartans ruta`);
+      }
+      const errs = errLists.flat();
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return out.join('; ');
+    } finally {
+      await Promise.race([Promise.all(contexts.map(c => c.close().catch(() => {}))), new Promise(r => setTimeout(r, 10000))]);
+    }
+  });
+
   // #1864: Lämna platsens karta ställer tillbaka vyn man kom från, med kameran. Fyra vägar in: Skåne från globen (regionvyn öppnas i Platt vy och
   // Lämna flyger tillbaka till globen), Grönland från globen (regionvyn på globen: kameran tillbaka dit globen tittade, inte kvar över
   // platsen), Grönland från Platt karta (tillbaka till Platt karta med kartan som den stod) och Skåne från Platt karta (regionvyn i
