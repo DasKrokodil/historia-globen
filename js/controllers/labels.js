@@ -8,6 +8,8 @@ import { globeEmpireBlocks } from '../ui/zoomlevels.js';
 
 const narrowView = matchMedia('(max-width: 760px)');
 const UI_OVER_GLOBE = '.brand, #year-jump, #year-segment, .top-actions > .chip-btn, .action-group, #religion-legend';
+// Rutan med rubrik, årtal och förklaringen under (#1713): ligger över globen i alla bredder, också i bred skärm där den annars låg över etiketterna
+const UI_MASTHEAD = '.masthead';
 const UI_BOTTOM = '.timebar .controls > *, #war-play, #pause-note, #focus-bar';
 
 export function createLabels(app) {
@@ -134,7 +136,7 @@ export function createLabels(app) {
       const blocked = [];
       {
         const c = globe.canvas.getBoundingClientRect();
-        for (const el of document.querySelectorAll(narrowView.matches ? `${UI_OVER_GLOBE}, ${UI_BOTTOM}` : UI_BOTTOM)) {
+        for (const el of document.querySelectorAll(narrowView.matches ? `${UI_OVER_GLOBE}, ${UI_BOTTOM}` : `${UI_MASTHEAD}, ${UI_BOTTOM}`)) {
           if (el.hidden || !el.offsetParent) continue;
           const r = el.getBoundingClientRect();
           if (r.width) blocked.push({ x0: r.left - c.left - 4, x1: r.right - c.left + 4, y0: r.top - c.top - 4, y1: r.bottom - c.top + 4 });

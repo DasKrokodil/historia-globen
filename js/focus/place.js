@@ -52,7 +52,7 @@ export function showPlaceCard(app, place, events, { follow = true, note = '', fo
     const years = formatYearSpan(r.from, r.to);
     if (r.kind === 'gap') return { gap: ui('place.empireGap', { years }) };
     return { years, name: r.name, label: ui('place.followEmpire', { name: t(r.name), years }), mapNote: r.mapNote,
-      run: follow && panel.onPlaceEmpire ? () => panel.onPlaceEmpire({ ...r, label: `${t(r.name)} ${years}` }) : null };
+      run: follow && panel.onPlaceEmpire ? () => panel.onPlaceEmpire({ ...r, label: `${t(r.name)} ${years}`, origin: { key: `place:${place.id}`, name: t(place.name) } }) : null };
   });
   // Förklaringen står under listan, så att raderna syns först i smal skärm; i Fokus också att Följ riket lämnar platsen
   const empires = periods.length ? { title: ui('place.empires', { count: rows.filter(r => r.kind === 'empire').length }),

@@ -4271,6 +4271,92 @@ async function run(browser, vp) {
     return `${a}; ${b}`;
   });
 
+  // #1713 (punkt 8): efter Följ riket finns en väg tillbaka till platsen i fokusraden, utom webbläsarens Bakåt, och globens etiketter
+  // ligger inte över rutan med rubrik och årtal (i bred skärm räknades den förut inte som hinder; i smal skärm gjorde den det redan).
+  await check('landskortet: fokusraden går tillbaka till platsen efter Följ riket, och etiketterna ligger inte över årtalsrutan (#1713) (#1448)', async () => {
+    const lp = await context.newPage();
+    const errs = [];
+    lp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+      }
+      await lp.goto(`${BASE}?ny=1713-tillbaka#y=1850&f=place:sverige`);
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await lp.waitForSelector('#detail .place-empire-list', { state: 'attached', timeout: T.step });
+      if (!(await lp.locator('#focus-origin').isHidden())) throw new Error('knappen till platsen syns medan platsen följs');
+      await lp.evaluate(() => document.querySelectorAll('#detail details').forEach(d => { d.open = true; }));
+      const row = lp.locator('#detail button[data-place-empire]', { hasText: /Sverige-Norge/ }).first();
+      await row.scrollIntoViewIfNeeded();
+      await row.click();
+      await lp.waitForFunction(() => /^empire:/.test(new URLSearchParams(location.hash.slice(1)).get('f') ?? ''), null, { timeout: T.step });
+      await lp.waitForFunction(() => !document.querySelector('#focus-origin').hidden, null, { timeout: T.step });
+      const origin = await lp.evaluate(() => {
+        const b = document.querySelector('#focus-origin'), r = b.getBoundingClientRect();
+        return { text: b.textContent.trim(), w: r.width, h: r.height, inBar: !!b.closest('#focus-bar'), tag: b.tagName };
+      });
+      if (origin.text !== 'Till platsen Sverige') throw new Error(`knappen heter "${origin.text}"`);
+      if (!origin.inBar || origin.tag !== 'BUTTON' || origin.w < 24 || origin.h < 24) throw new Error(`knappen är inte en riktig knapp i fokusraden: ${JSON.stringify(origin)}`);
+      // Etiketterna: ingen synlig etikett överlappar rutan med rubrik och årtal (efter att kameran och etiketterna har satt sig)
+      await lp.waitForTimeout(2500);
+      const over = await lp.evaluate(() => {
+        const m = document.querySelector('.masthead').getBoundingClientRect();
+        return [...document.querySelectorAll('.glabel')].filter(l => l.getClientRects().length && l.style.opacity !== '0').map(l => ({ l: l.textContent.trim().slice(0, 30), r: l.getBoundingClientRect() }))
+          .filter(({ r }) => r.left < m.right && m.left < r.right && r.top < m.bottom && m.top < r.bottom).map(({ l }) => l);
+      });
+      if (over.length) throw new Error(`etiketter över årtalsrutan: ${over.join(', ')}`);
+      // Knappen följer platsen igen, tangentbordsfokus går till platskortet och knappen försvinner
+      await lp.focus('#focus-origin');
+      await lp.keyboard.press('Enter');
+      await lp.waitForFunction(() => new URLSearchParams(location.hash.slice(1)).get('f') === 'place:sverige', null, { timeout: T.step });
+      await lp.waitForSelector('#detail.detail-selection', { state: 'visible', timeout: T.step });
+      await lp.waitForFunction(() => document.activeElement?.hasAttribute('data-close') && document.querySelector('#detail').contains(document.activeElement), null, { timeout: T.step });
+      if (!(await lp.locator('#focus-origin').isHidden())) throw new Error('knappen står kvar när platsen följs igen');
+      if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
+      return `Följ riket ger knappen "${origin.text}" (${Math.round(origin.w)}×${Math.round(origin.h)} px), inga etiketter över årtalsrutan, och knappen följer platsen igen med fokus i kortet`;
+    } finally {
+      await lp.close();
+    }
+  });
+
+  // #1713 (punkt 8): en händelse som öppnas från en numrerad markör i regionvyn ger fokus till kortets Stäng (inte kvar på markören),
+  // och Stäng ger fokus tillbaka till samma markör.
+  await check('regionvyn: en händelse öppnad från markören ger fokus till Stäng, och Stäng tillbaka till markören (#1713)', async () => {
+    const lp = await context.newPage();
+    const errs = [];
+    lp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+      }
+      await lp.goto(`${BASE}?ny=1713-markor#y=1800&f=place:skane`);
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      const action = lp.locator('#detail [data-selection-action]');
+      await action.waitFor({ state: 'visible', timeout: T.load });
+      await action.focus();
+      await lp.keyboard.press('Enter');
+      await lp.waitForSelector('#app.region-view', { timeout: T.step });
+      const mark = lp.locator('.region-marks .rmark:not([hidden])').first();
+      await mark.waitFor({ state: 'visible', timeout: T.step });
+      const id = await mark.getAttribute('data-event');
+      await mark.focus();
+      await lp.keyboard.press('Enter'); // första trycket markerar
+      await lp.keyboard.press('Enter'); // nästa öppnar kortet
+      await lp.waitForSelector('#detail:not([hidden])', { timeout: T.step });
+      await lp.waitForFunction(() => document.activeElement?.hasAttribute('data-close'), null, { timeout: T.step });
+      if (await lp.locator('#detail [data-close]').getAttribute('aria-label') !== 'Stäng') throw new Error('fokus ligger inte på Stäng');
+      await lp.keyboard.press('Enter');
+      await lp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
+      await lp.waitForFunction(i => document.activeElement?.classList.contains('rmark') && document.activeElement.dataset.event === i, id, { timeout: T.step });
+      if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
+      return `händelsen ${id} öppnas med fokus på Stäng, och Stäng ger fokus tillbaka till markören`;
+    } finally {
+      await lp.close();
+    }
+  });
+
   // #1161: tryck på konturen av en plats. Konturerna syns och går att trycka på bara inzoomat i vanligt läge, och för den
   // plats man redan följer; trycket öppnar kortet på globen och i Platt vy, och knappen Visa i Platt karta ramar in platsen.
   // Grönland (isen i norr, 76° N 40° V) ligger fritt från markörer och etiketter vid år 1000, också i mobilbredd.

@@ -344,6 +344,7 @@
   "focus.movedPeriod": "cuando empieza el período {years}",
   "focus.chosenPeriod": "El período que eligió: {name} {years}",
   "focus.movedBack": "Volver a {year}",
+  "focus.originPlace": "Al lugar {name}",
   "focus.note.empires": "Fronteras de Cliopatria. Los años muestran cuándo hay datos del mapa y pueden diferir de los años históricos del imperio. Un imperio colonial tiene el mismo color en todas partes; la estrella y el borde grueso muestran la metrópoli. Un borde suave y difuminado significa que las fuentes dicen que la frontera es incierta. Los puntos dispersos con borde discontinuo son influencia: estados tributarios y vasallos según Cliopatria. Los países que ya no existen aparecen en Países desaparecidos.",
   "focus.note.vanished": "Países que ya no existen: cuándo se formaron y se disolvieron según las fuentes, y en qué países se convirtieron. Fronteras de Cliopatria, que puede tener otros años.",
   "focus.note.religions": "Muestra dónde la religión era la religión oficial o principal de un Estado, no la antigüedad de la religión ni dónde vivían todos los creyentes.",
