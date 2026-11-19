@@ -328,11 +328,11 @@ async function start() {
   panel.onEmpire = (id, follow = false) => ((!follow || app.lesson?.active) && app.showEmpireFacts(id)) || app.startFocus(`empire:${id}`);
   // Följ riket i landskortet (#1448): riket följs från periodens år, så att länken "Sverige-Norge 1815–1904" inte börjar år 980.
   // I lektionsläget följs ingenting, som ovan: riket öppnar bara sin faktaruta
-  // Följ riket ersätter platsen (Fokus-typerna utesluter varandra; kortet säger det). Rikets faktarutor är redan laddade för kortet, så
+  // Följ riket ersätter platsen (Fokus-typerna utesluter varandra; kortet säger det), och fokusraden har en knapp tillbaka till platsen (#1713). Rikets faktarutor är redan laddade för kortet, så
   // rikets kort ritas direkt, och tangentbordsfokus flyttas dit (knappen som trycktes finns inte längre)
   panel.onPlaceEmpire = async r => {
     if (app.lesson?.active) return app.showEmpireFacts(r.empire);
-    const started = await app.startFocus(`empire:${r.empire}`, { within: { from: r.from, to: r.to, name: t(r.name) } });
+    const started = await app.startFocus(`empire:${r.empire}`, { within: { from: r.from, to: r.to, name: t(r.name) }, origin: r.origin });
     if (started && !document.querySelector('#detail')?.contains(document.activeElement)) {
       const target = !$('detail').hidden ? $('detail').querySelector('[data-close]') : $('focus-facts').hidden ? $('focus-exit') : $('focus-facts');
       target?.focus({ preventScroll: true });

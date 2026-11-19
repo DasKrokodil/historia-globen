@@ -344,6 +344,7 @@
   "focus.movedPeriod": "wenn der Zeitraum {years} beginnt",
   "focus.chosenPeriod": "Der von Ihnen gewählte Zeitraum: {name} {years}",
   "focus.movedBack": "Zurück zu {year}",
+  "focus.originPlace": "Zum Ort {name}",
   "focus.note.empires": "Grenzen aus Cliopatria. Die Jahre zeigen, wann es Kartendaten gibt, und können von den historischen Jahren des Reiches abweichen. Ein Kolonialreich hat überall dieselbe Farbe; der Stern und der kräftige Rand zeigen das Mutterland. Ein weicher, verwischter Rand bedeutet, dass die Quellen die Grenze als unsicher angeben. Lockere Punkte mit gestricheltem Rand sind Einfluss: tributpflichtige Staaten und Vasallen laut Cliopatria. Länder, die es nicht mehr gibt, stehen unter Verschwundene Länder.",
   "focus.note.vanished": "Länder, die es nicht mehr gibt: wann sie laut den Quellen entstanden und aufgelöst wurden und zu welchen Ländern sie wurden. Grenzen aus Cliopatria, das andere Jahre haben kann.",
   "focus.note.religions": "Zeigt, wo die Religion offizielle Religion oder Hauptreligion eines Staates war, nicht das Alter der Religion oder wo alle Gläubigen lebten.",
