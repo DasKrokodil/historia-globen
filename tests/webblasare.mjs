@@ -12278,17 +12278,17 @@ async function run(browser, vp) {
       if (!/upp till 2000 år före eller 170 år efter/.test(a.title) || a.sr !== a.title) throw new Error(`10 000 f.Kr.: förklaringen säger "${a.title}"`);
       // 5000 f.Kr.: inne i förhistoriens andra del är sidorna lika långa (cirka 170 år)
       const a2 = await text('#y=-4999');
-      if (!/ · (±|även )170 år( före och efter)?$/.test(a2.row)) throw new Error(`5000 f.Kr.: raden säger "${a2.row}"`);
+      if (!/ · även 170 år före och efter$/.test(a2.row)) throw new Error(`5000 f.Kr.: raden säger "${a2.row}"`);
       // 50 000 f.Kr.: minsta fönstret, 10 000 år åt varje håll (reglagets 1,2 % är bara cirka 2160 år, #1958)
       const a3 = await text('#y=-49999');
-      if (!/ · (±|även )10\s000 år( före och efter)?$/.test(a3.row)) throw new Error(`50 000 f.Kr.: raden säger "${a3.row}"`);
+      if (!/ · även 10\s000 år före och efter$/.test(a3.row)) throw new Error(`50 000 f.Kr.: raden säger "${a3.row}"`);
       // 501 f.Kr.: segmentgräns med 120 år före och 70 år efter (det historiska reglaget, cirka 125 och 75 år före avrundning)
       const b = await text('#y=-500');
       if (!/ · 120 år före, 70 år efter$/.test(b.row)) throw new Error(`501 f.Kr.: raden säger "${b.row}"`);
       // Inne i ett segment är sidorna lika långa och raden är som förut
       const c = await text('#y=1325');
       // (raden skrivs i ord sedan #1307: "även 40 år före och efter"; den röda kontrollen på main sa "±40 år" och väntade på det gamla)
-      if (!/^1300-talet · (±\d*0 år|även \d*0 år före och efter)$/.test(c.row)) throw new Error(`1325: raden säger "${c.row}"`);
+      if (!/^1300-talet · även \d*0 år före och efter$/.test(c.row)) throw new Error(`1325: raden säger "${c.row}"`);
       errs.push(...wpAw.settle());
       if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
       return `${a.row} | ${a2.row} | ${a3.row} | ${b.row} | ${c.row}`;
@@ -12332,14 +12332,22 @@ async function run(browser, vp) {
       await press('End', '3000 f.Kr.');
       if ((await wp.getAttribute('#track', 'aria-valuemax')) !== '-3000') throw new Error(`reglagets övre gräns: ${await wp.getAttribute('#track', 'aria-valuemax')}`);
       if (!/före 3000/.test(await wp.getAttribute('#track', 'aria-label'))) throw new Error(`reglagets namn: ${await wp.getAttribute('#track', 'aria-label')}`);
-      await press('ArrowRight', '2901 f.Kr.');
+      const nowIs = v => wp.waitForFunction(w => document.getElementById('track').getAttribute('aria-valuenow') === w, String(v), { timeout: T.step })
+        .catch(async () => { throw new Error(`året är ${await wp.getAttribute('#track', 'aria-valuenow')}, väntat ${v}`); });
+      await wp.keyboard.press('ArrowRight'); // ett steg från sista året före 3000 f.Kr. landar på 3000 f.Kr., inget år hoppas över (#1958)
+      await nowIs(-2999);
       if ((await wp.getAttribute('#track', 'aria-label')) !== 'År, 3000 f.Kr.–i dag') throw new Error(`reglagets namn efter gränsen: ${await wp.getAttribute('#track', 'aria-label')}`);
       await wp.waitForFunction(() => /Tidslinjen visar nu tiden 3000 f\.Kr\.–i dag/.test(document.getElementById('screen-reader-status').textContent), null, { timeout: T.step })
         .catch(async () => { throw new Error(`statusraden säger "${await wp.textContent('#screen-reader-status')}" efter gränsen`); });
       await press('Home', '3000 f.Kr.'); // reglagets första år, inte domänens
-      await press('ArrowLeft', '3100 f.Kr.'); // en pil bakåt över gränsen: hundra år, den grövre upplösningen
+      await nowIs(-2999);
+      await wp.keyboard.press('ArrowLeft'); // en pil bakåt över gränsen landar på sista året i det första reglaget
+      await nowIs(-3000);
+      await wp.keyboard.press('ArrowLeft'); // och nästa är hundra år bakåt, den grövre upplösningen
+      await nowIs(-3099);
+      await wp.keyboard.press('ArrowRight'); // hundra år framåt: första året i det historiska reglaget
+      await nowIs(-2999);
       // I historisk tid är det som förut
-      await press('ArrowRight', '3000 f.Kr.');
       await press('End', String(await wp.getAttribute('#track', 'aria-valuemax')));
       await wp.keyboard.press('PageDown');
       const last = await vt();
@@ -12412,6 +12420,7 @@ async function run(browser, vp) {
         await wp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
         await wp.route(u => isFont(u.href), r => r.abort());
       }
+      await wp.addInitScript(() => { try { localStorage.setItem('hg-pause', JSON.stringify({ funfacts: false, ffAuto: false, major: false, focusFunfacts: false, route: false, theme: false })); localStorage.setItem('hg-speed-ars', '25'); } catch { /* utan lagring */ } });
       let loads = 0;
       const open = async hash => {
         await wpAw.goto(`${BASE}?lang=sv&ny=t1958-${loads++}${hash}`);
@@ -12466,7 +12475,7 @@ async function run(browser, vp) {
         new MutationObserver(() => { if (tr.classList.contains('scale-swap')) window.__swapSeen = true; }).observe(tr, { attributes: true, attributeFilter: ['class'] });
       });
       await wp.click('.timebar .controls .step[data-step="-1"]');
-      expect('−1 från 3000 f.Kr.', await read(), { label: PRE, now: -3099 });
+      expect('−1 från 3000 f.Kr.', await read(), { label: PRE, now: -3000 });
       if (!(await wp.evaluate(() => window.__swapSeen))) throw new Error('övertoningen (scale-swap) startade inte vid bytet av reglage');
       await wp.emulateMedia({ reducedMotion: 'reduce' });
       await wp.evaluate(() => { window.__swapSeen = false; });
@@ -12474,19 +12483,36 @@ async function run(browser, vp) {
       expect('+1 med reducerad rörelse', await read(), { label: HISTORY, now: -2999 });
       if (await wp.evaluate(() => window.__swapSeen)) throw new Error('övertoningen startade trots reducerad rörelse');
       await wp.emulateMedia({ reducedMotion: 'no-preference' });
-      // Uppspelningen går över gränsen utan att stanna
-      await open('#y=-3600');
-      await wp.click('.timebar .controls .play');
-      await wp.waitForFunction(() => document.getElementById('track').getAttribute('aria-label') === 'År, 3000 f.Kr.–i dag', null, { timeout: 8000 })
-        .catch(async () => { throw new Error(`uppspelningen nådde aldrig det historiska reglaget: ${JSON.stringify(await read())}`); });
-      const crossed = (await read()).now;
-      if (crossed < -2999) throw new Error(`reglaget byttes redan före gränsen, på ${crossed}`);
-      // Uppspelningen fortsätter i det nya reglaget. Den kan pausa av ett eget skäl (ett Samtidigt-kort, ett stopp i datan), och då visar
-      // pausraden det; en paus utan rad, eller som stannar året vid gränsen, vore bytets fel
-      await wp.waitForFunction(y => Number(document.getElementById('track').getAttribute('aria-valuenow')) > y || !document.getElementById('pause-note').hidden, crossed, { timeout: 5000 })
-        .catch(() => { throw new Error(`uppspelningen stannade vid gränsen på ${crossed}`); });
-      if (await wp.evaluate(() => document.getElementById('pause-note').hidden) && (await wp.getAttribute('.timebar .controls .play', 'aria-pressed')) !== 'true') throw new Error('uppspelningen stoppades av bytet av reglage');
-      if (await wp.getAttribute('.timebar .controls .play', 'aria-pressed') === 'true') await wp.click('.timebar .controls .play'); // pausa
+      // Uppspelningen går över gränsen utan att stanna, utan att året går bakåt och med ett enda meddelande om reglaget. Startår där hundrasteget
+      // landar på gränsen (-3299, -3199) gav förut tre byten fram och tillbaka; de rena startåren (-3200, -3500) ska vara lika rena. Samtidigt-pauserna
+      // är avstängda (hg-pause i initskriptet), så att ingen paus tar bort det som mäts.
+      for (const start of [-3300, -3299, -3199, -3200, -3500]) {
+        await open(`#y=${start}`);
+        await wp.waitForTimeout(1500); // adressens egen uppläsning av året (och reglaget) hinner klart innan uppspelningens räknas
+        await wp.evaluate(() => {
+          const track = document.getElementById('track'), status = document.getElementById('screen-reader-status');
+          window.__years = [Number(track.getAttribute('aria-valuenow'))]; window.__labels = [track.getAttribute('aria-label')]; window.__said = [];
+          new MutationObserver(() => {
+            const y = Number(track.getAttribute('aria-valuenow'));
+            if (y !== window.__years.at(-1)) window.__years.push(y);
+            const l = track.getAttribute('aria-label');
+            if (l !== window.__labels.at(-1)) window.__labels.push(l);
+          }).observe(track, { attributes: true, attributeFilter: ['aria-valuenow', 'aria-label'] });
+          new MutationObserver(() => { if (/visar nu/.test(status.textContent)) window.__said.push(status.textContent); }).observe(status, { childList: true, characterData: true, subtree: true });
+        });
+        await wp.click('.timebar .controls .play');
+        await wp.waitForFunction(() => Number(document.getElementById('track').getAttribute('aria-valuenow')) > -2950, null, { timeout: 20000 })
+          .catch(async () => { throw new Error(`start ${start}: uppspelningen nådde bara ${(await read()).now}`); });
+        await wp.click('.timebar .controls .play'); // pausa
+        const run = await wp.evaluate(() => ({ years: window.__years, labels: window.__labels, said: window.__said }));
+        const back = run.years.findIndex((y, i) => i && y < run.years[i - 1]);
+        if (back > 0) throw new Error(`start ${start}: året gick bakåt från ${run.years[back - 1]} till ${run.years[back]}: ${run.years.join(', ')}`);
+        const crossedAt = run.years.find(y => y >= -2999);
+        if (crossedAt == null) throw new Error(`start ${start}: året nådde aldrig 3000 f.Kr.: ${run.years.join(', ')}`);
+        if (run.labels.length !== 2 || !/före 3000/.test(run.labels[0]) || !/3000 f\.Kr\.–i dag/.test(run.labels[1])) throw new Error(`start ${start}: reglaget byttes ${run.labels.length - 1} gånger: ${run.labels.join(' → ')}`);
+        if (run.said.length > 1) throw new Error(`start ${start}: meddelandet om reglaget sades ${run.said.length} gånger: ${run.said.join(' | ')}`);
+        if (run.said.some(t => /\.\./.test(t))) throw new Error(`start ${start}: dubbel punkt i "${run.said[0]}"`);
+      }
       // Ett intervall som korsar gränsen: reglaget är startårets, bandet klipps vid kanten och får en pil (nordisk stenålder, -11999 till -1699)
       await open('#y=-11999&y2=-1699');
       const band = await wp.evaluate(() => {
