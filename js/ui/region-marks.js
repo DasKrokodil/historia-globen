@@ -176,7 +176,11 @@ export class RegionMarks {
     // zoomknapparna, kortet, rutan eller en markör eller hög (med hela tryckytan, 44 px på pekskärm)
     const b = map._region?.bounds;
     let brickPos = null;
-    const brickEl = L.brick.length && b ? this._brick(L.brick, c.place) : null;
+    // Medan faktarutan visar en händelse utanför brickan döljs brickan (#1973, beslut av DasKrokodil: alternativ A). Ytan ovanför arket i mobil är för
+    // trång för markörerna, rutan, zoomknapparna och brickan, och kortet säger redan var händelsen ligger. Brickan kommer tillbaka när kortet stängs.
+    // En bara markerad markör (utan öppet kort) döljer den inte.
+    const brickHidden = !!sel && c.byId.has(sel) && this.open !== 'brick' && !L.brick.some(it => it.e.id === sel);
+    const brickEl = L.brick.length && b && !brickHidden ? this._brick(L.brick, c.place) : null;
     if (brickEl) {
       const top = toScreen(b.north, (b.west + b.east) / 2);
       const size = { w: (brickEl._w ?? 140) + (touch ? 8 : 0), h: touch ? 44 : 34 };
