@@ -7032,7 +7032,17 @@ async function run(browser, vp) {
         const r = box(id);
         return !r.width || r.top < f.top - 0.5 || r.bottom > f.bottom + 0.5 || r.bottom > play.top || r.bottom > track.top;
       });
-      return { bad, cardBottom: Math.round(f.bottom), playTop: Math.round(play.top), sources: Math.round(box('ff-sources').bottom) };
+      // Det en besökare ser (#1973): kortets innehåll (alla synliga barn) ska sluta ovanför uppspelningsraden, och knapparna i raden ska nås med
+      // tryck. Kortets egen ram får gå några pixlar in under tidsreglaget (reglaget ligger ovanpå, z-index): i 360 × 640 radbryts
+      // teckenförklaringen och reglaget blir 16 px högre än --ff-b räknar med, men då doldes bara kortets nedre luft, ingen text eller knapp.
+      const contentBottom = Math.max(...[...ff.children].filter(e => e.getClientRects().length).map(e => e.getBoundingClientRect().bottom));
+      const coveredByCard = [...document.querySelectorAll('.timebar .controls button')].filter(btn => {
+        const b = btn.getBoundingClientRect();
+        if (!b.width) return false;
+        const h = document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2);
+        return !!h && !btn.contains(h) && ff.contains(h);
+      }).map(btn => btn.id || btn.textContent.trim());
+      return { bad, coveredByCard, contentBottom: Math.round(contentBottom), cardBottom: Math.round(f.bottom), playTop: Math.round(play.top), sources: Math.round(box('ff-sources').bottom) };
     });
     const out = [];
     const size = page.viewportSize();
@@ -7046,9 +7056,10 @@ async function run(browser, vp) {
         const r = await measure();
         if (r.state) throw new Error(`kortet är inte halvöppet i ${w} × ${h} (${r.state})`);
         if (r.bad.length) throw new Error(`${r.bad.join(' och ')} syns inte i ${w} × ${h}: kortet slutar vid ${r.cardBottom} px, uppspelningsraden börjar vid ${r.playTop} px`);
-        if (r.cardBottom > r.playTop) throw new Error(`kortet täcker uppspelningsraden i ${w} × ${h} (${r.cardBottom} > ${r.playTop} px)`);
+        if (r.contentBottom > r.playTop + 0.5) throw new Error(`kortets innehåll täcker uppspelningsraden i ${w} × ${h} (${r.contentBottom} > ${r.playTop} px)`);
+        if (r.coveredByCard.length) throw new Error(`kortet ligger över uppspelningsraden i ${w} × ${h}: ${r.coveredByCard.join(', ')} träffar kortet vid tryck`);
         await shot(`706-knapprad-${w}x${h}`);
-        out.push(`${w} × ${h}: Källor slutar vid ${r.sources} px, kortet vid ${r.cardBottom}, uppspelningen börjar vid ${r.playTop}`);
+        out.push(`${w} × ${h}: Källor slutar vid ${r.sources} px, innehållet vid ${r.contentBottom}, kortets ram vid ${r.cardBottom}, uppspelningen börjar vid ${r.playTop}`);
       }
     } finally {
       await page.setViewportSize(size);
@@ -7441,9 +7452,10 @@ async function run(browser, vp) {
       throw new Error(`${y}: fun facten ${id} syns inte i kortet`);
     };
     const same = await kindFor(1889, 'nintendo-eiffel');
-    if (same !== 'Fun fact · Samtidigt') throw new Error(`1889 säger "${same}"`);
+    // Kortets rubrik heter "Visste du?" sedan #1306 (ff.kind.funfact); kontrollen följer texten (#1973)
+    if (same !== 'Visste du? · Samtidigt') throw new Error(`1889 säger "${same}"`);
     const near = await kindFor(1843, 'fax-telefon');
-    if (near !== 'Fun fact · Nära i tid: 33 år isär') throw new Error(`1843 säger "${near}"`);
+    if (near !== 'Visste du? · Nära i tid: 33 år isär') throw new Error(`1843 säger "${near}"`);
     await jumpTo(1889);
     return `"${same}" och "${near}"`;
   });
@@ -12176,8 +12188,9 @@ async function run(browser, vp) {
       };
       // En sidladdning per år, så att kontrollen inte tar tid från resten av jobbet
       const rows = [];
-      // #1191: avrundat fönster med "±" (beslut 2026-11-12), och förklaringen "nära i tid" i title och som dold text
-      rows.push(await want('#y=1325', /^1300-talet · ±\d*0 år$/));
+      // #1191: avrundat fönster (beslut 2026-11-12), och förklaringen "nära i tid" i title och som dold text. Sedan #1307/#1890 skrivs
+      // fönstret i ord ("även 40 år före och efter", time.windowYearsWords) i stället för med "±"; beslut 2026-11-19 (#1973): kontrollen följer texten.
+      rows.push(await want('#y=1325', /^1300-talet · även \d*0 år före och efter$/));
       const note = await wp.evaluate(() => ({ title: document.getElementById('year-segment').title, sr: document.getElementById('year-window-note').textContent }));
       if (!/nära i tid/.test(note.title) || note.sr !== note.title) throw new Error(`förklaringen av fönstret saknas: ${JSON.stringify(note)}`);
       // Listan: det som ligger nära året säger riktning
@@ -12195,7 +12208,7 @@ async function run(browser, vp) {
       if (!/^(?:\d+ (?:år|dagar?) före|om \d+ (?:år|dagar?))$/.test(direction)) throw new Error(`raden saknar riktning: ${direction}`);
       if (spoken.split(direction).length !== 2) throw new Error(`riktningen ska sägas en gång i knappens namn: ${spoken}`);
       // Klotets etiketter: "N år före (år)" och "om N år (år)", aldrig "slut" eller "börjar"
-      rows.push(await want('#y=1916', /^1900-talet · ±\d*[05] år$/));
+      rows.push(await want('#y=1916', /^1900-talet · även \d*[05] år före och efter$/));
       // Etiketterna ritas om en bildruta efter att raden bytt text: vänta in dem (annars läses de gamla, #1138), men kräv fortfarande att etiketten finns
       await wp.waitForFunction(() => [...document.querySelectorAll('#labels .glabel')].some(l => l.textContent === 'Första världskriget'), null, { timeout: 8000 }).catch(() => {});
       const shown = await labels();
@@ -12206,7 +12219,7 @@ async function run(browser, vp) {
       if (!shown.some(l => l === 'Första världskriget')) throw new Error(`år 1916 saknar etikett för första världskriget: ${shown.join(' | ')}`);
       if (shown.some(l => / · (slut|börjar) \d/.test(l))) throw new Error(`etikett med slut/börjar kvar: ${shown.find(l => / · (slut|börjar) \d/.test(l))}`);
       // 500 f.Kr. ligger vid en segmentgräns och har olika långt fönster före och efter (#1319, egen kontroll nedan); 1500 f.Kr. ligger inne i ett segment
-      rows.push(await want('#y=-1500', /^1500-talet f\.Kr\. · ±\d*0 år$/));
+      rows.push(await want('#y=-1500', /^1500-talet f\.Kr\. · även \d*0 år före och efter$/));
       rows.push(await want('#y=1914&f=war:forsta-varldskriget', /^Följer .+ · visar \d+ (år|dagar?) före och efter$/));
       // Yngre läsare (#1191): lektion 2 för åk 4–6 skriver fönstret i ord i stället för med "±"
       rows.push(await want('#t=vikingatiden-och-varlden&m=lektion', /^\d+-talet · även \d+ år före och efter$/));
@@ -12917,14 +12930,19 @@ async function run(browser, vp) {
         await tp.waitForTimeout(500);
         const mata = () => tp.evaluate(() => {
           const rect = id => { const e = document.getElementById(id); if (!e || e.hidden || !e.getClientRects().length) return null; const r = e.getBoundingClientRect(); return { x: r.x, y: r.y, r: r.right, b: r.bottom, w: r.width, h: r.height }; };
-          const jump = document.querySelector('.year-jump'), jr = jump.getBoundingClientRect(), readout = document.querySelector('.year-readout').getBoundingClientRect();
+          // "Årtalet" är datumknappen (siffrorna), inte hela .year-readout: den rutan blir bredare när raden under årtalet blir längre ("1300-talet · även 40 år
+          // före och efter" sedan #1307) och rymmer då tomt utrymme där kortet får ligga (#1973). Raden under årtalet mäts för sig (seg) nedan.
+          const jump = document.querySelector('.year-jump'), jr = jump.getBoundingClientRect(), readout = jr, segEl = document.getElementById('year-segment'), sr = segEl.getBoundingClientRect();
           const punkter = [[.5, .5], [.15, .5], [.85, .5], [.5, .15], [.5, .85]].map(([fx, fy]) => {
             const h = document.elementFromPoint(jr.x + jr.width * fx, jr.y + jr.height * fy);
             return { fx, fy, traff: jump.contains(h) ? 'knappen' : (h?.id || String(h?.className).slice(0, 30)) };
           });
-          return { punkter, tab: rect('ff-tab'), card: rect('funfact'), readout: { x: readout.x, y: readout.y, r: readout.right, b: readout.bottom } };
+          return { punkter, tab: rect('ff-tab'), card: rect('funfact'), readout: { x: readout.x, y: readout.y, r: readout.right, b: readout.bottom }, seg: { x: sr.x, y: sr.y, r: sr.right, b: sr.bottom } };
         });
         const over = (a, c) => a && a.x < c.r && a.r > c.x && a.y < c.b && a.b > c.y;
+        // Raden under årtalet ("1300-talet · även 40 år före och efter") ska läsas hel: kortet och fliken får inte gå in över textraden. Radens ruta har
+        // några pixlar luft överst (radhöjd 1,35 på 10 px text), så upp till 4 px överlapp i rutan täcker ingen text.
+        const overSeg = (a, c) => a && a.x < c.r && a.r > c.x && a.y < c.b - 4 && a.b > c.y;
         let m = await mata();
         const tillstand = [];
         if (!m.tab && !m.card && namn === 'utan fokus') throw new Error(`${namn}: varken Samtidigt-kortet eller fliken syns`);
@@ -12932,6 +12950,7 @@ async function run(browser, vp) {
           tillstand.push('flik');
           if (m.tab.h < 43.5) throw new Error(`${namn}: fliken är ${Math.round(m.tab.h)} px hög, ska vara minst 44`);
           if (over(m.tab, m.readout)) throw new Error(`${namn}: fliken ligger över årtalet`);
+          if (overSeg(m.tab, m.seg)) throw new Error(`${namn}: fliken ligger över raden under årtalet`);
           const stal = m.punkter.filter(p => /ff-tab|funfact/.test(p.traff));
           if (stal.length) throw new Error(`${namn}: fliken tar trycket på datumknappen vid ${stal.map(p => `${p.fx},${p.fy}`).join(' ')}`);
           await tp.click('#ff-tab');
@@ -12942,6 +12961,7 @@ async function run(browser, vp) {
         if (m.card) {
           tillstand.push('kort');
           if (over(m.card, m.readout)) throw new Error(`${namn}: Samtidigt-kortet ligger över årtalet (kortet x ${Math.round(m.card.x)}–${Math.round(m.card.r)}, y ${Math.round(m.card.y)}–${Math.round(m.card.b)})`);
+          if (overSeg(m.card, m.seg)) throw new Error(`${namn}: Samtidigt-kortet ligger över raden under årtalet (kortet y ${Math.round(m.card.y)}–${Math.round(m.card.b)}, raden y ${Math.round(m.seg.y)}–${Math.round(m.seg.b)})`);
         }
         const stal = m.punkter.filter(p => /ff-tab|funfact/.test(p.traff));
         if (stal.length) throw new Error(`${namn}: ${tillstand.join(' och ') || 'Samtidigt'} tar trycket på datumknappen vid ${stal.map(p => `${p.fx},${p.fy}`).join(' ')}`);
@@ -12954,6 +12974,7 @@ async function run(browser, vp) {
           tillstand.push('flik');
           if (m.tab.h < 43.5) throw new Error(`${namn}: fliken är ${Math.round(m.tab.h)} px hög, ska vara minst 44`);
           if (over(m.tab, m.readout)) throw new Error(`${namn}: fliken ligger över årtalet`);
+          if (overSeg(m.tab, m.seg)) throw new Error(`${namn}: fliken ligger över raden under årtalet`);
           const stal2 = m.punkter.filter(p => /ff-tab|funfact/.test(p.traff));
           if (stal2.length) throw new Error(`${namn}: fliken tar trycket på datumknappen vid ${stal2.map(p => `${p.fx},${p.fy}`).join(' ')}`);
         }
