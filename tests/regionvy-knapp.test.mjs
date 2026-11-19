@@ -68,19 +68,19 @@ test('de fyra storlekarna ur issuet: samma regel på de mått som kortet, fokusr
 test('knappen: texten och namnet för skärmläsare följer nyckeln, och utan nyckel bara platsens storlek', () => {
   const skane = places.find(p => p.id === 'skane'), sverige = places.find(p => p.id === 'sverige');
   const a = flatAction(skane, () => {}, FLAT), b = flatAction(skane, () => {}, REGION);
-  assert.notEqual(a.text, b.text, 'de två texterna ska skilja sig åt');
+  assert.equal(a.text, b.text, 'samma knappnamn för båda kartvägarna (#1948)');
   assert.ok(a.label.startsWith(a.text) && b.label.startsWith(b.text), 'namnet för skärmläsare börjar med knappens text');
   // Utan nyckel (inget mått): Skåne lovar regionvyn som förut, Sverige Platt karta
   assert.equal(flatAction(skane, () => {}).text, b.text);
   assert.equal(flatAction(sverige, () => {}).text, a.text);
 });
 
-test('båda knapptexterna finns på alla fem språk och skiljer sig åt (ingen ny text i #1692)', () => {
+test('båda kartvägarna har samma knapptext på alla fem språk (#1948)', () => {
   const langs = JSON.parse(read('data/ui/sprak.json')).languages.map(l => l.id);
   assert.deepEqual([...langs].sort(), ['de', 'en', 'es', 'fr', 'sv']);
   for (const l of langs) {
     const ui = JSON.parse(read(`data/ui/${l}.json`));
     assert.ok(ui[FLAT] && ui[REGION], `${l}: båda texterna ska finnas`);
-    assert.notEqual(ui[FLAT], ui[REGION], `${l}: texterna ska skilja sig åt`);
+    assert.equal(ui[FLAT], ui[REGION], `${l}: samma knappnamn oavsett kartväg`);
   }
 });
