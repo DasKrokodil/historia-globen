@@ -116,3 +116,17 @@ test('panelen och globen använder samma tidsord, och romben heter som kortet p�
     assert.ok(d['layer.funfacts'].includes(d['ff.title']), `${id}: Lager`);
   }
 });
+
+// #1948: samma knapp oavsett kartväg, och samma vynamn i ruta, status och hjälp.
+for (const lang of ['sv', 'en', 'de', 'es', 'fr']) test(`${lang}: platsens kartnamn är konsekventa (#1948)`, () => {
+  const copy = json(`data/ui/${lang}.json`);
+  assert.equal(copy['place.flatMap'], copy['place.regionMap'], 'kartvägen får inte byta knappens namn');
+  const name = copy['regionView.title'].replace(/:\s*\{place\}$/, '').trim();
+  for (const key of ['regionView.shown', 'regionView.shownGlobe']) assert.ok(copy[key].startsWith(name), `${key} säger samma vynamn som rutan`);
+  for (const key of ['regionView.leave', 'regionView.left', 'regionView.leftGlobe', 'regionView.leftDiscovery', 'regionView.reset', 'help.s4t']) assert.ok(copy[key].toLocaleLowerCase().includes(name.toLocaleLowerCase()), `${key} säger samma vynamn som rutan`);
+  assert.ok(copy['help.s4t'].includes(copy['place.flatMap']), 'hjälpen använder knappens synliga namn');
+  if (lang === 'sv') {
+    assert.equal(copy['place.flatMap'], 'Visa på kartan');
+    assert.equal(name, 'Platsens karta');
+  }
+});
