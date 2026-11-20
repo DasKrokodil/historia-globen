@@ -269,6 +269,26 @@ Grupperna och delarna i `data/empires/index.json` (PR #2030). "WD" är Wikidatas
 
 Personnamnen i rutorna Om kartan följer engelska Wikipedia och är inte kontrollerade mot målspråkens Wikipedia, utom de tyska *Raschiden* (de.wikipedia "Āl Raschīd") och den franska *Al Rachid* (fr.wikipedia "Émirat de Haïl"). Patronymen skrivs *ibn* på svenska och tyska, *bin* på engelska och spanska och *ben* på franska. Huvudstaden skrivs *Hail* (sv, en, de, es) och *Haïl* (fr).
 
+### 9.4 Medeltidens luckor, nionde omgången (#645)
+
+Grupperna i `data/empires/index.json`. "WD" är Wikidatas etikett (SPARQL 2026-11-20, `tools/riken_namn.py`); "versal" betyder att etiketten fick versal först, som namn i början av en rad (avsnitt 3). Rättat efter granskningen av sprak-de, sprak-es och sprak-fr i PR #2037 (2026-11-20), med namnen jämförda mot Wikipedia på målspråket där en artikel finns (avsnitt 4 regel 1).
+
+| Svenska | Engelska | Tyska | Spanska | Franska | Kontrollerad |
+|---|---|---|---|---|---|
+| Kamarupariket | Kamarupa | Kamarupa | Kamarupa | Kamarupa | 2026-11-20: WD Q1194765; de originalnamnet (WD saknar tysk etikett, avsnitt 4 regel 1) |
+| Vijayanagar | Vijayanagara Empire | Vijayanagar | Imperio Vijayanagara | Royaume de Vijayanagara | 2026-11-20: WD Q167639; fr fr.wikipedia "Royaume de Vijayanagara" (titeln; WD "royaume de Vijayanâgara"; granskningens förslag "Empire de Vijayanagara" är inte artikelns namn) |
+| Balhae | Balhae | Balhae | Balhae | Balhae | 2026-11-20: WD Q28322 (engelska Wikipedias titel är "Parhae"); sv saknar etikett och artikel, engelska enligt beslutet 2026-11-12 |
+| Hariphunchai | Haripuñjaya | Haripunjaya | Haripunchai | Hariphunchai | 2026-11-20: WD Q255931. Samma rike stavas också Haribhuñjaya och Haripunjaya (en.wikipedia "Haripuñjaya"); stavningarna skiljer sig per språk enligt Wikidatas etiketter och är inte fel |
+| Koguryo | Goguryeo | Goguryeo | Goguryeo | Koguryo | 2026-11-20: WD Q28370; fr fr.wikipedia "Koguryo" (titeln; inledningen ger också Koguryŏ och Goguryeo) |
+| Kungariket Lavo | Lavo Kingdom | Königreich Lavo | Reino de Lavo | Royaume de Lavo | 2026-11-20: WD Q1332305; sv egen översättning (etikett och artikel saknas; det engelska namnet stoppas av #1702), som de, es och fr. en "Lavo Kingdom" är ett medvetet val: Wikidatas etikett och en.wikipedias titel, inte "Kingdom of Lavo" |
+| Seunadynastin | Seuna dynasty | Seuna-Dynastie | Dinastía Seuna | Dynastie Seuna | 2026-11-20: en en.wikipedia "Seuna dynasty" (WD "Seuna Dynasty"); de de.wikipedia "Seuna-Dynastie" (titeln); es och fr typordet tillagt som i Dinastía Chaulukya (WD "Seuna"; fr.wikipedia skriver "dynasties Hoysala et Seuna", ingen egen artikel); sv egen översättning (etikett och artikel saknas, #1702) |
+| Mamlukdynastin i Delhi | Mamluk dynasty (Delhi) | Sklavendynastie | Mamelucos de Delhi | Dynastie des esclaves | 2026-11-20: sv, de WD Q847420; de *Sklavendynastie* är det etablerade tyska namnet på Delhidynastin 1206–1290, inte Egyptens mamluker; en en.wikipedia "Mamluk dynasty (Delhi)" (WD "Mamluk Sultanate", samma som Egyptens); es es.wikipedia "Mamelucos de Delhi" (titeln; granskningens förslag "Dinastía mameluca de Delhi" är inte artikelns namn); fr fr.wikipedia "Dynastie des esclaves" (titeln, "dirige le sultanat de Delhi en Inde de 1206 à 1290"; skiljs från *Sultanat mamelouk d'Égypte*, granskningens förslag "Dynastie des Mamelouks de Delhi" är inte artikelns namn) |
+| Chaulukyadynastin | Chaulukya dynasty | Solanki | Dinastía Chaulukya | Dynastie Chaulukya | 2026-11-20: WD Q18211496; de de.wikipedia "Solanki" (titeln, "eine Hindu-Dynastie in Gujarat"), medvetet valt framför Chaulukya-Dynastie; fr typordet tillagt (WD "Solankî", ingen artikel hittad på fr.wikipedia); sv egen översättning (etikett och artikel saknas, #1702); inte samma som Chalukyadynastin |
+| Aragoniska kronan | Crown of Aragon | Krone von Aragonien | Corona de Aragón | Couronne d'Aragon | 2026-11-20: sv sv.wikipedia "Aragoniska kronan" (WD "Aragonska kronan"); de de.wikipedia "Krone von Aragonien" (titeln; WD "Krone Aragon"); övriga WD Q204920, fr med versal |
+| Idrisider | Idrisid dynasty | Idrisiden | Dinastía idrísida | Idrissides | 2026-11-20: WD Q431575 |
+| Khanatet Kara-Khanid (nya delar, östra och västra) | Karakhanid Khanate | Karachaniden | Karajánidas | Qarakhanides | 2026-11-20: WD Q494354 (som gruppen); es med versal som gruppen (WD "karajánidas") |
+| Kungariket Jaffna (lydrike under Vijayanagar) | Jaffna kingdom | Königreich Jaffna | Reino de Jaffna | Royaume de Jaffna | 2026-11-20: en, de, es och fr WD Q1311219; sv egen översättning (etikett och artikel saknas), typordet översatt som på de andra språken |
+
 ## 10. Kontrollera innan en pull request öppnas
 
 1. Tilltalet är artigt överallt (avsnitt 1).

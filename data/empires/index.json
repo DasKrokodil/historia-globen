@@ -44613,7 +44613,7 @@
    },
    "color": "#5a8ab0",
    "from": 850,
-   "to": 1045,
+   "to": 1138,
    "file": "data/empires/kara-khanid.json",
    "polities": [
     {
@@ -44629,8 +44629,51 @@
       "cliopatria"
      ],
      "review": "source-checked"
+    },
+    {
+     "id": "kara-khanid-ost",
+     "name": {
+      "sv": "Khanatet Kara-Khanid",
+      "en": "Karakhanid Khanate",
+      "de": "Karachaniden",
+      "es": "Karajánidas",
+      "fr": "Qarakhanides"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "id": "kara-khanid-vast",
+     "name": {
+      "sv": "Khanatet Kara-Khanid",
+      "en": "Karakhanid Khanate",
+      "de": "Karachaniden",
+      "es": "Karajánidas",
+      "fr": "Qarakhanides"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Wikipedia och Wikidata anger 840–1212. Enligt Wikipedia delades khanatet på 1040-talet i ett östligt khanat (Balasagun och senare Kashgar, till 1211) och ett västligt (Samarkand, till 1212). Kartan visar khanatet som Cliopatria: 850–1045 som ett rike, den östra delen 1046–1138 och den västra 1046–1084. Efter 1084 räknar Cliopatria Samarkand till Great Seljuk Empire och senare till Kara-Khitan, så den västra delen visas inte 1085–1212. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "Wikipedia and Wikidata give 840–1212. According to Wikipedia, the khanate split in the 1040s into an eastern khanate (Balasagun and later Kashgar, until 1211) and a western one (Samarkand, until 1212). The map shows the khanate as in Cliopatria: one realm in 850–1045, the eastern part in 1046–1138 and the western part in 1046–1084. After 1084 Cliopatria counts Samarkand as part of the Great Seljuk Empire and later of Qara Khitai, so the western part is not shown in 1085–1212. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Wikipedia und Wikidata nennen 840–1212. Laut Wikipedia teilte sich das Khanat in den 1040er Jahren in ein östliches Khanat (Balasagun und später Kaschgar, bis 1211) und ein westliches (Samarkand, bis 1212). Die Karte zeigt das Khanat wie Cliopatria: 850–1045 als ein Reich, den östlichen Teil 1046–1138 und den westlichen 1046–1084. Nach 1084 rechnet Cliopatria Samarkand zum Great Seljuk Empire und später zu Kara-Khitai, daher wird der westliche Teil 1085–1212 nicht gezeigt. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Wikipedia y Wikidata indican 840–1212. Según Wikipedia, el kanato se dividió en la década de 1040 en un kanato oriental (Balasagun y después Kashgar, hasta 1211) y uno occidental (Samarcanda, hasta 1212). El mapa muestra el kanato como Cliopatria: un solo reino en 850–1045, la parte oriental en 1046–1138 y la occidental en 1046–1084. Después de 1084 Cliopatria cuenta Samarcanda como parte del Great Seljuk Empire y más tarde de Kara-Kitai, por lo que la parte occidental no se muestra en 1085–1212. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Wikipédia et Wikidata indiquent 840–1212. Selon Wikipédia, le khanat se divisa dans les années 1040 en un khanat oriental (Balasagun puis Kachgar, jusqu’en 1211) et un khanat occidental (Samarcande, jusqu’en 1212). La carte montre le khanat comme Cliopatria : un seul royaume en 850–1045, la partie orientale en 1046–1138 et la partie occidentale en 1046–1084. Après 1084, Cliopatria compte Samarcande dans le Great Seljuk Empire puis dans le Kara-Khitan, si bien que la partie occidentale n’est pas montrée en 1085–1212. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-kara-khanid-khanate",
+     "wd-kara-khanid-khanate",
+     "cliopatria"
+    ],
+    "review": "two-sources"
+   }
   },
   {
    "id": "dali",
@@ -45275,6 +45318,516 @@
      "review": "source-checked"
     }
    ]
+  },
+  {
+   "id": "kamarupariket",
+   "name": {
+    "sv": "Kamarupariket",
+    "en": "Kamarupa",
+    "de": "Kamarupa",
+    "es": "Kamarupa",
+    "fr": "Kamarupa"
+   },
+   "color": "#7aa05a",
+   "from": 353,
+   "to": 1138,
+   "file": "data/empires/kamarupariket.json",
+   "polities": [
+    {
+     "id": "kamarupariket",
+     "name": {
+      "sv": "Kamarupariket",
+      "en": "Kamarupa",
+      "de": "Kamarupa",
+      "es": "Kamarupa",
+      "fr": "Kamarupa"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Wikipedia och Wikidata anger 350–1140. Kartan visar riket 353–1138, som Cliopatria. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "Wikipedia and Wikidata give 350–1140. The map shows the kingdom in 353–1138, as in Cliopatria. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Wikipedia und Wikidata nennen 350–1140. Die Karte zeigt das Königreich wie Cliopatria 353–1138. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Wikipedia y Wikidata indican 350–1140. El mapa muestra el reino en 353–1138, como Cliopatria. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Wikipédia et Wikidata indiquent 350–1140. La carte montre le royaume en 353–1138, comme Cliopatria. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-kamarupa",
+     "wd-kamarupa",
+     "cliopatria"
+    ],
+    "review": "two-sources"
+   }
+  },
+  {
+   "id": "vijayanagar",
+   "name": {
+    "sv": "Vijayanagar",
+    "en": "Vijayanagara Empire",
+    "de": "Vijayanagar",
+    "es": "Imperio Vijayanagara",
+    "fr": "Royaume de Vijayanagara"
+   },
+   "color": "#c08a3a",
+   "from": 1344,
+   "to": 1571,
+   "file": "data/empires/vijayanagar.json",
+   "polities": [
+    {
+     "id": "vijayanagar",
+     "name": {
+      "sv": "Vijayanagar",
+      "en": "Vijayanagara Empire",
+      "de": "Vijayanagar",
+      "es": "Imperio Vijayanagara",
+      "fr": "Royaume de Vijayanagara"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "influence": [
+    {
+     "polity": "vijayanagar",
+     "name": {
+      "sv": "Kungariket Jaffna",
+      "en": "Jaffna kingdom",
+      "de": "Königreich Jaffna",
+      "es": "Reino de Jaffna",
+      "fr": "Royaume de Jaffna"
+     },
+     "relation": "vassalage",
+     "from": 1385,
+     "to": 1501
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Wikipedia och Wikidata anger 1336–1646. Kartan visar riket 1344–1571, som Cliopatria. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "Wikipedia and Wikidata give 1336–1646. The map shows the empire in 1344–1571, as in Cliopatria. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Wikipedia und Wikidata nennen 1336–1646. Die Karte zeigt das Reich wie Cliopatria 1344–1571. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Wikipedia y Wikidata indican 1336–1646. El mapa muestra el imperio en 1344–1571, como Cliopatria. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Wikipédia et Wikidata indiquent 1336–1646. La carte montre l’empire en 1344–1571, comme Cliopatria. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-vijayanagara-empire",
+     "wd-vijayanagara-empire",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "balhae",
+   "name": {
+    "sv": "Balhae",
+    "en": "Balhae",
+    "de": "Balhae",
+    "es": "Balhae",
+    "fr": "Balhae"
+   },
+   "color": "#5a6ab0",
+   "from": 705,
+   "to": 925,
+   "file": "data/empires/balhae.json",
+   "polities": [
+    {
+     "id": "balhae",
+     "name": {
+      "sv": "Balhae",
+      "en": "Balhae",
+      "de": "Balhae",
+      "es": "Balhae",
+      "fr": "Balhae"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Wikipedia och Wikidata anger 698–926. Kartan visar riket 705–925, som Cliopatria. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "Wikipedia and Wikidata give 698–926. The map shows the kingdom in 705–925, as in Cliopatria. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Wikipedia und Wikidata nennen 698–926. Die Karte zeigt das Königreich wie Cliopatria 705–925. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Wikipedia y Wikidata indican 698–926. El mapa muestra el reino en 705–925, como Cliopatria. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Wikipédia et Wikidata indiquent 698–926. La carte montre le royaume en 705–925, comme Cliopatria. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-balhae",
+     "wd-balhae",
+     "cliopatria"
+    ],
+    "review": "two-sources"
+   }
+  },
+  {
+   "id": "hariphunchai",
+   "name": {
+    "sv": "Hariphunchai",
+    "en": "Haripuñjaya",
+    "de": "Haripunjaya",
+    "es": "Haripunchai",
+    "fr": "Hariphunchai"
+   },
+   "color": "#a05aa0",
+   "from": 661,
+   "to": 1293,
+   "file": "data/empires/hariphunchai.json",
+   "polities": [
+    {
+     "id": "hariphunchai",
+     "name": {
+      "sv": "Hariphunchai",
+      "en": "Haripuñjaya",
+      "de": "Haripunjaya",
+      "es": "Haripunchai",
+      "fr": "Hariphunchai"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Källorna skiljer sig. Wikidata anger 661–1292 och Wikipedia 629–1281; enligt Wikipedia erövrades huvudstaden 1292 av Mangrai från Lan Na. Kartan visar riket 661–1293, som Cliopatria. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ. Wikidata gives 661–1292 and Wikipedia 629–1281; according to Wikipedia, the capital was captured in 1292 by Mangrai of Lan Na. The map shows the kingdom in 661–1293, as in Cliopatria. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Die Quellen weichen voneinander ab. Wikidata nennt 661–1292 und Wikipedia 629–1281; laut Wikipedia wurde die Hauptstadt 1292 von Mangrai aus Lan Na erobert. Die Karte zeigt das Königreich wie Cliopatria 661–1293. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren. Wikidata indica 661–1292 y Wikipedia 629–1281; según Wikipedia, la capital fue tomada en 1292 por Mangrai de Lan Na. El mapa muestra el reino en 661–1293, como Cliopatria. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent. Wikidata indique 661–1292 et Wikipédia 629–1281 ; selon Wikipédia, la capitale fut prise en 1292 par Mangrai du Lanna. La carte montre le royaume en 661–1293, comme Cliopatria. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-haripunjaya",
+     "wd-haripunjaya",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "koguryo",
+   "name": {
+    "sv": "Koguryo",
+    "en": "Goguryeo",
+    "de": "Goguryeo",
+    "es": "Goguryeo",
+    "fr": "Koguryo"
+   },
+   "color": "#4a8a6a",
+   "from": -35,
+   "to": 673,
+   "file": "data/empires/koguryo.json",
+   "polities": [
+    {
+     "id": "koguryo",
+     "name": {
+      "sv": "Koguryo",
+      "en": "Goguryeo",
+      "de": "Goguryeo",
+      "es": "Goguryeo",
+      "fr": "Koguryo"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Wikipedia och Wikidata anger 37 f.Kr.–668. Kartan visar riket 36 f.Kr.–673, som Cliopatria, vars gräns står kvar till 673. Cliopatrias sista post 674–681 är bara 148 km² vid kusten och visas inte. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "Wikipedia and Wikidata give 37 BC–668. The map shows the kingdom in 36 BC–673, as in Cliopatria, whose border remains until 673. Cliopatria’s last entry, 674–681, covers only 148 km² on the coast and is not shown. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Wikipedia und Wikidata nennen 37 v. Chr.–668. Die Karte zeigt das Königreich wie Cliopatria 36 v. Chr.–673, dessen Grenze bis 673 bestehen bleibt. Der letzte Eintrag von Cliopatria, 674–681, umfasst nur 148 km² an der Küste und wird nicht gezeigt. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Wikipedia y Wikidata indican 37 a. C.–668. El mapa muestra el reino en 36 a. C.–673, como Cliopatria, cuya frontera se mantiene hasta 673. La última entrada de Cliopatria, 674–681, abarca solo 148 km² en la costa y no se muestra. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Wikipédia et Wikidata indiquent 37 av. J.-C.–668. La carte montre le royaume en 36 av. J.-C.–673, comme Cliopatria, dont la frontière reste en place jusqu’en 673. La dernière entrée de Cliopatria, 674–681, ne couvre que 148 km² sur la côte et n’est pas montrée. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-goguryeo",
+     "wd-goguryeo",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "kungariket-lavo",
+   "name": {
+    "sv": "Kungariket Lavo",
+    "en": "Lavo Kingdom",
+    "de": "Königreich Lavo",
+    "es": "Reino de Lavo",
+    "fr": "Royaume de Lavo"
+   },
+   "color": "#b05a5a",
+   "from": 638,
+   "to": 1394,
+   "file": "data/empires/kungariket-lavo.json",
+   "polities": [
+    {
+     "id": "kungariket-lavo",
+     "name": {
+      "sv": "Kungariket Lavo",
+      "en": "Lavo Kingdom",
+      "de": "Königreich Lavo",
+      "es": "Reino de Lavo",
+      "fr": "Royaume de Lavo"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Källorna skiljer sig. Wikipedia anger 648–1388 och Wikidata 700–1388. Kartan visar riket 638–1394, som Cliopatria. Cliopatria saknar en gräns för riket 1028–1055 och 1188–1240, så det syns inte de åren. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ. Wikipedia gives 648–1388 and Wikidata 700–1388. The map shows the kingdom in 638–1394, as in Cliopatria. Cliopatria has no border for the kingdom in 1028–1055 and 1188–1240, so it is not shown in those years. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Die Quellen weichen voneinander ab. Wikipedia nennt 648–1388 und Wikidata 700–1388. Die Karte zeigt das Königreich wie Cliopatria 638–1394. Cliopatria hat für 1028–1055 und 1188–1240 keine Grenze des Königreichs, daher ist es in diesen Jahren nicht zu sehen. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren. Wikipedia indica 648–1388 y Wikidata 700–1388. El mapa muestra el reino en 638–1394, como Cliopatria. Cliopatria no tiene frontera del reino en 1028–1055 y 1188–1240, por lo que no se ve en esos años. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent. Wikipédia indique 648–1388 et Wikidata 700–1388. La carte montre le royaume en 638–1394, comme Cliopatria. Cliopatria n’a pas de frontière pour le royaume en 1028–1055 et 1188–1240, si bien qu’il n’apparaît pas ces années-là. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-lavo-kingdom",
+     "wd-lavo-kingdom",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "seunadynastin",
+   "name": {
+    "sv": "Seunadynastin",
+    "en": "Seuna dynasty",
+    "de": "Seuna-Dynastie",
+    "es": "Dinastía Seuna",
+    "fr": "Dynastie Seuna"
+   },
+   "color": "#8a8a3a",
+   "from": 1188,
+   "to": 1325,
+   "file": "data/empires/seunadynastin.json",
+   "polities": [
+    {
+     "id": "seunadynastin",
+     "name": {
+      "sv": "Seunadynastin",
+      "en": "Seuna dynasty",
+      "de": "Seuna-Dynastie",
+      "es": "Dinastía Seuna",
+      "fr": "Dynastie Seuna"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Källorna skiljer sig. Wikipedia anger att dynastin styrde självständigt omkring 1187–1317 (tidigare som vasaller), Wikidata anger 1173–1317. Kartan visar riket 1188–1325, som Cliopatria, som kallar det Yadava Dynasty. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ. Wikipedia says the dynasty ruled independently from about 1187 to 1317 (earlier as vassals), Wikidata gives 1173–1317. The map shows the realm in 1188–1325, as in Cliopatria, which calls it Yadava Dynasty. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Die Quellen weichen voneinander ab. Laut Wikipedia herrschte die Dynastie etwa 1187–1317 unabhängig (vorher als Vasallen), Wikidata nennt 1173–1317. Die Karte zeigt das Reich wie Cliopatria 1188–1325; Cliopatria nennt es Yadava Dynasty. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren. Según Wikipedia, la dinastía gobernó de forma independiente hacia 1187–1317 (antes como vasallos); Wikidata indica 1173–1317. El mapa muestra el reino en 1188–1325, como Cliopatria, que lo llama Yadava Dynasty. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent. Selon Wikipédia, la dynastie régna de manière indépendante vers 1187–1317 (auparavant comme vassaux) ; Wikidata indique 1173–1317. La carte montre le royaume en 1188–1325, comme Cliopatria, qui l’appelle Yadava Dynasty. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-seuna-dynasty",
+     "wd-seuna-dynasty",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "mamlukdynastin-i-delhi",
+   "name": {
+    "sv": "Mamlukdynastin i Delhi",
+    "en": "Mamluk dynasty (Delhi)",
+    "de": "Sklavendynastie",
+    "es": "Mamelucos de Delhi",
+    "fr": "Dynastie des esclaves"
+   },
+   "color": "#6a5a9a",
+   "from": 1210,
+   "to": 1293,
+   "file": "data/empires/mamlukdynastin-i-delhi.json",
+   "polities": [
+    {
+     "id": "mamlukdynastin-i-delhi",
+     "name": {
+      "sv": "Mamlukdynastin i Delhi",
+      "en": "Mamluk dynasty (Delhi)",
+      "de": "Sklavendynastie",
+      "es": "Mamelucos de Delhi",
+      "fr": "Dynastie des esclaves"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Wikipedia och Wikidata anger 1206–1290. Kartan visar dynastins rike 1210–1293, som Cliopatria. I Cliopatria växer riket 1236 från cirka 579 000 till cirka 1 290 000 km²; storleken är Cliopatrias uppskattning. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "Wikipedia and Wikidata give 1206–1290. The map shows the dynasty’s realm in 1210–1293, as in Cliopatria. In Cliopatria the realm grows in 1236 from about 579,000 to about 1,290,000 km²; the size is Cliopatria’s estimate. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Wikipedia und Wikidata nennen 1206–1290. Die Karte zeigt das Reich der Dynastie wie Cliopatria 1210–1293. Bei Cliopatria wächst das Reich 1236 von etwa 579.000 auf etwa 1.290.000 km²; die Größe ist eine Schätzung von Cliopatria. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Wikipedia y Wikidata indican 1206–1290. El mapa muestra el reino de la dinastía en 1210–1293, como Cliopatria. En Cliopatria el reino crece en 1236 de unos 579 000 a unos 1 290 000 km²; el tamaño es una estimación de Cliopatria. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Wikipédia et Wikidata indiquent 1206–1290. La carte montre le royaume de la dynastie en 1210–1293, comme Cliopatria. Chez Cliopatria, le royaume passe en 1236 d’environ 579 000 à environ 1 290 000 km² ; cette taille est une estimation de Cliopatria. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-mamluk-dynasty-delhi",
+     "wd-mamluk-dynasty-delhi",
+     "cliopatria"
+    ],
+    "review": "two-sources"
+   }
+  },
+  {
+   "id": "chaulukyadynastin",
+   "name": {
+    "sv": "Chaulukyadynastin",
+    "en": "Chaulukya dynasty",
+    "de": "Solanki",
+    "es": "Dinastía Chaulukya",
+    "fr": "Dynastie Chaulukya"
+   },
+   "color": "#3a8aa0",
+   "from": 947,
+   "to": 1249,
+   "file": "data/empires/chaulukyadynastin.json",
+   "polities": [
+    {
+     "id": "chaulukyadynastin",
+     "name": {
+      "sv": "Chaulukyadynastin",
+      "en": "Chaulukya dynasty",
+      "de": "Solanki",
+      "es": "Dinastía Chaulukya",
+      "fr": "Dynastie Chaulukya"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Wikipedia och Wikidata anger omkring 940–1244. Kartan visar dynastins rike 947–1249, som Cliopatria. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "Wikipedia and Wikidata give about 940–1244. The map shows the dynasty’s realm in 947–1249, as in Cliopatria. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Wikipedia und Wikidata nennen etwa 940–1244. Die Karte zeigt das Reich der Dynastie wie Cliopatria 947–1249. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Wikipedia y Wikidata indican hacia 940–1244. El mapa muestra el reino de la dinastía en 947–1249, como Cliopatria. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Wikipédia et Wikidata indiquent vers 940–1244. La carte montre le royaume de la dynastie en 947–1249, comme Cliopatria. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-chaulukya-dynasty",
+     "wd-chaulukya-dynasty",
+     "cliopatria"
+    ],
+    "review": "two-sources"
+   }
+  },
+  {
+   "id": "aragoniska-kronan",
+   "name": {
+    "sv": "Aragoniska kronan",
+    "en": "Crown of Aragon",
+    "de": "Krone von Aragonien",
+    "es": "Corona de Aragón",
+    "fr": "Couronne d'Aragon"
+   },
+   "color": "#c0a03a",
+   "from": 1169,
+   "to": 1515,
+   "file": "data/empires/aragoniska-kronan.json",
+   "polities": [
+    {
+     "id": "aragoniska-kronan",
+     "name": {
+      "sv": "Aragoniska kronan",
+      "en": "Crown of Aragon",
+      "de": "Krone von Aragonien",
+      "es": "Corona de Aragón",
+      "fr": "Couronne d'Aragon"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Wikipedia och Wikidata anger 1137–1715 (Wikipedia 1707 eller 1715). Kartan följer Cliopatria och visar kronan 1169–1515. Cliopatria har en egen post för Kingdom of Aragon före 1169 och räknar från 1516 området till Kingdom of Spain i Cliopatrias Spanish Empire (på kartan Spanska imperiet), fast kronan enligt källorna fanns kvar till 1707 eller 1715. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "Wikipedia and Wikidata give 1137–1715 (Wikipedia 1707 or 1715). The map follows Cliopatria and shows the Crown in 1169–1515. Cliopatria has a separate entry for the Kingdom of Aragon before 1169 and from 1516 counts the area as part of the Kingdom of Spain in Cliopatria’s Spanish Empire (the Spanish Empire on the map), although according to the sources the Crown existed until 1707 or 1715. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Wikipedia und Wikidata nennen 1137–1715 (Wikipedia 1707 oder 1715). Die Karte folgt Cliopatria und zeigt die Krone 1169–1515. Cliopatria hat vor 1169 einen eigenen Eintrag für Kingdom of Aragon und rechnet das Gebiet ab 1516 zum Kingdom of Spain in Cliopatrias Spanish Empire, obwohl die Krone laut den Quellen bis 1707 oder 1715 bestand. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Wikipedia y Wikidata indican 1137–1715 (Wikipedia 1707 o 1715). El mapa sigue a Cliopatria y muestra la Corona en 1169–1515. Cliopatria tiene una entrada propia para Kingdom of Aragon antes de 1169 y desde 1516 cuenta la zona como parte de Kingdom of Spain en el Spanish Empire de Cliopatria (el Imperio español en el mapa), aunque según las fuentes la Corona existió hasta 1707 o 1715. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Wikipédia et Wikidata indiquent 1137–1715 (Wikipédia 1707 ou 1715). La carte suit Cliopatria et montre la Couronne en 1169–1515. Cliopatria a une entrée distincte pour Kingdom of Aragon avant 1169 et compte la région à partir de 1516 dans le Kingdom of Spain du Spanish Empire de Cliopatria (l’Empire espagnol sur la carte), bien que la Couronne ait existé selon les sources jusqu’en 1707 ou 1715. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-crown-of-aragon",
+     "wd-crown-of-aragon",
+     "cliopatria"
+    ],
+    "review": "two-sources"
+   }
+  },
+  {
+   "id": "idrisider",
+   "name": {
+    "sv": "Idrisider",
+    "en": "Idrisid dynasty",
+    "de": "Idrisiden",
+    "es": "Dinastía idrísida",
+    "fr": "Idrissides"
+   },
+   "color": "#4aa06a",
+   "from": 793,
+   "to": 979,
+   "file": "data/empires/idrisider.json",
+   "polities": [
+    {
+     "id": "idrisider",
+     "name": {
+      "sv": "Idrisider",
+      "en": "Idrisid dynasty",
+      "de": "Idrisiden",
+      "es": "Dinastía idrísida",
+      "fr": "Idrissides"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Wikipedia och Wikidata anger 788–974. Kartan visar dynastins rike 793–979, som Cliopatria. Cliopatria saknar en gräns för riket 922–925 och 936–946, så det syns inte de åren. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "Wikipedia and Wikidata give 788–974. The map shows the dynasty’s realm in 793–979, as in Cliopatria. Cliopatria has no border for the realm in 922–925 and 936–946, so it is not shown in those years. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Wikipedia und Wikidata nennen 788–974. Die Karte zeigt das Reich der Dynastie wie Cliopatria 793–979. Cliopatria hat für 922–925 und 936–946 keine Grenze des Reiches, daher ist es in diesen Jahren nicht zu sehen. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Wikipedia y Wikidata indican 788–974. El mapa muestra el reino de la dinastía en 793–979, como Cliopatria. Cliopatria no tiene frontera del reino en 922–925 y 936–946, por lo que no se ve en esos años. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Wikipédia et Wikidata indiquent 788–974. La carte montre le royaume de la dynastie en 793–979, comme Cliopatria. Cliopatria n’a pas de frontière pour le royaume en 922–925 et 936–946, si bien qu’il n’apparaît pas ces années-là. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-idrisid-dynasty",
+     "wd-idrisid-dynasty",
+     "cliopatria"
+    ],
+    "review": "two-sources"
+   }
   },
   {
    "id": "dzungarkhanatet",
