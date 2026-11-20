@@ -42,6 +42,12 @@ Nivån syns i faktarutan och under Om källorna, inte som eget märke på globen
 | Historiska museet (historiska.se) | Nordens forntid: urval, årtal och plats för fynd och fornlämningar (#1339), och åldrarnas årtal i `data/perioder.json` | Museets webbplats (bara länkad) | Bara länkad källa. Text kopieras aldrig. Föremålsbilderna är CC BY 4.0 men används inte. |
 | Forskningsartiklar i PubMed Central (PMC) | Andra källa, till exempel för förhistoriska dateringar | Oftast CC BY (kontrolleras per artikel) | Licensen står i artikeln |
 
+### Cliopatrias årtal före vår tideräkning (#1989, kontrollerat 2026-11-20)
+
+Cliopatria skriver N f.Kr. som `-N`, inte som astronomiskt år. README:n på [GitHub](https://github.com/Seshat-Global-History-Databank/cliopatria) och artikeln i Scientific Data ([doi:10.1038/s41597-025-04516-9](https://doi.org/10.1038/s41597-025-04516-9), fulltext i [Europe PMC, PMC11822181](https://europepmc.org/article/PMC/PMC11822181)) säger "Years are recorded as integers, negative for BCE, positive for CE" och att datan går "from 3400BCE to 2024CE", och den första posten har `FromYear -3400`. Ändringsåren stämmer också med kända årtal: Persiska och Makedoniska riket ändras `-333` och `-331` (Wikidata: Issos 333 f.Kr., Q201526; Gaugamela 331 f.Kr., Q179670) och Romarriket börjar `-31` (Actium 31 f.Kr., Q160387). Med astronomisk läsning hade alla tre legat ett år före slaget. År 0 finns bara som slutår (`ToYear 0`, sex poster) direkt före en post som börjar år 1, och inget år `-1` finns; projektets öppna issues tar inte upp frågan.
+
+`tools/cliopatria_ar.py` räknar därför om vid läsningen: `-N` blir `1 - N`, år 0 och år efter Kristus är oförändrade. Det används av `tools/riken.py`, `tools/religioner.py`, `tools/religioner_riken.py` och `tools/tackning_riken.py`. Före #1989 lästes talen som astronomiska år, så alla riken före år 0 låg ett år för tidigt (Egyptens gamla rike visades från 2501 f.Kr. i stället för 2500 f.Kr.). Beslut: [docs/beslut/2026-11-20-cliopatria-artalskonvention-1989.md](beslut/2026-11-20-cliopatria-artalskonvention-1989.md).
+
 ### Källor som går att nå från molnmiljön
 
 Molnmiljöns nätverk släpper bara fram vissa sajter. Läget 2026-10-29 (#143):
