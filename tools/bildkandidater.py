@@ -465,6 +465,28 @@ def skriv(sokvag, nya, urval_text, idag=None):
     return doc
 
 
+SPARA_VAR = 50  # utdatafilen sparas efter var 50:e händelse, så att ett avbrott inte tappar allt
+
+
+def kor_och_spara(handelser, klient, sokvag, urval_text, spara_var=SPARA_VAR, log=None):
+    """Kör urvalet i bitar om `spara_var` händelser och skriver utdatafilen efter varje bit.
+    Returnerar (alla poster i den här körningen, senaste dokumentet)."""
+    poster, doc = {}, None
+    for i in range(0, len(handelser), spara_var):
+        bit = kor(handelser[i:i + spara_var], klient, log=log)
+        poster.update(bit)
+        doc = skriv(sokvag, bit, urval_text)
+    return poster, doc
+
+
+def sammanfatta(poster):
+    """Antal händelser i körningen: med kandidater, utan kandidater och ej hämtade."""
+    ej = sum(1 for p in poster.values() if 'ej_hamtad' in p)
+    med = sum(1 for p in poster.values() if p['kandidater'])
+    utan = sum(1 for p in poster.values() if not p['kandidater'] and 'ej_hamtad' not in p)
+    return {'handelser': len(poster), 'med_kandidater': med, 'utan_kandidater': utan, 'ej_hamtade': ej}
+
+
 def main(argv=None, klient=None):
     ap = argparse.ArgumentParser(description='Föreslår fria bildkandidater till händelser utan bild (#2119).')
     ap.add_argument('--period', help='år FRÅN-TILL (astronomiska år), till exempel 1000-1347')
@@ -476,6 +498,7 @@ def main(argv=None, klient=None):
     ap.add_argument('--offline', action='store_true', help='bara cachen, inget nätverk')
     ap.add_argument('--cache-dir', help=f'cachekatalog (standard {cache_katalog()})')
     ap.add_argument('--ut', default=str(UTKAST), help='utdatafil (standard data/utkast/bildkandidater.json)')
+    ap.add_argument('--sammanfattning', help='skriv antal händelser med/utan kandidater och ej hämtade som JSON hit')
     ap.add_argument('--handelser', default=str(ROOT / 'data' / 'handelser'), help=argparse.SUPPRESS)
     a = ap.parse_args(argv)
     try:
@@ -487,13 +510,16 @@ def main(argv=None, klient=None):
                      region_av=region_funktion() if a.region else None)
     if not handelser:
         print('Inga händelser utan bild matchade urvalet.', file=sys.stderr)
+        if a.sammanfattning:
+            Path(a.sammanfattning).write_text(json.dumps(sammanfatta({})) + '\n', encoding='utf-8')
         return 0
     klient = klient or Klient(cache_dir=a.cache_dir or cache_katalog(), offline=a.offline)
     print(f'{len(handelser)} händelser utan bild valda.', file=sys.stderr)
-    poster = kor(handelser, klient)
     urval = ' '.join(x for x in (f'period={a.period}' if a.period else '', f'region={a.region}' if a.region else '',
                                  f'id={",".join(a.id)}' if a.id else '', f'limit={a.limit}' if a.limit else '') if x)
-    doc = skriv(a.ut, poster, urval or 'alla')
+    poster, doc = kor_och_spara(handelser, klient, a.ut, urval or 'alla')
+    if a.sammanfattning:
+        Path(a.sammanfattning).write_text(json.dumps(sammanfatta(poster)) + '\n', encoding='utf-8')
     g = doc['generated']
     print(f'Skrev {a.ut}: {len(poster)} händelser i den här körningen, {g["kandidater"]} kandidater totalt '
           f'({g["tillatna"]} tillåtna, {g["avvisade"]} avvisade, {g["smala"]} smalare än {MIN_BREDD} px), '
