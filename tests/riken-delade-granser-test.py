@@ -8,7 +8,8 @@ hoppas provet över, eftersom CI inte har shapely.
 
 Med miljövariabeln CLIOPATRIA=<cliopatria_polities_only_v021.geojson> körs också hela verktyget två gånger i en tillfällig mapp
 (cirka två minuter): utan flaggan ska varje fil vara exakt som i data/empires (#1220), och med flaggan ska grannarna i piloten
-inte överlappa mer än TROSKEL kvadratgrader något år 500–1700, utom där de överlappar i underlaget.
+inte överlappa mer än TROSKEL kvadratgrader något år 500–1700 (riken som överlappar något annat i underlaget det
+året räknas inte, eftersom de hålls utanför täckningen).
     python3 tests/riken-delade-granser-test.py
     CLIOPATRIA=/sökväg/cliopatria_polities_only_v021.geojson python3 tests/riken-delade-granser-test.py
 """
@@ -161,12 +162,14 @@ if clio:
             key = (tuple((k, s) for k, s, g in act), tuple((k, s) for k, v in raw.items() for s, e, g, _a in v if s <= y <= e))
             if key not in cache:
                 rg = {k: g for k, v in raw.items() for s, e, g, _a in v if s <= y <= e}
+                # Riken som överlappar något annat i underlaget det året hålls utanför täckningen och förenklas för sig som förut;
+                # deras gränser räknas inte här (de står i rapporten, docs/granskningar/2026-11-20-delade-granser-pilot.md)
+                held = {a for a in rg for b in rg if a != b and rg[a].intersection(rg[b]).area > R.SHARED_SLIVER}
                 t = 0.0
                 for i in range(len(act)):
                     for j in range(i + 1, len(act)):
-                        ki, kj = act[i][0], act[j][0]
-                        if ki in rg and kj in rg and rg[ki].intersection(rg[kj]).area > R.SHARED_SLIVER:
-                            continue  # överlappar i underlaget: hålls utanför täckningen
+                        if act[i][0] in held or act[j][0] in held:
+                            continue
                         t += act[i][2].intersection(act[j][2]).area
                 cache[key] = t
             if cache[key] > worst[0]:

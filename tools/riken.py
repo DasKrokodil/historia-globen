@@ -3198,9 +3198,11 @@ def cover_years(raws, years, tol, min_area, merge, sliver=SHARED_SLIVER, fix=SHA
         for k in starting - set(simple):
             cur.pop(k, None)  # utanför täckningen i år: förenklas för sig i main
         fresh = set()
-        for k in starting & set(simple):
+        for k in simple:
             prev = cur.get(k)
-            if prev is None or prev.symmetric_difference(simple[k]).area >= merge[k] * prev.area:
+            # Utan förra delade gräns (ny, eller förenklad för sig förra året eftersom den överlappade en granne i underlaget)
+            # får delen täckningens gräns i år, också mitt i en period
+            if prev is None or (k in starting and prev.symmetric_difference(simple[k]).area >= merge[k] * prev.area):
                 fresh.add(k)
         while True:
             now = {k: (simple[k] if k in fresh else cur[k]) for k in simple if k in fresh or k in cur}
