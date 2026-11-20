@@ -247,6 +247,28 @@ Namnen i rutan Om kartan för `kina` och delen `kejsardomet-kina`. Ordningen fö
 | Peking | Beijing | Peking | Pekín | Pékin | – |
 | Nationalistregeringen (i Nanjing) | Nationalist Government | Nationalregierung | Gobierno Nacionalista | gouvernement nationaliste | – |
 
+### 9.3 Inre Asien och Arabien (#1331, andra omgången)
+
+Grupperna och delarna i `data/empires/index.json` (PR #2030). "WD" är Wikidatas etikett (SPARQL 2026-11-20), "egen" är en egen översättning byggd på de andra namnen. Termen *saudiska riket* översätts *Saudi State* / *Saudi-Staat* / *Estado saudí* / *État saoudien*, och ordningstalet skrivs med gemen mitt i en mening på spanska och franska (*el tercer Estado saudí*, *le troisième État saoudien*) men med versal först i namnet.
+
+| Svenska | Engelska | Tyska | Spanska | Franska | Kontrollerad |
+|---|---|---|---|---|---|
+| Det första saudiska riket | First Saudi State | Erster Saudi-Staat | Primer Estado saudí | Premier État saoudien | 2026-11-20: sv sv.wikipedia "Saudiarabiens historia" (rubriken "Det första saudiska riket (1744–1818)"); en och de WD Q146871; es och fr egen (WD "Emirato de Diriyah", "émirat de Dariya") |
+| Det andra saudiska riket | Second Saudi State | Zweiter Saudi-Staat | Segundo Estado saudí | Deuxième État saoudien | 2026-11-20: sv sv.wikipedia "Saudiarabiens historia"; en, de och fr WD Q146862; es egen (WD "Emirato de Nechd") |
+| Det tredje saudiska riket | Third Saudi State | Dritter Saudi-Staat | Tercer Estado saudí | Troisième État saoudien | 2026-11-20: sv sv.wikipedia "Saudiarabiens historia" ("det tredje saudiska riket"); en och fr WD Q2011891; es WD "Tercer Estado Saudita" med gemen; de egen (WD saknar etikett) |
+| Jabal Shammar | Emirate of Jabal Shammar | Emirat der Dschebel Schammar | Emirato de Jabal Shammar | Émirat de Haïl | 2026-11-20: sv, en och es WD Q5362837; de de.wikipedia "Āl Raschīd" ("auch als Emirat der Dschebel Schammar bekannt"; WD:s tyska etikett "Geschichte der Schammar" är en historieartikel); fr WD och fr.wikipedia "Émirat de Haïl" (titeln) |
+| Kungariket Hijaz | Kingdom of Hejaz | Königreich Hedschas | Reino del Hiyaz | Royaume du Hedjaz | 2026-11-20: WD Q956357 |
+| Buchara | Khanate of Bukhara | Khanat Buchara | Kanato de Bujará | Khanat de Boukhara | 2026-11-20: WD Q577668; de de.wikipedia "Khanat Buchara" (WD "Usbeken-Khanat") |
+| Emiratet Buchara | Emirate of Bukhara | Emirat Buchara | Emirato de Bujará | Émirat de Boukhara | 2026-11-20: WD Q746558; sv med khanatets stavning (WD "emiratet Bukhara") |
+| Khanatet Khiva | Khanate of Khiva | Khanat Chiwa | Kanato de Jiva | Khanat de Khiva | 2026-11-20: WD Q491106; es es.wikipedia "Kanato de Jiva" (WD "Kanato de Jarazm") |
+| Khanatet Kokand | Khanate of Kokand | Khanat Kokand | Kanato de Kokand | Khanat de Kokand | 2026-11-20: WD Q696241 |
+| Kalmuckkhanatet | Kalmyk Khanate | Kalmückisches Khanat | Kanato calmuco | Khanat kalmouk | 2026-11-20: WD Q4210248 |
+| Kazankhanatet | Khanate of Kazan | Khanat Kasan | Kanato de Kazán | Khanat de Kazan | 2026-11-20: WD Q186537; en en.wikipedia "Khanate of Kazan" (WD "Khanate of Qazan") |
+| Astrachankhanatet | Astrakhan Khanate | Khanat Astrachan | Kanato de Astracán | Khanat d’Astrakhan | 2026-11-20: WD Q210163 |
+| Nogajhorden | Nogai Horde | Nogaier-Horde | Horda de Nogái | Horde Nogaï | 2026-11-20: WD Q631210; fr också fr.wikipedia "Horde Nogaï" (titeln) |
+
+Personnamnen i rutorna Om kartan följer engelska Wikipedia och är inte kontrollerade mot målspråkens Wikipedia, utom de tyska *Raschiden* (de.wikipedia "Āl Raschīd") och den franska *Al Rachid* (fr.wikipedia "Émirat de Haïl"). Patronymen skrivs *ibn* på svenska och tyska, *bin* på engelska och spanska och *ben* på franska. Huvudstaden skrivs *Hail* (sv, en, de, es) och *Haïl* (fr).
+
 ## 10. Kontrollera innan en pull request öppnas
 
 1. Tilltalet är artigt överallt (avsnitt 1).
