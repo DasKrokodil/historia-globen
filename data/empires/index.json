@@ -37209,6 +37209,24 @@
      "review": "source-checked"
     },
     {
+     "file": "bulgaria-1971",
+     "from": 1971,
+     "to": 1989,
+     "label": {
+      "sv": "Bulgariens flagga 1971–1990",
+      "en": "Flag of Bulgaria, 1971–1990",
+      "de": "Flagge Bulgariens 1971–1990",
+      "es": "Bandera de Bulgaria de 1971 a 1990",
+      "fr": "Drapeau de la Bulgarie de 1971 à 1990"
+     },
+     "sources": [
+      "wp-flag-bulgaria",
+      "commons-emblem-bulgaria-1971",
+      "commons-flagga-bulgaria-1971"
+     ],
+     "review": "source-checked"
+    },
+    {
      "file": "bulgaria",
      "from": 1990,
      "to": 2024,
