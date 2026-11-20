@@ -1145,6 +1145,7 @@
         "wp-flag-djibouti",
         "wp-flag-dominican-republic",
         "wp-flag-ecuador",
+        "wp-flag-eritrea",
         "wp-flag-eswatini",
         "wp-flag-fiji",
         "wp-flag-finland",
@@ -1253,6 +1254,7 @@
         "wp-flag-vanuatu",
         "wp-flag-vietnam",
         "wp-flag-yemen",
+        "wp-flag-zambia",
         "wp-flag-zimbabwe",
         "wp-flags-confederate-states",
         "wp-flags-german-empire",
@@ -3480,6 +3482,12 @@
       ]
     },
     {
+      "license": "Public domain (PD-Eritrea, PD-OpenClipart)",
+      "sourceIds": [
+        "commons-flagga-eritrea"
+      ]
+    },
+    {
       "license": "Public domain (PD-Fiji)",
       "sourceIds": [
         "commons-flagga-fiji"
@@ -3736,6 +3744,12 @@
       "license": "Public domain (PD-Yemen, PD-ineligible)",
       "sourceIds": [
         "commons-flagga-yemen"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Zambia, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-zambia"
       ]
     },
     {

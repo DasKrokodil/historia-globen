@@ -33201,6 +33201,25 @@
    "from": 1967,
    "to": 2024,
    "file": "data/empires/zambia.json",
+   "flags": [
+    {
+     "file": "zambia",
+     "from": 1996,
+     "to": 2024,
+     "label": {
+      "sv": "Zambias flagga från 1996",
+      "en": "Flag of Zambia from 1996",
+      "de": "Flagge Sambias seit 1996",
+      "es": "Bandera de Zambia desde 1996",
+      "fr": "Drapeau de la Zambie depuis 1996"
+     },
+     "sources": [
+      "wp-flag-zambia",
+      "commons-flagga-zambia"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "zambia",
@@ -36129,6 +36148,25 @@
    "from": 1992,
    "to": 2024,
    "file": "data/empires/eritrea.json",
+   "flags": [
+    {
+     "file": "eritrea",
+     "from": 1996,
+     "to": 2024,
+     "label": {
+      "sv": "Eritreas flagga från 1995",
+      "en": "Flag of Eritrea from 1995",
+      "de": "Flagge Eritreas seit 1995",
+      "es": "Bandera de Eritrea desde 1995",
+      "fr": "Drapeau de l'Érythrée depuis 1995"
+     },
+     "sources": [
+      "wp-flag-eritrea",
+      "commons-flagga-eritrea"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "eritrea",
