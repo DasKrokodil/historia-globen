@@ -1504,6 +1504,22 @@
     "source": "commons-bild-slaget-om-guadalcanal"
   },
   {
+    "id": "andra-slaget-vid-el-alamein",
+    "file": "andra-slaget-vid-el-alamein.jpg",
+    "kind": "historisk",
+    "style": "affisch",
+    "caption": {
+      "sv": "Brittiska stridsvagnar på väg mot striden vid El Alamein, sedan infanteriet har röjt passager genom fiendens minfält, 24 oktober 1942. Fotografi av sergeant Gladstone, brittiska arméns film- och fotoenhet. Licens: Public domain.",
+      "en": "British tanks move up to the battle at El Alamein after the infantry had cleared gaps in the enemy minefield, 24 October 1942. Photograph by Sergeant Gladstone, Army Film and Photographic Unit. Licence: Public domain.",
+      "de": "Britische Panzer rücken bei El Alamein in die Schlacht vor, nachdem die Infanterie Gassen durch das feindliche Minenfeld geräumt hat, 24. Oktober 1942. Fotografie von Sergeant Gladstone, Film- und Fotoeinheit der britischen Armee. Lizenz: Public domain.",
+      "es": "Carros de combate británicos avanzan hacia la batalla en El Alamein después de que la infantería abriera pasos en el campo de minas enemigo, 24 de octubre de 1942. Fotografía del sargento Gladstone, unidad de cine y fotografía del ejército británico. Licencia: Public domain.",
+      "fr": "Des chars britanniques montent au combat à El Alamein après que l’infanterie a ouvert des passages dans le champ de mines ennemi, 24 octobre 1942. Photographie du sergent Gladstone, unité de film et de photographie de l’armée britannique. Licence : Public domain."
+    },
+    "credit": "Sgt. Gladstone, No 1 Army Film & Photographic Unit / Imperial War Museum (E 18481) / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-andra-slaget-vid-el-alamein"
+  },
+  {
     "id": "anfallet-pa-polen",
     "file": "anfallet-pa-polen.jpg",
     "kind": "historisk",
@@ -1598,22 +1614,6 @@
     "credit": "U.S. Navy (80-G-414423) / Wikimedia Commons",
     "license": "Public domain",
     "source": "commons-bild-slaget-vid-midway"
-  },
-  {
-    "id": "andra-slaget-vid-el-alamein",
-    "file": "andra-slaget-vid-el-alamein.jpg",
-    "kind": "historisk",
-    "style": "affisch",
-    "caption": {
-      "sv": "Brittiskt artilleri skjuter i natten när andra slaget vid El Alamein börjar, 23 oktober 1942. Fotografi av sergeant Gladstone, brittiska arméns film- och fotoenhet. Licens: Public domain.",
-      "en": "British artillery fires at night as the Second Battle of El Alamein begins, 23 October 1942. Photograph by Sergeant Gladstone, Army Film and Photographic Unit. Licence: Public domain.",
-      "de": "Britische Artillerie feuert in der Nacht, als die Zweite Schlacht von El Alamein beginnt, 23. Oktober 1942. Fotografie von Sergeant Gladstone, Film- und Fotoeinheit der britischen Armee. Lizenz: Public domain.",
-      "es": "La artillería británica dispara de noche cuando comienza la segunda batalla de El Alamein, 23 de octubre de 1942. Fotografía del sargento Gladstone, unidad de cine y fotografía del ejército británico. Licencia: Public domain.",
-      "fr": "L’artillerie britannique tire de nuit au début de la seconde bataille d’El Alamein, 23 octobre 1942. Photographie du sergent Gladstone, unité de film et de photographie de l’armée britannique. Licence : Public domain."
-    },
-    "credit": "Sgt. Gladstone, No 1 Army Film & Photographic Unit / Imperial War Museum (E 18466) / Wikimedia Commons",
-    "license": "Public domain",
-    "source": "commons-bild-andra-slaget-vid-el-alamein"
   },
   {
     "id": "d-dagen",

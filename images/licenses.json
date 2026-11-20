@@ -33,6 +33,21 @@
       }
     },
     {
+      "eventId": "andra-slaget-vid-el-alamein",
+      "eventTitle": "Andra slaget vid el-Alamein",
+      "file": "images/events/andra-slaget-vid-el-alamein.webp",
+      "kind": "historisk",
+      "credit": "Sgt. Gladstone, No 1 Army Film & Photographic Unit / Imperial War Museum (E 18481) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-andra-slaget-vid-el-alamein",
+        "title": "El Alamein 1942: brittiska stridsvagnar på väg mot striden, 24 oktober 1942 – Imperial War Museum E 18481 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:El_Alamein_1942_-_British_tanks.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "anfallet-pa-polen",
       "eventTitle": "Tyskland anfaller Polen",
       "file": "images/events/anfallet-pa-polen.webp",
@@ -873,6 +888,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Estadio_Centenario_1930.jpg",
         "license": "Public domain",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "frankrikes-fall",
+      "eventTitle": "Frankrikes fall",
+      "file": "images/events/frankrikes-fall.webp",
+      "kind": "historisk",
+      "credit": "Bundesarchiv, Bild 146-2004-0147 / Wikimedia Commons",
+      "license": "CC BY-SA 3.0 DE",
+      "source": {
+        "id": "commons-bild-frankrikes-fall",
+        "title": "Waffenstillstand von Compiègne, Waggon, 21 juni 1940 – Bundesarchiv Bild 146-2004-0147 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_146-2004-0147,_Waffenstillstand_von_Compi%C3%A8gne,_Waggon.jpg",
+        "license": "CC BY-SA 3.0 DE",
+        "checked": "2026-11-20"
       }
     },
     {
