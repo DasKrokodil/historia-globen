@@ -289,6 +289,27 @@ Grupperna i `data/empires/index.json`. "WD" är Wikidatas etikett (SPARQL 2026-1
 | Khanatet Kara-Khanid (nya delar, östra och västra) | Karakhanid Khanate | Karachaniden | Karajánidas | Qarakhanides | 2026-11-20: WD Q494354 (som gruppen); es med versal som gruppen (WD "karajánidas") |
 | Kungariket Jaffna (lydrike under Vijayanagar) | Jaffna kingdom | Königreich Jaffna | Reino de Jaffna | Royaume de Jaffna | 2026-11-20: en, de, es och fr WD Q1311219; sv egen översättning (etikett och artikel saknas), typordet översatt som på de andra språken |
 
+### 9.5 Antikens luckor, andra omgången (#646)
+
+Grupperna i `data/empires/index.json`. "WD" är Wikidatas etikett (SPARQL 2026-11-20). Namnen är jämförda med Wikipedias artikel på varje språk (språklänkarna i Wikidata, 2026-11-20); där artikelns namn och etiketten skiljer sig går artikelns namn före (avsnitt 4 regel 1), utom där artikelns titel bara har ett förtydligande inom parentes, som "Chu (stat)". Spanska och franska med versal först som namn i början av en rad (avsnitt 3).
+
+| Svenska | Engelska | Tyska | Spanska | Franska | Kontrollerad |
+|---|---|---|---|---|---|
+| Chu | Chu | Chu | Estado Chu | Chu | 2026-11-20: WD Q504759; sv, en, de och fr artiklarna "Chu (stat)", "Chu (state)", "Chu (Staat)" och "Chu (État)"; es es.wikipedia "Estado Chu" (WD "Chu"); fr WD "État de Chu" |
+| Western Satraps | Western Satraps | Western Satraps | Sátrapas occidentales | Satrapes occidentaux | 2026-11-20: WD Q2086608; sv och de saknar etikett och artikel, engelska enligt beslutet 2026-11-12 |
+| Zhoudynastin | Zhou dynasty | Zhou-Dynastie | Dinastía Zhou | Dynastie Zhou | 2026-11-20: WD Q35216 och artiklarna |
+| Kungariket Armenien | Kingdom of Armenia | Großarmenien | Reino de Armenia | Royaume d’Arménie | 2026-11-20: WD Q208404; sv.wikipedia "Kungariket Armenien (antiken)", en.wikipedia "Kingdom of Armenia (antiquity)", de.wikipedia "Großarmenien". Skiljs från dagens Armenien (`armenien`) |
+| Himyaritiska riket | Himyar | Himyar | Himyar | Himyar | 2026-11-20: sv sv.wikipedia "Himyariter" (artikeln handlar om folkstammen och kallar staten "det himyaritiska riket"; WD "Himyariter"); en, de, es och fr artiklarna "Himyar" (WD en "Himyarite kingdom", de "Himjar") |
+| Liu Song | Liu Song dynasty | Frühere Song-Dynastie | Dinastía Liu Song | Dynastie Song du Sud (420–479) | 2026-11-20: WD Q49697; fr fr.wikipedia "Dynastie Song du Sud (420-479)" med årtalen, så att den skiljs från Södra Song (*Song du Sud*, avsnitt 9) |
+| Sunga | Shunga Empire | Shunga-Dynastie | Imperio Śuṅga | Dynastie Shunga | 2026-11-20: WD Q651377; es es.wikipedia "Imperio Śuṅga" (WD "Imperio Sunga") |
+| Funan | Funan | Funan | Reino de Funan | Fou-nan | 2026-11-20: WD Q867782; en en.wikipedia "Funan" (WD "Kingdom of Funan") |
+| Cao Wei | Cao Wei | Wei-Dynastie | Wei | Royaume de Wei | 2026-11-20: WD Q320930; es es.wikipedia "Wei (reino)" |
+| Grekisk-baktriska riket | Greco-Bactrian Kingdom | Griechisch-Baktrisches Königreich | Reino grecobactriano | Royaume gréco-bactrien | 2026-11-20: WD Q488880 och artiklarna |
+| Shangdynastin | Shang dynasty | Shang-Dynastie | Dinastía Shang | Dynastie Shang | 2026-11-20: WD Q128938 och artiklarna |
+| Östra Wu | Eastern Wu | Wu-Dynastie | Wu | Royaume de Wu | 2026-11-20: WD Q274488; es es.wikipedia "Wu (reino)" |
+
+Personnamnen i rutorna Om kartan följer engelska Wikipedia, utom i Grekisk-baktriska riket, där namnen är kontrollerade mot artikeln på varje språk (2026-11-20): grundaren *Diodotus I* (sv.wikipedia och en), *Diodotos I.* (de), *Diódoto I* (es) och *Diodote Ier* (fr); huvudstäderna *Bactra* (sv, en, es; sv.wikipedia nämner ingen huvudstad), *Baktra* (de) och *Bactres* (fr), och *Ai-Khanoum* (sv, en, es), *Ai Chanum* (de) och *Aï Khanoum* (fr). Övriga namn kontrolleras av sprak-* före release.
+
 ## 10. Kontrollera innan en pull request öppnas
 
 1. Tilltalet är artigt överallt (avsnitt 1).
