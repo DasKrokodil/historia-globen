@@ -3491,7 +3491,12 @@
     {
       "license": "Public domain (PD-Albania-exempt, PD-ineligible)",
       "sourceIds": [
-        "commons-flagga-albania",
+        "commons-flagga-albania"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Albania-exempt, PD-ineligible, PD-old-70)",
+      "sourceIds": [
         "commons-flagga-albania-1946"
       ]
     },
@@ -3996,11 +4001,16 @@
         "commons-flagga-cameroon-1961",
         "commons-flagga-greece-1863",
         "commons-flagga-skane",
-        "commons-flagga-spain",
         "commons-flagga-spanska-republiken",
         "commons-flagga-sudan-1956",
         "commons-flagga-timor-leste",
         "commons-vapen-gronland"
+      ]
+    },
+    {
+      "license": "Public domain (PD-self; en äldre PD-OpenClipart-mall står bortkommenterad på filsidan)",
+      "sourceIds": [
+        "commons-flagga-spain"
       ]
     },
     {
@@ -4046,16 +4056,16 @@
       ]
     },
     {
-      "license": "Public domain (PD-simple)",
-      "sourceIds": [
-        "commons-flagga-romania"
-      ]
-    },
-    {
       "license": "Public domain (PD-simple, PD-LT-exempt)",
       "sourceIds": [
         "commons-flagga-lithuania",
         "commons-flagga-lithuania-1918"
+      ]
+    },
+    {
+      "license": "Public domain (PD-simple, PD-RO-exempt)",
+      "sourceIds": [
+        "commons-flagga-romania"
       ]
     },
     {
