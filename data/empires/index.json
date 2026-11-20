@@ -39499,15 +39499,34 @@
    "file": "data/empires/nordmakedonien.json",
    "flags": [
     {
+     "file": "macedonia-1992",
+     "kind": "flag",
+     "from": 1992,
+     "to": 1994,
+     "label": {
+      "sv": "Republiken Makedoniens flagga från 1992",
+      "en": "Flag of the Republic of Macedonia from 1992",
+      "de": "Flagge der Republik Mazedonien von 1992",
+      "es": "Bandera de la República de Macedonia de 1992",
+      "fr": "Drapeau de la République de Macédoine de 1992"
+     },
+     "sources": [
+      "wp-flag-north-macedonia",
+      "wp-sv-verginasolen",
+      "commons-flagga-macedonia-1992"
+     ],
+     "review": "source-checked"
+    },
+    {
      "file": "north-macedonia",
      "from": 1995,
      "to": 2024,
      "label": {
-      "sv": "Nordmakedoniens flagga",
-      "en": "Flag of North Macedonia",
-      "de": "Flagge Nordmazedoniens",
-      "es": "Bandera de Macedonia del Norte",
-      "fr": "Drapeau de la Macédoine du Nord"
+      "sv": "Nordmakedoniens flagga från 1995",
+      "en": "Flag of North Macedonia from 1995",
+      "de": "Flagge Nordmazedoniens seit 1995",
+      "es": "Bandera de Macedonia del Norte desde 1995",
+      "fr": "Drapeau de la Macédoine du Nord depuis 1995"
      },
      "sources": [
       "wp-flag-north-macedonia",
@@ -39531,7 +39550,34 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "items": [
+     {
+      "label": {
+       "sv": "Flaggan på kartan",
+       "en": "The flag on the map",
+       "de": "Die Flagge auf der Karte",
+       "es": "La bandera en el mapa",
+       "fr": "Le drapeau sur la carte"
+      },
+      "text": {
+       "sv": "Den första flaggan efter självständigheten antogs 11 augusti 1992, när landet hette Republiken Makedonien: en stiliserad gul sol med åtta stora och åtta mindre strålar på rött fält, Verginasolen. Symbolen, som i Nordmakedonien kallas Kutlesh-solen, har fått namn efter den grekiska orten Vergina, där den hittades vid utgrävningar av den antika makedoniska staden Aigai, och Grekland såg den som en symbol för kontinuiteten mellan det antika Makedonien och nutida grekisk kultur. Flaggan blev en del av tvisten mellan länderna, och från februari 1994 hade Grekland en ekonomisk blockad mot landet. Blockaden hävdes i oktober 1995, när länderna hade kommit överens om att flaggan skulle bytas; artikeln om Verginasolen daterar överenskommelsen, interimsavtalet, till 13 september 1995. Parlamentet antog den nuvarande flaggan, en gul sol med åtta strålar som breddas ut till kanten, 5 oktober 1995. Kartan visar flaggan med Verginasolen 1992–1994 och den nuvarande flaggan från 1995.",
+       "en": "The first flag after independence was adopted on 11 August 1992, when the country was called the Republic of Macedonia: a stylised yellow sun with eight main and eight secondary rays on a red field, the Vergina Sun. The symbol, known in North Macedonia as the Sun of Kutleš, is named after the Greek town of Vergina, where it was found during excavations of the ancient Macedonian city of Aigai, and Greece regarded it as a symbol of continuity between ancient Macedonia and modern Greek culture. The flag became part of the dispute between the two countries, and from February 1994 Greece imposed an economic blockade on the country. The blockade was lifted in October 1995, when the countries had agreed that the flag would be changed; the article on the Vergina Sun dates the agreement, the Interim Accord, to 13 September 1995. Parliament adopted the current flag, a yellow sun with eight rays broadening to the edge, on 5 October 1995. The map shows the flag with the Vergina Sun in 1992–1994 and the current flag from 1995.",
+       "de": "Die erste Flagge nach der Unabhängigkeit wurde am 11. August 1992 angenommen, als das Land Republik Mazedonien hieß: eine stilisierte gelbe Sonne mit acht großen und acht kleineren Strahlen auf rotem Feld, die Sonne von Vergina. Das Symbol, das in Nordmazedonien Sonne von Kutleš heißt, ist nach dem griechischen Ort Vergina benannt, wo es bei Ausgrabungen der antiken makedonischen Stadt Aigai gefunden wurde, und Griechenland sah darin ein Symbol der Kontinuität zwischen dem antiken Makedonien und der heutigen griechischen Kultur. Die Flagge wurde Teil des Streits zwischen den beiden Ländern, und ab Februar 1994 verhängte Griechenland eine Wirtschaftsblockade gegen das Land. Die Blockade wurde im Oktober 1995 aufgehoben, als sich die Länder darauf geeinigt hatten, die Flagge zu ändern; der Artikel über die Sonne von Vergina datiert die Einigung, das Interimsabkommen, auf den 13. September 1995. Das Parlament nahm die heutige Flagge, eine gelbe Sonne mit acht Strahlen, die sich bis zum Rand verbreitern, am 5. Oktober 1995 an. Die Karte zeigt die Flagge mit der Sonne von Vergina 1992–1994 und die heutige Flagge ab 1995.",
+       "es": "La primera bandera tras la independencia se adoptó el 11 de agosto de 1992, cuando el país se llamaba República de Macedonia: un sol amarillo estilizado con ocho rayos principales y ocho secundarios sobre un campo rojo, el sol de Vergina. El símbolo, que en Macedonia del Norte se llama sol de Kutleš, debe su nombre a la localidad griega de Vergina, donde se halló en las excavaciones de la antigua ciudad macedonia de Egas, y Grecia lo consideraba un símbolo de continuidad entre la antigua Macedonia y la cultura griega moderna. La bandera pasó a formar parte de la disputa entre los dos países, y desde febrero de 1994 Grecia impuso un bloqueo económico al país. El bloqueo se levantó en octubre de 1995, cuando los países habían acordado cambiar la bandera; el artículo sobre el sol de Vergina fecha el acuerdo, el Acuerdo Provisional, el 13 de septiembre de 1995. El Parlamento adoptó la bandera actual, un sol amarillo con ocho rayos que se ensanchan hasta el borde, el 5 de octubre de 1995. El mapa muestra la bandera con el sol de Vergina en 1992–1994 y la bandera actual desde 1995.",
+       "fr": "Le premier drapeau après l’indépendance a été adopté le 11 août 1992, lorsque le pays s’appelait République de Macédoine : un soleil jaune stylisé à huit rayons principaux et huit rayons secondaires sur fond rouge, le soleil de Vergina. Le symbole, appelé soleil de Kutleš en Macédoine du Nord, doit son nom à la localité grecque de Vergina, où il a été découvert lors des fouilles de l’ancienne cité macédonienne d’Aigai, et la Grèce le considérait comme un symbole de continuité entre la Macédoine antique et la culture grecque moderne. Le drapeau est devenu un élément du différend entre les deux pays, et à partir de février 1994 la Grèce a imposé un blocus économique au pays. Le blocus a été levé en octobre 1995, lorsque les pays s’étaient mis d’accord pour changer le drapeau ; l’article sur le soleil de Vergina date l’accord, l’accord intérimaire, du 13 septembre 1995. Le Parlement a adopté le drapeau actuel, un soleil jaune à huit rayons qui s’élargissent jusqu’au bord, le 5 octobre 1995. La carte montre le drapeau au soleil de Vergina en 1992–1994 et le drapeau actuel à partir de 1995."
+      }
+     }
+    ],
+    "sources": [
+     "wp-flag-north-macedonia",
+     "wp-vergina-sun",
+     "wp-sv-verginasolen",
+     "commons-flagga-macedonia-1992"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "burundi",

@@ -2553,6 +2553,7 @@
         "wp-sv-sodra-stambanan",
         "wp-sv-stockholms-historia",
         "wp-sv-uppsala-universitet",
+        "wp-sv-verginasolen",
         "wp-svante-arrhenius",
         "wp-swahili-coast",
         "wp-sweden",
@@ -3751,6 +3752,12 @@
       "license": "Public domain (PD-North Macedonia)",
       "sourceIds": [
         "commons-flagga-north-macedonia"
+      ]
+    },
+    {
+      "license": "Public domain (PD-North Macedonia), även GFDL",
+      "sourceIds": [
+        "commons-flagga-macedonia-1992"
       ]
     },
     {
