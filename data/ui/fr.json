@@ -803,6 +803,8 @@
   "tour.restart": "Recommencer la visite",
   "tour.more": "Continuer la lecture",
   "tour.figureOpen": "Ouvrir l’image en taille réelle",
+  "tour.figureEnlarge": "Agrandir l’image",
+  "tour.figureShrink": "Réduire l’image",
   "tour.recap": "Ce que nous avons vu",
   "tour.lessonMeta": "Leçon · classes {grades} · {n} min",
   "tour.lessonStart": "Commencer comme leçon",

@@ -1225,8 +1225,12 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 .tour-headrow .tour-title { flex: 1 1 auto; min-width: 0; }
 .tour-title:focus { outline: none; } /* rubriken tar emot fokus när slutkortet öppnas (så att den läses upp), men den är ingen knapp: ingen ram */
 .tour-thumb { flex: none; display: block; margin-top: 6px; border-radius: 6px; }
-.tour-thumb img { display: block; width: 76px; height: 57px; object-fit: cover; border-radius: 6px; border: 1px solid var(--brass-deep); background: var(--night-3); }
+.tour-thumb img { display: block; width: 88px; height: 66px; object-fit: cover; border-radius: 6px; border: 1px solid var(--brass-deep); background: var(--night-3); }
 .tour-thumb:focus-visible { outline: 2px solid var(--brass-light); outline-offset: 2px; }
+/* Tumnageln förstoras i kortet med ett tryck (#1981): hela kortets bredd under rubriken, 4:3 som bildfilen */
+.tour-headrow.has-open-thumb { flex-wrap: wrap; }
+.tour-thumb.is-open { flex: 1 1 100%; margin-top: 2px; }
+.tour-thumb.is-open img { width: 100%; height: auto; aspect-ratio: 4 / 3; }
 /* Rullningssignalen (#1866): en tonad nederkant ovanför knapparna och raden Fortsätt läsa, så länge kortet har mer att rulla */
 .tour-more { position: absolute; left: 0; right: 0; bottom: 100%; box-sizing: border-box; display: flex; align-items: flex-end; justify-content: center; gap: 6px; height: 36px; padding: 0 0 5px; border: 0; background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--night-2) 92%, transparent) 70%, var(--night-2)); color: var(--brass); font: 600 12px/1.2 var(--f-mono); letter-spacing: .06em; cursor: pointer; }
 .tour-more[hidden] { display: none; }

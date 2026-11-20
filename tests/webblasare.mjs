@@ -2478,8 +2478,8 @@ async function run(browser, vp) {
     }
   });
 
-  // #1794: bilden i turkortet. Ingen bild ligger i turen ännu (den väntar på en licenskontrollerad fil), så kontrollen lägger in ett steg med en
-  // bild i webbläsaren (turens JSON och en befintlig bildfil i stället för en ny) och provar visningen: alt och kredit, och att kortet ryms.
+  // #1794: bilden i turkortet. Kontrollen byter stegets bild mot en provbild i webbläsaren (turens JSON och en befintlig bildfil i stället för en ny),
+  // så att den inte hänger på den riktiga bilden (#1981), och provar visningen: alt och kredit, och att kortet ryms.
   await check('turkortet: en bild i steget visas med bildtext och kredit, och Nästa syns fortfarande utan rullning (#1794)', async () => {
     const lp = await context.newPage();
     const errs = [];
@@ -2592,6 +2592,8 @@ async function run(browser, vp) {
           capAfterText: q('tour-text').nextElementSibling === q('tour-figure-cap'), capInFigure: q('tour-figure').contains(q('tour-figure-cap')),
           capShown: q('tour-figure-cap').getClientRects().length > 0, capText: q('tour-figure-caption').textContent.length > 10,
           label: q('tour-figure-link').getAttribute('aria-label'), href: q('tour-figure-link').getAttribute('href'), target: q('tour-figure-link').target,
+          role: q('tour-figure-link').getAttribute('role'), expanded: q('tour-figure-link').getAttribute('aria-expanded'), alt: q('tour-figure-img').alt,
+          caption: q('tour-figure-caption').textContent,
           headTop: r('tour-title').top, thumbTop: r('tour-figure-link').top,
           canScroll: card.scrollHeight - card.clientHeight > 8, moreShown: !more.hidden && more.getClientRects().length > 0, moreText: more.textContent.trim(), moreH: Math.round(more.getBoundingClientRect().height),
           coarse: matchMedia('(pointer: coarse)').matches, scrollTop: Math.round(card.scrollTop),
@@ -2600,12 +2602,31 @@ async function run(browser, vp) {
       });
       await load('a');
       const long = await measure();
-      if (!long.href.endsWith('kinesiska-muren.webp') || long.target !== '_blank' || !/Öppna bilden i full storlek/.test(long.label ?? '')) throw new Error(`bildlänken: ${long.href}, ${long.target}, "${long.label}"`);
+      // På dator öppnar bilden sig i full storlek; i smal skärm är tumnageln en knapp som förstorar bilden i kortet (#1981). Alt-texten är bildtexten.
+      const wantLabel = narrowCard ? /Förstora bilden/ : /Öppna bilden i full storlek/;
+      if (!long.href.endsWith('kinesiska-muren.webp') || long.target !== '_blank' || !wantLabel.test(long.label ?? '')) throw new Error(`bildlänken: ${long.href}, ${long.target}, "${long.label}"`);
+      if (!long.alt || long.alt !== long.caption || !(long.label ?? '').startsWith(long.alt)) throw new Error(`alt-texten är inte bildtexten: "${long.alt}" mot "${long.caption}"`);
       if (!long.capAfterText || long.capInFigure || !long.capShown || !long.capText) throw new Error(`bildtexten ligger inte efter texten (efter ${long.capAfterText}, i figuren ${long.capInFigure})`);
       if (narrowCard) {
         if (!long.thumb || !long.inHead || long.figShown) throw new Error(`ingen tumnagel bredvid rubriken (tumnagel ${long.thumb}, i raden ${long.inHead}, figuren syns ${long.figShown})`);
         if (long.imgW < 44 || long.imgH < 44 || long.imgW > 96) throw new Error(`tumnageln är ${long.imgW} × ${long.imgH} px`);
         if (Math.abs(long.thumbTop - long.headTop) > 14) throw new Error(`tumnageln ligger inte vid rubriken (${long.thumbTop} mot ${long.headTop})`);
+        // #1981: ett tryck förstorar tumnageln i kortet (ingen ny flik, ingen horisontell rullning), ett tryck till gör den liten; Mellanslag gör samma sak
+        if (long.role !== 'button' || long.expanded !== 'false') throw new Error(`tumnageln är ingen knapp (roll ${long.role}, aria-expanded ${long.expanded})`);
+        const pagesBefore = context.pages().length, urlBefore = lp.url();
+        await lp.click('#tour-figure-link');
+        await lp.waitForFunction(() => document.getElementById('tour-figure-link').classList.contains('is-open'), null, { timeout: T.step });
+        const open = await measure();
+        if (open.expanded !== 'true' || !/Förminska bilden/.test(open.label ?? '')) throw new Error(`förstorad: aria-expanded ${open.expanded}, "${open.label}"`);
+        if (open.imgW < 300 || open.imgW <= long.imgW) throw new Error(`den förstorade bilden är ${open.imgW} × ${open.imgH} px`);
+        if (open.wide) throw new Error('den förstorade bilden ger horisontell rullning');
+        if (context.pages().length !== pagesBefore || lp.url() !== urlBefore) throw new Error('tumnageln öppnade en ny sida i stället för att förstora bilden');
+        await lp.focus('#tour-figure-link');
+        await lp.keyboard.press(' ');
+        await lp.waitForFunction(() => !document.getElementById('tour-figure-link').classList.contains('is-open'), null, { timeout: T.step });
+        const shut = await measure();
+        if (shut.expanded !== 'false' || shut.imgW > 96) throw new Error(`liten igen: aria-expanded ${shut.expanded}, ${shut.imgW} px`);
+        await lp.evaluate(() => { document.getElementById('tour-card').scrollTop = 0; });
       } else {
         if (long.thumb || !long.figShown || long.imgH > 90) throw new Error(`på dator ska bilden vara lägre, inte en tumnagel: ${long.imgH} px, tumnagel ${long.thumb}`);
       }
@@ -2626,7 +2647,7 @@ async function run(browser, vp) {
       if (small.imgH < 95) throw new Error(`kort text: bilden är ${small.imgH} px, väntade den fulla bilden`);
       if (small.moreShown) throw new Error('Fortsätt läsa syns fast kortet ryms');
       if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
-      return `lång text: ${narrowCard ? `tumnagel ${long.imgW} × ${long.imgH} px bredvid rubriken` : `bild ${long.imgW} × ${long.imgH} px`}, bildtexten efter texten, Fortsätt läsa (${long.moreH} px) rullar och försvinner nedtill; kort text: full bild ${small.imgH} px och ingen rullningsrad`;
+      return `lång text: ${narrowCard ? `tumnagel ${long.imgW} × ${long.imgH} px bredvid rubriken, förstoras i kortet och blir liten igen` : `bild ${long.imgW} × ${long.imgH} px`}, bildtexten efter texten, Fortsätt läsa (${long.moreH} px) rullar och försvinner nedtill; kort text: full bild ${small.imgH} px och ingen rullningsrad`;
     } finally {
       await lp.close();
     }

@@ -468,6 +468,7 @@ export class TourPlayer {
     this.app.narrow.addEventListener?.('change', () => { if (this.tour && this.step) { this.renderFigure(this.step); this.updateMore(); } });
     // Bilden och texten kan växa efter att steget ritats (bilden laddas, kortet byter storlek): mät om då
     document.getElementById('tour-figure-img')?.addEventListener('load', () => this.updateMore());
+    this.setupThumb();
     if (typeof ResizeObserver === 'function') {
       const ro = new ResizeObserver(() => this.updateMore());
       for (const el of [this.card, this.text, document.getElementById('tour-endcard-body')]) if (el) ro.observe(el);
@@ -484,9 +485,38 @@ export class TourPlayer {
   }
 
   /**
+   * Tumnageln i smal skärm (#1981): ett tryck förstorar bilden i kortet (bildens hela bredd under rubriken) och ett tryck till gör den liten
+   * igen, i stället för att lämna sidan. Länken bär rollen knapp medan den är tumnagel, så Mellanslag och Retur fungerar och läget läses upp.
+   */
+  setupThumb() {
+    const link = document.getElementById('tour-figure-link');
+    if (!link) return;
+    link.addEventListener('click', e => {
+      if (!link.classList.contains('tour-thumb')) return; // på dator och utan tumnagel öppnar länken bilden i full storlek som förut
+      e.preventDefault();
+      this.setThumbOpen(!link.classList.contains('is-open'));
+    });
+    link.addEventListener('keydown', e => {
+      if (e.key !== ' ' || !link.classList.contains('tour-thumb')) return;
+      e.preventDefault();
+      this.setThumbOpen(!link.classList.contains('is-open'));
+    });
+  }
+
+  /** Tumnageln förstorad eller liten: knappens läge och namn följer med (bildtexten först, så att alt och namn säger samma sak). */
+  setThumbOpen(open) {
+    const link = document.getElementById('tour-figure-link'), caption = document.getElementById('tour-figure-img').alt;
+    link.classList.toggle('is-open', open);
+    document.getElementById('tour-headrow')?.classList.toggle('has-open-thumb', open);
+    link.setAttribute('aria-expanded', String(open));
+    link.setAttribute('aria-label', `${caption}. ${ui(open ? 'tour.figureShrink' : 'tour.figureEnlarge')}`);
+    this.updateMore();
+  }
+
+  /**
    * Bilden i steget (#1794): bildtexten är alt-texten, krediten och licensen står under, och bilden öppnas i full storlek med ett tryck.
    * Är stegets text lång (#1866) dras bilden ihop så att texten får plats: i smal skärm blir den en tumnagel bredvid rubriken, annars en
-   * lägre bild, och bildtexten flyttas under texten i stället för att stå mellan bilden och texten.
+   * lägre bild, och bildtexten flyttas under texten i stället för att stå mellan bilden och texten. Tumnageln förstoras i kortet (#1981).
    */
   renderFigure(step) {
     const fig = document.getElementById('tour-figure'), img = step.image;
@@ -494,7 +524,9 @@ export class TourPlayer {
     const link = document.getElementById('tour-figure-link'), cap = document.getElementById('tour-figure-cap');
     const head = document.getElementById('tour-headrow');
     // Allt tillbaka på sin plats först, så att nästa steg börjar rent
-    link.classList.remove('tour-thumb');
+    link.classList.remove('tour-thumb', 'is-open');
+    head?.classList.remove('has-open-thumb');
+    link.removeAttribute('role'); link.removeAttribute('aria-expanded');
     fig.prepend(link); fig.append(cap);
     fig.hidden = !img;
     if (!img) return;
@@ -511,8 +543,10 @@ export class TourPlayer {
     this.text.after(cap); // texten före bildtexten
     if (this.app.narrow.matches) { // tumnagel bredvid rubriken; figuren blir tom
       link.classList.add('tour-thumb');
+      link.setAttribute('role', 'button');
       head.append(link);
       fig.hidden = true;
+      this.setThumbOpen(false); // tumnageln förstoras med ett tryck i kortet (#1981)
     }
   }
 
