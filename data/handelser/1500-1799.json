@@ -5069,6 +5069,21 @@
     "sv": "En expedition från Ostindiska kompaniet under Jan van Riebeeck grundar 1652 en station vid Godahoppsudden. Den blir Kapstaden och början på Kapkolonin. Marken vid foten av Taffelberget var khoikhoifolkets betesmark, och när nybyggarna tog den började det första av krigen mellan khoikhoi och nederländarna. Krig och smittkoppor, bland annat 1713 och 1755, bröt sedan ner khoikhoisamhällena, och de drevs bort bortom kolonins gränser.",
     "en": "In 1652 an expedition from the Dutch East India Company under Jan van Riebeeck founds a station at the Cape of Good Hope. It becomes Cape Town and the beginning of the Cape Colony. The land at the foot of Table Mountain was the grazing ground of the Khoikhoi, and when the settlers took it, the first of the wars between the Khoikhoi and the Dutch began. War and smallpox, including in 1713 and 1755, then broke down Khoikhoi societies, and they were driven out beyond the borders of the colony."
    },
+   "image": {
+    "file": "images/events/kapkolonin-1652.webp",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+     "sv": "Jan van Riebeeck kommer till Taffelbukten i april 1652, som konstnären Charles Davidson Bell föreställde sig det i en målning från före 1851, två sekel senare. Målningen är en europeisk tolkning och ingen samtida bild. Licens: Public domain.",
+     "en": "Jan van Riebeeck arrives in Table Bay in April 1652, as the artist Charles Davidson Bell imagined it two centuries later in a painting painted before 1851. The painting is a European interpretation, not a contemporary picture. Licence: public domain.",
+     "de": "Jan van Riebeeck kommt im April 1652 in der Tafelbucht an, so wie der Künstler Charles Davidson Bell es sich in einem Gemälde aus der Zeit vor 1851, zwei Jahrhunderte später, vorstellte. Das Gemälde ist eine europäische Deutung und kein zeitgenössisches Bild. Lizenz: gemeinfrei.",
+     "es": "Jan van Riebeeck llega a la bahía de la Mesa en abril de 1652, tal como lo imaginó el artista Charles Davidson Bell en un cuadro anterior a 1851, dos siglos después. El cuadro es una interpretación europea y no una imagen de la época. Licencia: dominio público.",
+     "fr": "Jan van Riebeeck arrive dans la baie de la Table en avril 1652, tel que l’artiste Charles Davidson Bell l’a imaginé dans un tableau antérieur à 1851, deux siècles plus tard. Le tableau est une interprétation européenne et non une image d’époque. Licence : domaine public."
+    },
+    "credit": "Charles Davidson Bell / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-kapkolonin-1652"
+   },
    "wikidata": "Q4807130",
    "sources": [
     "wp-dutch-cape-colony",
@@ -6404,6 +6419,21 @@
     "sv": "Mellan 1593 och 1596 byggdes Fort Jesus på Mombasaön för att skydda den gamla hamnen. Fästningen ritades av den italienske arkitekten Giovanni Battista Cairati, men byggmaterial, murteknik och arbetskraft kom troligen från swahilifolket. Efter en belägring 1696–1698 tog araber från Oman fortet, vilket i stort sett gjorde slut på den portugisiska närvaron på kusten.",
     "en": "Between 1593 and 1596 Fort Jesus was built on Mombasa Island to protect the old harbour. The fortress was designed by the Italian architect Giovanni Battista Cairati, but building materials, masonry technique and labour probably came from the Swahili people. After a siege in 1696–1698, Arabs from Oman took the fort, which largely put an end to the Portuguese presence on the coast."
    },
+   "image": {
+    "file": "images/events/fort-jesus-byggs.webp",
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+     "sv": "Muren och ingången till Fort Jesus i Mombasa. Nutida foto (2010). Foto: Mutisya Maingi. Licens: CC BY-SA 4.0.",
+     "en": "The walls and entrance of Fort Jesus in Mombasa. Modern photograph (2010). Photograph: Mutisya Maingi. Licence: CC BY-SA 4.0.",
+     "de": "Die Mauer und der Eingang von Fort Jesus in Mombasa. Heutiges Foto (2010). Foto: Mutisya Maingi. Lizenz: CC BY-SA 4.0.",
+     "es": "La muralla y la entrada de Fort Jesus en Mombasa. Foto actual (2010). Foto: Mutisya Maingi. Licencia: CC BY-SA 4.0.",
+     "fr": "Le mur et l’entrée du fort Jésus à Mombasa. Photo actuelle (2010). Photo : Mutisya Maingi. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Mutisya Maingi / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-fort-jesus-byggs"
+   },
    "wikidata": "Q379080",
    "sources": [
     "wp-fort-jesus",
@@ -6437,6 +6467,21 @@
    "summary": {
     "sv": "År 1624 tog Nzinga makten i Ndongo, ett mbundu-rike i nuvarande norra Angola, efter sin bror. Hon kämpade i decennier mot Portugal, som förklarade krig mot Ndongo 1626. Hon erövrade grannriket Matamba 1631–1635 och slöt förbund med nederländarna. Ett fredsavtal med Portugal undertecknades 1656, och hon styrde till sin död den 17 december 1663. I dag ses hon som en viktig historisk gestalt i Angola.",
     "en": "In 1624 Nzinga took power in Ndongo, a Mbundu kingdom in present-day northern Angola, after her brother. She fought for decades against Portugal, which declared war on Ndongo in 1626. She conquered the neighbouring kingdom of Matamba in 1631–1635 and allied herself with the Dutch. A peace treaty with Portugal was signed in 1656, and she ruled until her death on 17 December 1663. Today she is seen as an important historical figure in Angola."
+   },
+   "image": {
+    "file": "images/events/nzinga-drottning-av-ndongo.webp",
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+     "sv": "Nzinga som ”Ann Zingha, Queen of Matamba” på en litografi av den franske konstnären Achille Devéria från 1830-talet, senare handkolorerad av en okänd person (National Portrait Gallery, London). Bilden gjordes i Europa långt efter hennes död och visar inte hur hon såg ut. Licens: Public domain.",
+     "en": "Nzinga as “Ann Zingha, Queen of Matamba” in a lithograph by the French artist Achille Devéria from the 1830s, later hand-coloured by an unknown colourist (National Portrait Gallery, London). The picture was made in Europe long after her death and does not show what she looked like. Licence: public domain.",
+     "de": "Nzinga als „Ann Zingha, Queen of Matamba“ auf einer Lithografie des französischen Künstlers Achille Devéria aus den 1830er-Jahren, später von unbekannter Hand koloriert (National Portrait Gallery, London). Das Bild entstand in Europa lange nach ihrem Tod und zeigt nicht, wie sie aussah. Lizenz: gemeinfrei.",
+     "es": "Nzinga como «Ann Zingha, Queen of Matamba» en una litografía del artista francés Achille Devéria, de la década de 1830, coloreada a mano más tarde por una persona desconocida (National Portrait Gallery, Londres). La imagen se hizo en Europa mucho después de su muerte y no muestra cómo era. Licencia: dominio público.",
+     "fr": "Nzinga en « Ann Zingha, Queen of Matamba » sur une lithographie de l’artiste français Achille Devéria, des années 1830, coloriée à la main plus tard par une personne inconnue (National Portrait Gallery, Londres). L’image a été faite en Europe longtemps après sa mort et ne montre pas à quoi elle ressemblait. Licence : domaine public."
+    },
+    "credit": "Achille Devéria / National Portrait Gallery, London / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-nzinga-drottning-av-ndongo"
    },
    "wikidata": "Q467650",
    "sources": [
@@ -6482,6 +6527,21 @@
      "sv": "Wikipedia säger att Fasilides grundade Gondar 1636. Wikidata anger 1635 som året då staden grundades.",
      "en": "Wikipedia says that Fasilides founded Gondar in 1636. Wikidata gives 1635 as the year the town was founded."
     }
+   },
+   "image": {
+    "file": "images/events/gondar-blir-etiopiens-huvudstad.webp",
+    "kind": "historisk",
+    "style": "islamisk",
+    "caption": {
+     "sv": "Murar och byggnader i borgområdet Fasil Ghebbi i Gondar. Nutida foto (2012). Foto: Martijn Munneke. Licens: CC BY 2.0.",
+     "en": "Walls and buildings in the Fasil Ghebbi fortress enclosure in Gondar. Modern photograph (2012). Photograph: Martijn Munneke. Licence: CC BY 2.0.",
+     "de": "Mauern und Gebäude in der Festungsanlage Fasil Ghebbi in Gondar. Heutiges Foto (2012). Foto: Martijn Munneke. Lizenz: CC BY 2.0.",
+     "es": "Murallas y edificios del recinto fortificado de Fasil Ghebbi, en Gondar. Foto actual (2012). Foto: Martijn Munneke. Licencia: CC BY 2.0.",
+     "fr": "Murs et bâtiments de l’enceinte fortifiée de Fasil Ghebbi, à Gondar. Photo actuelle (2012). Photo : Martijn Munneke. Licence : CC BY 2.0."
+    },
+    "credit": "Martijn Munneke / Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "source": "commons-bild-gondar-blir-etiopiens-huvudstad"
    },
    "wikidata": "Q218861",
    "sources": [
@@ -6686,6 +6746,21 @@
     "es": "En 1515 se construye la mezquita de Agadez, el mismo año en que la ciudad pasa al Imperio songhai. La mezquita, con un alminar de adobe, fue restaurada y reconstruida en parte en 1844. Todavía reúne a miles de musulmanes para la oración del viernes.",
     "fr": "En 1515, la mosquée d'Agadez est construite, l'année même où la ville passe sous l'Empire songhaï. La mosquée, au minaret en briques de terre crue, fut restaurée et en partie reconstruite en 1844. Elle rassemble encore des milliers de musulmans pour la prière du vendredi."
    },
+   "image": {
+    "file": "images/events/agadez-mosken.webp",
+    "kind": "historisk",
+    "style": "islamisk",
+    "caption": {
+     "sv": "Den stora moskén i Agadez med sin minaret, sedd från en gång mellan murar bakom moskén. Nutida foto (2018). Foto: Vincent van Zeijst. Licens: CC BY-SA 4.0.",
+     "en": "The Great Mosque of Agadez with its minaret, seen from a walled passage behind the mosque. Modern photograph (2018). Photograph: Vincent van Zeijst. Licence: CC BY-SA 4.0.",
+     "de": "Die Große Moschee von Agadez mit ihrem Minarett, gesehen von einem ummauerten Gang hinter der Moschee. Heutiges Foto (2018). Foto: Vincent van Zeijst. Lizenz: CC BY-SA 4.0.",
+     "es": "La Gran Mezquita de Agadez con su minarete, vista desde un pasaje entre muros detrás de la mezquita. Foto actual (2018). Foto: Vincent van Zeijst. Licencia: CC BY-SA 4.0.",
+     "fr": "La Grande Mosquée d’Agadez et son minaret, vue depuis un passage entre des murs derrière la mosquée. Photo actuelle (2018). Photo : Vincent van Zeijst. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Vincent van Zeijst / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-agadez-mosken"
+   },
    "sources": [
     "wp-agadez-mosque"
    ],
@@ -6726,6 +6801,21 @@
     "es": "En 1520 el sultán Abu Bakr ibn Muhammad convierte la ciudad de Harar en la nueva capital del sultanato de Adal. En la época de Adal, en el siglo XVI, la ciudad recibe una muralla. El antiguo casco fortificado, Harar Jugol, fue declarado patrimonio mundial en 2006.",
     "fr": "En 1520, le sultan Abu Bakr ibn Muhammad fait de la ville de Harar la nouvelle capitale du sultanat d'Adal. À l'époque d'Adal, au XVIe siècle, la ville se dote d'une muraille. La vieille ville fortifiée, Harar Jugol, a été inscrite au patrimoine mondial en 2006."
    },
+   "image": {
+    "file": "images/events/harar-adals-huvudstad.webp",
+    "kind": "historisk",
+    "style": "miniatyr",
+    "caption": {
+     "sv": "Stadsmuren i Harar nära porten Buda. Nutida foto (2018). Foto: Sailko. Licens: CC BY 3.0.",
+     "en": "The city wall of Harar near the Buda Gate. Modern photograph (2018). Photograph: Sailko. Licence: CC BY 3.0.",
+     "de": "Die Stadtmauer von Harar nahe dem Buda-Tor. Heutiges Foto (2018). Foto: Sailko. Lizenz: CC BY 3.0.",
+     "es": "La muralla de Harar cerca de la puerta de Buda. Foto actual (2018). Foto: Sailko. Licencia: CC BY 3.0.",
+     "fr": "Les remparts de Harar près de la porte de Buda. Photo actuelle (2018). Photo : Sailko. Licence : CC BY 3.0."
+    },
+    "credit": "Sailko / Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "source": "commons-bild-harar-adals-huvudstad"
+   },
    "sources": [
     "wp-harar"
    ],
@@ -6765,6 +6855,21 @@
     "de": "Um 1655 schreibt al-Sa'di, der Chronist von Timbuktu, die Tarikh al-Sudan auf Arabisch. Sie ist die wichtigste Quelle zur Geschichte des Songhai-Reiches, von der Mitte des 15. Jahrhunderts bis zur marokkanischen Invasion 1591, und berichtet dann über Timbuktu unter marokkanischer Herrschaft bis 1655. Al-Sa'di wurde 1594 geboren und wurde 1646 oberster Sekretär der Verwaltung in Timbuktu.",
     "es": "Hacia 1655 al-Sa'di, el cronista de Tombuctú, escribe en árabe el Tarikh al-Sudan. Es la fuente más importante sobre la historia del Imperio songhai, desde mediados del siglo XV hasta la invasión marroquí de 1591, y después narra la vida de Tombuctú bajo dominio marroquí hasta 1655. Al-Sa'di nació en 1594 y en 1646 fue nombrado secretario principal de la administración de Tombuctú.",
     "fr": "Vers 1655, al-Sa'di, chroniqueur de Tombouctou, écrit en arabe le Tarikh al-Sudan. C'est la principale source sur l'histoire de l'Empire songhaï, du milieu du XVe siècle à l'invasion marocaine de 1591, puis il raconte Tombouctou sous domination marocaine jusqu'en 1655. Al-Sa'di naquit en 1594 et devint en 1646 secrétaire en chef de l'administration de Tombouctou."
+   },
+   "image": {
+    "file": "images/events/tarikh-al-sudan.webp",
+    "kind": "historisk",
+    "style": "islamisk",
+    "caption": {
+     "sv": "Två sidor ur en handskrift av Tarikh al-Sudan (Bibliothèque nationale de France, Arabe 6096), fotograferade på en utställning om islams skatter i Afrika i Rabat 2019. Licens: CC BY-SA 4.0.",
+     "en": "Two pages from a manuscript of the Tarikh al-Sudan (Bibliothèque nationale de France, Arabe 6096), photographed at an exhibition on the treasures of Islam in Africa in Rabat in 2019. Licence: CC BY-SA 4.0.",
+     "de": "Zwei Seiten aus einer Handschrift des Tarikh al-Sudan (Bibliothèque nationale de France, Arabe 6096), fotografiert 2019 in einer Ausstellung über die Schätze des Islam in Afrika in Rabat. Lizenz: CC BY-SA 4.0.",
+     "es": "Dos páginas de un manuscrito del Tarikh al-Sudan (Bibliothèque nationale de France, Arabe 6096), fotografiadas en una exposición sobre los tesoros del islam en África en Rabat, en 2019. Licencia: CC BY-SA 4.0.",
+     "fr": "Deux pages d’un manuscrit du Tarikh al-Sudan (Bibliothèque nationale de France, Arabe 6096), photographiées lors d’une exposition sur les trésors de l’islam en Afrique à Rabat en 2019. Licence : CC BY-SA 4.0."
+    },
+    "credit": "إيان / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-tarikh-al-sudan"
    },
    "sources": [
     "wp-tarikh-al-sudan",
@@ -6938,6 +7043,21 @@
      "es": "Se desconoce el año exacto. La ficha de Wikipedia indica mediados del siglo XVIII, y la introducción dice que el ave estaba extinguida a finales del siglo XVIII.",
      "fr": "L'année exacte est inconnue. L'infobox de Wikipédia indique le milieu du XVIIIe siècle, et l'introduction dit que l'oiseau avait disparu à la fin du XVIIIe siècle."
     }
+   },
+   "image": {
+    "file": "images/events/rodriguessolitaren-dor-ut.webp",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+     "sv": "Rodriguessolitären (”Le Solitaire”) i François Leguats reseskildring från 1708, här som faksimil i 1891 års engelska utgåva. Licens: Public domain.",
+     "en": "The Rodrigues solitaire (“Le Solitaire”) in François Leguat’s travel account from 1708, here as a facsimile in the English edition of 1891. Licence: public domain.",
+     "de": "Der Rodrigues-Solitär („Le Solitaire“) in François Leguats Reisebericht von 1708, hier als Faksimile in der englischen Ausgabe von 1891. Lizenz: gemeinfrei.",
+     "es": "El solitario de Rodrigues («Le Solitaire») en el relato de viaje de François Leguat de 1708, aquí como facsímil en la edición inglesa de 1891. Licencia: dominio público.",
+     "fr": "Le solitaire de Rodrigues (« Le Solitaire ») dans le récit de voyage de François Leguat de 1708, ici en fac-similé dans l’édition anglaise de 1891. Licence : domaine public."
+    },
+    "credit": "François Leguat / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-rodriguessolitaren-dor-ut"
    },
    "sources": [
     "wp-rodrigues-solitaire",
@@ -8479,6 +8599,21 @@
     "es": "El antílope azul, que solo vivía en el suroeste del Cabo, fue cazado hasta su extinción por los colonos europeos. El último ejemplar fue abatido en 1799 o 1800, probablemente en los alrededores de Swellendam. Es el primer caso registrado en tiempos históricos de extinción de una especie de gran mamífero africano.",
     "fr": "L'hippotrague bleu, une antilope présente seulement dans le sud-ouest du Cap, fut chassé jusqu'à l'extinction par les colons européens. Le dernier animal fut abattu en 1799 ou 1800, probablement dans les environs de Swellendam. C'est le premier cas historiquement connu d'extinction d'une grande espèce de mammifère africain."
    },
+   "image": {
+    "file": "images/events/blabocken-utrotas.webp",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+     "sv": "Blåbock (Antilope leucophaea) på ett handkolorerat kopparstick ur en utgåva av Buffons naturhistoria, band XV, plansch LV, med rubriken ”Le Tzeiran”. Licens: Public domain.",
+     "en": "Bluebuck (Antilope leucophaea) in a hand-coloured copper engraving from an edition of Buffon’s natural history, volume XV, plate LV, titled “Le Tzeiran”. Licence: public domain.",
+     "de": "Blaubock (Antilope leucophaea) auf einem handkolorierten Kupferstich aus einer Ausgabe von Buffons Naturgeschichte, Band XV, Tafel LV, mit der Überschrift „Le Tzeiran“. Lizenz: gemeinfrei.",
+     "es": "Antílope azul (Antilope leucophaea) en un grabado en cobre coloreado a mano de una edición de la historia natural de Buffon, tomo XV, lámina LV, con el título «Le Tzeiran». Licencia: dominio público.",
+     "fr": "Hippotrague bleu (Antilope leucophaea) sur une gravure sur cuivre coloriée à la main, tirée d’une édition de l’histoire naturelle de Buffon, tome XV, planche LV, intitulée « Le Tzeiran ». Licence : domaine public."
+    },
+    "credit": "Ur Buffons Histoire naturelle, plansch ur Universiteit van Amsterdam Special Collections / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-blabocken-utrotas"
+   },
    "sources": [
     "wp-bluebuck"
    ],
@@ -8705,6 +8840,21 @@
     "de": "Mitte Juli 1799, während der französischen Invasion Ägyptens, rissen französische Soldaten im Fort Julien bei der Hafenstadt Rashid im Nildelta eine Mauer ab. Leutnant Pierre-François Bouchard bemerkte, dass einer der Steine Inschriften trug. Der Stein trägt denselben Text in drei Fassungen: in Hieroglyphen, in demotischer Schrift und auf Griechisch. Er wurde zum Schlüssel für die Hieroglyphen, und 1822 legte Jean-François Champollion in Paris dar, wie die Schriften zu lesen sind.",
     "es": "A mediados de julio de 1799, durante la invasión francesa de Egipto, unos soldados franceses derribaban un muro en el fuerte Julien, cerca del puerto de Rashid, en el delta del Nilo. El teniente Pierre-François Bouchard vio que una de las piedras tenía inscripciones. La piedra contiene el mismo texto en tres versiones: en jeroglíficos, en escritura demótica y en griego. Se convirtió en la clave de los jeroglíficos, y en 1822 Jean-François Champollion expuso en París cómo leer las escrituras.",
     "fr": "À la mi-juillet 1799, pendant l’invasion française de l’Égypte, des soldats français démolissaient un mur du fort Julien, près du port de Rachid, dans le delta du Nil. Le lieutenant Pierre-François Bouchard remarqua qu’une des pierres portait des inscriptions. La pierre porte le même texte en trois versions : en hiéroglyphes, en écriture démotique et en grec. Elle devint la clé des hiéroglyphes, et en 1822 Jean-François Champollion exposa à Paris comment lire ces écritures."
+   },
+   "image": {
+    "file": "images/events/rosettastenen-hittas.webp",
+    "kind": "historisk",
+    "style": "islamisk",
+    "caption": {
+     "sv": "Rosettastenen i British Museum i London. Nutida foto (2007). Foto: Hans Hillewaert. Licens: CC BY-SA 4.0.",
+     "en": "The Rosetta Stone in the British Museum in London. Modern photograph (2007). Photograph: Hans Hillewaert. Licence: CC BY-SA 4.0.",
+     "de": "Der Stein von Rosette im British Museum in London. Heutiges Foto (2007). Foto: Hans Hillewaert. Lizenz: CC BY-SA 4.0.",
+     "es": "La piedra de Rosetta en el British Museum de Londres. Foto actual (2007). Foto: Hans Hillewaert. Licencia: CC BY-SA 4.0.",
+     "fr": "La pierre de Rosette au British Museum à Londres. Photo actuelle (2007). Photo : Hans Hillewaert. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Hans Hillewaert / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-rosettastenen-hittas"
    },
    "sources": [
     "wp-rosetta-stone",
@@ -9079,6 +9229,21 @@
     "es": "El 11 de marzo de 1792 afroamericanos que habían sido esclavizados fundaron Freetown, en Sierra Leona. Más de 1100 de ellos navegaron en 15 barcos hasta Sierra Leona con el abolicionista John Clarkson, y 64 murieron en el viaje. Junto a un gran árbol de algodón celebraron un servicio de acción de gracias, y el lugar recibió el nombre de Free Town. Freetown se convirtió en un asentamiento para africanos libres y liberados, y sus descendientes se conocen como criollos.",
     "fr": "Le 11 mars 1792, des Afro-Américains qui avaient été réduits en esclavage fondèrent Freetown, en Sierra Leone. Plus de 1 100 d’entre eux gagnèrent la Sierra Leone à bord de 15 navires avec l’abolitionniste John Clarkson, et 64 moururent pendant le voyage. Au pied d’un grand fromager, ils célébrèrent un office d’action de grâce, et le lieu fut baptisé Free Town. Freetown devint un lieu d’établissement pour des Africains libres et affranchis, dont les descendants sont appelés Créoles."
    },
+   "image": {
+    "file": "images/events/freetown-grundas.webp",
+    "kind": "historisk",
+    "style": "benin",
+    "caption": {
+     "sv": "”A View of Free-town on the River Sierra Leone”, kopparstick ur Thomas Masterman Winterbottoms bok om Sierra Leone från 1803, elva år efter grundandet. Licens: Public domain.",
+     "en": "“A View of Free-town on the River Sierra Leone”, a copper engraving from Thomas Masterman Winterbottom’s book on Sierra Leone from 1803, eleven years after the founding. Licence: public domain.",
+     "de": "„A View of Free-town on the River Sierra Leone“, Kupferstich aus Thomas Masterman Winterbottoms Buch über Sierra Leone von 1803, elf Jahre nach der Gründung. Lizenz: gemeinfrei.",
+     "es": "«A View of Free-town on the River Sierra Leone», grabado en cobre del libro de Thomas Masterman Winterbottom sobre Sierra Leona de 1803, once años después de la fundación. Licencia: dominio público.",
+     "fr": "« A View of Free-town on the River Sierra Leone », gravure sur cuivre tirée du livre de Thomas Masterman Winterbottom sur la Sierra Leone, de 1803, onze ans après la fondation. Licence : domaine public."
+    },
+    "credit": "Thomas Masterman Winterbottom (bok, 1803) / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-freetown-grundas"
+   },
    "wikidata": "Q3780",
    "sources": [
     "wp-freetown",
@@ -9138,6 +9303,21 @@
      "es": "No se sabe con certeza cuándo se construyó la mezquita; la fuente indica el siglo XIV o comienzos del XV. El acontecimiento muestra el apogeo del siglo XVI hasta la deportación de los sabios en 1594. Las cifras de escuelas y alumnos son estimaciones.",
      "fr": "La date de construction de la mosquée est incertaine ; la source indique le XIVe siècle ou le début du XVe siècle. L’événement montre l’âge d’or du XVIe siècle jusqu’à la déportation des savants en 1594. Les chiffres concernant les écoles et les élèves sont des estimations."
     }
+   },
+   "image": {
+    "file": "images/events/larda-i-timbuktu-sankore.webp",
+    "kind": "historisk",
+    "style": "islamisk",
+    "caption": {
+     "sv": "Sankoremoskén i Timbuktu på ett vykort av fotografen François-Edmond Fortier från början av 1900-talet. Utsnitt. Licens: Public domain.",
+     "en": "The Sankore Mosque in Timbuktu on a postcard by the photographer François-Edmond Fortier from the early 20th century. Cropped. Licence: public domain.",
+     "de": "Die Sankore-Moschee in Timbuktu auf einer Postkarte des Fotografen François-Edmond Fortier vom Anfang des 20. Jahrhunderts. Ausschnitt. Lizenz: gemeinfrei.",
+     "es": "La mezquita de Sankore, en Tombuctú, en una postal del fotógrafo François-Edmond Fortier de principios del siglo XX. Detalle. Licencia: dominio público.",
+     "fr": "La mosquée de Sankoré à Tombouctou sur une carte postale du photographe François-Edmond Fortier, du début du XXe siècle. Détail. Licence : domaine public."
+    },
+    "credit": "François-Edmond Fortier / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-larda-i-timbuktu-sankore"
    },
    "sources": [
     "wp-sankore-madrasah"
