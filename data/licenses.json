@@ -384,6 +384,7 @@
         "commons-bild-stora-buddha-i-kamakura",
         "commons-bild-teotihuacan-solpyramiden",
         "commons-bild-tikal-vaxer-fram",
+        "commons-flagga-georgia-1918",
         "dewp-homburg",
         "dewp-landkreis-lindau",
         "dewp-landkreis-wangen",
@@ -3529,6 +3530,12 @@
       ]
     },
     {
+      "license": "Public domain (PD-Georgia, PD-self)",
+      "sourceIds": [
+        "commons-flagga-georgia-1990"
+      ]
+    },
+    {
       "license": "Public domain (PD-Israel, PD-flag)",
       "sourceIds": [
         "commons-flagga-israel"
@@ -3569,6 +3576,12 @@
       "license": "Public domain (PD-LT-exempt, PD-self)",
       "sourceIds": [
         "commons-flagga-litauen-stat"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Lebanon)",
+      "sourceIds": [
+        "commons-flagga-lebanon-1943"
       ]
     },
     {

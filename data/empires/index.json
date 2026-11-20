@@ -37819,6 +37819,40 @@
    "file": "data/empires/georgien.json",
    "flags": [
     {
+     "file": "georgia-1918",
+     "from": 1918,
+     "to": 1921,
+     "label": {
+      "sv": "Georgiens flagga 1918–1921",
+      "en": "Georgian flag of 1918–1921",
+      "de": "Georgische Flagge von 1918–1921",
+      "es": "Bandera georgiana de 1918–1921",
+      "fr": "Drapeau géorgien de 1918–1921"
+     },
+     "sources": [
+      "wp-flag-georgia",
+      "commons-flagga-georgia-1918"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "georgia-1990",
+     "from": 1992,
+     "to": 2003,
+     "label": {
+      "sv": "Georgiens flagga 1990–2004",
+      "en": "Georgian flag of 1990–2004",
+      "de": "Georgische Flagge von 1990–2004",
+      "es": "Bandera georgiana de 1990–2004",
+      "fr": "Drapeau géorgien de 1990–2004"
+     },
+     "sources": [
+      "wp-flag-georgia",
+      "commons-flagga-georgia-1990"
+     ],
+     "review": "source-checked"
+    },
+    {
      "file": "georgia",
      "from": 2004,
      "to": 2024,
@@ -39241,6 +39275,23 @@
    "to": 2024,
    "file": "data/empires/libanon.json",
    "flags": [
+    {
+     "file": "lebanon-1943",
+     "from": 1944,
+     "to": 1989,
+     "label": {
+      "sv": "Libanons flagga från 1943",
+      "en": "Lebanese flag of 1943",
+      "de": "Libanesische Flagge von 1943",
+      "es": "Bandera libanesa de 1943",
+      "fr": "Drapeau libanais de 1943"
+     },
+     "sources": [
+      "wp-flag-lebanon",
+      "commons-flagga-lebanon-1943"
+     ],
+     "review": "source-checked"
+    },
     {
      "file": "lebanon",
      "from": 1990,
