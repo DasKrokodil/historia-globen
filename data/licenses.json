@@ -1242,6 +1242,7 @@
         "wp-flag-tunisia",
         "wp-flag-turkey",
         "wp-flag-tuvalu",
+        "wp-flag-uganda",
         "wp-flag-ukraine",
         "wp-flag-united-arab-emirates",
         "wp-flag-united-states",
@@ -3702,6 +3703,12 @@
       "license": "Public domain (PD-UZ-exempt)",
       "sourceIds": [
         "commons-flagga-uzbekistan"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Uganda, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-uganda"
       ]
     },
     {
