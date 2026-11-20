@@ -358,6 +358,12 @@
       ]
     },
     {
+      "license": "CC BY-SA 3.0 och GFDL (SVG-filen)",
+      "sourceIds": [
+        "commons-flagga-tanganyika"
+      ]
+    },
+    {
       "license": "CC BY-SA 4.0",
       "sourceIds": [
         "commons-bild-angkor-wat",
@@ -1122,6 +1128,7 @@
         "wp-flag-botswana",
         "wp-flag-brazil",
         "wp-flag-bulgaria",
+        "wp-flag-burkina-faso",
         "wp-flag-cameroon",
         "wp-flag-canada",
         "wp-flag-central-african-republic",
@@ -3760,6 +3767,7 @@
     {
       "license": "Public domain (PD-shape)",
       "sourceIds": [
+        "commons-flagga-burkina-faso",
         "commons-flagga-danmark",
         "commons-flagga-gambia",
         "commons-flagga-guinea-bissau",
@@ -3769,7 +3777,8 @@
         "commons-flagga-sao-tome-and-principe",
         "commons-flagga-singapore",
         "commons-flagga-somalia",
-        "commons-flagga-sverige"
+        "commons-flagga-sverige",
+        "commons-flagga-upper-volta"
       ]
     },
     {
