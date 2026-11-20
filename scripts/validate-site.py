@@ -631,6 +631,32 @@ def region_of(lat, lon):
             if lat >= b:
                 return y + (lat - b) / (a - b) * (x - y)
         return coast[-1][1]
+    # Stora Kaukasus huvudkam, samma som CAUCASUS_CREST i js/model.js (#2010)
+    crest = [(44.89, 37.32), (43.94, 39.9), (43.24, 41.73), (43.36, 42.44), (43.01, 43.17),
+             (42.7, 44.52), (42.57, 45.32), (41.22, 47.86), (41.02, 48.3), (40.46, 49.96)]
+
+    def north_of_caucasus(lat, lon):
+        if crest[0][1] <= lon <= crest[-1][1]:
+            for i in range(1, len(crest)):
+                a, x = crest[i - 1]
+                b, y = crest[i]
+                if lon <= y:
+                    return lat >= a + (lon - x) / (y - x) * (b - a)
+        return not (lon > 40 and lat < 44.5)
+    # Bosporen, samma som BOSPORUS i js/model.js (#2017)
+    bosporus = [(41.0, 29.0), (41.03, 29.0), (41.05, 29.035), (41.08, 29.057), (41.13, 29.079), (41.15, 29.06), (41.17, 29.072), (41.19, 29.095), (41.21, 29.115), (41.24, 29.14)]
+
+    def north_anatolia(lat, lon):
+        if not (41 <= lat < 43.2 and lon < crest[0][1]):
+            return False
+        edge = bosporus[-1][1] if lat > bosporus[0][0] else bosporus[0][1]
+        for i in range(1, len(bosporus)):
+            a, x = bosporus[i - 1]
+            b, y = bosporus[i]
+            if a <= lat <= b:
+                edge = x + (lat - a) / (b - a) * (y - x)
+                break
+        return lon >= edge
     if lat > 50 and (lon < -168 or lon > 160): return 'Asien'
     if lon < -125 and lat < 35: return 'Oceanien'
     if lon < -105 and lat < -10: return 'Oceanien'
@@ -648,7 +674,8 @@ def region_of(lat, lon):
         if africa: return 'Afrika'
     if 52 <= lon < 64 and -22 < lat < -3: return 'Afrika'  # Maskarenerna och Seychellerna (#1334)
     if 36.6 <= lat <= 40.45 and lon < 28.9 and lon > coast_lon(lat): return 'Asien'  # västra Anatolien (#1334)
-    if lat >= 35 and (lon < 28.9 or (lat >= 41 and lon < 60 and not (lon > 40 and lat < 44.5))): return 'Europa'
+    if north_anatolia(lat, lon): return 'Asien'  # Svartahavskusten (#2017)
+    if lat >= 35 and (lon < 28.9 or (lat >= 41 and lon < 60 and north_of_caucasus(lat, lon))): return 'Europa'
     return 'Asien'
 
 

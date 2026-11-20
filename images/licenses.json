@@ -3,6 +3,21 @@
   "scope": "data/events.json events[].image; data/turer/*.json steps[].image",
   "images": [
     {
+      "eventId": "agadez-mosken",
+      "eventTitle": "Moskén i Agadez byggs",
+      "file": "images/events/agadez-mosken.webp",
+      "kind": "historisk",
+      "credit": "Vincent van Zeijst / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-agadez-mosken",
+        "title": "Niger, Agadez (43), Grand Mosque – fotografi av Vincent van Zeijst, 2018 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Niger,_Agadez_(43),_Grand_Mosque.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "aksum-blir-kristet",
       "eventTitle": "Kung Ezana gör Aksum kristet",
       "file": "images/events/aksum-blir-kristet.webp",
@@ -30,6 +45,66 @@
         "url": "https://commons.wikimedia.org/wiki/File:Althingi.jpg",
         "license": "Public domain",
         "checked": "2026-11-13"
+      }
+    },
+    {
+      "eventId": "amerikanska-frihetskriget",
+      "eventTitle": "Amerikanska frihetskriget",
+      "file": "images/events/amerikanska-frihetskriget.webp",
+      "kind": "historisk",
+      "credit": "Elkanah Tisdale (teckning), Cornelius Tiebout (gravyr) / Library of Congress, Prints & Photographs Division",
+      "license": "Inga kända restriktioner (Library of Congress)",
+      "source": {
+        "id": "loc-bild-amerikanska-frihetskriget",
+        "title": "Battle of Lexington – kopparstick av Cornelius Tiebout efter Elkanah Tisdale, 1790-talet (Library of Congress, katalogpost)",
+        "url": "https://www.loc.gov/item/2004669978/",
+        "license": "No known restrictions on publication",
+        "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "amerikanska-inbordeskriget",
+      "eventTitle": "Amerikanska inbördeskriget",
+      "file": "images/events/amerikanska-inbordeskriget.webp",
+      "kind": "historisk",
+      "credit": "William Morris Smith / Library of Congress, Prints & Photographs Division (LC-B817-7890)",
+      "license": "Inga kända restriktioner (Library of Congress)",
+      "source": {
+        "id": "loc-bild-amerikanska-inbordeskriget",
+        "title": "[District of Columbia. Company E, 4th U.S. Colored Infantry, at Fort Lincoln] – fotografi av William Morris Smith, mellan 1863 och 1866, LC-B817-7890 (Library of Congress, katalogpost)",
+        "url": "https://www.loc.gov/item/2018667050/",
+        "license": "No known restrictions on publication",
+        "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "andra-slaget-vid-el-alamein",
+      "eventTitle": "Andra slaget vid el-Alamein",
+      "file": "images/events/andra-slaget-vid-el-alamein.webp",
+      "kind": "historisk",
+      "credit": "Sgt. Gladstone, No 1 Army Film & Photographic Unit / Imperial War Museum (E 18481) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-andra-slaget-vid-el-alamein",
+        "title": "El Alamein 1942: brittiska stridsvagnar på väg mot striden, 24 oktober 1942 – Imperial War Museum E 18481 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:El_Alamein_1942_-_British_tanks.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "anfallet-pa-polen",
+      "eventTitle": "Tyskland anfaller Polen",
+      "file": "images/events/anfallet-pa-polen.webp",
+      "kind": "historisk",
+      "credit": "Bundesarchiv, Bild 101I-012-0009-28A / Wittke / Wikimedia Commons",
+      "license": "CC BY-SA 3.0 DE",
+      "source": {
+        "id": "commons-bild-anfallet-pa-polen",
+        "title": "Polen, motoriserade tyska trupper, september 1939 – Bundesarchiv Bild 101I-012-0009-28A, fotograf Wittke (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_101I-012-0009-28A,_Polen,_Motorisierte_deutsche_Truppen.jpg",
+        "license": "CC BY-SA 3.0 DE",
+        "checked": "2026-11-20"
       }
     },
     {
@@ -72,6 +147,36 @@
       }
     },
     {
+      "eventId": "atombomberna-hiroshima-nagasaki",
+      "eventTitle": "Atombomberna mot Hiroshima och Nagasaki",
+      "file": "images/events/atombomberna-hiroshima-nagasaki.webp",
+      "kind": "historisk",
+      "credit": "George R. Caron, Charles Levy, U.S. Army Air Forces / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-atombomberna-hiroshima-nagasaki",
+        "title": "Atommolnen över Hiroshima och Nagasaki, 6 och 9 augusti 1945 – fotografier av George R. Caron och Charles Levy (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Atomic_bombing_of_Japan.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "attacken-mot-pearl-harbor",
+      "eventTitle": "Attacken mot Pearl Harbor",
+      "file": "images/events/attacken-mot-pearl-harbor.webp",
+      "kind": "historisk",
+      "credit": "U.S. Navy (80-G-16871) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-attacken-mot-pearl-harbor",
+        "title": "USS Shaw exploderar under anfallet på Pearl Harbor, 7 december 1941 – U.S. Navy 80-G-16871 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:US_Shaw_exploding_in_Pearl_Harbor.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "attackerna-11-september-2001",
       "eventTitle": "Terrorattackerna den 11 september",
       "file": "images/events/attackerna-11-september-2001.webp",
@@ -84,6 +189,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:WTC_smoking_on_9-11.jpeg",
         "license": "CC BY 2.0",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "auschwitz-befrias",
+      "eventTitle": "Auschwitz befrias",
+      "file": "images/events/auschwitz-befrias.webp",
+      "kind": "historisk",
+      "credit": "Bundesarchiv, Bild 183-R69919 / Wikimedia Commons",
+      "license": "CC BY-SA 3.0 DE",
+      "source": {
+        "id": "commons-bild-auschwitz-befrias",
+        "title": "KZ Auschwitz, Brillen – glasögon, januari–februari 1945 enligt bildarkivet, Bundesarchiv Bild 183-R69919 (Zentralbild) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_183-R69919,_KZ_Auschwitz,_Brillen.jpg",
+        "license": "CC BY-SA 3.0 DE",
+        "checked": "2026-11-20"
       }
     },
     {
@@ -216,6 +336,21 @@
       }
     },
     {
+      "eventId": "belagringen-av-yorktown",
+      "eventTitle": "Belägringen av Yorktown",
+      "file": "images/events/belagringen-av-yorktown.webp",
+      "kind": "historisk",
+      "credit": "François Godefroy / Library of Congress, Rare Book and Special Collections Division",
+      "license": "Inga kända restriktioner (Library of Congress)",
+      "source": {
+        "id": "loc-bild-belagringen-av-yorktown",
+        "title": "[Surrender of Cornwallis at Yorktown] – laverad teckning av François Godefroy, [1784?], ur Nicolas Ponces Recueil d'estampes (Library of Congress, katalogpost)",
+        "url": "https://www.loc.gov/item/2004671450/",
+        "license": "No known restrictions on publication in the U.S.",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "berlinkonferensen",
       "eventTitle": "Berlinkonferensen om Afrika",
       "file": "images/events/berlinkonferensen.webp",
@@ -258,6 +393,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_183-1989-1110-018%2C_Berlin%2C_Checkpoint_Charlie%2C_Nacht_des_Mauerfalls.jpg",
         "license": "CC BY-SA 3.0 DE",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "blabocken-utrotas",
+      "eventTitle": "Blåbocken utrotas",
+      "file": "images/events/blabocken-utrotas.webp",
+      "kind": "historisk",
+      "credit": "Ur Buffons Histoire naturelle, plansch ur Universiteit van Amsterdam Special Collections / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-blabocken-utrotas",
+        "title": "Bluebuck by Allamand, 1778 – Antilope leucophaea, handkolorerat kopparstick ur Buffons naturhistoria, band XV, plansch LV, Special Collections, Universiteit van Amsterdam (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Bluebuck_by_Allamand,_1778.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
       }
     },
     {
@@ -525,6 +675,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Pierre_and_Marie_Curie.jpg",
         "license": "Public domain",
         "checked": "2026-11-13"
+      }
+    },
+    {
+      "eventId": "d-dagen",
+      "eventTitle": "D-dagen, landstigningen i Normandie",
+      "file": "images/events/d-dagen.webp",
+      "kind": "historisk",
+      "credit": "Robert F. Sargent, U.S. Coast Guard / National Archives / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-d-dagen",
+        "title": "Into the Jaws of Death – amerikanska soldater går i land på Omaha Beach, 6 juni 1944, fotografi av Robert F. Sargent (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Into_the_Jaws_of_Death_23-0455M_edit.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
       }
     },
     {
@@ -801,6 +966,21 @@
       }
     },
     {
+      "eventId": "fort-jesus-byggs",
+      "eventTitle": "Portugiserna bygger Fort Jesus i Mombasa",
+      "file": "images/events/fort-jesus-byggs.webp",
+      "kind": "historisk",
+      "credit": "Mutisya Maingi / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-fort-jesus-byggs",
+        "title": "Fort Jesus Mombasa – fotografi av Mutisya Maingi, 2010 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Fort_Jesus_Mombasa.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "fotbolls-vm-1930",
       "eventTitle": "Det första fotbolls-VM",
       "file": "images/events/fotbolls-vm-1930.webp",
@@ -816,6 +996,21 @@
       }
     },
     {
+      "eventId": "frankrikes-fall",
+      "eventTitle": "Frankrikes fall",
+      "file": "images/events/frankrikes-fall.webp",
+      "kind": "historisk",
+      "credit": "Bundesarchiv, Bild 146-2004-0147 / Wikimedia Commons",
+      "license": "CC BY-SA 3.0 DE",
+      "source": {
+        "id": "commons-bild-frankrikes-fall",
+        "title": "Waffenstillstand von Compiègne, Waggon, 21 juni 1940 – Bundesarchiv Bild 146-2004-0147 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_146-2004-0147,_Waffenstillstand_von_Compi%C3%A8gne,_Waggon.jpg",
+        "license": "CC BY-SA 3.0 DE",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "freden-i-brest-litovsk",
       "eventTitle": "Freden i Brest-Litovsk",
       "file": "images/events/freden-i-brest-litovsk.webp",
@@ -827,6 +1022,21 @@
         "title": "Peace Conference at Brest-Litovsk, Bain News Service (Library of Congress)",
         "url": "https://www.loc.gov/item/2014706263/",
         "license": "No known restrictions on publication",
+        "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "freetown-grundas",
+      "eventTitle": "Befriade slavar grundar Freetown",
+      "file": "images/events/freetown-grundas.webp",
+      "kind": "historisk",
+      "credit": "Thomas Masterman Winterbottom (bok, 1803) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-freetown-grundas",
+        "title": "A View of Free-town on the River Sierra Leone – kopparstick ur Thomas Masterman Winterbottoms bok, 1803 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:A_view_of_Freetown,_1803.jpg",
+        "license": "Public domain",
         "checked": "2026-11-20"
       }
     },
@@ -918,6 +1128,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Göbekli_Tepe,_Urfa.jpg",
         "license": "CC BY-SA 3.0",
         "checked": "2026-11-07"
+      }
+    },
+    {
+      "eventId": "gondar-blir-etiopiens-huvudstad",
+      "eventTitle": "Fasilides gör Gondar till Etiopiens huvudstad",
+      "file": "images/events/gondar-blir-etiopiens-huvudstad.webp",
+      "kind": "historisk",
+      "credit": "Martijn Munneke / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-gondar-blir-etiopiens-huvudstad",
+        "title": "Fasil Ghebbi (6821473537) – fotografi av Martijn Munneke, Gondar 2012 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Fasil_Ghebbi_(6821473537).jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-20"
       }
     },
     {
@@ -1026,6 +1251,21 @@
         "url": "https://www.loc.gov/pictures/item/2021635929/",
         "license": "No known restrictions on publication",
         "checked": "2026-11-13"
+      }
+    },
+    {
+      "eventId": "harar-adals-huvudstad",
+      "eventTitle": "Harar blir Adalsultanatets huvudstad",
+      "file": "images/events/harar-adals-huvudstad.webp",
+      "kind": "historisk",
+      "credit": "Sailko / Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "source": {
+        "id": "commons-bild-harar-adals-huvudstad",
+        "title": "Harar, mura presso la porta di Buda 07 – fotografi av Sailko, 2018 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Harar,_mura_presso_la_porta_di_buda_07.jpg",
+        "license": "CC BY 3.0",
+        "checked": "2026-11-20"
       }
     },
     {
@@ -1197,6 +1437,36 @@
       }
     },
     {
+      "eventId": "japans-kapitulation",
+      "eventTitle": "Japan kapitulerar, kriget slutar",
+      "file": "images/events/japans-kapitulation.webp",
+      "kind": "historisk",
+      "credit": "Stephen E. Korpanty, U.S. Army Signal Corps / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-japans-kapitulation",
+        "title": "Mamoru Shigemitsu skriver under kapitulationen ombord på USS Missouri, 2 september 1945 – U.S. Army Signal Corps, SC 213700 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Mamoru_Shigemitsu_signs_the_Instrument_of_Surrender,_officially_ending_the_Second_World_War.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "jarnpelaren-i-delhi",
+      "eventTitle": "Järnpelaren i Delhi",
+      "file": "images/events/jarnpelaren-i-delhi.webp",
+      "kind": "historisk",
+      "credit": "Sujit kumar / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-jarnpelaren-i-delhi",
+        "title": "Iron Pillar, Delhi – foto av Sujit kumar, 2007 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Iron_Pillar,_Delhi.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "jenners-vaccin",
       "eventTitle": "Edward Jenner och det första vaccinet",
       "file": "images/events/jenners-vaccin.webp",
@@ -1224,6 +1494,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Giotto_-_Scrovegni_-_-17-_-_Nativity,_Birth_of_Jesus.jpg",
         "license": "Public domain",
         "checked": "2026-10-29"
+      }
+    },
+    {
+      "eventId": "jikji",
+      "eventTitle": "Jikji, den äldsta bevarade boken tryckt med metalltyper",
+      "file": "images/events/jikji.webp",
+      "kind": "historisk",
+      "credit": "Bibliothèque nationale de France / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-jikji",
+        "title": "Jikji pages – två sidor ur Jikji, 1377, digitaliserade av Bibliothèque nationale de France (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Jikji_pages.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
       }
     },
     {
@@ -1294,6 +1579,36 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-30",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "kapitulationen-vid-appomattox",
+      "eventTitle": "Lee kapitulerar vid Appomattox",
+      "file": "images/events/kapitulationen-vid-appomattox.webp",
+      "kind": "historisk",
+      "credit": "Timothy H. O'Sullivan / Library of Congress, Prints & Photographs Division",
+      "license": "Inga kända restriktioner (Library of Congress)",
+      "source": {
+        "id": "loc-bild-kapitulationen-vid-appomattox",
+        "title": "McLean's House, Appomattox, Va., scene of General Lee's surrender – fotografi av Timothy H. O'Sullivan, april 1865 (Library of Congress, katalogpost)",
+        "url": "https://www.loc.gov/item/2014646169/",
+        "license": "No known restrictions on publication",
+        "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "kapkolonin-1652",
+      "eventTitle": "Nederländarna grundar Kapkolonin",
+      "file": "images/events/kapkolonin-1652.webp",
+      "kind": "historisk",
+      "credit": "Charles Davidson Bell / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-kapkolonin-1652",
+        "title": "Jan van Riebeeck se aankoms aan die Kaap – målning av Charles Davidson Bell, före 1851 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Charles_Bell_-_Jan_van_Riebeeck_se_aankoms_aan_die_Kaap.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
     },
     {
       "eventId": "karl-den-store-krons",
@@ -1629,6 +1944,21 @@
       }
     },
     {
+      "eventId": "larda-i-timbuktu-sankore",
+      "eventTitle": "De lärdas storhetstid i Timbuktu",
+      "file": "images/events/larda-i-timbuktu-sankore.webp",
+      "kind": "historisk",
+      "credit": "François-Edmond Fortier / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-larda-i-timbuktu-sankore",
+        "title": "Tombouctou – La mosquée de Sankore, vykort nr 368 av François-Edmond Fortier, början av 1900-talet (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Tombouctou-La_mosqu%C3%A9e_de_Sankore_(AOF).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "latte-stenar-pa-marianerna",
       "eventTitle": "Chamorrofolket börjar resa latte-stenar",
       "file": "images/events/latte-stenar-pa-marianerna.webp",
@@ -1695,6 +2025,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Use_of_the_Lister_carbolic_spray%2C_Antiseptic_surgery%2C_1882._Wellcome_M0003436.jpg",
         "license": "CC BY 4.0",
         "checked": "2026-11-13"
+      }
+    },
+    {
+      "eventId": "lothal",
+      "eventTitle": "Lothal, Induskulturens hamnstad",
+      "file": "images/events/lothal.webp",
+      "kind": "historisk",
+      "credit": "Orissa8 / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-lothal",
+        "title": "Dock at lothal site – foto av Orissa8, 2012 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Dock_at_lothal.JPG",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-20"
       }
     },
     {
@@ -1893,6 +2238,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Mesa-Verde---Cliff-Palace-in_1891_-_edit1.jpg",
         "license": "Public domain",
         "checked": "2026-11-07"
+      }
+    },
+    {
+      "eventId": "mexikansk-amerikanska-kriget",
+      "eventTitle": "Mexikansk-amerikanska kriget",
+      "file": "images/events/mexikansk-amerikanska-kriget.webp",
+      "kind": "historisk",
+      "credit": "Sarony & Major, New York 1846 / Library of Congress, Prints & Photographs Division",
+      "license": "Inga kända restriktioner (Library of Congress)",
+      "source": {
+        "id": "loc-bild-mexikansk-amerikanska-kriget",
+        "title": "The Battle of Palo Alto – färglitografi av Sarony & Major, New York 1846 (Library of Congress, katalogpost)",
+        "url": "https://www.loc.gov/item/96516297/",
+        "license": "No known restrictions on publication",
+        "checked": "2026-11-20"
       }
     },
     {
@@ -2178,6 +2538,36 @@
       }
     },
     {
+      "eventId": "nya-zeelandkrigen",
+      "eventTitle": "Nya Zeelandkrigen (Ngā pakanga o Aotearoa)",
+      "file": "images/events/nya-zeelandkrigen.webp",
+      "kind": "historisk",
+      "credit": "George Thomas Clayton, W. A. Nicholas / National Library of New Zealand / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-nya-zeelandkrigen",
+        "title": "Kororareka in the Bay of Islands, New Zealand. Sketched Mar 10th 1845 on the morning before the assault and destruction by Honi Heke – litografi efter George Thomas Clayton, 1845 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Kororareka_in_the_Bay_of_Islands,_New_Zealand._Sketched_Mar_10th_1845_on_the_morning_before_the_assault_and_destruction_by_Honi_Heke.png",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "nzinga-drottning-av-ndongo",
+      "eventTitle": "Nzinga, drottning av Ndongo och Matamba",
+      "file": "images/events/nzinga-drottning-av-ndongo.webp",
+      "kind": "historisk",
+      "credit": "Achille Devéria / National Portrait Gallery, London / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-nzinga-drottning-av-ndongo",
+        "title": "Ann Zingha, Queen of Matamba – litografi av Achille Devéria, 1830-talet, senare handkolorerad, National Portrait Gallery, London (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ann_Zingha.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "oktoberrevolutionen",
       "eventTitle": "Oktoberrevolutionen i Ryssland",
       "file": "images/events/oktoberrevolutionen.webp",
@@ -2244,6 +2634,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Egyptianbridge.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "operation-barbarossa",
+      "eventTitle": "Operation Barbarossa",
+      "file": "images/events/operation-barbarossa.webp",
+      "kind": "historisk",
+      "credit": "Johannes Hähle / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-operation-barbarossa",
+        "title": "Tyska trupper går över den sovjetiska gränsen, juni 1941 – fotografi av Johannes Hähle (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:German_troops_crossing_the_Soviet_border.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
       }
     },
     {
@@ -2424,6 +2829,36 @@
       }
     },
     {
+      "eventId": "rodriguessolitaren-dor-ut",
+      "eventTitle": "Rodriguessolitären dör ut",
+      "file": "images/events/rodriguessolitaren-dor-ut.webp",
+      "kind": "historisk",
+      "credit": "François Leguat / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-rodriguessolitaren-dor-ut",
+        "title": "Le Solitaire – bild ur François Leguats reseskildring 1708, faksimil i 1891 års utgåva (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Leguat1891solitaire.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "rosettastenen-hittas",
+      "eventTitle": "Rosettastenen hittas",
+      "file": "images/events/rosettastenen-hittas.webp",
+      "kind": "historisk",
+      "credit": "Hans Hillewaert / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-rosettastenen-hittas",
+        "title": "Rosetta Stone – fotografi av Hans Hillewaert, British Museum, 2007 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Rosetta_Stone.JPG",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "sagan-om-genji",
       "eventTitle": "Sagan om Genji skrivs",
       "file": "images/events/sagan-om-genji.webp",
@@ -2532,6 +2967,21 @@
       "source": null
     },
     {
+      "eventId": "skanska-kriget",
+      "eventTitle": "Skånska kriget",
+      "file": "images/events/skanska-kriget.webp",
+      "kind": "historisk",
+      "credit": "Claus Møinichen / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-skanska-kriget",
+        "title": "Capture of Christianstad – målning av Claus Møinichen, 1686 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Capture_of_christianstad-claus_moinichen_1686.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "skotten-i-sarajevo",
       "eventTitle": "Skotten i Sarajevo",
       "file": "images/events/skotten-i-sarajevo.webp",
@@ -2577,6 +3027,21 @@
       }
     },
     {
+      "eventId": "slaget-om-storbritannien",
+      "eventTitle": "Slaget om Storbritannien",
+      "file": "images/events/slaget-om-storbritannien.webp",
+      "kind": "historisk",
+      "credit": "B. J. Daventry, Royal Air Force / Imperial War Museum (CH 740) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-om-storbritannien",
+        "title": "Spitfire-plan från 610:e skvadronen, Biggin Hill, 24 juli 1940 – Imperial War Museum CH 740 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Supermarine_Spitfire_Mark_Is_of_No._610_Squadron_based_at_Biggin_Hill,_flying_in_'vic'_formation,_24_July_1940._CH740.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "slaget-vid-adwa",
       "eventTitle": "Etiopien besegrar Italien vid Adwa",
       "file": "images/events/slaget-vid-adwa.webp",
@@ -2607,6 +3072,21 @@
       }
     },
     {
+      "eventId": "slaget-vid-austerlitz",
+      "eventTitle": "Slaget vid Austerlitz",
+      "file": "images/events/slaget-vid-austerlitz.webp",
+      "kind": "historisk",
+      "credit": "François Gérard / Château de Versailles / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-austerlitz",
+        "title": "La bataille d'Austerlitz. 2 décembre 1805 – oljemålning av François Gérard, 1810, Versailles (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:La_bataille_d%27Austerlitz._2_decembre_1805_(Fran%C3%A7ois_G%C3%A9rard).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "slaget-vid-ayacucho",
       "eventTitle": "Slaget vid Ayacucho",
       "file": "images/events/slaget-vid-ayacucho.webp",
@@ -2634,6 +3114,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:La_Captura_de_Atahualpa_-_Juan_Lepiani_1920s.png",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "slaget-vid-fort-sumter",
+      "eventTitle": "Sydstaterna beskjuter Fort Sumter",
+      "file": "images/events/slaget-vid-fort-sumter.webp",
+      "kind": "historisk",
+      "credit": "Harper's Weekly, 27 april 1861 / Library of Congress, Prints & Photographs Division",
+      "license": "Inga kända restriktioner (Library of Congress)",
+      "source": {
+        "id": "loc-bild-slaget-vid-fort-sumter",
+        "title": "Bombardment of Fort Sumter by the batteries of the Confederate states, April 13, 1861 – träsnitt i Harper's Weekly, 27 april 1861 (Library of Congress, katalogpost)",
+        "url": "https://www.loc.gov/item/2013646579/",
+        "license": "No known restrictions on publication",
+        "checked": "2026-11-20"
       }
     },
     {
@@ -2721,6 +3216,21 @@
       }
     },
     {
+      "eventId": "slaget-vid-issos",
+      "eventTitle": "Slaget vid Issos",
+      "file": "images/events/slaget-vid-issos.webp",
+      "kind": "historisk",
+      "credit": "Berthold Werner / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-slaget-vid-issos",
+        "title": "Battle of Issus mosaic – Museo Archeologico Nazionale, Neapel, foto av Berthold Werner, 2013 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Battle_of_Issus_mosaic_-_Museo_Archeologico_Nazionale_-_Naples_2013-05-16_16-25-06_BW.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "slaget-vid-jylland",
       "eventTitle": "Skagerrakslaget (slaget vid Jylland)",
       "file": "images/events/slaget-vid-jylland.webp",
@@ -2766,6 +3276,21 @@
       }
     },
     {
+      "eventId": "slaget-vid-lund",
+      "eventTitle": "Slaget vid Lund",
+      "file": "images/events/slaget-vid-lund.webp",
+      "kind": "historisk",
+      "credit": "Johan Philip Lemke / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-lund",
+        "title": "King of Sweden, Charles XI, during the battle of Lund in 1676 – oljemålning av Johan Philip Lemke, 1683 eller 1684 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Charles_XI,_Battle_of_Lund.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "slaget-vid-lutzen-1632",
       "eventTitle": "Gustav II Adolf stupar vid Lützen",
       "file": "images/events/slaget-vid-lutzen-1632.webp",
@@ -2778,6 +3303,36 @@
         "url": "https://commons.wikimedia.org/wiki/File:Gustav_II_Adolph_of_Sweden_dies_1632_by_Carl_Wahlbom_1855.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "slaget-vid-midway",
+      "eventTitle": "Slaget vid Midway",
+      "file": "images/events/slaget-vid-midway.webp",
+      "kind": "historisk",
+      "credit": "U.S. Navy (80-G-414423) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-midway",
+        "title": "USS Yorktown träffas av en torped under slaget vid Midway, 4 juni 1942 – U.S. Navy 80-G-414423 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:80-G-414423_(27012975711).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "slaget-vid-narva-1700",
+      "eventTitle": "Slaget vid Narva",
+      "file": "images/events/slaget-vid-narva-1700.webp",
+      "kind": "historisk",
+      "credit": "Gustaf Cederström / Nationalmuseum, Stockholm / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-narva-1700",
+        "title": "Narva – oljemålning av Gustaf Cederström, 1905, Nationalmuseum NM 1634 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Narva_(Gustaf_Cederstr%C3%B6m)_-_Nationalmuseum_-_18638.tif",
+        "license": "Public domain",
+        "checked": "2026-11-20"
       }
     },
     {
@@ -2862,6 +3417,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Painting_Die_Schlacht_von_Salamis.jpg",
         "license": "CC BY-SA 4.0",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "slaget-vid-saratoga",
+      "eventTitle": "Slagen vid Saratoga",
+      "file": "images/events/slaget-vid-saratoga.webp",
+      "kind": "historisk",
+      "credit": "François Godefroy / Library of Congress, Rare Book and Special Collections Division",
+      "license": "Inga kända restriktioner (Library of Congress)",
+      "source": {
+        "id": "loc-bild-slaget-vid-saratoga",
+        "title": "[Surrender at Saratoga] – laverad teckning av François Godefroy, [1784?], ur Nicolas Ponces Recueil d'estampes (Library of Congress, katalogpost)",
+        "url": "https://www.loc.gov/item/2004670056/",
+        "license": "No known restrictions on publication in the U.S.",
+        "checked": "2026-11-20"
       }
     },
     {
@@ -3297,6 +3867,21 @@
       }
     },
     {
+      "eventId": "tarikh-al-sudan",
+      "eventTitle": "Tarikh al-Sudan, krönikan om Songhai",
+      "file": "images/events/tarikh-al-sudan.webp",
+      "kind": "historisk",
+      "credit": "إيان / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-tarikh-al-sudan",
+        "title": "Tarikh al-Sudan, handskrift BnF Arabe 6096, s. 39–40, fotograferad på en utställning i Rabat 2019 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE_%D8%A7%D9%84%D8%B3%D9%88%D8%AF%D8%A7%D9%86.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "tasman-och-maori-i-mohua",
       "eventTitle": "Tasmans möte med Ngāti Tūmatakōkiri i Mohua",
       "file": "images/events/tasman-och-maori-i-mohua.webp",
@@ -3405,6 +3990,21 @@
       }
     },
     {
+      "eventId": "tiangong-kaiwu-1637",
+      "eventTitle": "Song Yingxing ger ut Tiangong Kaiwu",
+      "file": "images/events/tiangong-kaiwu-1637.webp",
+      "kind": "historisk",
+      "credit": "Song Yingxing (foto: PericlesofAthens) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-tiangong-kaiwu-1637",
+        "title": "Hydraulic-Powdered Trip Hammers – illustration ur Tiangong Kaiwu, 1637 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Hydraulic-Powdered_Trip_Hammers.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "tikal-vaxer-fram",
       "eventTitle": "Tikal växer fram som mayastad",
       "file": "images/events/tikal-vaxer-fram.webp",
@@ -3480,6 +4080,21 @@
       }
     },
     {
+      "eventId": "tripitaka-koreana",
+      "eventTitle": "Tripitaka Koreana skärs i 81 352 träblock",
+      "file": "images/events/tripitaka-koreana.webp",
+      "kind": "historisk",
+      "credit": "Bernard Gagnon / Wikimedia Commons",
+      "license": "CC0",
+      "source": {
+        "id": "commons-bild-tripitaka-koreana",
+        "title": "Tripitaka Koreana at Haeinsa Temple – foto av Bernard Gagnon, 2022 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Tripitaka_Koreana_03.jpg",
+        "license": "CC0",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "tsunamin-i-indiska-oceanen-2004",
       "eventTitle": "Tsunamin i Indiska oceanen",
       "file": "images/events/tsunamin-i-indiska-oceanen-2004.webp",
@@ -3507,6 +4122,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Kikuchi_Yoosai_-_Mongol_Invasion_(m%C5%8Dko_sh%C5%ABrai)_-_Tokyo_National_Museum.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "tysklands-kapitulation",
+      "eventTitle": "Tyskland kapitulerar",
+      "file": "images/events/tysklands-kapitulation.webp",
+      "kind": "historisk",
+      "credit": "Lt. Moore, U.S. Army / National Archives / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-tysklands-kapitulation",
+        "title": "Wilhelm Keitel skriver under kapitulationen i Berlin, 8 maj 1945 – U.S. Army, NARA 531290 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Field_Marshal_Keitel_signs_German_surrender_terms_in_Berlin_8_May_1945_-_Restoration.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
       }
     },
     {
@@ -3655,6 +4285,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "xinhairevolutionen",
+      "eventTitle": "Revolutionen 1911: Qingdynastin faller",
+      "file": "images/events/xinhairevolutionen.webp",
+      "kind": "historisk",
+      "credit": "Okänd tryckare / Library of Congress, Prints & Photographs Division (FP 2 - JPD, no. 2258)",
+      "license": "Inga kända restriktioner (Library of Congress)",
+      "source": {
+        "id": "loc-bild-xinhairevolutionen",
+        "title": "[Revolutionary Army recovering Nanjing; General Tieliang and Zhangxun in garrisoned Nanjing], kinesiskt färgträsnitt 1911–1915 (Library of Congress)",
+        "url": "https://www.loc.gov/item/2008660220/",
+        "license": "No known restrictions on publication",
+        "checked": "2026-11-20"
+      }
     },
     {
       "eventId": "zhang-qian-sidenvagen",

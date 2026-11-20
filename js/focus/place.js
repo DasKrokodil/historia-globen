@@ -99,6 +99,28 @@ export function placeEmpireRows(place, groups = []) {
   return [...rows, ...gaps].sort((a, b) => a.from - b.from);
 }
 
+/**
+ * Dagens länder i rikeskortet (#1955): de platser vars kort själv nämner riket i `periods` (med Cliopatria som källa, #1448), i
+ * platsernas ordning. Det är samma koppling som landskortets, åt andra hållet, så ingen egen regel för historiska gränser behövs.
+ * polity: ett rike med egen faktaruta (polityFacts, #301) visar bara platser med just den delen; annars gäller hela gruppen.
+ * spans är platsens perioder för riket, sammanslagna när de ligger kant i kant (1612–1721 och 1722–1814 blir 1612–1814).
+ */
+export function empirePlaces(places, empireId, polity = null) {
+  const out = [];
+  for (const place of places ?? []) {
+    const ps = (place.periods ?? []).filter(p => p.empire === empireId && (!polity || p.polity === polity)).sort((a, b) => a.from - b.from);
+    if (!ps.length) continue;
+    const spans = [];
+    for (const p of ps) {
+      const last = spans[spans.length - 1];
+      if (last && p.from <= last.to + 1) last.to = Math.max(last.to, p.to);
+      else spans.push({ from: p.from, to: p.to });
+    }
+    out.push({ id: place.id, name: place.name, spans });
+  }
+  return out;
+}
+
 /** Rikenas faktarutor (mapNote vid raderna, #1448) laddas innan kortet för en plats med perioder ritas. Ett fel stoppar inte kortet. */
 export const ensurePlaceFacts = place => (place?.periods?.length ? loadEmpireFacts().catch(err => console.warn('Rikenas faktarutor kunde inte laddas', err)) : null);
 

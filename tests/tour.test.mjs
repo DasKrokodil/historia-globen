@@ -287,6 +287,32 @@ test('Det här har du hört: Kinesiska muren har en CC0-bild med bildtext på al
   assert.ok(manifest.tourImages.some(i => i.stepId === 'kinesiska-muren' && i.license === 'CC0 1.0'), 'bilden saknas i images/licenses.json');
 });
 
+// Lektionen om andra världskriget (#1874): varje steg öppnar en händelse, och händelsens bild visas i faktarutan.
+// Auschwitz och atombomberna får bara riktiga historiska bilder, aldrig en illustration.
+test('Andra världskriget: varje händelse som ett steg öppnar har en historisk bild med källa och licens (#1874)', () => {
+  const t = read('data/turer/andra-varldskriget.json');
+  const raw = read('data/events.json'), byId = new Map((Array.isArray(raw) ? raw : raw.events).map(e => [e.id, e]));
+  const sources = new Map(read('data/sources.json').sources.map(s => [s.id, s]));
+  const manifest = JSON.stringify(read('images/licenses.json'));
+  for (const s of t.steps.filter(x => x.open)) {
+    const img = byId.get(s.open)?.image;
+    assert.ok(img && !img.placeholder, `${s.open} saknar bild`);
+    assert.equal(img.file, `images/events/${s.open}.webp`);
+    assert.ok(readFileSync(new URL(`../${img.file}`, import.meta.url)).length > 10000, `${img.file} saknas`);
+    for (const l of ['sv', 'en', 'de', 'es', 'fr']) assert.ok(img.caption?.[l], `${s.open}: bildtext saknas på ${l}`);
+    assert.ok(img.license && img.credit, `${s.open}: licens eller kredit saknas`);
+    if (img.kind === 'historisk') {
+      assert.match(sources.get(img.source)?.url ?? '', /commons\.wikimedia\.org\/wiki\/File:|loc\.gov/, `${s.open}: filsidan saknas i sources.json`);
+      assert.ok(manifest.includes(img.file), `${s.open}: bilden saknas i images/licenses.json`);
+    }
+  }
+  for (const id of ['auschwitz-befrias', 'atombomberna-hiroshima-nagasaki']) {
+    const img = byId.get(id).image;
+    assert.equal(img.kind, 'historisk', `${id} ska ha en riktig historisk bild`);
+    assert.equal(img.prompt, undefined, `${id} ska inte ha någon prompt`);
+  }
+});
+
 // Linje på kartan i ett steg (#1785): filen, namnet och källan
 test('linjen i ett steg kontrolleras (#1785)', () => {
   const ok = { file: 'data/turer/linjer/muren.json', label: { sv: 'Muren' }, source: 's1' };

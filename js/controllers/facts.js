@@ -1,8 +1,9 @@
 // Faktarutorna om religioner (#90, #308) och riken (#170, #72, #301), och religionslagrets laddning
 // (#402, del av #389). Uppgifterna står i religions.json och empires/index.json; här väljs bara vad som visas.
-import { loadReligions, loadEmpire, loadEmpireFacts, t, symbolUrl, symbolImg, flagImg, formatEventTime } from '../model.js';
+import { loadReligions, loadEmpire, loadEmpireFacts, loadPlaces, loadedPlaces, t, symbolUrl, symbolImg, flagImg, formatEventTime } from '../model.js';
 import { ui } from '../i18n.js';
 import { areaKindWord } from '../area-kind.js';
+import { empirePlaces } from '../focus/place.js';
 
 export const formatYearSpan = (a, b) => formatEventTime({ start: a, end: b, edtf: '' });
 
@@ -96,8 +97,16 @@ export function createFacts(app) {
     const lineage = g.vanished && !own ? { ...g.vanished, groups: data.empireGroups } : null;
     // Område som inte är en stat (#1300): kortet säger typordet och aldrig "rike"; rapporten behåller typen empire (feedback-rules.js)
     const kind = lineage ? 'vanished' : g.areaKind ? 'area' : 'empire';
+    // Dagens länder vars kort nämner riket (#1955). Platserna laddas första gången ett rikeskort öppnas; har de inte kommit än
+    // ritas kortet om när de har det, men bara om riket har något land och kortet fortfarande visar samma rike
+    const placesFor = list => empirePlaces(list, g.id, own ? polity.id : null).map(p => ({ id: p.id, name: t(p.name),
+      years: p.spans.map(s => formatYearSpan(s.from, s.to)).join(', ') }));
+    const cardKey = `${g.id}:${own ? polity.id : ''}`;
+    if (!loadedPlaces().length) loadPlaces().then(list => {
+      if (placesFor(list).length && panel.detail.dataset.facts === cardKey && !panel.detail.hidden) showEmpireFacts(id, polity);
+    });
     panel.showFacts({ kind, kindWord: areaKindWord(g.areaKind), name: t(own ? polity.name : g.name), color: g.color, facts, place, curveId, empireId: own || g.areaKind ? null : g.id, year: Math.round(timeline.year),
-      symbol: sym, symbolKind, wars, lineage,
+      symbol: sym, symbolKind, wars, lineage, places: placesFor(loadedPlaces()), factsKey: cardKey,
       empireMap: !!g.file,
       report: { type: lineage ? 'vanished-country' : 'empire', id: own ? polity.id : g.id, label: t(own ? polity.name : g.name), year: Math.round(timeline.year) },
       mapNote: g.file ? `${ui('facts.mapNote', { source: g.borderSource ?? 'Cliopatria', span: formatYearSpan(from, to) })}${note ? ` ${note}` : ''}` : note });

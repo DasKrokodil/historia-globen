@@ -88,6 +88,7 @@
   --newsprint: #e9e3d3; --newsprint-ink: #1b1b1b;
   --deco-navy: #16213a; --deco-gold: #d4a94e;
   --bronze-ground: #14221f; --bronze: #b0803a; --bronze-light: #e0bf7a; --bronze-patina: #4f8f7d; --bronze-deep: #6a4a1e;
+  --ethio-ground: #1f1511; --ethio-red: #c23b2a; --ethio-gold: #e9b94b; --ethio-green: #3f7d4e;
   --space-ink: #10202e; --space-orange: #e46a2e; --space-teal: #2aa198; --space-cream: #f3e6c8;
 }
 
@@ -1806,6 +1807,9 @@ details.used-by summary:hover { color: var(--parchment); }
 .war-list h4 { margin: 10px 0 4px; font: 600 11px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
 .war-list ol { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.6; }
 .war-list .meta { font: 400 11px/1 var(--f-mono); color: var(--parchment-dim); }
+/* Dagens länder i rikeskortet (#1955): knappen har ▶ som tecken, så listan har inga punkter; förklaringen kan vara flera rader */
+.empire-places ul { margin: 0; padding: 0; list-style: none; font-size: 13px; line-height: 1.6; }
+.war-list .empire-places-note { margin: 4px 0 0; line-height: 1.45; }
 /* Krig och riken (#76): rikena i kriget som knappar med rikets färg, rikets krig med årtal */
 .empire-list ul { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 0; padding: 0; list-style: none; font-size: 13px; line-height: 1.6; }
 .empire-list .link-btn { text-align: left; }
@@ -2121,6 +2125,12 @@ details.used-by summary:hover { color: var(--parchment); }
   --card-accent: var(--bronze-light); --card-line: var(--bronze);
   border: 6px solid transparent; border-radius: 2px;
   background: linear-gradient(var(--bronze-ground), var(--bronze-ground)) padding-box, repeating-linear-gradient(90deg, var(--bronze) 0 8px, var(--bronze-patina) 8px 12px, var(--bronze-deep) 12px 20px, var(--bronze-patina) 20px 24px) border-box;
+}
+.frame-etiopien {
+  --card-bg: radial-gradient(circle at 85% 12%, rgba(194,59,42,.12), transparent 45%), var(--ethio-ground);
+  --card-accent: var(--ethio-gold); --card-line: var(--ethio-red);
+  border: 6px solid transparent; border-radius: 2px;
+  background: linear-gradient(var(--ethio-ground), var(--ethio-ground)) padding-box, repeating-linear-gradient(90deg, var(--ethio-red) 0 8px, var(--ethio-gold) 8px 12px, var(--ethio-green) 12px 20px, var(--ethio-gold) 20px 24px) border-box;
 }
 .frame-medeltid {
   --card-bg: var(--vellum); --card-ink: var(--vellum-ink); --card-dim: #6a5838; --card-accent: var(--rubric); --card-line: var(--gold);

@@ -3520,7 +3520,7 @@ async function run(browser, vp) {
         const whenText = norm(await lp.locator('#detail .meta-when').evaluate(el => { const c = el.cloneNode(true); c.querySelectorAll('[data-ago-info], [data-unc-mark]').forEach(b => b.remove()); return c.textContent; }));
         const unsure = { sv: /osäker/gi, en: /uncertain/gi, de: /unsicher/gi, es: /incierto/gi, fr: /incertain/gi }[lang];
         if ((whenText.match(unsure) ?? []).length) throw new Error(`${lang}: datumraden har ordet för osäkert vid sidan av märket: ${whenText}`);
-        const approx = (whenText.match(/cirka|circa|about|approx|\bc\.|\bca\.|\bum |etwa|ungefähr|aproximad|hacia|unos |environ|vers /gi) ?? []).length;
+        const approx = (whenText.replace(/\b(?:a\.\s?C\.|J\.-C\.)/g, '').match(/cirka|circa|about|approx|\bc\.|\bca\.|\bum |etwa|ungefähr|aproximad|hacia|unos |environ|vers /gi) ?? []).length;
         if (approx > 1) throw new Error(`${lang}: datumraden säger det ungefärliga ${approx} gånger: ${whenText}`);
         seenWhen.push(`${lang}: ${whenText}`);
         const ago = norm(await lp.locator('#detail .meta-ago').textContent());
