@@ -2094,5 +2094,37 @@
     "credit": "Okänd fotograf / Wikimedia Commons",
     "license": "Public domain",
     "source": "commons-bild-vapenstillestandet-1918"
+  },
+  {
+    "id": "slaget-vid-tannenberg-1914",
+    "file": "slaget-vid-tannenberg-1914.jpg",
+    "kind": "historisk",
+    "style": "affisch",
+    "caption": {
+      "sv": "Den tyske generalen Paul von Hindenburg och andra officerare på slagfältet vid Tannenberg efter segern över ryssarna, enligt Nederländernas nationalarkiv, som daterar fotot till 31 augusti 1914. Utsnitt. Licens: CC0.",
+      "en": "The German general Paul von Hindenburg and other officers on the battlefield of Tannenberg after the victory over the Russians, according to the National Archives of the Netherlands, which dates the photo to 31 August 1914. Detail. Licence: CC0.",
+      "de": "Der deutsche General Paul von Hindenburg und andere Offiziere auf dem Schlachtfeld von Tannenberg nach dem Sieg über die Russen, laut dem Nationalarchiv der Niederlande, das das Foto auf den 31. August 1914 datiert. Ausschnitt. Lizenz: CC0.",
+      "es": "El general alemán Paul von Hindenburg y otros oficiales en el campo de batalla de Tannenberg tras la victoria sobre los rusos, según el Archivo Nacional de los Países Bajos, que fecha la foto el 31 de agosto de 1914. Detalle. Licencia: CC0.",
+      "fr": "Le général allemand Paul von Hindenburg et d’autres officiers sur le champ de bataille de Tannenberg après la victoire sur les Russes, d’après les Archives nationales des Pays-Bas, qui datent la photo du 31 août 1914. Détail. Licence : CC0."
+    },
+    "credit": "Nationaal Archief, Fotocollectie Spaarnestad / Wikimedia Commons",
+    "license": "CC0",
+    "source": "commons-bild-slaget-vid-tannenberg-1914"
+  },
+  {
+    "id": "gallipolifalttaget",
+    "file": "gallipolifalttaget.jpg",
+    "kind": "historisk",
+    "style": "affisch",
+    "caption": {
+      "sv": "Ett osmanskt artilleribatteri på Gallipolihalvön under fälttåget (1915–1916). Utsnitt. Library of Congress anger inga kända restriktioner för publicering.",
+      "en": "An Ottoman artillery battery on the Gallipoli peninsula during the campaign (1915–1916). Detail. The Library of Congress states no known restrictions on publication.",
+      "de": "Eine osmanische Artilleriebatterie auf der Halbinsel Gallipoli während des Feldzugs (1915–1916). Ausschnitt. Die Library of Congress gibt keine bekannten Einschränkungen für die Veröffentlichung an.",
+      "es": "Una batería de artillería otomana en la península de Galípoli durante la campaña (1915-1916). Detalle. La Library of Congress no indica restricciones conocidas para su publicación.",
+      "fr": "Une batterie d’artillerie ottomane sur la péninsule de Gallipoli pendant la campagne (1915-1916). Détail. La Library of Congress n’indique aucune restriction connue de publication."
+    },
+    "credit": "Bain News Service / Library of Congress, Prints & Photographs Division (LC-B2- 3667-10)",
+    "license": "Inga kända restriktioner (Library of Congress)",
+    "source": "loc-bild-gallipolifalttaget"
   }
 ]

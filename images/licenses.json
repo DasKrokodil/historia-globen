@@ -846,6 +846,21 @@
       }
     },
     {
+      "eventId": "gallipolifalttaget",
+      "eventTitle": "Gallipolifälttåget",
+      "file": "images/events/gallipolifalttaget.webp",
+      "kind": "historisk",
+      "credit": "Bain News Service / Library of Congress, Prints & Photographs Division (LC-B2- 3667-10)",
+      "license": "Inga kända restriktioner (Library of Congress)",
+      "source": {
+        "id": "loc-bild-gallipolifalttaget",
+        "title": "Turk battery, Gallipoli, Bain News Service (Library of Congress)",
+        "url": "https://www.loc.gov/item/2014700275/",
+        "license": "No known restrictions on publication",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "ghanas-sjalvstandighet",
       "eventTitle": "Ghana blir självständigt",
       "file": "images/events/ghanas-sjalvstandighet.webp",
@@ -2757,6 +2772,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:%D0%A4%D0%BE%D0%BD%D1%82%D0%B0%D0%BD_%C2%AB%D0%94%D0%B5%D1%82%D1%81%D0%BA%D0%B8%D0%B9_%D1%85%D0%BE%D1%80%D0%BE%D0%B2%D0%BE%D0%B4%C2%BB.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "slaget-vid-tannenberg-1914",
+      "eventTitle": "Slaget vid Tannenberg",
+      "file": "images/events/slaget-vid-tannenberg-1914.webp",
+      "kind": "historisk",
+      "credit": "Nationaal Archief, Fotocollectie Spaarnestad / Wikimedia Commons",
+      "license": "CC0",
+      "source": {
+        "id": "commons-bild-slaget-vid-tannenberg-1914",
+        "title": "De Duitse generaal Hindenburg op het slagveld van Tannenberg, na de overwinning op de Russen – Nationaal Archief, Fotocollectie Spaarnestad, 22055_007 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:De_Duitse_generaal_Hindenburg_op_het_slagveld_van_Tannenberg,_na_de_overwinning_op_de_Russen,_Bestanddeelnr_22055_007.tif",
+        "license": "CC0",
+        "checked": "2026-11-20"
       }
     },
     {
