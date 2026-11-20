@@ -2431,6 +2431,14 @@ details.used-by summary:hover { color: var(--parchment); }
 .place-emblem img { height: 32px; width: auto; align-self: flex-start; }
 .place-emblem-flag img { border: 1px solid var(--brass); }
 .place-emblem .meta { display: block; }
+/* Platsens kort (#1977): flaggan och vapnet är små (24 px) bredvid namnet; en bild som kräver namnuppgift (CC BY, CC BY-SA) har en kort
+   kreditrad direkt under namnet, och public domain-krediterna ligger i raden Om kartan och källor */
+.place-head { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 10px; margin: 0 0 2px; }
+.place-head h3 { margin: 0; }
+.place-head .place-emblems { flex-wrap: nowrap; align-items: center; gap: 8px; margin: 0; }
+.place-head .place-emblem { max-width: none; }
+.place-head .place-emblem img { height: 24px; align-self: center; }
+.place-emblem-credit { margin: 0 0 4px; color: var(--card-dim, var(--parchment-dim)); }
 @media (max-width: 760px) { .religion-legend .rel-sym { width: 13px; height: 13px; } }
 .detail .war-link .rel-sym-in { width: 18px; height: 18px; vertical-align: -4px; }
 /* Knappen över symbolen där religionen uppstod (#271): osynlig, men går att nå med Tab och syns med fokusring */
@@ -3079,8 +3087,10 @@ span.theme-event:hover { background: none; outline: none; }
    `order`, bara i bilden: markupen är oförändrad, så att tangentbordsordningen (krysset, knappen, händelserna, rikena, Om kartan,
    Sluta följa platsen) är densamma som förut och stämmer med den synliga ordningen (WCAG 2.4.3). Det som byter plats är läsbar text
    utan fokus (typraden, flaggorna och inledningen), så skärmläsarens ordning är rubrik, text, knapp medan ögat ser rubrik, knapp,
-   text; knappens namn säger vad den gör ("Visa i Platt karta: Skåne"), så ordningen behövs inte för att förstå den (WCAG 1.3.2). */
-@media (max-height: 480px) {
+   text; knappens namn säger vad den gör ("Visa på kartan: Skåne"), så ordningen behövs inte för att förstå den (WCAG 1.3.2).
+   Samma regel gäller i smal skärm (#1977, UX-genomgången #1853, fynd 2.2): i platskortets halva ark nådde man inte knappen utan att dra
+   upp arket, eftersom den låg efter inledningen och fokusraden täcker arkets nederkant. */
+@media (max-width: 760px), (max-height: 480px) {
   .detail-selection .story { display: flex; flex-direction: column; }
   .detail-selection .story > [data-selection-action] { order: -1; align-self: flex-start; }
   .detail-selection .story > .place-type { order: -2; }

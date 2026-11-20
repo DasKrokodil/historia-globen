@@ -2871,7 +2871,7 @@ async function run(browser, vp) {
   });
 
   // #1790 och #1791: platskortets ordning, raden Om kartan och källor, knappen i regionvyn och tryck på platsen i Fokus
-  await check('platskortet: listan före anteckningarna, Om kartan och källor hopfälld, regionvyn tar bort knappen och ett tryck på platsen öppnar kortet (#1790, #1791)', async () => {
+  await check('platskortet: listan före anteckningarna, Om kartan och källor hopfälld, regionvyn tar bort knappen och ett tryck på platsen öppnar kortet (#1790, #1791); liten flagga bredvid namnet och knappen i halva arket (#1977)', async () => {
     const lp = await context.newPage();
     const errs = [];
     lp.on('pageerror', e => errs.push(e.message));
@@ -2905,6 +2905,35 @@ async function run(browser, vp) {
       if (card.aboutOpen || card.aboutNotes !== 2 || card.notesOutside !== 0) throw new Error(`Om kartan och källor: öppen ${card.aboutOpen}, ${card.aboutNotes} anteckningar i raden, ${card.notesOutside} utanför`);
       if (!/Wikimedia Commons/.test(card.credit)) throw new Error(`flaggans källa ligger inte i raden: "${card.credit}"`);
       if (card.facts !== 'Om platsen') throw new Error(`fokusknappen heter "${card.facts}"`);
+      // #1977: flaggan är liten (cirka 24 px) och står på namnets rad, och knappen syns i kortets första skärm (i mobil i det halva arket, ovanför fokusraden).
+      // Danmark har den långa inledningen som tidigare sköt knappen under arkets nederkant (Nya Zeeland har en kort)
+      await lp.goto(`${BASE}?ny=1977#y=1325&f=place:danmark`);
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await lp.waitForSelector('#detail.detail-selection [data-selection-action]', { state: 'attached', timeout: T.load });
+      const head = await lp.evaluate(() => {
+        const r = sel => document.querySelector(sel)?.getBoundingClientRect();
+        const h3 = r('#detail .place-head h3'), img = r('#detail .place-head .place-emblem img'), btn = r('#detail [data-selection-action]');
+        const detail = r('#detail'), bar = document.getElementById('focus-bar')?.getBoundingClientRect();
+        const covered = bar && !document.getElementById('focus-bar').hidden && btn.bottom > bar.top && btn.top < bar.bottom && btn.right > bar.left && btn.left < bar.right;
+        return { h3: h3 && { top: h3.top, bottom: h3.bottom, right: h3.right }, img: img && { top: img.top, bottom: img.bottom, left: img.left, h: img.height },
+          btn: btn && { top: btn.top, bottom: btn.bottom }, detail: detail && { top: detail.top, bottom: detail.bottom }, covered,
+          captionInCard: document.querySelectorAll('#detail .place-emblem figcaption').length,
+          emblemInHeading: !!document.querySelector('#detail h3 img'), credit: document.querySelectorAll('#detail .place-emblem-credit').length,
+          introTop: document.querySelector('#detail .story > p:not(.place-type):not(.place-map-note):not(.theme-filter-note)')?.getBoundingClientRect().top ?? null,
+          folds: [...document.querySelectorAll('#detail .story > details')].map(d => ({ tag: d.tagName, summary: d.querySelector(':scope > summary')?.getBoundingClientRect().height ?? 0 })), narrow: innerWidth <= 760 };
+      });
+      // I smal skärm ligger knappen före inledningen, så att den syns också med en längre text (tyska, franska) i det halva arket; på bred skärm efter den
+      if (head.narrow && !(head.introTop != null && head.btn.top < head.introTop)) throw new Error(`i smal skärm ska Visa på kartan ligga före inledningen (knapp ${Math.round(head.btn.top)}, inledning ${head.introTop == null ? 'saknas' : Math.round(head.introTop)})`);
+      // Fällraderna är riktiga details med summary, och i mobil minst 44 px höga (#1977)
+      if (!head.folds.length || head.folds.some(f => f.tag !== 'DETAILS' || (head.narrow && f.summary < 43.5))) throw new Error(`fällraderna är inte details med 44 px hög summary i mobil: ${JSON.stringify(head.folds)}`);
+      if (!head.img || !head.h3) throw new Error('flaggan står inte i rubrikraden bredvid namnet');
+      if (head.img.h < 20 || head.img.h > 28) throw new Error(`flaggan är ${Math.round(head.img.h)} px hög, ska vara cirka 24 px`);
+      if (head.img.left < head.h3.right - 1 || head.img.top < head.h3.top - 6 || head.img.bottom > head.h3.bottom + 6) throw new Error('flaggan ligger inte på namnets rad');
+      if (head.emblemInHeading || head.captionInCard !== 0 || head.credit !== 0) throw new Error(`flaggan (public domain) ska bara vara en bild i raden, utan egen bildtext eller kreditrad (bildtexter ${head.captionInCard}, kreditrader ${head.credit}, bild i h3: ${head.emblemInHeading})`);
+      if (head.btn.top < head.detail.top || head.btn.bottom > head.detail.bottom || head.covered) throw new Error(`Visa på kartan syns inte i kortets första skärm (knapp ${Math.round(head.btn.top)}–${Math.round(head.btn.bottom)}, kort ${Math.round(head.detail.top)}–${Math.round(head.detail.bottom)}, täckt av fokusraden: ${head.covered})`);
+      await lp.goto(`${BASE}?ny=1790#y=1325&f=place:aotearoa`);
+      await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await lp.waitForSelector('#detail.detail-selection [data-selection-action]', { state: 'attached', timeout: T.load });
       // Platsens karta: knappen i kortet göms (rutan har Lämna platsens karta) och rutan säger hur man får fakta
       await lp.evaluate(() => document.querySelector('#detail [data-selection-action]').scrollIntoView({ block: 'nearest' }));
       await lp.click('#detail [data-selection-action]');
@@ -2919,6 +2948,14 @@ async function run(browser, vp) {
       await lp.goto(`${BASE}?ny=1791#y=1325&f=place:skane`);
       await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await lp.waitForSelector('#detail.detail-selection', { state: 'visible', timeout: T.load });
+      // #1977: landskapsvapnet kräver namnuppgift (CC BY-SA): en kort kreditrad står direkt under namnet, inte bara i den hopfällda raden
+      const skaneCredit = await lp.evaluate(() => {
+        const c = document.querySelector('#detail .place-emblem-credit'), head = document.querySelector('#detail .place-head');
+        return { text: c?.textContent ?? '', below: !!c && !!head && c.getBoundingClientRect().top >= head.getBoundingClientRect().bottom - 1 && !c.closest('.place-about'),
+          aboutHasIt: /CC BY-SA/.test(document.querySelector('#detail .place-about')?.textContent ?? '') };
+      });
+      if (!/Lokal_Profil/.test(skaneCredit.text) || !/CC BY-SA/.test(skaneCredit.text) || !skaneCredit.below) throw new Error(`Skånes vapen saknar kreditrad under namnet: "${skaneCredit.text}" (under namnet: ${skaneCredit.below})`);
+      if (skaneCredit.aboutHasIt) throw new Error('vapnets kredit står både vid bilden och i Om kartan och källor');
       await lp.click('#detail [data-close]');
       await lp.waitForSelector('#detail', { state: 'hidden', timeout: T.step });
       const box = await lp.locator('#globe-canvas').boundingBox();
@@ -4046,7 +4083,7 @@ async function run(browser, vp) {
   }
 
   // #1160, #1619: platskortets flagga och vapen. Varje plats med emblems i data/platser.json visar varje emblem som en bild
-  // som laddas, med bildtexten som alt-text och synlig bildtext, kredit och licens, utan horisontell scroll och inom kortet.
+  // som laddas, liten (cirka 24 px) bredvid namnet med bildtexten som alt-text, med kredit och licens där de hör hemma (#1790, #1977), utan horisontell scroll och inom kortet.
   await check('platskortets flagga och vapen laddas med bildtext (#1160, #1619)', async () => {
     const { tp, tctx, errs } = await touchPage();
     try {
@@ -4063,12 +4100,13 @@ async function run(browser, vp) {
         await tp.waitForSelector('#detail .place-emblems', { state: 'visible', timeout: T.step });
         await tp.waitForFunction(() => [...document.querySelectorAll('#detail .place-emblem img')].every(i => i.complete), null, { timeout: T.step });
         const about = await tp.evaluate(() => document.querySelector('#detail .place-about')?.textContent ?? ''); // flaggans källa ligger hopfälld längst ned (#1790)
+        // Bildens namn och kredit (#1977): bilder som kräver namnuppgift har en kreditrad under namnet, övriga står bara i Om kartan och källor
+        const creditRows = await tp.evaluate(() => [...document.querySelectorAll('#detail .place-emblem-credit')].map(c => c.textContent));
         const shown = await tp.evaluate(() => {
           const card = document.getElementById('detail').getBoundingClientRect();
           return [...document.querySelectorAll('#detail .place-emblem')].map(f => {
             const img = f.querySelector('img'), r = img.getBoundingClientRect();
-            return { src: img.getAttribute('src'), alt: img.alt, w: img.naturalWidth, caption: f.querySelector('figcaption').textContent,
-              inside: r.left >= card.left - 1 && r.right <= card.right + 1, h: r.height };
+            return { src: img.getAttribute('src'), alt: img.alt, w: img.naturalWidth, inside: r.left >= card.left - 1 && r.right <= card.right + 1, h: r.height };
           });
         });
         if (shown.length !== place.emblems.length) throw new Error(`${place.id}: kortet visar ${shown.length} av ${place.emblems.length} emblem`);
@@ -4077,12 +4115,13 @@ async function run(browser, vp) {
           if (s.src !== `img/flags/${em.file}.svg`) throw new Error(`${place.id}: emblem ${i + 1} har fel fil (${s.src})`);
           if (!s.w) throw new Error(`${place.id}: bilden ${em.file}.svg laddades inte`);
           if (s.alt !== em.caption.sv) throw new Error(`${place.id}: alt-texten "${s.alt}" är inte bildtexten "${em.caption.sv}"`);
-          if (!s.caption.includes(em.caption.sv)) throw new Error(`${place.id}: bildtexten saknar namn: "${s.caption}"`);
-          // Licens som kräver namnuppgift (CC BY, CC BY-SA) står vid bilden; public domain ligger i raden Om kartan och källor (#1790)
-          const credited = /CC BY/i.test(em.license) ? s.caption.includes(em.license) && s.caption.includes(em.credit) : about.includes(em.license) && about.includes(em.credit);
-          if (!credited) throw new Error(`${place.id}: krediten och licensen "${em.credit} · ${em.license}" står inte där de ska (bildtext: "${s.caption}", Om kartan och källor: "${about.slice(0, 120)}")`);
+          // Licens som kräver namnuppgift (CC BY, CC BY-SA) står vid bilden, med bildens namn; public domain ligger i raden Om kartan och källor (#1790, #1977)
+          const needs = /CC BY/i.test(em.license);
+          const row = creditRows.find(c => c.includes(em.credit) && c.includes(em.license) && c.includes(em.caption.sv)) ?? '';
+          const credited = needs ? !!row && !about.includes(em.license) : about.includes(em.license) && about.includes(em.credit) && about.includes(em.caption.sv) && !creditRows.some(c => c.includes(em.credit));
+          if (!credited) throw new Error(`${place.id}: krediten och licensen "${em.credit} · ${em.license}" står inte där de ska (kreditrader vid bilden: "${creditRows.join(' | ')}", Om kartan och källor: "${about.slice(0, 120)}")`);
           if (!s.inside) throw new Error(`${place.id}: bilden ${em.file}.svg går utanför kortet`);
-          if (s.h > 60) throw new Error(`${place.id}: bilden ${em.file}.svg är ${Math.round(s.h)} px hög`);
+          if (s.h > 28) throw new Error(`${place.id}: bilden ${em.file}.svg är ${Math.round(s.h)} px hög, ska vara cirka 24 px (#1977)`);
         });
         if (await tp.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw new Error(`${place.id}: horisontell scroll med platskortet`);
         notes.push(`${place.id} ${shown.length}`);

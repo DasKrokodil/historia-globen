@@ -766,10 +766,14 @@ export class Panel {
     // en egen yta i stängregistret (kort, #1865)
     const shown = (emblems ?? []).filter(em => flagUrl(em));
     const srcs = [...new Set([...(sources ?? []), ...shown.map(em => em.source)])].map(id => this.srcById[id]).filter(Boolean);
-    // Platsens kort (aboutLabel, #1790): bilder vars licens kräver namnuppgift (CC BY, CC BY-SA) behåller en kort kreditrad vid bilden; övriga
-    // krediter (public domain) ligger i den hopfällda raden Om kartan och källor
+    // Platsens kort (aboutLabel, #1790, #1977): flaggan och vapnet är små (cirka 24 px) bredvid namnet. Bilder vars licens kräver
+    // namnuppgift (CC BY, CC BY-SA) har en kort kreditrad direkt under namnet; övriga krediter (public domain) ligger i den hopfällda
+    // raden Om kartan och källor. Licensen läses ur varje emblem i data/platser.json, inte ur koden.
     const placeCard = !!aboutLabel, needsCredit = em => /CC BY/i.test(em.license ?? '');
-    const emblemHtml = shown.length ? `<div class="place-emblems">${shown.map(em => `<figure class="place-emblem place-emblem-${esc(em.kind)}"><img src="${esc(flagUrl(em))}" alt="${esc(t(em.caption))}"><figcaption>${esc(t(em.caption))}${placeCard && !needsCredit(em) ? '' : `<span class="meta">${esc(em.credit)} · ${esc(em.license)}</span>`}</figcaption></figure>`).join('')}</div>` : '';
+    const emblemImg = em => `<img src="${esc(flagUrl(em))}" alt="${esc(t(em.caption))}">`;
+    const emblemHtml = placeCard ? '' : shown.length ? `<div class="place-emblems">${shown.map(em => `<figure class="place-emblem place-emblem-${esc(em.kind)}">${emblemImg(em)}<figcaption>${esc(t(em.caption))}<span class="meta">${esc(em.credit)} · ${esc(em.license)}</span></figcaption></figure>`).join('')}</div>` : '';
+    const headEmblems = placeCard && shown.length ? `<span class="place-emblems">${shown.map(em => `<figure class="place-emblem place-emblem-${esc(em.kind)}">${emblemImg(em)}</figure>`).join('')}</span>` : '';
+    const emblemCredits = placeCard ? shown.filter(needsCredit).map(em => `<p class="place-emblem-credit meta">${esc(t(em.caption))}: ${esc(em.credit)} · ${esc(em.license)}</p>`).join('') : '';
     const open = matchMedia('(max-width: 760px)').matches ? '' : ' open';
     // Rikena i landskortet (#1448): riktiga knappar med hela namnet för skärmläsare ("Följ riket Sverige 1612–1721"), luckorna som rader
     // Namnet för skärmläsare har samma ordning som den synliga texten (WCAG 2.5.3): "1815–1904 Sverige-Norge, Följ riket".
@@ -805,7 +809,7 @@ export class Panel {
     this.detail.innerHTML = `
       <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
       <div class="story-label">${esc(label)}</div>
-      <h3>${esc(t(name))}</h3>
+      ${placeCard ? `<div class="place-head"><h3>${esc(t(name))}</h3>${headEmblems}</div>${emblemCredits}` : `<h3>${esc(t(name))}</h3>`}
       ${banner ? `<p class="theme-filter-note place-banner">${esc(banner)}</p>` : ''}
       <div class="story">${lead ? `<p class="place-type">${esc(lead)}</p>` : ''}
       ${mapNote ? `<p class="place-map-note">${esc(mapNote)}</p>` : ''}

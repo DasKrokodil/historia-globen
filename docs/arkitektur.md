@@ -610,3 +610,5 @@ En tur är data i `data/turer/` (datamodell.md) och spelas av `TourPlayer` i `js
 ## Namn på platsens kartvy (#1948)
 
 Kartknappen i platskortet heter **Visa på kartan**, oavsett vilken kartväg som används eller hur stort fönstret är. Vyn som tekniskt heter `regionvy` kallas **Platsens karta** för besökaren, också i dess ruta, lämna-knapp, statusmeddelanden och hjälp. Namnen finns på alla fem språk i `data/ui/`; tekniska id:n och regler för inramning är oförändrade. Se [beslutet](beslut/2026-11-18-namn-pa-platsens-karta-1948.md).
+
+**Platskortets rubrikrad och kartknapp (#1977, [beslut 2026-11-20](beslut/2026-11-20-platskortets-flagga-och-knapp-1977.md)).** `Panel.showSelection` lägger flaggan och vapnet som små bilder (24 px, `.place-head .place-emblem img`) bredvid `h3` i en rubrikrad, utanför rubriken. En bild vars licens kräver namnuppgift (CC BY, CC BY-SA) får raden `.place-emblem-credit` direkt under namnet; övriga krediter ligger i `.place-about`. I smal skärm och låg yta (`@media (max-width: 760px), (max-height: 480px)`) ligger kartknappen före inledningen med CSS-`order` (markupen är oförändrad), så att den syns i det halva arket.
