@@ -165,7 +165,7 @@ images/turer/         bilder till steg i guidade turer, <namn>.webp, 800 × 600 
 images/licenses.json  genererat register över händelse- och turbildernas licenser (#393)
 data/land.json        grundkarta (Natural Earth 1:50m)
 data/land-10m.json    finare kust (Natural Earth 1:10m), laddas först när det skarpa utsnittet används; byggs med tools/land_10m.mjs
-tools/riken.py        bygger rikesfilerna ur Cliopatria
+tools/riken.py        bygger rikesfilerna ur Cliopatria; --delade-granser (av som standard, kräver shapely >= 2.1 med GEOS >= 3.12) är piloten med delade gränser för England, Skottland och Man med föregångarna 500–1700 (#1765)
 tools/riken_bevara.py det riken.py behåller vid ombyggnad: handskrivna fält som flags och översatta namn (#1220)
 tools/riken_namn.py   hämtar rikenas namn på tyska, spanska och franska ur Wikidata; riken.py bevarar dem (#676, #644)
 tools/forenkling_matning.py mäter överlapp mellan grannriken när de förenklas var för sig eller tillsammans (shapely.coverage_simplify), ändrar inga filer (#1765)
