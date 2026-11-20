@@ -25,6 +25,9 @@ from pathlib import Path
 from shapely.geometry import mapping, shape
 from shapely.ops import unary_union
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from cliopatria_ar import las_cliopatria  # noqa: E402  (#1989)
+
 ROOT = Path(__file__).resolve().parent.parent
 TOL = 0.25       # förenkling i grader (Douglas-Peucker), samma som religions.json
 MIN_AREA = 0.05  # öar mindre än så här (kvadratgrader) tas bort, samma som religions.json
@@ -62,7 +65,7 @@ def main():
         for s in r['snapshots']:
             for name in s['polities']:
                 wanted.setdefault(name, set()).add(s['start'])
-    src = json.loads(Path(sys.argv[1]).read_text())
+    src = las_cliopatria(sys.argv[1])  # Cliopatrias -N (N f.Kr.) blir astronomiskt 1 - N (#1989)
     out = {}
     for f in src['features']:
         p = f['properties']
@@ -88,7 +91,7 @@ def main():
              'cliopatria_polities_only_v021 (version 0.2.1, Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/23128623), '
              'byggt med tools/religioner_riken.py. Bara rikesperioder som ingår i någon ögonblicksbild i religions.json finns med. '
              f'Ändringar: geometrin är förenklad (Douglas-Peucker {TOL} grader, koordinater avrundade till 0.1 grad, öar under '
-             f'{MIN_AREA} kvadratgrader borttagna). start/end är Cliopatrias årtal (astronomiska år); perioder där gränsen ändras mindre än '
+             f'{MIN_AREA} kvadratgrader borttagna). start/end är Cliopatrias årtal omräknade till astronomiska år (Cliopatrias -N är N f.Kr., här 1 - N, #1989); perioder där gränsen ändras mindre än '
              f'{round(MERGE * 100)} procent av ytan är sammanslagna och har den första periodens gräns. Nyckeln är rikets '
              'namn i Cliopatria, samma som i religions.json. Religionen står inte här utan i religions.json.')
     doc = {'schema': 'historia-globen/religions-polities@1', 'notes': notes, 'sources': ['cliopatria'],
