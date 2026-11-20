@@ -26740,6 +26740,23 @@
    "file": "data/empires/sydkorea.json",
    "flags": [
     {
+     "file": "south-korea-1948",
+     "from": 1948,
+     "to": 1948,
+     "label": {
+      "sv": "Sydkoreas flagga 1948–1949",
+      "en": "South Korean flag of 1948–1949",
+      "de": "Südkoreanische Flagge von 1948–1949",
+      "es": "Bandera surcoreana de 1948–1949",
+      "fr": "Drapeau sud-coréen de 1948–1949"
+     },
+     "sources": [
+      "wp-flag-south-korea",
+      "commons-flagga-south-korea-1948"
+     ],
+     "review": "source-checked"
+    },
+    {
      "file": "south-korea",
      "from": 1949,
      "to": 2024,

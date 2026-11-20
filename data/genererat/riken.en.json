@@ -50,7 +50,7 @@
 "bangladesh":{"flags":{"0":{"label":{"en":"Flag of Bangladesh"}}}},
 "marathariket":{"capitals":{"1":{"note":{"en":"The source calls Jinji the de facto capital."}},"2":{"note":{"en":"The king's seat. The Peshwa, the empire's prime minister, sat in Pune in 1728–1818."}}}},
 "nordkorea":{"flags":{"0":{"label":{"en":"Flag of North Korea"}}}},
-"sydkorea":{"flags":{"0":{"label":{"en":"Flag of South Korea"}}}},
+"sydkorea":{"flags":{"0":{"label":{"en":"South Korean flag of 1948–1949"}},"1":{"label":{"en":"Flag of South Korea"}}}},
 "vietnam":{"flags":{"0":{"label":{"en":"Flag of Vietnam"}}}},
 "sydvietnam":{"flags":{"0":{"label":{"en":"Flag of the Republic of Vietnam"}}}},
 "nigeria":{"flags":{"0":{"label":{"en":"Nigerian green-white-green flag"}}}},
