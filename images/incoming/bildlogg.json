@@ -2974,5 +2974,37 @@
     "credit": "George Thomas Clayton, W. A. Nicholas / National Library of New Zealand / Wikimedia Commons",
     "license": "Public domain",
     "source": "commons-bild-nya-zeelandkrigen"
+  },
+  {
+    "id": "al-bakri-beskriver-ghana",
+    "file": "al-bakri-beskriver-ghana.png",
+    "kind": "illustration",
+    "style": "islamisk",
+    "caption": {
+      "sv": "Illustration i stil med islamisk landskapskonst med geometriska ornament, inte en historisk bild.",
+      "en": "Illustration in the style of Islamic landscape art with geometric ornaments, not a historical image.",
+      "de": "Illustration im Stil islamischer Landschaftskunst mit geometrischen Ornamenten, kein historisches Bild.",
+      "es": "Ilustración al estilo del arte paisajístico islámico con ornamentos geométricos, no una imagen histórica.",
+      "fr": "Illustration dans le style de l’art islamique du paysage, avec des ornements géométriques, et non une image historique."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-11-20",
+    "license": "CC BY 4.0",
+    "prompt": "Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: Al-Bakri describes the capital of the Ghana Empire — Capital of the Ghana Empire, perhaps Koumbi Saleh (now Mauritania), 1068 CE. What happened (show only this, do not add details): Around 1068 the scholar al-Bakri of Córdoba completed his book on roads and kingdoms, with a detailed description of the capital of the Ghana Empire. He described two towns on a plain, one for Muslim merchants with twelve mosques and one for the king. Al-Bakri never travelled there himself but relied on older texts and on people he met in Spain. The ruins at Koumbi Saleh have long been seen as this capital, but scholars increasingly question that. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details."
+  },
+  {
+    "id": "slaget-vid-tondibi",
+    "file": "slaget-vid-tondibi.png",
+    "kind": "illustration",
+    "style": "islamisk",
+    "caption": {
+      "sv": "Illustration i stil med islamisk landskapskonst med geometriska ornament, inte en historisk bild.",
+      "en": "Illustration in the style of Islamic landscape art with geometric ornaments, not a historical image.",
+      "de": "Illustration im Stil islamischer Landschaftskunst mit geometrischen Ornamenten, kein historisches Bild.",
+      "es": "Ilustración al estilo del arte paisajístico islámico con ornamentos geométricos, no una imagen histórica.",
+      "fr": "Illustration dans le style de l’art islamique du paysage, avec des ornements géométriques, et non une image historique."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-11-20",
+    "license": "CC BY 4.0",
+    "prompt": "Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: Battle of Tondibi — Near Tondibi, north of Gao on the Niger, Mali, 1591 CE. What happened (show only this, do not add details): In October 1590 the Moroccan sultan Ahmad al-Mansur sends an army with cannon against the Songhai Empire. On 13 March 1591 it, under Judar Pasha, meets the Songhai army under Askia Ishaq II near Tondibi, north of the capital Gao. The Moroccans win, and the Songhai Empire collapses. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details."
   }
 ]

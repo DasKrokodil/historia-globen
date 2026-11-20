@@ -3032,6 +3032,21 @@
      "en": "Wikipedia gives 13 March 1591 and Wikidata 12 March 1591. Neither has coordinates, so the point comes from the Historical Conflict Event Dataset and is approximate."
     }
    },
+   "image": {
+    "file": "images/events/slaget-vid-tondibi.webp",
+    "kind": "illustration",
+    "style": "islamisk",
+    "caption": {
+     "sv": "Illustration i stil med islamisk landskapskonst med geometriska ornament, inte en historisk bild.",
+     "en": "Illustration in the style of Islamic landscape art with geometric ornaments, not a historical image.",
+     "de": "Illustration im Stil islamischer Landschaftskunst mit geometrischen Ornamenten, kein historisches Bild.",
+     "es": "Ilustración al estilo del arte paisajístico islámico con ornamentos geométricos, no una imagen histórica.",
+     "fr": "Illustration dans le style de l’art islamique du paysage, avec des ornements géométriques, et non une image historique."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-11-20",
+    "license": "CC BY 4.0",
+    "prompt": "Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: Battle of Tondibi — Near Tondibi, north of Gao on the Niger, Mali, 1591 CE. What happened (show only this, do not add details): In October 1590 the Moroccan sultan Ahmad al-Mansur sends an army with cannon against the Songhai Empire. On 13 March 1591 it, under Judar Pasha, meets the Songhai army under Askia Ishaq II near Tondibi, north of the capital Gao. The Moroccans win, and the Songhai Empire collapses. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details."
+   },
    "wikidata": "Q589285",
    "sources": [
     "wp-battle-tondibi",

@@ -33,6 +33,15 @@
       }
     },
     {
+      "eventId": "al-bakri-beskriver-ghana",
+      "eventTitle": "Al-Bakri beskriver Ghanarikets huvudstad",
+      "file": "images/events/al-bakri-beskriver-ghana.webp",
+      "kind": "illustration",
+      "credit": "AI-genererad med ChatGPT, 2026-11-20",
+      "license": "CC BY 4.0",
+      "source": null
+    },
+    {
       "eventId": "alltinget-grundas",
       "eventTitle": "Alltinget grundas på Island",
       "file": "images/events/alltinget-grundas.webp",
@@ -3508,6 +3517,15 @@
         "license": "Public domain",
         "checked": "2026-11-20"
       }
+    },
+    {
+      "eventId": "slaget-vid-tondibi",
+      "eventTitle": "Slaget vid Tondibi",
+      "file": "images/events/slaget-vid-tondibi.webp",
+      "kind": "illustration",
+      "credit": "AI-genererad med ChatGPT, 2026-11-20",
+      "license": "CC BY 4.0",
+      "source": null
     },
     {
       "eventId": "slaget-vid-tuyuti",
