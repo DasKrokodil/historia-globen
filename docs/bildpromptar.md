@@ -3706,6 +3706,196 @@ Style: clearly modern hand-drawn editorial illustration of a prehistoric landsca
 Style: clearly modern hand-drawn editorial illustration of a prehistoric landscape, animals, tools or a find site, flat gouache and ink shapes with clean outlines on plain off-white paper, limited earth-tone palette, openly contemporary and stylised, no people or faces, must not resemble rock art, a carving or a photograph of a real find. Subject: Woven fabrics in Chertovy Vorota Cave — Chertovy Vorota Cave near Dalnegorsk, Primorsky Krai, Russia, 7451 BCE. What happened (show only this, do not add details): Charred scraps of rope, netting and woven cloth have come to light in Chertovy Vorota Cave in the Sikhote-Alin mountains, lying under the remains of a wooden building that had burnt down. Dates taken on the textiles themselves place them about 9,400–8,400 years before present, and they were probably made from a sedge, Carex sordida. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
+## Pil och båge i Fa-Hien Lena (`pil-och-bage-i-fa-hien-lena`)
+
+- År: 46051 BCE · plats: Grottan Fa-Hien Lena, Kalutara, Sri Lanka
+- Stil: Modern tecknad illustration av landskap och föremål (`grotta`)
+- Spara som: `images/incoming/pil-och-bage-i-fa-hien-lena.jpg`
+
+```text
+Style: clearly modern hand-drawn editorial illustration of a prehistoric landscape, animals, tools or a find site, flat gouache and ink shapes with clean outlines on plain off-white paper, limited earth-tone palette, openly contemporary and stylised, no people or faces, must not resemble rock art, a carving or a photograph of a real find. Subject: Bow and arrow at Fa-Hien Lena — Fa-Hien Lena cave, Kalutara, Sri Lanka, 46051 BCE. What happened (show only this, do not add details): According to a 2020 study, the people of the Fa-Hien Lena cave in Sri Lanka had the bow and arrow from at least 48,000 to 34,000 calibrated years before present. According to the study, this is the earliest evidence of the bow and arrow outside Africa. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Sutlej lämnar sin gamla dal (`sutlej-lamnar-sin-gamla-dal`)
+
+- År: 13051 BCE · plats: Ghaggar–Hakras torra flodfåra vid Kalibangan, Rajasthan, Indien; punkten är studiens borrhål vid Kalibangan
+- Stil: Modern tecknad illustration av landskap och föremål (`grotta`)
+- Spara som: `images/incoming/sutlej-lamnar-sin-gamla-dal.jpg`
+
+```text
+Style: clearly modern hand-drawn editorial illustration of a prehistoric landscape, animals, tools or a find site, flat gouache and ink shapes with clean outlines on plain off-white paper, limited earth-tone palette, openly contemporary and stylised, no people or faces, must not resemble rock art, a carving or a photograph of a real find. Subject: The Sutlej leaves its old valley — The dry Ghaggar–Hakra channel at Kalibangan, Rajasthan, India; the point is the study's boreholes at Kalibangan, 13051 BCE. What happened (show only this, do not add details): The dry Ghaggar–Hakra channel was once the course of the Sutlej River. Dates from river sand show that the large flow began to stop 15,000–12,000 years ago and was gone shortly after 8,000 years ago. The cities of the Indus Civilisation thus grew up in an abandoned valley, probably fed by monsoon rivers. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Ris i Lahuradewa: odlat eller insamlat? (`ris-i-lahuradewa`)
+
+- År: 7000 BCE · plats: Lahuradewa, Sant Kabir Nagar, Uttar Pradesh, Indien
+- Stil: Modern tecknad illustration av landskap och föremål (`grotta`)
+- Spara som: `images/incoming/ris-i-lahuradewa.jpg`
+
+```text
+Style: clearly modern hand-drawn editorial illustration of a prehistoric landscape, animals, tools or a find site, flat gouache and ink shapes with clean outlines on plain off-white paper, limited earth-tone palette, openly contemporary and stylised, no people or faces, must not resemble rock art, a carving or a photograph of a real find. Subject: Rice at Lahuradewa: cultivated or gathered? — Lahuradewa, Sant Kabir Nagar, Uttar Pradesh, India, 7000 BCE. What happened (show only this, do not add details): At Lahuradewa on the Ganges Plain, rice has been found in the oldest layers, which have been radiocarbon dated to the 7th millennium BC. The finds have been interpreted as early cultivated rice. Other researchers think the rice was rather gathered wild and that the dates may be too old. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Havet fyller Palksundet (`havet-fyller-palksundet`)
+
+- År: 9751 BCE · plats: Adams bro mellan Indien och Sri Lanka
+- Stil: Modern tecknad illustration av landskap och föremål (`grotta`)
+- Spara som: `images/incoming/havet-fyller-palksundet.jpg`
+
+```text
+Style: clearly modern hand-drawn editorial illustration of a prehistoric landscape, animals, tools or a find site, flat gouache and ink shapes with clean outlines on plain off-white paper, limited earth-tone palette, openly contemporary and stylised, no people or faces, must not resemble rock art, a carving or a photograph of a real find. Subject: The sea fills the Palk Strait — Adam's Bridge between India and Sri Lanka, 9751 BCE. What happened (show only this, do not add details): During the last ice age, sea level was at its lowest 120 metres below today's, and the Palk Strait was land between India and Sri Lanka. According to the article, the sea rose during the Holocene, and by about 7,000 years ago at the latest the strait was under water. After a fall from about 5,000 years ago, the islands at Adam's Bridge emerged again. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Fiske i grottan Jerimalai (`tonfisk-i-jerimalai`)
+
+- År: 40051 BCE · plats: Grottan Jerimalai sydost om Tutuala, Lautém, Östtimor
+- Stil: Modern tecknad illustration av landskap och föremål (`grotta`)
+- Spara som: `images/incoming/tonfisk-i-jerimalai.jpg`
+
+```text
+Style: clearly modern hand-drawn editorial illustration of a prehistoric landscape, animals, tools or a find site, flat gouache and ink shapes with clean outlines on plain off-white paper, limited earth-tone palette, openly contemporary and stylised, no people or faces, must not resemble rock art, a carving or a photograph of a real find. Subject: Fishing at Jerimalai cave — Jerimalai cave south-east of Tutuala, Lautém, Timor-Leste, 40051 BCE. What happened (show only this, do not add details): Finds older than 42,000 years, among them fish bones, have been made in the limestone cave of Jerimalai on the eastern tip of Timor-Leste. The people there ate turtles, tuna and giant rats. According to the article, the fish bones are the oldest evidence of fishing far from the shore. A fish hook made of shell is thought to be 16,000–23,000 years old. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Utbrottet som skapade Maninjausjön (`utbrottet-som-skapade-maninjausjon`)
+
+- År: 50051 BCE · plats: Maninjausjön, Västsumatra, Indonesien
+- Stil: Modern tecknad illustration av landskap och föremål (`grotta`)
+- Spara som: `images/incoming/utbrottet-som-skapade-maninjausjon.jpg`
+
+```text
+Style: clearly modern hand-drawn editorial illustration of a prehistoric landscape, animals, tools or a find site, flat gouache and ink shapes with clean outlines on plain off-white paper, limited earth-tone palette, openly contemporary and stylised, no people or faces, must not resemble rock art, a carving or a photograph of a real find. Subject: The eruption that formed Lake Maninjau — Lake Maninjau, West Sumatra, Indonesia, 50051 BCE. What happened (show only this, do not add details): About 52,000 years ago a volcanic eruption formed a caldera on Sumatra, about 20 km long and 8 km wide. The eruption's deposits cover an estimated 8,500 km² and reached west as far as today's coast. Lake Maninjau, up to 165 metres deep, now lies in the caldera. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Vulkanen Batur rasar samman i två steg (`baturs-kalderor`)
+
+- År: 27351 BCE · plats: Vulkanen Batur, Bangli, Bali, Indonesien
+- Stil: Modern tecknad illustration av landskap och föremål (`grotta`)
+- Spara som: `images/incoming/baturs-kalderor.jpg`
+
+```text
+Style: clearly modern hand-drawn editorial illustration of a prehistoric landscape, animals, tools or a find site, flat gouache and ink shapes with clean outlines on plain off-white paper, limited earth-tone palette, openly contemporary and stylised, no people or faces, must not resemble rock art, a carving or a photograph of a real find. Subject: Mount Batur collapses in two stages — Mount Batur, Bangli, Bali, Indonesia, 27351 BCE. What happened (show only this, do not add details): On Bali, Mount Batur has collapsed twice, when the magma chamber beneath it collapsed. The first and larger caldera, 10 × 13 km, formed about 29,300 years ago, and an inner caldera about 20,150 years ago. The article does not say how the ages were obtained. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Växtresterna i Spirit Cave (`vaxtresterna-i-spirit-cave`)
+
+- År: 9800 BCE · plats: Spirit Cave, Pang Mapha, Mae Hong Son, Thailand
+- Stil: Modern tecknad illustration av landskap och föremål (`grotta`)
+- Spara som: `images/incoming/vaxtresterna-i-spirit-cave.jpg`
+
+```text
+Style: clearly modern hand-drawn editorial illustration of a prehistoric landscape, animals, tools or a find site, flat gouache and ink shapes with clean outlines on plain off-white paper, limited earth-tone palette, openly contemporary and stylised, no people or faces, must not resemble rock art, a carving or a photograph of a real find. Subject: The plant remains of Spirit Cave — Spirit Cave, Pang Mapha, Mae Hong Son, Thailand, 9800 BCE. What happened (show only this, do not add details): In Spirit Cave in northern Thailand, Chester Gorman found remains of about a dozen plant genera in the mid-1960s, among them betel nut and pepper, in layers from about 9800–8500 BC in uncalibrated radiocarbon years. The finds were long seen as early farming, but that interpretation has no support (Higham and Thosarat). historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Havet dränker Sundaland (`havet-dranker-sundaland`)
+
+- År: 16051 BCE · plats: Sundaschelfen; punkten är ett representativt läge i Javasjön, inte en särskild plats
+- Stil: Modern tecknad illustration av landskap och föremål (`grotta`)
+- Spara som: `images/incoming/havet-dranker-sundaland.jpg`
+
+```text
+Style: clearly modern hand-drawn editorial illustration of a prehistoric landscape, animals, tools or a find site, flat gouache and ink shapes with clean outlines on plain off-white paper, limited earth-tone palette, openly contemporary and stylised, no people or faces, must not resemble rock art, a carving or a photograph of a real find. Subject: The sea drowns Sundaland — Sunda Shelf; the point is a representative position in the Java Sea, not a particular site, 16051 BCE. What happened (show only this, do not add details): At the coldest point of the ice age, the sea was about 120 metres lower than today, and the whole Sunda Shelf was land. Borneo, Java and Sumatra were then joined to the mainland. From about 18,000 years ago until about 5000 BC, large parts went under water, possibly in three large pulses of sea-level rise. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Nätet från Antrea (`natet-fran-antrea`)
+
+- År: 8540 BCE · plats: Korpilahti i Antrea på Karelska näset, i dag Kamennogorsk i Ryssland; punkten är Kamennogorsk
+- Stil: Modern tecknad illustration av landskap och föremål (`grotta`)
+- Spara som: `images/incoming/natet-fran-antrea.jpg`
+
+```text
+Style: clearly modern hand-drawn editorial illustration of a prehistoric landscape, animals, tools or a find site, flat gouache and ink shapes with clean outlines on plain off-white paper, limited earth-tone palette, openly contemporary and stylised, no people or faces, must not resemble rock art, a carving or a photograph of a real find. Subject: The Antrea net — Korpilahti in Antrea on the Karelian Isthmus, today Kamennogorsk in Russia; the point is Kamennogorsk, 8540 BCE. What happened (show only this, do not add details): In 1913 a farmer in Antrea, then in Finland, found parts of a willow fishing net together with 31 net weights and 18 floats. The net is dated to about 8540 BC and sank into the clay at the bottom of the Ancylus Lake. It was about 27–30 metres long, with a mesh suited to salmon and bream. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Saimen bryter igenom Salpausselkä (`saimen-bryter-igenom-salpausselka`)
+
+- År: 4051 BCE · plats: Vuoksens början vid Saimen, Imatra, Finland; var genombrottet skedde anges inte
+- Stil: Modern tecknad illustration av landskap och föremål (`grotta`)
+- Spara som: `images/incoming/saimen-bryter-igenom-salpausselka.jpg`
+
+```text
+Style: clearly modern hand-drawn editorial illustration of a prehistoric landscape, animals, tools or a find site, flat gouache and ink shapes with clean outlines on plain off-white paper, limited earth-tone palette, openly contemporary and stylised, no people or faces, must not resemble rock art, a carving or a photograph of a real find. Subject: Lake Saimaa breaks through the Salpausselkä — The start of the Vuoksi at Lake Saimaa, Imatra, Finland; where the breakthrough happened is not stated, 4051 BCE. What happened (show only this, do not add details): The Salpausselkä is an end moraine that formed in front of the ice at the end of the ice age. According to one article, the water of Lake Saimaa broke through it about 5,000 years before present; another says the lake drained through a new outlet about 6,000 years ago. The outlet became the Vuoksi River, and the level of Ladoga rose by 1–2 metres. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Kamkeramikernas byteshandel (`kamkeramikernas-byteshandel`)
+
+- År: 4200 BCE · plats: Kierikki vid Ijo älv, Uleåborg, Finland; punkten är ett exempel på kulturens boplatser
+- Stil: Modern tecknad illustration av landskap och föremål (`grotta`)
+- Spara som: `images/incoming/kamkeramikernas-byteshandel.jpg`
+
+```text
+Style: clearly modern hand-drawn editorial illustration of a prehistoric landscape, animals, tools or a find site, flat gouache and ink shapes with clean outlines on plain off-white paper, limited earth-tone palette, openly contemporary and stylised, no people or faces, must not resemble rock art, a carving or a photograph of a real find. Subject: The exchange network of the Comb Ceramic culture — Kierikki on the Ii River, Oulu, Finland; the point is one example of the culture's settlements, 4200 BCE. What happened (show only this, do not add details): The Comb Ceramic culture existed from about 4200 to 2000 BC, from Finnmark in the north to the Vistula in the south. The finds suggest a fairly wide exchange: asbestos from Lake Saimaa, green slate from Lake Onega, amber from the southern Baltic coast and flint from the Valdai area. Flint arrowheads from Russia reached Kierikki in Finland. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Gravfältet i Naltjik (`gravfaltet-i-naltjik`)
+
+- År: 4930 BCE · plats: Naltjik i Kabardinien-Balkarien, Ryssland (norra Kaukasus)
+- Stil: Modern tecknad illustration av landskap och föremål (`grotta`)
+- Spara som: `images/incoming/gravfaltet-i-naltjik.jpg`
+
+```text
+Style: clearly modern hand-drawn editorial illustration of a prehistoric landscape, animals, tools or a find site, flat gouache and ink shapes with clean outlines on plain off-white paper, limited earth-tone palette, openly contemporary and stylised, no people or faces, must not resemble rock art, a carving or a photograph of a real find. Subject: The cemetery at Nalchik — Nalchik in Kabardino-Balkaria, Russia (North Caucasus), 4930 BCE. What happened (show only this, do not add details): Within today’s Nalchik lay one of the oldest known Eneolithic cemeteries in the North Caucasus, with 121 graves. Two of the dead have been dated to around 4900–4400 BC. The genome of a man buried there combines ancestry from hunter-gatherers of the Caucasus and Eastern Europe and from early farmers of West Asia. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Vagnshjulen i Novokorsunskaja (`vagnshjulen-i-novokorsunskaja`)
+
+- År: 3500 BCE · plats: Novokorsunskaja i Kubanområdet, Krasnodar kraj, Ryssland; punkten är byn, inte kurganen
+- Stil: Modern tecknad illustration av landskap och föremål (`grotta`)
+- Spara som: `images/incoming/vagnshjulen-i-novokorsunskaja.jpg`
+
+```text
+Style: clearly modern hand-drawn editorial illustration of a prehistoric landscape, animals, tools or a find site, flat gouache and ink shapes with clean outlines on plain off-white paper, limited earth-tone palette, openly contemporary and stylised, no people or faces, must not resemble rock art, a carving or a photograph of a real find. Subject: The wagon wheels of Novokorsunskaya — Novokorsunskaya in the Kuban region, Krasnodar Krai, Russia; the point is the village, not the kurgan, 3500 BCE. What happened (show only this, do not add details): A kurgan at Novokorsunskaya in the Kuban region held a wagon grave of the Maykop culture. The grave contained two solid wooden wheels, which Wikipedia dates to the second half of the fourth millennium BC (3500–3000 BC). The Maykop area has some of the oldest known wagon wheels in the world. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Majkopkurganen (`majkopkurganen`)
+
+- År: 3700 BCE · plats: Majkop i Adygeja, Ryssland (norra Kaukasus)
+- Stil: Modern tecknad illustration av landskap och föremål (`grotta`)
+- Spara som: `images/incoming/majkopkurganen.jpg`
+
+```text
+Style: clearly modern hand-drawn editorial illustration of a prehistoric landscape, animals, tools or a find site, flat gouache and ink shapes with clean outlines on plain off-white paper, limited earth-tone palette, openly contemporary and stylised, no people or faces, must not resemble rock art, a carving or a photograph of a real find. Subject: The Maikop kurgan — Maikop in Adygea, Russia (North Caucasus), 3700 BCE. What happened (show only this, do not add details): Near Maikop in the North Caucasus stood a burial mound about ten metres high. Nikolay Veselovsky excavated it in 1897. The main grave was rich and held, among other things, bull figurines of gold and silver, and the mound also contained two women’s graves. The finds are in the Hermitage in Saint Petersburg. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Sälfångst vid Bajkalsjön (`salfangst-vid-bajkalsjon`)
+
+- År: 7071 BCE · plats: Boplatsen Sagan-Zaba II på Bajkalsjöns västra strand, Ryssland; punkten är byn Bugulʹdejka längre söderut längs stranden, inte boplatsen
+- Stil: Modern tecknad illustration av landskap och föremål (`grotta`)
+- Spara som: `images/incoming/salfangst-vid-bajkalsjon.jpg`
+
+```text
+Style: clearly modern hand-drawn editorial illustration of a prehistoric landscape, animals, tools or a find site, flat gouache and ink shapes with clean outlines on plain off-white paper, limited earth-tone palette, openly contemporary and stylised, no people or faces, must not resemble rock art, a carving or a photograph of a real find. Subject: Seal hunting on Lake Baikal — The Sagan-Zaba II site on the western shore of Lake Baikal, Russia; the point is the village of Buguldeyka further south along the shore, not the site, 7071 BCE. What happened (show only this, do not add details): At the Sagan-Zaba II site on Lake Baikal, people were hunting Baikal seals at least 9,000 years ago. Sealing peaked about 6,700–4,900 years ago, when 94–98 per cent of the identified animal bones in those layers were seal. Most of the seals were taken in spring. Later, fish and hoofed animals became more important. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Havet bryter igenom vid Berings sund (`havet-bryter-igenom-vid-berings-sund`)
+
+- År: 9551 BCE · plats: Berings sund mellan Tjuktjerhalvön och Alaska; punkten är tröskeln i sundet enligt studien
+- Stil: Modern tecknad illustration av landskap och föremål (`grotta`)
+- Spara som: `images/incoming/havet-bryter-igenom-vid-berings-sund.jpg`
+
+```text
+Style: clearly modern hand-drawn editorial illustration of a prehistoric landscape, animals, tools or a find site, flat gouache and ink shapes with clean outlines on plain off-white paper, limited earth-tone palette, openly contemporary and stylised, no people or faces, must not resemble rock art, a carving or a photograph of a real find. Subject: The sea breaks through at the Bering Strait — The Bering Strait between the Chukchi Peninsula and Alaska; the point is the sill of the strait according to the study, 9551 BCE. What happened (show only this, do not add details): During the Ice Age a land bridge joined Asia and North America. When the ice melted the sea rose. According to sediment cores, the Bering Strait was flooded about 11,500 years ago, linking the Pacific and Arctic Oceans. The spread of species suggests a shallow connection already about 13,300 years ago. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Hundarna på Zjochovön (`hundarna-pa-zjochovon`)
+
+- År: 7575 BCE · plats: Zjochovön i Östsibiriska havet, Jakutien, Ryssland
+- Stil: Modern tecknad illustration av landskap och föremål (`grotta`)
+- Spara som: `images/incoming/hundarna-pa-zjochovon.jpg`
+
+```text
+Style: clearly modern hand-drawn editorial illustration of a prehistoric landscape, animals, tools or a find site, flat gouache and ink shapes with clean outlines on plain off-white paper, limited earth-tone palette, openly contemporary and stylised, no people or faces, must not resemble rock art, a carving or a photograph of a real find. Subject: The dogs of Zhokhov Island — Zhokhov Island in the East Siberian Sea, Yakutia, Russia, 7575 BCE. What happened (show only this, do not add details): On Zhokhov Island, far north of Siberia, tools, a possible sledge runner and dog bones have been found. The inhabitants hunted polar bears and reindeer. A dog’s jaw has a calibrated age of about 9,500 years, and the dog belongs to a lineage related to today’s sled dogs. The finds have been seen as a possible early sign of dog breeding. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
+## Utbrotten i Ksudach (`utbrotten-i-ksudach`)
+
+- År: 6851 BCE · plats: Vulkanen Ksudach på södra Kamtjatka, Ryssland
+- Stil: Modern tecknad illustration av landskap och föremål (`grotta`)
+- Spara som: `images/incoming/utbrotten-i-ksudach.jpg`
+
+```text
+Style: clearly modern hand-drawn editorial illustration of a prehistoric landscape, animals, tools or a find site, flat gouache and ink shapes with clean outlines on plain off-white paper, limited earth-tone palette, openly contemporary and stylised, no people or faces, must not resemble rock art, a carving or a photograph of a real find. Subject: The eruptions of Ksudach — Ksudach volcano in southern Kamchatka, Russia, 6851 BCE. What happened (show only this, do not add details): Ksudach is a stratovolcano in southern Kamchatka with several calderas nested inside one another. The volcano has collapsed five times, and three of the collapses took place during the Holocene, after the Ice Age. Eruptions have been radiocarbon-dated to 8,700–8,800 and 6,000–6,100 years before present. A large eruption around AD 240 formed the youngest caldera. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+```
+
 ## Genpeikriget (`genpeikriget`)
 
 - År: 1180 CE · plats: Japan (började vid Uji utanför Kyoto)
@@ -4159,11 +4349,11 @@ Style: early medieval art: Byzantine icon with gold leaf background, or Insular 
 ## Kopparhuvudena från Ife gjuts (`ife-huvudet`)
 
 - År: 1300 CE · plats: Ife, jorubafolkets religiösa och kungliga centrum (i dag Nigeria)
-- Stil: Textilmönster och bronsrelief (`benin`)
+- Stil: Illuminerad handskrift (`medeltid`)
 - Spara som: `images/incoming/ife-huvudet.jpg`
 
 ```text
-Style: West African textile patterns and cast bronze relief plaques in the style of the Benin Bronzes, rich patina, decorative background rosettes. Subject: The copper heads of Ife are cast — Ife, the religious and royal centre of the Yoruba people (now Nigeria), 1300 CE. What happened (show only this, do not add details): In Ife, artists cast naturalistic heads in copper alloy, probably during the 14th or 15th century. One of them, the Ife Head, is thought to represent a king (ooni). It was found in 1938 during house building in Ife together with 16 other heads and is today in the British Museum. The finds upset Western notions of African civilisation. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+Style: high medieval illuminated manuscript miniature on vellum, gold leaf, lapis blue and vermilion, decorated initial and vine border, flat perspective. Subject: The copper heads of Ife are cast — Ife, the religious and royal centre of the Yoruba people (now Nigeria), 1300 CE. What happened (show only this, do not add details): In Ife, artists cast naturalistic heads in copper alloy, probably during the 14th or 15th century. One of them, the Ife Head, is thought to represent a king (ooni). It was found in 1938 during house building in Ife together with 16 other heads and is today in the British Museum. The finds upset Western notions of African civilisation. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Handelsstaden Kilwa bygger palats och kupolmoské (`kilwa-pa-sin-hojd`)
@@ -4369,11 +4559,11 @@ Style: Islamic art: intricate geometric tile patterns, arabesques and decorative
 ## Yekuno Amlak grundar den salomoniska dynastin (`salomoniska-dynastin-tar-makten`)
 
 - År: 1270 CE · plats: Bete Amhara, i dag södra Wollo (i dag Etiopien)
-- Stil: Geometriska mönster, kalligrafi och arkitektur (`islamisk`)
+- Stil: Etiopisk kyrkokonst och handskrift (`etiopien`)
 - Spara som: `images/incoming/salomoniska-dynastin-tar-makten.jpg`
 
 ```text
-Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: Yekuno Amlak founds the Solomonic dynasty — Bete Amhara, now southern Wollo (now Ethiopia), 1270 CE. What happened (show only this, do not add details): In 1270 Yekuno Amlak, a ruler from Bete Amhara, overthrew the last king of the Zagwe dynasty and became emperor of Ethiopia. He founded the Solomonic dynasty, which held power until 1974. Later writings claimed that he descended from King Solomon and the Queen of Sheba via the royal house of Aksum, but historians see the story as legends meant to make the seizure of power legitimate. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Ethiopian Orthodox church painting and illuminated Ge'ez manuscript style: flat bold black outlines, saturated red, yellow, green and blue on parchment, interlaced Ethiopian cross lattice borders, simple stylised landscapes and architecture, no readable script, no human faces. Subject: Yekuno Amlak founds the Solomonic dynasty — Bete Amhara, now southern Wollo (now Ethiopia), 1270 CE. What happened (show only this, do not add details): In 1270 Yekuno Amlak, a ruler from Bete Amhara, overthrew the last king of the Zagwe dynasty and became emperor of Ethiopia. He founded the Solomonic dynasty, which held power until 1974. Later writings claimed that he descended from King Solomon and the Queen of Sheba via the royal house of Aksum, but historians see the story as legends meant to make the seizure of power legitimate. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Oba Ewuare bygger upp kungariket Benin (`ewuare-oba-i-benin`)
@@ -5609,11 +5799,11 @@ Style: Islamic art: intricate geometric tile patterns, arabesques and decorative
 ## Zagwedynastin tar makten i norra Etiopien (`zagwedynastin`)
 
 - År: 1137 CE · plats: Lasta i norra Etiopien
-- Stil: Geometriska mönster, kalligrafi och arkitektur (`islamisk`)
+- Stil: Etiopisk kyrkokonst och handskrift (`etiopien`)
 - Spara som: `images/incoming/zagwedynastin.jpg`
 
 ```text
-Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: The Zagwe dynasty takes power in northern Ethiopia — Lasta in northern Ethiopia, 1137 CE. What happened (show only this, do not add details): The Zagwe dynasty was an Agaw royal house that ruled the northern parts of present-day Ethiopia and Eritrea from about 1137 to 1270, with its centre of power in Lasta. According to Ethiopian traditions, the dynasty's founder Mara Takla Haymanot overthrew the old royal line in 1137. The dynasty's best-known king is Gebre Meskel Lalibela, who is credited with the rock-hewn churches of Lalibela. In 1270 the last Zagwe king was killed in battle against Yekuno Amlak, who founded the Solomonic dynasty. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Ethiopian Orthodox church painting and illuminated Ge'ez manuscript style: flat bold black outlines, saturated red, yellow, green and blue on parchment, interlaced Ethiopian cross lattice borders, simple stylised landscapes and architecture, no readable script, no human faces. Subject: The Zagwe dynasty takes power in northern Ethiopia — Lasta in northern Ethiopia, 1137 CE. What happened (show only this, do not add details): The Zagwe dynasty was an Agaw royal house that ruled the northern parts of present-day Ethiopia and Eritrea from about 1137 to 1270, with its centre of power in Lasta. According to Ethiopian traditions, the dynasty's founder Mara Takla Haymanot overthrew the old royal line in 1137. The dynasty's best-known king is Gebre Meskel Lalibela, who is credited with the rock-hewn churches of Lalibela. In 1270 the last Zagwe king was killed in battle against Yekuno Amlak, who founded the Solomonic dynasty. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Jordbävningen 1303 skadar Faros fyr i Alexandria (`jordbavningen-1303-alexandria`)
@@ -5909,11 +6099,11 @@ Style: ancient Greek red-figure and black-figure vase painting, or Roman floor m
 ## Garimaevangelierna skrivs på ge’ez (`garimaevangelierna`)
 
 - År: 390 CE · plats: Abba Garima-klostret, Etiopien
-- Stil: Grekisk vasmålning och romersk mosaik (`antik`)
+- Stil: Etiopisk kyrkokonst och handskrift (`etiopien`)
 - Spara som: `images/incoming/garimaevangelierna.jpg`
 
 ```text
-Style: ancient Greek red-figure and black-figure vase painting, or Roman floor mosaic made of small stone tesserae and fresco, meander border. Subject: The Garima Gospels are written in Ge’ez — Abba Garima Monastery, Ethiopia, 390 CE. What happened (show only this, do not add details): The Garima Gospels are ancient manuscripts in Ge’ez, the language of the Kingdom of Aksum, containing all four Gospels. Radiocarbon dating gives the older manuscript, Garima 2, an age of about 390–570 and the younger one, Garima 1, about 530–660. Garima 2 is believed to be the oldest surviving complete illustrated Christian manuscript, with pictures that include portraits of the Evangelists. Before the dating, Western scholars thought the books came from about 1100 or later. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Ethiopian Orthodox church painting and illuminated Ge'ez manuscript style: flat bold black outlines, saturated red, yellow, green and blue on parchment, interlaced Ethiopian cross lattice borders, simple stylised landscapes and architecture, no readable script, no human faces. Subject: The Garima Gospels are written in Ge’ez — Abba Garima Monastery, Ethiopia, 390 CE. What happened (show only this, do not add details): The Garima Gospels are ancient manuscripts in Ge’ez, the language of the Kingdom of Aksum, containing all four Gospels. Radiocarbon dating gives the older manuscript, Garima 2, an age of about 390–570 and the younger one, Garima 1, about 530–660. Garima 2 is believed to be the oldest surviving complete illustrated Christian manuscript, with pictures that include portraits of the Evangelists. Before the dating, Western scholars thought the books came from about 1100 or later. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Augustinus skriver Bekännelser (`augustinus-skriver-bekannelser`)
@@ -6649,21 +6839,21 @@ Style: Persian, Mughal or Ottoman miniature painting, jewel-like colours, gold b
 ## Slaget vid Antukyah (`slaget-vid-antukyah`)
 
 - År: 1531 CE · plats: Antukyah vid kanten av de etiopiska högländerna, i dag distriktet Antsokiya och Gemza
-- Stil: Geometriska mönster, kalligrafi och arkitektur (`islamisk`)
+- Stil: Etiopisk kyrkokonst och handskrift (`etiopien`)
 - Spara som: `images/incoming/slaget-vid-antukyah.jpg`
 
 ```text
-Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: The Battle of Antukyah — Antukyah at the edge of the Ethiopian highlands, today the district of Antsokiya and Gemza, 1531 CE. What happened (show only this, do not add details): On 23 February 1531 Ahmad's army crushes the emperor's host under Eslamu. The Adalites' cannon send the Ethiopian soldiers fleeing right at the start. After a second victory at Ayfars in March, the Adalites reach the emperor's capital Barara the same spring. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Ethiopian Orthodox church painting and illuminated Ge'ez manuscript style: flat bold black outlines, saturated red, yellow, green and blue on parchment, interlaced Ethiopian cross lattice borders, simple stylised landscapes and architecture, no readable script, no human faces. Subject: The Battle of Antukyah — Antukyah at the edge of the Ethiopian highlands, today the district of Antsokiya and Gemza, 1531 CE. What happened (show only this, do not add details): On 23 February 1531 Ahmad's army crushes the emperor's host under Eslamu. The Adalites' cannon send the Ethiopian soldiers fleeing right at the start. After a second victory at Ayfars in March, the Adalites reach the emperor's capital Barara the same spring. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Slaget vid Amba Sel (`slaget-vid-amba-sel`)
 
 - År: 1531 CE · plats: Ambassel i Amhara, Etiopien
-- Stil: Geometriska mönster, kalligrafi och arkitektur (`islamisk`)
+- Stil: Etiopisk kyrkokonst och handskrift (`etiopien`)
 - Spara som: `images/incoming/slaget-vid-amba-sel.jpg`
 
 ```text
-Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: The Battle of Amba Sel — Ambassel in Amhara, Ethiopia, 1531 CE. What happened (show only this, do not add details): Emperor Lebna Dengel narrowly escapes when Ahmad's army wins at Amba Sel in October 1531. The emperor is then forced to move from place to place in his own kingdom, and the Adalites press into the highlands, where they plunder and burn churches. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Ethiopian Orthodox church painting and illuminated Ge'ez manuscript style: flat bold black outlines, saturated red, yellow, green and blue on parchment, interlaced Ethiopian cross lattice borders, simple stylised landscapes and architecture, no readable script, no human faces. Subject: The Battle of Amba Sel — Ambassel in Amhara, Ethiopia, 1531 CE. What happened (show only this, do not add details): Emperor Lebna Dengel narrowly escapes when Ahmad's army wins at Amba Sel in October 1531. The emperor is then forced to move from place to place in his own kingdom, and the Adalites press into the highlands, where they plunder and burn churches. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Portugisisk hjälp når Etiopien (`portugiserna-landstiger-i-massawa`)
@@ -6679,11 +6869,11 @@ Style: Islamic art: intricate geometric tile patterns, arabesques and decorative
 ## Slaget vid Wofla (`slaget-vid-wofla`)
 
 - År: 1542 CE · plats: Wofla (Ofla) nära sjön Ashenge, Tigray
-- Stil: Geometriska mönster, kalligrafi och arkitektur (`islamisk`)
+- Stil: Etiopisk kyrkokonst och handskrift (`etiopien`)
 - Spara som: `images/incoming/slaget-vid-wofla.jpg`
 
 ```text
-Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: The Battle of Wofla — Wofla (Ofla) near Lake Ashenge, Tigray, 1542 CE. What happened (show only this, do not add details): With Ottoman reinforcements and more firearms, Ahmad defeats the Portuguese at Wofla on 28 August 1542. Cristóvão da Gama is captured and executed on the imam's orders. About half of the Portuguese force dies, but the survivors make their way to Emperor Gelawdewos. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Ethiopian Orthodox church painting and illuminated Ge'ez manuscript style: flat bold black outlines, saturated red, yellow, green and blue on parchment, interlaced Ethiopian cross lattice borders, simple stylised landscapes and architecture, no readable script, no human faces. Subject: The Battle of Wofla — Wofla (Ofla) near Lake Ashenge, Tigray, 1542 CE. What happened (show only this, do not add details): With Ottoman reinforcements and more firearms, Ahmad defeats the Portuguese at Wofla on 28 August 1542. Cristóvão da Gama is captured and executed on the imam's orders. About half of the Portuguese force dies, but the survivors make their way to Emperor Gelawdewos. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Spanska erövringen av Aztekriket (`spanska-erovringen-av-aztekriket`)
@@ -7439,11 +7629,11 @@ Style: Renaissance woodcut or copper engraving, fine black hatching and cross-ha
 ## Fasilides gör Gondar till Etiopiens huvudstad (`gondar-blir-etiopiens-huvudstad`)
 
 - År: 1636 CE · plats: Gondar norr om Tanasjön (i dag Etiopien)
-- Stil: Geometriska mönster, kalligrafi och arkitektur (`islamisk`)
+- Stil: Etiopisk kyrkokonst och handskrift (`etiopien`)
 - Spara som: `images/incoming/gondar-blir-etiopiens-huvudstad.jpg`
 
 ```text
-Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: Fasilides makes Gondar the capital of Ethiopia — Gondar north of Lake Tana (today Ethiopia), 1636 CE. What happened (show only this, do not add details): Emperor Fasilides, who ruled Ethiopia in 1632–1667, chose Gondar in 1636 as his royal camp and made the town the capital of the kingdom. There he had the fortress built that today is called Fasil Ghebbi and is a World Heritage Site. Fasilides restored the Ethiopian Orthodox Church as the state church and banished the Jesuits. The period afterwards is called the Gondarine period. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Ethiopian Orthodox church painting and illuminated Ge'ez manuscript style: flat bold black outlines, saturated red, yellow, green and blue on parchment, interlaced Ethiopian cross lattice borders, simple stylised landscapes and architecture, no readable script, no human faces. Subject: Fasilides makes Gondar the capital of Ethiopia — Gondar north of Lake Tana (today Ethiopia), 1636 CE. What happened (show only this, do not add details): Emperor Fasilides, who ruled Ethiopia in 1632–1667, chose Gondar in 1636 as his royal camp and made the town the capital of the kingdom. There he had the fortress built that today is called Fasil Ghebbi and is a World Heritage Site. Fasilides restored the Ethiopian Orthodox Church as the state church and banished the Jesuits. The period afterwards is called the Gondarine period. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Rozviriket på Zimbabweplatån (`rozviriket`)
@@ -7459,21 +7649,21 @@ Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engravin
 ## Asanteriket växer fram (`asanteriket-grundas`)
 
 - År: 1701 CE · plats: Kumasi (i dag Ghana)
-- Stil: Textilmönster och bronsrelief (`benin`)
+- Stil: Barock oljemålning och gravyr (`barock`)
 - Spara som: `images/incoming/asanteriket-grundas.jpg`
 
 ```text
-Style: West African textile patterns and cast bronze relief plaques in the style of the Benin Bronzes, rich patina, decorative background rosettes. Subject: The Asante Empire emerges — Kumasi (today Ghana), 1701 CE. What happened (show only this, do not add details): The Asante king Osei Tutu and his priest Okomfo Anokye united the states of the Asante people around the Golden Stool as a common symbol. In 1701 the Asante army defeated Denkyira and thereby gained access to the coastal trade with the Europeans. The kingdom, with its capital Kumasi, built its wealth on gold, agriculture and the slave trade. It lasted until 1902, when it became part of the British colony of the Gold Coast. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engraving with watercolour wash. Subject: The Asante Empire emerges — Kumasi (today Ghana), 1701 CE. What happened (show only this, do not add details): The Asante king Osei Tutu and his priest Okomfo Anokye united the states of the Asante people around the Golden Stool as a common symbol. In 1701 the Asante army defeated Denkyira and thereby gained access to the coastal trade with the Europeans. The kingdom, with its capital Kumasi, built its wealth on gold, agriculture and the slave trade. It lasted until 1902, when it became part of the British colony of the Gold Coast. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Dahomey erövrar hamnstaden Ouidah (`dahomey-erovrar-ouidah`)
 
 - År: 1727 CE · plats: Ouidah (Whydah) vid kusten (i dag Benin)
-- Stil: Textilmönster och bronsrelief (`benin`)
+- Stil: Barock oljemålning och gravyr (`barock`)
 - Spara som: `images/incoming/dahomey-erovrar-ouidah.jpg`
 
 ```text
-Style: West African textile patterns and cast bronze relief plaques in the style of the Benin Bronzes, rich patina, decorative background rosettes. Subject: Dahomey conquers the port town of Ouidah — Ouidah (Whydah) on the coast (today Benin), 1727 CE. What happened (show only this, do not add details): On 26 February 1727 King Agaja of Dahomey attacked the port town of Whydah, today Ouidah, and burned the palace. According to reports from the fighting, about 5,000 people were killed and 10,000–11,000 were taken prisoner. The conquest gave Dahomey control of important trade routes for the Atlantic slave trade. Historians disagree about Agaja's reasons. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engraving with watercolour wash. Subject: Dahomey conquers the port town of Ouidah — Ouidah (Whydah) on the coast (today Benin), 1727 CE. What happened (show only this, do not add details): On 26 February 1727 King Agaja of Dahomey attacked the port town of Whydah, today Ouidah, and burned the palace. According to reports from the fighting, about 5,000 people were killed and 10,000–11,000 were taken prisoner. The conquest gave Dahomey control of important trade routes for the Atlantic slave trade. Historians disagree about Agaja's reasons. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Andrianampoinimerina enar Imerina (`andrianampoinimerina-enar-imerina`)
@@ -7769,11 +7959,11 @@ Style: Japanese ukiyo-e woodblock print, bold outlines, flat colour areas, Pruss
 ## Hatata, etiopisk förnuftsfilosofi (`hatata-1668`)
 
 - År: 1668 CE · plats: Etiopien (Zara Yaqob kom från Aksum)
-- Stil: Geometriska mönster, kalligrafi och arkitektur (`islamisk`)
+- Stil: Etiopisk kyrkokonst och handskrift (`etiopien`)
 - Spara som: `images/incoming/hatata-1668.jpg`
 
 ```text
-Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: The Hatata, Ethiopian philosophy of reason — Ethiopia (Zara Yaqob came from Aksum), 1668 CE. What happened (show only this, do not add details): The Hatata ("inquiry" in Ge'ez) are two philosophical treatises on ethics and reason from what is today Ethiopia. The first was written by Zara Yaqob, according to the text in 1668, and the second some years later by his pupil Walda Heywat. Zara Yaqob writes that he fled from Aksum and lived for two years in a cave. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Ethiopian Orthodox church painting and illuminated Ge'ez manuscript style: flat bold black outlines, saturated red, yellow, green and blue on parchment, interlaced Ethiopian cross lattice borders, simple stylised landscapes and architecture, no readable script, no human faces. Subject: The Hatata, Ethiopian philosophy of reason — Ethiopia (Zara Yaqob came from Aksum), 1668 CE. What happened (show only this, do not add details): The Hatata ("inquiry" in Ge'ez) are two philosophical treatises on ethics and reason from what is today Ethiopia. The first was written by Zara Yaqob, according to the text in 1668, and the second some years later by his pupil Walda Heywat. Zara Yaqob writes that he fled from Aksum and lived for two years in a cave. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Blåbocken utrotas (`blabocken-utrotas`)
@@ -7829,11 +8019,11 @@ Style: Renaissance portolan chart on vellum with compass roses, rhumb lines, sai
 ## Rosettastenen hittas (`rosettastenen-hittas`)
 
 - År: 1799 CE · plats: Fort Julien vid Rashid (Rosetta), Egypten
-- Stil: Geometriska mönster, kalligrafi och arkitektur (`islamisk`)
+- Stil: Barock oljemålning och gravyr (`barock`)
 - Spara som: `images/incoming/rosettastenen-hittas.jpg`
 
 ```text
-Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: The Rosetta Stone is found — Fort Julien near Rashid (Rosetta), Egypt, 1799 CE. What happened (show only this, do not add details): In mid-July 1799, during the French invasion of Egypt, French soldiers were demolishing a wall in Fort Julien near the port of Rashid in the Nile Delta. Lieutenant Pierre-François Bouchard noticed that one of the stones bore inscriptions. The stone carries the same text in three versions: in hieroglyphs, in Demotic script and in Greek. It became the key to the hieroglyphs, and in 1822 Jean-François Champollion in Paris announced how the scripts could be read. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engraving with watercolour wash. Subject: The Rosetta Stone is found — Fort Julien near Rashid (Rosetta), Egypt, 1799 CE. What happened (show only this, do not add details): In mid-July 1799, during the French invasion of Egypt, French soldiers were demolishing a wall in Fort Julien near the port of Rashid in the Nile Delta. Lieutenant Pierre-François Bouchard noticed that one of the stones bore inscriptions. The stone carries the same text in three versions: in hieroglyphs, in Demotic script and in Greek. It became the key to the hieroglyphs, and in 1822 Jean-François Champollion in Paris announced how the scripts could be read. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Universitetet San Marcos grundas i Lima (`san-marcos-universitet-1551`)
@@ -7899,21 +8089,21 @@ Style: scientific plate, hand-coloured copper engraving of instruments and diagr
 ## Oyoriket blir en stormakt (`oyoriket`)
 
 - År: 1608 CE · plats: Oyo-Ile (Gamla Oyo), rikets huvudstad, i dagens Nigeria
-- Stil: Textilmönster och bronsrelief (`benin`)
+- Stil: Träsnitt och kopparstick (`renassans`)
 - Spara som: `images/incoming/oyoriket.jpg`
 
 ```text
-Style: West African textile patterns and cast bronze relief plaques in the style of the Benin Bronzes, rich patina, decorative background rosettes. Subject: The Oyo Empire becomes a great power — Oyo-Ile (Old Oyo), the empire’s capital, in present-day Nigeria, 1608 CE. What happened (show only this, do not add details): Oyo was a Yoruba empire in present-day western Nigeria and Benin. Around 1680 it covered over 150,000 km², and in the 18th century it was at the height of its power. The king, the alaafin, was chosen by the Oyo Mesi council, and the council and the Ogboni society kept his power in check. From 1754 the empire was weakened by internal power struggles, and in 1835 the capital Oyo-Ile was destroyed. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Renaissance woodcut or copper engraving, fine black hatching and cross-hatching on cream paper, ornamental cartouche. Subject: The Oyo Empire becomes a great power — Oyo-Ile (Old Oyo), the empire’s capital, in present-day Nigeria, 1608 CE. What happened (show only this, do not add details): Oyo was a Yoruba empire in present-day western Nigeria and Benin. Around 1680 it covered over 150,000 km², and in the 18th century it was at the height of its power. The king, the alaafin, was chosen by the Oyo Mesi council, and the council and the Ogboni society kept his power in check. From 1754 the empire was weakened by internal power struggles, and in 1835 the capital Oyo-Ile was destroyed. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Befriade slavar grundar Freetown (`freetown-grundas`)
 
 - År: 1792 CE · plats: Freetown, Sierra Leone
-- Stil: Textilmönster och bronsrelief (`benin`)
+- Stil: Barock oljemålning och gravyr (`barock`)
 - Spara som: `images/incoming/freetown-grundas.jpg`
 
 ```text
-Style: West African textile patterns and cast bronze relief plaques in the style of the Benin Bronzes, rich patina, decorative background rosettes. Subject: Freed slaves found Freetown — Freetown, Sierra Leone, 1792 CE. What happened (show only this, do not add details): On 11 March 1792 Freetown in Sierra Leone was founded by African Americans who had been enslaved. More than 1,100 of them sailed in 15 ships to Sierra Leone with the abolitionist John Clarkson, and 64 died on the way. At a large cotton tree they held a thanksgiving service, and the place was named Free Town. Freetown became a settlement for free and freed Africans, and their descendants are known as Creoles. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Baroque oil painting with dramatic chiaroscuro, or hand-coloured engraving with watercolour wash. Subject: Freed slaves found Freetown — Freetown, Sierra Leone, 1792 CE. What happened (show only this, do not add details): On 11 March 1792 Freetown in Sierra Leone was founded by African Americans who had been enslaved. More than 1,100 of them sailed in 15 ships to Sierra Leone with the abolitionist John Clarkson, and 64 died on the way. At a large cotton tree they held a thanksgiving service, and the place was named Free Town. Freetown became a settlement for free and freed Africans, and their descendants are known as Creoles. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## De lärdas storhetstid i Timbuktu (`larda-i-timbuktu-sankore`)
@@ -8149,41 +8339,41 @@ Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an
 ## Första italiensk-etiopiska kriget (`forsta-italiensk-etiopiska-kriget`)
 
 - År: 1895 CE · plats: Italienska Eritrea och Etiopien (började vid Coatit i dagens Eritrea)
-- Stil: Geometriska mönster, kalligrafi och arkitektur (`islamisk`)
+- Stil: Etiopisk kyrkokonst och handskrift (`etiopien`)
 - Spara som: `images/incoming/forsta-italiensk-etiopiska-kriget.jpg`
 
 ```text
-Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: First Italo-Ethiopian War — Italian Eritrea and Ethiopia (began at Coatit in present-day Eritrea), 1895 CE. What happened (show only this, do not add details): A war between Italy and Ethiopia in 1895–1896. Italy wanted to make Ethiopia a protectorate, but Emperor Menelik II rallied the whole country behind him, and at Adwa in 1896 the Ethiopian army defeated the Italians. Ethiopia remained independent, and the victory became a symbol for all of Africa. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Ethiopian Orthodox church painting and illuminated Ge'ez manuscript style: flat bold black outlines, saturated red, yellow, green and blue on parchment, interlaced Ethiopian cross lattice borders, simple stylised landscapes and architecture, no readable script, no human faces. Subject: First Italo-Ethiopian War — Italian Eritrea and Ethiopia (began at Coatit in present-day Eritrea), 1895 CE. What happened (show only this, do not add details): A war between Italy and Ethiopia in 1895–1896. Italy wanted to make Ethiopia a protectorate, but Emperor Menelik II rallied the whole country behind him, and at Adwa in 1896 the Ethiopian army defeated the Italians. Ethiopia remained independent, and the victory became a symbol for all of Africa. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Slaget vid Coatit (`slaget-vid-coatit`)
 
 - År: 1895 CE · plats: Coatit (Quatit), Italienska Eritrea, i dag Eritrea
-- Stil: Geometriska mönster, kalligrafi och arkitektur (`islamisk`)
+- Stil: Etiopisk kyrkokonst och handskrift (`etiopien`)
 - Spara som: `images/incoming/slaget-vid-coatit.jpg`
 
 ```text
-Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: Battle of Coatit — Coatit (Quatit), Italian Eritrea, today Eritrea, 1895 CE. What happened (show only this, do not add details): On 13 January 1895 Italy's colonial army in Eritrea, where almost all the soldiers are Eritrean askari, meets Ras Mengesha Yohannes's Tigrayan army at Coatit. The Italians win the war's first battle and pursue Mengesha into Tigray, where they later take Adigrat, Adwa and Mekelle. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Ethiopian Orthodox church painting and illuminated Ge'ez manuscript style: flat bold black outlines, saturated red, yellow, green and blue on parchment, interlaced Ethiopian cross lattice borders, simple stylised landscapes and architecture, no readable script, no human faces. Subject: Battle of Coatit — Coatit (Quatit), Italian Eritrea, today Eritrea, 1895 CE. What happened (show only this, do not add details): On 13 January 1895 Italy's colonial army in Eritrea, where almost all the soldiers are Eritrean askari, meets Ras Mengesha Yohannes's Tigrayan army at Coatit. The Italians win the war's first battle and pursue Mengesha into Tigray, where they later take Adigrat, Adwa and Mekelle. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Etiopisk seger vid Amba Alagi (`slaget-vid-amba-alagi-1895`)
 
 - År: 1895 CE · plats: Amba Alagi i södra Tigray, Etiopien
-- Stil: Geometriska mönster, kalligrafi och arkitektur (`islamisk`)
+- Stil: Etiopisk kyrkokonst och handskrift (`etiopien`)
 - Spara som: `images/incoming/slaget-vid-amba-alagi-1895.jpg`
 
 ```text
-Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: Ethiopian victory at Amba Alagi — Amba Alagi in southern Tigray, Ethiopia, 1895 CE. What happened (show only this, do not add details): On 7 December 1895 the vanguard of Menelik's army, under Ras Makonnen, Ras Mengesha Yohannes and other commanders, attacks the Italian outpost on Mount Amba Alagi. The Italian force, mostly Eritrean askari under Major Pietro Toselli, is almost completely wiped out, and Toselli is killed. It is the first of the battles between Menelik's army and General Baratieri's. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Ethiopian Orthodox church painting and illuminated Ge'ez manuscript style: flat bold black outlines, saturated red, yellow, green and blue on parchment, interlaced Ethiopian cross lattice borders, simple stylised landscapes and architecture, no readable script, no human faces. Subject: Ethiopian victory at Amba Alagi — Amba Alagi in southern Tigray, Ethiopia, 1895 CE. What happened (show only this, do not add details): On 7 December 1895 the vanguard of Menelik's army, under Ras Makonnen, Ras Mengesha Yohannes and other commanders, attacks the Italian outpost on Mount Amba Alagi. The Italian force, mostly Eritrean askari under Major Pietro Toselli, is almost completely wiped out, and Toselli is killed. It is the first of the battles between Menelik's army and General Baratieri's. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Belägringen av Mekelle (`belagringen-av-mekelle`)
 
 - År: 1896 CE · plats: Mekelle, Tigray, Etiopien
-- Stil: Geometriska mönster, kalligrafi och arkitektur (`islamisk`)
+- Stil: Etiopisk kyrkokonst och handskrift (`etiopien`)
 - Spara som: `images/incoming/belagringen-av-mekelle.jpg`
 
 ```text
-Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: Siege of Mekelle — Mekelle, Tigray, Ethiopia, 1896 CE. What happened (show only this, do not add details): Ethiopian troops surround the unfinished Italian fort at Mekelle, and in January 1896 Emperor Menelik and Empress Taytu arrive there with the main army. When the Ethiopians cut off the fort's water supply, the Italian force surrenders. Menelik lets the soldiers go free and even gives them pack animals. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+Style: Ethiopian Orthodox church painting and illuminated Ge'ez manuscript style: flat bold black outlines, saturated red, yellow, green and blue on parchment, interlaced Ethiopian cross lattice borders, simple stylised landscapes and architecture, no readable script, no human faces. Subject: Siege of Mekelle — Mekelle, Tigray, Ethiopia, 1896 CE. What happened (show only this, do not add details): Ethiopian troops surround the unfinished Italian fort at Mekelle, and in January 1896 Emperor Menelik and Empress Taytu arrive there with the main army. When the Ethiopians cut off the fort's water supply, the Italian force surrenders. Menelik lets the soldiers go free and even gives them pack animals. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Freden i Addis Abeba (`freden-i-addis-abeba-1896`)
@@ -8353,7 +8543,7 @@ Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an
 - Spara som: `images/incoming/frigorelseproklamationen.jpg`
 
 ```text
-Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: Emancipation Proclamation — The White House, Washington D.C., 1863 CE. What happened (show only this, do not add details): On 1 January 1863 President Lincoln declares that all enslaved people in the states that have rebelled are free. It applies to more than 3.5 of the 4 million enslaved people in the United States, and freedom follows the Union army as it advances. The abolition of slavery becomes a war aim, and freed slaves can enlist in the Union army. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: Emancipation Proclamation — The White House, Washington D.C., 1863 CE. What happened (show only this, do not add details): On 1 January 1863 President Lincoln declares that all enslaved people in the states that have rebelled are free. It applies to more than 3.5 million of the 4 million enslaved people in the United States, and freedom follows the Union army as it advances. The abolition of slavery becomes a war aim, and freed slaves can enlist in the Union army. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Vicksburg kapitulerar (`belagringen-av-vicksburg`)
@@ -8659,11 +8849,11 @@ Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an
 ## Slaget vid Dodowa (Katamanso) (`slaget-vid-dodowa`)
 
 - År: 1826 CE · plats: Katamanso vid Dodowa, nära Accra, Ghana
-- Stil: Textilmönster och bronsrelief (`benin`)
+- Stil: Litografi och tidningsgravyr (`1800-tal`)
 - Spara som: `images/incoming/slaget-vid-dodowa.jpg`
 
 ```text
-Style: West African textile patterns and cast bronze relief plaques in the style of the Benin Bronzes, rich patina, decorative background rosettes. Subject: The Battle of Dodowa (Katamanso) — Katamanso at Dodowa, near Accra, Ghana, 1826 CE. What happened (show only this, do not add details): On 7 August 1826 the army of the Ashanti Empire under King Osei Yaw Akoto meets an alliance of peoples from the Gold Coast, among them the Fante, Ga, Akyem and Ada, supported by British, Danes and Dutch. The Ashanti lose, and the victory prevents the empire from taking control of the coast. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: The Battle of Dodowa (Katamanso) — Katamanso at Dodowa, near Accra, Ghana, 1826 CE. What happened (show only this, do not add details): On 7 August 1826 the army of the Ashanti Empire under King Osei Yaw Akoto meets an alliance of peoples from the Gold Coast, among them the Fante, Ga, Akyem and Ada, supported by British, Danes and Dutch. The Ashanti lose, and the victory prevents the empire from taking control of the coast. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Slaget vid Crête-à-Pierrot (`slaget-vid-crete-a-pierrot`)
@@ -8889,11 +9079,11 @@ Style: Islamic art: intricate geometric tile patterns, arabesques and decorative
 ## Liberia förklarar sig självständigt (`liberia-blir-sjalvstandigt`)
 
 - År: 1847 CE · plats: Liberia (Monrovia på kartan)
-- Stil: Textilmönster och bronsrelief (`benin`)
+- Stil: Litografi och tidningsgravyr (`1800-tal`)
 - Spara som: `images/incoming/liberia-blir-sjalvstandigt.jpg`
 
 ```text
-Style: West African textile patterns and cast bronze relief plaques in the style of the Benin Bronzes, rich patina, decorative background rosettes. Subject: Liberia Declares Independence — Liberia (Monrovia on the map), 1847 CE. What happened (show only this, do not add details): On 26 July 1847 Liberia's constitutional convention adopted the declaration of independence and the country's first constitution. The colony had been founded by the American Colonization Society for freed African Americans and now became the Republic of Liberia. The declaration lists the injustices to which African Americans had been subjected during slavery in the USA. The day is celebrated as Liberia's Independence Day. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
+Style: 19th-century lithograph or wood-engraved newspaper illustration, as in an illustrated weekly, fine line work, sepia or limited colour. Subject: Liberia Declares Independence — Liberia (Monrovia on the map), 1847 CE. What happened (show only this, do not add details): On 26 July 1847 Liberia's constitutional convention adopted the declaration of independence and the country's first constitution. The colony had been founded by the American Colonization Society for freed African Americans and now became the Republic of Liberia. The declaration lists the injustices to which African Americans had been subjected during slavery in the USA. The day is celebrated as Liberia's Independence Day. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Livingstone vid Mosi-oa-Tunya (`livingstone-vid-victoriafallen`)
@@ -9516,136 +9706,6 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: President Carranza is killed — Tlaxcalantongo in the Sierra Norte de Puebla, 1920 CE. What happened (show only this, do not add details): When Carranza tries to appoint a civilian successor, the generals from Sonora, Obregón, Calles and de la Huerta, rise in revolt with the Plan of Agua Prieta. Carranza flees from Mexico City and is killed in his sleep in Tlaxcalantongo on 21 May 1920. Obregón is elected president in October. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
-## Första världskriget (`forsta-varldskriget`)
-
-- År: 1914 CE · plats: Europa, Mellanöstern, Afrika, Stilla havet och Atlanten (började vid Belgrad, Serbien)
-- Stil: Affisch i art deco och tidig modernism (`affisch`)
-- Spara som: `images/incoming/forsta-varldskriget.jpg`
-
-```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The First World War — Europe, the Middle East, Africa, the Pacific and the Atlantic (began at Belgrade, Serbia), 1914 CE. What happened (show only this, do not add details): A worldwide war in 1914–1918 between the Allies (the Entente) and the Central Powers. It is among the deadliest wars in history: an estimated 15–22 million soldiers and civilians died. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
-```
-
-## Skotten i Sarajevo (`skotten-i-sarajevo`)
-
-- År: 1914 CE · plats: Vid Latinska bron i Sarajevo, Bosnien och Hercegovina (då Österrike-Ungern)
-- Stil: Affisch i art deco och tidig modernism (`affisch`)
-- Spara som: `images/incoming/skotten-i-sarajevo.jpg`
-
-```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The shots in Sarajevo — At the Latin Bridge in Sarajevo, Bosnia and Herzegovina (then Austria-Hungary), 1914 CE. What happened (show only this, do not add details): On 28 June 1914 the Bosnian Serb student Gavrilo Princip shoots Austria-Hungary's heir to the throne Franz Ferdinand and his wife Sophie in Sarajevo. The murder sets off the July Crisis, which a month later leads to war. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
-```
-
-## Slaget vid Tannenberg (`slaget-vid-tannenberg-1914`)
-
-- År: 1914 CE · plats: Nära Allenstein (Olsztyn), Ostpreussen (i dag Polen)
-- Stil: Affisch i art deco och tidig modernism (`affisch`)
-- Spara som: `images/incoming/slaget-vid-tannenberg-1914.jpg`
-
-```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Battle of Tannenberg — Near Allenstein (Olsztyn), East Prussia (today Poland), 1914 CE. What happened (show only this, do not add details): In late August 1914 a German army surrounds and crushes almost the whole Russian 2nd Army in East Prussia. The battle is fought near Allenstein but is named after Tannenberg, about thirty kilometres to the west. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
-```
-
-## Första slaget vid Marne (`forsta-slaget-vid-marne`)
-
-- År: 1914 CE · plats: Floden Marne öster om Paris, Frankrike
-- Stil: Affisch i art deco och tidig modernism (`affisch`)
-- Spara som: `images/incoming/forsta-slaget-vid-marne.jpg`
-
-```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The First Battle of the Marne — The Marne river east of Paris, France, 1914 CE. What happened (show only this, do not add details): In September 1914 French and British troops stop the German advance about forty kilometres from Paris. Germany's plan to defeat France quickly fails, and the Western Front becomes bogged down in trench warfare that lasts four years. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
-```
-
-## Belägringen av Tsingtao (`belagringen-av-tsingtao`)
-
-- År: 1914 CE · plats: Qingdao (Tsingtao), tyskt arrendeområde i Kina
-- Stil: Affisch i art deco och tidig modernism (`affisch`)
-- Spara som: `images/incoming/belagringen-av-tsingtao.jpg`
-
-```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Siege of Tsingtao — Qingdao (Tsingtao), a German leased territory in China, 1914 CE. What happened (show only this, do not add details): From 27 August to 7 November 1914 Japanese and British forces besiege the German port city of Qingdao in China. It is the war's only major land battle in Asia and the Pacific. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
-```
-
-## Slaget vid Tanga (`slaget-vid-tanga`)
-
-- År: 1914 CE · plats: Tanga, Tyska Östafrika (i dag Tanzania)
-- Stil: Affisch i art deco och tidig modernism (`affisch`)
-- Spara som: `images/incoming/slaget-vid-tanga.jpg`
-
-```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Battle of Tanga — Tanga, German East Africa (today Tanzania), 1914 CE. What happened (show only this, do not add details): On 3–5 November 1914 a British-Indian force tries to take the port of Tanga in German East Africa, but is beaten back by a smaller German force under Paul von Lettow-Vorbeck. It is the first major battle in the East African campaign. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
-```
-
-## Gallipolifälttåget (`gallipolifalttaget`)
-
-- År: 1915 CE · plats: Gallipolihalvön vid Dardanellerna, Osmanska riket (i dag Turkiet)
-- Stil: Affisch i art deco och tidig modernism (`affisch`)
-- Spara som: `images/incoming/gallipolifalttaget.jpg`
-
-```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Gallipoli campaign — The Gallipoli Peninsula at the Dardanelles, Ottoman Empire (today Turkey), 1915 CE. What happened (show only this, do not add details): The Allies try to take control of the straits to Constantinople. The fleet fails in March 1915, and the troops who land on the peninsula in April are withdrawn in January 1916 after about 250,000 killed, wounded and captured on each side. The day of the landing, 25 April, is today Anzac Day in Australia and New Zealand. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
-```
-
-## Belägringen av Kut (`belagringen-av-kut`)
-
-- År: 1915 CE · plats: Kut al-Amara i Mesopotamien, Osmanska riket (i dag Irak)
-- Stil: Affisch i art deco och tidig modernism (`affisch`)
-- Spara som: `images/incoming/belagringen-av-kut.jpg`
-
-```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Siege of Kut — Kut al-Amara in Mesopotamia, Ottoman Empire (today Iraq), 1915 CE. What happened (show only this, do not add details): From December 1915 Ottoman troops besiege a British-Indian garrison in the town of Kut, south of Baghdad. The garrison surrenders on 29 April 1916, and many of the prisoners die on the march into captivity in Aleppo. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
-```
-
-## Skagerrakslaget (slaget vid Jylland) (`slaget-vid-jylland`)
-
-- År: 1916 CE · plats: Nordsjön utanför Jylland, Danmark
-- Stil: Affisch i art deco och tidig modernism (`affisch`)
-- Spara som: `images/incoming/slaget-vid-jylland.jpg`
-
-```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Battle of Jutland (Skagerrak) — The North Sea off Jutland, Denmark, 1916 CE. What happened (show only this, do not add details): On 31 May–1 June 1916 the British and German fleets meet in the largest naval battle of the war. 14 British and 11 German ships are sunk. Both sides claim victory, but the German fleet afterwards avoids new major naval battles. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
-```
-
-## Slaget vid Somme (`slaget-vid-somme`)
-
-- År: 1916 CE · plats: Vid floden Somme, norra Frankrike
-- Stil: Affisch i art deco och tidig modernism (`affisch`)
-- Spara som: `images/incoming/slaget-vid-somme.jpg`
-
-```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Battle of the Somme — At the Somme river, northern France, 1916 CE. What happened (show only this, do not add details): From 1 July to 18 November 1916 British and French armies attack the German lines at the Somme. Over three million soldiers take part, and more than a million are killed or wounded. Tanks are used for the first time in September. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
-```
-
-## USA går in i kriget (`usa-gar-in-i-forsta-varldskriget`)
-
-- År: 1917 CE · plats: Kongressen i Washington, D.C., USA
-- Stil: Affisch i art deco och tidig modernism (`affisch`)
-- Spara som: `images/incoming/usa-gar-in-i-forsta-varldskriget.jpg`
-
-```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The United States enters the war — Congress in Washington, D.C., USA, 1917 CE. What happened (show only this, do not add details): On 6 April 1917 the US Congress declares war on Germany. Germany had resumed unrestricted submarine warfare, and the Zimmermann Telegram, a secret German offer to Mexico, had outraged Americans. American troops begin to arrive in Europe the same year. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
-```
-
-## Freden i Brest-Litovsk (`freden-i-brest-litovsk`)
-
-- År: 1918 CE · plats: Brest-Litovsk (i dag Brest, Belarus)
-- Stil: Affisch i art deco och tidig modernism (`affisch`)
-- Spara som: `images/incoming/freden-i-brest-litovsk.jpg`
-
-```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Peace of Brest-Litovsk — Brest-Litovsk (today Brest, Belarus), 1918 CE. What happened (show only this, do not add details): On 3 March 1918 Soviet Russia makes a separate peace with the Central Powers and leaves the war. Russia loses, among other things, Ukraine, Poland, Belarus and the Baltic countries. The peace is annulled by the armistice in November the same year. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
-```
-
-## Vapenstilleståndet i Compiègne (`vapenstillestandet-1918`)
-
-- År: 1918 CE · plats: Compiègneskogen, Frankrike
-- Stil: Affisch i art deco och tidig modernism (`affisch`)
-- Spara som: `images/incoming/vapenstillestandet-1918.jpg`
-
-```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Armistice at Compiègne — The forest of Compiègne, France, 1918 CE. What happened (show only this, do not add details): The armistice between the Entente and Germany is signed in a railway carriage in the forest at Compiègne and takes effect at 11 o'clock on 11 November 1918. The fighting stops, and the war is over. Peace is made at Versailles on 28 June 1919. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
-```
-
 ## Andra världskriget (`andra-varldskriget`)
 
 - År: 1939 CE · plats: Hela världen: Europa, Asien, Afrika, Stilla havet och Atlanten (började med anfallet på Polen)
@@ -9654,126 +9714,6 @@ Style: early 20th-century poster art, art deco and early modernism, bold geometr
 
 ```text
 Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Second World War — The whole world: Europe, Asia, Africa, the Pacific and the Atlantic (began with the attack on Poland), 1939 CE. What happened (show only this, do not add details): The deadliest war in history, between the Allies and the Axis powers. Almost all the world's countries took part, and the fighting spread across Europe, Asia, North Africa and the world's oceans. An estimated 60–75 million people died, most of them civilians. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
-```
-
-## Tyskland anfaller Polen (`anfallet-pa-polen`)
-
-- År: 1939 CE · plats: Polen (bland de första striderna: Westerplatte vid Danzig)
-- Stil: Affisch i art deco och tidig modernism (`affisch`)
-- Spara som: `images/incoming/anfallet-pa-polen.jpg`
-
-```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: Germany attacks Poland — Poland (among the first fighting: Westerplatte at Danzig), 1939 CE. What happened (show only this, do not add details): On 1 September 1939 Germany, together with Slovakia, attacks Poland. Among the first fighting is the shelling of Westerplatte at Danzig. Britain and France declare war on Germany on 3 September, and on 17 September the Soviet Union attacks Poland from the east. By 6 October Poland is divided between Germany and the Soviet Union. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
-```
-
-## Frankrikes fall (`frankrikes-fall`)
-
-- År: 1940 CE · plats: Frankrike och Beneluxländerna (vapenstilleståndet skrevs under vid Compiègne)
-- Stil: Affisch i art deco och tidig modernism (`affisch`)
-- Spara som: `images/incoming/frankrikes-fall.jpg`
-
-```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The fall of France — France and the Benelux countries (the armistice was signed at Compiègne), 1940 CE. What happened (show only this, do not add details): On 10 May 1940 Germany attacks the Netherlands, Belgium, Luxembourg and France. British and French troops are evacuated from Dunkirk, Italy enters the war on 10 June and Paris is taken on 14 June. The armistice is signed at Compiègne on 22 June and takes effect on 25 June 1940. Northern and western France are occupied. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
-```
-
-## Slaget om Storbritannien (`slaget-om-storbritannien`)
-
-- År: 1940 CE · plats: Luftrummet över Storbritannien och Engelska kanalen
-- Stil: Affisch i art deco och tidig modernism (`affisch`)
-- Spara som: `images/incoming/slaget-om-storbritannien.jpg`
-
-```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Battle of Britain — The airspace over Britain and the English Channel, 1940 CE. What happened (show only this, do not add details): British air forces defend Britain against the German air force's attacks in the summer and autumn of 1940. It is the first major campaign fought only by air forces. Germany fails to gain air superiority, and Hitler postpones and finally cancels the planned invasion. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
-```
-
-## Operation Barbarossa (`operation-barbarossa`)
-
-- År: 1941 CE · plats: Västra Sovjetunionen (ett av de första slagen stod vid Brest)
-- Stil: Affisch i art deco och tidig modernism (`affisch`)
-- Spara som: `images/incoming/operation-barbarossa.jpg`
-
-```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: Operation Barbarossa — Western Soviet Union (one of the first battles was at Brest), 1941 CE. What happened (show only this, do not add details): On 22 June 1941 Germany and several of its European allies attack the Soviet Union with more than 3.8 million soldiers. It is the largest military offensive in history and opens the Eastern Front. The operation lasts until 5 December 1941 but does not reach its goals, and the Soviet Union joins the Allies. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
-```
-
-## Attacken mot Pearl Harbor (`attacken-mot-pearl-harbor`)
-
-- År: 1941 CE · plats: Pearl Harbor, Oahu, Hawaii
-- Stil: Affisch i art deco och tidig modernism (`affisch`)
-- Spara som: `images/incoming/attacken-mot-pearl-harbor.jpg`
-
-```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The attack on Pearl Harbor — Pearl Harbor, Oahu, Hawaii, 1941 CE. What happened (show only this, do not add details): On 7 December 1941 Japanese aircraft from six aircraft carriers attack the American Pacific Fleet at Pearl Harbor. 2,403 Americans are killed. Within a few hours Japan also attacks, among other places, the Philippines, Malaya, Singapore and Hong Kong. The United States declares war on Japan the next day, and Germany then declares war on the United States. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
-```
-
-## Slaget vid Midway (`slaget-vid-midway`)
-
-- År: 1942 CE · plats: Havet nära Midwayatollen, Stilla havet
-- Stil: Affisch i art deco och tidig modernism (`affisch`)
-- Spara som: `images/incoming/slaget-vid-midway.jpg`
-
-```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Battle of Midway — The sea near Midway Atoll, Pacific Ocean, 1942 CE. What happened (show only this, do not add details): On 4–7 June 1942 the American navy defeats a Japanese fleet near Midway. American codebreakers have learned of the attack in advance. Japan loses four aircraft carriers, and its advance in the Pacific is halted. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
-```
-
-## Andra slaget vid el-Alamein (`andra-slaget-vid-el-alamein`)
-
-- År: 1942 CE · plats: El Alamein, Egypten
-- Stil: Affisch i art deco och tidig modernism (`affisch`)
-- Spara som: `images/incoming/andra-slaget-vid-el-alamein.jpg`
-
-```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The Second Battle of El Alamein — El Alamein, Egypt, 1942 CE. What happened (show only this, do not add details): From 23 October 1942 the British Eighth Army under Bernard Montgomery attacks the German-Italian Panzer Army at El Alamein. After 13 days of fighting the Axis forces have to withdraw from Egypt and Libya. The threat to the Suez Canal and the Middle East is gone. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
-```
-
-## D-dagen, landstigningen i Normandie (`d-dagen`)
-
-- År: 1944 CE · plats: Normandies kust, Frankrike
-- Stil: Affisch i art deco och tidig modernism (`affisch`)
-- Spara som: `images/incoming/d-dagen.jpg`
-
-```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: D-Day, the Normandy landings — The coast of Normandy, France, 1944 CE. What happened (show only this, do not add details): On 6 June 1944 Allied troops, among them American, British and Canadian, are landed from the air and from the sea on five sectors of the Normandy coast. It is the largest seaborne landing in history and the beginning of the liberation of France and Western Europe. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
-```
-
-## Auschwitz befrias (`auschwitz-befrias`)
-
-- År: 1945 CE · plats: Auschwitz nära Oświęcim, det tyskockuperade Polen
-- Stil: Affisch i art deco och tidig modernism (`affisch`)
-- Spara som: `images/incoming/auschwitz-befrias.jpg`
-
-```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: Auschwitz is liberated — Auschwitz near Oświęcim, German-occupied Poland, 1945 CE. What happened (show only this, do not add details): On 27 January 1945 Soviet troops liberate Auschwitz, a Nazi concentration and extermination camp. At least 1.1 million people died there, most of them Jews. The camp became a symbol of the Holocaust, in which about six million Jews were murdered, and since 2005 the day has been the International Holocaust Remembrance Day. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
-```
-
-## Tyskland kapitulerar (`tysklands-kapitulation`)
-
-- År: 1945 CE · plats: Karlshorst, Berlin
-- Stil: Affisch i art deco och tidig modernism (`affisch`)
-- Spara som: `images/incoming/tysklands-kapitulation.jpg`
-
-```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: Germany surrenders — Karlshorst, Berlin, 1945 CE. What happened (show only this, do not add details): On 8 May 1945 Germany's supreme military command signs an unconditional surrender in Karlshorst in Berlin, and the war in Europe is over. The day before, Germany had signed a first surrender in Reims, which the Soviet Union did not accept. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
-```
-
-## Atombomberna mot Hiroshima och Nagasaki (`atombomberna-hiroshima-nagasaki`)
-
-- År: 1945 CE · plats: Hiroshima och Nagasaki, Japan
-- Stil: Affisch i art deco och tidig modernism (`affisch`)
-- Spara som: `images/incoming/atombomberna-hiroshima-nagasaki.jpg`
-
-```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: The atomic bombs on Hiroshima and Nagasaki — Hiroshima and Nagasaki, Japan, 1945 CE. What happened (show only this, do not add details): On 6 and 9 August 1945 the United States drops atomic bombs on the Japanese cities of Hiroshima and Nagasaki. Between 150,000 and 246,000 people are killed, most of them civilians. These are the only times nuclear weapons have been used in war. Between the bombs the Soviet Union declares war on Japan and attacks Manchuria. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
-```
-
-## Japan kapitulerar, kriget slutar (`japans-kapitulation`)
-
-- År: 1945 CE · plats: Slagskeppet USS Missouri i Tokyobukten, Japan
-- Stil: Affisch i art deco och tidig modernism (`affisch`)
-- Spara som: `images/incoming/japans-kapitulation.jpg`
-
-```text
-Style: early 20th-century poster art, art deco and early modernism, bold geometric shapes, flat colour areas, strong diagonals, lithographic print texture. Subject: Japan surrenders, the war ends — The battleship USS Missouri in Tokyo Bay, Japan, 1945 CE. What happened (show only this, do not add details): On 15 August 1945 Emperor Hirohito announces on the radio that Japan accepts the Allies' terms. On 2 September Japan and nine Allied countries sign the surrender aboard USS Missouri in Tokyo Bay. The Second World War is over. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Never depict the Prophet Muhammad. Respect: no caricatures of peoples; convey mood and setting rather than invented details.
 ```
 
 ## Slaget vid Mersa Matruh (`slaget-vid-mersa-matruh`)

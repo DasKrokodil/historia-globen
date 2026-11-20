@@ -57,7 +57,7 @@ def style_for(e, doc):
     in_time = lambda s: s['from'] <= year <= s['to']
     in_region = lambda rid: any(w <= lon <= ea and so <= lat <= n for w, so, ea, n in doc['regions'].get(rid, {}).get('bbox', []))
     base = next((s for s in doc['styles'] if not s['regions'] and in_time(s)), doc['styles'][0])
-    regional = next((s for s in doc['styles'] if s['regions'] and in_time(s) and any(in_region(r) for r in s['regions'])), None)
+    regional = next((s for s in doc['styles'] if s['regions'] and in_time(s) and e['id'] not in s.get('exceptIds', []) and any(in_region(r) for r in s['regions'])), None)
     style = regional or base
     return style, base, (style.get('variants') or {}).get(e['category'])
 
