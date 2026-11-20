@@ -1113,6 +1113,7 @@
         "wp-first-taranaki-war",
         "wp-flag-albania",
         "wp-flag-algeria",
+        "wp-flag-angola",
         "wp-flag-antigua-and-barbuda",
         "wp-flag-argentina",
         "wp-flag-armenia",
@@ -3414,6 +3415,12 @@
       "license": "Public domain (PD-Algeria, PD-ineligible)",
       "sourceIds": [
         "commons-flagga-algeria"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Angola, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-angola"
       ]
     },
     {

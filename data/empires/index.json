@@ -32707,6 +32707,25 @@
    "from": 1976,
    "to": 2024,
    "file": "data/empires/angola.json",
+   "flags": [
+    {
+     "file": "angola",
+     "from": 1976,
+     "to": 2024,
+     "label": {
+      "sv": "Angolas flagga",
+      "en": "Flag of Angola",
+      "de": "Flagge Angolas",
+      "es": "Bandera de Angola",
+      "fr": "Drapeau de l'Angola"
+     },
+     "sources": [
+      "wp-flag-angola",
+      "commons-flagga-angola"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "angola",
