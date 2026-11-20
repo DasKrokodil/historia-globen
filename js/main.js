@@ -458,9 +458,11 @@ async function start() {
     return !!rh;
   };
   // I Platt vy: klick bredvid markörerna (#38)
-  flatMap.onMapClick = (ll, x, y) => {
+  flatMap.onMapClick = (ll, x, y, pointerType) => {
     relLegend.hidePop(); routePop.hide(); popClick++;
-    if (!routeClick(ll, x, y)) app.places.tap(ll); // sist: platsens kort (#1161). Platt vy har inget dubbeltryck som zoomar, så trycket väntar inte
+    // sist: platsens kort (#1161). Platt vy har inget dubbeltryck som zoomar, men med finger väntar trycket ändå lite (#1978): kortet
+    // som öppnas lägger sig annars över tryckpunkten innan webbläsaren har skickat sitt klick, som då träffar kortet
+    if (!routeClick(ll, x, y)) app.places.tap(ll, pointerType === 'touch' || pointerType === 'pen');
   };
   globe.onClick = (x, y, pointerType) => {
     // Regionvyn på globen (#1644): medaljerna är dolda och markörerna är knappar; ett tryck bredvid dem fäller ihop och avmarkerar
