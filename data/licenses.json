@@ -1252,6 +1252,7 @@
         "wp-flag-vanuatu",
         "wp-flag-vietnam",
         "wp-flag-yemen",
+        "wp-flag-zimbabwe",
         "wp-flags-confederate-states",
         "wp-flags-german-empire",
         "wp-flags-mughal-empire",
@@ -3734,6 +3735,12 @@
       "license": "Public domain (PD-Yemen, PD-ineligible)",
       "sourceIds": [
         "commons-flagga-yemen"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Zimbabwe, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-zimbabwe"
       ]
     },
     {

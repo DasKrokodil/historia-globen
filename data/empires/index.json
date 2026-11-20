@@ -34421,6 +34421,25 @@
    "from": 1967,
    "to": 2024,
    "file": "data/empires/zimbabwe.json",
+   "flags": [
+    {
+     "file": "zimbabwe",
+     "from": 1980,
+     "to": 2024,
+     "label": {
+      "sv": "Zimbabwes flagga",
+      "en": "Flag of Zimbabwe",
+      "de": "Flagge Simbabwes",
+      "es": "Bandera de Zimbabue",
+      "fr": "Drapeau du Zimbabwe"
+     },
+     "sources": [
+      "wp-flag-zimbabwe",
+      "commons-flagga-zimbabwe"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "rhodesia",
