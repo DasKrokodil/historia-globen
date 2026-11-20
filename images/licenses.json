@@ -351,6 +351,21 @@
       }
     },
     {
+      "eventId": "blabocken-utrotas",
+      "eventTitle": "Blåbocken utrotas",
+      "file": "images/events/blabocken-utrotas.webp",
+      "kind": "historisk",
+      "credit": "Special Collections, Universiteit van Amsterdam / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-blabocken-utrotas",
+        "title": "Bluebuck by Allamand, 1778 – Antilope leucophaea, handkolorerat kopparstick ur Buffons naturhistoria, band XV, plansch LV, Special Collections, Universiteit van Amsterdam (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Bluebuck_by_Allamand,_1778.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "blockaden-av-biafra",
       "eventTitle": "Blockaden och svälten i Biafra",
       "file": "images/events/blockaden-av-biafra.webp",
@@ -1164,6 +1179,21 @@
       }
     },
     {
+      "eventId": "harar-adals-huvudstad",
+      "eventTitle": "Harar blir Adalsultanatets huvudstad",
+      "file": "images/events/harar-adals-huvudstad.webp",
+      "kind": "historisk",
+      "credit": "Sailko / Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "source": {
+        "id": "commons-bild-harar-adals-huvudstad",
+        "title": "Harar, mura presso la porta di Buda 07 – fotografi av Sailko, 2018 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Harar,_mura_presso_la_porta_di_buda_07.jpg",
+        "license": "CC BY 3.0",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "harvard",
       "eventTitle": "Harvard grundas",
       "file": "images/events/harvard.webp",
@@ -1429,6 +1459,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-30",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "kapkolonin-1652",
+      "eventTitle": "Nederländarna grundar Kapkolonin",
+      "file": "images/events/kapkolonin-1652.webp",
+      "kind": "historisk",
+      "credit": "Charles Davidson Bell / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-kapkolonin-1652",
+        "title": "Jan van Riebeeck se aankoms aan die Kaap – målning av Charles Davidson Bell, före 1851 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Charles_Bell_-_Jan_van_Riebeeck_se_aankoms_aan_die_Kaap.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
     },
     {
       "eventId": "karl-den-store-krons",
@@ -2559,6 +2604,36 @@
       }
     },
     {
+      "eventId": "rodriguessolitaren-dor-ut",
+      "eventTitle": "Rodriguessolitären dör ut",
+      "file": "images/events/rodriguessolitaren-dor-ut.webp",
+      "kind": "historisk",
+      "credit": "François Leguat / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-rodriguessolitaren-dor-ut",
+        "title": "Le Solitaire – bild ur François Leguats reseskildring 1708, faksimil i 1891 års utgåva (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Leguat1891solitaire.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "rosettastenen-hittas",
+      "eventTitle": "Rosettastenen hittas",
+      "file": "images/events/rosettastenen-hittas.webp",
+      "kind": "historisk",
+      "credit": "Hans Hillewaert / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-rosettastenen-hittas",
+        "title": "Rosetta Stone – fotografi av Hans Hillewaert, British Museum, 2007 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Rosetta_Stone.JPG",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "sagan-om-genji",
       "eventTitle": "Sagan om Genji skrivs",
       "file": "images/events/sagan-om-genji.webp",
@@ -3444,6 +3519,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Charles-Blomfield-Mount-Tarawera-in-eruption-June-10-1886.jpg",
         "license": "Public domain",
         "checked": "2026-11-09"
+      }
+    },
+    {
+      "eventId": "tarikh-al-sudan",
+      "eventTitle": "Tarikh al-Sudan, krönikan om Songhai",
+      "file": "images/events/tarikh-al-sudan.webp",
+      "kind": "historisk",
+      "credit": "إيان / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-tarikh-al-sudan",
+        "title": "Tarikh al-Sudan, handskrift BnF Arabe 6096, s. 39–40, fotograferad på en utställning i Rabat 2019 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE_%D8%A7%D9%84%D8%B3%D9%88%D8%AF%D8%A7%D9%86.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-20"
       }
     },
     {
