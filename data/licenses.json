@@ -1167,6 +1167,7 @@
         "wp-flag-jamaica",
         "wp-flag-japan",
         "wp-flag-jordan",
+        "wp-flag-kenya",
         "wp-flag-kosovo",
         "wp-flag-kuwait",
         "wp-flag-kyrgyzstan",
@@ -3497,6 +3498,12 @@
       "sourceIds": [
         "commons-flagga-kyrgyzstan",
         "commons-flagga-kyrgyzstan-1992"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Kenya)",
+      "sourceIds": [
+        "commons-flagga-kenya"
       ]
     },
     {
