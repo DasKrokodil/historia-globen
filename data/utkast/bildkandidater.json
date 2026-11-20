@@ -1,0 +1,406 @@
+{
+  "schema": "historia-globen/bildkandidater@1",
+  "status": "förslag",
+  "anmarkning": "FÖRSLAG, inte beslut. Kandidaterna är hämtade automatiskt och måste kontrolleras manuellt innan någon används: öppna filsidan (`filsida`), läs licensmallen, kontrollera att bilden visar själva händelsen (inte en karta, en nutida minnessten eller något annat) och skriv bildtexten ur det filsidan säger. Licensklassningen är en grov automatisk gissning. Appen läser inte den här filen (data/utkast/). Se docs/bilder-riktiga.md.",
+  "generated": {
+    "date": "2026-11-20",
+    "senaste_urval": "period=1000-1347 region=Afrika limit=10",
+    "handelser": 10,
+    "kandidater": 13,
+    "tillatna": 13,
+    "avvisade": 0,
+    "smala": 2,
+    "ej_hamtade": 0
+  },
+  "handelser": [
+    {
+      "id": "mapungubwe-riket",
+      "titel": "Mapungubwe-riket vid Limpopo",
+      "plats": "Där floderna Shashe och Limpopo möts (i dag Sydafrika)",
+      "start": 1000,
+      "review": "source-checked",
+      "wikidata": "Q98085401",
+      "kandidater": [
+        {
+          "fil": "File:African Gold art.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:African_Gold_art.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "ok",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Cool Art",
+          "datum": "2012-01-09",
+          "beskrivning": "gold statuettes and objects made by African artisans from the Ashanti Empire and the Kingdom of Mapungubwe",
+          "bredd": 6936,
+          "hojd": 2008,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/African_Gold_art.jpg/960px-African_Gold_art.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "African art collections",
+            "Ashanti Empire",
+            "Ashanti Empire in art",
+            "Golden Rhinoceros of Mapungubwe",
+            "Mapungubwe Collection"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Kongo Cosmogram 3.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Kongo_Cosmogram_3.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "ok",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "MiddleOfAfrica",
+          "datum": "2023-05-07",
+          "beskrivning": "The Yowa, or Dikenga Cross, is a symbol in Bakongo spirituality that depicts the physical world, the spiritual (ancestral) world, the Kalûnga river (line) that runs between the two worlds, the four moments of the sun, and the mbûngi circle.",
+          "bredd": 1200,
+          "hojd": 1000,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Kongo_Cosmogram_3.png/960px-Kongo_Cosmogram_3.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "African Americans and religion",
+            "Angola",
+            "Culture of the Democratic Republic of the Congo",
+            "Hoodoo (spirituality)",
+            "Kongo",
+            "Kongo people"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:MapungubweHill.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:MapungubweHill.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "ok",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "JJ van Zyl",
+          "datum": "2007",
+          "beskrivning": "Mapungubwe Hill",
+          "bredd": 800,
+          "hojd": 532,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/d/de/MapungubweHill.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Mapungubwe National Park"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Mapungubwe National Park sign in 2005.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Mapungubwe_National_Park_sign_in_2005.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "ok",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "JJ van Zyl",
+          "datum": "2005",
+          "beskrivning": "Mapungubwe National Park",
+          "bredd": 800,
+          "hojd": 531,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/9/93/Mapungubwe_National_Park_sign_in_2005.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Mapungubwe National Park"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Mapungubwe, Limpopo, South Africa (20535231612).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Mapungubwe,_Limpopo,_South_Africa_(20535231612).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "ok",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "South African Tourism from South Africa",
+          "datum": "2015-05-20 12:00",
+          "beskrivning": "Vue du Limpopo en Afrique du Sud.",
+          "bredd": 4928,
+          "hojd": 3280,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Mapungubwe%2C_Limpopo%2C_South_Africa_%2820535231612%29.jpg/960px-Mapungubwe%2C_Limpopo%2C_South_Africa_%2820535231612%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Mapungubwe Museum and Interpretive Centre",
+            "Mapungubwe National Park"
+          ],
+          "smal": false
+        }
+      ],
+      "soktext": "The Kingdom of Mapungubwe on the Limpopo",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ]
+    },
+    {
+      "id": "swahilikustens-afrikanska-och-asiatiska-rotter",
+      "titel": "Afrikanska och asiatiska rötter möts på swahilikusten",
+      "plats": "Swahilikusten (gravar i bland annat Mtwapa, Manda och Kilwa, i dag Kenya och Tanzania)",
+      "start": 1000,
+      "review": "source-checked",
+      "wikidata": null,
+      "kandidater": [],
+      "soktext": "African and Asian roots meet on the Swahili coast"
+    },
+    {
+      "id": "banu-hilal-flyttar-till-maghreb",
+      "titel": "Banu Hilal och Banu Sulaym flyttar till Maghreb",
+      "plats": "Från Egypten via Kyrenaika till Ifriqiya (i dag Libyen, Tunisien och Algeriet)",
+      "start": 1001,
+      "review": "source-checked",
+      "wikidata": null,
+      "kandidater": [],
+      "soktext": "The Banu Hilal and Banu Sulaym migrate to the Maghreb"
+    },
+    {
+      "id": "gedi-grundas",
+      "titel": "Swahilistaden Gedi grundas",
+      "plats": "Gedi nära kusten i Kilifi county (i dag Kenya)",
+      "start": 1001,
+      "review": "source-checked",
+      "wikidata": "Q502518",
+      "kandidater": [
+        {
+          "fil": "File:Great Mosque of Gede.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Great_Mosque_of_Gede.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "ok",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "Mgiganteus",
+          "datum": "2007-07",
+          "beskrivning": "Ruins of the Great Mosque in Gede, Kenya.",
+          "bredd": 1984,
+          "hojd": 1488,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Great_Mosque_of_Gede.jpg/960px-Great_Mosque_of_Gede.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ruins of Gedi"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "ibn-al-haytham-optikens-bok",
+      "titel": "Ibn al-Haytham skriver Optikens bok i Kairo",
+      "plats": "Kairo, fatimidkalifatet (i dag Egypten)",
+      "start": 1011,
+      "review": "source-checked",
+      "wikidata": "Q264562",
+      "kandidater": [
+        {
+          "fil": "File:Thesaurus opticus Titelblatt.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Thesaurus_opticus_Titelblatt.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "ok",
+          "licensadress": null,
+          "upphovsperson": "Unknown illustrator Unknown illustrator",
+          "datum": "2006-01-08 22:22:26",
+          "beskrivning": "Engraving from the title page of Opticae Thesaurus , a latin edition of Ibn al-Haytham's Book of Optics . Among other things it shows how Archimedes allegedly set Roman ships on fire with parabolic mirrors during the Siege of Syracuse .",
+          "bredd": 2000,
+          "hojd": 2200,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Thesaurus_opticus_Titelblatt.jpg/960px-Thesaurus_opticus_Titelblatt.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Archimedes mirrors",
+            "Books about optics",
+            "Engravings",
+            "Historical images of Harbour of Syracuse",
+            "Ibn al-Haytham",
+            "Parabolic mirrors",
+            "Thesaurus opticus"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "war-jabi-infor-sharia-i-takrur",
+      "titel": "Kung War Jabi inför sharia i Takrur",
+      "plats": "Takrur vid Senegalfloden (i dag Senegal och Mauretanien)",
+      "start": 1035,
+      "review": "source-checked",
+      "wikidata": null,
+      "kandidater": [],
+      "soktext": "King War Jabi introduces sharia in Takrur"
+    },
+    {
+      "id": "marrakech-grundas",
+      "titel": "Marrakech grundas av almoraviderna",
+      "plats": "Marrakech vid foten av Atlasbergen (i dag Marocko)",
+      "start": 1070,
+      "review": "source-checked",
+      "wikidata": "Q101625",
+      "kandidater": [
+        {
+          "fil": "File:Djemaa el Fna, evening.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Djemaa_el_Fna,_evening.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "ok",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "Donar Reiskoffer",
+          "datum": "8 December 2005 (according to Exif data)",
+          "beskrivning": "Djemaa el Fna, evening",
+          "bredd": 1596,
+          "hojd": 1023,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Djemaa_el_Fna%2C_evening.JPG/960px-Djemaa_el_Fna%2C_evening.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Dusk in Jamaa El Fna",
+            "General views of Jamaa El Fna",
+            "Minarets in Marrakech"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:MoroccoMarrakech townfromhill.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:MoroccoMarrakech_townfromhill.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "ok",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "CS.D.",
+          "datum": "2004-09",
+          "beskrivning": null,
+          "bredd": 2304,
+          "hojd": 1728,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/MoroccoMarrakech_townfromhill.jpg/960px-MoroccoMarrakech_townfromhill.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Views of Marrakech"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Marrakesh, Morocco (8141914885).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Marrakesh,_Morocco_(8141914885).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "ok",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "yeowatzup",
+          "datum": "2012-10-20 16:28",
+          "beskrivning": "Marrakesh, Morocco",
+          "bredd": 3888,
+          "hojd": 2592,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Marrakesh%2C_Morocco_%288141914885%29.jpg/960px-Marrakesh%2C_Morocco_%288141914885%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Bab Agnaou"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "almoraviderna-och-ghanariket",
+      "titel": "Erövrade almoraviderna Ghanariket?",
+      "plats": "Ghanariket (i dag Mauretanien och Mali)",
+      "start": 1076,
+      "review": "source-checked",
+      "wikidata": null,
+      "kandidater": [],
+      "soktext": "Did the Almoravids conquer the Ghana Empire?"
+    },
+    {
+      "id": "timbuktu-blir-fast-bosattning",
+      "titel": "Timbuktu blir en fast bosättning",
+      "plats": "Timbuktu, söder om Sahara nära Nigerfloden (i dag Mali)",
+      "start": 1100,
+      "review": "source-checked",
+      "wikidata": "Q9427",
+      "kandidater": [
+        {
+          "fil": "File:Timbuktu Mosque Sankore.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Timbuktu_Mosque_Sankore.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.5",
+          "licensklass": "cc-by",
+          "licensstatus": "ok",
+          "licensadress": "https://creativecommons.org/licenses/by/2.5",
+          "upphovsperson": "Senani P",
+          "datum": "2006-12",
+          "beskrivning": "Sankore Mosque in Timbuktu, Mali, 2006.",
+          "bredd": 320,
+          "hojd": 240,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/4/44/Timbuktu_Mosque_Sankore.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "December 2006 in Africa",
+            "Mosques in Mali photographed in 2006",
+            "Mud buildings in Mali",
+            "Sankore Mosque"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:TIMBUKTU-EINZUG.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:TIMBUKTU-EINZUG.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "ok",
+          "licensadress": null,
+          "upphovsperson": "Drawn by Martin Bernatz after a sketch by Heinrich Barth",
+          "datum": "1857",
+          "beskrivning": "Timbuktu seen from a distance by Heinrich Barth's party, September 7, 1853",
+          "bredd": 3594,
+          "hojd": 2207,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/TIMBUKTU-EINZUG.jpg/960px-TIMBUKTU-EINZUG.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Architecture of Africa",
+            "History of Timbuktu",
+            "Johann Martin Bernatz",
+            "Reisen und Entdeckungen in Nord- und Central-Afrika (1859)"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "kilwas-stora-moske-norra-hallen",
+      "titel": "Stora moskén i Kilwa får sin norra bönehall",
+      "plats": "Kilwa Kisiwani (i dag Tanzania)",
+      "start": 1131,
+      "review": "source-checked",
+      "wikidata": "Q2035513",
+      "kandidater": [
+        {
+          "fil": "File:GreatMosque.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:GreatMosque.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "ok",
+          "licensadress": null,
+          "upphovsperson": "en:user:Claude McNab",
+          "datum": "2005-06",
+          "beskrivning": "Great Mosque at Kilwa",
+          "bredd": 453,
+          "hojd": 604,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/d/dc/GreatMosque.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Great Mosque of Kilwa",
+            "Mosques in Tanzania photographed in 2005"
+          ],
+          "smal": true
+        }
+      ]
+    }
+  ]
+}
