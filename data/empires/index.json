@@ -32186,6 +32186,25 @@
    "from": 1992,
    "to": 2024,
    "file": "data/empires/kazakstan.json",
+   "flags": [
+    {
+     "file": "kazakhstan",
+     "from": 1992,
+     "to": 2024,
+     "label": {
+      "sv": "Kazakstans flagga",
+      "en": "Flag of Kazakhstan",
+      "de": "Flagge Kasachstans",
+      "es": "Bandera de Kazajistán",
+      "fr": "Drapeau du Kazakhstan"
+     },
+     "sources": [
+      "wp-flag-kazakhstan",
+      "commons-flagga-kazakhstan"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "kazakstan",
@@ -32396,6 +32415,25 @@
    "from": 1926,
    "to": 2024,
    "file": "data/empires/saudiarabien.json",
+   "flags": [
+    {
+     "file": "saudi-arabia",
+     "from": 1973,
+     "to": 2024,
+     "label": {
+      "sv": "Saudiarabiens flagga från 1973",
+      "en": "Saudi flag of 1973",
+      "de": "Saudi-arabische Flagge von 1973",
+      "es": "Bandera saudí de 1973",
+      "fr": "Drapeau saoudien de 1973"
+     },
+     "sources": [
+      "wp-flag-saudi-arabia",
+      "commons-flagga-saudi-arabia"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "hijaz-och-najd",
@@ -33870,6 +33908,25 @@
    "from": 1992,
    "to": 2024,
    "file": "data/empires/turkmenistan.json",
+   "flags": [
+    {
+     "file": "turkmenistan",
+     "from": 2001,
+     "to": 2024,
+     "label": {
+      "sv": "Turkmenistans flagga från 2001",
+      "en": "Turkmen flag of 2001",
+      "de": "Turkmenische Flagge von 2001",
+      "es": "Bandera turcomana de 2001",
+      "fr": "Drapeau turkmène de 2001"
+     },
+     "sources": [
+      "wp-flag-turkmenistan",
+      "commons-flagga-turkmenistan"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "turkmenistan",
@@ -37874,6 +37931,25 @@
    "from": 1636,
    "to": 2024,
    "file": "data/empires/bhutan.json",
+   "flags": [
+    {
+     "file": "bhutan",
+     "from": 1969,
+     "to": 2024,
+     "label": {
+      "sv": "Bhutans flagga",
+      "en": "Flag of Bhutan",
+      "de": "Flagge Bhutans",
+      "es": "Bandera de Bután",
+      "fr": "Drapeau du Bhoutan"
+     },
+     "sources": [
+      "wp-flag-bhutan",
+      "commons-flagga-bhutan"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "bhutan",
@@ -39442,6 +39518,25 @@
    "from": 1987,
    "to": 2024,
    "file": "data/empires/brunei.json",
+   "flags": [
+    {
+     "file": "brunei",
+     "from": 1987,
+     "to": 2024,
+     "label": {
+      "sv": "Bruneis flagga",
+      "en": "Flag of Brunei",
+      "de": "Flagge Bruneis",
+      "es": "Bandera de Brunéi",
+      "fr": "Drapeau du Brunei"
+     },
+     "sources": [
+      "wp-flag-brunei",
+      "commons-flagga-brunei"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "brunei",
