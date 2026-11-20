@@ -33541,6 +33541,23 @@
    "file": "data/empires/zambia.json",
    "flags": [
     {
+     "file": "zambia-1964",
+     "from": 1967,
+     "to": 1995,
+     "label": {
+      "sv": "Zambias flagga 1964–1996",
+      "en": "Flag of Zambia 1964–1996",
+      "de": "Flagge Sambias 1964–1996",
+      "es": "Bandera de Zambia de 1964 a 1996",
+      "fr": "Drapeau de la Zambie de 1964 à 1996"
+     },
+     "sources": [
+      "wp-flag-zambia",
+      "commons-flagga-zambia-1964"
+     ],
+     "review": "source-checked"
+    },
+    {
      "file": "zambia",
      "from": 1996,
      "to": 2024,
