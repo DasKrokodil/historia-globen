@@ -1769,7 +1769,9 @@ GROUPS = {
     # samma stavning som khanatet (Q577668, "Buchara"). Cliopatrias Emirate of Nejd (Q146862, Wikidatas andra saudiska stat
     # 1818–1891) gäller två stater: 1824–1891 det andra saudiska riket, 1905–1925 det tredje (Q2011891, från 1902; 1895–1904
     # är bara 53 km² och visas inte). Efter 1925 fortsätter det tredje som Kungariket Hijaz och Najd ('hijaz-och-najd').
-    # Jabal Shammar visas från 1836 som i Wikipedia och Wikidata (Cliopatria har också 1825–1827, före emiratet).
+    # Jabal Shammar visas från 1866 (Wikipedia och Wikidata 1836–1921): Cliopatrias 1825–1827 ligger före emiratet, och
+    # 1842–1845 täcker Cliopatrias gräns cirka 99 procent av Det andra saudiska riket (geografens granskning i PR #2030),
+    # så 1840–1845 visas inte; 1846–1865 saknar Cliopatria emiratet.
     # Astrachankhanatet visas bara 1468–1555: Wikipedia och Wikidata anger 1466–1556, och Cliopatrias poster 1642–1768 ligger
     # vid Don, inte vid Astrachan. Cliopatrias Small Horde (1564–1737, Nogajhordens id) är den mindre nogajhorden, en annan
     # stat, och väntar; Khoshut Khanate (1582–1695) väntar, eftersom Cliopatrias gräns ligger kring 95° Ö 41° N medan Wikidata
@@ -1786,7 +1788,7 @@ GROUPS = {
          {'en': 'Third Saudi State', 'wikidata': 'Q2011891', 'years': (1905, 1925)}),
     ]),
     'jabal-shammar': ('Jabal Shammar', 'Emirate of Jabal Shammar', [
-        ('Emirate of Jabal Shammar', 'jabal-shammar', 'Jabal Shammar', '#a06a3a', {'en': 'Emirate of Jabal Shammar', 'years': (1836, 1921)}),
+        ('Emirate of Jabal Shammar', 'jabal-shammar', 'Jabal Shammar', '#a06a3a', {'en': 'Emirate of Jabal Shammar', 'years': (1866, 1921)}),
     ]),
     'kungariket-hijaz': ('Kungariket Hijaz', 'Kingdom of Hejaz', [
         ('Kingdom of Hejaz', 'kungariket-hijaz', 'Kungariket Hijaz', '#5a8a7a', {'en': 'Kingdom of Hejaz'}),

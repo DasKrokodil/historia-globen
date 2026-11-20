@@ -3453,6 +3453,10 @@
     {"id": "wp-astrakhan-khanate", "title": "Astrakhan Khanate – Wikipedia", "url": "https://en.wikipedia.org/wiki/Astrakhan_Khanate", "license": "CC BY-SA 4.0", "checked": "2026-11-20"},
     {"id": "wd-astrakhan-khanate", "title": "Astrakhan Khanate (Q210163) – Wikidata", "url": "https://www.wikidata.org/wiki/Q210163", "license": "CC0", "checked": "2026-11-20"},
     {"id": "wp-nogai-horde", "title": "Nogai Horde – Wikipedia", "url": "https://en.wikipedia.org/wiki/Nogai_Horde", "license": "CC BY-SA 4.0", "checked": "2026-11-20"},
-    {"id": "wd-nogai-horde", "title": "Nogai Horde (Q631210) – Wikidata", "url": "https://www.wikidata.org/wiki/Q631210", "license": "CC0", "checked": "2026-11-20"}
+    {"id": "wd-nogai-horde", "title": "Nogai Horde (Q631210) – Wikidata", "url": "https://www.wikidata.org/wiki/Q631210", "license": "CC0", "checked": "2026-11-20"},
+    {"id": "wp-de-al-raschid", "title": "Āl Raschīd – Wikipedia", "url": "https://de.wikipedia.org/wiki/%C4%80l_Rasch%C4%ABd", "license": "CC BY-SA 4.0", "checked": "2026-11-20"},
+    {"id": "wp-fr-emirat-de-hail", "title": "Émirat de Haïl – Wikipédia", "url": "https://fr.wikipedia.org/wiki/%C3%89mirat_de_Ha%C3%AFl", "license": "CC BY-SA 4.0", "checked": "2026-11-20"},
+    {"id": "wp-es-kanato-de-jiva", "title": "Kanato de Jiva – Wikipedia", "url": "https://es.wikipedia.org/wiki/Kanato_de_Jiva", "license": "CC BY-SA 4.0", "checked": "2026-11-20"},
+    {"id": "wp-fr-horde-nogai", "title": "Horde Nogaï – Wikipédia", "url": "https://fr.wikipedia.org/wiki/Horde_Noga%C3%AF", "license": "CC BY-SA 4.0", "checked": "2026-11-20"}
   ]
 }
