@@ -23968,6 +23968,110 @@
    "from": 1932,
    "to": 2024,
    "file": "data/empires/irak.json",
+   "flags": [
+    {
+     "file": "iraq-1924",
+     "from": 1932,
+     "to": 1957,
+     "label": {
+      "sv": "Kungariket Iraks flagga",
+      "en": "Flag of the Kingdom of Iraq",
+      "de": "Flagge des Königreichs Irak",
+      "es": "Bandera del Reino de Irak",
+      "fr": "Drapeau du royaume d'Irak"
+     },
+     "sources": [
+      "wp-flag-iraq",
+      "commons-flagga-iraq-1924"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "iraq-1959",
+     "from": 1959,
+     "to": 1962,
+     "label": {
+      "sv": "Iraks flagga 1959–1963",
+      "en": "Iraqi flag of 1959–1963",
+      "de": "Irakische Flagge von 1959–1963",
+      "es": "Bandera iraquí de 1959 a 1963",
+      "fr": "Drapeau irakien de 1959 à 1963"
+     },
+     "sources": [
+      "wp-flag-iraq",
+      "commons-flagga-iraq-1959"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "iraq-1963",
+     "from": 1963,
+     "to": 1990,
+     "label": {
+      "sv": "Iraks flagga från 1963",
+      "en": "Iraqi flag of 1963",
+      "de": "Irakische Flagge von 1963",
+      "es": "Bandera iraquí de 1963",
+      "fr": "Drapeau irakien de 1963"
+     },
+     "sources": [
+      "wp-flag-iraq",
+      "commons-flagga-iraq-1963"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "iraq-1991",
+     "from": 1991,
+     "to": 2003,
+     "label": {
+      "sv": "Iraks flagga från 1991",
+      "en": "Iraqi flag of 1991",
+      "de": "Irakische Flagge von 1991",
+      "es": "Bandera iraquí de 1991",
+      "fr": "Drapeau irakien de 1991"
+     },
+     "sources": [
+      "wp-flag-iraq",
+      "commons-flagga-iraq-1991"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "iraq-2004",
+     "from": 2004,
+     "to": 2007,
+     "label": {
+      "sv": "Iraks flagga från 2004",
+      "en": "Iraqi flag of 2004",
+      "de": "Irakische Flagge von 2004",
+      "es": "Bandera iraquí de 2004",
+      "fr": "Drapeau irakien de 2004"
+     },
+     "sources": [
+      "wp-flag-iraq",
+      "commons-flagga-iraq-2004"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "iraq",
+     "from": 2008,
+     "to": 2024,
+     "label": {
+      "sv": "Iraks flagga från 2008",
+      "en": "Iraqi flag of 2008",
+      "de": "Irakische Flagge von 2008",
+      "es": "Bandera iraquí de 2008",
+      "fr": "Drapeau irakien de 2008"
+     },
+     "sources": [
+      "wp-flag-iraq",
+      "commons-flagga-iraq"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "kungariket-irak",
