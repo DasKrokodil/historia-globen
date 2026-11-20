@@ -187,7 +187,12 @@ KREFELD = (6.566667, 51.333333)
 MAINZ = (8.273611, 49.999444)
 ESSEN = (7.013056, 51.450833)
 DUISBURG = (6.761111, 51.432222)
-RHENLANDET = ((TRIER, 'Trier'), (AACHEN, 'Aachen'), (KOLN, 'Köln'), (BONN, 'Bonn'), (KREFELD, 'Krefeld'), (MAINZ, 'Mainz'))
+# Geografens granskning (#1766): Koblenz Q3104 och Düsseldorf Q1718 ur Wikidata (Special:EntityData, öppnad 2026-11-20);
+# Kehl är KEHL ovan (Q15979, samma punkt i Wikidata 2026-11-20)
+KOBLENZ = (7.597778, 50.359722)
+DUSSELDORF = (6.776667, 51.225556)
+RHENLANDET = ((TRIER, 'Trier'), (AACHEN, 'Aachen'), (KOLN, 'Köln'), (BONN, 'Bonn'), (KREFELD, 'Krefeld'), (MAINZ, 'Mainz'),
+              (KOBLENZ, 'Koblenz'), (DUSSELDORF, 'Düsseldorf'), (KEHL, 'Kehl'))
 
 # (grupp, punkt, namn, år, ska ligga i riket)
 PUNKTER = [
