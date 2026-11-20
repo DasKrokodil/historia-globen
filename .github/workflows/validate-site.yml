@@ -33,6 +33,8 @@ jobs:
         run: python3 -I tests/significance-test.py
       - name: Kontrollera att en ombyggnad av rikena behåller flaggor, handskrivna fält och översatta namn (#1220)
         run: python3 -I tests/riken-bevara-test.py
+      - name: Kontrollera att Cliopatrias f.Kr.-år räknas om till astronomiska år (#1989)
+        run: python3 -I tests/cliopatria-ar-test.py
       - name: Kontrollera kontrollpunkter i rikenas gränser, till exempel Västberlin och Saarbrücken (#1706)
         run: python3 -I tests/riken-kontrollpunkter-test.py
       - name: Kontrollera att rikenas svenska namn inte är de engelska (#1702)

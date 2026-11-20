@@ -315,11 +315,11 @@
        "wp-punic-wars"
       ],
       "mapNote": {
-       "sv": "Kartan visar en jämn tillväxt under krigets första år och inget tydligt steg 240 f.Kr.",
-       "en": "The map shows steady growth during the first years of the war and no clear step in 240 BC.",
-       "de": "Die Karte zeigt in den ersten Kriegsjahren ein gleichmäßiges Wachstum und keinen deutlichen Sprung 240 v. Chr.",
-       "fr": "La carte montre une croissance régulière durant les premières années de la guerre et aucun changement net en 240 av. J.-C.",
-       "es": "El mapa muestra un crecimiento constante durante el primer año de la guerra y ninguna subida clara en el 240 a. C."
+       "sv": "Kartan visar en jämn tillväxt under krigets första år och inget tydligt steg 241 f.Kr.",
+       "en": "The map shows steady growth during the first years of the war and no clear step in 241 BC.",
+       "de": "Die Karte zeigt in den ersten Kriegsjahren ein gleichmäßiges Wachstum und keinen deutlichen Sprung 241 v. Chr.",
+       "fr": "La carte montre une croissance régulière durant les premières années de la guerre et aucun changement net en 241 av. J.-C.",
+       "es": "El mapa muestra un crecimiento constante durante el primer año de la guerra y ninguna subida clara en el 241 a. C."
       }
      },
      {
@@ -1916,11 +1916,12 @@
      }
     ],
     "mapNote": {
-     "sv": "Källan anger 202 f.Kr.–220 e.Kr.",
-     "en": "The source gives 202 BC–220 AD."
+     "sv": "Källan anger 202 f.Kr.–220 e.Kr. Wikidata anger grundandet till 206 f.Kr., året då Liu Bang blev kung av Han enligt Wikipedia.",
+     "en": "The source gives 202 BC–220 AD. Wikidata gives the founding as 206 BC, the year Liu Bang became King of Han according to Wikipedia."
     },
     "sources": [
-     "wp-han-dynasty"
+     "wp-han-dynasty",
+     "wikidata"
     ],
     "review": "source-checked"
    },
@@ -1943,8 +1944,8 @@
      ],
      "review": "source-checked",
      "note": {
-      "sv": "Källorna skiljer sig något: Wikipedia anger 206 f.Kr. som början, Wikidata 202 f.Kr. Åren 9–23 styrde Xindynastin, och då hade Hanriket ingen huvudstad.",
-      "en": "The sources differ somewhat: Wikipedia gives 206 BC as the beginning, Wikidata 202 BC. In 9–23 the Xin dynasty ruled, and then the Han Empire had no capital."
+      "sv": "Källorna skiljer sig något om när Chang'an blev huvudstad: Wikipedia anger 206 f.Kr., Wikidata 202 f.Kr. Åren 9–23 styrde Xindynastin, och då hade Hanriket ingen huvudstad.",
+      "en": "The sources differ somewhat on when Chang'an became the capital: Wikipedia gives 206 BC, Wikidata 202 BC. In 9–23 the Xin dynasty ruled, and then the Han Empire had no capital."
      }
     },
     {
@@ -4823,14 +4824,14 @@
        "karthago-forstors"
       ],
       "mapNote": {
-       "sv": "Kartan visar Kartago till och med 145 f.Kr.",
-       "en": "The map shows Carthage up to and including 145 BC."
+       "sv": "Kartan visar Kartago till och med 145 f.Kr., alltså ett år efter källornas slutår 146 f.Kr.: Cliopatrias sista period för Kartago slutar 145 f.Kr. och Romerska republikens nästa period börjar 144 f.Kr.",
+       "en": "The map shows Carthage up to and including 145 BC, one year after the end year in the sources, 146 BC: Cliopatria's last period for Carthage ends in 145 BC and the Roman Republic's next period begins in 144 BC."
       }
      }
     ],
     "mapNote": {
-     "sv": "Källorna anger cirka 814–146 f.Kr. Kartan visar Kartago 650–145 f.Kr.",
-     "en": "The sources give about 814–146 BC. The map shows Carthage 650–145 BC."
+     "sv": "Källorna anger cirka 814–146 f.Kr. Kartan visar Kartago 650–145 f.Kr., alltså ett år efter källornas slutår 146 f.Kr.: Cliopatrias sista period för Kartago slutar 145 f.Kr. och Romerska republikens nästa period börjar 144 f.Kr.",
+     "en": "The sources give about 814–146 BC. The map shows Carthage 650–145 BC, one year after the end year in the sources, 146 BC: Cliopatria's last period for Carthage ends in 145 BC and the Roman Republic's next period begins in 144 BC."
     },
     "sources": [
      "wp-ancient-carthage",

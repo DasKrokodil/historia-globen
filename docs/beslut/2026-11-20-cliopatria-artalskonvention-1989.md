@@ -17,4 +17,10 @@
 Källans dokumentation och datan säger samma sak, och tre väldokumenterade slag stämmer på året med den här läsningen men inte med den astronomiska. Datamodellen (astronomiska år, CLAUDE.md) ändras inte; det är läsningen av en källa som rättas.
 
 ## Granskning
-`historiker` bör granska raderna "Om kartan" i de ändrade rikena (bland annat Kartago, som nu syns till och med 145 f.Kr. medan källorna anger förstörelsen 146 f.Kr.), och `geograf` att gränserna i religionslagret följer med.
+`historiker` och `geograf` har granskat grenen (2026-11-20). Geografen godkände. Historikern godkände omräkningen (kontrollerad mot rådata och Wikipedia) och bad om rättningarna nedan, som är gjorda:
+- **Källornas år ändras inte.** Romarrikets rad "inget tydligt steg 241 f.Kr." gäller källans år (första puniska krigets slut) och står kvar som 241 på alla språk; Cliopatrias Roman Republic har samma yta -247 till -240. Alla ändrade rader "Om kartan" är genomgångna en gång till mot milstolparnas källår.
+- **Kartago slutar ett år efter källorna.** Cliopatria har grova tidssteg (bildår, "frame years"): den sista perioden för Kartago slutar 145 f.Kr. och Romerska republikens nästa period börjar 144 f.Kr., medan källorna anger förstörelsen 146 f.Kr. Det står nu öppet i Kartagos rader Om kartan. Ingen av dem har fel; kartan följer sina bildår.
+- **Ptolemaiska riket** kartläggs till och med 28 f.Kr. (Cliopatria), medan Wikidata anger slutet 30 f.Kr. Det står öppet här och ändras inte.
+- **Hanriket:** raden Om kartan nämner nu också Wikidatas grundår 206 f.Kr. (Q7209, P571; enligt Wikipedia året då Liu Bang blev kung av Han), bredvid källans 202 f.Kr. Nivån höjs inte. Anmärkningen om huvudstaden Chang'an (Wikipedia 206 f.Kr., Wikidata P36 202 f.Kr.) stämde mot källorna men säger nu tydligt att den gäller huvudstaden.
+- **Religionernas arv över år 0:** `GAP` (100 år) räknas som förut i astronomiska år, så avståndet över år 0 blir ett år kortare än i Cliopatrias tal och några ögonblicksbilder efter Kristus ändras. Geografens råd är att behålla det så.
+- Provet `tests/cliopatria-ar-test.py` (i CI) kontrollerar omräkningen och att Romerska kejsardömet börjar -30 (Actium), Persiska riket ändras -332 och -330 (Issos, Gaugamela) och Egypten börjar -2499.
