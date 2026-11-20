@@ -65,7 +65,9 @@ SPRAK = ('sv', 'en', 'de', 'es', 'fr')
 NBSP = ' '
 
 LICENSORD = {'sv': 'Licens', 'en': 'Licence', 'de': 'Lizenz', 'es': 'Licencia', 'fr': 'Licence' + NBSP}
-PD_FRAS = {'sv': 'Public domain', 'en': 'Public domain', 'de': 'gemeinfrei', 'es': 'dominio público', 'fr': 'domaine public'}
+# Följer den vanligaste formen i befintliga bildtexter per språk (räknat 2026-11-20 i data/handelser/: sv 161 mot 2, en 139 mot 23,
+# de 73 mot 38 gemeinfrei, es 75, fr 40 mot 29). Fältet license ('Public domain') är inte bildtext.
+PD_FRAS = {'sv': 'Public domain', 'en': 'Public domain', 'de': 'Public domain', 'es': 'dominio público', 'fr': 'domaine public'}
 LOC_FRAS = {
     'sv': 'Library of Congress anger inga kända restriktioner för publicering.',
     'en': 'The Library of Congress states no known restrictions on publication.',
@@ -73,6 +75,7 @@ LOC_FRAS = {
     'es': 'La Library of Congress no indica restricciones conocidas para su publicación.',
     'fr': 'La Library of Congress n’indique aucune restriction connue de publication.',
 }
+# credit är en enspråkig svensk sträng i datat (#2054 gör den språkbar): bara 'sv' används i image-fält nu. en/de/es/fr finns för #2054.
 OKAND = {
     'fotograf': {'sv': 'Okänd fotograf', 'en': 'Unknown photographer', 'de': 'Unbekannter Fotograf',
                  'es': 'Fotógrafo desconocido', 'fr': 'Photographe inconnu'},
