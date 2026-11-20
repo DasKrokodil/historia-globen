@@ -3402,6 +3402,77 @@ async function run(browser, vp) {
     }
   });
 
+  // #1979 (del av #1789): händelsekortet för Mammutkalven Ljuba. Osäkerheten står en gång i datumraden, "≈ 42 000 år sedan" räknas ur
+  // årtalet och (i) förklarar f.Kr. mot år sedan, och Källor och osäkerhet är hopfälld med antal källor och status på raden.
+  await check('faktarutan: Ljuba, en osäkerhet och ≈ år sedan i datumraden, Källor och osäkerhet hopfälld (#1979)', async () => {
+    const want = {
+      sv: /^≈ 42 000 år sedan$/, en: /^≈ 42,000 years ago$/, de: /^≈ vor 42\.000 Jahren$/, es: /^≈ hace 42 000 años$/, fr: /^≈ il y a 42 000 ans$/,
+    };
+    const seen = [], seenWhen = [];
+    for (const lang of Object.keys(want)) {
+      const lp = await context.newPage();
+      try {
+        if (THREE_LOCAL) {
+          const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+          await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+          await lp.route(u => isFont(u.href), r => r.abort());
+        }
+        await lp.goto(`${BASE}?ny=1979&lang=${lang}#y=-40050`);
+        await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        if (await lp.isHidden('#panel')) await lp.click('#btn-panel');
+        await lp.waitForSelector('#panel', { state: 'visible', timeout: T.step });
+        const ev = await panelEvent(lp, { id: 'mammutkalven-ljuba' });
+        await ev.waitFor({ state: 'visible', timeout: T.step });
+        await ev.click();
+        const about = lp.locator('#detail details.detail-about');
+        await about.waitFor({ state: 'visible', timeout: T.step });
+        const norm = s => (s ?? '').replace(/[  ]/g, ' ').replace(/\s+/g, ' ').trim();
+        // Datumrad: ett märke för det osäkra, ordet står högst en gång, och hur länge sedan räknas ur årtalet (40 050 f.Kr. + i dag, avrundat till tusental)
+        const marks = lp.locator('#detail .meta-when .unc-mark');
+        if (await marks.count() !== 1) throw new Error(`${lang}: datumraden har ${await marks.count()} märken för osäkerhet, väntade ett`);
+        // Märket är ett (i) med namn; ordet "osäkert" står inte i datumraden, och det ungefärliga uttrycks högst en gång (i datumet självt)
+        if (!norm(await marks.first().getAttribute('aria-label'))) throw new Error(`${lang}: märket för osäkerhet saknar namn`);
+        const whenText = norm(await lp.locator('#detail .meta-when').evaluate(el => { const c = el.cloneNode(true); c.querySelectorAll('[data-ago-info], [data-unc-mark]').forEach(b => b.remove()); return c.textContent; }));
+        const unsure = { sv: /osäker/gi, en: /uncertain/gi, de: /unsicher/gi, es: /incierto/gi, fr: /incertain/gi }[lang];
+        if ((whenText.match(unsure) ?? []).length) throw new Error(`${lang}: datumraden har ordet för osäkert vid sidan av märket: ${whenText}`);
+        const approx = (whenText.match(/cirka|circa|about|approx|\bc\.|\bca\.|\bum |etwa|ungefähr|aproximad|hacia|unos |environ|vers /gi) ?? []).length;
+        if (approx > 1) throw new Error(`${lang}: datumraden säger det ungefärliga ${approx} gånger: ${whenText}`);
+        seenWhen.push(`${lang}: ${whenText}`);
+        const ago = norm(await lp.locator('#detail .meta-ago').textContent());
+        if (!want[lang].test(ago)) throw new Error(`${lang}: "≈ N år sedan" blev "${ago}"`);
+        // (i) förklarar f.Kr. mot år sedan: dold från början, ut- och ihopfälld, och nämner både årtalet och siffran
+        const info = lp.locator('#detail [data-ago-info]'), help = lp.locator('#detail-ago-help');
+        if (await help.isVisible()) throw new Error(`${lang}: förklaringen av år sedan syns från början`);
+        if (await info.getAttribute('aria-expanded') !== 'false') throw new Error(`${lang}: (i) saknar aria-expanded=false`);
+        await info.click();
+        if (!(await help.isVisible()) || await info.getAttribute('aria-expanded') !== 'true') throw new Error(`${lang}: (i) fäller inte ut förklaringen`);
+        const helpText = norm(await help.textContent());
+        if (!/40[ .,]000/.test(helpText) || !/42[ .,]000/.test(helpText) || /^detail\./.test(helpText)) throw new Error(`${lang}: förklaringen saknar årtalet (40 000 f.Kr., som i datumet) och siffran: ${helpText}`);
+        await info.click();
+        if (await help.isVisible()) throw new Error(`${lang}: (i) fäller inte ihop förklaringen`);
+        if (await lp.locator('#detail details.detail-about .scale-note').count()) throw new Error(`${lang}: gamla anteckningen om år sedan ligger kvar i Källor och osäkerhet`);
+        // Platsen på rad 2 är klippt till två rader; hela texten ligger i Källor och osäkerhet, som är hopfälld med antal källor och status
+        if (await lp.locator('#detail .meta-place').evaluate(el => getComputedStyle(el).webkitLineClamp) !== '2') throw new Error(`${lang}: platsen är inte klippt till två rader`);
+        if (await about.evaluate(d => d.open)) throw new Error(`${lang}: Källor och osäkerhet är öppen från början`);
+        const sum = norm(await about.locator(':scope > summary').textContent());
+        if (!/\b2\b/.test(sum) || sum.split('·').length < 3) throw new Error(`${lang}: raden saknar antal källor och status: ${sum}`);
+        if (await lp.locator('#detail .detail-place-full').isVisible() || await lp.locator('#detail #detail-uncertainty').isVisible()) throw new Error(`${lang}: platstexten eller osäkerhetsraden syns medan raden är hopfälld`);
+        // Märket öppnar raden och flyttar fokus dit
+        await marks.first().click();
+        if (!(await about.evaluate(d => d.open))) throw new Error(`${lang}: märket öppnade inte Källor och osäkerhet`);
+        if (await lp.evaluate(() => document.activeElement?.id) !== 'detail-uncertainty') throw new Error(`${lang}: märket leder inte till raden Historisk osäkerhet`);
+        for (const sel of ['.detail-place-full', '#detail-uncertainty', '[data-citation]', '.review-badge']) {
+          if (!(await lp.locator(`#detail details.detail-about ${sel}`).count())) throw new Error(`${lang}: ${sel} saknas i Källor och osäkerhet`);
+        }
+        if (await lp.evaluate(() => document.scrollingElement.scrollWidth > innerWidth + 1)) throw new Error(`${lang}: faktarutan ger horisontell scroll`);
+        seen.push(`${lang}: ${ago}`);
+      } finally {
+        await lp.close();
+      }
+    }
+    return `${seen.join('; ')} | ${seenWhen.join('; ')}`;
+  });
+
   // #1572: turkortet har en enda, benämnd utgång ("Lämna turen" i kortets fot, ingen kryssknapp eller Avsluta bredvid Nästa), och efter
   // utgången står en rad "Turen är slut. Du står kvar på år …" med knappen "Starta om turen".
   await check('turkortet: Lämna turen är den enda utgången och en rad med Starta om turen följer (#1572)', async () => {

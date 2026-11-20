@@ -2085,13 +2085,9 @@ details.used-by summary:hover { color: var(--parchment); }
 /* Krysset tar ingen plats; rubriken lämnar plats åt det */
 .detail-card .detail-close { position: sticky; z-index: 2; float: none; display: block; margin: -4px -6px -26px auto; }
 .detail-card .detail-close + h3 { padding-right: 30px; }
-/* Kort markering i datumraden när händelsen har raden Historisk osäkerhet (#606) */
-.unc-mark {
-  font: inherit; color: var(--card-accent); background: none; border: 0; padding: 0 0 0 2px; cursor: pointer;
-  text-decoration: underline dotted; text-underline-offset: 3px; position: relative;
-}
-.unc-mark::after { content: ""; position: absolute; inset: -12px -6px; } /* större tryckyta */
-.unc-mark:focus-visible { outline: 2px solid var(--card-accent); outline-offset: 2px; border-radius: 3px; }
+/* Kort markering i datumraden när händelsen har raden Historisk osäkerhet (#606): ett (i) som review-info (#1979), så att osäkerheten
+   står en gång i raden ("cirka" i datumet och märket); knappen har ett namn och leder till raden */
+.unc-mark { margin-left: 4px; vertical-align: middle; }
 .uncertainty-row:focus { outline: 2px solid var(--card-accent); outline-offset: 3px; border-radius: 3px; }
 @media (max-width: 760px) { .detail-fig img { aspect-ratio: 16 / 9; } }
 
@@ -2990,6 +2986,9 @@ span.theme-event:hover { background: none; outline: none; }
 .detail-card .meta-where { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.4em; }
 .detail-card .meta-place { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .detail-place-full { margin: 6px 0; font-size: 0.92em; }
+/* "≈ 42 000 år sedan" med (i) som förklarar f.Kr. mot år sedan (#1979); förklaringen fälls ut under datumraden */
+.detail-card .meta-when .ago-info { margin-left: 6px; vertical-align: middle; }
+.detail-card .meta-when + .scale-note { margin: 2px 0 8px; }
 .place-about > summary { color: var(--card-dim, var(--parchment-dim)); }
 .place-about .theme-filter-note, .place-credit { margin: 6px 0; }
 .place-credit { color: var(--card-dim, var(--parchment-dim)); font-size: 0.9em; }
@@ -3246,9 +3245,8 @@ span.theme-event:hover { background: none; outline: none; }
 .facts-section > summary, .help-card details > summary, .detail-myth .myth-origin > summary { box-sizing: border-box; min-height: 24px; padding-block: 4px; }
 .detail .war-list .link-btn[data-year] { min-width: 24px; justify-content: center; }
 .detail .evidence-group li > a { display: inline-block; box-sizing: border-box; min-height: 24px; padding-block: 4px; }
-/* "i" vid granskningsstatusen (24 px med 1 px ram, så -11 px) och "osäkert" i datumraden: 44 px yta (förut 40 och 40) */
+/* "i" vid granskningsstatusen, osäkerheten och år sedan (24 px med 1 px ram, så -11 px): 44 px yta */
 .review-info::after { inset: -11px; }
-.unc-mark::after { inset: -14px -6px; }
 
 /* Sorteringsknapparna i Sök och följ var 22 px höga med mus; med pekning gäller 40 px + ytan (reglerna längre upp och här) */
 @media (min-width: 761px) { .focus-sort .chip-btn { min-height: 24px; } }

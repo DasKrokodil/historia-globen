@@ -125,13 +125,14 @@ export const uncertainDate = e => {
   return edtf.includes('~') || edtf.includes('?') || (e.precision != null && e.precision < 9) || sourcesDisagree(e);
 };
 /**
- * Kort markering i datumraden (#606) efter det som är osäkert: datumet (ungefärligt, osäkert, grov precision eller
+ * Kort markering (i) i datumraden (#606) efter det som är osäkert: datumet (ungefärligt, osäkert, grov precision eller
  * oense källor, samma regler som uncertaintyRow) eller platsen. Den leder till raden Historisk osäkerhet.
  */
 const uncertaintyMark = (e, what, copy = {}) => {
   const date = uncertainDate(e);
   if (!(what === 'date' ? date : !!e.locationPrecision)) return '';
-  return ` <button type="button" class="unc-mark" data-unc-mark aria-controls="detail-uncertainty" title="${esc(t(copy.markTitle))}">${esc(t(copy.mark))}</button>`;
+  // Ett (i) som granskningsstatusens (#1979): "cirka" i själva datumet och märket är osäkerheten en gång i raden; namnet säger vad knappen gör
+  return ` <button type="button" class="review-info unc-mark" data-unc-mark aria-controls="detail-uncertainty" aria-label="${esc(t(copy.markTitle))}" title="${esc(t(copy.markTitle))}">i</button>`;
 };
 
 /**
@@ -992,13 +993,16 @@ export class Panel {
     const unc = uncertaintyRow(e, this.uncertainty, evidence.marker('uncertainty'));
     // Datumraden i två rader (#1792): rad 1 är datumet med en enda markering för det osäkra (och hur länge sedan, för djup tid), rad 2 platsen
     // (kort, klippt till två rader i CSS) och kategorin. Hela platstexten, skalnoten och Historisk osäkerhet ligger i raden Källor och osäkerhet.
-    const ago = inDeepTime(e) ? ui('time.yearsAgo', { n: groupDigits(Math.round((MAX_YEAR - e.start) / 1000) * 1000) }) : '';
+    // "≈ 42 000 år sedan" räknas ur årtalet (i dag minus årtalet, avrundat till tusental), som reglagets text; (i) förklarar f.Kr. mot år sedan (#1979)
+    const agoN = inDeepTime(e) ? groupDigits(Math.round((MAX_YEAR - e.start) / 1000) * 1000) : '';
+    const ago = agoN ? ui('detail.yearsAgoShort', { n: agoN }) : '';
     const placeText = t(e.place), placeLong = placeText.length > 70;
     const mark = unc ? (uncertaintyMark(e, 'date', this.uncertainty) || uncertaintyMark(e, 'place', this.uncertainty)) : '';
     this.detail.innerHTML = `
       <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
       <h3${langAttr(e.title)}>${esc(t(e.title))}</h3>
-      <div class="meta meta-when">${esc(formatEventTime(e))}${evidence.marker('date')}${mark}${ago ? ` · <span class="meta-ago">${esc(ago)}</span>` : ''}</div>
+      <div class="meta meta-when">${esc(formatEventTime(e))}${evidence.marker('date')}${mark}${ago ? ` · <span class="meta-ago">${esc(ago)}</span><button type="button" class="review-info ago-info" data-ago-info aria-expanded="false" aria-controls="detail-ago-help" aria-label="${esc(ui('detail.yearsAgoInfo'))}" title="${esc(ui('detail.yearsAgoInfo'))}">i</button>` : ''}</div>
+      ${ago ? `<p class="scale-note" id="detail-ago-help" hidden>${esc(ui('detail.yearsAgo', { year: formatYear(e.start), n: agoN }))}</p>` : ''}
       <div class="meta meta-where"><span class="meta-place">${esc(placeText)}</span>${evidence.marker('location')} · ${esc(t(CAT[e.category]?.name))}</div>
       ${tagMarks(e, this.tags)}
       ${this.onShowPlace ? `<button type="button" class="place-row" data-show-place aria-label="${esc(ui('detail.showPlaceLabel', { place: t(e.place) }))}"><span class="place-pin" aria-hidden="true"></span><span class="place-go">${esc(ui('detail.showPlace'))}</span></button>` : ''}
@@ -1017,7 +1021,6 @@ export class Panel {
         ${placeLong ? `<p class="detail-place-full"><b>${esc(ui('place.label'))}:</b> ${esc(placeText)}</p>` : ''}
         ${e.image?.kind === 'illustration' ? `<p class="detail-image-credit"><b>${esc(ui('detail.imageCredit'))}</b> ${imageCredit(e, this.srcById)}</p>` : ''}
         ${beforeTimelineStart(e) ? `<p class="scale-note">${esc(ui('detail.beforeScale', { year: formatYear(MIN_YEAR) }))}</p>` : ''}
-        ${inDeepTime(e) ? `<p class="scale-note">${esc(ui('detail.yearsAgo'))}</p>` : ''}
         ${evidence.sources || srcLine(srcs, pending)}
         ${pending ? '' : howWeKnowRow(srcs, e.review, sourcesDisagree(e), this.howTour?.())}
         <div class="detail-actions">
@@ -1041,6 +1044,9 @@ export class Panel {
       const h = this.huntFor?.(e);
       if (h) { ev.currentTarget.textContent = h.label; ev.currentTarget.disabled = h.disabled; }
     });
+    // (i) efter "≈ N år sedan" fäller ut förklaringen av f.Kr. mot år sedan (#1979)
+    const agoBtn = this.detail.querySelector('[data-ago-info]'), agoHelp = this.detail.querySelector('#detail-ago-help');
+    agoBtn?.addEventListener('click', () => { agoHelp.hidden = !agoHelp.hidden; agoBtn.setAttribute('aria-expanded', String(!agoHelp.hidden)); });
     // Markeringen i datumraden visar förklaringen och flyttar fokus dit (#606)
     this.detail.querySelector('[data-unc-mark]')?.addEventListener('click', () => {
       this.detail.querySelector('details.detail-about')?.setAttribute('open', ''); // raden ligger i Källor och osäkerhet (#1792)
