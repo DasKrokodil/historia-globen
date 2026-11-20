@@ -173,10 +173,10 @@ Titel och epitet skrivs med liten bokstav i löpande text (`el rey Luis XIV`, `l
 |---|---|---|---|
 | Roman Kingdom | Reino de Roma | Royaume de Rome | – |
 | Roman Republic | República romana | République romaine | – |
-| Roman Empire | Imperio romano | Empire romain | – |
+| Roman Empire | Imperio romano | Empire romain | 2026-11-20: Wikidata Q2277 (etiketterna), es.wikipedia "Imperio romano" (#2002) |
 | Western Roman Empire | Imperio romano de Occidente | Empire romain d'Occident | – |
-| Eastern Roman Empire | Imperio romano de Oriente | Empire romain d'Orient | – |
-| Byzantine Empire | Imperio bizantino | Empire byzantin | – |
+| Eastern Roman Empire | Imperio romano de Oriente | Empire romain d'Orient | 2026-11-20: Wikidata Q12544 (alias), es.wikipedia "Imperio bizantino" (inledningen) (#2002) |
+| Byzantine Empire | Imperio bizantino | Empire byzantin | 2026-11-20: Wikidata Q12544 (etiketterna), es.wikipedia "Imperio bizantino" (#2002) |
 | Ottoman Empire | Imperio otomano | Empire ottoman | – |
 | Mongol Empire | Imperio mongol | Empire mongol | – |
 | Holy Roman Empire | Sacro Imperio Romano Germánico | Saint-Empire romain germanique | – |
@@ -199,6 +199,10 @@ Titel och epitet skrivs med liten bokstav i löpande text (`el rey Luis XIV`, `l
 | Ming dynasty | dinastía Ming | dynastie Ming | – |
 | Qing dynasty | dinastía Qing | dynastie Qing | – |
 | Carthage | Cartago | Carthage | – |
+| Southern Song | dinastía Song meridional | Song du Sud | – (fr rättat i sprak-fr-granskningen, #2002) |
+| Vakataka empire | Dinastía Vakataka | – | – (accent rättad i sprak-es-granskningen, #2002) |
+| Italian Somaliland | Somalia italiana | – | – (versalregeln, avsnitt 3, #2002) |
+| Egypt under the Muhammad Ali dynasty | Egipto bajo la dinastía de Mehmet Alí | Égypte sous la dynastie de Méhémet Ali | fr 2026-11-20: fr.wikipedia "Dynastie de Méhémet Ali" (sprak-fr, #2002); inte "Alaouites", som förväxlas med Marockos och Syriens alawiter |
 
 Kolumnen "Kontrollerad" är `–` tills någon har öppnat en källa på målspråket och jämfört. Då skrivs datum och källa där (till exempel `2026-11-12, es.wikipedia`). Riken som inte står här: följ regel 1–5 i avsnitt 4. Lägg till det i tabellen i samma pull request så att nästa omgång använder samma namn.
 

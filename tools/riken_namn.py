@@ -15,6 +15,7 @@ Namnen hämtas med Wikidatas frågetjänst (SPARQL, högst 100 id per fråga), e
 land) rättas för hand i datan efteråt; skriptet ändrar inte namn som redan finns.
 """
 import json
+import re
 import sys
 import time
 import urllib.parse
@@ -26,6 +27,20 @@ INDEX = ROOT / 'data/empires/index.json'
 LANGS = ('de', 'es', 'fr')
 SPARQL = 'https://query.wikidata.org/sparql'
 HEADERS = {'User-Agent': 'historia-globen-riken-namn/1.0 (hobbyprojekt)'}
+
+# Etiketter som aldrig är ett rikes namn: de visar att Wikidata-id:t gäller något annat än riket, till exempel
+# rikets utrikesrelationer, historia eller flagga (#2002: Cliopatrias id för Byzantine Empire var Q112039853,
+# "relaciones exteriores del Imperio bizantino"). Sådana etiketter fylls inte i; rätta id:t med 'wikidata' i GROUPS
+# i tools/riken.py. tests/riken-oversatta-namn-test.py använder samma mönster mot datan.
+INTE_RIKESNAMN = re.compile(
+    r'\b(foreign relations|relaciones exteriores|relations extérieures|relations étrangères|außenbeziehungen|außenpolitik'
+    r'|history of|historia de|histoire de|geschichte|flag of|bandera de|drapeau de|flagge|coat of arms|escudo de'
+    r'|armoiries|wappen|list of|lista de|liste de|liste der)\b', re.IGNORECASE)
+
+
+def inte_rikesnamn(label):
+    """Sant om etiketten uppenbart gäller något annat än riket (utrikesrelationer, historia, flagga, lista …)."""
+    return bool(label and INTE_RIKESNAMN.search(label))
 
 
 def labels(ids):
@@ -69,7 +84,10 @@ def main():
             got = lab.get(p.get('wikidata'), {})
             missing = [lang for lang in LANGS if lang not in p['name']]
             for lang in missing:
-                if lang in got:
+                if inte_rikesnamn(got.get(lang)):
+                    print(f'{gid}/{p["id"]}: {lang}-etiketten "{got[lang]}" är inte ett rikesnamn; '
+                          f'kontrollera Wikidata-id:t ({p.get("wikidata")}) och översätt för hand')
+                elif lang in got:
                     p['name'][lang] = got[lang]
             for ip in g['polities']:
                 if ip['id'] == p['id']:

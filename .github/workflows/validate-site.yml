@@ -39,6 +39,8 @@ jobs:
         run: python3 -I tests/riken-kontrollpunkter-test.py
       - name: Kontrollera att rikenas svenska namn inte är de engelska (#1702)
         run: python3 -I tests/riken-namn-test.py
+      - name: Kontrollera att rikenas namn på andra språk är rikets namn och inte ett annat rikes eller begrepps (#2002)
+        run: python3 -I tests/riken-oversatta-namn-test.py
       - name: Kontrollera att platsernas gränser delas vid datumlinjen och att JS och Python räknar lika (#1268)
         run: python3 -I tests/platser-granser-test.py
       - name: Kontrollera att hållbarhetsvarningen för länder skrivs för ett land som bryter mot riktlinjen och inte stoppar bygget (#1269)
