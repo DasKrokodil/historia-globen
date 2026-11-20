@@ -425,6 +425,32 @@ Byggt på grenen `claude/issue-2027-del-a`, från dagens `main`. Källorna öppn
 
 **Expertgranskning:** arbetaren hade inget verktyg för att kalla in underagenter (`historiker`, `geograf`, `sprak-en`, `sprak-de`, `sprak-es`, `sprak-fr`). Fakta, källor, medaljernas plats och etiketterna på fem språk granskas därför separat av en Claude Code som inte byggde ändringen.
 
+## Uppföljning 2026-11-20: rester del A, omgång 2 (#2027)
+
+Byggt på grenen `claude/issue-2027-del-a2`, från dagens `main`. Källorna öppnades igen 2026-11-20: Flag of Bulgaria, Emblem of the People's Republic of Bulgaria och Flag of Eritrea på engelska Wikipedia, Flagge Eritreas på tyska Wikipedia och Commons-filsidorna (`action=raw` och filhistoriken). Wikimedia svarade 429 på alla originalfiler i drygt en timme; emblemfilen kom fram 18:12 efter försök var tredje minut.
+
+| Grupp | Visas | Fil (storlek) | Anmärkning |
+|---|---|---|---|
+| Bulgarien | 1948–1966 | `bulgaria-1948` (29 kB) | Folkrepublikens flagga med emblemet i det vita bandet vid stången, bandet med datumet 9 IX 1944. "Valid as of 27 January 1948" i Flag of Bulgaria; Wikipedia säger att den gällde till 1967 och Commons-filsidorna till 1968, så båda källorna är eniga om 1948–1966. Ansluter till trikoloren 1880–1947; 1967–1970 är kvar som lucka |
+
+**Förenkling:** som `bulgaria-1971` i förra omgången: trikoloren är enkel geometri med samma färger, och emblemet kommer ur emblemfilen `Coat of arms of Bulgaria (1948–1968).svg` (PD-BulgarianGov, 170 kB). Ur flaggfilen `Flag of Bulgaria (1948–1967).svg` (CC BY-SA och GFDL) används bara emblemets plats och höjd, uppmätta genom att jämföra flaggan med en ren trikolor bild för bild; fältet dras ut från 5:3 till 3:2 och emblemet har sin form. Kurvorna är gjorda till linjer inom 0,15 bildpunkter och delar under 0,8 bildpunkter borttagna; inget är ritat nytt. Skillnad mot det oförenklade emblemet i 900 × 600: 0,06 % av bildpunkterna (tunna konturer i vetet).
+
+**Licenser:** emblemet PD-BulgarianGov; flaggfilen (CC BY-SA 3.0, 2.5, 2.0, 1.0 och GFDL) står som källa för emblemets plats, men inga former är tagna ur den.
+
+**Källorna skiljer sig (oförändrat):** Wikipedia säger 1948–1967 och 1967–1971 ("Valid as of 5 January 1967"), Commons-filsidorna 1948–1968 och 1968–1971. Artikeln om emblemet säger att vitt vete 1967 ersatte det gyllene, men Commons-teckningarna för 1967/1968–1971 har gyllene vete. En tredje källa (Voynikov, History of the Bulgarian State Symbols, som artikeln hänvisar till) gick inte att öppna: arkivkopian på web.archive.org och bulgariska Wikipedia nåddes inte genom proxyn. 1967–1970 förblir därför en lucka, och faktarutan säger det på fem språk.
+
+**Inte byggt:**
+- **Eritrea 1993–1995:** väntar. Filhistoriken på Commons visar bara en teckning (Orange Tuesday 2008, sedan två uppstädningar 2016 och 2020 "No other changes"), och den har 14 blad på vänster sida men omkring 12 på höger; den enda andra filen i kategorin SVG historical national flags of Eritrea, `Flag of Eritrea (1993–1995; 2-1).svg`, är en användares egen teckning från 2023 i proportionen 1:2 (källan säger 2:3) och licensierad CC BY-SA 4.0, så den används inte. En egen teckning går inte att göra utan att hitta på: engelska Wikipedia säger att 1993 års krans hade 14 blad på var sida och att antalet 1995 standardiserades till 30, medan tyska Wikipedia säger att dagens flagga har 14 blad på var sida. Källorna skiljer sig alltså om kransen ändrades 1995, och om den gjorde det säger ingen källa vilka blad som skulle tas bort ur 1995 års krans. Engelska Wikipedia nämner inte heller den upprätta kvisten för 1993. Britannica (som artikeln bygger på) och Flags of the World nåddes inte genom proxyn.
+
+**Kontroller:** `tools/flaggkontroll.py` utan fel. På kartan (Playwright, Fokus `#y=…&f=empire:bulgarien`, 1280 och 400 bildpunkter, utan konsolfel) laddas `bulgaria-1948` och syns i faktarutan och som flaggmarkör 1950 och 1966, 1968 laddas ingen bulgarisk flagga, och 1980 visas `bulgaria-1971` som förut. `ENDAST="flagg"` och `ENDAST="medalj"` i webbläsartestet går igenom.
+
+**Skärmbilder:**
+- Bulgarien 1950 i Fokus, dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/bulgarien-1950-fokus-1280.webp
+- Bulgarien 1950 i Fokus, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/bulgarien-1950-fokus-400.webp
+- Bulgarien 1968 i Fokus (lucka), dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/bulgarien-1968-fokus-1280.webp
+
+**Expertgranskning:** arbetaren hade inget verktyg för att kalla in underagenter (`historiker`, `sprak-en`, `sprak-de`, `sprak-es`, `sprak-fr`). Fakta, källor och texterna på fem språk granskas därför separat av en Claude Code som inte byggde ändringen.
+
 ## Tabeller per världsdel
 
 Kolumner: id, rike, sort, vad symbolen är, källa, bild på Commons med licens, säkerhet, rekommendation och anmärkning.
