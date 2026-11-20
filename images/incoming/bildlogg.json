@@ -2382,5 +2382,117 @@
     "credit": "Okänd fotograf / Imperial War Museum (Q 114833) / Wikimedia Commons",
     "license": "Public domain",
     "source": "commons-bild-slaget-vid-jylland"
+  },
+  {
+    "id": "jikji",
+    "file": "jikji.jpg",
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Två uppslagna sidor (blad 4v–5r) ur Jikji från 1377, i Frankrikes nationalbibliotek i Paris, som har digitaliserat boken. Licens: Public domain.",
+      "en": "Two facing pages (folios 4v–5r) of the Jikji from 1377, in the National Library of France in Paris, which digitised the book. Licence: Public domain.",
+      "de": "Zwei gegenüberliegende Seiten (Blatt 4v–5r) des Jikji von 1377 in der Französischen Nationalbibliothek in Paris, die das Buch digitalisiert hat. Lizenz: Public Domain.",
+      "es": "Dos páginas enfrentadas (folios 4v–5r) del Jikji de 1377, en la Biblioteca Nacional de Francia en París, que digitalizó el libro. Licencia: dominio público.",
+      "fr": "Deux pages en vis-à-vis (feuillets 4v–5r) du Jikji de 1377, conservé à la Bibliothèque nationale de France à Paris, qui a numérisé le livre. Licence : domaine public."
+    },
+    "credit": "Bibliothèque nationale de France / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-jikji"
+  },
+  {
+    "id": "tripitaka-koreana",
+    "file": "tripitaka-koreana.jpg",
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Träblocken i Tripitaka Koreana på sina hyllor i templet Haeinsa i Sydkorea, fotograferade 2022. Foto: Bernard Gagnon. Licens: CC0.",
+      "en": "The Tripitaka Koreana woodblocks on their shelves at Haeinsa Temple in South Korea, photographed in 2022. Photo: Bernard Gagnon. Licence: CC0.",
+      "de": "Die Holzdruckstöcke der Tripitaka Koreana in ihren Regalen im Tempel Haeinsa in Südkorea, fotografiert 2022. Foto: Bernard Gagnon. Lizenz: CC0.",
+      "es": "Las planchas de madera de la Tripitaka Koreana en sus estanterías del templo Haeinsa, en Corea del Sur, fotografiadas en 2022. Foto: Bernard Gagnon. Licencia: CC0.",
+      "fr": "Les planches xylographiques du Tripitaka Koreana sur leurs étagères au temple Haeinsa, en Corée du Sud, photographiées en 2022. Photo : Bernard Gagnon. Licence : CC0."
+    },
+    "credit": "Bernard Gagnon / Wikimedia Commons",
+    "license": "CC0",
+    "source": "commons-bild-tripitaka-koreana"
+  },
+  {
+    "id": "lothal",
+    "file": "lothal.jpg",
+    "kind": "historisk",
+    "style": "egypten",
+    "caption": {
+      "sv": "Den tegelkantade bassängen i Lothal som enligt Indiens arkeologiska myndighet kan ha varit en docka, fotograferad 2012. Foto: Orissa8. Licens: CC BY-SA 4.0.",
+      "en": "The brick-lined basin at Lothal that, according to the Archaeological Survey of India, may have been a dock, photographed in 2012. Photo: Orissa8. Licence: CC BY-SA 4.0.",
+      "de": "Das mit Ziegeln eingefasste Becken in Lothal, das laut der indischen Archäologiebehörde ein Hafenbecken gewesen sein kann, fotografiert 2012. Foto: Orissa8. Lizenz: CC BY-SA 4.0.",
+      "es": "La dársena revestida de ladrillo de Lothal que, según el Servicio Arqueológico de la India, pudo ser un muelle, fotografiada en 2012. Foto: Orissa8. Licencia: CC BY-SA 4.0.",
+      "fr": "Le bassin bordé de briques de Lothal qui, selon le Service archéologique de l’Inde, a pu être un bassin portuaire, photographié en 2012. Photo : Orissa8. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Orissa8 / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-lothal"
+  },
+  {
+    "id": "jarnpelaren-i-delhi",
+    "file": "jarnpelaren-i-delhi.jpg",
+    "kind": "historisk",
+    "style": "indien-relief",
+    "caption": {
+      "sv": "Järnpelaren i Qutbkomplexet i Mehrauli, Delhi, fotograferad 2007. Utsnitt. Foto: Sujit kumar. Licens: CC BY-SA 3.0.",
+      "en": "The iron pillar in the Qutb complex at Mehrauli, Delhi, photographed in 2007. Cropped. Photo: Sujit kumar. Licence: CC BY-SA 3.0.",
+      "de": "Die Eisensäule im Qutb-Komplex in Mehrauli, Delhi, fotografiert 2007. Ausschnitt. Foto: Sujit kumar. Lizenz: CC BY-SA 3.0.",
+      "es": "El pilar de hierro del complejo de Qutb en Mehrauli, Delhi, fotografiado en 2007. Detalle. Foto: Sujit kumar. Licencia: CC BY-SA 3.0.",
+      "fr": "Le pilier de fer du complexe de Qutb à Mehrauli, Delhi, photographié en 2007. Détail. Photo : Sujit kumar. Licence : CC BY-SA 3.0."
+    },
+    "credit": "Sujit kumar / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-jarnpelaren-i-delhi"
+  },
+  {
+    "id": "slaget-vid-issos",
+    "file": "slaget-vid-issos.jpg",
+    "kind": "historisk",
+    "style": "antik",
+    "caption": {
+      "sv": "Alexander och Dareios III i strid på Alexandermosaiken från Pompeji, som Wikimedia Commons kallar Issosmosaiken. En romersk mosaik från omkring 100 f.Kr., mer än 200 år efter slaget, i arkeologiska museet i Neapel. Utsnitt. Foto: Berthold Werner, 2013. Licens: CC BY-SA 3.0 (fotot); mosaiken är public domain.",
+      "en": "Alexander and Darius III in battle on the Alexander Mosaic from Pompeii, which Wikimedia Commons calls the Battle of Issus mosaic. A Roman mosaic from around 100 BC, more than 200 years after the battle, in the National Archaeological Museum of Naples. Cropped. Photo: Berthold Werner, 2013. Licence: CC BY-SA 3.0 (the photograph); the mosaic is in the public domain.",
+      "de": "Alexander und Dareios III. im Kampf auf dem Alexandermosaik aus Pompeji, das Wikimedia Commons Issos-Mosaik nennt. Ein römisches Mosaik aus der Zeit um 100 v. Chr., mehr als 200 Jahre nach der Schlacht, im Archäologischen Nationalmuseum Neapel. Ausschnitt. Foto: Berthold Werner, 2013. Lizenz: CC BY-SA 3.0 (das Foto); das Mosaik ist gemeinfrei.",
+      "es": "Alejandro y Darío III en combate en el mosaico de Alejandro de Pompeya, que Wikimedia Commons llama mosaico de la batalla de Issos. Un mosaico romano de hacia el 100 a. C., más de 200 años después de la batalla, en el Museo Arqueológico Nacional de Nápoles. Detalle. Foto: Berthold Werner, 2013. Licencia: CC BY-SA 3.0 (la fotografía); el mosaico es de dominio público.",
+      "fr": "Alexandre et Darius III au combat sur la mosaïque d’Alexandre de Pompéi, que Wikimedia Commons appelle mosaïque de la bataille d’Issos. Une mosaïque romaine d’environ 100 av. J.-C., plus de 200 ans après la bataille, au Musée archéologique national de Naples. Détail. Photo : Berthold Werner, 2013. Licence : CC BY-SA 3.0 (la photographie) ; la mosaïque est dans le domaine public."
+    },
+    "credit": "Berthold Werner / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "source": "commons-bild-slaget-vid-issos"
+  },
+  {
+    "id": "tiangong-kaiwu-1637",
+    "file": "tiangong-kaiwu-1637.jpg",
+    "kind": "historisk",
+    "style": "kina-tusch",
+    "caption": {
+      "sv": "Vattendrivna stamphammare som skalar säd, en av illustrationerna i Tiangong Kaiwu från 1637, fotograferad ur en engelsk översättning från 1966. Licens: Public domain.",
+      "en": "Water-powered trip hammers that husk grain, one of the illustrations in the Tiangong Kaiwu of 1637, photographed from an English translation published in 1966. Licence: Public domain.",
+      "de": "Wassergetriebene Stampfhämmer, die Getreide schälen, eine der Abbildungen im Tiangong Kaiwu von 1637, fotografiert aus einer englischen Übersetzung von 1966. Lizenz: Public Domain.",
+      "es": "Martinetes movidos por agua que descascarillan el grano, una de las ilustraciones del Tiangong Kaiwu de 1637, fotografiada de una traducción inglesa de 1966. Licencia: dominio público.",
+      "fr": "Des martinets actionnés par l’eau qui décortiquent le grain, l’une des illustrations du Tiangong Kaiwu de 1637, photographiée dans une traduction anglaise de 1966. Licence : domaine public."
+    },
+    "credit": "Song Yingxing (foto: PericlesofAthens) / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-tiangong-kaiwu-1637"
+  },
+  {
+    "id": "xinhairevolutionen",
+    "file": "xinhairevolutionen.jpg",
+    "kind": "historisk",
+    "style": "kina-tusch",
+    "caption": {
+      "sv": "Revolutionsarmén stormar Nanjing: kinesiskt färgträsnitt tryckt mellan 1911 och 1915. Library of Congress beskriver bilden som en strid vid upproret i Nanjing 24 november–2 december 1911. En samtida folklig bild, inte en ögonvittnesbild. Utsnitt. Library of Congress anger inga kända restriktioner för publicering.",
+      "en": "The revolutionary army storms Nanjing: Chinese colour woodblock print made between 1911 and 1915. The Library of Congress describes it as a battle during the Nanjing uprising of 24 November–2 December 1911. A contemporary popular print, not an eyewitness image. Cropped. The Library of Congress states no known restrictions on publication.",
+      "de": "Die Revolutionsarmee stürmt Nanjing: chinesischer Farbholzschnitt, gedruckt zwischen 1911 und 1915. Die Library of Congress beschreibt das Bild als Kampf während des Aufstands in Nanjing vom 24. November bis 2. Dezember 1911. Ein zeitgenössisches Volksbild, kein Augenzeugenbild. Ausschnitt. Die Library of Congress gibt keine bekannten Einschränkungen für die Veröffentlichung an.",
+      "es": "El ejército revolucionario asalta Nankín: xilografía china en color impresa entre 1911 y 1915. La Library of Congress la describe como un combate durante el levantamiento de Nankín del 24 de noviembre al 2 de diciembre de 1911. Una estampa popular de la época, no una imagen de un testigo. Detalle. La Library of Congress no indica restricciones conocidas para su publicación.",
+      "fr": "L’armée révolutionnaire prend d’assaut Nankin : estampe chinoise en couleurs gravée sur bois, imprimée entre 1911 et 1915. La Library of Congress la décrit comme un combat pendant le soulèvement de Nankin du 24 novembre au 2 décembre 1911. Une image populaire de l’époque, pas une image de témoin. Détail. La Library of Congress n’indique aucune restriction connue de publication."
+    },
+    "credit": "Okänd tryckare / Library of Congress, Prints & Photographs Division (FP 2 - JPD, no. 2258)",
+    "license": "Inga kända restriktioner (Library of Congress)",
+    "source": "loc-bild-xinhairevolutionen"
   }
 ]
