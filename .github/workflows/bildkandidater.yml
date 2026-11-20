@@ -1,0 +1,106 @@
+# Bildkandidater (#2119, steg 2): kör tools/bildkandidater.py på begäran och lägger listan som en pull request.
+# Bara workflow_dispatch (Actions-fliken, "Run workflow"): ingen schedule och ingen push- eller pull_request-trigger.
+# Kandidaterna är FÖRSLAG som måste kontrolleras manuellt (docs/bilder-riktiga.md). Flödet ändrar inga fakta och
+# rör bara data/utkast/bildkandidater.json, som appen inte läser. Inga hemligheter används; skriptet anropar
+# bara Wikidata och Wikimedia Commons med en generisk User-Agent.
+# Grenen heter bildkandidater/<körnings-id> och skickas aldrig med force. Får GITHUB_TOKEN inte skapa pull requests
+# (repots inställning "Allow GitHub Actions to create and approve pull requests") lämnas grenen och en
+# jämförelselänk skrivs i körningens sammanfattning.
+name: Bildkandidater
+
+on:
+  workflow_dispatch:
+    inputs:
+      region:
+        description: Världsdel
+        required: true
+        type: choice
+        options: [Afrika, Amerika, Asien, Europa, Oceanien]
+      period:
+        description: 'Period som FRÅN-TILL i astronomiska år, till exempel 1000-1347'
+        required: true
+        type: string
+      limit:
+        description: Högst så här många händelser
+        required: false
+        default: '40'
+        type: string
+      exclude_saknas:
+        description: Hoppa över händelser som docs/bilder-saknas.md redan listar som utan fri bild
+        required: false
+        default: true
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bildkandidater
+  cancel-in-progress: false
+
+jobs:
+  kandidater:
+    name: Hämta bildkandidater
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+      pull-requests: write
+    env:
+      REGION: ${{ inputs.region }}
+      PERIOD: ${{ inputs.period }}
+      LIMIT: ${{ inputs.limit }}
+      EXCLUDE_SAKNAS: ${{ inputs.exclude_saknas }}
+      GH_TOKEN: ${{ github.token }}
+      RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Kontrollera indata
+        run: |
+          # Indata går via miljövariabler (aldrig direkt in i skriptet) och kontrolleras innan de används.
+          [[ "$PERIOD" =~ ^-?[0-9]+--?[0-9]+$ ]] || { echo "::error::Perioden måste vara FRÅN-TILL, till exempel 1000-1347"; exit 1; }
+          [[ "$LIMIT" =~ ^[0-9]{1,3}$ && "$LIMIT" -ge 1 ]] || { echo "::error::Gränsen måste vara ett heltal 1-999"; exit 1; }
+      - name: Kör tools/bildkandidater.py
+        run: |
+          set -o pipefail
+          args=(--region "$REGION" --period "$PERIOD" --limit "$LIMIT")
+          if [ "$EXCLUDE_SAKNAS" = "true" ]; then args+=(--exclude-saknas); fi
+          echo "python3 tools/bildkandidater.py ${args[*]}"
+          python3 tools/bildkandidater.py "${args[@]}" 2>&1 | tee "$RUNNER_TEMP/bildkandidater.log"
+          test -s data/utkast/bildkandidater.json
+      - name: Lägg listan på en ny gren och öppna en pull request
+        run: |
+          set -euo pipefail
+          gren="bildkandidater/${GITHUB_RUN_ID}"
+          rubrik="Bildkandidater: ${REGION} ${PERIOD} (förslag)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$gren"
+          git add -f data/utkast/bildkandidater.json
+          git commit -m "$rubrik"
+          git push origin "$gren"
+          cat > "$RUNNER_TEMP/pr-text.md" <<TEXT
+          Automatiskt förslag från arbetsflödet Bildkandidater (#2119). Körning: ${RUN_URL}
+
+          Region: ${REGION}. Period: ${PERIOD}. Högst ${LIMIT} händelser. Utan de som docs/bilder-saknas.md redan listar: ${EXCLUDE_SAKNAS}.
+
+          **Kandidaterna är förslag och måste kontrolleras manuellt.** För varje kandidat finns filsidan på Wikimedia Commons, licensen (en grov automatisk klassning), upphovsperson och motiv. Öppna filsidan, läs licensmallen och kontrollera att bilden visar själva händelsen (inte en karta eller en nutida minnessten) innan den används, enligt docs/bilder-riktiga.md.
+
+          - Inga fakta ändras: bara filen data/utkast/bildkandidater.json ändras (en ny lista ersätter den förra).
+          - Appen läser inte data/utkast/, så ingenting syns på sidan.
+          - Ingen bild är vald eller hämtad; en kandidat blir en bild först efter källkontroll i ett eget issue.
+          TEXT
+          if gh pr create --base main --head "$gren" --title "$rubrik" --body-file "$RUNNER_TEMP/pr-text.md"; then
+            echo "Pull request skapad för $gren." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "::warning::GITHUB_TOKEN fick inte skapa pull request. Grenen ligger kvar."
+            {
+              echo "### Grenen är pushad, men pull requesten skapades inte"
+              echo "Repots inställning tillåter inte att GITHUB_TOKEN skapar pull requests. Öppna den själv:"
+              echo
+              echo "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/compare/main...${gren}?expand=1"
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi

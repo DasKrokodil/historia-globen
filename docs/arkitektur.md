@@ -538,6 +538,8 @@ Menyn visar det som pågår nära året man står på. Resten finns bakom "Visa 
 
 Skripten i `tools/` körs för hand, inte av sidan, så principen om inget byggsteg gäller fortfarande.
 
+`.github/workflows/bildkandidater.yml` (#2119) kör `tools/bildkandidater.py` på begäran (bara `workflow_dispatch`) och öppnar en pull request med `data/utkast/bildkandidater.json`; sidan läser inte filen (docs/bilder-riktiga.md, "Kandidatlistan").
+
 | Skript | Gör |
 |---|---|
 | `tools/dela_data.py` | Bygger `data/events.json` ur redigeringsfilerna i `data/handelser/` (#394) och delar upp händelser och `data/empires/index.json` i mindre filer i `data/genererat/` (#337). Körs efter varje ändring i källfilerna; stoppar händelser i fel periodfil och dubbla id; `--check` kontrollerar utan att skriva, och `scripts/validate-site.py` gör samma kontroll. Skriver svenskan i grundfilerna och övriga språk i egna filer (#675) |

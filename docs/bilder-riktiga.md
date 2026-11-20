@@ -75,6 +75,14 @@ Tillåtet (CLAUDE.md, Bilder punkt 1): public domain, CC0, CC BY, CC BY-SA och L
 
 **Planerade verktyg:** `tools/bild_hamta.py` (#2118, hämtning med batch, User-Agent, Retry-After, tre försök och tidstak) och `tools/bildkandidater.py` (#2119, kandidater och licensförslag per händelse). När de finns uppdateras den här rutinen: anropsreglerna ovan blir verktygets beteende, och det som verktyget gör för hand ersätts. Förslagen från verktygen är underlag, inte beslut: licenskontrollen och bildtexten granskas som förut.
 
+## Kandidatlistan: skript och arbetsflöde
+
+`tools/bildkandidater.py` (#2119) föreslår fria bilder till händelser utan bild och skriver `data/utkast/bildkandidater.json`, som appen inte läser. Allt i listan är förslag: öppna filsidan, kontrollera licensen och att bilden visar händelsen innan den används.
+
+**Arbetsflödet** `.github/workflows/bildkandidater.yml` kör skriptet i Actions: fliken Actions, Bildkandidater, Run workflow. Fyll i världsdel (Afrika, Amerika, Asien, Europa, Oceanien), period som FRÅN-TILL i astronomiska år (till exempel `1000-1347`), högst så många händelser (standard 40) och om händelser som `docs/bilder-saknas.md` redan listar ska hoppas över (standard ja). Flödet startas bara för hand, har bara rättigheterna `contents: write` och `pull-requests: write` på jobbet, använder inga hemligheter, tar högst 30 minuter och kör en körning i taget.
+
+Resultatet läggs på en ny gren `bildkandidater/<körnings-id>` (aldrig `main`, aldrig force-push) och en pull request mot `main` öppnas med titeln "Bildkandidater: <region> <period> (förslag)". Tillåter repots inställning inte att `GITHUB_TOKEN` skapar pull requests (Settings, Actions, General, "Allow GitHub Actions to create and approve pull requests") lämnas grenen kvar och en jämförelselänk skrivs i körningens sammanfattning; öppna pull requesten därifrån. Båda fallen är avsedda. Ingen fakta ändras, och en kandidat blir en bild först i ett vanligt bildissue med källkontroll enligt rutinen ovan.
+
 ## Granskning per pull request
 
 - `historiker` granskar licens, motiv och bildtext (stämmer bilden med händelsen, är senare avbildningar och propaganda märkta, står bara det filsidan stöder), och **en samlad språkgranskning** av bildtexterna görs (en körning över de fyra språken, inte fyra separata).
