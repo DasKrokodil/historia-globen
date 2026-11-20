@@ -1646,6 +1646,11 @@ GROUPS = {
     ]),
     'kara-khanid': ('Khanatet Kara-Khanid', 'Karakhanid Khanate', [
         ('Kara-Khanids', 'kara-khanid', 'Khanatet Kara-Khanid', '#5a8ab0', {'en': 'Karakhanid Khanate'}),
+        # Cliopatrias Eastern Kara-Khanids (1046–1138) och Western Karakhanid Khanate (1046–1084, Samarkand) har samma
+        # Wikidata-id (Q494354) och läggs till som delar (#645, nionde omgången). Efter 1084 räknar Cliopatria Samarkand till
+        # Seldjukriket och sedan Kara-Khitan; det västra khanatet fanns enligt Wikipedia till 1212
+        ('Eastern Kara-Khanids', 'kara-khanid-ost', 'Khanatet Kara-Khanid', '#5a8ab0', {'en': 'Karakhanid Khanate'}),
+        ('Western Karakhanid Khanate', 'kara-khanid-vast', 'Khanatet Kara-Khanid', '#5a8ab0', {'en': 'Karakhanid Khanate'}),
     ]),
     'dali': ('Dali', 'Dali Kingdom', [
         ('Kingdom of Dali', 'dali', 'Dali', '#8a6ab0', {'en': 'Dali Kingdom'}),
@@ -1706,6 +1711,54 @@ GROUPS = {
         ('Protectorate of the Western Regions', 'vastra-regionernas-protektorat', 'De västra regionernas protektorat', '#6a9a8a',
          {'en': 'Protectorate of the Western Regions'}),
     ]),
+    # Antikens luckor, andra omgången (#646, 2026-11-20): de största kvarvarande luckorna före 500 enligt
+    # tools/tackning_riken.py (provår var 50:e år), där Cliopatrias Wikidata-id är en stat (SPARQL 2026-11-20). Svenska
+    # namn är svenska Wikipedias titlar (avsnitt 4 regel 1 i docs/ordlista-oversattning.md), utom Himyaritiska riket:
+    # artikeln "Himyariter" handlar om folket och kallar staten "det himyaritiska riket". Western Satraps saknar svensk
+    # etikett och artikel och har det engelska namnet enligt beslutet 2026-11-12. `years` klipper bort Cliopatrias år
+    # utanför källornas spann (engelska Wikipedia och Wikidata): Kungariket Armenien till 428 (Cliopatrias poster 451–489
+    # och 638–646 ligger efter rikets slut; 208–207 f.Kr. är Cliopatrias yta bara 294 km² inne i riket och hoppas över med
+    # `skip`, efter geografens granskning i PR #2042), Himyar till 533 (Wikipedia 575 eller 578, Wikidata 525; Cliopatrias
+    # 534–576 är bara 167 km² och 577–601 ligger efter båda), Western Satraps till 415 (Cliopatrias 476–489 är utan yta), Shunga till 73 f.Kr., Funan
+    # till 627, Shang till 1046 f.Kr. och Östra Wu till 222–280 (Cliopatria har Sun Quans område redan från 207).
+    # Cliopatrias -N är N f.Kr. och `years` är astronomiska år (#1989).
+    'chu': ('Chu', 'Chu', [
+        ('Chu', 'chu', 'Chu', '#b0603a', {'en': 'Chu'}),
+    ]),
+    'western-satraps': ('Western Satraps', 'Western Satraps', [
+        ('Western Satraps', 'western-satraps', 'Western Satraps', '#9a7a3a', {'en': 'Western Satraps', 'years': (43, 415)}),
+    ]),
+    'zhoudynastin': ('Zhoudynastin', 'Zhou dynasty', [
+        ('Zhou Dynasty', 'zhoudynastin', 'Zhoudynastin', '#a04a4a', {'en': 'Zhou dynasty'}),
+    ]),
+    'kungariket-armenien': ('Kungariket Armenien', 'Kingdom of Armenia', [
+        ('Kingdom of Armenia', 'kungariket-armenien', 'Kungariket Armenien', '#c07a3a', {'en': 'Kingdom of Armenia', 'years': (-325, 428),
+         'skip': [(-207, -206)]}),
+    ]),
+    'himyaritiska-riket': ('Himyaritiska riket', 'Himyar', [
+        ('Himyarite Kingdom', 'himyaritiska-riket', 'Himyaritiska riket', '#5a8a6a', {'en': 'Himyar', 'years': (-109, 533)}),
+    ]),
+    'liu-song': ('Liu Song', 'Liu Song dynasty', [
+        ('Liu Song Dynasty', 'liu-song', 'Liu Song', '#6a7aa0', {'en': 'Liu Song dynasty'}),
+    ]),
+    'sunga': ('Sunga', 'Shunga Empire', [
+        ('Shunga Empire', 'sunga', 'Sunga', '#8aa05a', {'en': 'Shunga Empire', 'years': (-169, -72)}),
+    ]),
+    'funan': ('Funan', 'Funan', [
+        ('Funan', 'funan', 'Funan', '#4a9a8a', {'en': 'Funan', 'years': (51, 627)}),
+    ]),
+    'cao-wei': ('Cao Wei', 'Cao Wei', [
+        ('Cao Wei', 'cao-wei', 'Cao Wei', '#7a5a8a', {'en': 'Cao Wei'}),
+    ]),
+    'grekisk-baktriska-riket': ('Grekisk-baktriska riket', 'Greco-Bactrian Kingdom', [
+        ('Greco-Bactrian Kingdom', 'grekisk-baktriska-riket', 'Grekisk-baktriska riket', '#4a6ab0', {'en': 'Greco-Bactrian Kingdom'}),
+    ]),
+    'shangdynastin': ('Shangdynastin', 'Shang dynasty', [
+        ('Shang Dynasty', 'shangdynastin', 'Shangdynastin', '#a08a3a', {'en': 'Shang dynasty', 'years': (-1599, -1045)}),
+    ]),
+    'ostra-wu': ('Östra Wu', 'Eastern Wu', [
+        ('Eastern Wu', 'ostra-wu', 'Östra Wu', '#3a8a5a', {'en': 'Eastern Wu', 'years': (222, 280)}),
+    ]),
     # Medeltidens luckor, åttonde omgången (#645, DasKrokodils ja 2026-11-13): Cliopatrias Wikidata-id är en stat men
     # saknar svensk etikett (SPARQL 2026-11-13), så namnet är det engelska enligt beslutet 2026-11-12. Cliopatrias
     # Oirat Confederation (1619–1676) har samma Wikidata-id som Four Oirats men ligger utanför Wikidatas spann (1399–1628)
@@ -1724,6 +1777,52 @@ GROUPS = {
     ]),
     'chola-empire': ('Cholariket', 'Chola Empire', [
         ('Chola Empire', 'chola-empire', 'Cholariket', '#c0704a', {'en': 'Chola Empire'}),
+    ]),
+    # Medeltidens luckor, nionde omgången (#645, 2026-11-20): de största kvarvarande luckorna 500–1500 med provår var 50:e år
+    # (tools/tackning_riken.py), där Cliopatrias Wikidata-id är en stat (SPARQL 2026-11-20). Svenska namn är Wikidatas svenska
+    # etiketter, utom Aragoniska kronan (svenska Wikipedias titel; etiketten är "Aragonska kronan"). Balhae saknar svensk
+    # etikett och artikel och har det engelska namnet (beslutet 2026-11-12). Kungariket Lavo, Seunadynastin (Cliopatrias Yadava
+    # Dynasty) och Chaulukyadynastin saknar också svensk etikett och artikel (svenska Wikipedia sökt 2026-11-20); det engelska
+    # namnet stoppas av provet mot engelska namn i name.sv (#1702), så namnet är det engelska med typordet översatt, som
+    # Kungariket Pagan och Chalukyadynastin (egen översättning, granskas av historiker och sprak-*); Mamlukdynastin i Delhi heter på engelska som engelska Wikipedias titel,
+    # eftersom Wikidatas engelska etikett "Mamluk Sultanate" är samma som Egyptens mamluksultanat. Väntar: Turk Shahis (Q654380
+    # är Kabul Shahi, som också omfattar Hindu Shahi), Hamdanid Emirates (Cliopatria 936–1259, Wikidata 890–1004), Sind-Habbari
+    # Dynasty (id utan årtal), Ngô Dynasty (Cliopatria 947–1406, Wikidata 939–965), Buyid Dynasty (id är Abbasidkalifatet),
+    # Kashmir (id är regionen) och Shan States (en samling).
+    'kamarupariket': ('Kamarupariket', 'Kamarupa', [
+        ('Kamarupa Kingdom', 'kamarupariket', 'Kamarupariket', '#7aa05a', {'en': 'Kamarupa'}),
+    ]),
+    'vijayanagar': ('Vijayanagar', 'Vijayanagara Empire', [
+        ('Vijayanagara Empire', 'vijayanagar', 'Vijayanagar', '#c08a3a', {'en': 'Vijayanagara Empire'}),
+    ]),
+    'balhae': ('Balhae', 'Balhae', [
+        ('Balhae', 'balhae', 'Balhae', '#5a6ab0', {'en': 'Balhae'}),
+    ]),
+    'hariphunchai': ('Hariphunchai', 'Haripuñjaya', [
+        ('Haripuñjaya', 'hariphunchai', 'Hariphunchai', '#a05aa0', {'en': 'Haripuñjaya'}),
+    ]),
+    'koguryo': ('Koguryo', 'Goguryeo', [
+        # Cliopatrias sista post 674–681 är bara 148 km² vid kusten kring 125,4° Ö 37,7° N och visas inte (geografens
+        # granskning av PR #2037); Wikipedia och Wikidata anger att riket föll 668
+        ('Goguryeo', 'koguryo', 'Koguryo', '#4a8a6a', {'en': 'Goguryeo', 'years': (-35, 673)}),
+    ]),
+    'kungariket-lavo': ('Kungariket Lavo', 'Lavo Kingdom', [
+        ('Lavo Kingdom', 'kungariket-lavo', 'Kungariket Lavo', '#b05a5a', {'en': 'Lavo Kingdom'}),
+    ]),
+    'seunadynastin': ('Seunadynastin', 'Seuna dynasty', [
+        ('Yadava Dynasty', 'seunadynastin', 'Seunadynastin', '#8a8a3a', {'en': 'Seuna dynasty'}),
+    ]),
+    'mamlukdynastin-i-delhi': ('Mamlukdynastin i Delhi', 'Mamluk dynasty (Delhi)', [
+        ('Mamluk Dynasty', 'mamlukdynastin-i-delhi', 'Mamlukdynastin i Delhi', '#6a5a9a', {'en': 'Mamluk dynasty (Delhi)'}),
+    ]),
+    'chaulukyadynastin': ('Chaulukyadynastin', 'Chaulukya dynasty', [
+        ('Chaulukya Dynasty', 'chaulukyadynastin', 'Chaulukyadynastin', '#3a8aa0', {'en': 'Chaulukya dynasty'}),
+    ]),
+    'aragoniska-kronan': ('Aragoniska kronan', 'Crown of Aragon', [
+        ('Crown of Aragon', 'aragoniska-kronan', 'Aragoniska kronan', '#c0a03a', {'en': 'Crown of Aragon'}),
+    ]),
+    'idrisider': ('Idrisider', 'Idrisid dynasty', [
+        ('Idrisids', 'idrisider', 'Idrisider', '#4aa06a', {'en': 'Idrisid dynasty'}),
     ]),
     # Inre Asien 1500–1800, Afrika 1850 och Tibet 1912–1952 (#1331, ur helganalysen #1289). Svenska och engelska namn är
     # Wikidatas etiketter, utom Khedivatet Egypten (svenska Wikipedias titel; etiketten "Khedivet" ser ut som ett skrivfel)
@@ -3052,6 +3151,12 @@ DECIMALS = {'israel': 2, 'palestina': 2, 'osttyskland': 2, 'vasttyskland': 2, 't
             'oyoriket': 2, 'ashantiriket': 2, 'gronland-koloni': 2, 'danska-indien': 3, 'danska-guldkusten': 3}  # #1388
 
 
+# Grupper vars avrundade gräns görs giltig med valid_rounded (make_valid), eftersom förenklingen och avrundningen annars ger
+# en gräns som korsar sig själv. Bara de här grupperna, så att övriga rikens filer blir exakt som förut: Aragoniska kronan
+# vid norra Sicilien (15,4° Ö 38,2° N) 1450–1458 och från 1507 (#645, geografens granskning av PR #2037)
+MAKE_VALID = {'aragoniska-kronan'}
+
+
 def rnd(o, nd=1):
     if isinstance(o, (list, tuple)):
         if o and isinstance(o[0], (int, float)):
@@ -3144,6 +3249,10 @@ def raw_periods(gid, cname, opts, by_name, disputed, ne):
         if opts.get('ne'):
             g1 = ne[opts['ne']]
             base = [(a, b, g1, km2(g1)) if a >= opts.get('ne_from', a) else (a, b, g, ar) for a, b, g, ar in base]
+    # skip: Cliopatria-perioder som ligger helt inom något av spannen (från, till) visas inte, till exempel en fläck
+    # på några hundra km² mitt i spannet (Kungariket Armenien 208–207 f.Kr., #646)
+    if opts.get('skip'):
+        base = [q for q in base if not any(s <= q[0] and q[1] <= e for s, e in opts['skip'])]
     # join: andra Cliopatria-poster som läggs till delen de år de finns, utan att ändra gränsen övriga år (#1330)
     if opts.get('join'):
         base = join_periods(base, opts['join'], by_name)
@@ -3333,6 +3442,8 @@ INFLUENCE_NAMES = {
     'Delhi Sultanate': 'Delhisultanatet', 'Ostrogothic Kingdom': 'Östgoternas rike', 'Papal States': 'Kyrkostaten',
     'East Franks': 'Östfrankiska riket', 'Kidarites': 'Kidariterna', 'Jalayirid Sultanate': 'Jalayiridernas sultanat',
     'Kingdom of Georgia': 'Kungariket Georgien', 'Qara Qoyunlu': 'Qara Qoyunlu', 'Joseon': 'Joseon (Korea)',
+    # Wikidata Q1311219 saknar svensk etikett; typordet översatt som de, es och fr ("Königreich Jaffna", #645)
+    'Jaffna kingdom': 'Kungariket Jaffna',
 }
 # Relationer i Cliopatria som källorna motsäger och därför inte visas (#75): (lydrike, överhuvud) med motivering.
 INFLUENCE_SKIP = {
@@ -3561,7 +3672,8 @@ def main():
                 lab = list(opts['label']) if opts.get('label') else [round(c.x, 1), round(c.y, 1)]
                 q = {'start': start, 'end': end, 'areaKm2': round(area),
                      'label': lab, '_shape': gc, '_g': g, '_raw': raw,
-                     'geometry': {'type': mapping(g)['type'], 'coordinates': rnd(mapping(g)['coordinates'], nd)}}
+                     'geometry': (valid_rounded(g, nd) if gid in MAKE_VALID else
+                                  {'type': mapping(g)['type'], 'coordinates': rnd(mapping(g)['coordinates'], nd)})}
                 # Huvudlandet (#74): den del av riket som är moderlandet. Den ritas kraftigare och får rikets namn.
                 if home and 'homeland' in opts:
                     hg = homeland_shape(by_name, opts['homeland'], home['window'], raw, start, tol, min_area)
