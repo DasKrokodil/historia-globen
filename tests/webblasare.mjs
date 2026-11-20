@@ -12925,7 +12925,7 @@ async function run(browser, vp) {
     } finally { await wp.close(); }
   });
   // #1959: växlaren mellan tidsreglagen ("Före 3000 f.Kr." och "3000 f.Kr.–i dag"). Knappar med reglagens egna namn, aria-pressed, en dörr med pil vid
-  // kanten, verklig träffyta (32 px, 28 px i liggande telefon), före reglaget i tabbordningen, ingen horisontell scroll och inget som täcker årtalen eller stegknapparna. Ett tryck
+  // kanten, verklig träffyta (44 px i mobil, 32 px, 28 px i liggande telefon), före reglaget i tabbordningen, ingen horisontell scroll och inget som täcker årtalen eller stegknapparna. Ett tryck
   // byter reglage och landar på kanten närmast (-2999 eller -3000); skalraden och statusraden säger vilket reglage man är på. Datorjobbet prövar
   // 1280 px och en liggande telefon (800×360), mobiljobbet 400 px.
   await check('växlaren mellan tidsreglagen: knappar, namn, tryckytor och byte i tre bredder (#1959)', async () => {
@@ -12979,15 +12979,15 @@ async function run(browser, vp) {
             // Träffytan är knappens egen: mitten och hörnen (3 px innanför, vid den runda kantens början) träffar knappen själv, och ingen osynlig yta behövs
             const probes = [[r.x + r.w / 2, r.y + r.h / 2], [r.x + r.h / 2, r.y + 3], [r.r - r.h / 2, r.y + 3], [r.x + r.h / 2, r.b - 3], [r.r - r.h / 2, r.b - 3]].filter(([x, y]) => x >= 0 && y >= 0 && x < innerWidth && y < innerHeight);
             const own = probes.filter(([x, y]) => { const t = document.elementFromPoint(x, y); return t === b || b.contains(t); }).length;
-            return { r, probes: probes.length, own, nearest: Math.min(...others.map(o => dist(r, o))), trackGap: dist(r, track), // mot reglaget räcker att de inte rör varandra (reglagets övre 14 px är tomma) font: parseFloat(getComputedStyle(b).fontSize), inside: r.x >= 0 && r.r <= innerWidth,
+            return { r, probes: probes.length, own, nearest: Math.min(...others.map(o => dist(r, o))), trackGap: dist(r, track), font: parseFloat(getComputedStyle(b).fontSize), inside: r.x >= 0 && r.r <= innerWidth,
               stepHit: others.some(o => hit(r, o)), tickHit: ticks.some(t => hit(r, t)), trackHit: hit(r, track), noteHit: segRect ? hit(r, segRect) : false,
               controlsOverNote: segRect ? hit(controls, segRect) : false };
           });
         });
         geo.forEach((g, i) => {
           const who = `${L.name}, knapp ${i + 1}`;
-          // Verklig träffyta: 32 px hög (28 px i liggande telefon, där höjden inte räcker), minst 100 px bred, med minst 4 px mellanrum mot stegknapparna (reglaget ligger intill)
-          const wantH = L.height <= 480 ? 28 : 32;
+          // Verklig träffyta: 44 px hög i stående mobil, 32 px i övrigt och 28 px i liggande telefon (där höjden inte räcker), minst 100 px bred, med minst 4 px mellanrum mot stegknapparna (reglaget ligger intill)
+          const wantH = L.height <= 480 ? 28 : L.width <= 760 ? 44 : 32;
           if (g.r.h < wantH - 0.5) throw new Error(`${who}: träffytan är ${g.r.h} px hög (minst ${wantH})`);
           if (g.r.w < 100) throw new Error(`${who}: träffytan är ${g.r.w} px bred (minst 100)`);
           if (g.own !== g.probes) throw new Error(`${who}: bara ${g.own} av ${g.probes} provpunkter i knappen träffar knappen själv (något ligger över)`);

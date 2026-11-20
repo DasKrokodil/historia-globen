@@ -1401,7 +1401,7 @@ html.calm .year-tip { animation: none; }
 .app.lesson .timeline-scale-note, .app.touring .timeline-scale-note, .app.focusing .timeline-scale-note { display: none; }
 /* Växlaren mellan tidsreglagen (#1959) och nivåväxlarens form (js/ui/level-switch.js, delas med lägesväxlaren i #1517): nivåerna står från kant till kant
    ovanför reglaget. Nivån man är på är nedtryckt; de andra är dörrar med en pil åt det håll nivån ligger, vid den kant man går ut genom. Namnen är alltid de två
-   reglagens, med eller utan pil. **Träffytan är knappens egen yta, utan osynlig utvidgning:** den är 32 px hög (28 px i liggande telefon, där höjden inte räcker)
+   reglagens, med eller utan pil. **Träffytan är knappens egen yta, utan osynlig utvidgning:** den är 44 px hög i stående mobil (som resten av ytorna där, #1309), 32 px i övrigt och 28 px i liggande telefon, där höjden inte räcker,
    och minst 100 px bred, med 4–6 px verkligt mellanrum mot stegknapparna och reglaget, så att den varken stjäl eller tappar tryck från grannarna. En osynlig
    44 px-yta (::after, som stegknapparna) provades och förkastades: stegknapparnas yta och reglagets yta ligger över den och lämnade 24 px (mätt). Raden tar plats i
    tidsraden bara där det finns höjd att ta (se nedan): i bred skärm ligger den på samma rad som stegknapparna, som har gott om plats på sidorna. */
@@ -1417,12 +1417,17 @@ html.calm .year-tip { animation: none; }
 .level-switch.level-locked .level-btn { opacity: .35; cursor: default; }
 .app.lesson .level-switch, .app.touring .level-switch, .app.focusing .level-switch { display: none; } /* tidslåset (#1322) och Fokus har egna skalor: växlaren visas inte */
 /* Under 1101 px (smal skärm och liggande telefon) får växlaren en egen rad mellan stegknapparna och reglaget. Stegknapparnas egen tryckyta (mobil) går 6 px
-   under dem, så mellanrummet är 6 px. Raden tar 36 px; 8 px hämtas ur tidsradens övre kant och glapp, så tidsraden blir 28–34 px högre (mobil 105 till 139 px) och
+   under dem, så mellanrummet är 6 px. Raden tar 36 px (48 px i stående mobil); 8 px hämtas ur tidsradens övre kant och glapp, så tidsraden blir 28–46 px högre (mobil 105 till 151 px) och
    korten ovanför flyttas lika mycket (--ff-b i smal skärm, bottom i 761–1100 px). */
 @media (max-width: 1100px) {
   .app:not(.lesson):not(.touring):not(.focusing) .timebar { padding-top: 4px; }
   .app:not(.lesson):not(.touring):not(.focusing) .controls { margin-bottom: 6px; }
   .app:not(.lesson):not(.touring):not(.focusing) .level-switch { margin-bottom: 4px; }
+}
+/* Mobil i stående (högst 760 px bred, mer än en liggande telefon hög): knapparna är 44 px höga på riktigt, som resten av ytorna i mobil (#1309), och tidsraden 46 px högre (105 till 151 px) */
+@media (max-width: 760px) and (min-height: 481px) {
+  .app:not(.lesson):not(.touring):not(.focusing) .level-switch { min-height: 44px; }
+  .app:not(.lesson):not(.touring):not(.focusing) .level-btn { height: 44px; border-radius: 12px; }
 }
 @media (max-width: 420px) { .level-btn { padding: 0 8px; gap: 4px; } .level-switch { gap: 4px; } } /* franska ryms på en rad ner till 360 px (namnen är desamma) */
 @media (max-width: 370px) { .level-btn { padding: 0 6px; } }
@@ -2796,9 +2801,6 @@ details.used-by summary:hover { color: var(--parchment); }
   .app:has(.pause-note:not([hidden])) { --ff-b: 170px; }
   .app.focusing { --ff-b: 158px; }
   .app.focusing:has(.pause-note:not([hidden])) { --ff-b: 226px; }
-  /* Växlaren (#1959) har en egen rad här och gör tidsraden 34 px högre (den syns inte i tur, lektion och Fokus): korten börjar lika mycket högre */
-  .app:not(.lesson):not(.touring):not(.focusing) { --ff-b: 142px; }
-  .app:not(.lesson):not(.touring):not(.focusing):has(.pause-note:not([hidden])) { --ff-b: 204px; }
   /* Den uppmätta fokusraden (#183) gäller före de fasta avstånden ovan, också när pausraden syns (#627).
      Regeln med :has() ovan är lika specifik som den i #239 och står senare, så den vann annars, och arket
      hamnade bakom fokusraden när krigets slutkort öppnades med raden "Tiden flyttades". */
@@ -3337,4 +3339,18 @@ span.theme-event:hover { background: none; outline: none; }
 /* Pekskärm: Lämna regionvyn är 44 px hög också i Platt vy (på globen gäller det redan, #1900) */
 @media (max-height: 480px) and (orientation: landscape) and (pointer: coarse) {
   .app.region-view .flat-region .flat-region-back { min-height: 44px; }
+}
+
+/* Växlaren (#1959) har en egen rad under 1101 px och gör tidsraden högre medan den syns (den syns inte i tur, lektion och Fokus): korten ovanför börjar lika mycket högre.
+   Stående mobil: tidsraden 105 till 151 px, så --ff-b 108 till 154 px (216 med pausrad) och kortets flik 136 till 182 px (242). Liggande telefon (högst 480 px hög):
+   tidsraden 127 px, så --ff-b 130 px (192) och fliken 136 px (196) behöver bara följa med lite. Mer än så skulle klämma kortet i en låg skärm. */
+@media (max-width: 760px) and (min-height: 481px) {
+  .app:not(.lesson):not(.touring):not(.focusing) { --ff-b: 154px; }
+  .app:not(.lesson):not(.touring):not(.focusing):has(.pause-note:not([hidden])) { --ff-b: 216px; }
+  .app:not(.lesson):not(.touring):not(.focusing) .ff-tab { bottom: 182px; }
+  .app:not(.lesson):not(.touring):not(.focusing):has(.pause-note:not([hidden])) .ff-tab { bottom: 242px; }
+}
+@media (max-width: 760px) and (max-height: 480px) {
+  .app:not(.lesson):not(.touring):not(.focusing) { --ff-b: 130px; }
+  .app:not(.lesson):not(.touring):not(.focusing):has(.pause-note:not([hidden])) { --ff-b: 192px; }
 }
