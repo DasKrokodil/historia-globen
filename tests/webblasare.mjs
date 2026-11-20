@@ -12936,7 +12936,7 @@ async function run(browser, vp) {
       await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
       if (width <= 760) {
-        const fonts = await tp.locator('.detail-selection .story-label, .detail-selection .meta, .place-emblem figcaption, #focus-state, .religion-legend .rl-title').evaluateAll(els => els.map(e => parseFloat(getComputedStyle(e).fontSize)));
+        const fonts = await tp.locator('.detail-selection .story-label, .detail-selection .place-map-note, .detail-selection .theme-event-year, .detail-selection .theme-event-note, .detail-selection .place-empire-note, #focus-state, .religion-legend .rl-title').evaluateAll(els => els.map(e => parseFloat(getComputedStyle(e).fontSize)));
         if (fonts.length < 4 || fonts.some(n => n < 12)) throw new Error(`platskort/fokusrad/teckenförklaring har text under 12 px: ${fonts}`);
       }
       const summaries = tp.locator('.detail-selection .theme-event-list > summary');
