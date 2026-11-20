@@ -8077,6 +8077,97 @@ async function run(browser, vp) {
   });
 
   // #1578 och #1580: fokus hamnar i Lager-menyn när den öppnas, och ett lagerval som inte rör Händelser lämnar urvalet i Översikt
+  // #1960: ett påslaget lager som saknar data i året får en rad under sig i Lager, räknad ur lagrets egen data (js/layer-coverage.js).
+  // Raden är vanlig text utanför etiketten, kopplad till rutan med aria-describedby, och ingen live-region. Lagret slås varken av eller
+  // dämpas. Raden försvinner när året har data, när lagret slås av och innan datan har laddats.
+  await check('Lager: raden om data som saknas i året (#1960)', async () => {
+    const startYear = await yearNumber();
+    const was = {};
+    for (const id of ['spread', 'areas']) was[id] = await page.locator(layerRow(id)).isChecked();
+    const coverage = id => page.locator(`#layer-coverage-${id}`);
+    // Före 10 000 f.Kr. visas årtalet i tusental (#1320): "20 000" för 20 001 f.Kr., så jumpTo hittar inte det skrivna talet
+    const jumpDeep = async y => {
+      await page.click('#year-jump');
+      await visible('#jump-input');
+      await page.fill('#jump-input', `${1 - y} f.Kr.`);
+      await page.press('#jump-input', 'Enter');
+      await page.waitForFunction(v => document.getElementById('year-big').textContent.replace(/\s/g, '') === v, String(Math.round((1 - y) / 1000) * 1000), { timeout: T.step });
+    };
+    const waitShown = (id, on) => page.waitForFunction(([id, on]) => {
+      const el = document.getElementById(`layer-coverage-${id}`);
+      return (!!el && !el.hidden && el.getClientRects().length > 0) === on;
+    }, [id, on], { timeout: T.step });
+    // Räknaren på gruppens rad (#1960): "N av M på · K saknar data här", med K = raderna om data som saknas i gruppen just nu
+    const groupOf = id => page.locator(layerRow(id)).evaluate(el => {
+      const sect = el.closest('details.layer-sect'), summary = sect.querySelector(':scope > summary'), count = sect.querySelector('.layer-sect-count');
+      const shown = [...sect.querySelectorAll('.layer-coverage')].filter(r => !r.hidden), rows = shown.length;
+      const s = summary.getBoundingClientRect(), c = count.getBoundingClientRect();
+      return { text: count.textContent.trim(), rows, ids: shown.map(r => r.id), fits: c.right <= s.right + 1 && summary.scrollWidth <= summary.clientWidth + 1, live: !!count.closest('[aria-live],[role="status"]') };
+    });
+    const expectGroup = async (id, what) => {
+      const g = await groupOf(id);
+      const missing = / · (\d+) saknar data här$/.exec(g.text);
+      if (g.rows > 0 ? !missing || Number(missing[1]) !== g.rows : !!missing) throw new Error(`${what}: räknaren "${g.text}" stämmer inte med ${g.rows} rader om data som saknas`);
+      if (!g.fits) throw new Error(`${what}: räknaren "${g.text}" ryms inte i gruppens rad`);
+      if (g.live) throw new Error(`${what}: räknaren ligger i en live-region`);
+      return g;
+    };
+    try {
+      await jumpTo(1500);
+      await setLayer('spread', true);
+      await waitShown('spread', true);
+      const counted = await expectGroup('spread', 'spridningen år 1500');
+      if (counted.rows < 1 || !/ · 1 saknar data här$/.test(counted.text)) throw new Error(`räknaren i gruppen med Människans spridning saknar "· 1 saknar data här" år 1500: "${counted.text}"`);
+      const row = await coverage('spread').evaluate((el, id) => {
+        const input = document.querySelector(`#layer-menu input[data-layer="${id}"]`);
+        const menu = document.getElementById('layer-menu');
+        const r = el.getBoundingClientRect(), m = menu.getBoundingClientRect();
+        return { text: el.textContent.trim(), describedby: input.getAttribute('aria-describedby'), inLabel: !!el.closest('label'), live: !!el.closest('[aria-live],[role="status"],[role="alert"]'),
+          checked: input.checked, inside: r.left >= m.left - 1 && r.right <= m.right + 1, menuOverflow: menu.scrollWidth - menu.clientWidth, opacity: getComputedStyle(el).opacity };
+      }, 'spread');
+      if (!/^Ingen data för året · data till cirka [^ ]+f\.Kr\.$/.test(row.text)) throw new Error(`Människans spridning år 1500 fick raden "${row.text}" (årsformen ska ha hårda mellanrum)`);
+      if (row.describedby !== 'layer-coverage-spread') throw new Error(`rutan pekar på ${row.describedby} med aria-describedby`);
+      if (row.inLabel) throw new Error('raden ligger i etiketten och blir en del av rutans namn');
+      if (row.live) throw new Error('raden ligger i en live-region och läses upp varje gång året ändras');
+      if (!row.checked) throw new Error('lagret slogs av när det saknade data');
+      if (row.opacity !== '1') throw new Error(`raden är tonad (opacity ${row.opacity})`);
+      if (!row.inside || row.menuOverflow > 0) throw new Error(`raden ryms inte i menyn (${JSON.stringify({ inside: row.inside, overflow: row.menuOverflow })})`);
+      await shot('3-lager-data-saknas');
+      // Året byts till förhistorien: spridningen har data, raden försvinner och rutan släpper beskrivningen
+      await jumpDeep(-20000);
+      await waitShown('spread', false);
+      if (await page.locator(layerRow('spread')).getAttribute('aria-describedby')) throw new Error('rutan pekar fortfarande på en dold rad');
+      const gone = await expectGroup('spread', 'spridningen år 20 000 f.Kr.');
+      // Resor och handelsvägar i samma grupp saknar data före år 129 f.Kr.; spridningen har data och räknas inte med
+      const routesRow = (await coverage('routes').count()) > 0 && await coverage('routes').evaluate(el => !el.hidden);
+      if (gone.rows !== (routesRow ? 1 : 0)) throw new Error(`räknaren räknar ${gone.rows} rader (${gone.ids}) när spridningen har data och vägarna ${routesRow ? 'saknar' : 'har'} data: "${gone.text}"`);
+      // Riken saknas före sin början
+      await setLayer('areas', true);
+      await waitShown('areas', true);
+      const areas = (await coverage('areas').textContent()).trim();
+      if (!/^Ingen data för året · data från [^ ]+f\.Kr\.$/.test(areas)) throw new Error(`Riken år 20 000 f.Kr. fick raden "${areas}"`);
+      const power = await expectGroup('areas', 'Riken år 20 000 f.Kr.');
+      if (power.rows < 1) throw new Error(`gruppen med Riken saknar räknare år 20 000 f.Kr.: "${power.text}"`);
+      // Texten sätts inte om när året ändras utan att läget gör det: samma textnod
+      await coverage('areas').evaluate(el => { window.__hgCovText = el.firstChild; });
+      await jumpDeep(-30000);
+      const same = await coverage('areas').evaluate(el => el.firstChild === window.__hgCovText);
+      if (!same) throw new Error('raden skrevs om när året ändrades utan att läget ändrades');
+      await jumpTo(1500);
+      await waitShown('areas', false);
+      // Ett avslaget lager får ingen rad
+      await setLayer('spread', false);
+      await waitShown('spread', false);
+      const off = await expectGroup('spread', 'avslagen spridning');
+      if (off.rows !== 0) throw new Error(`räknaren finns kvar när lagret är av: "${off.text}"`);
+      return `spridningen år 1500: "${row.text}"; riken år 20 000 f.Kr.: "${areas}"`;
+    } finally {
+      for (const id of ['spread', 'areas']) await setLayer(id, was[id]);
+      await jumpTo(startYear);
+      if (!(await page.isHidden('#layer-menu'))) { await page.keyboard.press('Escape'); await hidden('#layer-menu'); }
+    }
+  });
+
   await check('Lager: fokus in i menyn och urvalet i Översikt består när ett annat lager ändras (#1578, #1580)', async () => {
     await clickView('#btn-layers');
     await visible('#layer-menu');

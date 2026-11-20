@@ -9,6 +9,7 @@
 // "grund" (version 8); de hoppas över.
 import { Z } from './registry.js';
 import { t, loadSources, sourcesReady } from '../model.js';
+import { spanOf } from '../layer-coverage.js';
 
 /** Raderna som sidan visar: kind "lager" med minst en rasterskiva som inte är utkast. */
 export function imageRows(doc) {
@@ -28,6 +29,14 @@ export function imageAliases(doc) {
 /** Skivan som gäller året; to saknas när skivan gäller tills vidare. */
 export function sliceAt(slices, year) {
   return slices.find(x => year >= x.from && (x.to == null || year <= x.to)) ?? null;
+}
+
+/**
+ * Var radens skivor finns i tiden (#1960): från tidigaste `from` till senaste `to` (spanOf), som sliceAt läser dem.
+ * En skiva med caveat är en tolkning med ungefärliga gränser (modellsteg), och då blir gränsen "cirka".
+ */
+export function sliceCoverage(slices) {
+  return spanOf(slices.map(x => ({ from: x.from, to: x.to, approxFrom: !!x.caveat, approxTo: !!x.caveat })));
 }
 
 /** Rutan på en ekvirektangulär bild W × H för bounds = [väst, syd, öst, nord]; utan bounds hela bilden. */
@@ -65,6 +74,7 @@ export function entries({ data, refreshSoon }) {
       enabled: s => s.layers[row.id],
       // En bild är ett tillstånd, som rikena: i ett tidsintervall visas slutåret (#756)
       update: s => layer.update(s.areaYear),
+      coverage: s => ({ year: s.areaYear ?? s.wholeYear, span: sliceCoverage(row.slices) }),
       // Källornas namn i teckenförklaringen: källregistret laddas första gången en skiva med caveat syns
       apply: s => { if (s.on?.[row.id] && row.slices.some(x => x.caveat) && !sourcesReady()) loadSources().then(refreshSoon).catch(err => console.error(err)); },
       legend,
