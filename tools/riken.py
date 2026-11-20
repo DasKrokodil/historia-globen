@@ -16,12 +16,15 @@ Kör från projektets rot, med Cliopatria-filen (cliopatria_polities_only_v021.g
 i version 0.2.1 på Zenodo, https://zenodo.org/records/23128623, doi:10.5281/zenodo.23128623, CC BY 4.0;
 posten 13363121 är version 0.0.1 och ger andra riken, #1616):
     python3 tools/riken.py <cliopatria.geojson> [--delade-granser] [--ut=<mapp>]
-Kräver shapely 2.1 eller senare med GEOS 3.12 eller senare (pip install 'shapely>=2.1'; DasKrokodils ja i #1765 2026-11-20),
-för shapely.coverage_simplify och coverage_invalid_edges.
+Kräver shapely (pip install shapely). Flaggan --delade-granser kräver shapely 2.1 eller senare med GEOS 3.12 eller senare
+(pip install 'shapely>=2.1'; DasKrokodils ja i #1765 2026-11-20), för shapely.coverage_simplify och coverage_invalid_edges.
 
---delade-granser (#1765, pilot, av som standard): grupperna i SHARED_GROUPS (Brittiska öarna 500–1700) förenklas tillsammans
-som en täckning, så att grannar får samma gräns där de möts (docs/granskningar/2026-11-20-delade-granser-pilot.md). Utan
-flaggan blir filerna exakt som förut. --ut=<mapp> skriver filerna i en annan mapp än data/empires, till exempel för att jämföra
+--delade-granser (#1765, pilot, av som standard): grupperna i SHARED_GROUPS förenklas tillsammans som en täckning, så att
+grannar får samma gräns där de möts (docs/granskningar/2026-11-20-delade-granser-pilot.md). Piloten gäller England, Skottland
+och Man med föregångarna 500–1700 (Wessex, Mercia, Northumbria, Dalriada, Strathclyde, Alba och Nordsjöväldet). Englands gräns
+i Cliopatria omfattar Wales och från 1210 delar av Irland, och Dalriadas nordöstra Irland 540–643; egna irländska eller
+walesiska riken finns inte i data/empires. Vid Isle of Man, som Cliopatria vissa år räknar till två riken, är gränsen inte
+delad. Utan flaggan blir filerna exakt som förut. --ut=<mapp> skriver filerna i en annan mapp än data/empires, till exempel för att jämföra
 piloten med dagens filer; de handskrivna fälten läses ändå ur data/empires.
 """
 import json
@@ -3122,7 +3125,7 @@ def simplify_alone(raw, tol, min_area):
 # av detta, och filerna blir exakt som förut (#1220). Utredningen: docs/granskningar/2026-11-15-delade-granser-forenkling.md,
 # piloten: docs/granskningar/2026-11-20-delade-granser-pilot.md.
 SHARED_GROUPS = ('wessex', 'mercia', 'northumbria', 'dal-riata', 'strathclyde', 'kungariket-skottland', 'kungariket-man',
-                 'kungariket-england', 'nordsjovaldet')  # Brittiska öarna 500–1700
+                 'kungariket-england', 'nordsjovaldet')  # England, Skottland och Man med föregångarna, 500–1700
 SHARED_YEARS = (500, 1700)  # perioder som börjar de här åren får den delade gränsen; övriga förenklas för sig som förut
 SHARED_TOL = 0.1  # coverage_simplify: ungefär roten ur ytan (kvadratgrader) på de trianglar som tas bort
 SHARED_DECIMALS = 2  # alla grupper i täckningen avrundas lika (DECIMALS), annars flyttas en gemensam hörnpunkt olika
@@ -3146,7 +3149,7 @@ def cover_years(raws, years, tol, min_area, merge, sliver=SHARED_SLIVER, fix=SHA
     bort på bara ena sidan av en gemensam gräns."""
     keys = list(raws)
     starts = sorted({s for k in keys for s, e, g in raws[k] if years[0] <= s <= years[1]})
-    out, cuts, cur, notes = {}, {}, {}, []
+    out, cuts, cur, notes = {}, {}, {}, {}  # notes: rad -> startår, så att samma rad skrivs en gång
     for y in starts:
         act = [(k, g) for k in keys for s, e, g in raws[k] if s <= y <= e and not g.is_empty]
         # Alla gränser skärs mot varandra (polygonize), så att grannar får samma hörnpunkter där de möts, och varje yta går
@@ -3164,7 +3167,7 @@ def cover_years(raws, years, tol, min_area, merge, sliver=SHARED_SLIVER, fix=SHA
         for (a, b), ar in pair.items():
             if ar > sliver:
                 held |= {a, b}
-                notes.append(f'{y}: {a[-1]} och {b[-1]} överlappar {ar:.3f} kv.grader i underlaget, utanför täckningen')
+                notes.setdefault(f'{a[-1]} och {b[-1]} överlappar {ar:.3f} kv.grader i underlaget, utanför täckningen', []).append(y)
         own = {}
         for f, ow in zip(faces, owners):
             ow = [k for k in ow if k not in held]
@@ -3177,7 +3180,7 @@ def cover_years(raws, years, tol, min_area, merge, sliver=SHARED_SLIVER, fix=SHA
             bad = [k for k, e in zip(cov, shapely.coverage_invalid_edges([geoms[k] for k in cov])) if not e.is_empty]
             if not bad:
                 break
-            notes.append(f'{y}: {", ".join(k[-1] for k in bad)} är ingen giltig täckning, utanför täckningen')
+            notes.setdefault(f'{", ".join(k[-1] for k in bad)} är ingen giltig täckning, utanför täckningen', []).append(y)
             cov = [k for k in cov if k not in bad]
         simple = dict(zip(cov, shapely.coverage_simplify([geoms[k] for k in cov], tol))) if len(cov) > 1 else {}
         for k in simple:
@@ -3222,7 +3225,7 @@ def cover_years(raws, years, tol, min_area, merge, sliver=SHARED_SLIVER, fix=SHA
                 cuts.setdefault(k, set()).add(y)
             elif k in starting:
                 out[(k, y)] = cur[k]  # samma geometri som förra perioden: main slår ihop dem
-    return out, cuts, notes
+    return out, cuts, [f'{", ".join(map(str, ys))}: {msg}' for msg, ys in notes.items()]
 
 
 def shared_borders(by_name, disputed, ne, groups=SHARED_GROUPS, years=SHARED_YEARS, tol=SHARED_TOL):
@@ -3394,8 +3397,9 @@ def main():
     if len(args) != 1 or any(f != '--delade-granser' and not f.startswith('--ut=') for f in flags):
         raise SystemExit('Användning: python3 tools/riken.py <cliopatria.geojson> [--delade-granser] [--ut=<mapp>]')
     shared_on = '--delade-granser' in flags
-    if not hasattr(shapely, 'coverage_simplify') or shapely.geos_version < (3, 12, 0):
-        raise SystemExit(f'Kräver shapely 2.1 eller senare med GEOS 3.12 eller senare (#1765), här shapely {shapely.__version__} '
+    # Bara de delade gränserna kräver shapely 2.1 (#1765); utan flaggan fungerar verktyget som förut också med äldre shapely
+    if shared_on and (not hasattr(shapely, 'coverage_simplify') or shapely.geos_version < (3, 12, 0)):
+        raise SystemExit(f'--delade-granser kräver shapely 2.1 eller senare med GEOS 3.12 eller senare (#1765), här shapely {shapely.__version__} '
                          f'med GEOS {".".join(map(str, shapely.geos_version))}: pip install "shapely>=2.1"')
     ut = next((Path(f[len('--ut='):]) for f in flags if f.startswith('--ut=')), None)
     src = las_cliopatria(args[0])
@@ -3738,10 +3742,11 @@ def main():
              'Små stater (#722): tolv länder som Cliopatria saknar i nutid eller har fel gräns för har gränsen ur Natural Earth '
              '(ne_10m_admin_0_countries 5.1.1, public domain), från självständigheten, och polity.point = true: de visas som en punkt med namn.')
     if shared_on:
-        notes += (f' Delade gränser (#1765, pilot): {", ".join(SHARED_GROUPS)} är perioder som börjar {SHARED_YEARS[0]}–{SHARED_YEARS[1]} '
+        notes += (f' Delade gränser (#1765, pilot för England, Skottland och Man med föregångarna): {", ".join(SHARED_GROUPS)} är perioder som börjar {SHARED_YEARS[0]}–{SHARED_YEARS[1]} '
                   f'förenklade tillsammans som en täckning (Visvalingam–Whyatt, {SHARED_TOL} i shapely.coverage_simplify) i stället för '
                   f'var för sig, avrundade till {SHARED_DECIMALS} decimaler, så att grannar har samma linje där de möts. Riken som '
-                  'överlappar i underlaget ett år förenklas det året för sig som förut.')
+                  'överlappar i underlaget ett år förenklas det året för sig som förut, så vid Isle of Man (626–632, 1099–1168, 1326–1332 och '
+                  '1402–1474) är gränsen inte delad.')
     # Med radslut sist, som filen i repot, så att en omkörning ger en tom diff (#1220)
     (out / 'index.json').write_text(json.dumps({'schema': 'historia-globen/empires-index@1', 'notes': notes, 'groups': index},
                                                ensure_ascii=False, indent=1) + '\n')

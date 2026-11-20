@@ -60,11 +60,11 @@ def zigzag(x0, x1, y0, y1, xs, n=40, amp=0.15):
     return Polygon(pts + [(x1, y1), (x1, y0)])
 
 
-# 1. Utan flaggan: simplify_alone är exakt det verktyget alltid har gjort
+# 1. Utan flaggan: simplify_alone ger en frusen gräns (Douglas–Peucker 0,2 och ön under 0,02 borttagen), tagen 2026-11-20 med
+# verktyget efter att hela verktyget gav byte för byte samma rikesfiler som förut. Ändras förenklingen för sig märks det här
 mp = MultiPolygon([zigzag(0, 2, 0, 2, 1), box(5, 5, 5.1, 5.1)])
-old = mp.simplify(0.2, preserve_topology=True)
-old = shapely.ops.unary_union([q for q in old.geoms if q.area > 0.02] or [max(old.geoms, key=lambda q: q.area)])
-check(R.simplify_alone(mp, 0.2, 0.02).equals_exact(old, 0), 'simplify_alone ger inte samma gräns som förut')
+FRUSEN = shapely.from_wkt('POLYGON ((0 0, 1.075 0.05, 0.85 0.6, 1.15 0.85, 0.85 1.1, 1.15 1.35, 0.85 1.6, 1.1125 1.95, 0 2, 0 0))')
+check(R.simplify_alone(mp, 0.2, 0.02).equals_exact(FRUSEN, 1e-12), 'simplify_alone ger inte samma gräns som förut')
 
 # 2. Grannar med en gemensam sicksackgräns: var för sig överlappar de, tillsammans inte
 a, b = zigzag(0, 2, 0, 2, 1), zigzag(0, 2, 0, 2, 1)
@@ -111,6 +111,13 @@ got, new, _n = R.cover_years({('g', 'a'): [(600, 649, a), (650, 700, a2)], ('g',
                              {('g', 'a'): 0.02, ('g', 'b'): 0.02}, {('g', 'a'): 0.02, ('g', 'b'): 0.02})
 check(got[(('g', 'a'), 650)].equals(got[(('g', 'a'), 600)]), 'en liten ändring ska behålla förra gränsen (MERGE)')
 check(650 not in new.get(('g', 'a'), ()), 'en behållen gräns ska inte bli en ny period')
+# en ändring större än merge ger en ny gräns och en ny period
+a4 = a.union(box(-0.5, 0, 0, 2))  # 25 procent större
+got, new, _n = R.cover_years({('g', 'a'): [(600, 649, a), (650, 700, a4)], ('g', 'b'): [(600, 700, b)]}, (500, 1700), 0.1,
+                             {('g', 'a'): 0.02, ('g', 'b'): 0.02}, {('g', 'a'): 0.02, ('g', 'b'): 0.02})
+check(not got[(('g', 'a'), 650)].equals(got[(('g', 'a'), 600)]) and 650 in new.get(('g', 'a'), ()),
+      'en ändring större än MERGE ska ge en ny gräns och en ny period')
+check(650 not in new.get(('g', 'b'), ()), 'en granne som inte ändras och inte överlappar ska behålla sin gräns')
 # a tar en remsa av b och får en ny gräns (merge 0); b skulle behålla sin förra (merge 0,5), men då överlappar de vid remsan
 a3 = a.union(box(1.3, 0, 1.31, 2))
 b3 = b.difference(box(1.3, 0, 1.31, 2))
@@ -125,6 +132,27 @@ check(ga is not None and gb is not None and ga.intersection(gb).area <= 0.001,
 p = box(0, 0, 1, 1)
 check(R.split_at([(600, 700, p, 5)], {650, 600, 800}) == [(600, 649, p, 5), (650, 700, p, 5)], 'split_at delar fel')
 check(R.split_at([(600, 700, p, 5)], set()) == [(600, 700, p, 5)], 'split_at utan år ska inte ändra något')
+
+# 9. Versionskontrollen gäller bara flaggan: med en shapely utan coverage_simplify kommer main utan flaggan förbi kontrollen
+KOD = '''import sys
+sys.path.insert(0, sys.argv[1])
+import shapely
+del shapely.coverage_simplify
+import riken as R
+def fake(path):
+    raise RuntimeError('förbi')
+R.las_cliopatria = fake
+sys.argv = ['riken.py', 'x.geojson'] + sys.argv[2:]
+try:
+    R.main()
+except RuntimeError:
+    print('förbi')
+except SystemExit:
+    print('stopp')
+'''
+for flaggor, vant in (([], 'förbi'), (['--delade-granser'], 'stopp')):
+    r = subprocess.run([sys.executable, '-c', KOD, str(ROOT / 'tools')] + flaggor, capture_output=True, text=True)
+    check(r.stdout.strip() == vant, f'med äldre shapely och flaggorna {flaggor} ska verktyget ge "{vant}", gav {r.stdout.strip()!r} {r.stderr[-200:]}')
 
 # Hela verktyget (valfritt, med Cliopatria-filen)
 clio = os.environ.get('CLIOPATRIA')
