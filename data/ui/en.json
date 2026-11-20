@@ -803,6 +803,8 @@
   "tour.restart": "Restart the tour",
   "tour.more": "Keep reading",
   "tour.figureOpen": "Open the image full size",
+  "tour.figureEnlarge": "Enlarge the image",
+  "tour.figureShrink": "Make the image smaller",
   "tour.recap": "What we went through",
   "tour.lessonMeta": "Lesson · years {grades} · {n} min",
   "tour.lessonStart": "Start as a lesson",

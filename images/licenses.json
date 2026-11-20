@@ -3408,14 +3408,14 @@
       "stepId": "kinesiska-muren",
       "file": "images/turer/kinesiska-muren.webp",
       "kind": "photo",
-      "credit": "Wikimedia Commons",
+      "credit": "Velatrix (Nicolas M. Perrault), Wikimedia Commons",
       "license": "CC0 1.0",
       "source": {
         "id": "commons-muren-mutianyu",
-        "title": "Great Wall of China July 2006.JPG – Kinesiska muren vid Mutianyu nära Peking, juli 2006 (Wikimedia Commons, filsida; CC0 1.0 enligt filsidan)",
+        "title": "Great Wall of China July 2006.JPG – Kinesiska muren vid Mutianyu nära Peking, juli 2006 (Wikimedia Commons, filsida; CC0 1.0 enligt filsidan; upphovsperson Velatrix, i filens strukturerade data Nicolas M. Perrault)",
         "url": "https://commons.wikimedia.org/wiki/File:Great_Wall_of_China_July_2006.JPG",
         "license": "CC0 1.0",
-        "checked": "2026-11-16"
+        "checked": "2026-11-20"
       }
     }
   ]

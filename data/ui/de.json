@@ -803,6 +803,8 @@
   "tour.restart": "Tour neu starten",
   "tour.more": "Weiterlesen",
   "tour.figureOpen": "Bild in voller Größe öffnen",
+  "tour.figureEnlarge": "Bild vergrößern",
+  "tour.figureShrink": "Bild verkleinern",
   "tour.recap": "Das haben wir durchgenommen",
   "tour.lessonMeta": "Unterrichtsstunde · Klassen {grades} · {n} Min.",
   "tour.lessonStart": "Als Unterricht starten",

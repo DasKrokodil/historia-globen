@@ -572,6 +572,8 @@
   "tour.restart": "Starta om turen",
   "tour.more": "Fortsätt läsa",
   "tour.figureOpen": "Öppna bilden i full storlek",
+  "tour.figureEnlarge": "Förstora bilden",
+  "tour.figureShrink": "Förminska bilden",
   "tour.recap": "Det här gick vi igenom",
   "tour.lessonMeta": "Lektion · årskurs {grades} · {n} min",
   "tour.lessonStart": "Starta som lektion",
