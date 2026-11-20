@@ -540,6 +540,21 @@
       }
     },
     {
+      "eventId": "cahokia",
+      "eventTitle": "Cahokia och Monks Mound",
+      "file": "images/events/cahokia.webp",
+      "kind": "historisk",
+      "credit": "Ethajek (Wikivoyage) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-cahokia",
+        "title": "Cahokia Monks Mound – nutida foto, uppladdat 2010 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Cahokia_Monks_Mound.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "caral",
       "eventTitle": "Caral, en av Amerikas äldsta städer",
       "file": "images/events/caral.webp",
@@ -1542,6 +1557,21 @@
       }
     },
     {
+      "eventId": "kairo-grundas",
+      "eventTitle": "Fatimiderna grundar Kairo",
+      "file": "images/events/kairo-grundas.webp",
+      "kind": "historisk",
+      "credit": "Maison Bonfils / Library of Congress, Prints & Photographs Division (LC-DIG-ppmsca-04048)",
+      "license": "Inga kända restriktioner (Library of Congress)",
+      "source": {
+        "id": "loc-bild-kairo-grundas",
+        "title": "Cour et minarets de la mosquée el-Azhar / Bonfils, mellan 1867 och 1899 (Library of Congress)",
+        "url": "https://www.loc.gov/item/2004668148/",
+        "license": "No known restrictions on publication",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "kalinga-erovras",
       "eventTitle": "Ashoka erövrar Kalinga",
       "file": "images/events/kalinga-erovras.webp",
@@ -1593,6 +1623,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Sacre_de_Charlemagne.jpg",
         "license": "Public domain",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "karl-xii-stupar-1718",
+      "eventTitle": "Karl XII stupar vid Fredriksten",
+      "file": "images/events/karl-xii-stupar-1718.webp",
+      "kind": "historisk",
+      "credit": "Carl Wahlbom / Nationalmuseum / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-karl-xii-stupar-1718",
+        "title": "Carl Wahlbom – Karl XII:s död, 1829 – Nationalmuseum NMH 5/1889 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Carl_Wahlbom_-_Karl_XII-s_d%C3%B6d_-_NMH_5-1889_-_Nationalmuseum.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
       }
     },
     {
@@ -2394,6 +2439,21 @@
       }
     },
     {
+      "eventId": "napoleonkrigen",
+      "eventTitle": "Napoleonkrigen",
+      "file": "images/events/napoleonkrigen.webp",
+      "kind": "historisk",
+      "credit": "François Gérard / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-napoleonkrigen",
+        "title": "La bataille d'Austerlitz. 2 decembre 1805 – François Gérard, 1810 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:La_bataille_d%27Austerlitz._2_decembre_1805_(Fran%C3%A7ois_G%C3%A9rard).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "nazcalinjerna",
       "eventTitle": "Nazcalinjerna",
       "file": "images/events/nazcalinjerna.webp",
@@ -2712,6 +2772,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Early_Maori_objects_from_Wairau_Bar,_Canterbury_Museum,_2016-01-27.jpg",
         "license": "Public domain",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "polynesier-nar-hawaii",
+      "eventTitle": "Polynesier når Hawaii",
+      "file": "images/events/polynesier-nar-hawaii.webp",
+      "kind": "historisk",
+      "credit": "John Webber / Bernice P. Bishop Museum / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-polynesier-nar-hawaii",
+        "title": "'Canoe of the Sandwich Islands, the Rowers Masked', by John Webber, c. 1778 – Bernice P. Bishop Museum (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:%27Canoe_of_the_Sandwich_Islands,_the_Rowers_Masked%27,_by_John_Webber,_c._1778.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
       }
     },
     {
@@ -3416,6 +3491,21 @@
         "title": "De Duitse generaal Hindenburg op het slagveld van Tannenberg, na de overwinning op de Russen – Nationaal Archief, Fotocollectie Spaarnestad, 22055_007 (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:De_Duitse_generaal_Hindenburg_op_het_slagveld_van_Tannenberg,_na_de_overwinning_op_de_Russen,_Bestanddeelnr_22055_007.tif",
         "license": "CC0",
+        "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "slaget-vid-thermopyle",
+      "eventTitle": "Slaget vid Thermopyle",
+      "file": "images/events/slaget-vid-thermopyle.webp",
+      "kind": "historisk",
+      "credit": "Jacques-Louis David / Web Gallery of Art / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-thermopyle",
+        "title": "Jacques-Louis David – Leonidas at Thermopylae, 1814 – Web Gallery of Art (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Jacques-Louis_David_-_Leonidas_at_Thermopylae_-_WGA6095.jpg",
+        "license": "Public domain",
         "checked": "2026-11-20"
       }
     },

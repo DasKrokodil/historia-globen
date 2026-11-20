@@ -2,6 +2,7 @@
 "period":"1800-1899",
 "lang":"fr",
 "events":{
+"napoleonkrigen":{"image":{"caption":{"fr":"La bataille d’Austerlitz du 2 décembre 1805, l’une des batailles des guerres napoléoniennes, dans le tableau de François Gérard de 1810. Une peinture réalisée cinq ans après la bataille, pas une image de témoin oculaire. Détail. Licence : domaine public."}}},
 "slaget-vid-austerlitz":{"image":{"caption":{"fr":"Napoléon sur le cheval blanc et le général Jean Rapp à gauche à la bataille d’Austerlitz. Peinture à l’huile de François Gérard, 1810, au château de Versailles, détail. Licence : domaine public."}}},
 "amerikanska-inbordeskriget":{"image":{"caption":{"fr":"Des soldats afro-américains de la compagnie E du 4th U.S. Colored Infantry à fort Lincoln, qui faisait partie des défenses de Washington. Photographie de William Morris Smith, prise entre 1863 et 1866 selon la Library of Congress, qui n’indique aucune restriction connue de publication."}}},
 "slaget-vid-fort-sumter":{"image":{"caption":{"fr":"Les batteries des États confédérés bombardent le fort Sumter en avril 1861. Gravure sur bois parue dans le journal Harper's Weekly le 27 avril 1861, l’image d’un dessinateur et non une photographie. La Library of Congress n’indique aucune restriction connue de publication."}}},
