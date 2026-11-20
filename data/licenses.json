@@ -1118,6 +1118,7 @@
         "wp-flag-benin",
         "wp-flag-bolivia",
         "wp-flag-botswana",
+        "wp-flag-brazil",
         "wp-flag-bulgaria",
         "wp-flag-cameroon",
         "wp-flag-canada",
@@ -1128,6 +1129,7 @@
         "wp-flag-colombia",
         "wp-flag-costa-rica",
         "wp-flag-croatia",
+        "wp-flag-cuba",
         "wp-flag-cyprus",
         "wp-flag-czech-republic",
         "wp-flag-djibouti",
@@ -1142,6 +1144,7 @@
         "wp-flag-guatemala",
         "wp-flag-guinea",
         "wp-flag-guinea-bissau",
+        "wp-flag-guyana",
         "wp-flag-honduras",
         "wp-flag-iceland",
         "wp-flag-india",
@@ -1189,6 +1192,7 @@
         "wp-flag-palau",
         "wp-flag-palestine",
         "wp-flag-papua-new-guinea",
+        "wp-flag-paraguay",
         "wp-flag-peru",
         "wp-flag-philippines",
         "wp-flag-poland",
@@ -1199,6 +1203,7 @@
         "wp-flag-rwanda",
         "wp-flag-saint-kitts-and-nevis",
         "wp-flag-saint-lucia",
+        "wp-flag-saint-vincent-and-the-grenadines",
         "wp-flag-sao-tome-and-principe",
         "wp-flag-senegal",
         "wp-flag-serbia",
@@ -1213,6 +1218,7 @@
         "wp-flag-south-sudan",
         "wp-flag-south-vietnam",
         "wp-flag-sudan",
+        "wp-flag-suriname",
         "wp-flag-tajikistan",
         "wp-flag-tanzania",
         "wp-flag-thailand",
@@ -1225,6 +1231,7 @@
         "wp-flag-tuvalu",
         "wp-flag-ukraine",
         "wp-flag-united-arab-emirates",
+        "wp-flag-united-states",
         "wp-flag-uruguay",
         "wp-flag-uzbekistan",
         "wp-flag-vanuatu",
@@ -3414,6 +3421,12 @@
       ]
     },
     {
+      "license": "Public domain (PD-BrazilGov)",
+      "sourceIds": [
+        "commons-flagga-brasilien"
+      ]
+    },
+    {
       "license": "Public domain (PD-Cameroon, PD-shape); koden även CC BY-SA 4.0",
       "sourceIds": [
         "commons-flagga-cameroon"
@@ -3423,6 +3436,12 @@
       "license": "Public domain (PD-Central African Republic, PD-ineligible)",
       "sourceIds": [
         "commons-flagga-central-african-republic"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Cuba, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-kuba"
       ]
     },
     {
@@ -3565,6 +3584,12 @@
       ]
     },
     {
+      "license": "Public domain (PD-Paraguay, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-paraguay"
+      ]
+    },
+    {
       "license": "Public domain (PD-Philippines)",
       "sourceIds": [
         "commons-flagga-philippines"
@@ -3667,6 +3692,12 @@
       ]
     },
     {
+      "license": "Public domain (PD-flag, PD-USGov)",
+      "sourceIds": [
+        "commons-flagga-usa"
+      ]
+    },
+    {
       "license": "Public domain (PD-geometry)",
       "sourceIds": [
         "commons-flagga-south-vietnam"
@@ -3711,6 +3742,7 @@
         "commons-flagga-guinea-bissau",
         "commons-flagga-kuwait",
         "commons-flagga-mauritius",
+        "commons-flagga-saint-vincent",
         "commons-flagga-sao-tome-and-principe",
         "commons-flagga-singapore",
         "commons-flagga-somalia",
@@ -3727,6 +3759,13 @@
       "license": "Public domain (PD-shape, PD-RU-exempt, PD-flag)",
       "sourceIds": [
         "commons-flagga-russia"
+      ]
+    },
+    {
+      "license": "Public domain (PD-shape, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-guyana",
+        "commons-flagga-surinam"
       ]
     },
     {

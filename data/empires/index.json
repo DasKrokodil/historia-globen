@@ -20635,6 +20635,7 @@
    "from": 1776,
    "to": 2024,
    "file": "data/empires/usa.json",
+   "flags": [{"file": "united-states", "from": 1960, "to": 2024, "label": {"sv": "USA:s flagga", "en": "Flag of the United States", "de": "Flagge der Vereinigten Staaten", "es": "Bandera de los Estados Unidos", "fr": "Drapeau des États-Unis"}, "sources": ["wp-flag-united-states", "commons-flagga-usa"], "review": "source-checked"}],
    "polities": [
     {
      "id": "usa",
@@ -21556,6 +21557,7 @@
    "from": 1822,
    "to": 2024,
    "file": "data/empires/brasilien.json",
+   "flags": [{"file": "brazil", "from": 1992, "to": 2024, "label": {"sv": "Brasiliens flagga", "en": "Flag of Brazil", "de": "Flagge Brasiliens", "es": "Bandera de Brasil", "fr": "Drapeau du Brésil"}, "sources": ["wp-flag-brazil", "commons-flagga-brasilien"], "review": "source-checked"}],
    "polities": [
     {
      "id": "kejsardomet-brasilien",
@@ -22102,6 +22104,7 @@
    "from": 1811,
    "to": 2024,
    "file": "data/empires/paraguay.json",
+   "flags": [{"file": "paraguay", "from": 2013, "to": 2024, "label": {"sv": "Paraguays flagga", "en": "Flag of Paraguay", "de": "Flagge Paraguays", "es": "Bandera de Paraguay", "fr": "Drapeau du Paraguay"}, "sources": ["wp-flag-paraguay", "commons-flagga-paraguay"], "review": "source-checked"}],
    "polities": [
     {
      "id": "paraguay",
@@ -35272,6 +35275,7 @@
    "from": 1967,
    "to": 2024,
    "file": "data/empires/guyana.json",
+   "flags": [{"file": "guyana", "from": 1967, "to": 2024, "label": {"sv": "Guyanas flagga", "en": "Flag of Guyana", "de": "Flagge Guyanas", "es": "Bandera de Guyana", "fr": "Drapeau du Guyana"}, "sources": ["wp-flag-guyana", "commons-flagga-guyana"], "review": "source-checked"}],
    "polities": [
     {
      "id": "guyana",
@@ -35609,6 +35613,7 @@
    "from": 1820,
    "to": 2024,
    "file": "data/empires/surinam.json",
+   "flags": [{"file": "suriname", "from": 1976, "to": 2024, "label": {"sv": "Surinams flagga", "en": "Flag of Suriname", "de": "Flagge Surinames", "es": "Bandera de Surinam", "fr": "Drapeau du Suriname"}, "sources": ["wp-flag-suriname", "commons-flagga-surinam"], "review": "source-checked"}],
    "polities": [
     {
      "id": "kolonin-surinam",
@@ -35832,6 +35837,7 @@
    "from": 1905,
    "to": 2024,
    "file": "data/empires/kuba.json",
+   "flags": [{"file": "cuba", "from": 1906, "to": 2024, "label": {"sv": "Kubas flagga", "en": "Flag of Cuba", "de": "Flagge Kubas", "es": "Bandera de Cuba", "fr": "Drapeau de Cuba"}, "sources": ["wp-flag-cuba", "commons-flagga-kuba"], "review": "source-checked"}],
    "polities": [
     {
      "id": "kuba",
@@ -39465,6 +39471,7 @@
    "from": 1969,
    "to": 2024,
    "file": "data/empires/saint-vincent-och-grenadinerna.json",
+   "flags": [{"file": "saint-vincent-and-the-grenadines", "from": 1985, "to": 2024, "label": {"sv": "Saint Vincent och Grenadinernas flagga", "en": "Flag of Saint Vincent and the Grenadines", "de": "Flagge von St. Vincent und den Grenadinen", "es": "Bandera de San Vicente y las Granadinas", "fr": "Drapeau de Saint-Vincent-et-les-Grenadines"}, "sources": ["wp-flag-saint-vincent-and-the-grenadines", "commons-flagga-saint-vincent"], "review": "source-checked"}],
    "polities": [
     {
      "id": "saint-vincent-och-grenadinerna",
