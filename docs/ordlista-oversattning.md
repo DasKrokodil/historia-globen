@@ -199,6 +199,10 @@ Titel och epitet skrivs med liten bokstav i löpande text (`el rey Luis XIV`, `l
 | Ming dynasty | dinastía Ming | dynastie Ming | – |
 | Qing dynasty | dinastía Qing | dynastie Qing | – |
 | Carthage | Cartago | Carthage | – |
+| Southern Song | dinastía Song meridional | Song du Sud | – (fr rättat i sprak-fr-granskningen, #2002) |
+| Vakataka empire | Dinastía Vakataka | – | – (accent rättad i sprak-es-granskningen, #2002) |
+| Italian Somaliland | Somalia italiana | – | – (versalregeln, avsnitt 3, #2002) |
+| Egypt under the Muhammad Ali dynasty | Egipto bajo la dinastía de Mehmet Alí | Égypte sous la dynastie de Méhémet Ali | fr 2026-11-20: fr.wikipedia "Dynastie de Méhémet Ali" (sprak-fr, #2002); inte "Alaouites", som förväxlas med Marockos och Syriens alawiter |
 
 Kolumnen "Kontrollerad" är `–` tills någon har öppnat en källa på målspråket och jämfört. Då skrivs datum och källa där (till exempel `2026-11-12, es.wikipedia`). Riken som inte står här: följ regel 1–5 i avsnitt 4. Lägg till det i tabellen i samma pull request så att nästa omgång använder samma namn.
 
