@@ -4798,6 +4798,20 @@ async function run(browser, vp) {
       await button.focus();
       await tp.keyboard.press('Enter');
       await globeRegionSettled(tp, 'gronland');
+      // Deterministiskt (#1937): felet syntes bara när den första ritningen mätte namnet innan det hade layout. Här tvingas det fram:
+      // namnen döljs och deras mått glöms, en ritning görs (en pixel högre fönster ändrar bilden), och sedan visas namnen och
+      // fönstret får sin storlek igen. Utan rättningen i region-marks.js står reservbredden 90 px kvar och det långa namnet hamnar utanför.
+      const vp = tp.viewportSize();
+      await tp.evaluate(() => {
+        const root = document.getElementById('globe-region-labels');
+        root.style.display = 'none';
+        root.querySelectorAll('.rpile-tag').forEach(t => { t._w = undefined; });
+      });
+      await tp.setViewportSize({ width: vp.width, height: vp.height + 1 });
+      await tp.waitForTimeout(400);
+      await tp.evaluate(() => { document.getElementById('globe-region-labels').style.display = ''; });
+      await tp.setViewportSize(vp);
+      await tp.waitForTimeout(600);
       const tags = await tp.evaluate(() => [...document.querySelectorAll('#globe-region-labels .rpile')].filter(e => e.dataset.tag && e.dataset.tag !== 'none').map(e => {
         const r = e.querySelector('.rpile-tag').getBoundingClientRect();
         return { name: e.querySelector('.rpile-name').textContent, x0: Math.round(r.left), x1: Math.round(r.right), w: innerWidth };
