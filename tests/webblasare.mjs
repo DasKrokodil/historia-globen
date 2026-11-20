@@ -13753,6 +13753,52 @@ async function run(browser, vp) {
       try { delar.push(`${storlek.width} × ${storlek.height}: ${await matTidsrad(vp.width <= 760, storlek)}`); }
       catch (e) { throw new Error(`${storlek.width} × ${storlek.height}: ${e.message}`); }
     }
+    // #2129: "ny skala" i teckenförklaringen är dold under 560 px och synlig över. Regeln .tl-item-seam { display: none } i @media (max-width: 560px) slogs ut av
+    // .tl-item { display: inline-flex } (samma specificitet, den senare vinner), så posten syntes och fick raden att brytas i fler rader. Provet mäter på alla fem
+    // språk: posten är dold (display: none) vid 320, 360, 400 och 560 px, synlig vid 561 och 1280 px, teckenförklaringen har högst två rader på svenska och
+    // engelska vid 360 och 320 px, och ingen post går utanför teckenförklaringen eller fönstret på något språk.
+    {
+      const sp = await context.newPage();
+      const spErrs = [];
+      sp.on('pageerror', e => spErrs.push(e.message));
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await sp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await sp.route(u => isFont(u.href), r => r.abort());
+      }
+      const nySkala = [];
+      try {
+        await sp.addInitScript(() => { try { localStorage.setItem('hg-year-tip', '1'); } catch { /* utan lagring visas tipset */ } });
+        for (const lang of ['sv', 'en', 'de', 'fr', 'es']) {
+          await sp.setViewportSize({ width: 400, height: 800 });
+          await sp.goto(`${BASE}?lang=${lang}&ny=nyskala2129${lang}#y=1325`);
+          await sp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+          await sp.waitForTimeout(300);
+          if (await sp.isVisible('#year-tip-close')) await sp.click('#year-tip-close');
+          for (const width of [320, 360, 400, 560, 561, 1280]) {
+            await sp.setViewportSize({ width, height: 800 });
+            await sp.waitForFunction(() => getComputedStyle(document.getElementById('timeline-legend')).visibility === 'visible', null, { timeout: T.step });
+            const m = await sp.evaluate(() => {
+              const l = document.getElementById('timeline-legend');
+              const seam = document.querySelector('.tl-item-seam');
+              const lr = l.getBoundingClientRect();
+              const items = [l.querySelector('summary'), ...l.querySelectorAll('.tl-item')].filter(e => e.getClientRects().length);
+              const rader = new Set(items.map(e => Math.round(e.getBoundingClientRect().top))).size;
+              const ut = items.filter(e => { const r = e.getBoundingClientRect(); return r.right > Math.min(lr.right, innerWidth) + 1 || r.left < -0.5; }).map(e => e.textContent.trim());
+              return { visning: getComputedStyle(seam).display, rutor: seam.getClientRects().length, rader, ut, bredd: innerWidth };
+            });
+            const smal = width <= 560;
+            if (smal && (m.visning !== 'none' || m.rutor)) throw new Error(`${lang} ${width} px: "ny skala" syns i teckenförklaringen (display ${m.visning}), ska vara dold under 561 px`);
+            if (!smal && (m.visning === 'none' || !m.rutor)) throw new Error(`${lang} ${width} px: "ny skala" saknas i teckenförklaringen, ska synas över 560 px`);
+            if (m.ut.length) throw new Error(`${lang} ${width} px: ${m.ut.join(', ')} klipps eller ligger utanför teckenförklaringen`);
+            if ((lang === 'sv' || lang === 'en') && width >= 320 && width <= 360 && m.rader > 2) throw new Error(`${lang} ${width} px: teckenförklaringen ligger på ${m.rader} rader, ska vara högst 2`);
+            if (width === 360 || width === 561) nySkala.push(`${lang} ${width}: ${smal ? 'dold' : 'synlig'}, ${m.rader} rad${m.rader === 1 ? '' : 'er'}`);
+          }
+        }
+        if (spErrs.length) throw new Error(`"ny skala": sidfel ${spErrs[0]}`);
+      } finally { await sp.close(); }
+      delar.push(`"ny skala" dold ≤ 560 px och synlig ≥ 561 px på fem språk (${nySkala.join('; ')})`);
+    }
     return delar.join(' | ');
   });
 

@@ -1356,7 +1356,7 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 .seam, .tl-seam { display: inline-block; box-sizing: border-box; width: 5px; border: solid var(--parchment-dim); border-width: 0 1px; background: var(--night); transform: skewX(-18deg); }
 .seam { position: absolute; z-index: 1; top: -4px; height: 16px; margin-left: -2.5px; pointer-events: none; } /* över prickarna, så att skarven syns även där det finns många händelser */
 .tl-item .tl-seam { height: 12px; background: var(--night); }
-@media (max-width: 560px) { .tl-item-seam { display: none; } } /* raden rymmer inte "ny skala" på alla språk i mobil (de, es, fr klipps); skalraden förklarar skarven när man flyttar året */
+@media (max-width: 560px) { .tl-item.tl-item-seam { display: none; } } /* .tl-item sätter display: inline-flex senare i filen och vann över enbart .tl-item-seam (#2129); raden rymmer inte "ny skala" på alla språk i mobil (de, es, fr klipps); skalraden förklarar skarven när man flyttar året */
 .track-dots, .track-ff { position: absolute; left: 0; right: 0; top: 0; height: 30px; pointer-events: none; }
 .tdot, .tspan, .tff, .troute { appearance: none; border: 0; padding: 0; cursor: pointer; pointer-events: auto; }
 .tdot { position: absolute; top: 15px; width: 6px; height: 6px; margin-left: -3px; border-radius: 50%; }
