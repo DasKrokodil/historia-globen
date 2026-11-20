@@ -1,0 +1,15 @@
+# Bildstilarna `grotta` och Kina före 1000 f.Kr. (#1553, #1397)
+
+**Datum:** 2026-11-20 (DasKrokodil sa ja till rekommendationerna i #1397 2026-11-14 och i #1553 2026-11-17)
+
+## Beslut
+1. **`grotta` (#1553):** nyckeln och ramen behålls, men stilens namn och `prompt` byts. Stilen för händelser före 3000 f.Kr. är nu en modern, tydligt tecknad illustration av landskap, djur, föremål och fyndplatser, utan människor i närbild och utan grottmålning, handavtryck eller människosilhuetter. Den får inte likna hällkonst, en skulptur eller ett foto av ett verkligt fynd. För händelser vars sammanfattning handlar om hällkonst lägger `tools/bildpromptar.py` dessutom till en regel om att bilden bara visar platsen och inte återger eller efterliknar konstverken. Reglerna för människoarter (beslutet 2026-11-14) gäller som förut.
+2. **Kina cirka 1600–1000 f.Kr. (#1397):** ny regional stil `kina-brons` ("Brons och orakelben", −1599 till −1001) med egen `frame` (`kina-brons`) och `prompt`. `kina-tusch` börjar fortfarande vid −1000 och gäller alltså inte före 1000 f.Kr. Händelsen `orakelben-skrift` får därmed en kinesisk ram i stället för den egyptiska, och dess `image.style` är `kina-brons`.
+3. **Ramen för regionala stilar:** `styleFor()` i `js/model.js` använder stilens egen `frame` om den finns, annars grundstilens. Övriga regionala stilar har `frame: null` och är oförändrade. Ramen `.frame-kina-brons` i `css/style.css` använder nya färgvariabler i `:root` (brons och patina) och har mörk botten med ljus text, som `barock` och `antik`.
+4. **Lista (#1397, punkt 3):** [docs/granskningar/2026-11-20-stil-fran-annan-region.md](../granskningar/2026-11-20-stil-fran-annan-region.md) listar händelser med bild vars grundstil kommer från en annan del av världen. Listan är ett underlag. Nya regionstilar för andra regioner är ett eget beslut som kräver DasKrokodils ja.
+
+## Varför
+En AI-gjord grottmålning kan tas för äkta hällkonst, och en bildtext räcker inte som skydd (bildreglerna i CLAUDE.md). En tecknad, modern illustration av landskap och föremål säger vad den är och passar också beslutet om människoarter. Orakelbenen från Shangtiden fick en egyptisk ram för att grundstilen för −2999 till −500 gäller hela världen, medan `kina-tusch` börjar först vid −1000. En egen regionstil med egen ram åtgärdar det utan att ändra något annat. Inga historiska fakta ändras.
+
+## Berör
+Issue #1553 och #1397, `data/styles.json`, `js/model.js`, `css/style.css`, `tools/bildpromptar.py`, `docs/bildpromptar.md` (genererad), `docs/datamodell.md`, `data/handelser/fkr.json` (`orakelben-skrift`) och [beslutet 2026-11-14 om människoarter](2026-11-14-rekonstruktioner-av-manniskoarter.md).

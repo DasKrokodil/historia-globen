@@ -781,7 +781,7 @@ Upptäcktsvyn slås på i Lager. Filen styr allt den visar (ritas av `js/layers/
 
 ## `styles.json`: bildstilar
 
-Tio grundstilar efter tid (`regions` tom) och regionala varianter (`regions` med rutor i grader). Varje stil har `from`, `to`, `frame` (faktarutans ram) och `prompt` (engelsk stilbeskrivning). `variants` väljs efter händelsens kategori, till exempel portolankarta för resor under renässansen. Se `notes` i filen.
+Tio grundstilar efter tid (`regions` tom) och regionala varianter (`regions` med rutor i grader). Varje stil har `from`, `to`, `frame` (faktarutans ram) och `prompt` (engelsk stilbeskrivning). `variants` väljs efter händelsens kategori, till exempel portolankarta för resor under renässansen. Se `notes` i filen. En regional stil har oftast `frame: null` och använder grundstilens ram, men får en egen `frame` när grundstilen för tiden hör hemma i en annan del av världen: `kina-brons` (Kina −1599 till −1001, #1397) har ramen `kina-brons`. `styleFor()` i `js/model.js` väljer stilens egen ram före grundstilens. Stilen `grotta` (före 3000 f.Kr.) är en modern tecknad illustration av landskap och föremål, inte en grottmålning (#1553).
 
 ## `genererat/`: uppdelade filer (#337)
 

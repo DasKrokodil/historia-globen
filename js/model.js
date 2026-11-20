@@ -125,7 +125,7 @@ export function region(lat, lon) {
 // ---------- Bildstilar (#129) ----------
 // Varje händelse får en bildstil efter år och plats (data/styles.json): en regional
 // variant om året och platsen matchar, annars grundstilen för året. Ramen följer
-// grundstilen, och en variant kan väljas efter kategori (till exempel portolankarta för resor).
+// grundstilen, utom när den regionala stilen har en egen ram (kina-brons, #1397), och en variant kan väljas efter kategori (till exempel portolankarta för resor).
 export function styleFor(e, doc) {
   const year = e.start, lat = e._lat ?? e.location.coordinates[1], lon = e._lon ?? e.location.coordinates[0];
   const inTime = s => year >= s.from && year <= s.to;
@@ -133,7 +133,7 @@ export function styleFor(e, doc) {
   const base = doc.styles.find(s => !s.regions.length && inTime(s)) ?? doc.styles.at(0);
   const regional = doc.styles.find(s => s.regions.length && inTime(s) && s.regions.some(inRegion));
   const style = regional ?? base;
-  return { style, base, frame: base.frame, variant: style.variants?.[e.category] ?? null };
+  return { style, base, frame: style.frame ?? base.frame, variant: style.variants?.[e.category] ?? null };
 }
 
 // ---------- Tid ----------
