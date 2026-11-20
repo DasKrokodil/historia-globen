@@ -39626,6 +39626,23 @@
    "file": "data/empires/belize.json",
    "flags": [
     {
+     "file": "belize-1981",
+     "from": 1983,
+     "to": 2018,
+     "label": {
+      "sv": "Belizes flagga 1981–2019",
+      "en": "Flag of Belize, 1981–2019",
+      "de": "Flagge von Belize 1981–2019",
+      "es": "Bandera de Belice de 1981 a 2019",
+      "fr": "Drapeau du Belize de 1981 à 2019"
+     },
+     "sources": [
+      "wp-flag-belize",
+      "commons-flagga-belize-1981"
+     ],
+     "review": "source-checked"
+    },
+    {
      "file": "belize",
      "from": 2019,
      "to": 2024,
@@ -39670,17 +39687,18 @@
        "fr": "Le drapeau sur la carte"
       },
       "text": {
-       "sv": "Kungsblått fält med smala röda ränder upptill och nedtill och riksvapnet på en vit skiva. Flaggan antogs 21 september 1981, dagen då Belize blev självständigt. Vapnet beviljades Brittiska Honduras 1907 och påminner om skogsavverkningen som först ledde till den brittiska bosättningen: två män, en mestis och en man av afrikansk härkomst, verktyg, ett mahognyträd och mottot Sub Umbra Floreo (”I skuggan blomstrar jag”). Före 2019 fanns inga fastställda mått, och färgernas nyanser och skuggningen av männen varierade. Kartan visar den standardiserade teckningen från 28 augusti 2019; åren 1983–2018 visas ingen flagga.",
-       "en": "A royal blue field with narrow red stripes at the top and bottom and the national coat of arms on a white disc. The flag was adopted on 21 September 1981, the day Belize became independent. The arms were granted to British Honduras in 1907 and recall the logging that first led to British settlement: two men, a mestizo and a man of African descent, tools, a mahogany tree and the motto Sub Umbra Floreo (“Under the shade I flourish”). Before 2019 there were no fixed specifications, and the shades of the colours and the shading of the men varied. The map shows the standardised drawing from 28 August 2019; no flag is shown for 1983–2018.",
-       "de": "Ein königsblaues Feld mit schmalen roten Streifen oben und unten und dem Staatswappen auf einer weißen Scheibe. Die Flagge wurde am 21. September 1981 angenommen, dem Tag, an dem Belize unabhängig wurde. Das Wappen wurde Britisch-Honduras 1907 verliehen und erinnert an den Holzeinschlag, der zuerst zur britischen Besiedlung führte: zwei Männer, ein Mestize und ein Mann afrikanischer Herkunft, Werkzeuge, ein Mahagonibaum und der Wahlspruch Sub Umbra Floreo („Im Schatten blühe ich“). Vor 2019 gab es keine festgelegten Maße, und die Farbtöne und die Schattierung der Männer schwankten. Die Karte zeigt die standardisierte Zeichnung ab dem 28. August 2019; für 1983–2018 wird keine Flagge gezeigt.",
-       "es": "Un campo azul real con estrechas franjas rojas arriba y abajo y el escudo nacional sobre un disco blanco. La bandera se adoptó el 21 de septiembre de 1981, el día en que Belice se independizó. El escudo se concedió a Honduras Británica en 1907 y recuerda la tala de madera que dio origen al asentamiento británico: dos hombres, un mestizo y un hombre de ascendencia africana, herramientas, un árbol de caoba y el lema Sub Umbra Floreo («Bajo la sombra florezco»). Antes de 2019 no había especificaciones fijas, y los tonos de los colores y el sombreado de los hombres variaban. El mapa muestra el dibujo normalizado desde el 28 de agosto de 2019; entre 1983 y 2018 no se muestra ninguna bandera.",
-       "fr": "Un champ bleu roi avec d’étroites bandes rouges en haut et en bas et les armoiries nationales sur un disque blanc. Le drapeau a été adopté le 21 septembre 1981, jour de l’indépendance du Belize. Les armoiries ont été accordées au Honduras britannique en 1907 et rappellent l’exploitation forestière qui a d’abord conduit à la colonisation britannique : deux hommes, un métis et un homme d’ascendance africaine, des outils, un acajou et la devise Sub Umbra Floreo (« Sous l’ombre je fleuris »). Avant 2019, il n’existait pas de spécifications fixes, et les nuances des couleurs ainsi que l’ombrage des hommes variaient. La carte montre le dessin normalisé à partir du 28 août 2019 ; aucun drapeau n’est montré pour 1983–2018."
+       "sv": "Kungsblått fält med smala röda ränder upptill och nedtill och riksvapnet på en vit skiva. Flaggan antogs 21 september 1981, dagen då Belize blev självständigt. Vapnet beviljades Brittiska Honduras 1907 och påminner om skogsavverkningen som först ledde till den brittiska bosättningen: två män, en mestis och en man av afrikansk härkomst, verktyg, ett mahognyträd och mottot Sub Umbra Floreo (”I skuggan blomstrar jag”). Före 2019 fanns inga fastställda mått, och färgernas nyanser och skuggningen av männen varierade. Kartan visar från 2019 den standardiserade teckningen från 28 augusti 2019 och 1983–2018 en teckning av flaggan före standardiseringen, gjord av en användare på Wikimedia Commons.",
+       "en": "A royal blue field with narrow red stripes at the top and bottom and the national coat of arms on a white disc. The flag was adopted on 21 September 1981, the day Belize became independent. The arms were granted to British Honduras in 1907 and recall the logging that first led to British settlement: two men, a mestizo and a man of African descent, tools, a mahogany tree and the motto Sub Umbra Floreo (“Under the shade I flourish”). Before 2019 there were no fixed specifications, and the shades of the colours and the shading of the men varied. From 2019 the map shows the standardised drawing from 28 August 2019, and for 1983–2018 a drawing of the flag before standardisation made by a Wikimedia Commons user.",
+       "de": "Ein königsblaues Feld mit schmalen roten Streifen oben und unten und dem Staatswappen auf einer weißen Scheibe. Die Flagge wurde am 21. September 1981 angenommen, dem Tag, an dem Belize unabhängig wurde. Das Wappen wurde Britisch-Honduras 1907 verliehen und erinnert an den Holzeinschlag, der zuerst zur britischen Besiedlung führte: zwei Männer, ein Mestize und ein Mann afrikanischer Herkunft, Werkzeuge, ein Mahagonibaum und der Wahlspruch Sub Umbra Floreo („Im Schatten blühe ich“). Vor 2019 gab es keine festgelegten Maße, und die Farbtöne und die Schattierung der Männer schwankten. Die Karte zeigt ab 2019 die standardisierte Zeichnung vom 28. August 2019 und für 1983–2018 eine Zeichnung der Flagge vor der Standardisierung, die ein Nutzer von Wikimedia Commons angefertigt hat.",
+       "es": "Un campo azul real con estrechas franjas rojas arriba y abajo y el escudo nacional sobre un disco blanco. La bandera se adoptó el 21 de septiembre de 1981, el día en que Belice se independizó. El escudo se concedió a Honduras Británica en 1907 y recuerda la tala de madera que dio origen al asentamiento británico: dos hombres, un mestizo y un hombre de ascendencia africana, herramientas, un árbol de caoba y el lema Sub Umbra Floreo («Bajo la sombra florezco»). Antes de 2019 no había especificaciones fijas, y los tonos de los colores y el sombreado de los hombres variaban. Desde 2019, el mapa muestra el dibujo normalizado del 28 de agosto de 2019, y entre 1983 y 2018, un dibujo de la bandera anterior a la normalización hecho por un usuario de Wikimedia Commons.",
+       "fr": "Un champ bleu roi avec d’étroites bandes rouges en haut et en bas et les armoiries nationales sur un disque blanc. Le drapeau a été adopté le 21 septembre 1981, jour de l’indépendance du Belize. Les armoiries ont été accordées au Honduras britannique en 1907 et rappellent l’exploitation forestière qui a d’abord conduit à la colonisation britannique : deux hommes, un métis et un homme d’ascendance africaine, des outils, un acajou et la devise Sub Umbra Floreo (« Sous l’ombre je fleuris »). Avant 2019, il n’existait pas de spécifications fixes, et les nuances des couleurs ainsi que l’ombrage des hommes variaient. À partir de 2019, la carte montre le dessin normalisé du 28 août 2019, et pour 1983–2018 un dessin du drapeau d’avant la normalisation réalisé par un utilisateur de Wikimedia Commons."
       }
      }
     ],
     "sources": [
      "wp-flag-belize",
-     "commons-flagga-belize"
+     "commons-flagga-belize",
+     "commons-flagga-belize-1981"
     ],
     "review": "source-checked"
    }
