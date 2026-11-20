@@ -382,6 +382,13 @@
       ]
     },
     {
+      "license": "CC BY-SA 3.0, 2.5, 2.0, 1.0; GFDL",
+      "sourceIds": [
+        "commons-flagga-bulgaria-1967",
+        "commons-flagga-bulgaria-1971"
+      ]
+    },
+    {
       "license": "CC BY-SA 4.0",
       "sourceIds": [
         "commons-bild-agadez-mosken",
@@ -1072,6 +1079,7 @@
         "wp-elqui-river",
         "wp-elshanka-culture",
         "wp-emancipation-proclamation",
+        "wp-emblem-bulgaria-prb",
         "wp-emblem-of-yugoslavia",
         "wp-emiliano-zapata",
         "wp-emirate-of-afghanistan",
@@ -1167,6 +1175,7 @@
         "wp-flag-bahamas",
         "wp-flag-bangladesh",
         "wp-flag-barbados",
+        "wp-flag-belarus",
         "wp-flag-belgium",
         "wp-flag-belize",
         "wp-flag-benin",
@@ -1215,6 +1224,7 @@
         "wp-flag-iceland",
         "wp-flag-india",
         "wp-flag-indonesia",
+        "wp-flag-iraq",
         "wp-flag-ireland",
         "wp-flag-israel",
         "wp-flag-italy",
@@ -3634,6 +3644,18 @@
       ]
     },
     {
+      "license": "Public domain (PD-BY-exempt)",
+      "sourceIds": [
+        "commons-flagga-belarus-1995"
+      ]
+    },
+    {
+      "license": "Public domain (PD-BY-exempt, PD-self)",
+      "sourceIds": [
+        "commons-flagga-belarus"
+      ]
+    },
+    {
       "license": "Public domain (PD-Bangladesh, PD-shape)",
       "sourceIds": [
         "commons-flagga-bangladesh"
@@ -3649,6 +3671,13 @@
       "license": "Public domain (PD-BrazilGov)",
       "sourceIds": [
         "commons-flagga-brasilien"
+      ]
+    },
+    {
+      "license": "Public domain (PD-BulgarianGov)",
+      "sourceIds": [
+        "commons-emblem-bulgaria-1967",
+        "commons-emblem-bulgaria-1971"
       ]
     },
     {
@@ -3715,6 +3744,22 @@
       "license": "Public domain (PD-Georgia, PD-self)",
       "sourceIds": [
         "commons-flagga-georgia-1990"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Iraq, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-iraq",
+        "commons-flagga-iraq-1924",
+        "commons-flagga-iraq-1959",
+        "commons-flagga-iraq-1963",
+        "commons-flagga-iraq-2004"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Iraq, PD-ineligible, PD-textlogo)",
+      "sourceIds": [
+        "commons-flagga-iraq-1991"
       ]
     },
     {
@@ -4003,6 +4048,12 @@
       ]
     },
     {
+      "license": "Public domain (PD-US-1978-89)",
+      "sourceIds": [
+        "commons-flagga-belize-1981"
+      ]
+    },
+    {
       "license": "Public domain (PD-UZ-exempt)",
       "sourceIds": [
         "commons-flagga-uzbekistan"
@@ -4035,7 +4086,8 @@
     {
       "license": "Public domain (PD-Zambia, PD-ineligible)",
       "sourceIds": [
-        "commons-flagga-zambia"
+        "commons-flagga-zambia",
+        "commons-flagga-zambia-1964"
       ]
     },
     {
@@ -4137,6 +4189,12 @@
       "license": "Public domain (PD-shape, PD-BH-exempt)",
       "sourceIds": [
         "commons-flagga-bosnia"
+      ]
+    },
+    {
+      "license": "Public domain (PD-shape, PD-BY-exempt)",
+      "sourceIds": [
+        "commons-flagga-belarus-1991"
       ]
     },
     {
