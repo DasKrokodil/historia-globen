@@ -359,7 +359,10 @@
     {
       "license": "CC BY-SA 3.0 DE",
       "sourceIds": [
-        "commons-bild-berlinmurens-fall"
+        "commons-bild-anfallet-pa-polen",
+        "commons-bild-auschwitz-befrias",
+        "commons-bild-berlinmurens-fall",
+        "commons-bild-frankrikes-fall"
       ]
     },
     {
@@ -3242,6 +3245,9 @@
       "sourceIds": [
         "bourne-northmen-columbus-1906",
         "commons-bild-alltinget-grundas",
+        "commons-bild-andra-slaget-vid-el-alamein",
+        "commons-bild-atombomberna-hiroshima-nagasaki",
+        "commons-bild-attacken-mot-pearl-harbor",
         "commons-bild-bagdads-fall-1258",
         "commons-bild-batavia-1619",
         "commons-bild-batavia-forliser",
@@ -3259,6 +3265,7 @@
         "commons-bild-cook-nar-australien",
         "commons-bild-covid-19-pandemin",
         "commons-bild-curie-polonium-radium",
+        "commons-bild-d-dagen",
         "commons-bild-darwin-fods",
         "commons-bild-diamantsutran-trycks",
         "commons-bild-dna-strukturen",
@@ -3278,6 +3285,7 @@
         "commons-bild-invasionen-av-afghanistan-2001",
         "commons-bild-invasionen-av-irak-2003",
         "commons-bild-israel-utropas-1948",
+        "commons-bild-japans-kapitulation",
         "commons-bild-jordbavningen-i-valdivia-1960",
         "commons-bild-kabuki-borjar-1603",
         "commons-bild-karl-den-store-krons",
@@ -3314,6 +3322,7 @@
         "commons-bild-olympiska-spelen-1896",
         "commons-bild-om-arternas-uppkomst",
         "commons-bild-operation-badr-1973",
+        "commons-bild-operation-barbarossa",
         "commons-bild-pakistan-kapitulerar-i-dhaka",
         "commons-bild-penicillinet-upptacks",
         "commons-bild-plimpton-322",
@@ -3329,6 +3338,7 @@
         "commons-bild-skotten-i-sarajevo",
         "commons-bild-slaget-om-guadalcanal",
         "commons-bild-slaget-om-kyiv-2022",
+        "commons-bild-slaget-om-storbritannien",
         "commons-bild-slaget-vid-annual",
         "commons-bild-slaget-vid-ayacucho",
         "commons-bild-slaget-vid-cajamarca",
@@ -3340,6 +3350,7 @@
         "commons-bild-slaget-vid-kadesh",
         "commons-bild-slaget-vid-kororareka",
         "commons-bild-slaget-vid-lutzen-1632",
+        "commons-bild-slaget-vid-midway",
         "commons-bild-slaget-vid-orakau",
         "commons-bild-slaget-vid-plassey",
         "commons-bild-slaget-vid-poltava",
@@ -3367,6 +3378,7 @@
         "commons-bild-tredje-slaget-vid-panipat",
         "commons-bild-tsunamin-i-indiska-oceanen-2004",
         "commons-bild-tyfonen-kamikaze-1281",
+        "commons-bild-tysklands-kapitulation",
         "commons-bild-vapenstillestandet-1918",
         "commons-bild-vasco-da-gama-nar-indien",
         "commons-bild-vesuvius-79",
