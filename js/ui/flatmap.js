@@ -128,10 +128,11 @@ export class FlatMap {
       if (e.type === 'pointerup' && d && d.moved < CLICK_PX && !this._pointers.size) {
         const at = this._local(e), hit = this._hitTest(at, e.pointerType);
         if (hit) this.onSelect?.(hit.id);
-        // Regionvyn (#1642): ett tryck bredvid markörerna fäller ihop solfjädern och tar bort markeringen
-        else if (this._region && this.regionMarks.active) this.regionMarks.background();
+        // Regionvyn (#1642): ett tryck bredvid markörerna fäller ihop solfjädern och tar bort markeringen, och ett tryck på själva platsen
+        // öppnar kortet igen (#1978; som på globens regionvy, main.js): därför går trycket vidare till onMapClick efteråt
+        else if (this._region && this.regionMarks.active) { this.regionMarks.background(); this.onMapClick?.(this._lonLat(at), e.clientX, e.clientY, e.pointerType); }
         // Annars: platsen som klickades, till exempel för vägar och resor på lagerbilden (#38)
-        else this.onMapClick?.(this._lonLat(at), e.clientX, e.clientY);
+        else this.onMapClick?.(this._lonLat(at), e.clientX, e.clientY, e.pointerType);
       }
     };
     canvas.addEventListener('pointerup', up);
