@@ -73,15 +73,28 @@ Tillåtet (CLAUDE.md, Bilder punkt 1): public domain, CC0, CC BY, CC BY-SA och L
 - `tools/license_manifests.py`: licensmanifesten (steg 11).
 - `tools/bildpromptar.py`: bara för illustrationer ([bilder-ai-illustrationer.md](bilder-ai-illustrationer.md)).
 
-**Planerade verktyg:** `tools/bild_hamta.py` (#2118, hämtning med batch, User-Agent, Retry-After, tre försök och tidstak) och `tools/bildkandidater.py` (#2119, kandidater och licensförslag per händelse). När de finns uppdateras den här rutinen: anropsreglerna ovan blir verktygets beteende, och det som verktyget gör för hand ersätts. Förslagen från verktygen är underlag, inte beslut: licenskontrollen och bildtexten granskas som förut.
+**Verktygen finns:** `tools/bild_hamta.py` (#2118, hämtar och konverterar de valda bilderna med batch, User-Agent, Retry-After, tre försök och tidstak) och `tools/bildkandidater.py` (#2119, kandidater och licensförslag per händelse, se nedan) är ihopslagna. Anropsreglerna ovan är verktygens beteende. Förslagen från verktygen är underlag, inte beslut: licenskontrollen och bildtexten granskas som förut.
 
 ## Kandidatlistan: skript och arbetsflöde
 
 `tools/bildkandidater.py` (#2119) föreslår fria bilder till händelser utan bild och skriver `data/utkast/bildkandidater.json`, som appen inte läser. Allt i listan är förslag: öppna filsidan, kontrollera licensen och att bilden visar händelsen innan den används.
 
-**Arbetsflödet** `.github/workflows/bildkandidater.yml` kör skriptet i Actions: fliken Actions, Bildkandidater, Run workflow. Fyll i världsdel (Afrika, Amerika, Asien, Europa, Oceanien), period som FRÅN-TILL i astronomiska år (till exempel `1000-1347`), högst så många händelser (standard 40) och om händelser som `docs/bilder-saknas.md` redan listar ska hoppas över (standard ja). Flödet startas bara för hand, har bara rättigheterna `contents: write` och `pull-requests: write` på jobbet, använder inga hemligheter, tar högst 30 minuter och kör en körning i taget.
+**Arbetsflödet** `.github/workflows/bildkandidater.yml` kör skriptet i Actions. Det startas bara för hand, har bara rättigheterna `contents: write` och `pull-requests: write` på jobbet, använder inga hemligheter, tar högst 240 minuter och kör en körning i taget.
 
-Resultatet läggs på en ny gren `bildkandidater/<körnings-id>` (aldrig `main`, aldrig force-push) och en pull request mot `main` öppnas med titeln "Bildkandidater: <region> <period> (förslag)". Tillåter repots inställning inte att `GITHUB_TOKEN` skapar pull requests (Settings, Actions, General, "Allow GitHub Actions to create and approve pull requests") lämnas grenen kvar och en jämförelselänk skrivs i körningens sammanfattning; öppna pull requesten därifrån. Båda fallen är avsedda. Ingen fakta ändras, och en kandidat blir en bild först i ett vanligt bildissue med källkontroll enligt rutinen ovan.
+**DasKrokodil kör det en gång för alla händelser:** fliken Actions, Bildkandidater, Run workflow, världsdel `Alla` (standard), period och högst-fältet lämnas tomma, och "hoppa över dem som `docs/bilder-saknas.md` redan listar" står kvar på ja. Fälten betyder:
+
+- Världsdel: `Alla` kör Afrika, Amerika, Asien, Europa och Oceanien efter varandra i samma jobb mot samma fil, så att en miss i en världsdel (Wikimedia svarar ofta 429) inte tappar de andra. Man kan också välja en enda världsdel.
+- Period: valfri, FRÅN-TILL i astronomiska år (till exempel `1000-1347` eller `-800--400`). Tom betyder ingen periodgräns.
+- Högst: valfri gräns per världsdel. Tom eller 0 betyder ingen gräns.
+
+Skriptet sparar filen efter var 50:e händelse, så ett avbrott eller en timeout tappar inte allt som hunnit hämtas. Resultatet läggs på en ny gren `bildkandidater/<körnings-id>` (aldrig `main`, aldrig force-push) och en pull request mot `main` öppnas med titeln "Bildkandidater: <region> <period> (förslag)". Pull requesten öppnas även om en världsdel misslyckades (om filen alls har ändrats), och både pull request-texten och körningens sammanfattning har en tabell med vilka världsdelar som blev klara och hur många händelser som fick kandidater, saknade kandidater eller är "ej hämtade" (Wikimedia svarade inte efter tre försök). Tillåter repots inställning inte att `GITHUB_TOKEN` skapar pull requests (Settings, Actions, General, "Allow GitHub Actions to create and approve pull requests") lämnas grenen kvar och en jämförelselänk skrivs i körningens sammanfattning; öppna pull requesten därifrån. Båda fallen är avsedda. Körningen är inte provkörd i Actions av den som skrev ändringen: första körningen visar om tidsgränsen och Wikimedias svarstider räcker.
+
+**Efter körningen:**
+
+1. Pull requesten med listan slås ihop. Den är ett underlag: filen `data/utkast/bildkandidater.json` läses inte av sidan, och ingen fakta ändras.
+2. Byggare (ett bildissue i taget) läser sin bit ur `data/utkast/bildkandidater.json` på `main`, öppnar filsidan för varje kandidat de tänker använda och kontrollerar licens och motiv där, och kör sedan `python3 tools/bild_hamta.py` för de valda bilderna (rutinen ovan). Kandidaterna är förslag och kontrolleras alltid på filsidan; en kandidat blir en bild först efter källkontroll.
+3. Listan blir gammal när händelser får bild. Kör om per världsdel vid behov (Run workflow med en världsdel); en körning behåller posterna för andra händelser.
+4. Saknas listan, eller är den för gammal för ens bit, kan byggaren själv köra `python3 tools/bildkandidater.py --region <världsdel> --period <FRÅN-TILL>` för sin bit (skriv `--period=-800--400` med likhetstecken när perioden börjar med minus). Samma skript, samma fil, samma krav på kontroll.
 
 ## Granskning per pull request
 

@@ -219,6 +219,34 @@ def test_utkastfilen():
         assert json.loads(ut.read_text(encoding='utf-8'))['status'] == 'förslag'
 
 
+def test_sparar_i_bitar_och_sammanfattar():
+    with tempfile.TemporaryDirectory() as t:
+        ut = Path(t) / 'bildkandidater.json'
+        sparade = []
+        orig = bk.skriv
+
+        def spion(*a, **k):
+            d = orig(*a, **k)
+            sparade.append(d['generated']['handelser'])
+            return d
+        bk.skriv = spion
+        try:
+            hs = [handelse(f'h{i}', start=1000 + i) for i in range(5)]
+            po, doc = bk.kor_och_spara(hs, klient(Last()), ut, 'test', spara_var=2)
+        finally:
+            bk.skriv = orig
+        assert sparade == [2, 4, 5], sparade  # filen skrivs efter varje bit, inte bara i slutet
+        assert doc['generated']['handelser'] == 5 and len(po) == 5
+        sam = bk.sammanfatta(po)
+        assert sam['handelser'] == 5 and sam['med_kandidater'] + sam['utan_kandidater'] + sam['ej_hamtade'] == 5, sam
+        assert bk.sammanfatta({}) == {'handelser': 0, 'med_kandidater': 0, 'utan_kandidater': 0, 'ej_hamtade': 0}
+        # --sammanfattning och en period med negativa år går via main
+        sf = Path(t) / 's.json'
+        assert bk.main(['--period=-800--400', '--ut', str(ut), '--sammanfattning', str(sf),
+                        '--handelser', str(Path(t) / 'tom')], klient=klient(Last())) == 0
+        assert json.loads(sf.read_text(encoding='utf-8'))['handelser'] == 0
+
+
 def test_appen_laser_inte_utkast():
     """data/utkast/ läses inte av sidan och publiceras inte (scripts/build-site.sh, validate-site.py)."""
     for rot in ('js', 'index.html', 'functions'):

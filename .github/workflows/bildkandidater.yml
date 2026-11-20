@@ -1,4 +1,6 @@
 # Bildkandidater (#2119, steg 2): kör tools/bildkandidater.py på begäran och lägger listan som en pull request.
+# Region 'Alla' kör världsdelarna efter varandra i samma jobb mot samma utdatafil, så att en miss i en region inte
+# tappar de andra; period och gräns är valfria (tomt = ingen gräns). Skriptet sparar filen löpande.
 # Bara workflow_dispatch (Actions-fliken, "Run workflow"): ingen schedule och ingen push- eller pull_request-trigger.
 # Kandidaterna är FÖRSLAG som måste kontrolleras manuellt (docs/bilder-riktiga.md). Flödet ändrar inga fakta och
 # rör bara data/utkast/bildkandidater.json, som appen inte läser. Inga hemligheter används; skriptet anropar
@@ -12,18 +14,20 @@ on:
   workflow_dispatch:
     inputs:
       region:
-        description: Världsdel
+        description: Världsdel (Alla kör alla fem efter varandra)
         required: true
+        default: Alla
         type: choice
-        options: [Afrika, Amerika, Asien, Europa, Oceanien]
+        options: [Alla, Afrika, Amerika, Asien, Europa, Oceanien]
       period:
-        description: 'Period som FRÅN-TILL i astronomiska år, till exempel 1000-1347'
-        required: true
+        description: 'Period som FRÅN-TILL i astronomiska år, till exempel 1000-1347 eller -800--400. Tom = ingen periodgräns'
+        required: false
+        default: ''
         type: string
       limit:
-        description: Högst så här många händelser
+        description: Högst så här många händelser per världsdel. Tom eller 0 = ingen gräns
         required: false
-        default: '40'
+        default: ''
         type: string
       exclude_saknas:
         description: Hoppa över händelser som docs/bilder-saknas.md redan listar som utan fri bild
@@ -42,7 +46,7 @@ jobs:
   kandidater:
     name: Hämta bildkandidater
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 240
     permissions:
       contents: write
       pull-requests: write
@@ -61,38 +65,83 @@ jobs:
       - name: Kontrollera indata
         run: |
           # Indata går via miljövariabler (aldrig direkt in i skriptet) och kontrolleras innan de används.
-          [[ "$PERIOD" =~ ^-?[0-9]+--?[0-9]+$ ]] || { echo "::error::Perioden måste vara FRÅN-TILL, till exempel 1000-1347"; exit 1; }
-          [[ "$LIMIT" =~ ^[0-9]{1,3}$ && "$LIMIT" -ge 1 ]] || { echo "::error::Gränsen måste vara ett heltal 1-999"; exit 1; }
+          [[ "$REGION" =~ ^(Alla|Afrika|Amerika|Asien|Europa|Oceanien)$ ]] || { echo "::error::Okänd världsdel"; exit 1; }
+          # Tom period = ingen gräns. Annars FRÅN-TILL med valfria minustecken (-800--400, 1000-1347, -500..100).
+          [[ -z "$PERIOD" || "$PERIOD" =~ ^-?[0-9]+(--?|\.\.)-?[0-9]+$ ]] || { echo "::error::Perioden måste vara tom eller FRÅN-TILL, till exempel 1000-1347"; exit 1; }
+          # Tom eller 0 = ingen gräns.
+          [[ -z "$LIMIT" || "$LIMIT" =~ ^[0-9]{1,5}$ ]] || { echo "::error::Gränsen måste vara tom eller ett heltal"; exit 1; }
       - name: Kör tools/bildkandidater.py
         run: |
-          set -o pipefail
-          args=(--region "$REGION" --period "$PERIOD" --limit "$LIMIT")
-          if [ "$EXCLUDE_SAKNAS" = "true" ]; then args+=(--exclude-saknas); fi
-          echo "python3 tools/bildkandidater.py ${args[*]}"
-          python3 tools/bildkandidater.py "${args[@]}" 2>&1 | tee "$RUNNER_TEMP/bildkandidater.log"
-          test -s data/utkast/bildkandidater.json
+          # Varje region körs för sig mot samma utdatafil (skriptet behåller poster för andra händelser och sparar
+          # löpande). Misslyckas en region går körningen vidare med nästa; steget blir rött först i slutet.
+          set +e
+          if [ "$REGION" = "Alla" ]; then regioner=(Afrika Amerika Asien Europa Oceanien); else regioner=("$REGION"); fi
+          rader="$RUNNER_TEMP/regioner.md"
+          {
+            echo "| Världsdel | Status | Händelser | Med kandidater | Utan kandidater | Ej hämtade |"
+            echo "|---|---|---|---|---|---|"
+          } > "$rader"
+          fel=0
+          for r in "${regioner[@]}"; do
+            args=(--region "$r" --sammanfattning "$RUNNER_TEMP/sam-$r.json")
+            if [ -n "$PERIOD" ]; then args+=("--period=$PERIOD"); fi
+            if [ -n "$LIMIT" ] && [ "$LIMIT" != "0" ]; then args+=(--limit "$LIMIT"); fi
+            if [ "$EXCLUDE_SAKNAS" = "true" ]; then args+=(--exclude-saknas); fi
+            echo "::group::$r"
+            echo "python3 tools/bildkandidater.py ${args[*]}"
+            python3 tools/bildkandidater.py "${args[@]}" 2>&1 | tee -a "$RUNNER_TEMP/bildkandidater.log"
+            kod=${PIPESTATUS[0]}
+            echo "::endgroup::"
+            if [ "$kod" -eq 0 ]; then status="klar"; else status="MISSLYCKADES (kod $kod)"; fel=1; fi
+            if [ -s "$RUNNER_TEMP/sam-$r.json" ]; then
+              siffror=$(python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); print(" | ".join(str(d[k]) for k in ("handelser","med_kandidater","utan_kandidater","ej_hamtade")))' "$RUNNER_TEMP/sam-$r.json")
+            else
+              siffror="- | - | - | -"
+            fi
+            echo "| $r | $status | $siffror |" >> "$rader"
+          done
+          cat "$rader"
+          { echo "### Världsdelar"; echo; cat "$rader"; } >> "$GITHUB_STEP_SUMMARY"
+          if [ "$fel" -ne 0 ]; then echo "::error::Minst en världsdel misslyckades; det som hann sparas läggs ändå på en gren."; fi
+          exit "$fel"
       - name: Lägg listan på en ny gren och öppna en pull request
+        # Körs även om en region misslyckades, men bara om filen faktiskt har ändrats (annars finns inget att lägga).
+        if: always()
         run: |
           set -euo pipefail
+          fil=data/utkast/bildkandidater.json
+          if [ ! -s "$fil" ] || { git diff --quiet -- "$fil" && [ -z "$(git ls-files --others --exclude-standard -- "$fil")" ] && ! git check-ignore -q "$fil" ; }; then
+            echo "Ingen ny kandidatlista skapades; ingen gren eller pull request." | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
           gren="bildkandidater/${GITHUB_RUN_ID}"
-          rubrik="Bildkandidater: ${REGION} ${PERIOD} (förslag)"
+          urval="${REGION}"
+          if [ -n "$PERIOD" ]; then urval="${urval} ${PERIOD}"; fi
+          rubrik="Bildkandidater: ${urval} (förslag)"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git switch -c "$gren"
-          git add -f data/utkast/bildkandidater.json
+          git add -f "$fil"
           git commit -m "$rubrik"
           git push origin "$gren"
-          cat > "$RUNNER_TEMP/pr-text.md" <<TEXT
-          Automatiskt förslag från arbetsflödet Bildkandidater (#2119). Körning: ${RUN_URL}
-
-          Region: ${REGION}. Period: ${PERIOD}. Högst ${LIMIT} händelser. Utan de som docs/bilder-saknas.md redan listar: ${EXCLUDE_SAKNAS}.
-
+          {
+            echo "Automatiskt förslag från arbetsflödet Bildkandidater (#2119). Körning: ${RUN_URL}"
+            echo
+            echo "Region: ${REGION}. Period: ${PERIOD:-ingen gräns}. Högst ${LIMIT:-ingen gräns} händelser per världsdel. Utan de som docs/bilder-saknas.md redan listar: ${EXCLUDE_SAKNAS}."
+            echo
+            echo "Läget per världsdel (en miss i en region tappar inte de andra):"
+            echo
+            if [ -s "$RUNNER_TEMP/regioner.md" ]; then cat "$RUNNER_TEMP/regioner.md"; else echo "Ingen sammanfattning finns (körningen avbröts innan någon världsdel var klar)."; fi
+            echo
+            cat <<'TEXT'
           **Kandidaterna är förslag och måste kontrolleras manuellt.** För varje kandidat finns filsidan på Wikimedia Commons, licensen (en grov automatisk klassning), upphovsperson och motiv. Öppna filsidan, läs licensmallen och kontrollera att bilden visar själva händelsen (inte en karta eller en nutida minnessten) innan den används, enligt docs/bilder-riktiga.md.
 
           - Inga fakta ändras: bara filen data/utkast/bildkandidater.json ändras (en ny lista ersätter den förra).
           - Appen läser inte data/utkast/, så ingenting syns på sidan.
           - Ingen bild är vald eller hämtad; en kandidat blir en bild först efter källkontroll i ett eget issue.
+          - "Ej hämtade" betyder att Wikimedia inte svarade (till exempel 429) efter tre försök; kör om för just den världsdelen.
           TEXT
+          } > "$RUNNER_TEMP/pr-text.md"
           if gh pr create --base main --head "$gren" --title "$rubrik" --body-file "$RUNNER_TEMP/pr-text.md"; then
             echo "Pull request skapad för $gren." >> "$GITHUB_STEP_SUMMARY"
           else
