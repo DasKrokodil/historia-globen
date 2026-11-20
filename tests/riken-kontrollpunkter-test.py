@@ -132,6 +132,12 @@ XIANGSHAN_ORT = (121.866, 29.475)
 CHANGCHUN = (120.03972, 26.72917)
 KAOHSIUNG = (120.2975, 22.615)
 MAGONG = (119.583, 23.567)
+# Kina 1916–1929 (#1507), ur Wikidata (öppnad 2026-11-20): Peking Q956, Nanjing Q16666, Chengdu Q30002, Guangzhou Q16572
+PEKING = (116.407526, 39.90403)
+NANJING = (118.778889, 32.060833)
+CHENGDU = (104.063333, 30.66)
+GUANGZHOU = (113.26, 23.13)
+KINA_ORTER = ((PEKING, 'Peking'), (NANJING, 'Nanjing'), (CHENGDU, 'Chengdu'), (GUANGZHOU, 'Guangzhou'))
 # #1707, ur Wikidata: Kinshasa Q3838, Brazzaville Q3844 och Nuuk Q226; Gander ur en.wikipedia "Gander, Newfoundland and Labrador"
 # (48° 57′ 26″ N, 54° 35′ 19″ V). Alla öppnade 2026-11-15
 KINSHASA = (15.3119, -4.3219)
@@ -561,6 +567,30 @@ for grupper, pt, namn, year in DUBBEL:
 for gid, pt, namn, year, ska in PUNKTER:
     if in_group(gid, pt, year) != ska:
         fel.append(f'{namn} {pt} år {year}: {"saknas i" if ska else "ligger i"} {gid}')
+
+
+def in_polity(gid, pid, pt, year):
+    """Om punkten ligger i en viss del (polity) av gruppen ett visst år."""
+    doc = json.loads((ROOT / f'data/empires/{gid}.json').read_text(encoding='utf-8'))
+    return any(q['start'] <= year <= q['end'] and in_geometry(pt, q['geometry'])
+               for p in doc['polities'] if p['id'] == pid for q in p['periods'])
+
+
+# Kina 1916–1929 (#1507, beslut 2026-11-20): 1916 är Kejsardömet Kina (Cliopatrias Empire of China, Q175379), inte Republiken
+# Kina; 1917–1929 ritar Cliopatria bara partiet Kuomintang, och Kina står tomt. Republiken Kina 1915 och 1930 står kvar
+DELAR = [
+    *[('kina', 'kejsardomet-kina', p, n, 1916, True) for p, n in KINA_ORTER],
+    *[('kina', 'republiken-kina', p, n, 1916, False) for p, n in KINA_ORTER],
+    *[('kina', 'republiken-kina', p, n, y, True) for p, n in KINA_ORTER for y in (1915, 1930)],
+    *[('kina', 'kejsardomet-kina', p, n, y, False) for p, n in KINA_ORTER for y in (1915, 1917)],
+]
+for gid, pid, pt, namn, year, ska in DELAR:
+    if in_polity(gid, pid, pt, year) != ska:
+        fel.append(f'{namn} {pt} år {year}: {"saknas i" if ska else "ligger i"} {gid}/{pid}')
+for pt, namn in KINA_ORTER:
+    for year in (1917, 1920, 1925, 1928, 1929):
+        if in_group('kina', pt, year):
+            fel.append(f'{namn} {pt} år {year}: ligger i kina, men Kina ska stå tomt 1917–1929 (#1507)')
 
 
 def seg_dist(p, a, b, c):

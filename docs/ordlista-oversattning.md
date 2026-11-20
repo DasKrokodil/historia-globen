@@ -198,6 +198,9 @@ Titel och epitet skrivs med liten bokstav i löpande text (`el rey Luis XIV`, `l
 | Han dynasty | dinastía Han | dynastie Han | – |
 | Ming dynasty | dinastía Ming | dynastie Ming | – |
 | Qing dynasty | dinastía Qing | dynastie Qing | – |
+| Empire of China (1915–1916) | Imperio de China | Empire de Chine | Wikidata Q175379, frwiki (2026-11-20) |
+| Beiyang government | Gobierno de Beiyang | gouvernement de Beiyang | – |
+| Nationalist government (Nanjing) | Gobierno Nacionalista | gouvernement nationaliste | – |
 | Carthage | Cartago | Carthage | – |
 | Southern Song | dinastía Song meridional | Song du Sud | – (fr rättat i sprak-fr-granskningen, #2002) |
 | Vakataka empire | Dinastía Vakataka | – | – (accent rättad i sprak-es-granskningen, #2002) |

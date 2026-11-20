@@ -730,9 +730,13 @@ GROUPS = {
     # Global täckning, nutida stater, första omgången (#644): de tio största luckorna år 2024 enligt
     # tools/tackning_riken.py. Kartan före fakta: bara gränser och namn (svenska namn ur Wikidata), utom
     # noterna om omstridda gränser (docs/omstridda-granser.md).
+    # Kina 1916–1929 (#1507, DasKrokodils beslut 2026-11-16, docs/beslut/2026-11-20-kina-1916-1929-1507.md): Cliopatrias
+    # Empire of China 1916 (Yuan Shikais kejsardöme, Q175379; Wikidata 12 december 1915–22 mars 1916) är en egen del med
+    # Cliopatrias gräns. Kuomintang 1917–1929 (partiet, Q31113) är ingen stat och ritas inte, så Kina står tomt de åren
     'kina': ('Kina', 'China', [
         ('Republic of China', 'republiken-kina', 'Republiken Kina', '#c8423c',
          {'en': 'Republic of China', 'wikidata': 'Q13426199', 'years': (1912, 1949)}),
+        ('Empire of China', 'kejsardomet-kina', 'Kejsardömet Kina', '#c8423c', {'en': 'Empire of China', 'wikidata': 'Q175379'}),
         ("People's Republic of China", 'folkrepubliken-kina', 'Kina', '#c8423c', {'en': 'China'}),
     ]),
     # Taiwan (#644, Rikards svar 5): Cliopatrias Republiken Kina efter 1949, under namnet Taiwan som regeringen använder
