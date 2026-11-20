@@ -36044,6 +36044,59 @@
    "from": 1992,
    "to": 2024,
    "file": "data/empires/belarus.json",
+   "flags": [
+    {
+     "file": "belarus-1991",
+     "from": 1992,
+     "to": 1994,
+     "label": {
+      "sv": "Belarus flagga 1991–1995",
+      "en": "Belarusian flag 1991–1995",
+      "de": "Belarussische Flagge 1991–1995",
+      "es": "Bandera bielorrusa de 1991 a 1995",
+      "fr": "Drapeau biélorusse de 1991 à 1995"
+     },
+     "sources": [
+      "wp-flag-belarus",
+      "commons-flagga-belarus-1991"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "belarus-1995",
+     "from": 1995,
+     "to": 2011,
+     "label": {
+      "sv": "Belarus flagga 1995–2012",
+      "en": "Belarusian flag 1995–2012",
+      "de": "Belarussische Flagge 1995–2012",
+      "es": "Bandera bielorrusa de 1995 a 2012",
+      "fr": "Drapeau biélorusse de 1995 à 2012"
+     },
+     "sources": [
+      "wp-flag-belarus",
+      "commons-flagga-belarus-1995"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "belarus",
+     "from": 2012,
+     "to": 2024,
+     "label": {
+      "sv": "Belarus flagga från 2012",
+      "en": "Belarusian flag of 2012",
+      "de": "Belarussische Flagge von 2012",
+      "es": "Bandera bielorrusa de 2012",
+      "fr": "Drapeau biélorusse de 2012"
+     },
+     "sources": [
+      "wp-flag-belarus",
+      "commons-flagga-belarus"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "belarus",
