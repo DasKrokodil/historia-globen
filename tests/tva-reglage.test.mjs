@@ -242,3 +242,35 @@ test('uppspelning över skarven: året går aldrig bakåt och reglaget byts en g
     }
   }
 });
+
+// Fokus över gränsen (#1986): fokusläget ritar sin egen skala, men reglagets namn för skärmläsare och meddelandet följer året
+test('Fokus över gränsen: namnet följer året och meddelandet sägs en gång, också när Fokus slutar', t => {
+  const { timeline, track } = build(t);
+  const attrs = {};
+  track.setAttribute = (k, v) => { attrs[k] = String(v); };
+  timeline._drawStory = () => {};
+  timeline.playBtn.setAttribute = () => {};
+  timeline.year = -3500;
+  timeline.takeStepNote(); // bytet från 1325 före Fokus
+  timeline._labelTrack();
+  assert.equal(attrs['aria-label'], 'År, före 3000 f.Kr.');
+  const swaps = [];
+  timeline.addEventListener('scalechange', e => swaps.push(e.detail.to.id));
+  timeline.setFocus({ from: -3500, to: -2500 });
+  assert.equal(timeline.takeStepNote(), '', 'att börja följa inom samma reglage säger inget om reglaget');
+  timeline.year = -2999; // fokus passerar gränsen
+  assert.equal(timeline.scale, HISTORY);
+  assert.deepEqual(swaps, ['human-history']);
+  assert.equal(attrs['aria-label'], 'År, 3000 f.Kr.–i dag', 'namnet byts medan Fokus pågår');
+  assert.match(timeline.takeStepNote(), /^Tidslinjen visar nu tiden 3000 f\.Kr\.–i dag\.$/);
+  timeline.year = -2800; // inom samma reglage: inget nytt besked
+  assert.equal(timeline.takeStepNote(), '');
+  timeline.setFocus(null); // Fokus slutar: reglaget ritas för året, utan ett andra meddelande
+  assert.equal(timeline.takeStepNote(), '', 'bytet sägs inte en gång till när Fokus slutar');
+  assert.deepEqual(swaps, ['human-history']);
+  // Fokus som börjar på andra sidan gränsen: bytet sägs när året hoppar dit
+  timeline.setFocus({ from: -4000, to: -3500 });
+  assert.equal(timeline.scale, PRE);
+  assert.equal(attrs['aria-label'], 'År, före 3000 f.Kr.');
+  assert.match(timeline.takeStepNote(), /^Tidslinjen visar nu tiden före 3000 f\.Kr\.$/);
+});

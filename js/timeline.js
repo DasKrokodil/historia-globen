@@ -389,6 +389,7 @@ export class Timeline extends EventTarget {
 
   _drawScale() {
     this.segsEl.replaceChildren(); this.ticksEl.replaceChildren();
+    this._labelTrack(); // också i Fokus: namnet följer året, inte skalan som ritas (#1986)
     if (this.focus?.fine) { this._drawMonths(); return; }
     if (this.focus) {
       const { from, to } = this.focus, span = to - from;
@@ -423,8 +424,7 @@ export class Timeline extends EventTarget {
       d.className = 'seam'; d.style.left = `${seam.at * 100}%`; d.setAttribute('aria-hidden', 'true');
       this.segsEl.append(d);
     }
-    const label = this._trackLabel(); // vilket reglage som visas: "År, före 3000 f.Kr."
-    if (label) this.track.setAttribute('aria-label', label);
+    this._labelTrack();
     for (const [y, level] of this.scale.ticks) {
       const d = document.createElement('div');
       d.className = `tick lvl${level}` + (y === this.scale.from ? ' first' : '') + (y === this.scale.to ? ' last' : '');
@@ -506,20 +506,25 @@ export class Timeline extends EventTarget {
    * Året har gått över gränsen mellan två reglage (#1958): reglagets delar, årtal, märken och intervallband ritas för det nya reglaget,
    * det tonas in en kort stund (aldrig med reducerad rörelse), och besökaren får veta det en gång. Bytet är ett vanligt årsbyte och går
    * alltså genom year, så uppspelning, steg, hopp, Tillbaka och tidslåset (setByUser) gäller det på samma sätt. I Fokus ritas
-   * den egna skalan, och reglaget ritas om först när Fokus slutar (setFocus).
+   * den egna skalan (fokusspannet), så där ritas och tonas ingenting om, men namnet för skärmläsare och meddelandet följer ändå
+   * året (#1986): reglaget heter det reglage året hör till, och den som följer ett fokus över gränsen får veta det en gång, när
+   * det händer. När Fokus slutar ritas reglaget för året (setFocus) utan nytt meddelande, eftersom bytet redan är sagt.
+   * aria-valuemin och aria-valuemax är fokusspannet i Fokus (_render) och berörs inte av bytet.
    */
   _swapScale(from) {
-    if (this.focus) return;
-    this._drawScale();
-    this._marksKey = null;
-    if (this._marks) this.setMarks(...this._marks);
-    this._placeRange();
-    this._hideScale();
-    if (!(typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches)) {
-      this.track.classList.remove('scale-swap');
-      void this.track.offsetWidth; // starta om övertoningen om ett nytt byte kommer medan den spelar
-      this.track.classList.add('scale-swap');
-      this.track.addEventListener('animationend', () => this.track.classList.remove('scale-swap'), { once: true });
+    if (this.focus) this._labelTrack();
+    else {
+      this._drawScale();
+      this._marksKey = null;
+      if (this._marks) this.setMarks(...this._marks);
+      this._placeRange();
+      this._hideScale();
+      if (!(typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+        this.track.classList.remove('scale-swap');
+        void this.track.offsetWidth; // starta om övertoningen om ett nytt byte kommer medan den spelar
+        this.track.classList.add('scale-swap');
+        this.track.addEventListener('animationend', () => this.track.classList.remove('scale-swap'), { once: true });
+      }
     }
     // Skärmläsaren får beskedet en gång: med året i statusraden vid ett drag, ett steg eller en tangent (takeStepNote), och direkt när
     // uppspelningen passerar gränsen, eftersom året inte läses upp medan det spelar
@@ -558,6 +563,8 @@ export class Timeline extends EventTarget {
   }
   /** Reglagets namn för skärmläsare ("År, före 3000 f.Kr."); utan namn (en enda skala) står "År" kvar ur index.html. */
   _trackLabel() { const name = this._trackName(this.scale); return name ? ui('time.trackLabel', { name }) : null; }
+  /** Sätter reglagets namn för skärmläsare efter året, också i Fokus (#1986). */
+  _labelTrack() { const label = this._trackLabel(); if (label) this.track.setAttribute('aria-label', label); }
 
   /** Märken från lagerregistret (#378): cirkel = händelse, romb = Samtidigt, streck = resa. */
   setMarks(all = [], { curated = false } = {}) {
