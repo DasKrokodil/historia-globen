@@ -391,6 +391,7 @@
         "commons-bild-stora-buddha-i-kamakura",
         "commons-bild-teotihuacan-solpyramiden",
         "commons-bild-tikal-vaxer-fram",
+        "commons-flagga-georgia-1918",
         "dewp-homburg",
         "dewp-landkreis-lindau",
         "dewp-landkreis-wangen",
@@ -1142,9 +1143,11 @@
         "wp-flag-belgium",
         "wp-flag-belize",
         "wp-flag-benin",
+        "wp-flag-bhutan",
         "wp-flag-bolivia",
         "wp-flag-botswana",
         "wp-flag-brazil",
+        "wp-flag-brunei",
         "wp-flag-bulgaria",
         "wp-flag-burkina-faso",
         "wp-flag-cameroon",
@@ -1187,6 +1190,7 @@
         "wp-flag-jamaica",
         "wp-flag-japan",
         "wp-flag-jordan",
+        "wp-flag-kazakhstan",
         "wp-flag-kenya",
         "wp-flag-kosovo",
         "wp-flag-kuwait",
@@ -1238,6 +1242,7 @@
         "wp-flag-saint-lucia",
         "wp-flag-saint-vincent-and-the-grenadines",
         "wp-flag-sao-tome-and-principe",
+        "wp-flag-saudi-arabia",
         "wp-flag-senegal",
         "wp-flag-serbia",
         "wp-flag-sierra-leone",
@@ -1261,6 +1266,7 @@
         "wp-flag-trinidad-and-tobago",
         "wp-flag-tunisia",
         "wp-flag-turkey",
+        "wp-flag-turkmenistan",
         "wp-flag-tuvalu",
         "wp-flag-uganda",
         "wp-flag-ukraine",
@@ -3493,6 +3499,12 @@
       ]
     },
     {
+      "license": "Public domain (PD-Bhutan, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-bhutan"
+      ]
+    },
+    {
       "license": "Public domain (PD-BrazilGov)",
       "sourceIds": [
         "commons-flagga-brasilien"
@@ -3541,6 +3553,12 @@
       ]
     },
     {
+      "license": "Public domain (PD-Georgia, PD-self)",
+      "sourceIds": [
+        "commons-flagga-georgia-1990"
+      ]
+    },
+    {
       "license": "Public domain (PD-Israel, PD-flag)",
       "sourceIds": [
         "commons-flagga-israel"
@@ -3566,6 +3584,12 @@
       ]
     },
     {
+      "license": "Public domain (PD-KZ-exempt)",
+      "sourceIds": [
+        "commons-flagga-kazakhstan"
+      ]
+    },
+    {
       "license": "Public domain (PD-Kenya)",
       "sourceIds": [
         "commons-flagga-kenya"
@@ -3575,6 +3599,12 @@
       "license": "Public domain (PD-LT-exempt, PD-self)",
       "sourceIds": [
         "commons-flagga-litauen-stat"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Lebanon)",
+      "sourceIds": [
+        "commons-flagga-lebanon-1943"
       ]
     },
     {
@@ -3668,6 +3698,12 @@
       ]
     },
     {
+      "license": "Public domain (PD-OpenClipart, PD-TK-exempt)",
+      "sourceIds": [
+        "commons-flagga-turkmenistan"
+      ]
+    },
+    {
       "license": "Public domain (PD-OpenClipart, PD-shape)",
       "sourceIds": [
         "commons-flagga-djibouti"
@@ -3705,6 +3741,12 @@
       ]
     },
     {
+      "license": "Public domain (PD-Saudi Arabia, PD-US-no notice, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-saudi-arabia"
+      ]
+    },
+    {
       "license": "Public domain (PD-SerbiaGov)",
       "sourceIds": [
         "commons-flagga-serbia"
@@ -3726,6 +3768,12 @@
       "license": "Public domain (PD-South Korea, PD-flag)",
       "sourceIds": [
         "commons-flagga-south-korea"
+      ]
+    },
+    {
+      "license": "Public domain (PD-South Korea, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-south-korea-1948"
       ]
     },
     {
@@ -3817,6 +3865,12 @@
       "license": "Public domain (PD-Zimbabwe, PD-ineligible)",
       "sourceIds": [
         "commons-flagga-zimbabwe"
+      ]
+    },
+    {
+      "license": "Public domain (PD-flag)",
+      "sourceIds": [
+        "commons-flagga-brunei"
       ]
     },
     {
