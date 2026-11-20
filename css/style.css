@@ -2979,6 +2979,11 @@ details.used-by summary:hover { color: var(--parchment); }
   /* Lärarbladet (#888): på tyska i reservtypsnittet (DejaVu Sans) mätte det 1037 px i Chromium och 1040 px i Firefox mot
      A4:s 1039 px, alltså på gränsen. Lite tätare listor ger marginal i båda; elevbladen är orörda */
   .print-teacher .print-curriculum > li, .print-teacher .print-questions-short > li { margin-bottom: 2.5pt; }
+  /* Lärarfältet i andra världskrigets lektion fick en rad om bilderna från Auschwitz och atombomberna (#2018), och lärarbladet blev
+     cirka 60 px för högt (franska med webbtypsnitt 1011 px, tyska med DejaVu Sans 1063 px, gränserna 1007 och 1038, #1940).
+     Lärarbladet får något mindre text, 10 pt i stället för 10,5, och tätare rader; minsta texten är fortfarande över 8 pt.
+     Texten är densamma och elevbladen är orörda */
+  .print-teacher { font-size: 10pt; line-height: 1.33; }
 }
 
 /* Temats introduktionskort (#398): händelserna som knappar i tidsordning */
