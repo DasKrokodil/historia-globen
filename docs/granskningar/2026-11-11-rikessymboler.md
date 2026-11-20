@@ -342,6 +342,43 @@ Byggt på grenen `claude/issue-1153-asien-3`, från dagens `main`. Källorna öp
 
 **Expertgranskning:** arbetaren hade inget verktyg för att kalla in underagenter (`historiker`, `geograf`, `sprak-en`, `sprak-de`, `sprak-es`, `sprak-fr`). Fakta, källor, medaljernas plats och etiketterna på fem språk granskas därför separat av en Claude Code som inte byggde ändringen.
 
+## Uppföljning 2026-11-20: Europa omgång 3 (#1152)
+
+Byggt på grenen `claude/issue-1152-europa-3`. Källorna (engelska Wikipedia och Commons filsidor, `action=raw`) öppnades 2026-11-20. Emblemen är förenklade med skript ur Commons-filerna: avrundade koordinater, detaljer under en till två bildpunkter borttagna, inget ritat nytt. Jämförelsen bild för bild mot originalet i dess egna proportioner gav högst 0,05 % pixlar med stor skillnad (Spanien 0,03 %, Greklands krona 0,05 %, övriga 0,00 %), och den största filen är 37 kB (Spanien).
+
+| Grupp | Visas | Fil | Anmärkning |
+|---|---|---|---|
+| Italien | kungarikets flagga 1862–1945 | `italy-kingdom` (finns sedan tidigare) | Handelsflaggan med Savojens sköld, antagen 17 mars 1861. Statsflaggan hade också en krona; den visas inte. Commons filsida (`action=raw`) har licensmallen PD-user; frågan om strukturerade data (CC BY-SA 2.5) i källposten är inte kontrollerad igen |
+| Weimarrepubliken | 1920–1932 | `germany` | Weimarförfattningen 1919. Proportionerna var 2:3, i dag 3:5; samma teckning |
+| Västtyskland | 1950–1990 | `germany` | Grundlagen 23 maj 1949, 3:5 sedan 1950 |
+| Östtyskland | trikoloren 1949–1958, emblemflaggan 1959–1990 | `germany`, `east-germany` (27 kB) | Emblemet sedan 1 oktober 1959 |
+| Albanien | med stjärnan 1946–1991 | `albania-1946` (6 kB) | Källorna skiljer sig: ingressen säger gyllene stjärna, lagtexten röd stjärna kantad med guld (som Commons-teckningen) |
+| Österrike | 1919–1937, 1945– | `austria` | Antagen 1918, formellt 1 maj 1945. Ingen yta 1938–1944 |
+| Ungern | 1957– | `hungary` | Före 1957 olika vapen i mitten (1946–1949, från 1949, hålet 1956); visas inte |
+| Lettland | 1921–1939, 1992– | `latvia` | Officiell 15 juni 1921. Källorna skiljer sig om återinförandet: 27 eller 15 februari 1990 |
+| Estland | 1919–1939, 1992– | `estonia` | 21 november 1918, åter 7 augusti 1990 |
+| Litauen (nutida) | 1919–1939, 1990– | `lithuania` | Commons-filerna för 1918–1940 och i dag har samma färger, därför en teckning |
+| Rumänien | 1919–1947, 1990– | `romania` | Flaggorna med statsvapen 1948–1989 visas inte |
+| Spanien | republikens civilflagga 1932–1938, dagens flagga 1981– | `spain-republic`, `spain` (37 kB) | Franco- och övergångsflaggorna 1939–1980 visas inte. Källorna skiljer sig om vapnets datum 1981: 5 oktober (faktarutan, lag 33/1981) eller 19 december (texten) |
+| Bosnien och Hercegovina | liljeflaggan 1992–1997, dagens flagga 1998– | `bosnia-1992`, `bosnia` | Byggd helt (`docs/omstridda-granser.md`): båda var den erkända republikens officiella flaggor. Källorna skiljer sig om liljeflaggans datum: 20 maj (artikeln) eller 4 maj 1992 (Commons). Faktarutan säger att bosnienserberna såg liljeflaggan som bosniakernas |
+| Grekland | landflaggan 1822–1862, 1924–1934, 1975–1977; med krona 1863–1923, 1935–1940, 1945–1968; randflaggan 1978– | `greece-land`, `greece-land-crown` (35 kB), `greece` | 1969–1974 visas ingen flagga (proportioner och krona ändrades flera gånger); ingen yta 1941–1944 |
+
+Varje grupp har faktarutan "Flaggan på kartan" på fem språk. Medaljerna ligger i rätt land alla år (`tools/flaggkontroll.py` och en egen kontroll för Weimar, Väst- och Östtyskland och Italien, där 1944 saknar medalj som tidigare). `flaggkontroll.py` känner nu igen Natural Earths namn "Bosnia and Herz.".
+
+**Prövat och väntar:**
+- **Moskvariket:** väntar. Ingen andra oberoende källa för året 1489 hittades. Artikeln om Ivan III anger 1489 i två bildtexter utan källhänvisning, samma år som Commons filsida ("troligen 1489"). Artikeln om Moskvariket anger 1497 för sigillets framsida med hänvisning till Parppei (2017), och artikeln om Rysslands riksvapen säger att sigillet är belagt 1472 (utan källhänvisning) och att örnen 1497 stämplades på ett dokument om furstarnas besittningar. Källorna skiljer sig alltså mellan 1472, 1489 och 1497. Förslag: bygg örnen från 1497, det enda året med källhänvisning, med en faktaruta om skillnaden (texten på fem språk är förberedd). Commons-SVG:n gav 429 i över en timme, så symbolen är inte byggd. Ryska Wikipedia gick inte att nå.
+- **Bulgarien 1948–1989:** de tre emblemflaggorna är belagda (Flag of Bulgaria, galleriet), men Commons-filnamnen i artikeln är omdirigeringar och SVG-filerna hann inte hämtas (429). Nästa omgång.
+- **Belarus:** vit-röd-vit 1991–1995, ornamentflaggan 1995–2012 och nuvarande från 2012 är belagda på Flag of Belarus. Byggs helt eller inte alls; SVG-filerna för 1991 och 1995 hann inte hämtas (429). Nästa omgång.
+- **Nordmakedonien 1992–1995 (Kutlesh-flaggan):** väntar. Att tiden 1992–1994 saknar tecken står under "Öppet för DasKrokodils beslut" i uppföljningen 2026-11-14, och flaggbytet är politiskt laddat.
+- **Schweiz 1648–1815:** ingen nationsflagga. Flag of Switzerland: korset var fältmärke, föll ur bruk efter 1540, och de flesta bilder av edsförbundet på 1600-talet saknar korset; en "nationsflagga" angavs inte förrän senare. Byggs inte.
+- **Tyskland före 1991** gäller grupperna ovan; gruppen Tyskland börjar 1991 och har redan sin flagga. Nazityskland ingår inte i omgången.
+- **Kungariket Ungern:** Flag of Hungary visar kungliga fanor per dynasti (1200-talet, 1301–1382, Sigismund och senare) med källor, men varje fana är en egen detaljrik teckning och inte rikets tecken hela tiden. Väntar på ett beslut om dynastiska fanor.
+- **Kungariket England** och **Första bulgariska riket:** inte prövade igen i den här omgången (källorna skiljer sig om Georgskorset; Krums fana är en avbildning från 1300-talet). Står kvar som "vänta".
+- **Grekland 1969–1974, Ungern 1919–1956, Rumänien 1948–1989, Spanien 1939–1980:** flaggor med vapen i flera versioner, inte byggda.
+- "ingen" (Novgorod, Córdoba, Frankerriket, Kalmarunionen, Neutrala Moresnet) byggs inte.
+
+Expertgranskning: underagenter kunde inte kallas in i den här körningen. Fakta och källor granskas efteråt av en Claude Code som inte byggde ändringen.
+
 ## Tabeller per världsdel
 
 Kolumner: id, rike, sort, vad symbolen är, källa, bild på Commons med licens, säkerhet, rekommendation och anmärkning.
