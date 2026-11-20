@@ -32951,6 +32951,23 @@
    "file": "data/empires/tanzania.json",
    "flags": [
     {
+     "file": "tanganyika",
+     "from": 1961,
+     "to": 1963,
+     "label": {
+      "sv": "Tanganyikas flagga",
+      "en": "Flag of Tanganyika",
+      "de": "Flagge Tanganjikas",
+      "es": "Bandera de Tanganica",
+      "fr": "Drapeau du Tanganyika"
+     },
+     "sources": [
+      "wp-flag-tanzania",
+      "commons-flagga-tanganyika"
+     ],
+     "review": "source-checked"
+    },
+    {
      "file": "tanzania",
      "from": 1964,
      "to": 2024,
@@ -35086,6 +35103,42 @@
    "from": 1961,
    "to": 2024,
    "file": "data/empires/burkina-faso.json",
+   "flags": [
+    {
+     "file": "upper-volta",
+     "from": 1961,
+     "to": 1983,
+     "label": {
+      "sv": "Övre Voltas flagga",
+      "en": "Flag of Upper Volta",
+      "de": "Flagge Obervoltas",
+      "es": "Bandera del Alto Volta",
+      "fr": "Drapeau de la Haute-Volta"
+     },
+     "sources": [
+      "wp-flag-burkina-faso",
+      "commons-flagga-upper-volta"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "burkina-faso",
+     "from": 1984,
+     "to": 2024,
+     "label": {
+      "sv": "Burkina Fasos flagga från 1984",
+      "en": "Flag of Burkina Faso from 1984",
+      "de": "Flagge Burkina Fasos seit 1984",
+      "es": "Bandera de Burkina Faso desde 1984",
+      "fr": "Drapeau du Burkina Faso depuis 1984"
+     },
+     "sources": [
+      "wp-flag-burkina-faso",
+      "commons-flagga-burkina-faso"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "burkina-faso",
