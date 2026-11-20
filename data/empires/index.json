@@ -28599,6 +28599,23 @@
    "file": "data/empires/rwanda.json",
    "flags": [
     {
+     "file": "rwanda-1961",
+     "from": 1963,
+     "to": 2001,
+     "label": {
+      "sv": "Rwandas flagga 1961–2001",
+      "en": "Flag of Rwanda 1961–2001",
+      "de": "Flagge Ruandas 1961–2001",
+      "es": "Bandera de Ruanda de 1961 a 2001",
+      "fr": "Drapeau du Rwanda de 1961 à 2001"
+     },
+     "sources": [
+      "wp-flag-rwanda",
+      "commons-flagga-rwanda-1961"
+     ],
+     "review": "source-checked"
+    },
+    {
      "file": "rwanda",
      "from": 2002,
      "to": 2024,
