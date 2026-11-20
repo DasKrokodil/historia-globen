@@ -110,6 +110,22 @@ function caucasusCrestLat(lon) {
   }
   return CAUCASUS_CREST[CAUCASUS_CREST.length - 1][0];
 }
+// Bosporen (#2017) som [lat, lon] från sundets södra mynning vid 41,0° N till Svarta havet: en mittlinje mellan Trakiens och Anatoliens kuster i Natural Earth
+// 1:10m (ne_10m_admin_0_countries, där de är två skilda ytor), kontrollerad mot alla kustpunkter norr om 41° N på båda sidor
+// (cirka 400 m marginal där sundet är smalast). Norr om sundets mynning fortsätter linjen rakt norrut ut i havet.
+const BOSPORUS = [[41.0, 29.0], [41.03, 29.0], [41.05, 29.035], [41.08, 29.057], [41.13, 29.079], [41.15, 29.06], [41.17, 29.072], [41.19, 29.095], [41.21, 29.115], [41.24, 29.14]];
+function bosporusLon(lat) {
+  if (lat <= BOSPORUS[0][0]) return BOSPORUS[0][1];
+  for (let i = 1; i < BOSPORUS.length; i++) {
+    const [a, x] = BOSPORUS[i - 1], [b, y] = BOSPORUS[i];
+    if (lat <= b) return x + (lat - a) / (b - a) * (y - x);
+  }
+  return BOSPORUS[BOSPORUS.length - 1][1];
+}
+// Norra Anatolien (#2017): norr om 41° N, öster om Bosporen och väster om Kaukasuslinjens början vid Anapa. Söder om 43,2° N finns
+// där bara Anatolien och Svarta havet: Turkiets nordligaste punkt ligger vid 42,10° N och Krims sydspets vid 44,38° N (Natural Earth
+// 1:10m). Sinop och Samsun blir Asien; Istanbuls europeiska sida, Edirne och Kırklareli ligger väster om linjen och förblir Europa.
+const northAnatolia = (lat, lon) => lat >= 41 && lat < 43.2 && lon < CAUCASUS_CREST[0][1] && lon >= bosporusLon(lat);
 // Norr om 41° N och väster om 60° Ö: Europa, utom söder om Kaukasus huvudkam (#2010) och, öster om kammens
 // slut vid Apsjeron, söder om 44,5° N (Kaspiska havets östra strand, Ustjurt).
 function northOfCaucasus(lat, lon) {
@@ -139,6 +155,7 @@ export function region(lat, lon) {
   if (africa) return 'Afrika';
   if (lon >= 52 && lon < 64 && lat > -22 && lat < -3) return 'Afrika'; // Maskarenerna och Seychellerna (#1334)
   if (lat >= 36.6 && lat <= 40.45 && lon < 28.9 && lon > aegeanCoastLon(lat)) return 'Asien'; // västra Anatolien (#1334)
+  if (northAnatolia(lat, lon)) return 'Asien'; // Svartahavskusten (#2017)
   if (lat >= 35 && (lon < 28.9 || (lat >= 41 && lon < 60 && northOfCaucasus(lat, lon)))) return 'Europa';
   return 'Asien';
 }
