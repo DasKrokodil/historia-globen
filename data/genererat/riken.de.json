@@ -66,7 +66,7 @@
 "tanzania":{"flags":{"0":{"label":{"de":"Flagge Tanganjikas"}},"1":{"label":{"de":"Flagge Tansanias"}}}},
 "namibia":{"flags":{"0":{"label":{"de":"Flagge Namibias"}}}},
 "turkiet":{"flags":{"0":{"label":{"de":"Flagge der Türkei"}}}},
-"zambia":{"flags":{"0":{"label":{"de":"Flagge Sambias seit 1996"}}}},
+"zambia":{"flags":{"0":{"label":{"de":"Flagge Sambias 1964–1996"}},"1":{"label":{"de":"Flagge Sambias seit 1996"}}}},
 "frankrike":{"flags":{"0":{"label":{"de":"Französische Trikolore"}}}},
 "somalia":{"flags":{"0":{"label":{"de":"Flagge Somalias"}}}},
 "centralafrikanska-republiken":{"flags":{"0":{"label":{"de":"Flagge der Zentralafrikanischen Republik"}}}},

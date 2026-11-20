@@ -66,7 +66,7 @@
 "tanzania":{"flags":{"0":{"label":{"fr":"Drapeau du Tanganyika"}},"1":{"label":{"fr":"Drapeau de la Tanzanie"}}}},
 "namibia":{"flags":{"0":{"label":{"fr":"Drapeau de la Namibie"}}}},
 "turkiet":{"flags":{"0":{"label":{"fr":"Drapeau de la Turquie"}}}},
-"zambia":{"flags":{"0":{"label":{"fr":"Drapeau de la Zambie depuis 1996"}}}},
+"zambia":{"flags":{"0":{"label":{"fr":"Drapeau de la Zambie de 1964 à 1996"}},"1":{"label":{"fr":"Drapeau de la Zambie depuis 1996"}}}},
 "frankrike":{"flags":{"0":{"label":{"fr":"Drapeau tricolore français"}}}},
 "somalia":{"flags":{"0":{"label":{"fr":"Drapeau de la Somalie"}}}},
 "centralafrikanska-republiken":{"flags":{"0":{"label":{"fr":"Drapeau de la République centrafricaine"}}}},

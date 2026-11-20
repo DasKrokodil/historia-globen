@@ -91,7 +91,7 @@
 "tanzania":{"flags":{"0":{"label":{"en":"Flag of Tanganyika"}},"1":{"label":{"en":"Flag of Tanzania"}}}},
 "namibia":{"flags":{"0":{"label":{"en":"Flag of Namibia"}}}},
 "turkiet":{"flags":{"0":{"label":{"en":"Flag of Turkey"}}}},
-"zambia":{"flags":{"0":{"label":{"en":"Flag of Zambia from 1996"}}}},
+"zambia":{"flags":{"0":{"label":{"en":"Flag of Zambia 1964–1996"}},"1":{"label":{"en":"Flag of Zambia from 1996"}}}},
 "frankrike":{"flags":{"0":{"label":{"en":"French tricolour"}}}},
 "somalia":{"flags":{"0":{"label":{"en":"Flag of Somalia"}}}},
 "centralafrikanska-republiken":{"flags":{"0":{"label":{"en":"Flag of the Central African Republic"}}}},
