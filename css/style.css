@@ -3348,6 +3348,7 @@ span.theme-event:hover { background: none; outline: none; }
 @media (max-width: 760px) and (min-height: 481px) {
   .app:not(.lesson):not(.touring):not(.focusing) { --ff-b: 154px; }
   .app:not(.lesson):not(.touring):not(.focusing):has(.pause-note:not([hidden])) { --ff-b: 216px; }
+  .app:not(.lesson):not(.touring):not(.focusing) .more-menu { max-height: calc(100dvh - 226px); } /* Meny slutar ovanför tidsraden, som är 46 px högre (180 + 46, #530) */
   .app:not(.lesson):not(.touring):not(.focusing) .ff-tab { bottom: 182px; }
   .app:not(.lesson):not(.touring):not(.focusing):has(.pause-note:not([hidden])) .ff-tab { bottom: 242px; }
 }

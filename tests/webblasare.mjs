@@ -7833,7 +7833,7 @@ async function run(browser, vp) {
       await fresh.mouse.move(X(0.62), Y); await fresh.mouse.down(); await fresh.mouse.move(X(0.58), Y);
       await note.waitFor({ state: 'visible', timeout: T.step });
       const inSegment = (await note.textContent()).trim();
-      if (!/^Här är en tiondel av tidslinjen ≈ \d/.test(inSegment)) throw new Error(`skalraden inne i ett segment: "${inSegment}"`);
+      if (!/^3000 f\.Kr\.–i dag: en tiondel ≈ \d/.test(inSegment)) throw new Error(`skalraden inne i ett segment (reglagets namn, sedan skalan, #1959): "${inSegment}"`);
       await fresh.mouse.move(X(0.45), Y); // ett enda hopp över skarven, så att statusraden hinner läsa upp det en gång
       const crossed = (await note.textContent()).trim();
       if (!/^Ny skala: en tiondel ≈ \d[\d\s ]* år \(förut \d/.test(crossed)) throw new Error(`skalraden efter skarven: "${crossed}"`);
