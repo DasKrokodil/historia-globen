@@ -379,6 +379,50 @@ Varje grupp har faktarutan "Flaggan på kartan" på fem språk. Medaljerna ligge
 
 Expertgranskning: underagenter kunde inte kallas in i den här körningen. Fakta och källor granskas efteråt av en Claude Code som inte byggde ändringen.
 
+## Uppföljning 2026-11-20: rester del A (#2027)
+
+Byggt på grenen `claude/issue-2027-del-a`, från dagens `main`. Källorna öppnades igen 2026-11-20: "Flag of …" på engelska Wikipedia för åren och varje Commons-filsida (`action=raw`) för licensen och teckningen. Wikimedia svarade 429 på de flesta försöken; filerna hämtades en i taget med minst 90 sekunders paus efter varje 429, och de som kom fram jämfördes med filsidans nuvarande version (sha1 i Commons API för Irak). Ingen flagga visas före antagandeåret eller utanför gruppens år, och de nya posterna ansluter till de befintliga utan överlapp.
+
+| Grupp | Visas | Fil (storlek) | Anmärkning |
+|---|---|---|---|
+| Irak | 1932–1957, 1959–1962, 1963–1990, 1991–2003, 2004–2007, 2008–2024 | `iraq-1924` (0,5 kB), `iraq-1959` (0,6 kB), `iraq-1963` (2,0 kB), `iraq-1991` (3,3 kB), `iraq-2004` (1,9 kB), `iraq` (1,6 kB) | Alla sex flaggor, alltså helt. Kungarikets flagga 1924-07-10 till 1959-01-01, 1959–1963 (Qasim, lag 102 av 1959), trefärgen från 1963-07-31, takbir från januari 1991, takbir i kufisk skrift från 2004-07-28 och utan stjärnor från 2008-01-22. 1958 är en lucka: kungarikets flagga gällde enligt bildtexten till 1959-01-01, men samma artikel säger att Arabiska federationens flagga gällde 1958 |
+| Belarus | 1992–1994, 1995–2011, 2012–2024 | `belarus-1991` (0,2 kB), `belarus-1995` (4,9 kB), `belarus` (4,5 kB) | Alla belagda flaggor för gruppens år, alltså helt. Den vit-röd-vita "after it regained its independence in 1991 until the (disputed) 1995 referendum"; flaggan från folkomröstningen 1995-05-14 (dekret 1995-06-07) och den nuvarande med tjockare ornament från 2012-02-10. Folkomröstningens giltighet ifrågasätts av oppositionen enligt artikeln; kartan visar de flaggor som staten använde |
+| Zambia | 1967–1995 | `zambia-1964` (4,0 kB) | Flaggan från 1964-10-24 med mörkare grönt och den äldre örnen, till ändringen 1996. Gruppen börjar 1967 |
+| Belize | 1983–2018 | `belize-1981` (40 kB) | Flaggan från 1981-09-21 före standardiseringen 2019-08-28. Commons-filen är en användares egen teckning av en flagga utan fastställda mått ("the hue of the flag's colours, proportions, the shading of the two men … often varied"); faktarutans text på fem språk säger nu det |
+| Bulgarien | 1971–1989 | `bulgaria-1971` (51 kB) | Folkrepublikens flagga med emblemet i det vita bandet vid stången, "Hoisted for the first time on 21 May 1971", med banden 681 och 1944. Ansluter till trikoloren från 1990. 1948–1966 och 1967–1970 är luckor (se nedan) |
+
+**Förenkling:** samma skript som i Asien och Afrika omgång 3 (#1153, #1154): varje form transformeras till 300 × 200 bildpunkter, koordinaterna avrundas till en tiondels bildpunkt, nästan raka kurvor blir raka, delbanor under en bildpunkt tas bort, och id, metadata och upprepningar (`use`) skrivs ut. Inget är ritat nytt. Jämfört bild för bild med originalet: Irak 2004 0,02 % (1800 × 1200), Zambia 0,00 % (960 × 640), Belize 0,05 % (900 × 600) och Belarus ornament 0,00 % (2012) och 0,01 % (1995) i sin egen proportion. De fem andra Irak-filerna gav samma bytes som i förra omgången med samma skript och inställningar, och Commons-filerna är oförändrade (samma sha1 som filsidans nuvarande version). Belizes fyra färgtoningar i männens hud är ersatta med toningens medelfärg, eftersom skriptet inte för över toningar; i kartans storlek (högst 72 bildpunkter i faktarutan) syns ingen skillnad. Belarus flaggor är 1:2: ornamentet har kvar sin form vid stången och fälten är utdragna till 3:2; den nuvarande flaggans fil klipper ornamentet med en `clipPath`, som är kvar som en enkel rektangel med filens mått. Den vit-röd-vita flaggan är tre lika breda band (PD-shape). Bulgariens flaggfiler är CC BY-SA och GFDL, så emblemet kopieras inte ur dem: trikoloren är enkel geometri med flaggfilens färger, och emblemet kommer ur den separata emblemfilen, som är public domain (PD-BulgarianGov). Ur flaggfilen används bara emblemets plats och höjd, uppmätta genom att jämföra flaggan med en ren trikolor bild för bild; fältet dras ut från 5:3 till 3:2 och emblemet har sin form. Emblemfilen är 758 kB, så kurvorna är gjorda till linjer inom 0,3 bildpunkter och delar under 1,5 bildpunkter borttagna: 51 kB och 0,09 % skillnad mot det oförenklade emblemet i 900 × 600. Det är den största filen i `img/flags/` (Fiji och Belize 1981 med 40 kB närmast).
+
+**Licenser:** Irak PD-Iraq och PD-ineligible, Belarus PD-BY-exempt (den vit-röd-vita även PD-shape, den nuvarande även PD-self), Zambia PD-Zambia och PD-ineligible och Belize PD-US-1978-89. Bulgariens emblem PD-BulgarianGov; flaggfilen (CC BY-SA 3.0 och GFDL) står som källa för emblemets plats, men inga former är tagna ur den.
+
+**Källorna skiljer sig:**
+- Irak: kungarikets flagga anges som 1924 i artikeln och 1921–1959 i Commons-galleriet. Takbiren 1991 lades till 13, 14 eller 22 januari beroende på källa i artikeln. På årsnivå visas 1959 års flagga till 1962 och trefärgen från 1963, fast bytet skedde 1963-07-31.
+- Bulgarien: Wikipedia (engelska och tyska) säger 1948–1967 och 1967–1971 ("Valid as of 5 January 1967"), men Commons-filsidorna för emblemet och flaggan säger 1948–1968 och 1968–1971. Engelska artikeln om emblemet säger att det 1967 ändrades "with the white wheat replacing the gold", men både flaggfilen och emblemfilen för 1967–1971 har gyllene vete, och lejonet är guldbrunt i flaggfilen men gult i emblemfilen. Emblemfilen för 1971–1990 är märkt "The historical representativeness of this image is disputed"; diskussionssidan gäller färgnyansen.
+
+**Inte byggt:**
+- **Eritrea 1993–1995:** inte byggd. Commons-filen (`Flag of Eritrea (1993–1995).svg`, PD-self, "based on" dagens flagga) har rätt proportion, 2:3, men kransen är en egen frihandsteckning som inte är spegelvänd. En räkning av bladen (skelett av emblemet, ändpunkterna märkta och kontrollerade bild för bild) ger 14 blad på vänster sida men bara omkring 12 på höger, medan Flag of Eritrea säger "a gold wreath symbol with 14 leaves on each side". Teckningen stämmer alltså inte med beskrivningen, och 1993–1995 förblir en lucka.
+- **Bulgarien 1967–1970:** inte byggd, eftersom källorna skiljer sig om både året (1967 eller 1968) och emblemets utseende (vitt eller gyllene vete). Lucka.
+- **Bulgarien 1948–1966:** inte byggd. Emblemfilen `Coat of arms of Bulgaria (1948–1968).svg` (PD-BulgarianGov, filsidan läst) svarade 429 vid alla försök i över två timmar; flaggfilen (för emblemets plats) är hämtad. Lucka tills filen går att hämta.
+
+**Medaljens plats:** `tools/flaggkontroll.py` (Natural Earth 1:50m admin-0) går igenom utan fel; Irak fick alias för Natural Earths namn (Iraq), så att den nu kontrolleras. Ingen `labelAt` behövdes. På kartan (Playwright, 2026-11-20, 1280 och 400 bildpunkters bredd, utan konsolfel) laddas rätt fil och flaggmarkören syns på rätt land: Irak 1940, 1960, 1975, 1995, 2005 och 2010, Belarus 1993, 2000 och 2015, Zambia 1980 och 2000, Bulgarien 1980 och 1995 och Belize 2000 och 2020 (dator). Irak 1958 och Zambia 1966 visar ingen flagga. I Fokus (`#y=…&f=empire:<id>`) visas Iraks sex flaggor och Belize 1981 i faktarutan; Belizes medalj syns inte i översikten i 400 bildpunkters bredd (som i #1155), men i Fokus. Zambia och Belarus visar ingen medalj i Fokus på hela landet, och det gör inte heller de befintliga flaggorna för Zambia och Eritrea 2000, så det är kartans vanliga beteende.
+
+**Skärmbilder:**
+- Irak 1960, dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/irak-1960-1280.webp
+- Irak 2005, dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/irak-2005-1280.webp
+- Belarus 1993, dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/belarus-1993-1280.webp
+- Zambia 1980, dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/zambia-1980-1280.webp
+- Bulgarien 1980, dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/bulgarien-1980-1280.webp
+- Belize 2000 i Fokus, dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/belize-2000-fokus-1280.webp
+- Irak 1940, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/irak-1940-400.webp
+- Irak 2005 i Fokus, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/irak-2005-fokus-400.webp
+- Belarus 2000, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/belarus-2000-400.webp
+- Belarus 2015, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/belarus-2015-400.webp
+- Zambia 1980, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/zambia-1980-400.webp
+- Bulgarien 1980, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/bulgarien-1980-400.webp
+- Belize 2000 i Fokus, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/belize-2000-fokus-400.webp
+
+**Expertgranskning:** arbetaren hade inget verktyg för att kalla in underagenter (`historiker`, `geograf`, `sprak-en`, `sprak-de`, `sprak-es`, `sprak-fr`). Fakta, källor, medaljernas plats och etiketterna på fem språk granskas därför separat av en Claude Code som inte byggde ändringen.
+
 ## Tabeller per världsdel
 
 Kolumner: id, rike, sort, vad symbolen är, källa, bild på Commons med licens, säkerhet, rekommendation och anmärkning.
