@@ -13802,6 +13802,103 @@ async function run(browser, vp) {
     return delar.join(' | ');
   });
 
+  // #2128: teckenförklaringen under tidslinjen gick inte att nå med Tab. Reglaget visar skalraden när det får fokus, och då var hela teckenförklaringen
+  // visibility: hidden, så att "Tecken" inte kunde ta fokus (Tab från reglaget gick till body). Dessutom klipptes fokusringen av fönstrets underkant
+  // (outline-offset 2 px på sista raden) och teckenförklaringens text var 11 px i liggande telefon (12 px-golvet gällde bara under 761 px bredd).
+  // Provet: (a) Tab från reglaget hamnar på "Tecken", som då syns (skalraden tonas bort på samma plats, tidsraden ändrar inte höjd), Enter och Blanksteg
+  // fäller upp och ihop, Skift+Tab går tillbaka till reglaget och teckenförklaringen är inte dold för skärmläsare; (b) hela fokusringen ligger inom
+  // fönstret och inte över något årtal; (c) texten är minst 12 px med pekning (400 × 800 och 800 × 360) och 11 px med mus på dator.
+  await check('tidsraden: teckenförklaringen nås med Tab från reglaget, ringen ryms och texten är 12 px med pekning (#2128)', async () => {
+    const mata = async (pek, storlek) => {
+      const { tp, tctx, errs } = pek ? await touchPage(storlek, { isMobile: true }) : { tp: await context.newPage(), tctx: null, errs: [] };
+      if (!pek) {
+        await tp.setViewportSize({ width: storlek.width, height: storlek.height });
+        tp.on('pageerror', e => errs.push(e.message));
+        if (THREE_LOCAL) {
+          const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+          await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+          await tp.route(u => isFont(u.href), r => r.abort());
+        }
+      }
+      try {
+        await tp.addInitScript(() => { try { localStorage.setItem('hg-year-tip', '1'); localStorage.removeItem('hg-teckenforklaring'); } catch { /* utan lagring visas tipset */ } });
+        await tp.goto(`${BASE}?lang=sv#y=1325`);
+        await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await tp.waitForTimeout(400);
+        if (await tp.isVisible('#year-tip-close')) await tp.click('#year-tip-close');
+        await tp.waitForFunction(() => getComputedStyle(document.getElementById('timeline-legend')).visibility === 'visible', null, { timeout: T.step });
+        const aktiv = () => tp.evaluate(() => { const a = document.activeElement; return a ? (a.id || `${a.tagName.toLowerCase()}${a.parentElement?.id ? `#${a.parentElement.id}` : ''}`) : 'ingenting'; });
+        const form = () => tp.evaluate(() => {
+          const l = document.getElementById('timeline-legend'), s = l.querySelector('summary'), n = document.getElementById('timeline-scale-note');
+          const cs = getComputedStyle(s), r = s.getBoundingClientRect();
+          const ring = { off: parseFloat(cs.outlineOffset) || 0, w: cs.outlineStyle === 'none' ? 0 : parseFloat(cs.outlineWidth) || 0 };
+          const ut = ring.off + ring.w; // hur långt ringen når utanför knappens ruta
+          const synliga = [...document.querySelectorAll('.tick')].filter(e => { const c = getComputedStyle(e), b = e.getBoundingClientRect(); return c.visibility !== 'hidden' && c.display !== 'none' && b.width > 0; });
+          const over = synliga.filter(e => { const b = e.getBoundingClientRect(); return r.left - ut < b.right && r.right + ut > b.left && r.top - ut < b.bottom - 0.5 && r.bottom + ut > b.top; }).map(e => e.textContent.trim());
+          return {
+            open: l.open, legendVis: getComputedStyle(l).visibility, summaryVis: cs.visibility, opacity: cs.opacity, noteShown: !n.hidden, noteVis: getComputedStyle(n).visibility,
+            bar: document.querySelector('.timebar').getBoundingClientRect().height, ring, ringBottom: r.bottom + ut, ringLeft: r.left - ut, ringRight: r.right + ut, ringTop: r.top - ut, over,
+            vw: innerWidth, vh: innerHeight, hiddenForSR: !!l.closest('[aria-hidden="true"]'), font: getComputedStyle(l).fontSize, summaryFont: cs.fontSize,
+            itemFonts: [...l.querySelectorAll('.tl-item')].filter(e => e.getClientRects().length).map(e => getComputedStyle(e).fontSize),
+          };
+        });
+        const delar = [];
+        // (c) Textstorleken i vila (skalraden syns inte): minst 12 px med pekning, oförändrat 11 px med mus på dator
+        const vila = await form();
+        const vantad = pek ? 12 : 11;
+        const storlekar = [vila.font, vila.summaryFont, ...vila.itemFonts].map(parseFloat);
+        if (pek ? storlekar.some(f => f < vantad) : storlekar.some(f => f !== vantad)) throw new Error(`teckenförklaringens text är ${[...new Set(storlekar)].join(', ')} px, ska vara ${pek ? 'minst' : 'oförändrat'} ${vantad} px ${pek ? 'med pekning' : 'med mus'}`);
+        delar.push(`text ${[...new Set(storlekar)].join('/')} px ${pek ? 'med pekning' : 'med mus'}`);
+        // (a) Tab från reglaget. Fokus på reglaget visar skalraden, som döljer teckenförklaringen för ögat men inte för tangentbordet.
+        await tp.focus('#track');
+        await tp.waitForFunction(() => !document.getElementById('timeline-scale-note').hidden, null, { timeout: T.step });
+        const fore = await form();
+        if (fore.legendVis !== 'hidden') throw new Error(`teckenförklaringen ska vara dold för ögat medan skalraden syns (visibility ${fore.legendVis})`);
+        if (fore.hiddenForSR) throw new Error('teckenförklaringen ligger i något som är aria-hidden');
+        await tp.keyboard.press('Tab');
+        const efter = await aktiv();
+        if (efter !== 'summary#timeline-legend') throw new Error(`Tab från reglaget gick till ${efter} i stället för "Tecken" i teckenförklaringen`);
+        const pa = await form();
+        if (pa.summaryVis !== 'visible' || Number(pa.opacity) < 0.5) throw new Error(`"Tecken" har fokus men syns inte (visibility ${pa.summaryVis}, opacity ${pa.opacity})`);
+        if (pa.noteVis !== 'hidden') throw new Error(`skalraden ligger kvar över "Tecken" (visibility ${pa.noteVis})`);
+        if (Math.abs(pa.bar - fore.bar) > 0.5) throw new Error(`tidsraden ändrade höjd (${fore.bar} → ${pa.bar}) när fokus gick till teckenförklaringen`);
+        if (!pa.open) throw new Error('teckenförklaringen är hopfälld från början');
+        // Enter och Blanksteg fäller ihop och upp som förut; Skift+Tab går tillbaka till reglaget och Tab dit igen
+        await tp.keyboard.press('Enter');
+        if ((await form()).open) throw new Error('Enter fällde inte ihop teckenförklaringen');
+        await tp.keyboard.press('Enter');
+        if (!(await form()).open) throw new Error('Enter fällde inte upp teckenförklaringen');
+        await tp.keyboard.press('Space');
+        if ((await form()).open) throw new Error('Blanksteg fällde inte ihop teckenförklaringen');
+        await tp.keyboard.press('Space');
+        if (!(await form()).open) throw new Error('Blanksteg fällde inte upp teckenförklaringen');
+        await tp.keyboard.press('Shift+Tab');
+        const bakat = await aktiv();
+        if (bakat !== 'track') throw new Error(`Skift+Tab från "Tecken" gick till ${bakat} i stället för reglaget`);
+        await tp.keyboard.press('Tab');
+        if ((await aktiv()) !== 'summary#timeline-legend') throw new Error('Tab från reglaget nådde inte "Tecken" andra gången');
+        delar.push('Tab → Tecken, Enter/Blanksteg, Skift+Tab → reglaget');
+        // (b) Fokusringen (nu på "Tecken", via tangentbordet) ligger helt inom fönstret och inte över något årtal
+        if (!(pa.ring.w >= 2)) throw new Error(`fokusringen syns inte (bredd ${pa.ring.w})`);
+        const hel = await form();
+        if (hel.ringBottom > hel.vh + 0.01 || hel.ringTop < 0 || hel.ringLeft < 0 || hel.ringRight > hel.vw + 0.01) {
+          throw new Error(`fokusringen klipps av fönstret (${Math.round(hel.ringLeft)}–${Math.round(hel.ringRight)} × ${Math.round(hel.ringTop * 10) / 10}–${Math.round(hel.ringBottom * 10) / 10} i ${hel.vw} × ${hel.vh})`);
+        }
+        if (hel.over.length) throw new Error(`fokusringen ritas över årtalet ${hel.over.join(', ')}`);
+        delar.push(`ringen ${Math.round(hel.ringBottom * 10) / 10} av ${hel.vh} px`);
+        if (errs.length) throw new Error(errs[0]);
+        return delar.join(', ');
+      } finally { if (tctx) await tctx.close(); else await tp.close(); }
+    };
+    const storlekar = vp.width > 760 ? [{ width: 1280, height: 800 }] : [{ width: 400, height: 800 }, { width: 800, height: 360 }];
+    const ut = [];
+    for (const storlek of storlekar) {
+      try { ut.push(`${storlek.width} × ${storlek.height}: ${await mata(vp.width <= 760, storlek)}`); }
+      catch (e) { throw new Error(`${storlek.width} × ${storlek.height}: ${e.message}`); }
+    }
+    return ut.join(' | ');
+  });
+
   // #1713, uppföljning: Samtidigt-fliken hade en osynlig 44 px yta (::after) som låg över datumknappen vid 800 × 360 och tog trycket på datumet,
   // och Hjälpkortets två länkar (24 px höga, 44 px yta var) låg så tätt att ytorna gick in i varandra. Provet trycker med elementFromPoint:
   // vid 800 × 360 ska varken Samtidigt-kortet eller fliken ligga över datumknappen (mitten och fyra punkter), fliken är 44 px hög och
