@@ -24,7 +24,7 @@
 "israel":{"flags":{"0":{"label":{"de":"Flagge Israels"}}}},
 "palestina":{"flags":{"0":{"label":{"de":"Flagge Palästinas"}}}},
 "jordanien":{"flags":{"0":{"label":{"de":"Flagge Jordaniens"}}}},
-"irak":{"flags":{"0":{"label":{"de":"Flagge des Königreichs Irak"}},"1":{"label":{"de":"Irakische Flagge von 1959–1963"}},"2":{"label":{"de":"Irakische Flagge von 1963"}},"3":{"label":{"de":"Irakische Flagge von 1991"}},"4":{"label":{"de":"Irakische Flagge von 2004"}},"5":{"label":{"de":"Irakische Flagge von 2008"}}}},
+"irak":{"flags":{"0":{"label":{"de":"Flagge des Königreichs Irak"}},"1":{"label":{"de":"Irakische Flagge 1959–1963"}},"2":{"label":{"de":"Irakische Flagge von 1963"}},"3":{"label":{"de":"Irakische Flagge von 1991"}},"4":{"label":{"de":"Irakische Flagge von 2004"}},"5":{"label":{"de":"Irakische Flagge von 2008"}}}},
 "kuwait":{"flags":{"0":{"label":{"de":"Flagge Kuwaits"}}}},
 "indien":{"flags":{"0":{"label":{"de":"Indische Trikolore mit Ashoka-Chakra"}}}},
 "pakistan":{"flags":{"0":{"label":{"de":"Pakistanische Stern-und-Mondsichel-Flagge"}}}},

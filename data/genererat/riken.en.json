@@ -46,7 +46,7 @@
 "israel":{"flags":{"0":{"label":{"en":"Flag of Israel"}}}},
 "palestina":{"flags":{"0":{"label":{"en":"Flag of Palestine"}}}},
 "jordanien":{"flags":{"0":{"label":{"en":"Flag of Jordan"}}}},
-"irak":{"flags":{"0":{"label":{"en":"Flag of the Kingdom of Iraq"}},"1":{"label":{"en":"Iraqi flag of 1959–1963"}},"2":{"label":{"en":"Iraqi flag of 1963"}},"3":{"label":{"en":"Iraqi flag of 1991"}},"4":{"label":{"en":"Iraqi flag of 2004"}},"5":{"label":{"en":"Iraqi flag of 2008"}}}},
+"irak":{"flags":{"0":{"label":{"en":"Flag of the Kingdom of Iraq"}},"1":{"label":{"en":"Iraqi flag 1959–1963"}},"2":{"label":{"en":"Iraqi flag of 1963"}},"3":{"label":{"en":"Iraqi flag of 1991"}},"4":{"label":{"en":"Iraqi flag of 2004"}},"5":{"label":{"en":"Iraqi flag of 2008"}}}},
 "iran":{"capitals":{"0":{"note":{"en":"The fact box's source states that Agha Mohammad Khan, who was crowned shah in 1796, made Tehran the capital, but not in which year."}}}},
 "kuwait":{"flags":{"0":{"label":{"en":"Flag of Kuwait"}}}},
 "indien":{"flags":{"0":{"label":{"en":"Indian tricolour with Ashoka Chakra"}}}},
