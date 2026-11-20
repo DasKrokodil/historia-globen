@@ -103,6 +103,45 @@ for (const lat of [-22, -3, 12, 13, 18, 36, 36.6, 40.45, 40.5]) for (const lon o
 }
 for (let lat = 36.5; lat <= 40.6; lat += 0.05) for (let lon = 25.8; lon <= 28.0; lon += 0.05) edgePoints.push([lat, lon]);
 
+// Kaukasus (#2010): huvudkammen skiljer Europa (norr) från Asien (söder). Händelsernas egna koordinater, och städernas
+// ur engelska Wikipedia (öppnad 2026-11-20).
+const CAUCASUS_EVENTS = [['majkopkurganen', 'Europa'], ['gravfaltet-i-naltjik', 'Europa'], ['vagnshjulen-i-novokorsunskaja', 'Europa']];
+const CAUCASUS_PLACES = [
+  ['Vladikavkaz', 43.04, 44.6775, 'Europa'], ['Groznyj', 43.3125, 45.6986, 'Europa'], ['Stavropol', 45.05, 41.9833, 'Europa'],
+  ['Krasnodar', 45.0333, 38.9667, 'Europa'], ['Machatjkala', 42.9825, 47.505, 'Europa'],
+  ['Tbilisi', 41.7225, 44.7925, 'Asien'], ['Jerevan', 40.1778, 44.5128, 'Asien'], ['Baku', 40.3756, 49.8325, 'Asien'],
+  ['Kutaisi', 42.25, 42.7, 'Asien'], ['Sotji (söder om kammen)', 43.5853, 39.7203, 'Asien'],
+];
+// Kammens punkter, samma som CAUCASUS_CREST i js/model.js (kontrolleras här mot linjen, inte som ny geografi)
+const CREST = [[44.89, 37.32], [43.94, 39.9], [43.24, 41.73], [43.36, 42.44], [43.01, 43.17],
+  [42.7, 44.52], [42.57, 45.32], [41.22, 47.86], [41.02, 48.3], [40.46, 49.96]];
+test('norra Kaukasus räknas till Europa och sidan söder om huvudkammen till Asien (#2010)', () => {
+  for (const [id, want] of CAUCASUS_EVENTS) {
+    const [lon, lat] = events.find(e => e.id === id).location.coordinates;
+    assert.equal(region(lat, lon), want, id);
+  }
+  for (const [name, lat, lon, want] of CAUCASUS_PLACES) assert.equal(region(lat, lon), want, name);
+  // Strax norr och söder om varje brytpunkt och mitt emellan dem (bara där kammen ligger norr om 41° N)
+  for (let i = 0; i < CREST.length; i++) {
+    const pts = [CREST[i]];
+    if (i > 0) pts.push([(CREST[i - 1][0] + CREST[i][0]) / 2, (CREST[i - 1][1] + CREST[i][1]) / 2]);
+    for (const [lat, lon] of pts) {
+      if (lat - 0.01 < 41) continue;
+      assert.equal(region(lat + 0.01, lon), 'Europa', `norr om kammen ${lat}, ${lon}`);
+      assert.equal(region(lat - 0.01, lon), 'Asien', `söder om kammen ${lat}, ${lon}`);
+    }
+  }
+  // Utanför kammens ändar gäller de gamla reglerna: Krim i Europa, Kaspiska havets östra strand söder om 44,5° N i Asien
+  assert.equal(region(44.5, 34.0), 'Europa', 'Krim');
+  assert.equal(region(43.5, 52.0), 'Asien', 'östra Kaspiska stranden');
+  assert.equal(region(45.0, 52.0), 'Europa', 'norr om 44,5° N öster om Kaspiska havet');
+});
+for (const [lat, lon] of CREST) {
+  for (const dy of [-0.0001, 0, 0.0001]) for (const dx of [-0.0001, 0, 0.0001]) edgePoints.push([lat + dy, lon + dx]);
+}
+for (let lat = 40.0; lat <= 45.5; lat += 0.1) for (let lon = 37.0; lon <= 50.5; lon += 0.1) edgePoints.push([lat, lon]);
+for (const [, lat, lon] of CAUCASUS_PLACES) edgePoints.push([lat, lon]);
+
 // Ett glest nät fångar också skillnader bortom de uttryckliga gränsfallen.
 for (let lat = -60; lat <= 75; lat += 2.5) for (let lon = -180; lon < 180; lon += 2.5) edgePoints.push([lat, lon]);
 
@@ -123,6 +162,18 @@ print(json.dumps([namespace['region_of'](lat, lon) for lat, lon in json.load(sys
   assert.equal(python.length, edgePoints.length);
   for (const [i, [lat, lon]] of edgePoints.entries()) assert.equal(python[i], region(lat, lon), `lat=${lat}, lon=${lon}`);
   t.diagnostic(`${edgePoints.length} punkter jämförda mellan JavaScript och Python`);
+});
+
+test('tools/tackningsrapport.py ger samma svar på kodgränserna, även längs Kaukasus (#2010)', () => {
+  const py = `
+import importlib.util, json, sys
+spec = importlib.util.spec_from_file_location('tr', 'tools/tackningsrapport.py')
+tr = importlib.util.module_from_spec(spec); spec.loader.exec_module(tr)
+print(json.dumps([tr.region(lat, lon) for lat, lon in json.load(sys.stdin)]))`;
+  const r = spawnSync('python3', ['-c', py], { cwd: new URL('../', import.meta.url), input: JSON.stringify(edgePoints), encoding: 'utf8' });
+  assert.equal(r.status, 0, r.stderr);
+  const python = JSON.parse(r.stdout);
+  for (const [i, [lat, lon]] of edgePoints.entries()) assert.equal(python[i], region(lat, lon), `lat=${lat}, lon=${lon}`);
 });
 
 test('eventRegion använder samma indelning för båda koordinatformerna (#1114)', () => {
