@@ -479,6 +479,10 @@ Rättat 2026-11-14 efter [expertgranskningen före v6.3.0](granskningar/2026-11-
 | inom {tid} från {år} | within {time} of {year} | – | – | *à moins de {within} de {at}* (inte *dans un rayon de*, som är ett avstånd) |
 | flaggetikett | – | *Flagge von Niger*, *Flagge von Mali*, *Flagge von Benin* (som *Flagge von Sierra Leone*) | – | – |
 | Licens: public domain (bildtext) | – | – | *Licencia: dominio público* | – |
+| Okänd fotograf (kredit, `tools/bild_hamta.py`, #2118) | Unknown photographer | *Unbekannter Fotograf* som fristående kredit, *Fotograf unbekannt* i löpande bildtext | Fotógrafo desconocido | Photographe inconnu |
+| Okänd konstnär (kredit, `tools/bild_hamta.py`, #2118) | Unknown artist | Unbekannter Künstler | *Artista desconocido* (*artista* är könsneutralt) | Artiste inconnu |
+| Licens: public domain, licensfras i bildtext (`tools/bild_hamta.py`) | Licence: Public domain | Lizenz: gemeinfrei (äldre tyska bildtexter blandar formerna *Public domain* och *gemeinfrei* och ska jämnas ut senare) | Licencia: dominio público | Licence : domaine public (hårt mellanrum U+00A0 före kolon, inte U+202F) |
+| CC-licenser i bildtext (CC0, CC BY 2.0, CC BY-SA 4.0) | oöversatta, lika på alla språk | – | – | – |
 | Lgr22, årskurs 7–9 | Lgr22 (the Swedish compulsory school curriculum), years 7–9 | – | – | *Lgr22 (le programme suédois de l'école obligatoire)*, *classes 7 à 9 (numérotation suédoise)* första gången i en text |
 
 **Rikesnamn (kontrollerade 2026-11-14 mot öppnade artiklar på målspråkets Wikipedia):**
