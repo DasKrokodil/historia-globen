@@ -1630,9 +1630,11 @@ html.calm .year-tip { animation: none; }
 }
 /* Hur man får fakta (#1978) i den smala rutan: en egen kort rad, där den långa raden är dold. Inte på en låg liggande yta (högst 480 px hög,
    #1952): rutan har där inte plats för en rad till utan att kartans fria yta minskar (47 % blir 41 % i Platt karta 800 × 360) och att
-   årtalets platta täcks; där säger markörerna och Lämna platsens karta resten, och knappen Om platsen öppnar kortet. */
+   årtalets platta täcks; där säger markörerna och Lämna platsens karta resten, och knappen Om platsen öppnar kortet. Inte heller i rutan
+   på globen i stående mobil: en rad till flyttar den fria ytan så att provet #1687 (högens namn ryms i bilden, Grönland) faller, och där
+   gäller den långa raden först när bredden tillåter. */
 @media (max-width: 760px) and (min-height: 481px) {
-  .flat-region-tap { display: block; order: 3; flex-basis: 100%; margin: 0 0 2px; font-size: 11.5px; }
+  .flat-region:not(.globe-region-chip) .flat-region-tap { display: block; order: 3; flex-basis: 100%; margin: 0 0 2px; font-size: 11.5px; }
 }
 /* Regionvyn på globen på låg yta (#1900): på en liggande telefon (högst 480 px) ligger rutan i samma kompakta form som i smal skärm
    (rubrik och knapp på en rad, utan den längre texten, som statusraden och Lager säger) och över fokusraden, kortet och tidsreglaget,
