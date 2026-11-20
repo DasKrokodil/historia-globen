@@ -13598,7 +13598,9 @@ async function run(browser, vp) {
   }, { sels, min });
   // Ytorna: hur de öppnas, vilka knappar som ska ha träffyta och vilken text som ska vara minst 12 px. `minst` är hur många element varje väljare ska hitta.
   const ytor1713 = [
-    { namn: 'start och tidsreglaget', hash: '#y=1325', mal: ['.top-actions .chip-btn:not([hidden])', '.timebar .step', '.timebar .play'], text: [] },
+    // Årtalen under reglaget (.tick) är dolda medan engångstipset syns (första besöket), så tipset stängs först; de var 10,5 px i liggande telefon (#1713, omgång 3)
+    { namn: 'start och tidsreglaget', hash: '#y=1325', gor: async p => { if (await p.isVisible('#year-tip-close')) await p.click('#year-tip-close'); await p.waitForTimeout(150); },
+      mal: ['.top-actions .chip-btn:not([hidden])', '.timebar .step', '.timebar .play'], text: ['.timebar .tick'] },
     { namn: 'Samtidigt-listan', hash: '#y=1325', gor: async p => { await p.click('#btn-panel'); await p.waitForSelector('#panel', { state: 'visible', timeout: T.step }); },
       mal: ['#panel .panel-tab', '#panel .panel-filter-toggle', '#panel-close'], text: [] },
     { namn: 'händelsekortet (Avignon)', hash: '#y=1325', gor: async p => { await p.click('#btn-panel'); await p.waitForSelector('#panel', { state: 'visible', timeout: T.step }); await p.click('#event-list .event-item >> nth=0'); await p.waitForSelector('#detail', { state: 'visible', timeout: T.step }); },
@@ -13616,7 +13618,7 @@ async function run(browser, vp) {
     { namn: 'Inställningar', hash: '#y=1325', gor: async (p, bred) => { if (!await p.isVisible('#btn-settings')) await p.click(bred ? '#btn-more' : '#more-toggle'); await p.click('#btn-settings'); await p.waitForSelector('#settings', { state: 'visible', timeout: T.step }); },
       mal: ['#settings .layer-row input[type=checkbox]'], text: [] },
     { namn: 'Sök och följ', hash: '#y=1325', gor: async (p, bred) => { if (!await p.isVisible('#btn-focus')) await p.click(bred ? '#btn-more' : '#more-toggle'); await p.click('#btn-focus'); await p.waitForSelector('#focus-menu', { state: 'visible', timeout: T.step }); },
-      mal: ['#focus-menu .focus-sort .chip-btn', '#focus-menu .focus-group-toggle'], text: [] },
+      mal: ['#focus-menu .focus-sort .chip-btn', '#focus-menu .focus-group-toggle', '#focus-menu .focus-tabs .chip-btn'], text: ['#focus-menu .focus-sort .chip-btn', '#focus-menu .focus-sort-label'] },
     // Mäts bara när det finns höjd: på en låg liggande yta (800 × 360) fälls kortet ihop när regionvyn öppnas och rutan och zoomknapparna har egna mått (#1952), som provas där
     { namn: 'regionvyn (Skåne i Platt karta)', minHojd: 600, hash: '#y=1827&f=place:skane', gor: async p => {
         await p.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
@@ -13684,6 +13686,74 @@ async function run(browser, vp) {
     const r = await matYtor1713(false, { width: 1280, height: 800 });
     if (r.fel.length) throw new Error(r.fel.join(' | '));
     return `minst 24 px i ${r.mattes.length} ytor (1280 × 800)`;
+  });
+
+  // #1713, omgång 3, punkt 6: teckenförklaringen under tidslinjen låg 4 px under fönstrets underkant i 400 × 800 och 400 × 700 och in i årtalens ruta,
+  // eftersom posterna i raden låg på baslinjen (raden blev 17 px hög i stället för 14 och posterna 3 px olika). Provet mäter varje post mot fönstret och
+  // mot de synliga årtalen (inget överlapp), också i 360 × 640 där raden bryts till två rader, i liggande telefon och på dator. Stegknapparnas osynliga
+  // 44 px yta (knapparna är 34 px höga i mobil och 32 i liggande) tar trycket 20 px över och under mitten. Engångstipset döljer raden och årtalen och
+  // stängs därför före mätningen (hg-year-tip i lagringen).
+  const matTidsrad = async (pek, storlek) => {
+    const { tp, tctx, errs } = pek ? await touchPage(storlek, { isMobile: true }) : { tp: await context.newPage(), tctx: null, errs: [] };
+    if (!pek) {
+      await tp.setViewportSize({ width: storlek.width, height: storlek.height });
+      tp.on('pageerror', e => errs.push(e.message));
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await tp.route(u => isFont(u.href), r => r.abort());
+      }
+    }
+    try {
+      await tp.addInitScript(() => { try { localStorage.setItem('hg-year-tip', '1'); } catch { /* utan lagring visas tipset */ } });
+      await tp.goto(`${BASE}?lang=sv#y=1325`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForTimeout(400);
+      if (await tp.isVisible('#year-tip-close')) await tp.click('#year-tip-close');
+      await tp.waitForFunction(() => getComputedStyle(document.getElementById('timeline-legend')).visibility === 'visible', null, { timeout: T.step });
+      const m = await tp.evaluate(() => {
+        const vis = e => { const cs = getComputedStyle(e), r = e.getBoundingClientRect(); return cs.visibility !== 'hidden' && cs.display !== 'none' && r.width > 0 && r.height > 0; };
+        const legend = document.getElementById('timeline-legend');
+        const poster = [legend.querySelector('summary'), ...legend.querySelectorAll('.tl-item')].filter(vis);
+        const ticks = [...document.querySelectorAll('.tick')].filter(vis);
+        const fel = [];
+        for (const e of poster) {
+          const r = e.getBoundingClientRect();
+          if (r.bottom > innerHeight + 0.5) fel.push(`"${e.textContent.trim().slice(0, 12)}" slutar ${Math.round((r.bottom - innerHeight) * 10) / 10} px under fönstret`);
+          for (const t of ticks) {
+            const b = t.getBoundingClientRect();
+            if (r.left < b.right && r.right > b.left && r.top < b.bottom - 0.5 && r.bottom > b.top) fel.push(`"${e.textContent.trim().slice(0, 12)}" överlappar årtalet ${t.textContent.trim()}`);
+          }
+        }
+        const rader = new Set(poster.map(e => Math.round(e.getBoundingClientRect().top))).size;
+        const steg = [...document.querySelectorAll('.timebar .step, .timebar .play')].filter(vis).map(b => {
+          const r = b.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+          const miss = [-20, 20].filter(d => { const t = document.elementFromPoint(cx, cy + d); return !(t && (t === b || b.contains(t))); });
+          return { namn: b.textContent.trim() || 'Spela', h: Math.round(r.height), miss };
+        });
+        return { fel, antal: poster.length, ticks: ticks.length, rader, steg, bredd: legend.getBoundingClientRect().height };
+      });
+      if (m.antal < 3) throw new Error(`teckenförklaringen hittades inte (${m.antal} poster)`);
+      if (!m.ticks) throw new Error('inga årtal syns under reglaget');
+      if (m.fel.length) throw new Error(`teckenförklaringen: ${m.fel.slice(0, 4).join('; ')}`);
+      if (m.rader > 2) throw new Error(`teckenförklaringen ligger på ${m.rader} olika höjder (posterna ska ligga på samma linje)`);
+      if (pek) {
+        const miss = m.steg.filter(b => b.miss.length);
+        if (!m.steg.length) throw new Error('inga stegknappar');
+        if (miss.length) throw new Error(`stegknappens 44 px yta tar inte trycket 20 px över/under mitten: ${miss.map(b => `${b.namn} (${b.h} px hög)`).join(', ')}`);
+      }
+      if (errs.length) throw new Error(errs[0]);
+      return `${m.antal} poster inom fönstret, ${m.ticks} årtal utan överlapp${pek ? `, ${m.steg.length} stegknappar med 44 px yta` : ''}`;
+    } finally { if (tctx) await tctx.close(); else await tp.close(); }
+  };
+  await check('tidsraden: teckenförklaringen ligger inom fönstret och under årtalen, stegknapparnas yta tar trycket (#1713, omgång 3)', async () => {
+    const delar = [];
+    const storlekar = vp.width > 760 ? [{ width: 1280, height: 800 }] : [{ width: 400, height: 800 }, { width: 400, height: 700 }, { width: 360, height: 640 }, { width: 800, height: 360 }];
+    for (const storlek of storlekar) {
+      try { delar.push(`${storlek.width} × ${storlek.height}: ${await matTidsrad(vp.width <= 760, storlek)}`); }
+      catch (e) { throw new Error(`${storlek.width} × ${storlek.height}: ${e.message}`); }
+    }
+    return delar.join(' | ');
   });
 
   // #1713, uppföljning: Samtidigt-fliken hade en osynlig 44 px yta (::after) som låg över datumknappen vid 800 × 360 och tog trycket på datumet,
