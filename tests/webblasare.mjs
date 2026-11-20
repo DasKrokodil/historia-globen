@@ -4813,6 +4813,110 @@ async function run(browser, vp) {
     await pg.keyboard.press('Enter');
     await regionOn(pg, id);
   };
+  // #1978: ett tryck på platsen man följer öppnar kortet utan nytt Fokus, också i regionvyn (där trycket förut bara fällde ihop markörerna
+  // och aldrig nådde platsen), med mus och med finger (med finger efter klicket, annars tar klicket fokus från Stäng och träffar kortet som
+  // just öppnades). Statusraden säger vilket kort som öppnades, fokus står på krysset, Enter öppnar kortet också, och ett tryck bredvid
+  // platsen i regionvyn startar inget nytt Fokus. Rutan i regionvyn säger hur man får fakta: i den långa raden på bred yta och i en egen
+  // rad i stående mobil; på en låg liggande yta (högst 480 px) har rutan inte plats för raden utan att kartans fria yta minskar (#1952).
+  await check('tryck på platsen i Fokus öppnar kortet utan nytt Fokus, med mus och pekning, på globen och i Platt vys regionvy, och rutan säger hur man får fakta (#1978)', async () => {
+    const sv = JSON.parse(fs.readFileSync(new URL('../data/ui/sv.json', import.meta.url), 'utf8'));
+    const wide = vp.width > 760;
+    const scenarios = wide
+      ? [{ name: 'glob 1280 × 800', width: 1280, height: 800, id: 'danmark', globe: true, kinds: ['mus', 'pekning'], hint: null },
+         { name: 'Platt karta 1280 × 800', width: 1280, height: 800, id: 'skane', globe: false, kinds: ['mus', 'pekning'], hint: 'note' },
+         { name: 'Platt karta 800 × 360', width: 800, height: 360, id: 'skane', globe: false, kinds: ['pekning'], hint: null }]
+      : [{ name: 'glob 400 × 800', width: vp.width, height: vp.height, id: 'danmark', globe: true, kinds: ['pekning'], hint: null },
+         { name: 'Platt karta 400 × 800', width: vp.width, height: vp.height, id: 'skane', globe: false, kinds: ['pekning'], hint: 'tap' }];
+    const contexts = [], errLists = [], out = [];
+    const closeCard = async pg => {
+      if (await pg.locator('#detail').isVisible()) { await pg.click('#detail [data-close]'); await pg.waitForSelector('#detail', { state: 'hidden', timeout: T.step }); }
+    };
+    /** Punkter där pekaren blir en hand (on-place): hittas med musen över ett rutnät. */
+    const handPoints = async (pg, canvas) => {
+      const box = await pg.locator(canvas).boundingBox(), pts = [];
+      for (let r = 0; r < 16; r++) for (let c = 0; c < 16; c++) {
+        const x = box.x + box.width * (0.08 + 0.84 * c / 15), y = box.y + box.height * (0.04 + 0.76 * r / 15);
+        await pg.mouse.move(x, y);
+        await pg.waitForTimeout(25);
+        if (await pg.evaluate(s => document.querySelector(s).classList.contains('on-place'), canvas)) pts.push([x, y]);
+      }
+      return { pts, box };
+    };
+    const tapAt = (pg, kind, x, y) => (kind === 'mus' ? pg.mouse.click(x, y) : pg.touchscreen.tap(x, y));
+    try {
+      for (const [i, sc] of scenarios.entries()) {
+        const pg = await touchPage({ width: sc.width, height: sc.height }, { isMobile: sc.width <= 760 || sc.height <= 480 });
+        const tp = pg.tp;
+        contexts.push(pg.tctx);
+        errLists.push(pg.errs);
+        await tp.goto(`${BASE}?ny=tryckplatsen1978n${i}#y=1325&f=place:${sc.id}`);
+        await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await tp.waitForSelector('#detail.detail-selection', { state: 'visible', timeout: T.step });
+        if (!sc.globe) { await openRegion(tp, sc.id); await regionSettled(tp); }
+        const canvas = sc.globe ? '#globe-canvas' : '#flat-canvas';
+        // Rutan säger hur man får fakta (bara i regionvyn)
+        if (!sc.globe && sc.hint) {
+          const row = await tp.evaluate(h => {
+            const el = document.getElementById(h === 'note' ? 'flat-region-note' : 'flat-region-tap'), r = el.getBoundingClientRect();
+            return { text: el.textContent.trim(), shown: r.width > 0 && r.height > 0 && getComputedStyle(el).display !== 'none', right: r.right, vw: innerWidth };
+          }, sc.hint);
+          if (!row.shown || !row.text.includes(sv['regionView.tap']) || row.right > row.vw + 1) throw new Error(`${sc.name}: rutan säger inte "${sv['regionView.tap']}" synligt (${JSON.stringify(row)})`);
+        }
+        await closeCard(tp);
+        const { pts, box } = await handPoints(tp, canvas);
+        if (!pts.length) throw new Error(`${sc.name}: pekaren blir ingen hand över platsen man följer`);
+        const place = sc.id === 'danmark' ? 'Danmark' : 'Skåne';
+        for (const kind of sc.kinds) {
+          let opened = false;
+          // Tryck på punkterna tills kortet öppnas (en händelsemarkör som ligger på platsen öppnar sin egen ruta, som då stängs)
+          for (const [x, y] of pts.slice(0, 14)) {
+            await tapAt(tp, kind, x, y);
+            await tp.waitForTimeout(kind === 'pekning' ? 900 : 700);
+            if (await tp.locator('#detail.detail-selection').isVisible()) { opened = true; break; }
+            await closeCard(tp);
+          }
+          if (!opened) throw new Error(`${sc.name}: ett tryck med ${kind} på platsen i Fokus öppnade inte platskortet`);
+          const got = await tp.evaluate(() => ({
+            hash: location.hash, title: document.getElementById('focus-title').textContent,
+            status: document.getElementById('screen-reader-status').textContent.trim(),
+            active: document.activeElement?.matches('#detail .detail-close') ?? false, where: document.activeElement?.id || document.activeElement?.tagName,
+          }));
+          if (!got.hash.includes(`f=place:${sc.id}`) || !got.title.includes(place)) throw new Error(`${sc.name}, ${kind}: trycket ändrade Fokus (${got.hash}, "${got.title}")`);
+          if (got.status !== `Plats: ${place}`) throw new Error(`${sc.name}, ${kind}: statusraden säger "${got.status}", väntade "Plats: ${place}"`);
+          if (!got.active) throw new Error(`${sc.name}, ${kind}: fokus står inte på krysset i kortet utan på ${got.where}`);
+          await closeCard(tp);
+        }
+        if (sc.globe) {
+          // Tangentbordet: Enter på globen öppnar kortet för platsen man följer (som förut)
+          await tp.focus('#globe-canvas');
+          await tp.keyboard.press('Enter');
+          await tp.waitForSelector('#detail.detail-selection', { state: 'visible', timeout: T.step });
+          await closeCard(tp);
+        } else {
+          // Ett tryck bredvid platsen (på havet eller ett grannland) öppnar inget kort och startar inget nytt Fokus
+          const hand = new Set(pts.map(([x, y]) => `${x}|${y}`));
+          let away = null;
+          for (let r = 0; r < 12 && !away; r++) for (let c = 0; c < 12 && !away; c++) {
+            const x = box.x + box.width * (0.08 + 0.84 * c / 11), y = box.y + box.height * (0.04 + 0.76 * r / 11);
+            if (hand.has(`${x}|${y}`)) continue;
+            if (await tp.evaluate(([px, py]) => document.elementFromPoint(px, py)?.id === 'flat-canvas', [x, y])) away = [x, y];
+          }
+          if (!away) throw new Error(`${sc.name}: hittade ingen fri punkt bredvid platsen`);
+          await tapAt(tp, sc.kinds.at(-1), away[0], away[1]);
+          await tp.waitForTimeout(900);
+          const after = await tp.evaluate(() => ({ hash: location.hash, card: !document.getElementById('detail').hidden }));
+          if (after.card || !after.hash.includes(`f=place:${sc.id}`)) throw new Error(`${sc.name}: ett tryck bredvid platsen öppnade ett kort eller ändrade Fokus (${JSON.stringify(after)})`);
+        }
+        out.push(`${sc.name}: ${sc.kinds.join(' och ')}, ${pts.length} handpunkter`);
+      }
+      const errs = errLists.flat();
+      if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
+      return out.join('; ');
+    } finally {
+      await Promise.race([Promise.all(contexts.map(c => c.close().catch(() => {}))), new Promise(r => setTimeout(r, 10000))]);
+    }
+  });
+
   await check('regionvyn: Visa i regionvy ger Skåne skarpt och inzoomat med sluten kantlinje i skärmpixlar, utanför kortet (#1641)', async () => {
     const { tp, tctx, errs } = await placeTapPage('#y=1827&f=place:skane', 'region1');
     try {

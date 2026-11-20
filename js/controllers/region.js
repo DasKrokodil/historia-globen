@@ -69,8 +69,8 @@ export function createRegion(app) {
   };
   /** Rutan med vilken plats som visas och vägen ut: i Platt vy och på globen var sin, med samma texter. */
   const chips = {
-    flat: { chip: $('flat-region'), title: $('flat-region-name'), note: $('flat-region-note'), context: $('flat-region-context'), back: $('flat-region-back'), legend: $('flat-region-legend-text'), next: $('flat-region-next') },
-    globe: { chip: $('globe-region-chip'), title: $('globe-region-name'), note: $('globe-region-note'), context: $('globe-region-context'), back: $('globe-region-back'), legend: $('globe-region-legend-text'), next: $('globe-region-next') },
+    flat: { chip: $('flat-region'), title: $('flat-region-name'), note: $('flat-region-note'), context: $('flat-region-context'), tap: $('flat-region-tap'), back: $('flat-region-back'), legend: $('flat-region-legend-text'), next: $('flat-region-next') },
+    globe: { chip: $('globe-region-chip'), title: $('globe-region-name'), note: $('globe-region-note'), context: $('globe-region-context'), tap: $('globe-region-tap'), back: $('globe-region-back'), legend: $('globe-region-legend-text'), next: $('globe-region-next') },
   };
   const chip = chips.flat.chip;
   /** Är vyn öppen för platsen just nu? */
@@ -165,6 +165,7 @@ export function createRegion(app) {
     text('.flat-region-name', ui('regionView.title', { place: t(p.name) }));
     text('.flat-region-note', `${ui('regionView.note')} ${ui('regionView.tap')}`);
     text('.flat-region-context', ui('place.mapContext'));
+    text('.flat-region-tap', ui('regionView.tap'));
     text('.flat-region-legend > span:last-child', ui('regionView.legend'));
     text('.flat-region-back', ui('regionView.leave'));
     $('app').appendChild(probe);
@@ -396,6 +397,7 @@ export function createRegion(app) {
     c.back.textContent = ui('regionView.leave');
     // Förklaringen till den streckade ringen runt markörer med ungefärlig plats (#1642), också i mobil
     c.context.textContent = ui('place.mapContext'); // kort och synlig också där den långa raden är dold (#1956)
+    c.tap.textContent = ui('regionView.tap'); // hur man får fakta, synlig där den långa raden är dold (#1978)
     c.legend.textContent = ui('regionView.legend');
     $('app').classList.add('region-view'); // före rutans läge: i en låg liggande yta mäts rutan i regionvyns kompakta form (#1952)
     c.chip.hidden = false; // först: rutan tar plats, och ramen räknas utan den

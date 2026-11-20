@@ -1523,6 +1523,8 @@ html.calm .year-tip { animation: none; }
 .flat-region-name { margin: 0; font: 400 11px/1.3 var(--f-mono); color: var(--brass); letter-spacing: .04em; }
 .flat-region-note { margin: 3px 0 6px; opacity: .85; }
 .flat-region-context { display: none; margin: 0; }
+/* Hur man får fakta (#1978): bara där den långa raden är dold, och då en egen kort rad; på bred yta slutar den långa raden med samma mening */
+.flat-region-tap { display: none; margin: 0; }
 .flat-region-next { margin: 0 0 6px; font-weight: 600; }
 .flat-region-next[hidden] { display: none; }
 /* Förklaringen till den streckade ringen (#1642): en kort rad med en liten ring, samma streckade ring som markörerna */
@@ -1625,6 +1627,12 @@ html.calm .year-tip { animation: none; }
   .flat-region-next { order: 2; flex-basis: 100%; margin: 0 0 2px; font-size: 11.5px; }
   .flat-region-back { min-height: 44px; flex: none; }
   .globe-region-chip { top: 112px; max-width: calc(100% - var(--gut) - var(--gut-r)); }
+}
+/* Hur man får fakta (#1978) i den smala rutan: en egen kort rad, där den långa raden är dold. Inte på en låg liggande yta (högst 480 px hög,
+   #1952): rutan har där inte plats för en rad till utan att kartans fria yta minskar (47 % blir 41 % i Platt karta 800 × 360) och att
+   årtalets platta täcks; där säger markörerna och Lämna platsens karta resten, och knappen Om platsen öppnar kortet. */
+@media (max-width: 760px) and (min-height: 481px) {
+  .flat-region-tap { display: block; order: 3; flex-basis: 100%; margin: 0 0 2px; font-size: 11.5px; }
 }
 /* Regionvyn på globen på låg yta (#1900): på en liggande telefon (högst 480 px) ligger rutan i samma kompakta form som i smal skärm
    (rubrik och knapp på en rad, utan den längre texten, som statusraden och Lager säger) och över fokusraden, kortet och tidsreglaget,
