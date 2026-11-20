@@ -38,6 +38,7 @@ ALIASES = {
     'antigua-och-barbuda': 'Antigua and Barb.', 'saint-kitts-och-nevis': 'St. Kitts and Nevis',
     'brasilien': 'Brazil', 'saint-vincent-och-grenadinerna': 'St. Vin. and Gren.',
     'dominikanska-republiken': 'Dominican Rep.',
+    'bosnien-och-hercegovina': 'Bosnia and Herz.',
 }
 # 1:50m förenklar eller särredovisar dessa områden. De kontrolleras i respektive
 # plats-/granskningsunderlag, inte med en falskt exakt point-in-polygon här.

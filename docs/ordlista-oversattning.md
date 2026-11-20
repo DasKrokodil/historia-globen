@@ -198,6 +198,7 @@ Titel och epitet skrivs med liten bokstav i löpande text (`el rey Luis XIV`, `l
 | Han dynasty | dinastía Han | dynastie Han | – |
 | Ming dynasty | dinastía Ming | dynastie Ming | – |
 | Qing dynasty | dinastía Qing | dynastie Qing | – |
+| Empire of China (1915–1916) | Imperio de China | Empire de Chine | se 9.2 (2026-11-20) |
 | Carthage | Cartago | Carthage | – |
 | Southern Song | dinastía Song meridional | Song du Sud | – (fr rättat i sprak-fr-granskningen, #2002) |
 | Vakataka empire | Dinastía Vakataka | – | – (accent rättad i sprak-es-granskningen, #2002) |
@@ -233,6 +234,60 @@ Typorden för `areaKind` (`area.kind.<värde>` i `data/ui/`). De ersätter ordet
 | `city-states` | stadsstäder | city-states | Stadtstaaten | ciudades-Estado | cités-États |
 | `culture` | kulturområde | culture area | Kulturraum | área cultural | aire culturelle |
 | kortets rubrik (`facts.kind.area`) | Område som inte var en stat | Area that was not a state | Gebiet, das kein Staat war | Zona que no era un Estado | Zone qui n’était pas un État |
+
+### 9.2 Kina 1915–1929 (#1507)
+
+Namnen i rutan Om kartan för `kina` och delen `kejsardomet-kina`. Ordningen följer texten.
+
+| Svenska | Engelska | Tyska | Spanska | Franska | Kontrollerad |
+|---|---|---|---|---|---|
+| Kejsardömet Kina | Empire of China | Kaiserreich China | Imperio de China | Empire de Chine | 2026-11-20: en, de och es Wikidata Q175379 (etiketterna); sv sv.wikipedia "Kejsardömet Kina (1915–1916)" (titel och faktaruta; Wikidatas sv-etikett är "Kinesiska imperiet"); fr fr.wikipedia "Restauration impériale chinoise" (faktarutans franska namn; Wikidatas fr-etikett är artikelns titel) |
+| Kuomintang | Kuomintang | Kuomintang | Kuomintang | Kuomintang | – (oförändrat på alla språk) |
+| Beiyangregeringen | Beiyang government | Beiyang-Regierung | Gobierno de Beiyang | gouvernement de Beiyang | en 2026-11-20: en.wikipedia "Beiyang government" |
+| Peking | Beijing | Peking | Pekín | Pékin | – |
+| Nationalistregeringen (i Nanjing) | Nationalist Government | Nationalregierung | Gobierno Nacionalista | gouvernement nationaliste | – |
+
+### 9.3 Inre Asien och Arabien (#1331, andra omgången)
+
+Grupperna och delarna i `data/empires/index.json` (PR #2030). "WD" är Wikidatas etikett (SPARQL 2026-11-20), "egen" är en egen översättning byggd på de andra namnen. Termen *saudiska riket* översätts *Saudi State* / *Saudi-Staat* / *Estado saudí* / *État saoudien*, och ordningstalet skrivs med gemen mitt i en mening på spanska och franska (*el tercer Estado saudí*, *le troisième État saoudien*) men med versal först i namnet.
+
+| Svenska | Engelska | Tyska | Spanska | Franska | Kontrollerad |
+|---|---|---|---|---|---|
+| Det första saudiska riket | First Saudi State | Erster Saudi-Staat | Primer Estado saudí | Premier État saoudien | 2026-11-20: sv sv.wikipedia "Saudiarabiens historia" (rubriken "Det första saudiska riket (1744–1818)"); en och de WD Q146871; es och fr egen (WD "Emirato de Diriyah", "émirat de Dariya") |
+| Det andra saudiska riket | Second Saudi State | Zweiter Saudi-Staat | Segundo Estado saudí | Deuxième État saoudien | 2026-11-20: sv sv.wikipedia "Saudiarabiens historia"; en, de och fr WD Q146862; es egen (WD "Emirato de Nechd") |
+| Det tredje saudiska riket | Third Saudi State | Dritter Saudi-Staat | Tercer Estado saudí | Troisième État saoudien | 2026-11-20: sv sv.wikipedia "Saudiarabiens historia" ("det tredje saudiska riket"); en och fr WD Q2011891; es WD "Tercer Estado Saudita" med gemen; de egen (WD saknar etikett) |
+| Jabal Shammar | Emirate of Jabal Shammar | Emirat der Dschebel Schammar | Emirato de Jabal Shammar | Émirat de Haïl | 2026-11-20: sv, en och es WD Q5362837; de de.wikipedia "Āl Raschīd" ("auch als Emirat der Dschebel Schammar bekannt"; WD:s tyska etikett "Geschichte der Schammar" är en historieartikel); fr WD och fr.wikipedia "Émirat de Haïl" (titeln) |
+| Kungariket Hijaz | Kingdom of Hejaz | Königreich Hedschas | Reino del Hiyaz | Royaume du Hedjaz | 2026-11-20: WD Q956357 |
+| Buchara | Khanate of Bukhara | Khanat Buchara | Kanato de Bujará | Khanat de Boukhara | 2026-11-20: WD Q577668; de de.wikipedia "Khanat Buchara" (WD "Usbeken-Khanat") |
+| Emiratet Buchara | Emirate of Bukhara | Emirat Buchara | Emirato de Bujará | Émirat de Boukhara | 2026-11-20: WD Q746558; sv med khanatets stavning (WD "emiratet Bukhara") |
+| Khanatet Khiva | Khanate of Khiva | Khanat Chiwa | Kanato de Jiva | Khanat de Khiva | 2026-11-20: WD Q491106; es es.wikipedia "Kanato de Jiva" (WD "Kanato de Jarazm") |
+| Khanatet Kokand | Khanate of Kokand | Khanat Kokand | Kanato de Kokand | Khanat de Kokand | 2026-11-20: WD Q696241 |
+| Kalmuckkhanatet | Kalmyk Khanate | Kalmückisches Khanat | Kanato calmuco | Khanat kalmouk | 2026-11-20: WD Q4210248 |
+| Kazankhanatet | Khanate of Kazan | Khanat Kasan | Kanato de Kazán | Khanat de Kazan | 2026-11-20: WD Q186537; en en.wikipedia "Khanate of Kazan" (WD "Khanate of Qazan") |
+| Astrachankhanatet | Astrakhan Khanate | Khanat Astrachan | Kanato de Astracán | Khanat d’Astrakhan | 2026-11-20: WD Q210163 |
+| Nogajhorden | Nogai Horde | Nogaier-Horde | Horda de Nogái | Horde Nogaï | 2026-11-20: WD Q631210; fr också fr.wikipedia "Horde Nogaï" (titeln) |
+
+Personnamnen i rutorna Om kartan följer engelska Wikipedia och är inte kontrollerade mot målspråkens Wikipedia, utom de tyska *Raschiden* (de.wikipedia "Āl Raschīd") och den franska *Al Rachid* (fr.wikipedia "Émirat de Haïl"). Patronymen skrivs *ibn* på svenska och tyska, *bin* på engelska och spanska och *ben* på franska. Huvudstaden skrivs *Hail* (sv, en, de, es) och *Haïl* (fr).
+
+### 9.4 Medeltidens luckor, nionde omgången (#645)
+
+Grupperna i `data/empires/index.json`. "WD" är Wikidatas etikett (SPARQL 2026-11-20, `tools/riken_namn.py`); "versal" betyder att etiketten fick versal först, som namn i början av en rad (avsnitt 3). Rättat efter granskningen av sprak-de, sprak-es och sprak-fr i PR #2037 (2026-11-20), med namnen jämförda mot Wikipedia på målspråket där en artikel finns (avsnitt 4 regel 1).
+
+| Svenska | Engelska | Tyska | Spanska | Franska | Kontrollerad |
+|---|---|---|---|---|---|
+| Kamarupariket | Kamarupa | Kamarupa | Kamarupa | Kamarupa | 2026-11-20: WD Q1194765; de originalnamnet (WD saknar tysk etikett, avsnitt 4 regel 1) |
+| Vijayanagar | Vijayanagara Empire | Vijayanagar | Imperio Vijayanagara | Royaume de Vijayanagara | 2026-11-20: WD Q167639; fr fr.wikipedia "Royaume de Vijayanagara" (titeln; WD "royaume de Vijayanâgara"; granskningens förslag "Empire de Vijayanagara" är inte artikelns namn) |
+| Balhae | Balhae | Balhae | Balhae | Balhae | 2026-11-20: WD Q28322 (engelska Wikipedias titel är "Parhae"); sv saknar etikett och artikel, engelska enligt beslutet 2026-11-12 |
+| Hariphunchai | Haripuñjaya | Haripunjaya | Haripunchai | Hariphunchai | 2026-11-20: WD Q255931. Samma rike stavas också Haribhuñjaya och Haripunjaya (en.wikipedia "Haripuñjaya"); stavningarna skiljer sig per språk enligt Wikidatas etiketter och är inte fel |
+| Koguryo | Goguryeo | Goguryeo | Goguryeo | Koguryo | 2026-11-20: WD Q28370; fr fr.wikipedia "Koguryo" (titeln; inledningen ger också Koguryŏ och Goguryeo) |
+| Kungariket Lavo | Lavo Kingdom | Königreich Lavo | Reino de Lavo | Royaume de Lavo | 2026-11-20: WD Q1332305; sv egen översättning (etikett och artikel saknas; det engelska namnet stoppas av #1702), som de, es och fr. en "Lavo Kingdom" är ett medvetet val: Wikidatas etikett och en.wikipedias titel, inte "Kingdom of Lavo" |
+| Seunadynastin | Seuna dynasty | Seuna-Dynastie | Dinastía Seuna | Dynastie Seuna | 2026-11-20: en en.wikipedia "Seuna dynasty" (WD "Seuna Dynasty"); de de.wikipedia "Seuna-Dynastie" (titeln); es och fr typordet tillagt som i Dinastía Chaulukya (WD "Seuna"; fr.wikipedia skriver "dynasties Hoysala et Seuna", ingen egen artikel); sv egen översättning (etikett och artikel saknas, #1702) |
+| Mamlukdynastin i Delhi | Mamluk dynasty (Delhi) | Sklavendynastie | Mamelucos de Delhi | Dynastie des esclaves | 2026-11-20: sv, de WD Q847420; de *Sklavendynastie* är det etablerade tyska namnet på Delhidynastin 1206–1290, inte Egyptens mamluker; en en.wikipedia "Mamluk dynasty (Delhi)" (WD "Mamluk Sultanate", samma som Egyptens); es es.wikipedia "Mamelucos de Delhi" (titeln; granskningens förslag "Dinastía mameluca de Delhi" är inte artikelns namn); fr fr.wikipedia "Dynastie des esclaves" (titeln, "dirige le sultanat de Delhi en Inde de 1206 à 1290"; skiljs från *Sultanat mamelouk d'Égypte*, granskningens förslag "Dynastie des Mamelouks de Delhi" är inte artikelns namn) |
+| Chaulukyadynastin | Chaulukya dynasty | Solanki | Dinastía Chaulukya | Dynastie Chaulukya | 2026-11-20: WD Q18211496; de de.wikipedia "Solanki" (titeln, "eine Hindu-Dynastie in Gujarat"), medvetet valt framför Chaulukya-Dynastie; fr typordet tillagt (WD "Solankî", ingen artikel hittad på fr.wikipedia); sv egen översättning (etikett och artikel saknas, #1702); inte samma som Chalukyadynastin |
+| Aragoniska kronan | Crown of Aragon | Krone von Aragonien | Corona de Aragón | Couronne d'Aragon | 2026-11-20: sv sv.wikipedia "Aragoniska kronan" (WD "Aragonska kronan"); de de.wikipedia "Krone von Aragonien" (titeln; WD "Krone Aragon"); övriga WD Q204920, fr med versal |
+| Idrisider | Idrisid dynasty | Idrisiden | Dinastía idrísida | Idrissides | 2026-11-20: WD Q431575 |
+| Khanatet Kara-Khanid (nya delar, östra och västra) | Karakhanid Khanate | Karachaniden | Karajánidas | Qarakhanides | 2026-11-20: WD Q494354 (som gruppen); es med versal som gruppen (WD "karajánidas") |
+| Kungariket Jaffna (lydrike under Vijayanagar) | Jaffna kingdom | Königreich Jaffna | Reino de Jaffna | Royaume de Jaffna | 2026-11-20: en, de, es och fr WD Q1311219; sv egen översättning (etikett och artikel saknas), typordet översatt som på de andra språken |
 
 ## 10. Kontrollera innan en pull request öppnas
 

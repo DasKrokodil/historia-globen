@@ -578,6 +578,7 @@
         "wp-assyria",
         "wp-asterix-satellit",
         "wp-astrakhan",
+        "wp-astrakhan-khanate",
         "wp-aswan-dam",
         "wp-atahualpa",
         "wp-atlantic-slave-trade",
@@ -608,6 +609,7 @@
         "wp-baiae",
         "wp-baiji",
         "wp-balakliia",
+        "wp-balhae",
         "wp-baltic-ice-lake",
         "wp-ban-chiang",
         "wp-banana",
@@ -690,6 +692,7 @@
         "wp-battle-tondibi",
         "wp-battles-of-latrun",
         "wp-baumettes",
+        "wp-beiyang-government",
         "wp-belgian-congo",
         "wp-belgrade",
         "wp-bengal-famine-1943",
@@ -832,6 +835,7 @@
         "wp-charles-xii",
         "wp-charter-of-the-united-nations",
         "wp-chatham-islands",
+        "wp-chaulukya-dynasty",
         "wp-chauvet-cave",
         "wp-chavin-de-huantar",
         "wp-chengdu",
@@ -970,7 +974,9 @@
         "wp-danish-india",
         "wp-dannebrog",
         "wp-darwin",
+        "wp-de-al-raschid",
         "wp-de-alkmaion",
+        "wp-de-khanat-buchara",
         "wp-de-revolutionibus",
         "wp-dead-sea-scrolls",
         "wp-death-of-alexander",
@@ -1063,9 +1069,12 @@
         "wp-emblem-of-yugoslavia",
         "wp-emiliano-zapata",
         "wp-emirate-of-afghanistan",
+        "wp-emirate-of-bukhara",
+        "wp-emirate-of-jabal-shammar",
         "wp-emperor-gaozu-of-han",
         "wp-emperor-xian-of-han",
         "wp-empire-of-brazil",
+        "wp-empire-of-china-1915",
         "wp-empire-of-japan",
         "wp-emu-war",
         "wp-en-anders-celsius",
@@ -1096,6 +1105,7 @@
         "wp-es-azul",
         "wp-es-bloque-de-cascajal",
         "wp-es-camarones-chile",
+        "wp-es-kanato-de-jiva",
         "wp-esa",
         "wp-estadio-centenario",
         "wp-ether-dome",
@@ -1137,6 +1147,7 @@
         "wp-first-panipat",
         "wp-first-punic-war",
         "wp-first-revelation",
+        "wp-first-saudi-state",
         "wp-first-taranaki-war",
         "wp-flag-albania",
         "wp-flag-algeria",
@@ -1145,6 +1156,7 @@
         "wp-flag-argentina",
         "wp-flag-armenia",
         "wp-flag-australia",
+        "wp-flag-austria",
         "wp-flag-azerbaijan",
         "wp-flag-bahamas",
         "wp-flag-bangladesh",
@@ -1154,6 +1166,7 @@
         "wp-flag-benin",
         "wp-flag-bhutan",
         "wp-flag-bolivia",
+        "wp-flag-bosnia-and-herzegovina",
         "wp-flag-botswana",
         "wp-flag-brazil",
         "wp-flag-brunei",
@@ -1173,8 +1186,10 @@
         "wp-flag-czech-republic",
         "wp-flag-djibouti",
         "wp-flag-dominican-republic",
+        "wp-flag-east-germany",
         "wp-flag-ecuador",
         "wp-flag-eritrea",
+        "wp-flag-estonia",
         "wp-flag-eswatini",
         "wp-flag-fiji",
         "wp-flag-finland",
@@ -1183,12 +1198,14 @@
         "wp-flag-georgia",
         "wp-flag-germany",
         "wp-flag-ghana",
+        "wp-flag-greece",
         "wp-flag-grenada",
         "wp-flag-guatemala",
         "wp-flag-guinea",
         "wp-flag-guinea-bissau",
         "wp-flag-guyana",
         "wp-flag-honduras",
+        "wp-flag-hungary",
         "wp-flag-iceland",
         "wp-flag-india",
         "wp-flag-indonesia",
@@ -1204,6 +1221,7 @@
         "wp-flag-kosovo",
         "wp-flag-kuwait",
         "wp-flag-kyrgyzstan",
+        "wp-flag-latvia",
         "wp-flag-lebanon",
         "wp-flag-liberia",
         "wp-flag-lithuania",
@@ -1245,6 +1263,7 @@
         "wp-flag-qatar",
         "wp-flag-qing",
         "wp-flag-republic-of-china",
+        "wp-flag-romania",
         "wp-flag-russia",
         "wp-flag-rwanda",
         "wp-flag-saint-kitts-and-nevis",
@@ -1264,6 +1283,7 @@
         "wp-flag-south-korea",
         "wp-flag-south-sudan",
         "wp-flag-south-vietnam",
+        "wp-flag-spain",
         "wp-flag-sudan",
         "wp-flag-suriname",
         "wp-flag-tajikistan",
@@ -1299,6 +1319,8 @@
         "wp-fort-jesus",
         "wp-fort-julien",
         "wp-fort-sumter-1861",
+        "wp-fr-emirat-de-hail",
+        "wp-fr-horde-nogai",
         "wp-france-switzerland-border",
         "wp-franchthi-cave",
         "wp-francia",
@@ -1358,6 +1380,7 @@
         "wp-gobero",
         "wp-gochang-county",
         "wp-gochang-hwasun-ganghwa-dolmens",
+        "wp-goguryeo",
         "wp-gold-coast-colony",
         "wp-golden-bay-mohua",
         "wp-golden-temple",
@@ -1367,6 +1390,7 @@
         "wp-gonur-depe",
         "wp-goree",
         "wp-gran-colombia",
+        "wp-grand-principality-of-moscow",
         "wp-grans-kongo",
         "wp-great-auk",
         "wp-great-barrier-reef",
@@ -1433,6 +1457,7 @@
         "wp-hansan-island",
         "wp-hanseatic-league",
         "wp-harar",
+        "wp-haripunjaya",
         "wp-harthacnut",
         "wp-harvard",
         "wp-hatata",
@@ -1512,6 +1537,7 @@
         "wp-ibn-al-haytham",
         "wp-ibn-battuta",
         "wp-ichi-no-tani",
+        "wp-idrisid-dynasty",
         "wp-igbo-ukwu",
         "wp-ignaz-semmelweis",
         "wp-ilumetsa",
@@ -1577,6 +1603,7 @@
         "wp-italian-libya",
         "wp-italian-somaliland",
         "wp-itazuke-site",
+        "wp-ivan-iii",
         "wp-izapa",
         "wp-izmir",
         "wp-jabal-al-nour",
@@ -1618,6 +1645,8 @@
         "wp-kalinga-war",
         "wp-kalka",
         "wp-kalmar-union",
+        "wp-kalmyk-khanate",
+        "wp-kamarupa",
         "wp-kambula",
         "wp-kamehameha-i",
         "wp-kamennogorsk",
@@ -1627,6 +1656,7 @@
         "wp-kanem-historical-region",
         "wp-kanem-region",
         "wp-kaohsiung",
+        "wp-kara-khanid-khanate",
         "wp-karachi",
         "wp-kargaly",
         "wp-karlowitz",
@@ -1641,6 +1671,10 @@
         "wp-kepaniwai",
         "wp-kerma-culture",
         "wp-khalsa",
+        "wp-khanate-of-bukhara",
+        "wp-khanate-of-kazan",
+        "wp-khanate-of-khiva",
+        "wp-khanate-of-kokand",
         "wp-kharg-island",
         "wp-kharkiv-counteroffensive-2022",
         "wp-khe-sanh",
@@ -1670,6 +1704,7 @@
         "wp-kingdom-of-england",
         "wp-kingdom-of-france",
         "wp-kingdom-of-georgia",
+        "wp-kingdom-of-hejaz",
         "wp-kingdom-of-mapungubwe",
         "wp-kingdom-of-navarre",
         "wp-kingdom-of-norway-1814",
@@ -1777,6 +1812,7 @@
         "wp-latin-bridge",
         "wp-latte-stone",
         "wp-latte-stone-park",
+        "wp-lavo-kingdom",
         "wp-law-4-february-1794",
         "wp-laws-of-burgos",
         "wp-lazzarettos-of-dubrovnik",
@@ -1853,6 +1889,7 @@
         "wp-malbork",
         "wp-mali-empire",
         "wp-malindi",
+        "wp-mamluk-dynasty-delhi",
         "wp-mana-skeleton",
         "wp-mangareva",
         "wp-manila-galleon",
@@ -2049,6 +2086,7 @@
         "wp-nobatia",
         "wp-nobel-prize",
         "wp-noche-triste",
+        "wp-nogai-horde",
         "wp-nok-culture",
         "wp-nordlingen-1634",
         "wp-norfolk-island",
@@ -2374,6 +2412,7 @@
         "wp-second-italo-ethiopian-war",
         "wp-second-mexican-empire",
         "wp-second-panipat",
+        "wp-second-saudi-state",
         "wp-second-siege-callao",
         "wp-second-sino-japanese-war",
         "wp-second-vatican-council",
@@ -2390,6 +2429,7 @@
         "wp-serpent-mound",
         "wp-sesklo",
         "wp-settlement-of-iceland",
+        "wp-seuna-dynasty",
         "wp-seven-years-war",
         "wp-shakespeare",
         "wp-shangdu",
@@ -2537,6 +2577,7 @@
         "wp-sv-riksbanken",
         "wp-sv-saltsjobadsavtalet",
         "wp-sv-sametinget-sverige",
+        "wp-sv-saudiarabiens-historia",
         "wp-sv-siam",
         "wp-sv-skane",
         "wp-sv-skane-lan",
@@ -2546,6 +2587,7 @@
         "wp-sv-sodra-stambanan",
         "wp-sv-stockholms-historia",
         "wp-sv-uppsala-universitet",
+        "wp-sv-verginasolen",
         "wp-svante-arrhenius",
         "wp-swahili-coast",
         "wp-sweden",
@@ -2615,6 +2657,7 @@
         "wp-third-battle-seoul",
         "wp-third-czechoslovak-republic",
         "wp-third-panipat",
+        "wp-third-saudi-state",
         "wp-thirteenth-amendment",
         "wp-thirty-years-war",
         "wp-thornton-affair",
@@ -2875,7 +2918,9 @@
         "wd-angara",
         "wd-areni-1-winery",
         "wd-ashanti-empire",
+        "wd-astrakhan-khanate",
         "wd-austria-hungary",
+        "wd-balhae",
         "wd-bangladesh",
         "wd-belgian-congo",
         "wd-billund",
@@ -2883,11 +2928,13 @@
         "wd-buguldejka",
         "wd-byzantine-empire",
         "wd-champ-durand",
+        "wd-chaulukya-dynasty",
         "wd-chertovy-vorota",
         "wd-chimor",
         "wd-christiansborg",
         "wd-confederate-states",
         "wd-congo-free-state",
+        "wd-crown-of-aragon",
         "wd-czechoslovakia",
         "wd-dal-riata",
         "wd-danish-gold-coast",
@@ -2899,15 +2946,20 @@
         "wd-east-germany",
         "wd-egypt",
         "wd-emirate-of-afghanistan",
+        "wd-emirate-of-bukhara",
+        "wd-emirate-of-jabal-shammar",
+        "wd-empire-of-china-1915",
         "wd-encyclopedie",
         "wd-engelska-samvaldet",
         "wd-eu-utvidgning-1995",
         "wd-federal-republic-of-yugoslavia",
+        "wd-first-saudi-state",
         "wd-free-city-of-danzig",
         "wd-funj-sultanate",
         "wd-gallehushornen",
         "wd-ghaznavid-empire",
         "wd-ghaznavids",
+        "wd-goguryeo",
         "wd-gosan-ri-jeju",
         "wd-gota-kanal",
         "wd-gran-colombia",
@@ -2915,8 +2967,10 @@
         "wd-gwanggaeto-stele",
         "wd-habsburg-monarchy",
         "wd-hagahogen",
+        "wd-haripunjaya",
         "wd-hawaiian-kingdom",
         "wd-hue",
+        "wd-idrisid-dynasty",
         "wd-india",
         "wd-iran",
         "wd-iraq",
@@ -2934,9 +2988,17 @@
         "wd-jyske-lov",
         "wd-kakinoshima",
         "wd-kalmar-union",
+        "wd-kalmyk-khanate",
+        "wd-kamarupa",
+        "wd-kara-khanid-khanate",
+        "wd-khanate-of-bukhara",
+        "wd-khanate-of-kazan",
+        "wd-khanate-of-khiva",
+        "wd-khanate-of-kokand",
         "wd-khedivate-of-egypt",
         "wd-kingdom-of-afghanistan",
         "wd-kingdom-of-cusco",
+        "wd-kingdom-of-hejaz",
         "wd-kingdom-of-iceland",
         "wd-kingdom-of-kongo",
         "wd-kingdom-of-yemen",
@@ -2950,8 +3012,10 @@
         "wd-kungariket-skottland",
         "wd-kurile-lake",
         "wd-lake-ladoga",
+        "wd-lavo-kingdom",
         "wd-lego",
         "wd-maikop-kurgan",
+        "wd-mamluk-dynasty-delhi",
         "wd-maratha-empire",
         "wd-mercia",
         "wd-merina-kingdom",
@@ -2967,6 +3031,7 @@
         "wd-neutral-moresnet",
         "wd-niuheliang",
         "wd-nobelpriset",
+        "wd-nogai-horde",
         "wd-nordsjovaldet",
         "wd-north-korea",
         "wd-north-vietnam",
@@ -3003,8 +3068,10 @@
         "wd-sametinget-sverige",
         "wd-sarnate",
         "wd-schleswig-plebiscite",
+        "wd-second-saudi-state",
         "wd-seongsan-ilchulbong",
         "wd-serbia-and-montenegro",
+        "wd-seuna-dynasty",
         "wd-sindorskoje",
         "wd-sistine-chapel-ceiling",
         "wd-slaget-vid-dybbol",
@@ -3029,6 +3096,7 @@
         "wd-tarascan-state",
         "wd-terramara-montale",
         "wd-texcoco",
+        "wd-third-saudi-state",
         "wd-tibet-1912-1951",
         "wd-trundholmsvagnen",
         "wd-tsardom-of-russia",
@@ -3040,6 +3108,7 @@
         "wd-uppsala-universitet",
         "wd-vasa",
         "wd-vietnam",
+        "wd-vijayanagara-empire",
         "wd-vordingborg",
         "wd-wadai",
         "wd-weimar-republic",
@@ -3493,6 +3562,12 @@
       ]
     },
     {
+      "license": "Public domain (PD-Albania-exempt, PD-ineligible, PD-old-70)",
+      "sourceIds": [
+        "commons-flagga-albania-1946"
+      ]
+    },
+    {
       "license": "Public domain (PD-Algeria, PD-ineligible)",
       "sourceIds": [
         "commons-flagga-algeria"
@@ -3514,6 +3589,18 @@
       "license": "Public domain (PD-AustraliaGov)",
       "sourceIds": [
         "commons-flagga-australien"
+      ]
+    },
+    {
+      "license": "Public domain (PD-AustrianGov)",
+      "sourceIds": [
+        "commons-flagga-austria"
+      ]
+    },
+    {
+      "license": "Public domain (PD-BH-exempt)",
+      "sourceIds": [
+        "commons-flagga-bosnia-1992"
       ]
     },
     {
@@ -3547,6 +3634,12 @@
       ]
     },
     {
+      "license": "Public domain (PD-Coa-Hungary, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-hungary"
+      ]
+    },
+    {
       "license": "Public domain (PD-Coa-Mexico)",
       "sourceIds": [
         "commons-flagga-mexiko"
@@ -3574,6 +3667,18 @@
       "license": "Public domain (PD-Fiji)",
       "sourceIds": [
         "commons-flagga-fiji"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Flag, PD-EE-exempt)",
+      "sourceIds": [
+        "commons-flagga-estonia"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Flag-Germany)",
+      "sourceIds": [
+        "commons-flagga-ddr"
       ]
     },
     {
@@ -3623,6 +3728,12 @@
       "license": "Public domain (PD-LT-exempt, PD-self)",
       "sourceIds": [
         "commons-flagga-litauen-stat"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Latvia)",
+      "sourceIds": [
+        "commons-flagga-latvia"
       ]
     },
     {
@@ -3710,6 +3821,12 @@
       ]
     },
     {
+      "license": "Public domain (PD-North Macedonia), även GFDL",
+      "sourceIds": [
+        "commons-flagga-macedonia-1992"
+      ]
+    },
+    {
       "license": "Public domain (PD-OpenClipart och CC0; PD-Croatia-exempt)",
       "sourceIds": [
         "commons-flagga-croatia"
@@ -3749,6 +3866,12 @@
       "license": "Public domain (PD-Philippines)",
       "sourceIds": [
         "commons-flagga-philippines"
+      ]
+    },
+    {
+      "license": "Public domain (PD-RU-exempt, sigill)",
+      "sourceIds": [
+        "commons-sigill-ivan-3"
       ]
     },
     {
@@ -3914,6 +4037,8 @@
       "sourceIds": [
         "commons-flagga-cyprus",
         "commons-flagga-cyprus-1960",
+        "commons-flagga-greece",
+        "commons-flagga-greece-1822",
         "commons-flagga-gronland",
         "commons-flagga-kosovo",
         "commons-flagga-palau",
@@ -3947,10 +4072,18 @@
       "sourceIds": [
         "commons-flagga-cameroon-1957",
         "commons-flagga-cameroon-1961",
+        "commons-flagga-greece-1863",
         "commons-flagga-skane",
+        "commons-flagga-spanska-republiken",
         "commons-flagga-sudan-1956",
         "commons-flagga-timor-leste",
         "commons-vapen-gronland"
+      ]
+    },
+    {
+      "license": "Public domain (PD-self; en äldre PD-OpenClipart-mall står bortkommenterad på filsidan)",
+      "sourceIds": [
+        "commons-flagga-spain"
       ]
     },
     {
@@ -3971,6 +4104,12 @@
       ]
     },
     {
+      "license": "Public domain (PD-shape, PD-BH-exempt)",
+      "sourceIds": [
+        "commons-flagga-bosnia"
+      ]
+    },
+    {
       "license": "Public domain (PD-shape, PD-IDOld-Art30)",
       "sourceIds": [
         "commons-flagga-indonesia"
@@ -3987,6 +4126,19 @@
       "sourceIds": [
         "commons-flagga-guyana",
         "commons-flagga-surinam"
+      ]
+    },
+    {
+      "license": "Public domain (PD-simple, PD-LT-exempt)",
+      "sourceIds": [
+        "commons-flagga-lithuania",
+        "commons-flagga-lithuania-1918"
+      ]
+    },
+    {
+      "license": "Public domain (PD-simple, PD-RO-exempt)",
+      "sourceIds": [
+        "commons-flagga-romania"
       ]
     },
     {

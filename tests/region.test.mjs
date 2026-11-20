@@ -142,6 +142,33 @@ for (const [lat, lon] of CREST) {
 for (let lat = 40.0; lat <= 45.5; lat += 0.1) for (let lon = 37.0; lon <= 50.5; lon += 0.1) edgePoints.push([lat, lon]);
 for (const [, lat, lon] of CAUCASUS_PLACES) edgePoints.push([lat, lon]);
 
+// Svartahavskusten och Bosporen (#2017). Orterna och kustpunkterna ur Natural Earth 1:10m (ne_10m_populated_places_simple och
+// ne_10m_admin_0_countries, hämtade 2026-11-20 från github.com/nvkelso/natural-earth-vector), inte ur minnet.
+const ANATOLIA_PLACES = [
+  ['Sinop', 42.023, 35.153, 'Asien'], ['Samsun', 41.28, 36.3437, 'Asien'], ['Bafra', 41.5682, 35.9069, 'Asien'],
+  ['Zonguldak', 41.4304, 31.78, 'Asien'], ['Kastamonu', 41.389, 33.783, 'Asien'], ['Ankara', 39.9292, 32.8624, 'Asien'],
+  ['Trabzon', 40.98, 39.72, 'Asien'], ['Istanbul (europeiska sidan)', 41.0176, 28.9743, 'Europa'], ['Edirne', 41.6704, 26.57, 'Europa'],
+  ['Kırklareli', 41.743, 27.226, 'Europa'], ['Lüleburgaz', 41.4067, 27.3552, 'Europa'],
+  // Kustpunkter där Bosporen är smalast: Trakiens strand (Europa) och Anatoliens (Asien)
+  ['Trakien 41,1415', 41.1415, 29.0574, 'Europa'], ['Trakien 41,1302', 41.1302, 29.0706, 'Europa'], ['Trakien 41,2353', 41.2353, 29.1092, 'Europa'],
+  ['Anatolien 41,1528', 41.1528, 29.0691, 'Asien'], ['Anatolien 41,0383', 41.0383, 29.0261, 'Asien'], ['Anatolien 41,2119', 41.2119, 29.1301, 'Asien'],
+  // Norr om havet: Krim och Donaudeltat ändras inte
+  ['Krims sydspets', 44.39, 33.75, 'Europa'], ['Donaudeltat', 45.16, 29.65, 'Europa'],
+];
+test('norra Anatolien vid Svarta havet räknas till Asien, Trakien och Istanbuls europeiska sida till Europa (#2017)', () => {
+  for (const [name, lat, lon, want] of ANATOLIA_PLACES) assert.equal(region(lat, lon), want, name);
+  // Händelserna i Istanbul ligger kvar i Europa
+  for (const id of ['hagia-sofia-byggs-532', 'konstantinopels-fall', 'plundringen-av-konstantinopel-1204', 'armeniska-folkmordet']) {
+    const [lon, lat] = events.find(e => e.id === id).location.coordinates;
+    assert.equal(region(lat, lon), 'Europa', id);
+  }
+});
+for (const [, lat, lon] of ANATOLIA_PLACES) edgePoints.push([lat, lon]);
+for (let lat = 40.9; lat <= 43.5; lat += 0.02) for (let lon = 28.8; lon <= 37.5; lon += 0.05) edgePoints.push([lat, lon]);
+for (const lat of [41, 43.2]) for (const lon of [29.0, 33.0, 37.32]) {
+  for (const dy of [-0.0001, 0, 0.0001]) for (const dx of [-0.0001, 0, 0.0001]) edgePoints.push([lat + dy, lon + dx]);
+}
+
 // Ett glest nät fångar också skillnader bortom de uttryckliga gränsfallen.
 for (let lat = -60; lat <= 75; lat += 2.5) for (let lon = -180; lon < 180; lon += 2.5) edgePoints.push([lat, lon]);
 

@@ -46,6 +46,26 @@ def caucasus_crest_lat(lon):
     return CAUCASUS_CREST[-1][0]
 
 
+# Bosporen som (lat, lon), samma som BOSPORUS i js/model.js (#2017): mittlinje mellan Trakiens och Anatoliens kuster i Natural Earth 1:10m
+BOSPORUS = [(41.0, 29.0), (41.03, 29.0), (41.05, 29.035), (41.08, 29.057), (41.13, 29.079), (41.15, 29.06), (41.17, 29.072), (41.19, 29.095), (41.21, 29.115), (41.24, 29.14)]
+
+
+def bosporus_lon(lat):
+    if lat <= BOSPORUS[0][0]:
+        return BOSPORUS[0][1]
+    for i in range(1, len(BOSPORUS)):
+        a, x = BOSPORUS[i - 1]
+        b, y = BOSPORUS[i]
+        if lat <= b:
+            return x + (lat - a) / (b - a) * (y - x)
+    return BOSPORUS[-1][1]
+
+
+def north_anatolia(lat, lon):
+    """Norra Anatolien (#2017): norr om 41° N, öster om Bosporen, väster om Anapa och söder om 43,2° N."""
+    return 41 <= lat < 43.2 and lon < CAUCASUS_CREST[0][1] and lon >= bosporus_lon(lat)
+
+
 def north_of_caucasus(lat, lon):
     """Norr om Kaukasus huvudkam (#2010); öster om kammens slut som förut söder om 44,5° N i Asien."""
     if CAUCASUS_CREST[0][1] <= lon <= CAUCASUS_CREST[-1][1]:
@@ -87,6 +107,8 @@ def region(lat, lon):
     if 52 <= lon < 64 and -22 < lat < -3:  # Maskarenerna och Seychellerna (#1334)
         return 'Afrika'
     if 36.6 <= lat <= 40.45 and lon < 28.9 and lon > aegean_coast_lon(lat):  # västra Anatolien (#1334)
+        return 'Asien'
+    if north_anatolia(lat, lon):  # Svartahavskusten (#2017)
         return 'Asien'
     if lat >= 35 and (lon < 28.9 or (lat >= 41 and lon < 60 and north_of_caucasus(lat, lon))):
         return 'Europa'
