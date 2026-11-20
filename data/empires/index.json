@@ -33504,6 +33504,25 @@
    "from": 1963,
    "to": 2024,
    "file": "data/empires/kenya.json",
+   "flags": [
+    {
+     "file": "kenya",
+     "from": 1963,
+     "to": 2024,
+     "label": {
+      "sv": "Kenyas flagga",
+      "en": "Flag of Kenya",
+      "de": "Flagge Kenias",
+      "es": "Bandera de Kenia",
+      "fr": "Drapeau du Kenya"
+     },
+     "sources": [
+      "wp-flag-kenya",
+      "commons-flagga-kenya"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "kenya",
