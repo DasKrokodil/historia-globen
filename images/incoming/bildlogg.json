@@ -2453,11 +2453,11 @@
     "kind": "historisk",
     "style": "renassans",
     "caption": {
-      "sv": "Nzinga som ”Ann Zingha, Queen of Matamba” på en handkolorerad litografi av den franske konstnären Achille Devéria från 1830-talet (National Portrait Gallery, London). Bilden gjordes i Europa långt efter hennes död och visar inte hur hon såg ut. Licens: Public domain.",
-      "en": "Nzinga as “Ann Zingha, Queen of Matamba” in a hand-coloured lithograph by the French artist Achille Devéria from the 1830s (National Portrait Gallery, London). The picture was made in Europe long after her death and does not show what she looked like. Licence: public domain.",
-      "de": "Nzinga als „Ann Zingha, Queen of Matamba“ auf einer handkolorierten Lithografie des französischen Künstlers Achille Devéria aus den 1830er-Jahren (National Portrait Gallery, London). Das Bild entstand in Europa lange nach ihrem Tod und zeigt nicht, wie sie aussah. Lizenz: gemeinfrei.",
-      "es": "Nzinga como «Ann Zingha, Queen of Matamba» en una litografía coloreada a mano del artista francés Achille Devéria, de la década de 1830 (National Portrait Gallery, Londres). La imagen se hizo en Europa mucho después de su muerte y no muestra cómo era. Licencia: dominio público.",
-      "fr": "Nzinga en « Ann Zingha, Queen of Matamba » sur une lithographie coloriée à la main de l’artiste français Achille Devéria, des années 1830 (National Portrait Gallery, Londres). L’image a été faite en Europe longtemps après sa mort et ne montre pas à quoi elle ressemblait. Licence : domaine public."
+      "sv": "Nzinga som ”Ann Zingha, Queen of Matamba” på en litografi av den franske konstnären Achille Devéria från 1830-talet, senare handkolorerad av en okänd person (National Portrait Gallery, London). Bilden gjordes i Europa långt efter hennes död och visar inte hur hon såg ut. Licens: Public domain.",
+      "en": "Nzinga as “Ann Zingha, Queen of Matamba” in a lithograph by the French artist Achille Devéria from the 1830s, later hand-coloured by an unknown person (National Portrait Gallery, London). The picture was made in Europe long after her death and does not show what she looked like. Licence: public domain.",
+      "de": "Nzinga als „Ann Zingha, Queen of Matamba“ auf einer Lithografie des französischen Künstlers Achille Devéria aus den 1830er-Jahren, später von unbekannter Hand koloriert (National Portrait Gallery, London). Das Bild entstand in Europa lange nach ihrem Tod und zeigt nicht, wie sie aussah. Lizenz: gemeinfrei.",
+      "es": "Nzinga como «Ann Zingha, Queen of Matamba» en una litografía del artista francés Achille Devéria, de la década de 1830, coloreada a mano más tarde por una persona desconocida (National Portrait Gallery, Londres). La imagen se hizo en Europa mucho después de su muerte y no muestra cómo era. Licencia: dominio público.",
+      "fr": "Nzinga en « Ann Zingha, Queen of Matamba » sur une lithographie de l’artiste français Achille Devéria, des années 1830, coloriée à la main plus tard par une personne inconnue (National Portrait Gallery, Londres). L’image a été faite en Europe longtemps après sa mort et ne montre pas à quoi elle ressemblait. Licence : domaine public."
     },
     "credit": "Achille Devéria / National Portrait Gallery, London / Wikimedia Commons",
     "license": "Public domain",
@@ -2558,5 +2558,21 @@
     "credit": "Hans Hillewaert / Wikimedia Commons",
     "license": "CC BY-SA 4.0",
     "source": "commons-bild-rosettastenen-hittas"
+  },
+  {
+    "id": "freetown-grundas",
+    "file": "freetown-grundas.jpg",
+    "kind": "historisk",
+    "style": "benin",
+    "caption": {
+      "sv": "”A View of Free-town on the River Sierra Leone”, kopparstick ur Thomas Masterman Winterbottoms bok om Sierra Leone från 1803, elva år efter grundandet. Licens: Public domain.",
+      "en": "“A View of Free-town on the River Sierra Leone”, a copper engraving from Thomas Masterman Winterbottom’s book on Sierra Leone from 1803, eleven years after the founding. Licence: public domain.",
+      "de": "„A View of Free-town on the River Sierra Leone“, Kupferstich aus Thomas Masterman Winterbottoms Buch über Sierra Leone von 1803, elf Jahre nach der Gründung. Lizenz: gemeinfrei.",
+      "es": "«A View of Free-town on the River Sierra Leone», grabado en cobre del libro de Thomas Masterman Winterbottom sobre Sierra Leona de 1803, once años después de la fundación. Licencia: dominio público.",
+      "fr": "« A View of Free-town on the River Sierra Leone », gravure sur cuivre tirée du livre de Thomas Masterman Winterbottom sur la Sierra Leone, de 1803, onze ans après la fondation. Licence : domaine public."
+    },
+    "credit": "Thomas Masterman Winterbottom (bok, 1803) / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-freetown-grundas"
   }
 ]

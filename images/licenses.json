@@ -966,6 +966,21 @@
       }
     },
     {
+      "eventId": "freetown-grundas",
+      "eventTitle": "Befriade slavar grundar Freetown",
+      "file": "images/events/freetown-grundas.webp",
+      "kind": "historisk",
+      "credit": "Thomas Masterman Winterbottom (bok, 1803) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-freetown-grundas",
+        "title": "A View of Free-town on the River Sierra Leone – kopparstick ur Thomas Masterman Winterbottoms bok, 1803 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:A_view_of_Freetown,_1803.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "fyren-pa-faros",
       "eventTitle": "Fyren på Faros byggs",
       "file": "images/events/fyren-pa-faros.webp",
@@ -2351,7 +2366,7 @@
       "license": "Public domain",
       "source": {
         "id": "commons-bild-nzinga-drottning-av-ndongo",
-        "title": "Ann Zingha, Queen of Matamba – handkolorerad litografi av Achille Devéria, 1830-talet, National Portrait Gallery, London (Wikimedia Commons, filsida)",
+        "title": "Ann Zingha, Queen of Matamba – litografi av Achille Devéria, 1830-talet, senare handkolorerad, National Portrait Gallery, London (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Ann_Zingha.jpg",
         "license": "Public domain",
         "checked": "2026-11-20"

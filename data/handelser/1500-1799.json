@@ -6473,11 +6473,11 @@
     "kind": "historisk",
     "style": "renassans",
     "caption": {
-     "sv": "Nzinga som ”Ann Zingha, Queen of Matamba” på en handkolorerad litografi av den franske konstnären Achille Devéria från 1830-talet (National Portrait Gallery, London). Bilden gjordes i Europa långt efter hennes död och visar inte hur hon såg ut. Licens: Public domain.",
-     "en": "Nzinga as “Ann Zingha, Queen of Matamba” in a hand-coloured lithograph by the French artist Achille Devéria from the 1830s (National Portrait Gallery, London). The picture was made in Europe long after her death and does not show what she looked like. Licence: public domain.",
-     "de": "Nzinga als „Ann Zingha, Queen of Matamba“ auf einer handkolorierten Lithografie des französischen Künstlers Achille Devéria aus den 1830er-Jahren (National Portrait Gallery, London). Das Bild entstand in Europa lange nach ihrem Tod und zeigt nicht, wie sie aussah. Lizenz: gemeinfrei.",
-     "es": "Nzinga como «Ann Zingha, Queen of Matamba» en una litografía coloreada a mano del artista francés Achille Devéria, de la década de 1830 (National Portrait Gallery, Londres). La imagen se hizo en Europa mucho después de su muerte y no muestra cómo era. Licencia: dominio público.",
-     "fr": "Nzinga en « Ann Zingha, Queen of Matamba » sur une lithographie coloriée à la main de l’artiste français Achille Devéria, des années 1830 (National Portrait Gallery, Londres). L’image a été faite en Europe longtemps après sa mort et ne montre pas à quoi elle ressemblait. Licence : domaine public."
+     "sv": "Nzinga som ”Ann Zingha, Queen of Matamba” på en litografi av den franske konstnären Achille Devéria från 1830-talet, senare handkolorerad av en okänd person (National Portrait Gallery, London). Bilden gjordes i Europa långt efter hennes död och visar inte hur hon såg ut. Licens: Public domain.",
+     "en": "Nzinga as “Ann Zingha, Queen of Matamba” in a lithograph by the French artist Achille Devéria from the 1830s, later hand-coloured by an unknown person (National Portrait Gallery, London). The picture was made in Europe long after her death and does not show what she looked like. Licence: public domain.",
+     "de": "Nzinga als „Ann Zingha, Queen of Matamba“ auf einer Lithografie des französischen Künstlers Achille Devéria aus den 1830er-Jahren, später von unbekannter Hand koloriert (National Portrait Gallery, London). Das Bild entstand in Europa lange nach ihrem Tod und zeigt nicht, wie sie aussah. Lizenz: gemeinfrei.",
+     "es": "Nzinga como «Ann Zingha, Queen of Matamba» en una litografía del artista francés Achille Devéria, de la década de 1830, coloreada a mano más tarde por una persona desconocida (National Portrait Gallery, Londres). La imagen se hizo en Europa mucho después de su muerte y no muestra cómo era. Licencia: dominio público.",
+     "fr": "Nzinga en « Ann Zingha, Queen of Matamba » sur une lithographie de l’artiste français Achille Devéria, des années 1830, coloriée à la main plus tard par une personne inconnue (National Portrait Gallery, Londres). L’image a été faite en Europe longtemps après sa mort et ne montre pas à quoi elle ressemblait. Licence : domaine public."
     },
     "credit": "Achille Devéria / National Portrait Gallery, London / Wikimedia Commons",
     "license": "Public domain",
@@ -9228,6 +9228,21 @@
     "de": "Am 11. März 1792 gründeten Afroamerikaner, die versklavt gewesen waren, Freetown in Sierra Leone. Über 1.100 von ihnen segelten mit dem Abolitionisten John Clarkson in 15 Schiffen nach Sierra Leone, und 64 starben unterwegs. An einem großen Baumwollbaum hielten sie einen Dankgottesdienst, und der Ort erhielt den Namen Free Town. Freetown wurde eine Siedlung für freie und befreite Afrikaner, und ihre Nachkommen werden Kreolen genannt.",
     "es": "El 11 de marzo de 1792 afroamericanos que habían sido esclavizados fundaron Freetown, en Sierra Leona. Más de 1100 de ellos navegaron en 15 barcos hasta Sierra Leona con el abolicionista John Clarkson, y 64 murieron en el viaje. Junto a un gran árbol de algodón celebraron un servicio de acción de gracias, y el lugar recibió el nombre de Free Town. Freetown se convirtió en un asentamiento para africanos libres y liberados, y sus descendientes se conocen como criollos.",
     "fr": "Le 11 mars 1792, des Afro-Américains qui avaient été réduits en esclavage fondèrent Freetown, en Sierra Leone. Plus de 1 100 d’entre eux gagnèrent la Sierra Leone à bord de 15 navires avec l’abolitionniste John Clarkson, et 64 moururent pendant le voyage. Au pied d’un grand fromager, ils célébrèrent un office d’action de grâce, et le lieu fut baptisé Free Town. Freetown devint un lieu d’établissement pour des Africains libres et affranchis, dont les descendants sont appelés Créoles."
+   },
+   "image": {
+    "file": "images/events/freetown-grundas.webp",
+    "kind": "historisk",
+    "style": "benin",
+    "caption": {
+     "sv": "”A View of Free-town on the River Sierra Leone”, kopparstick ur Thomas Masterman Winterbottoms bok om Sierra Leone från 1803, elva år efter grundandet. Licens: Public domain.",
+     "en": "“A View of Free-town on the River Sierra Leone”, a copper engraving from Thomas Masterman Winterbottom’s book on Sierra Leone from 1803, eleven years after the founding. Licence: public domain.",
+     "de": "„A View of Free-town on the River Sierra Leone“, Kupferstich aus Thomas Masterman Winterbottoms Buch über Sierra Leone von 1803, elf Jahre nach der Gründung. Lizenz: gemeinfrei.",
+     "es": "«A View of Free-town on the River Sierra Leone», grabado en cobre del libro de Thomas Masterman Winterbottom sobre Sierra Leona de 1803, once años después de la fundación. Licencia: dominio público.",
+     "fr": "« A View of Free-town on the River Sierra Leone », gravure sur cuivre tirée du livre de Thomas Masterman Winterbottom sur la Sierra Leone, de 1803, onze ans après la fondation. Licence : domaine public."
+    },
+    "credit": "Thomas Masterman Winterbottom (bok, 1803) / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-freetown-grundas"
    },
    "wikidata": "Q3780",
    "sources": [
