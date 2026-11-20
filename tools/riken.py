@@ -1912,6 +1912,13 @@ ALLGAU = (9.5, 47.25, 10.5, 48.1)
 ALLGAU_BY = ('snitt', ('snitt', ('ne', ['tyskland']), ('ne', ['vasttyska-granslander'])), ('rutor', [ALLGAU]))
 LINDAU_PUNKT = (9.684, 47.546)  # Lindau, Q153969
 TYSKA_SIDAN = ('snitt', ('ne', ['tyskland']), ('rutor', [FRANSKA_GRANSEN]))
+# Rhenlandet 1920–1929 (#1766, beslut 2026-11-20): Weimarrepublikens egen gräns i Cliopatria 1930 (efter ockupationen) väster
+# om 9 grader öst, där Cliopatria ritar zonerna och brohuvudena som Frankrike, Belgien, Storbritannien och USA. Utan det som
+# Natural Earth räknar till Nederländerna, Frankrike och Schweiz, utan Saarområdet och utan Cliopatrias Luxemburg, så att
+# Cliopatrias överlapp mot grannarna (Venlo, Luxemburgs gräns) inte ritas in i Tyskland de åren
+RHENLANDET_RUTA = (5.8, 47.5, 9.0, 52.2)
+RHENLANDET = ('skillnad', ('snitt', ('clio', 'Weimar Republic', 1930), ('rutor', [RHENLANDET_RUTA])),
+              ('union', ('ne', ['nederlanderna-ne', 'frankrike-ne', 'schweiz-ne', 'saarland']), ('clio', 'Luxembourg', 1925)))
 FRANSKA_SIDAN = ('snitt', ('ne', ['frankrike-ne']), ('rutor', [FRANSKA_GRANSEN]))
 # Tysklands sida av gränsen mot Nederländerna 1950–1962 enligt Förbundsrepublikens gräns i Cliopatria 1955 (utan Selfkant och
 # Elten), utan det som ligger i Nederländerna i Natural Earth (Gangelt, #1755)
@@ -2209,16 +2216,16 @@ DISPUTED = {
                          'remove': ['weimarrepubliken'], 'add': []},
     'frankrike-nazityskland': {'area': ('ne', ['frankrike-ne']), 'from': 1933, 'to': 1939, 'strict': True, 'efter': True,
                                'remove': ['nazityskland'], 'add': []},
-    # Efter ockupationen av Rhenlandet (Cliopatria: till och med 1929) följer gränsen Natural Earth på båda sidor 1930–1939, så
-    # att förenklingen inte lämnar tomma fält eller ritar dubbelt. Saarområdet hålls utanför Tyskland till och med 1934.
+    # Gränsen följer Natural Earth på båda sidor 1920–1939 (1930–1939 före #1766, när Rhenlandet ritades som Frankrike till och
+    # med 1929), så att förenklingen inte lämnar tomma fält eller ritar dubbelt. Saarområdet hålls utanför Tyskland till och med 1934.
     # Natural Earths gräns vid Lauter ligger ungefär en km fel: Wissembourg och Lauterbourg hamnar i Tyskland (Om kartan)
-    'gransen-weimar': {'area': ('skillnad', TYSKA_SIDAN, SAAR), 'from': 1930, 'to': 1932, 'strict': True, 'efter': True,
+    'gransen-weimar': {'area': ('skillnad', TYSKA_SIDAN, SAAR), 'from': 1920, 'to': 1932, 'strict': True, 'efter': True,
                        'remove': [], 'add': ['weimarrepubliken']},
     'gransen-nazityskland-saar': {'area': ('skillnad', TYSKA_SIDAN, SAAR), 'from': 1933, 'to': 1934, 'strict': True, 'efter': True,
                                   'remove': [], 'add': ['nazityskland']},
     'gransen-nazityskland': {'area': TYSKA_SIDAN, 'from': 1935, 'to': 1939, 'strict': True, 'efter': True,
                              'remove': [], 'add': ['nazityskland']},
-    'gransen-frankrike': {'area': FRANSKA_SIDAN, 'from': 1930, 'to': 1939, 'strict': True, 'efter': True,
+    'gransen-frankrike': {'area': FRANSKA_SIDAN, 'from': 1920, 'to': 1939, 'strict': True, 'efter': True,
                           'remove': [], 'add': ['franska-kolonialvaldet']},
     # Perioden 1930–1931 förenklas för sig och buktar då in över Schweiz och Luxemburg; deras gränser i Cliopatria klipps bort
     'frankrike-1930-grannar': {'area': ('clio-union', [('Swiss Confederation', 1930), ('Luxembourg', 1930)]), 'from': 1930,
@@ -2577,6 +2584,24 @@ for _sida, _mark, _gid, _fran, _till, _klipp, _ocksa in OA_KUST:
     DISPUTED[f'kust-{_sida}-{_gid}-{_fran}'] = {'area': ('kust', _mark, _fran, _gid, tuple(_ocksa)), 'from': _fran, 'strict': True,
                                                  'efter': True, 'dec': 5, 'remove': _klipp, 'add': [_gid],
                                                  **({'to': _till} if _till else {})}
+# Rhenlandet 1920–1929 (#1766, docs/beslut/2026-11-20-rhenlandet-1766.md): Cliopatria ritar de ockuperade zonerna som
+# Frankrike, Belgien, Storbritannien och USA (som längst till och med 1929). Rhenlandet förblev tyskt (en.wikipedia
+# "Occupation of the Rhineland"), så det ritas som Weimarrepubliken med republikens gräns 1930, och makterna klipps bort
+# de åren. Båda görs bara efter förenklingen och bara i de delar av gränsen som området når (efter och dec), annars
+# förenklas hela riket om och ändras långt från Rhen (Djibouti i Frankrike). Ytan räknas med området (yta); posterna står
+# sist, eftersom ett område utan efter räknar om ytan ur gränsen. USA klipps inte: USA:s period 1916–1923 har gränsen 1916,
+# så den amerikanska zonen (Bitburg, Prüm) ritades aldrig, och en delning 1920 hade ändrat USA långt från Rhen.
+# Ruhrockupationen 1923–1925 ritar Cliopatria inte (Essen, Duisburg, Gelsenkirchen och Dortmund ligger i Weimar Republic
+# alla år), så den behöver ingen ändring
+DISPUTED['rhenlandet-weimar'] = {'area': RHENLANDET, 'from': 1920, 'to': 1929, 'strict': True, 'efter': True, 'yta': True,
+                                 'dec': 3, 'remove': [], 'add': ['weimarrepubliken']}
+DISPUTED['rhenlandet-ockupation'] = {'area': RHENLANDET, 'from': 1920, 'to': 1929, 'strict': True, 'efter': True, 'yta': True,
+                                     'dec': 3, 'remove': ['franska-kolonialvaldet', 'belgien', 'brittiska-imperiet'],
+                                     'add': []}
+# och Frankrikes gräns 1920–1929 går på några ställen över Rhen in i Baden och vid Lauter; Tysklands sida av gränsen i Natural
+# Earth (som gransen-weimar lägger till republiken) klipps ur Frankrike de åren, så att marken inte ritas i båda
+DISPUTED['rhenlandet-baden'] = {'area': TYSKA_SIDAN, 'from': 1920, 'to': 1929, 'strict': True, 'efter': True, 'yta': True,
+                                'dec': 3, 'remove': ['franska-kolonialvaldet'], 'add': []}
 
 
 def oa_grans(out):
