@@ -8233,6 +8233,21 @@
     "es": "En mayo de 1637 se publicó la enciclopedia de técnica de Song Yingxing, el Tiangong Kaiwu, con dinero de su mecenas Tu Shaokui. El libro describe, entre otras cosas, la agricultura, los barcos, la fabricación de seda y algodón, el trabajo del metal y la pólvora. Durante la dinastía Qing el libro se volvió muy escaso en China.",
     "fr": "En mai 1637 parut l'encyclopédie des techniques de Song Yingxing, le Tiangong Kaiwu, financée par son protecteur Tu Shaokui. Le livre décrit notamment l'agriculture, les bateaux, la fabrication de la soie et du coton, le travail des métaux et la poudre. Sous la dynastie Qing, le livre devint très rare en Chine."
    },
+   "image": {
+    "file": "images/events/tiangong-kaiwu-1637.webp",
+    "kind": "historisk",
+    "style": "kina-tusch",
+    "caption": {
+     "sv": "Vattendrivna stamphammare som skalar säd, en av illustrationerna i Tiangong Kaiwu från 1637, fotograferad ur en engelsk översättning från 1966. Licens: Public domain.",
+     "en": "Water-powered trip hammers that husk grain, one of the illustrations in the Tiangong Kaiwu of 1637, photographed from a 1966 English translation. Licence: Public domain.",
+     "de": "Wassergetriebene Stampfhämmer, die Getreide schälen, eine der Abbildungen im Tiangong Kaiwu von 1637, fotografiert aus einer englischen Übersetzung von 1966. Lizenz: gemeinfrei.",
+     "es": "Mazos hidráulicos que descascarillan el grano, una de las ilustraciones del Tiangong Kaiwu de 1637, fotografiada de una traducción inglesa de 1966. Licencia: dominio público.",
+     "fr": "Des martinets actionnés par l’eau qui décortiquent le grain, l’une des illustrations du Tiangong Kaiwu de 1637, photographiée d’après une traduction anglaise de 1966. Licence : domaine public."
+    },
+    "credit": "Song Yingxing (foto: PericlesofAthens) / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-tiangong-kaiwu-1637"
+   },
    "sources": [
     "wp-tiangong-kaiwu",
     "wp-song-yingxing"
