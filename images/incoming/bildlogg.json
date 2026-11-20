@@ -2126,5 +2126,53 @@
     "credit": "Bain News Service / Library of Congress, Prints & Photographs Division (LC-B2- 3667-10)",
     "license": "Inga kända restriktioner (Library of Congress)",
     "source": "loc-bild-gallipolifalttaget"
+  },
+  {
+    "id": "belagringen-av-kut",
+    "file": "belagringen-av-kut.jpg",
+    "kind": "historisk",
+    "style": "affisch",
+    "caption": {
+      "sv": "General Charles Townshend (sittande i mitten) och den osmanske befälhavaren Halil pasha (sittande till höger) med officerare strax efter att garnisonen i Kut hade kapitulerat, 1916. Utsnitt. Licens: Public domain.",
+      "en": "General Charles Townshend (seated, centre) and the Ottoman commander Khalil Pasha (seated, right) with officers shortly after the garrison of Kut had surrendered, 1916. Detail. Licence: Public domain.",
+      "de": "General Charles Townshend (sitzend in der Mitte) und der osmanische Befehlshaber Halil Pascha (sitzend rechts) mit Offizieren kurz nach der Kapitulation der Garnison von Kut, 1916. Ausschnitt. Lizenz: Public Domain.",
+      "es": "El general Charles Townshend (sentado en el centro) y el comandante otomano Halil Pachá (sentado a la derecha) con oficiales poco después de la rendición de la guarnición de Kut, 1916. Detalle. Licencia: dominio público.",
+      "fr": "Le général Charles Townshend (assis au centre) et le commandant ottoman Halil Pacha (assis à droite) avec des officiers peu après la reddition de la garnison de Kut, 1916. Détail. Licence : domaine public."
+    },
+    "credit": "Brittisk officiell fotograf / Imperial War Museum (Q 79344) / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-belagringen-av-kut"
+  },
+  {
+    "id": "slaget-vid-somme",
+    "file": "slaget-vid-somme.jpg",
+    "kind": "historisk",
+    "style": "affisch",
+    "caption": {
+      "sv": "Brittiska soldater väntar i en skyttegrav vid Beaumont-Hamel strax före anfallet den 1 juli 1916, och några sover fortfarande. Utsnitt. Licens: Public domain.",
+      "en": "British soldiers wait in a support trench at Beaumont-Hamel shortly before the attack on 1 July 1916, some of them still asleep. Detail. Licence: Public domain.",
+      "de": "Britische Soldaten warten kurz vor dem Angriff am 1. Juli 1916 in einem Graben bei Beaumont-Hamel, einige schlafen noch. Ausschnitt. Lizenz: Public Domain.",
+      "es": "Soldados británicos esperan en una trinchera de apoyo en Beaumont-Hamel poco antes del ataque del 1 de julio de 1916; algunos todavía duermen. Detalle. Licencia: dominio público.",
+      "fr": "Des soldats britanniques attendent dans une tranchée de soutien à Beaumont-Hamel peu avant l’attaque du 1er juillet 1916 ; certains dorment encore. Détail. Licence : domaine public."
+    },
+    "credit": "Royal Engineers No. 1 Printing Company / Imperial War Museum (Q 64) / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-slaget-vid-somme"
+  },
+  {
+    "id": "slaget-vid-tanga",
+    "file": "slaget-vid-tanga.jpg",
+    "kind": "historisk",
+    "style": "affisch",
+    "caption": {
+      "sv": "Tyska kolonialtrupper skjuter mot brittiska soldater som flyr tillbaka till sina fartyg vid Tanga den 3 november 1914. Teckning av Carl Arriens i det tyska verket Der Krieg 1914–19 in Wort und Bild, utgivet 1919: en bild från den ena sidan, inte en ögonvittnesbild. Utsnitt. Licens: Public domain.",
+      "en": "German colonial troops fire on British soldiers fleeing back to their ships at Tanga on 3 November 1914. Drawing by Carl Arriens in the German work Der Krieg 1914–19 in Wort und Bild, published in 1919: a picture from one side, not an eyewitness image. Detail. Licence: Public domain.",
+      "de": "Deutsche Schutztruppen schießen bei Tanga am 3. November 1914 auf britische Soldaten, die auf ihre Schiffe zurückfliehen. Zeichnung von Carl Arriens in dem deutschen Werk Der Krieg 1914–19 in Wort und Bild, erschienen 1919: ein Bild aus der Sicht einer Seite, kein Augenzeugenbild. Ausschnitt. Lizenz: Public Domain.",
+      "es": "Tropas coloniales alemanas disparan contra soldados británicos que huyen de vuelta a sus barcos en Tanga el 3 de noviembre de 1914. Dibujo de Carl Arriens en la obra alemana Der Krieg 1914–19 in Wort und Bild, publicada en 1919: una imagen de uno de los bandos, no una imagen de un testigo. Detalle. Licencia: dominio público.",
+      "fr": "Des troupes coloniales allemandes tirent sur des soldats britanniques qui fuient vers leurs navires à Tanga, le 3 novembre 1914. Dessin de Carl Arriens dans l’ouvrage allemand Der Krieg 1914–19 in Wort und Bild, publié en 1919 : une image vue d’un seul camp, pas une image de témoin oculaire. Détail. Licence : domaine public."
+    },
+    "credit": "Carl Arriens / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-slaget-vid-tanga"
   }
 ]

@@ -29,8 +29,8 @@ function webpSize(buf) {
 
 // Händelserna i turen som fick en riktig bild i #1873 (Verdun hade redan en)
 const MED_BILD = ['skotten-i-sarajevo', 'forsta-varldskriget', 'slaget-vid-tannenberg-1914', 'forsta-slaget-vid-marne',
-  'belagringen-av-tsingtao', 'gallipolifalttaget', 'freden-i-brest-litovsk', 'usa-gar-in-i-forsta-varldskriget',
-  'vapenstillestandet-1918'];
+  'belagringen-av-tsingtao', 'slaget-vid-tanga', 'gallipolifalttaget', 'belagringen-av-kut', 'slaget-vid-somme',
+  'usa-gar-in-i-forsta-varldskriget', 'freden-i-brest-litovsk', 'vapenstillestandet-1918'];
 
 test('turens händelser från #1873 har bild', () => {
   const opened = new Set(tour.steps.map(s => s.open));

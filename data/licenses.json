@@ -3303,6 +3303,7 @@
         "commons-bild-slaget-vid-poltava",
         "commons-bild-slaget-vid-rangiriri",
         "commons-bild-slaget-vid-stalingrad",
+        "commons-bild-slaget-vid-tanga",
         "commons-bild-slaget-vid-tuyuti",
         "commons-bild-slaget-vid-verdun",
         "commons-bild-slaget-vid-waterloo",
@@ -3725,6 +3726,18 @@
       "license": "Public domain (PD-Turkey, PD-shape)",
       "sourceIds": [
         "commons-flagga-turkey"
+      ]
+    },
+    {
+      "license": "Public domain (PD-UKGov)",
+      "sourceIds": [
+        "commons-bild-slaget-vid-somme"
+      ]
+    },
+    {
+      "license": "Public domain (PD-US, publicerad 1919)",
+      "sourceIds": [
+        "commons-bild-belagringen-av-kut"
       ]
     },
     {
