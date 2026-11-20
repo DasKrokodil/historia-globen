@@ -198,11 +198,11 @@
   },
   "etiopiska-hogland": {
    "name": {
-    "sv": "Etiopiens och Eritreas högland",
-    "en": "The highlands of Ethiopia and Eritrea",
-    "de": "Hochland von Äthiopien und Eritrea",
-    "fr": "Hauts plateaux d’Éthiopie et d’Érythrée",
-    "es": "Tierras altas de Etiopía y Eritrea"
+    "sv": "Etiopiens högland",
+    "en": "The Ethiopian Highlands",
+    "de": "Hochland von Äthiopien",
+    "fr": "Hauts plateaux d’Éthiopie",
+    "es": "Tierras altas de Etiopía"
    },
    "bbox": [
     [
@@ -499,13 +499,13 @@
     "fr": "Peinture d’église et manuscrit éthiopiens",
     "es": "Pintura de iglesia y manuscrito etíopes"
    },
-   "from": 320,
+   "from": 1000,
    "to": 1900,
    "regions": [
     "etiopiska-hogland"
    ],
    "frame": "etiopien",
-   "prompt": "Ethiopian Orthodox church painting and illuminated Ge'ez manuscript style: flat bold black outlines, saturated red, yellow, green and blue on parchment, interlaced Ethiopian cross lattice borders, simple stylised landscapes and architecture, no readable script, no human faces"
+   "prompt": "Ethiopian Orthodox church painting and illuminated manuscript style: strong saturated colours, bold black outlines on a parchment ground, simple stylised landscapes and architecture, no readable script, no human faces"
   },
   {
    "id": "islamisk",
