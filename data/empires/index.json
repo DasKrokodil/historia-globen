@@ -16072,7 +16072,7 @@
     "en": "Nazi Germany",
     "de": "NS-Staat",
     "es": "Alemania nazi",
-    "fr": "Troisième Reich"
+    "fr": "Allemagne nazie"
    },
    "color": "#5e5258",
    "from": 1933,
@@ -16086,7 +16086,7 @@
       "en": "Nazi Germany",
       "de": "NS-Staat",
       "es": "Alemania nazi",
-      "fr": "Troisième Reich"
+      "fr": "Allemagne nazie"
      },
      "sources": [
       "cliopatria"
@@ -16100,7 +16100,7 @@
      "en": "Nazi Germany was Germany under the dictatorship of Adolf Hitler in 1933–1945. The regime persecuted Jews and other groups, annexed neighbouring countries and started the Second World War with the attack on Poland in 1939. During the war the regime murdered about six million Jews in the Holocaust and millions of other people. It fell when Germany surrendered in May 1945.",
      "de": "Der NS-Staat war Deutschland unter der Diktatur Adolf Hitlers 1933–1945. Das Regime verfolgte Juden und andere Gruppen, annektierte Nachbarländer und begann mit dem Angriff auf Polen 1939 den Zweiten Weltkrieg. Im Krieg ermordete das Regime im Holocaust etwa sechs Millionen Juden und Millionen weiterer Menschen. Es endete mit der Kapitulation Deutschlands im Mai 1945.",
      "es": "La Alemania nazi fue Alemania bajo la dictadura de Adolf Hitler en 1933–1945. El régimen persiguió a los judíos y a otros grupos, anexionó países vecinos y comenzó la Segunda Guerra Mundial con el ataque a Polonia en 1939. Durante la guerra asesinó a unos seis millones de judíos en el Holocausto y a millones de otras personas. Cayó cuando Alemania capituló en mayo de 1945.",
-     "fr": "Le Troisième Reich désigne l'Allemagne sous la dictature d'Adolf Hitler de 1933 à 1945. Le régime persécuta les Juifs et d'autres groupes, annexa des pays voisins et déclencha la Seconde Guerre mondiale en attaquant la Pologne en 1939. Pendant la guerre, il assassina environ six millions de Juifs lors de la Shoah, ainsi que des millions d'autres personnes. Il s'effondra avec la capitulation de l'Allemagne en mai 1945."
+     "fr": "L'Allemagne nazie désigne l'Allemagne sous la dictature d'Adolf Hitler de 1933 à 1945. Le régime persécuta les Juifs et d'autres groupes, annexa des pays voisins et déclencha la Seconde Guerre mondiale en attaquant la Pologne en 1939. Pendant la guerre, il assassina environ six millions de Juifs lors de la Shoah, ainsi que des millions d'autres personnes. Il s'effondra avec la capitulation de l'Allemagne en mai 1945."
     },
     "items": [
      {
@@ -41895,7 +41895,7 @@
     "en": "Qara Khitai",
     "de": "Kara Kitai",
     "es": "Kanato de Kara-Kitai",
-    "fr": "Kara-Khitans"
+    "fr": "Empire Kara-Khitan"
    },
    "color": "#5a7ab0",
    "from": 1126,
@@ -41909,7 +41909,7 @@
       "en": "Qara Khitai",
       "de": "Kara Kitai",
       "es": "Kanato de Kara-Kitai",
-      "fr": "Kara-Khitans"
+      "fr": "Empire Kara-Khitan"
      },
      "sources": [
       "cliopatria"
@@ -42412,7 +42412,7 @@
     "en": "Yenisei Kyrgyz",
     "de": "Kirgisisches Reich",
     "es": "Kanato kirguís",
-    "fr": "Khaganat kirghiz du Yenisei"
+    "fr": "Khaganat kirghize du Ienisseï"
    },
    "color": "#6a9aa0",
    "from": 555,
@@ -42426,7 +42426,7 @@
       "en": "Yenisei Kyrgyz",
       "de": "Kirgisisches Reich",
       "es": "Kanato kirguís",
-      "fr": "Khaganat kirghiz du Yenisei"
+      "fr": "Khaganat kirghize du Ienisseï"
      },
      "sources": [
       "cliopatria"
@@ -42471,7 +42471,7 @@
     "sv": "Västturkiska khaganatet",
     "en": "Western Turkic Khaganate",
     "de": "Westliches Türk-Kaganat",
-    "es": "Kanato de los turcos occidentales",
+    "es": "Kanato túrquico occidental",
     "fr": "Khaganat turc occidental"
    },
    "color": "#4a9a8a",
@@ -42485,7 +42485,7 @@
       "sv": "Västturkiska khaganatet",
       "en": "Western Turkic Khaganate",
       "de": "Westliches Türk-Kaganat",
-      "es": "Kanato de los turcos occidentales",
+      "es": "Kanato túrquico occidental",
       "fr": "Khaganat turc occidental"
      },
      "sources": [
