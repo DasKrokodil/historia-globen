@@ -191,7 +191,7 @@ def main():
         check(ph['file'] == 'images/events/e-pd.webp' and ph['source'] == 'commons-bild-e-pd' and ph['credit'] == 'Anna Exempel / Wikimedia Commons', 'image-fält: file/source/credit')
         nb = ' '
         check(ph['caption'] == {s: f'{bh.MOTIV_TODO} {f}' for s, f in {
-            'sv': 'Licens: Public domain.', 'en': 'Licence: Public domain.', 'de': 'Lizenz: Public domain.',
+            'sv': 'Licens: Public domain.', 'en': 'Licence: Public domain.', 'de': 'Lizenz: gemeinfrei.',
             'es': 'Licencia: dominio público.', 'fr': f'Licence{nb}: domaine public.'}.items()}, f'bildtexter (PD): {ph["caption"]}')
         cc = res['e-ccbysa']['image']['caption']
         check(cc['sv'].endswith('Licens: CC BY-SA 4.0.') and cc['de'].endswith('Lizenz: CC BY-SA 4.0.') and cc['es'].endswith('Licencia: CC BY-SA 4.0.')

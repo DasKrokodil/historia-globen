@@ -66,8 +66,9 @@ NBSP = ' '
 
 LICENSORD = {'sv': 'Licens', 'en': 'Licence', 'de': 'Lizenz', 'es': 'Licencia', 'fr': 'Licence' + NBSP}
 # Följer den vanligaste formen i befintliga bildtexter per språk (räknat 2026-11-20 i data/handelser/: sv 161 mot 2, en 139 mot 23,
-# de 73 mot 38 gemeinfrei, es 75, fr 40 mot 29). Fältet license ('Public domain') är inte bildtext.
-PD_FRAS = {'sv': 'Public domain', 'en': 'Public domain', 'de': 'Public domain', 'es': 'dominio público', 'fr': 'domaine public'}
+# es 75, fr 40 mot 29). Tyskan avviker med flit: 'gemeinfrei' är den rätta tyska formen (sprak-de) och används i de senaste bildomgångarna;
+# äldre tyska bildtexter blandar formerna (73 'Public domain', 38 'gemeinfrei') och ska jämnas ut senare. Fältet license ('Public domain') är inte bildtext.
+PD_FRAS = {'sv': 'Public domain', 'en': 'Public domain', 'de': 'gemeinfrei', 'es': 'dominio público', 'fr': 'domaine public'}
 LOC_FRAS = {
     'sv': 'Library of Congress anger inga kända restriktioner för publicering.',
     'en': 'The Library of Congress states no known restrictions on publication.',
