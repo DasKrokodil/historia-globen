@@ -198,6 +198,7 @@ Titel och epitet skrivs med liten bokstav i löpande text (`el rey Luis XIV`, `l
 | Han dynasty | dinastía Han | dynastie Han | – |
 | Ming dynasty | dinastía Ming | dynastie Ming | – |
 | Qing dynasty | dinastía Qing | dynastie Qing | – |
+| Empire of China (1915–1916) | Imperio de China | Empire de Chine | se 9.2 (2026-11-20) |
 | Carthage | Cartago | Carthage | – |
 | Southern Song | dinastía Song meridional | Song du Sud | – (fr rättat i sprak-fr-granskningen, #2002) |
 | Vakataka empire | Dinastía Vakataka | – | – (accent rättad i sprak-es-granskningen, #2002) |
@@ -233,6 +234,18 @@ Typorden för `areaKind` (`area.kind.<värde>` i `data/ui/`). De ersätter ordet
 | `city-states` | stadsstäder | city-states | Stadtstaaten | ciudades-Estado | cités-États |
 | `culture` | kulturområde | culture area | Kulturraum | área cultural | aire culturelle |
 | kortets rubrik (`facts.kind.area`) | Område som inte var en stat | Area that was not a state | Gebiet, das kein Staat war | Zona que no era un Estado | Zone qui n’était pas un État |
+
+### 9.2 Kina 1915–1929 (#1507)
+
+Namnen i rutan Om kartan för `kina` och delen `kejsardomet-kina`. Ordningen följer texten.
+
+| Svenska | Engelska | Tyska | Spanska | Franska | Kontrollerad |
+|---|---|---|---|---|---|
+| Kejsardömet Kina | Empire of China | Kaiserreich China | Imperio de China | Empire de Chine | 2026-11-20: en, de och es Wikidata Q175379 (etiketterna); sv sv.wikipedia "Kejsardömet Kina (1915–1916)" (titel och faktaruta; Wikidatas sv-etikett är "Kinesiska imperiet"); fr fr.wikipedia "Restauration impériale chinoise" (faktarutans franska namn; Wikidatas fr-etikett är artikelns titel) |
+| Kuomintang | Kuomintang | Kuomintang | Kuomintang | Kuomintang | – (oförändrat på alla språk) |
+| Beiyangregeringen | Beiyang government | Beiyang-Regierung | Gobierno de Beiyang | gouvernement de Beiyang | en 2026-11-20: en.wikipedia "Beiyang government" |
+| Peking | Beijing | Peking | Pekín | Pékin | – |
+| Nationalistregeringen (i Nanjing) | Nationalist Government | Nationalregierung | Gobierno Nacionalista | gouvernement nationaliste | – |
 
 ## 10. Kontrollera innan en pull request öppnas
 

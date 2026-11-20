@@ -44,7 +44,7 @@
 "ecuador":{"flags":{"0":{"label":{"fr":"Drapeau de l’Équateur de 1860 à 1900"}},"1":{"label":{"fr":"Drapeau civil de l’Équateur"}}}},
 "ukraina":{"flags":{"0":{"label":{"fr":"Drapeau de l’Ukraine"}}}},
 "ryska-federationen":{"flags":{"0":{"label":{"fr":"Drapeau de la Russie"}}}},
-"kina":{"flags":{"0":{"label":{"fr":"Drapeau chinois à cinq couleurs"}}}},
+"kina":{"flags":{"0":{"label":{"fr":"Drapeau chinois à cinq couleurs"}},"1":{"label":{"fr":"Drapeau chinois à cinq couleurs"}}}},
 "taiwan":{"flags":{"0":{"label":{"fr":"Drapeau de la République de Chine"}}}},
 "kazakstan":{"flags":{"0":{"label":{"fr":"Drapeau du Kazakhstan"}}}},
 "algeriet":{"flags":{"0":{"label":{"fr":"Drapeau de l'Algérie"}}}},
