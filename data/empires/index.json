@@ -33823,6 +33823,23 @@
      "review": "source-checked"
     },
     {
+     "file": "cameroon-1961",
+     "from": 1961,
+     "to": 1974,
+     "label": {
+      "sv": "Förbundsrepubliken Kameruns flagga",
+      "en": "Flag of the Federal Republic of Cameroon",
+      "de": "Flagge der Bundesrepublik Kamerun",
+      "es": "Bandera de la República Federal de Camerún",
+      "fr": "Drapeau de la République fédérale du Cameroun"
+     },
+     "sources": [
+      "wp-flag-cameroon",
+      "commons-flagga-cameroon-1961"
+     ],
+     "review": "source-checked"
+    },
+    {
      "file": "cameroon",
      "from": 1975,
      "to": 2024,
