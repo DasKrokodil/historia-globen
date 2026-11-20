@@ -37227,6 +37227,25 @@
      "review": "source-checked"
     },
     {
+     "file": "bulgaria-1948",
+     "from": 1948,
+     "to": 1966,
+     "label": {
+      "sv": "Bulgariens flagga från 1948",
+      "en": "Flag of Bulgaria from 1948",
+      "de": "Flagge Bulgariens ab 1948",
+      "es": "Bandera de Bulgaria desde 1948",
+      "fr": "Drapeau de la Bulgarie à partir de 1948"
+     },
+     "sources": [
+      "wp-flag-bulgaria",
+      "wp-emblem-bulgaria-prb",
+      "commons-emblem-bulgaria-1948",
+      "commons-flagga-bulgaria-1948"
+     ],
+     "review": "source-checked"
+    },
+    {
      "file": "bulgaria-1971",
      "from": 1971,
      "to": 1989,
@@ -37288,11 +37307,11 @@
        "fr": "Le drapeau sur la carte"
       },
       "text": {
-       "sv": "Kartan visar trikoloren 1880–1947 och från 1990 och folkrepublikens flagga med emblemet i det vita bandet för 1971–1989, då emblemet fick ett band med årtalen 681 och 1944. Åren 1948–1970 visas ingen flagga. Emblemet ändrades också under 1960-talet, och källorna skiljer sig om när och hur: Wikipedia anger 1967, medan filsidorna för emblemet och flaggan på Wikimedia Commons anger 1968, och artikeln om emblemet säger att vitt vete då ersatte det gyllene, medan teckningarna på Commons har gyllene vete.",
-       "en": "The map shows the tricolour for 1880–1947 and from 1990, and the flag of the People’s Republic with the emblem on the white stripe for 1971–1989, when the emblem received a ribbon with the years 681 and 1944. No flag is shown for 1948–1970. The emblem was also changed in the 1960s, and the sources differ about when and how: Wikipedia gives 1967, while the file pages for the emblem and the flag on Wikimedia Commons give 1968, and the article on the emblem says that white wheat then replaced the gold, while the drawings on Commons have golden wheat.",
-       "de": "Die Karte zeigt die Trikolore für 1880–1947 und ab 1990 sowie die Flagge der Volksrepublik mit dem Emblem im weißen Streifen für 1971–1989, als das Emblem ein Band mit den Jahreszahlen 681 und 1944 erhielt. Für 1948–1970 wird keine Flagge gezeigt. Das Emblem wurde auch in den 1960er-Jahren geändert, und die Quellen weichen voneinander ab, wann und wie: Wikipedia nennt 1967, die Dateiseiten für das Emblem und die Flagge auf Wikimedia Commons nennen 1968, und der Artikel über das Emblem sagt, dass damals weißer Weizen den goldenen ersetzte, während die Zeichnungen auf Commons goldenen Weizen zeigen.",
-       "es": "El mapa muestra la tricolor de 1880 a 1947 y desde 1990, y la bandera de la República Popular con el emblema en la franja blanca de 1971 a 1989, cuando el emblema recibió una cinta con los años 681 y 1944. Entre 1948 y 1970 no se muestra ninguna bandera. El emblema también cambió en la década de 1960, y las fuentes difieren sobre cuándo y cómo: Wikipedia indica 1967, mientras que las páginas de los archivos del emblema y de la bandera en Wikimedia Commons indican 1968, y el artículo sobre el emblema dice que entonces el trigo blanco sustituyó al dorado, mientras que los dibujos de Commons tienen trigo dorado.",
-       "fr": "La carte montre le tricolore de 1880 à 1947 et à partir de 1990, et le drapeau de la République populaire avec l’emblème sur la bande blanche de 1971 à 1989, lorsque l’emblème a reçu un ruban portant les années 681 et 1944. Aucun drapeau n’est montré pour 1948–1970. L’emblème a aussi été modifié dans les années 1960, et les sources divergent sur la date et la forme. Wikipédia indique 1967, tandis que les pages des fichiers de l’emblème et du drapeau sur Wikimedia Commons indiquent 1968, et l’article sur l’emblème dit que du blé blanc a alors remplacé le blé doré, alors que les dessins sur Commons ont du blé doré."
+       "sv": "Kartan visar trikoloren 1880–1947 och från 1990 och folkrepublikens flagga med emblemet i det vita bandet för 1948–1966, med ett band med datumet 9 IX 1944, och för 1971–1989, då bandet i stället fick årtalen 681 och 1944. Åren 1967–1970 visas ingen flagga, eftersom källorna skiljer sig om när och hur emblemet ändrades under 1960-talet: Wikipedia anger 1967, medan filsidorna för emblemet och flaggan på Wikimedia Commons anger 1968, och artikeln om emblemet säger att vitt vete då ersatte det gyllene, medan teckningarna på Commons har gyllene vete.",
+       "en": "The map shows the tricolour for 1880–1947 and from 1990, and the flag of the People’s Republic with the emblem on the white stripe for 1948–1966, with a ribbon bearing the date 9 IX 1944, and for 1971–1989, when the ribbon instead received the years 681 and 1944. No flag is shown for 1967–1970, because the sources differ about when and how the emblem was changed in the 1960s: Wikipedia gives 1967, while the file pages for the emblem and the flag on Wikimedia Commons give 1968, and the article on the emblem says that white wheat then replaced the gold, while the drawings on Commons have golden wheat.",
+       "de": "Die Karte zeigt die Trikolore für 1880–1947 und ab 1990 sowie die Flagge der Volksrepublik mit dem Emblem im weißen Streifen für 1948–1966, mit einem Band mit dem Datum 9 IX 1944, und für 1971–1989, als das Band stattdessen die Jahreszahlen 681 und 1944 erhielt. Für 1967–1970 wird keine Flagge gezeigt, weil die Quellen voneinander abweichen, wann und wie das Emblem in den 1960er-Jahren geändert wurde: Wikipedia nennt 1967, die Dateiseiten für das Emblem und die Flagge auf Wikimedia Commons nennen 1968, und der Artikel über das Emblem sagt, dass damals weißer Weizen den goldenen ersetzte, während die Zeichnungen auf Commons goldenen Weizen zeigen.",
+       "es": "El mapa muestra la tricolor de 1880 a 1947 y desde 1990, y la bandera de la República Popular con el emblema en la franja blanca de 1948 a 1966, con una cinta con la fecha 9 IX 1944, y de 1971 a 1989, cuando la cinta recibió en su lugar los años 681 y 1944. Entre 1967 y 1970 no se muestra ninguna bandera, porque las fuentes difieren sobre cuándo y cómo cambió el emblema en la década de 1960: Wikipedia indica 1967, mientras que las páginas de los archivos del emblema y de la bandera en Wikimedia Commons indican 1968, y el artículo sobre el emblema dice que entonces el trigo blanco sustituyó al dorado, mientras que los dibujos de Commons tienen trigo dorado.",
+       "fr": "La carte montre le tricolore de 1880 à 1947 et à partir de 1990, et le drapeau de la République populaire avec l’emblème sur la bande blanche de 1948 à 1966, avec un ruban portant la date 9 IX 1944, et de 1971 à 1989, lorsque le ruban a reçu à la place les années 681 et 1944. Aucun drapeau n’est montré pour 1967–1970, car les sources divergent sur la date et la forme de la modification de l’emblème dans les années 1960. Wikipédia indique 1967, tandis que les pages des fichiers de l’emblème et du drapeau sur Wikimedia Commons indiquent 1968, et l’article sur l’emblème dit que du blé blanc a alors remplacé le blé doré, alors que les dessins sur Commons ont du blé doré."
       }
      }
     ],
@@ -37309,6 +37328,8 @@
      "wp-paris-peace-treaties-1947",
      "wp-flag-bulgaria",
      "wp-emblem-bulgaria-prb",
+     "commons-emblem-bulgaria-1948",
+     "commons-flagga-bulgaria-1948",
      "commons-emblem-bulgaria-1967",
      "commons-flagga-bulgaria-1967"
     ],
