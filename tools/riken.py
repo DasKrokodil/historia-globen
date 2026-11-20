@@ -1729,9 +1729,11 @@ GROUPS = {
     ]),
     # Medeltidens luckor, nionde omgången (#645, 2026-11-20): de största kvarvarande luckorna 500–1500 med provår var 50:e år
     # (tools/tackning_riken.py), där Cliopatrias Wikidata-id är en stat (SPARQL 2026-11-20). Svenska namn är Wikidatas svenska
-    # etiketter, utom Aragoniska kronan (svenska Wikipedias titel; etiketten är "Aragonska kronan"). Balhae, Lavo Kingdom,
-    # Seuna dynasty (Cliopatrias Yadava Dynasty) och Chaulukya dynasty saknar svensk etikett och artikel på svenska Wikipedia och
-    # har det engelska namnet enligt beslutet 2026-11-12; Mamlukdynastin i Delhi heter på engelska som engelska Wikipedias titel,
+    # etiketter, utom Aragoniska kronan (svenska Wikipedias titel; etiketten är "Aragonska kronan"). Balhae saknar svensk
+    # etikett och artikel och har det engelska namnet (beslutet 2026-11-12). Kungariket Lavo, Seunadynastin (Cliopatrias Yadava
+    # Dynasty) och Chaulukyadynastin saknar också svensk etikett och artikel (svenska Wikipedia sökt 2026-11-20); det engelska
+    # namnet stoppas av provet mot engelska namn i name.sv (#1702), så namnet är det engelska med typordet översatt, som
+    # Kungariket Pagan och Chalukyadynastin (egen översättning, granskas av historiker och sprak-*); Mamlukdynastin i Delhi heter på engelska som engelska Wikipedias titel,
     # eftersom Wikidatas engelska etikett "Mamluk Sultanate" är samma som Egyptens mamluksultanat. Väntar: Turk Shahis (Q654380
     # är Kabul Shahi, som också omfattar Hindu Shahi), Hamdanid Emirates (Cliopatria 936–1259, Wikidata 890–1004), Sind-Habbari
     # Dynasty (id utan årtal), Ngô Dynasty (Cliopatria 947–1406, Wikidata 939–965), Buyid Dynasty (id är Abbasidkalifatet),
@@ -1751,17 +1753,17 @@ GROUPS = {
     'koguryo': ('Koguryo', 'Goguryeo', [
         ('Goguryeo', 'koguryo', 'Koguryo', '#4a8a6a', {'en': 'Goguryeo'}),
     ]),
-    'lavo-kingdom': ('Lavo Kingdom', 'Lavo Kingdom', [
-        ('Lavo Kingdom', 'lavo-kingdom', 'Lavo Kingdom', '#b05a5a', {'en': 'Lavo Kingdom'}),
+    'kungariket-lavo': ('Kungariket Lavo', 'Lavo Kingdom', [
+        ('Lavo Kingdom', 'kungariket-lavo', 'Kungariket Lavo', '#b05a5a', {'en': 'Lavo Kingdom'}),
     ]),
-    'seuna-dynasty': ('Seuna dynasty', 'Seuna dynasty', [
-        ('Yadava Dynasty', 'seuna-dynasty', 'Seuna dynasty', '#8a8a3a', {'en': 'Seuna dynasty'}),
+    'seunadynastin': ('Seunadynastin', 'Seuna dynasty', [
+        ('Yadava Dynasty', 'seunadynastin', 'Seunadynastin', '#8a8a3a', {'en': 'Seuna dynasty'}),
     ]),
     'mamlukdynastin-i-delhi': ('Mamlukdynastin i Delhi', 'Mamluk dynasty (Delhi)', [
         ('Mamluk Dynasty', 'mamlukdynastin-i-delhi', 'Mamlukdynastin i Delhi', '#6a5a9a', {'en': 'Mamluk dynasty (Delhi)'}),
     ]),
-    'chaulukya-dynasty': ('Chaulukya dynasty', 'Chaulukya dynasty', [
-        ('Chaulukya Dynasty', 'chaulukya-dynasty', 'Chaulukya dynasty', '#3a8aa0', {'en': 'Chaulukya dynasty'}),
+    'chaulukyadynastin': ('Chaulukyadynastin', 'Chaulukya dynasty', [
+        ('Chaulukya Dynasty', 'chaulukyadynastin', 'Chaulukyadynastin', '#3a8aa0', {'en': 'Chaulukya dynasty'}),
     ]),
     'aragoniska-kronan': ('Aragoniska kronan', 'Crown of Aragon', [
         ('Crown of Aragon', 'aragoniska-kronan', 'Aragoniska kronan', '#c0a03a', {'en': 'Crown of Aragon'}),

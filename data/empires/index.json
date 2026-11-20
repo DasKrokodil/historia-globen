@@ -45486,7 +45486,7 @@
      "en": "The sources differ. Wikidata gives 661–1292 and Wikipedia 629–1281; according to Wikipedia, the capital was captured in 1292 by Mangrai of Lan Na. The map shows the kingdom in 661–1293, as in Cliopatria. The borders are Cliopatria’s estimate and not known state borders.",
      "de": "Die Quellen weichen voneinander ab. Wikidata nennt 661–1292 und Wikipedia 629–1281; laut Wikipedia wurde die Hauptstadt 1292 von Mangrai aus Lan Na erobert. Die Karte zeigt das Königreich wie Cliopatria 661–1293. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
      "es": "Las fuentes difieren. Wikidata indica 661–1292 y Wikipedia 629–1281; según Wikipedia, la capital fue tomada en 1292 por Mangrai de Lan Na. El mapa muestra el reino en 661–1293, como Cliopatria. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
-     "fr": "Les sources divergent. Wikidata indique 661–1292 et Wikipédia 629–1281 ; selon Wikipédia, la capitale fut prise en 1292 par Mangrai du Lanna. La carte montre le royaume en 661–1293, comme Cliopatria. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+     "fr": "Les sources divergent. Wikidata indique 661–1292 et Wikipédia 629–1281 ; selon Wikipédia, la capitale fut prise en 1292 par Mangrai du Lanna. La carte montre le royaume en 661–1293, comme Cliopatria. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
     },
     "sources": [
      "wp-haripunjaya",
@@ -45542,9 +45542,9 @@
    }
   },
   {
-   "id": "lavo-kingdom",
+   "id": "kungariket-lavo",
    "name": {
-    "sv": "Lavo Kingdom",
+    "sv": "Kungariket Lavo",
     "en": "Lavo Kingdom",
     "de": "Königreich Lavo",
     "es": "Reino de Lavo",
@@ -45553,12 +45553,12 @@
    "color": "#b05a5a",
    "from": 638,
    "to": 1394,
-   "file": "data/empires/lavo-kingdom.json",
+   "file": "data/empires/kungariket-lavo.json",
    "polities": [
     {
-     "id": "lavo-kingdom",
+     "id": "kungariket-lavo",
      "name": {
-      "sv": "Lavo Kingdom",
+      "sv": "Kungariket Lavo",
       "en": "Lavo Kingdom",
       "de": "Königreich Lavo",
       "es": "Reino de Lavo",
@@ -45587,9 +45587,9 @@
    }
   },
   {
-   "id": "seuna-dynasty",
+   "id": "seunadynastin",
    "name": {
-    "sv": "Seuna dynasty",
+    "sv": "Seunadynastin",
     "en": "Seuna dynasty",
     "de": "Seuna",
     "es": "Seuna",
@@ -45598,12 +45598,12 @@
    "color": "#8a8a3a",
    "from": 1188,
    "to": 1325,
-   "file": "data/empires/seuna-dynasty.json",
+   "file": "data/empires/seunadynastin.json",
    "polities": [
     {
-     "id": "seuna-dynasty",
+     "id": "seunadynastin",
      "name": {
-      "sv": "Seuna dynasty",
+      "sv": "Seunadynastin",
       "en": "Seuna dynasty",
       "de": "Seuna",
       "es": "Seuna",
@@ -45621,7 +45621,7 @@
      "en": "The sources differ. Wikipedia says the dynasty ruled independently from about 1187 to 1317 (earlier as vassals), Wikidata gives 1173–1317. The map shows the realm in 1188–1325, as in Cliopatria, which calls it Yadava Dynasty. The borders are Cliopatria’s estimate and not known state borders.",
      "de": "Die Quellen weichen voneinander ab. Laut Wikipedia herrschte die Dynastie etwa 1187–1317 unabhängig (vorher als Vasallen), Wikidata nennt 1173–1317. Die Karte zeigt das Reich wie Cliopatria 1188–1325; Cliopatria nennt es Yadava Dynasty. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
      "es": "Las fuentes difieren. Según Wikipedia, la dinastía gobernó de forma independiente hacia 1187–1317 (antes como vasallos); Wikidata indica 1173–1317. El mapa muestra el reino en 1188–1325, como Cliopatria, que lo llama Yadava Dynasty. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
-     "fr": "Les sources divergent. Selon Wikipédia, la dynastie régna de manière indépendante vers 1187–1317 (auparavant comme vassaux) ; Wikidata indique 1173–1317. La carte montre le royaume en 1188–1325, comme Cliopatria, qui l’appelle Yadava Dynasty. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+     "fr": "Les sources divergent. Selon Wikipédia, la dynastie régna de manière indépendante vers 1187–1317 (auparavant comme vassaux) ; Wikidata indique 1173–1317. La carte montre le royaume en 1188–1325, comme Cliopatria, qui l’appelle Yadava Dynasty. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
     },
     "sources": [
      "wp-seuna-dynasty",
@@ -45677,9 +45677,9 @@
    }
   },
   {
-   "id": "chaulukya-dynasty",
+   "id": "chaulukyadynastin",
    "name": {
-    "sv": "Chaulukya dynasty",
+    "sv": "Chaulukyadynastin",
     "en": "Chaulukya dynasty",
     "de": "Solanki",
     "es": "Dinastía Chaulukya",
@@ -45688,12 +45688,12 @@
    "color": "#3a8aa0",
    "from": 947,
    "to": 1249,
-   "file": "data/empires/chaulukya-dynasty.json",
+   "file": "data/empires/chaulukyadynastin.json",
    "polities": [
     {
-     "id": "chaulukya-dynasty",
+     "id": "chaulukyadynastin",
      "name": {
-      "sv": "Chaulukya dynasty",
+      "sv": "Chaulukyadynastin",
       "en": "Chaulukya dynasty",
       "de": "Solanki",
       "es": "Dinastía Chaulukya",
