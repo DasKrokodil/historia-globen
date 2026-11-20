@@ -46,6 +46,9 @@ from shapely.geometry import mapping, shape
 from shapely import STRtree
 from shapely.ops import unary_union
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from cliopatria_ar import astronomiskt, las_cliopatria  # noqa: E402  (#1989)
+
 ROOT = Path(__file__).resolve().parent.parent
 TOL = 0.25       # förenkling i grader (Douglas-Peucker); rikena förenklas först med hälften
 MIN_AREA = 0.05  # öar mindre än så här (kvadratgrader) tas bort
@@ -156,10 +159,11 @@ def since(text, rel):
 
 
 def steps():
-    """Ögonblicksbildernas startår: tätare ju närmare nutiden."""
+    """Ögonblicksbildernas startår: tätare ju närmare nutiden. Stegen räknas i Cliopatrias år (3400 f.Kr., 3300 f.Kr. …,
+    år 0, 50, 100 …) och lämnas som astronomiska år, så att 3400 f.Kr. blir -3399 (#1989)."""
     y = -3400
     while y <= 2024:
-        yield y
+        yield astronomiskt(y)
         y += 100 if y < 0 else 50 if y < 1500 else 25 if y < 1900 else 10
 
 
@@ -248,7 +252,7 @@ def main():
     old = json.loads(path.read_text())
     register = {p['name']: p for p in old['polities']}
     old_rel = {r['id']: r for r in old['religions']}
-    src = json.loads(Path(sys.argv[1]).read_text())
+    src = las_cliopatria(sys.argv[1])  # Cliopatrias -N (N f.Kr.) blir astronomiskt 1 - N (#1989)
 
     rows, missing = [], set()
     for f in src['features']:

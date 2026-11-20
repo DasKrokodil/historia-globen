@@ -30,6 +30,7 @@ from shapely.ops import unary_union
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from riken_bevara import KEEP, keep_langs, kept_fields, old_influence_names, order_like  # noqa: E402  (#1220)
+from cliopatria_ar import las_cliopatria  # noqa: E402  (#1989)
 
 ROOT = Path(__file__).resolve().parent.parent
 # KEEP (fält i index.json som skrivs för hand och behålls, bland annat flags och modernState) står i tools/riken_bevara.py (#1220)
@@ -146,13 +147,14 @@ GROUPS = {
     'persiska-riket': ('Persiska riket (akemeniderna)', 'Achaemenid Empire', [
         ('Achaemenid Empire', 'akemenidiska-riket', 'Persiska riket', '#c08a2e'),
     ]),
-    # Alexanders erövringar 332–325 f.Kr. (#1382): Cliopatria v0.2.1 har dem under namnet "Ptolemaic Kingdom" (Q2320005)
-    # åren -331 till -324, medan "Macedonian Empire" samma år bara är Makedonien (218 169 km²). Ytan 332–328 f.Kr. är exakt
-    # det Persiska riket förlorade från 333 f.Kr. (Mindre Asien, Levanten och Egypten, ingen överlappning med Achaemenid
-    # Empire), och 327–325 f.Kr. hela det gamla Persiska riket till Indus, samma område som "Macedonian Empire" från 323 f.Kr.
-    # Ptolemaios I blev kung först 305 f.Kr. (Wikidata, Wikipedia). Posterna läggs därför till Makedoniska riket de åren.
+    # Alexanders erövringar 331–324 f.Kr. (#1382): Cliopatria v0.2.1 har dem under namnet "Ptolemaic Kingdom" (Q2320005)
+    # åren -331 till -324 i Cliopatrias räkning (astronomiskt -330 till -323, #1989), medan "Macedonian Empire" samma år bara
+    # är Makedonien (218 169 km²). Ytan 331–327 f.Kr. är exakt det Persiska riket förlorade från 333 f.Kr. (Mindre Asien,
+    # Levanten och Egypten, ingen överlappning med Achaemenid Empire), och 326–324 f.Kr. hela det gamla Persiska riket till
+    # Indus, samma område som "Macedonian Empire" från 323 f.Kr. Ptolemaios I blev kung först 305 f.Kr. (Wikidata, Wikipedia).
+    # Posterna läggs därför till Makedoniska riket de åren. Årtalen i GROUPS är astronomiska (#1989).
     'alexanders-rike': ('Makedoniska riket', 'Macedonian Empire', [
-        ('Macedonian Empire', 'makedoniska-riket', 'Makedoniska riket', '#3f7fb5', {'join': [('Ptolemaic Kingdom', -331, -324)]}),
+        ('Macedonian Empire', 'makedoniska-riket', 'Makedoniska riket', '#3f7fb5', {'join': [('Ptolemaic Kingdom', -330, -323)]}),
     ]),
     'hanriket': ('Hanriket', 'Han dynasty', [
         ('Han Dynasty', 'hanriket', 'Hanriket', '#d0703a'),
@@ -1651,11 +1653,11 @@ GROUPS = {
         ('Kingdom of Kush', 'kush', 'Kush', '#a0603a', {'en': 'Kingdom of Kush'}),
     ]),
     # Ptolemaiska riket börjar 305 f.Kr. enligt Wikidata (Q2320005, 305–30 f.Kr.). Cliopatria lägger posten "Ptolemaic Kingdom"
-    # redan på 332–325 f.Kr. och täcker då Alexanders erövringar ända till Indus, medan "Macedonian Empire" samma år bara är
+    # redan på 331–324 f.Kr. och täcker då Alexanders erövringar ända till Indus, medan "Macedonian Empire" samma år bara är
     # Makedonien; geografens granskning inför v6.3.0 (2026-11-13). Åren klipps därför till Wikidatas start, och
-    # posterna 332–325 f.Kr. läggs till Makedoniska riket (#1382).
+    # posterna 331–324 f.Kr. läggs till Makedoniska riket (#1382). Slutåret är Cliopatrias: -28 där, 28 f.Kr., astronomiskt -27 (#1989).
     'ptolemaiska-riket': ('Ptolemaiska riket', 'Ptolemaic Kingdom', [
-        ('Ptolemaic Kingdom', 'ptolemaiska-riket', 'Ptolemaiska riket', '#4a7ab0', {'en': 'Ptolemaic Kingdom', 'years': (-304, -28)}),
+        ('Ptolemaic Kingdom', 'ptolemaiska-riket', 'Ptolemaiska riket', '#4a7ab0', {'en': 'Ptolemaic Kingdom', 'years': (-304, -27)}),
     ]),
     'mitanni': ('Mitanni', 'Mitanni', [
         ('Mitanni', 'mitanni', 'Mitanni', '#b05a6a', {'en': 'Mitanni'}),
@@ -3146,7 +3148,9 @@ def fix_swapped_shapes(by_name):
 
 
 def main():
-    src = json.loads(Path(sys.argv[1]).read_text())
+    # Cliopatrias -N är N f.Kr. och räknas om till astronomiska år (1 - N) direkt vid läsningen (#1989, tools/cliopatria_ar.py);
+    # alla årtal i GROUPS och i resten av skriptet är astronomiska.
+    src = las_cliopatria(sys.argv[1])
     by_name = {}
     for f in src['features']:
         p = f['properties']
@@ -3429,7 +3433,7 @@ def main():
              'liksom Ryssland, Sovjetunionen, Japan och franska kolonialväldet (0.3 grader, 5 procent, öar under cirka 800 km2 borttagna) och nederländska kolonialväldet (0.3 grader, 8 procent). '
              'Rester i Cliopatria, perioder under 1 procent av postens största yta som till största delen ligger utanför postens '
              'övriga yta (till exempel Kingdom of Denmark 1402–1406, 73 km2 i Lappland), är borttagna (#1333). '
-             'start/end är Cliopatrias årtal oförändrade (astronomiska år). Namn inom parentes i Cliopatria, till exempel (British Empire), '
+             'start/end är Cliopatrias årtal omräknade till astronomiska år: Cliopatria skriver N f.Kr. som -N ("negative for BCE", datan börjar -3400 = 3400BCE), här 1 - N, och Cliopatrias år 0, som bara är slutår före år 1, blir 0 (#1989). Namn inom parentes i Cliopatria, till exempel (British Empire), '
              'är Cliopatrias sammanslagning av ett imperiums alla delar. Bysantinska riket ingår i Romarriket som fortsättningen på '
              'Östromerska riket. index.json listar varje rike (grupp) med färg, tidsspann och fil; filen laddas först när riket behövs. '
              'areaKm2 är Cliopatrias yta för den första perioden i ett sammanslaget spann. label = [lon, lat] där namnet skrivs ut. '
