@@ -3335,6 +3335,8 @@
     {
       "license": "No known restrictions on publication",
       "sourceIds": [
+        "loc-bild-amerikanska-frihetskriget",
+        "loc-bild-amerikanska-inbordeskriget",
         "loc-bild-belagringen-av-tsingtao",
         "loc-bild-emigrationen-fran-sverige",
         "loc-bild-forsta-slaget-vid-marne",
@@ -3342,13 +3344,23 @@
         "loc-bild-freden-i-brest-litovsk",
         "loc-bild-gallipolifalttaget",
         "loc-bild-hansan-vaxer-fram",
+        "loc-bild-kapitulationen-vid-appomattox",
         "loc-bild-koch-tuberkelbakterien",
+        "loc-bild-mexikansk-amerikanska-kriget",
+        "loc-bild-slaget-vid-fort-sumter",
         "loc-bild-usa-gar-in-i-forsta-varldskriget",
         "loc-bild-watt-separat-kondensor",
         "loc-bild-xinhairevolutionen",
         "loc-cook-south-pacific-1777",
         "loc-eiffel-campanile-1889",
         "loc-taj-mahal-photochrom"
+      ]
+    },
+    {
+      "license": "No known restrictions on publication in the U.S.",
+      "sourceIds": [
+        "loc-bild-belagringen-av-yorktown",
+        "loc-bild-slaget-vid-saratoga"
       ]
     },
     {
@@ -3440,6 +3452,7 @@
         "commons-bild-newtons-principia",
         "commons-bild-nintendo",
         "commons-bild-nya-lagarna-1542",
+        "commons-bild-nya-zeelandkrigen",
         "commons-bild-nzinga-drottning-av-ndongo",
         "commons-bild-oktoberrevolutionen",
         "commons-bild-olympiska-spelen-1896",
@@ -3459,11 +3472,13 @@
         "commons-bild-shakespeare-dor",
         "commons-bild-sjalvstandighetsforklaringen",
         "commons-bild-sjoslaget-vid-dan-no-ura",
+        "commons-bild-skanska-kriget",
         "commons-bild-skotten-i-sarajevo",
         "commons-bild-slaget-om-guadalcanal",
         "commons-bild-slaget-om-kyiv-2022",
         "commons-bild-slaget-om-storbritannien",
         "commons-bild-slaget-vid-annual",
+        "commons-bild-slaget-vid-austerlitz",
         "commons-bild-slaget-vid-ayacucho",
         "commons-bild-slaget-vid-cajamarca",
         "commons-bild-slaget-vid-gate-pa",
@@ -3473,8 +3488,10 @@
         "commons-bild-slaget-vid-isandlwana",
         "commons-bild-slaget-vid-kadesh",
         "commons-bild-slaget-vid-kororareka",
+        "commons-bild-slaget-vid-lund",
         "commons-bild-slaget-vid-lutzen-1632",
         "commons-bild-slaget-vid-midway",
+        "commons-bild-slaget-vid-narva-1700",
         "commons-bild-slaget-vid-orakau",
         "commons-bild-slaget-vid-plassey",
         "commons-bild-slaget-vid-poltava",

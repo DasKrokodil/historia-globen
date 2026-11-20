@@ -77,3 +77,32 @@ Tolv händelser i Afrika 1501–1799 fick en bild från Wikimedia Commons (licen
 | `hatata-1668` | Den enda bilden är en lokal fil på engelska Wikipedia (BnF, Éthiopien d'Abbadie 215) med licensen "PD" men utan upphovsuppgifter, så licensen går inte att kontrollera. Prompt i [bildpromptar-772.md](bildpromptar-772.md). Stilen blir `islamisk` enligt `data/styles.json`, men prompten säger "no human figures", så den visar landskap och arkitektur. |
 
 **Väntar på AI-illustration (görs av en människa i ChatGPT):** `slaget-vid-ridaniya`, `hatata-1668`. Prompter: [bildpromptar-772.md](bildpromptar-772.md), gren `claude/issue-772-bilder-afrika`.
+
+## Krig och slag i Europa, Amerika och Oceanien, omgång 2 (#299, 2026-11-20)
+
+Tolv krigshändelser fick en historisk bild: sju ur Library of Congress (katalogposterna öppnade 2026-11-20, rättighetstexten "No known restrictions on publication") och fem från Wikimedia Commons (licensen kontrollerad i varje filsidas wikitext 2026-11-20). Krigens viktigaste händelse (`"top": true`) och krigen själva (`"kind": "war"`) togs först: `slaget-vid-lund`, `skanska-kriget`, `amerikanska-frihetskriget`, `amerikanska-inbordeskriget`, `mexikansk-amerikanska-kriget`, `nya-zeelandkrigen`, och sedan slagen `slaget-vid-narva-1700`, `slaget-vid-austerlitz`, `slaget-vid-saratoga`, `belagringen-av-yorktown`, `slaget-vid-fort-sumter` och `kapitulationen-vid-appomattox`. Två bilder ligger hela på en bakgrund i bildens egen papperston i stället för att beskäras till 4:3: Fort Sumter och Palo Alto (mexikansk-amerikanska kriget). Värda att se över:
+
+- `slaget-vid-saratoga` och `belagringen-av-yorktown`: François Godefroys laverade teckningar (troligen 1784) finns bara i 640 pixlars bredd hos Library of Congress och har skalats upp något. Rättighetstexten gäller publicering i USA; teckningarna är över 200 år gamla och upphovsmannen dog 1819, vilket står i källornas `note`.
+- `kapitulationen-vid-appomattox`: katalogposten säger att villkoren skrevs under den 8 april 1865, händelsen säger den 9 april. Bildtexten nämner inget datum för kapitulationen; motsägelsen står i källans `note`.
+- `slaget-vid-fort-sumter`: tidningsbilden i Harper's Weekly visar en man som ligger på marken. Bildtexten säger att det är en tecknares bild, inte ett fotografi.
+- `amerikanska-frihetskriget`, `slaget-vid-narva-1700` och `slaget-vid-lund`: målningar och gravyrer gjorda år eller sekel efter händelsen; bildtexten säger när.
+- `mexikansk-amerikanska-kriget`: en amerikansk litografi från 1846 om slaget vid Palo Alto. Library of Congress titel är avkortad, så bildtexten återger inte texten under bilden.
+- `slaget-vid-narva-1700`: att målningen visar ryssarna som lägger ner fanorna inför Karl XII efter slaget kommer från svenska Wikipedia (Narva (målning)), som hänvisar till Nationalmuseum; det står i källans `note`.
+- `nya-zeelandkrigen`: litografin är dubbelt så bred som hög och ligger på en grå bakgrund; en beskärning till 4:3 skulle ta bort flaggstången till vänster. Bildtexten säger att den visar Kororāreka morgonen före anfallet.
+- `skanska-kriget`: filsidan säger inte vem som intog Kristianstad, så bildtexten säger det inte heller.
+
+Prövade men inte tagna i den här omgången (ingen illustration behövs, bara en annan bild):
+
+| Händelse (id) | Varför ingen bild nu |
+|---|---|
+| `haitiska-revolutionen` | Wikidatas bild, January Suchodolskis målning från 1845 (public domain), visar en man som håller upp ett avhugget huvud. För våldsam för kortet när bättre kan finnas. |
+| `slaget-vid-tours` | Carl von Steubens målning från 1837 (public domain) är en romantisk tolkning med en stereotyp bild av den umayyadiska armén. Tas inte utan ett ja från DasKrokodil. |
+| `slaget-vid-riachuelo` | Victor Meirelles studie (omkring 1870, public domain) har döda och skadade i blodigt vatten i förgrunden, som inte går att beskära bort i 4:3. Andra bilder av slaget finns på Commons och kan prövas. |
+| `paraguaykriget` | Wikidatas bild (Bate y Cía, 1866) har en filbeskrivning som inte går att lita på ("kangaroo forces"), så bildtexten skulle inte kunna bygga på filsidan. |
+| `slaget-vid-borodino` | Filsidan till Wikidatas bild (Desarnod) saknar konstnär, titel och datum i beskrivningen. |
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `slaget-vid-parramatta` | Wikidata har ingen bild, och en sökning på Commons efter Pemulwuy gav bara nutida foton av förorten med samma namn. Prompt i [bildpromptar-299-omgang-2.md](bildpromptar-299-omgang-2.md). Stilen blir `barock` enligt `data/styles.json`. |
+
+**Väntar på AI-illustration (görs av en människa i ChatGPT):** `slaget-vid-parramatta`. Prompt: [bildpromptar-299-omgang-2.md](bildpromptar-299-omgang-2.md), gren `claude/issue-299-bilder-krig-omgang-2`.

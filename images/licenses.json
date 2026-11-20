@@ -48,6 +48,36 @@
       }
     },
     {
+      "eventId": "amerikanska-frihetskriget",
+      "eventTitle": "Amerikanska frihetskriget",
+      "file": "images/events/amerikanska-frihetskriget.webp",
+      "kind": "historisk",
+      "credit": "Elkanah Tisdale (teckning), Cornelius Tiebout (gravyr) / Library of Congress, Prints & Photographs Division",
+      "license": "Inga kända restriktioner (Library of Congress)",
+      "source": {
+        "id": "loc-bild-amerikanska-frihetskriget",
+        "title": "Battle of Lexington – kopparstick av Cornelius Tiebout efter Elkanah Tisdale, 1790-talet (Library of Congress, katalogpost)",
+        "url": "https://www.loc.gov/item/2004669978/",
+        "license": "No known restrictions on publication",
+        "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "amerikanska-inbordeskriget",
+      "eventTitle": "Amerikanska inbördeskriget",
+      "file": "images/events/amerikanska-inbordeskriget.webp",
+      "kind": "historisk",
+      "credit": "William Morris Smith / Library of Congress, Prints & Photographs Division (LC-B817-7890)",
+      "license": "Inga kända restriktioner (Library of Congress)",
+      "source": {
+        "id": "loc-bild-amerikanska-inbordeskriget",
+        "title": "[District of Columbia. Company E, 4th U.S. Colored Infantry, at Fort Lincoln] – fotografi av William Morris Smith, mellan 1863 och 1866, LC-B817-7890 (Library of Congress, katalogpost)",
+        "url": "https://www.loc.gov/item/2018667050/",
+        "license": "No known restrictions on publication",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "andra-slaget-vid-el-alamein",
       "eventTitle": "Andra slaget vid el-Alamein",
       "file": "images/events/andra-slaget-vid-el-alamein.webp",
@@ -302,6 +332,21 @@
         "title": "Banzai, banzai, the fall of Tsingtau, Shobido & Co., Tokyo 1914 (Library of Congress)",
         "url": "https://www.loc.gov/item/2016651588/",
         "license": "No known restrictions on publication",
+        "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "belagringen-av-yorktown",
+      "eventTitle": "Belägringen av Yorktown",
+      "file": "images/events/belagringen-av-yorktown.webp",
+      "kind": "historisk",
+      "credit": "François Godefroy / Library of Congress, Rare Book and Special Collections Division",
+      "license": "Inga kända restriktioner (Library of Congress)",
+      "source": {
+        "id": "loc-bild-belagringen-av-yorktown",
+        "title": "[Surrender of Cornwallis at Yorktown] – laverad teckning av François Godefroy, [1784?], ur Nicolas Ponces Recueil d'estampes (Library of Congress, katalogpost)",
+        "url": "https://www.loc.gov/item/2004671450/",
+        "license": "No known restrictions on publication in the U.S.",
         "checked": "2026-11-20"
       }
     },
@@ -1506,6 +1551,21 @@
       "source": null
     },
     {
+      "eventId": "kapitulationen-vid-appomattox",
+      "eventTitle": "Lee kapitulerar vid Appomattox",
+      "file": "images/events/kapitulationen-vid-appomattox.webp",
+      "kind": "historisk",
+      "credit": "Timothy H. O'Sullivan / Library of Congress, Prints & Photographs Division",
+      "license": "Inga kända restriktioner (Library of Congress)",
+      "source": {
+        "id": "loc-bild-kapitulationen-vid-appomattox",
+        "title": "McLean's House, Appomattox, Va., scene of General Lee's surrender – fotografi av Timothy H. O'Sullivan, april 1865 (Library of Congress, katalogpost)",
+        "url": "https://www.loc.gov/item/2014646169/",
+        "license": "No known restrictions on publication",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "kapkolonin-1652",
       "eventTitle": "Nederländarna grundar Kapkolonin",
       "file": "images/events/kapkolonin-1652.webp",
@@ -2136,6 +2196,21 @@
       }
     },
     {
+      "eventId": "mexikansk-amerikanska-kriget",
+      "eventTitle": "Mexikansk-amerikanska kriget",
+      "file": "images/events/mexikansk-amerikanska-kriget.webp",
+      "kind": "historisk",
+      "credit": "Sarony & Major, New York 1846 / Library of Congress, Prints & Photographs Division",
+      "license": "Inga kända restriktioner (Library of Congress)",
+      "source": {
+        "id": "loc-bild-mexikansk-amerikanska-kriget",
+        "title": "The Battle of Palo Alto – färglitografi av Sarony & Major, New York 1846 (Library of Congress, katalogpost)",
+        "url": "https://www.loc.gov/item/96516297/",
+        "license": "No known restrictions on publication",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "mexikos-grundlag-1917",
       "eventTitle": "Mexikos grundlag antas",
       "file": "images/events/mexikos-grundlag-1917.webp",
@@ -2400,6 +2475,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Leyes_Nuevas1.jpg",
         "license": "Public domain",
         "checked": "2026-11-01"
+      }
+    },
+    {
+      "eventId": "nya-zeelandkrigen",
+      "eventTitle": "Nya Zeelandkrigen (Ngā pakanga o Aotearoa)",
+      "file": "images/events/nya-zeelandkrigen.webp",
+      "kind": "historisk",
+      "credit": "George Thomas Clayton, W. A. Nicholas / National Library of New Zealand / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-nya-zeelandkrigen",
+        "title": "Kororareka in the Bay of Islands, New Zealand. Sketched Mar 10th 1845 on the morning before the assault and destruction by Honi Heke – litografi efter George Thomas Clayton, 1845 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Kororareka_in_the_Bay_of_Islands,_New_Zealand._Sketched_Mar_10th_1845_on_the_morning_before_the_assault_and_destruction_by_Honi_Heke.png",
+        "license": "Public domain",
+        "checked": "2026-11-20"
       }
     },
     {
@@ -2802,6 +2892,21 @@
       "source": null
     },
     {
+      "eventId": "skanska-kriget",
+      "eventTitle": "Skånska kriget",
+      "file": "images/events/skanska-kriget.webp",
+      "kind": "historisk",
+      "credit": "Claus Møinichen / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-skanska-kriget",
+        "title": "Capture of Christianstad – målning av Claus Møinichen, 1686 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Capture_of_christianstad-claus_moinichen_1686.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "skotten-i-sarajevo",
       "eventTitle": "Skotten i Sarajevo",
       "file": "images/events/skotten-i-sarajevo.webp",
@@ -2892,6 +2997,21 @@
       }
     },
     {
+      "eventId": "slaget-vid-austerlitz",
+      "eventTitle": "Slaget vid Austerlitz",
+      "file": "images/events/slaget-vid-austerlitz.webp",
+      "kind": "historisk",
+      "credit": "François Gérard / Château de Versailles / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-austerlitz",
+        "title": "La bataille d'Austerlitz. 2 décembre 1805 – oljemålning av François Gérard, 1810, Versailles (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:La_bataille_d%27Austerlitz._2_decembre_1805_(Fran%C3%A7ois_G%C3%A9rard).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "slaget-vid-ayacucho",
       "eventTitle": "Slaget vid Ayacucho",
       "file": "images/events/slaget-vid-ayacucho.webp",
@@ -2919,6 +3039,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:La_Captura_de_Atahualpa_-_Juan_Lepiani_1920s.png",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "slaget-vid-fort-sumter",
+      "eventTitle": "Sydstaterna beskjuter Fort Sumter",
+      "file": "images/events/slaget-vid-fort-sumter.webp",
+      "kind": "historisk",
+      "credit": "Harper's Weekly, 27 april 1861 / Library of Congress, Prints & Photographs Division",
+      "license": "Inga kända restriktioner (Library of Congress)",
+      "source": {
+        "id": "loc-bild-slaget-vid-fort-sumter",
+        "title": "Bombardment of Fort Sumter by the batteries of the Confederate states, April 13, 1861 – träsnitt i Harper's Weekly, 27 april 1861 (Library of Congress, katalogpost)",
+        "url": "https://www.loc.gov/item/2013646579/",
+        "license": "No known restrictions on publication",
+        "checked": "2026-11-20"
       }
     },
     {
@@ -3066,6 +3201,21 @@
       }
     },
     {
+      "eventId": "slaget-vid-lund",
+      "eventTitle": "Slaget vid Lund",
+      "file": "images/events/slaget-vid-lund.webp",
+      "kind": "historisk",
+      "credit": "Johan Philip Lemke / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-lund",
+        "title": "King of Sweden, Charles XI, during the battle of Lund in 1676 – oljemålning av Johan Philip Lemke, 1683 eller 1684 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Charles_XI,_Battle_of_Lund.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "slaget-vid-lutzen-1632",
       "eventTitle": "Gustav II Adolf stupar vid Lützen",
       "file": "images/events/slaget-vid-lutzen-1632.webp",
@@ -3091,6 +3241,21 @@
         "id": "commons-bild-slaget-vid-midway",
         "title": "USS Yorktown träffas av en torped under slaget vid Midway, 4 juni 1942 – U.S. Navy 80-G-414423 (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:80-G-414423_(27012975711).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "slaget-vid-narva-1700",
+      "eventTitle": "Slaget vid Narva",
+      "file": "images/events/slaget-vid-narva-1700.webp",
+      "kind": "historisk",
+      "credit": "Gustaf Cederström / Nationalmuseum, Stockholm / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-narva-1700",
+        "title": "Narva – oljemålning av Gustaf Cederström, 1905, Nationalmuseum NM 1634 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Narva_(Gustaf_Cederstr%C3%B6m)_-_Nationalmuseum_-_18638.tif",
         "license": "Public domain",
         "checked": "2026-11-20"
       }
@@ -3177,6 +3342,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Painting_Die_Schlacht_von_Salamis.jpg",
         "license": "CC BY-SA 4.0",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "slaget-vid-saratoga",
+      "eventTitle": "Slagen vid Saratoga",
+      "file": "images/events/slaget-vid-saratoga.webp",
+      "kind": "historisk",
+      "credit": "François Godefroy / Library of Congress, Rare Book and Special Collections Division",
+      "license": "Inga kända restriktioner (Library of Congress)",
+      "source": {
+        "id": "loc-bild-slaget-vid-saratoga",
+        "title": "[Surrender at Saratoga] – laverad teckning av François Godefroy, [1784?], ur Nicolas Ponces Recueil d'estampes (Library of Congress, katalogpost)",
+        "url": "https://www.loc.gov/item/2004670056/",
+        "license": "No known restrictions on publication in the U.S.",
+        "checked": "2026-11-20"
       }
     },
     {
