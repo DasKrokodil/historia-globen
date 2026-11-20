@@ -221,7 +221,7 @@ Byggt på grenen `claude/issue-1155-amerika-2`, från dagens `main`. Omgång 1 (
 | Surinam | 1976–2024 | Antagen 1975-11-25. Gruppen börjar nu 1820 (kolonin), men flaggan visas först från 1976 |
 | Kuba | 1906–2024 | Antagen 1902-05-20, färgen ändrad 1906 (dekret 21 april i texten, 24 april i en referens). 1908–1910 har kartan ingen yta för landet |
 | Saint Vincent och Grenadinerna | 1985–2024 | Antagen 1985-10-12; en liknande flagga användes före 1985 och ingår inte |
-| Mexiko | 1968–2024 | Dekret 1968-09-16, lag 1984-02-24. Vapnet bygger på aztekernas tecken för Tenochtitlan (står i faktarutan). Äldre flaggor hade ett annat vapen och visas inte |
+| Mexiko | 1968–2024 | Antagen 1968-09-16, bekräftad i lag 1984-02-24. Vapnet bygger på aztekernas tecken för Tenochtitlan (står i faktarutan). Äldre flaggor hade ett annat vapen och visas inte |
 | Ecuador | 1860–1899 och 1900–2024 | Den enkla trikoloren: nationsflagga från 1860-09-26, civil- och handelsflagga från 1900, när nationsflaggan fick vapnet (1900-10-31). Nationsflaggan med vapnet ritas inte |
 | Dominikanska republiken | 1913–2024 | Flaggan med vapnet från 1863-11-06, men vapnet har ändrats minst 21 gånger; teckningen visar dagens vapen, från 1913 enligt artikeln om vapnet. Faktarutan säger sakligt att Wikipedia kallar korset ett Sankt Georgskors, att vitt står för frälsning och att blått från början stod för Guds beskydd, och att vapnet har en bibel och ett kors. 1916–1923 har kartan ingen yta för landet |
 | Belize | 2019–2024 | Antagen 1981-09-21. Före 2019 fanns inga fastställda mått, och nyanser och skuggning varierade; teckningen är den standardiserade från 2019-08-28. 1983–2018 är en lucka |
