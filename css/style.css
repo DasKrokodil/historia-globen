@@ -2802,7 +2802,7 @@ details.used-by summary:hover { color: var(--parchment); }
   /* Årtalen står 3 px högre (som i liggande telefon) och raden är 14 px hög i stället för 17: teckenförklaringen ligger nu helt inom fönstret och under årtalen,
      förut 4 px under fönstrets underkant och 2 px in i årtalens ruta (#1713, omgång 3). Tidsradens höjd är oförändrad (14 − 3 − 6 = 17 − 2 − 10 + 0). */
   .ticks { top: 27px; }
-  .timeline-scale-note { margin: -2px 0 -14px; }
+  .timeline-scale-note { margin: -3px 0 -14px; } /* samma lyft som teckenförklaringen: med -2px blev tidsraden 1 px högre medan skalraden syns */
   /* Tryckytorna (::after) möts mitt i mellanrummen: 44 px höga och i 400 px minst 44 px breda */
   .controls :is(.step, .play) { position: relative; height: 34px; }
   .controls :is(.step, .play)::after { content: ""; position: absolute; inset: -6px -3px; }
