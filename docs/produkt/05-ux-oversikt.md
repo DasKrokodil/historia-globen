@@ -66,7 +66,7 @@ Korten (händelsens faktaruta, resans ruta, Upptäcktsvyns panel) bär mer än l
 
 | Nivå | Vad | Var |
 |---|---|---|
-| Alltid synligt | Bildens märkning "Illustration …, inte en historisk bild"; kredit för historiska bilder (andras verk); osäkert-märket i datumraden; notens rubrik som en rad med vinkel ("Källorna skiljer sig" syns utan att texten läses); Upptäcktsvyns täckningsrad | Vid bilden, i datumraden och som rad före sammanfattningens slut |
+| Alltid synligt | Bildens märkning "Illustration …, inte en historisk bild"; kredit för historiska bilder (andras verk); (i) för det osäkra och "≈ N år sedan" i datumraden; notens rubrik som en rad med vinkel ("Källorna skiljer sig" syns utan att texten läses); Upptäcktsvyns täckningsrad | Vid bilden, i datumraden och som rad före sammanfattningens slut |
 | Hopfällt per notering | Själva noten | `details` direkt under raden, fälls ut med Enter eller Mellanslag, 44 px hög träffyta |
 | En sektion längst ned | "Källor och osäkerhet · N källor · status": osäkerhet, källor, Hur vet vi det här?, status, citera, rapportera, kredit och licens för egna illustrationer. Resans ruta: "Källor (N) · status". Upptäcktsvyn: "Kartbilder · N filsidor" | Sist i kortet |
 
