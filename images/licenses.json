@@ -33,6 +33,21 @@
       }
     },
     {
+      "eventId": "anfallet-pa-polen",
+      "eventTitle": "Tyskland anfaller Polen",
+      "file": "images/events/anfallet-pa-polen.webp",
+      "kind": "historisk",
+      "credit": "Bundesarchiv, Bild 101I-012-0009-28A / Wittke / Wikimedia Commons",
+      "license": "CC BY-SA 3.0 DE",
+      "source": {
+        "id": "commons-bild-anfallet-pa-polen",
+        "title": "Polen, motoriserade tyska trupper, september 1939 – Bundesarchiv Bild 101I-012-0009-28A, fotograf Wittke (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_101I-012-0009-28A,_Polen,_Motorisierte_deutsche_Truppen.jpg",
+        "license": "CC BY-SA 3.0 DE",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "angkor-wat",
       "eventTitle": "Angkor Wat byggs",
       "file": "images/events/angkor-wat.webp",
@@ -72,6 +87,36 @@
       }
     },
     {
+      "eventId": "atombomberna-hiroshima-nagasaki",
+      "eventTitle": "Atombomberna mot Hiroshima och Nagasaki",
+      "file": "images/events/atombomberna-hiroshima-nagasaki.webp",
+      "kind": "historisk",
+      "credit": "George R. Caron och Charles Levy, U.S. Army Air Forces / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-atombomberna-hiroshima-nagasaki",
+        "title": "Atommolnen över Hiroshima och Nagasaki, 6 och 9 augusti 1945 – fotografier av George R. Caron och Charles Levy (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Atomic_bombing_of_Japan.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "attacken-mot-pearl-harbor",
+      "eventTitle": "Attacken mot Pearl Harbor",
+      "file": "images/events/attacken-mot-pearl-harbor.webp",
+      "kind": "historisk",
+      "credit": "U.S. Navy (80-G-16871) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-attacken-mot-pearl-harbor",
+        "title": "USS Shaw exploderar under anfallet på Pearl Harbor, 7 december 1941 – U.S. Navy 80-G-16871 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:US_Shaw_exploding_in_Pearl_Harbor.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "attackerna-11-september-2001",
       "eventTitle": "Terrorattackerna den 11 september",
       "file": "images/events/attackerna-11-september-2001.webp",
@@ -84,6 +129,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:WTC_smoking_on_9-11.jpeg",
         "license": "CC BY 2.0",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "auschwitz-befrias",
+      "eventTitle": "Auschwitz befrias",
+      "file": "images/events/auschwitz-befrias.webp",
+      "kind": "historisk",
+      "credit": "Bundesarchiv, Bild 183-R69919 / Wikimedia Commons",
+      "license": "CC BY-SA 3.0 DE",
+      "source": {
+        "id": "commons-bild-auschwitz-befrias",
+        "title": "KZ Auschwitz, glasögon funna efter befrielsen, januari–februari 1945 – Bundesarchiv Bild 183-R69919 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_183-R69919,_KZ_Auschwitz,_Brillen.jpg",
+        "license": "CC BY-SA 3.0 DE",
+        "checked": "2026-11-20"
       }
     },
     {
@@ -510,6 +570,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Pierre_and_Marie_Curie.jpg",
         "license": "Public domain",
         "checked": "2026-11-13"
+      }
+    },
+    {
+      "eventId": "d-dagen",
+      "eventTitle": "D-dagen, landstigningen i Normandie",
+      "file": "images/events/d-dagen.webp",
+      "kind": "historisk",
+      "credit": "Robert F. Sargent, U.S. Coast Guard / National Archives / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-d-dagen",
+        "title": "Into the Jaws of Death – amerikanska soldater går i land på Omaha Beach, 6 juni 1944, fotografi av Robert F. Sargent (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Into_the_Jaws_of_Death_23-0455M_edit.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
       }
     },
     {
@@ -1179,6 +1254,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:20191218_Jantar_Mantar,_Jaipur_0906_8983_DxO.jpg",
         "license": "CC BY-SA 4.0",
         "checked": "2026-11-12"
+      }
+    },
+    {
+      "eventId": "japans-kapitulation",
+      "eventTitle": "Japan kapitulerar, kriget slutar",
+      "file": "images/events/japans-kapitulation.webp",
+      "kind": "historisk",
+      "credit": "Stephen E. Korpanty, U.S. Army Signal Corps / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-japans-kapitulation",
+        "title": "Mamoru Shigemitsu skriver under kapitulationen ombord på USS Missouri, 2 september 1945 – U.S. Army Signal Corps, SC 213700 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Mamoru_Shigemitsu_signs_the_Instrument_of_Surrender,_officially_ending_the_Second_World_War.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
       }
     },
     {
@@ -2187,6 +2277,21 @@
       }
     },
     {
+      "eventId": "operation-barbarossa",
+      "eventTitle": "Operation Barbarossa",
+      "file": "images/events/operation-barbarossa.webp",
+      "kind": "historisk",
+      "credit": "Johannes Hähle / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-operation-barbarossa",
+        "title": "Tyska trupper går över den sovjetiska gränsen, juni 1941 – fotografi av Johannes Hähle (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:German_troops_crossing_the_Soviet_border.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "operation-focus",
       "eventTitle": "Israels flyganfall mot Egypten (Operation Focus)",
       "file": "images/events/operation-focus.webp",
@@ -2502,6 +2607,21 @@
       }
     },
     {
+      "eventId": "slaget-om-storbritannien",
+      "eventTitle": "Slaget om Storbritannien",
+      "file": "images/events/slaget-om-storbritannien.webp",
+      "kind": "historisk",
+      "credit": "B. J. Daventry, Royal Air Force / Imperial War Museum (CH 740) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-om-storbritannien",
+        "title": "Spitfire-plan från 610:e skvadronen, Biggin Hill, 24 juli 1940 – Imperial War Museum CH 740 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Supermarine_Spitfire_Mark_Is_of_No._610_Squadron_based_at_Biggin_Hill,_flying_in_'vic'_formation,_24_July_1940._CH740.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "slaget-vid-adwa",
       "eventTitle": "Etiopien besegrar Italien vid Adwa",
       "file": "images/events/slaget-vid-adwa.webp",
@@ -2703,6 +2823,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Gustav_II_Adolph_of_Sweden_dies_1632_by_Carl_Wahlbom_1855.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "slaget-vid-midway",
+      "eventTitle": "Slaget vid Midway",
+      "file": "images/events/slaget-vid-midway.webp",
+      "kind": "historisk",
+      "credit": "U.S. Navy (80-G-414423) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-midway",
+        "title": "USS Yorktown träffas av en torped under slaget vid Midway, 4 juni 1942 – U.S. Navy 80-G-414423 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:80-G-414423_(27012975711).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
       }
     },
     {
@@ -3417,6 +3552,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Kikuchi_Yoosai_-_Mongol_Invasion_(m%C5%8Dko_sh%C5%ABrai)_-_Tokyo_National_Museum.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "tysklands-kapitulation",
+      "eventTitle": "Tyskland kapitulerar",
+      "file": "images/events/tysklands-kapitulation.webp",
+      "kind": "historisk",
+      "credit": "Lt. Moore, U.S. Army / National Archives / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-tysklands-kapitulation",
+        "title": "Wilhelm Keitel skriver under kapitulationen i Berlin, 8 maj 1945 – U.S. Army, NARA 531290 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Field_Marshal_Keitel_signs_German_surrender_terms_in_Berlin_8_May_1945_-_Restoration.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
       }
     },
     {
