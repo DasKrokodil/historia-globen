@@ -163,9 +163,10 @@ async function start() {
     levels: timeline.scales.map(sc => ({ id: sc.id, name: timeline.scaleName(sc) })),
     onSelect: id => timeline.goToScale(timeline.scales.find(sc => sc.id === id)),
   });
-  const syncScaleSwitch = () => { scaleSwitch.setCurrent(timeline.scale.id); scaleSwitch.setDisabled(timeline.locked); };
+  const syncScaleSwitch = () => { scaleSwitch.setCurrent(timeline.scale.id); scaleSwitch.setDisabled(timeline.locked || !!timeline.focus); };
   timeline.addEventListener('change', syncScaleSwitch);
   timeline.addEventListener('lockchange', syncScaleSwitch);
+  timeline.addEventListener('focuschange', syncScaleSwitch);
   ff.setSurpriseRange(() => timeline.focus);
   const yearJump = setupYearJump(timeline, {
     button: $('year-jump'), pop: $('jump-pop'), input: $('jump-input'), msg: $('jump-msg'), epochs: $('jump-epochs'),

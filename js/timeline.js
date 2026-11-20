@@ -384,6 +384,7 @@ export class Timeline extends EventTarget {
     this._drawStory();
     if (range && (this._year < range.from || this._year > range.to)) this.year = range.from;
     else this._render();
+    this.dispatchEvent(new CustomEvent('focuschange', { detail: { focus: range } })); // växlaren stängs av i Fokus (#1959)
   }
 
   _drawScale() {
@@ -539,12 +540,14 @@ export class Timeline extends EventTarget {
    * Växlaren (#1959): går till ett annat reglage. Året landar på kanten av det nya reglaget som ligger närmast det man står på, alltså
    * det första året ("3000 f.Kr.", -2999) när reglaget ligger längre fram i tiden och det sista ("3001 f.Kr.", -3000) när det ligger
    * före. Det är samma år som ett steg över gränsen når (`stepFrom`), så ett byte via växlaren och via stegknappen är ett och samma byte.
-   * Bytet är ett vanligt årsbyte för besökaren (`setByUser`): tidslåset gäller, och ett tidsintervall avslutas som vid ett drag.
+   * Bytet är ett vanligt årsbyte för besökaren (`setByUser`): tidslåset gäller (ligger ingångsåret utanför lektionens år händer ingenting), och ett tidsintervall avslutas som vid ett drag.
    */
   goToScale(sc) {
     if (this.locked || this.focus || sc === this.scale || !this.scales.includes(sc)) return null;
+    const year = scaleEntryYear(sc, this.scale), l = this.lock();
+    if (l && year < l.from || l && year > l.to) return null; // en lektion klipper året: en dörr som inte byter reglage gör ingenting alls
     this.pause();
-    this.setByUser(scaleEntryYear(sc, this.scale));
+    this.setByUser(year);
     return this._year;
   }
   /** Reglagets namn för skärmläsare ("År, före 3000 f.Kr."); utan namn (en enda skala) står "År" kvar ur index.html. */

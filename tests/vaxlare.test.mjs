@@ -61,17 +61,24 @@ test('att byta till reglaget man redan står på, ett okänt reglage eller medan
   assert.equal(timeline.scale, HISTORY);
 });
 
-test('i en lektion klipps ingångsåret vid lektionens år: byte över gränsen sker bara om lektionens år ligger på båda sidor', t => {
+test('i en lektion gör en dörr som skulle landa utanför lektionens år ingenting: varken år eller reglage ändras', t => {
   const timeline = build(t);
   timeline.year = 1325;
   timeline.lock = () => ({ locked: false, from: 1000, to: 1500 });
-  timeline.goToScale(PRE); // -3000 ligger utanför lektionens år: året klipps till 1000 och reglaget är kvar
-  assert.equal(timeline.year, 1000);
+  assert.equal(timeline.goToScale(PRE), null); // -3000 ligger utanför lektionens år
+  assert.equal(timeline.year, 1325);
   assert.equal(timeline.scale, HISTORY);
+  // ligger lektionens år på båda sidor om gränsen går bytet, till ingångsåret
   timeline.lock = () => ({ locked: false, from: -3500, to: -2500 });
   timeline.year = -3300;
-  assert.equal(timeline.goToScale(HISTORY), -2999); // lektionens år ligger på båda sidor
+  assert.equal(timeline.goToScale(HISTORY), -2999);
   assert.equal(timeline.scale, HISTORY);
+  assert.equal(timeline.goToScale(PRE), -3000);
+  // ingångsåret precis utanför: -2999 ligger utanför ett lås som slutar vid -3000
+  timeline.lock = () => ({ locked: false, from: -3500, to: -3000 });
+  timeline.year = -3200;
+  assert.equal(timeline.goToScale(HISTORY), null);
+  assert.equal(timeline.year, -3200);
 });
 
 test('knapparnas namn är reglagens egna, med stor bokstav, och samma i skalraden', t => {

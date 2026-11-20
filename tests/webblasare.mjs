@@ -12925,7 +12925,7 @@ async function run(browser, vp) {
     } finally { await wp.close(); }
   });
   // #1959: växlaren mellan tidsreglagen ("Före 3000 f.Kr." och "3000 f.Kr.–i dag"). Knappar med reglagens egna namn, aria-pressed, en dörr med pil vid
-  // kanten, tryckyta på 44 px, före reglaget i tabbordningen, ingen horisontell scroll och inget som täcker årtalen eller stegknapparna. Ett tryck
+  // kanten, verklig träffyta (32 px, 28 px i liggande telefon), före reglaget i tabbordningen, ingen horisontell scroll och inget som täcker årtalen eller stegknapparna. Ett tryck
   // byter reglage och landar på kanten närmast (-2999 eller -3000); skalraden och statusraden säger vilket reglage man är på. Datorjobbet prövar
   // 1280 px och en liggande telefon (800×360), mobiljobbet 400 px.
   await check('växlaren mellan tidsreglagen: knappar, namn, tryckytor och byte i tre bredder (#1959)', async () => {
@@ -12963,7 +12963,7 @@ async function run(browser, vp) {
         const a = await read();
         expect('första reglaget', a, { group: { role: 'group', label: 'Tidsreglage', shown: true }, names: [PRE_NAME, HISTORY_NAME], pressed: ['true', 'false'], arrows: ['', '→'], access: [PRE_NAME, HISTORY_NAME], label: 'År, före 3000 f.Kr.' });
         if (a.hscroll > 0) throw new Error(`${L.name}: sidan scrollar i sidled (${a.hscroll} px)`);
-        // Geometri: 24 px synlig höjd, tryckyta (::after) på minst 44 px, ingen överlappning med stegknappar, årtal eller reglaget, ryms i bredden
+        // Geometri: verklig träffyta utan osynlig utvidgning, ingen överlappning med stegknappar, årtal eller reglaget, ryms i bredden
         const geo = await tp.evaluate(() => {
           const rect = e => { const r = e.getBoundingClientRect(); return { x: r.x, y: r.y, r: r.right, b: r.bottom, w: r.width, h: r.height }; };
           const hit = (a, b) => a.x < b.r && b.x < a.r && a.y < b.b && b.y < a.b;
@@ -12973,17 +12973,25 @@ async function run(browser, vp) {
           const track = rect(document.getElementById('track'));
           const seg = document.getElementById('year-segment'), segRect = seg && seg.getClientRects().length && seg.textContent.trim() ? rect(seg) : null;
           const controls = rect(document.querySelector('.timebar .controls'));
+          const dist = (a, b) => Math.hypot(Math.max(0, a.x - b.r, b.x - a.r), Math.max(0, a.y - b.b, b.y - a.b));
           return btns.map(b => {
-            const r = rect(b), after = getComputedStyle(b, '::after');
-            return { r, afterW: parseFloat(after.width), afterH: parseFloat(after.height), font: parseFloat(getComputedStyle(b).fontSize), inside: r.x >= 0 && r.r <= innerWidth,
+            const r = rect(b);
+            // Träffytan är knappens egen: mitten och hörnen (3 px innanför, vid den runda kantens början) träffar knappen själv, och ingen osynlig yta behövs
+            const probes = [[r.x + r.w / 2, r.y + r.h / 2], [r.x + r.h / 2, r.y + 3], [r.r - r.h / 2, r.y + 3], [r.x + r.h / 2, r.b - 3], [r.r - r.h / 2, r.b - 3]].filter(([x, y]) => x >= 0 && y >= 0 && x < innerWidth && y < innerHeight);
+            const own = probes.filter(([x, y]) => { const t = document.elementFromPoint(x, y); return t === b || b.contains(t); }).length;
+            return { r, probes: probes.length, own, nearest: Math.min(...others.map(o => dist(r, o))), trackGap: dist(r, track), // mot reglaget räcker att de inte rör varandra (reglagets övre 14 px är tomma) font: parseFloat(getComputedStyle(b).fontSize), inside: r.x >= 0 && r.r <= innerWidth,
               stepHit: others.some(o => hit(r, o)), tickHit: ticks.some(t => hit(r, t)), trackHit: hit(r, track), noteHit: segRect ? hit(r, segRect) : false,
               controlsOverNote: segRect ? hit(controls, segRect) : false };
           });
         });
         geo.forEach((g, i) => {
           const who = `${L.name}, knapp ${i + 1}`;
-          if (g.r.h < 24 - 0.5) throw new Error(`${who}: synlig höjd ${g.r.h} px (minst 24)`);
-          if (g.afterH < 44 - 0.5 || g.afterW < 44) throw new Error(`${who}: tryckytan är ${g.afterW}×${g.afterH} px (mål 44)`);
+          // Verklig träffyta: 32 px hög (28 px i liggande telefon, där höjden inte räcker), minst 100 px bred, med minst 4 px mellanrum mot stegknapparna (reglaget ligger intill)
+          const wantH = L.height <= 480 ? 28 : 32;
+          if (g.r.h < wantH - 0.5) throw new Error(`${who}: träffytan är ${g.r.h} px hög (minst ${wantH})`);
+          if (g.r.w < 100) throw new Error(`${who}: träffytan är ${g.r.w} px bred (minst 100)`);
+          if (g.own !== g.probes) throw new Error(`${who}: bara ${g.own} av ${g.probes} provpunkter i knappen träffar knappen själv (något ligger över)`);
+          if (g.nearest < 4 - 0.01) throw new Error(`${who}: ${g.nearest.toFixed(1)} px mellanrum till närmaste stegknapp (minst 4)`);
           if (g.font < 12) throw new Error(`${who}: text ${g.font} px (minst 12)`);
           if (!g.inside) throw new Error(`${who}: ligger utanför skärmen (${g.r.x}–${g.r.r})`);
           if (g.stepHit) throw new Error(`${who}: täcker en stegknapp`);
@@ -13015,10 +13023,14 @@ async function run(browser, vp) {
           .catch(async () => { throw new Error(`${L.name}: statusraden säger "${await tp.textContent('#screen-reader-status')}" efter dörren`); });
         const geoAfter = await tp.evaluate(() => [...document.querySelectorAll('#scale-switch .level-btn')].map(b => { const r = b.getBoundingClientRect(); return { x: r.x, r: r.right, w: innerWidth }; }));
         if (geoAfter[0].x > 20 || geoAfter[1].r < geoAfter[1].w - 20) throw new Error(`${L.name}: knapparna ligger inte vid kanterna (${JSON.stringify(geoAfter)})`);
-        // Tillbaka: dörren åt vänster, sista året före 3000 f.Kr. är 3001 f.Kr. (-3000)
-        await tapReal(tp, '#scale-switch .level-btn[data-level="human-pre"]', 'dörren till Före 3000 f.Kr.');
+        // Tillbaka: dörren åt vänster, sista året före 3000 f.Kr. är 3001 f.Kr. (-3000). Trycket läggs 3 px innanför knappens övre kant: det byter reglage och
+        // rör varken hastigheten (stegknapparna ovanför) eller året på annat sätt (reglaget nedanför)
+        const speedBefore = await tp.evaluate(() => localStorage.getItem('hg-speed-ars')); // hastighetsknappen sparar nivån när den trycks; texten följer reglagets upplösning och får byta tal
+        const edge = await tp.evaluate(() => { const r = document.querySelector('#scale-switch .level-btn[data-level="human-pre"]').getBoundingClientRect(); return { x: r.x + r.width / 2, y: r.y + 3 }; });
+        await tp.touchscreen.tap(edge.x, edge.y);
         await tp.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '-3000', null, { timeout: T.step })
           .catch(async () => { throw new Error(`${L.name}: dörren tillbaka gav året ${(await read()).now}`); });
+        if ((await tp.evaluate(() => localStorage.getItem('hg-speed-ars'))) !== speedBefore) throw new Error(`${L.name}: ett tryck på dörren ändrade uppspelningshastigheten`);
         const c = await read();
         expect('efter dörren åt vänster', c, { pressed: ['true', 'false'], arrows: ['', '→'], label: 'År, före 3000 f.Kr.', now: -3000 });
         if (!c.note?.startsWith('Före 3000 f.Kr.: en tiondel')) throw new Error(`${L.name}: skalraden säger "${c.note}" efter bytet tillbaka`);
@@ -13035,10 +13047,43 @@ async function run(browser, vp) {
         });
         if (gap.length) throw new Error(`${L.name}: tidsraden täcker ${JSON.stringify(gap)}`);
         if (errs.length) throw new Error(`${L.name}: sidfel: ${errs[0]}`);
-        out.push(`${L.name}: ${geo[0].r.w.toFixed(0)}+${geo[1].r.w.toFixed(0)} px, tryckyta ${geo[0].afterW.toFixed(0)}×${geo[0].afterH.toFixed(0)}`);
+        out.push(`${L.name}: ${geo[0].r.w.toFixed(0)}+${geo[1].r.w.toFixed(0)} px, träffyta ${geo[0].r.w.toFixed(0)}×${geo[0].r.h.toFixed(0)}, närmaste granne ${Math.min(...geo.map(g => g.nearest)).toFixed(0)} px`);
       } finally { await tctx.close(); }
     }
     return `${out.join('; ')}; namn, aria-pressed, dörr åt båda hållen (-2999, -3000), Tab före reglaget, skalrad och statusrad`;
+  });
+  // #1959: ett tidsintervall (#755) avslutas av dörren som av ett drag: intervallet är borta (state.range är null, bandet dolt) och adressen har året utan slutår.
+  await check('växlaren avslutar ett tidsintervall och adressen får året utan slutår (#1959)', async () => {
+    const wp = await context.newPage();
+    const errs = [];
+    const wpAw = abortWatch(wp);
+    wp.on('pageerror', e => { if (!wpAw.defer(e.message)) errs.push(e.message); });
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await wp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await wp.route(u => isFont(u.href), r => r.abort());
+      }
+      await wpAw.goto(`${BASE}?lang=sv&ny=v1959c#y=-3500&y2=-1000`);
+      await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await wp.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '-3500' && !document.querySelector('.range-band')?.hidden, null, { timeout: T.step })
+        .catch(async () => { throw new Error(`intervallet öppnades inte: år ${await wp.getAttribute('#track', 'aria-valuenow')}, adress ${await wp.evaluate(() => location.hash)}`); });
+      await wp.keyboard.press('Escape');
+      const pressed = () => wp.evaluate(() => [...document.querySelectorAll('#scale-switch .level-btn')].map(b => b.getAttribute('aria-pressed')).join());
+      if ((await pressed()) !== 'true,false') throw new Error(`reglaget för ett intervall som börjar 3501 f.Kr. är inte det första: ${await pressed()}`);
+      await wp.click('#scale-switch .level-btn[data-level="human-history"]');
+      await wp.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '-2999', null, { timeout: T.step });
+      await wp.waitForFunction(() => document.querySelector('.range-band')?.hidden !== false, null, { timeout: T.step })
+        .catch(() => { throw new Error('intervallbandet syns kvar efter dörren'); });
+      await wp.waitForFunction(() => /[#&]y=-2999(&|$)/.test(location.hash), null, { timeout: T.step })
+        .catch(async () => { throw new Error(`adressen säger ${await wp.evaluate(() => location.hash)} efter dörren`); });
+      const hash = await wp.evaluate(() => location.hash);
+      if (/y2=/.test(hash)) throw new Error(`adressen har kvar slutåret: ${hash}`);
+      if ((await pressed()) !== 'false,true') throw new Error(`knapparna efter dörren: ${await pressed()}`);
+      errs.push(...wpAw.settle());
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return 'dörren till 3000 f.Kr.–i dag med ett intervall från 3501 f.Kr.: intervallet avslutat, året -2999, adressen utan slutår';
+    } finally { await wp.close(); }
   });
   // #1959: växlaren visas inte där tiden är låst eller har egen skala: i en tur, en lektion och Fokus. Den kommer tillbaka när läget slutar,
   // och står då på reglaget som året hör till.
