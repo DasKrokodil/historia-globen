@@ -5566,7 +5566,7 @@ async function run(browser, vp) {
   // #1692: knappen i platskortet lovar bara regionvyn när den ryms. Förut lämnade kortet eller arket, fokusraden och knapparna ingen yta
   // för regionvyn (MIN_FREE, 230 × 150 px) vid 800 × 360 och 640 × 360 (liggande telefon), och platsen ramades in i Platt karta. Sedan
   // #1952 fälls kortet ihop och fokusraden och rutan blir kompakta i en låg liggande yta, så regionvyn ryms där; knappen räknas i den
-  // formen. Vid 600 × 375 används vanlig Platt karta. Knappen heter ändå Visa på kartan i alla storlekar (#1948).
+  // formen. Vid 520 × 375 används vanlig Platt karta (vid 600 × 375 gjorde den det tills rutan blev ett rutnät i #1956: den är då smalare och regionvyn ryms). Knappen heter ändå Visa på kartan i alla storlekar (#1948).
   // Kontrollen behåller den oberoende förväntan på kartväg, provar Sverige och Grönland och ändrar fönstrets storlek.
   await check('platskortets kartknapp har samma namn i alla storlekar och kartvägar (#1692, #1948)', async () => {
     const MAP = 'Visa på kartan';
@@ -5585,14 +5585,20 @@ async function run(browser, vp) {
     const regionShown = tp => tp.evaluate(() => { const c = document.getElementById('flat-region'); return !c.hidden && c.getClientRects().length > 0; });
     try {
       // 1. Fyra storlekar: texten före trycket och vad trycket ger
-      for (const [width, height, room] of [[800, 360, true], [640, 360, true], [600, 375, false], [400, 800, true], [1280, 800, true]]) {
+      for (const [width, height, room] of [[800, 360, true], [640, 360, true], [600, 375, true], [520, 375, false], [400, 800, true], [1280, 800, true]]) {
         const name = `${width} × ${height}`;
         const { tp } = await open(width, height, '#y=1827&f=place:skane', { isMobile: width <= 760 || height <= 400 });
         const b = await button(tp);
         if (b.text !== MAP) throw new Error(`${name}: knappen heter "${b.text}", men regionvyn ${room ? 'ryms' : 'ryms inte'} och den ska heta "${MAP}"`);
         if (!b.label.startsWith(b.text) || !/Skåne/.test(b.label)) throw new Error(`${name}: knappens namn för skärmläsare är "${b.label}"`);
-        await tp.locator('#detail [data-selection-action]').scrollIntoViewIfNeeded();
-        await tp.click('#detail [data-selection-action]');
+        if (room) {
+          await tp.locator('#detail [data-selection-action]').scrollIntoViewIfNeeded();
+          await tp.click('#detail [data-selection-action]');
+        } else {
+          // Under cirka 600 px i bredd är platskortet ett litet ark där knappen ligger under fokusraden: tangentbordet når den (Enter), ett tryck gör det inte
+          await tp.focus('#detail [data-selection-action]');
+          await tp.keyboard.press('Enter');
+        }
         await tp.waitForFunction(() => !document.getElementById('flat-view').hidden, null, { timeout: T.step });
         // Smal layout fäller ihop arket och mäter om efter 450 ms (REFIT_MS): vänta tills läget har lagt sig
         await tp.waitForTimeout(1200);
