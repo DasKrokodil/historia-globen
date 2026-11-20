@@ -173,10 +173,10 @@ Titel och epitet skrivs med liten bokstav i löpande text (`el rey Luis XIV`, `l
 |---|---|---|---|
 | Roman Kingdom | Reino de Roma | Royaume de Rome | – |
 | Roman Republic | República romana | République romaine | – |
-| Roman Empire | Imperio romano | Empire romain | – |
+| Roman Empire | Imperio romano | Empire romain | 2026-11-20: Wikidata Q2277 (etiketterna), es.wikipedia "Imperio romano" (#2002) |
 | Western Roman Empire | Imperio romano de Occidente | Empire romain d'Occident | – |
-| Eastern Roman Empire | Imperio romano de Oriente | Empire romain d'Orient | – |
-| Byzantine Empire | Imperio bizantino | Empire byzantin | – |
+| Eastern Roman Empire | Imperio romano de Oriente | Empire romain d'Orient | 2026-11-20: Wikidata Q12544 (alias), es.wikipedia "Imperio bizantino" (inledningen) (#2002) |
+| Byzantine Empire | Imperio bizantino | Empire byzantin | 2026-11-20: Wikidata Q12544 (etiketterna), es.wikipedia "Imperio bizantino" (#2002) |
 | Ottoman Empire | Imperio otomano | Empire ottoman | – |
 | Mongol Empire | Imperio mongol | Empire mongol | – |
 | Holy Roman Empire | Sacro Imperio Romano Germánico | Saint-Empire romain germanique | – |
