@@ -1762,6 +1762,57 @@ GROUPS = {
     'sultanatet-darfur': ('Sultanatet Darfur', 'Sultanate of Darfur', [
         ('Sultanate of Darfur', 'sultanatet-darfur', 'Sultanatet Darfur', '#8a5a3a', {'en': 'Sultanate of Darfur'}),
     ]),
+    # Inre Asien och Arabien, andra omgången (#1331, 2026-11-20). Svenska och engelska namn är Wikidatas etiketter (SPARQL
+    # 2026-11-20), utom de saudiska staterna, som saknar svensk etikett och har svenska Wikipedias namn i artikeln
+    # Saudiarabiens historia ("Det första saudiska riket (1744–1818)", "Det andra saudiska riket (1824–1891)", "det
+    # tredje saudiska riket" från 1902), och Emiratet Buchara, där Wikidatas svenska etikett "emiratet Bukhara" har fått
+    # samma stavning som khanatet (Q577668, "Buchara"). Cliopatrias Emirate of Nejd (Q146862, Wikidatas andra saudiska stat
+    # 1818–1891) gäller två stater: 1824–1891 det andra saudiska riket, 1905–1925 det tredje (Q2011891, från 1902; 1895–1904
+    # är bara 53 km² och visas inte). Efter 1925 fortsätter det tredje som Kungariket Hijaz och Najd ('hijaz-och-najd').
+    # Jabal Shammar visas från 1836 som i Wikipedia och Wikidata (Cliopatria har också 1825–1827, före emiratet).
+    # Astrachankhanatet visas bara 1468–1555: Wikipedia och Wikidata anger 1466–1556, och Cliopatrias poster 1642–1768 ligger
+    # vid Don, inte vid Astrachan. Cliopatrias Small Horde (1564–1737, Nogajhordens id) är den mindre nogajhorden, en annan
+    # stat, och väntar; Khoshut Khanate (1582–1695) väntar, eftersom Cliopatrias gräns ligger kring 95° Ö 41° N medan Wikidata
+    # och Wikipedia beskriver ett tibetanskt khanat 1642–1717; Tümed (Q3402317) är en folkgrupp och byggs inte.
+    'forsta-saudiska-riket': ('Det första saudiska riket', 'First Saudi State', [
+        ('Emirate of Diriyah', 'forsta-saudiska-riket', 'Det första saudiska riket', '#7a8a3a', {'en': 'First Saudi State'}),
+    ]),
+    'andra-saudiska-riket': ('Det andra saudiska riket', 'Second Saudi State', [
+        ('Emirate of Nejd', 'andra-saudiska-riket', 'Det andra saudiska riket', '#8a9a4a',
+         {'en': 'Second Saudi State', 'years': (1824, 1891)}),
+    ]),
+    'tredje-saudiska-riket': ('Det tredje saudiska riket', 'Third Saudi State', [
+        ('Emirate of Nejd', 'tredje-saudiska-riket', 'Det tredje saudiska riket', '#9aaa5a',
+         {'en': 'Third Saudi State', 'wikidata': 'Q2011891', 'years': (1905, 1925)}),
+    ]),
+    'jabal-shammar': ('Jabal Shammar', 'Emirate of Jabal Shammar', [
+        ('Emirate of Jabal Shammar', 'jabal-shammar', 'Jabal Shammar', '#a06a3a', {'en': 'Emirate of Jabal Shammar', 'years': (1836, 1921)}),
+    ]),
+    'kungariket-hijaz': ('Kungariket Hijaz', 'Kingdom of Hejaz', [
+        ('Kingdom of Hejaz', 'kungariket-hijaz', 'Kungariket Hijaz', '#5a8a7a', {'en': 'Kingdom of Hejaz'}),
+    ]),
+    'buchara': ('Buchara', 'Khanate of Bukhara', [
+        ('Khanate of Bukhara', 'buchara', 'Buchara', '#8a5a8a', {'en': 'Khanate of Bukhara'}),
+        ('Emirate of Bukhara', 'emiratet-buchara', 'Emiratet Buchara', '#8a5a8a', {'en': 'Emirate of Bukhara'}),
+    ]),
+    'khanatet-khiva': ('Khanatet Khiva', 'Khanate of Khiva', [
+        ('Khanate of Khiva', 'khanatet-khiva', 'Khanatet Khiva', '#4a7a9a', {'en': 'Khanate of Khiva'}),
+    ]),
+    'khanatet-kokand': ('Khanatet Kokand', 'Khanate of Kokand', [
+        ('Khanate of Kokand', 'khanatet-kokand', 'Khanatet Kokand', '#9a6a5a', {'en': 'Khanate of Kokand'}),
+    ]),
+    'kalmuckkhanatet': ('Kalmuckkhanatet', 'Kalmyk Khanate', [
+        ('Kalmyk Khanate', 'kalmuckkhanatet', 'Kalmuckkhanatet', '#6a7ab0', {'en': 'Kalmyk Khanate'}),
+    ]),
+    'kazankhanatet': ('Kazankhanatet', 'Khanate of Kazan', [
+        ('Khanate of Kazan', 'kazankhanatet', 'Kazankhanatet', '#5a9a5a', {'en': 'Khanate of Kazan'}),
+    ]),
+    'astrachankhanatet': ('Astrachankhanatet', 'Astrakhan Khanate', [
+        ('Astrakhan Khanate', 'astrachankhanatet', 'Astrachankhanatet', '#4a9aa0', {'en': 'Astrakhan Khanate', 'years': (1468, 1555)}),
+    ]),
+    'nogajhorden': ('Nogajhorden', 'Nogai Horde', [
+        ('Nogai Horde', 'nogajhorden', 'Nogajhorden', '#a08a5a', {'en': 'Nogai Horde'}),
+    ]),
     # Små stater ur Natural Earth (#722, Rikards beslut 2026-11-07): Cliopatria saknar dem i nutid eller har fel gräns
     # (Saint Kitts ligger på Saint Croix, Mikronesien är bara Pohnpei). Gränsen är dagens land i Natural Earth
     # (tools/ne-omstridda-omraden.geojson, tools/ne_omstridda.py), från självständigheten enligt Wikidata och Wikipedia
