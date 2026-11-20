@@ -809,9 +809,9 @@ export class Panel {
     this.detail.innerHTML = `
       <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
       <div class="story-label">${esc(label)}</div>
-      ${placeCard ? `<div class="place-head"><h3>${esc(t(name))}</h3>${headEmblems}</div>${emblemCredits}` : `<h3>${esc(t(name))}</h3>`}
+      ${placeCard ? `<div class="place-head"><h3>${esc(t(name))}</h3>${headEmblems}</div>` : `<h3>${esc(t(name))}</h3>`}
       ${banner ? `<p class="theme-filter-note place-banner">${esc(banner)}</p>` : ''}
-      <div class="story">${lead ? `<p class="place-type">${esc(lead)}</p>` : ''}
+      <div class="story">${emblemCredits}${lead ? `<p class="place-type">${esc(lead)}</p>` : ''}
       ${mapNote ? `<p class="place-map-note">${esc(mapNote)}</p>` : ''}
       ${emblemHtml}
       <p>${esc(t(intro))}</p>

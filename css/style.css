@@ -2432,7 +2432,8 @@ details.used-by summary:hover { color: var(--parchment); }
 .place-emblem-flag img { border: 1px solid var(--brass); }
 .place-emblem .meta { display: block; }
 /* Platsens kort (#1977): flaggan och vapnet är små (24 px) bredvid namnet; en bild som kräver namnuppgift (CC BY, CC BY-SA) har en kort
-   kreditrad direkt under namnet, och public domain-krediterna ligger i raden Om kartan och källor */
+   kreditrad som första rad i texten, direkt under namnet, och public domain-krediterna ligger i raden Om kartan och källor. I smal
+   skärm och låg yta (flex-ordningen längre ned) ligger kreditraden efter kartknappen, så att knappen syns i det halva arket och vid 800 × 360 */
 .place-head { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 10px; margin: 0 0 2px; }
 .place-head h3 { margin: 0; }
 .place-head .place-emblems { flex-wrap: nowrap; align-items: center; gap: 8px; margin: 0; }

@@ -2919,7 +2919,7 @@ async function run(browser, vp) {
           btn: btn && { top: btn.top, bottom: btn.bottom }, detail: detail && { top: detail.top, bottom: detail.bottom }, covered,
           captionInCard: document.querySelectorAll('#detail .place-emblem figcaption').length,
           emblemInHeading: !!document.querySelector('#detail h3 img'), credit: document.querySelectorAll('#detail .place-emblem-credit').length,
-          introTop: document.querySelector('#detail .story > p:not(.place-type):not(.place-map-note):not(.theme-filter-note)')?.getBoundingClientRect().top ?? null,
+          introTop: document.querySelector('#detail .story > p:not(.place-type):not(.place-map-note):not(.theme-filter-note):not(.place-emblem-credit)')?.getBoundingClientRect().top ?? null,
           folds: [...document.querySelectorAll('#detail .story > details')].map(d => ({ tag: d.tagName, summary: d.querySelector(':scope > summary')?.getBoundingClientRect().height ?? 0 })), narrow: innerWidth <= 760 };
       });
       // I smal skärm ligger knappen före inledningen, så att den syns också med en längre text (tyska, franska) i det halva arket; på bred skärm efter den
@@ -6092,7 +6092,7 @@ async function run(browser, vp) {
   // Provet mäter utan att rulla: kortets scrollTop är 0 och knappen ligger inom kortet och skärmen vid 800 × 360 (bred) och, i läget helt,
   // 640 × 360 (smal; i läget halvt är arket 90 px högt och rymmer bara rubriken, men knappen ligger ändå före inledningen).
   // Ordningen är bara i bilden (CSS order): knappen står kvar efter inledningen i markupen och krysset och knappen är de två första som
-  // går att tabba till (WCAG 2.4.3). Vid 1280 × 800 och 400 × 800 är ordningen oförändrad: knappen ligger efter inledningen.
+  // går att tabba till (WCAG 2.4.3). Vid 1280 × 800 är ordningen oförändrad: knappen ligger efter inledningen (i smal skärm före den sedan #1977).
   await check('platskortets knapp ligger direkt under rubriken på låg yta och syns utan rullning (#1693)', async () => {
     const contexts = [], errLists = [], out = [];
     const open = async (width, height, extra = {}) => {
@@ -6108,7 +6108,7 @@ async function run(browser, vp) {
     // Utan scrollIntoView: det som mäts är det besökaren ser när kortet har öppnats
     const measure = tp => tp.evaluate(() => {
       const d = document.getElementById('detail'), db = d.getBoundingClientRect(), btn = d.querySelector('[data-selection-action]');
-      const b = btn.getBoundingClientRect(), intro = [...d.querySelectorAll('.story > p')].find(p => !p.classList.contains('place-type'));
+      const b = btn.getBoundingClientRect(), intro = [...d.querySelectorAll('.story > p')].find(p => !p.classList.contains('place-type') && !p.classList.contains('place-emblem-credit'));
       const h3 = d.querySelector('h3').getBoundingClientRect(), top = document.elementFromPoint(b.left + b.width / 2, b.top + b.height / 2);
       const tabbable = [...d.querySelectorAll('button, summary, a[href], [tabindex]:not([tabindex="-1"])')].filter(e => e.getClientRects().length && !e.classList.contains('sheet-handle')).slice(0, 2).map(e => e.className.toString().split(' ')[0] || e.tagName);
       return { scrollTop: d.scrollTop, inside: b.top >= db.top && b.bottom <= db.bottom + 0.5 && b.bottom <= innerHeight && b.top >= 0, covered: !(top === btn || btn.contains(top)),
@@ -6139,15 +6139,16 @@ async function run(browser, vp) {
         if (m.tabbable[0] !== 'detail-close' || m.tabbable[1] !== 'chip-btn') throw new Error(`${name}: tangentbordsordningen i kortet börjar med ${m.tabbable.join(', ')}, inte krysset och knappen`);
         out.push(`${name}: knappen ${m.btnTop}–${m.btnBottom} px utan rullning`);
       }
-      // 2. Hög yta: ordningen är oförändrad, knappen ligger efter inledningen
+      // 2. Hög yta: på bred skärm är ordningen oförändrad, knappen ligger efter inledningen. I smal skärm (400 × 800) ligger knappen före
+      // inledningen sedan #1977 (UX-genomgången #1853, fynd 2.2), så att den syns i det halva arket; markupen är densamma
       for (const [width, height, touch] of [[1280, 800, false], [400, 800, true]]) {
         const name = `${width} × ${height}`;
         const { tp } = await open(width, height, touch ? { isMobile: true } : {});
         const m = await measure(tp);
-        if (m.aboveIntro) throw new Error(`${name}: knappen har flyttats före inledningen på en hög skärm`);
+        if (m.aboveIntro !== touch) throw new Error(touch ? `${name}: knappen ligger inte före inledningen i smal skärm (#1977)` : `${name}: knappen har flyttats före inledningen på en bred skärm`);
         if (!m.afterIntroInMarkup) throw new Error(`${name}: knappen ligger inte efter inledningen i markupen`);
         if (width === 1280 && !m.inside) throw new Error(`${name}: knappen syns inte utan rullning (kortet ${m.cardTop}–${m.cardBottom} px, knappen ${m.btnTop}–${m.btnBottom} px)`);
-        out.push(`${name}: oförändrad ordning`);
+        out.push(touch ? `${name}: knappen före inledningen (#1977)` : `${name}: oförändrad ordning`);
       }
       const errs = errLists.flat();
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
