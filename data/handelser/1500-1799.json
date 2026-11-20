@@ -4902,6 +4902,21 @@
      "en": "Wikipedia states that Charles XII died on 30 November 1718 Old Style, which is 11 December New Style. According to Wikipedia's page on the Swedish calendar, Sweden returned to the Julian calendar in 1712 and did not switch to the Gregorian calendar until 1753. Wikidata gives 30 November 1718 but marks it as the Gregorian calendar. The year and place agree, but not the calendar."
     }
    },
+   "image": {
+    "file": "images/events/karl-xii-stupar-1718.webp",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+     "sv": "Karl XII:s död, teckning av Carl Wahlbom från 1829, mer än hundra år efter händelsen. En senare tolkning, inte en ögonvittnesbild. Nationalmuseum. Utsnitt. Licens: Public domain.",
+     "en": "The Death of Charles XII, drawing by Carl Wahlbom from 1829, more than a hundred years after the event. A later interpretation, not an eyewitness image. Nationalmuseum. Cropped. Licence: Public domain.",
+     "de": "Der Tod Karls XII., Zeichnung von Carl Wahlbom aus dem Jahr 1829, mehr als hundert Jahre nach dem Ereignis. Eine spätere Deutung, kein Augenzeugenbild. Nationalmuseum. Ausschnitt. Lizenz: Public Domain.",
+     "es": "La muerte de Carlos XII, dibujo de Carl Wahlbom de 1829, más de cien años después del suceso. Una interpretación posterior, no una imagen de un testigo presencial. Nationalmuseum. Detalle. Licencia: dominio público.",
+     "fr": "La mort de Charles XII, dessin de Carl Wahlbom de 1829, plus de cent ans après l’événement. Une interprétation ultérieure, pas une image de témoin oculaire. Nationalmuseum. Détail. Licence : domaine public."
+    },
+    "credit": "Carl Wahlbom / Nationalmuseum / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-karl-xii-stupar-1718"
+   },
    "wikidata": "Q2815407",
    "sources": [
     "wp-fredriksten-1718",

@@ -1982,5 +1982,101 @@
     "credit": "Jenő Doby / Wikimedia Commons",
     "license": "Public domain",
     "source": "commons-bild-semmelweis-handtvatt"
+  },
+  {
+    "id": "kairo-grundas",
+    "file": "kairo-grundas.jpg",
+    "kind": "historisk",
+    "style": "islamisk",
+    "caption": {
+      "sv": "Gården och minareterna i al-Azhar-moskén i Kairo, fotograferade av Maison Bonfils någon gång mellan 1867 och 1899, omkring 900 år efter att moskén byggdes. Fotot visar alltså inte Kairo under fatimiderna. Utsnitt. Library of Congress anger inga kända restriktioner för publicering i USA.",
+      "en": "The courtyard and minarets of the al-Azhar Mosque in Cairo, photographed by Maison Bonfils at some point between 1867 and 1899, about 900 years after the mosque was built. So the photo does not show Cairo under the Fatimids. Cropped. The Library of Congress states no known restrictions on publication in the U.S.",
+      "de": "Der Hof und die Minarette der al-Azhar-Moschee in Kairo, fotografiert von Maison Bonfils irgendwann zwischen 1867 und 1899, etwa 900 Jahre nach dem Bau der Moschee. Das Foto zeigt also nicht Kairo unter den Fatimiden. Ausschnitt. Die Library of Congress gibt keine bekannten Einschränkungen für die Veröffentlichung in den USA an.",
+      "es": "El patio y los alminares de la mezquita de al-Azhar en El Cairo, fotografiados por Maison Bonfils en algún momento entre 1867 y 1899, unos 900 años después de que se construyera la mezquita. Por tanto, la foto no muestra El Cairo bajo los fatimíes. Detalle. La Library of Congress no indica restricciones conocidas para su publicación en EE. UU.",
+      "fr": "La cour et les minarets de la mosquée al-Azhar au Caire, photographiés par la Maison Bonfils à un moment entre 1867 et 1899, environ 900 ans après la construction de la mosquée. La photo ne montre donc pas Le Caire sous les Fatimides. Détail. La Library of Congress n’indique aucune restriction connue de publication aux États-Unis."
+    },
+    "credit": "Maison Bonfils / Library of Congress, Prints & Photographs Division (LC-DIG-ppmsca-04048)",
+    "license": "Inga kända restriktioner (Library of Congress)",
+    "source": "loc-bild-kairo-grundas"
+  },
+  {
+    "id": "polynesier-nar-hawaii",
+    "file": "polynesier-nar-hawaii.jpg",
+    "kind": "historisk",
+    "style": "tidig-medeltid",
+    "caption": {
+      "sv": "En kanot från Hawaiiöarna med maskerade roddare, tecknad och akvarellerad av John Webber omkring 1778. Bilden gjordes flera hundra år efter att polynesierna kom till öarna och visar inte ankomsten. Utsnitt. Licens: Public domain.",
+      "en": "A canoe from the Hawaiian Islands with masked rowers, drawn and painted in watercolour by John Webber around 1778. The picture was made several hundred years after the Polynesians reached the islands and does not show their arrival. Cropped. Licence: Public domain.",
+      "de": "Ein Kanu von den Hawaii-Inseln mit maskierten Ruderern, gezeichnet und aquarelliert von John Webber um 1778. Das Bild entstand mehrere hundert Jahre nach der Ankunft der Polynesier auf den Inseln und zeigt nicht ihre Ankunft. Ausschnitt. Lizenz: Public Domain.",
+      "es": "Una canoa de las islas Hawái con remeros enmascarados, dibujada y pintada a la acuarela por John Webber hacia 1778. La imagen se hizo varios cientos de años después de la llegada de los polinesios a las islas y no muestra su llegada. Detalle. Licencia: dominio público.",
+      "fr": "Un canoë des îles Hawaï avec des rameurs masqués, dessiné et aquarellé par John Webber vers 1778. L’image a été réalisée plusieurs centaines d’années après l’arrivée des Polynésiens dans les îles et ne montre pas leur arrivée. Détail. Licence : domaine public."
+    },
+    "credit": "John Webber / Bernice P. Bishop Museum / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-polynesier-nar-hawaii"
+  },
+  {
+    "id": "cahokia",
+    "file": "cahokia.jpg",
+    "kind": "historisk",
+    "style": "medeltid",
+    "caption": {
+      "sv": "Monks Mound i Cahokia, den största av stadens jordhögar. Ett nutida foto, uppladdat 2010. Licens: Public domain.",
+      "en": "Monks Mound at Cahokia, the largest of the city’s earth mounds. A present-day photo, uploaded in 2010. Licence: Public domain.",
+      "de": "Monks Mound in Cahokia, der größte Erdhügel der Stadt. Ein heutiges Foto, hochgeladen 2010. Lizenz: Public Domain.",
+      "es": "Monks Mound en Cahokia, el mayor de los montículos de tierra de la ciudad. Una foto actual, subida en 2010. Licencia: dominio público.",
+      "fr": "Monks Mound à Cahokia, le plus grand des tertres de terre de la ville. Une photo actuelle, mise en ligne en 2010. Licence : domaine public."
+    },
+    "credit": "Ethajek (Wikivoyage) / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-cahokia"
+  },
+  {
+    "id": "slaget-vid-thermopyle",
+    "file": "slaget-vid-thermopyle.jpg",
+    "kind": "historisk",
+    "style": "antik",
+    "caption": {
+      "sv": "Leonidas vid Thermopyle, målning av Jacques-Louis David från 1814, omkring 2 300 år efter slaget. En senare tolkning, inte en bild av hur slaget såg ut. Utsnitt. Licens: Public domain.",
+      "en": "Leonidas at Thermopylae, painting by Jacques-Louis David from 1814, about 2,300 years after the battle. A later interpretation, not a picture of what the battle looked like. Cropped. Licence: Public domain.",
+      "de": "Leonidas an den Thermopylen, Gemälde von Jacques-Louis David aus dem Jahr 1814, etwa 2300 Jahre nach der Schlacht. Eine spätere Deutung, kein Bild davon, wie die Schlacht aussah. Ausschnitt. Lizenz: Public Domain.",
+      "es": "Leónidas en las Termópilas, pintura de Jacques-Louis David de 1814, unos 2300 años después de la batalla. Una interpretación posterior, no una imagen de cómo fue la batalla. Detalle. Licencia: dominio público.",
+      "fr": "Léonidas aux Thermopyles, tableau de Jacques-Louis David de 1814, environ 2 300 ans après la bataille. Une interprétation ultérieure, pas une image de ce à quoi ressemblait la bataille. Détail. Licence : domaine public."
+    },
+    "credit": "Jacques-Louis David / Web Gallery of Art / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-slaget-vid-thermopyle"
+  },
+  {
+    "id": "karl-xii-stupar-1718",
+    "file": "karl-xii-stupar-1718.jpg",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+      "sv": "Karl XII:s död, teckning av Carl Wahlbom från 1829, mer än hundra år efter händelsen. En senare tolkning, inte en ögonvittnesbild. Nationalmuseum. Utsnitt. Licens: Public domain.",
+      "en": "The Death of Charles XII, drawing by Carl Wahlbom from 1829, more than a hundred years after the event. A later interpretation, not an eyewitness image. Nationalmuseum. Cropped. Licence: Public domain.",
+      "de": "Der Tod Karls XII., Zeichnung von Carl Wahlbom aus dem Jahr 1829, mehr als hundert Jahre nach dem Ereignis. Eine spätere Deutung, kein Augenzeugenbild. Nationalmuseum. Ausschnitt. Lizenz: Public Domain.",
+      "es": "La muerte de Carlos XII, dibujo de Carl Wahlbom de 1829, más de cien años después del suceso. Una interpretación posterior, no una imagen de un testigo presencial. Nationalmuseum. Detalle. Licencia: dominio público.",
+      "fr": "La mort de Charles XII, dessin de Carl Wahlbom de 1829, plus de cent ans après l’événement. Une interprétation ultérieure, pas une image de témoin oculaire. Nationalmuseum. Détail. Licence : domaine public."
+    },
+    "credit": "Carl Wahlbom / Nationalmuseum / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-karl-xii-stupar-1718"
+  },
+  {
+    "id": "napoleonkrigen",
+    "file": "napoleonkrigen.jpg",
+    "kind": "historisk",
+    "style": "1800-tal",
+    "caption": {
+      "sv": "Slaget vid Austerlitz den 2 december 1805, ett av Napoleonkrigens slag, i François Gérards målning från 1810. En målning gjord fem år efter slaget, inte en ögonvittnesbild. Utsnitt. Licens: Public domain.",
+      "en": "The Battle of Austerlitz on 2 December 1805, one of the battles of the Napoleonic Wars, in François Gérard’s painting from 1810. A painting made five years after the battle, not an eyewitness image. Cropped. Licence: Public domain.",
+      "de": "Die Schlacht bei Austerlitz am 2. Dezember 1805, eine der Schlachten der Napoleonischen Kriege, auf François Gérards Gemälde von 1810. Ein Gemälde, das fünf Jahre nach der Schlacht entstand, kein Augenzeugenbild. Ausschnitt. Lizenz: Public Domain.",
+      "es": "La batalla de Austerlitz del 2 de diciembre de 1805, una de las batallas de las guerras napoleónicas, en el cuadro de François Gérard de 1810. Una pintura hecha cinco años después de la batalla, no una imagen de un testigo presencial. Detalle. Licencia: dominio público.",
+      "fr": "La bataille d’Austerlitz du 2 décembre 1805, l’une des batailles des guerres napoléoniennes, dans le tableau de François Gérard de 1810. Une peinture réalisée cinq ans après la bataille, pas une image de témoin oculaire. Détail. Licence : domaine public."
+    },
+    "credit": "François Gérard / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-napoleonkrigen"
   }
 ]
