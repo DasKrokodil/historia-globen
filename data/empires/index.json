@@ -45170,6 +45170,547 @@
    ]
   },
   {
+   "id": "chu",
+   "name": {
+    "sv": "Chu",
+    "en": "Chu",
+    "de": "Chu",
+    "es": "Estado Chu",
+    "fr": "Chu"
+   },
+   "color": "#b0603a",
+   "from": -749,
+   "to": -223,
+   "file": "data/empires/chu.json",
+   "polities": [
+    {
+     "id": "chu",
+     "name": {
+      "sv": "Chu",
+      "en": "Chu",
+      "de": "Chu",
+      "es": "Estado Chu",
+      "fr": "Chu"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Källorna skiljer sig om början: Wikipedia anger omkring 1030–223 f.Kr. och Wikidata 722–223 f.Kr. Enligt Wikipedia var Chu en forntida kinesisk stat under Zhoudynastin, söder om Zhous kärnland, och den annekterades av Qin 223 f.Kr. Kartan visar staten 750–224 f.Kr., som Cliopatria. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ on the beginning: Wikipedia gives c. 1030–223 BC and Wikidata 722–223 BC. According to Wikipedia, Chu was an ancient Chinese state during the Zhou dynasty, south of the Zhou heartland, and it was annexed by Qin in 223 BC. The map shows the state in 750–224 BC, as in Cliopatria. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Die Quellen unterscheiden sich beim Beginn: Wikipedia nennt um 1030–223 v. Chr. und Wikidata 722–223 v. Chr. Laut Wikipedia war Chu ein altchinesischer Staat zur Zeit der Zhou-Dynastie, südlich des Kernlands der Zhou, und wurde 223 v. Chr. von Qin annektiert. Die Karte zeigt den Staat wie Cliopatria 750–224 v. Chr. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren sobre el comienzo: Wikipedia indica hacia 1030–223 a. C. y Wikidata 722–223 a. C. Según Wikipedia, Chu fue un antiguo Estado chino durante la dinastía Zhou, al sur del núcleo de los Zhou, y fue anexionado por Qin en 223 a. C. El mapa muestra el Estado en 750–224 a. C., como Cliopatria. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent sur le début : Wikipédia indique vers 1030–223 av. J.-C. et Wikidata 722–223 av. J.-C. Selon Wikipédia, Chu était un ancien État chinois de l’époque de la dynastie Zhou, au sud du cœur du territoire des Zhou, et il fut annexé par Qin en 223 av. J.-C. La carte montre l’État en 750–224 av. J.-C., comme Cliopatria. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-chu-state",
+     "wd-chu-state",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "western-satraps",
+   "name": {
+    "sv": "Western Satraps",
+    "en": "Western Satraps",
+    "de": "Western Satraps",
+    "es": "Sátrapas occidentales",
+    "fr": "Satrapes occidentaux"
+   },
+   "color": "#9a7a3a",
+   "from": 43,
+   "to": 409,
+   "file": "data/empires/western-satraps.json",
+   "polities": [
+    {
+     "id": "western-satraps",
+     "name": {
+      "sv": "Western Satraps",
+      "en": "Western Satraps",
+      "de": "Western Satraps",
+      "es": "Sátrapas occidentales",
+      "fr": "Satrapes occidentaux"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Källorna skiljer sig om slutet: Wikipedia anger 35–415 och Wikidata 35–405. Enligt Wikipedia var Western Satraps sakiska (indoskytiska) härskare i västra och centrala Indien, samtida med Kushan och möjligen deras vasaller, och de besegrades till slut av guptakejsaren Chandragupta II. Kartan visar riket 43–409, som Cliopatria; Cliopatrias poster 476–489 saknar yta och visas inte. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ on the end: Wikipedia gives 35–415 and Wikidata 35–405. According to Wikipedia, the Western Satraps were Saka (Indo-Scythian) rulers of western and central India, contemporaries of the Kushans and possibly their vassals, and they were finally defeated by the Gupta emperor Chandragupta II. The map shows the realm in 43–409, as in Cliopatria; Cliopatria’s entries for 476–489 have no area and are not shown. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Die Quellen unterscheiden sich beim Ende: Wikipedia nennt 35–415 und Wikidata 35–405. Laut Wikipedia waren die Western Satraps sakische (indoskythische) Herrscher im westlichen und zentralen Indien, Zeitgenossen der Kuschana und möglicherweise deren Vasallen, und sie wurden schließlich vom Gupta-Kaiser Chandragupta II. besiegt. Die Karte zeigt das Reich wie Cliopatria 43–409; die Einträge von Cliopatria für 476–489 haben keine Fläche und werden nicht gezeigt. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren sobre el final: Wikipedia indica 35–415 y Wikidata 35–405. Según Wikipedia, los sátrapas occidentales fueron gobernantes sakas (indoescitas) del oeste y el centro de la India, contemporáneos de los kushanes y posiblemente sus vasallos, y fueron finalmente derrotados por el emperador gupta Chandragupta II. El mapa muestra el reino en 43–409, como Cliopatria; las entradas de Cliopatria para 476–489 no tienen superficie y no se muestran. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent sur la fin : Wikipédia indique 35–415 et Wikidata 35–405. Selon Wikipédia, les satrapes occidentaux étaient des souverains saces (indo-scythes) de l’ouest et du centre de l’Inde, contemporains des Kouchans et peut-être leurs vassaux, et ils furent finalement vaincus par l’empereur gupta Chandragupta II. La carte montre le royaume en 43–409, comme Cliopatria ; les entrées de Cliopatria pour 476–489 n’ont pas de superficie et ne sont pas affichées. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-western-satraps",
+     "wd-western-satraps",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "zhoudynastin",
+   "name": {
+    "sv": "Zhoudynastin",
+    "en": "Zhou dynasty",
+    "de": "Zhou-Dynastie",
+    "es": "Dinastía Zhou",
+    "fr": "Dynastie Zhou"
+   },
+   "color": "#a04a4a",
+   "from": -999,
+   "to": -750,
+   "file": "data/empires/zhoudynastin.json",
+   "polities": [
+    {
+     "id": "zhoudynastin",
+     "name": {
+      "sv": "Zhoudynastin",
+      "en": "Zhou dynasty",
+      "de": "Zhou-Dynastie",
+      "es": "Dinastía Zhou",
+      "fr": "Dynastie Zhou"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Wikipedia och Wikidata anger omkring 1046–256 f.Kr. Enligt Wikipedia kallas tiden till 771 f.Kr. västra Zhou och tiden därefter östra Zhou, och dynastin tog slut när Qin avsatte den siste kungen 256 f.Kr. Kartan visar riket 1000–751 f.Kr., som Cliopatria. Därefter delar Cliopatria området i flera stater, bland dem Chu. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "Wikipedia and Wikidata give c. 1046–256 BC. According to Wikipedia, the period until 771 BC is called Western Zhou and the period after it Eastern Zhou, and the dynasty ended when Qin deposed the last king in 256 BC. The map shows the realm in 1000–751 BC, as in Cliopatria. After that Cliopatria divides the area into several states, among them Chu. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Wikipedia und Wikidata nennen um 1046–256 v. Chr. Laut Wikipedia heißt die Zeit bis 771 v. Chr. Westliche Zhou und die Zeit danach Östliche Zhou, und die Dynastie endete, als Qin 256 v. Chr. den letzten König absetzte. Die Karte zeigt das Reich wie Cliopatria 1000–751 v. Chr. Danach teilt Cliopatria das Gebiet in mehrere Staaten, darunter Chu. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Wikipedia y Wikidata indican hacia 1046–256 a. C. Según Wikipedia, el periodo hasta 771 a. C. se llama Zhou occidental y el posterior Zhou oriental, y la dinastía terminó cuando Qin depuso al último rey en 256 a. C. El mapa muestra el reino en 1000–751 a. C., como Cliopatria. Después, Cliopatria divide la zona en varios Estados, entre ellos Chu. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Wikipédia et Wikidata indiquent vers 1046–256 av. J.-C. Selon Wikipédia, la période jusqu’en 771 av. J.-C. est appelée Zhou occidentaux et la suivante Zhou orientaux, et la dynastie prit fin lorsque Qin déposa le dernier roi en 256 av. J.-C. La carte montre le royaume en 1000–751 av. J.-C., comme Cliopatria. Ensuite, Cliopatria divise la région en plusieurs États, parmi lesquels Chu. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-zhou-dynasty",
+     "wd-zhou-dynasty",
+     "cliopatria"
+    ],
+    "review": "two-sources"
+   }
+  },
+  {
+   "id": "kungariket-armenien",
+   "name": {
+    "sv": "Kungariket Armenien",
+    "en": "Kingdom of Armenia",
+    "de": "Großarmenien",
+    "es": "Reino de Armenia",
+    "fr": "Royaume d’Arménie"
+   },
+   "color": "#c07a3a",
+   "from": -325,
+   "to": 428,
+   "file": "data/empires/kungariket-armenien.json",
+   "polities": [
+    {
+     "id": "kungariket-armenien",
+     "name": {
+      "sv": "Kungariket Armenien",
+      "en": "Kingdom of Armenia",
+      "de": "Großarmenien",
+      "es": "Reino de Armenia",
+      "fr": "Royaume d’Arménie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Källorna skiljer sig om början: Wikipedia anger 331 f.Kr.–428 och Wikidata 553 f.Kr.–428. Enligt Wikipedia delades riket 387 mellan Östrom och Sasanidriket, och 428 avsatte adeln den siste arsakidiske kungen, varefter sasaniderna tillsatte en ståthållare. Kartan visar riket 326 f.Kr.–428 med Cliopatrias gräns. Cliopatria har riket också 451–489 och 638–646, men de åren ligger efter rikets slut och visas inte. 208–207 f.Kr. är Cliopatrias yta bara en liten fläck inne i Seleukidriket. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ on the beginning: Wikipedia gives 331 BC–428 AD and Wikidata 553 BC–428 AD. According to Wikipedia, the kingdom was partitioned in 387 between the Eastern Roman Empire and the Sasanian Empire, and in 428 the nobility deposed the last Arsacid king, after which the Sasanians installed a governor. The map shows the kingdom in 326 BC–428 AD with Cliopatria’s border. Cliopatria also has the kingdom in 451–489 and 638–646, but those years are after the kingdom’s end and are not shown. In 208–207 BC Cliopatria’s area is only a small patch inside the Seleucid Empire. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Die Quellen unterscheiden sich beim Beginn: Wikipedia nennt 331 v. Chr.–428 n. Chr. und Wikidata 553 v. Chr.–428 n. Chr. Laut Wikipedia wurde das Reich 387 zwischen Ostrom und dem Sassanidenreich geteilt, und 428 setzte der Adel den letzten arsakidischen König ab, worauf die Sassaniden einen Statthalter einsetzten. Die Karte zeigt das Königreich 326 v. Chr.–428 n. Chr. mit der Grenze von Cliopatria. Cliopatria hat das Königreich auch 451–489 und 638–646, doch diese Jahre liegen nach dem Ende des Königreichs und werden nicht gezeigt. 208–207 v. Chr. ist die Fläche bei Cliopatria nur ein kleiner Fleck im Seleukidenreich. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren sobre el comienzo: Wikipedia indica 331 a. C.–428 d. C. y Wikidata 553 a. C.–428 d. C. Según Wikipedia, el reino fue repartido en 387 entre el Imperio romano de Oriente y el Imperio sasánida, y en 428 la nobleza depuso al último rey arsácida, tras lo cual los sasánidas nombraron un gobernador. El mapa muestra el reino en 326 a. C.–428 d. C. con la frontera de Cliopatria. Cliopatria tiene el reino también en 451–489 y 638–646, pero esos años son posteriores al fin del reino y no se muestran. En 208–207 a. C. la superficie de Cliopatria es solo una pequeña mancha dentro del Imperio seléucida. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent sur le début : Wikipédia indique 331 av. J.-C.–428 apr. J.-C. et Wikidata 553 av. J.-C.–428 apr. J.-C. Selon Wikipédia, le royaume fut partagé en 387 entre l’Empire romain d’Orient et l’Empire sassanide, et en 428 la noblesse déposa le dernier roi arsacide, après quoi les Sassanides installèrent un gouverneur. La carte montre le royaume en 326 av. J.-C.–428 apr. J.-C. avec la frontière de Cliopatria. Cliopatria place aussi le royaume en 451–489 et en 638–646, mais ces années sont postérieures à la fin du royaume et ne sont pas affichées. En 208–207 av. J.-C., la surface de Cliopatria n’est qu’une petite tache à l’intérieur de l’Empire séleucide. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-armenia-antiquity",
+     "wd-kingdom-of-armenia",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "himyaritiska-riket",
+   "name": {
+    "sv": "Himyaritiska riket",
+    "en": "Himyar",
+    "de": "Himyar",
+    "es": "Himyar",
+    "fr": "Himyar"
+   },
+   "color": "#5a8a6a",
+   "from": -109,
+   "to": 533,
+   "file": "data/empires/himyaritiska-riket.json",
+   "polities": [
+    {
+     "id": "himyaritiska-riket",
+     "name": {
+      "sv": "Himyaritiska riket",
+      "en": "Himyar",
+      "de": "Himyar",
+      "es": "Himyar",
+      "fr": "Himyar"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Källorna skiljer sig om slutet: Wikipedia anger 110 f.Kr.–575 eller 578 och Wikidata 110 f.Kr.–525. Enligt engelska Wikipedia var huvudstaden Zafar, och riket annekterades till slut av Sasanidriket; svenska Wikipedia skriver att riket erövrades av de kristna kungarna i Aksum 525. Kartan visar riket 110 f.Kr.–533 med Cliopatrias gräns. Cliopatrias poster 534–576 är bara 167 km² och 577–601 ligger efter båda källornas slut, så de visas inte. 283–352 ritar Cliopatria en del av samma område också till Aksumriket. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ on the end: Wikipedia gives 110 BC–575 or 578 AD and Wikidata 110 BC–525 AD. According to English Wikipedia, the capital was Zafar, and the kingdom was finally annexed by the Sasanian Empire; Swedish Wikipedia writes that the kingdom was conquered by the Christian kings of Aksum in 525. The map shows the kingdom in 110 BC–533 AD with Cliopatria’s border. Cliopatria’s entries for 534–576 cover only 167 km² and those for 577–601 are after the end given by both sources, so they are not shown. In 283–352 Cliopatria also assigns part of the same area to the Kingdom of Aksum. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Die Quellen unterscheiden sich beim Ende: Wikipedia nennt 110 v. Chr.–575 oder 578 n. Chr. und Wikidata 110 v. Chr.–525 n. Chr. Laut der englischen Wikipedia war Zafar die Hauptstadt, und das Reich wurde schließlich vom Sassanidenreich annektiert; die schwedische Wikipedia schreibt, dass das Reich 525 von den christlichen Königen von Aksum erobert wurde. Die Karte zeigt das Reich 110 v. Chr.–533 n. Chr. mit der Grenze von Cliopatria. Die Einträge von Cliopatria für 534–576 umfassen nur 167 km², und die für 577–601 liegen nach dem Ende, das beide Quellen nennen; sie werden daher nicht gezeigt. 283–352 rechnet Cliopatria einen Teil desselben Gebiets auch dem Reich von Aksum zu. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren sobre el final: Wikipedia indica 110 a. C.–575 o 578 d. C. y Wikidata 110 a. C.–525 d. C. Según la Wikipedia en inglés, la capital era Zafar, y el reino fue finalmente anexionado por el Imperio sasánida; la Wikipedia en sueco escribe que el reino fue conquistado por los reyes cristianos de Aksum en 525. El mapa muestra el reino en 110 a. C.–533 d. C. con la frontera de Cliopatria. Las entradas de Cliopatria para 534–576 abarcan solo 167 km² y las de 577–601 son posteriores al final que indican ambas fuentes, por lo que no se muestran. En 283–352 Cliopatria asigna también parte de la misma zona al Reino de Aksum. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent sur la fin : Wikipédia indique 110 av. J.-C.–575 ou 578 apr. J.-C. et Wikidata 110 av. J.-C.–525 apr. J.-C. Selon la Wikipédia en anglais, la capitale était Zafar, et le royaume fut finalement annexé par l’Empire sassanide ; la Wikipédia en suédois écrit que le royaume fut conquis par les rois chrétiens d’Aksoum en 525. La carte montre le royaume en 110 av. J.-C.–533 apr. J.-C. avec la frontière de Cliopatria. Les entrées de Cliopatria pour 534–576 ne couvrent que 167 km² et celles pour 577–601 sont postérieures à la fin indiquée par les deux sources ; elles ne sont donc pas affichées. En 283–352, Cliopatria attribue aussi une partie de la même région au royaume d’Aksoum. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-himyarite-kingdom",
+     "wd-himyarite-kingdom",
+     "wp-sv-himyariter",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "liu-song",
+   "name": {
+    "sv": "Liu Song",
+    "en": "Liu Song dynasty",
+    "de": "Frühere Song-Dynastie",
+    "es": "Dinastía Liu Song",
+    "fr": "Dynastie Song du Sud (420–479)"
+   },
+   "color": "#6a7aa0",
+   "from": 426,
+   "to": 479,
+   "file": "data/empires/liu-song.json",
+   "polities": [
+    {
+     "id": "liu-song",
+     "name": {
+      "sv": "Liu Song",
+      "en": "Liu Song dynasty",
+      "de": "Frühere Song-Dynastie",
+      "es": "Dinastía Liu Song",
+      "fr": "Dynastie Song du Sud (420–479)"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Wikipedia och Wikidata anger 420–479. Enligt Wikipedia grundades dynastin av Liu Yu, huvudstaden var Jiankang (dagens Nanjing), och den följdes av Södra Qi. Kartan visar riket 426–479, som Cliopatria. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "Wikipedia and Wikidata give 420–479. According to Wikipedia, the dynasty was founded by Liu Yu, its capital was Jiankang (present-day Nanjing), and it was succeeded by the Southern Qi. The map shows the realm in 426–479, as in Cliopatria. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Wikipedia und Wikidata nennen 420–479. Laut Wikipedia wurde die Dynastie von Liu Yu gegründet, ihre Hauptstadt war Jiankang (das heutige Nanjing), und auf sie folgte die Südliche Qi. Die Karte zeigt das Reich wie Cliopatria 426–479. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Wikipedia y Wikidata indican 420–479. Según Wikipedia, la dinastía fue fundada por Liu Yu, su capital era Jiankang (la actual Nankín) y le sucedió la dinastía Qi del Sur. El mapa muestra el reino en 426–479, como Cliopatria. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Wikipédia et Wikidata indiquent 420–479. Selon Wikipédia, la dynastie fut fondée par Liu Yu, sa capitale était Jiankang (l’actuelle Nankin), et les Qi du Sud lui succédèrent. La carte montre le royaume en 426–479, comme Cliopatria. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-liu-song-dynasty",
+     "wd-liu-song-dynasty",
+     "cliopatria"
+    ],
+    "review": "two-sources"
+   }
+  },
+  {
+   "id": "sunga",
+   "name": {
+    "sv": "Sunga",
+    "en": "Shunga Empire",
+    "de": "Shunga-Dynastie",
+    "es": "Imperio Śuṅga",
+    "fr": "Dynastie Shunga"
+   },
+   "color": "#8aa05a",
+   "from": -169,
+   "to": -72,
+   "file": "data/empires/sunga.json",
+   "polities": [
+    {
+     "id": "sunga",
+     "name": {
+      "sv": "Sunga",
+      "en": "Shunga Empire",
+      "de": "Shunga-Dynastie",
+      "es": "Imperio Śuṅga",
+      "fr": "Dynastie Shunga"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Källorna skiljer sig om slutet: Wikipedia anger 185–73 f.Kr. och Wikidata 185–75 f.Kr. Enligt Wikipedia grundades riket av Pushyamitra Shunga efter Mauryariket, huvudstaden var Pataliputra, och det följdes av Kanvadynastin. Kartan visar riket 170–73 f.Kr. med Cliopatrias gräns; Cliopatria har riket till 67 f.Kr., efter båda källornas slut. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ on the end: Wikipedia gives 185–73 BC and Wikidata 185–75 BC. According to Wikipedia, the empire was founded by Pushyamitra Shunga after the Maurya Empire, its capital was Pataliputra, and it was succeeded by the Kanva dynasty. The map shows the empire in 170–73 BC with Cliopatria’s border; Cliopatria has the empire until 67 BC, after the end given by both sources. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Die Quellen unterscheiden sich beim Ende: Wikipedia nennt 185–73 v. Chr. und Wikidata 185–75 v. Chr. Laut Wikipedia wurde das Reich von Pushyamitra Shunga nach dem Maurya-Reich gegründet, seine Hauptstadt war Pataliputra, und auf es folgte die Kanva-Dynastie. Die Karte zeigt das Reich 170–73 v. Chr. mit der Grenze von Cliopatria; Cliopatria hat das Reich bis 67 v. Chr., nach dem Ende, das beide Quellen nennen. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren sobre el final: Wikipedia indica 185–73 a. C. y Wikidata 185–75 a. C. Según Wikipedia, el imperio fue fundado por Pushyamitra Shunga tras el Imperio maurya, su capital era Pataliputra y le sucedió la dinastía Kanva. El mapa muestra el imperio en 170–73 a. C. con la frontera de Cliopatria; Cliopatria tiene el imperio hasta 67 a. C., después del final que indican ambas fuentes. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent sur la fin : Wikipédia indique 185–73 av. J.-C. et Wikidata 185–75 av. J.-C. Selon Wikipédia, l’empire fut fondé par Pushyamitra Shunga après l’Empire maurya, sa capitale était Pataliputra, et la dynastie Kanva lui succéda. La carte montre l’empire en 170–73 av. J.-C. avec la frontière de Cliopatria ; Cliopatria place l’empire jusqu’en 67 av. J.-C., après la fin indiquée par les deux sources. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-shunga-empire",
+     "wd-shunga-empire",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "funan",
+   "name": {
+    "sv": "Funan",
+    "en": "Funan",
+    "de": "Funan",
+    "es": "Reino de Funan",
+    "fr": "Fou-nan"
+   },
+   "color": "#4a9a8a",
+   "from": 51,
+   "to": 627,
+   "file": "data/empires/funan.json",
+   "polities": [
+    {
+     "id": "funan",
+     "name": {
+      "sv": "Funan",
+      "en": "Funan",
+      "de": "Funan",
+      "es": "Reino de Funan",
+      "fr": "Fou-nan"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Källorna skiljer sig: Wikipedia anger 50–627 och Wikidata 68–550. Enligt Wikipedia bröt sig Chenla loss 550 och erövrade Funan 627. Kartan visar riket 51–627 med Cliopatrias gräns; Cliopatria har riket till 640, efter båda källornas slut. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ: Wikipedia gives 50–627 and Wikidata 68–550. According to Wikipedia, Chenla broke away in 550 and conquered Funan in 627. The map shows the kingdom in 51–627 with Cliopatria’s border; Cliopatria has the kingdom until 640, after the end given by both sources. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Die Quellen weichen voneinander ab: Wikipedia nennt 50–627 und Wikidata 68–550. Laut Wikipedia spaltete sich Chenla 550 ab und eroberte Funan 627. Die Karte zeigt das Königreich 51–627 mit der Grenze von Cliopatria; Cliopatria hat das Königreich bis 640, nach dem Ende, das beide Quellen nennen. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren: Wikipedia indica 50–627 y Wikidata 68–550. Según Wikipedia, Chenla se separó en 550 y conquistó Funan en 627. El mapa muestra el reino en 51–627 con la frontera de Cliopatria; Cliopatria tiene el reino hasta 640, después del final que indican ambas fuentes. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent : Wikipédia indique 50–627 et Wikidata 68–550. Selon Wikipédia, le Chenla fit sécession en 550 et conquit le Fou-nan en 627. La carte montre le royaume en 51–627 avec la frontière de Cliopatria ; Cliopatria place le royaume jusqu’en 640, après la fin indiquée par les deux sources. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-funan",
+     "wd-funan",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "cao-wei",
+   "name": {
+    "sv": "Cao Wei",
+    "en": "Cao Wei",
+    "de": "Wei-Dynastie",
+    "es": "Wei",
+    "fr": "Royaume de Wei"
+   },
+   "color": "#7a5a8a",
+   "from": 224,
+   "to": 264,
+   "file": "data/empires/cao-wei.json",
+   "polities": [
+    {
+     "id": "cao-wei",
+     "name": {
+      "sv": "Cao Wei",
+      "en": "Cao Wei",
+      "de": "Wei-Dynastie",
+      "es": "Wei",
+      "fr": "Royaume de Wei"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Källorna skiljer sig om slutet: Wikipedia anger 220–266 och Wikidata 220–265. Enligt Wikipedia började riket när Cao Pi tvingade den siste Hankejsaren att abdikera i december 220 och slutade när Cao Huan abdikerade till förmån för Sima Yan i februari 266; huvudstaden var Luoyang från 226. Därefter följde Jindynastin (266–420). Kartan visar riket 224–264, som Cliopatria. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ on the end: Wikipedia gives 220–266 and Wikidata 220–265. According to Wikipedia, the state began when Cao Pi forced the last Han emperor to abdicate in December 220 and ended when Cao Huan abdicated in favour of Sima Yan in February 266; the capital was Luoyang from 226. It was followed by the Jin dynasty (266–420). The map shows the state in 224–264, as in Cliopatria. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Die Quellen unterscheiden sich beim Ende: Wikipedia nennt 220–266 und Wikidata 220–265. Laut Wikipedia begann der Staat, als Cao Pi im Dezember 220 den letzten Han-Kaiser zur Abdankung zwang, und endete, als Cao Huan im Februar 266 zugunsten von Sima Yan abdankte; Hauptstadt war ab 226 Luoyang. Darauf folgte die Jin-Dynastie (266–420). Die Karte zeigt den Staat wie Cliopatria 224–264. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren sobre el final: Wikipedia indica 220–266 y Wikidata 220–265. Según Wikipedia, el Estado comenzó cuando Cao Pi obligó al último emperador Han a abdicar en diciembre de 220 y terminó cuando Cao Huan abdicó en favor de Sima Yan en febrero de 266; la capital fue Luoyang desde 226. Le siguió la dinastía Jin (266–420). El mapa muestra el Estado en 224–264, como Cliopatria. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent sur la fin : Wikipédia indique 220–266 et Wikidata 220–265. Selon Wikipédia, l’État commença lorsque Cao Pi força le dernier empereur Han à abdiquer en décembre 220 et prit fin lorsque Cao Huan abdiqua en faveur de Sima Yan en février 266 ; la capitale fut Luoyang à partir de 226. Lui succéda la dynastie Jin (266–420). La carte montre l’État en 224–264, comme Cliopatria. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-cao-wei",
+     "wd-cao-wei",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "grekisk-baktriska-riket",
+   "name": {
+    "sv": "Grekisk-baktriska riket",
+    "en": "Greco-Bactrian Kingdom",
+    "de": "Griechisch-Baktrisches Königreich",
+    "es": "Reino grecobactriano",
+    "fr": "Royaume gréco-bactrien"
+   },
+   "color": "#4a6ab0",
+   "from": -246,
+   "to": -126,
+   "file": "data/empires/grekisk-baktriska-riket.json",
+   "polities": [
+    {
+     "id": "grekisk-baktriska-riket",
+     "name": {
+      "sv": "Grekisk-baktriska riket",
+      "en": "Greco-Bactrian Kingdom",
+      "de": "Griechisch-Baktrisches Königreich",
+      "es": "Reino grecobactriano",
+      "fr": "Royaume gréco-bactrien"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Källorna skiljer sig: Wikipedia anger 256–omkring 120 f.Kr. och Wikidata 250–125 f.Kr. Enligt Wikipedia grundades riket av Diodotos I, en seleukidisk satrap som bröt sig loss, och huvudstäderna var Baktra och Ai-Khanoum; det försvagades av nederlag mot Parthien och nomadfolkens invasioner. Kartan visar riket 247–127 f.Kr., som Cliopatria. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ: Wikipedia gives 256–c. 120 BC and Wikidata 250–125 BC. According to Wikipedia, the kingdom was founded by Diodotus I, a Seleucid satrap who broke away, and its capitals were Bactra and Ai-Khanoum; it was weakened by defeats against Parthia and by the invasions of nomadic peoples. The map shows the kingdom in 247–127 BC, as in Cliopatria. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Die Quellen weichen voneinander ab: Wikipedia nennt 256–um 120 v. Chr. und Wikidata 250–125 v. Chr. Laut Wikipedia wurde das Königreich von Diodotos I. gegründet, einem seleukidischen Satrapen, der sich abspaltete, und seine Hauptstädte waren Baktra und Ai-Khanoum; es wurde durch Niederlagen gegen Parthien und die Einfälle von Nomadenvölkern geschwächt. Die Karte zeigt das Königreich wie Cliopatria 247–127 v. Chr. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren: Wikipedia indica 256–hacia 120 a. C. y Wikidata 250–125 a. C. Según Wikipedia, el reino fue fundado por Diódoto I, un sátrapa seléucida que se independizó, y sus capitales fueron Bactra y Ai-Khanoum; se debilitó por las derrotas frente a Partia y las invasiones de pueblos nómadas. El mapa muestra el reino en 247–127 a. C., como Cliopatria. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent : Wikipédia indique 256–vers 120 av. J.-C. et Wikidata 250–125 av. J.-C. Selon Wikipédia, le royaume fut fondé par Diodote Ier, un satrape séleucide qui fit sécession, et ses capitales étaient Bactres et Aï-Khanoum ; il fut affaibli par des défaites face à la Parthie et par les invasions de peuples nomades. La carte montre le royaume en 247–127 av. J.-C., comme Cliopatria. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-greco-bactrian-kingdom",
+     "wd-greco-bactrian-kingdom",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "shangdynastin",
+   "name": {
+    "sv": "Shangdynastin",
+    "en": "Shang dynasty",
+    "de": "Shang-Dynastie",
+    "es": "Dinastía Shang",
+    "fr": "Dynastie Shang"
+   },
+   "color": "#a08a3a",
+   "from": -1599,
+   "to": -1045,
+   "file": "data/empires/shangdynastin.json",
+   "polities": [
+    {
+     "id": "shangdynastin",
+     "name": {
+      "sv": "Shangdynastin",
+      "en": "Shang dynasty",
+      "de": "Shang-Dynastie",
+      "es": "Dinastía Shang",
+      "fr": "Dynastie Shang"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Wikipedia och Wikidata anger omkring 1600–1046 f.Kr. Enligt Wikipedia är forskarna mer överens om slutet än om början, och dynastin tog slut när Zhou under kung Wu besegrade Shang i slaget vid Muye. Kartan visar riket 1600–1046 f.Kr. med Cliopatrias gräns; Cliopatria har riket till 1001 f.Kr., efter källornas slut. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "Wikipedia and Wikidata give c. 1600–1046 BC. According to Wikipedia, scholars agree more on the end than on the beginning, and the dynasty ended when the Zhou under King Wu defeated the Shang at the Battle of Muye. The map shows the realm in 1600–1046 BC with Cliopatria’s border; Cliopatria has the realm until 1001 BC, after the end given by the sources. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Wikipedia und Wikidata nennen um 1600–1046 v. Chr. Laut Wikipedia ist sich die Forschung über das Ende einiger als über den Beginn, und die Dynastie endete, als die Zhou unter König Wu die Shang in der Schlacht von Muye besiegten. Die Karte zeigt das Reich 1600–1046 v. Chr. mit der Grenze von Cliopatria; Cliopatria hat das Reich bis 1001 v. Chr., nach dem Ende, das die Quellen nennen. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Wikipedia y Wikidata indican hacia 1600–1046 a. C. Según Wikipedia, los investigadores coinciden más sobre el final que sobre el comienzo, y la dinastía terminó cuando los Zhou, bajo el rey Wu, derrotaron a los Shang en la batalla de Muye. El mapa muestra el reino en 1600–1046 a. C. con la frontera de Cliopatria; Cliopatria tiene el reino hasta 1001 a. C., después del final que indican las fuentes. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Wikipédia et Wikidata indiquent vers 1600–1046 av. J.-C. Selon Wikipédia, les chercheurs s’accordent davantage sur la fin que sur le début, et la dynastie prit fin lorsque les Zhou, sous le roi Wu, vainquirent les Shang à la bataille de Muye. La carte montre le royaume en 1600–1046 av. J.-C. avec la frontière de Cliopatria ; Cliopatria place le royaume jusqu’en 1001 av. J.-C., après la fin indiquée par les sources. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-shang-dynasty",
+     "wd-shang-dynasty",
+     "cliopatria"
+    ],
+    "review": "two-sources"
+   }
+  },
+  {
+   "id": "ostra-wu",
+   "name": {
+    "sv": "Östra Wu",
+    "en": "Eastern Wu",
+    "de": "Wu-Dynastie",
+    "es": "Wu",
+    "fr": "Royaume de Wu"
+   },
+   "color": "#3a8a5a",
+   "from": 222,
+   "to": 280,
+   "file": "data/empires/ostra-wu.json",
+   "polities": [
+    {
+     "id": "ostra-wu",
+     "name": {
+      "sv": "Östra Wu",
+      "en": "Eastern Wu",
+      "de": "Wu-Dynastie",
+      "es": "Wu",
+      "fr": "Royaume de Wu"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Källorna skiljer sig om början: Wikipedia anger 222–280 och Wikidata flera startår (198, 221 och 229) och slutet 280. Enligt Wikipedia var Wu från 220 ett lydrike under Cao Wei, blev självständigt i november 222 och kejsardöme i maj 229, och det tog slut när Sun Hao kapitulerade för Jindynastin den 31 maj 280. Kartan visar riket 222–280 med Cliopatrias gräns; Cliopatria har området redan från 207 och till 282. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ on the beginning: Wikipedia gives 222–280, and Wikidata gives several start years (198, 221 and 229) and the end 280. According to Wikipedia, Wu was a vassal kingdom under Cao Wei from 220, became independent in November 222 and an empire in May 229, and it ended when Sun Hao surrendered to the Jin dynasty on 31 May 280. The map shows the realm in 222–280 with Cliopatria’s border; Cliopatria has the area from as early as 207 and until 282. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Die Quellen unterscheiden sich beim Beginn: Wikipedia nennt 222–280, Wikidata mehrere Anfangsjahre (198, 221 und 229) und das Ende 280. Laut Wikipedia war Wu ab 220 ein Vasallenkönigreich unter Cao Wei, wurde im November 222 unabhängig und im Mai 229 ein Kaiserreich, und es endete, als Sun Hao am 31. Mai 280 vor der Jin-Dynastie kapitulierte. Die Karte zeigt das Reich 222–280 mit der Grenze von Cliopatria; Cliopatria hat das Gebiet schon ab 207 und bis 282. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren sobre el comienzo: Wikipedia indica 222–280, y Wikidata varios años de inicio (198, 221 y 229) y el final en 280. Según Wikipedia, Wu fue desde 220 un reino vasallo de Cao Wei, se independizó en noviembre de 222 y se convirtió en imperio en mayo de 229, y terminó cuando Sun Hao se rindió ante la dinastía Jin el 31 de mayo de 280. El mapa muestra el reino en 222–280 con la frontera de Cliopatria; Cliopatria tiene la zona ya desde 207 y hasta 282. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent sur le début : Wikipédia indique 222–280, et Wikidata plusieurs années de début (198, 221 et 229) et la fin en 280. Selon Wikipédia, Wu fut à partir de 220 un royaume vassal de Cao Wei, devint indépendant en novembre 222 et un empire en mai 229, et il prit fin lorsque Sun Hao se rendit à la dynastie Jin le 31 mai 280. La carte montre le royaume en 222–280 avec la frontière de Cliopatria ; Cliopatria place la région dès 207 et jusqu’en 282. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-eastern-wu",
+     "wd-eastern-wu",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
    "id": "four-oirats",
    "name": {
     "sv": "Four Oirats",
