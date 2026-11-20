@@ -186,6 +186,36 @@
       }
     },
     {
+      "eventId": "belagringen-av-kut",
+      "eventTitle": "Belägringen av Kut",
+      "file": "images/events/belagringen-av-kut.webp",
+      "kind": "historisk",
+      "credit": "British Official Photographer / Imperial War Museum (Q 79344) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-belagringen-av-kut",
+        "title": "Townshend, Khalil Pasha after Fall of Kut – Imperial War Museum Q 79344 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Townshend,_Khalil_Pasha_after_Fall_of_Kut.jpg",
+        "license": "Public domain (PD-US, publicerad 1919)",
+        "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "belagringen-av-tsingtao",
+      "eventTitle": "Belägringen av Tsingtao",
+      "file": "images/events/belagringen-av-tsingtao.webp",
+      "kind": "historisk",
+      "credit": "Shobido & Co., Tokyo / Library of Congress, Prints & Photographs Division",
+      "license": "Inga kända restriktioner (Library of Congress)",
+      "source": {
+        "id": "loc-bild-belagringen-av-tsingtao",
+        "title": "Banzai, banzai, the fall of Tsingtau, Shobido & Co., Tokyo 1914 (Library of Congress)",
+        "url": "https://www.loc.gov/item/2016651588/",
+        "license": "No known restrictions on publication",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "berlinkonferensen",
       "eventTitle": "Berlinkonferensen om Afrika",
       "file": "images/events/berlinkonferensen.webp",
@@ -726,6 +756,36 @@
       }
     },
     {
+      "eventId": "forsta-slaget-vid-marne",
+      "eventTitle": "Första slaget vid Marne",
+      "file": "images/events/forsta-slaget-vid-marne.webp",
+      "kind": "historisk",
+      "credit": "Bain News Service / Library of Congress, Prints & Photographs Division (LC-B2- 3277-15)",
+      "license": "Inga kända restriktioner (Library of Congress)",
+      "source": {
+        "id": "loc-bild-forsta-slaget-vid-marne",
+        "title": "German ammunition abandoned at Battle of the Marne, 10/29/14 (Library of Congress)",
+        "url": "https://www.loc.gov/item/2014697938/",
+        "license": "No known restrictions on publication",
+        "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "forsta-varldskriget",
+      "eventTitle": "Första världskriget",
+      "file": "images/events/forsta-varldskriget.webp",
+      "kind": "historisk",
+      "credit": "BUFA / Library of Congress, Prints & Photographs Division (LOT 3638)",
+      "license": "Inga kända restriktioner (Library of Congress)",
+      "source": {
+        "id": "loc-bild-forsta-varldskriget",
+        "title": "[German soldiers marching toward Albert, France] (Library of Congress)",
+        "url": "https://www.loc.gov/item/2005697193/",
+        "license": "No known restrictions on publication",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "fotbolls-vm-1930",
       "eventTitle": "Det första fotbolls-VM",
       "file": "images/events/fotbolls-vm-1930.webp",
@@ -738,6 +798,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Estadio_Centenario_1930.jpg",
         "license": "Public domain",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "freden-i-brest-litovsk",
+      "eventTitle": "Freden i Brest-Litovsk",
+      "file": "images/events/freden-i-brest-litovsk.webp",
+      "kind": "historisk",
+      "credit": "Bain News Service / Library of Congress, Prints & Photographs Division (LC-B2- 4470-4)",
+      "license": "Inga kända restriktioner (Library of Congress)",
+      "source": {
+        "id": "loc-bild-freden-i-brest-litovsk",
+        "title": "Peace Conference at Brest-Litovsk, Bain News Service (Library of Congress)",
+        "url": "https://www.loc.gov/item/2014706263/",
+        "license": "No known restrictions on publication",
+        "checked": "2026-11-20"
       }
     },
     {
@@ -783,6 +858,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:2_diagrams_of_moon,_Galileo,_17th_Century_Wellcome_L0009590.jpg",
         "license": "CC BY 4.0",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "gallipolifalttaget",
+      "eventTitle": "Gallipolifälttåget",
+      "file": "images/events/gallipolifalttaget.webp",
+      "kind": "historisk",
+      "credit": "Bain News Service / Library of Congress, Prints & Photographs Division (LC-B2- 3667-10)",
+      "license": "Inga kända restriktioner (Library of Congress)",
+      "source": {
+        "id": "loc-bild-gallipolifalttaget",
+        "title": "Turk battery, Gallipoli, Bain News Service (Library of Congress)",
+        "url": "https://www.loc.gov/item/2014700275/",
+        "license": "No known restrictions on publication",
+        "checked": "2026-11-20"
       }
     },
     {
@@ -2367,6 +2457,21 @@
       "source": null
     },
     {
+      "eventId": "skotten-i-sarajevo",
+      "eventTitle": "Skotten i Sarajevo",
+      "file": "images/events/skotten-i-sarajevo.webp",
+      "kind": "historisk",
+      "credit": "Achille Beltrame / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-skotten-i-sarajevo",
+        "title": "DC-1914-27-d-Sarajevo-cropped – Achille Beltrame, La Domenica del Corriere, juli 1914 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:DC-1914-27-d-Sarajevo-cropped.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "slaget-om-guadalcanal",
       "eventTitle": "Slaget om Guadalcanal",
       "file": "images/events/slaget-om-guadalcanal.webp",
@@ -2541,6 +2646,21 @@
       }
     },
     {
+      "eventId": "slaget-vid-jylland",
+      "eventTitle": "Skagerrakslaget (slaget vid Jylland)",
+      "file": "images/events/slaget-vid-jylland.webp",
+      "kind": "historisk",
+      "credit": "Okänd fotograf / Imperial War Museum (Q 114833) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-jylland",
+        "title": "HMS Warspite and HMS Malaya during the battle of Jutland – Imperial War Museum Q 114833 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:HMS_Warspite_and_HMS_Malaya_during_the_battle_of_Jutland.jpg",
+        "license": "Public domain (PD-UKGov)",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "slaget-vid-kadesh",
       "eventTitle": "Slaget vid Kadesh",
       "file": "images/events/slaget-vid-kadesh.webp",
@@ -2670,6 +2790,21 @@
       }
     },
     {
+      "eventId": "slaget-vid-somme",
+      "eventTitle": "Slaget vid Somme",
+      "file": "images/events/slaget-vid-somme.webp",
+      "kind": "historisk",
+      "credit": "Royal Engineers No. 1 Printing Company / Imperial War Museum (Q 64) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-somme",
+        "title": "The Battle of the Somme, July - November 1916 Q64 – Imperial War Museum (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:The_Battle_of_the_Somme,_July_-_November_1916_Q64.jpg",
+        "license": "Public domain (PD-UKGov)",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "slaget-vid-stalingrad",
       "eventTitle": "Slaget vid Stalingrad",
       "file": "images/events/slaget-vid-stalingrad.webp",
@@ -2682,6 +2817,36 @@
         "url": "https://commons.wikimedia.org/wiki/File:%D0%A4%D0%BE%D0%BD%D1%82%D0%B0%D0%BD_%C2%AB%D0%94%D0%B5%D1%82%D1%81%D0%BA%D0%B8%D0%B9_%D1%85%D0%BE%D1%80%D0%BE%D0%B2%D0%BE%D0%B4%C2%BB.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "slaget-vid-tanga",
+      "eventTitle": "Slaget vid Tanga",
+      "file": "images/events/slaget-vid-tanga.webp",
+      "kind": "historisk",
+      "credit": "Carl Arriens (skanning: Thomas Quine) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-tanga",
+        "title": "English troops chased back to their ship under German fire 3 November 1914 – Carl Arriens, Der Krieg 1914-19 in Wort und Bild (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:English_troops_chased_back_to_their_ship_under_German_fire_3_November_1914_(51259584694).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "slaget-vid-tannenberg-1914",
+      "eventTitle": "Slaget vid Tannenberg",
+      "file": "images/events/slaget-vid-tannenberg-1914.webp",
+      "kind": "historisk",
+      "credit": "Nationaal Archief, Fotocollectie Spaarnestad / Wikimedia Commons",
+      "license": "CC0",
+      "source": {
+        "id": "commons-bild-slaget-vid-tannenberg-1914",
+        "title": "De Duitse generaal Hindenburg op het slagveld van Tannenberg, na de overwinning op de Russen – Nationaal Archief, Fotocollectie Spaarnestad, 22055_007 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:De_Duitse_generaal_Hindenburg_op_het_slagveld_van_Tannenberg,_na_de_overwinning_op_de_Russen,_Bestanddeelnr_22055_007.tif",
+        "license": "CC0",
+        "checked": "2026-11-20"
       }
     },
     {
@@ -3262,6 +3427,36 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-30",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "usa-gar-in-i-forsta-varldskriget",
+      "eventTitle": "USA går in i kriget",
+      "file": "images/events/usa-gar-in-i-forsta-varldskriget.webp",
+      "kind": "historisk",
+      "credit": "Library of Congress, Prints & Photographs Division (PRES FILE - Wilson, Woodrow--Speaking)",
+      "license": "Inga kända restriktioner (Library of Congress)",
+      "source": {
+        "id": "loc-bild-usa-gar-in-i-forsta-varldskriget",
+        "title": "For the freedom of the world – President Wilson asking Congress to declare war, April 2, 1917 (Library of Congress)",
+        "url": "https://www.loc.gov/item/2002716887/",
+        "license": "No known restrictions on publication",
+        "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "vapenstillestandet-1918",
+      "eventTitle": "Vapenstilleståndet i Compiègne",
+      "file": "images/events/vapenstillestandet-1918.webp",
+      "kind": "historisk",
+      "credit": "Okänd fotograf / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-vapenstillestandet-1918",
+        "title": "Armisticetrain – Compiègne, 11 november 1918 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Armisticetrain.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
     },
     {
       "eventId": "vasco-da-gama-nar-indien",

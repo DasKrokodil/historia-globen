@@ -161,8 +161,11 @@ GROUPS = {
     'alexanders-rike': ('Makedoniska riket', 'Macedonian Empire', [
         ('Macedonian Empire', 'makedoniska-riket', 'Makedoniska riket', '#3f7fb5', {'join': [('Ptolemaic Kingdom', -330, -323)]}),
     ]),
+    # Cliopatrias Wikidata-id är fel för flera riken (#2005, kontrollerat mot Wikidata 2026-11-20 via Special:EntityData):
+    # Han Dynasty (Q1068371, klanen Chauhan i Indien; rätt är Q7209), Seleucid Empire (Q705904, seleukiddynastin; Q93180),
+    # Sasanian Empire (Q1661685, indo-sasaniderna; Q83891) och Qin (Q1471995, Tidigare Qin 350–394; Q34756).
     'hanriket': ('Hanriket', 'Han dynasty', [
-        ('Han Dynasty', 'hanriket', 'Hanriket', '#d0703a'),
+        ('Han Dynasty', 'hanriket', 'Hanriket', '#d0703a', {'wikidata': 'Q7209'}),
     ]),
     'mauryariket': ('Mauryariket', 'Maurya Empire', [
         ('Maurya Empire', 'mauryariket', 'Mauryariket', '#5f9e4a'),
@@ -219,16 +222,16 @@ GROUPS = {
         ('Carthage', 'kartago', 'Kartago', '#7b5fc0'),
     ]),
     'seleukidriket': ('Seleukidriket', 'Seleucid Empire', [
-        ('Seleucid Empire', 'seleukidriket', 'Seleukidriket', '#4aa8c8'),
+        ('Seleucid Empire', 'seleukidriket', 'Seleukidriket', '#4aa8c8', {'wikidata': 'Q93180'}),
     ]),
     'partherriket': ('Partherriket', 'Parthian Empire', [
         ('Parthian Empire', 'partherriket', 'Partherriket', '#9a9433'),
     ]),
     'sasanidriket': ('Sasanidriket', 'Sasanian Empire', [
-        ('Sasanian Empire', 'sasanidriket', 'Sasanidriket', '#3f9a5f'),
+        ('Sasanian Empire', 'sasanidriket', 'Sasanidriket', '#3f9a5f', {'wikidata': 'Q83891'}),
     ]),
     'qinriket': ('Qin: staten och Qindynastin', 'Qin: the state and the Qin dynasty', [
-        ('Qin', 'qin-staten', 'Staten Qin', '#5a7fc0'),
+        ('Qin', 'qin-staten', 'Staten Qin', '#5a7fc0', {'wikidata': 'Q34756'}),
         ('Qin Dynasty', 'qindynastin', 'Qindynastin', '#5a7fc0'),
     ]),
     'guptariket': ('Guptariket', 'Gupta Empire', [
@@ -247,7 +250,9 @@ GROUPS = {
     ]),
     'frankerriket': ('Frankerriket', 'Francia (Kingdom of the Franks)', [
         ('(Merovingian Empire)', 'merovingiska-riket', 'Frankerriket under merovingerna', '#3b62b0'),
-        ('(Carolingian Empire)', 'karolingiska-riket', 'Frankerriket under karolingerna', '#3b62b0'),
+        # Cliopatria anger merovingernas Q146246 också för karolingerna 718–989; Q31929 (Carolingian Empire) gäller bara
+        # 800–843, så delen har inget id tills det avgjorts (#2005)
+        ('(Carolingian Empire)', 'karolingiska-riket', 'Frankerriket under karolingerna', '#3b62b0', {'wikidata': None}),
     ]),
     'tysk-romerska-riket': ('Tysk-romerska riket', 'Holy Roman Empire', [
         ('(Holy Roman Empire)', 'tysk-romerska-riket', 'Tysk-romerska riket', '#d4a017'),
@@ -256,8 +261,10 @@ GROUPS = {
         ('Tang Dynasty', 'tangdynastin', 'Tangdynastin', '#a8323e'),
     ]),
     'songdynastin': ('Songdynastin', 'Song dynasty', [
-        ('Northern Song', 'norra-song', 'Norra Song', '#3fa38c'),
-        ('Southern Song', 'sodra-song', 'Södra Song', '#3fa38c'),
+        # Cliopatria anger hela Songdynastin (Q7462) för båda; Norra Song är Q319460 (960–1127) och Södra Song Q1147043
+        # (1127–1279), kontrollerat mot Wikidata 2026-11-20 (#2005)
+        ('Northern Song', 'norra-song', 'Norra Song', '#3fa38c', {'wikidata': 'Q319460'}),
+        ('Southern Song', 'sodra-song', 'Södra Song', '#3fa38c', {'wikidata': 'Q1147043'}),
     ]),
     'khmerriket': ('Khmerriket', 'Khmer Empire', [
         ('Khmer Empire', 'khmerriket', 'Khmerriket', '#c46fb0'),
@@ -384,15 +391,18 @@ GROUPS = {
         ('Kingdom of Sweden', 'sverige-1905', 'Sverige', '#3d8fd1', {'years': (1905, 2024), 'en': 'Kingdom of Sweden'}),
     ]),
     'habsburgska-riket': ('Habsburgska riket', 'Habsburg Monarchy', [
-        ('(Habsburg Monarchy)', 'habsburgska-riket', 'Habsburgska riket', '#a8475a'),
+        # Cliopatrias Q66504140 är en förgreningssida; Habsburgska monarkin är Q153136 (#2005)
+        ('(Habsburg Monarchy)', 'habsburgska-riket', 'Habsburgska riket', '#a8475a', {'wikidata': 'Q153136'}),
     ]),
     'tokugawa-japan': ('Tokugawa-Japan', 'Tokugawa Japan', [
         ('Tokugawa Shogunate', 'tokugawa-japan', 'Tokugawa-Japan', '#4b9fb0'),
     ]),
     # R5 Kolonialvälden och moderna imperier (#71)
     'franska-kolonialvaldet': ('Franska kolonialväldet', 'French colonial empire', [
+        # Cliopatrias Q207162 är Bourbonska restaurationen; Q70972 (Kungariket Frankrike, 987–1792 och 1814–1848) som
+        # för Kingdom of France nedan (#2005)
         ('(Bourbon Kingdom of France)', 'frankrike-kungadomet', 'Frankrike (kungadömet)', '#2f6fdc',
-         {'years': (1815, 1847), 'homeland': ['Bourbon Kingdom of France']}),
+         {'years': (1815, 1847), 'homeland': ['Bourbon Kingdom of France'], 'wikidata': 'Q70972'}),
         ('(French Second Republic)', 'frankrike-andra-republiken', 'Frankrike (andra republiken)', '#2f6fdc',
          {'homeland': ['French Second Republic']}),
         ('(Second French Empire)', 'andra-franska-kejsardomet', 'Andra franska kejsardömet', '#2f6fdc',
@@ -559,8 +569,10 @@ GROUPS = {
         (['Iraqi Republic', 'Republic of Iraq'], 'irak', 'Irak', '#8a5fb0', {'en': 'Iraq', 'fill': [(2006, 2013, ('Iraqi Republic', 2005))]}),
     ]),
     'iran': ('Iran: qajarerna, pahlavi och islamiska republiken', 'Iran: the Qajars, the Pahlavis and the Islamic Republic', [
-        ('Qajar Dynasty', 'qajarernas-iran', 'Qajarernas Iran', '#d07a3a', {'en': 'Qajar Iran'}),
-        ('Pahlavi Dynasty', 'pahlavis-iran', 'Pahlavis Iran', '#d07a3a', {'en': 'Pahlavi Iran'}),
+        # Cliopatria anger dynastierna (Q189326, Q207991); delarna är staterna Qajar Iran (Q63158027, 1789–1925) och
+        # Pahlavi Iran (Q107258515, 1925–1979), DasKrokodils ja 2026-11-20 (#2005)
+        ('Qajar Dynasty', 'qajarernas-iran', 'Qajarernas Iran', '#d07a3a', {'en': 'Qajar Iran', 'wikidata': 'Q63158027'}),
+        ('Pahlavi Dynasty', 'pahlavis-iran', 'Pahlavis Iran', '#d07a3a', {'en': 'Pahlavi Iran', 'wikidata': 'Q107258515'}),
         ('Islamic Republic of Iran', 'islamiska-republiken-iran', 'Islamiska republiken Iran', '#d07a3a'),
     ]),
     'kuwait': ('Kuwait', 'Kuwait', [
@@ -657,7 +669,8 @@ GROUPS = {
         ('Republic of Uganda', 'uganda', 'Uganda', '#a04a7a', {'en': 'Uganda'}),
     ]),
     'zululand': ('Zuluriket', 'Zulu Kingdom', [
-        ('Zululand', 'zuluriket', 'Zuluriket', '#8a6a3a', {'en': 'Zulu Kingdom'}),
+        # Cliopatrias Q13558877 är en förgreningssida; Zuluriket är Q729768 (#2005)
+        ('Zululand', 'zuluriket', 'Zuluriket', '#8a6a3a', {'en': 'Zulu Kingdom', 'wikidata': 'Q729768'}),
     ]),
     'australien': ('Australien', 'Australia', [
         ('Commonwealth of Australia', 'australien', 'Australien', '#d08a3a', {'en': 'Australia'}),
@@ -682,8 +695,11 @@ GROUPS = {
         ('Bolivia', 'bolivia', 'Bolivia', '#5a9a4a'),
     ]),
     'colombia': ('Colombia: Nya Granada och republiken', 'Colombia: New Granada and the Republic', [
+        # Cliopatrias Q1863715 är en förgreningssida; staten är Q2249661 (#2005). Wikidatas egna årtal för Q2249661 motsäger
+        # varandra (beskrivningen 1810–1814, P571 "0181", P576 1816) och skiljer sig från Cliopatrias 1811–1821.
+        # Källorna skiljer sig: posten saknar svensk etikett och har inga samstämmiga årtal; id:t är troligt, inte kontrollerat
         ('New Granada', 'forenade-provinserna-nya-granada', 'Förenade provinserna Nya Granada', '#d0a03a',
-         {'en': 'United Provinces of New Granada'}),
+         {'en': 'United Provinces of New Granada', 'wikidata': 'Q2249661'}),
         ('Republic of New Granada', 'republiken-nya-granada', 'Republiken Nya Granada', '#d0a03a'),
         ('United States of Colombia', 'colombias-forenta-stater', 'Colombias förenta stater', '#d0a03a'),
         ('Republic of Colombia', 'colombia', 'Colombia', '#d0a03a', {'en': 'Colombia'}),
@@ -696,8 +712,12 @@ GROUPS = {
     ]),
     'haiti': ('Haiti', 'Haiti', [
         # Cliopatria: Haiti 1792–1802 (före självständigheten), Empire of Haiti 1805–1915 och Republic of Haiti från 1936
-        ('Haiti', 'saint-domingue', 'Saint-Domingue under revolutionen', '#3a5ab0', {'en': 'Saint-Domingue during the revolution'}),
-        ('Empire of Haiti', 'haiti-1805', 'Haiti 1805–1915', '#3a5ab0', {'en': 'Haiti 1805–1915'}),
+        # Cliopatria anger Q2006756 (Första kejsardömet Haiti, 1804–1806) för båda. Saint-Domingue får kolonin Q861551, troligt
+        # men inte säkert eftersom delen gäller revolutionsåren (DasKrokodils ja 2026-11-20); Haiti 1805–1915 har inget id
+        # tills det avgjorts (#2005)
+        ('Haiti', 'saint-domingue', 'Saint-Domingue under revolutionen', '#3a5ab0',
+         {'en': 'Saint-Domingue during the revolution', 'wikidata': 'Q861551'}),
+        ('Empire of Haiti', 'haiti-1805', 'Haiti 1805–1915', '#3a5ab0', {'en': 'Haiti 1805–1915', 'wikidata': None}),
         ('Republic of Haiti', 'haiti', 'Haiti', '#3a5ab0', {'en': 'Haiti'}),
     ]),
     # R7 (#407), sjunde omgången: Europa (Rysslands invasion av Ukraina)
@@ -1323,7 +1343,9 @@ GROUPS = {
         ('Kimek-Kipchak confederation', 'kimek-kipchak', 'Kimek-Kipchak confederation', '#b89a4a', {'en': 'Kimek-Kipchak confederation'}),
     ]),
     'ghaznaviderna': ('Ghaznaviderna', 'Ghaznavid Empire', [
-        ('Ghaznavid Empire', 'ghaznaviderna', 'Ghaznaviderna', '#4a9a6a', {'en': 'Ghaznavid Empire'}),
+        # Cliopatria anger dynastin Ghaznaviderna (Q12844800); riket är Q249578 (Ghaznavid Empire, 962–1187, historiskt land),
+        # kontrollerat mot Wikidata 2026-11-20 (#2005)
+        ('Ghaznavid Empire', 'ghaznaviderna', 'Ghaznaviderna', '#4a9a6a', {'en': 'Ghaznavid Empire', 'wikidata': 'Q249578'}),
     ]),
     'seldjukiska-riket': ('Seldjukiska riket', 'Great Seljuk Empire', [
         ('Great Seljuk Empire', 'seldjukiska-riket', 'Seldjukiska riket', '#c07a4a', {'en': 'Great Seljuk Empire'}),

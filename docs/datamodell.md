@@ -390,10 +390,12 @@ Laddas vid första faktarutan, klickrutan för en väg, upptäcktsvyn eller Om k
 
 ```json
 { "schema": "historia-globen/areas@1", "group": "hanriket",
-  "polities": [{ "id": "hanriket", "group": "hanriket", "name": { … }, "wikidata": "Q1068371", "color": "#d0703a",
+  "polities": [{ "id": "hanriket", "group": "hanriket", "name": { … }, "wikidata": "Q7209", "color": "#d0703a",
     "sources": ["cliopatria"], "review": "source-checked",
     "periods": [{ "start": -202, "end": -127, "areaKm2": 2042615, "label": [111.5, 33.4], "geometry": { "type": "MultiPolygon", … } }] }] }
 ```
+
+Delens `wikidata` är Cliopatrias Q-id om det gäller riket självt, annars ett kontrollerat id ur `GROUPS` i `tools/riken.py` (inställningen `wikidata`), eller inget fält alls (`'wikidata': None`) när rätt post inte är avgjord. Cliopatria anger ibland en förgreningssida, en dynasti, en klan eller en annan stat (#2002, #2005): ett id vars engelska beskrivning på Wikidata är "Wikimedia disambiguation page" (eller P31 Q4167410) används aldrig, även när etiketten ser ut som rikets namn. Där riket och dess dynasti är olika poster (Qajar Iran Q63158027 och dynastin Q189326) får delen staten, eftersom namnet säger landet. `tools/riken_namn.py` varnar för förgreningssidor och fyller inte i deras etiketter, och `tests/riken-oversatta-namn-test.py` stoppar kända fel id och förgreningssidorna i registret `KANDA_FORGRENINGSSIDOR` utan nätverk. Ett id som bara troligen är rätt står med en kommentar i `GROUPS` (Saint-Domingue under revolutionen: kolonin Q861551).
 
 Ett rike kan bestå av flera delar, till exempel Romarriket med kungadömet, republiken, kejsardömet och Bysans. Varje period har en egen gräns. `label` är platsen där namnet skrivs ut. Filerna byggs med `tools/riken.py` ur Cliopatria. Periodernas `start` och `end` är astronomiska år: Cliopatria skriver N f.Kr. som `-N`, och skripten räknar om till `1 - N` vid läsningen (`tools/cliopatria_ar.py`, #1989, docs/kallor.md). Faktarutorna (`facts`, se nedan), symbolerna (`symbol`) och de egna faktarutorna för enskilda riken (`polityFacts`) skrivs för hand; skriptet läser den befintliga `index.json` och behåller de fälten i varje rike när filen skrivs om (#68, #301). Det gäller också flaggorna (`flags`), huvudstäderna (`capitals`) och `labelAt`. Översättningarna (`de`, `es`, `fr` …) av namn som skriptet själv skriver på svenska och engelska, alltså rikenas och delarnas namn, inflytandenamnen och moderlandets namn, behålls så länge det svenska namnet är detsamma. Varje grupp får samma fältordning som förut, så att en ombyggnad utan andra ändringar ger en tom diff (#1220). Reglerna står i `tools/riken_bevara.py` och provas i CI av `tests/riken-bevara-test.py` på den riktiga `index.json`.
 

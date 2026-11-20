@@ -172,6 +172,7 @@
         "pmc-champ-durand-ko",
         "pmc-david-2024-cloggs",
         "pmc-gandini-2025-sahul",
+        "pmc-ghalichi-2024-kaukasus",
         "pmc-goff-2017-aitape",
         "pmc-homotherium-badjaricha",
         "pmc-jacobson-2025-sasanian",
@@ -179,12 +180,15 @@
         "pmc-maloney-2022-liang-tebo",
         "pmc-matskorpor-vaxter",
         "pmc-moon-2026-imdang",
+        "pmc-naltjik-2024",
         "pmc-ngoepe-2023-victoriasjon",
         "pmc-oshea-2021-huron",
         "pmc-pecnerova-2017",
         "pmc-pest-bajkal",
+        "pmc-pico-2020-bering",
         "pmc-rosso-2017-porc-epic",
         "pmc-sachtysj-hla",
+        "pmc-sagan-zaba-2015",
         "pmc-singh-2017-sutlej",
         "pmc-trypillia-jatteboplatser",
         "pmc-tumat-noshorning",
@@ -680,6 +684,7 @@
         "wp-belgrade",
         "wp-bengal-famine-1943",
         "wp-beni-hasan",
+        "wp-bering-land-bridge",
         "wp-berkeley-gloucestershire",
         "wp-berlin",
         "wp-berlin-conference",
@@ -813,6 +818,7 @@
         "wp-changes-in-course-yellow-river",
         "wp-chankillo",
         "wp-charax-spasinu",
+        "wp-chariot-burial",
         "wp-charles-xii",
         "wp-charter-of-the-united-nations",
         "wp-chatham-islands",
@@ -1685,6 +1691,7 @@
         "wp-kowloon-1839",
         "wp-kozhikode",
         "wp-kruger-national-park",
+        "wp-ksudach",
         "wp-kuk-swamp",
         "wp-kukuliskiai",
         "wp-kumasi",
@@ -1820,6 +1827,7 @@
         "wp-magnus-the-good",
         "wp-magong",
         "wp-mahavira",
+        "wp-maikop-kurgan",
         "wp-maimonides",
         "wp-maipu",
         "wp-maize",
@@ -1864,6 +1872,7 @@
         "wp-may-1958-crisis",
         "wp-may-revolution",
         "wp-mayapan",
+        "wp-maykop-culture",
         "wp-mbanza-kongo",
         "wp-medellin-1968",
         "wp-medracen",
@@ -2823,6 +2832,7 @@
         "wp-zhang-qian",
         "wp-zheng-he",
         "wp-zhenjiang",
+        "wp-zhokhov-island",
         "wp-zhoushan-islands",
         "wp-zimbabwe",
         "wp-zimbabwe-rhodesia",
@@ -2837,6 +2847,7 @@
         "commons-bild-jamestown-1607",
         "commons-bild-lei-aurea-1888",
         "commons-bild-orakelben-skrift",
+        "commons-bild-slaget-vid-tannenberg-1914",
         "commons-bild-vastromerska-rikets-fall",
         "wd-363-galilee-earthquake",
         "wd-aalborg",
@@ -2854,6 +2865,7 @@
         "wd-belgian-congo",
         "wd-billund",
         "wd-bogd-khanate",
+        "wd-buguldejka",
         "wd-byzantine-empire",
         "wd-champ-durand",
         "wd-chertovy-vorota",
@@ -2924,6 +2936,7 @@
         "wd-kurile-lake",
         "wd-lake-ladoga",
         "wd-lego",
+        "wd-maikop-kurgan",
         "wd-maratha-empire",
         "wd-mercia",
         "wd-merina-kingdom",
@@ -2945,6 +2958,7 @@
         "wd-northern-yuan",
         "wd-northumbria",
         "wd-norway",
+        "wd-novokorsunskaja",
         "wd-ottoman-tripolitania",
         "wd-oyo-empire",
         "wd-pakistan",
@@ -3196,9 +3210,15 @@
     {
       "license": "No known restrictions on publication",
       "sourceIds": [
+        "loc-bild-belagringen-av-tsingtao",
         "loc-bild-emigrationen-fran-sverige",
+        "loc-bild-forsta-slaget-vid-marne",
+        "loc-bild-forsta-varldskriget",
+        "loc-bild-freden-i-brest-litovsk",
+        "loc-bild-gallipolifalttaget",
         "loc-bild-hansan-vaxer-fram",
         "loc-bild-koch-tuberkelbakterien",
+        "loc-bild-usa-gar-in-i-forsta-varldskriget",
         "loc-bild-watt-separat-kondensor",
         "loc-cook-south-pacific-1777",
         "loc-eiffel-campanile-1889",
@@ -3300,6 +3320,7 @@
         "commons-bild-shakespeare-dor",
         "commons-bild-sjalvstandighetsforklaringen",
         "commons-bild-sjoslaget-vid-dan-no-ura",
+        "commons-bild-skotten-i-sarajevo",
         "commons-bild-slaget-om-guadalcanal",
         "commons-bild-slaget-om-kyiv-2022",
         "commons-bild-slaget-vid-annual",
@@ -3318,6 +3339,7 @@
         "commons-bild-slaget-vid-poltava",
         "commons-bild-slaget-vid-rangiriri",
         "commons-bild-slaget-vid-stalingrad",
+        "commons-bild-slaget-vid-tanga",
         "commons-bild-slaget-vid-tuyuti",
         "commons-bild-slaget-vid-verdun",
         "commons-bild-slaget-vid-waterloo",
@@ -3339,6 +3361,7 @@
         "commons-bild-tredje-slaget-vid-panipat",
         "commons-bild-tsunamin-i-indiska-oceanen-2004",
         "commons-bild-tyfonen-kamikaze-1281",
+        "commons-bild-vapenstillestandet-1918",
         "commons-bild-vasco-da-gama-nar-indien",
         "commons-bild-vesuvius-79",
         "commons-bild-waitangifordraget",
@@ -3742,6 +3765,19 @@
       ]
     },
     {
+      "license": "Public domain (PD-UKGov)",
+      "sourceIds": [
+        "commons-bild-slaget-vid-jylland",
+        "commons-bild-slaget-vid-somme"
+      ]
+    },
+    {
+      "license": "Public domain (PD-US, publicerad 1919)",
+      "sourceIds": [
+        "commons-bild-belagringen-av-kut"
+      ]
+    },
+    {
       "license": "Public domain (PD-UZ-exempt)",
       "sourceIds": [
         "commons-flagga-uzbekistan"
@@ -3985,6 +4021,12 @@
         "pigati-2023-white-sands",
         "rizal-2020-ngandong",
         "surovell-2026-monte-verde"
+      ]
+    },
+    {
+      "license": "© AAAS (bara länkad, ingen text kopierad; stöder bara årtal och dateringsmetod)",
+      "sourceIds": [
+        "sinding-2020-zjochov"
       ]
     },
     {

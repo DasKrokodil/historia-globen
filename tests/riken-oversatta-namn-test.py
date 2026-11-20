@@ -6,7 +6,10 @@
 2. två delar i samma grupp med olika svenska namn har samma namn på ett annat språk (Romerska kejsardömet och
    Östromerska riket hette båda "Imperio bizantino"),
 3. delens namn i index.json och i rikesfilen skiljer sig åt,
-4. en del har ett Wikidata-id som är känt fel (Cliopatrias id för Roman Empire och Byzantine Empire).
+4. en del har ett Wikidata-id som är känt fel (Cliopatrias id för Roman Empire och Byzantine Empire, och för
+   Hanriket, Sasanidriket, Seleukidriket, Staten Qin, Frankrike (kungadömet), Qajar och Pahlavi, #2005),
+5. en del har ett Wikidata-id som är en förgreningssida (Wikimedia disambiguation page, #2005), ur registret
+   KANDA_FORGRENINGSSIDOR i tools/riken_namn.py; provet kräver inget nätverk.
 
 Körs i CI utan shapely: python3 -I tests/riken-oversatta-namn-test.py
 """
@@ -17,11 +20,19 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / 'tools'))
-from riken_namn import inte_rikesnamn  # noqa: E402
+from riken_namn import KANDA_FORGRENINGSSIDOR, ar_forgreningssida, inte_rikesnamn  # noqa: E402
 
 LANGS = ('en', 'de', 'es', 'fr')
 # (delens id, Wikidata-id som är fel): Q12544 är Bysantinska riket, Q112039853 Bysans utrikesrelationer (#2002)
-KANDA_FEL_ID = {('romerska-kejsardomet', 'Q12544'), ('bysantinska-riket', 'Q112039853')}
+KANDA_FEL_ID = {('romerska-kejsardomet', 'Q12544'), ('bysantinska-riket', 'Q112039853'),
+                # #2005: Cliopatrias id, kontrollerade mot Wikidata 2026-11-20 (klanen Chauhan, indo-sasaniderna,
+                # seleukiddynastin, Tidigare Qin, Bourbonska restaurationen, dynastierna Qajar och Pahlavi, Första
+                # kejsardömet Haiti 1804–1806 för Saint-Domingue och Haiti 1805–1915, merovingerna för karolingerna)
+                ('hanriket', 'Q1068371'), ('sasanidriket', 'Q1661685'), ('seleukidriket', 'Q705904'),
+                ('qin-staten', 'Q1471995'), ('frankrike-kungadomet', 'Q207162'), ('qajarernas-iran', 'Q189326'),
+                ('pahlavis-iran', 'Q207991'), ('saint-domingue', 'Q2006756'), ('haiti-1805', 'Q2006756'),
+                ('karolingiska-riket', 'Q146246'), ('norra-song', 'Q7462'), ('sodra-song', 'Q7462'),
+                ('ghaznaviderna', 'Q12844800')}
 
 fel = []
 # Enhetsprov
@@ -29,6 +40,11 @@ if not inte_rikesnamn('relaciones exteriores del Imperio bizantino') or not inte
     fel.append('provet känner inte igen en etikett som inte är ett rikesnamn')
 if inte_rikesnamn('Imperio bizantino') or inte_rikesnamn("Empire romain d'Orient") or inte_rikesnamn('Dynastie Liao'):
     fel.append('provet stoppar ett rikesnamn')
+# Förgreningssidor (#2005): beskrivningen eller P31, även när etiketten ser rimlig ut
+if not ar_forgreningssida('Wikimedia disambiguation page') or not ar_forgreningssida(None, ['Q4167410']):
+    fel.append('provet känner inte igen en förgreningssida')
+if ar_forgreningssida('monarchy in Europe (1282–1918)', ['Q3024240']) or ar_forgreningssida(None, []):
+    fel.append('provet tar ett rike för en förgreningssida')
 
 index = json.loads((ROOT / 'data/empires/index.json').read_text(encoding='utf-8'))
 antal = 0
@@ -59,7 +75,9 @@ for g in index['groups']:
         if q.get('name') != p.get('name'):
             fel.append(f"{g['file']}, {p['id']}: namnet skiljer sig från index.json ({q.get('name')} mot {p.get('name')})")
         if (p['id'], q.get('wikidata')) in KANDA_FEL_ID:
-            fel.append(f"{g['file']}, {p['id']}: Wikidata-id {q['wikidata']} är känt fel (#2002)")
+            fel.append(f"{g['file']}, {p['id']}: Wikidata-id {q['wikidata']} är känt fel (#2002, #2005)")
+        if q.get('wikidata') in KANDA_FORGRENINGSSIDOR:
+            fel.append(f"{g['file']}, {p['id']}: Wikidata-id {q['wikidata']} är en förgreningssida (#2005)")
 
 if fel:
     print('\n'.join(sorted(set(fel))))
