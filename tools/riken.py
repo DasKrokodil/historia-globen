@@ -261,8 +261,10 @@ GROUPS = {
         ('Tang Dynasty', 'tangdynastin', 'Tangdynastin', '#a8323e'),
     ]),
     'songdynastin': ('Songdynastin', 'Song dynasty', [
-        ('Northern Song', 'norra-song', 'Norra Song', '#3fa38c'),
-        ('Southern Song', 'sodra-song', 'Södra Song', '#3fa38c'),
+        # Cliopatria anger hela Songdynastin (Q7462) för båda; Norra Song är Q319460 (960–1127) och Södra Song Q1147043
+        # (1127–1279), kontrollerat mot Wikidata 2026-11-20 (#2005)
+        ('Northern Song', 'norra-song', 'Norra Song', '#3fa38c', {'wikidata': 'Q319460'}),
+        ('Southern Song', 'sodra-song', 'Södra Song', '#3fa38c', {'wikidata': 'Q1147043'}),
     ]),
     'khmerriket': ('Khmerriket', 'Khmer Empire', [
         ('Khmer Empire', 'khmerriket', 'Khmerriket', '#c46fb0'),
@@ -694,7 +696,8 @@ GROUPS = {
     ]),
     'colombia': ('Colombia: Nya Granada och republiken', 'Colombia: New Granada and the Republic', [
         # Cliopatrias Q1863715 är en förgreningssida; staten är Q2249661 (#2005). Wikidatas egna årtal för Q2249661 motsäger
-        # varandra (beskrivningen 1810–1814, P571 "0181", P576 1816) och skiljer sig från Cliopatrias 1811–1821
+        # varandra (beskrivningen 1810–1814, P571 "0181", P576 1816) och skiljer sig från Cliopatrias 1811–1821.
+        # Källorna skiljer sig: posten saknar svensk etikett och har inga samstämmiga årtal; id:t är troligt, inte kontrollerat
         ('New Granada', 'forenade-provinserna-nya-granada', 'Förenade provinserna Nya Granada', '#d0a03a',
          {'en': 'United Provinces of New Granada', 'wikidata': 'Q2249661'}),
         ('Republic of New Granada', 'republiken-nya-granada', 'Republiken Nya Granada', '#d0a03a'),
@@ -1340,7 +1343,9 @@ GROUPS = {
         ('Kimek-Kipchak confederation', 'kimek-kipchak', 'Kimek-Kipchak confederation', '#b89a4a', {'en': 'Kimek-Kipchak confederation'}),
     ]),
     'ghaznaviderna': ('Ghaznaviderna', 'Ghaznavid Empire', [
-        ('Ghaznavid Empire', 'ghaznaviderna', 'Ghaznaviderna', '#4a9a6a', {'en': 'Ghaznavid Empire'}),
+        # Cliopatria anger dynastin Ghaznaviderna (Q12844800); riket är Q249578 (Ghaznavid Empire, 962–1187, historiskt land),
+        # kontrollerat mot Wikidata 2026-11-20 (#2005)
+        ('Ghaznavid Empire', 'ghaznaviderna', 'Ghaznaviderna', '#4a9a6a', {'en': 'Ghaznavid Empire', 'wikidata': 'Q249578'}),
     ]),
     'seldjukiska-riket': ('Seldjukiska riket', 'Great Seljuk Empire', [
         ('Great Seljuk Empire', 'seldjukiska-riket', 'Seldjukiska riket', '#c07a4a', {'en': 'Great Seljuk Empire'}),

@@ -31,7 +31,8 @@ KANDA_FEL_ID = {('romerska-kejsardomet', 'Q12544'), ('bysantinska-riket', 'Q1120
                 ('hanriket', 'Q1068371'), ('sasanidriket', 'Q1661685'), ('seleukidriket', 'Q705904'),
                 ('qin-staten', 'Q1471995'), ('frankrike-kungadomet', 'Q207162'), ('qajarernas-iran', 'Q189326'),
                 ('pahlavis-iran', 'Q207991'), ('saint-domingue', 'Q2006756'), ('haiti-1805', 'Q2006756'),
-                ('karolingiska-riket', 'Q146246')}
+                ('karolingiska-riket', 'Q146246'), ('norra-song', 'Q7462'), ('sodra-song', 'Q7462'),
+                ('ghaznaviderna', 'Q12844800')}
 
 fel = []
 # Enhetsprov
