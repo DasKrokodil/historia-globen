@@ -2298,6 +2298,21 @@
       }
     },
     {
+      "eventId": "nzinga-drottning-av-ndongo",
+      "eventTitle": "Nzinga, drottning av Ndongo och Matamba",
+      "file": "images/events/nzinga-drottning-av-ndongo.webp",
+      "kind": "historisk",
+      "credit": "Achille Devéria / National Portrait Gallery, London / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-nzinga-drottning-av-ndongo",
+        "title": "Ann Zingha, Queen of Matamba – handkolorerad litografi av Achille Devéria, 1830-talet, National Portrait Gallery, London (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ann_Zingha.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "oktoberrevolutionen",
       "eventTitle": "Oktoberrevolutionen i Ryssland",
       "file": "images/events/oktoberrevolutionen.webp",
