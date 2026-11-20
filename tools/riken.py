@@ -15,8 +15,14 @@ utan gräns i Cliopatria, en punkt, och uncertainBorder för osäkra gränser (#
 Kör från projektets rot, med Cliopatria-filen (cliopatria_polities_only_v021.geojson ur cliopatria.geojson.zip
 i version 0.2.1 på Zenodo, https://zenodo.org/records/23128623, doi:10.5281/zenodo.23128623, CC BY 4.0;
 posten 13363121 är version 0.0.1 och ger andra riken, #1616):
-    python3 tools/riken.py <cliopatria.geojson>
-Kräver shapely (pip install shapely).
+    python3 tools/riken.py <cliopatria.geojson> [--delade-granser] [--ut=<mapp>]
+Kräver shapely 2.1 eller senare med GEOS 3.12 eller senare (pip install 'shapely>=2.1'; DasKrokodils ja i #1765 2026-11-20),
+för shapely.coverage_simplify och coverage_invalid_edges.
+
+--delade-granser (#1765, pilot, av som standard): grupperna i SHARED_GROUPS (Brittiska öarna 500–1700) förenklas tillsammans
+som en täckning, så att grannar får samma gräns där de möts (docs/granskningar/2026-11-20-delade-granser-pilot.md). Utan
+flaggan blir filerna exakt som förut. --ut=<mapp> skriver filerna i en annan mapp än data/empires, till exempel för att jämföra
+piloten med dagens filer; de handskrivna fälten läses ändå ur data/empires.
 """
 import json
 import re
@@ -3065,6 +3071,181 @@ def homeland_shape(by_name, names, window, raw, year, tol, min_area):
     return None if g.is_empty else g
 
 
+def raw_periods(gid, cname, opts, by_name, disputed, ne):
+    """En dels råa perioder (start, slut, geometri, yta i km2) före förenklingen: Cliopatrias gräns efter EXTEND, ne, join,
+    fill, prepend, minus, clip och DISPUTED. Används av main och av de delade gränserna (#1765)."""
+    feats = None
+    if gid in EXTEND and EXTEND[gid]['polity'] == cname:
+        feats = extend(by_name, EXTEND[gid])
+    # En del utan Cliopatria-namn (None) får hela sin gräns ur DISPUTED (Palestina, #644)
+    # eller, med `ne`, ur ett land i Natural Earth (små stater, #722)
+    if cname is None:
+        g0 = ne[opts['ne']] if opts.get('ne') else Polygon()
+        base = [(*opts['years'], g0, km2(g0) if opts.get('ne') else 0)]
+    else:
+        base = member_periods(by_name, cname, opts.get('years'), feats)
+        # Cliopatrias årtal men gränsen ur Natural Earth från året ne_from (Andorra och Monaco, #719)
+        if opts.get('ne'):
+            g1 = ne[opts['ne']]
+            base = [(a, b, g1, km2(g1)) if a >= opts.get('ne_from', a) else (a, b, g, ar) for a, b, g, ar in base]
+    # join: andra Cliopatria-poster som läggs till delen de år de finns, utan att ändra gränsen övriga år (#1330)
+    if opts.get('join'):
+        base = join_periods(base, opts['join'], by_name)
+    # fill: år där gränsen är statens egen gräns i Cliopatria ett annat år (ockupation och inbördeskrig, #1332)
+    if opts.get('fill'):
+        base = fill_periods(base, opts['fill'], by_name)
+    # prepend: år före Cliopatrias första år, utan egen gräns; gränsen läggs till ur DISPUTED (Östtimor, #644)
+    if opts.get('prepend'):
+        base = [(*opts['prepend'], Polygon(), 0)] + base
+    if opts.get('minus'):
+        base = minus_others(base, opts['minus'], by_name, opts.get('minusKeepWestOf'))
+    # clip: bara den del av posten som ligger i rutan (väst, syd, öst, nord). Används där en Cliopatria-post är flera
+    # kolonier som inte hänger ihop, så att rutan inte drar någon ny gräns (Italienska kolonier i Afrika, #1330)
+    if opts.get('clip'):
+        cb = box(*opts['clip'])
+        base = [(a, b, g.intersection(cb), km2(g.intersection(cb))) for a, b, g, _ar in base]
+        base = [q for q in base if not q[2].is_empty]
+    return apply_disputed(base, gid, disputed)
+
+
+def simplify_alone(raw, tol, min_area):
+    """Ett rikes gräns förenklad för sig (Douglas–Peucker), med öar under min_area borttagna, som verktyget alltid har gjort."""
+    g = raw.simplify(tol, preserve_topology=True)
+    if g.geom_type == 'MultiPolygon':
+        g = unary_union([q for q in g.geoms if q.area > min_area] or [max(g.geoms, key=lambda q: q.area)])
+    return g
+
+
+# Delade gränser mellan grannriken (#1765, pilot, DasKrokodils ja 2026-11-20): med flaggan --delade-granser förenklas
+# grupperna i SHARED_GROUPS tillsammans som en täckning (shapely.coverage_simplify, Visvalingam–Whyatt, kräver shapely 2.1
+# och GEOS 3.12), så att två grannar får samma linje där de möts och inte ritas ovanpå varandra. Utan flaggan används inget
+# av detta, och filerna blir exakt som förut (#1220). Utredningen: docs/granskningar/2026-11-15-delade-granser-forenkling.md,
+# piloten: docs/granskningar/2026-11-20-delade-granser-pilot.md.
+SHARED_GROUPS = ('wessex', 'mercia', 'northumbria', 'dal-riata', 'strathclyde', 'kungariket-skottland', 'kungariket-man',
+                 'kungariket-england', 'nordsjovaldet')  # Brittiska öarna 500–1700
+SHARED_YEARS = (500, 1700)  # perioder som börjar de här åren får den delade gränsen; övriga förenklas för sig som förut
+SHARED_TOL = 0.1  # coverage_simplify: ungefär roten ur ytan (kvadratgrader) på de trianglar som tas bort
+SHARED_DECIMALS = 2  # alla grupper i täckningen avrundas lika (DECIMALS), annars flyttas en gemensam hörnpunkt olika
+# Överlapp i underlaget (kvadratgrader): två riken som delar mer än så ett år (Isle of Man i både Northumbria och Dalriada, #1744)
+# hålls utanför täckningen det året och förenklas för sig som förut. Mindre överlapp är remsor där samma gräns är något olika
+# ritad; de går till den del som står först i SHARED_GROUPS (och i GROUPS), så att täckningen blir giltig.
+SHARED_SLIVER = 0.01
+# En del som behåller sin gräns från ett tidigare år (MERGE) får ändå en ny gräns ur årets täckning om den annars skulle
+# överlappa en granne mer än så här (kvadratgrader, cirka 7 km2)
+SHARED_FIX = 0.001
+
+
+def cover_years(raws, years, tol, min_area, merge, sliver=SHARED_SLIVER, fix=SHARED_FIX):
+    """Förenklar grannar tillsammans (coverage_simplify) för varje år där någon av dem börjar en period inom years (från, till).
+
+    raws = {nyckel: [(start, slut, rå geometri), ...]} i den ordning som avgör vem en remsa går till; min_area och merge =
+    {nyckel: värde} som i OVERRIDES. Returnerar ({(nyckel, år): geometri}, {nyckel: år med ny gräns}, [rader om vad som hölls
+    utanför]). Ett år med ny gräns är en ny period i main (perioden delas där, och slås inte ihop med den förra); för övriga
+    periodstarter i svaret är geometrin den förra periodens, så att main slår ihop dem. Delar som saknas i svaret förenklas för
+    sig som förut. Öar under min_area tas bort efter förenklingen, men bara delar som inte rör en granne, så att ingen del tas
+    bort på bara ena sidan av en gemensam gräns."""
+    keys = list(raws)
+    starts = sorted({s for k in keys for s, e, g in raws[k] if years[0] <= s <= years[1]})
+    out, cuts, cur, notes = {}, {}, {}, []
+    for y in starts:
+        act = [(k, g) for k in keys for s, e, g in raws[k] if s <= y <= e and not g.is_empty]
+        # Alla gränser skärs mot varandra (polygonize), så att grannar får samma hörnpunkter där de möts, och varje yta går
+        # till de riken som täcker den
+        faces = list(shapely.polygonize([unary_union([g.boundary for k, g in act])]).geoms)
+        owners = []
+        for f in faces:
+            p = f.point_on_surface()
+            owners.append([k for k, g in act if g.contains(p)])
+        held, pair = set(), {}
+        for f, ow in zip(faces, owners):
+            for i, a in enumerate(ow):
+                for b in ow[i + 1:]:
+                    pair[(a, b)] = pair.get((a, b), 0) + f.area
+        for (a, b), ar in pair.items():
+            if ar > sliver:
+                held |= {a, b}
+                notes.append(f'{y}: {a[-1]} och {b[-1]} överlappar {ar:.3f} kv.grader i underlaget, utanför täckningen')
+        own = {}
+        for f, ow in zip(faces, owners):
+            ow = [k for k in ow if k not in held]
+            if ow:
+                own.setdefault(ow[0], []).append(f)  # en remsa går till den som står först
+        geoms = {k: polygons_only(unary_union(fs)) for k, fs in own.items()}
+        cov = [k for k, _g in act if k in geoms and not geoms[k].is_empty]
+        # En täckning ska vara giltig: grannar som inte möts i samma hörnpunkter (shapely.coverage_invalid_edges) hålls utanför
+        while len(cov) > 1:
+            bad = [k for k, e in zip(cov, shapely.coverage_invalid_edges([geoms[k] for k in cov])) if not e.is_empty]
+            if not bad:
+                break
+            notes.append(f'{y}: {", ".join(k[-1] for k in bad)} är ingen giltig täckning, utanför täckningen')
+            cov = [k for k in cov if k not in bad]
+        simple = dict(zip(cov, shapely.coverage_simplify([geoms[k] for k in cov], tol))) if len(cov) > 1 else {}
+        for k in simple:
+            g = simple[k]
+            if g.geom_type == 'MultiPolygon':
+                others = [simple[o] for o in simple if o != k]
+                keep = [q for q in g.geoms if q.area > min_area[k] or any(q.intersects(o) for o in others)]
+                simple[k] = unary_union(keep or [max(g.geoms, key=lambda q: q.area)])
+        # Vilka som får en ny gräns i år. En del som börjar en period behåller sin förra gräns om ändringen är mindre än merge
+        # (som MERGE i main); main slår då ihop perioderna. Annars får den täckningens gräns. Skulle en behållen gräns överlappa
+        # en grannes nya gräns mer än fix, får också den täckningens gräns i år (perioden delas), så att två grannar ett visst år
+        # alltid kommer ur samma täckning där det behövs.
+        active = {k for k, _g in act}
+        for k in list(cur):
+            if k not in active or not any(s <= y - 1 <= e for s, e, g in raws[k]):
+                del cur[k]  # delen fanns inte förra året: ingen förra gräns att behålla
+        starting = {k for k in active if any(s == y for s, e, g in raws[k])}
+        for k in starting - set(simple):
+            cur.pop(k, None)  # utanför täckningen i år: förenklas för sig i main
+        fresh = set()
+        for k in starting & set(simple):
+            prev = cur.get(k)
+            if prev is None or prev.symmetric_difference(simple[k]).area >= merge[k] * prev.area:
+                fresh.add(k)
+        while True:
+            now = {k: (simple[k] if k in fresh else cur[k]) for k in simple if k in fresh or k in cur}
+            more = set()
+            for a in now:
+                for b in now:
+                    if a < b and (a not in fresh or b not in fresh) and now[a].intersects(now[b]) \
+                            and now[a].intersection(now[b]).area > fix:
+                        more |= {a, b} - fresh
+            if not more:
+                break
+            fresh |= more
+        for k in simple:
+            if k in fresh:
+                cur[k] = simple[k]
+                out[(k, y)] = simple[k]
+                cuts.setdefault(k, set()).add(y)
+            elif k in starting:
+                out[(k, y)] = cur[k]  # samma geometri som förra perioden: main slår ihop dem
+    return out, cuts, notes
+
+
+def shared_borders(by_name, disputed, ne, groups=SHARED_GROUPS, years=SHARED_YEARS, tol=SHARED_TOL):
+    """De delade gränserna (#1765) för grupperna: ({(grupp, del, start): förenklad geometri}, {(grupp, del): år där en period
+    delas}, rader om vad som hölls utanför). Täckningen byggs av verktygets egna råa gränser (raw_periods), inte direkt ur
+    Cliopatria."""
+    raws, min_area, merge = {}, {}, {}
+    for gid in groups:
+        for cname, pid, _psv, _color, *rest in GROUPS[gid][2]:
+            opts = rest[0] if rest else {}
+            raws[(gid, pid)] = [(s, e, g) for s, e, g, _ar in raw_periods(gid, cname, opts, by_name, disputed, ne)]
+            _tol, merge[(gid, pid)], min_area[(gid, pid)] = OVERRIDES.get(gid, (TOL, MERGE, MIN_AREA))
+    got, cuts, notes = cover_years(raws, years, tol, min_area, merge)
+    return {(k[0], k[1], y): g for (k, y), g in got.items()}, cuts, notes
+
+
+def split_at(items, cuts):
+    """Delar perioder (start, slut, geometri, yta) vid åren i cuts (#1765), med samma geometri och yta i båda delarna."""
+    out = []
+    for a, b, g, ar in items:
+        edges = [a] + sorted(c for c in cuts if a < c <= b) + [b + 1]
+        out += [(x, z - 1, g, ar) for x, z in zip(edges, edges[1:])]
+    return out
+
+
 def big_change(a, b):
     """Största sammanhängande del (km2) av gränsändringen mellan perioderna a och b, om den är större än SPLIT_KM2
     och SPLIT_SHARE av a:s yta och b börjar SPLIT_FROM eller senare, annars 0 (#1732). a är den period vars form
@@ -3206,7 +3387,16 @@ def fix_swapped_shapes(by_name):
 def main():
     # Cliopatrias -N är N f.Kr. och räknas om till astronomiska år (1 - N) direkt vid läsningen (#1989, tools/cliopatria_ar.py);
     # alla årtal i GROUPS och i resten av skriptet är astronomiska.
-    src = las_cliopatria(sys.argv[1])
+    args = [a for a in sys.argv[1:] if not a.startswith('--')]
+    flags = [a for a in sys.argv[1:] if a.startswith('--')]
+    if len(args) != 1 or any(f != '--delade-granser' and not f.startswith('--ut=') for f in flags):
+        raise SystemExit('Användning: python3 tools/riken.py <cliopatria.geojson> [--delade-granser] [--ut=<mapp>]')
+    shared_on = '--delade-granser' in flags
+    if not hasattr(shapely, 'coverage_simplify') or shapely.geos_version < (3, 12, 0):
+        raise SystemExit(f'Kräver shapely 2.1 eller senare med GEOS 3.12 eller senare (#1765), här shapely {shapely.__version__} '
+                         f'med GEOS {".".join(map(str, shapely.geos_version))}: pip install "shapely>=2.1"')
+    ut = next((Path(f[len('--ut='):]) for f in flags if f.startswith('--ut=')), None)
+    src = las_cliopatria(args[0])
     by_name = {}
     for f in src['features']:
         p = f['properties']
@@ -3229,10 +3419,19 @@ def main():
             known.setdefault(first, {'sv': psv, 'en': (rest[0] if rest else {}).get('en', first.strip('()'))})
     for en_name, sv_name in INFLUENCE_NAMES.items():
         known.setdefault(en_name, {'sv': sv_name, 'en': en_name})
-    out = ROOT / 'data/empires'
-    out.mkdir(exist_ok=True)
+    # --ut=<mapp> skriver filerna i en annan mapp (till exempel för att jämföra en pilot), men de handskrivna fälten läses
+    # ändå ur data/empires
+    src_dir = ROOT / 'data/empires'
+    out = ut or src_dir
+    out.mkdir(exist_ok=True, parents=True)
+    # Delade gränser (#1765): pilot bakom flaggan; utan flaggan är shared tom och allt blir som förut
+    shared, shared_new = {}, {}
+    if shared_on:
+        shared, shared_new, stats = shared_borders(by_name, disputed, ne)
+        for line in stats:
+            print('delade gränser (#1765):', line)
     # Faktarutorna skrivs för hand och ska inte försvinna när filerna byggs om
-    old = out / 'index.json'
+    old = src_dir / 'index.json'
     groups_old = {g['id']: g for g in json.loads(old.read_text())['groups']} if old.exists() else {}
     # Faktarutor, symboler och polityFacts (KEEP) skrivs för hand och läggs sist i gruppen
     kept = {k: kept_fields(g) for k, g in groups_old.items()}
@@ -3242,7 +3441,7 @@ def main():
     old_docs = []
     for k, g in groups_old.items():
         old_names[('group', k)] = g.get('name', {})
-        f = out / f'{k}.json'
+        f = src_dir / f'{k}.json'
         if f.exists():
             old_docs.append(json.loads(f.read_text()))
             for op in old_docs[-1].get('polities', []):
@@ -3259,6 +3458,8 @@ def main():
     index = []
     for gid, (sv, en, members, *gopts) in GROUPS.items():
         tol, merge, min_area = OVERRIDES.get(gid, (TOL, MERGE, MIN_AREA))
+        # Grannar med delade gränser avrundas lika (#1765), så att en gemensam hörnpunkt hamnar på samma ställe på båda sidor
+        nd = max(DECIMALS.get(gid, 1), SHARED_DECIMALS) if shared_on and gid in SHARED_GROUPS else DECIMALS.get(gid, 1)
         if not members:
             # Ett land utan gräns i Cliopatria (#72): bara en post i index.json, med källornas årtal och en punkt
             v = vanished.get(gid)
@@ -3278,42 +3479,15 @@ def main():
             opts = rest[0] if rest else {}
             periods = []
             core = []  # delens ogenomskurna gräns per period, för inflytandet (#75)
-            feats = None
-            if gid in EXTEND and EXTEND[gid]['polity'] == cname:
-                feats = extend(by_name, EXTEND[gid])
-            # En del utan Cliopatria-namn (None) får hela sin gräns ur DISPUTED (Palestina, #644)
-            # eller, med `ne`, ur ett land i Natural Earth (små stater, #722)
-            if cname is None:
-                g0 = ne[opts['ne']] if opts.get('ne') else Polygon()
-                base = [(*opts['years'], g0, km2(g0) if opts.get('ne') else 0)]
-            else:
-                base = member_periods(by_name, cname, opts.get('years'), feats)
-                # Cliopatrias årtal men gränsen ur Natural Earth från året ne_from (Andorra och Monaco, #719)
-                if opts.get('ne'):
-                    g1 = ne[opts['ne']]
-                    base = [(a, b, g1, km2(g1)) if a >= opts.get('ne_from', a) else (a, b, g, ar) for a, b, g, ar in base]
-            # join: andra Cliopatria-poster som läggs till delen de år de finns, utan att ändra gränsen övriga år (#1330)
-            if opts.get('join'):
-                base = join_periods(base, opts['join'], by_name)
-            # fill: år där gränsen är statens egen gräns i Cliopatria ett annat år (ockupation och inbördeskrig, #1332)
-            if opts.get('fill'):
-                base = fill_periods(base, opts['fill'], by_name)
-            # prepend: år före Cliopatrias första år, utan egen gräns; gränsen läggs till ur DISPUTED (Östtimor, #644)
-            if opts.get('prepend'):
-                base = [(*opts['prepend'], Polygon(), 0)] + base
-            if opts.get('minus'):
-                base = minus_others(base, opts['minus'], by_name, opts.get('minusKeepWestOf'))
-            # clip: bara den del av posten som ligger i rutan (väst, syd, öst, nord). Används där en Cliopatria-post är flera
-            # kolonier som inte hänger ihop, så att rutan inte drar någon ny gräns (Italienska kolonier i Afrika, #1330)
-            if opts.get('clip'):
-                cb = box(*opts['clip'])
-                base = [(a, b, g.intersection(cb), km2(g.intersection(cb))) for a, b, g, _ar in base]
-                base = [q for q in base if not q[2].is_empty]
-            for start, end, raw, area in apply_disputed(base, gid, disputed):
+            raws = raw_periods(gid, cname, opts, by_name, disputed, ne)
+            if (gid, pid) in shared_new:
+                raws = split_at(raws, shared_new[(gid, pid)])  # nya delade gränser mitt i en period (#1765)
+            for start, end, raw, area in raws:
                 core.append((start, end, raw))
-                g = raw.simplify(tol, preserve_topology=True)
-                if g.geom_type == 'MultiPolygon':
-                    g = unary_union([q for q in g.geoms if q.area > min_area] or [max(g.geoms, key=lambda q: q.area)])
+                # Delade gränser (#1765, pilot bakom flaggan --delade-granser): gränsen ur grannarnas gemensamma förenkling
+                g = shared.get((gid, pid, start))
+                if g is None:
+                    g = simplify_alone(raw, tol, min_area)
                 if g.is_empty:
                     continue
                 # gc: gränsen förenklad som förut (SAME_AS_TOL, #1466), för namnets plats och sammanslagningen av perioder
@@ -3328,7 +3502,7 @@ def main():
                 lab = list(opts['label']) if opts.get('label') else [round(c.x, 1), round(c.y, 1)]
                 q = {'start': start, 'end': end, 'areaKm2': round(area),
                      'label': lab, '_shape': gc, '_g': g, '_raw': raw,
-                     'geometry': {'type': mapping(g)['type'], 'coordinates': rnd(mapping(g)['coordinates'], DECIMALS.get(gid, 1))}}
+                     'geometry': {'type': mapping(g)['type'], 'coordinates': rnd(mapping(g)['coordinates'], nd)}}
                 # Huvudlandet (#74): den del av riket som är moderlandet. Den ritas kraftigare och får rikets namn.
                 if home and 'homeland' in opts:
                     hg = homeland_shape(by_name, opts['homeland'], home['window'], raw, start, tol, min_area)
@@ -3343,6 +3517,7 @@ def main():
             strict = [(d, disputed[k], gid in d['remove']) for k, d in DISPUTED.items()
                       if d.get('strict') and (gid in d['remove'] or gid in d['add'])]
             splits = set(opts.get('splits', ())) | {y for d, _a, _r in strict for y in (d['from'], d.get('to', 9999) + 1)}
+            splits |= shared_new.get((gid, pid), set())  # år med en ny delad gräns slås inte ihop med perioden före (#1765)
             merged = []
             for q in periods:
                 # splits: år där perioderna aldrig slås ihop, så att en liten men viktig ändring syns (#644)
@@ -3376,7 +3551,7 @@ def main():
                     # Bara med dec (#1787) behåller gränsen sina koordinater som utan DISPUTED (också en ogiltig geometri långt
                     # bort görs inte om), så att rikets gräns utanför rutan blir exakt som förut
                     if on or post or post_parts:
-                        q['geometry'] = valid_rounded(g, DECIMALS.get(gid, 1))
+                        q['geometry'] = valid_rounded(g, nd)
                     if post or post_parts:
                         g = shape(q['geometry'])
                         for a in post_parts:
@@ -3560,8 +3735,14 @@ def main():
              'Zhoushanön likaså (Folkrepubliken tog Zhoushan 17 maj 1950). '
              'Små stater (#722): tolv länder som Cliopatria saknar i nutid eller har fel gräns för har gränsen ur Natural Earth '
              '(ne_10m_admin_0_countries 5.1.1, public domain), från självständigheten, och polity.point = true: de visas som en punkt med namn.')
+    if shared_on:
+        notes += (f' Delade gränser (#1765, pilot): {", ".join(SHARED_GROUPS)} är perioder som börjar {SHARED_YEARS[0]}–{SHARED_YEARS[1]} '
+                  f'förenklade tillsammans som en täckning (Visvalingam–Whyatt, {SHARED_TOL} i shapely.coverage_simplify) i stället för '
+                  f'var för sig, avrundade till {SHARED_DECIMALS} decimaler, så att grannar har samma linje där de möts. Riken som '
+                  'överlappar i underlaget ett år förenklas det året för sig som förut.')
+    # Med radslut sist, som filen i repot, så att en omkörning ger en tom diff (#1220)
     (out / 'index.json').write_text(json.dumps({'schema': 'historia-globen/empires-index@1', 'notes': notes, 'groups': index},
-                                               ensure_ascii=False, indent=1))
+                                               ensure_ascii=False, indent=1) + '\n')
 
 
 if __name__ == '__main__':
