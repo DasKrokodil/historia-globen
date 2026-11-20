@@ -2382,5 +2382,69 @@
     "credit": "Okänd fotograf / Imperial War Museum (Q 114833) / Wikimedia Commons",
     "license": "Public domain",
     "source": "commons-bild-slaget-vid-jylland"
+  },
+  {
+    "id": "agadez-mosken",
+    "file": "agadez-mosken.jpg",
+    "kind": "historisk",
+    "style": "islamisk",
+    "caption": {
+      "sv": "Den stora moskén i Agadez med sin minaret, sedd från en gång mellan murar bakom moskén. Nutida foto (2018). Foto: Vincent van Zeijst. Licens: CC BY-SA 4.0.",
+      "en": "The Great Mosque of Agadez with its minaret, seen from a walled passage behind the mosque. Modern photo (2018). Photo: Vincent van Zeijst. Licence: CC BY-SA 4.0.",
+      "de": "Die Große Moschee von Agadez mit ihrem Minarett, gesehen von einem ummauerten Gang hinter der Moschee. Heutiges Foto (2018). Foto: Vincent van Zeijst. Lizenz: CC BY-SA 4.0.",
+      "es": "La Gran Mezquita de Agadez con su minarete, vista desde un pasillo entre muros detrás de la mezquita. Foto actual (2018). Foto: Vincent van Zeijst. Licencia: CC BY-SA 4.0.",
+      "fr": "La Grande Mosquée d’Agadez et son minaret, vue depuis un passage entre des murs derrière la mosquée. Photo actuelle (2018). Photo : Vincent van Zeijst. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Vincent van Zeijst / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-agadez-mosken"
+  },
+  {
+    "id": "fort-jesus-byggs",
+    "file": "fort-jesus-byggs.jpg",
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+      "sv": "Muren och ingången till Fort Jesus i Mombasa. Nutida foto (2010). Foto: Mutisya Maingi. Licens: CC BY-SA 4.0.",
+      "en": "The walls and entrance of Fort Jesus in Mombasa. Modern photo (2010). Photo: Mutisya Maingi. Licence: CC BY-SA 4.0.",
+      "de": "Die Mauer und der Eingang von Fort Jesus in Mombasa. Heutiges Foto (2010). Foto: Mutisya Maingi. Lizenz: CC BY-SA 4.0.",
+      "es": "La muralla y la entrada de Fort Jesus en Mombasa. Foto actual (2010). Foto: Mutisya Maingi. Licencia: CC BY-SA 4.0.",
+      "fr": "Le mur et l’entrée de Fort Jesus à Mombasa. Photo actuelle (2010). Photo : Mutisya Maingi. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Mutisya Maingi / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-fort-jesus-byggs"
+  },
+  {
+    "id": "gondar-blir-etiopiens-huvudstad",
+    "file": "gondar-blir-etiopiens-huvudstad.jpg",
+    "kind": "historisk",
+    "style": "islamisk",
+    "caption": {
+      "sv": "Murar och byggnader i borgområdet Fasil Ghebbi i Gondar. Nutida foto (2012). Foto: Martijn Munneke. Licens: CC BY 2.0.",
+      "en": "Walls and buildings in the Fasil Ghebbi fortress enclosure in Gondar. Modern photo (2012). Photo: Martijn Munneke. Licence: CC BY 2.0.",
+      "de": "Mauern und Gebäude in der Festungsanlage Fasil Ghebbi in Gondar. Heutiges Foto (2012). Foto: Martijn Munneke. Lizenz: CC BY 2.0.",
+      "es": "Murallas y edificios del recinto fortificado de Fasil Ghebbi, en Gondar. Foto actual (2012). Foto: Martijn Munneke. Licencia: CC BY 2.0.",
+      "fr": "Murs et bâtiments de l’enceinte fortifiée de Fasil Ghebbi, à Gondar. Photo actuelle (2012). Photo : Martijn Munneke. Licence : CC BY 2.0."
+    },
+    "credit": "Martijn Munneke / Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "source": "commons-bild-gondar-blir-etiopiens-huvudstad"
+  },
+  {
+    "id": "larda-i-timbuktu-sankore",
+    "file": "larda-i-timbuktu-sankore.jpg",
+    "kind": "historisk",
+    "style": "islamisk",
+    "caption": {
+      "sv": "Sankoremoskén i Timbuktu på ett vykort av fotografen François-Edmond Fortier från början av 1900-talet. Utsnitt. Licens: Public domain.",
+      "en": "The Sankore Mosque in Timbuktu on a postcard by the photographer François-Edmond Fortier from the early 20th century. Cropped. Licence: public domain.",
+      "de": "Die Sankore-Moschee in Timbuktu auf einer Postkarte des Fotografen François-Edmond Fortier vom Anfang des 20. Jahrhunderts. Ausschnitt. Lizenz: gemeinfrei.",
+      "es": "La mezquita de Sankore, en Tombuctú, en una postal del fotógrafo François-Edmond Fortier de principios del siglo XX. Detalle. Licencia: dominio público.",
+      "fr": "La mosquée de Sankoré à Tombouctou sur une carte postale du photographe François-Edmond Fortier, du début du XXe siècle. Détail. Licence : domaine public."
+    },
+    "credit": "François-Edmond Fortier / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-larda-i-timbuktu-sankore"
   }
 ]
