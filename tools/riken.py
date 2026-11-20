@@ -139,10 +139,15 @@ GROUPS = {
     'romarriket': ('Rom: kungadöme, republik, kejsardöme och Bysans', 'Rome: kingdom, republic, empire and Byzantium', [
         ('Roman Kingdom', 'romerska-kungadomet', 'Romerska kungadömet', '#b8433a'),
         ('Roman Republic', 'romerska-republiken', 'Romerska republiken', '#b8433a'),
-        ('Roman Empire', 'romerska-kejsardomet', 'Romerska kejsardömet', '#b8433a'),
+        # Cliopatria anger fel Wikidata-id för Roman Empire (Q12544, Bysantinska riket; rätt är Q2277) och Byzantine
+        # Empire (Q112039853, "Foreign relations of the Byzantine Empire"; rätt är Q12544). Med Cliopatrias id fick
+        # tools/riken_namn.py Bysans namn på Romerska kejsardömet och utrikesrelationernas spanska namn på Bysantinska
+        # riket (#2002, kontrollerat mot Wikidata 2026-11-20). Östromerska riket är Q12544 som i Cliopatria; dess namn
+        # på spanska och franska är Wikidatas alias "Imperio romano de Oriente" och "Empire romain d'Orient".
+        ('Roman Empire', 'romerska-kejsardomet', 'Romerska kejsardömet', '#b8433a', {'wikidata': 'Q2277'}),
         ('Western Roman Empire', 'vastromerska-riket', 'Västromerska riket', '#b8433a'),
         ('Eastern Roman Empire', 'ostromerska-riket', 'Östromerska riket', '#8a4fa8'),
-        ('Byzantine Empire', 'bysantinska-riket', 'Bysantinska riket', '#8a4fa8'),
+        ('Byzantine Empire', 'bysantinska-riket', 'Bysantinska riket', '#8a4fa8', {'wikidata': 'Q12544'}),
     ]),
     'persiska-riket': ('Persiska riket (akemeniderna)', 'Achaemenid Empire', [
         ('Achaemenid Empire', 'akemenidiska-riket', 'Persiska riket', '#c08a2e'),

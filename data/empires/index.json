@@ -50,8 +50,8 @@
       "sv": "Romerska kejsardömet",
       "en": "Roman Empire",
       "de": "Römisches Kaiserreich",
-      "es": "Imperio bizantino",
-      "fr": "Empire byzantin"
+      "es": "Imperio romano",
+      "fr": "Empire romain"
      },
      "sources": [
       "cliopatria"
@@ -78,8 +78,8 @@
       "sv": "Östromerska riket",
       "en": "Eastern Roman Empire",
       "de": "Oströmisches Reich",
-      "es": "Imperio bizantino",
-      "fr": "Empire byzantin"
+      "es": "Imperio romano de Oriente",
+      "fr": "Empire romain d'Orient"
      },
      "sources": [
       "cliopatria"
@@ -92,7 +92,7 @@
       "sv": "Bysantinska riket",
       "en": "Byzantine Empire",
       "de": "Byzantinisches Reich",
-      "es": "relaciones exteriores del Imperio bizantino",
+      "es": "Imperio bizantino",
       "fr": "Empire byzantin"
      },
      "sources": [
