@@ -5566,7 +5566,7 @@ async function run(browser, vp) {
   // #1692: knappen i platskortet lovar bara regionvyn när den ryms. Förut lämnade kortet eller arket, fokusraden och knapparna ingen yta
   // för regionvyn (MIN_FREE, 230 × 150 px) vid 800 × 360 och 640 × 360 (liggande telefon), och platsen ramades in i Platt karta. Sedan
   // #1952 fälls kortet ihop och fokusraden och rutan blir kompakta i en låg liggande yta, så regionvyn ryms där; knappen räknas i den
-  // formen. Vid 600 × 375 används vanlig Platt karta. Knappen heter ändå Visa på kartan i alla storlekar (#1948).
+  // formen. Vid 520 × 375 används vanlig Platt karta (vid 600 × 375 gjorde den det tills rutan blev ett rutnät i #1956: den är då smalare och regionvyn ryms). Knappen heter ändå Visa på kartan i alla storlekar (#1948).
   // Kontrollen behåller den oberoende förväntan på kartväg, provar Sverige och Grönland och ändrar fönstrets storlek.
   await check('platskortets kartknapp har samma namn i alla storlekar och kartvägar (#1692, #1948)', async () => {
     const MAP = 'Visa på kartan';
@@ -5585,14 +5585,20 @@ async function run(browser, vp) {
     const regionShown = tp => tp.evaluate(() => { const c = document.getElementById('flat-region'); return !c.hidden && c.getClientRects().length > 0; });
     try {
       // 1. Fyra storlekar: texten före trycket och vad trycket ger
-      for (const [width, height, room] of [[800, 360, true], [640, 360, true], [600, 375, false], [400, 800, true], [1280, 800, true]]) {
+      for (const [width, height, room] of [[800, 360, true], [640, 360, true], [600, 375, true], [520, 375, false], [400, 800, true], [1280, 800, true]]) {
         const name = `${width} × ${height}`;
         const { tp } = await open(width, height, '#y=1827&f=place:skane', { isMobile: width <= 760 || height <= 400 });
         const b = await button(tp);
         if (b.text !== MAP) throw new Error(`${name}: knappen heter "${b.text}", men regionvyn ${room ? 'ryms' : 'ryms inte'} och den ska heta "${MAP}"`);
         if (!b.label.startsWith(b.text) || !/Skåne/.test(b.label)) throw new Error(`${name}: knappens namn för skärmläsare är "${b.label}"`);
-        await tp.locator('#detail [data-selection-action]').scrollIntoViewIfNeeded();
-        await tp.click('#detail [data-selection-action]');
+        if (room) {
+          await tp.locator('#detail [data-selection-action]').scrollIntoViewIfNeeded();
+          await tp.click('#detail [data-selection-action]');
+        } else {
+          // Under cirka 600 px i bredd är platskortet ett litet ark där knappen ligger under fokusraden: tangentbordet når den (Enter), ett tryck gör det inte
+          await tp.focus('#detail [data-selection-action]');
+          await tp.keyboard.press('Enter');
+        }
         await tp.waitForFunction(() => !document.getElementById('flat-view').hidden, null, { timeout: T.step });
         // Smal layout fäller ihop arket och mäter om efter 450 ms (REFIT_MS): vänta tills läget har lagt sig
         await tp.waitForTimeout(1200);
@@ -5807,20 +5813,38 @@ async function run(browser, vp) {
   });
 
   // #1956: platskortet och Platsens karta säger att gräns, kust och ortnamn är dagens. Kortet har raden synlig (inte bara under
-  // "Om kartan och källor") och kartans ruta har den synlig också i stående mobil, där den långa raden är dold. Provet läser texten ur
-  // språkfilen, så att det följer ordvalet, och mäter att raden syns och ryms i bredd. Låga liggande ytor ingår inte: där är raden dold med avsikt (kortet har den).
-  await check('regionvyn: dagens gräns, kust och ortnamn sägs synligt på kortet och i kartans ruta, dator och mobil (#1956)', async () => {
-    if (vp.width <= 760) return 'körs i datorjobbet (provar själv båda storlekarna)';
-    const text = JSON.parse(fs.readFileSync(new URL('../data/ui/sv.json', import.meta.url), 'utf8'))['place.mapContext'];
+  // "Om kartan och källor"), och kartans ruta har den synlig i alla lägen där regionvyn kan öppnas: den långa raden på bred yta, den
+  // korta (place.mapContext) i stående mobil och i låg liggande yta, i Platt karta och på globen. Provet läser texten ur språkfilen, så att
+  // det följer ordvalet, på alla fem språk i de trängsta lägena, och mäter (a) att raden syns och ryms i bredd, (b) att inget annat
+  // element ligger över den (elementFromPoint i fem punkter), (c) att den inte överlappar någon knapp (rutans egen, zoom, fokusrad, tidsreglage,
+  // knapparna överst) och (d) att rutan inte tar plats från knapparna. Den låga liggande ytan (800 × 360) hade raden dold med avsikt
+  // tills rutan lades som ett rutnät som är lika bred som sin bredaste rad: raden ryms då utan att kartans fria yta minskar (provet #1952 mäter den).
+  // I 400 × 360 öppnas ingen regionvy (kortets knapp säger Visa på Platt karta, #1692), så där finns ingen ruta att mäta.
+  await check('regionvyn: dagens gräns, kust och ortnamn sägs synligt på kortet och i kartans ruta, dator, mobil och låg liggande yta, på fem språk (#1956)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet (provar själv alla storlekar)';
+    const LANGS = ['sv', 'en', 'de', 'es', 'fr'];
+    const textOf = lang => JSON.parse(fs.readFileSync(new URL(`../data/ui/${lang}.json`, import.meta.url), 'utf8'))['place.mapContext'];
+    const skane = '#y=1827&f=place:skane', aotearoa = '#y=1840&f=place:aotearoa';
+    const scenarios = [
+      ...LANGS.map(lang => ({ width: 400, height: 800, id: 'skane', hash: skane, globe: false, lang })),
+      ...LANGS.map(lang => ({ width: 800, height: 360, id: 'skane', hash: skane, globe: false, lang })),
+      { width: 1280, height: 800, id: 'skane', hash: skane, globe: false, lang: 'sv' },
+      { width: 1280, height: 800, id: 'aotearoa', hash: aotearoa, globe: true, lang: 'sv' },
+      { width: 400, height: 800, id: 'aotearoa', hash: aotearoa, globe: true, lang: 'sv' },
+      { width: 800, height: 360, id: 'aotearoa', hash: aotearoa, globe: true, lang: 'sv' },
+      { width: 800, height: 360, id: 'aotearoa', hash: aotearoa, globe: true, lang: 'fr' },
+    ];
     const contexts = [], errLists = [], out = [];
     try {
-      for (const [i, [width, height]] of [[1280, 800], [400, 800]].entries()) {
-        const name = `${width} × ${height}`;
+      for (const [i, sc] of scenarios.entries()) {
+        const { width, height, id, hash, globe, lang } = sc;
+        const name = `${globe ? 'glob' : 'Platt karta'} ${width} × ${height} ${lang}`;
+        const text = textOf(lang);
         const pg = await touchPage({ width, height }, { isMobile: true });
         const tp = pg.tp;
         contexts.push(pg.tctx);
         errLists.push(pg.errs);
-        await tp.goto(`${BASE}?ny=dagensgrans1956n${i}#y=1827&f=place:skane`);
+        await tp.goto(`${BASE}?ny=dagensgrans1956n${i}&lang=${lang}${hash}`);
         await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
         await tp.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
         await tp.waitForTimeout(800);
@@ -5837,21 +5861,38 @@ async function run(browser, vp) {
         await button.waitFor({ state: 'visible', timeout: T.step });
         await button.focus();
         await tp.keyboard.press('Enter');
-        await regionOn(tp, 'skane');
-        await regionSettled(tp);
-        const map = await tp.evaluate(() => {
-          const visible = id => {
-            const el = document.getElementById(id), r = el.getBoundingClientRect(), cs = getComputedStyle(el);
-            return { text: el.textContent.trim(), shown: cs.display !== 'none' && cs.visibility !== 'hidden' && r.width > 0 && r.height > 0, right: r.right, vw: innerWidth };
-          };
-          return { note: visible('flat-region-note'), context: visible('flat-region-context') };
-        });
-        // Bred yta visar den långa raden (som börjar med texten), smal stående yta den korta
-        const row = width > 760 ? map.note : map.context;
-        if (!row.shown) throw new Error(`${name}: kartans rad om dagens gräns syns inte`);
-        if (!row.text.startsWith(text)) throw new Error(`${name}: kartans rad är "${row.text}", väntade att den börjar med "${text}"`);
-        if (row.right > row.vw + 1) throw new Error(`${name}: kartans rad går utanför bredden (${Math.round(row.right)} av ${row.vw})`);
-        out.push(`${name}: raden syns på kortet och i kartans ruta`);
+        if (globe) await globeRegionSettled(tp, id); else { await regionOn(tp, id); await regionSettled(tp); }
+        await tp.waitForTimeout(400);
+        const map = await tp.evaluate(prefix => {
+          const visible = el => { const r = el.getBoundingClientRect(), cs = getComputedStyle(el); return r.width > 0 && r.height > 0 && cs.display !== 'none' && cs.visibility !== 'hidden' && !el.closest('[hidden]'); };
+          const note = document.getElementById(`${prefix}-note`), context = document.getElementById(`${prefix}-context`);
+          // Bred yta visar den långa raden (som börjar med texten), smal stående och låg liggande yta den korta
+          const row = [context, note].find(visible) ?? null;
+          const chip = document.getElementById(prefix === 'globe-region' ? 'globe-region-chip' : 'flat-region');
+          if (!row) return { row: null };
+          const box = el => { const b = el.getBoundingClientRect(); return { left: b.left, top: b.top, right: b.right, bottom: b.bottom }; };
+          const r = box(row), c = box(chip);
+          const hit = (a, b) => a.left < b.right - 1 && a.right > b.left + 1 && a.top < b.bottom - 1 && a.bottom > b.top + 1;
+          const label = el => `${el.id || String(el.className).split(' ')[0] || el.tagName} "${(el.textContent || '').trim().slice(0, 14)}"`;
+          // Ligger något annat över raden? Fem punkter ett par pixlar innanför kanten ska träffa raden eller rutan
+          const covered = [];
+          for (const [x, y] of [[(r.left + r.right) / 2, (r.top + r.bottom) / 2], [r.left + 3, r.top + 3], [r.right - 3, r.top + 3], [r.left + 3, r.bottom - 3], [r.right - 3, r.bottom - 3]]) {
+            const t = document.elementFromPoint(x, y);
+            if (!(t && chip.contains(t))) covered.push(`${t ? label(t) : 'inget'} vid ${Math.round(x)},${Math.round(y)}`);
+          }
+          const buttons = [...document.querySelectorAll('#flat-region button, #globe-region-chip button, .flat-zoom button, #focus-bar button, .timebar button, .top-actions button')].filter(visible);
+          const overRow = buttons.filter(b => hit(box(b), r)).map(label);
+          const crowded = buttons.filter(b => !chip.contains(b) && hit(box(b), c)).map(label);
+          return { row: { text: row.textContent.trim(), right: r.right, bottom: r.bottom, left: r.left, top: r.top, h: r.bottom - r.top, id: row.id }, chip: c, vw: innerWidth, vh: innerHeight, covered, overRow, crowded, buttons: buttons.length };
+        }, globe ? 'globe-region' : 'flat-region');
+        if (!map.row) throw new Error(`${name}: kartans rad om dagens gräns syns inte`);
+        if (!map.row.text.startsWith(text)) throw new Error(`${name}: kartans rad är "${map.row.text}", väntade att den börjar med "${text}"`);
+        if (map.row.left < -1 || map.row.right > map.vw + 1 || map.row.top < -1 || map.row.bottom > map.vh + 1) throw new Error(`${name}: kartans rad går utanför bilden (${Math.round(map.row.left)}–${Math.round(map.row.right)} av ${map.vw}, ${Math.round(map.row.top)}–${Math.round(map.row.bottom)} av ${map.vh})`);
+        if (map.row.h < 10) throw new Error(`${name}: kartans rad är bara ${Math.round(map.row.h)} px hög`);
+        if (map.covered.length) throw new Error(`${name}: något ligger över kartans rad: ${map.covered.slice(0, 3).join(' | ')}`);
+        if (map.overRow.length) throw new Error(`${name}: kartans rad överlappar knappar: ${map.overRow.slice(0, 3).join(' | ')}`);
+        if (map.crowded.length) throw new Error(`${name}: rutan med raden trycker mot knappar: ${map.crowded.slice(0, 3).join(' | ')}`);
+        out.push(`${name}: ${map.row.id.replace(/^(flat|globe)-region-/, '')}-raden syns, ${map.buttons} knappar fria`);
       }
       const errs = errLists.flat();
       if (errs.length) throw new Error(`fel i konsolen: ${errs.join(' | ')}`);
