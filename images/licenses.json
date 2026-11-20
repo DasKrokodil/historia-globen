@@ -2646,6 +2646,21 @@
       }
     },
     {
+      "eventId": "slaget-vid-jylland",
+      "eventTitle": "Skagerrakslaget (slaget vid Jylland)",
+      "file": "images/events/slaget-vid-jylland.webp",
+      "kind": "historisk",
+      "credit": "Okänd fotograf / Imperial War Museum (Q 114833) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-jylland",
+        "title": "HMS Warspite and HMS Malaya during the battle of Jutland – Imperial War Museum Q 114833 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:HMS_Warspite_and_HMS_Malaya_during_the_battle_of_Jutland.jpg",
+        "license": "Public domain (PD-UKGov)",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "slaget-vid-kadesh",
       "eventTitle": "Slaget vid Kadesh",
       "file": "images/events/slaget-vid-kadesh.webp",

@@ -2174,5 +2174,21 @@
     "credit": "Carl Arriens / Wikimedia Commons",
     "license": "Public domain",
     "source": "commons-bild-slaget-vid-tanga"
+  },
+  {
+    "id": "slaget-vid-jylland",
+    "file": "slaget-vid-jylland.jpg",
+    "kind": "historisk",
+    "style": "affisch",
+    "caption": {
+      "sv": "De brittiska slagskeppen Warspite och Malaya under Skagerrakslaget, fotograferade från slagskeppet Valiant den 31 maj 1916. Utsnitt. Licens: Public domain.",
+      "en": "The British battleships Warspite and Malaya during the Battle of Jutland, photographed from the battleship Valiant on 31 May 1916. Detail. Licence: Public domain.",
+      "de": "Die britischen Schlachtschiffe Warspite und Malaya während der Skagerrakschlacht, fotografiert vom Schlachtschiff Valiant am 31. Mai 1916. Ausschnitt. Lizenz: Public Domain.",
+      "es": "Los acorazados británicos Warspite y Malaya durante la batalla de Jutlandia, fotografiados desde el acorazado Valiant el 31 de mayo de 1916. Detalle. Licencia: dominio público.",
+      "fr": "Les cuirassés britanniques Warspite et Malaya pendant la bataille du Jutland, photographiés depuis le cuirassé Valiant le 31 mai 1916. Détail. Licence : domaine public."
+    },
+    "credit": "Okänd fotograf / Imperial War Museum (Q 114833) / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-slaget-vid-jylland"
   }
 ]
