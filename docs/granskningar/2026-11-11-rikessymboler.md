@@ -318,6 +318,7 @@ Byggt på grenen `claude/issue-1153-asien-3`, från dagens `main`. Källorna öp
 **Källorna skiljer sig:**
 - Georgien: artikeln säger på ett ställe att sovjetrepublikens flagga ersattes av 1918 års flagga i november 1990, på ett annat att den återinfördes 1991-12-08. Kartan visar Georgien först från 1992, så det ändrar inget. Filerna skiljer sig också i proportion: 1918 års fil är 5:4 "as per the legal code (actual flags often differed from this)", och filen för 1990–2004 säger "slightly different proportions". Etiketterna säger "1918–1921" och "1990–2004", som artikelns tabell.
 - Bhutan: infoboxen säger 1969 och texten "in use since 1969", men en källa i artikeln talar om "the adoption of the current flag around 1970", och reglerna antogs 1972. Kartan följer 1969.
+- Kazakstan: Flag of Kazakhstan säger att formgivaren Sjaken Nijazbekov först färgade ornamentet rött och att det "was changed in July 1992 to the current shade of gold", alltså en månad efter antagandet 1992-06-04. Teckningen har det gyllene ornamentet och visas från 1992; kartan visar hela år, så det ändrar inget.
 - Turkmenistan: infoboxen säger att den första flaggan antogs 1992-02-19, texten 1992-09-27. Påverkar inte kartan, eftersom 1992–2000 är en lucka. Filsidan anger färgerna efter ett dekret från 2017; teckningen visas för hela 2001–2024.
 
 **Hoppade över:**
