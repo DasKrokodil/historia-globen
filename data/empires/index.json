@@ -41752,6 +41752,71 @@
    "from": 1000,
    "to": 1546,
    "file": "data/empires/kungariket-ungern.json",
+   "facts": {
+    "items": [
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map",
+       "de": "Das Symbol auf der Karte",
+       "es": "El símbolo en el mapa",
+       "fr": "Le symbole sur la carte"
+      },
+      "text": {
+       "sv": "Det silverfärgade dubbelkorset på röd sköld, efter Béla III:s vapen. Dubbelkorset blev kungamaktens tecken under Béla III (1172–1196), som hade vuxit upp vid kejsarhovet i Konstantinopel, och syns då för första gången i hans vapen och på hans mynt. Artikeln om Ungerns vapen ger inget exakt år, och artikeln om dubbelkorset anger ”åtminstone sedan 1190” utan egen källhänvisning. Därför visas symbolen från 1196, Béla III:s sista år. Sigill och mynt har inga färger: silver på rött beskriver källan först för Stefan V (1270–1272) och Andreas III (1290–1301). Teckningen och färgerna är en nutida rekonstruktion efter Béla III:s sigill. Árpádränderna syns första gången på kung Emmerichs sigill från 1202, då med lejon i ränderna (nio på Emmerichs sigill, sju på Andreas II:s gyllene bulla från 1222). Det randiga vapnet användes bara en kort tid, och på Béla IV:s (1235–1270) mynt och sigill kommer dubbelkorset tillbaka. Åren 1202–1234 visas därför ingen symbol. Anjoukungarna förde efter 1301 i själva vapnet ränderna tillsammans med Anjous liljor (Karl I), och på sigillens baksida stod dubbelkorset som landets tecken. Ludvig I förde enligt artikeln, utan källhänvisning, ränder och dubbelkors i fyra fält. Den kombinerade skölden med ränder och dubbelkors visas inte, eftersom källorna inte ger något belagt första år för den. Före 1196 visas ingen symbol.",
+       "en": "The silver double cross on a red shield, after the arms of Béla III. The double cross became the sign of royal power under Béla III (1172–1196), who had grown up at the imperial court in Constantinople, and it then appears for the first time in his arms and on his coins. The article on the coat of arms of Hungary gives no exact year, and the article on the double cross states “at least since 1190” without a citation of its own. The symbol is therefore shown from 1196, the last year of Béla III. Seals and coins have no colours: the source first describes silver on red for Stephen V (1270–1272) and Andrew III (1290–1301). The drawing and its colours are a modern reconstruction after the seal of Béla III. The Árpád stripes first appear on the seal of King Emeric from 1202, then with lions in the stripes (nine on Emeric’s seal, seven on the golden bull of Andrew II from 1222). The striped arms were used only for a short time, and on the coins and seals of Béla IV (1235–1270) the double cross returns. No symbol is therefore shown for 1202–1234. After 1301 the Angevin kings bore the stripes together with the Angevin lilies in the arms themselves (Charles I), and on the reverse of their seals the double cross stood as the sign of the country. According to the article, without a citation, Louis I bore the stripes and the double cross quartered. The combined shield with stripes and double cross is not shown, because the sources give no attested first year for it. Before 1196 no symbol is shown.",
+       "de": "Das silberne Doppelkreuz auf rotem Schild, nach dem Wappen Bélas III. Das Doppelkreuz wurde unter Béla III. (1172–1196), der am Kaiserhof in Konstantinopel aufgewachsen war, zum Zeichen der königlichen Macht und erscheint damals zum ersten Mal in seinem Wappen und auf seinen Münzen. Der Artikel über das Wappen Ungarns nennt kein genaues Jahr, und der Artikel über das Doppelkreuz gibt „mindestens seit 1190“ ohne eigenen Beleg an. Deshalb wird das Symbol ab 1196 gezeigt, dem letzten Jahr Bélas III. Siegel und Münzen haben keine Farben: Silber auf Rot beschreibt die Quelle erst für Stephan V. (1270–1272) und Andreas III. (1290–1301). Zeichnung und Farben sind eine heutige Rekonstruktion nach dem Siegel Bélas III. Die Árpádstreifen erscheinen zuerst auf dem Siegel König Emmerichs von 1202, damals mit Löwen in den Streifen (neun auf Emmerichs Siegel, sieben auf der Goldenen Bulle Andreas’ II. von 1222). Das gestreifte Wappen wurde nur kurze Zeit verwendet, und auf den Münzen und Siegeln Bélas IV. (1235–1270) kehrt das Doppelkreuz zurück. Für 1202–1234 wird deshalb kein Symbol gezeigt. Die Anjou-Könige führten nach 1301 im Wappen selbst die Streifen zusammen mit den Lilien der Anjou (Karl I.), und auf der Rückseite ihrer Siegel stand das Doppelkreuz als Zeichen des Landes. Ludwig I. führte laut dem Artikel, ohne Beleg, Streifen und Doppelkreuz geviert. Der kombinierte Schild mit Streifen und Doppelkreuz wird nicht gezeigt, weil die Quellen kein belegtes erstes Jahr dafür nennen. Vor 1196 wird kein Symbol gezeigt.",
+       "es": "La cruz doble de plata sobre escudo rojo, según el escudo de Béla III. La cruz doble se convirtió en signo del poder real bajo Béla III (1172–1196), que se había criado en la corte imperial de Constantinopla, y aparece entonces por primera vez en su escudo y en sus monedas. El artículo sobre el escudo de Hungría no da un año exacto, y el artículo sobre la cruz doble indica «al menos desde 1190» sin cita propia. Por eso el símbolo se muestra desde 1196, el último año de Béla III. Los sellos y las monedas no tienen colores: la fuente describe la plata sobre rojo por primera vez para Esteban V (1270–1272) y Andrés III (1290–1301). El dibujo y sus colores son una reconstrucción actual según el sello de Béla III. Las franjas de Árpád aparecen por primera vez en el sello del rey Emerico de 1202, entonces con leones en las franjas (nueve en el sello de Emerico, siete en la bula de oro de Andrés II de 1222). El escudo de franjas se usó solo durante poco tiempo, y en las monedas y sellos de Béla IV (1235–1270) vuelve la cruz doble. Por eso no se muestra ningún símbolo en 1202–1234. Después de 1301 los reyes angevinos llevaron en el propio escudo las franjas junto con las lises de Anjou (Carlos I), y en el reverso de sus sellos figuraba la cruz doble como signo del país. Según el artículo, sin cita, Luis I llevó las franjas y la cruz doble en cuatro cuarteles. El escudo combinado con franjas y cruz doble no se muestra, porque las fuentes no dan ningún primer año documentado para él. Antes de 1196 no se muestra ningún símbolo.",
+       "fr": "La croix double d’argent sur écu rouge, d’après les armoiries de Béla III. La croix double devint le signe du pouvoir royal sous Béla III (1172–1196), qui avait grandi à la cour impériale de Constantinople, et elle apparaît alors pour la première fois dans ses armoiries et sur ses monnaies. L’article sur les armoiries de la Hongrie ne donne pas d’année exacte, et l’article sur la croix double indique « au moins depuis 1190 » sans citation propre. Le symbole est donc affiché à partir de 1196, dernière année de Béla III. Les sceaux et les monnaies n’ont pas de couleurs : la source ne décrit l’argent sur rouge qu’à partir d’Étienne V (1270–1272) et d’André III (1290–1301). Le dessin et ses couleurs sont une reconstitution moderne d’après le sceau de Béla III. Les bandes d’Árpád apparaissent pour la première fois sur le sceau du roi Émeric de 1202, alors avec des lions dans les bandes (neuf sur le sceau d’Émeric, sept sur la bulle d’or d’André II de 1222). Les armoiries à bandes ne furent utilisées que peu de temps, et sur les monnaies et les sceaux de Béla IV (1235–1270) la croix double revient. Aucun symbole n’est donc affiché pour 1202–1234. Après 1301, les rois angevins portèrent dans les armoiries elles-mêmes les bandes avec les lis d’Anjou (Charles Ier), et au revers de leurs sceaux figurait la croix double comme signe du pays. Selon l’article, sans citation, Louis Ier porta les bandes et la croix double écartelées. L’écu combiné avec bandes et croix double n’est pas affiché, car les sources ne donnent aucune première année attestée pour lui. Avant 1196, aucun symbole n’est affiché."
+      }
+     }
+    ],
+    "sources": [
+     "wp-coat-of-arms-hungary",
+     "wp-patriarchal-cross",
+     "wp-arpad-stripes",
+     "commons-vapen-bela-iii"
+    ],
+    "review": "source-checked"
+   },
+   "flags": [
+    {
+     "file": "hungary-double-cross",
+     "from": 1196,
+     "to": 1201,
+     "kind": "symbol",
+     "label": {
+      "sv": "Silverfärgat dubbelkors på röd sköld",
+      "en": "Silver double cross on a red shield",
+      "de": "Silbernes Doppelkreuz auf rotem Schild",
+      "es": "Cruz doble de plata sobre escudo rojo",
+      "fr": "Croix double d’argent sur écu rouge"
+     },
+     "sources": [
+      "wp-coat-of-arms-hungary",
+      "commons-vapen-bela-iii"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "hungary-double-cross",
+     "from": 1235,
+     "to": 1546,
+     "kind": "symbol",
+     "label": {
+      "sv": "Silverfärgat dubbelkors på röd sköld",
+      "en": "Silver double cross on a red shield",
+      "de": "Silbernes Doppelkreuz auf rotem Schild",
+      "es": "Cruz doble de plata sobre escudo rojo",
+      "fr": "Croix double d’argent sur écu rouge"
+     },
+     "sources": [
+      "wp-coat-of-arms-hungary",
+      "commons-vapen-bela-iii"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "kungariket-ungern",
