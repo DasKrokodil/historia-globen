@@ -1717,7 +1717,8 @@ GROUPS = {
     # artikeln "Himyariter" handlar om folket och kallar staten "det himyaritiska riket". Western Satraps saknar svensk
     # etikett och artikel och har det engelska namnet enligt beslutet 2026-11-12. `years` klipper bort Cliopatrias år
     # utanför källornas spann (engelska Wikipedia och Wikidata): Kungariket Armenien till 428 (Cliopatrias poster 451–489
-    # och 638–646 ligger efter rikets slut), Himyar till 533 (Wikipedia 575 eller 578, Wikidata 525; Cliopatrias
+    # och 638–646 ligger efter rikets slut; 208–207 f.Kr. är Cliopatrias yta bara 294 km² inne i riket och hoppas över med
+    # `skip`, efter geografens granskning i PR #2042), Himyar till 533 (Wikipedia 575 eller 578, Wikidata 525; Cliopatrias
     # 534–576 är bara 167 km² och 577–601 ligger efter båda), Western Satraps till 415 (Cliopatrias 476–489 är utan yta), Shunga till 73 f.Kr., Funan
     # till 627, Shang till 1046 f.Kr. och Östra Wu till 222–280 (Cliopatria har Sun Quans område redan från 207).
     # Cliopatrias -N är N f.Kr. och `years` är astronomiska år (#1989).
@@ -1731,7 +1732,8 @@ GROUPS = {
         ('Zhou Dynasty', 'zhoudynastin', 'Zhoudynastin', '#a04a4a', {'en': 'Zhou dynasty'}),
     ]),
     'kungariket-armenien': ('Kungariket Armenien', 'Kingdom of Armenia', [
-        ('Kingdom of Armenia', 'kungariket-armenien', 'Kungariket Armenien', '#c07a3a', {'en': 'Kingdom of Armenia', 'years': (-325, 428)}),
+        ('Kingdom of Armenia', 'kungariket-armenien', 'Kungariket Armenien', '#c07a3a', {'en': 'Kingdom of Armenia', 'years': (-325, 428),
+         'skip': [(-207, -206)]}),
     ]),
     'himyaritiska-riket': ('Himyaritiska riket', 'Himyar', [
         ('Himyarite Kingdom', 'himyaritiska-riket', 'Himyaritiska riket', '#5a8a6a', {'en': 'Himyar', 'years': (-109, 533)}),
@@ -3247,6 +3249,10 @@ def raw_periods(gid, cname, opts, by_name, disputed, ne):
         if opts.get('ne'):
             g1 = ne[opts['ne']]
             base = [(a, b, g1, km2(g1)) if a >= opts.get('ne_from', a) else (a, b, g, ar) for a, b, g, ar in base]
+    # skip: Cliopatria-perioder som ligger helt inom något av spannen (från, till) visas inte, till exempel en fläck
+    # på några hundra km² mitt i spannet (Kungariket Armenien 208–207 f.Kr., #646)
+    if opts.get('skip'):
+        base = [q for q in base if not any(s <= q[0] and q[1] <= e for s, e in opts['skip'])]
     # join: andra Cliopatria-poster som läggs till delen de år de finns, utan att ändra gränsen övriga år (#1330)
     if opts.get('join'):
         base = join_periods(base, opts['join'], by_name)
