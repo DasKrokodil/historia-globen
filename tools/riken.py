@@ -1646,6 +1646,8 @@ GROUPS = {
     ]),
     'kara-khanid': ('Khanatet Kara-Khanid', 'Karakhanid Khanate', [
         ('Kara-Khanids', 'kara-khanid', 'Khanatet Kara-Khanid', '#5a8ab0', {'en': 'Karakhanid Khanate'}),
+        # Cliopatrias Eastern Kara-Khanids (1046–1138) har samma Wikidata-id (Q494354) och läggs till som del (#645, nionde omgången)
+        ('Eastern Kara-Khanids', 'kara-khanid-ost', 'Khanatet Kara-Khanid', '#5a8ab0', {'en': 'Karakhanid Khanate'}),
     ]),
     'dali': ('Dali', 'Dali Kingdom', [
         ('Kingdom of Dali', 'dali', 'Dali', '#8a6ab0', {'en': 'Dali Kingdom'}),
@@ -1724,6 +1726,48 @@ GROUPS = {
     ]),
     'chola-empire': ('Cholariket', 'Chola Empire', [
         ('Chola Empire', 'chola-empire', 'Cholariket', '#c0704a', {'en': 'Chola Empire'}),
+    ]),
+    # Medeltidens luckor, nionde omgången (#645, 2026-11-20): de största kvarvarande luckorna 500–1500 med provår var 50:e år
+    # (tools/tackning_riken.py), där Cliopatrias Wikidata-id är en stat (SPARQL 2026-11-20). Svenska namn är Wikidatas svenska
+    # etiketter, utom Aragoniska kronan (svenska Wikipedias titel; etiketten är "Aragonska kronan"). Balhae, Lavo Kingdom,
+    # Seuna dynasty (Cliopatrias Yadava Dynasty) och Chaulukya dynasty saknar svensk etikett och artikel på svenska Wikipedia och
+    # har det engelska namnet enligt beslutet 2026-11-12; Mamlukdynastin i Delhi heter på engelska som engelska Wikipedias titel,
+    # eftersom Wikidatas engelska etikett "Mamluk Sultanate" är samma som Egyptens mamluksultanat. Väntar: Turk Shahis (Q654380
+    # är Kabul Shahi, som också omfattar Hindu Shahi), Hamdanid Emirates (Cliopatria 936–1259, Wikidata 890–1004), Sind-Habbari
+    # Dynasty (id utan årtal), Ngô Dynasty (Cliopatria 947–1406, Wikidata 939–965), Buyid Dynasty (id är Abbasidkalifatet),
+    # Kashmir (id är regionen) och Shan States (en samling).
+    'kamarupariket': ('Kamarupariket', 'Kamarupa', [
+        ('Kamarupa Kingdom', 'kamarupariket', 'Kamarupariket', '#7aa05a', {'en': 'Kamarupa'}),
+    ]),
+    'vijayanagar': ('Vijayanagar', 'Vijayanagara Empire', [
+        ('Vijayanagara Empire', 'vijayanagar', 'Vijayanagar', '#c08a3a', {'en': 'Vijayanagara Empire'}),
+    ]),
+    'balhae': ('Balhae', 'Balhae', [
+        ('Balhae', 'balhae', 'Balhae', '#5a6ab0', {'en': 'Balhae'}),
+    ]),
+    'hariphunchai': ('Hariphunchai', 'Haripuñjaya', [
+        ('Haripuñjaya', 'hariphunchai', 'Hariphunchai', '#a05aa0', {'en': 'Haripuñjaya'}),
+    ]),
+    'koguryo': ('Koguryo', 'Goguryeo', [
+        ('Goguryeo', 'koguryo', 'Koguryo', '#4a8a6a', {'en': 'Goguryeo'}),
+    ]),
+    'lavo-kingdom': ('Lavo Kingdom', 'Lavo Kingdom', [
+        ('Lavo Kingdom', 'lavo-kingdom', 'Lavo Kingdom', '#b05a5a', {'en': 'Lavo Kingdom'}),
+    ]),
+    'seuna-dynasty': ('Seuna dynasty', 'Seuna dynasty', [
+        ('Yadava Dynasty', 'seuna-dynasty', 'Seuna dynasty', '#8a8a3a', {'en': 'Seuna dynasty'}),
+    ]),
+    'mamlukdynastin-i-delhi': ('Mamlukdynastin i Delhi', 'Mamluk dynasty (Delhi)', [
+        ('Mamluk Dynasty', 'mamlukdynastin-i-delhi', 'Mamlukdynastin i Delhi', '#6a5a9a', {'en': 'Mamluk dynasty (Delhi)'}),
+    ]),
+    'chaulukya-dynasty': ('Chaulukya dynasty', 'Chaulukya dynasty', [
+        ('Chaulukya Dynasty', 'chaulukya-dynasty', 'Chaulukya dynasty', '#3a8aa0', {'en': 'Chaulukya dynasty'}),
+    ]),
+    'aragoniska-kronan': ('Aragoniska kronan', 'Crown of Aragon', [
+        ('Crown of Aragon', 'aragoniska-kronan', 'Aragoniska kronan', '#c0a03a', {'en': 'Crown of Aragon'}),
+    ]),
+    'idrisider': ('Idrisider', 'Idrisid dynasty', [
+        ('Idrisids', 'idrisider', 'Idrisider', '#4aa06a', {'en': 'Idrisid dynasty'}),
     ]),
     # Inre Asien 1500–1800, Afrika 1850 och Tibet 1912–1952 (#1331, ur helganalysen #1289). Svenska och engelska namn är
     # Wikidatas etiketter, utom Khedivatet Egypten (svenska Wikipedias titel; etiketten "Khedivet" ser ut som ett skrivfel)
