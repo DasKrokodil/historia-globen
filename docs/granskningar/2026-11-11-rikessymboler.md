@@ -296,6 +296,51 @@ Byggt på grenen `claude/issue-1154-afrika-3`, från dagens `main`. Källorna ö
 
 **Expertgranskning:** arbetaren hade inget verktyg för att kalla in underagenter (`historiker`, `geograf`, `sprak-en`, `sprak-de`, `sprak-es`, `sprak-fr`). Fakta, källor, medaljernas plats och etiketterna på fem språk granskas därför separat av en Claude Code som inte byggde ändringen.
 
+## Uppföljning 2026-11-20: Asien omgång 3 (#1153)
+
+Byggt på grenen `claude/issue-1153-asien-3`, från dagens `main`. Källorna öppnades 2026-11-20: "Flag of …" på engelska Wikipedia för åren och Commons-filsidan för licensen och teckningen. Ingen flagga visas före antagandeåret eller utanför gruppens år, och alla grupper hade redan `modernState`.
+
+| Grupp | Visas | Fil (storlek) | Anmärkning |
+|---|---|---|---|
+| Bhutan | 1969–2024 | `bhutan` (27 kB) | "in use since 1969" i artikeln, 1969 i infoboxen och på filsidan. Rikets rad börjar 1636; före 1969 är en lucka (flaggorna 1949 och 1956 bygger på fotografier och en av dem har "doubtful authenticity" enligt filsidan) |
+| Brunei | 1987–2024 | `brunei` (26 kB) | Flaggan med riksvapnet från 1959-09-29; gruppen börjar 1987. Vapnet med den arabiska skriften har kvar sin form, banden är utdragna från 1:2 till 3:2 |
+| Kazakstan | 1992–2024 | `kazakhstan` (15 kB) | Antagen 1992-06-04. Ornamentet står kvar vid stången och solen med örnen har sin form; fältet är utdraget från 1:2 till 3:2 |
+| Turkmenistan | 2001–2024 | `turkmenistan` (38 kB) | Den nuvarande versionen, proportion 2:3 och ljusare grönt från 2001-01-24. Versionerna 1992–1997 (1:2, utan olivkvistar) och 1997–2001 är inte ritade; 1992–2000 är en lucka |
+| Saudiarabien | 1973–2024 | `saudi-arabia` (17 kB) | Standardiserad 1973-03-15: "The design of the flag was not standardized prior to 15 March 1973". 1926–1972 är en lucka |
+| Libanon | 1944–1989 | `lebanon-1943` (4 kB) | Cedern med brun stam, 1943-12-07 till 1990-09-21 ("depicted naturalistically with a brown trunk"). Med flaggan från 1990 har gruppen nu flagga alla år |
+| Sydkorea | 1948 | `south-korea-1948` (1 kB) | Flaggan från 1948-07-12, med trigrammen i den äldre ordningen, "until 15 October 1949". Den nuvarande teckningen visas som förut från 1949 |
+| Georgien | 1918–1921 och 1992–2003 | `georgia-1918` (0,2 kB), `georgia-1990` (0,2 kB) | Demokratiska republiken Georgiens flagga (vinröd med svart och vitt i övre hörnet vid stången), återinförd efter Sovjetunionen och ersatt 2004-01-14. Bara de år då kartan visar Georgien (1918–1921 och från 1992, som Cliopatria), alltså ingen flagga under sovjettiden |
+
+**Förenkling av emblemen:** samma skript som i Afrika omgång 3 (#1154): varje form transformeras till 300 × 200 bildpunkter, koordinaterna avrundas, nästan raka kurvor blir raka, delbanor under en bildpunkt tas bort, och id, metadata och upprepningar (`use`) skrivs ut. Inget är ritat nytt. Jämfört bild för bild med originalet (960 × 640, flaggorna i 1:2 jämförda i sin egen proportion) skiljer sig Bhutan 0,004 %, Turkmenistan 0,01 %, Brunei 0,01 %, Saudiarabien 0,00 %, Libanon 0,00 % och Sydkorea 0,02 % av bildpunkterna. Kazakstan skiljer sig 0,09 %, men bara i en fogsöm längs ornamentets mittlinje, där originalet sätter ihop två speglade halvor; formerna är desamma. **Skriften:** Saudiarabiens trosbekännelse och Bruneis skrift i vapnet har två decimaler i koordinaterna: Saudiarabien är oförändrad bild för bild även i 1800 × 1200, Brunei skiljer sig bara i kantpixlar (0,06 % i vapnets ruta, 1280 × 640). Alla nya filer är under 40 kB.
+
+**Georgien 1918–1921:** Commons-filen är CC BY-SA 4.0 (Giorgi Balakhadzes teckning efter lagtexten). Teckningen i `georgia-1918` är därför egen: tre rektanglar med filens mått och färg (#900, fältet 5:4 utdraget till 3:2), som Tanganyika i Afrika omgång 2. Filsidan står som källa med sin licens. Filen för 1990–2004 är public domain och har filens mått (3:5 utdraget till 3:2).
+
+**Källorna skiljer sig:**
+- Georgien: artikeln säger på ett ställe att sovjetrepublikens flagga ersattes av 1918 års flagga i november 1990, på ett annat att den återinfördes 1991-12-08. Kartan visar Georgien först från 1992, så det ändrar inget. Filerna skiljer sig också i proportion: 1918 års fil är 5:4 "as per the legal code (actual flags often differed from this)", och filen för 1990–2004 säger "slightly different proportions". Etiketterna säger "1918–1921" och "1990–2004", som artikelns tabell.
+- Bhutan: infoboxen säger 1969 och texten "in use since 1969", men en källa i artikeln talar om "the adoption of the current flag around 1970", och reglerna antogs 1972. Kartan följer 1969.
+- Turkmenistan: infoboxen säger att den första flaggan antogs 1992-02-19, texten 1992-09-27. Påverkar inte kartan, eftersom 1992–2000 är en lucka. Filsidan anger färgerna efter ett dekret från 2017; teckningen visas för hela 2001–2024.
+
+**Hoppade över:**
+- **Iran** (helt eller inte alls): inte byggd. Det finns ingen sammanhängande rad belagda statsflaggor för gruppens hela tid (från 1788): före 1896 visar artikeln shahernas krigs-, freds- och diplomatflaggor med överlappande år och en statsflagga 1848–1852; den första officiella trefärgen anges som 1905-08-14 i texten, 1907-10-07 i infoboxen och 1906 i tabellen; ändringen 1933 har "Citation needed"; och flera lejon-och-sol-filer är nyritade av användare.
+- **Irak** (helt eller inte alls): inte byggd. Fem av sex flaggor är hämtade, förenklade och kontrollerade (kungariket 1932–1957, 1959–1962, 1963–1990, 1991–2003 och från 2008; takbir oförändrad bild för bild i 1800 × 1200), men Commons-filen `Flag of Iraq (2004–2008).svg` svarade 429 vid alla försök i över två timmar. Filsidan är läst (public domain, PD-Iraq, PD-ineligible). Planen: kungariket 1932–1957, 1958 som lucka (bildtexten säger att kungarikets flagga gällde till 1959-01-01, men samma artikel säger att Arabiska federationens flagga gällde 1958), 1959–1962, 1963–1990, 1991–2003, 2004–2007 och 2008–2024. Kungarikets flagga anges som 1924 i artikeln och 1921–1959 i filernas galleri.
+- **Mongoliet 1926–1944:** 1924–1940 års flagga var enligt artikeln inte standardiserad ("can therefore be seen with some variations") och finns i tre varianter på Commons; flaggan 1930–1940 är "of unclear type". 1940–1945 års fil är en användares egen rekonstruktion från 2019 (CC BY-SA 4.0) med färgtoningar och mongolisk skrift som skriptet inte kan förenkla utan att bilden ändras (0,7 %). Lucka.
+- Korea (Joseon och kejsardömet) och raderna med "vänta" eller "ingen" är inte prövade.
+
+**Medaljens plats:** `tools/flaggkontroll.py` (Natural Earth 1:50m admin-0) går igenom utan fel; ingen `labelAt` behövdes. På kartan (Playwright, 2026-11-20, 1280 och 400 bildpunkters bredd, utan konsolfel) laddas rätt fil och flaggmarkören syns på rätt land: Bhutan 2000, Kazakstan och Turkmenistan 2010, Saudiarabien 2000, Libanon 1970 (brun stam) och 1995, Georgien 1919 och 1998, och Sydkorea 1948 (dator). Bhutan och Saudiarabien 1960, Turkmenistan 1995 och Georgien 1960 visar ingen flagga. Bruneis medalj syns inte i översikten, eftersom landet är litet och Malaysias medalj och namn tar platsen (samma som Belize i #1155); i Fokus på Brunei visas flaggan. Sydkoreas medalj 1948 syns inte i 400 bildpunkters bredd, där händelserna har företräde, men visas i Fokus.
+
+**Skärmbilder:**
+- Centralasien 2010 (Kazakstan, Turkmenistan), dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1153/centralasien-2010-1280.webp
+- Saudiarabien 2000, dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1153/saudiarabien-2000-1280.webp
+- Georgien 1919, dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1153/georgien-1919-1280.webp
+- Sydkorea 1948, dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1153/sydkorea-1948-1280.webp
+- Brunei 2000 i Fokus, dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1153/brunei-2000-fokus-1280.webp
+- Bhutan 2000, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1153/bhutan-2000-400.webp
+- Libanon 1970, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1153/libanon-1970-400.webp
+- Georgien 1998, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1153/georgien-1998-400.webp
+- Sydkorea 1948 i Fokus, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1153/sydkorea-1948-fokus-400.webp
+
+**Expertgranskning:** arbetaren hade inget verktyg för att kalla in underagenter (`historiker`, `geograf`, `sprak-en`, `sprak-de`, `sprak-es`, `sprak-fr`). Fakta, källor, medaljernas plats och etiketterna på fem språk granskas därför separat av en Claude Code som inte byggde ändringen.
+
 ## Tabeller per världsdel
 
 Kolumner: id, rike, sort, vad symbolen är, källa, bild på Commons med licens, säkerhet, rekommendation och anmärkning.
