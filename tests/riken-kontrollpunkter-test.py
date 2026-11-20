@@ -177,6 +177,18 @@ TENOCHTITLAN = (-99.1333, 19.4333)
 TEXCOCO = (-98.8967, 19.5294)
 MEXIKODALEN = ((TENOCHTITLAN, 'Tenochtitlan'), (TEXCOCO, 'Texcoco'))
 
+# Rhenlandet 1920–1929 (#1766), ur Wikidata (öppnad 2026-11-20): Trier Q3138, Aachen Q1017, Köln Q365, Bonn Q586, Krefeld Q2805,
+# Mainz Q1720, och i Ruhr Essen Q2066 och Duisburg Q2100; Bryssel Q239 och Liège Q3992 nedan ur Wikidata samma dag
+TRIER = (6.63935, 49.75565)
+AACHEN = (6.083788, 50.776207)
+KOLN = (6.957778, 50.942222)
+BONN = (7.102222, 50.735278)
+KREFELD = (6.566667, 51.333333)
+MAINZ = (8.273611, 49.999444)
+ESSEN = (7.013056, 51.450833)
+DUISBURG = (6.761111, 51.432222)
+RHENLANDET = ((TRIER, 'Trier'), (AACHEN, 'Aachen'), (KOLN, 'Köln'), (BONN, 'Bonn'), (KREFELD, 'Krefeld'), (MAINZ, 'Mainz'))
+
 # (grupp, punkt, namn, år, ska ligga i riket)
 PUNKTER = [
     # Mexikodalen (#1443, DasKrokodils svar A 2026-11-14). Punkterna visar läget som det är, inte som det borde vara: Cliopatrias
@@ -247,7 +259,9 @@ PUNKTER = [
     *[('weimarrepubliken', p, n, 1931, True) for p, n in ((ZWEIBRUCKEN, 'Zweibrücken'), (KAISERSLAUTERN, 'Kaiserslautern'))],
     *[('nazityskland', ZWEIBRUCKEN, 'Zweibrücken', y, True) for y in (1933, 1934)],
     ('franska-kolonialvaldet', KAISERSLAUTERN, 'Kaiserslautern', 1931, False),
-    ('franska-kolonialvaldet', KAISERSLAUTERN, 'Kaiserslautern', 1925, True),
+    # Kaiserslautern 1925 var Frankrike enligt Cliopatria till #1766; nu Weimarrepubliken (Rhenlandet nedan)
+    ('franska-kolonialvaldet', KAISERSLAUTERN, 'Kaiserslautern', 1925, False),
+    ('weimarrepubliken', KAISERSLAUTERN, 'Kaiserslautern', 1925, True),
     *[('weimarrepubliken', SAARBRUCKEN_WD, 'Saarbrücken', y, False) for y in (1925, 1931)],
     *[('nazityskland', FORBACH, 'Forbach', y, False) for y in (1935, 1937, 1939)],
     *[('franska-kolonialvaldet', FORBACH, 'Forbach', y, True) for y in (1935, 1939)],
@@ -451,6 +465,20 @@ PUNKTER = [
       for y in (1945, 1946, 1949)],
     *[('usa', p, n, y, False) for p, n in ((WANGEN, 'Wangen im Allgäu'), (BAD_WURZACH, 'Bad Wurzach')) for y in (1945, 1946, 1949)],
     *[('usa', p, n, y, True) for p, n in ((MEMMINGEN, 'Memmingen'), (OBERSTAUFEN, 'Oberstaufen')) for y in (1945, 1946, 1949)],
+    # Rhenlandet 1920–1929 (#1766, beslut 2026-11-20): de ockuperade zonerna ritas som Weimarrepubliken, inte som Frankrike,
+    # Belgien eller Storbritannien. Ruhr (1923–1925) ritar Cliopatria som Weimar Republic; den ska stå kvar så
+    *[('weimarrepubliken', p, n, y, True) for p, n in RHENLANDET for y in (1920, 1923, 1925, 1926, 1929, 1930)],
+    *[(g, p, n, y, False) for p, n in RHENLANDET for g in ('franska-kolonialvaldet', 'belgien', 'brittiska-imperiet')
+      for y in (1920, 1923, 1925, 1926, 1929)],
+    *[('weimarrepubliken', p, n, y, True) for p, n in ((ESSEN, 'Essen'), (DUISBURG, 'Duisburg')) for y in (1923, 1924, 1925)],
+    *[(g, p, n, y, False) for p, n in ((ESSEN, 'Essen'), (DUISBURG, 'Duisburg')) for g in ('franska-kolonialvaldet', 'belgien')
+      for y in (1923, 1924, 1925)],
+    # 1919 visas Tyska riket, och Cliopatrias zoner står kvar det året (inte ändrat i #1766; Trier är utan stat 1919 efter
+    # förenklingen, ett äldre fel som står kvar)
+    ('belgien', AACHEN, 'Aachen', 1919, True),
+    # Utanför Rhenlandet är Frankrike och Belgien som förut
+    *[('franska-kolonialvaldet', STRASBOURG, 'Strasbourg', y, True) for y in (1920, 1925, 1929)],
+    *[('belgien', p, n, y, True) for p, n in (((4.352, 50.847), 'Bryssel'), ((5.571, 50.64), 'Liège')) for y in (1920, 1925, 1929)],
 ]
 
 # Punkter som ligger precis utanför den förenklade kusten men som uppslaget hittar inom marginalen (AREA_MARGIN_DEG i
@@ -516,6 +544,9 @@ DUBBEL = [
                                                                                             (GENEVE, 'Genève')) for y in (1940, 1942, 1943, 1944)],
     *[(('franska-kolonialvaldet', 'usa'), p, n, y) for p, n in ((WEILER, 'Weiler-Simmerberg'), (LEUTKIRCH, 'Leutkirch'), (ISNY, 'Isny'), (MEMMINGEN, 'Memmingen'))
       for y in (1945, 1946, 1949)],
+    # Rhenlandet 1920–1929 (#1766): bara i Weimarrepubliken, också inte i USA (Cliopatrias amerikanska zon 1919–1923)
+    *[(('weimarrepubliken', 'franska-kolonialvaldet', 'belgien', 'brittiska-imperiet', 'usa'), p, n, y) for p, n in RHENLANDET
+      for y in (1920, 1922, 1923, 1925, 1929)],
 ]
 for grupper, pt, namn, year in DUBBEL:
     i = [g for g in grupper if in_group(g, pt, year)]
