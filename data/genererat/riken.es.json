@@ -44,7 +44,7 @@
 "ecuador":{"flags":{"0":{"label":{"es":"Bandera de Ecuador de 1860 a 1900"}},"1":{"label":{"es":"Bandera civil de Ecuador"}}}},
 "ukraina":{"flags":{"0":{"label":{"es":"Bandera de Ucrania"}}}},
 "ryska-federationen":{"flags":{"0":{"label":{"es":"Bandera de Rusia"}}}},
-"kina":{"flags":{"0":{"label":{"es":"Bandera china de cinco colores"}}}},
+"kina":{"flags":{"0":{"label":{"es":"Bandera china de cinco colores"}},"1":{"label":{"es":"Bandera china de cinco colores"}}}},
 "taiwan":{"flags":{"0":{"label":{"es":"Bandera de la República de China"}}}},
 "kazakstan":{"flags":{"0":{"label":{"es":"Bandera de Kazajistán"}}}},
 "algeriet":{"flags":{"0":{"label":{"es":"Bandera de Argelia"}}}},

@@ -32122,6 +32122,22 @@
     {
      "file": "china-five-colour",
      "from": 1912,
+     "to": 1915,
+     "label": {
+      "sv": "Kinas femfärgsflagga",
+      "en": "Chinese five-colour flag",
+      "de": "Chinesische Fünffarbenflagge",
+      "es": "Bandera china de cinco colores",
+      "fr": "Drapeau chinois à cinq couleurs"
+     },
+     "sources": [
+      "wp-flag-china"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "china-five-colour",
+     "from": 1917,
      "to": 1928,
      "label": {
       "sv": "Kinas femfärgsflagga",

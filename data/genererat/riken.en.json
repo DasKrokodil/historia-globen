@@ -69,7 +69,7 @@
 "ecuador":{"flags":{"0":{"label":{"en":"Flag of Ecuador, 1860–1900"}},"1":{"label":{"en":"Civil flag of Ecuador"}}}},
 "ukraina":{"flags":{"0":{"label":{"en":"Flag of Ukraine"}}}},
 "ryska-federationen":{"flags":{"0":{"label":{"en":"Flag of Russia"}}}},
-"kina":{"flags":{"0":{"label":{"en":"Chinese five-colour flag"}}}},
+"kina":{"flags":{"0":{"label":{"en":"Chinese five-colour flag"}},"1":{"label":{"en":"Chinese five-colour flag"}}}},
 "taiwan":{"flags":{"0":{"label":{"en":"Flag of the Republic of China"}}}},
 "kazakstan":{"flags":{"0":{"label":{"en":"Flag of Kazakhstan"}}}},
 "algeriet":{"flags":{"0":{"label":{"en":"Flag of Algeria"}}}},
