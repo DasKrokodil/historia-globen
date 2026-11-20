@@ -13066,7 +13066,9 @@ async function run(browser, vp) {
       await fp.evaluate(() => {
         const status = document.getElementById('screen-reader-status');
         window.__said = [];
-        new MutationObserver(() => { const t = status.textContent; if (/visar nu/.test(t) && window.__said.at(-1) !== t) window.__said.push(t); })
+        // Statusraden töms och skrivs om (js/ui/status.js), så ett andra, likadant meddelande syns som en ny text efter den tomma
+        let prev = '';
+        new MutationObserver(() => { const t = status.textContent; if (/visar nu/.test(t) && t !== prev) window.__said.push(t); prev = t; })
           .observe(status, { childList: true, characterData: true, subtree: true });
       });
       await fp.focus('#track');

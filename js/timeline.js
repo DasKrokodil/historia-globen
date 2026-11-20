@@ -193,8 +193,9 @@ export class Timeline extends EventTarget {
       const map = { ArrowLeft: -big, ArrowRight: big, ArrowDown: -big, ArrowUp: big, PageDown: -page, PageUp: page };
       if (e.key in map) { this.setByUser(this.stepFrom(this.year, map[e.key])); e.preventDefault(); }
       // Home och End går till ändarna av reglaget som syns (#1958); en pil, PageUp/PageDown, en stegknapp eller uppspelningen tar en över kanten
-      if (e.key === 'Home') { this.setByUser(this.scale.from); e.preventDefault(); }
-      if (e.key === 'End') { this.setByUser(this.scale.to); e.preventDefault(); }
+      // I Fokus är ändarna fokusspannets, också när spannet går över gränsen mellan reglagen (#1986)
+      if (e.key === 'Home') { this.setByUser(this.focus ? this.focus.from : this.scale.from); e.preventDefault(); }
+      if (e.key === 'End') { this.setByUser(this.focus ? this.focus.to : this.scale.to); e.preventDefault(); }
     });
     for (const b of stepBtns) b.addEventListener('click', () => { if (this.locked) return; this.pause(); this.setByUser(this.stepFrom(this.year, Number(b.dataset.step))); });
     playBtn.addEventListener('click', () => { if (this.locked) return; this.playing ? this.pause() : this.play({ byUser: true }); });
@@ -424,7 +425,6 @@ export class Timeline extends EventTarget {
       d.className = 'seam'; d.style.left = `${seam.at * 100}%`; d.setAttribute('aria-hidden', 'true');
       this.segsEl.append(d);
     }
-    this._labelTrack();
     for (const [y, level] of this.scale.ticks) {
       const d = document.createElement('div');
       d.className = `tick lvl${level}` + (y === this.scale.from ? ' first' : '') + (y === this.scale.to ? ' last' : '');

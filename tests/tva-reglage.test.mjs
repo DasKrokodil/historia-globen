@@ -274,3 +274,25 @@ test('Fokus över gränsen: namnet följer året och meddelandet sägs en gång,
   assert.equal(attrs['aria-label'], 'År, före 3000 f.Kr.');
   assert.match(timeline.takeStepNote(), /^Tidslinjen visar nu tiden före 3000 f\.Kr\.$/);
 });
+
+test('Fokus över gränsen under uppspelning: meddelandet sägs direkt en gång, och Home och End går till fokusspannets ändar (#1986)', t => {
+  const { timeline, track } = build(t);
+  timeline._drawStory = () => {};
+  timeline.playBtn.setAttribute = () => {};
+  const said = [];
+  timeline._announce = text => said.push(text);
+  timeline.setFocus({ from: -3400, to: -2600 });
+  timeline.year = -3400;
+  timeline.takeStepNote();
+  timeline.playing = true;
+  let yf = timeline.year;
+  for (let frame = 0; frame < 60 * 60 && timeline.year < -2900; frame++) yf = timeline._advance(yf, 1 / 60);
+  assert.ok(timeline.year >= -2900, `uppspelningen nådde bara ${timeline.year}`);
+  assert.deepEqual(said.filter(s => /visar nu/.test(s)), ['Tidslinjen visar nu tiden 3000 f.Kr.–i dag.']);
+  assert.equal(timeline.takeStepNote(), '', 'under uppspelning sägs bytet direkt, inte en gång till med året');
+  timeline.playing = false;
+  key(track, 'Home');
+  assert.equal(timeline.year, -3400, 'Home går till fokusspannets början, inte till reglagets första år (-2999)');
+  key(track, 'End');
+  assert.equal(timeline.year, -2600, 'End går till fokusspannets slut');
+});
