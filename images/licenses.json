@@ -3,6 +3,21 @@
   "scope": "data/events.json events[].image; data/turer/*.json steps[].image",
   "images": [
     {
+      "eventId": "agadez-mosken",
+      "eventTitle": "Moskén i Agadez byggs",
+      "file": "images/events/agadez-mosken.webp",
+      "kind": "historisk",
+      "credit": "Vincent van Zeijst / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-agadez-mosken",
+        "title": "Niger, Agadez (43), Grand Mosque – fotografi av Vincent van Zeijst, 2018 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Niger,_Agadez_(43),_Grand_Mosque.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "aksum-blir-kristet",
       "eventTitle": "Kung Ezana gör Aksum kristet",
       "file": "images/events/aksum-blir-kristet.webp",
@@ -876,6 +891,21 @@
       }
     },
     {
+      "eventId": "fort-jesus-byggs",
+      "eventTitle": "Portugiserna bygger Fort Jesus i Mombasa",
+      "file": "images/events/fort-jesus-byggs.webp",
+      "kind": "historisk",
+      "credit": "Mutisya Maingi / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-fort-jesus-byggs",
+        "title": "Fort Jesus Mombasa – fotografi av Mutisya Maingi, 2010 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Fort_Jesus_Mombasa.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "fotbolls-vm-1930",
       "eventTitle": "Det första fotbolls-VM",
       "file": "images/events/fotbolls-vm-1930.webp",
@@ -1008,6 +1038,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Göbekli_Tepe,_Urfa.jpg",
         "license": "CC BY-SA 3.0",
         "checked": "2026-11-07"
+      }
+    },
+    {
+      "eventId": "gondar-blir-etiopiens-huvudstad",
+      "eventTitle": "Fasilides gör Gondar till Etiopiens huvudstad",
+      "file": "images/events/gondar-blir-etiopiens-huvudstad.webp",
+      "kind": "historisk",
+      "credit": "Martijn Munneke / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-gondar-blir-etiopiens-huvudstad",
+        "title": "Fasil Ghebbi (6821473537) – fotografi av Martijn Munneke, Gondar 2012 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Fasil_Ghebbi_(6821473537).jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-20"
       }
     },
     {
@@ -1701,6 +1746,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:PortVilaLapita.jpg",
         "license": "CC BY-SA 3.0",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "larda-i-timbuktu-sankore",
+      "eventTitle": "De lärdas storhetstid i Timbuktu",
+      "file": "images/events/larda-i-timbuktu-sankore.webp",
+      "kind": "historisk",
+      "credit": "François-Edmond Fortier / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-larda-i-timbuktu-sankore",
+        "title": "Tombouctou – La mosquée de Sankore, vykort nr 368 av François-Edmond Fortier, början av 1900-talet (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Tombouctou-La_mosqu%C3%A9e_de_Sankore_(AOF).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
       }
     },
     {
