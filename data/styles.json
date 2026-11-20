@@ -1,6 +1,6 @@
 {
  "schema": "historia-globen/styles@1",
- "notes": "Bildstilar efter tidsålder och plats (#129). Grundstilar har tom regions och gäller hela världen för sitt tidsspann (from–to, astronomiska år). Regionala varianter går före grundstilen när händelsens år och plats matchar; de har frame = null och använder grundstilens ram för året. regions anger grova rutor i grader: bbox = [västligaste longitud, sydligaste latitud, östligaste longitud, nordligaste latitud]. variants väljs efter händelsens kategori. prompt är en stilbeskrivning på engelska som används när en illustration tas fram (tools/bildpromptar.py).",
+ "notes": "Bildstilar efter tidsålder och plats (#129). Grundstilar har tom regions och gäller hela världen för sitt tidsspann (from–to, astronomiska år). Regionala varianter går före grundstilen när händelsens år och plats matchar; de har frame = null och använder grundstilens ram för året, utom en regional stil med egen frame (kina-brons, #1397), som har en egen ram eftersom grundstilen för tiden kommer från en annan del av världen. regions anger grova rutor i grader: bbox = [västligaste longitud, sydligaste latitud, östligaste longitud, nordligaste latitud]. variants väljs efter händelsens kategori. prompt är en stilbeskrivning på engelska som används när en illustration tas fram (tools/bildpromptar.py).",
  "regions": {
   "kina": {
    "name": {
@@ -201,17 +201,17 @@
   {
    "id": "grotta",
    "name": {
-    "sv": "Grottmålning",
-    "en": "Cave painting",
-    "de": "Höhlenmalerei",
-    "fr": "Peinture rupestre",
-    "es": "Pintura rupestre"
+    "sv": "Modern tecknad illustration av landskap och föremål",
+    "en": "Modern drawn illustration of landscape and objects",
+    "de": "Moderne gezeichnete Illustration von Landschaft und Gegenständen",
+    "fr": "Illustration dessinée moderne de paysage et d’objets",
+    "es": "Ilustración dibujada moderna de paisaje y objetos"
    },
    "from": -999999,
    "to": -3000,
    "regions": [],
    "frame": "grotta",
-   "prompt": "prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture"
+   "prompt": "clearly modern hand-drawn editorial illustration of a prehistoric landscape, animals, tools or a find site, flat gouache and ink shapes with clean outlines on plain off-white paper, limited earth-tone palette, openly contemporary and stylised, no people or faces, must not resemble rock art, a carving or a photograph of a real find"
   },
   {
    "id": "egypten",
@@ -421,6 +421,23 @@
      "prompt": "muted documentary editorial illustration, gouache and ink, restrained colours, as in a 1970s news magazine"
     }
    }
+  },
+  {
+   "id": "kina-brons",
+   "name": {
+    "sv": "Brons och orakelben",
+    "en": "Bronze and oracle bones",
+    "de": "Bronze und Orakelknochen",
+    "fr": "Bronze et os oraculaires",
+    "es": "Bronce y huesos oraculares"
+   },
+   "from": -1599,
+   "to": -1001,
+   "regions": [
+    "kina"
+   ],
+   "frame": "kina-brons",
+   "prompt": "Chinese Bronze Age art: cast ritual bronze vessels with spiral and geometric relief bands, black ink rubbings on pale paper, bone and turtle-shell surfaces with crack patterns, verdigris green, bronze and dark earth palette, no inscriptions or characters"
   },
   {
    "id": "kina-tusch",
