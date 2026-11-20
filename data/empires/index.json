@@ -38856,6 +38856,25 @@
    "from": 1969,
    "to": 2024,
    "file": "data/empires/eswatini.json",
+   "flags": [
+    {
+     "file": "eswatini",
+     "from": 1969,
+     "to": 2024,
+     "label": {
+      "sv": "Eswatinis flagga",
+      "en": "Flag of Eswatini",
+      "de": "Flagge Eswatinis",
+      "es": "Bandera de Esuatini",
+      "fr": "Drapeau de l'Eswatini"
+     },
+     "sources": [
+      "wp-flag-eswatini",
+      "commons-flagga-eswatini"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "eswatini",
