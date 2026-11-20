@@ -1,0 +1,2 @@
+== {{int:license-header}} ==
+{{self|cc-by-sa-4.0}}
