@@ -250,6 +250,51 @@ Byggt på grenen `claude/issue-1155-amerika-2`, från dagens `main`. Omgång 1 (
 
 **Expertgranskning:** arbetaren hade inget verktyg för att kalla in underagenter (`historiker`, `geograf`, `sprak-en`, `sprak-de`, `sprak-es`, `sprak-fr`). Fakta, källor, medaljernas plats och de nya texterna på fem språk granskas därför separat av en Claude Code som inte byggde ändringen.
 
+## Uppföljning 2026-11-20: Afrika omgång 3 (#1154)
+
+Byggt på grenen `claude/issue-1154-afrika-3`, från dagens `main`. Källorna öppnades 2026-11-20: "Flag of …" på engelska Wikipedia för åren och Commons-filsidan för licensen. Ingen flagga visas före antagandeåret eller utanför gruppens år. Alla grupper hade redan `modernState`.
+
+| Grupp | Visas | Fil (storlek) | Anmärkning |
+|---|---|---|---|
+| Burkina Faso | 1961–1983 och 1984–2024 | `upper-volta` (0,2 kB), `burkina-faso` (0,3 kB) | Övre Voltas svart-vit-röda flagga från självständigheten; Burkina Fasos flagga antagen 1984-08-04 |
+| Kamerun | 1961–1974 | `cameroon-1961` (0,5 kB) | Förbundsrepublikens flagga med två stjärnor i det gröna fältets övre del, enligt artikeln och Commons-filen (stjärnornas plats och storlek ur filen). Fyller luckan mellan flaggorna 1960 och från 1975 |
+| Tanzania | 1961–1963 | `tanganyika` (0,2 kB) | Tanganyikas gröna flagga med svart band kantat i gult, från självständigheten 1961-12-09; Tanzanias flagga antogs 1964-06-30 och visas som förut från 1964 |
+| Rwanda | 1963–2001 | `rwanda-1961` (0,5 kB) | Rött, gult och grönt med svart R, från slutet av september 1961 till 2001-12-31. Med flaggan från 2002 har gruppen nu flagga alla år. Wikipedia säger att RPF-regeringen 1999 ville byta flaggan eftersom den förknippades med folkmordet, och att kritiker såg bytet som ett sätt att markera RPF:s makt; etiketten är saklig ("Rwandas flagga 1961–2001") |
+| Kenya | 1963–2024 | `kenya` (1,6 kB) | Antagen 1963-12-12. Masajskölden och spjuten är Commons-filens former |
+| Uganda | 1963–2024 | `uganda` (2,8 kB) | Antagen 1962-10-09; gruppen börjar 1963. Kronkranen är Commons-filens former |
+| Angola | 1976–2024 | `angola` (1,3 kB) | Antagen 1975-11-11; gruppen börjar 1976 |
+| Zimbabwe | 1980–2024 | `zimbabwe` (2,1 kB) | Antagen 1980-04-18. Gruppens Rhodesia 1967–1978 och Zimbabwe-Rhodesia 1979 har ingen flagga |
+| Eswatini | 1969–2024 | `eswatini` (5,2 kB) | Antagen 1968-10-06; gruppen börjar 1969. Teckningen är huvudversionen med blå tofsar; varianterna med svarta tofsar (från 2011) och ljusare färger är samma flagga |
+| Zambia | 1996–2024 | `zambia` (4,0 kB) | Flaggan från 1964 ändrades 1996-04-13: ljusare grönt och örnen omritad efter riksvapnet. Teckningen är 1996 års version och visas därför först från 1996 |
+| Eritrea | 1996–2024 | `eritrea` (4,3 kB) | Antagen 1995-12-05, alltså från 1996 på årsnivå (som Rwanda 2001-12-31) |
+
+**Förenkling av emblemen:** Commons-filerna är förenklade med ett skript, utan att något ritas nytt: varje form transformeras till en teckning 300 × 200 bildpunkter, koordinaterna avrundas till en tiondels bildpunkt, kurvor som avviker mindre än 0,3 bildpunkter från en rak linje blir raka, delbanor mindre än 0,8 bildpunkter tas bort och id, metadata och upprepningar (`use`) skrivs ut. Jämfört med originalet i 960 × 640 skiljer sig högst 0,05 % av bildpunkterna (kanter). Zimbabwe och Eritrea har proportionen 1:2: banden och trianglarna är utdragna till 3:2, medan fågeln och stjärnan, den vita triangeln (Zimbabwe) och kransen (Eritrea) har kvar sin form; där är skillnaden mätt bara på emblemet. Alla nya filer är under 6 kB; den största befintliga är Fiji med 40 kB.
+
+**Källorna skiljer sig:**
+- Kamerun 1961–1974: Wikipedia säger att stjärnorna var guldfärgade och mörkare än det gula bandet; Commons-filen (efter en konstruktionsritning från 1961) har samma gula som bandet. Teckningen följer filen. Wikipedia anger inget exakt datum 1961; året följer perioden och filnamnet (1961–1975).
+- Rwanda: Commons-filens tidigare namn säger 1962–2001; artikeln och filsidans datum säger september 1961. Gruppen börjar 1963, så det ändrar inget på kartan.
+- Övre Volta: artikeln säger att flaggan antogs vid självständigheten; Commons filsida säger 1959–1984 (redan noterat i omgång 2). Gruppen börjar 1961.
+- Tanganyika: filnamnet säger 1961–1964; Tanzanias flagga antogs 1964-06-30, så Tanganyikas visas till och med 1963.
+
+**Licenser:** Alla Commons-filer som används är public domain (PD-Kenya, PD-Uganda, PD-Angola, PD-Zimbabwe, PD-Zambia, PD-Rwanda, PD-Eritrea, PD-ineligible, PD-shape, PD-self, PD-OpenClipart), utom Tanganyikas SVG, som är CC BY-SA 3.0 och GFDL. Tanganyikas teckning är därför egen: fem raka band med de mått som filsidan hänvisar till (Flag Bulletin via FOTW). Filsidan står som källa med sin licens.
+
+**Väntar i Afrika:**
+- **Zambia 1967–1995** (flaggan från 1964 med mörkare grönt och äldre örn) och **Eritrea 1993–1995** (14 blad på var sida, proportion 2:3): Commons-filerna `Flag of Zambia (1964–1996).svg` och `Flag of Eritrea (1993–1995).svg` svarade 429 vid alla försök under arbetet. Filsidorna är lästa: Zambia-filen är public domain (PD-Zambia, PD-ineligible); Eritrea-filen är en användares egen teckning "based on" dagens flagga (PD-self) och bör jämföras med källornas beskrivning (14 blad på var sida) innan den används. Eritrea 1992 har ingen belagd nationsflagga (lucka).
+- **Länder med många flaggbyten:** Libyen, Egypten, båda Kongo, Malawi, Lesotho, Burundi, Moçambique, Etiopien och Ekvatorialguinea, som förut.
+- "vänta" och "ingen" i tabellen är inte prövade igen.
+
+**Medaljens plats:** `tools/flaggkontroll.py` (Natural Earth 1:50m admin-0) går igenom utan fel för alla grupper; inga alias behövdes. Ingen `labelAt` behövdes. På kartan (Playwright, 2026-11-20, 1280 och 400 bildpunkters bredd, utan konsolfel) laddas rätt fil och flaggmarkören syns på rätt land: Tanzania 1962 (Tanganyika), Kenya, Uganda och Tanzania 1970, Burkina Faso och Kamerun 1970 (Övre Volta, två stjärnor) och 1990, Rwanda 1990 (R) och 2010, Angola, Zambia, Zimbabwe och Eswatini 2000 och Eritrea 2000. Angola, Zambia och Zimbabwe 1975 och Eritrea 1994 visar ingen flagga.
+
+**Skärmbilder:**
+- Västafrika 1970 (Övre Volta, Kamerun med två stjärnor), dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1154/vastafrika-1970-1280.webp
+- Södra Afrika 2000 (Angola, Zambia, Zimbabwe, Eswatini), dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1154/sodra-afrika-2000-1280.webp
+- Östafrika 1962 (Tanganyika), dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1154/ostafrika-1962-1280.webp
+- Östafrika 1970 (Kenya, Uganda, Tanzania), mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1154/ostafrika-1970-400.webp
+- Rwanda 1990, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1154/rwanda-1990-400.webp
+- Eritrea 2000, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1154/horn-2000-400.webp
+
+**Expertgranskning:** arbetaren hade inget verktyg för att kalla in underagenter (`historiker`, `geograf`, `sprak-en`, `sprak-de`, `sprak-es`, `sprak-fr`). Fakta, källor, medaljernas plats och etiketterna på fem språk granskas därför separat av en Claude Code som inte byggde ändringen.
+
 ## Tabeller per världsdel
 
 Kolumner: id, rike, sort, vad symbolen är, källa, bild på Commons med licens, säkerhet, rekommendation och anmärkning.
