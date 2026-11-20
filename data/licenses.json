@@ -2824,6 +2824,7 @@
         "commons-bild-jamestown-1607",
         "commons-bild-lei-aurea-1888",
         "commons-bild-orakelben-skrift",
+        "commons-bild-slaget-vid-tannenberg-1914",
         "commons-bild-vastromerska-rikets-fall",
         "wd-363-galilee-earthquake",
         "wd-aalborg",
@@ -3186,9 +3187,15 @@
     {
       "license": "No known restrictions on publication",
       "sourceIds": [
+        "loc-bild-belagringen-av-tsingtao",
         "loc-bild-emigrationen-fran-sverige",
+        "loc-bild-forsta-slaget-vid-marne",
+        "loc-bild-forsta-varldskriget",
+        "loc-bild-freden-i-brest-litovsk",
+        "loc-bild-gallipolifalttaget",
         "loc-bild-hansan-vaxer-fram",
         "loc-bild-koch-tuberkelbakterien",
+        "loc-bild-usa-gar-in-i-forsta-varldskriget",
         "loc-bild-watt-separat-kondensor",
         "loc-cook-south-pacific-1777",
         "loc-eiffel-campanile-1889",
@@ -3290,6 +3297,7 @@
         "commons-bild-shakespeare-dor",
         "commons-bild-sjalvstandighetsforklaringen",
         "commons-bild-sjoslaget-vid-dan-no-ura",
+        "commons-bild-skotten-i-sarajevo",
         "commons-bild-slaget-om-guadalcanal",
         "commons-bild-slaget-om-kyiv-2022",
         "commons-bild-slaget-vid-annual",
@@ -3308,6 +3316,7 @@
         "commons-bild-slaget-vid-poltava",
         "commons-bild-slaget-vid-rangiriri",
         "commons-bild-slaget-vid-stalingrad",
+        "commons-bild-slaget-vid-tanga",
         "commons-bild-slaget-vid-tuyuti",
         "commons-bild-slaget-vid-verdun",
         "commons-bild-slaget-vid-waterloo",
@@ -3329,6 +3338,7 @@
         "commons-bild-tredje-slaget-vid-panipat",
         "commons-bild-tsunamin-i-indiska-oceanen-2004",
         "commons-bild-tyfonen-kamikaze-1281",
+        "commons-bild-vapenstillestandet-1918",
         "commons-bild-vasco-da-gama-nar-indien",
         "commons-bild-vesuvius-79",
         "commons-bild-waitangifordraget",
@@ -3729,6 +3739,19 @@
       "license": "Public domain (PD-Turkey, PD-shape)",
       "sourceIds": [
         "commons-flagga-turkey"
+      ]
+    },
+    {
+      "license": "Public domain (PD-UKGov)",
+      "sourceIds": [
+        "commons-bild-slaget-vid-jylland",
+        "commons-bild-slaget-vid-somme"
+      ]
+    },
+    {
+      "license": "Public domain (PD-US, publicerad 1919)",
+      "sourceIds": [
+        "commons-bild-belagringen-av-kut"
       ]
     },
     {

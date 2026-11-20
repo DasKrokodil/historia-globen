@@ -2891,6 +2891,48 @@ async function run(browser, vp) {
     }
   });
 
+  // #1873: turen om första världskriget. Stegets händelse har en riktig bild, som syns i faktarutan med bildtext och kredit
+  // (i bred skärm öppnas faktarutan av steget, i smal skärm med Läs om händelsen)
+  await check('turen om första världskriget: faktarutan i steget visar händelsens bild med bildtext och kredit (#1873)', async () => {
+    const lp = await context.newPage();
+    const errs = [];
+    lp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await lp.route(u => isFont(u.href), r => r.abort());
+      }
+      const narrow = (lp.viewportSize()?.width ?? 1400) <= 760;
+      const seen = [];
+      for (const [step, id, word] of [['sarajevo', 'skotten-i-sarajevo', 'Beltrame'], ['washington', 'usa-gar-in-i-forsta-varldskriget', 'Wilson']]) {
+        await lp.goto(`${BASE}?ny=1873#t=forsta-varldskriget&s=${step}`);
+        await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await lp.waitForSelector('#tour-card:not([hidden])', { timeout: T.step });
+        if (narrow) {
+          await lp.waitForSelector('#tour-read', { state: 'visible', timeout: T.step });
+          await lp.click('#tour-read');
+        }
+        await lp.waitForSelector('#detail:not([hidden]) .detail-fig img', { state: 'attached', timeout: T.step });
+        const w = await lp.evaluate(async () => {
+          const img = document.querySelector('#detail .detail-fig img');
+          const ok = await fetch(img.getAttribute('src')).then(r => r.ok, () => false);
+          return { src: img.getAttribute('src'), alt: img.alt, ok, title: document.querySelector('#detail h3')?.textContent.trim(),
+            caption: document.querySelector('#detail .fig-caption')?.textContent.trim() ?? '', credit: document.querySelector('#detail .fig-credit')?.textContent.trim() ?? '' };
+        });
+        if (!w.src.endsWith(`images/events/${id}.webp`)) throw new Error(`steget ${step}: bilden är ${w.src}, inte händelsens`);
+        if (!w.ok) throw new Error(`steget ${step}: ${w.src} laddas inte`);
+        if (!w.caption.includes(word)) throw new Error(`steget ${step}: bildtexten nämner inte ${word}: ${w.caption}`);
+        if (!w.credit) throw new Error(`steget ${step}: krediten saknas vid den historiska bilden`);
+        seen.push(w.title);
+      }
+      if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
+      return `bild, bildtext och kredit i faktarutan för ${seen.join(' och ')}`;
+    } finally {
+      await lp.close();
+    }
+  });
+
   // #1790 och #1791: platskortets ordning, raden Om kartan och källor, knappen i regionvyn och tryck på platsen i Fokus
   await check('platskortet: listan före anteckningarna, Om kartan och källor hopfälld, regionvyn tar bort knappen och ett tryck på platsen öppnar kortet (#1790, #1791); liten flagga bredvid namnet och knappen i halva arket (#1977)', async () => {
     const lp = await context.newPage();
