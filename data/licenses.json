@@ -1141,6 +1141,7 @@
         "wp-flag-argentina",
         "wp-flag-armenia",
         "wp-flag-australia",
+        "wp-flag-austria",
         "wp-flag-azerbaijan",
         "wp-flag-bahamas",
         "wp-flag-bangladesh",
@@ -1150,6 +1151,7 @@
         "wp-flag-benin",
         "wp-flag-bhutan",
         "wp-flag-bolivia",
+        "wp-flag-bosnia-and-herzegovina",
         "wp-flag-botswana",
         "wp-flag-brazil",
         "wp-flag-brunei",
@@ -1169,8 +1171,10 @@
         "wp-flag-czech-republic",
         "wp-flag-djibouti",
         "wp-flag-dominican-republic",
+        "wp-flag-east-germany",
         "wp-flag-ecuador",
         "wp-flag-eritrea",
+        "wp-flag-estonia",
         "wp-flag-eswatini",
         "wp-flag-fiji",
         "wp-flag-finland",
@@ -1179,12 +1183,14 @@
         "wp-flag-georgia",
         "wp-flag-germany",
         "wp-flag-ghana",
+        "wp-flag-greece",
         "wp-flag-grenada",
         "wp-flag-guatemala",
         "wp-flag-guinea",
         "wp-flag-guinea-bissau",
         "wp-flag-guyana",
         "wp-flag-honduras",
+        "wp-flag-hungary",
         "wp-flag-iceland",
         "wp-flag-india",
         "wp-flag-indonesia",
@@ -1200,6 +1206,7 @@
         "wp-flag-kosovo",
         "wp-flag-kuwait",
         "wp-flag-kyrgyzstan",
+        "wp-flag-latvia",
         "wp-flag-lebanon",
         "wp-flag-liberia",
         "wp-flag-lithuania",
@@ -1241,6 +1248,7 @@
         "wp-flag-qatar",
         "wp-flag-qing",
         "wp-flag-republic-of-china",
+        "wp-flag-romania",
         "wp-flag-russia",
         "wp-flag-rwanda",
         "wp-flag-saint-kitts-and-nevis",
@@ -1260,6 +1268,7 @@
         "wp-flag-south-korea",
         "wp-flag-south-sudan",
         "wp-flag-south-vietnam",
+        "wp-flag-spain",
         "wp-flag-sudan",
         "wp-flag-suriname",
         "wp-flag-tajikistan",
@@ -1363,6 +1372,7 @@
         "wp-gonur-depe",
         "wp-goree",
         "wp-gran-colombia",
+        "wp-grand-principality-of-moscow",
         "wp-grans-kongo",
         "wp-great-auk",
         "wp-great-barrier-reef",
@@ -1573,6 +1583,7 @@
         "wp-italian-libya",
         "wp-italian-somaliland",
         "wp-itazuke-site",
+        "wp-ivan-iii",
         "wp-izapa",
         "wp-izmir",
         "wp-jabal-al-nour",
@@ -3480,7 +3491,8 @@
     {
       "license": "Public domain (PD-Albania-exempt, PD-ineligible)",
       "sourceIds": [
-        "commons-flagga-albania"
+        "commons-flagga-albania",
+        "commons-flagga-albania-1946"
       ]
     },
     {
@@ -3505,6 +3517,18 @@
       "license": "Public domain (PD-AustraliaGov)",
       "sourceIds": [
         "commons-flagga-australien"
+      ]
+    },
+    {
+      "license": "Public domain (PD-AustrianGov)",
+      "sourceIds": [
+        "commons-flagga-austria"
+      ]
+    },
+    {
+      "license": "Public domain (PD-BH-exempt)",
+      "sourceIds": [
+        "commons-flagga-bosnia-1992"
       ]
     },
     {
@@ -3538,6 +3562,12 @@
       ]
     },
     {
+      "license": "Public domain (PD-Coa-Hungary, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-hungary"
+      ]
+    },
+    {
       "license": "Public domain (PD-Coa-Mexico)",
       "sourceIds": [
         "commons-flagga-mexiko"
@@ -3565,6 +3595,18 @@
       "license": "Public domain (PD-Fiji)",
       "sourceIds": [
         "commons-flagga-fiji"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Flag, PD-EE-exempt)",
+      "sourceIds": [
+        "commons-flagga-estonia"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Flag-Germany)",
+      "sourceIds": [
+        "commons-flagga-ddr"
       ]
     },
     {
@@ -3614,6 +3656,12 @@
       "license": "Public domain (PD-LT-exempt, PD-self)",
       "sourceIds": [
         "commons-flagga-litauen-stat"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Latvia)",
+      "sourceIds": [
+        "commons-flagga-latvia"
       ]
     },
     {
@@ -3740,6 +3788,12 @@
       "license": "Public domain (PD-Philippines)",
       "sourceIds": [
         "commons-flagga-philippines"
+      ]
+    },
+    {
+      "license": "Public domain (PD-RU-exempt, sigill)",
+      "sourceIds": [
+        "commons-sigill-ivan-3"
       ]
     },
     {
@@ -3905,6 +3959,8 @@
       "sourceIds": [
         "commons-flagga-cyprus",
         "commons-flagga-cyprus-1960",
+        "commons-flagga-greece",
+        "commons-flagga-greece-1822",
         "commons-flagga-gronland",
         "commons-flagga-kosovo",
         "commons-flagga-palau",
@@ -3938,7 +3994,10 @@
       "sourceIds": [
         "commons-flagga-cameroon-1957",
         "commons-flagga-cameroon-1961",
+        "commons-flagga-greece-1863",
         "commons-flagga-skane",
+        "commons-flagga-spain",
+        "commons-flagga-spanska-republiken",
         "commons-flagga-sudan-1956",
         "commons-flagga-timor-leste",
         "commons-vapen-gronland"
@@ -3962,6 +4021,12 @@
       ]
     },
     {
+      "license": "Public domain (PD-shape, PD-BH-exempt)",
+      "sourceIds": [
+        "commons-flagga-bosnia"
+      ]
+    },
+    {
       "license": "Public domain (PD-shape, PD-IDOld-Art30)",
       "sourceIds": [
         "commons-flagga-indonesia"
@@ -3978,6 +4043,19 @@
       "sourceIds": [
         "commons-flagga-guyana",
         "commons-flagga-surinam"
+      ]
+    },
+    {
+      "license": "Public domain (PD-simple)",
+      "sourceIds": [
+        "commons-flagga-romania"
+      ]
+    },
+    {
+      "license": "Public domain (PD-simple, PD-LT-exempt)",
+      "sourceIds": [
+        "commons-flagga-lithuania",
+        "commons-flagga-lithuania-1918"
       ]
     },
     {
