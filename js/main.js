@@ -9,6 +9,7 @@ import { applyStatic, setupLangPicker, takeReturnYear, LANG_INFO, ui } from './i
 import { bindStatus, say } from './ui/status.js';
 import { Globe, paintBase } from './globe.js';
 import { Timeline, setupYearJump } from './timeline.js';
+import { LevelSwitch } from './ui/level-switch.js';
 import { LAYERS } from './layers/index.js';
 import { hasTag } from './layers/events.js';
 import { Panel } from './ui/panel.js';
@@ -157,6 +158,22 @@ async function start() {
   // Tidslåset (#1322): reglaget låses i en tur, och i en lektion stannar det inom lektionens år (timeLock i js/state.js)
   timeline.lock = () => timeLock(store.state.modes, app.lesson?.lock?.years ?? null);
   store.subscribe(({ type }) => { if (type === 'mode') timeline.syncLock(); });
+  // Växlaren mellan tidsreglagen (#1959): två nivåer med reglagens namn, och den som är vald följer året (timeline.scale)
+  const scaleSwitch = new LevelSwitch($('scale-switch'), {
+    levels: timeline.scales.map(sc => ({ id: sc.id, name: timeline.scaleName(sc) })),
+    // Dörren för in en Tillbaka-rad (#997, beslut 2026-11-20): "Från 1325 · Tillbaka" återställer året, och reglaget följer året. Ingen rad när året redan låg
+    // vid kanten dit dörren leder (högst ett år från ingångsåret): då är Tillbaka bara ett steg. Ett avslutat tidsintervall återställs inte (jump-back återställer året och kameran).
+    onSelect: (id, button) => {
+      const target = timeline.scales.find(sc => sc.id === id), to = timeline.scaleEntry(target);
+      if (to == null) return;
+      if (Math.abs(timeline.year - to) <= 1) timeline.goToScale(target);
+      else jumpBack.run(() => timeline.goToScale(target), button);
+    },
+  });
+  const syncScaleSwitch = () => { scaleSwitch.setCurrent(timeline.scale.id); scaleSwitch.setDisabled(timeline.locked || !!timeline.focus); };
+  timeline.addEventListener('change', syncScaleSwitch);
+  timeline.addEventListener('lockchange', syncScaleSwitch);
+  timeline.addEventListener('focuschange', syncScaleSwitch);
   ff.setSurpriseRange(() => timeline.focus);
   const yearJump = setupYearJump(timeline, {
     button: $('year-jump'), pop: $('jump-pop'), input: $('jump-input'), msg: $('jump-msg'), epochs: $('jump-epochs'),

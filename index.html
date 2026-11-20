@@ -223,7 +223,7 @@
       <li><b data-i18n="help.s2">Byt år</b> <span data-i18n="help.s2t">Tryck på årtalet eller dra i tidslinjen.</span></li>
       <li><b data-i18n="help.s3">Följ en berättelse</b> <span data-i18n="help.s3t">Välj ett krig, ett rike eller en religion under Sök och följ.</span></li>
       <li><b data-i18n="help.s4">Läs om en plats</b> <span data-i18n="help.s4t">Zooma in: en prickad kontur runt en plats betyder att den har ett kort. Tryck på konturen, eller flytta vyn med piltangenterna så att platsen ligger i mitten och tryck Enter. I kortet öppnar ”Visa på kartan” ”Platsens karta” eller ramar in platsen på Platt karta.</span></li>
-      <li><b data-i18n="help.s5">Två reglage</b> <span data-i18n="help.s5t">Tidslinjen har två reglage, före 3000 f.Kr. och 3000 f.Kr.–i dag, och det som visas följer året. Ett drag stannar vid reglagets kant. Stegknapparna, piltangenterna, uppspelningen och Hoppa till ett år tar dig över gränsen. Home och End går till ändarna av reglaget som syns.</span></li>
+      <li><b data-i18n="help.s5">Två reglage</b> <span data-i18n="help.s5t">Tidslinjen har två reglage, före 3000 f.Kr. och 3000 f.Kr.–i dag, och det som visas följer året. Ett drag stannar vid reglagets kant. Stegknapparna, piltangenterna, uppspelningen och Hoppa till ett år tar dig över gränsen. Home och End går till ändarna av reglaget som syns. Knapparna ovanför reglaget, Före 3000 f.Kr. och 3000 f.Kr.–i dag, byter reglage.</span></li>
     </ol>
     <details class="help-marks">
       <summary data-i18n="help.marks">Markörer, klungor och religioner</summary>
@@ -617,6 +617,8 @@
       <button id="btn-speed" class="step speed" type="button" title="Uppspelningshastighet: 25 år/s">25 år/s</button>
       <span id="next-pause" class="next-pause" hidden></span>
     </div>
+    <!-- Växlaren mellan tidsreglagen (#1959): "Före 3000 f.Kr." och "3000 f.Kr.–i dag". Knapparna skrivs av js/ui/level-switch.js; raden står före reglaget i tabbordningen och döljs i tur, lektion och Fokus (css) -->
+    <div id="scale-switch" class="level-switch scale-switch" role="group" aria-label="Tidsreglage" data-i18n-aria-label="time.switchLabel"></div>
     <div id="track" class="track" role="slider" tabindex="0" aria-label="År" data-i18n-aria-label="play.track" aria-valuemin="-2999" aria-valuemax="2026">
       <div class="track-segments" id="track-segments"></div>
       <div class="track-dots" id="track-dots"></div>

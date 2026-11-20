@@ -3,11 +3,11 @@
 import { formatYear, groupDigits, formatDate, isBCE, bce, BCE_TXT, parseYear, parseYearInput, yearParts, edtfSpan, dayParts, formatDay, monthStarts, roundDay, MONTHS_SHORT, CE_TXT, isVisibleReview, t, roundPrehistoric, roundToStep, stepAt, formatDecimal, pluralUi } from './model.js';
 import { selectEventsForDate } from './date-events.js';
 import { say, clearStatus } from './ui/status.js';
-import { ui } from './i18n.js';
+import { LANG, ui } from './i18n.js';
 import { MIN_YEAR, MAX_YEAR } from './state.js'; // gränserna bor i state.js (#1141), så att url-state.js inte behöver importera hela tidsreglaget
 export { MIN_YEAR, MAX_YEAR };
 
-import { HUMAN_SCALE, HUMAN_SCALES, scaleForYear, nominal } from './time-scale.js';
+import { HUMAN_SCALE, HUMAN_SCALES, scaleForYear, scaleEntryYear, nominal } from './time-scale.js';
 export { HUMAN_SCALE, HUMAN_SCALES, scaleForYear };
 // Alla delar och skarvar i tidsordning, över båda reglagen (människans reglage är "Före 3000 f.Kr." och "3000 f.Kr.–i dag", #1958)
 export const SEGMENTS = HUMAN_SCALES.flatMap(s => s.segments);
@@ -41,9 +41,11 @@ export function yearsPerTenth(s) {
 export const SEAMS = HUMAN_SCALES.flatMap(s => s.seams);
 const fmtScale = s => groupDigits(yearsPerTenth(s));
 /** Skalraden för ett år: "Här är en tiondel av tidslinjen ≈ 370 år", eller vid ett segmentbyte "Ny skala: en tiondel ≈ 370 år (förut 690)". */
-export function scaleText(y, from = null, scale = scaleForYear(y)) {
+export function scaleText(y, from = null, scale = scaleForYear(y), name = '') {
   const s = segmentAt(y, scale), f = from && from !== s ? from : null;
-  return f ? ui('scale.new', { n: fmtScale(s), m: fmtScale(f) }) : ui('scale.here', { n: fmtScale(s) });
+  if (f) return ui('scale.new', { n: fmtScale(s), m: fmtScale(f) });
+  // Med reglagets namn (#1959): "Före 3000 f.Kr.: en tiondel ≈ 490 år", så att raden säger i text vilket reglage man är på
+  return name ? ui('scale.hereIn', { name, n: fmtScale(s) }) : ui('scale.here', { n: fmtScale(s) });
 }
 /** Samma för skärmläsare, med hela meningen. */
 export const scaleTextFull = (y, from, scale = scaleForYear(y)) => ui('scale.newFull', { n: fmtScale(segmentAt(y, scale)), m: fmtScale(from) });
@@ -217,7 +219,7 @@ export class Timeline extends EventTarget {
     const segBefore = this.focus || this.range ? null : segFor(this._year, this.scale);
     const scaleBefore = this.scale;
     this.year = l?.from != null ? Math.max(l.from, Math.min(l.to, y)) : y;
-    this._showScale(segBefore);
+    this._showScale(this.scale === scaleBefore ? segBefore : null); // byter reglage visar raden det nya reglagets namn i stället för "ny skala" (#1959)
     // Ny upplösning efter ett drag, en tangent eller en stegknapp (#1089): skärmläsaren får veta hur långt ett steg nu är.
     // Beskedet läses i statusraden tillsammans med året (takeStepNote, js/controllers/render.js), så att det inte skrivs över.
     if (before != null && stepAt(this._year, this.scale) !== before) this._stepNote = pluralUi('time.stepNow', stepAt(this._year, this.scale), { n: groupDigits(stepAt(this._year, this.scale)) }); // "1 år", "100 år" (#1101)
@@ -240,7 +242,7 @@ export class Timeline extends EventTarget {
     // Efter en skarv står "Ny skala … (förut …)" kvar medan raden syns, även om draget fortsätter i det nya segmentet
     if (segBefore && segBefore !== now) this._scaleFrom = segBefore;
     else if (el.hidden) this._scaleFrom = null;
-    el.textContent = scaleText(this._year, this._scaleFrom, this.scale);
+    el.textContent = scaleText(this._year, this._scaleFrom, this.scale, this.scaleName(this.scale));
     el.hidden = false;
     clearTimeout(this._scaleTimer);
     this._scaleTimer = setTimeout(() => (this._held ? this._showScale(segFor(this._year, this.scale)) : this._hideScale()), SCALE_NOTE_MS); // ligger fingret kvar står raden kvar
@@ -382,6 +384,7 @@ export class Timeline extends EventTarget {
     this._drawStory();
     if (range && (this._year < range.from || this._year > range.to)) this.year = range.from;
     else this._render();
+    this.dispatchEvent(new CustomEvent('focuschange', { detail: { focus: range } })); // växlaren stängs av i Fokus (#1959)
   }
 
   _drawScale() {
@@ -530,6 +533,28 @@ export class Timeline extends EventTarget {
   _trackName(sc) {
     if (this.scales.length === 1) return '';
     return sc === this.scales[0] ? ui('time.trackFirst', { to: formatYear(nominal(sc.to)) }) : ui('time.trackLast', { from: formatYear(nominal(sc.from)) });
+  }
+  /** Reglagets synliga namn på växlaren (#1959): samma ord som i meningarna ("före 3000 f.Kr.") med stor bokstav, så "Före 3000 f.Kr." och "3000 f.Kr.–i dag". */
+  scaleName(sc) { const n = this._trackName(sc); return n ? n[0].toLocaleUpperCase(LANG) + n.slice(1) : ''; }
+  /**
+   * Växlaren (#1959): går till ett annat reglage. Året landar på kanten av det nya reglaget som ligger närmast det man står på, alltså
+   * det första året ("3000 f.Kr.", -2999) när reglaget ligger längre fram i tiden och det sista ("3001 f.Kr.", -3000) när det ligger
+   * före. Det är samma år som ett steg över gränsen når (`stepFrom`), så ett byte via växlaren och via stegknappen är ett och samma byte.
+   * Bytet är ett vanligt årsbyte för besökaren (`setByUser`): tidslåset gäller (ligger ingångsåret utanför lektionens år händer ingenting), och ett tidsintervall avslutas som vid ett drag.
+   */
+  goToScale(sc) {
+    const year = this.scaleEntry(sc);
+    if (year == null) return null;
+    this.pause();
+    this.setByUser(year);
+    return this._year;
+  }
+  /** Året en dörr till reglaget `sc` landar på, eller null när den inte byter reglage (samma reglage, okänt reglage, tiden låst, Fokus, eller ingångsåret utanför lektionens år). */
+  scaleEntry(sc) {
+    if (this.locked || this.focus || sc === this.scale || !this.scales.includes(sc)) return null;
+    const year = scaleEntryYear(sc, this.scale), l = this.lock();
+    if (l && (year < l.from || year > l.to)) return null; // en lektion klipper året: en dörr som inte byter reglage gör ingenting alls
+    return year;
   }
   /** Reglagets namn för skärmläsare ("År, före 3000 f.Kr."); utan namn (en enda skala) står "År" kvar ur index.html. */
   _trackLabel() { const name = this._trackName(this.scale); return name ? ui('time.trackLabel', { name }) : null; }

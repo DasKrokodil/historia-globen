@@ -73,3 +73,11 @@ export const HUMAN_SCALES = [PREHISTORY_SCALE, HISTORY_SCALE];
  * det första reglaget och -2999 det första i det andra. Ett år utanför domänen hör till det närmaste reglaget.
  */
 export const scaleForYear = (y, scales = HUMAN_SCALES) => scales.find(s => y <= s.to) ?? scales.at(-1);
+
+/**
+ * Året man landar på när besökaren byter reglage med växlaren (#1959): kanten av det nya reglaget som ligger närmast reglaget man står
+ * på. Ligger det nya reglaget längre fram i tiden är det dess första år (3000 f.Kr., -2999), annars dess sista (3001 f.Kr., -3000). Det är
+ * samma år som ett steg över gränsen når (`stepFrom` i js/timeline.js), så inget år hoppas över och växlaren och stegknappen är ett och samma byte.
+ */
+// Förutsätter att reglagen står i tidsordning och att `target` inte är `current`: vakten ligger i Timeline.goToScale.
+export const scaleEntryYear = (target, current) => (target.from > current.to ? target.from : target.to);

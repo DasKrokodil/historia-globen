@@ -94,6 +94,7 @@ js/layers/discovery.js lager: upptäcktsvyn med dimma som lyfts över Europa, gr
 js/ui/areacurve.js    rikets yta över tid som SVG-kurva i faktarutan (#77)
 js/ui/citation.js     kopierbara hänvisningar till händelsens registrerade källor (#844)
 js/ui/legend.js       teckenförklaring, klickruta för religioner och information om dämpade lager (#166, #235)
+js/ui/level-switch.js nivåväxlaren: en rad knappar för nivåer i ordning med en dörr (pil) vid kanten; används för tidsreglagen "Före 3000 f.Kr." och "3000 f.Kr.–i dag" och delas med lägesväxlaren i #1517 (#1959)
 js/ui/status.js       gemensam statusrad för skärmläsare med prioritet för faktarutans rubrik (#1419)
 js/ui/panel.js        "Samtidigt i världen" per världsdel, kategorifilter och detaljvy
 js/ui/funfact.js      Visste du?-kortet (fun facts, när ett krig bröt ut) och bågar på globen
