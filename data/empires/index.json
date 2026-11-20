@@ -23968,6 +23968,110 @@
    "from": 1932,
    "to": 2024,
    "file": "data/empires/irak.json",
+   "flags": [
+    {
+     "file": "iraq-1924",
+     "from": 1932,
+     "to": 1957,
+     "label": {
+      "sv": "Kungariket Iraks flagga",
+      "en": "Flag of the Kingdom of Iraq",
+      "de": "Flagge des Königreichs Irak",
+      "es": "Bandera del Reino de Irak",
+      "fr": "Drapeau du royaume d'Irak"
+     },
+     "sources": [
+      "wp-flag-iraq",
+      "commons-flagga-iraq-1924"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "iraq-1959",
+     "from": 1959,
+     "to": 1962,
+     "label": {
+      "sv": "Iraks flagga 1959–1963",
+      "en": "Iraqi flag 1959–1963",
+      "de": "Irakische Flagge 1959–1963",
+      "es": "Bandera iraquí de 1959 a 1963",
+      "fr": "Drapeau irakien de 1959 à 1963"
+     },
+     "sources": [
+      "wp-flag-iraq",
+      "commons-flagga-iraq-1959"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "iraq-1963",
+     "from": 1963,
+     "to": 1990,
+     "label": {
+      "sv": "Iraks flagga från 1963",
+      "en": "Iraqi flag of 1963",
+      "de": "Irakische Flagge von 1963",
+      "es": "Bandera iraquí de 1963",
+      "fr": "Drapeau irakien de 1963"
+     },
+     "sources": [
+      "wp-flag-iraq",
+      "commons-flagga-iraq-1963"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "iraq-1991",
+     "from": 1991,
+     "to": 2003,
+     "label": {
+      "sv": "Iraks flagga från 1991",
+      "en": "Iraqi flag of 1991",
+      "de": "Irakische Flagge von 1991",
+      "es": "Bandera iraquí de 1991",
+      "fr": "Drapeau irakien de 1991"
+     },
+     "sources": [
+      "wp-flag-iraq",
+      "commons-flagga-iraq-1991"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "iraq-2004",
+     "from": 2004,
+     "to": 2007,
+     "label": {
+      "sv": "Iraks flagga från 2004",
+      "en": "Iraqi flag of 2004",
+      "de": "Irakische Flagge von 2004",
+      "es": "Bandera iraquí de 2004",
+      "fr": "Drapeau irakien de 2004"
+     },
+     "sources": [
+      "wp-flag-iraq",
+      "commons-flagga-iraq-2004"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "iraq",
+     "from": 2008,
+     "to": 2024,
+     "label": {
+      "sv": "Iraks flagga från 2008",
+      "en": "Iraqi flag of 2008",
+      "de": "Irakische Flagge von 2008",
+      "es": "Bandera iraquí de 2008",
+      "fr": "Drapeau irakien de 2008"
+     },
+     "sources": [
+      "wp-flag-iraq",
+      "commons-flagga-iraq"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "kungariket-irak",
@@ -24036,6 +24140,22 @@
       "text": {
        "sv": "Bagdad. Ytan är 438 317 km².",
        "en": "Baghdad. The area is 438,317 km²."
+      }
+     },
+     {
+      "label": {
+       "sv": "Flaggan på kartan",
+       "en": "The flag on the map",
+       "de": "Die Flagge auf der Karte",
+       "es": "La bandera en el mapa",
+       "fr": "Le drapeau sur la carte"
+      },
+      "text": {
+       "sv": "Kartan visar kungarikets flagga 1932–1957, flaggan från 1959 för 1959–1962, den röd-vit-svarta trefärgen med tre stjärnor från 31 juli 1963 för 1963–1990, med takbir mellan stjärnorna från januari 1991 för 1991–2003, med takbir i kufisk skrift från 28 juli 2004 för 2004–2007 och utan stjärnor från 22 januari 2008. År 1958 visas ingen flagga. Irak ingick det året i Arabiska federationen, och källorna skiljer sig om tiden: samma artikel säger både att kungarikets flagga gällde till 1 januari 1959 och att federationens flagga gällde hela 1958. Källorna skiljer sig också om kungarikets flagga, som anges från 10 juli 1924 i artikeln men från 1921 i Wikimedia Commons, och om dagen då takbiren lades till: 13 januari 1991 enligt en källa, 14 januari enligt en annan, och lagen om ändringen är daterad 22 januari 1991.",
+       "en": "The map shows the flag of the Kingdom 1932–1957, the flag of 1959 for 1959–1962, the red, white and black tricolour with three stars from 31 July 1963 for 1963–1990, with the takbir between the stars from January 1991 for 1991–2003, with the takbir in Kufic script from 28 July 2004 for 2004–2007, and without stars from 22 January 2008. No flag is shown for 1958. That year Iraq was part of the Arab Federation, and the sources differ about the dates: the same article says both that the Kingdom’s flag was used until 1 January 1959 and that the federation’s flag was used throughout 1958. The sources also differ about the Kingdom’s flag, dated from 10 July 1924 in the article but from 1921 on Wikimedia Commons, and about the day the takbir was added: 13 January 1991 according to one source, 14 January according to another, and the amending law is dated 22 January 1991.",
+       "de": "Die Karte zeigt die Flagge des Königreichs 1932–1957, die Flagge von 1959 für 1959–1962, die rot-weiß-schwarze Trikolore mit drei Sternen ab dem 31. Juli 1963 für 1963–1990, mit dem Takbir zwischen den Sternen ab Januar 1991 für 1991–2003, mit dem Takbir in kufischer Schrift ab dem 28. Juli 2004 für 2004–2007 und ohne Sterne ab dem 22. Januar 2008. Für 1958 wird keine Flagge gezeigt. In diesem Jahr gehörte der Irak zur Arabischen Föderation, und die Quellen weichen bei den Daten voneinander ab: Derselbe Artikel sagt sowohl, dass die Flagge des Königreichs bis zum 1. Januar 1959 galt, als auch, dass die Flagge der Föderation das ganze Jahr 1958 galt. Die Quellen weichen auch bei der Flagge des Königreichs ab, die im Artikel ab dem 10. Juli 1924, auf Wikimedia Commons aber ab 1921 datiert wird, und beim Tag, an dem der Takbir hinzugefügt wurde: der 13. Januar 1991 nach einer Quelle, der 14. Januar nach einer anderen, und das Änderungsgesetz ist auf den 22. Januar 1991 datiert.",
+       "es": "El mapa muestra la bandera del Reino de 1932 a 1957, la bandera de 1959 de 1959 a 1962, la tricolor roja, blanca y negra con tres estrellas desde el 31 de julio de 1963 de 1963 a 1990, con el takbir entre las estrellas desde enero de 1991 de 1991 a 2003, con el takbir en escritura cúfica desde el 28 de julio de 2004 de 2004 a 2007 y sin estrellas desde el 22 de enero de 2008. En 1958 no se muestra ninguna bandera. Ese año Irak formaba parte de la Federación Árabe, y las fuentes difieren sobre las fechas: el mismo artículo dice que la bandera del Reino se usó hasta el 1 de enero de 1959 y también que la bandera de la federación se usó durante todo 1958. Las fuentes difieren también sobre la bandera del Reino, fechada desde el 10 de julio de 1924 en el artículo pero desde 1921 en Wikimedia Commons, y sobre el día en que se añadió el takbir: el 13 de enero de 1991 según una fuente, el 14 de enero según otra, y la ley de la modificación está fechada el 22 de enero de 1991.",
+       "fr": "La carte montre le drapeau du royaume de 1932 à 1957, le drapeau de 1959 de 1959 à 1962, le tricolore rouge, blanc et noir à trois étoiles à partir du 31 juillet 1963 de 1963 à 1990, avec le takbir entre les étoiles à partir de janvier 1991 de 1991 à 2003, avec le takbir en écriture coufique à partir du 28 juillet 2004 de 2004 à 2007 et sans étoiles à partir du 22 janvier 2008. Aucun drapeau n’est montré pour 1958. Cette année-là, l’Irak faisait partie de la Fédération arabe, et les sources divergent sur les dates. Le même article dit à la fois que le drapeau du royaume a été utilisé jusqu’au 1er janvier 1959 et que celui de la fédération a été utilisé pendant toute l’année 1958. Les sources divergent aussi sur le drapeau du royaume, daté du 10 juillet 1924 dans l’article mais de 1921 sur Wikimedia Commons, et sur le jour où le takbir a été ajouté, le 13 janvier 1991 selon une source, le 14 janvier selon une autre, la loi de modification étant datée du 22 janvier 1991."
       }
      }
     ],
@@ -24193,7 +24313,9 @@
      "wp-us-withdrawal-iraq",
      "cliopatria",
      "wp-iraqi-invasion-kuwait",
-     "wp-unsc-662"
+     "wp-unsc-662",
+     "wp-flag-iraq",
+     "commons-flagga-iraq-1924"
     ],
     "review": "source-checked"
    },
@@ -33437,6 +33559,23 @@
    "file": "data/empires/zambia.json",
    "flags": [
     {
+     "file": "zambia-1964",
+     "from": 1967,
+     "to": 1995,
+     "label": {
+      "sv": "Zambias flagga 1964–1996",
+      "en": "Flag of Zambia 1964–1996",
+      "de": "Flagge Sambias 1964–1996",
+      "es": "Bandera de Zambia de 1964 a 1996",
+      "fr": "Drapeau de la Zambie de 1964 à 1996"
+     },
+     "sources": [
+      "wp-flag-zambia",
+      "commons-flagga-zambia-1964"
+     ],
+     "review": "source-checked"
+    },
+    {
      "file": "zambia",
      "from": 1996,
      "to": 2024,
@@ -36044,6 +36183,59 @@
    "from": 1992,
    "to": 2024,
    "file": "data/empires/belarus.json",
+   "flags": [
+    {
+     "file": "belarus-1991",
+     "from": 1992,
+     "to": 1994,
+     "label": {
+      "sv": "Belarus flagga 1991–1995",
+      "en": "Belarusian flag 1991–1995",
+      "de": "Belarussische Flagge 1991–1995",
+      "es": "Bandera bielorrusa de 1991 a 1995",
+      "fr": "Drapeau biélorusse de 1991 à 1995"
+     },
+     "sources": [
+      "wp-flag-belarus",
+      "commons-flagga-belarus-1991"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "belarus-1995",
+     "from": 1995,
+     "to": 2011,
+     "label": {
+      "sv": "Belarus flagga 1995–2012",
+      "en": "Belarusian flag 1995–2012",
+      "de": "Belarussische Flagge 1995–2012",
+      "es": "Bandera bielorrusa de 1995 a 2012",
+      "fr": "Drapeau biélorusse de 1995 à 2012"
+     },
+     "sources": [
+      "wp-flag-belarus",
+      "commons-flagga-belarus-1995"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "belarus",
+     "from": 2012,
+     "to": 2024,
+     "label": {
+      "sv": "Belarus flagga från 2012",
+      "en": "Belarusian flag of 2012",
+      "de": "Belarussische Flagge von 2012",
+      "es": "Bandera bielorrusa de 2012",
+      "fr": "Drapeau biélorusse de 2012"
+     },
+     "sources": [
+      "wp-flag-belarus",
+      "commons-flagga-belarus"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "belarus",
@@ -37035,6 +37227,24 @@
      "review": "source-checked"
     },
     {
+     "file": "bulgaria-1971",
+     "from": 1971,
+     "to": 1989,
+     "label": {
+      "sv": "Bulgariens flagga 1971–1990",
+      "en": "Flag of Bulgaria, 1971–1990",
+      "de": "Flagge Bulgariens 1971–1990",
+      "es": "Bandera de Bulgaria de 1971 a 1990",
+      "fr": "Drapeau de la Bulgarie de 1971 à 1990"
+     },
+     "sources": [
+      "wp-flag-bulgaria",
+      "commons-emblem-bulgaria-1971",
+      "commons-flagga-bulgaria-1971"
+     ],
+     "review": "source-checked"
+    },
+    {
      "file": "bulgaria",
      "from": 1990,
      "to": 2024,
@@ -37068,6 +37278,24 @@
     }
    ],
    "facts": {
+    "items": [
+     {
+      "label": {
+       "sv": "Flaggan på kartan",
+       "en": "The flag on the map",
+       "de": "Die Flagge auf der Karte",
+       "es": "La bandera en el mapa",
+       "fr": "Le drapeau sur la carte"
+      },
+      "text": {
+       "sv": "Kartan visar trikoloren 1880–1947 och från 1990 och folkrepublikens flagga med emblemet i det vita bandet för 1971–1989, då emblemet fick ett band med årtalen 681 och 1944. Åren 1948–1970 visas ingen flagga. Emblemet ändrades också under 1960-talet, och källorna skiljer sig om när och hur: Wikipedia anger 1967, medan filsidorna för emblemet och flaggan på Wikimedia Commons anger 1968, och artikeln om emblemet säger att vitt vete då ersatte det gyllene, medan teckningarna på Commons har gyllene vete.",
+       "en": "The map shows the tricolour for 1880–1947 and from 1990, and the flag of the People’s Republic with the emblem on the white stripe for 1971–1989, when the emblem received a ribbon with the years 681 and 1944. No flag is shown for 1948–1970. The emblem was also changed in the 1960s, and the sources differ about when and how: Wikipedia gives 1967, while the file pages for the emblem and the flag on Wikimedia Commons give 1968, and the article on the emblem says that white wheat then replaced the gold, while the drawings on Commons have golden wheat.",
+       "de": "Die Karte zeigt die Trikolore für 1880–1947 und ab 1990 sowie die Flagge der Volksrepublik mit dem Emblem im weißen Streifen für 1971–1989, als das Emblem ein Band mit den Jahreszahlen 681 und 1944 erhielt. Für 1948–1970 wird keine Flagge gezeigt. Das Emblem wurde auch in den 1960er-Jahren geändert, und die Quellen weichen voneinander ab, wann und wie: Wikipedia nennt 1967, die Dateiseiten für das Emblem und die Flagge auf Wikimedia Commons nennen 1968, und der Artikel über das Emblem sagt, dass damals weißer Weizen den goldenen ersetzte, während die Zeichnungen auf Commons goldenen Weizen zeigen.",
+       "es": "El mapa muestra la tricolor de 1880 a 1947 y desde 1990, y la bandera de la República Popular con el emblema en la franja blanca de 1971 a 1989, cuando el emblema recibió una cinta con los años 681 y 1944. Entre 1948 y 1970 no se muestra ninguna bandera. El emblema también cambió en la década de 1960, y las fuentes difieren sobre cuándo y cómo: Wikipedia indica 1967, mientras que las páginas de los archivos del emblema y de la bandera en Wikimedia Commons indican 1968, y el artículo sobre el emblema dice que entonces el trigo blanco sustituyó al dorado, mientras que los dibujos de Commons tienen trigo dorado.",
+       "fr": "La carte montre le tricolore de 1880 à 1947 et à partir de 1990, et le drapeau de la République populaire avec l’emblème sur la bande blanche de 1971 à 1989, lorsque l’emblème a reçu un ruban portant les années 681 et 1944. Aucun drapeau n’est montré pour 1948–1970. L’emblème a aussi été modifié dans les années 1960, et les sources divergent sur la date et la forme. Wikipédia indique 1967, tandis que les pages des fichiers de l’emblème et du drapeau sur Wikimedia Commons indiquent 1968, et l’article sur l’emblème dit que du blé blanc a alors remplacé le blé doré, alors que les dessins sur Commons ont du blé doré."
+      }
+     }
+    ],
     "mapNote": {
      "sv": "Cliopatria räknar Bulgarien till Sovjetunionen 1945–1946. Kartan visar i stället Bulgarien de åren, med landets gräns i Cliopatria 1948 (densamma som 1949–1991), enligt Historia-globens beslut att rita den internationellt erkända staten. Cliopatrias gräns 1947 skiljer sig något längs gränsen mot Grekland, och från 1947 visar kartan den gränsen. En allierad kontrollkommission under sovjetiskt ordförandeskap fanns efter vapenstilleståndet 28 oktober 1944, och fredsfördraget i Paris 10 februari 1947 gav landet gränserna från 1 januari 1941, med södra Dobrudja.",
      "en": "Cliopatria counts Bulgaria as part of the Soviet Union in 1945–1946. The map instead shows Bulgaria in those years, with the country's 1948 border in Cliopatria (the same as in 1949–1991), by decision of Historia-globen to show the internationally recognised state. Cliopatria's 1947 border differs slightly along the border with Greece, and from 1947 the map shows that border. An Allied Control Commission chaired by the Soviet Union existed after the armistice of 28 October 1944, and the Paris Peace Treaty of 10 February 1947 gave the country its borders of 1 January 1941, with Southern Dobruja.",
@@ -37078,7 +37306,11 @@
     "sources": [
      "cliopatria",
      "wp-allied-control-commission",
-     "wp-paris-peace-treaties-1947"
+     "wp-paris-peace-treaties-1947",
+     "wp-flag-bulgaria",
+     "wp-emblem-bulgaria-prb",
+     "commons-emblem-bulgaria-1967",
+     "commons-flagga-bulgaria-1967"
     ],
     "review": "source-checked"
    }
@@ -39626,6 +39858,23 @@
    "file": "data/empires/belize.json",
    "flags": [
     {
+     "file": "belize-1981",
+     "from": 1983,
+     "to": 2018,
+     "label": {
+      "sv": "Belizes flagga 1981–2019",
+      "en": "Flag of Belize, 1981–2019",
+      "de": "Flagge von Belize 1981–2019",
+      "es": "Bandera de Belice de 1981 a 2019",
+      "fr": "Drapeau du Belize de 1981 à 2019"
+     },
+     "sources": [
+      "wp-flag-belize",
+      "commons-flagga-belize-1981"
+     ],
+     "review": "source-checked"
+    },
+    {
      "file": "belize",
      "from": 2019,
      "to": 2024,
@@ -39670,17 +39919,18 @@
        "fr": "Le drapeau sur la carte"
       },
       "text": {
-       "sv": "Kungsblått fält med smala röda ränder upptill och nedtill och riksvapnet på en vit skiva. Flaggan antogs 21 september 1981, dagen då Belize blev självständigt. Vapnet beviljades Brittiska Honduras 1907 och påminner om skogsavverkningen som först ledde till den brittiska bosättningen: två män, en mestis och en man av afrikansk härkomst, verktyg, ett mahognyträd och mottot Sub Umbra Floreo (”I skuggan blomstrar jag”). Före 2019 fanns inga fastställda mått, och färgernas nyanser och skuggningen av männen varierade. Kartan visar den standardiserade teckningen från 28 augusti 2019; åren 1983–2018 visas ingen flagga.",
-       "en": "A royal blue field with narrow red stripes at the top and bottom and the national coat of arms on a white disc. The flag was adopted on 21 September 1981, the day Belize became independent. The arms were granted to British Honduras in 1907 and recall the logging that first led to British settlement: two men, a mestizo and a man of African descent, tools, a mahogany tree and the motto Sub Umbra Floreo (“Under the shade I flourish”). Before 2019 there were no fixed specifications, and the shades of the colours and the shading of the men varied. The map shows the standardised drawing from 28 August 2019; no flag is shown for 1983–2018.",
-       "de": "Ein königsblaues Feld mit schmalen roten Streifen oben und unten und dem Staatswappen auf einer weißen Scheibe. Die Flagge wurde am 21. September 1981 angenommen, dem Tag, an dem Belize unabhängig wurde. Das Wappen wurde Britisch-Honduras 1907 verliehen und erinnert an den Holzeinschlag, der zuerst zur britischen Besiedlung führte: zwei Männer, ein Mestize und ein Mann afrikanischer Herkunft, Werkzeuge, ein Mahagonibaum und der Wahlspruch Sub Umbra Floreo („Im Schatten blühe ich“). Vor 2019 gab es keine festgelegten Maße, und die Farbtöne und die Schattierung der Männer schwankten. Die Karte zeigt die standardisierte Zeichnung ab dem 28. August 2019; für 1983–2018 wird keine Flagge gezeigt.",
-       "es": "Un campo azul real con estrechas franjas rojas arriba y abajo y el escudo nacional sobre un disco blanco. La bandera se adoptó el 21 de septiembre de 1981, el día en que Belice se independizó. El escudo se concedió a Honduras Británica en 1907 y recuerda la tala de madera que dio origen al asentamiento británico: dos hombres, un mestizo y un hombre de ascendencia africana, herramientas, un árbol de caoba y el lema Sub Umbra Floreo («Bajo la sombra florezco»). Antes de 2019 no había especificaciones fijas, y los tonos de los colores y el sombreado de los hombres variaban. El mapa muestra el dibujo normalizado desde el 28 de agosto de 2019; entre 1983 y 2018 no se muestra ninguna bandera.",
-       "fr": "Un champ bleu roi avec d’étroites bandes rouges en haut et en bas et les armoiries nationales sur un disque blanc. Le drapeau a été adopté le 21 septembre 1981, jour de l’indépendance du Belize. Les armoiries ont été accordées au Honduras britannique en 1907 et rappellent l’exploitation forestière qui a d’abord conduit à la colonisation britannique : deux hommes, un métis et un homme d’ascendance africaine, des outils, un acajou et la devise Sub Umbra Floreo (« Sous l’ombre je fleuris »). Avant 2019, il n’existait pas de spécifications fixes, et les nuances des couleurs ainsi que l’ombrage des hommes variaient. La carte montre le dessin normalisé à partir du 28 août 2019 ; aucun drapeau n’est montré pour 1983–2018."
+       "sv": "Kungsblått fält med smala röda ränder upptill och nedtill och riksvapnet på en vit skiva. Flaggan antogs 21 september 1981, dagen då Belize blev självständigt. Vapnet beviljades Brittiska Honduras 1907 och påminner om skogsavverkningen som först ledde till den brittiska bosättningen: två män, en mestis och en man av afrikansk härkomst, verktyg, ett mahognyträd och mottot Sub Umbra Floreo (”I skuggan blomstrar jag”). Före 2019 fanns inga fastställda mått, och färgernas nyanser och skuggningen av männen varierade. Kartan visar från 2019 den standardiserade teckningen från 28 augusti 2019 och 1983–2018 en teckning av flaggan före standardiseringen, gjord av en användare på Wikimedia Commons.",
+       "en": "A royal blue field with narrow red stripes at the top and bottom and the national coat of arms on a white disc. The flag was adopted on 21 September 1981, the day Belize became independent. The arms were granted to British Honduras in 1907 and recall the logging that first led to British settlement: two men, a mestizo and a man of African descent, tools, a mahogany tree and the motto Sub Umbra Floreo (“Under the shade I flourish”). Before 2019 there were no fixed specifications, and the shades of the colours and the shading of the men varied. From 2019 the map shows the standardised drawing from 28 August 2019, and for 1983–2018 a drawing of the flag before standardisation made by a Wikimedia Commons user.",
+       "de": "Ein königsblaues Feld mit schmalen roten Streifen oben und unten und dem Staatswappen auf einer weißen Scheibe. Die Flagge wurde am 21. September 1981 angenommen, dem Tag, an dem Belize unabhängig wurde. Das Wappen wurde Britisch-Honduras 1907 verliehen und erinnert an den Holzeinschlag, der zuerst zur britischen Besiedlung führte: zwei Männer, ein Mestize und ein Mann afrikanischer Herkunft, Werkzeuge, ein Mahagonibaum und der Wahlspruch Sub Umbra Floreo („Im Schatten blühe ich“). Vor 2019 gab es keine festgelegten Maße, und die Farbtöne und die Schattierung der Männer schwankten. Die Karte zeigt ab 2019 die standardisierte Zeichnung vom 28. August 2019 und für 1983–2018 eine Zeichnung der Flagge vor der Standardisierung, die ein Nutzer von Wikimedia Commons angefertigt hat.",
+       "es": "Un campo azul real con estrechas franjas rojas arriba y abajo y el escudo nacional sobre un disco blanco. La bandera se adoptó el 21 de septiembre de 1981, el día en que Belice se independizó. El escudo se concedió a Honduras Británica en 1907 y recuerda la tala de madera que dio origen al asentamiento británico: dos hombres, un mestizo y un hombre de ascendencia africana, herramientas, un árbol de caoba y el lema Sub Umbra Floreo («Bajo la sombra florezco»). Antes de 2019 no había especificaciones fijas, y los tonos de los colores y el sombreado de los hombres variaban. Desde 2019, el mapa muestra el dibujo normalizado del 28 de agosto de 2019, y entre 1983 y 2018, un dibujo de la bandera anterior a la normalización hecho por un usuario de Wikimedia Commons.",
+       "fr": "Un champ bleu roi avec d’étroites bandes rouges en haut et en bas et les armoiries nationales sur un disque blanc. Le drapeau a été adopté le 21 septembre 1981, jour de l’indépendance du Belize. Les armoiries ont été accordées au Honduras britannique en 1907 et rappellent l’exploitation forestière qui a d’abord conduit à la colonisation britannique : deux hommes, un métis et un homme d’ascendance africaine, des outils, un acajou et la devise Sub Umbra Floreo (« Sous l’ombre je fleuris »). Avant 2019, il n’existait pas de spécifications fixes, et les nuances des couleurs ainsi que l’ombrage des hommes variaient. À partir de 2019, la carte montre le dessin normalisé du 28 août 2019, et pour 1983–2018 un dessin du drapeau d’avant la normalisation réalisé par un utilisateur de Wikimedia Commons."
       }
      }
     ],
     "sources": [
      "wp-flag-belize",
-     "commons-flagga-belize"
+     "commons-flagga-belize",
+     "commons-flagga-belize-1981"
     ],
     "review": "source-checked"
    }
@@ -41502,6 +41752,71 @@
    "from": 1000,
    "to": 1546,
    "file": "data/empires/kungariket-ungern.json",
+   "facts": {
+    "items": [
+     {
+      "label": {
+       "sv": "Symbolen på kartan",
+       "en": "The symbol on the map",
+       "de": "Das Symbol auf der Karte",
+       "es": "El símbolo en el mapa",
+       "fr": "Le symbole sur la carte"
+      },
+      "text": {
+       "sv": "Det silverfärgade dubbelkorset på röd sköld, efter Béla III:s vapen. Dubbelkorset blev kungamaktens tecken under Béla III (1172–1196), som hade vuxit upp vid kejsarhovet i Konstantinopel, och syns då för första gången i hans vapen och på hans mynt. Artikeln om Ungerns vapen ger inget exakt år, och artikeln om dubbelkorset anger ”åtminstone sedan 1190” utan egen källhänvisning. Därför visas symbolen från 1196, Béla III:s sista år. Sigill och mynt har inga färger: silver på rött beskriver källan först för Stefan V (1270–1272) och Andreas III (1290–1301). Teckningen och färgerna är en nutida rekonstruktion efter Béla III:s sigill. Árpádränderna syns första gången på kung Emmerichs sigill från 1202, då med lejon i ränderna (nio på Emmerichs sigill, sju på Andreas II:s gyllene bulla från 1222). Det randiga vapnet användes bara en kort tid, och på Béla IV:s (1235–1270) mynt och sigill kommer dubbelkorset tillbaka. Åren 1202–1234 visas därför ingen symbol. Anjoukungarna förde efter 1301 i själva vapnet ränderna tillsammans med Anjous liljor (Karl I), och på sigillens baksida stod dubbelkorset som landets tecken. Ludvig I förde enligt artikeln, utan källhänvisning, ränder och dubbelkors i fyra fält. Den kombinerade skölden med ränder och dubbelkors visas inte, eftersom källorna inte ger något belagt första år för den. Före 1196 visas ingen symbol.",
+       "en": "The silver double cross on a red shield, after the arms of Béla III. The double cross became the sign of royal power under Béla III (1172–1196), who had grown up at the imperial court in Constantinople, and it then appears for the first time in his arms and on his coins. The article on the coat of arms of Hungary gives no exact year, and the article on the double cross states “at least since 1190” without a citation of its own. The symbol is therefore shown from 1196, the last year of Béla III. Seals and coins have no colours: the source first describes silver on red for Stephen V (1270–1272) and Andrew III (1290–1301). The drawing and its colours are a modern reconstruction after the seal of Béla III. The Árpád stripes first appear on the seal of King Emeric from 1202, then with lions in the stripes (nine on Emeric’s seal, seven on the golden bull of Andrew II from 1222). The striped arms were used only for a short time, and on the coins and seals of Béla IV (1235–1270) the double cross returns. No symbol is therefore shown for 1202–1234. After 1301 the Angevin kings bore the stripes together with the Angevin lilies in the arms themselves (Charles I), and on the reverse of their seals the double cross stood as the sign of the country. According to the article, without a citation, Louis I bore the stripes and the double cross quartered. The combined shield with stripes and double cross is not shown, because the sources give no attested first year for it. Before 1196 no symbol is shown.",
+       "de": "Das silberne Doppelkreuz auf rotem Schild, nach dem Wappen Bélas III. Das Doppelkreuz wurde unter Béla III. (1172–1196), der am Kaiserhof in Konstantinopel aufgewachsen war, zum Zeichen der königlichen Macht und erscheint damals zum ersten Mal in seinem Wappen und auf seinen Münzen. Der Artikel über das Wappen Ungarns nennt kein genaues Jahr, und der Artikel über das Doppelkreuz gibt „mindestens seit 1190“ ohne eigenen Beleg an. Deshalb wird das Symbol ab 1196 gezeigt, dem letzten Jahr Bélas III. Siegel und Münzen haben keine Farben: Silber auf Rot beschreibt die Quelle erst für Stephan V. (1270–1272) und Andreas III. (1290–1301). Zeichnung und Farben sind eine heutige Rekonstruktion nach dem Siegel Bélas III. Die Árpádstreifen erscheinen zuerst auf dem Siegel König Emmerichs von 1202, damals mit Löwen in den Streifen (neun auf Emmerichs Siegel, sieben auf der Goldenen Bulle Andreas’ II. von 1222). Das gestreifte Wappen wurde nur kurze Zeit verwendet, und auf den Münzen und Siegeln Bélas IV. (1235–1270) kehrt das Doppelkreuz zurück. Für 1202–1234 wird deshalb kein Symbol gezeigt. Die Anjou-Könige führten nach 1301 im Wappen selbst die Streifen zusammen mit den Lilien der Anjou (Karl I.), und auf der Rückseite ihrer Siegel stand das Doppelkreuz als Zeichen des Landes. Ludwig I. führte laut dem Artikel, ohne Beleg, Streifen und Doppelkreuz geviert. Der kombinierte Schild mit Streifen und Doppelkreuz wird nicht gezeigt, weil die Quellen kein belegtes erstes Jahr dafür nennen. Vor 1196 wird kein Symbol gezeigt.",
+       "es": "La cruz doble de plata sobre escudo rojo, según el escudo de Béla III. La cruz doble se convirtió en signo del poder real bajo Béla III (1172–1196), que se había criado en la corte imperial de Constantinopla, y aparece entonces por primera vez en su escudo y en sus monedas. El artículo sobre el escudo de Hungría no da un año exacto, y el artículo sobre la cruz doble indica «al menos desde 1190» sin cita propia. Por eso el símbolo se muestra desde 1196, el último año de Béla III. Los sellos y las monedas no tienen colores: la fuente describe la plata sobre rojo por primera vez para Esteban V (1270–1272) y Andrés III (1290–1301). El dibujo y sus colores son una reconstrucción actual según el sello de Béla III. Las franjas de Árpád aparecen por primera vez en el sello del rey Emerico de 1202, entonces con leones en las franjas (nueve en el sello de Emerico, siete en la bula de oro de Andrés II de 1222). El escudo de franjas se usó solo durante poco tiempo, y en las monedas y sellos de Béla IV (1235–1270) vuelve la cruz doble. Por eso no se muestra ningún símbolo en 1202–1234. Después de 1301 los reyes angevinos llevaron en el propio escudo las franjas junto con las lises de Anjou (Carlos I), y en el reverso de sus sellos figuraba la cruz doble como signo del país. Según el artículo, sin cita, Luis I llevó las franjas y la cruz doble en cuatro cuarteles. El escudo combinado con franjas y cruz doble no se muestra, porque las fuentes no dan ningún primer año documentado para él. Antes de 1196 no se muestra ningún símbolo.",
+       "fr": "La croix double d’argent sur écu rouge, d’après les armoiries de Béla III. La croix double devint le signe du pouvoir royal sous Béla III (1172–1196), qui avait grandi à la cour impériale de Constantinople, et elle apparaît alors pour la première fois dans ses armoiries et sur ses monnaies. L’article sur les armoiries de la Hongrie ne donne pas d’année exacte, et l’article sur la croix double indique « au moins depuis 1190 » sans citation propre. Le symbole est donc affiché à partir de 1196, dernière année de Béla III. Les sceaux et les monnaies n’ont pas de couleurs : la source ne décrit l’argent sur rouge qu’à partir d’Étienne V (1270–1272) et d’André III (1290–1301). Le dessin et ses couleurs sont une reconstitution moderne d’après le sceau de Béla III. Les bandes d’Árpád apparaissent pour la première fois sur le sceau du roi Émeric de 1202, alors avec des lions dans les bandes (neuf sur le sceau d’Émeric, sept sur la bulle d’or d’André II de 1222). Les armoiries à bandes ne furent utilisées que peu de temps, et sur les monnaies et les sceaux de Béla IV (1235–1270) la croix double revient. Aucun symbole n’est donc affiché pour 1202–1234. Après 1301, les rois angevins portèrent dans les armoiries elles-mêmes les bandes avec les lis d’Anjou (Charles Ier), et au revers de leurs sceaux figurait la croix double comme signe du pays. Selon l’article, sans citation, Louis Ier porta les bandes et la croix double écartelées. L’écu combiné avec bandes et croix double n’est pas affiché, car les sources ne donnent aucune première année attestée pour lui. Avant 1196, aucun symbole n’est affiché."
+      }
+     }
+    ],
+    "sources": [
+     "wp-coat-of-arms-hungary",
+     "wp-patriarchal-cross",
+     "wp-arpad-stripes",
+     "commons-vapen-bela-iii"
+    ],
+    "review": "source-checked"
+   },
+   "flags": [
+    {
+     "file": "hungary-double-cross",
+     "from": 1196,
+     "to": 1201,
+     "kind": "symbol",
+     "label": {
+      "sv": "Silverfärgat dubbelkors på röd sköld",
+      "en": "Silver double cross on a red shield",
+      "de": "Silbernes Doppelkreuz auf rotem Schild",
+      "es": "Cruz doble de plata sobre escudo rojo",
+      "fr": "Croix double d’argent sur écu rouge"
+     },
+     "sources": [
+      "wp-coat-of-arms-hungary",
+      "commons-vapen-bela-iii"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "hungary-double-cross",
+     "from": 1235,
+     "to": 1546,
+     "kind": "symbol",
+     "label": {
+      "sv": "Silverfärgat dubbelkors på röd sköld",
+      "en": "Silver double cross on a red shield",
+      "de": "Silbernes Doppelkreuz auf rotem Schild",
+      "es": "Cruz doble de plata sobre escudo rojo",
+      "fr": "Croix double d’argent sur écu rouge"
+     },
+     "sources": [
+      "wp-coat-of-arms-hungary",
+      "commons-vapen-bela-iii"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "kungariket-ungern",
@@ -45168,6 +45483,547 @@
      "review": "source-checked"
     }
    ]
+  },
+  {
+   "id": "chu",
+   "name": {
+    "sv": "Chu",
+    "en": "Chu",
+    "de": "Chu",
+    "es": "Estado Chu",
+    "fr": "Chu"
+   },
+   "color": "#b0603a",
+   "from": -749,
+   "to": -223,
+   "file": "data/empires/chu.json",
+   "polities": [
+    {
+     "id": "chu",
+     "name": {
+      "sv": "Chu",
+      "en": "Chu",
+      "de": "Chu",
+      "es": "Estado Chu",
+      "fr": "Chu"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Källorna skiljer sig om början: Wikipedia anger omkring 1030–223 f.Kr. och Wikidata 722–223 f.Kr. Enligt Wikipedia var Chu en forntida kinesisk stat under Zhoudynastin, söder om Zhous kärnland, och den annekterades av Qin 223 f.Kr. Kartan visar staten 750–224 f.Kr., som Cliopatria. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ on the beginning: Wikipedia gives c. 1030–223 BC and Wikidata 722–223 BC. According to Wikipedia, Chu was an ancient Chinese state during the Zhou dynasty, south of the Zhou heartland, and it was annexed by Qin in 223 BC. The map shows the state in 750–224 BC, as in Cliopatria. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Die Quellen weichen beim Beginn voneinander ab: Wikipedia nennt um 1030–223 v. Chr. und Wikidata 722–223 v. Chr. Laut Wikipedia war Chu ein altchinesischer Staat zur Zeit der Zhou-Dynastie, südlich des Kernlands der Zhou, und wurde 223 v. Chr. von Qin annektiert. Die Karte zeigt den Staat wie Cliopatria 750–224 v. Chr. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren sobre el comienzo: Wikipedia indica hacia 1030–223 a. C. y Wikidata 722–223 a. C. Según Wikipedia, Chu fue un antiguo Estado chino durante la dinastía Zhou, al sur del núcleo de los Zhou, y fue anexionado por Qin en 223 a. C. El mapa muestra el Estado en 750–224 a. C., como Cliopatria. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent sur le début : Wikipédia indique vers 1030–223 av. J.-C. et Wikidata 722–223 av. J.-C. Selon Wikipédia, Chu était un ancien État chinois de l’époque de la dynastie Zhou, au sud du cœur du territoire des Zhou, et il fut annexé par Qin en 223 av. J.-C. La carte montre l’État en 750–224 av. J.-C., comme Cliopatria. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-chu-state",
+     "wd-chu-state",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "western-satraps",
+   "name": {
+    "sv": "Western Satraps",
+    "en": "Western Satraps",
+    "de": "Western Satraps",
+    "es": "Sátrapas occidentales",
+    "fr": "Satrapes occidentaux"
+   },
+   "color": "#9a7a3a",
+   "from": 43,
+   "to": 409,
+   "file": "data/empires/western-satraps.json",
+   "polities": [
+    {
+     "id": "western-satraps",
+     "name": {
+      "sv": "Western Satraps",
+      "en": "Western Satraps",
+      "de": "Western Satraps",
+      "es": "Sátrapas occidentales",
+      "fr": "Satrapes occidentaux"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Källorna skiljer sig om slutet: Wikipedia anger 35–415 och Wikidata 35–405. Enligt Wikipedia var Western Satraps sakiska (indoskytiska) härskare i västra och centrala Indien, samtida med Kushan och möjligen deras vasaller, och de besegrades till slut av guptakejsaren Chandragupta II. Kartan visar riket 43–409, som Cliopatria; Cliopatrias poster 476–489 saknar yta och visas inte. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ on the end: Wikipedia gives 35–415 and Wikidata 35–405. According to Wikipedia, the Western Satraps were Saka (Indo-Scythian) rulers of western and central India, contemporaries of the Kushans and possibly their vassals, and they were finally defeated by the Gupta emperor Chandragupta II. The map shows the realm in 43–409, as in Cliopatria; Cliopatria’s entries for 476–489 have no area and are not shown. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Die Quellen weichen beim Ende voneinander ab: Wikipedia nennt 35–415 und Wikidata 35–405. Laut Wikipedia waren die Western Satraps sakische (indoskythische) Herrscher im westlichen und zentralen Indien, Zeitgenossen der Kuschana und möglicherweise deren Vasallen, und sie wurden schließlich vom Gupta-Kaiser Chandragupta II. besiegt. Die Karte zeigt das Reich wie Cliopatria 43–409; die Einträge von Cliopatria für 476–489 haben keine Fläche und werden nicht gezeigt. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren sobre el final: Wikipedia indica 35–415 y Wikidata 35–405. Según Wikipedia, los sátrapas occidentales fueron gobernantes sakas (indoescitas) del oeste y el centro de la India, contemporáneos de los kushanes y posiblemente sus vasallos, y fueron finalmente derrotados por el emperador gupta Chandragupta II. El mapa muestra el reino en 43–409, como Cliopatria; las entradas de Cliopatria para 476–489 no tienen superficie y no se muestran. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent sur la fin : Wikipédia indique 35–415 et Wikidata 35–405. Selon Wikipédia, les satrapes occidentaux étaient des souverains saces (indo-scythes) de l’ouest et du centre de l’Inde, contemporains des Kouchans et peut-être leurs vassaux, et ils furent finalement vaincus par l’empereur gupta Chandragupta II. La carte montre le royaume en 43–409, comme Cliopatria ; les entrées de Cliopatria pour 476–489 n’ont pas de superficie et ne sont pas affichées. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-western-satraps",
+     "wd-western-satraps",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "zhoudynastin",
+   "name": {
+    "sv": "Zhoudynastin",
+    "en": "Zhou dynasty",
+    "de": "Zhou-Dynastie",
+    "es": "Dinastía Zhou",
+    "fr": "Dynastie Zhou"
+   },
+   "color": "#a04a4a",
+   "from": -999,
+   "to": -750,
+   "file": "data/empires/zhoudynastin.json",
+   "polities": [
+    {
+     "id": "zhoudynastin",
+     "name": {
+      "sv": "Zhoudynastin",
+      "en": "Zhou dynasty",
+      "de": "Zhou-Dynastie",
+      "es": "Dinastía Zhou",
+      "fr": "Dynastie Zhou"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Källorna skiljer sig om början. Wikipedia anger omkring 1046–256 f.Kr. och skriver att 1046 f.Kr. följer Xia–Shang–Zhou-projektets kronologi, medan historiker har föreslagit år mellan 1122 och 1027 f.Kr. för slaget vid Muye, där dynastin började. Wikidata anger tre startår, 1046 f.Kr. (föredraget), 1027 f.Kr. och 1100 f.Kr. (på ett århundrade när), och slutet 256 f.Kr. Enligt Wikipedia kallas tiden till 771 f.Kr. västra Zhou, och dynastin tog slut när Qin avsatte den siste kungen 256 f.Kr. Kartan visar riket bara 1000–751 f.Kr., som Cliopatria, med en enda gräns för hela tiden. Östra Zhou efter 751 f.Kr. har ingen egen yta, eftersom Cliopatria delar området i flera stater, bland dem Chu. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ on the beginning. Wikipedia gives c. 1046–256 BC and writes that 1046 BC follows the chronology of the Xia–Shang–Zhou Chronology Project, while historians have proposed dates between 1122 and 1027 BC for the Battle of Muye, where the dynasty began. Wikidata gives three start years, 1046 BC (preferred), 1027 BC and 1100 BC (to the century), and the end 256 BC. According to Wikipedia, the period until 771 BC is called Western Zhou, and the dynasty ended when Qin deposed the last king in 256 BC. The map shows the realm only in 1000–751 BC, as in Cliopatria, with a single border for the whole period. Eastern Zhou after 751 BC has no area of its own, because Cliopatria divides the area into several states, among them Chu. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Die Quellen weichen beim Beginn voneinander ab. Wikipedia nennt um 1046–256 v. Chr. und schreibt, dass 1046 v. Chr. der Chronologie des Xia-Shang-Zhou-Projekts folgt, während Historiker für die Schlacht von Muye, mit der die Dynastie begann, Jahre zwischen 1122 und 1027 v. Chr. vorgeschlagen haben. Wikidata nennt drei Anfangsjahre, 1046 v. Chr. (bevorzugt), 1027 v. Chr. und 1100 v. Chr. (auf ein Jahrhundert genau), und das Ende 256 v. Chr. Laut Wikipedia heißt die Zeit bis 771 v. Chr. Westliche Zhou, und die Dynastie endete, als Qin 256 v. Chr. den letzten König absetzte. Die Karte zeigt das Reich wie Cliopatria nur 1000–751 v. Chr., mit einer einzigen Grenze für die ganze Zeit. Die Östliche Zhou nach 751 v. Chr. hat keine eigene Fläche, weil Cliopatria das Gebiet in mehrere Staaten teilt, darunter Chu. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren sobre el comienzo. Wikipedia indica hacia 1046–256 a. C. y escribe que 1046 a. C. sigue la cronología del Proyecto de Cronología Xia-Shang-Zhou, mientras que los historiadores han propuesto años entre 1122 y 1027 a. C. para la batalla de Muye, con la que comenzó la dinastía. Wikidata indica tres años de inicio, 1046 a. C. (preferente), 1027 a. C. y 1100 a. C. (con precisión de siglo), y el final en 256 a. C. Según Wikipedia, el periodo hasta 771 a. C. se llama Zhou occidental, y la dinastía terminó cuando Qin depuso al último rey en 256 a. C. El mapa muestra el reino solo en 1000–751 a. C., como Cliopatria, con una única frontera para todo el periodo. Los Zhou orientales después de 751 a. C. no tienen superficie propia, porque Cliopatria divide la zona en varios Estados, entre ellos Chu. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent sur le début. Wikipédia indique vers 1046–256 av. J.-C. et écrit que 1046 av. J.-C. suit la chronologie du projet de chronologie Xia-Shang-Zhou, tandis que des historiens ont proposé des années entre 1122 et 1027 av. J.-C. pour la bataille de Muye, qui marqua le début de la dynastie. Wikidata indique trois années de début, 1046 av. J.-C. (privilégiée), 1027 av. J.-C. et 1100 av. J.-C. (au siècle près), et la fin en 256 av. J.-C. Selon Wikipédia, la période jusqu’en 771 av. J.-C. est appelée Zhou occidentaux, et la dynastie prit fin lorsque Qin déposa le dernier roi en 256 av. J.-C. La carte montre le royaume seulement en 1000–751 av. J.-C., comme Cliopatria, avec une seule frontière pour toute la période. Les Zhou orientaux après 751 av. J.-C. n’ont pas de surface propre, car Cliopatria divise la région en plusieurs États, parmi lesquels Chu. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-zhou-dynasty",
+     "wd-zhou-dynasty",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "kungariket-armenien",
+   "name": {
+    "sv": "Kungariket Armenien",
+    "en": "Kingdom of Armenia",
+    "de": "Großarmenien",
+    "es": "Reino de Armenia",
+    "fr": "Royaume d’Arménie"
+   },
+   "color": "#c07a3a",
+   "from": -325,
+   "to": 428,
+   "file": "data/empires/kungariket-armenien.json",
+   "polities": [
+    {
+     "id": "kungariket-armenien",
+     "name": {
+      "sv": "Kungariket Armenien",
+      "en": "Kingdom of Armenia",
+      "de": "Großarmenien",
+      "es": "Reino de Armenia",
+      "fr": "Royaume d’Arménie"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Källorna skiljer sig om början. Engelska Wikipedia anger i inledningen 189 f.Kr.–428, från Artaxias I:s tid, och nämner i faktarutan också 331 f.Kr. (orontidernas självstyre) och omkring 533 f.Kr. (satrapin Armenien); Wikidata anger 553 f.Kr.–428. Enligt Wikipedia delades riket 387 mellan Östrom och Sasanidriket, och 428 avsattes den siste arsakidiske kungen, varefter sasaniderna tillsatte en ståthållare. Kartan visar riket 326 f.Kr.–428 med Cliopatrias gräns. Cliopatria saknar en gräns för riket 210–189 f.Kr. (utom en fläck på 294 km² 208–207 f.Kr., som inte visas), 60–67, 114–153, 161–164, 260–286, 371–386 och 396–401, så det syns inte de åren. Cliopatria har riket också 451–489 och 638–646, men de åren ligger efter rikets slut och visas inte. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ on the beginning. English Wikipedia gives 189 BC–428 AD in its introduction, from the reign of Artaxias I, and its infobox also names 331 BC (Orontid autonomy) and c. 533 BC (the satrapy of Armenia); Wikidata gives 553 BC–428 AD. According to Wikipedia, the kingdom was partitioned in 387 between the Eastern Roman Empire and the Sasanian Empire, and in 428 the last Arsacid king was deposed, after which the Sasanians installed a governor. The map shows the kingdom in 326 BC–428 AD with Cliopatria’s border. Cliopatria has no border for the kingdom in 210–189 BC (except a patch of 294 km² in 208–207 BC, which is not shown), 60–67, 114–153, 161–164, 260–286, 371–386 and 396–401, so it is not shown in those years. Cliopatria also has the kingdom in 451–489 and 638–646, but those years are after the kingdom’s end and are not shown. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Die Quellen weichen beim Beginn voneinander ab. Die englische Wikipedia nennt in der Einleitung 189 v. Chr.–428 n. Chr., ab der Herrschaft von Artaxias I., und in der Infobox auch 331 v. Chr. (Autonomie der Orontiden) und um 533 v. Chr. (die Satrapie Armenien); Wikidata nennt 553 v. Chr.–428 n. Chr. Laut Wikipedia wurde das Reich 387 zwischen Ostrom und dem Sassanidenreich geteilt, und 428 wurde der letzte arsakidische König abgesetzt, worauf die Sassaniden einen Statthalter einsetzten. Die Karte zeigt das Königreich 326 v. Chr.–428 n. Chr. mit der Grenze von Cliopatria. Cliopatria hat für 210–189 v. Chr. (bis auf einen Fleck von 294 km² 208–207 v. Chr., der nicht gezeigt wird), 60–67, 114–153, 161–164, 260–286, 371–386 und 396–401 keine Grenze des Königreichs, daher ist es in diesen Jahren nicht zu sehen. Cliopatria hat das Königreich auch 451–489 und 638–646, doch diese Jahre liegen nach dem Ende des Königreichs und werden nicht gezeigt. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren sobre el comienzo. La Wikipedia en inglés indica en la introducción 189 a. C.–428 d. C., desde el reinado de Artaxias I, y en la ficha menciona también 331 a. C. (autonomía de los orontidas) y hacia 533 a. C. (la satrapía de Armenia); Wikidata indica 553 a. C.–428 d. C. Según Wikipedia, el reino fue repartido en 387 entre el Imperio romano de Oriente y el Imperio sasánida, y en 428 fue depuesto el último rey arsácida, tras lo cual los sasánidas nombraron un gobernador. El mapa muestra el reino en 326 a. C.–428 d. C. con la frontera de Cliopatria. Cliopatria no tiene frontera del reino en 210–189 a. C. (salvo una mancha de 294 km² en 208–207 a. C., que no se muestra), 60–67, 114–153, 161–164, 260–286, 371–386 y 396–401, por lo que no se ve en esos años. Cliopatria tiene el reino también en 451–489 y 638–646, pero esos años son posteriores al fin del reino y no se muestran. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent sur le début. La Wikipédia en anglais indique dans son introduction 189 av. J.-C.–428 apr. J.-C., à partir du règne d’Artaxias Ier, et son infobox mentionne aussi 331 av. J.-C. (autonomie des Orontides) et vers 533 av. J.-C. (la satrapie d’Arménie) ; Wikidata indique 553 av. J.-C.–428 apr. J.-C. Selon Wikipédia, le royaume fut partagé en 387 entre l’Empire romain d’Orient et l’Empire sassanide, et en 428 le dernier roi arsacide fut déposé, après quoi les Sassanides installèrent un gouverneur. La carte montre le royaume en 326 av. J.-C.–428 apr. J.-C. avec la frontière de Cliopatria. Cliopatria n’a pas de frontière pour le royaume en 210–189 av. J.-C. (sauf une tache de 294 km² en 208–207 av. J.-C., qui n’est pas affichée), 60–67, 114–153, 161–164, 260–286, 371–386 et 396–401, si bien qu’il n’apparaît pas ces années-là. Cliopatria place aussi le royaume en 451–489 et en 638–646, mais ces années sont postérieures à la fin du royaume et ne sont pas affichées. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-armenia-antiquity",
+     "wd-kingdom-of-armenia",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "himyaritiska-riket",
+   "name": {
+    "sv": "Himyaritiska riket",
+    "en": "Himyar",
+    "de": "Himyar",
+    "es": "Himyar",
+    "fr": "Himyar"
+   },
+   "color": "#5a8a6a",
+   "from": -109,
+   "to": 533,
+   "file": "data/empires/himyaritiska-riket.json",
+   "polities": [
+    {
+     "id": "himyaritiska-riket",
+     "name": {
+      "sv": "Himyaritiska riket",
+      "en": "Himyar",
+      "de": "Himyar",
+      "es": "Himyar",
+      "fr": "Himyar"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Källorna skiljer sig om slutet: Wikipedia anger 110 f.Kr.–575 eller 578 och Wikidata 110 f.Kr.–525. Enligt engelska Wikipedia var huvudstaden Zafar, och riket annekterades till slut av Sasanidriket; svenska Wikipedia skriver att riket erövrades av de kristna kungarna i Aksum 525. Kartan visar riket 110 f.Kr.–533 med Cliopatrias gräns. Cliopatrias poster 534–576 är bara 167 km² och 577–601 ligger efter båda källornas slut, så de visas inte. 283–352 ritar Cliopatria en del av samma område också till Aksumriket. Under stora delar av 66 f.Kr.–105 når Cliopatrias gräns längs Röda havet norrut till omkring 26° N. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ on the end: Wikipedia gives 110 BC–575 or 578 AD and Wikidata 110 BC–525 AD. According to English Wikipedia, the capital was Zafar, and the kingdom was finally annexed by the Sasanian Empire; Swedish Wikipedia writes that the kingdom was conquered by the Christian kings of Aksum in 525. The map shows the kingdom in 110 BC–533 AD with Cliopatria’s border. Cliopatria’s entries for 534–576 cover only 167 km² and those for 577–601 are after the end given by both sources, so they are not shown. In 283–352 Cliopatria also assigns part of the same area to the Kingdom of Aksum. For much of 66 BC–105 AD Cliopatria’s border reaches north along the Red Sea to about 26° N. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Die Quellen weichen beim Ende voneinander ab: Wikipedia nennt 110 v. Chr.–575 oder 578 n. Chr. und Wikidata 110 v. Chr.–525 n. Chr. Laut der englischen Wikipedia war Zafar die Hauptstadt, und das Reich wurde schließlich vom Sassanidenreich annektiert; die schwedische Wikipedia schreibt, dass das Reich 525 von den christlichen Königen von Aksum erobert wurde. Die Karte zeigt das Reich 110 v. Chr.–533 n. Chr. mit der Grenze von Cliopatria. Die Einträge von Cliopatria für 534–576 umfassen nur 167 km², und die für 577–601 liegen nach dem Ende, das beide Quellen nennen; sie werden daher nicht gezeigt. 283–352 rechnet Cliopatria einen Teil desselben Gebiets auch dem Reich von Aksum zu. Während großer Teile von 66 v. Chr.–105 n. Chr. reicht die Grenze von Cliopatria am Roten Meer entlang nach Norden bis etwa 26° N. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren sobre el final: Wikipedia indica 110 a. C.–575 o 578 d. C. y Wikidata 110 a. C.–525 d. C. Según la Wikipedia en inglés, la capital era Zafar, y el reino fue finalmente anexionado por el Imperio sasánida; la Wikipedia en sueco escribe que el reino fue conquistado por los reyes cristianos de Aksum en 525. El mapa muestra el reino en 110 a. C.–533 d. C. con la frontera de Cliopatria. Las entradas de Cliopatria para 534–576 abarcan solo 167 km² y las de 577–601 son posteriores al final que indican ambas fuentes, por lo que no se muestran. En 283–352 Cliopatria asigna también parte de la misma zona al Reino de Aksum. Durante gran parte de 66 a. C.–105 d. C. la frontera de Cliopatria llega hacia el norte a lo largo del mar Rojo hasta unos 26° N. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent sur la fin : Wikipédia indique 110 av. J.-C.–575 ou 578 apr. J.-C. et Wikidata 110 av. J.-C.–525 apr. J.-C. Selon la Wikipédia en anglais, la capitale était Zafar, et le royaume fut finalement annexé par l’Empire sassanide ; la Wikipédia en suédois écrit que le royaume fut conquis par les rois chrétiens d’Aksoum en 525. La carte montre le royaume en 110 av. J.-C.–533 apr. J.-C. avec la frontière de Cliopatria. Les entrées de Cliopatria pour 534–576 ne couvrent que 167 km² et celles pour 577–601 sont postérieures à la fin indiquée par les deux sources ; elles ne sont donc pas affichées. En 283–352, Cliopatria attribue aussi une partie de la même région au royaume d’Aksoum. Pendant une grande partie de 66 av. J.-C.–105 apr. J.-C., la frontière de Cliopatria s’étend vers le nord le long de la mer Rouge jusqu’à environ 26° N. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-himyarite-kingdom",
+     "wd-himyarite-kingdom",
+     "wp-sv-himyariter",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "liu-song",
+   "name": {
+    "sv": "Liu Song",
+    "en": "Liu Song dynasty",
+    "de": "Frühere Song-Dynastie",
+    "es": "Dinastía Liu Song",
+    "fr": "Dynastie Song du Sud (420–479)"
+   },
+   "color": "#6a7aa0",
+   "from": 426,
+   "to": 479,
+   "file": "data/empires/liu-song.json",
+   "polities": [
+    {
+     "id": "liu-song",
+     "name": {
+      "sv": "Liu Song",
+      "en": "Liu Song dynasty",
+      "de": "Frühere Song-Dynastie",
+      "es": "Dinastía Liu Song",
+      "fr": "Dynastie Song du Sud (420–479)"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Wikipedia och Wikidata anger 420–479. Enligt Wikipedia grundades dynastin av Liu Yu, huvudstaden var Jiankang (dagens Nanjing), och den följdes av Södra Qi. Kartan visar riket 426–479, som Cliopatria. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "Wikipedia and Wikidata give 420–479. According to Wikipedia, the dynasty was founded by Liu Yu, its capital was Jiankang (present-day Nanjing), and it was succeeded by the Southern Qi. The map shows the realm in 426–479, as in Cliopatria. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Wikipedia und Wikidata nennen 420–479. Laut Wikipedia wurde die Dynastie von Liu Yu gegründet, ihre Hauptstadt war Jiankang (das heutige Nanjing), und auf sie folgte die Südliche Qi. Die Karte zeigt das Reich wie Cliopatria 426–479. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Wikipedia y Wikidata indican 420–479. Según Wikipedia, la dinastía fue fundada por Liu Yu, su capital era Jiankang (la actual Nankín) y le sucedió la dinastía Qi del Sur. El mapa muestra el reino en 426–479, como Cliopatria. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Wikipédia et Wikidata indiquent 420–479. Selon Wikipédia, la dynastie fut fondée par Liu Yu, sa capitale était Jiankang (l’actuelle Nankin), et les Qi du Sud lui succédèrent. La carte montre le royaume en 426–479, comme Cliopatria. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-liu-song-dynasty",
+     "wd-liu-song-dynasty",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "sunga",
+   "name": {
+    "sv": "Sunga",
+    "en": "Shunga Empire",
+    "de": "Shunga-Dynastie",
+    "es": "Imperio shunga",
+    "fr": "Dynastie Shunga"
+   },
+   "color": "#8aa05a",
+   "from": -169,
+   "to": -72,
+   "file": "data/empires/sunga.json",
+   "polities": [
+    {
+     "id": "sunga",
+     "name": {
+      "sv": "Sunga",
+      "en": "Shunga Empire",
+      "de": "Shunga-Dynastie",
+      "es": "Imperio shunga",
+      "fr": "Dynastie Shunga"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Källorna skiljer sig om början och slutet: Wikipedias faktaruta anger 185–73 f.Kr. och inledningen omkring 187–75 f.Kr., och Wikidata anger 185–75 f.Kr. Enligt Wikipedia grundades riket av Pushyamitra Shunga efter Mauryariket, huvudstaden var Pataliputra, och det följdes av Kanvadynastin. Kartan visar riket 170–73 f.Kr. med Cliopatrias gräns; Cliopatria har riket till 67 f.Kr., efter källornas slut. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ on the beginning and the end: Wikipedia’s infobox gives 185–73 BC and its introduction c. 187–75 BC, and Wikidata gives 185–75 BC. According to Wikipedia, the empire was founded by Pushyamitra Shunga after the Maurya Empire, its capital was Pataliputra, and it was succeeded by the Kanva dynasty. The map shows the empire in 170–73 BC with Cliopatria’s border; Cliopatria has the empire until 67 BC, after the end given by the sources. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Die Quellen weichen bei Beginn und Ende voneinander ab: Die Infobox der Wikipedia nennt 185–73 v. Chr. und die Einleitung um 187–75 v. Chr., Wikidata nennt 185–75 v. Chr. Laut Wikipedia wurde das Reich von Pushyamitra Shunga nach dem Maurya-Reich gegründet, seine Hauptstadt war Pataliputra, und auf es folgte die Kanva-Dynastie. Die Karte zeigt das Reich 170–73 v. Chr. mit der Grenze von Cliopatria; Cliopatria hat das Reich bis 67 v. Chr., nach dem Ende, das die Quellen nennen. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren sobre el comienzo y el final: la ficha de Wikipedia indica 185–73 a. C. y la introducción hacia 187–75 a. C., y Wikidata indica 185–75 a. C. Según Wikipedia, el imperio fue fundado por Pushyamitra Shunga tras el Imperio maurya, su capital era Pataliputra y le sucedió la dinastía Kanva. El mapa muestra el imperio en 170–73 a. C. con la frontera de Cliopatria; Cliopatria tiene el imperio hasta 67 a. C., después del final que indican las fuentes. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent sur le début et la fin : l’infobox de Wikipédia indique 185–73 av. J.-C. et son introduction vers 187–75 av. J.-C., et Wikidata indique 185–75 av. J.-C. Selon Wikipédia, l’empire fut fondé par Pushyamitra Shunga après l’Empire maurya, sa capitale était Pataliputra, et la dynastie Kanva lui succéda. La carte montre l’empire en 170–73 av. J.-C. avec la frontière de Cliopatria ; Cliopatria place l’empire jusqu’en 67 av. J.-C., après la fin indiquée par les sources. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-shunga-empire",
+     "wd-shunga-empire",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "funan",
+   "name": {
+    "sv": "Funan",
+    "en": "Funan",
+    "de": "Funan",
+    "es": "Reino de Funan",
+    "fr": "Fou-nan"
+   },
+   "color": "#4a9a8a",
+   "from": 51,
+   "to": 627,
+   "file": "data/empires/funan.json",
+   "polities": [
+    {
+     "id": "funan",
+     "name": {
+      "sv": "Funan",
+      "en": "Funan",
+      "de": "Funan",
+      "es": "Reino de Funan",
+      "fr": "Fou-nan"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Källorna skiljer sig: Wikipedia anger 50–627 och Wikidata 68–550. Enligt Wikipedia bröt sig Chenla loss 550 och erövrade Funan 627. Kartan visar riket 51–627 med Cliopatrias gräns; Cliopatria har riket till 640, efter båda källornas slut. Cliopatria har en enda gräns för hela perioden. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ: Wikipedia gives 50–627 and Wikidata 68–550. According to Wikipedia, Chenla broke away in 550 and conquered Funan in 627. The map shows the kingdom in 51–627 with Cliopatria’s border; Cliopatria has the kingdom until 640, after the end given by both sources. Cliopatria has a single border for the whole period. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Die Quellen weichen voneinander ab: Wikipedia nennt 50–627 und Wikidata 68–550. Laut Wikipedia spaltete sich Chenla 550 ab und eroberte Funan 627. Die Karte zeigt das Königreich 51–627 mit der Grenze von Cliopatria; Cliopatria hat das Königreich bis 640, nach dem Ende, das beide Quellen nennen. Cliopatria hat eine einzige Grenze für den ganzen Zeitraum. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren: Wikipedia indica 50–627 y Wikidata 68–550. Según Wikipedia, Chenla se separó en 550 y conquistó Funan en 627. El mapa muestra el reino en 51–627 con la frontera de Cliopatria; Cliopatria tiene el reino hasta 640, después del final que indican ambas fuentes. Cliopatria tiene una única frontera para todo el periodo. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent : Wikipédia indique 50–627 et Wikidata 68–550. Selon Wikipédia, le Chenla fit sécession en 550 et conquit le Fou-nan en 627. La carte montre le royaume en 51–627 avec la frontière de Cliopatria ; Cliopatria place le royaume jusqu’en 640, après la fin indiquée par les deux sources. Cliopatria a une seule frontière pour toute la période. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-funan",
+     "wd-funan",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "cao-wei",
+   "name": {
+    "sv": "Cao Wei",
+    "en": "Cao Wei",
+    "de": "Cao Wei",
+    "es": "Cao Wei",
+    "fr": "Cao Wei"
+   },
+   "color": "#7a5a8a",
+   "from": 224,
+   "to": 264,
+   "file": "data/empires/cao-wei.json",
+   "polities": [
+    {
+     "id": "cao-wei",
+     "name": {
+      "sv": "Cao Wei",
+      "en": "Cao Wei",
+      "de": "Cao Wei",
+      "es": "Cao Wei",
+      "fr": "Cao Wei"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Källorna skiljer sig om slutet: Wikipedia anger 220–266 och Wikidata 220–265. Enligt Wikipedia började riket när Cao Pi tvingade den siste Hankejsaren att abdikera i december 220 och slutade när Cao Huan abdikerade till förmån för Sima Yan i februari 266; huvudstaden var Luoyang från 226. Därefter följde Jindynastin (266–420). Kartan visar riket 224–264, som Cliopatria. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ on the end: Wikipedia gives 220–266 and Wikidata 220–265. According to Wikipedia, the state began when Cao Pi forced the last Han emperor to abdicate in December 220 and ended when Cao Huan abdicated in favour of Sima Yan in February 266; the capital was Luoyang from 226. It was followed by the Jin dynasty (266–420). The map shows the state in 224–264, as in Cliopatria. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Die Quellen weichen beim Ende voneinander ab: Wikipedia nennt 220–266 und Wikidata 220–265. Laut Wikipedia begann der Staat, als Cao Pi im Dezember 220 den letzten Han-Kaiser zur Abdankung zwang, und endete, als Cao Huan im Februar 266 zugunsten von Sima Yan abdankte; Hauptstadt war ab 226 Luoyang. Darauf folgte die Jin-Dynastie (266–420). Die Karte zeigt den Staat wie Cliopatria 224–264. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren sobre el final: Wikipedia indica 220–266 y Wikidata 220–265. Según Wikipedia, el Estado comenzó cuando Cao Pi obligó al último emperador Han a abdicar en diciembre de 220 y terminó cuando Cao Huan abdicó en favor de Sima Yan en febrero de 266; la capital fue Luoyang desde 226. Le siguió la dinastía Jin (266–420). El mapa muestra el Estado en 224–264, como Cliopatria. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent sur la fin : Wikipédia indique 220–266 et Wikidata 220–265. Selon Wikipédia, l’État commença lorsque Cao Pi força le dernier empereur Han à abdiquer en décembre 220 et prit fin lorsque Cao Huan abdiqua en faveur de Sima Yan en février 266 ; la capitale fut Luoyang à partir de 226. Lui succéda la dynastie Jin (266–420). La carte montre l’État en 224–264, comme Cliopatria. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-cao-wei",
+     "wd-cao-wei",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "grekisk-baktriska-riket",
+   "name": {
+    "sv": "Grekisk-baktriska riket",
+    "en": "Greco-Bactrian Kingdom",
+    "de": "Griechisch-Baktrisches Königreich",
+    "es": "Reino grecobactriano",
+    "fr": "Royaume gréco-bactrien"
+   },
+   "color": "#4a6ab0",
+   "from": -246,
+   "to": -126,
+   "file": "data/empires/grekisk-baktriska-riket.json",
+   "polities": [
+    {
+     "id": "grekisk-baktriska-riket",
+     "name": {
+      "sv": "Grekisk-baktriska riket",
+      "en": "Greco-Bactrian Kingdom",
+      "de": "Griechisch-Baktrisches Königreich",
+      "es": "Reino grecobactriano",
+      "fr": "Royaume gréco-bactrien"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Källorna skiljer sig: Wikipedia anger 256–omkring 120 f.Kr. och Wikidata 250–125 f.Kr. Enligt Wikipedia grundades riket av Diodotus I, en seleukidisk satrap som bröt sig loss, och huvudstäderna var Bactra och Ai-Khanoum; det försvagades av nederlag mot Parthien och nomadfolkens invasioner. Kartan visar riket 247–127 f.Kr., som Cliopatria. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ: Wikipedia gives 256–c. 120 BC and Wikidata 250–125 BC. According to Wikipedia, the kingdom was founded by Diodotus I, a Seleucid satrap who broke away, and its capitals were Bactra and Ai-Khanoum; it was weakened by defeats against Parthia and by the invasions of nomadic peoples. The map shows the kingdom in 247–127 BC, as in Cliopatria. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Die Quellen weichen voneinander ab: Wikipedia nennt 256–um 120 v. Chr. und Wikidata 250–125 v. Chr. Laut Wikipedia wurde das Königreich von Diodotos I. gegründet, einem seleukidischen Satrapen, der sich abspaltete, und seine Hauptstädte waren Baktra und Ai Chanum; es wurde durch Niederlagen gegen Parthien und die Einfälle von Nomadenvölkern geschwächt. Die Karte zeigt das Königreich wie Cliopatria 247–127 v. Chr. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren: Wikipedia indica 256–hacia 120 a. C. y Wikidata 250–125 a. C. Según Wikipedia, el reino fue fundado por Diódoto I, un sátrapa seléucida que se independizó, y sus capitales fueron Bactra y Ai-Khanoum; se debilitó por las derrotas frente a Partia y las invasiones de pueblos nómadas. El mapa muestra el reino en 247–127 a. C., como Cliopatria. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent : Wikipédia indique 256–vers 120 av. J.-C. et Wikidata 250–125 av. J.-C. Selon Wikipédia, le royaume fut fondé par Diodote Ier, un satrape séleucide qui fit sécession, et ses capitales étaient Bactres et Aï Khanoum ; il fut affaibli par des défaites face à la Parthie et par les invasions de peuples nomades. La carte montre le royaume en 247–127 av. J.-C., comme Cliopatria. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-greco-bactrian-kingdom",
+     "wd-greco-bactrian-kingdom",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "shangdynastin",
+   "name": {
+    "sv": "Shangdynastin",
+    "en": "Shang dynasty",
+    "de": "Shang-Dynastie",
+    "es": "Dinastía Shang",
+    "fr": "Dynastie Shang"
+   },
+   "color": "#a08a3a",
+   "from": -1599,
+   "to": -1045,
+   "file": "data/empires/shangdynastin.json",
+   "polities": [
+    {
+     "id": "shangdynastin",
+     "name": {
+      "sv": "Shangdynastin",
+      "en": "Shang dynasty",
+      "de": "Shang-Dynastie",
+      "es": "Dinastía Shang",
+      "fr": "Dynastie Shang"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Wikipedia och Wikidata anger omkring 1600–1046 f.Kr. Enligt Wikipedia följer de årtalen Xia–Shang–Zhou-projektets kronologi, och minst 44 olika slutår mellan 1130 och 1018 f.Kr. har föreslagits. Dynastin tog slut när Zhou under kung Wu besegrade Shang i slaget vid Muye. Kartan visar riket 1600–1046 f.Kr. med Cliopatrias gräns, en enda gräns för hela tiden; Cliopatria har riket till 1001 f.Kr., efter källornas slut. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "Wikipedia and Wikidata give c. 1600–1046 BC. According to Wikipedia, those dates follow the chronology of the Xia–Shang–Zhou Chronology Project, and at least 44 different end dates between 1130 and 1018 BC have been proposed. The dynasty ended when the Zhou under King Wu defeated the Shang at the Battle of Muye. The map shows the realm in 1600–1046 BC with Cliopatria’s border, a single border for the whole period; Cliopatria has the realm until 1001 BC, after the end given by the sources. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Wikipedia und Wikidata nennen um 1600–1046 v. Chr. Laut Wikipedia folgen diese Jahreszahlen der Chronologie des Xia-Shang-Zhou-Projekts, und mindestens 44 verschiedene Endjahre zwischen 1130 und 1018 v. Chr. sind vorgeschlagen worden. Die Dynastie endete, als die Zhou unter König Wu die Shang in der Schlacht von Muye besiegten. Die Karte zeigt das Reich 1600–1046 v. Chr. mit der Grenze von Cliopatria, einer einzigen Grenze für die ganze Zeit; Cliopatria hat das Reich bis 1001 v. Chr., nach dem Ende, das die Quellen nennen. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Wikipedia y Wikidata indican hacia 1600–1046 a. C. Según Wikipedia, esas fechas siguen la cronología del Proyecto de Cronología Xia-Shang-Zhou, y se han propuesto al menos 44 años finales distintos entre 1130 y 1018 a. C. La dinastía terminó cuando los Zhou, bajo el rey Wu, derrotaron a los Shang en la batalla de Muye. El mapa muestra el reino en 1600–1046 a. C. con la frontera de Cliopatria, una única frontera para todo el periodo; Cliopatria tiene el reino hasta 1001 a. C., después del final que indican las fuentes. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Wikipédia et Wikidata indiquent vers 1600–1046 av. J.-C. Selon Wikipédia, ces dates suivent la chronologie du projet de chronologie Xia-Shang-Zhou, et au moins 44 années de fin différentes entre 1130 et 1018 av. J.-C. ont été proposées. La dynastie prit fin lorsque les Zhou, sous le roi Wu, vainquirent les Shang à la bataille de Muye. La carte montre le royaume en 1600–1046 av. J.-C. avec la frontière de Cliopatria, une seule frontière pour toute la période ; Cliopatria place le royaume jusqu’en 1001 av. J.-C., après la fin indiquée par les sources. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-shang-dynasty",
+     "wd-shang-dynasty",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
+  },
+  {
+   "id": "ostra-wu",
+   "name": {
+    "sv": "Östra Wu",
+    "en": "Eastern Wu",
+    "de": "Östliche Wu-Dynastie",
+    "es": "Wu Oriental",
+    "fr": "Wu oriental"
+   },
+   "color": "#3a8a5a",
+   "from": 222,
+   "to": 280,
+   "file": "data/empires/ostra-wu.json",
+   "polities": [
+    {
+     "id": "ostra-wu",
+     "name": {
+      "sv": "Östra Wu",
+      "en": "Eastern Wu",
+      "de": "Östliche Wu-Dynastie",
+      "es": "Wu Oriental",
+      "fr": "Wu oriental"
+     },
+     "sources": [
+      "cliopatria"
+     ],
+     "review": "source-checked"
+    }
+   ],
+   "facts": {
+    "mapNote": {
+     "sv": "Källorna skiljer sig om början: Wikipedia anger 222–280 och Wikidata flera startår (198, 221 och 229) och slutet 280. Enligt Wikipedia var Wu från 220 ett lydrike under Cao Wei, blev självständigt i november 222 och kejsardöme i maj 229, och det tog slut när Sun Hao kapitulerade för Jindynastin den 31 maj 280. Kartan visar riket 222–280 med Cliopatrias gräns; Cliopatria har området redan från 207 och till 282. Gränserna är Cliopatrias uppskattning och inga kända statsgränser.",
+     "en": "The sources differ on the beginning: Wikipedia gives 222–280, and Wikidata gives several start years (198, 221 and 229) and the end 280. According to Wikipedia, Wu was a vassal kingdom under Cao Wei from 220, became independent in November 222 and an empire in May 229, and it ended when Sun Hao surrendered to the Jin dynasty on 31 May 280. The map shows the realm in 222–280 with Cliopatria’s border; Cliopatria has the area from as early as 207 and until 282. The borders are Cliopatria’s estimate and not known state borders.",
+     "de": "Die Quellen weichen beim Beginn voneinander ab: Wikipedia nennt 222–280, Wikidata mehrere Anfangsjahre (198, 221 und 229) und das Ende 280. Laut Wikipedia war Wu ab 220 ein Vasallenkönigreich unter Cao Wei, wurde im November 222 unabhängig und im Mai 229 ein Kaiserreich, und es endete, als Sun Hao am 31. Mai 280 vor der Jin-Dynastie kapitulierte. Die Karte zeigt das Reich 222–280 mit der Grenze von Cliopatria; Cliopatria hat das Gebiet schon ab 207 und bis 282. Die Grenzen sind eine Schätzung von Cliopatria und keine bekannten Staatsgrenzen.",
+     "es": "Las fuentes difieren sobre el comienzo: Wikipedia indica 222–280, y Wikidata varios años de inicio (198, 221 y 229) y el final en 280. Según Wikipedia, Wu fue desde 220 un reino vasallo de Cao Wei, se independizó en noviembre de 222 y se convirtió en imperio en mayo de 229, y terminó cuando Sun Hao se rindió ante la dinastía Jin el 31 de mayo de 280. El mapa muestra el reino en 222–280 con la frontera de Cliopatria; Cliopatria tiene la zona ya desde 207 y hasta 282. Las fronteras son una estimación de Cliopatria y no fronteras estatales conocidas.",
+     "fr": "Les sources divergent sur le début : Wikipédia indique 222–280, et Wikidata plusieurs années de début (198, 221 et 229) et la fin en 280. Selon Wikipédia, Wu fut à partir de 220 un royaume vassal de Cao Wei, devint indépendant en novembre 222 et un empire en mai 229, et il prit fin lorsque Sun Hao se rendit à la dynastie Jin le 31 mai 280. La carte montre le royaume en 222–280 avec la frontière de Cliopatria ; Cliopatria place la région dès 207 et jusqu’en 282. Les frontières sont une estimation de Cliopatria et non des frontières d’État connues."
+    },
+    "sources": [
+     "wp-eastern-wu",
+     "wd-eastern-wu",
+     "cliopatria"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "four-oirats",
