@@ -1806,6 +1806,9 @@ details.used-by summary:hover { color: var(--parchment); }
 .war-list h4 { margin: 10px 0 4px; font: 600 11px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
 .war-list ol { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.6; }
 .war-list .meta { font: 400 11px/1 var(--f-mono); color: var(--parchment-dim); }
+/* Dagens länder i rikeskortet (#1955): knappen har ▶ som tecken, så listan har inga punkter; förklaringen kan vara flera rader */
+.empire-places ul { margin: 0; padding: 0; list-style: none; font-size: 13px; line-height: 1.6; }
+.war-list .empire-places-note { margin: 4px 0 0; line-height: 1.45; }
 /* Krig och riken (#76): rikena i kriget som knappar med rikets färg, rikets krig med årtal */
 .empire-list ul { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 0; padding: 0; list-style: none; font-size: 13px; line-height: 1.6; }
 .empire-list .link-btn { text-align: left; }

@@ -672,6 +672,7 @@ export class Panel {
       this.detail.removeAttribute?.('data-i18n-aria-label');
       this.detail.setAttribute('aria-label', label);
     }
+    delete this.detail.dataset?.facts; // vilket rikeskort som visas (#1955); showFacts sätter det igen efter öppningen
     this.detail.hidden = !open;
     this.onDetailChange(open);
   }
@@ -863,7 +864,7 @@ export class Panel {
    * föregångare och vad det blev. Efterträdare som finns som riken är knappar som börjar följa det riket.
    */
   showFacts(opts) {
-    const { kind, kindWord = null, name, color, symbol = '', symbolKind = null, facts: f, origin = null, place = origin, milestonesTitle = ui('facts.milestones'), mapNote = '', curveId = '', wars = [], lineage = null, empireMap = false, empireId = null, year = null } = opts;
+    const { kind, kindWord = null, name, color, symbol = '', symbolKind = null, facts: f, origin = null, place = origin, milestonesTitle = ui('facts.milestones'), mapNote = '', curveId = '', wars = [], lineage = null, empireMap = false, empireId = null, year = null, places = [], factsKey = '' } = opts;
     const fall = empireId ? this.empireTourFor?.(empireId) : null; // rikets fall som tur (#499)
     // Rikets krig (#76): krig som anger riket i empires, i tidsordning; bara de som syns enligt granskningsstatusen
     const shownWars = wars.filter(w => isVisibleReview(w.review));
@@ -882,10 +883,13 @@ export class Panel {
     // Riken har ofta mer fördjupning än ryms i det mobila arket. Sammanfattningen
     // står därför alltid först, medan utveckling och kartans underlag öppnas vid behov (#359).
     const isEmpire = kind === 'empire' || kind === 'vanished' || kind === 'area';
+    // Dagens länder (#1955): länder vars kort nämner riket, med årtalen ur landskortet; knappen följer landet, utom i lektionsläget
+    const placesHtml = places.length ? `<div class="war-list empire-places"><h4>${esc(ui('facts.places'))}</h4><ul>${places.map(p =>
+      `<li>${this.onFollowPlace && !this.followLocked?.() ? `<button type="button" class="link-btn" data-follow-place="${esc(p.id)}" aria-label="${esc(ui('facts.followPlaceLabel', { name: p.name }))}">▶ ${esc(p.name)}</button>` : esc(p.name)} <span class="meta">${esc(p.years)}</span></li>`).join('')}</ul><p class="meta empire-places-note">${esc(ui('facts.placesNote'))}</p></div>` : '';
     const overview = `${lineage ? lineageHtml(lineage) : ''}
-      <dl class="religion-facts">${(f.items ?? []).map(it => `<dt>${esc(t(it.label))}</dt><dd>${esc(t(it.text))}</dd>`).join('')}</dl>`;
+      <dl class="religion-facts">${(f.items ?? []).map(it => `<dt>${esc(t(it.label))}</dt><dd>${esc(t(it.text))}</dd>`).join('')}</dl>${placesHtml}`;
     // Ett land med bara gräns och en not (kartan före fakta, #644) har inget att visa under Kortfattat
-    const hasOverview = !!(lineage || f.items?.length);
+    const hasOverview = !!(lineage || f.items?.length || places.length);
     const development = `${curveId ? `<figure class="area-curve" data-curve="${esc(curveId)}" hidden></figure>` : ''}
       ${f.milestones?.length ? `<div class="war-list"><h4>${esc(milestonesTitle)}</h4><ol>${f.milestones.map(m =>
         `<li><button type="button" class="link-btn" data-year="${Number(m.year)}">${esc(t(m.label) || formatYear(m.year))}</button> ${m.title ? `<b>${esc(t(m.title))}.</b> ` : ''}${esc(t(m.text))}${m.mapNote ? ` <span class="ms-map">${esc(ui('facts.aboutMapInline'))} ${esc(t(m.mapNote))}</span>` : ''}</li>`).join('')}</ol></div>` : ''}
@@ -921,8 +925,10 @@ export class Panel {
       ${fall ? `<button type="button" class="story-tour" data-tour="${esc(fall.id)}">${esc(fall.label)}</button>` : ''}
       ${body}`;
     this.setDetailOpen(true);
+    if (factsKey) this.detail.dataset.facts = factsKey;
     this.detail.scrollTop = 0; // efter hidden, annars behåller kortet förra läget
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
+    for (const b of this.detail.querySelectorAll('[data-follow-place]')) b.addEventListener('click', () => this.onFollowPlace?.(b.dataset.followPlace));
     for (const b of this.detail.querySelectorAll('[data-goto]')) b.addEventListener('click', () => this.onSelect(b.dataset.goto));
     for (const b of this.detail.querySelectorAll('[data-year]')) b.addEventListener('click', () => this.onYear(Number(b.dataset.year)));
     this.bindLinks();

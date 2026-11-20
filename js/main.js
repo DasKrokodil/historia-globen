@@ -343,6 +343,9 @@ async function start() {
   // efterträdare eller föregångare som finns som rike (#72, follow) börjar följas direkt.
   // I lektionsläget (#795) följs ingenting: ett rike öppnar bara sin faktaruta
   panel.onEmpire = (id, follow = false) => ((!follow || app.lesson?.active) && app.showEmpireFacts(id)) || app.startFocus(`empire:${id}`);
+  // Dagens länder i rikeskortet (#1955): Följ landet börjar följa platsen; i lektionsläget följs ingenting, så där är länderna bara text
+  panel.onFollowPlace = id => app.startFocus(`place:${id}`);
+  panel.followLocked = () => !!app.lesson?.active;
   // Följ riket i landskortet (#1448): riket följs från periodens år, så att länken "Sverige-Norge 1815–1904" inte börjar år 980.
   // I lektionsläget följs ingenting, som ovan: riket öppnar bara sin faktaruta
   // Följ riket ersätter platsen (Fokus-typerna utesluter varandra; kortet säger det), och fokusraden har en knapp tillbaka till platsen (#1713). Rikets faktarutor är redan laddade för kortet, så
