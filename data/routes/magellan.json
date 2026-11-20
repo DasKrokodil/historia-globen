@@ -718,7 +718,14 @@
                 "es": "Homonhon",
                 "fr": "Homonhon"
               },
-              "edtf": "1521-03-17/1521-03-27"
+              "edtf": "1521-03-17/1521-03-27",
+              "dateLabel": {
+                "sv": "17 mars 1521 (16 mars enligt Wikipedia)",
+                "en": "17 March 1521 (16 March according to Wikipedia)",
+                "de": "17. März 1521 (16. März laut Wikipedia)",
+                "es": "17 de marzo de 1521 (16 de marzo según Wikipedia)",
+                "fr": "17 mars 1521 (16 mars selon Wikipédia)"
+              }
             },
             {
               "at": [
