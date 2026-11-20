@@ -13085,6 +13085,85 @@ async function run(browser, vp) {
       return 'dörren till 3000 f.Kr.–i dag med ett intervall från 3501 f.Kr.: intervallet avslutat, året -2999, adressen utan slutår';
     } finally { await wp.close(); }
   });
+  // #1959 (beslut 2026-11-20): dörren för in en Tillbaka-rad (jump-back, #997) som återställer året, och reglaget följer året. Ingen rad när året redan låg
+  // vid kanten dit dörren leder. Ett avslutat tidsintervall återställs inte (jump-back återställer året och kameran): det är beslutat.
+  await check('växlaren: dörren ger en Tillbaka-rad som återställer året och reglaget (#1959, #997)', async () => {
+    const wp = await context.newPage();
+    const errs = [];
+    const wpAw = abortWatch(wp);
+    wp.on('pageerror', e => { if (!wpAw.defer(e.message)) errs.push(e.message); });
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await wp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await wp.route(u => isFont(u.href), r => r.abort());
+      }
+      let loads = 0;
+      const open = async hash => {
+        await wpAw.goto(`${BASE}?lang=sv&ny=v1959d${loads++}${hash}`);
+        await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        const want = hash.match(/y=(-?\d+)/)[1];
+        await wp.waitForFunction(w => document.getElementById('track').getAttribute('aria-valuenow') === w, want, { timeout: T.step });
+        await wp.keyboard.press('Escape');
+      };
+      const door = id => wp.click(`#scale-switch .level-btn[data-level="${id}"]`);
+      const year = () => wp.evaluate(() => Number(document.getElementById('track').getAttribute('aria-valuenow')));
+      const pressed = () => wp.evaluate(() => [...document.querySelectorAll('#scale-switch .level-btn')].map(b => b.getAttribute('aria-pressed')).join());
+      const rowText = () => wp.evaluate(() => { const r = document.getElementById('jump-back'); return r.hidden ? null : r.textContent.replace(/\s+/g, ' ').trim(); });
+      const waitYear = (y, what) => wp.waitForFunction(v => document.getElementById('track').getAttribute('aria-valuenow') === String(v), y, { timeout: T.step })
+        .catch(async () => { throw new Error(`${what}: året är ${await year()}, väntat ${y}`); });
+      const out = [];
+      // Från det första reglaget: dörren åt höger, Tillbaka till året man lämnade
+      await open('#y=-50000');
+      await door('human-history');
+      await waitYear(-2999, 'dörren åt höger');
+      await wp.waitForFunction(() => !document.getElementById('jump-back').hidden, null, { timeout: T.step });
+      const t1 = await rowText();
+      if (!/^Från 50\s?00[01] f\.Kr\.\s*·\s*Tillbaka$/.test(t1)) throw new Error(`Tillbaka-raden säger "${t1}"`);
+      if ((await pressed()) !== 'false,true') throw new Error(`knapparna efter dörren: ${await pressed()}`);
+      await wp.click('#jump-back-button');
+      await waitYear(-50000, 'Tillbaka efter dörren åt höger');
+      if ((await pressed()) !== 'true,false') throw new Error(`reglaget följde inte med tillbaka: ${await pressed()}`);
+      if ((await wp.getAttribute('#track', 'aria-label')) !== 'År, före 3000 f.Kr.') throw new Error('reglagets namn följde inte med tillbaka');
+      if (await rowText()) throw new Error('Tillbaka-raden syns kvar efter trycket');
+      out.push('-50000 → -2999 → Tillbaka -50000');
+      // Från det andra reglaget: dörren åt vänster
+      await open('#y=1325');
+      await door('human-pre');
+      await waitYear(-3000, 'dörren åt vänster');
+      if (!/^Från 1325\s*·\s*Tillbaka$/.test(await rowText() ?? '')) throw new Error(`Tillbaka-raden säger "${await rowText()}" efter dörren åt vänster`);
+      await wp.click('#jump-back-button');
+      await waitYear(1325, 'Tillbaka efter dörren åt vänster');
+      if ((await pressed()) !== 'false,true') throw new Error(`reglaget följde inte med tillbaka: ${await pressed()}`);
+      out.push('1325 → -3000 → Tillbaka 1325');
+      // Redan vid kanten dit dörren leder: ingen rad
+      await open('#y=-3000');
+      await door('human-history');
+      await waitYear(-2999, 'dörren från kanten');
+      if (await rowText()) throw new Error(`Tillbaka-raden visas för ett byte på ett år: "${await rowText()}"`);
+      await open('#y=-2999');
+      await door('human-pre');
+      await waitYear(-3000, 'dörren från kanten åt vänster');
+      if (await rowText()) throw new Error(`Tillbaka-raden visas för ett byte på ett år: "${await rowText()}"`);
+      out.push('ingen rad vid kanten');
+      // Ett tidsintervall avslutas tyst av dörren, och Tillbaka återställer året men inte intervallet (beslutat)
+      await wpAw.goto(`${BASE}?lang=sv&ny=v1959d${loads++}#y=-3500&y2=-1000`);
+      await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await wp.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '-3500' && !document.querySelector('.range-band')?.hidden, null, { timeout: T.step });
+      await wp.keyboard.press('Escape');
+      await door('human-history');
+      await waitYear(-2999, 'dörren med intervall');
+      await wp.waitForFunction(() => !document.getElementById('jump-back').hidden, null, { timeout: T.step });
+      await wp.click('#jump-back-button');
+      await waitYear(-3500, 'Tillbaka med intervall');
+      if ((await pressed()) !== 'true,false') throw new Error(`knapparna efter Tillbaka med intervall: ${await pressed()}`);
+      if (!(await wp.evaluate(() => document.querySelector('.range-band')?.hidden !== false))) throw new Error('intervallbandet kom tillbaka (beslutat: bara året återställs)');
+      out.push('intervall avslutas tyst, Tillbaka återställer året');
+      errs.push(...wpAw.settle());
+      if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
+      return out.join('; ');
+    } finally { await wp.close(); }
+  });
   // #1959: växlaren visas inte där tiden är låst eller har egen skala: i en tur, en lektion och Fokus. Den kommer tillbaka när läget slutar,
   // och står då på reglaget som året hör till.
   await check('växlaren är dold i en tur, en lektion och Fokus och kommer tillbaka efter (#1959)', async () => {

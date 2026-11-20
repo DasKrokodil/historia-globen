@@ -543,12 +543,18 @@ export class Timeline extends EventTarget {
    * Bytet är ett vanligt årsbyte för besökaren (`setByUser`): tidslåset gäller (ligger ingångsåret utanför lektionens år händer ingenting), och ett tidsintervall avslutas som vid ett drag.
    */
   goToScale(sc) {
-    if (this.locked || this.focus || sc === this.scale || !this.scales.includes(sc)) return null;
-    const year = scaleEntryYear(sc, this.scale), l = this.lock();
-    if (l && year < l.from || l && year > l.to) return null; // en lektion klipper året: en dörr som inte byter reglage gör ingenting alls
+    const year = this.scaleEntry(sc);
+    if (year == null) return null;
     this.pause();
     this.setByUser(year);
     return this._year;
+  }
+  /** Året en dörr till reglaget `sc` landar på, eller null när den inte byter reglage (samma reglage, okänt reglage, tiden låst, Fokus, eller ingångsåret utanför lektionens år). */
+  scaleEntry(sc) {
+    if (this.locked || this.focus || sc === this.scale || !this.scales.includes(sc)) return null;
+    const year = scaleEntryYear(sc, this.scale), l = this.lock();
+    if (l && (year < l.from || year > l.to)) return null; // en lektion klipper året: en dörr som inte byter reglage gör ingenting alls
+    return year;
   }
   /** Reglagets namn för skärmläsare ("År, före 3000 f.Kr."); utan namn (en enda skala) står "År" kvar ur index.html. */
   _trackLabel() { const name = this._trackName(this.scale); return name ? ui('time.trackLabel', { name }) : null; }

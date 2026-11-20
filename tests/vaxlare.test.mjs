@@ -116,3 +116,24 @@ test('nya texter finns på alla fem språken: gruppnamnet, skalraden med reglage
   assert.equal(sv['time.switchLabel'], 'Tidsreglage');
   assert.match(sv['help.s5t'], /Före 3000 f\.Kr\. och 3000 f\.Kr\.–i dag, byter reglage/);
 });
+
+test('scaleEntry säger vilket år en dörr landar på, och null när den inte byter reglage (Tillbaka-raden visas bara då, #997)', t => {
+  const timeline = build(t);
+  timeline.year = -50000;
+  assert.equal(timeline.scaleEntry(HISTORY), -2999);
+  assert.equal(timeline.scaleEntry(PRE), null); // reglaget man redan står på
+  timeline.year = 1325;
+  assert.equal(timeline.scaleEntry(PRE), -3000);
+  assert.equal(timeline.scaleEntry({ id: 'annat', from: 0, to: 1 }), null);
+  timeline.lock = () => ({ locked: true });
+  assert.equal(timeline.scaleEntry(PRE), null);
+  timeline.lock = () => ({ locked: false, from: 1000, to: 1500 });
+  assert.equal(timeline.scaleEntry(PRE), null); // utanför lektionens år
+  timeline.lock = () => null;
+  timeline.focus = { from: 1900, to: 1950, fine: false };
+  assert.equal(timeline.scaleEntry(PRE), null); // Fokus har egen skala
+  timeline.focus = null;
+  // goToScale gör exakt det scaleEntry säger
+  assert.equal(timeline.goToScale(PRE), -3000);
+  assert.equal(timeline.goToScale(HISTORY), -2999);
+});

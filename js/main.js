@@ -161,7 +161,14 @@ async function start() {
   // Växlaren mellan tidsreglagen (#1959): två nivåer med reglagens namn, och den som är vald följer året (timeline.scale)
   const scaleSwitch = new LevelSwitch($('scale-switch'), {
     levels: timeline.scales.map(sc => ({ id: sc.id, name: timeline.scaleName(sc) })),
-    onSelect: id => timeline.goToScale(timeline.scales.find(sc => sc.id === id)),
+    // Dörren för in en Tillbaka-rad (#997, beslut 2026-11-20): "Från 1325 · Tillbaka" återställer året, och reglaget följer året. Ingen rad när året redan låg
+    // vid kanten dit dörren leder (högst ett år från ingångsåret): då är Tillbaka bara ett steg. Ett avslutat tidsintervall återställs inte (jump-back återställer året och kameran).
+    onSelect: (id, button) => {
+      const target = timeline.scales.find(sc => sc.id === id), to = timeline.scaleEntry(target);
+      if (to == null) return;
+      if (Math.abs(timeline.year - to) <= 1) timeline.goToScale(target);
+      else jumpBack.run(() => timeline.goToScale(target), button);
+    },
   });
   const syncScaleSwitch = () => { scaleSwitch.setCurrent(timeline.scale.id); scaleSwitch.setDisabled(timeline.locked || !!timeline.focus); };
   timeline.addEventListener('change', syncScaleSwitch);

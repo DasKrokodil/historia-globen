@@ -1438,6 +1438,7 @@ html.calm .year-tip { animation: none; }
   .app:not(.lesson):not(.touring):not(.focusing) .ticks { top: 27px; }
   .app:not(.lesson):not(.touring):not(.focusing) .level-switch { min-height: 28px; margin-bottom: 0; }
   .app:not(.lesson):not(.touring):not(.focusing) .level-btn { height: 28px; border-radius: 14px; }
+  .app .jump-back { gap: 2px; } /* "Från 1325 · Tillbaka" (dörren och Visste du?) ska sluta före stegknapparna i förhistoriens bredare rad */
 }
 /* 761–1100 px och högre än en liggande telefon: tidsraden är 28 px högre (146 mot 118 px), så korten ovanför (140 och 132 px från botten) flyttas lika mycket */
 @media (min-width: 761px) and (max-width: 1100px) and (min-height: 481px) {

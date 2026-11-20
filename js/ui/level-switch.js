@@ -11,7 +11,7 @@
 export class LevelSwitch {
   /**
    * @param {HTMLElement} group elementet som blir gruppen (role="group" och aria-label sätts i index.html)
-   * @param {{ levels: {id: string, name: string}[], onSelect: (id: string) => void }} opts
+   * @param {{ levels: {id: string, name: string}[], onSelect: (id: string, button: HTMLElement) => void }} opts
    */
   constructor(group, { levels, onSelect }) {
     this.group = group;
@@ -27,7 +27,7 @@ export class LevelSwitch {
       name.className = 'level-name';
       name.textContent = level.name;
       b.append(name);
-      b.addEventListener('click', () => { if (b.getAttribute('aria-pressed') !== 'true' && !b.disabled) this.onSelect(level.id); });
+      b.addEventListener('click', () => { if (b.getAttribute('aria-pressed') !== 'true' && !b.disabled) this.onSelect(level.id, b); });
       return b;
     });
     group.replaceChildren(...this.buttons);
