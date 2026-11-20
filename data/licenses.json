@@ -3294,6 +3294,8 @@
     {
       "license": "No known restrictions on publication",
       "sourceIds": [
+        "loc-bild-amerikanska-frihetskriget",
+        "loc-bild-amerikanska-inbordeskriget",
         "loc-bild-belagringen-av-tsingtao",
         "loc-bild-emigrationen-fran-sverige",
         "loc-bild-forsta-slaget-vid-marne",
@@ -3301,12 +3303,22 @@
         "loc-bild-freden-i-brest-litovsk",
         "loc-bild-gallipolifalttaget",
         "loc-bild-hansan-vaxer-fram",
+        "loc-bild-kapitulationen-vid-appomattox",
         "loc-bild-koch-tuberkelbakterien",
+        "loc-bild-mexikansk-amerikanska-kriget",
+        "loc-bild-slaget-vid-fort-sumter",
         "loc-bild-usa-gar-in-i-forsta-varldskriget",
         "loc-bild-watt-separat-kondensor",
         "loc-cook-south-pacific-1777",
         "loc-eiffel-campanile-1889",
         "loc-taj-mahal-photochrom"
+      ]
+    },
+    {
+      "license": "No known restrictions on publication in the U.S.",
+      "sourceIds": [
+        "loc-bild-belagringen-av-yorktown",
+        "loc-bild-slaget-vid-saratoga"
       ]
     },
     {
