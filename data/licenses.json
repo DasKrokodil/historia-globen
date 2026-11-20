@@ -1167,6 +1167,7 @@
         "wp-flag-bahamas",
         "wp-flag-bangladesh",
         "wp-flag-barbados",
+        "wp-flag-belarus",
         "wp-flag-belgium",
         "wp-flag-belize",
         "wp-flag-benin",
@@ -1215,6 +1216,7 @@
         "wp-flag-iceland",
         "wp-flag-india",
         "wp-flag-indonesia",
+        "wp-flag-iraq",
         "wp-flag-ireland",
         "wp-flag-israel",
         "wp-flag-italy",
@@ -3634,6 +3636,18 @@
       ]
     },
     {
+      "license": "Public domain (PD-BY-exempt)",
+      "sourceIds": [
+        "commons-flagga-belarus-1995"
+      ]
+    },
+    {
+      "license": "Public domain (PD-BY-exempt, PD-self)",
+      "sourceIds": [
+        "commons-flagga-belarus"
+      ]
+    },
+    {
       "license": "Public domain (PD-Bangladesh, PD-shape)",
       "sourceIds": [
         "commons-flagga-bangladesh"
@@ -3715,6 +3729,22 @@
       "license": "Public domain (PD-Georgia, PD-self)",
       "sourceIds": [
         "commons-flagga-georgia-1990"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Iraq, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-iraq",
+        "commons-flagga-iraq-1924",
+        "commons-flagga-iraq-1959",
+        "commons-flagga-iraq-1963",
+        "commons-flagga-iraq-2004"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Iraq, PD-ineligible, PD-textlogo)",
+      "sourceIds": [
+        "commons-flagga-iraq-1991"
       ]
     },
     {
@@ -4003,6 +4033,12 @@
       ]
     },
     {
+      "license": "Public domain (PD-US-1978-89)",
+      "sourceIds": [
+        "commons-flagga-belize-1981"
+      ]
+    },
+    {
       "license": "Public domain (PD-UZ-exempt)",
       "sourceIds": [
         "commons-flagga-uzbekistan"
@@ -4137,6 +4173,12 @@
       "license": "Public domain (PD-shape, PD-BH-exempt)",
       "sourceIds": [
         "commons-flagga-bosnia"
+      ]
+    },
+    {
+      "license": "Public domain (PD-shape, PD-BY-exempt)",
+      "sourceIds": [
+        "commons-flagga-belarus-1991"
       ]
     },
     {
