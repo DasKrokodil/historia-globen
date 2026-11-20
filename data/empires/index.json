@@ -20635,7 +20635,25 @@
    "from": 1776,
    "to": 2024,
    "file": "data/empires/usa.json",
-   "flags": [{"file": "united-states", "from": 1960, "to": 2024, "label": {"sv": "USA:s flagga", "en": "Flag of the United States", "de": "Flagge der Vereinigten Staaten", "es": "Bandera de los Estados Unidos", "fr": "Drapeau des États-Unis"}, "sources": ["wp-flag-united-states", "commons-flagga-usa"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "united-states",
+     "from": 1960,
+     "to": 2024,
+     "label": {
+      "sv": "USA:s flagga",
+      "en": "Flag of the United States",
+      "de": "Flagge der Vereinigten Staaten",
+      "es": "Bandera de los Estados Unidos",
+      "fr": "Drapeau des États-Unis"
+     },
+     "sources": [
+      "wp-flag-united-states",
+      "commons-flagga-usa"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "usa",
@@ -21212,6 +21230,25 @@
    "from": 1822,
    "to": 2024,
    "file": "data/empires/mexiko.json",
+   "flags": [
+    {
+     "file": "mexico",
+     "from": 1968,
+     "to": 2024,
+     "label": {
+      "sv": "Mexikos flagga",
+      "en": "Flag of Mexico",
+      "de": "Flagge Mexikos",
+      "es": "Bandera de México",
+      "fr": "Drapeau du Mexique"
+     },
+     "sources": [
+      "wp-flag-mexico",
+      "commons-flagga-mexiko"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "forsta-mexikanska-kejsardomet",
@@ -21313,6 +21350,22 @@
       "text": {
        "sv": "Mexico City, grundad på ruinerna av aztekernas Tenochtitlan. Ytan är 1 972 550 km².",
        "en": "Mexico City, founded on the ruins of the Aztecs' Tenochtitlan. The area is 1,972,550 km²."
+      }
+     },
+     {
+      "label": {
+       "sv": "Flaggan på kartan",
+       "en": "The flag on the map",
+       "de": "Die Flagge auf der Karte",
+       "es": "La bandera en el mapa",
+       "fr": "Le drapeau sur la carte"
+      },
+      "text": {
+       "sv": "En lodrät trikolor i grönt, vitt och rött med riksvapnet mitt i det vita fältet. Vapnet bygger på aztekernas tecken för Tenochtitlan, dagens Mexico City. Den nuvarande flaggan antogs genom dekret 16 september 1968 och bekräftades i lag 24 februari 1984. Den är en bearbetning av utformningen från 1916, då örnen vändes från framifrån till profil. Kartan visar flaggan från 1968; de äldre flaggorna hade ett annat vapen och visas inte.",
+       "en": "A vertical tricolour of green, white and red with the national coat of arms in the middle of the white band. The arms are based on the Aztec sign for Tenochtitlan, today’s Mexico City. The current flag was adopted by decree on 16 September 1968 and confirmed by law on 24 February 1984. It is an adaptation of the 1916 design, when the eagle was turned from facing forward to profile. The map shows the flag from 1968; the older flags had different arms and are not shown.",
+       "de": "Eine senkrechte Trikolore in Grün, Weiß und Rot mit dem Staatswappen in der Mitte des weißen Streifens. Das Wappen beruht auf dem aztekischen Zeichen für Tenochtitlan, das heutige Mexiko-Stadt. Die heutige Flagge wurde am 16. September 1968 per Dekret angenommen und am 24. Februar 1984 gesetzlich bestätigt. Sie ist eine Bearbeitung der Gestaltung von 1916, als der Adler von der Vorderansicht ins Profil gedreht wurde. Die Karte zeigt die Flagge ab 1968; die älteren Flaggen hatten ein anderes Wappen und werden nicht gezeigt.",
+       "es": "Una tricolor vertical verde, blanca y roja con el escudo nacional en el centro de la franja blanca. El escudo se basa en el signo azteca de Tenochtitlan, la actual Ciudad de México. La bandera actual se adoptó por decreto el 16 de septiembre de 1968 y se confirmó por ley el 24 de febrero de 1984. Es una adaptación del diseño de 1916, cuando el águila pasó de estar de frente a estar de perfil. El mapa muestra la bandera desde 1968; las banderas anteriores tenían otro escudo y no se muestran.",
+       "fr": "Un tricolore vertical vert, blanc et rouge, avec les armoiries nationales au centre de la bande blanche. Les armoiries reprennent le signe aztèque de Tenochtitlan, l’actuelle Mexico. Le drapeau actuel a été adopté par décret le 16 septembre 1968 et confirmé par la loi le 24 février 1984. Il adapte le dessin de 1916, où l’aigle est passé de face à de profil. La carte montre le drapeau à partir de 1968 ; les drapeaux plus anciens avaient d’autres armoiries et ne sont pas montrés."
       }
      }
     ],
@@ -21523,7 +21576,8 @@
     "sources": [
      "wp-mexico",
      "wp-first-mexican-empire",
-     "wp-second-mexican-empire"
+     "wp-second-mexican-empire",
+     "wp-flag-mexico"
     ],
     "review": "source-checked"
    },
@@ -21557,7 +21611,25 @@
    "from": 1822,
    "to": 2024,
    "file": "data/empires/brasilien.json",
-   "flags": [{"file": "brazil", "from": 1992, "to": 2024, "label": {"sv": "Brasiliens flagga", "en": "Flag of Brazil", "de": "Flagge Brasiliens", "es": "Bandera de Brasil", "fr": "Drapeau du Brésil"}, "sources": ["wp-flag-brazil", "commons-flagga-brasilien"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "brazil",
+     "from": 1992,
+     "to": 2024,
+     "label": {
+      "sv": "Brasiliens flagga",
+      "en": "Flag of Brazil",
+      "de": "Flagge Brasiliens",
+      "es": "Bandera de Brasil",
+      "fr": "Drapeau du Brésil"
+     },
+     "sources": [
+      "wp-flag-brazil",
+      "commons-flagga-brasilien"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "kejsardomet-brasilien",
@@ -22104,7 +22176,25 @@
    "from": 1811,
    "to": 2024,
    "file": "data/empires/paraguay.json",
-   "flags": [{"file": "paraguay", "from": 2013, "to": 2024, "label": {"sv": "Paraguays flagga", "en": "Flag of Paraguay", "de": "Flagge Paraguays", "es": "Bandera de Paraguay", "fr": "Drapeau du Paraguay"}, "sources": ["wp-flag-paraguay", "commons-flagga-paraguay"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "paraguay",
+     "from": 2013,
+     "to": 2024,
+     "label": {
+      "sv": "Paraguays flagga",
+      "en": "Flag of Paraguay",
+      "de": "Flagge Paraguays",
+      "es": "Bandera de Paraguay",
+      "fr": "Drapeau du Paraguay"
+     },
+     "sources": [
+      "wp-flag-paraguay",
+      "commons-flagga-paraguay"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "paraguay",
@@ -30944,6 +31034,40 @@
    "from": 1834,
    "to": 2024,
    "file": "data/empires/ecuador.json",
+   "flags": [
+    {
+     "file": "ecuador-tricolour",
+     "from": 1860,
+     "to": 1899,
+     "label": {
+      "sv": "Ecuadors flagga 1860–1900",
+      "en": "Flag of Ecuador, 1860–1900",
+      "de": "Flagge Ecuadors 1860–1900",
+      "es": "Bandera de Ecuador de 1860 a 1900",
+      "fr": "Drapeau de l’Équateur de 1860 à 1900"
+     },
+     "sources": [
+      "wp-flag-ecuador"
+     ],
+     "review": "source-checked"
+    },
+    {
+     "file": "ecuador-tricolour",
+     "from": 1900,
+     "to": 2024,
+     "label": {
+      "sv": "Ecuadors civilflagga",
+      "en": "Civil flag of Ecuador",
+      "de": "Zivilflagge Ecuadors",
+      "es": "Bandera civil de Ecuador",
+      "fr": "Drapeau civil de l’Équateur"
+     },
+     "sources": [
+      "wp-flag-ecuador"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "ecuador",
@@ -31001,6 +31125,22 @@
       "text": {
        "sv": "Quito. Den största staden är Guayaquil.",
        "en": "Quito. The largest city is Guayaquil."
+      }
+     },
+     {
+      "label": {
+       "sv": "Flaggan på kartan",
+       "en": "The flag on the map",
+       "de": "Die Flagge auf der Karte",
+       "es": "La bandera en el mapa",
+       "fr": "Le drapeau sur la carte"
+      },
+      "text": {
+       "sv": "Den gula, blå och röda trikoloren, där det gula fältet är dubbelt så brett som de andra. Den återinfördes 26 september 1860 och var nationsflagga till 1900. Den 31 oktober 1900 fick nationsflaggan riksvapnet i mitten, och den enkla trikoloren blev handels- och civilflagga. Kartan visar den enkla trikoloren hela tiden från 1860, efter 1900 alltså som civilflagga. Före 1860 visas ingen flagga. Källorna skiljer sig om tiden före 1860: ingressen säger att trikoloren först antogs i lag 1835, medan tabellen över flaggans historia visar andra flaggor 1830–1860.",
+       "en": "The yellow, blue and red tricolour, with the yellow band twice as wide as the others. It was reinstated on 26 September 1860 and was the national flag until 1900. On 31 October 1900 the national flag received the coat of arms in the middle, and the plain tricolour became the merchant and civil flag. The map shows the plain tricolour throughout from 1860, so after 1900 as the civil flag. No flag is shown before 1860. The sources differ on the time before 1860: the introduction says the tricolour was first adopted by law in 1835, while the table of the flag’s history shows other flags in 1830–1860.",
+       "de": "Die gelb-blau-rote Trikolore, deren gelber Streifen doppelt so breit ist wie die anderen. Sie wurde am 26. September 1860 wieder eingeführt und war bis 1900 Nationalflagge. Am 31. Oktober 1900 erhielt die Nationalflagge das Staatswappen in der Mitte, und die schlichte Trikolore wurde Handels- und Zivilflagge. Die Karte zeigt die schlichte Trikolore durchgehend ab 1860, nach 1900 also als Zivilflagge. Vor 1860 wird keine Flagge gezeigt. Die Quellen weichen für die Zeit vor 1860 voneinander ab: Die Einleitung sagt, die Trikolore sei erstmals 1835 gesetzlich angenommen worden, während die Tabelle zur Geschichte der Flagge für 1830–1860 andere Flaggen zeigt.",
+       "es": "La tricolor amarilla, azul y roja, con la franja amarilla del doble de ancho que las otras. Se restableció el 26 de septiembre de 1860 y fue la bandera nacional hasta 1900. El 31 de octubre de 1900 la bandera nacional recibió el escudo en el centro, y la tricolor sencilla pasó a ser la bandera mercante y civil. El mapa muestra la tricolor sencilla durante todo el período desde 1860, es decir, después de 1900 como bandera civil. Antes de 1860 no se muestra ninguna bandera. Las fuentes difieren sobre la época anterior a 1860: la introducción dice que la tricolor se adoptó por ley por primera vez en 1835, mientras que la tabla de la historia de la bandera muestra otras banderas entre 1830 y 1860.",
+       "fr": "Le tricolore jaune, bleu et rouge, dont la bande jaune est deux fois plus large que les autres. Il a été rétabli le 26 septembre 1860 et a été le drapeau national jusqu’en 1900. Le 31 octobre 1900, le drapeau national a reçu les armoiries en son centre, et le tricolore simple est devenu le pavillon marchand et civil. La carte montre le tricolore simple sur toute la période à partir de 1860, donc comme drapeau civil après 1900. Aucun drapeau n’est montré avant 1860. Les sources divergent sur la période antérieure à 1860 : l’introduction indique que le tricolore a été adopté par la loi pour la première fois en 1835, tandis que le tableau de l’histoire du drapeau montre d’autres drapeaux entre 1830 et 1860."
       }
      }
     ],
@@ -31069,7 +31209,8 @@
      "en": "The source gives 13 May 1830. The map shows the country from 1834."
     },
     "sources": [
-     "wp-ecuador"
+     "wp-ecuador",
+     "wp-flag-ecuador"
     ],
     "review": "source-checked"
    },
@@ -35275,7 +35416,25 @@
    "from": 1967,
    "to": 2024,
    "file": "data/empires/guyana.json",
-   "flags": [{"file": "guyana", "from": 1967, "to": 2024, "label": {"sv": "Guyanas flagga", "en": "Flag of Guyana", "de": "Flagge Guyanas", "es": "Bandera de Guyana", "fr": "Drapeau du Guyana"}, "sources": ["wp-flag-guyana", "commons-flagga-guyana"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "guyana",
+     "from": 1967,
+     "to": 2024,
+     "label": {
+      "sv": "Guyanas flagga",
+      "en": "Flag of Guyana",
+      "de": "Flagge Guyanas",
+      "es": "Bandera de Guyana",
+      "fr": "Drapeau du Guyana"
+     },
+     "sources": [
+      "wp-flag-guyana",
+      "commons-flagga-guyana"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "guyana",
@@ -35613,7 +35772,25 @@
    "from": 1820,
    "to": 2024,
    "file": "data/empires/surinam.json",
-   "flags": [{"file": "suriname", "from": 1976, "to": 2024, "label": {"sv": "Surinams flagga", "en": "Flag of Suriname", "de": "Flagge Surinames", "es": "Bandera de Surinam", "fr": "Drapeau du Suriname"}, "sources": ["wp-flag-suriname", "commons-flagga-surinam"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "suriname",
+     "from": 1976,
+     "to": 2024,
+     "label": {
+      "sv": "Surinams flagga",
+      "en": "Flag of Suriname",
+      "de": "Flagge Surinames",
+      "es": "Bandera de Surinam",
+      "fr": "Drapeau du Suriname"
+     },
+     "sources": [
+      "wp-flag-suriname",
+      "commons-flagga-surinam"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "kolonin-surinam",
@@ -35837,7 +36014,25 @@
    "from": 1905,
    "to": 2024,
    "file": "data/empires/kuba.json",
-   "flags": [{"file": "cuba", "from": 1906, "to": 2024, "label": {"sv": "Kubas flagga", "en": "Flag of Cuba", "de": "Flagge Kubas", "es": "Bandera de Cuba", "fr": "Drapeau de Cuba"}, "sources": ["wp-flag-cuba", "commons-flagga-kuba"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "cuba",
+     "from": 1906,
+     "to": 2024,
+     "label": {
+      "sv": "Kubas flagga",
+      "en": "Flag of Cuba",
+      "de": "Flagge Kubas",
+      "es": "Bandera de Cuba",
+      "fr": "Drapeau de Cuba"
+     },
+     "sources": [
+      "wp-flag-cuba",
+      "commons-flagga-kuba"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "kuba",
@@ -37013,6 +37208,26 @@
    "from": 1846,
    "to": 2024,
    "file": "data/empires/dominikanska-republiken.json",
+   "flags": [
+    {
+     "file": "dominican-republic",
+     "from": 1913,
+     "to": 2024,
+     "label": {
+      "sv": "Dominikanska republikens flagga",
+      "en": "Flag of the Dominican Republic",
+      "de": "Flagge der Dominikanischen Republik",
+      "es": "Bandera de la República Dominicana",
+      "fr": "Drapeau de la République dominicaine"
+     },
+     "sources": [
+      "wp-flag-dominican-republic",
+      "wp-coat-of-arms-dominican-republic",
+      "commons-flagga-dominikanska-republiken"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "dominikanska-republiken",
@@ -37028,7 +37243,33 @@
      ],
      "review": "source-checked"
     }
-   ]
+   ],
+   "facts": {
+    "items": [
+     {
+      "label": {
+       "sv": "Flaggan på kartan",
+       "en": "The flag on the map",
+       "de": "Die Flagge auf der Karte",
+       "es": "La bandera en el mapa",
+       "fr": "Le drapeau sur la carte"
+      },
+      "text": {
+       "sv": "Ett vitt kors delar flaggan i fyra fält, blått och rött upptill och rött och blått nedtill, med riksvapnet i mitten. Wikipedia kallar korset ett Sankt Georgskors. Blått står för frihet, vitt för frälsning och rött för hjältarnas blod; enligt flaggans historia stod blått från början för Guds beskydd över landet. Vapnet har en öppen bibel med ett kors ovanför och mottot ”Dios, Patria, Libertad” (Gud, fosterland, frihet). Flaggan med vapnet infördes 6 november 1863, och vapnet har ändrats minst 21 gånger sedan 1844. Kartan visar dagens vapen från 1913, året för det nuvarande vapnet i artikeln om vapnet. Källorna skiljer sig: filsidan på Commons daterar flaggan till 21 mars 1908.",
+       "en": "A white cross divides the flag into four fields, blue and red at the top and red and blue at the bottom, with the national coat of arms in the middle. Wikipedia calls the cross a Saint George’s Cross. Blue stands for liberty, white for salvation and red for the blood of heroes; according to the flag’s history, blue originally stood for God’s protection over the country. The arms show an open Bible with a cross above it and the motto “Dios, Patria, Libertad” (God, Homeland, Liberty). The flag with the arms was introduced on 6 November 1863, and the arms have been altered at least 21 times since 1844. The map shows today’s arms from 1913, the year of the current arms in the article on the arms. The sources differ: the file page on Commons dates the flag to 21 March 1908.",
+       "de": "Ein weißes Kreuz teilt die Flagge in vier Felder, oben Blau und Rot, unten Rot und Blau, mit dem Staatswappen in der Mitte. Wikipedia nennt das Kreuz ein Georgskreuz. Blau steht für Freiheit, Weiß für Erlösung und Rot für das Blut der Helden; laut der Geschichte der Flagge stand Blau ursprünglich für Gottes Schutz über dem Land. Das Wappen zeigt eine aufgeschlagene Bibel mit einem Kreuz darüber und das Motto „Dios, Patria, Libertad“ (Gott, Vaterland, Freiheit). Die Flagge mit dem Wappen wurde am 6. November 1863 eingeführt, und das Wappen wurde seit 1844 mindestens 21-mal geändert. Die Karte zeigt das heutige Wappen ab 1913, dem Jahr des heutigen Wappens im Artikel über das Wappen. Die Quellen weichen voneinander ab: Die Dateiseite auf Commons datiert die Flagge auf den 21. März 1908.",
+       "es": "Una cruz blanca divide la bandera en cuatro cuarteles, azul y rojo arriba y rojo y azul abajo, con el escudo nacional en el centro. Wikipedia llama a la cruz cruz de San Jorge. El azul representa la libertad, el blanco la salvación y el rojo la sangre de los héroes; según la historia de la bandera, el azul representaba en su origen la protección de Dios sobre el país. El escudo muestra una Biblia abierta con una cruz encima y el lema «Dios, Patria, Libertad». La bandera con el escudo se introdujo el 6 de noviembre de 1863, y el escudo se ha modificado al menos 21 veces desde 1844. El mapa muestra el escudo actual desde 1913, el año del escudo actual en el artículo sobre el escudo. Las fuentes difieren: la página del archivo en Commons fecha la bandera el 21 de marzo de 1908.",
+       "fr": "Une croix blanche divise le drapeau en quatre quartiers, bleu et rouge en haut et rouge et bleu en bas, avec les armoiries nationales au centre. Wikipédia appelle cette croix une croix de Saint-Georges. Le bleu représente la liberté, le blanc le salut et le rouge le sang des héros ; selon l’histoire du drapeau, le bleu représentait à l’origine la protection de Dieu sur le pays. Les armoiries montrent une Bible ouverte surmontée d’une croix et la devise « Dios, Patria, Libertad » (Dieu, Patrie, Liberté). Le drapeau avec les armoiries a été introduit le 6 novembre 1863, et les armoiries ont été modifiées au moins 21 fois depuis 1844. La carte montre les armoiries actuelles à partir de 1913, l’année des armoiries actuelles dans l’article consacré aux armoiries. Les sources divergent : la page du fichier sur Commons date le drapeau du 21 mars 1908."
+      }
+     }
+    ],
+    "sources": [
+     "wp-flag-dominican-republic",
+     "wp-coat-of-arms-dominican-republic",
+     "commons-flagga-dominikanska-republiken"
+    ],
+    "review": "source-checked"
+   }
   },
   {
    "id": "kroatien",
@@ -39471,7 +39712,25 @@
    "from": 1969,
    "to": 2024,
    "file": "data/empires/saint-vincent-och-grenadinerna.json",
-   "flags": [{"file": "saint-vincent-and-the-grenadines", "from": 1985, "to": 2024, "label": {"sv": "Saint Vincent och Grenadinernas flagga", "en": "Flag of Saint Vincent and the Grenadines", "de": "Flagge von St. Vincent und den Grenadinen", "es": "Bandera de San Vicente y las Granadinas", "fr": "Drapeau de Saint-Vincent-et-les-Grenadines"}, "sources": ["wp-flag-saint-vincent-and-the-grenadines", "commons-flagga-saint-vincent"], "review": "source-checked"}],
+   "flags": [
+    {
+     "file": "saint-vincent-and-the-grenadines",
+     "from": 1985,
+     "to": 2024,
+     "label": {
+      "sv": "Saint Vincent och Grenadinernas flagga",
+      "en": "Flag of Saint Vincent and the Grenadines",
+      "de": "Flagge von St. Vincent und den Grenadinen",
+      "es": "Bandera de San Vicente y las Granadinas",
+      "fr": "Drapeau de Saint-Vincent-et-les-Grenadines"
+     },
+     "sources": [
+      "wp-flag-saint-vincent-and-the-grenadines",
+      "commons-flagga-saint-vincent"
+     ],
+     "review": "source-checked"
+    }
+   ],
    "polities": [
     {
      "id": "saint-vincent-och-grenadinerna",

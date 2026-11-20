@@ -853,6 +853,7 @@
         "wp-coat-of-arms-austria",
         "wp-coat-of-arms-austria-hungary",
         "wp-coat-of-arms-czechoslovakia",
+        "wp-coat-of-arms-dominican-republic",
         "wp-coat-of-arms-germany",
         "wp-coat-of-arms-gran-colombia",
         "wp-coat-of-arms-hawaiian-kingdom",
@@ -1133,6 +1134,8 @@
         "wp-flag-cyprus",
         "wp-flag-czech-republic",
         "wp-flag-djibouti",
+        "wp-flag-dominican-republic",
+        "wp-flag-ecuador",
         "wp-flag-fiji",
         "wp-flag-finland",
         "wp-flag-gabon",
@@ -1169,6 +1172,7 @@
         "wp-flag-malta",
         "wp-flag-mauritania",
         "wp-flag-mauritius",
+        "wp-flag-mexico",
         "wp-flag-moldova",
         "wp-flag-monaco",
         "wp-flag-mongolia",
@@ -3439,9 +3443,21 @@
       ]
     },
     {
+      "license": "Public domain (PD-Coa-Mexico)",
+      "sourceIds": [
+        "commons-flagga-mexiko"
+      ]
+    },
+    {
       "license": "Public domain (PD-Cuba, PD-ineligible)",
       "sourceIds": [
         "commons-flagga-kuba"
+      ]
+    },
+    {
+      "license": "Public domain (PD-Dominican Republic, PD-ineligible)",
+      "sourceIds": [
+        "commons-flagga-dominikanska-republiken"
       ]
     },
     {
