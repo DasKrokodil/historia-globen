@@ -72,68 +72,129 @@ def image_field(entry, styles):
     return img
 
 
-def put_image(block, img_json):
-    """Lägger in eller byter "image" i en händelses text, utan att formatera om något annat.
+DECODER = json.JSONDecoder()
 
-    Fyra fall, i den här ordningen (#1288):
-    1. händelsen har redan en "image" (på egen rad eller mitt på en rad): objektet byts ut;
-    2. händelsen har en egen rad med "wikidata" eller "sources": "image" läggs in som egen rad före den;
-    3. händelsen står på en rad och har exakt ett "sources": "image" läggs in före det, på samma rad;
-    4. annars: None, och image måste fyllas i för hand.
-    Bildens objekt har ett inre objekt (caption per språk), så det läses med raw_decode och inte med regex.
+
+def _skip_ws(text, i):
+    while i < len(text) and text[i] in ' \t\r\n':
+        i += 1
+    return i
+
+
+def find_event(raw, eid):
+    """Hittar händelsen med id:t eid i en redigeringsfil: (start, slut) för dess objekt i texten, eller None.
+
+    Filen läses som JSON (raw_decode) och inte med regex eller klammerräkning, så strängar med
+    klamrar och citattecken, och objekt inom objekt, spelar ingen roll, oavsett indentering (#2038).
     """
-    marker = '"image": '
-    n = block.count(marker)
-    if n > 1:
+    i = raw.index('"events"')
+    i = _skip_ws(raw, raw.index(':', i) + 1)
+    if raw[i] != '[':
         return None
-    if n == 1:
-        i = block.index(marker) + len(marker)
-        _, j = json.JSONDecoder().raw_decode(block, i)
-        return block[:i] + img_json + block[j:]
-    m = re.search(r'\n(      "(wikidata|sources)": )', block)
-    if m:
-        return block[:m.start() + 1] + '      "image": ' + img_json + ',\n' + block[m.start() + 1:]
-    if block.count('"sources": ') == 1:
-        i = block.index('"sources": ')
-        return block[:i] + marker + img_json + ', ' + block[i:]
+    i = _skip_ws(raw, i + 1)
+    while i < len(raw) and raw[i] != ']':
+        obj, j = DECODER.raw_decode(raw, i)
+        if isinstance(obj, dict) and obj.get('id') == eid:
+            return i, j
+        i = _skip_ws(raw, j)
+        if raw[i] == ',':
+            i = _skip_ws(raw, i + 1)
     return None
 
 
+def members(block):
+    """Objektets egna fält som (nyckel, nyckelns start, värdets start, värdets slut) i texten."""
+    out = []
+    i = _skip_ws(block, 1)
+    while block[i] != '}':
+        key, j = DECODER.raw_decode(block, i)
+        v = _skip_ws(block, block.index(':', j) + 1)
+        _, e = DECODER.raw_decode(block, v)
+        out.append((key, i, v, e))
+        i = _skip_ws(block, e)
+        if block[i] == ',':
+            i = _skip_ws(block, i + 1)
+    return out
+
+
+def line_indent(block, pos):
+    """Radens indrag före pos om bara blanktecken står före pos på raden, annars None."""
+    k = block.rfind('\n', 0, pos) + 1
+    pre = block[k:pos]
+    return pre if pre.strip() == '' and k > 0 else None
+
+
+def render_image(block, mem, image, indent):
+    """Bildobjektet som text i samma stil som händelsen: radbrutet med filens indrag om
+    händelsens egna objekt (till exempel place) är radbrutna, annars på en rad."""
+    nl = '\r\n' if '\r\n' in block else '\n'
+    for _, ks, vs, ve in mem:
+        text = block[vs:ve]
+        if text.startswith('{') and '\n' in text:
+            inner = re.match(r'\{\r?\n([ \t]*)', text).group(1)
+            unit = inner[len(line_indent(block, ks) or ''):] or ' '
+            return json.dumps(image, ensure_ascii=False, indent=unit).replace('\n', nl + indent)
+    return json.dumps(image, ensure_ascii=False, separators=(', ', ': '))
+
+
+def put_image(block, image):
+    """Lägger in eller byter "image" i en händelses text (objektet från "{" till "}"), utan att formatera om något annat.
+
+    Tre fall (#1288, #2038):
+    1. händelsen har redan en "image": värdet byts ut;
+    2. annars läggs "image" in före händelsens "wikidata" eller "sources" (det av dem som kommer först):
+       som egen rad med samma indrag om fältet står på egen rad, annars på samma rad före fältet;
+    3. finns varken "wikidata" eller "sources": None, och image måste fyllas i för hand.
+    Fälten läses som JSON, så indrag och radbrytningar kan vara vilka som helst.
+    """
+    mem = members(block)
+    keys = [m[0] for m in mem]
+    if keys.count('image') > 1:
+        return None
+    for key, ks, vs, ve in mem:
+        if key == 'image':
+            ind = line_indent(block, ks) or ''
+            others = [m for m in mem if m[0] != 'image']
+            return block[:vs] + render_image(block, others, image, ind) + block[ve:]
+    anchor = next((m for m in mem if m[0] in ('wikidata', 'sources')), None)
+    if anchor is None:
+        return None
+    ks = anchor[1]
+    ind = line_indent(block, ks)
+    if ind is not None:
+        return block[:ks] + '"image": ' + render_image(block, mem, image, ind) + (',\r\n' if '\r\n' in block else ',\n') + ind + block[ks:]
+    return block[:ks] + '"image": ' + render_image(block, mem, image, '') + ', ' + block[ks:]
+
+
 def fill_events(ids, log):
-    """Lägger in eller byter raden "image" i varje händelse i redigeringsfilerna, utan att formatera om dem."""
+    """Lägger in eller byter "image" i varje händelse i redigeringsfilerna, utan att formatera om dem."""
     files = sorted((ROOT / 'data/handelser').glob('*.json'))
-    raws = {f: f.read_text(encoding='utf-8') for f in files}
+    # Läsning och skrivning som bytes bevarar radslut och teckenkodning
+    raws = {f: f.read_bytes().decode('utf-8') for f in files}
     styles = {s['id'] for s in json.loads((ROOT / 'data/styles.json').read_text())['styles']}
     by_id = {e['id']: e for e in log}
     for eid in ids:
         if eid not in by_id:
             print(f'  {eid}: finns inte i bildloggen, fyll i image för hand')
             continue
-        img_json = json.dumps(image_field(by_id[eid], styles), ensure_ascii=False, separators=(', ', ': '))
-        pattern = re.compile(r'\{\s*"id":\s*"' + re.escape(eid) + '"')
-        found = [(f, m.start()) for f, raw in raws.items() for m in [pattern.search(raw)] if m]
+        image = image_field(by_id[eid], styles)
+        found = [(f, span) for f, raw in raws.items() for span in [find_event(raw, eid)] if span]
         if not found:
             print(f'  {eid}: ingen händelse med det id:t i data/handelser/')
             continue
-        f, start = found[0]
+        f, (start, end) = found[0]
         raw = raws[f]
-        # Händelsen slutar där nästa händelse eller listans slut börjar. Redigeringsfilerna
-        # har inga tomrader mellan händelserna, så en tomrad duger inte som gräns: då
-        # hamnade bilden på en senare händelse (rättat 2026-11-06, #453).
-        nxt = re.compile(r'\n\s*\{\s*"id":|\n\s*\]').search(raw, start + 1)
-        end = len(raw) if not nxt else nxt.start()
-        block = raw[start:end]
-        new_block = put_image(block, img_json)
+        new_block = put_image(raw[start:end], image)
         if new_block is None:
             print(f'  {eid}: hittar inte var image ska stå i {f.relative_to(ROOT)}, fyll i image för hand')
             continue
-        block = new_block
-        raws[f] = raw[:start] + block + raw[end:]
+        raws[f] = raw[:start] + new_block + raw[end:]
         print(f'  {eid}: image ifylld i {f.relative_to(ROOT)}')
     for f, raw in raws.items():
         json.loads(raw)  # kontrollera att filen fortfarande är giltig JSON
-        if raw != f.read_text(encoding='utf-8'):
-            f.write_text(raw, encoding='utf-8')
+        data = raw.encode('utf-8')
+        if data != f.read_bytes():
+            f.write_bytes(data)
     print('Kör python3 tools/dela_data.py så att data/events.json och data/genererat/ byggs om.')
 
 
