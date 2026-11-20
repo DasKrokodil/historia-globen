@@ -3353,4 +3353,5 @@ span.theme-event:hover { background: none; outline: none; }
 @media (max-width: 760px) and (max-height: 480px) {
   .app:not(.lesson):not(.touring):not(.focusing) { --ff-b: 130px; }
   .app:not(.lesson):not(.touring):not(.focusing):has(.pause-note:not([hidden])) { --ff-b: 192px; }
+  .app:not(.lesson):not(.touring):not(.focusing) .detail-fig img { height: clamp(80px, 24vh, 180px); } /* faktarutan är 22 px lägre: bilden tar inte mer än hälften av den (#1310) */
 }
