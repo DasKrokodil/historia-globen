@@ -1116,6 +1116,7 @@
         "wp-flag-bangladesh",
         "wp-flag-barbados",
         "wp-flag-belgium",
+        "wp-flag-belize",
         "wp-flag-benin",
         "wp-flag-bolivia",
         "wp-flag-botswana",
@@ -3738,6 +3739,12 @@
       "license": "Public domain (PD-ineligible, PD-GE-exempt)",
       "sourceIds": [
         "commons-flagga-georgia"
+      ]
+    },
+    {
+      "license": "Public domain (PD-ineligible, PD-US-1978-89)",
+      "sourceIds": [
+        "commons-flagga-belize"
       ]
     },
     {
