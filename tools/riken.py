@@ -1646,8 +1646,11 @@ GROUPS = {
     ]),
     'kara-khanid': ('Khanatet Kara-Khanid', 'Karakhanid Khanate', [
         ('Kara-Khanids', 'kara-khanid', 'Khanatet Kara-Khanid', '#5a8ab0', {'en': 'Karakhanid Khanate'}),
-        # Cliopatrias Eastern Kara-Khanids (1046–1138) har samma Wikidata-id (Q494354) och läggs till som del (#645, nionde omgången)
+        # Cliopatrias Eastern Kara-Khanids (1046–1138) och Western Karakhanid Khanate (1046–1084, Samarkand) har samma
+        # Wikidata-id (Q494354) och läggs till som delar (#645, nionde omgången). Efter 1084 räknar Cliopatria Samarkand till
+        # Seldjukriket och sedan Kara-Khitan; det västra khanatet fanns enligt Wikipedia till 1212
         ('Eastern Kara-Khanids', 'kara-khanid-ost', 'Khanatet Kara-Khanid', '#5a8ab0', {'en': 'Karakhanid Khanate'}),
+        ('Western Karakhanid Khanate', 'kara-khanid-vast', 'Khanatet Kara-Khanid', '#5a8ab0', {'en': 'Karakhanid Khanate'}),
     ]),
     'dali': ('Dali', 'Dali Kingdom', [
         ('Kingdom of Dali', 'dali', 'Dali', '#8a6ab0', {'en': 'Dali Kingdom'}),
@@ -1751,7 +1754,9 @@ GROUPS = {
         ('Haripuñjaya', 'hariphunchai', 'Hariphunchai', '#a05aa0', {'en': 'Haripuñjaya'}),
     ]),
     'koguryo': ('Koguryo', 'Goguryeo', [
-        ('Goguryeo', 'koguryo', 'Koguryo', '#4a8a6a', {'en': 'Goguryeo'}),
+        # Cliopatrias sista post 674–681 är bara 148 km² vid kusten kring 125,4° Ö 37,7° N och visas inte (geografens
+        # granskning av PR #2037); Wikipedia och Wikidata anger att riket föll 668
+        ('Goguryeo', 'koguryo', 'Koguryo', '#4a8a6a', {'en': 'Goguryeo', 'years': (-35, 673)}),
     ]),
     'kungariket-lavo': ('Kungariket Lavo', 'Lavo Kingdom', [
         ('Lavo Kingdom', 'kungariket-lavo', 'Kungariket Lavo', '#b05a5a', {'en': 'Lavo Kingdom'}),
@@ -3098,6 +3103,12 @@ DECIMALS = {'israel': 2, 'palestina': 2, 'osttyskland': 2, 'vasttyskland': 2, 't
             'oyoriket': 2, 'ashantiriket': 2, 'gronland-koloni': 2, 'danska-indien': 3, 'danska-guldkusten': 3}  # #1388
 
 
+# Grupper vars avrundade gräns görs giltig med valid_rounded (make_valid), eftersom förenklingen och avrundningen annars ger
+# en gräns som korsar sig själv. Bara de här grupperna, så att övriga rikens filer blir exakt som förut: Aragoniska kronan
+# vid norra Sicilien (15,4° Ö 38,2° N) 1450–1458 och från 1507 (#645, geografens granskning av PR #2037)
+MAKE_VALID = {'aragoniska-kronan'}
+
+
 def rnd(o, nd=1):
     if isinstance(o, (list, tuple)):
         if o and isinstance(o[0], (int, float)):
@@ -3379,6 +3390,8 @@ INFLUENCE_NAMES = {
     'Delhi Sultanate': 'Delhisultanatet', 'Ostrogothic Kingdom': 'Östgoternas rike', 'Papal States': 'Kyrkostaten',
     'East Franks': 'Östfrankiska riket', 'Kidarites': 'Kidariterna', 'Jalayirid Sultanate': 'Jalayiridernas sultanat',
     'Kingdom of Georgia': 'Kungariket Georgien', 'Qara Qoyunlu': 'Qara Qoyunlu', 'Joseon': 'Joseon (Korea)',
+    # Wikidata Q1311219 saknar svensk etikett; typordet översatt som de, es och fr ("Königreich Jaffna", #645)
+    'Jaffna kingdom': 'Kungariket Jaffna',
 }
 # Relationer i Cliopatria som källorna motsäger och därför inte visas (#75): (lydrike, överhuvud) med motivering.
 INFLUENCE_SKIP = {
@@ -3607,7 +3620,8 @@ def main():
                 lab = list(opts['label']) if opts.get('label') else [round(c.x, 1), round(c.y, 1)]
                 q = {'start': start, 'end': end, 'areaKm2': round(area),
                      'label': lab, '_shape': gc, '_g': g, '_raw': raw,
-                     'geometry': {'type': mapping(g)['type'], 'coordinates': rnd(mapping(g)['coordinates'], nd)}}
+                     'geometry': (valid_rounded(g, nd) if gid in MAKE_VALID else
+                                  {'type': mapping(g)['type'], 'coordinates': rnd(mapping(g)['coordinates'], nd)})}
                 # Huvudlandet (#74): den del av riket som är moderlandet. Den ritas kraftigare och får rikets namn.
                 if home and 'homeland' in opts:
                     hg = homeland_shape(by_name, opts['homeland'], home['window'], raw, start, tol, min_area)
