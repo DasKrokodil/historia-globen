@@ -95,6 +95,27 @@ function aegeanCoastLon(lat) {
   }
   return AEGEAN_COAST[AEGEAN_COAST.length - 1][1];
 }
+// Stora Kaukasus huvudkam (vattendelaren) som [lat, lon] från Anapa vid Svarta havet till Apsjeronhalvön vid
+// Kaspiska havet (#2010, docs/omstridda-granser.md). Ungefärlig linje genom toppar på eller nära kammen; norr om
+// den ligger Europa (Ciskaukasien: Majkop, Naltjik, Groznyj), söder om den Asien (Georgien, Armenien, Baku).
+// Koordinater ur engelska Wikipedia, öppnade 2026-11-20: Anapa (Q15758), Fisht (Q2392222), Dombaj-Ulgen
+// (Q768409), Elbrus (Q43105), Sjchara (artikeln Greater Caucasus), Kazbek (Q207680), Tebulosmta (Q768463),
+// Bazardüzü (Q725591), Babadağ (Babadağ (Azerbaijan)) och Apsjeronhalvön (Q336969).
+const CAUCASUS_CREST = [[44.89, 37.32], [43.94, 39.9], [43.24, 41.73], [43.36, 42.44], [43.01, 43.17],
+  [42.7, 44.52], [42.57, 45.32], [41.22, 47.86], [41.02, 48.3], [40.46, 49.96]];
+function caucasusCrestLat(lon) {
+  for (let i = 1; i < CAUCASUS_CREST.length; i++) {
+    const [a, x] = CAUCASUS_CREST[i - 1], [b, y] = CAUCASUS_CREST[i];
+    if (lon <= y) return a + (lon - x) / (y - x) * (b - a);
+  }
+  return CAUCASUS_CREST[CAUCASUS_CREST.length - 1][0];
+}
+// Norr om 41° N och väster om 60° Ö: Europa, utom söder om Kaukasus huvudkam (#2010) och, öster om kammens
+// slut vid Apsjeron, söder om 44,5° N (Kaspiska havets östra strand, Ustjurt).
+function northOfCaucasus(lat, lon) {
+  if (lon >= CAUCASUS_CREST[0][1] && lon <= CAUCASUS_CREST[CAUCASUS_CREST.length - 1][1]) return lat >= caucasusCrestLat(lon);
+  return !(lon > 40 && lat < 44.5);
+}
 export function region(lat, lon) {
   if (lat > 50 && (lon < -168 || lon > 160)) return 'Asien'; // Sibiriens östspets och Wrangelön vid datumlinjen
   if (lon < -125 && lat < 35) return 'Oceanien'; // Hawaii, Midway och Stilla havet (Kalifornien ligger öster om -125)
@@ -118,7 +139,7 @@ export function region(lat, lon) {
   if (africa) return 'Afrika';
   if (lon >= 52 && lon < 64 && lat > -22 && lat < -3) return 'Afrika'; // Maskarenerna och Seychellerna (#1334)
   if (lat >= 36.6 && lat <= 40.45 && lon < 28.9 && lon > aegeanCoastLon(lat)) return 'Asien'; // västra Anatolien (#1334)
-  if (lat >= 35 &&(lon < 28.9 || (lat >= 41 && lon < 60 && !(lon > 40 && lat < 44.5)))) return 'Europa';
+  if (lat >= 35 && (lon < 28.9 || (lat >= 41 && lon < 60 && northOfCaucasus(lat, lon)))) return 'Europa';
   return 'Asien';
 }
 

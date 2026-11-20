@@ -314,6 +314,31 @@ Källor (Wikipedia, öppnade 2026-11-15): [wp-allied-control-commission](https:/
 
 **Fall som återstår** (efter #1469, 2026-11-15): Irak räknas till Brittiska imperiet 1945–1946 (inte prövat). Polen, Östeuropa och Österrike 1945–1946, Ungern 1956–1957 och Kuwait 1990 är rättade i #1469. Muskat och Oman 1956–1972 är löst med en not i #1805 (kartan som i Cliopatria).
 
+## Världsdelsgränsen i Kaukasus (#2010, beslut 2026-11-20)
+
+Det här är ingen politisk gräns utan vilken **världsdel** en punkt räknas till (`region()` i `js/model.js`, som Samtidigt-listan, Samtidighetsjakten och täckningsmåttet använder). Regeln ([beslut/2026-11-20-kaukasus-vardsdelsgrans-2010.md](beslut/2026-11-20-kaukasus-vardsdelsgrans-2010.md), DasKrokodils svar på #2010): gränsen mellan Europa och Asien i Kaukasus följer **Stora Kaukasus huvudkam (vattendelaren)**. Norra sluttningen och förlandet (Ciskaukasien: Krasnodar, Majkop, Stavropol, Naltjik, Vladikavkaz, Groznyj, Machatjkala) räknas till Europa, sidan söder om kammen (Georgien, Armenien, Azerbajdzjan söder om kammen och Svartahavskusten från Tuapse till Abchazien) till Asien.
+
+**Varför:** förut delade en rak linje (öster om 40° Ö och söder om 44,5° N var Asien) norra Kaukasus i två världsdelar, så att Majkopkurganen och Novokorsunskaja räknades till Europa men gravfältet i Naltjik, i samma område norr om kammen, till Asien. Enligt Wikipedia ([Boundaries between the continents](https://en.wikipedia.org/wiki/Boundaries_between_the_continents), öppnad 2026-11-20) följer en vanlig gräns vattendelaren i Stora Kaukasus, och den blev den gängse i Sovjetunionen under senare delen av 1900-talet; Kuma–Manytj-sänkan är det andra alternativet och nämns mer sällan i dag. Artikeln [Greater Caucasus](https://en.wikipedia.org/wiki/Greater_Caucasus) (öppnad 2026-11-20) säger att bergskedjan går från Tamanhalvön vid Svarta havet till Apsjeronhalvön vid Kaspiska havet, att delen norr om vattendelaren kallas Ciskaukasien och räknas till Europa, att gränsen mellan Georgien och Ryssland följer vattendelaren nästan exakt (utom i väster, där Georgien når söder om den, och en smal remsa i nordöstra Kachetien och norra Mtscheta-Mtianeti, där Georgien når norr om den), och att Azerbajdzjan ligger söder om vattendelaren utom sex distrikt i nordost.
+
+**Linjen** (`CAUCASUS_CREST`, samma i `tools/tackningsrapport.py` och `scripts/validate-site.py`) är en ungefärlig polylinje genom toppar på eller nära kammen. Koordinaterna är ur engelska Wikipedia, öppnade 2026-11-20:
+
+| Punkt | Lat | Lon | Källa |
+|---|---:|---:|---|
+| Anapa (västra änden, vid Tamanhalvön) | 44,89 | 37,32 | [Anapa](https://en.wikipedia.org/wiki/Anapa) (Q15758) |
+| Fisht (västra Kaukasus) | 43,94 | 39,90 | [Mount Fisht](https://en.wikipedia.org/wiki/Mount_Fisht) (Q2392222) |
+| Dombaj-Ulgen (gränsen Abchazien–Karatjajevo-Tjerkessien) | 43,24 | 41,73 | [Dombay-Ulgen](https://en.wikipedia.org/wiki/Dombay-Ulgen) (Q768409) |
+| Elbrus | 43,36 | 42,44 | [Mount Elbrus](https://en.wikipedia.org/wiki/Mount_Elbrus) (Q43105) |
+| Sjchara | 43,01 | 43,17 | [Greater Caucasus](https://en.wikipedia.org/wiki/Greater_Caucasus), avsnittet Peaks |
+| Kazbek | 42,70 | 44,52 | [Mount Kazbek](https://en.wikipedia.org/wiki/Mount_Kazbek) (Q207680) |
+| Tebulosmta (gränsen Georgien–Tjetjenien) | 42,57 | 45,32 | [Tebulosmta](https://en.wikipedia.org/wiki/Tebulosmta) (Q768463) |
+| Bazardüzü (gränsen Azerbajdzjan–Dagestan) | 41,22 | 47,86 | [Mount Bazardüzü](https://en.wikipedia.org/wiki/Mount_Bazard%C3%BCz%C3%BC) (Q725591) |
+| Babadağ | 41,02 | 48,30 | [Babadağ (Azerbaijan)](https://en.wikipedia.org/wiki/Baba%C4%9Fa%C4%9F_(Azerbaijan)) |
+| Apsjeronhalvön (östra änden) | 40,46 | 49,96 | [Absheron Peninsula](https://en.wikipedia.org/wiki/Absheron_Peninsula) (Q336969) |
+
+**Förenklingar, öppet:** linjen är rak mellan topparna. Elbrus ligger enligt artikeln i Ciskaukasien och Kazbek strax söder om gränsen mot Ryssland, alltså en bit norr respektive söder om själva vattendelaren; felet är några mil och påverkar ingen händelse i dag. Väster om Anapa (37,32° Ö) och öster om Apsjeron (49,96° Ö) gäller samma regler som förut: Svarta havets kuster följer de gamla gränserna (men efter ändringen räknas Sotji (43,59 N, 39,72 Ö), Tuapse (44,10 N, 39,07 Ö) och Novorossijsk (44,72 N, 37,77 Ö) till Asien, eftersom de ligger söder om linjen; Sotji och Tuapse ligger administrativt i Krasnodar kraj, och Novorossijsk ligger precis på linjens raka stycke Anapa–Fisht och är ett gränsfall; linjen är en förenkling), och Kaspiska havets östra strand söder om 44,5° N är Asien. Mellan 37,32° och 40° Ö räknas nu också Trabzon (41,00 N, 39,72 Ö) till Asien i stället för Europa; det är ett gammalt fel som rättas, ingen regression (Giresun och Ordu låg redan under 41° N och var Asien); väster om 37,32° Ö ligger Turkiets nordkust norr om 41° N (Sinop, Samsun) som förut i Europa, vilket är en egen fråga utanför #2010.
+
+**Mätt 2026-11-20** (`tools/tackning.py` före och efter, och alla händelsers punkter): en befintlig händelse byter världsdel, `gravfaltet-i-naltjik` (43,48 N, 43,61 Ö), från Asien till Europa. Majkopkurganen och Novokorsunskaja var redan Europa. Inget rike byter världsdel (etikettpunkterna), och världsdelarnas andel av landytan är oförändrad i hela procent. Inga data ändras; världsdelen räknas ur koordinaterna.
+
 ## Frågor till Rikard (2026-11-06, besvarade)
 
 1. Israel, Palestina och Golan: får gränserna hämtas ur Natural Earth (public domain, samma källa som grundkartan)?

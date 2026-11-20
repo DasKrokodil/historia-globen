@@ -32,6 +32,27 @@ def aegean_coast_lon(lat):
     return AEGEAN_COAST[-1][1]
 
 
+# Stora Kaukasus huvudkam (vattendelaren) som (lat, lon), samma som CAUCASUS_CREST i js/model.js (#2010)
+CAUCASUS_CREST = [(44.89, 37.32), (43.94, 39.9), (43.24, 41.73), (43.36, 42.44), (43.01, 43.17),
+                  (42.7, 44.52), (42.57, 45.32), (41.22, 47.86), (41.02, 48.3), (40.46, 49.96)]
+
+
+def caucasus_crest_lat(lon):
+    for i in range(1, len(CAUCASUS_CREST)):
+        a, x = CAUCASUS_CREST[i - 1]
+        b, y = CAUCASUS_CREST[i]
+        if lon <= y:
+            return a + (lon - x) / (y - x) * (b - a)
+    return CAUCASUS_CREST[-1][0]
+
+
+def north_of_caucasus(lat, lon):
+    """Norr om Kaukasus huvudkam (#2010); öster om kammens slut som förut söder om 44,5° N i Asien."""
+    if CAUCASUS_CREST[0][1] <= lon <= CAUCASUS_CREST[-1][1]:
+        return lat >= caucasus_crest_lat(lon)
+    return not (lon > 40 and lat < 44.5)
+
+
 def region(lat, lon):
     """Samma grova världsindelning som js/model.js:region()."""
     if lat > 50 and (lon < -168 or lon > 160):
@@ -67,7 +88,7 @@ def region(lat, lon):
         return 'Afrika'
     if 36.6 <= lat <= 40.45 and lon < 28.9 and lon > aegean_coast_lon(lat):  # västra Anatolien (#1334)
         return 'Asien'
-    if lat >= 35 and (lon < 28.9 or (lat >= 41 and lon < 60 and not (lon > 40 and lat < 44.5))):
+    if lat >= 35 and (lon < 28.9 or (lat >= 41 and lon < 60 and north_of_caucasus(lat, lon))):
         return 'Europa'
     return 'Asien'
 
