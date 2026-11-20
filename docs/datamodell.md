@@ -375,7 +375,7 @@ Laddas vid första faktarutan, klickrutan för en väg, upptäcktsvyn eller Om k
   "license": "CC BY-SA 4.0", "checked": "2026-10-29" }
 ```
 
-`checked` är datumet då källan senast öppnades och kontrollerades. Id:t `wikidata` är reserverat och länkar till händelsens egen Wikidata-post.
+`checked` är datumet då källan senast öppnades och kontrollerades. Valfritt `note` (svensk text, #1874) säger öppet när filsidan eller källan är motsägelsefull, till exempel en Commons-tagg PD-UKGov bredvid IWM:s text om en icke-kommersiell licens; anteckningen visas inte på sidan. Id:t `wikidata` är reserverat och länkar till händelsens egen Wikidata-post.
 
 ## `empires/`: riken
 
