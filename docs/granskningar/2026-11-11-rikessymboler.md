@@ -208,6 +208,48 @@ Byggt på grenen `claude/issue-1154-afrika-2`. Källorna öppnades 2026-11-14: "
 
 **Medaljens plats:** etikettpunkten för varje grupp och år med flagga ligger inom Cliopatrias yta och i rätt land i Natural Earth 1:50m admin-0 (kontrollskriptet från #1194 och #1497). Ingen `labelAt` behövdes. Wikidata-id för varje del är kontrollerat mot Wikidata (till exempel Q1014 Liberia, Q958 Sydsudan, Q1049 Sudan).
 
+## Uppföljning 2026-11-20: Amerika (#1155)
+
+Byggt på grenen `claude/issue-1155-amerika-2`, från dagens `main`. Omgång 1 (grenen `claude/issue-1155-flaggor-amerika-1`, sju flaggor) är förd hit och källorna lästa igen. Källorna öppnades 2026-11-20: "Flag of …" på Wikipedia för åren och Commons-filsidan för licensen. Alla Commons-filer som används är public domain. Ingen flagga visas före antagandeåret eller utanför gruppens år.
+
+| Grupp | Visas | Anmärkning |
+|---|---|---|
+| USA | 1960–2024 | 50 stjärnor från 1960-07-04, "The last adjustment was made in 1960". 1776–1959 är en lucka (stjärnorna ändrades många gånger) |
+| Brasilien | 1992–2024 | 27 stjärnor från 1992-05-11. Republikens flagga 1889 hade 21 stjärnor; 1889–1991 är en lucka |
+| Paraguay | 2013–2024 | Teckningen är den reviderade från 2013-07-15. Bara framsidan med riksvapnet ritas |
+| Guyana | 1967–2024 | Antagen 1966-05-26; gruppen börjar 1967 |
+| Surinam | 1976–2024 | Antagen 1975-11-25. Gruppen börjar nu 1820 (kolonin), men flaggan visas först från 1976 |
+| Kuba | 1906–2024 | Antagen 1902-05-20, färgen ändrad 1906 (dekret 21 april i texten, 24 april i en referens). 1908–1910 har kartan ingen yta för landet |
+| Saint Vincent och Grenadinerna | 1985–2024 | Antagen 1985-10-12; en liknande flagga användes före 1985 och ingår inte |
+| Mexiko | 1968–2024 | Antagen 1968-09-16, bekräftad i lag 1984-02-24. Vapnet bygger på aztekernas tecken för Tenochtitlan (står i faktarutan). Äldre flaggor hade ett annat vapen och visas inte |
+| Ecuador | 1860–1899 och 1900–2024 | Den enkla trikoloren: nationsflagga från 1860-09-26, civil- och handelsflagga från 1900, när nationsflaggan fick vapnet (1900-10-31). Nationsflaggan med vapnet ritas inte |
+| Dominikanska republiken | 1913–2024 | Flaggan med vapnet från 1863-11-06, men vapnet har ändrats minst 21 gånger; teckningen visar dagens vapen, från 1913 enligt artikeln om vapnet. Faktarutan säger sakligt att Wikipedia kallar korset ett Sankt Georgskors, att vitt står för frälsning och att blått från början stod för Guds beskydd, och att vapnet har en bibel och ett kors. 1916–1923 har kartan ingen yta för landet |
+| Belize | 2019–2024 | Antagen 1981-09-21. Före 2019 fanns inga fastställda mått, och nyanser och skuggning varierade; teckningen är den standardiserade från 2019-08-28. 1983–2018 är en lucka |
+
+**Förenkling av vapnen:** Commons-filerna för Mexiko (117 kB), Dominikanska republiken (204 kB) och Belize (72 kB) är förenklade med skript: koordinaterna avrundade till hela bildpunkter i en 300 bildpunkter bred teckning (med spårning, så att felet inte växer längs banan), kurvor under en bildpunkt gjorda raka, element mindre än en bildpunkt borttagna och id och metadata strukna. Inget i vapnen är ritat på nytt. Fälten är omritade i 3:2 och vapnen har kvar sin form (Mexikos vapen är tre fjärdedelar av det vita fältet, som lagen säger). Resultat: Mexiko 37 kB, Dominikanska republiken 23 kB och Belize 21 kB; den största befintliga filen i `img/flags/` är Fiji med 40 kB. Jämfört bild för bild med originalet i 600 bildpunkters bredd är skillnaden bara i smådetaljer; texten på banden blir otydlig, men den syns inte i kartans storlek (högst 72 bildpunkter i faktarutan).
+
+**Källorna skiljer sig:**
+- Dominikanska republiken: Wikipedia anger 1863-11-06 för flaggan; filsidan på Commons daterar teckningen till 1908-03-21, och artikeln om vapnet visar dagens vapen från 1913. Kartan visar teckningen från 1913, det senare året. Står i faktarutan.
+- Ecuador: ingressen säger att trikoloren först antogs i lag 1835, medan tabellen över flaggans historia visar andra flaggor 1830–1860. Före 1860 visas ingen flagga. Står i faktarutan.
+- Kuba: 21 april 1906 i texten och 24 april 1906 i en referens; samma år, påverkar inte kartan.
+
+**Väntar:**
+- **Belize 1983–2018:** Commons-filen för flaggan före standardiseringen (`Flag of Belize (1981–2019).svg`) svarade 429 vid alla försök. Den är dessutom en användares egen teckning av en flagga utan fastställd form, så den bör prövas med en granskare innan den används.
+- **USA före 1960, Brasilien 1889–1991, Paraguay 1842–2012, Mexiko före 1968, Ecuador med vapnet (1900–2009 och från 2009) och Dominikanska republiken 1863–1912:** äldre versioner med andra stjärnor eller vapen; var och en behöver egen källkontroll och egen teckning.
+- "vänta" i tabellen (Venezuela, Haiti, Nicaragua, Panama, El Salvador, Dominica) är inte prövade igen och inte byggda.
+
+**Medaljens plats:** `tools/flaggkontroll.py` (Natural Earth 1:50m admin-0) går igenom utan fel för alla elva grupper; Brasilien, Saint Vincent och Grenadinerna och Dominikanska republiken fick alias för Natural Earths namn, så att de nu kontrolleras. Ett extra skript prövade att etikettpunkten ligger inne i Cliopatrias yta varje år med flagga: inga fel, och åren utan yta (Kuba 1908–1910, Dominikanska republiken 1916–1923) visar ingen medalj. Ingen `labelAt` behövdes. På kartan (Playwright, 2026-11-20) syns flaggorna på rätt land, till exempel Guyana 2015, USA och Mexiko 2000, Ecuador 1880 och 2000 och Belize 2020, och Mexiko 1960 och Belize 2010 visar ingen flagga, utan konsolfel. I 400 px bredd syns inte Belizes medalj ens vid största zoom, eftersom grannarnas namn och medaljer tar platsen; Guatemala beter sig likadant, så det är kartans vanliga regel för krockar.
+
+**Skärmbilder:**
+- Karibien och Mexiko 2020, dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1155/karibien-mexiko-2020-1280.webp
+- Belize 2020, dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1155/belize-2020-1280.webp
+- Guyana och Ecuador 2015, dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1155/guyana-ecuador-2015-1280.webp
+- Dominikanska republiken 2000, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1155/dominikanska-republiken-2000-400.webp
+- Mexiko 2000, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1155/mexiko-2000-400.webp
+- Ecuador 1880, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1155/ecuador-1880-400.webp
+
+**Expertgranskning:** arbetaren hade inget verktyg för att kalla in underagenter (`historiker`, `geograf`, `sprak-en`, `sprak-de`, `sprak-es`, `sprak-fr`). Fakta, källor, medaljernas plats och de nya texterna på fem språk granskas därför separat av en Claude Code som inte byggde ändringen.
+
 ## Tabeller per världsdel
 
 Kolumner: id, rike, sort, vad symbolen är, källa, bild på Commons med licens, säkerhet, rekommendation och anmärkning.
