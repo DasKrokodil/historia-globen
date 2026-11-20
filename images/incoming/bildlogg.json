@@ -2617,7 +2617,7 @@
       "en": "The Battle of Palo Alto between the American and Mexican armies on 8 May 1846. Colour lithograph by Sarony & Major, New York, 1846; the text below the picture says the Americans were victorious. The Library of Congress states no known restrictions on publication.",
       "de": "Die Schlacht bei Palo Alto zwischen der amerikanischen und der mexikanischen Armee am 8. Mai 1846. Farblithografie von Sarony & Major, New York 1846; der Text unter dem Bild sagt, dass die Amerikaner siegten. Die Library of Congress gibt keine bekannten Einschränkungen für die Veröffentlichung an.",
       "es": "La batalla de Palo Alto entre los ejércitos estadounidense y mexicano el 8 de mayo de 1846. Litografía en color de Sarony & Major, Nueva York, 1846; el texto bajo la imagen dice que los estadounidenses vencieron. La Library of Congress no indica restricciones conocidas para su publicación.",
-      "fr": "La bataille de Palo Alto entre les armées américaine et mexicaine, le 8 mai 1846. Lithographie en couleurs de Sarony & Major, New York, 1846 ; le texte sous l’image dit que les Américains l’emportèrent. La Library of Congress n’indique aucune restriction connue de publication."
+      "fr": "La bataille de Palo Alto entre les armées américaine et mexicaine, le 8 mai 1846. Lithographie en couleurs de Sarony & Major, New York, 1846 ; le texte sous l’image dit que les Américains l’emportèrent. La Library of Congress n’indique aucune restriction connue de publication."
     },
     "credit": "Sarony & Major, New York 1846 / Library of Congress, Prints & Photographs Division",
     "license": "Inga kända restriktioner (Library of Congress)",
@@ -2633,7 +2633,7 @@
       "en": "General Burgoyne's surrender at Saratoga on 17 October 1777. Wash drawing by François Godefroy, probably 1784, for Nicolas Ponce's collection of prints about the war; the Library of Congress calls it an idealized view. No known restrictions on publication in the U.S. according to the Library of Congress.",
       "de": "Die Kapitulation von General Burgoyne bei Saratoga am 17. Oktober 1777. Lavierte Zeichnung von François Godefroy, wahrscheinlich 1784, für Nicolas Ponces Bildersammlung über den Krieg; die Library of Congress nennt sie eine idealisierte Darstellung. Laut der Library of Congress keine bekannten Einschränkungen für die Veröffentlichung in den USA.",
       "es": "La rendición del general Burgoyne en Saratoga el 17 de octubre de 1777. Dibujo a la aguada de François Godefroy, probablemente de 1784, para la colección de estampas de Nicolas Ponce sobre la guerra; la Library of Congress lo califica de imagen idealizada. Sin restricciones conocidas para su publicación en Estados Unidos, según la Library of Congress.",
-      "fr": "La capitulation du général Burgoyne à Saratoga, le 17 octobre 1777. Dessin au lavis de François Godefroy, probablement de 1784, pour le recueil d’estampes de Nicolas Ponce sur la guerre ; la Library of Congress le qualifie de vue idéalisée. Aucune restriction connue de publication aux États-Unis selon la Library of Congress."
+      "fr": "La capitulation du général Burgoyne à Saratoga, le 17 octobre 1777. Dessin au lavis de François Godefroy, probablement de 1784, pour le recueil d’estampes de Nicolas Ponce sur la guerre ; la Library of Congress le qualifie de vue idéalisée. Aucune restriction connue de publication aux États-Unis selon la Library of Congress."
     },
     "credit": "François Godefroy / Library of Congress, Rare Book and Special Collections Division",
     "license": "Inga kända restriktioner (Library of Congress)",
@@ -2665,7 +2665,7 @@
       "en": "The Battle of Lexington, where the war began: Minutemen fire on the British, according to the Library of Congress. Engraving by Cornelius Tiebout after a drawing by Elkanah Tisdale, 1790s, that is, made after the war. The Library of Congress states no known restrictions on publication.",
       "de": "Die Schlacht bei Lexington, mit der der Krieg begann: Minutemen schießen auf die Briten, laut der Library of Congress. Kupferstich von Cornelius Tiebout nach einer Zeichnung von Elkanah Tisdale, 1790er-Jahre, also nach dem Krieg entstanden. Die Library of Congress gibt keine bekannten Einschränkungen für die Veröffentlichung an.",
       "es": "La batalla de Lexington, donde empezó la guerra: milicianos (minutemen) disparan contra los británicos, según la Library of Congress. Grabado de Cornelius Tiebout a partir de un dibujo de Elkanah Tisdale, de la década de 1790, es decir, hecho después de la guerra. La Library of Congress no indica restricciones conocidas para su publicación.",
-      "fr": "La bataille de Lexington, où la guerre commença : des miliciens (minutemen) tirent sur les Britanniques, selon la Library of Congress. Gravure de Cornelius Tiebout d’après un dessin d’Elkanah Tisdale, années 1790, donc réalisée après la guerre. La Library of Congress n’indique aucune restriction connue de publication."
+      "fr": "La bataille de Lexington, où la guerre commença : des miliciens (minutemen) tirent sur les Britanniques, selon la Library of Congress. Gravure de Cornelius Tiebout d’après un dessin d’Elkanah Tisdale, années 1790, donc réalisée après la guerre. La Library of Congress n’indique aucune restriction connue de publication."
     },
     "credit": "Elkanah Tisdale (teckning), Cornelius Tiebout (gravyr) / Library of Congress, Prints & Photographs Division",
     "license": "Inga kända restriktioner (Library of Congress)",
@@ -2686,5 +2686,85 @@
     "credit": "William Morris Smith / Library of Congress, Prints & Photographs Division (LC-B817-7890)",
     "license": "Inga kända restriktioner (Library of Congress)",
     "source": "loc-bild-amerikanska-inbordeskriget"
+  },
+  {
+    "id": "slaget-vid-lund",
+    "file": "slaget-vid-lund.png",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+      "sv": "Karl XI i slaget vid Lund 1676. Oljemålning av Johan Philip Lemke, 1683 eller 1684, sju eller åtta år efter slaget. Licens: Public domain.",
+      "en": "Charles XI at the Battle of Lund in 1676. Oil painting by Johan Philip Lemke, 1683 or 1684, seven or eight years after the battle. Licence: public domain.",
+      "de": "Karl XI. in der Schlacht bei Lund 1676. Ölgemälde von Johan Philip Lemke, 1683 oder 1684, sieben oder acht Jahre nach der Schlacht. Lizenz: gemeinfrei.",
+      "es": "Carlos XI en la batalla de Lund de 1676. Óleo de Johan Philip Lemke, de 1683 o 1684, siete u ocho años después de la batalla. Licencia: dominio público.",
+      "fr": "Charles XI à la bataille de Lund en 1676. Peinture à l’huile de Johan Philip Lemke, 1683 ou 1684, sept ou huit ans après la bataille. Licence : domaine public."
+    },
+    "credit": "Johan Philip Lemke / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-slaget-vid-lund"
+  },
+  {
+    "id": "skanska-kriget",
+    "file": "skanska-kriget.png",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+      "sv": "Kristianstad intas den 15 augusti 1676. Oljemålning av Claus Møinichen, 1686, utsnitt. Licens: Public domain.",
+      "en": "Kristianstad is captured on 15 August 1676. Oil painting by Claus Møinichen, 1686, detail. Licence: public domain.",
+      "de": "Kristianstad wird am 15. August 1676 eingenommen. Ölgemälde von Claus Møinichen, 1686, Ausschnitt. Lizenz: gemeinfrei.",
+      "es": "La toma de Kristianstad el 15 de agosto de 1676. Óleo de Claus Møinichen, 1686, detalle. Licencia: dominio público.",
+      "fr": "La prise de Kristianstad, le 15 août 1676. Peinture à l’huile de Claus Møinichen, 1686, détail. Licence : domaine public."
+    },
+    "credit": "Claus Møinichen / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-skanska-kriget"
+  },
+  {
+    "id": "slaget-vid-austerlitz",
+    "file": "slaget-vid-austerlitz.png",
+    "kind": "historisk",
+    "style": "1800-tal",
+    "caption": {
+      "sv": "Napoleon på den vita hästen och general Jean Rapp till vänster i slaget vid Austerlitz. Oljemålning av François Gérard, 1810, i slottet i Versailles, utsnitt. Licens: Public domain.",
+      "en": "Napoleon on the white horse and General Jean Rapp on the left at the Battle of Austerlitz. Oil painting by François Gérard, 1810, at the Palace of Versailles, detail. Licence: public domain.",
+      "de": "Napoleon auf dem weißen Pferd und General Jean Rapp links in der Schlacht bei Austerlitz. Ölgemälde von François Gérard, 1810, im Schloss Versailles, Ausschnitt. Lizenz: gemeinfrei.",
+      "es": "Napoleón en el caballo blanco y el general Jean Rapp a la izquierda en la batalla de Austerlitz. Óleo de François Gérard, 1810, en el palacio de Versalles, detalle. Licencia: dominio público.",
+      "fr": "Napoléon sur le cheval blanc et le général Jean Rapp à gauche à la bataille d’Austerlitz. Peinture à l’huile de François Gérard, 1810, au château de Versailles, détail. Licence : domaine public."
+    },
+    "credit": "François Gérard / Château de Versailles / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-slaget-vid-austerlitz"
+  },
+  {
+    "id": "slaget-vid-narva-1700",
+    "file": "slaget-vid-narva-1700.png",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+      "sv": "Narva, oljemålning av Gustaf Cederström från 1905 i Nationalmuseum i Stockholm. En sentida tolkning av slaget, målad mer än 200 år efteråt. Licens: Public domain.",
+      "en": "Narva, an oil painting by Gustaf Cederström from 1905 in the Nationalmuseum in Stockholm. A much later interpretation of the battle, painted more than 200 years afterwards. Licence: public domain.",
+      "de": "Narva, Ölgemälde von Gustaf Cederström aus dem Jahr 1905 im Nationalmuseum in Stockholm. Eine viel spätere Deutung der Schlacht, mehr als 200 Jahre danach gemalt. Lizenz: gemeinfrei.",
+      "es": "Narva, óleo de Gustaf Cederström de 1905 en el Nationalmuseum de Estocolmo. Una interpretación muy posterior de la batalla, pintada más de 200 años después. Licencia: dominio público.",
+      "fr": "Narva, peinture à l’huile de Gustaf Cederström de 1905, au Nationalmuseum de Stockholm. Une interprétation bien plus tardive de la bataille, peinte plus de 200 ans après. Licence : domaine public."
+    },
+    "credit": "Gustaf Cederström / Nationalmuseum, Stockholm / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-slaget-vid-narva-1700"
+  },
+  {
+    "id": "nya-zeelandkrigen",
+    "file": "nya-zeelandkrigen.png",
+    "kind": "historisk",
+    "style": "stilla-havet-gravyr",
+    "caption": {
+      "sv": "Kororāreka i Bay of Islands, tecknad den 10 mars 1845, morgonen före anfallet då Hōne Heke förstörde staden. Handkolorerad litografi efter en teckning av kapten George Thomas Clayton, London 1845. Licens: Public domain.",
+      "en": "Kororāreka in the Bay of Islands, drawn on 10 March 1845, the morning before the assault in which Hōne Heke destroyed the town. Hand-coloured lithograph after a drawing by Captain George Thomas Clayton, London, 1845. Licence: public domain.",
+      "de": "Kororāreka in der Bay of Islands, gezeichnet am 10. März 1845, am Morgen vor dem Angriff, bei dem Hōne Heke die Stadt zerstörte. Handkolorierte Lithografie nach einer Zeichnung von Kapitän George Thomas Clayton, London 1845. Lizenz: gemeinfrei.",
+      "es": "Kororāreka, en la bahía de las Islas, dibujada el 10 de marzo de 1845, la mañana anterior al asalto en el que Hōne Heke destruyó la ciudad. Litografía coloreada a mano a partir de un dibujo del capitán George Thomas Clayton, Londres, 1845. Licencia: dominio público.",
+      "fr": "Kororāreka, dans la baie des Îles, dessinée le 10 mars 1845, le matin précédant l’assaut au cours duquel Hōne Heke détruisit la ville. Lithographie coloriée à la main d’après un dessin du capitaine George Thomas Clayton, Londres, 1845. Licence : domaine public."
+    },
+    "credit": "George Thomas Clayton, W. A. Nicholas / National Library of New Zealand / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-nya-zeelandkrigen"
   }
 ]

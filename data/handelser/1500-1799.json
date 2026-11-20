@@ -2446,7 +2446,7 @@
      "en": "The Battle of Lexington, where the war began: Minutemen fire on the British, according to the Library of Congress. Engraving by Cornelius Tiebout after a drawing by Elkanah Tisdale, 1790s, that is, made after the war. The Library of Congress states no known restrictions on publication.",
      "de": "Die Schlacht bei Lexington, mit der der Krieg begann: Minutemen schießen auf die Briten, laut der Library of Congress. Kupferstich von Cornelius Tiebout nach einer Zeichnung von Elkanah Tisdale, 1790er-Jahre, also nach dem Krieg entstanden. Die Library of Congress gibt keine bekannten Einschränkungen für die Veröffentlichung an.",
      "es": "La batalla de Lexington, donde empezó la guerra: milicianos (minutemen) disparan contra los británicos, según la Library of Congress. Grabado de Cornelius Tiebout a partir de un dibujo de Elkanah Tisdale, de la década de 1790, es decir, hecho después de la guerra. La Library of Congress no indica restricciones conocidas para su publicación.",
-     "fr": "La bataille de Lexington, où la guerre commença : des miliciens (minutemen) tirent sur les Britanniques, selon la Library of Congress. Gravure de Cornelius Tiebout d’après un dessin d’Elkanah Tisdale, années 1790, donc réalisée après la guerre. La Library of Congress n’indique aucune restriction connue de publication."
+     "fr": "La bataille de Lexington, où la guerre commença : des miliciens (minutemen) tirent sur les Britanniques, selon la Library of Congress. Gravure de Cornelius Tiebout d’après un dessin d’Elkanah Tisdale, années 1790, donc réalisée après la guerre. La Library of Congress n’indique aucune restriction connue de publication."
     },
     "credit": "Elkanah Tisdale (teckning), Cornelius Tiebout (gravyr) / Library of Congress, Prints & Photographs Division",
     "license": "Inga kända restriktioner (Library of Congress)",
@@ -2715,7 +2715,7 @@
      "en": "General Burgoyne's surrender at Saratoga on 17 October 1777. Wash drawing by François Godefroy, probably 1784, for Nicolas Ponce's collection of prints about the war; the Library of Congress calls it an idealized view. No known restrictions on publication in the U.S. according to the Library of Congress.",
      "de": "Die Kapitulation von General Burgoyne bei Saratoga am 17. Oktober 1777. Lavierte Zeichnung von François Godefroy, wahrscheinlich 1784, für Nicolas Ponces Bildersammlung über den Krieg; die Library of Congress nennt sie eine idealisierte Darstellung. Laut der Library of Congress keine bekannten Einschränkungen für die Veröffentlichung in den USA.",
      "es": "La rendición del general Burgoyne en Saratoga el 17 de octubre de 1777. Dibujo a la aguada de François Godefroy, probablemente de 1784, para la colección de estampas de Nicolas Ponce sobre la guerra; la Library of Congress lo califica de imagen idealizada. Sin restricciones conocidas para su publicación en Estados Unidos, según la Library of Congress.",
-     "fr": "La capitulation du général Burgoyne à Saratoga, le 17 octobre 1777. Dessin au lavis de François Godefroy, probablement de 1784, pour le recueil d’estampes de Nicolas Ponce sur la guerre ; la Library of Congress le qualifie de vue idéalisée. Aucune restriction connue de publication aux États-Unis selon la Library of Congress."
+     "fr": "La capitulation du général Burgoyne à Saratoga, le 17 octobre 1777. Dessin au lavis de François Godefroy, probablement de 1784, pour le recueil d’estampes de Nicolas Ponce sur la guerre ; la Library of Congress le qualifie de vue idéalisée. Aucune restriction connue de publication aux États-Unis selon la Library of Congress."
     },
     "credit": "François Godefroy / Library of Congress, Rare Book and Special Collections Division",
     "license": "Inga kända restriktioner (Library of Congress)",
@@ -4650,6 +4650,21 @@
      "sv": "Wikipedia anger 19 november (juliansk kalender), 20 november (svensk kalender) och 30 november 1700 (gregoriansk). Wikidata anger 30 november (gregoriansk).",
      "en": "Wikipedia gives 19 November (Julian calendar), 20 November (Swedish calendar) and 30 November 1700 (Gregorian). Wikidata gives 30 November (Gregorian)."
     }
+   },
+   "image": {
+    "file": "images/events/slaget-vid-narva-1700.webp",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+     "sv": "Narva, oljemålning av Gustaf Cederström från 1905 i Nationalmuseum i Stockholm. En sentida tolkning av slaget, målad mer än 200 år efteråt. Licens: Public domain.",
+     "en": "Narva, an oil painting by Gustaf Cederström from 1905 in the Nationalmuseum in Stockholm. A much later interpretation of the battle, painted more than 200 years afterwards. Licence: public domain.",
+     "de": "Narva, Ölgemälde von Gustaf Cederström aus dem Jahr 1905 im Nationalmuseum in Stockholm. Eine viel spätere Deutung der Schlacht, mehr als 200 Jahre danach gemalt. Lizenz: gemeinfrei.",
+     "es": "Narva, óleo de Gustaf Cederström de 1905 en el Nationalmuseum de Estocolmo. Una interpretación muy posterior de la batalla, pintada más de 200 años después. Licencia: dominio público.",
+     "fr": "Narva, peinture à l’huile de Gustaf Cederström de 1905, au Nationalmuseum de Stockholm. Une interprétation bien plus tardive de la bataille, peinte plus de 200 ans après. Licence : domaine public."
+    },
+    "credit": "Gustaf Cederström / Nationalmuseum, Stockholm / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-slaget-vid-narva-1700"
    },
    "wikidata": "Q155726",
    "sources": [
@@ -7718,6 +7733,21 @@
      "fr": "La guerre se déroula en plusieurs endroits. Le point indique la Scanie, où l'on se battit pour la province. Les sources n'indiquent pas un lieu unique où la guerre commença."
     }
    },
+   "image": {
+    "file": "images/events/skanska-kriget.webp",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+     "sv": "Kristianstad intas den 15 augusti 1676. Oljemålning av Claus Møinichen, 1686, utsnitt. Licens: Public domain.",
+     "en": "Kristianstad is captured on 15 August 1676. Oil painting by Claus Møinichen, 1686, detail. Licence: public domain.",
+     "de": "Kristianstad wird am 15. August 1676 eingenommen. Ölgemälde von Claus Møinichen, 1686, Ausschnitt. Lizenz: gemeinfrei.",
+     "es": "La toma de Kristianstad el 15 de agosto de 1676. Óleo de Claus Møinichen, 1686, detalle. Licencia: dominio público.",
+     "fr": "La prise de Kristianstad, le 15 août 1676. Peinture à l’huile de Claus Møinichen, 1686, détail. Licence : domaine public."
+    },
+    "credit": "Claus Møinichen / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-skanska-kriget"
+   },
    "wikidata": "Q166001",
    "sources": [
     "lex-skanske-krig",
@@ -7781,6 +7811,21 @@
      "es": "Den Store Danske y Nordisk familjebok indican el 4 de diciembre de 1676. Wikidata marca la fecha como juliana. Las fuentes dan cifras distintas para el tamaño de los ejércitos.",
      "fr": "Den Store Danske et Nordisk familjebok indiquent le 4 décembre 1676. Wikidata marque la date comme julienne. Les sources donnent des effectifs différents pour les armées."
     }
+   },
+   "image": {
+    "file": "images/events/slaget-vid-lund.webp",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+     "sv": "Karl XI i slaget vid Lund 1676. Oljemålning av Johan Philip Lemke, 1683 eller 1684, sju eller åtta år efter slaget. Licens: Public domain.",
+     "en": "Charles XI at the Battle of Lund in 1676. Oil painting by Johan Philip Lemke, 1683 or 1684, seven or eight years after the battle. Licence: public domain.",
+     "de": "Karl XI. in der Schlacht bei Lund 1676. Ölgemälde von Johan Philip Lemke, 1683 oder 1684, sieben oder acht Jahre nach der Schlacht. Lizenz: gemeinfrei.",
+     "es": "Carlos XI en la batalla de Lund de 1676. Óleo de Johan Philip Lemke, de 1683 o 1684, siete u ocho años después de la batalla. Licencia: dominio público.",
+     "fr": "Charles XI à la bataille de Lund en 1676. Peinture à l’huile de Johan Philip Lemke, 1683 ou 1684, sept ou huit ans après la bataille. Licence : domaine public."
+    },
+    "credit": "Johan Philip Lemke / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-slaget-vid-lund"
    },
    "wikidata": "Q1536103",
    "sources": [

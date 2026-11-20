@@ -2433,6 +2433,21 @@
       }
     },
     {
+      "eventId": "nya-zeelandkrigen",
+      "eventTitle": "Nya Zeelandkrigen (Ngā pakanga o Aotearoa)",
+      "file": "images/events/nya-zeelandkrigen.webp",
+      "kind": "historisk",
+      "credit": "George Thomas Clayton, W. A. Nicholas / National Library of New Zealand / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-nya-zeelandkrigen",
+        "title": "Kororareka in the Bay of Islands, New Zealand. Sketched Mar 10th 1845 on the morning before the assault and destruction by Honi Heke – litografi efter George Thomas Clayton, 1845 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Kororareka_in_the_Bay_of_Islands,_New_Zealand._Sketched_Mar_10th_1845_on_the_morning_before_the_assault_and_destruction_by_Honi_Heke.png",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "nzinga-drottning-av-ndongo",
       "eventTitle": "Nzinga, drottning av Ndongo och Matamba",
       "file": "images/events/nzinga-drottning-av-ndongo.webp",
@@ -2832,6 +2847,21 @@
       "source": null
     },
     {
+      "eventId": "skanska-kriget",
+      "eventTitle": "Skånska kriget",
+      "file": "images/events/skanska-kriget.webp",
+      "kind": "historisk",
+      "credit": "Claus Møinichen / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-skanska-kriget",
+        "title": "Capture of Christianstad – målning av Claus Møinichen, 1686 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Capture_of_christianstad-claus_moinichen_1686.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "skotten-i-sarajevo",
       "eventTitle": "Skotten i Sarajevo",
       "file": "images/events/skotten-i-sarajevo.webp",
@@ -2919,6 +2949,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Annual_Campamento_1921.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "slaget-vid-austerlitz",
+      "eventTitle": "Slaget vid Austerlitz",
+      "file": "images/events/slaget-vid-austerlitz.webp",
+      "kind": "historisk",
+      "credit": "François Gérard / Château de Versailles / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-austerlitz",
+        "title": "La bataille d'Austerlitz. 2 décembre 1805 – oljemålning av François Gérard, 1810, Versailles (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:La_bataille_d%27Austerlitz._2_decembre_1805_(Fran%C3%A7ois_G%C3%A9rard).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
       }
     },
     {
@@ -3096,6 +3141,21 @@
       }
     },
     {
+      "eventId": "slaget-vid-lund",
+      "eventTitle": "Slaget vid Lund",
+      "file": "images/events/slaget-vid-lund.webp",
+      "kind": "historisk",
+      "credit": "Johan Philip Lemke / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-lund",
+        "title": "King of Sweden, Charles XI, during the battle of Lund in 1676 – oljemålning av Johan Philip Lemke, 1683 eller 1684 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Charles_XI,_Battle_of_Lund.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
       "eventId": "slaget-vid-lutzen-1632",
       "eventTitle": "Gustav II Adolf stupar vid Lützen",
       "file": "images/events/slaget-vid-lutzen-1632.webp",
@@ -3121,6 +3181,21 @@
         "id": "commons-bild-slaget-vid-midway",
         "title": "USS Yorktown träffas av en torped under slaget vid Midway, 4 juni 1942 – U.S. Navy 80-G-414423 (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:80-G-414423_(27012975711).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "slaget-vid-narva-1700",
+      "eventTitle": "Slaget vid Narva",
+      "file": "images/events/slaget-vid-narva-1700.webp",
+      "kind": "historisk",
+      "credit": "Gustaf Cederström / Nationalmuseum, Stockholm / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-narva-1700",
+        "title": "Narva – oljemålning av Gustaf Cederström, 1905, Nationalmuseum NM 1634 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Narva_(Gustaf_Cederstr%C3%B6m)_-_Nationalmuseum_-_18638.tif",
         "license": "Public domain",
         "checked": "2026-11-20"
       }
