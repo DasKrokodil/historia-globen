@@ -13050,7 +13050,7 @@ async function run(browser, vp) {
   });
   // Fokus över gränsen mellan reglagen (#1986): fokusläget ritar fokusspannets egen skala, men reglagets namn för skärmläsare följer året,
   // och meddelandet "Tidslinjen visar nu …" sägs en gång när året passerar gränsen, inte en gång till när Fokus slutar
-  await check('Fokus över gränsen mellan reglagen: namnet och meddelandet följer året (#1986, #1958)', async () => {
+  await check('Fokus över gränsen mellan reglagen: namnet och meddelandet följer året (#1986)', async () => {
     const fp = await context.newPage();
     const errs = [];
     const fpAw = abortWatch(fp);
