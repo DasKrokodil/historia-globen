@@ -1356,7 +1356,7 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 .seam, .tl-seam { display: inline-block; box-sizing: border-box; width: 5px; border: solid var(--parchment-dim); border-width: 0 1px; background: var(--night); transform: skewX(-18deg); }
 .seam { position: absolute; z-index: 1; top: -4px; height: 16px; margin-left: -2.5px; pointer-events: none; } /* över prickarna, så att skarven syns även där det finns många händelser */
 .tl-item .tl-seam { height: 12px; background: var(--night); }
-@media (max-width: 560px) { .tl-item-seam { display: none; } } /* raden rymmer inte "ny skala" på alla språk i mobil (de, es, fr klipps); skalraden förklarar skarven när man flyttar året */
+@media (max-width: 560px) { .tl-item.tl-item-seam { display: none; } } /* .tl-item sätter display: inline-flex senare i filen och vann över enbart .tl-item-seam (#2129); raden rymmer inte "ny skala" på alla språk i mobil (de, es, fr klipps); skalraden förklarar skarven när man flyttar året */
 .track-dots, .track-ff { position: absolute; left: 0; right: 0; top: 0; height: 30px; pointer-events: none; }
 .tdot, .tspan, .tff, .troute { appearance: none; border: 0; padding: 0; cursor: pointer; pointer-events: auto; }
 .tdot { position: absolute; top: 15px; width: 6px; height: 6px; margin-left: -3px; border-radius: 50%; }
@@ -1387,11 +1387,11 @@ html.calm .year-tip { animation: none; }
 /* Teckenförklaring under tidslinjen (#1003): samma tecken som på linjen, hopfällbar */
 /* Raden ligger i tidsradens nedre marginal (12 px) och gör den bara 2 px högre: korten ovanför ligger på fasta avstånd från tidsraden */
 .timeline-legend { display: flex; flex-wrap: nowrap; align-items: center; gap: 0 14px; height: 14px; margin: 0 0 -12px; white-space: nowrap; overflow-x: clip; overflow-y: visible; font: 400 11px/14px var(--f-mono); color: var(--parchment-dim); }
-.timeline-legend summary { position: relative; cursor: pointer; color: var(--brass); display: inline-flex; align-items: center; }
+.timeline-legend summary { position: relative; cursor: pointer; color: var(--brass); display: inline-flex; align-items: center; padding-inline: 3px; margin-inline-end: -6px; } /* 3 px luft för den inåtvända fokusringen (#2128); marginalen tar tillbaka den plats raden annars skulle förlora, så att posterna efter ligger som förut */
 .timeline-legend summary::before { content: ""; position: absolute; inset: 0 -8px -10px; } /* tryckyta på minst 24 px (#1138), nedåt så att den inte tar yta från reglaget; ramen klipps inte */
-.timeline-legend summary:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; border-radius: 4px; }
+.timeline-legend summary:focus-visible { outline: 2px solid var(--brass); outline-offset: -2px; border-radius: 4px; } /* inåt: raden ligger längst ner, och en ring utanför klipptes av fönstrets underkant och gick över årtalen (#2128) */
 .timeline-legend:not([open]) summary { opacity: .8; }
-.tl-item { display: inline-flex; align-items: center; gap: 5px; }
+.tl-item { display: inline-flex; align-items: center; gap: 5px; vertical-align: top; } /* alla poster på samma linje: baslinjejämkningen gjorde raden 17 px hög och lät posterna ligga 3 px olika (#1713, omgång 3) */
 .tl-item i { display: inline-block; background: var(--parchment); }
 .tl-dot { width: 6px; height: 6px; border-radius: 50%; }
 .tl-diamond { width: 8px; height: 8px; transform: rotate(45deg); border-radius: 1px; }
@@ -1399,7 +1399,12 @@ html.calm .year-tip { animation: none; }
 .app.lesson .timeline-legend { display: none; }
 .timeline-scale-note { display: flex; align-items: center; height: 14px; margin: 0 0 -14px; white-space: nowrap; overflow: hidden; font: 400 11px/14px var(--f-mono); color: var(--brass); }
 .timeline-scale-note[hidden] { display: none; }
-.timeline-scale-note:not([hidden]) + .timeline-legend { visibility: hidden; } /* samma lucka: teckenförklaringen tonas ned medan skalraden syns, som vid engångstipset */
+.timeline-scale-note:not([hidden]) + .timeline-legend:not(:focus-within) { visibility: hidden; } /* samma lucka: teckenförklaringen döljs medan skalraden syns, som vid engångstipset */
+/* Men "Tecken" ska gå att nå med Tab från reglaget, som visar skalraden när det får fokus (#2128): en dold förälder tar bort fokus från alla barn, så
+   knappen är synlig för webbläsaren och genomskinlig (hela raden är dold för ögat, som förut), och får fokus kommer teckenförklaringen fram och skalraden
+   tonas bort på samma plats, utan att något flyttas. Skärmläsare påverkas inte: opacity döljer inget för dem, och skalraden är redan aria-hidden. */
+.timeline-scale-note:not([hidden]) + .timeline-legend:not(:focus-within) summary { visibility: visible; opacity: 0; pointer-events: none; }
+.timebar:has(.timeline-legend:focus-within) .timeline-scale-note { visibility: hidden; }
 .app.lesson .timeline-scale-note, .app.touring .timeline-scale-note, .app.focusing .timeline-scale-note { display: none; }
 /* Växlaren mellan tidsreglagen (#1959) och nivåväxlarens form (js/ui/level-switch.js, delas med lägesväxlaren i #1517): nivåerna står från kant till kant
    ovanför reglaget. Nivån man är på är nedtryckt; de andra är dörrar med en pil åt det håll nivån ligger, vid den kant man går ut genom. Namnen är alltid de två
@@ -1433,11 +1438,11 @@ html.calm .year-tip { animation: none; }
 }
 @media (max-width: 420px) { .level-btn { padding: 0 8px; gap: 4px; } .level-switch { gap: 4px; } } /* franska ryms på en rad ner till 360 px (namnen är desamma) */
 @media (max-width: 370px) { .level-btn { padding: 0 6px; } }
-/* Liggande telefon (högst 480 px hög, under 1101 px bred): reglaget är 44 px högt (tickarna står 3 px högre) och knapparna 28 px, så att stegknapparna inte kommer upp i
+/* Liggande telefon (högst 480 px hög, under 1101 px bred): reglaget är 44 px högt (tickarna står 4 px högre) och knapparna 28 px, så att stegknapparna inte kommer upp i
    raden med årtalets förklaring (4 px luft kvar) */
 @media (max-height: 480px) and (max-width: 1100px) {
   .app:not(.lesson):not(.touring):not(.focusing) .track { height: 44px; }
-  .app:not(.lesson):not(.touring):not(.focusing) .ticks { top: 27px; }
+  .app:not(.lesson):not(.touring):not(.focusing) .ticks { top: 26px; } /* 12 px årtal (#1713, omgång 3) är 18 px höga med sin pad: en pixel högre än förut, så att de slutar där teckenförklaringen börjar */
   .app:not(.lesson):not(.touring):not(.focusing) .level-switch { min-height: 28px; margin-bottom: 0; }
   .app:not(.lesson):not(.touring):not(.focusing) .level-btn { height: 28px; border-radius: 14px; }
   .app .jump-back { gap: 2px; } /* "Från 1325 · Tillbaka" (dörren och Visste du?) ska sluta före stegknapparna i förhistoriens bredare rad */
@@ -2793,8 +2798,11 @@ details.used-by summary:hover { color: var(--parchment); }
   .controls { margin-bottom: 6px; }
   /* Teckenförklaringen och skalraden (#1313) ligger i den nedre marginalen, som här bara är 6 px: de lyfts 2 px (högre krockar de med årtalens nederkant)
      så att texten inte klipps av skärmens underkant. Marginalerna räknas så att raden inte ändrar tidsradens höjd. */
-  .timeline-legend { margin: -2px 0 -10px; }
-  .timeline-scale-note { margin: -2px 0 -14px; }
+  .timeline-legend { margin: -3px 0 -6px; }
+  /* Årtalen står 3 px högre (som i liggande telefon) och raden är 14 px hög i stället för 17: teckenförklaringen ligger nu helt inom fönstret och under årtalen,
+     förut 4 px under fönstrets underkant och 2 px in i årtalens ruta (#1713, omgång 3). Tidsradens höjd är oförändrad (14 − 3 − 6 = 17 − 2 − 10 + 0). */
+  .ticks { top: 27px; }
+  .timeline-scale-note { margin: -3px 0 -14px; } /* samma lyft som teckenförklaringen: med -2px blev tidsraden 1 px högre medan skalraden syns */
   /* Tryckytorna (::after) möts mitt i mellanrummen: 44 px höga och i 400 px minst 44 px breda */
   .controls :is(.step, .play) { position: relative; height: 34px; }
   .controls :is(.step, .play)::after { content: ""; position: absolute; inset: -6px -3px; }
@@ -2971,6 +2979,11 @@ details.used-by summary:hover { color: var(--parchment); }
   /* Lärarbladet (#888): på tyska i reservtypsnittet (DejaVu Sans) mätte det 1037 px i Chromium och 1040 px i Firefox mot
      A4:s 1039 px, alltså på gränsen. Lite tätare listor ger marginal i båda; elevbladen är orörda */
   .print-teacher .print-curriculum > li, .print-teacher .print-questions-short > li { margin-bottom: 2.5pt; }
+  /* Lärarfältet i andra världskrigets lektion fick en rad om bilderna från Auschwitz och atombomberna (#2018), och lärarbladet blev
+     cirka 60 px för högt (franska med webbtypsnitt 1011 px, tyska med DejaVu Sans 1063 px, gränserna 1007 och 1038, #1940).
+     Lärarbladet får något mindre text, 10 pt i stället för 10,5, och tätare rader; minsta texten är fortfarande över 8 pt.
+     Texten är densamma och elevbladen är orörda */
+  .print-teacher { font-size: 10pt; line-height: 1.33; }
 }
 
 /* Temats introduktionskort (#398): händelserna som knappar i tidsordning */
@@ -3100,6 +3113,26 @@ span.theme-event:hover { background: none; outline: none; }
   .tour-card .tour-foot { margin-top: 0; padding: 2px 0 8px; }
   .app.app.app #detail, .app.app.app #funfact { scrollbar-width: thin; scrollbar-color: var(--brass-deep) var(--night-3); }
 }
+/* Låga fönster (#2147): hela foten följer texten. Ingen överlagrad läsknapp tar läsyta.
+   Samma höjdgräns som lektionens rullande uppdragslänk (js/ui/lesson.js). */
+@media (max-height: 600px) {
+  .tour-card .tour-bar { position: static; }
+  .tour-card .tour-more { display: none; }
+}
+/* I telefonens lägsta fönster behöver även kortets huvud vara kompakt. Stegnumret
+   ersätter den dubblerade grafiska mätaren; kapitlet och rubriken står kvar. */
+@media (max-height: 480px) {
+  .app.app.app .tour-card { padding-top: 4px; }
+  .tour-card .tour-head { float: right; margin: 0 0 2px 8px; }
+  .tour-card .tour-meter { display: none; }
+  .tour-card .tour-chapter { margin-top: 0; }
+  .tour-card .tour-title { margin-top: 2px; font-size: 19px; }
+  .tour-card .tour-text { margin-top: 4px; }
+}
+@media (max-height: 480px) and (max-width: 760px) {
+  /* Lärarens årtal slutar vid 138 px; 170 px reserverade en tom lucka och trängde ut texten i 667×375. */
+  .app.touring.lesson-teacher { --tour-top: 144px; }
+}
 @media (max-height: 600px) and (min-width: 761px) and (max-width: 1100px) {
   .app { --tour-top: calc(var(--tablet-actions-height, 98px) + 120px); } /* årtalet ligger under knapparna på en platta yta (#992) */
   .app.lesson, .app.lesson-notice { --tour-top: calc(var(--tablet-actions-height, 98px) + 172px); }
@@ -3129,9 +3162,9 @@ span.theme-event:hover { background: none; outline: none; }
   #detail { max-height: min(52dvh, calc(100dvh - var(--ff-b) - 120px)); }
 }
 
-/* Liggande pekskärm i bred layout (#1694): plattans topprad och det stora årtalet lämnade bara 16 px åt turkortet.
+/* Låga fönster i bred layout (#1694, #2147): plattans topprad och det stora årtalet lämnade bara 16 px åt turkortet.
    Under turen ger menyraden plats åt ett kompakt årtal, och kortet rullar ovanför turraden som i smal layout. */
-@media (min-width: 761px) and (max-width: 1100px) and (max-height: 480px) and (pointer: coarse) {
+@media (min-width: 761px) and (max-width: 1100px) and (max-height: 480px) {
   .app.touring { --tour-top: 64px; }
   .app.touring.lesson, .app.touring.lesson-notice { --tour-top: 116px; }
   .app.touring .top-actions { visibility: hidden; }
@@ -3291,8 +3324,9 @@ span.theme-event:hover { background: none; outline: none; }
   .intro-progress, .intro-event-label, .tour-progress, .tour-chapter, .lesson-band-title, .region-num, .src-group-meta,
   .sheet-body .src-hits, .sheet-body label, .rmark, .rpile, .rpile-count, .rpile-years { font-size: 12px; }
   /* Samma som i smal skärm (#1309), men också på en bred pekskärm (liggande telefon): där var de 11 px */
+  .focus-sort .chip-btn, .focus-sort-label, .tick, /* sorteringen i Sök och följ och årtalen under reglaget, också i liggande telefon (#1713, omgång 3) */
   .segment-note, .chip-btn .count, .region-count, .panel-sec, .focus-label, .focus-state, .rl-title, .flat-region-name, .flat-region-legend, .flat-region-next,
-  .globe-region-chip .flat-region-next, .globe-region-chip .flat-region-legend { font-size: 12px; }
+  .globe-region-chip .flat-region-next, .globe-region-chip .flat-region-legend, .timeline-legend { font-size: 12px; } /* teckenförklaringen under reglaget, också i liggande telefon (#2128) */
   .year-readout:has(.year-jump.fine) + .segment-note { font-size: 12px; } /* raden under datumet i fokus för korta krig (#204) */
   .ac-t, .ac-peak-t { font-size: 13px; } /* i diagrammets egna enheter (320 breda); visas cirka 12 px i 400 px */
 }

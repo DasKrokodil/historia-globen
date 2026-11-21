@@ -1,0 +1,7 @@
+== {{int:filedesc}} ==
+{{Information
+|description={{en|1=En beskrivning}}
+}}
+
+== {{int:license-header}} ==
+{{PD-old-100}}

@@ -718,7 +718,14 @@
                 "es": "Homonhon",
                 "fr": "Homonhon"
               },
-              "edtf": "1521-03-17/1521-03-27"
+              "edtf": "1521-03-17/1521-03-27",
+              "dateLabel": {
+                "sv": "17 mars 1521 (Pigafetta; Wikipedia: 16 mars, samma dag som Samar siktades)",
+                "en": "17 March 1521 (Pigafetta; Wikipedia: 16 March, the same day Samar was sighted)",
+                "de": "17. März 1521 (Pigafetta; Wikipedia: 16. März, am selben Tag, an dem Samar gesichtet wurde)",
+                "es": "17 de marzo de 1521 (Pigafetta; Wikipedia: 16 de marzo, el mismo día en que se avistó Samar)",
+                "fr": "17 mars 1521 (Pigafetta ; Wikipédia : 16 mars, le jour même où Samar fut aperçue)"
+              }
             },
             {
               "at": [

@@ -129,12 +129,37 @@ def main():
         # Utan sources och utan image på egen rad är filen orörd för den händelsen.
         check(raw.count('"id": "utan-sources"') == 1 and '"review": "draft" }' in raw, 'utan-sources: raden är ändrad')
 
-        # Två sources på samma rad kan inte avgöras: händelsen lämnas åt handen (inget gissas).
+        # Ett "sources" inne i ett annat fält förväxlas inte med händelsens eget (fälten läses som JSON).
         path.write_text(EVENTS.replace('"sources": ["b"],', '"note": {"sources": ["x"]}, "sources": ["b"],'), encoding='utf-8')
-        before_raw = path.read_text(encoding='utf-8')
         out = run(root, ['en-rad'], [entry('en-rad')])
-        check('en-rad: hittar inte var image ska stå' in out, 'två sources på en rad: förväntade felmeddelandet')
-        check(path.read_text(encoding='utf-8') == before_raw, 'två sources på en rad: filen ska vara orörd')
+        check('en-rad: image ifylld' in out, 'inre sources: image skulle ha fyllts i')
+        line = next(l for l in path.read_text(encoding='utf-8').splitlines() if '"id": "en-rad"' in l)
+        check(line.index('"note": ') < line.index('"image": ') < line.rindex('"sources": '), 'inre sources: image ska stå före händelsens eget sources')
+
+        # Fullt indenterad fil (som data/handelser/1500-1799.json, ett mellanslag per nivå): bilden blir
+        # radbruten i samma stil och allt annat är bitidentiskt (#2038). Även CRLF och en fil utan slutrad.
+        credit = 'Ny åäö'
+        base = json.dumps(json.loads(EVENTS.replace('"image": ' + OLD_IMAGE + ', ', '')), ensure_ascii=False, indent=1) + '\n'
+        variants = (('LF', base), ('CRLF', base.replace('\n', '\r\n')), ('utan slutrad', base.rstrip('\n')))
+        for name, full in variants:
+            nl = '\r\n' if name == 'CRLF' else '\n'
+            for eid in ('flera-rader', 'en-rad'):
+                path.write_bytes(full.encode('utf-8'))
+                run(root, [eid], [entry(eid, credit)])
+                after = path.read_bytes().decode('utf-8')
+                check(events_by_id(path)[eid].get('image') == expected_image(eid, credit), f'full indrag ({name}) {eid}: fel image')
+                want = json.dumps(expected_image(eid, credit), ensure_ascii=False, indent=1).replace('\n', nl + '   ')
+                block = nl + '   "image": ' + want + ','
+                check(block + nl + '   "sources"' in after, f'full indrag ({name}) {eid}: image ska vara radbruten före sources')
+                check(after.replace(block, '', 1) == full, f'full indrag ({name}) {eid}: något annat än image har ändrats')
+        # Byte av en befintlig image i en fullt indenterad fil ändrar bara bilden.
+        path.write_text(base, encoding='utf-8')
+        run(root, ['flera-rader'], [entry('flera-rader', 'Ett')])
+        once = path.read_text(encoding='utf-8')
+        run(root, ['flera-rader'], [entry('flera-rader', 'Två')])
+        twice = path.read_text(encoding='utf-8')
+        check(events_by_id(path)['flera-rader']['image']['credit'] == 'Två' and twice.count('"image"') == 1, 'full indrag: byte av image misslyckades')
+        check(once.replace('Ett', 'Två') == twice, 'full indrag: byte ändrade mer än image')
 
     print('bilder-in-test: ok')
 

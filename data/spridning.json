@@ -989,7 +989,13 @@
         ],
         [
           {
-            "event": "qafzeh-och-skhul"
+            "coord": [
+              34.9373,
+              32.5583
+            ],
+            "coordSource": "wp-kebara-cave",
+            "wikidata": "Q1737670",
+            "name": "Kebara Cave"
           },
           {
             "coord": [
@@ -1040,7 +1046,8 @@
       },
       "sources": [
         "heydari-guran-2021-bawa-yawan",
-        "harvati-2022-homo-mlp"
+        "harvati-2022-homo-mlp",
+        "wp-kebara-cave"
       ],
       "review": "source-checked"
     },
@@ -1122,7 +1129,7 @@
       "certainty": "mojlig",
       "start": -21499,
       "end": -19699,
-      "edtf": "Y-21499/Y-19699",
+      "edtf": "Y-21499~/Y-19699~",
       "paths": [
         [
           {
@@ -1158,8 +1165,7 @@
         "fr": "Des empreintes de pas à White Sands, dans l’actuel Nouveau-Mexique, sont datées d’il y a 23 500 à 21 700 ans. Cette datation a été contestée, mais les auteurs la maintiennent. La ligne indique seulement que les humains venaient d’Asie ; le chemin jusque-là est inconnu."
       },
       "sources": [
-        "springer-2026-white-sands",
-        "dillehay-2015-monte-verde"
+        "springer-2026-white-sands"
       ],
       "review": "source-checked"
     },

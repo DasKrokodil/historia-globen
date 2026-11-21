@@ -1,0 +1,269 @@
+{
+ "batchcomplete": true,
+ "query": {
+  "normalized": [
+   {
+    "fromencoded": false,
+    "from": "File:Exempel_pd.jpg",
+    "to": "File:Exempel pd.jpg"
+   }
+  ],
+  "redirects": [
+   {
+    "from": "File:Gammalt namn.jpg",
+    "to": "File:Exempel ccbysa.jpg"
+   }
+  ],
+  "pages": [
+   {
+    "pageid": 1,
+    "ns": 6,
+    "title": "File:Exempel pd.jpg",
+    "imagelayout": "mono",
+    "imagerepository": "local",
+    "imageinfo": [
+     {
+      "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Exempel_pd.jpg/960px-Exempel_pd.jpg",
+      "thumbwidth": 960,
+      "thumbheight": 720,
+      "url": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Exempel_pd.jpg",
+      "descriptionurl": "https://commons.wikimedia.org/wiki/File:Exempel_pd.jpg",
+      "width": 2400,
+      "height": 1800,
+      "size": 900000,
+      "mime": "image/jpeg",
+      "extmetadata": {
+       "LicenseShortName": {
+        "value": "Public domain",
+        "source": "commons-desc-page",
+        "hidden": ""
+       },
+       "Artist": {
+        "value": "<a href=\"//commons.wikimedia.org/wiki/Creator:X\" title=\"Creator:X\">Anna&nbsp;Exempel</a>",
+        "source": "commons-desc-page",
+        "hidden": ""
+       },
+       "Credit": {
+        "value": "Own work",
+        "source": "commons-desc-page",
+        "hidden": ""
+       },
+       "DateTimeOriginal": {
+        "value": "1850",
+        "source": "commons-desc-page",
+        "hidden": ""
+       },
+       "ImageDescription": {
+        "value": "En <b>beskrivning</b> som aldrig får hamna i bildtexten",
+        "source": "commons-desc-page",
+        "hidden": ""
+       }
+      }
+     }
+    ]
+   },
+   {
+    "pageid": 1,
+    "ns": 6,
+    "title": "File:Exempel ccbysa.jpg",
+    "imagelayout": "mono",
+    "imagerepository": "local",
+    "imageinfo": [
+     {
+      "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Exempel_ccbysa.jpg/960px-Exempel_ccbysa.jpg",
+      "thumbwidth": 960,
+      "thumbheight": 720,
+      "url": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Exempel_ccbysa.jpg",
+      "descriptionurl": "https://commons.wikimedia.org/wiki/File:Exempel_ccbysa.jpg",
+      "width": 2400,
+      "height": 1800,
+      "size": 900000,
+      "mime": "image/jpeg",
+      "extmetadata": {
+       "LicenseShortName": {
+        "value": "CC BY-SA 4.0",
+        "source": "commons-desc-page",
+        "hidden": ""
+       },
+       "Artist": {
+        "value": "<span>Bertil Prov</span>",
+        "source": "commons-desc-page",
+        "hidden": ""
+       },
+       "DateTimeOriginal": {
+        "value": "2013-05-01",
+        "source": "commons-desc-page",
+        "hidden": ""
+       }
+      }
+     }
+    ]
+   },
+   {
+    "pageid": 1,
+    "ns": 6,
+    "title": "File:Exempel nc.jpg",
+    "imagelayout": "mono",
+    "imagerepository": "local",
+    "imageinfo": [
+     {
+      "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Exempel_nc.jpg/960px-Exempel_nc.jpg",
+      "thumbwidth": 960,
+      "thumbheight": 720,
+      "url": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Exempel_nc.jpg",
+      "descriptionurl": "https://commons.wikimedia.org/wiki/File:Exempel_nc.jpg",
+      "width": 2400,
+      "height": 1800,
+      "size": 900000,
+      "mime": "image/jpeg",
+      "extmetadata": {
+       "LicenseShortName": {
+        "value": "CC BY-NC 2.0",
+        "source": "commons-desc-page",
+        "hidden": ""
+       },
+       "Artist": {
+        "value": "Cecilia Prov",
+        "source": "commons-desc-page",
+        "hidden": ""
+       }
+      }
+     }
+    ]
+   },
+   {
+    "pageid": 1,
+    "ns": 6,
+    "title": "File:Exempel flerlicens.jpg",
+    "imagelayout": "mono",
+    "imagerepository": "local",
+    "imageinfo": [
+     {
+      "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Exempel_flerlicens.jpg/960px-Exempel_flerlicens.jpg",
+      "thumbwidth": 960,
+      "thumbheight": 720,
+      "url": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Exempel_flerlicens.jpg",
+      "descriptionurl": "https://commons.wikimedia.org/wiki/File:Exempel_flerlicens.jpg",
+      "width": 2400,
+      "height": 1800,
+      "size": 900000,
+      "mime": "image/jpeg",
+      "extmetadata": {
+       "LicenseShortName": {
+        "value": "CC BY-SA 3.0",
+        "source": "commons-desc-page",
+        "hidden": ""
+       },
+       "Artist": {
+        "value": "Unknown author",
+        "source": "commons-desc-page",
+        "hidden": ""
+       }
+      }
+     }
+    ]
+   },
+   {
+    "pageid": 1,
+    "ns": 6,
+    "title": "File:Exempel motsagelse.jpg",
+    "imagelayout": "mono",
+    "imagerepository": "local",
+    "imageinfo": [
+     {
+      "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Exempel_motsagelse.jpg/960px-Exempel_motsagelse.jpg",
+      "thumbwidth": 960,
+      "thumbheight": 720,
+      "url": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Exempel_motsagelse.jpg",
+      "descriptionurl": "https://commons.wikimedia.org/wiki/File:Exempel_motsagelse.jpg",
+      "width": 2400,
+      "height": 1800,
+      "size": 900000,
+      "mime": "image/jpeg",
+      "extmetadata": {
+       "LicenseShortName": {
+        "value": "CC BY 4.0",
+        "source": "commons-desc-page",
+        "hidden": ""
+       },
+       "Artist": {
+        "value": "David Prov",
+        "source": "commons-desc-page",
+        "hidden": ""
+       }
+      }
+     }
+    ]
+   },
+   {
+    "pageid": 1,
+    "ns": 6,
+    "title": "File:Exempel gfdl.jpg",
+    "imagelayout": "mono",
+    "imagerepository": "local",
+    "imageinfo": [
+     {
+      "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Exempel_gfdl.jpg/960px-Exempel_gfdl.jpg",
+      "thumbwidth": 960,
+      "thumbheight": 720,
+      "url": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Exempel_gfdl.jpg",
+      "descriptionurl": "https://commons.wikimedia.org/wiki/File:Exempel_gfdl.jpg",
+      "width": 2400,
+      "height": 1800,
+      "size": 900000,
+      "mime": "image/jpeg",
+      "extmetadata": {
+       "LicenseShortName": {
+        "value": "GFDL",
+        "source": "commons-desc-page",
+        "hidden": ""
+       },
+       "Artist": {
+        "value": "Eva Prov",
+        "source": "commons-desc-page",
+        "hidden": ""
+       }
+      }
+     }
+    ]
+   },
+   {
+    "pageid": 1,
+    "ns": 6,
+    "title": "File:Exempel liten.jpg",
+    "imagelayout": "mono",
+    "imagerepository": "local",
+    "imageinfo": [
+     {
+      "thumburl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Exempel_liten.jpg/960px-Exempel_liten.jpg",
+      "thumbwidth": 960,
+      "thumbheight": 768,
+      "url": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Exempel_liten.jpg",
+      "descriptionurl": "https://commons.wikimedia.org/wiki/File:Exempel_liten.jpg",
+      "width": 500,
+      "height": 400,
+      "size": 900000,
+      "mime": "image/jpeg",
+      "extmetadata": {
+       "LicenseShortName": {
+        "value": "CC0",
+        "source": "commons-desc-page",
+        "hidden": ""
+       },
+       "Artist": {
+        "value": "Frida Prov",
+        "source": "commons-desc-page",
+        "hidden": ""
+       }
+      }
+     }
+    ]
+   },
+   {
+    "title": "File:Finns inte.jpg",
+    "missing": true,
+    "known": false
+   }
+  ]
+ }
+}
