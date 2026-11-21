@@ -458,6 +458,11 @@ export class TourPlayer {
   setupMore() {
     const more = document.getElementById('tour-more');
     this.more = more;
+    this.lowWindow = matchMedia('(max-height: 600px)');
+    this.lowWindow.addEventListener('change', () => {
+      if (this.tour && this.step) this.renderFigure(this.step);
+      this.updateMore();
+    });
     if (!more) return;
     more.addEventListener('click', () => {
       const calm = matchMedia('(prefers-reduced-motion: reduce)').matches || document.documentElement.classList.contains('calm');
@@ -479,7 +484,7 @@ export class TourPlayer {
     const more = this.more;
     if (!more) return;
     const c = this.card;
-    const show = !!this.tour && !c.hidden && c.scrollHeight - c.clientHeight - c.scrollTop > 16; // några pixlar över är bara marginal, ingen text
+    const show = !this.lowWindow.matches && !!this.tour && !c.hidden && c.scrollHeight - c.clientHeight - c.scrollTop > 16; // några pixlar över är bara marginal, ingen text
     if (!show && !more.hidden && document.activeElement === more) this.next.focus({ preventScroll: true });
     more.hidden = !show;
   }
@@ -527,6 +532,7 @@ export class TourPlayer {
     link.classList.remove('tour-thumb', 'is-open');
     head?.classList.remove('has-open-thumb');
     link.removeAttribute('role'); link.removeAttribute('aria-expanded');
+    this.text.before(fig); // återställ bildens plats efter ett byte från låg till hög skärm (#2147)
     fig.prepend(link); fig.append(cap);
     fig.hidden = !img;
     if (!img) return;
@@ -539,6 +545,8 @@ export class TourPlayer {
     link.setAttribute('aria-label', `${caption}. ${ui('tour.figureOpen')}`);
     document.getElementById('tour-figure-caption').textContent = caption; // en illustrations bildtext säger själv att det är en illustration (bildreglerna i CLAUDE.md)
     document.getElementById('tour-figure-credit').textContent = [img.credit, img.license].filter(Boolean).join(' · ');
+    // Låg skärm: texten kommer först, bilden och dess kredit går att rulla fram efteråt (#2147).
+    if (this.lowWindow.matches) { this.text.after(fig); return; }
     if (!long) return;
     this.text.after(cap); // texten före bildtexten
     if (this.app.narrow.matches) { // tumnagel bredvid rubriken; figuren blir tom

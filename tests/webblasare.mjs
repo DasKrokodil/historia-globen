@@ -7572,8 +7572,8 @@ async function run(browser, vp) {
         const a = await m();
         if (a.card.top < 0 || a.card.bottom > a.ih) throw new Error(`${yta.namn}: turkortet ligger utanför skärmen (${Math.round(a.card.top)}–${Math.round(a.card.bottom)} av ${a.ih} px)`);
         if (a.card.height < 150) throw new Error(`${yta.namn}: turkortet är bara ${Math.round(a.card.height)} px högt`);
-        if (!a.next.ok) throw new Error(`${yta.namn}: Nästa syns inte helt inne i kortet (${Math.round(a.next.top)}–${Math.round(a.next.bottom)} px, kortet ${Math.round(a.card.top)}–${Math.round(a.card.bottom)})`);
-        if (!a.end.ok) throw new Error(`${yta.namn}: Lämna turen syns inte helt inne i kortet`);
+        if (yta.height > 600 && !a.next.ok) throw new Error(`${yta.namn}: Nästa syns inte helt inne i kortet (${Math.round(a.next.top)}–${Math.round(a.next.bottom)} px, kortet ${Math.round(a.card.top)}–${Math.round(a.card.bottom)})`);
+        if (yta.height > 600 && !a.end.ok) throw new Error(`${yta.namn}: Lämna turen syns inte helt inne i kortet`);
         if (a.next.height < 44 || a.end.height < 44) throw new Error(`${yta.namn}: knapparna är lägre än 44 px (${Math.round(a.next.height)}, ${Math.round(a.end.height)})`);
         if (!a.noteInside) throw new Error(`${yta.namn}: turraden ryms inte i bild (${Math.round(a.note.left)}–${Math.round(a.note.right)}, ${Math.round(a.note.top)}–${Math.round(a.note.bottom)} av ${a.iw} × ${a.ih} px)`);
         if (a.card.bottom > a.note.top + 1) throw new Error(`${yta.namn}: turkortet täcker turraden (${Math.round(a.card.bottom)} > ${Math.round(a.note.top)} px)`);
@@ -7599,6 +7599,89 @@ async function run(browser, vp) {
       } finally { await context.close(); }
     }
     return out.join('; ');
+  });
+
+  // #2147: mät den verkliga textens träffyta, inte bara att kortet och knapparna finns.
+  // Eget datorjobb provar pekskärm, 200 % zoom och oförändrade höga fönster.
+  await check('låg fönsterhöjd: stegets text har fri träffyta och foten rullar (#2147)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet med egna fönsterstorlekar';
+    const sizes = [
+      { width: 800, height: 360, touch: true }, { width: 844, height: 390, touch: true },
+      { width: 667, height: 375, touch: true }, { width: 640, height: 400, touch: false },
+      { width: 1024, height: 600, touch: false },
+      { width: 400, height: 800, touch: true }, { width: 1280, height: 800, touch: false },
+    ];
+    const faults = [], results = [];
+    for (const size of sizes) {
+      const { tp, tctx, errs } = await touchPage(size, { hasTouch: size.touch });
+      try {
+        for (const mode of ['tur', 'elev', 'lärare']) {
+          const lesson = mode !== 'tur', low = size.height <= 600;
+          const tour = lesson ? 'vikingatiden-och-varlden' : 'songhairikets-fall';
+          const hash = `#t=${tour}${lesson ? '&m=lektion' : ''}${mode === 'lärare' ? '&r=lararen' : ''}`;
+          await tp.goto(`${BASE}?kontroll2147=${mode}${hash}`, { waitUntil: 'domcontentloaded' });
+          await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+          await tp.waitForSelector('#tour-card:not([hidden])', { timeout: T.step });
+          await tp.evaluate(() => document.fonts.ready);
+          const label = `${size.width}×${size.height} ${mode}`;
+          const teacher = await tp.locator('.app').evaluate(el => el.classList.contains('lesson-teacher'));
+          if (teacher !== (mode === 'lärare')) throw new Error(`${label}: fel lektionsroll`);
+          const seen = await tp.evaluate(() => {
+            const card = document.getElementById('tour-card'), c = card.getBoundingClientRect();
+            const text = document.querySelector('#tour-text p:not(.tour-part-label)') || document.getElementById('tour-text');
+            const walker = document.createTreeWalker(text, NodeFilter.SHOW_TEXT);
+            const lines = [];
+            while (walker.nextNode()) {
+              const range = document.createRange(); range.selectNodeContents(walker.currentNode);
+              lines.push(...Array.from(range.getClientRects()).filter(r => r.width > 0));
+            }
+            const free = r => r.height > 0 && r.top >= c.top && r.bottom <= c.bottom &&
+              [r.left + 2, (r.left + r.right) / 2, r.right - 2].every(x => text.contains(document.elementFromPoint(x, (r.top + r.bottom) / 2)));
+            const title = document.getElementById('tour-title'), r = title.getBoundingClientRect();
+            const hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
+            const bar = document.getElementById('tour-bar'), more = document.getElementById('tour-more');
+            return { lines: lines.slice(0, 2).filter(free).length, title: title.contains(hit) && r.top >= c.top && r.bottom <= c.bottom,
+              bar: getComputedStyle(bar).position, more: getComputedStyle(more).display !== 'none' && !more.hidden,
+              scrollTop: card.scrollTop, wide: document.documentElement.scrollWidth > innerWidth };
+          });
+          // Även det avsiktligt röda provet lämnar bevis från samtliga begärda låga storlekar.
+          if ([800, 640, 1024, 400, 1280].includes(size.width)) await tp.screenshot({ path: path.join(OUT, `2147-${size.width}x${size.height}-${mode}.webp`), type: 'webp', quality: 70 });
+          if (low && (!seen.title || seen.lines < 2 || seen.more || seen.bar === 'sticky')) {
+            faults.push(`${label}: rubrik fri ${seen.title}, textrader fria ${seen.lines}/2, läsknapp ${seen.more}, fot ${seen.bar}`);
+            continue;
+          }
+          if (!low && seen.bar !== 'sticky') faults.push(`${label}: den fasta foten ändrades`);
+          if (seen.scrollTop !== 0 || seen.wide) faults.push(`${label}: rullning ${seen.scrollTop}, sidled ${seen.wide}`);
+          // Nästa får nås genom rullning i låga fönster, och nästa steg ska börja överst.
+          await tp.locator('#tour-next').scrollIntoViewIfNeeded();
+          const progress = await tp.textContent('#tour-progress');
+          await tp.click('#tour-next');
+          await tp.waitForFunction(before => document.getElementById('tour-progress').textContent !== before, progress, { timeout: T.step });
+          if (await tp.evaluate(() => document.getElementById('tour-card').scrollTop !== 0)) faults.push(`${label}: Nästa nollställde inte rullningen`);
+          // Sista steget: turens slutkort respektive uppdragslänk och Klar ska gå att rulla fram och trycka på.
+          const data = JSON.parse(fs.readFileSync(path.join('data/turer', `${tour}.json`), 'utf8'));
+          await tp.goto(`${BASE}?kontroll2147=${mode}-slut${hash}&s=${data.steps.at(-1).id}`, { waitUntil: 'domcontentloaded' });
+          await tp.waitForSelector('#tour-card:not([hidden])', { timeout: T.step });
+          if (lesson) {
+            await tp.waitForSelector('#tour-lesson-end-list button', { timeout: T.step });
+            await tp.locator('#tour-lesson-end-list button').first().scrollIntoViewIfNeeded();
+            await tp.locator('#tour-lesson-end-list button').first().click({ trial: true });
+            if ((await tp.textContent('#tour-next')).trim() !== 'Klar') faults.push(`${label}: Klar saknas`);
+            await tp.locator('#tour-next').scrollIntoViewIfNeeded();
+            await tp.locator('#tour-next').click({ trial: true });
+          } else {
+            await tp.click('#tour-next');
+            await tp.waitForSelector('#tour-endcard:not([hidden])', { timeout: T.step });
+            await tp.locator('.tour-recap li').last().scrollIntoViewIfNeeded();
+            await tp.locator('#tour-next').click({ trial: true });
+          }
+          results.push(label);
+        }
+        if (errs.length) faults.push(...errs);
+      } finally { await tctx.close(); }
+    }
+    if (faults.length) throw new Error(faults.join('; '));
+    return `${results.join(', ')}: text fri, slutet och knapparna nås, Nästa börjar överst`;
   });
 
   // #1694: breda liggande pekskärmar fick bara 16 px turkort. Jämför med de smala storlekar som redan fungerade.
@@ -7630,7 +7713,8 @@ async function run(browser, vp) {
           }, lesson);
           const a = await measure(), label = `${width} × ${height}, ${lesson ? 'lektion' : 'tur'}`;
           if (!a.coarse) throw new Error(`${label}: provet emulerar ingen pekskärm`);
-          if (!a.next.ok || !a.exit.ok || !a.year.ok) throw new Error(`${label}: Nästa, utgången eller årtalet täcks: ${JSON.stringify(a)}`);
+          // #2147: Nästa och turens utgång rullar med texten och provas efter rullning nedan.
+          if (!a.year.ok || (lesson && !a.exit.ok)) throw new Error(`${label}: utgången eller årtalet täcks: ${JSON.stringify(a)}`);
           if (a.next.height < 44) throw new Error(`${label}: Nästa har för liten tryckyta`);
           if (a.card.top < 0 || a.card.bottom > a.note.top || a.scroll) throw new Error(`${label}: kortet täcker turraden eller sidan rullar i sidled`);
           await tp.evaluate(() => { const c = document.getElementById('tour-card'); c.scrollTop = c.scrollHeight; });
@@ -11675,8 +11759,8 @@ async function run(browser, vp) {
         // Steget börjar överst (#1856) och Klar står på sin plats bredvid Föregående
         const top = await lp.evaluate(() => document.getElementById('tour-card').scrollTop);
         if (top !== 0) throw new Error(`${where}: kortet började inte överst (scrollTop ${top})`);
-        // I låg skärm står länken i det som rullar och ska synas helt när kortet är nedrullat; annars ska den synas helt direkt
-        if (size.height <= 600) await lp.evaluate(() => { const c = document.getElementById('tour-card'); c.scrollTop = c.scrollHeight; });
+        // I låg skärm rullas uppdragslänken fram; annars ska den synas helt direkt (#2147)
+        if (size.height <= 600) await lp.locator('#tour-lesson-end-list button').first().scrollIntoViewIfNeeded();
         const seen = await lp.evaluate(() => {
           const btn = document.querySelector('#tour-lesson-end-list button'), r = btn.getBoundingClientRect();
           const bar = document.getElementById('tour-next').parentElement.getBoundingClientRect(), card = document.getElementById('tour-card').getBoundingClientRect();
