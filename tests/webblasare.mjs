@@ -13074,7 +13074,13 @@ async function run(browser, vp) {
       await fpAw.goto(`${BASE}?lang=sv&ny=f1986#y=-3002&f=place:sverige`);
       await fp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await fp.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '-3002', null, { timeout: T.step });
+      // Året sätts ur adressen innan platsen har laddat klart (platser.json och rikenas faktarutor hämtas först efter det), så på en
+      // långsam körare stod provet kvar med Fokus ännu inte startat när den fasta väntan nedan var slut (#2143). Vänta på det
+      // som provet ska se: Fokus har börjat och platskortet är öppet. Kraven är oförändrade.
+      await fp.waitForFunction(() => !document.getElementById('focus-bar').hidden && !document.getElementById('detail').hidden, null, { timeout: T.step })
+        .catch(() => { throw new Error('Fokus på Sverige startade inte'); });
       await fp.keyboard.press('Escape'); // platskortet stängs, Fokus står kvar
+      await fp.waitForFunction(() => document.getElementById('detail').hidden, null, { timeout: T.step });
       await fp.waitForTimeout(1500); // adressens egen uppläsning av året hinner klart
       const read = () => fp.evaluate(() => {
         const tr = document.getElementById('track'), n = a => Number(tr.getAttribute(a));
