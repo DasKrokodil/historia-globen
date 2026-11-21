@@ -68,6 +68,8 @@ Vid alla fel ligger texten kvar i formuläret. Svaren innehåller aldrig token, 
 
 Texterna nedan står i formuläret i `index.html`. Rikard godkände dem 2026-10-30, med tillägget om IP-adressen. Ingen personuppgiftsansvarig med namn eller kontaktadress anges (Rikards beslut); kontakt sker via formuläret. Ändras texten här, ändra den också i `index.html` (och tvärtom), och låt Rikard godkänna ändringen.
 
+**På andra språk (#2165, 2026-11-21):** formulärets fasta texter, också integritetsrutan, har nycklar `feedback.*` i `data/ui/` på fem språk (`data-i18n` i `index.html`). Ändras svenskan ändras nyckeln i `sv.json` och översättningarna i samma pull request; `tests/forslag-i18n.test.mjs` stoppar text utan nyckel och svenska som skiljer sig från `index.html`. Översättningarna av integritetsrutan följer svenskan i betydelse och ska godkännas av DasKrokodil innan formuläret slås på i production.
+
 **Kort text, synlig i formuläret:**
 
 > Vi sparar bara det du skriver här, för att kunna granska förslaget. Förslaget lagras privat och publiceras aldrig automatiskt. E-post är frivillig och används bara om vi behöver fråga något.
