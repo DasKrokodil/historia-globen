@@ -94,6 +94,11 @@ const VIEWPORTS = ALLA_VIEWPORTS.filter(v => KOR_BREDDER.includes(v.name));
 fs.mkdirSync(OUT, { recursive: true });
 const isFont = url => { try { return FONT_HOSTS.includes(new URL(url).hostname); } catch { return false; } };
 
+// Kontroller som öppnar förslagsformuläret ska fungera utan Cloudflare Turnstile.
+function stubbaTurnstile() {
+  window.turnstile = { render: (el, o) => { o.callback('test-token'); return 1; }, reset() {} };
+}
+
 // Körs i sidan: jämför den platta kartans pixlar (#flat-canvas) med en sparad bild.
 // Används för att se att ett lager faktiskt ritar något: lagret av → spara → lagret på → räkna ändrade pixlar.
 // Hjälpen läggs i window.__hgTestPixels av en vanlig funktion (inte en textsträng), eftersom en sträng måste köras
@@ -702,6 +707,7 @@ async function run(browser, vp) {
       // Ingen ny väg in i smal skärm (#1457): även ett klick som kommer sent, efter att fönstret blivit smalt, slår inte på läget
       const full = pp.viewportSize();
       await pp.setViewportSize({ width: 400, height: 800 });
+      await pp.waitForFunction(() => matchMedia('(max-width: 760px)').matches);
       await pp.evaluate(() => document.getElementById('teacher-presentation').click());
       const late = await pp.evaluate(() => ({ on: document.getElementById('app').classList.contains('presentation-mode'), param: new URL(location.href).searchParams.has('presentation') }));
       await pp.setViewportSize(full);
@@ -3155,6 +3161,7 @@ async function run(browser, vp) {
         await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
         await lp.route(u => isFont(u.href), r => r.abort());
       }
+      await lp.addInitScript(stubbaTurnstile);
       await lp.goto(`${BASE}?ny=1575`);
       await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       if (await lp.isVisible('#more-toggle')) await lp.click('#more-toggle'); else await lp.click('#btn-more');
@@ -3229,6 +3236,7 @@ async function run(browser, vp) {
           Object.defineProperty(navigator, 'share', { value: undefined, configurable: true });
           Object.defineProperty(navigator, 'clipboard', { value: { writeText: async text => window.__shared.push(text) }, configurable: true });
         });
+        await tp.addInitScript(stubbaTurnstile);
         await tp.goto(`${BASE}?ny=1712-${size.width}`);
         await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
         const open = async () => {
@@ -3375,7 +3383,7 @@ async function run(browser, vp) {
         await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
         await lp.route(u => isFont(u.href), r => r.abort());
       }
-      await lp.addInitScript(() => { window.turnstile = { render: (el, o) => { o.callback('test-token'); return 1; }, reset() {} }; });
+      await lp.addInitScript(stubbaTurnstile);
       await lp.route('**/api/feedback', r => r.fulfill({ status: 503, contentType: 'application/json', body: JSON.stringify({ ok: false, error: 'disabled' }) }));
       await lp.goto(`${BASE}?ny=1581`);
       await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
@@ -3743,6 +3751,8 @@ async function run(browser, vp) {
           rows: [...document.querySelectorAll('#panel .event-btn')].map(f => f.getBoundingClientRect().height).filter(h => h > 0), // de i dolda världsdelar har ingen höjd
         };
       });
+      const chipAv = m.rader.find(r => r.what === 'chip av');
+      console.log(`  #1317 chip av (${BROWSER}, ${smal ? 'mobil' : 'dator'}): ${JSON.stringify({ color: chipAv.color, lager: chipAv.bg, opacity: chipAv.opacity })}`);
       const lum = c => { const [r, g, b] = c.map(v => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }); return 0.2126 * r + 0.7152 * g + 0.0722 * b; };
       const kontrastPar = (a, b) => { const [x, y] = [lum(a), lum(b)]; return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
       const bottna = lager => lager.reduce((under, l) => { const c = farg(l); return blanda(c.rgb, under, c.a); }, [0, 0, 0]);
