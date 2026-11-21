@@ -1,0 +1,86 @@
+{
+ "query": {
+  "normalized": [
+   {
+    "from": "File:Pyramid_normal.jpg",
+    "to": "File:Pyramid normal.jpg"
+   }
+  ],
+  "pages": [
+   {
+    "pageid": 1,
+    "ns": 6,
+    "title": "File:Pyramid normal.jpg",
+    "imageinfo": [
+     {
+      "url": "https://upload.wikimedia.org/x/Pyramid normal.jpg",
+      "thumburl": "https://upload.wikimedia.org/thumb/Pyramid normal.jpg",
+      "descriptionurl": "https://commons.wikimedia.org/wiki/File:Pyramid_normal.jpg",
+      "width": 1600,
+      "height": 1200,
+      "mime": "image/jpeg",
+      "extmetadata": {
+       "LicenseShortName": {
+        "value": "CC BY-SA 4.0"
+       },
+       "Artist": {
+        "value": "<a href=\"//x\">Anna Andersson</a>"
+       },
+       "DateTimeOriginal": {
+        "value": "1880-05-01"
+       },
+       "ImageDescription": {
+        "value": "<p>En beskrivning</p>"
+       }
+      }
+     }
+    ],
+    "categories": [
+     {
+      "ns": 14,
+      "title": "Category:Battles of X"
+     }
+    ]
+   },
+   {
+    "pageid": 1,
+    "ns": 6,
+    "title": "File:Pyramid preferred.jpg",
+    "imageinfo": [
+     {
+      "url": "https://upload.wikimedia.org/x/Pyramid preferred.jpg",
+      "thumburl": "https://upload.wikimedia.org/thumb/Pyramid preferred.jpg",
+      "descriptionurl": "https://commons.wikimedia.org/wiki/File:Pyramid_preferred.jpg",
+      "width": 640,
+      "height": 480,
+      "mime": "image/jpeg",
+      "extmetadata": {
+       "LicenseShortName": {
+        "value": "Public domain"
+       },
+       "Artist": {
+        "value": "Okänd"
+       },
+       "DateTimeOriginal": {
+        "value": "1880-05-01"
+       },
+       "ImageDescription": {
+        "value": "<p>En beskrivning</p>"
+       }
+      }
+     }
+    ],
+    "categories": [
+     {
+      "ns": 14,
+      "title": "Category:Battles of X"
+     }
+    ]
+   },
+   {
+    "title": "File:Borta.jpg",
+    "missing": true
+   }
+  ]
+ }
+}

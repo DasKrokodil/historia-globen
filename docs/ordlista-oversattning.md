@@ -289,6 +289,27 @@ Grupperna i `data/empires/index.json`. "WD" är Wikidatas etikett (SPARQL 2026-1
 | Khanatet Kara-Khanid (nya delar, östra och västra) | Karakhanid Khanate | Karachaniden | Karajánidas | Qarakhanides | 2026-11-20: WD Q494354 (som gruppen); es med versal som gruppen (WD "karajánidas") |
 | Kungariket Jaffna (lydrike under Vijayanagar) | Jaffna kingdom | Königreich Jaffna | Reino de Jaffna | Royaume de Jaffna | 2026-11-20: en, de, es och fr WD Q1311219; sv egen översättning (etikett och artikel saknas), typordet översatt som på de andra språken |
 
+### 9.5 Antikens luckor, andra omgången (#646)
+
+Grupperna i `data/empires/index.json`. "WD" är Wikidatas etikett (SPARQL 2026-11-20). Namnen är jämförda med Wikipedias artikel på varje språk (språklänkarna i Wikidata, 2026-11-20); där artikelns namn och etiketten skiljer sig går artikelns namn före (avsnitt 4 regel 1), utom där artikelns titel bara har ett förtydligande inom parentes, som "Chu (stat)". Spanska och franska med versal först som namn i början av en rad (avsnitt 3).
+
+| Svenska | Engelska | Tyska | Spanska | Franska | Kontrollerad |
+|---|---|---|---|---|---|
+| Chu | Chu | Chu | Estado Chu | Chu | 2026-11-20: WD Q504759; sv, en, de och fr artiklarna "Chu (stat)", "Chu (state)", "Chu (Staat)" och "Chu (État)"; es es.wikipedia "Estado Chu" (WD "Chu"); fr WD "État de Chu" |
+| Western Satraps | Western Satraps | Western Satraps | Sátrapas occidentales | Satrapes occidentaux | 2026-11-20: WD Q2086608; sv och de saknar etikett, alias och artikel (Wikidata, och sökning på sv.wikipedia och de.wikipedia efter Satrapen, Kshatrapa och satraper 2026-11-20; de.wikipedia skriver bara "Kshatrapa" och "westliche Sakenherrscher" i löptext). Engelska enligt beslutet 2026-11-12; ingen etablerad svensk eller tysk form hittades, så ingen hittas på |
+| Zhoudynastin | Zhou dynasty | Zhou-Dynastie | Dinastía Zhou | Dynastie Zhou | 2026-11-20: WD Q35216 och artiklarna |
+| Kungariket Armenien | Kingdom of Armenia | Großarmenien | Reino de Armenia | Royaume d’Arménie | 2026-11-20: WD Q208404; sv.wikipedia "Kungariket Armenien (antiken)", en.wikipedia "Kingdom of Armenia (antiquity)", de.wikipedia "Großarmenien". Skiljs från dagens Armenien (`armenien`) |
+| Himyaritiska riket | Himyar | Himyar | Himyar | Himyar | 2026-11-20: sv sv.wikipedia "Himyariter" (artikeln handlar om folkstammen och kallar staten "det himyaritiska riket"; WD "Himyariter"); en, de, es och fr artiklarna "Himyar". Wikidatas etiketter är en "Himyarite kingdom" och de "Himjar"; artikelns namn går före (avsnitt 4 regel 1) |
+| Liu Song | Liu Song dynasty | Frühere Song-Dynastie | Dinastía Liu Song | Dynastie Song du Sud (420–479) | 2026-11-20: WD Q49697; de WD-etiketten och de.wikipedias titel, med synonymen *Liu-Song-Dynastie* (WD-alias); fr fr.wikipedia "Dynastie Song du Sud (420-479)" med årtalen och tankstreck, behålls så att den skiljs från Södra Song (*Song du Sud*, avsnitt 9) |
+| Sunga | Shunga Empire | Shunga-Dynastie | Imperio shunga | Dynastie Shunga | 2026-11-20: WD Q651377; es es.wikipedia: titeln är "Imperio Śuṅga", men första meningen är "El Imperio shunga o Imperio śuṅga" och *shunga* är den vanliga formen i texten, som i rutan Om kartan (rättat i PR #2042, sprak-es; WD "Imperio Sunga"). Gemen i adjektivet enligt avsnitt 3 |
+| Funan | Funan | Funan | Reino de Funan | Fou-nan | 2026-11-20: WD Q867782; en en.wikipedia "Funan" (WD "Kingdom of Funan") |
+| Cao Wei | Cao Wei | Cao Wei | Cao Wei | Cao Wei | 2026-11-20: WD Q320930. Artiklarnas titlar "Wei-Dynastie", "Wei (reino)" och "Royaume de Wei" är tvetydiga i en lista där det också finns andra Wei-stater (Norra Wei); artiklarna själva ger *Cao Wei* som namnet som skiljer riket från dem (de.wikipedia "auch Cao Wei", fr.wikipedia "également appelé Cao Wei", es.wikipedia "Cáo Wèi"; WD:s tyska alias "Cao Wei"). Avsteg från avsnitt 4 regel 1 för entydighetens skull (PR #2042, sprak-de/es/fr) |
+| Grekisk-baktriska riket | Greco-Bactrian Kingdom | Griechisch-Baktrisches Königreich | Reino grecobactriano | Royaume gréco-bactrien | 2026-11-20: WD Q488880 och artiklarna |
+| Shangdynastin | Shang dynasty | Shang-Dynastie | Dinastía Shang | Dynastie Shang | 2026-11-20: WD Q128938 och artiklarna |
+| Östra Wu | Eastern Wu | Östliche Wu-Dynastie | Wu Oriental | Wu oriental | 2026-11-20: WD Q274488. Artiklarnas titlar "Wu-Dynastie", "Wu (reino)" och "Royaume de Wu" är tvetydiga (Cliopatria har också en äldre stat Wu, 750–451 f.Kr.). de: WD-alias "Östliche Wu-Dynastie" och de.wikipedia "Die (Östliche) Wu-Dynastie". es och fr: egen översättning av *Eastern Wu* (es.wikipedia och fr.wikipedia använder formen bara i språklänkarna; fr.wikipedia nämner också *Sun Wu* och *Dong Wu*). Avsteg från avsnitt 4 regel 1 för entydighetens skull (PR #2042); sprak-es och sprak-fr kontrollerar |
+
+Personnamnen i rutorna Om kartan följer engelska Wikipedia, utom i Grekisk-baktriska riket, där namnen är kontrollerade mot artikeln på varje språk (2026-11-20): grundaren *Diodotus I* (sv.wikipedia och en), *Diodotos I.* (de), *Diódoto I* (es) och *Diodote Ier* (fr); huvudstäderna *Bactra* (sv, en, es; sv.wikipedia nämner ingen huvudstad), *Baktra* (de) och *Bactres* (fr), och *Ai-Khanoum* (sv, en, es), *Ai Chanum* (de) och *Aï Khanoum* (fr). Övriga namn kontrolleras av sprak-* före release. Engelska termer i rutorna: *Saka (Indo-Scythian)* för Western Satraps (sv *sakiska (indoskytiska)*, de *sakisch (indoskythisch)*, es *sakas (indoescitas)*, fr *saces (indo-scythes)*) och *the Kushans* för Kushanriket (sv *Kushan*, de *Kuschana*, es *kushanes*, fr *Kouchans*). Delningen 387 skrivs *Eastern Roman Empire* som i en.wikipedia-artikeln om Armenien, *Östrom* på svenska och tyska (*Ostrom*), *Imperio romano de Oriente* och *Empire romain d’Orient*, som i avsnitt 9.
+
 ## 10. Kontrollera innan en pull request öppnas
 
 1. Tilltalet är artigt överallt (avsnitt 1).
@@ -458,6 +479,10 @@ Rättat 2026-11-14 efter [expertgranskningen före v6.3.0](granskningar/2026-11-
 | inom {tid} från {år} | within {time} of {year} | – | – | *à moins de {within} de {at}* (inte *dans un rayon de*, som är ett avstånd) |
 | flaggetikett | – | *Flagge von Niger*, *Flagge von Mali*, *Flagge von Benin* (som *Flagge von Sierra Leone*) | – | – |
 | Licens: public domain (bildtext) | – | – | *Licencia: dominio público* | – |
+| Okänd fotograf (kredit, `tools/bild_hamta.py`, #2118) | Unknown photographer | *Unbekannter Fotograf* som fristående kredit, *Fotograf unbekannt* i löpande bildtext | Fotógrafo desconocido | Photographe inconnu |
+| Okänd konstnär (kredit, `tools/bild_hamta.py`, #2118) | Unknown artist | Unbekannter Künstler | *Artista desconocido* (*artista* är könsneutralt) | Artiste inconnu |
+| Licens: public domain, licensfras i bildtext (`tools/bild_hamta.py`) | Licence: Public domain | Lizenz: gemeinfrei (äldre tyska bildtexter blandar formerna *Public domain* och *gemeinfrei* och ska jämnas ut senare) | Licencia: dominio público | Licence : domaine public (hårt mellanrum U+00A0 före kolon, inte U+202F) |
+| CC-licenser i bildtext (CC0, CC BY 2.0, CC BY-SA 4.0) | oöversatta, lika på alla språk | – | – | – |
 | Lgr22, årskurs 7–9 | Lgr22 (the Swedish compulsory school curriculum), years 7–9 | – | – | *Lgr22 (le programme suédois de l'école obligatoire)*, *classes 7 à 9 (numérotation suédoise)* första gången i en text |
 
 **Rikesnamn (kontrollerade 2026-11-14 mot öppnade artiklar på målspråkets Wikipedia):**

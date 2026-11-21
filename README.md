@@ -13,11 +13,12 @@ Pyramiderna byggs medan de sista mammutarna lever på Wrangelön. Oxford undervi
 
 ## Det här får du
 
-- **En snurrbar jordglob genom 5 000 år.** Dra i tidslinjen från 3000 f.Kr. till i dag, eller tryck ▶ och se världen förändras.
+- **En snurrbar jordglob genom människans tid.** Tidslinjen har två reglage, "Före 3000 f.Kr." och "3000 f.Kr.–i dag", och en växlare mellan dem. Dra i tiden, eller tryck ▶ och se världen förändras.
 - **Visste du?-kortet.** Oväntade samband dyker upp av sig själva, till exempel att Mansa Musa och Ibn Battuta var på väg mot Mecka med ett års mellanrum.
 - **Krig och slag att följa.** Över 50 krig från alla världsdelar, från Kadesh och perserkrigen till Ukraina i dag. Varje krig har en berättelse: varför det började, vilka som stred, hur det slutade och hur många som dog, som spann och med vem som har räknat.
 - **Riken som växer och krymper,** från Romarriket och Handynastin till Mongolriket och Brittiska imperiet.
 - **Religioner över tid,** med egna symboler och faktarutor, och med en symbol där varje religion uppstod.
+- **Länder och platser.** Kort om Sverige, Danmark, Grönland, Aotearoa och Skåne med dagens gräns, och en regionvy med numrerade orter när du zoomar in.
 - **Platt vy.** Världen som en platt karta som fyller skärmen, med zoom och panorering, medan tiden spelas upp.
 - **Fungerar i mobilen,** utan installation.
 
@@ -80,6 +81,7 @@ js/layers/area-transition.js  mjuk övergång när ett rike byter period, delas 
 js/layers/borders.js  lager: dagens landsgränser (av som standard)
 js/layers/places.js   lager: konturen av platsen man följer i Fokus (#579) och de prickade konturerna runt platser med kort när man har zoomat in (#1161)
 js/layers/spread.js   lager: människans spridning, antagna områden och vågor i förhistorien (#1094)
+js/area-kind.js      områden som inte är en stat (stadsstäder och kulturer, `areaKind` på en grupp i data/empires/index.json): typordet som visas i stället för "rike" (#1300)
 js/area-lookup.js    punkt mot rike med marginal: vilket rike eller religionsområde en punkt ligger i, annars det närmaste inom 0,05 grader (#1524), delas med testerna
 js/place-geo.js       vilka händelser som ligger inom en plats gräns, platsen under en punkt vid tryck och gränsrutan för inramning i Platt vy, delas med testerna (#579, #1161)
 js/region-frame.js    regionvyns ramning: vilka platser som får den (högst 5 grader på marken i Platt vy, 15–60 grader på globen), den fria ytan och när den ryms (MIN_FREE, texten på knappen i platskortet, #1692), skalan med cos(mittbredden) och globflygets ram, delas med testerna (#1641, #1644)
@@ -166,6 +168,9 @@ images/licenses.json  genererat register över händelse- och turbildernas licen
 data/land.json        grundkarta (Natural Earth 1:50m)
 data/land-10m.json    finare kust (Natural Earth 1:10m), laddas först när det skarpa utsnittet används; byggs med tools/land_10m.mjs
 tools/riken.py        bygger rikesfilerna ur Cliopatria; --delade-granser (av som standard, kräver shapely >= 2.1 med GEOS >= 3.12) är piloten med delade gränser för England, Skottland och Man med föregångarna 500–1700 (#1765)
+tools/cliopatria_ar.py Cliopatrias f.Kr.-år: -N läses som N f.Kr. och räknas om till astronomiska år, delas av riken.py, religioner.py och religioner_riken.py (#1989)
+tools/bild_hamta.py   hämtar metadata för en riktig bild (Wikimedia Commons, Library of Congress), bedömer licensen och bygger källpost och webp, med paus vid 429 (#2118, docs/bilder-riktiga.md)
+tools/bildkandidater.py föreslår fria bildkandidater till händelser utan bild (arbetsflödet bildkandidater.yml öppnar en pull request med förslag, #2119)
 tools/riken_bevara.py det riken.py behåller vid ombyggnad: handskrivna fält som flags och översatta namn (#1220)
 tools/riken_namn.py   hämtar rikenas namn på tyska, spanska och franska ur Wikidata; riken.py bevarar dem (#676, #644)
 tools/forenkling_matning.py mäter överlapp mellan grannriken när de förenklas var för sig eller tillsammans (shapely.coverage_simplify), ändrar inga filer (#1765)

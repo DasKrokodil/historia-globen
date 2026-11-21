@@ -47,6 +47,12 @@ jobs:
         run: python3 -I tests/hallbarhet-test.py
       - name: Kontrollera att bilder_in.py fyller i image för händelser på flera rader och på en rad (#1288)
         run: python3 -I tests/bilder-in-test.py
+      - name: Kontrollera att bildkandidater.py hittar, klassar och flaggar kandidater med inspelade svar och hoppar över draft och händelser med bild (#2119)
+        run: python3 -I tests/bildkandidater-test.py
+      - name: Kontrollera att bild_hamta.py bedömer licenser, hanterar 429 och bygger källpost och webp med inspelade svar (#2118)
+        run: |
+          python3 -m pip install pillow
+          python3 -I tests/bild-hamta-test.py
       - name: Kontrollera att religionslagret räknar rubriker som Official och State and majority som officiell religion (#1609)
         run: python3 -I tests/religioner-test.py
       - name: Översätt samtidigt - inga nya oöversatta texter och inga inaktuella översättningar (#675)

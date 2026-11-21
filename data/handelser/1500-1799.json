@@ -1852,7 +1852,7 @@
     "caption": {
      "sv": "Tenochtitlans fall, ur en målningsserie om erövringen av Mexiko från andra hälften av 1600-talet. Okänd konstnär. Utsnitt. Licens: Public domain.",
      "en": "The fall of Tenochtitlan, from a series of paintings on the conquest of Mexico from the second half of the 17th century. Unknown artist. Detail. Licence: Public domain.",
-     "de": "Der Fall von Tenochtitlan, aus einer Gemäldeserie über die Eroberung Mexikos aus der zweiten Hälfte des 17. Jahrhunderts. Unbekannter Künstler. Ausschnitt. Lizenz: Public Domain."
+     "de": "Der Fall von Tenochtitlan, aus einer Gemäldeserie über die Eroberung Mexikos aus der zweiten Hälfte des 17. Jahrhunderts. Unbekannter Künstler. Ausschnitt. Lizenz: gemeinfrei."
     },
     "credit": "Okänd konstnär / Wikimedia Commons",
     "license": "Public domain",
@@ -2024,7 +2024,7 @@
     "caption": {
      "sv": "Atahualpa tillfångatas i Cajamarca. Oljemålning av Juan Lepiani, cirka 1920–1927, nästan 400 år efter händelsen. Utsnitt. Licens: Public domain.",
      "en": "Atahualpa is captured at Cajamarca. Oil painting by Juan Lepiani, about 1920–1927, almost 400 years after the event. Detail. Licence: Public domain.",
-     "de": "Atahualpa wird in Cajamarca gefangen genommen. Ölgemälde von Juan Lepiani, um 1920–1927, fast 400 Jahre nach dem Ereignis. Ausschnitt. Lizenz: Public Domain."
+     "de": "Atahualpa wird in Cajamarca gefangen genommen. Ölgemälde von Juan Lepiani, um 1920–1927, fast 400 Jahre nach dem Ereignis. Ausschnitt. Lizenz: gemeinfrei."
     },
     "credit": "Juan Lepiani / Wikimedia Commons",
     "license": "Public domain",
@@ -2437,6 +2437,21 @@
      "wp-american-revolutionary-war"
     ]
    },
+   "image": {
+    "file": "images/events/amerikanska-frihetskriget.webp",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+     "sv": "Slaget vid Lexington, där kriget började: minutemen skjuter mot britterna, enligt Library of Congress. Kopparstick av Cornelius Tiebout efter en teckning av Elkanah Tisdale, 1790-talet, alltså gjort efter kriget. Library of Congress anger inga kända restriktioner för publicering.",
+     "en": "The Battle of Lexington, where the war began: Minutemen fire on the British, according to the Library of Congress. Engraving by Cornelius Tiebout after a drawing by Elkanah Tisdale, 1790s, that is, made after the war. The Library of Congress states no known restrictions on publication.",
+     "de": "Die Schlacht bei Lexington, mit der der Krieg begann: Minutemen schießen auf die Briten, laut der Library of Congress. Kupferstich von Cornelius Tiebout nach einer Zeichnung von Elkanah Tisdale, 1790er-Jahre, also nach dem Krieg entstanden. Die Library of Congress gibt keine bekannten Einschränkungen für die Veröffentlichung an.",
+     "es": "La batalla de Lexington, donde empezó la guerra: milicianos (minutemen) disparan contra los británicos, según la Library of Congress. Grabado de Cornelius Tiebout a partir de un dibujo de Elkanah Tisdale, de la década de 1790, es decir, hecho después de la guerra. La Library of Congress no indica restricciones conocidas para su publicación.",
+     "fr": "La bataille de Lexington, où la guerre commença : des miliciens (minutemen) tirent sur les Britanniques, selon la Library of Congress. Gravure de Cornelius Tiebout d’après un dessin d’Elkanah Tisdale, années 1790, donc réalisée après la guerre. La Library of Congress n’indique aucune restriction connue de publication."
+    },
+    "credit": "Elkanah Tisdale (teckning), Cornelius Tiebout (gravyr) / Library of Congress, Prints & Photographs Division",
+    "license": "Inga kända restriktioner (Library of Congress)",
+    "source": "loc-bild-amerikanska-frihetskriget"
+   },
    "wikidata": "Q40949",
    "sources": [
     "wp-american-revolutionary-war",
@@ -2691,6 +2706,21 @@
      "en": "Wikipedia gives the battles as 19 September and 7 October and the surrender as 17 October 1777. Wikidata gives the same start, but 17 December 1777 as the end."
     }
    },
+   "image": {
+    "file": "images/events/slaget-vid-saratoga.webp",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+     "sv": "General Burgoynes kapitulation vid Saratoga den 17 oktober 1777. Laverad teckning av François Godefroy, troligen 1784, till Nicolas Ponces bildsamling om kriget; Library of Congress kallar den en idealiserad bild. Inga kända restriktioner för publicering i USA enligt Library of Congress.",
+     "en": "General Burgoyne's surrender at Saratoga on 17 October 1777. Wash drawing by François Godefroy, probably 1784, for Nicolas Ponce's collection of prints about the war; the Library of Congress calls it an idealised view. No known restrictions on publication in the U.S. according to the Library of Congress.",
+     "de": "Die Kapitulation von General Burgoyne bei Saratoga am 17. Oktober 1777. Lavierte Zeichnung von François Godefroy, wahrscheinlich 1784, für Nicolas Ponces Bildersammlung über den Krieg; die Library of Congress nennt sie eine idealisierte Darstellung. Nach Angaben der Library of Congress bestehen keine bekannten Einschränkungen für die Veröffentlichung in den USA.",
+     "es": "La rendición del general Burgoyne en Saratoga el 17 de octubre de 1777. Dibujo a la aguada de François Godefroy, probablemente de 1784, para la colección de estampas de Nicolas Ponce sobre la guerra; la Library of Congress lo califica de imagen idealizada. Sin restricciones conocidas para su publicación en Estados Unidos, según la Library of Congress.",
+     "fr": "La capitulation du général Burgoyne à Saratoga, le 17 octobre 1777. Dessin au lavis de François Godefroy, probablement de 1784, pour le recueil d’estampes de Nicolas Ponce sur la guerre ; la Library of Congress le qualifie de vue idéalisée. Aucune restriction connue de publication aux États-Unis selon la Library of Congress."
+    },
+    "credit": "François Godefroy / Library of Congress, Rare Book and Special Collections Division",
+    "license": "Inga kända restriktioner (Library of Congress)",
+    "source": "loc-bild-slaget-vid-saratoga"
+   },
    "wikidata": "Q846674",
    "sources": [
     "wp-saratoga",
@@ -2763,6 +2793,21 @@
    "summary": {
     "sv": "En amerikansk och fransk armé under George Washington och Rochambeau omringar den brittiske generalen Cornwallis i Yorktown, medan den franska flottan under de Grasse stänger vägen över havet. Den 19 oktober 1781 kapitulerar britterna, och mer än 7 000 soldater tas till fånga. Det är krigets sista stora slag på land, och det leder till fredsförhandlingar.",
     "en": "An American and French army under George Washington and Rochambeau surrounds the British general Cornwallis at Yorktown, while the French fleet under de Grasse closes the route by sea. On 19 October 1781 the British surrender, and more than 7,000 soldiers are taken prisoner. It is the last major land battle of the war, and it leads to peace negotiations."
+   },
+   "image": {
+    "file": "images/events/belagringen-av-yorktown.webp",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+     "sv": "Lord Cornwallis kapitulation vid Yorktown i Virginia. Laverad teckning av François Godefroy, troligen 1784, till Nicolas Ponces bildsamling om kriget, en konstnärs bild och ingen ögonvittnesskildring. Inga kända restriktioner för publicering i USA enligt Library of Congress.",
+     "en": "Lord Cornwallis's surrender at Yorktown, Virginia. Wash drawing by François Godefroy, probably 1784, for Nicolas Ponce's collection of prints about the war; an artist’s picture, not an eyewitness account. No known restrictions on publication in the U.S. according to the Library of Congress.",
+     "de": "Die Kapitulation von Lord Cornwallis bei Yorktown in Virginia. Lavierte Zeichnung von François Godefroy, wahrscheinlich 1784, für Nicolas Ponces Bildersammlung über den Krieg; ein Künstlerbild, kein Augenzeugenbericht. Nach Angaben der Library of Congress bestehen keine bekannten Einschränkungen für die Veröffentlichung in den USA.",
+     "es": "La rendición de lord Cornwallis en Yorktown, Virginia. Dibujo a la aguada de François Godefroy, probablemente de 1784, para la colección de estampas de Nicolas Ponce sobre la guerra, obra de un artista y no de un testigo presencial. Sin restricciones conocidas para su publicación en Estados Unidos, según la Library of Congress.",
+     "fr": "La capitulation de lord Cornwallis à Yorktown, en Virginie. Dessin au lavis de François Godefroy, probablement de 1784, pour le recueil d’estampes de Nicolas Ponce sur la guerre, l’image d’un artiste et non le témoignage d’un témoin oculaire. Aucune restriction connue de publication aux États-Unis selon la Library of Congress."
+    },
+    "credit": "François Godefroy / Library of Congress, Rare Book and Special Collections Division",
+    "license": "Inga kända restriktioner (Library of Congress)",
+    "source": "loc-bild-belagringen-av-yorktown"
    },
    "wikidata": "Q459447",
    "sources": [
@@ -2986,6 +3031,21 @@
      "sv": "Wikipedia anger den 13 mars 1591 och Wikidata den 12 mars 1591. Ingen av dem har en koordinat, så punkten kommer från Historical Conflict Event Dataset och är ungefärlig.",
      "en": "Wikipedia gives 13 March 1591 and Wikidata 12 March 1591. Neither has coordinates, so the point comes from the Historical Conflict Event Dataset and is approximate."
     }
+   },
+   "image": {
+    "file": "images/events/slaget-vid-tondibi.webp",
+    "kind": "illustration",
+    "style": "islamisk",
+    "caption": {
+     "sv": "Illustration i stil med islamisk landskapskonst med geometriska ornament, inte en historisk bild.",
+     "en": "Illustration in the style of Islamic landscape art with geometric ornaments, not a historical image.",
+     "de": "Illustration im Stil islamischer Landschaftskunst mit geometrischen Ornamenten, kein historisches Bild.",
+     "es": "Ilustración al estilo del arte paisajístico islámico con ornamentos geométricos, no una imagen histórica.",
+     "fr": "Illustration dans le style de l’art islamique du paysage, avec des ornements géométriques, et non une image historique."
+    },
+    "credit": "AI-genererad med ChatGPT, 2026-11-20",
+    "license": "CC BY 4.0",
+    "prompt": "Style: Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures. Subject: Battle of Tondibi — Near Tondibi, north of Gao on the Niger, Mali, 1591 CE. What happened (show only this, do not add details): In October 1590 the Moroccan sultan Ahmad al-Mansur sends an army with cannon against the Songhai Empire. On 13 March 1591 it, under Judar Pasha, meets the Songhai army under Askia Ishaq II near Tondibi, north of the capital Gao. The Moroccans win, and the Songhai Empire collapses. historical illustration, not a photograph, does not look like a real historical document, no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format. Respect: never depict the Prophet Muhammad; no caricatures of peoples; convey mood and setting rather than invented details."
    },
    "wikidata": "Q589285",
    "sources": [
@@ -4606,6 +4666,21 @@
      "en": "Wikipedia gives 19 November (Julian calendar), 20 November (Swedish calendar) and 30 November 1700 (Gregorian). Wikidata gives 30 November (Gregorian)."
     }
    },
+   "image": {
+    "file": "images/events/slaget-vid-narva-1700.webp",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+     "sv": "Ryska soldater lägger ner sina fanor inför Karl XII efter slaget. Narva, oljemålning av Gustaf Cederström från 1905 i Nationalmuseum i Stockholm, en sentida tolkning målad mer än 200 år efteråt. Licens: Public domain.",
+     "en": "Russian soldiers lay down their colours before Charles XII after the battle. Narva, an oil painting by Gustaf Cederström from 1905 in the Nationalmuseum in Stockholm, a much later interpretation painted more than 200 years afterwards. Licence: public domain.",
+     "de": "Russische Soldaten legen nach der Schlacht ihre Fahnen vor Karl XII. nieder. Narwa, Ölgemälde von Gustaf Cederström aus dem Jahr 1905 im Nationalmuseum in Stockholm. Eine spätere Deutung der Schlacht, mehr als 200 Jahre danach gemalt. Lizenz: gemeinfrei.",
+     "es": "Soldados rusos deponen sus banderas ante Carlos XII después de la batalla. Narva, óleo de Gustaf Cederström de 1905 en el Nationalmuseum de Estocolmo, una interpretación muy posterior, pintada más de 200 años después. Licencia: dominio público.",
+     "fr": "Des soldats russes déposent leurs drapeaux devant Charles XII après la bataille. Narva, peinture à l’huile de Gustaf Cederström de 1905, au Nationalmuseum de Stockholm, une interprétation bien plus tardive, peinte plus de 200 ans après. Licence : domaine public."
+    },
+    "credit": "Gustaf Cederström / Nationalmuseum, Stockholm / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-slaget-vid-narva-1700"
+   },
    "wikidata": "Q155726",
    "sources": [
     "wp-narva-1700",
@@ -4901,6 +4976,21 @@
      "sv": "Wikipedia anger att Karl XII dog 30 november 1718 enligt gammal stil, vilket är 11 december enligt ny stil. Enligt Wikipedias sida om den svenska kalendern gick Sverige tillbaka till den julianska kalendern 1712 och bytte till den gregorianska först 1753. Wikidata anger 30 november 1718 men märker det som gregoriansk kalender. År och plats stämmer, men inte kalendern.",
      "en": "Wikipedia states that Charles XII died on 30 November 1718 Old Style, which is 11 December New Style. According to Wikipedia's page on the Swedish calendar, Sweden returned to the Julian calendar in 1712 and did not switch to the Gregorian calendar until 1753. Wikidata gives 30 November 1718 but marks it as the Gregorian calendar. The year and place agree, but not the calendar."
     }
+   },
+   "image": {
+    "file": "images/events/karl-xii-stupar-1718.webp",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+     "sv": "Karl XII:s död, teckning av Carl Wahlbom från 1829, mer än hundra år efter händelsen. En senare tolkning, inte en ögonvittnesbild. Nationalmuseum. Utsnitt. Licens: Public domain.",
+     "en": "The Death of Charles XII, drawing by Carl Wahlbom from 1829, more than a hundred years after the event. A later interpretation, not an eyewitness image. Nationalmuseum. Cropped. Licence: Public domain.",
+     "de": "Der Tod Karls XII., Zeichnung von Carl Wahlbom aus dem Jahr 1829, mehr als hundert Jahre nach dem Ereignis. Eine spätere Deutung, kein Augenzeugenbild. Nationalmuseum. Ausschnitt. Lizenz: gemeinfrei.",
+     "es": "La muerte de Carlos XII, dibujo de Carl Wahlbom de 1829, más de cien años después del suceso. Una interpretación posterior, no una imagen de un testigo presencial. Nationalmuseum. Detalle. Licencia: dominio público.",
+     "fr": "La mort de Charles XII, dessin de Carl Wahlbom de 1829, plus de cent ans après l’événement. Une interprétation ultérieure, pas une image de témoin oculaire. Nationalmuseum. Détail. Licence : domaine public."
+    },
+    "credit": "Carl Wahlbom / Nationalmuseum / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-karl-xii-stupar-1718"
    },
    "wikidata": "Q2815407",
    "sources": [
@@ -5341,8 +5431,8 @@
     "en": "Smallpox strikes the Eora people at Sydney"
    },
    "summary": {
-    "sv": "Omkring 16 månader efter att den brittiska kolonin grundats bryter en epidemi ut bland urfolken runt Port Jackson. Både guvernören Arthur Phillip och eoramannen Bennelong trodde att ungefär hälften av eora-folket i Sydneytrakten dog. Historikern Peter Dowling menar att epidemin troligen gjorde det omöjligt för urfolken att driva bort kolonin under dess första år.",
-    "en": "About 16 months after the British colony was founded, an epidemic breaks out among the indigenous peoples around Port Jackson. Both the governor Arthur Phillip and the Eora man Bennelong believed that about half of the Eora people in the Sydney area died. The historian Peter Dowling argues that the epidemic probably made it impossible for the indigenous peoples to drive the colony away during its first years."
+    "sv": "Omkring 16 månader efter att den brittiska kolonin grundats bryter en epidemi ut bland urfolken runt Port Jackson. Både guvernören Arthur Phillip och eoramannen Bennelong trodde att ungefär hälften av eora-folket i Sydneytrakten dog. Historikern Peter Dowling menar att epidemin troligen gjorde det omöjligt för urfolken att anfalla och förstöra kolonin under dess första år.",
+    "en": "About 16 months after the British colony was founded, an epidemic breaks out among the indigenous peoples around Port Jackson. Both the governor Arthur Phillip and the Eora man Bennelong believed that about half of the Eora people in the Sydney area died. The historian Peter Dowling argues that the epidemic probably made it impossible for the indigenous peoples to attack and destroy the colony in its first years."
    },
    "note": {
     "kind": "other",
@@ -7673,6 +7763,21 @@
      "fr": "La guerre se déroula en plusieurs endroits. Le point indique la Scanie, où l'on se battit pour la province. Les sources n'indiquent pas un lieu unique où la guerre commença."
     }
    },
+   "image": {
+    "file": "images/events/skanska-kriget.webp",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+     "sv": "Kristianstad intas den 15 augusti 1676. Oljemålning av Claus Møinichen, 1686, utsnitt. Licens: Public domain.",
+     "en": "Kristianstad is captured on 15 August 1676. Oil painting by Claus Møinichen, 1686, detail. Licence: public domain.",
+     "de": "Kristianstad wird am 15. August 1676 eingenommen. Ölgemälde von Claus Møinichen, 1686, Ausschnitt. Lizenz: gemeinfrei.",
+     "es": "La toma de Kristianstad el 15 de agosto de 1676. Óleo de Claus Møinichen, 1686, detalle. Licencia: dominio público.",
+     "fr": "La prise de Kristianstad, le 15 août 1676. Peinture à l’huile de Claus Møinichen, 1686, détail. Licence : domaine public."
+    },
+    "credit": "Claus Møinichen / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-skanska-kriget"
+   },
    "wikidata": "Q166001",
    "sources": [
     "lex-skanske-krig",
@@ -7736,6 +7841,21 @@
      "es": "Den Store Danske y Nordisk familjebok indican el 4 de diciembre de 1676. Wikidata marca la fecha como juliana. Las fuentes dan cifras distintas para el tamaño de los ejércitos.",
      "fr": "Den Store Danske et Nordisk familjebok indiquent le 4 décembre 1676. Wikidata marque la date comme julienne. Les sources donnent des effectifs différents pour les armées."
     }
+   },
+   "image": {
+    "file": "images/events/slaget-vid-lund.webp",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+     "sv": "Karl XI i slaget vid Lund 1676. Oljemålning av Johan Philip Lemke, 1683 eller 1684, sju eller åtta år efter slaget. Licens: Public domain.",
+     "en": "Charles XI at the Battle of Lund in 1676. Oil painting by Johan Philip Lemke, 1683 or 1684, seven or eight years after the battle. Licence: public domain.",
+     "de": "Karl XI. in der Schlacht bei Lund 1676. Ölgemälde von Johan Philip Lemke, 1683 oder 1684, sieben oder acht Jahre nach der Schlacht. Lizenz: gemeinfrei.",
+     "es": "Carlos XI en la batalla de Lund de 1676. Óleo de Johan Philip Lemke, de 1683 o 1684, siete u ocho años después de la batalla. Licencia: dominio público.",
+     "fr": "Charles XI à la bataille de Lund en 1676. Peinture à l’huile de Johan Philip Lemke, 1683 ou 1684, sept ou huit ans après la bataille. Licence : domaine public."
+    },
+    "credit": "Johan Philip Lemke / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-slaget-vid-lund"
    },
    "wikidata": "Q1536103",
    "sources": [
@@ -8232,6 +8352,21 @@
     "de": "Im Mai 1637 erschien Song Yingxings Enzyklopädie der Technik, das Tiangong Kaiwu, finanziert von seinem Gönner Tu Shaokui. Das Buch beschreibt unter anderem Landwirtschaft, Boote, Seiden- und Baumwollherstellung, Metallverarbeitung und Schießpulver. Unter der Qing-Dynastie wurde das Buch in China sehr selten.",
     "es": "En mayo de 1637 se publicó la enciclopedia de técnica de Song Yingxing, el Tiangong Kaiwu, con dinero de su mecenas Tu Shaokui. El libro describe, entre otras cosas, la agricultura, los barcos, la fabricación de seda y algodón, el trabajo del metal y la pólvora. Durante la dinastía Qing el libro se volvió muy escaso en China.",
     "fr": "En mai 1637 parut l'encyclopédie des techniques de Song Yingxing, le Tiangong Kaiwu, financée par son protecteur Tu Shaokui. Le livre décrit notamment l'agriculture, les bateaux, la fabrication de la soie et du coton, le travail des métaux et la poudre. Sous la dynastie Qing, le livre devint très rare en Chine."
+   },
+   "image": {
+    "file": "images/events/tiangong-kaiwu-1637.webp",
+    "kind": "historisk",
+    "style": "kina-tusch",
+    "caption": {
+     "sv": "Vattendrivna stamphammare som skalar säd, en av illustrationerna i Tiangong Kaiwu från 1637, fotograferad ur en engelsk översättning från 1966. Licens: Public domain.",
+     "en": "Water-powered trip hammers that husk grain, one of the illustrations in the Tiangong Kaiwu of 1637, photographed from a 1966 English translation. Licence: Public domain.",
+     "de": "Wassergetriebene Stampfhämmer, die Getreide schälen, eine der Abbildungen im Tiangong Kaiwu von 1637, fotografiert aus einer englischen Übersetzung von 1966. Lizenz: gemeinfrei.",
+     "es": "Mazos hidráulicos que descascarillan el grano, una de las ilustraciones del Tiangong Kaiwu de 1637, fotografiada de una traducción inglesa de 1966. Licencia: dominio público.",
+     "fr": "Des martinets actionnés par l’eau qui décortiquent le grain, l’une des illustrations du Tiangong Kaiwu de 1637, photographiée d’après une traduction anglaise de 1966. Licence : domaine public."
+    },
+    "credit": "Song Yingxing (foto: PericlesofAthens) / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-tiangong-kaiwu-1637"
    },
    "sources": [
     "wp-tiangong-kaiwu",
