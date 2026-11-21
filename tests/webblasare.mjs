@@ -5906,13 +5906,14 @@ async function run(browser, vp) {
       await pg.tp.waitForTimeout(600);
       return pg;
     };
+    const stang = c => c.close().catch(() => {});
     const button = async tp => ({ text: (await tp.textContent('#detail [data-selection-action]')).trim(), label: await tp.getAttribute('#detail [data-selection-action]', 'aria-label') });
     const regionShown = tp => tp.evaluate(() => { const c = document.getElementById('flat-region'); return !c.hidden && c.getClientRects().length > 0; });
     try {
       // 1. Fyra storlekar: texten före trycket och vad trycket ger
       for (const [width, height, room] of [[800, 360, true], [640, 360, true], [600, 375, true], [520, 375, false], [400, 800, true], [1280, 800, true]]) {
         const name = `${width} × ${height}`;
-        const { tp } = await open(width, height, '#y=1827&f=place:skane', { isMobile: width <= 760 || height <= 400 });
+        const { tp, tctx } = await open(width, height, '#y=1827&f=place:skane', { isMobile: width <= 760 || height <= 400 });
         const b = await button(tp);
         if (b.text !== MAP) throw new Error(`${name}: knappen heter "${b.text}", men regionvyn ${room ? 'ryms' : 'ryms inte'} och den ska heta "${MAP}"`);
         if (!b.label.startsWith(b.text) || !/Skåne/.test(b.label)) throw new Error(`${name}: knappens namn för skärmläsare är "${b.label}"`);
@@ -5930,15 +5931,18 @@ async function run(browser, vp) {
         const shown = await regionShown(tp);
         if (shown !== room) throw new Error(`${name}: knappen hette "${b.text}" men ${shown ? 'regionvyn öppnades' : 'regionvyn öppnades inte (Platt karta)'}`);
         out.push(`${name}: ${room ? 'regionvy' : 'Platt karta'}`);
+        await stang(tctx); // en globe med WebGL per storlek ska inte stå kvar öppen när nästa startar
       }
       // 2. Sverige får aldrig regionvyn och Grönland alltid (regionvyn på globen), också på en låg skärm
       {
-        const { tp } = await open(1280, 800, '#y=1827&f=place:sverige');
-        const b = await button(tp);
+        const sv = await open(1280, 800, '#y=1827&f=place:sverige');
+        const b = await button(sv.tp);
         if (b.text !== MAP) throw new Error(`Sverige: knappen heter "${b.text}"`);
+        await stang(sv.tctx);
         const g = await open(800, 360, '#y=1721&f=place:gronland', { isMobile: true });
         const gb = await button(g.tp);
         if (gb.text !== MAP) throw new Error(`Grönland vid 800 × 360: knappen heter "${gb.text}"`);
+        await stang(g.tctx);
       }
       // 3. Fönstret ändrar storlek med kortet öppet (utan isMobile: setViewportSize på en sida med isMobile blev aldrig klar i Firefox, #1667)
       {
