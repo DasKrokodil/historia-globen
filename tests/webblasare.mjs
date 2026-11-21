@@ -92,6 +92,8 @@ const { kor: KOR_BREDDER, medAvsnitt: MED_AVSNITT } = bredder(process.env.BREDD)
 const VIEWPORTS = ALLA_VIEWPORTS.filter(v => KOR_BREDDER.includes(v.name));
 
 fs.mkdirSync(OUT, { recursive: true });
+// context.close() kan hänga i WebKit (därför har varje finally en gräns på 10 s): stäng aldrig en sida utan gräns
+const stangSida = c => Promise.race([c.close().catch(() => {}), new Promise(r => setTimeout(r, 10000))]);
 const isFont = url => { try { return FONT_HOSTS.includes(new URL(url).hostname); } catch { return false; } };
 
 // Kontroller som öppnar förslagsformuläret ska fungera utan Cloudflare Turnstile.
@@ -297,6 +299,7 @@ async function run(browser, vp) {
     if (!wanted(name)) { skipped++; return; }
     if (!ALLTID.includes(name)) matched++;
     currentCheck = name;
+    console.log(`  … ${name}`); // en rad när kontrollen börjar: ett hängande jobb visar då vilken kontroll det stod i (#2171)
     abortedFiltered = 0;
     kontrollensBevakningar.length = 0;
     const t0 = Date.now();
@@ -5069,7 +5072,7 @@ async function run(browser, vp) {
     const tapAt = (pg, kind, x, y) => (kind === 'mus' ? pg.mouse.click(x, y) : pg.touchscreen.tap(x, y));
     try {
       for (const [i, sc] of scenarios.entries()) {
-        await contexts.at(-1)?.close().catch(() => {}); // en sida i taget: föregående stängs först, annars står femton WebGL-sidor öppna samtidigt i WebKit (#2171)
+        if (contexts.length) await stangSida(contexts.at(-1)); // en sida i taget: föregående stängs först, annars står femton WebGL-sidor öppna samtidigt i WebKit (#2171)
         const pg = await touchPage({ width: sc.width, height: sc.height }, { isMobile: sc.width <= 760 || sc.height <= 480 });
         const tp = pg.tp;
         contexts.push(pg.tctx);
@@ -5910,7 +5913,7 @@ async function run(browser, vp) {
       await pg.tp.waitForTimeout(600);
       return pg;
     };
-    const stang = c => c.close().catch(() => {});
+    const stang = stangSida;
     const button = async tp => ({ text: (await tp.textContent('#detail [data-selection-action]')).trim(), label: await tp.getAttribute('#detail [data-selection-action]', 'aria-label') });
     const regionShown = tp => tp.evaluate(() => { const c = document.getElementById('flat-region'); return !c.hidden && c.getClientRects().length > 0; });
     try {
@@ -6040,7 +6043,7 @@ async function run(browser, vp) {
     try {
       for (const [i, sc] of scenarios.entries()) {
         const { name, width, height, id, hash, globe } = sc;
-        await contexts.at(-1)?.close().catch(() => {}); // en sida i taget: föregående stängs först, annars står femton WebGL-sidor öppna samtidigt i WebKit (#2171)
+        if (contexts.length) await stangSida(contexts.at(-1)); // en sida i taget: föregående stängs först, annars står femton WebGL-sidor öppna samtidigt i WebKit (#2171)
         const pg = await touchPage({ width, height }, { isMobile: true });
         const tp = pg.tp;
         contexts.push(pg.tctx);
@@ -6174,7 +6177,7 @@ async function run(browser, vp) {
         const { width, height, id, hash, globe, lang } = sc;
         const name = `${globe ? 'glob' : 'Platt karta'} ${width} × ${height} ${lang}`;
         const text = textOf(lang);
-        await contexts.at(-1)?.close().catch(() => {}); // en sida i taget: föregående stängs först, annars står femton WebGL-sidor öppna samtidigt i WebKit (#2171)
+        if (contexts.length) await stangSida(contexts.at(-1)); // en sida i taget: föregående stängs först, annars står femton WebGL-sidor öppna samtidigt i WebKit (#2171)
         const pg = await touchPage({ width, height }, { isMobile: true });
         const tp = pg.tp;
         contexts.push(pg.tctx);
