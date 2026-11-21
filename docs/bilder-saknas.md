@@ -115,3 +115,13 @@ Prövade men inte tagna i den här omgången (ingen illustration behövs, bara e
 | `slaget-vid-parramatta` | Wikidata har ingen bild, och en sökning på Commons efter Pemulwuy gav bara nutida foton av förorten med samma namn. Prompt i [bildpromptar-299-omgang-2.md](bildpromptar-299-omgang-2.md). Stilen blir `barock` enligt `data/styles.json`. |
 
 **Väntar på AI-illustration (görs av en människa i ChatGPT):** `slaget-vid-parramatta`. Prompt: [bildpromptar-299-omgang-2.md](bildpromptar-299-omgang-2.md), gren `claude/issue-299-bilder-krig-omgang-2`.
+
+## Europa 1677–1807, pilot #2086
+
+Kontrollerat 2026-11-21.
+
+| Händelse (id) | Skäl |
+|---|---|
+| `freden-i-lund` | Fotot av Kungshuset visar byggnaden 2005. För silvermedaljen från 1679 anger Commons med gravörens namn och PD-old-100 varför själva medaljen är fri. Rättigheten till auktionsfotot av medaljen är oklar. |
+| `skanes-generalguvernement-upphor` | Kandidatlistan och sökningen på Commons gav ingen bild av förvaltningsändringen 1719. Library of Congress bildsökning svarade HTTP 403. |
+| `freden-i-nystad` | Filsidan för signeringen anger 1721 och tillskriver gravyren Pieter Schenk den äldre med dödsår 1718/19. CC BY 4.0 står i både mallen och metadata, men dateringen och tillskrivningen går inte ihop. |

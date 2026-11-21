@@ -330,6 +330,21 @@
       }
     },
     {
+      "eventId": "belagringen-av-riga-1700",
+      "eventTitle": "Sachsen anfaller Riga",
+      "file": "images/events/belagringen-av-riga-1700.webp",
+      "kind": "historisk",
+      "credit": "Ur Johann Christoph Brotzes samling / Latvijas Universitātes Akadēmiskā bibliotēka / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-belagringen-av-riga-1700",
+        "title": "Bm04004abm – Johann Christoph Brotze (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Bm04004abm.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-21"
+      }
+    },
+    {
       "eventId": "belagringen-av-tsingtao",
       "eventTitle": "Belägringen av Tsingtao",
       "file": "images/events/belagringen-av-tsingtao.webp",
@@ -576,6 +591,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Mayor_Pyramid_and_circular_enclosure._Caral,_Peru.jpg",
         "license": "CC BY-SA 2.0",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "celsius-temperaturskala",
+      "eventTitle": "Anders Celsius föreslår sin temperaturskala",
+      "file": "images/events/celsius-temperaturskala.webp",
+      "kind": "historisk",
+      "credit": "Anders Celsius / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-celsius-temperaturskala",
+        "title": "Celsius original thermometer – Anders Celsius (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Celsius_original_thermometer.png",
+        "license": "Public domain",
+        "checked": "2026-11-21"
       }
     },
     {
@@ -861,6 +891,21 @@
       }
     },
     {
+      "eventId": "encyclopedien-ges-ut",
+      "eventTitle": "Encyclopédien börjar ges ut",
+      "file": "images/events/encyclopedien-ges-ut.webp",
+      "kind": "historisk",
+      "credit": "Encyclopédiens medarbetare. Bildbearbetning: Jaybear / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-encyclopedien-ges-ut",
+        "title": "Encyclopedie de D'Alembert et Diderot - Premiere Page - ENC 1-NA5 – Long List of Contributors to the Encyclopédie (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Encyclopedie_de_D%27Alembert_et_Diderot_-_Premiere_Page_-_ENC_1-NA5.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-21"
+      }
+    },
+    {
       "eventId": "eviansavtalen",
       "eventTitle": "Éviansavtalen: Algeriet blir fritt",
       "file": "images/events/eviansavtalen.webp",
@@ -1032,6 +1077,21 @@
         "url": "https://www.loc.gov/item/2014706263/",
         "license": "No known restrictions on publication",
         "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "freden-i-paris-1783",
+      "eventTitle": "Freden i Paris",
+      "file": "images/events/freden-i-paris-1783.webp",
+      "kind": "historisk",
+      "credit": "Upphovsperson ej angiven / National Archives and Records Administration / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-freden-i-paris-1783",
+        "title": "Treaty of Paris 1783 - last page (hi-res) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Treaty_of_Paris_1783_-_last_page_(hi-res).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-21"
       }
     },
     {
@@ -1521,6 +1581,21 @@
       }
     },
     {
+      "eventId": "jordbavningen-i-lissabon-1755",
+      "eventTitle": "Jordbävningen i Lissabon",
+      "file": "images/events/jordbavningen-i-lissabon-1755.webp",
+      "kind": "historisk",
+      "credit": "Jacques-Philippe Le Bas / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-jordbavningen-i-lissabon-1755",
+        "title": "Ruinas da Praça da Patriarcal após o Terramoto de 1755 - Jacques Philippe Le Bas, 1757 – Jacques Philippe Le bas (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ruinas_da_Pra%C3%A7a_da_Patriarcal_ap%C3%B3s_o_Terramoto_de_1755_-_Jacques_Philippe_Le_Bas,_1757.png",
+        "license": "Public domain",
+        "checked": "2026-11-21"
+      }
+    },
+    {
       "eventId": "jordbavningen-i-valdivia-1960",
       "eventTitle": "Jordbävningen i Valdivia, den kraftigaste som har mätts",
       "file": "images/events/jordbavningen-i-valdivia-1960.webp",
@@ -1588,6 +1663,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-30",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "kant-vad-ar-upplysning",
+      "eventTitle": "Kant svarar på frågan ”Vad är upplysning?”",
+      "file": "images/events/kant-vad-ar-upplysning.webp",
+      "kind": "historisk",
+      "credit": "Text: Immanuel Kant. Bildens upphovsperson ej angiven / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-kant-vad-ar-upplysning",
+        "title": "KantWasIstAufklärung (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:KantWasIstAufkl%C3%A4rung.png",
+        "license": "Public domain",
+        "checked": "2026-11-21"
+      }
     },
     {
       "eventId": "kapitulationen-vid-appomattox",
@@ -2967,6 +3057,21 @@
       }
     },
     {
+      "eventId": "sjoslaget-vid-hango-udd",
+      "eventTitle": "Sjöslaget vid Hangö udd",
+      "file": "images/events/sjoslaget-vid-hango-udd.webp",
+      "kind": "historisk",
+      "credit": "Maurice Baquoy / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-sjoslaget-vid-hango-udd",
+        "title": "Battle of Gangut-Bakua (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Battle_of_Gangut-Bakua.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-21"
+      }
+    },
+    {
       "eventId": "sjoslaget-vid-noryang",
       "eventTitle": "Sjöslaget vid Noryang",
       "file": "images/events/sjoslaget-vid-noryang.webp",
@@ -3141,6 +3246,36 @@
       }
     },
     {
+      "eventId": "slaget-vid-friedland",
+      "eventTitle": "Slaget vid Friedland",
+      "file": "images/events/slaget-vid-friedland.webp",
+      "kind": "historisk",
+      "credit": "Horace Vernet / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-friedland",
+        "title": "Napoleon friedland – Horace Vernet (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Napoleon_friedland.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-21"
+      }
+    },
+    {
+      "eventId": "slaget-vid-gadebusch",
+      "eventTitle": "Slaget vid Gadebusch",
+      "file": "images/events/slaget-vid-gadebusch.webp",
+      "kind": "historisk",
+      "credit": "Magnus Rommel (1678–1735) / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-gadebusch",
+        "title": "Gadebusch1712 – Magnus Rommel (1678–1735) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Gadebusch1712.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-21"
+      }
+    },
+    {
       "eventId": "slaget-vid-gaixia",
       "eventTitle": "Slaget vid Gaixia",
       "file": "images/events/slaget-vid-gaixia.webp",
@@ -3207,6 +3342,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Hattin_Estoire_d%27Eracles.jpg",
         "license": "Public domain",
         "checked": "2026-11-12"
+      }
+    },
+    {
+      "eventId": "slaget-vid-helsingborg",
+      "eventTitle": "Slaget vid Helsingborg",
+      "file": "images/events/slaget-vid-helsingborg.webp",
+      "kind": "historisk",
+      "credit": "Gustaf Cederström / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-helsingborg",
+        "title": "Magnus Stenbock vid Helsingborg – Gustaf Cederström (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Magnus_Stenbock_vid_Helsingborg.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-21"
       }
     },
     {
@@ -3528,6 +3678,21 @@
       "source": null
     },
     {
+      "eventId": "slaget-vid-trafalgar",
+      "eventTitle": "Slaget vid Trafalgar",
+      "file": "images/events/slaget-vid-trafalgar.webp",
+      "kind": "historisk",
+      "credit": "Nicholas Pocock / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-trafalgar",
+        "title": "The Battle of Trafalgar, 21 October 1805- Beginning of the Action RMG BHC0548 – Nicholas Pocock (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:The_Battle_of_Trafalgar,_21_October_1805-_Beginning_of_the_Action_RMG_BHC0548.tiff",
+        "license": "Public domain",
+        "checked": "2026-11-21"
+      }
+    },
+    {
       "eventId": "slaget-vid-tuyuti",
       "eventTitle": "Slaget vid Tuyutí",
       "file": "images/events/slaget-vid-tuyuti.webp",
@@ -3747,6 +3912,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Great_Mosque_of_Djenné_1.jpg",
         "license": "CC BY-SA 3.0",
         "checked": "2026-11-07"
+      }
+    },
+    {
+      "eventId": "stora-nordiska-kriget",
+      "eventTitle": "Stora nordiska kriget",
+      "file": "images/events/stora-nordiska-kriget.webp",
+      "kind": "historisk",
+      "credit": "Gustaf Cederström. Foto: Bodil Karlsson / Nationalmuseum / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-stora-nordiska-kriget",
+        "title": "Narva (Gustaf Cederström) - Nationalmuseum - 18638 – Gustaf Cederström (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Narva_(Gustaf_Cederstr%C3%B6m)_-_Nationalmuseum_-_18638.tif",
+        "license": "Public domain",
+        "checked": "2026-11-21"
       }
     },
     {
