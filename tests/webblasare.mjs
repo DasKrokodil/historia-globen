@@ -5069,6 +5069,7 @@ async function run(browser, vp) {
     const tapAt = (pg, kind, x, y) => (kind === 'mus' ? pg.mouse.click(x, y) : pg.touchscreen.tap(x, y));
     try {
       for (const [i, sc] of scenarios.entries()) {
+        await contexts.at(-1)?.close().catch(() => {}); // en sida i taget: föregående stängs först, annars står femton WebGL-sidor öppna samtidigt i WebKit (#2171)
         const pg = await touchPage({ width: sc.width, height: sc.height }, { isMobile: sc.width <= 760 || sc.height <= 480 });
         const tp = pg.tp;
         contexts.push(pg.tctx);
@@ -6039,6 +6040,7 @@ async function run(browser, vp) {
     try {
       for (const [i, sc] of scenarios.entries()) {
         const { name, width, height, id, hash, globe } = sc;
+        await contexts.at(-1)?.close().catch(() => {}); // en sida i taget: föregående stängs först, annars står femton WebGL-sidor öppna samtidigt i WebKit (#2171)
         const pg = await touchPage({ width, height }, { isMobile: true });
         const tp = pg.tp;
         contexts.push(pg.tctx);
@@ -6172,6 +6174,7 @@ async function run(browser, vp) {
         const { width, height, id, hash, globe, lang } = sc;
         const name = `${globe ? 'glob' : 'Platt karta'} ${width} × ${height} ${lang}`;
         const text = textOf(lang);
+        await contexts.at(-1)?.close().catch(() => {}); // en sida i taget: föregående stängs först, annars står femton WebGL-sidor öppna samtidigt i WebKit (#2171)
         const pg = await touchPage({ width, height }, { isMobile: true });
         const tp = pg.tp;
         contexts.push(pg.tctx);
