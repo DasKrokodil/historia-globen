@@ -2738,6 +2738,9 @@ async function run(browser, vp) {
       await lp.waitForSelector('#tour-endcard:not([hidden])', { timeout: T.step });
       await lp.click('#tour-next');
       await lp.waitForSelector('#tour-card', { state: 'hidden', timeout: T.step });
+      // Adressen skrivs av en avläsning med fast takt (POLL_MS i js/controllers/address.js), inte i samma bildruta som kortet stängs:
+      // vänta in att turen försvunnit ur adressen innan den läses, så att kravet (ingen t= efter Stäng) prövas på riktigt (WebKit, #2171)
+      await lp.waitForFunction(() => !/t=/.test(location.hash), null, { timeout: T.step }).catch(() => {});
       const after = await lp.evaluate(() => ({ touring: document.getElementById('app').classList.contains('touring'), ending: document.getElementById('tour-card').classList.contains('is-ending'), notice: !!document.getElementById('link-notice-card') && document.getElementById('link-notice-card').getClientRects().length > 0, hash: location.hash }));
       if (after.touring || after.ending || after.notice || /t=/.test(after.hash)) throw new Error(`efter Stäng: touring ${after.touring}, slutkort ${after.ending}, rad ${after.notice}, adress ${after.hash}`);
       if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
