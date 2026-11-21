@@ -5,7 +5,7 @@ Datum: 2026-11-21. Beställt av DasKrokodil i #2147 inför v6.5.0.
 ## Beslut
 
 - Vid högst 600 CSS-pixlars fönsterhöjd rullar knapparna och foten med texten. Knappen ”Fortsätt läsa” döljs. Gränsen omfattar också 1024×600 och följer lektionens befintliga regel för uppdragslänken.
-- Vid högst 480 px höjd visas stegnumret till höger om kapitlet, med kompaktare marginaler och rubrik. Den grafiska stegindikatorn döljs; det utskrivna stegnumret står kvar. Därmed ryms rubriken och de första textraderna också i lärarlägets kort.
+- Vid högst 480 px höjd visas stegnumret till höger om kapitlet, med kompaktare marginaler och rubrik. Den grafiska stegindikatorn döljs; det utskrivna stegnumret står kvar. Därmed ryms rubriken och de första textraderna också i lärarlägets kort. I smalt lärarläge under 480 px höjd minskas reservationen ovanför kortet från 170 till 144 px; årtalet slutar vid cirka 138 px, och den tomma luckan behövs för texten i 667×375.
 - I breda fönster mellan 761 och 1100 px och högst 480 px höjd används det befintliga kompakta årtalet även med mus. Annars lämnade den reserverade toppraden ingen läsyta.
 - I låga fönster står stegets bild med bildtext efter texten. Bilden kan fortfarande öppnas i full storlek. När fönstret blir högre återställs bildens vanliga placering och läsknappens beteende.
 - Stående mobil 400×800 och dator 1280×800 behåller den fasta foten, bilden och läsknappen. Stegbyten börjar fortfarande överst.

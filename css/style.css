@@ -3129,6 +3129,10 @@ span.theme-event:hover { background: none; outline: none; }
   .tour-card .tour-title { margin-top: 2px; font-size: 19px; }
   .tour-card .tour-text { margin-top: 4px; }
 }
+@media (max-height: 480px) and (max-width: 760px) {
+  /* Lärarens årtal slutar vid 138 px; 170 px reserverade en tom lucka och trängde ut texten i 667×375. */
+  .app.touring.lesson-teacher { --tour-top: 144px; }
+}
 @media (max-height: 600px) and (min-width: 761px) and (max-width: 1100px) {
   .app { --tour-top: calc(var(--tablet-actions-height, 98px) + 120px); } /* årtalet ligger under knapparna på en platta yta (#992) */
   .app.lesson, .app.lesson-notice { --tour-top: calc(var(--tablet-actions-height, 98px) + 172px); }
