@@ -21,3 +21,8 @@ Utan rättningen: noll fria textrader i samtliga fem låga storlekar och alla tr
 En separat kontroll av första steget i samtliga tio turer gav minst två fria textrader i 800×360, 640×400 och 1024×600 (30 kontroller). Ett bildsteg provades också från lågt till högt fönster: bilden flyttades tillbaka före texten och läsknappen återkom när det fanns mer att läsa.
 
 Skärmbilder före och efter finns på grenen `skarmbilder`, under `issue-2147/`, som WebP. Länkar och slutliga testresultat finns i pull requesten.
+
+## Kända begränsningar (Claude Codes granskning av PR #2164, 2026-11-21)
+
+- **Fönster mellan 601 och cirka 700 px höjd omfattas inte.** Gränsen 600 px följer lektionens befintliga regel. I bred layout syns där fortfarande bara en textrad bredvid Fortsätt läsa, precis som före ändringen: mätt på `main` och på den här grenen (Playwright, Songhairikets fall steg 1, fria textrader av de tre första) är det 1 rad i 1366×650, mot 3 i 1280×800 och 1366×768, och 3 rader på grenen i 1280×600, 1366×600, 1280×560, 1536×540, 1024×600 och 800×360 (före: 0–1). Om gränsen ska höjas är ett eget beslut: [#2169](https://github.com/DasKrokodil/historia-globen/issues/2169).
+- **Nästa och Lämna turen ligger under vecket i låga fönster.** Foten rullar med texten, som beställt, så knapparna syns inte utan rullning eller Tab (mätt: Nästa utanför bild i alla provade storlekar högst 600 px, till exempel överkant 467 px i ett 600 px högt fönster). Webbläsarkontrollen provar att de nås efter rullning. En synlig signal om att mer finns (en tonad nederkant utan knappen Fortsätt läsa) är inte gjord och ligger i #2169.
