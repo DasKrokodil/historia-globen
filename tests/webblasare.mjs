@@ -3704,11 +3704,6 @@ async function run(browser, vp) {
     const lp = await context.newPage();
     const errs = [];
     lp.on('pageerror', e => errs.push(e.message));
-    const farg = str => { // "rgb(r, g, b)", "rgba(…)" och Chromes "color(srgb r g b / a)" → { rgb, a }
-      const n = (str.match(/-?[\d.]+/g) ?? []).map(Number);
-      const unit = /^color\(/.test(str) ? 255 : 1;
-      return { rgb: n.slice(0, 3).map(v => v * unit), a: n.length > 3 ? n[3] : 1 };
-    };
     try {
       if (THREE_LOCAL) {
         const body = fs.readFileSync(THREE_LOCAL, 'utf8');
@@ -3731,7 +3726,16 @@ async function run(browser, vp) {
       const m = await lp.evaluate(() => {
         const cs = el => getComputedStyle(el);
         // Närmaste ogenomskinliga bakgrund, med genomskinliga lager lagda ovanpå varandra (uppifrån och ner)
-        const lager = el => { const r = []; for (let e = el; e; e = e.parentElement) { const b = cs(e).backgroundColor; if (b && b !== 'rgba(0, 0, 0, 0)' && b !== 'transparent') { r.push(b); if (!/rgba\([^)]*,\s*0?\.\d+\)/.test(b)) break; } } return r.reverse(); };
+        const lager = el => {
+          const r = [];
+          for (let e = el; e; e = e.parentElement) {
+            const b = cs(e).backgroundColor;
+            if (!b || b === 'rgba(0, 0, 0, 0)' || b === 'transparent') continue;
+            r.push(b);
+            if (!b.startsWith('rgba(') && !b.includes('/')) break;
+          }
+          return r.reverse();
+        };
         const info = (sel, what) => { const el = typeof sel === 'string' ? document.querySelector(sel) : sel; if (!el) return { what, saknas: true }; const s = cs(el), r = el.getBoundingClientRect();
           return { what, color: s.color, bg: lager(el), border: s.borderTopColor, borderStyle: s.borderTopStyle, size: parseFloat(s.fontSize), w: r.width, h: r.height, opacity: parseFloat(s.opacity) }; };
         const panel = document.getElementById('panel'), ps = cs(panel);
@@ -3739,7 +3743,7 @@ async function run(browser, vp) {
         const tab = document.querySelector('#panel .panel-tab[aria-selected="true"]'), tab2 = document.querySelector('#panel .panel-tab[aria-selected="false"]');
         const on = [...document.querySelectorAll('#panel-filters .filter[aria-pressed="true"]')][0], off = document.querySelector('#panel-filters .filter[aria-pressed="false"]');
         const dot = document.querySelector('#panel .event-btn .dot');
-        return {
+        const mått = {
           panel: { bg: ps.backgroundColor, border: ps.borderTopColor, width: ps.borderTopWidth, shadow: ps.boxShadow },
           funfact: fs2 ? { bg: fs2.backgroundColor, display: fs2.display } : null,
           rader: [info('#panel .panel-head h2', 'rubrik'), info('#panel .panel-sub', 'underrubrik'), info('#panel .panel-tag-note', 'urvalsrad'), info('#panel .panel-tag-note .link-btn', 'länk'),
@@ -3750,9 +3754,36 @@ async function run(browser, vp) {
           tabs: [...document.querySelectorAll('#panel .panel-tab')].filter(f => f.getBoundingClientRect().height > 0).map(f => { const r = f.getBoundingClientRect(); return { h: r.height, after: parseFloat(getComputedStyle(f, '::after').height) || 0 }; }),
           rows: [...document.querySelectorAll('#panel .event-btn')].map(f => f.getBoundingClientRect().height).filter(h => h > 0), // de i dolda världsdelar har ingen höjd
         };
+        // WebKit kan lämna en övergångsfärg i Oklab. Låt webbläsaren konvertera till sRGB med alfakanalen kvar.
+        const färger = [mått.panel.bg, mått.panel.border, mått.funfact?.bg, mått.dot?.outline,
+          ...mått.rader.filter(r => !r.saknas).flatMap(r => [r.color, r.border, ...r.bg])];
+        const oklab = [...new Set(färger.filter(färg => färg?.startsWith('oklab(')))];
+        const srgb = {};
+        if (oklab.length) {
+          const prov = document.createElement('span');
+          prov.hidden = true;
+          document.body.append(prov);
+          try {
+            for (const färg of oklab) {
+              prov.style.color = '';
+              prov.style.color = `color(from ${färg} srgb r g b / alpha)`;
+              if (!prov.style.color) throw new Error(`kan inte omvandla färgen ${färg} till sRGB`);
+              srgb[färg] = cs(prov).color;
+            }
+          } finally { prov.remove(); }
+        }
+        return { ...mått, srgb };
       });
       const chipAv = m.rader.find(r => r.what === 'chip av');
-      console.log(`  #1317 chip av (${BROWSER}, ${smal ? 'mobil' : 'dator'}): ${JSON.stringify({ color: chipAv.color, lager: chipAv.bg, opacity: chipAv.opacity })}`);
+      console.log(`  #1317 chip av (${BROWSER}, ${smal ? 'mobil' : 'dator'}): ${JSON.stringify({ color: chipAv.color, lager: chipAv.bg, opacity: chipAv.opacity, srgb: m.srgb })}`);
+      const farg = rå => {
+        const str = m.srgb[rå] ?? rå;
+        if (!/^(?:rgba?\(|color\(srgb )/.test(str)) throw new Error(`okänt färgformat: ${rå}`);
+        const n = (str.match(/-?(?:\d*\.)?\d+(?:e[+-]?\d+)?/gi) ?? []).map(Number);
+        if (n.length !== 3 && n.length !== 4) throw new Error(`kan inte läsa färgvärdet: ${rå}`);
+        const enhet = str.startsWith('color(') ? 255 : 1;
+        return { rgb: n.slice(0, 3).map(v => v * enhet), a: n[3] ?? 1 };
+      };
       const lum = c => { const [r, g, b] = c.map(v => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }); return 0.2126 * r + 0.7152 * g + 0.0722 * b; };
       const kontrastPar = (a, b) => { const [x, y] = [lum(a), lum(b)]; return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
       const bottna = lager => lager.reduce((under, l) => { const c = farg(l); return blanda(c.rgb, under, c.a); }, [0, 0, 0]);
@@ -3768,6 +3799,7 @@ async function run(browser, vp) {
         const under = bottna(r.bg.length ? r.bg : [m.panel.bg]);
         const text = farg(r.color), skrift = blanda(text.rgb, under, text.a * (r.what === 'chip av' ? r.opacity : 1));
         const kr = kontrastPar(skrift.map(Math.round), under.map(Math.round));
+        if (r.what === 'chip av') chipAv.kontrast = kr;
         if (kr < 4.5) fel.push(`${r.what}: text ${kr.toFixed(2)}:1`);
         if (['filterknapp', 'chip på', 'chip av', 'stäng', 'flik', 'vald flik'].includes(r.what)) {
           const rb = farg(r.border), kb = kontrastPar(blanda(rb.rgb, under, rb.a).map(Math.round), under.map(Math.round));
@@ -3789,7 +3821,7 @@ async function run(browser, vp) {
       for (const tb of m.tabs) { if (Math.max(tb.h, tb.after) < (smal ? 44 : 24)) throw new Error(`en flik har ${tb.h.toFixed(1)} px yta`); }
       for (const h of m.rows) if (h < 44) throw new Error(`en händelserad är ${h.toFixed(1)} px hög (minst 44)`);
       if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
-      return `ram guld ${m.panel.width}, bakgrund pergament, ${m.rader.filter(r => !r.saknas).length} textrader ≥ 4,5:1, ${m.chips.length} chips ≥ 12 px och 24 px höga, pricken har mörk botten`;
+      return `ram guld ${m.panel.width}, bakgrund pergament, ${m.rader.filter(r => !r.saknas).length} textrader ≥ 4,5:1 (chip av ${chipAv.kontrast.toFixed(2)}:1), ${m.chips.length} chips ≥ 12 px och 24 px höga, pricken har mörk botten`;
     } finally {
       await lp.close();
     }
