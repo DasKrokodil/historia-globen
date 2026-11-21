@@ -124,4 +124,15 @@ Kontrollerat 2026-11-21.
 |---|---|
 | `freden-i-lund` | Fotot av Kungshuset visar byggnaden 2005. För silvermedaljen från 1679 anger Commons med gravörens namn och PD-old-100 varför själva medaljen är fri. Rättigheten till auktionsfotot av medaljen är oklar. |
 | `skanes-generalguvernement-upphor` | Kandidatlistan och sökningen på Commons gav ingen bild av förvaltningsändringen 1719. Library of Congress bildsökning svarade HTTP 403. |
-| `freden-i-nystad` | Filsidan för signeringen anger 1721 och tillskriver gravyren Pieter Schenk den äldre med dödsår 1718/19. CC BY 4.0 står i både mallen och metadata, men dateringen och tillskrivningen går inte ihop. |
+
+### Ej hämtad, prövas igen
+
+Den 21 november 2026 gav reservsökningarna i Library of Congress bildkatalog HTTP 403.
+
+| Händelse (id) | Hinder |
+|---|---|
+| `slaget-vid-landskrona` | Lemkes målning, upload.wikimedia.org: HTTP 429 vid två försök i skilda granskningsrundor. |
+| `kapitulationen-vid-perevolotjna` | Kartor i kandidatlistan. Alternativsökning på Commons: HTTP 429. |
+| `stavnsbandet-upphavs` | Tom kandidatlista. Alternativsökning på Commons: HTTP 429. |
+| `slaget-vid-jena-auerstedt` | En senare karta i kandidatlistan. Alternativsökning på Commons: HTTP 429. |
+| `slavhandeln-forbjuds-1807` | Kandidaten visar ett riksvapen. Alternativsökning på Commons: HTTP 429. |

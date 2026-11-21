@@ -1080,6 +1080,21 @@
       }
     },
     {
+      "eventId": "freden-i-nystad",
+      "eventTitle": "Freden i Nystad",
+      "file": "images/events/freden-i-nystad.webp",
+      "kind": "historisk",
+      "credit": "Johann Carl Hedlinger. Foto: Daderot / Finlands nationalmuseum / Wikimedia Commons",
+      "license": "CC0",
+      "source": {
+        "id": "commons-bild-freden-i-nystad",
+        "title": "Peace of Uusikaupunki (Nystad), 1721, Sweden, by J. C. Hedlinger - National Museum of Finland - DSC04095 – Johann Carl Hedlinger (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Peace_of_Uusikaupunki_(Nystad),_1721,_Sweden,_by_J._C._Hedlinger_-_National_Museum_of_Finland_-_DSC04095.JPG",
+        "license": "CC0",
+        "checked": "2026-11-21"
+      }
+    },
+    {
       "eventId": "freden-i-paris-1783",
       "eventTitle": "Freden i Paris",
       "file": "images/events/freden-i-paris-1783.webp",
@@ -3250,12 +3265,12 @@
       "eventTitle": "Slaget vid Friedland",
       "file": "images/events/slaget-vid-friedland.webp",
       "kind": "historisk",
-      "credit": "Horace Vernet / Wikimedia Commons",
+      "credit": "Jean-Louis-Ernest Meissonier / Metropolitan Museum of Art / Wikimedia Commons",
       "license": "Public domain",
       "source": {
         "id": "commons-bild-slaget-vid-friedland",
-        "title": "Napoleon friedland – Horace Vernet (Wikimedia Commons, filsida)",
-        "url": "https://commons.wikimedia.org/wiki/File:Napoleon_friedland.jpg",
+        "title": "Friedland, 1807 (1875) Ernest Meissonier – Jean-Louis-Ernest Meissonier (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Friedland,_1807_(1875)_Ernest_Meissonier.jpg",
         "license": "Public domain",
         "checked": "2026-11-21"
       }
@@ -3265,7 +3280,7 @@
       "eventTitle": "Slaget vid Gadebusch",
       "file": "images/events/slaget-vid-gadebusch.webp",
       "kind": "historisk",
-      "credit": "Magnus Rommel (1678–1735) / Wikimedia Commons",
+      "credit": "Magnus Rommel / Riksarkivet (K0038227_00001) / Wikimedia Commons",
       "license": "Public domain",
       "source": {
         "id": "commons-bild-slaget-vid-gadebusch",

@@ -4653,11 +4653,11 @@
     "kind": "historisk",
     "style": "barock",
     "caption": {
-     "sv": "Kopparstick över blockaden av Riga 1700, återgivet i en bok av Johann Christoph Brotze. Licens: Public domain.",
-     "en": "Engraving of the blockade of Riga in 1700, reproduced in a book by Johann Christoph Brotze. Licence: Public domain.",
-     "de": "Kupferstich zur Blockade von Riga 1700, abgebildet in einem Buch von Johann Christoph Brotze. Lizenz: gemeinfrei.",
-     "es": "Grabado de la ciudad de Riga durante el bloqueo de 1700, reproducido en un libro de Johann Christoph Brotze. Licencia: dominio público.",
-     "fr": "Gravure représentant le blocus de Riga en 1700, reproduite dans un livre de Johann Christoph Brotze. Licence : domaine public."
+     "sv": "Karta över blockaden av Riga 1700, återgiven som kopparstick i en senare bok av Johann Christoph Brotze. Licens: Public domain.",
+     "en": "Map of the blockade of Riga in 1700, reproduced as an engraving in a later book by Johann Christoph Brotze. Licence: Public domain.",
+     "de": "Karte der Blockade von Riga 1700, als Kupferstich in einem späteren Buch von Johann Christoph Brotze wiedergegeben. Lizenz: gemeinfrei.",
+     "es": "Mapa del bloqueo de Riga de 1700, reproducido como grabado en un libro posterior de Johann Christoph Brotze. Licencia: dominio público.",
+     "fr": "Carte du blocus de Riga en 1700, reproduite sous forme de gravure dans un ouvrage ultérieur de Johann Christoph Brotze. Licence : domaine public."
     },
     "credit": "Ur Johann Christoph Brotzes samling / Latvijas Universitātes Akadēmiskā bibliotēka / Wikimedia Commons",
     "license": "Public domain",
@@ -4956,7 +4956,7 @@
      "es": "Mapa de la batalla de Gadebusch realizado por Magnus Rommel hacia 1712. Licencia: dominio público.",
      "fr": "Carte de la bataille de Gadebusch réalisée par Magnus Rommel vers 1712. Licence : domaine public."
     },
-    "credit": "Magnus Rommel (1678–1735) / Wikimedia Commons",
+    "credit": "Magnus Rommel / Riksarkivet (K0038227_00001) / Wikimedia Commons",
     "license": "Public domain",
     "source": "commons-bild-slaget-vid-gadebusch"
    },
@@ -5011,11 +5011,11 @@
     "kind": "historisk",
     "style": "barock",
     "caption": {
-     "sv": "Sjöslaget vid Hangö udd i en senare etsning av Maurice Baquoy från 1724–1727. Licens: Public domain.",
-     "en": "The battle of Gangut in a later etching by Maurice Baquoy, made in 1724–1727. Licence: Public domain.",
-     "de": "Die Seeschlacht bei Hangö in einer späteren Radierung von Maurice Baquoy aus den Jahren 1724–1727. Lizenz: gemeinfrei.",
-     "es": "La batalla naval de Gangut en un aguafuerte posterior de Maurice Baquoy, realizado entre 1724 y 1727. Licencia: dominio público.",
-     "fr": "La bataille navale de Gangut dans une eau-forte réalisée après les faits par Maurice Baquoy entre 1724 et 1727. Licence : domaine public."
+     "sv": "Sjöslaget vid Hangö udd i en senare etsning av Maurice Baquoy från 1724–1727. Kusten är schematiskt återgiven, och även fartygens formationer kan vara förenklade. Licens: Public domain.",
+     "en": "The battle of Gangut in a later etching by Maurice Baquoy, made in 1724–1727. The coastline is schematic, and the ships’ formations may also be simplified. Licence: Public domain.",
+     "de": "Die Seeschlacht bei Hangö in einer späteren Radierung von Maurice Baquoy aus den Jahren 1724–1727. Die Küste ist schematisch dargestellt. Auch die Schiffsformationen könnten vereinfacht sein. Lizenz: gemeinfrei.",
+     "es": "La batalla naval de Gangut en un aguafuerte posterior de Maurice Baquoy, realizado entre 1724 y 1727. La costa se representa de forma esquemática y es posible que las formaciones navales también estén simplificadas. Licencia: dominio público.",
+     "fr": "La bataille navale de Gangut dans une eau-forte réalisée après les faits par Maurice Baquoy entre 1724 et 1727. La côte est représentée de façon schématique et les formations navales sont peut-être simplifiées elles aussi. Licence : domaine public."
     },
     "credit": "Maurice Baquoy / Wikimedia Commons",
     "license": "Public domain",
@@ -5130,6 +5130,21 @@
      "sv": "Wikipedia anger 30 augusti (juliansk kalender) och 10 september 1721 (gregoriansk). Wikidata anger 30 augusti (juliansk), samma dag.",
      "en": "Wikipedia gives 30 August (Julian calendar) and 10 September 1721 (Gregorian). Wikidata gives 30 August (Julian), the same day."
     }
+   },
+   "image": {
+    "file": "images/events/freden-i-nystad.webp",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+     "sv": "Foto från 2012 av Johann Carl Hedlingers medalj över freden i Nystad 1721. Licens: CC0.",
+     "en": "A 2012 photograph of Johann Carl Hedlinger’s medal commemorating the Peace of Nystad of 1721. Licence: CC0.",
+     "de": "Foto von 2012 der Medaille von Johann Carl Hedlinger zum Frieden von Nystad 1721. Lizenz: CC0.",
+     "es": "Fotografía de 2012 de la medalla de Johann Carl Hedlinger que conmemora la paz de Nystad de 1721. Licencia: CC0.",
+     "fr": "Photographie de 2012 de la médaille de Johann Carl Hedlinger commémorant la paix de Nystad de 1721. Licence : CC0."
+    },
+    "credit": "Johann Carl Hedlinger. Foto: Daderot / Finlands nationalmuseum / Wikimedia Commons",
+    "license": "CC0",
+    "source": "commons-bild-freden-i-nystad"
    },
    "wikidata": "Q153286",
    "sources": [
