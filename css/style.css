@@ -3113,6 +3113,26 @@ span.theme-event:hover { background: none; outline: none; }
   .tour-card .tour-foot { margin-top: 0; padding: 2px 0 8px; }
   .app.app.app #detail, .app.app.app #funfact { scrollbar-width: thin; scrollbar-color: var(--brass-deep) var(--night-3); }
 }
+/* Låga fönster (#2147): hela foten följer texten. Ingen överlagrad läsknapp tar läsyta.
+   Samma höjdgräns som lektionens rullande uppdragslänk (js/ui/lesson.js). */
+@media (max-height: 600px) {
+  .tour-card .tour-bar { position: static; }
+  .tour-card .tour-more { display: none; }
+}
+/* I telefonens lägsta fönster behöver även kortets huvud vara kompakt. Stegnumret
+   ersätter den dubblerade grafiska mätaren; kapitlet och rubriken står kvar. */
+@media (max-height: 480px) {
+  .app.app.app .tour-card { padding-top: 4px; }
+  .tour-card .tour-head { float: right; margin: 0 0 2px 8px; }
+  .tour-card .tour-meter { display: none; }
+  .tour-card .tour-chapter { margin-top: 0; }
+  .tour-card .tour-title { margin-top: 2px; font-size: 19px; }
+  .tour-card .tour-text { margin-top: 4px; }
+}
+@media (max-height: 480px) and (max-width: 760px) {
+  /* Lärarens årtal slutar vid 138 px; 170 px reserverade en tom lucka och trängde ut texten i 667×375. */
+  .app.touring.lesson-teacher { --tour-top: 144px; }
+}
 @media (max-height: 600px) and (min-width: 761px) and (max-width: 1100px) {
   .app { --tour-top: calc(var(--tablet-actions-height, 98px) + 120px); } /* årtalet ligger under knapparna på en platta yta (#992) */
   .app.lesson, .app.lesson-notice { --tour-top: calc(var(--tablet-actions-height, 98px) + 172px); }
@@ -3142,9 +3162,9 @@ span.theme-event:hover { background: none; outline: none; }
   #detail { max-height: min(52dvh, calc(100dvh - var(--ff-b) - 120px)); }
 }
 
-/* Liggande pekskärm i bred layout (#1694): plattans topprad och det stora årtalet lämnade bara 16 px åt turkortet.
+/* Låga fönster i bred layout (#1694, #2147): plattans topprad och det stora årtalet lämnade bara 16 px åt turkortet.
    Under turen ger menyraden plats åt ett kompakt årtal, och kortet rullar ovanför turraden som i smal layout. */
-@media (min-width: 761px) and (max-width: 1100px) and (max-height: 480px) and (pointer: coarse) {
+@media (min-width: 761px) and (max-width: 1100px) and (max-height: 480px) {
   .app.touring { --tour-top: 64px; }
   .app.touring.lesson, .app.touring.lesson-notice { --tour-top: 116px; }
   .app.touring .top-actions { visibility: hidden; }
