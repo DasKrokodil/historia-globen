@@ -104,3 +104,108 @@ test('varje ui("nyckel") i js/ finns i sv.json (annars hör svenska besökare en
   const missing = [...literal].filter(([k]) => !(k in sv) && !ONLY_NON_SV.has(k)).map(([k, f]) => `${k} (${[...new Set(f)].join(', ')})`);
   assert.deepEqual(missing, [], `sv.json saknar ${missing.join('; ')}: lägg nyckeln i alla fem språkfilerna (översätt samtidigt)`);
 });
+
+test('panelen och globen använder samma tidsord, och romben heter som kortet på fem språk (#1306)', () => {
+  for (const { id } of meta.languages) {
+    const d = json(`data/ui/${id}.json`);
+    for (const [panel, globe] of [['panel.earlier', 'time.beforeLabel'], ['panel.later', 'time.afterLabel']]) {
+      assert.deepEqual(d[panel], d[globe].map(s => s.replace(' ({year})', '')), `${id}: ${panel}`);
+    }
+    assert.equal(d['ff.kind.funfact'], d['ff.title'], `${id}: kortets rubrik`);
+    assert.equal(d['tlegend.funfact'], d['ff.title'], `${id}: teckenförklaringen`);
+    assert.ok(d['layer.funfacts'].includes(d['ff.title']), `${id}: Lager`);
+  }
+});
+
+// #1948: samma knapp oavsett kartväg, och samma vynamn i ruta, status och hjälp.
+for (const lang of ['sv', 'en', 'de', 'es', 'fr']) test(`${lang}: platsens kartnamn är konsekventa (#1948)`, () => {
+  const copy = json(`data/ui/${lang}.json`);
+  assert.equal(copy['place.flatMap'], copy['place.regionMap'], 'kartvägen får inte byta knappens namn');
+  const name = copy['regionView.title'].replace(/:\s*\{place\}$/, '').trim();
+  for (const key of ['regionView.shown', 'regionView.shownGlobe']) assert.ok(copy[key].startsWith(name), `${key} säger samma vynamn som rutan`);
+  for (const key of ['regionView.leave', 'regionView.left', 'regionView.leftGlobe', 'regionView.leftDiscovery', 'regionView.reset', 'help.s4t']) assert.ok(copy[key].toLocaleLowerCase().includes(name.toLocaleLowerCase()), `${key} säger samma vynamn som rutan`);
+  assert.ok(copy['help.s4t'].includes(copy['place.flatMap']), 'hjälpen använder knappens synliga namn');
+  if (lang === 'sv') {
+    assert.equal(copy['place.flatMap'], 'Visa på kartan');
+    assert.equal(name, 'Platsens karta');
+  }
+});
+
+// #1956: listraden, platskortet och Platsens karta säger att det som visas är händelser inom dagens gräns och dagens kust och ortnamn.
+for (const lang of ['sv', 'en', 'de', 'es', 'fr']) test(`${lang}: dagens gräns sägs i listraden, kortet och kartan (#1956)`, () => {
+  const copy = json(`data/ui/${lang}.json`);
+  assert.ok(copy['place.mapContext']?.trim(), 'kort kartrad saknas');
+  assert.ok(copy['regionView.note'].startsWith(copy['place.mapContext']), 'kartans långa rad börjar med samma korta rad som kortet');
+  const rows = copy['place.eventsWithin'];
+  assert.ok(Array.isArray(rows) && rows.length === 2 && rows.every(r => r.includes('{count}')), 'listraden har en form för en och en för flera händelser, med antalet');
+  assert.notEqual(rows[0], rows[1], 'entals- och flertalsformen skiljer sig');
+});
+
+// #2149: endast dessa nycklar får avsiktligt vara lika svenska, på angivna språk.
+// Listan omfattar även gemensamma ord; att de råkar stavas lika är inget översättningsfel.
+const identicalUiExceptions = {
+  'review.line': ['en', 'de', 'es'], // Bara platshållare och skiljetecken.
+  'top.style': ['de'], // Stil är också det tyska ordet.
+  'top.quiz': ['en', 'de', 'es', 'fr'], // Quiz är samma etablerade lånord.
+  'focus.activeFilter': ['en', 'de'], // Filter stavas lika på dessa språk.
+  'theme.label': ['es'], // Tema är också det spanska ordet.
+  'place.type.country': ['de'], // Land är också det tyska ordet.
+  'place.typeOf': ['en', 'de', 'es', 'fr'], // Bara platshållare; prepositionen finns i datan.
+  'regionView.markLabel': ['en', 'es', 'fr'], // Bara platshållare och skiljetecken.
+  'time.groupSep': ['es', 'fr'], // Hårt mellanrum som tusentalsavgränsare.
+  'time.ordSuffix': ['de', 'es', 'fr'], // Tomma ändelser; språken använder inte svenska ordningssuffix.
+  'region.Europa': ['de', 'es'], // Världsdelsnamnet stavas lika.
+  'region.Asien': ['de'], // Världsdelsnamnet stavas lika.
+  'region.Afrika': ['de'], // Världsdelsnamnet stavas lika.
+  'region.Amerika': ['de'], // Världsdelsnamnet stavas lika.
+  'status.year': ['en', 'de', 'es'], // Bara platshållare och skiljetecken.
+  'detail.imageCredit': ['de'], // Bild är också det tyska ordet.
+  'detail.evidence.date': ['de'], // Datum är också det tyska ordet.
+  'detail.evidence.text': ['en', 'de'], // Text stavas lika.
+  'detail.evidence.image': ['de'], // Bild är också det tyska ordet.
+  'facts.kind.religion': ['en', 'de', 'fr'], // Religion stavas lika.
+  'ff.illustration': ['en', 'de', 'fr'], // Illustration stavas lika.
+  'print.exit': ['en', 'es'], // Exit ticket är den etablerade pedagogiska termen här.
+  'time.rateDays': ['en', 'de', 'es', 'fr'], // Platshållare och SI-symbolen s för sekunder.
+  'time.dayShort': ['en', 'es'], // Samma förkortning d för dagar.
+  'time.step': ['en', 'de', 'es', 'fr'], // Bara platshållare; orden översätts separat.
+  'sources.group.images': ['de'], // Bilder är också det tyska pluralordet.
+  'sources.kind.illustration.label': ['en', 'de', 'fr'], // Illustration stavas lika.
+  'sources.image': ['de'], // Bild är också det tyska ordet.
+  'sources.imageUse': ['de'], // Bild är också det tyska ordet; resten är en platshållare.
+  'sources.funfact': ['en'], // Fun fact är ett engelskt lån i svenskan.
+  'sources.prompt': ['en', 'de'], // Prompt är samma etablerade term.
+  'poster.title': ['en', 'de', 'es', 'fr'], // Produktnamnet Historia-globen översätts inte.
+  'poster.website': ['en', 'de', 'es', 'fr'], // Webbplatsens domän översätts inte.
+  'poster.license': ['en'], // Data stavas lika; CC BY 4.0 är licensbeteckningen.
+  'poster.filename': ['en', 'de', 'es', 'fr'], // Filnamnet använder produktnamnet.
+  'sourceVersion.version': ['en', 'de', 'fr'], // Version stavas lika.
+  'sourcesSummary.filter': ['en', 'de'], // Status stavas lika.
+};
+
+const properNameExceptions = [
+  'Skåne', // Originalstavningen får behållas när ortnamnet används.
+  'Åland', // Originalstavningen får behållas när ortnamnet används.
+];
+const uiStrings = value => Array.isArray(value) ? value.flatMap(uiStrings) : [String(value)];
+for (const lang of ['en', 'de', 'es', 'fr']) {
+  const dict = json(`data/ui/${lang}.json`);
+  test(`${lang}.json har inga oöversatta svenska UI-värden (#2149)`, () => {
+    const identical = Object.entries(sv).filter(([key, value]) =>
+      !key.startsWith('_') && JSON.stringify(dict[key]) === JSON.stringify(value)
+      && !identicalUiExceptions[key]?.includes(lang)
+    ).map(([key]) => key);
+    assert.deepEqual(identical, [], `${lang}.json: identiska med sv.json: ${identical.join(', ')}`);
+  });
+  test(`${lang}.json har inga svenska tecken utanför tillåtna egennamn (#2149)`, () => {
+    const forbidden = lang === 'de' ? /å/i : /[åäö]/i;
+    const untranslated = Object.entries(dict).filter(([key, value]) => !key.startsWith('_')
+      && uiStrings(value).some(text => {
+        // Bara hela egennamn undantas, inte hela nyckelns värde eller delar av andra ord.
+        for (const name of properNameExceptions) text = text.replaceAll(new RegExp(`(?<!\\p{L})${name}(?!\\p{L})`, 'gu'), '');
+        return forbidden.test(text.normalize('NFC'));
+      })
+    ).map(([key]) => key);
+    assert.deepEqual(untranslated, [], `${lang}.json: svenska tecken: ${untranslated.join(', ')}`);
+  });
+}

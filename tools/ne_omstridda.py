@@ -21,7 +21,8 @@ ne_10m_admin_1_states_provinces (version 5.1.2, samma fil som tools/platser_gran
 DDR och Västtyskland är grov (Ratzeburg ligger i Cliopatrias DDR, #1730).
 
 Kring Tyskland (#1755) tas också Frankrikes, Nederländernas, Kaliningradområdets, Litauens och Tjeckiens gränser ur
-ne_10m_admin_0_countries, bara inom en ruta (CLIPPED), och Saarlands gräns ur admin 1.
+ne_10m_admin_0_countries, bara inom en ruta (CLIPPED), och Saarlands gräns ur admin 1. Vid Bodensee, Basel och längs gränsen
+mellan Österrike och Tyskland (#1771) tas Schweiz och Österrike med på samma sätt.
 
 Kör från projektets rot, med de uppackade shapefilerna och delstaternas GeoJSON:
     python3 tools/ne_omstridda.py <ne_10m_admin_0_disputed_areas.shp> <ne_10m_admin_0_countries.shp> \
@@ -33,6 +34,7 @@ import sys
 from pathlib import Path
 
 import shapefile
+import shapely
 from shapely.geometry import box, mapping, shape
 from shapely.ops import unary_union
 
@@ -55,8 +57,28 @@ COUNTRIES = {'azerbajdzjan': 'AZE', 'tyskland': 'DEU', 'polen-ne': 'POL'}  # Tys
 # (gränsen mot Tyskland, Forbach), Nederländerna i Europa (gränsen mot Tyskland), Kaliningradområdet med grannarna Polen och
 # Litauen, och Tjeckien längs gränsen mot Tyskland (Selb)
 CLIPPED = {'frankrike-ne': ('FRA', (-5.5, 41.0, 10.0, 51.5)), 'nederlanderna-ne': ('NLD', (3.0, 50.6, 7.5, 53.8)),
-           'kaliningrad-ne': ('RUS', (19.4, 54.2, 22.95, 55.4)), 'litauen-ne': ('LTU', (19.4, 54.2, 22.95, 55.4)),
-           'tjeckien-ne': ('CZE', (11.9, 48.5, 15.1, 51.1))}
+           'kaliningrad-ne': ('RUS', (19.4, 54.2, 22.95, 55.4)),
+           # Litauen till 55,75 grader nord, så att hela den litauiska delen av Kuriska näset (Nida) och Klaipėda kommer med (#1771)
+           'litauen-ne': ('LTU', (19.4, 54.2, 22.95, 55.75)),
+           'tjeckien-ne': ('CZE', (11.9, 48.5, 15.1, 51.1)),
+           # Schweiz och Österrike längs gränserna mot Tyskland och Frankrike och vid Bodensee, Basel och Vorarlberg (#1771)
+           'schweiz-ne': ('CHE', (5.9, 45.8, 10.5, 47.85)), 'osterrike-ne': ('AUT', (7.5, 47.0, 14.1, 48.9)),
+           # Zanzibar (#1534): Unguja och Pemba ur Tanzanias gräns, var sin ruta som inte når fastlandet (Tanga, Bagamoyo)
+           'unguja-ne': ('TZA', (39.17, -6.5, 39.6, -5.7)), 'pemba-ne': ('TZA', (39.55, -5.5, 39.9, -4.85)),
+           # Kinshasa och Brazzaville vid Pool Malebo (#1707): de två Kongos sidor av floden, så att Kinshasa inte hamnar på
+           # Brazzavillesidan efter förenklingen
+           'kongo-kinshasa-ne': ('COD', (14.6, -4.8, 15.9, -3.8)), 'kongo-brazzaville-ne': ('COG', (14.6, -4.8, 15.9, -3.8)),
+           # Östafrikas kust (#1787): Kenyas och Tanzanias kust från Somalia till Rovuma. Landen slutar vid sina gränser i Natural
+           # Earth; rutornas kanter inåt land går genom gränspunkter i Natural Earth (Kenya och Tanzania 39,1058 / -4,6163, Kenya och
+           # Somalia 41,0561 / -0,9696) och söder om Rovuma (Tanzania till 12 grader syd), så att kusten inte får något trappsteg
+           'kenya-kust-ne': ('KEN', (39.1058, -4.75, 41.7, -0.9696)), 'tanzania-kust-ne': ('TZA', (38.0, -12.0, 40.6, -4.6163)),
+           # Kaohsiung (#1797): Taiwans land i rutan runt Kaohsiung (samma ruta som KAOHSIUNG i tools/riken.py), som läggs till Taiwans
+           # förenklade kust, så att staden hamnar i Taiwan utan att något hav läggs till
+           'taiwan-kaohsiung-ne': ('TWN', (120.15, 22.33, 120.55, 22.85))}
+# Rutor i CLIPPED som förenklas tillsammans (shapely.coverage_simplify, 0,02), så att gränsen mellan Kenya och Tanzania blir exakt
+# densamma i båda och inget dubbelritas eller blir tomt längs den. Kusten läggs i varje period för Brittiska imperiet och de andra
+# staterna vid kusten, så den förenklas mer än 0,003 grader, annars växer filerna mycket (#1787)
+CLIPPED_COVERAGE = (('kenya-kust-ne', 'tanzania-kust-ne'), 0.02)
 # Små stater (#722), ur samma fil men förenklade till bara 0,002 grader och avrundade till 0,001 grad
 # Delstater ur ne_10m_admin_1_states_provinces (adm1_code), sammanslagna och förenklade till 0,003 grader (#1730, #1750)
 STATES = {'vasttyska-granslander': ['DEU-1579', 'DEU-1576', 'DEU-1574', 'DEU-1591'],
@@ -94,6 +116,7 @@ def main():
     if len(sys.argv) > 2:
         r = shapefile.Reader(sys.argv[2])
         fields = [f[0] for f in r.fields[1:]]
+        coverage = {}
         for s in r.shapeRecords():
             a = dict(zip(fields, s.record))
             for key, a3 in {**COUNTRIES, **SMALL}.items():
@@ -108,9 +131,18 @@ def main():
                     g = shape(s.shape.__geo_interface__).buffer(0).intersection(box(*ruta))
                     # bara ytor: snittet med rutan kan ge linjer och punkter där gränsen följer rutans kant
                     g = unary_union([q for q in getattr(g, 'geoms', [g]) if q.geom_type in ('Polygon', 'MultiPolygon')])
+                    if key in CLIPPED_COVERAGE[0]:
+                        coverage[key] = (g, a['NAME'])
+                        continue
                     m = mapping(g.simplify(0.003, preserve_topology=True))
                     feats.append({'type': 'Feature', 'properties': {'id': key, 'name': a['NAME'], 'note': 'ne_10m_admin_0_countries, inom rutan'},
                                   'geometry': {'type': m['type'], 'coordinates': rnd(m['coordinates'])}})
+        keys = CLIPPED_COVERAGE[0]
+        for key, g in zip(keys, shapely.coverage_simplify([coverage[k][0] for k in keys], CLIPPED_COVERAGE[1])):
+            m = mapping(g)
+            feats.append({'type': 'Feature', 'properties': {'id': key, 'name': coverage[key][1],
+                                                            'note': 'ne_10m_admin_0_countries, inom rutan, förenklade tillsammans'},
+                          'geometry': {'type': m['type'], 'coordinates': rnd(m['coordinates'])}})
     if len(sys.argv) > 3:
         states = {f['properties']['adm1_code']: f for f in json.loads(Path(sys.argv[3]).read_text())['features']}
         for key, codes in STATES.items():

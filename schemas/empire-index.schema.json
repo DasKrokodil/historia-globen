@@ -18,6 +18,7 @@
           "from": { "type": "integer" },
           "to": { "type": "integer" },
           "file": { "type": "string", "pattern": "^data/empires/.+\\.json$" },
+          "areaKind": { "type": "string", "enum": ["city-states", "culture"], "description": "Område som inte är en stat (#1300): stadsstäder eller kultur. Ritas med eget mönster under rikena, utan medalj, flagga eller huvudstad, och har alltid en faktaruta. Saknas fältet är gruppen ett rike." },
           "modernState": { "type": "boolean", "description": "Nutida stat (#1193): flaggorna syns på kartan bara med namnet vid nära zoom. Saknas fältet visas allt som förut." },
           "flags": {
             "type": "array",

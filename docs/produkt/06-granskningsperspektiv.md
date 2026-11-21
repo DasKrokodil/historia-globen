@@ -40,6 +40,8 @@ Linserna 9 (barn F–3) och 10 (spelaren) har inga egna kolumner än. Använd 10
 
 *Agent: `ux-tillganglighet` (lins 1 och 7), `.claude/agents/ux-tillganglighet.md`.*
 
+*Genomgång per yta (2026-11-16, #1799):* utöver granskning av enskilda ändringar går agenten igenom varje yta som en besökares uppgift med fem frågor (förväntan, först, ointressant, tillstånd, läsbarhet och mobil). Den ingår i expertgranskningen före varje release och körs som baslinje för alla ytor. Fynd som missades loggas i `docs/ux-review/fynd-som-missades.md`.
+
 **Blicken:** helheten ur ett människocentrerat perspektiv. Är värdet tydligt, är vägen kort, är hierarkin begriplig, och håller utseendet och mönstren ihop?
 
 **Frågor**
@@ -111,7 +113,7 @@ Linserna 9 (barn F–3) och 10 (spelaren) har inga egna kolumner än. Använd 10
 
 **Bevis att samla in:** gå lektionen som lärare från länk till utskrivet blad; läs lärarbladet som om det vore det enda underlaget; kontrollera mot kursplanens centrala innehåll (från Skolverkets öppna text, inte ur minnet).
 
-**Vad linsen har sagt hittills:** ingen riktig lärare har granskat (ingen pilot, beslut 2026-11-07). Det är det **största antagandet** i skolspåret. Tills dess: blind-spots-runda för lektionsläget (2026-11-08) har hittat att lärarens väg från länk till blad är bräcklig.
+**Vad linsen har sagt hittills:** ingen riktig lärare har granskat (ingen pilot, beslut 2026-11-07). Granskningen före v6.5.0 (2026-11-21, `docs/granskningar/release-2026-11-21.md`) gick igenom reglagen, korten, turerna och lektionerna ur lärarens synvinkel och kontrollerade Lgr22-kopplingarna mot Skolverkets öppna kursplan: de fem perioderna stämmer. Kvar: uppdraget syns inte på bladen (#1710), "Strax före eller efter" i förhistorien (#2158) och luckor för åk 7–9 efter 1900 (#2159). Det är det **största antagandet** i skolspåret. Tills dess: blind-spots-runda för lektionsläget (2026-11-08) har hittat att lärarens väg från länk till blad är bräcklig.
 
 ---
 
@@ -165,7 +167,7 @@ Linserna 9 (barn F–3) och 10 (spelaren) har inga egna kolumner än. Använd 10
 **Blicken:** ger det mig något jag inte redan vet, och kan jag lita på det?
 
 **Frågor**
-- **Överraskning och djup:** ger Samtidigt-kortet verkliga "aha"-ögonblick? Finns det djup att gräva i (riken, krig, religioner, turer)?
+- **Överraskning och djup:** ger Visste du?-kortet verkliga "aha"-ögonblick? Finns det djup att gräva i (riken, krig, religioner, turer)?
 - **Tillit:** källor synliga och klickbara? Visas oenighet? Känner jag att något är fel eller förenklat utan att det sägs?
 - **Täckning och balans:** saknas länder, perioder eller kategorier jag bryr mig om? Slagsida mot Europa eller krig? (`tools/tackning.py`)
 - **Utforskande:** hittar jag, söker jag, bläddrar jag fritt? Kan jag följa en tråd (ett land, en idé) över tid?

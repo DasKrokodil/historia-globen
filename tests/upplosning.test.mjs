@@ -4,7 +4,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { RESOLUTION, stepAt, roundToStep, roundPrehistoric, formatYear } from '../js/model.js';
 import { decodeHash } from '../js/url-state.js';
-import { posToYear, yearToPos } from '../js/timeline.js';
+import { posToYear, yearToPos, HUMAN_SCALES } from '../js/timeline.js';
 
 test('upplösningen per del av reglaget', () => {
   assert.equal(stepAt(-99999), 1000); // 100 000 f.Kr.
@@ -32,8 +32,9 @@ test('formatYear: djup tid i tusental, källornas årtal efter 10 000 f.Kr. orö
 });
 
 test('ett drag i förhistorien landar på upplösningen', () => {
-  for (let p = 0; p < 0.1; p += 0.0037) {
-    const y = roundToStep(posToYear(p));
+  const [PRE] = HUMAN_SCALES; // "Före 3000 f.Kr." (#1958): hela reglaget är förhistoria
+  for (let p = 0; p <= 1; p += 0.0037) {
+    const y = roundToStep(posToYear(p, PRE));
     assert.equal((1 - y) % stepAt(y), 0, `läge ${p}: ${y}`);
   }
 });

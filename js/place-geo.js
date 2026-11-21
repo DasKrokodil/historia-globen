@@ -49,10 +49,12 @@ export function inGeometry(geometry, lon, lat) {
  * Kortaste avståndet i km från punkten till geometrins kant (platt närmevärde, duger för några tiotal km). Ringen viks upp
  * och punkten prövas som lon och lon ± 360, så att 179,5° och −179,5° är en grad från varandra. Segment där båda ändpunkterna
  * ligger på ±180 är sömmen där datan delats vid datumlinjen (#1268) och räknas inte som kust.
+ * `within` (valfri, #1524): sökningen ger upp bortom det avståndet och svarar då `within`; ringar vars ruta ligger längre bort
+ * hoppas över, så att ett uppslag med liten marginal över stora geometrier (riken, religioner) går fort.
  */
-export function edgeKm(geometry, lon, lat) {
+export function edgeKm(geometry, lon, lat, within = Infinity) {
   const k = Math.cos(lat * Math.PI / 180);
-  let best = Infinity;
+  let best = within;
   for (const poly of geometry.type === 'Polygon' ? [geometry.coordinates] : geometry.coordinates) {
     for (const ring of poly) {
       const { pts, min, max } = unwrapped(ring);
@@ -168,7 +170,12 @@ export function smallestPlace(places, lon, lat) {
   return best;
 }
 
-/** Händelserna (med _lon och _lat, som model.js sätter) som ligger inom platsens gräns, i tidsordning. */
+/**
+ * Händelserna (med _lon och _lat, som model.js sätter) som ligger inom platsens gräns, i tidsordning. En händelse med
+ * `scope: "wide"` (#1806) gäller ett större område än platsen (ett halvklot, en kultur över flera länder, en följd i ett annat
+ * land) och markören visar bara var området finns, så den räknas inte som platsens händelse: platskortet, platsens händelser i
+ * Fokus och regionvyns lista läser alla den här funktionen. På globen visas den som vanligt.
+ */
 export function placeEvents(place, events) {
-  return events.filter(e => e._lon != null && inPlace(place, e._lon, e._lat)).sort((a, b) => a.start - b.start);
+  return events.filter(e => e._lon != null && e.scope !== 'wide' && inPlace(place, e._lon, e._lat)).sort((a, b) => a.start - b.start);
 }

@@ -1,7 +1,7 @@
 // Områden över datumlinjen (#1097, #1227): traceRing, hasSeam och strokeEdge i js/layers/area-style.js. Kör: node --test 'tests/*.test.mjs'
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { traceRing, tracePath, hasSeam, strokeEdge } from '../js/layers/area-style.js';
+import { traceRing, tracePath, hasSeam, strokeEdge, covers, areaFirst, areaPattern } from '../js/layers/area-style.js';
 
 const W = 2048, H = 1024;
 const X = lon => (lon + 180) / 360 * W, Y = lat => (90 - lat) / 180 * H;
@@ -100,4 +100,58 @@ test('strokeEdge: en geometri utan söm strokas ur banan som är lagd, med söm 
     assert.equal(calls[1][0], paths[0], 'med söm: strokar den nya banan');
     assert.equal(paths[0].parts.parts.reduce((n, p) => n + p.length - 1, 0), 6, 'sex kanter (tre per del), de två sömmarna är borta');
   } finally { delete globalThis.Path2D; }
+});
+
+// Var en flyttad medalj får stå: på rikets yta, inte bara inom ytterrutan.
+const square = (x0, y0, x1, y1) => [[x0, y0], [x1, y0], [x1, y1], [x0, y1], [x0, y0]];
+
+test('covers: punkter inne i och utanför en polygon', () => {
+  const g = { type: 'Polygon', coordinates: [square(0, 50, 10, 60)] };
+  assert.equal(covers(g, 5, 55), true);
+  assert.equal(covers(g, 15, 55), false);
+  assert.equal(covers(g, 5, 65), false);
+});
+
+test('covers: ett hål räknas inte som yta, och ett rike i flera delar gäller överallt (Danmark–Norge: Grönland och Norge, inte havet emellan)', () => {
+  const hole = { type: 'Polygon', coordinates: [square(0, 50, 10, 60), square(4, 54, 6, 56)] };
+  assert.equal(covers(hole, 5, 55), false, 'inne i hålet');
+  assert.equal(covers(hole, 2, 52), true, 'på ytan runt hålet');
+  const parts = { type: 'MultiPolygon', coordinates: [[square(-45, 60, -20, 80)], [square(5, 58, 30, 71)]] };
+  assert.equal(covers(parts, -30, 70), true, 'Grönland');
+  assert.equal(covers(parts, 12, 64), true, 'Norge');
+  assert.equal(covers(parts, -3, 64.6), false, 'havet mellan delarna, inom ytterrutan men inte på ytan');
+});
+
+test('covers: en polygon över datumlinjen täcker båda sidor av 180°', () => {
+  const g = { type: 'Polygon', coordinates: [[[170, 50], [-170, 50], [-170, 60], [170, 60], [170, 50]]] };
+  assert.equal(covers(g, 175, 55), true);
+  assert.equal(covers(g, -175, 55), true);
+  assert.equal(covers(g, 0, 55), false);
+  assert.equal(covers(g, 160, 55), false);
+});
+
+// Områden som inte är en stat (#1300): ritas först, under rikena, och får ett eget mönster
+test('areaFirst lägger områden först och lämnar en lista utan områden orörd (#1300)', () => {
+  const kindOf = p => p.areaKind ?? null;
+  const riken = [{ polity: { id: 'a' } }, { polity: { id: 'b' } }];
+  assert.equal(areaFirst(riken, kindOf), riken, 'utan områden ska samma lista komma tillbaka');
+  const blandat = [{ polity: { id: 'a' } }, { polity: { id: 'm', areaKind: 'city-states' } }, { polity: { id: 'b' } }, { polity: { id: 's', areaKind: 'culture' } }];
+  assert.deepEqual(areaFirst(blandat, kindOf).map(x => x.polity.id), ['m', 's', 'a', 'b']);
+});
+
+test('areaPattern ritar ringar i rutor på minst 18 i grundmåttet och återanvänder mönstret (#1300)', () => {
+  const made = [];
+  globalThis.OffscreenCanvas = class {
+    constructor(w, h) { this.width = w; this.height = h; this.calls = []; made.push(this); }
+    getContext() { const c = this; return { set strokeStyle(v) { c.stroke = v; }, set lineWidth(v) { c.lw = v; }, beginPath() {}, arc(x, y, r) { c.calls.push(['arc', x, y, r]); }, stroke() { c.calls.push(['stroke']); }, fill() { c.calls.push(['fill']); } }; }
+  };
+  const ctx = { createPattern: (c, rep) => ({ c, rep }) };
+  try {
+    const p1 = areaPattern(ctx, '#aa3311', 1), p2 = areaPattern(ctx, '#aa3311', 1.01);
+    assert.equal(p1, p2, 'samma färg och nästan samma skala ger samma mönster');
+    assert.equal(made.length, 1);
+    assert.ok(made[0].width >= 18, `rutan är ${made[0].width}`);
+    assert.ok(made[0].calls.some(c => c[0] === 'stroke') && !made[0].calls.some(c => c[0] === 'fill'), 'ringar (kant), inte fyllda prickar');
+    assert.equal(p1.rep, 'repeat');
+  } finally { delete globalThis.OffscreenCanvas; }
 });

@@ -43,12 +43,13 @@ export function placeSuggestions(events, query, { t = x => x?.sv ?? x, visible =
 
 /**
  * Händelserna inom radien runt en plats ({ lat, lon }), äldst först (sedan titel). Varje träff är
- * { event, km, approximate }, där approximate är sant när platsen bara är ungefärlig (`locationPrecision`).
+ * { event, km, approximate }, där approximate är sant när platsen bara är ungefärlig (`locationPrecision`). Händelser med
+ * `scope: "wide"` (#1806) gäller ett större område än platsen markören står i (norra halvklotet) och hör inte till "här".
  */
 export function eventsNear(events, center, { radiusKm = RADIUS_KM, visible = () => true, t = x => x?.sv ?? x } = {}) {
   if (!center || !Number.isFinite(center.lat) || !Number.isFinite(center.lon)) return [];
   return events
-    .filter(e => visible(e.review) && hasPoint(e))
+    .filter(e => visible(e.review) && hasPoint(e) && e.scope !== 'wide')
     .map(event => ({ event, km: distanceKm(center.lat, center.lon, lat(event), lon(event)), approximate: !!event.locationPrecision }))
     .filter(h => h.km <= radiusKm)
     .sort((a, b) => a.event.start - b.event.start || String(t(a.event.title)).localeCompare(String(t(b.event.title)), 'sv'));

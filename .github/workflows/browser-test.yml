@@ -62,7 +62,7 @@ jobs:
     needs: planera
     name: Öppna sidan i ${{ matrix.test.label }}
     runs-on: ubuntu-latest
-    # Chromium delades i tre jobb (#864), sedan i fyra (#1005) och till sist i nio (#1184, #1649, #1665): varje jobb får 25 minuter (mål cirka 15). Före delningen tog allt i ett
+    # Chromium delades i tre jobb (#864), sedan i fyra (#1005) sedan i nio (#1184, #1649, #1665) och till sist i elva (#1973: dator2 och mobil2): varje jobb får 25 minuter (mål cirka 15). Före delningen tog allt i ett
     # jobb 24 minuter på main och 30 räckte inte alltid (#863, docs/beslut/2026-11-07-chromium-tidsgrans-30-minuter.md).
     # Firefox och WebKit (bara på release-PR:en) är långsammare utan grafikkort: Firefox nådde 20 minuter utan att bli
     # klar inför v5.0.0, så de körs i ett jobb vardera. De fick först 45 minuter och sedan 60: Firefox nådde 42–45 minuter på CI
@@ -179,6 +179,12 @@ jobs:
           python3 -m http.server "$PORT" --directory dist > "$RUNNER_TEMP/server.log" 2>&1 &
           for i in $(seq 50); do curl -sf -o /dev/null "http://localhost:$PORT/" && exit 0; sleep 0.2; done
           echo "::error::webbservern svarar inte"; cat "$RUNNER_TEMP/server.log"; exit 1
+
+      - name: Tangentbordsfokus från platskort till karta (#1950)
+        if: matrix.test.browser == 'chromium' && matrix.test.jobb == 'plats'
+        env:
+          SKARMBILDER: skarmbilder
+        run: NODE_PATH="$RUNNER_TEMP/pw/node_modules" node tests/regionfokus.mjs "$PORT"
 
       - name: Kör webbläsartestet (tests/webblasare.mjs)
         env:

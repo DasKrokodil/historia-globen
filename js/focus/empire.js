@@ -1,6 +1,7 @@
 // Fokustypen rike (#113, #170), med försvunna länder (#72): bara rikets områden syns och faktarutan visas först.
 import { loadEmpire, loadEmpireFacts, t, symbolUrl } from '../model.js';
 import { ui } from '../i18n.js';
+import { areaKindWord } from '../area-kind.js';
 import { formatYearSpan } from '../controllers/facts.js';
 import { langs, geoCenter } from './util.js';
 
@@ -44,7 +45,7 @@ export function entry(app) {
     facts: { has: f => !!group(f.id)?.hasFacts, show: f => app.showEmpireFacts(f.id) },
     menu: () => [
       { title: 'Riken', note: ui('focus.note.empires'), items: data.empireGroups.filter(g => !g.vanished).map(g =>
-        ({ key: `empire:${g.id}`, label: t(g.name), terms: empireTerms(g), sub: mapData(g), color: g.color, symbol: symbolUrl(g), from: g.from, to: g.to })) },
+        ({ key: `empire:${g.id}`, label: t(g.name), terms: empireTerms(g), sub: [areaKindWord(g.areaKind), mapData(g)].filter(Boolean).join(' · '), color: g.color, symbol: g.areaKind ? null : symbolUrl(g), from: g.from, to: g.to })) }, // typordet för ett område som inte är en stat (#1300)
       // Försvunna länder (#72): listas alla, i tidsordning, med när de bildades och upplöstes och vad de blev
       { title: 'Försvunna länder', all: true, note: ui('focus.note.vanished'), items: data.empireGroups.filter(g => g.vanished).map(g => {
         const [from, to] = empireSpan(g);

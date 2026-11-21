@@ -49,6 +49,7 @@
   --z-kartruta: 12;       /* klickrutor för religioner samt vägar och resor */
   --z-tidslinje: 13;      /* tidsreglaget, över kartans klickrutor */
   --z-fokus: 14;          /* fokusfältet, över tidsreglaget */
+  --z-regionruta: 15;     /* regionvyns ruta på globen i låg yta: över fokusfältet och kortet, under menyerna (#1900) */
   --print-ink: #111;       /* utskriften av en lektionstur (#738): svart text på vitt papper */
   --print-paper: #fff;
   --print-line: #666;      /* skrivrader och avdelare på papperet */
@@ -86,6 +87,8 @@
   --oil-dark: #1c1712;
   --newsprint: #e9e3d3; --newsprint-ink: #1b1b1b;
   --deco-navy: #16213a; --deco-gold: #d4a94e;
+  --bronze-ground: #14221f; --bronze: #b0803a; --bronze-light: #e0bf7a; --bronze-patina: #4f8f7d; --bronze-deep: #6a4a1e;
+  --ethio-ground: #1f1511; --ethio-red: #c23b2a; --ethio-gold: #e9b94b; --ethio-green: #3f7d4e;
   --space-ink: #10202e; --space-orange: #e46a2e; --space-teal: #2aa198; --space-cream: #f3e6c8;
 }
 
@@ -164,6 +167,10 @@ body {
 }
 .gcluster:hover::after, .gcluster:focus-visible::after { display: block; }
 .glabel { font-family: inherit; }
+/* Nära i tid (#1318): en händelse i tidsfönstret som inte pågår vid året står i kursiv, så att den skiljs från det som pågår med
+   något mer än färgstyrka. Instrument Sans har ingen egen kursiv (font-synthesis lutar den), så bredden är densamma och etiketterna
+   flyttar sig inte. Etiketterna är i övrigt lika starka: kontrasten kommer från labelOpacity i js/ui/clusters.js. */
+.glabel-near { font-style: italic; }
 .glabel:focus-visible, .gcluster:focus-visible, .globe-canvas:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
 .globe-canvas:focus-visible { outline-offset: -3px; }
 .glabel-hover { z-index: 1; border-color: var(--label-hover-border); }
@@ -320,6 +327,16 @@ body {
   background: color-mix(in srgb, var(--brass) 35%, transparent); border: 1px solid var(--brass);
 }
 .range-band[hidden] { display: none; }
+/* Ett intervall som fortsätter förbi reglagets kant klipps där och får en pil åt det hållet (#1958) */
+.range-band.clip-start, .range-band.clip-end { border-radius: 4px; }
+.range-band.clip-start { border-left-width: 0; border-radius: 0 4px 4px 0; }
+.range-band.clip-end { border-right-width: 0; border-radius: 4px 0 0 4px; }
+.range-band.clip-start::before, .range-band.clip-end::after {
+  content: ""; position: absolute; top: 50%; width: 0; height: 0; margin-top: -4px;
+  border: 4px solid transparent;
+}
+.range-band.clip-start::before { left: 1px; border-left-width: 0; border-right: 6px solid var(--brass); }
+.range-band.clip-end::after { right: 1px; border-right-width: 0; border-left: 6px solid var(--brass); }
 .event-item.is-partial .ttl { color: var(--parchment-dim); }
 .segment-note {
   margin: 6px 0 0;
@@ -364,6 +381,10 @@ body {
 }
 .chip-btn:hover { border-color: var(--brass-deep); }
 .chip-btn[aria-pressed="true"], #btn-layers[aria-expanded="true"] { background: var(--brass); color: var(--night); border-color: var(--brass); }
+/* Samtidigt väntar under en tur (#1865): nedtonad och utan hoverton, men kvar i tabbordningen så att förklaringen når tangentbord och skärmläsare */
+.panel-toggle.is-waiting { color: var(--parchment-dim); border-color: var(--line); cursor: default; } /* dämpad text och ram i stället för genomskinlighet, så att kartan inte lyser igenom knappen */
+.panel-toggle.is-waiting:hover { border-color: var(--line); }
+.panel-toggle.is-waiting .count { background: var(--parchment-dim); }
 .chip-btn .count {
   display: inline-block; min-width: 18px; margin-left: 4px;
   padding: 2px 5px; border-radius: 999px;
@@ -448,6 +469,8 @@ body {
 /* Fokus (#311): huvudet (sökruta, flikar, sortering) ligger still och listan rullar under det */
 .focus-menu { width: min(400px, calc(100vw - 32px)); display: flex; flex-direction: column; overflow: hidden; padding: 6px 0 0; }
 .focus-menu[hidden] { display: none; }
+/* Låg skärm (#1951): menyn ligger över knapparna (js/ui/focusmenu.js, LOW_MENU); samma lager som knapparna och efter dem i sidan */
+.focus-menu.focus-menu-low { z-index: var(--z-meny); }
 .focus-head { flex: none; padding: 0 6px 6px; border-bottom: 1px solid var(--line); }
 .focus-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 0 6px 6px; }
 .focus-menu:focus { outline: none; }
@@ -470,6 +493,19 @@ body {
 .focus-group-toggle[aria-expanded="true"] .focus-group-chev { transform: rotate(225deg) translate(-1px, -1px); }
 .focus-age { padding: 9px 10px 4px; color: var(--parchment-dim); font: 500 10.5px/1 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; }
 @media (max-width: 760px) { .focus-group-toggle { min-height: 44px; } }
+/* Länder och landskap (#1947): världsdel → land → landskap. Varje nivå är en knapp med aria-expanded som gruppens rubrik, och en
+   ihopfälld nivå är hidden. Världsdelen är en lägre rubrik än gruppen; landskapen står indragna under sitt land. */
+.focus-node-toggle {
+  display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 36px; padding: 8px 10px;
+  color: var(--parchment-dim); background: transparent; border: 0; border-radius: 8px; font: 600 11px/1.2 var(--f-mono); letter-spacing: .06em;
+  text-align: left; text-transform: uppercase; cursor: pointer;
+}
+.focus-node-toggle:hover { background: var(--night-3); }
+.focus-node-toggle[aria-expanded="true"] .focus-group-chev { transform: rotate(225deg) translate(-1px, -1px); }
+.focus-node-kids { padding-left: 32px; color: var(--brass); font: 500 12.5px/1.2 var(--f-body); letter-spacing: 0; text-transform: none; }
+.focus-node-body .focus-node-body { margin-left: 26px; border-left: 1px solid var(--line); }
+@media (max-width: 760px), (pointer: coarse) { .focus-node-toggle { min-height: 44px; } }
+@media (max-width: 760px) { .focus-node-toggle { font-size: 12px; } .focus-node-kids { font-size: 13px; } }
 .focus-active {
   display: flex; align-items: center; gap: 10px; margin: 0 4px 4px; padding: 8px 10px;
   background: var(--night-3); border: 1px solid var(--line); border-radius: 8px;
@@ -487,6 +523,9 @@ body {
 .focus-note { max-width: 320px; } /* förklaring under rubrikerna i Fokus (#138) */
 .layer-heading { margin: 8px 10px 2px; padding-top: 8px; border-top: 1px solid var(--line); font: 600 11px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
 .layer-note { flex-basis: 100%; padding-left: 26px; font: 400 11px/1.3 var(--f-mono); color: var(--parchment-dim); }
+/* Raden under ett påslaget lager som saknar data i året (#1960): vanlig text under raden, ingen dämpning av lagret */
+.layer-coverage { margin: -5px 10px 6px 36px; font: 400 11px/1.3 var(--f-mono); color: var(--parchment-dim); overflow-wrap: anywhere; }
+.layer-coverage[hidden] { display: none; }
 /* Grupper och förinställda vyer i Lager (#357) */
 .layer-subheading { margin: 8px 10px 2px; font: 500 10.5px/1 var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--parchment-dim); }
 .view-chips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; padding: 6px 10px 8px; }
@@ -512,7 +551,9 @@ body {
 .layer-sect > summary::after { content: ""; margin-left: auto; width: 7px; height: 7px; border: solid currentColor; border-width: 0 2px 2px 0; transform: rotate(45deg) translateY(-2px); transition: transform .15s; }
 .layer-sect[open] > summary::after { transform: rotate(-135deg) translateY(-1px); }
 .layer-sect > summary:focus-visible { outline: 2px solid var(--brass); outline-offset: -2px; border-radius: 6px; }
-.layer-sect-count { font: 400 11px/1.2 var(--f-mono); letter-spacing: 0; text-transform: none; color: var(--parchment-dim); }
+.layer-sect-count { font: 400 11px/1.2 var(--f-mono); letter-spacing: 0; text-transform: none; color: var(--parchment-dim); min-width: 0; }
+/* Räknaren kan få en andra del ("· 1 saknar data här", #1960) och bryter då rad i stället för att tränga ut pilen */
+.layer-sect-title, .layer-sect > summary::after { flex: none; }
 .layer-group:has(.layer-sect) .layer-heading { display: none; }
 .view-custom { grid-column: 1 / -1; align-items: center; cursor: default; border-style: dashed; border-color: var(--brass-deep); color: var(--brass); font-style: italic; }
 .view-custom[hidden] { display: none; }
@@ -556,7 +597,7 @@ body {
 .panel-head { position: relative; padding: 16px 18px 10px; border-bottom: 1px solid var(--line); }
 .panel-head .panel-x { position: absolute; top: 12px; right: 12px; float: none; margin: 0; }
 .panel-head h2 {
-  margin: 0;
+  margin: 0; padding-right: 44px; /* håller rubriken fri från stängknappen */
   font: 400 21px/1.15 var(--f-display);
   text-wrap: balance;
 }
@@ -595,6 +636,44 @@ body {
   .panel-filters .filter { flex: none; white-space: nowrap; }
 }
 
+/* Filtret i Samtidigt är ihopfällt som standard (beslut i #1782): en rad som säger hur många kategorier som är på */
+.panel-filterbar { flex: none; padding: 8px 14px 0; }
+.panel-filter-toggle {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; min-height: 40px; padding: 0 14px;
+  font: 500 13px/1.2 var(--f-body); color: var(--parchment); text-align: left;
+  background: var(--night-3); border: 1px solid var(--control-line); border-radius: 10px; cursor: pointer;
+}
+.panel-filter-toggle .arrow { color: var(--brass); transition: transform .15s; }
+.panel-filter-toggle[aria-expanded="true"] .arrow { transform: rotate(180deg); }
+.panel-filter-toggle:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+.panel-filter-toggle .on { color: var(--brass); font-weight: 600; }
+.panel-filters[hidden] { display: none; }
+.panel-filterbar + .panel-filters { border-top: 0; }
+
+/* En flik per världsdel (beslut i #1782, alternativ C): en rad som rullar i sidled, den valda i mässing */
+.panel-tabs {
+  flex: none; display: flex; gap: 6px; padding: 8px 14px 6px; overflow-x: auto; scrollbar-width: none;
+  border-bottom: 1px solid var(--line);
+}
+.panel-tabs[hidden] { display: none; }
+@media (min-width: 761px) { .panel-tabs { flex-wrap: wrap; overflow: visible; } } /* på dator ryms alla världsdelar på två rader */
+.panel-tabs::-webkit-scrollbar { display: none; }
+.panel-tab {
+  flex: none; display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 12px;
+  font: 600 13px/1 var(--f-body); color: var(--parchment); background: transparent;
+  border: 1px solid var(--control-line); border-radius: 999px; cursor: pointer; white-space: nowrap;
+}
+.panel-tab .region-count { margin-left: 0; color: inherit; opacity: .8; }
+.panel-tab[aria-selected="true"] { background: var(--brass); border-color: var(--brass); color: var(--night); }
+.panel-tab:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+.region-group[hidden] { display: none; }
+/* Pågår och Nära i tid under världsdelens flik */
+.panel-sec {
+  margin: 12px 8px 2px; font: 600 11px/1.3 var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--brass);
+}
+.panel-sec-near { color: var(--parchment-dim); }
+.panel-sec .region-count { margin-left: 4px; }
+
 .event-list {
   padding: 4px 10px 14px;
   overflow-y: auto; flex: 1; min-height: 0;
@@ -625,6 +704,50 @@ body {
 }
 .event-item.is-near .ttl { color: var(--parchment-dim); font-weight: 500; }
 .empty-note { padding: 12px 10px; color: var(--parchment-dim); font-size: 13px; line-height: 1.45; }
+
+/* ---------- Samtidigt-panelen i faktarutans stil (#1317, del 3) ----------
+   Panelen är en läsyta som faktarutan: pergament (--vellum) med guldram och en tunn rubrikröd innerlinje, som ramen "medeltid" i
+   faktarutan (.frame-medeltid). Besökaren ska känna igen en läsruta; Visste du?-kortet behåller sitt ljusa pergament. Färgerna är
+   egna variabler (--pn-*) här, så att resten av panelens regler ovan kan stå kvar och bara får nya värden.
+   Kontrast mot --vellum: text 11,9:1, dämpad text 5,4:1, rubrikrött 6,0:1, kontrollramar 4,1:1 (minst 3:1). Kategorifärgerna är
+   avstämda mot natthimlen (#1318) och når bara 1,1–2,8:1 mot pergament, så varje prick får samma mörka botten som markörerna på
+   globen (--medal) och syns lika bra som där. Chipsens av-läge visas med streckad ram och dämpad text, inte med genomskinlighet. */
+.panel {
+  --pn-bg: var(--vellum); --pn-ink: var(--vellum-ink); --pn-dim: #6a5838; --pn-accent: var(--rubric);
+  --pn-control: #7d6a43; --pn-rule: color-mix(in srgb, var(--gold) 55%, var(--vellum));
+  --pn-tint: color-mix(in srgb, var(--gold) 18%, var(--vellum));
+  box-sizing: border-box; padding: 6px; /* innerlinjen ligger 4–5 px in: avdelarna stannar innanför den */
+  color-scheme: light; /* rullningslisten och kontrollerna hör till pergamentet */
+  background: var(--pn-bg); color: var(--pn-ink);
+  border: 2px solid var(--gold);
+  box-shadow: inset 0 0 0 4px var(--vellum), inset 0 0 0 5px var(--rubric), 0 10px 30px rgba(0, 0, 0, .35);
+  backdrop-filter: none;
+}
+#panel { scrollbar-color: var(--pn-control) var(--pn-tint); } /* också när låg yta (#1932) sätter egna färger på .panel: id:t går före */
+.panel :focus-visible { outline: 2px solid var(--pn-accent); outline-offset: 2px; }
+.panel .event-btn:focus-visible { outline-offset: -2px; }
+.panel-head, .panel-tag-note, .panel-filters, .panel-tabs { border-bottom-color: var(--pn-rule); }
+.panel-head h2 { color: var(--pn-ink); }
+.panel .panel-sub, .panel .panel-tag-note, .panel .empty-note, .panel .region-count, .panel .event-btn .meta { color: var(--pn-dim); }
+.panel .link-btn { color: var(--pn-accent); }
+.panel .panel-x { color: var(--pn-ink); background: transparent; border-color: var(--pn-control); }
+.panel .panel-x:hover { background: var(--pn-tint); }
+.panel .panel-filter-toggle { color: var(--pn-ink); background: var(--pn-tint); border-color: var(--pn-control); }
+.panel .panel-filter-toggle .arrow, .panel .panel-filter-toggle .on { color: var(--pn-accent); }
+/* Kategorichips: minst 12 px text och 24 px hög yta, på pekskärm 44 px med ::after (#1309) */
+.panel .filter, .panel-filters .filter { box-sizing: border-box; min-height: 24px; font-size: 12px; padding: 3px 9px 3px 7px; color: var(--pn-ink); background: var(--pn-tint); border-color: var(--pn-control); }
+.panel .filter .dot { width: 9px; height: 9px; outline: 2px solid var(--medal); }
+.panel .filter[aria-pressed="false"] { opacity: 1; color: var(--pn-dim); background: transparent; border-style: dashed; }
+.panel .filter[aria-pressed="false"] .dot { outline: 1.5px solid var(--pn-dim); }
+.panel .panel-tab { color: var(--pn-ink); border-color: var(--pn-control); }
+.panel .panel-tab[aria-selected="true"] { background: var(--gold); border-color: var(--pn-ink); color: var(--pn-ink); }
+.panel .panel-sec, .panel .region-head { color: var(--pn-accent); }
+.panel .panel-sec { font-size: 12px; }
+.panel .panel-sec-near, .panel .event-item.is-near .ttl { color: var(--pn-dim); }
+.panel .region-count { font-size: 12px; }
+.panel .panel-tab .region-count { color: inherit; opacity: 1; } /* antalet i fliken har flikens färg, också på den valda */
+.panel .event-item:hover, .panel .event-item.is-selected { background: var(--pn-tint); }
+.panel .event-btn .dot { outline: 2px solid var(--medal); }
 
 /* Faktarutan: ett eget kort som öppnas när man klickar på en händelse */
 .detail-card {
@@ -659,7 +782,7 @@ body {
 .detail .meta { font: 400 11.5px/1.4 var(--f-mono); color: var(--card-accent, var(--brass)); }
 /* Vad tecknet i rikets rubrik är (#1148): flagga, symbol eller modern återgivning */
 .detail .symbol-kind { margin: -2px 0 8px; font: 400 12px/1.4 var(--f-body); font-style: italic; color: var(--card-dim, var(--parchment-dim)); }
-.detail p { margin: 8px 0; line-height: 1.5; max-width: 65ch; }
+.detail p { margin: 8px 0; line-height: 1.5; max-width: 65ch; text-wrap: pretty; } /* långa texter delas i korta stycken i js/paragraphs.js (#1571) */
 .detail .src { font-size: 12.5px; color: var(--card-dim, var(--parchment-dim)); }
 .detail .evidence-ref { margin-left: 2px; font: 500 10px/1 var(--f-mono); }
 .detail .evidence-sources { margin-top: 12px; border-top: 1px solid var(--card-line, var(--line)); padding-top: 8px; }
@@ -743,11 +866,12 @@ body {
 @keyframes ff-in { from { transform: translateY(8px); opacity: .4; } to { transform: none; opacity: 1; } }
 .ff-eyebrow {
   display: flex; justify-content: space-between; align-items: center; gap: 8px;
-  font: 500 11px/1 var(--f-mono);
+  font: 500 11px/1.3 var(--f-mono); /* 1.3 så att metaraden går att läsa när den bryts på två rader (#1859) */
   letter-spacing: .1em; text-transform: uppercase;
   color: #7a5a1f;
 }
-.ff-right { display: inline-flex; align-items: center; gap: 8px; }
+.ff-right { display: inline-flex; align-items: center; gap: 8px; flex: none; }
+.ff-pager { white-space: nowrap; } /* "1 av 4" delas aldrig (#1859) */
 .ff-kind { color: #22190c; }
 .ff-sep { opacity: .6; }
 .ff-min {
@@ -771,6 +895,7 @@ body {
   display: inline-block; min-width: 18px; margin-left: 4px; padding: 2px 6px; border-radius: 999px;
   background: var(--ff-ink-soft); color: var(--parchment); font: 600 11px/1 var(--f-mono); text-align: center;
 }
+.ff-peek-count { display: none; } /* siffran i den stängda panelen i smal skärm ("Visste du? 4", #1867) */
 .ff-text { margin: 8px 0 10px; font: 400 19px/1.32 var(--f-display); text-wrap: pretty; }
 /* Rikets berättelse (#171): rubrik med årtal, kort text och ibland en rad om kartan */
 .ff-story-head { display: block; }
@@ -1026,12 +1151,15 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 .app.lesson .masthead, .app.lesson-notice .masthead { top: calc(env(safe-area-inset-top, 0px) + 52px); }
 .app.lesson .top-actions, .app.lesson-notice .top-actions { top: calc(env(safe-area-inset-top, 0px) + 56px); }
 .lesson-notice .lesson-band-title { flex: 1; }
-.app.lesson .view-mode, .app.lesson #btn-layers, .app.lesson #btn-focus, .app.lesson #btn-tour, .app.lesson #btn-intro,
+.app.lesson .view-mode, .app.lesson .style-mode, .app.lesson #btn-layers, .app.lesson #btn-focus, .app.lesson #btn-tour, .app.lesson #btn-intro,
 .app.lesson #filters, .app.lesson #panel-filters, .app.lesson .focus-btn, .app.lesson [data-follow-war],
 .app.lesson #btn-teacher, .app.lesson .help-teacher, .app.lesson #btn-support, .app.lesson .app.lesson #tour-close, .app.lesson #tour-end, .app.lesson .story-tour { display: none !important; }
 .tour-lesson-end { margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--control-line); }
 .tour-lesson-end[hidden] { display: none; }
-.tour-lesson-end-label { margin: 0; font: 500 11px/1.2 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
+.tour-lesson-end-label { margin: 0; font: 500 12px/1.2 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
+/* Uppdragslänken i kortets fasta rad (#1861, js/ui/lesson.js placeEnd): den syns helt ovanför knapparna och rullar inte under dem */
+.tour-bar .tour-lesson-end { margin-top: 0; padding: 8px 0 0; }
+.tour-bar .tour-lesson-end .tour-links { margin-top: 2px; }
 @media (max-width: 760px) {
   .lesson-band { gap: 8px; }
   .lesson-band-title { font-size: 11px; }
@@ -1041,8 +1169,12 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
   /* Förklaringen (#877) är längre än lektionsbandet: texten får en egen rad och knapparna en rad under */
   .lesson-notice { flex-wrap: wrap; justify-content: flex-end; }
   .lesson-notice .lesson-band-title { flex: 1 1 100%; }
+  #lesson-confirm-text { font-size: 12px; } /* frågan är två meningar (#1861): minst 12 px */
   .app.lesson-notice .masthead { top: calc(env(safe-area-inset-top, 0px) + 112px); }
   .app.lesson-notice .top-actions { top: calc(env(safe-area-inset-top, 0px) + 116px); }
+  /* Frågan om att lämna lektionen (#1861) är längre än förklaringen: menyraden står under dess verkliga höjd (js/ui/lesson.js, askExit) */
+  .app.lesson-confirming .masthead { top: calc(env(safe-area-inset-top, 0px) + var(--lesson-confirm-h, 98px) + 14px); }
+  .app.lesson-confirming .top-actions { top: calc(env(safe-area-inset-top, 0px) + var(--lesson-confirm-h, 98px) + 18px); }
   /* Lärarens knapp (#885): titeln får en egen rad och knapparna en rad under, som förklaringen ovan */
   .app.lesson-teacher .lesson-band { flex-wrap: wrap; justify-content: flex-end; }
   .app.lesson-teacher .lesson-band-title { flex: 1 1 100%; }
@@ -1082,6 +1214,61 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 .tour-actions { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-top: 14px; }
 .tour-actions .chip-btn { margin-right: auto; }
 .tour-actions .chip-btn[hidden] { display: none; }
+/* Turkortet (#1793): texten i stycken med små rubriker (Det sägs, Vad källorna säger), och Nästa och Lämna turen ligger fast längst ned i alla
+   höjder när kortet rullar (förut bara under 600 px höjd). Foten ytterst, knapparna ovanför den; högre specificitet än lektionens utfyllnad. */
+/* Bilden i turkortet (#1794): en liggande remsa under rubriken, lägre i mobil så att kortet inte täcker kartan */
+.tour-figure { margin: 8px 0 0; }
+.tour-figure[hidden] { display: none; }
+.tour-figure a { display: block; }
+.tour-figure img { display: block; width: 100%; aspect-ratio: 16 / 9; max-height: 150px; object-fit: cover; border-radius: 6px; border: 1px solid var(--brass-deep); background: var(--night-3); }
+.tour-figure-cap { margin: 4px 0 0; font: 400 12.5px/1.35 var(--f-body); color: var(--parchment-dim); }
+.tour-figure-cap .meta { font: 400 12px/1.35 var(--f-mono); }
+@media (max-width: 760px) { .tour-figure img { max-height: 96px; } .tour-figure-cap { font-size: 12px; } .tour-figure-cap .meta { font-size: 12px; } }
+/* Lång text (#1866): bilden dras ihop så att texten får plats. Dator: en lägre bild. Smal skärm: en tumnagel bredvid rubriken (kortet flyttar länken dit),
+   som öppnar bilden stor med ett tryck. Bildtexten flyttas under texten. */
+.tour-figure.is-compact img { max-height: 84px; }
+.tour-text + .tour-figure-cap { margin-top: 12px; }
+.tour-headrow { display: flex; align-items: flex-start; gap: 10px; }
+.tour-headrow .tour-title { flex: 1 1 auto; min-width: 0; }
+.tour-title:focus { outline: none; } /* rubriken tar emot fokus när slutkortet öppnas (så att den läses upp), men den är ingen knapp: ingen ram */
+.tour-thumb { flex: none; display: block; margin-top: 6px; border-radius: 6px; }
+.tour-thumb img { display: block; width: 88px; height: 66px; object-fit: cover; border-radius: 6px; border: 1px solid var(--brass-deep); background: var(--night-3); }
+.tour-thumb:focus-visible { outline: 2px solid var(--brass-light); outline-offset: 2px; }
+/* Tumnageln förstoras i kortet med ett tryck (#1981): hela kortets bredd under rubriken, 4:3 som bildfilen */
+.tour-headrow.has-open-thumb { flex-wrap: wrap; }
+.tour-thumb.is-open { flex: 1 1 100%; margin-top: 2px; }
+.tour-thumb.is-open img { width: 100%; height: auto; aspect-ratio: 4 / 3; }
+/* Rullningssignalen (#1866): en tonad nederkant ovanför knapparna och raden Fortsätt läsa, så länge kortet har mer att rulla */
+.tour-more { position: absolute; left: 0; right: 0; bottom: 100%; box-sizing: border-box; display: flex; align-items: flex-end; justify-content: center; gap: 6px; height: 36px; padding: 0 0 5px; border: 0; background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--night-2) 92%, transparent) 70%, var(--night-2)); color: var(--brass); font: 600 12px/1.2 var(--f-mono); letter-spacing: .06em; cursor: pointer; }
+.tour-more[hidden] { display: none; }
+.tour-more:hover { color: var(--parchment); }
+.tour-more:focus-visible { outline: 2px solid var(--brass-light); outline-offset: -2px; }
+@media (pointer: coarse) { .tour-more { height: 48px; padding-bottom: 8px; } }
+/* Slutkortet (#1866): Klar i sista steget visar det i turkortet. Stegets delar göms, resten av kortet är detsamma */
+.tour-card.is-ending :is(.tour-chapter, .tour-status, .tour-figure, .tour-text, .tour-figure-cap, .tour-question, .tour-links, .tour-thumb) { display: none; }
+.tour-endcard { --card-ink: var(--parchment); --card-line: var(--control-line); --card-accent: var(--brass); --card-dim: var(--parchment-dim); margin: 8px 0 0; font: 400 15px/1.45 var(--f-body); color: var(--parchment); }
+.tour-endcard[hidden] { display: none; }
+.tour-endcard-lead { margin: 0 0 8px; color: var(--parchment-dim); }
+.tour-endcard .takeaway-box { margin: 6px 0 8px; padding: 0; border: 0; }
+.tour-endcard .takeaway-box > h4 { display: none; } /* kortets rubrik säger redan Det viktigaste att ta med sig */
+.tour-endcard .takeaway-src { font-size: 12px; }
+.tour-recap { margin: 0 0 6px; padding-left: 22px; }
+.tour-recap li { margin: 0 0 6px; }
+.tour-recap li::marker { color: var(--brass); font-family: var(--f-mono); }
+.tour-recap-omtvistat::marker { color: var(--parchment); }
+
+.tour-text p { margin: 0 0 8px; font: inherit; }
+.tour-text p:last-child { margin-bottom: 0; }
+.tour-part-label { margin: 12px 0 3px !important; font: 600 11px/1.3 var(--f-mono) !important; letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
+.tour-part-label:first-child { margin-top: 0 !important; }
+.app.app.app .tour-card { padding-bottom: 0; scrollbar-width: thin; scrollbar-color: var(--brass-deep) var(--night-2); }
+.tour-card .tour-bar { position: sticky; bottom: 0; background: var(--night-2); }
+.tour-card .tour-actions { margin-top: 0; padding: 8px 0 0; }
+.tour-card .tour-foot { margin-top: 0; padding: 2px 0 8px; }
+@media (max-width: 760px) {
+  .tour-card .tour-name { display: none; } /* turens namn står redan i turraden under kortet; kortets namn hämtas ändå av aria-labelledby */
+  .tour-part-label { font-size: 12px !important; } /* text på minst 12 px i mobil */
+}
 .tour-next { min-height: 44px; padding: 8px 16px; border: 1px solid var(--brass); border-radius: 999px; background: var(--brass); color: var(--night); font: 600 13px/1 var(--f-body); cursor: pointer; }
 .tour-foot { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-top: 6px; padding-top: 2px; border-top: 1px solid var(--control-line); }
 /* Lämna turen (#1572): en benämnd länk i kortets fot, minst 44 px hög; ingen pillerknapp bredvid Nästa */
@@ -1101,6 +1288,7 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 .tour-pick:hover { background: color-mix(in srgb, var(--brass) 14%, transparent); }
 .tour-pick-title { font: 400 17px/1.2 var(--f-display); }
 .tour-pick-meta { margin: 0; padding: 0 10px 4px; font: 400 13px/1.4 var(--f-body); color: var(--parchment-dim); }
+.tour-pick-audience { margin: 0; padding: 0 10px 4px; font: 500 12px/1.35 var(--f-body); color: var(--brass); }
 .tour-row-body { padding-bottom: 4px; }
 .tour-lesson-row { display: flex; align-items: center; justify-content: space-between; gap: 8px 10px; flex-wrap: wrap; padding: 0 10px 8px; }
 .tour-lesson-meta { font: 500 11px/1.3 var(--f-mono); letter-spacing: .06em; color: var(--brass); }
@@ -1119,7 +1307,7 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
      ovanför det, så att Nästa går att nå utan att först stänga faktarutan. Kortet är 104 px högt (--tour-reading-h) och står som förut 136 eller 196 px från botten (--tour-card-b) och växer tillbaka när rutan stängs. */
   .app.touring { --tour-reading-h: 104px; --tour-card-b: 136px; }
   .app.touring:has(.pause-note:not([hidden])) { --tour-card-b: 196px; }
-  .app.touring:has(#detail:not([hidden])) .tour-card :is(.tour-name, .tour-chapter, .tour-title, .tour-status, .tour-text, .tour-question, .tour-links, .tour-lesson-end, .tour-foot) { display: none; }
+  .app.touring:has(#detail:not([hidden])) .tour-card :is(.tour-name, .tour-chapter, .tour-headrow, .tour-status, .tour-figure, .tour-text, .tour-figure-cap, .tour-question, .tour-links, .tour-lesson-end, .tour-endcard, .tour-more, .tour-foot) { display: none; }
   .app.touring:has(#detail:not([hidden])) #detail { bottom: calc(var(--tour-card-b) + var(--tour-reading-h) + 8px); }
   .app.touring:has(#detail:not([hidden])) #detail:not([data-sheet="full"]):not(.sheet-dragging) { max-height: min(40dvh, calc(100dvh - var(--tour-card-b) - var(--tour-reading-h) - 8px - 190px)); }
   .app.touring:has(#detail:not([hidden])) #detail[data-sheet="full"], .app.touring:has(#detail:not([hidden])) #detail.sheet-dragging { max-height: calc(100dvh - var(--tour-card-b) - var(--tour-reading-h) - 8px - 72px - env(safe-area-inset-top, 0px)); }
@@ -1154,6 +1342,10 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
   touch-action: none;
   user-select: none;
 }
+/* Byte av reglage (#1958): hela reglaget tonas in en kort stund. Med reducerad rörelse byter det direkt (timeline.js startar inte ens övertoningen). */
+.track.scale-swap { animation: scale-swap .28s ease-out; }
+@keyframes scale-swap { from { opacity: .25; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .track.scale-swap { animation: none; } }
 .track-segments { position: absolute; left: 0; right: 0; top: 14px; height: 8px; display: flex; }
 .seg { height: 100%; border: 1px solid var(--line); border-right: 0; background: var(--night-2); }
 .seg:first-child { border-radius: 4px 0 0 4px; }
@@ -1164,7 +1356,7 @@ html.calm .intro-box, html.calm .quiz-box { animation: none; }
 .seam, .tl-seam { display: inline-block; box-sizing: border-box; width: 5px; border: solid var(--parchment-dim); border-width: 0 1px; background: var(--night); transform: skewX(-18deg); }
 .seam { position: absolute; z-index: 1; top: -4px; height: 16px; margin-left: -2.5px; pointer-events: none; } /* över prickarna, så att skarven syns även där det finns många händelser */
 .tl-item .tl-seam { height: 12px; background: var(--night); }
-@media (max-width: 560px) { .tl-item-seam { display: none; } } /* raden rymmer inte "ny skala" på alla språk i mobil (de, es, fr klipps); skalraden förklarar skarven när man flyttar året */
+@media (max-width: 560px) { .tl-item.tl-item-seam { display: none; } } /* .tl-item sätter display: inline-flex senare i filen och vann över enbart .tl-item-seam (#2129); raden rymmer inte "ny skala" på alla språk i mobil (de, es, fr klipps); skalraden förklarar skarven när man flyttar året */
 .track-dots, .track-ff { position: absolute; left: 0; right: 0; top: 0; height: 30px; pointer-events: none; }
 .tdot, .tspan, .tff, .troute { appearance: none; border: 0; padding: 0; cursor: pointer; pointer-events: auto; }
 .tdot { position: absolute; top: 15px; width: 6px; height: 6px; margin-left: -3px; border-radius: 50%; }
@@ -1195,11 +1387,11 @@ html.calm .year-tip { animation: none; }
 /* Teckenförklaring under tidslinjen (#1003): samma tecken som på linjen, hopfällbar */
 /* Raden ligger i tidsradens nedre marginal (12 px) och gör den bara 2 px högre: korten ovanför ligger på fasta avstånd från tidsraden */
 .timeline-legend { display: flex; flex-wrap: nowrap; align-items: center; gap: 0 14px; height: 14px; margin: 0 0 -12px; white-space: nowrap; overflow-x: clip; overflow-y: visible; font: 400 11px/14px var(--f-mono); color: var(--parchment-dim); }
-.timeline-legend summary { position: relative; cursor: pointer; color: var(--brass); display: inline-flex; align-items: center; }
+.timeline-legend summary { position: relative; cursor: pointer; color: var(--brass); display: inline-flex; align-items: center; padding-inline: 3px; margin-inline-end: -6px; } /* 3 px luft för den inåtvända fokusringen (#2128); marginalen tar tillbaka den plats raden annars skulle förlora, så att posterna efter ligger som förut */
 .timeline-legend summary::before { content: ""; position: absolute; inset: 0 -8px -10px; } /* tryckyta på minst 24 px (#1138), nedåt så att den inte tar yta från reglaget; ramen klipps inte */
-.timeline-legend summary:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; border-radius: 4px; }
+.timeline-legend summary:focus-visible { outline: 2px solid var(--brass); outline-offset: -2px; border-radius: 4px; } /* inåt: raden ligger längst ner, och en ring utanför klipptes av fönstrets underkant och gick över årtalen (#2128) */
 .timeline-legend:not([open]) summary { opacity: .8; }
-.tl-item { display: inline-flex; align-items: center; gap: 5px; }
+.tl-item { display: inline-flex; align-items: center; gap: 5px; vertical-align: top; } /* alla poster på samma linje: baslinjejämkningen gjorde raden 17 px hög och lät posterna ligga 3 px olika (#1713, omgång 3) */
 .tl-item i { display: inline-block; background: var(--parchment); }
 .tl-dot { width: 6px; height: 6px; border-radius: 50%; }
 .tl-diamond { width: 8px; height: 8px; transform: rotate(45deg); border-radius: 1px; }
@@ -1207,8 +1399,67 @@ html.calm .year-tip { animation: none; }
 .app.lesson .timeline-legend { display: none; }
 .timeline-scale-note { display: flex; align-items: center; height: 14px; margin: 0 0 -14px; white-space: nowrap; overflow: hidden; font: 400 11px/14px var(--f-mono); color: var(--brass); }
 .timeline-scale-note[hidden] { display: none; }
-.timeline-scale-note:not([hidden]) + .timeline-legend { visibility: hidden; } /* samma lucka: teckenförklaringen tonas ned medan skalraden syns, som vid engångstipset */
+.timeline-scale-note:not([hidden]) + .timeline-legend:not(:focus-within) { visibility: hidden; } /* samma lucka: teckenförklaringen döljs medan skalraden syns, som vid engångstipset */
+/* Men "Tecken" ska gå att nå med Tab från reglaget, som visar skalraden när det får fokus (#2128): en dold förälder tar bort fokus från alla barn, så
+   knappen är synlig för webbläsaren och genomskinlig (hela raden är dold för ögat, som förut), och får fokus kommer teckenförklaringen fram och skalraden
+   tonas bort på samma plats, utan att något flyttas. Skärmläsare påverkas inte: opacity döljer inget för dem, och skalraden är redan aria-hidden. */
+.timeline-scale-note:not([hidden]) + .timeline-legend:not(:focus-within) summary { visibility: visible; opacity: 0; pointer-events: none; }
+.timebar:has(.timeline-legend:focus-within) .timeline-scale-note { visibility: hidden; }
 .app.lesson .timeline-scale-note, .app.touring .timeline-scale-note, .app.focusing .timeline-scale-note { display: none; }
+/* Växlaren mellan tidsreglagen (#1959) och nivåväxlarens form (js/ui/level-switch.js, delas med lägesväxlaren i #1517): nivåerna står från kant till kant
+   ovanför reglaget. Nivån man är på är nedtryckt; de andra är dörrar med en pil åt det håll nivån ligger, vid den kant man går ut genom. Namnen är alltid de två
+   reglagens, med eller utan pil. **Träffytan är knappens egen yta, utan osynlig utvidgning:** den är 44 px hög i stående mobil (som resten av ytorna där, #1309), 32 px i övrigt och 28 px i liggande telefon, där höjden inte räcker,
+   och minst 100 px bred, med 4–6 px verkligt mellanrum mot stegknapparna och reglaget, så att den varken stjäl eller tappar tryck från grannarna. En osynlig
+   44 px-yta (::after, som stegknapparna) provades och förkastades: stegknapparnas yta och reglagets yta ligger över den och lämnade 24 px (mätt). Raden tar plats i
+   tidsraden bara där det finns höjd att ta (se nedan): i bred skärm ligger den på samma rad som stegknapparna, som har gott om plats på sidorna. */
+.level-switch { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 8px; position: relative; min-height: 32px; margin: 0 0 4px; }
+.level-btn {
+  display: inline-flex; align-items: center; gap: 5px; min-width: 24px; height: 32px; padding: 0 12px; box-sizing: border-box;
+  font: 500 12px/1 var(--f-body); white-space: nowrap; color: var(--brass); background: var(--night-2); border: 1px solid var(--brass-deep); border-radius: 16px; cursor: pointer;
+}
+.level-btn[aria-pressed="true"] { color: var(--night); background: var(--brass); border-color: var(--brass); cursor: default; }
+.level-btn.is-door:hover { background: var(--night-3); border-color: var(--brass); }
+.level-btn:focus-visible { outline: 2px solid var(--parchment); outline-offset: 2px; }
+.level-arrow { font-size: 13px; line-height: 1; }
+.level-switch.level-locked .level-btn { opacity: .35; cursor: default; }
+.app.lesson .level-switch, .app.touring .level-switch, .app.focusing .level-switch { display: none; } /* tidslåset (#1322) och Fokus har egna skalor: växlaren visas inte */
+/* Under 1101 px (smal skärm och liggande telefon) får växlaren en egen rad mellan stegknapparna och reglaget. Stegknapparnas egen tryckyta (mobil) går 6 px
+   under dem, så mellanrummet är 6 px. Raden tar 36 px (48 px i stående mobil); 8 px hämtas ur tidsradens övre kant och glapp, så tidsraden blir 28–46 px högre (mobil 105 till 151 px) och
+   korten ovanför flyttas lika mycket (--ff-b i smal skärm, bottom i 761–1100 px). */
+@media (max-width: 1100px) {
+  .app:not(.lesson):not(.touring):not(.focusing) .timebar { padding-top: 4px; }
+  .app:not(.lesson):not(.touring):not(.focusing) .controls { margin-bottom: 6px; }
+  .app:not(.lesson):not(.touring):not(.focusing) .level-switch { margin-bottom: 4px; }
+}
+/* Mobil i stående (högst 760 px bred, mer än en liggande telefon hög): knapparna är 44 px höga på riktigt, som resten av ytorna i mobil (#1309), och tidsraden 46 px högre (105 till 151 px) */
+@media (max-width: 760px) and (min-height: 481px) {
+  .app:not(.lesson):not(.touring):not(.focusing) .level-switch { min-height: 44px; }
+  .app:not(.lesson):not(.touring):not(.focusing) .level-btn { height: 44px; border-radius: 12px; }
+}
+@media (max-width: 420px) { .level-btn { padding: 0 8px; gap: 4px; } .level-switch { gap: 4px; } } /* franska ryms på en rad ner till 360 px (namnen är desamma) */
+@media (max-width: 370px) { .level-btn { padding: 0 6px; } }
+/* Liggande telefon (högst 480 px hög, under 1101 px bred): reglaget är 44 px högt (tickarna står 4 px högre) och knapparna 28 px, så att stegknapparna inte kommer upp i
+   raden med årtalets förklaring (4 px luft kvar) */
+@media (max-height: 480px) and (max-width: 1100px) {
+  .app:not(.lesson):not(.touring):not(.focusing) .track { height: 44px; }
+  .app:not(.lesson):not(.touring):not(.focusing) .ticks { top: 26px; } /* 12 px årtal (#1713, omgång 3) är 18 px höga med sin pad: en pixel högre än förut, så att de slutar där teckenförklaringen börjar */
+  .app:not(.lesson):not(.touring):not(.focusing) .level-switch { min-height: 28px; margin-bottom: 0; }
+  .app:not(.lesson):not(.touring):not(.focusing) .level-btn { height: 28px; border-radius: 14px; }
+  .app .jump-back { gap: 2px; } /* "Från 1325 · Tillbaka" (dörren och Visste du?) ska sluta före stegknapparna i förhistoriens bredare rad */
+}
+/* 761–1100 px och högre än en liggande telefon: tidsraden är 28 px högre (146 mot 118 px), så korten ovanför (140 och 132 px från botten) flyttas lika mycket */
+@media (min-width: 761px) and (max-width: 1100px) and (min-height: 481px) {
+  .app:not(.lesson):not(.touring):not(.focusing) :is(.funfact, .ff-tab) { bottom: 168px; }
+  .app:not(.lesson):not(.touring):not(.focusing) .detail-card { bottom: 160px; }
+}
+/* Från 1101 px ligger knapparna i stegknapparnas rad, den första vid reglagets vänstra och den andra vid dess högra kant: tidsraden blir inte högre.
+   Läget räknas från tidsradens botten (stegknapparnas rad ligger alltid 76 px upp), eftersom pausraden kan växa ovanför. */
+@media (min-width: 1101px) {
+  .level-switch { position: absolute; z-index: 2; left: var(--gut); right: var(--gut-r); bottom: calc(env(safe-area-inset-bottom, 0px) + 76px); min-height: 32px; margin: 0; flex-wrap: nowrap; pointer-events: none; } /* över stegknapparnas rad, som är lika bred som tidsraden */
+  .level-btn { pointer-events: auto; }
+  .presentation-mode .level-switch { bottom: calc(env(safe-area-inset-bottom, 0px) + 84px); min-height: 40px; }
+  .presentation-mode .level-btn { height: 40px; border-radius: 20px; font-size: 14px; }
+}
 .timeline-mark-note { margin: -2px 0 0; min-height: 16px; font: 400 11px/1.3 var(--f-mono); color: var(--parchment-dim); }
 .thumb {
   position: absolute; top: 4px; width: 0; height: 28px;
@@ -1232,6 +1483,8 @@ html.calm .year-tip { animation: none; }
 .tick::before { content: ""; position: absolute; left: 50%; top: 0; width: 1px; height: 4px; background: var(--parchment-dim); }
 .tick.first { transform: none; }
 .tick.first::before { left: 0; }
+.tick.last { transform: translateX(-100%); } /* reglagets sista årtal ligger vid högerkanten (#1958) */
+.tick.last::before { left: auto; right: 0; }
 .tick.lvl2, .tick.lvl3 { display: none; }
 .tick.tick-hidden { visibility: hidden; } /* krockar med ett viktigare årtal (#63) */
 @media (min-width: 600px) { .tick.lvl2 { display: block; } }
@@ -1330,6 +1583,11 @@ html.calm .year-tip { animation: none; }
 .flat-region[hidden] { display: none; }
 .flat-region-name { margin: 0; font: 400 11px/1.3 var(--f-mono); color: var(--brass); letter-spacing: .04em; }
 .flat-region-note { margin: 3px 0 6px; opacity: .85; }
+.flat-region-context { display: none; margin: 0; }
+/* Hur man får fakta (#1978): bara där den långa raden är dold, och då en egen kort rad; på bred yta slutar den långa raden med samma mening */
+.flat-region-tap { display: none; margin: 0; }
+.flat-region-next { margin: 0 0 6px; font-weight: 600; }
+.flat-region-next[hidden] { display: none; }
 /* Förklaringen till den streckade ringen (#1642): en kort rad med en liten ring, samma streckade ring som markörerna */
 .flat-region-legend { display: flex; align-items: center; gap: 6px; margin: 0 0 6px; font: 400 12px/1.3 var(--f-body); }
 .flat-region-ring { flex: none; width: 12px; height: 12px; border-radius: 50%; border: 2px dashed var(--parchment); box-sizing: border-box; }
@@ -1426,8 +1684,34 @@ html.calm .year-tip { animation: none; }
   .flat-region { top: 36px; display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; padding: 4px 4px 4px 10px; }
   .flat-region-legend { order: 3; flex-basis: 100%; margin: 0 0 4px; font-size: 11.5px; }
   .flat-region-note { display: none; }
+  .flat-region-context { display: block; order: 3; flex-basis: 100%; margin: 0 0 2px; font-size: 11.5px; }
+  .flat-region-next { order: 2; flex-basis: 100%; margin: 0 0 2px; font-size: 11.5px; }
   .flat-region-back { min-height: 44px; flex: none; }
   .globe-region-chip { top: 112px; max-width: calc(100% - var(--gut) - var(--gut-r)); }
+}
+/* Hur man får fakta (#1978) i den smala rutan: en egen kort rad, där den långa raden är dold. Inte på en låg liggande yta (högst 480 px hög,
+   #1952): rutan har där inte plats för en rad till utan att kartans fria yta minskar (47 % blir 41 % i Platt karta 800 × 360) och att
+   årtalets platta täcks; där säger markörerna och Lämna platsens karta resten, och knappen Om platsen öppnar kortet. Inte heller i rutan
+   på globen i stående mobil: en rad till flyttar den fria ytan så att provet #1687 (högens namn ryms i bilden, Grönland) faller, och där
+   gäller den långa raden först när bredden tillåter. */
+@media (max-width: 760px) and (min-height: 481px) {
+  .flat-region:not(.globe-region-chip) .flat-region-tap { display: block; order: 3; flex-basis: 100%; margin: 0 0 2px; font-size: 11.5px; }
+}
+/* Regionvyn på globen på låg yta (#1900): på en liggande telefon (högst 480 px) ligger rutan i samma kompakta form som i smal skärm
+   (rubrik och knapp på en rad, utan den längre texten, som statusraden och Lager säger) och över fokusraden, kortet och tidsreglaget,
+   så att "Lämna regionvyn" aldrig täcks: på en pekskärm finns inget Escape. Läget (under årtalet, annars ovanför det) väljer
+   placeGlobeChip() i js/controllers/region.js. Normal höjd är oförändrad. */
+@media (max-height: 480px) {
+  .globe-region-chip { z-index: var(--z-regionruta); display: grid; justify-items: start; gap: 2px 8px; padding: 4px 4px 4px 10px; }
+  .globe-region-chip[hidden] { display: none; }
+  .globe-region-chip .flat-region-note { display: none; }
+  .globe-region-chip .flat-region-context { display: block; order: 3; margin: 0; font-size: 11.5px; } /* den korta raden i stället för den långa (#1956), se kommentaren vid Platt vy nedan */
+  .globe-region-chip .flat-region-next { order: 2; flex-basis: 100%; margin: 0 0 2px; font-size: 11.5px; }
+  .globe-region-chip .flat-region-legend { order: 3; flex-basis: 100%; margin: 0; font-size: 11.5px; }
+  .globe-region-chip .flat-region-back { flex: none; }
+}
+@media (max-height: 480px) and (pointer: coarse) {
+  .globe-region-chip .flat-region-back { min-height: 44px; }
 }
 
 /* ---------- källor ---------- */
@@ -1528,6 +1812,9 @@ details.used-by summary:hover { color: var(--parchment); }
 .war-list h4 { margin: 10px 0 4px; font: 600 11px/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--brass); }
 .war-list ol { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.6; }
 .war-list .meta { font: 400 11px/1 var(--f-mono); color: var(--parchment-dim); }
+/* Dagens länder i rikeskortet (#1955): knappen har ▶ som tecken, så listan har inga punkter; förklaringen kan vara flera rader */
+.empire-places ul { margin: 0; padding: 0; list-style: none; font-size: 13px; line-height: 1.6; }
+.war-list .empire-places-note { margin: 4px 0 0; line-height: 1.45; }
 /* Krig och riken (#76): rikena i kriget som knappar med rikets färg, rikets krig med årtal */
 .empire-list ul { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 0; padding: 0; list-style: none; font-size: 13px; line-height: 1.6; }
 .empire-list .link-btn { text-align: left; }
@@ -1735,17 +2022,18 @@ details.used-by summary:hover { color: var(--parchment); }
   .funfact.ff-open .ff-text { display: block; -webkit-line-clamp: unset; }
   .ff-events { flex-wrap: wrap; gap: 6px; padding: 6px 0; } /* radbrytning i stället för sidscroll, så att inget namn klipps (#190) */
   .ff-chip { white-space: normal; text-align: left; line-height: 1.15; max-width: 100%; }
-  .ff-foot { margin-top: 12px; gap: 4px 18px; padding-bottom: 2px; flex-wrap: wrap; }
+  .ff-foot { margin-top: 12px; gap: 20px 18px; padding-bottom: 2px; flex-wrap: wrap; } /* 20 px mellan raderna: länkarnas 44 px höga ytor ligger då inte över varandra (#1859) */
   /* Länkarna bryts aldrig mitt i (#1138): det är granskningsraden som får plats efter dem eller ligger på en egen rad, när den inte ryms */
   .funfact .ff-foot .link-btn { white-space: nowrap; flex: none; }
-  .ff-foot .review-badge { flex: 1 1 90px; min-width: 0; }
+  .ff-foot .review-badge { flex: 1 1 90px; min-width: auto; } /* aldrig smalare än sitt längsta ord: annars flödar texten över Källor (#1859), och raden bryts i stället */
   .funfact { padding-bottom: 12px; }
   /* Tryckytor på minst 44 × 44 px: det synliga utseendet är oförändrat, den osynliga ytan ligger i ::after */
   .ff-min, .ff-chip, .funfact .ff-foot .link-btn { position: relative; }
   .ff-min { margin: -2px 0 -8px; z-index: 1; } /* ligger helt inom kortets utfyllnad, så att den utökade ytan inte klipps */
   .ff-min::after { content: ""; position: absolute; inset: -10px; }
   .ff-chip::after { content: ""; position: absolute; inset: -9px -3px; }
-  .funfact .ff-foot .link-btn::after { content: ""; position: absolute; inset: -12px -10px; }
+  /* Länkarna i foten får den gemensamma 44 × 44-ytan längre ned (#1309). En egen inset här blandades med den regelns bredd, höjd och
+     förskjutning, så att ytan hamnade 32 px ovanför länken och Källor och Nästa inte gick att träffa under texten (#1859). */
   /* åtta knappar ska rymmas i 400 px: ±100 syns, knapparna krymper något (#140) */
   .controls { gap: 4px; }
   .controls .step { min-width: 0; flex: 1 1 0; max-width: 44px; padding: 0; }
@@ -1807,13 +2095,9 @@ details.used-by summary:hover { color: var(--parchment); }
 /* Krysset tar ingen plats; rubriken lämnar plats åt det */
 .detail-card .detail-close { position: sticky; z-index: 2; float: none; display: block; margin: -4px -6px -26px auto; }
 .detail-card .detail-close + h3 { padding-right: 30px; }
-/* Kort markering i datumraden när händelsen har raden Historisk osäkerhet (#606) */
-.unc-mark {
-  font: inherit; color: var(--card-accent); background: none; border: 0; padding: 0 0 0 2px; cursor: pointer;
-  text-decoration: underline dotted; text-underline-offset: 3px; position: relative;
-}
-.unc-mark::after { content: ""; position: absolute; inset: -12px -6px; } /* större tryckyta */
-.unc-mark:focus-visible { outline: 2px solid var(--card-accent); outline-offset: 2px; border-radius: 3px; }
+/* Kort markering i datumraden när händelsen har raden Historisk osäkerhet (#606): ett (i) som review-info (#1979), så att osäkerheten
+   står en gång i raden ("cirka" i datumet och märket); knappen har ett namn och leder till raden */
+.unc-mark { margin-left: 4px; vertical-align: middle; }
 .uncertainty-row:focus { outline: 2px solid var(--card-accent); outline-offset: 3px; border-radius: 3px; }
 @media (max-width: 760px) { .detail-fig img { aspect-ratio: 16 / 9; } }
 
@@ -1840,6 +2124,18 @@ details.used-by summary:hover { color: var(--parchment); }
   --card-accent: var(--gold-light);
   border: 5px solid transparent; border-radius: 4px;
   background: linear-gradient(var(--icon-ground), var(--icon-ground)) padding-box, linear-gradient(135deg, var(--gold-deep), var(--gold-light) 40%, var(--gold) 60%, var(--gold-deep)) border-box;
+}
+.frame-kina-brons {
+  --card-bg: radial-gradient(circle at 85% 12%, rgba(79,143,125,.14), transparent 45%), var(--bronze-ground);
+  --card-accent: var(--bronze-light); --card-line: var(--bronze);
+  border: 6px solid transparent; border-radius: 2px;
+  background: linear-gradient(var(--bronze-ground), var(--bronze-ground)) padding-box, repeating-linear-gradient(90deg, var(--bronze) 0 8px, var(--bronze-patina) 8px 12px, var(--bronze-deep) 12px 20px, var(--bronze-patina) 20px 24px) border-box;
+}
+.frame-etiopien {
+  --card-bg: radial-gradient(circle at 85% 12%, rgba(194,59,42,.12), transparent 45%), var(--ethio-ground);
+  --card-accent: var(--ethio-gold); --card-line: var(--ethio-red);
+  border: 6px solid transparent; border-radius: 2px;
+  background: linear-gradient(var(--ethio-ground), var(--ethio-ground)) padding-box, repeating-linear-gradient(90deg, var(--ethio-red) 0 8px, var(--ethio-gold) 8px 12px, var(--ethio-green) 12px 20px, var(--ethio-gold) 20px 24px) border-box;
 }
 .frame-medeltid {
   --card-bg: var(--vellum); --card-ink: var(--vellum-ink); --card-dim: #6a5838; --card-accent: var(--rubric); --card-line: var(--gold);
@@ -1887,7 +2183,6 @@ details.used-by summary:hover { color: var(--parchment); }
 .takeaways { margin: 0 0 6px; padding-left: 18px; }
 .takeaways li { margin: 0 0 7px; }
 .takeaway-src { display: block; margin-top: 2px; font: 400 11.5px/1.35 var(--f-mono); color: var(--card-dim); }
-.takeaway-src::before { content: "Källa: "; }
 .takeaway-src a { color: inherit; }
 .parties { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .parties strong { font-size: 13px; }
@@ -1914,6 +2209,9 @@ details.used-by summary:hover { color: var(--parchment); }
 /* "Om uppgifterna" (#1571): källor, hur vi vet, status, kopiera och rapportera i ett hopfällt avsnitt sist i kortet */
 .detail-about { margin: 10px 0 0; border-top: 1px solid var(--card-line, var(--line)); }
 .detail-about > summary { text-transform: none; letter-spacing: normal; font: 600 12.5px/1.3 var(--f-body); }
+/* Kredit och licens för våra egna illustrationer (#1571): en rad i Källor och osäkerhet; kredit för historiska bilder står vid bilden */
+.detail-image-credit { margin: 6px 0; font: 400 12px/1.4 var(--f-mono); color: var(--card-dim); }
+.detail-image-credit a { color: var(--card-accent); }
 /* Vanlig missuppfattning i faktarutan (#838): samma ruta som anteckningen, med fet etikett före varje stycke */
 .detail-myth p { margin: 4px 0 0; }
 .detail-myth b { font-weight: 600; }
@@ -2125,6 +2423,14 @@ details.used-by summary:hover { color: var(--parchment); }
 .app.app.app.focusing.pause-var .focus-bar { bottom: calc(var(--pause-top) + 8px); }
 .app.app.focusing.focus-var :is(.funfact, .ff-tab, .detail-card) { bottom: calc(var(--focus-top) + 8px); }
 .app.app.focusing.focus-var :is(.funfact, .ff-tab) { max-height: calc(100dvh - var(--focus-top) - 8px - 150px); }
+/* Faktarutan (och krigets kort, #1858) får samma tak i dator: under knappraden överst (som slutar cirka 112 px ned) oavsett
+   om raden "Tiden flyttades" eller pausraden syns. 150 px = knappraden, 8 px luft och kortets padding och kant. */
+@media (min-width: 761px) {
+  .app.app.focusing.focus-var .detail-card { max-height: min(38vh, calc(100dvh - var(--focus-top) - 8px - 150px)); }
+}
+@media (min-width: 761px) and (max-height: 880px) {
+  .app.app.focusing.focus-var .detail-card { max-height: min(56vh, calc(100dvh - var(--focus-top) - 8px - 150px)); }
+}
 @media (max-width: 760px) {
   .app.app.focusing.focus-var :is(.funfact, .ff-tab) { max-height: calc(100dvh - var(--focus-top) - 8px - 176px); }
   .app.app.focusing.focus-var .detail-card { max-height: min(40vh, calc(100dvh - var(--focus-top) - 8px - 176px)); }
@@ -2192,6 +2498,12 @@ details.used-by summary:hover { color: var(--parchment); }
   #funfact.ff-s-closed { padding-bottom: 10px; animation: none; }
   #funfact.ff-s-closed :is(.ff-pics, .ff-text, .ff-events, .ff-foot) { display: none; }
   #funfact.ff-s-closed .ff-eyebrow { cursor: pointer; min-height: 22px; }
+  /* Den stängda panelen är en rad: "Visste du? 4" (#1867). Rikets berättelse har ingen sådan rad och behåller sin rubrik och sin räknare. */
+  #funfact.ff-s-closed:not(.ff-story) :is(.ff-sep, .ff-kind, .ff-pager) { display: none; }
+  #funfact.ff-s-closed:not(.ff-story) .ff-peek-count {
+    display: inline-block; min-width: 18px; margin-left: 2px; padding: 2px 6px; border-radius: 999px; box-sizing: border-box;
+    background: var(--ff-ink-soft); color: var(--parchment); font: 600 12px/1 var(--f-mono); letter-spacing: 0; text-align: center;
+  }
   #funfact.ff-dragging { overflow: hidden; transition: none; }
   #funfact.ff-dragging :is(.ff-pics, .ff-text, .ff-foot) { display: revert; }
   #funfact.ff-dragging .ff-pics:not([hidden]) { display: grid; }
@@ -2207,9 +2519,18 @@ details.used-by summary:hover { color: var(--parchment); }
 .detail h3 .rel-sym-h { width: auto; height: 44px; max-width: 72px; margin: 0; vertical-align: baseline; }
 .place-emblems { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: flex-start; margin: 6px 0 10px; }
 .place-emblem { margin: 0; display: flex; flex-direction: column; gap: 4px; max-width: 150px; font-size: 0.85em; }
-.place-emblem img { height: 44px; width: auto; align-self: flex-start; }
+.place-emblem img { height: 32px; width: auto; align-self: flex-start; }
 .place-emblem-flag img { border: 1px solid var(--brass); }
 .place-emblem .meta { display: block; }
+/* Platsens kort (#1977): flaggan och vapnet är små (24 px) bredvid namnet; en bild som kräver namnuppgift (CC BY, CC BY-SA) har en kort
+   kreditrad som första rad i texten, direkt under namnet, och public domain-krediterna ligger i raden Om kartan och källor. I smal
+   skärm och låg yta (flex-ordningen längre ned) ligger kreditraden efter kartknappen, så att knappen syns i det halva arket och vid 800 × 360 */
+.place-head { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 10px; margin: 0 0 2px; }
+.place-head h3 { margin: 0; }
+.place-head .place-emblems { flex-wrap: nowrap; align-items: center; gap: 8px; margin: 0; }
+.place-head .place-emblem { max-width: none; }
+.place-head .place-emblem img { height: 24px; align-self: center; }
+.place-emblem-credit { margin: 0 0 4px; color: var(--card-dim, var(--parchment-dim)); }
 @media (max-width: 760px) { .religion-legend .rel-sym { width: 13px; height: 13px; } }
 .detail .war-link .rel-sym-in { width: 18px; height: 18px; vertical-align: -4px; }
 /* Knappen över symbolen där religionen uppstod (#271): osynlig, men går att nå med Tab och syns med fokusring */
@@ -2239,6 +2560,9 @@ details.used-by summary:hover { color: var(--parchment); }
 .empire-legend li[data-empire][aria-pressed="true"] { box-shadow: inset 2px 0 0 var(--brass); }
 .empire-legend li[data-empire]:focus-visible, .empire-legend :is(.el-close, .el-more summary):focus-visible { outline: 2px solid var(--brass); outline-offset: 0; }
 .empire-legend .el-star { width: 16px; color: var(--brass); text-align: center; font-size: 15px; line-height: 1; }
+/* Område som inte är en stat (#1300): samma ringmönster som på kartan, i rikets färg (--area), i stället för stjärnan */
+.empire-legend .el-area { width: 16px; height: 16px; flex: none; border: 1px solid var(--area, var(--brass)); border-radius: 3px;
+  background: radial-gradient(circle, transparent 1.6px, var(--area, var(--brass)) 1.7px, var(--area, var(--brass)) 2.4px, transparent 2.5px) 0 0 / 8px 8px; }
 .empire-legend .el-note { display: block; }
 @media (max-width: 760px) {
   .empire-legend .el-close { top: 0; min-width: 36px; min-height: 36px; }
@@ -2428,6 +2752,8 @@ details.used-by summary:hover { color: var(--parchment); }
     /* Raden radbryts (#1134): hela meningen ska synas på 400 px, på alla språk, i stället för att klippas med ellips */
     margin: 3px 0 0; font-size: 10px; letter-spacing: .05em; line-height: 1.35; white-space: normal; overflow-wrap: anywhere;
   }
+  /* Teckenförklaringen får använda två korta rader i mobil i stället för att klippas vid 400 px (#1307). */
+  .timeline-legend { height: auto; min-height: 14px; flex-wrap: wrap; column-gap: 10px; row-gap: 2px; white-space: normal; overflow: visible; }
   /* Mobilmenyn (#530): bara Samtidigt och Meny i raden överst. Resten ligger i en nedfällbar panel under Meny. */
   .top-actions { flex-direction: row; flex-wrap: nowrap; align-items: center; gap: 3px; top: calc(env(safe-area-inset-top, 0px) + 6px); }
   /* 40 px synligt, 46 px tryckyta (::after räknas från knappens insida, innanför ramen) */
@@ -2454,8 +2780,8 @@ details.used-by summary:hover { color: var(--parchment); }
   .more-menu .action-group + .action-group { padding-top: 8px; border-top: 1px solid var(--line); }
   .more-menu .chip-btn { height: 44px; text-align: left; }
   .more-menu .chip-btn::after { inset: 0; }
-  /* Vy: tre knappar bredvid varandra överst i menyn */
-  .more-menu .view-mode { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  /* Vy: Glob och Platt karta bredvid varandra. Stil står som egen grupp direkt under (#1577). */
+  .more-menu .view-mode { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .more-menu .view-mode .action-label { grid-column: 1 / -1; }
   .more-menu .view-mode .chip-btn { height: auto; min-height: 48px; padding: 6px 4px; text-align: center; white-space: normal; line-height: 1.15; hyphens: manual; }
   /* Mer: knappen behövs inte i mobilen, Källor, Hjälp och Dela står som en rad längst ner */
@@ -2472,8 +2798,11 @@ details.used-by summary:hover { color: var(--parchment); }
   .controls { margin-bottom: 6px; }
   /* Teckenförklaringen och skalraden (#1313) ligger i den nedre marginalen, som här bara är 6 px: de lyfts 2 px (högre krockar de med årtalens nederkant)
      så att texten inte klipps av skärmens underkant. Marginalerna räknas så att raden inte ändrar tidsradens höjd. */
-  .timeline-legend { margin: -2px 0 -10px; }
-  .timeline-scale-note { margin: -2px 0 -14px; }
+  .timeline-legend { margin: -3px 0 -6px; }
+  /* Årtalen står 3 px högre (som i liggande telefon) och raden är 14 px hög i stället för 17: teckenförklaringen ligger nu helt inom fönstret och under årtalen,
+     förut 4 px under fönstrets underkant och 2 px in i årtalens ruta (#1713, omgång 3). Tidsradens höjd är oförändrad (14 − 3 − 6 = 17 − 2 − 10 + 0). */
+  .ticks { top: 27px; }
+  .timeline-scale-note { margin: -3px 0 -14px; } /* samma lyft som teckenförklaringen: med -2px blev tidsraden 1 px högre medan skalraden syns */
   /* Tryckytorna (::after) möts mitt i mellanrummen: 44 px höga och i 400 px minst 44 px breda */
   .controls :is(.step, .play) { position: relative; height: 34px; }
   .controls :is(.step, .play)::after { content: ""; position: absolute; inset: -6px -3px; }
@@ -2500,7 +2829,7 @@ details.used-by summary:hover { color: var(--parchment); }
   .focus-moved .link-btn::after { content: ""; position: absolute; inset: -10px -4px; }
 
   /* Korten och arken börjar ovanför tidslinjen, pausraden och fokusraden (samma variabel som #239) */
-  .app { --ff-b: 102px; }
+  .app { --ff-b: 108px; }
   .app:has(.pause-note:not([hidden])) { --ff-b: 170px; }
   .app.focusing { --ff-b: 158px; }
   .app.focusing:has(.pause-note:not([hidden])) { --ff-b: 226px; }
@@ -2554,7 +2883,6 @@ details.used-by summary:hover { color: var(--parchment); }
   /* (i) och Rapportera faktafel: 44 px tryckyta utan att ytorna går in i varandra när raden bryts */
   #detail .detail-actions { min-height: 44px; gap: 22px 10px; }
   #detail .review-explain { margin-top: -12px; }
-  #detail .review-info::after { inset: -14px; }
   #detail .report-btn { position: relative; padding: 10px 0; }
   #detail .report-btn::after { content: ""; position: absolute; inset: -6px -4px; }
   #detail[data-sheet="full"], #detail.sheet-dragging { max-height: calc(100dvh - var(--ff-b) - 72px - env(safe-area-inset-top, 0px)); z-index: var(--z-band); }
@@ -2651,6 +2979,11 @@ details.used-by summary:hover { color: var(--parchment); }
   /* Lärarbladet (#888): på tyska i reservtypsnittet (DejaVu Sans) mätte det 1037 px i Chromium och 1040 px i Firefox mot
      A4:s 1039 px, alltså på gränsen. Lite tätare listor ger marginal i båda; elevbladen är orörda */
   .print-teacher .print-curriculum > li, .print-teacher .print-questions-short > li { margin-bottom: 2.5pt; }
+  /* Lärarfältet i andra världskrigets lektion fick en rad om bilderna från Auschwitz och atombomberna (#2018), och lärarbladet blev
+     cirka 60 px för högt (franska med webbtypsnitt 1011 px, tyska med DejaVu Sans 1063 px, gränserna 1007 och 1038, #1940).
+     Lärarbladet får något mindre text, 10 pt i stället för 10,5, och tätare rader; minsta texten är fortfarande över 8 pt.
+     Texten är densamma och elevbladen är orörda */
+  .print-teacher { font-size: 10pt; line-height: 1.33; }
 }
 
 /* Temats introduktionskort (#398): händelserna som knappar i tidsordning */
@@ -2676,6 +3009,19 @@ span.theme-event:hover { background: none; outline: none; }
 @media (pointer: coarse) { .detail-card .detail-close::after { content: ""; position: absolute; inset: -8px; } }
 .theme-exit { margin: 2px 0 6px; }
 .place-flat { margin-right: 6px; }
+/* Platsens kort (#1790): Sluta följa platsen är en textlänk sist, och i regionvyn har rutan redan Lämna regionvyn, så kortets knapp göms där */
+.place-exit { display: inline-block; margin: 10px 0 2px; }
+.region-view #detail [data-selection-action] { display: none; }
+/* Händelsekortets datumrad (#1792): datumet först, platsen (klippt till två rader) och kategorin på raden under */
+.detail-card .meta-where { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 0.4em; }
+.detail-card .meta-place { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.detail-place-full { margin: 6px 0; font-size: 0.92em; }
+/* "≈ 42 000 år sedan" med (i) som förklarar f.Kr. mot år sedan (#1979); förklaringen fälls ut under datumraden */
+.detail-card .meta-when .ago-info { margin-left: 6px; vertical-align: middle; }
+.detail-card .meta-when + .scale-note { margin: 2px 0 8px; }
+.place-about > summary { color: var(--card-dim, var(--parchment-dim)); }
+.place-about .theme-filter-note, .place-credit { margin: 6px 0; }
+.place-credit { color: var(--card-dim, var(--parchment-dim)); font-size: 0.9em; }
 .chip-btn[hidden] { display: none; }
 
 /* Plats- och temakortens fällbara listor behöver en verklig tryckyta även med mus (#1713).
@@ -2687,15 +3033,17 @@ span.theme-event:hover { background: none; outline: none; }
    dokumentordning och varje knapp är positionerad, så en grannes synliga yta går före en annans förlängning. */
 @media (max-width: 760px) {
   :is(.filter, .view-chip, .link-btn, .ff-chip, .ff-handle, .timeline-legend summary, .panel-x, .focus-tabs .chip-btn, .focus-sort .chip-btn,
-      .timebar .step, .timebar .play) { position: relative; }
+      .panel-tab, .panel-filter-toggle, .timebar .step, .timebar .play) { position: relative; }
+  /* Stängknappen i Samtidigt ligger uppe till höger (stilen ovan ger alla .panel-x position: relative och slog ut den, så att × täckte rubriken) */
+  .panel-head .panel-x { position: absolute; }
   :is(.filter, .view-chip, .link-btn, .ff-chip, .ff-handle, .panel-x, .focus-tabs .chip-btn, .focus-sort .chip-btn,
-      .timebar .step, .timebar .play)::after {
+      .panel-tab, .panel-filter-toggle, .timebar .step, .timebar .play)::after {
     content: ""; position: absolute; left: 50%; top: 50%; width: max(100%, 44px); height: max(100%, 44px); transform: translate(-50%, -50%);
   }
   /* Text på minst 12 px */
-  .segment-note, .chip-btn .count, .filter, .panel-filters .filter, .region-count, .ff-name, .ff-more, .ff-badge, .ff-pre, .ff-sep, .ff-kind, .ff-pager, .ff-drag-hint,
+  .segment-note, .chip-btn .count, .filter, .panel-filters .filter, .panel-sec, .region-count, .ff-name, .ff-more, .ff-badge, .ff-pre, .ff-sep, .ff-kind, .ff-pager, .ff-drag-hint,
   .review-badge, .controls .speed, .controls .step, .tick, .timeline-legend summary, .timeline-legend, .layer-heading, .focus-sort-label,
-  .focus-sort .chip-btn, .layer-note, .focus-group-count, .tour-lesson-meta, .view-chip, .view-chip-desc, .empire-legend-button { font-size: 12px; }
+  .focus-sort .chip-btn, .layer-note, .layer-coverage, .focus-group-count, .tour-lesson-meta, .view-chip, .view-chip-desc, .empire-legend-button { font-size: 12px; }
   .focus-group-toggle, .focus-group-toggle > span { font-size: 12px; }
   /* Ytor som tillkommit efter det första mobilprovet (#1713). */
   .action-label, .extra-label, .layer-subheading, .teacher-h, .teacher-lesson-meta, .flat-region-name, .flat-region-legend,
@@ -2706,10 +3054,12 @@ span.theme-event:hover { background: none; outline: none; }
   /* Täta rader (flikarna och sorteringen i Sök och följ, förvalen i Lager): ytan är en verklig höjd som med raden mellan chipsen
      blir 44 px, så att förlängningen inte krockar med raden ovanför och under */
   .focus-tabs .chip-btn, .focus-sort .chip-btn { min-height: 40px; }
+  /* Flikarna i Sök och följ är en vågrät rullrad (#1947, rättar #1951 i grunden): tio flikar i flera rader tog halva menyn */
+  .focus-tabs { flex-wrap: nowrap; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; scrollbar-color: var(--brass-deep) var(--night-3); }
   .view-chip { min-height: 38px; }
   .view-chips { gap: 6px; }
   .focus-search { min-height: 44px; }
-  .place-flat, .theme-exit { min-height: 44px; } /* knapparna i tema- och platskorten (#1161) */
+  .place-flat, .theme-exit, .place-exit { min-height: 44px; } /* knapparna i tema- och platskorten (#1161) */
   /* Stängknappen i Lager, Sök och följ och Turer: menyerna fyller nästan hela skärmen och har annars bara Escape och knappen bakom */
   .menu-x {
     display: grid; place-items: center; float: right; position: sticky; top: 0; z-index: 1;
@@ -2720,6 +3070,16 @@ span.theme-event:hover { background: none; outline: none; }
   .menu-x:hover, .menu-x:focus-visible { color: var(--brass); outline: 2px solid var(--brass); outline-offset: -4px; }
 }
 @media (min-width: 761px) { .menu-x { display: none; } }
+/* Låg skärm (#1951): Sök och följ ligger över knapparna, också över sin egen knapp, så stängknappen behövs där som i smal skärm.
+   Gruppens rubrik på gruppens egen flik upprepar fliken och raden "N resultat · Filter" och tar en av de få raderna; den döljs där. */
+.focus-menu-low .menu-x {
+  display: grid; place-items: center; float: right; position: sticky; top: 0; z-index: 1;
+  width: 44px; height: 44px; margin: -6px -6px 0 0; padding: 0;
+  font: 500 24px/1 var(--f-body); color: var(--parchment);
+  background: color-mix(in srgb, var(--night-2) 96%, transparent); border: 0; border-radius: var(--r); cursor: pointer;
+}
+.focus-menu-low .menu-x:hover, .focus-menu-low .menu-x:focus-visible { color: var(--brass); outline: 2px solid var(--brass); outline-offset: -4px; }
+.focus-menu-low .focus-own-tab .focus-group-toggle { display: none; }
 
 /* ---------- Låg höjd och 200 % zoom: faktarutan, turkortet och turraden får plats (#1310) ----------
    Korten ligger förankrade nedtill, och deras högsta höjd var "skärmens höjd minus ett fast avstånd uppåt". På en låg yta
@@ -2749,9 +3109,29 @@ span.theme-event:hover { background: none; outline: none; }
   .app.app.app.pause-var .tour-card { --tour-bottom: calc(var(--pause-top) + 8px); }
   .tour-card .tour-name { display: none; } /* turens namn står redan i turraden under kortet; kortets namn hämtas ändå av aria-labelledby */
   /* Nästa och Lämna turen ligger fast längst ned när kortet rullar (#1310, #1572): foten ytterst, knapparna ovanför den */
-  .tour-card .tour-actions { position: sticky; bottom: 47px; margin-top: 8px; padding: 8px 0 0; background: var(--night-2); }
-  .tour-card .tour-foot { position: sticky; bottom: 0; margin-top: 0; padding: 2px 0 8px; background: var(--night-2); }
+  .tour-card .tour-actions { margin-top: 0; padding: 8px 0 0; }
+  .tour-card .tour-foot { margin-top: 0; padding: 2px 0 8px; }
   .app.app.app #detail, .app.app.app #funfact { scrollbar-width: thin; scrollbar-color: var(--brass-deep) var(--night-3); }
+}
+/* Låga fönster (#2147): hela foten följer texten. Ingen överlagrad läsknapp tar läsyta.
+   Samma höjdgräns som lektionens rullande uppdragslänk (js/ui/lesson.js). */
+@media (max-height: 600px) {
+  .tour-card .tour-bar { position: static; }
+  .tour-card .tour-more { display: none; }
+}
+/* I telefonens lägsta fönster behöver även kortets huvud vara kompakt. Stegnumret
+   ersätter den dubblerade grafiska mätaren; kapitlet och rubriken står kvar. */
+@media (max-height: 480px) {
+  .app.app.app .tour-card { padding-top: 4px; }
+  .tour-card .tour-head { float: right; margin: 0 0 2px 8px; }
+  .tour-card .tour-meter { display: none; }
+  .tour-card .tour-chapter { margin-top: 0; }
+  .tour-card .tour-title { margin-top: 2px; font-size: 19px; }
+  .tour-card .tour-text { margin-top: 4px; }
+}
+@media (max-height: 480px) and (max-width: 760px) {
+  /* Lärarens årtal slutar vid 138 px; 170 px reserverade en tom lucka och trängde ut texten i 667×375. */
+  .app.touring.lesson-teacher { --tour-top: 144px; }
 }
 @media (max-height: 600px) and (min-width: 761px) and (max-width: 1100px) {
   .app { --tour-top: calc(var(--tablet-actions-height, 98px) + 120px); } /* årtalet ligger under knapparna på en platta yta (#992) */
@@ -2764,6 +3144,15 @@ span.theme-event:hover { background: none; outline: none; }
   .focus-tabs { flex-wrap: nowrap; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; }
   .focus-body { min-height: 72px; }
 }
+/* Liggande telefon (#1951): huvudet rullar bort med listan, så flera hela träffrader får plats.
+   top och max-height ersätter bara öppningskodens inline-mått i detta läge. Bakgrundsfiltret tas bort
+   så att stängknappen kan ligga fast mot skärmen; den täta bakgrunden behåller läsbarheten. */
+@media (max-height: 480px) and (max-width: 1100px) and (orientation: landscape) and (pointer: coarse) {
+  .focus-menu { display: block; top: 8px !important; max-height: calc(100dvh - 24px) !important; overflow-y: auto; overscroll-behavior: contain; z-index: var(--z-meny); backdrop-filter: none; background: var(--night-2); }
+  .focus-menu .focus-head { max-height: none; overflow: visible; padding-right: 54px; }
+  .focus-menu .focus-body { min-height: 0; overflow: visible; padding-right: 54px; }
+  .focus-menu .menu-x { display: grid; position: fixed; top: 14px; right: calc(var(--gut-r) + 6px); margin: 0; }
+}
 @media (max-height: 600px) and (max-width: 760px) {
   .app { --tour-top: 76px; }
   .app.lesson, .app.lesson-notice { --tour-top: 130px; }
@@ -2773,9 +3162,9 @@ span.theme-event:hover { background: none; outline: none; }
   #detail { max-height: min(52dvh, calc(100dvh - var(--ff-b) - 120px)); }
 }
 
-/* Liggande pekskärm i bred layout (#1694): plattans topprad och det stora årtalet lämnade bara 16 px åt turkortet.
+/* Låga fönster i bred layout (#1694, #2147): plattans topprad och det stora årtalet lämnade bara 16 px åt turkortet.
    Under turen ger menyraden plats åt ett kompakt årtal, och kortet rullar ovanför turraden som i smal layout. */
-@media (min-width: 761px) and (max-width: 1100px) and (max-height: 480px) and (pointer: coarse) {
+@media (min-width: 761px) and (max-width: 1100px) and (max-height: 480px) {
   .app.touring { --tour-top: 64px; }
   .app.touring.lesson, .app.touring.lesson-notice { --tour-top: 116px; }
   .app.touring .top-actions { visibility: hidden; }
@@ -2786,9 +3175,7 @@ span.theme-event:hover { background: none; outline: none; }
   .app.touring .year-jump { min-height: 44px; align-items: center; }
   .app.touring .year-big { font-size: 30px; }
   .app.touring .year-era { font-size: 16px; }
-  .app.touring .tour-card .tour-actions { bottom: 55px; } /* den 44 px höga utgången och fotens utfyllnad */
   /* Lektionen lämnas från sitt band; den dolda Lämna turen-knappen ska inte reservera en tom fot. */
-  .app.touring.lesson .tour-card .tour-actions { bottom: 0; }
   .app.touring.lesson .tour-card .tour-foot { display: none; }
 }
 
@@ -2817,7 +3204,215 @@ span.theme-event:hover { background: none; outline: none; }
   .app.app.app:not(.touring):has(#detail[data-sheet="full"]:not([hidden])) :is(.timebar, #focus-bar, #pause-note, .religion-legend) { visibility: hidden; }
 }
 
+/* ---------- Låg yta: knappen i platskortet direkt under rubriken (#1693) ----------
+   Vid 800 × 360 syntes bara rubriken, och "Visa i Platt karta" låg efter den långa brödtexten och nåddes med rullning (som inte
+   syns på pekskärm). På en låg yta (högst 480 px, som reglerna för liggande telefon ovan) flyttas knappen därför upp med CSS
+   `order`, bara i bilden: markupen är oförändrad, så att tangentbordsordningen (krysset, knappen, händelserna, rikena, Om kartan,
+   Sluta följa platsen) är densamma som förut och stämmer med den synliga ordningen (WCAG 2.4.3). Det som byter plats är läsbar text
+   utan fokus (typraden, flaggorna och inledningen), så skärmläsarens ordning är rubrik, text, knapp medan ögat ser rubrik, knapp,
+   text; knappens namn säger vad den gör ("Visa på kartan: Skåne"), så ordningen behövs inte för att förstå den (WCAG 1.3.2).
+   Samma regel gäller i smal skärm (#1977, UX-genomgången #1853, fynd 2.2): i platskortets halva ark nådde man inte knappen utan att dra
+   upp arket, eftersom den låg efter inledningen och fokusraden täcker arkets nederkant. */
+@media (max-width: 760px), (max-height: 480px) {
+  .detail-selection .story { display: flex; flex-direction: column; }
+  .detail-selection .story > [data-selection-action] { order: -1; align-self: flex-start; }
+  .detail-selection .story > .place-type { order: -2; }
+}
+/* På en pekskärm är knappen minst 44 px hög också i bred layout (i smal layout gäller det redan, #1161). */
+@media (max-height: 480px) and (pointer: coarse) {
+  .detail-selection .place-flat { min-height: 44px; }
+}
+/* Bred och låg (800 × 360): knapparna överst är dolda medan kortet är öppet (#1667), så de 150 px som taket i regelsetet ovan lämnar åt
+   dem behövs inte. Kortet får gå upp mot skärmens överkant (cirka 8 px luft) i stället för att bli cirka 70 px högt, så att rubriken, typraden
+   och knappen får plats; 30 px är kortets padding och kant (höjden räknas utan dem). Kortet ligger i högerkanten och årtalet i vänsterkanten, så de möts inte. */
+@media (min-width: 761px) and (max-height: 480px) {
+  .app.app.focusing.focus-var .detail-card { max-height: calc(100dvh - var(--focus-top) - 8px - 12px - 30px); }
+}
+
+/* Bred och låg (800 × 360, #1713 punkt 5): Samtidigt-kortet (Visste du?) och dess flik ligger nere till vänster, där årtalet står när ytan är så
+   låg (årtalet ligger under knapparna överst, cirka y 154–211, och kortet cirka y 150–220), så kortet täckte årtalet. Uppmätt i Playwright på
+   800 × 360 för 2601 f.Kr. och 1325. Kortet börjar därför till höger om årtalet (cirka 206 px med "f.Kr."; 216 px med luft) och är lika bredd som
+   förut. Medan faktarutan är öppen ligger den i högerkanten där kortet nu skulle hamna: då döljs kortet och fliken som i smal layout
+   (rad 1822, "faktarutan och fun fact-kortet delar plats"). */
+@media (min-width: 761px) and (max-height: 480px) {
+  .funfact, .ff-tab { left: calc(var(--gut) + 216px); }
+  .funfact { width: min(380px, calc(100vw - var(--gut) - 216px - var(--gut-r))); }
+  .app.has-detail .funfact, .app.has-detail .ff-tab { display: none; }
+}
+
+/* ---------- Liggande telefon (800 × 360): fokusraden, Samtidigt-kortet och träffytor som tog tryck av varandra (#1932) ----------
+   Uppmätt i Playwright (800 × 360, pekskärm) på main efter #1927:
+   1. Rikes- och krigsfokus: fokusraden (y 180–242) låg över årtalets nedre del (y 154–211) och raden under det. Mitten av årtalsknappen
+      träffade fokusraden, och "FÖLJER …"-raden under årtalet var täckt. Årtalet ligger under knapparna överst (#992) och fokusraden ovanför
+      tidsreglaget, och på 360 px höjd mäts de mot varandra. Medan man följer något förankras därför årtalet i stället ovanför fokusraden:
+      nedkanten följer fokusradens ovankant (--focus-top, mätt i js/main.js, #183) och rymmer också en högre rad (pausraden, "Tiden flyttades"),
+      i stället för ett fast avstånd. Året ligger därmed alltid fritt för tryck.
+   2. Samtidigt-kortet var 70 px högt (höjden räknade med 150 px för knapparna överst som en rad; här är de två rader men bara
+      till höger). Taket går nu upp till knapparnas underkant, och bildremsan (132 px, med samma händelser som chipsen) döljs i den låga
+      ytan, så att texten syns i stället för en klippt bild.
+   3. Samtidigt-listan var 93 px hög (150 px reserverades för tidsreglaget) och rymde bara rubriken: raderna fick 18 px. Som i smal skärm får
+      listan nu gå ned till kanten och ligga över tidsreglaget (js/ui/panel.js); raderna är då överst och tidsreglagets utökade träffyta kan
+      inte ta deras tryck. Världsdelsflikarna ligger på en rad som rullar i sidled (som i smal skärm, i stället för två rader på 93 px), och
+      i en så låg ruta rullar hela listan, rubrik och filter först, så att raderna går att nå med ett drag. */
+@media (min-width: 761px) and (max-width: 1100px) and (max-height: 480px) {
+  .app.app.focusing.focus-var:not(.lesson):not(.lesson-notice):not(.touring) .masthead { top: auto; bottom: calc(var(--focus-top) + 6px); margin-top: 0; }
+  /* Teckenförklaringens knapp (Riken, Krigsområden) lades av js/ui/legend.js 8 px under årtalsplattan och hamnade då under fokusraden. Den ligger
+     i stället fri under raden, till vänster om tidsreglagets knappar, där den låg förut (fokusraden slutar 118 px över kanten). Den ligger också över
+     tidsreglagets rad (z-index som fokusraden): raden är en genomskinlig ruta över hela bredden som annars tog trycket på knappen. Inline-stilen top
+     från legend.js måste överstyras; utseendet och den öppna listan är oförändrade. */
+  .app.app.focusing.focus-var:not(.lesson):not(.lesson-notice):not(.touring) .religion-legend { top: calc(100dvh - 110px) !important; z-index: var(--z-fokus); }
+}
+@media (min-width: 761px) and (max-height: 480px) {
+  .funfact { max-height: calc(100dvh - 140px - 118px); }
+  .app.app.focusing.focus-var :is(.funfact, .ff-tab) { max-height: calc(100dvh - var(--focus-top) - 8px - 118px); }
+  .funfact .ff-pics { display: none; }
+  .panel { overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: var(--brass-deep) var(--night-3); }
+  .panel .event-list { flex: none; overflow: visible; }
+  .panel-tabs { flex-wrap: nowrap; overflow-x: auto; }
+}
+/* Liggande telefon i smal layout (667 × 375): Visste du?-arket i läget halvt var 97 px högt, eftersom 176 px reserverades uppåt för knappar och
+   årtal som i stående telefon. Här ligger de på en rad (cirka 56 px), och i 97 px rymdes bara en klippt bildremsa: bildernas Läs mer-knappar
+   och chipsen låg under den fasta knappraden (uppmätt med elementFromPoint, #1932). Taket följer raden i stället. */
+@media (max-width: 760px) and (max-height: 480px) {
+  #funfact.ff-s-half { max-height: min(46dvh, calc(100dvh - var(--ff-b) - 64px)); }
+}
+/* "Pågår sedan länge" sist i Samtidigt-listan: dess 44 px höga träffyta gick 10 px upp över raden ovanför. Avståndet ger ytan eget utrymme. */
+@media (max-width: 760px), (pointer: coarse) { .panel-more { margin-top: 10px; } }
+
 /* Raden om projektet sist i Om källorna (#1575) */
 .src-about { margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--line); font-size: 13px; color: var(--parchment-dim); }
 .src-about a { color: var(--brass); }
 .src-about a:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+
+/* ---------- Träffytor och text i korten och regionvyn, omgång 2 (#1713) ----------
+   Mätt i Playwright i 400 × 800 med pekning, 800 × 360 med pekning (bred layout) och 1280 × 800 med mus. Det som var under kravet
+   (minst 44 px träffyta på pekskärm, minst 24 px med mus enligt WCAG 2.5.8, och minst 12 px text på pekskärm och i smal skärm)
+   rättas här utan att layouten ändras mer än nödvändigt: den synliga storleken är densamma, ytan ligger i en osynlig ::after, och
+   text på 12 px sätts bara där det är smalt eller pekskärm (som #1309 och #1774; mus på bred skärm behåller sina 11–11,5 px).
+   Pseudoelementens inset räknas från knappens insida, innanför ramen: en ruta med 2 px ram behöver därför 2 px mer än utan ram. */
+
+/* Alla bredder: minst 24 px med mus (rader som var 14–22 px höga). Utseendet är oförändrat. */
+.facts-section > summary, .help-card details > summary, .detail-myth .myth-origin > summary { box-sizing: border-box; min-height: 24px; padding-block: 4px; }
+.detail .war-list .link-btn[data-year] { min-width: 24px; justify-content: center; }
+.detail .evidence-group li > a { display: inline-block; box-sizing: border-box; min-height: 24px; padding-block: 4px; }
+/* "i" vid granskningsstatusen, osäkerheten och år sedan (24 px med 1 px ram, så -11 px): 44 px yta */
+.review-info::after { inset: -11px; }
+
+/* Sorteringsknapparna i Sök och följ var 22 px höga med mus; med pekning gäller 40 px + ytan (reglerna längre upp och här) */
+@media (min-width: 761px) { .focus-sort .chip-btn { min-height: 24px; } }
+
+/* Pekskärm och smal skärm: raderna i korten är minst 44 px höga och texten minst 12 px */
+@media (max-width: 760px), (pointer: coarse) {
+  /* Regionvyns hög och bricka har 2 px ram: ytan räknas från innersidan, så 30 px blev 40 px. 44 px med -9 px. */
+  .rpile::before { inset: -9px; }
+  .rbrick::before { inset: -9px -4px; }
+  .facts-section > summary, .help-card details > summary, .detail-myth .myth-origin > summary, .detail-selection .theme-event-list > summary,
+  .place-about > summary, .detail .rp-disc > summary { min-height: 44px; padding-block: 14px; }
+  /* Länkarna ligger tätt (24 px mellan raderna) och en osynlig förlängning räcker inte när grannen ligger över: raden själv är 44 px */
+  .detail .war-list .link-btn, .detail .empire-list .link-btn { min-height: 44px; }
+  .detail .evidence-group li > a { min-height: 44px; padding-block: 14px; }
+  .detail-actions { row-gap: 20px; }
+  /* Hjälpkortets två länkar (24 px höga) har 44 px yta var: med 8 px mellan raderna överlappade ytorna cirka 5 px (#1713, uppföljning) */
+  .help-feedback { margin-top: 14px; }
+  .detail .focus-btn { min-height: 44px; }
+  :is(#sources-close, #src-q, #src-status) { min-height: 44px; box-sizing: border-box; }
+  .layer-customize, .panel-filter-toggle, .focus-group-toggle { min-height: 44px; }
+  /* Text på minst 12 px (förut 9,5–11,5 px) */
+  .detail .meta, .detail .story-label, .detail .story h4, .detail dt, .detail .war-list h4, .detail .war-list .meta, .detail .scale-note,
+  .detail .report-btn, .detail .review-info, .detail .review-badge, .detail .evidence-group h5, .detail .evidence-ref, .detail .fig-badge,
+  .detail .detail-note > summary, .detail figcaption, .detail-fig figcaption, .area-curve .ac-head, .area-curve .ac-note,
+  .intro-progress, .intro-event-label, .tour-progress, .tour-chapter, .lesson-band-title, .region-num, .src-group-meta,
+  .sheet-body .src-hits, .sheet-body label, .rmark, .rpile, .rpile-count, .rpile-years { font-size: 12px; }
+  /* Samma som i smal skärm (#1309), men också på en bred pekskärm (liggande telefon): där var de 11 px */
+  .focus-sort .chip-btn, .focus-sort-label, .tick, /* sorteringen i Sök och följ och årtalen under reglaget, också i liggande telefon (#1713, omgång 3) */
+  .segment-note, .chip-btn .count, .region-count, .panel-sec, .focus-label, .focus-state, .rl-title, .flat-region-name, .flat-region-legend, .flat-region-next,
+  .globe-region-chip .flat-region-next, .globe-region-chip .flat-region-legend, .timeline-legend { font-size: 12px; } /* teckenförklaringen under reglaget, också i liggande telefon (#2128) */
+  .year-readout:has(.year-jump.fine) + .segment-note { font-size: 12px; } /* raden under datumet i fokus för korta krig (#204) */
+  .ac-t, .ac-peak-t { font-size: 13px; } /* i diagrammets egna enheter (320 breda); visas cirka 12 px i 400 px */
+}
+
+/* Pekskärm i bred layout (liggande telefon, 800 × 360, och surfplatta): knapparna ovanpå, tidsreglaget och menyerna har 44 px yta.
+   Samma osynliga ::after som i smal skärm (#1309); den synliga storleken är oförändrad. Bara de som är statiska får position. */
+@media (min-width: 761px) and (pointer: coarse) {
+  :is(.top-actions .chip-btn, .focus-bar .chip-btn, .focus-tabs .chip-btn, .focus-sort .chip-btn, .layer-customize, #sources-close,
+      .timebar .step, .timebar .play, .panel-tab, .panel-filter-toggle, .link-btn, .focus-action, .focus-group-toggle) { position: relative; }
+  :is(.top-actions .chip-btn, .focus-bar .chip-btn, .focus-tabs .chip-btn, .focus-sort .chip-btn, .layer-customize, #sources-close,
+      .timebar .step, .timebar .play, .panel-tab, .panel-filter-toggle, .link-btn, .focus-action, .focus-group-toggle, .panel-x)::after {
+    content: ""; position: absolute; left: 50%; top: 50%; width: max(100%, 44px); height: max(100%, 44px); transform: translate(-50%, -50%);
+  }
+  .focus-tabs .chip-btn, .focus-sort .chip-btn { min-height: 40px; }
+  .focus-search { min-height: 44px; }
+  .focus-action { min-width: 44px; min-height: 44px; }
+  /* Samtidigt-fliken är själv 44 px hög (som i smal skärm): en osynlig ::after på 44 px låg över årtalsknappen och stal trycket (#1713, uppföljning) */
+  .ff-tab { min-height: 44px; padding-top: 0; padding-bottom: 0; }
+  .settings-rows .layer-row { min-height: 44px; }
+}
+
+/* ---------- Liggande telefon: regionvyn lämnar kartan fri (#1952) ----------
+   Uppmätt i Playwright (800 × 360 och 640 × 360, pekskärm, Aotearoa på globen): rutan, kortet, fokusraden (två rader), årtalet och
+   knapparna överst täckte 79–87 % av bilden, så regionvyn hade 13–21 % kvar och platsen låg bakom dem. Medan regionvyn är öppen
+   (.region-view) fälls därför det som inte behövs just då ihop, bara på en låg liggande yta (högst 480 px hög; stående telefon,
+   dator och surfplatta har kvar sina mått):
+   1. Platskortet stängs när vyn öppnas (js/controllers/region.js, foldCard); Om platsen i fokusraden öppnar det igen, och en markör
+      öppnar händelsens kort som förut. Listan med nummer finns kvar i kortet.
+   2. Knapparna överst är dolda som när kortet är öppet (#1667); Lämna regionvyn ger tillbaka dem.
+   3. Årtalet är bara årtalet (som under en tur, #1694): rubriken och raden under det döljs för ögat (men finns kvar för skärmläsare), och fokusraden säger samma sak.
+   4. Rutan är kompakt i Platt vy som på globen (#1900): rubrik och knapp överst, utan den långa texten.
+   5. Fokusraden är en rad: rubriken kortas med tre punkter i stället för att knapparna bryts till en andra rad.
+   6. Zoomknapparna i Platt vy ligger högre upp och i bred layout i två kolumner, och Platt vys karta börjar vid sidans överkant (flatmap.js, layoutSpan).
+   Alla knappar behåller sin storlek och 44 px träffyta; bara radbrytningar, utrymme och dolda rader ändras. */
+@media (max-height: 480px) and (orientation: landscape) {
+  .app.region-view .top-actions { visibility: hidden; }
+  /* Dolda för ögat men kvar för skärmläsare (h1 och raden under årtalet), som rubriken i smal layout */
+  .app.app.region-view .masthead :is(.brand, .segment-note) { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .app.app.region-view .masthead { padding-bottom: 2px; }
+  .app.region-view .year-readout { margin-top: 0; min-height: 44px; align-items: center; }
+  .app.region-view .year-big { font-size: 30px; }
+  .app.region-view .year-era { font-size: 16px; }
+  /* Rutan i Platt vy som den på globen (#1900): rubrik och knapp, utan den långa texten */
+  .app.region-view .flat-region:not([hidden]) { display: grid; justify-items: start; gap: 2px 8px; padding: 4px 4px 4px 10px; }
+  .app.region-view .flat-region .flat-region-note { display: none; }
+  .app.region-view .flat-region .flat-region-context { display: block; order: 3; margin: 0; font-size: 11.5px; }
+  .app.region-view .flat-region .flat-region-next { order: 2; flex-basis: 100%; margin: 0 0 2px; font-size: 11.5px; }
+  .app.region-view .flat-region .flat-region-legend { order: 3; flex-basis: 100%; margin: 0; font-size: 11.5px; }
+  .app.region-view .flat-region .flat-region-back { flex: none; }
+  /* Zoomknapparna (Platt vy) är 44 px (i bred layout förut 40 px) och ligger tätare och högre upp (mått: region.js, ZOOM_LOW) */
+  .app.region-view .flat-zoom { top: 4px; gap: 4px; }
+  .app.region-view .flat-zoom .flat-zbtn { width: 44px; height: 44px; }
+  .app.region-view .flat-zoom .flat-poster { width: auto; }
+  .app.region-view .globe-region-chip, .app.region-view .flat-region { width: auto; max-width: min(280px, calc(100% - var(--gut) - var(--gut-r))); }
+  /* Årtalets platta i smal layout går annars över hela bredden och tonar ned zoomknapparna */
+  .app.app.region-view .masthead { right: auto; }
+  .app.region-view .focus-bar { flex-wrap: nowrap; }
+  .app.region-view .focus-bar .focus-title { flex: 1 1 0; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .app.region-view .focus-bar :is(.focus-state, .focus-action, .chip-btn) { flex: none; }
+}
+/* Bred layout (800 × 360): fyra knappar på 44 px nådde under fokusraden, så zoomknapparna ligger i två kolumner med Affisch över båda */
+@media (min-width: 761px) and (max-height: 480px) and (orientation: landscape) {
+  .app.region-view .flat-zoom { display: grid; grid-template-columns: repeat(2, 44px); }
+  .app.region-view .flat-zoom .flat-poster { grid-column: 1 / -1; }
+}
+/* Smal layout (640 × 360): årtalet står överst till vänster, så rutan i Platt vy ligger under det (som rutan på globen, placeGlobeChip) */
+@media (max-width: 760px) and (max-height: 480px) and (orientation: landscape) {
+  .app.region-view .flat-region { top: 62px; }
+}
+/* Pekskärm: Lämna regionvyn är 44 px hög också i Platt vy (på globen gäller det redan, #1900) */
+@media (max-height: 480px) and (orientation: landscape) and (pointer: coarse) {
+  .app.region-view .flat-region .flat-region-back { min-height: 44px; }
+}
+
+/* Växlaren (#1959) har en egen rad under 1101 px och gör tidsraden högre medan den syns (den syns inte i tur, lektion och Fokus): korten ovanför börjar lika mycket högre.
+   Stående mobil: tidsraden 105 till 151 px, så --ff-b 108 till 154 px (216 med pausrad) och kortets flik 136 till 182 px (242). Liggande telefon (högst 480 px hög):
+   tidsraden 127 px, så --ff-b 130 px (192) och fliken 136 px (196) behöver bara följa med lite. Mer än så skulle klämma kortet i en låg skärm. */
+@media (max-width: 760px) and (min-height: 481px) {
+  .app:not(.lesson):not(.touring):not(.focusing) { --ff-b: 154px; }
+  .app:not(.lesson):not(.touring):not(.focusing):has(.pause-note:not([hidden])) { --ff-b: 216px; }
+  .app:not(.lesson):not(.touring):not(.focusing) .more-menu { max-height: calc(100dvh - 226px); } /* Meny slutar ovanför tidsraden, som är 46 px högre (180 + 46, #530) */
+  .app:not(.lesson):not(.touring):not(.focusing) .ff-tab { bottom: 182px; }
+  .app:not(.lesson):not(.touring):not(.focusing):has(.pause-note:not([hidden])) .ff-tab { bottom: 242px; }
+}
+@media (max-width: 760px) and (max-height: 480px) {
+  .app:not(.lesson):not(.touring):not(.focusing) { --ff-b: 130px; }
+  .app:not(.lesson):not(.touring):not(.focusing):has(.pause-note:not([hidden])) { --ff-b: 192px; }
+  .app:not(.lesson):not(.touring):not(.focusing) .detail-fig img { height: clamp(80px, 24vh, 180px); } /* faktarutan är 22 px lägre: bilden tar inte mer än hälften av den (#1310) */
+}

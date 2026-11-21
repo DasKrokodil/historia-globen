@@ -137,6 +137,32 @@ test('säkerhetsnätet: kunde inget fokuseras i mikrotasken försöker nästa bi
   assert.equal(doc.activeElement, el['btn-panel']);
 });
 
+// En numrerad markör i regionvyn (#1713): fokus går till Stäng när kortet öppnas, och tillbaka till markören när det stängs.
+function regionMark(el, doc) {
+  const mark = { name: 'rmark', hidden: false, dataset: { event: 'skane-1' }, closest: sel => (sel === '.region-marks' ? {} : null), focus() { doc.activeElement = mark; }, getClientRects() { return mark.hidden ? [] : [{}]; } };
+  doc.querySelectorAll = sel => (sel.includes('data-event="skane-1"') && !mark.hidden ? [mark] : []);
+  return mark;
+}
+
+test('markör i regionvyn: fokus går till Stäng och tillbaka till markören', () => {
+  const { doc, el, f, flush, close } = setup();
+  const mark = regionMark(el, doc);
+  assert.equal(f.open(mark), true, 'fokus ska gå till Stäng och inte stanna på markören');
+  close(el.close);
+  flush();
+  assert.equal(doc.activeElement, mark);
+});
+
+test('markören finns inte längre (regionvyn lämnad): fokus går till knappen Samtidigt', () => {
+  const { doc, el, f, flush, close } = setup();
+  const mark = regionMark(el, doc);
+  f.open(mark);
+  mark.hidden = true;
+  close(el.close);
+  flush();
+  assert.equal(doc.activeElement, el['btn-panel']);
+});
+
 // Ett kort som öppnas från menyn Sök och följ (#1696): Escape och Stäng ger fokus tillbaka till menyknappen, inte till Samtidigt.
 test('valt i Sök och följ: fokus på Stäng går tillbaka till knappen Sök och följ (#1696)', () => {
   const { doc, el, f, flush, close } = setup();

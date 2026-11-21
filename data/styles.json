@@ -1,6 +1,6 @@
 {
  "schema": "historia-globen/styles@1",
- "notes": "Bildstilar efter tidsålder och plats (#129). Grundstilar har tom regions och gäller hela världen för sitt tidsspann (from–to, astronomiska år). Regionala varianter går före grundstilen när händelsens år och plats matchar; de har frame = null och använder grundstilens ram för året. regions anger grova rutor i grader: bbox = [västligaste longitud, sydligaste latitud, östligaste longitud, nordligaste latitud]. variants väljs efter händelsens kategori. prompt är en stilbeskrivning på engelska som används när en illustration tas fram (tools/bildpromptar.py).",
+ "notes": "Bildstilar efter tidsålder och plats (#129). Grundstilar har tom regions och gäller hela världen för sitt tidsspann (from–to, astronomiska år). Regionala varianter går före grundstilen när händelsens år och plats matchar; de har frame = null och använder grundstilens ram för året, utom en regional stil med egen frame (kina-brons, #1397; etiopien, #2039), som har en egen ram eftersom grundstilen för tiden kommer från en annan del av världen. Den första regionala stilen som träffar går före, så etiopien står före islamisk. exceptIds undantar enstaka händelser från en regional stil (rosettastenen-hittas från islamisk och miniatyr, #2039). regions anger grova rutor i grader: bbox = [västligaste longitud, sydligaste latitud, östligaste longitud, nordligaste latitud]. variants väljs efter händelsens kategori. prompt är en stilbeskrivning på engelska som används när en illustration tas fram (tools/bildpromptar.py).",
  "regions": {
   "kina": {
    "name": {
@@ -122,20 +122,20 @@
     ]
    ]
   },
-  "vastafrika": {
+  "benin-riket": {
    "name": {
-    "sv": "Västafrika",
-    "en": "West Africa",
-    "de": "Westafrika",
-    "fr": "Afrique de l’Ouest",
-    "es": "África occidental"
+    "sv": "Konungariket Benin (Edo, i dag södra Nigeria)",
+    "en": "The Kingdom of Benin (Edo, today southern Nigeria)",
+    "de": "Königreich Benin (Edo, heute Südnigeria)",
+    "fr": "Royaume du Bénin (Edo, aujourd’hui sud du Nigeria)",
+    "es": "Reino de Benín (Edo, hoy sur de Nigeria)"
    },
    "bbox": [
     [
-     -18,
-     0,
-     15,
-     20
+     5,
+     5,
+     7,
+     7.2
     ]
    ]
   },
@@ -195,23 +195,40 @@
      -33
     ]
    ]
+  },
+  "etiopiska-hogland": {
+   "name": {
+    "sv": "Etiopiens högland",
+    "en": "The Ethiopian Highlands",
+    "de": "Hochland von Äthiopien",
+    "fr": "Hauts plateaux d’Éthiopie",
+    "es": "Tierras altas de Etiopía"
+   },
+   "bbox": [
+    [
+     36,
+     10,
+     40,
+     15
+    ]
+   ]
   }
  },
  "styles": [
   {
    "id": "grotta",
    "name": {
-    "sv": "Grottmålning",
-    "en": "Cave painting",
-    "de": "Höhlenmalerei",
-    "fr": "Peinture rupestre",
-    "es": "Pintura rupestre"
+    "sv": "Modern tecknad illustration av landskap och föremål",
+    "en": "Modern drawn illustration of landscape and objects",
+    "de": "Moderne gezeichnete Illustration von Landschaft und Gegenständen",
+    "fr": "Illustration dessinée moderne de paysage et d’objets",
+    "es": "Ilustración dibujada moderna de paisaje y objetos"
    },
    "from": -999999,
    "to": -3000,
    "regions": [],
    "frame": "grotta",
-   "prompt": "prehistoric cave painting in red and yellow ochre and charcoal on rough limestone, hand stencils, simple animal and human silhouettes, flickering torchlight texture"
+   "prompt": "clearly modern hand-drawn editorial illustration of a prehistoric landscape, animals, tools or a find site, flat gouache and ink shapes with clean outlines on plain off-white paper, limited earth-tone palette, openly contemporary and stylised, no people or faces, must not resemble rock art, a carving or a photograph of a real find"
   },
   {
    "id": "egypten",
@@ -423,6 +440,23 @@
    }
   },
   {
+   "id": "kina-brons",
+   "name": {
+    "sv": "Brons och orakelben",
+    "en": "Bronze and oracle bones",
+    "de": "Bronze und Orakelknochen",
+    "fr": "Bronze et os oraculaires",
+    "es": "Bronce y huesos oraculares"
+   },
+   "from": -1599,
+   "to": -1001,
+   "regions": [
+    "kina"
+   ],
+   "frame": "kina-brons",
+   "prompt": "Chinese Bronze Age art: cast ritual bronze vessels with spiral and geometric relief bands, black ink rubbings on pale paper, bone and turtle-shell surfaces with crack patterns, verdigris green, bronze and dark earth palette, no inscriptions or characters"
+  },
+  {
    "id": "kina-tusch",
    "name": {
     "sv": "Tuschmålning på silkesrulle",
@@ -457,6 +491,23 @@
    "prompt": "Japanese ukiyo-e woodblock print, bold outlines, flat colour areas, Prussian blue and vermilion, wave and cloud patterns"
   },
   {
+   "id": "etiopien",
+   "name": {
+    "sv": "Etiopisk kyrkokonst och handskrift",
+    "en": "Ethiopian church painting and manuscript",
+    "de": "Äthiopische Kirchenmalerei und Handschrift",
+    "fr": "Peinture d’église et manuscrit éthiopiens",
+    "es": "Pintura de iglesia y manuscrito etíopes"
+   },
+   "from": 1000,
+   "to": 1900,
+   "regions": [
+    "etiopiska-hogland"
+   ],
+   "frame": "etiopien",
+   "prompt": "Ethiopian Orthodox church painting and illuminated manuscript style: strong saturated colours, bold black outlines on a parchment ground, simple stylised landscapes and architecture, no readable script, no human faces"
+  },
+  {
    "id": "islamisk",
    "name": {
     "sv": "Geometriska mönster, kalligrafi och arkitektur",
@@ -471,7 +522,10 @@
     "islamiska-varlden"
    ],
    "frame": null,
-   "prompt": "Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures"
+   "prompt": "Islamic art: intricate geometric tile patterns, arabesques and decorative calligraphy borders around landscapes and architecture, no human figures",
+   "exceptIds": [
+    "rosettastenen-hittas"
+   ]
   },
   {
    "id": "miniatyr",
@@ -488,7 +542,10 @@
     "persien-indien-osmanska"
    ],
    "frame": null,
-   "prompt": "Persian, Mughal or Ottoman miniature painting, jewel-like colours, gold borders, elevated viewpoint, intricate patterns"
+   "prompt": "Persian, Mughal or Ottoman miniature painting, jewel-like colours, gold borders, elevated viewpoint, intricate patterns",
+   "exceptIds": [
+    "rosettastenen-hittas"
+   ]
   },
   {
    "id": "aztekisk-kodex",
@@ -536,7 +593,7 @@
    "from": 1200,
    "to": 1900,
    "regions": [
-    "vastafrika"
+    "benin-riket"
    ],
    "frame": null,
    "prompt": "West African textile patterns and cast bronze relief plaques in the style of the Benin Bronzes, rich patina, decorative background rosettes"

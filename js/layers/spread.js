@@ -19,6 +19,7 @@ import { Z } from './registry.js';
 import { imageRows, sliceAt } from './images.js';
 import { loadSpread, t } from '../model.js';
 import { ui } from '../i18n.js';
+import { spanOf, edtfApprox } from '../layer-coverage.js';
 
 /** Lagrets post i registret (#338). Av som standard; den förinställda vyn "Människans spridning" slår på det. */
 export function entry({ data, refresh }) {
@@ -41,6 +42,9 @@ export function entry({ data, refresh }) {
       layer.labelScale = s.labels?.scale ?? 1; // namnen följer rikenas storleksregel (#1416)
       return layer.update({ year: s.areaYear ?? s.wholeYear });
     },
+    // Posterna finns från den tidigaste starten till det senaste slutet; gränserna är ungefärliga när deras edtf är det (#1960).
+    // Datan laddas första gången lagret slås på: innan dess är täckningen okänd och ingen rad visas
+    coverage: s => ({ year: s.areaYear ?? s.wholeYear, span: layer.coverage() }),
     legend: s => ({ spread: s.faded.has('spread') || !layer.active.length ? null : layer.legendItems() }),
     drawOverlay: (ctx, W, H) => layer.drawOverlay(ctx, W, H),
   };
@@ -85,6 +89,14 @@ export class SpreadLayer {
       // Delar gör att en yta kan följa en båge (Iberien–Kaukasus–Altaj) utan att täcka det som ligger innanför.
       _parts: (i.parts ?? [i.places ?? []]).map(part => part.map(p => this.coord(p)).filter(Boolean)).filter(part => part.length),
       _paths: (i.paths ?? []).map(path => path.map(p => this.coord(p)).filter(Boolean)).filter(p => p.length > 1),
+    }));
+  }
+
+  /** Var posterna finns i tiden (spanOf, #1960); null innan datan har laddats. */
+  coverage() {
+    return spanOf((this.items ?? []).map(i => {
+      const ap = edtfApprox(i.edtf);
+      return { from: i.start, to: i.end, approxFrom: ap.from, approxTo: ap.to };
     }));
   }
 

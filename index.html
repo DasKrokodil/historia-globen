@@ -67,6 +67,9 @@
   <div id="globe-region-chip" class="flat-region globe-region-chip" role="group" aria-labelledby="globe-region-name" hidden>
     <p id="globe-region-name" class="flat-region-name"></p>
     <p id="globe-region-note" class="flat-region-note"></p>
+    <p id="globe-region-context" class="flat-region-context"></p>
+    <p id="globe-region-tap" class="flat-region-tap"></p>
+    <p id="globe-region-next" class="flat-region-next" hidden></p>
     <p class="flat-region-legend"><span class="flat-region-ring" aria-hidden="true"></span><span id="globe-region-legend-text"></span></p>
     <button id="globe-region-back" class="flat-region-back" type="button"></button>
   </div>
@@ -86,6 +89,9 @@
       <div id="flat-region" class="flat-region" role="group" aria-labelledby="flat-region-name" hidden>
         <p id="flat-region-name" class="flat-region-name"></p>
         <p id="flat-region-note" class="flat-region-note"></p>
+        <p id="flat-region-context" class="flat-region-context"></p>
+        <p id="flat-region-tap" class="flat-region-tap"></p>
+        <p id="flat-region-next" class="flat-region-next" hidden></p>
         <p id="flat-region-legend" class="flat-region-legend"><span class="flat-region-ring" aria-hidden="true"></span><span id="flat-region-legend-text"></span></p>
         <button id="flat-region-back" class="flat-region-back" type="button"></button>
       </div>
@@ -101,7 +107,7 @@
   </section>
   <!-- Eleven bekräftar innan lektionen lämnas (#1572); läraren lämnar direkt. Samma plats och utseende som förklaringen nedan (js/ui/lesson.js) -->
   <section id="lesson-confirm" class="lesson-band lesson-notice" role="group" aria-labelledby="lesson-confirm-text" hidden>
-    <p id="lesson-confirm-text" class="lesson-band-title" data-i18n="lesson.confirm">Lämna lektionen? Då visas hela globen.</p>
+    <p id="lesson-confirm-text" class="lesson-band-title"><span data-i18n="lesson.confirm">Lämna lektionen? Då visas hela globen.</span> <span data-i18n="lesson.confirmView">Året står kvar, men globens vy och lagren går tillbaka till hur de stod innan lektionen.</span></p>
     <button id="lesson-confirm-no" class="lesson-exit" type="button" data-i18n="lesson.confirmNo">Stanna kvar</button>
     <button id="lesson-confirm-yes" class="lesson-exit" type="button" data-i18n="lesson.confirmYes">Ja, lämna</button>
   </section>
@@ -161,12 +167,15 @@
     </div>
     <button id="more-toggle" class="chip-btn more-toggle" type="button" aria-expanded="false" aria-controls="more-menu"><span id="more-label" data-i18n="top.menu">Meny</span><span class="more-chev" aria-hidden="true"></span></button>
     <div id="more-menu" class="more-menu">
-      <!-- Vy (#651): tre sätt att se världen sida vid sida. Glob, Platt karta (#292) och Upptäcktsresor (#101),
-           som är lagret discovery med resorna. Bara en åt gången (js/ui/viewmode.js). -->
+      <!-- Vy och stil (#1577): Glob och Platt karta (#292) väljer yta. Upptäcktsresor (#101) är en stil som
+           kan visas på båda ytorna; den styr lagret discovery med resorna (js/ui/viewmode.js). -->
       <div class="action-group view-mode" role="group" aria-labelledby="ag-mode">
         <span id="ag-mode" class="action-label" data-i18n="top.mode">Vy</span>
         <button id="btn-globe" class="chip-btn" type="button" aria-pressed="true" data-i18n="top.globe">Glob</button>
         <button id="btn-flat" class="chip-btn" type="button" aria-pressed="false" title="Visa världen som en platt karta" data-i18n-title="top.flatTitle" data-i18n="top.flat">Platt karta</button>
+      </div>
+      <div class="action-group style-mode" role="group" aria-labelledby="ag-style">
+        <span id="ag-style" class="action-label" data-i18n="top.style">Stil</span>
         <button id="btn-discovery" class="chip-btn" type="button" aria-pressed="false" title="Världen som européerna kände den, med dimma som resorna lyfter" data-i18n-title="top.discoveryTitle" data-i18n="top.discovery">Upptäckts&shy;resor</button>
       </div>
       <div class="action-group" role="group" aria-labelledby="ag-explore">
@@ -215,7 +224,8 @@
       <li><b data-i18n="help.s1">Dra globen</b> <span data-i18n="help.s1t">Snurra med fingret eller musen. Nyp eller scrolla för att zooma.</span></li>
       <li><b data-i18n="help.s2">Byt år</b> <span data-i18n="help.s2t">Tryck på årtalet eller dra i tidslinjen.</span></li>
       <li><b data-i18n="help.s3">Följ en berättelse</b> <span data-i18n="help.s3t">Välj ett krig, ett rike eller en religion under Sök och följ.</span></li>
-      <li><b data-i18n="help.s4">Läs om en plats</b> <span data-i18n="help.s4t">Zooma in: en prickad kontur runt en plats betyder att den har ett kort. Tryck på konturen, eller flytta vyn med piltangenterna så att platsen ligger i mitten och tryck Enter.</span></li>
+      <li><b data-i18n="help.s4">Läs om en plats</b> <span data-i18n="help.s4t">Zooma in: en prickad kontur runt en plats betyder att den har ett kort. Tryck på konturen, eller flytta vyn med piltangenterna så att platsen ligger i mitten och tryck Enter. I kortet öppnar ”Visa på kartan” ”Platsens karta” eller ramar in platsen på Platt karta.</span></li>
+      <li><b data-i18n="help.s5">Två reglage</b> <span data-i18n="help.s5t">Tidslinjen har två reglage, före 3000 f.Kr. och 3000 f.Kr.–i dag, och det som visas följer året. Ett drag stannar vid reglagets kant. Stegknapparna, piltangenterna, uppspelningen och Hoppa till ett år tar dig över gränsen. Home och End går till ändarna av reglaget som syns. Knapparna ovanför reglaget, Före 3000 f.Kr. och 3000 f.Kr.–i dag, byter reglage.</span></li>
     </ol>
     <details class="help-marks">
       <summary data-i18n="help.marks">Markörer, klungor och religioner</summary>
@@ -244,9 +254,9 @@
       <div class="layer-subheading" data-i18n="layers.motion">Rörelse</div>
       <label class="layer-row"><input type="checkbox" data-calm> <span data-i18n="layers.calm">Lugn rörelse</span> <span class="layer-note" data-i18n="layers.calmNote">ingen automatisk snurr, globen hoppar i stället för att flyga, inga övergångar · följer webbläsarens inställning för reducerad rörelse</span></label>
       <div class="layer-subheading" data-i18n="layers.pauseAt">Pausa uppspelningen vid</div>
-      <label class="layer-row"><input type="checkbox" data-pause="funfacts" checked aria-label="Pausa vid Samtidigt-kortet" data-i18n-aria-label="layers.pFfLabel"> <span data-i18n="layers.pFf">Samtidigt-kortet</span> <span class="layer-note" data-i18n="layers.pFfNote">fun facts och annat som hände samtidigt</span></label>
-      <label class="layer-row"><input type="checkbox" data-pause="focusFunfacts" aria-label="Pausa vid Samtidigt-kortet även när du följer en händelse" data-i18n-aria-label="layers.pFocusLabel"> <span data-i18n="layers.pFocus">Samtidigt-kortet även när du följer en händelse</span> <span class="layer-note" data-i18n="layers.pFocusNote">annars pausar uppspelningen bara vid det man följer</span></label>
-      <label class="layer-row"><input type="checkbox" data-pause="ffAuto" checked aria-label="Fortsätt själv efter Samtidigt-kortet" data-i18n-aria-label="layers.pAutoLabel"> <span data-i18n="layers.pAuto">Fortsätt själv efter Samtidigt-kortet</span> <span class="layer-note" data-i18n="layers.pAutoNote">nedräkning efter textens längd; av = står still tills du trycker Fortsätt</span></label>
+      <label class="layer-row"><input type="checkbox" data-pause="funfacts" checked aria-label="Pausa vid Visste du?-kortet" data-i18n-aria-label="layers.pFfLabel"> <span data-i18n="layers.pFf">Visste du?-kortet</span> <span class="layer-note" data-i18n="layers.pFfNote">fun facts och annat som hände samtidigt</span></label>
+      <label class="layer-row"><input type="checkbox" data-pause="focusFunfacts" aria-label="Pausa vid Visste du?-kortet även när du följer en händelse" data-i18n-aria-label="layers.pFocusLabel"> <span data-i18n="layers.pFocus">Visste du?-kortet även när du följer en händelse</span> <span class="layer-note" data-i18n="layers.pFocusNote">annars pausar uppspelningen bara vid det man följer</span></label>
+      <label class="layer-row"><input type="checkbox" data-pause="ffAuto" checked aria-label="Fortsätt själv efter Visste du?-kortet" data-i18n-aria-label="layers.pAutoLabel"> <span data-i18n="layers.pAuto">Fortsätt själv efter Visste du?-kortet</span> <span class="layer-note" data-i18n="layers.pAutoNote">nedräkning efter textens längd; av = står still tills du trycker Fortsätt</span></label>
       <label class="layer-row"><input type="checkbox" data-pause="wars"> <span data-i18n="layers.pWars">När ett krig bryter ut</span></label>
       <label class="layer-row"><input type="checkbox" data-pause="major" checked> <span data-i18n="layers.pMajor">Stora händelser när man följer ett krig</span></label>
       <label class="layer-row"><input type="checkbox" data-pause="empire" checked> <span data-i18n="layers.pEmpire">Nyckelår när man följer ett rike</span> <span class="layer-note" data-i18n="layers.pEmpireNote">varför riket växer eller krymper</span></label>
@@ -473,19 +483,23 @@
     <!-- Urvalsmarkeringen (#1139): syns bara när vyn Översikt är på; texten och knappen sätts av js/ui/panel.js -->
     <p id="panel-tag-note" class="panel-tag-note" hidden><span id="panel-tag-text"></span> <button id="panel-tag-all" type="button" class="link-btn"></button></p>
     <!-- Kategorichips (#311): samma filter som Kategorier under Lager, byggs av js/ui/panel.js -->
-    <div id="panel-filters" class="filters panel-filters" role="group" aria-label="Kategorier i listan och på globen" data-i18n-aria-label="panel.filters"></div>
+    <!-- Filtret är ihopfällt som standard (beslut i #1782): knappen säger hur många kategorier som är på och fäller ut chipsen -->
+    <div class="panel-filterbar"><button id="panel-filter-toggle" type="button" class="panel-filter-toggle" aria-expanded="false" aria-controls="panel-filters"></button></div>
+    <div id="panel-filters" class="filters panel-filters" role="group" aria-label="Kategorier i listan och på globen" data-i18n-aria-label="panel.filters" hidden></div>
+    <!-- En flik per världsdel (beslut i #1782, alternativ C); fylls av js/ui/panel.js -->
+    <div id="panel-tabs" class="panel-tabs" role="tablist" aria-label="Världsdel" data-i18n-aria-label="panel.regionsLabel" hidden></div>
     <div id="event-list" class="event-list"></div>
   </aside>
 
   <section id="detail" class="detail detail-card" hidden aria-label="Om händelsen" data-i18n-aria-label="detail.label"></section>
 
-  <section id="funfact" class="funfact" hidden aria-label="Samtidigt-kortet" data-i18n-aria-label="ff.card">
-    <button id="ff-handle" class="ff-handle" type="button" aria-expanded="true" aria-label="Samtidigt-kortet: visa mer"><span class="ff-grip" aria-hidden="true"></span><span class="ff-chev" aria-hidden="true"></span><span id="ff-drag-hint" class="ff-drag-hint" aria-hidden="true" hidden data-i18n="ff.dragHint">Dra upp för mer</span></button>
+  <section id="funfact" class="funfact" hidden aria-label="Visste du?-kortet" data-i18n-aria-label="ff.card">
+    <button id="ff-handle" class="ff-handle" type="button" aria-expanded="true" aria-label="Visste du?-kortet: visa mer"><span class="ff-grip" aria-hidden="true"></span><span class="ff-chev" aria-hidden="true"></span><span id="ff-drag-hint" class="ff-drag-hint" aria-hidden="true" hidden data-i18n="ff.dragHint">Dra upp för mer</span></button>
     <div id="ff-pics" class="ff-pics" hidden></div>
     <div class="ff-eyebrow">
-      <span><span class="ff-pre" data-i18n="top.panel">Samtidigt <span class="ff-sep">·</span> </span><span id="ff-kind" class="ff-kind">Fun fact</span></span>
+      <span><span class="ff-pre"><span data-i18n="ff.title">Visste du?</span> <span class="ff-sep">·</span> </span><span id="ff-kind" class="ff-kind">Fun fact</span><span id="ff-peek-count" class="ff-peek-count count"></span></span>
       <span class="ff-right"><span id="ff-pager" class="ff-pager"></span>
-        <button id="ff-min" class="ff-min" type="button" aria-label="Fäll ihop Samtidigt-kortet" data-i18n-aria-label="ff.minLabel" title="Fäll ihop" data-i18n-title="ff.min">–</button></span>
+        <button id="ff-min" class="ff-min" type="button" aria-label="Fäll ihop Visste du?-kortet" data-i18n-aria-label="ff.minLabel" title="Fäll ihop" data-i18n-title="ff.min">–</button></span>
     </div>
     <p id="ff-text" class="ff-text"></p>
     <div id="ff-events" class="ff-events"></div>
@@ -497,7 +511,7 @@
     </div>
   </section>
 
-  <button id="ff-tab" class="ff-tab" type="button" hidden aria-label="Visa Samtidigt-kortet" data-i18n-aria-label="ff.show" data-i18n="top.panel">Samtidigt <span id="ff-tab-count" class="count">1</span></button>
+  <button id="ff-tab" class="ff-tab" type="button" hidden aria-label="Visste du? 1: visa kortet"><span data-i18n="ff.title">Visste du?</span> <span id="ff-tab-count" class="count">1</span></button>
 
   <!-- Kortet för en guidad tur (#47): ett steg i taget; Fortsätt i pausraden går också till nästa steg -->
   <section id="tour-card" class="tour-card" aria-labelledby="tour-name" hidden>
@@ -509,26 +523,46 @@
     <div id="tour-meter" class="tour-meter" aria-hidden="true"></div>
     <h2 id="tour-name" class="tour-name"></h2>
     <p id="tour-chapter" class="tour-chapter" hidden></p>
-    <h3 id="tour-title" class="tour-title"></h3>
+    <div id="tour-headrow" class="tour-headrow">
+      <h3 id="tour-title" class="tour-title" tabindex="-1"></h3>
+    </div>
     <p id="tour-status" class="tour-status" hidden></p>
-    <p id="tour-text" class="tour-text"></p>
+    <!-- Bild i steget (#1794): en riktig, licenskontrollerad bild; saknas fältet image i steget är figuren dold.
+         Är texten lång (#1866) dras bilden ihop: i smal skärm flyttas länken till en tumnagel bredvid rubriken, och bildtexten
+         flyttas under texten (js/ui/tour.js, renderFigure). -->
+    <figure id="tour-figure" class="tour-figure" hidden>
+      <a id="tour-figure-link" target="_blank" rel="noopener"><img id="tour-figure-img" alt="" loading="lazy" decoding="async"></a>
+      <figcaption id="tour-figure-cap"><span id="tour-figure-caption"></span> <span id="tour-figure-credit" class="meta"></span></figcaption>
+    </figure>
+    <div id="tour-text" class="tour-text"></div>
     <div id="tour-question" class="tour-question" hidden><span id="tour-question-label" class="tour-question-label"></span> <span id="tour-question-text"></span></div>
     <div class="tour-links">
       <button id="tour-read" class="link-btn" type="button" aria-controls="detail"></button>
       <button id="tour-sources" class="link-btn" type="button"></button>
     </div>
-    <!-- Slutkortet i en lektion (#795): länkar till lektionens uppdrag -->
+    <!-- Slutkortet (#1866): efter Klar i sista steget, med det viktigaste att ta med sig (krigets story.takeaways, #500) eller stegens rubriker -->
+    <div id="tour-endcard" class="tour-endcard" hidden>
+      <p id="tour-endcard-lead" class="tour-endcard-lead"></p>
+      <div id="tour-endcard-body" class="tour-endcard-body"></div>
+    </div>
+    <!-- Slutkortet i en lektion (#795): länkar till lektionens uppdrag. Står i den fasta raden ovanför knapparna (#1861) så att länken syns helt;
+         i låg skärm (max 600 px hög) står den kvar här i det som rullar (js/ui/lesson.js, placeEnd). -->
     <div id="tour-lesson-end" class="tour-lesson-end" hidden>
       <p class="tour-lesson-end-label" data-i18n="lesson.next">Fortsätt med ett uppdrag</p>
       <div id="tour-lesson-end-list" class="tour-links"></div>
     </div>
-    <div class="tour-actions">
-      <button id="tour-back" class="chip-btn" type="button"></button>
-      <button id="tour-next" class="tour-next" type="button"></button>
-    </div>
-    <!-- Foten (#1572): en tydlig, benämnd utgång; turraden under kortet säger redan att turen styr tiden -->
-    <div class="tour-foot">
-      <button id="tour-end" class="tour-end" type="button"></button>
+    <!-- Knapparna och foten ligger i en gemensam fastklistrad rad längst ned i kortet (#1793): de syns alltid, också när texten rullar -->
+    <div id="tour-bar" class="tour-bar">
+      <!-- Rullningssignalen (#1866): tonad nederkant och raden Fortsätt läsa när kortet har mer att rulla -->
+      <button id="tour-more" class="tour-more" type="button" hidden><span data-i18n="tour.more">Fortsätt läsa</span> <span aria-hidden="true">↓</span></button>
+      <div class="tour-actions">
+        <button id="tour-back" class="chip-btn" type="button"></button>
+        <button id="tour-next" class="tour-next" type="button"></button>
+      </div>
+      <!-- Foten (#1572): en tydlig, benämnd utgång; turraden under kortet säger redan att turen styr tiden -->
+      <div class="tour-foot">
+        <button id="tour-end" class="tour-end" type="button"></button>
+      </div>
     </div>
   </section>
 
@@ -537,6 +571,8 @@
     <span id="focus-state" class="focus-state"></span>
     <button id="focus-action" class="focus-action" type="button" data-i18n="focus.play">&#9654; Spela</button>
     <button id="focus-facts" class="chip-btn" type="button" hidden aria-controls="detail" data-i18n="focus.facts">Fakta</button>
+    <!-- Väg tillbaka till platsen när riket följdes från platskortet (#1713); texten skrivs av js/controllers/focus.js (språkbyte laddar om sidan) -->
+    <button id="focus-origin" class="chip-btn" type="button" hidden></button>
     <button id="focus-exit" class="chip-btn" type="button" data-i18n="focus.exit">Tillbaka till hela tiden</button>
     <div id="focus-moved" class="focus-moved" hidden role="status">
       <span id="focus-moved-text"></span>
@@ -583,6 +619,8 @@
       <button id="btn-speed" class="step speed" type="button" title="Uppspelningshastighet: 25 år/s">25 år/s</button>
       <span id="next-pause" class="next-pause" hidden></span>
     </div>
+    <!-- Växlaren mellan tidsreglagen (#1959): "Före 3000 f.Kr." och "3000 f.Kr.–i dag". Knapparna skrivs av js/ui/level-switch.js; raden står före reglaget i tabbordningen och döljs i tur, lektion och Fokus (css) -->
+    <div id="scale-switch" class="level-switch scale-switch" role="group" aria-label="Tidsreglage" data-i18n-aria-label="time.switchLabel"></div>
     <div id="track" class="track" role="slider" tabindex="0" aria-label="År" data-i18n-aria-label="play.track" aria-valuemin="-2999" aria-valuemax="2026">
       <div class="track-segments" id="track-segments"></div>
       <div class="track-dots" id="track-dots"></div>

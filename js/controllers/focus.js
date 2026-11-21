@@ -34,8 +34,11 @@ export function createFocus(app) {
    *
    * within ({ from, to }, valfri, #1448): en period inom fokusets spann, till exempel ett rike i landskortet. Året stannar bara om det
    * ligger inom perioden; annars börjar fokuset vid periodens första år, och raden om flytten nämner perioden.
+   *
+   * origin ({ key, name }, valfri, #1713): fokuset började från ett annat fokus som det ersätter, till exempel Följ riket i landskortet.
+   * Fokusraden får då knappen "Till platsen …" som börjar följa origin.key igen, så att man inte måste använda webbläsarens Bakåt.
    */
-  async function startFocus(key, { within = null } = {}) {
+  async function startFocus(key, { within = null, origin = null } = {}) {
     const ticket = app.store.ticket('fokus');
     const [type, id] = key.split(':');
     $('focus-notice').hidden = true;
@@ -53,6 +56,7 @@ export function createFocus(app) {
       return false;
     }
     const f = { type, id, ...loaded };
+    if (origin?.key) f.origin = { key: origin.key, name: origin.name };
     types.checkLoaded(post, f);
     // Något annat tog över medan fokuset laddades, eller ett läge som stoppar Fokus pågår (lektionen, #795)
     if (!app.store.current(ticket) || !app.store.canEnter('fokus')) return false;
@@ -78,6 +82,11 @@ export function createFocus(app) {
     globe.setZoom(f.zoom);
     $('focus-title').textContent = f.title;
     $('focus-facts').hidden = !post.facts?.has(f);
+    // Platsens knapp heter Om platsen i stället för det anonyma Fakta (#1790); data-i18n följer med vid språkbyte
+    const factsKey = f.type === 'place' ? 'place.cardLabel' : 'focus.facts';
+    $('focus-facts').dataset.i18n = factsKey;
+    $('focus-facts').textContent = ui(factsKey);
+    showOrigin(f.origin);
     $('focus-bar').hidden = false;
     $('app').classList.add('focusing');
     app.surfaces.closeGroup('sidopanel'); // listan stängs så att det man följer syns
@@ -123,12 +132,34 @@ export function createFocus(app) {
   }
   // Raden behövs bara innan man börjar spela: under uppspelningen gör den fokusraden högre och krockar med pausraden (#647)
   timeline.addEventListener('playstate', () => { if (timeline.playing && movedBack) showMoved(null); });
+  // Raden säger året tiden flyttades till. Står året inte längre där (slutkortet, ett hopp, en länk som pekar efter slutet, dragning)
+  // stämmer den inte, och då försvinner den; en vald period (#1448) står kvar, utan "Tiden flyttades" och Tillbaka (#1857).
+  // Toleransen är en dag i fokusläget för korta krig och ett halvt år annars, så att avrundningen när året sätts inte räknas.
+  timeline.addEventListener('change', () => {
+    const m = movedBack;
+    if (!m || m.moved === false) return;
+    const tol = timeline.focus?.fine ? 1 / 365.25 : 0.5;
+    if (Math.abs(timeline.year - m.startYear) <= tol) return;
+    showMoved(m.period ? { ...m, moved: false } : null);
+  });
   // Tillbaka lämnar fokus och går till året man stod på, eftersom det ligger utanför spannet
   $('focus-moved-back').addEventListener('click', () => {
     const y = movedBack?.prevYear;
     endFocus(false);
     if (y != null) timeline.year = y;
     app.refresh();
+  });
+  /** Knappen tillbaka till det fokus som ersattes (#1713, till exempel platsen när Följ riket trycktes); dold när fokuset inte kom därifrån. */
+  function showOrigin(origin) {
+    const button = $('focus-origin');
+    button.hidden = !origin;
+    button.textContent = origin ? ui('focus.originPlace', { name: origin.name }) : '';
+  }
+  $('focus-origin').addEventListener('click', async () => {
+    const origin = state.focus?.origin;
+    if (!origin) return;
+    // Platsens kort tar tangentbordsfokus själv när det ritas (showPlaceCard); misslyckas starten ligger fokus kvar på knappen
+    await startFocus(origin.key);
   });
   function endFocus(redraw = true) {
     const wasTheme = isSelection();
@@ -141,6 +172,7 @@ export function createFocus(app) {
     app.playback.reset(); showMoved(null);
     app.applyLayers();
     $('focus-bar').hidden = true;
+    showOrigin(null);
     $('app').classList.remove('focusing');
     timeline.setFocus(null);
     globe.setZoom(1);

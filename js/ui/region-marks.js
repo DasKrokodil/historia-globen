@@ -8,7 +8,7 @@
 // högarna, brickan och etiketten är riktiga knappar med aria-label i kartans etikettlager, i listans ordning, så att Tab går i
 // samma ordning som listan och piltangenterna går mellan dem. Enter på en markör markerar den (raden i listan får ram), Enter igen
 // eller etiketten öppnar faktarutan; Enter på en hög eller brickan fäller ut den, och Escape fäller ihop (controllers/region.js).
-import { regionItems, groupMarkers, pileName, yearSpan, fanLayout, rowLayout, nameCandidates, placeNames, crossesEdge, tagSpot, brickSpot,
+import { regionItems, nextEvent, groupMarkers, pileName, yearSpan, fanLayout, rowLayout, nameCandidates, placeNames, crossesEdge, tagSpot, brickSpot,
   MARK_PX, PILE_BADGE, PILE_PX, PILE_PX_TOUCH } from '../region-markers.js';
 import { inGeometry } from '../place-geo.js';
 import { CAT, t, formatEventTime, pluralUi } from '../model.js';
@@ -49,10 +49,15 @@ export class RegionMarks {
     this.state = { shown: [], names: [] }; // det som ritades senast (renderingsstatus och prov)
   }
 
-  /** Platsens händelser (listans ordning), platsen och alla platser (för brickan, #1674). Nollställer markering och solfjäder. */
-  setContent({ place, events, places = [] }) {
-    const items = regionItems(events, place, places);
-    this.content = { place, items, byId: new Map(items.map(it => [it.e.id, it])) };
+  /**
+   * Platsens händelser (listans ordning), platsen och alla platser (för brickan, #1674). Nollställer markering och solfjäder.
+   * year (#1786): bara händelser som har börjat vid året får markörer; `all` är hela listans id (raderna i kortet) och
+   * `next` den första som inte har börjat.
+   */
+  setContent({ place, events, places = [], year = null }) {
+    const items = regionItems(events, place, places, year);
+    this.content = { place, items, byId: new Map(items.map(it => [it.e.id, it])), all: (events ?? []).map(e => e.id), year,
+      next: items.length === (events ?? []).length ? null : nextEvent(events, year) };
     this.mark = this.hover = this.open = this._wantOpen = null;
     this._lastSel = null;
     this._refreshCands();
@@ -83,6 +88,7 @@ export class RegionMarks {
     this.state = { shown: [], names: [] };
     delete this.map.root.dataset.regionMarks;
     delete this.map.root.dataset.regionNames;
+    delete this.map.root.dataset.regionNamesCountries;
   }
 
   get active() { return !!this.content; }
@@ -166,15 +172,20 @@ export class RegionMarks {
     const hl = id => id && (id === this.mark || id === this.hover);
     const R = MARK_PX / 2;
 
-    // Brickan vid platsens namn: ovanför platsens ruta, inne på kartan, och inte under zoomknapparna, kortet eller rutan (med hela
-    // tryckytan, 44 px på pekskärm)
+    // Brickan: högst upp inne i platsens ruta (inte ovanför den, där den såg ut att höra till grannen, #1713 punkt 7), och inte under
+    // zoomknapparna, kortet, rutan eller en markör eller hög (med hela tryckytan, 44 px på pekskärm)
     const b = map._region?.bounds;
     let brickPos = null;
-    const brickEl = L.brick.length && b ? this._brick(L.brick, c.place) : null;
+    // Medan faktarutan visar en händelse utanför brickan döljs brickan (#1973, beslut av DasKrokodil: alternativ A). Ytan ovanför arket i mobil är för
+    // trång för markörerna, rutan, zoomknapparna och brickan, och kortet säger redan var händelsen ligger. Brickan kommer tillbaka när kortet stängs.
+    // En bara markerad markör (utan öppet kort) döljer den inte.
+    const brickHidden = !!sel && c.byId.has(sel) && this.open !== 'brick' && !L.brick.some(it => it.e.id === sel);
+    const brickEl = L.brick.length && b && !brickHidden ? this._brick(L.brick, c.place) : null;
     if (brickEl) {
       const top = toScreen(b.north, (b.west + b.east) / 2);
       const size = { w: (brickEl._w ?? 140) + (touch ? 8 : 0), h: touch ? 44 : 34 };
-      brickPos = brickSpot({ x: top.x, y: top.y - 8 - (touch ? 7 : 0) }, size, covers, W, H);
+      const markCovers = [...L.singles.map(it => box(it.p.x, it.p.y, R + 8)), ...L.piles.map(p => box(p.x, p.y, PILE_BADGE / 2 + 6))];
+      brickPos = brickSpot({ x: top.x, y: top.y + size.h + 6 - (touch ? 7 : 0) }, size, [...covers, ...markCovers], W, H);
       if (touch) brickPos.y -= 7; // nedre kanten på den synliga brickan, tryckytan sticker ut 7 px under
     }
     // Den utfällda solfjäderns yta: markörer och högar under den tonas ned och går inte att trycka på medan den är utfälld
@@ -255,11 +266,15 @@ export class RegionMarks {
         tag._w = tag.offsetWidth || 90; tag._h = tag.offsetHeight || 30;
         el.classList.add('tag-short');
         tag._ws = tag.offsetWidth || 60; tag._hs = tag.offsetHeight || 18;
+        // Har namnet ännu ingen layout (första ritningen) är måtten bara reservvärden: spara dem inte, så att nästa ritning mäter
+        // på riktigt och inte lägger ett långt namn utanför bildens kant (#1687)
+        if (!tag.offsetWidth) { tag._unmeasured = true; }
       }
       let spot = tagSpot(p, { w: tag._w, h: tag._h }, PILE_BADGE / 2 + 4, blocked, W, H, crosses), short = false;
       if (!spot) { spot = tagSpot(p, { w: tag._ws, h: tag._hs }, PILE_BADGE / 2 + 4, blocked, W, H, crosses); short = !!spot; }
       el.classList.toggle('tag-short', short);
       el.dataset.tag = spot?.side ?? 'none';
+      if (tag._unmeasured) { tag._w = undefined; tag._unmeasured = false; }
       if (spot) blocked.push(spot.box);
     }
     // Etiketten vid den markerade markören (eller den under muspekaren, som går före): över, under, till höger eller vänster, där den
@@ -300,6 +315,7 @@ export class RegionMarks {
     map.root.dataset.regionMarks = `${L.singles.length},${L.piles.length},${L.brick.length}`;
     map.root.dataset.regionNames = String(names.length); // renderingsstatus för webbläsartestet: hur många ortnamn som ritades
     map.root.dataset.regionNamesBeside = names.filter(n => n.dotless).map(n => n.text).join('|'); // orter som står bredvid en markör utan prick (#1682)
+    map.root.dataset.regionNamesCountries = names.filter(n => n.kind === 'neighbour').map(n => n.id).join('|'); // ländernas namn som ritades, nb-<ISO-id> (#1690)
   }
 
   _drawNames(ctx, names) {
@@ -426,13 +442,16 @@ export class RegionMarks {
     if (el._sig !== sig) {
       el._sig = sig; el._ids = ids;
       const c = this.content;
-      const name = c.pileNames.get(sig) ?? pileName(p.members, this.names, t, placeWords());
-      c.pileNames.set(sig, name);
+      const found = c.pileNames.get(sig) ?? pileName(p.members, this.names, t, placeWords());
+      c.pileNames.set(sig, found);
+      // Hur många av händelserna i högen som har ungefärlig plats, i namnet för skärmläsare och i ledtexten
+      const approx = p.members.filter(m => m.approx).length;
+      // En hög som bara har ungefärliga platser och bara bär platsens eget namn ("Skåne ×3") liknar brickan "Hela Skåne" och ser ut
+      // som en ort (#1713, punkt 7): den heter då "Ungefärlig plats i Skåne"
+      const name = found && approx === p.members.length && found === t(c.place?.name) ? ui('regionView.pileApproxPlace', { place: found }) : found;
       el._name = name;
       const { from, to } = yearSpan(p.members);
       const years = span(from, to), count = pluralUi('regionView.count', ids.length);
-      // Hur många av händelserna i högen som har ungefärlig plats, i namnet för skärmläsare och i ledtexten
-      const approx = p.members.filter(m => m.approx).length;
       const label = `${ui('regionView.pileLabel', { name, count, years, numbers: p.members.map(m => m.n).join(', ') })}${approx ? `, ${pluralUi('regionView.pileApprox', approx)}` : ''}`;
       el.querySelector('.rpile-name').textContent = name;
       el.querySelector('.rpile-years').textContent = years;

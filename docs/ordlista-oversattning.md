@@ -49,6 +49,7 @@ Artigt tilltal i alla språk, så att tyska, spanska och franska är lika:
 - **Decimaler** med komma: `3,5 millones`, `3,5 millions`.
 - **Citattecken:** spanska `«…»`, franska `« … »` med hårda mellanrum innanför tecknen.
 - **Fransk typografi:** hårt mellanrum före `:`, `;`, `?`, `!` och `»`, och efter `«`. Apostrof `’` eller `'` som i gränssnittet; var konsekvent i samma fil.
+- **Kontroll (#1715):** `tests/typografi-fr-es.test.mjs` stoppar vanligt mellanrum där hårt mellanrum (U+00A0) ska stå: i franskan före `: ; ? !` och `»`, efter `«` och i tal från fyra siffror, i spanskan i tal från fem siffror.
 - **Spanska frågor och utrop:** inledande `¿` och `¡`.
 - **Kolon i rubriker:** liten bokstav efter kolon, om inte egennamn.
 - **Versaler:** i rubriker och namn följer spanska och franska den inhemska regeln, bara första ordet och egennamn med versal. Alltså `Imperio romano` och `Empire romain`, inte `Imperio Romano` som på tyska och engelska.
@@ -74,7 +75,8 @@ Artigt tilltal i alla språk, så att tyska, spanska och franska är lika:
 
 | Svenska | Engelska | Spanska | Franska |
 |---|---|---|---|
-| Samtidigt (kortet) | Meanwhile | Al mismo tiempo | Au même moment |
+| Samtidigt (knappen och listan "Samtidigt i världen": pågående händelser; ändrat från "kortet" 2026-11-16, #1867) | Meanwhile | Al mismo tiempo | Au même moment |
+| Visste du? (kortet med fun facts, #1867; samma ord som knappen i kortet och teckenförklaringen) | Did you know? | ¿Sabía que…? (artigt) | Le saviez-vous ? |
 | Sök och följ (menyn) / följer (läget) | Search and follow / following | Buscar y seguir / siguiendo | Chercher et suivre / vous suivez |
 | Fakta | Facts | Datos | Faits |
 | Läs mer | Read more | Leer más | Lire la suite |
@@ -94,7 +96,9 @@ Artigt tilltal i alla språk, så att tyska, spanska och franska är lika:
 
 - **"Fokus" finns inte i gränssnittet.** Menyn heter Sök och följ, läget heter "följer" (verbet från knappen), och texterna säger "när du följer en händelse". Engelska "Focus"/"focus mode", tyska "Fokus"/"Fokusmodus", spanska "Enfoque"/"modo Enfoque" och franska "Focus"/"mode Focus" används inte längre. Filnamn, funktionsnamn, `f=` i adressen och data-attribut får behålla `focus`.
 - **Ett namn för upptäcktsvyn:** Upptäcktsresor (se tabellen). Kategorin `upptackter` (avsnitt 6: "Upptäcktsresor", *Viajes de exploración*, *Voyages d'exploration*) är en kategori och ändras inte. "Upptäcktsvyn", "discovery view", "Entdeckungsansicht", "vista de exploración" och "vue d'exploration" används inte.
+- **Reglage (tidsreglagen, #1958, #1959):** *reglage* = *slider* (en) / *Regler* (de; tidsreglage: *Zeitleisten-Regler*) / *control* (es; *controles de la línea de tiempo*) / *curseur* (fr; *curseurs de la frise*), som språkfilerna redan använder (`help.s5t`, `time.switchLabel`). De två reglagens synliga namn är desamma överallt (växlarens knappar, skalraden, statusraden): *Före 3000 f.Kr.* / *Before 3000 BC* / *Vor 3000 v. Chr.* / *Antes de 3000 a. C.* / *Avant 3000 av. J.-C.* och *3000 f.Kr.–i dag* / *3000 BC to today* / *3000 v. Chr. bis heute* / *De 3000 a. C. a hoy* / *De 3000 av. J.-C. à aujourd’hui*. Årtalet skrivs med vanligt mellanrum före *av.* som i resten av gränssnittet.
 - **Teckenförklaringens tecken för fun facts** har samma ord som kortet: *Visste du?*, *Did you know?*, *Wussten Sie?*, *¿Sabía que…?*, *Le saviez-vous ?* (inte "samband", *connection*, *Zusammenhang*, *conexión*, *lien*: det som visas är samtidighet, inte orsak och verkan).
+- **Kortets namn, Visste du?-kortet (beslut 2026-11-16, #1867):** kortet med fun facts heter *Visste du?* på svenska, *Did you know?* på engelska, *Wussten Sie?* på tyska, *¿Sabía que…?* på spanska och *Le saviez-vous ?* på franska (hårt mellanrum före ?), och knappen i verktygsfältet heter fortfarande *Samtidigt* (*Meanwhile*, *Gleichzeitig*, *Al mismo tiempo*, *Au même moment*). I löpande text sätts namnet inom citattecken efter språkets regel, med kortordet före: sv *Visste du?-kortet*, en *the “Did you know?” card*, de *die Karte „Wussten Sie?“*, es *la tarjeta «¿Sabía que…?»*, fr *la carte « Le saviez-vous ? »* (hårda mellanrum innanför « »). Siffran efter namnet ("Visste du? 4") är antalet kort och ska inte förväxlas med siffran på knappen Samtidigt.
 - **Produktnamnet "Historia-globen" översätts aldrig**, inte heller på affischen eller i källhänvisningar (`poster.title`, `citation.*`): en källhänvisning ska vara lik det som står på sidan.
 
 ## 6. Kategorier (`CATEGORIES`, ur `data/ui/`; ändras inte)
@@ -169,10 +173,10 @@ Titel och epitet skrivs med liten bokstav i löpande text (`el rey Luis XIV`, `l
 |---|---|---|---|
 | Roman Kingdom | Reino de Roma | Royaume de Rome | – |
 | Roman Republic | República romana | République romaine | – |
-| Roman Empire | Imperio romano | Empire romain | – |
+| Roman Empire | Imperio romano | Empire romain | 2026-11-20: Wikidata Q2277 (etiketterna), es.wikipedia "Imperio romano" (#2002) |
 | Western Roman Empire | Imperio romano de Occidente | Empire romain d'Occident | – |
-| Eastern Roman Empire | Imperio romano de Oriente | Empire romain d'Orient | – |
-| Byzantine Empire | Imperio bizantino | Empire byzantin | – |
+| Eastern Roman Empire | Imperio romano de Oriente | Empire romain d'Orient | 2026-11-20: Wikidata Q12544 (alias), es.wikipedia "Imperio bizantino" (inledningen) (#2002) |
+| Byzantine Empire | Imperio bizantino | Empire byzantin | 2026-11-20: Wikidata Q12544 (etiketterna), es.wikipedia "Imperio bizantino" (#2002) |
 | Ottoman Empire | Imperio otomano | Empire ottoman | – |
 | Mongol Empire | Imperio mongol | Empire mongol | – |
 | Holy Roman Empire | Sacro Imperio Romano Germánico | Saint-Empire romain germanique | – |
@@ -194,10 +198,117 @@ Titel och epitet skrivs med liten bokstav i löpande text (`el rey Luis XIV`, `l
 | Han dynasty | dinastía Han | dynastie Han | – |
 | Ming dynasty | dinastía Ming | dynastie Ming | – |
 | Qing dynasty | dinastía Qing | dynastie Qing | – |
+| Empire of China (1915–1916) | Imperio de China | Empire de Chine | se 9.2 (2026-11-20) |
 | Carthage | Cartago | Carthage | – |
+| Southern Song | dinastía Song meridional | Song du Sud | – (fr rättat i sprak-fr-granskningen, #2002) |
+| Vakataka empire | Dinastía Vakataka | – | – (accent rättad i sprak-es-granskningen, #2002) |
+| Italian Somaliland | Somalia italiana | – | – (versalregeln, avsnitt 3, #2002) |
+| Egypt under the Muhammad Ali dynasty | Egipto bajo la dinastía de Mehmet Alí | Égypte sous la dynastie de Méhémet Ali | fr 2026-11-20: fr.wikipedia "Dynastie de Méhémet Ali" (sprak-fr, #2002); inte "Alaouites", som förväxlas med Marockos och Syriens alawiter |
+| Nazi Germany (Nazityskland) | Alemania nazi | Allemagne nazie | 2026-11-20: DasKrokodils beslut i #2007: det neutrala namnet, inte regimens egen beteckning *Troisième Reich*. es Wikidata Q7318 (etiketten); fr fr.wikipedia "Troisième Reich" (inledningen: "ou l'Allemagne nazie") (#2007) |
+| Srivijaya (Shrivijaya) | Srivijaya | Sriwijaya | 2026-11-20: Wikidata Q234197 (etiketterna), fr.wikipedia "Sriwijaya" (#2007, oförändrat) |
+| Merina Kingdom (Kungariket Madagaskar) | Reino de Imerina | Royaume merina | fr 2026-11-20: Wikidata Q1071439 (etiketten), fr.wikipedia "Royaume de Merina" (faktarutans franska namn "Royaume merina", även "Royaume de Madagascar") (#2007, oförändrat) |
+| Texcoco | Tetzcuco | Tezcoco | fr 2026-11-20: Wikidata Q2047652 (etiketten), fr.wikipedia "Tezcoco" (#2007, oförändrat) |
+| Rashidun Caliphate | Califato ortodoxo | Califat rachidun | fr 2026-11-20: Wikidata Q12490507 (etiketten "califat rachidun"); stavningen rachidun är etablerad, gemen som i *Califat fatimide* och *Khaganat ouïgour*. fr.wikipedia-artikeln heter "Califes bien guidés" och skriver "califat Rashidun" (rättat från "Califat Rachidun" i #2007, sprak-fr) |
+| Yenisei Kyrgyz | Kanato kirguís | Khaganat kirghize du Ienisseï | fr 2026-11-20: fr.wikipedia "Khaganat kirghize du Ienisseï" (titel och inledning); Wikidata Q2047076 har etiketten "Khaganat kirghiz du Yenisei", källorna skiljer sig och artikelns namn valdes enligt avsnitt 4 regel 1 (rättat i #2007). es: Wikidata och es.wikipedia "Kanato kirguís" |
+| Qara Khitai (Kara-Khitan) | Kanato de Kara-Kitai | Empire Kara-Khitan | fr 2026-11-20: fr.wikipedia "Empire Kara-Khitan" (titel och inledning); Wikidata Q862304 har etiketten "Kara-Khitans", källorna skiljer sig och artikelns namn valdes enligt avsnitt 4 regel 1 (rättat i #2007) |
+| Bogd Khanate of Mongolia | Kanato de Mongolia | Khaganat de Mongolie du Bogdo | fr 2026-11-20: Wikidata Q2475921 (etiketten), fr.wikipedia "Khaganat de Mongolie du Bogdo" (#2007, oförändrat) |
+| Four Oirats | Cuatro Oirates | Quatre oïrats | 2026-11-20: Wikidata Q4332415 (etiketterna), es.wikipedia "Cuatro Oirates", fr.wikipedia "Quatre oïrats" (#2007, oförändrat) |
+| Rustamid dynasty (Rustamiderna) | Rostomitas | Rostémides | 2026-11-20: Wikidata Q940123 (etiketterna), es.wikipedia "Rostomitas", fr.wikipedia "Rostémides" (#2007, oförändrat). es.wikipedia nämner också varianterna *rustamitas*, *rustemíes* och *rustumíes*; *Rostomitas* behålls |
+| Alodia (Kungariket Alodia) | Aloa | Alodie | es 2026-11-20: Wikidata Q449639 (etiketten), es.wikipedia "Aloa" (#2007, oförändrat) |
+| Tuyuhun | Tuyuhun | Tuyuhun | es kunde inte verifieras (#2007): Wikidata Q1196201 saknar spansk etikett och es.wikipedia saknar artikel. Behålls, att verifiera |
+| Kingdom of Cusco (Kungariket Cusco) | Curacazgo del Cuzco | Royaume de Cuzco | es 2026-11-20: Wikidata Q2314963 (etiketten), es.wikipedia "Curacazgo incaico" (inledningen: "curacazgo del Cuzco") (#2007, oförändrat) |
+| Uyghur Khaganate | Kanato uigur | Khaganat ouïgour | es 2026-11-20: Wikidata Q831218 (etiketten), es.wikipedia "Kanato uigur" (#2007, oförändrat) |
+| Era of Fragmentation (Tibet 842–1247) | Era de la Fragmentación | Ère de la fragmentation | es 2026-11-20: Wikidata Q2065143 (etiketten), es.wikipedia "Era de la Fragmentación" (#2007, oförändrat). sv och de kunde inte verifieras: Wikidata saknar sv- och de-etikett och artikel på sv.wikipedia och de.wikipedia; namnet står kvar oöversatt |
+| Eastern Turkic Khaganate | Kanato túrquico oriental | Khaganat turc oriental | es 2026-11-20: Wikidata Q2607292 (etiketten), es.wikipedia "Kanato túrquico oriental" (#2007, oförändrat) |
+| Western Turkic Khaganate | Kanato túrquico occidental | Khaganat turc occidental | es 2026-11-20: es.wikipedia "Kanato túrquico occidental" (titel och inledning), samma form som det östra; Wikidata Q874357 har etiketten "kanato de los turcos occidentales", källorna skiljer sig och artikelns namn valdes enligt avsnitt 4 regel 1 (rättat i #2007) |
 
 Kolumnen "Kontrollerad" är `–` tills någon har öppnat en källa på målspråket och jämfört. Då skrivs datum och källa där (till exempel `2026-11-12, es.wikipedia`). Riken som inte står här: följ regel 1–5 i avsnitt 4. Lägg till det i tabellen i samma pull request så att nästa omgång använder samma namn.
 
+
+### 9.1 Områden som inte är en stat (#1300)
+
+Typorden för `areaKind` (`area.kind.<värde>` i `data/ui/`). De ersätter ordet "rike" i teckenförklaringen, faktarutan och kortet för ett sådant område. Granskas av `sprak-*` före release.
+
+| `areaKind` | Svenska | Engelska | Tyska | Spanska | Franska |
+|---|---|---|---|---|---|
+| `city-states` | stadsstäder | city-states | Stadtstaaten | ciudades-Estado | cités-États |
+| `culture` | kulturområde | culture area | Kulturraum | área cultural | aire culturelle |
+| kortets rubrik (`facts.kind.area`) | Område som inte var en stat | Area that was not a state | Gebiet, das kein Staat war | Zona que no era un Estado | Zone qui n’était pas un État |
+
+### 9.2 Kina 1915–1929 (#1507)
+
+Namnen i rutan Om kartan för `kina` och delen `kejsardomet-kina`. Ordningen följer texten.
+
+| Svenska | Engelska | Tyska | Spanska | Franska | Kontrollerad |
+|---|---|---|---|---|---|
+| Kejsardömet Kina | Empire of China | Kaiserreich China | Imperio de China | Empire de Chine | 2026-11-20: en, de och es Wikidata Q175379 (etiketterna); sv sv.wikipedia "Kejsardömet Kina (1915–1916)" (titel och faktaruta; Wikidatas sv-etikett är "Kinesiska imperiet"); fr fr.wikipedia "Restauration impériale chinoise" (faktarutans franska namn; Wikidatas fr-etikett är artikelns titel) |
+| Kuomintang | Kuomintang | Kuomintang | Kuomintang | Kuomintang | – (oförändrat på alla språk) |
+| Beiyangregeringen | Beiyang government | Beiyang-Regierung | Gobierno de Beiyang | gouvernement de Beiyang | en 2026-11-20: en.wikipedia "Beiyang government" |
+| Peking | Beijing | Peking | Pekín | Pékin | – |
+| Nationalistregeringen (i Nanjing) | Nationalist Government | Nationalregierung | Gobierno Nacionalista | gouvernement nationaliste | – |
+
+### 9.3 Inre Asien och Arabien (#1331, andra omgången)
+
+Grupperna och delarna i `data/empires/index.json` (PR #2030). "WD" är Wikidatas etikett (SPARQL 2026-11-20), "egen" är en egen översättning byggd på de andra namnen. Termen *saudiska riket* översätts *Saudi State* / *Saudi-Staat* / *Estado saudí* / *État saoudien*, och ordningstalet skrivs med gemen mitt i en mening på spanska och franska (*el tercer Estado saudí*, *le troisième État saoudien*) men med versal först i namnet.
+
+| Svenska | Engelska | Tyska | Spanska | Franska | Kontrollerad |
+|---|---|---|---|---|---|
+| Det första saudiska riket | First Saudi State | Erster Saudi-Staat | Primer Estado saudí | Premier État saoudien | 2026-11-20: sv sv.wikipedia "Saudiarabiens historia" (rubriken "Det första saudiska riket (1744–1818)"); en och de WD Q146871; es och fr egen (WD "Emirato de Diriyah", "émirat de Dariya") |
+| Det andra saudiska riket | Second Saudi State | Zweiter Saudi-Staat | Segundo Estado saudí | Deuxième État saoudien | 2026-11-20: sv sv.wikipedia "Saudiarabiens historia"; en, de och fr WD Q146862; es egen (WD "Emirato de Nechd") |
+| Det tredje saudiska riket | Third Saudi State | Dritter Saudi-Staat | Tercer Estado saudí | Troisième État saoudien | 2026-11-20: sv sv.wikipedia "Saudiarabiens historia" ("det tredje saudiska riket"); en och fr WD Q2011891; es WD "Tercer Estado Saudita" med gemen; de egen (WD saknar etikett) |
+| Jabal Shammar | Emirate of Jabal Shammar | Emirat der Dschebel Schammar | Emirato de Jabal Shammar | Émirat de Haïl | 2026-11-20: sv, en och es WD Q5362837; de de.wikipedia "Āl Raschīd" ("auch als Emirat der Dschebel Schammar bekannt"; WD:s tyska etikett "Geschichte der Schammar" är en historieartikel); fr WD och fr.wikipedia "Émirat de Haïl" (titeln) |
+| Kungariket Hijaz | Kingdom of Hejaz | Königreich Hedschas | Reino del Hiyaz | Royaume du Hedjaz | 2026-11-20: WD Q956357 |
+| Buchara | Khanate of Bukhara | Khanat Buchara | Kanato de Bujará | Khanat de Boukhara | 2026-11-20: WD Q577668; de de.wikipedia "Khanat Buchara" (WD "Usbeken-Khanat") |
+| Emiratet Buchara | Emirate of Bukhara | Emirat Buchara | Emirato de Bujará | Émirat de Boukhara | 2026-11-20: WD Q746558; sv med khanatets stavning (WD "emiratet Bukhara") |
+| Khanatet Khiva | Khanate of Khiva | Khanat Chiwa | Kanato de Jiva | Khanat de Khiva | 2026-11-20: WD Q491106; es es.wikipedia "Kanato de Jiva" (WD "Kanato de Jarazm") |
+| Khanatet Kokand | Khanate of Kokand | Khanat Kokand | Kanato de Kokand | Khanat de Kokand | 2026-11-20: WD Q696241 |
+| Kalmuckkhanatet | Kalmyk Khanate | Kalmückisches Khanat | Kanato calmuco | Khanat kalmouk | 2026-11-20: WD Q4210248 |
+| Kazankhanatet | Khanate of Kazan | Khanat Kasan | Kanato de Kazán | Khanat de Kazan | 2026-11-20: WD Q186537; en en.wikipedia "Khanate of Kazan" (WD "Khanate of Qazan") |
+| Astrachankhanatet | Astrakhan Khanate | Khanat Astrachan | Kanato de Astracán | Khanat d’Astrakhan | 2026-11-20: WD Q210163 |
+| Nogajhorden | Nogai Horde | Nogaier-Horde | Horda de Nogái | Horde Nogaï | 2026-11-20: WD Q631210; fr också fr.wikipedia "Horde Nogaï" (titeln) |
+
+Personnamnen i rutorna Om kartan följer engelska Wikipedia och är inte kontrollerade mot målspråkens Wikipedia, utom de tyska *Raschiden* (de.wikipedia "Āl Raschīd") och den franska *Al Rachid* (fr.wikipedia "Émirat de Haïl"). Patronymen skrivs *ibn* på svenska och tyska, *bin* på engelska och spanska och *ben* på franska. Huvudstaden skrivs *Hail* (sv, en, de, es) och *Haïl* (fr).
+
+### 9.4 Medeltidens luckor, nionde omgången (#645)
+
+Grupperna i `data/empires/index.json`. "WD" är Wikidatas etikett (SPARQL 2026-11-20, `tools/riken_namn.py`); "versal" betyder att etiketten fick versal först, som namn i början av en rad (avsnitt 3). Rättat efter granskningen av sprak-de, sprak-es och sprak-fr i PR #2037 (2026-11-20), med namnen jämförda mot Wikipedia på målspråket där en artikel finns (avsnitt 4 regel 1).
+
+| Svenska | Engelska | Tyska | Spanska | Franska | Kontrollerad |
+|---|---|---|---|---|---|
+| Kamarupariket | Kamarupa | Kamarupa | Kamarupa | Kamarupa | 2026-11-20: WD Q1194765; de originalnamnet (WD saknar tysk etikett, avsnitt 4 regel 1) |
+| Vijayanagar | Vijayanagara Empire | Vijayanagar | Imperio Vijayanagara | Royaume de Vijayanagara | 2026-11-20: WD Q167639; fr fr.wikipedia "Royaume de Vijayanagara" (titeln; WD "royaume de Vijayanâgara"; granskningens förslag "Empire de Vijayanagara" är inte artikelns namn) |
+| Balhae | Balhae | Balhae | Balhae | Balhae | 2026-11-20: WD Q28322 (engelska Wikipedias titel är "Parhae"); sv saknar etikett och artikel, engelska enligt beslutet 2026-11-12 |
+| Hariphunchai | Haripuñjaya | Haripunjaya | Haripunchai | Hariphunchai | 2026-11-20: WD Q255931. Samma rike stavas också Haribhuñjaya och Haripunjaya (en.wikipedia "Haripuñjaya"); stavningarna skiljer sig per språk enligt Wikidatas etiketter och är inte fel |
+| Koguryo | Goguryeo | Goguryeo | Goguryeo | Koguryo | 2026-11-20: WD Q28370; fr fr.wikipedia "Koguryo" (titeln; inledningen ger också Koguryŏ och Goguryeo) |
+| Kungariket Lavo | Lavo Kingdom | Königreich Lavo | Reino de Lavo | Royaume de Lavo | 2026-11-20: WD Q1332305; sv egen översättning (etikett och artikel saknas; det engelska namnet stoppas av #1702), som de, es och fr. en "Lavo Kingdom" är ett medvetet val: Wikidatas etikett och en.wikipedias titel, inte "Kingdom of Lavo" |
+| Seunadynastin | Seuna dynasty | Seuna-Dynastie | Dinastía Seuna | Dynastie Seuna | 2026-11-20: en en.wikipedia "Seuna dynasty" (WD "Seuna Dynasty"); de de.wikipedia "Seuna-Dynastie" (titeln); es och fr typordet tillagt som i Dinastía Chaulukya (WD "Seuna"; fr.wikipedia skriver "dynasties Hoysala et Seuna", ingen egen artikel); sv egen översättning (etikett och artikel saknas, #1702) |
+| Mamlukdynastin i Delhi | Mamluk dynasty (Delhi) | Sklavendynastie | Mamelucos de Delhi | Dynastie des esclaves | 2026-11-20: sv, de WD Q847420; de *Sklavendynastie* är det etablerade tyska namnet på Delhidynastin 1206–1290, inte Egyptens mamluker; en en.wikipedia "Mamluk dynasty (Delhi)" (WD "Mamluk Sultanate", samma som Egyptens); es es.wikipedia "Mamelucos de Delhi" (titeln; granskningens förslag "Dinastía mameluca de Delhi" är inte artikelns namn); fr fr.wikipedia "Dynastie des esclaves" (titeln, "dirige le sultanat de Delhi en Inde de 1206 à 1290"; skiljs från *Sultanat mamelouk d'Égypte*, granskningens förslag "Dynastie des Mamelouks de Delhi" är inte artikelns namn) |
+| Chaulukyadynastin | Chaulukya dynasty | Solanki | Dinastía Chaulukya | Dynastie Chaulukya | 2026-11-20: WD Q18211496; de de.wikipedia "Solanki" (titeln, "eine Hindu-Dynastie in Gujarat"), medvetet valt framför Chaulukya-Dynastie; fr typordet tillagt (WD "Solankî", ingen artikel hittad på fr.wikipedia); sv egen översättning (etikett och artikel saknas, #1702); inte samma som Chalukyadynastin |
+| Aragoniska kronan | Crown of Aragon | Krone von Aragonien | Corona de Aragón | Couronne d'Aragon | 2026-11-20: sv sv.wikipedia "Aragoniska kronan" (WD "Aragonska kronan"); de de.wikipedia "Krone von Aragonien" (titeln; WD "Krone Aragon"); övriga WD Q204920, fr med versal |
+| Idrisider | Idrisid dynasty | Idrisiden | Dinastía idrísida | Idrissides | 2026-11-20: WD Q431575 |
+| Khanatet Kara-Khanid (nya delar, östra och västra) | Karakhanid Khanate | Karachaniden | Karajánidas | Qarakhanides | 2026-11-20: WD Q494354 (som gruppen); es med versal som gruppen (WD "karajánidas") |
+| Kungariket Jaffna (lydrike under Vijayanagar) | Jaffna kingdom | Königreich Jaffna | Reino de Jaffna | Royaume de Jaffna | 2026-11-20: en, de, es och fr WD Q1311219; sv egen översättning (etikett och artikel saknas), typordet översatt som på de andra språken |
+
+### 9.5 Antikens luckor, andra omgången (#646)
+
+Grupperna i `data/empires/index.json`. "WD" är Wikidatas etikett (SPARQL 2026-11-20). Namnen är jämförda med Wikipedias artikel på varje språk (språklänkarna i Wikidata, 2026-11-20); där artikelns namn och etiketten skiljer sig går artikelns namn före (avsnitt 4 regel 1), utom där artikelns titel bara har ett förtydligande inom parentes, som "Chu (stat)". Spanska och franska med versal först som namn i början av en rad (avsnitt 3).
+
+| Svenska | Engelska | Tyska | Spanska | Franska | Kontrollerad |
+|---|---|---|---|---|---|
+| Chu | Chu | Chu | Estado Chu | Chu | 2026-11-20: WD Q504759; sv, en, de och fr artiklarna "Chu (stat)", "Chu (state)", "Chu (Staat)" och "Chu (État)"; es es.wikipedia "Estado Chu" (WD "Chu"); fr WD "État de Chu" |
+| Western Satraps | Western Satraps | Western Satraps | Sátrapas occidentales | Satrapes occidentaux | 2026-11-20: WD Q2086608; sv och de saknar etikett, alias och artikel (Wikidata, och sökning på sv.wikipedia och de.wikipedia efter Satrapen, Kshatrapa och satraper 2026-11-20; de.wikipedia skriver bara "Kshatrapa" och "westliche Sakenherrscher" i löptext). Engelska enligt beslutet 2026-11-12; ingen etablerad svensk eller tysk form hittades, så ingen hittas på |
+| Zhoudynastin | Zhou dynasty | Zhou-Dynastie | Dinastía Zhou | Dynastie Zhou | 2026-11-20: WD Q35216 och artiklarna |
+| Kungariket Armenien | Kingdom of Armenia | Großarmenien | Reino de Armenia | Royaume d’Arménie | 2026-11-20: WD Q208404; sv.wikipedia "Kungariket Armenien (antiken)", en.wikipedia "Kingdom of Armenia (antiquity)", de.wikipedia "Großarmenien". Skiljs från dagens Armenien (`armenien`) |
+| Himyaritiska riket | Himyar | Himyar | Himyar | Himyar | 2026-11-20: sv sv.wikipedia "Himyariter" (artikeln handlar om folkstammen och kallar staten "det himyaritiska riket"; WD "Himyariter"); en, de, es och fr artiklarna "Himyar". Wikidatas etiketter är en "Himyarite kingdom" och de "Himjar"; artikelns namn går före (avsnitt 4 regel 1) |
+| Liu Song | Liu Song dynasty | Frühere Song-Dynastie | Dinastía Liu Song | Dynastie Song du Sud (420–479) | 2026-11-20: WD Q49697; de WD-etiketten och de.wikipedias titel, med synonymen *Liu-Song-Dynastie* (WD-alias); fr fr.wikipedia "Dynastie Song du Sud (420-479)" med årtalen och tankstreck, behålls så att den skiljs från Södra Song (*Song du Sud*, avsnitt 9) |
+| Sunga | Shunga Empire | Shunga-Dynastie | Imperio shunga | Dynastie Shunga | 2026-11-20: WD Q651377; es es.wikipedia: titeln är "Imperio Śuṅga", men första meningen är "El Imperio shunga o Imperio śuṅga" och *shunga* är den vanliga formen i texten, som i rutan Om kartan (rättat i PR #2042, sprak-es; WD "Imperio Sunga"). Gemen i adjektivet enligt avsnitt 3 |
+| Funan | Funan | Funan | Reino de Funan | Fou-nan | 2026-11-20: WD Q867782; en en.wikipedia "Funan" (WD "Kingdom of Funan") |
+| Cao Wei | Cao Wei | Cao Wei | Cao Wei | Cao Wei | 2026-11-20: WD Q320930. Artiklarnas titlar "Wei-Dynastie", "Wei (reino)" och "Royaume de Wei" är tvetydiga i en lista där det också finns andra Wei-stater (Norra Wei); artiklarna själva ger *Cao Wei* som namnet som skiljer riket från dem (de.wikipedia "auch Cao Wei", fr.wikipedia "également appelé Cao Wei", es.wikipedia "Cáo Wèi"; WD:s tyska alias "Cao Wei"). Avsteg från avsnitt 4 regel 1 för entydighetens skull (PR #2042, sprak-de/es/fr) |
+| Grekisk-baktriska riket | Greco-Bactrian Kingdom | Griechisch-Baktrisches Königreich | Reino grecobactriano | Royaume gréco-bactrien | 2026-11-20: WD Q488880 och artiklarna |
+| Shangdynastin | Shang dynasty | Shang-Dynastie | Dinastía Shang | Dynastie Shang | 2026-11-20: WD Q128938 och artiklarna |
+| Östra Wu | Eastern Wu | Östliche Wu-Dynastie | Wu Oriental | Wu oriental | 2026-11-20: WD Q274488. Artiklarnas titlar "Wu-Dynastie", "Wu (reino)" och "Royaume de Wu" är tvetydiga (Cliopatria har också en äldre stat Wu, 750–451 f.Kr.). de: WD-alias "Östliche Wu-Dynastie" och de.wikipedia "Die (Östliche) Wu-Dynastie". es och fr: egen översättning av *Eastern Wu* (es.wikipedia och fr.wikipedia använder formen bara i språklänkarna; fr.wikipedia nämner också *Sun Wu* och *Dong Wu*). Avsteg från avsnitt 4 regel 1 för entydighetens skull (PR #2042); sprak-es och sprak-fr kontrollerar |
+
+Personnamnen i rutorna Om kartan följer engelska Wikipedia, utom i Grekisk-baktriska riket, där namnen är kontrollerade mot artikeln på varje språk (2026-11-20): grundaren *Diodotus I* (sv.wikipedia och en), *Diodotos I.* (de), *Diódoto I* (es) och *Diodote Ier* (fr); huvudstäderna *Bactra* (sv, en, es; sv.wikipedia nämner ingen huvudstad), *Baktra* (de) och *Bactres* (fr), och *Ai-Khanoum* (sv, en, es), *Ai Chanum* (de) och *Aï Khanoum* (fr). Övriga namn kontrolleras av sprak-* före release. Engelska termer i rutorna: *Saka (Indo-Scythian)* för Western Satraps (sv *sakiska (indoskytiska)*, de *sakisch (indoskythisch)*, es *sakas (indoescitas)*, fr *saces (indo-scythes)*) och *the Kushans* för Kushanriket (sv *Kushan*, de *Kuschana*, es *kushanes*, fr *Kouchans*). Delningen 387 skrivs *Eastern Roman Empire* som i en.wikipedia-artikeln om Armenien, *Östrom* på svenska och tyska (*Ostrom*), *Imperio romano de Oriente* och *Empire romain d’Orient*, som i avsnitt 9.
 
 ## 10. Kontrollera innan en pull request öppnas
 
@@ -294,7 +405,7 @@ Skrivet 2026-11-12. Termerna är kontrollerade mot målspråkets Wikipedia-titel
 ### 13.2 Tidsangivelser (förslag)
 
 - **Fram till gränsen** (antagande: cirka 10 000 år sedan, avgörs i #1088) används f.Kr. som i avsnitt 2.
-- **Efter gränsen**, bakåt i tiden, används "för … år sedan": sv *för 40 000 år sedan*, en *40,000 years ago*, de *vor 40.000 Jahren*, es *hace 40 000 años*, fr *il y a 40 000 ans*. För miljoner: sv *för 2 miljoner år sedan*, en *2 million years ago*, de *vor 2 Millionen Jahren*, es *hace 2 millones de años*, fr *il y a 2 millions d’années*. Under två skriver franskan singular: *il y a 1,8 million d’années*. Decimalkomma på tyska, spanska och franska (*vor 2,5 Millionen Jahren*), decimalpunkt på engelska (*2.5 million years ago*).
+- **Efter gränsen**, bakåt i tiden, används "för … år sedan": sv *för 40 000 år sedan*, en *40,000 years ago*, de *vor 40.000 Jahren*, es *hace 40 000 años*, fr *il y a 40 000 ans*. **Händelsekortets datumrad (#1979)** skriver "≈" före: sv *≈ 42 000 år sedan*, en *≈ 42,000 years ago*, de *≈ vor 42.000 Jahren*, es *≈ hace 42 000 años*, fr *≈ il y a 42 000 ans* (reglagets text behåller "för cirka"). För miljoner: sv *för 2 miljoner år sedan*, en *2 million years ago*, de *vor 2 Millionen Jahren*, es *hace 2 millones de años*, fr *il y a 2 millions d’années*. Under två skriver franskan singular: *il y a 1,8 million d’années*. Decimalkomma på tyska, spanska och franska (*vor 2,5 Millionen Jahren*), decimalpunkt på engelska (*2.5 million years ago*).
 - **Inte i löptext:** "BP", "ka", "kyr" eller "Ma". De kan stå i källhänvisningar och i datafält.
 - **Spann:** det äldre talet står först, som i källorna. Tankstreck i korta etiketter (*för 48 000–32 000 år sedan*, en *48,000–32,000 years ago*, de *vor 48.000–32.000 Jahren*). I löptext är spanska *hace entre 48 000 y 32 000 años* och franska *il y a 48 000 à 32 000 ans* naturligare.
 - **Osäkerhetsord med fast betydelse** (förslag): *cirka* (en *about*, de *etwa*, utskrivet och inte *ca.*, es *unos/unas* böjt efter genus, fr *environ* framför mängder och *vers* framför årtal med f.Kr.) för ett ungefärligt tal; *troligen* (*probably*, *wahrscheinlich*, *probablemente*, *probablement*) när källan bedömer det sannolikt; *kanske* eller *möjligen* (*possibly*, *möglicherweise* och inte *vielleicht*, *posiblemente*, *peut-être*) när källan bara håller det för möjligt. Orden används inte omväxlande; de följer källans grad av säkerhet.
@@ -368,6 +479,10 @@ Rättat 2026-11-14 efter [expertgranskningen före v6.3.0](granskningar/2026-11-
 | inom {tid} från {år} | within {time} of {year} | – | – | *à moins de {within} de {at}* (inte *dans un rayon de*, som är ett avstånd) |
 | flaggetikett | – | *Flagge von Niger*, *Flagge von Mali*, *Flagge von Benin* (som *Flagge von Sierra Leone*) | – | – |
 | Licens: public domain (bildtext) | – | – | *Licencia: dominio público* | – |
+| Okänd fotograf (kredit, `tools/bild_hamta.py`, #2118) | Unknown photographer | *Unbekannter Fotograf* som fristående kredit, *Fotograf unbekannt* i löpande bildtext | Fotógrafo desconocido | Photographe inconnu |
+| Okänd konstnär (kredit, `tools/bild_hamta.py`, #2118) | Unknown artist | Unbekannter Künstler | *Artista desconocido* (*artista* är könsneutralt) | Artiste inconnu |
+| Licens: public domain, licensfras i bildtext (`tools/bild_hamta.py`) | Licence: Public domain | Lizenz: gemeinfrei (äldre tyska bildtexter blandar formerna *Public domain* och *gemeinfrei* och ska jämnas ut senare) | Licencia: dominio público | Licence : domaine public (hårt mellanrum U+00A0 före kolon, inte U+202F) |
+| CC-licenser i bildtext (CC0, CC BY 2.0, CC BY-SA 4.0) | oöversatta, lika på alla språk | – | – | – |
 | Lgr22, årskurs 7–9 | Lgr22 (the Swedish compulsory school curriculum), years 7–9 | – | – | *Lgr22 (le programme suédois de l'école obligatoire)*, *classes 7 à 9 (numérotation suédoise)* första gången i en text |
 
 **Rikesnamn (kontrollerade 2026-11-14 mot öppnade artiklar på målspråkets Wikipedia):**
@@ -388,7 +503,9 @@ Definitionerna står i [docs/produkt/13-ordlista.md](produkt/13-ordlista.md) ("L
 
 | Svenska | Engelska | Tyska | Spanska | Franska | I `data/ui/` |
 |---|---|---|---|---|---|
-| plats (samlingsordet, gruppen) | place, Places | Ort, Orte (i dag; se fråga 1 nedan) | lugar, Lugares | lieu, Lieux | `place.label`, `focus.tab.places` |
+| plats (samlingsordet) | place | Ort (i dag; se fråga 1 nedan) | lugar | lieu | `place.label` |
+| fliken "Länder och landskap" (platserna med eget kort, #1947; hette Platser till 2026-11-18) | Countries and provinces | Länder und Landschaften | Países y provincias históricas | Pays et provinces historiques | `focus.tab.places` |
+| landskap (plural, knappen "Landskap i Sverige" i Sök och följ, #1947) | Provinces | Landschaften | Provincias históricas | Provinces historiques | `place.types.landskap` |
 | land | country | Land | país | pays | `place.type.country`, `review.subject.Landet` |
 | försvunnet land | former country (fliken: Vanished countries) | ehemaliges Land (fliken: Verschwundene Länder) | país desaparecido | pays disparu | `facts.kind.vanished`, `focus.tab.vanished` |
 | självstyrt område | autonomous territory | autonomes Gebiet | territorio autónomo | territoire autonome | `place.type.autonomous` |
@@ -398,12 +515,12 @@ Definitionerna står i [docs/produkt/13-ordlista.md](produkt/13-ordlista.md) ("L
 | region (= världsdel) | continent | Kontinent | continente | continent | `region.<id>`, `hunt.progress`, `legend.continentNote` |
 | tema | theme | Thema | tema | thème | `theme.label`, `focus.tab.themes` |
 | regionvy (Platt vy inzoomad på en liten plats, #1641) | close-up map | Nahkarte | mapa de cerca | vue rapprochée | `regionView.*`, `place.regionMap` |
-| fliken "Vad hände här?" (händelser nära en plats, #15; hette tidigare Plats) | What happened here? | Was geschah hier? | ¿Qué pasó aquí? | Que s’est-il passé ici ? (hårt mellanrum före frågetecknet) | `focus.tab.place` |
+| fliken "Nära en plats" (händelser nära en plats, #15; hette Vad hände här? till 2026-11-18, #1947, och dessförinnan Plats) | Near a place | In der Nähe eines Ortes | Cerca de un lugar | Près d’un lieu | `focus.tab.place` |
 
 - **Land är inte rike på något språk.** *Country/Land/país/pays* är dagens land med dagens gräns; *empire/Reich/imperio/empire* är rikets historiska gräns. Översätt aldrig "landet" med *empire* eller *Reich*, eller "riket" med *country*.
 - **Stat och nation används inte som synonymer till land.** *Nation*, *nación* och franska *nation* betyder folket, inte området. Delstaterna i USA heter *estados* respektive *États* (avsnitt 17.1).
 - **Region** översätts inte med *region*, *Region*, *región* eller *région*, eftersom det på målspråken oftast betyder en del av ett land. Gränssnittet säger redan *continent*, *Kontinent*, *continente* och *continent*.
-- **Regionvy** (#1641) är namnet på vyn i svenskan, så som DasKrokodil skrev det i issuet; *region* ensamt betyder fortfarande världsdel. På de andra språken heter vyn efter vad den gör, en karta på nära håll: *close-up map*, *Nahkarte*, *mapa de cerca*, *vue rapprochée* (franskan efter språkgranskningen 2026-11-14: en vy, inte ett nytt kartblad). Knappen i platskortet säger det: *Visa i regionvy*, *Show on close-up map*, *Auf der Nahkarte zeigen*, *Ver en el mapa de cerca*, *Voir dans la vue rapprochée*.
+- **Regionvy** (#1641) är namnet på vyn i svenskan, så som DasKrokodil skrev det i issuet; *region* ensamt betyder fortfarande världsdel. På de andra språken heter vyn efter vad den gör, en karta på nära håll: *close-up map*, *Nahkarte*, *mapa de cerca*, *vue rapprochée* (franskan efter språkgranskningen 2026-11-14: en vy, inte ett nytt kartblad). Knappen i platskortet heter sedan #1864 *Visa i regionvyn*, *Show in the close-up map*, *In der Nahkarte zeigen*, *Ver en el mapa de cerca*, *Voir dans la vue rapprochée* (`place.regionMap`; före #1864 *Visa händelserna på kartan* och motsvarande, som inte sa vart man kom) och ordet *regionvy* står i rutan efteråt (`regionView.title`). Ryms inte regionvyn (en liggande telefon, ett lågt fönster) heter knappen i stället *Visa på Platt karta*, *Show on Flat map*, *Auf der Flachen Karte zeigen*, *Ver en el mapa plano*, *Voir sur la carte plane* (`place.flatMap`, samma text som för Sverige), så att den inte lovar mer än den ger (#1692). När regionvyn lämnas säger statusraden vart man kom tillbaka (#1864): *Tillbaka till Platt karta / globen / Upptäcktsresor*, *Back to the Flat map / the globe / Voyages of discovery*, *Zurück zur Flachen Karte / zum Globus / zu den Entdeckungsreisen*, *De vuelta al mapa plano / al globo / a los viajes de descubrimiento*, *Retour à la carte plane / au globe / aux grandes découvertes* (`regionView.left`, `regionView.leftGlobe`, `regionView.leftDiscovery`); namnen är vyväljarens egna (Glob, Platt karta och Upptäcktsresor, avsnittet om upptäcktsvyn ovan). Inga nya termer.
 - **Regionvyns markörer** (#1642): *markör* är *marker*, *Markierung*, *marcador*, *marqueur* (som i övriga gränssnittet). *Hög* (markörer nära varandra på kartan) är *stack*, *Stapel*, *pila*, *pile*; *fälla ut* och *fälla ihop* är *fan out / fold up*, *auffächern / zuklappen*, *desplegar / plegar*, *déployer / refermer*. *Brickan* för händelser som gäller hela platsen är *badge*, *Schild*, *etiqueta*, *étiquette* (franskans *étiquette* är också ordet för kartans etiketter; det står kvar tills ett bättre ord hittas), och dess text är *Hela {plats}*, *All of {place}*, *Der ganze Ort: {Ort}* (inte *Ganz {Ort}*, som går sönder för platser med artikel: *ganz die Schweiz*), och på spanska och franska *Todo el lugar: {lugar}* och *Tout le lieu : {lieu}*, eftersom ett landsnamn där kräver artikel efter kön (*toda Escania*, *tout le Danemark*) och mallen inte kan välja den (avsnitt 17.2). *Markera* (en markör eller rad får ram) är *highlight*, *hervorheben*, *resaltar*, *mettre en évidence*. *Faktarutan* är *fact box*, *Faktenfeld* (som i övriga de.json), *ficha*, *fiche*. Tangenten *Enter* är *Enter*, *Eingabetaste*, *Intro*, *Entrée*, och piltangenterna på franska *touches fléchées* (som `help.s4t`). Nummer i listan skrivs *Nr.* på tyska och *n°* på franska. *Ungefärlig plats* är `place.approx`; *streckad ring* är *dashed ring*, *gestrichelter Ring*, *anillo discontinuo*, *anneau en pointillé*. Orden som kapar en platstext till ett ortnamn (`regionView.placeCut`, `regionView.placePrefix`) är listor per språk, med mellanslag runt orden.
 
 ### 17.1 Platstyper (för kommande platser; läggs i `place.type.<typ>` när typen byggs)
@@ -445,7 +562,7 @@ Skåne (#1159) är den första platsen med `partOf` och har frasen på alla fem 
 
 ### 17.3 Öppna frågor (ändras inte i #1266)
 
-1. **Tyska samlingsordet: *Orte* eller *Gebiete*?** `sprak-de` föreslog *Gebiete* (planeringen i `docs/granskningar/2026-11-12-planering-regionhistoria.md`, punkt 11). Att tänka på före beslutet: *Gebiet* används redan i `data/ui/de.json` för andra områden (krigsområdet i `legend.warNote`, religionens område i `pop.religion`, Människans spridning i `layer.spreadNote` och typen *Autonomes Gebiet*), så ett kort om Grönland skulle få rubriken *Gebiet* och typen *Autonomes Gebiet*. Ändras det berörs `focus.tab.places` (*Orte*), `place.label` (*Ort*) och de övriga `place.*`-texterna med *Ort* i `data/ui/de.json`. Avgörs av DasKrokodil efter granskning av `sprak-de`.
+1. **Tyska samlingsordet: *Orte* eller *Gebiete*?** `sprak-de` föreslog *Gebiete* (planeringen i `docs/granskningar/2026-11-12-planering-regionhistoria.md`, punkt 11). Att tänka på före beslutet: *Gebiet* används redan i `data/ui/de.json` för andra områden (krigsområdet i `legend.warNote`, religionens område i `pop.religion`, Människans spridning i `layer.spreadNote` och typen *Autonomes Gebiet*), så ett kort om Grönland skulle få rubriken *Gebiet* och typen *Autonomes Gebiet*. Ändras det berörs `place.label` (*Ort*) och de övriga `place.*`-texterna med *Ort* i `data/ui/de.json`; fliken `focus.tab.places` heter sedan #1947 (2026-11-18) *Länder und Landschaften* och berörs inte längre. Avgörs av DasKrokodil efter granskning av `sprak-de`.
 2. **Neuseeland/Aotearoa:** datan skriver *Neuseeland (Aotearoa)*, och de.wikipedia "Neuseeland" ger *Aotearoa* som maoriskt namn i inledningen. Ingen ändring behövs; samma mönster gäller de andra språken i `data/platser.json`.
 3. **Spanska typraden för landskap: *en* eller *de*?** I dag *Provincia histórica en Suecia* (oförändrat från före #1479). `sprak-es` anmärker att *de* är normalt för administrativa indelningar (*… de Suecia*). Frasen i `data/platser.json` är hel per språk, så ändringen är en datarad (Skånes `partOf.es`), ingen kodändring. Avgörs av DasKrokodil efter granskning av `sprak-es`.
 4. **Grönlands fras på franska.** *au Danemark* (som i tabellen ovan) eller ett förslag som *dans le Royaume du Danemark* (förslag, ej källkontrollerat här)? Grönland är en plats av typen `autonomous`, och Grönland ligger i Danmarks rike snarare än i Danmark. Kontrolleras mot fr.wikipedia när Grönland får `partOf`; avgörs av DasKrokodil.

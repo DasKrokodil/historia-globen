@@ -58,6 +58,17 @@ test('urvalet tar händelser inom 300 km, äldst först, och märker ungefärlig
   assert.deepEqual(eventsNear(events, { lat: NaN, lon: 0 }), []);
 });
 
+test('scope "wide" (#1806): en händelse för ett större område hör inte till "här", även inom radien', () => {
+  const center = { lat: 0, lon: 0 };
+  const events = [ev('vid', 1, 'x', [0, 0.1], { scope: 'wide', locationPrecision: 'region' }),
+    ev('hela', 2, 'x', [0, 0.2], { scope: 'place', locationPrecision: 'country' }), ev('nara', 3, 'x', [0, 0.3])];
+  assert.deepEqual(eventsNear(events, center).map(h => h.event.id), ['hela', 'nara']);
+  const real = JSON.parse(readFileSync(new URL('../data/events.json', import.meta.url))).events;
+  const [lon, lat] = real.find(e => e.id === 'yngre-dryas').location.coordinates;
+  assert.equal(eventsNear(real, { lat, lon }).some(h => h.event.id === 'yngre-dryas'), false,
+    'Yngre dryas (norra halvklotet) är inte en händelse vid Allerød');
+});
+
 test('händelser utan koordinater hoppas över och ger inget fel', () => {
   const broken = { id: 'x', start: 1, end: 1, review: 'source-checked', title: { sv: 'x' }, place: { sv: 'Någonstans' } };
   assert.deepEqual(eventsNear([broken], { lat: 0, lon: 0 }), []);

@@ -6,13 +6,16 @@
 // - faktarutan för en befintlig händelse (select).
 // Fortsätt och spelknappen går till nästa steg. Ligger nästa steg nära i tiden spelas tiden fram dit och pausar;
 // annars hoppar tidslinjen. Avsluta återställer besökarens lager, fokus och kamera och lämnar året där turen var.
-import { t, isVisibleReview, formatYear } from '../model.js';
+import { t, isVisibleReview, formatYear, needDetails } from '../model.js';
 import { tourProblems } from '../tour-format.js';
 import { teacherLink } from './print-sheet.js';
 import { ui } from '../i18n.js';
+import { takeawaysHtml } from './panel.js';
 
 /** Längsta tid (sekunder) som uppspelningen får ta mellan två steg; längre avstånd blir ett hopp. */
 const PLAY_SECONDS = 4;
+/** Ett steg med mer text än så (tecken) får en ihopdragen bild (#1866): texten är det som ska rymmas, inte bilden. */
+const TEXT_LONG = 300;
 
 async function getJSON(path) {
   const res = await fetch(path);
@@ -59,12 +62,12 @@ export class TourPlayer {
       for (const p of problems) console.warn(p);
       return !problems.length && isVisibleReview(tour.review);
     });
-    this.tour = null; this.index = 0; this.target = null; this.opener = null; this.huntHidden = false; this.stepVersion = 0;
+    this.tour = null; this.index = 0; this.target = null; this.opener = null; this.huntHidden = false; this.stepVersion = 0; this.ending = false; this.finishing = false;
     this.button.hidden = !this.tours.length;
     if (!this.tours.length) return;
 
     const label = key => t(this.labels[key]) || '';
-    this.button.textContent = label('button') || 'Turer';
+    this.button.textContent = label('button') || ui('tour.button');
     this.menuTitle.textContent = label('menuTitle');
     this.back.textContent = `← ${label('back')}`;
     this.closeBtn.setAttribute('aria-label', label('end'));
@@ -73,7 +76,7 @@ export class TourPlayer {
     if (this.endBtn) this.endBtn.textContent = label('end');
     this.read.textContent = label('read');
     this.srcBtn.textContent = label('sources');
-    this.questionLabel.textContent = label('question') || 'Att fundera på:';
+    this.questionLabel.textContent = label('question') || ui('tour.question');
     this.buildMenu();
 
     this.button.addEventListener('click', () => (this.menu.hidden ? this.openMenu() : this.closeMenu()));
@@ -81,10 +84,12 @@ export class TourPlayer {
       if (!this.menu.hidden && !this.menu.contains(e.target) && !this.button.contains(e.target)) this.closeMenu();
     });
     this.menu.addEventListener('keydown', e => { if (e.key === 'Escape') { e.stopPropagation(); this.closeMenu(); } });
-    this.back.addEventListener('click', () => this.go(this.index - 1));
-    this.next.addEventListener('click', () => (this.last ? this.end() : this.go(this.index + 1)));
+    // På slutkortet (#1866) går Föregående till sista steget igen, Stäng lämnar turen och länken i foten startar om den
+    this.back.addEventListener('click', () => this.go(this.ending ? this.index : this.index - 1));
+    this.next.addEventListener('click', () => (this.ending ? this.end({ done: true }) : this.last ? this.finish() : this.go(this.index + 1)));
     this.closeBtn.addEventListener('click', () => this.end());
-    this.endBtn?.addEventListener('click', () => this.end());
+    this.endBtn?.addEventListener('click', () => (this.ending ? this.restart() : this.end()));
+    this.setupMore();
     this.read.addEventListener('click', () => {
       const s = this.step;
       if (s?.open) app.select(s.open, false);
@@ -172,6 +177,10 @@ export class TourPlayer {
     if (tour.summary) {
       const meta = document.createElement('p'); meta.className = 'tour-pick-meta'; meta.textContent = t(tour.summary);
       body.append(meta);
+    }
+    if (tour.audience) {
+      const audience = document.createElement('p'); audience.className = 'tour-pick-audience'; audience.textContent = t(tour.audience);
+      body.append(audience);
     }
     const lessonRow = document.createElement('div'); lessonRow.className = 'tour-lesson-row';
     const info = document.createElement('span'); info.className = 'tour-lesson-meta';
@@ -283,10 +292,12 @@ export class TourPlayer {
     this.huntHidden = false;
     this.card.hidden = false;
     this.app.root.classList.add('touring');
+    this.hideEndCard();
     const stepVersion = this.stepVersion = (this.stepVersion ?? 0) + 1;
     const { app } = this, { timeline, globe, flatMap } = app;
     this.index = Math.max(0, Math.min(i, this.tour.steps.length - 1));
     this.target = null;
+    this.card.scrollTop = 0; // nytt steg börjar överst: stegräknaren, rubriken och bilden syns (#1856)
     const step = this.step;
     timeline.pause();
     this.setLayers(app.lesson?.layers ?? step.layers); // en lektion kan låsa lagren för hela turen (#795)
@@ -295,6 +306,12 @@ export class TourPlayer {
     // I smal skärm markeras händelsen bara på globen (krigets händelser syns annars inte utzoomat), och
     // faktarutan öppnas med "Läs om händelsen", så att arket inte täcker kortet
     app.places?.closeStep(); // platsens kontur från förra steget (#1163); omritningen nedan tar bort den
+    // En markör med namn vid stegets plats (#1785): på kamerans mitt om steget inte anger en egen plats
+    if (step.mark) app.places?.markStep({ lat: step.mark.lat ?? step.camera.lat, lon: step.mark.lon ?? step.camera.lon, label: t(step.mark.label), approx: !!step.mark.approx });
+    // En linje på kartan (#1785): läses och ritas när filen har kommit, om turen fortfarande står kvar på steget
+    if (step.line) app.places?.lineStep({ file: step.line.file, label: t(step.line.label), current: () => this.stepVersion === stepVersion });
+    this.card.dataset.line = step.line ? step.line.file : '';
+    this.card.dataset.mark = step.mark ? t(step.mark.label) : ''; // för webbläsartestet
     if (step.open && !app.narrow.matches) app.select(step.open, false);
     else if (step.open) app.mark(step.open);
     else app.select(null, false);
@@ -310,7 +327,8 @@ export class TourPlayer {
     this.drawMeter(n);
     this.title.textContent = t(step.title);
     this.title.hidden = !step.title;
-    this.text.textContent = t(step.text);
+    this.renderText(step);
+    this.renderFigure(step);
     // Berättelseläget (#247): kapitlet ovanför rubriken och en fråga att fundera på under texten
     this.chapter.textContent = t(step.chapter);
     this.chapter.hidden = !step.chapter;
@@ -323,20 +341,18 @@ export class TourPlayer {
     this.read.hidden = !step.open && !step.place;
     this.read.textContent = this.readLabel(step);
     this.back.hidden = this.index === 0;
-    if (this.endBtn) this.endBtn.hidden = this.last; // sista steget: Klar avslutar
+    if (this.endBtn) { this.endBtn.hidden = this.last; this.endBtn.textContent = t(this.labels.end); } // sista steget: Klar öppnar slutkortet (#1866)
     this.next.textContent = this.last ? t(this.labels.done) : `${t(this.labels.next)} →`;
-    // I en lektion står slutkortet kvar efter sista steget; utgången är "Visa hela globen" i bandet (#795)
-    const stay = this.last && !!app.lesson?.active;
-    if (stay && document.activeElement === this.next) this.back.focus({ preventScroll: true });
-    this.next.hidden = stay;
+    // I en lektion står slutkortet (uppdragslänkarna) kvar efter sista steget och Klar avslutar lektionen (#1861, som Lämna lektionen i bandet)
+    this.next.hidden = false;
     app.lesson?.renderEnd(this.last);
     // Pausraden visar turen och läses upp; Fortsätt där går till nästa steg (beforeplay ovan)
     // Pausraden säger också varför tidsknapparna är låsta (#1280)
     const locked = t(this.labels.locked);
     const note = [fill(t(this.labels.paused), { title: t(this.tour.title) }), locked].filter(Boolean).join(' · ');
-    const say = sentences([this.progress.textContent, t(step.chapter), t(step.title), this.status.hidden ? '' : this.status.textContent, t(step.text), t(step.question)]);
+    const say = sentences([this.progress.textContent, t(step.chapter), t(step.title), this.status.hidden ? '' : this.status.textContent, t(step.text).replace(/\s*\n\n+\s*/g, ' '), t(step.question)]);
     // Slutkortet har ingen pausrad, men skärmläsaren ska höra steget och att det var det sista (#878)
-    const end = !this.last ? '' : app.lesson?.active ? ui('lesson.endAnnounce', { exit: ui('lesson.exit') }) : ui('tour.endAnnounce');
+    const end = !this.last ? '' : app.lesson?.active ? ui('lesson.endAnnounce', { done: t(this.labels.done), exit: ui('lesson.exit') }) : ui('tour.endAnnounce');
     // Kortet som steget öppnar på dator (en händelse eller en plats) säger sin rubrik när det öppnas (main.js, prioritet 2) och tog förut bort
     // stegets text. Nu sägs stegets text och kortets rubrik som en enda uppläsning ("Steg 2 av 3. Platsen. Plats: Grönland", #1464).
     // En händelses kort öppnas direkt, en plats laddas först (showPlace): uppläsningen väntar då tills kortet har öppnats.
@@ -351,6 +367,215 @@ export class TourPlayer {
     if (placeShown && cardOpens) placeShown.then(shown => { if (this.tour && this.stepVersion === stepVersion && !this.huntHidden && this.step === step) speak(shown ? this.cardHeading() : ''); });
     else if (step.open && cardOpens) speak(this.cardHeading());
     else if (this.last) speak('');
+    this.updateMore();
+  }
+
+  /**
+   * Slutkortet (#1866): Klar i sista steget öppnar det i turkortet i stället för att lämna turen. Det säger var man står, och visar det
+   * viktigaste att ta med sig: för en krigstur krigets story.takeaways (#500, med källor), annars stegens rubriker ur turen. Turen pågår
+   * fortfarande, så Samtidigt-kortet väntar tills slutkortet stängs (klassen touring). Stäng lämnar turen, och Starta om turen börjar om.
+   * Lektionen har sitt eget slut (#795): Klar i en lektion går till lektionens utgång (frågan till eleven, läraren lämnar direkt, #1861)
+   * och slutkortet med uppdragslänkarna står kvar.
+   */
+  finish() {
+    if (!this.tour || !this.last) return this.end();
+    if (this.app.lesson?.active) return this.app.lesson.finish(this.next);
+    const war = this.tour.war ? this.app.events?.[this.tour.war] : null;
+    const loading = war ? needDetails([war]) : null; // krigets berättelse ligger i de långa fälten, som laddas först när de behövs
+    if (!loading) return this.showEndCard(war);
+    if (this.finishing) return;
+    const version = this.stepVersion = (this.stepVersion ?? 0) + 1;
+    this.finishing = true;
+    loading.catch(err => console.warn('Krigets punkter kunde inte laddas till slutkortet', err)).then(() => {
+      this.finishing = false;
+      if (this.tour && this.last && this.stepVersion === version) this.showEndCard(war);
+    });
+  }
+
+  showEndCard(war) {
+    const { app } = this, tour = this.tour;
+    this.ending = true;
+    this.card.classList.add('is-ending');
+    this.card.dataset.ending = '1';
+    this.card.scrollTop = 0;
+    const year = formatYear(Math.round(app.timeline.year));
+    const lead = ui('tour.left', { year });
+    const takeaways = war ? takeawaysHtml(war.story?.takeaways, app.srcById, false) : '';
+    this.title.textContent = takeaways ? ui('story.takeaways') : ui('tour.recap');
+    this.title.hidden = false;
+    document.getElementById('tour-endcard-lead').textContent = lead;
+    const body = document.getElementById('tour-endcard-body');
+    if (takeaways) body.innerHTML = takeaways; // krigets punkter ersätter stegens rubriker när de finns
+    else body.replaceChildren(this.recapList(tour));
+    document.getElementById('tour-endcard').hidden = false;
+    this.back.hidden = false;
+    this.next.hidden = false;
+    this.next.textContent = ui('common.close');
+    if (this.endBtn) { this.endBtn.hidden = false; this.endBtn.textContent = ui('tour.restart'); }
+    app.timeline.announce(lead, 3); // rubriken läses av när den får fokus nedan
+    this.title.focus({ preventScroll: true });
+    this.lift();
+    this.updateMore();
+  }
+
+  /** Slutkortets lista: stegens rubriker i turens ordning, med stegets status (#499) som punkt när den finns. Inget annat än det turen redan säger. */
+  recapList(tour) {
+    const list = document.createElement('ol');
+    list.className = 'tour-recap';
+    for (const step of tour.steps) {
+      const li = document.createElement('li');
+      const text = t(step.title) || t(step.chapter);
+      if (!text) continue;
+      if (step.status) li.className = `tour-recap-${step.status}`;
+      li.textContent = text;
+      if (step.status) li.title = t(this.labels[`status-${step.status}`]);
+      list.append(li);
+    }
+    return list;
+  }
+
+  /** Tillbaka till vanliga steg (go) eller ut ur turen (end): slutkortet göms och kortet får sina delar igen. */
+  hideEndCard() {
+    this.ending = false;
+    this.card.classList.remove('is-ending');
+    delete this.card.dataset.ending;
+    const endcard = document.getElementById('tour-endcard');
+    if (endcard) endcard.hidden = true;
+  }
+
+  /** Starta om turen från slutkortet: turen lämnas utan besked och börjar om vid första steget med samma öppnare. */
+  restart() {
+    const id = this.tour?.id, opener = this.opener;
+    if (!id) return;
+    this.end({ done: true });
+    this.start(id, opener);
+  }
+
+  /**
+   * Rullningssignalen (#1866): har kortet mer att rulla visas en tonad nederkant och raden Fortsätt läsa, som rullar en bit. Raden är en
+   * knapp, så den går att nå med tangentbord och skärmläsare, och den försvinner när kortet är nedrullat.
+   */
+  setupMore() {
+    const more = document.getElementById('tour-more');
+    this.more = more;
+    this.lowWindow = matchMedia('(max-height: 600px)');
+    this.lowWindow.addEventListener('change', () => {
+      if (this.tour && this.step) this.renderFigure(this.step);
+      this.updateMore();
+    });
+    if (!more) return;
+    more.addEventListener('click', () => {
+      const calm = matchMedia('(prefers-reduced-motion: reduce)').matches || document.documentElement.classList.contains('calm');
+      this.card.scrollBy({ top: Math.max(80, Math.round(this.card.clientHeight * 0.7)), behavior: calm ? 'auto' : 'smooth' });
+    });
+    this.card.addEventListener('scroll', () => this.updateMore(), { passive: true });
+    window.addEventListener('resize', () => this.updateMore());
+    this.app.narrow.addEventListener?.('change', () => { if (this.tour && this.step) { this.renderFigure(this.step); this.updateMore(); } });
+    // Bilden och texten kan växa efter att steget ritats (bilden laddas, kortet byter storlek): mät om då
+    document.getElementById('tour-figure-img')?.addEventListener('load', () => this.updateMore());
+    this.setupThumb();
+    if (typeof ResizeObserver === 'function') {
+      const ro = new ResizeObserver(() => this.updateMore());
+      for (const el of [this.card, this.text, document.getElementById('tour-endcard-body')]) if (el) ro.observe(el);
+    }
+  }
+
+  updateMore() {
+    const more = this.more;
+    if (!more) return;
+    const c = this.card;
+    const show = !this.lowWindow.matches && !!this.tour && !c.hidden && c.scrollHeight - c.clientHeight - c.scrollTop > 16; // några pixlar över är bara marginal, ingen text
+    if (!show && !more.hidden && document.activeElement === more) this.next.focus({ preventScroll: true });
+    more.hidden = !show;
+  }
+
+  /**
+   * Tumnageln i smal skärm (#1981): ett tryck förstorar bilden i kortet (bildens hela bredd under rubriken) och ett tryck till gör den liten
+   * igen, i stället för att lämna sidan. Länken bär rollen knapp medan den är tumnagel, så Mellanslag och Retur fungerar och läget läses upp.
+   */
+  setupThumb() {
+    const link = document.getElementById('tour-figure-link');
+    if (!link) return;
+    link.addEventListener('click', e => {
+      if (!link.classList.contains('tour-thumb')) return; // på dator och utan tumnagel öppnar länken bilden i full storlek som förut
+      e.preventDefault();
+      this.setThumbOpen(!link.classList.contains('is-open'));
+    });
+    link.addEventListener('keydown', e => {
+      if (e.key !== ' ' || !link.classList.contains('tour-thumb')) return;
+      e.preventDefault();
+      this.setThumbOpen(!link.classList.contains('is-open'));
+    });
+  }
+
+  /** Tumnageln förstorad eller liten: knappens läge och namn följer med (bildtexten först, så att alt och namn säger samma sak). */
+  setThumbOpen(open) {
+    const link = document.getElementById('tour-figure-link'), caption = document.getElementById('tour-figure-img').alt;
+    link.classList.toggle('is-open', open);
+    document.getElementById('tour-headrow')?.classList.toggle('has-open-thumb', open);
+    link.setAttribute('aria-expanded', String(open));
+    link.setAttribute('aria-label', `${caption}. ${ui(open ? 'tour.figureShrink' : 'tour.figureEnlarge')}`);
+    this.updateMore();
+  }
+
+  /**
+   * Bilden i steget (#1794): bildtexten är alt-texten, krediten och licensen står under, och bilden öppnas i full storlek med ett tryck.
+   * Är stegets text lång (#1866) dras bilden ihop så att texten får plats: i smal skärm blir den en tumnagel bredvid rubriken, annars en
+   * lägre bild, och bildtexten flyttas under texten i stället för att stå mellan bilden och texten. Tumnageln förstoras i kortet (#1981).
+   */
+  renderFigure(step) {
+    const fig = document.getElementById('tour-figure'), img = step.image;
+    if (!fig) return;
+    const link = document.getElementById('tour-figure-link'), cap = document.getElementById('tour-figure-cap');
+    const head = document.getElementById('tour-headrow');
+    // Allt tillbaka på sin plats först, så att nästa steg börjar rent
+    link.classList.remove('tour-thumb', 'is-open');
+    head?.classList.remove('has-open-thumb');
+    link.removeAttribute('role'); link.removeAttribute('aria-expanded');
+    this.text.before(fig); // återställ bildens plats efter ett byte från låg till hög skärm (#2147)
+    fig.prepend(link); fig.append(cap);
+    fig.hidden = !img;
+    if (!img) return;
+    const caption = t(img.caption);
+    const long = String(t(step.text) ?? '').length > TEXT_LONG;
+    fig.classList.toggle('is-compact', long);
+    document.getElementById('tour-figure-img').src = img.file;
+    document.getElementById('tour-figure-img').alt = caption;
+    link.href = img.file;
+    link.setAttribute('aria-label', `${caption}. ${ui('tour.figureOpen')}`);
+    document.getElementById('tour-figure-caption').textContent = caption; // en illustrations bildtext säger själv att det är en illustration (bildreglerna i CLAUDE.md)
+    document.getElementById('tour-figure-credit').textContent = [img.credit, img.license].filter(Boolean).join(' · ');
+    // Låg skärm: texten kommer först, bilden och dess kredit går att rulla fram efteråt (#2147).
+    if (this.lowWindow.matches) { this.text.after(fig); return; }
+    if (!long) return;
+    this.text.after(cap); // texten före bildtexten
+    if (this.app.narrow.matches) { // tumnagel bredvid rubriken; figuren blir tom
+      link.classList.add('tour-thumb');
+      link.setAttribute('role', 'button');
+      head.append(link);
+      fig.hidden = true;
+      this.setThumbOpen(false); // tumnageln förstoras med ett tryck i kortet (#1981)
+    }
+  }
+
+  /**
+   * Stegets text i stycken (#1793): en tom rad i texten (\n\n) börjar ett nytt stycke, och partLabels (nycklar i data/turer/index.json, labels,
+   * som "Det sägs" och "Vad källorna säger") ger ett stycke en liten rubrik. Orden är desamma som förut; bara uppdelningen är ny.
+   */
+  renderText(step) {
+    const parts = String(t(step.text) ?? '').split(/\n\n+/);
+    const nodes = parts.flatMap((part, i) => {
+      const key = step.partLabels?.[i], label = key ? t(this.labels[key]) : '';
+      const para = document.createElement('p');
+      para.textContent = part;
+      if (i === 0) para.className = 'tour-lead';
+      if (!label) return [para];
+      const head = document.createElement('p');
+      head.className = 'tour-part-label';
+      head.textContent = label;
+      return [head, para];
+    });
+    this.text.replaceChildren(...nodes);
   }
 
   /** Knappens text för steget: Läs om händelsen eller Läs om platsen (båda i data/turer/index.json, labels, #1464). */
@@ -443,7 +668,7 @@ export class TourPlayer {
    * lagren och kameran men inte fokus, eftersom fokuset flyttar året och utgången ska behålla lektionens år (#881).
    * takenBy: läget som avslutade turen (till exempel 'fokus'); det tar då över sina egna delar.
    */
-  end({ takenBy = null } = {}) {
+  end({ takenBy = null, done = false } = {}) {
     if (!this.tour) return;
     const { app } = this;
     const wasLesson = !!app.lesson?.active, tourId = this.tour.id;
@@ -451,6 +676,7 @@ export class TourPlayer {
     app.lesson?.leave(); // en tur som slutar tar lektionsläget med sig (#795)
     this.next.hidden = false;
     this.tour = null; this.target = null; this.huntHidden = false;
+    this.hideEndCard();
     this.card.hidden = true;
     app.root.classList.remove('touring');
     app.globe.setViewLift(0);
@@ -468,8 +694,9 @@ export class TourPlayer {
     if (restore.camera) { app.globe.flyTo(restore.camera.lat, restore.camera.lon); app.globe.setZoom(restore.camera.zoom); }
     const back = this.opener?.isConnected && this.opener.offsetParent !== null ? this.opener : null;
     (back ?? app.fallbackFocus?.())?.focus({ preventScroll: true });
-    // Besked efter utgången (#1572): turen är slut, vilket år man står på, och ett sätt att börja om. Inte när ett annat läge tog över eller efter en lektion.
-    if (!takenBy && !wasLesson && app.linkNotice) {
+    // Besked efter utgången (#1572): turen är slut, vilket år man står på, och ett sätt att börja om. Inte när ett annat läge tog över, efter en lektion
+    // eller när slutkortet (#1866) redan har sagt det och stängdes med Stäng.
+    if (!takenBy && !wasLesson && !done && app.linkNotice) {
       const year = formatYear(Math.round(app.timeline.year));
       const opener = back;
       app.linkNotice.showText(ui('tour.left', { year }), { ms: 20000, action: { label: ui('tour.restart'), run: () => this.start(tourId, opener) } });
