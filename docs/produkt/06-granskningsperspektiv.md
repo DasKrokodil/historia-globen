@@ -113,7 +113,7 @@ Linserna 9 (barn F–3) och 10 (spelaren) har inga egna kolumner än. Använd 10
 
 **Bevis att samla in:** gå lektionen som lärare från länk till utskrivet blad; läs lärarbladet som om det vore det enda underlaget; kontrollera mot kursplanens centrala innehåll (från Skolverkets öppna text, inte ur minnet).
 
-**Vad linsen har sagt hittills:** ingen riktig lärare har granskat (ingen pilot, beslut 2026-11-07). Det är det **största antagandet** i skolspåret. Tills dess: blind-spots-runda för lektionsläget (2026-11-08) har hittat att lärarens väg från länk till blad är bräcklig.
+**Vad linsen har sagt hittills:** ingen riktig lärare har granskat (ingen pilot, beslut 2026-11-07). Granskningen före v6.5.0 (2026-11-21, `docs/granskningar/release-2026-11-21.md`) gick igenom reglagen, korten, turerna och lektionerna ur lärarens synvinkel och kontrollerade Lgr22-kopplingarna mot Skolverkets öppna kursplan: de fem perioderna stämmer. Kvar: uppdraget syns inte på bladen (#1710), "Strax före eller efter" i förhistorien (#2158) och luckor för åk 7–9 efter 1900 (#2159). Det är det **största antagandet** i skolspåret. Tills dess: blind-spots-runda för lektionsläget (2026-11-08) har hittat att lärarens väg från länk till blad är bräcklig.
 
 ---
 

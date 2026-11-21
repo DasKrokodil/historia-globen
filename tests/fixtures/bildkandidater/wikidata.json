@@ -1,0 +1,61 @@
+{
+ "entities": {
+  "Q1": {
+   "id": "Q1",
+   "claims": {
+    "P18": [
+     {
+      "rank": "normal",
+      "mainsnak": {
+       "snaktype": "value",
+       "property": "P18",
+       "datavalue": {
+        "value": "Pyramid_normal.jpg",
+        "type": "string"
+       }
+      }
+     },
+     {
+      "rank": "preferred",
+      "mainsnak": {
+       "snaktype": "value",
+       "property": "P18",
+       "datavalue": {
+        "value": "Pyramid_preferred.jpg",
+        "type": "string"
+       }
+      }
+     }
+    ]
+   }
+  },
+  "Q2": {
+   "id": "Q2",
+   "claims": {
+    "P31": []
+   }
+  },
+  "Q3": {
+   "id": "Q3",
+   "claims": {
+    "P18": [
+     {
+      "rank": "deprecated",
+      "mainsnak": {
+       "snaktype": "value",
+       "property": "P18",
+       "datavalue": {
+        "value": "Gammal.jpg",
+        "type": "string"
+       }
+      }
+     }
+    ]
+   }
+  },
+  "Q4": {
+   "id": "Q4",
+   "missing": ""
+  }
+ }
+}

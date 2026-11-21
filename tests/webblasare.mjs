@@ -2933,6 +2933,49 @@ async function run(browser, vp) {
     }
   });
 
+  // #1875: övriga turer och lektioner. Stegens händelser har en riktig bild i faktarutan med bildtext och kredit
+  // (i bred skärm öppnas faktarutan av steget, i smal skärm med Läs om händelsen)
+  await check('övriga turer: faktarutan i steget visar händelsens bild med bildtext och kredit (#1875)', async () => {
+    const lp = await context.newPage();
+    const errs = [];
+    lp.on('pageerror', e => errs.push(e.message));
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await lp.route(u => isFont(u.href), r => r.abort());
+      }
+      const narrow = (lp.viewportSize()?.width ?? 1400) <= 760;
+      const seen = [];
+      for (const [tour, step, id, word] of [['vikingatiden-och-varlden', 'cahokia', 'cahokia', 'Monks Mound'],
+        ['vad-vet-vi-egentligen', 'karl-xii', 'karl-xii-stupar-1718', 'Wahlbom'], ['hur-vet-vi-det-har', 'napoleon', 'napoleonkrigen', 'Gérard']]) {
+        await lp.goto(`${BASE}?ny=1875#t=${tour}&s=${step}`);
+        await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await lp.waitForSelector('#tour-card:not([hidden])', { timeout: T.step });
+        if (narrow) {
+          await lp.waitForSelector('#tour-read', { state: 'visible', timeout: T.step });
+          await lp.click('#tour-read');
+        }
+        await lp.waitForSelector('#detail:not([hidden]) .detail-fig img', { state: 'attached', timeout: T.step });
+        const w = await lp.evaluate(async () => {
+          const img = document.querySelector('#detail .detail-fig img');
+          const ok = await fetch(img.getAttribute('src')).then(r => r.ok, () => false);
+          return { src: img.getAttribute('src'), ok, title: document.querySelector('#detail h3')?.textContent.trim(),
+            caption: document.querySelector('#detail .fig-caption')?.textContent.trim() ?? '', credit: document.querySelector('#detail .fig-credit')?.textContent.trim() ?? '' };
+        });
+        if (!w.src.endsWith(`images/events/${id}.webp`)) throw new Error(`${tour}/${step}: bilden är ${w.src}, inte händelsens`);
+        if (!w.ok) throw new Error(`${tour}/${step}: ${w.src} laddas inte`);
+        if (!w.caption.includes(word)) throw new Error(`${tour}/${step}: bildtexten nämner inte ${word}: ${w.caption}`);
+        if (!w.credit) throw new Error(`${tour}/${step}: krediten saknas vid den historiska bilden`);
+        seen.push(w.title);
+      }
+      if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
+      return `bild, bildtext och kredit i faktarutan för ${seen.join(', ')}`;
+    } finally {
+      await lp.close();
+    }
+  });
+
   // #1790 och #1791: platskortets ordning, raden Om kartan och källor, knappen i regionvyn och tryck på platsen i Fokus
   await check('platskortet: listan före anteckningarna, Om kartan och källor hopfälld, regionvyn tar bort knappen och ett tryck på platsen öppnar kortet (#1790, #1791); liten flagga bredvid namnet och knappen i halva arket (#1977)', async () => {
     const lp = await context.newPage();
@@ -4755,6 +4798,20 @@ async function run(browser, vp) {
       await button.focus();
       await tp.keyboard.press('Enter');
       await globeRegionSettled(tp, 'gronland');
+      // Deterministiskt (#1937): felet syntes bara när den första ritningen mätte namnet innan det hade layout. Här tvingas det fram:
+      // namnen döljs och deras mått glöms, en ritning görs (en pixel högre fönster ändrar bilden), och sedan visas namnen och
+      // fönstret får sin storlek igen. Utan rättningen i region-marks.js står reservbredden 90 px kvar och det långa namnet hamnar utanför.
+      const vp = tp.viewportSize();
+      await tp.evaluate(() => {
+        const root = document.getElementById('globe-region-labels');
+        root.style.display = 'none';
+        root.querySelectorAll('.rpile-tag').forEach(t => { t._w = undefined; });
+      });
+      await tp.setViewportSize({ width: vp.width, height: vp.height + 1 });
+      await tp.waitForTimeout(400);
+      await tp.evaluate(() => { document.getElementById('globe-region-labels').style.display = ''; });
+      await tp.setViewportSize(vp);
+      await tp.waitForTimeout(600);
       const tags = await tp.evaluate(() => [...document.querySelectorAll('#globe-region-labels .rpile')].filter(e => e.dataset.tag && e.dataset.tag !== 'none').map(e => {
         const r = e.querySelector('.rpile-tag').getBoundingClientRect();
         return { name: e.querySelector('.rpile-name').textContent, x0: Math.round(r.left), x1: Math.round(r.right), w: innerWidth };
@@ -6449,7 +6506,16 @@ async function run(browser, vp) {
       await tp.fill('#focus-menu .focus-search', 'a');
       const last = tp.locator('#focus-menu .focus-body [data-key]').last();
       await last.waitFor({ state: 'visible', timeout: T.step });
-      await last.scrollIntoViewIfNeeded();
+      // Listan ritas om när en grupp laddats klart (setGroups, setTime), så raden som hittades nyss kan vara borttagen
+      // ("Element is not attached to the DOM", PR #2142): vänta tills antalet rader står still i två avläsningar, och rulla sedan
+      // till den sista raden som finns just då
+      await tp.waitForFunction(() => {
+        const n = document.querySelectorAll('#focus-menu .focus-body [data-key]').length;
+        const same = n > 0 && n === window.__rows1695;
+        window.__rows1695 = n;
+        return same;
+      }, null, { timeout: T.step, polling: 300 });
+      await tp.evaluate(() => [...document.querySelectorAll('#focus-menu .focus-body [data-key]')].pop().scrollIntoView({ block: 'nearest' }));
       const layout = await tp.evaluate(() => {
         // samma rad som locator(...).last() ovan: den sista i hela listan, inte den sista i sin grupp (:last-child)
         const menu = document.getElementById('focus-menu'), body = menu.querySelector('.focus-body'), last = [...body.querySelectorAll('[data-key]')].pop();
@@ -7506,8 +7572,8 @@ async function run(browser, vp) {
         const a = await m();
         if (a.card.top < 0 || a.card.bottom > a.ih) throw new Error(`${yta.namn}: turkortet ligger utanför skärmen (${Math.round(a.card.top)}–${Math.round(a.card.bottom)} av ${a.ih} px)`);
         if (a.card.height < 150) throw new Error(`${yta.namn}: turkortet är bara ${Math.round(a.card.height)} px högt`);
-        if (!a.next.ok) throw new Error(`${yta.namn}: Nästa syns inte helt inne i kortet (${Math.round(a.next.top)}–${Math.round(a.next.bottom)} px, kortet ${Math.round(a.card.top)}–${Math.round(a.card.bottom)})`);
-        if (!a.end.ok) throw new Error(`${yta.namn}: Lämna turen syns inte helt inne i kortet`);
+        if (yta.height > 600 && !a.next.ok) throw new Error(`${yta.namn}: Nästa syns inte helt inne i kortet (${Math.round(a.next.top)}–${Math.round(a.next.bottom)} px, kortet ${Math.round(a.card.top)}–${Math.round(a.card.bottom)})`);
+        if (yta.height > 600 && !a.end.ok) throw new Error(`${yta.namn}: Lämna turen syns inte helt inne i kortet`);
         if (a.next.height < 44 || a.end.height < 44) throw new Error(`${yta.namn}: knapparna är lägre än 44 px (${Math.round(a.next.height)}, ${Math.round(a.end.height)})`);
         if (!a.noteInside) throw new Error(`${yta.namn}: turraden ryms inte i bild (${Math.round(a.note.left)}–${Math.round(a.note.right)}, ${Math.round(a.note.top)}–${Math.round(a.note.bottom)} av ${a.iw} × ${a.ih} px)`);
         if (a.card.bottom > a.note.top + 1) throw new Error(`${yta.namn}: turkortet täcker turraden (${Math.round(a.card.bottom)} > ${Math.round(a.note.top)} px)`);
@@ -7533,6 +7599,90 @@ async function run(browser, vp) {
       } finally { await context.close(); }
     }
     return out.join('; ');
+  });
+
+  // #2147: mät den verkliga textens träffyta, inte bara att kortet och knapparna finns.
+  // Eget datorjobb provar pekskärm, 200 % zoom och oförändrade höga fönster.
+  await check('låg fönsterhöjd: stegets text har fri träffyta och foten rullar (#2147)', async () => {
+    if (vp.width <= 760) return 'körs i datorjobbet med egna fönsterstorlekar';
+    const sizes = [
+      { width: 800, height: 360, touch: true }, { width: 844, height: 390, touch: true },
+      { width: 667, height: 375, touch: true }, { width: 640, height: 400, touch: false },
+      { width: 1024, height: 600, touch: false },
+      { width: 400, height: 800, touch: true }, { width: 1280, height: 800, touch: false },
+    ];
+    const faults = [], results = [];
+    for (const size of sizes) {
+      const { tp, tctx, errs } = await touchPage(size, { hasTouch: size.touch });
+      try {
+        for (const mode of ['tur', 'elev', 'lärare']) {
+          const lesson = mode !== 'tur', low = size.height <= 600;
+          const tour = lesson ? 'vikingatiden-och-varlden' : 'songhairikets-fall';
+          const hash = `#t=${tour}${lesson ? '&m=lektion' : ''}${mode === 'lärare' ? '&r=lararen' : ''}`;
+          await tp.goto(`${BASE}?kontroll2147=${mode}${hash}`, { waitUntil: 'domcontentloaded' });
+          await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+          await tp.waitForSelector('#tour-card:not([hidden])', { timeout: T.step });
+          await tp.evaluate(() => document.fonts.ready);
+          const label = `${size.width}×${size.height} ${mode}`;
+          const teacher = await tp.locator('.app').evaluate(el => el.classList.contains('lesson-teacher'));
+          if (teacher !== (mode === 'lärare')) throw new Error(`${label}: fel lektionsroll`);
+          const seen = await tp.evaluate(() => {
+            const card = document.getElementById('tour-card'), c = card.getBoundingClientRect();
+            const text = document.querySelector('#tour-text p:not(.tour-part-label)') || document.getElementById('tour-text');
+            const walker = document.createTreeWalker(text, NodeFilter.SHOW_TEXT);
+            const lines = [];
+            while (walker.nextNode()) {
+              const range = document.createRange(); range.selectNodeContents(walker.currentNode);
+              lines.push(...Array.from(range.getClientRects()).filter(r => r.width > 0));
+            }
+            const free = r => r.height > 0 && r.top >= c.top && r.bottom <= c.bottom &&
+              [r.left + 2, (r.left + r.right) / 2, r.right - 2].every(x => text.contains(document.elementFromPoint(x, (r.top + r.bottom) / 2)));
+            const title = document.getElementById('tour-title'), r = title.getBoundingClientRect();
+            const hit = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
+            const bar = document.getElementById('tour-bar'), more = document.getElementById('tour-more');
+            return { lines: lines.slice(0, 2).filter(free).length, title: title.contains(hit) && r.top >= c.top && r.bottom <= c.bottom,
+              bar: getComputedStyle(bar).position, more: getComputedStyle(more).display !== 'none' && !more.hidden,
+              scrollTop: card.scrollTop, wide: document.documentElement.scrollWidth > innerWidth };
+          });
+          // Även det avsiktligt röda provet lämnar bevis från samtliga begärda låga storlekar.
+          if ([800, 640, 1024, 400, 1280].includes(size.width)) await tp.screenshot({ path: path.join(OUT, `2147-${size.width}x${size.height}-${mode}.webp`), type: 'webp', quality: 70 });
+          if (low && (!seen.title || seen.lines < 2 || seen.more || seen.bar === 'sticky')) {
+            faults.push(`${label}: rubrik fri ${seen.title}, textrader fria ${seen.lines}/2, läsknapp ${seen.more}, fot ${seen.bar}`);
+            continue;
+          }
+          if (!low && seen.bar !== 'sticky') faults.push(`${label}: den fasta foten ändrades`);
+          if (seen.scrollTop !== 0 || seen.wide) faults.push(`${label}: rullning ${seen.scrollTop}, sidled ${seen.wide}`);
+          // Nästa får nås genom rullning i låga fönster, och nästa steg ska börja överst.
+          await tp.locator('#tour-next').scrollIntoViewIfNeeded();
+          const progress = await tp.textContent('#tour-progress');
+          await tp.click('#tour-next');
+          await tp.waitForFunction(before => document.getElementById('tour-progress').textContent !== before, progress, { timeout: T.step });
+          if (await tp.evaluate(() => document.getElementById('tour-card').scrollTop !== 0)) faults.push(`${label}: Nästa nollställde inte rullningen`);
+          // Sista steget: turens slutkort respektive uppdragslänk och Klar ska gå att rulla fram och trycka på.
+          const data = JSON.parse(fs.readFileSync(path.join('data/turer', `${tour}.json`), 'utf8'));
+          await tp.goto(`${BASE}?kontroll2147=${mode}${hash}&s=${data.steps.at(-1).id}`, { waitUntil: 'domcontentloaded' });
+          await tp.waitForFunction(title => document.getElementById('tour-title').textContent === title, data.steps.at(-1).title.sv, { timeout: T.step });
+          await tp.waitForSelector('#tour-card:not([hidden])', { timeout: T.step });
+          if (lesson) {
+            await tp.waitForSelector('#tour-lesson-end-list button', { timeout: T.step });
+            await tp.locator('#tour-lesson-end-list button').first().scrollIntoViewIfNeeded();
+            await tp.locator('#tour-lesson-end-list button').first().click({ trial: true });
+            if ((await tp.textContent('#tour-next')).trim() !== 'Klar') faults.push(`${label}: Klar saknas`);
+            await tp.locator('#tour-next').scrollIntoViewIfNeeded();
+            await tp.locator('#tour-next').click({ trial: true });
+          } else {
+            await tp.click('#tour-next');
+            await tp.waitForSelector('#tour-endcard:not([hidden])', { timeout: T.step });
+            await tp.locator('.tour-recap li').last().scrollIntoViewIfNeeded();
+            await tp.locator('#tour-next').click({ trial: true });
+          }
+          results.push(label);
+        }
+        if (errs.length) faults.push(...errs);
+      } finally { await tctx.close(); }
+    }
+    if (faults.length) throw new Error(faults.join('; '));
+    return `${results.join(', ')}: text fri, slutet och knapparna nås, Nästa börjar överst`;
   });
 
   // #1694: breda liggande pekskärmar fick bara 16 px turkort. Jämför med de smala storlekar som redan fungerade.
@@ -7564,7 +7714,8 @@ async function run(browser, vp) {
           }, lesson);
           const a = await measure(), label = `${width} × ${height}, ${lesson ? 'lektion' : 'tur'}`;
           if (!a.coarse) throw new Error(`${label}: provet emulerar ingen pekskärm`);
-          if (!a.next.ok || !a.exit.ok || !a.year.ok) throw new Error(`${label}: Nästa, utgången eller årtalet täcks: ${JSON.stringify(a)}`);
+          // #2147: Nästa och turens utgång rullar med texten och provas efter rullning nedan.
+          if (!a.year.ok || (lesson && !a.exit.ok)) throw new Error(`${label}: utgången eller årtalet täcks: ${JSON.stringify(a)}`);
           if (a.next.height < 44) throw new Error(`${label}: Nästa har för liten tryckyta`);
           if (a.card.top < 0 || a.card.bottom > a.note.top || a.scroll) throw new Error(`${label}: kortet täcker turraden eller sidan rullar i sidled`);
           await tp.evaluate(() => { const c = document.getElementById('tour-card'); c.scrollTop = c.scrollHeight; });
@@ -11609,8 +11760,8 @@ async function run(browser, vp) {
         // Steget börjar överst (#1856) och Klar står på sin plats bredvid Föregående
         const top = await lp.evaluate(() => document.getElementById('tour-card').scrollTop);
         if (top !== 0) throw new Error(`${where}: kortet började inte överst (scrollTop ${top})`);
-        // I låg skärm står länken i det som rullar och ska synas helt när kortet är nedrullat; annars ska den synas helt direkt
-        if (size.height <= 600) await lp.evaluate(() => { const c = document.getElementById('tour-card'); c.scrollTop = c.scrollHeight; });
+        // I låg skärm rullas uppdragslänken fram; annars ska den synas helt direkt (#2147)
+        if (size.height <= 600) await lp.locator('#tour-lesson-end-list button').first().scrollIntoViewIfNeeded();
         const seen = await lp.evaluate(() => {
           const btn = document.querySelector('#tour-lesson-end-list button'), r = btn.getBoundingClientRect();
           const bar = document.getElementById('tour-next').parentElement.getBoundingClientRect(), card = document.getElementById('tour-card').getBoundingClientRect();
@@ -12991,6 +13142,73 @@ async function run(browser, vp) {
       return 'val ur året (1325, -2999, -3000, -50000), drag stannar vid kanten, steg och uppspelning över gränsen, övertoning och reducerad rörelse, intervallband med pil';
     } finally { await wp.close(); }
   });
+  // Fokus över gränsen mellan reglagen (#1986): fokusläget ritar fokusspannets egen skala, men reglagets namn för skärmläsare följer året,
+  // och meddelandet "Tidslinjen visar nu …" sägs en gång när året passerar gränsen, inte en gång till när Fokus slutar
+  await check('Fokus över gränsen mellan reglagen: namnet och meddelandet följer året (#1986)', async () => {
+    const fp = await context.newPage();
+    const errs = [];
+    const fpAw = abortWatch(fp);
+    fp.on('pageerror', e => { if (!fpAw.defer(e.message)) errs.push(e.message); });
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await fp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await fp.route(u => isFont(u.href), r => r.abort());
+      }
+      // Sverige följs från stenåldern till i dag, så fokusspannet går över gränsen -3000/-2999
+      await fpAw.goto(`${BASE}?lang=sv&ny=f1986#y=-3002&f=place:sverige`);
+      await fp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await fp.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '-3002', null, { timeout: T.step });
+      // Året sätts ur adressen innan platsen har laddat klart (platser.json och rikenas faktarutor hämtas först efter det), så på en
+      // långsam körare stod provet kvar med Fokus ännu inte startat när den fasta väntan nedan var slut (#2143). Vänta på det
+      // som provet ska se: Fokus har börjat och platskortet är öppet. Kraven är oförändrade.
+      await fp.waitForFunction(() => !document.getElementById('focus-bar').hidden && !document.getElementById('detail').hidden, null, { timeout: T.step })
+        .catch(() => { throw new Error('Fokus på Sverige startade inte'); });
+      await fp.keyboard.press('Escape'); // platskortet stängs, Fokus står kvar
+      await fp.waitForFunction(() => document.getElementById('detail').hidden, null, { timeout: T.step });
+      await fp.waitForTimeout(1500); // adressens egen uppläsning av året hinner klart
+      const read = () => fp.evaluate(() => {
+        const tr = document.getElementById('track'), n = a => Number(tr.getAttribute(a));
+        return { label: tr.getAttribute('aria-label')?.replace(/\s/g, ' '), min: n('aria-valuemin'), max: n('aria-valuemax'), now: n('aria-valuenow'),
+          focus: !document.getElementById('focus-bar').hidden };
+      });
+      const PRE = 'År, före 3000 f.Kr.', HISTORY = 'År, 3000 f.Kr.–i dag';
+      const start = await read();
+      if (!start.focus) throw new Error('Fokus på Sverige startade inte');
+      if (start.label !== PRE) throw new Error(`före gränsen i Fokus heter reglaget "${start.label}", väntat "${PRE}"`);
+      if (!(start.min < -3000 && start.max > -2999)) throw new Error(`fokusspannet ${start.min}–${start.max} går inte över gränsen`);
+      await fp.evaluate(() => {
+        const status = document.getElementById('screen-reader-status');
+        window.__said = [];
+        // Statusraden töms och skrivs om (js/ui/status.js), så ett andra, likadant meddelande syns som en ny text efter den tomma
+        let prev = '';
+        new MutationObserver(() => { const t = status.textContent; if (/visar nu/.test(t) && t !== prev) window.__said.push(t); prev = t; })
+          .observe(status, { childList: true, characterData: true, subtree: true });
+      });
+      await fp.focus('#track');
+      for (let i = 0; i < 4; i++) { await fp.keyboard.press('ArrowRight'); await fp.waitForTimeout(250); } // -3002 → -2998, över gränsen
+      const after = await read();
+      if (after.now !== -2998) throw new Error(`fyra steg från -3002 gav ${after.now}`);
+      if (after.label !== HISTORY) throw new Error(`efter gränsen i Fokus heter reglaget "${after.label}", väntat "${HISTORY}"`);
+      if (after.min !== start.min || after.max !== start.max) throw new Error(`aria-valuemin/max ändrades i Fokus: ${start.min}–${start.max} → ${after.min}–${after.max}`);
+      await fp.waitForFunction(() => window.__said.length > 0, null, { timeout: T.step })
+        .catch(async () => { throw new Error(`statusraden sa aldrig att reglaget bytts: "${await fp.textContent('#screen-reader-status')}"`); });
+      await fp.click('#focus-exit');
+      await fp.waitForFunction(() => document.getElementById('focus-bar').hidden, null, { timeout: T.step });
+      await fp.waitForTimeout(1500);
+      const done = await read();
+      if (done.label !== HISTORY) throw new Error(`när Fokus slutar heter reglaget "${done.label}"`);
+      if (done.min !== -2999) throw new Error(`när Fokus slutar är aria-valuemin ${done.min}, väntat -2999 (reglagets första år)`);
+      const said = await fp.evaluate(() => window.__said);
+      const swaps = said.filter(t => /Tidslinjen visar nu tiden 3000 f\.Kr\.–i dag/.test(t.replace(/\s/g, ' ')));
+      if (swaps.length !== 1) throw new Error(`meddelandet om reglaget sades ${swaps.length} gånger: ${JSON.stringify(said)}`);
+      errs.push(...fpAw.settle());
+      if (errs.length) throw new Error(`konsol: ${errs.join('; ')}`);
+      return `före gränsen "${PRE}", efter "${HISTORY}" redan i Fokus, aria-valuemin/max fokusspannet ${start.min}–${start.max}; meddelandet en gång, inte igen när Fokus slutar`;
+    } finally {
+      await fp.close();
+    }
+  });
   await check('reglagets upplösning i förhistorien (#1320)', async () => {
     const wp = await context.newPage();
     const errs = [];
@@ -13555,7 +13773,9 @@ async function run(browser, vp) {
   }, { sels, min });
   // Ytorna: hur de öppnas, vilka knappar som ska ha träffyta och vilken text som ska vara minst 12 px. `minst` är hur många element varje väljare ska hitta.
   const ytor1713 = [
-    { namn: 'start och tidsreglaget', hash: '#y=1325', mal: ['.top-actions .chip-btn:not([hidden])', '.timebar .step', '.timebar .play'], text: [] },
+    // Årtalen under reglaget (.tick) är dolda medan engångstipset syns (första besöket), så tipset stängs först; de var 10,5 px i liggande telefon (#1713, omgång 3)
+    { namn: 'start och tidsreglaget', hash: '#y=1325', gor: async p => { if (await p.isVisible('#year-tip-close')) await p.click('#year-tip-close'); await p.waitForTimeout(150); },
+      mal: ['.top-actions .chip-btn:not([hidden])', '.timebar .step', '.timebar .play'], text: ['.timebar .tick'] },
     { namn: 'Samtidigt-listan', hash: '#y=1325', gor: async p => { await p.click('#btn-panel'); await p.waitForSelector('#panel', { state: 'visible', timeout: T.step }); },
       mal: ['#panel .panel-tab', '#panel .panel-filter-toggle', '#panel-close'], text: [] },
     { namn: 'händelsekortet (Avignon)', hash: '#y=1325', gor: async p => { await p.click('#btn-panel'); await p.waitForSelector('#panel', { state: 'visible', timeout: T.step }); await p.click('#event-list .event-item >> nth=0'); await p.waitForSelector('#detail', { state: 'visible', timeout: T.step }); },
@@ -13573,7 +13793,7 @@ async function run(browser, vp) {
     { namn: 'Inställningar', hash: '#y=1325', gor: async (p, bred) => { if (!await p.isVisible('#btn-settings')) await p.click(bred ? '#btn-more' : '#more-toggle'); await p.click('#btn-settings'); await p.waitForSelector('#settings', { state: 'visible', timeout: T.step }); },
       mal: ['#settings .layer-row input[type=checkbox]'], text: [] },
     { namn: 'Sök och följ', hash: '#y=1325', gor: async (p, bred) => { if (!await p.isVisible('#btn-focus')) await p.click(bred ? '#btn-more' : '#more-toggle'); await p.click('#btn-focus'); await p.waitForSelector('#focus-menu', { state: 'visible', timeout: T.step }); },
-      mal: ['#focus-menu .focus-sort .chip-btn', '#focus-menu .focus-group-toggle'], text: [] },
+      mal: ['#focus-menu .focus-sort .chip-btn', '#focus-menu .focus-group-toggle', '#focus-menu .focus-tabs .chip-btn'], text: ['#focus-menu .focus-sort .chip-btn', '#focus-menu .focus-sort-label'] },
     // Mäts bara när det finns höjd: på en låg liggande yta (800 × 360) fälls kortet ihop när regionvyn öppnas och rutan och zoomknapparna har egna mått (#1952), som provas där
     { namn: 'regionvyn (Skåne i Platt karta)', minHojd: 600, hash: '#y=1827&f=place:skane', gor: async p => {
         await p.waitForSelector('#detail .place-type', { state: 'visible', timeout: T.step });
@@ -13641,6 +13861,217 @@ async function run(browser, vp) {
     const r = await matYtor1713(false, { width: 1280, height: 800 });
     if (r.fel.length) throw new Error(r.fel.join(' | '));
     return `minst 24 px i ${r.mattes.length} ytor (1280 × 800)`;
+  });
+
+  // #1713, omgång 3, punkt 6: teckenförklaringen under tidslinjen låg 4 px under fönstrets underkant i 400 × 800 och 400 × 700 och in i årtalens ruta,
+  // eftersom posterna i raden låg på baslinjen (raden blev 17 px hög i stället för 14 och posterna 3 px olika). Provet mäter varje post mot fönstret och
+  // mot de synliga årtalen (inget överlapp), också i 360 × 640 där raden bryts till två rader, i liggande telefon och på dator. Stegknapparnas osynliga
+  // 44 px yta (knapparna är 34 px höga i mobil och 32 i liggande) tar trycket 20 px över och under mitten. Engångstipset döljer raden och årtalen och
+  // stängs därför före mätningen (hg-year-tip i lagringen).
+  const matTidsrad = async (pek, storlek) => {
+    const { tp, tctx, errs } = pek ? await touchPage(storlek, { isMobile: true }) : { tp: await context.newPage(), tctx: null, errs: [] };
+    if (!pek) {
+      await tp.setViewportSize({ width: storlek.width, height: storlek.height });
+      tp.on('pageerror', e => errs.push(e.message));
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await tp.route(u => isFont(u.href), r => r.abort());
+      }
+    }
+    try {
+      await tp.addInitScript(() => { try { localStorage.setItem('hg-year-tip', '1'); } catch { /* utan lagring visas tipset */ } });
+      await tp.goto(`${BASE}?lang=sv#y=1325`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.waitForTimeout(400);
+      if (await tp.isVisible('#year-tip-close')) await tp.click('#year-tip-close');
+      await tp.waitForFunction(() => getComputedStyle(document.getElementById('timeline-legend')).visibility === 'visible', null, { timeout: T.step });
+      const m = await tp.evaluate(() => {
+        const vis = e => { const cs = getComputedStyle(e), r = e.getBoundingClientRect(); return cs.visibility !== 'hidden' && cs.display !== 'none' && r.width > 0 && r.height > 0; };
+        const legend = document.getElementById('timeline-legend');
+        const poster = [legend.querySelector('summary'), ...legend.querySelectorAll('.tl-item')].filter(vis);
+        const ticks = [...document.querySelectorAll('.tick')].filter(vis);
+        const fel = [];
+        for (const e of poster) {
+          const r = e.getBoundingClientRect();
+          if (r.bottom > innerHeight + 0.5) fel.push(`"${e.textContent.trim().slice(0, 12)}" slutar ${Math.round((r.bottom - innerHeight) * 10) / 10} px under fönstret`);
+          for (const t of ticks) {
+            const b = t.getBoundingClientRect();
+            if (r.left < b.right && r.right > b.left && r.top < b.bottom - 0.5 && r.bottom > b.top) fel.push(`"${e.textContent.trim().slice(0, 12)}" överlappar årtalet ${t.textContent.trim()}`);
+          }
+        }
+        const rader = new Set(poster.map(e => Math.round(e.getBoundingClientRect().top))).size;
+        const steg = [...document.querySelectorAll('.timebar .step, .timebar .play')].filter(vis).map(b => {
+          const r = b.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+          const miss = [-20, 20].filter(d => { const t = document.elementFromPoint(cx, cy + d); return !(t && (t === b || b.contains(t))); });
+          return { namn: b.textContent.trim() || 'Spela', h: Math.round(r.height), miss };
+        });
+        return { fel, antal: poster.length, ticks: ticks.length, rader, steg, bredd: legend.getBoundingClientRect().height };
+      });
+      if (m.antal < 3) throw new Error(`teckenförklaringen hittades inte (${m.antal} poster)`);
+      if (!m.ticks) throw new Error('inga årtal syns under reglaget');
+      if (m.fel.length) throw new Error(`teckenförklaringen: ${m.fel.slice(0, 4).join('; ')}`);
+      if (m.rader > 2) throw new Error(`teckenförklaringen ligger på ${m.rader} olika höjder (posterna ska ligga på samma linje)`);
+      if (pek) {
+        const miss = m.steg.filter(b => b.miss.length);
+        if (!m.steg.length) throw new Error('inga stegknappar');
+        if (miss.length) throw new Error(`stegknappens 44 px yta tar inte trycket 20 px över/under mitten: ${miss.map(b => `${b.namn} (${b.h} px hög)`).join(', ')}`);
+      }
+      if (errs.length) throw new Error(errs[0]);
+      return `${m.antal} poster inom fönstret, ${m.ticks} årtal utan överlapp${pek ? `, ${m.steg.length} stegknappar med 44 px yta` : ''}`;
+    } finally { if (tctx) await tctx.close(); else await tp.close(); }
+  };
+  await check('tidsraden: teckenförklaringen ligger inom fönstret och under årtalen, stegknapparnas yta tar trycket (#1713, omgång 3)', async () => {
+    const delar = [];
+    const storlekar = vp.width > 760 ? [{ width: 1280, height: 800 }] : [{ width: 400, height: 800 }, { width: 400, height: 700 }, { width: 360, height: 640 }, { width: 800, height: 360 }];
+    for (const storlek of storlekar) {
+      try { delar.push(`${storlek.width} × ${storlek.height}: ${await matTidsrad(vp.width <= 760, storlek)}`); }
+      catch (e) { throw new Error(`${storlek.width} × ${storlek.height}: ${e.message}`); }
+    }
+    // #2129: "ny skala" i teckenförklaringen är dold under 560 px och synlig över. Regeln .tl-item-seam { display: none } i @media (max-width: 560px) slogs ut av
+    // .tl-item { display: inline-flex } (samma specificitet, den senare vinner), så posten syntes och fick raden att brytas i fler rader. Provet mäter på alla fem
+    // språk: posten är dold (display: none) vid 320, 360, 400 och 560 px, synlig vid 561 och 1280 px, teckenförklaringen har högst två rader på svenska och
+    // engelska vid 360 och 320 px, och ingen post går utanför teckenförklaringen eller fönstret på något språk.
+    {
+      const sp = await context.newPage();
+      const spErrs = [];
+      sp.on('pageerror', e => spErrs.push(e.message));
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await sp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await sp.route(u => isFont(u.href), r => r.abort());
+      }
+      const nySkala = [];
+      try {
+        await sp.addInitScript(() => { try { localStorage.setItem('hg-year-tip', '1'); } catch { /* utan lagring visas tipset */ } });
+        for (const lang of ['sv', 'en', 'de', 'fr', 'es']) {
+          await sp.setViewportSize({ width: 400, height: 800 });
+          await sp.goto(`${BASE}?lang=${lang}&ny=nyskala2129${lang}#y=1325`);
+          await sp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+          await sp.waitForTimeout(300);
+          if (await sp.isVisible('#year-tip-close')) await sp.click('#year-tip-close');
+          for (const width of [320, 360, 400, 560, 561, 1280]) {
+            await sp.setViewportSize({ width, height: 800 });
+            await sp.waitForFunction(() => getComputedStyle(document.getElementById('timeline-legend')).visibility === 'visible', null, { timeout: T.step });
+            const m = await sp.evaluate(() => {
+              const l = document.getElementById('timeline-legend');
+              const seam = document.querySelector('.tl-item-seam');
+              const lr = l.getBoundingClientRect();
+              const items = [l.querySelector('summary'), ...l.querySelectorAll('.tl-item')].filter(e => e.getClientRects().length);
+              const rader = new Set(items.map(e => Math.round(e.getBoundingClientRect().top))).size;
+              const ut = items.filter(e => { const r = e.getBoundingClientRect(); return r.right > Math.min(lr.right, innerWidth) + 1 || r.left < -0.5; }).map(e => e.textContent.trim());
+              return { visning: getComputedStyle(seam).display, rutor: seam.getClientRects().length, rader, ut, bredd: innerWidth };
+            });
+            const smal = width <= 560;
+            if (smal && (m.visning !== 'none' || m.rutor)) throw new Error(`${lang} ${width} px: "ny skala" syns i teckenförklaringen (display ${m.visning}), ska vara dold under 561 px`);
+            if (!smal && (m.visning === 'none' || !m.rutor)) throw new Error(`${lang} ${width} px: "ny skala" saknas i teckenförklaringen, ska synas över 560 px`);
+            if (m.ut.length) throw new Error(`${lang} ${width} px: ${m.ut.join(', ')} klipps eller ligger utanför teckenförklaringen`);
+            if ((lang === 'sv' || lang === 'en') && width >= 320 && width <= 360 && m.rader > 2) throw new Error(`${lang} ${width} px: teckenförklaringen ligger på ${m.rader} rader, ska vara högst 2`);
+            if (width === 360 || width === 561) nySkala.push(`${lang} ${width}: ${smal ? 'dold' : 'synlig'}, ${m.rader} rad${m.rader === 1 ? '' : 'er'}`);
+          }
+        }
+        if (spErrs.length) throw new Error(`"ny skala": sidfel ${spErrs[0]}`);
+      } finally { await sp.close(); }
+      delar.push(`"ny skala" dold ≤ 560 px och synlig ≥ 561 px på fem språk (${nySkala.join('; ')})`);
+    }
+    return delar.join(' | ');
+  });
+
+  // #2128: teckenförklaringen under tidslinjen gick inte att nå med Tab. Reglaget visar skalraden när det får fokus, och då var hela teckenförklaringen
+  // visibility: hidden, så att "Tecken" inte kunde ta fokus (Tab från reglaget gick till body). Dessutom klipptes fokusringen av fönstrets underkant
+  // (outline-offset 2 px på sista raden) och teckenförklaringens text var 11 px i liggande telefon (12 px-golvet gällde bara under 761 px bredd).
+  // Provet: (a) Tab från reglaget hamnar på "Tecken", som då syns (skalraden tonas bort på samma plats, tidsraden ändrar inte höjd), Enter och Blanksteg
+  // fäller upp och ihop, Skift+Tab går tillbaka till reglaget och teckenförklaringen är inte dold för skärmläsare; (b) hela fokusringen ligger inom
+  // fönstret och inte över något årtal; (c) texten är minst 12 px med pekning (400 × 800 och 800 × 360) och 11 px med mus på dator.
+  await check('tidsraden: teckenförklaringen nås med Tab från reglaget, ringen ryms och texten är 12 px med pekning (#2128)', async () => {
+    const mata = async (pek, storlek) => {
+      const { tp, tctx, errs } = pek ? await touchPage(storlek, { isMobile: true }) : { tp: await context.newPage(), tctx: null, errs: [] };
+      if (!pek) {
+        await tp.setViewportSize({ width: storlek.width, height: storlek.height });
+        tp.on('pageerror', e => errs.push(e.message));
+        if (THREE_LOCAL) {
+          const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+          await tp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+          await tp.route(u => isFont(u.href), r => r.abort());
+        }
+      }
+      try {
+        await tp.addInitScript(() => { try { localStorage.setItem('hg-year-tip', '1'); localStorage.removeItem('hg-teckenforklaring'); } catch { /* utan lagring visas tipset */ } });
+        await tp.goto(`${BASE}?lang=sv#y=1325`);
+        await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+        await tp.waitForTimeout(400);
+        if (await tp.isVisible('#year-tip-close')) await tp.click('#year-tip-close');
+        await tp.waitForFunction(() => getComputedStyle(document.getElementById('timeline-legend')).visibility === 'visible', null, { timeout: T.step });
+        const aktiv = () => tp.evaluate(() => { const a = document.activeElement; return a ? (a.id || `${a.tagName.toLowerCase()}${a.parentElement?.id ? `#${a.parentElement.id}` : ''}`) : 'ingenting'; });
+        const form = () => tp.evaluate(() => {
+          const l = document.getElementById('timeline-legend'), s = l.querySelector('summary'), n = document.getElementById('timeline-scale-note');
+          const cs = getComputedStyle(s), r = s.getBoundingClientRect();
+          const ring = { off: parseFloat(cs.outlineOffset) || 0, w: cs.outlineStyle === 'none' ? 0 : parseFloat(cs.outlineWidth) || 0 };
+          const ut = ring.off + ring.w; // hur långt ringen når utanför knappens ruta
+          const synliga = [...document.querySelectorAll('.tick')].filter(e => { const c = getComputedStyle(e), b = e.getBoundingClientRect(); return c.visibility !== 'hidden' && c.display !== 'none' && b.width > 0; });
+          const over = synliga.filter(e => { const b = e.getBoundingClientRect(); return r.left - ut < b.right && r.right + ut > b.left && r.top - ut < b.bottom - 0.5 && r.bottom + ut > b.top; }).map(e => e.textContent.trim());
+          return {
+            open: l.open, legendVis: getComputedStyle(l).visibility, summaryVis: cs.visibility, opacity: cs.opacity, noteShown: !n.hidden, noteVis: getComputedStyle(n).visibility,
+            bar: document.querySelector('.timebar').getBoundingClientRect().height, ring, ringBottom: r.bottom + ut, ringLeft: r.left - ut, ringRight: r.right + ut, ringTop: r.top - ut, over,
+            vw: innerWidth, vh: innerHeight, hiddenForSR: !!l.closest('[aria-hidden="true"]'), font: getComputedStyle(l).fontSize, summaryFont: cs.fontSize,
+            itemFonts: [...l.querySelectorAll('.tl-item')].filter(e => e.getClientRects().length).map(e => getComputedStyle(e).fontSize),
+          };
+        });
+        const delar = [];
+        // (c) Textstorleken i vila (skalraden syns inte): minst 12 px med pekning, oförändrat 11 px med mus på dator
+        const vila = await form();
+        const vantad = pek ? 12 : 11;
+        const storlekar = [vila.font, vila.summaryFont, ...vila.itemFonts].map(parseFloat);
+        if (pek ? storlekar.some(f => f < vantad) : storlekar.some(f => f !== vantad)) throw new Error(`teckenförklaringens text är ${[...new Set(storlekar)].join(', ')} px, ska vara ${pek ? 'minst' : 'oförändrat'} ${vantad} px ${pek ? 'med pekning' : 'med mus'}`);
+        delar.push(`text ${[...new Set(storlekar)].join('/')} px ${pek ? 'med pekning' : 'med mus'}`);
+        // (a) Tab från reglaget. Fokus på reglaget visar skalraden, som döljer teckenförklaringen för ögat men inte för tangentbordet.
+        await tp.focus('#track');
+        await tp.waitForFunction(() => !document.getElementById('timeline-scale-note').hidden, null, { timeout: T.step });
+        const fore = await form();
+        if (fore.legendVis !== 'hidden') throw new Error(`teckenförklaringen ska vara dold för ögat medan skalraden syns (visibility ${fore.legendVis})`);
+        if (fore.hiddenForSR) throw new Error('teckenförklaringen ligger i något som är aria-hidden');
+        await tp.keyboard.press('Tab');
+        const efter = await aktiv();
+        if (efter !== 'summary#timeline-legend') throw new Error(`Tab från reglaget gick till ${efter} i stället för "Tecken" i teckenförklaringen`);
+        const pa = await form();
+        if (pa.summaryVis !== 'visible' || Number(pa.opacity) < 0.5) throw new Error(`"Tecken" har fokus men syns inte (visibility ${pa.summaryVis}, opacity ${pa.opacity})`);
+        if (pa.noteVis !== 'hidden') throw new Error(`skalraden ligger kvar över "Tecken" (visibility ${pa.noteVis})`);
+        if (Math.abs(pa.bar - fore.bar) > 0.5) throw new Error(`tidsraden ändrade höjd (${fore.bar} → ${pa.bar}) när fokus gick till teckenförklaringen`);
+        if (!pa.open) throw new Error('teckenförklaringen är hopfälld från början');
+        // Enter och Blanksteg fäller ihop och upp som förut; Skift+Tab går tillbaka till reglaget och Tab dit igen
+        await tp.keyboard.press('Enter');
+        if ((await form()).open) throw new Error('Enter fällde inte ihop teckenförklaringen');
+        await tp.keyboard.press('Enter');
+        if (!(await form()).open) throw new Error('Enter fällde inte upp teckenförklaringen');
+        await tp.keyboard.press('Space');
+        if ((await form()).open) throw new Error('Blanksteg fällde inte ihop teckenförklaringen');
+        await tp.keyboard.press('Space');
+        if (!(await form()).open) throw new Error('Blanksteg fällde inte upp teckenförklaringen');
+        await tp.keyboard.press('Shift+Tab');
+        const bakat = await aktiv();
+        if (bakat !== 'track') throw new Error(`Skift+Tab från "Tecken" gick till ${bakat} i stället för reglaget`);
+        await tp.keyboard.press('Tab');
+        if ((await aktiv()) !== 'summary#timeline-legend') throw new Error('Tab från reglaget nådde inte "Tecken" andra gången');
+        delar.push('Tab → Tecken, Enter/Blanksteg, Skift+Tab → reglaget');
+        // (b) Fokusringen (nu på "Tecken", via tangentbordet) ligger helt inom fönstret och inte över något årtal
+        if (!(pa.ring.w >= 2)) throw new Error(`fokusringen syns inte (bredd ${pa.ring.w})`);
+        const hel = await form();
+        if (hel.ringBottom > hel.vh + 0.01 || hel.ringTop < 0 || hel.ringLeft < 0 || hel.ringRight > hel.vw + 0.01) {
+          throw new Error(`fokusringen klipps av fönstret (${Math.round(hel.ringLeft)}–${Math.round(hel.ringRight)} × ${Math.round(hel.ringTop * 10) / 10}–${Math.round(hel.ringBottom * 10) / 10} i ${hel.vw} × ${hel.vh})`);
+        }
+        if (hel.over.length) throw new Error(`fokusringen ritas över årtalet ${hel.over.join(', ')}`);
+        delar.push(`ringen ${Math.round(hel.ringBottom * 10) / 10} av ${hel.vh} px`);
+        if (errs.length) throw new Error(errs[0]);
+        return delar.join(', ');
+      } finally { if (tctx) await tctx.close(); else await tp.close(); }
+    };
+    const storlekar = vp.width > 760 ? [{ width: 1280, height: 800 }] : [{ width: 400, height: 800 }, { width: 800, height: 360 }];
+    const ut = [];
+    for (const storlek of storlekar) {
+      try { ut.push(`${storlek.width} × ${storlek.height}: ${await mata(vp.width <= 760, storlek)}`); }
+      catch (e) { throw new Error(`${storlek.width} × ${storlek.height}: ${e.message}`); }
+    }
+    return ut.join(' | ');
   });
 
   // #1713, uppföljning: Samtidigt-fliken hade en osynlig 44 px yta (::after) som låg över datumknappen vid 800 × 360 och tog trycket på datumet,

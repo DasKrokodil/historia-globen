@@ -1,0 +1,150 @@
+{
+ "query": {
+  "pages": [
+   {
+    "pageid": 1,
+    "ns": 6,
+    "title": "File:Slag B.jpg",
+    "imageinfo": [
+     {
+      "url": "https://upload.wikimedia.org/x/Slag B.jpg",
+      "thumburl": "https://upload.wikimedia.org/thumb/Slag B.jpg",
+      "descriptionurl": "https://commons.wikimedia.org/wiki/File:Slag_B.jpg",
+      "width": 2000,
+      "height": 1000,
+      "mime": "image/jpeg",
+      "extmetadata": {
+       "LicenseShortName": {
+        "value": "CC BY 3.0"
+       },
+       "Artist": {
+        "value": "<a href=\"//x\">Anna Andersson</a>"
+       },
+       "DateTimeOriginal": {
+        "value": "1880-05-01"
+       },
+       "ImageDescription": {
+        "value": "<p>En beskrivning</p>"
+       }
+      }
+     }
+    ],
+    "categories": [
+     {
+      "ns": 14,
+      "title": "Category:Battles of X"
+     }
+    ],
+    "index": 2
+   },
+   {
+    "pageid": 1,
+    "ns": 6,
+    "title": "File:Slag A.jpg",
+    "imageinfo": [
+     {
+      "url": "https://upload.wikimedia.org/x/Slag A.jpg",
+      "thumburl": "https://upload.wikimedia.org/thumb/Slag A.jpg",
+      "descriptionurl": "https://commons.wikimedia.org/wiki/File:Slag_A.jpg",
+      "width": 900,
+      "height": 700,
+      "mime": "image/jpeg",
+      "extmetadata": {
+       "LicenseShortName": {
+        "value": "CC0"
+       },
+       "Artist": {
+        "value": "<a href=\"//x\">Anna Andersson</a>"
+       },
+       "DateTimeOriginal": {
+        "value": "1880-05-01"
+       },
+       "ImageDescription": {
+        "value": "<p>En beskrivning</p>"
+       }
+      }
+     }
+    ],
+    "categories": [
+     {
+      "ns": 14,
+      "title": "Category:Battles of X"
+     }
+    ],
+    "index": 1
+   },
+   {
+    "pageid": 1,
+    "ns": 6,
+    "title": "File:Slag NC.jpg",
+    "imageinfo": [
+     {
+      "url": "https://upload.wikimedia.org/x/Slag NC.jpg",
+      "thumburl": "https://upload.wikimedia.org/thumb/Slag NC.jpg",
+      "descriptionurl": "https://commons.wikimedia.org/wiki/File:Slag_NC.jpg",
+      "width": 900,
+      "height": 700,
+      "mime": "image/jpeg",
+      "extmetadata": {
+       "LicenseShortName": {
+        "value": "CC BY-NC 2.0"
+       },
+       "Artist": {
+        "value": "<a href=\"//x\">Anna Andersson</a>"
+       },
+       "DateTimeOriginal": {
+        "value": "1880-05-01"
+       },
+       "ImageDescription": {
+        "value": "<p>En beskrivning</p>"
+       }
+      }
+     }
+    ],
+    "categories": [
+     {
+      "ns": 14,
+      "title": "Category:Battles of X"
+     }
+    ],
+    "index": 3
+   },
+   {
+    "pageid": 1,
+    "ns": 6,
+    "title": "File:Slag GFDL.jpg",
+    "imageinfo": [
+     {
+      "url": "https://upload.wikimedia.org/x/Slag GFDL.jpg",
+      "thumburl": "https://upload.wikimedia.org/thumb/Slag GFDL.jpg",
+      "descriptionurl": "https://commons.wikimedia.org/wiki/File:Slag_GFDL.jpg",
+      "width": 900,
+      "height": 700,
+      "mime": "image/jpeg",
+      "extmetadata": {
+       "LicenseShortName": {
+        "value": "GFDL 1.2"
+       },
+       "Artist": {
+        "value": "<a href=\"//x\">Anna Andersson</a>"
+       },
+       "DateTimeOriginal": {
+        "value": "1880-05-01"
+       },
+       "ImageDescription": {
+        "value": "<p>En beskrivning</p>"
+       }
+      }
+     }
+    ],
+    "categories": [
+     {
+      "ns": 14,
+      "title": "Category:Battles of X"
+     }
+    ],
+    "index": 4
+   }
+  ]
+ }
+}
