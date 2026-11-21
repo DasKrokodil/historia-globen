@@ -4798,6 +4798,20 @@ async function run(browser, vp) {
       await button.focus();
       await tp.keyboard.press('Enter');
       await globeRegionSettled(tp, 'gronland');
+      // Deterministiskt (#1937): felet syntes bara när den första ritningen mätte namnet innan det hade layout. Här tvingas det fram:
+      // namnen döljs och deras mått glöms, en ritning görs (en pixel högre fönster ändrar bilden), och sedan visas namnen och
+      // fönstret får sin storlek igen. Utan rättningen i region-marks.js står reservbredden 90 px kvar och det långa namnet hamnar utanför.
+      const vp = tp.viewportSize();
+      await tp.evaluate(() => {
+        const root = document.getElementById('globe-region-labels');
+        root.style.display = 'none';
+        root.querySelectorAll('.rpile-tag').forEach(t => { t._w = undefined; });
+      });
+      await tp.setViewportSize({ width: vp.width, height: vp.height + 1 });
+      await tp.waitForTimeout(400);
+      await tp.evaluate(() => { document.getElementById('globe-region-labels').style.display = ''; });
+      await tp.setViewportSize(vp);
+      await tp.waitForTimeout(600);
       const tags = await tp.evaluate(() => [...document.querySelectorAll('#globe-region-labels .rpile')].filter(e => e.dataset.tag && e.dataset.tag !== 'none').map(e => {
         const r = e.querySelector('.rpile-tag').getBoundingClientRect();
         return { name: e.querySelector('.rpile-name').textContent, x0: Math.round(r.left), x1: Math.round(r.right), w: innerWidth };
@@ -6492,7 +6506,16 @@ async function run(browser, vp) {
       await tp.fill('#focus-menu .focus-search', 'a');
       const last = tp.locator('#focus-menu .focus-body [data-key]').last();
       await last.waitFor({ state: 'visible', timeout: T.step });
-      await last.scrollIntoViewIfNeeded();
+      // Listan ritas om när en grupp laddats klart (setGroups, setTime), så raden som hittades nyss kan vara borttagen
+      // ("Element is not attached to the DOM", PR #2142): vänta tills antalet rader står still i två avläsningar, och rulla sedan
+      // till den sista raden som finns just då
+      await tp.waitForFunction(() => {
+        const n = document.querySelectorAll('#focus-menu .focus-body [data-key]').length;
+        const same = n > 0 && n === window.__rows1695;
+        window.__rows1695 = n;
+        return same;
+      }, null, { timeout: T.step, polling: 300 });
+      await tp.evaluate(() => [...document.querySelectorAll('#focus-menu .focus-body [data-key]')].pop().scrollIntoView({ block: 'nearest' }));
       const layout = await tp.evaluate(() => {
         // samma rad som locator(...).last() ovan: den sista i hela listan, inte den sista i sin grupp (:last-child)
         const menu = document.getElementById('focus-menu'), body = menu.querySelector('.focus-body'), last = [...body.querySelectorAll('[data-key]')].pop();
@@ -13033,6 +13056,67 @@ async function run(browser, vp) {
       if (errs.length) throw new Error(`sidfel: ${errs[0]}`);
       return 'val ur året (1325, -2999, -3000, -50000), drag stannar vid kanten, steg och uppspelning över gränsen, övertoning och reducerad rörelse, intervallband med pil';
     } finally { await wp.close(); }
+  });
+  // Fokus över gränsen mellan reglagen (#1986): fokusläget ritar fokusspannets egen skala, men reglagets namn för skärmläsare följer året,
+  // och meddelandet "Tidslinjen visar nu …" sägs en gång när året passerar gränsen, inte en gång till när Fokus slutar
+  await check('Fokus över gränsen mellan reglagen: namnet och meddelandet följer året (#1986)', async () => {
+    const fp = await context.newPage();
+    const errs = [];
+    const fpAw = abortWatch(fp);
+    fp.on('pageerror', e => { if (!fpAw.defer(e.message)) errs.push(e.message); });
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await fp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await fp.route(u => isFont(u.href), r => r.abort());
+      }
+      // Sverige följs från stenåldern till i dag, så fokusspannet går över gränsen -3000/-2999
+      await fpAw.goto(`${BASE}?lang=sv&ny=f1986#y=-3002&f=place:sverige`);
+      await fp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await fp.waitForFunction(() => document.getElementById('track').getAttribute('aria-valuenow') === '-3002', null, { timeout: T.step });
+      await fp.keyboard.press('Escape'); // platskortet stängs, Fokus står kvar
+      await fp.waitForTimeout(1500); // adressens egen uppläsning av året hinner klart
+      const read = () => fp.evaluate(() => {
+        const tr = document.getElementById('track'), n = a => Number(tr.getAttribute(a));
+        return { label: tr.getAttribute('aria-label')?.replace(/\s/g, ' '), min: n('aria-valuemin'), max: n('aria-valuemax'), now: n('aria-valuenow'),
+          focus: !document.getElementById('focus-bar').hidden };
+      });
+      const PRE = 'År, före 3000 f.Kr.', HISTORY = 'År, 3000 f.Kr.–i dag';
+      const start = await read();
+      if (!start.focus) throw new Error('Fokus på Sverige startade inte');
+      if (start.label !== PRE) throw new Error(`före gränsen i Fokus heter reglaget "${start.label}", väntat "${PRE}"`);
+      if (!(start.min < -3000 && start.max > -2999)) throw new Error(`fokusspannet ${start.min}–${start.max} går inte över gränsen`);
+      await fp.evaluate(() => {
+        const status = document.getElementById('screen-reader-status');
+        window.__said = [];
+        // Statusraden töms och skrivs om (js/ui/status.js), så ett andra, likadant meddelande syns som en ny text efter den tomma
+        let prev = '';
+        new MutationObserver(() => { const t = status.textContent; if (/visar nu/.test(t) && t !== prev) window.__said.push(t); prev = t; })
+          .observe(status, { childList: true, characterData: true, subtree: true });
+      });
+      await fp.focus('#track');
+      for (let i = 0; i < 4; i++) { await fp.keyboard.press('ArrowRight'); await fp.waitForTimeout(250); } // -3002 → -2998, över gränsen
+      const after = await read();
+      if (after.now !== -2998) throw new Error(`fyra steg från -3002 gav ${after.now}`);
+      if (after.label !== HISTORY) throw new Error(`efter gränsen i Fokus heter reglaget "${after.label}", väntat "${HISTORY}"`);
+      if (after.min !== start.min || after.max !== start.max) throw new Error(`aria-valuemin/max ändrades i Fokus: ${start.min}–${start.max} → ${after.min}–${after.max}`);
+      await fp.waitForFunction(() => window.__said.length > 0, null, { timeout: T.step })
+        .catch(async () => { throw new Error(`statusraden sa aldrig att reglaget bytts: "${await fp.textContent('#screen-reader-status')}"`); });
+      await fp.click('#focus-exit');
+      await fp.waitForFunction(() => document.getElementById('focus-bar').hidden, null, { timeout: T.step });
+      await fp.waitForTimeout(1500);
+      const done = await read();
+      if (done.label !== HISTORY) throw new Error(`när Fokus slutar heter reglaget "${done.label}"`);
+      if (done.min !== -2999) throw new Error(`när Fokus slutar är aria-valuemin ${done.min}, väntat -2999 (reglagets första år)`);
+      const said = await fp.evaluate(() => window.__said);
+      const swaps = said.filter(t => /Tidslinjen visar nu tiden 3000 f\.Kr\.–i dag/.test(t.replace(/\s/g, ' ')));
+      if (swaps.length !== 1) throw new Error(`meddelandet om reglaget sades ${swaps.length} gånger: ${JSON.stringify(said)}`);
+      errs.push(...fpAw.settle());
+      if (errs.length) throw new Error(`konsol: ${errs.join('; ')}`);
+      return `före gränsen "${PRE}", efter "${HISTORY}" redan i Fokus, aria-valuemin/max fokusspannet ${start.min}–${start.max}; meddelandet en gång, inte igen när Fokus slutar`;
+    } finally {
+      await fp.close();
+    }
   });
   await check('reglagets upplösning i förhistorien (#1320)', async () => {
     const wp = await context.newPage();
