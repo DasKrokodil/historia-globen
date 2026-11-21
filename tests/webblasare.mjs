@@ -706,8 +706,17 @@ async function run(browser, vp) {
       if (off.year !== '1066') throw new Error(`Avsluta behöll inte året: ${off.year}`);
       // Ingen ny väg in i smal skärm (#1457): även ett klick som kommer sent, efter att fönstret blivit smalt, slår inte på läget
       const full = pp.viewportSize();
+      // Sidans egen mediefråga skapades vid start och WebKit uppdaterar den först när webbläsaren rapporterar ändringen (en ny
+      // MediaQueryList svarar redan rätt, den gamla inte). Därför skapas en lyssnare före storleksbytet, och klicket väntar på att
+      // webbläsaren har rapporterat ändringen: då har även sidans instans fått det nya värdet.
+      await pp.evaluate(() => {
+        const mql = matchMedia('(max-width: 760px)');
+        window.__smalRapporterad = mql.matches ? Promise.resolve() : new Promise(klar => mql.addEventListener('change', () => mql.matches && klar()));
+        window.__smalMql = mql; // hålls levande så att lyssnaren inte städas bort
+      });
       await pp.setViewportSize({ width: 400, height: 800 });
-      await pp.waitForFunction(() => matchMedia('(max-width: 760px)').matches);
+      await pp.evaluate(() => Promise.race([window.__smalRapporterad, new Promise((_, avvisa) => setTimeout(() => avvisa(new Error('mediefrågan för smal bredd rapporterades aldrig')), 10000))]));
+      await pp.evaluate(() => new Promise(klar => requestAnimationFrame(() => requestAnimationFrame(klar))));
       await pp.evaluate(() => document.getElementById('teacher-presentation').click());
       const late = await pp.evaluate(() => ({ on: document.getElementById('app').classList.contains('presentation-mode'), param: new URL(location.href).searchParams.has('presentation') }));
       await pp.setViewportSize(full);
