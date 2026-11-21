@@ -240,6 +240,19 @@ Med samma kontrolltider blir fördelningen följande. Eftertiderna i tabellen ä
 | `lang` | 9 min 51 s | 545 s | 749 s | cirka 13 min 15 s |
 | `dator2` | 12 min 1 s | 679 s | 849,7 s | cirka 14 min 52 s |
 
+**Uppmätt efter i [första PR-körningen 44897254625](https://github.com/DasKrokodil/historia-globen/actions/runs/44897254625):** de tre berörda jobben är gröna. `plats` tog **14 min 10 s** (747 s test), `lang` **16 min 33 s** (949 s test) och `dator2` **15 min 54 s** (911 s test). `plats` träffar målet; `lang` ligger 33 s över riktvärdet 16 minuter. Beräkningen ovan ska alltså inte användas som en garanti för mottagarjobbens tid.
+
+Alla elva Chromium-jobb blev gröna i samma körning, men det samlade tidsmålet är **inte uppnått**: även de oförändrade jobben `dator` (18 min 49 s), `tung` (19 min 55 s), `mobil` (17 min 25 s) och `mobilplats` (21 min 45 s) översteg 16 minuter. Omfördelningen löser marginalen för `plats`; de återstående tidsavvikelserna behöver bedömas separat. Mobiljobben är uttryckligen oförändrade i detta uppdrag. Pull requesten redovisar hela tabellen för de elva jobben.
+
+De riktade lokalproven kördes i följd i Node 22.23.5 med Playwright 1.63.0, lokal three.js 0.160.0 och en server för `dist/` som startades i samma körkommando. Alla var gröna: de fyra flyttade kontrollerna tillsammans i det gamla `plats`-urvalet tog **594 s**, de två i nya `lang` **356 s** och de två i nya `dator2` **235 s**, inklusive startkontroller. Det är tider för de flyttade kontrollerna, inte för hela jobben. Kontrollernas egna tider var:
+
+| Kontroll | Lokalt före | Lokalt efter |
+|---|---:|---:|
+| #1956 | 204,6 s | 188,0 s |
+| #1958 | 147,6 s | 159,7 s |
+| #1978 | 142,0 s | 134,7 s |
+| #1790, #1791, #1977 | 92,0 s | 91,7 s |
+
 Målet är cirka 14–15 minuter för `plats` och högst cirka 16 minuter för varje Chromium-jobb. Belastning och uppstart varierar: i samma äldre körning låg `tung` på 16 min 25 s, `dator` på 16 min 59 s och `mobilplats` på 17 min 16 s. Därför ska DasKrokodil i **första CI-körningen på pull requesten** jämföra tiderna för **alla elva Chromium-jobb**, både hela jobbet och teststeget. Kontrollera att alla är gröna, att `plats` har marginal och att inget annat jobb blivit för långt. Mobiljobben ändras inte i #2166.
 
 Omfördelningen ändrar bara `endast` och `utan` i `plats`, `lang` och `dator2`. Kontroller, tidsgränser och övrig CI behålls. `node scripts/kontrolltackning.mjs` ger OK för **287 kontrollnamn och 3 avsnitt**, varje i exakt ett jobb per bredd (de gemensamma startkontrollerna körs avsiktligt i alla jobb). Se [beslutet](beslut/2026-11-21-plats-jobbet-fordelas-1996.md).
