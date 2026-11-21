@@ -6506,7 +6506,16 @@ async function run(browser, vp) {
       await tp.fill('#focus-menu .focus-search', 'a');
       const last = tp.locator('#focus-menu .focus-body [data-key]').last();
       await last.waitFor({ state: 'visible', timeout: T.step });
-      await last.scrollIntoViewIfNeeded();
+      // Listan ritas om när en grupp laddats klart (setGroups, setTime), så raden som hittades nyss kan vara borttagen
+      // ("Element is not attached to the DOM", PR #2142): vänta tills antalet rader står still i två avläsningar, och rulla sedan
+      // till den sista raden som finns just då
+      await tp.waitForFunction(() => {
+        const n = document.querySelectorAll('#focus-menu .focus-body [data-key]').length;
+        const same = n > 0 && n === window.__rows1695;
+        window.__rows1695 = n;
+        return same;
+      }, null, { timeout: T.step, polling: 300 });
+      await tp.evaluate(() => [...document.querySelectorAll('#focus-menu .focus-body [data-key]')].pop().scrollIntoView({ block: 'nearest' }));
       const layout = await tp.evaluate(() => {
         // samma rad som locator(...).last() ovan: den sista i hela listan, inte den sista i sin grupp (:last-child)
         const menu = document.getElementById('focus-menu'), body = menu.querySelector('.focus-body'), last = [...body.querySelectorAll('[data-key]')].pop();
