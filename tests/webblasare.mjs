@@ -7660,7 +7660,8 @@ async function run(browser, vp) {
           if (await tp.evaluate(() => document.getElementById('tour-card').scrollTop !== 0)) faults.push(`${label}: Nästa nollställde inte rullningen`);
           // Sista steget: turens slutkort respektive uppdragslänk och Klar ska gå att rulla fram och trycka på.
           const data = JSON.parse(fs.readFileSync(path.join('data/turer', `${tour}.json`), 'utf8'));
-          await tp.goto(`${BASE}?kontroll2147=${mode}-slut${hash}&s=${data.steps.at(-1).id}`, { waitUntil: 'domcontentloaded' });
+          await tp.goto(`${BASE}?kontroll2147=${mode}${hash}&s=${data.steps.at(-1).id}`, { waitUntil: 'domcontentloaded' });
+          await tp.waitForFunction(title => document.getElementById('tour-title').textContent === title, data.steps.at(-1).title.sv, { timeout: T.step });
           await tp.waitForSelector('#tour-card:not([hidden])', { timeout: T.step });
           if (lesson) {
             await tp.waitForSelector('#tour-lesson-end-list button', { timeout: T.step });
