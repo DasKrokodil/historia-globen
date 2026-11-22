@@ -1,0 +1,76 @@
+{
+ "item": {
+  "title": "Cour et minarets de la mosquée el-Azhar / Bonfils.",
+  "date": "1867-01-01",
+  "contributor_names": [
+   "Maison Bonfils (Beirut, Lebanon), photographer"
+  ],
+  "created_published": [
+   "[between 1867 and 1899]"
+  ],
+  "call_number": "LOT 13550, no. 126 [P&P]",
+  "reproduction_number": "LC-DIG-ppmsca-04048 (digital file from original)\nLC-USZ62-16255 (b&w film copy neg.)",
+  "rights_advisory": "No known restrictions on publication in the U.S. Use elsewhere may be restricted by other countries' laws. For general information see \"Copyright and Other Restrictions...\" (http://lcweb.loc.gov/rr/print/195_copr.html)",
+  "rights_information": "No known restrictions on publication in the U.S. Use elsewhere may be restricted by other countries' laws. For general information see \"Copyright and Other Restrictions...\" (http://lcweb.loc.gov/rr/print/195_copr.html)",
+  "rights": [],
+  "image_url": [
+   "https://tile.loc.gov/storage-services/service/pnp/ppmsca/04000/04048t.gif#h=150&w=116",
+   "https://tile.loc.gov/storage-services/service/pnp/ppmsca/04000/04048_150px.jpg#h=150&w=117",
+   "https://tile.loc.gov/storage-services/service/pnp/ppmsca/04000/04048r.jpg#h=640&w=497",
+   "https://tile.loc.gov/storage-services/service/pnp/ppmsca/04000/04048v.jpg#h=1024&w=796"
+  ],
+  "url": "https://www.loc.gov/item/2004668148/",
+  "id": "http://www.loc.gov/item/2004668148/"
+ },
+ "resources": [
+  {
+   "caption": "digital file from original",
+   "files": [
+    [
+     {
+      "height": 0,
+      "levels": 1,
+      "mimetype": "image/tiff",
+      "size": 108777144,
+      "url": "https://tile.loc.gov/storage-services/master/pnp/ppmsca/04000/04048u.tif",
+      "width": 0
+     },
+     {
+      "height": 150,
+      "levels": 1,
+      "mimetype": "image/gif",
+      "size": 13555,
+      "url": "https://tile.loc.gov/storage-services/service/pnp/ppmsca/04000/04048t.gif",
+      "width": 116
+     },
+     {
+      "height": 150,
+      "levels": 1,
+      "mimetype": "image/jpeg",
+      "size": 4827,
+      "url": "https://tile.loc.gov/storage-services/service/pnp/ppmsca/04000/04048_150px.jpg",
+      "width": 117
+     },
+     {
+      "height": 640,
+      "levels": 1,
+      "mimetype": "image/jpeg",
+      "size": 65554,
+      "url": "https://tile.loc.gov/storage-services/service/pnp/ppmsca/04000/04048r.jpg",
+      "width": 497
+     },
+     {
+      "height": 1024,
+      "levels": 1,
+      "mimetype": "image/jpeg",
+      "size": 153249,
+      "url": "https://tile.loc.gov/storage-services/service/pnp/ppmsca/04000/04048v.jpg",
+      "width": 796
+     }
+    ]
+   ],
+   "image": "https://tile.loc.gov/storage-services/service/pnp/ppmsca/04000/04048_150px.jpg",
+   "url": "https://www.loc.gov/resource/ppmsca.04048/"
+  }
+ ]
+}

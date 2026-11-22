@@ -2,11 +2,12 @@
 // som syns (beslut 2), ritar lagerbilden (beslut 1) och uppdaterar listan, teckenförklaringarna och årtalet.
 // Sist får uppspelningen (playback.js) se om något ska pausa. Här finns också namnens storlek efter zoom
 // (#154, #271, #301, #358) och rikets berättelse för Samtidigt-kortet (#171).
-import { loadEventDetails, formatCentury, formatEventTime, formatYear, pluralUi, roundWindow, roundWindowSpan, groupDigits, t } from '../model.js';
+import { loadEventDetails, formatWindowYear, formatEventTime, formatYear, pluralUi, roundWindow, roundWindowSpan, groupDigits, t } from '../model.js';
 import { LANG, ui } from '../i18n.js';
 import { ZOOM_LEVELS, zoomLevel, pxPerImg, zoomView, eventKeepouts } from '../ui/zoomlevels.js';
 import { empireStory } from '../ui/funfact.js';
 import { rangeParts, rangeText } from './range.js';
+import { PREHISTORY_LAST } from '../time-scale.js';
 
 /**
  * Yngre läsare (#1191): en lektion för årskurs F-3 eller 4-6, eller Samtidighetsjakten, som riktar sig till elever upp till
@@ -83,7 +84,7 @@ export function createRender(app) {
   // Platsens linje ritas i Fokus på en plats, i en turs steg med en plats (#1163) och som markeringar (placeHints): i alla tre
   // räknas den om när zoomen ändras (#1641), annars blir den lika bred som vid förra omritningen
   const places = registry.get('places');
-  const placeLine = l => l.placeHints || state.focus?.type === 'place' || !!places?.step;
+  const placeLine = l => l.placeHints || state.focus?.type === 'place' || !!places?.step || !!places?.stepMark || !!places?.stepLine; // också markören och linjen i ett turssteg (#1785)
   function nameStyle() {
     if (!$('flat-view').hidden) return [ZOOM_LEVELS[zoomLevel(flatMap.scale)].flatScale, 1]; // efter zoomnivån (#358)
     const mag = zoomMag();
@@ -183,6 +184,7 @@ export function createRender(app) {
     // Alla lager väljer vad som syns (beslut 2), i registrets ordning
     visible = registry.update(state).events;
     timeline.setMarks(registry.marks(state), { curated: !!state.tag });
+    layers.setCoverage(registry.coverage(state)); // raden i Lager om påslagna lager som saknar data i året (#1960)
     prefetchDetails();
     const rangeLabel = range && rangeText(range.from, range.to);
     // Ett tema (#398) och en plats (#579) är urval av händelser: ett år utan träff förklaras, med nästa händelse
@@ -193,7 +195,8 @@ export function createRender(app) {
       : ui(emptyText.year);
     panel.render(visible, wholeYear, window, eventsOn, range ? { at: ui('range.at', { range: rangeLabel }), bare: rangeLabel, within, range }
       : fine ? { at: ui('time.onDate', { date: timeline.format(year) }), bare: timeline.format(year), within, fine: true }
-      : themeEmpty ? { themeEmpty, within } : { within });
+      // Före 3000 f.Kr. säger en tom lista att det inte finns fynd i vår data där, inte att något saknas (#1958)
+      : themeEmpty ? { themeEmpty, within } : { within, prehistory: wholeYear <= PREHISTORY_LAST });
     // Etiketten "Områden visas för år N" (#756) när riken eller religioner syns, och hur många markörer gränsen döljer
     app.range?.render(visible.filter(v => v.inside).length, { areasYear: areas.enabled || religions.enabled ? areaYear : null, capped: layer.capped });
     // Samma markörer i Platt vy (#313): de som syns på klotet, de i listan får klustras och etikett
@@ -226,8 +229,9 @@ export function createRender(app) {
     $('year-jump').classList.toggle('fine', fine);
     $('year-segment').textContent = range ? ui('range.segment')
       : focus ? pluralUi(fine ? 'time.followDays' : 'time.followYears', fine ? Math.round(window * 365.25) : Math.round(window), { name: focus.short })
-      : asym ? ui('time.windowYearsAsym', { where: formatCentury(year), ...spanVars })
-      : pluralUi(youngReaders() ? 'time.windowYearsWords' : 'time.windowYears', roundWindow(window), { where: formatCentury(year), n: groupDigits(roundWindow(window)) });
+      : asym ? ui('time.windowYearsAsym', { where: formatWindowYear(year), ...spanVars })
+      // Tidsfönstret ska vara begripligt också på skärmen, inte bara i den dolda skärmläsartexten (#1307).
+      : pluralUi('time.windowYearsWords', roundWindow(window), { where: formatWindowYear(year), n: groupDigits(roundWindow(window)) });
     // Tonade markörer är nära i tid, inte samtida (#1191): förklaringen står i title och som dold text för skärmläsare
     const windowNote = range || focus ? '' : asym ? ui('time.windowNoteAsym', spanVars)
       : pluralUi('time.windowNote', roundWindow(window), { n: groupDigits(roundWindow(window)) });

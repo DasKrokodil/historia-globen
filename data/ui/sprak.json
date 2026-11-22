@@ -28,8 +28,8 @@
       "complete": false,
       "translatedBy": "Claude Code, Codex",
       "translatedAt": "2026-11-10",
-      "reviewedBy": null,
-      "review": "unreviewed"
+      "reviewedBy": "Codex (DasKrokodil)",
+      "review": "reviewed"
     },
     {
       "id": "de",
@@ -39,8 +39,8 @@
       "complete": false,
       "translatedBy": "Claude Code, Codex",
       "translatedAt": "2026-11-10",
-      "reviewedBy": null,
-      "review": "unreviewed"
+      "reviewedBy": "Codex (DasKrokodil)",
+      "review": "reviewed"
     },
     {
       "id": "es",
@@ -50,8 +50,8 @@
       "complete": false,
       "translatedBy": "Claude Code, Codex",
       "translatedAt": "2026-11-10",
-      "reviewedBy": null,
-      "review": "unreviewed"
+      "reviewedBy": "Codex (DasKrokodil)",
+      "review": "reviewed"
     }
   ]
 }

@@ -123,14 +123,18 @@ export class SourcesDialog {
    * Källregistret, händelsernas källor och rikenas faktarutor laddas första gången dialogen öppnas (#337);
    * under tiden står "Laddar källorna…" i dialogen.
    */
-  open(highlightIds = null) {
+  /**
+   * subject (#1860): vad urvalet gäller, så att raden överst säger rätt ord: 'funfact' (fun fact, standard), 'card'
+   * (Samtidigt-kortet när det är ett krig eller ett rikes berättelse) eller 'tour' (ett steg i en tur).
+   */
+  open(highlightIds = null, subject = 'funfact') {
     const token = this.opening = {};
     if (!this.prepared) {
       this.body.innerHTML = `<p class="detail-loading" role="status">${esc(ui('sources.loading'))}</p>`;
       this._reveal();
       loadForSources().then(() => {
         this.prepared = true;
-        if (this.opening === token && !this.root.hidden) this.open(highlightIds);
+        if (this.opening === token && !this.root.hidden) this.open(highlightIds, subject);
       }).catch(err => { console.error(err); this.body.innerHTML = `<p>${esc(ui('sources.loadFailed'))}</p>`; });
       return;
     }
@@ -156,22 +160,7 @@ export class SourcesDialog {
     };
 
     this.body.innerHTML = `
-      ${highlightIds ? `<p><strong>${esc(ui('sources.highlight'))}</strong> <button type="button" class="link-btn" data-all>${esc(ui('sources.showAll'))}</button></p>` : ''}
-      ${this.summaryHtml()}
-      <h3>${esc(ui('sources.policyTitle'))}</h3>
-      <ol>
-        ${[1, 2, 3, 4, 5, 6].map(n => `<li>${esc(ui(`sources.policy${n}`))}</li>`).join('')}
-      </ol>
-      <section class="src-urval" aria-labelledby="src-urval-title">
-        <h3 id="src-urval-title">${esc(ui('sources.urval.title'))}</h3>
-        <p>${esc(ui('sources.urval.p1'))}</p>
-        <p>${esc(ui('sources.urval.p2'))}</p>
-        <p>${esc(ui('sources.urval.p3'))}</p>
-        <p>${esc(ui('sources.urval.p4'))}</p>
-        <p>${esc(ui('sources.urval.p5'))}</p>
-        <!-- Om projektet (#1575): licenser, en ingång för förslag och stöd där tvivlet uppstår, och länken till källkoden -->
-        <p class="src-about">${esc(ui('sources.about'))} <button type="button" class="link-btn" data-open-feedback aria-haspopup="dialog" aria-controls="feedback">${esc(ui('help.feedbackBtn'))}</button> · <a href="https://ko-fi.com/historiagloben" target="_blank" rel="noopener noreferrer" aria-label="${esc(ui('help.kofiLabel'))}">${esc(ui('more.support'))}<span aria-hidden="true"> ↗</span></a> · <a href="https://github.com/DasKrokodil/historia-globen" target="_blank" rel="noopener noreferrer">${esc(ui('sources.sourceCode'))}<span aria-hidden="true"> ↗</span><span class="sr-only"> ${esc(ui('legend.newTab'))}</span></a></p>
-      </section>
+      ${highlightIds ? `<p><strong>${esc(ui(subject === 'funfact' ? 'sources.highlight' : `sources.highlight.${subject}`))}</strong> <button type="button" class="link-btn" data-all>${esc(ui('sources.showAll'))}</button></p>` : ''}
       <h3>${esc(ui('sources.current'))}</h3>
       <p class="src-total">${total(religionsDoc)}</p>
       <h3>${esc(ui('sources.register'))}</h3>
@@ -191,7 +180,25 @@ export class SourcesDialog {
         <input type="checkbox" id="show-drafts" ${settings.showDrafts ? 'checked' : ''}>
         <label for="show-drafts">${esc(ui('sources.showDrafts'))}</label>
       </div>
-      <p class="src-version" hidden></p>`;
+      <p class="src-version" hidden></p>
+      <details class="src-method">
+        <summary>${esc(ui('sources.methods'))}</summary>
+        ${this.summaryHtml()}
+        <h3>${esc(ui('sources.policyTitle'))}</h3>
+        <ol>
+          ${[1, 2, 3, 4, 5, 6].map(n => `<li>${esc(ui(`sources.policy${n}`))}</li>`).join('')}
+        </ol>
+        <section class="src-urval" aria-labelledby="src-urval-title">
+          <h3 id="src-urval-title">${esc(ui('sources.urval.title'))}</h3>
+          <p>${esc(ui('sources.urval.p1'))}</p>
+          <p>${esc(ui('sources.urval.p2'))}</p>
+          <p>${esc(ui('sources.urval.p3'))}</p>
+          <p>${esc(ui('sources.urval.p4'))}</p>
+          <p>${esc(ui('sources.urval.p5'))}</p>
+          <!-- Om projektet (#1575): licenser, en ingång för förslag och stöd där tvivlet uppstår, och länken till källkoden -->
+          <p class="src-about">${esc(ui('sources.about'))} <button type="button" class="link-btn" data-open-feedback aria-haspopup="dialog" aria-controls="feedback">${esc(ui('help.feedbackBtn'))}</button> · <a href="https://ko-fi.com/historiagloben" target="_blank" rel="noopener noreferrer" aria-label="${esc(ui('help.kofiLabel'))}">${esc(ui('more.support'))}<span aria-hidden="true"> ↗</span></a> · <a href="https://github.com/DasKrokodil/historia-globen" target="_blank" rel="noopener noreferrer">${esc(ui('sources.sourceCode'))}<span aria-hidden="true"> ↗</span><span class="sr-only"> ${esc(ui('legend.newTab'))}</span></a></p>
+        </section>
+      </details>`;
     this.body.querySelector('[data-all]')?.addEventListener('click', () => this.open());
     this.body.querySelector('[data-open-feedback]')?.addEventListener('click', () => this.onFeedback());
     this.body.querySelector('#show-drafts').addEventListener('change', e => {

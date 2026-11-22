@@ -5,11 +5,11 @@
 //
 // Räknar som händelselagret (js/layers/events.js, update utan intervall): granskade händelser (isVisibleReview),
 // i ett krig bara den viktigaste (top) eftersom inget krig följs, inte gamla öppna spann (isLongRunning), och en
-// händelse räknas när året ligger i dess spann eller inom tidsfönstret (timeline.windowYears = yearsAcross(år, 0,012)).
+// händelse räknas när året ligger i dess spann eller inom tidsfönstret (timeline.windowYears: den längre sidan av windowEdges(år, 0,012), med minsta fönstret före 10 000 f.Kr., #1958).
 // Alla kategorier är på, inget tema och ingen tagg. Samtidigt-kortets markerade händelser och den valda händelsen,
 // som alltid syns, räknas inte; de är högst några stycken. Taket byggs först när något år går över (#1192).
 import fs from 'node:fs';
-import { yearsAcross, SEGMENTS } from '../js/timeline.js';
+import { windowEdges, SEGMENTS } from '../js/timeline.js';
 import { isLongRunning, isVisibleReview } from '../js/model.js';
 import { MIN_YEAR, MAX_YEAR } from '../js/state.js';
 
@@ -19,7 +19,7 @@ const list = (Array.isArray(events) ? events : events.events).filter(e => isVisi
 
 const counts = [];
 for (let y = MIN_YEAR; y <= MAX_YEAR; y++) {
-  const w = yearsAcross(y, 0.012);
+  const w = Math.max(...Object.values(windowEdges(y, 0.012)));
   let n = 0;
   for (const e of list) {
     if (isLongRunning(e, y)) continue;

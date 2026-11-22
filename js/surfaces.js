@@ -6,6 +6,9 @@
 // Grupper (lägg till fler här när arken och dialogerna flyttas över, en grupp i taget):
 //   meny      knapparna överst med sina menyer (Lager, Fokus)
 //   sidopanel Samtidigt-panelen
+//   kort      platskortet (#1865): ligger i samma yta som Samtidigt-panelen, så en öppnad panel stänger kortet och ett öppnat kort
+//             stänger panelen, den som öppnas sist vinner (i bred skärm också, där de annars la sig över varandra). Kortet stängs
+//             som med krysset: platsen följs kvar och Om platsen öppnar kortet igen. Faktarutan för en händelse är inte med
 //   popover   årshoppet och intervallformuläret (#1141): de ligger i lagret --z-poppa ovanför menyerna och stänger varandra
 //   dialog    Källor, Hjälp, Kom igång, Quiz och förslagsformuläret (#1323): bara en åt gången. En öppen dialog pausar
 //             uppspelningen och nedräkningen, och de fortsätter inte av sig själva (onDialogOpen)
@@ -13,10 +16,11 @@
 //   besked    raden om en trasig länk (#1324): ett kort som inte stänger något, men som Escape stänger centralt och som
 //             stängs av varje annan grupp som öppnas (en öppnad meny, panel, popover, dialog eller jakt)
 // CLOSES säger vilka grupper en öppnad yta i gruppen stänger. En meny stänger de andra menyerna och sidopanelen,
-// en sidopanel stänger menyerna (men inte sig själv: det finns en).
+// en sidopanel stänger menyerna och platskortet (men inte sig själv: det finns en), och ett platskort stänger sidopanelen.
 export const CLOSES = {
   meny: ['meny', 'sidopanel', 'besked'],
-  sidopanel: ['meny', 'besked'],
+  sidopanel: ['meny', 'kort', 'besked'],
+  kort: ['sidopanel', 'besked'],
   popover: ['popover', 'besked'],
   dialog: ['dialog', 'besked'],
   uppdrag: ['besked'],

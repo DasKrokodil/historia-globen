@@ -7,6 +7,7 @@
 import { CAT, isVisibleReview, region, REGIONS } from '../model.js';
 import { Z } from './registry.js';
 import { ui } from '../i18n.js';
+import { spanOf } from '../layer-coverage.js';
 
 /**
  * Lagrets post i registret (#338). Krigsområdena har en egen rad i gruppen Makt, tro och gränser (#357), men
@@ -19,6 +20,9 @@ export function entry({ data }) {
     id: 'wars', name: ui('layer.wars'), group: 'power', layer, z: Z.wars,
     menu: { on: true, note: ui('layer.warsNote') },
     enabled: s => s.layers.events && (s.layers.wars || s.focus?.type === 'war'),
+    // Krigen finns från det första krigets början till det sista slutet i händelserna (#1960)
+    // Krigsområden syns bara när Händelser är på (enabled), och då är det först där raden hjälper
+    coverage: s => s.layers.events ? { year: s.year, span: layer.coverage() } : null,
     update: s => {
       layer.labelScale = s.labels.scale;
       return layer.update({ year: s.year, filters: s.filters, span: s.span, focusId: s.focusWar?.id });
@@ -34,6 +38,11 @@ export class WarsLayer {
     this.enabled = true;
     this.active = []; // [{ war, points, labels }]
     this.labelScale = 1; // etiketternas storlek, som rikenas namn (main.js nameStyle)
+  }
+
+  /** Var krigen finns i tiden: tidigaste start till senaste slut bland krigen som syns (spanOf, #1960). */
+  coverage() {
+    return spanOf(this.wars.filter(w => isVisibleReview(w.review)).map(w => ({ from: w.start, to: w.end })));
   }
 
   // span (valfritt): tiden som [början, slut], i fokusläget för korta krig datum ur edtf (#204)

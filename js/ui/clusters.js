@@ -61,6 +61,22 @@ export function clusterContents(members, CAT, t) {
 /** Hur många pågående krig som får lägga sin etikett över rikesnamn när det inte finns plats annars (#1022). */
 export const WAR_LABELS = 3;
 
+/**
+ * Etiketterna vid klotets kant (#1318). Förut tonades en etikett ut jämnt när markören vände sig bort (nästan ända ned till
+ * noll), och då läste ingen texten: mätt på skärmbilder låg 12 procent av etiketterna under 4,5:1, ner till 1,1:1. Nu är en etikett antingen
+ * läsbar eller dold. Från LABEL_FADE_FROM (cosinus för vinkeln mot kamerans riktning) och uppåt har den full styrka, ner till
+ * LABEL_MIN_FACING tonar den bara till LABEL_MIN_OPACITY, och under det ritas ingen etikett (markören syns kvar).
+ * Vid 85 procents styrka är kontrasten mellan etikettens text och bakgrund minst 4,5:1 även över det ljusaste underlaget
+ * (inlandsisen i istidens kust, #f1f4f6); tests/farger.test.mjs räknar efter.
+ */
+export const LABEL_FADE_FROM = 0.45, LABEL_MIN_FACING = 0.3, LABEL_MIN_OPACITY = 0.85;
+/** Etikettens styrka (0–1) för en markör som vetter facing (0–1) mot kameran; 0 betyder att etiketten inte ritas. */
+export function labelOpacity(facing) {
+  if (facing < LABEL_MIN_FACING) return 0;
+  if (facing >= LABEL_FADE_FROM) return 1;
+  return LABEL_MIN_OPACITY + (1 - LABEL_MIN_OPACITY) * (facing - LABEL_MIN_FACING) / (LABEL_FADE_FROM - LABEL_MIN_FACING);
+}
+
 /** Ruta runt en markör eller klunga på skärmen. */
 export const dotBox = (x, y, r) => ({ x0: x - r, x1: x + r, y0: y - r, y1: y + r });
 const overlaps = (a, b) => a.x0 < b.x1 && a.x1 > b.x0 && a.y0 < b.y1 && a.y1 > b.y0;
@@ -78,10 +94,12 @@ export function placeLabels(singles, { W, H, hoverId, markers, badges, blocked =
   // ingen annan plats finns (priority(singel), högst WAR_LABELS). Annars täckte rikesnamnen all plats över Europa 1914–1918 och
   // 1939–1945, och det som pågick fick ingen etikett (#1022). De pågående krigen placeras först, de räknas i taket på 14.
   const placed = [...blocked], out = [];
-  const urgent = new Set(singles.filter(priority).slice(0, WAR_LABELS));
-  for (const it of [...urgent, ...singles.filter(s => !urgent.has(s))].slice(0, 14)) {
+  // Vid klotets kant ritas ingen etikett (#1318, labelOpacity), och den tar då heller ingen av de 14 platserna; markören under
+  // musen får ändå sin etikett en bit längre ut
+  const inView = singles.filter(it => (it.p.facing ?? 1) >= (it.e.id === hoverId ? 0.2 : LABEL_MIN_FACING));
+  const urgent = new Set(inView.filter(priority).slice(0, WAR_LABELS));
+  for (const it of [...urgent, ...inView.filter(s => !urgent.has(s))].slice(0, 14)) {
     const { e, p } = it;
-    if ((p.facing ?? 1) < 0.2) continue;
     const label = text(e);
     const w = label.length * 6.6 + 30, h = 22;
     if (p.x < 0 || p.x > W || p.y < 0 || p.y > H) continue; // markören syns inte, då visas ingen etikett

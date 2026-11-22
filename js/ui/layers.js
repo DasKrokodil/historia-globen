@@ -1,7 +1,8 @@
 // Lagerväljaren: en meny där man slår av och på lager (händelser, fun facts, riken, religioner, dagens gränser m.m.).
 // Raderna, deras grupper och startläget kommer från lagerregistret (layers/registry.js, #338, #357).
 // Överst står de förinställda vyerna ur data/vyer.json (#357): en vy slår på sina lager och av de andra.
-import { t, tagViewNote } from '../model.js';
+import { t, tagViewNote, formatYear, pluralUi } from '../model.js';
+import { coverageYear, countMissing } from '../layer-coverage.js';
 import { ui } from '../i18n.js';
 
 async function getJSON(path) {
@@ -103,6 +104,33 @@ export class LayerMenu {
       if (!menu.hidden && !menu.contains(e.target) && !button.contains(e.target)) this.close();
     });
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && !menu.hidden) { this.close(); button.focus(); } });
+  }
+
+  /**
+   * Raden under ett påslaget lager som saknar data i året (#1960): "Ingen data för året · data från 2501 f.Kr." (-2500 astronomiskt; ett ungefärligt årtal är avrundat till 500 år, och årtalet har hårda mellanrum).
+   * gaps = registry.coverage(state), en Map från lagrets id till { side, limit, approx }. Raden är vanlig text i menyn och hör till
+   * lagrets ruta via aria-describedby (den ligger utanför etiketten, så att den inte blir en del av rutans namn). Texten sätts bara
+   * om när den ändras och raden är ingen live-region, så att skärmläsaren inte läser upp den varje gång året ändras.
+   */
+  setCoverage(gaps) {
+    this.coverageLines ??= new Map();
+    this.coverageGaps = gaps; // gruppernas räknare (syncGroups) räknar ur samma svar som raderna
+    for (const input of this.menu.querySelectorAll('input[data-layer]')) {
+      const id = input.dataset.layer, gap = gaps.get(id);
+      let line = this.coverageLines.get(id);
+      if (!line) {
+        if (!gap) continue;
+        line = document.createElement('div');
+        line.className = 'layer-coverage'; line.id = `layer-coverage-${id}`; line.hidden = true;
+        input.closest('label').after(line);
+        this.coverageLines.set(id, line);
+      }
+      const text = gap ? ui(`layers.coverage${gap.side === 'before' ? 'Before' : 'After'}${gap.approx ? 'Approx' : ''}`, { year: coverageYear(gap.limit, formatYear) }) : '';
+      if (line.textContent !== text) line.textContent = text;
+      line.hidden = !gap;
+      if (gap) input.setAttribute('aria-describedby', line.id); else input.removeAttribute('aria-describedby');
+    }
+    this.syncGroups();
   }
 
   /** Sätter ett lager av eller på utifrån, till exempel "keep" från teckenförklaringen (#235). */
@@ -240,11 +268,16 @@ export class LayerMenu {
     sync();
   }
 
-  /** Antalet påslagna lager i varje grupp på gruppens rad. */
+  /** Antalet påslagna lager i varje grupp på gruppens rad, och hur många av dem som saknar data i året (#1960). */
   syncGroups() {
     for (const { box, count } of this.sects ?? []) {
       const inputs = [...box.querySelectorAll('input[data-layer]')];
-      count.textContent = ui('layers.groupCount', { on: inputs.filter(i => i.checked).length, total: inputs.length });
+      // Påslagna lager i gruppen som har en rad om data som saknas (#1960): samma underlag som raderna (setCoverage), inte en egen räkning
+      const checked = new Set(inputs.filter(i => i.checked).map(i => i.dataset.layer));
+      const missing = countMissing(inputs.map(i => i.dataset.layer), id => checked.has(id), this.coverageGaps);
+      const text = ui('layers.groupCount', { on: checked.size, total: inputs.length })
+        + (missing ? ` · ${pluralUi('layers.groupMissing', missing)}` : '');
+      if (count.textContent !== text) count.textContent = text; // sätts bara om när den ändras
     }
   }
 

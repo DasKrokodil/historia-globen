@@ -18,6 +18,7 @@
 import { CAT, edtfHasDays, edtfSpan, isVisibleReview, loadRoutes, stopDate, t } from '../model.js';
 import { Z } from './registry.js';
 import { ui } from '../i18n.js';
+import { spanOf } from '../layer-coverage.js';
 
 /**
  * Lagrets post i registret (#338). Vägarnas filer laddas efter starten, och lagret ritas om när de har kommit.
@@ -31,6 +32,7 @@ export function entry({ refresh }) {
     enabled: s => s.focus?.type === 'route' || s.layers.routes,
     apply: s => { layer.shipStyle = s.on.discovery ? 'ship' : 'dot'; layer.onlyRoute = s.focusRoute?.id ?? null; },
     update: s => layer.update({ year: s.year, fine: s.fine, window: s.window, windowBefore: s.windowBefore, windowAfter: s.windowAfter, filters: s.filters }),
+    coverage: s => ({ year: s.year, span: layer.coverage() }), // vägarna finns från första etappens början till sista slutet (#1960)
     marks: s => layer.marks(s),
     drawOverlay: (ctx, W, H) => layer.drawOverlay(ctx, W, H),
   };
@@ -191,6 +193,11 @@ export class LinesLayer {
         .map(leg => ({ leg, prep: prepare(leg.path) }));
       return { route, legs };
     }).filter(r => r.legs.length);
+  }
+
+  /** Var vägarna finns i tiden: etappernas tidigaste from till senaste to bland vägarna som syns (spanOf, #1960). Null innan de har laddats. */
+  coverage() {
+    return spanOf(this.routes.filter(({ route }) => isVisibleReview(route.review)).flatMap(({ legs }) => legs.map(({ leg }) => ({ from: leg.from, to: leg.to }))));
   }
 
   /** Resor får streck vid start/slut; i resefokus blir källbelagda stopp prickar. */

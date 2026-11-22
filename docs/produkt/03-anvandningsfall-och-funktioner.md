@@ -8,7 +8,7 @@ Aktörerna (A–I) står i [02](02-anvandare-och-intressenter.md). Status: **fin
 
 | ID | Aktör | Mål | Kort flöde | Funktioner | Status |
 |---|---|---|---|---|---|
-| UC1 | F, A | Förstå vad globen gör | Öppna sidan, se globen och Samtidigt-kortet, kanske introduktionen, dra i tiden | Glob, tidslinje, Samtidigt-kort, introduktion, Hjälp | finns; hur väl ingången fungerar utan förklaring är obelagt |
+| UC1 | F, A | Förstå vad globen gör | Öppna sidan, se globen och Visste du?-kortet, kanske introduktionen, dra i tiden | Glob, tidslinje, Visste du?-kort, introduktion, Hjälp | finns; hur väl ingången fungerar utan förklaring är obelagt |
 | UC2 | A, F | Se vad som hände samtidigt vid ett år | Dra eller skriv ett år, läs Samtidigt i världen per världsdel | Tidslinje, Hoppa i tiden, Samtidigt-listan | finns |
 | UC3 | A | Läsa om en händelse och se källan | Klicka en markör eller lista, läs faktarutan, öppna källan | Faktaruta, bild med licens, källor, granskningsnivå | finns |
 | UC4 | A, D | Följa ett krig, ett rike eller en religion | Sök och följ → välj → uppspelning pausar vid viktiga händelser → slutkort | Fokusläge, krigsområden, riken, religioner | finns |
@@ -20,7 +20,7 @@ Aktörerna (A–I) står i [02](02-anvandare-och-intressenter.md). Status: **fin
 | UC10 | A, F | Skriva ut en affisch av kartan | Platt vy → affisch | A4-affisch som PNG | finns |
 | UC11 | B | Köra en lektion med en klass | Mer → För lärare (#1315) → Starta som lektion, eller dela turlänk (`m=lektion`) → projicera (Presentationsläge i För lärare) → eleverna svarar → skriva ut elev- och lärarblad | Lektionsläge, lärarfält, utskrift (#738), lektion 1 (åk 7–9), lektion 2 (åk 4–6) | finns; flödet från länk till användbart blad är en känd riskyta (analys 2026-11-08) |
 | UC12 | C | Göra ett elevuppdrag | För lärare → Samtidighetsjakten → hitta händelser på olika kontinenter samma år | Samtidighetsjakten (#741) | finns |
-| UC13 | D, C | Testa vad jag lärt mig | Mer → Quiz: "Vad hände samtidigt som …?" | Quiz (#65) | finns |
+| UC13 | D, C | Testa vad jag lärt mig | Mer → För lärare → Quiz: "Vad hände samtidigt som …?" (ingången är bara För lärare, #1575) | Quiz (#65) | finns |
 | UC14 | G | Rapportera ett faktafel eller föreslå innehåll | Faktarutan → Rapportera faktafel; formuläret | Rapportera faktafel, `functions/api/feedback.js` | delvis: formuläret är avstängt i production |
 | UC15 | A, D | Korrigera en vanlig missuppfattning | Faktarutan visar vad källorna säger | Missuppfattningar (#838) | finns |
 | UC16 | A, E | Byta språk | Språkknappen i raden överst (jordglob och kod, #1167) | Fem språk, översättningsspärr | delvis: svenska fullständig, övriga språk i omgångar, engelska först |
@@ -29,6 +29,8 @@ Aktörerna (A–I) står i [02](02-anvandare-och-intressenter.md). Status: **fin
 | UC19 | A, B | Se vad som hände här | Sök och följ → fliken Plats → skriv en plats ur datan → händelser inom 300 km, äldst först | "Vad hände här?" (#15, beslut 2026-11-08) | finns (6.1.0). Klick direkt på globen och plats i intervallet finns inte; bara platser som finns i datan går att hitta |
 | UC20 | A, B | Välja en epok enligt läroplanen | Epokknappar i intervallformuläret: Lgr22, Nordens forntid, antiken, industrialiseringen | Epoker (#845, #476, `data/perioder.json`) | finns (6.1.0). Inget epokband på tidslinjen; högkulturer saknas (tidslinjen börjar 3000 f.Kr.) |
 | UC20b | A, B | Följa ett tema, ett urval händelser som hör ihop | Sök och följ → fliken Teman (syns först när det finns ett tema) → introduktionskort och bara temats händelser | Temamotorn (#398, #984, `data/teman.json`) | **motorn finns, inget tema än** (teknik, #105, kommer i 6.3.0) |
+| UC27 | A, B, C | Förstå och byta tidsskala: före och efter 3000 f.Kr. | Tidsreglaget med nivåväxlaren och dörren; stegknappar och piltangenter går över skarven; tidsfönstret i ord och mobillegend | Två reglage (#1958), nivåväxlaren (#1959), tidsfönstret i ord (#1307), "år sedan" (#1979) | finns (6.5.0). Obelagt om en elev förstår att reglagen är lika breda fast 97 000 och 5 000 år ser lika långa ut (utvärdering #1961, `larare`) |
+| UC28 | A, B, D | Läsa om ett land eller en plats och se den på kartan | Sök och följ → "Länder och landskap" (grupperat efter världsdel, land och landskap, #1963) → platskortet (flagga, "Visa på kartan") → regionvyn med numrerade markörer; tryck på platsens kontur i Fokus (#1978) | Länder och platser (#1159–#1164, #1262–#1264), regionvyn (#1641, #1644), rikeskortet med länkar till dagens länder (#1955) | finns (6.4.0, 6.5.0). Pilot med Sverige, Danmark, Grönland och Aotearoa; utvärdering i #1274 |
 | UC21 | A | Läsa ett kurerat regionkort | Region → kort med gränskälla och källor | Regionkort (#579) | planerad: efter utvärderingen i #1274 |
 | UC22 | A | Se människans och jordens långa historia | Tidslinje i nivåer, forntida kartor | Version 7 och 8 | planerad, senare |
 | UC23 | A, B | Jämföra två tider eller se historiska kartor | Jämför två tider (#248), historiska kartor (#249) | Version 9 | planerad, senare |
@@ -51,7 +53,7 @@ Per område: vad som finns och var det ligger i koden. Detaljer i [arkitektur.md
 | **Tid** | Tidslinje (segmenterad skala), uppspelning med hastigheter och pauser, hopp till år/datum, delar av år i fokusläge | `js/timeline.js` | UC1, UC2 |
 | **Rum** | 3D-glob, kamera, zoom, skarpt utsnitt vid inzoomning; Platt vy | `js/globe.js`, `js/globe-detail.js`, `js/ui/flatmap.js` | UC1, UC8 |
 | **Innehållslager** | Händelser, riken, religioner, krigsområden, dagens gränser, vägar och resor, upptäcktsvyn | `js/layers/*` | UC2–UC4, UC8 |
-| **Läsning** | Samtidigt i världen, Samtidigt-kortet, faktarutor (händelse, rike, religion, krig) | `js/ui/panel.js`, `js/ui/funfact.js` | UC2, UC3 |
+| **Läsning** | Samtidigt i världen, Visste du?-kortet, faktarutor (händelse, rike, religion, krig) | `js/ui/panel.js`, `js/ui/funfact.js` | UC2, UC3 |
 | **Utforska** | Sök och följ (Fokus, Sök), Lager, Vy, Meny/Mer | `js/ui/focusmenu.js`, `layers.js`, `viewmode.js`, `viewmenu.js` | UC4, UC6, UC9 |
 | **Berättelser** | Guidade turer, berättelseläge, slutkort, rikens fall | `js/ui/tour.js`, `js/tour-format.js` | UC5 |
 | **Lärande** | Introduktion, Quiz, Samtidighetsjakten, lektionsläge, utskrift, lärarfält | `js/ui/intro.js`, `quiz.js`, `uppdrag.js`, `lesson.js`, `print-sheet.js` | UC1, UC11–UC13 |

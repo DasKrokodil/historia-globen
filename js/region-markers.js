@@ -46,13 +46,23 @@ export function wholePlace(e, place, places = []) {
   return smallestPlace(places, e._lon, e._lat)?.id === place.id;
 }
 
+/** Har händelsen börjat vid året? Hela år räknas (en händelse som börjar 1997,8 har börjat 1997). */
+export const startedBy = (e, year) => Math.floor(e.start) <= Math.floor(year);
+
 /**
  * Platsens händelser som rader: { e, n, whole, approx }. n är radens nummer i listan (1, 2, …), i samma ordning som listan
  * (händelserna kommer i tidsordning från visibleEvents i js/focus/place.js). approx: platsen är ungefärlig.
+ *
+ * year (#1786): bara händelser som har börjat vid året blir rader. Numren räknas ändå över hela listan, så att en markör har samma
+ * nummer som sin rad i listan "Händelser på platsen" (som visar hela historien) och numren kan ha luckor. Utan year: alla rader.
  */
-export function regionItems(events, place, places = []) {
-  return (events ?? []).map((e, i) => ({ e, n: i + 1, whole: wholePlace(e, place, places), approx: !!e.locationPrecision }));
+export function regionItems(events, place, places = [], year = null) {
+  return (events ?? []).map((e, i) => ({ e, n: i + 1, whole: wholePlace(e, place, places), approx: !!e.locationPrecision }))
+    .filter(it => year == null || !Number.isFinite(year) || startedBy(it.e, year));
 }
+
+/** Den första händelsen som inte har börjat vid året (för raden "Nästa: …" när kartan är tom), annars null. */
+export const nextEvent = (events, year) => (events ?? []).find(e => !startedBy(e, year)) ?? null;
 
 /**
  * Markörerna på skärmen. toScreen(lat, lon) ger { x, y } i kartans pixlar. Ger { brick, singles, piles }: brick är raderna som gäller
@@ -193,26 +203,39 @@ export function brickSpot(nominal, { w, h }, covers, W, H, pad = 6) {
   for (const c of covers) tries.push({ x: clampX(c.x0 - w / 2 - pad), y: y0 }, { x: clampX(c.x1 + w / 2 + pad), y: y0 });
   tries.sort((a, b) => Math.abs(a.x - x0) - Math.abs(b.x - x0));
   for (const c of covers) tries.push({ x: x0, y: c.y1 + h + pad });
-  return tries.find(t => fits(t.x, t.y)) ?? { x: x0, y: y0 };
+  const found = tries.find(t => fits(t.x, t.y));
+  if (found) return found;
+  // Låg yta ovanför arket i mobil (#1863): pröva också i sidled förbi en ruta och samtidigt ovanför eller under en annan, närmast först
+  const xs = [x0, ...covers.flatMap(c => [clampX(c.x0 - w / 2 - pad), clampX(c.x1 + w / 2 + pad)])];
+  const ys = [y0, ...covers.flatMap(c => [c.y1 + h + pad, c.y0 - pad])];
+  const grid = xs.flatMap(x => ys.map(y => ({ x, y }))).sort((a, b) => Math.hypot(a.x - x0, a.y - y0) - Math.hypot(b.x - x0, b.y - y0));
+  return grid.find(t => fits(t.x, t.y)) ?? { x: x0, y: y0 };
 }
 
-/** Ordningen som namnen prövas i: orter med händelser, sedan grannländer, sedan hav och övriga orter efter storlek (rank). */
+/**
+ * Ordningen som namnen prövas i: orter med händelser, sedan grannländer (först de med landgräns, sedan länder över havet inom
+ * ortmarginalen, #1690), sedan hav och övriga orter efter storlek (rank), och sist länder över havet vars namn står inom den större
+ * landsmarginalen men utanför ortmarginalen (far, till exempel Australien vid Aotearoa). De sista får alltså bara plats som blir över och tränger aldrig undan
+ * en ort eller ett hav (på en stor skärm vid Grönland syns annars en rad länder i Europa i stället för Grönlands orter).
+ */
 export function namePriority(c) {
   if (c.kind === 'place') return (c.hasEvents ? 0 : 2) + (c.rank ?? 10) / 100;
-  if (c.kind === 'neighbour') return 1;
+  if (c.kind === 'neighbour') return c.far ? 3 : c.sea ? 1.5 : 1;
   return 2 + (c.rank ?? 10) / 100;
 }
 
 /**
  * Kandidaterna ur ortnamnsfilen (data/ortnamn/<plats>.json): orter, grannländer och hav, med text på sidans språk (tx), punkt och
- * om en ort har händelser (någon händelse inom NAME_KM). Ger [{ id, kind, rank, at: [lon, lat], text, hasEvents }].
+ * om en ort har händelser (någon händelse inom NAME_KM). Ger [{ id, kind, rank, at: [lon, lat], text, hasEvents, sea, far }], där sea
+ * säger att grannlandet ligger över havet och far att namnet står på en del av landet utanför ortmarginalen, inom landsmarginalen (#1690).
  */
 export function nameCandidates(doc, events, tx) {
   if (!doc) return [];
   const pts = (events ?? []).filter(e => e._lon != null).map(e => [e._lon, e._lat]);
   const out = [];
   for (const p of doc.places ?? []) out.push({ id: p.id, kind: 'place', rank: p.rank, at: p.coordinates, text: tx(p.name), hasEvents: pts.some(q => km(q, p.coordinates) <= NAME_KM) });
-  for (const nb of doc.neighbours ?? []) out.push({ id: `nb-${nb.ne}`, kind: 'neighbour', at: nb.label, text: tx(nb.name) });
+  for (const nb of doc.neighbours ?? []) out.push({ id: `nb-${nb.ne}`, kind: 'neighbour', at: nb.label, text: tx(nb.name), sea: nb.sea === true,
+    far: nb.far === true });
   for (const s of doc.seas ?? []) out.push({ id: s.id, kind: 'sea', rank: s.rank, at: s.label, text: tx(s.name) });
   return out.filter(c => c.text && Array.isArray(c.at)).sort((a, b) => namePriority(a) - namePriority(b));
 }
@@ -236,14 +259,22 @@ export function placeNames(cands, { W, H, blocked = [], marks = [], measure, cro
       const my = (mark.y0 + mark.y1) / 2, mx = (mark.x0 + mark.x1) / 2;
       const beside = [{ x0: mark.x1 + 2, y0: my - h / 2, align: 'left', tx: mark.x1 + 3 }, { x0: mark.x0 - 2 - w, y0: my - h / 2, align: 'right', tx: mark.x0 - 3 },
         { x0: mx - w / 2, y0: mark.y0 - 2 - h, align: 'center', tx: mx }, { x0: mx - w / 2, y0: mark.y1 + 2, align: 'center', tx: mx }];
-      for (const o of beside) {
-        const box = { x0: o.x0, y0: o.y0, x1: o.x0 + w, y1: o.y0 + h };
-        if (box.x0 < 2 || box.y0 < 2 || box.x1 > W - 2 || box.y1 > H - 2) continue;
-        const airy = { x0: box.x0 - 4, y0: box.y0 - 1, x1: box.x1 + 4, y1: box.y1 + 1 };
-        if (blocked.some(b => overlaps(box, b)) || placed.some(b => overlaps(airy, b)) || crosses(box)) continue;
-        placed.push(box);
-        out.push({ ...c, box, x: o.tx, y: box.y0 + h / 2, align: o.align, dotless: true });
-        break;
+      // En markör kan hamna precis vid platsens kant när kartan väjer för en annan kontroll. Försök alltid först utan att
+      // korsa kanten, men låt namnet följa sin egen markör som sista utväg: annars försvinner ortnamnet helt trots att
+      // markören är synlig (#1897).
+      for (const allowEdge of [false, true]) {
+        let placedBeside = false;
+        for (const o of beside) {
+          const box = { x0: o.x0, y0: o.y0, x1: o.x0 + w, y1: o.y0 + h };
+          if (box.x0 < 2 || box.y0 < 2 || box.x1 > W - 2 || box.y1 > H - 2) continue;
+          const airy = { x0: box.x0 - 4, y0: box.y0 - 1, x1: box.x1 + 4, y1: box.y1 + 1 };
+          if (blocked.some(b => overlaps(box, b)) || placed.some(b => overlaps(airy, b)) || (!allowEdge && crosses(box))) continue;
+          placed.push(box);
+          out.push({ ...c, box, x: o.tx, y: box.y0 + h / 2, align: o.align, dotless: true });
+          placedBeside = true;
+          break;
+        }
+        if (placedBeside) break;
       }
       continue;
     }

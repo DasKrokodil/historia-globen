@@ -1,14 +1,19 @@
 // "Samtidigt i världen": lista över synliga händelser per världsdel, kategorifilter
 // (i lagermenyn, #120, och som chips ovanför listan, #311) och faktarutan.
 import { buildAreaCurve } from './areacurve.js';
-import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatOffset, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg, flagUrl, isVisibleReview, eventTags, needDetails, misconceptionsFor, roundWindow, groupDigits, tagViewNote } from '../model.js';
+import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatOffset, edtfHasDays, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg, flagUrl, isVisibleReview, eventTags, needDetails, misconceptionsFor, roundWindow, groupDigits, tagViewNote } from '../model.js';
 import { ui, LANG, langAttr } from '../i18n.js';
+import { say } from './status.js';
 import { MIN_YEAR } from '../timeline.js';
+import { MAX_YEAR } from '../state.js';
 import { eventCitation } from './citation.js';
+import { splitParagraphs } from '../paragraphs.js';
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 // Gränssnittets texter hämtas med ui() ur data/ui/<språk>.json (#670). Ett antal [en, flera] väljs med plural().
 const plural = (key, n, vars = {}) => String(ui(key)[n === 1 ? 0 : 1]).replace(/\{(\w+)\}/g, (m, k) => (k === 'count' ? n : vars[k] ?? m));
+/** Långa faktatexter i korta stycken (#1571): samma ord, bara radbrytning mellan meningar. tail (källhänvisningen) hamnar sist i sista stycket. */
+const paras = (text, tail = '', attrs = '') => splitParagraphs(text).map((x, i, all) => `<p${attrs}>${esc(x)}${i === all.length - 1 ? tail : ''}</p>`).join('');
 const loadingHtml = () => `<p class="detail-loading" role="status">${esc(ui('detail.loading'))}</p>`;
 /** Världsdelens namn på valt språk; REGIONS i model.js är id:n (svenska). */
 export const regionName = r => ui(`region.${r}`);
@@ -41,14 +46,14 @@ const EVIDENCE_FIELDS = ['summary', 'date', 'location', 'image', 'uncertainty'];
 // vad källorna säger. Rubrikerna är vanlig svenska, så att osäkerheten förklaras i ord och inte med en symbol.
 const TAKEAWAY_GROUPS = ['belagt', 'omtvistat', 'okant'];
 /** Punkterna under sina rubriker, var och en med sin egen källa. Tom text när kriget saknar punkter. */
-function takeawaysHtml(items, srcById, pending) {
+export function takeawaysHtml(items, srcById, pending) {
   if (!items?.length) return '';
   const groups = TAKEAWAY_GROUPS.map(status => {
     const title = ui(`story.takeaway.${status}`);
     const own = items.filter(x => x.status === status);
     if (!own.length) return '';
     return `<h5 class="takeaway-head takeaway-${status}">${esc(title)}</h5><ul class="takeaways">${own.map(x => `<li>${esc(t(x.text))}${
-      pending ? '' : `<span class="takeaway-src">${(x.sources ?? []).map(id => srcById[id]).filter(Boolean)
+      pending ? '' : `<span class="takeaway-src">${esc(ui('detail.source'))} ${(x.sources ?? []).map(id => srcById[id]).filter(Boolean)
         .map(src => `<a href="${esc(src.url)}" target="_blank" rel="noopener">${esc(src.title)}</a>`).join(', ')}</span>`}</li>`).join('')}</ul>`;
   }).join('');
   const head = esc(ui('story.takeaways'));
@@ -120,13 +125,14 @@ export const uncertainDate = e => {
   return edtf.includes('~') || edtf.includes('?') || (e.precision != null && e.precision < 9) || sourcesDisagree(e);
 };
 /**
- * Kort markering i datumraden (#606) efter det som är osäkert: datumet (ungefärligt, osäkert, grov precision eller
+ * Kort markering (i) i datumraden (#606) efter det som är osäkert: datumet (ungefärligt, osäkert, grov precision eller
  * oense källor, samma regler som uncertaintyRow) eller platsen. Den leder till raden Historisk osäkerhet.
  */
 const uncertaintyMark = (e, what, copy = {}) => {
   const date = uncertainDate(e);
   if (!(what === 'date' ? date : !!e.locationPrecision)) return '';
-  return ` <button type="button" class="unc-mark" data-unc-mark aria-controls="detail-uncertainty" title="${esc(t(copy.markTitle))}">${esc(t(copy.mark))}</button>`;
+  // Ett (i) som granskningsstatusens (#1979): "cirka" i själva datumet och märket är osäkerheten en gång i raden; namnet säger vad knappen gör
+  return ` <button type="button" class="review-info unc-mark" data-unc-mark aria-controls="detail-uncertainty" aria-label="${esc(t(copy.markTitle))}" title="${esc(t(copy.markTitle))}">i</button>`;
 };
 
 /**
@@ -137,16 +143,24 @@ const uncertaintyMark = (e, what, copy = {}) => {
 export function figure(e, srcById, evidence = '') {
   const img = e.image;
   if (!img) return '';
-  // Historiska bilder länkar licensen till filsidan i källregistret
-  const src = img.source && srcById[img.source];
-  const license = src ? `<a href="${esc(src.url)}" target="_blank" rel="noopener">${esc(img.license ?? src.license)}</a>` : esc(img.license ?? '');
-  const credit = [img.credit && esc(img.credit), license].filter(Boolean).join(' · ');
+  // Kredit och licens för våra egna illustrationer ligger i Källor och osäkerhet (#1571); bildens märkning "Illustration …, inte
+  // en historisk bild" står alltid kvar under bilden. Kredit för historiska bilder (andras verk) står kvar vid bilden.
+  const credit = img.kind === 'illustration' ? '' : imageCredit(e, srcById);
   return `<figure class="detail-fig${img.placeholder ? ' is-placeholder' : ''}">
     ${img.placeholder ? `<span class="fig-badge">${esc(ui('image.placeholder'))}</span>` : ''}
     <img src="${esc(img.file)}" alt="${esc(t(img.caption))}" loading="lazy" width="800" height="600">
     <figcaption><span class="fig-caption">${esc(t(img.caption))}</span>${evidence}
-      <span class="fig-credit">${credit}</span></figcaption>
+      ${credit ? `<span class="fig-credit">${credit}</span>` : ''}</figcaption>
   </figure>`;
+}
+
+/** Bildens kredit och licens som HTML; historiska bilder länkar licensen till filsidan i källregistret. */
+export function imageCredit(e, srcById) {
+  const img = e.image;
+  if (!img) return '';
+  const src = img.source && srcById[img.source];
+  const license = src ? `<a href="${esc(src.url)}" target="_blank" rel="noopener">${esc(img.license ?? src.license)}</a>` : esc(img.license ?? '');
+  return [img.credit && esc(img.credit), license].filter(Boolean).join(' · ');
 }
 
 /**
@@ -177,7 +191,7 @@ const reportBtn = ({ type, id, label }) => `<button type="button" class="link-bt
  */
 const reviewRow = (status, subj) => {
   const rv = REVIEW[status] ?? REVIEW.draft;
-  return `<span class="review-badge ${rv.cls}" title="${esc(REVIEW_SUBJECT_HELP[subj])}">${esc(reviewLabel(status, subj))}</span>
+  return `<span class="review-badge ${rv.cls}" title="${esc(REVIEW_SUBJECT_HELP[subj] ?? ui(`review.subjectHelp.${subj}`))}">${esc(reviewLabel(status, subj))}</span>
     <button type="button" class="review-info" data-review-info aria-expanded="false" aria-controls="review-help" aria-label="${esc(ui('review.info'))}" title="${esc(ui('review.info'))}">i</button>
     <p class="review-explain">${esc(ui('review.explain'))}</p>
     <div id="review-help" class="review-help" hidden>
@@ -257,8 +271,26 @@ export function emptyCause({ visibleCount, filters, total = null }) {
   return total != null && filters.size < total ? 'some' : 'year';
 }
 
+/**
+ * Meningen när listan är tom, som språkfilens nyckel: kategorifilter först, och annars att det inte finns något kring året. Före 3000 f.Kr.
+ * säger den att det inte finns några fynd i vår data där (`prehistory`, #1958), inte att något saknas i världen.
+ */
+export const emptyTextKey = ({ cause, prehistory = false }) =>
+  cause === 'filters' ? 'panel.filtersOff' : cause === 'some' ? 'panel.filtersSome' : prehistory ? 'panel.emptyPrehistory' : 'panel.empty';
+
 /** Antalet i raden "Översikt: ett urval, cirka N händelser" (#1139): avrundat till tiotal, men exakt under tio. */
 export const overviewCount = n => (n >= 10 ? Math.round(n / 10) * 10 : n);
+
+/** Tre tidsgrupper (#1312). Urvalet och inside kommer från händelselagret; datumläget skiljer en daterad dag från ett datumspann. */
+export function panelTimeGroup(v, { range = false, fine = false } = {}) {
+  if (!range && !v.inside && !v.longRunning) return 'near';
+  if (fine) {
+    // edtfSpan slutar efter sista dagen: en dag har också positiv längd. Jämför de inkluderande datumen i stället.
+    const dates = (v.e.edtf ?? '').replace(/[~?%]/g, '').split('/');
+    return edtfHasDays(v.e.edtf) && dates[0] === dates.at(-1) ? 'happened' : 'inside';
+  }
+  return v.e.start === v.e.end ? 'happened' : 'inside';
+}
 
 export class Panel {
   constructor({ root, list, filters, chips, detail, sub, count, toggle, close }, { events, srcById, styles }, { empireLegend = {}, uncertainty = {}, panel = {}, tags = {} } = {}) {
@@ -273,8 +305,8 @@ export class Panel {
     this.onShowAllEvents = () => {}; // byter till vyn med alla händelser (samma åtgärd som Standard i Lager); main.js kopplar den
     this.tagNoteAll?.addEventListener('click', () => {
       this.onShowAllEvents();
-      // Raden försvinner när urvalet slutar: fokus till första kategorin, som ligger kvar
-      (this.root.querySelector('.filter[data-cat]') ?? this.toggle).focus({ preventScroll: true });
+      // Raden försvinner när urvalet slutar: fokus till filterknappen, som ligger kvar
+      (this.filterToggle ?? this.root.querySelector('.filter[data-cat]') ?? this.toggle).focus({ preventScroll: true });
     });
     this.tagCounts = new Map();
     for (const e of events) for (const tag of (isVisibleReview(e.review) ? eventTags(e) : [])) this.tagCounts.set(tag, (this.tagCounts.get(tag) ?? 0) + 1);
@@ -297,8 +329,13 @@ export class Panel {
     this.selectedId = null;
     this.shown = null; // det faktarutan visar just nu; en rad som laddas klart ritar bara om samma ruta (#337)
     this.expandedRegions = new Set();
-    this.longOpen = false;
     this.copy = panel;
+    // Filtret är ihopfällt som standard och listan har en flik per världsdel (beslut i #1782)
+    this.chips = chips ?? null;
+    this.filterToggle = root.querySelector?.('#panel-filter-toggle') ?? null;
+    this.tabs = root.querySelector?.('#panel-tabs') ?? null;
+    this.region = null; // världsdelen som flikarna visar; behålls mellan omritningar tills den blir tom
+    this.filterToggle?.addEventListener('click', () => this.setFiltersOpen(!!this.chips?.hidden));
 
     // Visa bara kategorier som har händelser, i den fasta ordningen. Samma chips finns på två ställen:
     // under Lager (#120) och ovanför listan i panelen (#311). Båda styr samma filter, så de följs åt.
@@ -315,13 +352,16 @@ export class Panel {
           const on = this.filters.has(c.id);
           on ? this.filters.delete(c.id) : this.filters.add(c.id);
           for (const x of boxes) x.querySelector(`[data-cat="${c.id}"]`)?.setAttribute('aria-pressed', String(!on));
+          this.syncFilterToggle();
           this.onFilter(this.filters);
         });
         box.append(b);
       }
     }
 
+    this.syncFilterToggle();
     toggle.addEventListener('click', () => {
+      if (this.waiting) { say(this.waitingText(), 'samtidigt', { priority: 1, immediate: true }); return; } // inaktiv under en tur (#1865)
       this.setOpen(!root.classList.contains('open'));
       if (root.classList.contains('open')) close?.focus({ preventScroll: true }); // fokus in i panelen (#246)
     });
@@ -333,18 +373,63 @@ export class Panel {
   setFilters(ids) {
     this.filters = new Set(ids);
     for (const b of this.root.ownerDocument.querySelectorAll('.filter[data-cat]')) b.setAttribute('aria-pressed', String(this.filters.has(b.dataset.cat)));
+    this.syncFilterToggle();
     this.onFilter(this.filters);
+  }
+
+  /** Knappen över kategorierna säger hur många som är på ("Kategorier: alla 14", "Kategorier: 11 av 14") och fäller ut chipsen. */
+  syncFilterToggle() {
+    if (!this.filterToggle) return;
+    const total = this.allCategories.size, on = this.filters.size;
+    const text = on === total ? ui('panel.filterAll', { total }) : ui('panel.filterSome', { on, total });
+    this.filterToggle.innerHTML = `<span>${esc(text)}</span><span class="arrow" aria-hidden="true">▾</span>`;
+  }
+
+  setFiltersOpen(open) {
+    if (!this.chips || !this.filterToggle) return;
+    this.chips.hidden = !open;
+    this.filterToggle.setAttribute('aria-expanded', String(open));
+  }
+
+  /** Förklaringen på knappen medan den väntar (#1865): hovertexten och knappens tillgängliga namn, som börjar med det synliga ordet. */
+  waitingText() { return ui('panel.waitsTour'); }
+
+  /**
+   * Under en tur väntar Samtidigt (#1865): knappen är nedtonad och inaktiv med aria-disabled (den kan fortfarande få fokus, så att
+   * förklaringen når tangentbord och skärmläsare). Hovertexten och det tillgängliga namnet säger varför, och ett tryck eller Enter
+   * läser upp förklaringen i stället för att öppna listan. En öppen lista stängs: turen har valt vad kartan visar, och listan
+   * skulle ligga över turkortet. Anropas av main.js när klassen touring ändras. Namnet är annars antalet träffar (accessibleName).
+   */
+  setWaiting(on) {
+    on = !!on;
+    if (this.waiting === on) return;
+    this.waiting = on;
+    const { toggle } = this;
+    toggle.classList?.toggle('is-waiting', on);
+    if (on) {
+      toggle.setAttribute('aria-disabled', 'true');
+      toggle.setAttribute('title', this.waitingText());
+      toggle.setAttribute('aria-label', this.waitingText());
+      if (this.root.classList?.contains('open')) this.setOpen(false);
+    } else {
+      toggle.removeAttribute('aria-disabled');
+      toggle.removeAttribute('title');
+      if (this.realLabel) toggle.setAttribute('aria-label', this.realLabel); // omritningen under turen lämnade väntetexten
+    }
   }
 
   /** Öppna eller stäng listan "Samtidigt i världen". */
   setOpen(open) {
+    if (open && this.waiting) return;
     if (open) {
       // Under knappgruppen uppe till höger, som i smal skärm kan ligga på flera rader
       const r = (this.toggle.closest('.top-actions') ?? this.toggle).getBoundingClientRect();
       this.root.style.top = `${r.bottom + 8}px`;
       // Vid stor textzoom blir den effektiva höjden liten. Låt då listan använda nästan hela höjden och
       // rulla ovanpå tidslinjen, i stället för att dess innehåll försvinner bakom det reserverade utrymmet.
-      if (innerWidth <= 760 && innerHeight < 500) {
+      // Samma sak i en bred men låg yta (liggande telefon, 800 × 360): med 150 px reserverade för tidsreglaget blev listan 93 px hög och
+      // rymde bara rubriken (#1932). Den ligger då över tidsreglaget, som i smal skärm.
+      if (innerHeight < 500) {
         this.root.style.maxHeight = `calc(100dvh - ${r.bottom + 16}px)`;
       } else {
         // I dator går lådan ner till tidslinjen, i mobil täcker den högst 60 procent.
@@ -380,7 +465,8 @@ export class Panel {
    */
   accessibleName(text) {
     const visible = [...this.toggle.childNodes].find(n => n.nodeType === 3 && n.textContent.trim())?.textContent.trim();
-    return visible ? `${visible}, ${text}` : text;
+    this.realLabel = visible ? `${visible}, ${text}` : text; // återställs när turen är slut (setWaiting)
+    return this.waiting ? this.waitingText() : this.realLabel;
   }
 
   /**
@@ -391,6 +477,8 @@ export class Panel {
    */
   render(visible, year, window, eventsOn = true, labels = null) {
     this.updateTagNote(eventsOn);
+    this.syncFilterToggle(); // texten följer språket
+    if (this.tabs) this.tabs.hidden = true; // visas igen när listan har världsdelar att välja mellan
     if (!eventsOn) {
       this.count.textContent = '0';
       this.toggle.setAttribute('aria-label', this.accessibleName(t(this.copy.eventsOff)));
@@ -428,25 +516,19 @@ export class Panel {
     parts.push(inside ? plural('panel.inside', inside, { at }) : ui('panel.noneAt', { at }));
     if (near) parts.push(ui('panel.near', { count: near, within }));
     const stop = text => text.endsWith('.') ? text : `${text}.`; // "f.Kr." slutar redan med punkt (#991)
+    // En tid som slutar med punkt ("95 000 f.Kr.") före meningens punkt ger annars "f.Kr.." (#1862); tre punkter rörs inte
+    const oneStop = text => String(text).replace(/(?<!\.)\.\.(?!\.)/g, '.');
     const partialCount = range ? visible.filter(v => v.partial).length : 0;
     if (partialCount) parts.push(plural('range.partialCount', partialCount, { count: partialCount }));
     // I intervallet finns inget "nära": raden säger hur många som pågår under intervallet och hur många som sticker ut
     if (range) this.toggle.setAttribute('aria-label', this.accessibleName(stop(parts.join(', '))));
     const cause = labels?.themeEmpty ? null : emptyCause({ visibleCount: visible.length, filters: this.filters, total: this.allCategories?.size });
     const filtersOff = cause === 'filters', filtersSome = cause === 'some';
-    this.sub.textContent = visible.length ? stop(range ? parts.join(', ') : `${summaryText}. ${parts.join(', ')}`)
+    // Raden säger en gång vad som pågår och vad som är nära (beslut i #1782: inte "träffar" och inte samma sak två gånger)
+    // Är listan tom av ett kategorifilter säger raden det, också i en vy med urval: det är filtret och inte urvalet som döljer (#1862)
+    this.sub.textContent = oneStop(visible.length ? stop(parts.join(', '))
       : range && !filtersOff ? ui('range.empty', { range: bare })
-      : ui(filtersOff && !(this.tag && this.tags[this.tag]) ? 'panel.filtersOff' : filtersSome ? 'panel.filtersSome' : 'panel.empty', { within, at: bare });
-    const tagCopy = this.tag && this.tags[this.tag];
-    if (!visible.length && tagCopy) {
-      // Vyn med tagg (#555): säg om ingen händelse har taggen ännu, eller om det bara är tomt kring året
-      const note = document.createElement('p');
-      note.className = 'empty-note tag-empty';
-      note.textContent = this.tagCounts.get(this.tag) ? (tagCopy.none ?? '').replace('{within}', within).replace('{at}', bare) : tagCopy.empty;
-      this.sub.textContent = note.textContent;
-      this.list.replaceChildren(note);
-      return;
-    }
+      : ui(emptyTextKey({ cause, prehistory: !!labels?.prehistory }), { within, at: bare }));
     if (filtersOff || filtersSome) {
       // Alla kategorier av (#886): det är filtret som döljer händelserna, så dragning i tidslinjen hjälper inte.
       // Några av (#1304): filtret kan dölja dem, så raden säger det och knappen visar alla kategorier igen
@@ -459,14 +541,25 @@ export class Panel {
       reset.textContent = ui('panel.showAllCategories');
       reset.addEventListener('click', () => {
         this.setFilters(this.allCategories);
-        // Knappen försvinner när listan ritas om: fokus till första kategorin, som ligger kvar
-        (this.root.querySelector('.filter[data-cat]') ?? this.toggle).focus({ preventScroll: true });
+        // Knappen försvinner när listan ritas om: fokus till filterknappen, som ligger kvar
+        (this.filterToggle ?? this.root.querySelector('.filter[data-cat]') ?? this.toggle).focus({ preventScroll: true });
       });
       this.list.replaceChildren(help, reset);
       return;
     }
+    const tagCopy = this.tag && this.tags[this.tag];
+    if (!visible.length && tagCopy) {
+      // Vyn med tagg (#555): säg om ingen händelse har taggen ännu, eller om det bara är tomt kring året. Meningen står en
+      // gång, i listan; raden under rubriken är tom i stället för att upprepa den (#1862)
+      const note = document.createElement('p');
+      note.className = 'empty-note tag-empty';
+      note.textContent = oneStop(this.tagCounts.get(this.tag) ? (tagCopy.none ?? '').replace('{within}', within).replace('{at}', bare) : tagCopy.empty);
+      this.sub.textContent = '';
+      this.list.replaceChildren(note);
+      return;
+    }
     if (!visible.length && labels?.themeEmpty) {
-      this.sub.textContent = labels.themeEmpty;
+      this.sub.textContent = ''; // meningen står en gång, i listan (#1862)
       this.list.innerHTML = `<p class="empty-note">${esc(labels.themeEmpty)}</p>`;
       return;
     }
@@ -474,14 +567,15 @@ export class Panel {
       this.list.innerHTML = `<p class="empty-note">${esc(ui('panel.emptyHelp'))}</p>`;
       return;
     }
-    // Grupperat per världsdel, i fast ordning, så att man ser vad som händer på olika håll
+    // Grupperat per världsdel, i fast ordning, så att man ser vad som händer på olika håll. Listan har en flik per världsdel (beslut i
+    // #1782, alternativ C): den valda världsdelens händelser syns, med Hände, Pågick då och Strax före eller efter. De andra världsdelarna ligger
+    // kvar i sidan men är dolda (hidden), så att de inte läses upp och så att listan går att söka igenom som förut.
     const groups = new Map(REGIONS.map(r => [r, []]));
-    const old = [];
-    for (const v of visible) (v.longRunning ? old : groups.get(v.e._region ??= region(v.e._lat, v.e._lon))).push(v);
+    for (const v of visible) groups.get(v.e._region ??= region(v.e._lat, v.e._lon)).push(v);
     const rank = (a, b) => (b.e.top - a.e.top) || (b.e.major - a.e.major) || (b.inside - a.inside) || (Math.abs(a.e.start - year) - Math.abs(b.e.start - year)) || t(a.e.title).localeCompare(t(b.e.title), LANG);
     // I intervallet (#755): "delvis inom intervallet" och "osäkert datum" efter tiden och platsen
     const notes = (e, partial) => range ? [partial && ui('range.partial'), uncertainDate(e) && ui('range.uncertain')].filter(Boolean) : [];
-    // Det som bara ligger nära året säger hur långt före eller efter det ligger (#995): "21 år senare", "34 år tidigare"
+    // Det som bara ligger nära året säger hur långt före eller efter det ligger (#995): "om 21 år", "34 år före"
     // Hela år räknas ur årtalen som listan visar (fokusläget för korta krig räknar dagar ur dist), så att siffran går att räkna efter
     const offset = ({ e, inside, longRunning, when, dist }) => {
       if (range || inside || longRunning || (when !== 'past' && when !== 'future')) return [];
@@ -494,18 +588,68 @@ export class Panel {
               <span class="dot" style="background:${CAT[e.category]?.color}"></span><span class="ttl"${langAttr(e.title)}>${esc(t(e.title))}</span><span class="meta">${esc([...offset(v), formatEventTime(e), t(e.place), ...notes(e, partial)].join(' · '))}</span>
             </button>
           </li>`; };
-    this.list.innerHTML = [...groups].filter(([, vs]) => vs.length).map(([name, vs]) => {
-      vs.sort(rank); const open = this.expandedRegions.has(name), shown = open ? vs : vs.slice(0, 5), rest = vs.length - shown.length;
-      return `
-      <section class="region-group">
-        <h3 class="region-head">${esc(regionName(name))} <span class="region-count">${vs.length}</span></h3>
-        <ol>${shown.map(v => row(v, name)).join('')}</ol>${vs.length > 5 ? `<button type="button" class="link-btn panel-more" data-region="${esc(name)}" aria-expanded="${open}" aria-label="${esc(open ? ui('panel.showLessIn', { label: copy('showLess'), region: regionName(name) }) : copy('showMore').replace('{count}', rest).replace('{region}', regionName(name)))}">${esc(open ? copy('showLess') : copy('showMore').replace('{count}', rest).replace('{region}', regionName(name)))}</button>` : ''}
-      </section>`;
-    }).join('') + (old.length ? `<section class="region-group long-running"><button type="button" class="link-btn panel-more" data-long aria-expanded="${this.longOpen}">${esc(copy('longRunning').replace('{count}', old.length))}</button>${this.longOpen ? `<ol>${old.sort(rank).map(v => row(v)).join('')}</ol>` : ''}</section>` : '');
+    const present = [...groups].filter(([, vs]) => vs.length);
+    const isInside = v => range || v.inside;
+    // Världsdelen behålls när året ändras, tills den blir tom; då väljs den med flest som pågår. Väljs en händelse i en annan världsdel
+    // (på globen) följer fliken med, en gång per val.
+    if (!present.some(([name]) => name === this.region)) {
+      this.region = present.length ? present.reduce((best, cur) => cur[1].filter(isInside).length > best[1].filter(isInside).length ? cur : best)[0] : null;
+    }
+    const picked = this.selectedId && present.find(([, vs]) => vs.some(v => v.e.id === this.selectedId));
+    if (picked && this.pickedId !== this.selectedId) this.region = picked[0];
+    this.pickedId = this.selectedId;
+    const focusedTab = this.tabs?.contains(document.activeElement) ? document.activeElement.dataset.tab : null;
+    const CAP = 6; // fler än så ligger bakom "Visa N till"
+    const section = (name, kind, vs) => {
+      const items = vs.filter(v => panelTimeGroup(v, { range, fine: !!labels?.fine }) === kind);
+      if (!items.length) return '';
+      const open = this.expandedRegions.has(`${name}|${kind}`), shown = open ? items : items.slice(0, CAP), rest = items.length - shown.length;
+      const more = items.length > CAP ? `<button type="button" class="link-btn panel-more" data-region="${esc(name)}" data-kind="${kind}" aria-expanded="${open}" aria-label="${esc(open ? ui('panel.showLessIn', { label: copy('showLess'), region: regionName(name) }) : copy('showMore').replace('{count}', rest).replace('{region}', regionName(name)))}">${esc(open ? copy('showLess') : copy('showMore').replace('{count}', rest).replace('{region}', regionName(name)))}</button>` : '';
+      return `<h3 class="panel-sec panel-sec-${kind}">${esc(ui(kind === 'happened' ? 'panel.groupHappened' : kind === 'inside' ? 'panel.groupInside' : 'panel.groupNear', { at }))} <span class="region-count">${items.length}</span></h3>
+        <ol>${shown.map(v => row(v, name)).join('')}</ol>${more}`;
+    };
+    const panes = present.map(([name, vs]) => {
+      vs.sort(rank);
+      const i = REGIONS.indexOf(name), on = name === this.region;
+      return { on, html: `
+      <section class="region-group" role="tabpanel" id="panel-sec-${i}" aria-labelledby="panel-tab-${i}" data-panel-region="${esc(name)}"${on ? '' : ' hidden'}>
+        ${section(name, 'happened', vs)}${section(name, 'inside', vs)}${section(name, 'near', vs)}
+      </section>` };
+    }).sort((a, b) => b.on - a.on); // den valda världsdelen först i sidan
+    this.list.innerHTML = panes.map(x => x.html).join('');
+    if (this.tabs && present.length) {
+      this.tabs.innerHTML = present.map(([name, vs]) => {
+        const i = REGIONS.indexOf(name), on = name === this.region;
+        return `<button type="button" role="tab" class="panel-tab" id="panel-tab-${i}" data-tab="${esc(name)}" aria-selected="${on}" aria-controls="panel-sec-${i}" tabindex="${on ? 0 : -1}" aria-label="${esc(plural('panel.tabLabel', vs.length, { region: regionName(name), count: vs.length }))}"><span>${esc(regionName(name))}</span> <span class="region-count">${vs.length}</span></button>`;
+      }).join('');
+      this.tabs.hidden = false;
+      const names = present.map(([name]) => name);
+      const choose = name => {
+        this.region = name;
+        this.render(visible, year, window, eventsOn, labels);
+        this.list.scrollTop = 0;
+        const tab = this.tabs.querySelector(`[data-tab="${name}"]`);
+        tab?.focus({ preventScroll: true });
+        tab?.scrollIntoView?.({ block: 'nearest', inline: 'nearest' });
+      };
+      for (const b of this.tabs.querySelectorAll('[data-tab]')) {
+        b.addEventListener('click', () => choose(b.dataset.tab));
+        b.addEventListener('keydown', ev => {
+          let at = names.indexOf(b.dataset.tab);
+          if (ev.key === 'ArrowRight') at = (at + 1) % names.length;
+          else if (ev.key === 'ArrowLeft') at = (at - 1 + names.length) % names.length;
+          else if (ev.key === 'Home') at = 0;
+          else if (ev.key === 'End') at = names.length - 1;
+          else return;
+          ev.preventDefault();
+          choose(names[at]);
+        });
+      }
+      if (focusedTab) this.tabs.querySelector(`[data-tab="${focusedTab}"]`)?.focus({ preventScroll: true });
+    }
     // Riktiga knappar: Enter och mellanslag fungerar av sig själva
     for (const b of this.list.querySelectorAll('.event-btn')) b.addEventListener('click', () => this.onSelect(b.dataset.id));
-    for (const b of this.list.querySelectorAll('[data-region]')) b.addEventListener('click', () => { this.expandedRegions.has(b.dataset.region) ? this.expandedRegions.delete(b.dataset.region) : this.expandedRegions.add(b.dataset.region); this.render(visible, year, window, eventsOn, labels); });
-    this.list.querySelector('[data-long]')?.addEventListener('click', () => { this.longOpen = !this.longOpen; this.render(visible, year, window, eventsOn, labels); });
+    for (const b of this.list.querySelectorAll('[data-region]')) b.addEventListener('click', () => { const key = `${b.dataset.region}|${b.dataset.kind}`; this.expandedRegions.has(key) ? this.expandedRegions.delete(key) : this.expandedRegions.add(key); this.render(visible, year, window, eventsOn, labels); });
   }
 
   /**
@@ -528,6 +672,7 @@ export class Panel {
       this.detail.removeAttribute?.('data-i18n-aria-label');
       this.detail.setAttribute('aria-label', label);
     }
+    delete this.detail.dataset?.facts; // vilket rikeskort som visas (#1955); showFacts sätter det igen efter öppningen
     this.detail.hidden = !open;
     this.onDetailChange(open);
   }
@@ -556,15 +701,15 @@ export class Panel {
     this.detail.className = `detail detail-card frame-${styleFor(war, this.styles).frame}`;
     const srcs = (s.sources ?? []).map(id => this.srcById[id]).filter(Boolean);
     const body = mode === 'intro' ? `
-      <p>${esc(t(s.intro))}</p>
+      ${paras(t(s.intro))}
       <h4>${esc(ui('story.parties'))}</h4>
       <div class="parties">${s.parties.map(p => `<div><strong>${esc(t(p.name))}</strong><p>${esc(t(p.members))}</p></div>`).join('')}</div>
       ${empireList(war._empires)}
       <p class="story-hint">${esc(ui('story.hint'))}</p>${(() => { const tour = this.tourFor?.(war.id); return tour ? `<button type="button" class="story-tour" data-tour="${esc(tour.id)}">${esc(tour.label)}</button>` : ''; })()}` : war.ongoing ? `
-      <h4>${esc(ui('story.today'))}</h4><p>${esc(t(s.outcome))}</p>
+      <h4>${esc(ui('story.today'))}</h4>${paras(t(s.outcome))}
       <h4>${esc(ui('story.deadSoFar'))}</h4><p>${esc(t(s.casualties))}</p>
       ${takeawaysHtml(s.takeaways, this.srcById, pending)}` : `
-      <h4>${esc(ui('story.outcome'))}</h4><p>${esc(t(s.outcome))}</p>
+      <h4>${esc(ui('story.outcome'))}</h4>${paras(t(s.outcome))}
       <h4>${esc(ui('story.dead'))}</h4><p>${esc(t(s.casualties))}</p>
       ${takeawaysHtml(s.takeaways, this.srcById, pending)}
       ${empireList(war._empires)}`;
@@ -595,6 +740,7 @@ export class Panel {
    *   label    etiketten överst ("Tema", "Plats")
    *   name     namnet, text per språk
    *   lead     valfri rad under namnet (platsens typ)
+   *   mapNote  valfri synlig rad om kartans nutida gräns, kust och ortnamn (#1956)
    *   emblems  valfria flaggor och vapen (#1160): egna SVG:er i img/flags/ med bildtext, kredit och licens;
    *            filsidorna läggs till bland källorna
    *   intro    inledningen, text per språk
@@ -613,12 +759,23 @@ export class Panel {
    * Kortet för ett urval (tema eller plats). empires (#1448, bara platser med periods): { title, note, follow, rows }, där en rad är
    * { years, name, label, run } (run saknas i en tur: raden är då bara text) eller { gap } (en lucka, en läsbar rad).
    */
-  showSelection({ label, name, lead = '', emblems = [], intro, action = null, notes = [], exit, empires = null, summary, events, sources = [], focus = true, banner = '', ariaLabel }) {
+  showSelection({ label, name, lead = '', mapNote = '', emblems = [], intro, action = null, notes = [], exit, empires = null, summary, events, sources = [], focus = true, banner = '', ariaLabel, aboutLabel = null }) {
     this.selectedId = null;
-    this.detail.className = `detail detail-card detail-selection frame-${styleFor(events[0], this.styles).frame}`; // detail-selection: main.js läser upp etiketten (Plats, Tema), också när inget Fokus pågår (#1163)
+    // Ingen tidsålderns ram (#1713, punkt 4): plats- och temakortet är en ruta för läsning, i samma neutrala mörka kort som rikes-, religions-
+    // och krigskorten. Ramen efter första händelsens epok gav olika kort för Skåne (grotta, 3,46:1) och Grönland (papyrus) och ockra text under AA.
+    this.detail.className = `detail detail-card detail-selection${aboutLabel ? ' detail-place' : ''}`;
+    // detail-selection: main.js läser upp etiketten (Plats, Tema), också när inget Fokus pågår (#1163). detail-place: platskortet, som är
+    // en egen yta i stängregistret (kort, #1865)
     const shown = (emblems ?? []).filter(em => flagUrl(em));
     const srcs = [...new Set([...(sources ?? []), ...shown.map(em => em.source)])].map(id => this.srcById[id]).filter(Boolean);
-    const emblemHtml = shown.length ? `<div class="place-emblems">${shown.map(em => `<figure class="place-emblem place-emblem-${esc(em.kind)}"><img src="${esc(flagUrl(em))}" alt="${esc(t(em.caption))}"><figcaption>${esc(t(em.caption))}<span class="meta">${esc(em.credit)} · ${esc(em.license)}</span></figcaption></figure>`).join('')}</div>` : '';
+    // Platsens kort (aboutLabel, #1790, #1977): flaggan och vapnet är små (cirka 24 px) bredvid namnet. Bilder vars licens kräver
+    // namnuppgift (CC BY, CC BY-SA) har en kort kreditrad direkt under namnet; övriga krediter (public domain) ligger i den hopfällda
+    // raden Om kartan och källor. Licensen läses ur varje emblem i data/platser.json, inte ur koden.
+    const placeCard = !!aboutLabel, needsCredit = em => /CC BY/i.test(em.license ?? '');
+    const emblemImg = em => `<img src="${esc(flagUrl(em))}" alt="${esc(t(em.caption))}">`;
+    const emblemHtml = placeCard ? '' : shown.length ? `<div class="place-emblems">${shown.map(em => `<figure class="place-emblem place-emblem-${esc(em.kind)}">${emblemImg(em)}<figcaption>${esc(t(em.caption))}<span class="meta">${esc(em.credit)} · ${esc(em.license)}</span></figcaption></figure>`).join('')}</div>` : '';
+    const headEmblems = placeCard && shown.length ? `<span class="place-emblems">${shown.map(em => `<figure class="place-emblem place-emblem-${esc(em.kind)}">${emblemImg(em)}</figure>`).join('')}</span>` : '';
+    const emblemCredits = placeCard ? shown.filter(needsCredit).map(em => `<p class="place-emblem-credit meta">${esc(t(em.caption))}: ${esc(em.credit)} · ${esc(em.license)}</p>`).join('') : '';
     const open = matchMedia('(max-width: 760px)').matches ? '' : ' open';
     // Rikena i landskortet (#1448): riktiga knappar med hela namnet för skärmläsare ("Följ riket Sverige 1612–1721"), luckorna som rader
     // Namnet för skärmläsare har samma ordning som den synliga texten (WCAG 2.5.3): "1815–1904 Sverige-Norge, Följ riket".
@@ -636,23 +793,32 @@ export class Panel {
     // markörernas nummer först på raderna och en ram på den markerade raden, och följer kortet med en MutationObserver. Ändras
     // markupen här ändras regionvyn också (provet i tests/regionvy-markorer.test.mjs fallerar då)
     const items = events.map(e => `<li><button type="button" class="theme-event" data-theme-event="${esc(e.id)}"><span class="theme-event-year">${esc(formatEventTime(e))}</span> <span${langAttr(e.title)}>${esc(t(e.title))}</span>${e.start < MIN_YEAR ? ` <span class="theme-event-note">${esc(ui('theme.beforeScale'))}</span>` : ''}</button></li>`).join('');
+    const actionHtml = action ? `<button type="button" class="chip-btn theme-exit place-flat" data-selection-action aria-label="${esc(action.label ?? action.text)}">${esc(action.text)}</button>` : '';
+    const notesHtml = notes.map(note => `<p class="theme-filter-note">${esc(note)}</p>`).join('\n      ');
+    // Platsens kort: Sluta följa platsen är en textlänk sist (Avsluta lät som att kortet stängs), temats kort har sin knapp som förut
+    const exitHtml = exit ? (placeCard ? `<button type="button" class="link-btn place-exit" data-end-theme>${esc(exit)}</button>` : `<button type="button" class="chip-btn theme-exit" data-end-theme>${esc(exit)}</button>`) : '';
+    const eventsHtml = `<details class="theme-event-list"${placeCard ? ' open' : open}>
+        <summary>${esc(summary)}</summary>
+        <ul class="theme-events">${items}</ul>
+      </details>`;
+    // Om kartan och källor (#1790): flaggans källa, kartanteckningarna och källorna, hopfällt längst ned i platsens kort
+    const credits = shown.filter(em => !needsCredit(em)).map(em => `<p class="place-credit">${esc(t(em.caption))}: ${esc(em.credit)} · ${esc(em.license)}</p>`).join('');
+    const aboutHtml = placeCard ? `<details class="theme-event-list place-about">
+        <summary>${esc(aboutLabel)}</summary>
+        ${credits}${notesHtml}${srcs.length ? srcLine(srcs, false) : ''}
+      </details>` : '';
+    const body = placeCard ? [actionHtml, eventsHtml, empireHtml, aboutHtml, exitHtml] : [actionHtml, notesHtml, exitHtml, empireHtml, eventsHtml];
     this.detail.innerHTML = `
       <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
       <div class="story-label">${esc(label)}</div>
-      <h3>${esc(t(name))}</h3>
+      ${placeCard ? `<div class="place-head"><h3>${esc(t(name))}</h3>${headEmblems}</div>` : `<h3>${esc(t(name))}</h3>`}
       ${banner ? `<p class="theme-filter-note place-banner">${esc(banner)}</p>` : ''}
-      <div class="story">${lead ? `<p class="place-type">${esc(lead)}</p>` : ''}
+      <div class="story">${emblemCredits}${lead ? `<p class="place-type">${esc(lead)}</p>` : ''}
+      ${mapNote ? `<p class="place-map-note">${esc(mapNote)}</p>` : ''}
       ${emblemHtml}
       <p>${esc(t(intro))}</p>
-      ${action ? `<button type="button" class="chip-btn theme-exit place-flat" data-selection-action aria-label="${esc(action.label ?? action.text)}">${esc(action.text)}</button>` : ''}
-      ${notes.map(note => `<p class="theme-filter-note">${esc(note)}</p>`).join('\n      ')}
-      ${exit ? `<button type="button" class="chip-btn theme-exit" data-end-theme>${esc(exit)}</button>` : ''}
-      ${empireHtml}
-      <details class="theme-event-list"${open}>
-        <summary>${esc(summary)}</summary>
-        <ul class="theme-events">${items}</ul>
-      </details></div>
-      ${srcs.length ? srcLine(srcs, false) : ''}`;
+      ${body.filter(Boolean).join('\n      ')}</div>
+      ${!placeCard && srcs.length ? srcLine(srcs, false) : ''}`;
     this.detail.scrollTop = 0;
     this.setDetailOpen(true, ariaLabel);
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
@@ -683,9 +849,9 @@ export class Panel {
    * religionens facts i religions.json. origin är händelsen där religionen uppstod,
    * som också är punkten på globen.
    */
-  showReligion(r, origin, report = null) {
+  showReligion(r, origin, report = null, year = null) {
     this.showFacts({ kind: 'religion', name: t(r.name), color: r.color, symbol: symbolImg(r, 'rel-sym rel-sym-h'), facts: r.facts, origin,
-      milestonesTitle: t(r.facts.milestonesTitle) || ui('facts.stateReligion'), report });
+      milestonesTitle: t(r.facts.milestonesTitle) || ui('facts.stateReligion'), report, year });
   }
 
   /**
@@ -698,7 +864,7 @@ export class Panel {
    * föregångare och vad det blev. Efterträdare som finns som riken är knappar som börjar följa det riket.
    */
   showFacts(opts) {
-    const { kind, name, color, symbol = '', symbolKind = null, facts: f, origin = null, place = origin, milestonesTitle = ui('facts.milestones'), mapNote = '', curveId = '', wars = [], lineage = null, empireMap = false, empireId = null } = opts;
+    const { kind, kindWord = null, name, color, symbol = '', symbolKind = null, facts: f, origin = null, place = origin, milestonesTitle = ui('facts.milestones'), mapNote = '', curveId = '', wars = [], lineage = null, empireMap = false, empireId = null, year = null, places = [], factsKey = '' } = opts;
     const fall = empireId ? this.empireTourFor?.(empireId) : null; // rikets fall som tur (#499)
     // Rikets krig (#76): krig som anger riket i empires, i tidsordning; bara de som syns enligt granskningsstatusen
     const shownWars = wars.filter(w => isVisibleReview(w.review));
@@ -709,17 +875,21 @@ export class Panel {
       if (c && c[0] === curveId) this.setCurve(...c);
     });
     this.curveArgs = null;
-    // kind: 'empire', 'vanished' (försvunnet land) eller 'religion'; namnet som visas står i facts.kind.<kind>
-    const subj = kind === 'empire' ? 'Riket' : kind === 'vanished' ? 'Landet' : 'Religionen';
+    // kind: 'empire', 'vanished' (försvunnet land), 'area' (område som inte är en stat, #1300) eller 'religion';
+    // namnet som visas står i facts.kind.<kind>, för ett område följt av typordet (kindWord)
+    const subj = kind === 'empire' ? 'Riket' : kind === 'vanished' ? 'Landet' : kind === 'area' ? 'Området' : 'Religionen';
     const srcs = [...new Set([...(f.sources ?? []), ...(f.milestones ?? []).flatMap(m => m.sources ?? []), ...(lineage?.sources ?? [])])]
       .map(id => this.srcById[id]).filter(Boolean);
     // Riken har ofta mer fördjupning än ryms i det mobila arket. Sammanfattningen
     // står därför alltid först, medan utveckling och kartans underlag öppnas vid behov (#359).
-    const isEmpire = kind === 'empire' || kind === 'vanished';
+    const isEmpire = kind === 'empire' || kind === 'vanished' || kind === 'area';
+    // Dagens länder (#1955): länder vars kort nämner riket, med årtalen ur landskortet; knappen följer landet, utom i lektionsläget
+    const placesHtml = places.length ? `<div class="war-list empire-places"><h4>${esc(ui('facts.places'))}</h4><ul>${places.map(p =>
+      `<li>${this.onFollowPlace && !this.followLocked?.() ? `<button type="button" class="link-btn" data-follow-place="${esc(p.id)}" aria-label="${esc(ui('facts.followPlaceLabel', { name: p.name }))}">▶ ${esc(p.name)}</button>` : esc(p.name)} <span class="meta">${esc(p.years)}</span></li>`).join('')}</ul><p class="meta empire-places-note">${esc(ui('facts.placesNote'))}</p></div>` : '';
     const overview = `${lineage ? lineageHtml(lineage) : ''}
-      <dl class="religion-facts">${(f.items ?? []).map(it => `<dt>${esc(t(it.label))}</dt><dd>${esc(t(it.text))}</dd>`).join('')}</dl>`;
+      <dl class="religion-facts">${(f.items ?? []).map(it => `<dt>${esc(t(it.label))}</dt><dd>${esc(t(it.text))}</dd>`).join('')}</dl>${placesHtml}`;
     // Ett land med bara gräns och en not (kartan före fakta, #644) har inget att visa under Kortfattat
-    const hasOverview = !!(lineage || f.items?.length);
+    const hasOverview = !!(lineage || f.items?.length || places.length);
     const development = `${curveId ? `<figure class="area-curve" data-curve="${esc(curveId)}" hidden></figure>` : ''}
       ${f.milestones?.length ? `<div class="war-list"><h4>${esc(milestonesTitle)}</h4><ol>${f.milestones.map(m =>
         `<li><button type="button" class="link-btn" data-year="${Number(m.year)}">${esc(t(m.label) || formatYear(m.year))}</button> ${m.title ? `<b>${esc(t(m.title))}.</b> ` : ''}${esc(t(m.text))}${m.mapNote ? ` <span class="ms-map">${esc(ui('facts.aboutMapInline'))} ${esc(t(m.mapNote))}</span>` : ''}</li>`).join('')}</ol></div>` : ''}
@@ -747,15 +917,18 @@ export class Panel {
     const hadFocus = typeof document !== 'undefined' && this.detail.contains(document.activeElement);
     this.detail.innerHTML = `
       <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
-      <div class="story-label"><span class="swatch" style="background:${esc(color)}"></span>${esc(ui(`facts.kind.${kind}`))}</div>
+      <div class="story-label"><span class="swatch" style="background:${esc(color)}"></span>${esc([ui(`facts.kind.${kind}`), kindWord].filter(Boolean).join(' · '))}</div>
       <h3>${symbol}${esc(name)}</h3>
+      ${Number.isFinite(year) ? `<p class="facts-year">${esc(ui('facts.yearAt', { year: formatYear(year) }))}</p>` : ''}
       ${symbol && symbolKind && symbolKind !== 'symbol' ? `<p class="symbol-kind" data-symbol-kind="${esc(symbolKind)}">${esc(ui(`facts.symbolKind.${symbolKind}`))}</p>` : ''}
-      ${t(f.summary) ? `<p>${esc(t(f.summary))}</p>` : ''}
+      ${paras(t(f.summary))}
       ${fall ? `<button type="button" class="story-tour" data-tour="${esc(fall.id)}">${esc(fall.label)}</button>` : ''}
       ${body}`;
     this.setDetailOpen(true);
+    if (factsKey) this.detail.dataset.facts = factsKey;
     this.detail.scrollTop = 0; // efter hidden, annars behåller kortet förra läget
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
+    for (const b of this.detail.querySelectorAll('[data-follow-place]')) b.addEventListener('click', () => this.onFollowPlace?.(b.dataset.followPlace));
     for (const b of this.detail.querySelectorAll('[data-goto]')) b.addEventListener('click', () => this.onSelect(b.dataset.goto));
     for (const b of this.detail.querySelectorAll('[data-year]')) b.addEventListener('click', () => this.onYear(Number(b.dataset.year)));
     this.bindLinks();
@@ -824,19 +997,25 @@ export class Panel {
     // Platsen står en gång, i datumraden; mobilens knapp "Visa på globen" har platsen i sitt namn (#607).
     // Datumraden får en kort markering när händelsen har raden Historisk osäkerhet (#606).
     const unc = uncertaintyRow(e, this.uncertainty, evidence.marker('uncertainty'));
+    // Datumraden i två rader (#1792): rad 1 är datumet med en enda markering för det osäkra (och hur länge sedan, för djup tid), rad 2 platsen
+    // (kort, klippt till två rader i CSS) och kategorin. Hela platstexten, skalnoten och Historisk osäkerhet ligger i raden Källor och osäkerhet.
+    // "≈ 42 000 år sedan" räknas ur årtalet (i dag minus årtalet, avrundat till tusental), som reglagets text; (i) förklarar f.Kr. mot år sedan (#1979)
+    const agoN = inDeepTime(e) ? groupDigits(Math.round((MAX_YEAR - e.start) / 1000) * 1000) : '';
+    const ago = agoN ? ui('detail.yearsAgoShort', { n: agoN }) : '';
+    const placeText = t(e.place), placeLong = placeText.length > 70;
+    const mark = unc ? (uncertaintyMark(e, 'date', this.uncertainty) || uncertaintyMark(e, 'place', this.uncertainty)) : '';
     this.detail.innerHTML = `
       <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
       <h3${langAttr(e.title)}>${esc(t(e.title))}</h3>
-      <div class="meta">${esc(formatEventTime(e))}${evidence.marker('date')}${unc ? uncertaintyMark(e, 'date', this.uncertainty) : ''} · ${esc(t(e.place))}${evidence.marker('location')}${unc ? uncertaintyMark(e, 'place', this.uncertainty) : ''} · ${esc(t(CAT[e.category]?.name))}</div>
-      ${beforeTimelineStart(e) ? `<p class="scale-note">${esc(ui('detail.beforeScale', { year: formatYear(MIN_YEAR) }))}</p>` : ''}
-      ${inDeepTime(e) ? `<p class="scale-note">${esc(ui('detail.yearsAgo'))}</p>` : ''}
+      <div class="meta meta-when">${esc(formatEventTime(e))}${evidence.marker('date')}${mark}${ago ? ` · <span class="meta-ago">${esc(ago)}</span><button type="button" class="review-info ago-info" data-ago-info aria-expanded="false" aria-controls="detail-ago-help" aria-label="${esc(ui('detail.yearsAgoInfo'))}" title="${esc(ui('detail.yearsAgoInfo'))}">i</button>` : ''}</div>
+      ${ago ? `<p class="scale-note" id="detail-ago-help" hidden>${esc(ui('detail.yearsAgo', { year: formatYear(e.start), n: agoN }))}</p>` : ''}
+      <div class="meta meta-where"><span class="meta-place">${esc(placeText)}</span>${evidence.marker('location')} · ${esc(t(CAT[e.category]?.name))}</div>
       ${tagMarks(e, this.tags)}
       ${this.onShowPlace ? `<button type="button" class="place-row" data-show-place aria-label="${esc(ui('detail.showPlaceLabel', { place: t(e.place) }))}"><span class="place-pin" aria-hidden="true"></span><span class="place-go">${esc(ui('detail.showPlace'))}</span></button>` : ''}
       ${figure(e, this.srcById, evidence.marker('image'))}
-      ${loading ? loadingHtml() : `<p${langAttr(e.summary)}>${esc(t(e.summary))}${evidence.marker('summary')}</p>`}
+      ${loading ? loadingHtml() : paras(t(e.summary), evidence.marker('summary'), langAttr(e.summary))}
       ${e.note ? `<details class="detail-note"${noteOpen ? ' open' : ''}><summary>${esc(t(e.note.title))}</summary><p>${esc(t(e.note.text))}</p></details>` : ''}
       ${loading ? '' : mythsHtml(misconceptionsFor(e.id), this.srcById, pending)}
-      ${unc}
       ${e._war ? `<p class="war-link">${esc(ui('detail.partOf'))} <button type="button" class="link-btn" data-goto="${esc(e._war.id)}">${esc(t(e._war.title))}</button></p>` : ''}
       ${e.kind === 'war' ? `<button type="button" class="chip-btn focus-btn" data-focus="${esc(e.id)}">▶ ${esc(ui('detail.followWar'))}</button>` : ''}
       ${e._battles?.length ? `<div class="war-list"><h4>${esc(ui('detail.battles'))}</h4><ol>${e._battles.map(b =>
@@ -844,6 +1023,10 @@ export class Panel {
       ${empireList(e._empires ?? e._war?._empires)}
       ${(() => { const h = this.huntFor?.(e); return h ? `<button type="button" class="chip-btn hunt-add" data-hunt${h.disabled ? ' disabled' : ''}>${esc(h.label)}</button>` : ''; })()}
       <details class="detail-about"${aboutOpen ? ' open' : ''}><summary>${esc(String(ui('detail.aboutData')[srcs.length === 1 ? 0 : 1]).replace('{n}', srcs.length))} · ${esc(reviewLabel(e.review, 'Händelsen'))}</summary>
+        ${unc}
+        ${placeLong ? `<p class="detail-place-full"><b>${esc(ui('place.label'))}:</b> ${esc(placeText)}</p>` : ''}
+        ${e.image?.kind === 'illustration' ? `<p class="detail-image-credit"><b>${esc(ui('detail.imageCredit'))}</b> ${imageCredit(e, this.srcById)}</p>` : ''}
+        ${beforeTimelineStart(e) ? `<p class="scale-note">${esc(ui('detail.beforeScale', { year: formatYear(MIN_YEAR) }))}</p>` : ''}
         ${evidence.sources || srcLine(srcs, pending)}
         ${pending ? '' : howWeKnowRow(srcs, e.review, sourcesDisagree(e), this.howTour?.())}
         <div class="detail-actions">
@@ -867,8 +1050,12 @@ export class Panel {
       const h = this.huntFor?.(e);
       if (h) { ev.currentTarget.textContent = h.label; ev.currentTarget.disabled = h.disabled; }
     });
+    // (i) efter "≈ N år sedan" fäller ut förklaringen av f.Kr. mot år sedan (#1979)
+    const agoBtn = this.detail.querySelector('[data-ago-info]'), agoHelp = this.detail.querySelector('#detail-ago-help');
+    agoBtn?.addEventListener('click', () => { agoHelp.hidden = !agoHelp.hidden; agoBtn.setAttribute('aria-expanded', String(!agoHelp.hidden)); });
     // Markeringen i datumraden visar förklaringen och flyttar fokus dit (#606)
     this.detail.querySelector('[data-unc-mark]')?.addEventListener('click', () => {
+      this.detail.querySelector('details.detail-about')?.setAttribute('open', ''); // raden ligger i Källor och osäkerhet (#1792)
       const row = this.detail.querySelector('#detail-uncertainty');
       row?.scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
       row?.focus({ preventScroll: true });

@@ -15,8 +15,17 @@ utan gräns i Cliopatria, en punkt, och uncertainBorder för osäkra gränser (#
 Kör från projektets rot, med Cliopatria-filen (cliopatria_polities_only_v021.geojson ur cliopatria.geojson.zip
 i version 0.2.1 på Zenodo, https://zenodo.org/records/23128623, doi:10.5281/zenodo.23128623, CC BY 4.0;
 posten 13363121 är version 0.0.1 och ger andra riken, #1616):
-    python3 tools/riken.py <cliopatria.geojson>
-Kräver shapely (pip install shapely).
+    python3 tools/riken.py <cliopatria.geojson> [--delade-granser] [--ut=<mapp>]
+Kräver shapely (pip install shapely). Flaggan --delade-granser kräver shapely 2.1 eller senare med GEOS 3.12 eller senare
+(pip install 'shapely>=2.1'; DasKrokodils ja i #1765 2026-11-20), för shapely.coverage_simplify och coverage_invalid_edges.
+
+--delade-granser (#1765, pilot, av som standard): grupperna i SHARED_GROUPS förenklas tillsammans som en täckning, så att
+grannar får samma gräns där de möts (docs/granskningar/2026-11-20-delade-granser-pilot.md). Piloten gäller England, Skottland
+och Man med föregångarna 500–1700 (Wessex, Mercia, Northumbria, Dalriada, Strathclyde, Alba och Nordsjöväldet). Englands gräns
+i Cliopatria omfattar Wales och från 1210 delar av Irland, och Dalriadas nordöstra Irland 540–643; egna irländska eller
+walesiska riken finns inte i data/empires. Vid Isle of Man, som Cliopatria vissa år räknar till två riken, är gränsen inte
+delad. Utan flaggan blir filerna exakt som förut. --ut=<mapp> skriver filerna i en annan mapp än data/empires, till exempel för att jämföra
+piloten med dagens filer; de handskrivna fälten läses ändå ur data/empires.
 """
 import json
 import re
@@ -30,6 +39,7 @@ from shapely.ops import unary_union
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from riken_bevara import KEEP, keep_langs, kept_fields, old_influence_names, order_like  # noqa: E402  (#1220)
+from cliopatria_ar import las_cliopatria  # noqa: E402  (#1989)
 
 ROOT = Path(__file__).resolve().parent.parent
 # KEEP (fält i index.json som skrivs för hand och behålls, bland annat flags och modernState) står i tools/riken_bevara.py (#1220)
@@ -105,6 +115,9 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              # nämner någon ändring, så perioderna slås ihop under 10 procent
              'fria-staden-danzig': (0.02, 0.1, 0.005),
              # Luxemburg och Singapore är små
+             # Sydkorea (#1500): med 0,2 grader blir Jeju en smal triangel och Taeans kust försvinner; förut doldes det 1948–1966
+             # av USA:s yta över Korea
+             'sydkorea': (0.05, MERGE, MIN_AREA),
              'luxemburg': (0.03, 0.02, 0.005), 'singapore': (0.02, 0.02, 0.005),
              # Malaysias förenklade gräns täckte annars en del av Singapore över Johorsundet
              'malaysia': (0.03, 0.02, 0.02),
@@ -124,6 +137,9 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
              'danska-indien': (0.002, 0.02, 0), 'danska-guldkusten': (0.002, 0.02, 0),
              # Amerika före 1429 (#556): små riken (2 000–100 000 km²) blir annars fyrhörningar
              'chimor': (0.03, 0.02, 0.005), 'purepecha': (0.03, 0.02, 0.005), 'inkariket': (0.05, 0.02, 0.02),
+             # Aztekriket och Texcoco (#1443): med 0,2 grader blir Tenochtitlan (cirka 2 400 km²) en triangel, och förbundet
+             # överlappar Purépecha med cirka 1 000 km² 1475–1520
+             'aztekriket': (0.03, 0.02, 0.005), 'texcoco': (0.03, 0.02, 0.005),
              # Små stater ur Natural Earth (#722): nästan ingen förenkling, och alla öar behålls
              **{g: (0.002, 0.02, 0) for g in SMALL_STATES}}
 
@@ -132,24 +148,33 @@ GROUPS = {
     'romarriket': ('Rom: kungadöme, republik, kejsardöme och Bysans', 'Rome: kingdom, republic, empire and Byzantium', [
         ('Roman Kingdom', 'romerska-kungadomet', 'Romerska kungadömet', '#b8433a'),
         ('Roman Republic', 'romerska-republiken', 'Romerska republiken', '#b8433a'),
-        ('Roman Empire', 'romerska-kejsardomet', 'Romerska kejsardömet', '#b8433a'),
+        # Cliopatria anger fel Wikidata-id för Roman Empire (Q12544, Bysantinska riket; rätt är Q2277) och Byzantine
+        # Empire (Q112039853, "Foreign relations of the Byzantine Empire"; rätt är Q12544). Med Cliopatrias id fick
+        # tools/riken_namn.py Bysans namn på Romerska kejsardömet och utrikesrelationernas spanska namn på Bysantinska
+        # riket (#2002, kontrollerat mot Wikidata 2026-11-20). Östromerska riket är Q12544 som i Cliopatria; dess namn
+        # på spanska och franska är Wikidatas alias "Imperio romano de Oriente" och "Empire romain d'Orient".
+        ('Roman Empire', 'romerska-kejsardomet', 'Romerska kejsardömet', '#b8433a', {'wikidata': 'Q2277'}),
         ('Western Roman Empire', 'vastromerska-riket', 'Västromerska riket', '#b8433a'),
         ('Eastern Roman Empire', 'ostromerska-riket', 'Östromerska riket', '#8a4fa8'),
-        ('Byzantine Empire', 'bysantinska-riket', 'Bysantinska riket', '#8a4fa8'),
+        ('Byzantine Empire', 'bysantinska-riket', 'Bysantinska riket', '#8a4fa8', {'wikidata': 'Q12544'}),
     ]),
     'persiska-riket': ('Persiska riket (akemeniderna)', 'Achaemenid Empire', [
         ('Achaemenid Empire', 'akemenidiska-riket', 'Persiska riket', '#c08a2e'),
     ]),
-    # Alexanders erövringar 332–325 f.Kr. (#1382): Cliopatria v0.2.1 har dem under namnet "Ptolemaic Kingdom" (Q2320005)
-    # åren -331 till -324, medan "Macedonian Empire" samma år bara är Makedonien (218 169 km²). Ytan 332–328 f.Kr. är exakt
-    # det Persiska riket förlorade från 333 f.Kr. (Mindre Asien, Levanten och Egypten, ingen överlappning med Achaemenid
-    # Empire), och 327–325 f.Kr. hela det gamla Persiska riket till Indus, samma område som "Macedonian Empire" från 323 f.Kr.
-    # Ptolemaios I blev kung först 305 f.Kr. (Wikidata, Wikipedia). Posterna läggs därför till Makedoniska riket de åren.
+    # Alexanders erövringar 331–324 f.Kr. (#1382): Cliopatria v0.2.1 har dem under namnet "Ptolemaic Kingdom" (Q2320005)
+    # åren -331 till -324 i Cliopatrias räkning (astronomiskt -330 till -323, #1989), medan "Macedonian Empire" samma år bara
+    # är Makedonien (218 169 km²). Ytan 331–327 f.Kr. är exakt det Persiska riket förlorade från 333 f.Kr. (Mindre Asien,
+    # Levanten och Egypten, ingen överlappning med Achaemenid Empire), och 326–324 f.Kr. hela det gamla Persiska riket till
+    # Indus, samma område som "Macedonian Empire" från 323 f.Kr. Ptolemaios I blev kung först 305 f.Kr. (Wikidata, Wikipedia).
+    # Posterna läggs därför till Makedoniska riket de åren. Årtalen i GROUPS är astronomiska (#1989).
     'alexanders-rike': ('Makedoniska riket', 'Macedonian Empire', [
-        ('Macedonian Empire', 'makedoniska-riket', 'Makedoniska riket', '#3f7fb5', {'join': [('Ptolemaic Kingdom', -331, -324)]}),
+        ('Macedonian Empire', 'makedoniska-riket', 'Makedoniska riket', '#3f7fb5', {'join': [('Ptolemaic Kingdom', -330, -323)]}),
     ]),
+    # Cliopatrias Wikidata-id är fel för flera riken (#2005, kontrollerat mot Wikidata 2026-11-20 via Special:EntityData):
+    # Han Dynasty (Q1068371, klanen Chauhan i Indien; rätt är Q7209), Seleucid Empire (Q705904, seleukiddynastin; Q93180),
+    # Sasanian Empire (Q1661685, indo-sasaniderna; Q83891) och Qin (Q1471995, Tidigare Qin 350–394; Q34756).
     'hanriket': ('Hanriket', 'Han dynasty', [
-        ('Han Dynasty', 'hanriket', 'Hanriket', '#d0703a'),
+        ('Han Dynasty', 'hanriket', 'Hanriket', '#d0703a', {'wikidata': 'Q7209'}),
     ]),
     'mauryariket': ('Mauryariket', 'Maurya Empire', [
         ('Maurya Empire', 'mauryariket', 'Mauryariket', '#5f9e4a'),
@@ -206,16 +231,16 @@ GROUPS = {
         ('Carthage', 'kartago', 'Kartago', '#7b5fc0'),
     ]),
     'seleukidriket': ('Seleukidriket', 'Seleucid Empire', [
-        ('Seleucid Empire', 'seleukidriket', 'Seleukidriket', '#4aa8c8'),
+        ('Seleucid Empire', 'seleukidriket', 'Seleukidriket', '#4aa8c8', {'wikidata': 'Q93180'}),
     ]),
     'partherriket': ('Partherriket', 'Parthian Empire', [
         ('Parthian Empire', 'partherriket', 'Partherriket', '#9a9433'),
     ]),
     'sasanidriket': ('Sasanidriket', 'Sasanian Empire', [
-        ('Sasanian Empire', 'sasanidriket', 'Sasanidriket', '#3f9a5f'),
+        ('Sasanian Empire', 'sasanidriket', 'Sasanidriket', '#3f9a5f', {'wikidata': 'Q83891'}),
     ]),
     'qinriket': ('Qin: staten och Qindynastin', 'Qin: the state and the Qin dynasty', [
-        ('Qin', 'qin-staten', 'Staten Qin', '#5a7fc0'),
+        ('Qin', 'qin-staten', 'Staten Qin', '#5a7fc0', {'wikidata': 'Q34756'}),
         ('Qin Dynasty', 'qindynastin', 'Qindynastin', '#5a7fc0'),
     ]),
     'guptariket': ('Guptariket', 'Gupta Empire', [
@@ -234,7 +259,9 @@ GROUPS = {
     ]),
     'frankerriket': ('Frankerriket', 'Francia (Kingdom of the Franks)', [
         ('(Merovingian Empire)', 'merovingiska-riket', 'Frankerriket under merovingerna', '#3b62b0'),
-        ('(Carolingian Empire)', 'karolingiska-riket', 'Frankerriket under karolingerna', '#3b62b0'),
+        # Cliopatria anger merovingernas Q146246 också för karolingerna 718–989; Q31929 (Carolingian Empire) gäller bara
+        # 800–843, så delen har inget id tills det avgjorts (#2005)
+        ('(Carolingian Empire)', 'karolingiska-riket', 'Frankerriket under karolingerna', '#3b62b0', {'wikidata': None}),
     ]),
     'tysk-romerska-riket': ('Tysk-romerska riket', 'Holy Roman Empire', [
         ('(Holy Roman Empire)', 'tysk-romerska-riket', 'Tysk-romerska riket', '#d4a017'),
@@ -243,8 +270,10 @@ GROUPS = {
         ('Tang Dynasty', 'tangdynastin', 'Tangdynastin', '#a8323e'),
     ]),
     'songdynastin': ('Songdynastin', 'Song dynasty', [
-        ('Northern Song', 'norra-song', 'Norra Song', '#3fa38c'),
-        ('Southern Song', 'sodra-song', 'Södra Song', '#3fa38c'),
+        # Cliopatria anger hela Songdynastin (Q7462) för båda; Norra Song är Q319460 (960–1127) och Södra Song Q1147043
+        # (1127–1279), kontrollerat mot Wikidata 2026-11-20 (#2005)
+        ('Northern Song', 'norra-song', 'Norra Song', '#3fa38c', {'wikidata': 'Q319460'}),
+        ('Southern Song', 'sodra-song', 'Södra Song', '#3fa38c', {'wikidata': 'Q1147043'}),
     ]),
     'khmerriket': ('Khmerriket', 'Khmer Empire', [
         ('Khmer Empire', 'khmerriket', 'Khmerriket', '#c46fb0'),
@@ -266,6 +295,14 @@ GROUPS = {
         ('Tenochtitlan', 'tenochtitlan', 'Tenochtitlan', '#8f4a2a'),
         ('Aztec Triple Alliance', 'aztekiska-trippelalliansen', 'Aztekiska trippelalliansen', '#8f4a2a'),
     ]),
+    # Texcoco (#1443, DasKrokodils svar A 2026-11-14): stadsstaten Tetzcoco, Cliopatria 1202–1428. Cliopatria länkar
+    # förgreningssidan Q1178043; staten är Q2047652. Wikidatas svenska etikett är "Texcoco (altepetl)", med en förtydligande
+    # parentes; namnet är "Texcoco" som i Aztekrikets faktaruta. Cliopatrias ytor för Texcoco och Tenochtitlan 1326–1428 ser
+    # förväxlade ut (ingen av ytorna innehåller sin stad), men det är inte bevisat, så ytorna står kvar som i källan och
+    # avvikelsen står i mapNote. Namnet matchas exakt, så "Puebloans - Aztec Regional System" kommer inte med
+    'texcoco': ('Texcoco', 'Texcoco', [
+        ('Texcoco', 'texcoco', 'Texcoco', '#a39a3c', {'en': 'Texcoco', 'wikidata': 'Q2047652'}),
+    ]),
     'inkariket': ('Inkariket', 'Inca Empire', [
         # Amerika före 1429 (#556): Cliopatrias `Cuzco` är kungariket Cusco, inkarikets föregångare. Cliopatria
         # anger staden (Q5582862); kungariket är Q2314963, som saknar svensk etikett. Det svenska namnet följer svenska
@@ -276,8 +313,7 @@ GROUPS = {
     # Amerika före 1429 (#556, luckan ur #1388). Inte med, eftersom de inte är en stat och väntar på formatet i
     # #1300 (docs/beslut/2026-11-13-omraden-som-inte-ar-stat-1300.md): Olmec Civilization, Zapotec Civilization,
     # Mayan City-States, Later Mayan City-States, Classic Veracruz Culture, Puebloans, Teotihuacan (Q172613 är en
-    # forntida stad) och Toltec (Q187897 är ett folk). Texcoco väntar också: Cliopatrias ytor för Texcoco och
-    # Tenochtitlan ser ut att vara förväxlade (staden Tenochtitlan ligger 23 km från sin egen yta).
+    # forntida stad) och Toltec (Q187897 är ett folk). Texcoco är med sedan #1443 (gruppen ovan).
     # Cliopatrias `Chimor` (911–1187) och `Chimu Empire` (1188–1481) är samma stat (båda Q581741) och slås ihop
     'chimor': ('Chimor', 'Chimor', [
         (['Chimor', 'Chimu Empire'], 'chimor', 'Chimor', '#c47a3d', {'en': 'Chimor'}),
@@ -364,15 +400,18 @@ GROUPS = {
         ('Kingdom of Sweden', 'sverige-1905', 'Sverige', '#3d8fd1', {'years': (1905, 2024), 'en': 'Kingdom of Sweden'}),
     ]),
     'habsburgska-riket': ('Habsburgska riket', 'Habsburg Monarchy', [
-        ('(Habsburg Monarchy)', 'habsburgska-riket', 'Habsburgska riket', '#a8475a'),
+        # Cliopatrias Q66504140 är en förgreningssida; Habsburgska monarkin är Q153136 (#2005)
+        ('(Habsburg Monarchy)', 'habsburgska-riket', 'Habsburgska riket', '#a8475a', {'wikidata': 'Q153136'}),
     ]),
     'tokugawa-japan': ('Tokugawa-Japan', 'Tokugawa Japan', [
         ('Tokugawa Shogunate', 'tokugawa-japan', 'Tokugawa-Japan', '#4b9fb0'),
     ]),
     # R5 Kolonialvälden och moderna imperier (#71)
     'franska-kolonialvaldet': ('Franska kolonialväldet', 'French colonial empire', [
+        # Cliopatrias Q207162 är Bourbonska restaurationen; Q70972 (Kungariket Frankrike, 987–1792 och 1814–1848) som
+        # för Kingdom of France nedan (#2005)
         ('(Bourbon Kingdom of France)', 'frankrike-kungadomet', 'Frankrike (kungadömet)', '#2f6fdc',
-         {'years': (1815, 1847), 'homeland': ['Bourbon Kingdom of France']}),
+         {'years': (1815, 1847), 'homeland': ['Bourbon Kingdom of France'], 'wikidata': 'Q70972'}),
         ('(French Second Republic)', 'frankrike-andra-republiken', 'Frankrike (andra republiken)', '#2f6fdc',
          {'homeland': ['French Second Republic']}),
         ('(Second French Empire)', 'andra-franska-kejsardomet', 'Andra franska kejsardömet', '#2f6fdc',
@@ -451,8 +490,10 @@ GROUPS = {
     ]),
     'tjeckoslovakien': ('Tjeckoslovakien', 'Czechoslovakia', [
         # Cliopatria ritar landet som Sovjetunionen 1969–1990 (#1332): där ritas Tjeckoslovakien med sin egen gräns 1968,
-        # som är densamma som 1991 i Cliopatria (docs/beslut/2026-11-13-ockupation-och-inbordeskrig.md)
-        ('Czechoslovakia', 'tjeckoslovakien', 'Tjeckoslovakien', '#c06a3a', {'fill': [(1969, 1990, ('Czechoslovakia', 1968))]}),
+        # som är densamma som 1991 i Cliopatria (docs/beslut/2026-11-13-ockupation-och-inbordeskrig.md). Likaså 1945–1946 (#1469):
+        # där ritas landet med sin gräns 1947, som skiljer sig 0,1 procent från gränsen 1949–1952
+        ('Czechoslovakia', 'tjeckoslovakien', 'Tjeckoslovakien', '#c06a3a',
+         {'fill': [(1945, 1946, ('Czechoslovakia', 1947)), (1969, 1990, ('Czechoslovakia', 1968))]}),
     ]),
     'storcolombia': ('Storcolombia', 'Gran Colombia', [
         ('Gran Colombia', 'storcolombia', 'Storcolombia', '#d4b13a'),
@@ -537,13 +578,17 @@ GROUPS = {
         (['Iraqi Republic', 'Republic of Iraq'], 'irak', 'Irak', '#8a5fb0', {'en': 'Iraq', 'fill': [(2006, 2013, ('Iraqi Republic', 2005))]}),
     ]),
     'iran': ('Iran: qajarerna, pahlavi och islamiska republiken', 'Iran: the Qajars, the Pahlavis and the Islamic Republic', [
-        ('Qajar Dynasty', 'qajarernas-iran', 'Qajarernas Iran', '#d07a3a', {'en': 'Qajar Iran'}),
-        ('Pahlavi Dynasty', 'pahlavis-iran', 'Pahlavis Iran', '#d07a3a', {'en': 'Pahlavi Iran'}),
+        # Cliopatria anger dynastierna (Q189326, Q207991); delarna är staterna Qajar Iran (Q63158027, 1789–1925) och
+        # Pahlavi Iran (Q107258515, 1925–1979), DasKrokodils ja 2026-11-20 (#2005)
+        ('Qajar Dynasty', 'qajarernas-iran', 'Qajarernas Iran', '#d07a3a', {'en': 'Qajar Iran', 'wikidata': 'Q63158027'}),
+        ('Pahlavi Dynasty', 'pahlavis-iran', 'Pahlavis Iran', '#d07a3a', {'en': 'Pahlavi Iran', 'wikidata': 'Q107258515'}),
         ('Islamic Republic of Iran', 'islamiska-republiken-iran', 'Islamiska republiken Iran', '#d07a3a'),
     ]),
     'kuwait': ('Kuwait', 'Kuwait', [
         # Cliopatria har emiratet 1757–1872 och från 1991 som Kuwait, och staten 1961–1989 som State of Kuwait
-        (['Kuwait', 'State of Kuwait'], 'kuwait', 'Kuwait', '#a0507a', {'en': 'Kuwait', 'wikidata': 'Q817'}),
+        # Cliopatria räknar landet till Irak 1990 (#1469): det året ritas Kuwait med sin gräns 1989, som är densamma som 1991
+        (['Kuwait', 'State of Kuwait'], 'kuwait', 'Kuwait', '#a0507a',
+         {'en': 'Kuwait', 'wikidata': 'Q817', 'fill': [(1990, 1990, ('State of Kuwait', 1989))]}),
     ]),
     # R7 (#407), tredje omgången: Sydasien (Bangladeshs befrielsekrig, det afghansk-marathiska kriget, Afghanistan 2001)
     'indien': ('Indien', 'India', [
@@ -633,7 +678,8 @@ GROUPS = {
         ('Republic of Uganda', 'uganda', 'Uganda', '#a04a7a', {'en': 'Uganda'}),
     ]),
     'zululand': ('Zuluriket', 'Zulu Kingdom', [
-        ('Zululand', 'zuluriket', 'Zuluriket', '#8a6a3a', {'en': 'Zulu Kingdom'}),
+        # Cliopatrias Q13558877 är en förgreningssida; Zuluriket är Q729768 (#2005)
+        ('Zululand', 'zuluriket', 'Zuluriket', '#8a6a3a', {'en': 'Zulu Kingdom', 'wikidata': 'Q729768'}),
     ]),
     'australien': ('Australien', 'Australia', [
         ('Commonwealth of Australia', 'australien', 'Australien', '#d08a3a', {'en': 'Australia'}),
@@ -658,8 +704,11 @@ GROUPS = {
         ('Bolivia', 'bolivia', 'Bolivia', '#5a9a4a'),
     ]),
     'colombia': ('Colombia: Nya Granada och republiken', 'Colombia: New Granada and the Republic', [
+        # Cliopatrias Q1863715 är en förgreningssida; staten är Q2249661 (#2005). Wikidatas egna årtal för Q2249661 motsäger
+        # varandra (beskrivningen 1810–1814, P571 "0181", P576 1816) och skiljer sig från Cliopatrias 1811–1821.
+        # Källorna skiljer sig: posten saknar svensk etikett och har inga samstämmiga årtal; id:t är troligt, inte kontrollerat
         ('New Granada', 'forenade-provinserna-nya-granada', 'Förenade provinserna Nya Granada', '#d0a03a',
-         {'en': 'United Provinces of New Granada'}),
+         {'en': 'United Provinces of New Granada', 'wikidata': 'Q2249661'}),
         ('Republic of New Granada', 'republiken-nya-granada', 'Republiken Nya Granada', '#d0a03a'),
         ('United States of Colombia', 'colombias-forenta-stater', 'Colombias förenta stater', '#d0a03a'),
         ('Republic of Colombia', 'colombia', 'Colombia', '#d0a03a', {'en': 'Colombia'}),
@@ -672,8 +721,12 @@ GROUPS = {
     ]),
     'haiti': ('Haiti', 'Haiti', [
         # Cliopatria: Haiti 1792–1802 (före självständigheten), Empire of Haiti 1805–1915 och Republic of Haiti från 1936
-        ('Haiti', 'saint-domingue', 'Saint-Domingue under revolutionen', '#3a5ab0', {'en': 'Saint-Domingue during the revolution'}),
-        ('Empire of Haiti', 'haiti-1805', 'Haiti 1805–1915', '#3a5ab0', {'en': 'Haiti 1805–1915'}),
+        # Cliopatria anger Q2006756 (Första kejsardömet Haiti, 1804–1806) för båda. Saint-Domingue får kolonin Q861551, troligt
+        # men inte säkert eftersom delen gäller revolutionsåren (DasKrokodils ja 2026-11-20); Haiti 1805–1915 har inget id
+        # tills det avgjorts (#2005)
+        ('Haiti', 'saint-domingue', 'Saint-Domingue under revolutionen', '#3a5ab0',
+         {'en': 'Saint-Domingue during the revolution', 'wikidata': 'Q861551'}),
+        ('Empire of Haiti', 'haiti-1805', 'Haiti 1805–1915', '#3a5ab0', {'en': 'Haiti 1805–1915', 'wikidata': None}),
         ('Republic of Haiti', 'haiti', 'Haiti', '#3a5ab0', {'en': 'Haiti'}),
     ]),
     # R7 (#407), sjunde omgången: Europa (Rysslands invasion av Ukraina)
@@ -686,9 +739,13 @@ GROUPS = {
     # Global täckning, nutida stater, första omgången (#644): de tio största luckorna år 2024 enligt
     # tools/tackning_riken.py. Kartan före fakta: bara gränser och namn (svenska namn ur Wikidata), utom
     # noterna om omstridda gränser (docs/omstridda-granser.md).
+    # Kina 1916–1929 (#1507, DasKrokodils beslut 2026-11-16, docs/beslut/2026-11-20-kina-1916-1929-1507.md): Cliopatrias
+    # Empire of China 1916 (Yuan Shikais kejsardöme, Q175379; Wikidata 12 december 1915–22 mars 1916) är en egen del med
+    # Cliopatrias gräns. Kuomintang 1917–1929 (partiet, Q31113) är ingen stat och ritas inte, så Kina står tomt de åren
     'kina': ('Kina', 'China', [
         ('Republic of China', 'republiken-kina', 'Republiken Kina', '#c8423c',
          {'en': 'Republic of China', 'wikidata': 'Q13426199', 'years': (1912, 1949)}),
+        ('Empire of China', 'kejsardomet-kina', 'Kejsardömet Kina', '#c8423c', {'en': 'Empire of China', 'wikidata': 'Q175379'}),
         ("People's Republic of China", 'folkrepubliken-kina', 'Kina', '#c8423c', {'en': 'China'}),
     ]),
     # Taiwan (#644, Rikards svar 5): Cliopatrias Republiken Kina efter 1949, under namnet Taiwan som regeringen använder
@@ -713,8 +770,11 @@ GROUPS = {
          {'en': 'Kingdom of Nejd and Hejaz', 'wikidata': 'Q1756546'}),
         ('Kingdom of Saudi Arabia', 'saudiarabien', 'Saudiarabien', '#8a7a2f', {'en': 'Saudi Arabia'}),
     ]),
+    # Sydsudan blev självständigt 9 juli 2011 (FN, un-member-south-sudan), men Cliopatria räknar Sydsudan till Sudan till och med
+    # 2013 och har South Sudan först från 2014 (#1534). Åren 2011–2013 får Sudan sin egen gräns i Cliopatria 2014 och Sydsudan
+    # sin gräns 2014 (fill), så att gränsen mellan länderna är densamma som 2014
     'sudan': ('Sudan', 'Sudan', [
-        ('Republic of Sudan', 'sudan', 'Sudan', '#a0703a', {'en': 'Sudan'}),
+        ('Republic of Sudan', 'sudan', 'Sudan', '#a0703a', {'en': 'Sudan', 'fill': [(2011, 2013, ('Republic of Sudan', 2014))]}),
     ]),
     # Cliopatria anger Q17435890 (Libyens historia under Gaddafi) för Libyska arabrepubliken; delen får Q1016
     'libyen': ('Libyen', 'Libya', [
@@ -788,7 +848,7 @@ GROUPS = {
         ('Madagascar', 'madagaskar', 'Madagaskar', '#9a6ab0', {'en': 'Madagascar'}),
     ]),
     'sydsudan': ('Sydsudan', 'South Sudan', [
-        ('South Sudan', 'sydsudan', 'Sydsudan', '#c06a8a', {'en': 'South Sudan'}),
+        ('South Sudan', 'sydsudan', 'Sydsudan', '#c06a8a', {'en': 'South Sudan', 'fill': [(2011, 2013, ('South Sudan', 2014))]}),
     ]),
     'kenya': ('Kenya', 'Kenya', [
         ('Republic of Kenya', 'kenya', 'Kenya', '#b05050', {'en': 'Kenya'}),
@@ -913,7 +973,10 @@ GROUPS = {
     # Nutida stater, sjätte omgången (#644)
     # Cliopatria anger Q203493 (Kungariket Rumänien) också för Rumänien efter 1989; rätt id är Q218
     'rumanien': ('Rumänien', 'Romania', [
-        ('Kingdom of Romania', 'kungariket-rumanien', 'Kungariket Rumänien', '#3a8a9a', {'en': 'Kingdom of Romania'}),
+        # Cliopatria räknar landet till Sovjetunionen 1945–1946 (#1469): de åren ritas landet med sin gräns 1947, som är densamma som
+        # 1948–1986 (docs/beslut/2026-11-13-ockupation-och-inbordeskrig.md)
+        ('Kingdom of Romania', 'kungariket-rumanien', 'Kungariket Rumänien', '#3a8a9a',
+         {'en': 'Kingdom of Romania', 'fill': [(1945, 1946, ('Kingdom of Romania', 1947))]}),
         ('Socialist Republic of Romania', 'socialistiska-republiken-rumanien', 'Socialistiska republiken Rumänien', '#3a8a9a',
          {'en': 'Socialist Republic of Romania'}),
         ('Romania', 'rumanien', 'Rumänien', '#3a8a9a', {'en': 'Romania', 'wikidata': 'Q218'}),
@@ -992,7 +1055,13 @@ GROUPS = {
     # och anger folkrepublikens id också för republiken; posterna slås ihop till Bulgarien (Q219)
     'bulgarien': ('Bulgarien', 'Bulgaria', [
         (['Principality of Bulgaria', 'Kingdom of Bulgaria', "People's Republic of Bulgaria", 'Republic of Bulgaria'],
-         'bulgarien', 'Bulgarien', '#4aa070', {'en': 'Bulgaria', 'wikidata': 'Q219'}),
+         'bulgarien', 'Bulgarien', '#4aa070', {'en': 'Bulgaria', 'wikidata': 'Q219',
+                                               # Cliopatria räknar landet till Sovjetunionen 1945–1946 (#1469): de åren ritas landet
+                                               # med sin gräns 1948, som är densamma som 1949–1991 (gränsen 1947 skiljer sig
+                                               # 0,7 procent längs gränsen mot Grekland och används inte). splits 1947: perioden
+                                               # 1947–2024 har kvar gränsen 1947 som förut
+                                               'fill': [(1945, 1946, ("People's Republic of Bulgaria", 1948))],
+                                               'splits': (1947,)}),
     ]),
     'guatemala': ('Guatemala', 'Guatemala', [
         ('Guatemala', 'guatemala', 'Guatemala', '#8a6ab0', {'en': 'Guatemala'}),
@@ -1011,12 +1080,18 @@ GROUPS = {
     # Cliopatrias tre poster (republiken 1919–1943, Hungary och folkrepubliken) överlappar inte; Cliopatria anger
     # Q28513 (Österrike-Ungern) för Hungary, rätt id är Q28
     'ungern': ('Ungern', 'Hungary', [
+        # Cliopatria räknar landet till Sovjetunionen 1945–1946 och ritar det som "Hungarian Nationalists" 1956–1957 (#1469): de åren
+        # ritas landet med sin gräns 1947 och 1955, som är densamma som 1950 och 1958 (docs/beslut/2026-11-13-ockupation-och-inbordeskrig.md)
         (['Hungarian Republic', 'Hungary', "Hungarian People's Republic"], 'ungern', 'Ungern', '#c0703a',
-         {'en': 'Hungary', 'wikidata': 'Q28'}),
+         {'en': 'Hungary', 'wikidata': 'Q28',
+          'fill': [(1945, 1946, ('Hungary', 1947)), (1956, 1957, ("Hungarian People's Republic", 1955))]}),
     ]),
     # Cliopatria anger Q187830 (Österrikes historia) för andra republiken; rätt id är Q40
     'osterrike': ('Österrike', 'Austria', [
-        (['Republic of Austria', 'Second Republic of Austria'], 'osterrike', 'Österrike', '#c04050', {'en': 'Austria', 'wikidata': 'Q40'}),
+        # Cliopatria ritar landet som de fyra ockupationszonerna 1945 och utan den sovjetiska zonen 1946 (#1469): de åren ritas landet med
+        # sin gräns 1947, samma post till 1991 (docs/beslut/2026-11-13-ockupation-och-inbordeskrig.md)
+        (['Republic of Austria', 'Second Republic of Austria'], 'osterrike', 'Österrike', '#c04050',
+         {'en': 'Austria', 'wikidata': 'Q40', 'fill': [(1945, 1946, ('Second Republic of Austria', 1947))]}),
     ]),
     'panama': ('Panama', 'Panama', [
         ('Republic of Panama', 'panama', 'Panama', '#5a9ac0', {'en': 'Panama'}),
@@ -1281,7 +1356,9 @@ GROUPS = {
         ('Kimek-Kipchak confederation', 'kimek-kipchak', 'Kimek-Kipchak confederation', '#b89a4a', {'en': 'Kimek-Kipchak confederation'}),
     ]),
     'ghaznaviderna': ('Ghaznaviderna', 'Ghaznavid Empire', [
-        ('Ghaznavid Empire', 'ghaznaviderna', 'Ghaznaviderna', '#4a9a6a', {'en': 'Ghaznavid Empire'}),
+        # Cliopatria anger dynastin Ghaznaviderna (Q12844800); riket är Q249578 (Ghaznavid Empire, 962–1187, historiskt land),
+        # kontrollerat mot Wikidata 2026-11-20 (#2005)
+        ('Ghaznavid Empire', 'ghaznaviderna', 'Ghaznaviderna', '#4a9a6a', {'en': 'Ghaznavid Empire', 'wikidata': 'Q249578'}),
     ]),
     'seldjukiska-riket': ('Seldjukiska riket', 'Great Seljuk Empire', [
         ('Great Seljuk Empire', 'seldjukiska-riket', 'Seldjukiska riket', '#c07a4a', {'en': 'Great Seljuk Empire'}),
@@ -1569,6 +1646,11 @@ GROUPS = {
     ]),
     'kara-khanid': ('Khanatet Kara-Khanid', 'Karakhanid Khanate', [
         ('Kara-Khanids', 'kara-khanid', 'Khanatet Kara-Khanid', '#5a8ab0', {'en': 'Karakhanid Khanate'}),
+        # Cliopatrias Eastern Kara-Khanids (1046–1138) och Western Karakhanid Khanate (1046–1084, Samarkand) har samma
+        # Wikidata-id (Q494354) och läggs till som delar (#645, nionde omgången). Efter 1084 räknar Cliopatria Samarkand till
+        # Seldjukriket och sedan Kara-Khitan; det västra khanatet fanns enligt Wikipedia till 1212
+        ('Eastern Kara-Khanids', 'kara-khanid-ost', 'Khanatet Kara-Khanid', '#5a8ab0', {'en': 'Karakhanid Khanate'}),
+        ('Western Karakhanid Khanate', 'kara-khanid-vast', 'Khanatet Kara-Khanid', '#5a8ab0', {'en': 'Karakhanid Khanate'}),
     ]),
     'dali': ('Dali', 'Dali Kingdom', [
         ('Kingdom of Dali', 'dali', 'Dali', '#8a6ab0', {'en': 'Dali Kingdom'}),
@@ -1616,11 +1698,11 @@ GROUPS = {
         ('Kingdom of Kush', 'kush', 'Kush', '#a0603a', {'en': 'Kingdom of Kush'}),
     ]),
     # Ptolemaiska riket börjar 305 f.Kr. enligt Wikidata (Q2320005, 305–30 f.Kr.). Cliopatria lägger posten "Ptolemaic Kingdom"
-    # redan på 332–325 f.Kr. och täcker då Alexanders erövringar ända till Indus, medan "Macedonian Empire" samma år bara är
+    # redan på 331–324 f.Kr. och täcker då Alexanders erövringar ända till Indus, medan "Macedonian Empire" samma år bara är
     # Makedonien; geografens granskning inför v6.3.0 (2026-11-13). Åren klipps därför till Wikidatas start, och
-    # posterna 332–325 f.Kr. läggs till Makedoniska riket (#1382).
+    # posterna 331–324 f.Kr. läggs till Makedoniska riket (#1382). Slutåret är Cliopatrias: -28 där, 28 f.Kr., astronomiskt -27 (#1989).
     'ptolemaiska-riket': ('Ptolemaiska riket', 'Ptolemaic Kingdom', [
-        ('Ptolemaic Kingdom', 'ptolemaiska-riket', 'Ptolemaiska riket', '#4a7ab0', {'en': 'Ptolemaic Kingdom', 'years': (-304, -28)}),
+        ('Ptolemaic Kingdom', 'ptolemaiska-riket', 'Ptolemaiska riket', '#4a7ab0', {'en': 'Ptolemaic Kingdom', 'years': (-304, -27)}),
     ]),
     'mitanni': ('Mitanni', 'Mitanni', [
         ('Mitanni', 'mitanni', 'Mitanni', '#b05a6a', {'en': 'Mitanni'}),
@@ -1628,6 +1710,54 @@ GROUPS = {
     'vastra-regionernas-protektorat': ('De västra regionernas protektorat', 'Protectorate of the Western Regions', [
         ('Protectorate of the Western Regions', 'vastra-regionernas-protektorat', 'De västra regionernas protektorat', '#6a9a8a',
          {'en': 'Protectorate of the Western Regions'}),
+    ]),
+    # Antikens luckor, andra omgången (#646, 2026-11-20): de största kvarvarande luckorna före 500 enligt
+    # tools/tackning_riken.py (provår var 50:e år), där Cliopatrias Wikidata-id är en stat (SPARQL 2026-11-20). Svenska
+    # namn är svenska Wikipedias titlar (avsnitt 4 regel 1 i docs/ordlista-oversattning.md), utom Himyaritiska riket:
+    # artikeln "Himyariter" handlar om folket och kallar staten "det himyaritiska riket". Western Satraps saknar svensk
+    # etikett och artikel och har det engelska namnet enligt beslutet 2026-11-12. `years` klipper bort Cliopatrias år
+    # utanför källornas spann (engelska Wikipedia och Wikidata): Kungariket Armenien till 428 (Cliopatrias poster 451–489
+    # och 638–646 ligger efter rikets slut; 208–207 f.Kr. är Cliopatrias yta bara 294 km² inne i riket och hoppas över med
+    # `skip`, efter geografens granskning i PR #2042), Himyar till 533 (Wikipedia 575 eller 578, Wikidata 525; Cliopatrias
+    # 534–576 är bara 167 km² och 577–601 ligger efter båda), Western Satraps till 415 (Cliopatrias 476–489 är utan yta), Shunga till 73 f.Kr., Funan
+    # till 627, Shang till 1046 f.Kr. och Östra Wu till 222–280 (Cliopatria har Sun Quans område redan från 207).
+    # Cliopatrias -N är N f.Kr. och `years` är astronomiska år (#1989).
+    'chu': ('Chu', 'Chu', [
+        ('Chu', 'chu', 'Chu', '#b0603a', {'en': 'Chu'}),
+    ]),
+    'western-satraps': ('Western Satraps', 'Western Satraps', [
+        ('Western Satraps', 'western-satraps', 'Western Satraps', '#9a7a3a', {'en': 'Western Satraps', 'years': (43, 415)}),
+    ]),
+    'zhoudynastin': ('Zhoudynastin', 'Zhou dynasty', [
+        ('Zhou Dynasty', 'zhoudynastin', 'Zhoudynastin', '#a04a4a', {'en': 'Zhou dynasty'}),
+    ]),
+    'kungariket-armenien': ('Kungariket Armenien', 'Kingdom of Armenia', [
+        ('Kingdom of Armenia', 'kungariket-armenien', 'Kungariket Armenien', '#c07a3a', {'en': 'Kingdom of Armenia', 'years': (-325, 428),
+         'skip': [(-207, -206)]}),
+    ]),
+    'himyaritiska-riket': ('Himyaritiska riket', 'Himyar', [
+        ('Himyarite Kingdom', 'himyaritiska-riket', 'Himyaritiska riket', '#5a8a6a', {'en': 'Himyar', 'years': (-109, 533)}),
+    ]),
+    'liu-song': ('Liu Song', 'Liu Song dynasty', [
+        ('Liu Song Dynasty', 'liu-song', 'Liu Song', '#6a7aa0', {'en': 'Liu Song dynasty'}),
+    ]),
+    'sunga': ('Sunga', 'Shunga Empire', [
+        ('Shunga Empire', 'sunga', 'Sunga', '#8aa05a', {'en': 'Shunga Empire', 'years': (-169, -72)}),
+    ]),
+    'funan': ('Funan', 'Funan', [
+        ('Funan', 'funan', 'Funan', '#4a9a8a', {'en': 'Funan', 'years': (51, 627)}),
+    ]),
+    'cao-wei': ('Cao Wei', 'Cao Wei', [
+        ('Cao Wei', 'cao-wei', 'Cao Wei', '#7a5a8a', {'en': 'Cao Wei'}),
+    ]),
+    'grekisk-baktriska-riket': ('Grekisk-baktriska riket', 'Greco-Bactrian Kingdom', [
+        ('Greco-Bactrian Kingdom', 'grekisk-baktriska-riket', 'Grekisk-baktriska riket', '#4a6ab0', {'en': 'Greco-Bactrian Kingdom'}),
+    ]),
+    'shangdynastin': ('Shangdynastin', 'Shang dynasty', [
+        ('Shang Dynasty', 'shangdynastin', 'Shangdynastin', '#a08a3a', {'en': 'Shang dynasty', 'years': (-1599, -1045)}),
+    ]),
+    'ostra-wu': ('Östra Wu', 'Eastern Wu', [
+        ('Eastern Wu', 'ostra-wu', 'Östra Wu', '#3a8a5a', {'en': 'Eastern Wu', 'years': (222, 280)}),
     ]),
     # Medeltidens luckor, åttonde omgången (#645, DasKrokodils ja 2026-11-13): Cliopatrias Wikidata-id är en stat men
     # saknar svensk etikett (SPARQL 2026-11-13), så namnet är det engelska enligt beslutet 2026-11-12. Cliopatrias
@@ -1647,6 +1777,52 @@ GROUPS = {
     ]),
     'chola-empire': ('Cholariket', 'Chola Empire', [
         ('Chola Empire', 'chola-empire', 'Cholariket', '#c0704a', {'en': 'Chola Empire'}),
+    ]),
+    # Medeltidens luckor, nionde omgången (#645, 2026-11-20): de största kvarvarande luckorna 500–1500 med provår var 50:e år
+    # (tools/tackning_riken.py), där Cliopatrias Wikidata-id är en stat (SPARQL 2026-11-20). Svenska namn är Wikidatas svenska
+    # etiketter, utom Aragoniska kronan (svenska Wikipedias titel; etiketten är "Aragonska kronan"). Balhae saknar svensk
+    # etikett och artikel och har det engelska namnet (beslutet 2026-11-12). Kungariket Lavo, Seunadynastin (Cliopatrias Yadava
+    # Dynasty) och Chaulukyadynastin saknar också svensk etikett och artikel (svenska Wikipedia sökt 2026-11-20); det engelska
+    # namnet stoppas av provet mot engelska namn i name.sv (#1702), så namnet är det engelska med typordet översatt, som
+    # Kungariket Pagan och Chalukyadynastin (egen översättning, granskas av historiker och sprak-*); Mamlukdynastin i Delhi heter på engelska som engelska Wikipedias titel,
+    # eftersom Wikidatas engelska etikett "Mamluk Sultanate" är samma som Egyptens mamluksultanat. Väntar: Turk Shahis (Q654380
+    # är Kabul Shahi, som också omfattar Hindu Shahi), Hamdanid Emirates (Cliopatria 936–1259, Wikidata 890–1004), Sind-Habbari
+    # Dynasty (id utan årtal), Ngô Dynasty (Cliopatria 947–1406, Wikidata 939–965), Buyid Dynasty (id är Abbasidkalifatet),
+    # Kashmir (id är regionen) och Shan States (en samling).
+    'kamarupariket': ('Kamarupariket', 'Kamarupa', [
+        ('Kamarupa Kingdom', 'kamarupariket', 'Kamarupariket', '#7aa05a', {'en': 'Kamarupa'}),
+    ]),
+    'vijayanagar': ('Vijayanagar', 'Vijayanagara Empire', [
+        ('Vijayanagara Empire', 'vijayanagar', 'Vijayanagar', '#c08a3a', {'en': 'Vijayanagara Empire'}),
+    ]),
+    'balhae': ('Balhae', 'Balhae', [
+        ('Balhae', 'balhae', 'Balhae', '#5a6ab0', {'en': 'Balhae'}),
+    ]),
+    'hariphunchai': ('Hariphunchai', 'Haripuñjaya', [
+        ('Haripuñjaya', 'hariphunchai', 'Hariphunchai', '#a05aa0', {'en': 'Haripuñjaya'}),
+    ]),
+    'koguryo': ('Koguryo', 'Goguryeo', [
+        # Cliopatrias sista post 674–681 är bara 148 km² vid kusten kring 125,4° Ö 37,7° N och visas inte (geografens
+        # granskning av PR #2037); Wikipedia och Wikidata anger att riket föll 668
+        ('Goguryeo', 'koguryo', 'Koguryo', '#4a8a6a', {'en': 'Goguryeo', 'years': (-35, 673)}),
+    ]),
+    'kungariket-lavo': ('Kungariket Lavo', 'Lavo Kingdom', [
+        ('Lavo Kingdom', 'kungariket-lavo', 'Kungariket Lavo', '#b05a5a', {'en': 'Lavo Kingdom'}),
+    ]),
+    'seunadynastin': ('Seunadynastin', 'Seuna dynasty', [
+        ('Yadava Dynasty', 'seunadynastin', 'Seunadynastin', '#8a8a3a', {'en': 'Seuna dynasty'}),
+    ]),
+    'mamlukdynastin-i-delhi': ('Mamlukdynastin i Delhi', 'Mamluk dynasty (Delhi)', [
+        ('Mamluk Dynasty', 'mamlukdynastin-i-delhi', 'Mamlukdynastin i Delhi', '#6a5a9a', {'en': 'Mamluk dynasty (Delhi)'}),
+    ]),
+    'chaulukyadynastin': ('Chaulukyadynastin', 'Chaulukya dynasty', [
+        ('Chaulukya Dynasty', 'chaulukyadynastin', 'Chaulukyadynastin', '#3a8aa0', {'en': 'Chaulukya dynasty'}),
+    ]),
+    'aragoniska-kronan': ('Aragoniska kronan', 'Crown of Aragon', [
+        ('Crown of Aragon', 'aragoniska-kronan', 'Aragoniska kronan', '#c0a03a', {'en': 'Crown of Aragon'}),
+    ]),
+    'idrisider': ('Idrisider', 'Idrisid dynasty', [
+        ('Idrisids', 'idrisider', 'Idrisider', '#4aa06a', {'en': 'Idrisid dynasty'}),
     ]),
     # Inre Asien 1500–1800, Afrika 1850 och Tibet 1912–1952 (#1331, ur helganalysen #1289). Svenska och engelska namn är
     # Wikidatas etiketter, utom Khedivatet Egypten (svenska Wikipedias titel; etiketten "Khedivet" ser ut som ett skrivfel)
@@ -1684,6 +1860,59 @@ GROUPS = {
     ]),
     'sultanatet-darfur': ('Sultanatet Darfur', 'Sultanate of Darfur', [
         ('Sultanate of Darfur', 'sultanatet-darfur', 'Sultanatet Darfur', '#8a5a3a', {'en': 'Sultanate of Darfur'}),
+    ]),
+    # Inre Asien och Arabien, andra omgången (#1331, 2026-11-20). Svenska och engelska namn är Wikidatas etiketter (SPARQL
+    # 2026-11-20), utom de saudiska staterna, som saknar svensk etikett och har svenska Wikipedias namn i artikeln
+    # Saudiarabiens historia ("Det första saudiska riket (1744–1818)", "Det andra saudiska riket (1824–1891)", "det
+    # tredje saudiska riket" från 1902), och Emiratet Buchara, där Wikidatas svenska etikett "emiratet Bukhara" har fått
+    # samma stavning som khanatet (Q577668, "Buchara"). Cliopatrias Emirate of Nejd (Q146862, Wikidatas andra saudiska stat
+    # 1818–1891) gäller två stater: 1824–1891 det andra saudiska riket, 1905–1925 det tredje (Q2011891, från 1902; 1895–1904
+    # är bara 53 km² och visas inte). Efter 1925 fortsätter det tredje som Kungariket Hijaz och Najd ('hijaz-och-najd').
+    # Jabal Shammar visas från 1866 (Wikipedia och Wikidata 1836–1921): Cliopatrias 1825–1827 ligger före emiratet, och
+    # 1842–1845 täcker Cliopatrias gräns cirka 99 procent av Det andra saudiska riket (geografens granskning i PR #2030),
+    # så 1840–1845 visas inte; 1846–1865 saknar Cliopatria emiratet.
+    # Astrachankhanatet visas bara 1468–1555: Wikipedia och Wikidata anger 1466–1556, och Cliopatrias poster 1642–1768 ligger
+    # vid Don, inte vid Astrachan. Cliopatrias Small Horde (1564–1737, Nogajhordens id) är den mindre nogajhorden, en annan
+    # stat, och väntar; Khoshut Khanate (1582–1695) väntar, eftersom Cliopatrias gräns ligger kring 95° Ö 41° N medan Wikidata
+    # och Wikipedia beskriver ett tibetanskt khanat 1642–1717; Tümed (Q3402317) är en folkgrupp och byggs inte.
+    'forsta-saudiska-riket': ('Det första saudiska riket', 'First Saudi State', [
+        ('Emirate of Diriyah', 'forsta-saudiska-riket', 'Det första saudiska riket', '#7a8a3a', {'en': 'First Saudi State'}),
+    ]),
+    'andra-saudiska-riket': ('Det andra saudiska riket', 'Second Saudi State', [
+        ('Emirate of Nejd', 'andra-saudiska-riket', 'Det andra saudiska riket', '#8a9a4a',
+         {'en': 'Second Saudi State', 'years': (1824, 1891)}),
+    ]),
+    'tredje-saudiska-riket': ('Det tredje saudiska riket', 'Third Saudi State', [
+        ('Emirate of Nejd', 'tredje-saudiska-riket', 'Det tredje saudiska riket', '#9aaa5a',
+         {'en': 'Third Saudi State', 'wikidata': 'Q2011891', 'years': (1905, 1925)}),
+    ]),
+    'jabal-shammar': ('Jabal Shammar', 'Emirate of Jabal Shammar', [
+        ('Emirate of Jabal Shammar', 'jabal-shammar', 'Jabal Shammar', '#a06a3a', {'en': 'Emirate of Jabal Shammar', 'years': (1866, 1921)}),
+    ]),
+    'kungariket-hijaz': ('Kungariket Hijaz', 'Kingdom of Hejaz', [
+        ('Kingdom of Hejaz', 'kungariket-hijaz', 'Kungariket Hijaz', '#5a8a7a', {'en': 'Kingdom of Hejaz'}),
+    ]),
+    'buchara': ('Buchara', 'Khanate of Bukhara', [
+        ('Khanate of Bukhara', 'buchara', 'Buchara', '#8a5a8a', {'en': 'Khanate of Bukhara'}),
+        ('Emirate of Bukhara', 'emiratet-buchara', 'Emiratet Buchara', '#8a5a8a', {'en': 'Emirate of Bukhara'}),
+    ]),
+    'khanatet-khiva': ('Khanatet Khiva', 'Khanate of Khiva', [
+        ('Khanate of Khiva', 'khanatet-khiva', 'Khanatet Khiva', '#4a7a9a', {'en': 'Khanate of Khiva'}),
+    ]),
+    'khanatet-kokand': ('Khanatet Kokand', 'Khanate of Kokand', [
+        ('Khanate of Kokand', 'khanatet-kokand', 'Khanatet Kokand', '#9a6a5a', {'en': 'Khanate of Kokand'}),
+    ]),
+    'kalmuckkhanatet': ('Kalmuckkhanatet', 'Kalmyk Khanate', [
+        ('Kalmyk Khanate', 'kalmuckkhanatet', 'Kalmuckkhanatet', '#6a7ab0', {'en': 'Kalmyk Khanate'}),
+    ]),
+    'kazankhanatet': ('Kazankhanatet', 'Khanate of Kazan', [
+        ('Khanate of Kazan', 'kazankhanatet', 'Kazankhanatet', '#5a9a5a', {'en': 'Khanate of Kazan'}),
+    ]),
+    'astrachankhanatet': ('Astrachankhanatet', 'Astrakhan Khanate', [
+        ('Astrakhan Khanate', 'astrachankhanatet', 'Astrachankhanatet', '#4a9aa0', {'en': 'Astrakhan Khanate', 'years': (1468, 1555)}),
+    ]),
+    'nogajhorden': ('Nogajhorden', 'Nogai Horde', [
+        ('Nogai Horde', 'nogajhorden', 'Nogajhorden', '#a08a5a', {'en': 'Nogai Horde'}),
     ]),
     # Små stater ur Natural Earth (#722, Rikards beslut 2026-11-07): Cliopatria saknar dem i nutid eller har fel gräns
     # (Saint Kitts ligger på Saint Croix, Mikronesien är bara Pohnpei). Gränsen är dagens land i Natural Earth
@@ -1822,9 +2051,10 @@ EXTEND = {
 # `from` tas området bort ur grupperna i `remove` och läggs till grupperna i `add`. Ytan (areaKm2) räknas då fram
 # ur den nya gränsen.
 # Saarområdet 1920–1935 (#1730, #1750): Frankrikes gräns 1931 minus gränsen 1932 i Cliopatria, inom Tysklands gräns i Natural Earth
-# Klipps mot Saarlands gräns (Natural Earth admin 1), inte hela Tysklands: Frankrikes gräns 1931 minus 1932 tar annars också
-# med en bit av Pfalz kring Zweibrücken, som låg utanför Saarområdet och visades utan stat 1920–1934 (#1755)
-SAAR = ('snitt', (('French Third Republic', 1931), ('French Third Republic', 1932)), ('ne', ['saarland']))
+# Saarområdet är Saarlands nuvarande gräns (Natural Earth admin 1), som ungefär motsvarar det (#1755). Frankrikes gräns 1931 minus
+# 1932 i Cliopatria tog förut också med en bit av Pfalz kring Zweibrücken, som låg utanför, men inte Homburg, som låg inom
+# (de.wikipedia "Saargebiet" och "Homburg")
+SAAR = ('ne', ['saarland'])
 # Rutan längs gränsen mellan DDR och Västtyskland (väst, syd, öst, nord), #1750
 INNERTYSKA = (9.8, 50.15, 12.3, 54.2)  # syd 50,15 och öst 12,3: hela Thüringens och Bayerns gräns (#1750)
 # Rutan längs Oder–Neisse-gränsen, #1750
@@ -1838,12 +2068,88 @@ KALININGRAD = (19.4, 54.2, 22.95, 55.4)
 FRANSKA_GRANSEN = (6.3, 47.62, 8.4, 49.5)  # utan Luxemburg och Schweiz
 # Rutan längs gränsen mellan Tjeckoslovakien och Tyskland (Bayern och Sachsen), #1755
 TJECKISKA_GRANSEN = (11.9, 48.5, 15.1, 51.1)
+# Rutorna vid Bodensee och Hochrhein (Basel, Schaffhausen, Konstanz, Vorarlberg) och längs gränsen mellan Österrike och Tyskland
+# från Allgäu till Passau (#1771). Gränserna mellan Tyskland, Schweiz och Österrike har i stort sett inte ändrats sedan 1919 (en.wikipedia
+# "Germany–Switzerland border", "Austria–Switzerland border" och "Austria–Germany border"), så där följer de Natural Earth från
+# 1919: Cliopatrias och förenklingens gränser lägger annars Bregenz i Tyskland, Kreuzlingen i Västtyskland och Basel utan stat.
+# Natural Earth 1:10m avviker upp till cirka 1 km längs Rhen och Bodensee (Konstanz, Petershausen och Bad Säckingen ritas i Schweiz);
+# det godtas och står i Om kartan, eftersom en egen skiljelinje vore påhittad
+HOCHRHEIN = (7.5, 47.2, 10.5, 47.85)
+ALPGRANSEN = (10.5, 47.25, 14.0, 48.8)
+ALP = ('rutor', [HOCHRHEIN, ALPGRANSEN])
+# Kaliningradområdet och Ermland-Masuriens gräns mot det (samma som 'kaliningrad-polen'), #1771
+ERMLAND = (19.4, 54.0, 22.95, 55.4)
+# Natural Earth 1:10m lägger gränsen mellan Polen och Kaliningradområdet 3–4 km för långt norrut (Bagrationovsk och
+# Zjeleznodorozjnyj hamnar i Polen), och Litauens gräns något för långt söderut (geografen, #1771). Polens och Litauens sidor
+# är därför Natural Earth minus Ryska federationens gräns i Cliopatria 2000, så att den ryska gränsen inte flyttas; remsan
+# som Natural Earth räknar till Polen eller Litauen men Cliopatria till Ryssland läggs till Sovjetunionen och Ryssland
+RYSKA_CLIO = ('clio', 'Russian Federation', 2000)
+POLEN_ERMLAND = ('skillnad', ('snitt', ('ne', ['polen-ne']), ('rutor', [ERMLAND])), RYSKA_CLIO)
+REMSA_PL = ('snitt', ('snitt', ('ne', ['polen-ne']), ('rutor', [ERMLAND])), RYSKA_CLIO)
+LITAUEN_UTAN_RU = ('ne', ['litauen-ne'])
+# Jura och Sundgau: Frankrikes gräns mot Schweiz från Genève till Basel
+JURA = (5.9, 46.1, 7.6, 47.65)
+# Frankrikes sida i rutan JURA 1940–1944 (#1781), delad som i Cliopatria mellan Nazityskland, Vichyregimen (1940–1942) och
+# Kungariket Italien (1943); den fransk mark som Cliopatria räknar till Schweiz går till den innehavare den gränsar mest mot
+JURA_FR = ('snitt', ('ne', ['frankrike-ne']), ('rutor', [JURA]))
+JURA_NAZI, JURA_VICHY, JURA_ITALIEN = ['Nazi Germany'], ['Vichy France', '(Vichy France)'], ['Kingdom of Italy']
+# Västra Allgäu 1945–1949 (#1781): Bayerns mark i rutan delas mellan den franska och den amerikanska zonen längs Cliopatrias egen
+# linje (zone_part). Bara Cliopatrias franska del kring Lindau (LINDAU_PUNKT) räknas som fransk
+ALLGAU = (9.5, 47.25, 10.5, 48.1)
+ALLGAU_BY = ('snitt', ('snitt', ('ne', ['tyskland']), ('ne', ['vasttyska-granslander'])), ('rutor', [ALLGAU]))
+LINDAU_PUNKT = (9.684, 47.546)  # Lindau, Q153969
 TYSKA_SIDAN = ('snitt', ('ne', ['tyskland']), ('rutor', [FRANSKA_GRANSEN]))
+# Rhenlandet 1920–1929 (#1766, beslut 2026-11-20): Weimarrepublikens egen gräns i Cliopatria 1930 (efter ockupationen) väster
+# om 9 grader öst, där Cliopatria ritar zonerna och brohuvudena som Frankrike, Belgien, Storbritannien och USA. Utan det som
+# Natural Earth räknar till Nederländerna, Frankrike och Schweiz, utan Saarområdet och utan Cliopatrias Luxemburg, så att
+# Cliopatrias överlapp mot grannarna (Venlo, Luxemburgs gräns) inte ritas in i Tyskland de åren
+RHENLANDET_RUTA = (5.8, 47.5, 9.0, 52.2)
+RHENLANDET = ('skillnad', ('snitt', ('clio', 'Weimar Republic', 1930), ('rutor', [RHENLANDET_RUTA])),
+              ('union', ('ne', ['nederlanderna-ne', 'frankrike-ne', 'schweiz-ne', 'saarland']), ('clio', 'Luxembourg', 1925)))
 FRANSKA_SIDAN = ('snitt', ('ne', ['frankrike-ne']), ('rutor', [FRANSKA_GRANSEN]))
 # Tysklands sida av gränsen mot Nederländerna 1950–1962 enligt Förbundsrepublikens gräns i Cliopatria 1955 (utan Selfkant och
 # Elten), utan det som ligger i Nederländerna i Natural Earth (Gangelt, #1755)
 BRD_MOT_NEDERLANDERNA = ('snitt', ('skillnad', ('clio', 'Federal Republic of Germany', 1955), ('ne', ['nederlanderna-ne'])),
                          ('snitt', ('ne', ['tyskland']), ('rutor', [(5.85, 50.75, 7.3, 53.7)])))
+
+# Rutorna längs gränsen mellan Sudan och Sydsudan i Cliopatria 2014, från trepunkten vid Centralafrikanska republiken (24,149 grader
+# öst) till den vid Etiopien (34,033 grader öst; gränsen når 34,05 strax norr om den). Rutorna slutar vid trepunkterna, så att Sudans och Sydsudans
+# ogenomskurna gränser inte läggs över grannarnas förenklade gränser (geografen, #1534). Den korta biten öster om 34,033 grader följer förenklingen
+SUDANGRANSEN = [(24.15, 8.3, 25.2, 10.6), (25.2, 8.9, 32.2, 10.9), (32.2, 9.2, 34.033, 12.4)]
+
+# Rutorna längs gränsen mellan Sydkorea och Nordkorea (#1500): 38:e breddgraden 1948–1952 och stilleståndslinjen från 1953
+# (Cliopatrias gränser 1950 och 1960; 1960 är samma som 2024). Rutorna täcker halvön från Västkoreanska viken till Japanska havet
+KOREA38 = [(124.5, 37.6, 129.0, 38.5)]
+KOREAGRANSEN = [(124.5, 37.5, 129.0, 38.8)]
+
+# Hainan (#1499): rutan runt ön. I Cliopatria når Hainan 20,151 grader nord och fastlandet (Leizhouhalvön) börjar vid 20,215,
+# så rutan som Folkrepublikens ö hämtas ur slutar vid 20,18 och når inte fastlandet. Rutan som ön klipps ur Taiwan med slutar
+# vid 20,25, eftersom Taiwans förenklade gräns är avrundad till 0,1 grad (20,2); Taiwan har inget annat i den rutan
+HAINAN = (108.4, 18.0, 111.3, 20.18)
+HAINAN_TAIWAN = (108.4, 18.0, 111.3, 20.25)
+# Zhoushan (#1499): rutan runt Zhoushanön (Dinghai). Taiwan har bara ön i rutan; Folkrepubliken får ön ur Republiken Kinas gräns
+# 1950 i Cliopatria (samma som Folkrepubliken 1953), som inte har något fastland, så rutan behöver inte undvika Ningbos kust
+ZHOUSHAN = (121.95, 29.95, 122.35, 30.25)
+# Kustdelarna vid Xiangshan och Xiapu (#1797): rutorna runt Taiwans förenklade delar på fastlandet i Zhejiang (121,7–122,0 Ö,
+# 29,2–29,7 N) och Fujian (119,8–120,2 Ö, 26,5–26,8 N). Taiwan har inget annat i rutorna, och de når inte Zhoushanrutan
+XIANGSHAN = (121.65, 29.15, 122.05, 29.75)
+XIAPU = (119.75, 26.45, 120.25, 26.85)
+# Kaohsiung (#1797): rutan runt Kaohsiung, där Taiwans land i Natural Earth (TWN) ligger väster om Taiwans förenklade kust
+# (120,23–120,39 Ö, 22,48–22,74 N). Längs rutans kanter ligger Natural Earths land inne i den förenklade gränsen, så ingen kant syns
+KAOHSIUNG = (120.15, 22.33, 120.55, 22.85)
+# Pool Malebo (#1707): de två Kongos sidor av floden i Natural Earth, i rutan (14,6–15,9 Ö, 4,8–3,8 S) som tools/ne_omstridda.py
+# klipper ut. Brazzavillesidan räknas utan det som också ligger på Kinshasasidan (avrundningen ger en remsa på cirka 0,06 km²)
+KINSHASA_SIDAN = ('ne', ['kongo-kinshasa-ne'])
+BRAZZAVILLE_SIDAN = ('skillnad', ('ne', ['kongo-brazzaville-ne']), ('ne', ['kongo-kinshasa-ne']))
+# Newfoundland och Labrador (#1707): rutan runt provinsen, för Brittiska imperiets delar där från 1949
+NEWFOUNDLAND = (-68.0, 46.4, -52.0, 61.0)
+# Östeuropa 1945–1946 (#1469): från Bayerns östra spets (Passau, 13,5 grader öst) till Svarta havet och från Grekland till
+# Tjeckoslovakiens sydgräns, men inte norrut till den sovjetiska zonen i Tyskland eller Polen
+SOVJET_VAST = [(13.8, 40.5, 30.5, 49.6)]
+# Rumäniens gräns mot Sovjetunionen (Bukovina, Prut och Donaudeltat), söder om Ungern och norr om Dobrudja
+RUMANIEN_OST = [(24.0, 45.2, 30.0, 48.4)]
+# Österrike med en marginal på 0,05 grader (9,53–17,16 grader öst, 46,37–49,02 nord)
+OSTERRIKE_RUTA = (9.48, 46.32, 17.21, 49.07)
 
 DISPUTED = {
     # Krim och Sevastopol: Cliopatria räknar halvön till Ryssland från 2014 och till Ukraina bara till och med 2023.
@@ -1893,6 +2199,55 @@ DISPUTED = {
                            'remove': ['sovjetunionen'], 'add': []},
     # Irak från 2006: Cliopatria räknar landet till USA 2006–2023 (från 2014 samtidigt med Irak)
     'irak-usa': {'area': ('clio', 'Iraqi Republic', 2005), 'from': 2006, 'remove': ['usa'], 'add': []},
+    # Sydkorea 1948–1966 (#1500): Cliopatrias USA-post 1947–1966 omfattar Koreahalvön söder om 38:e breddgraden och Jeju,
+    # samtidigt som Republic of Korea finns från 1948. Den amerikanska militärregeringen (USAMGIK) styrde södra Korea från
+    # 9 september 1945 till 15 augusti 1948, då Republiken Korea bildades (wp-usamgik, wp-south-korea). USA ritas därför
+    # över Korea bara 1946–1947 och klipps bort från 1948. Rutorna täcker USA:s del på fastlandet (124,9–129,7 grader öst,
+    # 34,3–38,1 nord) och Jeju, men inte Tsushima (söder om 34,6 grader och öster om 129,0) eller Kyushu
+    'sydkorea-usa': {'area': ('rutor', [(124.5, 34.2, 129.0, 38.3), (128.0, 34.6, 129.9, 38.3), (125.9, 33.0, 127.2, 33.75)]),
+                     'from': 1948, 'to': 1966, 'strict': True, 'efter': True, 'remove': ['usa'], 'add': []},
+    # Hainan från 1950 (#1499): Cliopatrias Republic of China 1950–2023 (Taiwan hos oss) omfattar Hainan, och People's Republic
+    # of China har ön först från 1953, så ön ritades som Taiwan 1950–2023 och dessutom som Kina 1953–2023. Folkrepubliken
+    # intog ön i april 1950 och hade hela ön 1 maj (wp-hainan-battle: landstigning 16 april; wp-hainan nämner också 10 april), och
+    # Nationalisternas nederlag på Hainan rapporterades från Taipei 27 april 1950 (frus-1950-hainan). Ön tas ur Taiwan från 1950
+    # och läggs till Folkrepubliken med Cliopatrias egen gräns för ön (Folkrepubliken 1953, samma som Republiken Kina 1950), efter
+    # förenklingen. Med yta räknas ytan (areaKm2) med ändringen, eftersom ön är nästan halva Taiwans yta i Cliopatria
+    'hainan-taiwan': {'area': ('rutor', [HAINAN_TAIWAN]), 'from': 1950, 'strict': True, 'efter': True, 'yta': True,
+                      'remove': ['taiwan'], 'add': []},
+    # Folkrepublikens förenklade ö (från 1953) tas först bort, så att ön har samma gräns alla år från 1950: bara delar som ligger
+    # helt i rutan (parts), så att fastlandets förenklade gräns inte skärs om (utan yta, eftersom ön redan ingår i ytan från 1953)
+    'hainan-kina-forenklad': {'area': ('rutor', [HAINAN_TAIWAN]), 'parts': True,
+                              'from': 1950, 'strict': True, 'efter': True, 'remove': ['kina'], 'add': []},
+    'hainan-kina': {'area': ('snitt', ('clio', "People's Republic of China", 1953), ('rutor', [HAINAN])), 'from': 1950,
+                    'strict': True, 'efter': True, 'yta': True, 'remove': [], 'add': ['kina']},
+    # Zhoushanöarna från 1950 (#1499): Folkrepubliken tog Zhoushan 17 maj 1950 (wp-zhoushan-islands), men Cliopatria räknar
+    # Zhoushanön till Republic of China 1950–2023 och till People's Republic of China först från 1953. Ön tas ur Taiwan och läggs
+    # till Folkrepubliken från 1950 med Cliopatrias gräns (Republiken Kina 1950 i rutan). Folkrepublikens förenklade gräns har inte
+    # ön (den är mindre än MIN_AREA för Kina), så inget behöver tas bort först
+    'zhoushan-taiwan': {'area': ('rutor', [ZHOUSHAN]), 'from': 1950, 'strict': True, 'efter': True, 'yta': True,
+                        'remove': ['taiwan'], 'add': []},
+    'zhoushan-kina': {'area': ('snitt', ('clio', 'Republic of China', 1950), ('rutor', [ZHOUSHAN])), 'from': 1950,
+                      'strict': True, 'efter': True, 'yta': True, 'remove': [], 'add': ['kina']},
+    # Fastlandet vid Xiangshan (Zhejiang) och Xiapu (Fujian) från 1950 (#1797): Cliopatria räknar två delar av fastlandets kust till
+    # Republic of China 1950–2023 (Xiangshans huvudort ligger i den ena, wp-xiangshan-county), och People's Republic of China har
+    # dem först från 1953. I december 1949 hade kommunisterna hela Kinas fastland utom Hainan och Tibet (wp-retreat-roc-taiwan).
+    # Taiwans förenklade delar tas bort, och samma förenklade delar (Republiken Kina 1950, förenklad som kartan, bara delar som
+    # ligger helt i rutan) läggs till Folkrepubliken från 1950, så att inget nytt tomt fält uppstår och ingen gräns följer rutans
+    # kant. dec: bara delarna som
+    # rutan når räknas om, och resten av gränserna är som förut
+    **{f'{_namn}-taiwan': {'area': ('rutor', [_ruta]), 'from': 1950, 'strict': True, 'efter': True, 'yta': True, 'dec': 5,
+                           'remove': ['taiwan'], 'add': []} for _namn, _ruta in (('xiangshan', XIANGSHAN), ('xiapu', XIAPU))},
+    # Utan to: Kina 2024 får också delarna, fast Cliopatrias Republiken Kina 2024 inte har dem. Med to 2023 delas Kinas period
+    # 1953–2024 vid 2024, och den nya perioden 2024 förenklas för sig ur Cliopatria 2024 och skiljer sig långt utanför rutorna
+    # (cirka 1,1 grad² nytt tomt land vid kusten), så delarna får gälla alla år från 1950 (docs/omstridda-granser.md)
+    **{f'{_namn}-kina': {'area': ('hela-delar', ('forenklad', 'Republic of China', 1950), ('rutor', [_ruta])), 'from': 1950,
+                         'strict': True, 'efter': True, 'yta': True, 'dec': 5, 'remove': [], 'add': ['kina']}
+       for _namn, _ruta in (('xiangshan', XIANGSHAN), ('xiapu', XIAPU))},
+    # Kaohsiung (#1797): Cliopatria har staden i Republiken Kina, men den förenklade kusten lade den cirka 1 km utanför. I rutan
+    # läggs Taiwans land ur Natural Earth (TWN, tools/ne_omstridda.py) till efter förenklingen, så att bara land läggs till;
+    # Cliopatrias kust där ligger upp till cirka 11 km ute i sundet (geografen). Utanför rutan är gränsen som förut
+    'kaohsiung-taiwan': {'area': ('ne', ['taiwan-kaohsiung-ne']), 'from': 1950,
+                         'strict': True, 'efter': True, 'dec': 5, 'remove': [], 'add': ['taiwan']},
     # Västberlin och Östberlin 1949–1990 (#1731, beslut 2026-11-15-vastberlin-grans.md). Cliopatrias hål i DDR för Västberlin
     # stämmer bara ungefär (det täcker delar av Östberlin, och södra Västberlin ligger i DDR) och saknas 1973–1975.
     # Västberlin är i stället gränsen ur "Verlauf der Berliner Mauer, 1989" (tools/vastberlin.geojson, byggd med
@@ -1957,6 +2312,45 @@ DISPUTED = {
     'polen-sovjet': {'area': ('skillnad', ('clio', 'Republic of Poland', 1953), ('ne', ['tyskland'])), 'from': 1945, 'to': 1952,
                      'strict': True,
                      'remove': ['sovjetunionen'], 'add': []},
+    # Östeuropa 1945–1946 (#1469, samma beslut): Cliopatria räknar Tjeckoslovakien, Ungern, Rumänien och Bulgarien till Sovjetunionen.
+    # De ritas med sina egna gränser 1947 (Bulgarien 1948; fill i GROUPS), som klipps bort ur Sovjetunionen efter förenklingen.
+    # Länderna fanns som stater, och Ungern, Rumänien och Bulgarien stod under allierade kontrollkommissioner med sovjetiskt
+    # ordförandeskap tills fredsfördragen i Paris 10 februari 1947 (wp-allied-control-commission, wp-paris-peace-treaties-1947)
+    'osteuropa-sovjet': {'area': ('clio-union', [('Czechoslovakia', 1947), ('Hungary', 1947), ('Kingdom of Romania', 1947),
+                                                 ("People's Republic of Bulgaria", 1948)]),
+                         'from': 1945, 'to': 1946, 'strict': True, 'efter': True, 'remove': ['sovjetunionen'], 'add': []},
+    # Sovjetunionens förenklade gräns (0,3 grader) gick 1945–1946 också ut över Jugoslavien, Grekland, Turkiet och Svarta havet, och
+    # efter klippningen blev de remsorna kvar. I rutan SOVJET_VAST klipps därför allt utom Sovjetunionens egen gräns 1947 i Cliopatria
+    # bort de åren, efter förenklingen. Rutan når inte den sovjetiska zonen i Tyskland (norr om 49,6 grader och väster om 14,9)
+    'osteuropa-sovjet-rester': {'area': ('skillnad', ('rutor', SOVJET_VAST), ('clio', 'Union of Soviet Socialist Republics', 1947)),
+                                'from': 1945, 'to': 1946, 'strict': True, 'efter': True, 'remove': ['sovjetunionen'], 'add': []},
+    # Rumäniens förenklade gräns (0,2 grader) når inte fram till gränsen mot Sovjetunionen i norr och öster (vid Suceava, Botoșani och
+    # Galați), och Sovjetunionen klipps med den ogenomskurna gränsen. Där läggs Rumäniens ogenomskurna gräns 1947 tillbaka efter
+    # förenklingen de åren, annars blir fält på cirka 2 500 km² utan stat (1947–1989 ritas de som Sovjetunionen, som förut)
+    'osteuropa-rumanien': {'area': ('snitt', ('clio', 'Kingdom of Romania', 1947), ('rutor', RUMANIEN_OST)),
+                           'from': 1945, 'to': 1946, 'strict': True, 'efter': True, 'remove': [], 'add': ['rumanien']},
+    # Österrike 1945–1946 (#1469): Renners provisoriska regering tillträdde 27 april 1945 och erkändes av västmakterna 20 oktober 1945;
+    # landet var ockuperat i fyra zoner till 1955 (wp-allied-occupied-austria). Cliopatria ritar zonerna 1945 och den sovjetiska zonen
+    # (Niederösterreich, Burgenland, Mühlviertel och delar av Wien) 1946. Österrike ritas med sin gräns 1947, som klipps bort ur de fyra
+    # makterna efter förenklingen: Sovjetunionen 1945–1946, de tre västmakterna bara 1945, så att deras perioder delas som förut
+    # från 1946 (de har inte Österrike 1946 i Cliopatria)
+    'osterrike-zoner': {'area': ('clio', 'Second Republic of Austria', 1947), 'from': 1945, 'to': 1946, 'strict': True, 'efter': True,
+                        'remove': ['sovjetunionen'], 'add': []},
+    # För västmakterna är området rutan kring Österrike utom Tyskland i Natural Earth (där zonerna i Tyskland står kvar), eftersom deras
+    # förenklade gränser annars blir kvar som remsor över Österrikes förenklade gräns mot Italien och Jugoslavien (cirka 2 000 km²)
+    'osterrike-zoner-1945': {'area': ('skillnad', ('rutor', [OSTERRIKE_RUTA]), ('ne', ['tyskland'])), 'from': 1945, 'to': 1945,
+                             'strict': True, 'efter': True, 'remove': ['usa', 'brittiska-imperiet', 'franska-kolonialvaldet'], 'add': []},
+    # och Tjeckoslovakiens sida mot Tyskland (som tjeckoslovakien-zoner 1947–1949 nedan), där USA:s och Sovjetunionens förenklade
+    # gränser annars ligger över Tjeckoslovakiens
+    'tjeckoslovakien-zoner-1945': {'area': ('ne', ['tjeckien-ne']), 'from': 1945, 'to': 1946, 'strict': True, 'efter': True,
+                                   'remove': ['usa', 'sovjetunionen'], 'add': []},
+    # Kuwait 1990 (#1469): Irak invaderade landet 2 augusti 1990 och annekterade det; FN:s säkerhetsråd förklarade annekteringen
+    # olaglig ("illegal") 9 augusti 1990 (resolution 662), och landet befriades i februari 1991 (wp-iraqi-invasion-kuwait, wp-unsc-662).
+    # Cliopatria räknar landet till Irak 1990; Kuwaits gräns 1989 (fill i GROUPS) klipps bort ur Irak efter förenklingen, och Iraks
+    # yta räknas utan Kuwait (yta). Både den ogenomskurna och den förenklade gränsen klipps bort, så att Irak inte ritas på kuwaitisk
+    # mark och inte under Kuwaits förenklade gräns (annars cirka 600 km² i båda länderna)
+    'kuwait-irak': {'area': ('union', ('clio', 'State of Kuwait', 1989), ('forenklad', 'State of Kuwait', 1989)), 'from': 1990,
+                    'to': 1990, 'strict': True, 'efter': True, 'yta': True, 'remove': ['irak'], 'add': []},
     # Oder–Neisse (#1750): Cliopatrias Polen sträcker sig väster om gränsen (Frankfurt an der Oder och Görlitz ligger i
     # Polen). Tysklands gräns i Natural Earth klipps ur Polen, och den tyska sidan längs gränsen läggs till DDR och Tyskland
     'oder-polen': {'area': ('ne', ['tyskland']), 'from': 1945, 'strict': True, 'remove': ['polen'], 'add': []},
@@ -1971,6 +2365,25 @@ DISPUTED = {
     # förenklade gränsen inte buktar in över Słubice och Zgorzelec
     'oder-ej-tyskland': {'area': ('skillnad', ('rutor', [ODER]), ('ne', ['tyskland'])), 'from': 1949, 'strict': True,
                          'remove': ['osttyskland', 'tyskland'], 'add': []},
+    # Świnoujście (#1781): Cliopatria saknar Usedom och västra Wolin, så Świnoujście var utan stat från 1945. Gränsen från
+    # Potsdam går strax väster om staden, och polsk förvaltning tog över i juli 1945 (en.wikipedia "Świnoujście"). Polens sida i
+    # rutan enligt Natural Earth läggs till Polen från 1945, efter förenklingen
+    'oder-polen-oarna': {'area': ('skillnad', ('snitt', ('ne', ['polen-ne']), ('rutor', [ODER])), ('ne', ['tyskland'])),
+                         'from': 1945, 'strict': True, 'efter': True, 'remove': ['osttyskland', 'tyskland'], 'add': ['polen']},
+    # och Tysklands sida (Usedom och Altwarp) till DDR och Tyskland, där delstaternas gräns i Natural Earth och avrundningen till
+    # två decimaler inte når kusten (Peenemünde)
+    'oder-ddr-usedom': {'area': ('snitt', ('ne', ['tyskland']), ('rutor', [ODER])), 'from': 1949, 'strict': True,
+                        'efter': True, 'remove': [], 'add': ['osttyskland', 'tyskland']},
+    # Polens gräns är avrundad till två decimaler och gick därefter in över DDR:s och Tysklands gräns (cirka 20 km²); Tysklands sida
+    # i rutan klipps ur Polen efter förenklingen, så att gränsen längs Oder och Neisse är Natural Earths på båda sidor
+    'oder-polen-efter': {'area': ('snitt', ('ne', ['tyskland']), ('rutor', [ODER])), 'from': 1945, 'strict': True, 'efter': True,
+                         'remove': ['polen'], 'add': []},
+    # Cliopatrias Sovjetunionen har kvar Västpommern och en remsa väster om Oder till 1952, så Sovjetunionen ritades över Polen
+    # 1945–1952 och över DDR 1949–1952 (Stettiner Haff). Polens sida klipps ur Sovjetunionen 1945–1952 och Tysklands 1949–1952
+    'oder-sovjet-polen': {'area': ('skillnad', ('snitt', ('ne', ['polen-ne']), ('rutor', [ODER])), ('ne', ['tyskland'])),
+                          'from': 1945, 'to': 1952, 'strict': True, 'efter': True, 'remove': ['sovjetunionen'], 'add': []},
+    'oder-sovjet-ddr': {'area': ('snitt', ('ne', ['tyskland']), ('rutor', [ODER])), 'from': 1949, 'to': 1952, 'strict': True,
+                        'efter': True, 'remove': ['sovjetunionen'], 'add': []},
     # Kaliningradområdet (#1750): Sovjetunionen förenklas med 0,3 grader, och sedan perioderna delades 1949 och 1953
     # försvann en remsa längs kusten (Baltijsk). Sovjetunionens gräns 1960 i en ruta kring området läggs tillbaka, utom Polen
     # enligt Natural Earth
@@ -1978,7 +2391,7 @@ DISPUTED = {
                                           ('rutor', [(19.4, 54.2, 22.95, 55.4)])), ('ne', ['polen-ne'])),
                     'from': 1945, 'to': 1989, 'strict': True, 'remove': [], 'add': ['sovjetunionen']},
     # och Polen i samma ruta klipps bort efter förenklingen, så att Sovjetunionen inte buktar in över Ermland-Masurien
-    'kaliningrad-polen': {'area': ('snitt', ('ne', ['polen-ne']), ('rutor', [(19.4, 54.0, 22.95, 55.4)])), 'from': 1945, 'to': 1989,
+    'kaliningrad-polen': {'area': POLEN_ERMLAND, 'from': 1945, 'to': 1989,
                           'strict': True, 'remove': ['sovjetunionen'], 'add': []},
     # Fria staden Danzig (#1746): Cliopatria räknar Memelområdet till fristaden 1919–1935. Det förvaltades av de allierade
     # till 1923 och hörde sedan till Litauen; delen tas bort som källfel
@@ -1990,24 +2403,60 @@ DISPUTED = {
                          'remove': ['weimarrepubliken'], 'add': []},
     'frankrike-nazityskland': {'area': ('ne', ['frankrike-ne']), 'from': 1933, 'to': 1939, 'strict': True, 'efter': True,
                                'remove': ['nazityskland'], 'add': []},
-    # Efter ockupationen av Rhenlandet (Cliopatria: till och med 1929) följer gränsen Natural Earth på båda sidor 1930–1939, så
-    # att förenklingen inte lämnar tomma fält eller ritar dubbelt. Saarområdet hålls utanför Tyskland till och med 1934.
+    # Gränsen följer Natural Earth på båda sidor 1920–1939 (1930–1939 före #1766, när Rhenlandet ritades som Frankrike till och
+    # med 1929), så att förenklingen inte lämnar tomma fält eller ritar dubbelt. Saarområdet hålls utanför Tyskland till och med 1934.
     # Natural Earths gräns vid Lauter ligger ungefär en km fel: Wissembourg och Lauterbourg hamnar i Tyskland (Om kartan)
-    'gransen-weimar': {'area': ('skillnad', TYSKA_SIDAN, SAAR), 'from': 1930, 'to': 1932, 'strict': True, 'efter': True,
+    'gransen-weimar': {'area': ('skillnad', TYSKA_SIDAN, SAAR), 'from': 1920, 'to': 1932, 'strict': True, 'efter': True,
                        'remove': [], 'add': ['weimarrepubliken']},
     'gransen-nazityskland-saar': {'area': ('skillnad', TYSKA_SIDAN, SAAR), 'from': 1933, 'to': 1934, 'strict': True, 'efter': True,
                                   'remove': [], 'add': ['nazityskland']},
     'gransen-nazityskland': {'area': TYSKA_SIDAN, 'from': 1935, 'to': 1939, 'strict': True, 'efter': True,
                              'remove': [], 'add': ['nazityskland']},
-    'gransen-frankrike': {'area': FRANSKA_SIDAN, 'from': 1930, 'to': 1939, 'strict': True, 'efter': True,
+    'gransen-frankrike': {'area': FRANSKA_SIDAN, 'from': 1920, 'to': 1939, 'strict': True, 'efter': True,
                           'remove': [], 'add': ['franska-kolonialvaldet']},
+    # Perioden 1930–1931 förenklas för sig och buktar då in över Schweiz och Luxemburg; deras gränser i Cliopatria klipps bort
+    'frankrike-1930-grannar': {'area': ('clio-union', [('Swiss Confederation', 1930), ('Luxembourg', 1930)]), 'from': 1930,
+                               'to': 1931, 'strict': True, 'efter': True, 'remove': ['franska-kolonialvaldet'], 'add': []},
+    # och Schweiz förenklade gräns buktar ut över fransk mark (Jura, Genève); Frankrike i Natural Earth klipps ur Schweiz 1930–1939
+    'schweiz-frankrike': {'area': ('ne', ['frankrike-ne']), 'from': 1930, 'to': 1939, 'strict': True, 'efter': True,
+                          'remove': ['schweiz'], 'add': []},
+    # Jura och Sundgau (#1771): gränsen mellan Frankrike och Schweiz är i stort sett från 1815 (en.wikipedia "France–Switzerland
+    # border"; små byten, bland annat för flygplatsen i Genève 1960). I rutan JURA följer den Natural Earth från 1919, så att Sundgau
+    # och Jura inte blir utan stat (Altkirch, Delle, Ferrette) och länderna inte ritas över varandra. 1940–1944 följer Frankrikes sida
+    # Cliopatria
+    'frankrike-jura': {'area': ('snitt', ('ne', ['frankrike-ne']), ('rutor', [JURA])), 'from': 1919, 'to': 1939, 'strict': True,
+                       'efter': True, 'remove': [], 'add': ['franska-kolonialvaldet']},
+    'frankrike-jura-1945': {'area': ('snitt', ('ne', ['frankrike-ne']), ('rutor', [JURA])), 'from': 1945, 'strict': True,
+                            'efter': True, 'remove': [], 'add': ['franska-kolonialvaldet', 'frankrike']},
+    'jura-frankrike-schweiz': {'area': ('snitt', ('ne', ['frankrike-ne']), ('rutor', [JURA])), 'from': 1919, 'strict': True,
+                               'efter': True, 'remove': ['schweiz'], 'add': []},
+    'jura-schweiz': {'area': ('snitt', ('ne', ['schweiz-ne']), ('rutor', [JURA])), 'from': 1919, 'strict': True, 'efter': True,
+                     'remove': ['franska-kolonialvaldet', 'frankrike', 'nazityskland'], 'add': ['schweiz']},
+    # Cliopatrias Italien 1943 ligger över Genève (#1781): Schweiz i Natural Earth i rutan klipps ur Italien det året
+    'jura-schweiz-italien': {'area': ('snitt', ('ne', ['schweiz-ne']), ('rutor', [JURA])), 'from': 1943, 'to': 1943, 'strict': True,
+                             'efter': True, 'remove': ['italien'], 'add': []},
+    # 1940–1944 (#1781): Frankrikes sida följer också Natural Earth. Cliopatria delar den mellan Nazityskland (ockuperade zonen och
+    # Elsass), Vichyregimen (1940–1942) och Italien (1943), och räknar en remsa längs gränsen till Schweiz (Delle, Jougne,
+    # Bois-d'Amont, Pays de Gex); varje del av remsan går till den innehavare den gränsar mest mot (holder_part). Linjen
+    # mellan zonerna är Cliopatrias. Demarkationslinjen började vid gränsen sydväst om Genève och Pays de Gex låg öster om den
+    # (fr.wikipedia "Ligne de démarcation (France)"), så remsan vid Gex hör till Nazityskland, som i Cliopatria vid Les Rousses
+    'jura-nazi-1940': {'area': ('innehavare', JURA_FR, 'Swiss Confederation', 1940, JURA_NAZI, [JURA_VICHY]), 'from': 1940,
+                       'to': 1942, 'strict': True, 'efter': True, 'remove': ['franska-kolonialvaldet'], 'add': ['nazityskland']},
+    'jura-vichy-1940': {'area': ('innehavare', JURA_FR, 'Swiss Confederation', 1940, JURA_VICHY, [JURA_NAZI]), 'from': 1940,
+                        'to': 1942, 'strict': True, 'efter': True, 'remove': ['nazityskland'], 'add': ['franska-kolonialvaldet']},
+    'jura-nazi-1943': {'area': ('innehavare', JURA_FR, 'Swiss Confederation', 1943, JURA_NAZI, [JURA_ITALIEN]), 'from': 1943,
+                       'to': 1943, 'strict': True, 'efter': True, 'remove': ['italien'], 'add': ['nazityskland']},
+    'jura-italien-1943': {'area': ('innehavare', JURA_FR, 'Swiss Confederation', 1943, JURA_ITALIEN, [JURA_NAZI]), 'from': 1943,
+                          'to': 1943, 'strict': True, 'efter': True, 'remove': ['nazityskland'], 'add': ['italien']},
+    'jura-nazi-1944': {'area': JURA_FR, 'from': 1944, 'to': 1944, 'strict': True, 'efter': True, 'remove': ['italien'],
+                       'add': ['nazityskland']},
     'gransen-frankrike-tyska-sidan': {'area': TYSKA_SIDAN, 'from': 1930, 'to': 1939, 'strict': True, 'efter': True,
                                       'remove': ['franska-kolonialvaldet'], 'add': []},
     # Lindau: Cliopatria har ingen stat där från 1950. Landkreis Lindau hörde till den franska zonen och återförenades med Bayern
-    # 1 september 1955 (de.wikipedia "Landkreis Lindau (Bodensee)"). Tysklands gräns i Natural Earth i rutan läggs till
-    # Västtyskland från 1955 och till Tyskland, och klipps ur Fjärde republiken (som har en bit vid Wangen till 1957).
-    # 1950–1954 visas Lindau utan stat
-    'lindau-brd': {'area': ('snitt', ('ne', ['tyskland']), ('rutor', [LINDAU])), 'from': 1955, 'to': 1990, 'strict': True, 'efter': True,
+    # 1 september 1955 (de.wikipedia "Landkreis Lindau (Bodensee)"), men staden och kretsen var med i förbundsdagsvalet 1949
+    # (en.wikipedia "Oberallgäu (electoral district)"). Tysklands gräns i Natural Earth i rutan läggs till Västtyskland från 1950
+    # och till Tyskland, och klipps ur Fjärde republiken (som har en bit vid Wangen till 1957)
+    'lindau-brd': {'area': ('snitt', ('ne', ['tyskland']), ('rutor', [LINDAU])), 'from': 1950, 'to': 1990, 'strict': True, 'efter': True,
                    'remove': [], 'add': ['vasttyskland']},
     'lindau-tyskland': {'area': ('snitt', ('ne', ['tyskland']), ('rutor', [LINDAU])), 'from': 1991, 'strict': True, 'efter': True,
                         'remove': [], 'add': ['tyskland']},
@@ -2030,11 +2479,11 @@ DISPUTED = {
                               'to': 1990, 'strict': True, 'efter': True, 'remove': [], 'add': ['osttyskland']},
     'tjeckiska-gransen-tyskland': {'area': ('snitt', ('ne', ['tyskland']), ('rutor', [TJECKISKA_GRANSEN])), 'from': 1991,
                                    'strict': True, 'efter': True, 'remove': [], 'add': ['tyskland']},
-    # Tjeckien från 1993 och Österrike: deras förenklade gränser går annars in över den tyska (och för Österrike den tjeckiska)
+    # Tjeckien (från 1992 i Cliopatria) och Österrike: deras förenklade gränser går annars in över den tyska (och för Österrike den tjeckiska)
     # sidan, som nu följer Natural Earth
-    'tjeckiska-gransen-tjeckien': {'area': ('snitt', ('ne', ['tyskland']), ('rutor', [TJECKISKA_GRANSEN])), 'from': 1993,
+    'tjeckiska-gransen-tjeckien': {'area': ('snitt', ('ne', ['tyskland']), ('rutor', [TJECKISKA_GRANSEN])), 'from': 1992,
                                    'strict': True, 'efter': True, 'remove': ['tjeckien'], 'add': []},
-    'tjeckiska-sidan-tjeckien': {'area': ('ne', ['tjeckien-ne']), 'from': 1993, 'strict': True, 'efter': True,
+    'tjeckiska-sidan-tjeckien': {'area': ('ne', ['tjeckien-ne']), 'from': 1992, 'strict': True, 'efter': True,
                                  'remove': [], 'add': ['tjeckien']},
     'tjeckiska-gransen-osterrike': {'area': ('snitt', ('ne', ['tyskland', 'tjeckien-ne']), ('rutor', [TJECKISKA_GRANSEN])),
                                     'from': 1945, 'strict': True, 'efter': True, 'remove': ['osterrike'], 'add': []},
@@ -2051,7 +2500,8 @@ DISPUTED = {
                          'remove': [], 'add': ['nederlanderna']},
     # Kaliningradområdet 1990–2024: Sovjetunionens och Ryska federationens förenklade gränser lämnar stora tomma ytor (Baltijsk
     # utan stat 1992–2013). Rysslands gräns i Natural Earth i rutan läggs tillbaka, och Polen och Litauen i Natural Earth klipps bort
-    'kaliningrad-sovjet': {'area': ('ne', ['kaliningrad-ne']), 'from': 1990, 'to': 1991, 'strict': True, 'efter': True,
+    # Från 1945 (#1771): Sovjetunionens förenklade gräns lämnar annars rysk mark vid gränsen mot Polen utan stat 1945–1989
+    'kaliningrad-sovjet': {'area': ('ne', ['kaliningrad-ne']), 'from': 1945, 'to': 1991, 'strict': True, 'efter': True,
                            'remove': [], 'add': ['sovjetunionen']},
     'kaliningrad-ryssland': {'area': ('ne', ['kaliningrad-ne']), 'from': 1992, 'strict': True, 'efter': True,
                              'remove': [], 'add': ['ryska-federationen']},
@@ -2060,8 +2510,39 @@ DISPUTED = {
                           'remove': ['polen'], 'add': []},
     'litauen-kaliningrad': {'area': ('ne', ['kaliningrad-ne']), 'from': 1990, 'strict': True, 'efter': True,
                             'remove': ['litauen'], 'add': []},
-    'kaliningrad-grannar': {'area': ('snitt', ('ne', ['polen-ne', 'litauen-ne']), ('rutor', [KALININGRAD])), 'from': 1990,
+    # och Litauens sida av gränsen läggs till Litauen, vars förenklade gräns annars inte når fram (Kybartai, Pagėgiai)
+    'litauen-ne': {'area': LITAUEN_UTAN_RU, 'from': 1990, 'strict': True, 'efter': True,
+                   'remove': [], 'add': ['litauen']},
+    'kaliningrad-grannar': {'area': POLEN_ERMLAND, 'from': 1990,
                             'strict': True, 'efter': True, 'remove': ['sovjetunionen', 'ryska-federationen'], 'add': []},
+    # Ermland (#1771): Polens förenklade gräns når inte fram till gränsen mot Kaliningradområdet, så polsk mark vid (20,55, 54,36) var
+    # utan stat från 1945 (Cliopatria räknar den till Sovjetunionen och Ryssland, som klipps bort ovan). Polen i Natural Earth i rutan
+    # läggs till Polen
+    'polen-ermland': {'area': POLEN_ERMLAND, 'from': 1945, 'strict': True, 'efter': True,
+                      'remove': [], 'add': ['polen']},
+    # och klipps ur Sovjetunionen också efter avrundningen ('kaliningrad-polen' klipps före den, och avrundningen till 0,1 grad
+    # lägger tillbaka en remsa polsk mark)
+    'ermland-sovjet': {'area': POLEN_ERMLAND, 'from': 1945, 'to': 1991, 'strict': True,
+                       'efter': True, 'remove': ['sovjetunionen'], 'add': []},
+    # Vid trelandspunkten med Litauen (Suwałki) går Polens och Litauens förenklade gränser in i varandra
+    'polen-litauen': {'area': ('ne', ['litauen-ne']), 'from': 1945, 'strict': True, 'efter': True, 'remove': ['polen'], 'add': []},
+    'litauen-polen': {'area': POLEN_ERMLAND, 'from': 1990, 'strict': True, 'efter': True,
+                      'remove': ['litauen'], 'add': []},
+    # och vid trelandspunkten med Tjeckoslovakien (Zittau) Polens och Tjeckoslovakiens; Polens sida i rutan (Bogatynia) läggs till Polen
+    'polen-tjeckien': {'area': ('ne', ['tjeckien-ne']), 'from': 1945, 'strict': True, 'efter': True, 'remove': ['polen'], 'add': []},
+    'tjeckien-polen': {'area': ('snitt', ('ne', ['polen-ne']), ('rutor', [TJECKISKA_GRANSEN])), 'from': 1945, 'strict': True,
+                       'efter': True, 'remove': ['tjeckoslovakien', 'tjeckien', 'sovjetunionen'], 'add': ['polen']},
+    # Kuriska näset (#1771): Cliopatria har ingen stat på näset. Den litauiska delen med Nida hörde till Litauen från 1945
+    # (en.wikipedia "Curonian Spit"); Litauen i Natural Earth (rutan når 55,75 grader nord) läggs till Sovjetunionen 1945–1989.
+    # Från 1990 läggs den till Litauen ('litauen-ne' ovan)
+    'litauen-sovjet': {'area': ('ne', ['litauen-ne']), 'from': 1945, 'to': 1989, 'strict': True, 'efter': True,
+                       'remove': [], 'add': ['sovjetunionen']},
+    # och Litauens sida mot Kaliningradområdet klipps ur Sovjetunionen och Ryssland från 1990 (Natural Earth minus Cliopatrias Ryssland)
+    'kaliningrad-grannar-lt': {'area': ('snitt', LITAUEN_UTAN_RU, ('rutor', [KALININGRAD])), 'from': 1990, 'strict': True,
+                               'efter': True, 'remove': ['sovjetunionen', 'ryska-federationen'], 'add': []},
+    # Remsorna som Natural Earth räknar till Polen eller Litauen men Cliopatria till Ryssland (Bagrationovsk) hör till Kaliningradområdet
+    'kaliningrad-remsa-pl': {'area': REMSA_PL, 'from': 1945, 'strict': True, 'efter': True,
+                             'remove': ['polen'], 'add': ['sovjetunionen', 'ryska-federationen']},
     'danzig-memel': {'area': ('rutor', [(20.8, 55.0, 22.6, 56.0)]), 'parts': True, 'from': 1919, 'to': 1935,
                      'remove': ['fria-staden-danzig'], 'add': []},
     # Cliopatrias gräns för fristaden överlappar grannarnas (Polen i väster, Ostpreussen i öster); grannarnas gränser i
@@ -2087,13 +2568,359 @@ DISPUTED = {
                            'from': 1933, 'to': 1940, 'remove': ['nazityskland'], 'add': []},
     'nazityskland-levanten': {'area': ('rutor', [(35.6, 32.6, 36.0, 33.4)]), 'parts': True,
                               'from': 1933, 'to': 1944, 'remove': ['nazityskland'], 'add': []},
+    # Gränsen mellan Sudan och Sydsudan (#1534): Cliopatrias gränser 2014 delar inget område, men förenklingen (0,2 grader) ritar
+    # cirka 1 400 km2 i båda länderna och lämnar cirka 2 500 km2 utan stat längs gränsen. I rutorna längs gränsen (SUDANGRANSEN)
+    # läggs båda ländernas ogenomskurna gräns i Cliopatria 2014 tillbaka efter förenklingen, och var och en klipps ur grannen
+    'sudan-mot-sydsudan': {'area': ('snitt', ('clio', 'Republic of Sudan', 2014), ('rutor', SUDANGRANSEN)), 'from': 2011,
+                           'strict': True, 'efter': True, 'remove': ['sydsudan'], 'add': ['sudan']},
+    'sydsudan-mot-sudan': {'area': ('snitt', ('clio', 'South Sudan', 2014), ('rutor', SUDANGRANSEN)), 'from': 2011,
+                           'strict': True, 'efter': True, 'remove': ['sudan'], 'add': ['sydsudan']},
+    # Gränsen mellan Sydkorea och Nordkorea (#1500): Cliopatrias gränser delar inget område, men förenklingen (0,2 grader)
+    # lämnar en remsa utan stat längs 38:e breddgraden 1948–1952 (cirka 4 700 km2) och fält längs stilleståndslinjen från 1953.
+    # Förut täckte USA:s yta remsan 1948–1966. I rutorna längs gränsen läggs båda ländernas ogenomskurna gräns i Cliopatria
+    # tillbaka efter förenklingen, och var och en klipps ur grannen (som Sudan och Sydsudan)
+    'sydkorea-38': {'area': ('snitt', ('clio', 'Republic of Korea', 1950), ('rutor', KOREA38)), 'from': 1948, 'to': 1952,
+                    'strict': True, 'efter': True, 'remove': ['nordkorea'], 'add': ['sydkorea']},
+    'nordkorea-38': {'area': ('snitt', ('clio', "Democratic People's Republic of Korea", 1950), ('rutor', KOREA38)), 'from': 1948,
+                     'to': 1952, 'strict': True, 'efter': True, 'remove': ['sydkorea'], 'add': ['nordkorea']},
+    'sydkorea-dmz': {'area': ('snitt', ('clio', 'Republic of Korea', 1960), ('rutor', KOREAGRANSEN)), 'from': 1953,
+                     'strict': True, 'efter': True, 'remove': ['nordkorea'], 'add': ['sydkorea']},
+    'nordkorea-dmz': {'area': ('snitt', ('clio', "Democratic People's Republic of Korea", 1960), ('rutor', KOREAGRANSEN)),
+                      'from': 1953, 'strict': True, 'efter': True, 'remove': ['sydkorea'], 'add': ['nordkorea']},
+    # Zanzibar (#1534): Tanganyika och Zanzibar gick samman 26 april 1964 (FN, un-member-tanzania). Cliopatria saknar Pemba helt
+    # och räknar Unguja till Tanzania först från 1967, och förenklingen tar bort Unguja. Öarna (Unguja och Pemba i Tanzanias gräns i
+    # Natural Earth) läggs till Tanzania från 1964, efter förenklingen
+    'zanzibar-tanzania': {'area': ('ne', ['unguja-ne', 'pemba-ne']), 'from': 1964, 'strict': True, 'efter': True,
+                          'remove': [], 'add': ['tanzania']},
+    # Bodensee, Basel och Vorarlberg (#1771): i rutorna ALP följer gränserna mellan Tyskland, Schweiz, Österrike och Frankrike
+    # Natural Earth från 1919. Varje lands mark läggs till den stat som höll den och klipps ur grannarna. Källfel i Cliopatria:
+    # Hörbranz i Weimarrepubliken och Nazityskland 1920–1937, Konstanz i Schweiz till 1949, Kreuzlingen i Förbundsrepubliken från
+    # 1950, Basel i Fjärde republiken 1946–1949 och Riehen i Nazityskland 1940–1944 (Schweiz invaderades aldrig, en.wikipedia
+    # "Switzerland during the World Wars"). Tysk mark 1945–1949 följer ockupationszonerna i Cliopatria, utom Bayern (nedan)
+    'alp-schweiz': {'area': ('snitt', ('ne', ['schweiz-ne']), ALP), 'from': 1919, 'strict': True, 'efter': True,
+                    'remove': ['osterrike', 'tyska-riket', 'weimarrepubliken', 'nazityskland', 'franska-kolonialvaldet', 'frankrike',
+                               'vasttyskland', 'tyskland'], 'add': ['schweiz']},
+    'alp-schweiz-zoner': {'area': ('snitt', ('ne', ['schweiz-ne']), ALP), 'from': 1945, 'to': 1949, 'strict': True, 'efter': True,
+                          'remove': ['usa'], 'add': []},
+    # Österrike 1919–1937 och från 1945 (Vorarlberg förblev österrikiskt efter folkomröstningen 1919, en.wikipedia "Vorarlberg");
+    # Nazityskland 1938–1944. 1945 ritas Österrike i stället för ockupationszonerna (osterrike-zoner, #1469)
+    'alp-osterrike': {'area': ('snitt', ('ne', ['osterrike-ne']), ALP), 'from': 1919, 'strict': True, 'efter': True,
+                      'remove': ['schweiz', 'tyska-riket', 'weimarrepubliken', 'vasttyskland', 'tyskland'], 'add': ['osterrike']},
+    'alp-osterrike-1933': {'area': ('snitt', ('ne', ['osterrike-ne']), ALP), 'from': 1933, 'to': 1937, 'strict': True, 'efter': True,
+                           'remove': ['nazityskland'], 'add': []},
+    'alp-osterrike-anschluss': {'area': ('snitt', ('ne', ['osterrike-ne']), ALP), 'from': 1938, 'to': 1944, 'strict': True,
+                                'efter': True, 'remove': [], 'add': ['nazityskland']},
+    'alp-osterrike-zoner': {'area': ('snitt', ('ne', ['osterrike-ne']), ALP), 'from': 1946, 'strict': True, 'efter': True,
+                            'remove': ['usa', 'franska-kolonialvaldet'], 'add': []},
+    # och 1945, då Cliopatria ritar zonerna i stället för Österrike (#1469); egen post, så att perioderna delas som förut från 1946
+    'alp-osterrike-zoner-1945': {'area': ('snitt', ('ne', ['osterrike-ne']), ALP), 'from': 1945, 'to': 1945, 'strict': True,
+                                 'efter': True, 'remove': ['usa', 'franska-kolonialvaldet'], 'add': []},
+    # Tysklands mark: Tyska riket 1919, Weimarrepubliken, Nazityskland, Västtyskland och Tyskland (var och en bara sina år)
+    'alp-tyskland': {'area': ('snitt', ('ne', ['tyskland']), ALP), 'from': 1919, 'strict': True, 'efter': True,
+                     'remove': ['schweiz', 'osterrike'], 'add': ['tyska-riket', 'weimarrepubliken', 'nazityskland', 'vasttyskland', 'tyskland']},
+    'alp-tyskland-frankrike': {'area': ('snitt', ('ne', ['tyskland']), ALP), 'from': 1919, 'to': 1944, 'strict': True, 'efter': True,
+                               'remove': ['franska-kolonialvaldet'], 'add': []},
+    'alp-tyskland-frankrike-1950': {'area': ('snitt', ('ne', ['tyskland']), ALP), 'from': 1950, 'strict': True, 'efter': True,
+                                    'remove': ['franska-kolonialvaldet', 'frankrike'], 'add': []},
+    # Frankrikes mark vid Basel (Saint-Louis, Sundgau). 1940–1944 följer Cliopatria (Alsace annekterat i praktiken)
+    'alp-frankrike-schweiz': {'area': ('snitt', ('ne', ['frankrike-ne']), ALP), 'from': 1919, 'strict': True, 'efter': True,
+                              'remove': ['schweiz'], 'add': []},
+    'alp-frankrike': {'area': ('snitt', ('ne', ['frankrike-ne']), ALP), 'from': 1919, 'to': 1939, 'strict': True, 'efter': True,
+                      'remove': ['tyska-riket', 'weimarrepubliken', 'nazityskland'], 'add': ['franska-kolonialvaldet']},
+    'alp-frankrike-1945': {'area': ('snitt', ('ne', ['frankrike-ne']), ALP), 'from': 1945, 'strict': True, 'efter': True,
+                           'remove': ['vasttyskland', 'tyskland'], 'add': ['franska-kolonialvaldet', 'frankrike']},
+    # Liechtenstein ur Natural Earth: Österrikes och Schweiz förenklade gränser går in över landet
+    'alp-liechtenstein': {'area': ('ne', ['liechtenstein']), 'from': 1919, 'strict': True, 'efter': True,
+                          'remove': ['osterrike', 'schweiz'], 'add': []},
+    # Före 1919 (#1781): Basel var utan stat 1871–1918 och Konstanz ritades i både Tyska riket och Schweiz. Gränsen mellan Tyskland
+    # och Schweiz har i stort sett legat fast sedan 1501 (Rafzerfeld kom till Zürich 1651; en.wikipedia "Germany–Switzerland
+    # border"), och gränsen mellan Österrike och Schweiz är från 1798 och var Österrikiska kejsardömets och Österrike-Ungerns västgräns (en.wikipedia
+    # "Austria–Switzerland border"). Elsass med Saint-Louis hörde till Tyska riket 1871–1918 (en.wikipedia "Alsace–Lorraine").
+    # I rutan HOCHRHEIN följer gränserna därför Natural Earth också före 1919: Schweiz från 1815 (gruppens perioder börjar då),
+    # Tyska riket från 1871 och Österrike-Ungern från 1868. Före 1871 finns ingen grupp för Baden, Württemberg och Bayern, så den
+    # tyska sidan är utan stat
+    'hochrhein-schweiz-1815': {'area': ('snitt', ('ne', ['schweiz-ne']), ('rutor', [HOCHRHEIN])), 'from': 1815, 'to': 1918,
+                               'strict': True, 'efter': True, 'remove': ['tyska-riket', 'osterrike-ungern'], 'add': ['schweiz']},
+    'hochrhein-ej-schweiz-1815': {'area': ('skillnad', ('rutor', [HOCHRHEIN]), ('ne', ['schweiz-ne'])), 'from': 1815, 'to': 1918,
+                                  'strict': True, 'efter': True, 'remove': ['schweiz'], 'add': []},
+    'hochrhein-tyskland-1871': {'area': ('snitt', ('ne', ['tyskland', 'frankrike-ne']), ('rutor', [HOCHRHEIN])), 'from': 1871,
+                                'to': 1918, 'strict': True, 'efter': True, 'remove': [], 'add': ['tyska-riket']},
+    # (egen post från 1868, så att Österrike-Ungerns perioder inte delas 1871)
+    'hochrhein-ej-osterrike-1868': {'area': ('snitt', ('ne', ['tyskland', 'frankrike-ne']), ('rutor', [HOCHRHEIN])), 'from': 1868,
+                                    'to': 1918, 'strict': True, 'efter': True, 'remove': ['osterrike-ungern'], 'add': []},
+    'hochrhein-osterrike-1868': {'area': ('snitt', ('ne', ['osterrike-ne']), ('rutor', [HOCHRHEIN])), 'from': 1868, 'to': 1918,
+                                 'strict': True, 'efter': True, 'remove': ['tyska-riket'], 'add': ['osterrike-ungern']},
+    'hochrhein-liechtenstein-1868': {'area': ('snitt', ('ne', ['liechtenstein']), ('rutor', [HOCHRHEIN])), 'from': 1868, 'to': 1918,
+                                     'strict': True, 'efter': True, 'remove': ['osterrike-ungern'], 'add': []},
+    # Bayern och Sachsen 1945–1949 (#1771): Cliopatrias zoner når inte fram till gränserna mot Tjeckoslovakien och Österrike, så
+    # tyskt land vid Zittau, i Bayerska skogen och vid Passau var utan stat. Den amerikanska zonen omfattade Bayern utom Lindau och
+    # den sovjetiska Sachsen och Thüringen (en.wikipedia "Allied-occupied Germany"); delstaterna i Natural Earth i rutorna läggs till
+    'usazon-bayern': {'area': ('snitt', ('ne', ['vasttyska-granslander']), ('rutor', [TJECKISKA_GRANSEN, ALPGRANSEN])),
+                      'from': 1945, 'to': 1949, 'strict': True, 'efter': True, 'remove': ['sovjetunionen'], 'add': ['usa']},
+    # (delstaterna snittas med Tyskland i Natural Earth, eftersom deras gräns vid Neisse inte är exakt densamma)
+    'sovjetzon-sachsen': {'area': ('skillnad', ('snitt', ('snitt', ('ne', ['osttyska-lander']), ('ne', ['tyskland'])),
+                                                ('rutor', [TJECKISKA_GRANSEN, ODER])), ('ne', ['berlin'])),
+                          'from': 1945, 'to': 1948, 'strict': True, 'efter': True, 'remove': ['usa'], 'add': ['sovjetunionen']},
+    # Södra Baden och Württemberg-Hohenzollern hörde till den franska zonen (samma källa): Baden-Württemberg i Natural Earth i rutan
+    # vid Bodensee (Tyskland utom Bayern) läggs till Fjärde republiken 1945–1949. Bayerns del (Lindau i den franska zonen, resten i
+    # den amerikanska) följer Cliopatria, eftersom gränsen för Landkreis Lindau inte finns i våra källor
+    'franskzon-baden-wurttemberg': {'area': ('skillnad', ('snitt', ('ne', ['tyskland']), ('rutor', [HOCHRHEIN])),
+                                             ('ne', ['vasttyska-granslander'])),
+                                    'from': 1945, 'to': 1949, 'strict': True, 'efter': True, 'remove': ['usa'],
+                                    'add': ['franska-kolonialvaldet']},
+    # Västra Allgäu 1945–1949 (#1781): fält kring Weiler och Oberstaufen i Bayern var utan stat. Bayerns mark i rutan ALLGAU (Natural
+    # Earth admin 1) delas mellan den franska zonen och USA längs Cliopatrias egen linje (zone_part), så att ingen ny linje dras; i
+    # Bayern räknas bara Cliopatrias franska yta kring Lindau som fransk, inte de bitar av den franska zonen i Österrike som
+    # Cliopatria 1945 ritar in över Bayern vid Oberstdorf. Källorna skiljer sig om Weiler im Allgäu: Landkreis Lindau (franska
+    # zonen) enligt de.wikipedia "Landkreis Lindau (Bodensee)", USA i Cliopatria. Württemberg följer Cliopatria: en ifyllning där
+    # gav en zongräns längs rutans nordkant (geografen), eftersom Cliopatrias USA i Württemberg (Isny, Leutkirch, Ulm) är en enda
+    # sammanhängande yta. Fältet kring Leutkirch och Memmingen är därför kvar utan stat, och Isny och Leutkirch, som hörde till den
+    # franska zonen (de.wikipedia "Landkreis Wangen"), står i Om kartan som källfel
+    'allgau-bayern-usa-1945': {'area': ('zon', ALLGAU_BY, 1945, 'us', LINDAU_PUNKT), 'from': 1945, 'to': 1945, 'strict': True,
+        'efter': True, 'remove': ['franska-kolonialvaldet'], 'add': ['usa']},
+    'allgau-bayern-fr-1945': {'area': ('zon', ALLGAU_BY, 1945, 'fr', LINDAU_PUNKT), 'from': 1945, 'to': 1945, 'strict': True,
+        'efter': True, 'remove': ['usa'], 'add': ['franska-kolonialvaldet']},
+    'allgau-bayern-usa': {'area': ('zon', ALLGAU_BY, 1946, 'us', LINDAU_PUNKT), 'from': 1946, 'to': 1949, 'strict': True,
+        'efter': True, 'remove': ['franska-kolonialvaldet'], 'add': ['usa']},
+    'allgau-bayern-fr': {'area': ('zon', ALLGAU_BY, 1946, 'fr', LINDAU_PUNKT), 'from': 1946, 'to': 1949, 'strict': True,
+        'efter': True, 'remove': ['usa'], 'add': ['franska-kolonialvaldet']},
+    # och Tjeckoslovakiens sida, som Cliopatria 1947–1949 ritar också i USA och Sovjetunionen
+    'tjeckoslovakien-zoner': {'area': ('ne', ['tjeckien-ne']), 'from': 1947, 'to': 1949, 'strict': True, 'efter': True,
+                              'remove': ['usa', 'sovjetunionen'], 'add': []},
+    # Kinshasa och Brazzaville (#1707): Kinshasa (Léopoldville) ligger på Pool Malebos södra strand och Brazzaville på andra sidan
+    # floden (wp-kinshasa), och gränsen mellan de två Kongo följer Kongofloden (wp-grans-kongo). Förenklingen lade Kinshasa i
+    # Kongo-Brazzaville från 1961 och utan stat 1960, och 1890–1959 i både Kongostaten eller Belgiska Kongo och Frankrike. I rutan
+    # POOL_MALEBO följer floden Natural Earth: varje sida klipps ur grannarna alla år, och läggs till de stater som höll den de år
+    # som Cliopatria redan har dem där (Frankrike saknas 1940–1944 i hela Franska Ekvatorialafrika, och så får det vara)
+    'kongo-ne-sida': {'area': KINSHASA_SIDAN, 'from': 1880, 'strict': True, 'efter': True,
+                      'remove': ['franska-kolonialvaldet', 'frankrike', 'kongo-brazzaville'], 'add': []},
+    'kongo-ne-sida-belgien': {'area': KINSHASA_SIDAN, 'from': 1890, 'to': 1959, 'strict': True, 'efter': True,
+                              'remove': [], 'add': ['belgiska-kongo']},
+    'kongo-ne-sida-kinshasa': {'area': KINSHASA_SIDAN, 'from': 1960, 'strict': True, 'efter': True,
+                               'remove': [], 'add': ['kongo-kinshasa']},
+    'kongo-no-sida': {'area': BRAZZAVILLE_SIDAN, 'from': 1880, 'strict': True, 'efter': True,
+                      'remove': ['belgiska-kongo', 'kongo-kinshasa'], 'add': []},
+    'kongo-no-sida-frankrike': {'area': BRAZZAVILLE_SIDAN, 'from': 1895, 'to': 1939, 'strict': True, 'efter': True,
+                                'remove': [], 'add': ['franska-kolonialvaldet']},
+    'kongo-no-sida-frankrike-1945': {'area': BRAZZAVILLE_SIDAN, 'from': 1945, 'to': 1957, 'strict': True, 'efter': True,
+                                     'remove': [], 'add': ['franska-kolonialvaldet']},
+    'kongo-no-sida-femte-republiken': {'area': BRAZZAVILLE_SIDAN, 'from': 1958, 'to': 1960, 'strict': True, 'efter': True,
+                                       'remove': [], 'add': ['frankrike']},
+    'kongo-no-sida-brazzaville': {'area': BRAZZAVILLE_SIDAN, 'from': 1961, 'strict': True, 'efter': True,
+                                  'remove': [], 'add': ['kongo-brazzaville']},
+    # Newfoundland och Labrador (#1707): gick med i Kanada vid midnatt 31 mars 1949 (wp-newfoundland-and-labrador). Cliopatria
+    # räknar provinsen till Kanada från 1949 men också till Brittiska imperiet till och med 1952, så Gander låg i båda. Imperiets
+    # delar som ligger helt i rutan (Newfoundland och Labrador; inget annat av imperiet ligger där) tas bort från 1949, efter
+    # förenklingen. Med yta räknas imperiets yta (areaKm2) utan provinsen
+    'newfoundland-imperiet': {'area': ('rutor', [NEWFOUNDLAND]), 'parts': True, 'from': 1949, 'strict': True, 'efter': True,
+                              'yta': True, 'remove': ['brittiska-imperiet'], 'add': []},
 }
+
+# Östafrikas kust (#1787): Cliopatrias kust från Lamu till Kilwa ligger några km inåt land jämfört med Natural Earth (Mombasa, Tanga,
+# Malindi och Kilwa Kivinje ligger 2–4 km utanför och Kilwa Kisiwani cirka 13 km), och förenklingen (0,2–0,3 grader) lade orterna
+# 7–20 km utanför. Längs hela kusten från Somalia till Rovuma används Natural Earths land för Kenya och Tanzania (tools/ne_omstridda.py),
+# utan Unguja, Pemba och Mafia. Landen slutar vid gränserna mot Somalia och Moçambique, och rutornas kanter inåt land går genom
+# gränspunkter i Natural Earth, så att kusten inte får något trappsteg (geografen, 2026-11-16). Marken går varje år till den stat som
+# Cliopatria räknar den till; kustremsan som Cliopatria inte räknar till någon stat går till den stat den har längst gräns mot det
+# året (kust_part). Gränsen mellan Kenya och Tanzania följer Natural Earth i rutorna: på var sin sida går Cliopatrias mark för
+# grannen över gränsen (som där bara skiljer sig några km från Natural Earth) till statens egen sida (OA_KUST, "också"), så att
+# gränsen inte går ut genom en rutkant (geografen, Vanga). Kusten är Natural Earths, och ingen linje dras
+OA_OAR = ('rutor', [(39.17, -6.5, 39.6, -5.7), (39.55, -5.5, 39.9, -4.85), (39.58, -8.1, 39.95, -7.6)])  # Unguja, Pemba och Mafia
+OA_KEN = ('ne', ['kenya-kust-ne'])
+OA_TZA = ('skillnad', ('ne', ['tanzania-kust-ne']), OA_OAR)
+OA_MARK = ('union', OA_KEN, OA_TZA)
+# grupp: Cliopatrias poster för gruppen vid kusten
+OA_INNEHAVARE = {'spanska-imperiet': ['(Spanish Empire)'], 'portugisiska-imperiet': ['(Portuguese Empire)', 'Portuguese Republic', 'Estado Novo'],
+                 'oman': ['Sultanate of Oman'], 'brittiska-imperiet': ['(British Empire)'], 'tyska-riket': ['German Africa'],
+                 'kenya': ['Republic of Kenya'], 'tanzania': ['Tanzania']}
+# (sida, mark, grupp, från, till eller None, grupper som klipps, grupper vars mark på sidan också går till gruppen): intervallen där
+# Cliopatrias gränser vid kusten är desamma (kontrollerat vid varje brytpunkt i Cliopatria 1500–2024). 1917 delar Cliopatria
+# Tanzanias kust mellan Tyska riket och Brittiska imperiet längs en linje som går ut genom rutans västra kant; det året följer hela
+# kusten därför förenklingen. Portugal (Moçambique) har en bit norr om Rovuma i Cliopatria 1890–1917 och 1919–1975 (Kingdom of
+# Portugal och Portuguese Republic); 1918 räknar Cliopatria den till Brittiska imperiet. Kenyas och
+# Tanzanias land klipps ur Portugal (1890–1975) och Moçambique (från 1976), vars förenklade gränser annars går in över Natural
+# Earths gräns vid Rovuma (geografen). Kenyas sida klipps ur grannen i söder. Där den förenklade gränsen för staten på Kenyas sida
+# går in över Tanzanias land väster om rutan, klipps den i stället ur staten på Tanzanias sida i rutan (OA_GRANS, oa_grans), så att
+# gränsen mellan dem följer den förenklade gränsen ända fram och inte rutans kant
+# Likadant vid Rovuma: Portugals bit norr om floden (som i Cliopatria) klipps ur grannarnas förenklade gränser
+OA_GRANS = [('tyska-riket', 'brittiska-imperiet', 1890, 1916), ('tanzania', 'brittiska-imperiet', 1961, 1962),
+            ('tanzania', 'kenya', 1963, 2024), ('tyska-riket', 'portugisiska-imperiet', 1890, 1917),
+            ('brittiska-imperiet', 'portugisiska-imperiet', 1919, 1962), ('tanzania', 'portugisiska-imperiet', 1961, 1975)]
+OA_KUST = [
+    ('ken', OA_KEN, 'spanska-imperiet', 1595, 1639, [], []), ('ken', OA_KEN, 'portugisiska-imperiet', 1640, 1699, [], []),
+    ('ken', OA_KEN, 'oman', 1744, 1813, [], []), ('ken', OA_KEN, 'oman', 1814, 1814, [], []),
+    ('tza', OA_TZA, 'oman', 1744, 1813, [], []), ('tza', OA_TZA, 'oman', 1814, 1814, [], []),
+    ('ken', OA_KEN, 'brittiska-imperiet', 1824, 1827, [], []),
+    *[('ken', OA_KEN, 'brittiska-imperiet', a, b, ['tyska-riket'], ['tyska-riket']) for a, b in ((1890, 1894), (1895, 1914), (1915, 1915), (1916, 1916))],
+    *[('tza', OA_TZA, 'tyska-riket', a, b, [], ['brittiska-imperiet']) for a, b in ((1890, 1894), (1895, 1914), (1915, 1915), (1916, 1916))],
+    ('tza', OA_TZA, 'portugisiska-imperiet', 1890, 1894, [], []), ('tza', OA_TZA, 'portugisiska-imperiet', 1895, 1917, [], []),
+    ('tza', OA_TZA, 'portugisiska-imperiet', 1919, 1975, [], []),
+    *[(sida, mark, 'brittiska-imperiet', a, b, [], []) for sida, mark in (('ken', OA_KEN), ('tza', OA_TZA))
+      for a, b in ((1918, 1918), (1919, 1940), (1941, 1959), (1960, 1960))],
+    ('ken', OA_KEN, 'brittiska-imperiet', 1961, 1962, [], ['tanzania']),
+    ('tza', OA_TZA, 'tanzania', 1961, None, [], ['kenya', 'brittiska-imperiet']),
+    ('ken', OA_KEN, 'kenya', 1963, None, [], ['tanzania']),
+    # Unguja (Zanzibar) i Brittiska imperiet 1890–1962, som i Cliopatria: förenklingen lade Zanzibar stad utanför vissa år
+    ('unguja', ('ne', ['unguja-ne']), 'brittiska-imperiet', 1890, 1962, [], []),
+]
+DISPUTED['kust-rovuma-portugal'] = {'area': OA_MARK, 'from': 1890, 'to': 1975, 'strict': True, 'efter': True, 'dec': 5,
+                                    'remove': ['portugisiska-imperiet'], 'add': []}
+DISPUTED['kust-rovuma-mocambique'] = {'area': OA_MARK, 'from': 1976, 'strict': True, 'efter': True, 'dec': 5,
+                                      'remove': ['mocambique'], 'add': []}
+for _sida, _mark, _gid, _fran, _till, _klipp, _ocksa in OA_KUST:
+    DISPUTED[f'kust-{_sida}-{_gid}-{_fran}'] = {'area': ('kust', _mark, _fran, _gid, tuple(_ocksa)), 'from': _fran, 'strict': True,
+                                                 'efter': True, 'dec': 5, 'remove': _klipp, 'add': [_gid],
+                                                 **({'to': _till} if _till else {})}
+# Rhenlandet 1920–1929 (#1766, docs/beslut/2026-11-20-rhenlandet-1766.md): Cliopatria ritar de ockuperade zonerna som
+# Frankrike, Belgien, Storbritannien och USA (som längst till och med 1929). Rhenlandet förblev tyskt (en.wikipedia
+# "Occupation of the Rhineland"), så det ritas som Weimarrepubliken med republikens gräns 1930, och makterna klipps bort
+# de åren. Båda görs bara efter förenklingen och bara i de delar av gränsen som området når (efter och dec), annars
+# förenklas hela riket om och ändras långt från Rhen (Djibouti i Frankrike). Ytan räknas med området (yta); posterna står
+# sist, eftersom ett område utan efter räknar om ytan ur gränsen. USA klipps inte: USA:s period 1916–1923 har gränsen 1916,
+# så den amerikanska zonen (Bitburg, Prüm) ritades aldrig, och en delning 1920 hade ändrat USA långt från Rhen.
+# Ruhrockupationen 1923–1925 ritar Cliopatria inte (Essen, Duisburg, Gelsenkirchen och Dortmund ligger i Weimar Republic
+# alla år), så den behöver ingen ändring
+DISPUTED['rhenlandet-weimar'] = {'area': RHENLANDET, 'from': 1920, 'to': 1929, 'strict': True, 'efter': True, 'yta': True,
+                                 'dec': 3, 'remove': [], 'add': ['weimarrepubliken']}
+DISPUTED['rhenlandet-ockupation'] = {'area': RHENLANDET, 'from': 1920, 'to': 1929, 'strict': True, 'efter': True, 'yta': True,
+                                     'dec': 3, 'remove': ['franska-kolonialvaldet', 'belgien', 'brittiska-imperiet'],
+                                     'add': []}
+# och Frankrikes gräns 1920–1929 går på några ställen över Rhen in i Baden och vid Lauter; Tysklands sida av gränsen i Natural
+# Earth (som gransen-weimar lägger till republiken) klipps ur Frankrike de åren, så att marken inte ritas i båda
+DISPUTED['rhenlandet-baden'] = {'area': TYSKA_SIDAN, 'from': 1920, 'to': 1929, 'strict': True, 'efter': True, 'yta': True,
+                                'dec': 3, 'remove': ['franska-kolonialvaldet'], 'add': []}
+
+
+def oa_grans(out):
+    """Klipper ut statens gräns på Kenyas sida (förenklad, som den skrivits) ur staten på Tanzanias sida, inom Tanzanias land i rutan
+    (#1787). Bara de delar som når området räknas om; övriga behåller sina koordinater. Görs efter att alla grupper skrivits."""
+    tza = ne_shapes()['tanzania-kust-ne'].difference(unary_union([box(*r) for r in OA_OAR[1]]))
+    docs = {}
+    for t, k, a, b in OA_GRANS:
+        for g in (t, k):
+            docs.setdefault(g, json.loads((out / f'{g}.json').read_text()))
+        kp = [(q['start'], q['end'], shape(q['geometry'])) for p in docs[k]['polities'] for q in p['periods']]
+        for p in docs[t]['polities']:
+            for q in p['periods']:
+                lo, hi = max(q['start'], a), min(q['end'], b)
+                if lo > hi:
+                    continue
+                cut = unary_union([polygons_only(shapely.make_valid(g)) for s0, e0, g in kp if s0 <= hi and e0 >= lo]).intersection(tza)
+                cut = polygons_only(cut)
+                if cut.is_empty or cut.area < 1e-9:
+                    continue
+                g = shape(q['geometry'])
+                rest = list(g.geoms) if g.geom_type == 'MultiPolygon' else [g]
+                hit = [polygons_only(shapely.make_valid(x)) for x in rest if x.intersects(cut)]
+                rest = [x for x in rest if not x.intersects(cut)]
+                ng = polygons_only(unary_union(hit).difference(cut)) if hit else Polygon()
+                polys = [mapping(x)['coordinates'] for x in rest]
+                if not ng.is_empty:
+                    nw = valid_rounded(ng, 5)
+                    polys += nw['coordinates'] if nw['type'] == 'MultiPolygon' else [nw['coordinates']]
+                polys = [json.loads(json.dumps(c)) for c in polys]
+                q['geometry'] = ({'type': 'Polygon', 'coordinates': polys[0]} if len(polys) == 1
+                                 else {'type': 'MultiPolygon', 'coordinates': polys})
+    for t in {t for t, *_ in OA_GRANS}:
+        (out / f'{t}.json').write_text(json.dumps(docs[t], ensure_ascii=False, separators=(',', ':')))
 
 
 def ne_shapes():
     """Områdena och länderna i tools/ne-omstridda-omraden.geojson (Natural Earth): {id: geometri}."""
     return {f['properties']['id']: shape(f['geometry']).buffer(0)
             for f in json.loads((ROOT / 'tools/ne-omstridda-omraden.geojson').read_text())['features']}
+
+
+def holder_part(land, wrong, y, holder, others, by_name):
+    """Den del av land (Natural Earth) som Cliopatria räknar till holder år y (#1781).
+
+    Alla Cliopatria-poster med namnen räknas (till exempel både 'Vichy France' och '(Vichy France)'). Land som Cliopatria i
+    stället räknar till grannen wrong (källfel: fransk mark i Schweiz 1940–1944) delas inte: varje sammanhängande del går till
+    den innehavare den har längst gräns mot i Cliopatria, bland holder och others, så att ingen ny linje dras genom den."""
+    def union(names):
+        names = [names] if isinstance(names, str) else names
+        return unary_union([shape(f['geometry']).buffer(0) for n in names for f in by_name.get(n, [])
+                            if f['properties']['FromYear'] <= y <= f['properties']['ToYear']])
+    own = union(holder)
+    rest = [union(n) for n in others]
+    out = land.intersection(own)
+    strip = polygons_only(land.intersection(union(wrong)).difference(own))
+    for p in getattr(strip, 'geoms', [strip]):
+        if p.is_empty:
+            continue
+        edge = p.buffer(0.002)
+        mine = edge.intersection(own).area
+        if mine > 0 and all(mine >= edge.intersection(r).area for r in rest):
+            out = out.union(p)
+    return out
+
+
+_OA_CACHE = {}
+OA_REF = 2024  # året vars stater i Cliopatria täcker hela fastlandet i rutorna (Kenya, Tanzania)
+
+
+def kust_part(land, y, gid, by_name, also=()):
+    """Den del av land (Natural Earths kust i en ruta) som går till gruppen gid år y (#1787).
+
+    Land som Cliopatria räknar till gruppens poster (OA_INNEHAVARE) det året går till gruppen. Kustremsan, det land som ligger
+    utanför både statens gräns det året och Cliopatrias kust år OA_REF (då Kenya och Tanzania täcker hela fastlandet), delas
+    inte: varje sammanhängande del går till gruppen om den har längre gräns mot gruppen än mot varje annan stat och mot land
+    utan stat det året, som i holder_part. Inlandet som Cliopatria lämnar utan stat (före kolonialtiden) fylls alltså inte, och
+    kustremsan framför det inte heller."""
+    key = (land.wkb, id(by_name))
+    if key not in _OA_CACHE:
+        env = box(*land.buffer(0.3).bounds)
+        feats = [(f['properties']['Name'], f['properties']['FromYear'], f['properties']['ToYear'],
+                  shape(f['geometry']).buffer(0).intersection(env))
+                 for fs in by_name.values() for f in fs if box(*shape(f['geometry']).bounds).intersects(env)]
+        feats = [x for x in feats if not x[3].is_empty]
+        _OA_CACHE[key] = (feats, unary_union([g for _n, a, b, g in feats if a <= OA_REF <= b]))
+    feats, ref = _OA_CACHE[key]
+    now = {}
+    for n, a, b, g in feats:
+        if a <= y <= b:
+            now[n] = unary_union([now[n], g]) if n in now else g
+    names = OA_INNEHAVARE[gid] + [n for g in also for n in OA_INNEHAVARE[g]]  # also: grannens mark på samma sida
+    own = unary_union([now[n] for n in names if n in now])
+    out = polygons_only(land.intersection(own))
+    taken = unary_union(list(now.values())) if now else Polygon()
+    remsa = polygons_only(land.difference(taken).difference(ref))
+    # land utan stat det året; smala remsor (under cirka 2 * SLIVER grader breda) räknas inte, eftersom de bara är skillnaden
+    # mellan hur olika poster i Cliopatria ritar samma kust
+    utan = polygons_only(land.intersection(ref).difference(taken)).buffer(-SLIVER).buffer(SLIVER)
+    for p in getattr(remsa, 'geoms', [remsa]):
+        if p.is_empty:
+            continue
+        edge = p.buffer(0.002)
+        mine = edge.intersection(own).area
+        if mine > 0 and mine >= edge.intersection(utan).area and all(mine >= edge.intersection(g).area
+                                                                       for n, g in now.items() if n not in names):
+            out = out.union(p)
+    return polygons_only(out)
+
+
+def zone_part(land, y, side, anchor, by_name):
+    """Den franska ('fr') eller amerikanska ('us') delen av land år y, längs Cliopatrias linje mellan zonerna (#1781).
+
+    Fransk är land i Cliopatrias Fjärde republik (med anchor bara de sammanhängande delar som innehåller punkten), amerikansk land
+    i Cliopatrias USA utom den franska delen. Resten (där Cliopatrias gränser inte når fram eller där en annan stat ligger över
+    marken) delas inte: varje sammanhängande del går till den zon den har längst gräns mot, så att ingen ny linje dras."""
+    def union(name):
+        return unary_union([shape(f['geometry']).buffer(0) for f in by_name.get(name, [])
+                            if f['properties']['FromYear'] <= y <= f['properties']['ToYear']])
+    fr = polygons_only(land.intersection(union('French Fourth Republic')))
+    if anchor is not None:
+        pt = shapely.Point(anchor)
+        fr = unary_union([p for p in getattr(fr, 'geoms', [fr]) if not p.is_empty and p.buffer(0.001).contains(pt)])
+    us = polygons_only(land.intersection(union('United States of America')).difference(fr))
+    rest = polygons_only(land.difference(fr).difference(us))
+    add_fr, add_us = [fr], [us]
+    for p in getattr(rest, 'geoms', [rest]):
+        if p.is_empty:
+            continue
+        edge = p.buffer(0.002)
+        (add_fr if edge.intersection(fr).area > edge.intersection(us).area else add_us).append(p)
+    return unary_union(add_fr if side == 'fr' else add_us)
 
 
 def disputed_areas(by_name):
@@ -2119,8 +2946,22 @@ def disputed_areas(by_name):
             return area(a[1]).difference(area(a[2]))
         if a[0] == 'rutor':  # rutor (väst, syd, öst, nord), för källfel med 'parts' (#1706)
             return unary_union([box(*r) for r in a[1]])
+        if a[0] == 'forenklad':  # en stats gräns ett visst år, förenklad och avrundad som kartans gräns (TOL, en decimal; #1469)
+            g = at(a[1], a[2]).simplify(TOL, preserve_topology=True)
+            return shape({'type': mapping(g)['type'], 'coordinates': rnd(mapping(g)['coordinates'])}).buffer(0)
+        if a[0] == 'hela-delar':  # (#1797) de delar av ett område som ligger helt i ett annat (rutan klipper ingen del)
+            inner, outer = area(a[1]), area(a[2])
+            return unary_union([p for p in getattr(inner, 'geoms', [inner]) if p.within(outer)])
+        if a[0] == 'union':  # flera områden tillsammans (#1469)
+            return unary_union([area(x) for x in a[1:]])
         if a[0] == 'ne-snitt':  # ett land i Natural Earth snittat med en Cliopatria-post ett visst år
             return ne[a[1]].intersection(at(*a[2]))
+        if a[0] == 'zon':  # (#1781) ('zon', mark, år, 'fr' eller 'us', punkt som den franska delen ska innehålla eller None)
+            return zone_part(area(a[1]), a[2], a[3], a[4], by_name)
+        if a[0] == 'innehavare':  # (#1781) ('innehavare', mark, felaktig granne, år, innehavare, [andra innehavare])
+            return holder_part(area(a[1]), a[2], a[3], a[4], a[5], by_name)
+        if a[0] == 'kust':  # (#1787) ('kust', mark, år, grupp): Natural Earths kustmark som Cliopatria räknar till gruppen det året
+            return kust_part(area(a[1]), a[2], a[3], by_name, a[4] if len(a) > 4 else ())
         return at(*a[0]).difference(at(*a[1]))
     return {k: area(d['area']) for k, d in DISPUTED.items()}
 
@@ -2140,6 +2981,9 @@ def apply_disputed(items, gid, areas):
                 # rättning inte ändrar hur resten av gränsen förenklas. Perioderna delas ändå vid årtalen; ytan (areaKm2)
                 # räknas utan området
                 if s < d['from'] or s > last or d.get('efter'):
+                    # yta (#1499): ytan räknas ändå med området, när det är en stor del av riket (Hainan i Taiwan)
+                    if d.get('efter') and d.get('yta') and d['from'] <= s <= last:
+                        ar = ar - km2(g.intersection(areas[key])) if op == 'remove' else ar + km2(areas[key].difference(g))
                     out.append((s, e, g, ar))
                     continue
                 if op == 'remove' and d.get('parts'):
@@ -2301,9 +3145,16 @@ def extend(by_name, ext):
 # decimaler, annars hamnar Słubice och Zgorzelec vid Oder–Neisse utanför Polen (#1750)
 DECIMALS = {'israel': 2, 'palestina': 2, 'osttyskland': 2, 'vasttyskland': 2, 'tyskland': 2, 'nederlanderna': 2, 'polen': 2, 'fria-staden-danzig': 2, **{g: 3 for g in SMALL_STATES},
             'chimor': 2, 'purepecha': 2, 'inkariket': 2,  # #556
+            'aztekriket': 2, 'texcoco': 2,  # #1443
             'strathclyde': 2, 'kungariket-skottland': 2,  # #1721
             'wessex': 2, 'mercia': 2, 'northumbria': 2, 'dal-riata': 2,  # #1744
             'oyoriket': 2, 'ashantiriket': 2, 'gronland-koloni': 2, 'danska-indien': 3, 'danska-guldkusten': 3}  # #1388
+
+
+# Grupper vars avrundade gräns görs giltig med valid_rounded (make_valid), eftersom förenklingen och avrundningen annars ger
+# en gräns som korsar sig själv. Bara de här grupperna, så att övriga rikens filer blir exakt som förut: Aragoniska kronan
+# vid norra Sicilien (15,4° Ö 38,2° N) 1450–1458 och från 1507 (#645, geografens granskning av PR #2037)
+MAKE_VALID = {'aragoniska-kronan'}
 
 
 def rnd(o, nd=1):
@@ -2381,6 +3232,187 @@ def homeland_shape(by_name, names, window, raw, year, tol, min_area):
     return None if g.is_empty else g
 
 
+def raw_periods(gid, cname, opts, by_name, disputed, ne):
+    """En dels råa perioder (start, slut, geometri, yta i km2) före förenklingen: Cliopatrias gräns efter EXTEND, ne, join,
+    fill, prepend, minus, clip och DISPUTED. Används av main och av de delade gränserna (#1765)."""
+    feats = None
+    if gid in EXTEND and EXTEND[gid]['polity'] == cname:
+        feats = extend(by_name, EXTEND[gid])
+    # En del utan Cliopatria-namn (None) får hela sin gräns ur DISPUTED (Palestina, #644)
+    # eller, med `ne`, ur ett land i Natural Earth (små stater, #722)
+    if cname is None:
+        g0 = ne[opts['ne']] if opts.get('ne') else Polygon()
+        base = [(*opts['years'], g0, km2(g0) if opts.get('ne') else 0)]
+    else:
+        base = member_periods(by_name, cname, opts.get('years'), feats)
+        # Cliopatrias årtal men gränsen ur Natural Earth från året ne_from (Andorra och Monaco, #719)
+        if opts.get('ne'):
+            g1 = ne[opts['ne']]
+            base = [(a, b, g1, km2(g1)) if a >= opts.get('ne_from', a) else (a, b, g, ar) for a, b, g, ar in base]
+    # skip: Cliopatria-perioder som ligger helt inom något av spannen (från, till) visas inte, till exempel en fläck
+    # på några hundra km² mitt i spannet (Kungariket Armenien 208–207 f.Kr., #646)
+    if opts.get('skip'):
+        base = [q for q in base if not any(s <= q[0] and q[1] <= e for s, e in opts['skip'])]
+    # join: andra Cliopatria-poster som läggs till delen de år de finns, utan att ändra gränsen övriga år (#1330)
+    if opts.get('join'):
+        base = join_periods(base, opts['join'], by_name)
+    # fill: år där gränsen är statens egen gräns i Cliopatria ett annat år (ockupation och inbördeskrig, #1332)
+    if opts.get('fill'):
+        base = fill_periods(base, opts['fill'], by_name)
+    # prepend: år före Cliopatrias första år, utan egen gräns; gränsen läggs till ur DISPUTED (Östtimor, #644)
+    if opts.get('prepend'):
+        base = [(*opts['prepend'], Polygon(), 0)] + base
+    if opts.get('minus'):
+        base = minus_others(base, opts['minus'], by_name, opts.get('minusKeepWestOf'))
+    # clip: bara den del av posten som ligger i rutan (väst, syd, öst, nord). Används där en Cliopatria-post är flera
+    # kolonier som inte hänger ihop, så att rutan inte drar någon ny gräns (Italienska kolonier i Afrika, #1330)
+    if opts.get('clip'):
+        cb = box(*opts['clip'])
+        base = [(a, b, g.intersection(cb), km2(g.intersection(cb))) for a, b, g, _ar in base]
+        base = [q for q in base if not q[2].is_empty]
+    return apply_disputed(base, gid, disputed)
+
+
+def simplify_alone(raw, tol, min_area):
+    """Ett rikes gräns förenklad för sig (Douglas–Peucker), med öar under min_area borttagna, som verktyget alltid har gjort."""
+    g = raw.simplify(tol, preserve_topology=True)
+    if g.geom_type == 'MultiPolygon':
+        g = unary_union([q for q in g.geoms if q.area > min_area] or [max(g.geoms, key=lambda q: q.area)])
+    return g
+
+
+# Delade gränser mellan grannriken (#1765, pilot, DasKrokodils ja 2026-11-20): med flaggan --delade-granser förenklas
+# grupperna i SHARED_GROUPS tillsammans som en täckning (shapely.coverage_simplify, Visvalingam–Whyatt, kräver shapely 2.1
+# och GEOS 3.12), så att två grannar får samma linje där de möts och inte ritas ovanpå varandra. Utan flaggan används inget
+# av detta, och filerna blir exakt som förut (#1220). Utredningen: docs/granskningar/2026-11-15-delade-granser-forenkling.md,
+# piloten: docs/granskningar/2026-11-20-delade-granser-pilot.md.
+SHARED_GROUPS = ('wessex', 'mercia', 'northumbria', 'dal-riata', 'strathclyde', 'kungariket-skottland', 'kungariket-man',
+                 'kungariket-england', 'nordsjovaldet')  # England, Skottland och Man med föregångarna, 500–1700
+SHARED_YEARS = (500, 1700)  # perioder som börjar de här åren får den delade gränsen; övriga förenklas för sig som förut
+SHARED_TOL = 0.1  # coverage_simplify: ungefär roten ur ytan (kvadratgrader) på de trianglar som tas bort
+SHARED_DECIMALS = 2  # alla grupper i täckningen avrundas lika (DECIMALS), annars flyttas en gemensam hörnpunkt olika
+# Överlapp i underlaget (kvadratgrader): två riken som delar mer än så ett år (Isle of Man i både Northumbria och Dalriada, #1744)
+# hålls utanför täckningen det året och förenklas för sig som förut. Mindre överlapp är remsor där samma gräns är något olika
+# ritad; de går till den del som står först i SHARED_GROUPS (och i GROUPS), så att täckningen blir giltig.
+SHARED_SLIVER = 0.01
+# En del som behåller sin gräns från ett tidigare år (MERGE) får ändå en ny gräns ur årets täckning om den annars skulle
+# överlappa en granne mer än så här (kvadratgrader, cirka 7 km2)
+SHARED_FIX = 0.001
+
+
+def cover_years(raws, years, tol, min_area, merge, sliver=SHARED_SLIVER, fix=SHARED_FIX):
+    """Förenklar grannar tillsammans (coverage_simplify) för varje år där någon av dem börjar en period inom years (från, till).
+
+    raws = {nyckel: [(start, slut, rå geometri), ...]} i den ordning som avgör vem en remsa går till; min_area och merge =
+    {nyckel: värde} som i OVERRIDES. Returnerar ({(nyckel, år): geometri}, {nyckel: år med ny gräns}, [rader om vad som hölls
+    utanför]). Ett år med ny gräns är en ny period i main (perioden delas där, och slås inte ihop med den förra); för övriga
+    periodstarter i svaret är geometrin den förra periodens, så att main slår ihop dem. Delar som saknas i svaret förenklas för
+    sig som förut. Öar under min_area tas bort efter förenklingen, men bara delar som inte rör en granne, så att ingen del tas
+    bort på bara ena sidan av en gemensam gräns."""
+    keys = list(raws)
+    starts = sorted({s for k in keys for s, e, g in raws[k] if years[0] <= s <= years[1]})
+    out, cuts, cur, notes = {}, {}, {}, {}  # notes: rad -> startår, så att samma rad skrivs en gång
+    for y in starts:
+        act = [(k, g) for k in keys for s, e, g in raws[k] if s <= y <= e and not g.is_empty]
+        # Alla gränser skärs mot varandra (polygonize), så att grannar får samma hörnpunkter där de möts, och varje yta går
+        # till de riken som täcker den
+        faces = list(shapely.polygonize([unary_union([g.boundary for k, g in act])]).geoms)
+        owners = []
+        for f in faces:
+            p = f.point_on_surface()
+            owners.append([k for k, g in act if g.contains(p)])
+        held, pair = set(), {}
+        for f, ow in zip(faces, owners):
+            for i, a in enumerate(ow):
+                for b in ow[i + 1:]:
+                    pair[(a, b)] = pair.get((a, b), 0) + f.area
+        for (a, b), ar in pair.items():
+            if ar > sliver:
+                held |= {a, b}
+                notes.setdefault(f'{a[-1]} och {b[-1]} överlappar {ar:.3f} kv.grader i underlaget, utanför täckningen', []).append(y)
+        own = {}
+        for f, ow in zip(faces, owners):
+            ow = [k for k in ow if k not in held]
+            if ow:
+                own.setdefault(ow[0], []).append(f)  # en remsa går till den som står först
+        geoms = {k: polygons_only(unary_union(fs)) for k, fs in own.items()}
+        cov = [k for k, _g in act if k in geoms and not geoms[k].is_empty]
+        # En täckning ska vara giltig: grannar som inte möts i samma hörnpunkter (shapely.coverage_invalid_edges) hålls utanför
+        while len(cov) > 1:
+            bad = [k for k, e in zip(cov, shapely.coverage_invalid_edges([geoms[k] for k in cov])) if not e.is_empty]
+            if not bad:
+                break
+            notes.setdefault(f'{", ".join(k[-1] for k in bad)} är ingen giltig täckning, utanför täckningen', []).append(y)
+            cov = [k for k in cov if k not in bad]
+        simple = dict(zip(cov, shapely.coverage_simplify([geoms[k] for k in cov], tol))) if len(cov) > 1 else {}
+        for k in simple:
+            g = simple[k]
+            if g.geom_type == 'MultiPolygon':
+                others = [simple[o] for o in simple if o != k]
+                keep = [q for q in g.geoms if q.area > min_area[k] or any(q.intersects(o) for o in others)]
+                simple[k] = unary_union(keep or [max(g.geoms, key=lambda q: q.area)])
+        # Vilka som får en ny gräns i år. En del som börjar en period behåller sin förra gräns om ändringen är mindre än merge
+        # (som MERGE i main); main slår då ihop perioderna. Annars får den täckningens gräns. Skulle en behållen gräns överlappa
+        # en grannes nya gräns mer än fix, får också den täckningens gräns i år (perioden delas), så att två grannar ett visst år
+        # alltid kommer ur samma täckning där det behövs.
+        active = {k for k, _g in act}
+        for k in list(cur):
+            if k not in active or not any(s <= y - 1 <= e for s, e, g in raws[k]):
+                del cur[k]  # delen fanns inte förra året: ingen förra gräns att behålla
+        starting = {k for k in active if any(s == y for s, e, g in raws[k])}
+        for k in starting - set(simple):
+            cur.pop(k, None)  # utanför täckningen i år: förenklas för sig i main
+        fresh = set()
+        for k in simple:
+            prev = cur.get(k)
+            # Utan förra delade gräns (ny, eller förenklad för sig förra året eftersom den överlappade en granne i underlaget)
+            # får delen täckningens gräns i år, också mitt i en period
+            if prev is None or (k in starting and prev.symmetric_difference(simple[k]).area >= merge[k] * prev.area):
+                fresh.add(k)
+        while True:
+            now = {k: (simple[k] if k in fresh else cur[k]) for k in simple if k in fresh or k in cur}
+            more = set()
+            for a in now:
+                for b in now:
+                    if a < b and (a not in fresh or b not in fresh) and now[a].intersects(now[b]) \
+                            and now[a].intersection(now[b]).area > fix:
+                        more |= {a, b} - fresh
+            if not more:
+                break
+            fresh |= more
+        for k in simple:
+            if k in fresh:
+                cur[k] = simple[k]
+                out[(k, y)] = simple[k]
+                cuts.setdefault(k, set()).add(y)
+            elif k in starting:
+                out[(k, y)] = cur[k]  # samma geometri som förra perioden: main slår ihop dem
+    return out, cuts, [f'{", ".join(map(str, ys))}: {msg}' for msg, ys in notes.items()]
+
+
+def shared_borders(by_name, disputed, ne, groups=SHARED_GROUPS, years=SHARED_YEARS, tol=SHARED_TOL):
+    """De delade gränserna (#1765) för grupperna: ({(grupp, del, start): förenklad geometri}, {(grupp, del): år där en period
+    delas}, rader om vad som hölls utanför). Täckningen byggs av verktygets egna råa gränser (raw_periods), inte direkt ur
+    Cliopatria."""
+    raws, min_area, merge = {}, {}, {}
+    for gid in groups:
+        for cname, pid, _psv, _color, *rest in GROUPS[gid][2]:
+            opts = rest[0] if rest else {}
+            raws[(gid, pid)] = [(s, e, g) for s, e, g, _ar in raw_periods(gid, cname, opts, by_name, disputed, ne)]
+            _tol, merge[(gid, pid)], min_area[(gid, pid)] = OVERRIDES.get(gid, (TOL, MERGE, MIN_AREA))
+    got, cuts, notes = cover_years(raws, years, tol, min_area, merge)
+    return {(k[0], k[1], y): g for (k, y), g in got.items()}, cuts, notes
+
+
+def split_at(items, cuts):
+    """Delar perioder (start, slut, geometri, yta) vid åren i cuts (#1765), med samma geometri och yta i båda delarna."""
+    out = []
+    for a, b, g, ar in items:
+        edges = [a] + sorted(c for c in cuts if a < c <= b) + [b + 1]
+        out += [(x, z - 1, g, ar) for x, z in zip(edges, edges[1:])]
+    return out
+
+
 def big_change(a, b):
     """Största sammanhängande del (km2) av gränsändringen mellan perioderna a och b, om den är större än SPLIT_KM2
     och SPLIT_SHARE av a:s yta och b börjar SPLIT_FROM eller senare, annars 0 (#1732). a är den period vars form
@@ -2410,6 +3442,8 @@ INFLUENCE_NAMES = {
     'Delhi Sultanate': 'Delhisultanatet', 'Ostrogothic Kingdom': 'Östgoternas rike', 'Papal States': 'Kyrkostaten',
     'East Franks': 'Östfrankiska riket', 'Kidarites': 'Kidariterna', 'Jalayirid Sultanate': 'Jalayiridernas sultanat',
     'Kingdom of Georgia': 'Kungariket Georgien', 'Qara Qoyunlu': 'Qara Qoyunlu', 'Joseon': 'Joseon (Korea)',
+    # Wikidata Q1311219 saknar svensk etikett; typordet översatt som de, es och fr ("Königreich Jaffna", #645)
+    'Jaffna kingdom': 'Kungariket Jaffna',
 }
 # Relationer i Cliopatria som källorna motsäger och därför inte visas (#75): (lydrike, överhuvud) med motivering.
 INFLUENCE_SKIP = {
@@ -2520,7 +3554,19 @@ def fix_swapped_shapes(by_name):
 
 
 def main():
-    src = json.loads(Path(sys.argv[1]).read_text())
+    # Cliopatrias -N är N f.Kr. och räknas om till astronomiska år (1 - N) direkt vid läsningen (#1989, tools/cliopatria_ar.py);
+    # alla årtal i GROUPS och i resten av skriptet är astronomiska.
+    args = [a for a in sys.argv[1:] if not a.startswith('--')]
+    flags = [a for a in sys.argv[1:] if a.startswith('--')]
+    if len(args) != 1 or any(f != '--delade-granser' and not f.startswith('--ut=') for f in flags):
+        raise SystemExit('Användning: python3 tools/riken.py <cliopatria.geojson> [--delade-granser] [--ut=<mapp>]')
+    shared_on = '--delade-granser' in flags
+    # Bara de delade gränserna kräver shapely 2.1 (#1765); utan flaggan fungerar verktyget som förut också med äldre shapely
+    if shared_on and (not hasattr(shapely, 'coverage_simplify') or shapely.geos_version < (3, 12, 0)):
+        raise SystemExit(f'--delade-granser kräver shapely 2.1 eller senare med GEOS 3.12 eller senare (#1765), här shapely {shapely.__version__} '
+                         f'med GEOS {".".join(map(str, shapely.geos_version))}: pip install "shapely>=2.1"')
+    ut = next((Path(f[len('--ut='):]) for f in flags if f.startswith('--ut=')), None)
+    src = las_cliopatria(args[0])
     by_name = {}
     for f in src['features']:
         p = f['properties']
@@ -2543,10 +3589,19 @@ def main():
             known.setdefault(first, {'sv': psv, 'en': (rest[0] if rest else {}).get('en', first.strip('()'))})
     for en_name, sv_name in INFLUENCE_NAMES.items():
         known.setdefault(en_name, {'sv': sv_name, 'en': en_name})
-    out = ROOT / 'data/empires'
-    out.mkdir(exist_ok=True)
+    # --ut=<mapp> skriver filerna i en annan mapp (till exempel för att jämföra en pilot), men de handskrivna fälten läses
+    # ändå ur data/empires
+    src_dir = ROOT / 'data/empires'
+    out = ut or src_dir
+    out.mkdir(exist_ok=True, parents=True)
+    # Delade gränser (#1765): pilot bakom flaggan; utan flaggan är shared tom och allt blir som förut
+    shared, shared_new = {}, {}
+    if shared_on:
+        shared, shared_new, stats = shared_borders(by_name, disputed, ne)
+        for line in stats:
+            print('delade gränser (#1765):', line)
     # Faktarutorna skrivs för hand och ska inte försvinna när filerna byggs om
-    old = out / 'index.json'
+    old = src_dir / 'index.json'
     groups_old = {g['id']: g for g in json.loads(old.read_text())['groups']} if old.exists() else {}
     # Faktarutor, symboler och polityFacts (KEEP) skrivs för hand och läggs sist i gruppen
     kept = {k: kept_fields(g) for k, g in groups_old.items()}
@@ -2556,7 +3611,7 @@ def main():
     old_docs = []
     for k, g in groups_old.items():
         old_names[('group', k)] = g.get('name', {})
-        f = out / f'{k}.json'
+        f = src_dir / f'{k}.json'
         if f.exists():
             old_docs.append(json.loads(f.read_text()))
             for op in old_docs[-1].get('polities', []):
@@ -2573,6 +3628,8 @@ def main():
     index = []
     for gid, (sv, en, members, *gopts) in GROUPS.items():
         tol, merge, min_area = OVERRIDES.get(gid, (TOL, MERGE, MIN_AREA))
+        # Grannar med delade gränser avrundas lika (#1765), så att en gemensam hörnpunkt hamnar på samma ställe på båda sidor
+        nd = max(DECIMALS.get(gid, 1), SHARED_DECIMALS) if shared_on and gid in SHARED_GROUPS else DECIMALS.get(gid, 1)
         if not members:
             # Ett land utan gräns i Cliopatria (#72): bara en post i index.json, med källornas årtal och en punkt
             v = vanished.get(gid)
@@ -2592,42 +3649,15 @@ def main():
             opts = rest[0] if rest else {}
             periods = []
             core = []  # delens ogenomskurna gräns per period, för inflytandet (#75)
-            feats = None
-            if gid in EXTEND and EXTEND[gid]['polity'] == cname:
-                feats = extend(by_name, EXTEND[gid])
-            # En del utan Cliopatria-namn (None) får hela sin gräns ur DISPUTED (Palestina, #644)
-            # eller, med `ne`, ur ett land i Natural Earth (små stater, #722)
-            if cname is None:
-                g0 = ne[opts['ne']] if opts.get('ne') else Polygon()
-                base = [(*opts['years'], g0, km2(g0) if opts.get('ne') else 0)]
-            else:
-                base = member_periods(by_name, cname, opts.get('years'), feats)
-                # Cliopatrias årtal men gränsen ur Natural Earth från året ne_from (Andorra och Monaco, #719)
-                if opts.get('ne'):
-                    g1 = ne[opts['ne']]
-                    base = [(a, b, g1, km2(g1)) if a >= opts.get('ne_from', a) else (a, b, g, ar) for a, b, g, ar in base]
-            # join: andra Cliopatria-poster som läggs till delen de år de finns, utan att ändra gränsen övriga år (#1330)
-            if opts.get('join'):
-                base = join_periods(base, opts['join'], by_name)
-            # fill: år där gränsen är statens egen gräns i Cliopatria ett annat år (ockupation och inbördeskrig, #1332)
-            if opts.get('fill'):
-                base = fill_periods(base, opts['fill'], by_name)
-            # prepend: år före Cliopatrias första år, utan egen gräns; gränsen läggs till ur DISPUTED (Östtimor, #644)
-            if opts.get('prepend'):
-                base = [(*opts['prepend'], Polygon(), 0)] + base
-            if opts.get('minus'):
-                base = minus_others(base, opts['minus'], by_name, opts.get('minusKeepWestOf'))
-            # clip: bara den del av posten som ligger i rutan (väst, syd, öst, nord). Används där en Cliopatria-post är flera
-            # kolonier som inte hänger ihop, så att rutan inte drar någon ny gräns (Italienska kolonier i Afrika, #1330)
-            if opts.get('clip'):
-                cb = box(*opts['clip'])
-                base = [(a, b, g.intersection(cb), km2(g.intersection(cb))) for a, b, g, _ar in base]
-                base = [q for q in base if not q[2].is_empty]
-            for start, end, raw, area in apply_disputed(base, gid, disputed):
+            raws = raw_periods(gid, cname, opts, by_name, disputed, ne)
+            if (gid, pid) in shared_new:
+                raws = split_at(raws, shared_new[(gid, pid)])  # nya delade gränser mitt i en period (#1765)
+            for start, end, raw, area in raws:
                 core.append((start, end, raw))
-                g = raw.simplify(tol, preserve_topology=True)
-                if g.geom_type == 'MultiPolygon':
-                    g = unary_union([q for q in g.geoms if q.area > min_area] or [max(g.geoms, key=lambda q: q.area)])
+                # Delade gränser (#1765, pilot bakom flaggan --delade-granser): gränsen ur grannarnas gemensamma förenkling
+                g = shared.get((gid, pid, start))
+                if g is None:
+                    g = simplify_alone(raw, tol, min_area)
                 if g.is_empty:
                     continue
                 # gc: gränsen förenklad som förut (SAME_AS_TOL, #1466), för namnets plats och sammanslagningen av perioder
@@ -2642,7 +3672,8 @@ def main():
                 lab = list(opts['label']) if opts.get('label') else [round(c.x, 1), round(c.y, 1)]
                 q = {'start': start, 'end': end, 'areaKm2': round(area),
                      'label': lab, '_shape': gc, '_g': g, '_raw': raw,
-                     'geometry': {'type': mapping(g)['type'], 'coordinates': rnd(mapping(g)['coordinates'], DECIMALS.get(gid, 1))}}
+                     'geometry': (valid_rounded(g, nd) if gid in MAKE_VALID else
+                                  {'type': mapping(g)['type'], 'coordinates': rnd(mapping(g)['coordinates'], nd)})}
                 # Huvudlandet (#74): den del av riket som är moderlandet. Den ritas kraftigare och får rikets namn.
                 if home and 'homeland' in opts:
                     hg = homeland_shape(by_name, opts['homeland'], home['window'], raw, start, tol, min_area)
@@ -2657,6 +3688,7 @@ def main():
             strict = [(d, disputed[k], gid in d['remove']) for k, d in DISPUTED.items()
                       if d.get('strict') and (gid in d['remove'] or gid in d['add'])]
             splits = set(opts.get('splits', ())) | {y for d, _a, _r in strict for y in (d['from'], d.get('to', 9999) + 1)}
+            splits |= shared_new.get((gid, pid), set())  # år med en ny delad gräns slås inte ihop med perioden före (#1765)
             merged = []
             for q in periods:
                 # splits: år där perioderna aldrig slås ihop, så att en liten men viktig ändring syns (#644)
@@ -2670,19 +3702,64 @@ def main():
                         print(f'delas efter storlek (#1732): {gid} {pid} {q["start"]}, {big} km2')
                 merged.append(q)
             for q in merged:
-                on = [(a, r) for d, a, r in strict if d['from'] <= q['start'] and q['end'] <= d.get('to', 9999)]
-                if on:
+                active = [(d, a, r) for d, a, r in strict if d['from'] <= q['start'] and q['end'] <= d.get('to', 9999)]
+                on = [(a, r) for d, a, r in active if not d.get('efter')]
+                # efter (#1755): läggs på efter avrundningen, så att gränsen ur Natural Earth inte blir trappsteg på 0,1 grad.
+                # Bara de nya gränsbitarna får tre decimaler
+                post = [(a, r) for d, a, r in active if d.get('efter') and not (r and d.get('parts')) and not d.get('dec')]
+                # dec (#1787): läggs på sist och avrundas till fler decimaler, så att skärningspunkterna mellan den förenklade gränsen
+                # och rutans kant inte flyttas av avrundningen och gränsen utanför rutan blir exakt som förut
+                post_dec = [(a, r, d['dec']) for d, a, r in active if d.get('efter') and d.get('dec')]
+                # efter med parts (#1499): bara de delar som ligger helt i området tas bort efter förenklingen, så att en ö kan tas
+                # bort utan att fastlandets gräns i samma ruta skärs om (Folkrepublikens förenklade Hainan)
+                post_parts = [a for d, a, r in active if d.get('efter') and r and d.get('parts')]
+                if on or post or post_parts or post_dec:
                     # Förenklingen kan bukta in över ett område som är borttaget ur Cliopatrias gräns (Saarbrücken och
                     # Kehl ligger några km från gränsen, franska kolonialväldet förenklas med 0,3 grader), så det klipps igen
                     g = q['_g']
                     for a, r in on:
                         g = polygons_only(g.difference(a) if r else unary_union([g, a]))
-                    q['geometry'] = valid_rounded(g, DECIMALS.get(gid, 1))
+                    # Bara med dec (#1787) behåller gränsen sina koordinater som utan DISPUTED (också en ogiltig geometri långt
+                    # bort görs inte om), så att rikets gräns utanför rutan blir exakt som förut
+                    if on or post or post_parts:
+                        q['geometry'] = valid_rounded(g, nd)
+                    if post or post_parts:
+                        g = shape(q['geometry'])
+                        for a in post_parts:
+                            g = drop_parts_within(g, a)
+                        for a, r in post:
+                            g = polygons_only(g.difference(a) if r else unary_union([g, a]))
+                        q['geometry'] = valid_rounded(g, 3)
+                    if post_dec:
+                        # Bara de delar av gränsen som området når räknas om; övriga delar behåller sina koordinater, så att
+                        # rikets gräns utanför rutan blir exakt som förut (också där den sedan förut inte är en giltig geometri)
+                        g = shape(q['geometry'])
+                        rest = list(g.geoms) if g.geom_type == 'MultiPolygon' else [g]
+                        touched = []
+                        for a, r, _nd in post_dec:
+                            hit = [x for x in rest + touched if x.intersects(a)]
+                            rest = [x for x in rest if not x.intersects(a)]
+                            hit = [polygons_only(shapely.make_valid(x)) for x in hit]  # de delar som räknas om görs giltiga
+                            ng = polygons_only(unary_union(hit).difference(a) if r else unary_union(hit + [a]))
+                            touched = [x for x in touched if not x.intersects(a)] + list(getattr(ng, 'geoms', [ng]))
+                        touched = [x for x in touched if not x.is_empty]
+                        new = valid_rounded(unary_union(touched), max(nd for _a, _r, nd in post_dec)) if touched else None
+                        polys = [mapping(x)['coordinates'] for x in rest]
+                        if new:
+                            polys += new['coordinates'] if new['type'] == 'MultiPolygon' else [new['coordinates']]
+                        polys = [json.loads(json.dumps(c)) for c in polys]
+                        q['geometry'] = ({'type': 'Polygon', 'coordinates': polys[0]} if len(polys) == 1
+                                         else {'type': 'MultiPolygon', 'coordinates': polys})
                     if '_home' in q:
                         hg = q['_home']
                         for a, r in on:
                             hg = polygons_only(hg.difference(a)) if r else hg
                         q['homeland'] = valid_rounded(hg, 1)
+                        if any(r for a, r in post):
+                            hg = shape(q['homeland'])
+                            for a, r in post:
+                                hg = polygons_only(hg.difference(a)) if r else hg
+                            q['homeland'] = valid_rounded(hg, 3)
                 del q['_shape']
                 q.pop('_g', None)
                 q.pop('_raw', None)
@@ -2747,6 +3824,7 @@ def main():
         index[-1] = order_like(index[-1], groups_old.get(gid))  # samma fältordning som förut, så att diffen blir tom (#1220)
         size = (out / f'{gid}.json').stat().st_size
         print(f'{gid}: {len(polities)} riken, {sum(len(p["periods"]) for p in polities)} perioder, {size // 1000} kB')
+    oa_grans(out)  # Östafrikas kust (#1787): gränsen mellan Kenyas och Tanzanias sida vid rutans kant
     notes = ('Riken som områden (lagertyp område), ett rike per fil. Utdrag ur Cliopatria, datafil cliopatria_polities_only_v021 '
              '(version 0.2.1, Seshat Global History Databank, CC BY 4.0, https://zenodo.org/records/23128623), byggt med tools/riken.py. '
              f'Ändringar: geometrin är förenklad (Douglas-Peucker {TOL} grader, koordinater avrundade till 0.1 grad, öar under cirka 200 km2 '
@@ -2757,7 +3835,7 @@ def main():
              'liksom Ryssland, Sovjetunionen, Japan och franska kolonialväldet (0.3 grader, 5 procent, öar under cirka 800 km2 borttagna) och nederländska kolonialväldet (0.3 grader, 8 procent). '
              'Rester i Cliopatria, perioder under 1 procent av postens största yta som till största delen ligger utanför postens '
              'övriga yta (till exempel Kingdom of Denmark 1402–1406, 73 km2 i Lappland), är borttagna (#1333). '
-             'start/end är Cliopatrias årtal oförändrade (astronomiska år). Namn inom parentes i Cliopatria, till exempel (British Empire), '
+             'start/end är Cliopatrias årtal omräknade till astronomiska år: Cliopatria skriver N f.Kr. som -N ("negative for BCE", datan börjar -3400 = 3400BCE), här 1 - N, och Cliopatrias år 0, som bara är slutår före år 1, blir 0 (#1989). Namn inom parentes i Cliopatria, till exempel (British Empire), '
              'är Cliopatrias sammanslagning av ett imperiums alla delar. Bysantinska riket ingår i Romarriket som fortsättningen på '
              'Östromerska riket. index.json listar varje rike (grupp) med färg, tidsspann och fil; filen laddas först när riket behövs. '
              'areaKm2 är Cliopatrias yta för den första perioden i ett sammanslaget spann. label = [lon, lat] där namnet skrivs ut. '
@@ -2805,13 +3883,38 @@ def main():
              'Nederländerna och Polen följer Natural Earth, och Kaliningradområdet har Sovjetunionens gräns 1960 i Cliopatria. '
              'Äldre gränsfel kring Tyskland (#1755): Saarområdet är klippt mot Saarlands gräns i Natural Earth; gränsen mellan '
              'Frankrike och Tyskland följer Natural Earth 1930–1939 och gränsen mellan Tjeckoslovakien (Tjeckien) och Tyskland från '
-             '1945; Nederländernas sida av gränsen mot Tyskland följer Natural Earth från 1950; Lindau ligger i Västtyskland från 1955 '
-             'och i Tyskland; Kaliningradområdet har Rysslands gräns i Natural Earth från 1990. Områden med efter i DISPUTED klipps '
+             '1945; Nederländernas sida av gränsen mot Tyskland följer Natural Earth från 1950; Lindau ligger i Västtyskland från 1950 '
+             'och i Tyskland; Kaliningradområdet har Rysslands gräns i Natural Earth från 1945. Områden med efter i DISPUTED klipps '
              'eller läggs till bara efter förenklingen. '
+             'Bodensee, Basel, Vorarlberg, Kuriska näset och Ermland (#1771): gränserna mellan Tyskland, Schweiz, Österrike och Frankrike '
+             'vid Bodensee och Basel och längs gränsen mellan Österrike och Tyskland följer Natural Earth från 1919; Polens och Litauens '
+             'gränser mot Kaliningradområdet följer Natural Earth från 1945 (Polen utom det som Cliopatria räknar till Ryssland; Litauen från 1990, '
+             'Kuriska näset i Sovjetunionen 1945–1989); gränsen mellan Frankrike och Schweiz följer Natural Earth från 1919 (Frankrikes sida 1919–1939 och från 1945); '
+             'den amerikanska zonen (Bayern) och den sovjetiska (Sachsen och Thüringen) når 1945–1949 fram till gränserna mot '
+             'Tjeckoslovakien, Polen och Österrike, och den franska (Baden-Württemberg) till Bodensee, med delstaternas gränser i Natural Earth. '
+             'Sydsudan och Zanzibar (#1534): Sydsudan visas från självständigheten 2011 med sin gräns i Cliopatria 2014 (Cliopatria '
+             'har landet först från 2014), Sudan 2011–2013 likaså med gränsen 2014, och gränsen mellan dem följer Cliopatrias ogenomskurna '
+             'gränser; Unguja och Pemba (Zanzibar) hör till Tanzania från 1964, med öarnas gräns i Natural Earth. '
+             'Östafrikas kust (#1787): Kenyas och Tanzanias land från Somalia till Rovuma och Unguja följer Natural Earth, och nära kusten '
+             'också gränserna mellan Kenya och Tanzania och mot Somalia och Moçambique; marken går varje år till den stat som Cliopatria '
+             'räknar den till, och kustremsan utanför Cliopatrias kust till den stat den har längst gräns mot (kust i DISPUTED). '
+             'Sydkorea (#1500): Cliopatria räknar södra Korea till USA 1946–1966; kartan visar USA där bara 1946–1947 (den amerikanska '
+             'militärregeringen till 15 augusti 1948) och Sydkorea från 1948, och gränsen mellan Sydkorea och Nordkorea följer '
+             'Cliopatrias ogenomskurna gränser. '
+             'Hainan (#1499): Cliopatria räknar ön till Republiken Kina (Taiwan) 1950–2023 och till Folkrepubliken Kina först från 1953; '
+             'kartan visar ön som Folkrepubliken Kina från 1950, med Cliopatrias gräns för ön, och areaKm2 räknas med ändringen (yta i DISPUTED). '
+             'Zhoushanön likaså (Folkrepubliken tog Zhoushan 17 maj 1950). '
              'Små stater (#722): tolv länder som Cliopatria saknar i nutid eller har fel gräns för har gränsen ur Natural Earth '
              '(ne_10m_admin_0_countries 5.1.1, public domain), från självständigheten, och polity.point = true: de visas som en punkt med namn.')
+    if shared_on:
+        notes += (f' Delade gränser (#1765, pilot för England, Skottland och Man med föregångarna): {", ".join(SHARED_GROUPS)} är perioder som börjar {SHARED_YEARS[0]}–{SHARED_YEARS[1]} '
+                  f'förenklade tillsammans som en täckning (Visvalingam–Whyatt, {SHARED_TOL} i shapely.coverage_simplify) i stället för '
+                  f'var för sig, avrundade till {SHARED_DECIMALS} decimaler, så att grannar har samma linje där de möts. Riken som '
+                  'överlappar i underlaget ett år förenklas det året för sig som förut, så vid Isle of Man (626–632, 1099–1168, 1326–1332 och '
+                  '1402–1474) är gränsen inte delad.')
+    # Med radslut sist, som filen i repot, så att en omkörning ger en tom diff (#1220)
     (out / 'index.json').write_text(json.dumps({'schema': 'historia-globen/empires-index@1', 'notes': notes, 'groups': index},
-                                               ensure_ascii=False, indent=1))
+                                               ensure_ascii=False, indent=1) + '\n')
 
 
 if __name__ == '__main__':

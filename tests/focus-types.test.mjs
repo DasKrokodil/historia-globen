@@ -33,7 +33,7 @@ function fakeApp() {
     panel: { showStory: note('showStory'), showSelection: note('showSelection') },
     layers: { applyView: note('applyView') },
     store: { setSelected: note('setSelected') },
-    surfaces: { closeAll: note('closeAll'), closeGroup: note('closeGroup') },
+    surfaces: { closeAll: note('closeAll'), closeGroup: note('closeGroup'), opened: note('opened') },
     narrow: { matches: false },
     showEmpireFacts: note('showEmpireFacts'), showReligionFacts: note('showReligionFacts'), select: note('select'), setReligions: note('setReligions'),
   };
@@ -290,13 +290,18 @@ test('jaktens kontroll är gemensam för tema och plats och räknar världsdelar
   assert.equal(ok.message.textContent, '');
 });
 
-test('platsens text om en omöjlig jakt finns på alla fem språken, i du-form (elevtext, #1439)', () => {
-  const du = { sv: /\bdu\b/, en: /\bif you\b/, de: /\bBeende\b.*\bwillst\b/, es: /\bTermina\b.*\bquieres\b/, fr: /\bTermine\b.*\bveux\b/ };
+test('platsens text om en omöjlig jakt finns på alla fem språken och är opersonlig där tilltalet delas (#1439, #1710)', () => {
+  const directAddress = {
+    en: /\b(?:you|your)\b/i,
+    de: /\b(?:du|dich|dir|dein(?:e|en|em|er|es)?|Sie|Ihnen|Ihr(?:e|en|em|er|es)?)\b/,
+    es: /\b(?:tú|tu|te|ti|usted|ustedes|vosotros|vosotras|os|su|sus)\b/i,
+    fr: /\b(?:tu|te|toi|vous|votre|vos)\b/i
+  };
   for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
     const texts = json(`data/ui/${lang}.json`);
     assert.ok(texts['place.huntImpossible'], `${lang}: place.huntImpossible`);
-    assert.match(texts['place.huntImpossible'], du[lang], `${lang}: du-form`);
     assert.notEqual(texts['place.huntImpossible'], texts['theme.huntImpossible'], `${lang}: egen text för platsen`);
+    if (lang !== 'sv') assert.doesNotMatch(texts['place.huntImpossible'], directAddress[lang], `${lang}: opersonligt tilltal`);
   }
 });
 
@@ -319,8 +324,9 @@ test('plats: kortet har typraden, noten om dagens gräns och platsens emblem', (
   const doc = json('data/platser.json').places[0];
   const f = { type: 'place', id: doc.id, place: doc, themeEvents: [events[0]] };
   place.start(f);
-  assert.deepEqual(app.calls.map(c => c[0]), ['setSelected', 'showSelection', 'closeGroup', 'class']);
+  assert.deepEqual(app.calls.map(c => c[0]), ['setSelected', 'showSelection', 'closeGroup', 'opened', 'class']);
   assert.deepEqual(app.calls[2].slice(1), ['meny']);
+  assert.deepEqual(app.calls[3].slice(1), ['place-card']); // platskortet stänger Samtidigt-panelen i stängregistret (#1865)
   const card = app.calls[1][1];
   assert.equal(card.name, doc.name);
   assert.ok(card.lead);

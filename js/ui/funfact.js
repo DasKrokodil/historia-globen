@@ -1,5 +1,5 @@
-// Samtidigt-kortet: fun facts och annat som hände samtidigt (till exempel när ett krig
-// bryter ut). Kortet visas när året ligger inom postens intervall, med bågar på globen
+// Visste du?-kortet (hette Samtidigt-kortet till #1867; knappen och listan heter fortfarande Samtidigt): fun facts och annat som hände
+// samtidigt (till exempel när ett krig bryter ut). Kortet visas när året ligger inom postens intervall, med bågar på globen
 // mellan de platser som hör ihop. Det kan fällas ihop till en flik (#120).
 // I smal skärm (högst 760 px) är kortet en panel underifrån med tre lägen (#239): stängd (handtag och
 // rubrikraden), halv och hel. Man drar i handtaget eller trycker på det, och kortet stängs när man drar i globen.
@@ -32,6 +32,7 @@ export function empireStory(group, byId) {
   const ms = [...(group?.facts?.milestones ?? [])].sort((a, b) => a.year - b.year);
   return ms.map((m, i) => ({
     id: `empire-${group.id}-${m.year}`, kind: 'empire', year: m.year, empire: t(group.name), vanished: !!group.vanished, // försvunnet land (#72)
+    area: !!group.areaKind, // område som inte är en stat (#1300): "Områdets berättelse", aldrig "Rikets"
     show: [m.year, Math.min((ms[i + 1]?.year ?? Infinity) - 1, m.year + 25)],
     events: (m.events ?? []).filter(id => byId[id]),
     label: t(m.label) || formatYear(m.year), title: t(m.title), body: t(m.text), mapNote: t(m.mapNote),
@@ -99,8 +100,13 @@ export class FunFacts {
     this.surpriseRecent = [];
     this.requestedId = null;
     this.onSurprise = () => {};
-    this.minimized = false;
-    try { this.minimized = localStorage.getItem('hg-ff-min') === '1'; } catch { /* utan lagring */ }
+    // Kortet startar litet (#1867, "Visste du? 4": fliken i dator, stängd panel i mobil), så att globen syns först. Det öppnas när
+    // besökaren trycker på det, eller av sig självt när besökaren startar uppspelningen med Spela (openForPlay). Ett eget val sparas:
+    // öppnat (0) blir kvar öppet nästa gång, ihopfällt (1) likaså; utan val startar kortet litet. Den automatiska öppningen sparas aldrig:
+    // `chosen` är sant bara när besökaren har valt (sparat val vid start, eller ett tryck på kortet sedan dess), och då öppnar Spela inget.
+    this.minimized = true; this.chosen = false;
+    try { const saved = localStorage.getItem('hg-ff-min'); this.minimized = saved !== '0'; this.chosen = saved === '0' || saved === '1'; } catch { /* utan lagring */ }
+    this.peekCount = this.root.querySelector('#ff-peek-count');
     // Panelen i smal skärm (#239): ihopfällt kort (minimized) visas som stängd panel i stället för en flik.
     // autoClosed: stängd av att man drar i globen. Det sparas inte, och nästa nya kort öppnar panelen igen.
     this.sheet = 'half'; this.autoClosed = false;
@@ -179,9 +185,22 @@ export class FunFacts {
     if (fresh) this.onNew();
   }
 
+  /**
+   * Besökaren startade uppspelningen med Spela (#1867): ett litet kort öppnas, så att nya kort syns och uppspelningen pausar vid dem
+   * (playback.js pausar bara när kortet är öppet). Öppningen är automatisk och sparas därför inte (`hg-ff-min` rörs inte): nästa besök
+   * startar litet igen. Har besökaren själv valt, öppnat eller fällt ihop kortet (`chosen`), händer inget, så ett kort som besökaren har
+   * stängt står stängt. Fokus flyttas inte. Ger sant när kortet öppnades.
+   */
+  openForPlay() {
+    if (!this.minimized || this.chosen) return false;
+    this.minimized = false; this.autoClosed = false;
+    this._show();
+    return true;
+  }
+
   /** Fäll ihop kortet till en flik, eller öppna det igen. Valet sparas. */
   setMinimized(on) {
-    this.minimized = on; this.autoClosed = false;
+    this.minimized = on; this.autoClosed = false; this.chosen = true;
     try { localStorage.setItem('hg-ff-min', on ? '1' : '0'); } catch { /* utan lagring */ }
     this._show();
     if (!narrow.matches) (on ? this.tab : this.min).focus?.();
@@ -385,7 +404,11 @@ export class FunFacts {
     // I smal skärm är det ihopfällda kortet en stängd panel, inte en flik (#239)
     const asSheet = narrow.matches;
     this.tab.hidden = !f || (!this.minimized && !this.detailOpen) || asSheet;
-    this.tabCount.textContent = String(this.active.length);
+    // Siffran är antalet kort i "Visste du?" (inte händelserna i Samtidigt-listan); fliken, raden i den stängda panelen och knappens namn säger samma sak
+    const count = String(this.active.length);
+    this.tabCount.textContent = count;
+    if (this.peekCount) this.peekCount.textContent = count;
+    this.tab.setAttribute('aria-label', ui('ff.show', { n: count }));
     this._syncSheet();
     if (!f || (this.minimized && !asSheet) || (this.detailOpen && !asSheet)) { this.root.hidden = true; this.root.dataset.funfactId = ''; if (!(f && this.detailOpen && !asSheet)) this._announcedKey = ''; /* faktarutan som täcker kortet ska inte få det uppläst igen när den stängs (#1138) */ this.onArcs([]); return; }
     this.root.dataset.funfactId = f.id;
@@ -393,7 +416,7 @@ export class FunFacts {
     this.root.classList.toggle('ff-story', story);
     this.root.classList.remove('ff-open');
     if (this.pre) this.pre.hidden = story;
-    this.kind.textContent = story ? `${kindLabel(f.vanished ? 'vanished' : 'empire')} · ${f.empire}` : f.kind ? kindLabel(f.kind) : [kindLabel('funfact'), relationLabel(f, this.byId)].filter(Boolean).join(' · ');
+    this.kind.textContent = story ? `${kindLabel(f.vanished ? 'vanished' : f.area ? 'area' : 'empire')} · ${f.empire}` : f.kind ? kindLabel(f.kind) : [kindLabel('funfact'), relationLabel(f, this.byId)].filter(Boolean).join(' · ');
     const evs = f.events.map(id => this.byId[id]);
     // Bilderna står i händelsernas långa fält, som laddas per period (#337): kortet ritas om när de har kommit
     needDetails(evs, { sources: false })?.then(() => { if (this.active[this.index] === f) this._show(); }).catch(err => console.error(err));
@@ -407,9 +430,9 @@ export class FunFacts {
     for (const b of this.events.querySelectorAll('.ff-chip')) b.addEventListener('click', () => this.onSelect(b.dataset.id));
     const rv = REVIEW[f.review] ?? REVIEW.draft;
     this.review.className = `review-badge ${rv.cls}`;
-    const subject = story ? (f.vanished ? 'Landet' : 'Riket') : f.kind === 'war' ? 'Kriget' : 'Fun facten';
+    const subject = story ? (f.vanished ? 'Landet' : f.area ? 'Området' : 'Riket') : f.kind === 'war' ? 'Kriget' : 'Fun facten';
     this.review.textContent = reviewLabel(f.review, subject);
-    this.review.title = REVIEW_SUBJECT_HELP[subject];
+    this.review.title = REVIEW_SUBJECT_HELP[subject] ?? ui(`review.subjectHelp.${subject}`); // Området (#1300) har ingen post i model.js
     this.pager.textContent = this.active.length > 1 ? ui('ff.pager', { n: this.index + 1, total: this.active.length }) : '';
     this.next.hidden = this.active.length < 2;
     this.root.hidden = false;

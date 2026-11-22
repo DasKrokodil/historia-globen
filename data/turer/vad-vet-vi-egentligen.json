@@ -18,6 +18,7 @@
     "fr": "Pompéi, les 300 Spartiates, le dodo, la peste noire, la grippe espagnole et Charles XII : six histoires que vous connaissez sûrement, et où se cache l'incertitude."
   },
   "review": "source-checked",
+  "audience": {"sv":"Vuxna","en":"Adults","de":"Erwachsene","es":"Personas adultas","fr":"Adultes"},
   "steps": [
     {
       "id": "pompeji",

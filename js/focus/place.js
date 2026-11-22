@@ -1,30 +1,39 @@
 // Fokustypen plats (#579): ett urval av händelser, valt med en geometri (dagens gräns i data/platser.json).
 // Draft-platser laddas aldrig.
-import { loadPlaces, loadEmpireFacts, t, isVisibleReview, formatYear, rangeText } from '../model.js';
+import { loadPlaces, loadedPlaces, loadEmpireFacts, t, isVisibleReview, formatYear, rangeText, region, pluralUi } from '../model.js';
 import { ui } from '../i18n.js';
 import { say } from '../ui/status.js';
 import { placeEvents, placeBounds } from '../place-geo.js';
-import { regionEligible, globeRegionEligible } from '../region-frame.js';
+import { regionButtonKey } from '../region-frame.js';
 import { formatYearSpan } from '../controllers/facts.js';
 import { langs, selectionSpan, warnHuntImpossible } from './util.js';
 
 /**
- * Knappen i platskortet: "Visa i regionvy" för en plats som får regionvyn (js/region-frame.js), i Platt vy (Skåne, Danmark) eller på
- * globen (Aotearoa, Grönland, #1644), annars "Visa i Platt karta" (Sverige).
+ * Knappen i platskortet: "Visa i regionvyn" för en plats som får regionvyn (js/region-frame.js), i Platt vy (Skåne, Danmark) eller
+ * på globen (Aotearoa, Grönland, #1644), annars "Visa på Platt karta" (Sverige; ord ändrade i #1864). En liten plats får regionvyn i
+ * Platt vy bara när den fria ytan rymmer den (#1692): är fönstret för litet, till exempel en liggande telefon, ramas platsen in i
+ * Platt vy, och då säger knappen det. key är textens nyckel (controllers/region.js, buttonKey), annars bara platsens storlek.
  */
-function flatAction(place, run) {
-  const b = place.boundary?.geometry ? placeBounds(place) : null;
-  const key = b && (regionEligible(b) || globeRegionEligible(b)) ? 'place.regionMap' : 'place.flatMap';
+export function flatAction(place, run, key = placeButtonKey(place)) {
   return { text: ui(key), label: `${ui(key)}: ${t(place.name)}`, run };
 }
 
+/** Knappens textnyckel när ytan inte är känd: regionvyn för en plats som får den, annars Platt karta. */
+function placeButtonKey(place) {
+  return regionButtonKey(place.boundary?.geometry ? placeBounds(place) : null);
+}
+
+/** Landet som platsen ingår i (`partOf` är landets id, #1947), ur platserna som har laddats; null om platsen inte ingår i något. */
+export const parentOf = (place, places = loadedPlaces()) => (place.partOf ? places.find(p => p.id === place.partOf) ?? null : null);
+
 /**
- * Typraden under namnet (#1479): typen, och när platsen ingår i något (`partOf`) typen följd av frasen, till exempel "Landskap i Sverige".
- * `partOf` är hela frasen per språk, med preposition och artikel som landet kräver ("in der Schweiz", "aux États-Unis"), så koden
- * lägger aldrig till en preposition själv; mallen `place.typeOf` är bara "{type} {of}". tx och tui är texthämtarna (för prov per språk).
+ * Typraden under namnet (#1479): typen, och när platsen ingår i ett land (`partOf`, landets id, #1947) typen följd av landets
+ * `nameIn`, till exempel "Landskap i Sverige". `nameIn` är hela frasen per språk, med preposition och artikel som landet kräver
+ * ("in der Schweiz", "aux États-Unis"), så koden lägger aldrig till en preposition själv; mallen `place.typeOf` är bara "{type} {of}".
+ * tx och tui är texthämtarna (för prov per språk), places platserna som partOf slås upp i.
  */
-export function placeLead(place, tx = t, tui = ui) {
-  const type = tui(`place.type.${place.type}`), of = place.partOf ? tx(place.partOf) : '';
+export function placeLead(place, tx = t, tui = ui, places = loadedPlaces()) {
+  const type = tui(`place.type.${place.type}`), nameIn = parentOf(place, places)?.nameIn, of = nameIn ? tx(nameIn) : '';
   return of ? tui('place.typeOf', { type, of }) : type;
 }
 
@@ -43,23 +52,24 @@ export function showPlaceCard(app, place, events, { follow = true, note = '', fo
     const years = formatYearSpan(r.from, r.to);
     if (r.kind === 'gap') return { gap: ui('place.empireGap', { years }) };
     return { years, name: r.name, label: ui('place.followEmpire', { name: t(r.name), years }), mapNote: r.mapNote,
-      run: follow && panel.onPlaceEmpire ? () => panel.onPlaceEmpire({ ...r, label: `${t(r.name)} ${years}` }) : null };
+      run: follow && panel.onPlaceEmpire ? () => panel.onPlaceEmpire({ ...r, label: `${t(r.name)} ${years}`, origin: { key: `place:${place.id}`, name: t(place.name) } }) : null };
   });
   // Förklaringen står under listan, så att raderna syns först i smal skärm; i Fokus också att Följ riket lämnar platsen
   const empires = periods.length ? { title: ui('place.empires', { count: rows.filter(r => r.kind === 'empire').length }),
     note: [ui('place.empiresNote'), ...(follow ? [ui('place.followLeaves')] : [])].join(' '), follow: ui('place.followEmpireShort'), rows: periods } : null;
   app.store.setSelected(null);
   panel.showSelection({ label: ui('place.label'), name: place.name, lead: placeLead(place), emblems: place.emblems,
-    intro: place.intro,
+    intro: place.intro, mapNote: ui('place.mapContext'),
     // Visa i Platt karta (#1161): byter vy och ramar in platsen; knappen finns när main.js har kopplat återanropet
-    // En liten plats får regionvyn (#1641), och knappen säger det
-    action: follow && panel.onPlaceFlat ? flatAction(place, () => panel.onPlaceFlat(place)) : null,
+    // En liten plats får regionvyn (#1641), och knappen säger det, men bara när den ryms (#1692, controllers/region.js)
+    action: follow && panel.onPlaceFlat ? flatAction(place, () => panel.onPlaceFlat(place), app.region?.buttonKey(place)) : null,
     // boundary.note (#1159): en fast rad om vad konturen är när den inte är platsens egen gräns (Skåne läns gräns för landskapet Skåne)
     notes: [ui('place.borderNote'), ...(place.boundary?.note ? [t(place.boundary.note)] : []), ...(follow ? [ui('place.filters')] : [])], banner: note, exit: follow ? ui('place.exit') : null,
-    empires, summary: ui('place.events', { count: events.length }), events, sources: place.sources, focus, ariaLabel: ui('place.cardLabel') });
+    empires, summary: ui('place.events', { count: events.length }), events, sources: place.sources, focus, ariaLabel: ui('place.cardLabel'), aboutLabel: ui('place.about') });
   app.surfaces.closeGroup('meny');
-  if (app.narrow.matches) app.surfaces.closeGroup('sidopanel');
+  app.surfaces.opened('place-card'); // Samtidigt-panelen stängs, i bred skärm också (#1865): kortet och listan delar plats
   $('app').classList.add('has-detail');
+  app.region?.refreshButton?.(follow ? place : null); // kortet syns nu: knappens text räknas om på det som täcker kartan (#1692)
 }
 
 /**
@@ -87,6 +97,28 @@ export function placeEmpireRows(place, groups = []) {
   }
   // Stabil sortering: perioder med samma första år står i platsens ordning, och en lucka står efter perioden före den
   return [...rows, ...gaps].sort((a, b) => a.from - b.from);
+}
+
+/**
+ * Dagens länder i rikeskortet (#1955): de platser vars kort själv nämner riket i `periods` (med Cliopatria som källa, #1448), i
+ * platsernas ordning. Det är samma koppling som landskortets, åt andra hållet, så ingen egen regel för historiska gränser behövs.
+ * polity: ett rike med egen faktaruta (polityFacts, #301) visar bara platser med just den delen; annars gäller hela gruppen.
+ * spans är platsens perioder för riket, sammanslagna när de ligger kant i kant (1612–1721 och 1722–1814 blir 1612–1814).
+ */
+export function empirePlaces(places, empireId, polity = null) {
+  const out = [];
+  for (const place of places ?? []) {
+    const ps = (place.periods ?? []).filter(p => p.empire === empireId && (!polity || p.polity === polity)).sort((a, b) => a.from - b.from);
+    if (!ps.length) continue;
+    const spans = [];
+    for (const p of ps) {
+      const last = spans[spans.length - 1];
+      if (last && p.from <= last.to + 1) last.to = Math.max(last.to, p.to);
+      else spans.push({ from: p.from, to: p.to });
+    }
+    out.push({ id: place.id, name: place.name, spans });
+  }
+  return out;
 }
 
 /** Rikenas faktarutor (mapNote vid raderna, #1448) laddas innan kortet för en plats med perioder ritas. Ett fel stoppar inte kortet. */
@@ -152,12 +184,17 @@ export function entry(app) {
     },
     facts: { has: () => true, show: f => showCard(f) },
     async menuLoad() { list ??= await loadPlaces(); },
-    // En plats visas med typ och antal händelser inom gränsen ("Självstyrt område · 17 händelser · 2500 f.Kr.–2009", #579)
-    menu: () => [{ title: 'Platser', note: ui('focus.note.places'), loading: !list, items: !list ? [] : list.map(pl => {
+    // Spannet gäller händelser inom dagens gräns, inte när platsen existerade (#1956).
+    // Listan är ett träd (#1947): världsdel → land → landskap. tree säger det till menyn, region är världsdelen (som i Samtidigt, ur
+    // platsens mittpunkt med region() i model.js; ett landskap ärver landets) och parent landets id (partOf) för en plats i ett land.
+    menu: () => [{ title: 'Platser', note: ui('focus.note.places'), tree: true, loading: !list, items: !list ? [] : list.map(pl => {
       const evs = visible(pl);
       if (!evs.length) return null;
       const to = Math.max(...evs.map(e => e.end));
-      return { key: `place:${pl.id}`, label: t(pl.name), terms: langs(pl.name), sub: `${ui(`place.type.${pl.type}`)} · ${ui('focus.themeCount', { count: evs.length })} · ${formatYearSpan(evs[0].start, to)}`, from: evs[0].start, to };
+      const parent = parentOf(pl, list), [lat, lon] = (parent ?? pl).view.center;
+      return { key: `place:${pl.id}`, id: pl.id, parent: parent?.id ?? null, type: pl.type, region: region(lat, lon),
+        nameIn: pl.nameIn ? t(pl.nameIn) : null, label: t(pl.name), terms: langs(pl.name),
+        sub: `${ui(`place.type.${pl.type}`)} · ${pluralUi('place.eventsWithin', evs.length, { count: evs.length })} · ${formatYearSpan(evs[0].start, to)}`, from: evs[0].start, to };
     }).filter(Boolean) }],
   };
 }

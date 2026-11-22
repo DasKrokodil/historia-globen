@@ -40,7 +40,7 @@ Mål med tecken att leta efter. Inget statistikskript körs på sidan (beslut 20
 
 | # | Mål | Tecken på att vi lyckas | Hur vi ser det |
 |---|---|---|---|
-| M1 | **Förstå samtidighet på under en minut.** En förstagångsbesökare, ung eller gammal, ser ett samband och vill fortsätta utforska. | Ingången (introduktion, Samtidigt-kort) fungerar på mobil, surfplatta och dator utan förklaring. | UX-genomgång; webbläsartestet |
+| M1 | **Förstå samtidighet på under en minut.** En förstagångsbesökare, ung eller gammal, ser ett samband och vill fortsätta utforska. | Ingången (introduktion, Visste du?-kort) fungerar på mobil, surfplatta och dator utan förklaring. | UX-genomgång; webbläsartestet |
 | M2 | **Pålitligt innehåll och synliga källor.** Inget påhittat, och besökaren kan se var uppgiften kommer ifrån (källkritik som metod). | Alla synliga uppgifter har källa; oenighet visas; ingen fakta ur minnet. | Källkontroll, `tools/`-kontroller |
 | M3 | **Går att använda i skolan, för den som vill.** Förskoleklass till gymnasiet. Ingen läroplattform. | Turer, lektionsläge och utskrift fungerar som tillval utan att styra utvecklingen. | Lärarlinsen vid skolrelease |
 | M4 | **Global bredd, och tydligt att det är ett urval.** Inte slagsida mot Europa. | Täckning per världsdel, period och kategori är synlig och glapp åtgärdas. "Om urvalet" finns. | `python3 tools/tackning.py` |

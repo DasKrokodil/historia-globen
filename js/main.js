@@ -9,6 +9,7 @@ import { applyStatic, setupLangPicker, takeReturnYear, LANG_INFO, ui } from './i
 import { bindStatus, say } from './ui/status.js';
 import { Globe, paintBase } from './globe.js';
 import { Timeline, setupYearJump } from './timeline.js';
+import { LevelSwitch } from './ui/level-switch.js';
 import { LAYERS } from './layers/index.js';
 import { hasTag } from './layers/events.js';
 import { Panel } from './ui/panel.js';
@@ -45,6 +46,7 @@ import { createAddress } from './controllers/address.js';
 import { createJumpBack } from './controllers/jump-back.js';
 import { createLinkNotice } from './controllers/link-notice.js';
 import { createPresentation } from './controllers/presentation.js';
+import { startView, WIDE_QUERY } from './start-view.js';
 import { TeacherGuide } from './ui/teacher.js';
 import { createSurfaces, OVERLAY_IDS } from './surfaces.js';
 
@@ -156,6 +158,22 @@ async function start() {
   // Tidslåset (#1322): reglaget låses i en tur, och i en lektion stannar det inom lektionens år (timeLock i js/state.js)
   timeline.lock = () => timeLock(store.state.modes, app.lesson?.lock?.years ?? null);
   store.subscribe(({ type }) => { if (type === 'mode') timeline.syncLock(); });
+  // Växlaren mellan tidsreglagen (#1959): två nivåer med reglagens namn, och den som är vald följer året (timeline.scale)
+  const scaleSwitch = new LevelSwitch($('scale-switch'), {
+    levels: timeline.scales.map(sc => ({ id: sc.id, name: timeline.scaleName(sc) })),
+    // Dörren för in en Tillbaka-rad (#997, beslut 2026-11-20): "Från 1325 · Tillbaka" återställer året, och reglaget följer året. Ingen rad när året redan låg
+    // vid kanten dit dörren leder (högst ett år från ingångsåret): då är Tillbaka bara ett steg. Ett avslutat tidsintervall återställs inte (jump-back återställer året och kameran).
+    onSelect: (id, button) => {
+      const target = timeline.scales.find(sc => sc.id === id), to = timeline.scaleEntry(target);
+      if (to == null) return;
+      if (Math.abs(timeline.year - to) <= 1) timeline.goToScale(target);
+      else jumpBack.run(() => timeline.goToScale(target), button);
+    },
+  });
+  const syncScaleSwitch = () => { scaleSwitch.setCurrent(timeline.scale.id); scaleSwitch.setDisabled(timeline.locked || !!timeline.focus); };
+  timeline.addEventListener('change', syncScaleSwitch);
+  timeline.addEventListener('lockchange', syncScaleSwitch);
+  timeline.addEventListener('focuschange', syncScaleSwitch);
   ff.setSurpriseRange(() => timeline.focus);
   const yearJump = setupYearJump(timeline, {
     button: $('year-jump'), pop: $('jump-pop'), input: $('jump-input'), msg: $('jump-msg'), epochs: $('jump-epochs'),
@@ -325,13 +343,16 @@ async function start() {
   // efterträdare eller föregångare som finns som rike (#72, follow) börjar följas direkt.
   // I lektionsläget (#795) följs ingenting: ett rike öppnar bara sin faktaruta
   panel.onEmpire = (id, follow = false) => ((!follow || app.lesson?.active) && app.showEmpireFacts(id)) || app.startFocus(`empire:${id}`);
+  // Dagens länder i rikeskortet (#1955): Följ landet börjar följa platsen; i lektionsläget följs ingenting, så där är länderna bara text
+  panel.onFollowPlace = id => app.startFocus(`place:${id}`);
+  panel.followLocked = () => !!app.lesson?.active;
   // Följ riket i landskortet (#1448): riket följs från periodens år, så att länken "Sverige-Norge 1815–1904" inte börjar år 980.
   // I lektionsläget följs ingenting, som ovan: riket öppnar bara sin faktaruta
-  // Följ riket ersätter platsen (Fokus-typerna utesluter varandra; kortet säger det). Rikets faktarutor är redan laddade för kortet, så
+  // Följ riket ersätter platsen (Fokus-typerna utesluter varandra; kortet säger det), och fokusraden har en knapp tillbaka till platsen (#1713). Rikets faktarutor är redan laddade för kortet, så
   // rikets kort ritas direkt, och tangentbordsfokus flyttas dit (knappen som trycktes finns inte längre)
   panel.onPlaceEmpire = async r => {
     if (app.lesson?.active) return app.showEmpireFacts(r.empire);
-    const started = await app.startFocus(`empire:${r.empire}`, { within: { from: r.from, to: r.to, name: t(r.name) } });
+    const started = await app.startFocus(`empire:${r.empire}`, { within: { from: r.from, to: r.to, name: t(r.name) }, origin: r.origin });
     if (started && !document.querySelector('#detail')?.contains(document.activeElement)) {
       const target = !$('detail').hidden ? $('detail').querySelector('[data-close]') : $('focus-facts').hidden ? $('focus-exit') : $('focus-facts');
       target?.focus({ preventScroll: true });
@@ -382,7 +403,7 @@ async function start() {
   // Kortets källor (#337): rikets berättelse har egna, fun facts och krigskort ärver händelsernas, som har laddats
   // när dialogen visar dem (Om källorna laddar alla händelsers källor först)
   ff.onSources = f => sources.open(() => f.kind === 'empire' ? f.sources
-    : [...new Set(f.events.flatMap(id => data.byId[id]?.sources ?? []))]);
+    : [...new Set(f.events.flatMap(id => data.byId[id]?.sources ?? []))], f.kind ? 'card' : 'funfact'); // rätt ord överst (#1860)
   panel.onSources = () => sources.open(); // knappen Om källorna under (i) vid granskningsstatusen (#310)
   sources.onSettings = (...a) => app.refresh(...a);
 
@@ -419,10 +440,12 @@ async function start() {
   }
   // Platsraden i faktarutan (#312, bara smal skärm): fäller ihop rutan till litet läge och visar markören på globen
   // Knappen Visa i Platt karta i platsens kort (#1161): vyn byts och kartan ramar in platsen. På smal skärm fälls kortet ihop till
-  // litet läge så att kartan syns, och fokus går till dess handtag (knappen är då inte synlig)
+  // litet läge så att kartan syns. Fokus läggs sist på Lämna regionvyn eller kartan, efter arkets omställning (#1950).
   panel.onPlaceFlat = place => {
     app.places.showInFlat(place); // en stor plats får regionvyn på globen (#1644), där arket också fälls ihop
-    if (narrow.matches) { detailSheet.set('closed'); detailSheet.handle.focus({ preventScroll: true }); }
+    if (narrow.matches) detailSheet.set('closed');
+    const target = app.region.globeOpen ? $('globe-region-back') : flatMap.region ? $('flat-region-back') : flatMap.canvas;
+    target.focus({ preventScroll: true });
   };
   panel.onShowPlace = e => {
     detailSheet.set('closed');
@@ -438,13 +461,15 @@ async function start() {
     return !!rh;
   };
   // I Platt vy: klick bredvid markörerna (#38)
-  flatMap.onMapClick = (ll, x, y) => {
+  flatMap.onMapClick = (ll, x, y, pointerType) => {
     relLegend.hidePop(); routePop.hide(); popClick++;
-    if (!routeClick(ll, x, y)) app.places.tap(ll); // sist: platsens kort (#1161). Platt vy har inget dubbeltryck som zoomar, så trycket väntar inte
+    // sist: platsens kort (#1161). Platt vy har inget dubbeltryck som zoomar, men med finger väntar trycket ändå lite (#1978): kortet
+    // som öppnas lägger sig annars över tryckpunkten innan webbläsaren har skickat sitt klick, som då träffar kortet
+    if (!routeClick(ll, x, y)) app.places.tap(ll, pointerType === 'touch' || pointerType === 'pen');
   };
   globe.onClick = (x, y, pointerType) => {
     // Regionvyn på globen (#1644): medaljerna är dolda och markörerna är knappar; ett tryck bredvid dem fäller ihop och avmarkerar
-    if (app.region?.globeOpen) { app.region.background(); return; }
+    if (app.region?.globeOpen) { app.region.background(); app.places.tap(globe.pickLatLon(x, y), pointerType === 'touch' || pointerType === 'pen'); return; } // och ett tryck på platsen öppnar kortet (#1791)
     const hit = globe.pick(x, y, layer.sprites.filter(s => s.visible));
     relLegend.hidePop(); routePop.hide(); popClick++;
     app.select(hit ? hit.userData.event.id : null);
@@ -532,7 +557,10 @@ async function start() {
 
   // Menyerna uppe till höger och sidopanelen: en öppnad yta stänger sin grupp (js/surfaces.js, #894)
   const { surfaces } = app;
-  surfaces.register('panel', 'sidopanel', () => panel.setOpen(false));
+  surfaces.register('panel', 'sidopanel', () => panel.setOpen(false), { isOpen: () => panel.root.classList.contains('open') });
+  // Platskortet (#1865) stänger som krysset (platsen följs kvar) och har egen Escape-lyssnare i panel.js, så det är inte med i det centrala Escape
+  const placeCardOpen = () => !$('detail').hidden && $('detail').classList.contains('detail-place');
+  surfaces.register('place-card', 'kort', () => { if (placeCardOpen()) app.select(null, false); }, { isOpen: placeCardOpen, central: false });
   surfaces.register('layers', 'meny', () => layers.close());
   surfaces.register('focus', 'meny', () => app.focusMenu.close());
   // Mobilens Meny och datorns Mer stängs när en annan meny öppnas, till exempel språklistan (#1167)
@@ -540,6 +568,10 @@ async function start() {
   surfaces.register('extra', 'meny', () => { if (extraMenu.isOpen) extraMenu.set(false); });
   panel.onOpen = () => { surfaces.opened('panel'); app.orientToPanelHighlight(); };
   layers.onOpen = () => surfaces.opened('layers');
+  // Under en tur väntar Samtidigt (#1865): knappen är inaktiv så länge klassen touring står på sidan (turen, lektionen och slutkortet)
+  const syncPanelWait = () => panel.setWaiting($('app').classList.contains('touring'));
+  new MutationObserver(syncPanelWait).observe($('app'), { attributes: true, attributeFilter: ['class'] });
+  syncPanelWait();
 
   // Sök och följ (#651, tidigare Sök #570): händelserna söks i samma ruta som det man kan följa. En händelse öppnas
   // på sitt år (lagret Händelser och händelsens kategori slås på om de är av); resten börjar följas i Fokus.
@@ -599,7 +631,10 @@ async function start() {
     beforeReload: () => app.address?.flush(), onOpen: () => surfaces.opened('lang'),
   });
   surfaces.register('lang', 'meny', () => langPicker.close());
-  globe.flyTo(34, -50, 1600);
+  // Startkameran (#1317): på dator börjar globen på lägsta zoom så att kortets händelser ligger fria från Visste du?-kortet; en delad adress anger själv kameran
+  const start = startView({ hash: location.hash, search: location.search, wide: matchMedia(WIDE_QUERY).matches });
+  globe.flyTo(start.lat, start.lon, 1600);
+  if (start.zoom !== 1) globe.setZoom(start.zoom);
   globe.autoRotate = false;
 
   // Frivillig introduktion (#363, #516): startas från Utforska och sätter bara då introduktionens år.
@@ -671,7 +706,7 @@ async function start() {
     get lesson() { return app.lesson; }, // lektionsläget (#795) skapas efter spelaren
     get places() { return app.places; }, // turens steg med en plats (#1163)
     get linkNotice() { return app.linkNotice; }, // raden efter att turen lämnats (#1572)
-    timeline, globe, flatMap, layers, narrow, root: $('app'), events: data.byId,
+    timeline, globe, flatMap, layers, narrow, root: $('app'), events: data.byId, srcById: data.srcById,
     layerIds: new Set(registry.entries.map(e => e.id)), controlled: registry.viewLayers(views?.groups), empires: new Set(data.empireGroups.map(g => g.id)),
     select: (id, jump) => app.select(id, jump),
     // Markera en händelse på globen utan att öppna faktarutan (turens steg i smal skärm)
@@ -679,7 +714,7 @@ async function start() {
     focusKey: () => (state.focus ? `${state.focus.type}:${state.focus.id}` : null),
     startFocus: key => app.startFocus(key), endFocus: redraw => app.endFocus(redraw),
     store, snapshot: () => app.modeSnapshot(),
-    openSources: ids => sources.open(() => ids),
+    openSources: ids => sources.open(() => ids, 'tour'), // "det här steget i turen" (#1860)
     fallbackFocus: () => $('track'),
   });
   app.tour = tour;

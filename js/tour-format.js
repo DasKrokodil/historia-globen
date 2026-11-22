@@ -34,6 +34,15 @@
 //   place   valfri plats (id i data/platser.json, #1163) vars kort öppnas, med platsens kontur på kartan. Ett steg öppnar
 //           antingen en händelse (open) eller en plats (place), inte båda. Kortet följer stegets kamera och år: turen startar
 //           inget Fokus (det skulle avsluta turen), och knappen Visa i Platt karta finns inte i en tur
+//   image   valfritt (#1794): en bild i stegets kort: { file: images/turer/<namn>.webp, kind: photo|illustration, caption: text per språk, credit,
+//           license, source: id i data/sources.json (filsidan på Wikimedia Commons) }. Bara en riktig bild vars licens har kontrollerats på filsidan
+//           (public domain, CC0, CC BY, CC BY-SA); en illustration märks i bildtexten. Bildtexten är alt-texten.
+//   partLabels valfritt (#1793): rubrik över varje stycke i texten (en tom rad, \n\n, börjar ett nytt stycke), som nycklar i data/turer/index.json
+//           (labels, till exempel said och sourcesSay) eller null utan rubrik; en post per stycke. Alla språk har lika många stycken som svenskan.
+//   mark    valfritt (#1785): en markör med namn på kartan vid stegets plats, för steg som handlar om en plats utan att öppna en händelse
+//           eller en plats: { label: text per språk, lat?, lon?, approx? }. Utan lat och lon står markören på kamerans mitt (camera).
+//           approx: true ritar ringen streckad ("ungefärlig plats"), för något som är långt eller som markören bara pekar ut en punkt på
+//   line    valfritt (#1785): linjer på kartan i stegets stil, som en mur: { file: data/turer/linjer/<namn>.json, label: text per språk, namnet som ritas under linjens mittersta punkt, source: id i data/sources.json }. Filen har lines (lista av linjer med [lon, lat]) och source.
 //   sources källorna för stegets text (id i data/sources.json)
 
 export const TOUR_VERSION = 1;
@@ -41,6 +50,7 @@ export const TOUR_REVIEW = ['draft', 'source-checked', 'two-sources'];
 export const STEP_STATUS = ['belagt', 'omtvistat', 'okant'];
 export const LESSON_GRADES = ['F-3', '4-6', '7-9', 'gy'];
 const ID = /^[a-z0-9-]+$/;
+const ID_KEY = /^[A-Za-z][A-Za-z0-9-]*$/;
 
 const isText = v => !!v && typeof v === 'object' && !Array.isArray(v) && typeof v.sv === 'string' && v.sv.trim() !== '';
 const isNum = v => typeof v === 'number' && Number.isFinite(v);
@@ -58,6 +68,7 @@ export function tourProblems(tour, known = {}) {
   if (tour.version !== TOUR_VERSION) say(`okänd version ${tour.version}.`);
   if (typeof tour.id !== 'string' || !ID.test(tour.id)) say('id saknas eller har fel tecken.');
   if (!isText(tour.title)) say('titeln saknas (title.sv).');
+  if (tour.audience != null && !isText(tour.audience)) say('målgruppen ska vara text per språk.');
   if (!TOUR_REVIEW.includes(tour.review)) say(`okänd granskningsstatus ${tour.review}.`);
   if (tour.war != null && (typeof tour.war !== 'string' || (known.events && !known.events.has(tour.war)))) say(`kriget ${tour.war} finns inte.`);
   if (tour.empire != null && (typeof tour.empire !== 'string' || (known.empires && !known.empires.has(tour.empire)))) say(`riket ${tour.empire} finns inte.`);
@@ -87,9 +98,60 @@ export function tourProblems(tour, known = {}) {
       if (typeof s.place !== 'string' || !ID.test(s.place) || (known.places && !known.places.has(s.place))) say(`${where}: platsen ${s.place} finns inte.`);
       if (s.open != null) say(`${where}: ett steg öppnar antingen en händelse (open) eller en plats (place), inte båda.`);
     }
+    if (s.mark != null) markProblems(s.mark).forEach(msg => say(`${where}: ${msg}`));
+    if (s.line != null) lineProblems(s.line, known).forEach(msg => say(`${where}: ${msg}`));
+    if (s.image != null) imageProblems(s.image, known).forEach(msg => say(`${where}: ${msg}`));
+    if (isText(s.text)) partsProblems(s).forEach(msg => say(`${where}: ${msg}`));
     if (!Array.isArray(s.sources) || !s.sources.length) say(`${where}: källor saknas (sources).`);
     else for (const id of s.sources) if (known.sources && !known.sources.has(id)) say(`${where}: källan ${id} finns inte.`);
   });
+  return out;
+}
+
+/** Bilden i ett steg (image, #1794): fil, slag, bildtext per språk, kredit, licens och källa. Returnerar problemen utan stegets namn. */
+/** Linjen på kartan (line, #1785): filen, namnet och källan (som ska vara samma som filens). Returnerar problemen utan stegets namn. */
+function lineProblems(line, known) {
+  if (!line || typeof line !== 'object' || Array.isArray(line)) return ['linjen (line) ska vara ett objekt.'];
+  const out = [];
+  if (typeof line.file !== 'string' || !/^data\/turer\/linjer\/[a-z0-9-]+\.json$/.test(line.file)) out.push('linjens fil ska heta data/turer/linjer/<namn>.json.');
+  if (!isText(line.label)) out.push('linjens namn saknas (line.label.sv).');
+  if (typeof line.source !== 'string' || (known.sources && !known.sources.has(line.source))) out.push(`linjens källa ${line.source} finns inte i källregistret.`);
+  return out;
+}
+
+function imageProblems(img, known) {
+  if (!img || typeof img !== 'object' || Array.isArray(img)) return ['bilden (image) ska vara ett objekt.'];
+  const out = [];
+  if (typeof img.file !== 'string' || !/^images\/turer\/[a-z0-9-]+\.webp$/.test(img.file)) out.push('bildfilen ska heta images/turer/<namn>.webp.');
+  if (!['photo', 'illustration'].includes(img.kind)) out.push('bildens slag (kind) ska vara photo eller illustration.');
+  if (!isText(img.caption)) out.push('bildtexten saknas (image.caption.sv).');
+  else if (img.kind === 'illustration' && !/illustration/i.test(img.caption.sv)) out.push('en illustrations bildtext ska säga att den är en illustration.');
+  if (typeof img.credit !== 'string' || !img.credit.trim()) out.push('bildens kredit saknas (image.credit).');
+  if (typeof img.license !== 'string' || !img.license.trim()) out.push('bildens licens saknas (image.license).');
+  if (typeof img.source !== 'string' || (known.sources && !known.sources.has(img.source))) out.push(`bildens källa ${img.source} finns inte i källregistret.`);
+  return out;
+}
+
+/** Styckena i ett stegs text (#1793): lika många i alla språk, och partLabels med en post per stycke. */
+function partsProblems(s) {
+  const count = txt => String(txt ?? '').split(/\n\n+/).length;
+  const n = count(s.text.sv), out = [];
+  for (const [lang, txt] of Object.entries(s.text)) if (typeof txt === 'string' && txt.trim() && count(txt) !== n) out.push(`texten på ${lang} har ${count(txt)} stycken, svenskan ${n}.`);
+  if (s.partLabels != null) {
+    if (!Array.isArray(s.partLabels) || s.partLabels.length !== n) out.push(`partLabels ska vara en lista med ett värde per stycke (${n}).`);
+    else if (!s.partLabels.every(k => k === null || (typeof k === 'string' && ID_KEY.test(k)))) out.push('partLabels ska vara nycklar eller null.');
+  }
+  return out;
+}
+
+/** Markören på kartan (mark, #1785): namn per språk, valfri plats och valfritt ungefärlig. Returnerar problemen utan stegets namn. */
+function markProblems(m) {
+  if (!m || typeof m !== 'object' || Array.isArray(m)) return ['markören (mark) ska vara ett objekt.'];
+  const out = [];
+  if (!isText(m.label)) out.push('markörens namn saknas (mark.label.sv).');
+  if ((m.lat != null) !== (m.lon != null)) out.push('markören ska ha både lat och lon, eller ingen av dem.');
+  else if (m.lat != null && (!isNum(m.lat) || !isNum(m.lon) || Math.abs(m.lat) > 90 || Math.abs(m.lon) > 180)) out.push('markörens plats (lat och lon) ligger utanför jorden.');
+  if (m.approx != null && typeof m.approx !== 'boolean') out.push('mark.approx ska vara true eller false.');
   return out;
 }
 

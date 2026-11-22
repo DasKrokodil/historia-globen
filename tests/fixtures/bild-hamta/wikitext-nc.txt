@@ -1,0 +1,2 @@
+== {{int:license-header}} ==
+{{cc-by-nc-2.0}}
