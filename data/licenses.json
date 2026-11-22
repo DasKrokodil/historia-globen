@@ -105,6 +105,7 @@
         "commons-bild-harar-adals-huvudstad",
         "commons-bild-kilskriften",
         "commons-bild-lalibelas-klippkyrkor",
+        "commons-bild-lydenburghuvudena",
         "commons-bild-marrakech-grundas",
         "cramp-2014-mjolk"
       ]
@@ -135,9 +136,11 @@
         "cintas-pena-2023-valencina",
         "cliopatria",
         "commons-bild-borobudur-byggs",
+        "commons-bild-elefantfaglarna-dor-ut",
         "commons-bild-fn-grundas",
         "commons-bild-gagarin-vostok-1",
         "commons-bild-galileo-sidereus-nuncius",
+        "commons-bild-gao-saney-handelsstad",
         "commons-bild-jenners-vaccin",
         "commons-bild-lister-antiseptik",
         "commons-bild-nederlandarna-till-dejima",
@@ -342,6 +345,7 @@
     {
       "license": "CC BY-SA 3.0",
       "sourceIds": [
+        "commons-bild-amazigher-befolkar-kanarieoarna",
         "commons-bild-asterix-frankrikes-forsta-satellit",
         "commons-bild-bartolomeu-dias-rundar-afrika",
         "commons-bild-brihadisvaratemplet",
@@ -350,6 +354,7 @@
         "commons-bild-haamonga-a-maui",
         "commons-bild-hagia-sofia-byggs-532",
         "commons-bild-ife-huvudet",
+        "commons-bild-igbo-ukwu-bronserna",
         "commons-bild-jarnpelaren-i-delhi",
         "commons-bild-lanse-aux-meadows",
         "commons-bild-lapitafolket-nar-samoa",
@@ -406,6 +411,7 @@
       "license": "CC BY-SA 4.0",
       "sourceIds": [
         "commons-bild-agadez-mosken",
+        "commons-bild-al-qarawiyyin-grundas",
         "commons-bild-angkor-wat",
         "commons-bild-chan-chan",
         "commons-bild-chichen-itza",
@@ -414,6 +420,7 @@
         "commons-bild-guru-nanak",
         "commons-bild-jantar-mantar-jaipur",
         "commons-bild-jordbrukets-borjan",
+        "commons-bild-kisaliska-gravarna",
         "commons-bild-klippkonsten-vid-ubirr",
         "commons-bild-koutoubiamosken-byggs",
         "commons-bild-latte-stenar-pa-marianerna",
@@ -3469,6 +3476,7 @@
         "commons-bild-jordbavningen-i-lissabon-1755",
         "commons-bild-jordbavningen-i-valdivia-1960",
         "commons-bild-kabuki-borjar-1603",
+        "commons-bild-kanemriket",
         "commons-bild-kant-vad-ar-upplysning",
         "commons-bild-kapkolonin-1652",
         "commons-bild-karl-den-store-krons",
