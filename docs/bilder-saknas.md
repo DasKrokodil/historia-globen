@@ -139,11 +139,11 @@ Den 21 november 2026 gav reservsökningarna i Library of Congress bildkatalog HT
 
 ## Afrika 1390–1816, pilot #2108 (2026-11-22)
 
-Elva av 18 händelser fick en bild från Wikimedia Commons (licensen kontrollerad i filsidans wikitext 2026-11-22). Valen och skälen står i granskningslistan [data/utkast/bildbatch/2108.md](../data/utkast/bildbatch/2108.md). Värda att se över:
+Tio av 18 händelser fick en bild från Wikimedia Commons (licensen kontrollerad i filsidans wikitext 2026-11-22). Valen och skälen står i granskningslistan [data/utkast/bildbatch/2108.md](../data/utkast/bildbatch/2108.md). Värda att se över:
 
 - `etiopisk-adalska-kriget`: en fransk miniatyr från 1400-talet av Yagbea Sion mot sultanen av Adal, alltså ett tidigare krig. Bildtexten säger det.
 - `afonso-i-kung-av-kongo`: en modern vektorteckning (2017) av Kongos vapen omkring 1528–1541, lagd hel på svart bakgrund.
-- `bartolomeu-dias-rundar-afrika`, `askia-muhammad-tar-makten`, `shaka-bygger-zuluriket`, `rozviriket`: foton av platser och monument från långt senare tid; bildtexterna säger det.
+- `bartolomeu-dias-rundar-afrika`, `askia-muhammad-tar-makten`, `rozviriket`: foton av platser och monument från långt senare tid; bildtexterna säger det.
 
 | Händelse (id) | Varför ingen bild |
 |---|---|
@@ -154,3 +154,4 @@ Elva av 18 händelser fick en bild från Wikimedia Commons (licensen kontrollera
 | `slaget-vid-amba-sel` | Ingen kandidat i listan, och en kort sökning på Commons gav ingen träff. |
 | `oyoriket` | Den enda kandidaten är ett foto av palatset i Oyo från "mitten av 1900-talet", hämtat från en webbplats, med mallen PD-old (upphovspersonen död för mer än 70 år sedan). Det går inte att kontrollera för ett foto från 1900-talet utan känd fotograf. Bilden är dessutom smal (500 px). |
 | `asanteriket-grundas` | Den enda kandidaten är en liten karta (428 px) ur en engelsk atlas från 1800-talet, utan uppgift om källa, upphov eller år. |
+| `shaka-bygger-zuluriket` | Kandidaten är ett foto av monumentet Spirit of eMakhosini, ett monument från 2003. Sydafrika saknar frihet för panorama för konstverk enligt Commons (Commons:Copyright rules by territory/South Africa), och filsidan har varken NoFoP-mall eller konstnärens tillstånd. Bilden lades först in i #2190 och togs bort efter granskningen. |

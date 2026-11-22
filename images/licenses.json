@@ -2092,11 +2092,11 @@
       "eventTitle": "Kungadömet Kongo grundas",
       "file": "images/events/kungadomet-kongo-grundas.webp",
       "kind": "historisk",
-      "credit": "Pieter de Hondt och J. van der Schley / Koninklijke Bibliotheek och Atlas of Mutual Heritage via Wikimedia Commons",
+      "credit": "Pierre d'Hondt (förläggare) och J. van der Schley (gravör) / Koninklijke Bibliotheek och Atlas of Mutual Heritage via Wikimedia Commons",
       "license": "Public domain",
       "source": {
         "id": "commons-bild-kungadomet-kongo-grundas",
-        "title": "A Dutch delegation is received by the king of Congo – bild ur en bok från 1747 (Pieter de Hondt, gravör J. van der Schley), efter Dapper (Wikimedia Commons, filsida)",
+        "title": "A Dutch delegation is received by the king of Congo – bild ur en bok från 1747 (Pierre d'Hondt (förläggare) och J. van der Schley (gravör)), efter Dapper (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:AMH-8087-KB_A_Dutch_delegation_is_received_by_the_king_of_Congo..jpg",
         "license": "Public domain",
         "checked": "2026-11-22"
@@ -3150,21 +3150,6 @@
         "url": "https://commons.wikimedia.org/wiki/File:Semmelweis_Ign%C3%A1c.jpg",
         "license": "Public domain",
         "checked": "2026-11-13"
-      }
-    },
-    {
-      "eventId": "shaka-bygger-zuluriket",
-      "eventTitle": "Shaka bygger upp Zuluriket",
-      "file": "images/events/shaka-bygger-zuluriket.webp",
-      "kind": "historisk",
-      "credit": "JMK / Wikimedia Commons",
-      "license": "CC BY-SA 3.0",
-      "source": {
-        "id": "commons-bild-shaka-bygger-zuluriket",
-        "title": "Gees van eMakhosini-monument, eMakhosini – foto av JMK, 2014 (Wikimedia Commons, filsida)",
-        "url": "https://commons.wikimedia.org/wiki/File:Gees_van_eMakhosini-monument,_eMakhosini.jpg",
-        "license": "CC BY-SA 3.0",
-        "checked": "2026-11-22"
       }
     },
     {

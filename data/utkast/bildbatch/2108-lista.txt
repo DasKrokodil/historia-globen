@@ -13,7 +13,7 @@ File:YagbeaSionBattlingAdaSultan.JPG	etiopisk-adalska-kriget
 File:Emblème du roi Agadja-Musée africain de Lyon.jpg	dahomey-erovrar-ouidah
 File:Andrianampoinimerina HQ.jpg	andrianampoinimerina-enar-imerina
 File:View of Sokoto (1890).jpg	sokotokalifatet-grundas
-File:Gees van eMakhosini-monument, eMakhosini.jpg	shaka-bygger-zuluriket
+# File:Gees van eMakhosini-monument, eMakhosini.jpg	shaka-bygger-zuluriket
 # Egen sökning (händelser utan kandidat i listan):
 File:AMH-8087-KB A Dutch delegation is received by the king of Congo..jpg	kungadomet-kongo-grundas
 File:ETH-BIB-Grabmal von Askia, Gao-Tschadseeflug 1930-31-LBS MH02-08-0549.tif	askia-muhammad-tar-makten
