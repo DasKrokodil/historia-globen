@@ -2546,12 +2546,12 @@ async function run(browser, vp) {
     }
   });
 
-  // #1785: murens linje i turen. Filen ska läsas (200), kortet ska bära linjens fil och inga sidfel får uppstå, och steget efter ska ta bort linjen
+  // #1785: murens linje i turen. Filen ska läsas (200, eller 304 när webbläsaren har den i cachen och frågar om den är oförändrad), kortet ska bära linjens fil och inga sidfel får uppstå, och steget efter ska ta bort linjen
   await check('turkortet: Mingmuren ritas som linje i steget Kinesiska muren och tas bort i nästa steg (#1785)', async () => {
     const lp = await context.newPage();
     const errs = [], bad = [];
     lp.on('pageerror', e => errs.push(e.message));
-    lp.on('response', r => { if (/data\/turer\/linjer\//.test(r.url()) && !r.ok()) bad.push(`${r.status()} ${r.url()}`); });
+    lp.on('response', r => { if (/data\/turer\/linjer\//.test(r.url()) && !r.ok() && r.status() !== 304) bad.push(`${r.status()} ${r.url()}`); });
     try {
       if (THREE_LOCAL) {
         const body = fs.readFileSync(THREE_LOCAL, 'utf8');
@@ -2562,8 +2562,9 @@ async function run(browser, vp) {
       await lp.goto(`${BASE}?ny=1785#t=det-har-har-du-hort&s=kinesiska-muren`);
       await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       const resp = await got;
-      if (!resp.ok()) throw new Error(`linjefilen gav ${resp.status()}`);
-      const data = await resp.json();
+      // Firefox kan fråga om filen är oförändrad (304) när en tidigare sida i samma körning har hämtat den: då finns den i cachen, och sidan får den därifrån
+      if (!resp.ok() && resp.status() !== 304) throw new Error(`linjefilen gav ${resp.status()}`);
+      const data = resp.status() === 304 ? await lp.evaluate(url => fetch(url).then(r => r.json()), resp.url()) : await resp.json();
       if (!data.lines?.length) throw new Error('linjefilen saknar linjer');
       const file = await lp.evaluate(() => document.getElementById('tour-card').dataset.line);
       if (file !== 'data/turer/linjer/muren-ming.json') throw new Error(`kortet bär linjen "${file}"`);
