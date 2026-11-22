@@ -50,7 +50,8 @@ FLAGGTEXT = {
                    '"Nutida foto (år) av …, inte från händelsens tid"',
     'datum-osakert': 'filsidan anger bara filens datum (ofta uppladdningen), 1990 eller senare: kontrollera om det är ett nutida '
                      'foto eller ett äldre verk',
-    'staende': 'stående bild: 4:3-utsnittet skär bort upp- och nederkant; skriv passa-in i tredje kolumnen i listan för att visa hela',
+    'staende': 'stående eller nästan kvadratisk bild: 4:3-utsnittet tar bort mer än 20 % av höjden; skriv passa-in i tredje '
+               'kolumnen i listan för att visa hela',
     'konstverk': 'modernt konstverk (monument, staty, skulptur, relief, väggmålning)? kontrollera frihet för panorama i landet '
                  'och konstnärens dödsår',
     'samma-fil': 'samma fil föreslås för flera händelser i omgången: välj den för högst en',
@@ -109,7 +110,9 @@ def valj(handelser, ids=None, period=None, region=None):
 # ---------------------------------------------------------------- flaggor och ordning
 
 KARTA = re.compile(r'\bmaps?\b|\bkarte\b|\bcarte\b|\bmapa\b|\bmappa\b|location map|locator|\bkarta\b')
-KONSTVERK = re.compile(r'monument|statues?\b|sculptur|memorial|murals?\b|\brelief|staty|skulptur|denkmal|denkmäler|monumento')
+KONSTVERK = re.compile(r'monument|statues?\b|sculptur|murals?\b|\brelief|staty|skulptur|denkmal|denkmäler|monumento')
+GAMMALT_AR = re.compile(r'(?<!\d)(1[0-8][0-9]{2}|[1-9][0-9]{0,2})(?:th|st|nd|rd)?[- ](?:century|centuries|jahrhundert|siècle)|'
+                        r'(?<!\d)1[0-8][0-9]{2}(?!\d)|\b(?:bc|bce|ancient|antique|medieval|roman|neolithic)\b')
 
 
 def ar_i(datum):
@@ -133,11 +136,13 @@ def flaggor(k, e):
             ar = ar_i(k.get('datum'))
             if ar and ar >= NUTIDA_FRAN:
                 f.append('datum-osakert')
-    if KONSTVERK.search(text):
+    # Moderna konstverk: inte kartor och inte föremål som filsidan dateras före 1900 (ett kärl från 800-talet, #2193)
+    if KONSTVERK.search(text) and 'karta' not in f and not GAMMALT_AR.search(text):
         f.append('konstverk')
     if k.get('smal'):
         f.append('smal')
-    if k.get('bredd') and k.get('hojd') and k['hojd'] > k['bredd']:
+    # 4:3-utsnittet runt mitten tar bort mer än 20 % av höjden (även nästan kvadratiska kartor och dokument, #2193)
+    if k.get('bredd') and k.get('hojd') and 1 - (k['bredd'] * 3 / 4) / k['hojd'] > 0.2:
         f.append('staende')
     if k.get('kalla') == 'commons-sok':
         f.append('ur-sokning')
