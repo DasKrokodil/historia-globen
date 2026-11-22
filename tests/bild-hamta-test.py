@@ -53,10 +53,11 @@ def jpeg(w=1600, h=1200):
 class Falsk:
     """Transport som svarar ur fixturerna och räknar anropen."""
 
-    def __init__(self, bild=b'', commons_status=None):
+    def __init__(self, bild=b'', commons_status=None, neka_miniatyr=False):
         self.anrop = []
         self.bild = bild
         self.commons_status = commons_status
+        self.neka_miniatyr = neka_miniatyr
 
     def __call__(self, url, headers, timeout):
         self.anrop.append(url)
@@ -76,6 +77,8 @@ class Falsk:
         if u.hostname == 'www.loc.gov':
             return 200, {}, LOC
         if u.hostname in ('upload.wikimedia.org', 'thumb.wikimedia.org', 'tile.loc.gov'):
+            if self.neka_miniatyr and ('/thumb/' in u.path or u.hostname == 'thumb.wikimedia.org'):
+                return 429, {'retry-after': '1'}, b''
             return 200, {}, self.bild
         return 404, {}, b''
 
@@ -376,6 +379,14 @@ def main():
             res = kor(poster(('File:Exempel pd.jpg', 'v-pd')), Falsk(bild=jpeg()), ut, skriv_over=True)
             check(res[0]['status'] == 'klar', '--skriv-over ska ersätta filen')
             # trasig bild
+            # Miniatyren nekas (429): bilden görs av originalfilen och det står i todo (#2195-uppföljning)
+            fn = Falsk(bild=jpeg(), neka_miniatyr=True)
+            res = kor(poster(('File:Exempel pd.jpg', 'v-original')), fn, ut)
+            check(res[0]['status'] == 'klar' and (ut / 'v-original.webp').exists(), f'originalfilen som reserv: {res[0]["status"]} {res[0]["skal"]}')
+            check(any('originalfilen' in t for t in res[0]['todo']), 'det ska stå att bilden gjordes av originalfilen')
+            check(any('/thumb/' not in a and a.endswith('Exempel_pd.jpg') for a in fn.anrop), 'originalfilen ska ha hämtats')
+            check('github.com/DasKrokodil/historia-globen' in bh.USER_AGENT and '@' not in bh.USER_AGENT,
+                  'User-Agent ska ha projektets adress som kontakt, aldrig e-post')
             res = kor(poster(('File:Exempel pd.jpg', 'v-trasig')), Falsk(bild=b'inte en bild'), ut)
             check(res[0]['status'] == 'fel' and 'gick inte att läsa' in ' '.join(res[0]['skal']), 'trasig bild ska ge fel, inte krasch')
 

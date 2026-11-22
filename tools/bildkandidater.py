@@ -48,7 +48,7 @@ ROOT = Path(__file__).resolve().parent.parent
 UTKAST = ROOT / 'data' / 'utkast' / 'bildkandidater'
 SAKNAS = ROOT / 'docs' / 'bilder-saknas.md'
 
-USER_AGENT = 'HistoriaGlobenBildkandidater/1.0 (hobbyprojekt med öppen källkod; klient: Claude Code)'
+USER_AGENT = 'HistoriaGlobenBildkandidater/1.1 (https://github.com/DasKrokodil/historia-globen; tools/bildkandidater.py)'
 WIKIDATA_API = 'https://www.wikidata.org/w/api.php'
 COMMONS_API = 'https://commons.wikimedia.org/w/api.php'
 BATCH = 50
