@@ -7568,7 +7568,8 @@ async function run(browser, vp) {
         await pp.click('#btn-panel');
         const knapp = pp.locator('.event-btn[data-id="nya-lagarna-1542"]');
         if (!(await knapp.count())) throw new Error('händelsen nya-lagarna-1542 (bild och lång text) finns inte i listan: byt till en annan med bild och lång text');
-        await knapp.first().scrollIntoViewIfNeeded();
+        // click() rullar själv fram knappen och försöker om när listan ritas om; ett eget scrollIntoViewIfNeeded före klicket föll i WebKit med
+        // "Element is not attached to the DOM" när listan ritades om under väntan på att knappen skulle stå still (#2171)
         await knapp.first().click();
         await pp.waitForSelector('#detail:not([hidden])', { timeout: T.step });
         await pp.waitForSelector('#detail .detail-fig img', { state: yta.width <= 760 ? 'attached' : 'visible', timeout: T.step });
