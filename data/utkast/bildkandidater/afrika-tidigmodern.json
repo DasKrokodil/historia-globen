@@ -19,14 +19,14 @@
       "start": 1504,
       "varldsdel": "Afrika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q1475713",
+      "kandidater": [],
       "soktext": "The Funj Sultanate is founded at Sennar",
       "anmarkningar": [
         "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
-      "kandidater": []
+      ]
     },
     {
       "id": "afonso-i-kung-av-kongo",
@@ -285,11 +285,11 @@
       "start": 1541,
       "varldsdel": "Afrika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Portuguese help reaches Ethiopia",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Portuguese help reaches Ethiopia"
     },
     {
       "id": "slaget-vid-wofla",
@@ -298,13 +298,9 @@
       "start": 1542,
       "varldsdel": "Afrika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q835180",
-      "soktext": "The Battle of Wofla",
-      "anmarkningar": [
-        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
       "kandidater": [
         {
           "fil": "File:Burning of churches by the Adalites and the execution of Cristóvão da Gama.png",
@@ -316,6 +312,9 @@
           "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
           "upphovsperson": "Kegneketa Jemlieri Hailu of Gondar (fl.1900)",
           "datum": "1900",
+          "datum_original": "1900",
+          "datum_fil": "2025-02-02 15:05:49",
+          "kredit": "Horniman Museum, London, UK. Photographic Rights The Bridgeman Art Library.",
           "beskrivning": "The execution of Cristóvão da Gama by Ahmad Gragn",
           "bredd": 2258,
           "hojd": 786,
@@ -334,6 +333,9 @@
           "licensadress": null,
           "upphovsperson": "Kegneketa Jemlieri Hailu of Gondar (fl.1900)",
           "datum": "1900",
+          "datum_original": "1900",
+          "datum_fil": "2017-09-06 16:47:06",
+          "kredit": "Horniman Museum, London, UK. Photographic Rights The Bridgeman Art Library.",
           "beskrivning": "Burning of Churches Muslims and the Death of Cristobal de Gama and the Fall and Death of Ahmad ibn Ibrahim al-Ghazi Shot by a Portuguese Musketeer",
           "bredd": 588,
           "hojd": 399,
@@ -355,6 +357,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "אליש 00:53, 6 בדצמבר 2007 (IST)",
           "datum": "6 בדצמבר 2007",
+          "datum_original": "6 בדצמבר 2007",
+          "datum_fil": "2012-01-06 07:28:34",
+          "kredit": "נוצר על ידי משתמש:אדעולם ,",
           "beskrivning": "The Horn of Africa on the eve of the Battle of Adal in 1529. The Ethiopian Empire (Christians, in orange) and Adal (Muslims, in green).",
           "bredd": 600,
           "hojd": 532,
@@ -369,6 +374,10 @@
           ],
           "smal": true
         }
+      ],
+      "soktext": "The Battle of Wofla",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
       ]
     },
     {
@@ -411,11 +420,11 @@
       "start": 1680,
       "varldsdel": "Afrika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Major eruption of the Fogo volcano",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Major eruption of the Fogo volcano"
     },
     {
       "id": "rozviriket",

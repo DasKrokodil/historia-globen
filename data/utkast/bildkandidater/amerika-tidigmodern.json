@@ -19,10 +19,9 @@
       "start": 1519,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Cortés meets Moctezuma in Tenochtitlan",
       "kandidater": [
         {
           "fil": "File:Cortez & La Malinche.jpg",
@@ -34,6 +33,9 @@
           "licensadress": null,
           "upphovsperson": "unknown Tlaxcalan artists",
           "datum": "Original: ca. 1550 AD. This facsimile published c. 1890.",
+          "datum_original": "Original: ca. 1550 AD. This facsimile published c. 1890.",
+          "datum_fil": "2009-01-26 04:49:00",
+          "kredit": "http://bancroft.berkeley.edu/Exhibits/nativeamericans/lg25_1.html Bancroft Library",
           "beskrivning": "Tenochtitlan, Entrance of Hernan Cortes. Cortez and La Malinche meet Moctezuma II. , November 8, 1519 This image is from the \"Lienzo de Tlaxcala\", created by the Tlaxcalans to remind the Spanish of their loyalty to Castile and the importance of Tlaxcala during the Conquest. The text mixes European and native styles and includes anachronisms, such as the European-style chairs included in this image.",
           "bredd": 618,
           "hojd": 495,
@@ -50,7 +52,8 @@
           ],
           "smal": true
         }
-      ]
+      ],
+      "soktext": "Cortés meets Moctezuma in Tenochtitlan"
     },
     {
       "id": "massakern-i-cholula",
@@ -59,7 +62,7 @@
       "start": 1519,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q3297424",
       "kandidater": [
@@ -73,6 +76,9 @@
           "licensadress": null,
           "upphovsperson": "Félix Parra (1845-1919)",
           "datum": "1877 date QS:P571,+1877-00-00T00:00:00Z/9",
+          "datum_original": "1877 date QS:P571,+1877-00-00T00:00:00Z/9",
+          "datum_fil": "2014-06-03 07:51:56",
+          "kredit": "Université Paris-Sorbonne",
           "beskrivning": "Episodes of the Conquest [of Mexico]: The massacre of Cholula (1519) (oil on canvas).",
           "bredd": 2026,
           "hojd": 1252,
@@ -92,7 +98,7 @@
       "start": 1519,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q828435",
       "kandidater": [
@@ -106,6 +112,9 @@
           "licensadress": null,
           "upphovsperson": "Unknown author Unknown author",
           "datum": "early 1540s",
+          "datum_original": "early 1540s",
+          "datum_fil": "2007-10-28 16:06:50",
+          "kredit": "Foundation for the Advancement of Mesoamerican Studies, Inc. [1] Original document held at the Bodleian Library , Oxford. Shelfmark: MS. Arch. Selden. A. 1.",
           "beskrivning": "Aztec warriors. Six differing levels of military achievement are depicted in Codex Mendoza for young men who are destined to become priests. The first is a novice who has had made one capture. He wears a simple ichcahuipilli or quilted armour jacket. Those who had made two captures were awarded a white feather ornamented tlahuiztli, a tightly fitting body suit. A third capture entitled the warrior-priest to a wear a green tlahuiztli. A fourth capture entitles a priest to wear a remarkable black and white conical hat adopted from the Huaxtec people of Veracruz. The white dots and swirl on his shield signify a constellation of stars. Five captures entitles the warrior to carry a special shield ornamented with an eagle's foot while the highest ranking soldiers were awarded a yellow tlahuiztli and a helmet carved in the shape of a mountain lion.",
           "bredd": 1656,
           "hojd": 1074,
@@ -130,10 +139,9 @@
       "start": 1519,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Tlaxcala allies with the Spaniards Tlaxcala",
       "kandidater": [
         {
           "fil": "File:Guerreros tlaxcaltecas junto a sus aliados españoles Lienzo de Tlaxcala. Siglo XVI.jpg",
@@ -145,6 +153,9 @@
           "licensadress": null,
           "upphovsperson": "Unknown author Unknown author",
           "datum": "1600",
+          "datum_original": "1600",
+          "datum_fil": "2015-06-28 06:43:52",
+          "kredit": "Lienzo de Tlaxcala",
           "beskrivning": "Tlaxcalan warriors together with their spaniard allies. Lienzo de Tlaxcala. XVI Century",
           "bredd": 1044,
           "hojd": 950,
@@ -158,7 +169,8 @@
           ],
           "smal": false
         }
-      ]
+      ],
+      "soktext": "Tlaxcala allies with the Spaniards Tlaxcala"
     },
     {
       "id": "massakern-vid-toxcatl",
@@ -167,7 +179,7 @@
       "start": 1520,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q1131442",
       "kandidater": [
@@ -181,6 +193,9 @@
           "licensadress": null,
           "upphovsperson": "Autor desconocido",
           "datum": "Entre 1521 y 1530",
+          "datum_original": "Entre 1521 y 1530",
+          "datum_fil": "2022-03-13 10:09:51",
+          "kredit": "Códice Durán",
           "beskrivning": "Imagen del códice durán donde se logra ver la masacre del templo Mayor",
           "bredd": 1243,
           "hojd": 791,
@@ -201,7 +216,7 @@
       "start": 1520,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q1308854",
       "kandidater": [
@@ -215,6 +230,9 @@
           "licensadress": null,
           "upphovsperson": "Unknown author Unknown author",
           "datum": "second half of 17th century",
+          "datum_original": "second half of 17th century",
+          "datum_fil": "2024-03-10 01:33:21",
+          "kredit": "Historiagames.com - https://www.histogames.com/HTML/chronique/les-azteques/la-chute-de-l-empire-azteque.php",
           "beskrivning": "After the death of Moctezuma, Cortés and his forces leave Tenochtitlán. The Mexica spot them and fiercely attack the Spanish and their allies. Second half of the seventeenth century. Oil on canvas.",
           "bredd": 1895,
           "hojd": 1250,
@@ -239,7 +257,7 @@
       "start": 1520,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q2888038",
       "kandidater": [
@@ -253,6 +271,9 @@
           "licensadress": null,
           "upphovsperson": "Unknown author Unknown author",
           "datum": "second half of 17 th century date QS:P571,+1650-00-00T00:00:00Z/7",
+          "datum_original": "second half of 17 th century date QS:P571,+1650-00-00T00:00:00Z/7",
+          "datum_fil": "2024-03-07 10:13:55",
+          "kredit": "Amazon - https://wfdd-live.s3.amazonaws.com/images/story/500-Years-Later-The-Spanish-Conquest-Of-Mexico-Is-Still-Being-Debated-777510595-1573410613.jpg",
           "beskrivning": "Title: The Battle of Otumba (July 7, 1520). During this flight from Tenochtitlán, Cortés and his men encounter Cuitláhuac, the new Mexica leader of the Aztec empire, the brother of Moctezuma, who attacks the invaders. Oil on canvas painting made in the second half of the seventeenth century. [ 1 ]",
           "bredd": 2984,
           "hojd": 1935,
@@ -276,11 +297,11 @@
       "start": 1520,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Smallpox strikes Tenochtitlan",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Smallpox strikes Tenochtitlan"
     },
     {
       "id": "spanska-erovringen-av-inkariket",
@@ -289,7 +310,7 @@
       "start": 1532,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q636771",
       "kandidater": [
@@ -303,6 +324,9 @@
           "licensadress": null,
           "upphovsperson": "Girolamo Benzoni / Theodor de Bry",
           "datum": "09:25, 20 September 2005 (UTC) 20 March 2005 (original upload date)",
+          "datum_original": "09:25, 20 September 2005 (UTC) 20 March 2005 (original upload date)",
+          "datum_fil": "2019-11-16 00:20:08",
+          "kredit": "http://international.loc.gov/cgi-bin/ampage?collId=rbdk&fileName=d0321/rbdkd0321.db&recNum=983 (cropped)",
           "beskrivning": "Inca-Spanish confrontation in Cajamarca; there is Emperor Atahuallpa",
           "bredd": 1200,
           "hojd": 900,
@@ -326,7 +350,7 @@
       "start": 1533,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q179577",
       "kandidater": [
@@ -340,6 +364,9 @@
           "licensadress": null,
           "upphovsperson": "anonymous",
           "datum": "2018-10-02 23:32:58",
+          "datum_original": null,
+          "datum_fil": "2018-10-02 23:32:58",
+          "kredit": "Berlin/Ethnologisches Museum, Staatliche Museen, Berlin, Germany / Art Resource, NY",
           "beskrivning": "\"Atahuallpa, Inca XIIII\". Unknown artist from the Cusco School; An anonymous portrait painting of Inca King Atahualpa XIIII; located in Berlin Ethnologisches Museum, Staatliche Museen, Berlin, Germany ( Ethnological Museum of Berlin , Germany )",
           "bredd": 355,
           "hojd": 458,
@@ -360,7 +387,7 @@
       "start": 1536,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q2398589",
       "kandidater": [
@@ -374,6 +401,9 @@
           "licensadress": null,
           "upphovsperson": "Felipe Guaman Poma de Ayala",
           "datum": "2008-07-03 18:46:55",
+          "datum_original": null,
+          "datum_fil": "2008-07-03 18:46:55",
+          "kredit": "http://www.kb.dk/permalink/2006/poma/402/en/text/?open=&imagesize=XL",
           "beskrivning": "400 [402] MANGO INGA PEGA FVEGO AL CVIVS MANGO a la santa crus",
           "bredd": 830,
           "hojd": 1200,
@@ -395,7 +425,7 @@
       "start": 1537,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q2338569",
       "kandidater": [
@@ -409,6 +439,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/2.0",
           "upphovsperson": "Fondo Antiguo de la Biblioteca de la Universidad de Sevilla from Sevilla, España",
           "datum": "2009-10-01 13:29",
+          "datum_original": "2009-10-01 13:29",
+          "datum_fil": "2016-09-22 22:41:19",
+          "kredit": "427026",
           "beskrivning": "\"La fortaleza de Tambo\". Puede acceder al libro completo en el siguiente enlace : Historia de la conquista del Perú : con observaciones preliminares sobre la civilización de los incas / por Guillermo H. Prescott. - Madrid : Gaspar y Roig, 1851",
           "bredd": 1617,
           "hojd": 2184,
@@ -429,11 +462,11 @@
       "start": 1545,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": null,
-      "soktext": "Cocoliztli, the great epidemic in Mexico",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Cocoliztli, the great epidemic in Mexico"
     },
     {
       "id": "san-marcos-universitet-1551",
@@ -442,7 +475,7 @@
       "start": 1551,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q270145",
       "kandidater": [
@@ -456,6 +489,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Marco Carrasco",
           "datum": "2021-03-22",
+          "datum_original": "2021-03-22",
+          "datum_fil": "2024-01-29 06:46:34",
+          "kredit": "Own work",
           "beskrivning": "UNMSM sedes principales Collage de: File:UNMSM plaza central.jpg, File:UNMSM Casona de San Marcos y Parque Universitario 2.0.jpg, File:UNMSM Campus San Fernando.jpg",
           "bredd": 1600,
           "hojd": 1400,
@@ -475,7 +511,7 @@
       "start": 1572,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q296269",
       "kandidater": [
@@ -489,6 +525,9 @@
           "licensadress": null,
           "upphovsperson": "Cuzco School / Unidentified painter",
           "datum": "18 th century date QS:P571,+1750-00-00T00:00:00Z/7",
+          "datum_original": "18 th century date QS:P571,+1750-00-00T00:00:00Z/7",
+          "datum_fil": "2023-05-26 01:55:12",
+          "kredit": "http://www.artehistoria.jcyl.es/v2/obras/10494.htm",
           "beskrivning": "Túpac Amaru , the last inca of vilcabamba.",
           "bredd": 864,
           "hojd": 1300,
@@ -518,11 +557,11 @@
       "start": 1572,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": null,
-      "soktext": "The Spaniards take Vilcabamba Vilcabamba (Willkapampa)",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "The Spaniards take Vilcabamba Vilcabamba (Willkapampa)"
     },
     {
       "id": "mita-i-potosi-1573",
@@ -531,11 +570,11 @@
       "start": 1573,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The forced labour system mit'a begins in the silver mines of Potosí Potosí",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "The forced labour system mit'a begins in the silver mines of Potosí Potosí"
     },
     {
       "id": "cocoliztli-1576",
@@ -544,11 +583,11 @@
       "start": 1576,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Cocoliztli strikes again",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Cocoliztli strikes again"
     },
     {
       "id": "palmares-quilombo",
@@ -557,14 +596,14 @@
       "start": 1605,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q1542741",
+      "kandidater": [],
       "soktext": "Palmares, a quilombo of escaped slaves Serra da Barriga",
       "anmarkningar": [
         "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
-      "kandidater": []
+      ]
     },
     {
       "id": "quebec-grundas-1608",
@@ -573,7 +612,7 @@
       "start": 1608,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q2145",
       "kandidater": [
@@ -587,6 +626,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Fabian Roudra Baroi",
           "datum": "2022-08-26 02:56:59",
+          "datum_original": "2022-08-26 02:56:59",
+          "datum_fil": "2023-02-05 04:26:13",
+          "kredit": "Own work",
           "beskrivning": "Buildings and Roads of Old Quebec City, Quebec, Canada",
           "bredd": 4000,
           "hojd": 6000,
@@ -607,14 +649,14 @@
       "start": 1691,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q6106514",
+      "kandidater": [],
       "soktext": "Sor Juana defends women's right to education Mexico City",
       "anmarkningar": [
         "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
-      "kandidater": []
+      ]
     },
     {
       "id": "guld-i-minas-gerais-1695",
@@ -623,7 +665,7 @@
       "start": 1695,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q4958632",
       "kandidater": [
@@ -637,6 +679,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "Alvesgaspar",
           "datum": "2009-11",
+          "datum_original": "2009-11",
+          "datum_fil": "2013-01-28 00:11:37",
+          "kredit": "Own work",
           "beskrivning": "The Praça Tiradentes, view from the old School of Mines. Ouro Preto, state of Minas Gerais, Brasil",
           "bredd": 3872,
           "hojd": 2519,
@@ -657,10 +702,9 @@
       "start": 1721,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": null,
-      "soktext": "Hans Egede arrives in Greenland",
       "kandidater": [
         {
           "fil": "File:Hans Egede på Grønland - Louis Moe (17042).tif",
@@ -672,6 +716,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Louis Moe",
           "datum": "1898 date QS:P571,+1898-00-00T00:00:00Z/9",
+          "datum_original": "1898 date QS:P571,+1898-00-00T00:00:00Z/9",
+          "datum_fil": "2017-08-20 16:30:08",
+          "kredit": "AU Library, Campus Emdrup",
           "beskrivning": "The Danish priest Hans Egede had a vision of converting the catholic norsemen, who had settled in Greenland, to the Protestant faith. But when he arrived in Greenland in 1721, they had perished, so instead he set out to convert the local inuits. Colour lithograph on paper, glued on cardboard. Signed lower left Louis Moe . Text: Danmarks Historie i Billeder XLIV, Hans Egede paa Grönland. Alfred Jacobsens litogr. Etablissement, København K. Published in 1898, documented in V.E. Clausen: Folkelig grafik i Skandinavien , 1973, page 144.",
           "bredd": 4191,
           "hojd": 3335,
@@ -696,6 +743,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Louis Moe",
           "datum": "1898 date QS:P571,+1898-00-00T00:00:00Z/9",
+          "datum_original": "1898 date QS:P571,+1898-00-00T00:00:00Z/9",
+          "datum_fil": "2026-08-10 16:47:42",
+          "kredit": "AU Library, Campus Emdrup",
           "beskrivning": "The Danish priest Hans Egede had a vision of converting the catholic norsemen, who had settled in Greenland, to the Protestant faith. But when he arrived in Greenland in 1721, they had perished, so instead he set out to convert the local inuits. Colour lithograph on paper, glued on cardboard. Signed lower left Louis Moe . Text: Danmarks Historie i Billeder XLIV, Hans Egede paa Grönland. Alfred Jacobsens litogr. Etablissement, København K. Published in 1898, documented in V.E. Clausen: Folkelig grafik i Skandinavien , 1973, page 144. Cropped by uploader.",
           "bredd": 3019,
           "hojd": 2284,
@@ -722,6 +772,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Louis Moe",
           "datum": "1898 date QS:P571,+1898-00-00T00:00:00Z/9",
+          "datum_original": "1898 date QS:P571,+1898-00-00T00:00:00Z/9",
+          "datum_fil": "2017-08-20 16:38:43",
+          "kredit": "AU Library, Campus Emdrup",
           "beskrivning": "The Danish priest Hans Egede had a vision of converting the catholic norsemen, who had settled in Greenland, to the Protestant faith. But when he arrived in Greenland in 1721, they had perished, so instead he set out to convert the local inuits. Colour lithograph on paper, glued on cardboard. Signed lower left Louis Moe . Text: Danmarks Historie i Billeder XLIV, Hans Egede paa Grönland. Alfred Jacobsens litogr. Etablissement, København K. Published in 1898, documented in V.E. Clausen: Folkelig grafik i Skandinavien , 1973, page 144. Cropped by uploader.",
           "bredd": 3132,
           "hojd": 2439,
@@ -748,6 +801,9 @@
           "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
           "upphovsperson": "Masae",
           "datum": "2007-01-10",
+          "datum_original": "2007-01-10",
+          "datum_fil": "2007-01-10 13:13:08",
+          "kredit": "Frozen Annals - Greenland Ice Sheet Research, W.Dansgaard , The Niels Bohr Institute, University of Copenhagen 2004. ISBN: 87-990078-0-0 Hvad isotoperne fortæller om de forsvundne vikinger på Grønland. By Jan Heinemeier and Niels Rud. Kvant - tidsskrift for Fysik og Astronomi 12. årg., April 2001 nr. 1. Ogilvie, Astrid E. and Thomas H. McGovern 2000 Sagas and Science. Climatic and Human Impacts in the North Atlantic. Pp 285-393 in: Fitzhugh, William W. and Elisabeth I. Ward (ed.s): Vikings. The North Atlantic Saga. Smithsonian and National Mueum of Natural History. Washington & London (9 pages) ISBN-10: 1560989955, ISBN-13: 978-1560989950 Nordboernes livsgrundlag i Sydvest Grønland, by Naja Mikkelsen and Antoon Kuijpers, SPECIALARTIKEL fra GEUS' Årsberetning for 2000, Geological Survey of Denmark and Greenland (GEUS) [1]",
           "beskrivning": "A graphical description of changes in temperature in Greenland from 500 – 1990 A.D. based on analysis of the deep ice core from Greenland and some historical events. The annual temperature changes are shown vertical in ˚C. The numbers are to be read horizontal: 1. From 700 to 750 A.D. people belonging to the Late Dorset Culture move into the area around Smith Sound, Ellesmere Island and Greenland north of Thule. 2. Norse settlement of Iceland starts in the second half of the 9th century. 3. Norse settlement of Greenland starts just before the year 1000. 4. Thule inuits move into northern Greenland in the 12th century. 5. Late Dorset culture disappears from Greenland in the second half of the 13th century. 6. The Western Settlement disappears in mid 14th century. 7. In 1408 is the Marriage in Hvalsey, the last known written document on the Norse in Greenland. 8. The Eastern Settlement disappears in mid 15th century. 9. John Cabot is the first European in the post-Norse era to visit Labrador - Newfoundland in 1497. 10. “Little Ice Age” from ca 1600 to mid 18th century. 11. The Danish-Norwegian priest, Hans Egede, arrives in Greenland in 1721.",
           "bredd": 355,
           "hojd": 173,
@@ -763,7 +819,8 @@
           ],
           "smal": true
         }
-      ]
+      ],
+      "soktext": "Hans Egede arrives in Greenland"
     },
     {
       "id": "godthab-grundas",
@@ -772,11 +829,11 @@
       "start": 1728,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": null,
-      "soktext": "Godthåb, today's Nuuk, is founded Godthåb",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Godthåb, today's Nuuk, is founded Godthåb"
     },
     {
       "id": "sjuarskriget",
@@ -785,7 +842,7 @@
       "start": 1756,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q33143",
       "kandidater": [
@@ -799,6 +856,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/3.0",
           "upphovsperson": "Gabagool",
           "datum": "1999",
+          "datum_original": "1999",
+          "datum_fil": "2009-06-23 15:54:56",
+          "kredit": "Own work",
           "beskrivning": "Locator map of the competing sides of the Seven Years War before outset of the war (mid-1750s). Blue: Great Britain, Portugal with more. Green: France, Spain with more. Great Britain, Prussia, Portugal, with allies France, Spain, Austria, Russia, Sweden with allies Français : Carte montrant les forces en présence lors de la guerre de Sept Ans (milieu des années 1750). Grande Bretagne, Prusse, Portugal, leurs alliés et dépendances France, Espagne, Autriche, Russie, Suède, leurs alliés et dépendances (Partially based on Atlas of World History (2007) - There was also a treaty in 1783, Imperialism and Revolutions, map)",
           "bredd": 1357,
           "hojd": 628,
@@ -819,7 +879,7 @@
       "start": 1775,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q5315497",
       "kandidater": [
@@ -833,6 +893,9 @@
           "licensadress": null,
           "upphovsperson": "Whittlesey, Charles. [from old catalog]",
           "datum": "2020-06-22 23:26:35",
+          "datum_original": null,
+          "datum_fil": "2020-06-22 23:26:35",
+          "kredit": "https://archive.org/details/discourserelatin00whit https://archive.org/download/discourserelatin00whit/discourserelatin00whit.pdf",
           "beskrivning": "Subjects:",
           "bredd": 762,
           "hojd": 1214,
@@ -852,7 +915,7 @@
       "start": 1775,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q778010",
       "kandidater": [
@@ -866,6 +929,9 @@
           "licensadress": null,
           "upphovsperson": "William Barnes Wollen",
           "datum": "1910 date QS:P571,+1910-00-00T00:00:00Z/9",
+          "datum_original": "1910 date QS:P571,+1910-00-00T00:00:00Z/9",
+          "datum_fil": "2025-10-07 18:50:04",
+          "kredit": "National Army Museum website , 3 March 2019 (upload date) by Muhranoff",
           "beskrivning": "Battle of Lexington",
           "bredd": 4964,
           "hojd": 3350,
@@ -888,7 +954,7 @@
       "start": 1775,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q334029",
       "kandidater": [
@@ -902,6 +968,9 @@
           "licensadress": null,
           "upphovsperson": "John Trumbull",
           "datum": "1786 date QS:P571,+1786-00-00T00:00:00Z/9",
+          "datum_original": "1786 date QS:P571,+1786-00-00T00:00:00Z/9",
+          "datum_fil": "2016-06-17 14:59:15",
+          "kredit": "From the Boston Museum of Fine Arts, accession #1977.853: http://www.mfa.org/collections/object/the-death-of-general-warren-at-the-battle-of-bunker-s-hill-17-june-1775-34260",
           "beskrivning": null,
           "bredd": 1600,
           "hojd": 1070,
@@ -922,11 +991,11 @@
       "start": 1776,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": null,
-      "soktext": "The Royal Greenland Trade gains a monopoly",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "The Royal Greenland Trade gains a monopoly"
     },
     {
       "id": "slaget-vid-moores-creek-bridge",
@@ -935,7 +1004,7 @@
       "start": 1776,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q1518787",
       "kandidater": [
@@ -949,6 +1018,9 @@
           "licensadress": null,
           "upphovsperson": "NPS Photo",
           "datum": "2009-02-21 11:52:53",
+          "datum_original": null,
+          "datum_fil": "2009-02-21 11:52:53",
+          "kredit": "National Park Service, Digital Image Archive: http://photo.itc.nps.gov/storage/images/mocr/mocr-Thumb.00001.html",
           "beskrivning": "Moores Creek National Battlefield, North Carolina, USA. The picture shows the restored earthworks of the patriotic militia in the Battle of Moores Creek Bridge on 1776-02-27 (February 27th 1776) in the American Revolutionary War.",
           "bredd": 2048,
           "hojd": 1372,
@@ -970,7 +1042,7 @@
       "start": 1777,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q1375813",
       "kandidater": [
@@ -984,6 +1056,9 @@
           "licensadress": null,
           "upphovsperson": "John R. Chapin",
           "datum": "2 May 1857 date QS:P571,+1857-05-02T00:00:00Z/11",
+          "datum_original": "2 May 1857 date QS:P571,+1857-05-02T00:00:00Z/11",
+          "datum_fil": "2014-01-05 05:35:11",
+          "kredit": "Illus. in: Ballou's pictorial , v. 12, no. 18 (1857 May 2), p. 280.",
           "beskrivning": "Battle of Oriskany. Print shows scene during the battle at Oriskany, N.Y., with American patriots combating the combined forces of the British, Loyalists, and Natives. General Nicholas Herkimer, commander of the American forces, is shown (on the left) giving orders from his saddle which is on the ground after his horse was shot from beneath him.",
           "bredd": 4649,
           "hojd": 3337,
@@ -1008,6 +1083,9 @@
           "licensadress": null,
           "upphovsperson": "Frederick Coffay Yohn",
           "datum": "circa 1901 date QS:P571,+1901-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_original": "circa 1901 date QS:P571,+1901-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_fil": "2011-03-07 19:59:22",
+          "kredit": "Painting at the public library of Utica, New York . Images widely available on the web.",
           "beskrivning": "An oil painting titled Herkimer at the Battle of Oriskany . Although wounded, General Nicholas Herkimer rallies the Tryon County militia at the Battle of Oriskany on August 6, 1777.",
           "bredd": 810,
           "hojd": 513,
@@ -1030,6 +1108,9 @@
           "licensadress": null,
           "upphovsperson": "This file is lacking author information.",
           "datum": "2006-06-06 02:05:22",
+          "datum_original": null,
+          "datum_fil": "2006-06-06 02:05:22",
+          "kredit": "The Picture Collection of the New York Public Library",
           "beskrivning": "Illustration of General Nicholas Herkimer at the Battle of Oriskany , New York, 1777.",
           "bredd": 751,
           "hojd": 693,
@@ -1050,7 +1131,7 @@
       "start": 1780,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q3235083",
       "kandidater": [
@@ -1064,6 +1145,9 @@
           "licensadress": null,
           "upphovsperson": "Alonzo Chappel",
           "datum": "1862",
+          "datum_original": "1862",
+          "datum_fil": "2015-12-02 20:47:14",
+          "kredit": "https://library.brown.edu/collections/askb/",
           "beskrivning": "A depiction of the Siege of Charleston (1780) by Alonzo Chappel.",
           "bredd": 1050,
           "hojd": 777,
@@ -1087,7 +1171,7 @@
       "start": 1781,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q2888486",
       "kandidater": [
@@ -1101,6 +1185,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "Ser Amantio di Nicolao",
           "datum": "2 April 2015 (according to Exif data)",
+          "datum_original": "2 April 2015 (according to Exif data)",
+          "datum_fil": "2015-04-03 00:02:42",
+          "kredit": "Own work",
           "beskrivning": null,
           "bredd": 2560,
           "hojd": 1920,
@@ -1120,7 +1207,7 @@
       "start": 1791,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q109236571",
       "kandidater": [
@@ -1134,6 +1221,9 @@
           "licensadress": null,
           "upphovsperson": "Aaron Martinet / Alphonse-Charles Masson",
           "datum": "1833",
+          "datum_original": "1833",
+          "datum_fil": "2024-02-26 16:53:31",
+          "kredit": null,
           "beskrivning": "Burning of the Plaine du Cap. Massacre of whites by the blacks . On August 22 1791, slaves revolted against their white masters, set fire to plantations and torched cities.",
           "bredd": 1388,
           "hojd": 941,
@@ -1159,11 +1249,11 @@
       "start": 1793,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Slavery is abolished in Saint-Domingue",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Slavery is abolished in Saint-Domingue"
     },
     {
       "id": "humboldt-i-amerika",
@@ -1172,10 +1262,9 @@
       "start": 1799,
       "varldsdel": "Amerika",
       "period": "tidigmodern",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Alexander von Humboldt's journey in the Americas",
       "kandidater": [
         {
           "fil": "File:The Americana; a universal reference library, comprising the arts and sciences, literature, history, biography, geography, commerce, etc., of the world (1908) (14578933417).jpg",
@@ -1187,6 +1276,9 @@
           "licensadress": "https://www.flickr.com/commons/usage/",
           "upphovsperson": "Internet Archive Book Images",
           "datum": "1908",
+          "datum_original": "1908",
+          "datum_fil": "2015-10-01 04:05:51",
+          "kredit": "https://www.flickr.com/photos/internetarchivebookimages/14578933417/ Source book page: https://archive.org/stream/americanaunivers08newy/americanaunivers08newy#page/n666/mode/1up",
           "beskrivning": "Identifier : americanaunivers08newy ( find matches ) Title : The Americana; a universal reference library, comprising the arts and sciences, literature, history, biography, geography, commerce, etc., of the world Year : 1908 ( 1900s ) Authors : Subjects : Encyclopedias and dictionaries Publisher : New York : Scientific American Compiling Dept. Contributing Library : University of California Libraries Digitizing Sponsor : Internet Archive View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: Goethe andSchiller. In 1797 he went, in company withhis brother, Karl Wilhelm. a Prussian ministerof state, to Paris, where he became acquaintedwith Aime Bonpland, a pupil of the medicalschool and botanic garden in Paris. He thenwent to Madrid, and having obtained permissionfrom the crown to travel through the Spanishcolonies in America, immediately sent for hisfriend Bonpland, and sailed with him fromCorunna. They landed at Teneriffe. where theyascended to the crater in Pico, in order to ana-lyze the atmospheric air, and to make geologicalobservations. In July they arrived at Cumanain South .\\merica. For five years they wereoccupied incessantly in traveling throughtracts of the earth rich in all that could interestthe scientific observer, and till then never scien-tifically described. They explored the regions ofSouth .America watered by the Orinoco andthe upper part of the Rio Negro, fully tracingthe connection between the Orinoco and theAmazon; then returned to the coast and sailed Text Appearing After Image: FRIEDRICH HEIXRICH ALEXANDER VOX HUMBOLDT. HUMBOLDT for Cuba, where they remained some months.Leaving Cuba in 1801, they returned to theSoutli American continent, sailed up the Magda-lena as far as they could, pursued their routeI)y land to Popayan and Quito, and thence asfar south as Lima, crossing the Andes no fewerthan live times in the course of their journey,and, besides other mountain ascents, climbingChimborazo (23 June 1802) to an elevationof 19,300 feet, being the highest point of theAndes then reached by man; from Lima theysailed to Guayaquil, and thence to Acapulco,Mexico (January 1803). Some months werespent in examining the city of Mexico and thesurrounding countrj-, and in a visit to the UnitedStates; and in January 1804, they set sail forEurope, taking Cuba again on their way. On3 .Aug. 1804, they arrived at Bordeaux, bringingwith them, as the result of their labors, an im-mense mass of fresh knowledge in geography,geology, climatology, meteorologj, botany, zool-ogy, an Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
           "bredd": 1526,
           "hojd": 2126,
@@ -1209,6 +1301,9 @@
           "licensadress": "https://www.flickr.com/commons/usage/",
           "upphovsperson": "Internet Archive Book Images",
           "datum": "1903",
+          "datum_original": "1903",
+          "datum_fil": "2015-10-01 03:01:55",
+          "kredit": "https://www.flickr.com/photos/internetarchivebookimages/14597826520/ Source book page: https://archive.org/stream/americanauniver08beac/americanauniver08beac#page/n438/mode/1up",
           "beskrivning": "Identifier : americanauniver08beac ( find matches ) Title : The Americana : a universal reference library, comprising the arts and sciences, literature, history, biography, geography, commerce, etc. of the world Year : 1903 ( 1900s ) Authors : Beach, Frederick Converse, 1848-1918 Rines, George Edwin, 1860- Subjects : Encyclopedias and dictionaries Publisher : New York : Scientific American Compiling Dept. Contributing Library : Robarts - University of Toronto Digitizing Sponsor : University of Toronto View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: h Goethe andSchiller. In 1797 he went, in company withhis brother, Karl Wilhelm, a Prussian ministerof state, to Paris, where he became acquaintedwith Aime Bonpland, a pupil of the medicalschool and botanic garden in Paris. He thenwent to Madrid, and having obtained permissionfrom the crown to travel through the Spanishcolonies in America, immediately sent for hisfriend Bonpland, and sailed with him fromCorunna. They landed at Teneriffe, where theyascended to the crater in Pico, in order to ana-lyze the atmospheric air, and to make geologicalobservations. In July they arrived at Cumanain South America. For five years they wereoccupied incessantly in traveling throughtracts of the earth rich in all that could interestthe scientific observer, and till then never scien-tifically described. They explored the regions ofSouth America watered by the Orinoco andthe upper part of the Rio Negro, fully tracingthe connection between the Orinoco and theAmazon; then returned to the coast and sailed Text Appearing After Image: FRIEDRICH HEINRICH ALEXANDER VON HUMBOLDT. HUMBOLDT for Cuba, where they remained some months.Leaving Cuba in l8oi, they returned to theSouth American continent, sailed up the Magda-lena as far as they could, pursued their routebj land to Popayan and Quito, and thence asfar south as Luna, crossing the Andes no fewerthan five times in the course of their journey,and. besides other mountain ascents, climbingChimborazo (23 June 1802) to an elevationof 10,300 feet, being the highest point of theAndes then reached by man; from Lima theysailed to Guayaquil, and thence to Acapulco,Mexico (January 1803). Some months werespent in examining the city of Mexico and thesurrounding country, and in a visit to the UnitedSlates; and in January 1804, they set sail forEurope, taking Cuba again on their way. On3 Aug. 1804, they arrived at Bordeaux, bringingwith them, as the result of their labors, an im-mense mass of fresh knowledge in geography,geology, climatology, meteorology, botany, zool-ogy, and ev Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
           "bredd": 1518,
           "hojd": 2116,
@@ -1231,6 +1326,9 @@
           "licensadress": "https://www.flickr.com/commons/usage/",
           "upphovsperson": "Internet Archive Book Images",
           "datum": "1814",
+          "datum_original": "1814",
+          "datum_fil": "2020-04-27 06:01:15",
+          "kredit": "https://www.flickr.com/photos/internetarchivebookimages/14595291208/ Source book page: https://archive.org/stream/researchesconcer02humb/researchesconcer02humb#page/n186/mode/1up",
           "beskrivning": "Identifier : researchesconcer02humb ( find matches ) Title : Researches, concerning the institutions & monuments of the ancient inhabitants of America : with descriptions and views of some of the most striking scenes in the Cordilleras! Year : 1814 ( 1810s ) Authors : Humboldt, Alexander von, 1769-1859 Williams, Helen Maria, 1762-1827 Subjects : Indians of Mexico Indians of South America Publisher : London : Published by Longman, Hurst, Rees, Orme & Brown, J. Murray & H. Colburn Contributing Library : Getty Research Institute Digitizing Sponsor : Getty Research Institute View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: tec-ture. We are absolutely ignorant of the anti-quity of these edifices, but it is scarcely pro-bable, that it goes back farther than the thir-teenth or fourteenth century of our era. The Greek ornaments of the palace of Mitlaoffer, no doubt, a striking analogy with those ofthe vases of lower Italy, and with others whichwe find spread over the surface of almost thewhole of the old continent: but I have alreadyobserved in another place, that analogies of thiskind are very limited proofs of the ancientcommunications of nations; and that, underevery zone, men are pleased with a rythmicrepetition of the same forms, a repetition whichconstitutes the principal character of what wevaguely call grecques, meanders, and arabes-ques. Still more, the perfection of these or-naments is no indication of any great progressin civilization among the people where theyare in use. Mr. Krusenstern * gives a de- * Kniseustern, Reise um die Welt, Petersburg, 1MO,torn, i, page 168, Atlas, Tafel 8, iO, and 16 Text Appearing After Image: $ 159 seription of arabesques of great elegance fixed by means of tatooing on the skins of the most ferocious inhabitants of Washingtonsislands. 160 VIEW CORAZON. PLATE LI. The mountain of Corazon, covered with perpe-tual snow, derived its name from the form of itssummit, which is nearly that of a heart. Ihave sketched it, as it appears from the Alto dePoingasi, near the city of Quito. This Nevadois found in the western Cordillera, between thesummits of Pichincha and Ilinissa. One of thepyramids of the mountain last mentioned is seenon the left, above the eastern slope of Corazon.The apparent proximity of these two summits,and the contrast of their forms, present a verysingular point of view. It was on the summit of Corazon, that, beforeour voyage to America, the greatest depressionof the mercury in the barometer had been ob-served. M. Bbuguer and myself, says M. 161 de la Condamine in his Historical Introduction* began our journey in very fine weather. Thepersons whom we had left in Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
           "bredd": 3184,
           "hojd": 1814,
@@ -1252,6 +1350,9 @@
           "licensadress": "https://www.flickr.com/commons/usage/",
           "upphovsperson": "Internet Archive Book Images",
           "datum": "1846",
+          "datum_original": "1846",
+          "datum_fil": "2015-11-02 14:41:21",
+          "kredit": "https://www.flickr.com/photos/internetarchivebookimages/14777184371/ Source book page: https://archive.org/stream/humboltstravelsd00humb/humboltstravelsd00humb#page/n120/mode/1up",
           "beskrivning": "Identifier : humboltstravelsd00humb ( find matches ) Title : Humbolt's travels and discoveries in South America Year : 1846 ( 1840s ) Authors : Humboldt, Alexander von, 1769-1859 Subjects : Publisher : London, John W. Parker Contributing Library : University Library, University of North Carolina at Chapel Hill Digitizing Sponsor : University of North Carolina at Chapel Hill View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: reshing. This palm-tree, withlarge shining leaves folded like a fan, preserves a beau-tiful verdme at the period of the greatest drought. Itssight alone produces an agreeable sensation of coolness,and the murichi, loaded with scaly fruit, contrastssingularly with the mournful aspect of the palma decohija, the foliage of which is always gray and coveredwith dust. The Llaneros believe that the formerattracts the vapom in the air; and that for this reasonwater is constantly found at its foot when dug for toa certain depth. The effect is confounded with thecause. The murichi gi^ows best in moist places ; andit may rather be said, that the water attracts the tree.The natives of the Orinoco, by analogous reasoning,pretend that the great serpents contribute to pre-serve humidity in a canton. You would look in vainfor water-serpents, said an old Indian of Javeta to usgravely, * where there are no marshes, because thewater collects no more when you imprudently kill theserpents that attract it. Text Appearing After Image: Tlie Fan Palm; JOURNEY ACROSS THE LLANOS. 113 Chapter X. Journey across tlie Llanos—Fatigue of travelling—Farm of El Cayman—Town of Calabozo—An ingenious inhabitant—Gymnoti, or elec-trical eels—Combat between the eels and horses—Description of thegymnoti—Effects of their shocks—The natives dread of them—Departm-e from Calabozo—Heat and dust of the Llanos—An Indiangirl found exhausted on the ground—The river TJrituco and itscrocodiles—Singular story of a crocodile—Arrival at San Fernando—Heat of that place—Periodical immdations, and destruction ofhorses. (1800.) Our travellers, as we have said, entered the Llanos ontlie 12th. After passing two nights on horseback, andseeking in vain in the day-time for some shelter fromthe ardour of the sun beneath the tufts of the murichipalm-trees, they arrived just before the third night setin, at a little farm called El Cayman, or the Alligator.Here they found a solitary house surrounded by a fewsmall huts covered Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
           "bredd": 1388,
           "hojd": 2132,
@@ -1273,6 +1374,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Sebastián Palechor",
           "datum": "2016-01-01 09:17:20",
+          "datum_original": "2016-01-01 09:17:20",
+          "datum_fil": "2016-01-02 17:55:23",
+          "kredit": "Own work",
           "beskrivning": "(Francisco Jose de Caldas and Tenorio, Popayan, 1768 - Bogota, 1816) Colombian geographer and naturalist. Hardly have adequate means of work, \"darkness\" surrounding America, in his own words, he conducted research and discoveries that surprised men as illustrious as Mutis, and Humboldt, of which he was a friend and companion. Member of the second generation of Hispanic illustrated, Francisco Jose de Caldas, called \"the Wise\" showed a child great interest in mathematics, the physical sciences and astronomy. After studying in his homeland, he moved to Santa Fe and graduated as a lawyer just to please his family, he soon returned to Popayan and decided to pursue what interested him most: astronomy, mathematics and the physical sciences. In 1795 he had to engage in trade of clothes in Quito, La Plata and Timaná, opportunity seized to determine the geographical position of the places he visited and for observation of nature and the customs of different peoples. His basic work team consisted of a barometer, compass and thermometer. When not getting the needed tools built himself: he built a gnomon a sundial and other measuring instruments. After many experiments he observed that \"the temperature of distilled water, boiling is proportional to atmospheric pressure\", new physical law that allowed him to measure the heights through new procedures that would be used later by Humboldt, who surprisingly was forgotten in this If the inventor. The so-called hipsómetro, he invented instrument, used to measure the altitude of a place, noting the temperature reached at that site when the water begins to boil. In 1801 he published the article \"The real height of the Cerro de Guadalupe\" in the Curious and Commercial Mail. Interested in botany, Caldas was related to the scholar José Celestino Mutis and, through it, with the German Alexander von Humboldt, who was preparing a trip to Quito. The German was surprised at the accuracy of the instruments of Cauca, but rejected his proposal to accompany him on the trip planned by America. After three and a half of study and research in Ecuador years, published in 1804 Caldas Travel Quito to the Pacific Ocean by Malbucho and Journey to the Heart of Barnuevo. In 1805 he joined as an astronomer at the Royal Botanical Expedition and was appointed director of the Astronomical Observatory of Santa Fe. The Royal Botanical Expedition of 1805 contributed Francisco Jose de Caldas sixteen loads of different materials and volumes two descriptive uses, customs, industry, agriculture, dyes, resources, population, endemic diseases, vices and literature of the area who had traveled from March and December of that year: left Quito north, explored the region between the Chota rivers and Guáitara, the province of Pasto, Popayan to the Quilichao, near Cali in the west and up to the moor Guanacas North, La Plata, Timaná, Neiva and other districts of the Upper Magdalena. The year 1808 was the most important of his life: he started the weekly publication of the New Kingdom of Granada, later completed with the Memoirs, where he appeared the bulk of his scientific work. In 1810 he married Maria Manuela Barona. With the advent of Independence, Caldas dedicated to the study of military science, as the president Nariño named captain of the Corps of Engineers cosmographers. Then he commissioned the publication of the Almanac of the United Provinces of the New Kingdom of Granada and other missions. But the war against the Spaniards counted him among their victims. When the city fell into the hands of the royalists, he fled south and took refuge in the family estate of Paispamba, where he was arrested and sent, along with other patriots, to Santa Fe. The first Colombian scientist was sentenced to be shot in the back, running that was applied on 29 October 1816. The President of the trial court said that by his account that \"Spain does not need wise\"; Spain but later felt ashamed of ignorance and cruelty of his representative and the illustrious Caldas dedicated a marble plaque in the National Library in Madrid.",
           "bredd": 6016,
           "hojd": 4000,
@@ -1285,7 +1389,8 @@
           ],
           "smal": false
         }
-      ]
+      ],
+      "soktext": "Alexander von Humboldt's journey in the Americas"
     }
   ]
 }

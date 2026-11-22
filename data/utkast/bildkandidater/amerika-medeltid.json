@@ -19,11 +19,11 @@
       "start": 562,
       "varldsdel": "Amerika",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Caracol Defeats Tikal Tikal in Petén",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Caracol Defeats Tikal Tikal in Petén"
     },
     {
       "id": "wari-riket",
@@ -32,14 +32,14 @@
       "start": 600,
       "varldsdel": "Amerika",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q923516",
+      "kandidater": [],
       "soktext": "The Wari Empire in the Andes",
       "anmarkningar": [
         "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
-      "kandidater": []
+      ]
     },
     {
       "id": "pakal-i-palenque",
@@ -48,7 +48,7 @@
       "start": 615,
       "varldsdel": "Amerika",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q371384",
       "kandidater": [
@@ -62,6 +62,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
           "upphovsperson": "Jami Dwyer",
           "datum": "2008-08-21 10:04:20",
+          "datum_original": "2008-08-21 10:04:20",
+          "datum_fil": "2009-02-06 21:45:05",
+          "kredit": "originally posted to Flickr as National Museum of Anthropology",
           "beskrivning": "Stucco head of K'inich Janaab Pakal I ( 603-683 AD ), king of Palenque. National Museum of Anthropology, Mexico-City.",
           "bredd": 2128,
           "hojd": 2832,
@@ -81,7 +84,7 @@
       "start": 738,
       "varldsdel": "Amerika",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q6644671",
       "kandidater": [
@@ -95,6 +98,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/3.0",
           "upphovsperson": "HJPD",
           "datum": "1977-08",
+          "datum_original": "1977-08",
+          "datum_fil": "2010-02-07 22:03:22",
+          "kredit": "Own work",
           "beskrivning": "Copán, Honduras: Stela H",
           "bredd": 1838,
           "hojd": 3617,
@@ -114,7 +120,7 @@
       "start": 900,
       "varldsdel": "Amerika",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q732463",
       "kandidater": [
@@ -128,6 +134,9 @@
           "licensadress": null,
           "upphovsperson": "National Park Service (United States)",
           "datum": "2006-08-14",
+          "datum_original": "2006-08-14",
+          "datum_fil": "2007-01-07 03:36:21",
+          "kredit": "Chaco Canyon National Historical Park: Photo Gallery",
           "beskrivning": "An image of the ruins of Chetro Ketl in Chaco Canyon (New Mexico, United States); shown is the complex's great kiva .",
           "bredd": 2272,
           "hojd": 1704,
@@ -147,7 +156,7 @@
       "start": 900,
       "varldsdel": "Amerika",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q568672",
       "kandidater": [
@@ -161,6 +170,9 @@
           "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
           "upphovsperson": "User:Luidger",
           "datum": "25 December 2004",
+          "datum_original": "25 December 2004",
+          "datum_fil": "2006-11-11 16:43:06",
+          "kredit": "Own work",
           "beskrivning": "Telamones , Tula , Mexico",
           "bredd": 2592,
           "hojd": 1944,
@@ -183,11 +195,11 @@
       "start": 982,
       "varldsdel": "Amerika",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": null,
-      "soktext": "Erik the Red explores Greenland Southwest Greenland",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Erik the Red explores Greenland Southwest Greenland"
     },
     {
       "id": "nordborna-bosatter-sig-pa-gronland",
@@ -196,11 +208,11 @@
       "start": 985,
       "varldsdel": "Amerika",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": null,
-      "soktext": "Norse settlers make their home in Greenland",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Norse settlers make their home in Greenland"
     },
     {
       "id": "atta-hjort-jaguarklo",
@@ -209,7 +221,7 @@
       "start": 1063,
       "varldsdel": "Amerika",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q1189098",
       "kandidater": [
@@ -223,6 +235,9 @@
           "licensadress": null,
           "upphovsperson": "Unknown author Unknown author",
           "datum": "11 th century date QS:P,+1050-00-00T00:00:00Z/7",
+          "datum_original": "11 th century date QS:P,+1050-00-00T00:00:00Z/7",
+          "datum_fil": "2006-05-13 05:09:52",
+          "kredit": "http://juxtlahuaca.org/esp/index.php?action=view&id=126&module=newsmodule&src=%40random42979da2728b3",
           "beskrivning": "8 Deer Claw of Jaguar, Unifier of the Mixteca, receives the visit of 4 Jaguar",
           "bredd": 600,
           "hojd": 452,
@@ -243,7 +258,7 @@
       "start": 1100,
       "varldsdel": "Amerika",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q968802",
       "kandidater": [
@@ -257,6 +272,9 @@
           "licensadress": "https://www.flickr.com/commons/usage/",
           "upphovsperson": "The British Library",
           "datum": "2013-12-10 07:40",
+          "datum_original": "2013-12-10 07:40",
+          "datum_fil": "2024-05-16 11:00:15",
+          "kredit": "Image taken from page 26 of 'A School History of the United States ... Being a revision and rewriting of Swinton's \"Condensed School History of the United States.\"'",
           "beskrivning": "View this map on the BL Georeferencer service. Image taken from: Title : \"A School History of the United States ... Being a revision and rewriting of Swinton's \"Condensed School History of the United States.\"\" Author : Swinton, William Shelfmark : \"British Library HMNTS 9605.c.13.\" Page : 26 Place of Publishing : New York Date of Publishing : 1893 Publisher : American Book Co. Issuance : monographic Identifier : 003558892 Explore: Find this item in the British Library catalogue, 'Explore'. Download the PDF for this book (volume: 0) Image found on book scan 26 (NB not necessarily a page number) Download the OCR-derived text for this volume: (plain text) or (json) Click here to see all the illustrations in this book and click here to browse other illustrations published in books in the same year. Order a higher quality version from here .",
           "bredd": 1112,
           "hojd": 791,
@@ -279,11 +297,11 @@
       "start": 1124,
       "varldsdel": "Amerika",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": null,
-      "soktext": "Greenland gets its own bishop Garðar",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Greenland gets its own bishop Garðar"
     },
     {
       "id": "paquime",
@@ -292,7 +310,7 @@
       "start": 1130,
       "varldsdel": "Amerika",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q853265",
       "kandidater": [
@@ -306,6 +324,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "Levi bernardo",
           "datum": "2020-03-15 15:37:13",
+          "datum_original": "2020-03-15 15:37:13",
+          "datum_fil": "2021-03-08 18:56:19",
+          "kredit": "Own work",
           "beskrivning": "Zona arqueológica de Paquimé",
           "bredd": 4160,
           "hojd": 3120,
@@ -325,7 +346,7 @@
       "start": 1150,
       "varldsdel": "Amerika",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q1435779",
       "kandidater": [
@@ -339,6 +360,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "Greg Hume",
           "datum": "Taken on 10 July 2006",
+          "datum_original": "Taken on 10 July 2006",
+          "datum_fil": "2012-01-03 05:13:10",
+          "kredit": "Own work",
           "beskrivning": "Casa Grande Ruins - Casa Grande AZ.",
           "bredd": 2273,
           "hojd": 1820,
@@ -359,7 +383,7 @@
       "start": 1150,
       "varldsdel": "Amerika",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q1320821",
       "kandidater": [
@@ -373,6 +397,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "Altairisfar (Jeffrey Reed)",
           "datum": "2010-08-06",
+          "datum_original": "2010-08-06",
+          "datum_fil": "2010-08-07 02:13:16",
+          "kredit": "Own work",
           "beskrivning": "Partial view of the plaza and surrounding mounds, with Mound A in the foreground, from the top of Mound B at the Moundville Archaeological Park in Moundville, Hale County, Alabama, United States.",
           "bredd": 2256,
           "hojd": 1504,
@@ -392,7 +419,7 @@
       "start": 1200,
       "varldsdel": "Amerika",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q200944",
       "kandidater": [
@@ -406,6 +433,9 @@
           "licensadress": null,
           "upphovsperson": "circa 1200 date QS:P,+1200-00-00T00:00:00Z/9,P1480,Q5727902",
           "datum": "Unknown date",
+          "datum_original": "Unknown date",
+          "datum_fil": "2016-11-24 15:27:38",
+          "kredit": "Unknown source Unknown source ; file originally uploaded to the Polish-language Wikipedia by Adamt",
           "beskrivning": "Dresden codex, page 49.",
           "bredd": 2254,
           "hojd": 4886,
@@ -425,14 +455,14 @@
       "start": 1200,
       "varldsdel": "Amerika",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q2314963",
+      "kandidater": [],
       "soktext": "The Incas found the city-state of Cusco Cusco (now Peru)",
       "anmarkningar": [
         "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
-      "kandidater": []
+      ]
     },
     {
       "id": "thulefolket-nar-gronland",
@@ -441,13 +471,9 @@
       "start": 1200,
       "varldsdel": "Amerika",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q72813",
-      "soktext": "The Thule people reach Greenland Northwest Greenland",
-      "anmarkningar": [
-        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
       "kandidater": [
         {
           "fil": "File:Bye to Thule, For Now (5588722815).jpg",
@@ -459,6 +485,9 @@
           "licensadress": null,
           "upphovsperson": "NASA Goddard Space Flight Center from Greenbelt, MD, USA",
           "datum": "2011-04-04 11:38",
+          "datum_original": "2011-04-04 11:38",
+          "datum_fil": "2018-05-12 03:15:05",
+          "kredit": "Bye to Thule, For Now",
           "beskrivning": "On March 31, the P-3 departed Thule, Greenland. IceBridge teams flew a science transit flight to Kangerlussaq, Greenland, where missions will be based for the next several weeks before returning to Thule. Along the route, instruments surveyed several targets of opportunity including two ground tracks of the Ice, Cloud and land Elevation Satellite (ICESat) and several glaciers (Rink, Kangerdlugssuaq, Jakobshavn and Russell), turning up great data and spectacular views. March 29 was another perfect day for a land ice flight. The P-3 flew between deep canyons and over glaciers along the northwest coast of Greenland. But before the start of land ice flights, IceBridge reached a key milestone over sea ice. On March 28, IceBridge flew its eighth sea ice flight marking the completion of all high- and medium-priority sea ice missions planned from Thule. Among the sea ice missions was a science transit back from Fairbanks to Thule on March 25, during which the P-3 surveyed in complete darkness. Researchers watched the scanning pattern of the green lasers on the sea ice below and the beautiful Aurora Borealis above. To learn more about Ice Bridge go to: <a href=\" http://www.nasa.gov/mission_pages/icebridge/news/spr11/index.html \" rel=\"nofollow\">www.nasa.gov/mission_pages/icebridge/news/spr11/index.html</a> <a href=\" http://www.nasa.gov/centers/goddard/home/index.html \" rel=\"nofollow\">NASA Goddard Space Flight Center</a> enables NASA’s mission through four scientific endeavors: Earth Science, Heliophysics, Solar System Exploration, and Astrophysics. Goddard plays a leading role in NASA’s accomplishments by contributing compelling scientific knowledge to advance the Agency’s mission. Follow us on <a href=\" https://twitter.com/NASA_GoddardPix \" rel=\"nofollow\">Twitter</a> Join us on <a href=\" http://www.facebook.com/pages/Greenbelt-MD/NASA-Goddard/395013845897?ref=tsd \" rel=\"nofollow\">Facebook</a>",
           "bredd": 1200,
           "hojd": 900,
@@ -485,6 +514,9 @@
           "licensadress": "https://www.flickr.com/commons/usage/",
           "upphovsperson": "Internet Archive Book Images",
           "datum": "1918",
+          "datum_original": "1918",
+          "datum_fil": "2015-09-20 10:04:44",
+          "kredit": "https://www.flickr.com/photos/internetarchivebookimages/18135018756/ Source book page: https://archive.org/stream/americanmuseumjo18amer/#page/n455/mode/1up",
           "beskrivning": "Title : The American Museum journal Identifier : americanmuseumjo18amer ( find matches ) Year : c1900-(1918) ( c190s ) Authors : American Museum of Natural History Subjects : Natural history Publisher : New York : American Museum of Natural History Contributing Library : American Museum of Natural History Library Digitizing Sponsor : Biodiversity Heritage Library View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: ' Text Appearing After Image: Second Thule Expedition under Rasmussen DURING the stay of the Crocker Land Expedition in the Arctic, the Jour- nal was privileged to report from time to time various courtesies extended to this expedition by Mr. Knud Rasmussen, Danish explorer. It now wishes to call at- tention to the Second Thule Expedition, un- der Rasmussen, which has returned to its base in Northwest Greenland, reporting success- ful explorations of the fjords of the North Greenland coast. A telegram received on May 27 by Presi- dent Henry Fairfield Osborn at the Ameri- can Museum reads: \"Knud Rasmussen on his way back from Greenland. Carried out his expedition and reached DeLong's Fjord. Has mapped all great fjords (extreme North Greenland coast). No traces found of for- mer (Eskimo) immigration. No game and generally very bad conditions. The Swedish Dr. Wulff and one Greenlander perished.\" A Reuter's Copenhagen correspondent trans- mits a further telegram in which the Danish explorer says that his advance was attended with greatest difficulties; that after Hen- drik Olsen's death \"we started on our home- ward journey and reached land on August :J90 24 at Cape Agassiz, in bad plight, without provisions.\" After Etah was reached sledges with supplies were sent back to the rest of the party but too late to save Dr. Wulff. The telegrams have been sent out by Mr. M. lb Nyeboe, chairman of the committee in charge of the Thule Station, Northwest Greenland, and imply that Rasmussen re- turned from his expedition in the fall of 1917 and probably wintered at Thule, sending let- ters from there to Copenhagen. Letters sent out from Thule in January by Eskimo mes- senger across Melville Bay to Upernivik, would catch the regular mail sledge going southward through the Danish colonies to Holstensborg and the steamer there for Co- penhagen. Thule, situated on North Star Bay, Northwest Greenland, is the northern- most trading station of the world, and was established by Mr. Rasmussen in 1910 for special service to the Smith Sound Eskimos as well as a scientific base for Danish polar exploration. The First Thule Expedition under the leadership of Rasmussen left this station in 1912. It crossed the inland ice cap of Greenland, somewhat south of the routes fol- Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
           "bredd": 2152,
           "hojd": 1156,
@@ -497,6 +529,10 @@
           "smal": false,
           "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions"
         }
+      ],
+      "soktext": "The Thule people reach Greenland Northwest Greenland",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
       ]
     },
     {
@@ -506,7 +542,7 @@
       "start": 1220,
       "varldsdel": "Amerika",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q567966",
       "kandidater": [
@@ -520,6 +556,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "Joeldesalvatierra",
           "datum": "2012-08-13 18:19:02",
+          "datum_original": "2012-08-13 18:19:02",
+          "datum_fil": "2012-09-08 20:56:09",
+          "kredit": "Own work",
           "beskrivning": "This is a photo of a monument in Mexico, identified by ID",
           "bredd": 1000,
           "hojd": 750,
@@ -542,10 +581,9 @@
       "start": 1261,
       "varldsdel": "Amerika",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": null,
-      "soktext": "Greenland under the Norwegian king",
       "kandidater": [
         {
           "fil": "File:Vinland Map HiRes.jpg",
@@ -557,6 +595,9 @@
           "licensadress": null,
           "upphovsperson": "Yale University Press",
           "datum": "29 July 2002",
+          "datum_original": "29 July 2002",
+          "datum_fil": "2007-09-07 21:15:06",
+          "kredit": "\" Vinland Map \". Yale University Press, Beinecke Rare Book and Manuscript Library. Via: \" Scientists Determine Age of New World Map \". July 29, 2002. Brookhaven National Laboratory. Archived from original .",
           "beskrivning": "The Vinland map / chart is purportedly a 15th century Mappa Mundi, redrawn from a 13th century original. Drawn with black ink on animal skin, if authentic the map is the first known depiction of the North American coastline, created before Columbus' 1492 voyage. The upper left caption reads: “By God's will, after a long voyage from the island of Greenland to the south toward the most distant remaining parts of the western ocean sea, sailing southward amidst the ice, the companions Bjarni and Leif riksson discovered a new land, extremely fertile and even having vines, ... which island they named Vinland.” Most scholars and scientists who have studied the map have concluded that it is a fake, probably drawn on old parchment in the 20th century.",
           "bredd": 3038,
           "hojd": 2103,
@@ -578,6 +619,9 @@
           "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
           "upphovsperson": null,
           "datum": "1 January 1907 (upload date)",
+          "datum_original": "1 January 1907 (upload date)",
+          "datum_fil": "2024-10-07 23:12:14",
+          "kredit": "Glacier King et Baie Cross (Spitzberg)",
           "beskrivning": "These images come from the Isachsen mission, which aimed to explore the northwest of Spitsbergen. It is one of the expeditions carried out with the support of Prince Albert I, sovereign of Monaco, on his yacht. West Spitsbergen, 500 kilometres east of Greenland, is the largest island in the Svalbard archipelago in the Arctic Ocean. It has a surface area of 37,673 km2 and dimensions of 280 km long and 40 to 225 km wide. Its geological layers and fossils provide insight into continental drift. The original Scandinavian name \"Spitsbergen\" (with an s) was historically given to the entire archipelago (literally the word means \"pointed mountains\") and is often still used incorrectly today. The German spelling (with a z) is the most commonly used in French. The entire archipelago depends on Norway. However, the archipelago is governed by a treaty signed in Paris in 1920 by thirty countries which grants certain rights of access to other countries. Coal mines operated by Russian interests in Barentsburg are a consequence of this treaty.",
           "bredd": 3533,
           "hojd": 2960,
@@ -598,6 +642,9 @@
           "licensadress": "https://www.flickr.com/commons/usage/",
           "upphovsperson": "Internet Archive Book Images",
           "datum": "1897",
+          "datum_original": "1897",
+          "datum_fil": "2015-09-30 19:40:32",
+          "kredit": "https://www.flickr.com/photos/internetarchivebookimages/14597572029/ Source book page: https://archive.org/stream/ridpathsuniversa05ridp/ridpathsuniversa05ridp#page/n70/mode/1up",
           "beskrivning": "Identifier : ridpathsuniversa05ridp ( find matches ) Title : Ridpath's Universal history : an account of the origin, primitive condition and ethnic development of the great races of mankind, and of the principal events in the evolution and progress of the civilized life among men and nations, from recent and authentic sources with a preliminary inquiry on the time, place and manner of the beginning Year : 1897 ( 1890s ) Authors : Ridpath, John Clark, 1840-1900 Subjects : World history Publisher : Cincinnati : Jones Contributing Library : University of Pittsburgh Library System Digitizing Sponsor : Lyrasis Members and Sloan Foundation View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: sealine and outgoings of theinlets of Massachusetts and STeirirstoter-Rhode Island were before ies abroad,them. Here, too, they anchored. Herethe old stone tower at Newport stillbears witness of their presence. Herethe greatest of American poets, in hissong of TJic Skeleton in Armor, hassketched for posterity the adventures inthe valley of Fall River of an Icelander,who is supposed to have been no otherthan one of the Vikines of the eleventh THE NORSE.—NOR JI EG I A NS. 59 century. All this, too, because the prin-cess Gyda said to her lover, I marrythee when thou art King of Norway. The stormy and arbitrary character ofHarald Haarfager ended in the oppres-sion, almost the enslavement, of the Nor-wegian people during his reign. The land-vassalage which had been insti-tuted in Haralds days was given up,and two of the great provinces, Frosta-thing and Gula-thing, were reorganizedwith their old laws and boundaries.Hakon had been brought up as a youthat the Court of AtheLstan, the Saxon Text Appearing After Image: ARRIVAL OF FIRST NORSE COLONY IN GREENLAND. Nor-way be-comes regularunder Hakon. accession of his son, Hakon I, how-Government of ever, restored in a consid-erable degree the libertiesof the people. The old-time loyalty came back, and Eric, therival of Hakon, Avho had contended withhim for the crown, and had actuallyslain two of the kings brothers, wascompelled to leave the country. Thegovernment which Harald had estab-lished became regular and organic dur-ing the reign of his son. In the North,Jarl vSigurd ruled under the king as hisvassal. Several of Hakons kinsmenwere left as chief noblemen of the king-dom ; but the management of the largerpart the king reserved for himself. The King of Britain, and had there beenconverted to Christianity. After com-ing to the Norwegian throne he at-tempted to introduce his own faithamong his subjects. But the people ofNorway at this time were extreme intheir paganism, and the peace of thekingdom was wellnigh broken up bythe projects of the soverei Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
           "bredd": 2086,
           "hojd": 1268,
@@ -626,6 +673,9 @@
           "licensadress": null,
           "upphovsperson": "Willdey, George Bowen, Emanuel",
           "datum": "2026-06-25 18:12:18",
+          "datum_original": null,
+          "datum_fil": "2026-06-25 18:12:18",
+          "kredit": "Internet Archive identifier: dr_a-new-and-exact-map-of-sweden-and-norway--corrected-from-the-best-observat-13539019 https://archive.org/download/dr_a-new-and-exact-map-of-sweden-and-norway--corrected-from-the-best-observat-13539019/13539019.jpg",
           "beskrivning": "Zoomable full resolution image available at davidrumsey.com . This image 13539.019 is a part of image group 13539.000 . Engraved hand color in outline map, with uncolored title cartouche in shape of classical pediment decorated by armour and mythological figures. Insets: At top left corner: The north part of Norway, Lapland and Greenland ... at bottom right corner: A engraved view \" A prospect of the city of Stockholm\". At the bottom left corner, advertisement, depicting items on sale at Willdey's \"Great Toy Shop\" in an ornate classical cartouche. Prime meridian: London. Includes compass rose, A collection of maps of various parts of the world. Map maker and publisher's name and address taken from the maps. Published and sold by George Willdey: London. Imprint taken from Willdey's advertisement, map dates are between 1701-1717. Dates taken from maps. Atlas consists of 26 large folding maps each on 2 sheets joined, manuscript contents pages on front endpaper, maps are hand color in outline, with decorative cartouches, include advertisement for Willdey's instruments and trade goods, some with dedication note. Showing political and administrative boundaries, cities, towns, landmarks, fortifications, battle grounds, rivers, lakes, forests and mountains. Relief shown by hachuers and pictorially. Includes legend, tables, notes and engraved views. Bound in brown embossed calf covers. Prime meridian: London and Ferro. \"Tall narrow folio, 26 large folding maps each on 2 sheets joined, manuscript contents pages on front endpaper, maps in contemporary hand colour, cartouches plain, contemporary sheep, some tears and splits as noted. By descent from the library of John Monson, 1st Baron Monson (1693-1748). Lord Monson was an early President of the Board of Trade, a role which had existed in various guises since the mid 17th century. This atlas may have been a useful reference tool for anyone involved in overseas trade, but the maps of British roads, the environs of London and Yorkshire suggest domestic interests – each atlas was made to order. George Willdey’s maps are uncommon. He worked in partnership with mapmakers such as Charles Price and purchased printing plates from other map-makers, some deceased, including the surviving plates for Christopher Saxton’s English county maps, originally published in 1570s. The plates were bought from the widow of Philip Lea in 1732, and the presence of the Yorkshire map here helps us date this atlas. Willdey’s main business was selling toys and luxury goods, including jewellery, trinkets, optical instruments, glass and china. Many of the maps carry advertisements for his other wares, and he advertised his maps for sale as separate sheets rather than in atlas form, which is one reason for the low survival rate (loose sheets of paper have a low survival rate when compared with maps protected in bound volumes). However, we have been able to trace four composite atlases, which must have been bound to order, in libraries around the world, all subtly different. There is an example in the British Library (24 maps); the National Library of Scotland (23 maps); the National Maritime Museum (20 maps) and New York Public Library (20 maps). At 26 maps, the Monson example is the largest we have been able to locate. The core of each atlas comprises maps of the world and continents, and major European countries, but there are variations such as the map of Yorkshire selected by the owner of our atlas. Individual maps are scattered in institutions worldwide, but they are few in number, and they are relatively uncommon in the marketplace. The maps in the volume comprise: 1. A New and Correct Map of the World laid down according to the newest observations & discoveries in several different projections including the trade winds, monsoons, variation of the compass, and illustrated with a coelestial planisphere, the various systems of Ptolomy, Copernicus, and Tycho Brahe together with ye apearances of the planets &c. . OCLC 316380727. 2. A New and Correct Map of the World projected along the Plane of the Horizon… Charles Price with Willdey’s imprint. Illustrations of toys and articles for sale at Willdey's shop which include combs, chess, wallets, clocks and scientific instruments. OCLC 1003646341. Osher Map Library (Maine). 3. Europe Corrected by Emmanuel Bowen… Illustrated advert, as above. 4. Asia Corrected, According to the latest Discoveries and Observations by Emmanuel Bowen… Made and fold by George Willdey. Illustrated advert. OCLC 234194330. National Library of Israel 5. Africa Corrected from Observations… Charles Price. Illustrated advert. OCLC 316380848. 6. The Map of North America, Corrected from the latest discoveries and observations. . OCLC 50514987; copies in US: Yale, Newberry, Scottish Masonic Rite Mus & Lib, MA; San Jacinto Mus, TX. 7. South America Corrected from the Observations Communicated to the Royal Society’s of London and Paris by Charles Price. OCLC 316381425 8. The Map of Great Britain and Ireland. Includes the Hanoverian coat of arms of King George I, an architectural vignette of ships of the line and a vignette of Hercules slaying the Hydra and of Athena atop a cannon. Advert. 9. A Correct Map of Ireland to the Honourable Sr William Robinson Knight and includes the Knight family coat of arms. . OCLC 316385656, Sachische Landesbibliothek, Germany. 10. A New & Correct Map of England & Wales Now Called South Britain. Includes alphabetical tables on the left and right of the map of the Cities and Market Towns in England and Wales. There are vignettes of the important towns, cities and castles viewed from the sea or overlooking the sea. 11. A New & Correct Map of Thirty Miles Round London. Shows all of the Towns, Villages, Roads, with the Seats of the Nobility & Gentry and has lists contained within tables to the left and right of the map. OCLC 60918816 12. A New & Exact Map of Germany Corrected According to the Newest Observations. 13. A New & Exact Map of Spain & Portugal Corrected According to the Best Observations. OCLC 431531742, Biblioteca Nacional de Espana. 14. A New and Exact Map of France Corrected from the Observations made By the Royal Academy of Sciences at Paris. 15. A New & Correct Map of Italy Done From The Latest Discoveries & Observations communicated to the Royal Society of London, The Royal Academy of Paris. Includes the longitude and latitude from London. There are vignettes of the cities and some of the important sites of Italy. OCLC 316386136 16. A Correct Map of Moscovy humbly dedicated To The Honourable Sr Thomas Powell. 17. A New and Exact Map of Sweden and Norway. Includes a vignette of Stockholm. Illus advert. OCLC 316387211 (copy in NLS, in atlas; National Library of Sweden, as OCLC 668199887) 18. A map of Turkey in Europe. Features a vignette of a Greek hoplite slaying two Ottoman soldiers and Azrael standing to the side. Illus advert, OCLC 751005185. National Library of Israel. 19. A map of Hungary. Includes vignettes either side of the map of the major cities and other strategic locations. OCLC, 941032082, copy in UCL; as OCLC 494672927 in BNF 20. A New and Correct Map of the X Spanish Province. Includes a vignette of a Spanish star fort and equipment and tactics used to attack and defend a star fort. OCLC 54321842, Copy in CUL 21. A New Map of Suabia. OCLC 316387183 (NLS atlas copy) 22. Greciae Antiquae tabulam hanc novum… Dedication incorporates title: \"Viro honoratissimo Roberto Harley armigero uni ex preafectis Aerarii regii fisci cancellario et Regiae Maiesati a secretioribus consiliis Greciae Antiquae tabulam hanc novam DDD Servus obsequentissimus Carolus Price.\"/ Dated from imprint: Timothy Brandreth and Willdey are known to have worked together in 1712. OCLC 316387239 (NLS atlas copy) 23. A map of Yorkshire. Features coat of arms from the nobility of Yorkshire encircling the title. Map of the county of Yorkshire, showing the towns and cities, rivers, hills, woods, and lakes. Ships and whales in the sea. Shows title in a decorative cartouche formed of palms and cornucopias to the lower left, numerous armorials surrounding the cartouche. Shows scale bar to the left margin. 18th c. reissue of Saxton's 1577 map of Yorkshire. OCLC 1063236074 BL (K Top). 24. The Roads of England According to Mr Ogilby’s Survey, circular map within elaborate border, b/w.. OCLC 557284413 CUL 25. A map of the VII United Provinces dedicated to Elihu Yale esq. Features a vignette surrounding the title featuring Poseidon with mermen, mythical seahorses and a somewhat perturbing sea-monster with four eyes. 26. A map of Poland dedicated to Sr James Hallett Kt. OCLC 498118768 (BL atlas) Institutional holdings exclude maps in the four composite atlases - unless specified as being the only available reference.\" (Tim Bryars, 2019) Subjects:",
           "bredd": 17684,
           "hojd": 11464,
@@ -646,6 +696,9 @@
           "licensadress": null,
           "upphovsperson": "Dirk Jansz van Santen",
           "datum": "1662 date QS:P571,+1662-00-00T00:00:00Z/9",
+          "datum_original": "1662 date QS:P571,+1662-00-00T00:00:00Z/9",
+          "datum_fil": "2015-07-19 08:45:44",
+          "kredit": "This digital media file - and/or the physical objects depicted on it - originates from the digital and/or physical collections of the Koninklijke Bibliotheek , national library of the Netherlands.",
           "beskrivning": "In 1631 king Christian IV of Denmark ordered to map the complete kingdom of Denmark including Norway and part of Sweden. Joan Blaeu (1598-1673) was the only publisher who had access to the results of this topographical survey. In 1662 he published an important part of those maps in the first volume of the Atlas Maior . This map of Norway was among them, a rare image of an early representation of the area.",
           "bredd": 5500,
           "hojd": 4653,
@@ -660,7 +713,8 @@
           ],
           "smal": false
         }
-      ]
+      ],
+      "soktext": "Greenland under the Norwegian king"
     },
     {
       "id": "caguana-ceremoniplats",
@@ -669,7 +723,7 @@
       "start": 1270,
       "varldsdel": "Amerika",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q3649808",
       "kandidater": [
@@ -683,6 +737,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/2.5",
           "upphovsperson": "The original uploader was Jbermudez at English Wikipedia .",
           "datum": "5 July 2006 (original upload date)",
+          "datum_original": "5 July 2006 (original upload date)",
+          "datum_fil": "2008-02-23 01:43:32",
+          "kredit": "Transferred from en.wikipedia to Commons by Werewombat .",
           "beskrivning": "a view of the park",
           "bredd": 1000,
           "hojd": 750,
@@ -702,10 +759,9 @@
       "start": 1275,
       "varldsdel": "Amerika",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Cold summers and growing ice on Baffin Island",
       "kandidater": [
         {
           "fil": "File:The continent we live on (1961) (20497624779).jpg",
@@ -717,6 +773,9 @@
           "licensadress": "https://www.flickr.com/commons/usage/",
           "upphovsperson": "Internet Archive Book Images",
           "datum": "1961",
+          "datum_original": "1961",
+          "datum_fil": "2015-10-03 08:53:59",
+          "kredit": "https://www.flickr.com/photos/internetarchivebookimages/20497624779/ Source book page: https://archive.org/stream/continentweliveo00sandrich/#page/n23/mode/1up",
           "beskrivning": "Title : The continent we live on Identifier : continentweliveo00sandrich ( find matches ) Year : 1961 ( 1960s ) Authors : Sanderson, Ivan Terence, 1911-1973 Subjects : Physical geography ; Natural history Publisher : New York : Random House Contributing Library : New College of California Digitizing Sponsor : Internet Archive View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: A herd of musk ox in full flight.These\"sheep-oxen\" are true relics of the Ice Age and. though they look lumpish, can out- pace most other animals. squeezed out underneath as taffy would be in a shallow bowl if a large solid weight were placed upon it. Thus an icecap grows in both depth and area and pushes out in all directions. If it comes against a substantial mountain range, it pushes up and over the lower passes or flows around the ob- stacle, scouring its sides with millions of tons of pressure and billion-foot-pound scooping actions. It finally covers the whole land and leaves only the peaks of the tallest mountains sticking out. These are called nunataks. Such are strewn all around the edge of Greenland. But finally its edge reaches some seacoast. If the coast is a rocky barrier with cliffs, the ice, in the form of glaciers or rivers of ice, cascades down these through whatever gaps there are and, on reaching the sea below, becomes water-borne— ice being lighter than water. As a result, the front ends or \"tongues\" of these break off in great bits by being bent upward, often with thunderous noises like gunfire, and then go drifting away as icebergs. This is called calving. If. on the other hand, the coast is low but wide, the ice front may push slowly out onto it, building up a mountainous and bulbous front, actually thicker at that front than just behind it, so that the whole curls over like a vast wave and huge masses of ice crash to the bare ground ahead of it. Then the ice slowly creeps over these chunks and reabsorbs them. In still other cir- cumstances, where the coastal plain is narrow and only just above sea level and extends out under the water to form a very shallow sea, the vast ice mass may move slowly out from the land—sometimes for hundreds of miles as in the Antarctic— before its buoyancy counteracts its weight and vast slices of it snap off and become water-borne. This is known as shelf ice; and it is prevalent around enormous stretches of the Antarctic coast but it is not found in the Arctic. When this shelf ice— sometimes hundreds of feet thick—breaks away, it forms flat- topped icebergs that have been recorded up to two hundred miles long and a hundred miles wide. Sooner or later, however, the climate changes once more and the icecap begins to suffer starvation. Perhaps nothing more than a diminution in annual precipitation takes place, so that no new snow piles up on the center or it does so in such small quantities that it cannot keep up with the summer thaw. Then the move- ment of the ice ceases; its peripheral glaciers melt backward up their gorges; on low land, its bulbous front flattens out into a thin, tapering sheet and develops melt caves beneath it; and the great ice shelves begin to slant downward to the sea and then slowly retreat back onto the land. Such is Greenland today— though perhaps only temporarily—a really vast and fairly an- cient icecap just a little past its prime, shrinking visibly almost all around and with considerably reduced edges on land but still calving icebergs along both its northwestern and eastern coasts. An icy blanket of air still pours off its edges in most places force- fully enough to be termed idiabatic winds, but it is not nearly so formidable or aggressive as it was even a century ago. Things have been warming up generally in those parts for some time now, so that all manner of animals once found only in temperate seas now occur there. Codfish, which only fifty years ago were never caught north of 64 degrees north, now form com- mercial catches north of 73 degrees north. This is a tremendous movement for fish, which are ultrasensitive to water tempera- tures, being nearly six hundred miles of latitude. All kinds of other changes have been taking place, too. The sea ice has Text Appearing After Image: become thinner and narrower, and it melts sooner and stays away for longer periods than it did previously. This has upset the inshore habits of such marine mammals as whales and seals. The graves of the Norse settlers of pre-Columbian times have thawed out of the permafrost; quite a number of new plants have appeared on the coastal fringe in summer; and birds not seen before are now common in many areas. These are not unalloyed blessings: rather the contrary, for they have removed far to the north many of the natural products, such as whales and seals, on which the Greenlanders relied for food and cloth- ing. Much the same is happening on the Canadian islands, but the change there is not so apparent and is possibly not so pro- found. In Greenland it seems to be caused primarily by changes in the warmer ocean currents and the wilting of the icecap, and it is believed that it is not an increase of warm water but of cold that is causing the latter, for as the warm water goes farther away it carries the moisture-laden air that brings precipitation. GARDENS BY THE ICE The coastal strips of Greenland are very unlike what most of us suppose. Even in midwinter the climate is not really any colder than that of the northern United States, and in summer it can be very (though never disagreeably) hot, so that people go swim- ming in lakes and wander about in shorts even as far north as upper Baffin Bay. There are places within the Arctic Circle that 20 Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
           "bredd": 1352,
           "hojd": 1888,
@@ -728,7 +787,8 @@
           "smal": false,
           "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions"
         }
-      ]
+      ],
+      "soktext": "Cold summers and growing ice on Baffin Island"
     },
     {
       "id": "codex-zouche-nuttall",
@@ -737,7 +797,7 @@
       "start": 1300,
       "varldsdel": "Amerika",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q1106134",
       "kandidater": [
@@ -751,6 +811,9 @@
           "licensadress": null,
           "upphovsperson": "Unknown author Unknown author",
           "datum": "Unknown date",
+          "datum_original": "Unknown date",
+          "datum_fil": "2007-04-06 15:24:17",
+          "kredit": "Unknown source Unknown source ; file originally uploaded to the Polish-language Wikipedia by Adamt",
           "beskrivning": "Codex Zouche-Nuttall, page 20.",
           "bredd": 515,
           "hojd": 375,
@@ -771,6 +834,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Szilas",
           "datum": "2010-08-01",
+          "datum_original": "2010-08-01",
+          "datum_fil": "2023-02-16 14:18:00",
+          "kredit": "Own work",
           "beskrivning": "Pre-Columbian mixtec screen fold book made of deer skin, British Library",
           "bredd": 3354,
           "hojd": 1287,
@@ -790,14 +856,14 @@
       "start": 1300,
       "varldsdel": "Amerika",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q2605410",
+      "kandidater": [],
       "soktext": "Tariácuri lays the foundations of the Purépecha Empire",
       "anmarkningar": [
         "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
-      "kandidater": []
+      ]
     },
     {
       "id": "templo-mayor-forsta-templet",
@@ -806,7 +872,7 @@
       "start": 1325,
       "varldsdel": "Amerika",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q774021",
       "kandidater": [
@@ -820,6 +886,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "GAED",
           "datum": "2012-09-08 11:57:15",
+          "datum_original": "2012-09-08 11:57:15",
+          "datum_fil": "2012-09-10 04:09:20",
+          "kredit": "Own work",
           "beskrivning": "This is a photo of a monument in Mexico, identified by ID",
           "bredd": 3280,
           "hojd": 2460,
@@ -841,6 +910,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Photograph by Mike Peel ( www.mikepeel.net ).",
           "datum": "2015-07-14 21:08:50",
+          "datum_original": "2015-07-14 21:08:50",
+          "datum_fil": "2023-11-10 09:38:32",
+          "kredit": "Own work",
           "beskrivning": "Templo Mayor, Mexico City, Mexico.",
           "bredd": 5114,
           "hojd": 3300,
@@ -860,10 +932,9 @@
       "start": 1350,
       "varldsdel": "Amerika",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The Western Settlement is abandoned The Western Settlement",
       "kandidater": [
         {
           "fil": "File:Babchor, Aegean Macedonia.JPG",
@@ -875,6 +946,9 @@
           "licensadress": null,
           "upphovsperson": "Unknown author Unknown author",
           "datum": "between 1903 and 1908 date QS:P,+1903-00-00T00:00:00Z/8,P1319,+1903-00-00T00:00:00Z/9,P1326,+1908-00-00T00:00:00Z/9",
+          "datum_original": "between 1903 and 1908 date QS:P,+1903-00-00T00:00:00Z/8,P1319,+1903-00-00T00:00:00Z/9,P1326,+1908-00-00T00:00:00Z/9",
+          "datum_fil": "2010-01-13 04:57:02",
+          "kredit": "http://promacedonia.org/podporuchik/il_il/Illustration%20Ilinden,%20year%20VI,%20issue%205-6.pdf",
           "beskrivning": "Village of Babchor, today Vapsorion, Greece",
           "bredd": 477,
           "hojd": 252,
@@ -895,6 +969,9 @@
           "licensadress": null,
           "upphovsperson": "Unknown author Unknown author",
           "datum": "17-th century",
+          "datum_original": "17-th century",
+          "datum_fil": "2020-03-20 08:05:22",
+          "kredit": "http://fos-kastoria.blogspot.com/2020/03/19.html",
           "beskrivning": "Christ Icon from Lagoura 17th Century",
           "bredd": 488,
           "hojd": 766,
@@ -916,6 +993,9 @@
           "licensadress": null,
           "upphovsperson": "Unknown author Unknown author",
           "datum": "18-th Century",
+          "datum_original": "18-th Century",
+          "datum_fil": "2020-03-20 08:05:23",
+          "kredit": "http://fos-kastoria.blogspot.com/2020/03/19.html",
           "beskrivning": "Panagia Odigitria Icon from Lagoura 18th Century",
           "bredd": 446,
           "hojd": 814,
@@ -937,6 +1017,9 @@
           "licensadress": null,
           "upphovsperson": "Unknown author Unknown author",
           "datum": "19 th century date QS:P,+1850-00-00T00:00:00Z/7",
+          "datum_original": "19 th century date QS:P,+1850-00-00T00:00:00Z/7",
+          "datum_fil": "2020-03-20 08:05:23",
+          "kredit": "http://fos-kastoria.blogspot.com/2020/03/19.html",
           "beskrivning": "Panagia Paramythia Icon from Lagoura 19th Century",
           "bredd": 769,
           "hojd": 1353,
@@ -958,6 +1041,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/2.5",
           "upphovsperson": "שלמה רודד",
           "datum": "2.12.2024",
+          "datum_original": "2.12.2024",
+          "datum_fil": "2024-12-14 01:25:24",
+          "kredit": "Shlomo Roded via the PikiWiki - Israel free image collection project",
           "beskrivning": "Name: Moshav Alkosh in the western Galilee Description: The al-Kush settlement was established in 1949 by Kurdistan immigrants, belonging to the moshavim movement, in the Ma'ale Yosef regional council, at an altitude of about 650 meters, on the lands of the Arab village of Deir al-Kassi that was abandoned during the War of Independence in the background of ridges in the Upper Galilee: from left to right-Adir, Hiram, Yaron",
           "bredd": 5712,
           "hojd": 4284,
@@ -968,7 +1054,8 @@
           ],
           "smal": false
         }
-      ]
+      ],
+      "soktext": "The Western Settlement is abandoned The Western Settlement"
     },
     {
       "id": "osterbygden-overges",
@@ -977,10 +1064,9 @@
       "start": 1400,
       "varldsdel": "Amerika",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The Eastern Settlement is abandoned The Eastern Settlement",
       "kandidater": [
         {
           "fil": "File:Sopalj (Crikvenica) eastern building 2.jpg",
@@ -992,6 +1078,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Schreckgespenst",
           "datum": "2025-10-13 12:46:47",
+          "datum_original": "2025-10-13 12:46:47",
+          "datum_fil": "2025-11-16 17:36:49",
+          "kredit": "Own work",
           "beskrivning": "Building at the eastern end of the abandoned settlement of Sopalj.",
           "bredd": 3000,
           "hojd": 4000,
@@ -1012,6 +1101,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Schreckgespenst",
           "datum": "2025-10-13 12:46:25",
+          "datum_original": "2025-10-13 12:46:25",
+          "datum_fil": "2025-11-16 17:37:11",
+          "kredit": "Own work",
           "beskrivning": "Building at the eastern end of the abandoned settlement of Sopalj.",
           "bredd": 3072,
           "hojd": 4096,
@@ -1032,6 +1124,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "I created the map, based partly on the source map: Eastern frontier of the Colony of the Cape of Good Hope from Algoa Bay to the Great Kei river , which appears opposite page 620 of ‘ The autobiography of Lieutenant-general Sir Harry Smith ’ by G.C.B. Bart, Chapter xlviii, published 1903, as part of the online Build a Book initiative . JMK 11:03, 26 December 2007 (UTC)",
           "datum": "Redrawn and coloured in December 2007",
+          "datum_original": "Redrawn and coloured in December 2007",
+          "datum_fil": "2025-01-17 12:02:01",
+          "kredit": "Based on the source map below, last published in 1903.",
           "beskrivning": "Eastern frontier(s) of the Cape of Good Hope colony, ca 1820 – 1850 (i.e. period between 5th and 8th Xhosa Wars) 1820 British settler farms in the Albany district, or eastern Zuurveld Settled colonial area (est. 1795), showing Grahamstown (est. 1812), and districts (est. 1820) in shades of pale green Neutral zone (est. 1820), as agreed between Lord Charles Somerset and the Gaika (Ngqika) faction of the amaXhosa. British Kaffraria (est. 1835), incl. East London (est. 1847): Gaika faction of amaXhosa and amaTembu under British protection. Kaffraria , incl. Butterworth Wesleyan mission (est. 1827): amaTembu living inland and amaXhosa nearer the coast. Mountains and necks, incl. Gaika's Hill 32°32′46″S 26°57′07″E ﻿ / ﻿ 32.54611°S 26.95194°E ﻿ / -32.54611; 26.95194 ﻿ ( Gaika's Hill ) in the easternmost Winterberg . Military forts , district boundaries and eastern frontier . Notes Frontiers: Following the Fifth Xhosa War (ended 1819), the Keiskamma River up to Gaika's Hill, and thence westwards along the Winterberg (on red line ), marked the eastern frontier of the Colony. Sir Harry Smith (in 1847) annexed the northern section of Victoria, and extended the frontier from Gaika's Hill northwards along the Klip Plaat River and Stormberg . The Great Kei River became the eastern frontier when the British Kaffraria Protectorate was annexed (before 1865). Forts: Most forts remain today as ruins in various degrees of restoration. The most northerly, Post Retief (est. 1836) 32°30′16″S 26°31′44″E ﻿ / ﻿ 32.50444°S 26.52889°E ﻿ / -32.50444; 26.52889 ﻿ ( Post Retief ) , was designed by major Charles Selwyn of the Royal Engineers , and remains almost intact. This fort was located near the last homestead of field cornet Piet Retief , a leader of the emigrant farmers in 1837. It consists of officers quarters, large stables, stores and additional quarters for soldiers, built around a parade ground of one acre. [1] Sixty farmers sought refuge here for two months during the Eighth Xhosa War (1850-1853). Lieutenant-colonel John Fordyce and other casualties of this war were interred in a small military cemetery nearby. Fort Armstrong (est. 1836) 32°33′42″S 26°41′31″E ﻿ / ﻿ 32.56167°S 26.69194°E ﻿ / -32.56167; 26.69194 ﻿ ( Fort Armstrong ) was taken by Maqoma and Kona during the Eighth Xhosa War, who held it for about a month before they were repelled. It was subsequently taken by Willem Uithaalder, a colonial rebel, who held it until most of the fort was destroyed by colonial forces, leaving only the tower which remains today. Fort Peddie 33°11′39″S 27°07′27″E ﻿ / ﻿ 33.19417°S 27.12417°E ﻿ / -33.19417; 27.12417 ﻿ ( Fort Peddie ) is a blockhouse , built after the 1820 agreement that formed the neutral zone. Fort Brown (est. 1835) 33°07′48″S 26°37′03″E ﻿ / ﻿ 33.13°S 26.6175°E ﻿ / -33.13; 26.6175 ﻿ ( Fort Brown ) was at first a post for patrols (est. ca 1812) at Hermanuskraal, named for Khoikhoi chieftain Hermanus Xogomesh, before a fort replaced it during the Sixth Xhosa War . It became a police post in 1873, and a police station is still located beside it. The fort was declared a national monument in 1938. Fort Cox (est. 1835, abandoned 1836-1846, but rebuilt) 32°43′48″S 27°1′32″E ﻿ / ﻿ 32.73°S 27.02556°E ﻿ / -32.73; 27.02556 ﻿ ( Fort Cox ) , was named after major William Cox, and was a base for patrols into the valleys and ravines of the Amatole and Keiskamma ranges. The earthen redoubt reinforced with stone protected a quadrangle of strong stone cottages and walls, of which only ruins remain. Sir Harry Smith was for a time trapped in this fort during the Eighth Xhosa War . Settlements: Military villages such as Woburn , Auckland , Ely , Juanasburg , Kempt and Fredericksburg were established in the vicinity of the forts. Alice was a Presbyterian missionary centre (est. 1824), and a village formed around Fort Hare 's military encampment (est. 1847) 32°47′13″S 26°50′55″E ﻿ / ﻿ 32.78694°S 26.84861°E ﻿ / -32.78694; 26.84861 ﻿ ( Fort Hare ) . Adelaide , a Scottish settlement near the current town, became a transit camp for troops during the War of Mlanjeni . King Williams Town started as a military camp and mission station and became the base from which Sir Harry Smith controlled the tribal areas. The small village Sidbury 33°25′15″S 26°10′06″E ﻿ / ﻿ 33.42083°S 26.16833°E ﻿ / -33.42083; 26.16833 ﻿ ( Sidbury ) was est. ca 1832 by settler Richard Daniel. The farming districts of ALBANY and eastern UITENHAGE were also collectively known as the 'Zuurveld'. The Kat River Settlement was a homeland for displaced Khoi-khoi where they occupied land tenures for the mission stations. They suffered greatly during the 6th Frontier War. See also: Heritage sites in Albany",
           "bredd": 836,
           "hojd": 733,
@@ -1061,6 +1156,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "alexjtb@gmail.com",
           "datum": "2012-08-05 21:01:06",
+          "datum_original": "2012-08-05 21:01:06",
+          "datum_fil": "2012-09-24 06:53:13",
+          "kredit": "Own work",
           "beskrivning": "The ruins of an unknown settlement in the north-eastern Georgian province of Khevsureti in the Caucasus",
           "bredd": 797,
           "hojd": 1200,
@@ -1081,6 +1179,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/4.0",
           "upphovsperson": "Artyom Svetlov",
           "datum": "Taken on 29 March 2020, 10:31:20 (according to Exif data)",
+          "datum_original": "Taken on 29 March 2020, 10:31:20 (according to Exif data)",
+          "datum_fil": "2026-10-15 18:34:58",
+          "kredit": "Own work",
           "beskrivning": "Abandoned church in Vinogradovo",
           "bredd": 4608,
           "hojd": 3072,
@@ -1091,7 +1192,8 @@
           ],
           "smal": false
         }
-      ]
+      ],
+      "soktext": "The Eastern Settlement is abandoned The Eastern Settlement"
     },
     {
       "id": "brollopet-i-hvalsey",
@@ -1100,11 +1202,11 @@
       "start": 1408,
       "varldsdel": "Amerika",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": null,
-      "soktext": "The wedding at Hvalsey Church",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "The wedding at Hvalsey Church"
     },
     {
       "id": "aztekiska-trippelalliansen",
@@ -1113,14 +1215,14 @@
       "start": 1427,
       "varldsdel": "Amerika",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q2608489",
+      "kandidater": [],
       "soktext": "The Triple Alliance is formed in the Valley of Mexico Tenochtitlan",
       "anmarkningar": [
         "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
-      "kandidater": []
+      ]
     },
     {
       "id": "pachacuti-inkariket",
@@ -1129,7 +1231,7 @@
       "start": 1438,
       "varldsdel": "Amerika",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q213758",
       "kandidater": [
@@ -1143,6 +1245,9 @@
           "licensadress": null,
           "upphovsperson": null,
           "datum": "between 1750 and 1800 date QS:P571,+1500-00-00T00:00:00Z/6,P1319,+1750-00-00T00:00:00Z/9,P1326,+1800-00-00T00:00:00Z/9",
+          "datum_original": "between 1750 and 1800 date QS:P571,+1500-00-00T00:00:00Z/6,P1319,+1750-00-00T00:00:00Z/9,P1326,+1800-00-00T00:00:00Z/9",
+          "datum_fil": "2024-05-18 00:51:19",
+          "kredit": "Online Collection of Brooklyn Museum ; Photo: Brooklyn Museum, 1995.29.10_PS6.jpg",
           "beskrivning": null,
           "bredd": 1317,
           "hojd": 1437,
@@ -1167,7 +1272,7 @@
       "start": 1493,
       "varldsdel": "Amerika",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q1543031",
       "kandidater": [
@@ -1181,6 +1286,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Mariordo (Mario Roberto Durán Ortiz)",
           "datum": "2019-10-04 12:39:32",
+          "datum_original": "2019-10-04 12:39:32",
+          "datum_fil": "2019-10-06 03:13:37",
+          "kredit": "Own work",
           "beskrivning": "La Isabela Historical and Archaeological National Park, Luperón, Dominican Republic",
           "bredd": 3000,
           "hojd": 2000,

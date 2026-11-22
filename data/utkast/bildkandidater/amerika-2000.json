@@ -19,7 +19,7 @@
       "start": 2005,
       "varldsdel": "Amerika",
       "period": "2000",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q16422",
       "kandidater": [
@@ -33,6 +33,9 @@
           "licensadress": null,
           "upphovsperson": "NASA",
           "datum": "2005-08-28",
+          "datum_original": "2005-08-28",
+          "datum_fil": "2024-08-23 12:10:04",
+          "kredit": "https://worldview.earthdata.nasa.gov/",
           "beskrivning": "Hurricane Katrina on August 28, 2005",
           "bredd": 5400,
           "hojd": 7200,
@@ -53,13 +56,9 @@
       "start": 2008,
       "varldsdel": "Amerika",
       "period": "2000",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q45578",
-      "soktext": "Barack Obama is elected president of the USA",
-      "anmarkningar": [
-        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
       "kandidater": [
         {
           "fil": "File:CNT Staff Toast President-Elect Barack Obama (3214944005).jpg",
@@ -71,6 +70,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
           "upphovsperson": "Center for Neighborhood Technology from Chicago, USA",
           "datum": "2008-11-05 14:05",
+          "datum_original": "2008-11-05 14:05",
+          "datum_fil": "2024-12-22 12:22:01",
+          "kredit": "CNT Staff Toast President-Elect Barack Obama",
           "beskrivning": "On November 5, CNT Staff gathered on our patio to toast the election of former CNT board member, Barack Obama.",
           "bredd": 1280,
           "hojd": 720,
@@ -92,6 +94,9 @@
           "licensadress": null,
           "upphovsperson": "Jesusemen Oni / VOA",
           "datum": "2016-11-10",
+          "datum_original": "2016-11-10",
+          "datum_fil": "2020-06-04 14:37:03",
+          "kredit": "https://www.voanews.com/usa/us-politics/obama-talks-trump-excellent-wide-ranging",
           "beskrivning": "President Barack Obama meets with President-elect Donald Trump at the White House, Nov. 10, 2016. (Photo: J. Oni / VOA)",
           "bredd": 3451,
           "hojd": 1926,
@@ -115,34 +120,14 @@
           "licensadress": null,
           "upphovsperson": "Jesusemen Oni / VOA",
           "datum": "2016-11-10",
+          "datum_original": "2016-11-10",
+          "datum_fil": "2020-06-04 14:39:36",
+          "kredit": "https://www.voanews.com/usa/us-politics/obama-talks-trump-excellent-wide-ranging",
           "beskrivning": "President Barack Obama meets with President-elect Donald Trump at the White House, Nov. 10, 2016. (Photo: J. Oni / VOA)",
           "bredd": 2361,
           "hojd": 1811,
           "mime": "image/jpeg",
           "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Barack_Obama_meets_with_Donald_Trump_in_the_Oval_Office_%28crop_2%29.jpg/960px-Barack_Obama_meets_with_Donald_Trump_in_the_Oval_Office_%28crop_2%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-          "kategorier": [
-            "Barack Obama gesturing with hands",
-            "Bust of Martin Luther King, Jr. by Charles Alston",
-            "Donald Trump wearing red necktie",
-            "President Barack Obama meets with President-elect Donald Trump (November 10, 2016)"
-          ],
-          "smal": false
-        },
-        {
-          "fil": "File:Barack Obama meets with Donald Trump in the Oval Office.jpg",
-          "filsida": "https://commons.wikimedia.org/wiki/File:Barack_Obama_meets_with_Donald_Trump_in_the_Oval_Office.jpg",
-          "kalla": "commons-sok",
-          "licens": "Public domain",
-          "licensklass": "public-domain",
-          "licensstatus": "trolig",
-          "licensadress": null,
-          "upphovsperson": "Jesusemen Oni / VOA",
-          "datum": "2016-11-10",
-          "beskrivning": "President Barack Obama meets with President-elect Donald Trump at the White House, Nov. 10, 2016. (Photo: J. Oni / VOA)",
-          "bredd": 3553,
-          "hojd": 2935,
-          "mime": "image/jpeg",
-          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Barack_Obama_meets_with_Donald_Trump_in_the_Oval_Office.jpg/960px-Barack_Obama_meets_with_Donald_Trump_in_the_Oval_Office.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
           "kategorier": [
             "Barack Obama gesturing with hands",
             "Bust of Martin Luther King, Jr. by Charles Alston",
@@ -161,6 +146,9 @@
           "licensadress": null,
           "upphovsperson": "Jesusemen Oni / VOA",
           "datum": "2016-11-10",
+          "datum_original": "2016-11-10",
+          "datum_fil": "2020-06-04 14:31:18",
+          "kredit": "https://www.voanews.com/usa/us-politics/obama-talks-trump-excellent-wide-ranging",
           "beskrivning": "President Barack Obama meets with President-elect Donald Trump at the White House, Nov. 10, 2016. (Photo: J. Oni / VOA)",
           "bredd": 1634,
           "hojd": 918,
@@ -173,7 +161,37 @@
             "President Barack Obama meets with President-elect Donald Trump (November 10, 2016)"
           ],
           "smal": false
+        },
+        {
+          "fil": "File:Barack Obama meets with Donald Trump in the Oval Office.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Barack_Obama_meets_with_Donald_Trump_in_the_Oval_Office.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Jesusemen Oni / VOA",
+          "datum": "2016-11-10",
+          "datum_original": "2016-11-10",
+          "datum_fil": "2020-09-29 19:23:09",
+          "kredit": "https://www.voanews.com/usa/us-politics/obama-talks-trump-excellent-wide-ranging",
+          "beskrivning": "President Barack Obama meets with President-elect Donald Trump at the White House, Nov. 10, 2016. (Photo: J. Oni / VOA)",
+          "bredd": 3553,
+          "hojd": 2935,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Barack_Obama_meets_with_Donald_Trump_in_the_Oval_Office.jpg/960px-Barack_Obama_meets_with_Donald_Trump_in_the_Oval_Office.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Barack Obama gesturing with hands",
+            "Bust of Martin Luther King, Jr. by Charles Alston",
+            "Donald Trump wearing red necktie",
+            "President Barack Obama meets with President-elect Donald Trump (November 10, 2016)"
+          ],
+          "smal": false
         }
+      ],
+      "soktext": "Barack Obama is elected president of the USA",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
       ]
     },
     {
@@ -183,11 +201,11 @@
       "start": 2009,
       "varldsdel": "Amerika",
       "period": "2000",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": null,
-      "soktext": "Greenland gets self-government Nuuk",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Greenland gets self-government Nuuk"
     },
     {
       "id": "gruvarbetarna-i-copiapo-raddas",
@@ -196,7 +214,7 @@
       "start": 2010,
       "varldsdel": "Amerika",
       "period": "2000",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q214790",
       "kandidater": [
@@ -210,6 +228,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
           "upphovsperson": "desierto_atacama",
           "datum": "2010-08-10 15:24",
+          "datum_original": "2010-08-10 15:24",
+          "datum_fil": "2010-10-15 15:04:25",
+          "kredit": "Mina San Josè Uploaded by Diego Grez",
           "beskrivning": "Mina San Josè, lugar de tragedia minera. 2010",
           "bredd": 1024,
           "hojd": 768,
@@ -230,7 +251,7 @@
       "start": 2010,
       "varldsdel": "Amerika",
       "period": "2000",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q43777",
       "kandidater": [
@@ -244,6 +265,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/2.0",
           "upphovsperson": "Trocaire from Ireland",
           "datum": "2012-01-10 14:31",
+          "datum_original": "2012-01-10 14:31",
+          "datum_fil": "2013-04-14 00:07:28",
+          "kredit": "DSC_1200 Uploaded by victorgrigas",
           "beskrivning": "In January 2010 a massive earthquake struck Haiti, killing over 300,000 people and making 1.5 million people homeless. The disaster was the worst in the history of a country that has been ravaged by conflict and crisis. Two years after the earthquake struck, the ruins of the Cathedral in the centre of Port au Prince offered a reminder of the tragedy of that fateful morning. (Eoghan Rice / Trocaire)",
           "bredd": 4608,
           "hojd": 3072,
@@ -264,14 +288,14 @@
       "start": 2016,
       "varldsdel": "Amerika",
       "period": "2000",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q5858325",
+      "kandidater": [],
       "soktext": "The peace agreement between Colombia and the FARC Cartagena",
       "anmarkningar": [
         "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
-      "kandidater": []
+      ]
     },
     {
       "id": "os-i-rio-2016",
@@ -280,7 +304,7 @@
       "start": 2016,
       "varldsdel": "Amerika",
       "period": "2000",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q8613",
       "kandidater": [
@@ -294,6 +318,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/3.0/br/deed.en",
           "upphovsperson": "Ricardo Stuckert/PR",
           "datum": "2009-06-15",
+          "datum_original": "2009-06-15",
+          "datum_fil": "2009-07-09 01:58:42",
+          "kredit": "Agência Brasil",
           "beskrivning": "Genebra (Suíça) - O ministro do Esporte, Orlando Silva, o presidente Luiz Inácio Lula da Silva e o governador do Rio de Janeiro, Sérgio Cabral, defendem, em Genebra, a candidatura do Rio como sede das Olimpíadas de 2016.",
           "bredd": 4018,
           "hojd": 3357,
@@ -316,7 +343,7 @@
       "start": 2022,
       "varldsdel": "Amerika",
       "period": "2000",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q111060761",
       "kandidater": [
@@ -330,6 +357,9 @@
           "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
           "upphovsperson": "Jurta",
           "datum": "2022-03-02",
+          "datum_original": "2022-03-02",
+          "datum_fil": "2022-03-19 13:10:25",
+          "kredit": "Own work",
           "beskrivning": "A map that shows the countries and their respective voting in the eleventh emergency special session of the United Nations General Assembly resolution ES-11/1 . In favor Against Abstentions Absent Non member",
           "bredd": 2754,
           "hojd": 1398,

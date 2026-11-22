@@ -106,14 +106,14 @@
       "start": 1809,
       "varldsdel": "Europa",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q1130792",
+      "kandidater": [],
       "soktext": "Sweden loses Finland Fredrikshamn (Hamina)",
       "anmarkningar": [
         "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
-      "kandidater": []
+      ]
     },
     {
       "id": "regeringsformen-1809",
@@ -122,34 +122,10 @@
       "start": 1809,
       "varldsdel": "Europa",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q2255302",
-      "soktext": "The Instrument of Government of 1809 Sweden",
-      "anmarkningar": [
-        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
       "kandidater": [
-        {
-          "fil": "File:Sveriges riksdag (24764089871).jpg",
-          "filsida": "https://commons.wikimedia.org/wiki/File:Sveriges_riksdag_(24764089871).jpg",
-          "kalla": "commons-sok",
-          "licens": "CC BY 2.0",
-          "licensklass": "cc-by",
-          "licensstatus": "trolig",
-          "licensadress": "https://creativecommons.org/licenses/by/2.0",
-          "upphovsperson": "Jorge Láscar from Melbourne, Australia",
-          "datum": "17 October 2014, 20:42 (according to Exif data)",
-          "beskrivning": "The Riksdag (Swedish: riksdagen or Sveriges riksdag) is the national legislature and the supreme decision-making body of Sweden. Since 1971, the Riksdag has been a unicameral legislature with 349 members (Swedish: riksdagsledamöter), elected proportionally and serving, from 1994 onwards, on fixed four-year terms. The constitutional functions of the Riksdag are enumerated in the Instrument of Government (Swedish: Regeringsformen), and its internal workings are specified in greater detail in the Riksdag Act (Swedish: Riksdagsordningen).[1][2] The seat of the Riksdag is at Parliament House (Swedish: Riksdagshuset), on the island of Helgeandsholmen in the central parts of Stockholm. The Riksdag has its institutional roots in the feudal Riksdag of the Estates, by tradition thought to have first assembled in Arboga in 1435, and in 1866 following reforms of the 1809 Instrument of Government that body was transformed into a bicameral legislature with an upper chamber (Swedish: Första Kammaren) and a lower chamber (Swedish: Andra Kammaren) [Wikipedia.org]",
-          "bredd": 5520,
-          "hojd": 3680,
-          "mime": "image/jpeg",
-          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Sveriges_riksdag_%2824764089871%29.jpg/960px-Sveriges_riksdag_%2824764089871%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-          "kategorier": [
-            "Riksgatan"
-          ],
-          "smal": false
-        },
         {
           "fil": "File:Sveriges riksdag building (24831063816).jpg",
           "filsida": "https://commons.wikimedia.org/wiki/File:Sveriges_riksdag_building_(24831063816).jpg",
@@ -160,11 +136,37 @@
           "licensadress": "https://creativecommons.org/licenses/by/2.0",
           "upphovsperson": "Jorge Láscar from Melbourne, Australia",
           "datum": "17 October 2014, 23:05 (according to Exif data)",
+          "datum_original": "17 October 2014, 23:05 (according to Exif data)",
+          "datum_fil": "2018-02-01 07:43:56",
+          "kredit": "Sveriges riksdag building",
           "beskrivning": "The Riksdag (Swedish: riksdagen or Sveriges riksdag) is the national legislature and the supreme decision-making body of Sweden. Since 1971, the Riksdag has been a unicameral legislature with 349 members (Swedish: riksdagsledamöter), elected proportionally and serving, from 1994 onwards, on fixed four-year terms. The constitutional functions of the Riksdag are enumerated in the Instrument of Government (Swedish: Regeringsformen), and its internal workings are specified in greater detail in the Riksdag Act (Swedish: Riksdagsordningen).[1][2] The seat of the Riksdag is at Parliament House (Swedish: Riksdagshuset), on the island of Helgeandsholmen in the central parts of Stockholm. The Riksdag has its institutional roots in the feudal Riksdag of the Estates, by tradition thought to have first assembled in Arboga in 1435, and in 1866 following reforms of the 1809 Instrument of Government that body was transformed into a bicameral legislature with an upper chamber (Swedish: Första Kammaren) and a lower chamber (Swedish: Andra Kammaren) [Wikipedia.org]",
           "bredd": 7095,
           "hojd": 4735,
           "mime": "image/jpeg",
           "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Sveriges_riksdag_building_%2824831063816%29.jpg/960px-Sveriges_riksdag_building_%2824831063816%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Riksgatan"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Sveriges riksdag (24764089871).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Sveriges_riksdag_(24764089871).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Jorge Láscar from Melbourne, Australia",
+          "datum": "17 October 2014, 20:42 (according to Exif data)",
+          "datum_original": "17 October 2014, 20:42 (according to Exif data)",
+          "datum_fil": "2018-02-01 07:46:37",
+          "kredit": "Sveriges riksdag",
+          "beskrivning": "The Riksdag (Swedish: riksdagen or Sveriges riksdag) is the national legislature and the supreme decision-making body of Sweden. Since 1971, the Riksdag has been a unicameral legislature with 349 members (Swedish: riksdagsledamöter), elected proportionally and serving, from 1994 onwards, on fixed four-year terms. The constitutional functions of the Riksdag are enumerated in the Instrument of Government (Swedish: Regeringsformen), and its internal workings are specified in greater detail in the Riksdag Act (Swedish: Riksdagsordningen).[1][2] The seat of the Riksdag is at Parliament House (Swedish: Riksdagshuset), on the island of Helgeandsholmen in the central parts of Stockholm. The Riksdag has its institutional roots in the feudal Riksdag of the Estates, by tradition thought to have first assembled in Arboga in 1435, and in 1866 following reforms of the 1809 Instrument of Government that body was transformed into a bicameral legislature with an upper chamber (Swedish: Första Kammaren) and a lower chamber (Swedish: Andra Kammaren) [Wikipedia.org]",
+          "bredd": 5520,
+          "hojd": 3680,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Sveriges_riksdag_%2824764089871%29.jpg/960px-Sveriges_riksdag_%2824764089871%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
           "kategorier": [
             "Riksgatan"
           ],
@@ -180,6 +182,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/2.0",
           "upphovsperson": "Jorge Láscar from Melbourne, Australia",
           "datum": "17 October 2014, 20:40 (according to Exif data)",
+          "datum_original": "17 October 2014, 20:40 (according to Exif data)",
+          "datum_fil": "2018-02-01 07:45:44",
+          "kredit": "Sveriges riksdag",
           "beskrivning": "The Riksdag (Swedish: riksdagen or Sveriges riksdag) is the national legislature and the supreme decision-making body of Sweden. Since 1971, the Riksdag has been a unicameral legislature with 349 members (Swedish: riksdagsledamöter), elected proportionally and serving, from 1994 onwards, on fixed four-year terms. The constitutional functions of the Riksdag are enumerated in the Instrument of Government (Swedish: Regeringsformen), and its internal workings are specified in greater detail in the Riksdag Act (Swedish: Riksdagsordningen).[1][2] The seat of the Riksdag is at Parliament House (Swedish: Riksdagshuset), on the island of Helgeandsholmen in the central parts of Stockholm. The Riksdag has its institutional roots in the feudal Riksdag of the Estates, by tradition thought to have first assembled in Arboga in 1435, and in 1866 following reforms of the 1809 Instrument of Government that body was transformed into a bicameral legislature with an upper chamber (Swedish: Första Kammaren) and a lower chamber (Swedish: Andra Kammaren) [Wikipedia.org]",
           "bredd": 5520,
           "hojd": 3680,
@@ -200,6 +205,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/4.0",
           "upphovsperson": "Unknown",
           "datum": "2021-11-08 15:03:22",
+          "datum_original": null,
+          "datum_fil": "2021-11-08 15:03:22",
+          "kredit": "https://portrattarkiv.se/details/5TJc-sPXaKAAAAAAAAAntQ",
           "beskrivning": "uploaded from Portrattarkiv.se picture of Hans Järta",
           "bredd": 887,
           "hojd": 1030,
@@ -211,6 +219,10 @@
           ],
           "smal": false
         }
+      ],
+      "soktext": "The Instrument of Government of 1809 Sweden",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
       ]
     },
     {
@@ -220,7 +232,7 @@
       "start": 1809,
       "varldsdel": "Europa",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q467777",
       "kandidater": [
@@ -234,6 +246,9 @@
           "licensadress": null,
           "upphovsperson": "Horace Vernet",
           "datum": "1836 date QS:P571,+1836-00-00T00:00:00Z/9",
+          "datum_original": "1836 date QS:P571,+1836-00-00T00:00:00Z/9",
+          "datum_fil": "2017-12-15 15:41:40",
+          "kredit": "[1]",
           "beskrivning": null,
           "bredd": 3154,
           "hojd": 2326,
@@ -260,7 +275,7 @@
       "start": 1813,
       "varldsdel": "Europa",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q151005",
       "kandidater": [
@@ -274,6 +289,9 @@
           "licensadress": null,
           "upphovsperson": "Unknown author Unknown author",
           "datum": "1890",
+          "datum_original": "1890",
+          "datum_fil": "2025-10-16 20:26:56",
+          "kredit": "National Library of Poland",
           "beskrivning": "Historic map of the battle of the nations by Leipzig (18.10.1813)",
           "bredd": 2009,
           "hojd": 1989,
@@ -296,7 +314,7 @@
       "start": 1813,
       "varldsdel": "Europa",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q276059",
       "kandidater": [
@@ -310,6 +328,9 @@
           "licensadress": null,
           "upphovsperson": "Zarateman",
           "datum": "2008-04-21",
+          "datum_original": "2008-04-21",
+          "datum_fil": "2008-04-21 21:55:49",
+          "kredit": "Own work",
           "beskrivning": "Museo de Armería de Álava, Vitoria-Gasteiz, País Vasco, España. La maqueta reproduce el enfrentamiento de las tropas aliadas y francesas por la posesión del puente Momario sobre el Zadorra, a la altura de Mendoza, en el curso de la Batalla de Vitoria, el 21 de junio de 1813.",
           "bredd": 1300,
           "hojd": 975,
@@ -333,11 +354,11 @@
       "start": 1814,
       "varldsdel": "Europa",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": null,
-      "soktext": "The Treaty of Kiel: Greenland stays with Denmark Kiel",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "The Treaty of Kiel: Greenland stays with Denmark Kiel"
     },
     {
       "id": "wienkongressen",
@@ -346,7 +367,7 @@
       "start": 1814,
       "varldsdel": "Europa",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q46362",
       "kandidater": [
@@ -360,6 +381,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Thomas Ledl",
           "datum": "2014-10-04 18:52:03",
+          "datum_original": "2014-10-04 18:52:03",
+          "datum_fil": "2014-10-04 22:05:02",
+          "kredit": "Own work",
           "beskrivning": "Wiener Kongress Abschlussdokument im Staatsarchiv am Minoritenplatz",
           "bredd": 4608,
           "hojd": 3456,
@@ -381,13 +405,9 @@
       "start": 1815,
       "varldsdel": "Europa",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q233688",
-      "soktext": "Second Peace of Paris Paris",
-      "anmarkningar": [
-        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
       "kandidater": [
         {
           "fil": "File:A map of the Eastern boundary of France to illustrate The Second Peace of Paris 20th Nov 1815.jpg",
@@ -399,6 +419,9 @@
           "licensadress": null,
           "upphovsperson": "Edward Hertslet; and Stafford's Geng Estab, 55 Charing Cross",
           "datum": "2014-09-03 22:19:56",
+          "datum_original": "2014-09-03 22:19:56",
+          "datum_fil": "2014-09-03 21:31:49",
+          "kredit": "Edward Hertslet (1875). The map of Europe by treaty; showing the various political and territorial changes which have taken place since the general peace of 1814 , London, Butterworths. p. opposite 28, 351",
           "beskrivning": "A map of the Eastern boundary of France to illustrate The Second Peace of Paris 20th Nov 1815",
           "bredd": 2114,
           "hojd": 1626,
@@ -421,6 +444,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
           "upphovsperson": "Archives New Zealand from New Zealand",
           "datum": "2015-01-20 11:00",
+          "datum_original": "2015-01-20 11:00",
+          "datum_fil": "2016-02-18 10:21:09",
+          "kredit": "Newspaper Cutting - Paris Peace Conference - 1919",
           "beskrivning": "On 25 January 1919, the League of Nations was formed during the Paris Peace Conference. A product of the revulsion of war and earlier discussions on international arbitration, the League's principal mission was to maintain world peace through collective security and disarmament. Despite a number of notable successes from 1920, the League ultimately proved incapable of preventing aggression, and was suspended following its failure to prevent the Second World War. It was replaced by the United Nations in late 1945. Representing New Zealand at the Paris Peace Conference in 1919 was Premier William Massey, who took an indifferent, almost hostile view of the League. Although he did not want to discourage the idea, Massey believed military preparedness and a strong British Empire was a better guarantor of peace. Impatient to discuss the economic cost of the war and New Zealand's interests in Western Samoa, Massey wrote to MP David Guthrie that \"it would have been better had the Conference began with the discussion of the actual peace terms rather than to take up so much time with such matters as the League of Nations.\" This newspaper cutting is part of one of sixteen bound volumes of press cuttings on the Peace Conference. Dating from December 1918 to October 1921, these large volumes were collected by the High Commissioner in London, and form an excellent day-by-day source of information on both the Conference and the League of Nations. This particular cutting, published in the Daily Mirror on Monday the 27th of January implores “plain people” to ask the question “How are things going at the Peace Conference?” and what is the League of Nations to be? Archives Reference: EA31 Box 2 www.archway.archives.govt.nz/ViewFullItem.do?code=17498625 For updates on our On This Day series and news from Archives New Zealand, follow us on Twitter twitter.com/ArchivesNZ Material from Archives New Zealand",
           "bredd": 4167,
           "hojd": 6587,
@@ -444,6 +470,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/2.0",
           "upphovsperson": "Archives New Zealand from New Zealand",
           "datum": "2018-01-24 16:13",
+          "datum_original": "2018-01-24 16:13",
+          "datum_fil": "2020-12-17 14:03:21",
+          "kredit": "Paris Peace Conference, 1919",
           "beskrivning": "On 25 January 1919, the League of Nations was formed during the Paris Peace Conference. A product of the revulsion of war and earlier discussions on international arbitration, the League's principal mission was to maintain world peace through collective security and disarmament. Despite a number of notable successes from 1920, the League ultimately proved incapable of preventing aggression, and was suspended following its failure to prevent the Second World War. It was replaced by the United Nations in late 1945. Representing New Zealand at the Paris Peace Conference in 1919 was Premier William Massey, who took an indifferent, almost hostile view of the League. Although he did not want to discourage the idea, Massey believed military preparedness and a strong British Empire was a better guarantor of peace. Impatient to discuss the economic cost of the war and New Zealand's interests in Western Samoa, Massey wrote to MP David Guthrie that \"it would have been better had the Conference began with the discussion of the actual peace terms rather than to take up so much time with such matters as the League of Nations.\" Also present in Paris was Frank David Thomson, a career public servant and statesman who was Private Secretary to a succession of Prime Ministers (1901 to 1926). During the Paris Peace Conference Thomson served as a member of the British Empire delegation. The image above is of a conference souvenir and comes from a series of ephemera collected by Thomson. Title: War History - Programmes (Play, Exhibitions); Postcards/Invitations/Menus/Booklets ('Majestic: The world's largest Ship'/Daily Mail: 'The Peace Conference in Pictures') Archives Reference: ABHT W3920 Box 1 / [25] Part 1 <a href=\" https://www.archway.archives.govt.nz/ViewFullItem.do?code=2618386 \" rel=\"nofollow\">www.archway.archives.govt.nz/ViewFullItem.do?code=2618386</a> For more information use our “ask an archivist” link on our website: <a href=\" https://www.archives.govt.nz \" rel=\"nofollow\">www.archives.govt.nz</a> Material from Archives New Zealand Te Rua Mahara o te Kāwanatanga",
           "bredd": 2129,
           "hojd": 2989,
@@ -464,6 +493,9 @@
           "licensadress": null,
           "upphovsperson": "Miscellaneous Items in High Demand, PPOC, Library of Congress",
           "datum": "1918-12-18",
+          "datum_original": "1918-12-18",
+          "datum_fil": "2018-04-07 12:09:00",
+          "kredit": "Library of Congress Catalog: https://lccn.loc.gov/90712457 Image download: https://cdn.loc.gov/service/pnp/cph/3b20000/3b27000/3b27100/3b27155r.jpg Original url: https://www.loc.gov/pictures/item/90712457/",
           "beskrivning": "Title: America at the Peace Conference Abstract/medium: 1 photographic print. Photograph showing, from left to right: Colonel E.M. House; Robert Lansing, Secretary of State; President Woodrow Wilson; Henry White; General Tasker H. Bliss.",
           "bredd": 640,
           "hojd": 500,
@@ -490,6 +522,9 @@
           "licensadress": null,
           "upphovsperson": "Quin, Edward Hughes, W. Gilmour & Dean",
           "datum": "2026-06-29 22:50:57",
+          "datum_original": null,
+          "datum_fil": "2026-06-29 22:50:57",
+          "kredit": "Internet Archive identifier: dr_text-page-to-twenty-second-period-from-ad-1828-to-the-peace-of-paris1-0743100 https://archive.org/download/dr_text-page-to-twenty-second-period-from-ad-1828-to-the-peace-of-paris1-0743100/0743100.jpg",
           "beskrivning": "Zoomable full resolution image available at davidrumsey.com . This image 0743.100 is a part of image group 0743.000 . Double page text to Twenty-second period. New Edition of maps and text in Quin's Historical Atlas, forming together a general view of universal history, from the creation (First period) to 1856 (22nd. period). Date estimated, based on the text. Maps are engraved by W. Hughes. Atlas is bound in half leather green cloth covered boards with \"Historical Atlas. Quin\" stamped in gilt on the spine. Maps show progressively receding cloud borders to indicate the expansion of geographical knowledge over time, hand colored and folded, most dated 1846. Includes index. See our 2839.000 for the 1830 first edition. Subjects: Historical",
           "bredd": 12156,
           "hojd": 7380,
@@ -500,6 +535,10 @@
           ],
           "smal": false
         }
+      ],
+      "soktext": "Second Peace of Paris Paris",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
       ]
     },
     {
@@ -509,11 +548,11 @@
       "start": 1820,
       "varldsdel": "Europa",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Ørsted discovers electromagnetism Copenhagen (approximate)",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Ørsted discovers electromagnetism Copenhagen (approximate)"
     },
     {
       "id": "gota-kanal-invigs",
@@ -522,7 +561,7 @@
       "start": 1832,
       "varldsdel": "Europa",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q431863",
       "kandidater": [
@@ -536,6 +575,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/2.5",
           "upphovsperson": "Pål-Nils Nilsson",
           "datum": "Unknown date",
+          "datum_original": "Unknown date",
+          "datum_fil": "2017-09-29 01:46:54",
+          "kredit": "Pål-Nils Nilsson / Kulturmiljöbild, Riksantikvarieämbetet This file was provided to Wikimedia Commons by the Swedish National Heritage Board as part of the cooperation project Connected Open Heritage with Wikimedia Sverige . This file was made available by Riksantikvarieämbetet as part of the Connected Open Heritage project. The project is led by Wikimedia Sverige in cooperation with UNESCO, Wikimedia Italia and Cultural Heritage without Borders and is financed by a project grant from the Culture Foundation of the Swedish Postcode Lottery .",
           "beskrivning": "Notera Av dokumentationsskäl har originalbeskrivningen från Riksantikvarieämbetet behållits. Tillrättalägganden och alternativa beskrivningar bör införas separat från nedanstående information. Felaktigheter kan även anmälas till denna sida . Mellan sjöarna Boren och Roxen. Motiv: Göta kanal Nyckelord: Flygbilder, Riksintressen Kategori: Kanalanläggning",
           "bredd": 768,
           "hojd": 504,
@@ -558,7 +600,7 @@
       "start": 1844,
       "varldsdel": "Europa",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q189193",
       "kandidater": [
@@ -572,6 +614,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
           "upphovsperson": "Mike Pennington",
           "datum": "2009-01-03",
+          "datum_original": "2009-01-03",
+          "datum_fil": "2017-08-11 09:26:30",
+          "kredit": "From geograph.org.uk",
           "beskrivning": "Great Auk (Pinguinis impennis) specimen (Bird no. 8, the Glasgow Auk) and replica egg, Kelvingrove, Glasgow. A lost part of the biogeography of Britain, and the only flightless bird that has bred in Europe in historical times. The last Great Auk in Britain was killed on Stac-an-Armin, St Kilda, in about 1840 and the last pair seen alive in the world was caught and throttled on the island of Eldey, Iceland, in 1844. Proven breeding sites for the Great Auk are few: in Britain, St Kilda was the only certain site and much of our knowledge of the species in life comes from the description given by Martin Martin following his visit there in 1697. Papa Westray in Orkney was another known haunt, with William Bullock gaining some infamy in the early 19th century for his attempts to capture the pair there, although there is no actual proof that they bred there. Bones are, however, common around early human habitations in Scotland and while these could have been brought from elsewhere, many paleozoologists suspect that there were several large colonies in Scotland which were largely wiped out by early Neolithic hunter-gatherers. As suggested by the scientific name, the Great Auk is also probably the original 'penguin', the name assumed to be from the Welsh for white head, referring to the white flash on the forehead. Early visitors to the Antarctic presumably transferred the name to the superficially similar but unrelated birds they found there. Nowadays, according to Errol Fuller in his book on Extinct Birds, there are just 78 Great Auk skins and about 75 eggs left in existence.",
           "bredd": 426,
           "hojd": 640,
@@ -597,6 +642,9 @@
           "licensadress": null,
           "upphovsperson": "George Edward Lodge",
           "datum": "1899",
+          "datum_original": "1899",
+          "datum_fil": "2006-04-06 16:37:58",
+          "kredit": "Birds (The Cambridge Natural History), New York, London, MacMillan",
           "beskrivning": "Great Auk, Alca impennis , engraving.",
           "bredd": 606,
           "hojd": 544,
@@ -619,6 +667,9 @@
           "licensadress": null,
           "upphovsperson": "John Gerrard Keulemans",
           "datum": "Unknown date, but before 1903",
+          "datum_original": "Unknown date, but before 1903",
+          "datum_fil": "2012-02-01 11:04:46",
+          "kredit": "http://rzbl04.biblio.etc.tu-bs.de:8080/docportal/servlets/MCRFileNodeServlet/DocPortal_derivate_00017538/3204-7060.pdf;jsessionid=BD617DDAA31678DD531B7A18CA14C89D",
           "beskrivning": "Great Auks (extinct) in summer and winter plumage. Pinguinus impennis with young.",
           "bredd": 2508,
           "hojd": 3649,
@@ -640,11 +691,11 @@
       "start": 1844,
       "varldsdel": "Europa",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": null,
-      "soktext": "The first folk high school opens in Rødding Rødding",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "The first folk high school opens in Rødding Rødding"
     },
     {
       "id": "revolutionerna-1848",
@@ -653,7 +704,7 @@
       "start": 1848,
       "varldsdel": "Europa",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q3588",
       "kandidater": [
@@ -667,6 +718,9 @@
           "licensadress": null,
           "upphovsperson": "Horace Vernet",
           "datum": "between 1848 and 1849 date QS:P571,+1848-00-00T00:00:00Z/8,P1319,+1848-00-00T00:00:00Z/9,P1326,+1849-00-00T00:00:00Z/9",
+          "datum_original": "between 1848 and 1849 date QS:P571,+1848-00-00T00:00:00Z/8,P1319,+1848-00-00T00:00:00Z/9,P1326,+1849-00-00T00:00:00Z/9",
+          "datum_fil": "2022-03-01 08:48:31",
+          "kredit": "memo.fr and gallerix.org",
           "beskrivning": "On the barricades on the Rue Soufflot, Paris, 25 June 1848 (1848-49), by Horace Vernet",
           "bredd": 4961,
           "hojd": 3893,
@@ -700,10 +754,9 @@
       "start": 1849,
       "varldsdel": "Europa",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": null,
-      "soktext": "Denmark gets its first constitution",
       "kandidater": [
         {
           "fil": "File:Celebrating Alaska Statehood 50 Years January 3, 1959 - 2009 - A Personal Reflection.jpg",
@@ -715,6 +768,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/2.0",
           "upphovsperson": "Wonderlane from Seattle, USA",
           "datum": "2008-12-26 04:35",
+          "datum_original": "2008-12-26 04:35",
+          "datum_fil": "2012-01-02 12:52:35",
+          "kredit": "Celebrating Alaska Statehood 50 Years January 3, 1959 - 2009 - A Personal Reflection Uploaded by Gary Dee",
           "beskrivning": "I remember it like it was just a few months ago - I was already 2 years old and my Mom, a second generation Alaskan - Dee Lane, and my Dad, a third generation Alaskan - Chic Lane, took my sister Lisa and I over the few blocks from our house on the corner of 3rd avenue down to the Park Strip to watch the bonfire in celebration of hard won Alaskan statehood. There was a great huge pile of wood, and the fire was well underway -- men would run up with all kinds of wood, spare or not, and throw it on the fire. And a whole tree was thrown in too! The tree being dry burned really fast with a great sputtering noise mixed with the festive scent of painted wood all together. As I understand now, there were fireworks hidden in the wood pile that went off from time to time. The United States Senate had voted to make Alaska the 49th state on June 30, 1958. Just as we arrived from the north side a couple of men were dragging a large wooden box, the size of an outhouse or larger and throwing it on the fire, which was growing quite large. People stood around the fire in a huge circle and it was obvious there had been a bit of drinking going on. Part of a fence was thrown in, sometimes a couple of two-by-fours, or a 8 by 10 sheet of plywood, but mostly old sections of some built things. My father ran up with his camera just as my Mom was buttoning up my sister's jacket, I think he had parked the car, having just gotten off of work as an architect. She wanted to know what had taken so long. She was pregnant with my brother Ward, born in July of 1958, we girls were born only 11 months apart. The crowd was growing as the evening was coming in, and singing and hollering and whooping and dancing jigs, in groups of people cheering whenever a new item was thrown on the fire. It was pretty wild and I didn't see many children on the park strip. Notably the people greeted each other by name since they knew one another! There were a lot of people there. Later I was taught the \"Alaska Flag\" song in school. The flag was said to have been designed by Bennie Benson , but the truth was his school teacher designed it to help him submit something, and I think she was happy he unexpectedly won the award with her simple design; she didn't complain when her student got credit for her design. My mom showed me the Anchorage Times newspaper which read \"WE'RE IN!\" we kept a copy of that paper for more than 20 years. The heat from the bonfire was so hot it burned our faces and kept us warm - finally my sister Lisa began to get too cold so our folks bundled us off to the house our grandparents built on the very corner of downtown Anchorage where the legal buildings are now, near the statue of Captain Cook. \"8 Stars of Gold on a field of Blue...\" I had wonderful teachers. I stayed true. From the time I was a babe in arms we had a visitor by the name of Yule Kilcher . He was a state senator and one of the most fascinating people I have ever known. I asked him once how many languages he spoke and he took a minute to count them all up and said - \"if you include the dialects - it's 47.\" 47!!! Yule helped to write the Alaska State Constitution , and he stood for liberal causes in a conservative way. People now have forgotten that Alaska was once a liberal state, and it was the conservatives who opposed statehood. The summer I turned 13 years old Yule took me to visit his farm down in Homer , driving like a mad man around each curve of the road which he knew every bit of from memory. Every where we stopped Yule spoke to the people in their native languages - and what a diverse set of people he knew - it was just everyone - speaking in Norwegian, Lap, Danish, Finnish, German, Russian, and French, and everyone was so happy to see him and asked us to stay if only for a bite, or tea, or sometimes a sauna! It was one of my most memorable life experiences as I met people from all over the world visiting Yule at his ranch, and his children and other family members and neighbors. I credit Yule with changing my world view completely. So this photo was taken of the US Flag and Alaska State flag in front of the top floor fireplace in the Anchorage Pioneer's Home with the Christmas tree, when I was just visiting my mom for Christmas (thank you to the excellent staff there). Myself if I were to die today I could honestly say that I have lived a completely unique and unusual life due to being raised in Alaska, and knowing the people I have been fortunate to meet like Senator Bob Bartlett , who was greatly responsible for Alaska becoming a state of the United States of America, Karin and Honorable James Fitzgerald (U.S. Senior Judge) and family - Dennis, Denise, Debra, and Kevin, Glo and Victor Fischer and family - Yonnie, the Listons - Bill and Helen, Mike, Mary, Lissa, Gene Guess and family, the O'Malley's, Ernest Gruening (Governor Alaska Territory), and Alaska State senator Yule Kilcher, his children, Wendell Kay - Eddy Kay, Nick Begich and his family, artist and teacher Alex Duff Combs and his family, the Selkreggs , Governor Bill Egan (who remembered everyone's names and family), Jill Smythe, the Arns family, the Rosenthals, the Jensen family, Kathy 'Willow' Graves, and later folks such as the Browns, Judge John and 'Mama' Kay Reese, Nancy Byrd, the Fairbanks crowd; the Drs. Forbes - John Forbes and Rob, Laura Forbes, the Deans - Doug Dean and Steve Dean, Nick Boseck and his family, the Hale family - Ed, Fred, and Billy, Jim Chase and family, Dennis Savage and his family, Dennis Hartley; the teachers at Orah Dee Clark and East High School , Anchorage Community College and Template:University of Alaska Anchorage , and other notable people with enormous personalities and strong love for their fellow human beings. Really too many to write about here. Having left Alaska to seek out world culture I became the student of Dagchen Sakya Rinpoche, a senior Tibetan Lama in Seattle, where my Alaskan childhood served me well - as I traveled Thailand, India, Nepal, to study and observe what I believe is the real final frontier, not Alaska as the saying goes, but the innate nature of our own minds. On January 3, 2009, Alaska will celebrate the 50th Anniversary of Alaskan Statehood, and I will be there in spirit remembering a fairly warm day of June 30, 1958 when my mom buttoned me up and said \"Look at the bonfire Linda, remember it, because some day when you are much older, you will be able to say, 'I was there for the first bonfire, when Alaska became part of the United States of America.'\" I remember her black cat-eye framed eye glasses, and the look of joy, pride, and concern on her face as she told me this with her dark brown hair pulled back under a kerchief, she looked into my eyes so closely. And I remember the bonfire. Someone told me recently that my life stories are like the movie Zoolander except real, so what's not to enjoy? What I did not understand at the time was how rare my experience is, and how few people would be alive 50 years later who shared that experience. But I can honestly say, 50 years later, that I have lived fully because of Alaska, and because of the Alaskan community who raised me and infused my life with personality and love. Happy 50 Years to Alaska, to Alaskans every where, to Americans, and to the World in which we live together - congratulations! To my relatives who are now raising the 6th generation of our family in Alaska - congratulations on the twins! Respect goes out to my elders - my great-grandfather who resurveyed the Alaska-Canadian Border based out of Eagle in 1896, my great-grandfather Isaac Newton Lane - Cherokee from Mexico who was a Pony Express Rider and Alaskan, my grandmother raised in Ketchikan, my grandfather Billy Murry - a tailor, he owned the New Method Cleaners and the Murmac Bar in Anchorage, my grandmother Marion Murry - played organ during the silent movie era, to my parents Roland and Darlene (architect and planner), thank you to everyone who made Alaska more than just a beautiful place, but an amazing event. Here's the lyrics to the Alaska State Flag Song: Eight stars of gold on a field of blue, Alaska's flag, may it mean to you, The blue of the sea, the evening sky, The mountain lakes and the flowers nearby, The gold of the early sourdough's dreams, The precious gold of the hills and streams, The brilliant stars in the northern sky, The \"Bear,\" the \"Dipper,\" and shining high, The great North Star with its steady light, O'er land and sea a beacon bright, Alaska's flag to Alaskans dear, The simple flag of a last frontier. CHEERS TO YOU! GREAT LOVE -- GREAT PEACE! Do Seek The Treasure!!! For a historical outline see: en.wikipedia.org/wiki/ Alaska_Statehood_Act",
           "bredd": 3008,
           "hojd": 2000,
@@ -733,7 +789,8 @@
           ],
           "smal": false
         }
-      ]
+      ],
+      "soktext": "Denmark gets its first constitution"
     },
     {
       "id": "kolera-i-kopenhamn-1853",
@@ -742,13 +799,9 @@
       "start": 1853,
       "varldsdel": "Europa",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q4554867",
-      "soktext": "The cholera epidemic in Copenhagen Copenhagen",
-      "anmarkningar": [
-        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
       "kandidater": [
         {
           "fil": "File:H.G.F. Holm - Teltleiren paa Glaciet Anno 1853.png",
@@ -760,6 +813,9 @@
           "licensadress": null,
           "upphovsperson": "Heinrich Gustav Ferdinand Holm",
           "datum": "circa 1853 date QS:P571,+1853-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_original": "circa 1853 date QS:P571,+1853-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_fil": "2024-12-15 11:31:25",
+          "kredit": "bruun-rasmussen.dk",
           "beskrivning": "During the cholera epidemic in Copenhagen in 1853, a number of the hardest hit families were housed in tents just outside the walls of Copenhagen.",
           "bredd": 1720,
           "hojd": 1185,
@@ -782,6 +838,9 @@
           "licensadress": null,
           "upphovsperson": "Heinrich Gustav Ferdinand Holm",
           "datum": "1852 date QS:P571,+1852-00-00T00:00:00Z/9",
+          "datum_original": "1852 date QS:P571,+1852-00-00T00:00:00Z/9",
+          "datum_fil": "2022-12-29 23:07:35",
+          "kredit": "bruun-rasmussen.dk",
           "beskrivning": null,
           "bredd": 1816,
           "hojd": 1391,
@@ -805,6 +864,9 @@
           "licensadress": null,
           "upphovsperson": "Holger Drachmann",
           "datum": "1892 date QS:P571,+1892-00-00T00:00:00Z/9",
+          "datum_original": "1892 date QS:P571,+1892-00-00T00:00:00Z/9",
+          "datum_fil": "2026-06-02 03:49:58",
+          "kredit": "bruun-rasmussen.dk",
           "beskrivning": "From the auction notes: Drachmann goes to Hamburg in 1892 and is stuck there for months as the city closes due to a cholera epidemic. The present motif relates to a work “Parti fra Hamborgs Havn” (A view of the harbour in Hamburg) which a group of Danes living in Hamburg bought and gave as a present to the Danish King and Queen.",
           "bredd": 3350,
           "hojd": 2342,
@@ -827,6 +889,9 @@
           "licensadress": "https://www.flickr.com/commons/usage/",
           "upphovsperson": "Internet Archive Book Images",
           "datum": "1891",
+          "datum_original": "1891",
+          "datum_fil": "2015-10-06 11:50:04",
+          "kredit": "https://www.flickr.com/photos/internetarchivebookimages/14750449576/ Source book page: https://archive.org/stream/denmarkitsmedica00unse/denmarkitsmedica00unse#page/n471/mode/1up",
           "beskrivning": "Identifier : denmarkitsmedica00unse ( find matches ) Title : Denmark; its medical organization, hygiene and demography Year : 1891 ( 1890s ) Authors : Lehmann, Julius,1836- Subjects : Publisher : Copenhagen, Bagge Contributing Library : Yale University, Cushing/Whitney Medical Library Digitizing Sponsor : Open Knowledge Commons and Yale University, Cushing/Whitney Medical Library View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: of diphtheria, intermittent fever, scurvy, cerebro-spinal meningitis, and influenza. Asiatic cholera carried off from6—7000 individuals in 1853. Malignant scarlet fever and diphtheriaepidemics prevail from 1857—58. About 10,000 individuals fell vic-tims to them. 1864—66 show the results of war and diphtheriaand typhoid fever epidemics. The death-rates given in the diagram afford no certain basis on whichto answer the question as to the decrease of mortality during the pre-sent century. The material must be first disintegrated, partly as tothe three divisions of the country, viz., the Metropolis, provincialtowns, and rural districts, in which the mortality is different; partly as * The actual figures are to be found in Falbe-Haxsex and Scharlixg : Statisticsof Denmark, vol. I, fasciculus 6. MORTALITY IN DENMARK DURING THE NINETEENTH CENTURY. 423 to sex and age. The material from the first third part of the centuryis unfortunately so incomplete and faulty that such a separation is Text Appearing After Image: 18871889 Scarlet Fever; Measles. Intermittent Fever. Asiatic Cholera. Scarlet Fever; Diph-teria. lDiphteria; TyphoidJ (Enteric) Fever. impossible, consequently only the last 50 yearsThe results are as follows: can be investigated.BB 424 MORTALITY IN DENMARK DURING THE NINETEENTH CENTURY. Table I. Infant Mortality 1835—84. Number of Deaths per 1000 Living Births. Age in Years. OS CO 1 Hi CO00 1 o 00 OS 1■«* 00 kO 1 oId 00 OS* \\ Ki00 «0 I o 00 os SO i SO 00 o 00 OS00 00 ■ Io 0000 93 Oft o 01 73 IS 0—1.1—5.0-5. 206105 22894 254124 235104 229107 228114 21798 247103 24486 231 77 321 322 378 339 336 342 315 350 330 308 §fa 0—1.1-5. 182104 20898 217115 213104 201108 201113 190102 20599 22094 200 82 H 0-5. 286 306 332 317 309 314 292 304 314 282 1 o S 0—1.1-5.0-5. 153 80 14266 161 88 15671 16590 165 86 167100 16371 17173 17263 H 233 208 249 227 255 251 267 234 244 235 3 a m 73 1fa 0—1.1—5. 12890 12663 144 85 13373 13793 135 86 142105 139 67 138 75 14765 £ 0-5. 218 189 22 Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
           "bredd": 1316,
           "hojd": 2626,
@@ -838,6 +903,10 @@
           "smal": false,
           "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions"
         }
+      ],
+      "soktext": "The cholera epidemic in Copenhagen Copenhagen",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
       ]
     },
     {
@@ -847,10 +916,9 @@
       "start": 1856,
       "varldsdel": "Europa",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": null,
-      "soktext": "The Malmö–Lund railway opens Malmö–Lund",
       "kandidater": [
         {
           "fil": "File:Oresundstag Malmo C 20120109 0033F (8184247339).jpg",
@@ -862,6 +930,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/2.0",
           "upphovsperson": "Johan Wessman / News Oresund",
           "datum": "Taken on 14 November 2012, 06:13",
+          "datum_original": "Taken on 14 November 2012, 06:13",
+          "datum_fil": "2013-05-16 11:13:12",
+          "kredit": "Oresundstag Malmo C 20120109 0033F",
           "beskrivning": "Øresundståg vid stationen vid Malmö Central 2012-01-09. Foto: News Øresund – Johan Wessman. © News Øresund. Bilden får fritt publiceras under förutsättning att källa anges. The picture can be used freely under the prerequisite that the source is given. Tourism Originalfil tillhandahålles gratis, kontakta: News Øresund, Malmö, Sweden. www.newsoresund.org News Øresund är en oberoende regional nyhetsbyrå som ingår i projektet Øresund Media Platform som drivs av Øresundsinstituttet i partnerskap med Lunds universitet och Roskilde Universitet och med delfinansiering från EU (Interreg IV A Öresund) och 15 regionala, icke kommersiella aktörer.",
           "bredd": 4032,
           "hojd": 3024,
@@ -888,6 +959,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/2.0",
           "upphovsperson": "Johan Wessman / News Oresund",
           "datum": "Taken on 15 November 2012, 08:58:18 (according to Exif data)",
+          "datum_original": "Taken on 15 November 2012, 08:58:18 (according to Exif data)",
+          "datum_fil": "2013-05-16 11:12:29",
+          "kredit": "Oresundstag Malmo C 20121115 0023F",
           "beskrivning": "Øresundståg på Malmö C 2012-11-15 Foto: News Øresund – Johan Wessman. © News Øresund. Bilden får fritt publiceras under förutsättning att källa anges. (The picture can be used freely under the prerequisite that the source is given. ) Originalfil tillhandahålles gratis, kontakta: News Øresund, Malmö, Sweden. www.newsoresund.org . News Øresund är en oberoende regional nyhetsbyrå som ingår i projektet Øresund Media Platform som drivs av Øresundsinstituttet i partnerskap med Lunds universitet och Roskilde Universitet och med delfinansiering från EU (Interreg IV A Öresund) och 15 regionala, icke kommersiella aktörer.",
           "bredd": 5760,
           "hojd": 3840,
@@ -914,6 +988,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
           "upphovsperson": "Sigfrid Lundberg from Lund, Sweden",
           "datum": "Taken on 22 February 2018, 19:15",
+          "datum_original": "Taken on 22 February 2018, 19:15",
+          "datum_fil": "2020-08-11 08:04:28",
+          "kredit": "L1007145-1",
           "beskrivning": "Hyllie, Sweden. A woman walks along the fence towards the border control. Passengers waiting outside to get on the train, once the border control is over.",
           "bredd": 5984,
           "hojd": 4000,
@@ -936,6 +1013,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/2.0",
           "upphovsperson": "Johan Wessman / News Oresund",
           "datum": "Taken on 29 July 2013, 14:50",
+          "datum_original": "Taken on 29 July 2013, 14:50",
+          "datum_fil": "2021-03-14 08:49:05",
+          "kredit": "Storebaeltsbroen 20130729_031",
           "beskrivning": "Storebæltsbroen (Fr. Wikipedia: The Great Belt Fixed Link runs between the Danish islands of Zealand and Funen. It consists of a road suspension bridge and railway tunnel between Zealand and the island Sprogø, and a box girder bridge between Sprogø and Funen). Photo: News Øresund - Johan Wessman © News Øresund Detta verk av News Øresund är licensierat under en Creative Commons Erkännande 3.0 Unported-licens (CC BY 3.0). Bilden får fritt publiceras under förutsättning att källa anges (Foto: News Øresund - Johan Wessman). The picture can be used freely under the prerequisite that the source is given (Photo: News Øresund - Johan Wessman). News Øresund, Malmö, Sweden. <a href=\" http://www.newsoresund.org \" rel=\"nofollow\">www.newsoresund.org</a>. News Øresund är en oberoende regional nyhetsbyrå som ingår i projektet Øresund Media Platform som drivs av Øresundsinstituttet i partnerskap med Lunds universitet och Roskilde Universitet och med delfinansiering från EU (Interreg IV A Öresund) och 14 regionala; icke kommersiella aktörer.",
           "bredd": 5703,
           "hojd": 3802,
@@ -956,6 +1036,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/2.0",
           "upphovsperson": "Johan Wessman / News Oresund",
           "datum": "Taken on 29 July 2013, 15:14:21 (according to Exif data)",
+          "datum_original": "Taken on 29 July 2013, 15:14:21 (according to Exif data)",
+          "datum_fil": "2017-02-26 18:52:35",
+          "kredit": "Storebaeltsbroen 20130729_021",
           "beskrivning": "Storebæltsbroen (Fr. Wikipedia: The Great Belt Fixed Link runs between the Danish islands of Zealand and Funen. It consists of a road suspension bridge and railway tunnel between Zealand and the island Sprogø, and a box girder bridge between Sprogø and Funen). Photo: News Øresund - Johan Wessman © News Øresund Detta verk av News Øresund är licensierat under en Creative Commons Erkännande 3.0 Unported-licens (CC BY 3.0). Bilden får fritt publiceras under förutsättning att källa anges (Foto: News Øresund - Johan Wessman). The picture can be used freely under the prerequisite that the source is given (Photo: News Øresund - Johan Wessman). News Øresund, Malmö, Sweden. www.newsoresund.org . News Øresund är en oberoende regional nyhetsbyrå som ingår i projektet Øresund Media Platform som drivs av Øresundsinstituttet i partnerskap med Lunds universitet och Roskilde Universitet och med delfinansiering från EU (Interreg IV A Öresund) och 14 regionala; icke kommersiella aktörer.",
           "bredd": 5760,
           "hojd": 3840,
@@ -966,7 +1049,8 @@
           ],
           "smal": false
         }
-      ]
+      ],
+      "soktext": "The Malmö–Lund railway opens Malmö–Lund"
     },
     {
       "id": "kungariket-italien-utropas",
@@ -975,7 +1059,7 @@
       "start": 1861,
       "varldsdel": "Europa",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q3922436",
       "kandidater": [
@@ -989,6 +1073,9 @@
           "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
           "upphovsperson": "Parlamento del Regno di Sardegna",
           "datum": "1861-03-17",
+          "datum_original": "1861-03-17",
+          "datum_fil": "2026-07-03 20:24:50",
+          "kredit": "Archivio di Stato di Torino",
           "beskrivning": "Legge 17 marzo 1861, n. 4671 che proclamò Vittorio Emanuele II Re d'Italia. VITTORIO EMANUELE II. Re di Sardegna, di Cipro e di Gerusalemme ECC. ECC. ECC. Il Senato e la Camera dei Deputati hanno approvato; Noi abbiamo sanzionato e promulghiamo quanto segue: Articolo Unico Il Re Vittorio Emanuele II assume per sé e per i suoi successori il titolo di Re d'Italia. Ordiniamo che la presente, munita di sigillo dello Stato, sia inserita nella raccolta degli Atti del governo mandando a chiunque spetti di osservarla e farla osservare come Legge dello Stato. Dat. Torino addì 17 Marzo 1861. VITTORIO EMANUELE (L.S.) Il Guardasigilli G.B CASSINIS C. CAVOUR M. MINGHETTI G.B. CASSINIS F.S. VEGEZZI M. FANTI T. MAMIANI T. CORSI U. PERUZZI",
           "bredd": 2640,
           "hojd": 3618,
@@ -1008,7 +1095,7 @@
       "start": 1864,
       "varldsdel": "Europa",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q695107",
       "kandidater": [
@@ -1022,6 +1109,9 @@
           "licensadress": null,
           "upphovsperson": "Jørgen Sonne",
           "datum": "1871",
+          "datum_original": "1871",
+          "datum_fil": "2014-04-14 21:42:55",
+          "kredit": "Self-scanned",
           "beskrivning": "The Battle of Dybbøl , 1864.",
           "bredd": 1122,
           "hojd": 657,
@@ -1043,11 +1133,11 @@
       "start": 1866,
       "varldsdel": "Europa",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The representation reform: the Riksdag of the Estates is abolished Stockholm",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "The representation reform: the Riksdag of the Estates is abolished Stockholm"
     },
     {
       "id": "nodaren-1867-1869",
@@ -1056,10 +1146,9 @@
       "start": 1867,
       "varldsdel": "Europa",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The Swedish famine years Northern Sweden",
       "kandidater": [
         {
           "fil": "File:Starvation image from Fäderneslandet 1867.jpg",
@@ -1071,6 +1160,9 @@
           "licensadress": null,
           "upphovsperson": "Fäderneslandet, old Swedish newspaper",
           "datum": "1867",
+          "datum_original": "1867",
+          "datum_fil": "2008-03-15 14:04:20",
+          "kredit": "Ett satans år , book from Sveriges Radios förlag",
           "beskrivning": "Illustration of starvation in northern Sweden",
           "bredd": 1540,
           "hojd": 1500,
@@ -1092,6 +1184,9 @@
           "licensadress": null,
           "upphovsperson": "Fäderneslandet, old Swedish newspaper",
           "datum": "1867",
+          "datum_original": "1867",
+          "datum_fil": "2008-03-31 22:09:53",
+          "kredit": "Ett satans år , book from Sveriges Radios förlag",
           "beskrivning": "Illustration of the inefficiency of emergency food aid during the famine in northern Sweden 1867. From left can be seen the county governor, the police and tax authorities and rich farmers - all of them helping each other to lots of the grain intended for starving people. The poor man to the right, who really needs help, gets a mere handful of grain.",
           "bredd": 2240,
           "hojd": 1324,
@@ -1113,6 +1208,9 @@
           "licensadress": "https://www.flickr.com/commons/usage/",
           "upphovsperson": "Pettersson, Otto",
           "datum": "1914",
+          "datum_original": "1914",
+          "datum_fil": "2015-08-19 01:01:41",
+          "kredit": "https://www.flickr.com/photos/internetarchivebookimages/20470049229/ Source book page: https://archive.org/stream/Climaticvariati00Pett/#page/n7/mode/1up",
           "beskrivning": "Title : Climatic variation in historic and prehistoric time Identifier : Climaticvariati00Pett ( find matches ) Year : (1914) ( (190s ) Authors : Pettersson, Otto Subjects : Publisher : Göteborg, W. Zachrissons boktr Contributing Library : Smithsonian Libraries Digitizing Sponsor : Biodiversity Heritage Library View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: ' Text Appearing After Image: Introduction. In the last centuries of the middle ages a series of political and economic catastrophes occurred all over the then-known world. They synchronise with occurrences of a st artling and unusual kind in the kingdom of Nature. The coasts of Iceland and Greenland became blocked by Polar ice. Frequent volcanic eruptions occurred in Iceland and the surrounding seas. Violent storm-floods devastated the coast of the North Sea and Baltic. In certain cold winters Ore- sund and the Baltic were frozen over and the lucrative Hanseatic herring fishery of the early middle ages which had been carried on in the Baltic and Oresund ceased altogether. All these events are recorded in ancient chronicles which also depict the social and econo- mic state of the communities, which were greatly influenced by these violent climatic variations and their consequences: famine and disease. The ancient Sagas and convent chronicles give no hint of any sup- posed connection between the catastrophes in nature and the human world. The Icelandic chronicles from the 14th and 15teenth cent- uries abound in descriptions of catastrophes, such as »hall9eri micit vm allt land • hafis vmhserfis Island . landskialfte mikill vm allt land . elldz uppkoma j Heklu fialli • elldeyar — myrkr mikit sva at fal sol — bolnasot — mandaudi a. e. o. Simultaneously there occurred violent floods and inundations of the European continent and winters of unexampled severity. Such was that of the year 1322—1333 thus described in the history of Olaus Magnus. »ait Albertus Crantsius diligentissimus omnium regionum scrip- tor: anno MCCCXXIII gelidissimo frigore constringebatur mare ut pedestri itinere per glacie de littore Lubicensi in Daniam in Prussiam mare transiretur, dispositis per loca opportuna in glacie hospicii — —» etc. We are told in the Gronica Guthilandorum that in that winter it was possible to drive over the ice between Sweden and Gothland. The climatic variations recorded in mediaeval chronicles have given rise to much speculation lately, especially in Sweden. I here give the names of three wellknown Swedish papers on the subject: Ehren- heims speach on his resignation of the presidency of the Royal Aca- demy of Science in 1824 »Om Climaternas Rorlighet»; the chapter on climatic variations pag. 562—572 in »Lehrbuch der kosmischen Fysik» by S. Arrhenius and N. Ekholm's paper »On the variations of climate » etc. The historic material at hand is much more exten- sive than generally supposed. Only part of it is published, f. inst. the 10 Icelandic annal-series, by G. Storm and Hennig's »Katalog bemer- kenswerther Witterungserscheinungen von den altesten Zeiten bis zum Jahre 1800». The unpublished Danish and Norwegian records are being pre- pared for publication, the former by Captain C. J. Speerschneider of the Danish Met. Inst., the latter by Dr. E. Bull of Christiania. Till quite recently the opinion has prevailed among meteorologists and geographers that the old records are unreliable and exaggerated and that no real variation in the climate has occurred in historic time. This opinion is concisely expressed in Nansen's book »Paa ski over Gronland»: »The physical conditions of Greenland remained all through the middle ages approximately the same as they are to day » The same view characterises Nansen's latest, publication »Nord i Taakeheimen». Of late, however, dissenting opinions have been advanced in various countries, in Sweden by Ekholm and Sernander, in Germany by Bruckner and in America by E. Huntington. In Ekholms opinion the climate of Scandinavia has changed since mediaeval time and this change he attributes to a gradual transition from a continental to a more maritime climate. Such a change would manifest itself by variations in the mean temperature and precipita- tion at Stockholm, Lund, Copenhagen, Petersburg a. o. places when compared with earlier observations made in the 18th and 19th cen- turies and with the oldest observations we possess, i. e. those made by Tycho Brahe on the island of Hven in Oresund at the end of the sixteenth century. Such a comparison made by Ekholm will be referred to later. E. Huntington approaches the question from an archaeological point of view. In his extensive travels in Central Asia and the in- terior of North America he studied the former extension and gradual exsiccation of steppe-lakes as shown by ancient shorelines and rem- nants of cities abandoned in periods of drought. The climatic varia- tions which caused floods, inundations and ice-blockades in Green- land, Iceland and Europe manifested themselves in the interior of the continents by devastating periods of drought, forcing the popu- lation to emigrate. Huntington holds the invasion of the Tartars into China and Europe in the 14th century, as well as that of the Aztecs into Mexico, to be caused by such variations in the climate. We possess no actual observations of climatic variations in the countries on the western and northern shores of the Atlantic. Here we have only the ancient Sagas to go by, and what they have to say on the subject I will recapitulate later. It is neccessary, however, that I should say a few words now as to my own standpoint in this matter. In my opinion the ancient records of variations in the climate indicate that a change in the oceanic circulation and in the condi- tions of the Atlantic has occurred. No geologic alteration that could influence the climate has occurred for the past six or seven centuries. The changes due to cultivation of land, clearing of forests, draining of marshes and regulation of river-beds are too insignificant to ex- plain these phenomena. Their very nature, i. e. floods, inundations, ice-blockades, suggests a dislocation in the oceanic circulation, the ultimate cause of which must be ascribed to cosmic agents. The third part of this paper will contain the proofs in support of the theory here propounded as regards the countries west and north of the Atlantic. The fourth part will contain those pertaining to the European seas and coasts. In the first part I will endeavour to point out the cause of these climatic variations. My own researches and those made during the past thirteen years by the International Cooperation for the investigation of the sea, have enabled me to study the variations in the seas surrounding Sweden since 1891. The material collected by myself and by Dr. G. Ek- man, who in 1876 with A. W. Cronander and in 1877 with F. L. Ekman investigated the Baltic and Cattegat, and later by him- self carried out the first fundamental investigation of the con- ditions off the Bohuslan- coast in the first years of the present herring- period, have enabled me to study the causes of these variations. They appear to be of a periodic nature and ultimately ruled by cosmic agents, i. e. variations in the tide-generating force exercised by the sun and moon upon the waters of the ocean. I have also ascertained that the tide-generating force exhibits secular variations and that an absolute maximum occured 500 years ago accompanied by a series of secondary maxima and minima in the centuries immedi- ately before and after. Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
           "bredd": 3580,
           "hojd": 1626,
@@ -1135,6 +1233,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/3.0",
           "upphovsperson": "The original uploader was Snow storm in Eastern Asia at English Wikipedia .",
           "datum": "4 June 2010 (original upload date)",
+          "datum_original": "4 June 2010 (original upload date)",
+          "datum_fil": "2015-10-07 23:23:07",
+          "kredit": "Transferred from en.wikipedia to Commons by Oxyman using CommonsHelper .",
           "beskrivning": "I modified a copy of the map 'File:Commonwealth games 1998 medal winners.PNG' by Commons user Roke . It replaces my map 'File:PIGS Mk 3 map.png' which became defective would not update, when I uploaded the updated image. I added Antarctica to it.-- Snow storm in Eastern Asia ( talk ) 15:03, 4 June 2010 (UTC) The map's time frame is from 1st January 2007 to 1st July 31 2010. Sorry about the length, I have globalized it. The price of Nickel boomed in the late 1990s, then the price of nickel imploded from around $51,000 /£36,700 per metric ton in the May of 2007 to about $11,550/£8,300 per metric ton in the January of 2009. Prices were only just starting to recover as of January 2010, but most of Australia's nickel mines had gone bankrupt by then. As the price for high grade nickel sulphate ore recovered in 2010, so did the Australian mining industry. By late 2010 both Iceland , the UK , the USA and Latvia are recovering after their major 2008 and 2009 banking failures and closures (Northern Rock, Icesave, Lehman Broths, etc). Belarus had a 20% overnight devaluation of the national currency on 2 January 2009. Germany and Egypt were going down with a heavy budget deficit on May 6th and February the 24th, 2010, respectively. The Czech Republic had a heavy budget deficit by 22-09-2009. The banking situation still remains unbalanced, and major banking breakdowns are now limited thanks to the guaranty of public funds in the USA. The Euro-zone is still to recover, but generally hasn't been affected by such profound banking failures, with the exception of Greece , Spain , Belgium and the UK . Slovakia gave money to their folding central bank on the 8th of December, 2009, and Norway ’s oil output fell in both 2009 and 2010. 40% of Bosnians were jobless in mid 2010. Concerning the European ' PIIGS ' countries shown on the map : Consecutively to the severe crisis in Greece , some speculation was made against other Euro-zone states, using the pejorative name of PIIGS (combination of the initials of Portugal, Italy, Ireland, Greece and Spain) to increase the fear and the feelings of messiness these countries may give to many investors who only have an incomplete knowledge of their economy. If Ireland is most definitely in a difficult situation, Italy has strictly no reason to be compared to Greece , with a deficit of less than a half of the Greek one. Although severely affected in terms of unemployment, Spain has already been through such situations in the past (most of the 80's and 90's) without any risk of bankruptcy , and it is important to remember the actual deficit comes after years of positive balance. Thanks to this, the debt refund (interest included) represent, today, less in percentage in the annual budget for 2010, than it did in any of the last fifteen years. Besides, the failing UK deserved more than any other to be associated with the failed state of Greece . But, apart from the questionable nicknames (may \"GUK\" sound less funny than \"PIIGS\"?), all this shows how much words and rumours can play important roles in a somewhat serious and full of severe consequences subject : world economy. In any case, UK is indeed not far from Greece in terms of public debt, and surely more exposed than some of the so called \"PIIGS\". In conclusion, ridiculous rumours (\"France out of the Euro\", \"Spain bankruptcy\") and scurrilous nicknames (PIIGS) obviously helped speculation against the Euro-zone, by increasing the panic induced by the quite real and serious Greek crisis. It is however important to remember that Greece represents for the European Union hardly much more than Oklahoma for the USA , while in America, much weightier states than Oklahoma , like California , are in very difficult situation too. In fact, this speculation against the Euro allowed a side effect : the purchase of huge amounts of US Dollars in a key moment of the crisis, giving at least some value to China's colossal reserves (almost exclusively in US Dollars ) and allowing the USA to benefit from more time ahead, to carry on going through this crisis, in hope of an eventual true recovery (independent of public stimulus), which is the only viable option for the world's biggest economy to overcome its abyssal financial depression. Since 2008, the \"PIIGS\" strategy is just one of different attempts : One of the most representative of the precedent rumours was in late 2008 and early 2009, about probable doom-like chain reactions in Eastern European countries, regarding local private banking failures (which, eventually, did not happen to be that bad)... Chile‘s economy shrank 4.5% in 2009 and Algeria’s gas exports fell b 3.9% in 2009 due to reduced demand in the EU . Drought has hit some parts of the Magreb and Iberia badly in 2009 and 2010. About 37.3 million (37,3000,000) Americans, or about 12.5% of the population, were living in poverty during 2007 according to timesofoman.com. Other sources put higher poverty rates up for Uzbekistan and Tadjikistan . The IMF gave a 3, 500,000,000 loan to Belarus on January the 3rd, 2009, according to www.thefreelibrary.com. Despite of all this some Arabian economies were doing well. The Oxford Business Group and the International Monetary Fund (I.M.F.) report on the 11th of June, 2009, that Bahrain should see an economic increase of 2.6 % in the fiscal year of 2009 to 2010. Oman’s tourist industry grew, but a dip in oil exports caused a brief recession by May 2009. Saudi Arabia , Quatar and Kuwait were also seeing limited positive economic growth during 2009 and 2010. Surprisingly, The Emirate of Dubai went temporarily bankrupt on the 24th of March, 2009. Abu Dhabi has also saw a heavy slip in real estate sales since 2008 and subsequently prices have also slipped slightly downwards in 2010. Inevitably the crisis has affected all countries in region some ways, but certain countries were vastly affected more than others. In Africa, between May 12th and 26th, both Mauritania , the Sénégal River Area and neighbouring parts of both Senegal and Mali faced both a drought and famine in 2010. Their economies were damaged by this to. The Johannesburg Stock Exchange fell by 31% in 2008. Mining authorities announced on the 10th of December, 2009, that the Dikulushi Mine , which is situated in the Democratic Republic of the Congo ’s Katanga Province , would close due to poor copper prices. In Central America Dollarization damages some states like El Salvador , Armenia had an increase of consumer prices by 20-30% on March 3rd, 2009. Azerbijan had budget surplus of 4.9% on May 13th, 2010. Thailand was planning to cut it’s budget deficit to 4% in 2011. They had a Bt400 billion deficit in January 28, 2010 and a Bt150 billion the fiscal year 0f 2008 (2009 was in keeping with the trend, but not specified). Deloitte say Canadian consumers are increasing their debt-to-disposable-income ratios to more than 130% on February 04, 2009 and Canada‘s budget deficits totalled C$85 billion ($69 billion) over five years as the result of a recession and a C$40 billion two-year stimulus package packed with infrastructure spending, tax cuts and targeted loans by January 27, 2009. Poland's general government deficit widened to 7.1 percent of gross domestic product 2009, but slightly narrower than the government's estimate. By 29 July, 2009, Brazil’s first-half nominal budget deficit index, including federal and local governments and state companies, widened to 43.7 billion Reais ($23 billion), the biggest gap since the modern records began in 2001. By the 18th January, 2010, Angola began to diversify it’s economy and on the 15th of May, 2010, Angolan entrepreneurial activity remained low. Haiti’s earthquake of 2010 had ruined the economy. In Singapore , the economy shrank by 2.1% in 2009, but may grow by 4.5% to 6.5% in 2010. By March, 2010, Vietnam had spent 1% of it’s GDP ($1billion) on subsidising the economy, but 5.32% growth seen likely by Vietnam for the whole of 2009. By the 13th of February, 2009, the Dutch economy shrank 0.9%. On the 6th of March, 2009, Indonesia’s government forecast a maximum 4 per cent growth as the recession devastated East Timor during March, 2009. Cuba entered a severe recession by December, 2008, and New Zealand was in recession by August, 2008. The Finnish central bank forecast, annual Finnish GDP to contract by 7.2% in 2009, remain unchanged in 2010 and grow 1.6% in 2011. Republic of Congo's real GDP rose by 8.30% in 2009. Mongolian bulk trading sales were increased 45.2% compared with the same period of last Year May 15, 2010. Kenyan tea and coffee exports fell by just under 50% in 2008, but recovered in 2009. Nigeria’s economy is sadly being corrupted and in need restructuring reforms. Mauritania’s economy is in need of restructuring reforms and fiscal discipline. Today, high oil revenues and a small population give Libya one of the highest GDPs per person in Africa and have allowed the Libyan state to provide an extensive level of social security, particularly in the fields of housing and education. Many problems still beset Libya's economy however; unemployment is the highest in the region at 21% according to the latest census figures. Pakistan would also receive a yearly loan from Japan worth $500 million from 2006 to 2011 to help develop I.T. usage. The name of the Central Bank of Nigeria has been used in a series of so-called 'Nigerian 419 Scams'. The fraudster sends an e-mail that appears to come from a Central Bank employee to millions of people saying the Bank has found an excess of money, or a debt owing to, a person or persons who have since died, and they wish to export it. The victim submits his own bank account so that the money may be placed therein, only to find that within a week his account is empty. The bank is in no way associated with such scams. Malian , Kirgizian and Burkina Faso organic cotton bucked the down turn in 2010, while Zimbabwe 's hyper inflation reached 25,000% in 2009. Taiwan was in recession as its economy contracted by a record 8.36%. by February 18, 2009. Most pacific islands were in a recession from 2008 to 2010. Economic Growth was expected to rise slightly in resource-rich Papua New Guinea, lifting the overall growth rate in the Pacific to 3.7 per cent from 2.4%. South Korea’s exports Slid 21.2% and the economy only grew by 0.1% between January and March 2009, when compared with the last quarter of 2008. Vietnam 's economy looked very shaky between 2009 and 2010 as a recession bit. The Ivory Coast ’s chocolate /cocoa bean exports were booming in 2010. The Asian Development Bank reports Vanuatu‘s would expand by 0.5 per cent this year after contracting an estimated 1.4 per cent last year.By measuring currency devaluation , equity market decline, and the rise in sovereign bond spreads, a picture of financial devastation emerges. Since these three indicators show financial weakness, taken together, they capture the impact of the crisis. The Carnegie Endowment for International Peace reports in its International Economics Bulletin that Ukraine and Hungary , as well as Argentina and Jamaica , are the countries most deeply affected by the crisis. Other severely affected countries are Ireland , Russia , Mexico , the Baltic states , United States and United Kingdom . By contrast, China , Japan , India , Iran , Peru and Australia are \"among the least affected\". Commodity, food, fuel and metal prices fluctuated heavily at this time with both the lead and Zinc prices rose sharply in early 2007, then collapsed to nearly their original starting price by the end of the next year. [ 1 ] Lead and Zink prices began to rise in early 2007 due to increased word wide demand. Prices were about $1,200 per tonne of lead in the October and then hurtled up to $2,220 per tonne of lead by September. Despite the Bullish market condition, the price had collapsed by the July of 2009 and was only worth about $1,400 per tonne of lead. The lead and Zinc markets became rather Bearish for several months afterwards. Prices were hovering at between $1,770 and $2,175 per tonne of lead [ 2 ] as the markets became more bullish after China 's car scrapage scheme had caused a general upturn in lead, zinc, cadmium and Aluminium prices. [ 3 ] By the June of 2010 prices stood at only $870 per tonne of lead bad back to about $2,200 in the July of 2010 [ 4 ] A Chinese mining company opened a new Tantalum mine in the DRC in early 2010. The blizzards of the winter of 2009-2010 caused heavy damage in Russia , China and Mongolia , which appeared to have posible long term consiquences. [ 5 ] [ 6 ] The Northern Hemisphere Summer heatwave 2010 affected the region's trade stats. New York City saw temperature as high as 35 °C in some areas and it was predicted to reach 38C the next day. A report released by the Wall Street Journal on July 7, saying that June saw retail sails rise over the American Independence Day holiday Father's Day , especially along the East Coast of America. [ 7 ] By July 3, retail sales had risen by 3.9% from the year-ago period and 1% over the previous week, according to the International Council of Shopping Centers , and Goldman Sachs and Johnson Redbook Research also showed a sales gain in the final week of June, citing the hot weather. Consumers hid from the heat in air-conditioned shopping malls and bought more goods than usual summer merchandise like ice cream , air conditioners , fans , swimwear , hats , sun screen , vest tops and pool and beach equipment were all selling like the proverbial hotcakes, whilst unusualy heavy monsoons hit other parts of the nation. The Chinese heat wave made commodities including sugar cane , flowers , tea , fruit , potatoes , rapeseed , medicinal ingredients , tobacco , wheat , rubber and coffee have been severely affected with output reduced by as much as 50%. Authorities began to fear unrest due to soaring food prices and sent more than 10,000 armed police to the affected regions to ensure stability and help with water supplies. One of the European heat waves left and overheating Morocco in early July, for the Iberian Peninsula was attributed to the regional hot air currents that depart from the Sahara desert in Northern Africa at about 1,000 meters in altitude , which facilitated a movement in the hot air towards the Balkans and the Ukraine via the Straits of Gibraltar , Spain and Italy . For the rest of the information and the key, then enlarge the image. -- Snow storm in Eastern Asia ( talk ) 02:38, 15 May 2010 (UTC)",
           "bredd": 3180,
           "hojd": 1485,
@@ -1155,7 +1256,8 @@
           ],
           "smal": false
         }
-      ]
+      ],
+      "soktext": "The Swedish famine years Northern Sweden"
     },
     {
       "id": "tyska-kejsardomet-utropas",
@@ -1164,7 +1266,7 @@
       "start": 1871,
       "varldsdel": "Europa",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q10354157",
       "kandidater": [
@@ -1178,6 +1280,9 @@
           "licensadress": null,
           "upphovsperson": "Anton von Werner",
           "datum": "1885 date QS:P571,+1885-00-00T00:00:00Z/9",
+          "datum_original": "1885 date QS:P571,+1885-00-00T00:00:00Z/9",
+          "datum_fil": "2017-12-07 20:20:44",
+          "kredit": "Museen Nord / Bismarck Museum: Picture",
           "beskrivning": "The third version of the proclamation of Prussian king Wilhelm I as German Emperor at Versailles, by Anton von Werner. The first two versions were destroyed in the Second World War. This version was commissioned by the Prussian royal family for chancellor Bismarck's 70th birthday. Note that the subjects are portrayed as the age they were when the work was painted in 1885, not the age they were at when the event occurred in 1871.",
           "bredd": 1482,
           "hojd": 1097,
@@ -1203,11 +1308,11 @@
       "start": 1896,
       "varldsdel": "Europa",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Arrhenius calculates carbon dioxide and the Earth's temperature Stockholm",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Arrhenius calculates carbon dioxide and the Earth's temperature Stockholm"
     }
   ]
 }

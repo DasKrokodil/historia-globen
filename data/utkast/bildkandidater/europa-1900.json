@@ -19,10 +19,9 @@
       "start": 1901,
       "varldsdel": "Europa",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The first Nobel Prizes are awarded",
       "kandidater": [
         {
           "fil": "File:36th Ig Nobel Prize Ceremony Zurich 188.jpg",
@@ -34,6 +33,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/4.0",
           "upphovsperson": "Albinfo",
           "datum": "2026-09-03 19:56:53",
+          "datum_original": "2026-09-03 19:56:53",
+          "datum_fil": "2026-09-06 18:09:33",
+          "kredit": "Own work",
           "beskrivning": "The 36th First Annual Ig Nobel Prize Ceremony 2026 in Zurich, Switzerland: Swiss didgeridoo performer Alex Suarez who was awarded the Ig Peace Nobel Price in 2017",
           "bredd": 6000,
           "hojd": 4000,
@@ -57,6 +59,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Nobel Committee",
           "datum": "2004-12-06",
+          "datum_original": "2004-12-06",
+          "datum_fil": "2021-12-02 08:05:53",
+          "kredit": "https://thinkafrica.net/wangari-maathai-a-professor-an-environmentalist-and-an-inspiration/",
           "beskrivning": "Kenyan environmental activist Wangai Maathai holding up her 2004 Nobel Peace Prize commendation.",
           "bredd": 342,
           "hojd": 346,
@@ -79,6 +84,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
           "upphovsperson": "Science Museum London / Science and Society Picture Library",
           "datum": "2013-08-28 15:11",
+          "datum_original": "2013-08-28 15:11",
+          "datum_fil": "2013-09-03 10:25:08",
+          "kredit": "Nobel prize medal awarded to Alexander Fleming, 1945. Uploaded by Mrjohncummings",
           "beskrivning": "The inscription on reverse side reads; 'Alexander Fleming Prix Nobel 1945'. In 1928 Alexander Fleming (1881-1955) had discovered that a strain of penicillium mould exuded a substance which killed certain bacteria. Following the German firm IG Farben's announcement of the first general purpose bacteria-killing drug Prontosil, Fleming now saw it as a possible medicine and gave this sample to a colleague at St Mary's Hospital, London. Penicillin was eventually isolated in 1939, and from 1942 became an important drug. Although the work leading to this was largely carried out by Howard Florey and Ernst Chain, Fleming shared the Nobel Prize for Medicine with them in 1945.",
           "bredd": 1017,
           "hojd": 1250,
@@ -100,6 +108,9 @@
           "licensadress": null,
           "upphovsperson": "United States government work",
           "datum": "2012-03-08 11:02:48",
+          "datum_original": "2012-03-08 11:02:48",
+          "datum_fil": "2015-05-09 12:04:17",
+          "kredit": "https://www.flickr.com/photos/statephotos/6820919456/in/album-72157629182500780/",
           "beskrivning": "U.S. Secretary of State Hillary Rodham Clinton, center right; and First Lady Michelle Obama, center left; pose for a photo with 2012 International Women of Courage (IWOC) Awards Ceremony special guests and 2011 Nobel Peace Prize Laureates, Leymah Gbowee, left; and Tawakkol Karman, right; at the U.S. Department of State in Washington, D.C., on March 8, 2012. [State Department photo/ Public Domain]",
           "bredd": 2000,
           "hojd": 1331,
@@ -122,6 +133,9 @@
           "licensadress": null,
           "upphovsperson": "United States government work",
           "datum": "2012-03-08 11:02:48",
+          "datum_original": "2012-03-08 11:02:48",
+          "datum_fil": "2021-03-29 02:58:38",
+          "kredit": "https://www.flickr.com/photos/statephotos/6820919456/in/album-72157629182500780/",
           "beskrivning": "2012 International Women of Courage (IWOC) Awards Ceremony special guest and 2011 Nobel Peace Prize Laureate, Leymah Gbowee, at the U.S. Department of State in Washington, D.C., on March 8, 2012. [State Department photo/ Public Domain]",
           "bredd": 244,
           "hojd": 315,
@@ -133,7 +147,8 @@
           ],
           "smal": true
         }
-      ]
+      ],
+      "soktext": "The first Nobel Prizes are awarded"
     },
     {
       "id": "einsteins-artiklar-1905",
@@ -142,14 +157,14 @@
       "start": 1905,
       "varldsdel": "Europa",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q51497",
+      "kandidater": [],
       "soktext": "Einstein's four papers Bern",
       "anmarkningar": [
         "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
-      "kandidater": []
+      ]
     },
     {
       "id": "sveriges-forsta-nationalparker",
@@ -158,10 +173,9 @@
       "start": 1909,
       "varldsdel": "Europa",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Sweden creates Europe's first national parks",
       "kandidater": [
         {
           "fil": "File:Palūšė 04.jpg",
@@ -173,6 +187,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Scotch Mist",
           "datum": "Taken on 10 June 2019, 10:45:04",
+          "datum_original": "Taken on 10 June 2019, 10:45:04",
+          "datum_fil": "2020-07-23 09:33:17",
+          "kredit": "Own work",
           "beskrivning": "Lithuania , officially the Republic of Lithuania, is a country in the Baltic region of Europe and is considered to be one of the Baltic states . It is situated along the southeastern shore of the Baltic Sea , to the east of Sweden and Denmark . It is bordered by Latvia to the north, Belarus to the east and south, Poland to the south, and Kaliningrad Region (a Russian enclave) to the southwest. Lithuania has an estimated population of 2.8 million people (as of 2019), and its capital and largest city is Vilnius . Other major cities are Kaunas and Klaipėda . Lithuanians are Baltic people . For centuries, the southeastern shores of the Baltic Sea were inhabited by various Baltic tribes. In the 1230s, the Lithuanian lands were united by Mindaugas , the King of Lithuania, and the first unified Lithuanian state, the Kingdom of Lithuania , was created on 6 July 1253. During the 14th century, the Grand Duchy of Lithuania was the largest country in Europe; present-day Lithuania, Belarus, Ukraine, and parts of Poland and Russia were the territories of the Grand Duchy. With the Lublin Union of 1569, Lithuania and Poland formed a voluntary two-state ’personal union’ , the Polish–Lithuanian Commonwealth . The Commonwealth lasted more than two centuries, until neighbouring countries systematically dismantled it from 1772 to 1795, with the Russian Empire annexing most of Lithuania's territory. As World War I (WWI) neared its end, Lithuania's Act of Independence was signed on 16 February 1918, declaring the founding of the modern Republic of Lithuania. In the midst of the Second World War (WWII) , Lithuania was first occupied by the Soviet Union and then by Nazi Germany . As World War II neared its end and the Germans retreated, the Soviet Union reoccupied Lithuania . On 11 March 1990, a year before the formal Dissolution of the Soviet Union , Lithuania became the first Baltic state to declare itself independent, resulting in the restoration of an independent State of Lithuania . Palūšė is a tourist village in the Aukštaitija National Park in eastern Lithuania. (The church of Palūšė, built without nails in 1750, is considered to be the oldest surviving wooden church in Lithuania.) The Scotch Mist Gallery contains many photographs of historic buildings, monuments and memorials of Poland and countries that previously comprised the Polish-Lithuanian Commonwealth.",
           "bredd": 5296,
           "hojd": 3520,
@@ -198,6 +215,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Scotch Mist",
           "datum": "Taken on 10 June 2019, 11:18:52",
+          "datum_original": "Taken on 10 June 2019, 11:18:52",
+          "datum_fil": "2020-07-27 12:29:58",
+          "kredit": "Own work",
           "beskrivning": "Lithuania , officially the Republic of Lithuania, is a country in the Baltic region of Europe and is considered to be one of the Baltic states . It is situated along the southeastern shore of the Baltic Sea , to the east of Sweden and Denmark . It is bordered by Latvia to the north, Belarus to the east and south, Poland to the south, and Kaliningrad Region (a Russian enclave) to the southwest. Lithuania has an estimated population of 2.8 million people (as of 2019), and its capital and largest city is Vilnius . Other major cities are Kaunas and Klaipėda . Lithuanians are Baltic people . For centuries, the southeastern shores of the Baltic Sea were inhabited by various Baltic tribes. In the 1230s, the Lithuanian lands were united by Mindaugas , the King of Lithuania, and the first unified Lithuanian state, the Kingdom of Lithuania , was created on 6 July 1253. During the 14th century, the Grand Duchy of Lithuania was the largest country in Europe; present-day Lithuania, Belarus, Ukraine, and parts of Poland and Russia were the territories of the Grand Duchy. With the Lublin Union of 1569, Lithuania and Poland formed a voluntary two-state ’personal union’ , the Polish–Lithuanian Commonwealth . The Commonwealth lasted more than two centuries, until neighbouring countries systematically dismantled it from 1772 to 1795, with the Russian Empire annexing most of Lithuania's territory. As World War I (WWI) neared its end, Lithuania's Act of Independence was signed on 16 February 1918, declaring the founding of the modern Republic of Lithuania. In the midst of the Second World War (WWII) , Lithuania was first occupied by the Soviet Union and then by Nazi Germany . As World War II neared its end and the Germans retreated, the Soviet Union reoccupied Lithuania . On 11 March 1990, a year before the formal Dissolution of the Soviet Union , Lithuania became the first Baltic state to declare itself independent, resulting in the restoration of an independent State of Lithuania . Palūšė is a tourist village in the Aukštaitija National Park in eastern Lithuania. (The church of Palūšė, built without nails in 1750, is considered to be the oldest surviving wooden church in Lithuania.) The Scotch Mist Gallery contains many photographs of historic buildings, monuments and memorials of Poland and countries that previously comprised the Polish-Lithuanian Commonwealth.",
           "bredd": 5840,
           "hojd": 3880,
@@ -221,6 +241,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Scotch Mist",
           "datum": "Taken on 6 June 2018, 09:09:41",
+          "datum_original": "Taken on 6 June 2018, 09:09:41",
+          "datum_fil": "2020-07-27 14:17:23",
+          "kredit": "Own work",
           "beskrivning": "Lithuania , officially the Republic of Lithuania, is a country in the Baltic region of Europe and is considered to be one of the Baltic states . It is situated along the southeastern shore of the Baltic Sea , to the east of Sweden and Denmark . It is bordered by Latvia to the north, Belarus to the east and south, Poland to the south, and Kaliningrad Region (a Russian enclave) to the southwest. Lithuania has an estimated population of 2.8 million people (as of 2019), and its capital and largest city is Vilnius . Other major cities are Kaunas and Klaipėda . Lithuanians are Baltic people . For centuries, the southeastern shores of the Baltic Sea were inhabited by various Baltic tribes. In the 1230s, the Lithuanian lands were united by Mindaugas , the King of Lithuania, and the first unified Lithuanian state, the Kingdom of Lithuania , was created on 6 July 1253. During the 14th century, the Grand Duchy of Lithuania was the largest country in Europe; present-day Lithuania, Belarus, Ukraine, and parts of Poland and Russia were the territories of the Grand Duchy. With the Lublin Union of 1569, Lithuania and Poland formed a voluntary two-state ’personal union’ , the Polish–Lithuanian Commonwealth . The Commonwealth lasted more than two centuries, until neighbouring countries systematically dismantled it from 1772 to 1795, with the Russian Empire annexing most of Lithuania's territory. As World War I (WWI) neared its end, Lithuania's Act of Independence was signed on 16 February 1918, declaring the founding of the modern Republic of Lithuania. In the midst of the Second World War (WWII) , Lithuania was first occupied by the Soviet Union and then by Nazi Germany . As World War II neared its end and the Germans retreated, the Soviet Union reoccupied Lithuania . On 11 March 1990, a year before the formal Dissolution of the Soviet Union , Lithuania became the first Baltic state to declare itself independent, resulting in the restoration of an independent State of Lithuania . Trakai is a historic city and lake resort in Lithuania which lies 28 kilometres west of Vilnius. Because of its proximity to Vilnius, Trakai is a popular tourist destination. Trakai is the administrative centre of Trakai District Municipality . A notable feature of Trakai is that the town was built and preserved by people of different nationalities. Historically, communities of Karaims , Tartars , Lithuanians , Russians , Jews and Poles lived here. The first settlements in this area appeared as early as the first millennium A.D. The town, as well as its surroundings, started developing in the 13th century in the place of Senieji Trakai (Old Trakai). According to a legend after a successful hunting party, Grand Duke Gediminas discovered a beautiful lake-surrounded place not far from Kernavė , then capital of the Grand Duchy of Lithuania, and decided to build a castle in the location. That is how the Old Trakai Castle was built in Senieji Trakai. The name of Trakai was first mentioned in Teutonic Knights chronicles in 1337 and that year is considered to be the official date of the town's foundation. When Grand Duke Gediminas finally settled in Vilnius, Senieji Trakai was inherited by his son Kęstutis and the Duchy of Trakai developed with the town entering its best decades. The Scotch Mist Gallery contains many photographs of historic buildings, monuments and memorials of Poland and countries that previously comprised the Polish-Lithuanian Commonwealth.",
           "bredd": 3946,
           "hojd": 5935,
@@ -241,6 +264,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Scotch Mist",
           "datum": "Taken on 6 June 2018, 09:10:51",
+          "datum_original": "Taken on 6 June 2018, 09:10:51",
+          "datum_fil": "2020-08-03 13:04:10",
+          "kredit": "Own work",
           "beskrivning": "Lithuania , officially the Republic of Lithuania, is a country in the Baltic region of Europe and is considered to be one of the Baltic states . It is situated along the southeastern shore of the Baltic Sea , to the east of Sweden and Denmark . It is bordered by Latvia to the north, Belarus to the east and south, Poland to the south, and Kaliningrad Region (a Russian enclave) to the southwest. Lithuania has an estimated population of 2.8 million people (as of 2019), and its capital and largest city is Vilnius . Other major cities are Kaunas and Klaipėda . Lithuanians are Baltic people . For centuries, the southeastern shores of the Baltic Sea were inhabited by various Baltic tribes. In the 1230s, the Lithuanian lands were united by Mindaugas , the King of Lithuania, and the first unified Lithuanian state, the Kingdom of Lithuania , was created on 6 July 1253. During the 14th century, the Grand Duchy of Lithuania was the largest country in Europe; present-day Lithuania, Belarus, Ukraine, and parts of Poland and Russia were the territories of the Grand Duchy. With the Lublin Union of 1569, Lithuania and Poland formed a voluntary two-state ’personal union’ , the Polish–Lithuanian Commonwealth . The Commonwealth lasted more than two centuries, until neighbouring countries systematically dismantled it from 1772 to 1795, with the Russian Empire annexing most of Lithuania's territory. As World War I (WWI) neared its end, Lithuania's Act of Independence was signed on 16 February 1918, declaring the founding of the modern Republic of Lithuania. In the midst of the Second World War (WWII) , Lithuania was first occupied by the Soviet Union and then by Nazi Germany . As World War II neared its end and the Germans retreated, the Soviet Union reoccupied Lithuania . On 11 March 1990, a year before the formal Dissolution of the Soviet Union , Lithuania became the first Baltic state to declare itself independent, resulting in the restoration of an independent State of Lithuania . Trakai is a historic city and lake resort in Lithuania which lies 28 kilometres west of Vilnius. Because of its proximity to Vilnius, Trakai is a popular tourist destination. Trakai is the administrative centre of Trakai District Municipality . A notable feature of Trakai is that the town was built and preserved by people of different nationalities. Historically, communities of Karaims , Tartars , Lithuanians , Russians , Jews and Poles lived here. The first settlements in this area appeared as early as the first millennium A.D. The town, as well as its surroundings, started developing in the 13th century in the place of Senieji Trakai (Old Trakai). According to a legend after a successful hunting party, Grand Duke Gediminas discovered a beautiful lake-surrounded place not far from Kernavė , then capital of the Grand Duchy of Lithuania, and decided to build a castle in the location. That is how the Old Trakai Castle was built in Senieji Trakai. The name of Trakai was first mentioned in Teutonic Knights chronicles in 1337 and that year is considered to be the official date of the town's foundation. When Grand Duke Gediminas finally settled in Vilnius, Senieji Trakai was inherited by his son Kęstutis and the Duchy of Trakai developed with the town entering its best decades. The Scotch Mist Gallery contains many photographs of historic buildings, monuments and memorials of Poland and countries that previously comprised the Polish-Lithuanian Commonwealth.",
           "bredd": 4000,
           "hojd": 6016,
@@ -261,6 +287,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Scotch Mist",
           "datum": "Taken on 6 June 2018, 09:22:43",
+          "datum_original": "Taken on 6 June 2018, 09:22:43",
+          "datum_fil": "2020-08-04 13:00:17",
+          "kredit": "Own work",
           "beskrivning": "Lithuania , officially the Republic of Lithuania, is a country in the Baltic region of Europe and is considered to be one of the Baltic states . It is situated along the southeastern shore of the Baltic Sea , to the east of Sweden and Denmark . It is bordered by Latvia to the north, Belarus to the east and south, Poland to the south, and Kaliningrad Region (a Russian enclave) to the southwest. Lithuania has an estimated population of 2.8 million people (as of 2019), and its capital and largest city is Vilnius . Other major cities are Kaunas and Klaipėda . Lithuanians are Baltic people . For centuries, the southeastern shores of the Baltic Sea were inhabited by various Baltic tribes. In the 1230s, the Lithuanian lands were united by Mindaugas , the King of Lithuania, and the first unified Lithuanian state, the Kingdom of Lithuania , was created on 6 July 1253. During the 14th century, the Grand Duchy of Lithuania was the largest country in Europe; present-day Lithuania, Belarus, Ukraine, and parts of Poland and Russia were the territories of the Grand Duchy. With the Lublin Union of 1569, Lithuania and Poland formed a voluntary two-state ’personal union’ , the Polish–Lithuanian Commonwealth . The Commonwealth lasted more than two centuries, until neighbouring countries systematically dismantled it from 1772 to 1795, with the Russian Empire annexing most of Lithuania's territory. As World War I (WWI) neared its end, Lithuania's Act of Independence was signed on 16 February 1918, declaring the founding of the modern Republic of Lithuania. In the midst of the Second World War (WWII) , Lithuania was first occupied by the Soviet Union and then by Nazi Germany . As World War II neared its end and the Germans retreated, the Soviet Union reoccupied Lithuania . On 11 March 1990, a year before the formal Dissolution of the Soviet Union , Lithuania became the first Baltic state to declare itself independent, resulting in the restoration of an independent State of Lithuania . Trakai is a historic city and lake resort in Lithuania which lies 28 kilometres west of Vilnius. Because of its proximity to Vilnius, Trakai is a popular tourist destination. Trakai is the administrative centre of Trakai District Municipality . A notable feature of Trakai is that the town was built and preserved by people of different nationalities. Historically, communities of Karaims , Tartars , Lithuanians , Russians , Jews and Poles lived here. The first settlements in this area appeared as early as the first millennium A.D. The town, as well as its surroundings, started developing in the 13th century in the place of Senieji Trakai (Old Trakai). According to a legend after a successful hunting party, Grand Duke Gediminas discovered a beautiful lake-surrounded place not far from Kernavė , then capital of the Grand Duchy of Lithuania, and decided to build a castle in the location. That is how the Old Trakai Castle was built in Senieji Trakai. The name of Trakai was first mentioned in Teutonic Knights chronicles in 1337 and that year is considered to be the official date of the town's foundation. When Grand Duke Gediminas finally settled in Vilnius, Senieji Trakai was inherited by his son Kęstutis and the Duchy of Trakai developed with the town entering its best decades. The Scotch Mist Gallery contains many photographs of historic buildings, monuments and memorials of Poland and countries that previously comprised the Polish-Lithuanian Commonwealth.",
           "bredd": 3760,
           "hojd": 5650,
@@ -272,7 +301,8 @@
           ],
           "smal": false
         }
-      ]
+      ],
+      "soktext": "Sweden creates Europe's first national parks"
     },
     {
       "id": "allman-rostratt-for-man-1911",
@@ -281,11 +311,11 @@
       "start": 1911,
       "varldsdel": "Europa",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The first election with universal male suffrage Sweden",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "The first election with universal male suffrage Sweden"
     },
     {
       "id": "wegener-kontinentaldriften",
@@ -294,11 +324,11 @@
       "start": 1912,
       "varldsdel": "Europa",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Wegener presents continental drift Senckenberg Museum",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Wegener presents continental drift Senckenberg Museum"
     },
     {
       "id": "armeniska-folkmordet",
@@ -307,7 +337,7 @@
       "start": 1915,
       "varldsdel": "Europa",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q80034",
       "kandidater": [
@@ -321,6 +351,9 @@
           "licensadress": null,
           "upphovsperson": "Henry Morgenthau",
           "datum": "published 1918",
+          "datum_original": "published 1918",
+          "datum_fil": "2020-09-15 01:51:35",
+          "kredit": "Ambassador Morgenthau's Story Doubleday, Page p314, ( http://net.lib.byu.edu/estu/wwi/comment/morgenthau/images/Morgen50.jpg )",
           "beskrivning": "Picture showing Armenians killed during the Armenian Genocide . Image taken from Ambassador Morgenthau's Story , written by Henry Morgenthau, Sr. and published in 1918. Original description : \"THOSE WHO FELL BY THE WAYSIDE. Scenes like this were common all over the Armenian provinces, in the spring and summer months of 1915. Death in its several forms---massacre, starvation, exhaustion---destroyed the larger part of the refugees. The Turkish policy was that of extermination under the guise of deportation\"",
           "bredd": 3999,
           "hojd": 2731,
@@ -341,11 +374,11 @@
       "start": 1915,
       "varldsdel": "Europa",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": null,
-      "soktext": "Women win the vote for parliament in Denmark",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Women win the vote for parliament in Denmark"
     },
     {
       "id": "versaillesfreden",
@@ -354,7 +387,7 @@
       "start": 1919,
       "varldsdel": "Europa",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q8736",
       "kandidater": [
@@ -368,6 +401,9 @@
           "licensadress": null,
           "upphovsperson": "David Lloyd George, Woodrow Wilson and Georges Clemenceau",
           "datum": "circa 28 June 1919",
+          "datum_original": "circa 28 June 1919",
+          "datum_fil": "2019-04-02 21:11:55",
+          "kredit": "Auckland War Memorial Museum Tāmaki Paenga Hira",
           "beskrivning": "The cover of a publication of the Treaty of Versailles in English The text reads THE TREATY OF PEACE BETWEEN THE ALLIED AND ASSOCIATED POWERS AND GERMANY, The protocol annexed thereto, the Agreement respecting the military occupation of the territories of the Rhine, AND THE TREATY BETWEEN FRANCE AND GREAT BRITAIN RESPECTING Assistance to France in the event of unprovoked aggression by Germany. Signed at Versailles, June 28th, 1919.",
           "bredd": 3990,
           "hojd": 6074,
@@ -388,11 +424,11 @@
       "start": 1921,
       "varldsdel": "Europa",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Women vote for the Riksdag for the first time Sweden",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Women vote for the Riksdag for the first time Sweden"
     },
     {
       "id": "gulag",
@@ -401,10 +437,9 @@
       "start": 1930,
       "varldsdel": "Europa",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The Gulag, the Soviet system of labour camps",
       "kandidater": [
         {
           "fil": "File:Shack from Gulag - Museum of the Occupation of Latvia.JPG",
@@ -416,6 +451,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "Pudelek (Marcin Szala)",
           "datum": "2011-08",
+          "datum_original": "2011-08",
+          "datum_fil": "2011-10-13 16:59:58",
+          "kredit": "Own work",
           "beskrivning": "Shack from Gulag - reconstruction in Museum of the Occupation of Latvia . The picture does not say, how many people were crammed into such a shack...",
           "bredd": 2592,
           "hojd": 1944,
@@ -438,6 +476,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "Pudelek (Marcin Szala)",
           "datum": "2011-08",
+          "datum_original": "2011-08",
+          "datum_fil": "2011-10-13 17:03:23",
+          "kredit": "Own work",
           "beskrivning": "Shack from Gulag - reconstruction in Museum of the Occupation of Latvia",
           "bredd": 2592,
           "hojd": 1694,
@@ -460,6 +501,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Ihar Ivanou",
           "datum": "2021-04-07 14:04:55",
+          "datum_original": "2021-04-07 14:04:55",
+          "datum_fil": "2021-04-21 16:30:08",
+          "kredit": "Own work",
           "beskrivning": "Драўляная скрынка, якую а. Язэпу Гэрмановічу ў гулагу зрабіў іншы вязень у 1953 г. У скрынцы сьвятар трымаў Сьвятое Прычасьце, калі атрымлівалася адслужыць імшу. Тканіну, што пад скрынкай, сьвятар выкарыстоўваў як карпарал. З калекцыі Беларускай бібліятэкі й музэя імя Францішка Скарыны ў Лёндане",
           "bredd": 1515,
           "hojd": 1515,
@@ -482,6 +526,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "LokiiT",
           "datum": "2009-01",
+          "datum_original": "2009-01",
+          "datum_fil": "2009-05-24 15:55:18",
+          "kredit": "Own work",
           "beskrivning": "Gulag prisoner statistics from 1934-1954. Sources: [1] [2]",
           "bredd": 803,
           "hojd": 514,
@@ -493,27 +540,30 @@
           "smal": false
         },
         {
-          "fil": "File:Makarenko M.Y. Gulag in the USSR.jpg",
-          "filsida": "https://commons.wikimedia.org/wiki/File:Makarenko_M.Y._Gulag_in_the_USSR.jpg",
+          "fil": "File:Gulag mortality rate 1934 1953.PNG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Gulag_mortality_rate_1934_1953.PNG",
           "kalla": "commons-sok",
-          "licens": "CC BY-SA 4.0",
-          "licensklass": "cc-by-sa",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
           "licensstatus": "trolig",
-          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
-          "upphovsperson": "IrenaGenseruk",
-          "datum": "2015-09-22",
-          "beskrivning": "Макаренко М.Я. листовка для освещения проблемы ГУЛАГ в СССР",
-          "bredd": 3507,
-          "hojd": 2480,
-          "mime": "image/jpeg",
-          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dd/Makarenko_M.Y._Gulag_in_the_USSR.jpg/960px-Makarenko_M.Y._Gulag_in_the_USSR.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "Krawndawg",
+          "datum": "2008-04",
+          "datum_original": "2008-04",
+          "datum_fil": "2008-04-11 17:26:51",
+          "kredit": "self-made, data: [1] [2]",
+          "beskrivning": "Gulag prisoner mortality rate for the years 1934 to 1953.",
+          "bredd": 993,
+          "hojd": 588,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Gulag_mortality_rate_1934_1953.PNG/960px-Gulag_mortality_rate_1934_1953.PNG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
           "kategorier": [
-            "Gulag",
-            "Mikhail Makarenko"
+            "Gulag"
           ],
           "smal": false
         }
-      ]
+      ],
+      "soktext": "The Gulag, the Soviet system of labour camps"
     },
     {
       "id": "holodomor",
@@ -522,10 +572,9 @@
       "start": 1932,
       "varldsdel": "Europa",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The Holodomor, the famine in Ukraine Soviet Ukraine",
       "kandidater": [
         {
           "fil": "File:Famine in India Natives Waiting for Relief in Bangalore.jpg",
@@ -537,6 +586,9 @@
           "licensadress": null,
           "upphovsperson": "Illustrated London News/scan by Adam63",
           "datum": "1877-10-20",
+          "datum_original": "1877-10-20",
+          "datum_fil": "2010-01-05 23:41:24",
+          "kredit": "Personal scan of original 1877 newspaper in the uploader's collection.",
           "beskrivning": "The Famine in India: Natives Waiting for Relief at Bangalore (original caption). Scan of image from The Illustrated London News (no artist given), Saturday, October 20, 1877. This is the complete image. The famine the image depicts is the Great Famine of 1876–78 The Famine in India, Natives waiting for Relief at Bangalore. Illustration for The Illustrated London News, 20 October 1877.",
           "bredd": 2483,
           "hojd": 2931,
@@ -562,6 +614,9 @@
           "licensadress": null,
           "upphovsperson": "Alexander Wienerberger",
           "datum": "1933",
+          "datum_original": "1933",
+          "datum_fil": "2020-01-03 12:45:00",
+          "kredit": "Diocesan Archive of Vienna (Diözesanarchiv Wien)/BA Innitzer",
           "beskrivning": "Starved peasants on a street in Kharkiv, 1933, victims of Holodomor , photographed by Alexander Wienerberger . In Famine in the Soviet Ukraine, 1932–1933: a memorial exhibition, Widener Library, Harvard University . Cambridge, Mass.: Harvard College Library: Distributed by Harvard University Press, 1986. Procyk, Oksana. Heretz, Leonid. Mace, James E. (James Earnest). ISBN: 0674294262. Page 35. Initially published in Muss Russland Hungern? [Must Russia Starve?], published by Wilhelm Braumüller, Wien [Vienna] 1935.",
           "bredd": 1600,
           "hojd": 1191,
@@ -592,6 +647,9 @@
           "licensadress": null,
           "upphovsperson": "Unknown author Unknown author",
           "datum": "1932",
+          "datum_original": "1932",
+          "datum_fil": "2007-11-24 04:41:37",
+          "kredit": "Central State Audiovisual Archives of Ukraine.",
           "beskrivning": "A \"Red Train\" of carts from the \"Wave of Proletarian Revolution\" collective farm in the village of Oleksiyivka, Kharkiv oblast in 1932. \"Red Trains\" took the first harvest of the season's crop to the government depots. During the \"Holodomor\", a man-made famine imposed by the Soviet Government, these brigades were part of the Government's policy of deliberately taking away the food of the peasants so as to facilitate their starvation.",
           "bredd": 600,
           "hojd": 458,
@@ -619,6 +677,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Sergento",
           "datum": "2014-11-08 20:19:42",
+          "datum_original": "2014-11-08 20:19:42",
+          "datum_fil": "2014-11-08 18:21:06",
+          "kredit": "Own work , based on: File:Map_of_Ukraine_political_simple_blank.png , File:Belarus_provinces_blank.png , File:Outline_Map_of_Central_Russia.svg , File:Ouline_Map_of_Southern_Federal_District.svg , statistics from \"The Foreign Office and the famine : British documents on Ukraine and the Great Famine of 1932-1933\" / edited by Marco Carynnyk, Lubomyr Y. Luciuk and Bohdan S. Kordan ; with a foreword by Michael R. Marrus. Kingston, Ont. ; Vestal, N.Y. : Limestone Press, 1988. lxi, 493 p. ; 24 p. ISBN 0919642314",
           "beskrivning": "Depopulation in Ukraine and southern Russia (mainly in region of Kuban, which at that time was entirely populated by Ukrainians) 1929 – 1933. White regions were not part of the USSR at that time. As a result of collectivization and mass repressions that ended with the Holodomor and the death of millions. This fact was taboo in the Soviet Union and forbidden to discuss until its collapse.",
           "bredd": 2848,
           "hojd": 1744,
@@ -642,6 +703,9 @@
           "licensadress": null,
           "upphovsperson": "Alexander Wienerberger",
           "datum": "1933",
+          "datum_original": "1933",
+          "datum_fil": "2013-10-20 19:33:12",
+          "kredit": "http://skif-tag.livejournal.com/984358.html",
           "beskrivning": "Фото часів Голодомору 1932-1933 рр",
           "bredd": 500,
           "hojd": 357,
@@ -657,7 +721,8 @@
           ],
           "smal": true
         }
-      ]
+      ],
+      "soktext": "The Holodomor, the famine in Ukraine Soviet Ukraine"
     },
     {
       "id": "lego-grundas",
@@ -666,7 +731,7 @@
       "start": 1932,
       "varldsdel": "Europa",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q1063455",
       "kandidater": [
@@ -680,6 +745,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "Fluteflute",
           "datum": "2008-08",
+          "datum_original": "2008-08",
+          "datum_fil": "2008-12-08 17:17:12",
+          "kredit": "Own work",
           "beskrivning": "London Miniland at Legoland Windsor",
           "bredd": 1280,
           "hojd": 960,
@@ -700,10 +768,9 @@
       "start": 1938,
       "varldsdel": "Europa",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Nuclear fission is discovered",
       "kandidater": [
         {
           "fil": "File:Nuclear Fission Experimental Apparatus 1938 - Deutsches Museum - Munich.jpg",
@@ -715,6 +782,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
           "upphovsperson": "J Brew",
           "datum": "2006-05-28 07:48:46",
+          "datum_original": "2006-05-28 07:48:46",
+          "datum_fil": "2014-09-03 02:41:30",
+          "kredit": "originally posted to Flickr as Nuclear Fission Deutsches Museum",
           "beskrivning": "The Experimental Apparatus with which the team of Otto Hahn , and Fritz Strassmann discovered Nuclear Fission in 1938. The arrangement was originally in 3 separate rooms: irradiation, measurement, and chemistry at the Kaiser Wilhelm Institute for Chemistry in Berlin. A batch of Pertrix batteries for electric power with connecting cables can be seen on the lower board. There are seven electronic valve bulbs ( vacuum tubes ) visible in the experimental setup.",
           "bredd": 2592,
           "hojd": 1944,
@@ -738,6 +808,9 @@
           "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
           "upphovsperson": "Versuchsaufbau_Hahn_Deutsches_Museum.jpg : Luidger derivative work: Hic et nunc",
           "datum": "2012-08-13 16:57",
+          "datum_original": "2012-08-13 16:57",
+          "datum_fil": "2012-08-13 17:00:11",
+          "kredit": "This file was derived from: Versuchsaufbau Hahn Deutsches Museum.jpg :",
           "beskrivning": "Versuchsapparaturen, mit denen Otto Hahn, Lise Meitner und Fritz Straßmann von 1935 bis 1938 nach Transuranen suchten, und Otto Hahn und sein Assistent Fritz Straßmann am 17. Dezember 1938 die Kernspaltung entdeckten. Deutsches Museum, München.",
           "bredd": 1280,
           "hojd": 844,
@@ -762,6 +835,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Routnmil",
           "datum": "2015-03-26",
+          "datum_original": "2015-03-26",
+          "datum_fil": "2015-03-26 19:35:26",
+          "kredit": "Own work",
           "beskrivning": "Mnohonásobné bariéry",
           "bredd": 892,
           "hojd": 600,
@@ -782,6 +858,9 @@
           "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
           "upphovsperson": "Zonk43",
           "datum": "2022-10-24",
+          "datum_original": "2022-10-24",
+          "datum_fil": "2022-10-25 23:23:27",
+          "kredit": "Own work",
           "beskrivning": "Diagramm der zeitlichen Abnahme des Anteils von Uran235 im natürlichen Uran für die letzten und die nächsten Milliarden Jahre.",
           "bredd": 4445,
           "hojd": 4625,
@@ -803,6 +882,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Routnmil",
           "datum": "2015-03-27",
+          "datum_original": "2015-03-27",
+          "datum_fil": "2015-03-27 08:27:33",
+          "kredit": "Own work",
           "beskrivning": "Periodická tabulka prvků znázorňující míru dlouhodobé migrace jednotlivých štěpných produktů a aktivačních produktů v zemské kůře.",
           "bredd": 854,
           "hojd": 484,
@@ -814,7 +896,8 @@
           ],
           "smal": false
         }
-      ]
+      ],
+      "soktext": "Nuclear fission is discovered"
     },
     {
       "id": "saltsjobadsavtalet",
@@ -823,7 +906,7 @@
       "start": 1938,
       "varldsdel": "Europa",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q321915",
       "kandidater": [
@@ -837,6 +920,9 @@
           "licensadress": null,
           "upphovsperson": "Photographer Meyerhöffer",
           "datum": "1938-12-20",
+          "datum_original": "1938-12-20",
+          "datum_fil": "2011-12-20 23:22:26",
+          "kredit": "Olsson, Lars: Klass i rörelse. Stockholm, 2002",
           "beskrivning": "Underskrift av Saltsjöbadsavtalet 1938",
           "bredd": 951,
           "hojd": 577,
@@ -865,7 +951,7 @@
       "start": 1939,
       "varldsdel": "Europa",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q362",
       "kandidater": [
@@ -879,6 +965,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
           "upphovsperson": "User:Staberinde",
           "datum": "2009-11-26 23:48",
+          "datum_original": "2009-11-26 23:48",
+          "datum_fil": "2019-10-20 00:15:28",
+          "kredit": "Original text : source images: Top left: File:NRAWanjialing1.jpg Top right: File:2-8 Field Regt.jpg Middle left: File:Bundesarchiv Bild 183-R76619, Russland, Kesselschlacht Stalingrad.jpg Middle right: File:Bundesarchiv Bild 101I-646-5188-17, Flugzeuge Junkers Ju 87.jpg Bottom left: File:Wilhelm Keitel Kapitulation.jpg Bottom right: File:USS Pennsylvania moving into Lingayen Gulf.jpg )",
           "beskrivning": "Top left: Battle of Wanjialing Top right: First Battle of El Alamein Middle left: Battle of Stalingrad over Eastern Front winter 1943-1944 Bottom left: Wilhelm Keitel signing German Instrument of Surrender Bottom right: Invasion of Lingayen Gulf",
           "bredd": 503,
           "hojd": 600,
@@ -899,13 +988,9 @@
       "start": 1943,
       "varldsdel": "Europa",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q514188",
-      "soktext": "The Danish Jews are rescued to Sweden",
-      "anmarkningar": [
-        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
       "kandidater": [
         {
           "fil": "File:The fishing boat \"Elisabeth\" took part in the rescue of Danish Jews in 1943. Around 700 Jews fled trough Dragør harbour to neutral Sweden. - Flickr - Cederskjold Photo.jpg",
@@ -917,6 +1002,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/4.0",
           "upphovsperson": "Jens Cederskjold from København S, Danmark",
           "datum": "Taken on 11 August 2026, 17:16",
+          "datum_original": "Taken on 11 August 2026, 17:16",
+          "datum_fil": "2026-09-22 03:21:38",
+          "kredit": "The fishing boat \"Elisabeth\" took part in the rescue of Danish Jews in 1943. Around 700 Jews fled trough Dragør harbour to neutral Sweden.",
           "beskrivning": "The fishing boat \"Elisabeth\" took part in the rescue of Danish Jews in 1943. Around 700 Jews fled trough Dragør harbour to neutral Sweden.",
           "bredd": 2048,
           "hojd": 1472,
@@ -939,6 +1027,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/3.0",
           "upphovsperson": "Brigade Piron",
           "datum": "17 September 2023 (according to Exif data)",
+          "datum_original": "17 September 2023 (according to Exif data)",
+          "datum_fil": "2023-11-21 08:08:52",
+          "kredit": "Own work",
           "beskrivning": "A Danish rescue boat in the collection of the United States Holocaust Memorial Museum. This particular example was used in teh earliest operations for the evacuation of Danish Jews organised by the Helsingor Sewing Club, known as the Kiaer Line. This boat carried 12 to 14 Jewish refugees on each trip to neutral Sweden.",
           "bredd": 8000,
           "hojd": 6000,
@@ -961,6 +1052,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/2.0",
           "upphovsperson": "seier+seier",
           "datum": "2008-08-17 23:40",
+          "datum_original": "2008-08-17 23:40",
+          "datum_fil": "2022-06-26 18:34:08",
+          "kredit": "arne jacobsen, smokehouse, odden 1943",
           "beskrivning": "odden smokehouse, odden, denmark 1943. architect: arne jacobsen, 1902-1971. I know...there is something wrong with these pictures - or at least with the date of the buildings they aim to portray. 1943. because of the war, the history of architecture in europe almost skips an entire decade, the 1940's, yet here are structures designed for peaceful purposes in nazi occupied europe by a jewish architect. different countries were touched so very differently by this enormous and devastating conflict, and denmark - in spite of the german occupation - went almost untouched. a number of disastrous wars in the 19th century had left the country powerless and a fraction of her previous size. when bismarck led prussia in the succesful liberation of denmark's german speaking territories in 1864, only bismarck's political intelligence saved denmark from complete annihilation. better a toothless neighbour than a large minority population. the result was a strict policy of neutrality - undeniably a clever move for a small country so close to britain, germany, and russia - and in the first world war, it proved highly succesful. neutrality, however, only works to the extent that it is respected by the warring countries and in the second world war, the germans needed denmark as a bridgehead to norway's raw materials and the occupation was a fact. germany claimed to be merely protecting Danish interests but these days, of course, we all know the names one might call an illegal occupation...in a strange way, though, the germans did offer a kind of protection by keeping the country out of active warfare and civil life continued, even for the danes of jewish descent. the failure of the Danish state to actively resist nazism remains a point of national debate and even shame and a difficult topic since such resistance would have been futile from any other than a purely symbolic point of view. in 1943, shortly after the completion of the smokehouse in odden, it all changed, though. plans to round up the danish jews and send them to concentration camps south of the border were leaked by a righteous german and a massive, improvised rescue of the copenhagen jews to neutral sweden was set in motion, the only heroic act on a national level I know of in the entire history of denmark which is otherwise best described as a thousand years of meaningless warfare. jacobsen escaped in a rowboat at night and survived his exile as a graphic designer. I recently came across one of his beautiful wallpapers in an old swedish summer house. and what about the smokehouse? its abstract traditionalism is most likely the combined result of a lack of all but the most low-tech of local materials and the nationalist spirit inevitable in an occupied country. it remains a paradox that such a combination was favoured by nazi ideology. more arne jacobsen",
           "bredd": 1944,
           "hojd": 2629,
@@ -971,6 +1065,10 @@
           ],
           "smal": false
         }
+      ],
+      "soktext": "The Danish Jews are rescued to Sweden",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
       ]
     },
     {
@@ -980,10 +1078,9 @@
       "start": 1949,
       "varldsdel": "Europa",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Armistice between Egypt and Israel Rhodes",
       "kandidater": [
         {
           "fil": "File:Rhodes 1949 Palestine War Armnistice Plate.jpg",
@@ -995,6 +1092,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Catlemur",
           "datum": "2024-03-03",
+          "datum_original": "2024-03-03",
+          "datum_fil": "2024-03-05 19:59:57",
+          "kredit": "Own work",
           "beskrivning": "Commemorative ceramic plate celebrating the armistices between Israel and Egypt (24.2.1949) and Jordan (3.4.1949). The plate was made by the Jewish community on Rhodos. Jewish Museum of Greece.",
           "bredd": 1530,
           "hojd": 2040,
@@ -1008,7 +1108,8 @@
           ],
           "smal": false
         }
-      ]
+      ],
+      "soktext": "Armistice between Egypt and Israel Rhodes"
     },
     {
       "id": "ungernrevolten-1956",
@@ -1017,7 +1118,7 @@
       "start": 1956,
       "varldsdel": "Europa",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q164348",
       "kandidater": [
@@ -1031,6 +1132,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/4.0",
           "upphovsperson": "Atoljaka",
           "datum": "2024-10-23",
+          "datum_original": "2024-10-23",
+          "datum_fil": "2024-10-23 12:20:51",
+          "kredit": "Own work",
           "beskrivning": "Montage of the Hungarian Revolution of 1956",
           "bredd": 2400,
           "hojd": 3000,
@@ -1051,6 +1155,9 @@
           "licensadress": null,
           "upphovsperson": "The American Hungarian Federation",
           "datum": "october 1956 (heavy artillery on the street)",
+          "datum_original": "october 1956 (heavy artillery on the street)",
+          "datum_fil": "2006-10-23 10:27:19",
+          "kredit": "http://www.hungary1956.com/photos.htm",
           "beskrivning": "Corvin köz, Budapest Hungary, Central Europe. In october 1956 this place was an important defence stronghold of hungarians against the invading soviet army. Commanders: Pongrátz Gergely and Kovács László Iván. Russian tanks were reaching the downtown from the South, on nearby Üllői avenue, which could be controlled from here. Molotov coctails could be easily made as a petrol station was nearby. Kind of symbol of the war of independence.",
           "bredd": 433,
           "hojd": 600,
@@ -1073,7 +1180,7 @@
       "start": 1962,
       "varldsdel": "Europa",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q169789",
       "kandidater": [
@@ -1087,6 +1194,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "Lothar Wolleh",
           "datum": "2012-06-03",
+          "datum_original": "2012-06-03",
+          "datum_fil": "2012-07-02 23:46:30",
+          "kredit": "Own work",
           "beskrivning": "Second Vatican Council",
           "bredd": 1328,
           "hojd": 1328,
@@ -1109,6 +1219,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "Lothar Wolleh",
           "datum": "3 October 2014 (upload date)",
+          "datum_original": "3 October 2014 (upload date)",
+          "datum_fil": "2014-10-03 13:54:39",
+          "kredit": "This image has been extracted from another file",
           "beskrivning": "Second Vatican Council",
           "bredd": 1326,
           "hojd": 1060,
@@ -1134,6 +1247,9 @@
           "licensadress": null,
           "upphovsperson": "Peter Geymayer",
           "datum": "1962-10-11",
+          "datum_original": "1962-10-11",
+          "datum_fil": "2008-05-22 14:20:01",
+          "kredit": "Own work",
           "beskrivning": "Council bishops on Saint Peter's Square (1962, Italy)",
           "bredd": 2500,
           "hojd": 1662,
@@ -1160,7 +1276,7 @@
       "start": 1968,
       "varldsdel": "Europa",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q162401",
       "kandidater": [
@@ -1174,6 +1290,9 @@
           "licensadress": null,
           "upphovsperson": "The Central Intelligence Agency",
           "datum": "1968",
+          "datum_original": "1968",
+          "datum_fil": "2017-05-08 04:47:12",
+          "kredit": "10 Soviet Invasion of Czechoslovakia",
           "beskrivning": "During the Soviet invasion of Czechoslovakia, Czechoslovaks carry their national flag past a burning tank in Prague. Photo from \"CIA Analysis of the Warsaw Pact Forces: The Importance of Clandestine Reporting\" For more information, visit the CIA's Historical Collections page ( www.cia.gov/library/publications/historical-collection-pu... )",
           "bredd": 4048,
           "hojd": 2720,
@@ -1204,13 +1323,9 @@
       "start": 1972,
       "varldsdel": "Europa",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q1781365",
-      "soktext": "The UN environment conference in Stockholm Stockholm",
-      "anmarkningar": [
-        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
       "kandidater": [
         {
           "fil": "File:UN-environment-in-Stockholm-1972.jpg",
@@ -1222,6 +1337,9 @@
           "licensadress": null,
           "upphovsperson": "Anonymous Unknown author / Pressens Bild",
           "datum": "Taken on 4 June 1972",
+          "datum_original": "Taken on 4 June 1972",
+          "datum_fil": "2023-03-01 15:59:31",
+          "kredit": "https://www.hs.fi/paivanlehti/05062022/art-2000008822351.html",
           "beskrivning": "Photograph of members of the United Nations Conference on the Human Environment (1972) on bicycles in Stockholm. In the middle, chairman Maurice Strong.",
           "bredd": 1920,
           "hojd": 1205,
@@ -1244,6 +1362,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "Dietrich.Klose",
           "datum": "1972",
+          "datum_original": "1972",
+          "datum_fil": "2011-11-10 13:39:05",
+          "kredit": "Own work",
           "beskrivning": "Kauko Räsänen (born 1926), Medal for the United Nations Conference on the Human Environment, Stockholm 1972, Avers: Female head.",
           "bredd": 531,
           "hojd": 532,
@@ -1265,6 +1386,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "Janwikifoto",
           "datum": "2009-02-25",
+          "datum_original": "2009-02-25",
+          "datum_fil": "2011-01-29 10:14:11",
+          "kredit": "http://politik.in2pic.com",
           "beskrivning": "Swedish Parliament, voting for the Ipred law",
           "bredd": 3028,
           "hojd": 2002,
@@ -1275,6 +1399,10 @@
           ],
           "smal": false
         }
+      ],
+      "soktext": "The UN environment conference in Stockholm Stockholm",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
       ]
     },
     {
@@ -1284,10 +1412,9 @@
       "start": 1973,
       "varldsdel": "Europa",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": null,
-      "soktext": "Denmark joins the European Communities",
       "kandidater": [
         {
           "fil": "File:Securing Our Future (EC pic) 2025-03-02-15-13.jpg",
@@ -1299,6 +1426,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/4.0",
           "upphovsperson": "Christophe Licoppe, © European Union, 2025",
           "datum": "2025-03-02",
+          "datum_original": "2025-03-02",
+          "datum_fil": "2025-03-02 17:50:12",
+          "kredit": "https://audiovisual.ec.europa.eu/en/reportage/P-065786",
           "beskrivning": "The Prime Minister of the United Kingdom, Kier Starmer, welcomed Italy's Prime Minister Giorgia Meloni to Downing Street, before being joined at the summit in central London by the leaders of Ukraine, France, Germany, Denmark, Italy, Netherlands, Norway, Poland, Spain, Canada, Finland, Sweden, Czechia and Romania. The Turkish Foreign Minister, NATO Secretary General and the Presidents of the European Commission and European Council also attended. The Prime Minister has been clear that there can be no negotiations about Ukraine without Ukraine, a determination he reiterated when he warmly welcomed President Zelenskyy to Downing Street on Saturday evening ahead of the summit.",
           "bredd": 5717,
           "hojd": 3811,
@@ -1362,6 +1492,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/4.0",
           "upphovsperson": "Christophe Licoppe, © European Union, 2025",
           "datum": "2025-03-02",
+          "datum_original": "2025-03-02",
+          "datum_fil": "2025-03-03 19:39:37",
+          "kredit": "https://audiovisual.ec.europa.eu/en/reportage/P-065786",
           "beskrivning": "The Prime Minister of the United Kingdom, Kier Starmer, welcomed Italy's Prime Minister Giorgia Meloni to Downing Street, before being joined at the summit in central London by the leaders of Ukraine, France, Germany, Denmark, Italy, Netherlands, Norway, Poland, Spain, Canada, Finland, Sweden, Czechia and Romania. The Turkish Foreign Minister, NATO Secretary General and the Presidents of the European Commission and European Council also attended. The Prime Minister has been clear that there can be no negotiations about Ukraine without Ukraine, a determination he reiterated when he warmly welcomed President Zelenskyy to Downing Street on Saturday evening ahead of the summit.",
           "bredd": 3577,
           "hojd": 2684,
@@ -1415,6 +1548,30 @@
           "smal": false
         },
         {
+          "fil": "File:New Year's Greetings from President of Ukraine Volodymyr Zelenskyy. (54238702399).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:New_Year%27s_Greetings_from_President_of_Ukraine_Volodymyr_Zelenskyy._(54238702399).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "President Of Ukraine from Україна",
+          "datum": "2024-12-31 20:36",
+          "datum_original": "2024-12-31 20:36",
+          "datum_fil": "2024-12-31 22:31:48",
+          "kredit": "New Year's Greetings from President of Ukraine Volodymyr Zelenskyy.",
+          "beskrivning": "Dear People! Behind me stands Mother Ukraine. Ukraine that stands firmly on its feet, does not bow its head, looks ahead, believes in its future and victory over all the evil that Russia has brought us. Ukraine that is capable of achieving a just peace – having a shield and a sword. Defending its people, its colors, its Independence. Today I address all those who value Ukraine, cherish their state, and lovingly call it “Mine.” I thank you for 2024. Our people who endure all difficulties with dignity. People for whom being citizens of Ukraine is a source of pride. And for me, it is a pride to be the President of such people – Ukrainians who prove that no cruise missile can defeat a nation that has wings. Throughout this leap year, we have proven it every day. And we saw it yesterday. When we were uplifted with happiness because 189 Ukrainians returned from captivity to their native land. Because they will celebrate the New Year at home. Because we are bringing our people back. 1,358 people this year. 3,956 Ukrainians during this time. And I’m giving not estimates but precise numbers, because each one represents a person, our person, a very important person. And with each return – we bring life back to Ukraine. And every time this happens, we all cry. It doesn’t matter if it’s a moved mother, or it’s a child who finally has their father back, or the President of Ukraine – we all cry because we are all human, and we have kept the light within us. And it helped us endure through over 1,000 days. To be brave when it was needed most. To be strong when it was so vital. As did our teachers, our medics, our power engineers, our transport workers, as did all our air defense personnel, mobile fire groups. The guys who brought down 1,310 cruise and ballistic missiles this year, and 7800 Iranian “Shahed” drones. Bravo! We are proud! Thank you! We lived through this year together. We overcame everything 2024 brought together. Victories and setbacks. Joys and challenges. Tears of happiness when we succeeded. And tears of pain when our hearts were wounded. July. Morning. Okhmatdyt. That’s how weaklings and cowards strike. And we will never forget those children’s eyes. We will never forgive them for this! When evil brings death, our response is a human chain. This is what the strength of Ukrainians looks like. And that unity of ours could be seen from space. God saw it. He saw what kind of people we have. What kind of children we have. And I will never forget those incredibly mature and strong eyes of the boy from Okhmatdyt. How much life is in him, energy and dignity! And how much stronger this child alone is than Putin! How much stronger all our children are than their entire evil. Ukrainian boys and girls who are winning this war, gaining knowledge online and even in underground schools, winning global science competitions, raising funds for our army, and inventing technological solutions that help with our defense. You are a phenomenal generation! This is who we are fighting for. This is who our heroes, our warriors, protect above all. Those who stand firm and carry Independence on their shoulders. Where freedom and valor fight every day – even now, on this New Year's night. On all our fronts. On all of them. In the east, where it’s extremely, extremely difficult and challenging right now. But we believe, we know: you will stand strong. Our guys will stand strong. Your spirit and courage will stand strong. All the things that helped you not to surrender our Sumy and Kharkiv, our Kherson and our Zaporizhzhia this year. And the Russians wanted it so badly. But instead – you paid the occupiers back, bringing the war back home to Russia. And the one who sowed evil on our land received it on their own. In the Kursk region and in other places where our response, our justice, came this year. Justice. Just one word, but behind it stand hundreds of thousands of our people. Our defense industry and our science. Whose minds and work have made us stronger, because 30% of everything our guys had on the battlefield this year – all this was made in Ukraine. And at one of these facilities, I asked a young engineer: \"How did you manage to achieve so much? How were these people able to do all of this?\" And the young man joked: \"They're not just people, they're missiles.\" And you know, at that moment, I felt ashamed as a citizen that since the 90s, the state hadn’t noticed such people of ours. And I am proud, when meeting them throughout the year I hear: they are happy to be needed by Ukraine. And that Ukraine is once again building its own, its own missiles. And for the first time, it produces over a million drones in a year. Forcing the enemy to learn Ukrainian. Palianytsia, Peklo, Ruta. Making them tremble at the words Neptune and Sapsan. All these are our missiles. Ukrainian. Hor, Vampire, Kolibri, Kamik, Liutyi, Heavy Shot, Firepoint. All these are our drones. Ukrainian. And all these are our arguments, the arguments for a just peace. It is achieved only by the strong. And we have proven time and again that we are strong. Our athletes. Oleksandr Khyzhniak, our Tank. Olga Kharlan, Yaroslava Mahuchikh, all our Olympians and Paralympians, for whom we cheered, worried, and screamed with joy and pride when the blue and yellow flag was raised. We took the hits and fought back alongside Oleksandr Usyk. All of this is about something bigger than just sports. It’s about our character. It’s about who we are and what we are capable of. It’s about meanings and symbols. It’s about Sashko’s fights, like Ukraine’s daily battles, showing us: it doesn't matter how much bigger the enemy is compared to you, what matters is how much bigger your will is. Then it takes the breath away of the whole world! And all the leaders told me frankly: \"We've never seen anything like this – when a full hall of Notre-Dame de Paris is applauding.\" And those were applause for you. For all our people. This is what respect for Ukraine sounds like. This is what Independence is. It’s when we don’t give up what’s ours. And when we don’t forget our people. Those who are in captivity. And we will fight for every person who, unfortunately, is still there. And we will fight for all those whom Russia has forced into occupation; but couldn’t occupy their Ukrainian hearts. And no matter how many passports evil hands out at gunpoint, our people say: \"You are not our kin, you are temporary.\" And all those imposed weeds will not take root on our land, will not defeat the natives. I always recall the story about one of our Ukrainian elderly men, whom the occupiers asked: \"What time is it?\" And he answered: \"Time to get off our land.\" This is what the inner will is, which simply cannot be occupied. And I turn to all those who carry this will in their hearts on the temporarily occupied territories. Dear Ukrainians! I know you are celebrating the New Year according to our time, and now you hear these words. In our Crimea, in Donbas, in Melitopol, in Mariupol – everywhere where Ukraine is awaited. And where, one day, Ukraine will return to be together. And the only thing that will divide Ukrainians is a generously laid table. I know that all our people will be at this table. Those who are now abroad but have kept Ukraine in their hearts. So today, in the first minute of the New Year, in Warsaw, New York, or Buenos Aires, \"Shche ne vmerla…\" will sound. In Berlin, Prague or Tokyo, people will say today: “Glory to Ukraine!” And the world will respond: “Glory to the Heroes!” Because Ukraine is not alone. Because we have our friends with us. Since the first minutes of this war, America has stood with Ukraine. I believe that America will also stand with Ukraine in the first minutes of peace. I remember my conversation with Joe Biden after the Russian invasion. I remember my conversation with Donald Trump after he was elected. All the conversations with Congressmen, Senators, ordinary Americans, with all those who support us in the US, in Europe, and around the world – in those many and varied conversations, there was always unity on the main point: Putin cannot win. Ukraine will prevail. I thank all Americans for proving these words with deeds. I have no doubt that the new American President is willing and capable of achieving peace and ending Putin’s aggression. He understands that the first is impossible without the second. Because this is not a street fight where you have to calm down both sides. This is the full-scale aggression of a mad state against a civilized one. And I believe that we, together with the United States, are capable of exerting that force. Of compelling Russia into a just peace. That means not forgetting, and not erasing everything Russia has done. Bucha, Olenivka, Avdiivka, all our destroyed towns and villages. This is why a truly just peace cannot be based on the principle of “let’s start with a clean slate.” Because the score is not 0:0. The score is thousands, thousands of Ukrainians whose lives Russia has stolen. And today, the heart of Ukraine is covered with scars. These are the names of our fallen heroes. May God protect every family in the world from experiencing such losses. I would not wish any leader in the world to experience these feelings – the moment you hand over awards posthumously. You see the eyes of a mother, a wife, or a child of a warrior who gave their life for Ukraine, and you hear them say: \"Please, let it all not be in vain.\" Thousands of our guys and girls have not faded into oblivion. They are with us, they are by our side, always, they are watching over us from the heavens. And we have no right to let them down, and we cannot betray their feat and memory. And every day in the coming year, I, and all of us, must fight for a Ukraine that is strong enough. Because only such a Ukraine is respected and heard. Both on the battlefield and at the negotiating table. I thank everyone who has stood by us this year. Our partners, allies, friends, leaders. Leaders indeed, not because it is customary to call them that, but because they prove their leadership by their actions. Those who were not afraid to come to Ukraine, knowing how valuable it is to see us standing shoulder to shoulder. With whom, despite the distance and time difference, we worked together, found solutions and achieved results. Patriots, IRIS-Ts, NASAMS and ATACMS systems, F-16s, SCALPs, Storm Shadows. The Czech initiative and a million shells. The Danish model and hundreds of millions in our domestic production. 27 security agreements and 40 billion to support our army. The European Union and 50 billion to support our economy. The G7 and the decision on 50 billion dollars of frozen Russian assets. This is our great international work. This is our great international victory. I thank our partners, thank you for this; I thank our team. The Army, the Government, the Office, the Parliament, the regions, the communities, the volunteers. All those who strengthen our country from within and care about people. I thank everyone thanks to whom Ukraine is standing and will stand. It will overcome its path to peace, to a strong Ukraine. And to a European Ukraine. And these are not just words, but a reality that began this June with the opening of negotiations on Ukraine's accession to the EU. And this is a historic result. And this path is irreversible. And Ukraine will be in the European Union. And one day Ukraine will be in NATO and will strengthen the Alliance. It will strengthen the stability of the world. The unity of Europe, which determines the destiny of every nation on the continent. And this unity must be respected by all. By both Budapest and Bratislava. I know the Hungarian and Slovak peoples are actually with us, with Ukraine, with Ukrainians, on the side of truth. The authorities of these countries should also acknowledge the truth. There is no need to be afraid of Ukraine being in Europe. We must do everything to prevent Russia from being in Europe. Its tanks, its missiles, and the evil it will surely spread further if Ukraine does not withstand. If Russia shakes your hand today, it does not mean that tomorrow, it will not start killing you with the same hand. Because Russians are afraid of the free people. Of what they are not familiar with. They are afraid of freedom. They were born under Putin, went to school under Putin, joined the army under Putin and are dying for his sick ideas. And that is why it is so crucial today to support all peoples who defend freedom. Those who refuse to give it up in Chișinău. Those who are fighting for their future in Tbilisi. And I am sure that the day will come when we will all say: \"Long Live Belarus!\" Dear Ukrainians! May 2025 be our year. The year of Ukraine. We know that peace will not be given to us as a gift. But we will do everything to stop Russia and end the war. This is what each of us wishes for. Behind all of us stands Mother Ukraine. And she deserves to live in peace. I wish this to all of us. And as the President of Ukraine, as well as a citizen, I will do everything to achieve it in the coming year. Knowing that I will not be alone. I know that you stand shoulder to shoulder with me – millions of Ukrainians. Strong. Free. Beautiful. Independent. Happy New Year, dear people! Happy New Year, Ukraine! Glory to Ukraine!",
+          "bredd": 3000,
+          "hojd": 2001,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/New_Year%27s_Greetings_from_President_of_Ukraine_Volodymyr_Zelenskyy._%2854238702399%29.jpg/960px-New_Year%27s_Greetings_from_President_of_Ukraine_Volodymyr_Zelenskyy._%2854238702399%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Mother Ukraine",
+            "Volodymyr Zelenskyy in December 2024"
+          ],
+          "smal": false
+        },
+        {
           "fil": "File:New Year's Greetings from President of Ukraine Volodymyr Zelenskyy in Kyiv, Ukraine on 31 December 2024.jpg",
           "filsida": "https://commons.wikimedia.org/wiki/File:New_Year%27s_Greetings_from_President_of_Ukraine_Volodymyr_Zelenskyy_in_Kyiv,_Ukraine_on_31_December_2024.jpg",
           "kalla": "commons-sok",
@@ -1424,6 +1581,9 @@
           "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
           "upphovsperson": "President Of Ukraine from Україна",
           "datum": "2024-12-31 20:36",
+          "datum_original": "2024-12-31 20:36",
+          "datum_fil": "2025-01-01 05:20:53",
+          "kredit": "New Year's Greetings from President of Ukraine Volodymyr Zelenskyy.",
           "beskrivning": "Dear People! Behind me stands Mother Ukraine. Ukraine that stands firmly on its feet, does not bow its head, looks ahead, believes in its future and victory over all the evil that Russia has brought us. Ukraine that is capable of achieving a just peace – having a shield and a sword. Defending its people, its colors, its Independence. Today I address all those who value Ukraine, cherish their state, and lovingly call it “Mine.” I thank you for 2024. Our people who endure all difficulties with dignity. People for whom being citizens of Ukraine is a source of pride. And for me, it is a pride to be the President of such people – Ukrainians who prove that no cruise missile can defeat a nation that has wings. Throughout this leap year, we have proven it every day. And we saw it yesterday. When we were uplifted with happiness because 189 Ukrainians returned from captivity to their native land. Because they will celebrate the New Year at home. Because we are bringing our people back. 1,358 people this year. 3,956 Ukrainians during this time. And I’m giving not estimates but precise numbers, because each one represents a person, our person, a very important person. And with each return – we bring life back to Ukraine. And every time this happens, we all cry. It doesn’t matter if it’s a moved mother, or it’s a child who finally has their father back, or the President of Ukraine – we all cry because we are all human, and we have kept the light within us. And it helped us endure through over 1,000 days. To be brave when it was needed most. To be strong when it was so vital. As did our teachers, our medics, our power engineers, our transport workers, as did all our air defense personnel, mobile fire groups. The guys who brought down 1,310 cruise and ballistic missiles this year, and 7800 Iranian “Shahed” drones. Bravo! We are proud! Thank you! We lived through this year together. We overcame everything 2024 brought together. Victories and setbacks. Joys and challenges. Tears of happiness when we succeeded. And tears of pain when our hearts were wounded. July. Morning. Okhmatdyt. That’s how weaklings and cowards strike. And we will never forget those children’s eyes. We will never forgive them for this! When evil brings death, our response is a human chain. This is what the strength of Ukrainians looks like. And that unity of ours could be seen from space. God saw it. He saw what kind of people we have. What kind of children we have. And I will never forget those incredibly mature and strong eyes of the boy from Okhmatdyt. How much life is in him, energy and dignity! And how much stronger this child alone is than Putin! How much stronger all our children are than their entire evil. Ukrainian boys and girls who are winning this war, gaining knowledge online and even in underground schools, winning global science competitions, raising funds for our army, and inventing technological solutions that help with our defense. You are a phenomenal generation! This is who we are fighting for. This is who our heroes, our warriors, protect above all. Those who stand firm and carry Independence on their shoulders. Where freedom and valor fight every day – even now, on this New Year's night. On all our fronts. On all of them. In the east, where it’s extremely, extremely difficult and challenging right now. But we believe, we know: you will stand strong. Our guys will stand strong. Your spirit and courage will stand strong. All the things that helped you not to surrender our Sumy and Kharkiv, our Kherson and our Zaporizhzhia this year. And the Russians wanted it so badly. But instead – you paid the occupiers back, bringing the war back home to Russia. And the one who sowed evil on our land received it on their own. In the Kursk region and in other places where our response, our justice, came this year. Justice. Just one word, but behind it stand hundreds of thousands of our people. Our defense industry and our science. Whose minds and work have made us stronger, because 30% of everything our guys had on the battlefield this year – all this was made in Ukraine. And at one of these facilities, I asked a young engineer: \"How did you manage to achieve so much? How were these people able to do all of this?\" And the young man joked: \"They're not just people, they're missiles.\" And you know, at that moment, I felt ashamed as a citizen that since the 90s, the state hadn’t noticed such people of ours. And I am proud, when meeting them throughout the year I hear: they are happy to be needed by Ukraine. And that Ukraine is once again building its own, its own missiles. And for the first time, it produces over a million drones in a year. Forcing the enemy to learn Ukrainian. Palianytsia, Peklo, Ruta. Making them tremble at the words Neptune and Sapsan. All these are our missiles. Ukrainian. Hor, Vampire, Kolibri, Kamik, Liutyi, Heavy Shot, Firepoint. All these are our drones. Ukrainian. And all these are our arguments, the arguments for a just peace. It is achieved only by the strong. And we have proven time and again that we are strong. Our athletes. Oleksandr Khyzhniak, our Tank. Olga Kharlan, Yaroslava Mahuchikh, all our Olympians and Paralympians, for whom we cheered, worried, and screamed with joy and pride when the blue and yellow flag was raised. We took the hits and fought back alongside Oleksandr Usyk. All of this is about something bigger than just sports. It’s about our character. It’s about who we are and what we are capable of. It’s about meanings and symbols. It’s about Sashko’s fights, like Ukraine’s daily battles, showing us: it doesn't matter how much bigger the enemy is compared to you, what matters is how much bigger your will is. Then it takes the breath away of the whole world! And all the leaders told me frankly: \"We've never seen anything like this – when a full hall of Notre-Dame de Paris is applauding.\" And those were applause for you. For all our people. This is what respect for Ukraine sounds like. This is what Independence is. It’s when we don’t give up what’s ours. And when we don’t forget our people. Those who are in captivity. And we will fight for every person who, unfortunately, is still there. And we will fight for all those whom Russia has forced into occupation; but couldn’t occupy their Ukrainian hearts. And no matter how many passports evil hands out at gunpoint, our people say: \"You are not our kin, you are temporary.\" And all those imposed weeds will not take root on our land, will not defeat the natives. I always recall the story about one of our Ukrainian elderly men, whom the occupiers asked: \"What time is it?\" And he answered: \"Time to get off our land.\" This is what the inner will is, which simply cannot be occupied. And I turn to all those who carry this will in their hearts on the temporarily occupied territories. Dear Ukrainians! I know you are celebrating the New Year according to our time, and now you hear these words. In our Crimea, in Donbas, in Melitopol, in Mariupol – everywhere where Ukraine is awaited. And where, one day, Ukraine will return to be together. And the only thing that will divide Ukrainians is a generously laid table. I know that all our people will be at this table. Those who are now abroad but have kept Ukraine in their hearts. So today, in the first minute of the New Year, in Warsaw, New York, or Buenos Aires, \"Shche ne vmerla…\" will sound. In Berlin, Prague or Tokyo, people will say today: “Glory to Ukraine!” And the world will respond: “Glory to the Heroes!” Because Ukraine is not alone. Because we have our friends with us. Since the first minutes of this war, America has stood with Ukraine. I believe that America will also stand with Ukraine in the first minutes of peace. I remember my conversation with Joe Biden after the Russian invasion. I remember my conversation with Donald Trump after he was elected. All the conversations with Congressmen, Senators, ordinary Americans, with all those who support us in the US, in Europe, and around the world – in those many and varied conversations, there was always unity on the main point: Putin cannot win. Ukraine will prevail. I thank all Americans for proving these words with deeds. I have no doubt that the new American President is willing and capable of achieving peace and ending Putin’s aggression. He understands that the first is impossible without the second. Because this is not a street fight where you have to calm down both sides. This is the full-scale aggression of a mad state against a civilized one. And I believe that we, together with the United States, are capable of exerting that force. Of compelling Russia into a just peace. That means not forgetting, and not erasing everything Russia has done. Bucha, Olenivka, Avdiivka, all our destroyed towns and villages. This is why a truly just peace cannot be based on the principle of “let’s start with a clean slate.” Because the score is not 0:0. The score is thousands, thousands of Ukrainians whose lives Russia has stolen. And today, the heart of Ukraine is covered with scars. These are the names of our fallen heroes. May God protect every family in the world from experiencing such losses. I would not wish any leader in the world to experience these feelings – the moment you hand over awards posthumously. You see the eyes of a mother, a wife, or a child of a warrior who gave their life for Ukraine, and you hear them say: \"Please, let it all not be in vain.\" Thousands of our guys and girls have not faded into oblivion. They are with us, they are by our side, always, they are watching over us from the heavens. And we have no right to let them down, and we cannot betray their feat and memory. And every day in the coming year, I, and all of us, must fight for a Ukraine that is strong enough. Because only such a Ukraine is respected and heard. Both on the battlefield and at the negotiating table. I thank everyone who has stood by us this year. Our partners, allies, friends, leaders. Leaders indeed, not because it is customary to call them that, but because they prove their leadership by their actions. Those who were not afraid to come to Ukraine, knowing how valuable it is to see us standing shoulder to shoulder. With whom, despite the distance and time difference, we worked together, found solutions and achieved results. Patriots, IRIS-Ts, NASAMS and ATACMS systems, F-16s, SCALPs, Storm Shadows. The Czech initiative and a million shells. The Danish model and hundreds of millions in our domestic production. 27 security agreements and 40 billion to support our army. The European Union and 50 billion to support our economy. The G7 and the decision on 50 billion dollars of frozen Russian assets. This is our great international work. This is our great international victory. I thank our partners, thank you for this; I thank our team. The Army, the Government, the Office, the Parliament, the regions, the communities, the volunteers. All those who strengthen our country from within and care about people. I thank everyone thanks to whom Ukraine is standing and will stand. It will overcome its path to peace, to a strong Ukraine. And to a European Ukraine. And these are not just words, but a reality that began this June with the opening of negotiations on Ukraine's accession to the EU. And this is a historic result. And this path is irreversible. And Ukraine will be in the European Union. And one day Ukraine will be in NATO and will strengthen the Alliance. It will strengthen the stability of the world. The unity of Europe, which determines the destiny of every nation on the continent. And this unity must be respected by all. By both Budapest and Bratislava. I know the Hungarian and Slovak peoples are actually with us, with Ukraine, with Ukrainians, on the side of truth. The authorities of these countries should also acknowledge the truth. There is no need to be afraid of Ukraine being in Europe. We must do everything to prevent Russia from being in Europe. Its tanks, its missiles, and the evil it will surely spread further if Ukraine does not withstand. If Russia shakes your hand today, it does not mean that tomorrow, it will not start killing you with the same hand. Because Russians are afraid of the free people. Of what they are not familiar with. They are afraid of freedom. They were born under Putin, went to school under Putin, joined the army under Putin and are dying for his sick ideas. And that is why it is so crucial today to support all peoples who defend freedom. Those who refuse to give it up in Chișinău. Those who are fighting for their future in Tbilisi. And I am sure that the day will come when we will all say: \"Long Live Belarus!\" Dear Ukrainians! May 2025 be our year. The year of Ukraine. We know that peace will not be given to us as a gift. But we will do everything to stop Russia and end the war. This is what each of us wishes for. Behind all of us stands Mother Ukraine. And she deserves to live in peace. I wish this to all of us. And as the President of Ukraine, as well as a citizen, I will do everything to achieve it in the coming year. Knowing that I will not be alone. I know that you stand shoulder to shoulder with me – millions of Ukrainians. Strong. Free. Beautiful. Independent. Happy New Year, dear people! Happy New Year, Ukraine! Glory to Ukraine!",
           "bredd": 2422,
           "hojd": 1817,
@@ -1438,29 +1598,9 @@
             "Volodymyr Zelenskyy in December 2024"
           ],
           "smal": false
-        },
-        {
-          "fil": "File:New Year's Greetings from President of Ukraine Volodymyr Zelenskyy. (54238702399).jpg",
-          "filsida": "https://commons.wikimedia.org/wiki/File:New_Year%27s_Greetings_from_President_of_Ukraine_Volodymyr_Zelenskyy._(54238702399).jpg",
-          "kalla": "commons-sok",
-          "licens": "CC0",
-          "licensklass": "cc0",
-          "licensstatus": "trolig",
-          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-          "upphovsperson": "President Of Ukraine from Україна",
-          "datum": "2024-12-31 20:36",
-          "beskrivning": "Dear People! Behind me stands Mother Ukraine. Ukraine that stands firmly on its feet, does not bow its head, looks ahead, believes in its future and victory over all the evil that Russia has brought us. Ukraine that is capable of achieving a just peace – having a shield and a sword. Defending its people, its colors, its Independence. Today I address all those who value Ukraine, cherish their state, and lovingly call it “Mine.” I thank you for 2024. Our people who endure all difficulties with dignity. People for whom being citizens of Ukraine is a source of pride. And for me, it is a pride to be the President of such people – Ukrainians who prove that no cruise missile can defeat a nation that has wings. Throughout this leap year, we have proven it every day. And we saw it yesterday. When we were uplifted with happiness because 189 Ukrainians returned from captivity to their native land. Because they will celebrate the New Year at home. Because we are bringing our people back. 1,358 people this year. 3,956 Ukrainians during this time. And I’m giving not estimates but precise numbers, because each one represents a person, our person, a very important person. And with each return – we bring life back to Ukraine. And every time this happens, we all cry. It doesn’t matter if it’s a moved mother, or it’s a child who finally has their father back, or the President of Ukraine – we all cry because we are all human, and we have kept the light within us. And it helped us endure through over 1,000 days. To be brave when it was needed most. To be strong when it was so vital. As did our teachers, our medics, our power engineers, our transport workers, as did all our air defense personnel, mobile fire groups. The guys who brought down 1,310 cruise and ballistic missiles this year, and 7800 Iranian “Shahed” drones. Bravo! We are proud! Thank you! We lived through this year together. We overcame everything 2024 brought together. Victories and setbacks. Joys and challenges. Tears of happiness when we succeeded. And tears of pain when our hearts were wounded. July. Morning. Okhmatdyt. That’s how weaklings and cowards strike. And we will never forget those children’s eyes. We will never forgive them for this! When evil brings death, our response is a human chain. This is what the strength of Ukrainians looks like. And that unity of ours could be seen from space. God saw it. He saw what kind of people we have. What kind of children we have. And I will never forget those incredibly mature and strong eyes of the boy from Okhmatdyt. How much life is in him, energy and dignity! And how much stronger this child alone is than Putin! How much stronger all our children are than their entire evil. Ukrainian boys and girls who are winning this war, gaining knowledge online and even in underground schools, winning global science competitions, raising funds for our army, and inventing technological solutions that help with our defense. You are a phenomenal generation! This is who we are fighting for. This is who our heroes, our warriors, protect above all. Those who stand firm and carry Independence on their shoulders. Where freedom and valor fight every day – even now, on this New Year's night. On all our fronts. On all of them. In the east, where it’s extremely, extremely difficult and challenging right now. But we believe, we know: you will stand strong. Our guys will stand strong. Your spirit and courage will stand strong. All the things that helped you not to surrender our Sumy and Kharkiv, our Kherson and our Zaporizhzhia this year. And the Russians wanted it so badly. But instead – you paid the occupiers back, bringing the war back home to Russia. And the one who sowed evil on our land received it on their own. In the Kursk region and in other places where our response, our justice, came this year. Justice. Just one word, but behind it stand hundreds of thousands of our people. Our defense industry and our science. Whose minds and work have made us stronger, because 30% of everything our guys had on the battlefield this year – all this was made in Ukraine. And at one of these facilities, I asked a young engineer: \"How did you manage to achieve so much? How were these people able to do all of this?\" And the young man joked: \"They're not just people, they're missiles.\" And you know, at that moment, I felt ashamed as a citizen that since the 90s, the state hadn’t noticed such people of ours. And I am proud, when meeting them throughout the year I hear: they are happy to be needed by Ukraine. And that Ukraine is once again building its own, its own missiles. And for the first time, it produces over a million drones in a year. Forcing the enemy to learn Ukrainian. Palianytsia, Peklo, Ruta. Making them tremble at the words Neptune and Sapsan. All these are our missiles. Ukrainian. Hor, Vampire, Kolibri, Kamik, Liutyi, Heavy Shot, Firepoint. All these are our drones. Ukrainian. And all these are our arguments, the arguments for a just peace. It is achieved only by the strong. And we have proven time and again that we are strong. Our athletes. Oleksandr Khyzhniak, our Tank. Olga Kharlan, Yaroslava Mahuchikh, all our Olympians and Paralympians, for whom we cheered, worried, and screamed with joy and pride when the blue and yellow flag was raised. We took the hits and fought back alongside Oleksandr Usyk. All of this is about something bigger than just sports. It’s about our character. It’s about who we are and what we are capable of. It’s about meanings and symbols. It’s about Sashko’s fights, like Ukraine’s daily battles, showing us: it doesn't matter how much bigger the enemy is compared to you, what matters is how much bigger your will is. Then it takes the breath away of the whole world! And all the leaders told me frankly: \"We've never seen anything like this – when a full hall of Notre-Dame de Paris is applauding.\" And those were applause for you. For all our people. This is what respect for Ukraine sounds like. This is what Independence is. It’s when we don’t give up what’s ours. And when we don’t forget our people. Those who are in captivity. And we will fight for every person who, unfortunately, is still there. And we will fight for all those whom Russia has forced into occupation; but couldn’t occupy their Ukrainian hearts. And no matter how many passports evil hands out at gunpoint, our people say: \"You are not our kin, you are temporary.\" And all those imposed weeds will not take root on our land, will not defeat the natives. I always recall the story about one of our Ukrainian elderly men, whom the occupiers asked: \"What time is it?\" And he answered: \"Time to get off our land.\" This is what the inner will is, which simply cannot be occupied. And I turn to all those who carry this will in their hearts on the temporarily occupied territories. Dear Ukrainians! I know you are celebrating the New Year according to our time, and now you hear these words. In our Crimea, in Donbas, in Melitopol, in Mariupol – everywhere where Ukraine is awaited. And where, one day, Ukraine will return to be together. And the only thing that will divide Ukrainians is a generously laid table. I know that all our people will be at this table. Those who are now abroad but have kept Ukraine in their hearts. So today, in the first minute of the New Year, in Warsaw, New York, or Buenos Aires, \"Shche ne vmerla…\" will sound. In Berlin, Prague or Tokyo, people will say today: “Glory to Ukraine!” And the world will respond: “Glory to the Heroes!” Because Ukraine is not alone. Because we have our friends with us. Since the first minutes of this war, America has stood with Ukraine. I believe that America will also stand with Ukraine in the first minutes of peace. I remember my conversation with Joe Biden after the Russian invasion. I remember my conversation with Donald Trump after he was elected. All the conversations with Congressmen, Senators, ordinary Americans, with all those who support us in the US, in Europe, and around the world – in those many and varied conversations, there was always unity on the main point: Putin cannot win. Ukraine will prevail. I thank all Americans for proving these words with deeds. I have no doubt that the new American President is willing and capable of achieving peace and ending Putin’s aggression. He understands that the first is impossible without the second. Because this is not a street fight where you have to calm down both sides. This is the full-scale aggression of a mad state against a civilized one. And I believe that we, together with the United States, are capable of exerting that force. Of compelling Russia into a just peace. That means not forgetting, and not erasing everything Russia has done. Bucha, Olenivka, Avdiivka, all our destroyed towns and villages. This is why a truly just peace cannot be based on the principle of “let’s start with a clean slate.” Because the score is not 0:0. The score is thousands, thousands of Ukrainians whose lives Russia has stolen. And today, the heart of Ukraine is covered with scars. These are the names of our fallen heroes. May God protect every family in the world from experiencing such losses. I would not wish any leader in the world to experience these feelings – the moment you hand over awards posthumously. You see the eyes of a mother, a wife, or a child of a warrior who gave their life for Ukraine, and you hear them say: \"Please, let it all not be in vain.\" Thousands of our guys and girls have not faded into oblivion. They are with us, they are by our side, always, they are watching over us from the heavens. And we have no right to let them down, and we cannot betray their feat and memory. And every day in the coming year, I, and all of us, must fight for a Ukraine that is strong enough. Because only such a Ukraine is respected and heard. Both on the battlefield and at the negotiating table. I thank everyone who has stood by us this year. Our partners, allies, friends, leaders. Leaders indeed, not because it is customary to call them that, but because they prove their leadership by their actions. Those who were not afraid to come to Ukraine, knowing how valuable it is to see us standing shoulder to shoulder. With whom, despite the distance and time difference, we worked together, found solutions and achieved results. Patriots, IRIS-Ts, NASAMS and ATACMS systems, F-16s, SCALPs, Storm Shadows. The Czech initiative and a million shells. The Danish model and hundreds of millions in our domestic production. 27 security agreements and 40 billion to support our army. The European Union and 50 billion to support our economy. The G7 and the decision on 50 billion dollars of frozen Russian assets. This is our great international work. This is our great international victory. I thank our partners, thank you for this; I thank our team. The Army, the Government, the Office, the Parliament, the regions, the communities, the volunteers. All those who strengthen our country from within and care about people. I thank everyone thanks to whom Ukraine is standing and will stand. It will overcome its path to peace, to a strong Ukraine. And to a European Ukraine. And these are not just words, but a reality that began this June with the opening of negotiations on Ukraine's accession to the EU. And this is a historic result. And this path is irreversible. And Ukraine will be in the European Union. And one day Ukraine will be in NATO and will strengthen the Alliance. It will strengthen the stability of the world. The unity of Europe, which determines the destiny of every nation on the continent. And this unity must be respected by all. By both Budapest and Bratislava. I know the Hungarian and Slovak peoples are actually with us, with Ukraine, with Ukrainians, on the side of truth. The authorities of these countries should also acknowledge the truth. There is no need to be afraid of Ukraine being in Europe. We must do everything to prevent Russia from being in Europe. Its tanks, its missiles, and the evil it will surely spread further if Ukraine does not withstand. If Russia shakes your hand today, it does not mean that tomorrow, it will not start killing you with the same hand. Because Russians are afraid of the free people. Of what they are not familiar with. They are afraid of freedom. They were born under Putin, went to school under Putin, joined the army under Putin and are dying for his sick ideas. And that is why it is so crucial today to support all peoples who defend freedom. Those who refuse to give it up in Chișinău. Those who are fighting for their future in Tbilisi. And I am sure that the day will come when we will all say: \"Long Live Belarus!\" Dear Ukrainians! May 2025 be our year. The year of Ukraine. We know that peace will not be given to us as a gift. But we will do everything to stop Russia and end the war. This is what each of us wishes for. Behind all of us stands Mother Ukraine. And she deserves to live in peace. I wish this to all of us. And as the President of Ukraine, as well as a citizen, I will do everything to achieve it in the coming year. Knowing that I will not be alone. I know that you stand shoulder to shoulder with me – millions of Ukrainians. Strong. Free. Beautiful. Independent. Happy New Year, dear people! Happy New Year, Ukraine! Glory to Ukraine!",
-          "bredd": 3000,
-          "hojd": 2001,
-          "mime": "image/jpeg",
-          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/New_Year%27s_Greetings_from_President_of_Ukraine_Volodymyr_Zelenskyy._%2854238702399%29.jpg/960px-New_Year%27s_Greetings_from_President_of_Ukraine_Volodymyr_Zelenskyy._%2854238702399%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-          "kategorier": [
-            "Mother Ukraine",
-            "Volodymyr Zelenskyy in December 2024"
-          ],
-          "smal": false
         }
-      ]
+      ],
+      "soktext": "Denmark joins the European Communities"
     },
     {
       "id": "aryabhata-indiens-forsta-satellit",
@@ -1469,7 +1609,7 @@
       "start": 1975,
       "varldsdel": "Europa",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q19706",
       "kandidater": [
@@ -1483,6 +1623,9 @@
           "licensadress": null,
           "upphovsperson": "ISRO",
           "datum": "2010-04-21 06:33:27",
+          "datum_original": null,
+          "datum_fil": "2010-04-21 06:33:27",
+          "kredit": "https://imagine.gsfc.nasa.gov/science/toolbox/missions/aryabhata.html",
           "beskrivning": "Aryabhata was India's first satellite and was designed for studies of X-ray astronomy, aeronomics and solar physics. Unfortunately, a power failure halted experiments after 4 days in orbit, and all signals from the spacecraft were lost after 5 days of operation.",
           "bredd": 484,
           "hojd": 381,
@@ -1502,7 +1645,7 @@
       "start": 1975,
       "varldsdel": "Europa",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q42262",
       "kandidater": [
@@ -1516,6 +1659,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0/igo/deed.en",
           "upphovsperson": "ESA/P. Sebirot, CC BY-SA 3.0 IGO",
           "datum": "2023-11-23",
+          "datum_original": "2023-11-23",
+          "datum_fil": "2025-03-21 13:35:04",
+          "kredit": "https://www.esa.int/ESA_Multimedia/Images/2023/11/ESA_s_headquarters_Mario_Nikis",
           "beskrivning": "ESA Headquarters in Paris, France, European Union, is located in the 15th Arrondissement",
           "bredd": 5000,
           "hojd": 3712,
@@ -1536,7 +1682,7 @@
       "start": 1986,
       "varldsdel": "Europa",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q486",
       "kandidater": [
@@ -1550,6 +1696,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
           "upphovsperson": "IAEA Imagebank",
           "datum": "1986-04-26",
+          "datum_original": "1986-04-26",
+          "datum_fil": "2024-06-25 22:04:26",
+          "kredit": "02790015",
           "beskrivning": "Historical collections of the Chernobyl accident from the Ukrainian Society for Friendship and Cultural Relations with Foreign Countries (USFCRFC). April 26, 1986, signified the boundary between life and death. A new reckoning of time began. This photo was taken from a helicopter several months after the explosion. The destroyed Chernobyl reactor, one of four units operating at the site in Ukraine in 1986. No units operate today. (Chernobyl, Ukraine, 1986) Copyright: IAEA Imagebank Photo Credit: USFCRFC",
           "bredd": 1328,
           "hojd": 2040,
@@ -1576,14 +1725,14 @@
       "start": 1988,
       "varldsdel": "Europa",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q171183",
+      "kandidater": [],
       "soktext": "The UN climate panel IPCC is created Geneva",
       "anmarkningar": [
         "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
-      "kandidater": []
+      ]
     },
     {
       "id": "sametinget-inrattas",
@@ -1592,14 +1741,14 @@
       "start": 1993,
       "varldsdel": "Europa",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q2509723",
+      "kandidater": [],
       "soktext": "The Sámi Parliament of Sweden is established Kiruna",
       "anmarkningar": [
         "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
-      "kandidater": []
+      ]
     },
     {
       "id": "sverige-gar-med-i-eu",
@@ -1608,7 +1757,7 @@
       "start": 1995,
       "varldsdel": "Europa",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q4590816",
       "kandidater": [
@@ -1622,6 +1771,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/2.5",
           "upphovsperson": "Europe_countries.svg : Júlio Reis derivative work: Kolja21 ( talk )",
           "datum": "2009-05-18 23:11",
+          "datum_original": "2009-05-18 23:11",
+          "datum_fil": "2014-02-01 10:13:43",
+          "kredit": "EU15-1995_European_Union_map.svg",
           "beskrivning": "European Union (EU 15)",
           "bredd": 680,
           "hojd": 520,
@@ -1642,7 +1794,7 @@
       "start": 1997,
       "varldsdel": "Europa",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q103659",
       "kandidater": [
@@ -1656,6 +1808,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/2.0",
           "upphovsperson": "Johan Wessman / News Oresund",
           "datum": "Taken on 8 May 2020, 11:34:06 (according to Exif data)",
+          "datum_original": "Taken on 8 May 2020, 11:34:06 (according to Exif data)",
+          "datum_fil": "2021-03-11 18:00:20",
+          "kredit": "20200508 Radhus Skane Stora Torg Kristianstad 005",
           "beskrivning": "Rådhus Skåne vid Stora Torg i Kristianstad. En gemensam byggnad för Kristianstads kommuns och Region Skånes centrala och politiska administrationer. Photo: News Øresund - Johan Wessman © News Øresund - Johan Wessman (CC BY 3.0) Detta verk av News Øresund är licensierat under en Creative Commons Erkännande 3.0 Unported-licens (CC BY 3.0). Bilden får fritt publiceras under förutsättning att källa anges. .The picture can be used freely under the prerequisite that the source is given. News Øresund, Malmö, Sweden News Øresund är en oberoende regional nyhetsbyrå som är en del av det oberoende dansk-svenska kunskapscentrat Øresundsinstituttet.",
           "bredd": 6000,
           "hojd": 4000,
@@ -1677,7 +1832,7 @@
       "start": 1999,
       "varldsdel": "Europa",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q4916",
       "kandidater": [
@@ -1691,6 +1846,9 @@
           "licensadress": null,
           "upphovsperson": "The RedBurn",
           "datum": "2026-04-22",
+          "datum_original": "2026-04-22",
+          "datum_fil": "2026-04-22 19:29:35",
+          "kredit": "File:EUR 5 obverse (2013 issue).png , File:EUR 10 obverse (2014 issue).png , File:The Europa series 20 € obverse side.jpg , File:The Europa series 50 € obverse side.png , File:The Europa series 100 € obverse side.jpg , File:The Europa series 200 € obverse side.jpg",
           "beskrivning": "Euro Banknotes Europa series as of 28th May 2019",
           "bredd": 1280,
           "hojd": 959,
@@ -1712,6 +1870,9 @@
           "licensadress": null,
           "upphovsperson": "Avij ( talk · contribs )",
           "datum": "2006-10-14",
+          "datum_original": "2006-10-14",
+          "datum_fil": "2006-10-28 14:40:55",
+          "kredit": "Own work",
           "beskrivning": "A picture of some Euro banknotes and various Euro coins .",
           "bredd": 2272,
           "hojd": 1704,

@@ -8,7 +8,7 @@
     "troliga": 57,
     "flaggade": 0,
     "avvisade": 0,
-    "smala": 16,
+    "smala": 15,
     "ej_hamtade": 0
   },
   "handelser": [
@@ -19,7 +19,7 @@
       "start": 541,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q821711",
       "kandidater": [
@@ -33,6 +33,9 @@
           "licensadress": null,
           "upphovsperson": null,
           "datum": "early 6th century",
+          "datum_original": "early 6th century",
+          "datum_fil": "2011-03-26 14:00:42",
+          "kredit": "Marie-Lan Nguyen (2011)",
           "beskrivning": "Barberini diptych. Constantinople, Late Roman Theodosian style.",
           "bredd": 2500,
           "hojd": 3125,
@@ -53,6 +56,9 @@
           "licensadress": null,
           "upphovsperson": "U.S. Center for Disease Control",
           "datum": "2005-03-30",
+          "datum_original": "2005-03-30",
+          "datum_fil": "2006-10-28 18:45:22",
+          "kredit": "https://www.cdc.gov/ncidod/dvbid/plague/bacterium.htm",
           "beskrivning": "Wayson stain of Yersinia pestis. Note the characteristic \"safety pin\" appearance of the bacteria.",
           "bredd": 600,
           "hojd": 441,
@@ -72,7 +78,7 @@
       "start": 622,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q275918",
       "kandidater": [
@@ -86,6 +92,9 @@
           "licensadress": null,
           "upphovsperson": "DieBuche",
           "datum": "2010-07-03",
+          "datum_original": "2010-07-03",
+          "datum_fil": "2022-08-27 18:16:50",
+          "kredit": "Own work using: http://guides.library.iit.edu/content.php?pid=27903&sid=322018 ( archive1 , archive2 ) (via Image:Age_of_Caliphs.png ) Image:BlankMap-World6.svg The Times Concise Atlas of World History ed. by Geoffrey Barraclough published by Times Books Ltd. ISBN 0-7230-0274-6 pp. 40-41.",
           "beskrivning": "Age of the Caliphs Expansion under Muhammad, 622-632 (darkest red) Expansion during the Rashidun Caliphate, 632-661 (medium tone) Expansion during the Umayyad Caliphate, 661-750 Shows modern borders.(lightest tone)",
           "bredd": 900,
           "hojd": 413,
@@ -111,7 +120,7 @@
       "start": 636,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q815154",
       "kandidater": [
@@ -125,6 +134,9 @@
           "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
           "upphovsperson": "Barbara Kabel",
           "datum": "1982",
+          "datum_original": "1982",
+          "datum_fil": "2006-07-10 15:10:16",
+          "kredit": "Own work",
           "beskrivning": "Al Jamea Al Qebli i Jerusalem",
           "bredd": 1600,
           "hojd": 1050,
@@ -144,7 +156,7 @@
       "start": 636,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q836844",
       "kandidater": [
@@ -158,6 +170,9 @@
           "licensadress": null,
           "upphovsperson": "Unknown artist Unknown artist",
           "datum": "January 1614 date QS:P571,+1614-01-00T00:00:00Z/10",
+          "datum_original": "January 1614 date QS:P571,+1614-01-00T00:00:00Z/10",
+          "datum_fil": "2013-02-18 04:53:29",
+          "kredit": "http://dglnotes.com/notes/qadisiyyah.htm#image4",
           "beskrivning": "Depiction of the Battle of al-Qādisiyyah from a manuscript of the Persian epic Shāh-nāmeh from Astarabad. Source- British Library (MS. I.O.Islamic 3265 (1614) f. 602r)",
           "bredd": 524,
           "hojd": 800,
@@ -180,13 +195,9 @@
       "start": 637,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q2700721",
-      "soktext": "The Battle of Jalula Jalula",
-      "anmarkningar": [
-        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
       "kandidater": [
         {
           "fil": "File:BATTLE DISPOSITION 1-jalula.JPG",
@@ -198,6 +209,9 @@
           "licensadress": null,
           "upphovsperson": "Mohkum Shabbir",
           "datum": "2009-11-27 06:52:12",
+          "datum_original": null,
+          "datum_fil": "2009-11-27 06:52:12",
+          "kredit": "Own work",
           "beskrivning": "Battle of jalula disposition on eve of battle",
           "bredd": 738,
           "hojd": 468,
@@ -218,6 +232,9 @@
           "licensadress": null,
           "upphovsperson": "Mohkum Shabbir",
           "datum": "2009-11-26",
+          "datum_original": "2009-11-26",
+          "datum_fil": "2009-11-27 07:28:09",
+          "kredit": "Own work",
           "beskrivning": "phase 1 of jalula",
           "bredd": 738,
           "hojd": 468,
@@ -238,6 +255,9 @@
           "licensadress": null,
           "upphovsperson": "Mohkum Shabbir",
           "datum": "2009-11-26",
+          "datum_original": "2009-11-26",
+          "datum_fil": "2009-11-27 08:45:45",
+          "kredit": "Own work",
           "beskrivning": "the fourth phase",
           "bredd": 738,
           "hojd": 468,
@@ -258,6 +278,9 @@
           "licensadress": null,
           "upphovsperson": "Mohkum Shabbir",
           "datum": "2009-11-26",
+          "datum_original": "2009-11-26",
+          "datum_fil": "2009-11-27 08:40:56",
+          "kredit": "Template:Akram, A.I (1975), Muslim conquest of Persia, ISBN 0-71010-104-X",
           "beskrivning": "battle of jaluala phase 2",
           "bredd": 738,
           "hojd": 468,
@@ -278,6 +301,9 @@
           "licensadress": null,
           "upphovsperson": "Mohkum Shabbir",
           "datum": "2009-11-26",
+          "datum_original": "2009-11-26",
+          "datum_fil": "2009-11-27 08:48:51",
+          "kredit": "Own work",
           "beskrivning": "Qaqa's outflanking maneuver",
           "bredd": 738,
           "hojd": 468,
@@ -288,6 +314,10 @@
           ],
           "smal": true
         }
+      ],
+      "soktext": "The Battle of Jalula Jalula",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
       ]
     },
     {
@@ -297,7 +327,7 @@
       "start": 642,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q603549",
       "kandidater": [
@@ -311,6 +341,9 @@
           "licensadress": null,
           "upphovsperson": "Eugène Flandin",
           "datum": "1840",
+          "datum_original": "1840",
+          "datum_fil": "2013-10-25 08:01:48",
+          "kredit": "Voyage en Perse, avec Flandin, éd. Gide et Baudry, 1851",
           "beskrivning": "Castle Nahavend",
           "bredd": 1907,
           "hojd": 990,
@@ -334,7 +367,7 @@
       "start": 750,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q289492",
       "kandidater": [
@@ -348,6 +381,9 @@
           "licensadress": null,
           "upphovsperson": "Unknown author",
           "datum": "1962",
+          "datum_original": "1962",
+          "datum_fil": "2020-10-03 17:16:34",
+          "kredit": "Taken from a book entitled \"المُصوَّر في التاريخ\" first published in Lebanon in 1962, Dar Al-'ilm lilmalayeen (دار العلم للملايين).",
           "beskrivning": "Battle of the Great Zāb River between the Umayyads and the Abbasids.",
           "bredd": 1220,
           "hojd": 941,
@@ -368,7 +404,7 @@
       "start": 754,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q33018",
       "kandidater": [
@@ -382,6 +418,9 @@
           "licensadress": null,
           "upphovsperson": "Zereshk",
           "datum": "13 th century date QS:P,+1250-00-00T00:00:00Z/7",
+          "datum_original": "13 th century date QS:P,+1250-00-00T00:00:00Z/7",
+          "datum_fil": "2023-06-14 02:13:41",
+          "kredit": "Own work",
           "beskrivning": "Manuscript with depiction by Yahya ibn Vaseti found in the Maqama of Hariri located at the Bibliotheque Nationale de France. Image depicts a library with pupils in it.",
           "bredd": 974,
           "hojd": 989,
@@ -403,11 +442,11 @@
       "start": 1024,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The Song state issues the first government banknotes Chengdu in Sichuan",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "The Song state issues the first government banknotes Chengdu in Sichuan"
     },
     {
       "id": "byodo-in-blir-tempel",
@@ -416,11 +455,11 @@
       "start": 1052,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Byōdō-in in Uji becomes a Buddhist temple",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Byōdō-in in Uji becomes a Buddhist temple"
     },
     {
       "id": "shwezigonpagoden",
@@ -429,11 +468,11 @@
       "start": 1059,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The Shwezigon Pagoda of the Pagan kingdom is built Nyaung-U near Bagan",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "The Shwezigon Pagoda of the Pagan kingdom is built Nyaung-U near Bagan"
     },
     {
       "id": "nizamiyya-i-bagdad",
@@ -442,11 +481,11 @@
       "start": 1065,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The Nizamiyya, a college in Baghdad, is founded Baghdad",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "The Nizamiyya, a college in Baghdad, is founded Baghdad"
     },
     {
       "id": "kutadgu-bilig",
@@ -455,11 +494,11 @@
       "start": 1069,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The Kutadgu Bilig is written for the prince of Kashgar Kashgar in Xinjiang",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "The Kutadgu Bilig is written for the prince of Kashgar Kashgar in Xinjiang"
     },
     {
       "id": "jalalikalendern",
@@ -468,11 +507,11 @@
       "start": 1079,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The Seljuks introduce the Jalali calendar Isfahan",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "The Seljuks introduce the Jalali calendar Isfahan"
     },
     {
       "id": "shen-kuo-magnetkompassen",
@@ -481,11 +520,11 @@
       "start": 1088,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Shen Kuo describes the magnetic compass",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Shen Kuo describes the magnetic compass"
     },
     {
       "id": "belagringen-av-edessa-1144",
@@ -494,7 +533,7 @@
       "start": 1144,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q2083368",
       "kandidater": [
@@ -508,6 +547,9 @@
           "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
           "upphovsperson": "No machine-readable author provided. Gerry Lynch~commonswiki assumed (based on copyright claims).",
           "datum": "24 August 2005 (original upload date)",
+          "datum_original": "24 August 2005 (original upload date)",
+          "datum_fil": "2005-08-24 20:50:23",
+          "kredit": "No machine-readable source provided. Own work assumed (based on copyright claims).",
           "beskrivning": "Urfa Castle in South Eastern Turkey, whose towering columns were built by the Romans. (C) Gerry Lynch, 2003.",
           "bredd": 879,
           "hojd": 527,
@@ -529,6 +571,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Amitchell125",
           "datum": "2021-04-18",
+          "datum_original": "2021-04-18",
+          "datum_fil": "2024-09-08 12:27:42",
+          "kredit": "Own work",
           "beskrivning": "The Crusader States in 1135",
           "bredd": 966,
           "hojd": 1322,
@@ -553,7 +598,7 @@
       "start": 1180,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q737542",
       "kandidater": [
@@ -567,6 +612,9 @@
           "licensadress": null,
           "upphovsperson": "Motonobu Denkinobu (伝狩野元信)",
           "datum": "室町時代～戦国時代？",
+          "datum_original": "室町時代～戦国時代？",
+          "datum_fil": "2009-10-22 17:26:16",
+          "kredit": "\"Genpei Battle Figure Folding Screen\" Collection of Akama Jingu",
           "beskrivning": "\"Genpei Battle Screen\" Left screen with six leaves (of a pair), H. 61.6; L. 153 cm. Scene from the Genpei War (1180-1185). Kano Motonobu, (1476-1569), Muromachi period (1336 and 1573). Akama-jingū shrine collection.",
           "bredd": 4904,
           "hojd": 2032,
@@ -590,7 +638,7 @@
       "start": 1180,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q1887494",
       "kandidater": [
@@ -604,6 +652,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "Oilstreet ( talk )",
           "datum": "2010-03-12",
+          "datum_original": "2010-03-12",
+          "datum_fil": "2010-04-04 06:20:48",
+          "kredit": "Own work",
           "beskrivning": "Byōdō-in Phoenix Hall, Uji , Kyoto prefecture , Japan , 1059.",
           "bredd": 3000,
           "hojd": 2000,
@@ -624,13 +675,9 @@
       "start": 1183,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q2889028",
-      "soktext": "The Battle of Kurikara Kurikara Pass",
-      "anmarkningar": [
-        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
       "kandidater": [
         {
           "fil": "File:Kurikara Station - Staircase.jpg",
@@ -642,6 +689,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/4.0",
           "upphovsperson": "Fred Cherrygarden",
           "datum": "2025-01-21 11:07:32",
+          "datum_original": "2025-01-21 11:07:32",
+          "datum_fil": "2025-01-24 14:37:48",
+          "kredit": "Own work",
           "beskrivning": "The staircase at Kurikara Station, Tsubata, with art depicting the “fiery bull” used in the Battle of Kurikara Pass.",
           "bredd": 4000,
           "hojd": 6000,
@@ -664,6 +714,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Shun Zero",
           "datum": "2015-08-10 16:17:53",
+          "datum_original": "2015-08-10 16:17:53",
+          "datum_fil": "2015-09-25 07:51:22",
+          "kredit": "Own work",
           "beskrivning": "The statue of a devine horse. The commemorative victory of Yoshinaka Minamoto(Minamoto no Yoshinaka), his army won and annihilated the ten times outnumbered army of Heike clan at the battle of Valley Kurikara. He donated his 20 horses in return as the gratitude for the support in the incredible victory in the spring, 1183.",
           "bredd": 640,
           "hojd": 480,
@@ -685,6 +738,9 @@
           "licensadress": null,
           "upphovsperson": "Katsukawa Shuntei, 1770-1820, artist",
           "datum": "1810",
+          "datum_original": "1810",
+          "datum_fil": "2020-11-29 05:35:40",
+          "kredit": "Library of Congress Catalog: https://lccn.loc.gov/2008660462 Image download: https://cdn.loc.gov/service/pnp/jpd/01600/01689v.jpg Original url: https://www.loc.gov/pictures/item/2008660462/",
           "beskrivning": "The battle of Kurikaradani (Kurikaradani Kassen zu). It occurred on June 2, 1183. Abstract/medium: 1 print (3 sheets) : woodcut, color ; 37.1 x 25.4 cm (left panel), 37 x 25 cm (center panel), 37.4 x 25.6 cm (right panel)",
           "bredd": 8498,
           "hojd": 4293,
@@ -707,6 +763,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/4.0",
           "upphovsperson": "Fred Cherrygarden",
           "datum": "2025-01-21 11:09:03",
+          "datum_original": "2025-01-21 11:09:03",
+          "datum_fil": "2025-01-24 14:37:49",
+          "kredit": "Own work",
           "beskrivning": "A statue depicting the Kagyū no Kei (“fiery bull strategy”) at Kurikara Station, Tsubata.",
           "bredd": 4000,
           "hojd": 6000,
@@ -729,6 +788,9 @@
           "licensadress": null,
           "upphovsperson": "Print artist: Utagawa Kuniyoshi (歌川国芳) Published by: Yamaguchiya Tobei (山口屋藤兵衛)",
           "datum": "1853 (6th month)",
+          "datum_original": "1853 (6th month)",
+          "datum_fil": "2020-05-08 09:48:43",
+          "kredit": "https://www.britishmuseum.org/collection/object/A_2008-3037-18401",
           "beskrivning": "Woodblock triptych print, oban tate-e. Minamoto no Yoshinaka kills the Taira commander Tomonori (right) amongst trees, whilst Taira Kagekiyo (centre) kills the oxen that the Minamoto sent into the Taira ranks with burning brushwood attached to their horns.",
           "bredd": 1067,
           "hojd": 1600,
@@ -740,6 +802,10 @@
           ],
           "smal": false
         }
+      ],
+      "soktext": "The Battle of Kurikara Kurikara Pass",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
       ]
     },
     {
@@ -749,7 +815,7 @@
       "start": 1184,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q2116658",
       "kandidater": [
@@ -763,6 +829,9 @@
           "licensadress": null,
           "upphovsperson": "Kano School",
           "datum": "circa 1650 date QS:P,+1650-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_original": "circa 1650 date QS:P,+1650-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_fil": "2022-07-15 18:40:37",
+          "kredit": "Minneapolis Institute of Art - https://collections.artsmia.org/art/123455/the-battle-of-ichinotani-kano-school",
           "beskrivning": "The Battle of Ichi-no-Tani [right of a pair of Scenes from the Tale of the Heike], mid 17th century. These screens illustrate two battles of the epochal Genpei War (1180–85) as narrated in the Tales of the Heike, an epic semihistorical account of two rival clans’ fight for control of Japan, written in the early 1200s. Each screen narrates a single battle through a number of small episodes divided and framed by gold clouds, landscape elements, and architectural spaces. The right screen shows scenes related to the Battle of Ichi-no-Tani (March 20, 1184), during which the Minamoto clan, identified by the white banners they carry, made a daring attack on the rival Taira clan at a Taira stronghold. The left screen shows the Battle of Yashima (March 22, 1185), another defeat for the Taira. The devastating war came to an end only a month later with the victory of the Minamoto, who took the title shogun, thus becoming Japan’s first military rulers.",
           "bredd": 10601,
           "hojd": 4513,
@@ -783,7 +852,7 @@
       "start": 1185,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q2117322",
       "kandidater": [
@@ -797,6 +866,9 @@
           "licensadress": null,
           "upphovsperson": "Kano School",
           "datum": "circa 1650 date QS:P,+1650-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_original": "circa 1650 date QS:P,+1650-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_fil": "2022-06-20 19:31:18",
+          "kredit": "Minneapolis Institute of Art - https://collections.artsmia.org/art/118227/the-battle-of-yashima-kano-school",
           "beskrivning": "The Battle of Yashima [left of a pair of Scenes from the Tale of the Heike], mid 17th century. Ink, color, gold, and silver on paper. These screens illustrate two battles of the epochal Genpei War (1180–85) as narrated in the Tales of the Heike, an epic semihistorical account of two rival clans’ fight for control of Japan, written in the early 1200s. Each screen narrates a single battle through a number of small episodes divided and framed by gold clouds, landscape elements, and architectural spaces. The right screen shows scenes related to the Battle of Ichi-no-Tani (March 20, 1184), during which the Minamoto clan, identified by the white banners they carry, made a daring attack on the rival Taira clan at a Taira stronghold. The left screen shows the Battle of Yashima (March 22, 1185), another defeat for the Taira. The devastating war came to an end only a month later with the victory of the Minamoto, who took the title shogun, thus becoming Japan’s first military rulers.",
           "bredd": 10969,
           "hojd": 4896,
@@ -821,7 +893,7 @@
       "start": 1189,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q815116",
       "kandidater": [
@@ -835,6 +907,9 @@
           "licensadress": null,
           "upphovsperson": "Unknown author Unknown author",
           "datum": "between circa 1375 and circa 1380 date QS:P571,+1350-00-00T00:00:00Z/7,P1319,+1375-00-00T00:00:00Z/9,P1326,+1380-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_original": "between circa 1375 and circa 1380 date QS:P571,+1350-00-00T00:00:00Z/7,P1319,+1375-00-00T00:00:00Z/9,P1326,+1380-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_fil": "2019-03-13 18:53:51",
+          "kredit": "This file comes from Gallica Digital Library and is available under the digital ID btv1b84472995/f484",
           "beskrivning": "Philippe Auguste et Richard Cœur de Lion reçoivent les clés d'Acre (1191). Enluminure des Grandes Chroniques de France , vers 1375-1380. Paris, Bibliothèque nationale de France, département des Manuscrits, Français 2813, folio 238 verso.",
           "bredd": 967,
           "hojd": 953,
@@ -857,11 +932,11 @@
       "start": 1209,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The Mongols Attack Western Xia Zhongxing (present-day Yinchuan)",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "The Mongols Attack Western Xia Zhongxing (present-day Yinchuan)"
     },
     {
       "id": "mongolernas-erovringar",
@@ -870,7 +945,7 @@
       "start": 1209,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q2092093",
       "kandidater": [
@@ -884,6 +959,9 @@
           "licensadress": null,
           "upphovsperson": "Sayf al-Vâhidî. Hérât. Afghanistan",
           "datum": "1430",
+          "datum_original": "1430",
+          "datum_fil": "2024-02-10 08:46:23",
+          "kredit": "Bibliothèque nationale de France. Département des Manuscrits. Division orientale. Supplément persan 1113, fol. 72v",
           "beskrivning": "Battle of Vâliyân (1221). Jami' al-tawarikh , Rashid al-Din . \"Mongol officers Taqacaq and Mulgar attempted to take Waliyan. Jalal al-Din moved to Parwan; making a quick move across the mountains to the north, he surprised and routed the Mongols at Waliyan, inflincting a reported 1,000 loss on them. The Mongols retreated across a river and destroyed a bridge to keep the enemy from following (spring 1221). Jalal al-Din had left his baggage at Parwan and returned there.\" [1]",
           "bredd": 3188,
           "hojd": 2080,
@@ -908,7 +986,7 @@
       "start": 1215,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q954923",
       "kandidater": [
@@ -922,6 +1000,9 @@
           "licensadress": null,
           "upphovsperson": "Sayf al-Vâhidî. Hérât. Afghanistan",
           "datum": "1430",
+          "datum_original": "1430",
+          "datum_fil": "2010-04-14 22:20:06",
+          "kredit": "Bibliothèque nationale de France. Département des Manuscrits. Division orientale. Supplément persan 1113, fol. 65v",
           "beskrivning": "Siege of Beijing. Jami' al-tawarikh , Rashid al-Din .",
           "bredd": 1503,
           "hojd": 1181,
@@ -949,14 +1030,14 @@
       "start": 1220,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q110970851",
+      "kandidater": [],
       "soktext": "The Mongols Take Bukhara Bukhara",
       "anmarkningar": [
         "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
-      "kandidater": []
+      ]
     },
     {
       "id": "sukhothairiket-grundas",
@@ -965,10 +1046,9 @@
       "start": 1238,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The Sukhothai Kingdom is founded Sukhothai",
       "kandidater": [
         {
           "fil": "File:Sukhothai, Wat, Thailand.jpg",
@@ -980,6 +1060,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/4.0",
           "upphovsperson": "Vyacheslav Argenberg",
           "datum": "2007-02-03 09:48:23",
+          "datum_original": "2007-02-03 09:48:23",
+          "datum_fil": "2021-10-28 15:43:14",
+          "kredit": "Own work",
           "beskrivning": "Wat Mahathat or Mahathat Temple is the most important and most impressive temple in Sukhothai Park. The temple's name translates to 'temple of the great relic'. It was founded in the early 14th century as the main temple of the Kingdom of Sukhothai. The Kingdom of Sukhothai, a powerful early kingdom in north central Thailand. Sukhothai, Thailand.",
           "bredd": 3072,
           "hojd": 2048,
@@ -1001,6 +1084,9 @@
           "licensadress": null,
           "upphovsperson": "From the book written by Narisara Nuwattiwong",
           "datum": "circa 1901 date QS:P,+1901-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_original": "circa 1901 date QS:P,+1901-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_fil": "2025-05-23 12:11:04",
+          "kredit": "อุทยานประวัติศาสตร์สุโขทัย (Sukhothai Historical Park) Facebook - https://www.facebook.com/skt.his.park/posts/แผนที่เมืองเก่าสุโขทัย-ราวปี-พศ๒๔๔๔จากหนังสือจดหมายเหตุระยะทางไปพิษณุโลก-พระนิพน/2517337008318792/",
           "beskrivning": "Old map of the city of Sukhothai. This is a copy made around 1901 of an antique map. Sukhothai city was founded in 1238. It is located about 12 km from the city Sukhotaj Thani. It was the capital city of the Sukhothai Kingdom (1238 - 1438). From the book of the chronicles of the distance to Phitsanulok, written by His Royal Highness Prince Narisara Nuwattiwong (1863-1947).",
           "bredd": 3000,
           "hojd": 2713,
@@ -1022,6 +1108,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/2.0",
           "upphovsperson": "Ninara from Helsinki, Finland",
           "datum": "2017-01-03 18:07",
+          "datum_original": "2017-01-03 18:07",
+          "datum_fil": "2018-05-17 03:51:09",
+          "kredit": "4Y1A0470 Sukhothai",
           "beskrivning": "Sukhothai, Thailand, Wat Sorasak Wikipedia: Sukhothai was the capital of the Sukhothai Kingdom. Sukhothai is 12 km west of the modern city of Sukhothai Thani. Founded in 1238, it is about 427 km north of Bangkok. Sukhothai was the capital of the Thai Empire for approximately 140 years. As of 2014, 193 temples have been excavated and partly reconstructed. The stele of Ram Khamhaeng states the city had a triple wall and four gates. At its center was a pond, a \"marvelous pond of clear and delicious water like the water of the Mekong in the dry season.\"",
           "bredd": 2861,
           "hojd": 2445,
@@ -1042,6 +1131,9 @@
           "licensadress": null,
           "upphovsperson": "Gary Todd from Xinzheng, China",
           "datum": "2019-04-20 10:38",
+          "datum_original": "2019-04-20 10:38",
+          "datum_fil": "2021-08-20 20:02:31",
+          "kredit": "Bronze Harihara, Ramkhamhaeng Museum, Sukhothai",
           "beskrivning": "Museum of Sukhothai history, Sukhothai, Thailand. Complete indexed photo collection at WorldHistoryPics.com.",
           "bredd": 4000,
           "hojd": 6000,
@@ -1066,6 +1158,9 @@
           "licensadress": null,
           "upphovsperson": "Gary Todd from Xinzheng, China",
           "datum": "2019-04-20 10:17",
+          "datum_original": "2019-04-20 10:17",
+          "datum_fil": "2021-08-20 19:17:55",
+          "kredit": "Bronze Buddhas, Singhalese & Sukhothai Art, Ramkhamhaeng Museum, Sukhothai",
           "beskrivning": "Museum of Sukhothai history, Sukhothai, Thailand. Complete indexed photo collection at WorldHistoryPics.com.",
           "bredd": 6000,
           "hojd": 4000,
@@ -1080,7 +1175,8 @@
           ],
           "smal": false
         }
-      ]
+      ],
+      "soktext": "The Sukhothai Kingdom is founded Sukhothai"
     },
     {
       "id": "soltemplet-i-konark",
@@ -1089,10 +1185,9 @@
       "start": 1250,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The Sun Temple at Konark is built Konark in Odisha",
       "kandidater": [
         {
           "fil": "File:Wheel engraved in the 13th century built Konark Sun Temple in Orissa, India.jpg",
@@ -1104,6 +1199,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Joydeep",
           "datum": "2025-11-18 10:31:41",
+          "datum_original": "2025-11-18 10:31:41",
+          "datum_fil": "2025-11-23 14:00:40",
+          "kredit": "Own work",
           "beskrivning": "Wheel engraved in the 13th century built Konark Sun Temple in Orissa, India.",
           "bredd": 5130,
           "hojd": 3318,
@@ -1126,6 +1224,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Subhrajyoti07",
           "datum": "2016-08-13 17:15:32",
+          "datum_original": "2016-08-13 17:15:32",
+          "datum_fil": "2018-10-06 05:24:42",
+          "kredit": "Own work",
           "beskrivning": "This is a wheel engraved in the 13th century built Konark Sun Temple in Orissa, India. The temple is designed as a chariot consisting of 24 such wheels. Each wheel has a diameter of 9 feet 9 inches with 8 spokes. Each wheel acts as a sun dial and the various engravings shows the daily activity of people at different hours of the day. This is a UNESCO World Heritage site.",
           "bredd": 4984,
           "hojd": 3638,
@@ -1146,6 +1247,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Subhrajyoti07",
           "datum": "2018-09-22 16:32:47",
+          "datum_original": "2018-09-22 16:32:47",
+          "datum_fil": "2018-10-09 16:37:50",
+          "kredit": "Own work",
           "beskrivning": "Center of a stone wheel engraved in the 13th century built Konark Sun Temple in Orissa, India",
           "bredd": 5814,
           "hojd": 3866,
@@ -1166,6 +1270,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Guruprasad S",
           "datum": "2018-07-01",
+          "datum_original": "2018-07-01",
+          "datum_fil": "2021-09-30 18:58:21",
+          "kredit": "Own work",
           "beskrivning": "Sun Temple, Konark, Odisha, India. A UNESCO World Heritage Site The Sun Temple was built in the 13th century and designed as a gigantic chariot of the Sun God, Surya, with twelve pairs of ornamented wheels pulled by seven horses. Some of the wheels are 3 metres wide. Only six of the seven horse still stand today.",
           "bredd": 1080,
           "hojd": 755,
@@ -1187,6 +1294,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Pico Traveller",
           "datum": "2024-03-28",
+          "datum_original": "2024-03-28",
+          "datum_fil": "2024-09-19 05:01:58",
+          "kredit": "Own work",
           "beskrivning": "The Sun Temple is the pinnacle of Hindu Orissan architecture and is unique in terms of its sculptural innovations and the quality of its carvings. Textual evidence indicates that Narasimha I (who reigned between 1238 and 1264) of the Eastern Ganga dynasty built the temple in 1250. This is plausible as secular events such as royal hunts and military scenes are also depicted on its reliefs. The Sun Temple may have been built to celebrate Narasimha’s military victory over Muslim forces in Bengal. In this way, he would have intended to amplify his right to rule as though appointed by the gods. Sun Temple, temple in Konark, Odisha state, India, that is dedicated to the Hindu sun god Surya. It was built of stone in the 13th century. Also called: Surya Deula or Surya Deul The Sun Temple is the pinnacle of Hindu Orissan architecture and is unique in terms of its sculptural innovations and the quality of its carvings. Textual evidence indicates that Narasimha I (who reigned between 1238 and 1264) of the Eastern Ganga dynasty built the temple in 1250. This is plausible as secular events such as royal hunts and military scenes are also depicted on its reliefs. The Sun Temple may have been built to celebrate Narasimha’s military victory over Muslim forces in Bengal. In this way, he would have intended to amplify his right to rule as though appointed by the gods. Konark, historic town, east-central Odisha state, eastern India, on the Bay of Bengal coast. It is famous for its 13th-century Surya Deula (or Surya Deul), popularly known as the Sun Temple. The town and the temple are associated with the legend of Samba, the son of the Hindu deity Krishna, who was cured of leprosy by the sun god’s blessings. Evidence suggests that the temple was built by Narasimha I (reigned 1238–64) about 1250. It represents the culmination of the Orissan school of temple architecture. Formerly called the Black Pagoda because of the many shipwrecks that occurred off the coast, the temple was used as a navigation landmark by European mariners sailing to Calcutta (now Kolkata). From the 15th to the 17th century, the temple was sacked various times by Muslim armies. By the 19th century, much of the temple had been weathered and ruined. Under British rule, sections of the temple complex were restored, but much of it remained in ruins. The complex was designated a UNESCO World Heritage site in 1984. About 6 miles (10 km) from the town is Ramchandi Temple on Ramchandi beach, on the bank of the Kushabhadra River, which empties into the Bay of Bengal. In general, the beaches at Konark and beyond are famous for their festivals. Because of the importance of temples in a society, temple architecture often represents the best of a culture’s design and craftsmanship, and, because of ritual requirements, temple architecture varies widely between one religion and another. The ziggurats of the Mesopotamian culture were elaborately designed and decorated, and their “stair-step” style ascended to a point where a god or gods could dwell and where only special priests were allowed.",
           "bredd": 1440,
           "hojd": 1440,
@@ -1197,7 +1307,8 @@
           ],
           "smal": false
         }
-      ]
+      ],
+      "soktext": "The Sun Temple at Konark is built Konark in Odisha"
     },
     {
       "id": "observatoriet-i-maragheh",
@@ -1206,11 +1317,11 @@
       "start": 1259,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Construction of the Maragheh observatory begins",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Construction of the Maragheh observatory begins"
     },
     {
       "id": "slaget-vid-ain-jalut",
@@ -1219,7 +1330,7 @@
       "start": 1260,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q244356",
       "kandidater": [
@@ -1233,6 +1344,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/3.0",
           "upphovsperson": "MapMaster",
           "datum": "2008-06-13",
+          "datum_original": "2008-06-13",
+          "datum_fil": "2008-07-07 19:01:07",
+          "kredit": "Own work",
           "beskrivning": "A map of the campaign leading to the Battle of Ain Jalut — in 1260 CE.",
           "bredd": 432,
           "hojd": 572,
@@ -1258,7 +1372,7 @@
       "start": 1274,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q2237386",
       "kandidater": [
@@ -1272,6 +1386,9 @@
           "licensadress": null,
           "upphovsperson": null,
           "datum": "2019-08-24 12:54:48",
+          "datum_original": null,
+          "datum_fil": "2019-08-24 12:54:48",
+          "kredit": null,
           "beskrivning": null,
           "bredd": 2085,
           "hojd": 875,
@@ -1292,10 +1409,9 @@
       "start": 1274,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The Mongols Land on Tsushima Tsushima",
       "kandidater": [
         {
           "fil": "File:Da Qing fen sheng yu tu LOC 2002626726-1.jpg",
@@ -1307,6 +1423,9 @@
           "licensadress": null,
           "upphovsperson": "Unknown author Unknown author",
           "datum": "1754",
+          "datum_original": "1754",
+          "datum_fil": "2019-01-03 14:52:53",
+          "kredit": "LOC",
           "beskrivning": "The General Map of the 1754 Da Qing Fensheng Yutu , showing the Qing Empire during the reign of the Qianlong Emperor. Provincial borders and capitals, the Yangtze and Yellow River, Great Wall and Willow Palisade, and Gobi Desert are clearly marked. Vietnam appears twice, once as the contemporary realm of Annam (marked as a Chinese province) and once as the ancient land of Jiaozhi (vaguely placed as an island somewhere in the southern seas). Korea and Tsushima (\"Fengma Island\") appear. The Mongols are placed as a small group in Inner Mongolia. Pen-and-ink and watercolor. Library of Congress copy, G2305 .D35 1782 Vault Shelf, G2305 .T15 17-- Vault.",
           "bredd": 5280,
           "hojd": 4534,
@@ -1335,6 +1454,9 @@
           "licensadress": null,
           "upphovsperson": "Unknown author Unknown author",
           "datum": "1754",
+          "datum_original": "1754",
+          "datum_fil": "2019-01-03 14:52:38",
+          "kredit": "LOC",
           "beskrivning": "The General Map of the 1754 Da Qing Fensheng Yutu , showing the Qing Empire during the reign of the Qianlong Emperor. Provincial borders and capitals, the Yangtze and Yellow River, Great Wall and Willow Palisade, and Gobi Desert are clearly marked. Vietnam appears twice, once as the contemporary realm of Annam (marked as a Chinese province) and once as the ancient land of Jiaozhi (vaguely placed as an island somewhere in the southern seas). Korea and Tsushima (\"Fengma Island\") appear. The Mongols are placed as a small group in Inner Mongolia. Pen-and-ink and watercolor. Library of Congress copy, G2305 .D35 1782 Vault Shelf, G2305 .T15 17-- Vault.",
           "bredd": 5280,
           "hojd": 4534,
@@ -1345,7 +1467,8 @@
           ],
           "smal": false
         }
-      ]
+      ],
+      "soktext": "The Mongols Land on Tsushima Tsushima"
     },
     {
       "id": "mongolernas-invasioner-av-japan",
@@ -1354,7 +1477,7 @@
       "start": 1274,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q208156",
       "kandidater": [
@@ -1368,6 +1491,9 @@
           "licensadress": null,
           "upphovsperson": "Kikuchi Yoosai / (of the reproduction) Tokyo National Museum",
           "datum": "1847",
+          "datum_original": "1847",
+          "datum_fil": "2008-06-11 14:25:17",
+          "kredit": "Dschingis Khan und seine Erben (exhibition catalogue), München 2005, p. 331",
           "beskrivning": "Mongol Invasion (Japanese: mōko shūrai), by Kikuchi Yōsai, 1847. Ink and water colors on paper. Tokyo National Museum. Shows the destruction of the Mongol fleet in a typhoon",
           "bredd": 1499,
           "hojd": 2409,
@@ -1393,6 +1519,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "江戸東京博物館、熊本県立美術館",
           "datum": "2013-09-26 18:28:17",
+          "datum_original": "2013-09-26 18:28:17",
+          "datum_fil": "2013-09-26 09:50:53",
+          "kredit": "『北条時宗とその時代展』、『蒙古襲来絵詞展』",
           "beskrivning": "Japan in Marco Polo's travel record",
           "bredd": 1102,
           "hojd": 653,
@@ -1416,7 +1545,7 @@
       "start": 1279,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q1078359",
       "kandidater": [
@@ -1430,6 +1559,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/3.0",
           "upphovsperson": "(Long night without wind) 长夜无风",
           "datum": "2008-05-03",
+          "datum_original": "2008-05-03",
+          "datum_fil": "2008-07-05 04:06:54",
+          "kredit": "Own work",
           "beskrivning": "Songyuan Yamen Sea Battle Cultural Tourism Zone, Xinhui District, Jiangmen City",
           "bredd": 2304,
           "hojd": 1728,
@@ -1450,7 +1582,7 @@
       "start": 1281,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q2237622",
       "kandidater": [
@@ -1464,6 +1596,9 @@
           "licensadress": null,
           "upphovsperson": null,
           "datum": "2005-12-20 00:18:15",
+          "datum_original": null,
+          "datum_fil": "2005-12-20 00:18:15",
+          "kredit": null,
           "beskrivning": null,
           "bredd": 601,
           "hojd": 379,
@@ -1487,6 +1622,9 @@
           "licensadress": null,
           "upphovsperson": "Kikuchi Yoosai / (of the reproduction) Tokyo National Museum",
           "datum": "1847",
+          "datum_original": "1847",
+          "datum_fil": "2008-06-11 14:25:17",
+          "kredit": "Dschingis Khan und seine Erben (exhibition catalogue), München 2005, p. 331",
           "beskrivning": "Mongol Invasion (Japanese: mōko shūrai), by Kikuchi Yōsai, 1847. Ink and water colors on paper. Tokyo National Museum. Shows the destruction of the Mongol fleet in a typhoon",
           "bredd": 1499,
           "hojd": 2409,
@@ -1511,7 +1649,7 @@
       "start": 1291,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q325985",
       "kandidater": [
@@ -1525,6 +1663,9 @@
           "licensadress": null,
           "upphovsperson": "Dominique Papety",
           "datum": "circa 1840 date QS:P571,+1840-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_original": "circa 1840 date QS:P571,+1840-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_fil": "2020-05-20 20:15:45",
+          "kredit": "Collections de Versailles",
           "beskrivning": "The Hospitalier Master Mathieu de Clermont defending the walls in 1291.",
           "bredd": 1145,
           "hojd": 1457,
@@ -1547,11 +1688,11 @@
       "start": 1303,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The Hongdong earthquake Shanxi",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "The Hongdong earthquake Shanxi"
     },
     {
       "id": "mausoleet-i-soltaniyeh",
@@ -1560,11 +1701,11 @@
       "start": 1307,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The domed mausoleum at Soltaniyeh is built Soltaniyeh in Zanjan",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "The domed mausoleum at Soltaniyeh is built Soltaniyeh in Zanjan"
     },
     {
       "id": "vijayanagarariket-grundas",
@@ -1573,10 +1714,9 @@
       "start": 1336,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The Vijayanagara Empire is founded",
       "kandidater": [
         {
           "fil": "File:Hampi, India, Watch Tower, The Zenana Enclosure, Vijayanagara Empire.jpg",
@@ -1588,6 +1728,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/4.0",
           "upphovsperson": "Vyacheslav Argenberg",
           "datum": "2011-02-04 16:53:32",
+          "datum_original": "2011-02-04 16:53:32",
+          "datum_fil": "2020-11-09 14:50:50",
+          "kredit": "Own work",
           "beskrivning": "Indo-Islamic style structure. Hampi, Karnataka, India. Ancient temples at Hampi, Vijayanagara Empire, 14th century, a UNESCO World Heritage Site.",
           "bredd": 4032,
           "hojd": 2688,
@@ -1608,6 +1751,9 @@
           "licensadress": null,
           "upphovsperson": "No machine-readable author provided. Imc assumed (based on copyright claims).",
           "datum": "2 April 2006 (original upload date)",
+          "datum_original": "2 April 2006 (original upload date)",
+          "datum_fil": "2006-04-02 18:12:11",
+          "kredit": "No machine-readable source provided. Own work assumed (based on copyright claims).",
           "beskrivning": "Shrine in a tank at Vijayanagara; picture taken in January 1991. This photo was taken by me using Ektachrome 64 and scanned.",
           "bredd": 761,
           "hojd": 466,
@@ -1628,6 +1774,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
           "upphovsperson": "Aleksandr Zykov",
           "datum": "2015-01-19 13:01:39",
+          "datum_original": "2015-01-19 13:01:39",
+          "datum_fil": "2021-09-28 07:52:21",
+          "kredit": "https://www.flickr.com/photos/84292292@N00/37726982124/",
           "beskrivning": "File from Flickr",
           "bredd": 3264,
           "hojd": 2448,
@@ -1648,6 +1797,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/4.0",
           "upphovsperson": "Vyacheslav Argenberg",
           "datum": "2011-02-04 16:54:41",
+          "datum_original": "2011-02-04 16:54:41",
+          "datum_fil": "2020-11-09 14:50:51",
+          "kredit": "Own work",
           "beskrivning": "Indo-Islamic style structure. Hampi, Karnataka, India. Ancient temples at Hampi, Vijayanagara Empire, 14th century, a UNESCO World Heritage Site.",
           "bredd": 4032,
           "hojd": 2688,
@@ -1668,6 +1820,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
           "upphovsperson": "Aleksandr Zykov from Russia",
           "datum": "2015-01-18 12:31",
+          "datum_original": "2015-01-18 12:31",
+          "datum_fil": "2016-04-28 23:14:12",
+          "kredit": "Vijayanagara, Hampi, India",
           "beskrivning": "Vijayanagara, Hampi, India",
           "bredd": 4288,
           "hojd": 2848,
@@ -1679,7 +1834,8 @@
           ],
           "smal": false
         }
-      ]
+      ],
+      "soktext": "The Vijayanagara Empire is founded"
     },
     {
       "id": "pesten-vid-issyk-kul",
@@ -1688,11 +1844,11 @@
       "start": 1338,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The plague graves near Issyk-Kul, the earliest known victims of the Black Death",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "The plague graves near Issyk-Kul, the earliest known victims of the Black Death"
     },
     {
       "id": "malacka-grundas",
@@ -1701,10 +1857,9 @@
       "start": 1400,
       "varldsdel": "Asien",
       "period": "medeltid",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The Malacca Sultanate is founded Malacca",
       "kandidater": [
         {
           "fil": "File:Soldo (Tin) - Portuguese Malacca (Dom Sebastiao I) - Scott Semans.jpg",
@@ -1716,6 +1871,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/3.0",
           "upphovsperson": "Scott Semans",
           "datum": "2018-09-25",
+          "datum_original": "2018-09-25",
+          "datum_fil": "2018-09-25 10:20:17",
+          "kredit": "Portuguese colonial coinage (CoinCoin.com).",
           "beskrivning": "PORTUGUESE MALACCA For pre-Portuguese coins, see Malacca Sultanate . I know of no really good reference for this series, and authors disagree on ruler attributions and denominations. Since it at least has a straightforward numbering system, I have used MN = Shaw & Ali, Malacca Coins (available: $2.50), with secondary references to: SS = Singh, Saran, The Coins of Malaysia Singapore and Brunei 1400-1967, (1996 ed.) which uses \"Sim\" numbers, and V = Vaz (as above). It has long been known from a report by Justus Schouten of 7 September, 1641, that upon conquest of Malacca from the Portuguese, underweight tin coins of local style were issued, but until recently these issues had not been identified. In Research Article No. 2 of 1989 (Malaysia Numismatic Soc.), PortugueseOccupation (1511-1641), Unlisted Tin Coins Found in Malacca (photocopy available $1.25) E. E. Sim catalogs and discusses a number of types, now generally thought to be products of the forgery factory still operating in Kuala Lumpur. He speculates that the last four listings may represent the legitimate Dutch issues, and from the numbers of pieces found in recent excavations and dredgings, it is now quite apparent that this is the case. In 1983 I sent one such piece (Sim AF2.8) to Md. Kassim Hajji Ali of the Muzium Negara, who opined that it was genuine. This page offers some tips for detecting fake Portuguese Malacca coins. These are tin coins, crudely made, dark in color, and rough from soil or water immersion, however they do look better \"in person\" than in the scans, as it is impossible to get good scans of very dark coins. Generally the design is quite bold and the coins are not seriously worn, but they are not \"pretty.\" Scans are enlarged to show detail, and show typical examples, not necessarily the specimen you will receive. MN-B16a Dom Joao III, 1521-52 , Tin Soldo, O: Heraldic Shield in circle, +IONES 3 RP ET AL DG G around; R: Globe (Armillary Sphere) with 5-6 lines of latitude, A crude issue, supplier says privately minted during Garcia de Sa's period. Thicker flan variety. 23-25m, avg. 5.6g MN16, SS-J3.09, V-J3.22 SAMPLES shown. rough F-VF 60.00; rough Vg-F 40.00 MN-B16b Dom Joao III, 1521-52 , Tin Soldo, As above, but Thinner flan variety. 23-25m, avg. 4.1g MN16, SS-J3.09, V-J3.22 SAMPLES shown. rough F-VF 55.00 MN-A16 Dom Joao III, 1521-52 , Tin Dinheiro, As Soldo aove. 19-21m, avg. 2.88g MN-A16, SS-J3.11, V-J3.23 SAMPLES shown. rough F-VF 27.50 MN18 Dom Joao III, 1521-52 , Tin Soldo, O: Plain Cross & legend +IOA: III: POR: ET: AL: R. Rev: Globe (Armillary Sphere) with five lines of latitude. Thin, uniform flans; Vaz considers it a Lisbon mint issue. Somewhat scarce. 24m, 3.6 - 3.7g MN18, SS-J3.06, V-J3.03 SAMPLES shown. rough Vg-F 42.50 MN19 Dom Joao III, 1521-52 , Tin Dinheiro, O: Plain Cross & legend +IOA: III: POR: ET: AL: Rev: Globe (Armillary Sphere) with five lines of latitude. Thin, uniform flans; Vaz considers it a Lisbon mint issue. Somewhat scarce. 19-21m, avg. 1.72g MN19, SS-J3.07, V-J3.04 rough F-VF SAMPLE shown. 26.50 MN20 Dom Joao III, 1521-52 , Tin Dinheiro, O: I S M A (Iohannes Senhor MAlacca) in angles of cross, R: Globe (Armillary Sphere), 17-18m, avg. 4g MN20, SS-J3.12, V-Se24.01 rough F-VF SAMPLE shown. 24.50 MN25 Dom Sebastiao I, 1557-78, Tin Dinheiro, O: Three crossed arrows, B / A at sides, two dots above, R: Globe (Armillary Sphere) with diagonal at upper right, 17-19m, avg. 2.5g MN25, SS-S.13 etc., V-Se25.01 etc. rough F-VF SAMPLE shown. 23.50 MN24 Dom Sebastiao I, 1557-78, Tin Soldo, O: Three crossed arrows, B / A at sides, two dots above, R: Globe (Armillary Sphere) with diagonal at upper left, the only indicator besides thickness that this is a different denomination, 17-19m, avg. 3.8g MN24, SS-S.13, 15., V-Se30.01, 30.02. rough F-VF SAMPLE shown. 26.50 MN36 Dutch issue of ca. 1641 in imitation of Dom Felipe II, 1598-1621, Tin 1/2 Bazaruco, O: Heraldic sheld of Felipe, R: Cross surrounded by border of dots , 13-15m, avg. 1.14g One of four similar types specifically issued by the Dutch for use in Malacca. MN-nl, SS-nl, V-F2/13.01 \"doubtful\", Sim (1983) AF2.6 rough F-VF SAMPLE shown. 23.50",
           "bredd": 467,
           "hojd": 259,
@@ -1736,6 +1894,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/3.0",
           "upphovsperson": "Scott Semans",
           "datum": "2018-09-25",
+          "datum_original": "2018-09-25",
+          "datum_fil": "2018-09-25 10:20:17",
+          "kredit": "Portuguese colonial coinage (CoinCoin.com).",
           "beskrivning": "PORTUGUESE MALACCA For pre-Portuguese coins, see Malacca Sultanate . I know of no really good reference for this series, and authors disagree on ruler attributions and denominations. Since it at least has a straightforward numbering system, I have used MN = Shaw & Ali, Malacca Coins (available: $2.50), with secondary references to: SS = Singh, Saran, The Coins of Malaysia Singapore and Brunei 1400-1967, (1996 ed.) which uses \"Sim\" numbers, and V = Vaz (as above). It has long been known from a report by Justus Schouten of 7 September, 1641, that upon conquest of Malacca from the Portuguese, underweight tin coins of local style were issued, but until recently these issues had not been identified. In Research Article No. 2 of 1989 (Malaysia Numismatic Soc.), PortugueseOccupation (1511-1641), Unlisted Tin Coins Found in Malacca (photocopy available $1.25) E. E. Sim catalogs and discusses a number of types, now generally thought to be products of the forgery factory still operating in Kuala Lumpur. He speculates that the last four listings may represent the legitimate Dutch issues, and from the numbers of pieces found in recent excavations and dredgings, it is now quite apparent that this is the case. In 1983 I sent one such piece (Sim AF2.8) to Md. Kassim Hajji Ali of the Muzium Negara, who opined that it was genuine. This page offers some tips for detecting fake Portuguese Malacca coins. These are tin coins, crudely made, dark in color, and rough from soil or water immersion, however they do look better \"in person\" than in the scans, as it is impossible to get good scans of very dark coins. Generally the design is quite bold and the coins are not seriously worn, but they are not \"pretty.\" Scans are enlarged to show detail, and show typical examples, not necessarily the specimen you will receive. MN-B16a Dom Joao III, 1521-52 , Tin Soldo, O: Heraldic Shield in circle, +IONES 3 RP ET AL DG G around; R: Globe (Armillary Sphere) with 5-6 lines of latitude, A crude issue, supplier says privately minted during Garcia de Sa's period. Thicker flan variety. 23-25m, avg. 5.6g MN16, SS-J3.09, V-J3.22 SAMPLES shown. rough F-VF 60.00; rough Vg-F 40.00 MN-B16b Dom Joao III, 1521-52 , Tin Soldo, As above, but Thinner flan variety. 23-25m, avg. 4.1g MN16, SS-J3.09, V-J3.22 SAMPLES shown. rough F-VF 55.00 MN-A16 Dom Joao III, 1521-52 , Tin Dinheiro, As Soldo aove. 19-21m, avg. 2.88g MN-A16, SS-J3.11, V-J3.23 SAMPLES shown. rough F-VF 27.50 MN18 Dom Joao III, 1521-52 , Tin Soldo, O: Plain Cross & legend +IOA: III: POR: ET: AL: R. Rev: Globe (Armillary Sphere) with five lines of latitude. Thin, uniform flans; Vaz considers it a Lisbon mint issue. Somewhat scarce. 24m, 3.6 - 3.7g MN18, SS-J3.06, V-J3.03 SAMPLES shown. rough Vg-F 42.50 MN19 Dom Joao III, 1521-52 , Tin Dinheiro, O: Plain Cross & legend +IOA: III: POR: ET: AL: Rev: Globe (Armillary Sphere) with five lines of latitude. Thin, uniform flans; Vaz considers it a Lisbon mint issue. Somewhat scarce. 19-21m, avg. 1.72g MN19, SS-J3.07, V-J3.04 rough F-VF SAMPLE shown. 26.50 MN20 Dom Joao III, 1521-52 , Tin Dinheiro, O: I S M A (Iohannes Senhor MAlacca) in angles of cross, R: Globe (Armillary Sphere), 17-18m, avg. 4g MN20, SS-J3.12, V-Se24.01 rough F-VF SAMPLE shown. 24.50 MN25 Dom Sebastiao I, 1557-78, Tin Dinheiro, O: Three crossed arrows, B / A at sides, two dots above, R: Globe (Armillary Sphere) with diagonal at upper right, 17-19m, avg. 2.5g MN25, SS-S.13 etc., V-Se25.01 etc. rough F-VF SAMPLE shown. 23.50 MN24 Dom Sebastiao I, 1557-78, Tin Soldo, O: Three crossed arrows, B / A at sides, two dots above, R: Globe (Armillary Sphere) with diagonal at upper left, the only indicator besides thickness that this is a different denomination, 17-19m, avg. 3.8g MN24, SS-S.13, 15., V-Se30.01, 30.02. rough F-VF SAMPLE shown. 26.50 MN36 Dutch issue of ca. 1641 in imitation of Dom Felipe II, 1598-1621, Tin 1/2 Bazaruco, O: Heraldic sheld of Felipe, R: Cross surrounded by border of dots , 13-15m, avg. 1.14g One of four similar types specifically issued by the Dutch for use in Malacca. MN-nl, SS-nl, V-F2/13.01 \"doubtful\", Sim (1983) AF2.6 rough F-VF SAMPLE shown. 23.50",
           "bredd": 481,
           "hojd": 253,
@@ -1756,6 +1917,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/3.0",
           "upphovsperson": "Scott Semans",
           "datum": "2018-09-25",
+          "datum_original": "2018-09-25",
+          "datum_fil": "2018-09-25 10:20:15",
+          "kredit": "Portuguese colonial coinage (CoinCoin.com).",
           "beskrivning": "PORTUGUESE MALACCA For pre-Portuguese coins, see Malacca Sultanate . I know of no really good reference for this series, and authors disagree on ruler attributions and denominations. Since it at least has a straightforward numbering system, I have used MN = Shaw & Ali, Malacca Coins (available: $2.50), with secondary references to: SS = Singh, Saran, The Coins of Malaysia Singapore and Brunei 1400-1967, (1996 ed.) which uses \"Sim\" numbers, and V = Vaz (as above). It has long been known from a report by Justus Schouten of 7 September, 1641, that upon conquest of Malacca from the Portuguese, underweight tin coins of local style were issued, but until recently these issues had not been identified. In Research Article No. 2 of 1989 (Malaysia Numismatic Soc.), PortugueseOccupation (1511-1641), Unlisted Tin Coins Found in Malacca (photocopy available $1.25) E. E. Sim catalogs and discusses a number of types, now generally thought to be products of the forgery factory still operating in Kuala Lumpur. He speculates that the last four listings may represent the legitimate Dutch issues, and from the numbers of pieces found in recent excavations and dredgings, it is now quite apparent that this is the case. In 1983 I sent one such piece (Sim AF2.8) to Md. Kassim Hajji Ali of the Muzium Negara, who opined that it was genuine. This page offers some tips for detecting fake Portuguese Malacca coins. These are tin coins, crudely made, dark in color, and rough from soil or water immersion, however they do look better \"in person\" than in the scans, as it is impossible to get good scans of very dark coins. Generally the design is quite bold and the coins are not seriously worn, but they are not \"pretty.\" Scans are enlarged to show detail, and show typical examples, not necessarily the specimen you will receive. MN-B16a Dom Joao III, 1521-52 , Tin Soldo, O: Heraldic Shield in circle, +IONES 3 RP ET AL DG G around; R: Globe (Armillary Sphere) with 5-6 lines of latitude, A crude issue, supplier says privately minted during Garcia de Sa's period. Thicker flan variety. 23-25m, avg. 5.6g MN16, SS-J3.09, V-J3.22 SAMPLES shown. rough F-VF 60.00; rough Vg-F 40.00 MN-B16b Dom Joao III, 1521-52 , Tin Soldo, As above, but Thinner flan variety. 23-25m, avg. 4.1g MN16, SS-J3.09, V-J3.22 SAMPLES shown. rough F-VF 55.00 MN-A16 Dom Joao III, 1521-52 , Tin Dinheiro, As Soldo aove. 19-21m, avg. 2.88g MN-A16, SS-J3.11, V-J3.23 SAMPLES shown. rough F-VF 27.50 MN18 Dom Joao III, 1521-52 , Tin Soldo, O: Plain Cross & legend +IOA: III: POR: ET: AL: R. Rev: Globe (Armillary Sphere) with five lines of latitude. Thin, uniform flans; Vaz considers it a Lisbon mint issue. Somewhat scarce. 24m, 3.6 - 3.7g MN18, SS-J3.06, V-J3.03 SAMPLES shown. rough Vg-F 42.50 MN19 Dom Joao III, 1521-52 , Tin Dinheiro, O: Plain Cross & legend +IOA: III: POR: ET: AL: Rev: Globe (Armillary Sphere) with five lines of latitude. Thin, uniform flans; Vaz considers it a Lisbon mint issue. Somewhat scarce. 19-21m, avg. 1.72g MN19, SS-J3.07, V-J3.04 rough F-VF SAMPLE shown. 26.50 MN20 Dom Joao III, 1521-52 , Tin Dinheiro, O: I S M A (Iohannes Senhor MAlacca) in angles of cross, R: Globe (Armillary Sphere), 17-18m, avg. 4g MN20, SS-J3.12, V-Se24.01 rough F-VF SAMPLE shown. 24.50 MN25 Dom Sebastiao I, 1557-78, Tin Dinheiro, O: Three crossed arrows, B / A at sides, two dots above, R: Globe (Armillary Sphere) with diagonal at upper right, 17-19m, avg. 2.5g MN25, SS-S.13 etc., V-Se25.01 etc. rough F-VF SAMPLE shown. 23.50 MN24 Dom Sebastiao I, 1557-78, Tin Soldo, O: Three crossed arrows, B / A at sides, two dots above, R: Globe (Armillary Sphere) with diagonal at upper left, the only indicator besides thickness that this is a different denomination, 17-19m, avg. 3.8g MN24, SS-S.13, 15., V-Se30.01, 30.02. rough F-VF SAMPLE shown. 26.50 MN36 Dutch issue of ca. 1641 in imitation of Dom Felipe II, 1598-1621, Tin 1/2 Bazaruco, O: Heraldic sheld of Felipe, R: Cross surrounded by border of dots , 13-15m, avg. 1.14g One of four similar types specifically issued by the Dutch for use in Malacca. MN-nl, SS-nl, V-F2/13.01 \"doubtful\", Sim (1983) AF2.6 rough F-VF SAMPLE shown. 23.50",
           "bredd": 380,
           "hojd": 777,
@@ -1776,6 +1940,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/3.0",
           "upphovsperson": "Scott Semans",
           "datum": "2018-09-25",
+          "datum_original": "2018-09-25",
+          "datum_fil": "2018-09-25 10:20:15",
+          "kredit": "Portuguese colonial coinage (CoinCoin.com).",
           "beskrivning": "PORTUGUESE MALACCA For pre-Portuguese coins, see Malacca Sultanate . I know of no really good reference for this series, and authors disagree on ruler attributions and denominations. Since it at least has a straightforward numbering system, I have used MN = Shaw & Ali, Malacca Coins (available: $2.50), with secondary references to: SS = Singh, Saran, The Coins of Malaysia Singapore and Brunei 1400-1967, (1996 ed.) which uses \"Sim\" numbers, and V = Vaz (as above). It has long been known from a report by Justus Schouten of 7 September, 1641, that upon conquest of Malacca from the Portuguese, underweight tin coins of local style were issued, but until recently these issues had not been identified. In Research Article No. 2 of 1989 (Malaysia Numismatic Soc.), PortugueseOccupation (1511-1641), Unlisted Tin Coins Found in Malacca (photocopy available $1.25) E. E. Sim catalogs and discusses a number of types, now generally thought to be products of the forgery factory still operating in Kuala Lumpur. He speculates that the last four listings may represent the legitimate Dutch issues, and from the numbers of pieces found in recent excavations and dredgings, it is now quite apparent that this is the case. In 1983 I sent one such piece (Sim AF2.8) to Md. Kassim Hajji Ali of the Muzium Negara, who opined that it was genuine. This page offers some tips for detecting fake Portuguese Malacca coins. These are tin coins, crudely made, dark in color, and rough from soil or water immersion, however they do look better \"in person\" than in the scans, as it is impossible to get good scans of very dark coins. Generally the design is quite bold and the coins are not seriously worn, but they are not \"pretty.\" Scans are enlarged to show detail, and show typical examples, not necessarily the specimen you will receive. MN-B16a Dom Joao III, 1521-52 , Tin Soldo, O: Heraldic Shield in circle, +IONES 3 RP ET AL DG G around; R: Globe (Armillary Sphere) with 5-6 lines of latitude, A crude issue, supplier says privately minted during Garcia de Sa's period. Thicker flan variety. 23-25m, avg. 5.6g MN16, SS-J3.09, V-J3.22 SAMPLES shown. rough F-VF 60.00; rough Vg-F 40.00 MN-B16b Dom Joao III, 1521-52 , Tin Soldo, As above, but Thinner flan variety. 23-25m, avg. 4.1g MN16, SS-J3.09, V-J3.22 SAMPLES shown. rough F-VF 55.00 MN-A16 Dom Joao III, 1521-52 , Tin Dinheiro, As Soldo aove. 19-21m, avg. 2.88g MN-A16, SS-J3.11, V-J3.23 SAMPLES shown. rough F-VF 27.50 MN18 Dom Joao III, 1521-52 , Tin Soldo, O: Plain Cross & legend +IOA: III: POR: ET: AL: R. Rev: Globe (Armillary Sphere) with five lines of latitude. Thin, uniform flans; Vaz considers it a Lisbon mint issue. Somewhat scarce. 24m, 3.6 - 3.7g MN18, SS-J3.06, V-J3.03 SAMPLES shown. rough Vg-F 42.50 MN19 Dom Joao III, 1521-52 , Tin Dinheiro, O: Plain Cross & legend +IOA: III: POR: ET: AL: Rev: Globe (Armillary Sphere) with five lines of latitude. Thin, uniform flans; Vaz considers it a Lisbon mint issue. Somewhat scarce. 19-21m, avg. 1.72g MN19, SS-J3.07, V-J3.04 rough F-VF SAMPLE shown. 26.50 MN20 Dom Joao III, 1521-52 , Tin Dinheiro, O: I S M A (Iohannes Senhor MAlacca) in angles of cross, R: Globe (Armillary Sphere), 17-18m, avg. 4g MN20, SS-J3.12, V-Se24.01 rough F-VF SAMPLE shown. 24.50 MN25 Dom Sebastiao I, 1557-78, Tin Dinheiro, O: Three crossed arrows, B / A at sides, two dots above, R: Globe (Armillary Sphere) with diagonal at upper right, 17-19m, avg. 2.5g MN25, SS-S.13 etc., V-Se25.01 etc. rough F-VF SAMPLE shown. 23.50 MN24 Dom Sebastiao I, 1557-78, Tin Soldo, O: Three crossed arrows, B / A at sides, two dots above, R: Globe (Armillary Sphere) with diagonal at upper left, the only indicator besides thickness that this is a different denomination, 17-19m, avg. 3.8g MN24, SS-S.13, 15., V-Se30.01, 30.02. rough F-VF SAMPLE shown. 26.50 MN36 Dutch issue of ca. 1641 in imitation of Dom Felipe II, 1598-1621, Tin 1/2 Bazaruco, O: Heraldic sheld of Felipe, R: Cross surrounded by border of dots , 13-15m, avg. 1.14g One of four similar types specifically issued by the Dutch for use in Malacca. MN-nl, SS-nl, V-F2/13.01 \"doubtful\", Sim (1983) AF2.6 rough F-VF SAMPLE shown. 23.50",
           "bredd": 462,
           "hojd": 251,
@@ -1787,8 +1954,8 @@
           "smal": true
         },
         {
-          "fil": "File:Dinheiro (Tin) - Portuguese Malacca (Dom Joao III) - Scott Semans 01.jpg",
-          "filsida": "https://commons.wikimedia.org/wiki/File:Dinheiro_(Tin)_-_Portuguese_Malacca_(Dom_Joao_III)_-_Scott_Semans_01.jpg",
+          "fil": "File:Soldo (Tin) - Portuguese Malacca (Dom Joao III) - Scott Semans 01.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Soldo_(Tin)_-_Portuguese_Malacca_(Dom_Joao_III)_-_Scott_Semans_01.jpg",
           "kalla": "commons-sok",
           "licens": "CC BY 3.0",
           "licensklass": "cc-by",
@@ -1796,17 +1963,21 @@
           "licensadress": "https://creativecommons.org/licenses/by/3.0",
           "upphovsperson": "Scott Semans",
           "datum": "2018-09-25",
+          "datum_original": "2018-09-25",
+          "datum_fil": "2018-09-25 10:20:12",
+          "kredit": "Portuguese colonial coinage (CoinCoin.com).",
           "beskrivning": "PORTUGUESE MALACCA For pre-Portuguese coins, see Malacca Sultanate . I know of no really good reference for this series, and authors disagree on ruler attributions and denominations. Since it at least has a straightforward numbering system, I have used MN = Shaw & Ali, Malacca Coins (available: $2.50), with secondary references to: SS = Singh, Saran, The Coins of Malaysia Singapore and Brunei 1400-1967, (1996 ed.) which uses \"Sim\" numbers, and V = Vaz (as above). It has long been known from a report by Justus Schouten of 7 September, 1641, that upon conquest of Malacca from the Portuguese, underweight tin coins of local style were issued, but until recently these issues had not been identified. In Research Article No. 2 of 1989 (Malaysia Numismatic Soc.), PortugueseOccupation (1511-1641), Unlisted Tin Coins Found in Malacca (photocopy available $1.25) E. E. Sim catalogs and discusses a number of types, now generally thought to be products of the forgery factory still operating in Kuala Lumpur. He speculates that the last four listings may represent the legitimate Dutch issues, and from the numbers of pieces found in recent excavations and dredgings, it is now quite apparent that this is the case. In 1983 I sent one such piece (Sim AF2.8) to Md. Kassim Hajji Ali of the Muzium Negara, who opined that it was genuine. This page offers some tips for detecting fake Portuguese Malacca coins. These are tin coins, crudely made, dark in color, and rough from soil or water immersion, however they do look better \"in person\" than in the scans, as it is impossible to get good scans of very dark coins. Generally the design is quite bold and the coins are not seriously worn, but they are not \"pretty.\" Scans are enlarged to show detail, and show typical examples, not necessarily the specimen you will receive. MN-B16a Dom Joao III, 1521-52 , Tin Soldo, O: Heraldic Shield in circle, +IONES 3 RP ET AL DG G around; R: Globe (Armillary Sphere) with 5-6 lines of latitude, A crude issue, supplier says privately minted during Garcia de Sa's period. Thicker flan variety. 23-25m, avg. 5.6g MN16, SS-J3.09, V-J3.22 SAMPLES shown. rough F-VF 60.00; rough Vg-F 40.00 MN-B16b Dom Joao III, 1521-52 , Tin Soldo, As above, but Thinner flan variety. 23-25m, avg. 4.1g MN16, SS-J3.09, V-J3.22 SAMPLES shown. rough F-VF 55.00 MN-A16 Dom Joao III, 1521-52 , Tin Dinheiro, As Soldo aove. 19-21m, avg. 2.88g MN-A16, SS-J3.11, V-J3.23 SAMPLES shown. rough F-VF 27.50 MN18 Dom Joao III, 1521-52 , Tin Soldo, O: Plain Cross & legend +IOA: III: POR: ET: AL: R. Rev: Globe (Armillary Sphere) with five lines of latitude. Thin, uniform flans; Vaz considers it a Lisbon mint issue. Somewhat scarce. 24m, 3.6 - 3.7g MN18, SS-J3.06, V-J3.03 SAMPLES shown. rough Vg-F 42.50 MN19 Dom Joao III, 1521-52 , Tin Dinheiro, O: Plain Cross & legend +IOA: III: POR: ET: AL: Rev: Globe (Armillary Sphere) with five lines of latitude. Thin, uniform flans; Vaz considers it a Lisbon mint issue. Somewhat scarce. 19-21m, avg. 1.72g MN19, SS-J3.07, V-J3.04 rough F-VF SAMPLE shown. 26.50 MN20 Dom Joao III, 1521-52 , Tin Dinheiro, O: I S M A (Iohannes Senhor MAlacca) in angles of cross, R: Globe (Armillary Sphere), 17-18m, avg. 4g MN20, SS-J3.12, V-Se24.01 rough F-VF SAMPLE shown. 24.50 MN25 Dom Sebastiao I, 1557-78, Tin Dinheiro, O: Three crossed arrows, B / A at sides, two dots above, R: Globe (Armillary Sphere) with diagonal at upper right, 17-19m, avg. 2.5g MN25, SS-S.13 etc., V-Se25.01 etc. rough F-VF SAMPLE shown. 23.50 MN24 Dom Sebastiao I, 1557-78, Tin Soldo, O: Three crossed arrows, B / A at sides, two dots above, R: Globe (Armillary Sphere) with diagonal at upper left, the only indicator besides thickness that this is a different denomination, 17-19m, avg. 3.8g MN24, SS-S.13, 15., V-Se30.01, 30.02. rough F-VF SAMPLE shown. 26.50 MN36 Dutch issue of ca. 1641 in imitation of Dom Felipe II, 1598-1621, Tin 1/2 Bazaruco, O: Heraldic sheld of Felipe, R: Cross surrounded by border of dots , 13-15m, avg. 1.14g One of four similar types specifically issued by the Dutch for use in Malacca. MN-nl, SS-nl, V-F2/13.01 \"doubtful\", Sim (1983) AF2.6 rough F-VF SAMPLE shown. 23.50",
-          "bredd": 530,
-          "hojd": 272,
+          "bredd": 1494,
+          "hojd": 752,
           "mime": "image/jpeg",
-          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/4/49/Dinheiro_%28Tin%29_-_Portuguese_Malacca_%28Dom_Joao_III%29_-_Scott_Semans_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Soldo_%28Tin%29_-_Portuguese_Malacca_%28Dom_Joao_III%29_-_Scott_Semans_01.jpg/960px-Soldo_%28Tin%29_-_Portuguese_Malacca_%28Dom_Joao_III%29_-_Scott_Semans_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
           "kategorier": [
             "Coins of Portuguese Malacca"
           ],
-          "smal": true
+          "smal": false
         }
-      ]
+      ],
+      "soktext": "The Malacca Sultanate is founded Malacca"
     }
   ]
 }
