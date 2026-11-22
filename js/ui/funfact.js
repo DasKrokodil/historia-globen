@@ -415,7 +415,8 @@ export class FunFacts {
     const story = f.kind === 'empire';
     this.root.classList.toggle('ff-story', story);
     this.root.classList.remove('ff-open');
-    if (this.pre) this.pre.hidden = story;
+    // I stängd mobilpanel döljs typen och prefixet bär kortnamnet. På ett öppet vanligt kort finns namnet redan i typen.
+    if (this.pre) this.pre.hidden = story || (!f.kind && !(asSheet && this.sheetState === 'closed'));
     this.kind.textContent = story ? `${kindLabel(f.vanished ? 'vanished' : f.area ? 'area' : 'empire')} · ${f.empire}` : f.kind ? kindLabel(f.kind) : [kindLabel('funfact'), relationLabel(f, this.byId)].filter(Boolean).join(' · ');
     const evs = f.events.map(id => this.byId[id]);
     // Bilderna står i händelsernas långa fält, som laddas per period (#337): kortet ritas om när de har kommit

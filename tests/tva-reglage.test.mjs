@@ -54,14 +54,14 @@ test('gamla länkar och y= fungerar som förut: adressen bär bara året', t => 
   assert.deepEqual(Object.keys(decodeHash('#y=-5000')).filter(k => /scale|track|reglage/i.test(k)), []);
 });
 
-test('gränsåret: -2999 visas som 3000 f.Kr. i det historiska reglaget och -3000 som 3000 f.Kr. (avrundat) i det första', t => {
+test('gränsåret: -2999 visas som 3000 f.Kr. i det historiska reglaget och -3000 som 3001 f.Kr. i det första', t => {
   const { timeline } = build(t);
   timeline.year = -2999;
   assert.equal(timeline.scale, HISTORY);
   assert.equal(timeline.format(-2999).replace(/\s/g, ' '), '3000 f.Kr.');
   timeline.year = -3000;
   assert.equal(timeline.scale, PRE);
-  assert.equal(timeline.format(-3000).replace(/\s/g, ' '), '3000 f.Kr.'); // upplösningen avrundar till hundratal; året i tillståndet är -3000
+  assert.equal(timeline.format(-3000).replace(/\s/g, ' '), '3001 f.Kr.');
   assert.equal(timeline.year, -3000);
 });
 
