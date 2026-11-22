@@ -152,12 +152,7 @@ Kontrollerat 2026-11-22 med granskningslistan `data/utkast/bildbatch/2106.md` oc
 | `mapungubwe-riket` | Möjlig bild: File:MapungubweHill.jpg har GFDL med migration=relicense, alltså också CC BY-SA 3.0; prövas i nästa omgång (2026-11-22). |
 | `fuktigare-klimat-vid-limpopo` | Möjlig bild: File:LSConfluence.jpg har GFDL med migration=relicense, alltså också CC BY-SA 3.0; prövas i nästa omgång (2026-11-22). |
 
-### Ej hämtad, prövas igen
-
-| Händelse (id) | Hinder |
-|---|---|
-| `sista-silfiumstjalken` | File:Cyrene coin.jpg (mynt från Kyrene med ett silfiumfrö, PD-old-auto och CC0) är godkänd, men upload.wikimedia.org svarade HTTP 429 med Retry-After 600 s. Raden står i `data/utkast/bildbatch/2106-ej-hamtade.txt`. |
-| `burakulturen` | File:Grave Marker MET VS1998.478.1.jpeg (gravmarkör av terrakotta, burafolket, 200–1000-talet, Metropolitan Museum of Art, CC0) är godkänd, men upload.wikimedia.org svarade HTTP 429 med Retry-After 600 s. Raden står i `data/utkast/bildbatch/2106-ej-hamtade.txt`. |
+`sista-silfiumstjalken` och `burakulturen`, som först inte gick att hämta (HTTP 429), hämtades i Actions och har bild sedan 2026-11-22.
 
 ## Afrika 1970–2018, pilot #2111 (2026-11-22)
 
@@ -274,15 +269,4 @@ Kandidatlistan hade ingen bild till de här händelserna. En kort sökning per h
 
 `kremeringen-vid-hora`, `snackor-fran-roda-havet-i-gebel-ramlah`, `uan-muhuggiag-mumien`, `kintampokulturen`, `parlhirs-tams-i-norra-mali`, `vulkanutbrottet-vid-deriba`, `herdarnas-boplats-luxmanda`, `afrikanskt-ris-odlas-i-nigerdeltat`, `koppar-vid-akjoujt`, `bananer-i-nkang`, `urewekulturen`, `tamfar-vid-spoegrivier`, `rickettsia-felis-vid-ballito`.
 
-### Ej hämtad, prövas igen
-
-Bilden är vald och licensen kontrollerad på filsidan, men miniatyren på upload.wikimedia.org gav HTTP 429 (Retry-After 600 s) i fyra körningar av `tools/bild_hamta.py` mellan 09.44 och 09.50 UTC. De står i `data/utkast/bildbatch/2104-2105-ej-hamtade.txt`, och motivet står i granskningslistan.
-
-| Händelse (id) | Vald bild |
-|---|---|
-| `ounjougou-keramik` | [File:Ounjougou confluence.JPG](https://commons.wikimedia.org/wiki/File:Ounjougou_confluence.JPG) (CC BY-SA 4.0) |
-| `simmarnas-grotta` | [File:WadiSuraSingleSwimmer.jpg](https://commons.wikimedia.org/wiki/File:WadiSuraSingleSwimmer.jpg) (CC BY-SA 3.0, också GFDL) |
-| `dhar-tichitt` | [File:Haches et herminettes provenant de villages du Dhar Tichitt.jpg](https://commons.wikimedia.org/wiki/File:Haches_et_herminettes_provenant_de_villages_du_Dhar_Tichitt.jpg) (CC BY 4.0, passa-in) |
-| `nok-kulturen` | [File:Nok Kultur, Nigeria. Fragment eines Gefäßes mit mehreren Figuren im Halbrelief..jpg](https://commons.wikimedia.org/wiki/File:Nok_Kultur,_Nigeria._Fragment_eines_Gef%C3%A4%C3%9Fes_mit_mehreren_Figuren_im_Halbrelief..jpg) (CC BY-SA 3.0, passa-in) |
-| `piye-erovrar-egypten` | [File:Stele Piye submission Mariette.jpg](https://commons.wikimedia.org/wiki/File:Stele_Piye_submission_Mariette.jpg) (public domain, Auguste Mariette 1872) |
-| `kungapyramiderna-i-nuri` | [File:Pyramids of Nuri.jpg](https://commons.wikimedia.org/wiki/File:Pyramids_of_Nuri.jpg) (CC BY-SA 2.0) |
+De sex bilder som först inte gick att hämta (HTTP 429), `ounjougou-keramik`, `simmarnas-grotta`, `dhar-tichitt`, `nok-kulturen`, `piye-erovrar-egypten` och `kungapyramiderna-i-nuri`, hämtades i Actions och har bild sedan 2026-11-22.
