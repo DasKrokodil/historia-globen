@@ -68,6 +68,18 @@ for text, want in FALL:
     got = classify(text)
     check(got == want, f'classify({text!r}) gav {got}, väntat {want}')
 
+# Handplockat val per rike (religionOverride, #2140): en känd religion och minst en källa, annars stoppas bygget
+override_religion = religioner.override_religion
+check(override_religion('X', {'religion': 'germansk', 'sources': ['wp-gothic-paganism']}) == 'germansk',
+      'religionOverride med känd religion och källa ger inte religionen')
+for bad in ({'religion': 'okand', 'sources': ['a']}, {'religion': 'germansk'}, {'religion': 'germansk', 'sources': []},
+            {'religion': 'germansk', 'sources': ['']}, {'religion': 'germansk', 'sources': 'a'}):
+    try:
+        override_religion('X', bad)
+        fel.append(f'religionOverride {bad!r} stoppar inte bygget')
+    except ValueError:
+        pass
+
 if fel:
     print('\n'.join(fel))
     sys.exit(1)

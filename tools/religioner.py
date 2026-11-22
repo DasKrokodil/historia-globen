@@ -14,6 +14,10 @@ Regler för ett rikes religion ett visst år (religion_at):
   under rubriken Majority; annars den enda som nämns (sure = true). Nämns flera utan markering
   väljs den först nämnda (sure = false).
 - Riken med kontrollerat år för kristnandet (christianSince, med källa) är kristna från det året.
+- Ett handplockat val per rike (religionOverride = {"religion": id, "sources": [källor]}, #2140) ersätter religionen som
+  texten gav, när en öppnad källa uttryckligen säger vilken religion faktarutans allmännare ord betyder (till exempel
+  "Gothic paganism" = germansk religion). Regeln och säkerheten (sure) är desamma som för texten, och årtalet (since)
+  räknas ur texten före valet. Valet skrivs för hand i registret och behålls vid ombyggnad.
 - Anger faktarutan ett årtal för religionen ("c. 200 AD", "from 6th century") gäller den därifrån (since).
 - Procentsiffror i faktarutan kommer ofta från en nutida folkräkning och används bara från 1900,
   utom när faktarutan anger religionen som officiell utan årtal (till exempel Ryska imperiet).
@@ -158,6 +162,21 @@ def since(text, rel):
     return int(m.group(1)) if m.group(1) else (int(m.group(2)) - 1) * 100 + 1
 
 
+RELIGION_IDS = {i for i, *_ in RELIGIONS}
+
+
+def override_religion(name, override):
+    """Religionen i ett rikes handplockade val (religionOverride, #2140). Kastar ValueError när valet saknar en känd
+    religion eller en källa, så att ett trasigt val stoppar bygget i stället för att tyst ge fel karta."""
+    rel = override.get('religion')
+    if rel not in RELIGION_IDS:
+        raise ValueError(f'{name}: religionOverride.religion {rel!r} är ingen religion i RELIGIONS')
+    srcs = override.get('sources')
+    if not isinstance(srcs, list) or not srcs or not all(isinstance(x, str) and x for x in srcs):
+        raise ValueError(f'{name}: religionOverride saknar sources (minst en källa i sources.json)')
+    return rel
+
+
 def steps():
     """Ögonblicksbildernas startår: tätare ju närmare nutiden. Stegen räknas i Cliopatrias år (3400 f.Kr., 3300 f.Kr. …,
     år 0, 50, 100 …) och lämnas som astronomiska år, så att 3400 f.Kr. blir -3399 (#1989)."""
@@ -220,6 +239,9 @@ class Row:
         self.adopted = entry.get('christianSince')
         self.modern = rec.get('modern') if self.rule in ('saknas', 'okänd') else None
         self.since = since(self.text, self.rel)
+        override = entry.get('religionOverride')
+        if override:  # handplockat val med källa (#2140): ersätter religionen som texten gav, inte regeln eller säkerheten
+            self.rel = override_religion(entry['name'], override)
         self._s = None
 
     def shape(self):
@@ -280,7 +302,7 @@ def main():
             info['since'] = r.since
         if r.modern:
             info['modern'] = r.modern
-        for k in ('christianSince', 'source', 'variants'):
+        for k in ('christianSince', 'source', 'religionOverride', 'variants'):
             if k in e:
                 info[k] = e[k]
         polities[r.name] = info
@@ -365,7 +387,9 @@ def main():
              'markerad som statlig eller officiell väljs först; annars en religion över 50 procent eller under rubriken Majority; annars '
              'den enda religionen som nämns (sure = true). Där flera religioner nämns utan att någon är markerad väljs den först nämnda '
              '(regel "först nämnd", sure = false), och området visas ljusare med streckad kant. För riken med ett kontrollerat år för '
-             'kristnandet (source) visas kristendomen från det året. '
+             'kristnandet (source) visas kristendomen från det året. Ett handplockat val med källa (religionOverride, #2140) ersätter '
+             'religionen som faktarutans text gav när en öppnad källa uttryckligen säger vilken religion faktarutans ord betyder; '
+             'regeln och säkerheten är desamma som för texten. '
              'Områdena är sammanslagna per religion i ögonblicksbilder (start–end) och förenklade (0.25 grader, avrundat till 0.1 grad). '
              'polities listar varje rike med Wikipedia-sida, faktarutans text, vald religion och regel (variants: texten för delar av '
              'riket som i Cliopatria pekar på en annan Wikipedia-sida). Lagret visar rikenas religion, '
