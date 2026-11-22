@@ -13971,6 +13971,105 @@ async function run(browser, vp) {
     }
     return { lagg, hittade };
   }, { sels, min });
+  await check('grottramens textkontrast och jämförelse med alla epokramar (#2153)', async () => {
+    const styles = JSON.parse(fs.readFileSync(new URL('../data/styles.json', import.meta.url), 'utf8'));
+    const frames = [...new Set(styles.styles.map(style => style.frame).filter(Boolean))];
+    const probe = await page.evaluateHandle(() => {
+      const el = document.createElement('section');
+      el.style.cssText = 'position: fixed; inset: 50px auto auto 30px; width: 240px; height: 140px; max-height: none; box-sizing: border-box; z-index: 10000';
+      document.body.append(el);
+      return el;
+    });
+    const ratios = [];
+    try {
+      for (const frame of frames) {
+        const { colors, clip } = await probe.evaluate((el, frame) => {
+          el.className = `detail-card frame-${frame}`;
+          const span = el.appendChild(document.createElement('span'));
+          const colors = ['ink', 'dim', 'accent'].map(name => {
+            span.style.color = `var(--card-${name})`;
+            return getComputedStyle(span).color.match(/[0-9.]+/g).slice(0, 3).map(Number);
+          });
+          span.remove();
+          const { x, y, width, height } = el.getBoundingClientRect();
+          return { colors, clip: { x: x + 15, y: y + 15, width: width - 30, height: height - 30 } };
+        }, frame);
+        const { data } = PNG.sync.read(await page.screenshot({ clip }));
+        let min = Infinity;
+        for (let i = 0; i < data.length; i += 4) {
+          const background = [data[i], data[i + 1], data[i + 2]];
+          min = Math.min(min, ...colors.map(color => kontrast(color, background)));
+        }
+        ratios.push(`${frame} ${min.toFixed(2)}:1`);
+        if (frame === 'grotta' && min < 4.5) throw new Error(`${frame}: ${min.toFixed(2)}:1 understiger 4,5:1`);
+      }
+    } finally { await probe.evaluate(el => el.remove()); await probe.dispose(); }
+    return ratios.join(', ');
+  });
+
+  await check('läsbar text och tryckytor på liggande telefon (#2153)', async () => {
+    const { tp, tctx, errs } = await touchPage({ width: 800, height: 360 });
+    try {
+      const text = async sels => {
+        const m = await mataText(tp, sels);
+        if (Object.values(m.hittade).some(n => !n) || m.lagg.length) throw new Error(`text: ${JSON.stringify(m)}`);
+      };
+      const targets = async sel => {
+        const wrong = await tp.locator(sel).evaluateAll(els => els.filter(el => {
+          const r = el.getBoundingClientRect();
+          return r.width < 44 || r.height < 44;
+        }).map(el => el.textContent.trim()));
+        if (wrong.length) throw new Error(`tryckyta under 44 px: ${wrong.join(', ')}`);
+      };
+      await tp.addInitScript(() => localStorage.setItem('hg-year-tip', '1'));
+      await tp.goto(`${BASE}?lang=sv#y=1843`);
+      await tp.waitForSelector('#funfact:not([hidden])', { timeout: T.load });
+      await text(['#ag-mode', '#ag-style', '#ag-explore', '.ff-eyebrow']);
+      await targets('#scale-switch .level-btn');
+      await tp.locator('#scale-switch .level-btn[aria-pressed="false"]').click();
+      await tp.locator('#btn-more').click();
+      await text(['#extra-menu .extra-label']);
+      await targets('#extra-menu .chip-btn');
+      await tp.locator('#btn-teacher').click();
+      await text(['#teacher .teacher-h', '#teacher .teacher-lesson-meta']);
+      await tp.locator('#teacher-close').click();
+      await tp.locator('#btn-layers').click();
+      await text(['#layer-menu .layer-heading', '#layer-menu .view-chip-desc']);
+      if (errs.length) throw new Error(errs.join(' | '));
+      return '12 px i verktygsraden, kortet och menyerna, 44 px i Mer och nivåväxlaren';
+    } finally { await stangSida(tctx); }
+  });
+
+  await check('läsbar skalrad, platskarta och lagergrupper i 400 px (#2153)', async () => {
+    const { tp, tctx, errs } = await touchPage({ width: 400, height: 800 });
+    try {
+      await tp.addInitScript(() => localStorage.setItem('hg-year-tip', '1'));
+      await tp.goto(`${BASE}?lang=sv#y=1500`);
+      await tp.waitForSelector('#track[aria-valuenow="1500"]', { timeout: T.load });
+      await tp.locator('#track').focus();
+      await tp.locator('#timeline-scale-note').waitFor({ state: 'visible' });
+      const scaleSize = await tp.locator('#timeline-scale-note').evaluate(el => parseFloat(getComputedStyle(el).fontSize));
+      if (scaleSize < 12) throw new Error(`skalraden: ${scaleSize} px`);
+      await tp.locator('#more-toggle').click();
+      await tp.locator('#btn-layers').click();
+      await tp.locator('.layer-customize').click();
+      const spread = tp.locator('input[data-layer="spread"]');
+      const section = tp.locator('#layer-menu .layer-sect').filter({ has: spread });
+      await section.locator('summary').click();
+      await section.locator('input[data-layer="spread"]').check({ timeout: T.step });
+      await section.locator('.layer-sect-count').filter({ hasText: 'saknar data här' }).waitFor();
+      const groups = await mataText(tp, ['.layer-sect-title', '.layer-sect-count']);
+      if (Object.values(groups.hittade).some(n => !n) || groups.lagg.length) throw new Error(`lagergrupper: ${JSON.stringify(groups)}`);
+      await tp.goto(`${BASE}?lang=sv#y=1800&f=place:skane`);
+      await tp.locator('#detail [data-selection-action]').click();
+      await tp.locator('#flat-region').waitFor({ state: 'visible' });
+      const map = await mataText(tp, ['#flat-region-context', '#flat-region-tap']);
+      if (Object.values(map.hittade).some(n => !n) || map.lagg.length) throw new Error(`platskarta: ${JSON.stringify(map)}`);
+      if (errs.length) throw new Error(errs.join(' | '));
+      return 'skalraden, platskartans rader och lagergrupperna har minst 12 px';
+    } finally { await stangSida(tctx); }
+  });
+
   // Ytorna: hur de öppnas, vilka knappar som ska ha träffyta och vilken text som ska vara minst 12 px. `minst` är hur många element varje väljare ska hitta.
   const ytor1713 = [
     // Årtalen under reglaget (.tick) är dolda medan engångstipset syns (första besöket), så tipset stängs först; de var 10,5 px i liggande telefon (#1713, omgång 3)
