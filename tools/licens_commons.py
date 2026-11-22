@@ -35,7 +35,7 @@ def klassa_namn(text):
         return 'nc', s
     if re.search(r'fair use|non-?free|all rights reserved|copyrighted', low):
         return 'fair', s
-    m = re.search(r'\bcc[ -]by(?:-(sa))?[ -]+(\d(?:\.\d)?)(?:[,\d.]*)(?: ([a-z]{2}))?\b', low)
+    m = re.search(r'\bcc[ -]by(?:-(sa))?[ -]+(\d(?:\.\d)?)(?:[,\d.]*)(?: ([a-z]{2}|igo))?\b', low)
     if m:
         return ('by-sa' if m.group(1) else 'by'), _cc_etikett(m.group(1), m.group(2), m.group(3))
     if re.search(r'\bcc0\b|cc[- ]zero', low):
@@ -57,7 +57,7 @@ def klassa_mall(namn):
     if n in ('cc-by-sa-all', 'cc-by-all'):
         # Mallar för flera versioner på en gång (#2193): klassen är tillåten, versionen tas från API:et om det anger en
         return ('by-sa', 'CC BY-SA') if '-sa-' in n else ('by', 'CC BY')
-    m = re.fullmatch(r'cc-by(-sa)?-(\d(?:\.\d)?)(?:,[\d.,]+)?(?:-([a-z]{2}))?(?:-migrated.*|-with-.*)?', n)
+    m = re.fullmatch(r'cc-by(-sa)?-(\d(?:\.\d)?)(?:,[\d.,]+)?(?:-([a-z]{2}|igo))?(?:-migrated.*|-with-.*)?', n)
     if m:
         return ('by-sa' if m.group(1) else 'by'), _cc_etikett(m.group(1), m.group(2), m.group(3))
     if re.match(r'cc-by-(nc|nd)|cc-nc', n):
