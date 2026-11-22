@@ -3,11 +3,26 @@
   "scope": "data/events.json events[].image; data/turer/*.json steps[].image",
   "images": [
     {
+      "eventId": "afonso-i-kung-av-kongo",
+      "eventTitle": "Afonso I blir kung av Kongo",
+      "file": "images/events/afonso-i-kung-av-kongo.webp",
+      "kind": "historisk",
+      "credit": "Samhanin / Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "source": {
+        "id": "commons-bild-afonso-i-kung-av-kongo",
+        "title": "Coat of arms of Kongo (c. 1528–1541) – vektorteckning av Samhanin, 2017 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Kongo.svg",
+        "license": "CC BY 3.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "afrikanska-frihandelsomradet",
       "eventTitle": "Afrikanska frihandelsområdet AfCFTA grundas",
       "file": "images/events/afrikanska-frihandelsomradet.webp",
       "kind": "historisk",
-      "credit": "Themightyquill, Curiouskiwicat / Wikimedia Commons",
+      "credit": "Themightyquill, Curiouskiwicat m.fl. / Wikimedia Commons",
       "license": "CC BY-SA 4.0",
       "source": {
         "id": "commons-bild-afrikanska-frihandelsomradet",
@@ -132,6 +147,21 @@
       }
     },
     {
+      "eventId": "andrianampoinimerina-enar-imerina",
+      "eventTitle": "Andrianampoinimerina enar Imerina",
+      "file": "images/events/andrianampoinimerina-enar-imerina.webp",
+      "kind": "historisk",
+      "credit": "Philippe-Auguste Ramanankirahina / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-andrianampoinimerina-enar-imerina",
+        "title": "Andrianampoinimerina HQ – målning av Philippe-Auguste Ramanankirahina (1860–1915), 1905 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Andrianampoinimerina_HQ.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "anfallet-pa-polen",
       "eventTitle": "Tyskland anfaller Polen",
       "file": "images/events/anfallet-pa-polen.webp",
@@ -171,6 +201,21 @@
       "source": null
     },
     {
+      "eventId": "arabforbundet-grundas-1945",
+      "eventTitle": "Arabförbundet grundas",
+      "file": "images/events/arabforbundet-grundas-1945.webp",
+      "kind": "historisk",
+      "credit": "Ijanderson977 / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-arabforbundet-grundas-1945",
+        "title": "Arab Leage HQ 977 – Ijanderson977 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Arab_Leage_HQ_977.PNG",
+        "license": "Public domain",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "arabiska-varen",
       "eventTitle": "Arabiska våren",
       "file": "images/events/arabiska-varen.webp",
@@ -183,6 +228,51 @@
         "url": "https://commons.wikimedia.org/wiki/File:Tunisian_Revolution_Protest.jpg",
         "license": "CC BY 2.0",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "askia-muhammad-tar-makten",
+      "eventTitle": "Askia Muhammad tar makten i Songhairiket",
+      "file": "images/events/askia-muhammad-tar-makten.webp",
+      "kind": "historisk",
+      "credit": "Walter Mittelholzer / ETH-Bibliothek via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-askia-muhammad-tar-makten",
+        "title": "Grabmal von Askia, Gao – foto av Walter Mittelholzer under flygningen till Tchadsjön 1930–1931, ETH-Bibliothek (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:ETH-BIB-Grabmal_von_Askia,_Gao-Tschadseeflug_1930-31-LBS_MH02-08-0549.tif",
+        "license": "Public domain",
+        "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "asterix-frankrikes-forsta-satellit",
+      "eventTitle": "Astérix, Frankrikes första satellit",
+      "file": "images/events/asterix-frankrikes-forsta-satellit.webp",
+      "kind": "historisk",
+      "credit": "Pline / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-asterix-frankrikes-forsta-satellit",
+        "title": "Asterix Musee du Bourget P1020341 – Pline (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Asterix_Musee_du_Bourget_P1020341.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "atlantiska-slavhandeln",
+      "eventTitle": "Den transatlantiska slavhandeln",
+      "file": "images/events/atlantiska-slavhandeln.webp",
+      "kind": "historisk",
+      "credit": "Plymouthavdelningen av Society for Effecting the Abolition of the Slave Trade / Library of Congress via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-atlantiska-slavhandeln",
+        "title": "Stowage of the British slave ship Brookes – affisch från december 1788, Library of Congress cph.3a34658 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Slaveshipposter.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -268,6 +358,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "bartolomeu-dias-rundar-afrika",
+      "eventTitle": "Bartolomeu Dias seglar runt Afrikas sydspets",
+      "file": "images/events/bartolomeu-dias-rundar-afrika.webp",
+      "kind": "historisk",
+      "credit": "RedCoat, bearbetning Biser Todorov / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-bartolomeu-dias-rundar-afrika",
+        "title": "Bartolomeu Dias, South Africa House (cut) – foto av RedCoat 2007, utsnitt av Biser Todorov (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Bartolomeu_Dias,_South_Africa_House_(cut).JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-22"
+      }
     },
     {
       "eventId": "batavia-1619",
@@ -447,6 +552,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_183-1989-1110-018%2C_Berlin%2C_Checkpoint_Charlie%2C_Nacht_des_Mauerfalls.jpg",
         "license": "CC BY-SA 3.0 DE",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "biafrakriget",
+      "eventTitle": "Biafrakriget (nigerianska inbördeskriget)",
+      "file": "images/events/biafrakriget.webp",
+      "kind": "historisk",
+      "credit": "CDC / Dr. Lyle Conrad via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-biafrakriget",
+        "title": "1968 10 Nigeria CDC – CDC/ Dr. Lyle Conrad (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:1968_10_Nigeria_CDC.png",
+        "license": "Public domain",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -762,6 +882,21 @@
       }
     },
     {
+      "eventId": "dahomey-erovrar-ouidah",
+      "eventTitle": "Dahomey erövrar hamnstaden Ouidah",
+      "file": "images/events/dahomey-erovrar-ouidah.webp",
+      "kind": "historisk",
+      "credit": "Ji-Elle / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-dahomey-erovrar-ouidah",
+        "title": "Emblème du roi Agadja – foto av Ji-Elle på Musée africain de Lyon, 2016 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Embl%C3%A8me_du_roi_Agadja-Mus%C3%A9e_africain_de_Lyon.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "darwin-fods",
       "eventTitle": "Charles Darwin föds",
       "file": "images/events/darwin-fods.webp",
@@ -789,6 +924,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:The_Pnyx_plateau_on_23_September_2018.jpg",
         "license": "CC0",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "diamanterna-i-kimberley",
+      "eventTitle": "Diamantruschen i Kimberley",
+      "file": "images/events/diamanterna-i-kimberley.webp",
+      "kind": "historisk",
+      "credit": "Irene2005 (Flickr) / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-diamanterna-i-kimberley",
+        "title": "Big Hole, Kimberley – nutida foto av Irene2005, 2007 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Open_pit_mine.jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -966,6 +1116,21 @@
       }
     },
     {
+      "eventId": "etiopisk-adalska-kriget",
+      "eventTitle": "Etiopisk-adalska kriget",
+      "file": "images/events/etiopisk-adalska-kriget.webp",
+      "kind": "historisk",
+      "credit": "Okänd konstnär / Bibliothèque nationale de France (ms. fr. 2810) via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-etiopisk-adalska-kriget",
+        "title": "Yagbea Sion Battling the sultan of Adal – miniatyr från 1400-talet i Le Livre de Marco Polo, BnF ms. fr. 2810, f° 89v (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:YagbeaSionBattlingAdaSultan.JPG",
+        "license": "Public domain",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "eviansavtalen",
       "eventTitle": "Éviansavtalen: Algeriet blir fritt",
       "file": "images/events/eviansavtalen.webp",
@@ -1047,6 +1212,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:First_Fleet_entering_Sydney_1788_Bradley.jpg",
         "license": "Public domain",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "forsta-hjarttransplantationen",
+      "eventTitle": "Den första hjärttransplantationen",
+      "file": "images/events/forsta-hjarttransplantationen.webp",
+      "kind": "historisk",
+      "credit": "Tiiu Sild / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-forsta-hjarttransplantationen",
+        "title": "Groote Schuur Hospital in South Africa – Tiiu Sild (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Groote_Schuur_Hospital_in_South_Africa.JPG",
+        "license": "Public domain",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -1275,6 +1455,21 @@
       }
     },
     {
+      "eventId": "gedi-grundas",
+      "eventTitle": "Swahilistaden Gedi grundas",
+      "file": "images/events/gedi-grundas.webp",
+      "kind": "historisk",
+      "credit": "Mgiganteus / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-gedi-grundas",
+        "title": "Great Mosque of Gede – Mgiganteus (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Great_Mosque_of_Gede.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "ghanas-sjalvstandighet",
       "eventTitle": "Ghana blir självständigt",
       "file": "images/events/ghanas-sjalvstandighet.webp",
@@ -1467,6 +1662,21 @@
       }
     },
     {
+      "eventId": "herero-och-nama-folkmordet",
+      "eventTitle": "Folkmordet på herero och nama",
+      "file": "images/events/herero-och-nama-folkmordet.webp",
+      "kind": "historisk",
+      "credit": "Okänd fotograf / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-herero-och-nama-folkmordet",
+        "title": "Fångar ur herero- och namafolken under kriget mot Tyskland 1904–1908 – foto av okänd fotograf (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Herero_and_Nama_prisoners.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "hijra",
       "eventTitle": "Hijra: Muhammed flyttar till Medina",
       "file": "images/events/hijra.webp",
@@ -1474,6 +1684,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "ibn-al-haytham-optikens-bok",
+      "eventTitle": "Ibn al-Haytham skriver Optikens bok i Kairo",
+      "file": "images/events/ibn-al-haytham-optikens-bok.webp",
+      "kind": "historisk",
+      "credit": "Okänd konstnär / Bayerische Staatsbibliothek via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-ibn-al-haytham-optikens-bok",
+        "title": "Thesaurus opticus Titelblatt – Unknown illustrator Unknown illustrator (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Thesaurus_opticus_Titelblatt.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-22"
+      }
     },
     {
       "eventId": "ibn-battuta-resa",
@@ -1503,6 +1728,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Tokugawa_Ieyasu2.JPG",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "ife-huvudet",
+      "eventTitle": "Kopparhuvudena från Ife gjuts",
+      "file": "images/events/ife-huvudet.webp",
+      "kind": "historisk",
+      "credit": "sailko / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-ife-huvudet",
+        "title": "Arte yoruba, nigeria, testa da ife, 12-15mo secolo – sailko (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Arte_yoruba,_nigeria,_testa_da_ife,_12-15mo_secolo.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -1905,6 +2145,36 @@
       }
     },
     {
+      "eventId": "kilwa-pa-sin-hojd",
+      "eventTitle": "Handelsstaden Kilwa bygger palats och kupolmoské",
+      "file": "images/events/kilwa-pa-sin-hojd.webp",
+      "kind": "historisk",
+      "credit": "Richard Mortel / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-kilwa-pa-sin-hojd",
+        "title": "Husuni Kubwa, ruins of early 14th cent. sultan's palace on Kilwa Kisiwani (1) (28454335443) – Richard Mortel from Riyadh, Saudi Arabia (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Husuni_Kubwa,_ruins_of_early_14th_cent._sultan%27s_palace_on_Kilwa_Kisiwani_(1)_(28454335443).jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "kilwas-stora-moske-norra-hallen",
+      "eventTitle": "Stora moskén i Kilwa får sin norra bönehall",
+      "file": "images/events/kilwas-stora-moske-norra-hallen.webp",
+      "kind": "historisk",
+      "credit": "Richard Mortel / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-kilwas-stora-moske-norra-hallen",
+        "title": "Great Mosque of Kilwa Kisiwani, 11th - 18th cents (5) (28963308352) – Richard Mortel from Riyadh, Saudi Arabia (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Great_Mosque_of_Kilwa_Kisiwani,_11th_-_18th_cents_(5)_(28963308352).jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "kleopatra",
       "eventTitle": "Kleopatra",
       "file": "images/events/kleopatra.webp",
@@ -2028,6 +2298,21 @@
       }
     },
     {
+      "eventId": "koutoubiamosken-byggs",
+      "eventTitle": "Koutoubiamoskén byggs i Marrakech",
+      "file": "images/events/koutoubiamosken-byggs.webp",
+      "kind": "historisk",
+      "credit": "Baca12 / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-koutoubiamosken-byggs",
+        "title": "Mosquée de la Koutoubia - marakesh – Baca12 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Mosqu%C3%A9e_de_la_Koutoubia_-_marakesh.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "krakatau-1883",
       "eventTitle": "Vulkanen Krakatau får sitt stora utbrott",
       "file": "images/events/krakatau-1883.webp",
@@ -2040,6 +2325,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:De_uitbarsting_van_de_Krakatau%2C_KITLV_5888.tiff",
         "license": "Public domain",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "krugerparken",
+      "eventTitle": "Krugerparken blir Sydafrikas första nationalpark",
+      "file": "images/events/krugerparken.webp",
+      "kind": "historisk",
+      "credit": "flowcomm / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-krugerparken",
+        "title": "Rhino, Kruger National Park (7826798766) – flowcomm (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Rhino,_Kruger_National_Park_(7826798766).jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -2070,6 +2370,36 @@
         "url": "https://commons.wikimedia.org/wiki/File:Quotations_From_Chairman_Mao_Tse-Tung_on_wall.JPG",
         "license": "CC BY 1.0",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "kungadomet-kongo-grundas",
+      "eventTitle": "Kungadömet Kongo grundas",
+      "file": "images/events/kungadomet-kongo-grundas.webp",
+      "kind": "historisk",
+      "credit": "Pierre d'Hondt (förläggare) och J. van der Schley (gravör) / Koninklijke Bibliotheek och Atlas of Mutual Heritage via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-kungadomet-kongo-grundas",
+        "title": "A Dutch delegation is received by the king of Congo – bild ur en bok från 1747 (Pierre d'Hondt (förläggare) och J. van der Schley (gravör)), efter Dapper (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:AMH-8087-KB_A_Dutch_delegation_is_received_by_the_king_of_Congo..jpg",
+        "license": "Public domain",
+        "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "kvaggan-dor-ut",
+      "eventTitle": "Kvaggan dör ut",
+      "file": "images/events/kvaggan-dor-ut.webp",
+      "kind": "historisk",
+      "credit": "Vassil / Wikimedia Commons",
+      "license": "CC0",
+      "source": {
+        "id": "commons-bild-kvaggan-dor-ut",
+        "title": "Uppstoppad kvagga i Naturhistorisches Museum Basel – foto av Vassil, 2013 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Quagga_Naturhistorisches_Museum_Basel_27102013_3.jpg",
+        "license": "CC0",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -2232,6 +2562,21 @@
       }
     },
     {
+      "eventId": "livingstone-vid-victoriafallen",
+      "eventTitle": "Livingstone vid Mosi-oa-Tunya",
+      "file": "images/events/livingstone-vid-victoriafallen.webp",
+      "kind": "historisk",
+      "credit": "Diego Delso / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-livingstone-vid-victoriafallen",
+        "title": "Victoriafallen från luften – nutida foto av Diego Delso, 2018 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Cataratas_Victoria,_Zambia-Zimbabue,_2018-07-27,_DD_05.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "lothal",
       "eventTitle": "Lothal, Induskulturens hamnstad",
       "file": "images/events/lothal.webp",
@@ -2316,6 +2661,36 @@
       }
     },
     {
+      "eventId": "maimonides-skriver-more-nebuchim",
+      "eventTitle": "Maimonides skriver Moré nebuchim i Fustat",
+      "file": "images/events/maimonides-skriver-more-nebuchim.webp",
+      "kind": "historisk",
+      "credit": "Ferrer Bassa / Det Kongelige Bibliotek via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-maimonides-skriver-more-nebuchim",
+        "title": "14c ed of the Guide for the Perplexed by Maimonides – Ferrer Bassa (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:14c_ed_of_the_Guide_for_the_Perplexed_by_Maimonides.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "maji-maji-upproret",
+      "eventTitle": "Maji Maji-upproret",
+      "file": "images/events/maji-maji-upproret.webp",
+      "kind": "historisk",
+      "credit": "Maximilian Dörrbecker (Chumwa) / Wikimedia Commons",
+      "license": "CC BY-SA 2.5",
+      "source": {
+        "id": "commons-bild-maji-maji-upproret",
+        "title": "Maji Maji rebellion – modern karta med tysk text av Maximilian Dörrbecker (Chumwa) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Maji_Maji_rebellion_-_de.png",
+        "license": "CC BY-SA 2.5",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "mammutar-wrangel",
       "eventTitle": "De sista ullhårsmammutarna",
       "file": "images/events/mammutar-wrangel.webp",
@@ -2382,6 +2757,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Marco_Polo_traveling.JPG",
         "license": "Public domain",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "marrakech-grundas",
+      "eventTitle": "Marrakech grundas av almoraviderna",
+      "file": "images/events/marrakech-grundas.webp",
+      "kind": "historisk",
+      "credit": "Donar Reiskoffer / Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "source": {
+        "id": "commons-bild-marrakech-grundas",
+        "title": "Djemaa el Fna, evening – Donar Reiskoffer (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Djemaa_el_Fna,_evening.JPG",
+        "license": "CC BY 3.0",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -3063,6 +3453,21 @@
       }
     },
     {
+      "eventId": "rozviriket",
+      "eventTitle": "Rozviriket på Zimbabweplatån",
+      "file": "images/events/rozviriket.webp",
+      "kind": "historisk",
+      "credit": "Senzeni1 / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-rozviriket",
+        "title": "Ntabazikamambo Grananeries or Grain Bins – foto av Senzeni1, 2018 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ntabazikamambo_Grananeries_or_Grain_Bins.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "sagan-om-genji",
       "eventTitle": "Sagan om Genji skrivs",
       "file": "images/events/sagan-om-genji.webp",
@@ -3075,6 +3480,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Genji_emaki_01003_002.jpg",
         "license": "Public domain",
         "checked": "2026-11-07"
+      }
+    },
+    {
+      "eventId": "said-bin-sultan-flyttar-till-zanzibar",
+      "eventTitle": "Said bin Sultan flyttar sin huvudstad till Zanzibar",
+      "file": "images/events/said-bin-sultan-flyttar-till-zanzibar.webp",
+      "kind": "historisk",
+      "credit": "Henry Blosse Lynch / Peabody Essex Museum via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-said-bin-sultan-flyttar-till-zanzibar",
+        "title": "Said bin Sultan – samtida porträtt av Henry Blosse Lynch, omkring 1855, Peabody Essex Museum (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Said_bin_Sultan.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -3555,6 +3975,21 @@
       }
     },
     {
+      "eventId": "slaget-vid-kambula",
+      "eventTitle": "Slaget vid Kambula vänder kriget",
+      "file": "images/events/slaget-vid-kambula.webp",
+      "kind": "historisk",
+      "credit": "Charles Robinson efter Melton Prior / The Illustrated London News via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-kambula",
+        "title": "The Zulu War, Battle of Kambula Hill – Charles Robinson efter Melton Prior, The Illustrated London News 1879 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Kambula_1.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "slaget-vid-kororareka",
       "eventTitle": "Slaget vid Kororāreka",
       "file": "images/events/slaget-vid-kororareka.webp",
@@ -3597,6 +4032,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Gustav_II_Adolph_of_Sweden_dies_1632_by_Carl_Wahlbom_1855.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "slaget-vid-mersa-matruh",
+      "eventTitle": "Slaget vid Mersa Matruh",
+      "file": "images/events/slaget-vid-mersa-matruh.webp",
+      "kind": "historisk",
+      "credit": "Okänd fotograf / Archivio Centrale dello Stato via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-mersa-matruh",
+        "title": "Bersaglieri entering Mersa Matruh – okänd fotograf (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Bersaglieri_entering_Mersa_Matruh.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -3696,6 +4146,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:The_repulse_of_the_royal_navy_storming_party_rangiriri_pa.jpg",
         "license": "Public domain",
         "checked": "2026-11-09"
+      }
+    },
+    {
+      "eventId": "slaget-vid-rorkes-drift",
+      "eventTitle": "Försvaret av Rorke's Drift",
+      "file": "images/events/slaget-vid-rorkes-drift.webp",
+      "kind": "historisk",
+      "credit": "Alphonse de Neuville / Art Gallery of New South Wales (Google Art Project) via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-rorkes-drift",
+        "title": "The defence of Rorke's Drift 1879 – Alphonse de Neuville, 1880, Art Gallery of New South Wales (Google Art Project) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Alphonse_de_Neuville_-_The_defence_of_Rorke%27s_Drift_1879_-_Google_Art_Project.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -3843,6 +4308,21 @@
       }
     },
     {
+      "eventId": "slaget-vid-ulundi",
+      "eventTitle": "Slaget vid Ulundi avslutar kriget",
+      "file": "images/events/slaget-vid-ulundi.webp",
+      "kind": "historisk",
+      "credit": "Okänd konstnär / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-ulundi",
+        "title": "L'incendie d'Ulundi – gravyr från 1879 av okänd konstnär (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:The_burning_of_Ulundi.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "slaget-vid-verdun",
       "eventTitle": "Slaget vid Verdun",
       "file": "images/events/slaget-vid-verdun.webp",
@@ -3945,6 +4425,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Smallpox_virus_virions_TEM_PHIL_1849.JPG",
         "license": "Public domain",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "sokotokalifatet-grundas",
+      "eventTitle": "Usman dan Fodio grundar Sokotokalifatet",
+      "file": "images/events/sokotokalifatet-grundas.webp",
+      "kind": "historisk",
+      "credit": "P.-L. Monteil / Internet Archive via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-sokotokalifatet-grundas",
+        "title": "View of Sokoto (1890) – bild ur P.-L. Monteils De Saint-Louis à Tripoli par le lac Tchad (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:View_of_Sokoto_(1890).jpg",
+        "license": "Public domain",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -4155,21 +4650,6 @@
       }
     },
     {
-      "eventId": "sydsudan-blir-sjalvstandigt",
-      "eventTitle": "Sydsudan blir självständigt",
-      "file": "images/events/sydsudan-blir-sjalvstandigt.webp",
-      "kind": "historisk",
-      "credit": "Sarah Taylor / USAID via Wikimedia Commons",
-      "license": "Public domain",
-      "source": {
-        "id": "commons-bild-sydsudan-blir-sjalvstandigt",
-        "title": "South Sudan independence celebration in Juba – Sarah Taylor, USAID, 9 juli 2011 (Wikimedia Commons, filsida)",
-        "url": "https://commons.wikimedia.org/wiki/File:South_Sudan_independence_celebration_in_Juba.jpg",
-        "license": "Public domain",
-        "checked": "2026-11-22"
-      }
-    },
-    {
       "eventId": "taj-mahal",
       "eventTitle": "Taj Mahal byggs",
       "file": "images/events/taj-mahal.webp",
@@ -4242,6 +4722,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Gilsemans_1642.jpg",
         "license": "Public domain",
         "checked": "2026-11-09"
+      }
+    },
+    {
+      "eventId": "taungbarnet-hittas",
+      "eventTitle": "Taungbarnet hittas",
+      "file": "images/events/taungbarnet-hittas.webp",
+      "kind": "historisk",
+      "credit": "GuillaumeG / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-taungbarnet-hittas",
+        "title": "Taung - MCN 4141 – GuillaumeG (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Taung_-_MCN_4141.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -4368,6 +4863,21 @@
       }
     },
     {
+      "eventId": "timbuktu-blir-fast-bosattning",
+      "eventTitle": "Timbuktu blir en fast bosättning",
+      "file": "images/events/timbuktu-blir-fast-bosattning.webp",
+      "kind": "historisk",
+      "credit": "Martin Bernatz efter skiss av Heinrich Barth / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-timbuktu-blir-fast-bosattning",
+        "title": "TIMBUKTU-EINZUG – Drawn by Martin Bernatz after a sketch by Heinrich Barth (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:TIMBUKTU-EINZUG.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "titanic-sjunker",
       "eventTitle": "Titanic sjunker",
       "file": "images/events/titanic-sjunker.webp",
@@ -4485,6 +4995,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Field_Marshal_Keitel_signs_German_surrender_terms_in_Berlin_8_May_1945_-_Restoration.jpg",
         "license": "Public domain",
         "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "universitetet-i-alexandria-1942",
+      "eventTitle": "Universitetet i Alexandria blir självständigt",
+      "file": "images/events/universitetet-i-alexandria-1942.webp",
+      "kind": "historisk",
+      "credit": "Faris El-Gwely / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-universitetet-i-alexandria-1942",
+        "title": "Alexandria University, The Main Building – Faris El-Gwely (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Alexandria_University,_The_Main_Building.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-22"
       }
     },
     {

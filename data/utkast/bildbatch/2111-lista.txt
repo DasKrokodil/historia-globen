@@ -11,6 +11,6 @@ File:Cimetière Mémorial de la guerre de 2000.JPG	sexdagarskriget-i-kisangani
 # File:Britannica Dredge and Dredging 7.jpg	afrikanska-unionen-bildas
 File:The Inauguration Ceremony of Liberian President Ellen Johnson Sirleaf - DPLA - b23ac987cbce5568d24812d42529d5f6.JPG	sirleaf-valjs-i-liberia
 File:FIFA World Cup 2010 Spain with cup.jpg	fotbolls-vm-2010
-File:South Sudan independence celebration in Juba.jpg	sydsudan-blir-sjalvstandigt
+# File:South Sudan independence celebration in Juba.jpg	sydsudan-blir-sjalvstandigt
 File:Checking for fever.jpg	ebolaepidemin-i-vastafrika
 File:AfricanContinentalFreeTradeArea.svg	afrikanska-frihandelsomradet	passa-in

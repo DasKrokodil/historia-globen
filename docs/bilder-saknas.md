@@ -151,6 +151,7 @@ Granskningslistan `data/utkast/bildbatch/2111.md` och högst en kort sökning p�
 | `mordet-pa-laurent-desire-kabila` | Kandidaten är ett porträtt från ett besök hos EG 1998 med licensmallen EC-Audiovisual Center, som verktygen inte känner igen; vi avstår enligt docs/bilder-riktiga.md. Bilden visar inte heller händelsen. |
 | `afrikanska-unionen-bildas` | Kandidaterna är en mudderpråm ur Britannica 1911 och två foton med licensen GODL-India från andra möten i Durban (2006 och 2013), inte händelsen. Sökningen gav inget från 2002. |
 | `kongos-overgangsregering-2003` | Tom kandidatlista. Sökningen gav bara dokument (PDF). |
+| `sydsudan-blir-sjalvstandigt` | Filsidans licensmall (PD-USGov-POTUS) stämmer inte med upphovet (USAID), och Flickr-sidans licens gick inte att kontrollera (2026-11-22). |
 
 ## Afrika 1826–1905, pilot #2109 (bildpipelinen #2183)
 
