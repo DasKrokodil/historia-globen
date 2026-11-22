@@ -1,0 +1,3163 @@
+{
+  "schema": "historia-globen/bildkandidater@2",
+  "status": "förslag",
+  "anmarkning": "FÖRSLAG, inte beslut. Kandidaterna är hämtade automatiskt och måste kontrolleras manuellt innan någon används: öppna filsidan (`filsida`), läs licensmallen, kontrollera att bilden visar själva händelsen (inte en karta, en nutida minnessten eller något annat) och skriv bildtexten ur det filsidan säger. Licensklassningen är en automatisk gissning ur Commons API (\"trolig\"); filsidans licensmall kontrolleras av tools/bild_hamta.py eller tools/bildbatch.py --licens, och \"flagga\" avgörs av en människa. Appen läser inte den här filen (data/utkast/). Se docs/bilder-riktiga.md.",
+  "generated": {
+    "handelser": 72,
+    "kandidater": 97,
+    "troliga": 94,
+    "flaggade": 2,
+    "avvisade": 1,
+    "smala": 23,
+    "ej_hamtade": 0
+  },
+  "handelser": [
+    {
+      "id": "rysk-japanska-kriget",
+      "titel": "Rysk-japanska kriget",
+      "plats": "Manchuriet, Korea, Gula havet och Japanska havet (markören vid Port Arthur, i dagens Lüshunkou, där kriget började)",
+      "start": 1904,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q159950",
+      "kandidater": [
+        {
+          "fil": "File:RUSSOJAPANESEWARIMAGE.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:RUSSOJAPANESEWARIMAGE.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Original uploader and author was Dustandshadow at en.wikipedia",
+          "datum": "22 July 2007 (original upload date)",
+          "beskrivning": "Russo-Japanese War montage",
+          "bredd": 655,
+          "hojd": 916,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/d/dd/RUSSOJAPANESEWARIMAGE.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Battle of the Yellow Sea - Russian forces",
+            "Pallada (ship, 1899)",
+            "Pallada class cruiser",
+            "Protected cruisers of the Imperial Japanese Navy",
+            "Russo-Japanese War photography",
+            "Ships built in 1899",
+            "Ships named Pallada",
+            "Ships with 3 funnels",
+            "Two-masted ships"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "raja-harishchandra-har-premiar",
+      "titel": "Raja Harishchandra, Indiens första långfilm",
+      "plats": "Bombay (Mumbai), Indien",
+      "start": 1913,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q2985396",
+      "kandidater": [
+        {
+          "fil": "File:Publicity poster for film, Raja Harishchandra (1913).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Publicity_poster_for_film,_Raja_Harishchandra_(1913).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Dadasaheb Phalke",
+          "datum": "1913",
+          "beskrivning": "Publicity poster for film, Raja Harishchandra (1913), India's first full length completely indeginously made, feature film.",
+          "bredd": 256,
+          "hojd": 390,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Publicity_poster_for_film%2C_Raja_Harishchandra_%281913%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Film posters of India",
+            "Posters of Maharashtra",
+            "Raja Harishchandra"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "turkiska-frihetskriget",
+      "titel": "Turkiska frihetskriget",
+      "plats": "Anatolien och östra Thrakien (markören i Smyrna, i dag İzmir, där kriget började)",
+      "start": 1919,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q234738",
+      "kandidater": [
+        {
+          "fil": "File:Turkish War of Independence - collage.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Turkish_War_of_Independence_-_collage.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "Youngottoman",
+          "datum": "2008-01-14",
+          "beskrivning": "Clockwise from top left : The British army is executing a death penalty in İzmit; Greek soldiers are occupying Smyrna; The Turkish delegation at the Sivas Conference; Turkish horse cavalry; Bayonet attack in Afyonkarahisar.",
+          "bredd": 404,
+          "hojd": 404,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Turkish_War_of_Independence_-_collage.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Montages of Turkish War of Independence"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "bose-statistiken",
+      "titel": "Bose räknar ljusets kvanta på ett nytt sätt",
+      "plats": "Dhakas universitet, Brittiska Indien (i dag Bangladesh)",
+      "start": 1924,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Bose counts light quanta in a new way University of Dhaka",
+      "kandidater": []
+    },
+    {
+      "id": "ramaneffekten",
+      "titel": "Ramaneffekten upptäcks",
+      "plats": "Calcutta (i dag Kolkata), Indien",
+      "start": 1928,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Raman effect is discovered Calcutta (today Kolkata)",
+      "kandidater": []
+    },
+    {
+      "id": "yukawas-mesonteori",
+      "titel": "Yukawa förutsäger mesonen",
+      "plats": "Osakas kejserliga universitet, Japan",
+      "start": 1935,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": null,
+      "soktext": "Yukawa predicts the meson Osaka Imperial University",
+      "kandidater": []
+    },
+    {
+      "id": "andra-kinesisk-japanska-kriget",
+      "titel": "Andra kinesisk-japanska kriget",
+      "plats": "Kina, Burma, Korea, Indokina och Taiwan (markören vid Marco Polo-bron nära Peking, där kriget började)",
+      "start": 1937,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q170314",
+      "kandidater": [
+        {
+          "fil": "File:Japanese Occupation of China 1940.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Japanese_Occupation_of_China_1940.svg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "File:Japanese_Occupation_-_Map.jpg : original File:OcupaciónJaponesaDeChina1940.svg : Rowanwindwhistler ( talk ) \"Turned into SVG and translated into Spanish.\" Odie5533 \"Translated back into English\"",
+          "datum": "2012-11-13 20:23:39",
+          "beskrivning": "Japanese Occupation of China in 1940. Translated back to English from the Spanish svg.",
+          "bredd": 1119,
+          "hojd": 857,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Japanese_Occupation_of_China_1940.svg/960px-Japanese_Occupation_of_China_1940.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "English-language SVG maps of the history of China",
+            "Maps of the Second Sino-Japanese War",
+            "Maps showing 1940",
+            "Occupation of China by Japan",
+            "SVG maps of the Republic of China (1912–1949)",
+            "SVG maps of the history of China"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "nanjingmassakern",
+      "titel": "Nanjingmassakern",
+      "plats": "Nanjing och landsbygden runt staden, Kina",
+      "start": 1937,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q192055",
+      "kandidater": [
+        {
+          "fil": "File:Nanking bodies 1937.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Nanking_bodies_1937.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Originally Moriyasu Murase, 村瀬守保",
+          "datum": "between 1937 and 1938 date QS:P,+1937-00-00T00:00:00Z/8,P1319,+1937-00-00T00:00:00Z/9,P1326,+1938-00-00T00:00:00Z/9",
+          "beskrivning": "Bodies of victims along Qinhuai River out of Nanjing's west gate during Nanjing Massacre.",
+          "bredd": 800,
+          "hojd": 559,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/7/72/Nanking_bodies_1937.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Killing in Nanjing Massacre",
+            "Photographs by Moriyasu Murase"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "jordbavningen-i-erzincan-1939",
+      "titel": "Jordbävningen i Erzincan",
+      "plats": "Erzincan, östra Turkiet",
+      "start": 1939,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q3045050",
+      "soktext": "The Erzincan earthquake Erzincan",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": [
+        {
+          "fil": "File:1939 Erzincan depremi için yardımda bulunan ülkeler.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:1939_Erzincan_depremi_i%C3%A7in_yard%C4%B1mda_bulunan_%C3%BClkeler.png",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "SahinBasaran",
+          "datum": "1939-12-27",
+          "beskrivning": "1939 Erzincan depremi için yardımda bulunan ülkeler.",
+          "bredd": 7752,
+          "hojd": 3840,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/1939_Erzincan_depremi_i%C3%A7in_yard%C4%B1mda_bulunan_%C3%BClkeler.png/960px-1939_Erzincan_depremi_i%C3%A7in_yard%C4%B1mda_bulunan_%C3%BClkeler.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1939-12-27",
+            "1939 Erzincan earthquake",
+            "Earthquakes of 1939",
+            "Locator maps of Turkey",
+            "Maps showing 1939"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Statue of Inönü in Erzincan 2580.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Statue_of_In%C3%B6n%C3%BC_in_Erzincan_2580.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Dosseman",
+          "datum": "2006-06-03 16:18:59",
+          "beskrivning": "After wrongly thinking it was about Atatürk I was corrected: it refers to Inönü, as implied by the text \"This monument tells about president İsmet İnönü and the Erzincan earthquake. İnönü was visiting the city right after that earthquake accrued on December 27,1939 and killed 33.000 people.\" It has a text that in translation is something like Lean your exhausted head on its breast you helpless woman, Tell him, the exterminated homeland and fallen comrades, There is the enernal love of your fellow nation, Boiling over and over... On this sacred fire, dry even your tears....",
+          "bredd": 2848,
+          "hojd": 4288,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Statue_of_In%C3%B6n%C3%BC_in_Erzincan_2580.jpg/960px-Statue_of_In%C3%B6n%C3%BC_in_Erzincan_2580.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Statue of Inönü in Erzincan"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Statue of Inönü in Erzincan 2581.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Statue_of_In%C3%B6n%C3%BC_in_Erzincan_2581.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Dosseman",
+          "datum": "2006-06-03 16:19:30",
+          "beskrivning": "After wrongly thinking it was about Atatürk I was corrected: it refers to Inönü, as implied by the text \"This monument tells about president İsmet İnönü and the Erzincan earthquake. İnönü was visiting the city right after that earthquake accrued on December 27,1939 and killed 33.000 people.\" It has a text that in translation is something like Lean your exhausted head on its breast you helpless woman, Tell him, the exterminated homeland and fallen comrades, There is the enernal love of your fellow nation, Boiling over and over... On this sacred fire, dry even your tears....",
+          "bredd": 2848,
+          "hojd": 4288,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Statue_of_In%C3%B6n%C3%BC_in_Erzincan_2581.jpg/960px-Statue_of_In%C3%B6n%C3%BC_in_Erzincan_2581.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Statue of Inönü in Erzincan"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Statue of Inönü in Erzincan 2579.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Statue_of_In%C3%B6n%C3%BC_in_Erzincan_2579.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Dosseman",
+          "datum": "2006-06-03 16:18:32",
+          "beskrivning": "After wrongly thinking it was about Atatürk I was corrected: it refers to Inönü, as implied by the text \"This monument tells about president İsmet İnönü and the Erzincan earthquake. İnönü was visiting the city right after that earthquake accrued on December 27,1939 and killed 33.000 people.\" It has a text that in translation is something like Lean your exhausted head on its breast you helpless woman, Tell him, the exterminated homeland and fallen comrades, There is the enernal love of your fellow nation, Boiling over and over... On this sacred fire, dry even your tears....",
+          "bredd": 4288,
+          "hojd": 2848,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Statue_of_In%C3%B6n%C3%BC_in_Erzincan_2579.jpg/960px-Statue_of_In%C3%B6n%C3%BC_in_Erzincan_2579.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Statue of Inönü in Erzincan"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:1939 Events Collage V 1.0.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:1939_Events_Collage_V_1.0.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Kingdom of Italy Unknown author. Михаил Михайлович Калашников unknown Fernando Melcher Marmara Üniversitesi captured photo Hans Sönnke",
+          "datum": "2023-11-23",
+          "beskrivning": "Clockwise: Italian invasion of Albania Winter War Molotov–Ribbentrop Pact \"Gone with the Wind\" 1939 Chillán earthquake 1939 Erzincan earthquake Battles of Khalkhin Gol Invasion of Poland",
+          "bredd": 4096,
+          "hojd": 3699,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/1939_Events_Collage_V_1.0.jpg/960px-1939_Events_Collage_V_1.0.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1939",
+            "Annual review collages",
+            "Gone with the Wind (film)"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "lahoreresolutionen-1940",
+      "titel": "Lahoreresolutionen kräver egna muslimska stater",
+      "plats": "Lahore, Punjab, Brittiska Indien (i dag Pakistan)",
+      "start": 1940,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q1800631",
+      "soktext": "The Lahore Resolution calls for Muslim states Lahore",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "rabindranath-tagore-dor-1941",
+      "titel": "Rabindranath Tagore dör",
+      "plats": "Jorasanko Thakur Bari, Tagorefamiljens hus i Calcutta, Brittiska Indien",
+      "start": 1941,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q7241",
+      "kandidater": [
+        {
+          "fil": "File:Rabindranath Tagore in 1909.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Rabindranath_Tagore_in_1909.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Generalstabens litografiska anstalt",
+          "datum": "1909",
+          "beskrivning": "Rabindranath Tagore in Kolkata .",
+          "bredd": 1071,
+          "hojd": 1500,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Rabindranath_Tagore_in_1909.jpg/960px-Rabindranath_Tagore_in_1909.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Men with beards",
+            "Portraits of Rabindranath Tagore",
+            "Rabindranath Tagore in 1909",
+            "Rabindranath Tagore with long beard"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "svalten-i-henan-1942",
+      "titel": "Svälten i Henan",
+      "plats": "Provinsen Henan, Kina",
+      "start": 1942,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q11141749",
+      "soktext": "The Henan famine Henan Province",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": [
+        {
+          "fil": "File:Agsphoto 11239 full.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Agsphoto_11239_full.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Harrison Forman",
+          "datum": "1943-01-01",
+          "beskrivning": "Great Honan [Henan] famine. Famine victim crazed with hunger gnaws bark from tree. China.",
+          "bredd": 3645,
+          "hojd": 5453,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Agsphoto_11239_full.jpg/960px-Agsphoto_11239_full.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1943 in China"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "svalten-i-bengalen-1943",
+      "titel": "Svälten i Bengalen",
+      "plats": "Provinsen Bengalen i Brittiska Indien (dagens Bangladesh och Västbengalen); många sökte hjälp i Calcutta",
+      "start": 1943,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q522837",
+      "kandidater": [
+        {
+          "fil": "File:Bengal famine 1943 photo.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Bengal_famine_1943_photo.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1943",
+          "beskrivning": "Bengali famine 1943",
+          "bredd": 763,
+          "hojd": 571,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Bengal_famine_1943_photo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1943 Bengal famine",
+            "Dog health",
+            "Dogs in West Bengal",
+            "Emaciation",
+            "Victims of British Imperialism"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:MotherWithShredsOfClothingAndChildCalcutta1943.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:MotherWithShredsOfClothingAndChildCalcutta1943.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Kalyani Bhattacharyee, and Sj. Manoj Sarbadhikar, Servants of Bengal Society, at 153/3N, Upper Circular Road, Calcutta; All Rights Reserved. First edition 1944. Printed by Manindra Chandra Dutta at Sabita Press, 18-B, Shamacharan De Street, Calcutta. See also World Cat Catalog entry",
+          "datum": "1944-11-22",
+          "beskrivning": "Mother in shreds of clothing with child begging on the streets of Calcutta during the Bengal famine of 1943",
+          "bredd": 960,
+          "hojd": 1287,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/5/59/MotherWithShredsOfClothingAndChildCalcutta1943.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1943 Bengal famine",
+            "Bengal Speaks edited by Kalyani Bhattacharyee",
+            "Kolkata in the 1940s",
+            "Mothers and children in India"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:FatherSonCowRummagingFoodBengalFamine1943.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:FatherSonCowRummagingFoodBengalFamine1943.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Kalyani Bhattacharyee, and Sj. Manoj Sarbadhikar, Servants of Bengal Society, at 153/3N, Upper Circular Road, Calcutta; All Rights Reserved. First edition 1944. Printed by Manindra Chandra Dutta at Sabita Press, 18-B, Shamacharan De Street, Calcutta. See also World Cat Catalog entry",
+          "datum": "1944-11-22",
+          "beskrivning": "A father, his young son, and a cow rummaging for scraps of food on the street during the Bengal famine 1943. The photo caption says, \"destitute peasants lived on scrappings from drains. Bad food killed lakhs of people.\"",
+          "bredd": 2257,
+          "hojd": 1681,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/FatherSonCowRummagingFoodBengalFamine1943.jpg/960px-FatherSonCowRummagingFoodBengalFamine1943.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1943 Bengal famine",
+            "Bengal Speaks edited by Kalyani Bhattacharyee"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "tata-institutet-grundas-1945",
+      "titel": "Tata-institutet för grundforskning grundas",
+      "plats": "Indian Institute of Science, Bangalore, Brittiska Indien (flyttade till Bombay samma år)",
+      "start": 1945,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q142617",
+      "kandidater": [
+        {
+          "fil": "File:Tifr main.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Tifr_main.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Annytifr",
+          "datum": "2007-10-23",
+          "beskrivning": "tifr picture",
+          "bredd": 1600,
+          "hojd": 1200,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Tifr_main.jpg/960px-Tifr_main.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Tata Institute of Fundamental Research"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "vietnams-sjalvstandighetsforklaring-1945",
+      "titel": "Ho Chi Minh utropar Vietnams självständighet",
+      "plats": "Ba Đình-torget, Hanoi, Vietnam",
+      "start": 1945,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q1925172",
+      "kandidater": [
+        {
+          "fil": "File:Bản Tuyên ngôn độc lập của nước Việt Nam Dân chủ Cộng hòa. - Trung tâm Lưu trữ quốc gia III. Phông Phủ Thủ tướng, hồ sơ 586, tờ số 1 – 3.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:B%E1%BA%A3n_Tuy%C3%AAn_ng%C3%B4n_%C4%91%E1%BB%99c_l%E1%BA%ADp_c%E1%BB%A7a_n%C6%B0%E1%BB%9Bc_Vi%E1%BB%87t_Nam_D%C3%A2n_ch%E1%BB%A7_C%E1%BB%99ng_h%C3%B2a._-_Trung_t%C3%A2m_L%C6%B0u_tr%E1%BB%AF_qu%E1%BB%91c_gia_III._Ph%C3%B4ng_Ph%E1%BB%A7_Th%E1%BB%A7_t%C6%B0%E1%BB%9Bng,_h%E1%BB%93_s%C6%A1_586,_t%E1%BB%9D_s%E1%BB%91_1_%E2%80%93_3.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "The government of Vietnam.",
+          "datum": "2020-08-14 18:57:43",
+          "beskrivning": "A file from the Cục Văn thư và Lưu trữ nhà nước related to the August Revolution at the end of World War II (two).",
+          "bredd": 6896,
+          "hojd": 2924,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/B%E1%BA%A3n_Tuy%C3%AAn_ng%C3%B4n_%C4%91%E1%BB%99c_l%E1%BA%ADp_c%E1%BB%A7a_n%C6%B0%E1%BB%9Bc_Vi%E1%BB%87t_Nam_D%C3%A2n_ch%E1%BB%A7_C%E1%BB%99ng_h%C3%B2a._-_Trung_t%C3%A2m_L%C6%B0u_tr%E1%BB%AF_qu%E1%BB%91c_gia_III._Ph%C3%B4ng_Ph%E1%BB%A7_Th%E1%BB%A7_t%C6%B0%E1%BB%9Bng%2C_h%E1%BB%93_s%C6%A1_586%2C_t%E1%BB%9D_s%E1%BB%91_1_%E2%80%93_3.jpg/960px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Declaration of Independence of the Democratic Republic of Vietnam"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "arabisk-israeliska-kriget-1948",
+      "titel": "Arabisk-israeliska kriget 1948",
+      "plats": "Det tidigare brittiska mandatet Palestina, Sinaihalvön och södra Libanon",
+      "start": 1948,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q49092",
+      "kandidater": [
+        {
+          "fil": "File:1948 Arab Israeli War - May 15-June 10.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:1948_Arab_Israeli_War_-_May_15-June_10.svg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Mr. Edward J. Krasnoborski and Mr. Frank Martini, Department of History, U.S. Military Academy Honza.havlicek ( talk )",
+          "datum": "2009-11-20 15:17",
+          "beskrivning": "Map depicting military operations from 15th May 1948 to 10th June 1948 during Israeli War of Independence . Symbols used in the map are NATO military symbols .",
+          "bredd": 904,
+          "hojd": 884,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/1948_Arab_Israeli_War_-_May_15-June_10.svg/960px-1948_Arab_Israeli_War_-_May_15-June_10.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Maps of the 1948 Arab-Israeli War"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "lydda-och-ramle-1948",
+      "titel": "Fördrivningen från Lydda och Ramle",
+      "plats": "Lydda (Lod) och Ramle",
+      "start": 1948,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q774054",
+      "soktext": "The expulsion from Lydda and Ramle",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": [
+        {
+          "fil": "File:Palestinians in Ramle 1948.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Palestinians_in_Ramle_1948.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Eldad David",
+          "datum": "1948",
+          "beskrivning": "Description from source: \"Palestinians in the city of Ramle surrender to Israeli forces during 1948 war. (Eldad David/GPO)\"",
+          "bredd": 720,
+          "hojd": 480,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/1/18/Palestinians_in_Ramle_1948.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1948 Palestine war",
+            "1948 Palestinian exodus from Lydda and Ramle",
+            "Nakba"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Exodus from Lydda and Ramla.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Exodus_from_Lydda_and_Ramla.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1948",
+          "beskrivning": "The Exodus from Lydda, Palestine, 1948",
+          "bredd": 325,
+          "hojd": 206,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/4/49/Exodus_from_Lydda_and_Ramla.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1948 Arab-Israeli War",
+            "1948 Palestinian exodus from Lydda and Ramle",
+            "Historical images of Lod",
+            "Historical images of Ramla"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Palestinians in Ramle 1948 (cropped).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Palestinians_in_Ramle_1948_(cropped).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Eldad David",
+          "datum": "1948",
+          "beskrivning": "Description from source: \"Palestinians in the city of Ramle surrender to Israeli forces during 1948 war. (Eldad David/GPO)\"",
+          "bredd": 670,
+          "hojd": 480,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/1/12/Palestinians_in_Ramle_1948_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1948 Palestine war",
+            "1948 Palestinian exodus from Lydda and Ramle",
+            "Nakba",
+            "People in 1948"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Israei soldiers in Ramle during 1948 Palestine war.webp",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Israei_soldiers_in_Ramle_during_1948_Palestine_war.webp",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1948",
+          "beskrivning": "Description from source: \"Troops of the nascent Israeli army in Ramle during the War of Independence. Credit: Bettmann Archive / GETTY IMAGES\"",
+          "bredd": 1028,
+          "hojd": 834,
+          "mime": "image/webp",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Israei_soldiers_in_Ramle_during_1948_Palestine_war.webp/960px-Israei_soldiers_in_Ramle_during_1948_Palestine_war.webp?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1948 Palestine war",
+            "1948 Palestinian exodus from Lydda and Ramle",
+            "Nakba"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:1948 Arab-Israeli War 997008137024705171.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:1948_Arab-Israeli_War_997008137024705171.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Benno Rothenberg",
+          "datum": "Taken on 10 July 1948",
+          "beskrivning": "1948 Arab-Israeli War, Ramla",
+          "bredd": 1484,
+          "hojd": 924,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/1948_Arab-Israeli_War_997008137024705171.jpg/960px-1948_Arab-Israeli_War_997008137024705171.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1948 Palestinian exodus from Lydda and Ramle",
+            "1948 Palestinian expulsion and flight",
+            "Meitar Collection",
+            "Meitar Collection (review needed)",
+            "Photographs by Benno Rothenberg",
+            "Prisoners of war in the 1948 Arab–Israeli War"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "operation-yoav",
+      "titel": "Operation Yoav i Negev",
+      "plats": "Negevöknen",
+      "start": 1948,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q2890420",
+      "kandidater": [
+        {
+          "fil": "File:Beersheba 1948.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Beersheba_1948.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Hugo Mendelson",
+          "datum": "1948-10-20",
+          "beskrivning": "Israeli soldiers capturing Beersheba , 1948",
+          "bredd": 3072,
+          "hojd": 2048,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Beersheba_1948.jpg/960px-Beersheba_1948.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1948 in Beersheba",
+            "Historical images of the soldiers of the Israel Defense Forces",
+            "M3 halftracks in Israeli service",
+            "Operation Yoav",
+            "Photographs by Hugo Mendelson",
+            "Piper J-3 (Israeli Air Force)"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "striderna-vid-latrun-1948",
+      "titel": "Striderna vid Latrun",
+      "plats": "Latrun, vid vägen mellan Tel Aviv och Jerusalem",
+      "start": 1948,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q2096397",
+      "kandidater": [
+        {
+          "fil": "File:Latrun-Police-Building.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Latrun-Police-Building.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.5",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.5",
+          "upphovsperson": "No machine-readable author provided. Bukvoed assumed (based on copyright claims).",
+          "datum": "12 November 2005 (according to Exif data)",
+          "beskrivning": "Former police building in Latrun, Israel. Now part of the Armored Corps Museum (Yad la-Shiryon). 2005.",
+          "bredd": 1296,
+          "hojd": 972,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/aa/Latrun-Police-Building.jpg/960px-Latrun-Police-Building.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Buildings with flags in Israel",
+            "Latrun fort"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "folkrepubliken-kina-utropas",
+      "titel": "Folkrepubliken Kina utropas",
+      "plats": "Tiananmen, Peking, Kina",
+      "start": 1949,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q10872057",
+      "soktext": "The People's Republic of China is proclaimed Tiananmen",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": [
+        {
+          "fil": "File:1996 -247-15a Beijing Tiananmen Gate (5068462443).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:1996_-247-15a_Beijing_Tiananmen_Gate_(5068462443).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Dan Lundberg",
+          "datum": "2009-10-17 15:25",
+          "beskrivning": "The Tiananmen, the “Gate of Heavenly Peace” which leads to the Forbidden City, forms the northern boundary of Tiananmen Square. The gate was built in the 15th century and restored in the 17th century. On October 1, 1949, Mao Zedong proclaimed the People’s Republic of China here. Tiananmen Square was originally designed and built in 1651. Starting in 1954, it was greatly expanded and altered such that today it can accommodate 600,000 people. The square is largely open with just a few trees and no benches. On Google Earth: Gate of Heavenly Peace 39°54'26.43\"N, 116°23'28.44\"E",
+          "bredd": 1698,
+          "hojd": 1007,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/1996_-247-15a_Beijing_Tiananmen_Gate_%285068462443%29.jpg/960px-1996_-247-15a_Beijing_Tiananmen_Gate_%285068462443%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1996 in Beijing",
+            "Changhe CH-Series",
+            "FAW Tianjin Xiali",
+            "Jinghua BK6141",
+            "Taxis in Beijing",
+            "Tiananmen",
+            "Tianjin Daihatsu TJ110"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Mao proclaiming establishment of PRC.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Mao_proclaiming_establishment_of_PRC.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1949-10-01",
+          "beskrivning": "A retouched picture released by the Chinese official news agency showing the Chairman Mao Zedong ( ) proclaiming 01 October 1949 at the rostrum of Tiananmen Square in Beijing the establishment of the People's Republic of China. Person on right: Dong Bi-wu.",
+          "bredd": 423,
+          "hojd": 540,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/1/12/Mao_proclaiming_establishment_of_PRC.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "2 men",
+            "Dong Biwu",
+            "Founding Ceremony of People's Republic of China",
+            "Mao Zedong in 1949",
+            "Men with microphones in China",
+            "Microphones in 1949"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:1996 -247-8a Beijing Tiananmen Square (5068460547).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:1996_-247-8a_Beijing_Tiananmen_Square_(5068460547).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Dan Lundberg",
+          "datum": "2009-10-17 15:18",
+          "beskrivning": "The Tiananmen, the “Gate of Heavenly Peace” which leads to the Forbidden City, forms the northern boundary of Tiananmen Square. The gate was built in the 15th century and restored in the 17th century. On October 1, 1949, Mao Zedong proclaimed the People’s Republic of China here. Tiananmen Square was originally designed and built in 1651. Starting in 1954, it was greatly expanded and altered such that today it can accommodate 600,000 people. The square is largely open with just a few trees and no benches. On Google Earth: Gate of Heavenly Peace 39°54'26.43\"N, 116°23'28.44\"E",
+          "bredd": 1625,
+          "hojd": 956,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/1996_-247-8a_Beijing_Tiananmen_Square_%285068460547%29.jpg/960px-1996_-247-8a_Beijing_Tiananmen_Square_%285068460547%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1996 in Beijing"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "operation-uvda",
+      "titel": "Operation Uvda: krigets sista fälttåg",
+      "plats": "Umm Rashrash (dagens Eilat) vid Röda havet",
+      "start": 1949,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q931576",
+      "kandidater": [
+        {
+          "fil": "File:Raising the Ink Flag at Umm Rashrash (Eilat).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Raising_the_Ink_Flag_at_Umm_Rashrash_(Eilat).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Micha Perry",
+          "datum": "Taken on 10 March 1949",
+          "beskrivning": "The ink-drawn national flag of Israel flies at Um Rashrash (now Eilat) across the Gulf of Aqaba on the northern tip of the Red Sea.",
+          "bredd": 1844,
+          "hojd": 2821,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/25/Raising_the_Ink_Flag_at_Umm_Rashrash_%28Eilat%29.jpg/960px-Raising_the_Ink_Flag_at_Umm_Rashrash_%28Eilat%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Avraham Adan in 1949",
+            "Black and white photographs of Israel",
+            "Denison smock in Israeli service",
+            "Eilat in the 1940s",
+            "Historical images of the soldiers of the Israel Defense Forces",
+            "IDF in 1949",
+            "Ink Flag",
+            "M1 Carbine",
+            "Male people with flags",
+            "Military people with flags",
+            "People with the national flag of Israel in Israel",
+            "Photographs by Micha Perry"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "koreakriget",
+      "titel": "Koreakriget",
+      "plats": "Koreahalvön och haven runt den (började vid 38:e breddgraden)",
+      "start": 1950,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q8663",
+      "kandidater": [
+        {
+          "fil": "File:Korean War Montage 2.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Korean_War_Montage_2.png",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "All photographs are works of the United States federal government.",
+          "datum": "between circa 1950 and circa 1953 date QS:P,+1950-00-00T00:00:00Z/8,P1319,+1950-00-00T00:00:00Z/9,P1326,+1953-00-00T00:00:00Z/9,P1480,Q5727902",
+          "beskrivning": "Montage of images from the Korean War . Clockwise from top: U.S. Marines retreating during the Battle of the Chosin Resevoir, U.N. landing at Incheon, Korean refugees in front of an American M46 Patton tank, U.S. Marines, led by First Lieutenant Baldomero Lopez, landing at Incheon, and an American F-86 Sabre fighter jet.",
+          "bredd": 1144,
+          "hojd": 1700,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Korean_War_Montage_2.png/960px-Korean_War_Montage_2.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Montages of the Korean War"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "nordkoreas-anfall-1950",
+      "titel": "Nordkorea anfaller Sydkorea",
+      "plats": "Längs 38:e breddgraden, Sydkorea",
+      "start": 1950,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q4260079",
+      "soktext": "North Korea attacks South Korea",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": [
+        {
+          "fil": "File:Korean War, train attack.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Korean_War,_train_attack.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "U.S. Army Military History Institute",
+          "datum": "1950",
+          "beskrivning": "While trains were used to transport U.S. Soldiers and their equipment during the Korean War, trains in North Korea were targets of attack by U.S. and other U.N. forces. Here, U.S. forces target rail cars south of Wonsan, North Korea, an east coast port city.",
+          "bredd": 1367,
+          "hojd": 1052,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Korean_War%2C_train_attack.jpg/960px-Korean_War%2C_train_attack.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Attacks on rail transport",
+            "Damaged rail transport infrastructure",
+            "Explosions",
+            "Korean War in 1950",
+            "Rail transport in North Korea",
+            "Wonsan during Korean War"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Manned by sailors of the Republic of Korea Navy, the small but powerful PT boat 26 still maintains its World War II \"Devil Boat\" status, engaging in harassing attacks against the east coast of North Korea 80-G-444157.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Manned_by_sailors_of_the_Republic_of_Korea_Navy,_the_small_but_powerful_PT_boat_26_still_maintains_its_World_War_II_%22Devil_Boat%22_status,_engaging_in_harassing_attacks_against_the_east_coast_of_North_Korea_80-G-444157.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1980--",
+          "beskrivning": "Manned by sailors of the Republic of Korea Navy, the small but powerful PT boat 26 still maintains its World War II \"Devil Boat\" status — engaging in harrassing attacks against the east coast of North Korea. A 5 inch rocket is launched and speeds swiftly towards an enemy held village. NARA FILE #: 80-G-444157",
+          "bredd": 3000,
+          "hojd": 3000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Manned_by_sailors_of_the_Republic_of_Korea_Navy%2C_the_small_but_powerful_PT_boat_26_still_maintains_its_World_War_II_%22Devil_Boat%22_status%2C_engaging_in_harassing_attacks_against_the_east_coast_of_North_Korea_80-G-444157.jpg/960px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1980 in military history of South Korea",
+            "Naval weapons of South Korea",
+            "PT boats",
+            "Torpedo boats of South Korea"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:People's Volunteer Army warship attacks enemies on a western Korean island, c. 1951.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:People%27s_Volunteer_Army_warship_attacks_enemies_on_a_western_Korean_island,_c._1951.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "circa 1951 date QS:P,+1951-00-00T00:00:00Z/9,P1480,Q5727902",
+          "beskrivning": "People's Volunteer Army warship attacks enemies on a western Korean island, c. 1951",
+          "bredd": 1355,
+          "hojd": 888,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/People%27s_Volunteer_Army_warship_attacks_enemies_on_a_western_Korean_island%2C_c._1951.jpg/960px-People%27s_Volunteer_Army_warship_attacks_enemies_on_a_western_Korean_island%2C_c._1951.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1951 in North Korea",
+            "Korean War in 1951",
+            "People's Volunteer Army"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Korea Viper 26 1 - V16 Conducts MOUT Combined Arms Attacks (9444840).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Korea_Viper_26_1_-_V16_Conducts_MOUT_Combined_Arms_Attacks_(9444840).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "U.S. Marine Corps photo by Cpl. John Simpson",
+          "datum": "Taken on 14 December 2025",
+          "beskrivning": "U.S. Marine Corps Lance Cpl. Alexander Johansen, a mortarman with 1st Battalion, 6th Marines, forward deployed with 4th Marine Regiment, 3rd Marine Division as part of the Unit Deployment Program, looks through a compass to ensure a mortar system’s accuracy while conducting military operations in urban terrain combined arms training during Korea Viper 26.1 at Camp Rodriguez, South Korea, Dec. 15, 2025. Korea Viper is a recurring exercise series that demonstrates the Republic of Korea and U.S. Marine Corps' ability to respond decisively in the region as a singular, unified force while strengthening relationships and trust between the two allies. Johansen is a native of North Carolina. (U.S. Marine Corps photo by Cpl. John Simpson)",
+          "bredd": 4153,
+          "hojd": 6227,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Korea_Viper_26_1_-_V16_Conducts_MOUT_Combined_Arms_Attacks_%289444840%29.jpg/960px-Korea_Viper_26_1_-_V16_Conducts_MOUT_Combined_Arms_Attacks_%289444840%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Milimedia files, South Korea (review needed)"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:U S Marines and Sailors conduct force on force exercise in South Korea (8964487).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:U_S_Marines_and_Sailors_conduct_force_on_force_exercise_in_South_Korea_(8964487).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "U.S. Marine Corps photo by Cpl. Brian Long",
+          "datum": "Taken on 4 April 2025",
+          "beskrivning": "U.S. Marines and Sailors, with Marine Wing Support Squadron (MWSS) 171, Marine Aircraft Group 12, 1st Marine Aircraft Wing, buddy rush towards a stopped convoy at Dagmar North Live Fire Complex, South Korea, April 4, 2025. U.S. Marines and Sailors with MWSS-171 deployed to South Korea to improve readiness in aviation ground support operations for Marine, joint, and allied forces on the Korean peninsula. Convoy operation training provides Marines with the unique opportunity to practice responding to an attack and to practice ambush techniques. Buddy rushing is a tactic that allows Marines to move toward an enemy while being protected by supporting fire. (U.S. Marine Corps photo by Cpl. Brian Long)",
+          "bredd": 5184,
+          "hojd": 3456,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/U_S_Marines_and_Sailors_conduct_force_on_force_exercise_in_South_Korea_%288964487%29.jpg/960px-U_S_Marines_and_Sailors_conduct_force_on_force_exercise_in_South_Korea_%288964487%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1st Marine Aircraft Wing",
+            "Milimedia files, South Korea (review needed)"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "slaget-om-pusanperimetern",
+      "titel": "Slaget om Pusanperimetern",
+      "plats": "Pusanperimetern runt hamnstaden Pusan (Busan), sydöstra Sydkorea",
+      "start": 1950,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q482979",
+      "kandidater": [
+        {
+          "fil": "File:27th Infantry Regiment soldiers at the Pusan Perimeter, September 4, 1950.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:27th_Infantry_Regiment_soldiers_at_the_Pusan_Perimeter,_September_4,_1950.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Pfc. Thomas Nebbia",
+          "datum": "1950 date QS:P571,+1950-00-00T00:00:00Z/9",
+          "beskrivning": "SC347752 - KOREAN CONFLICT Pfc. Robert Smith of Springfield, Colo., (left) and Pvt. Carl Fisher of Ponca, Okla., 27th Infantry Regiment, dug in and firing at Communist-led North Korean positions. 4 September 1950. Korea. Signal Corps Photo #8A/FEC-50-7815 (Pfc. Thomas Nebbia)",
+          "bredd": 800,
+          "hojd": 625,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/f/fb/27th_Infantry_Regiment_soldiers_at_the_Pusan_Perimeter%2C_September_4%2C_1950.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "27th Infantry Regiment (United States) in the Korean War",
+            "Battle of Pusan Perimeter"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "slaget-vid-onjong",
+      "titel": "Kina går in i kriget: slaget vid Onjong",
+      "plats": "Trakten kring Onjong, Nordkorea",
+      "start": 1950,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q4871945",
+      "kandidater": [
+        {
+          "fil": "File:Map Chinese intervention.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Map_Chinese_intervention.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "F.Temple",
+          "datum": "1992",
+          "beskrivning": "Map of Chinese intervention in the west between October 25 to November 1, 1950",
+          "bredd": 6600,
+          "hojd": 5100,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Map_Chinese_intervention.jpg/960px-Map_Chinese_intervention.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battle of the Ch'ongch'on River",
+            "Maps of battles and operations of the Korean War"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "tredje-slaget-om-seoul",
+      "titel": "Tredje slaget om Seoul",
+      "plats": "Seoul och fronten norr om staden, Sydkorea",
+      "start": 1950,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q493922",
+      "kandidater": [
+        {
+          "fil": "File:UK 29th Brigade Prisoner.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:UK_29th_Brigade_Prisoner.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "PLA Daily",
+          "datum": "1951",
+          "beskrivning": "Prisoners from the British 29th Infantry Brigade captured during the Third Battle of Seoul",
+          "bredd": 450,
+          "hojd": 313,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/a/a9/UK_29th_Brigade_Prisoner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1951 photographs of South Korea",
+            "29th Infantry Brigade (United Kingdom)",
+            "Third Battle of Seoul"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "everest-bestigs-1953",
+      "titel": "Tenzing Norgay och Edmund Hillary når toppen av Mount Everest",
+      "plats": "Mount Everest, på gränsen mellan Nepal och Kina",
+      "start": 1953,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q4567715",
+      "kandidater": [
+        {
+          "fil": "File:Everest kalapatthar.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Everest_kalapatthar.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 2.5",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.5",
+          "upphovsperson": "Pavel Novak",
+          "datum": "2005",
+          "beskrivning": "Mount Everest from Kala Patthar.",
+          "bredd": 2304,
+          "hojd": 3456,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Everest_kalapatthar.jpg/960px-Everest_kalapatthar.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Khumbu Glacier",
+            "Views of Mount Everest from Kala Patthar"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "vapenstilleståndet-i-korea",
+      "titel": "Vapenstilleståndet i Korea",
+      "plats": "Panmunjom, vid gränsen mellan Nord- och Sydkorea",
+      "start": 1953,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q2862267",
+      "kandidater": [
+        {
+          "fil": "File:Korean Armistice Ko-Text 1953.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Korean_Armistice_Ko-Text_1953.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1953-07-27",
+          "beskrivning": "Korean Text of Korean Armistice Agreement",
+          "bredd": 550,
+          "hojd": 680,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/d/de/Korean_Armistice_Ko-Text_1953.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Korean Armistice Agreement",
+            "Korean typography"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Korean Armistice Agreement in Chinese (1953).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Korean_Armistice_Agreement_in_Chinese_(1953).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "United States Department of State",
+          "datum": "1953-07-27",
+          "beskrivning": "​1953年《聯合國軍總司令一方與朝鮮人民軍最高司令官及中國人民志願軍司令員另一方關於韓國軍事停戰的協定》的簽名頁。南日和威廉·凱利·海立勝的簽名在下一頁。",
+          "bredd": 3146,
+          "hojd": 4283,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/Korean_Armistice_Agreement_in_Chinese_%281953%29.jpg/960px-Korean_Armistice_Agreement_in_Chinese_%281953%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1953 documents",
+            "Documents related to Kim Il-sung",
+            "Korean Armistice Agreement",
+            "Mark Wayne Clark",
+            "Signatures of Peng Dehuai"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Korean Armistice Zh-Text 1953.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Korean_Armistice_Zh-Text_1953.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1953-07-27",
+          "beskrivning": "Chinese Text of Korean Armistice Agreement",
+          "bredd": 436,
+          "hojd": 650,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Korean_Armistice_Zh-Text_1953.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Korean Armistice Agreement"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "vietnamkriget",
+      "titel": "Vietnamkriget",
+      "plats": "Vietnam, Laos och Kambodja",
+      "start": 1955,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q8740",
+      "kandidater": [
+        {
+          "fil": "File:VietnamWarMontage.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:VietnamWarMontage.png",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Excel23",
+          "datum": "2019-10-18",
+          "beskrivning": "Vietnam War",
+          "bredd": 394,
+          "hojd": 610,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/b/b7/VietnamWarMontage.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Montages of Vietnam War"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "ambedkar-blir-buddhist",
+      "titel": "Ambedkar och hundratusentals anhängare går över till buddhismen",
+      "plats": "Deekshabhoomi, Nagpur, Indien",
+      "start": 1956,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Ambedkar and hundreds of thousands of followers convert to Buddhism Deekshabhoomi",
+      "kandidater": []
+    },
+    {
+      "id": "stora-spranget",
+      "titel": "Stora språnget",
+      "plats": "Kina (markören i Peking)",
+      "start": 1958,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q58715",
+      "kandidater": [
+        {
+          "fil": "File:People's commone canteen3.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:People%27s_commone_canteen3.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1958",
+          "beskrivning": "Canteen where people could eat for free in 1958.",
+          "bredd": 400,
+          "hojd": 416,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/a/a8/People%27s_commone_canteen3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "People's commune"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "aralsjon-borjar-krympa",
+      "titel": "Aralsjön börjar krympa",
+      "plats": "Aralsjön, mellan Kazakstan och Uzbekistan (då Sovjetunionen)",
+      "start": 1960,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q35883",
+      "kandidater": [
+        {
+          "fil": "File:Aral Sea 1989-2008.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Aral_Sea_1989-2008.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NASA, derivative work by Zafiroblue05 at en.wikipedia",
+          "datum": "between July and September 5 October 2008",
+          "beskrivning": "Comparison of Aral Sea between 1989 and 2008",
+          "bredd": 1471,
+          "hojd": 1250,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Aral_Sea_1989-2008.jpg/960px-Aral_Sea_1989-2008.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1989 satellite pictures",
+            "2008 MODIS images",
+            "Before-and-after photographs of natural disasters",
+            "Landsat images",
+            "Satellite pictures of Aral Sea",
+            "Vozrozhdeniya Island"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "opec-grundas",
+      "titel": "OPEC grundas i Bagdad",
+      "plats": "Bagdad, Irak",
+      "start": 1960,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q7795",
+      "kandidater": [
+        {
+          "fil": "File:Wien - OPEC-Zentrale (a).JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Wien_-_OPEC-Zentrale_(a).JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "C.Stadler/Bwag",
+          "datum": "2021-10-01",
+          "beskrivning": "The headquarters of OPEC in Vienna.",
+          "bredd": 4150,
+          "hojd": 3173,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Wien_-_OPEC-Zentrale_%28a%29.JPG/960px-Wien_-_OPEC-Zentrale_%28a%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "OPEC headquarters, 2009-"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "tereshkova-vostok-6",
+      "titel": "Valentina Teresjkova blir första kvinnan i rymden",
+      "plats": "Landning väster om Barnaul i Altaj, Sovjetunionen (i dag Ryssland)",
+      "start": 1963,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q269668",
+      "kandidater": [
+        {
+          "fil": "File:RIAN archive 612748 Valentina Tereshkova.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:RIAN_archive_612748_Valentina_Tereshkova.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Alexander Mokletsov / Александр Моклецов",
+          "datum": "1969",
+          "beskrivning": "“Valentina Tereshkova”. Valentina Tereshkova, pilot-cosmonaut, first female cosmonaut, Hero of the USSR. Pictured as a Major of the Soviet Air Forces.",
+          "bredd": 1014,
+          "hojd": 1024,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/RIAN_archive_612748_Valentina_Tereshkova.jpg/960px-RIAN_archive_612748_Valentina_Tereshkova.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Bouffant",
+            "Lapels",
+            "Loose bangs, female",
+            "Orders of the Soviet Union",
+            "Photos by Alexander Mokletsov",
+            "Portraits of Valentina Tereshkova",
+            "The Star of the Republic of Indonesia",
+            "Uniform Mayor Soviet Union",
+            "Valentina Tereshkova in 1969",
+            "Women with short hair"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Vostok spacecraft.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Vostok_spacecraft.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "The original uploader was HPH at German Wikipedia .",
+          "datum": "2002",
+          "beskrivning": "Model of Vostok spacecraft , photo taken and edited by de:Benutzer:HPH on \"Russia in Space\" exhibition (Airport of Frankfurt, Germany, 2002)",
+          "bredd": 1304,
+          "hojd": 942,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Vostok_spacecraft.jpg/960px-Vostok_spacecraft.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Russia in Space (2002 exhibition)",
+            "Vostok spacecraft models"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "slaget-i-ia-drang",
+      "titel": "Slaget i Ia Drang",
+      "plats": "Ia Drang-dalen vid Chu Pong-massivet, centrala högländerna, Sydvietnam",
+      "start": 1965,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q714749",
+      "kandidater": [
+        {
+          "fil": "File:Ia Drang Infantry disembarking from Helicopter.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ia_Drang_Infantry_disembarking_from_Helicopter.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "United States Army",
+          "datum": "1965-11",
+          "beskrivning": "Soldiers of the U.S. Amry 1/7th Cavalry disembark from a Bell UH-1D Huey at LZ X-Ray during the battle of Ia Drang.",
+          "bredd": 978,
+          "hojd": 650,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Ia_Drang_Infantry_disembarking_from_Helicopter.jpg/960px-Ia_Drang_Infantry_disembarking_from_Helicopter.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1965 in aviation in Vietnam",
+            "7th Cavalry Regiment (United States) in the Vietnam War",
+            "Air assaults",
+            "Battle of Ia Drang",
+            "Bell UH-1 Iroquois in the Vietnam War"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "golanhojderna-1967",
+      "titel": "Israel tar Golanhöjderna, och vapenvilan börjar",
+      "plats": "Golanhöjderna",
+      "start": 1967,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Israel takes the Golan Heights, and the ceasefire begins The Golan Heights",
+      "kandidater": []
+    },
+    {
+      "id": "jerusalem-1967",
+      "titel": "Israel tar Östra Jerusalem",
+      "plats": "Ammunitionskullen och Gamla stan, Jerusalem",
+      "start": 1967,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q2336243",
+      "kandidater": [
+        {
+          "fil": "File:Ammunition Hill P1000932.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ammunition_Hill_P1000932.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "deror_avi",
+          "datum": "2011-03-18 02:30:04",
+          "beskrivning": "Ammunition Hill, Jerusalem",
+          "bredd": 3000,
+          "hojd": 4000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Ammunition_Hill_P1000932.JPG/960px-Ammunition_Hill_P1000932.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ammunition Hill",
+            "Elef Milim - Ammunition Hill and Musrara"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "sexdagarskriget",
+      "titel": "Sexdagarskriget",
+      "plats": "Sinaihalvön, Gazaremsan, Västbanken, Jerusalem och Golanhöjderna (började med flyganfall mot Egypten)",
+      "start": 1967,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q49077",
+      "kandidater": [
+        {
+          "fil": "File:Guèrra dei Sièis Jorns.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Gu%C3%A8rra_dei_Si%C3%A8is_Jorns.png",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Nicolas Eynaud",
+          "datum": "2013-03-18 13:56:53",
+          "beskrivning": "Esquèma generau de la Guèrra dei Sièis Jorns (1967).",
+          "bredd": 717,
+          "hojd": 629,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/b/b0/Gu%C3%A8rra_dei_Si%C3%A8is_Jorns.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Maps of the Six-Day War",
+            "Occitan-language maps showing history"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:צנחנים בכותל המערבי.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:%D7%A6%D7%A0%D7%97%D7%A0%D7%99%D7%9D_%D7%91%D7%9B%D7%95%D7%AA%D7%9C_%D7%94%D7%9E%D7%A2%D7%A8%D7%91%D7%99.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "David Rubinger",
+          "datum": "Taken on 7 June 1967 Depicted place: Category:Western Wall",
+          "beskrivning": "Six-Day War . Israeli paratroopers stand in front of the western wall in Jerusalem.",
+          "bredd": 2030,
+          "hojd": 3047,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/%D7%A6%D7%A0%D7%97%D7%A0%D7%99%D7%9D_%D7%91%D7%9B%D7%95%D7%AA%D7%9C_%D7%94%D7%9E%D7%A2%D7%A8%D7%91%D7%99.jpg/960px-%D7%A6%D7%A0%D7%97%D7%A0%D7%99%D7%9D_%D7%91%D7%9B%D7%95%D7%AA%D7%9C_%D7%94%D7%9E%D7%A2%D7%A8%D7%91%D7%99.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Paratroopers at the Western Wall"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "slaget-vid-abu-ageila-1967",
+      "titel": "Slaget vid Abu-Ageila",
+      "plats": "Abu-Ageila (Umm-Qatef), Sinaiöknen",
+      "start": 1967,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q2887798",
+      "kandidater": [
+        {
+          "fil": "File:Flickr - Government Press Office (GPO) - Centurion Tanks.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Flickr_-_Government_Press_Office_(GPO)_-_Centurion_Tanks.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Fritz Cohen",
+          "datum": "1967-05-20 11:18:58",
+          "beskrivning": "Centurion tanks armed with 105 mm guns move during a stand-by in the Negev.",
+          "bredd": 3060,
+          "hojd": 2048,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Flickr_-_Government_Press_Office_%28GPO%29_-_Centurion_Tanks.jpg/960px-Flickr_-_Government_Press_Office_%28GPO%29_-_Centurion_Tanks.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1967 black and white photographs",
+            "1967 in military history",
+            "Armoured warfare",
+            "Black and white photographs of Israel in the 1960s",
+            "Centurion and Shot tanks in Israeli service",
+            "IDF in 1967",
+            "May 1967 Israel photographs",
+            "Negev",
+            "Photographs by Fritz Cohen"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "belagringen-av-khe-sanh",
+      "titel": "Belägringen av Khe Sanh",
+      "plats": "Khe Sanh, provinsen Quảng Trị, nordvästra Sydvietnam",
+      "start": 1968,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q247253",
+      "kandidater": [
+        {
+          "fil": "File:Tquad.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Tquad.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "2006-10-01 11:35:59",
+          "beskrivning": null,
+          "bredd": 699,
+          "hojd": 344,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/b/ba/Tquad.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Battle of Khe Sanh",
+            "Guntrucks",
+            "M35 2½-ton cargo truck",
+            "M45 Quadmount"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "dong-fang-hong-1",
+      "titel": "Dong Fang Hong 1, Kinas första satellit",
+      "plats": "Jiuquans uppskjutningscenter, Kina",
+      "start": 1970,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q49678",
+      "kandidater": [
+        {
+          "fil": "File:DFH-1 Satellite.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:DFH-1_Satellite.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Brücke-Osteuropa",
+          "datum": "2011-10-28",
+          "beskrivning": "Dong Fang Hong I - Chinese first satellite (1970), Space technology exhibition in Hohhot, Inner Mongolia, China",
+          "bredd": 4320,
+          "hojd": 2432,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/DFH-1_Satellite.jpg/960px-DFH-1_Satellite.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Dong Fang Hong I"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "faltaget-i-kambodja-1970",
+      "titel": "Fälttåget i Kambodja",
+      "plats": "Östra Kambodja, bland annat området Papegojnäbben (Parrot's Beak)",
+      "start": 1970,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q2994973",
+      "kandidater": [
+        {
+          "fil": "File:Map Cambodian Incursion May 70 from USMA.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Map_Cambodian_Incursion_May_70_from_USMA.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "U.S Army",
+          "datum": "Unknown date",
+          "beskrivning": "Cambodian Campaign 1970",
+          "bredd": 1451,
+          "hojd": 903,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Map_Cambodian_Incursion_May_70_from_USMA.jpg/960px-Map_Cambodian_Incursion_May_70_from_USMA.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Maps of the Cambodian campaign"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "ohsumi-japans-forsta-satellit",
+      "titel": "Ohsumi, Japans första satellit",
+      "plats": "Kagoshima Space Center (i dag Uchinoura), Japan",
+      "start": 1970,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q166596",
+      "kandidater": [
+        {
+          "fil": "File:Ohsumi.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ohsumi.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Rlandmann",
+          "datum": "2014-02-18 05:26:00",
+          "beskrivning": "Ohsumi satellite in orbit. Satellite image modified from https://commons.wikimedia.org/wiki/File:Ohsumi_Artificial_Satellite.jpg . Background is NASA image http://eol.jsc.nasa.gov/sseop/images/ISD/highres/STS106/STS106-719-28.jpg in the public domain.",
+          "bredd": 1018,
+          "hojd": 1024,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Ohsumi.jpg/960px-Ohsumi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ohsumi"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "bangladeshs-befrielsekrig",
+      "titel": "Bangladeshs befrielsekrig",
+      "plats": "Östpakistan, i dag Bangladesh (började i Dhaka)",
+      "start": 1971,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q371394",
+      "kandidater": [
+        {
+          "fil": "File:Bangladesh 1971 Liberation.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Bangladesh_1971_Liberation.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Mike Young",
+          "datum": "2007-10-29 13:01:11",
+          "beskrivning": "This map contains my estimates of the units involved in the Bangladesh liberation war. If you know better please contact user:Mike Young on the English Wikipedia, and I will correct the Paintshop Pro image I built this from. Background taken from Bangladesh LOC 1996",
+          "bredd": 1596,
+          "hojd": 2000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Bangladesh_1971_Liberation.jpg/960px-Bangladesh_1971_Liberation.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Indo-Pakistani War of 1971",
+            "Maps of the Liberation War of Bangladesh"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "bangladeshs-sjalvstandighet-utropas",
+      "titel": "Bangladeshs självständighet utropas",
+      "plats": "Dhaka",
+      "start": 1971,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q4855429",
+      "soktext": "Bangladesh's independence is proclaimed Dhaka",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": [
+        {
+          "fil": "File:2026-03-31 State Minister for Liberation War Affairs Ishraque Hossain speech at Independence and National Day discussion meeting, National Press Club, Dhaka (cropped).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:2026-03-31_State_Minister_for_Liberation_War_Affairs_Ishraque_Hossain_speech_at_Independence_and_National_Day_discussion_meeting,_National_Press_Club,_Dhaka_(cropped).jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Press Information Department",
+          "datum": "31 March 2026, 15:22:00",
+          "beskrivning": "On Tuesday, March 31, 2026, State Minister for Liberation War Affairs Ishraque Hossain delivered a special guest speech at the National Press Club in Dhaka. The event was a discussion meeting titled 'Proclaimer of Independence and Zia of the Battlefield', organized to observe Great Independence and National Day. Information and Broadcasting Minister Zahir Uddin Swapan was also present. .mw-parser-output .messagebox{margin:4px 0;width:auto;border-collapse:collapse;border:2px solid var(--border-color-progressive,#6485d1);background-color:var(--background-color-neutral-subtle,#fbfcff);color:var(--color-base,#202122);box-sizing:border-box;border-inline-start-width:8px}.mw-parser-output .messagebox.mbox-small{font-size:88%;line-height:1.25em}.mw-parser-output .mbox-warning,.mw-parser-output .mbox-speedy{border:2px solid var(--border-color-error,#b22222);background:var(--background-color-error-subtle,#ffdbdb);border-inline-start-width:8px}.mw-parser-output .mbox-serious,.mw-parser-output .mbox-delete,.mw-parser-output .mbox-stop{border:2px solid var(--border-color-error,#b22222);border-inline-start-width:8px}.mw-parser-output .mbox-issue,.mw-parser-output .mbox-content{border:2px solid #f28500;background:var(--background-color-warning-subtle,#ffe);border-inline-start-width:8px}.mw-parser-output .mbox-query,.mw-parser-output .mbox-style{border:2px solid #f4c430;background:var(--background-color-warning-subtle,#ffe);border-inline-start-width:8px}.mw-parser-output .mbox-shit{border:2px solid #960;border-inline-start-width:8px}.mw-parser-output .mbox-license{border:2px solid #88a;border-inline-start-width:initial}.mw-parser-output .mbox-legal{border:2px solid var(--border-color-notice,#666);background:var(--background-color-base,#fff);border-inline-start-width:8px}.mw-parser-output .mbox-honor{border:2px solid #ca3;background:var(--background-color-warning-subtle,#fcf4db);border-inline-start-width:8px}.mw-parser-output .mbox-growth{border:2px solid #8d4;background:var(--background-color-success-subtle,#d5fdf4);border-inline-start-width:8px}.mw-parser-output .mbox-move{border:2px solid #93c;border-inline-start-width:8px}.mw-parser-output .mbox-protection,.mw-parser-output .mbox-message{border:2px solid var(--border-color-base,#aaa);border-inline-start-width:8px}.mw-parser-output .messagebox .mbox-text{border:none;padding:0.25em 0.9em;width:100%}.mw-parser-output .messagebox .mbox-image{border:none;padding-top:2px;padding-bottom:2px;padding-inline-start:0.9em;padding-inline-end:0;text-align:center}.mw-parser-output .messagebox .mbox-imageright{border:none;padding-top:2px;padding-bottom:2px;padding-inline-start:0;padding-inline-end:0.9em;text-align:center}.mw-parser-output .messagebox .mbox-empty-cell{border:none;padding:0;width:1px}.mw-parser-output .messagebox .mbox-invalid-type{text-align:center}@media(min-width:720px){.mw-parser-output .messagebox{margin:4px 10%}.mw-parser-output .messagebox.mbox-small{clear:right;float:right;margin:4px 0 4px 1em;width:238px}}body.skin--responsive .mw-parser-output table.messagebox img{max-width:none!important} The English description and title of this file were generated using a large language model ( Google Gemini - gemini-3.1-flash-lite ) from the original Bengali description provided by the Press Information Department . .mw-parser-output .hidden-begin{box-sizing:border-box;width:100%;padding:5px;border:none;font-size:95%}.mw-parser-output .hidden-title{font-weight:bold;line-height:1.6;text-align:left}.mw-parser-output .hidden-content{text-align:left}@media all and (max-width:500px){.mw-parser-output .hidden-begin{width:auto!important;clear:none!important;float:none!important}} Show prompts used: Translation prompt: Translate the following Bengali text into English in encyclopedic style. You may rearrange words or sentences for clarity, but retain all information. Do not add or omit anything. Only output the translation text and nothing else. Do not say \"description\" or include Bengali text in your answer. Give me only the translation — no options, no explanations. Text: \"{text}\" Filename generation prompt: Convert this image description into a single Wikimedia Commons–compliant filename (do NOT add the \"File:\" prefix, wikitext, \"Title:\", or a file extension). Follow Wikimedia Commons file naming guidelines: be descriptive, specific, precise, concise and neutral; include date as YYYY-MM-DD if present; avoid photographer/source-only names. Remove any political bias or references to previous governments and strip flattering, propagandistic, or honorific language. Output ONLY the filename (no explanation), Regular Case, remove illegal filesystem characters but KEEP spaces, commas and hyphens. Keep ≤240 bytes. No file extension. Text: \"{text}\" If you have verified that the English translation and filename are accurate, you may remove this notice by removing this template {{Auto-translated PID English description}} in the source editor. Remove this notice",
+          "bredd": 374,
+          "hojd": 463,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/e/e2/2026-03-31_State_Minister_for_Liberation_War_Affairs_Ishraque_Hossain_speech_at_Independence_and_National_Day_discussion_meeting%2C_National_Press_Club%2C_Dhaka_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Ishraque Hossain"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:2026-03-26 Tarique Rahman laying wreaths at tombs of Ziaur Rahman and Khaleda Zia on Independence and National Day, Zia Udyan, Sher-e-Bangla Nagar, Dhaka.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:2026-03-26_Tarique_Rahman_laying_wreaths_at_tombs_of_Ziaur_Rahman_and_Khaleda_Zia_on_Independence_and_National_Day,_Zia_Udyan,_Sher-e-Bangla_Nagar,_Dhaka.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Press Information Department",
+          "datum": "26 March 2026, 12:06:00",
+          "beskrivning": "On the occasion of Great Independence and National Day, Prime Minister Tarique Rahman paid respects by laying wreaths at the tombs of the Proclaimer of Independence, Shaheed President Ziaur Rahman and former Prime Minister Begum Khaleda Zia in Zia Udyan, Sher-e-Bangla Nagar, Dhaka, today (Thursday, 26 March 2026). .mw-parser-output .messagebox{margin:4px 0;width:auto;border-collapse:collapse;border:2px solid var(--border-color-progressive,#6485d1);background-color:var(--background-color-neutral-subtle,#fbfcff);color:var(--color-base,#202122);box-sizing:border-box;border-inline-start-width:8px}.mw-parser-output .messagebox.mbox-small{font-size:88%;line-height:1.25em}.mw-parser-output .mbox-warning,.mw-parser-output .mbox-speedy{border:2px solid var(--border-color-error,#b22222);background:var(--background-color-error-subtle,#ffdbdb);border-inline-start-width:8px}.mw-parser-output .mbox-serious,.mw-parser-output .mbox-delete,.mw-parser-output .mbox-stop{border:2px solid var(--border-color-error,#b22222);border-inline-start-width:8px}.mw-parser-output .mbox-issue,.mw-parser-output .mbox-content{border:2px solid #f28500;background:var(--background-color-warning-subtle,#ffe);border-inline-start-width:8px}.mw-parser-output .mbox-query,.mw-parser-output .mbox-style{border:2px solid #f4c430;background:var(--background-color-warning-subtle,#ffe);border-inline-start-width:8px}.mw-parser-output .mbox-shit{border:2px solid #960;border-inline-start-width:8px}.mw-parser-output .mbox-license{border:2px solid #88a;border-inline-start-width:initial}.mw-parser-output .mbox-legal{border:2px solid var(--border-color-notice,#666);background:var(--background-color-base,#fff);border-inline-start-width:8px}.mw-parser-output .mbox-honor{border:2px solid #ca3;background:var(--background-color-warning-subtle,#fcf4db);border-inline-start-width:8px}.mw-parser-output .mbox-growth{border:2px solid #8d4;background:var(--background-color-success-subtle,#d5fdf4);border-inline-start-width:8px}.mw-parser-output .mbox-move{border:2px solid #93c;border-inline-start-width:8px}.mw-parser-output .mbox-protection,.mw-parser-output .mbox-message{border:2px solid var(--border-color-base,#aaa);border-inline-start-width:8px}.mw-parser-output .messagebox .mbox-text{border:none;padding:0.25em 0.9em;width:100%}.mw-parser-output .messagebox .mbox-image{border:none;padding-top:2px;padding-bottom:2px;padding-inline-start:0.9em;padding-inline-end:0;text-align:center}.mw-parser-output .messagebox .mbox-imageright{border:none;padding-top:2px;padding-bottom:2px;padding-inline-start:0;padding-inline-end:0.9em;text-align:center}.mw-parser-output .messagebox .mbox-empty-cell{border:none;padding:0;width:1px}.mw-parser-output .messagebox .mbox-invalid-type{text-align:center}@media(min-width:720px){.mw-parser-output .messagebox{margin:4px 10%}.mw-parser-output .messagebox.mbox-small{clear:right;float:right;margin:4px 0 4px 1em;width:238px}}body.skin--responsive .mw-parser-output table.messagebox img{max-width:none!important} The English description and title of this file were generated using a large language model ( Google Gemini - gemini-3.1-flash-lite ) from the original Bengali description provided by the Press Information Department . .mw-parser-output .hidden-begin{box-sizing:border-box;width:100%;padding:5px;border:none;font-size:95%}.mw-parser-output .hidden-title{font-weight:bold;line-height:1.6;text-align:left}.mw-parser-output .hidden-content{text-align:left}@media all and (max-width:500px){.mw-parser-output .hidden-begin{width:auto!important;clear:none!important;float:none!important}} Show prompts used: Translation prompt: Translate the following Bengali text into English in encyclopedic style. You may rearrange words or sentences for clarity, but retain all information. Do not add or omit anything. Only output the translation text and nothing else. Do not say \"description\" or include Bengali text in your answer. Give me only the translation — no options, no explanations. Text: \"{text}\" Filename generation prompt: Convert this image description into a single Wikimedia Commons–compliant filename (do NOT add the \"File:\" prefix, wikitext, \"Title:\", or a file extension). Follow Wikimedia Commons file naming guidelines: be descriptive, specific, precise, concise and neutral; include date as YYYY-MM-DD if present; avoid photographer/source-only names. Remove any political bias or references to previous governments and strip flattering, propagandistic, or honorific language. Output ONLY the filename (no explanation), Regular Case, remove illegal filesystem characters but KEEP spaces, commas and hyphens. Keep ≤240 bytes. No file extension. Text: \"{text}\" If you have verified that the English translation and filename are accurate, you may remove this notice by removing this template {{Auto-translated PID English description}} in the source editor. Remove this notice",
+          "bredd": 1800,
+          "hojd": 1196,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/2026-03-26_Tarique_Rahman_laying_wreaths_at_tombs_of_Ziaur_Rahman_and_Khaleda_Zia_on_Independence_and_National_Day%2C_Zia_Udyan%2C_Sher-e-Bangla_Nagar%2C_Dhaka.jpg/960px-2026-03-26_Tarique_Rahman_laying_wreaths_at_tombs_of_Ziaur_Rahman_and_Khaleda_Zia_on_Independence_and_National_Day%2C_Zia_Udyan%2C_Sher-e-Bangla_Nagar%2C_Dhaka.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Tarique Rahman in March 2026"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:2026-03-31 State Minister for Liberation War Affairs Ishraque Hossain speech at Independence and National Day discussion meeting, National Press Club, Dhaka, with Information and Broadcasting Minister Zahir Uddin Swapan.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:2026-03-31_State_Minister_for_Liberation_War_Affairs_Ishraque_Hossain_speech_at_Independence_and_National_Day_discussion_meeting,_National_Press_Club,_Dhaka,_with_Information_and_Broadcasting_Minister_Zahir_Uddin_Swapan.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Press Information Department",
+          "datum": "31 March 2026, 15:22:00",
+          "beskrivning": "On Tuesday, March 31, 2026, State Minister for Liberation War Affairs Ishraque Hossain delivered a special guest speech at the National Press Club in Dhaka. The event was a discussion meeting titled 'Proclaimer of Independence and Zia of the Battlefield', organized to observe Great Independence and National Day. Information and Broadcasting Minister Zahir Uddin Swapan was also present. .mw-parser-output .messagebox{margin:4px 0;width:auto;border-collapse:collapse;border:2px solid var(--border-color-progressive,#6485d1);background-color:var(--background-color-neutral-subtle,#fbfcff);color:var(--color-base,#202122);box-sizing:border-box;border-inline-start-width:8px}.mw-parser-output .messagebox.mbox-small{font-size:88%;line-height:1.25em}.mw-parser-output .mbox-warning,.mw-parser-output .mbox-speedy{border:2px solid var(--border-color-error,#b22222);background:var(--background-color-error-subtle,#ffdbdb);border-inline-start-width:8px}.mw-parser-output .mbox-serious,.mw-parser-output .mbox-delete,.mw-parser-output .mbox-stop{border:2px solid var(--border-color-error,#b22222);border-inline-start-width:8px}.mw-parser-output .mbox-issue,.mw-parser-output .mbox-content{border:2px solid #f28500;background:var(--background-color-warning-subtle,#ffe);border-inline-start-width:8px}.mw-parser-output .mbox-query,.mw-parser-output .mbox-style{border:2px solid #f4c430;background:var(--background-color-warning-subtle,#ffe);border-inline-start-width:8px}.mw-parser-output .mbox-shit{border:2px solid #960;border-inline-start-width:8px}.mw-parser-output .mbox-license{border:2px solid #88a;border-inline-start-width:initial}.mw-parser-output .mbox-legal{border:2px solid var(--border-color-notice,#666);background:var(--background-color-base,#fff);border-inline-start-width:8px}.mw-parser-output .mbox-honor{border:2px solid #ca3;background:var(--background-color-warning-subtle,#fcf4db);border-inline-start-width:8px}.mw-parser-output .mbox-growth{border:2px solid #8d4;background:var(--background-color-success-subtle,#d5fdf4);border-inline-start-width:8px}.mw-parser-output .mbox-move{border:2px solid #93c;border-inline-start-width:8px}.mw-parser-output .mbox-protection,.mw-parser-output .mbox-message{border:2px solid var(--border-color-base,#aaa);border-inline-start-width:8px}.mw-parser-output .messagebox .mbox-text{border:none;padding:0.25em 0.9em;width:100%}.mw-parser-output .messagebox .mbox-image{border:none;padding-top:2px;padding-bottom:2px;padding-inline-start:0.9em;padding-inline-end:0;text-align:center}.mw-parser-output .messagebox .mbox-imageright{border:none;padding-top:2px;padding-bottom:2px;padding-inline-start:0;padding-inline-end:0.9em;text-align:center}.mw-parser-output .messagebox .mbox-empty-cell{border:none;padding:0;width:1px}.mw-parser-output .messagebox .mbox-invalid-type{text-align:center}@media(min-width:720px){.mw-parser-output .messagebox{margin:4px 10%}.mw-parser-output .messagebox.mbox-small{clear:right;float:right;margin:4px 0 4px 1em;width:238px}}body.skin--responsive .mw-parser-output table.messagebox img{max-width:none!important} The English description and title of this file were generated using a large language model ( Google Gemini - gemini-3.1-flash-lite ) from the original Bengali description provided by the Press Information Department . .mw-parser-output .hidden-begin{box-sizing:border-box;width:100%;padding:5px;border:none;font-size:95%}.mw-parser-output .hidden-title{font-weight:bold;line-height:1.6;text-align:left}.mw-parser-output .hidden-content{text-align:left}@media all and (max-width:500px){.mw-parser-output .hidden-begin{width:auto!important;clear:none!important;float:none!important}} Show prompts used: Translation prompt: Translate the following Bengali text into English in encyclopedic style. You may rearrange words or sentences for clarity, but retain all information. Do not add or omit anything. Only output the translation text and nothing else. Do not say \"description\" or include Bengali text in your answer. Give me only the translation — no options, no explanations. Text: \"{text}\" Filename generation prompt: Convert this image description into a single Wikimedia Commons–compliant filename (do NOT add the \"File:\" prefix, wikitext, \"Title:\", or a file extension). Follow Wikimedia Commons file naming guidelines: be descriptive, specific, precise, concise and neutral; include date as YYYY-MM-DD if present; avoid photographer/source-only names. Remove any political bias or references to previous governments and strip flattering, propagandistic, or honorific language. Output ONLY the filename (no explanation), Regular Case, remove illegal filesystem characters but KEEP spaces, commas and hyphens. Keep ≤240 bytes. No file extension. Text: \"{text}\" If you have verified that the English translation and filename are accurate, you may remove this notice by removing this template {{Auto-translated PID English description}} in the source editor. Remove this notice",
+          "bredd": 1800,
+          "hojd": 1015,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/2026-03-31_State_Minister_for_Liberation_War_Affairs_Ishraque_Hossain_speech_at_Independence_and_National_Day_discussion_meeting%2C_National_Press_Club%2C_Dhaka%2C_with_Information_and_Broadcasting_Minister_Zahir_Uddin_Swapan.jpg/960px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ishraque Hossain",
+            "Zahir Uddin Swapan"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:2026-03-31 Minister Zahir Uddin Swapan speech at discussion meeting on Independence and National Day, National Press Club, Dhaka.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:2026-03-31_Minister_Zahir_Uddin_Swapan_speech_at_discussion_meeting_on_Independence_and_National_Day,_National_Press_Club,_Dhaka.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Press Information Department",
+          "datum": "31 March 2026, 15:21:00",
+          "beskrivning": "On Tuesday, March 31, 2026, Minister of Information and Broadcasting Zahir Uddin Swapan delivered a speech as the chief guest at a discussion meeting titled 'Proclaimer of Independence and Zia of the Battlefield' at the National Press Club in Dhaka. The event was organized on the occasion of Great Independence and National Day. State Minister for Liberation War Affairs Ishraque Hossain was present during the event. .mw-parser-output .messagebox{margin:4px 0;width:auto;border-collapse:collapse;border:2px solid var(--border-color-progressive,#6485d1);background-color:var(--background-color-neutral-subtle,#fbfcff);color:var(--color-base,#202122);box-sizing:border-box;border-inline-start-width:8px}.mw-parser-output .messagebox.mbox-small{font-size:88%;line-height:1.25em}.mw-parser-output .mbox-warning,.mw-parser-output .mbox-speedy{border:2px solid var(--border-color-error,#b22222);background:var(--background-color-error-subtle,#ffdbdb);border-inline-start-width:8px}.mw-parser-output .mbox-serious,.mw-parser-output .mbox-delete,.mw-parser-output .mbox-stop{border:2px solid var(--border-color-error,#b22222);border-inline-start-width:8px}.mw-parser-output .mbox-issue,.mw-parser-output .mbox-content{border:2px solid #f28500;background:var(--background-color-warning-subtle,#ffe);border-inline-start-width:8px}.mw-parser-output .mbox-query,.mw-parser-output .mbox-style{border:2px solid #f4c430;background:var(--background-color-warning-subtle,#ffe);border-inline-start-width:8px}.mw-parser-output .mbox-shit{border:2px solid #960;border-inline-start-width:8px}.mw-parser-output .mbox-license{border:2px solid #88a;border-inline-start-width:initial}.mw-parser-output .mbox-legal{border:2px solid var(--border-color-notice,#666);background:var(--background-color-base,#fff);border-inline-start-width:8px}.mw-parser-output .mbox-honor{border:2px solid #ca3;background:var(--background-color-warning-subtle,#fcf4db);border-inline-start-width:8px}.mw-parser-output .mbox-growth{border:2px solid #8d4;background:var(--background-color-success-subtle,#d5fdf4);border-inline-start-width:8px}.mw-parser-output .mbox-move{border:2px solid #93c;border-inline-start-width:8px}.mw-parser-output .mbox-protection,.mw-parser-output .mbox-message{border:2px solid var(--border-color-base,#aaa);border-inline-start-width:8px}.mw-parser-output .messagebox .mbox-text{border:none;padding:0.25em 0.9em;width:100%}.mw-parser-output .messagebox .mbox-image{border:none;padding-top:2px;padding-bottom:2px;padding-inline-start:0.9em;padding-inline-end:0;text-align:center}.mw-parser-output .messagebox .mbox-imageright{border:none;padding-top:2px;padding-bottom:2px;padding-inline-start:0;padding-inline-end:0.9em;text-align:center}.mw-parser-output .messagebox .mbox-empty-cell{border:none;padding:0;width:1px}.mw-parser-output .messagebox .mbox-invalid-type{text-align:center}@media(min-width:720px){.mw-parser-output .messagebox{margin:4px 10%}.mw-parser-output .messagebox.mbox-small{clear:right;float:right;margin:4px 0 4px 1em;width:238px}}body.skin--responsive .mw-parser-output table.messagebox img{max-width:none!important} The English description and title of this file were generated using a large language model ( Google Gemini - gemini-3.1-flash-lite ) from the original Bengali description provided by the Press Information Department . .mw-parser-output .hidden-begin{box-sizing:border-box;width:100%;padding:5px;border:none;font-size:95%}.mw-parser-output .hidden-title{font-weight:bold;line-height:1.6;text-align:left}.mw-parser-output .hidden-content{text-align:left}@media all and (max-width:500px){.mw-parser-output .hidden-begin{width:auto!important;clear:none!important;float:none!important}} Show prompts used: Translation prompt: Translate the following Bengali text into English in encyclopedic style. You may rearrange words or sentences for clarity, but retain all information. Do not add or omit anything. Only output the translation text and nothing else. Do not say \"description\" or include Bengali text in your answer. Give me only the translation — no options, no explanations. Text: \"{text}\" Filename generation prompt: Convert this image description into a single Wikimedia Commons–compliant filename (do NOT add the \"File:\" prefix, wikitext, \"Title:\", or a file extension). Follow Wikimedia Commons file naming guidelines: be descriptive, specific, precise, concise and neutral; include date as YYYY-MM-DD if present; avoid photographer/source-only names. Remove any political bias or references to previous governments and strip flattering, propagandistic, or honorific language. Output ONLY the filename (no explanation), Regular Case, remove illegal filesystem characters but KEEP spaces, commas and hyphens. Keep ≤240 bytes. No file extension. Text: \"{text}\" If you have verified that the English translation and filename are accurate, you may remove this notice by removing this template {{Auto-translated PID English description}} in the source editor. Remove this notice",
+          "bredd": 1800,
+          "hojd": 1109,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/2026-03-31_Minister_Zahir_Uddin_Swapan_speech_at_discussion_meeting_on_Independence_and_National_Day%2C_National_Press_Club%2C_Dhaka.jpg/960px-2026-03-31_Minister_Zahir_Uddin_Swapan_speech_at_discussion_meeting_on_Independence_and_National_Day%2C_National_Press_Club%2C_Dhaka.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Zahir Uddin Swapan"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Tarique Rahman Pays Respects at Ziaur Rahman and Khaleda Zia Graves, Dhaka, 2026-03-26.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Tarique_Rahman_Pays_Respects_at_Ziaur_Rahman_and_Khaleda_Zia_Graves,_Dhaka,_2026-03-26.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Press Information Department",
+          "datum": "26 March 2026, 12:07:00",
+          "beskrivning": "On Thursday, March 26, 2026, Prime Minister Tarique Rahman paid respects by standing in silence after laying wreaths at the graves of the Proclaimer of Independence, Martyred President Ziaur Rahman, and former Prime Minister Begum Khaleda Zia, at Zia Uddyan in Sher-e-Bangla Nagar, Dhaka, on the occasion of Great Independence and National Day. .mw-parser-output .messagebox{margin:4px 0;width:auto;border-collapse:collapse;border:2px solid var(--border-color-progressive,#6485d1);background-color:var(--background-color-neutral-subtle,#fbfcff);color:var(--color-base,#202122);box-sizing:border-box;border-inline-start-width:8px}.mw-parser-output .messagebox.mbox-small{font-size:88%;line-height:1.25em}.mw-parser-output .mbox-warning,.mw-parser-output .mbox-speedy{border:2px solid var(--border-color-error,#b22222);background:var(--background-color-error-subtle,#ffdbdb);border-inline-start-width:8px}.mw-parser-output .mbox-serious,.mw-parser-output .mbox-delete,.mw-parser-output .mbox-stop{border:2px solid var(--border-color-error,#b22222);border-inline-start-width:8px}.mw-parser-output .mbox-issue,.mw-parser-output .mbox-content{border:2px solid #f28500;background:var(--background-color-warning-subtle,#ffe);border-inline-start-width:8px}.mw-parser-output .mbox-query,.mw-parser-output .mbox-style{border:2px solid #f4c430;background:var(--background-color-warning-subtle,#ffe);border-inline-start-width:8px}.mw-parser-output .mbox-shit{border:2px solid #960;border-inline-start-width:8px}.mw-parser-output .mbox-license{border:2px solid #88a;border-inline-start-width:initial}.mw-parser-output .mbox-legal{border:2px solid var(--border-color-notice,#666);background:var(--background-color-base,#fff);border-inline-start-width:8px}.mw-parser-output .mbox-honor{border:2px solid #ca3;background:var(--background-color-warning-subtle,#fcf4db);border-inline-start-width:8px}.mw-parser-output .mbox-growth{border:2px solid #8d4;background:var(--background-color-success-subtle,#d5fdf4);border-inline-start-width:8px}.mw-parser-output .mbox-move{border:2px solid #93c;border-inline-start-width:8px}.mw-parser-output .mbox-protection,.mw-parser-output .mbox-message{border:2px solid var(--border-color-base,#aaa);border-inline-start-width:8px}.mw-parser-output .messagebox .mbox-text{border:none;padding:0.25em 0.9em;width:100%}.mw-parser-output .messagebox .mbox-image{border:none;padding-top:2px;padding-bottom:2px;padding-inline-start:0.9em;padding-inline-end:0;text-align:center}.mw-parser-output .messagebox .mbox-imageright{border:none;padding-top:2px;padding-bottom:2px;padding-inline-start:0;padding-inline-end:0.9em;text-align:center}.mw-parser-output .messagebox .mbox-empty-cell{border:none;padding:0;width:1px}.mw-parser-output .messagebox .mbox-invalid-type{text-align:center}@media(min-width:720px){.mw-parser-output .messagebox{margin:4px 10%}.mw-parser-output .messagebox.mbox-small{clear:right;float:right;margin:4px 0 4px 1em;width:238px}}body.skin--responsive .mw-parser-output table.messagebox img{max-width:none!important} The English description and title of this file were generated using a large language model ( Google Gemini - gemini-3.1-flash-lite ) from the original Bengali description provided by the Press Information Department . .mw-parser-output .hidden-begin{box-sizing:border-box;width:100%;padding:5px;border:none;font-size:95%}.mw-parser-output .hidden-title{font-weight:bold;line-height:1.6;text-align:left}.mw-parser-output .hidden-content{text-align:left}@media all and (max-width:500px){.mw-parser-output .hidden-begin{width:auto!important;clear:none!important;float:none!important}} Show prompts used: Translation prompt: Translate the following Bengali text into English in encyclopedic style. You may rearrange words or sentences for clarity, but retain all information. Do not add or omit anything. Only output the translation text and nothing else. Do not say \"description\" or include Bengali text in your answer. Give me only the translation — no options, no explanations. Text: \"{text}\" Filename generation prompt: Convert this image description into a single Wikimedia Commons–compliant filename (do NOT add the \"File:\" prefix, wikitext, \"Title:\", or a file extension). Follow Wikimedia Commons file naming guidelines: be descriptive, specific, precise, concise and neutral; include date as YYYY-MM-DD if present; avoid photographer/source-only names. Remove any political bias or references to previous governments and strip flattering, propagandistic, or honorific language. Output ONLY the filename (no explanation), Regular Case, remove illegal filesystem characters but KEEP spaces, commas and hyphens. Keep ≤240 bytes. No file extension. Text: \"{text}\" If you have verified that the English translation and filename are accurate, you may remove this notice by removing this template {{Auto-translated PID English description}} in the source editor. Remove this notice",
+          "bredd": 1800,
+          "hojd": 1196,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Tarique_Rahman_Pays_Respects_at_Ziaur_Rahman_and_Khaleda_Zia_Graves%2C_Dhaka%2C_2026-03-26.jpg/960px-Tarique_Rahman_Pays_Respects_at_Ziaur_Rahman_and_Khaleda_Zia_Graves%2C_Dhaka%2C_2026-03-26.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Tarique Rahman in March 2026"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "mujibnagarregeringen",
+      "titel": "Bangladeshs provisoriska regering svärs in",
+      "plats": "Baidyanathtala (Mujibnagar) vid gränsen mot Indien, i dag Meherpur-distriktet",
+      "start": 1971,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q3349507",
+      "kandidater": [
+        {
+          "fil": "File:Provisional Government of BD (2).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Provisional_Government_of_BD_(2).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "ROCKY",
+          "datum": "2015-01-11 13:10:22",
+          "beskrivning": "Sculpture of provitonal government of Bangladesh",
+          "bredd": 1868,
+          "hojd": 1178,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Provisional_Government_of_BD_%282%29.jpg/960px-Provisional_Government_of_BD_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Mujibnagar Memorial",
+            "Valued images of sculptures in Bangladesh"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "operation-lam-son-719",
+      "titel": "Operation Lam Son 719 i Laos",
+      "plats": "Sydöstra Laos, längs väg 9 mot Tchepone (Xépôn)",
+      "start": 1971,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q2095768",
+      "kandidater": [
+        {
+          "fil": "File:Map Lam Son 719.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Map_Lam_Son_719.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "U.S Army",
+          "datum": "Unknown date",
+          "beskrivning": "32. South Vietnam, 1971 - LAM SON 719",
+          "bredd": 1443,
+          "hojd": 795,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Map_Lam_Son_719.jpg/960px-Map_Lam_Son_719.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Maps of battles and operations of the Vietnam War",
+            "Operation Lam Son 719"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "operation-searchlight",
+      "titel": "Operation Searchlight",
+      "plats": "Dhaka och andra städer i Östpakistan",
+      "start": 1971,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q2985554",
+      "soktext": "Operation Searchlight",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": [
+        {
+          "fil": "File:Douglas DC-3 of BOAC at Gibraltar, silhouetted by searchlights on the Rock.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Douglas_DC-3_of_BOAC_at_Gibraltar,_silhouetted_by_searchlights_on_the_Rock.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Royal Air Force official photographer",
+          "datum": "between 1940 and 1945 date QS:P571,+1940-00-00T00:00:00Z/8,P1319,+1940-00-00T00:00:00Z/9,P1326,+1945-00-00T00:00:00Z/9",
+          "beskrivning": "A Douglas Dakota of BOAC at Gibraltar, silhouetted by searchlights on the Rock. A Douglas Dakota of BOAC, silhouetted by night at Gibraltar by the batteries of searchlights on the Rock, as it is prepared for a flight to the United Kingdom.",
+          "bredd": 2486,
+          "hojd": 2480,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Douglas_DC-3_of_BOAC_at_Gibraltar%2C_silhouetted_by_searchlights_on_the_Rock.jpg/960px-Douglas_DC-3_of_BOAC_at_Gibraltar%2C_silhouetted_by_searchlights_on_the_Rock.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Aircraft at night",
+            "British Overseas Airways Corporation aircraft at Gibraltar Airport",
+            "British Overseas Airways Corporation in World War II",
+            "Douglas DC-3 at Gibraltar Airport",
+            "Douglas DC-3 of British Overseas Airways Corporation",
+            "Gibraltar Airport",
+            "Gibraltar in World War II",
+            "RAF Gibraltar",
+            "Rock of Gibraltar",
+            "Searchlights in Gibraltar"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Chart 1 1971 Operation Searchlight-some instances of number of Hindus killed in different places.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Chart_1_1971_Operation_Searchlight-some_instances_of_number_of_Hindus_killed_in_different_places.png",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Human conciousness",
+          "datum": "3/3/25",
+          "beskrivning": "1971 Operation Searchlight-some instances of number of Hindus killed in different places",
+          "bredd": 1014,
+          "hojd": 736,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Chart_1_1971_Operation_Searchlight-some_instances_of_number_of_Hindus_killed_in_different_places.png/960px-Chart_1_1971_Operation_Searchlight-some_instances_of_number_of_Hindus_killed_in_different_places.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Bar charts"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:1971 Events Montage.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:1971_Events_Montage.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Bernard Gotfryd Michael Bernhard Adam Jones SheBeHuman NASA Afrank99 National Archives of the United Arab Emirates, Ministry of Presidential Affairs",
+          "datum": "2023-05-07",
+          "beskrivning": "1971 collage inspired in The ganymedian.",
+          "bredd": 930,
+          "hojd": 840,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/7/70/1971_Events_Montage.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1971 events",
+            "Annual review collages"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Operation-searchlight.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Operation-searchlight.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Shajia Annoor",
+          "datum": "2025-02-27",
+          "beskrivning": "A car depicting the Operation Searchlight at the Liberation War Museum",
+          "bredd": 2048,
+          "hojd": 1536,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Operation-searchlight.jpg/960px-Operation-searchlight.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Bangladesh Liberation War",
+            "Liberation War museums in Bangladesh"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:A Pillar of Fire by Night - signalling by searchlight from a Dreadnought Art.IWMART248.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:A_Pillar_of_Fire_by_Night_-_signalling_by_searchlight_from_a_Dreadnought_Art.IWMART248.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Donald Maxwell",
+          "datum": "(First World War)",
+          "beskrivning": "A Pillar of Fire by Night - signalling by searchlight from a Dreadnought image: view of part of the deck of a large Royal Navy warship. In the foreground are several ship's boats, in the centre is the bottom section of a funnel and masts, while to the right a large searchlight, with its beam extended to the right almost vertically, is tended by a group of small figures. In the distance to the right is another searchlight beam.",
+          "bredd": 2579,
+          "hojd": 3425,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/A_Pillar_of_Fire_by_Night_-_signalling_by_searchlight_from_a_Dreadnought_Art.IWMART248.jpg/960px-A_Pillar_of_Fire_by_Night_-_signalling_by_searchlight_from_a_Dreadnought_Art.IWMART248.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battleships in art",
+            "Drawings of World War I by Donald Maxwell in the Imperial War Museum",
+            "Naval searchlights"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "ramsarkonventionen",
+      "titel": "Ramsarkonventionen om våtmarker",
+      "plats": "Ramsar, Iran",
+      "start": 1971,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q170170",
+      "soktext": "The Ramsar Convention on wetlands Ramsar",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": [
+        {
+          "fil": "File:Archipel Bolama-Bijagos Ramsar Site in Guinea-Bissau.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Archipel_Bolama-Bijagos_Ramsar_Site_in_Guinea-Bissau.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Powell.Ramsar",
+          "datum": "2003-12-15",
+          "beskrivning": "Archipel Bolama-Bijagos Ramsar Site in Guinea-Bissau",
+          "bredd": 991,
+          "hojd": 641,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Archipel_Bolama-Bijagos_Ramsar_Site_in_Guinea-Bissau.jpg/960px-Archipel_Bolama-Bijagos_Ramsar_Site_in_Guinea-Bissau.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Aerial photographs of beaches of Guinea-Bissau",
+            "Beaches of Island of Bolama",
+            "Ramsar Convention"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Four Aruba’s wetlands designated as Ramsar-protected sites (Copernicus 2023-12-10).webp",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Four_Aruba%E2%80%99s_wetlands_designated_as_Ramsar-protected_sites_(Copernicus_2023-12-10).webp",
+          "kalla": "commons-sok",
+          "licens": "Attribution",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": null,
+          "upphovsperson": "European Union, Copernicus Sentinel-2 imagery",
+          "datum": "Taken on 26 November 2023",
+          "beskrivning": "Aruba is a Caribbean island located off the coast of Venezuela. Its wetlands are invaluable natural treasures, playing a vital role in the island's ecosystem and beyond. They serve as critical habitats for a wide range of wildlife, from migratory birds to endemic species, providing them shelter, breeding grounds, and food. Four of Aruba's wetlands have recently been designated as protected areas under the Ramsar Convention. They act as nature's water filtration system, protecting the area from coastal erosion and reducing the impact of natural disasters. This recent image acquired by one of the Copernicus Sentinel-2 satellites on 26 November shows Aruba and its wetlands. Copernicus supports the protection and preservation of such unique ecosystems by delivering free and open high-resolution satellite imagery for monitoring and management purposes.",
+          "bredd": 5551,
+          "hojd": 3522,
+          "mime": "image/webp",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Four_Aruba%E2%80%99s_wetlands_designated_as_Ramsar-protected_sites_%28Copernicus_2023-12-10%29.webp/960px-Four_Aruba%E2%80%99s_wetlands_designated_as_Ramsar-protected_sites_%28Copernicus_2023-12-10%29.webp?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2023 satellite pictures",
+            "Photos of Venezuela by Sentinel-2",
+            "Satellite pictures of Aruba",
+            "Wetland monitoring"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: Attribution"
+        },
+        {
+          "fil": "File:Four Aruba’s wetlands designated as Ramsar-protected sites (Copernicus 2023-12-10).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Four_Aruba%E2%80%99s_wetlands_designated_as_Ramsar-protected_sites_(Copernicus_2023-12-10).jpg",
+          "kalla": "commons-sok",
+          "licens": "Attribution",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": null,
+          "upphovsperson": "European Union, Copernicus Sentinel-2 imagery",
+          "datum": "Taken on 26 November 2023",
+          "beskrivning": "Aruba is a Caribbean island located off the coast of Venezuela. Its wetlands are invaluable natural treasures, playing a vital role in the island's ecosystem and beyond. They serve as critical habitats for a wide range of wildlife, from migratory birds to endemic species, providing them shelter, breeding grounds, and food. Four of Aruba's wetlands have recently been designated as protected areas under the Ramsar Convention. They act as nature's water filtration system, protecting the area from coastal erosion and reducing the impact of natural disasters. This recent image acquired by one of the Copernicus Sentinel-2 satellites on 26 November shows Aruba and its wetlands. Copernicus supports the protection and preservation of such unique ecosystems by delivering free and open high-resolution satellite imagery for monitoring and management purposes.",
+          "bredd": 5551,
+          "hojd": 3522,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Four_Aruba%E2%80%99s_wetlands_designated_as_Ramsar-protected_sites_%28Copernicus_2023-12-10%29.jpg/960px-Four_Aruba%E2%80%99s_wetlands_designated_as_Ramsar-protected_sites_%28Copernicus_2023-12-10%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2023 satellite pictures",
+            "Photos of Venezuela by Sentinel-2",
+            "Satellite pictures of Aruba",
+            "Wetland monitoring"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: Attribution"
+        },
+        {
+          "fil": "File:Map of Ramsar sites known to Wikidata as of 2023-07-10.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Map_of_Ramsar_sites_known_to_Wikidata_as_of_2023-07-10.png",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Daniel Mietchen",
+          "datum": "2023-07-10",
+          "beskrivning": "Map of Ramsar sites known to Wikidata as of 2023-07-10 - screenshot of this query to the Wikidata Query Service.",
+          "bredd": 1902,
+          "hojd": 1516,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Map_of_Ramsar_sites_known_to_Wikidata_as_of_2023-07-10.png/960px-Map_of_Ramsar_sites_known_to_Wikidata_as_of_2023-07-10.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ramsar sites",
+            "Wikidata Query Service maps",
+            "Wikidata SPARQL data visualisations"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Barque sur une mer de sel à Chott Jrid.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Barque_sur_une_mer_de_sel_%C3%A0_Chott_Jrid.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Atef Ouni",
+          "datum": "2019-03-23 12:27:08",
+          "beskrivning": "Barque sur une mer de sel et son reflet à Chott Jrid",
+          "bredd": 6500,
+          "hojd": 4063,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a9/Barque_sur_une_mer_de_sel_%C3%A0_Chott_Jrid.jpg/960px-Barque_sur_une_mer_de_sel_%C3%A0_Chott_Jrid.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Boats in Tunisia",
+            "Brown water",
+            "Chott el Djerid",
+            "Clouds and blue sky in Tunisia",
+            "Photographs of flags of Tunisia in Tunisia",
+            "Water reflections of boats",
+            "Water reflections of clouds in Tunisia",
+            "Wooden boats"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "saljut-1",
+      "titel": "Saljut 1, världens första rymdstation",
+      "plats": "Bajkonur, Kazakstan (då Sovjetunionen)",
+      "start": 1971,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q211761",
+      "kandidater": [
+        {
+          "fil": "File:1972 CPA 4112.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:1972_CPA_4112.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "USSR Post",
+          "datum": "1972-04-05",
+          "beskrivning": "USSR stamp",
+          "bredd": 1247,
+          "hojd": 889,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/1972_CPA_4112.jpg/960px-1972_CPA_4112.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1972 all stamps of the Soviet Union",
+            "Earth on stamps of the Soviet Union",
+            "Salyut 1",
+            "Space exploration on stamps of the Soviet Union"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "slaget-vid-hilli",
+      "titel": "Slaget vid Hilli",
+      "plats": "Hilli i Rajshahi, nordvästra Bangladesh",
+      "start": 1971,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q4871232",
+      "soktext": "Battle of Hilli Hilli in Rajshahi",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "slaget-om-suez-1973",
+      "titel": "Slaget om Suez och den sista vapenvilan",
+      "plats": "Staden Suez, Egypten",
+      "start": 1973,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q2896722",
+      "soktext": "Battle of Suez and the final ceasefire",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "tararnas-dal-1973",
+      "titel": "Slaget i Tårarnas dal",
+      "plats": "Tårarnas dal, norra Golanhöjderna",
+      "start": 1973,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q2907870",
+      "kandidater": [
+        {
+          "fil": "File:1973 Yom Kippur War - Golan heights theater.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:1973_Yom_Kippur_War_-_Golan_heights_theater.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Department of History, U.S. Military Academy. See Department Maps page.",
+          "datum": "2011-07-18 19:11:20",
+          "beskrivning": "Yom Kippur War 1973 on the Golan heights",
+          "bredd": 1117,
+          "hojd": 854,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/1973_Yom_Kippur_War_-_Golan_heights_theater.jpg/960px-1973_Yom_Kippur_War_-_Golan_heights_theater.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "20th-century maps of battles",
+            "Maps of the Yom Kippur War",
+            "Maps of the history of the Golan Heights"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "folkmordet-i-kambodja",
+      "titel": "Folkmordet i Kambodja",
+      "plats": "Demokratiska Kampuchea, i dag Kambodja (markören i Phnom Penh)",
+      "start": 1975,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q2885072",
+      "kandidater": [
+        {
+          "fil": "File:Skulls from the killing fields.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Skulls_from_the_killing_fields.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "2005-02-03 20:33:12",
+          "beskrivning": null,
+          "bredd": 1760,
+          "hojd": 1168,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Skulls_from_the_killing_fields.jpg/960px-Skulls_from_the_killing_fields.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Skulls in ossuaries",
+            "Stupas in Choeung Ek"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "saigons-fall",
+      "titel": "Saigons fall",
+      "plats": "Saigon (i dag Ho Chi Minh-staden), Sydvietnam",
+      "start": 1975,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q482456",
+      "kandidater": [
+        {
+          "fil": "File:HCMCampaign.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:HCMCampaign.svg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "User:Ctmt",
+          "datum": "8 May 2009 (original upload date)",
+          "beskrivning": "Map showing NVA movements around Saigon before 30 April 1975, the day South Vietnam fell.",
+          "bredd": 2175,
+          "hojd": 2670,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/HCMCampaign.svg/960px-HCMCampaign.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Maps of the fall of Saigon"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "iranska-revolutionen",
+      "titel": "Iranska revolutionen",
+      "plats": "Iran (markören i Teheran)",
+      "start": 1978,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q126065",
+      "kandidater": [
+        {
+          "fil": "File:Mass demonstration in Iran, date unknown.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Mass_demonstration_in_Iran,_date_unknown.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "GFDL",
+          "licensklass": null,
+          "licensstatus": "avvisad",
+          "licensadress": "http://www.gnu.org/copyleft/fdl.html",
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "Unknown date",
+          "beskrivning": "A demonstration in Iran against the Shah, 1978 at College Bridge, Tehran A photo from sajed.ir which has published under GFDL.",
+          "bredd": 766,
+          "hojd": 522,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Mass_demonstration_in_Iran%2C_date_unknown.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "College Crossroads (Tehran)",
+            "Demonstrations and protests relating to the Iranian Revolution in Tehran"
+          ],
+          "smal": true,
+          "licens_skal": "bara GFDL (GFDL), ingen tillåten licens"
+        }
+      ]
+    },
+    {
+      "id": "iraks-invasion-av-iran",
+      "titel": "Irak invaderar Iran",
+      "plats": "Västra Iran, främst provinsen Khuzestan, längs gränsen mot Irak",
+      "start": 1980,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q5941438",
+      "kandidater": [
+        {
+          "fil": "File:Battle of khorramshahr 4.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Battle_of_khorramshahr_4.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Kazem Akhavan",
+          "datum": "September or November 1980",
+          "beskrivning": "Iranian soldiers fighting in the Battle of Khorramshahr .",
+          "bredd": 1080,
+          "hojd": 725,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Battle_of_khorramshahr_4.jpg/960px-Battle_of_khorramshahr_4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "AKM in Iranian service",
+            "Battle of Khorramshahr",
+            "Casualty movement",
+            "Graffiti in Iran",
+            "Graffiti in the 1980s",
+            "Military men wearing boots",
+            "Military men wearing helmets",
+            "Military people of Iran in 1980",
+            "People with AKM",
+            "Photographs by Kazem Akhavan",
+            "Slogans in Iran",
+            "Soldiers of Iran"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "iran-irak-kriget",
+      "titel": "Kriget mellan Iran och Irak",
+      "plats": "Iran, Irak och Persiska viken (började med Iraks invasion av västra Iran, bland annat Khuzestan)",
+      "start": 1980,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q82664",
+      "kandidater": [
+        {
+          "fil": "File:Iran-Iraq War Montage.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Iran-Iraq_War_Montage.png",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Uploader was gIre_3piCH2005 at fa.wikipedia",
+          "datum": "2009-12-22",
+          "beskrivning": "Montage of Iran-Iraq War",
+          "bredd": 380,
+          "hojd": 500,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/2/24/Iran-Iraq_War_Montage.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Iran-Iraq War",
+            "Montages of Iran",
+            "Montages of Iraq",
+            "Montages of war"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "tankerkriget",
+      "titel": "Tankerkriget",
+      "plats": "Persiska viken och Hormuzsundet (bland annat runt oljehamnen på ön Kharg)",
+      "start": 1981,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q6414580",
+      "kandidater": [
+        {
+          "fil": "File:Karte Tankerkrieg.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Karte_Tankerkrieg.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "NordNordWest",
+          "datum": "2010-10-27",
+          "beskrivning": "Map of the Tanker War",
+          "bredd": 1391,
+          "hojd": 1131,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Karte_Tankerkrieg.jpg/960px-Karte_Tankerkrieg.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Maps of the Iran-Iraq War",
+            "Maps of the Persian Gulf",
+            "Tankers War"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "operation-ramadan",
+      "titel": "Iran går in i Irak: Operation Ramadan",
+      "plats": "Nordost om Basra, södra Irak",
+      "start": 1982,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q919834",
+      "kandidater": [
+        {
+          "fil": "File:Basra location.PNG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Basra_location.PNG",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "2018-01-24 00:41:04",
+          "beskrivning": null,
+          "bredd": 328,
+          "hojd": 351,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/3/34/Basra_location.PNG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "CIA World Factbook maps of Iraq",
+            "Maps of Basra"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "forsta-slaget-om-al-faw",
+      "titel": "Första slaget om al-Faw",
+      "plats": "Halvön al-Faw vid Shatt al-Arabs mynning, Irak",
+      "start": 1986,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q83002",
+      "kandidater": [
+        {
+          "fil": "File:Al-faw.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Al-faw.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "UNEP / ChrisO ( talk ) ( Uploads )",
+          "datum": "2013-07-24 00:11:33",
+          "beskrivning": "Al-Faw peninsula , Iraq -",
+          "bredd": 495,
+          "hojd": 381,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Al-faw.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Al-Faw",
+            "Battle of Al Faw (2003)",
+            "Peninsulas of Iraq"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "halabja-1988",
+      "titel": "Gasattacken mot Halabja",
+      "plats": "Halabja, irakiska Kurdistan",
+      "start": 1988,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q579179",
+      "kandidater": [
+        {
+          "fil": "File:Family Graves for Victims of 1988 Chemical Attack - Halabja - Kurdistan - Iraq.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Family_Graves_for_Victims_of_1988_Chemical_Attack_-_Halabja_-_Kurdistan_-_Iraq.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Adam Jones, Ph.D.",
+          "datum": "2011-04-20 00:53:22",
+          "beskrivning": "Family Graves for Victims of 1988 Chemical Attack - Halabja - Kurdistan - Iraq",
+          "bredd": 3456,
+          "hojd": 2304,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9f/Family_Graves_for_Victims_of_1988_Chemical_Attack_-_Halabja_-_Kurdistan_-_Iraq.jpg/960px-Family_Graves_for_Victims_of_1988_Chemical_Attack_-_Halabja_-_Kurdistan_-_Iraq.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Family graves of Halabja chemical attack victims",
+            "Graves in Iraq"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "vapenvilan-iran-irak-1988",
+      "titel": "Vapenvila enligt FN:s resolution 598",
+      "plats": "Gränsen mellan Iran och Irak (resolutionen antogs i FN:s säkerhetsråd i New York)",
+      "start": 1988,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q2359436",
+      "kandidater": [
+        {
+          "fil": "File:Iran-Iraq war-gallery.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Iran-Iraq_war-gallery.png",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "2015-08-05",
+          "beskrivning": "Child soldiers on Iranian front (top left); Iranian soldier wearing a gas mask (top right); Port quarter view of USS Stark listing to port after being mistakenly struck by an Iraqi warplane (middle left); PMOI forces killed in Operation Mersad (middle right); Iraqi prisoners of war after the re-capture of Khorramshahr by Iranians (below left); ZU-23-2 being used by the Iranian Army (below right).",
+          "bredd": 572,
+          "hojd": 642,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/2/24/Iran-Iraq_war-gallery.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Iran-Iraq War",
+            "Montages of war"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "himmelska-fridens-torg-1989",
+      "titel": "Protesterna och massakern på Himmelska fridens torg",
+      "plats": "Himmelska fridens torg, Peking, Kina",
+      "start": 1989,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q99717",
+      "kandidater": [
+        {
+          "fil": "File:蒲志強19890510.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:%E8%92%B2%E5%BF%97%E5%BC%B719890510.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.5",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.5",
+          "upphovsperson": "蔡淑芳@sfchoi8964",
+          "datum": "1989-05-10",
+          "beskrivning": "​1989年5月10日浦志强在北京游行争取言论自由。（圖中為浦志强1989年5月10日在北京游行时所拍摄。） 來源： http://img.ly/Zr1 攝影師：蔡淑芳@sfchoi8964 版權持有: 蔡淑芳@sfchoi8964/Getty Images （1989年5月10日） 版权声明： https://twitter.com/sfchoi8964/status/18489368276",
+          "bredd": 550,
+          "hojd": 749,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/0/0d/%E8%92%B2%E5%BF%97%E5%BC%B719890510.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Banners and signs at demonstrations and protests in China",
+            "Chinese-language signage at demonstrations",
+            "Demonstrations and protests by students in 1989",
+            "Demonstrations and protests by students in China",
+            "May 1989 China photographs",
+            "Pu Zhiqiang",
+            "Tiananmen Square protests of 1989"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "gulfkriget",
+      "titel": "Gulfkriget",
+      "plats": "Kuwait och Irak, med strider även i Saudiarabien (började i Kuwait)",
+      "start": 1990,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q37643",
+      "kandidater": [
+        {
+          "fil": "File:WarGulf photobox.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:WarGulf_photobox.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "2007-10-16 19:09:40",
+          "beskrivning": null,
+          "bredd": 387,
+          "hojd": 491,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/3/35/WarGulf_photobox.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Conflicts in 1990",
+            "Gulf War"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "irak-invaderar-kuwait",
+      "titel": "Irak invaderar Kuwait",
+      "plats": "Kuwait City och hela Kuwait",
+      "start": 1990,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q856650",
+      "kandidater": [
+        {
+          "fil": "File:An abandoned Iraqi Type 69 tank on the road into Kuwait City during the Gulf War.JPEG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:An_abandoned_Iraqi_Type_69_tank_on_the_road_into_Kuwait_City_during_the_Gulf_War.JPEG",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "J.R. Roark, US Marines",
+          "datum": "1991-02-24",
+          "beskrivning": "An abandoned Iraqi Type 69 main battle tank sits on the side on the road into Kuwait City during the ground phase of Operation Desert Storm.",
+          "bredd": 2790,
+          "hojd": 1850,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/An_abandoned_Iraqi_Type_69_tank_on_the_road_into_Kuwait_City_during_the_Gulf_War.JPEG/960px-An_abandoned_Iraqi_Type_69_tank_on_the_road_into_Kuwait_City_during_the_Gulf_War.JPEG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Iraqi Type 69 tanks during the Gulf War (1990–1991)"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "luftkriget-mot-irak-1991",
+      "titel": "Koalitionen inleder luftkriget",
+      "plats": "Irak och Kuwait, bland annat Bagdad",
+      "start": 1991,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q8256467",
+      "kandidater": [
+        {
+          "fil": "File:USAF F-16A F-15C F-15E Desert Storm edit2.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:USAF_F-16A_F-15C_F-15E_Desert_Storm_edit2.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "US Air Force",
+          "datum": "2007-12-05 01:17:43",
+          "beskrivning": "USAF aircraft of the 4th Fighter Wing ( F-16 , F-15C and F-15E ) fly over Kuwaiti oil fires, set by the retreating Iraqi army during Operation Desert Storm in 1991. Almost the same as Image:USAF F-16A F-15C F-15E Desert Storm pic.jpg save for the size and tint",
+          "bredd": 2000,
+          "hojd": 1274,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/USAF_F-16A_F-15C_F-15E_Desert_Storm_edit2.jpg/960px-USAF_F-16A_F-15C_F-15E_Desert_Storm_edit2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Aircraft formation flight of F-16A/B Fighting Falcon (United States Air Force)",
+            "F-15C/D Eagle in flight",
+            "F-15E Strike Eagle in flight",
+            "Kuwaiti oil fires",
+            "Mixed aircraft formation flight",
+            "United States Air Force in the Gulf War (1990–1991)"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "slaget-vid-73-easting",
+      "titel": "Slaget vid 73 Easting",
+      "plats": "Öknen i sydöstra Irak, väster om Kuwait",
+      "start": 1991,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q1402530",
+      "kandidater": [
+        {
+          "fil": "File:Type 69 Operation Desert Storm.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Type_69_Operation_Desert_Storm.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Uncertain (possibly Tom Johnson Nottingham, UK)",
+          "datum": "1991-02-28",
+          "beskrivning": "An Iraqi Type 69 main battle tank burns after an attack by the 1st United Kingdom Armored Division during Operation Desert Storm.",
+          "bredd": 2200,
+          "hojd": 1272,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Type_69_Operation_Desert_Storm.jpg/960px-Type_69_Operation_Desert_Storm.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Burning tanks",
+            "Destroyed tanks",
+            "Iraqi Type 69 tanks during the Gulf War (1990–1991)"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "slaget-vid-khafji",
+      "titel": "Slaget vid Khafji",
+      "plats": "Khafji, östra Saudiarabien",
+      "start": 1991,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q718770",
+      "kandidater": [
+        {
+          "fil": "File:RemnantsofLAV25.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:RemnantsofLAV25.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Lt. Col. Charles H. Cureton\\",
+          "datum": "1991-01-29",
+          "beskrivning": "Destroyed LAV-AT by friendly anti-tank missile during the Battle of Khafji . That vehicle was killed by a tow missle fired from another lav-at from its own platoon. They were from 1st lai bn from camp pendleton,CA. They were attached to delta Co. Of 3rd lai bn. From 29 palms, ca. On that night.",
+          "bredd": 1000,
+          "hojd": 442,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/RemnantsofLAV25.jpg/960px-RemnantsofLAV25.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battle of Khafji",
+            "Coalition forces in the Gulf War (1990–1991)",
+            "Destroyed armored fighting vehicles",
+            "Gulf War",
+            "LAV-25",
+            "United States Marine Corps in the Gulf War (1990–1991)"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Cleaning up Khafji.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Cleaning_up_Khafji.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Captain Charles G. Grow",
+          "datum": "2010-06-02 11:43:36",
+          "beskrivning": "Marines of 3rd Battalion , search for Iraqi stragglers and examine damage following the Battle of Khafji .",
+          "bredd": 1029,
+          "hojd": 702,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Cleaning_up_Khafji.jpg/960px-Cleaning_up_Khafji.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "3d Bn 3d Mar 1991-2004",
+            "Battle of Khafji",
+            "United States Marine Corps in art",
+            "United States Marine Corps in the Gulf War (1990–1991)"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "vapenvila-i-gulfkriget",
+      "titel": "Vapenvila efter hundra timmar",
+      "plats": "Kuwait och södra Irak (vapenvilan gällde hela fronten)",
+      "start": 1991,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Ceasefire after a hundred hours",
+      "kandidater": []
+    },
+    {
+      "id": "asienkrisen-1997",
+      "titel": "Asienkrisen börjar i Thailand",
+      "plats": "Thailand",
+      "start": 1997,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q80880",
+      "soktext": "The Asian financial crisis begins in Thailand Thailand",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": [
+        {
+          "fil": "File:PIIGS Mk 4 map.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:PIIGS_Mk_4_map.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "The original uploader was Snow storm in Eastern Asia at English Wikipedia .",
+          "datum": "4 June 2010 (original upload date)",
+          "beskrivning": "I modified a copy of the map 'File:Commonwealth games 1998 medal winners.PNG' by Commons user Roke . It replaces my map 'File:PIGS Mk 3 map.png' which became defective would not update, when I uploaded the updated image. I added Antarctica to it.-- Snow storm in Eastern Asia ( talk ) 15:03, 4 June 2010 (UTC) The map's time frame is from 1st January 2007 to 1st July 31 2010. Sorry about the length, I have globalized it. The price of Nickel boomed in the late 1990s, then the price of nickel imploded from around $51,000 /£36,700 per metric ton in the May of 2007 to about $11,550/£8,300 per metric ton in the January of 2009. Prices were only just starting to recover as of January 2010, but most of Australia's nickel mines had gone bankrupt by then. As the price for high grade nickel sulphate ore recovered in 2010, so did the Australian mining industry. By late 2010 both Iceland , the UK , the USA and Latvia are recovering after their major 2008 and 2009 banking failures and closures (Northern Rock, Icesave, Lehman Broths, etc). Belarus had a 20% overnight devaluation of the national currency on 2 January 2009. Germany and Egypt were going down with a heavy budget deficit on May 6th and February the 24th, 2010, respectively. The Czech Republic had a heavy budget deficit by 22-09-2009. The banking situation still remains unbalanced, and major banking breakdowns are now limited thanks to the guaranty of public funds in the USA. The Euro-zone is still to recover, but generally hasn't been affected by such profound banking failures, with the exception of Greece , Spain , Belgium and the UK . Slovakia gave money to their folding central bank on the 8th of December, 2009, and Norway ’s oil output fell in both 2009 and 2010. 40% of Bosnians were jobless in mid 2010. Concerning the European ' PIIGS ' countries shown on the map : Consecutively to the severe crisis in Greece , some speculation was made against other Euro-zone states, using the pejorative name of PIIGS (combination of the initials of Portugal, Italy, Ireland, Greece and Spain) to increase the fear and the feelings of messiness these countries may give to many investors who only have an incomplete knowledge of their economy. If Ireland is most definitely in a difficult situation, Italy has strictly no reason to be compared to Greece , with a deficit of less than a half of the Greek one. Although severely affected in terms of unemployment, Spain has already been through such situations in the past (most of the 80's and 90's) without any risk of bankruptcy , and it is important to remember the actual deficit comes after years of positive balance. Thanks to this, the debt refund (interest included) represent, today, less in percentage in the annual budget for 2010, than it did in any of the last fifteen years. Besides, the failing UK deserved more than any other to be associated with the failed state of Greece . But, apart from the questionable nicknames (may \"GUK\" sound less funny than \"PIIGS\"?), all this shows how much words and rumours can play important roles in a somewhat serious and full of severe consequences subject : world economy. In any case, UK is indeed not far from Greece in terms of public debt, and surely more exposed than some of the so called \"PIIGS\". In conclusion, ridiculous rumours (\"France out of the Euro\", \"Spain bankruptcy\") and scurrilous nicknames (PIIGS) obviously helped speculation against the Euro-zone, by increasing the panic induced by the quite real and serious Greek crisis. It is however important to remember that Greece represents for the European Union hardly much more than Oklahoma for the USA , while in America, much weightier states than Oklahoma , like California , are in very difficult situation too. In fact, this speculation against the Euro allowed a side effect : the purchase of huge amounts of US Dollars in a key moment of the crisis, giving at least some value to China's colossal reserves (almost exclusively in US Dollars ) and allowing the USA to benefit from more time ahead, to carry on going through this crisis, in hope of an eventual true recovery (independent of public stimulus), which is the only viable option for the world's biggest economy to overcome its abyssal financial depression. Since 2008, the \"PIIGS\" strategy is just one of different attempts : One of the most representative of the precedent rumours was in late 2008 and early 2009, about probable doom-like chain reactions in Eastern European countries, regarding local private banking failures (which, eventually, did not happen to be that bad)... Chile‘s economy shrank 4.5% in 2009 and Algeria’s gas exports fell b 3.9% in 2009 due to reduced demand in the EU . Drought has hit some parts of the Magreb and Iberia badly in 2009 and 2010. About 37.3 million (37,3000,000) Americans, or about 12.5% of the population, were living in poverty during 2007 according to timesofoman.com. Other sources put higher poverty rates up for Uzbekistan and Tadjikistan . The IMF gave a 3, 500,000,000 loan to Belarus on January the 3rd, 2009, according to www.thefreelibrary.com. Despite of all this some Arabian economies were doing well. The Oxford Business Group and the International Monetary Fund (I.M.F.) report on the 11th of June, 2009, that Bahrain should see an economic increase of 2.6 % in the fiscal year of 2009 to 2010. Oman’s tourist industry grew, but a dip in oil exports caused a brief recession by May 2009. Saudi Arabia , Quatar and Kuwait were also seeing limited positive economic growth during 2009 and 2010. Surprisingly, The Emirate of Dubai went temporarily bankrupt on the 24th of March, 2009. Abu Dhabi has also saw a heavy slip in real estate sales since 2008 and subsequently prices have also slipped slightly downwards in 2010. Inevitably the crisis has affected all countries in region some ways, but certain countries were vastly affected more than others. In Africa, between May 12th and 26th, both Mauritania , the Sénégal River Area and neighbouring parts of both Senegal and Mali faced both a drought and famine in 2010. Their economies were damaged by this to. The Johannesburg Stock Exchange fell by 31% in 2008. Mining authorities announced on the 10th of December, 2009, that the Dikulushi Mine , which is situated in the Democratic Republic of the Congo ’s Katanga Province , would close due to poor copper prices. In Central America Dollarization damages some states like El Salvador , Armenia had an increase of consumer prices by 20-30% on March 3rd, 2009. Azerbijan had budget surplus of 4.9% on May 13th, 2010. Thailand was planning to cut it’s budget deficit to 4% in 2011. They had a Bt400 billion deficit in January 28, 2010 and a Bt150 billion the fiscal year 0f 2008 (2009 was in keeping with the trend, but not specified). Deloitte say Canadian consumers are increasing their debt-to-disposable-income ratios to more than 130% on February 04, 2009 and Canada‘s budget deficits totalled C$85 billion ($69 billion) over five years as the result of a recession and a C$40 billion two-year stimulus package packed with infrastructure spending, tax cuts and targeted loans by January 27, 2009. Poland's general government deficit widened to 7.1 percent of gross domestic product 2009, but slightly narrower than the government's estimate. By 29 July, 2009, Brazil’s first-half nominal budget deficit index, including federal and local governments and state companies, widened to 43.7 billion Reais ($23 billion), the biggest gap since the modern records began in 2001. By the 18th January, 2010, Angola began to diversify it’s economy and on the 15th of May, 2010, Angolan entrepreneurial activity remained low. Haiti’s earthquake of 2010 had ruined the economy. In Singapore , the economy shrank by 2.1% in 2009, but may grow by 4.5% to 6.5% in 2010. By March, 2010, Vietnam had spent 1% of it’s GDP ($1billion) on subsidising the economy, but 5.32% growth seen likely by Vietnam for the whole of 2009. By the 13th of February, 2009, the Dutch economy shrank 0.9%. On the 6th of March, 2009, Indonesia’s government forecast a maximum 4 per cent growth as the recession devastated East Timor during March, 2009. Cuba entered a severe recession by December, 2008, and New Zealand was in recession by August, 2008. The Finnish central bank forecast, annual Finnish GDP to contract by 7.2% in 2009, remain unchanged in 2010 and grow 1.6% in 2011. Republic of Congo's real GDP rose by 8.30% in 2009. Mongolian bulk trading sales were increased 45.2% compared with the same period of last Year May 15, 2010. Kenyan tea and coffee exports fell by just under 50% in 2008, but recovered in 2009. Nigeria’s economy is sadly being corrupted and in need restructuring reforms. Mauritania’s economy is in need of restructuring reforms and fiscal discipline. Today, high oil revenues and a small population give Libya one of the highest GDPs per person in Africa and have allowed the Libyan state to provide an extensive level of social security, particularly in the fields of housing and education. Many problems still beset Libya's economy however; unemployment is the highest in the region at 21% according to the latest census figures. Pakistan would also receive a yearly loan from Japan worth $500 million from 2006 to 2011 to help develop I.T. usage. The name of the Central Bank of Nigeria has been used in a series of so-called 'Nigerian 419 Scams'. The fraudster sends an e-mail that appears to come from a Central Bank employee to millions of people saying the Bank has found an excess of money, or a debt owing to, a person or persons who have since died, and they wish to export it. The victim submits his own bank account so that the money may be placed therein, only to find that within a week his account is empty. The bank is in no way associated with such scams. Malian , Kirgizian and Burkina Faso organic cotton bucked the down turn in 2010, while Zimbabwe 's hyper inflation reached 25,000% in 2009. Taiwan was in recession as its economy contracted by a record 8.36%. by February 18, 2009. Most pacific islands were in a recession from 2008 to 2010. Economic Growth was expected to rise slightly in resource-rich Papua New Guinea, lifting the overall growth rate in the Pacific to 3.7 per cent from 2.4%. South Korea’s exports Slid 21.2% and the economy only grew by 0.1% between January and March 2009, when compared with the last quarter of 2008. Vietnam 's economy looked very shaky between 2009 and 2010 as a recession bit. The Ivory Coast ’s chocolate /cocoa bean exports were booming in 2010. The Asian Development Bank reports Vanuatu‘s would expand by 0.5 per cent this year after contracting an estimated 1.4 per cent last year.By measuring currency devaluation , equity market decline, and the rise in sovereign bond spreads, a picture of financial devastation emerges. Since these three indicators show financial weakness, taken together, they capture the impact of the crisis. The Carnegie Endowment for International Peace reports in its International Economics Bulletin that Ukraine and Hungary , as well as Argentina and Jamaica , are the countries most deeply affected by the crisis. Other severely affected countries are Ireland , Russia , Mexico , the Baltic states , United States and United Kingdom . By contrast, China , Japan , India , Iran , Peru and Australia are \"among the least affected\". Commodity, food, fuel and metal prices fluctuated heavily at this time with both the lead and Zinc prices rose sharply in early 2007, then collapsed to nearly their original starting price by the end of the next year. [ 1 ] Lead and Zink prices began to rise in early 2007 due to increased word wide demand. Prices were about $1,200 per tonne of lead in the October and then hurtled up to $2,220 per tonne of lead by September. Despite the Bullish market condition, the price had collapsed by the July of 2009 and was only worth about $1,400 per tonne of lead. The lead and Zinc markets became rather Bearish for several months afterwards. Prices were hovering at between $1,770 and $2,175 per tonne of lead [ 2 ] as the markets became more bullish after China 's car scrapage scheme had caused a general upturn in lead, zinc, cadmium and Aluminium prices. [ 3 ] By the June of 2010 prices stood at only $870 per tonne of lead bad back to about $2,200 in the July of 2010 [ 4 ] A Chinese mining company opened a new Tantalum mine in the DRC in early 2010. The blizzards of the winter of 2009-2010 caused heavy damage in Russia , China and Mongolia , which appeared to have posible long term consiquences. [ 5 ] [ 6 ] The Northern Hemisphere Summer heatwave 2010 affected the region's trade stats. New York City saw temperature as high as 35 °C in some areas and it was predicted to reach 38C the next day. A report released by the Wall Street Journal on July 7, saying that June saw retail sails rise over the American Independence Day holiday Father's Day , especially along the East Coast of America. [ 7 ] By July 3, retail sales had risen by 3.9% from the year-ago period and 1% over the previous week, according to the International Council of Shopping Centers , and Goldman Sachs and Johnson Redbook Research also showed a sales gain in the final week of June, citing the hot weather. Consumers hid from the heat in air-conditioned shopping malls and bought more goods than usual summer merchandise like ice cream , air conditioners , fans , swimwear , hats , sun screen , vest tops and pool and beach equipment were all selling like the proverbial hotcakes, whilst unusualy heavy monsoons hit other parts of the nation. The Chinese heat wave made commodities including sugar cane , flowers , tea , fruit , potatoes , rapeseed , medicinal ingredients , tobacco , wheat , rubber and coffee have been severely affected with output reduced by as much as 50%. Authorities began to fear unrest due to soaring food prices and sent more than 10,000 armed police to the affected regions to ensure stability and help with water supplies. One of the European heat waves left and overheating Morocco in early July, for the Iberian Peninsula was attributed to the regional hot air currents that depart from the Sahara desert in Northern Africa at about 1,000 meters in altitude , which facilitated a movement in the hot air towards the Balkans and the Ukraine via the Straits of Gibraltar , Spain and Italy . For the rest of the information and the key, then enlarge the image. -- Snow storm in Eastern Asia ( talk ) 02:38, 15 May 2010 (UTC)",
+          "bredd": 3180,
+          "hojd": 1485,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/PIIGS_Mk_4_map.png/960px-PIIGS_Mk_4_map.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2015 maps of the world",
+            "Disasters",
+            "Economic crises",
+            "Economic maps of the world",
+            "Economy in the 2000s",
+            "Epidemiology of hunger",
+            "Financial speculations",
+            "Macroeconomics",
+            "Next-best-action marketing",
+            "Price maps of the world",
+            "Response-rate ratio"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "kyotoprotokollet",
+      "titel": "Kyotoprotokollet antas",
+      "plats": "Kyoto, Japan",
+      "start": 1997,
+      "varldsdel": "Asien",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q47359",
+      "kandidater": [
+        {
+          "fil": "File:Kyoto protocol parties and 2012-2020 commitments.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Kyoto_protocol_parties_and_2012-2020_commitments.svg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "L.tak",
+          "datum": "2013-02-02 18:02:35",
+          "beskrivning": "Kyoto Protocol participation map (commitment period: 2013-2020) Parties; Annex I & II countries with binding targets Parties; Developing countries without binding targets States not Party to the Protocol Signatory country with no intention to ratify the treaty, with no binding targets Countries that have renounced the Protocol, with no binding targets Parties with no binding targets in the second period, which previously had targets",
+          "bredd": 863,
+          "hojd": 443,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Kyoto_protocol_parties_and_2012-2020_commitments.svg/960px-Kyoto_protocol_parties_and_2012-2020_commitments.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Kyoto Protocol"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Doha Amendment of Kyoto.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Doha_Amendment_of_Kyoto.svg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "L.tak",
+          "datum": "2013-12-30 16:43:28",
+          "beskrivning": "Ratification of the Doha Amendment of the Kyoto Protocol of December 2012, in which commitments for the period 2013-2020 are formalized. States that ratified Kyoto protocol parties that did not ratify Non parties to the Kyoto Protocol",
+          "bredd": 863,
+          "hojd": 443,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Doha_Amendment_of_Kyoto.svg/960px-Doha_Amendment_of_Kyoto.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Doha Amendment"
+          ],
+          "smal": false
+        }
+      ]
+    }
+  ]
+}

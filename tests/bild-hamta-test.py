@@ -121,6 +121,13 @@ def main():
     p = poster(('File:Exempel_pd.jpg', 'a-b'), ('https://www.loc.gov/item/2004668148/', 'kairo'), ('skräp', None))
     check([x['kalla'] for x in p] == ['commons', 'loc', None] and p[0]['id'] == 'a-b' and p[1]['id'] == 'kairo', 'parse_indata')
 
+    # --- händelse-id (#2182): å, ä och ö går igenom, men aldrig snedstreck, punkt eller versaler
+    for eid, forv in [('vapenstilleståndet-i-korea', True), ('a-b', True), ('slaget-vid-lützen', True), ('../x', False),
+                      ('a/b', False), ('A-b', False), ('a.b', False), ('-a', False)]:
+        check(bool(bh.ID_RE.match(eid)) == forv, f'ID_RE({eid}) ska vara {forv}')
+    kanda = bh.kanda_id()
+    check(kanda is not None and 'vapenstilleståndet-i-korea' in kanda, 'kanda_id ska läsa id:n ur data/handelser/')
+
     # --- batch: 51 titlar ger två anrop, normalized, redirects och saknade filer följs
     fals = Falsk()
     k, _ = klient(fals)
