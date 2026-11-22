@@ -2287,14 +2287,22 @@ DISPUTED = {
                 'strict': True, 'remove': ['weimarrepubliken', 'nazityskland'], 'add': []},
     'saar-frankrike': {'area': SAAR, 'from': 1920,
                        'to': 1939, 'strict': True, 'remove': ['franska-kolonialvaldet'], 'add': []},
-    # Saarprotektoratet (#2157): ett franskt protektorat med egen regering och ett omstritt område 1947–1956, som blev en del av
-    # Västtyskland 1 januari 1957 (en.wikipedia "Saar Protectorate", öppnad 2026-11-22; inledningen säger att protektoratet
-    # inrättades 1946, faktarutan 17 december 1947). Cliopatria räknar området till Fjärde republiken till och med 1957 och till
-    # Förbundsrepubliken från 1958. Det räknas inte till Frankrike 1947–1957 och visas utan stat, som Saarområdet 1920–1934;
-    # 1957 är källorna oense (Om kartan). 1946 hör det till den franska ockupationszonen, som Cliopatria ritar som Frankrike.
-    # Klipps bara efter förenklingen (efter och dec), annars förenklas gränsen om och Forbach i Lorraine hamnar utanför Frankrike
+    # Saarprotektoratet (#2157): ett franskt protektorat med egen regering och ett omstritt område, som blev en del av Västtyskland
+    # 1 januari 1957 (en.wikipedia "Saar Protectorate", öppnad 2026-11-22). Sidan anger början olika: inledningen säger att
+    # området gjordes till protektorat 1946, historiedelen 16 februari 1946 (märkt [citation needed]) och faktarutan 17 december
+    # 1947 (livslängd 1947–1956). Cliopatria räknar området till Fjärde republiken till och med 1957 och till Förbundsrepubliken
+    # från 1958. Det räknas inte till Frankrike 1947–1957 och visas utan stat 1947–1956, som Saarområdet 1920–1934. 1946 hör det
+    # till den franska ockupationszonen, som Cliopatria ritar som Frankrike. Västtysklands förenklade gräns täcker Homburg
+    # 1950–1956, så Saarland klipps också ur Västtyskland de åren. 1957 visas det som Västtyskland enligt Wikipedia: Cliopatrias
+    # Förbundsrepublik 1958 skiljer sig 0,27 procent från gränsen 1957 med Saarland (Natural Earth), under halva procenten i
+    # beslutet 2026-11-13. Allt klipps eller läggs till bara efter förenklingen (efter och dec), annars hamnar Forbach i Lorraine
+    # utanför Frankrike
     'saar-protektoratet': {'area': SAAR, 'from': 1947, 'to': 1957, 'strict': True, 'efter': True, 'dec': 3,
                            'remove': ['franska-kolonialvaldet'], 'add': []},
+    'saar-protektoratet-brd': {'area': SAAR, 'from': 1950, 'to': 1956, 'strict': True, 'efter': True, 'dec': 3,
+                               'remove': ['vasttyskland'], 'add': []},
+    'saar-brd-1957': {'area': SAAR, 'from': 1957, 'to': 1957, 'strict': True, 'efter': True, 'dec': 3,
+                      'remove': [], 'add': ['vasttyskland']},
     # Kehl: Cliopatria räknar staden till Förbundsrepubliken från 1950 och till Fjärde republiken till och med 1949
     # (en.wikipedia "Kehl": frigiven i 42 delar 29 juli 1949–8 april 1953). Fjärde republiken har sin gräns från 1949
     # också 1950–1957 efter sammanslagningen och förenklingen; Västtysklands gräns klipps bort ur den från 1950
@@ -2819,6 +2827,11 @@ DISPUTED['rhenlandet-baden'] = {'area': TYSKA_SIDAN, 'from': 1920, 'to': 1929, '
 # till Moldavien (DISPUTED['transnistrien'])
 DISPUTED['gambia-frankrike'] = {'area': ('clio', 'Republic of The Gambia', 1970), 'from': 1815, 'to': 1957, 'strict': True,
                                 'efter': True, 'dec': 3, 'remove': ['franska-kolonialvaldet'], 'add': []}
+# Gambia i Brittiska imperiet 1885–1966 (#2157): Cliopatria räknar 98,7–100 procent av Gambias gräns till imperiet de åren
+# (Basse Santa Su ligger inne från 1885), men imperiets förenklade form (0,3 grader) når inte östra Gambia, som blev utan stat när
+# Frankrike klipptes bort. Gambias egen gräns i Cliopatria läggs till efter förenklingen; från 1967 är Gambia ett eget land
+DISPUTED['gambia-brittiska'] = {'area': ('clio', 'Republic of The Gambia', 1970), 'from': 1885, 'to': 1966, 'strict': True,
+                                'efter': True, 'dec': 3, 'remove': [], 'add': ['brittiska-imperiet']}
 DISPUTED['moldavien-ukraina'] = {'area': ('union', ('clio', 'Republic of Moldova', 2000), ('ne', ['transnistrien'])), 'from': 1992,
                                  'strict': True, 'efter': True, 'dec': 3, 'remove': ['ukraina'], 'add': []}
 DISPUTED['ukraina-moldavien'] = {'area': ('clio', 'Ukraine', 2000), 'from': 1992, 'strict': True, 'efter': True, 'dec': 3,
