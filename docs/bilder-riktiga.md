@@ -87,7 +87,7 @@ Flaggorna (#2193):
 | `karta` | Kartan kan vara samtida eller ritad senare; bildtexten säger vilket. |
 | `nutida-foto` | Verkets datum är 1990 eller senare för en händelse före 1900. |
 | `datum-osakert` | Bara filens datum, ofta uppladdningen, finns. |
-| `staende` | Stående bild. Skriv `passa-in` i tredje kolumnen i listan, så visas hela bilden i stället för ett 4:3-utsnitt. |
+| `staende` | Stående eller nästan kvadratisk bild, där 4:3-utsnittet tar bort mer än 20 % av höjden. Skriv `passa-in` i tredje kolumnen i listan, så visas hela bilden i stället för ett 4:3-utsnitt. |
 | `konstverk` | Monument, staty, skulptur, relief eller väggmålning. Kontrollera frihet för panorama i landet och konstnärens dödsår. |
 | `samma-fil` | Samma fil föreslås för flera händelser i omgången. |
 | `smal` | Under 800 px. |
