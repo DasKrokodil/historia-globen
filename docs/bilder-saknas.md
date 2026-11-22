@@ -137,6 +137,29 @@ Den 21 november 2026 gav reservsökningarna i Library of Congress bildkatalog HT
 | `slaget-vid-jena-auerstedt` | En senare karta i kandidatlistan. Alternativsökning på Commons: HTTP 429. |
 | `slavhandeln-forbjuds-1807` | Kandidaten visar ett riksvapen. Alternativsökning på Commons: HTTP 429. |
 
+## Afrika 1826–1905, pilot #2109 (bildpipelinen #2183)
+
+Kontrollerat 2026-11-22 med granskningslistan `data/utkast/bildbatch/2109.md`.
+
+| Händelse (id) | Skäl |
+|---|---|
+| `slaget-vid-dodowa` | Ingen kandidat i listan. En kort sökning på Commons gav bara en bild av ett annat slag mot Ashanti (1824). |
+| `anglo-zuluiska-kriget` | Den enda kandidaten är ett utsnitt av samma målning av Alphonse de Neuville som nu visas för `slaget-vid-rorkes-drift`. Krigets viktigaste händelse, `slaget-vid-isandlwana`, har redan en bild. |
+| `invasionen-av-zululand` | Den enda kandidaten är en kartsida ur Appleton's annual cyclopedia med Commons-etiketten "No restrictions" utan licensmall, som inte godkänns, och kartan visar inte invasionen. |
+| `slaget-vid-hlobane` | Den enda kandidaten är 300 × 389 px och en senare avbildning. En kort sökning gav bara ett porträtt av Piet Uys, som inte visar slaget. |
+
+### Ej hämtad, prövas igen
+
+Den 22 november 2026 svarade Commons HTTP 429 (Retry-After 600 s) och loc.gov svarade inte inom 30 sekunder.
+
+| Händelse (id) | Hinder |
+|---|---|
+| `slaget-vid-gingindlovu` | Gravyren "Inside the laager at Ginghilovo during the Zulu attack" (The Illustrated London News 1879, PD-art) är vald och kontrollerad, men miniatyren på upload.wikimedia.org gav HTTP 429 i tre körningar. |
+| `kongofristaten` | Kandidaten är en modern karta över Belgiska Kongos järnvägar före 1960. Egen sökning: HTTP 429. |
+| `freden-i-addis-abeba-1896` | Kandidaterna är nutida konferensfoton från Addis Abeba. Egen sökning: HTTP 429. |
+| `liberia-blir-sjalvstandigt` | Sökningen gav ett foto av ett självständighetståg i Monrovia utan känt datum. Metadata: HTTP 429. |
+| `boskapspesten-i-afrika` | Sökningen gav filen "Rinderpest 1896-CN.jpg". Metadata: HTTP 429. |
+
 ## Afrika och Egypten 1000–1347, pilot #2107
 
 Kontrollerat 2026-11-22 med granskningslistan `data/utkast/bildbatch/2107.md`.
