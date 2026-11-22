@@ -148,6 +148,8 @@ Formulärets serverfunktion `functions/api/feedback.js` (beslut 2026-10-30, [fee
 - vid varje **pull request mot `main`**
 - vid varje **pull request mot `production`**
 
+En ny push till samma pull request, eller till `main`, avbryter en äldre körning som inte är klar (`concurrency` med `cancel-in-progress`, #2211). Bara den senaste versionen valideras, och kön fylls inte av ersatta commits. Webbläsartestet (`browser-test.yml`) gör likadant.
+
 Jobbet **"Bygg och validera dist/"** kör också testerna för förslagens serverfunktion (`node --test 'tests/*.test.mjs'`, Node 22, inga beroenden).
 
 Jobbet **"Starta formulärets Pages Function som Cloudflare"** (#663) kör `scripts/pages-function-check.sh`. Skriptet startar `functions/api/feedback.js` med `wrangler pages dev dist` (Cloudflares egen körmiljö, workerd) och skickar ett anrop till `/api/feedback`. Utan nycklar ska svaret vara 503 `disabled`; startar funktionen inte är kontrollen röd. Skälet: Cloudflare stoppar **hela** publiceringen om funktionen inte startar, och koden som funktionen importerar (`js/model.js`, `js/i18n.js`) körs annars bara i node och i webbläsaren. Efter #634 misslyckades publiceringen av `main` 21 gånger i rad medan alla andra kontroller var gröna (#662). wrangler installeras i en tillfällig mapp med exakt version, som Playwright, och används bara här. Lokalt: `bash scripts/pages-function-check.sh` (kräver Node och nätet för npm första gången).

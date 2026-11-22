@@ -12,6 +12,13 @@ on:
 permissions:
   contents: read
 
+# En körning per gren eller pull request (#2211): en ny push till samma pull request, eller till main, avbryter den
+# äldre körningen, så att kön inte fylls av valideringar av commits som redan är ersatta. Samma mönster som i
+# browser-test.yml. github.ref är refs/pull/<N>/merge för en pull request och refs/heads/main för en push.
+concurrency:
+  group: validera-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   validate:
     name: Bygg och validera dist/
