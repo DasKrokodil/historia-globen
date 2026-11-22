@@ -19,6 +19,8 @@ Regler för ett rikes religion ett visst år (religion_at):
   utom när faktarutan anger religionen som officiell utan årtal (till exempel Ryska imperiet).
 - Från 1900 används Wikipedias tabell Religion by country för länder vars faktaruta saknar
   religion (modern).
+- Rikesdelar som Cliopatria har fel tas bort före allt annat (KLIPP, #2162): USA:s del över södra Vietnam 1967–2005,
+  samma ruta som tools/riken.py klipper bort i rikeslagret (#2151).
 
 Arv (#269, gäller alla religioner): ett område som har haft en religion behåller den när rikena
 som följer där saknar religion i faktarutan (eller bara har en religion som enligt reglerna ovan
@@ -58,6 +60,25 @@ INH_MIN_AREA = 0.3  # och ärvda öar och rester mindre än så här (kvadratgra
 SLIVER = 0.05    # ärvda områden "öppnas" med så här många grader, så att smala remsor längs gränser försvinner
 GAP = 100        # ett område utan rike i Cliopatria minns sin religion så här många år
 CENSUS_FROM = 1900  # procentsiffror (folkräkningar) och tabellen Religion by country används från detta år
+
+# Rikesdelar som Cliopatria har fel (#2162): samma rutor som tools/riken.py klipper bort i rikeslagret, så att de inte heller
+# ger någon religion här. (rikets namn, första år, sista år, ruta (väst, syd, öst, nord)). Cliopatrias USA-post 1967–2005
+# har en del över södra Vietnam med Saigon, som annars räknades till kristendomen 1970–2009; rutan är VIETNAM_USA i
+# tools/riken.py (#2151) och tests/religioner-test.py kontrollerar att de är lika när den finns där.
+KLIPP = [('United States of America', 1967, 2005, (103.0, 8.0, 110.5, 17.6))]
+
+
+def klipp(name, a, b, geometry):
+    """Rikets område utan rutorna i KLIPP för perioden a–b (shapely-geometri). En period som bara delvis ligger inom
+    en rutas år är ett fel, eftersom rutan då skulle gälla fel år."""
+    for namn, fran, till, (w, s, e, n) in KLIPP:
+        if namn != name or b < fran or a > till:
+            continue
+        if a < fran or b > till:
+            raise ValueError(f'{name} {a}–{b} ligger bara delvis inom {fran}–{till}')
+        ruta = shape({'type': 'Polygon', 'coordinates': [[(w, s), (e, s), (e, n), (w, n), (w, s)]]})
+        geometry = geometry.difference(ruta)
+    return geometry
 
 # (id, svenskt namn, färg, mönster). Ordningen avgör vid lika träff.
 RELIGIONS = [
@@ -224,7 +245,7 @@ class Row:
 
     def shape(self):
         if self._s is None:
-            self._s = shape(self.g).buffer(0).simplify(TOL / 2, preserve_topology=True)
+            self._s = klipp(self.name, self.a, self.b, shape(self.g).buffer(0)).simplify(TOL / 2, preserve_topology=True)
         return self._s
 
     def religion_at(self, y):
@@ -376,6 +397,8 @@ def main():
              'religionen först från det året (since i polities). Arv (#269): ett område som har haft en religion behåller den när '
              'rikena som följer där inte anger någon religion som gäller, tills ett rike med en annan angiven religion täcker området. '
              'Sådana områden har inherited (until = sista året religionen stod i faktarutan där, from = de rikena) och visas som osäkra. '
+             'Ändring av Cliopatria (#2162): USA-postens del över södra Vietnam 1967–2005 (103,0–110,5 grader öst, 8,0–17,6 nord) '
+             'är borttagen, som i rikeslagret (#2151). '
              'Byggt med tools/religioner.py.')
     doc = {'schema': 'historia-globen/religions@3', 'notes': notes, 'religions': rels,
            'polities': sorted(polities.values(), key=lambda p: p['name'])}

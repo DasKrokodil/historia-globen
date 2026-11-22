@@ -1,6 +1,6 @@
 // Tidsreglaget äger det nuvarande året (arkitekturprincip 3).
 // Beslut 4: segmenterad skala där nutiden får mer plats än forntiden.
-import { formatYear, groupDigits, formatDate, isBCE, bce, BCE_TXT, parseYear, parseYearInput, yearParts, edtfSpan, dayParts, formatDay, monthStarts, roundDay, MONTHS_SHORT, CE_TXT, isVisibleReview, t, roundPrehistoric, roundToStep, stepAt, formatDecimal, pluralUi } from './model.js';
+import { formatYear, groupDigits, formatDate, isBCE, bce, BCE_TXT, parseYear, parseYearInput, yearParts, edtfSpan, dayParts, formatDay, monthStarts, roundDay, MONTHS_SHORT, CE_TXT, isVisibleReview, t, roundToStep, stepAt, formatDecimal, pluralUi } from './model.js';
 import { selectEventsForDate } from './date-events.js';
 import { say, clearStatus } from './ui/status.js';
 import { LANG, ui } from './i18n.js';
@@ -318,10 +318,14 @@ export class Timeline extends EventTarget {
   }
   /** Händelsens tid på reglaget: hela år, eller datum ur edtf i fokusläget för korta krig. */
   spanOf(e) { return this.focus?.fine ? edtfSpan(e) : [e.start, e.end]; }
+  // Avrundning för visning får inte flytta ett valt år till nästa reglage (#2152).
+  displayYear(y) {
+    const scale = this.scaleAt(y), rounded = roundToStep(y, scale);
+    return rounded > scale.to ? y : rounded;
+  }
   /** Året som text och som [stort, litet] för huvudet: "1879", eller "22 jan 1879" för korta krig. */
-  // I förhistorien avrundas året till tusental (roundPrehistoric), eftersom ett steg på reglaget där är hundratals år
-  format(y) { return this.focus?.fine ? formatDay(this._lastDay(y)) : formatYear(roundPrehistoric(y, this.scaleAt(y))); }
-  formatParts(y) { return this.focus?.fine ? dayParts(this._lastDay(y)) : yearParts(roundPrehistoric(y, this.scaleAt(y))); }
+  format(y) { return this.focus?.fine ? formatDay(this._lastDay(y)) : formatYear(this.displayYear(y)); }
+  formatParts(y) { return this.focus?.fine ? dayParts(this._lastDay(y)) : yearParts(this.displayYear(y)); }
   // Spannets slut är början av dagen efter krigets sista dag; där visas den sista dagen
   _lastDay(y) { return Math.min(y, this.focus.to - 0.5 / DAYS_PER_YEAR); }
   /**
