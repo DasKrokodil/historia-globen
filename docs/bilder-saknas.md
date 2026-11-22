@@ -137,6 +137,50 @@ Den 21 november 2026 gav reservsökningarna i Library of Congress bildkatalog HT
 | `slaget-vid-jena-auerstedt` | En senare karta i kandidatlistan. Alternativsökning på Commons: HTTP 429. |
 | `slavhandeln-forbjuds-1807` | Kandidaten visar ett riksvapen. Alternativsökning på Commons: HTTP 429. |
 
+## Afrika 1826–1905, pilot #2109 (bildpipelinen #2183)
+
+Kontrollerat 2026-11-22 med granskningslistan `data/utkast/bildbatch/2109.md`.
+
+| Händelse (id) | Skäl |
+|---|---|
+| `slaget-vid-dodowa` | Ingen kandidat i listan. En kort sökning på Commons gav bara en bild av ett annat slag mot Ashanti (1824). |
+| `anglo-zuluiska-kriget` | Den enda kandidaten är ett utsnitt av samma målning av Alphonse de Neuville som nu visas för `slaget-vid-rorkes-drift`. Krigets viktigaste händelse, `slaget-vid-isandlwana`, har redan en bild. |
+| `invasionen-av-zululand` | Den enda kandidaten är en kartsida ur Appleton's annual cyclopedia med Commons-etiketten "No restrictions" utan licensmall, som inte godkänns, och kartan visar inte invasionen. |
+| `slaget-vid-hlobane` | Den enda kandidaten är 300 × 389 px och en senare avbildning. En kort sökning gav bara ett porträtt av Piet Uys, som inte visar slaget. |
+
+### Ej hämtad, prövas igen
+
+Den 22 november 2026 svarade Commons HTTP 429 (Retry-After 600 s) och loc.gov svarade inte inom 30 sekunder.
+
+| Händelse (id) | Hinder |
+|---|---|
+| `slaget-vid-gingindlovu` | Gravyren "Inside the laager at Ginghilovo during the Zulu attack" (The Illustrated London News 1879, PD-art) är vald och kontrollerad, men miniatyren på upload.wikimedia.org gav HTTP 429 i tre körningar. |
+| `kongofristaten` | Kandidaten är en modern karta över Belgiska Kongos järnvägar före 1960. Egen sökning: HTTP 429. |
+| `freden-i-addis-abeba-1896` | Kandidaterna är nutida konferensfoton från Addis Abeba. Egen sökning: HTTP 429. |
+| `liberia-blir-sjalvstandigt` | Sökningen gav ett foto av ett självständighetståg i Monrovia utan känt datum. Metadata: HTTP 429. |
+| `boskapspesten-i-afrika` | Sökningen gav filen "Rinderpest 1896-CN.jpg". Metadata: HTTP 429. |
+
+## Afrika och Egypten 1000–1347, pilot #2107
+
+Kontrollerat 2026-11-22 med granskningslistan `data/utkast/bildbatch/2107.md`.
+
+| Händelse (id) | Skäl |
+|---|---|
+| `swahilikustens-afrikanska-och-asiatiska-rotter` | Ingen kandidat i listan, och händelsen är en DNA-studie utan motiv som en historisk bild kan visa. Ingen egen sökning. |
+| `banu-hilal-flyttar-till-maghreb` | Ingen kandidat i listan. Egen sökning gav nutida kartor; den närmaste (NBelazi 2014, CC BY-SA 3.0) visar stammarnas rörelser på Arabiska halvön på 900-talet, inte flytten till Maghreb, och ett manuskript från 1849 av den muntliga eposdiktningen om Banu Hilal visar inte händelsen. |
+| `war-jabi-infor-sharia-i-takrur` | Ingen kandidat i listan. Egen sökning gav bara en spansk karta från 1876 ("Parte del Sudan ó Takrur") och foton av berget El-Dakrur vid Siwa, som inte visar händelsen. |
+| `almoraviderna-och-ghanariket` | Ingen kandidat i listan. Egen sökning gav almoravidiska dinarer präglade av senare härskare (Yusuf ibn Tashfin, Ali ibn Yusuf), som inte visar den omstridda erövringen. |
+| `svalten-i-egypten-1200` | Ingen kandidat i listan. Egen sökning gav bara PDF-skanningar av senare översättningar av Abd al-Latif al-Baghdadis bok (1800 och 1810), ingen bild. |
+| `slaget-vid-kirina` | Listans enda kandidat (Wikidatas bild, 2019) visar enligt filsidans kategorier Kurukan Fuga och Mandékans stadga, inte slaget. |
+| `digerdoden-i-egypten` | Listans kandidater ur sökning är en gatubild från Kairo 1870 och utgrävningsfoton från Heliopolis 1903–1906, som inte visar pesten. |
+| `salomoniska-dynastin-tar-makten` | Listans kandidat (File:Yekuno Amlak.jpg): ursprung och datering saknas på filsidan (bara ett diskussionsforum som källa), så licensen går inte att belägga. Borttagen efter granskning av PR #2188. |
+
+### Ej hämtad, prövas igen
+
+| Händelse (id) | Hinder |
+|---|---|
+| `jordbavningen-1303-alexandria` | Vald bild: [File:Book of Wonders folio 36a.jpg](https://commons.wikimedia.org/wiki/File:Book_of_Wonders_folio_36a.jpg) (fyren i Alexandria i handskriften Kitab al-bulhan, 1390–1450, Bodleian Library, CC BY 4.0, licensmallen läst 2026-11-22). upload.wikimedia.org svarade HTTP 429 med Retry-After 600 s vid tre körningar av `tools/bild_hamta.py`. |
+
 ## Afrika 1390–1816, pilot #2108 (2026-11-22)
 
 Tio av 18 händelser fick en bild från Wikimedia Commons (licensen kontrollerad i filsidans wikitext 2026-11-22). Valen och skälen står i granskningslistan [data/utkast/bildbatch/2108.md](../data/utkast/bildbatch/2108.md). Värda att se över:
