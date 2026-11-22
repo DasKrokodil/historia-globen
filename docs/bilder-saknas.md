@@ -136,3 +136,18 @@ Den 21 november 2026 gav reservsökningarna i Library of Congress bildkatalog HT
 | `stavnsbandet-upphavs` | Tom kandidatlista. Alternativsökning på Commons: HTTP 429. |
 | `slaget-vid-jena-auerstedt` | En senare karta i kandidatlistan. Alternativsökning på Commons: HTTP 429. |
 | `slavhandeln-forbjuds-1807` | Kandidaten visar ett riksvapen. Alternativsökning på Commons: HTTP 429. |
+
+## Afrika 1970–2018, pilot #2111 (2026-11-22)
+
+Granskningslistan `data/utkast/bildbatch/2111.md` och högst en kort sökning på Wikimedia Commons per händelse, 2026-11-22.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `operation-tail-wind` | Kandidaten är en gravyr från 1850 av ett kulthus vid Biafrabukten, inte händelsen. Sökningen gav ett foto av en tidningssida från 7 januari 1970 i Aart Rietvelds samling (CC BY-SA 4.0 för fotot), men licensen täcker inte tidningens egna bilder och text, så den användes inte. |
+| `angolas-inbordeskrig` | Kandidaten (kubansk stridsvagnsbesättning i Angola, 1976) har okänd upphovsperson men mallen PD-USGov-Military, som förutsätter att en amerikansk statsanställd tog bilden. Filsidan visar inte det: bilden är hämtad ur en CIA-skrift från 1982. Den är också bara 616 px bred. |
+| `sowetoupproret` | Sam Nzimas foto är public domain bara i USA. Filsidan säger att den sydafrikanska upphovsrätten upphör i slutet av 2026, så bilden kan prövas igen från 2027. |
+| `grona-baltet-maathai` | Tom kandidatlista. Sökningen gav bara bilder från senare år (bland annat Nobelpriset 2004), inget från 1977. |
+| `operation-kitona` | Tom kandidatlista. Sökningen gav bara ett diagram och en karta. |
+| `mordet-pa-laurent-desire-kabila` | Kandidaten är ett porträtt från ett besök hos EG 1998 med licensmallen EC-Audiovisual Center, som verktygen inte känner igen; vi avstår enligt docs/bilder-riktiga.md. Bilden visar inte heller händelsen. |
+| `afrikanska-unionen-bildas` | Kandidaterna är en mudderpråm ur Britannica 1911 och två foton med licensen GODL-India från andra möten i Durban (2006 och 2013), inte händelsen. Sökningen gav inget från 2002. |
+| `kongos-overgangsregering-2003` | Tom kandidatlista. Sökningen gav bara dokument (PDF). |
