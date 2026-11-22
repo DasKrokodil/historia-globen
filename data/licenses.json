@@ -30,6 +30,7 @@
         "dillehay-2015-monte-verde",
         "florin-2020-madjedbebe",
         "freidline-2023-tam-pa-ling",
+        "fu-2025-harbin-mtdna",
         "gandini-2025-sahul",
         "hallett-2025-human-niche",
         "harvati-2022-homo-mlp",
@@ -1021,6 +1022,7 @@
         "wp-defense-brest-fortress",
         "wp-dejima",
         "wp-delhi",
+        "wp-denisovan",
         "wp-denmark-norway",
         "wp-derafsh-kaviani",
         "wp-deriba-caldera",
@@ -2509,6 +2511,7 @@
         "wp-siege-of-dapur",
         "wp-siege-of-eshowe",
         "wp-siege-of-mariupol",
+        "wp-siege-of-paris",
         "wp-siege-of-saguntum",
         "wp-siege-of-tyre-332",
         "wp-siege-pyongyang-1593",
@@ -2570,6 +2573,7 @@
         "wp-spanish-coup-1936",
         "wp-spanish-empire",
         "wp-spanish-flu",
+        "wp-spanish-legion",
         "wp-spice-trade",
         "wp-spiennes",
         "wp-spirit-cave-thailand",
@@ -2753,6 +2757,7 @@
         "wp-treaty-nanking",
         "wp-treaty-nystad",
         "wp-treaty-of-copenhagen-1660",
+        "wp-treaty-of-frankfurt-1871",
         "wp-treaty-of-kiel",
         "wp-treaty-of-portsmouth",
         "wp-treaty-of-roskilde",
@@ -4412,22 +4417,24 @@
       ]
     },
     {
+      "license": "Stängd artikel, länkad källa: bara författarmanuset läst, ingen text kopierad; stöder bara årtal och dateringsmetod (beslut 2026-11-12)",
+      "sourceIds": [
+        "sinding-2020-zjochov"
+      ]
+    },
+    {
       "license": "Stängd artikel, länkad källa: bara sammanfattningen läst, ingen text kopierad (beslut 2026-11-12)",
       "sourceIds": [
         "bennett-2021-white-sands",
         "chen-2019-xiahe",
         "detroit-2019-homo-luzonensis",
+        "fu-2025-harbin-proteome",
         "martinon-torres-2021-panga-ya-saidi",
         "mijares-2010-callao",
         "pigati-2023-white-sands",
         "rizal-2020-ngandong",
-        "surovell-2026-monte-verde"
-      ]
-    },
-    {
-      "license": "© AAAS (bara länkad, ingen text kopierad; stöder bara årtal och dateringsmetod)",
-      "sourceIds": [
-        "sinding-2020-zjochov"
+        "surovell-2026-monte-verde",
+        "tsutaya-2025-penghu"
       ]
     },
     {

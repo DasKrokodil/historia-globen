@@ -32,7 +32,12 @@ KANDA_FEL_ID = {('romerska-kejsardomet', 'Q12544'), ('bysantinska-riket', 'Q1120
                 ('qin-staten', 'Q1471995'), ('frankrike-kungadomet', 'Q207162'), ('qajarernas-iran', 'Q189326'),
                 ('pahlavis-iran', 'Q207991'), ('saint-domingue', 'Q2006756'), ('haiti-1805', 'Q2006756'),
                 ('karolingiska-riket', 'Q146246'), ('norra-song', 'Q7462'), ('sodra-song', 'Q7462'),
-                ('ghaznaviderna', 'Q12844800')}
+                ('ghaznaviderna', 'Q12844800'),
+                # #2156: Cliopatrias id för Roman Republic är Romerska republiken 1798–1799 (Wikidata 2026-11-22); rätt är Q17167
+                ('romerska-republiken', 'Q175881')}
+# Delar vars id är kontrollerat mot Wikidata och ska stå kvar (#2156): antikens romerska republik (P571 509 f.Kr., P576
+# 27 f.Kr.) och stormaktsväldet, som har P31 historiskt land (Q3024240) och imperium (Q48349) vid sidan av tidsperioden
+KANDA_RATT_ID = {'romerska-republiken': 'Q17167', 'svenska-stormaktsvaldet': 'Q215443'}
 
 fel = []
 # Enhetsprov
@@ -76,6 +81,8 @@ for g in index['groups']:
             fel.append(f"{g['file']}, {p['id']}: namnet skiljer sig från index.json ({q.get('name')} mot {p.get('name')})")
         if (p['id'], q.get('wikidata')) in KANDA_FEL_ID:
             fel.append(f"{g['file']}, {p['id']}: Wikidata-id {q['wikidata']} är känt fel (#2002, #2005)")
+        if p['id'] in KANDA_RATT_ID and q.get('wikidata') != KANDA_RATT_ID[p['id']]:
+            fel.append(f"{g['file']}, {p['id']}: Wikidata-id {q.get('wikidata')} ska vara {KANDA_RATT_ID[p['id']]} (#2156)")
         if q.get('wikidata') in KANDA_FORGRENINGSSIDOR:
             fel.append(f"{g['file']}, {p['id']}: Wikidata-id {q['wikidata']} är en förgreningssida (#2005)")
 

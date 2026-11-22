@@ -112,6 +112,7 @@ Sidan läser händelserna uppdelade i ett index och de långa fälten per period
 | `caption`, `credit`, `license` | Bildtext, upphov och licens, som visas under bilden |
 | `prompt` | Exakt prompt för illustrationer |
 | `placeholder` | `true` för platshållare, som märks "Platshållare" |
+| `retake` | Valfritt, för en illustration som ska göras om (#2156): `issue`, `reason` (varför, med öppnad källa) och `prompt` (den nya prompten ur `tools/bildpromptar.py`). Bilden och dess `prompt` står kvar oförändrade tills en människa har gjort den nya bilden; `tools/bilder_in.py` skriver då ett nytt `image` utan `retake`. Visas inte på sidan |
 
 Reglerna för bilder står i [CLAUDE.md](../CLAUDE.md#bilder-129).
 
