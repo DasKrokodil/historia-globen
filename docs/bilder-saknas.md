@@ -273,7 +273,7 @@ De sex bilder som först inte gick att hämta (HTTP 429), `ounjougou-keramik`, `
 
 ## Oceanien och övrigt: förhistoria (#2112, 2026-11-22)
 
-14 av 19 händelser fick bilder. Följande fem lämnas utan bild efter sökning; sökningar och bildval finns i `data/utkast/bildbatch/2112.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas.
+13 av 19 händelser fick bilder. Följande sex lämnas utan bild efter sökning; sökningar och bildval finns i `data/utkast/bildbatch/2112.md`. Det här är sökningens resultat, inte ett påstående att fria bilder inte kan finnas.
 
 | Händelse (id) | Varför ingen bild |
 |---|---|
@@ -282,3 +282,4 @@ De sex bilder som först inte gick att hämta (HTTP 429), `ounjougou-keramik`, `
 | `budj-bim-alfallor` | 2026-11-22: Prövat Commons-sökningarna Budj Bim channel, Budj Bim trap, Lake Condah eel traps och Tae Rak aquaculture samt kategorierna Budj Bim Cultural Landscape och Lake Condah. Inget verifierat foto av ålfällor eller kanaler hittades. Sjöfotot som används för vulkanutbrottet visar inte ålfällorna. |
 | `el-nino-och-elden-vid-girraween` | 2026-11-22: Prövat Commons-sökningarna Girraween lagoon och Girraween Northern Territory samt kategorin Girraween, Northern Territory. Inget relevant foto av lagunen eller sedimentproverna hittades. Bilder av en skola och en färglöpning valdes bort. |
 | `fisken-forsvinner-ur-tasmaniernas-kost` | 2026-11-22: Prövat Commons-sökningarna Tasmania fish midden och Tasmania midden samt kategorierna Shell middens in Tasmania och Fishing in Tasmania. Fotografier av skal- och stenrester vid Rupert Point och Monster Creek saknar på filsidorna koppling till fiskben eller kostförändringen; de används inte som belägg för denna händelse. |
+| `gabarnmung` | 2026-11-22: Bilden [Gabarnmang Cave - 1.jpg](https://commons.wikimedia.org/wiki/File:Gabarnmang_Cave_-_1.jpg) valdes bort efter separat granskning 2026-11-22. Commons anger CC BY-SA 4.0, men originalet är figur 11.3 i [ANU-publikationens kapitel 11](https://press-files.anu.edu.au/downloads/press/n3991/html/ch11.xhtml?referer=3991&page=17). [Imprint](https://press-files.anu.edu.au/downloads/press/n3991/html/imprint.xhtml?referer=3991&page=2) anger att återgivning kräver skriftligt tillstånd; ingen särskild fri bildlicens styrktes. Licensmotsägelsen är olöst, så bilden används inte. |

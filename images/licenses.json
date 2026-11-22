@@ -1590,21 +1590,6 @@
       }
     },
     {
-      "eventId": "gabarnmung",
-      "eventTitle": "Australiens äldsta daterade klippmålning",
-      "file": "images/events/gabarnmung.webp",
-      "kind": "historisk",
-      "credit": "Jean-Jacques Delannoy / Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "source": {
-        "id": "commons-bild-gabarnmung",
-        "title": "Gabarnmang Cave - 1 – Jean-Jacques Delannoy (Wikimedia Commons, filsida)",
-        "url": "https://commons.wikimedia.org/wiki/File:Gabarnmang_Cave_-_1.jpg",
-        "license": "CC BY-SA 4.0",
-        "checked": "2026-11-22"
-      }
-    },
-    {
       "eventId": "gagarin-vostok-1",
       "eventTitle": "Jurij Gagarin blir första människan i rymden",
       "file": "images/events/gagarin-vostok-1.webp",

@@ -894,12 +894,6 @@
         "motiv": "Nutida foto (2009) av Lake Surprise i Budj Bim–Mount Eccles nationalpark i Victoria, Australien, inte från händelsens tid. Licens: CC0."
       },
       {
-        "id": "gabarnmung",
-        "fil": "File:Gabarnmang Cave - 1.jpg",
-        "licens": "CC BY-SA 4.0",
-        "motiv": "Nutida foto av grottan Gabarnmung (Gabarnmang) av Jean-Jacques Delannoy, inte från händelsens tid. Licens: CC BY-SA 4.0."
-      },
-      {
         "id": "oruanuiutbrottet",
         "fil": "File:Oruanui Loc1287 u3 25-33cm.jpg",
         "licens": "CC BY-SA 4.0",
@@ -953,7 +947,8 @@
       "cloggsgrottans-ritualeldar": "Prövat Commons-sökningarna Cloggs Cave och Cloggs (utan PDF) samt kategorin Cloggs Cave. Inga relevanta bilder av grottan, eldarna eller fynden hittades; träskor och äldre bokskanningar valdes bort.",
       "budj-bim-alfallor": "Prövat Commons-sökningarna Budj Bim channel, Budj Bim trap, Lake Condah eel traps och Tae Rak aquaculture samt kategorierna Budj Bim Cultural Landscape och Lake Condah. Inget verifierat foto av ålfällor eller kanaler hittades. Sjöfotot som används för vulkanutbrottet visar inte ålfällorna.",
       "el-nino-och-elden-vid-girraween": "Prövat Commons-sökningarna Girraween lagoon och Girraween Northern Territory samt kategorin Girraween, Northern Territory. Inget relevant foto av lagunen eller sedimentproverna hittades. Bilder av en skola och en färglöpning valdes bort.",
-      "fisken-forsvinner-ur-tasmaniernas-kost": "Prövat Commons-sökningarna Tasmania fish midden och Tasmania midden samt kategorierna Shell middens in Tasmania och Fishing in Tasmania. Fotografier av skal- och stenrester vid Rupert Point och Monster Creek saknar på filsidorna koppling till fiskben eller kostförändringen; de används inte som belägg för denna händelse."
+      "fisken-forsvinner-ur-tasmaniernas-kost": "Prövat Commons-sökningarna Tasmania fish midden och Tasmania midden samt kategorierna Shell middens in Tasmania och Fishing in Tasmania. Fotografier av skal- och stenrester vid Rupert Point och Monster Creek saknar på filsidorna koppling till fiskben eller kostförändringen; de används inte som belägg för denna händelse.",
+      "gabarnmung": "Bilden [Gabarnmang Cave - 1.jpg](https://commons.wikimedia.org/wiki/File:Gabarnmang_Cave_-_1.jpg) valdes bort efter separat granskning 2026-11-22. Commons anger CC BY-SA 4.0, men originalet är figur 11.3 i [ANU-publikationens kapitel 11](https://press-files.anu.edu.au/downloads/press/n3991/html/ch11.xhtml?referer=3991&page=17). [Imprint](https://press-files.anu.edu.au/downloads/press/n3991/html/imprint.xhtml?referer=3991&page=2) anger att återgivning kräver skriftligt tillstånd; ingen särskild fri bildlicens styrktes. Licensmotsägelsen är olöst, så bilden används inte."
     },
     "ej_hamtade": []
   }
