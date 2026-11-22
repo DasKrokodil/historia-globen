@@ -1,0 +1,19 @@
+# Indata till python3 tools/bild_hamta.py --lista (#2183). En rad per händelse: referens, tabb, händelse-id.
+# Ta bort # på de rader som är godkända i granskningslistan; byt fil om en annan kandidat valdes.
+File:Great Mosque of Gede.jpg	gedi-grundas
+File:Thesaurus opticus Titelblatt.jpg	ibn-al-haytham-optikens-bok
+File:Djemaa el Fna, evening.JPG	marrakech-grundas
+File:TIMBUKTU-EINZUG.jpg	timbuktu-blir-fast-bosattning
+# Listans kandidat File:GreatMosque.jpg (453 px bred) byttes mot en större bild ur egen sökning:
+File:Great Mosque of Kilwa Kisiwani, 11th - 18th cents (5) (28963308352).jpg	kilwas-stora-moske-norra-hallen
+File:Mosquée de la Koutoubia - marakesh.jpg	koutoubiamosken-byggs
+File:14c ed of the Guide for the Perplexed by Maimonides.jpg	maimonides-skriver-more-nebuchim
+# ingen: File:ߞߙߎ߬ߞߊ߲߬ߝߎߥߊ߫ ߘߏ߲߬ߘߊ.jpg	slaget-vid-kirina  (visar Kurukan Fuga, inte slaget)
+File:Yekuno Amlak.jpg	salomoniska-dynastin-tar-makten
+File:Arte yoruba, nigeria, testa da ife, 12-15mo secolo.JPG	ife-huvudet
+# Listans kandidat File:GreatMosque.jpg byttes mot palatset Husuni Kubwa ur egen sökning:
+File:Husuni Kubwa, ruins of early 14th cent. sultan's palace on Kilwa Kisiwani (1) (28454335443).jpg	kilwa-pa-sin-hojd
+# ingen: File:Cairo, Islamic Cairo, 19th century pictures, 1870, photo 42 of 52 - Archivio fotografico Museo Egizio, Turin Album1 016.jpg	digerdoden-i-egypten  (gatubild 1870, visar inte pesten)
+# Egen sökning (händelser utan kandidat i listan):
+# ej hämtad (HTTP 429), prövas igen: File:Book of Wonders folio 36a.jpg	jordbavningen-1303-alexandria
+# ingen (fel motiv, se 2107.md): File:Mouvement des Tribus Souliem et hilal.png	banu-hilal-flyttar-till-maghreb
