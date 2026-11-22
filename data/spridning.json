@@ -89,6 +89,30 @@
           },
           {
             "coord": [
+              38.753,
+              9.036
+            ],
+            "wikidata": "Q3624",
+            "name": "Addis Ababa"
+          },
+          {
+            "coord": [
+              32.527,
+              15.603
+            ],
+            "wikidata": "Q1963",
+            "name": "Khartoum"
+          },
+          {
+            "coord": [
+              31.236,
+              30.044
+            ],
+            "wikidata": "Q85",
+            "name": "Cairo"
+          },
+          {
+            "coord": [
               34,
               29.5
             ],
@@ -128,11 +152,11 @@
         "fr": "Des découvertes au Levant (Qafzeh et Skhūl, il y a environ 130 000 à 90 000 ans) et en Arabie (Al Wusta, il y a environ 90 000 ans) pourraient provenir de sorties précoces. Selon les études génétiques, elles ont laissé peu ou pas d’héritage chez les personnes vivant aujourd’hui. On ignore quels itinéraires elles ont suivis ; les lignes sur la carte ne sont que des exemples."
       },
       "note": {
-        "sv": "Båda linjerna går över Sinai. Enligt en klimatmodell var en södra väg över sundet Bab el-Mandeb också möjlig under en del av tiden, för cirka 135 000–115 000 år sedan, om människorna kunde ta sig över havet. Samma studie säger att det inte visar att någon tog den vägen, eftersom det arkeologiska stödet är mycket litet.",
-        "en": "Both lines cross Sinai. According to a climate model, a southern route across the Bab-el-Mandeb strait was also possible for part of the time, about 135,000–115,000 years ago, if people could cross the sea. The same study says that this does not show that anyone took that route, since the archaeological support is very limited.",
-        "de": "Beide Linien führen über den Sinai. Nach einem Klimamodell war zeitweise auch ein südlicher Weg über die Meerenge Bab al-Mandab möglich, vor etwa 135.000–115.000 Jahren, sofern die Menschen das Meer überqueren konnten. Dieselbe Studie sagt, dass dies nicht zeigt, dass jemand diesen Weg nahm, da die archäologischen Belege sehr begrenzt sind.",
-        "es": "Las dos líneas pasan por el Sinaí. Según un modelo climático, durante parte de ese tiempo, hace unos 135 000–115 000 años, también era posible una ruta sur por el estrecho de Bab el-Mandeb, si las personas podían cruzar el mar. El mismo estudio afirma que esto no demuestra que alguien siguiera esa ruta, ya que el apoyo arqueológico es muy escaso.",
-        "fr": "Les deux lignes passent par le Sinaï. Selon un modèle climatique, une route sud par le détroit de Bab el-Mandeb était aussi possible pendant une partie de cette période, il y a environ 135 000 à 115 000 ans, si les humains pouvaient traverser la mer. La même étude précise que cela ne montre pas que quelqu’un ait emprunté cette route, car les indices archéologiques sont très limités."
+        "sv": "Linjerna följer den norra vägen genom Nildalen och över Sinai. Enligt en klimatmodell var en södra väg över sundet Bab el-Mandeb också möjlig för cirka 135 000–115 000 år sedan, om människorna kunde ta sig över havet, men havsnivån var hög under nästan hela den tiden utom i början. Samma studie varnar för att tolka det som bevis för att någon tog den vägen.",
+        "en": "The lines follow the northern route through the Nile valley and across Sinai. According to a climate model, a southern route across the Bab-el-Mandeb strait was also possible about 135,000–115,000 years ago, if people could cross the sea, but sea level was high for almost all of that time except at the beginning. The same study cautions against reading this as evidence that anyone took that route.",
+        "de": "Die Linien folgen dem nördlichen Weg durch das Niltal und über den Sinai. Nach einem Klimamodell war vor etwa 135.000–115.000 Jahren auch ein südlicher Weg über die Meerenge Bab al-Mandab möglich, sofern die Menschen das Meer überqueren konnten, doch der Meeresspiegel lag fast die ganze Zeit hoch, außer zu Beginn. Dieselbe Studie warnt davor, dies als Beleg dafür zu deuten, dass jemand diesen Weg nahm.",
+        "es": "Las líneas siguen la ruta norte por el valle del Nilo y el Sinaí. Según un modelo climático, hace unos 135 000–115 000 años también era posible una ruta sur por el estrecho de Bab el-Mandeb, si las personas podían cruzar el mar, pero el nivel del mar fue alto durante casi todo ese tiempo, salvo al principio. El mismo estudio advierte contra interpretarlo como prueba de que alguien siguiera esa ruta.",
+        "fr": "Les lignes suivent la route nord par la vallée du Nil et le Sinaï. Selon un modèle climatique, une route sud par le détroit de Bab el-Mandeb était aussi possible il y a environ 135 000 à 115 000 ans, si les humains pouvaient traverser la mer, mais le niveau de la mer était élevé pendant presque toute cette période, sauf au début. La même étude met en garde contre l’idée d’y voir la preuve que quelqu’un a emprunté cette route."
       },
       "sources": [
         "harvati-2022-homo-mlp",

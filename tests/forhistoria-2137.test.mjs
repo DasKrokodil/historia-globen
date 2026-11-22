@@ -37,6 +37,7 @@ test('Ranis och Zlatý kůň: spannet 49 540–42 200 cal BP (Sümer m.fl. 2025)
     assert.match(e.note.text[l].replace(/ /g, ' '), tal[l], `noten (${l}) har källans spann`);
     assert.match(e.note.text[l], /1950/, `noten (${l}) säger att kol-14-åldrar räknas från 1950`);
   }
+  assert.ok(e.sources.includes('wp-before-present'), 'att BP räknas från 1950 har en egen öppnad källa');
 });
 
 test('tidiga utvandringar: texten säger att linjerna bara är exempel, och noten har källan för den södra vägen', () => {
@@ -47,6 +48,20 @@ test('tidiga utvandringar: texten säger att linjerna bara är exempel, och note
     assert.match(item.note[l], /Bab/, `noten (${l}) nämner den södra vägen`);
   }
   assert.ok(item.sources.includes('beyer-2021-climatic-windows'), 'klimatmodellen står bland källorna');
+  // Den norra vägen (Beyer m.fl. 2021: "Nile-Sinai-Land Bridge") ska inte se ut som den södra: storcirklarna mellan
+  // linjens punkter fram till Sinai får inte gå över Adenviken, Jemen eller västra Arabien (öster om 42,5° Ö och norr om 11° N).
+  const rad = Math.PI / 180;
+  const vec = ([lon, lat]) => [Math.cos(lat * rad) * Math.cos(lon * rad), Math.cos(lat * rad) * Math.sin(lon * rad), Math.sin(lat * rad)];
+  const north = item.paths[0].filter(p => p.coord).map(p => p.coord);
+  assert.ok(north.length >= 3, 'linjen har mellanpunkter i Afrika');
+  for (let i = 1; i < north.length; i++) {
+    const a = vec(north[i - 1]), b = vec(north[i]);
+    for (let s = 0; s <= 50; s++) {
+      const f = s / 50, v = a.map((x, k) => x * (1 - f) + b[k] * f), n = Math.hypot(...v);
+      const lat = Math.asin(v[2] / n) / rad, lon = Math.atan2(v[1], v[0]) / rad;
+      assert.ok(!(lon > 42.5 && lat > 11), `sträckan ${north[i - 1]} → ${north[i]} går över Arabien eller Adenviken (${lon.toFixed(1)}, ${lat.toFixed(1)})`);
+    }
+  }
 });
 
 test('istidens kust: den äldsta skivan börjar vid PaleoMIST:s äldsta steg, 80 000 år före 1950', () => {
