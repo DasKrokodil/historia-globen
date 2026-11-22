@@ -77,7 +77,8 @@ def test_flaggor_och_ordning():
     assert filer[0] == 'File:Bra.jpg' and filer[-1] == 'File:Sok.jpg', filer  # flaggorna sorterar, de avvisar inte
     fl = {k['fil']: k['flaggor'] for k in rader}
     # Äldre kandidatlista utan skilda datum: ett datum från 2012 kan vara uppladdningen, så det blir datum-osakert (#2193)
-    assert fl['File:Karta.jpg'] == ['karta'] and fl['File:Foto.jpg'] == ['datum-osakert'] and fl['File:Sok.jpg'] == ['ur-sokning']
+    # Äldre kandidatlista utan skilda datum: ingen datumflagga (den var fel för nästan alla bilder i omgången #2104–#2105)
+    assert fl['File:Karta.jpg'] == ['karta'] and fl['File:Foto.jpg'] == [] and fl['File:Sok.jpg'] == ['ur-sokning']
     assert bb.flaggor(kand('x', datum='2012'), handelse('ny', 1950)) == []  # ett foto från 2012 av en händelse 1950 är inte "nutida" här
     assert bb.flaggor(kand('x', status='flagga'), e) == ['licens-flagga']
     assert len(bb.ordna(KANDIDATER['a']['kandidater'], e, 3)) == 3
