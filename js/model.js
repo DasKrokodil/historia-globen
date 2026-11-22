@@ -4,6 +4,7 @@
 // Språket väljs i js/i18n.js (#63): adressen, det sparade valet eller webbläsaren, annars svenska.
 // Gränssnittets texter hämtas med ui('nyckel') ur data/ui/<språk>.json.
 import { LANG, ui, hasUi } from './i18n.js';
+import { HUMAN_SCALE } from './time-scale.js';
 export { LANG, ui };
 const FALLBACK = ['en', 'sv'];
 
@@ -17,20 +18,22 @@ export function t(obj) {
 }
 
 // Fast kategorilista (beslut 7). Färgerna är valda för att synas mot mörk bakgrund.
+// Tio av färgerna justerades 2026-11-17 (#1318, docs/beslut/2026-11-17-kategorifarger-och-etiketter-1318.md) så att inga två utan egen form
+// blandas ihop vid simulerad färgblindhet; tests/farger.test.mjs låser det. Krigsfärgen står också i Hjälp (index.html).
 // count = ord i ental och flertal när en klunga säger vad den innehåller (#243), till exempel "3 krigshändelser".
 export const CATEGORIES = [
-  { id: 'natur',          name: { sv: 'Natur och djur' },                 color: '#8cc084', count: { sv: ['naturhändelse', 'naturhändelser'] } },
-  { id: 'manniskan',      name: { sv: 'Människans ursprung' },            color: '#c99263', count: { sv: ['händelse om människans ursprung', 'händelser om människans ursprung'] } },
-  { id: 'civilisationer', name: { sv: 'Civilisationer och riken' },       color: '#e3a33f', count: { sv: ['rike eller civilisation', 'riken och civilisationer'] } },
-  { id: 'religion',       name: { sv: 'Religion' },                       color: '#b892dc', count: { sv: ['religiös händelse', 'religiösa händelser'] } },
-  { id: 'vetenskap',      name: { sv: 'Vetenskap och uppfinningar' },     color: '#5fb6dd', count: { sv: ['vetenskaplig händelse', 'vetenskapliga händelser'] } },
+  { id: 'natur',          name: { sv: 'Natur och djur' },                 color: '#98c692', count: { sv: ['naturhändelse', 'naturhändelser'] } },
+  { id: 'manniskan',      name: { sv: 'Människans ursprung' },            color: '#c2956f', count: { sv: ['händelse om människans ursprung', 'händelser om människans ursprung'] } },
+  { id: 'civilisationer', name: { sv: 'Civilisationer och riken' },       color: '#efa536', count: { sv: ['rike eller civilisation', 'riken och civilisationer'] } },
+  { id: 'religion',       name: { sv: 'Religion' },                       color: '#bc8af1', count: { sv: ['religiös händelse', 'religiösa händelser'] } },
+  { id: 'vetenskap',      name: { sv: 'Vetenskap och uppfinningar' },     color: '#7bbbdc', count: { sv: ['vetenskaplig händelse', 'vetenskapliga händelser'] } },
   { id: 'upptackter',     name: { sv: 'Upptäcktsresor' },                 color: '#4fc6b2', count: { sv: ['upptäcktsresa', 'upptäcktsresor'] } },
   { id: 'krig',           name: { sv: 'Krig och konflikter' },            color: '#e5675a', count: { sv: ['krigshändelse', 'krigshändelser'] } },
-  { id: 'kultur',         name: { sv: 'Kultur och arkitektur' },          color: '#ec98bd', count: { sv: ['kulturhändelse', 'kulturhändelser'] } },
-  { id: 'sport',          name: { sv: 'Sport' },                          color: '#f28c45', count: { sv: ['sporthändelse', 'sporthändelser'] } },
-  { id: 'ekonomi',        name: { sv: 'Ekonomi och handel' },             color: '#a9bd5e', count: { sv: ['händelse i ekonomin', 'händelser i ekonomin'] } },
-  { id: 'halsa',          name: { sv: 'Hälsa och epidemier' },            color: '#d8d46e', count: { sv: ['hälsohändelse', 'hälsohändelser'] } },
-  { id: 'klimat',         name: { sv: 'Klimat' },                         color: '#7aa4e6', count: { sv: ['klimathändelse', 'klimathändelser'] } },
+  { id: 'kultur',         name: { sv: 'Kultur och arkitektur' },          color: '#f4aac4', count: { sv: ['kulturhändelse', 'kulturhändelser'] } },
+  { id: 'sport',          name: { sv: 'Sport' },                          color: '#e28546', count: { sv: ['sporthändelse', 'sporthändelser'] } },
+  { id: 'ekonomi',        name: { sv: 'Ekonomi och handel' },             color: '#b6c56f', count: { sv: ['händelse i ekonomin', 'händelser i ekonomin'] } },
+  { id: 'halsa',          name: { sv: 'Hälsa och epidemier' },            color: '#e6dd6f', count: { sv: ['hälsohändelse', 'hälsohändelser'] } },
+  { id: 'klimat',         name: { sv: 'Klimat' },                         color: '#7698c2', count: { sv: ['klimathändelse', 'klimathändelser'] } },
   // Katastrofer (#554, beslut 2026-11-03): natur- och teknikkatastrofer, svält. Inte epidemier (halsa) eller krig.
   // Violett, eftersom den skiljer sig från krig och de andra färgerna även vid simulerad färgblindhet.
   { id: 'katastrofer',    name: { sv: 'Katastrofer' },                    color: '#c256f5', count: { sv: ['katastrof', 'katastrofer'] } },
@@ -92,6 +95,43 @@ function aegeanCoastLon(lat) {
   }
   return AEGEAN_COAST[AEGEAN_COAST.length - 1][1];
 }
+// Stora Kaukasus huvudkam (vattendelaren) som [lat, lon] från Anapa vid Svarta havet till Apsjeronhalvön vid
+// Kaspiska havet (#2010, docs/omstridda-granser.md). Ungefärlig linje genom toppar på eller nära kammen; norr om
+// den ligger Europa (Ciskaukasien: Majkop, Naltjik, Groznyj), söder om den Asien (Georgien, Armenien, Baku).
+// Koordinater ur engelska Wikipedia, öppnade 2026-11-20: Anapa (Q15758), Fisht (Q2392222), Dombaj-Ulgen
+// (Q768409), Elbrus (Q43105), Sjchara (artikeln Greater Caucasus), Kazbek (Q207680), Tebulosmta (Q768463),
+// Bazardüzü (Q725591), Babadağ (Babadağ (Azerbaijan)) och Apsjeronhalvön (Q336969).
+const CAUCASUS_CREST = [[44.89, 37.32], [43.94, 39.9], [43.24, 41.73], [43.36, 42.44], [43.01, 43.17],
+  [42.7, 44.52], [42.57, 45.32], [41.22, 47.86], [41.02, 48.3], [40.46, 49.96]];
+function caucasusCrestLat(lon) {
+  for (let i = 1; i < CAUCASUS_CREST.length; i++) {
+    const [a, x] = CAUCASUS_CREST[i - 1], [b, y] = CAUCASUS_CREST[i];
+    if (lon <= y) return a + (lon - x) / (y - x) * (b - a);
+  }
+  return CAUCASUS_CREST[CAUCASUS_CREST.length - 1][0];
+}
+// Bosporen (#2017) som [lat, lon] från sundets södra mynning vid 41,0° N till Svarta havet: en mittlinje mellan Trakiens och Anatoliens kuster i Natural Earth
+// 1:10m (ne_10m_admin_0_countries, där de är två skilda ytor), kontrollerad mot alla kustpunkter norr om 41° N på båda sidor
+// (cirka 400 m marginal där sundet är smalast). Norr om sundets mynning fortsätter linjen rakt norrut ut i havet.
+const BOSPORUS = [[41.0, 29.0], [41.03, 29.0], [41.05, 29.035], [41.08, 29.057], [41.13, 29.079], [41.15, 29.06], [41.17, 29.072], [41.19, 29.095], [41.21, 29.115], [41.24, 29.14]];
+function bosporusLon(lat) {
+  if (lat <= BOSPORUS[0][0]) return BOSPORUS[0][1];
+  for (let i = 1; i < BOSPORUS.length; i++) {
+    const [a, x] = BOSPORUS[i - 1], [b, y] = BOSPORUS[i];
+    if (lat <= b) return x + (lat - a) / (b - a) * (y - x);
+  }
+  return BOSPORUS[BOSPORUS.length - 1][1];
+}
+// Norra Anatolien (#2017): norr om 41° N, öster om Bosporen och väster om Kaukasuslinjens början vid Anapa. Söder om 43,2° N finns
+// där bara Anatolien och Svarta havet: Turkiets nordligaste punkt ligger vid 42,10° N och Krims sydspets vid 44,38° N (Natural Earth
+// 1:10m). Sinop och Samsun blir Asien; Istanbuls europeiska sida, Edirne och Kırklareli ligger väster om linjen och förblir Europa.
+const northAnatolia = (lat, lon) => lat >= 41 && lat < 43.2 && lon < CAUCASUS_CREST[0][1] && lon >= bosporusLon(lat);
+// Norr om 41° N och väster om 60° Ö: Europa, utom söder om Kaukasus huvudkam (#2010) och, öster om kammens
+// slut vid Apsjeron, söder om 44,5° N (Kaspiska havets östra strand, Ustjurt).
+function northOfCaucasus(lat, lon) {
+  if (lon >= CAUCASUS_CREST[0][1] && lon <= CAUCASUS_CREST[CAUCASUS_CREST.length - 1][1]) return lat >= caucasusCrestLat(lon);
+  return !(lon > 40 && lat < 44.5);
+}
 export function region(lat, lon) {
   if (lat > 50 && (lon < -168 || lon > 160)) return 'Asien'; // Sibiriens östspets och Wrangelön vid datumlinjen
   if (lon < -125 && lat < 35) return 'Oceanien'; // Hawaii, Midway och Stilla havet (Kalifornien ligger öster om -125)
@@ -115,22 +155,23 @@ export function region(lat, lon) {
   if (africa) return 'Afrika';
   if (lon >= 52 && lon < 64 && lat > -22 && lat < -3) return 'Afrika'; // Maskarenerna och Seychellerna (#1334)
   if (lat >= 36.6 && lat <= 40.45 && lon < 28.9 && lon > aegeanCoastLon(lat)) return 'Asien'; // västra Anatolien (#1334)
-  if (lat >= 35 &&(lon < 28.9 || (lat >= 41 && lon < 60 && !(lon > 40 && lat < 44.5)))) return 'Europa';
+  if (northAnatolia(lat, lon)) return 'Asien'; // Svartahavskusten (#2017)
+  if (lat >= 35 && (lon < 28.9 || (lat >= 41 && lon < 60 && northOfCaucasus(lat, lon)))) return 'Europa';
   return 'Asien';
 }
 
 // ---------- Bildstilar (#129) ----------
 // Varje händelse får en bildstil efter år och plats (data/styles.json): en regional
 // variant om året och platsen matchar, annars grundstilen för året. Ramen följer
-// grundstilen, och en variant kan väljas efter kategori (till exempel portolankarta för resor).
+// grundstilen, utom när den regionala stilen har en egen ram (kina-brons, #1397; etiopien, #2039); exceptIds undantar enstaka händelser från en regional stil, och en variant kan väljas efter kategori (till exempel portolankarta för resor).
 export function styleFor(e, doc) {
   const year = e.start, lat = e._lat ?? e.location.coordinates[1], lon = e._lon ?? e.location.coordinates[0];
   const inTime = s => year >= s.from && year <= s.to;
   const inRegion = id => (doc.regions[id]?.bbox ?? []).some(([w, so, ea, n]) => lon >= w && lon <= ea && lat >= so && lat <= n);
   const base = doc.styles.find(s => !s.regions.length && inTime(s)) ?? doc.styles.at(0);
-  const regional = doc.styles.find(s => s.regions.length && inTime(s) && s.regions.some(inRegion));
+  const regional = doc.styles.find(s => s.regions.length && inTime(s) && !s.exceptIds?.includes(e.id) && s.regions.some(inRegion));
   const style = regional ?? base;
-  return { style, base, frame: base.frame, variant: style.variants?.[e.category] ?? null };
+  return { style, base, frame: style.frame ?? base.frame, variant: style.variants?.[e.category] ?? null };
 }
 
 // ---------- Tid ----------
@@ -267,16 +308,16 @@ export function formatDirection(when, year, eventYear) {
  * stegknapparna, piltangenterna, uppspelningens fart och det som skärmläsaren läser upp. Tusental före 10 000 f.Kr. och
  * hundratal till 3000 f.Kr., där ett steg på reglaget är hundratals år; därefter hela år. `to` är det sista året i delen.
  */
-export const RESOLUTION = [{ to: -10000, step: 1000 }, { to: -3000, step: 100 }, { to: Infinity, step: 1 }];
+export const RESOLUTION = HUMAN_SCALE.resolution;
 /** Upplösningen vid ett år: 1000, 100 eller 1. */
-export const stepAt = y => RESOLUTION.find(r => y <= r.to).step;
+export const stepAt = (y, scale = HUMAN_SCALE) => scale.resolution.find(r => y <= r.to).step;
 
 /**
  * Året avrundat till reglagets upplösning (#1320). Avrundningen görs i f.Kr.-tal, så att 100 000 f.Kr. och 7400 f.Kr. blir runda
  * i visningen: "99 001 f.Kr." eller "7413 f.Kr." låtsas en exakthet som inte finns. 3000 f.Kr. och senare lämnas orörda.
  */
-export function roundToStep(y) {
-  const step = stepAt(y);
+export function roundToStep(y, scale = HUMAN_SCALE) {
+  const step = stepAt(y, scale);
   return step === 1 ? y : 1 - Math.round(bce(y) / step) * step;
 }
 /** Samma som roundToStep (namnet från v6.3.0). */

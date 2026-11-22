@@ -15,23 +15,35 @@ Prompten innehåller också händelsens sammanfattning (fältet summary, som har
 beskrivning av vad bilden ska visa, så att bildverktyget inte hittar på motivet.
 """
 import json
+import re
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 FIXED = ('historical illustration, not a photograph, does not look like a real historical document, '
          'no text, no letters, no watermark, highly detailed, rich texture, 4:3 landscape format')
-RESPECT = ('Respect: never depict the Prophet Muhammad; no caricatures of peoples; '
-           'convey mood and setting rather than invented details.')
-HUMAN_SPECIES_EVENTS = {
-    'denisovaner',
-    'homo-floresiensis',
-    'jebel-irhoud',
-    'denisova-11',
-}
+RESPECT = 'Respect: no caricatures of peoples; convey mood and setting rather than invented details.'
+RESPECT_MUHAMMAD = 'Never depict the Prophet Muhammad.'  # bara för händelser från år 500 och senare
+# Människoarter och fynd av dem (#1105): händelser i kategorin manniskan från 10 000 f.Kr. eller tidigare vars
+# sammanfattning eller titel nämner en människoart. Härleds ur data, så att nya fynd får regeln utan att listan underhålls.
+SPECIES_RE = re.compile(r'Neanderthal|Denisovan|\bHomo\b|hominin|archaic human|early modern human', re.I)
+
+
+def is_human_species(e):
+    text = (e['title'].get('en') or '') + ' ' + (e['summary'].get('en') or '')
+    return e['category'] == 'manniskan' and e['start'] <= -10000 and bool(SPECIES_RE.search(text))
+
+
 HUMAN_SPECIES_RULE = (
     'Illustration, interpretation, not a historical image. Do not depict people or make facial '
     'reconstructions; show landscape, animals, objects or the find site instead.'
+)
+# Händelser före cirka 3000 f.Kr. (stilen grotta) vars sammanfattning handlar om hällkonst: bilden får visa platsen,
+# inte återge eller efterlikna själva konstverken, så att den inte kan tas för äkta hällkonst (#1553)
+ROCK_ART_RE = re.compile(r'rock art|cave paint|rock paint|rock carving|petroglyph|paint|hand stencil|engravings', re.I)
+ROCK_ART_RULE = (
+    'The event is about rock art: show the site and its landscape only. Do not reproduce, copy or imitate the '
+    'artworks, so that the image cannot be mistaken for real rock art.'
 )
 # Extra regler för enskilda händelser, utöver de allmänna
 EXTRA = {
@@ -45,7 +57,7 @@ def style_for(e, doc):
     in_time = lambda s: s['from'] <= year <= s['to']
     in_region = lambda rid: any(w <= lon <= ea and so <= lat <= n for w, so, ea, n in doc['regions'].get(rid, {}).get('bbox', []))
     base = next((s for s in doc['styles'] if not s['regions'] and in_time(s)), doc['styles'][0])
-    regional = next((s for s in doc['styles'] if s['regions'] and in_time(s) and any(in_region(r) for r in s['regions'])), None)
+    regional = next((s for s in doc['styles'] if s['regions'] and in_time(s) and e['id'] not in s.get('exceptIds', []) and any(in_region(r) for r in s['regions'])), None)
     style = regional or base
     return style, base, (style.get('variants') or {}).get(e['category'])
 
@@ -59,17 +71,17 @@ def prompt_for(e, doc):
     title = e['title'].get('en') or e['title']['sv']
     place = e['place'].get('en') or e['place']['sv']
     style_prompt = variant['prompt'] if variant else style['prompt']
-    if e['id'] in HUMAN_SPECIES_EVENTS:
-        style_prompt = style_prompt.replace(' and human silhouettes', '')
     parts = [
         f"Style: {style_prompt}.",
         f"Subject: {title} — {place}, {year_text(e['start'])}.",
         f"What happened (show only this, do not add details): {e['summary'].get('en') or e['summary']['sv']}",
         FIXED + '.',
-        RESPECT,
+        (RESPECT_MUHAMMAD + ' ' + RESPECT) if e['start'] >= 500 else RESPECT,
     ]
-    if e['id'] in HUMAN_SPECIES_EVENTS:
+    if is_human_species(e):
         parts.append(HUMAN_SPECIES_RULE)
+    if style['id'] == 'grotta' and ROCK_ART_RE.search(e['summary'].get('en') or e['summary']['sv']):
+        parts.append(ROCK_ART_RULE)
     if e['id'] in EXTRA:
         parts.append(EXTRA[e['id']])
     return style, variant, ' '.join(parts)
@@ -115,8 +127,9 @@ def main():
            '- **Inga stereotyper:** inga "grottmänniskor", inga apmänniskor, ingen hopsjunken hållning som tecken på en '
            '"primitiv" art och ingen marschrad av arter mot nutidsmänniskan.',
            '- **Granskning:** `forhistoriker` granskar motiv, bildtext och prompt innan bilden läggs in.',
-           '- Stilen för händelser före cirka 3000 f.Kr. i `data/styles.json` nämner människosilhuetter och följer inte '
-           'reglerna av sig själv: i en prompt om en människoart tas de bort, eller så väljs en riktig bild.', '']
+           '- Stilen `grotta` för händelser före cirka 3000 f.Kr. i `data/styles.json` är en modern, tydligt tecknad '
+           'illustration av landskap och föremål, utan människor eller ansikten och utan grottmålning eller hällkonst som '
+           'kan tas för ett verkligt fynd (#1553). För en människoart gäller dessutom reglerna ovan.', '']
     for e, style, variant, prompt in rows:
         title = e['title']['sv']
         name = variant['name']['sv'] if variant else style['name']['sv']

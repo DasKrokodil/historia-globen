@@ -2,6 +2,8 @@
 
 Gäller när en händelse saknar en lämplig fri bild (CLAUDE.md, Bilder, punkt 1–2). **Agenter (Claude Code, Codex, Copilot) kan inte generera bilder.** Ett steg görs alltid av en människa: DasKrokodil eller Andreas, med ChatGPT (beslut 2026-11-16). Bildverktyg och nycklar ligger aldrig i repot.
 
+Rutin för riktiga bilder (Commons och loc.gov, anropsregler, licenskontroll): [bilder-riktiga.md](bilder-riktiga.md).
+
 ## Agentens del (innan en människa tar över)
 1. Sök först efter en riktig bild på Wikimedia Commons eller loc.gov. Hittas ingen lämplig: skriv händelsen och skälet i `docs/bilder-saknas.md`.
 2. Skriv prompten: `python3 tools/bildpromptar.py --out docs/bildpromptar-<issue-nummer>.md <händelse-id> <händelse-id> …`, checka in filen och skriv i issuet:

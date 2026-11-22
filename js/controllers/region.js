@@ -33,6 +33,8 @@ import { say } from '../ui/status.js';
 const REFIT_MS = 450;
 /** Luft mellan platsens ram och det som täcker kartan (skärmpixlar). */
 const GAP = 8;
+/** Liggande telefon (#1952): en låg yta i liggande läge. Där fälls platskortet ihop när regionvyn öppnas (foldCard) och css/style.css lämnar kartan fri. */
+const LOW_LANDSCAPE = '(max-height: 480px) and (orientation: landscape)';
 /** Den minsta fria ytan för regionvyn bor i region-frame.js (knappen i platskortet läser samma regel, #1692). */
 export { MIN_FREE };
 /**
@@ -44,6 +46,11 @@ export { MIN_FREE };
  */
 const ZOOM = { narrow: { w: 44, h: 194 }, wide: { w: 65, h: 178 } };
 const GUT = 16, ZOOM_TOP = 12, ZOOM_GAP = 12;
+/**
+ * Zoomknapparna i en låg liggande yta (#1952), 4 px från kanten: bred layout i två kolumner på 44 px med Affisch över båda
+ * (2 × 44 + 4 px, 3 × 44 + 2 × 4 px), smal layout en kolumn (Affisch cirka 66 px bred, 4 × 44 + 3 × 4 px).
+ */
+const ZOOM_LOW = { narrow: { w: 66, h: 188 }, wide: { w: 92, h: 140 } }, ZOOM_TOP_LOW = 4;
 
 export function createRegion(app) {
   const { $, state, data, flatMap, globe, store, surfaces } = app;
@@ -62,8 +69,8 @@ export function createRegion(app) {
   };
   /** Rutan med vilken plats som visas och vägen ut: i Platt vy och på globen var sin, med samma texter. */
   const chips = {
-    flat: { chip: $('flat-region'), title: $('flat-region-name'), note: $('flat-region-note'), back: $('flat-region-back'), legend: $('flat-region-legend-text'), next: $('flat-region-next') },
-    globe: { chip: $('globe-region-chip'), title: $('globe-region-name'), note: $('globe-region-note'), back: $('globe-region-back'), legend: $('globe-region-legend-text'), next: $('globe-region-next') },
+    flat: { chip: $('flat-region'), title: $('flat-region-name'), note: $('flat-region-note'), context: $('flat-region-context'), tap: $('flat-region-tap'), back: $('flat-region-back'), legend: $('flat-region-legend-text'), next: $('flat-region-next') },
+    globe: { chip: $('globe-region-chip'), title: $('globe-region-name'), note: $('globe-region-note'), context: $('globe-region-context'), tap: $('globe-region-tap'), back: $('globe-region-back'), legend: $('globe-region-legend-text'), next: $('globe-region-next') },
   };
   const chip = chips.flat.chip;
   /** Är vyn öppen för platsen just nu? */
@@ -75,6 +82,8 @@ export function createRegion(app) {
   layerNote.hidden = true;
   $('layer-menu').prepend(layerNote);
   let place = null, refit = 0;
+  /** Platskortet fälldes ihop när vyn öppnades (foldCard); kommer vyn inte till användning (fallBack) öppnas det igen. */
+  let folded = false;
 
   // ---- vyn man kommer från (#1864) ---------------------------------------------------------------------------------
   // Lämna regionvyn ställer tillbaka vyn man kom från: Glob, Platt karta eller Upptäcktsresor, med kameran. Det gäller också när
@@ -82,7 +91,7 @@ export function createRegion(app) {
   // Vyn och kameran läses innan vyn byts (rememberOrigin, anropad av places.showInFlat) och glöms när regionvyn är slut.
   let origin = null;
   /** Vyn och kameran just nu: globens (som ligger kvar medan Platt vy är öppen) och, i Platt vy, kartans. */
-  const capture = () => { const mode = app.viewMode.mode; return { mode, globe: globe.view, flat: mode === 'flat' ? flatMap.camera() : null }; };
+  const capture = () => { const mode = flatMap.hidden ? 'globe' : 'flat'; return { mode, globe: globe.view, flat: mode === 'flat' ? flatMap.camera() : null }; };
   /** Knappen i kortet trycktes: kom ihåg vyn man står i, om regionvyn inte redan är öppen (då gäller den första). */
   function rememberOrigin() { if (!isOpen()) origin = capture(); }
   /** Globen tittar där den gjorde före regionvyn: en flygning till samma punkt och samma zoom, om den har flyttats. */
@@ -95,6 +104,7 @@ export function createRegion(app) {
   /** Rutan för ett element i kartans pixlar, med luft runt, eller null när det inte syns. */
   function rect(el, box) {
     if (!el || el.hidden || !el.getClientRects().length) return null;
+    if (getComputedStyle(el).visibility === 'hidden') return null; // dold med visibility (knapparna överst under regionvyn, #1952): tar ingen plats
     return padded(el.getBoundingClientRect(), box);
   }
   /** Rutan r ({ left, top, right, bottom }, sidans pixlar) i kartans pixlar med luft runt, eller null när den är tom. */
@@ -114,7 +124,7 @@ export function createRegion(app) {
     // då in vid sidan av dem. Annars ligger de vid högerkanten, där de alltid legat. I mobil ligger de uppe till höger inne i kartan,
     // och ramen ovanför arket hamnade under dem (#1863): där räknas de alltid bort, så att ingen markör eller bricka ligger under dem.
     const narrow = !matchMedia('(min-width: 761px)').matches;
-    const zoom = narrow || !$('detail').hidden ? document.querySelector('#flat-view .flat-zoom') : null;
+    const zoom = narrow || !$('detail').hidden || matchMedia(LOW_LANDSCAPE).matches ? document.querySelector('#flat-view .flat-zoom') : null;
     return freeArea({ w: box.width, h: box.height }, [$('detail'), $('focus-bar'), $('pause-note'), chip, zoom].map(el => rect(el, box)), shape);
   }
   const roomy = () => hasRoom(flatMap.regionFree());
@@ -154,6 +164,8 @@ export function createRegion(app) {
     const text = (sel, value) => { const el = probe.querySelector(sel); if (el) el.textContent = value; };
     text('.flat-region-name', ui('regionView.title', { place: t(p.name) }));
     text('.flat-region-note', `${ui('regionView.note')} ${ui('regionView.tap')}`);
+    text('.flat-region-context', ui('place.mapContext'));
+    text('.flat-region-tap', ui('regionView.tap'));
     text('.flat-region-legend > span:last-child', ui('regionView.legend'));
     text('.flat-region-back', ui('regionView.leave'));
     $('app').appendChild(probe);
@@ -164,22 +176,31 @@ export function createRegion(app) {
       return { left, top, right: left + r.width, bottom: top + r.height };
     } finally { probe.remove(); }
   }
-  /** Den fria ytan regionvyn skulle få för platsen p om knappen trycktes nu, eller null när kartans yta inte går att mäta. */
+  /**
+   * Den fria ytan regionvyn skulle få för platsen p om knappen trycktes nu, eller null när kartans yta inte går att mäta. I en låg
+   * liggande yta (#1952) fälls kortet ihop och fokusraden och rutan får sin kompakta form när vyn öppnas: ytan räknas då i den formen
+   * (klassen region-view sätts bara medan måtten läses, i samma anrop, så att inget hinner ritas om), utan kortet och zoomknapparna.
+   */
   function freeBeforeEnter(p) {
-    const root = $('app').getBoundingClientRect(), span = flatMap.layoutSpan();
-    if (!root.width || !span.height) return null;
-    const box = { left: root.left, top: span.top, width: root.width, height: span.height };
-    const shape = p?.boundary?.geometry ? regionSize(placeBounds(p)) : null;
-    const narrow = !matchMedia('(min-width: 761px)').matches, card = $('detail'), kind = narrow ? 'narrow' : 'wide';
-    const cardOpen = !card.hidden && card.getClientRects().length > 0;
-    const cardRect = cardOpen ? (narrow ? closedSheetRect(card) : card.getBoundingClientRect()) : null;
-    const z = ZOOM[kind];
-    const zoomRight = !narrow && cardRect ? cardRect.left - ZOOM_GAP : root.right - GUT, zoomTop = box.top + ZOOM_TOP;
-    const covers = [
-      padded(cardRect, box), rect($('focus-bar'), box), rect($('pause-note'), box), padded(chipRect(p, box, root), box),
-      narrow || cardRect ? padded({ left: zoomRight - z.w, top: zoomTop, right: zoomRight, bottom: zoomTop + z.h }, box) : null,
-    ];
-    return freeArea({ w: box.width, h: box.height }, covers, shape);
+    const lowLandscape = matchMedia(LOW_LANDSCAPE).matches, appEl = $('app');
+    const toggle = lowLandscape && !appEl.classList.contains('region-view');
+    if (toggle) appEl.classList.add('region-view');
+    try {
+      const root = appEl.getBoundingClientRect(), span = flatMap.layoutSpan();
+      if (!root.width || !span.height) return null;
+      const box = { left: root.left, top: span.top, width: root.width, height: span.height };
+      const shape = p?.boundary?.geometry ? regionSize(placeBounds(p)) : null;
+      const narrow = !matchMedia('(min-width: 761px)').matches, card = $('detail'), kind = narrow ? 'narrow' : 'wide';
+      const cardOpen = !card.hidden && card.getClientRects().length > 0 && !lowLandscape;
+      const cardRect = cardOpen ? (narrow ? closedSheetRect(card) : card.getBoundingClientRect()) : null;
+      const z = lowLandscape ? ZOOM_LOW[kind] : ZOOM[kind]; // knapparna i två kolumner i en låg liggande yta (css/style.css, #1952)
+      const zoomRight = !narrow && cardRect ? cardRect.left - ZOOM_GAP : root.right - GUT, zoomTop = box.top + (lowLandscape ? ZOOM_TOP_LOW : ZOOM_TOP);
+      const covers = [
+        padded(cardRect, box), rect($('focus-bar'), box), rect($('pause-note'), box), padded(chipRect(p, box, root), box),
+        narrow || cardRect || lowLandscape ? padded({ left: zoomRight - z.w, top: zoomTop, right: zoomRight, bottom: zoomTop + z.h }, box) : null,
+      ];
+      return freeArea({ w: box.width, h: box.height }, covers, shape);
+    } finally { if (toggle) appEl.classList.remove('region-view'); }
   }
   /** Texten på knappen i kortet för platsen p: regionvyn när den ryms, annars Platt karta (region-frame.js, regionButtonKey). */
   function buttonKey(p) {
@@ -333,7 +354,9 @@ export function createRegion(app) {
   /** För liten yta för regionvyn: lämna den tyst och visa platsen i Platt vy som förut, med samma besked som där. */
   function fallBack(p) {
     tooSmall = { id: p.id, size: sizeKey() }; // och knappen i kortet säger det (#1692)
+    const reopen = folded; // leaveRegion avslutar vyn (ended) och glömmer det
     flatMap.leaveRegion();
+    if (reopen) app.showFocusFacts?.(); // kortet som fälldes ihop för vyn kommer tillbaka (#1952)
     frameFlat(p);
     say(ui('place.flatShown', { place: t(p.name) }), 'plats', { priority: 2, immediate: true });
     refreshButton();
@@ -373,11 +396,27 @@ export function createRegion(app) {
     c.note.textContent = layerNote.textContent = `${ui('regionView.note')} ${ui('regionView.tap')}`; // och hur man får fakta (#1791)
     c.back.textContent = ui('regionView.leave');
     // Förklaringen till den streckade ringen runt markörer med ungefärlig plats (#1642), också i mobil
+    c.context.textContent = ui('place.mapContext'); // kort och synlig också där den långa raden är dold (#1956)
+    c.tap.textContent = ui('regionView.tap'); // hur man får fakta, synlig där den långa raden är dold (#1978)
     c.legend.textContent = ui('regionView.legend');
+    $('app').classList.add('region-view'); // före rutans läge: i en låg liggande yta mäts rutan i regionvyns kompakta form (#1952)
     c.chip.hidden = false; // först: rutan tar plats, och ramen räknas utan den
     if (w === 'globe') placeGlobeChip();
     layerNote.hidden = false;
-    $('app').classList.add('region-view');
+  }
+
+  /**
+   * Liggande telefon (#1952): platskortet stängs när regionvyn öppnas, så att kartan blir fri. Det ligger annars ovanpå platsen
+   * (cirka 120 px av 360), och Om platsen i fokusraden öppnar det igen. Fokus går till Lämna regionvyn, som kortets knapp lämnade
+   * efter sig (annars hamnar det på sidan). Ger sant när kortet fälldes ihop.
+   */
+  function foldCard(w) {
+    const card = $('detail');
+    if (!matchMedia(LOW_LANDSCAPE).matches || card.hidden || !card.classList.contains('detail-selection')) return false;
+    app.select(null);
+    chips[w].back.focus({ preventScroll: true });
+    folded = true;
+    return true;
   }
 
   /** Markörerna i listans ordning, ortnamnen när filen har laddats och beskedet på statusraden. */
@@ -401,8 +440,9 @@ export function createRegion(app) {
     origin = from;
     place = p;
     where = 'globe';
-    app.viewMode.set('globe');
+    app.viewMode.setSurface('globe');
     showChip(p, 'globe');
+    foldCard('globe');
     $('app').classList.add('globe-region-view');
     const b = placeBounds(p), geom = p.boundary.geometry;
     globeView.open(p.id, b, geom);
@@ -437,6 +477,7 @@ export function createRegion(app) {
     where = 'flat';
     const name = t(p.name);
     showChip(p, 'flat');
+    foldCard('flat');
     flatMap.enterRegion(p.id, placeBounds(p), free);
     // I mobil fälls arket ihop strax efter; där avgörs storleken när det har skett
     if (!app.narrow.matches && !roomy()) { fallBack(p); return; }
@@ -463,7 +504,7 @@ export function createRegion(app) {
     const p = place;
     if (where === 'globe') closeGlobe(); else flatMap.leaveRegion();
     const mode = o?.mode ?? 'flat'; // utan minne (ingen sådan väg i dag): Platt karta med platsen inramad, som förut
-    app.viewMode.set(mode);
+    app.viewMode.setSurface(mode);
     if (mode === 'flat') {
       if (o?.flat) flatMap.setView(o.flat.lat, o.flat.lon, o.flat.zoom); else frameFlat(p);
       flatMap.canvas.focus({ preventScroll: true });
@@ -484,6 +525,7 @@ export function createRegion(app) {
     place = null;
     where = null;
     origin = null;
+    folded = false;
     undecorate();
     clearTimeout(refit);
     chips.flat.chip.hidden = chips.globe.chip.hidden = true;
@@ -530,7 +572,7 @@ export function createRegion(app) {
     if ((type === 'year' || type === 'range') && isOpen()) { followYear(); return; }
     if (type !== 'focus' || !isOpen()) return;
     if (state.focus?.type !== 'place' || state.focus.place?.id !== openId()) {
-      if (where === 'globe') closeGlobe(); else flatMap.leaveRegion();
+      leave(); // fokusbyte och avslut återställer också ursprungsvyn och säger vart besökaren kom (#1949)
       return;
     }
     // Samma plats med ett nytt fokus (en adress eller Sök och följ startar den igen): markörerna följer dess lista

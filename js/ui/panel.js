@@ -1,7 +1,7 @@
 // "Samtidigt i världen": lista över synliga händelser per världsdel, kategorifilter
 // (i lagermenyn, #120, och som chips ovanför listan, #311) och faktarutan.
 import { buildAreaCurve } from './areacurve.js';
-import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatOffset, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg, flagUrl, isVisibleReview, eventTags, needDetails, misconceptionsFor, roundWindow, groupDigits, tagViewNote } from '../model.js';
+import { CATEGORIES, CAT, REVIEW, REGIONS, region, styleFor, t, formatEventTime, formatOffset, edtfHasDays, formatYear, formatDate, reviewLabel, REVIEW_SUBJECT_HELP, REVIEW_HELP, symbolImg, flagUrl, isVisibleReview, eventTags, needDetails, misconceptionsFor, roundWindow, groupDigits, tagViewNote } from '../model.js';
 import { ui, LANG, langAttr } from '../i18n.js';
 import { say } from './status.js';
 import { MIN_YEAR } from '../timeline.js';
@@ -125,13 +125,14 @@ export const uncertainDate = e => {
   return edtf.includes('~') || edtf.includes('?') || (e.precision != null && e.precision < 9) || sourcesDisagree(e);
 };
 /**
- * Kort markering i datumraden (#606) efter det som är osäkert: datumet (ungefärligt, osäkert, grov precision eller
+ * Kort markering (i) i datumraden (#606) efter det som är osäkert: datumet (ungefärligt, osäkert, grov precision eller
  * oense källor, samma regler som uncertaintyRow) eller platsen. Den leder till raden Historisk osäkerhet.
  */
 const uncertaintyMark = (e, what, copy = {}) => {
   const date = uncertainDate(e);
   if (!(what === 'date' ? date : !!e.locationPrecision)) return '';
-  return ` <button type="button" class="unc-mark" data-unc-mark aria-controls="detail-uncertainty" title="${esc(t(copy.markTitle))}">${esc(t(copy.mark))}</button>`;
+  // Ett (i) som granskningsstatusens (#1979): "cirka" i själva datumet och märket är osäkerheten en gång i raden; namnet säger vad knappen gör
+  return ` <button type="button" class="review-info unc-mark" data-unc-mark aria-controls="detail-uncertainty" aria-label="${esc(t(copy.markTitle))}" title="${esc(t(copy.markTitle))}">i</button>`;
 };
 
 /**
@@ -270,8 +271,26 @@ export function emptyCause({ visibleCount, filters, total = null }) {
   return total != null && filters.size < total ? 'some' : 'year';
 }
 
+/**
+ * Meningen när listan är tom, som språkfilens nyckel: kategorifilter först, och annars att det inte finns något kring året. Före 3000 f.Kr.
+ * säger den att det inte finns några fynd i vår data där (`prehistory`, #1958), inte att något saknas i världen.
+ */
+export const emptyTextKey = ({ cause, prehistory = false }) =>
+  cause === 'filters' ? 'panel.filtersOff' : cause === 'some' ? 'panel.filtersSome' : prehistory ? 'panel.emptyPrehistory' : 'panel.empty';
+
 /** Antalet i raden "Översikt: ett urval, cirka N händelser" (#1139): avrundat till tiotal, men exakt under tio. */
 export const overviewCount = n => (n >= 10 ? Math.round(n / 10) * 10 : n);
+
+/** Tre tidsgrupper (#1312). Urvalet och inside kommer från händelselagret; datumläget skiljer en daterad dag från ett datumspann. */
+export function panelTimeGroup(v, { range = false, fine = false } = {}) {
+  if (!range && !v.inside && !v.longRunning) return 'near';
+  if (fine) {
+    // edtfSpan slutar efter sista dagen: en dag har också positiv längd. Jämför de inkluderande datumen i stället.
+    const dates = (v.e.edtf ?? '').replace(/[~?%]/g, '').split('/');
+    return edtfHasDays(v.e.edtf) && dates[0] === dates.at(-1) ? 'happened' : 'inside';
+  }
+  return v.e.start === v.e.end ? 'happened' : 'inside';
+}
 
 export class Panel {
   constructor({ root, list, filters, chips, detail, sub, count, toggle, close }, { events, srcById, styles }, { empireLegend = {}, uncertainty = {}, panel = {}, tags = {} } = {}) {
@@ -310,7 +329,6 @@ export class Panel {
     this.selectedId = null;
     this.shown = null; // det faktarutan visar just nu; en rad som laddas klart ritar bara om samma ruta (#337)
     this.expandedRegions = new Set();
-    this.longOpen = false;
     this.copy = panel;
     // Filtret är ihopfällt som standard och listan har en flik per världsdel (beslut i #1782)
     this.chips = chips ?? null;
@@ -409,7 +427,9 @@ export class Panel {
       this.root.style.top = `${r.bottom + 8}px`;
       // Vid stor textzoom blir den effektiva höjden liten. Låt då listan använda nästan hela höjden och
       // rulla ovanpå tidslinjen, i stället för att dess innehåll försvinner bakom det reserverade utrymmet.
-      if (innerWidth <= 760 && innerHeight < 500) {
+      // Samma sak i en bred men låg yta (liggande telefon, 800 × 360): med 150 px reserverade för tidsreglaget blev listan 93 px hög och
+      // rymde bara rubriken (#1932). Den ligger då över tidsreglaget, som i smal skärm.
+      if (innerHeight < 500) {
         this.root.style.maxHeight = `calc(100dvh - ${r.bottom + 16}px)`;
       } else {
         // I dator går lådan ner till tidslinjen, i mobil täcker den högst 60 procent.
@@ -508,7 +528,7 @@ export class Panel {
     // Är listan tom av ett kategorifilter säger raden det, också i en vy med urval: det är filtret och inte urvalet som döljer (#1862)
     this.sub.textContent = oneStop(visible.length ? stop(parts.join(', '))
       : range && !filtersOff ? ui('range.empty', { range: bare })
-      : ui(filtersOff ? 'panel.filtersOff' : filtersSome ? 'panel.filtersSome' : 'panel.empty', { within, at: bare }));
+      : ui(emptyTextKey({ cause, prehistory: !!labels?.prehistory }), { within, at: bare }));
     if (filtersOff || filtersSome) {
       // Alla kategorier av (#886): det är filtret som döljer händelserna, så dragning i tidslinjen hjälper inte.
       // Några av (#1304): filtret kan dölja dem, så raden säger det och knappen visar alla kategorier igen
@@ -548,15 +568,14 @@ export class Panel {
       return;
     }
     // Grupperat per världsdel, i fast ordning, så att man ser vad som händer på olika håll. Listan har en flik per världsdel (beslut i
-    // #1782, alternativ C): den valda världsdelens händelser syns, med Pågår först och Nära i tid under. De andra världsdelarna ligger
+    // #1782, alternativ C): den valda världsdelens händelser syns, med Hände, Pågick då och Strax före eller efter. De andra världsdelarna ligger
     // kvar i sidan men är dolda (hidden), så att de inte läses upp och så att listan går att söka igenom som förut.
     const groups = new Map(REGIONS.map(r => [r, []]));
-    const old = [];
-    for (const v of visible) (v.longRunning ? old : groups.get(v.e._region ??= region(v.e._lat, v.e._lon))).push(v);
+    for (const v of visible) groups.get(v.e._region ??= region(v.e._lat, v.e._lon)).push(v);
     const rank = (a, b) => (b.e.top - a.e.top) || (b.e.major - a.e.major) || (b.inside - a.inside) || (Math.abs(a.e.start - year) - Math.abs(b.e.start - year)) || t(a.e.title).localeCompare(t(b.e.title), LANG);
     // I intervallet (#755): "delvis inom intervallet" och "osäkert datum" efter tiden och platsen
     const notes = (e, partial) => range ? [partial && ui('range.partial'), uncertainDate(e) && ui('range.uncertain')].filter(Boolean) : [];
-    // Det som bara ligger nära året säger hur långt före eller efter det ligger (#995): "21 år senare", "34 år tidigare"
+    // Det som bara ligger nära året säger hur långt före eller efter det ligger (#995): "om 21 år", "34 år före"
     // Hela år räknas ur årtalen som listan visar (fokusläget för korta krig räknar dagar ur dist), så att siffran går att räkna efter
     const offset = ({ e, inside, longRunning, when, dist }) => {
       if (range || inside || longRunning || (when !== 'past' && when !== 'future')) return [];
@@ -582,11 +601,11 @@ export class Panel {
     const focusedTab = this.tabs?.contains(document.activeElement) ? document.activeElement.dataset.tab : null;
     const CAP = 6; // fler än så ligger bakom "Visa N till"
     const section = (name, kind, vs) => {
-      const items = vs.filter(v => !!isInside(v) === (kind === 'inside'));
+      const items = vs.filter(v => panelTimeGroup(v, { range, fine: !!labels?.fine }) === kind);
       if (!items.length) return '';
       const open = this.expandedRegions.has(`${name}|${kind}`), shown = open ? items : items.slice(0, CAP), rest = items.length - shown.length;
       const more = items.length > CAP ? `<button type="button" class="link-btn panel-more" data-region="${esc(name)}" data-kind="${kind}" aria-expanded="${open}" aria-label="${esc(open ? ui('panel.showLessIn', { label: copy('showLess'), region: regionName(name) }) : copy('showMore').replace('{count}', rest).replace('{region}', regionName(name)))}">${esc(open ? copy('showLess') : copy('showMore').replace('{count}', rest).replace('{region}', regionName(name)))}</button>` : '';
-      return `<h3 class="panel-sec panel-sec-${kind}">${esc(ui(kind === 'inside' ? 'panel.groupInside' : 'panel.groupNear'))} <span class="region-count">${items.length}</span></h3>
+      return `<h3 class="panel-sec panel-sec-${kind}">${esc(ui(kind === 'happened' ? 'panel.groupHappened' : kind === 'inside' ? 'panel.groupInside' : 'panel.groupNear', { at }))} <span class="region-count">${items.length}</span></h3>
         <ol>${shown.map(v => row(v, name)).join('')}</ol>${more}`;
     };
     const panes = present.map(([name, vs]) => {
@@ -594,10 +613,10 @@ export class Panel {
       const i = REGIONS.indexOf(name), on = name === this.region;
       return { on, html: `
       <section class="region-group" role="tabpanel" id="panel-sec-${i}" aria-labelledby="panel-tab-${i}" data-panel-region="${esc(name)}"${on ? '' : ' hidden'}>
-        ${section(name, 'inside', vs)}${section(name, 'near', vs)}
+        ${section(name, 'happened', vs)}${section(name, 'inside', vs)}${section(name, 'near', vs)}
       </section>` };
     }).sort((a, b) => b.on - a.on); // den valda världsdelen först i sidan
-    this.list.innerHTML = panes.map(x => x.html).join('') + (old.length ? `<section class="region-group long-running"><button type="button" class="link-btn panel-more" data-long aria-expanded="${this.longOpen}">${esc(copy('longRunning').replace('{count}', old.length))}</button>${this.longOpen ? `<ol>${old.sort(rank).map(v => row(v)).join('')}</ol>` : ''}</section>` : '');
+    this.list.innerHTML = panes.map(x => x.html).join('');
     if (this.tabs && present.length) {
       this.tabs.innerHTML = present.map(([name, vs]) => {
         const i = REGIONS.indexOf(name), on = name === this.region;
@@ -631,7 +650,6 @@ export class Panel {
     // Riktiga knappar: Enter och mellanslag fungerar av sig själva
     for (const b of this.list.querySelectorAll('.event-btn')) b.addEventListener('click', () => this.onSelect(b.dataset.id));
     for (const b of this.list.querySelectorAll('[data-region]')) b.addEventListener('click', () => { const key = `${b.dataset.region}|${b.dataset.kind}`; this.expandedRegions.has(key) ? this.expandedRegions.delete(key) : this.expandedRegions.add(key); this.render(visible, year, window, eventsOn, labels); });
-    this.list.querySelector('[data-long]')?.addEventListener('click', () => { this.longOpen = !this.longOpen; this.render(visible, year, window, eventsOn, labels); });
   }
 
   /**
@@ -654,6 +672,7 @@ export class Panel {
       this.detail.removeAttribute?.('data-i18n-aria-label');
       this.detail.setAttribute('aria-label', label);
     }
+    delete this.detail.dataset?.facts; // vilket rikeskort som visas (#1955); showFacts sätter det igen efter öppningen
     this.detail.hidden = !open;
     this.onDetailChange(open);
   }
@@ -721,6 +740,7 @@ export class Panel {
    *   label    etiketten överst ("Tema", "Plats")
    *   name     namnet, text per språk
    *   lead     valfri rad under namnet (platsens typ)
+   *   mapNote  valfri synlig rad om kartans nutida gräns, kust och ortnamn (#1956)
    *   emblems  valfria flaggor och vapen (#1160): egna SVG:er i img/flags/ med bildtext, kredit och licens;
    *            filsidorna läggs till bland källorna
    *   intro    inledningen, text per språk
@@ -739,17 +759,23 @@ export class Panel {
    * Kortet för ett urval (tema eller plats). empires (#1448, bara platser med periods): { title, note, follow, rows }, där en rad är
    * { years, name, label, run } (run saknas i en tur: raden är då bara text) eller { gap } (en lucka, en läsbar rad).
    */
-  showSelection({ label, name, lead = '', emblems = [], intro, action = null, notes = [], exit, empires = null, summary, events, sources = [], focus = true, banner = '', ariaLabel, aboutLabel = null }) {
+  showSelection({ label, name, lead = '', mapNote = '', emblems = [], intro, action = null, notes = [], exit, empires = null, summary, events, sources = [], focus = true, banner = '', ariaLabel, aboutLabel = null }) {
     this.selectedId = null;
-    this.detail.className = `detail detail-card detail-selection${aboutLabel ? ' detail-place' : ''} frame-${styleFor(events[0], this.styles).frame}`;
+    // Ingen tidsålderns ram (#1713, punkt 4): plats- och temakortet är en ruta för läsning, i samma neutrala mörka kort som rikes-, religions-
+    // och krigskorten. Ramen efter första händelsens epok gav olika kort för Skåne (grotta, 3,46:1) och Grönland (papyrus) och ockra text under AA.
+    this.detail.className = `detail detail-card detail-selection${aboutLabel ? ' detail-place' : ''}`;
     // detail-selection: main.js läser upp etiketten (Plats, Tema), också när inget Fokus pågår (#1163). detail-place: platskortet, som är
     // en egen yta i stängregistret (kort, #1865)
     const shown = (emblems ?? []).filter(em => flagUrl(em));
     const srcs = [...new Set([...(sources ?? []), ...shown.map(em => em.source)])].map(id => this.srcById[id]).filter(Boolean);
-    // Platsens kort (aboutLabel, #1790): bilder vars licens kräver namnuppgift (CC BY, CC BY-SA) behåller en kort kreditrad vid bilden; övriga
-    // krediter (public domain) ligger i den hopfällda raden Om kartan och källor
+    // Platsens kort (aboutLabel, #1790, #1977): flaggan och vapnet är små (cirka 24 px) bredvid namnet. Bilder vars licens kräver
+    // namnuppgift (CC BY, CC BY-SA) har en kort kreditrad direkt under namnet; övriga krediter (public domain) ligger i den hopfällda
+    // raden Om kartan och källor. Licensen läses ur varje emblem i data/platser.json, inte ur koden.
     const placeCard = !!aboutLabel, needsCredit = em => /CC BY/i.test(em.license ?? '');
-    const emblemHtml = shown.length ? `<div class="place-emblems">${shown.map(em => `<figure class="place-emblem place-emblem-${esc(em.kind)}"><img src="${esc(flagUrl(em))}" alt="${esc(t(em.caption))}"><figcaption>${esc(t(em.caption))}${placeCard && !needsCredit(em) ? '' : `<span class="meta">${esc(em.credit)} · ${esc(em.license)}</span>`}</figcaption></figure>`).join('')}</div>` : '';
+    const emblemImg = em => `<img src="${esc(flagUrl(em))}" alt="${esc(t(em.caption))}">`;
+    const emblemHtml = placeCard ? '' : shown.length ? `<div class="place-emblems">${shown.map(em => `<figure class="place-emblem place-emblem-${esc(em.kind)}">${emblemImg(em)}<figcaption>${esc(t(em.caption))}<span class="meta">${esc(em.credit)} · ${esc(em.license)}</span></figcaption></figure>`).join('')}</div>` : '';
+    const headEmblems = placeCard && shown.length ? `<span class="place-emblems">${shown.map(em => `<figure class="place-emblem place-emblem-${esc(em.kind)}">${emblemImg(em)}</figure>`).join('')}</span>` : '';
+    const emblemCredits = placeCard ? shown.filter(needsCredit).map(em => `<p class="place-emblem-credit meta">${esc(t(em.caption))}: ${esc(em.credit)} · ${esc(em.license)}</p>`).join('') : '';
     const open = matchMedia('(max-width: 760px)').matches ? '' : ' open';
     // Rikena i landskortet (#1448): riktiga knappar med hela namnet för skärmläsare ("Följ riket Sverige 1612–1721"), luckorna som rader
     // Namnet för skärmläsare har samma ordning som den synliga texten (WCAG 2.5.3): "1815–1904 Sverige-Norge, Följ riket".
@@ -785,9 +811,10 @@ export class Panel {
     this.detail.innerHTML = `
       <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
       <div class="story-label">${esc(label)}</div>
-      <h3>${esc(t(name))}</h3>
+      ${placeCard ? `<div class="place-head"><h3>${esc(t(name))}</h3>${headEmblems}</div>` : `<h3>${esc(t(name))}</h3>`}
       ${banner ? `<p class="theme-filter-note place-banner">${esc(banner)}</p>` : ''}
-      <div class="story">${lead ? `<p class="place-type">${esc(lead)}</p>` : ''}
+      <div class="story">${emblemCredits}${lead ? `<p class="place-type">${esc(lead)}</p>` : ''}
+      ${mapNote ? `<p class="place-map-note">${esc(mapNote)}</p>` : ''}
       ${emblemHtml}
       <p>${esc(t(intro))}</p>
       ${body.filter(Boolean).join('\n      ')}</div>
@@ -837,7 +864,7 @@ export class Panel {
    * föregångare och vad det blev. Efterträdare som finns som riken är knappar som börjar följa det riket.
    */
   showFacts(opts) {
-    const { kind, kindWord = null, name, color, symbol = '', symbolKind = null, facts: f, origin = null, place = origin, milestonesTitle = ui('facts.milestones'), mapNote = '', curveId = '', wars = [], lineage = null, empireMap = false, empireId = null, year = null } = opts;
+    const { kind, kindWord = null, name, color, symbol = '', symbolKind = null, facts: f, origin = null, place = origin, milestonesTitle = ui('facts.milestones'), mapNote = '', curveId = '', wars = [], lineage = null, empireMap = false, empireId = null, year = null, places = [], factsKey = '' } = opts;
     const fall = empireId ? this.empireTourFor?.(empireId) : null; // rikets fall som tur (#499)
     // Rikets krig (#76): krig som anger riket i empires, i tidsordning; bara de som syns enligt granskningsstatusen
     const shownWars = wars.filter(w => isVisibleReview(w.review));
@@ -856,10 +883,13 @@ export class Panel {
     // Riken har ofta mer fördjupning än ryms i det mobila arket. Sammanfattningen
     // står därför alltid först, medan utveckling och kartans underlag öppnas vid behov (#359).
     const isEmpire = kind === 'empire' || kind === 'vanished' || kind === 'area';
+    // Dagens länder (#1955): länder vars kort nämner riket, med årtalen ur landskortet; knappen följer landet, utom i lektionsläget
+    const placesHtml = places.length ? `<div class="war-list empire-places"><h4>${esc(ui('facts.places'))}</h4><ul>${places.map(p =>
+      `<li>${this.onFollowPlace && !this.followLocked?.() ? `<button type="button" class="link-btn" data-follow-place="${esc(p.id)}" aria-label="${esc(ui('facts.followPlaceLabel', { name: p.name }))}">▶ ${esc(p.name)}</button>` : esc(p.name)} <span class="meta">${esc(p.years)}</span></li>`).join('')}</ul><p class="meta empire-places-note">${esc(ui('facts.placesNote'))}</p></div>` : '';
     const overview = `${lineage ? lineageHtml(lineage) : ''}
-      <dl class="religion-facts">${(f.items ?? []).map(it => `<dt>${esc(t(it.label))}</dt><dd>${esc(t(it.text))}</dd>`).join('')}</dl>`;
+      <dl class="religion-facts">${(f.items ?? []).map(it => `<dt>${esc(t(it.label))}</dt><dd>${esc(t(it.text))}</dd>`).join('')}</dl>${placesHtml}`;
     // Ett land med bara gräns och en not (kartan före fakta, #644) har inget att visa under Kortfattat
-    const hasOverview = !!(lineage || f.items?.length);
+    const hasOverview = !!(lineage || f.items?.length || places.length);
     const development = `${curveId ? `<figure class="area-curve" data-curve="${esc(curveId)}" hidden></figure>` : ''}
       ${f.milestones?.length ? `<div class="war-list"><h4>${esc(milestonesTitle)}</h4><ol>${f.milestones.map(m =>
         `<li><button type="button" class="link-btn" data-year="${Number(m.year)}">${esc(t(m.label) || formatYear(m.year))}</button> ${m.title ? `<b>${esc(t(m.title))}.</b> ` : ''}${esc(t(m.text))}${m.mapNote ? ` <span class="ms-map">${esc(ui('facts.aboutMapInline'))} ${esc(t(m.mapNote))}</span>` : ''}</li>`).join('')}</ol></div>` : ''}
@@ -895,8 +925,10 @@ export class Panel {
       ${fall ? `<button type="button" class="story-tour" data-tour="${esc(fall.id)}">${esc(fall.label)}</button>` : ''}
       ${body}`;
     this.setDetailOpen(true);
+    if (factsKey) this.detail.dataset.facts = factsKey;
     this.detail.scrollTop = 0; // efter hidden, annars behåller kortet förra läget
     this.detail.querySelector('[data-close]').addEventListener('click', () => this.onSelect(null));
+    for (const b of this.detail.querySelectorAll('[data-follow-place]')) b.addEventListener('click', () => this.onFollowPlace?.(b.dataset.followPlace));
     for (const b of this.detail.querySelectorAll('[data-goto]')) b.addEventListener('click', () => this.onSelect(b.dataset.goto));
     for (const b of this.detail.querySelectorAll('[data-year]')) b.addEventListener('click', () => this.onYear(Number(b.dataset.year)));
     this.bindLinks();
@@ -967,13 +999,16 @@ export class Panel {
     const unc = uncertaintyRow(e, this.uncertainty, evidence.marker('uncertainty'));
     // Datumraden i två rader (#1792): rad 1 är datumet med en enda markering för det osäkra (och hur länge sedan, för djup tid), rad 2 platsen
     // (kort, klippt till två rader i CSS) och kategorin. Hela platstexten, skalnoten och Historisk osäkerhet ligger i raden Källor och osäkerhet.
-    const ago = inDeepTime(e) ? ui('time.yearsAgo', { n: groupDigits(Math.round((MAX_YEAR - e.start) / 1000) * 1000) }) : '';
+    // "≈ 42 000 år sedan" räknas ur årtalet (i dag minus årtalet, avrundat till tusental), som reglagets text; (i) förklarar f.Kr. mot år sedan (#1979)
+    const agoN = inDeepTime(e) ? groupDigits(Math.round((MAX_YEAR - e.start) / 1000) * 1000) : '';
+    const ago = agoN ? ui('detail.yearsAgoShort', { n: agoN }) : '';
     const placeText = t(e.place), placeLong = placeText.length > 70;
     const mark = unc ? (uncertaintyMark(e, 'date', this.uncertainty) || uncertaintyMark(e, 'place', this.uncertainty)) : '';
     this.detail.innerHTML = `
       <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
       <h3${langAttr(e.title)}>${esc(t(e.title))}</h3>
-      <div class="meta meta-when">${esc(formatEventTime(e))}${evidence.marker('date')}${mark}${ago ? ` · <span class="meta-ago">${esc(ago)}</span>` : ''}</div>
+      <div class="meta meta-when">${esc(formatEventTime(e))}${evidence.marker('date')}${mark}${ago ? ` · <span class="meta-ago">${esc(ago)}</span><button type="button" class="review-info ago-info" data-ago-info aria-expanded="false" aria-controls="detail-ago-help" aria-label="${esc(ui('detail.yearsAgoInfo'))}" title="${esc(ui('detail.yearsAgoInfo'))}">i</button>` : ''}</div>
+      ${ago ? `<p class="scale-note" id="detail-ago-help" hidden>${esc(ui('detail.yearsAgo', { year: formatYear(e.start), n: agoN }))}</p>` : ''}
       <div class="meta meta-where"><span class="meta-place">${esc(placeText)}</span>${evidence.marker('location')} · ${esc(t(CAT[e.category]?.name))}</div>
       ${tagMarks(e, this.tags)}
       ${this.onShowPlace ? `<button type="button" class="place-row" data-show-place aria-label="${esc(ui('detail.showPlaceLabel', { place: t(e.place) }))}"><span class="place-pin" aria-hidden="true"></span><span class="place-go">${esc(ui('detail.showPlace'))}</span></button>` : ''}
@@ -992,7 +1027,6 @@ export class Panel {
         ${placeLong ? `<p class="detail-place-full"><b>${esc(ui('place.label'))}:</b> ${esc(placeText)}</p>` : ''}
         ${e.image?.kind === 'illustration' ? `<p class="detail-image-credit"><b>${esc(ui('detail.imageCredit'))}</b> ${imageCredit(e, this.srcById)}</p>` : ''}
         ${beforeTimelineStart(e) ? `<p class="scale-note">${esc(ui('detail.beforeScale', { year: formatYear(MIN_YEAR) }))}</p>` : ''}
-        ${inDeepTime(e) ? `<p class="scale-note">${esc(ui('detail.yearsAgo'))}</p>` : ''}
         ${evidence.sources || srcLine(srcs, pending)}
         ${pending ? '' : howWeKnowRow(srcs, e.review, sourcesDisagree(e), this.howTour?.())}
         <div class="detail-actions">
@@ -1016,6 +1050,9 @@ export class Panel {
       const h = this.huntFor?.(e);
       if (h) { ev.currentTarget.textContent = h.label; ev.currentTarget.disabled = h.disabled; }
     });
+    // (i) efter "≈ N år sedan" fäller ut förklaringen av f.Kr. mot år sedan (#1979)
+    const agoBtn = this.detail.querySelector('[data-ago-info]'), agoHelp = this.detail.querySelector('#detail-ago-help');
+    agoBtn?.addEventListener('click', () => { agoHelp.hidden = !agoHelp.hidden; agoBtn.setAttribute('aria-expanded', String(!agoHelp.hidden)); });
     // Markeringen i datumraden visar förklaringen och flyttar fokus dit (#606)
     this.detail.querySelector('[data-unc-mark]')?.addEventListener('click', () => {
       this.detail.querySelector('details.detail-about')?.setAttribute('open', ''); // raden ligger i Källor och osäkerhet (#1792)

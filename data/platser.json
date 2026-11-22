@@ -12417,6 +12417,13 @@
     "es": "Suecia",
     "fr": "Suède"
    },
+   "nameIn": {
+    "sv": "i Sverige",
+    "en": "in Sweden",
+    "de": "in Schweden",
+    "es": "en Suecia",
+    "fr": "en Suède"
+   },
    "intro": {
     "sv": "Följ området som i dag är Sverige i tidsordning: händelserna på globen som ligger inom dagens gräns, från bronsålderns hällristningar till nutiden. Det är ett urval, inte en heltäckande historia.",
     "en": "Follow the area that is Sweden today in order of time: the events on the globe that lie within today’s border, from the Bronze Age rock carvings to the present. It is a selection, not a complete history.",
@@ -19863,13 +19870,7 @@
     "es": "Escania",
     "fr": "Scanie"
    },
-   "partOf": {
-    "sv": "i Sverige",
-    "en": "in Sweden",
-    "de": "in Schweden",
-    "es": "en Suecia",
-    "fr": "en Suède"
-   },
+   "partOf": "sverige",
    "intro": {
     "sv": "Följ Skåne i tidsordning: händelserna på globen som ligger inom dagens gräns för Skåne län, från Uppåkra och Lund till Öresundsförbindelsen. Det är ett urval, inte en heltäckande historia.",
     "en": "Follow Scania in order of time: the events on the globe that lie within the present-day border of Skåne County, from Uppåkra and Lund to the Øresund link. It is a selection, not a complete history.",

@@ -25,9 +25,15 @@
 //   markers(s)  uppdaterar lagrets 3D-markörer när det är känt vilka lager som är dämpade
 //   marks(s)    små, tillgängliga märken på tidslinjen efter lager och filter (#378)
 //   frame(now, s) varje bildruta (3D-markörernas storlek och plats)
+//   coverage(s) var lagrets data finns i tiden (#1960): { year, span } där span = spanOf(poster) ur js/layer-coverage.js, räknad ur
+//               datans from/to, och year är året lagret ritas för (areaYear, eller year för lager som följer fönstret), eller
+//               null när täckningen inte är känd (datan inte laddad) eller lagret inte har någon gräns i tiden. Registret frågar
+//               bara lager som är påslagna i Lager (registry.coverage) och Lager visar en rad när året ligger utanför
 //   covers()    id för händelser vars medalj lagrets egen 3D-markör täcker; händelsens medalj döljs då
 //   animating() sant så länge lagerbilden behöver ritas om varje bildruta (rikenas övergångar, #78)
 // En post utan layer och update är bara en rad i Lager (till exempel Samtidigt-kortet och "Behåll mina lager").
+
+import { outsideCoverage } from '../layer-coverage.js';
 
 /** Ritordningen nedifrån och upp. Luckorna gör att ett nytt lager kan läggas in mellan två andra. */
 export const Z = {
@@ -151,6 +157,22 @@ export class LayerRegistry {
   fadable(state) {
     if (!state.focus) return [];
     return this.entries.filter(e => e.fade && state.on[e.id] && !e.fade.own(state.focus));
+  }
+
+  /**
+   * Lager som är påslagna i Lager men saknar data i sitt år (#1960): Map från lagrets id till { side, limit, approx }
+   * (outsideCoverage i js/layer-coverage.js). Lager utan `coverage`, utan känd täckning eller med data i året tas inte med,
+   * så raden i Lager syns bara när den hjälper. Lagret slås inte av och dämpas inte; raden är bara en förklaring.
+   */
+  coverage(state) {
+    const out = new Map();
+    for (const e of this.entries) {
+      if (!e.coverage || !state.layers?.[e.id]) continue;
+      const c = e.coverage(state);
+      const gap = c && outsideCoverage(c.span, c.year);
+      if (gap) out.set(e.id, gap);
+    }
+    return out;
   }
 
   /** Teckenförklaringens delar från lagren, ihopslagna till ett objekt. */

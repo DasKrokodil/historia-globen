@@ -132,6 +132,12 @@ XIANGSHAN_ORT = (121.866, 29.475)
 CHANGCHUN = (120.03972, 26.72917)
 KAOHSIUNG = (120.2975, 22.615)
 MAGONG = (119.583, 23.567)
+# Kina 1916–1929 (#1507), ur Wikidata (öppnad 2026-11-20): Peking Q956, Nanjing Q16666, Chengdu Q30002, Guangzhou Q16572
+PEKING = (116.407526, 39.90403)
+NANJING = (118.778889, 32.060833)
+CHENGDU = (104.063333, 30.66)
+GUANGZHOU = (113.26, 23.13)
+KINA_ORTER = ((PEKING, 'Peking'), (NANJING, 'Nanjing'), (CHENGDU, 'Chengdu'), (GUANGZHOU, 'Guangzhou'))
 # #1707, ur Wikidata: Kinshasa Q3838, Brazzaville Q3844 och Nuuk Q226; Gander ur en.wikipedia "Gander, Newfoundland and Labrador"
 # (48° 57′ 26″ N, 54° 35′ 19″ V). Alla öppnade 2026-11-15
 KINSHASA = (15.3119, -4.3219)
@@ -176,6 +182,23 @@ OSTBERLIN = {'Berlin-Mitte': (13.407, 52.519), 'Pankow': (13.4, 52.567), 'Köpen
 TENOCHTITLAN = (-99.1333, 19.4333)
 TEXCOCO = (-98.8967, 19.5294)
 MEXIKODALEN = ((TENOCHTITLAN, 'Tenochtitlan'), (TEXCOCO, 'Texcoco'))
+
+# Rhenlandet 1920–1929 (#1766), ur Wikidata (öppnad 2026-11-20): Trier Q3138, Aachen Q1017, Köln Q365, Bonn Q586, Krefeld Q2805,
+# Mainz Q1720, och i Ruhr Essen Q2066 och Duisburg Q2100; Bryssel Q239 och Liège Q3992 nedan ur Wikidata samma dag
+TRIER = (6.63935, 49.75565)
+AACHEN = (6.083788, 50.776207)
+KOLN = (6.957778, 50.942222)
+BONN = (7.102222, 50.735278)
+KREFELD = (6.566667, 51.333333)
+MAINZ = (8.273611, 49.999444)
+ESSEN = (7.013056, 51.450833)
+DUISBURG = (6.761111, 51.432222)
+# Geografens granskning (#1766): Koblenz Q3104 och Düsseldorf Q1718 ur Wikidata (Special:EntityData, öppnad 2026-11-20);
+# Kehl är KEHL ovan (Q15979, samma punkt i Wikidata 2026-11-20)
+KOBLENZ = (7.597778, 50.359722)
+DUSSELDORF = (6.776667, 51.225556)
+RHENLANDET = ((TRIER, 'Trier'), (AACHEN, 'Aachen'), (KOLN, 'Köln'), (BONN, 'Bonn'), (KREFELD, 'Krefeld'), (MAINZ, 'Mainz'),
+              (KOBLENZ, 'Koblenz'), (DUSSELDORF, 'Düsseldorf'), (KEHL, 'Kehl'))
 
 # (grupp, punkt, namn, år, ska ligga i riket)
 PUNKTER = [
@@ -247,7 +270,9 @@ PUNKTER = [
     *[('weimarrepubliken', p, n, 1931, True) for p, n in ((ZWEIBRUCKEN, 'Zweibrücken'), (KAISERSLAUTERN, 'Kaiserslautern'))],
     *[('nazityskland', ZWEIBRUCKEN, 'Zweibrücken', y, True) for y in (1933, 1934)],
     ('franska-kolonialvaldet', KAISERSLAUTERN, 'Kaiserslautern', 1931, False),
-    ('franska-kolonialvaldet', KAISERSLAUTERN, 'Kaiserslautern', 1925, True),
+    # Kaiserslautern 1925 var Frankrike enligt Cliopatria till #1766; nu Weimarrepubliken (Rhenlandet nedan)
+    ('franska-kolonialvaldet', KAISERSLAUTERN, 'Kaiserslautern', 1925, False),
+    ('weimarrepubliken', KAISERSLAUTERN, 'Kaiserslautern', 1925, True),
     *[('weimarrepubliken', SAARBRUCKEN_WD, 'Saarbrücken', y, False) for y in (1925, 1931)],
     *[('nazityskland', FORBACH, 'Forbach', y, False) for y in (1935, 1937, 1939)],
     *[('franska-kolonialvaldet', FORBACH, 'Forbach', y, True) for y in (1935, 1939)],
@@ -451,6 +476,20 @@ PUNKTER = [
       for y in (1945, 1946, 1949)],
     *[('usa', p, n, y, False) for p, n in ((WANGEN, 'Wangen im Allgäu'), (BAD_WURZACH, 'Bad Wurzach')) for y in (1945, 1946, 1949)],
     *[('usa', p, n, y, True) for p, n in ((MEMMINGEN, 'Memmingen'), (OBERSTAUFEN, 'Oberstaufen')) for y in (1945, 1946, 1949)],
+    # Rhenlandet 1920–1929 (#1766, beslut 2026-11-20): de ockuperade zonerna ritas som Weimarrepubliken, inte som Frankrike,
+    # Belgien eller Storbritannien. Ruhr (1923–1925) ritar Cliopatria som Weimar Republic; den ska stå kvar så
+    *[('weimarrepubliken', p, n, y, True) for p, n in RHENLANDET for y in (1920, 1923, 1925, 1926, 1929, 1930)],
+    *[(g, p, n, y, False) for p, n in RHENLANDET for g in ('franska-kolonialvaldet', 'belgien', 'brittiska-imperiet')
+      for y in (1920, 1923, 1925, 1926, 1929)],
+    *[('weimarrepubliken', p, n, y, True) for p, n in ((ESSEN, 'Essen'), (DUISBURG, 'Duisburg')) for y in (1923, 1924, 1925)],
+    *[(g, p, n, y, False) for p, n in ((ESSEN, 'Essen'), (DUISBURG, 'Duisburg')) for g in ('franska-kolonialvaldet', 'belgien')
+      for y in (1923, 1924, 1925)],
+    # 1919 visas Tyska riket, och Cliopatrias zoner står kvar det året (inte ändrat i #1766; Trier är utan stat 1919 efter
+    # förenklingen, ett äldre fel som står kvar)
+    ('belgien', AACHEN, 'Aachen', 1919, True),
+    # Utanför Rhenlandet är Frankrike och Belgien som förut
+    *[('franska-kolonialvaldet', STRASBOURG, 'Strasbourg', y, True) for y in (1920, 1925, 1929)],
+    *[('belgien', p, n, y, True) for p, n in (((4.352, 50.847), 'Bryssel'), ((5.571, 50.64), 'Liège')) for y in (1920, 1925, 1929)],
 ]
 
 # Punkter som ligger precis utanför den förenklade kusten men som uppslaget hittar inom marginalen (AREA_MARGIN_DEG i
@@ -516,6 +555,9 @@ DUBBEL = [
                                                                                             (GENEVE, 'Genève')) for y in (1940, 1942, 1943, 1944)],
     *[(('franska-kolonialvaldet', 'usa'), p, n, y) for p, n in ((WEILER, 'Weiler-Simmerberg'), (LEUTKIRCH, 'Leutkirch'), (ISNY, 'Isny'), (MEMMINGEN, 'Memmingen'))
       for y in (1945, 1946, 1949)],
+    # Rhenlandet 1920–1929 (#1766): bara i Weimarrepubliken, också inte i USA (Cliopatrias amerikanska zon 1919–1923)
+    *[(('weimarrepubliken', 'franska-kolonialvaldet', 'belgien', 'brittiska-imperiet', 'usa'), p, n, y) for p, n in RHENLANDET
+      for y in (1920, 1922, 1923, 1925, 1929)],
 ]
 for grupper, pt, namn, year in DUBBEL:
     i = [g for g in grupper if in_group(g, pt, year)]
@@ -525,6 +567,30 @@ for grupper, pt, namn, year in DUBBEL:
 for gid, pt, namn, year, ska in PUNKTER:
     if in_group(gid, pt, year) != ska:
         fel.append(f'{namn} {pt} år {year}: {"saknas i" if ska else "ligger i"} {gid}')
+
+
+def in_polity(gid, pid, pt, year):
+    """Om punkten ligger i en viss del (polity) av gruppen ett visst år."""
+    doc = json.loads((ROOT / f'data/empires/{gid}.json').read_text(encoding='utf-8'))
+    return any(q['start'] <= year <= q['end'] and in_geometry(pt, q['geometry'])
+               for p in doc['polities'] if p['id'] == pid for q in p['periods'])
+
+
+# Kina 1916–1929 (#1507, beslut 2026-11-20): 1916 är Kejsardömet Kina (Cliopatrias Empire of China, Q175379), inte Republiken
+# Kina; 1917–1929 ritar Cliopatria bara partiet Kuomintang, och Kina står tomt. Republiken Kina 1915 och 1930 står kvar
+DELAR = [
+    *[('kina', 'kejsardomet-kina', p, n, 1916, True) for p, n in KINA_ORTER],
+    *[('kina', 'republiken-kina', p, n, 1916, False) for p, n in KINA_ORTER],
+    *[('kina', 'republiken-kina', p, n, y, True) for p, n in KINA_ORTER for y in (1915, 1930)],
+    *[('kina', 'kejsardomet-kina', p, n, y, False) for p, n in KINA_ORTER for y in (1915, 1917)],
+]
+for gid, pid, pt, namn, year, ska in DELAR:
+    if in_polity(gid, pid, pt, year) != ska:
+        fel.append(f'{namn} {pt} år {year}: {"saknas i" if ska else "ligger i"} {gid}/{pid}')
+for pt, namn in KINA_ORTER:
+    for year in (1917, 1920, 1925, 1928, 1929):
+        if in_group('kina', pt, year):
+            fel.append(f'{namn} {pt} år {year}: ligger i kina, men Kina ska stå tomt 1917–1929 (#1507)')
 
 
 def seg_dist(p, a, b, c):

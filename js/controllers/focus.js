@@ -34,8 +34,11 @@ export function createFocus(app) {
    *
    * within ({ from, to }, valfri, #1448): en period inom fokusets spann, till exempel ett rike i landskortet. Året stannar bara om det
    * ligger inom perioden; annars börjar fokuset vid periodens första år, och raden om flytten nämner perioden.
+   *
+   * origin ({ key, name }, valfri, #1713): fokuset började från ett annat fokus som det ersätter, till exempel Följ riket i landskortet.
+   * Fokusraden får då knappen "Till platsen …" som börjar följa origin.key igen, så att man inte måste använda webbläsarens Bakåt.
    */
-  async function startFocus(key, { within = null } = {}) {
+  async function startFocus(key, { within = null, origin = null } = {}) {
     const ticket = app.store.ticket('fokus');
     const [type, id] = key.split(':');
     $('focus-notice').hidden = true;
@@ -53,6 +56,7 @@ export function createFocus(app) {
       return false;
     }
     const f = { type, id, ...loaded };
+    if (origin?.key) f.origin = { key: origin.key, name: origin.name };
     types.checkLoaded(post, f);
     // Något annat tog över medan fokuset laddades, eller ett läge som stoppar Fokus pågår (lektionen, #795)
     if (!app.store.current(ticket) || !app.store.canEnter('fokus')) return false;
@@ -82,6 +86,7 @@ export function createFocus(app) {
     const factsKey = f.type === 'place' ? 'place.cardLabel' : 'focus.facts';
     $('focus-facts').dataset.i18n = factsKey;
     $('focus-facts').textContent = ui(factsKey);
+    showOrigin(f.origin);
     $('focus-bar').hidden = false;
     $('app').classList.add('focusing');
     app.surfaces.closeGroup('sidopanel'); // listan stängs så att det man följer syns
@@ -144,6 +149,18 @@ export function createFocus(app) {
     if (y != null) timeline.year = y;
     app.refresh();
   });
+  /** Knappen tillbaka till det fokus som ersattes (#1713, till exempel platsen när Följ riket trycktes); dold när fokuset inte kom därifrån. */
+  function showOrigin(origin) {
+    const button = $('focus-origin');
+    button.hidden = !origin;
+    button.textContent = origin ? ui('focus.originPlace', { name: origin.name }) : '';
+  }
+  $('focus-origin').addEventListener('click', async () => {
+    const origin = state.focus?.origin;
+    if (!origin) return;
+    // Platsens kort tar tangentbordsfokus själv när det ritas (showPlaceCard); misslyckas starten ligger fokus kvar på knappen
+    await startFocus(origin.key);
+  });
   function endFocus(redraw = true) {
     const wasTheme = isSelection();
     app.store.leave(['fokus']);
@@ -155,6 +172,7 @@ export function createFocus(app) {
     app.playback.reset(); showMoved(null);
     app.applyLayers();
     $('focus-bar').hidden = true;
+    showOrigin(null);
     $('app').classList.remove('focusing');
     timeline.setFocus(null);
     globe.setZoom(1);

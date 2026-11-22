@@ -55,15 +55,20 @@ export function createPlaces(app) {
     clearTimeout(pending);
     // Följer man platsen öppnar ett tryck på den kortet igen (som knappen Om platsen); statusraden läser upp kortets rubrik (main.js)
     if (inFollowed(ll)) {
-      const reopen = () => { if (inFollowed(ll)) app.showFocusFacts(); };
+      const reopen = () => { if (inFollowed(ll)) { app.showFocusFacts(); } };
+      // Med finger väntar trycket tills webbläsaren har skickat sitt klick (#1978): kortet som öppnas lägger sig annars över tryckpunkten
+      // först, och klicket träffar kortet och tar fokus från Stäng. Med mus kommer klicket före, och fokus ligger kvar på Stäng.
       if (touch) pending = setTimeout(reopen, TOUCH_WAIT_MS); else reopen();
       return true;
     }
+    // Regionvyn startar inget nytt Fokus (#1978): ett tryck på ett grannland eller på havet gör ingenting, bara platsen man följer öppnar kortet
+    if (app.region?.place) return false;
     if (!allowed() || !hintsOn()) return false;
     const place = at(ll);
     if (!place) return false;
-    // Med finger kan trycket vara första halvan av ett dubbeltryck som zoomar: vänta lite (globe.onDoubleTap avbryter)
-    if (touch) pending = setTimeout(() => { if (allowed()) follow(place); }, TOUCH_WAIT_MS);
+    // Med finger kan trycket vara första halvan av ett dubbeltryck som zoomar: vänta lite (globe.onDoubleTap avbryter). Platt vy har inget
+    // dubbeltryck, och där följs platsen direkt som förut (bara det som öppnar kortet för platsen man följer väntar, se ovan)
+    if (touch && !flatOpen()) pending = setTimeout(() => { if (allowed()) follow(place); }, TOUCH_WAIT_MS);
     else follow(place);
     return true;
   }
@@ -145,7 +150,7 @@ export function createPlaces(app) {
     if (app.region?.eligible(place)) app.region.rememberOrigin();
     // En stor plats (Aotearoa, Grönland) får regionvyn på globen (#1644): globen flyger in, och Platt vy öppnas inte
     if (app.region?.onGlobe(place)) { app.region.enter(place); return; }
-    app.viewMode.set('flat');
+    app.viewMode.setSurface('flat');
     if (app.region?.eligible(place)) { app.region.enter(place); return; }
     // På bred skärm ligger kortet till höger och täcker kartan: inramningen räknar bara med ytan till vänster om det
     const card = $('detail'), covered = !app.narrow.matches && !card.hidden ? Math.max(0, flatMap.canvas.getBoundingClientRect().right - card.getBoundingClientRect().left) : 0;

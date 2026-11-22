@@ -5,8 +5,8 @@
 # från nästa push, inte i det ögonblick den sätts. Testskriptet är tests/webblasare.mjs.
 # Chromium körs i parallella jobb (#864, #1005): tung (lektion och utskrift), dator övrigt, dator länkar och intervall, dator fem språk, dator platser och förhistoriens reglage och dator fokus och kort (#1649), mobil, mobil platser, fokus och länkar (#1665) och kombinationsmatris. Jobben står i
 # tests/jobb.json och styrs med BREDD, ENDAST och UTAN; scripts/kontrolltackning.mjs stoppar om en kontroll skulle
-# ligga i noll eller flera jobb. Firefox och WebKit körs som förut i ett jobb vardera, se beslutet
-# docs/beslut/2026-11-08-webblasartestet-tre-jobb-864.md.
+# ligga i noll eller flera jobb. Firefox och WebKit körs med samma elva jobb som Chromium (#2171, beslutet
+# docs/beslut/2026-11-22-firefox-webkit-delas-2171.md); före det tog dator-omgången ensam i WebKit över 60 minuter.
 # Playwright används bara här i testerna (Rikards godkännande 2026-10-31); sidan själv får inga nya beroenden.
 # Körs vid push till main och vid pull requests mot main och production, som validate-site.yml.
 name: Webbläsartest
@@ -48,11 +48,13 @@ jobs:
         env:
           ALLA: ${{ github.event_name == 'pull_request' && (github.base_ref == 'production' || contains(github.event.pull_request.labels.*.name, 'alla-webbläsare')) }}
         run: |
-          # Chromium: ett jobb per post i tests/jobb.json. Firefox och WebKit (bara när ALLA är true): hela sviten i ett jobb.
+          # Ett jobb per post i tests/jobb.json, för Chromium alltid och för Firefox och WebKit när ALLA är true (#2171).
           matrix=$(node -e '
             const jobb = JSON.parse(require("fs").readFileSync("tests/jobb.json", "utf8"));
-            const m = jobb.map(j => ({ browser: "chromium", browserName: "Chromium", jobb: j.id, label: `Chromium, ${j.namn}`, bredd: j.bredd, endast: j.endast, utan: j.utan, timeout: 25 }));
-            if (process.env.ALLA === "true") for (const [id, name] of [["firefox", "Firefox"], ["webkit", "WebKit"]]) m.push({ browser: id, browserName: name, jobb: "allt", label: name, bredd: "", endast: "", utan: "", timeout: 60 });
+            const m = [];
+            const motorer = [["chromium", "Chromium", 25]];
+            if (process.env.ALLA === "true") motorer.push(["firefox", "Firefox", 45], ["webkit", "WebKit", 45]);
+            for (const [id, name, timeout] of motorer) for (const j of jobb) m.push({ browser: id, browserName: name, jobb: j.id, label: `${name}, ${j.namn}`, bredd: j.bredd, endast: j.endast, utan: j.utan, timeout });
             console.log(JSON.stringify(m));
           ')
           echo "matrix=$matrix" >> "$GITHUB_OUTPUT"
@@ -62,12 +64,12 @@ jobs:
     needs: planera
     name: Öppna sidan i ${{ matrix.test.label }}
     runs-on: ubuntu-latest
-    # Chromium delades i tre jobb (#864), sedan i fyra (#1005) och till sist i nio (#1184, #1649, #1665): varje jobb får 25 minuter (mål cirka 15). Före delningen tog allt i ett
+    # Chromium delades i tre jobb (#864), sedan i fyra (#1005) sedan i nio (#1184, #1649, #1665) och till sist i elva (#1973: dator2 och mobil2): varje jobb får 25 minuter (mål cirka 15). Före delningen tog allt i ett
     # jobb 24 minuter på main och 30 räckte inte alltid (#863, docs/beslut/2026-11-07-chromium-tidsgrans-30-minuter.md).
-    # Firefox och WebKit (bara på release-PR:en) är långsammare utan grafikkort: Firefox nådde 20 minuter utan att bli
-    # klar inför v5.0.0, så de körs i ett jobb vardera. De fick först 45 minuter och sedan 60: Firefox nådde 42–45 minuter på CI
-    # 2026-11-14 och avbröts av 45-minutersgränsen på PR #1601, och ett avbrutet jobb ger inget svar eftersom resultaten skrivs ut först
-    # när jobbet är klart (docs/beslut/2026-11-14-firefox-webkit-tidsgrans-60.md).
+    # Firefox och WebKit (bara på release-PR:en och med etiketten alla-webbläsare) är långsammare utan grafikkort. De kördes först i ett
+    # jobb vardera med 45 och sedan 60 minuter (docs/beslut/2026-11-14-firefox-webkit-tidsgrans-60.md), men WebKits dator-omgång ensam
+    # tog över 60 minuter (körning 44948040892, #2171). De körs därför i samma elva jobb som Chromium, med 45 minuter per jobb
+    # (docs/beslut/2026-11-22-firefox-webkit-delas-2171.md).
     timeout-minutes: ${{ matrix.test.timeout }}
     strategy:
       fail-fast: false
@@ -180,11 +182,17 @@ jobs:
           for i in $(seq 50); do curl -sf -o /dev/null "http://localhost:$PORT/" && exit 0; sleep 0.2; done
           echo "::error::webbservern svarar inte"; cat "$RUNNER_TEMP/server.log"; exit 1
 
+      - name: Tangentbordsfokus från platskort till karta (#1950)
+        if: matrix.test.browser == 'chromium' && matrix.test.jobb == 'plats'
+        env:
+          SKARMBILDER: skarmbilder
+        run: NODE_PATH="$RUNNER_TEMP/pw/node_modules" node tests/regionfokus.mjs "$PORT"
+
       - name: Kör webbläsartestet (tests/webblasare.mjs)
         env:
           BROWSER: ${{ matrix.test.browser }}
           SKARMBILDER: skarmbilder
-          # Jobbets urval (#864), ur tests/jobb.json; tomma för Firefox och WebKit, som kör hela sviten
+          # Jobbets urval (#864), ur tests/jobb.json, samma för alla tre motorer (#2171)
           BREDD: ${{ matrix.test.bredd }}
           ENDAST: ${{ matrix.test.endast }}
           UTAN: ${{ matrix.test.utan }}

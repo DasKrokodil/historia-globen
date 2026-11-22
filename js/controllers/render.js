@@ -7,6 +7,7 @@ import { LANG, ui } from '../i18n.js';
 import { ZOOM_LEVELS, zoomLevel, pxPerImg, zoomView, eventKeepouts } from '../ui/zoomlevels.js';
 import { empireStory } from '../ui/funfact.js';
 import { rangeParts, rangeText } from './range.js';
+import { PREHISTORY_LAST } from '../time-scale.js';
 
 /**
  * Yngre läsare (#1191): en lektion för årskurs F-3 eller 4-6, eller Samtidighetsjakten, som riktar sig till elever upp till
@@ -183,6 +184,7 @@ export function createRender(app) {
     // Alla lager väljer vad som syns (beslut 2), i registrets ordning
     visible = registry.update(state).events;
     timeline.setMarks(registry.marks(state), { curated: !!state.tag });
+    layers.setCoverage(registry.coverage(state)); // raden i Lager om påslagna lager som saknar data i året (#1960)
     prefetchDetails();
     const rangeLabel = range && rangeText(range.from, range.to);
     // Ett tema (#398) och en plats (#579) är urval av händelser: ett år utan träff förklaras, med nästa händelse
@@ -193,7 +195,8 @@ export function createRender(app) {
       : ui(emptyText.year);
     panel.render(visible, wholeYear, window, eventsOn, range ? { at: ui('range.at', { range: rangeLabel }), bare: rangeLabel, within, range }
       : fine ? { at: ui('time.onDate', { date: timeline.format(year) }), bare: timeline.format(year), within, fine: true }
-      : themeEmpty ? { themeEmpty, within } : { within });
+      // Före 3000 f.Kr. säger en tom lista att det inte finns fynd i vår data där, inte att något saknas (#1958)
+      : themeEmpty ? { themeEmpty, within } : { within, prehistory: wholeYear <= PREHISTORY_LAST });
     // Etiketten "Områden visas för år N" (#756) när riken eller religioner syns, och hur många markörer gränsen döljer
     app.range?.render(visible.filter(v => v.inside).length, { areasYear: areas.enabled || religions.enabled ? areaYear : null, capped: layer.capped });
     // Samma markörer i Platt vy (#313): de som syns på klotet, de i listan får klustras och etikett
@@ -227,7 +230,8 @@ export function createRender(app) {
     $('year-segment').textContent = range ? ui('range.segment')
       : focus ? pluralUi(fine ? 'time.followDays' : 'time.followYears', fine ? Math.round(window * 365.25) : Math.round(window), { name: focus.short })
       : asym ? ui('time.windowYearsAsym', { where: formatWindowYear(year), ...spanVars })
-      : pluralUi(youngReaders() ? 'time.windowYearsWords' : 'time.windowYears', roundWindow(window), { where: formatWindowYear(year), n: groupDigits(roundWindow(window)) });
+      // Tidsfönstret ska vara begripligt också på skärmen, inte bara i den dolda skärmläsartexten (#1307).
+      : pluralUi('time.windowYearsWords', roundWindow(window), { where: formatWindowYear(year), n: groupDigits(roundWindow(window)) });
     // Tonade markörer är nära i tid, inte samtida (#1191): förklaringen står i title och som dold text för skärmläsare
     const windowNote = range || focus ? '' : asym ? ui('time.windowNoteAsym', spanVars)
       : pluralUi('time.windowNote', roundWindow(window), { n: groupDigits(roundWindow(window)) });

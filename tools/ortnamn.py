@@ -28,7 +28,9 @@ Punkten för ett namn är den punkt i ett rutnät över ramen som ligger inne i 
 (en enkel "pol för otillgänglighet"). Ett område utan en enda sådan punkt tas inte med.
 
 Namnen: Natural Earths NAME_SV, NAME_EN, NAME_DE, NAME_ES och NAME_FR (name_sv … för haven). Saknas ett språk används engelska
-(NAME_EN, annars NAME), och språket står då i fallback, så att det syns att namnet inte är översatt. Inga namn skrivs för hand.
+(NAME_EN, annars NAME), och språket står då i fallback, så att det syns att namnet inte är översatt. Inga namn skrivs för hand,
+utom undantagen med källa i NAME_OVERRIDES (ett språk med äldre namn, #1689); en ort med rättat namn får fältet wikidata.
+Havsgränser (#1689): SEA_EAST_LIMIT håller ett havs namnpunkt väster om havets östgräns enligt IHO (Indiska oceanen).
 Koordinaterna avrundas till tre decimaler för orter (cirka 100 m) och två för namnens punkter (cirka 1 km). En omkörning ger tom diff.
 
 Kompletteringen (#1676): orter som händelser på platsen pekar på men som Natural Earth saknar (Lund, Ribe, Jelling …) står för hand
@@ -77,6 +79,22 @@ KOMPLETTERING = ROOT / 'data' / 'ortnamn-komplettering.json'
 KOMPLETTERING_RANK = 10
 DUPLICATE_KM = 2
 KINDS = {'Admin-0 capital': 'capital', 'Admin-0 capital alt': 'capital', 'Admin-1 capital': 'admin1-capital'}
+# Havsgränser (#1689): Natural Earths polygon för ett hav kan gå längre än havets gräns enligt IHO, så att namnpunkten hamnar i ett
+# annat hav. Här står den längdgrad som namnets punkt inte får ligga öster om (east) och källan. Indiska oceanen: IHO:s gräns mot
+# Stilla havet söder om Australien är meridianen 146°49′ Ö från South East Cape på Tasmanien (källa iho-hav-granser, Limits of
+# Oceans and Seas, 3:e upplagan 1953, enligt Wikipedia). Natural Earths polygon når till Aucklandöarna söder om Aotearoa, och namnet
+# stod där (162,43° Ö) i Stilla havet. Punkten prövas bara mellan 0° och gränsen; polygonen ligger helt öster om 0°.
+SEA_EAST_LIMIT = {
+    1159115123: (146 + 49 / 60, 'iho-hav-granser'),  # Indian Ocean
+}
+# Ortnamn där ett av Natural Earths språk har ett äldre namn (#1689). Bara med öppnad källa: ortens officiella namn (Wikidata P1448,
+# med datum) och samma namn som Natural Earths övriga språk redan har. Orten får fältet wikidata, så att det syns var namnet kommer
+# ifrån. Naujaat (Nunavut): officiellt namn Naujaat sedan 2015-07-02 enligt Wikidata (Q1723761, P1448); NAME_SV har det äldre
+# Repulse Bay medan en, de, es och fr har Naujaat. Wikidatas svenska etikett är också Repulse Bay, men den har inget datum och är
+# inget officiellt namn.
+NAME_OVERRIDES = {
+    1159151045: {'wikidata': 'Q1723761', 'name': {'sv': 'Naujaat'}},
+}
 
 
 def load(cache, key):
@@ -179,10 +197,11 @@ def grid_km(fr, own):
     return 2 * 6371.0 * np.arcsin(np.sqrt(np.clip(best, 0.0, 1.0)))
 
 
-def label_point(geom, fr, reach=None):
+def label_point(geom, fr, reach=None, east=None):
     """Punkten i ett rutnät över ramen som ligger inne i området och längst från områdets och ramens kant, eller None.
     reach = (km, max_km): bara punkter högst max_km från platsens gräns (km per punkt ur grid_km), och den gränsen räknas som en
-    kant till (landsmarginalen, #1690)."""
+    kant till (landsmarginalen, #1690). east: havets östgräns i grader (SEA_EAST_LIMIT, #1689); punkter öster om den, eller
+    väster om 0°, räknas inte."""
     rings = rings_of(geom, fr)
     if not rings:
         return None
@@ -212,6 +231,9 @@ def label_point(geom, fr, reach=None):
     if reach is not None:
         km, max_km = reach
         edge = np.minimum(edge, (max_km - km) / KM_PER_DEG)
+    if east is not None:
+        lon = ((px + 180) % 360) - 180
+        inside &= (lon >= 0) & (lon <= east)
     score = np.where(inside, np.minimum(dist, edge), -1)
     i = int(score.argmax())
     if score[i] <= 0:
@@ -323,10 +345,16 @@ def build(place, ne_places, marine, countries):
     out['places'] = []
     for _, rank, _, ne_id, p, x, y in found[:MAX_PLACES]:
         nm, fb = names(p, True)
+        fix = NAME_OVERRIDES.get(ne_id)
+        if fix:
+            nm.update(fix['name'])
+            fb = [l for l in fb if l not in fix['name']]
         item = {'id': f'ne-{ne_id}', 'kind': KINDS.get(p['FEATURECLA'], 'place'), 'rank': rank,
                 'coordinates': [round(x, 3), round(y, 3)], 'name': nm}
         if fb:
             item['fallback'] = fb
+        if fix:
+            item['wikidata'] = fix['wikidata']
         out['places'].append(item)
 
     for extra in komplettering().get(place['id'], []):
@@ -384,7 +412,7 @@ def build(place, ne_places, marine, countries):
         p = f['properties']
         if not p.get('name'):
             continue
-        pt = label_point(f['geometry'], fr)
+        pt = label_point(f['geometry'], fr, east=SEA_EAST_LIMIT.get(p['ne_id'], (None,))[0])
         if pt is None:
             continue
         seas.append((p.get('scalerank') if p.get('scalerank') is not None else 99, p['ne_id'], p, pt))

@@ -1,0 +1,4 @@
+== {{int:license-header}} ==
+{{self|GFDL|cc-by-sa-3.0,2.5,2.0,1.0}}
+{{PD-old-100}}
+{{Personality rights}}

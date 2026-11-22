@@ -3,11 +3,13 @@
 // placeringen i varje bildruta utan överlapp.
 import { CAT, t, formatYear, formatEventTime, formatDirection, edtfSpan, dayParts } from '../model.js';
 import { markerInfo, describeMarker } from '../layers/events.js';
-import { cluster, clusterContents, placeLabels, dotBox } from '../ui/clusters.js';
+import { cluster, clusterContents, placeLabels, dotBox, labelOpacity } from '../ui/clusters.js';
 import { globeEmpireBlocks } from '../ui/zoomlevels.js';
 
 const narrowView = matchMedia('(max-width: 760px)');
 const UI_OVER_GLOBE = '.brand, #year-jump, #year-segment, .top-actions > .chip-btn, .action-group, #religion-legend';
+// Rutan med rubrik, årtal och förklaringen under (#1713): ligger över globen i alla bredder, också i bred skärm där den annars låg över etiketterna
+const UI_MASTHEAD = '.masthead';
 const UI_BOTTOM = '.timebar .controls > *, #war-play, #pause-note, #focus-bar';
 
 export function createLabels(app) {
@@ -22,8 +24,13 @@ export function createLabels(app) {
     // Utanför Fokus säger tidsfönstrets händelser hur långt före eller efter året de ligger: "4 år före (1912)" eller
     // "om 2 år (1918)" (#995). Orden står i språkfilen, och model.js räknar avståndet och formaterar året så att även f.Kr. blir rätt (#434).
     const st = layer.state.get(e.id);
-    if (!focus && !state.range && (st?.when === 'past' || st?.when === 'future')) text += ` · ${formatDirection(st.when, state.wholeYear, st.when === 'past' ? e.end : e.start)}`;
+    if (isNearInTime(e)) text += ` · ${formatDirection(st.when, state.wholeYear, st.when === 'past' ? e.end : e.start)}`;
     return text;
+  }
+  /** En händelse i tidsfönstret som inte pågår vid årets val: den som får raden "4 år före" i etiketten (#995). */
+  function isNearInTime(e) {
+    const when = layer.state.get(e.id)?.when;
+    return !state.focus && !state.range && (when === 'past' || when === 'future');
   }
   /** Ett krig som pågår det här året (inte ett som bara ligger i tidsfönstret): dess etikett går före rikesnamnen (#1022). */
   const isWarNow = e => e.kind === 'war' && layer.state.get(e.id)?.when === 'now';
@@ -32,6 +39,8 @@ export function createLabels(app) {
       el._text = text;
       el.innerHTML = `<span class="dot" style="background:${CAT[e.category]?.color}"></span>${text.replace(/</g, '&lt;')}`;
     }
+    // "Nära i tid" skiljs från "pågår" med mer än färgstyrka (#1318): texten står i kursiv, i alla språk och i båda vyerna
+    el.classList.toggle('glabel-near', isNearInTime(e));
     // Samma betydelse som medaljen, i ord (#242): tidsläge, betydelse och osäkerhet
     const desc = `${t(e.title)}, ${formatEventTime(e)}: ${describeMarker(markerInfo(e, layer.state.get(e.id)?.when))}`;
     if (el._desc !== desc) { el._desc = desc; el.setAttribute('aria-label', desc); el.title = desc; }
@@ -127,7 +136,7 @@ export function createLabels(app) {
       const blocked = [];
       {
         const c = globe.canvas.getBoundingClientRect();
-        for (const el of document.querySelectorAll(narrowView.matches ? `${UI_OVER_GLOBE}, ${UI_BOTTOM}` : UI_BOTTOM)) {
+        for (const el of document.querySelectorAll(narrowView.matches ? `${UI_OVER_GLOBE}, ${UI_BOTTOM}` : `${UI_MASTHEAD}, ${UI_BOTTOM}`)) {
           if (el.hidden || !el.offsetParent) continue;
           const r = el.getBoundingClientRect();
           if (r.width) blocked.push({ x0: r.left - c.left - 4, x1: r.right - c.left + 4, y0: r.top - c.top - 4, y1: r.bottom - c.top + 4 });
@@ -146,7 +155,7 @@ export function createLabels(app) {
         fillLabel(el, e, text);
         el.classList.toggle('glabel-hover', e.id === hoverId);
         el.style.transform = `translate(${x}px, ${y}px) translate(-50%, -100%)`;
-        el.style.opacity = String(Math.min(1, (p.facing - 0.2) * 4));
+        el.style.opacity = String(e.id === hoverId ? 1 : labelOpacity(p.facing)); // läsbar eller dold, aldrig en svag skugga (#1318)
         el.hidden = false;
         seen.add(e.id);
       }

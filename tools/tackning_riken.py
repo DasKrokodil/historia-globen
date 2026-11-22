@@ -23,6 +23,7 @@ from shapely.ops import unary_union
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from riken import GROUPS, km2  # noqa: E402
+from cliopatria_ar import las_cliopatria  # noqa: E402  (#1989)
 
 YEARS = list(range(-3399, 1, 100)) + list(range(100, 1500, 100)) + list(range(1500, 2025, 25)) + [2024]
 STEP = {y: (100 if y < 1500 else 25) for y in YEARS}  # hur många år ett provår står för (-3399 = 3400 f.Kr.)
@@ -65,7 +66,7 @@ def continent(lon, lat):
 
 
 def main():
-    src = json.loads(Path(sys.argv[1]).read_text())
+    src = las_cliopatria(sys.argv[1])  # astronomiska år som i GROUPS (#1989)
     feats = []
     for f in src['features']:
         p = f['properties']

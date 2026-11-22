@@ -116,12 +116,12 @@ Byggt på grenen `claude/issue-1152-europa-2`. Källorna öppnades 2026-11-14.
 | Konungariket Danmark | fanan 1370–1624, Dannebrog som flagga (`flag`) 1625–1939 | Gelre: cirka 1340–1370 enligt Wikipedia, 1395–1402 enligt Commons filsida (Källorna skiljer sig). 1625 som erkänd nationsflagga enligt Dannebrog-artikelns faktaruta. Gruppen omfattar också Danmark-Norge och Danmark 1815–1939. Flaggans bild har måtten från 1748 även 1625–1747. Medaljens plats (efter historikergranskningen, beslutet 2026-11-12 om medaljplats): Cliopatrias etikettpunkt låg på Island 1814–1921 och på en yta om 73 km² i norra Finland 1402–1406. `labelAt` sätter Jylland [9.4, 56.4] för 1814–1921 (punkten ligger inne i källans yta alla de åren, kontrollerat med skript) och ingen medalj 1402–1406. Danmark-Norge 1526–1813 står kvar i Norge |
 | Kastilianska kronan | 1400–1474 | Heraldry of Castile: fyrdelningen sedan 1230, men avsnittet är märkt som otillräckligt belagt, så året 1400 från beslutet gäller. Faktarutan anger inte lejonets färg, eftersom texten i källorna inte gör det; teckningen följer bilden på Commons. Från 1475 förenades Kastiliens och Aragoniens vapen, därför slutar symbolen 1474 |
 
-**Steg 2, nutida flaggor** (`flag`, från gruppens eller delens start och aldrig före antagandet): Portugal 1976–, Serbien 2006– (delen Serbien; Förbundsrepubliken Jugoslavien och Serbien och Montenegro får ingen flagga), Kroatien 1992–, Slovakien 1992–, Albanien 1992– (1991 hade flaggan stjärnan, inte ritad), Moldavien 1992–, Nordmakedonien 1995– (Kutlesh-flaggan 1992–1995 inte ritad), Slovenien 1992–, Kosovo 2008– (`docs/omstridda-granser.md`), Montenegro 2006– och Malta 1967–. Riksvapnen är kraftigt förenklade.
+**Steg 2, nutida flaggor** (`flag`, från gruppens eller delens start och aldrig före antagandet): Portugal 1976–, Serbien 2006– (delen Serbien; Förbundsrepubliken Jugoslavien och Serbien och Montenegro får ingen flagga), Kroatien 1992–, Slovakien 1992–, Albanien 1992– (1991 hade flaggan stjärnan, inte ritad), Moldavien 1992–, Nordmakedonien 1995– (Kutlesh-flaggan med Verginasolen 1992–1994 avgjord av DasKrokodil 2026-11-20 och byggd, se uppföljningen nedan), Slovenien 1992–, Kosovo 2008– (`docs/omstridda-granser.md`), Montenegro 2006– och Malta 1967–. Riksvapnen är kraftigt förenklade.
 
 **Återstår i Europa:**
 - Moskvariket: väntar på en andra källa för sigillets år (1489).
 - "vänta" i tabellen: Spanien, Rumänien, Belarus, Grekland, Ungern, Österrike, Lettland, Litauen (nutida), Bosnien och Hercegovina, Estland, Kungariket England, Kungariket Ungern och Första bulgariska riket. Var och en behöver en andra källa eller ett beslut.
-- Äldre flaggor för nutida stater som inte är byggda: Bulgarien före 1990, Italien före 1946, Tyskland före 1991, Albanien 1991, Nordmakedonien 1992–1995 och Schweiz 1648–1815.
+- Äldre flaggor för nutida stater som inte är byggda: Bulgarien före 1990, Italien före 1946, Tyskland före 1991, Albanien 1991 och Schweiz 1648–1815. (Nordmakedonien 1992–1994 är avgjort och byggt 2026-11-20.)
 - "ingen": Novgorod, Córdoba, Frankerriket, Kalmarunionen och Neutrala Moresnet byggs inte.
 
 Därmed har alla rader i tabellen "Europa" med "bygg" en symbol eller flagga, utom Moskvariket.
@@ -140,7 +140,7 @@ Rättat i den här pull requesten:
 - **SVG-filerna för Slovenien, Nordmakedonien och Montenegro:** public domain-grunden är osäker på Commons själv, och banorna är kopierade. Ska de ritas om eller behållas med en not?
 - **Kastiliens lejon** är ritat i purpur (`#8a1c4e`). Ingen öppnad källa anger färgen, och faktarutan säger inget om den.
 - **Litauen 1410–1449:** slutåret är rikets slut i datan, inte något källan säger om fanan.
-- **Malta** visas från 1967 (rikets start i datan) trots att flaggan antogs 1964. **Nordmakedonien** 1992–1994 och **Serbien** 1992–2005 saknar tecken.
+- **Malta** visas från 1967 (rikets start i datan) trots att flaggan antogs 1964. **Serbien** 1992–2005 saknar tecken. (Nordmakedonien 1992–1994: avgjort av DasKrokodil 2026-11-20 och byggt, se uppföljningen nedan.)
 
 Luckor (blockerar inte): Andorra, Liechtenstein och San Marino saknar flagga. Enligt geografens räkning har Europa nu symbol eller flagga på 35 av 54 grupper (65 %), mot Asien 20 av 67 och Afrika 14 av 60, så nästa omgångar bör gå dit.
 
@@ -207,6 +207,249 @@ Byggt på grenen `claude/issue-1154-afrika-2`. Källorna öppnades 2026-11-14: "
 **Expertgranskning:** arbetaren kunde inte kalla in `historiker` och `geograf` (inget verktyg för underagenter). Fakta, källor och etikettpunkter granskas separat av en Claude Code som inte byggde ändringen.
 
 **Medaljens plats:** etikettpunkten för varje grupp och år med flagga ligger inom Cliopatrias yta och i rätt land i Natural Earth 1:50m admin-0 (kontrollskriptet från #1194 och #1497). Ingen `labelAt` behövdes. Wikidata-id för varje del är kontrollerat mot Wikidata (till exempel Q1014 Liberia, Q958 Sydsudan, Q1049 Sudan).
+
+## Uppföljning 2026-11-20: Amerika (#1155)
+
+Byggt på grenen `claude/issue-1155-amerika-2`, från dagens `main`. Omgång 1 (grenen `claude/issue-1155-flaggor-amerika-1`, sju flaggor) är förd hit och källorna lästa igen. Källorna öppnades 2026-11-20: "Flag of …" på Wikipedia för åren och Commons-filsidan för licensen. Alla Commons-filer som används är public domain. Ingen flagga visas före antagandeåret eller utanför gruppens år.
+
+| Grupp | Visas | Anmärkning |
+|---|---|---|
+| USA | 1960–2024 | 50 stjärnor från 1960-07-04, "The last adjustment was made in 1960". 1776–1959 är en lucka (stjärnorna ändrades många gånger) |
+| Brasilien | 1992–2024 | 27 stjärnor från 1992-05-11. Republikens flagga 1889 hade 21 stjärnor; 1889–1991 är en lucka |
+| Paraguay | 2013–2024 | Teckningen är den reviderade från 2013-07-15. Bara framsidan med riksvapnet ritas |
+| Guyana | 1967–2024 | Antagen 1966-05-26; gruppen börjar 1967 |
+| Surinam | 1976–2024 | Antagen 1975-11-25. Gruppen börjar nu 1820 (kolonin), men flaggan visas först från 1976 |
+| Kuba | 1906–2024 | Antagen 1902-05-20, färgen ändrad 1906 (dekret 21 april i texten, 24 april i en referens). 1908–1910 har kartan ingen yta för landet |
+| Saint Vincent och Grenadinerna | 1985–2024 | Antagen 1985-10-12; en liknande flagga användes före 1985 och ingår inte |
+| Mexiko | 1968–2024 | Antagen 1968-09-16, bekräftad i lag 1984-02-24. Vapnet bygger på aztekernas tecken för Tenochtitlan (står i faktarutan). Äldre flaggor hade ett annat vapen och visas inte |
+| Ecuador | 1860–1899 och 1900–2024 | Den enkla trikoloren: nationsflagga från 1860-09-26, civil- och handelsflagga från 1900, när nationsflaggan fick vapnet (1900-10-31). Nationsflaggan med vapnet ritas inte |
+| Dominikanska republiken | 1913–2024 | Flaggan med vapnet från 1863-11-06, men vapnet har ändrats minst 21 gånger; teckningen visar dagens vapen, från 1913 enligt artikeln om vapnet. Faktarutan säger sakligt att Wikipedia kallar korset ett Sankt Georgskors, att vitt står för frälsning och att blått från början stod för Guds beskydd, och att vapnet har en bibel och ett kors. 1916–1923 har kartan ingen yta för landet |
+| Belize | 2019–2024 | Antagen 1981-09-21. Före 2019 fanns inga fastställda mått, och nyanser och skuggning varierade; teckningen är den standardiserade från 2019-08-28. 1983–2018 är en lucka |
+
+**Förenkling av vapnen:** Commons-filerna för Mexiko (117 kB), Dominikanska republiken (204 kB) och Belize (72 kB) är förenklade med skript: koordinaterna avrundade till hela bildpunkter i en 300 bildpunkter bred teckning (med spårning, så att felet inte växer längs banan), kurvor under en bildpunkt gjorda raka, element mindre än en bildpunkt borttagna och id och metadata strukna. Inget i vapnen är ritat på nytt. Fälten är omritade i 3:2 och vapnen har kvar sin form (Mexikos vapen är tre fjärdedelar av det vita fältet, som lagen säger). Resultat: Mexiko 37 kB, Dominikanska republiken 23 kB och Belize 21 kB; den största befintliga filen i `img/flags/` är Fiji med 40 kB. Jämfört bild för bild med originalet i 600 bildpunkters bredd är skillnaden bara i smådetaljer; texten på banden blir otydlig, men den syns inte i kartans storlek (högst 72 bildpunkter i faktarutan).
+
+**Källorna skiljer sig:**
+- Dominikanska republiken: Wikipedia anger 1863-11-06 för flaggan; filsidan på Commons daterar teckningen till 1908-03-21, och artikeln om vapnet visar dagens vapen från 1913. Kartan visar teckningen från 1913, det senare året. Står i faktarutan.
+- Ecuador: ingressen säger att trikoloren först antogs i lag 1835, medan tabellen över flaggans historia visar andra flaggor 1830–1860. Före 1860 visas ingen flagga. Står i faktarutan.
+- Kuba: 21 april 1906 i texten och 24 april 1906 i en referens; samma år, påverkar inte kartan.
+
+**Väntar:**
+- **Belize 1983–2018:** Commons-filen för flaggan före standardiseringen (`Flag of Belize (1981–2019).svg`) svarade 429 vid alla försök. Den är dessutom en användares egen teckning av en flagga utan fastställd form, så den bör prövas med en granskare innan den används.
+- **USA före 1960, Brasilien 1889–1991, Paraguay 1842–2012, Mexiko före 1968, Ecuador med vapnet (1900–2009 och från 2009) och Dominikanska republiken 1863–1912:** äldre versioner med andra stjärnor eller vapen; var och en behöver egen källkontroll och egen teckning.
+- "vänta" i tabellen (Venezuela, Haiti, Nicaragua, Panama, El Salvador, Dominica) är inte prövade igen och inte byggda.
+
+**Medaljens plats:** `tools/flaggkontroll.py` (Natural Earth 1:50m admin-0) går igenom utan fel för alla elva grupper; Brasilien, Saint Vincent och Grenadinerna och Dominikanska republiken fick alias för Natural Earths namn, så att de nu kontrolleras. Ett extra skript prövade att etikettpunkten ligger inne i Cliopatrias yta varje år med flagga: inga fel, och åren utan yta (Kuba 1908–1910, Dominikanska republiken 1916–1923) visar ingen medalj. Ingen `labelAt` behövdes. På kartan (Playwright, 2026-11-20) syns flaggorna på rätt land, till exempel Guyana 2015, USA och Mexiko 2000, Ecuador 1880 och 2000 och Belize 2020, och Mexiko 1960 och Belize 2010 visar ingen flagga, utan konsolfel. I 400 px bredd syns inte Belizes medalj ens vid största zoom, eftersom grannarnas namn och medaljer tar platsen; Guatemala beter sig likadant, så det är kartans vanliga regel för krockar.
+
+**Skärmbilder:**
+- Karibien och Mexiko 2020, dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1155/karibien-mexiko-2020-1280.webp
+- Belize 2020, dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1155/belize-2020-1280.webp
+- Guyana och Ecuador 2015, dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1155/guyana-ecuador-2015-1280.webp
+- Dominikanska republiken 2000, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1155/dominikanska-republiken-2000-400.webp
+- Mexiko 2000, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1155/mexiko-2000-400.webp
+- Ecuador 1880, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1155/ecuador-1880-400.webp
+
+**Expertgranskning:** arbetaren hade inget verktyg för att kalla in underagenter (`historiker`, `geograf`, `sprak-en`, `sprak-de`, `sprak-es`, `sprak-fr`). Fakta, källor, medaljernas plats och de nya texterna på fem språk granskas därför separat av en Claude Code som inte byggde ändringen.
+
+## Uppföljning 2026-11-20: Afrika omgång 3 (#1154)
+
+Byggt på grenen `claude/issue-1154-afrika-3`, från dagens `main`. Källorna öppnades 2026-11-20: "Flag of …" på engelska Wikipedia för åren och Commons-filsidan för licensen. Ingen flagga visas före antagandeåret eller utanför gruppens år. Alla grupper hade redan `modernState`.
+
+| Grupp | Visas | Fil (storlek) | Anmärkning |
+|---|---|---|---|
+| Burkina Faso | 1961–1983 och 1984–2024 | `upper-volta` (0,2 kB), `burkina-faso` (0,3 kB) | Övre Voltas svart-vit-röda flagga från självständigheten; Burkina Fasos flagga antagen 1984-08-04 |
+| Kamerun | 1961–1974 | `cameroon-1961` (0,5 kB) | Förbundsrepublikens flagga med två stjärnor i det gröna fältets övre del, enligt artikeln och Commons-filen (stjärnornas plats och storlek ur filen). Fyller luckan mellan flaggorna 1960 och från 1975 |
+| Tanzania | 1961–1963 | `tanganyika` (0,2 kB) | Tanganyikas gröna flagga med svart band kantat i gult, från självständigheten 1961-12-09; Tanzanias flagga antogs 1964-06-30 och visas som förut från 1964 |
+| Rwanda | 1963–2001 | `rwanda-1961` (0,5 kB) | Rött, gult och grönt med svart R, från slutet av september 1961 till 2001-12-31. Med flaggan från 2002 har gruppen nu flagga alla år. Wikipedia säger att RPF-regeringen 1999 ville byta flaggan eftersom den förknippades med folkmordet, och att kritiker såg bytet som ett sätt att markera RPF:s makt; etiketten är saklig ("Rwandas flagga 1961–2001") |
+| Kenya | 1963–2024 | `kenya` (1,6 kB) | Antagen 1963-12-12. Masajskölden och spjuten är Commons-filens former |
+| Uganda | 1963–2024 | `uganda` (2,8 kB) | Antagen 1962-10-09; gruppen börjar 1963. Kronkranen är Commons-filens former |
+| Angola | 1976–2024 | `angola` (1,3 kB) | Antagen 1975-11-11; gruppen börjar 1976 |
+| Zimbabwe | 1980–2024 | `zimbabwe` (2,1 kB) | Antagen 1980-04-18. Gruppens Rhodesia 1967–1978 och Zimbabwe-Rhodesia 1979 har ingen flagga |
+| Eswatini | 1969–2024 | `eswatini` (5,2 kB) | Antagen 1968-10-06; gruppen börjar 1969. Teckningen är huvudversionen med blå tofsar; varianterna med svarta tofsar (från 2011) och ljusare färger är samma flagga |
+| Zambia | 1996–2024 | `zambia` (4,0 kB) | Flaggan från 1964 ändrades 1996-04-13: ljusare grönt och örnen omritad efter riksvapnet. Teckningen är 1996 års version och visas därför först från 1996 |
+| Eritrea | 1996–2024 | `eritrea` (4,3 kB) | Antagen 1995-12-05, alltså från 1996 på årsnivå (som Rwanda 2001-12-31) |
+
+**Förenkling av emblemen:** Commons-filerna är förenklade med ett skript, utan att något ritas nytt: varje form transformeras till en teckning 300 × 200 bildpunkter, koordinaterna avrundas till en tiondels bildpunkt, kurvor som avviker mindre än 0,3 bildpunkter från en rak linje blir raka, delbanor mindre än 0,8 bildpunkter tas bort och id, metadata och upprepningar (`use`) skrivs ut. Jämfört med originalet i 960 × 640 skiljer sig högst 0,05 % av bildpunkterna (kanter). Zimbabwe och Eritrea har proportionen 1:2: banden och trianglarna är utdragna till 3:2, medan fågeln och stjärnan, den vita triangeln (Zimbabwe) och kransen (Eritrea) har kvar sin form; där är skillnaden mätt bara på emblemet. Alla nya filer är under 6 kB; den största befintliga är Fiji med 40 kB.
+
+**Källorna skiljer sig:**
+- Kamerun 1961–1974: Wikipedia säger att stjärnorna var guldfärgade och mörkare än det gula bandet; Commons-filen (efter en konstruktionsritning från 1961) har samma gula som bandet. Teckningen följer filen. Wikipedia anger inget exakt datum 1961; året följer perioden och filnamnet (1961–1975).
+- Rwanda: Commons-filens tidigare namn säger 1962–2001; artikeln och filsidans datum säger september 1961. Gruppen börjar 1963, så det ändrar inget på kartan.
+- Övre Volta: artikeln säger att flaggan antogs vid självständigheten; Commons filsida säger 1959–1984 (redan noterat i omgång 2). Gruppen börjar 1961.
+- Tanganyika: filnamnet säger 1961–1964; Tanzanias flagga antogs 1964-06-30, så Tanganyikas visas till och med 1963.
+- Tanganyika, bandens mått: filhistoriken på Commons har en version från 2013-03-03 med förhållandet 13:3:13:3:13 ("follows the flag of tanzania"), som samma dag rättades "according to source" till lika breda gröna och svarta band och gula band på "1/16 of the flag's width" (i filen 3 av 48 i höjd, alltså 1/16 av höjden), det vill säga 14:3:14:3:14. Den nuvarande filen och teckningen har 14:3:14:3:14.
+
+**Licenser:** Alla Commons-filer som används är public domain (PD-Kenya, PD-Uganda, PD-Angola, PD-Zimbabwe, PD-Zambia, PD-Rwanda, PD-Eritrea, PD-ineligible, PD-shape, PD-self, PD-OpenClipart; Eritrea-filen är också märkt CC0 1.0), utom Tanganyikas SVG, som är CC BY-SA 3.0 och GFDL. Tanganyikas teckning är därför egen: fem raka band med de mått som filsidan hänvisar till (Flag Bulletin via FOTW). Filsidan står som källa med sin licens.
+
+**Väntar i Afrika:**
+- **Zambia 1967–1995** (flaggan från 1964 med mörkare grönt och äldre örn) och **Eritrea 1993–1995** (14 blad på var sida, proportion 2:3): Commons-filerna `Flag of Zambia (1964–1996).svg` och `Flag of Eritrea (1993–1995).svg` svarade 429 vid alla försök under arbetet. Filsidorna är lästa: Zambia-filen är public domain (PD-Zambia, PD-ineligible); Eritrea-filen är en användares egen teckning "based on" dagens flagga (PD-self) och bör jämföras med källornas beskrivning (14 blad på var sida) innan den används. Eritrea 1992 har ingen belagd nationsflagga (lucka).
+- **Länder med många flaggbyten:** Libyen, Egypten, båda Kongo, Malawi, Lesotho, Burundi, Moçambique, Etiopien och Ekvatorialguinea, som förut.
+- "vänta" och "ingen" i tabellen är inte prövade igen.
+
+**Medaljens plats:** `tools/flaggkontroll.py` (Natural Earth 1:50m admin-0) går igenom utan fel för alla grupper; inga alias behövdes. Ingen `labelAt` behövdes. På kartan (Playwright, 2026-11-20, 1280 och 400 bildpunkters bredd, utan konsolfel) laddas rätt fil och flaggmarkören syns på rätt land: Tanzania 1962 (Tanganyika), Kenya, Uganda och Tanzania 1970, Burkina Faso och Kamerun 1970 (Övre Volta, två stjärnor) och 1990, Rwanda 1990 (R) och 2010, Angola, Zambia, Zimbabwe och Eswatini 2000 och Eritrea 2000. Angola, Zambia och Zimbabwe 1975 och Eritrea 1994 visar ingen flagga.
+
+**Skärmbilder:**
+- Västafrika 1970 (Övre Volta, Kamerun med två stjärnor), dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1154/vastafrika-1970-1280.webp
+- Södra Afrika 2000 (Angola, Zambia, Zimbabwe, Eswatini), dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1154/sodra-afrika-2000-1280.webp
+- Östafrika 1962 (Tanganyika), dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1154/ostafrika-1962-1280.webp
+- Östafrika 1970 (Kenya, Uganda, Tanzania), mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1154/ostafrika-1970-400.webp
+- Rwanda 1990, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1154/rwanda-1990-400.webp
+- Eritrea 2000, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1154/horn-2000-400.webp
+
+**Expertgranskning:** arbetaren hade inget verktyg för att kalla in underagenter (`historiker`, `geograf`, `sprak-en`, `sprak-de`, `sprak-es`, `sprak-fr`). Fakta, källor, medaljernas plats och etiketterna på fem språk granskas därför separat av en Claude Code som inte byggde ändringen.
+
+## Uppföljning 2026-11-20: Asien omgång 3 (#1153)
+
+Byggt på grenen `claude/issue-1153-asien-3`, från dagens `main`. Källorna öppnades 2026-11-20: "Flag of …" på engelska Wikipedia för åren och Commons-filsidan för licensen och teckningen. Ingen flagga visas före antagandeåret eller utanför gruppens år, och alla grupper hade redan `modernState`.
+
+| Grupp | Visas | Fil (storlek) | Anmärkning |
+|---|---|---|---|
+| Bhutan | 1969–2024 | `bhutan` (27 kB) | "in use since 1969" i artikeln, 1969 i infoboxen och på filsidan. Rikets rad börjar 1636; före 1969 är en lucka (flaggorna 1949 och 1956 bygger på fotografier och en av dem har "doubtful authenticity" enligt filsidan) |
+| Brunei | 1987–2024 | `brunei` (26 kB) | Flaggan med riksvapnet från 1959-09-29; gruppen börjar 1987. Vapnet med den arabiska skriften har kvar sin form, banden är utdragna från 1:2 till 3:2 |
+| Kazakstan | 1992–2024 | `kazakhstan` (15 kB) | Antagen 1992-06-04. Ornamentet står kvar vid stången och solen med örnen har sin form; fältet är utdraget från 1:2 till 3:2 |
+| Turkmenistan | 2001–2024 | `turkmenistan` (38 kB) | Den nuvarande versionen, proportion 2:3 och ljusare grönt från 2001-01-24. Versionerna 1992–1997 (1:2, utan olivkvistar) och 1997–2001 är inte ritade; 1992–2000 är en lucka |
+| Saudiarabien | 1973–2024 | `saudi-arabia` (17 kB) | Standardiserad 1973-03-15: "The design of the flag was not standardized prior to 15 March 1973". 1926–1972 är en lucka |
+| Libanon | 1944–1989 | `lebanon-1943` (4 kB) | Cedern med brun stam, 1943-12-07 till 1990-09-21 ("depicted naturalistically with a brown trunk"). Med flaggan från 1990 har gruppen nu flagga alla år |
+| Sydkorea | 1948 | `south-korea-1948` (1 kB) | Flaggan från 1948-07-12, med trigrammen i den äldre ordningen, "until 15 October 1949". Den nuvarande teckningen visas som förut från 1949 |
+| Georgien | 1918–1921 och 1992–2003 | `georgia-1918` (0,2 kB), `georgia-1990` (0,2 kB) | Demokratiska republiken Georgiens flagga (vinröd med svart och vitt i övre hörnet vid stången), återinförd efter Sovjetunionen och ersatt 2004-01-14. Bara de år då kartan visar Georgien (1918–1921 och från 1992, som Cliopatria), alltså ingen flagga under sovjettiden |
+
+**Förenkling av emblemen:** samma skript som i Afrika omgång 3 (#1154): varje form transformeras till 300 × 200 bildpunkter, koordinaterna avrundas, nästan raka kurvor blir raka, delbanor under en bildpunkt tas bort, och id, metadata och upprepningar (`use`) skrivs ut. Inget är ritat nytt. Jämfört bild för bild med originalet (960 × 640, flaggorna i 1:2 jämförda i sin egen proportion) skiljer sig Bhutan 0,004 %, Turkmenistan 0,01 %, Brunei 0,01 %, Saudiarabien 0,00 %, Libanon 0,00 % och Sydkorea 0,02 % av bildpunkterna. Kazakstan skiljer sig 0,09 %, men bara i en fogsöm längs ornamentets mittlinje, där originalet sätter ihop två speglade halvor; formerna är desamma. **Skriften:** Saudiarabiens trosbekännelse och Bruneis skrift i vapnet har två decimaler i koordinaterna: Saudiarabien är oförändrad bild för bild även i 1800 × 1200, Brunei skiljer sig bara i kantpixlar (0,06 % i vapnets ruta, 1280 × 640). Alla nya filer är under 40 kB.
+
+**Georgien 1918–1921:** Commons-filen är CC BY-SA 4.0 (Giorgi Balakhadzes teckning efter lagtexten). Teckningen i `georgia-1918` är därför egen: tre rektanglar med filens mått och färg (#900, fältet 5:4 utdraget till 3:2), som Tanganyika i Afrika omgång 2. Filsidan står som källa med sin licens. Filen för 1990–2004 är public domain och har filens mått (3:5 utdraget till 3:2).
+
+**Källorna skiljer sig:**
+- Georgien: artikeln säger på ett ställe att sovjetrepublikens flagga ersattes av 1918 års flagga i november 1990, på ett annat att den återinfördes 1991-12-08. Kartan visar Georgien först från 1992, så det ändrar inget. Filerna skiljer sig också i proportion: 1918 års fil är 5:4 "as per the legal code (actual flags often differed from this)", och filen för 1990–2004 säger "slightly different proportions". Etiketterna säger "1918–1921" och "1990–2004", som artikelns tabell.
+- Bhutan: infoboxen säger 1969 och texten "in use since 1969", men en källa i artikeln talar om "the adoption of the current flag around 1970", och reglerna antogs 1972. Kartan följer 1969.
+- Kazakstan: Flag of Kazakhstan säger att formgivaren Sjaken Nijazbekov först färgade ornamentet rött och att det "was changed in July 1992 to the current shade of gold", alltså en månad efter antagandet 1992-06-04. Teckningen har det gyllene ornamentet och visas från 1992; kartan visar hela år, så det ändrar inget.
+- Turkmenistan: infoboxen säger att den första flaggan antogs 1992-02-19, texten 1992-09-27. Påverkar inte kartan, eftersom 1992–2000 är en lucka. Filsidan anger färgerna efter ett dekret från 2017; teckningen visas för hela 2001–2024.
+
+**Hoppade över:**
+- **Iran** (helt eller inte alls): inte byggd. Det finns ingen sammanhängande rad belagda statsflaggor för gruppens hela tid (från 1788): före 1896 visar artikeln shahernas krigs-, freds- och diplomatflaggor med överlappande år och en statsflagga 1848–1852; den första officiella trefärgen anges som 1905-08-14 i texten, 1907-10-07 i infoboxen och 1906 i tabellen; ändringen 1933 har "Citation needed"; och flera lejon-och-sol-filer är nyritade av användare.
+- **Irak** (helt eller inte alls): inte byggd. Fem av sex flaggor är hämtade, förenklade och kontrollerade (kungariket 1932–1957, 1959–1962, 1963–1990, 1991–2003 och från 2008; takbir oförändrad bild för bild i 1800 × 1200), men Commons-filen `Flag of Iraq (2004–2008).svg` svarade 429 vid alla försök i över två timmar. Filsidan är läst (public domain, PD-Iraq, PD-ineligible). Planen: kungariket 1932–1957, 1958 som lucka (bildtexten säger att kungarikets flagga gällde till 1959-01-01, men samma artikel säger att Arabiska federationens flagga gällde 1958), 1959–1962, 1963–1990, 1991–2003, 2004–2007 och 2008–2024. Kungarikets flagga anges som 1924 i artikeln och 1921–1959 i filernas galleri.
+- **Mongoliet 1926–1944:** 1924–1940 års flagga var enligt artikeln inte standardiserad ("can therefore be seen with some variations") och finns i tre varianter på Commons; flaggan 1930–1940 är "of unclear type". 1940–1945 års fil är en användares egen rekonstruktion från 2019 (CC BY-SA 4.0) med färgtoningar och mongolisk skrift som skriptet inte kan förenkla utan att bilden ändras (0,7 %). Lucka.
+- Korea (Joseon och kejsardömet) och raderna med "vänta" eller "ingen" är inte prövade.
+
+**Medaljens plats:** `tools/flaggkontroll.py` (Natural Earth 1:50m admin-0) går igenom utan fel; ingen `labelAt` behövdes. På kartan (Playwright, 2026-11-20, 1280 och 400 bildpunkters bredd, utan konsolfel) laddas rätt fil och flaggmarkören syns på rätt land: Bhutan 2000, Kazakstan och Turkmenistan 2010, Saudiarabien 2000, Libanon 1970 (brun stam) och 1995, Georgien 1919 och 1998, och Sydkorea 1948 (dator). Bhutan och Saudiarabien 1960, Turkmenistan 1995 och Georgien 1960 visar ingen flagga. Bruneis medalj syns inte i översikten, eftersom landet är litet och Malaysias medalj och namn tar platsen (samma som Belize i #1155); i Fokus på Brunei visas flaggan. Sydkoreas medalj 1948 syns inte i 400 bildpunkters bredd, där händelserna har företräde, men visas i Fokus.
+
+**Skärmbilder:**
+- Centralasien 2010 (Kazakstan, Turkmenistan), dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1153/centralasien-2010-1280.webp
+- Saudiarabien 2000, dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1153/saudiarabien-2000-1280.webp
+- Georgien 1919, dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1153/georgien-1919-1280.webp
+- Sydkorea 1948, dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1153/sydkorea-1948-1280.webp
+- Brunei 2000 i Fokus, dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1153/brunei-2000-fokus-1280.webp
+- Bhutan 2000, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1153/bhutan-2000-400.webp
+- Libanon 1970, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1153/libanon-1970-400.webp
+- Georgien 1998, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1153/georgien-1998-400.webp
+- Sydkorea 1948 i Fokus, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-1153/sydkorea-1948-fokus-400.webp
+
+**Expertgranskning:** arbetaren hade inget verktyg för att kalla in underagenter (`historiker`, `geograf`, `sprak-en`, `sprak-de`, `sprak-es`, `sprak-fr`). Fakta, källor, medaljernas plats och etiketterna på fem språk granskas därför separat av en Claude Code som inte byggde ändringen.
+
+## Uppföljning 2026-11-20: Europa omgång 3 (#1152)
+
+Byggt på grenen `claude/issue-1152-europa-3`. Källorna (engelska Wikipedia och Commons filsidor, `action=raw`) öppnades 2026-11-20. Emblemen är förenklade med skript ur Commons-filerna: avrundade koordinater, detaljer under en till två bildpunkter borttagna, inget ritat nytt. Jämförelsen bild för bild mot originalet i dess egna proportioner gav högst 0,05 % pixlar med stor skillnad (Spanien 0,03 %, Greklands krona 0,05 %, övriga 0,00 %), och den största filen är 37 kB (Spanien).
+
+| Grupp | Visas | Fil | Anmärkning |
+|---|---|---|---|
+| Italien | kungarikets flagga 1862–1945 | `italy-kingdom` (finns sedan tidigare) | Handelsflaggan med Savojens sköld, antagen 17 mars 1861. Statsflaggan hade också en krona; den visas inte. Commons filsida (`action=raw`) har licensmallen PD-user; frågan om strukturerade data (CC BY-SA 2.5) i källposten är inte kontrollerad igen |
+| Weimarrepubliken | 1920–1932 | `germany` | Weimarförfattningen 1919. Proportionerna var 2:3, i dag 3:5; samma teckning |
+| Västtyskland | 1950–1990 | `germany` | Grundlagen 23 maj 1949, 3:5 sedan 1950 |
+| Östtyskland | trikoloren 1949–1958, emblemflaggan 1959–1990 | `germany`, `east-germany` (27 kB) | Emblemet sedan 1 oktober 1959 |
+| Albanien | med stjärnan 1946–1991 | `albania-1946` (6 kB) | Källorna skiljer sig: ingressen säger gyllene stjärna, lagtexten röd stjärna kantad med guld (som Commons-teckningen) |
+| Österrike | 1919–1937, 1945– | `austria` | Antagen 1918, formellt 1 maj 1945. Ingen yta 1938–1944 |
+| Ungern | 1957– | `hungary` | Före 1957 olika vapen i mitten (1946–1949, från 1949, hålet 1956); visas inte |
+| Lettland | 1921–1939, 1992– | `latvia` | Officiell 15 juni 1921. Källorna skiljer sig om återinförandet: 27 eller 15 februari 1990 |
+| Estland | 1919–1939, 1992– | `estonia` | 21 november 1918, åter 7 augusti 1990 |
+| Litauen (nutida) | 1919–1939, 1990– | `lithuania` | Commons-filerna för 1918–1940 och i dag har samma färger, därför en teckning |
+| Rumänien | 1919–1947, 1990– | `romania` | Flaggorna med statsvapen 1948–1989 visas inte |
+| Spanien | republikens civilflagga 1932–1938, dagens flagga 1981– | `spain-republic`, `spain` (37 kB) | Franco- och övergångsflaggorna 1939–1980 visas inte. Källorna skiljer sig om vapnets datum 1981: 5 oktober (faktarutan, lag 33/1981) eller 19 december (texten) |
+| Bosnien och Hercegovina | liljeflaggan 1992–1997, dagens flagga 1998– | `bosnia-1992`, `bosnia` | Byggd helt (`docs/omstridda-granser.md`): båda var den erkända republikens officiella flaggor. Källorna skiljer sig om liljeflaggans datum: 20 maj (artikeln) eller 4 maj 1992 (Commons). Faktarutan säger att bosnienserberna såg liljeflaggan som bosniakernas |
+| Grekland | landflaggan 1822–1862, 1924–1934, 1975–1977; med krona 1863–1923, 1935–1940, 1945–1968; randflaggan 1978– | `greece-land`, `greece-land-crown` (35 kB), `greece` | 1969–1974 visas ingen flagga (proportioner och krona ändrades flera gånger); ingen yta 1941–1944 |
+
+Varje grupp har faktarutan "Flaggan på kartan" på fem språk. Medaljerna ligger i rätt land alla år (`tools/flaggkontroll.py` och en egen kontroll för Weimar, Väst- och Östtyskland och Italien, där 1944 saknar medalj som tidigare). `flaggkontroll.py` känner nu igen Natural Earths namn "Bosnia and Herz.".
+
+**Prövat och väntar:**
+- **Moskvariket:** väntar. Ingen andra oberoende källa för året 1489 hittades. Artikeln om Ivan III anger 1489 i två bildtexter utan källhänvisning, samma år som Commons filsida ("troligen 1489"). Artikeln om Moskvariket anger 1497 för sigillets framsida med hänvisning till Parppei (2017), och artikeln om Rysslands riksvapen säger att sigillet är belagt 1472 (utan källhänvisning) och att örnen 1497 stämplades på ett dokument om furstarnas besittningar. Källorna skiljer sig alltså mellan 1472, 1489 och 1497. Förslag: bygg örnen från 1497, det enda året med källhänvisning, med en faktaruta om skillnaden (texten på fem språk är förberedd). Commons-SVG:n gav 429 i över en timme, så symbolen är inte byggd. Ryska Wikipedia gick inte att nå.
+- **Bulgarien 1948–1989:** de tre emblemflaggorna är belagda (Flag of Bulgaria, galleriet), men Commons-filnamnen i artikeln är omdirigeringar och SVG-filerna hann inte hämtas (429). Nästa omgång.
+- **Belarus:** vit-röd-vit 1991–1995, ornamentflaggan 1995–2012 och nuvarande från 2012 är belagda på Flag of Belarus. Byggs helt eller inte alls; SVG-filerna för 1991 och 1995 hann inte hämtas (429). Nästa omgång.
+- **Nordmakedonien 1992–1995 (Kutlesh-flaggan):** avgjord av DasKrokodil 2026-11-20 och byggd för 1992–1994, se uppföljningen "Nordmakedonien 1992–1994" sist i rapporten.
+- **Schweiz 1648–1815:** ingen nationsflagga. Flag of Switzerland: korset var fältmärke, föll ur bruk efter 1540, och de flesta bilder av edsförbundet på 1600-talet saknar korset; en "nationsflagga" angavs inte förrän senare. Byggs inte.
+- **Tyskland före 1991** gäller grupperna ovan; gruppen Tyskland börjar 1991 och har redan sin flagga. Nazityskland ingår inte i omgången.
+- **Kungariket Ungern:** Flag of Hungary visar kungliga fanor per dynasti (1200-talet, 1301–1382, Sigismund och senare) med källor, men varje fana är en egen detaljrik teckning och inte rikets tecken hela tiden. Väntar på ett beslut om dynastiska fanor.
+- **Kungariket England** och **Första bulgariska riket:** inte prövade igen i den här omgången (källorna skiljer sig om Georgskorset; Krums fana är en avbildning från 1300-talet). Står kvar som "vänta".
+- **Grekland 1969–1974, Ungern 1919–1956, Rumänien 1948–1989, Spanien 1939–1980:** flaggor med vapen i flera versioner, inte byggda.
+- "ingen" (Novgorod, Córdoba, Frankerriket, Kalmarunionen, Neutrala Moresnet) byggs inte.
+
+Expertgranskning: underagenter kunde inte kallas in i den här körningen. Fakta och källor granskas efteråt av en Claude Code som inte byggde ändringen.
+
+## Uppföljning 2026-11-20: rester del A (#2027)
+
+Byggt på grenen `claude/issue-2027-del-a`, från dagens `main`. Källorna öppnades igen 2026-11-20: "Flag of …" på engelska Wikipedia för åren och varje Commons-filsida (`action=raw`) för licensen och teckningen. Wikimedia svarade 429 på de flesta försöken; filerna hämtades en i taget med minst 90 sekunders paus efter varje 429, och de som kom fram jämfördes med filsidans nuvarande version (sha1 i Commons API för Irak). Ingen flagga visas före antagandeåret eller utanför gruppens år, och de nya posterna ansluter till de befintliga utan överlapp.
+
+| Grupp | Visas | Fil (storlek) | Anmärkning |
+|---|---|---|---|
+| Irak | 1932–1957, 1959–1962, 1963–1990, 1991–2003, 2004–2007, 2008–2024 | `iraq-1924` (0,5 kB), `iraq-1959` (0,6 kB), `iraq-1963` (2,0 kB), `iraq-1991` (3,3 kB), `iraq-2004` (1,9 kB), `iraq` (1,6 kB) | Alla sex flaggor, alltså helt. Kungarikets flagga 1924-07-10 till 1959-01-01, 1959–1963 (Qasim, lag 102 av 1959), trefärgen från 1963-07-31, takbir från januari 1991, takbir i kufisk skrift från 2004-07-28 och utan stjärnor från 2008-01-22. 1958 är en lucka: kungarikets flagga gällde enligt bildtexten till 1959-01-01, men samma artikel säger att Arabiska federationens flagga gällde 1958 |
+| Belarus | 1992–1994, 1995–2011, 2012–2024 | `belarus-1991` (0,2 kB), `belarus-1995` (4,9 kB), `belarus` (4,5 kB) | Alla belagda flaggor för gruppens år, alltså helt. Den vit-röd-vita "after it regained its independence in 1991 until the (disputed) 1995 referendum"; flaggan från folkomröstningen 1995-05-14 (dekret 1995-06-07) och den nuvarande med tjockare ornament från 2012-02-10. Folkomröstningens giltighet ifrågasätts av oppositionen enligt artikeln; kartan visar de flaggor som staten använde |
+| Zambia | 1967–1995 | `zambia-1964` (4,0 kB) | Flaggan från 1964-10-24 med mörkare grönt och den äldre örnen, till ändringen 1996. Gruppen börjar 1967 |
+| Belize | 1983–2018 | `belize-1981` (40 kB) | Flaggan från 1981-09-21 före standardiseringen 2019-08-28. Commons-filen är en användares egen teckning av en flagga utan fastställda mått ("the hue of the flag's colours, proportions, the shading of the two men … often varied"); faktarutans text på fem språk säger nu det |
+| Bulgarien | 1971–1989 | `bulgaria-1971` (51 kB) | Folkrepublikens flagga med emblemet i det vita bandet vid stången, "Hoisted for the first time on 21 May 1971", med banden 681 och 1944. Ansluter till trikoloren från 1990. 1948–1966 och 1967–1970 är luckor (se nedan) |
+
+**Förenkling:** samma skript som i Asien och Afrika omgång 3 (#1153, #1154): varje form transformeras till 300 × 200 bildpunkter, koordinaterna avrundas till en tiondels bildpunkt, nästan raka kurvor blir raka, delbanor under en bildpunkt tas bort, och id, metadata och upprepningar (`use`) skrivs ut. Inget är ritat nytt. Jämfört bild för bild med originalet: Irak 2004 0,02 % (1800 × 1200), Zambia 0,00 % (960 × 640), Belize 0,05 % (900 × 600) och Belarus ornament 0,00 % (2012) och 0,01 % (1995) i sin egen proportion. De fem andra Irak-filerna gav samma bytes som i förra omgången med samma skript och inställningar, och Commons-filerna är oförändrade (samma sha1 som filsidans nuvarande version). Belizes fyra färgtoningar i männens hud är ersatta med toningens medelfärg, eftersom skriptet inte för över toningar; i kartans storlek (högst 72 bildpunkter i faktarutan) syns ingen skillnad. Belarus flaggor är 1:2: ornamentet har kvar sin form vid stången och fälten är utdragna till 3:2; den nuvarande flaggans fil klipper ornamentet med en `clipPath`, som är kvar som en enkel rektangel med filens mått. Den vit-röd-vita flaggan är tre lika breda band (PD-shape). Bulgariens flaggfiler är CC BY-SA och GFDL, så emblemet kopieras inte ur dem: trikoloren är enkel geometri med flaggfilens färger, och emblemet kommer ur den separata emblemfilen, som är public domain (PD-BulgarianGov). Ur flaggfilen används bara emblemets plats och höjd, uppmätta genom att jämföra flaggan med en ren trikolor bild för bild; fältet dras ut från 5:3 till 3:2 och emblemet har sin form. Emblemfilen är 758 kB, så kurvorna är gjorda till linjer inom 0,3 bildpunkter och delar under 1,5 bildpunkter borttagna: 51 kB och 0,09 % skillnad mot det oförenklade emblemet i 900 × 600. Det är den största filen i `img/flags/` (Fiji och Belize 1981 med 40 kB närmast).
+
+**Licenser:** Irak PD-Iraq och PD-ineligible, Belarus PD-BY-exempt (den vit-röd-vita även PD-shape, den nuvarande även PD-self), Zambia PD-Zambia och PD-ineligible och Belize PD-US-1978-89. Bulgariens emblem PD-BulgarianGov; flaggfilen (CC BY-SA 3.0 och GFDL) står som källa för emblemets plats, men inga former är tagna ur den.
+
+**Källorna skiljer sig:**
+- Irak: kungarikets flagga anges som 1924 i artikeln och 1921–1959 i Commons-galleriet. Takbiren lades till 13 januari 1991 enligt MERIP och 14 januari enligt Britannica (båda citerade i artikeln), och lagen om ändringen är daterad 22 januari 1991. På årsnivå visas 1959 års flagga till 1962 och trefärgen från 1963, fast bytet skedde 1963-07-31.
+- Bulgarien: Wikipedia (engelska och tyska) säger 1948–1967 och 1967–1971 ("Valid as of 5 January 1967"), men Commons-filsidorna för emblemet och flaggan säger 1948–1968 och 1968–1971. Engelska artikeln om emblemet säger att det 1967 ändrades "with the white wheat replacing the gold", men både flaggfilen och emblemfilen för 1967–1971 har gyllene vete, och lejonet är guldbrunt i flaggfilen men gult i emblemfilen. Emblemfilen för 1971–1990 är märkt "The historical representativeness of this image is disputed"; diskussionssidan gäller färgnyansen.
+
+**Inte byggt:**
+- **Eritrea 1993–1995:** inte byggd. Commons-filen (`Flag of Eritrea (1993–1995).svg`, PD-self, "based on" dagens flagga) har rätt proportion, 2:3, men kransen är en egen frihandsteckning som inte är spegelvänd. En räkning av bladen (skelett av emblemet, ändpunkterna märkta och kontrollerade bild för bild) ger 14 blad på vänster sida men bara omkring 12 på höger, medan Flag of Eritrea säger "a gold wreath symbol with 14 leaves on each side". Teckningen stämmer alltså inte med beskrivningen, och 1993–1995 förblir en lucka.
+- **Bulgarien 1967–1970:** inte byggd, eftersom källorna skiljer sig om både året (1967 eller 1968) och emblemets utseende (vitt eller gyllene vete). Lucka.
+- **Bulgarien 1948–1966:** inte byggd. Emblemfilen `Coat of arms of Bulgaria (1948–1968).svg` (PD-BulgarianGov, filsidan läst) svarade 429 vid alla försök i över två timmar; flaggfilen (för emblemets plats) är hämtad. Lucka tills filen går att hämta.
+
+**Medaljens plats:** `tools/flaggkontroll.py` (Natural Earth 1:50m admin-0) går igenom utan fel; Irak fick alias för Natural Earths namn (Iraq), så att den nu kontrolleras. Ingen `labelAt` behövdes. På kartan (Playwright, 2026-11-20, 1280 och 400 bildpunkters bredd, utan konsolfel) laddas rätt fil och flaggmarkören syns på rätt land: Irak 1940, 1960, 1975, 1995, 2005 och 2010, Belarus 1993, 2000 och 2015, Zambia 1980 och 2000, Bulgarien 1980 och 1995 och Belize 2000 och 2020 (dator). Irak 1958 och Zambia 1966 visar ingen flagga. I Fokus (`#y=…&f=empire:<id>`) visas Iraks sex flaggor och Belize 1981 i faktarutan; Belizes medalj syns inte i översikten i 400 bildpunkters bredd (som i #1155), men i Fokus. (Arbetarens Fokus-skript letade bara efter `img`-element och hittade därför inga flaggbilder för Zambia och Belarus; granskarens Playwright-kontroll visar medaljen för Zambia 1975, 1980 och 2000, Belarus 1993, 2000 och 2015, Irak, Bulgarien och Belize.)
+
+**Faktarutan:** Irak och Bulgarien har fått rutan "Flaggan på kartan" på fem språk: vilka flaggor som visas vilka år, att 1958 (Irak) och 1948–1970 (Bulgarien) är luckor och var källorna skiljer sig, så som i listan ovan.
+
+**Skärmbilder:**
+- Irak 1960, dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/irak-1960-1280.webp
+- Irak 2005, dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/irak-2005-1280.webp
+- Belarus 1993, dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/belarus-1993-1280.webp
+- Zambia 1980, dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/zambia-1980-1280.webp
+- Bulgarien 1980, dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/bulgarien-1980-1280.webp
+- Belize 2000 i Fokus, dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/belize-2000-fokus-1280.webp
+- Irak 1940, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/irak-1940-400.webp
+- Irak 2005 i Fokus, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/irak-2005-fokus-400.webp
+- Belarus 2000, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/belarus-2000-400.webp
+- Belarus 2015, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/belarus-2015-400.webp
+- Zambia 1980, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/zambia-1980-400.webp
+- Bulgarien 1980, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/bulgarien-1980-400.webp
+- Belize 2000 i Fokus, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/belize-2000-fokus-400.webp
+
+**Expertgranskning:** arbetaren hade inget verktyg för att kalla in underagenter (`historiker`, `geograf`, `sprak-en`, `sprak-de`, `sprak-es`, `sprak-fr`). Fakta, källor, medaljernas plats och etiketterna på fem språk granskas därför separat av en Claude Code som inte byggde ändringen.
+
+## Uppföljning 2026-11-20: rester del A, omgång 2 (#2027)
+
+Byggt på grenen `claude/issue-2027-del-a2`, från dagens `main`. Källorna öppnades igen 2026-11-20: Flag of Bulgaria, Emblem of the People's Republic of Bulgaria och Flag of Eritrea på engelska Wikipedia, Flagge Eritreas på tyska Wikipedia och Commons-filsidorna (`action=raw` och filhistoriken). Wikimedia svarade 429 på alla originalfiler i drygt en timme; emblemfilen kom fram 18:12 efter försök var tredje minut.
+
+| Grupp | Visas | Fil (storlek) | Anmärkning |
+|---|---|---|---|
+| Bulgarien | 1948–1966 | `bulgaria-1948` (29 kB) | Folkrepublikens flagga med emblemet i det vita bandet vid stången, bandet med datumet 9 IX 1944. "Valid as of 27 January 1948" i Flag of Bulgaria; Wikipedia säger att den gällde till 1967 och Commons-filsidorna till 1968, så båda källorna är eniga om 1948–1966. Ansluter till trikoloren 1880–1947; 1967–1970 är kvar som lucka |
+
+**Förenkling:** som `bulgaria-1971` i förra omgången: trikoloren är enkel geometri med samma färger, och emblemet kommer ur emblemfilen `Coat of arms of Bulgaria (1948–1968).svg` (PD-BulgarianGov, 170 kB). Ur flaggfilen `Flag of Bulgaria (1948–1967).svg` (CC BY-SA och GFDL) används bara emblemets plats och höjd, uppmätta genom att jämföra flaggan med en ren trikolor bild för bild; fältet dras ut från 5:3 till 3:2 och emblemet har sin form. Kurvorna är gjorda till linjer inom 0,15 bildpunkter och delar under 0,8 bildpunkter borttagna; inget är ritat nytt. Skillnad mot det oförenklade emblemet i 900 × 600: 0,06 % av bildpunkterna (tunna konturer i vetet).
+
+**Licenser:** emblemet PD-BulgarianGov; flaggfilen (CC BY-SA 3.0, 2.5, 2.0, 1.0 och GFDL) står som källa för emblemets plats, men inga former är tagna ur den.
+
+**Källorna skiljer sig (oförändrat):** Wikipedia säger 1948–1967 och 1967–1971 ("Valid as of 5 January 1967"), Commons-filsidorna 1948–1968 och 1968–1971. Artikeln om emblemet säger att vitt vete 1967 ersatte det gyllene, men Commons-teckningarna för 1967/1968–1971 har gyllene vete. En tredje källa (Voynikov, History of the Bulgarian State Symbols, som artikeln hänvisar till) gick inte att öppna: arkivkopian på web.archive.org och bulgariska Wikipedia nåddes inte genom proxyn. 1967–1970 förblir därför en lucka, och faktarutan säger det på fem språk.
+
+**Inte byggt:**
+- **Eritrea 1993–1995:** väntar. Filhistoriken på Commons visar bara en teckning (Orange Tuesday 2008, sedan två uppstädningar 2016 och 2020 "No other changes"), och den har 14 blad på vänster sida men omkring 12 på höger; den enda andra filen i kategorin SVG historical national flags of Eritrea, `Flag of Eritrea (1993–1995; 2-1).svg`, är en användares egen teckning från 2023 i proportionen 1:2 (källan säger 2:3) och licensierad CC BY-SA 4.0, så den används inte. En egen teckning går inte att göra utan att hitta på: engelska Wikipedia säger att 1993 års krans hade 14 blad på var sida och att antalet 1995 standardiserades till 30, medan tyska Wikipedia säger att dagens flagga har 14 blad på var sida. Källorna skiljer sig alltså om kransen ändrades 1995, och om den gjorde det säger ingen källa vilka blad som skulle tas bort ur 1995 års krans. Engelska Wikipedia nämner inte heller den upprätta kvisten för 1993. Britannica (som artikeln bygger på) och Flags of the World nåddes inte genom proxyn.
+
+**Kontroller:** `tools/flaggkontroll.py` utan fel. På kartan (Playwright, Fokus `#y=…&f=empire:bulgarien`, 1280 och 400 bildpunkter, utan konsolfel) laddas `bulgaria-1948` och syns i faktarutan och som flaggmarkör 1950 och 1966, 1968 laddas ingen bulgarisk flagga, och 1980 visas `bulgaria-1971` som förut. `ENDAST="flagg"` och `ENDAST="medalj"` i webbläsartestet går igenom.
+
+**Skärmbilder:**
+- Bulgarien 1950 i Fokus, dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/bulgarien-1950-fokus-1280.webp
+- Bulgarien 1950 i Fokus, mobil: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/bulgarien-1950-fokus-400.webp
+- Bulgarien 1968 i Fokus (lucka), dator: https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/bulgarien-1968-fokus-1280.webp
+
+**Expertgranskning:** arbetaren hade inget verktyg för att kalla in underagenter (`historiker`, `sprak-en`, `sprak-de`, `sprak-es`, `sprak-fr`). Fakta, källor och texterna på fem språk granskas därför separat av en Claude Code som inte byggde ändringen.
 
 ## Tabeller per världsdel
 
@@ -389,7 +632,7 @@ Kolumner: id, rike, sort, vad symbolen är, källa, bild på Commons med licens,
 | belgien | Belgien | flagga | Svart-gult-rött lodrätt; antagen 23 jan 1831 | https://en.wikipedia.org/wiki/Flag_of_Belgium | https://commons.wikimedia.org/wiki/File:Flag_of_Belgium.svg – Public domain | hög (1831–) | bygg (1831–) | Riket börjar 1830; den inofficiella flaggan 1830 hade vågräta band rött, gult och svart enligt sidan. |
 | albanien | Albanien | flagga | Rött fält med svart dubbelörn; 1912 (allmänna utformningen), stjärnan borttagen 7 april 1992 | https://en.wikipedia.org/wiki/Flag_of_Albania | https://commons.wikimedia.org/wiki/File:Flag_of_Albania.svg – Public domain | hög (1992–) | bygg (1992–) | Riket börjar 1991. Stjärnan lades till 10 jan 1946 och togs bort 7 april 1992: 1991–1992 hade flaggan stjärnan. Infoboxens 1443 förklaras inte i texten. |
 | moldavien | Moldavien | flagga | Blått-gult-rött lodrätt med riksvapnet i det gula fältet; antagen 6 nov 1990 | https://en.wikipedia.org/wiki/Flag_of_Moldova | https://commons.wikimedia.org/wiki/File:Flag_of_Moldova.svg – Public domain | hög | bygg | Gäller hela perioden från 1992. |
-| nordmakedonien | Nordmakedonien | flagga | Stiliserad gul sol med åtta strålar på rött; antagen 5 okt 1995 | https://en.wikipedia.org/wiki/Flag_of_North_Macedonia | https://commons.wikimedia.org/wiki/File:Flag_of_North_Macedonia.svg – Public domain | hög (1995–) | bygg (1995–) | 1992–1995 användes "Kutlesh-flaggan" med Verginasolen (samma motiv som Makedoniska rikets symbol i projektet); den filen är inte kontrollerad. |
+| nordmakedonien | Nordmakedonien | flagga | Stiliserad gul sol med åtta strålar på rött; antagen 5 okt 1995 | https://en.wikipedia.org/wiki/Flag_of_North_Macedonia | https://commons.wikimedia.org/wiki/File:Flag_of_North_Macedonia.svg – Public domain | hög (1995–) | bygg (1995–) | 1992–1995 användes "Kutlesh-flaggan" med Verginasolen (samma motiv som Makedoniska rikets symbol i projektet). Avgjort av DasKrokodil 2026-11-20 och byggt för 1992–1994, se uppföljningen sist. |
 | slovenien | Slovenien | flagga | Vitt-blått-rött vågrätt med riksvapnet vid stången; antagen 25 juni 1991 | https://en.wikipedia.org/wiki/Flag_of_Slovenia | https://commons.wikimedia.org/wiki/File:Flag_of_Slovenia.svg – Public domain | hög | bygg | Gäller hela perioden från 1992. |
 | kosovo | Kosovo | flagga | Blått fält med Kosovos karta i guld under en båge av sex vita stjärnor; antagen 17 feb 2008 | https://en.wikipedia.org/wiki/Flag_of_Kosovo | https://commons.wikimedia.org/wiki/File:Flag_of_Kosovo.svg – Public domain | hög | bygg | Gäller hela perioden. |
 | montenegro | Montenegro | flagga | Rött fält med guldkant och riksvapnet i mitten; antagen 13 juli 2004 (specifikation 16 sept 2004) | https://en.wikipedia.org/wiki/Flag_of_Montenegro | https://commons.wikimedia.org/wiki/File:Flag_of_Montenegro.svg – Public domain | hög | bygg | Gäller hela perioden från 2006. |
@@ -454,3 +697,13 @@ Kolumner: id, rike, sort, vad symbolen är, källa, bild på Commons med licens,
 | palau | Palau | flagga | Ljusblått fält med en gul skiva lite mot stången, som föreställer fullmånen; antagen 1 jan 1981 | https://en.wikipedia.org/wiki/Flag_of_Palau | https://commons.wikimedia.org/wiki/File:Flag_of_Palau.svg – Public domain | hög | bygg | Sidan: palauerna ser fullmånen som bästa tiden för mänsklig verksamhet (bl.a. att snida kanoter). Kulturell betydelse, inte beskriven som helig. |
 | tonga | Tonga | flagga | Rött fält med en vit rektangel i övre hörnet med ett rött kors; antagen 4 nov 1875 | https://en.wikipedia.org/wiki/Flag_of_Tonga | https://commons.wikimedia.org/wiki/File:Flag_of_Tonga.svg – Public domain | hög | bygg | Korset ("red couped cross") ges ingen religiös förklaring i utdraget; kontrollera innan faktarutan säger något om tro. |
 | tuvalu | Tuvalu | flagga | Ljusblå med unionsflaggan och nio gula stjärnor för öarna; antagen 1 okt 1978, återinförd 11 april 1997 | https://en.wikipedia.org/wiki/Flag_of_Tuvalu | https://commons.wikimedia.org/wiki/File:Flag_of_Tuvalu.svg – Public domain | hög | bygg | En annan flagga användes 1 okt 1995 till 11 april 1997 enligt sidan; lämna lucka eller bygg den separat efter kontroll. |
+
+## Uppföljning 2026-11-20: Nordmakedonien 1992–1994 (#1152)
+
+Avgjort av DasKrokodil 2026-11-20 och byggt på grenen `claude/issue-1152-nordmakedonien` ([beslut](../beslut/2026-11-20-nordmakedonien-verginasolen.md)). Flaggan med Verginasolen (`img/flags/macedonia-1992.svg`) visas 1992–1994 och dagens flagga från 1995. Källor öppnade 2026-11-20: engelska Wikipedia "Flag of North Macedonia" (antagen 11 augusti 1992, åtta stora och åtta mindre strålar; blockaden från februari 1994 hävdes i oktober 1995; nuvarande flaggan antagen 5 oktober 1995), engelska Wikipedia "Vergina Sun" (flaggan ändrades 1995; interimsavtalet 13 september 1995), svenska Wikipedia "Verginasolen" (bildgalleriet: Republiken Makedoniens flagga 1992–1995) och Commons-filsidan `File:Flag_of_Macedonia_(1992–1995).svg` (`PD-North Macedonia` och GFDL). Källorna är eniga om åren; skillnaden mellan överenskommelsen (13 september) och blockadens slut (oktober) står öppet i faktarutan. Teckningen är förenklad med skript ur Commons-filen (avrundade koordinater, inget nyritat). Frågan om public domain-grunden för dagens fil (`north-macedonia.svg`) står kvar under "Öppet för DasKrokodils beslut" ovan; den nya filen har samma mall.
+
+## Uppföljning 2026-11-20: Kungariket Ungern (#2027)
+
+DasKrokodils beslut 2026-11-20: inga dynastiska fanor; riksvapnet (Árpádränderna och dubbelkorset) visas från det första år som en öppnad källa belägger det ([beslut](../beslut/2026-11-20-kungariket-ungern-riksvapnet.md)). Byggt på grenen `claude/issue-2027-ungern`: dubbelkorset på röd sköld (`img/flags/hungary-double-cross.svg`, `kind: symbol`, efter Commons-filen `Coa_Hungary_Country_History_Bela_III_(1172-1196).svg`, CC BY-SA 4.0, Madboy74) visas 1196–1201 och 1235–1546, med faktarutan "Symbolen på kartan" på fem språk. Källor öppnade 2026-11-20: engelska Wikipedia "Coat of arms of Hungary" (dubbelkorset under Béla III 1172–1196 i vapnet och på mynten; ränderna på Emmerichs sigill 1202 med nio lejon, Andreas II:s bulla 1222 med sju; dubbelkorset tillbaka under Béla IV 1235–1270; Laszlovszky 1989, Engel 2001, Kolník 2019), "Patriarchal cross" ("at least since 1190", utan egen källhänvisning) och "Árpád stripes" (1202, Novák 2022). Inget exakt år för dubbelkorset: "Coat of arms of Hungary" säger Béla III:s regering, och "Patriarchal cross" anger "at least since 1190" utan egen källhänvisning (inom samma regering); därför 1196. Sigill och mynt har inga färger; silver på rött beskriver källan först för Stefan V och Andreas III, så teckningen och färgerna är en nutida rekonstruktion efter Béla III:s sigill (Commons: "drawn based on his seal"). Faktarutan nämner också att Anjoukungarna förde ränderna med Anjous liljor i själva vapnet (Karl I, Laszlovszky) och att Ludvig I enligt artikeln, utan källhänvisning, förde ränder och dubbelkors i fyra fält. Teckningen är en bearbetning av en CC BY-SA 4.0-fil och därför själv CC BY-SA 4.0 (kommentar i SVG-filen). Ränderna 1202–1234 visas inte, eftersom det belagda motivet har lejon som skiljer sig mellan sigillen; den kombinerade skölden visas inte, eftersom dess första år (Vladislaus I, 1440–1444) är märkt "citation needed". Källorna utanför Wikipedia gick inte att öppna (nätverket stoppade dem).
+
+Kontrollerat i Fokus (`#y=1300&f=empire:kungariket-ungern`: symbolen syns; `#y=1210`: ingen symbol), utan konsolfel. Skärmbilder: [1280 px](https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/ungern-symbol-1300-1280.webp), [400 px](https://raw.githubusercontent.com/DasKrokodil/historia-globen/skarmbilder/issue-2027/ungern-symbol-1300-400.webp).

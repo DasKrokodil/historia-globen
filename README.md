@@ -13,11 +13,12 @@ Pyramiderna byggs medan de sista mammutarna lever på Wrangelön. Oxford undervi
 
 ## Det här får du
 
-- **En snurrbar jordglob genom 5 000 år.** Dra i tidslinjen från 3000 f.Kr. till i dag, eller tryck ▶ och se världen förändras.
+- **En snurrbar jordglob genom människans tid.** Tidslinjen har två reglage, "Före 3000 f.Kr." och "3000 f.Kr.–i dag", och en växlare mellan dem. Dra i tiden, eller tryck ▶ och se världen förändras.
 - **Visste du?-kortet.** Oväntade samband dyker upp av sig själva, till exempel att Mansa Musa och Ibn Battuta var på väg mot Mecka med ett års mellanrum.
 - **Krig och slag att följa.** Över 50 krig från alla världsdelar, från Kadesh och perserkrigen till Ukraina i dag. Varje krig har en berättelse: varför det började, vilka som stred, hur det slutade och hur många som dog, som spann och med vem som har räknat.
 - **Riken som växer och krymper,** från Romarriket och Handynastin till Mongolriket och Brittiska imperiet.
 - **Religioner över tid,** med egna symboler och faktarutor, och med en symbol där varje religion uppstod.
+- **Länder och platser.** Kort om Sverige, Danmark, Grönland, Aotearoa och Skåne med dagens gräns, och en regionvy med numrerade orter när du zoomar in.
 - **Platt vy.** Världen som en platt karta som fyller skärmen, med zoom och panorering, medan tiden spelas upp.
 - **Fungerar i mobilen,** utan installation.
 
@@ -68,9 +69,11 @@ js/focus/             fokustyperna som poster (#1327): registry.js (registret oc
 js/model.js           språk, kategorier, tidsformat, laddning av data
 js/i18n.js            språkval och gränssnittets texter på valt språk (#63)
 js/globe.js           3D-globen (three.js), ekvirektangulär rendering
+js/start-view.js      startbilden: kameran och startzoomen när sidan öppnas utan delad adress, delas med testerna (#1317)
 js/globe-detail.js    skarpt utsnitt av kartan vid inzoomning
 js/period-range.js    epok som intervall: periodToRange klipper vid tidslinjens början och går till i dag för öppna perioder (#965)
 js/timeline.js        tidsreglage, segmenterad tidsskala, nuvarande år
+js/time-scale.js      människans två skalposter (Före 3000 f.Kr., 3000 f.Kr.–i dag): segment, upplösning, steg, fart och gränser, och valet av post ur året (#1511, #1958)
 js/layers/events.js   lager: händelser som punkter
 js/layers/areas.js    lager: riken som områden som ändras över tid
 js/layers/area-style.js  mjuk kant för osäkra gränser och prickat inflytande (lydriken)
@@ -78,6 +81,7 @@ js/layers/area-transition.js  mjuk övergång när ett rike byter period, delas 
 js/layers/borders.js  lager: dagens landsgränser (av som standard)
 js/layers/places.js   lager: konturen av platsen man följer i Fokus (#579) och de prickade konturerna runt platser med kort när man har zoomat in (#1161)
 js/layers/spread.js   lager: människans spridning, antagna områden och vågor i förhistorien (#1094)
+js/area-kind.js      områden som inte är en stat (stadsstäder och kulturer, `areaKind` på en grupp i data/empires/index.json): typordet som visas i stället för "rike" (#1300)
 js/area-lookup.js    punkt mot rike med marginal: vilket rike eller religionsområde en punkt ligger i, annars det närmaste inom 0,05 grader (#1524), delas med testerna
 js/place-geo.js       vilka händelser som ligger inom en plats gräns, platsen under en punkt vid tryck och gränsrutan för inramning i Platt vy, delas med testerna (#579, #1161)
 js/region-frame.js    regionvyns ramning: vilka platser som får den (högst 5 grader på marken i Platt vy, 15–60 grader på globen), den fria ytan och när den ryms (MIN_FREE, texten på knappen i platskortet, #1692), skalan med cos(mittbredden) och globflygets ram, delas med testerna (#1641, #1644)
@@ -92,6 +96,7 @@ js/layers/discovery.js lager: upptäcktsvyn med dimma som lyfts över Europa, gr
 js/ui/areacurve.js    rikets yta över tid som SVG-kurva i faktarutan (#77)
 js/ui/citation.js     kopierbara hänvisningar till händelsens registrerade källor (#844)
 js/ui/legend.js       teckenförklaring, klickruta för religioner och information om dämpade lager (#166, #235)
+js/ui/level-switch.js nivåväxlaren: en rad knappar för nivåer i ordning med en dörr (pil) vid kanten; används för tidsreglagen "Före 3000 f.Kr." och "3000 f.Kr.–i dag" och delas med lägesväxlaren i #1517 (#1959)
 js/ui/status.js       gemensam statusrad för skärmläsare med prioritet för faktarutans rubrik (#1419)
 js/ui/panel.js        "Samtidigt i världen" per världsdel, kategorifilter och detaljvy
 js/ui/funfact.js      Visste du?-kortet (fun facts, när ett krig bröt ut) och bågar på globen
@@ -111,6 +116,7 @@ js/ui/uppdrag.js      elevuppdraget Samtidighetsjakten från För lärare, med k
 js/uppdrag-rules.js   jaktens regler: år, världsdel och vad som räknas, delas med testerna (#741)
 js/quiz-rules.js      quizets regler: frågor och säkert felaktiga svar, delas med testerna (#65)
 js/samtidighet.js     definitionen av "samtidigt" och "nära i tid" för fun facts, quiz och jakt, delas med testerna (#1311)
+js/layer-coverage.js  var ett lagers data finns i tiden (tidigaste from till senaste to) och när raden i Lager säger att ett påslaget lager saknar data i året, delas med testerna (#1960)
 js/paragraphs.js      långa faktatexter i korta stycken, ren presentation: orden är desamma, delas med testerna (#1571)
 js/ui/viewmode.js     vyväljaren: Glob, Platt karta och Upptäcktsresor (#651)
 js/ui/tour.js         guidade turer: spelar upp en tur ur data/turer/ steg för steg (knappen Turer, #47)
@@ -161,7 +167,10 @@ images/turer/         bilder till steg i guidade turer, <namn>.webp, 800 × 600 
 images/licenses.json  genererat register över händelse- och turbildernas licenser (#393)
 data/land.json        grundkarta (Natural Earth 1:50m)
 data/land-10m.json    finare kust (Natural Earth 1:10m), laddas först när det skarpa utsnittet används; byggs med tools/land_10m.mjs
-tools/riken.py        bygger rikesfilerna ur Cliopatria
+tools/riken.py        bygger rikesfilerna ur Cliopatria; --delade-granser (av som standard, kräver shapely >= 2.1 med GEOS >= 3.12) är piloten med delade gränser för England, Skottland och Man med föregångarna 500–1700 (#1765)
+tools/cliopatria_ar.py Cliopatrias f.Kr.-år: -N läses som N f.Kr. och räknas om till astronomiska år, delas av riken.py, religioner.py och religioner_riken.py (#1989)
+tools/bild_hamta.py   hämtar metadata för en riktig bild (Wikimedia Commons, Library of Congress), bedömer licensen och bygger källpost och webp, med paus vid 429 (#2118, docs/bilder-riktiga.md)
+tools/bildkandidater.py föreslår fria bildkandidater till händelser utan bild (arbetsflödet bildkandidater.yml öppnar en pull request med förslag, #2119)
 tools/riken_bevara.py det riken.py behåller vid ombyggnad: handskrivna fält som flags och översatta namn (#1220)
 tools/riken_namn.py   hämtar rikenas namn på tyska, spanska och franska ur Wikidata; riken.py bevarar dem (#676, #644)
 tools/forenkling_matning.py mäter överlapp mellan grannriken när de förenklas var för sig eller tillsammans (shapely.coverage_simplify), ändrar inga filer (#1765)
@@ -198,7 +207,8 @@ scripts/validate-site.py  kontrollerar dist/: JSON, filreferenser och att inga i
 scripts/pages-function-check.sh  startar formulärets Pages Function med wrangler, som Cloudflare gör (#663)
 scripts/kontrolltackning.mjs     bevisar att varje webbläsarkontroll körs i exakt ett CI-jobb (#864)
 functions/api/feedback.js  Cloudflare Pages Function för besökarnas förslag (publiceras från repots rot, inte via dist/)
-tests/                tester för serverfunktionen, etikettkontrollen och CSS-lagerordningen (#1065) (node --test 'tests/*.test.mjs') och webbläsartestet tests/webblasare.mjs (Playwright, #339), som delas i tre jobb enligt tests/jobb.json (#864)
+tests/                tester för serverfunktionen, etikettkontrollen, kategorifärgerna vid färgblindhet och etiketternas kontrast (farger.test.mjs, #1318), Samtidigt-panelens färger (panelens-farger.test.mjs, #1317), startbildens regler (start-view.test.mjs, #1317) och CSS-lagerordningen (#1065) (node --test 'tests/*.test.mjs') och webbläsartestet tests/webblasare.mjs (Playwright, #339), som delas i tre jobb enligt tests/jobb.json (#864) och provtrycker varje knapp med tests/traffytor.mjs (#1932)
+tests/regionfokus.mjs fristående Playwright-kontroll av fokus från platskort till karta, 1280/400 px och reducerad rörelse (#1950); node tests/regionfokus.mjs <port>
 .github/workflows/    GitHub Actions: bygger och kontrollerar dist/ vid push till main och PR mot main och production; browser-test.yml öppnar sidan i Chromium; release.yml skapar tagg och GitHub Release; etikettkontroll.yml (logik i .github/scripts/etikettkontroll.cjs) varnar när ett issue har flera ägare (etiketter eller tilldelning) eller både redo och pågår, städar etiketter efter en sammanslagen PR och påminner om ett pågår som legat orört i 7 dagar (#588)
 ```
 
@@ -247,7 +257,7 @@ Se också [licenssammanställningen](CONTENT-LICENSE.md), [tredjepartsnotiserna]
 
 - **Koden** är licensierad under [GNU GPL v3.0](LICENSE). Du får använda, ändra och sprida den, men det du sprider vidare måste också vara öppet under GPL.
 - **Datan** i `data/` (händelser, fun facts och källregister) är licensierad under [CC BY 4.0](data/LICENSE). Ange "Historia-globen" som källa vid användning.
-- **Grundkartan** i `data/land.json` (1:50m), den finare kusten i `data/land-10m.json` (1:10m, bara för det skarpa utsnittet vid inzoomning) och **dagens landsgränser** i `data/borders.json` bygger på [Natural Earth](https://www.naturalearthdata.com/) (public domain) via world-atlas. **Platsernas gränser** i `data/platser.json` (#579) är Natural Earth admin 0 för länder och Natural Earth 1:10m admin 1 (`ne_10m_admin_1_states_provinces` 5.1.2, public domain) för län, uttagna med `tools/platser_gransar.py`; kortet för Skåne anger att konturen är Skåne län och inte landskapet. **Ortnamnen för regionvyn** i `data/ortnamn/` (#1643) är orter, hav och länders namn ur Natural Earth 1:10m (`ne_10m_populated_places`, `ne_10m_geography_marine_polys` och `ne_10m_admin_0_countries` ur natural-earth-vector 5.1.2, public domain), uttagna med `tools/ortnamn.py`; namnen är Natural Earths egna, och engelska används där ett språk saknas. Orter som händelserna pekar på men som Natural Earth saknar (Lund, Ribe, Jelling med flera, #1676) har namn och koordinat ur [Wikidata](https://www.wikidata.org/) (CC0), med källa per ort.
+- **Grundkartan** i `data/land.json` (1:50m), den finare kusten i `data/land-10m.json` (1:10m, bara för det skarpa utsnittet vid inzoomning) och **dagens landsgränser** i `data/borders.json` bygger på [Natural Earth](https://www.naturalearthdata.com/) (public domain) via world-atlas. **Platsernas gränser** i `data/platser.json` (#579) är Natural Earth admin 0 för länder och Natural Earth 1:10m admin 1 (`ne_10m_admin_1_states_provinces` 5.1.2, public domain) för län, uttagna med `tools/platser_gransar.py`; kortet för Skåne anger att konturen är Skåne län och inte landskapet. **Ortnamnen för regionvyn** i `data/ortnamn/` (#1643) är orter, hav och länders namn ur Natural Earth 1:10m (`ne_10m_populated_places`, `ne_10m_geography_marine_polys` och `ne_10m_admin_0_countries` ur natural-earth-vector 5.1.2, public domain), uttagna med `tools/ortnamn.py`; namnen är Natural Earths egna, och engelska används där ett språk saknas. Orter som händelserna pekar på men som Natural Earth saknar (Lund, Ribe, Jelling med flera, #1676) har namn och koordinat ur [Wikidata](https://www.wikidata.org/) (CC0), med källa per ort. Två rättningar ligger som undantag i verktyget (#1689): Indiska oceanens namn hålls väster om IHO:s gräns 146°49′ Ö söder om Australien (Limits of Oceans and Seas, 1953, enligt [Wikipedia](https://en.wikipedia.org/wiki/Indian_Ocean), bara länkad), och Naujaat får sitt officiella namn på svenska ur Wikidata (CC0).
 - **Rikenas utbredning** i `data/empires/` är ett förenklat utdrag ur [Cliopatria](https://github.com/Seshat-Global-History-Databank/cliopatria) version 0.2.1 (datafilen `cliopatria_polities_only_v021.geojson`, [Zenodo](https://zenodo.org/records/23128623), doi:10.5281/zenodo.23128623) från Seshat Global History Databank, licensierat under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Ändringar: bara de riken som listas i `data/empires/index.json` är med, geometrin är förenklad och perioder med nästan samma gräns är sammanslagna (`tools/riken.py`).
 - **Nattljus 2016** i `images/lager/nattljus-2016.jpg` kommer från [NASA Earth Observatory: Black Marble](https://science.nasa.gov/earth/earth-observatory/earth-at-night/maps/) och är **public domain i USA enligt NASA:s riktlinjer för bilder**. NASA:s logotyp och märken är skyddade; bilden innehåller ingen NASA-logotyp. Bilden är NASA:s globala JPEG i 3600 × 1800, utan innehållsliga ändringar.
 - **Istidens kust** i `images/lager/istidens-kust-*.webp` (#1096) bygger på rutnäten med land och hav för serien Gowan i Wilmes, Pedersen, Schindelegger och Green (2023), [Late Pleistocene evolution of tides and tidal dissipation: tidal simulations](https://zenodo.org/records/8147509) (Zenodo, [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)), som i sin tur bygger på inlandsis- och topografirekonstruktionen PaleoMIST 1.0: Gowan (2019), [Global ice sheet reconstruction for the past 80000 years](https://doi.org/10.1594/PANGAEA.905800) (PANGAEA, CC BY 4.0), och Gowan m.fl. (2021), [A new global ice sheet reconstruction for the past 80 000 years](https://doi.org/10.1038/s41467-021-21469-w) (*Nature Communications* 12, 1199, CC BY 4.0). De två varianterna för Hudson Bay beskrivs i Gowan (2021), [Plots of global paleotopography for the past 80000 years from the PaleoMIST 1.0 reconstruction](https://zenodo.org/records/4559963) (Zenodo, CC BY 4.0). Ändringar: nio tidssteg, bara ytor som är hav i dag men inte i modellen (med snedstreck), den modellerade kustlinjen och inlandsisen ur PaleoMIST:s istjocklek (`global_grid/reconstruction_0.25_degree.nc`, varianten utan a1, #1564), omräknade till en ekvirektangulär bild 4096 × 2048; Kaspiska havet och Svarta havet, som saknar förbindelse med världshavet i modellens rutnät, är inte med (`tools/istidens_kust.py`).
@@ -264,6 +274,7 @@ Se också [licenssammanställningen](CONTENT-LICENSE.md), [tredjepartsnotiserna]
 - **Nordens forntid** (#1339): händelserna i Nordens sten-, brons- och järnålder bygger i första hand på Historiska museets webbplats ([historiska.se](https://historiska.se/en/explore-history/history-hub/)), kompletterad med Nationalmuseet ([natmus.dk](https://natmus.dk/)), Riksantikvarieämbetets fornlämningsregister (via [K-samsök](https://kulturarvsdata.se/)), Museiverkets fornlämningsregister ([Kyppi](https://www.kyppi.fi/)), Lex, Store norske leksikon, Wikipedia (CC BY-SA) och Wikidata (CC0). Museernas och registrens texter är bara länkade källor för årtal, plats och fynd; ingen text är kopierad, och sammanfattningarna är egna.
 - **Lektionsturerna** (skolpiloten, #737, #739) kopplas till Skolverkets kursplan i historia (Lgr22) med egna korta formuleringar; kursplanen är bara länkad, ingen text kopierad.
 - **Förhistorien i Amerika, Oceanien och Afrika** (#767) bygger på Wikipedia (CC BY-SA), koordinater ur Wikidata (CC0) och, där det går, en andra källa i en vetenskaplig artikel under CC BY, läst i fulltext på PubMed Central. Två artiklar under CC BY-NC (Science Advances) är bara länkade. Sammanfattningarna är egna och ingen text är kopierad.
+- **Förhistorien i Asien och Europa** (#1699) bygger på samma sätt på Wikipedia (CC BY-SA) och vetenskapliga artiklar under CC BY, lästa i fulltext på PubMed Central. Artiklar under CC BY-NC är bara länkade för årtal och plats. Sammanfattningarna är egna och ingen text är kopierad.
 - **Antiken i Amerika** (#1550) bygger på engelska och spanska Wikipedia (CC BY-SA) och koordinater ur Wikipedia och Wikidata (CC0). Omgång 2 (år 1–500) använder dessutom två vetenskapliga artiklar under CC BY 4.0, lästa i fulltext på PubMed Central (torka och majs på Yucatánhalvön, Casarabekulturens befolkning). Sammanfattningarna är egna och ingen text är kopierad.
 - **Medeltiden i Afrika** (#1552) bygger på Wikipedia (CC BY-SA), koordinater ur Wikidata (CC0) och två vetenskapliga artiklar under CC BY 4.0, lästa i fulltext på PubMed Central (forntida DNA från swahilikusten och klimatet i Sydafrikas järnålder). Sammanfattningarna är egna och ingen text är kopierad.
 - **Antiken i Afrika** (#1551) bygger på engelska Wikipedia (CC BY-SA), koordinater ur Wikipedia och Wikidata (CC0) och vetenskapliga artiklar under CC BY 4.0, lästa i fulltext på PubMed Central (två i första omgången; i andra omgången, år 1–500, fem till om en loppburen bakterie vid Ballito Bay, skogen på Laikipiaplatån, Kanarieöarnas bosättning och handelshamnen Adulis); en artikel utan CC-licens (PNAS) är bara länkad. Sammanfattningarna är egna och ingen text är kopierad.

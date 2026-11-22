@@ -3,7 +3,7 @@ import test from 'node:test';
 import { MIN_YEAR } from '../js/state.js';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { uncertaintyRow, mythsHtml, emptyCause, beforeTimelineStart, overviewCount } from '../js/ui/panel.js';
+import { uncertaintyRow, mythsHtml, emptyCause, emptyTextKey, beforeTimelineStart, overviewCount, panelTimeGroup } from '../js/ui/panel.js';
 
 const events = JSON.parse(readFileSync(new URL('../data/events.json', import.meta.url))).events;
 
@@ -47,6 +47,14 @@ test('tom lista: alla kategorier av ger filters, ett tomt år ger year, och en l
   assert.equal(emptyCause({ visibleCount: 0, filters: new Set(['krig']) }), 'year');
   assert.equal(emptyCause({ visibleCount: 3, filters: new Set() }), null);
   assert.equal(emptyCause({ visibleCount: 3, filters: new Set(['krig']) }), null);
+});
+
+// Meningen för tom lista (#1958): före 3000 f.Kr. säger den "Inga fynd i vår data", men ett kategorifilter förklaras alltid först
+test('tom lista: texten följer orsaken, och förhistorien får sin egen mening när det är året som är tomt', () => {
+  assert.equal(emptyTextKey({ cause: 'year' }), 'panel.empty');
+  assert.equal(emptyTextKey({ cause: 'year', prehistory: true }), 'panel.emptyPrehistory');
+  assert.equal(emptyTextKey({ cause: 'filters', prehistory: true }), 'panel.filtersOff');
+  assert.equal(emptyTextKey({ cause: 'some', prehistory: true }), 'panel.filtersSome');
 });
 
 // Några kategorier av och noll träffar (#1304): bara när antalet kategorier som finns är känt
@@ -98,4 +106,30 @@ test('antalet i Översikts urvalsrad avrundas till tiotal och räknas ur datan (
   assert.equal(overviewCount(7), 7, 'under tio står det exakta antalet');
   const n = events.filter(e => e.significance === 1).length;
   assert.ok(n > 0 && overviewCount(n) % 10 === 0, `datan har ${n} händelser i Översikt`);
+});
+
+// #1312: påhittade testspann prövar tidsregeln, inga historiska sakuppgifter.
+test('panelens tre grupper skiljer årets händelser, pågående spann och närliggande', () => {
+  const point = { e: { start: 2000, end: 2000 }, inside: true };
+  const span = { e: { start: 1999, end: 2001 }, inside: true };
+  assert.equal(panelTimeGroup(point), 'happened');
+  assert.equal(panelTimeGroup(span), 'inside');
+  assert.equal(panelTimeGroup({ ...point, inside: false }), 'near');
+  assert.equal(panelTimeGroup({ ...span, inside: false, when: 'past' }), 'near');
+  assert.equal(panelTimeGroup({ ...span, inside: false, when: 'future' }), 'near');
+});
+
+test('intervall och gamla öppna spann ger inga falska närliggande grupper (#1312)', () => {
+  assert.equal(panelTimeGroup({ e: { start: 2000, end: 2000 }, inside: true }, { range: true }), 'happened');
+  assert.equal(panelTimeGroup({ e: { start: 1990, end: 2010 }, inside: true, partial: true }, { range: true }), 'inside');
+  const old = { e: { start: 1800, end: 2026 }, inside: false, longRunning: true };
+  assert.equal(panelTimeGroup(old), 'inside');
+  assert.equal(panelTimeGroup(old, { range: true }), 'inside');
+});
+
+test('datumläget skiljer en dag från ett spann inom samma år (#1312)', () => {
+  const row = edtf => ({ e: { start: 2000, end: 2000, edtf }, inside: true });
+  assert.equal(panelTimeGroup(row('2000-05-03'), { fine: true }), 'happened');
+  assert.equal(panelTimeGroup(row('2000-05-01/2000-05-10'), { fine: true }), 'inside');
+  assert.equal(panelTimeGroup(row('2000-05-01/2000-05-10')), 'happened', 'årsläget använder start och slut på årsnivå');
 });

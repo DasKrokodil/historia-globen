@@ -18,6 +18,7 @@
     "fr": "Les dents en bois de Washington, la Grande Muraille vue de l'espace, le nez du Sphinx, « Qu'ils mangent de la brioche », la Terre plate et l'Eldorado : six choses que beaucoup ont entendues, et comment une affirmation se répand et devient « la vérité »."
   },
   "review": "source-checked",
+  "audience": {"sv":"Gymnasiet","en":"Upper secondary school","de":"Gymnasium","es":"Bachillerato","fr":"Lycée"},
   "steps": [
     {
       "id": "washingtons-tander",
@@ -144,7 +145,7 @@
           "es": "La Gran Muralla china en Mutianyu, cerca de Pekín, julio de 2006.",
           "fr": "La Grande Muraille de Chine à Mutianyu, près de Pékin, juillet 2006."
         },
-        "credit": "Wikimedia Commons",
+        "credit": "Velatrix (Nicolas M. Perrault), Wikimedia Commons",
         "license": "CC0 1.0",
         "source": "commons-muren-mutianyu"
       },
