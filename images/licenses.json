@@ -171,6 +171,21 @@
       "source": null
     },
     {
+      "eventId": "arabforbundet-grundas-1945",
+      "eventTitle": "Arabförbundet grundas",
+      "file": "images/events/arabforbundet-grundas-1945.webp",
+      "kind": "historisk",
+      "credit": "Ijanderson977 / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-arabforbundet-grundas-1945",
+        "title": "Arab Leage HQ 977 – Ijanderson977 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Arab_Leage_HQ_977.PNG",
+        "license": "Public domain",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "arabiska-varen",
       "eventTitle": "Arabiska våren",
       "file": "images/events/arabiska-varen.webp",
@@ -197,6 +212,21 @@
         "title": "Grabmal von Askia, Gao – foto av Walter Mittelholzer under flygningen till Tchadsjön 1930–1931, ETH-Bibliothek (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:ETH-BIB-Grabmal_von_Askia,_Gao-Tschadseeflug_1930-31-LBS_MH02-08-0549.tif",
         "license": "Public domain",
+        "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "asterix-frankrikes-forsta-satellit",
+      "eventTitle": "Astérix, Frankrikes första satellit",
+      "file": "images/events/asterix-frankrikes-forsta-satellit.webp",
+      "kind": "historisk",
+      "credit": "Pline / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-asterix-frankrikes-forsta-satellit",
+        "title": "Asterix Musee du Bourget P1020341 – Pline (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Asterix_Musee_du_Bourget_P1020341.JPG",
+        "license": "CC BY-SA 3.0",
         "checked": "2026-11-22"
       }
     },
@@ -492,6 +522,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_183-1989-1110-018%2C_Berlin%2C_Checkpoint_Charlie%2C_Nacht_des_Mauerfalls.jpg",
         "license": "CC BY-SA 3.0 DE",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "biafrakriget",
+      "eventTitle": "Biafrakriget (nigerianska inbördeskriget)",
+      "file": "images/events/biafrakriget.webp",
+      "kind": "historisk",
+      "credit": "CDC / Dr. Lyle Conrad via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-biafrakriget",
+        "title": "1968 10 Nigeria CDC – CDC/ Dr. Lyle Conrad (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:1968_10_Nigeria_CDC.png",
+        "license": "Public domain",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -1092,6 +1137,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:First_Fleet_entering_Sydney_1788_Bradley.jpg",
         "license": "Public domain",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "forsta-hjarttransplantationen",
+      "eventTitle": "Den första hjärttransplantationen",
+      "file": "images/events/forsta-hjarttransplantationen.webp",
+      "kind": "historisk",
+      "credit": "Tiiu Sild / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-forsta-hjarttransplantationen",
+        "title": "Groote Schuur Hospital in South Africa – Tiiu Sild (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Groote_Schuur_Hospital_in_South_Africa.JPG",
+        "license": "Public domain",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -2175,6 +2235,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:De_uitbarsting_van_de_Krakatau%2C_KITLV_5888.tiff",
         "license": "Public domain",
         "checked": "2026-11-05"
+      }
+    },
+    {
+      "eventId": "krugerparken",
+      "eventTitle": "Krugerparken blir Sydafrikas första nationalpark",
+      "file": "images/events/krugerparken.webp",
+      "kind": "historisk",
+      "credit": "flowcomm / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-krugerparken",
+        "title": "Rhino, Kruger National Park (7826798766) – flowcomm (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Rhino,_Kruger_National_Park_(7826798766).jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -3840,6 +3915,21 @@
       }
     },
     {
+      "eventId": "slaget-vid-mersa-matruh",
+      "eventTitle": "Slaget vid Mersa Matruh",
+      "file": "images/events/slaget-vid-mersa-matruh.webp",
+      "kind": "historisk",
+      "credit": "Okänd fotograf / Archivio Centrale dello Stato via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-slaget-vid-mersa-matruh",
+        "title": "Bersaglieri entering Mersa Matruh – okänd fotograf (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Bersaglieri_entering_Mersa_Matruh.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "slaget-vid-midway",
       "eventTitle": "Slaget vid Midway",
       "file": "images/events/slaget-vid-midway.webp",
@@ -4515,6 +4605,21 @@
       }
     },
     {
+      "eventId": "taungbarnet-hittas",
+      "eventTitle": "Taungbarnet hittas",
+      "file": "images/events/taungbarnet-hittas.webp",
+      "kind": "historisk",
+      "credit": "GuillaumeG / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-taungbarnet-hittas",
+        "title": "Taung - MCN 4141 – GuillaumeG (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Taung_-_MCN_4141.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "telefonen",
       "eventTitle": "Bell får patent på telefonen",
       "file": "images/events/telefonen.webp",
@@ -4770,6 +4875,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Field_Marshal_Keitel_signs_German_surrender_terms_in_Berlin_8_May_1945_-_Restoration.jpg",
         "license": "Public domain",
         "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "universitetet-i-alexandria-1942",
+      "eventTitle": "Universitetet i Alexandria blir självständigt",
+      "file": "images/events/universitetet-i-alexandria-1942.webp",
+      "kind": "historisk",
+      "credit": "Faris El-Gwely / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-universitetet-i-alexandria-1942",
+        "title": "Alexandria University, The Main Building – Faris El-Gwely (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Alexandria_University,_The_Main_Building.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-22"
       }
     },
     {
