@@ -216,7 +216,9 @@ function flagBanner(ctx, cx, cy, r, img, seed) {
   ctx.lineWidth = Math.max(1.5, r * 0.13); ctx.strokeStyle = INK; ctx.stroke();
   rect(); ctx.lineWidth = Math.max(1, r * 0.047); ctx.strokeStyle = BRASS; ctx.stroke();
   rect(); ctx.save(); ctx.clip();
-  if (img) ctx.drawImage(rasterOf(img).canvas, 0, 0, RASTER_W, RASTER_H, x, y, w, h);
+  // Bilden ritas direkt (inte via rasterOf): en flagga behöver ingen silhuett, och en cachad 900×600-canvas per flagga
+  // som aldrig frigörs fyller iPhones canvasminne när man drar genom tiden, så att senare flaggor blev mörka rutor.
+  if (img) ctx.drawImage(img, x, y, w, h);
   else { ctx.fillStyle = '#53452d'; ctx.fillRect(x, y, w, h); }
   weave(ctx, x, y, w, h, r, seed);
   ctx.restore();
