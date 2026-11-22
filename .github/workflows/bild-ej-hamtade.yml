@@ -1,0 +1,90 @@
+# Bilder som blev "ej hämtade" (#2195, beslut 2026-11-22): hämtar om dem i Actions utan agent.
+# En bildomgång skriver de bilder som Wikimedia inte lämnade ut (ofta HTTP 429 med Retry-After 600 s) till
+# data/utkast/bildbatch/<namn>-ej-hamtade.txt med tools/bild_hamta.py --ej-hamtade. Den listan är redan granskad:
+# bilderna är valda och licensen är läst. Här väntar arbetsflödet så länge som Retry-After säger (högst 11 minuter per
+# försök), vilket en agent inte ska göra.
+# Bara workflow_dispatch. Inga hemligheter. Resultatet hamnar under data/utkast/bildbatch/<namn>/ (webp och JSON med
+# utkast till källpost och image) på en ny gren bildbatch/<namn>-<körnings-id>; ingen pull request och aldrig main.
+# Byggaren av nästa omgång (eller en ny arbetare) flyttar webp-filerna till images/events/ och fyller i image och
+# bildtext enligt docs/bilder-riktiga.md; grinden (tests/utkast-grans-test.py) gäller grenar som heter bildbatch/*.
+name: Hämta ej hämtade bilder
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: Grenen som har listan (till exempel claude/issue-2106-bilder-pilot eller main)
+        required: true
+        default: main
+        type: string
+      namn:
+        description: Omgångens namn, så att listan är data/utkast/bildbatch/<namn>-ej-hamtade.txt (till exempel 2106)
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bild-ej-hamtade
+  cancel-in-progress: false
+
+jobs:
+  hamta:
+    name: Hämta om bilderna
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    permissions:
+      contents: write
+    env:
+      REF: ${{ inputs.ref }}
+      NAMN: ${{ inputs.namn }}
+    steps:
+      - name: Kontrollera indata
+        run: |
+          [[ "$NAMN" =~ ^[a-z0-9]+(-[a-z0-9]+)*$ ]] || { echo "::error::Namnet får bara innehålla a–z, 0–9 och bindestreck"; exit 1; }
+          [[ "$REF" =~ ^[A-Za-z0-9._/-]+$ && "$REF" != *..* ]] || { echo "::error::Ogiltigt grennamn"; exit 1; }
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Hämta med tools/bild_hamta.py
+        run: |
+          set -euo pipefail
+          lista="data/utkast/bildbatch/${NAMN}-ej-hamtade.txt"
+          [ -s "$lista" ] || { echo "::error::$lista finns inte på $REF"; exit 1; }
+          python3 -m pip install pillow
+          ut="data/utkast/bildbatch/${NAMN}"
+          mkdir -p "$ut"
+          # Retry-After respekteras upp till 11 minuter per försök och 40 minuter per bild; ingen agent väntar här.
+          set +e
+          python3 tools/bild_hamta.py --lista "$lista" --out "$ut" --max-vanta 660 --tidstak 2400 \
+            --ej-hamtade "$ut/kvar.txt" --json > "$ut/hamtat.json"
+          kod=$?
+          set -e
+          python3 - "$ut/hamtat.json" >> "$GITHUB_STEP_SUMMARY" <<'PY'
+          import json, sys
+          r = json.load(open(sys.argv[1]))
+          print('| Händelse | Status | Skäl |')
+          print('|---|---|---|')
+          for x in r:
+              print(f"| {x.get('handelse')} | {x.get('status')} | {'; '.join(x.get('skal') or [])[:200]} |")
+          PY
+          echo "bild_hamta.py slutade med kod $kod (1 betyder att minst en bild inte blev klar; se tabellen)."
+      - name: Lägg resultatet på en ny gren
+        run: |
+          set -euo pipefail
+          # Grinden (#2183): bara data/utkast/ får vara ändrat.
+          andra=$(git status --porcelain | grep -v ' data/utkast/' || true)
+          if [ -n "$andra" ]; then echo "::error::Körningen ändrade filer utanför data/utkast/:"; echo "$andra"; exit 1; fi
+          if [ -z "$(git status --porcelain -- data/utkast/bildbatch)" ]; then echo "Inget nytt att lägga på en gren."; exit 0; fi
+          gren="bildbatch/${NAMN}-${GITHUB_RUN_ID}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$gren"
+          git add -f data/utkast/bildbatch
+          git commit -m "Ej hämtade bilder för omgång ${NAMN}, hämtade i Actions (#2195)"
+          git push origin "$gren"
+          echo "Grenen **$gren** har webp-filerna och utkasten under data/utkast/bildbatch/${NAMN}/." >> "$GITHUB_STEP_SUMMARY"

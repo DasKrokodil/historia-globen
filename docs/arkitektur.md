@@ -540,7 +540,7 @@ Menyn visar det som pågår nära året man står på. Resten finns bakom "Visa 
 
 Skripten i `tools/` körs för hand, inte av sidan, så principen om inget byggsteg gäller fortfarande.
 
-`.github/workflows/bildkandidater.yml` (#2119) kör `tools/bildkandidater.py` på begäran (bara `workflow_dispatch`; världsdel `Alla` kör de fem efter varandra, period och gräns är valfria, högst 240 minuter) och öppnar en pull request med de ändrade filerna i `data/utkast/bildkandidater/` (en per världsdel och period, #2183; arbetsflödet stoppar före commit om något utanför `data/utkast/` har ändrats) och en tabell över vilka världsdelar som blev klara; sidan läser inte filen (docs/bilder-riktiga.md, "Kandidatlistan").
+`.github/workflows/bild-ej-hamtade.yml` (#2195) hämtar om de bilder som en omgång skrev till `data/utkast/bildbatch/<namn>-ej-hamtade.txt`: bara `workflow_dispatch`, inga hemligheter, `bild_hamta.py` med `--max-vanta 660 --tidstak 2400` (Actions får vänta, en agent ska inte), och resultatet under `data/utkast/bildbatch/<namn>/` på en ny gren `bildbatch/<namn>-<körning>`, utan pull request (beslut 2026-11-22). `.github/workflows/bildkandidater.yml` (#2119) kör `tools/bildkandidater.py` på begäran (bara `workflow_dispatch`; världsdel `Alla` kör de fem efter varandra, period och gräns är valfria, högst 240 minuter) och öppnar en pull request med de ändrade filerna i `data/utkast/bildkandidater/` (en per världsdel och period, #2183; arbetsflödet stoppar före commit om något utanför `data/utkast/` har ändrats) och en tabell över vilka världsdelar som blev klara; sidan läser inte filen (docs/bilder-riktiga.md, "Kandidatlistan").
 
 | Skript | Gör |
 |---|---|

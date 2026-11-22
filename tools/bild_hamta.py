@@ -694,6 +694,9 @@ def main(argv=None):
     ap.add_argument('--skriv-over', action='store_true', help='ersätt en befintlig webp-fil')
     ap.add_argument('--okand', choices=sorted(OKAND), help='sätt fasta frasen Okänd fotograf/konstnär när metadata saknar upphovsperson')
     ap.add_argument('--max-vanta', type=int, default=MAX_VANTA, help='längsta väntan på Retry-After i sekunder')
+    ap.add_argument('--tidstak', type=int, default=TIDSTAK,
+                    help=f'högst så här många sekunder per bild, omförsök inräknade (standard {TIDSTAK}); arbetsflödet i Actions '
+                         'använder ett högre tak, eftersom ingen agent väntar där (#2195)')
     ap.add_argument('--ej-hamtade', metavar='FIL',
                     help='skriv de bilder som blev "ej hämtad" som en --lista-fil, för en senare körning (#2193)')
     a = ap.parse_args(argv)
@@ -714,7 +717,7 @@ def main(argv=None):
     cache = None
     if not a.ingen_cache:
         cache = Path(a.cache_dir) if a.cache_dir else Path(os.environ.get('XDG_CACHE_HOME') or Path.home() / '.cache') / 'historia-globen' / 'bild_hamta'
-    klient = Klient(cache_dir=cache, max_vanta=a.max_vanta)
+    klient = Klient(cache_dir=cache, max_vanta=a.max_vanta, tidstak=a.tidstak)
     resultat = kor(parse_indata(refs, mappning), klient, a.out, a.dry_run, a.okand, a.skriv_over, kanda=kanda_id(), passa=passa)
     if a.ej_hamtade:
         skriv_ej_hamtade(a.ej_hamtade, resultat, passa)
