@@ -42,6 +42,21 @@
       "source": null
     },
     {
+      "eventId": "al-qarawiyyin-grundas",
+      "eventTitle": "Al-Qarawiyyin grundas i Fès",
+      "file": "images/events/al-qarawiyyin-grundas.webp",
+      "kind": "historisk",
+      "credit": "Abdel Hassouni / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-al-qarawiyyin-grundas",
+        "title": "University of Al Qaraouiyine – Abdel Hassouni, nutida foto 2015 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:University_of_Al_Qaraouiyine.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "alltinget-grundas",
       "eventTitle": "Alltinget grundas på Island",
       "file": "images/events/alltinget-grundas.webp",
@@ -54,6 +69,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Althingi.jpg",
         "license": "Public domain",
         "checked": "2026-11-13"
+      }
+    },
+    {
+      "eventId": "amazigher-befolkar-kanarieoarna",
+      "eventTitle": "Amazigher från Nordafrika slår sig ner på Kanarieöarna",
+      "file": "images/events/amazigher-befolkar-kanarieoarna.webp",
+      "kind": "historisk",
+      "credit": "H. Zell / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-amazigher-befolkar-kanarieoarna",
+        "title": "Almogarén - Archaeological area of Cuatro Puertas – H. Zell, nutida foto 2016 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Almogar%C3%A9n_-_Archaeological_area_of_Cuatro_Puertas.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -876,6 +906,21 @@
       }
     },
     {
+      "eventId": "elefantfaglarna-dor-ut",
+      "eventTitle": "Elefantfåglarna dör ut på Madagaskar",
+      "file": "images/events/elefantfaglarna-dor-ut.webp",
+      "kind": "historisk",
+      "credit": "Marie-Lan Taÿ Pamart / Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "source": {
+        "id": "commons-bild-elefantfaglarna-dor-ut",
+        "title": "Aepyornis maximus eggs Zoothèque MNHN – Marie-Lan Taÿ Pamart, foto 2020 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Aepyornis_maximus_eggs_Zooth%C3%A8que_MNHN.jpg",
+        "license": "CC BY 4.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "emigrationen-fran-sverige",
       "eventTitle": "Emigrationen från Sverige till Amerika",
       "file": "images/events/emigrationen-fran-sverige.webp",
@@ -1185,6 +1230,21 @@
       }
     },
     {
+      "eventId": "gao-saney-handelsstad",
+      "eventTitle": "Handelsstaden Gao-Saney vid Nigerfloden",
+      "file": "images/events/gao-saney-handelsstad.webp",
+      "kind": "historisk",
+      "credit": "Marie-Lan Nguyen / Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "source": {
+        "id": "commons-bild-gao-saney-handelsstad",
+        "title": "Stele Almeria Gao-Saney MNM R88-19-279 – Marie-Lan Nguyen, foto 2017 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Stele_Almeria_Gao-Saney_MNM_R88-19-279.jpg",
+        "license": "CC BY 4.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "ghanas-sjalvstandighet",
       "eventTitle": "Ghana blir självständigt",
       "file": "images/events/ghanas-sjalvstandighet.webp",
@@ -1413,6 +1473,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Tokugawa_Ieyasu2.JPG",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "igbo-ukwu-bronserna",
+      "eventTitle": "Bronserna i Igbo-Ukwu gjuts",
+      "file": "images/events/igbo-ukwu-bronserna.webp",
+      "kind": "historisk",
+      "credit": "Ochiwar / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-igbo-ukwu-bronserna",
+        "title": "Bronze ceremonial vessel in form of a snail shell, 9th century, Igbo-Ukwu, Nigeria – Ochiwar, nutida foto 2013 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Bronze_ceremonial_vessel_in_form_of_a_snail_shell,_9th_century,_Igbo-Ukwu,_Nigeria.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -1680,6 +1755,21 @@
       "source": null
     },
     {
+      "eventId": "kanemriket",
+      "eventTitle": "Kanemriket vid Tchadsjön",
+      "file": "images/events/kanemriket.webp",
+      "kind": "historisk",
+      "credit": "Heinrich Kiepert / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-kanemriket",
+        "title": "Eastern Sahel in Politische Wandkarte von Africa im Maßstabe by Heinrich Kiepert – Heinrich Kiepert, 1885 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Eastern_Sahel_in_Politische_Wandkarte_von_Africa_im_Ma%C3%9Fstabe_by_Heinrich_Kiepert.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "kant-vad-ar-upplysning",
       "eventTitle": "Kant svarar på frågan ”Vad är upplysning?”",
       "file": "images/events/kant-vad-ar-upplysning.webp",
@@ -1812,6 +1902,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:P1150884_Louvre_Uruk_III_tablette_%C3%A9criture_pr%C3%A9cun%C3%A9iforme_AO19936_rwk.jpg",
         "license": "CC BY 3.0",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "kisaliska-gravarna",
+      "eventTitle": "Gravarna från den kisaliska tiden i Upembasänkan",
+      "file": "images/events/kisaliska-gravarna.webp",
+      "kind": "historisk",
+      "credit": "Hispalois / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-kisaliska-gravarna",
+        "title": "AfricaMuseum grave 03 – Hispalois, foto 2019 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:AfricaMuseum_grave_03.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -2184,6 +2289,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Ninety-five_Theses_(Basel).jpg",
         "license": "Public domain",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "lydenburghuvudena",
+      "eventTitle": "Lydenburghuvudena",
+      "file": "images/events/lydenburghuvudena.webp",
+      "kind": "historisk",
+      "credit": "Nkansahrexford / Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "source": {
+        "id": "commons-bild-lydenburghuvudena",
+        "title": "Iziko Lydenburg Heads 1 – Nkansahrexford, nutida foto 2014 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Iziko_Lydenburg_Heads_1.JPG",
+        "license": "CC BY 3.0",
+        "checked": "2026-11-22"
       }
     },
     {

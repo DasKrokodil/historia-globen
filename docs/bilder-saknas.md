@@ -136,3 +136,25 @@ Den 21 november 2026 gav reservsökningarna i Library of Congress bildkatalog HT
 | `stavnsbandet-upphavs` | Tom kandidatlista. Alternativsökning på Commons: HTTP 429. |
 | `slaget-vid-jena-auerstedt` | En senare karta i kandidatlistan. Alternativsökning på Commons: HTTP 429. |
 | `slavhandeln-forbjuds-1807` | Kandidaten visar ett riksvapen. Alternativsökning på Commons: HTTP 429. |
+
+## Afrika 41–1000, del 4 av 9 (#2106, pilot steg B, 2026-11-22)
+
+Kontrollerat 2026-11-22 med granskningslistan `data/utkast/bildbatch/2106.md` och högst en kort sökning på Commons per händelse utan kandidat.
+
+| Händelse (id) | Skäl |
+|---|---|
+| `suetonius-paulinus-over-atlasbergen` | Tom kandidatlista. Sökningen gav bara historiska atlaser över Romarriket, ingen bild av fälttåget eller platsen. |
+| `byn-kirikongo-vaxer-fram` | Tom kandidatlista, och sökningen efter Kirikongo gav inga träffar. |
+| `skogen-oppnas-pa-laikipiaplatan` | Det enda landskapsfotot (File:The-laikipia-plateau-1.jpg, CC0) är en ny uppladdning från september 2026 utan kategorier, ett proffsigt flygfoto som anges som eget verk. Det går inte att bedöma, så det användes inte. |
+| `tsunamin-365-alexandria` | Tom kandidatlista. Sökningen gav bara orelaterade PDF-filer. |
+| `arabiska-erovringen-av-egypten` | Wikidatas bild är en arabisk karta från 1986 som Commons märker {{PD-Egypt}} med motiveringen att verk som inte är skapande och publicerades före 1987 är fria. En karta kan vara ett skapande verk, och filsidan saknar uppgift om status i USA, så licensen är osäker. |
+| `sungbos-eredo` | Wikidatas bild anges som eget verk (CC BY-SA 4.0), men datumfältet säger "culled from nigeria's national monuments", alltså hämtad ur en annan källa. Uppgifterna motsäger varandra. |
+| `mapungubwe-riket` | Bästa kandidaten, File:MapungubweHill.jpg, har bara {{GFDL-user}} med migration=relicense på filsidan. Licensen känns inte igen av verktygen, och enligt rutinen avstår vi hellre. Kandidat 1 visar guldföremål från både Ashantiriket och Mapungubwe utan att skilja dem åt. |
+| `fuktigare-klimat-vid-limpopo` | Fotot av Limpopos och Shashes sammanflöde (File:LSConfluence.jpg) har samma licensfråga som ovan ({{GFDL-user}} med migration=relicense). |
+
+### Ej hämtad, prövas igen
+
+| Händelse (id) | Hinder |
+|---|---|
+| `sista-silfiumstjalken` | File:Cyrene coin.jpg (mynt från Kyrene med ett silfiumfrö, PD-old-auto och CC0) är godkänd, men upload.wikimedia.org svarade HTTP 429 med Retry-After 600 s. Raden står i `data/utkast/bildbatch/2106-ej-hamtade.txt`. |
+| `burakulturen` | File:Grave Marker MET VS1998.478.1.jpeg (gravmarkör av terrakotta, burafolket, 200–1000-talet, Metropolitan Museum of Art, CC0) är godkänd, men upload.wikimedia.org svarade HTTP 429 med Retry-After 600 s. Raden står i `data/utkast/bildbatch/2106-ej-hamtade.txt`. |
