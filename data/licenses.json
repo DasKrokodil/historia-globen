@@ -2569,6 +2569,7 @@
         "wp-spanish-coup-1936",
         "wp-spanish-empire",
         "wp-spanish-flu",
+        "wp-spanish-legion",
         "wp-spice-trade",
         "wp-spiennes",
         "wp-spirit-cave-thailand",
@@ -4408,6 +4409,12 @@
       ]
     },
     {
+      "license": "Stängd artikel, länkad källa: bara författarmanuset läst, ingen text kopierad; stöder bara årtal och dateringsmetod (beslut 2026-11-12)",
+      "sourceIds": [
+        "sinding-2020-zjochov"
+      ]
+    },
+    {
       "license": "Stängd artikel, länkad källa: bara sammanfattningen läst, ingen text kopierad (beslut 2026-11-12)",
       "sourceIds": [
         "bennett-2021-white-sands",
@@ -4420,12 +4427,6 @@
         "rizal-2020-ngandong",
         "surovell-2026-monte-verde",
         "tsutaya-2025-penghu"
-      ]
-    },
-    {
-      "license": "© AAAS (bara länkad, ingen text kopierad; stöder bara årtal och dateringsmetod)",
-      "sourceIds": [
-        "sinding-2020-zjochov"
       ]
     },
     {
