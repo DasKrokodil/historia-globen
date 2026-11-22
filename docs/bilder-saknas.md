@@ -136,3 +136,21 @@ Den 21 november 2026 gav reservsökningarna i Library of Congress bildkatalog HT
 | `stavnsbandet-upphavs` | Tom kandidatlista. Alternativsökning på Commons: HTTP 429. |
 | `slaget-vid-jena-auerstedt` | En senare karta i kandidatlistan. Alternativsökning på Commons: HTTP 429. |
 | `slavhandeln-forbjuds-1807` | Kandidaten visar ett riksvapen. Alternativsökning på Commons: HTTP 429. |
+
+## Afrika 1390–1816, pilot #2108 (2026-11-22)
+
+Elva av 18 händelser fick en bild från Wikimedia Commons (licensen kontrollerad i filsidans wikitext 2026-11-22). Valen och skälen står i granskningslistan [data/utkast/bildbatch/2108.md](../data/utkast/bildbatch/2108.md). Värda att se över:
+
+- `etiopisk-adalska-kriget`: en fransk miniatyr från 1400-talet av Yagbea Sion mot sultanen av Adal, alltså ett tidigare krig. Bildtexten säger det.
+- `afonso-i-kung-av-kongo`: en modern vektorteckning (2017) av Kongos vapen omkring 1528–1541, lagd hel på svart bakgrund.
+- `bartolomeu-dias-rundar-afrika`, `askia-muhammad-tar-makten`, `shaka-bygger-zuluriket`, `rozviriket`: foton av platser och monument från långt senare tid; bildtexterna säger det.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `ewuare-oba-i-benin` | Den enda kandidaten är ett suddigt foto (2016) av en liten träbyst i ett hem; filsidan säger inte när eller av vem bysten gjordes, och beskärningen till 4:3 skär av huvudet. |
+| `mutapariket` | Ingen kandidat i listan. En kort sökning på Commons gav kartor från 1740-talet, ett vapen och bilder ur europeiska verk från 1700-talet (till exempel "Uomo e donna del Monomotapa", 1765), som inte visar riket när det växte fram. Filsidorna öppnades inte. |
+| `slaget-vid-shimbra-kure` | Listans nr 1 är samma miniatyr som kriget fick, och den visar inte slaget. Nr 2 ("Illustration of Ahmad Gragn at war") är märkt CC0 med Richard Pankhurst som upphovsperson och hans bok från 1997 som källa; filsidan säger inte vem som gjorde bilden eller när, så licensen går inte att kontrollera. |
+| `slaget-vid-antukyah` | Den enda kandidaten är en modern, smal karta över Adal omkring 1500, inte av slaget. |
+| `slaget-vid-amba-sel` | Ingen kandidat i listan, och en kort sökning på Commons gav ingen träff. |
+| `oyoriket` | Den enda kandidaten är ett foto av palatset i Oyo från "mitten av 1900-talet", hämtat från en webbplats, med mallen PD-old (upphovspersonen död för mer än 70 år sedan). Det går inte att kontrollera för ett foto från 1900-talet utan känd fotograf. Bilden är dessutom smal (500 px). |
+| `asanteriket-grundas` | Den enda kandidaten är en liten karta (428 px) ur en engelsk atlas från 1800-talet, utan uppgift om källa, upphov eller år. |

@@ -1,0 +1,20 @@
+# Indata till python3 tools/bild_hamta.py --lista (#2183). En rad per händelse: referens, tabb, händelse-id.
+# Ta bort # på de rader som är godkända i granskningslistan; byt fil om en annan kandidat valdes.
+# Bartolomeu Dias: listans nr 1 (originalfilen flaggades av bild_hamta.py, se 2108.md); webp beskuren för hand. Afonso I: listans nr 2 (lagd på svart bakgrund för hand). Andrianampoinimerina: beskuren för hand från toppen.
+# File:Oba Ewuare the Great!.jpg	ewuare-oba-i-benin
+File:Bartolomeu Dias, South Africa House (cut).JPG	bartolomeu-dias-rundar-afrika
+File:Coat of arms of Kongo.svg	afonso-i-kung-av-kongo
+File:Slaveshipposter.jpg	atlantiska-slavhandeln
+File:YagbeaSionBattlingAdaSultan.JPG	etiopisk-adalska-kriget
+# File:YagbeaSionBattlingAdaSultan.JPG	slaget-vid-shimbra-kure
+# File:Adal.PNG	slaget-vid-antukyah
+# File:Palace of Alaafin of Oyo circa mid-1900s.jpg	oyoriket
+# File:Asante map.jpg	asanteriket-grundas
+File:Emblème du roi Agadja-Musée africain de Lyon.jpg	dahomey-erovrar-ouidah
+File:Andrianampoinimerina HQ.jpg	andrianampoinimerina-enar-imerina
+File:View of Sokoto (1890).jpg	sokotokalifatet-grundas
+File:Gees van eMakhosini-monument, eMakhosini.jpg	shaka-bygger-zuluriket
+# Egen sökning (händelser utan kandidat i listan):
+File:AMH-8087-KB A Dutch delegation is received by the king of Congo..jpg	kungadomet-kongo-grundas
+File:ETH-BIB-Grabmal von Askia, Gao-Tschadseeflug 1930-31-LBS MH02-08-0549.tif	askia-muhammad-tar-makten
+File:Ntabazikamambo Grananeries or Grain Bins.jpg	rozviriket

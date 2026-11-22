@@ -1011,6 +1011,21 @@
      "de": "Die Daten des Krieges folgen dem julianischen Kalender, der damals verwendet wurde (Wikidata nennt den julianischen Kalender). Wikipedia nennt den 9. März 1529 bis 21. Februar 1543 und Wikidata 1529–1543 ohne Tag."
     }
    },
+   "image": {
+    "file": "images/events/etiopisk-adalska-kriget.webp",
+    "kind": "historisk",
+    "style": "miniatyr",
+    "caption": {
+     "sv": "Yagbea Sion i strid mot sultanen av Adal. Miniatyr från 1400-talet i en handskrift av Marco Polos bok (BnF ms. fr. 2810). En europeisk bild av ett tidigare krig mot Adal, inte av det här kriget. Licens: Public domain.",
+     "en": "Yagbea Sion fighting the sultan of Adal. Miniature from the 15th century in a manuscript of Marco Polo’s book (BnF ms. fr. 2810). A European image of an earlier war against Adal, not of this war. Licence: Public domain.",
+     "de": "Yagbea Sion im Kampf gegen den Sultan von Adal. Miniatur aus dem 15. Jahrhundert in einer Handschrift von Marco Polos Buch (BnF ms. fr. 2810). Ein europäisches Bild eines früheren Krieges gegen Adal, nicht dieses Krieges. Lizenz: gemeinfrei.",
+     "es": "Yagbea Sion luchando contra el sultán de Adal. Miniatura del siglo XV en un manuscrito del libro de Marco Polo (BnF ms. fr. 2810). Una imagen europea de una guerra anterior contra Adal, no de esta guerra. Licencia: dominio público.",
+     "fr": "Yagbea Sion combattant le sultan d’Adal. Miniature du XVe siècle dans un manuscrit du livre de Marco Polo (BnF ms. fr. 2810). Une image européenne d’une guerre antérieure contre l’Adal, pas de cette guerre. Licence : domaine public."
+    },
+    "credit": "Okänd konstnär / Bibliothèque nationale de France (ms. fr. 2810) via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-etiopisk-adalska-kriget"
+   },
    "wikidata": "Q2915203",
    "sources": [
     "wp-ethiopian-adal-war",
@@ -6010,6 +6025,21 @@
     "sv": "Under mer än 300 år fördes förslavade afrikaner med fartyg över Atlanten till Amerika. Den första kända direkta resan från Afrika gick 1519, och det sista kända slavskeppet till Kuba kom 1867. De flesta kom från Väst- och Centralafrika och tvingades arbeta på plantager, i gruvor och i hushåll. Enligt nuvarande uppskattningar lastades omkring 12,75 miljoner människor på slavskepp, och upp till 2 miljoner av dem dog under resan.",
     "en": "For more than 300 years enslaved Africans were carried by ship across the Atlantic to the Americas. The first known direct voyage from Africa took place in 1519, and the last known slave ship to Cuba arrived in 1867. Most came from West and Central Africa and were forced to work on plantations, in mines and in households. According to current estimates about 12.75 million people were loaded onto slave ships, and up to 2 million of them died during the voyage."
    },
+   "image": {
+    "file": "images/events/atlantiska-slavhandeln.webp",
+    "kind": "historisk",
+    "style": "islamisk",
+    "caption": {
+     "sv": "Så stuvades förslavade människor på det brittiska slavskeppet Brookes enligt 1788 års lag om slavhandeln. Affisch från december 1788 av en förening som arbetade för att avskaffa slavhandeln. Utsnitt. Licens: Public domain.",
+     "en": "How enslaved people were stowed on the British slave ship Brookes under the slave trade act of 1788. Poster from December 1788 by a society working to abolish the slave trade. Detail. Licence: Public domain.",
+     "de": "So wurden versklavte Menschen auf dem britischen Sklavenschiff Brookes nach dem Sklavenhandelsgesetz von 1788 verstaut. Plakat vom Dezember 1788 einer Gesellschaft, die sich für die Abschaffung des Sklavenhandels einsetzte. Ausschnitt. Lizenz: gemeinfrei.",
+     "es": "Así se estibaba a las personas esclavizadas en el barco negrero británico Brookes según la ley de comercio de esclavos de 1788. Cartel de diciembre de 1788 de una sociedad que luchaba por abolir la trata de esclavos. Detalle. Licencia: dominio público.",
+     "fr": "La façon dont les personnes réduites en esclavage étaient entassées sur le navire négrier britannique Brookes selon la loi de 1788 sur la traite. Affiche de décembre 1788 d’une société qui luttait pour l’abolition de la traite. Détail. Licence : domaine public."
+    },
+    "credit": "Plymouthavdelningen av Society for Effecting the Abolition of the Slave Trade / Library of Congress via Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-atlantiska-slavhandeln"
+   },
    "wikidata": "Q10701282",
    "sources": [
     "wp-atlantic-slave-trade",
@@ -6580,6 +6610,21 @@
      "en": "Wikipedia says that Afonso died in 1542 or 1543. Wikidata gives 1543."
     }
    },
+   "image": {
+    "file": "images/events/afonso-i-kung-av-kongo.webp",
+    "kind": "historisk",
+    "style": "renassans",
+    "caption": {
+     "sv": "Kungadömet Kongos vapen, omkring 1528–1541. Modern teckning (2017) av Samhanin, inte från händelsens tid. Licens: CC BY 3.0.",
+     "en": "The coat of arms of the Kingdom of Kongo, around 1528–1541. Modern drawing (2017) by Samhanin, not from the time of the event. Licence: CC BY 3.0.",
+     "de": "Das Wappen des Königreichs Kongo, um 1528–1541. Moderne Zeichnung (2017) von Samhanin, nicht aus der Zeit des Ereignisses. Lizenz: CC BY 3.0.",
+     "es": "El escudo de armas del reino del Congo, hacia 1528-1541. Dibujo moderno (2017) de Samhanin, no de la época del acontecimiento. Licencia: CC BY 3.0.",
+     "fr": "Les armoiries du royaume du Kongo, vers 1528-1541. Dessin moderne (2017) de Samhanin, pas de l’époque de l’événement. Licence : CC BY 3.0."
+    },
+    "credit": "Samhanin / Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "source": "commons-bild-afonso-i-kung-av-kongo"
+   },
    "wikidata": "Q383455",
    "sources": [
     "wp-afonso-i-of-kongo",
@@ -6784,6 +6829,21 @@
      "en": "Wikipedia has the empire begin around 1683. Wikidata gives 1660. The sources have few contemporary accounts, because the Portuguese were not let into the kingdom."
     }
    },
+   "image": {
+    "file": "images/events/rozviriket.webp",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+     "sv": "Sädesmagasinen vid Ntabazikamambo (Manyanga) i Bubidistriktet, ett nationalmonument som anses ha varit Chirisamhurus sista huvudstad under Rozvidynastin. Nutida foto (2018) av Senzeni1, inte från händelsens tid. Licens: CC BY-SA 4.0.",
+     "en": "The granaries at Ntabazikamambo (Manyanga) in Bubi District, a national monument believed to have been the last capital of Chirisamhuru of the Rozvi dynasty. Modern photograph (2018) by Senzeni1, not from the time of the event. Licence: CC BY-SA 4.0.",
+     "de": "Die Kornspeicher von Ntabazikamambo (Manyanga) im Distrikt Bubi, ein Nationaldenkmal, das als letzte Hauptstadt Chirisamhurus aus der Rozvi-Dynastie gilt. Heutiges Foto (2018) von Senzeni1, nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 4.0.",
+     "es": "Los graneros de Ntabazikamambo (Manyanga), en el distrito de Bubi, un monumento nacional que se considera la última capital de Chirisamhuru, de la dinastía rozvi. Foto actual (2018) de Senzeni1, no de la época del acontecimiento. Licencia: CC BY-SA 4.0.",
+     "fr": "Les greniers de Ntabazikamambo (Manyanga), dans le district de Bubi, un monument national considéré comme la dernière capitale de Chirisamhuru, de la dynastie rozvi. Photo actuelle (2018) de Senzeni1, pas de l’époque de l’événement. Licence : CC BY-SA 4.0."
+    },
+    "credit": "Senzeni1 / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-rozviriket"
+   },
    "wikidata": "Q986822",
    "sources": [
     "wp-rozvi-empire",
@@ -6865,6 +6925,21 @@
     "sv": "Den 26 februari 1727 anföll kung Agaja av Dahomey hamnstaden Whydah, i dag Ouidah, och brände palatset. Enligt rapporter från striderna dödades omkring 5 000 människor och 10 000–11 000 togs till fånga. Erövringen gav Dahomey kontroll över viktiga handelsvägar för den atlantiska slavhandeln. Historiker är oense om Agajas skäl.",
     "en": "On 26 February 1727 King Agaja of Dahomey attacked the port town of Whydah, today Ouidah, and burned the palace. According to reports from the fighting, about 5,000 people were killed and 10,000–11,000 were taken prisoner. The conquest gave Dahomey control of important trade routes for the Atlantic slave trade. Historians disagree about Agaja's reasons."
    },
+   "image": {
+    "file": "images/events/dahomey-erovrar-ouidah.webp",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+     "sv": "Föremål från Fon i Benin, slutet av 1700-talet: kung Agadjas emblem i trä och silver, 23 cm, fotograferat på Musée africain de Lyon (2016). Licens: CC BY-SA 4.0.",
+     "en": "Object from the Fon people of Benin, late 18th century: King Agadja’s emblem in wood and silver, 23 cm, photographed at the Musée africain de Lyon (2016). Licence: CC BY-SA 4.0.",
+     "de": "Gegenstand der Fon aus Benin, spätes 18. Jahrhundert: das Emblem König Agadjas aus Holz und Silber, 23 cm, fotografiert im Musée africain de Lyon (2016). Lizenz: CC BY-SA 4.0.",
+     "es": "Objeto de los fon de Benín, finales del siglo XVIII: emblema del rey Agadja en madera y plata, 23 cm, fotografiado en el Musée africain de Lyon (2016). Licencia: CC BY-SA 4.0.",
+     "fr": "Objet fon du Bénin, fin du XVIIIe siècle : emblème du roi Agadja en bois et argent, 23 cm, photographié au Musée africain de Lyon (2016). Licence : CC BY-SA 4.0."
+    },
+    "credit": "Ji-Elle / Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "source": "commons-bild-dahomey-erovrar-ouidah"
+   },
    "wikidata": "Q562291",
    "sources": [
     "wp-agaja",
@@ -6897,6 +6972,21 @@
    "summary": {
     "sv": "Från 1787 styrde Andrianampoinimerina kungadömet Imerina på Madagaskar från den befästa staden Ambohimanga, i dag ett världsarv. Han återförenade Imerina efter 77 år av inbördeskrig och utvidgade sedan riket över höglandet. Hans mål var att ena hela Madagaskar, och sonen Radama I kom långt mot det målet under de följande två decennierna.",
     "en": "From 1787 Andrianampoinimerina ruled the kingdom of Imerina on Madagascar from the fortified town of Ambohimanga, today a World Heritage Site. He reunited Imerina after 77 years of civil war and then expanded the kingdom across the highlands. His goal was to unite all of Madagascar, and his son Radama I came far towards that goal during the following two decades."
+   },
+   "image": {
+    "file": "images/events/andrianampoinimerina-enar-imerina.webp",
+    "kind": "historisk",
+    "style": "barock",
+    "caption": {
+     "sv": "Kung Andrianampoinimerina av Madagaskar. Målning av Philippe-Auguste Ramanankirahina från 1905, mer än hundra år efter 1787. En konstnärs bild från långt senare. Utsnitt. Licens: Public domain.",
+     "en": "King Andrianampoinimerina of Madagascar. Painting by Philippe-Auguste Ramanankirahina from 1905, more than a hundred years after 1787. An artist’s image from much later. Detail. Licence: Public domain.",
+     "de": "König Andrianampoinimerina von Madagaskar. Gemälde von Philippe-Auguste Ramanankirahina aus dem Jahr 1905, mehr als hundert Jahre nach 1787. Das Bild eines Künstlers aus viel späterer Zeit. Ausschnitt. Lizenz: gemeinfrei.",
+     "es": "El rey Andrianampoinimerina de Madagascar. Pintura de Philippe-Auguste Ramanankirahina de 1905, más de cien años después de 1787. La imagen de un artista de mucho después. Detalle. Licencia: dominio público.",
+     "fr": "Le roi Andrianampoinimerina de Madagascar. Peinture de Philippe-Auguste Ramanankirahina de 1905, plus de cent ans après 1787. L’image d’un artiste bien plus tardive. Détail. Licence : domaine public."
+    },
+    "credit": "Philippe-Auguste Ramanankirahina / Wikimedia Commons",
+    "license": "Public domain",
+    "source": "commons-bild-andrianampoinimerina-enar-imerina"
    },
    "wikidata": "Q218622",
    "sources": [
