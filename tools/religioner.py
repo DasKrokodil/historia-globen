@@ -16,7 +16,7 @@ Regler för ett rikes religion ett visst år (religion_at):
 - Riken med kontrollerat år för kristnandet (christianSince, med källa) är kristna från det året.
 - Ett handplockat val per rike (religionOverride = {"religion": id, "sources": [källor]}, #2140) ersätter religionen som
   texten gav, när en öppnad källa uttryckligen säger vilken religion faktarutans allmännare ord betyder (till exempel
-  "Gothic paganism" = germansk religion). Regeln och säkerheten (sure) är desamma som för texten, och årtalet (since)
+  Zapotekernas "Polytheistic" = mesoamerikansk religion). Regeln och säkerheten (sure) är desamma som för texten, och årtalet (since)
   räknas ur texten före valet. Valet skrivs för hand i registret och behålls vid ombyggnad.
 - Anger faktarutan ett årtal för religionen ("c. 200 AD", "from 6th century") gäller den därifrån (since).
 - Procentsiffror i faktarutan kommer ofta från en nutida folkräkning och används bara från 1900,
