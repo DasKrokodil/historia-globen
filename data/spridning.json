@@ -89,6 +89,30 @@
           },
           {
             "coord": [
+              38.753,
+              9.036
+            ],
+            "wikidata": "Q3624",
+            "name": "Addis Ababa"
+          },
+          {
+            "coord": [
+              32.527,
+              15.603
+            ],
+            "wikidata": "Q1963",
+            "name": "Khartoum"
+          },
+          {
+            "coord": [
+              31.236,
+              30.044
+            ],
+            "wikidata": "Q85",
+            "name": "Cairo"
+          },
+          {
+            "coord": [
               34,
               29.5
             ],
@@ -121,17 +145,25 @@
         "fr": "Premières sorties d’Afrique"
       },
       "summary": {
-        "sv": "Fynd i Levanten (Qafzeh och Skhūl, cirka 130 000–90 000 år sedan) och i Arabien (Al Wusta, cirka 90 000 år sedan) kan komma från tidiga utvandringar. Enligt genetiska studier lämnade de lite eller inget arv till människor som lever i dag. Vilka vägar de tog är inte känt.",
-        "en": "Finds in the Levant (Qafzeh and Skhūl, about 130,000–90,000 years ago) and in Arabia (Al Wusta, about 90,000 years ago) may come from early dispersals. According to genetic studies, they left little or no ancestry in people living today. Which routes they took is not known.",
-        "de": "Funde in der Levante (Qafzeh und Skhūl, etwa 130.000–90.000 Jahre vor heute) und in Arabien (Al Wusta, etwa 90.000 Jahre vor heute) können von frühen Auswanderungen stammen. Nach genetischen Studien hinterließen sie bei heute lebenden Menschen wenig oder kein Erbgut. Welche Wege sie nahmen, ist nicht bekannt.",
-        "es": "Los hallazgos del Levante (Qafzeh y Skhūl, hace unos 130 000–90 000 años) y de Arabia (Al Wusta, hace unos 90 000 años) pueden proceder de salidas tempranas. Según los estudios genéticos, dejaron poca o ninguna herencia en las personas que viven hoy. No se sabe qué rutas siguieron.",
-        "fr": "Des découvertes au Levant (Qafzeh et Skhūl, il y a environ 130 000 à 90 000 ans) et en Arabie (Al Wusta, il y a environ 90 000 ans) pourraient provenir de sorties précoces. Selon les études génétiques, elles ont laissé peu ou pas d’héritage chez les personnes vivant aujourd’hui. On ignore quels itinéraires elles ont suivis."
+        "sv": "Fynd i Levanten (Qafzeh och Skhūl, cirka 130 000–90 000 år sedan) och i Arabien (Al Wusta, cirka 90 000 år sedan) kan komma från tidiga utvandringar. Enligt genetiska studier lämnade de lite eller inget arv till människor som lever i dag. Vilka vägar de tog är inte känt, och linjerna på kartan är bara exempel.",
+        "en": "Finds in the Levant (Qafzeh and Skhūl, about 130,000–90,000 years ago) and in Arabia (Al Wusta, about 90,000 years ago) may come from early dispersals. According to genetic studies, they left little or no ancestry in people living today. Which routes they took is not known, and the lines on the map are only examples.",
+        "de": "Funde in der Levante (Qafzeh und Skhūl, etwa 130.000–90.000 Jahre vor heute) und in Arabien (Al Wusta, etwa 90.000 Jahre vor heute) können von frühen Auswanderungen stammen. Nach genetischen Studien hinterließen sie bei heute lebenden Menschen wenig oder kein Erbgut. Welche Wege sie nahmen, ist nicht bekannt; die Linien auf der Karte sind nur Beispiele.",
+        "es": "Los hallazgos del Levante (Qafzeh y Skhūl, hace unos 130 000–90 000 años) y de Arabia (Al Wusta, hace unos 90 000 años) pueden proceder de salidas tempranas. Según los estudios genéticos, dejaron poca o ninguna herencia en las personas que viven hoy. No se sabe qué rutas siguieron; las líneas del mapa son solo ejemplos.",
+        "fr": "Des découvertes au Levant (Qafzeh et Skhūl, il y a environ 130 000 à 90 000 ans) et en Arabie (Al Wusta, il y a environ 90 000 ans) pourraient provenir de sorties précoces. Selon les études génétiques, elles ont laissé peu ou pas d’héritage chez les personnes vivant aujourd’hui. On ignore quels itinéraires elles ont suivis ; les lignes sur la carte ne sont que des exemples."
+      },
+      "note": {
+        "sv": "Linjerna följer den norra vägen genom Nildalen och över Sinai. Enligt en klimatmodell var en södra väg över sundet Bab el-Mandeb också möjlig för cirka 135 000–115 000 år sedan, om människorna kunde ta sig över havet, men havsnivån var hög under nästan hela den tiden utom i början. Samma studie varnar för att tolka det som bevis för att någon tog den vägen.",
+        "en": "The lines follow the northern route through the Nile valley and across Sinai. According to a climate model, a southern route across the Bab-el-Mandeb strait was also possible about 135,000–115,000 years ago, if people could cross the sea, but sea level was high for almost all of that time except at the beginning. The same study cautions against reading this as evidence that anyone took that route.",
+        "de": "Die Linien folgen dem nördlichen Weg durch das Niltal und über den Sinai. Nach einem Klimamodell war vor etwa 135.000–115.000 Jahren auch ein südlicher Weg über die Meerenge Bab al-Mandab möglich, sofern die Menschen das Meer überqueren konnten, doch der Meeresspiegel lag fast die ganze Zeit hoch, außer zu Beginn. Dieselbe Studie warnt davor, dies als Beleg dafür zu deuten, dass jemand diesen Weg nahm.",
+        "es": "Las líneas siguen la ruta norte por el valle del Nilo y el Sinaí. Según un modelo climático, hace unos 135 000–115 000 años también era posible una ruta sur por el estrecho de Bab el-Mandeb, si las personas podían cruzar el mar, pero el nivel del mar fue alto durante casi todo ese tiempo, salvo al principio. El mismo estudio advierte contra interpretarlo como prueba de que alguien siguiera esa ruta.",
+        "fr": "Les lignes suivent la route nord par la vallée du Nil et le Sinaï. Selon un modèle climatique, une route sud par le détroit de Bab el-Mandeb était aussi possible il y a environ 135 000 à 115 000 ans, si les humains pouvaient traverser la mer, mais le niveau de la mer était élevé pendant presque toute cette période, sauf au début. La même étude met en garde contre l’idée d’y voir la preuve que quelqu’un a emprunté cette route."
       },
       "sources": [
         "harvati-2022-homo-mlp",
         "freidline-2023-tam-pa-ling",
         "hallett-2025-human-niche",
-        "vallini-2024-persian-plateau"
+        "vallini-2024-persian-plateau",
+        "beyer-2021-climatic-windows"
       ],
       "review": "source-checked"
     },
@@ -1108,17 +1140,21 @@
         "fr": "Dénisoviens"
       },
       "summary": {
-        "sv": "Denisovanerna är kända nästan bara genom DNA. Fynd finns i Denisovagrottan i Altaj och i Baishiya på Tibetanska högplatån, och gener i människor som lever i dag tyder på att utbredningen sträckte sig från Altaj ända till Sydostasiens öar, där inga fossil är identifierade. Ytan slutar vid det yngsta daterade lagret i Baishiya (48 000–32 000 år sedan); när denisovanerna försvann är inte känt.",
-        "en": "Denisovans are known almost only from DNA. There are finds in Denisova Cave in the Altai and at Baishiya on the Tibetan Plateau, and genes in people living today suggest that their range stretched from the Altai all the way to Island Southeast Asia, where no fossils have been identified. The area ends at the youngest dated layer at Baishiya (48,000–32,000 years ago); when the Denisovans disappeared is not known.",
-        "de": "Die Denisova-Menschen sind fast nur durch DNA bekannt. Funde gibt es in der Denisova-Höhle im Altai und in Baishiya auf dem Tibetischen Hochland, und Gene heute lebender Menschen deuten darauf hin, dass ihr Verbreitungsgebiet vom Altai bis zu den Inseln Südostasiens reichte, wo keine Fossilien identifiziert sind. Die Fläche endet bei der jüngsten datierten Schicht in Baishiya (48.000–32.000 Jahre vor heute); wann die Denisova-Menschen verschwanden, ist nicht bekannt.",
-        "es": "Los denisovanos se conocen casi solo por el ADN. Hay hallazgos en la cueva de Denisova, en el Altái, y en Baishiya, en la meseta tibetana, y los genes de las personas que viven hoy indican que su área se extendía desde el Altái hasta las islas del Sudeste Asiático, donde no se han identificado fósiles. El área termina con la capa datada más reciente de Baishiya (hace 48 000–32 000 años); no se sabe cuándo desaparecieron los denisovanos.",
-        "fr": "Les Dénisoviens ne sont connus presque que par l’ADN. Des restes ont été trouvés dans la grotte de Denisova, dans l’Altaï, et à Baishiya, sur le plateau tibétain, et les gènes des personnes vivant aujourd’hui suggèrent que leur aire s’étendait de l’Altaï jusqu’aux îles d’Asie du Sud-Est, où aucun fossile n’a été identifié. La zone s’arrête à la couche datée la plus récente de Baishiya (il y a 48 000 à 32 000 ans) ; on ignore quand les Dénisoviens ont disparu."
+        "sv": "Det mesta man vet om denisovanerna kommer från DNA. Fynd finns i Denisovagrottan i Altaj och i Baishiya på Tibetanska högplatån, och studier från 2025 kopplar också en skalle från Harbin i nordöstra Kina och en underkäke från Taiwansundet (Penghu 1) till denisovanerna. Harbin är äldre än tidslinjen och Penghu 1 har två möjliga åldersspann, så ytan är inte ritad kring dem. Gener i människor som lever i dag tyder på att utbredningen sträckte sig från Altaj ända till Sydostasiens öar, där inga fossil är identifierade. Ytan slutar vid det yngsta daterade lagret i Baishiya (48 000–32 000 år sedan); när denisovanerna försvann är inte känt.",
+        "en": "Most of what is known about Denisovans comes from DNA. There are finds in Denisova Cave in the Altai and at Baishiya on the Tibetan Plateau, and studies from 2025 also link a skull from Harbin in north-eastern China and a lower jaw from the Taiwan Strait (Penghu 1) to the Denisovans. Harbin is older than the timeline and Penghu 1 has two possible age ranges, so the area is not drawn around them. Genes in people living today suggest that their range stretched from the Altai all the way to Island Southeast Asia, where no fossils have been identified. The area ends at the youngest dated layer at Baishiya (48,000–32,000 years ago); when the Denisovans disappeared is not known.",
+        "de": "Das meiste, was man über die Denisova-Menschen weiß, stammt aus der DNA. Funde gibt es in der Denisova-Höhle im Altai und in Baishiya auf dem Tibetischen Hochland, und Studien von 2025 verbinden auch einen Schädel aus Harbin im Nordosten Chinas und einen Unterkiefer aus der Taiwanstraße (Penghu 1) mit den Denisova-Menschen. Harbin ist älter als die Zeitleiste, und für Penghu 1 gibt es zwei mögliche Altersspannen, daher ist die Fläche nicht um sie herum gezeichnet. Gene heute lebender Menschen deuten darauf hin, dass ihr Verbreitungsgebiet vom Altai bis zu den Inseln Südostasiens reichte, wo keine Fossilien identifiziert sind. Die Fläche endet bei der jüngsten datierten Schicht in Baishiya (48.000–32.000 Jahre vor heute); wann die Denisova-Menschen verschwanden, ist nicht bekannt.",
+        "es": "Casi todo lo que se sabe de los denisovanos procede del ADN. Hay hallazgos en la cueva de Denisova, en el Altái, y en Baishiya, en la meseta tibetana, y estudios de 2025 vinculan también un cráneo de Harbin, en el noreste de China, y una mandíbula del estrecho de Taiwán (Penghu 1) con los denisovanos. Harbin es más antiguo que la línea de tiempo y Penghu 1 tiene dos posibles intervalos de edad, por lo que el área no se dibuja alrededor de ellos. Los genes de las personas que viven hoy indican que su área se extendía desde el Altái hasta las islas del Sudeste Asiático, donde no se han identificado fósiles. El área termina con la capa datada más reciente de Baishiya (hace 48 000–32 000 años); no se sabe cuándo desaparecieron los denisovanos.",
+        "fr": "L’essentiel de ce que l’on sait des Dénisoviens vient de l’ADN. Des restes ont été trouvés dans la grotte de Denisova, dans l’Altaï, et à Baishiya, sur le plateau tibétain, et des études de 2025 rattachent aussi aux Dénisoviens un crâne de Harbin, dans le nord-est de la Chine, et une mandibule du détroit de Taïwan (Penghu 1). Harbin est plus ancien que la frise et Penghu 1 a deux fourchettes d’âge possibles ; la zone n’est donc pas tracée autour d’eux. Les gènes des personnes vivant aujourd’hui suggèrent que leur aire s’étendait de l’Altaï jusqu’aux îles d’Asie du Sud-Est, où aucun fossile n’a été identifié. La zone s’arrête à la couche datée la plus récente de Baishiya (il y a 48 000 à 32 000 ans) ; on ignore quand les Dénisoviens ont disparu."
       },
       "sources": [
         "harvati-2022-homo-mlp",
         "jacobs-2025-denisova-chronology",
         "xia-2024-baishiya",
-        "curnoe-2025-gua-dagang"
+        "curnoe-2025-gua-dagang",
+        "fu-2025-harbin-mtdna",
+        "fu-2025-harbin-proteome",
+        "tsutaya-2025-penghu",
+        "wp-denisovan"
       ],
       "review": "source-checked"
     },

@@ -4,7 +4,7 @@
 // Språket väljs i js/i18n.js (#63): adressen, det sparade valet eller webbläsaren, annars svenska.
 // Gränssnittets texter hämtas med ui('nyckel') ur data/ui/<språk>.json.
 import { LANG, ui, hasUi } from './i18n.js';
-import { HUMAN_SCALE } from './time-scale.js';
+import { HUMAN_SCALE, HISTORY_FIRST } from './time-scale.js';
 export { LANG, ui };
 const FALLBACK = ['en', 'sv'];
 
@@ -204,7 +204,7 @@ export function formatYear(y) {
   // Före 10 000 f.Kr. är årtalen tusental (#1320): i datan skrivs djup tid som Y-66000000 ("för 66 miljoner år sedan"), och som
   // astronomiskt år vore det 66 000 001 f.Kr. Mellan 10 000 och 3000 f.Kr. lämnas källornas årtal orörda.
   if (y <= -10000) y = roundToStep(y);
-  return isBCE(y) ? `${groupDigits(bce(y))} ${BCE_TXT}` : groupDigits(y);
+  return isBCE(y) ? yearParts(y).join(' ') : groupDigits(y);
 }
 
 /**
@@ -250,9 +250,9 @@ export function formatCentury(y) {
   return ui(key, { n });
 }
 
-/** Tidsfönstrets rad visar ett enskilt år före 3000 f.Kr., där århundraden blir för grova (#1536). */
+/** Tidsfönstret visar enskilda år i förhistorien och på den historiska sidan av skarven (#2152). */
 export function formatWindowYear(y) {
-  return y < -2999 ? formatYear(y) : formatCentury(y);
+  return y <= HISTORY_FIRST + 1 ? formatYear(y) : formatCentury(y);
 }
 
 /**
