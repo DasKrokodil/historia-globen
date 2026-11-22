@@ -1200,6 +1200,21 @@
       }
     },
     {
+      "eventId": "gedi-grundas",
+      "eventTitle": "Swahilistaden Gedi grundas",
+      "file": "images/events/gedi-grundas.webp",
+      "kind": "historisk",
+      "credit": "Mgiganteus / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-gedi-grundas",
+        "title": "Great Mosque of Gede – Mgiganteus (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Great_Mosque_of_Gede.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "ghanas-sjalvstandighet",
       "eventTitle": "Ghana blir självständigt",
       "file": "images/events/ghanas-sjalvstandighet.webp",
@@ -1416,6 +1431,21 @@
       "source": null
     },
     {
+      "eventId": "ibn-al-haytham-optikens-bok",
+      "eventTitle": "Ibn al-Haytham skriver Optikens bok i Kairo",
+      "file": "images/events/ibn-al-haytham-optikens-bok.webp",
+      "kind": "historisk",
+      "credit": "Okänd konstnär / Bayerische Staatsbibliothek via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-ibn-al-haytham-optikens-bok",
+        "title": "Thesaurus opticus Titelblatt – Unknown illustrator Unknown illustrator (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Thesaurus_opticus_Titelblatt.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "ibn-battuta-resa",
       "eventTitle": "Ibn Battuta ger sig av",
       "file": "images/events/ibn-battuta-resa.webp",
@@ -1443,6 +1473,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Tokugawa_Ieyasu2.JPG",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "ife-huvudet",
+      "eventTitle": "Kopparhuvudena från Ife gjuts",
+      "file": "images/events/ife-huvudet.webp",
+      "kind": "historisk",
+      "credit": "sailko / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-ife-huvudet",
+        "title": "Arte yoruba, nigeria, testa da ife, 12-15mo secolo – sailko (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Arte_yoruba,_nigeria,_testa_da_ife,_12-15mo_secolo.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -1845,6 +1890,36 @@
       }
     },
     {
+      "eventId": "kilwa-pa-sin-hojd",
+      "eventTitle": "Handelsstaden Kilwa bygger palats och kupolmoské",
+      "file": "images/events/kilwa-pa-sin-hojd.webp",
+      "kind": "historisk",
+      "credit": "Richard Mortel / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-kilwa-pa-sin-hojd",
+        "title": "Husuni Kubwa, ruins of early 14th cent. sultan's palace on Kilwa Kisiwani (1) (28454335443) – Richard Mortel from Riyadh, Saudi Arabia (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Husuni_Kubwa,_ruins_of_early_14th_cent._sultan%27s_palace_on_Kilwa_Kisiwani_(1)_(28454335443).jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "kilwas-stora-moske-norra-hallen",
+      "eventTitle": "Stora moskén i Kilwa får sin norra bönehall",
+      "file": "images/events/kilwas-stora-moske-norra-hallen.webp",
+      "kind": "historisk",
+      "credit": "Richard Mortel / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-kilwas-stora-moske-norra-hallen",
+        "title": "Great Mosque of Kilwa Kisiwani, 11th - 18th cents (5) (28963308352) – Richard Mortel from Riyadh, Saudi Arabia (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Great_Mosque_of_Kilwa_Kisiwani,_11th_-_18th_cents_(5)_(28963308352).jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "kleopatra",
       "eventTitle": "Kleopatra",
       "file": "images/events/kleopatra.webp",
@@ -1965,6 +2040,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Cristo_crucificado.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "koutoubiamosken-byggs",
+      "eventTitle": "Koutoubiamoskén byggs i Marrakech",
+      "file": "images/events/koutoubiamosken-byggs.webp",
+      "kind": "historisk",
+      "credit": "Baca12 / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-koutoubiamosken-byggs",
+        "title": "Mosquée de la Koutoubia - marakesh – Baca12 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Mosqu%C3%A9e_de_la_Koutoubia_-_marakesh.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -2286,6 +2376,21 @@
       }
     },
     {
+      "eventId": "maimonides-skriver-more-nebuchim",
+      "eventTitle": "Maimonides skriver Moré nebuchim i Fustat",
+      "file": "images/events/maimonides-skriver-more-nebuchim.webp",
+      "kind": "historisk",
+      "credit": "Ferrer Bassa / Det Kongelige Bibliotek via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-maimonides-skriver-more-nebuchim",
+        "title": "14c ed of the Guide for the Perplexed by Maimonides – Ferrer Bassa (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:14c_ed_of_the_Guide_for_the_Perplexed_by_Maimonides.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "maji-maji-upproret",
       "eventTitle": "Maji Maji-upproret",
       "file": "images/events/maji-maji-upproret.webp",
@@ -2367,6 +2472,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Marco_Polo_traveling.JPG",
         "license": "Public domain",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "marrakech-grundas",
+      "eventTitle": "Marrakech grundas av almoraviderna",
+      "file": "images/events/marrakech-grundas.webp",
+      "kind": "historisk",
+      "credit": "Donar Reiskoffer / Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "source": {
+        "id": "commons-bild-marrakech-grundas",
+        "title": "Djemaa el Fna, evening – Donar Reiskoffer (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Djemaa_el_Fna,_evening.JPG",
+        "license": "CC BY 3.0",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -4365,6 +4485,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Tikal_3.jpg",
         "license": "CC BY-SA 4.0",
         "checked": "2026-11-07"
+      }
+    },
+    {
+      "eventId": "timbuktu-blir-fast-bosattning",
+      "eventTitle": "Timbuktu blir en fast bosättning",
+      "file": "images/events/timbuktu-blir-fast-bosattning.webp",
+      "kind": "historisk",
+      "credit": "Martin Bernatz efter skiss av Heinrich Barth / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-timbuktu-blir-fast-bosattning",
+        "title": "TIMBUKTU-EINZUG – Drawn by Martin Bernatz after a sketch by Heinrich Barth (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:TIMBUKTU-EINZUG.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-22"
       }
     },
     {
