@@ -1,0 +1,3 @@
+# Ej hämtade av tools/bild_hamta.py; kör igen med --lista
+File:Cyrene coin.jpg	sista-silfiumstjalken
+File:Grave Marker MET VS1998.478.1.jpeg	burakulturen	passa-in
