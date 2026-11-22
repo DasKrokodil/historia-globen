@@ -1,0 +1,1559 @@
+{
+  "schema": "historia-globen/bildkandidater@2",
+  "status": "förslag",
+  "anmarkning": "FÖRSLAG, inte beslut. Kandidaterna är hämtade automatiskt och måste kontrolleras manuellt innan någon används: öppna filsidan (`filsida`), läs licensmallen, kontrollera att bilden visar själva händelsen (inte en karta, en nutida minnessten eller något annat) och skriv bildtexten ur det filsidan säger. Licensklassningen är en automatisk gissning ur Commons API (\"trolig\"); filsidans licensmall kontrolleras av tools/bild_hamta.py eller tools/bildbatch.py --licens, och \"flagga\" avgörs av en människa. Appen läser inte den här filen (data/utkast/). Se docs/bilder-riktiga.md.",
+  "generated": {
+    "handelser": 41,
+    "kandidater": 46,
+    "troliga": 42,
+    "flaggade": 4,
+    "avvisade": 0,
+    "smala": 11,
+    "ej_hamtade": 0
+  },
+  "handelser": [
+    {
+      "id": "slaget-vid-palonegro",
+      "titel": "Slaget vid Palonegro",
+      "plats": "Palonegro nära Bucaramanga, departementet Santander, Colombia",
+      "start": 1900,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q4871978",
+      "kandidater": [
+        {
+          "fil": "File:Visperas batalla palonegro.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Visperas_batalla_palonegro.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1899",
+          "beskrivning": "Combattants conservateurs avant la bataille de Palonegro, durant la Guerre des Mille Jours",
+          "bredd": 709,
+          "hojd": 432,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/7/76/Visperas_batalla_palonegro.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Battle of Palonegro",
+            "People with flags of Colombia",
+            "Thousand Days' War"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "mont-pelee-1902",
+      "titel": "Mont Pelée förstör Saint-Pierre",
+      "plats": "Mont Pelée och Saint-Pierre, Martinique",
+      "start": 1902,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q386230",
+      "kandidater": [
+        {
+          "fil": "File:The National geographic magazine (1902) (14595295848).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_National_geographic_magazine_(1902)_(14595295848).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "No restrictions",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://www.flickr.com/commons/usage/",
+          "upphovsperson": "Internet Archive Book Images",
+          "datum": "1902",
+          "beskrivning": "Identifier : nationalgeograp131902nati ( find matches ) Title : The National geographic magazine Year : 1888 ( 1880s ) Authors : National Geographic Society (U.S.) Subjects : Geography Publisher : Washington : National Geographic Society Contributing Library : Smithsonian Libraries Digitizing Sponsor : Biodiversity Heritage Library View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: it cra-ter, on the other hand, are more ener-getic than any that can without doubtbe referred to the pseudo-craters. Theminor eruptions from the summit cra-ter, however, may be due to preciselythe same immediate cause as the erup-tions of the pseudo-crater, namely, theaccess of surface water to highh heatedrocks, so that an apparent^ completesequence may be observed between theescape of steam from hot debris and thedischarges from true volcanic conduits.It is thus seen that the discovery of thecrucial test asked for is difficult, andthe final decision, if one is reached,must rest on a judicial balancing of allthe evidence and the weight to be givento the judgment of individual observers.An instructive fact furnished by thepseudo-crater (even when the largerand, as some persons may think, ques-tionable examples are not considered)which has a bearing on the theories ofthe ultimate causes of volcanic erup-tions, is the close similarity, and in factidentity, that exists between the explo- Text Appearing After Image: Mont Pelee from Vive, May 27 The great cloud of steam and smoke rose cauliflower shaped from the summit crater to a heightof from two to three miles. The descending shower of rain and ashes shows on the right Drawn by George Varian. Republished from McClures Magazine Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
+          "bredd": 1483,
+          "hojd": 2341,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/The_National_geographic_magazine_%281902%29_%2814595295848%29.jpg/960px-The_National_geographic_magazine_%281902%29_%2814595295848%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1902 eruption of Mount Pelée",
+            "National Geographic Magazine, 1902"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions"
+        }
+      ]
+    },
+    {
+      "id": "chagas-ny-parasit-1909",
+      "titel": "Carlos Chagas hittar en ny parasit",
+      "plats": "Lassance, Minas Gerais, Brasilien",
+      "start": 1909,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Carlos Chagas finds a new parasite Lassance",
+      "kandidater": []
+    },
+    {
+      "id": "mexikanska-revolutionen",
+      "titel": "Mexikanska revolutionen",
+      "plats": "Mexiko (de första upproren bröt ut i Morelos och i norra Mexiko)",
+      "start": 1910,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q214426",
+      "kandidater": [
+        {
+          "fil": "File:Revolución mexicana 1915.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Revoluci%C3%B3n_mexicana_1915.svg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Rαge",
+          "datum": "2010-04-24",
+          "beskrivning": "Constitucionalistas, villistas y zapatistas en diciembre de 1915. Basado en la información de Introducción a la Revolución mexicana , Garcíadiego páginas 75 y 85. ISBN:970-9765-16-7.",
+          "bredd": 976,
+          "hojd": 655,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Revoluci%C3%B3n_mexicana_1915.svg/960px-Revoluci%C3%B3n_mexicana_1915.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1915 in Mexico",
+            "Maps of the Mexican Revolution"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "bingham-vid-machu-picchu",
+      "titel": "Hiram Bingham kommer till Machu Picchu",
+      "plats": "Machu Picchu, Peru",
+      "start": 1911,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Hiram Bingham reaches Machu Picchu Machu Picchu",
+      "kandidater": [
+        {
+          "fil": "File:Lascar Machu Picchu (4548077793).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Lascar_Machu_Picchu_(4548077793).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Jorge Láscar from Australia",
+          "datum": "2009-01-06 13:20",
+          "beskrivning": "Machu Picchu (Quechua: Machu Pikchu, \"Old Peak\") is a pre-Columbian Inca site located 2,430 metres (8,000 ft) above sea level. It is situated on a mountain ridge above the Urubamba Valley in Peru, which is 80 kilometres (50 mi) northwest of Cuzco and through which the Urubamba River flows. The river is a partially navigable headwater of the Amazon River. Often referred to as \"The Lost City of the Incas\", Machu Picchu is one of the most familiar symbols of the Inca Empire. It was built around 1460 AD but was abandoned as an official site for the Inca rulers a hundred years later, at the time of the Spanish conquest of the Inca Empire. Although known locally, it was said to have been forgotten for centuries when the site was brought to worldwide attention in 1911 by Hiram Bingham, an American historian. Since then, Machu Picchu has become an important tourist attraction. It has recently come to light that the site may have been discovered and plundered several years previously, in 1867 by a German businessman, Augusto Berns. In fact, there is substantial evidence that a British missionary, Thomas Payne, and a German engineer, J. M. von Hassel, arrived earlier than Hiram, and maps found by historians show references to Machu Picchu as early as 1874. Machu Picchu was declared a Peruvian Historical Sanctuary in 1981 and a UNESCO World Heritage Site in 1983. Since it was not plundered by the Spanish when they conquered the Incas, it is especially important as a cultural site and is considered a sacred place. Machu Picchu was built in the classical Inca style, with polished dry-stone walls. Its primary buildings are the Intihuatana, the Temple of the Sun, and the Room of the Three Windows. These are located in what is known by archaeologists as the Sacred District of Machu Picchu. In September 2007, Peru and Yale University reached an agreement regarding the return of artifacts which Hiram Bingham had removed from Machu Picchu in the early twentieth century. Currently, there are concerns about the effect of tourism on the site as it reached 400,000 visitors in 2003 [Wikipedia.org]",
+          "bredd": 3216,
+          "hojd": 2136,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Lascar_Machu_Picchu_%284548077793%29.jpg/960px-Lascar_Machu_Picchu_%284548077793%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Views of Machu Picchu with Huayna Picchu in the background"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Lascar Machu Picchu (4548080603).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Lascar_Machu_Picchu_(4548080603).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Jorge Láscar from Australia",
+          "datum": "2009-01-06 13:32",
+          "beskrivning": "Machu Picchu (Quechua: Machu Pikchu, \"Old Peak\") is a pre-Columbian Inca site located 2,430 metres (8,000 ft) above sea level. It is situated on a mountain ridge above the Urubamba Valley in Peru, which is 80 kilometres (50 mi) northwest of Cuzco and through which the Urubamba River flows. The river is a partially navigable headwater of the Amazon River. Often referred to as \"The Lost City of the Incas\", Machu Picchu is one of the most familiar symbols of the Inca Empire. It was built around 1460 AD but was abandoned as an official site for the Inca rulers a hundred years later, at the time of the Spanish conquest of the Inca Empire. Although known locally, it was said to have been forgotten for centuries when the site was brought to worldwide attention in 1911 by Hiram Bingham, an American historian. Since then, Machu Picchu has become an important tourist attraction. It has recently come to light that the site may have been discovered and plundered several years previously, in 1867 by a German businessman, Augusto Berns. In fact, there is substantial evidence that a British missionary, Thomas Payne, and a German engineer, J. M. von Hassel, arrived earlier than Hiram, and maps found by historians show references to Machu Picchu as early as 1874. Machu Picchu was declared a Peruvian Historical Sanctuary in 1981 and a UNESCO World Heritage Site in 1983. Since it was not plundered by the Spanish when they conquered the Incas, it is especially important as a cultural site and is considered a sacred place. Machu Picchu was built in the classical Inca style, with polished dry-stone walls. Its primary buildings are the Intihuatana, the Temple of the Sun, and the Room of the Three Windows. These are located in what is known by archaeologists as the Sacred District of Machu Picchu. In September 2007, Peru and Yale University reached an agreement regarding the return of artifacts which Hiram Bingham had removed from Machu Picchu in the early twentieth century. Currently, there are concerns about the effect of tourism on the site as it reached 400,000 visitors in 2003 [Wikipedia.org]",
+          "bredd": 4288,
+          "hojd": 2848,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Lascar_Machu_Picchu_%284548080603%29.jpg/960px-Lascar_Machu_Picchu_%284548080603%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Views of Machu Picchu with Huayna Picchu in the background"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Hiram Bingham Perurail - linea Cusco-Machu Picchu - 2009-01-06 - Jorge Lascar.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Hiram_Bingham_Perurail_-_linea_Cusco-Machu_Picchu_-_2009-01-06_-_Jorge_Lascar.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Jorge Láscar from Australia",
+          "datum": "2009-01-06 18:46",
+          "beskrivning": "The Hiram Bingham train is the most luxurious way to journey between Cusco and Machu Picchu. For many visitors a trip to Machu Picchu is a once in a lifetime experience. The Hiram Bingham assures a magical journey never to be forgotten. The Hiram Bingham is named after the explorer who discovered the fascinating remains of the Inca citadel, Machu Picchu on July 23rd 1911. The carriages are painted a distinctive blue and gold while interiors are luxurious, warm and inviting with elegant decoration in the style of the 1920's Pullman trains. As passengers step on board they are encompassed in a world of polished wood, gleaming cutlery and glittering glass. The train consists of two Dining Cars, an Observation Bar Car and a Kitchen Car, and can carry up to 84 passengers. The round trip between Machu Picchu and Cusco aboard the Hiram Bingham is a luxurious experience where every detail has been taken care of. In the morning en route to Machu Picchu a brunch will be served as you watch the stunning landscape unfold. Upon reaching your destination a guide will show you the highlights of the Machu Picchu citadel. After the day exploring the marvel of Machu Picchu, cocktails and a gourmet dinner are served on the return to Cusco [orient-express.com]",
+          "bredd": 3216,
+          "hojd": 2136,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Hiram_Bingham_Perurail_-_linea_Cusco-Machu_Picchu_-_2009-01-06_-_Jorge_Lascar.jpg/960px-Hiram_Bingham_Perurail_-_linea_Cusco-Machu_Picchu_-_2009-01-06_-_Jorge_Lascar.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2009 in rail transport in Peru",
+            "Aguas Calientes railway station",
+            "Belmond Hiram Bingham",
+            "January 2009 in rail transport",
+            "Narrow gauge coaches of Peru",
+            "Narrow gauge rail vehicles of PeruRail"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "fordraget-i-ciudad-juarez",
+      "titel": "Fördraget i Ciudad Juárez – Díaz avgår",
+      "plats": "Ciudad Juárez, Chihuahua",
+      "start": 1911,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Treaty of Ciudad Juárez – Díaz resigns Ciudad Juárez",
+      "kandidater": []
+    },
+    {
+      "id": "plan-de-ayala",
+      "titel": "Zapata utropar Plan de Ayala",
+      "plats": "Ayala, Morelos",
+      "start": 1911,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Zapata proclaims the Plan of Ayala Ayala",
+      "kandidater": [
+        {
+          "fil": "File:Plan of Ayala WDL2970.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Plan_of_Ayala_WDL2970.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Montaño, Otilio (1877-1917)",
+          "datum": "25 November 1911 date QS:P571,+1911-11-25T00:00:00Z/11",
+          "beskrivning": "John Womack, historian of the Mexican Revolution, has called the Plan of Ayala the \"Sacred Scripture\" of the Zapatistas. Written by Emiliano Zapata and Otilio Montaño, and signed on November 25, 1911, the plan was proclaimed in Ayala, Morelos, on November 28 of the same year. It became the blueprint for the Zapatista rebellion after its break with the initiator of the Mexican Revolution, Francisco I. Madero. Besides condemning the \"treason\" of the more conciliatory Madero, the Plan of Ayala puts forward the demands of the Zapatista agrarian rebellion: restitution of lands taken from villages during the Porfiriato, and agrarian redistribution of the larger haciendas, with compensation. Zapatista peasants, based in the southern state of Morelos, would claim these rights by arms, continuing the rebellion started, but not completed, by Madero. Madero, Francisco I., 1873-1913; Mexican Revolution, 1910-1920; Zapata, Emiliano, 1879-1919; Zapatistas",
+          "bredd": 1024,
+          "hojd": 1600,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Plan_of_Ayala_WDL2970.jpg/960px-Plan_of_Ayala_WDL2970.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Manuscripts from the World Digital Library",
+            "Plan de Ayala"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "decena-tragica",
+      "titel": "Decena Trágica – kuppen mot Madero",
+      "plats": "Mexico City (centrum)",
+      "start": 1913,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q1187198",
+      "kandidater": [
+        {
+          "fil": "File:Decena trágica.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Decena_tr%C3%A1gica.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "Osuna",
+          "datum": "1913",
+          "beskrivning": "Decena trágica. Soldados sublevados en acción. 1913. Fotografia: Osuna.",
+          "bredd": 6098,
+          "hojd": 4335,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Decena_tr%C3%A1gica.JPG/960px-Decena_tr%C3%A1gica.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Archivo Casasola",
+            "February 1913 in Mexico City",
+            "Hotchkiss machine guns in Mexican service",
+            "Mexican Revolution"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "panamakanalen-oppnas",
+      "titel": "Panamakanalen öppnas",
+      "plats": "Panamakanalen, Panama",
+      "start": 1914,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q7350",
+      "kandidater": [
+        {
+          "fil": "File:Panama Canal Gatun Locks.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Panama_Canal_Gatun_Locks.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "User:Stan Shebs",
+          "datum": "2000-01-02",
+          "beskrivning": "Photo of Panama Canal Gatun Locks.",
+          "bredd": 1600,
+          "hojd": 1067,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Panama_Canal_Gatun_Locks.jpg/960px-Panama_Canal_Gatun_Locks.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Gatun Locks"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Panama Canal, Agua Clara locks, Control tower (Torre de control).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Panama_Canal,_Agua_Clara_locks,_Control_tower_(Torre_de_control).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Dr. Thomas Liptak",
+          "datum": "2025-03-19 20:07:57",
+          "beskrivning": "Panama Canal: Agua Clara locks: Control tower",
+          "bredd": 5184,
+          "hojd": 2916,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/07/Panama_Canal%2C_Agua_Clara_locks%2C_Control_tower_%28Torre_de_control%29.jpg/960px-Panama_Canal%2C_Agua_Clara_locks%2C_Control_tower_%28Torre_de_control%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2025 photographs of Panama",
+            "Agua Clara Locks",
+            "Atlantic Bridge, Panama",
+            "Colón, Panama",
+            "Emerald Princess (ship, 2007)",
+            "Panama Canal in 2025"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "slaget-vid-zacatecas-1914",
+      "titel": "Villa intar Zacatecas",
+      "plats": "Zacatecas, norra Mexiko",
+      "start": 1914,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q1848264",
+      "kandidater": [
+        {
+          "fil": "File:TakingofZacatecas.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:TakingofZacatecas.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Ángel Boliver, (1926-1993) [ 1 ]",
+          "datum": "1965 [ 2 ]",
+          "beskrivning": "Painting of Taking of Zacatecas, the largest battle of the Mexican Revolution, by Ángel Boliver, Museo Nacional de Historia",
+          "bredd": 2769,
+          "hojd": 1793,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/TakingofZacatecas.JPG/960px-TakingofZacatecas.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Mexican Revolution",
+            "Pancho Villa"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "vandringsduvan-dor-ut",
+      "titel": "Martha, den sista vandringsduvan, dör",
+      "plats": "Cincinnatis djurpark, Ohio, USA",
+      "start": 1914,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q1536726",
+      "kandidater": [
+        {
+          "fil": "File:Martha last passenger pigeon 1912.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Martha_last_passenger_pigeon_1912.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Enno Meyer",
+          "datum": "1912 , published 1921.",
+          "beskrivning": "Martha the last passenger pigeon.",
+          "bredd": 1587,
+          "hojd": 2206,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Martha_last_passenger_pigeon_1912.jpg/960px-Martha_last_passenger_pigeon_1912.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Live Ectopistes migratorius",
+            "Martha (passenger pigeon)"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "slaget-vid-celaya",
+      "titel": "Slagen vid Celaya",
+      "plats": "Celaya, Guanajuato",
+      "start": 1915,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q8244123",
+      "kandidater": [
+        {
+          "fil": "File:Batalla celaya.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Batalla_celaya.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Subido por User:Tatehuari el 14 de Marzo de 2007",
+          "datum": "1915",
+          "beskrivning": "Batalla de Celaya in Guanajuato",
+          "bredd": 425,
+          "hojd": 259,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/6/68/Batalla_celaya.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1915 in Mexico",
+            "Battle of Celaya",
+            "Cannons in Mexico",
+            "Mexican Revolution",
+            "Unidentified artillery"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "zapata-mordas-1919",
+      "titel": "Emiliano Zapata mördas",
+      "plats": "Haciendan San Juan i Chinameca, Morelos",
+      "start": 1919,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q41718",
+      "kandidater": [
+        {
+          "fil": "File:Emiliano Zapata4.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Emiliano_Zapata4.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Agustín Casasola",
+          "datum": "1914",
+          "beskrivning": "Emiliano Zapata Salazar fue uno de los líderes militares y campesinos más importantes de la Revolución mexicana y un símbolo de la resistencia campesina en México.",
+          "bredd": 970,
+          "hojd": 1326,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/99/Emiliano_Zapata4.jpg/960px-Emiliano_Zapata4.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Black and white photographs of men looking at viewer",
+            "Black and white portrait photographs of men",
+            "Handlebar moustaches",
+            "Photographs by Agustín Víctor Casasola",
+            "Photographs of Emiliano Zapata"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "carranza-dodas-1920",
+      "titel": "President Carranza dödas",
+      "plats": "Tlaxcalantongo i Sierra Norte de Puebla",
+      "start": 1920,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q313122",
+      "kandidater": [
+        {
+          "fil": "File:Portrait of Venustiano Carranza.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Portrait_of_Venustiano_Carranza.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Harris & Ewing",
+          "datum": "no later than 1915",
+          "beskrivning": "Portrait of Venustiano Carranza",
+          "bredd": 951,
+          "hojd": 1429,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Portrait_of_Venustiano_Carranza.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Venustiano Carranza"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "insulin-forsta-patienten",
+      "titel": "Den första insulinbehandlingen",
+      "plats": "Toronto General Hospital, Toronto, Kanada",
+      "start": 1922,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The first insulin treatment Toronto General Hospital",
+      "kandidater": [
+        {
+          "fil": "File:The Hospital for Sick Children, Toronto, Ontario (29375668624).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_Hospital_for_Sick_Children,_Toronto,_Ontario_(29375668624).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Ken Lund from Reno, Nevada, USA",
+          "datum": "2016-09-28 12:46",
+          "beskrivning": "The Hospital for Sick Children, corporately branded as SickKids, is a major pediatric teaching hospital located on University Avenue in Toronto, Ontario, Canada. It is affiliated with the Faculty of Medicine of the University of Toronto. The hospital's Peter Gilgan Centre for Research and Learning is believed to be the largest pediatric research tower in the world at 69677.28 square metres. Founded in 1875, the hospital was inspired by the example of Great Ormond Street Hospital in London. The hospital is located in the Discovery District of Downtown Toronto on University Avenue, adjacent to the Toronto General Hospital and across from Mount Sinai Hospital and the Princess Margaret Cancer Centre—collectively forming a complex known as Hospital Row, each connected by underground tunnels and bridges. The hospital is known for its advertisement campaigns and the largest amounts of donations received for any Canadian hospital. Medical treatments at the hospital are covered by publicly funded health insurance, as is the case in most other Canadian hospitals. Philanthropy is a critical source of funding for SickKids Hospital that is separate and distinct from government and granting agencies. In 2006/07, financial support from SickKids Foundation to the hospital totalled $72.1 million. The support went towards infrastructure and support for physicians, researchers and scientists who compete for national and international research grants. Next to government, SickKids Foundation is the largest funding agency in child health research, education and care in Canada. The Foundation maintains a fund, called the Herbie Fund, for patients not covered by Canadian health insurance. The fund was established in 1979 to provide for the treatment of Herbie Quiñones, a seven-month-old patient from Brooklyn, New York. The hospital was an early leader in the fields of food safety and nutrition. In 1908 a pasteurization facility for milk was established at the hospital, the first in Toronto, and 30 years before milk pasteurization became mandatory. Researchers at the hospital invented the infant cereal, Pablum. The research that led to the discovery of insulin took place nearby at the University of Toronto and was soon applied at the hospital. Doctor Frederick Banting, one of the researchers, had served his internship at SickKids Hospital and went on to become an attending physician there. In 1963 William Thornton Mustard developed the Mustard surgical procedure used to help correct heart problems in blue baby syndrome. In 1989, a team of researchers at the hospital discovered the gene responsible for cystic fibrosis. <a href=\" https://en.wikipedia.org/wiki/The_Hospital_for_Sick_Children \" rel=\"noreferrer nofollow\">en.wikipedia.org/wiki/The_Hospital_for_Sick_Children</a> <a href=\" https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License \" rel=\"noreferrer nofollow\">en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_...</a>",
+          "bredd": 4000,
+          "hojd": 3000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/The_Hospital_for_Sick_Children%2C_Toronto%2C_Ontario_%2829375668624%29.jpg/960px-The_Hospital_for_Sick_Children%2C_Toronto%2C_Ontario_%2829375668624%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Hospital for Sick Children",
+            "September 2016 in Toronto"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "hubbles-lag",
+      "titel": "Hubble: galaxerna rör sig bort från oss",
+      "plats": "Mount Wilson-observatoriet, Kalifornien",
+      "start": 1929,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Hubble: the galaxies are moving away from us Mount Wilson Observatory",
+      "kandidater": []
+    },
+    {
+      "id": "dust-bowl",
+      "titel": "Dust Bowl: torka och dammstormar på prärien",
+      "plats": "Prärierna på Great Plains, USA och Kanada",
+      "start": 1930,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q726501",
+      "kandidater": [
+        {
+          "fil": "File:Dust Bowl - Dallas, South Dakota 1936.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Dust_Bowl_-_Dallas,_South_Dakota_1936.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Sloan (?)",
+          "datum": "Taken on 13 May 1936",
+          "beskrivning": "Buried machinery in barn lot in Dallas , South Dakota , United States during the Dust Bowl , an agricultural, ecological, and economic disaster in the Great Plains region of North America in 1936",
+          "bredd": 2400,
+          "hojd": 1800,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Dust_Bowl_-_Dallas%2C_South_Dakota_1936.jpg/960px-Dust_Bowl_-_Dallas%2C_South_Dakota_1936.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1936 black and white photographs",
+            "1936 in South Dakota",
+            "Black and white photographs of South Dakota",
+            "Black and white photographs of the United States in the 1930s",
+            "Drought in South Dakota",
+            "Dust Bowl",
+            "Dust storms in South Dakota",
+            "Gregory County, South Dakota",
+            "Landscapes of South Dakota",
+            "Sand in South Dakota",
+            "Windthrow in the United States"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "ostgronlandsmalet",
+      "titel": "Östgrönlandsmålet",
+      "plats": "Östgrönland mellan 71° och 75° nordlig bredd (”Eirik Raudes Land”)",
+      "start": 1931,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": null,
+      "soktext": "The Eastern Greenland case",
+      "kandidater": [
+        {
+          "fil": "File:The story of our continent - a reader in the geography and geology of North America - for the use of schools (1893) (14776628164).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_story_of_our_continent_-_a_reader_in_the_geography_and_geology_of_North_America_-_for_the_use_of_schools_(1893)_(14776628164).jpg",
+          "kalla": "commons-sok",
+          "licens": "No restrictions",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://www.flickr.com/commons/usage/",
+          "upphovsperson": "Shaler, Nathaniel Southgate, 1841-1906",
+          "datum": "1893",
+          "beskrivning": "Identifier : storyofourcontin1893shal ( find matches ) Title : The story of our continent : a reader in the geography and geology of North America : for the use of schools Year : 1893 ( 1890s ) Authors : Shaler, Nathaniel Southgate, 1841-1906 Subjects : Physical geography Geology Publisher : Boston : Ginn & Co. Contributing Library : University of Connecticut Libraries Digitizing Sponsor : LYRASIS members and Sloan Foundation View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: eatest ofthese belts extends from Eastern Massachusetts, whereit is well exhibited on the promontory of Cape Cod andthe neighboring islands on the south, westward throughLong Island, New York, thence across the mainland ofNew Jersey, through parts of Pennsylvania and NewYork, Central and Southern Ohio, and thence in a north-westward direction through Dakota. When the icelay over the northern and eastern parts of the continentin the form of a vast sheet, it doubtless presented anunbroken upper surface over which the observer couldhave journeyed from the Potomac to Greenland, orfrom the valley of the Saskatchewan to Newfoundland,without observing any trace of the hills and valleyswhich were beneath him. We know from a recent ex-amination of the central part of Greenland that such acontinental glacier smooths over hill and dale as a win-ters snowstorm hides the irregularities of a ploughedfield or the hills where Indian corn has been grown.When the continental glacier was deepest and ex- Text Appearing After Image: THE GROWTH OF NORTH AMERICA. 69 tended farthest to the south, there were many smallerglaciers in the mountains of the Cordilleras and prob-ably also in those of Virginia which were not connectedwith the main ice-sheet. In the Cordilleras some ofthese detached glaciers were of great size, as for in-stance that of the upper Arkansas, which occupied thepart of the valley in which Leadville now stands, withan ice-sheet of great depth and thickness. These lesserdetached glaciers also formed morainal walls, which wereoften of great size. The accumulation of these depositsshows that in the case of these valley glaciers, as in thatof the greater ice-sheet, the ice remained for a consider-able time with its front in nearly one position. As the great ice-sheet ceased to be well fed by win-ters snows, its margin retreated to the northward. Hereand there we find in small moraines evidence that for alittle while the ice frequently paused in its falling back.It probably, from time to time, after ha Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
+          "bredd": 2992,
+          "hojd": 1716,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/The_story_of_our_continent_-_a_reader_in_the_geography_and_geology_of_North_America_-_for_the_use_of_schools_%281893%29_%2814776628164%29.jpg/960px-The_story_of_our_continent_-_a_reader_in_the_geography_and_geology_of_North_America_-_for_the_use_of_schools_%281893%29_%2814776628164%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1893 books",
+            "Books about North America",
+            "Internet Archive document storyofourcontin1893shal",
+            "Mountains of unidentified countries"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions"
+        },
+        {
+          "fil": "File:A history of British birds. By the Rev. F.O. Morris (1862) (14750566432).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:A_history_of_British_birds._By_the_Rev._F.O._Morris_(1862)_(14750566432).jpg",
+          "kalla": "commons-sok",
+          "licens": "No restrictions",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://www.flickr.com/commons/usage/",
+          "upphovsperson": "Internet Archive Book Images",
+          "datum": "1862",
+          "beskrivning": "Knot Calidris canutus Identifier : historyofbritish06morr ( find matches ) Title : A history of British birds. By the Rev. F.O. Morris .. Year : 1862 ( 1860s ) Authors : Morris, F. O. (Francis Orpen), 1810-1893 Subjects : Birds Publisher : London, Groombridge and Sons Contributing Library : Smithsonian Libraries Digitizing Sponsor : Smithsonian Libraries View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: matter in the ballad under the above title in Percy*Reliques of Ancient British Poetry, in which, in school days,I used to read, and read, and read again of Sir AndrewBarton, Knight, The Nut-browne Maid, The ftaberlunzieMan, Chevy Chase, The Heir of Linne, Fair Rosamond,The Sturdy Rock, Brave Lord Willoughby, The Winningof Cales, The Wandering Jew, The Spanish Ladys Love,Admiral Hosiers Ghost, The Beggars Daughter of BednalGreen, Robin Hood and Guy of Gisborne, Adam Bell, Clymo the Clough, and William of Cloudesley, The Child ofElle, King Cophetua and the Beggar Maid, My Mind toMe a Kingdome is, King Lear and his three Daughters,The Dragon of Wantley, Gentle River, Gentle River, etc.,etc., etc.; it was then a very scarce book, but a new editionof it has since been published, and some of the poems arevery beautiful. The Knot advances north to the Arctic regions, and thererears its young. M. Nilsson says that it inhabits in Europethe northerly parts of Sweden and Norway, in summer, and Text Appearing After Image: KNOT. 35 the same appears to be the case in Finland; also in Holland,France, and Germany. It occurs likewise in America, evento the Polar regions, and in Asia; and rears its youngwithin the Arctic circle. It is enumerated by CaptainSabine among the birds inhabiting Greenland and Spitzbergen.Sir William Jardine says that he has seen a specimen fromNew Holland that appears in every way identical. Dr. Fleming mentions one killed in the Isle of Sanday,one of the Orkneys, on the 15th. of June, 1808. Vast flocksarrive on our eastern shores in the autumn. In Lincolnshireit used to be extremely abundant. In Ireland it is a regular autumnal visitant; also in Scotland,among other places, between Aberdeen and Peterhead. This species generally arrives in Orkney in September. Onewas killed by Mr. Strang, August 20th., 1811; several wereshot by the same gentleman on August 26th., 1843, September7th., 1837, and in October, 1831. They often appear inlarge flocks. On the 4th. of February, 1851, I shot Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
+          "bredd": 3456,
+          "hojd": 2187,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/A_history_of_British_birds._By_the_Rev._F.O._Morris_%281862%29_%2814750566432%29.jpg/960px-A_history_of_British_birds._By_the_Rev._F.O._Morris_%281862%29_%2814750566432%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "A history of British birds",
+            "Calidris canutus (illustrations)"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions"
+        },
+        {
+          "fil": "File:Lockheed 8 Sirius 'Tingmissartoq' at the National Air and Space Museum, Washington DC.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Lockheed_8_Sirius_%27Tingmissartoq%27_at_the_National_Air_and_Space_Museum,_Washington_DC.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Cliff from I now live in Arlington, VA (Outside Washington DC), USA",
+          "datum": "2008-11-25 15:10",
+          "beskrivning": "Every possible space in the aircraft was utilized, including the wings and floats, which contained the gasoline tanks. There was plenty of emergency equipment in case the Lindberghs had to make a forced landing in the frozen wilderness. From New York, the Lindberghs flew up the eastern border of Canada to Hopedale, Labrador. From Hopedale they made the first major overwater hop, 650 miles to Godthaab, Greenland, where the Sirius acquired its name—Tingmissartoq, which in Eskimo means \"one who flies like a big bird.\" After crisscrossing Greenland to Baffin Island and back, and then on to Iceland, the Lindberghs proceeded to the major cities of Europe and as far east as Moscow, down the west coast of Africa, and across the South Atlantic to South America. where they flew down the Amazon, and then north through Trinidad and Barbados and back to the United States. They returned to New York on December 19, having traveled 30,000 miles to four continents and twenty-one countries. The information gained from the trip proved invaluable in planning commercial air transport routes for the North and South Atlantic. The aircraft was in the American Museum of Natural History in New York City until 1955. The AirForce Museum in Dayton, Ohio, then acquired it and transferred it to the Smithsonian in 1959. collections.nasm.si.edu/code/emuseum.asp?profile=objects&...",
+          "bredd": 1600,
+          "hojd": 1066,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Lockheed_8_Sirius_%27Tingmissartoq%27_at_the_National_Air_and_Space_Museum%2C_Washington_DC.jpg/960px-Lockheed_8_Sirius_%27Tingmissartoq%27_at_the_National_Air_and_Space_Museum%2C_Washington_DC.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Lockheed Sirius at National Air and Space Museum",
+            "Lockheed general aviation aircraft facing left"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Aluminum Pot and Lid, Lockheed Sirius \"Tingmissartoq\", Lindbergh - DPLA - c2db2ffe9c603fe6192090efb3424f26 (page 1).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Aluminum_Pot_and_Lid,_Lockheed_Sirius_%22Tingmissartoq%22,_Lindbergh_-_DPLA_-_c2db2ffe9c603fe6192090efb3424f26_(page_1).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": null,
+          "datum": "1931-1933",
+          "beskrivning": "Aluminum cooking pot, with bail & lid This aluminum cooking pot was among the equipment Charles Lindbergh and his wife, Anne Morrow Lindbergh, took on their 1931 flight to the Orient and 1933 survey flights across the North and South Atlantic. Lodging and meals were provided at the Lindberghs' planned stops, but they still had to consider what they would eat in case of an emergency landing. They took enough canned rations to last them several weeks, but even that might not have been enough. They were traveling over vast expanses of uninhabited territory and there was no telling how long it would take to find the nearest outpost after an emergency landing. If their canned rations ran out, they would need a way to cook whatever food they could find (or catch with their fishing gear). For that reason, they took along this cooking pot plus a frying pan and portable stove. They planned to use gasoline from the plane as fuel for the stove. A vacation flight with \"no start or finish, no diplomatic or commercial significance, and no records to be sought.\" So Charles A. Lindbergh described the flight that he and his wife, Anne Morrow Lindbergh, were planning to make to the Orient in 1931. Their choice of route, however, showed the feasibility of using the great circle to reach the Far East. The Lindberghs flew in a Lockheed Sirius low-wing monoplane, powered by a 680-hp Wright Cyclone. The Sirius had been designed in 1929 by John K. Northrop and Gerard Vultee, and this model was specially fitted with Edo floats, since most of the Lindberghs flight was to be over water. Their route took them from North Haven, Maine, to Ottawa, Moose Factory, Churchill, Baker Lake, and Aklavik, all in Canada; Point Barrow, Shismaref, and Nome, Alaska; Petropavlosk. Siberia; and on over the Kurile Islands to Japan. After receiving an enthusiastic welcome in Tokyo, they flew to China. They landed on Lotus Lake near Nanking on September 19, thus completing the first flight from the West to the East by way of the North. At Hankow, the Sirius, with the Lindberghs aboard, was being lowered into the Yangtze River from the British aircraft carrier Hermes, when the aircraft accidentally capsized. One of the wings was damaged when it hit a ship's cable, and the aircraft had to be returned to the United States for repairs. Their next venture in the Sirius came as a result of the five countries' interest in the development of commercial air transport. In 1933 Pan American Airways, Imperial Airways of Great Britain, Lufthansa of Germany, KLM of Holland, and Air France undertook a cooperative study of possible Atlantic routes. Each was assigned the responsibility for one of the following areas: New Newfoundland to Europe via Greenland; Newfoundland via the great circle route to Ireland; Newfoundland southeast to the Azores and Lisbon; Miami, Bermuda, the Azores, and Lisbon; and across the South Atlantic from Natal, Brazil, to Cape Verde, Africa. Pan American was to survey the Newfoundland to Europe via Greenland route. Ground survey and weather crews in Greenland were already hard at work when Lindbergh, Pan Am's technical advisor, took off from New York on July 9 in the rebuilt Lockheed Sirius, again accompanied by his wife, who would serve as copilot and radio operator. A Sperry artificial horizon and a directional gyro had been added to the instrument panel since the previous flight, and a new Wright Cyclone SR1820-F2 engine of 710 horsepower was installed. Lindbergh's plan was not to set up a particular route but to gather as much information as possible on the area to be covered. The Jellinge, a Danish ship, was chartered by Pan Am to maintain radio contact with the Lindberghs in the Labrador-Greenland-Iceland area. The ship also delivered advance supplies for them to Halifax, Saint John's, Cartwright, Greenland, and Iceland. Every possible space in the aircraft was utilized, including the wings and floats, which contained the gasoline tanks. There was plenty of emergency equipment in case the Lindberghs had to make a forced landing in the frozen wilderness. From New York, the Lindberghs flew up the eastern border of Canada to Hopedale, Labrador. From Hopedale they made the first major overwater hop, 650 miles to Godthaab, Greenland, where the Sirius acquired its name-Tingmissartoq, which in Eskimo means \"one who flies like a big bird.\" After crisscrossing Greenland to Baffin Island and back, and then on to Iceland, the Lindberghs proceeded to the major cities of Europe and as far east as Moscow, down the west coast of Africa, and across the South Atlantic to South America, where they flew down the Amazon, and then north through Trinidad and Barbados and back to the United States. They returned to New York on December 19, having traveled 30,000 miles to four continents and twenty-one countries. The information gained from the trip proved invaluable in planning commercial air transport routes for the North and South Atlantic. The aircraft was in the American Museum of Natural History in New York City until 1955. The Air Force Museum in Dayton, Ohio, then acquired it and transferred it to the Smithsonian in 1959.",
+          "bredd": 2000,
+          "hojd": 1487,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Aluminum_Pot_and_Lid%2C_Lockheed_Sirius_%22Tingmissartoq%22%2C_Lindbergh_-_DPLA_-_c2db2ffe9c603fe6192090efb3424f26_%28page_1%29.jpg/960px-Aluminum_Pot_and_Lid%2C_Lockheed_Sirius_%22Tingmissartoq%22%2C_Lindbergh_-_DPLA_-_c2db2ffe9c603fe6192090efb3424f26_%28page_1%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [],
+          "smal": false
+        },
+        {
+          "fil": "File:Aluminum Pot and Lid, Lockheed Sirius \"Tingmissartoq\", Lindbergh - DPLA - c2db2ffe9c603fe6192090efb3424f26 (page 3).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Aluminum_Pot_and_Lid,_Lockheed_Sirius_%22Tingmissartoq%22,_Lindbergh_-_DPLA_-_c2db2ffe9c603fe6192090efb3424f26_(page_3).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": null,
+          "datum": "1931-1933",
+          "beskrivning": "Aluminum cooking pot, with bail & lid This aluminum cooking pot was among the equipment Charles Lindbergh and his wife, Anne Morrow Lindbergh, took on their 1931 flight to the Orient and 1933 survey flights across the North and South Atlantic. Lodging and meals were provided at the Lindberghs' planned stops, but they still had to consider what they would eat in case of an emergency landing. They took enough canned rations to last them several weeks, but even that might not have been enough. They were traveling over vast expanses of uninhabited territory and there was no telling how long it would take to find the nearest outpost after an emergency landing. If their canned rations ran out, they would need a way to cook whatever food they could find (or catch with their fishing gear). For that reason, they took along this cooking pot plus a frying pan and portable stove. They planned to use gasoline from the plane as fuel for the stove. A vacation flight with \"no start or finish, no diplomatic or commercial significance, and no records to be sought.\" So Charles A. Lindbergh described the flight that he and his wife, Anne Morrow Lindbergh, were planning to make to the Orient in 1931. Their choice of route, however, showed the feasibility of using the great circle to reach the Far East. The Lindberghs flew in a Lockheed Sirius low-wing monoplane, powered by a 680-hp Wright Cyclone. The Sirius had been designed in 1929 by John K. Northrop and Gerard Vultee, and this model was specially fitted with Edo floats, since most of the Lindberghs flight was to be over water. Their route took them from North Haven, Maine, to Ottawa, Moose Factory, Churchill, Baker Lake, and Aklavik, all in Canada; Point Barrow, Shismaref, and Nome, Alaska; Petropavlosk. Siberia; and on over the Kurile Islands to Japan. After receiving an enthusiastic welcome in Tokyo, they flew to China. They landed on Lotus Lake near Nanking on September 19, thus completing the first flight from the West to the East by way of the North. At Hankow, the Sirius, with the Lindberghs aboard, was being lowered into the Yangtze River from the British aircraft carrier Hermes, when the aircraft accidentally capsized. One of the wings was damaged when it hit a ship's cable, and the aircraft had to be returned to the United States for repairs. Their next venture in the Sirius came as a result of the five countries' interest in the development of commercial air transport. In 1933 Pan American Airways, Imperial Airways of Great Britain, Lufthansa of Germany, KLM of Holland, and Air France undertook a cooperative study of possible Atlantic routes. Each was assigned the responsibility for one of the following areas: New Newfoundland to Europe via Greenland; Newfoundland via the great circle route to Ireland; Newfoundland southeast to the Azores and Lisbon; Miami, Bermuda, the Azores, and Lisbon; and across the South Atlantic from Natal, Brazil, to Cape Verde, Africa. Pan American was to survey the Newfoundland to Europe via Greenland route. Ground survey and weather crews in Greenland were already hard at work when Lindbergh, Pan Am's technical advisor, took off from New York on July 9 in the rebuilt Lockheed Sirius, again accompanied by his wife, who would serve as copilot and radio operator. A Sperry artificial horizon and a directional gyro had been added to the instrument panel since the previous flight, and a new Wright Cyclone SR1820-F2 engine of 710 horsepower was installed. Lindbergh's plan was not to set up a particular route but to gather as much information as possible on the area to be covered. The Jellinge, a Danish ship, was chartered by Pan Am to maintain radio contact with the Lindberghs in the Labrador-Greenland-Iceland area. The ship also delivered advance supplies for them to Halifax, Saint John's, Cartwright, Greenland, and Iceland. Every possible space in the aircraft was utilized, including the wings and floats, which contained the gasoline tanks. There was plenty of emergency equipment in case the Lindberghs had to make a forced landing in the frozen wilderness. From New York, the Lindberghs flew up the eastern border of Canada to Hopedale, Labrador. From Hopedale they made the first major overwater hop, 650 miles to Godthaab, Greenland, where the Sirius acquired its name-Tingmissartoq, which in Eskimo means \"one who flies like a big bird.\" After crisscrossing Greenland to Baffin Island and back, and then on to Iceland, the Lindberghs proceeded to the major cities of Europe and as far east as Moscow, down the west coast of Africa, and across the South Atlantic to South America, where they flew down the Amazon, and then north through Trinidad and Barbados and back to the United States. They returned to New York on December 19, having traveled 30,000 miles to four continents and twenty-one countries. The information gained from the trip proved invaluable in planning commercial air transport routes for the North and South Atlantic. The aircraft was in the American Museum of Natural History in New York City until 1955. The Air Force Museum in Dayton, Ohio, then acquired it and transferred it to the Smithsonian in 1959.",
+          "bredd": 1333,
+          "hojd": 2000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Aluminum_Pot_and_Lid%2C_Lockheed_Sirius_%22Tingmissartoq%22%2C_Lindbergh_-_DPLA_-_c2db2ffe9c603fe6192090efb3424f26_%28page_3%29.jpg/960px-Aluminum_Pot_and_Lid%2C_Lockheed_Sirius_%22Tingmissartoq%22%2C_Lindbergh_-_DPLA_-_c2db2ffe9c603fe6192090efb3424f26_%28page_3%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "jordbavningen-i-chillan-1939",
+      "titel": "Jordbävningen i Chillán",
+      "plats": "Chillán och Concepción, södra mellersta Chile",
+      "start": 1939,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q3311679",
+      "soktext": "The Chillán earthquake",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": [
+        {
+          "fil": "File:1939 Chile Earthquake Memorial Placard.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:1939_Chile_Earthquake_Memorial_Placard.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "U.S. Geological Survey",
+          "datum": "2010-03-14 22:39",
+          "beskrivning": "A memorial placard next to a cathedral in Chillán, Chile commemorates the 30,000 people who died in the 1939 earthquake. This high death toll motivated the adoption of strict building design codes for the reconstruction of the cathedral. Photo by: Walter Mooney, U.S. Geological Survey",
+          "bredd": 5616,
+          "hojd": 3744,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/1939_Chile_Earthquake_Memorial_Placard.jpg/960px-1939_Chile_Earthquake_Memorial_Placard.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1939 Chillán earthquake",
+            "Commemorative plaques in Chile",
+            "Cruz Monumental de la Catedral de Chillán",
+            "Plaques about earthquakes"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Catedral de Chillán - Terremoto de 1939.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Catedral_de_Chill%C3%A1n_-_Terremoto_de_1939.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Desconocido - Diario La Nación (Chile)",
+          "datum": "1939-01-27",
+          "beskrivning": "\"El derrumbe de los muros permite ver el interior de la Catedral de Chillán totalmente en el suelo. -La perspectiva de la calle Libertad muestra el estado en que han quedado todas las edificaciones.\"",
+          "bredd": 662,
+          "hojd": 451,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Catedral_de_Chill%C3%A1n_-_Terremoto_de_1939.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1939 Chillán earthquake",
+            "Catedral de Chillán"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Calle Barros Arana en 1939.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Calle_Barros_Arana_en_1939.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "Jorge Quezada (?)",
+          "datum": "circa 1939 date QS:P,+1939-00-00T00:00:00Z/9,P1480,Q5727902",
+          "beskrivning": "Imagen de la Calle Barros Arana en Concepción, Chile , luego del Terremoto de Chillán de 1939 .",
+          "bredd": 471,
+          "hojd": 286,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/5/56/Calle_Barros_Arana_en_1939.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1939 Chillán earthquake",
+            "Highways in Concepción"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Catedral de Chillan - Aniversario del Terremoto de 1939 en 2022 - Portada de El Mercurio.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Catedral_de_Chillan_-_Aniversario_del_Terremoto_de_1939_en_2022_-_Portada_de_El_Mercurio.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "José Joaquín Cortes",
+          "datum": "2022-01-24 23:18:34",
+          "beskrivning": "Proyección de portada del diario El Mercurio, en la Catedral de Chillán, con motivo del aniversario 83 del Terremoto de Chillán de 1939.",
+          "bredd": 2440,
+          "hojd": 2885,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Catedral_de_Chillan_-_Aniversario_del_Terremoto_de_1939_en_2022_-_Portada_de_El_Mercurio.jpg/960px-Catedral_de_Chillan_-_Aniversario_del_Terremoto_de_1939_en_2022_-_Portada_de_El_Mercurio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Catedral de Chillán",
+            "El Mercurio"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Miradoraleman1938.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Miradoraleman1938.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Fernando Melcher",
+          "datum": "2011-05-31",
+          "beskrivning": "El Mirador Alemán luego del Terremoto de Chillán de 1939, donde perdió su segundo piso. Cerro Caracol, Concepción, Chile, 1926.",
+          "bredd": 617,
+          "hojd": 453,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Miradoraleman1938.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1939 Chillán earthquake",
+            "Bismarck tower in Concepción, Chile"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "malariamyggan-utrotas-i-brasilien-1940",
+      "titel": "En afrikansk malariamygga utrotas i Brasilien",
+      "plats": "Nordöstra Brasilien",
+      "start": 1940,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "An African malaria mosquito is eradicated in Brazil Northeast Brazil",
+      "kandidater": []
+    },
+    {
+      "id": "kauffmannavtalet",
+      "titel": "Avtalet om Grönlands försvar",
+      "plats": "Washington, D.C.",
+      "start": 1941,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": null,
+      "soktext": "The agreement on the defence of Greenland Washington",
+      "kandidater": []
+    },
+    {
+      "id": "chicago-pile-1",
+      "titel": "Den första kärnreaktorn startar",
+      "plats": "Stagg Field, Chicagos universitet, USA",
+      "start": 1942,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q284681",
+      "kandidater": [
+        {
+          "fil": "File:Stagg Field reactor.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Stagg_Field_reactor.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Melvin A. Miller of the Argonne National Laboratory",
+          "datum": "Unknown date",
+          "beskrivning": "The first nuclear reactor was erected in 1942 in the West Stands section of Stagg Field at the University of Chicago. On December 2, 1942 a group of scientists achieved the first self-sustaining chain reaction and thereby initiated the controlled release of nuclear energy. The reactor consisted of uranium and uranium oxide lumps spaced in a cubic lattice embedded in graphite. In 1943 it was dismantled and reassembled at the Palos Park unit of the Argonne National Laboratory.",
+          "bredd": 3000,
+          "hojd": 2352,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Stagg_Field_reactor.jpg/960px-Stagg_Field_reactor.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Chicago Pile-1"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "brasiliens-arbetsratt-clt-1943",
+      "titel": "Brasilien samlar sina arbetslagar",
+      "plats": "Brasilien (huvudstaden var då Rio de Janeiro)",
+      "start": 1943,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q5163323",
+      "soktext": "Brazil consolidates its labour laws",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "bretton-woods-konferensen",
+      "titel": "Bretton Woods-konferensen",
+      "plats": "Mount Washington Hotel, Bretton Woods, New Hampshire, USA",
+      "start": 1944,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q1194052",
+      "kandidater": [
+        {
+          "fil": "File:The Gold Room Bretton Woods Reverse Angle.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_Gold_Room_Bretton_Woods_Reverse_Angle.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Barry Livingstone",
+          "datum": "2014-09-07 10:26:54",
+          "beskrivning": "This small room within the Mount Washington Hotel is where the historic agreements were signed establishing the International Monetary Fund and World Bank in 1944.",
+          "bredd": 2240,
+          "hojd": 1344,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/The_Gold_Room_Bretton_Woods_Reverse_Angle.jpg/960px-The_Gold_Room_Bretton_Woods_Reverse_Angle.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Bretton Woods Conference",
+            "International Monetary Fund",
+            "Mount Washington Hotel",
+            "World Bank"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "jordbavningen-i-san-juan-1944",
+      "titel": "Jordbävningen i San Juan",
+      "plats": "San Juan, västra Argentina",
+      "start": 1944,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q3505891",
+      "kandidater": [
+        {
+          "fil": "File:Terremoto de 1944, San Juan, Argentina.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Terremoto_de_1944,_San_Juan,_Argentina.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "“Federico Cantoni. Hacedor del San Juan del Siglo XX. Confesiones, relatos y algo más sobre mi padre”, de Ursulina Cantoni",
+          "datum": "1944",
+          "beskrivning": "Vista a la Casa de Gobierna de la provincia de San Juan, Argentina, completamente destruida por el terremoto de 1944.",
+          "bredd": 1000,
+          "hojd": 695,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Terremoto_de_1944%2C_San_Juan%2C_Argentina.jpg/960px-Terremoto_de_1944%2C_San_Juan%2C_Argentina.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1944 in Argentina",
+            "Earthquakes of 1944",
+            "Terremotos de San Juan"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "gabriela-mistral-nobelpris-1945",
+      "titel": "Gabriela Mistral får Nobelpriset i litteratur",
+      "plats": "Vicuña, Chile, där Gabriela Mistral föddes",
+      "start": 1945,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q80871",
+      "kandidater": [
+        {
+          "fil": "File:Gabriela Mistral 1945.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Gabriela_Mistral_1945.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Anna Riwkin-Brick",
+          "datum": "1945",
+          "beskrivning": "Gabriela Mistral , Nobel laureate in Literature 1945",
+          "bredd": 280,
+          "hojd": 396,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/6/64/Gabriela_Mistral_1945.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Gabriela Mistral",
+            "Photographs by Anna Riwkin-Brick"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "lattes-chacaltaya-1947",
+      "titel": "César Lattes fångar pioner på Chacaltaya",
+      "plats": "Chacaltaya, Bolivia",
+      "start": 1947,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "César Lattes captures pions on Chacaltaya Chacaltaya",
+      "kandidater": []
+    },
+    {
+      "id": "gronland-upphor-vara-koloni",
+      "titel": "Grönland upphör att vara koloni",
+      "plats": "Grönland",
+      "start": 1953,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": null,
+      "soktext": "Greenland ceases to be a colony Greenland",
+      "kandidater": [
+        {
+          "fil": "File:A voyage to the arctic in the whaler Aurora (1911) (14783749132).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:A_voyage_to_the_arctic_in_the_whaler_Aurora_(1911)_(14783749132).jpg",
+          "kalla": "commons-sok",
+          "licens": "No restrictions",
+          "licensklass": null,
+          "licensstatus": "flagga",
+          "licensadress": "https://www.flickr.com/commons/usage/",
+          "upphovsperson": "Internet Archive Book Images",
+          "datum": "1911",
+          "beskrivning": "Greenland Village Scene Identifier : voyagetoarctici00lind ( find matches ) Title : A voyage to the arctic in the whaler Aurora Year : 1911 ( 1910s ) Authors : Lindsay, David Moore, 1862- Subjects : Aurora (Ship) Whaling Publisher : Boston : Dana Estes & Co. Contributing Library : Robarts - University of Toronto Digitizing Sponsor : University of Toronto View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: tors supervised the work ofthese. One or two ships from Copenhagen visited thecoast every year with supplies, taking back oiland skins. We have all svnig about the icy mountains ofGreenland, and most of us have in a vague wayconnected the country with w^hales, without hav-ing any idea of how great this whaling industrywas some years ago. In the appendix it will beseen that Great Britain alone sent one hundredand fifty-nine ships to Greenland waters in 1819,and, of course, the Norwegians and Dutch, theDanes, Gemians and others also profited by thefisheries. Many words in the modern whalersvocabulary are of Dutch origin, as these hardypeople were conspicuous among the most daringfollowers of this dangerous trade. Greenland has a past, but its history, viewedthrough the mists of centuries, and always moreor less traditional, is anything but distinct. The country w^as discovered toward the end ofthe tenth century; and a banished Norwegian,called Erick, wintered at what is now called Erick Text Appearing After Image: IN THE WHALER AURORA 103 Sound, shortly after. The unscrupulous Erick, inorder to promote colonization, called the newcoimtry Greenland. A fleet of twenty-five sailstarted for the country with colonists. Many werelost, but about half of them settled there and werejoined by others, foraiing quite a colony. Christianity was introduced about 1121 and abishop was appointed. By degrees the colonistsin the south formed other colonies, churches werebuilt, and the people prospered for a time. Grant tells us in his history of Greenland thatthere were about one hundred hamlets on thesecoasts. The colonies on the east coast have dis-appeared. Some ruins have been found, but whereare the people ? Nothing has been heard definitelyfrom them since 1408, when the east Greenlandtrade ceased. Some think that black death des-troyed them, others say that polar ice, comingdown, closed the coast from intercourse with theparent country, so that they starved. Accordingto one Kojake, who has written on the su Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
+          "bredd": 2912,
+          "hojd": 1915,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/A_voyage_to_the_arctic_in_the_whaler_Aurora_%281911%29_%2814783749132%29.jpg/960px-A_voyage_to_the_arctic_in_the_whaler_Aurora_%281911%29_%2814783749132%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "A voyage to the arctic in the whaler Aurora (1911)",
+            "Populated places in Greenland"
+          ],
+          "smal": false,
+          "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions"
+        }
+      ]
+    },
+    {
+      "id": "kubanska-revolutionen",
+      "titel": "Kubanska revolutionen",
+      "plats": "Kuba",
+      "start": 1953,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q11264",
+      "kandidater": [
+        {
+          "fil": "File:Fidel Castro - MATS Terminal Washington 1959.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Fidel_Castro_-_MATS_Terminal_Washington_1959.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "1959-04-15",
+          "beskrivning": "Fidel Castro arrives MATS Terminal, Washington, D.C.",
+          "bredd": 4300,
+          "hojd": 4792,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Fidel_Castro_-_MATS_Terminal_Washington_1959.jpg/960px-Fidel_Castro_-_MATS_Terminal_Washington_1959.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1959 in Washington, D.C.",
+            "Fidel Castro in 1959",
+            "Microphones in 1959"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "ideal-x-containerfartyget",
+      "titel": "Ideal X och containerfrakten",
+      "plats": "Port Newark, New Jersey, USA",
+      "start": 1956,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q951927",
+      "kandidater": [
+        {
+          "fil": "File:Ideal X.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ideal_X.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Karsten Kunibert",
+          "datum": "2010-05-03 21:30:31",
+          "beskrivning": "Container steamship Ideal X , built in 1944 as the tanker Potrero Hills",
+          "bredd": 5184,
+          "hojd": 1128,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Ideal_X.jpg/960px-Ideal_X.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ideal X (ship, 1944)"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Type T2-SE-A1 tanker Hat Creek underway at sea on 16 August 1943.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Type_T2-SE-A1_tanker_Hat_Creek_underway_at_sea_on_16_August_1943.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "U.S. Navy",
+          "datum": "1943-08-16",
+          "beskrivning": "The U.S. Type T2-SE-A1 tanker Hat Creek underway at sea on 16 August 1943.",
+          "bredd": 2630,
+          "hojd": 964,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Type_T2-SE-A1_tanker_Hat_Creek_underway_at_sea_on_16_August_1943.jpg/960px-Type_T2-SE-A1_tanker_Hat_Creek_underway_at_sea_on_16_August_1943.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Hat Creek (ship, 1943)"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "explorer-1",
+      "titel": "Explorer 1, USA:s första satellit",
+      "plats": "Cape Canaveral, Florida, USA",
+      "start": 1958,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q49901",
+      "kandidater": [
+        {
+          "fil": "File:Explorer1.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Explorer1.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NASA",
+          "datum": "1958",
+          "beskrivning": "Explorer 1 satellite",
+          "bredd": 640,
+          "hojd": 410,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/7/73/Explorer1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Explorer 1"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "slaget-vid-santa-clara",
+      "titel": "Slaget vid Santa Clara",
+      "plats": "Santa Clara, Kuba",
+      "start": 1958,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q2153101",
+      "kandidater": [
+        {
+          "fil": "File:Che SClara.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Che_SClara.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Anonymous Unknown author",
+          "datum": "1958-12",
+          "beskrivning": "Ernesto Guevara en Santa Clara.",
+          "bredd": 586,
+          "hojd": 744,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/1/13/Che_SClara.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Battle of Santa Clara",
+            "Che Guevara in 1958",
+            "December 1958 in Cuba",
+            "December 1958 photographs",
+            "M4 Sherman",
+            "Male people with berets"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Cuba - Santa Clara - stèle du Che.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Cuba_-_Santa_Clara_-_st%C3%A8le_du_Che.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "PRA",
+          "datum": "2006-02-17",
+          "beskrivning": "Cuba - Santa Clara - Stèle commémorant l'attaque victorieuse d'un train blindé par les guerilleros cubains commandés par Che Guevara",
+          "bredd": 1200,
+          "hojd": 1600,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Cuba_-_Santa_Clara_-_st%C3%A8le_du_Che.JPG/960px-Cuba_-_Santa_Clara_-_st%C3%A8le_du_Che.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2006 in Cuba",
+            "Tren Blindado"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "brasilia-invigs",
+      "titel": "Brasília blir Brasiliens huvudstad",
+      "plats": "Brasília, Brasilien",
+      "start": 1960,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q2844",
+      "kandidater": [
+        {
+          "fil": "File:Planalto Central (cropped).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Planalto_Central_(cropped).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Arturdiasr",
+          "datum": "2015-03-29 11:30:21",
+          "beskrivning": "This is a photo of a monument in Brazil identified by the ID",
+          "bredd": 2733,
+          "hojd": 1308,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Planalto_Central_%28cropped%29.jpg/960px-Planalto_Central_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Clouds and blue sky in Brazil",
+            "Plano Piloto (administrative region)",
+            "Views of Eixo Monumental from Torre de TV de Brasília southeastward"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "jamaica-blir-sjalvstandigt",
+      "titel": "Jamaica blir självständigt",
+      "plats": "Kingston, Jamaica",
+      "start": 1962,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q17080530",
+      "kandidater": [
+        {
+          "fil": "File:Independence Proclamation of Jamaica.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Independence_Proclamation_of_Jamaica.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Royal Constitutional Convention of Queen Elizabeth II",
+          "datum": "1962-08-06",
+          "beskrivning": "Independence Proclamation of Jamaica",
+          "bredd": 1000,
+          "hojd": 600,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Independence_Proclamation_of_Jamaica.jpg/960px-Independence_Proclamation_of_Jamaica.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1962-08-06",
+            "1962 in Jamaica"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "medellinkonferensen-1968",
+      "titel": "Biskoparna i Medellín väljer de fattigas sida",
+      "plats": "Medellín, Colombia",
+      "start": 1968,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q5159913",
+      "soktext": "The bishops at Medellín take the side of the poor Medellín",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "cites-washingtonkonventionen",
+      "titel": "CITES: avtalet mot handel med hotade arter",
+      "plats": "Washington D.C., USA",
+      "start": 1973,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q191836",
+      "kandidater": [
+        {
+          "fil": "File:Indicaz etichetta cites.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Indicaz_etichetta_cites.png",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Mario Pazzaglia",
+          "datum": "2016-11-29",
+          "beskrivning": "explanation in italian Language of caviar label according Cites regulation",
+          "bredd": 480,
+          "hojd": 360,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/7/71/Indicaz_etichetta_cites.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Convention on International Trade in Endangered Species of Wild Fauna and Flora"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Leopardenfelle 2001-01-110008.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Leopardenfelle_2001-01-110008.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Kürschner ( talk ) 08:01, 12 February 2010 (UTC)",
+          "datum": "2010-02-11",
+          "beskrivning": "Leopard fur-skin, Stamp for CITES",
+          "bredd": 2048,
+          "hojd": 1536,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Leopardenfelle_2001-01-110008.JPG/960px-Leopardenfelle_2001-01-110008.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Convention on International Trade in Endangered Species of Wild Fauna and Flora",
+            "Furs in 2010",
+            "Leopard fur-skins"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "operation-condor",
+      "titel": "Operation Condor",
+      "plats": "Sydamerikas södra kon (markören i Santiago, Chile, där samarbetet bildades)",
+      "start": 1975,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q156017",
+      "kandidater": [
+        {
+          "fil": "File:Operation Condor participants.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Operation_Condor_participants.svg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Sannita",
+          "datum": "2012-02-16",
+          "beskrivning": "Map of the States that took part in Operation Condor . Green: main active members. Light green: less active members. Blue: United States (cooperation).",
+          "bredd": 363,
+          "hojd": 353,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Operation_Condor_participants.svg/960px-Operation_Condor_participants.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Operation Condor"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "ariane-1-forsta-uppskjutningen",
+      "titel": "Den första Ariane-raketen skjuts upp",
+      "plats": "Kourou, Franska Guyana",
+      "start": 1979,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q18375",
+      "kandidater": [
+        {
+          "fil": "File:Ariane 1 Le Bourget FRA 001.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ariane_1_Le_Bourget_FRA_001.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "ignis",
+          "datum": "8/Sep./2006",
+          "beskrivning": "A model of an European rocket Ariane 1 in the Museum of Air and Space (Musée de l'air et de l'espace, Le Bourget, France)",
+          "bredd": 2311,
+          "hojd": 3471,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/Ariane_1_Le_Bourget_FRA_001.jpg/960px-Ariane_1_Le_Bourget_FRA_001.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ariane 1 at the Musée de l'Air"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "gronlands-hemstyre",
+      "titel": "Grönland får hemstyre",
+      "plats": "Nuuk",
+      "start": 1979,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": null,
+      "soktext": "Greenland gets home rule Nuuk",
+      "kandidater": []
+    },
+    {
+      "id": "gronland-lamnar-eg",
+      "titel": "Grönland lämnar EG",
+      "plats": "Grönland",
+      "start": 1982,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": null,
+      "soktext": "Greenland leaves the EC Greenland",
+      "kandidater": [
+        {
+          "fil": "File:EUenl.gif",
+          "filsida": "https://commons.wikimedia.org/wiki/File:EUenl.gif",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "No machine-readable author provided. Roke~commonswiki assumed (based on copyright claims).",
+          "datum": "2022",
+          "beskrivning": "Founding and enlarging the EU. Image made using the freely licenced maps at commons: EU-6 , EU-9 , EU-10 , EU-12 , EU-15 , EU-25 , EU-27 EU-28",
+          "bredd": 262,
+          "hojd": 160,
+          "mime": "image/gif",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/3/3e/EUenl.gif?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Animated maps of the European Union",
+            "Maps of the enlargement of the European Union"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "klimatkonventionen-rio-1992",
+      "titel": "Klimatkonventionen undertecknas i Rio",
+      "plats": "Rio de Janeiro, Brasilien",
+      "start": 1992,
+      "varldsdel": "Amerika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q208645",
+      "kandidater": [
+        {
+          "fil": "File:2014-06-12 Altes Abgeordnetenhochhaus, Bonn IMG 5597.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:2014-06-12_Altes_Abgeordnetenhochhaus,_Bonn_IMG_5597.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0 de",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+          "upphovsperson": "Eckhard Henkel",
+          "datum": "2014-06-12",
+          "beskrivning": "“Old highrise of members of parliament”, Platz der Vereinten Nationen 1, Bonn -Gronau; now used as office building by the secretary of the United Nations Framework Convention on Climate Change and part of the “UN-Campus”",
+          "bredd": 2179,
+          "hojd": 1732,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/2014-06-12_Altes_Abgeordnetenhochhaus%2C_Bonn_IMG_5597.jpg/960px-2014-06-12_Altes_Abgeordnetenhochhaus%2C_Bonn_IMG_5597.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2014 in Bonn",
+            "Altes Abgeordnetenhochhaus (Bonn)",
+            "Außenthermometer (Altes Abgeordnetenhaus Bonn)"
+          ],
+          "smal": false
+        }
+      ]
+    }
+  ]
+}

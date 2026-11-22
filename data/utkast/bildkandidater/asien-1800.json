@@ -1,0 +1,894 @@
+{
+  "schema": "historia-globen/bildkandidater@2",
+  "status": "förslag",
+  "anmarkning": "FÖRSLAG, inte beslut. Kandidaterna är hämtade automatiskt och måste kontrolleras manuellt innan någon används: öppna filsidan (`filsida`), läs licensmallen, kontrollera att bilden visar själva händelsen (inte en karta, en nutida minnessten eller något annat) och skriv bildtexten ur det filsidan säger. Licensklassningen är en automatisk gissning ur Commons API (\"trolig\"); filsidans licensmall kontrolleras av tools/bild_hamta.py eller tools/bildbatch.py --licens, och \"flagga\" avgörs av en människa. Appen läser inte den här filen (data/utkast/). Se docs/bilder-riktiga.md.",
+  "generated": {
+    "handelser": 24,
+    "kandidater": 24,
+    "troliga": 24,
+    "flaggade": 0,
+    "avvisade": 0,
+    "smala": 5,
+    "ej_hamtade": 0
+  },
+  "handelser": [
+    {
+      "id": "hanaoka-narkos-1804",
+      "titel": "Hanaoka Seishū opererar under narkos",
+      "plats": "Wakayama prefektur, Japan (där Hanaoka var läkare; källan anger inte var operationen gjordes)",
+      "start": 1804,
+      "varldsdel": "Asien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Hanaoka Seishū operates under general anaesthesia Wakayama Prefecture",
+      "kandidater": []
+    },
+    {
+      "id": "forsta-opiumkriget",
+      "titel": "Första opiumkriget",
+      "plats": "Kinas kust från Pärlfloden till Yangtze (började vid Kowloon, i dagens Hongkong)",
+      "start": 1839,
+      "varldsdel": "Asien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q191282",
+      "kandidater": [
+        {
+          "fil": "File:Destroying Chinese war junks, by E. Duncan (1843).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Destroying_Chinese_war_junks,_by_E._Duncan_(1843).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Edward Duncan",
+          "datum": "30 May 1843 date QS:P571,+1843-05-30T00:00:00Z/11",
+          "beskrivning": "The East India Company iron steam ship Nemesis , commanded by Lieutenant W. H. Hall, with boats from the Sulphur , Calliope , Larne and Starling , destroying the Chinese war junks in Anson's Bay, on 7 January 1841. An engagement in the First Opium War (1839-42), showing the ‘Nemesis’ (right background, in starboard broadside view) attacking a fleet of Chinese war junks in the middle ground. The war junk third from the left is shown being destroyed with splinters flying up into the air. Two rowing boats with Chinese passengers ew from the left foreground. Various men can be seen overboard and clinging on to debris throughout the scene. The lettering below includes lists of dimensions. PAH8193 and PAH8893 are additional copies, both hand-coloured, and the print is from an oil painting by Duncan presented to the Williamson Art Gallery at Birkenhead in 1925, with another showing Prince Albert visiting iron ships off Woolwich Dockyard. They were a gift from Alderman J.W.P. Laird, one of the Birkenhead shipbuilding family who built the 'Nemesis' and others of the vessels shown in them. On 7 January 1841, the 'Nemesis' of the Bombay Marine (the East India Company's naval service), commanded by William Hutcheon Hall, with boats from the ‘Sulphur’, ‘Calliope’, ‘Larne’ and ‘Starling’, destroyed Chinese war junks in Anson's Bay, Chuenpee, near the Bocca Tigris forts guarding the mouth of the Pearl River up to Canton. British forces then captured the forts themselves. Hall was a Royal Naval master at the time. He had steam experience and had been privately engaged by John Laird to command the 'Nemesis', which the latter had built experimentally as the first fully iron warship, and was so successful in it in China that in 1841 he was specially commissioned as a Naval lieutenant. He went on to later Royal Naval service as a captain in the Crimean War and was a retired admiral at his death in 1875. His portrait (BHC2733) and papers are also in the Museum collection.",
+          "bredd": 1040,
+          "hojd": 681,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/89/Destroying_Chinese_war_junks%2C_by_E._Duncan_%281843%29.jpg/960px-Destroying_Chinese_war_junks%2C_by_E._Duncan_%281843%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1841 in water transport",
+            "1843 paintings",
+            "1843 paintings from the United Kingdom",
+            "19th-century oil paintings",
+            "Century of Humiliation",
+            "Chinese imperialism",
+            "Edward Duncan",
+            "HMS Calliope (ship, 1837)",
+            "HMS Larne (ship, 1829)",
+            "HMS Starling (ship, 1829)",
+            "HMS Sulphur (ship, 1826)",
+            "Imperialism studies",
+            "Junks of China",
+            "Landscape paintings of the Qing Dynasty",
+            "Nemesis (ship, 1839)",
+            "Paintings of junks (ships)",
+            "Second Battle of Chuenpi"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "skarmytslingen-vid-kowloon-1839",
+      "titel": "Skärmytslingen vid Kowloon",
+      "plats": "Kowloon, dagens Hongkong",
+      "start": 1839,
+      "varldsdel": "Asien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q4871489",
+      "kandidater": [
+        {
+          "fil": "File:Hong-kong, from Kow-loon.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Hong-kong,_from_Kow-loon.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Drawn by Thomas Allom, from a sketch by Capt. Stoddart, Royal Navy. Engraved by S. Fisher.",
+          "datum": "1841–1842 [1]",
+          "beskrivning": "Hong Kong from Kowloon.",
+          "bredd": 2258,
+          "hojd": 1476,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Hong-kong%2C_from_Kow-loon.jpg/960px-Hong-kong%2C_from_Kow-loon.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Historical images of Hong Kong skylines (Hong Kong Island)",
+            "Historical images of Tsim Sha Tsui",
+            "Historical images of Victoria Harbour",
+            "Historical images of Victoria Peak",
+            "Hong Kong in the 1840s",
+            "Images from China, in a Series of Views, Displaying the Scenery, Architecture, and Social Habits of that Ancient Empire"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "britterna-intar-zhoushan-1840",
+      "titel": "Britterna intar Zhoushan",
+      "plats": "Dinghai på ön Zhoushan (Chusan), Zhejiang",
+      "start": 1840,
+      "varldsdel": "Asien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q5036997",
+      "kandidater": [
+        {
+          "fil": "File:Chusan conference 1840.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Chusan_conference_1840.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Drawn on the spot by Sir Harry Darell. Lithograph by James Henry Lynch.",
+          "datum": "Published January 1842",
+          "beskrivning": "Conference between Commodore Sir James John Gordon Bremer and Chinese Admiral Zhang Chaofa (Governor of Chusan) with the chief Mandarins, on board HMS Wellesley of Captain Thomas Maitland, on 4 July 1840, in the harbour of Chusan, the evening before the taking of the island. Karl Gützlaff (centre) served as interpreter.̈ Seated on the British side (left to right): Sir Harry Darell, Brigadier George Burrell, and Commodore James Bremer. Standing is Captain Thomas Maitland (top left) and Lord Robert Jocelyn. Seated on the Chinese side (left to right): Admiral Zhang, his flag captain Qian Binghuan, and chief magistrate of Chusan Yao Huaixiang.",
+          "bredd": 7780,
+          "hojd": 5205,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Chusan_conference_1840.jpg/960px-Chusan_conference_1840.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1842 lithographs",
+            "Capture of Chusan",
+            "George Burrell",
+            "Gordon Bremer",
+            "HMS Wellesley (ship, 1815)",
+            "James Henry Lynch",
+            "Karl Gützlaff",
+            "Thomas Maitland, 11th Earl of Lauderdale"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "andra-slaget-vid-chuanbi",
+      "titel": "Andra slaget vid Chuanbi",
+      "plats": "Humen (Bogue) vid Pärlflodens mynning, Guangdong",
+      "start": 1841,
+      "varldsdel": "Asien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q7443080",
+      "kandidater": [
+        {
+          "fil": "File:Attack and Capture of Chuenpee, near Canton.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Attack_and_Capture_of_Chuenpee,_near_Canton.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Drawn by Thomas Allom, from a sketch by Lieut. White, Royal Marines. Engraved by H. Adlard.",
+          "datum": "published 1843",
+          "beskrivning": "Attack and capture of Chuenpee, near Canton.",
+          "bredd": 2277,
+          "hojd": 1404,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c1/Attack_and_Capture_of_Chuenpee%2C_near_Canton.jpg/960px-Attack_and_Capture_of_Chuenpee%2C_near_Canton.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Henry Adlard",
+            "Images from China, in a Series of Views, Displaying the Scenery, Architecture, and Social Habits of that Ancient Empire",
+            "Paintings of the Qing Dynasty",
+            "Second Battle of Chuenpi"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Nemesis in Anson's Bay.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Nemesis_in_Anson%27s_Bay.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Thomas Allom",
+          "datum": "published 1858",
+          "beskrivning": "The Nemesis and boats of the Sulphur, Calliope, Larne, and Starling destroying the Chinese war junks in Anson's Bay, 7 January 1841.",
+          "bredd": 2007,
+          "hojd": 1359,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Nemesis_in_Anson%27s_Bay.jpg/960px-Nemesis_in_Anson%27s_Bay.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Nemesis (ship, 1839)",
+            "Second Battle of Chuenpi",
+            "Thomas Allom"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "slaget-vid-zhenjiang-1842",
+      "titel": "Slaget vid Zhenjiang",
+      "plats": "Zhenjiang vid Yangtze och Kejsarkanalen, Jiangsu",
+      "start": 1842,
+      "varldsdel": "Asien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q4870730",
+      "kandidater": [
+        {
+          "fil": "File:West Gate of Ching-Keang-Foo 1842.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:West_Gate_of_Ching-Keang-Foo_1842.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Drawn by Thomas Allom, from a sketch on the spot by Capt. James Stoddart, RN. Engraved by J. M. Starling.",
+          "datum": "published 1843",
+          "beskrivning": "West gate of Ching-Keang-Foo , 21 July 1842.",
+          "bredd": 4493,
+          "hojd": 2950,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/West_Gate_of_Ching-Keang-Foo_1842.jpg/960px-West_Gate_of_Ching-Keang-Foo_1842.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battle of Chinkiang",
+            "J. M. Starling",
+            "Thomas Allom"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "bab-framtrader-1844",
+      "titel": "Báb träder fram i Shiraz",
+      "plats": "Shiraz, Iran",
+      "start": 1844,
+      "varldsdel": "Asien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The Báb declares his mission in Shiraz Shiraz",
+      "kandidater": []
+    },
+    {
+      "id": "taipingupproret",
+      "titel": "Taipingupproret",
+      "plats": "Södra och mellersta Kina (började i Guangxi)",
+      "start": 1850,
+      "varldsdel": "Asien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q192408",
+      "kandidater": [
+        {
+          "fil": "File:Taiping Heavenly Kingdom map.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Taiping_Heavenly_Kingdom_map.svg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "M.Bitton",
+          "datum": "2022-09-12",
+          "beskrivning": "A map showing the extent of the Taiping Heavenly Kingdom",
+          "bredd": 964,
+          "hojd": 732,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Taiping_Heavenly_Kingdom_map.svg/960px-Taiping_Heavenly_Kingdom_map.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Maps of the Taiping Rebellion"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "jintianupproret",
+      "titel": "Upproret i Jintian",
+      "plats": "Jintian i Guiping, Guangxi",
+      "start": 1851,
+      "varldsdel": "Asien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q1512810",
+      "kandidater": [
+        {
+          "fil": "File:NCPSSD-71020798 繡像剿逆圖考二卷 第一册 (page 20 crop).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:NCPSSD-71020798_%E7%B9%A1%E5%83%8F%E5%89%BF%E9%80%86%E5%9C%96%E8%80%83%E4%BA%8C%E5%8D%B7_%E7%AC%AC%E4%B8%80%E5%86%8C_(page_20_crop).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "（清）吳友如繪",
+          "datum": "2022-08-25 11:26:56",
+          "beskrivning": "清光緒十八年",
+          "bredd": 1814,
+          "hojd": 1450,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/NCPSSD-71020798_%E7%B9%A1%E5%83%8F%E5%89%BF%E9%80%86%E5%9C%96%E8%80%83%E4%BA%8C%E5%8D%B7_%E7%AC%AC%E4%B8%80%E5%86%8C_%28page_20_crop%29.jpg/960px-NCPSSD-71020798_%E7%B9%A1%E5%83%8F%E5%89%BF%E9%80%86%E5%9C%96%E8%80%83%E4%BA%8C%E5%8D%B7_%E7%AC%AC%E4%B8%80%E5%86%8C_%28page_20_crop%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "繡像剿逆圖考"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "norra-expeditionen-taiping",
+      "titel": "Norra expeditionen mot Peking",
+      "plats": "Från Yangzhou norrut mot Tianjin",
+      "start": 1853,
+      "varldsdel": "Asien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q6140803",
+      "soktext": "The Northern Expedition Against Beijing",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": [
+        {
+          "fil": "File:Chiang Kai-Shek paying reverence at the tomb of the late Dr. Sun Yat-Sen, August 04, 1928.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Chiang_Kai-Shek_paying_reverence_at_the_tomb_of_the_late_Dr._Sun_Yat-Sen,_August_04,_1928.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "Taken on 6 July 1928",
+          "beskrivning": "(Original Caption) 8/4/1928-Peking, China: China's three military leaders are paying reverence at the tomb of the late Dr. Sun Yat-Sen. This photo shows General Kiang Kin Shih, the speaker at this memorial service.",
+          "bredd": 2048,
+          "hojd": 1463,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/Chiang_Kai-Shek_paying_reverence_at_the_tomb_of_the_late_Dr._Sun_Yat-Sen%2C_August_04%2C_1928.jpg/960px-Chiang_Kai-Shek_paying_reverence_at_the_tomb_of_the_late_Dr._Sun_Yat-Sen%2C_August_04%2C_1928.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1928 black and white photographs in Beijing",
+            "Chiang Kai-shek in 1928",
+            "Chiang Kai-shek in China",
+            "Northern Expedition",
+            "Sun Yat-sen",
+            "Temple of Azure Clouds"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "tianjingincidenten",
+      "titel": "Tianjingincidenten",
+      "plats": "Tianjing (Nanjing), Kina",
+      "start": 1856,
+      "varldsdel": "Asien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q835616",
+      "soktext": "The Tianjing Incident Tianjing (Nanjing)",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "belagringen-av-cawnpore",
+      "titel": "Belägringen av Cawnpore",
+      "plats": "Cawnpore (i dag Kanpur), vid Ganges",
+      "start": 1857,
+      "varldsdel": "Asien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q627881",
+      "kandidater": [
+        {
+          "fil": "File:Massacre in the boats off Cawnpore - The history of the Indian Mutiny (1858-1859), opposite 336 - BL.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Massacre_in_the_boats_off_Cawnpore_-_The_history_of_the_Indian_Mutiny_(1858-1859),_opposite_336_-_BL.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Charles Ball",
+          "datum": "1858 date QS:P571,+1858-00-00T00:00:00Z/9",
+          "beskrivning": "A contemporary engraving of the massacre at the Satichaura Ghat on 27 June 1857 following the Siege of Cawnpore during the 1857 Indian rebellion .",
+          "bredd": 1470,
+          "hojd": 1057,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Massacre_in_the_boats_off_Cawnpore_-_The_history_of_the_Indian_Mutiny_%281858-1859%29%2C_opposite_336_-_BL.jpg/960px-Massacre_in_the_boats_off_Cawnpore_-_The_history_of_the_Indian_Mutiny_%281858-1859%29%2C_opposite_336_-_BL.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Images released by British Library Images Online, March 2014",
+            "Massacre Ghat",
+            "Massacres in art",
+            "Siege of Cawnpore",
+            "The history of the Indian Mutiny, Volume I (CH. Bell)"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "belagringen-av-lucknow",
+      "titel": "Belägringen av Lucknow",
+      "plats": "Residenset i Lucknow, Awadh",
+      "start": 1857,
+      "varldsdel": "Asien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q815165",
+      "kandidater": [
+        {
+          "fil": "File:The Relief of Lucknow.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_Relief_of_Lucknow.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Thomas J. Barker",
+          "datum": "circa 1914 date QS:P,+1914-00-00T00:00:00Z/9,P1480,Q5727902",
+          "beskrivning": "\"The Relief of Lucknow,\" by Thomas J. Barker; a print from c.1914",
+          "bredd": 777,
+          "hojd": 394,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/3/31/The_Relief_of_Lucknow.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Siege of Lucknow",
+            "Thomas Jones Barker"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "indiska-upproret-1857",
+      "titel": "Indiska upproret 1857",
+      "plats": "Norra och mellersta Indien (började i Meerut)",
+      "start": 1857,
+      "varldsdel": "Asien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q129864",
+      "kandidater": [
+        {
+          "fil": "File:Indian Rebellion of 1857.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Indian_Rebellion_of_1857.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author Cambridge University Press; Stanford's Geogl. Estabt..",
+          "datum": "1912",
+          "beskrivning": "Map, \"North India: The Mutiny 1857-9\" from \"The Cambridge Modern History Atlas\". Cambridge University Press; London. 1912. Editors were Sir Adolphus William Ward ( †1924 ), G.W. Prothero ( †1922 ), and Sir Stanley Mordaunt Leathes ( †1938 ). Individual authors of works making up the atlas are not identified, nor are the likely to be, after reasonable research.",
+          "bredd": 1959,
+          "hojd": 1647,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Indian_Rebellion_of_1857.jpg/960px-Indian_Rebellion_of_1857.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1850s maps of India",
+            "Cambridge Modern History Atlas",
+            "Maps of the Indian Rebellion of 1857",
+            "Old maps of North India"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "myteriet-i-meerut",
+      "titel": "Myteriet i Meerut",
+      "plats": "Meerut, cirka 65 km nordost om Delhi",
+      "start": 1857,
+      "varldsdel": "Asien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q120262092",
+      "kandidater": [
+        {
+          "fil": "File:The death of Colonel Finnis on the parade ground at Meerut.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_death_of_Colonel_Finnis_on_the_parade_ground_at_Meerut.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "18 July 1857 date QS:P571,+1857-07-18T00:00:00Z/11",
+          "beskrivning": "The Death of Colonel Finnis on the Parade Ground at Meerut. Illustration for The Illustrated Times, 18 July 1857. Colonel John Finnis, 11th Regiment, Bengal Army. Colonel Finnis was shot off his horse, and fell dead to the ground. He was the first European officer to be killed in the Mutiny.",
+          "bredd": 797,
+          "hojd": 600,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/1/11/The_death_of_Colonel_Finnis_on_the_parade_ground_at_Meerut.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1857 engravings",
+            "1857 in India",
+            "1857 in Meerut",
+            "Death in art",
+            "Engravings of men of India",
+            "History of Meerut",
+            "Horse riding in engravings",
+            "Illustrated Times 1857",
+            "Indian Rebellion of 1857",
+            "John Finnis (Bengal Army officer)",
+            "Meerut Mutiny",
+            "Parade grounds",
+            "Soldiers of India in art"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "belagringen-av-jhansi",
+      "titel": "Belägringen av Jhansi",
+      "plats": "Jhansi, Bundelkhand",
+      "start": 1858,
+      "varldsdel": "Asien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q16034303",
+      "kandidater": [
+        {
+          "fil": "File:Defeat of the Peshwa's army before Jhansi.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Defeat_of_the_Peshwa%27s_army_before_Jhansi.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Anonymous Unknown author",
+          "datum": "1858",
+          "beskrivning": "Defeat of the Peshwa's army before Jhansi",
+          "bredd": 1397,
+          "hojd": 1143,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Defeat_of_the_Peshwa%27s_army_before_Jhansi.jpg/960px-Defeat_of_the_Peshwa%27s_army_before_Jhansi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Nana Sahib",
+            "Siege of Jhansi",
+            "The history of the Indian Mutiny (1858) by Charles Ball"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "slaget-vid-gwalior-1858",
+      "titel": "Slaget vid Gwalior och Rani Lakshmibais död",
+      "plats": "Gwalior, mellersta Indien",
+      "start": 1858,
+      "varldsdel": "Asien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Battle of Gwalior and the death of Rani Lakshmibai Gwalior",
+      "kandidater": []
+    },
+    {
+      "id": "slaget-vid-anqing",
+      "titel": "Belägringen av Anqing",
+      "plats": "Anqing, Anhui",
+      "start": 1860,
+      "varldsdel": "Asien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q10946696",
+      "kandidater": [
+        {
+          "fil": "File:Regaining the Provincial City Anqing2.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Regaining_the_Provincial_City_Anqing2.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Wu Youru",
+          "datum": "1886",
+          "beskrivning": "A scene of the Taiping Rebellion, 1850-1864",
+          "bredd": 1024,
+          "hojd": 595,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Regaining_the_Provincial_City_Anqing2.jpg/960px-Regaining_the_Provincial_City_Anqing2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Paintings of the Qing Dynasty",
+            "Taiping Rebellion",
+            "Wu Youru"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "slaget-vid-shanghai-1861",
+      "titel": "Striderna om Shanghai",
+      "plats": "Shanghai med omgivningar",
+      "start": 1861,
+      "varldsdel": "Asien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q3493762",
+      "soktext": "The Fighting for Shanghai",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": [
+        {
+          "fil": "File:Why the Fighting in Shanghai 7.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Why_the_Fighting_in_Shanghai_7.png",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1937",
+          "beskrivning": "Why the Fighting in Shanghai 7",
+          "bredd": 9703,
+          "hojd": 6879,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/Why_the_Fighting_in_Shanghai_7.png/960px-Why_the_Fighting_in_Shanghai_7.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battle of Shanghai"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Why the Fighting in Shanghai 4.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Why_the_Fighting_in_Shanghai_4.png",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1937",
+          "beskrivning": "Why the Fighting in Shanghai 4",
+          "bredd": 9693,
+          "hojd": 6851,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Why_the_Fighting_in_Shanghai_4.png/960px-Why_the_Fighting_in_Shanghai_4.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battle of Shanghai"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Why the Fighting in Shanghai 6.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Why_the_Fighting_in_Shanghai_6.png",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1937",
+          "beskrivning": "Why the Fighting in Shanghai 6",
+          "bredd": 6905,
+          "hojd": 9753,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Why_the_Fighting_in_Shanghai_6.png/960px-Why_the_Fighting_in_Shanghai_6.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battle of Shanghai"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Why the Fighting in Shanghai 3.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Why_the_Fighting_in_Shanghai_3.png",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1937",
+          "beskrivning": "Why the Fighting in Shanghai 3",
+          "bredd": 10679,
+          "hojd": 6941,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Why_the_Fighting_in_Shanghai_3.png/960px-Why_the_Fighting_in_Shanghai_3.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battle of Shanghai"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Why the Fighting in Shanghai 1.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Why_the_Fighting_in_Shanghai_1.png",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1937",
+          "beskrivning": "Why the Fighting in Shanghai 1",
+          "bredd": 14342,
+          "hojd": 11278,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Why_the_Fighting_in_Shanghai_1.png/960px-Why_the_Fighting_in_Shanghai_1.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battle of Shanghai",
+            "Hongkou District"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "tredje-slaget-vid-nanjing",
+      "titel": "Nanjing faller",
+      "plats": "Nanjing, Kina",
+      "start": 1864,
+      "varldsdel": "Asien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q7784779",
+      "kandidater": [
+        {
+          "fil": "File:Third Battle of Nanking.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Third_Battle_of_Nanking.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown 19th century",
+          "datum": "2021-04-30",
+          "beskrivning": "Qing Troops reclaiming back Nanking.",
+          "bredd": 538,
+          "hojd": 388,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Third_Battle_of_Nanking.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Taiping Rebellion"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "bac-ninh-falttaget",
+      "titel": "Fälttåget mot Bắc Ninh",
+      "plats": "Bắc Ninh i norra Vietnam",
+      "start": 1884,
+      "varldsdel": "Asien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q4141584",
+      "kandidater": [
+        {
+          "fil": "File:Prise de Bac-Ninh.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Prise_de_Bac-Ninh.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Images d'Epinal",
+          "datum": "1884",
+          "beskrivning": "Capture of Bac Ninh during the Tonkin campaign",
+          "bredd": 416,
+          "hojd": 255,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/6/65/Prise_de_Bac-Ninh.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Bac-Ninh campaign",
+            "Images d'Épinal"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "ross-malaria-myggan",
+      "titel": "Ross hittar malariaparasiten i en mygga",
+      "plats": "Begumpet, Secunderabad, Indien",
+      "start": 1897,
+      "varldsdel": "Asien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Ross finds the malaria parasite in a mosquito Begumpet",
+      "kandidater": []
+    },
+    {
+      "id": "boxarupproret",
+      "titel": "Boxarupproret",
+      "plats": "Norra Kina, från Shandong till Tianjin och Peking (markören i Shandong, där rörelsen började)",
+      "start": 1899,
+      "varldsdel": "Asien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q150229",
+      "kandidater": [
+        {
+          "fil": "File:Boxer-tianjing-left.jpeg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Boxer-tianjing-left.jpeg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Stereo copyrighted 1901 by Whiting View Company",
+          "datum": "1901",
+          "beskrivning": "Company of Boxers, Tien-Tsin, China. Group of men walking down street.",
+          "bredd": 572,
+          "hojd": 616,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/1/13/Boxer-tianjing-left.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Black and white photographs of Tianjin",
+            "Chinese nationalism",
+            "Historical photographs of Tianjin",
+            "Righteous Harmony Society",
+            "Sepia photographs of China in the 20th century"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "slaget-vid-quingua",
+      "titel": "Slaget vid Quingua",
+      "plats": "Quingua, i dag Plaridel, i provinsen Bulacan, Filippinerna",
+      "start": 1899,
+      "varldsdel": "Asien",
+      "period": "1800",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q4872146",
+      "kandidater": [
+        {
+          "fil": "File:Battle of Quingua.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Battle_of_Quingua.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Kurz & Allison",
+          "datum": "2008-04-14",
+          "beskrivning": "Kurz & Allison print of the Battle of Quingua, April 23, 1899",
+          "bredd": 8227,
+          "hojd": 5882,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Battle_of_Quingua.jpg/960px-Battle_of_Quingua.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1899 in art",
+            "American Colonialism in art",
+            "Battle of Quingua",
+            "Kurz and Allison",
+            "Paintings of flags of the Philippines",
+            "Paintings of flags of the United States"
+          ],
+          "smal": false
+        }
+      ]
+    }
+  ]
+}

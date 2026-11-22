@@ -1,0 +1,1882 @@
+{
+  "schema": "historia-globen/bildkandidater@2",
+  "status": "förslag",
+  "anmarkning": "FÖRSLAG, inte beslut. Kandidaterna är hämtade automatiskt och måste kontrolleras manuellt innan någon används: öppna filsidan (`filsida`), läs licensmallen, kontrollera att bilden visar själva händelsen (inte en karta, en nutida minnessten eller något annat) och skriv bildtexten ur det filsidan säger. Licensklassningen är en automatisk gissning ur Commons API (\"trolig\"); filsidans licensmall kontrolleras av tools/bild_hamta.py eller tools/bildbatch.py --licens, och \"flagga\" avgörs av en människa. Appen läser inte den här filen (data/utkast/). Se docs/bilder-riktiga.md.",
+  "generated": {
+    "handelser": 45,
+    "kandidater": 54,
+    "troliga": 54,
+    "flaggade": 0,
+    "avvisade": 0,
+    "smala": 12,
+    "ej_hamtade": 0
+  },
+  "handelser": [
+    {
+      "id": "herero-och-nama-folkmordet",
+      "titel": "Folkmordet på herero och nama",
+      "plats": "Tyska Sydvästafrika, i dag Namibia (upproret började kring Okahandja)",
+      "start": 1904,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q312492",
+      "kandidater": [
+        {
+          "fil": "File:Herero and Nama prisoners.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Herero_and_Nama_prisoners.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1904-08",
+          "beskrivning": "Prisoners from the Herero and Nama tribes during the 1904-1908 war against Germany.",
+          "bredd": 1920,
+          "hojd": 1151,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Herero_and_Nama_prisoners.jpg/960px-Herero_and_Nama_prisoners.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Chained people",
+            "Herero and Namaqua genocide"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "maji-maji-upproret",
+      "titel": "Maji Maji-upproret",
+      "plats": "Matumbibergen i södra Tanzania (då Tyska Östafrika), där upproret började",
+      "start": 1905,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q705553",
+      "kandidater": [
+        {
+          "fil": "File:Maji Maji rebellion - de.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Maji_Maji_rebellion_-_de.png",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 2.5",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.5",
+          "upphovsperson": "Maximilian Dörrbecker ( Chumwa )",
+          "datum": "see file history",
+          "beskrivning": "Area of the Maji Maji rebellion",
+          "bredd": 1446,
+          "hojd": 1496,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Maji_Maji_rebellion_-_de.png/960px-Maji_Maji_rebellion_-_de.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "German-language maps of Africa",
+            "Maji Maji Rebellion",
+            "Maps of German East Africa",
+            "Maps of uprisings"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "kimbangu-predikar-1921",
+      "titel": "Simon Kimbangu börjar predika i Belgiska Kongo",
+      "plats": "Nkamba-trakten, Belgiska Kongo (i dag Kongo-Kinshasa)",
+      "start": 1921,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Simon Kimbangu begins preaching in the Belgian Congo Around Nkamba",
+      "kandidater": []
+    },
+    {
+      "id": "massakern-vid-monte-arruit",
+      "titel": "Massakern vid Monte Arruit",
+      "plats": "Monte Arruit vid Al Aaroui, omkring 35 km söder om Melilla",
+      "start": 1921,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q104852916",
+      "kandidater": [
+        {
+          "fil": "File:Guerra del Rif 1922 - 2.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Guerra_del_Rif_1922_-_2.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1922",
+          "beskrivning": "January 1922. Rif War. Months after the Battle of Annual (July-August 1921) the remains are still scattered.",
+          "bredd": 711,
+          "hojd": 607,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Guerra_del_Rif_1922_-_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1922 black and white photographs",
+            "Massacre of Monte Arruit"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "rifkriget",
+      "titel": "Rifkriget",
+      "plats": "Rif i norra Marocko, då spanskt protektorat (började kring Annual)",
+      "start": 1921,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q766437",
+      "kandidater": [
+        {
+          "fil": "File:Desembarco de Alhucemas, por José Moreno Carbonero.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Desembarco_de_Alhucemas,_por_Jos%C3%A9_Moreno_Carbonero.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "José Moreno Carbonero",
+          "datum": "1929",
+          "beskrivning": "The Alhucemas landing took place on 8 September 1925, under the command of General Miguel Primo de Rivera and which heralded the end of the Rif Wars between Spain and the Rif Republic in Morocco. Shown on board the torpedo boat 22 ( es:Clase T-1 ) are Generals de Rivera and José Sanjurjo Sacanell . The mountain of Morro Nuevo appears in the background.",
+          "bredd": 2499,
+          "hojd": 1497,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/ff/Desembarco_de_Alhucemas%2C_por_Jos%C3%A9_Moreno_Carbonero.jpg/960px-Desembarco_de_Alhucemas%2C_por_Jos%C3%A9_Moreno_Carbonero.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1920s history paintings",
+            "1920s oil on canvas paintings in Spain",
+            "1929 oil on canvas paintings",
+            "1929 paintings in Spain",
+            "1929 paintings of people",
+            "20th-century paintings of battles",
+            "José Sanjurjo",
+            "Landing of Alhucemas",
+            "Miguel Primo de Rivera in art",
+            "Paintings by José Moreno Carbonero in the Museo del Prado",
+            "Rif War in art",
+            "Spanish 20th-century paintings in the Museo del Prado",
+            "Spanish soldiers in history paintings"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "rifrepubliken-utropas",
+      "titel": "Rifrepubliken utropas",
+      "plats": "Rif, norra Marocko",
+      "start": 1921,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q37102",
+      "soktext": "The Republic of the Rif is proclaimed The Rif",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": [
+        {
+          "fil": "File:Seal of the Republic of the Rif.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Seal_of_the_Republic_of_the_Rif.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Visma",
+          "datum": "2023-10-17",
+          "beskrivning": "Seal of the Council of Ministers of the Rif Republic.",
+          "bredd": 5764,
+          "hojd": 5820,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Seal_of_the_Republic_of_the_Rif.png/960px-Seal_of_the_Republic_of_the_Rif.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Coats of arms of Morocco",
+            "Rif Republic"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Republic of the Rif 1 Riffan.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Republic_of_the_Rif_1_Riffan.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "JamaicanWarlord58",
+          "datum": "1923-09-04",
+          "beskrivning": "Republic of the Rif 1 Riffan",
+          "bredd": 512,
+          "hojd": 332,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Republic_of_the_Rif_1_Riffan.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Rif Republic"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Flag Map of the Republic of the Rif (1921-26).png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Flag_Map_of_the_Republic_of_the_Rif_(1921-26).png",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "SpaceImplorerExplorerImplorer",
+          "datum": "2019-10-11",
+          "beskrivning": "Flag Map of the Republic of the Rif (1921-26), a short-lived republic in northern Morocco that declared its independence from Spanish occupation and the Moroccan sultan Yusef.",
+          "bredd": 993,
+          "hojd": 662,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/86/Flag_Map_of_the_Republic_of_the_Rif_%281921-26%29.png/960px-Flag_Map_of_the_Republic_of_the_Rif_%281921-26%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Flag maps of Rif",
+            "Flag maps of Tamazgha",
+            "Flags of the Rif Republic"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Rif Republic flag at a Pro-Palestine demonstration, Rotterdam-Centrum, Rotterdam (2023).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Rif_Republic_flag_at_a_Pro-Palestine_demonstration,_Rotterdam-Centrum,_Rotterdam_(2023).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Donald Trung Quoc Don (Chữ Hán: 徵國單) - Wikimedia Commons - © CC BY-SA 4.0 International . ( Want to use this image? ) Original publication 📤: -- Donald Trung 『徵國單』 ( No Fake News 💬 ) ( WikiProject Numismatics 💴) ( Articles 📚 ) 19:37, 19 November 2023 (UTC)",
+          "datum": "2023-11-19 15:53:47",
+          "beskrivning": "The flag of the Republic of the Rif being flown at a Pro-Palestine demonstration, that is located in the Rotterdammer neighbourhood of the Centrum, Rotterdam Rechter Maasoever.",
+          "bredd": 1501,
+          "hojd": 1628,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Rif_Republic_flag_at_a_Pro-Palestine_demonstration%2C_Rotterdam-Centrum%2C_Rotterdam_%282023%29.jpg/960px-Rif_Republic_flag_at_a_Pro-Palestine_demonstration%2C_Rotterdam-Centrum%2C_Rotterdam_%282023%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Flags of Palestine in the Netherlands",
+            "Photographs of flags of the Rif Republic",
+            "Pro-Palestine demonstration in Rotterdam (19 November 2023)"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:222Drapeau de l'ancienne république du rif (1921-1926).png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:222Drapeau_de_l%27ancienne_r%C3%A9publique_du_rif_(1921-1926).png",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Zenata123",
+          "datum": "2020-10-15 05:13:40",
+          "beskrivning": "drapeau republique rif",
+          "bredd": 2560,
+          "hojd": 1707,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/222Drapeau_de_l%27ancienne_r%C3%A9publique_du_rif_%281921-1926%29.png/960px-222Drapeau_de_l%27ancienne_r%C3%A9publique_du_rif_%281921-1926%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Flags of the Rif Republic"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "tutankhamons-grav-hittas",
+      "titel": "Tutankhamons grav hittas",
+      "plats": "Konungarnas dal, Egypten",
+      "start": 1922,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q835309",
+      "kandidater": [
+        {
+          "fil": "File:Inside Pharaoh Tutankhamun's tomb, 18th dynasty.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Inside_Pharaoh_Tutankhamun%27s_tomb,_18th_dynasty.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "EditorfromMars",
+          "datum": "2016-05-20 10:07:55",
+          "beskrivning": "Inside Pharaoh Tutankhamun's tomb, 18th dynasty",
+          "bredd": 3264,
+          "hojd": 2448,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Inside_Pharaoh_Tutankhamun%27s_tomb%2C_18th_dynasty.jpg/960px-Inside_Pharaoh_Tutankhamun%27s_tomb%2C_18th_dynasty.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "KV62",
+            "Sarcophagus of Tutankhamun"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "taungbarnet-hittas",
+      "titel": "Taungbarnet hittas",
+      "plats": "Taung, Sydafrika",
+      "start": 1924,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q762810",
+      "kandidater": [
+        {
+          "fil": "File:Taung child (Frankfurt am Main) 1-EditMylius.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Taung_child_(Frankfurt_am_Main)_1-EditMylius.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "Gerbil",
+          "datum": "2007-11-21",
+          "beskrivning": "Australopithecus africanus from Taung, replica, Senckenberg-Museum, Frankfurt am Main (Germany)",
+          "bredd": 1308,
+          "hojd": 1962,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Taung_child_%28Frankfurt_am_Main%29_1-EditMylius.jpg/960px-Taung_child_%28Frankfurt_am_Main%29_1-EditMylius.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Taung Child (Naturmuseum Senckenberg)"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "landstigningen-vid-alhucemas",
+      "titel": "Landstigningen vid Alhucemas",
+      "plats": "Alhucemasbukten vid Al Hoceima, norra Marocko",
+      "start": 1925,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q3026815",
+      "kandidater": [
+        {
+          "fil": "File:14. La playa de Morro Nuevo en los días del desembarco.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:14._La_playa_de_Morro_Nuevo_en_los_d%C3%ADas_del_desembarco.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1925-09",
+          "beskrivning": "14. La playa de Morro Nuevo en los días del desembarco.",
+          "bredd": 1168,
+          "hojd": 647,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/14._La_playa_de_Morro_Nuevo_en_los_d%C3%ADas_del_desembarco.jpg/960px-14._La_playa_de_Morro_Nuevo_en_los_d%C3%ADas_del_desembarco.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1925 postcards of Spain",
+            "Landing of Alhucemas",
+            "X-lighter (United Kingdom)"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "abd-el-krim-ger-upp",
+      "titel": "Abd el-Krim ger upp",
+      "plats": "Rif, norra Marocko (platsen anges inte i källorna)",
+      "start": 1926,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Abd el-Krim surrenders The Rif",
+      "kandidater": []
+    },
+    {
+      "id": "krugerparken",
+      "titel": "Krugerparken blir Sydafrikas första nationalpark",
+      "plats": "Krugerparken, nordöstra Sydafrika",
+      "start": 1926,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q24451",
+      "kandidater": [
+        {
+          "fil": "File:Impalas and Zebras at Duke's Waterhole (16589771331).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Impalas_and_Zebras_at_Duke%27s_Waterhole_(16589771331).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Bernard DUPONT from FRANCE",
+          "datum": "2015-01-16 10:37",
+          "beskrivning": "Game animals at Duke's waterhole beside the S137 Road South of Lower Sabie, Kruger NP, SOUTH AFRICA",
+          "bredd": 5872,
+          "hojd": 1920,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Impalas_and_Zebras_at_Duke%27s_Waterhole_%2816589771331%29.jpg/960px-Impalas_and_Zebras_at_Duke%27s_Waterhole_%2816589771331%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Aepyceros melampus of Kruger National Park",
+            "Animals in the shade in Kruger Park",
+            "Duke's waterhole"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Kruger monument at the Kruger Gate Kruger National Park.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Kruger_monument_at_the_Kruger_Gate_Kruger_National_Park.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 1.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/1.0",
+          "upphovsperson": "JensANDMarian",
+          "datum": "9 December 2006 (original upload date)",
+          "beskrivning": "Kruger monument in front of the Paul Kruger Gate.",
+          "bredd": 545,
+          "hojd": 430,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/0/06/Kruger_monument_at_the_Kruger_Gate_Kruger_National_Park.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Kruger Gate",
+            "Monuments and memorials in Kruger National Park",
+            "Statues of Paul Kruger"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Rhino, Kruger National Park (7826798766).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Rhino,_Kruger_National_Park_(7826798766).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "flowcomm",
+          "datum": "2012-08-15 09:03",
+          "beskrivning": "Rhino, Kruger National Park",
+          "bredd": 4752,
+          "hojd": 3168,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Rhino%2C_Kruger_National_Park_%287826798766%29.jpg/960px-Rhino%2C_Kruger_National_Park_%287826798766%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Animals with Themeda triandra",
+            "Buphagus erythrorynchus and Ceratotherium simum",
+            "Buphagus erythrorynchus of Kruger National Park",
+            "Ceratotherium simum simum of Kruger National Park",
+            "Landscapes of the Kruger Park",
+            "Lowveld",
+            "Poales in the Kruger National Park",
+            "Savanna in South Africa"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "spanska-inbordeskriget",
+      "titel": "Spanska inbördeskriget",
+      "plats": "Spanien och Spanska Marocko (markören i Tetouan, huvudstad i Spanska Marocko; upproret började i Spanska Marocko)",
+      "start": 1936,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q10859",
+      "kandidater": [
+        {
+          "fil": "File:Soldrepteruel1937.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Soldrepteruel1937.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1937-12",
+          "beskrivning": "Soldados republicanos en las calles de Teruel, durante la conquista de la ciudad.",
+          "bredd": 3500,
+          "hojd": 2664,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bf/Soldrepteruel1937.jpg/960px-Soldrepteruel1937.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1937 photographs of Spain",
+            "20th-century black and white photographs of Aragon",
+            "Battle of Teruel",
+            "December 1937 photographs",
+            "Military people in 1937",
+            "People of Spain in 1937",
+            "Soldiers of Spain",
+            "Spanish Republican Army"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "slaget-vid-mersa-matruh",
+      "titel": "Slaget vid Mersa Matruh",
+      "plats": "Mersa Matruh, västra Egypten",
+      "start": 1942,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q22947785",
+      "kandidater": [
+        {
+          "fil": "File:Advance of the Panzerjager-Abteilung 39-AC1942.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Advance_of_the_Panzerjager-Abteilung_39-AC1942.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Georg Weber",
+          "datum": "2017-12-30 02:04:31",
+          "beskrivning": "The Panzerjäger-Abteilung 39 (part of \"Kampfgruppe Gräf\", part of the 21. Panzer Division) of the Afrika Korps on the move. Original caption: \"Vormarsch der Panzerjäger-Abteilung 39.\"",
+          "bredd": 1000,
+          "hojd": 629,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Advance_of_the_Panzerjager-Abteilung_39-AC1942.jpg/960px-Advance_of_the_Panzerjager-Abteilung_39-AC1942.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1942 photographs of Egypt",
+            "21st Panzer Division (Germany)",
+            "Afrika Korps",
+            "Second Battle of El Alamein",
+            "Sonderkraftfahrzeug 231 (8 Rad)"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "universitetet-i-alexandria-1942",
+      "titel": "Universitetet i Alexandria blir självständigt",
+      "plats": "Alexandria, Egypten",
+      "start": 1942,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q1424632",
+      "kandidater": [
+        {
+          "fil": "File:Alexandria University, The Main Building.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Alexandria_University,_The_Main_Building.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Faris El-Gwely",
+          "datum": "2012-11-03 15:29:07",
+          "beskrivning": "Alexandria University, Alexandria, Egypt.",
+          "bredd": 4479,
+          "hojd": 2415,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Alexandria_University%2C_The_Main_Building.JPG/960px-Alexandria_University%2C_The_Main_Building.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Alexandria University",
+            "Facades"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "ancs-ungdomsforbund-grundas-1944",
+      "titel": "ANC:s ungdomsförbund grundas",
+      "plats": "Johannesburg, Sydafrika (idén föddes i Walter Sisulus hem i Orlando i Soweto)",
+      "start": 1944,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q295642",
+      "soktext": "The ANC Youth League is founded Johannesburg",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": [
+        {
+          "fil": "File:The Chris Hani Baragwanath Hospital, Soweto.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_Chris_Hani_Baragwanath_Hospital,_Soweto.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Robert Cutts",
+          "datum": "2007-04-22 11:14:50",
+          "beskrivning": "This is the view of the hospital looking south from Hospital Footbridge in <a href=\" https://books.google.co.uk/books?id=WHCTIOKPSTUC&lpg=PA79&dq=Diepkloof&pg=PA79#v=onepage&q=&f=false \" rel=\"nofollow\">Diepkloof </a>, <a href=\" http://en.wikipedia.org/wiki/Soweto \" rel=\"nofollow\">Soweto</a> in the province of <a href=\" http://en.wikipedia.org/wiki/Gauteng \" rel=\"nofollow\">Gauteng</a>, <a href=\" http://en.wikipedia.org/wiki/South_Africa \" rel=\"nofollow\">South Africa</a> . The bridge spans the Potchefstroom Road at the north of the hospital. The hospital's entrance gates are at the position of marker A on <a href=\" http://maps.google.co.uk/maps?f=q&source=embed&hl=en&geocode=&q=Chris+Hani+Baragwanath+Hospital,+Diepkloof,+South+Africa&sll=-26.286028,27.909393&sspn=1.108144,1.234589&ie=UTF8&hq=Chris+Hani+Baragwanath+Hospital,&hnear=Diepkloof,+Johannesburg,+Gauteng,+South+Africa&t=h&ll=-26.261168,27.942975&spn=0.01424,0.01929&z=16 \" rel=\"nofollow\">this map</a>. <a href=\" http://en.wikipedia.org/wiki/Potchefstroom,_North_West \" rel=\"nofollow\">Potchefstroom</a> is a town lying about 110 km southwest of Soweto. As can be seen from this <a href=\" http://maps.google.co.uk/maps?f=q&source=embed&hl=en&geocode=&q=Chris+Hani+Baragwanath+Hospital,+Diepkloof,+South+Africa&sll=-26.286028,27.909393&sspn=1.108144,1.234589&ie=UTF8&hq=Chris+Hani+Baragwanath+Hospital,&hnear=Diepkloof,+Johannesburg,+Gauteng,+South+Africa&t=h&ll=-26.261168,27.942975&spn=0.01424,0.01929&layer=c&cbll=-26.259756,27.943984&panoid=2waRe0I9jBUvv-5-9OdIug&cbp=12,219.9,,0,6.66 \" rel=\"nofollow\">Street View</a>, the construction referred to in the yellow notice on the photo has been completed and the entrance is open again. The StreetView also shows that bridge itself has been covered over since we were there in 2007 when it looked more like <a href=\" https://www.flickr.com/photos/57544605@N00/358342867 \">this</a>. As at 2007, with 3200 beds and 6760 staff members, occupying 173 acres the <a href=\" http://en.wikipedia.org/wiki/Chris_Hani_Baragwanath_Hospital \" rel=\"nofollow\">Chris Hani Baragwanath Hospital</a> is reputedly the largest hospital in the world. Certainly it's the largest in the Southern Hemisphere. There's an aerial view of the site <a href=\" https://www.cdc.gov/ncidod/eid/vol4no4/klug2.jpg \" rel=\"nofollow\">here</a>. The hospital was opened by the then Prime Minister, <a href=\" http://en.wikipedia.org/wiki/Jan_Smuts \" rel=\"nofollow\">Jan Smuts</a> on 23 September 1942. It was the middle of WWII and six years were to pass before the seeds of <a href=\" http://en.wikipedia.org/wiki/Apartheid \" rel=\"nofollow\">apartheid</a> were to be planted by Smuts' successor, <a href=\" http://en.wikipedia.org/wiki/Daniel_Fran%c3%a7ois_Malan \" rel=\"nofollow\">Daniel Malan</a>. During the opening ceremony, Smuts said that after the war the Imperial Military Hospital, Baragwanath, as it was then called, would be used for the Black population of the Witwatersrand. In the meantime the hospital would be treating the war casualties. At first they were mainly from the Middle East command but, towards the end of the war, the hospital began to specialise in tuberculosis patients, both from the Middle East Command and from the Far East Command. The hospital was built next to the site of a hostel founded by <a href=\" http://archiver.rootsweb.ancestry.com/th/read/CORNISH-GEN/2005-07/1122303715 \" rel=\"nofollow\">John Albert Baragwanath</a> (1842-1928), a Cornishman who had emigrated to South Africa in the 1890's. He was born in <a href=\" http://en.wikipedia.org/wiki/Falmouth,_Cornwall \" rel=\"nofollow\">Falmouth</a>, but the family's roots were in <a href=\" http://en.wikipedia.org/wiki/Towednack \" rel=\"nofollow\">Towednack</a> near St Ives. There are still Baragwanaths in South Africa. Read about them <a href=\" http://boards.ancestry.com/thread.aspx?mv=flat&m=4931&p=localities.africa.southafrica.general \" rel=\"nofollow\">here</a>, <a href=\" http://www.baragwanath.co.za/name/index.htm \" rel=\"nofollow\">here</a> and <a href=\" http://webs.lanset.com/azazella/baragwanath.html \" rel=\"nofollow\">here</a>. . In 1948 Smuts' <a href=\" http://en.wikipedia.org/wiki/United_Party_(South_Africa) \" rel=\"nofollow\">United Party</a> was defeated by the <a href=\" http://en.wikipedia.org/wiki/National_Party_(South_Africa) \" rel=\"nofollow\">National Party</a> led by Malan. A few years later, South Africa left the <a href=\" http://en.wikipedia.org/wiki/Commonwealth_of_Nations \" rel=\"nofollow\">British Commonwealth</a>. This made Imperial an inappropriate description so the establishment was renamed Baragwanath Hospital. Read more about the history of the hospital <a href=\" https://books.google.co.uk/books?id=jz59whwhQ-MC&pg=PA48&dq=Baragwanath+Hospital&lr=&as_brr=3&ei=sw9zSq2INYmGzAS-9dnnAg&client=firefox-a#v=onepage&q=Baragwanath Hospital&f=false\" rel=\"nofollow\">here</a> and about how it is in the present day <a href=\" http://www.chrishanibaragwanathhospital.co.za/bara/index.jsp \" rel=\"nofollow\">here</a>. In 1997, the hospital, already by then one of the largest in the world, was renamed the Chris Hani Baragwanath Hospital in his memory. Nowadays it admits more than two thousand patients daily. About half of them are <a href=\" http://en.wikipedia.org/wiki/HIV \" rel=\"nofollow\">HIV positive</a>. It's said that, in his time, <a href=\" http://en.wikipedia.org/wiki/Chris_Hani \" rel=\"nofollow\">Chris Hani</a> was the most popular member of the leadership of the ANC after <a href=\" http://en.wikipedia.org/wiki/Nelson_Mandela \" rel=\"nofollow\">Nelson Mandela</a> – particularly among the poorest communities. He was born as <a href=\" http://www.sahistory.org.za/pages/library-resources/online books/turningpoints/bk5/images/hani-chris.jpg\" rel=\"nofollow\">Martin Thembisile Hani</a>, the fifth of six children, on June 28, 1942 in kuSabalele in the <a href=\" http://en.wikipedia.org/wiki/Transkei \" rel=\"nofollow\">Transkei</a> (now the Eastern Cape). That region was the birthplace of many other leaders of South Africa's protest movements – names such as Nelson Mandela himself, <a href=\" http://en.wikipedia.org/wiki/Walter_Sisulu \" rel=\"nofollow\">Walter Sisulu</a>, <a href=\" http://www.thepresidency.gov.za/orders_list.asp?show=204 \" rel=\"nofollow\">Clarence Makwetu</a>, <a href=\" http://www.ecyc.gov.za/pg_Story.aspx?action=news&id=52 \" rel=\"nofollow\">Bathandwa Ndondo</a>, <a href=\" http://www.thedplg.gov.za/subwebsites/profiles/DirectorGeneralNarrative.htm \" rel=\"nofollow\">Lindiwe Msengana-Ndlela</a>, <a href=\" http://en.wikipedia.org/wiki/Steve_Biko \" rel=\"nofollow\">Steve Biko</a> and <a href=\" http://www.mgslg.co.za/about-us/about-us.html \" rel=\"nofollow\">Matthew Goniwe</a> were all born in and around the Eastern Cape. Chris Hani attended Lovedale school and went on to study literature at the <a href=\" http://en.wikipedia.org/wiki/University_of_Fort_Hare \" rel=\"nofollow\">University of Fort Hare</a>. When 15 he joined the <a href=\" http://en.wikipedia.org/wiki/ANC_Youth_League \" rel=\"nofollow\">ANC Youth League</a> and engaded in protests against the <a href=\" http://en.wikipedia.org/wiki/Bantu_Education_Act \" rel=\"nofollow\">Bantu Education Act</a>. After graduating, he joined <a href=\" http://en.wikipedia.org/wiki/Umkhonto_we_Sizwe \" rel=\"nofollow\">Umkhonto we Sizwe</a>, the armed wing of the <a href=\" http://en.wikipedia.org/wiki/African_National_Congress \" rel=\"nofollow\">African National Congress</a> (ANC). In 1963 he was exiled to <a href=\" http://en.wikipedia.org/wiki/Lesotho \" rel=\"nofollow\">Lesotho</a> where he was the target of assassination attempts. He received military training in the <a href=\" http://en.wikipedia.org/wiki/Soviet_Union \" rel=\"nofollow\">Soviet Union</a> and, after serving in the <a href=\" http://en.wikipedia.org/wiki/Rhodesian_Bush_War \" rel=\"nofollow\">Rhodesian Bush War</a> in what is now <a href=\" http://en.wikipedia.org/wiki/Zimbabwe \" rel=\"nofollow\">Zimbabwe</a>, he moved to the ANC's headquarters in <a href=\" http://en.wikipedia.org/wiki/Lusaka \" rel=\"nofollow\">Lusaka</a>, Zambia becoming head of Umkhonto we Sizwe. In February 1990, <a href=\" http://en.wikipedia.org/wiki/F.W._de_Klerk \" rel=\"nofollow\">President F.W. de Klerk</a> announced the lifting of the bans on the ANC, the <a href=\" http://en.wikipedia.org/wiki/Pan_Africanist_Congress \" rel=\"nofollow\">Pan Africanist Congress</a> (PAC), the <a href=\" http://en.wikipedia.org/wiki/South_African_Communist_Party \" rel=\"nofollow\">South African Communist Party</a> (SACP) and thirty-one other organizations which, unitl then, had been declared to be illegal by the apartheid regime. Soon after, Chris Hani returned to South Africa and took over from Joe Slovo § as head of the SACP in 1991. He supported the suspension of the ANC's armed struggle in favour of negotiations. On 10 April 1993, Chris Hani was assassinated by a Polish far-right immigrant named <a href=\" http://en.wikipedia.org/wiki/Janusz_Walu%c5%9b \" rel=\"nofollow\">Janusz Waluś</a>, who shot him in the head as he stepped out of his car. Waluś fled the scene, but was arrested soon afterwards after Hani's neighbour, a white woman, called the police. <a href=\" http://en.wikipedia.org/wiki/Clive_Derby-Lewis \" rel=\"nofollow\">Clive Derby-Lewis</a>, a senior <a href=\" http://en.wikipedia.org/wiki/Conservative_Party_(South_Africa) \" rel=\"nofollow\">South African Conservative Party</a> M.P., who had lent Waluś his pistol, was also arrested for complicity in Hani's murder. Derby-Lewis was tried and sentenced to death for his role in the assassination but the sentence was commuted to life imprisonment when capital punishment was outlawed in 1995. In June 2010 Derby-Lewis applied for parole on the grounds that he was over 70, and was entitled to parole in terms of South African law for having served in excess of 15 years in prison. In November 2010, Derby-Lewis' lawyer reported that Derby-Lewis was receiving treatment for skin cancer and prostate cancer, hypertension, and for a gangrenous spot in his leg. The Correctional Services department reported that a decision on his parole could be announced in early December. As at March 2011 I don't know whether or not such an announcement was made. The Diepkloof district of Soweto has associations with <a href=\" http://en.wikipedia.org/wiki/Alan_Paton \" rel=\"nofollow\">Alan Paton</a>, the author of the inspirational book <a href=\" http://en.wikipedia.org/wiki/Cry,_The_Beloved_Country#Plot_summary \" rel=\"nofollow\">Cry, the Beloved Country</a> that was written in 1946 while the author was touring Europe and America. Smuts was still Prime Minister of South Africa while the book was being written but by 1948, when the book was published, the National Party had won power and the seeds of Apartheid were being sown. There is a mention of the hospital in the book. Paton was born in 1903 in <a href=\" http://en.wikipedia.org/wiki/Pietermaritzburg \" rel=\"nofollow\">Pietermaritzburg</a> capital of what was then Natal and is now <a href=\" http://en.wikipedia.org/wiki/KwaZulu-Natal \" rel=\"nofollow\">KwaZulu-Natal</a>. He was the Principal of the nearby Diepkloof Reformatory from July 1935 to June 1948. In <a href=\" https://books.google.co.uk/books?id=QFPB5w-wFFEC&lpg=PP1&pg=PP1#v=onepage&q=&f=false \" rel=\"nofollow\">Diepkloof – Reflections of Diepkloof Reformatory</a>, <a href=\" http://www.cyc-net.org/cyc-online/cycol-0401-oldbooks.html \" rel=\"nofollow\">Clyde Broster</a>, senior English master at <a href=\" http://en.wikipedia.org/wiki/Rondebosch_Boys'_High_School \" rel=\"nofollow\">Rondebosch Boys' High School, Cape Town</a>, has selected some extracts from Paton's works that were inspired by his time at the Reformatory. First in the collection is <a href=\" https://books.google.co.uk/books?id=QFPB5w-wFFEC&lpg=PP1&dq=Diepkloof&pg=PA1#v=onepage&q=&f=false \" rel=\"nofollow\">To a Small Boy Who Died at Diepkloof Reformatotory</a> – a poem in memory of a 6-year-old pupil of the Reformatory. I trust that such a boy, should he have offended nowadays, would be more humanely treated. Also in the book is a poignant short story about a boy called Ha'penny spent time in the Reformatory in the early 1940s. It can be read in full <a href=\" http://www.cyc-net.org/cyc-online/cycol-0401-paton.html \" rel=\"nofollow\">here</a>. It's only a couple of pages long – but it's well worth reading. Alan Paton died in 1988 – just before the ANC Government took power. He had constantly opposed the apartheid regime and many of his stated beliefs are now enshrined in South Africa's <a href=\" http://www.rebirth.co.za/bill_of_rights_S.A.1.htm \" rel=\"nofollow\">Bill of Rights</a>. A few days before first writing this in January 2009 I had heard the news of the death of <a href=\" http://en.wikipedia.org/wiki/Helen_Suzman \" rel=\"nofollow\">Helen Suzman</a>, a great South African dissident with <a href=\" http://en.wikipedia.org/wiki/Lithuania \" rel=\"nofollow\">Lithuanian</a> Jewish ancestry. Suzman was born in Germiston in the <a href=\" http://en.wikipedia.org/wiki/Witwatersrand \" rel=\"nofollow\">Witwatersrand</a> in 1917 and first entered the <a href=\" http://en.wikipedia.org/wiki/South_African_Parliament \" rel=\"nofollow\">South African Parliament</a> in 1953 as a member of the fast-declining <a href=\" http://en.wikipedia.org/wiki/United_Party_(South_Africa) \" rel=\"nofollow\">United Party</a>. She later switched to the Progressive Party which eventually became the <a href=\" http://en.wikipedia.org/wiki/Progressive_Reform_Party \" rel=\"nofollow\"> Progressive Reform Party</a>. At one stage Suzman was the only woman – and the only member opposing apartheid – in the South African Parliament. Suzman often asked questions in parliament about abuses of civil rights. On one such occasion, a cabinet minister yelled at her \"You put these questions just to embarrass South Africa overseas.\" She replied \"It is not my questions that embarrass South Africa – it is your answers\". Her Progressive Reform Party was one of those which merged to become the present-day <a href=\" http://en.wikipedia.org/wiki/Democratic_Alliance_(South_Africa) \" rel=\"nofollow\">Democratic Alliance (South_Africa)</a>, now (February 2009) the official opposition party in the South African Parliament. Helen Suzman stood beside Nelson Mandela, the country's first black president, when he signed the new constitution in 1996. <a href=\" http://en.wikipedia.org/wiki/Joe_Slovo \" rel=\"nofollow\">Joe Slovo</a> (1926-1995) was another great South African dissident with Lithuanian Jewish ancestry. His family emigrated to South Africa in 1934 when he was eight. He joined the SACP in 1942 and in the early 1960's was instrumental in forming an alliance between the Communists and the ANC. In 1963 he was exiled and lived in Britain for a while. In was elected general secretary of the SACP in1984 and returned to South Africa in 1990. He died of cancer in 1995. A <a href=\" http://en.wikipedia.org/wiki/Joe_Slovo,_Cape_Town \" rel=\"nofollow\">settlement</a> east of Cape Town has been named after him. In case you're wondering, the Motorizr Z3 is (or perhaps was) a mobile phone. Photos of some of the people referred to in this description can be seen in my comment below. Others can be seen by clicking on the appropriate links that follow. Some of the links contain additional information: <a href=\" http://upload.wikimedia.org/wikipedia/en/b/b4/Chris_Hani.jpg \" rel=\"nofollow\">Chris Hani</a> <a href=\" http://www.addotourism.co.za/index.php?page_name=page&menu_id=8&area_id=7 \" rel=\"nofollow\">Jan Smuts</a> <a href=\" http://www.gettyimages.co.uk/detail/2628630/Hulton-Archive \" rel=\"nofollow\">Daniel Malan</a> <a href=\" http://www.dailymail.co.uk/news/worldnews/article-1103882/Hundreds-gather-mourn-South-African-anti-apartheid-activist-Helen-Suzman.html \" rel=\"nofollow\">Nelson Mandela and Helen Suzman</a> (scroll down to see four relevant photos) <a href=\" http://www.commondreams.org/headlines03/0506-06.htm \" rel=\"nofollow\">Walter Sisulu</a> <a href=\" http://www.sahistory.org.za/pages/people/bios/makwetu-c.htm \" rel=\"nofollow\">Clarence Makwetu</a> <a href=\" http://www.andiquote.co.za/authors/Steve_Biko.html \" rel=\"nofollow\">Steve Biko</a> <a href=\" http://www.south-africa-tours-and-travel.com/images/fw-de-klerk-apartheid.jpg \" rel=\"nofollow\">F.W. de Klerk</a> <a href=\" http://i.wp.pl/a/f/jpeg/24177/afp_janusz_walus_rpa.jpeg \" rel=\"nofollow\">Janusz Waluś</a> <a href=\" http://www.timeslive.co.za/multimedia/dynamic/00727/Clive_Derby-Lewis_727730b.jpg \" rel=\"nofollow\">Clive Derby-Lewis</a> <a href=\" http://rwrant.co.za/wp-content/uploads/2009/07/AlanPaton.jpg \" rel=\"nofollow\">Alan Paton</a> <a href=\" http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2009/8/17/1250512893687/Joe-Slovo-001.jpg \" rel=\"nofollow\">Joe Slovo</a> Robert Cutts, bob@winton.me.uk This description was first incorporated in June 2007 and has been revised and expanded several times since. The current version dates from March 2011. Photo uploaded: June 2007",
+          "bredd": 1266,
+          "hojd": 924,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/The_Chris_Hani_Baragwanath_Hospital%2C_Soweto.jpg/960px-The_Chris_Hani_Baragwanath_Hospital%2C_Soweto.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Chris Hani Baragwanath Hospital",
+            "Motorola RAZR",
+            "Motorola RIZR Z8"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "brazzavillekonferensen-1944",
+      "titel": "Brazzavillekonferensen om Frankrikes kolonier",
+      "plats": "Brazzaville, huvudstad i Franska Ekvatorialafrika (i dag Kongo-Brazzaville)",
+      "start": 1944,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q1781371",
+      "soktext": "The Brazzaville Conference on France’s colonies Brazzaville",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": [
+        {
+          "fil": "File:Stamp of Brazil - 1962 - Colnect 213964 - Brasilia.jpeg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Stamp_of_Brazil_-_1962_-_Colnect_213964_-_Brasilia.jpeg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Post of Brazil",
+          "datum": "1962",
+          "beskrivning": "Stamp",
+          "bredd": 546,
+          "hojd": 330,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Stamp_of_Brazil_-_1962_-_Colnect_213964_-_Brasilia.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "10 cruzeiros stamps",
+            "1962 postage stamps of Brazil"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Stamp of Brazil - 1954 - Colnect 192297 - 1st World Congress of Homeopathy.jpeg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Stamp_of_Brazil_-_1954_-_Colnect_192297_-_1st_World_Congress_of_Homeopathy.jpeg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Post of Brazil",
+          "datum": "1954",
+          "beskrivning": "Christian Friedrich Samuel Hahnemann (1755-1843)",
+          "bredd": 211,
+          "hojd": 350,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Stamp_of_Brazil_-_1954_-_Colnect_192297_-_1st_World_Congress_of_Homeopathy.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1954 postage stamps of Brazil",
+            "2 cruzeiros 70 centavos stamps",
+            "Congresses on stamps",
+            "Homeopathy",
+            "Medicine on stamps",
+            "Samuel Hahnemann on stamps"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Stamp of Brazil - 1961 - Colnect 189496 - 1 - Coffee Plant.jpeg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Stamp_of_Brazil_-_1961_-_Colnect_189496_-_1_-_Coffee_Plant.jpeg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Post of Brazil",
+          "datum": "1961",
+          "beskrivning": "Stamp",
+          "bredd": 185,
+          "hojd": 309,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Stamp_of_Brazil_-_1961_-_Colnect_189496_-_1_-_Coffee_Plant.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1961 postage stamps of Brazil",
+            "20 cruzeiros stamps",
+            "Coffee on stamps of Brazil"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "arabforbundet-grundas-1945",
+      "titel": "Arabförbundet grundas",
+      "plats": "Kairo, Egypten",
+      "start": 1945,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q7172",
+      "kandidater": [
+        {
+          "fil": "File:Arab Leage HQ 977.PNG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Arab_Leage_HQ_977.PNG",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Ijanderson977",
+          "datum": "2008-07",
+          "beskrivning": "Arab League HQ in Cairo Egypt",
+          "bredd": 1225,
+          "hojd": 918,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Arab_Leage_HQ_977.PNG/960px-Arab_Leage_HQ_977.PNG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2008 in Cairo",
+            "Arab League Headquarters"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "ethiopian-airlines-grundas-1945",
+      "titel": "Etiopiens flygbolag grundas",
+      "plats": "Addis Abeba, Etiopien",
+      "start": 1945,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q245233",
+      "kandidater": [
+        {
+          "fil": "File:ET-BAY@PEK (20250803162115).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:ET-BAY@PEK_(20250803162115).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "N509FZ",
+          "datum": "2025-08-03 16:21:15",
+          "beskrivning": "Ethiopian 604 from Addis Ababa, landing at runway 01 - in fact it's not the first visit of ET's A35K to Beijing, but today is the first regular one, maybe. See how long the 35K is?!",
+          "bredd": 6518,
+          "hojd": 4345,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/ET-BAY%40PEK_%2820250803162115%29.jpg/960px-ET-BAY%40PEK_%2820250803162115%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2025 at Beijing Capital International Airport",
+            "Airbus A350-1000 of Ethiopian Airlines at Beijing Capital International Airport",
+            "August 2025 in transport in Beijing",
+            "ET-BAY (aircraft)"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "algeriska-frihetskriget",
+      "titel": "Algeriska frihetskriget",
+      "plats": "Franska Algeriet (började med samordnade anfall över hela landet)",
+      "start": 1954,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q200790",
+      "kandidater": [
+        {
+          "fil": "File:Algerian war collage wikipedia.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Algerian_war_collage_wikipedia.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Madame Grinderche",
+          "datum": "2010",
+          "beskrivning": "Collage made by me using screenshots from two Public Domain videos. Collage description: (first row) Muslim rebels army ALN; French Army M8 Greyhound patrol; French settlers take up arms after the August 1955 Constantinois massacres. (second row) Charles de Gaulle's famous speech of June 4 1958 \"je vous ai compris\"; French settlers with banners saying \"De Gaulles to power\" in Algiers May 13 1958; Muslim veterans gathered in Algiers' Government Building in 1958. (third row) Barricades week French settlers uprising in January 1960; French settler FAF rioters throw stones to French Army M8 Greyhound armoured cars; French Army soldier use metal detector to check if muslim women wearing niqab are bomb-couriers. (fourth row) FLN muslim rebels riot in Algiers's European quarter in December 10 1960; French Army national guard Gardes Mobiles use tear gaz riot gun; FLN muslim supporters face to face with French paratroopers during the December 10 1960 protest. First video (all screenshots except one) is \"French President Charles De Gaulle and the Six-Year War\" (1960) https://archive.org/details/gov.archives.arc.649319 . Public Domain Algerian War documentary. National Archives and Records Administration. National Security Council. Central Intelligence Agency. (09/18/1947 - 12/04/1981). ARC Identifier 649319 / Local Identifier 263.1923. This movie is part of the collection FedFlix https://archive.org/details/FedFlix Second video (up-right corner screenshot only) is \"Rebellion Spreads in North Africa\" (1955) https://archive.org/details/1955-08-25_Flood_Relief .Universal Newsreels. In 1976, the films' owner, MCA, made the unusual decision to turn over ownership of all of the newsreels to the National Archives. Public Domain educative material presented as a public service and freely available in www.archive.net",
+          "bredd": 960,
+          "hojd": 960,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/3/30/Algerian_war_collage_wikipedia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Algerian War",
+            "History of the French Army",
+            "Montages of Algeria",
+            "Montages of war"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "toussaint-rouge",
+      "titel": "FLN inleder upproret (Toussaint Rouge)",
+      "plats": "Hela Franska Algeriet",
+      "start": 1954,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q3535673",
+      "soktext": "The FLN begins the uprising (Toussaint Rouge)",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "philippeville-1955",
+      "titel": "Augustoffensiven vid Philippeville",
+      "plats": "Philippeville (i dag Skikda) och Constantineregionen, Franska Algeriet",
+      "start": 1955,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q6889422",
+      "soktext": "The August offensive at Philippeville",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "slaget-om-alger",
+      "titel": "Slaget om Alger",
+      "plats": "Alger, särskilt Kasbah, Franska Algeriet",
+      "start": 1956,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q1761043",
+      "kandidater": [
+        {
+          "fil": "File:Casbah-cache-Ali-lapointe.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Casbah-cache-Ali-lapointe.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Saber68",
+          "datum": "photo prise, le 2011-12-20",
+          "beskrivning": "The remains of a house in the Casbah of Algiers destroyed in the explosion that killed Ali la Pointe, Hassiba Ben Bouali, Petit Omar and Mohamed Bouhmidi, october 8, 1957",
+          "bredd": 1600,
+          "hojd": 960,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Casbah-cache-Ali-lapointe.jpg/960px-Casbah-cache-Ali-lapointe.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Algerian War",
+            "Ali Ammar",
+            "Battle of Algiers",
+            "Casbah of Algiers",
+            "Hassiba Ben Bouali",
+            "Rue des Abdérames (Algiers)",
+            "Ruins in Algeria"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Djamila-Bouazza-22-ans (cropped).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Djamila-Bouazza-22-ans_(cropped).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1960s date QS:P,+1960-00-00T00:00:00Z/8",
+          "beskrivning": "Djamila bouazza with her bomb during the reconstitution of the Cafeteria attack in Algiers.",
+          "bredd": 736,
+          "hojd": 759,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/4/44/Djamila-Bouazza-22-ans_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Algerian War",
+            "Battle of Algiers",
+            "Djamila Bouazza"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:Ali-la-pointe-Mort.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ali-la-pointe-Mort.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1957-10-08",
+          "beskrivning": "La mort de Ali la pointe avec une bombe de l'armé française en 1957",
+          "bredd": 746,
+          "hojd": 536,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/8/84/Ali-la-pointe-Mort.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Algerian War",
+            "Ali Ammar",
+            "Battle of Algiers",
+            "Dead people",
+            "Fellaghas",
+            "Shahid"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "majkrisen-1958",
+      "titel": "Kuppen i Alger fäller fjärde republiken",
+      "plats": "Alger, Franska Algeriet, och Paris",
+      "start": 1958,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q3002737",
+      "soktext": "The coup in Algiers brings down the Fourth Republic Algiers",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "afrikas-ar-1960",
+      "titel": "Afrikas år: 17 kolonier blir självständiga",
+      "plats": "Afrika (först ut Kamerun, med huvudstaden Yaoundé, den 1 januari)",
+      "start": 1960,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q387647",
+      "kandidater": [
+        {
+          "fil": "File:Africa independence dates.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Africa_independence_dates.svg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "Original uploader was Mehmetaergun ; recreated by Nobelium ( talk ) 2010-05-10",
+          "datum": "2007-03-20",
+          "beskrivning": "Countries of Africa , with date of independence",
+          "bredd": 1300,
+          "hojd": 1000,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b3/Africa_independence_dates.svg/960px-Africa_independence_dates.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Decolonization of Africa",
+            "Maps of colonial Africa",
+            "Maps of self-determination",
+            "SVG maps of international relations"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "hoga-dammen-vid-assuan",
+      "titel": "Höga dammen vid Assuan byggs",
+      "plats": "Höga dammen vid Assuan, Egypten",
+      "start": 1960,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q38891",
+      "kandidater": [
+        {
+          "fil": "File:Aswan High Dam-1.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Aswan_High_Dam-1.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "شرف الدين",
+          "datum": "2008-02-19",
+          "beskrivning": "Aswan High Dam in Egypt",
+          "bredd": 2592,
+          "hojd": 1944,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Aswan_High_Dam-1.jpg/960px-Aswan_High_Dam-1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Hydroelectric power plant at Aswan High Dam"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:BarragemAssuão.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:BarragemAssu%C3%A3o.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NASA",
+          "datum": "2001-03-18",
+          "beskrivning": "NASA satellite image of the Nile , Aswan High Dam , and Lake Nasser - southern Egypt . The Aswan High Dam was completed in 1970 and is one of the largest earthen embankment dams in the world. It is 364 feet (111 m) tall, 12 565 feet (3830 m) long and nearly 3281 feet (1000 m) wide. When it was built the new reservoir required relocation of nearly 100 000 residents and some archaeological sites. Although the reservoir has benefited Egypt by providing power and controlling floods, it has also had detrimental effects on the Nile system. Before the dam, an estimated 110 million tons of silt was deposited by the annual flood of the Nile, enriching agricultural lands and maintaining the land of the Nile delta. Now this sediment is trapped behind the dam, requiring artificial fertilization of agricultural lands and leading to erosion and saltwater intrusion where the Nile river meets the Mediterranean Sea.",
+          "bredd": 1160,
+          "hojd": 960,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/BarragemAssu%C3%A3o.jpg/960px-BarragemAssu%C3%A3o.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Aswan High Dam",
+            "Earth photography during STS-102",
+            "PD NASA-AP",
+            "Satellite pictures of Egypt",
+            "Satellite pictures of rivers"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "generalskuppen-1961",
+      "titel": "Generalernas kupp i Alger misslyckas",
+      "plats": "Alger, Franska Algeriet",
+      "start": 1961,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q2605231",
+      "soktext": "The generals' coup in Algiers fails Algiers",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": [
+        {
+          "fil": "File:Plan D'Alger Et Ses Environs d'après Boutin.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Plan_D%27Alger_Et_Ses_Environs_d%27apr%C3%A8s_Boutin.png",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1830",
+          "beskrivning": "Map of Algiers and its Environs, according to Boutin.",
+          "bredd": 7639,
+          "hojd": 8784,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Plan_D%27Alger_Et_Ses_Environs_d%27apr%C3%A8s_Boutin.png/960px-Plan_D%27Alger_Et_Ses_Environs_d%27apr%C3%A8s_Boutin.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "19th-century maps of Algiers",
+            "Algiers in the 19th century",
+            "Ottoman period in the history of Algeria",
+            "Synagogues in Algiers"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "asterix-frankrikes-forsta-satellit",
+      "titel": "Astérix, Frankrikes första satellit",
+      "plats": "Hammaguir, Algeriet",
+      "start": 1965,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q22744",
+      "kandidater": [
+        {
+          "fil": "File:Asterix Musee du Bourget P1020341.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Asterix_Musee_du_Bourget_P1020341.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "Pline",
+          "datum": "2009-02",
+          "beskrivning": "Satellite A1 Asterix, first french satellite (1965), Museum of Air and Space Paris, Le Bourget (France)",
+          "bredd": 3301,
+          "hojd": 2580,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/Asterix_Musee_du_Bourget_P1020341.JPG/960px-Asterix_Musee_du_Bourget_P1020341.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Astérix at the Musée de l'Air"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "biafra-utropas",
+      "titel": "Ojukwu utropar Biafra",
+      "plats": "Östra regionen, Nigeria (Biafras huvudstad var först Enugu)",
+      "start": 1967,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q178469",
+      "soktext": "Ojukwu proclaims Biafra Eastern Region",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "biafrakriget",
+      "titel": "Biafrakriget (nigerianska inbördeskriget)",
+      "plats": "Sydöstra Nigeria (började med federala anfall i norra Biafra, mot Nsukka och Garkem)",
+      "start": 1967,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q829875",
+      "kandidater": [
+        {
+          "fil": "File:Biafra independent state map-en.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Biafra_independent_state_map-en.svg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "Eric Gaba ( Sting - fr:Sting )",
+          "datum": "September 2008 (new version)",
+          "beskrivning": "Map of the secessionist state of the Republic of Biafra (1967 – 1970) as in May 1967. Note: The western boundary may not be accurate due to the low precision of the reference maps used which are also contradictory. UTM projection ; WGS 84 datum Estimated scale: 1:2,000,000",
+          "bredd": 1100,
+          "hojd": 850,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Biafra_independent_state_map-en.svg/960px-Biafra_independent_state_map-en.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Catalan-language SVG maps showing history",
+            "English-language SVG maps of Africa",
+            "Maps of Biafra",
+            "Multilingual SVG with Catalan language (ca) option",
+            "Multilingual SVG with undetermined language language (und) as default",
+            "SVG maps showing history of Africa"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "enugu-faller-1967",
+      "titel": "Nigeria intar Enugu",
+      "plats": "Enugu, Biafras första huvudstad, i dag delstaten Enugu, Nigeria",
+      "start": 1967,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Nigeria captures Enugu Enugu",
+      "kandidater": [
+        {
+          "fil": "File:Sky and vegetational background looking beautiful.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Sky_and_vegetational_background_looking_beautiful.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Agudusunday",
+          "datum": "2023-06-14",
+          "beskrivning": "This file captures the geographic view standing from this point",
+          "bredd": 715,
+          "hojd": 536,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Sky_and_vegetational_background_looking_beautiful.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Enugu State",
+            "Landscapes of Nigeria"
+          ],
+          "smal": true
+        },
+        {
+          "fil": "File:IMG-20171124-WA0024 01.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:IMG-20171124-WA0024_01.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Zumbaby",
+          "datum": "2017-11-24",
+          "beskrivning": "This is an image of \"African people at work\" from",
+          "bredd": 810,
+          "hojd": 1080,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/4/48/IMG-20171124-WA0024_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Enugu State",
+            "Street vendors in Nigeria"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:IMG-20171124-WA0024 02.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:IMG-20171124-WA0024_02.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Zumbaby",
+          "datum": "2017-11-24",
+          "beskrivning": "This is an image of \"African people at work\" from",
+          "bredd": 810,
+          "hojd": 1080,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/b/b6/IMG-20171124-WA0024_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Enugu State",
+            "Street vendors in Nigeria"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Multicoloured Millipede.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Multicoloured_Millipede.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Nwonwu Uchechukwu P",
+          "datum": "2023-12-12 14:25:11",
+          "beskrivning": "This image represents a Multicoloured Millipede seen in Enugu State Nigeria and was captured during rainy season. The Millipede is curled up in a ball because it thinks it wants to be attacked. Millipedes are not violent, so it curls up when attacked.",
+          "bredd": 4160,
+          "hojd": 3120,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Multicoloured_Millipede.jpg/960px-Multicoloured_Millipede.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Nature in December 2023"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Pure Black Goat.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Pure_Black_Goat.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Chimaroke2022",
+          "datum": "2022-04-19 13:54:42",
+          "beskrivning": "This black goat was captured in Nsukka town, Enugu State, Nigeria.",
+          "bredd": 579,
+          "hojd": 716,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/1/14/Pure_Black_Goat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Black goats",
+            "Goats in Nigeria",
+            "Nsukka"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "forsta-hjarttransplantationen",
+      "titel": "Den första hjärttransplantationen",
+      "plats": "Groote Schuur Hospital, Kapstaden, Sydafrika",
+      "start": 1967,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "The first heart transplant Groote Schuur Hospital",
+      "kandidater": [
+        {
+          "fil": "File:Groote Schuur Hospital in South Africa.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Groote_Schuur_Hospital_in_South_Africa.JPG",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Tiiu Sild",
+          "datum": "2011-09-12",
+          "beskrivning": "The old hospital building in Cape Town where the first human heart transplant was done by Dr Barnard",
+          "bredd": 2048,
+          "hojd": 1536,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Groote_Schuur_Hospital_in_South_Africa.JPG/960px-Groote_Schuur_Hospital_in_South_Africa.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Groote Schuur Hospital"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:The first heartbeat in Dr Barnards hands.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_first_heartbeat_in_Dr_Barnards_hands.JPG",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Tiiu Sild",
+          "datum": "2011-09-12",
+          "beskrivning": "Dr Barnard's great success: finally it beats again - but in an other human body!",
+          "bredd": 2048,
+          "hojd": 1536,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/The_first_heartbeat_in_Dr_Barnards_hands.JPG/960px-The_first_heartbeat_in_Dr_Barnards_hands.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1967 in medicine",
+            "Groote Schuur Hospital",
+            "Heart transplantation",
+            "Museums in South Africa",
+            "Operating rooms"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:The guest from the future, +44 years.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_guest_from_the_future,_%2B44_years.JPG",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Tiiu Sild",
+          "datum": "2011-09-12",
+          "beskrivning": "The restored scene from Dr Barnard's first human heart transplantation - world's most famous heart of young donor Denise Duval just died....",
+          "bredd": 2048,
+          "hojd": 1536,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/The_guest_from_the_future%2C_%2B44_years.JPG/960px-The_guest_from_the_future%2C_%2B44_years.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1967 in medicine",
+            "Groote Schuur Hospital",
+            "Heart transplantation",
+            "Hospital gowns",
+            "Museums in South Africa",
+            "Operating rooms"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Lost towel number 15 found (cropped).JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Lost_towel_number_15_found_(cropped).JPG",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Tiiu Sild",
+          "datum": "2011-09-12",
+          "beskrivning": "Reconstruction of Dr Barnard's first human heart transplantation in December 1967. Continuous need to count the sterile towels used at surgery. Cape Town.",
+          "bredd": 1440,
+          "hojd": 1138,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Lost_towel_number_15_found_%28cropped%29.JPG/960px-Lost_towel_number_15_found_%28cropped%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1967 in medicine",
+            "Groote Schuur Hospital",
+            "Heart (organ)",
+            "Hospital gowns",
+            "Inside operating room during surgery",
+            "Transplantation"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Lost towel number 15 found.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Lost_towel_number_15_found.JPG",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Tiiu Sild",
+          "datum": "2011-09-12",
+          "beskrivning": "Reconstruction of Dr Barnard's first human heart transplantation in December 1967. Continuous need to count the sterile towels used at surgery. Cape Town.",
+          "bredd": 2048,
+          "hojd": 1536,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Lost_towel_number_15_found.JPG/960px-Lost_towel_number_15_found.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1967 in medicine",
+            "Groote Schuur Hospital",
+            "Heart (organ)",
+            "Hospital gowns",
+            "Inside operating room during surgery",
+            "Transplantation"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "massakern-i-asaba",
+      "titel": "Massakern i Asaba",
+      "plats": "Asaba vid floden Niger, i dag delstaten Delta, Nigeria",
+      "start": 1967,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q4803193",
+      "soktext": "Asaba massacre",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "port-harcourt-1968",
+      "titel": "Nigeria intar Port Harcourt",
+      "plats": "Port Harcourt, Nigerdeltat",
+      "start": 1968,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Nigeria captures Port Harcourt Port Harcourt",
+      "kandidater": [
+        {
+          "fil": "File:The Port Harcourt Tower.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_Port_Harcourt_Tower.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "SteadyWins",
+          "datum": "2023-05-18 16:58:49",
+          "beskrivning": "Well captured in a manner that looks like the building is seating in the centre of the road, it's \"the Port Harcourt Tower,\" the second tallest building in Niger Delta after the \"Point Block,\" at the Rivers state secretariat",
+          "bredd": 2250,
+          "hojd": 2484,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/39/The_Port_Harcourt_Tower.jpg/960px-The_Port_Harcourt_Tower.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Wiki Loves Africa 2023 in Niger Delta"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:Golden Sunset at Bonny River.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Golden_Sunset_at_Bonny_River.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Kentroot5",
+          "datum": "Taken on 13 November 2024",
+          "beskrivning": "This is an image with the theme \" Farm to Plate \" from:",
+          "bredd": 3871,
+          "hojd": 2903,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Golden_Sunset_at_Bonny_River.jpg/960px-Golden_Sunset_at_Bonny_River.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1 boat in Nigeria",
+            "2 people in Nigeria",
+            "Boats in Nigeria at sunset",
+            "Bonny River",
+            "Images From Wiki Loves Africa 2025 In Niger Delta",
+            "Images from Wiki Loves Africa 2025 Collaboration in Nigeria",
+            "Images from Wiki Loves Africa 2025 in WUGN Akwa Ibom Network",
+            "Photographic silhouettes of people against sunsets"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "torkan-i-sahel",
+      "titel": "Torkan i Sahel",
+      "plats": "Sahel, bältet söder om Sahara från Mauretanien till Tchad",
+      "start": 1968,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q426944",
+      "kandidater": [
+        {
+          "fil": "File:Seasonal westafrica rainfall mean 20070501 20070930.gif",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Seasonal_westafrica_rainfall_mean_20070501_20070930.gif",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NOAA/ National Weather Service",
+          "datum": "between 2007 and 2008 date QS:P,+2007-00-00T00:00:00Z/8,P1319,+2007-00-00T00:00:00Z/9,P1326,+2008-00-00T00:00:00Z/9",
+          "beskrivning": "Map showing mean rainfall amount (mm) for the monsoon season (May 1-September 30) in West Africa. Period 1995-2006. Based on NOAA/CPC Climatology Method Rainfall Estimates. Africa Rainfall Climatology (CPC ARC) Series",
+          "bredd": 800,
+          "hojd": 600,
+          "mime": "image/gif",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Seasonal_westafrica_rainfall_mean_20070501_20070930.gif?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Afrotropic",
+            "Maps of weather and climate in the 1990s",
+            "Maps of weather and climate in the 2000s",
+            "Maps of weather and climate of Africa",
+            "Mean meteorological data of Africa",
+            "Mean precipitation maps",
+            "Rain in Africa",
+            "Rainfall amount maps of Africa",
+            "Sahel"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "operation-tail-wind",
+      "titel": "Biafra faller",
+      "plats": "Owerri och flygfältet i Uli, Biafra",
+      "start": 1970,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q7097608",
+      "soktext": "Biafra falls",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": [
+        {
+          "fil": "File:Jujuh-house, or place of worship ILN-1850-0622-0004.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Jujuh-house,_or_place_of_worship_ILN-1850-0622-0004.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "The Illustrated London News",
+          "datum": "1850-06-22",
+          "beskrivning": "Sketches on the Western Coast of Africa. Illustration for The Illustrated London News, 22 June 1850. Jujuh-house, or place of worship Read the ILN SKETCHES ON THE WESTERN COAST OF AFRICA. We have been favoured by an accredited Correspondent with the accompanying Sketches, or, what he not inappropriately terms them, \"A Peep at the Rivers, on the West Coast of Africa.\" They were taken during surveys of the Bonny and Old Calabar and other rivers; they are very characteristic of the life and manners of the country, with which our acquaintance is comparatively slight ; although the interest attached to this part of the world is continually reviving at home and abroad by the exertions making for the civilisation of the natives. First, of BONNY RIVER, which falls into the Bight of Biafra, between 5 and 4' 30 N. lat., and near 70' E. long. Our visit (says our Correspondent) to the Bonny, though our stay was short, gave me a slight opportunity of observing the state of oil trade and conditon of the natives. The town is situated about fiteen miles from the Bar or entrance of the river, which ought to mike it, comparatively speaking, a healthy anchorage for our traders ; but, the swampy shores of the stream, which at high water are inundated, counteract the salubrity of a sea breeze. After heavy rains, a tropical sun acting on decomposed vegetable matter, engenders the most deadly fever, so fatal to our merchant seamen belonging to the palm-oil vessels. Trade, I may say, is prospering; the time of vessels in the river averages from five to seven months; fine ships from four to six hundred tons. The Bar is good 3 1/2 fathoms at low water. In my Sketch of the Shipping, you will see the c'omfortable and cool way of housing these vessels over; it is a sort of matting supplied from the shore, and having it two-thirds tip the masts gives plenty of ventilation and protection from the sunti. It costs about £70 in goods. Bonny at one time was the chief market for slaves, who, according to Captain Adams's statement, were sold there to the annual number of 20,000, the greater part of whom were brought down from the Eboe country. The town is mean, being built of stakes driven into the ground, wattled and plastered, and is surrounded by a marshy country, overgrown with timber. The canoes are large, capable of containing, perhaps, 130 people. Salt of good quality is manufactured and sent up into the interior. Our trader, bring out a quantity of that article, and the natives would rather buy it from them than make it themselves. We have no Missionary station up the river, but King Peppel (whom I shall introduce presently) was rather anxious for \"white man to come and teach boy-book.\" Human sacrifice is still kept up. but to no very great extent ; it is very difficult to find it out, as great secrecy is kept. They used, at one time, to sacrifice four young persons year at the mouth of the river, by stringing them to the overhanging trees, with their feet and hands just touching the water ; this was done to bring plenty of vessels into the river for trade, and to propitiate the spirit of the river. I must not omit to mention the hospitality we received from the supercargoes and captains of the British ships, and their kindness and willingness to oblige and assist us in our wants will not be forgotten. The amount of oil averages from £60,000 to £100,000 sent to Liverpool per annum; and, when we look at the market it opens for our own manufactures, the rivers of Africa are not to be despised. I next send you a slight sketch ot the Fetish, or JUJUH-HOUSE, or House of Worship used by the natives of Western Africa. It assumes a curious and savage appearance, in asmuch as it is chiefly constructed of the skulls of captives taken in war; and in the centre, the Gawna. It is considered to be the chief Jujuh, which is stuffed and placed as you see in the Sketch. This animal is allowed to roam about the towns unmolested; in fact, should a native be seen hurting it in any way, death would be his reward. I met, in my walk in the village, three or four of them. This drawing was taken in the town of the Bonny rlver, I having gained permission from the King to be allowed to enter this curious specimen of their houses of worship. You will observe the heads with feathers stuck into the sides: they represent the skulls of chiefs. A few elephants' tusks are thrown before the altar, gifts of rich natives to their Jujuh; on the left there is an earthenware vessel, constantly kept filled with rum, for the use of the Jujuh. Their mode of worship is in a kneeling posture, prostrating themselves sometimes flat on the stomach. The Priest, or Jujuh-man, is of great importance; and on grand days, when they make a sacrifice of a goat or any animal, it is wonderful to see the rush to get a drop of its blood. Human sacrifice is common , but always kept a secret from the traders of England. The King has made a written statement, asserting, as far as his power is concerned, he is willing to put a stop to the horrible practice; but the laws prevent their chief entering into any agreement regarding the religion of his people. The only difference of the Jujuhs of the various towns and villages is the assuming different anlnuals. Some have the alligator, &c. The Jujuh is entirely constructed of bamboo and mud surrounded by palm-leaf. I now beg to introduce to you KING PEPPEL, who is about 32 years of age, having reigned nearly ten years. He is a great dealer in palm oil, and a very cunning trader; his influence with the people is very small, and from his exertions in traffic he is not much liked by the native gentlemen of Bonny. He has a sort of palace, but very badly furnished; and musters about thirty wives, to whom lie appears to devote the greater part of the day. His complexion is a very light brown, and from all appearances has something to boast of in having a little white blood in his veins. The commnander, in the course of conversation about his presents, wanted a list to send home for next year. He wanted white man to teach boy to read, powder-guns, and a sword to pass every sword--which means the best that can be got. He was half inclined to add an English wife, but appeared a little ashamed; though he had a most beautiful picture in his private room of an English damsel at her toilet, for which, he said, if it was only alive, he would give all he was worth. His memory is excessively strong in his conversation mentloning the different battles that have been fought, and all the leaders. General Napier is his great favourite, after \"the Duke :\" he was glad to hear of his going to India again. Nelson was much admired by his Majesty, as he termed him, \" Make war-palaver for sea.\" he visited the Rattler, on which occasion a sumptuous repast was given by Captain Cumming to all the captains and supercargoes in the river, to meet the King. The Sketch is taken as he was sitting outside his house, in deep thought at what he should have for his next present. We then visited Old CALABAR, which falls into the Bight of Biafra, about two miles. N. by W. of Fernando Po. It ranks next in ilnportance to the Bonny; and affords access to a considerable trade. The town is named Ephraim, and is imore regularly built than the African towns generally. The English trading ships are larger in tonnage; they average from 500 to 1000 tons, and consequently are much longer loading lll, thus exposing them to the deadly effect of the fever; and, from their lying up so far in the mouth of the river, they are debarred from the fine sea breeze which the Bonny anchorage has every day. I should certainly say it was the most unhealthy river; still we had only one death, which was universally regretted bv all on board-it was our worthy chief-engineer, an officer much respected and liked by the men and officers. The inhabitants of this town number from 6000 to 7000; their European wants are much the same as at Borneo. The average importation of British manufacture is from £20,000 to £30,000 annually, the export of oil averaging double the import of goods. The Sketch represents Ephrain Town, with the British merchant ships at anchor, and H.M steam-sloop Rattler saluting King Eyo on his approaching the ships to pay a visit to the steamer. His canoe held upwards of 100 people, the greater part of whom were well armed, and called the King's body-guard. He had another large war-canoe tollowlng him. His resldence is two hours up the river called Creek Town, and Is worth a great deal of money, his store-houses being crammed with European articles, besides a great number of slaves, and he has upwards of 300 wives. We visited his palace at Creek Town, and found It handsomely furnished with elegant tables and chairs, magnificent sofas, splendid looking-glasses ; and prints of the principal public characters of England, as well as views of sea and land engagements, in handsome gilt frames. I particularly noticed one picture, young girls playing at blindman's-blufl; it was a French production, and the old King said It was his greatest favourite. After refreshment, Captain Cumming amused him with a sham fight with ship's boats, which delighted him very much , and he left the ship highly gratified by his receptlon. This river at one time exported upwards of 15,000 slaves annually. ... more ...",
+          "bredd": 976,
+          "hojd": 1006,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Jujuh-house%2C_or_place_of_worship_ILN-1850-0622-0004.jpg/960px-Jujuh-house%2C_or_place_of_worship_ILN-1850-0622-0004.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1850 in Africa",
+            "Bight of Biafra",
+            "Culture of Nigeria",
+            "Engravings of people with skulls",
+            "Juju",
+            "Nigeria in the 1850s",
+            "The Illustrated London News 1850"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "jom-kippurkriget",
+      "titel": "Jom kippurkriget",
+      "plats": "Sinaihalvön, Suezkanalen och Golanhöjderna (började längs Suezkanalen och på Golan)",
+      "start": 1973,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q49100",
+      "kandidater": [
+        {
+          "fil": "File:Yom Kippur War. XXXVI.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Yom_Kippur_War._XXXVI.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Bamahane photographer",
+          "datum": "Taken on 15 October 1973",
+          "beskrivning": "מלחמת יום הכיפורים; סיני. פריסת גשר על תעלת סואץ מגח 6 של חטיבה 421 צולחים את תעלת סואץ התמסחים העבירו את הטנקים נראים מימין. הצילום ממערב לתעלה.",
+          "bredd": 1800,
+          "hojd": 1350,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Yom_Kippur_War._XXXVI.jpg/960px-Yom_Kippur_War._XXXVI.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Crossing of Suez Canal by Israel Defense Forces",
+            "EWK-Gillois bridgelayer in Israeli service",
+            "IDF in 1973",
+            "M48 and Magach 3/5 tanks in Israeli service"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "slaget-vid-kinesiska-farmen",
+      "titel": "Slaget vid Kinesiska farmen",
+      "plats": "Norr om Stora bittersjön, öster om Suezkanalen",
+      "start": 1973,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q2072316",
+      "kandidater": [
+        {
+          "fil": "File:1973 sinai war maps2.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:1973_sinai_war_maps2.png",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "The Department of History, United States Military Academy",
+          "datum": "2025-12-08 13:12:00",
+          "beskrivning": "Image of Operation Gazelle (also known as Operation Abiray-Lev or Operation Stouthearted Men) during the Yom Kippur War. Modified to show only the Israeli plan for the operation.",
+          "bredd": 1200,
+          "hojd": 1826,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/96/1973_sinai_war_maps2.png/960px-1973_sinai_war_maps2.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Crossing of Suez Canal by Israel Defense Forces",
+            "Maps of the Yom Kippur War",
+            "Yom Kippur War in Sinai Peninsula and Egypt"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "angolas-inbordeskrig",
+      "titel": "Angolas inbördeskrig",
+      "plats": "Angola; kriget började i och kring huvudstaden Luanda",
+      "start": 1975,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q12055176",
+      "kandidater": [
+        {
+          "fil": "File:Cuban PT-76 Angola.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Cuban_PT-76_Angola.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "1976",
+          "beskrivning": "Cuban PT-76 tank crew on routine security duties in Angola. \"Cuban Armed Forces and the Soviet Military Presence,\" 1982, Page 6",
+          "bredd": 616,
+          "hojd": 579,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/2/23/Cuban_PT-76_Angola.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Angolan Civil War",
+            "Military vehicles of Cuba",
+            "PT-76 tanks"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "ebola-upptacks-i-yambuku",
+      "titel": "Ebola upptäcks i Yambuku",
+      "plats": "Yambuku, Demokratiska republiken Kongo (då Zaire)",
+      "start": 1976,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Ebola is discovered in Yambuku Yambuku",
+      "kandidater": []
+    },
+    {
+      "id": "sowetoupproret",
+      "titel": "Sowetoupproret",
+      "plats": "Orlando West, Soweto, Sydafrika",
+      "start": 1976,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q153081",
+      "kandidater": [
+        {
+          "fil": "File:Mbuyisa Makhubu carries Hector Pieterson at Soweto Uprising.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Mbuyisa_Makhubu_carries_Hector_Pieterson_at_Soweto_Uprising.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Sam Nzima",
+          "datum": "1976-06-16",
+          "beskrivning": "Mbuyisa Makhubu carries Hector Pieterson after Pieterson was shot and killed at the Soweto Uprising. Antoinette Sithol, Pieterson's sister, runs beside them.",
+          "bredd": 2280,
+          "hojd": 3026,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Mbuyisa_Makhubu_carries_Hector_Pieterson_at_Soweto_Uprising.jpg/960px-Mbuyisa_Makhubu_carries_Hector_Pieterson_at_Soweto_Uprising.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1976 black and white photographs of people",
+            "Deaths in Soweto",
+            "Hector Pieterson",
+            "Iconic photographs",
+            "Men carrying men",
+            "Photographs distributed by Associated Press",
+            "Soweto uprising"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "festac-77",
+      "titel": "Festac ’77, den stora afrikanska kulturfestivalen i Lagos",
+      "plats": "Nationalteatern och andra platser i Lagos, Nigeria",
+      "start": 1977,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": null,
+      "soktext": "Festac ’77, the great African arts festival in Lagos",
+      "kandidater": []
+    },
+    {
+      "id": "grona-baltet-maathai",
+      "titel": "Wangari Maathai startar Gröna bältet-rörelsen",
+      "plats": "Nairobi, Kenya",
+      "start": 1977,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q1193718",
+      "soktext": "Wangari Maathai starts the Green Belt Movement Nairobi",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    },
+    {
+      "id": "svalten-i-etiopien-1983-1985",
+      "titel": "Svälten i Etiopien",
+      "plats": "Norra Etiopien, främst Tigray, Wollo och Eritrea",
+      "start": 1983,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q1637896",
+      "kandidater": [
+        {
+          "fil": "File:Opbushel.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Opbushel.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "Talskiddy at English Wikipedia",
+          "datum": "3 November 2007 (original upload date)",
+          "beskrivning": "Photo i took whilst serving with 47 Air Despatch Squadron RCT in Ethiopia in 1985. Talskiddy 19:46, 3 November 2007 (UTC)",
+          "bredd": 500,
+          "hojd": 336,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Opbushel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "1983–1985 famine in Ethiopia",
+            "Airdropping from Lockheed C-130 Hercules",
+            "Humanitarian operations",
+            "XV300 (aircraft)"
+          ],
+          "smal": true
+        }
+      ]
+    },
+    {
+      "id": "andra-kongokriget",
+      "titel": "Andra Kongokriget",
+      "plats": "Demokratiska republiken Kongo (började i Goma)",
+      "start": 1998,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "source-checked",
+      "wikidata": "Q75756",
+      "kandidater": [
+        {
+          "fil": "File:DRC- Child Soldiers.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:DRC-_Child_Soldiers.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "L. Rose",
+          "datum": "Unknown Unknown , ca. 2000 - 2007",
+          "beskrivning": "Former Child soldiers in eastern en:Democratic Republic of the Congo",
+          "bredd": 1800,
+          "hojd": 1352,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/DRC-_Child_Soldiers.jpg/960px-DRC-_Child_Soldiers.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "African World War",
+            "Child soldiers in the Democratic Republic of the Congo",
+            "Men of the Democratic Republic of the Congo",
+            "People of the Democratic Republic of the Congo in the 2000s"
+          ],
+          "smal": false
+        }
+      ]
+    },
+    {
+      "id": "operation-kitona",
+      "titel": "Luftlandsättningen vid Kitona",
+      "plats": "Flygbasen Kitona vid Atlantkusten, västra Kongo (nuvarande Kongo Central)",
+      "start": 1998,
+      "varldsdel": "Afrika",
+      "period": "1900",
+      "hamtad": "2026-11-20",
+      "review": "two-sources",
+      "wikidata": "Q63929552",
+      "soktext": "The airlift to Kitona",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
+      ],
+      "kandidater": []
+    }
+  ]
+}
