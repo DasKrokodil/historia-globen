@@ -1,0 +1,17 @@
+# Indata till python3 tools/bild_hamta.py --lista (#2183). En rad per händelse: referens, tabb, händelse-id.
+# Ta bort # på de rader som är godkända i granskningslistan; byt fil om en annan kandidat valdes.
+File:Said bin Sultan.jpg	said-bin-sultan-flyttar-till-zanzibar
+File:Cataratas Victoria, Zambia-Zimbabue, 2018-07-27, DD 05.jpg	livingstone-vid-victoriafallen
+File:Open pit mine.jpg	diamanterna-i-kimberley
+File:Quagga Naturhistorisches Museum Basel 27102013 3.jpg	kvaggan-dor-ut
+# File:Défense de Rorke's Drift.jpg	anglo-zuluiska-kriget
+# File:Appleton's annual cyclopedia and register of important events- embracing political, military, an ecclesiastical affairs; public documents; biography, statistics, commerce, finance, literature, (14753351996).jpg	invasionen-av-zululand
+File:Inside the laager at Ginghilovo during the Zulu attack.jpg	slaget-vid-gingindlovu
+# File:Redver buller sauvant un officier à Hlobane.jpg	slaget-vid-hlobane
+File:Kambula 1.jpg	slaget-vid-kambula
+File:Alphonse de Neuville - The defence of Rorke's Drift 1879 - Google Art Project.jpg	slaget-vid-rorkes-drift
+File:The burning of Ulundi.jpg	slaget-vid-ulundi
+# File:Belgian Congo Railway Network pre-1960.svg	kongofristaten
+# File:African Logistics Forum - 2017, Addis Ababa, Ethiopia (34278248631).jpg	freden-i-addis-abeba-1896
+File:Herero and Nama prisoners.jpg	herero-och-nama-folkmordet
+File:Maji Maji rebellion - de.png	maji-maji-upproret
