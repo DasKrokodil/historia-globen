@@ -1,0 +1,141 @@
+[
+  {
+    "ref": "File:Cyrene coin.jpg",
+    "kalla": "commons",
+    "handelse": "sista-silfiumstjalken",
+    "status": "klar",
+    "skal": [
+      "flera licenser: Public domain, CC0"
+    ],
+    "todo": [
+      "image innehåller TODO: fyll i före incheckning"
+    ],
+    "underlag": {
+      "filsida": "https://commons.wikimedia.org/wiki/File:Cyrene_coin.jpg",
+      "titel": "Cyrene coin",
+      "upphovsperson": "Hunab 21",
+      "credit_rad_i_metadata": "Own work",
+      "datum": "2021-01-28",
+      "beskrivning_i_metadata": "Ancient silver coin of the 6–5th century BCE from the Ancient Greek city-state of Cyrene depicting a seed or fruit of silphium",
+      "mime": "image/jpeg",
+      "bredd": 836,
+      "hojd": 836,
+      "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Cyrene_coin.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "licens_api": "Public domain",
+      "licensmallar": [
+        "PD-old-auto",
+        "self|cc-zero"
+      ]
+    },
+    "sources_post": {
+      "id": "commons-bild-sista-silfiumstjalken",
+      "title": "Cyrene coin – Hunab 21 (Wikimedia Commons, filsida)",
+      "url": "https://commons.wikimedia.org/wiki/File:Cyrene_coin.jpg",
+      "license": "Public domain",
+      "checked": "2026-11-22",
+      "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-22): {{PD-old-auto}}, {{self|cc-zero}}. Commons API (LicenseShortName): \"Public domain\". Flera licenser anges (Public domain och CC0); bilden används under Public domain. Kontrollera vilken licens som gäller vilken del (verk respektive foto)."
+    },
+    "image": {
+      "file": "images/events/sista-silfiumstjalken.webp",
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: Public domain.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: Public domain.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: gemeinfrei.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: dominio público.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : domaine public."
+      },
+      "credit": "Hunab 21 / Wikimedia Commons",
+      "license": "Public domain",
+      "source": "commons-bild-sista-silfiumstjalken"
+    },
+    "bildlogg_post": {
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: Public domain.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: Public domain.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: gemeinfrei.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: dominio público.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : domaine public."
+      },
+      "credit": "Hunab 21 / Wikimedia Commons",
+      "license": "Public domain",
+      "source": "commons-bild-sista-silfiumstjalken",
+      "id": "sista-silfiumstjalken"
+    },
+    "webp": {
+      "fil": "data/utkast/bildbatch/2106/sista-silfiumstjalken.webp",
+      "bytes": 28906
+    }
+  },
+  {
+    "ref": "File:Grave Marker MET VS1998.478.1.jpeg",
+    "kalla": "commons",
+    "handelse": "burakulturen",
+    "status": "klar",
+    "skal": [],
+    "todo": [
+      "credit: upphovsperson saknas i metadata",
+      "image innehåller TODO: fyll i före incheckning"
+    ],
+    "underlag": {
+      "filsida": "https://commons.wikimedia.org/wiki/File:Grave_Marker_MET_VS1998.478.1.jpeg",
+      "titel": "Grave Marker MET VS1998.478.1",
+      "upphovsperson": "",
+      "credit_rad_i_metadata": "This file was donated to Wikimedia Commons as part of a project by the Metropolitan Museum of Art . See the Image and Data Resources Open Access Policy",
+      "datum": "3rd–11th century",
+      "beskrivning_i_metadata": "Bura peoples; Grave marker; Ceramics-Sculpture",
+      "mime": "image/jpeg",
+      "bredd": 843,
+      "hojd": 2028,
+      "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Grave_Marker_MET_VS1998.478.1.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "licens_api": "CC0",
+      "licensmallar": [
+        "Cc-zero"
+      ]
+    },
+    "sources_post": {
+      "id": "commons-bild-burakulturen",
+      "title": "Grave Marker MET VS1998.478.1 (Wikimedia Commons, filsida)",
+      "url": "https://commons.wikimedia.org/wiki/File:Grave_Marker_MET_VS1998.478.1.jpeg",
+      "license": "CC0",
+      "checked": "2026-11-22"
+    },
+    "image": {
+      "file": "images/events/burakulturen.webp",
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: CC0.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: CC0.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: CC0.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: CC0.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : CC0."
+      },
+      "credit": "TODO: upphovsperson (skriv Okänd fotograf eller Okänd konstnär om filsidan säger det) / Wikimedia Commons",
+      "license": "CC0",
+      "source": "commons-bild-burakulturen"
+    },
+    "bildlogg_post": {
+      "kind": "historisk",
+      "style": "TODO",
+      "caption": {
+        "sv": "[TODO: vad bilden visar, bara det källan stöder] Licens: CC0.",
+        "en": "[TODO: vad bilden visar, bara det källan stöder] Licence: CC0.",
+        "de": "[TODO: vad bilden visar, bara det källan stöder] Lizenz: CC0.",
+        "es": "[TODO: vad bilden visar, bara det källan stöder] Licencia: CC0.",
+        "fr": "[TODO: vad bilden visar, bara det källan stöder] Licence : CC0."
+      },
+      "credit": "TODO: upphovsperson (skriv Okänd fotograf eller Okänd konstnär om filsidan säger det) / Wikimedia Commons",
+      "license": "CC0",
+      "source": "commons-bild-burakulturen",
+      "id": "burakulturen"
+    },
+    "webp": {
+      "fil": "data/utkast/bildbatch/2106/burakulturen.webp",
+      "bytes": 37454
+    }
+  }
+]
