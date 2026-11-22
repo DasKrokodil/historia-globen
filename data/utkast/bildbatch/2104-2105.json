@@ -1,0 +1,1830 @@
+{
+  "schema": "historia-globen/bildbatch@1",
+  "status": "förslag",
+  "namn": "2104-2105",
+  "datum": "2026-11-22",
+  "urval": "ids=36 licens=strikt",
+  "redan_bild_eller_utkast": [],
+  "handelser": [
+    {
+      "id": "den-grona-sahara",
+      "titel": "Den gröna Sahara",
+      "start": -12599,
+      "plats": "Sahara och Nordafrika",
+      "wikidata": "Q60259056",
+      "kandidater": [
+        {
+          "fil": "File:Sahara satellite hires.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Sahara_satellite_hires.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "NASA",
+          "datum": "2002-02-11",
+          "beskrivning": "Sahara desert from space.",
+          "bredd": 7432,
+          "hojd": 4168,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Sahara_satellite_hires.jpg/960px-Sahara_satellite_hires.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Great Green Wall of the Sahara and the Sahel Initiative",
+            "Satellite pictures of the Sahara"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-USGov-NASA"
+            ]
+          }
+        },
+        {
+          "fil": "File:Npp green sahara simulation 1.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Npp_green_sahara_simulation_1.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Merikanto",
+          "datum": "2025-01-01",
+          "beskrivning": "NPP simulation of Green Sahara",
+          "bredd": 1600,
+          "hojd": 1200,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e4/Npp_green_sahara_simulation_1.png/960px-Npp_green_sahara_simulation_1.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Green Sahara"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Npp dry green sahara simulation 1.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Npp_dry_green_sahara_simulation_1.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Merikanto",
+          "datum": "2025-01-01",
+          "beskrivning": "Npp simulation of dry Green Sahara",
+          "bredd": 1600,
+          "hojd": 1200,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/Npp_dry_green_sahara_simulation_1.png/960px-Npp_dry_green_sahara_simulation_1.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Green Sahara"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-20",
+      "stil": "grotta"
+    },
+    {
+      "id": "ounjougou-keramik",
+      "titel": "Afrikas äldsta keramik i Ounjougou",
+      "start": -9999,
+      "plats": "Ounjougou på Bandiagaraplatån, Mali",
+      "wikidata": "Q1243595",
+      "kandidater": [
+        {
+          "fil": "File:Ounjougou confluence.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Ounjougou_confluence.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Ounjougou",
+          "datum": "2005-02-",
+          "beskrivning": "Partial view of the Ounjougou archaeological sites complex, in the Yamé valley, near Bandiagara (Dogon Country, Mali)",
+          "bredd": 800,
+          "hojd": 600,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/1/15/Ounjougou_confluence.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Landscapes of Mali"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-20",
+      "stil": "grotta"
+    },
+    {
+      "id": "tassili-najjer-hallkonst",
+      "titel": "Hällkonsten i Tassili n'Ajjer",
+      "start": -9999,
+      "plats": "Tassili n'Ajjer i sydöstra Algeriet",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:The Tanzoumaitak cave painting in Tassili n'ajjer.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:The_Tanzoumaitak_cave_painting_in_Tassili_n%27ajjer.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "IssamBarhoumi",
+          "datum": "2023-02-07 10:25:27",
+          "beskrivning": "This zoomorphic cave paintingis located Tanzoumaitak in Tassili n'ajjer park in Djanet in Algeria. This is one of more than thousannds of cave paintings discovered by Henri Lhote and his team and they was guided by Djebrine Machar a Touareg guide who was known for a great expertise in the great Sahara's cave paintings. All the cave painting of this park are dated from the Neolithic 10000BC.",
+          "bredd": 5163,
+          "hojd": 2904,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/The_Tanzoumaitak_cave_painting_in_Tassili_n%27ajjer.jpg/960px-The_Tanzoumaitak_cave_painting_in_Tassili_n%27ajjer.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Preselection For Montage Campaign:wlm-dz",
+            "Rock Art of the Tassili n'Ajjer",
+            "Wiki Loves Monuments 2024 in Algeria"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Cave painting from the Tassili n'Ajjer mountains.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Cave_painting_from_the_Tassili_n%27Ajjer_mountains.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "2016-10-09 07:38:35",
+          "beskrivning": null,
+          "bredd": 2251,
+          "hojd": 1508,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/49/Cave_painting_from_the_Tassili_n%27Ajjer_mountains.jpg/960px-Cave_painting_from_the_Tassili_n%27Ajjer_mountains.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Pastoral Period",
+            "Rock Art of the Tassili n'Ajjer"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old"
+            ]
+          }
+        },
+        {
+          "fil": "File:Gravure rupestre , tassili n'ajjer , algérie.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Gravure_rupestre_,_tassili_n%27ajjer_,_alg%C3%A9rie.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Akli salah",
+          "datum": "2014-03-27 09:09:08",
+          "beskrivning": "cave painting , algeria",
+          "bredd": 1600,
+          "hojd": 1200,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Gravure_rupestre_%2C_tassili_n%27ajjer_%2C_alg%C3%A9rie.jpg/960px-Gravure_rupestre_%2C_tassili_n%27ajjer_%2C_alg%C3%A9rie.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Rock Art of the Tassili n'Ajjer",
+            "Rock art of the Tadrart Rouge",
+            "Tadrart Rouge"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-20",
+      "stil": "grotta"
+    },
+    {
+      "id": "simmarnas-grotta",
+      "titel": "Simmarnas grotta i Gilf Kebir",
+      "start": -7999,
+      "plats": "Wadi Sura i Gilf Kebir, Nya dalen, sydvästra Egypten",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:WadiSuraHumans.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:WadiSuraHumans.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Roland Unger",
+          "datum": "2011-03-12",
+          "beskrivning": "Painting of men in the Cave of the Swimmers, Wadi Sura, Gilf Kebir, Western Desert, Egypt",
+          "bredd": 800,
+          "hojd": 533,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/9/98/WadiSuraHumans.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Wadi Sura swimmers cave"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-22): {{self|GFDL}}, {{self|cc-by-sa-3.0,2.5,2.0,1.0}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|GFDL",
+              "self|cc-by-sa-3.0,2.5,2.0,1.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:WadiSuraSingleSwimmer.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:WadiSuraSingleSwimmer.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Roland Unger",
+          "datum": "2011-03-12",
+          "beskrivning": "Painting of swimmers in the Cave of the Swimmers, Wadi Sura, Gilf Kebir, Western Desert, Egypt",
+          "bredd": 800,
+          "hojd": 534,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/0/00/WadiSuraSingleSwimmer.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Wadi Sura swimmers cave"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-22): {{self|GFDL}}, {{self|cc-by-sa-3.0,2.5,2.0,1.0}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|GFDL",
+              "self|cc-by-sa-3.0,2.5,2.0,1.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-20",
+      "stil": "grotta"
+    },
+    {
+      "id": "gobero-gravfaltet",
+      "titel": "Gobero, Saharas äldsta kända gravfält",
+      "start": -7699,
+      "plats": "Gobero i Ténéréöknen, Niger",
+      "wikidata": "Q849269",
+      "kandidater": [
+        {
+          "fil": "File:Gobero.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Gobero.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.5",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.5",
+          "upphovsperson": "Paul C. Sereno, Elena A. A. Garcea, Hélène Jousse, Christopher M. Stojanowski, Jean-François Saliège, Abdoulaye Maga, Oumarou A. Ide, Kelly J. Knudson, Anna Maria Mercuri, Thomas W. Stafford, Jr., Thomas G. Kaye, Carlo Giraudi, Isabella Massamba N'siala, Enzo Cocca, Hannah M. Moots, Didier B. Dutheil, Jeffrey P. Stivers",
+          "datum": "2008-08-14",
+          "beskrivning": "Aerial view of Gobero archaeological site in Niger from Holocene.",
+          "bredd": 996,
+          "hojd": 619,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cf/Gobero.jpg/960px-Gobero.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2008 in Niger",
+            "Archaeological sites in Niger",
+            "Media from PLOS ONE",
+            "Tabelot",
+            "Ténéré"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.5",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "CC-BY-2.5"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-20",
+      "stil": "grotta"
+    },
+    {
+      "id": "dufunakanoten",
+      "titel": "Dufunakanoten, Afrikas äldsta kända båt",
+      "start": -6555,
+      "plats": "Dufuna, delstaten Yobe, Nigeria",
+      "wikidata": "Q5312423",
+      "kandidater": [
+        {
+          "fil": "File:Dufuna-canoe-theafricanhistory-com PicsArt 03-07-09.24.07.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Dufuna-canoe-theafricanhistory-com_PicsArt_03-07-09.24.07.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "2021-03-07",
+          "beskrivning": "The \"Dufuna Canoe\", which is the oldest boat in Africa (left) and a scene from its excavation (right).",
+          "bredd": 1942,
+          "hojd": 1080,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Dufuna-canoe-theafricanhistory-com_PicsArt_03-07-09.24.07.jpg/960px-Dufuna-canoe-theafricanhistory-com_PicsArt_03-07-09.24.07.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Archaeological objects of Nigeria",
+            "Boats",
+            "Canoes",
+            "Historical objects",
+            "People of Nigeria"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-zero"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-20",
+      "stil": "grotta"
+    },
+    {
+      "id": "nabta-playa",
+      "titel": "Stencirkeln i Nabta Playa",
+      "start": -4799,
+      "plats": "Nabta Playa i Nubiska öknen, södra Egypten",
+      "wikidata": "Q1535226",
+      "kandidater": [
+        {
+          "fil": "File:Calendar aswan.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Calendar_aswan.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Raymbetz",
+          "datum": "2009-03-21",
+          "beskrivning": "Nabta Playa Calendar Circle, reconstructed at Aswan Nubia museum",
+          "bredd": 4288,
+          "hojd": 2848,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Calendar_aswan.JPG/960px-Calendar_aswan.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Nabta Playa",
+            "Prehistory in the Nubian Museum"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-22): {{self|cc-by-sa-3.0}}, {{self|GFDL}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-3.0",
+              "self|GFDL"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-20",
+      "stil": "grotta"
+    },
+    {
+      "id": "bantuexpansionen",
+      "titel": "Bantuexpansionen",
+      "start": -3999,
+      "plats": "Höglandet kring gränsen mellan Kamerun och Nigeria, där expansionen troligen började",
+      "wikidata": "Q130251",
+      "kandidater": [
+        {
+          "fil": "File:Niger-Congo map with delimitation.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Niger-Congo_map_with_delimitation.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Niger-Congo.svg : Kimdime Niger-Congo_map.png : Ulamm derivative work: Monsieur Fou ( talk )",
+          "datum": "2011-05-08 15:07",
+          "beskrivning": "vectorisation de Image:Niger-Congo.png Vectorization of Image:Niger-Congo.png , which is CC-by: Map showing the localization of Niger Congo subgroups and important single languages of that family.",
+          "bredd": 1207,
+          "hojd": 1139,
+          "mime": "image/png",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Niger-Congo_map_with_delimitation.png/960px-Niger-Congo_map_with_delimitation.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Bantu",
+            "Bantu expansion",
+            "Genetic studies on Bantu populations",
+            "Genetic studies on sub-Saharan African populations",
+            "Linguistic maps of Africa",
+            "Linguistic maps of Niger-Congo languages"
+          ],
+          "smal": false,
+          "flaggor": [
+            "karta",
+            "datum-osakert",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "Cc-by-sa-3.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Bantu Phillipson.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Bantu_Phillipson.png",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "2015-10-26 13:08:18",
+          "beskrivning": null,
+          "bredd": 332,
+          "hojd": 680,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Bantu_Phillipson.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Bantu expansion",
+            "Genetic studies on Bantu populations",
+            "Linguistic maps of Africa",
+            "Linguistic maps of Bantu languages",
+            "Maps of the history of Africa"
+          ],
+          "smal": true,
+          "flaggor": [
+            "karta",
+            "datum-osakert",
+            "smal",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-self"
+            ]
+          }
+        },
+        {
+          "fil": "File:Bantu expansion-ar.png",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Bantu_expansion-ar.png",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.5",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.5",
+          "upphovsperson": "Original: User:Vsion Derivative: علاء",
+          "datum": "2017-03-03",
+          "beskrivning": "One hypothesis about the origins and spread of the Bantu languages.",
+          "bredd": 400,
+          "hojd": 424,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/5/54/Bantu_expansion-ar.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Arabic-language maps",
+            "Bantu expansion",
+            "Genetic studies on Bantu populations",
+            "Linguistic maps of Africa",
+            "Linguistic maps of Bantu languages"
+          ],
+          "smal": true,
+          "flaggor": [
+            "karta",
+            "datum-osakert",
+            "smal",
+            "staende",
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY 2.5",
+            "skal": [
+              "API:et säger \"CC BY 2.5\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-20",
+      "stil": "grotta"
+    },
+    {
+      "id": "hallmalningarna-i-laas-geel",
+      "titel": "Hällmålningarna i Laas Geel",
+      "start": -3549,
+      "plats": "Laas Geel utanför Hargeisa, Maroodi Jeex, Somaliland (Somalia)",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Laas Geel rock paintings.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Laas_Geel_rock_paintings.JPG",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Theodor Hoffsten",
+          "datum": "2012-01-03 15:56:40",
+          "beskrivning": "Laas Geel rock paintings",
+          "bredd": 3648,
+          "hojd": 2736,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Laas_Geel_rock_paintings.JPG/960px-Laas_Geel_rock_paintings.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ancient Africa",
+            "Laas Geel"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-3.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Laas Geel Cave with Rock Art, September 2022.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Laas_Geel_Cave_with_Rock_Art,_September_2022.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Tinasimonrowe",
+          "datum": "2022-09-06 08:52:55",
+          "beskrivning": "The local guide at Laas Geel standing in the cave with the paintings behind him, looking out into the landscape",
+          "bredd": 4032,
+          "hojd": 2268,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Laas_Geel_Cave_with_Rock_Art%2C_September_2022.jpg/960px-Laas_Geel_Cave_with_Rock_Art%2C_September_2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Somaliland"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:ASC Leiden - van de Bruinhorst Collection - Somaliland 2019 - 4577 - Red and white rock paintings of a bovine in the caves of Laas Geel.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:ASC_Leiden_-_van_de_Bruinhorst_Collection_-_Somaliland_2019_-_4577_-_Red_and_white_rock_paintings_of_a_bovine_in_the_caves_of_Laas_Geel.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Gerard van de Bruinhorst",
+          "datum": "23 July 2019, 12:17",
+          "beskrivning": "Red and white rock paintings of a bovine in the caves of Laas Geel.",
+          "bredd": 4000,
+          "hojd": 3000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/ASC_Leiden_-_van_de_Bruinhorst_Collection_-_Somaliland_2019_-_4577_-_Red_and_white_rock_paintings_of_a_bovine_in_the_caves_of_Laas_Geel.jpg/960px-ASC_Leiden_-_van_de_Bruinhorst_Collection_-_Somaliland_2019_-_4577_-_Red_and_white_rock_paintings_of_a_bovine_in_the_caves_of_Laas_Geel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Laas Geel",
+            "Somaliland 2019 (van de Bruinhorst Collection)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "CC-BY-SA-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-20",
+      "stil": "grotta"
+    },
+    {
+      "id": "lothagam-north",
+      "titel": "Pelarplatsen vid Lothagam North",
+      "start": -2999,
+      "plats": "Lothagam på Turkanasjöns västra sida (i dag Kenya)",
+      "wikidata": "Q85782261",
+      "kandidater": [
+        {
+          "fil": "File:Lothagam Site in N. Kenya.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Lothagam_Site_in_N._Kenya.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Shaan Hurley",
+          "datum": "2012-05-21 23:26:49",
+          "beskrivning": "Lothagam Site. Capturing the region using a remote aerial copter.",
+          "bredd": 3648,
+          "hojd": 2736,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Lothagam_Site_in_N._Kenya.jpg/960px-Lothagam_Site_in_N._Kenya.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Lothagam North Pillar Site"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-2.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-20",
+      "stil": "egypten"
+    },
+    {
+      "id": "kermariket",
+      "titel": "Kermariket i Nubien",
+      "start": -2499,
+      "plats": "Kerma vid Nilen i Nubien (i dag Sudan)",
+      "wikidata": "Q1739282",
+      "kandidater": [
+        {
+          "fil": "File:Kerma city.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Kerma_city.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Lassi",
+          "datum": "2005",
+          "beskrivning": "Kerma ancient city, Sudan",
+          "bredd": 2016,
+          "hojd": 1512,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Kerma_city.JPG/960px-Kerma_city.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Cultural heritage monuments in Sudan",
+            "Kerma (archaeological site)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 4.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-22): {{self|GFDL}}, {{self|cc-by-sa-all}}. Commons API (LicenseShortName): \"CC BY-SA 4.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 4.0.",
+            "risker": [],
+            "mallar": [
+              "self|GFDL",
+              "self|cc-by-sa-all"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-20",
+      "stil": "egypten"
+    },
+    {
+      "id": "lag-nil-och-svalt-2150-fkr",
+      "titel": "Låga Nilöversvämningar och svält i Egypten",
+      "start": -2149,
+      "plats": "Egypten och Nildalen",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:High Aswan Dam (built to control the Nile floods, store water and produce 2,1 GW of electricity) (14284086878).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:High_Aswan_Dam_(built_to_control_the_Nile_floods,_store_water_and_produce_2,1_GW_of_electricity)_(14284086878).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Jorge Láscar from Melbourne, Australia",
+          "datum": "Taken on 13 September 2012, 14:51",
+          "beskrivning": "The Aswan Dam is an embankment dam situated across the Nile River in Aswan, Egypt. Since the 1960s, the name commonly refers to the High Dam. Construction of the High Dam became a key objective of the Egyptian Government following the Egyptian Revolution of 1952, as the ability to control floods, provide water for irrigation, and generate hydroelectricity were seen as pivotal to Egypt's industrialization. The High Dam was constructed between 1960 and 1970, and has had a significant impact on the economy and culture of Egypt. Before the dams were built, the Nile River flooded every year during late summer, when water flowed down the valley from its East African drainage basin. These floods brought high water and natural nutrients and minerals that annually enriched the fertile soil along the floodplain and delta; this had made the Nile valley ideal for farming since ancient times. Because floods vary, in high-water years the whole crop might be wiped out, while in low-water years widespread drought and famine occasionally occurred. As Egypt's population grew and conditions changed, both a desire and ability developed to control the floods, and thus both protect and support farmland and the economically important cotton crop. With the reservoir storage provided by the Aswan dams, the floods could be lessened and the water stored for later release. The dam powers twelve generators each rated at 175 megawatts, with a total of 2.1 gigawatts. Power generation began in 1967. When the dam first reached peak output it produced around half of Egypt's entire electricity production (about 15 percent by 1998) and allowed most Egyptian villages to use electricity for the first time. The High Dam has also improved the efficiency and the extension of the Old Aswan Hydropower stations by regulating upstream flows [Wikipedia.org]",
+          "bredd": 4039,
+          "hojd": 2683,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/High_Aswan_Dam_%28built_to_control_the_Nile_floods%2C_store_water_and_produce_2%2C1_GW_of_electricity%29_%2814284086878%29.jpg/960px-High_Aswan_Dam_%28built_to_control_the_Nile_floods%2C_store_water_and_produce_2%2C1_GW_of_electricity%29_%2814284086878%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Lake Nasser"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:High Aswan Dam (built to control the Nile floods, store water and produce 2,1 GW of electricity) (14469341352).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:High_Aswan_Dam_(built_to_control_the_Nile_floods,_store_water_and_produce_2,1_GW_of_electricity)_(14469341352).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Jorge Láscar from Melbourne, Australia",
+          "datum": "Taken on 13 September 2012, 14:49",
+          "beskrivning": "The Aswan Dam is an embankment dam situated across the Nile River in Aswan, Egypt. Since the 1960s, the name commonly refers to the High Dam. Construction of the High Dam became a key objective of the Egyptian Government following the Egyptian Revolution of 1952, as the ability to control floods, provide water for irrigation, and generate hydroelectricity were seen as pivotal to Egypt's industrialization. The High Dam was constructed between 1960 and 1970, and has had a significant impact on the economy and culture of Egypt. Before the dams were built, the Nile River flooded every year during late summer, when water flowed down the valley from its East African drainage basin. These floods brought high water and natural nutrients and minerals that annually enriched the fertile soil along the floodplain and delta; this had made the Nile valley ideal for farming since ancient times. Because floods vary, in high-water years the whole crop might be wiped out, while in low-water years widespread drought and famine occasionally occurred. As Egypt's population grew and conditions changed, both a desire and ability developed to control the floods, and thus both protect and support farmland and the economically important cotton crop. With the reservoir storage provided by the Aswan dams, the floods could be lessened and the water stored for later release. The dam powers twelve generators each rated at 175 megawatts, with a total of 2.1 gigawatts. Power generation began in 1967. When the dam first reached peak output it produced around half of Egypt's entire electricity production (about 15 percent by 1998) and allowed most Egyptian villages to use electricity for the first time. The High Dam has also improved the efficiency and the extension of the Old Aswan Hydropower stations by regulating upstream flows [Wikipedia.org]",
+          "bredd": 4288,
+          "hojd": 2848,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/High_Aswan_Dam_%28built_to_control_the_Nile_floods%2C_store_water_and_produce_2%2C1_GW_of_electricity%29_%2814469341352%29.jpg/960px-High_Aswan_Dam_%28built_to_control_the_Nile_floods%2C_store_water_and_produce_2%2C1_GW_of_electricity%29_%2814469341352%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Lake Nasser"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Aswan High Dam, built to control the Nile floods, store water and produce 2,1 GW of electricity (14470862415).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Aswan_High_Dam,_built_to_control_the_Nile_floods,_store_water_and_produce_2,1_GW_of_electricity_(14470862415).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 2.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/2.0",
+          "upphovsperson": "Jorge Láscar from Melbourne, Australia",
+          "datum": "Taken on 13 September 2012, 14:48",
+          "beskrivning": "The Aswan Dam is an embankment dam situated across the Nile River in Aswan, Egypt. Since the 1960s, the name commonly refers to the High Dam. Construction of the High Dam became a key objective of the Egyptian Government following the Egyptian Revolution of 1952, as the ability to control floods, provide water for irrigation, and generate hydroelectricity were seen as pivotal to Egypt's industrialization. The High Dam was constructed between 1960 and 1970, and has had a significant impact on the economy and culture of Egypt. Before the dams were built, the Nile River flooded every year during late summer, when water flowed down the valley from its East African drainage basin. These floods brought high water and natural nutrients and minerals that annually enriched the fertile soil along the floodplain and delta; this had made the Nile valley ideal for farming since ancient times. Because floods vary, in high-water years the whole crop might be wiped out, while in low-water years widespread drought and famine occasionally occurred. As Egypt's population grew and conditions changed, both a desire and ability developed to control the floods, and thus both protect and support farmland and the economically important cotton crop. With the reservoir storage provided by the Aswan dams, the floods could be lessened and the water stored for later release. The dam powers twelve generators each rated at 175 megawatts, with a total of 2.1 gigawatts. Power generation began in 1967. When the dam first reached peak output it produced around half of Egypt's entire electricity production (about 15 percent by 1998) and allowed most Egyptian villages to use electricity for the first time. The High Dam has also improved the efficiency and the extension of the Old Aswan Hydropower stations by regulating upstream flows [Wikipedia.org]",
+          "bredd": 4113,
+          "hojd": 2732,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Aswan_High_Dam%2C_built_to_control_the_Nile_floods%2C_store_water_and_produce_2%2C1_GW_of_electricity_%2814470862415%29.jpg/960px-Aswan_High_Dam%2C_built_to_control_the_Nile_floods%2C_store_water_and_produce_2%2C1_GW_of_electricity_%2814470862415%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Aswan High Dam"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-2.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-20",
+      "stil": "egypten"
+    },
+    {
+      "id": "brottare-i-beni-hasan",
+      "titel": "Brottarna i Baqet III:s grav i Beni Hasan",
+      "start": -2099,
+      "plats": "Grav BH15 i Beni Hasan, Mellanegypten",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Beni Hasan. Tombe van Baqet III Muurschildering Twee worstelaars (facsimile), GD005162.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Beni_Hasan._Tombe_van_Baqet_III_Muurschildering_Twee_worstelaars_(facsimile),_GD005162.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "Unknown date",
+          "beskrivning": "Title Beni Hasan. Tombe van Baqet III: Muurschildering: Twee worstelaars (facsimile) Series EuroPhot. Archaeology. Ancient. Paintings. Genre EuroPhot. Archeologie. Oudheid. Schilderkunst. Genrestuk Other title(s) Beni Hasan. Tomb of Baqet III: Mural: Two wrestlers (facsimile) Extent 1 glasdia 100 x 85 mm Slide Language Undetermined Typographical details glass slide(s) Additional info General note: Fotograaf onbekend General note: Toegevoegde informatie op dia Biographical or historical data: Stroming/Stijl: Egyptische kunst, Middenrijk Biographical or historical data: Oorspronkelijke locatie/Vindplaats: Egypte, Beni Hasan, BH15 Biographical or historical data: Creatie/Bouw: 1991-1783 BC Biographical or historical data: Techniek/Materiaal: Muurschildering Source Library Catalog Source ID lbsn9988719090101471 University Leuven kindly ask you to mention KU Leuven and the collection holding the original as a token of your appreciation for their work. The collection holder can be found under “Source” in the Descriptive Information. We prefer it if you use the following format: “KU Leuven. Name of the collection”.",
+          "bredd": 3743,
+          "hojd": 3209,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Beni_Hasan._Tombe_van_Baqet_III_Muurschildering_Twee_worstelaars_%28facsimile%29%2C_GD005162.jpg/960px-Beni_Hasan._Tombe_van_Baqet_III_Muurschildering_Twee_worstelaars_%28facsimile%29%2C_GD005162.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Glass slides in the Leuven University Libraries"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "Public domain",
+            "skal": [
+              "API:et säger \"Public domain\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        },
+        {
+          "fil": "File:Beni Hasan banner.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Beni_Hasan_banner.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "2026-10-02 21:58:46",
+          "beskrivning": "Egyptian, wrestling scene on east wall, tomb of Baqt at Beni Hasan. Necropolis in use 11th and 12th Dynasties (ca. 2000 BCE). Upper left portion of a nineteenth century line draft reproducing original mural in tomb, which was a polychrome of red human figures within Egyptian-style horizontal registers, showing successive moments of a wrestling match between two people, whose skin tones, white and black in the draft, were two shades of the red used on the tomb wall. See p. 47 (tomb 15) & Plate V in Percy Newberry, Beni Hasan Part II, Archaeological Survey of Egypt, F. Griffith Ed., Egypt Exploration Society, London, 1893; downloadable pdf copy from University of Heidelberg at Heidelberg Digital Library http://digi.ub.uni-heidelberg.de/diglit/newberry1893bd2",
+          "bredd": 1370,
+          "hojd": 196,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8b/Beni_Hasan_banner.jpg/960px-Beni_Hasan_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ancient Egyptian wrestling",
+            "Archaeological survey of Egypt",
+            "Tomb of Baqet III (BH15)",
+            "Wikivoyage banners of Egypt"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-art"
+            ]
+          }
+        },
+        {
+          "fil": "File:Egyptmotionseries.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Egyptmotionseries.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "2017-07-16 06:38:37",
+          "beskrivning": "Egyptian, wrestling scene on east wall, tomb of Baqt at Beni Hasan. Necropolis in use 11th and 12th Dynasties (ca. 2000 BCE). Upper left portion of a nineteenth century line draft reproducing original mural in tomb, which was a polychrome of red human figures within Egyptian-style horizontal registers, showing successive moments of a wrestling match between two people, whose skin tones, white and black in the draft, were two shades of the red used on the tomb wall. See p. 47 (tomb 15) & Plate V in Percy Newberry, Beni Hasan Part II, Archaeological Survey of Egypt, F. Griffith Ed., Egypt Exploration Society, London, 1893; downloadable pdf copy from University of Heidelberg at Heidelberg Digital Library http://digi.ub.uni-heidelberg.de/diglit/newberry1893bd2",
+          "bredd": 1712,
+          "hojd": 1321,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Egyptmotionseries.jpg/960px-Egyptmotionseries.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Ancient Egyptian wrestling",
+            "Archaeological survey of Egypt",
+            "Tomb of Baqet III (BH15)"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-20",
+      "stil": "egypten"
+    },
+    {
+      "id": "dhar-tichitt",
+      "titel": "Stenbyarna vid Dhar Tichitt",
+      "start": -1999,
+      "plats": "Klippbranterna vid Dhar Tichitt (i dag Mauretanien)",
+      "wikidata": "Q1165596",
+      "kandidater": [
+        {
+          "fil": "File:Haches et herminettes provenant de villages du Dhar Tichitt.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Haches_et_herminettes_provenant_de_villages_du_Dhar_Tichitt.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY 4.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/4.0",
+          "upphovsperson": "Sylvie Amblard-Pison",
+          "datum": "2014",
+          "beskrivning": "Axes and adzes from villages in Dhar Tichitt",
+          "bredd": 465,
+          "hojd": 500,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Haches_et_herminettes_provenant_de_villages_du_Dhar_Tichitt.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Dhar Tichitt",
+            "Polished stone tools"
+          ],
+          "smal": true,
+          "flaggor": [
+            "datum-osakert",
+            "smal",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-20",
+      "stil": "egypten"
+    },
+    {
+      "id": "nok-kulturen",
+      "titel": "Nok-kulturen och dess terrakottaskulpturer",
+      "start": -1499,
+      "plats": "Centrala Nigeria, kring byn Nok i Kaduna (i dag Nigeria)",
+      "wikidata": "Q927291",
+      "kandidater": [
+        {
+          "fil": "File:Nok Kultur, Nigeria. Fragment eines Gefäßes mit mehreren Figuren im Halbrelief..jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Nok_Kultur,_Nigeria._Fragment_eines_Gef%C3%A4%C3%9Fes_mit_mehreren_Figuren_im_Halbrelief..jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Nicotta",
+          "datum": "2011-09-28",
+          "beskrivning": "Nok Kultur, Nigeria. Fragment eines Gefäßes mit mehreren Figuren im Halbrelief.",
+          "bredd": 368,
+          "hojd": 553,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/0/00/Nok_Kultur%2C_Nigeria._Fragment_eines_Gef%C3%A4%C3%9Fes_mit_mehreren_Figuren_im_Halbrelief..jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Nok culture"
+          ],
+          "smal": true,
+          "flaggor": [
+            "datum-osakert",
+            "smal",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 3.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-3.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-20",
+      "stil": "egypten"
+    },
+    {
+      "id": "garamanterna-i-fezzan",
+      "titel": "Garamanternas rike i Sahara",
+      "start": -999,
+      "plats": "Fezzan i Sahara, kring Germa (i dag Libyen)",
+      "wikidata": "Q839034",
+      "kandidater": [
+        {
+          "fil": "File:Germa - Garamantengräber.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Germa_-_Garamantengr%C3%A4ber.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Franzfoto",
+          "datum": "2010-11",
+          "beskrivning": "Germa - Garamantengräber",
+          "bredd": 3991,
+          "hojd": 2215,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/Germa_-_Garamantengr%C3%A4ber.jpg/960px-Germa_-_Garamantengr%C3%A4ber.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Fezzan",
+            "Germa"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-22): {{self|GFDL}}, {{self|cc-by-sa-3.0,2.5,2.0,1.0}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "self|GFDL",
+              "self|cc-by-sa-3.0,2.5,2.0,1.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-20",
+      "stil": "egypten"
+    },
+    {
+      "id": "piye-erovrar-egypten",
+      "titel": "Piye från Kush erövrar Egypten",
+      "start": -727,
+      "plats": "Memphis och Nildalen (i dag Egypten)",
+      "wikidata": "Q315695",
+      "kandidater": [
+        {
+          "fil": "File:Stele Piye submission Mariette.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Stele_Piye_submission_Mariette.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Auguste Mariette (1821-1881)",
+          "datum": "2014-04-24 17:40:07",
+          "beskrivning": "Drawing of the upper-right part of the victory stele of pharaoh Piye, depicting Piye being tributed by four Nile Delta rulers: Nimlot (holding an horse) and his queen (before him), Osorkon IV, Iuput II and Peftjauawybast [see note for details]. Original stele in granite, found at Jebel Barkal and datable to the reign of Piye, 25th dynasty, now in the Cairo Museum.",
+          "bredd": 697,
+          "hojd": 464,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Stele_Piye_submission_Mariette.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Iuput II",
+            "Osorkon IV",
+            "Peftjauawybast",
+            "Prostration in ancient Egypt",
+            "Transport in the 8th century BC",
+            "Victory stele in the 21st year of the reign of Pharaoh Piankhy"
+          ],
+          "smal": true,
+          "flaggor": [
+            "datum-osakert",
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-old-auto-1923"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-20",
+      "stil": "egypten"
+    },
+    {
+      "id": "kungapyramiderna-i-nuri",
+      "titel": "Kushkungarnas pyramider i Nuri",
+      "start": -669,
+      "plats": "Nuri vid Nilen, nära fjärde katarakten (i dag Sudan)",
+      "wikidata": "Q2119839",
+      "kandidater": [
+        {
+          "fil": "File:Pyramids of Nuri.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Pyramids_of_Nuri.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "Vit Hassan",
+          "datum": "2009-06-18 11:42:40",
+          "beskrivning": "The pyramid field of Nuri contained 21 kings together with 52 queens and princesess . The first to build his tomb at Nuri was king Taharqa. His pyramid had 51.75 m square and 40 or 50 m high. Taharqa subterranean chambers are the most elaborate of any Kushite tomb. The entrance was by an eastern stairway trench , north of the pyramid's central axis, reflecting the alignment of the original smaller pyramid. Three steps led to a doorway, with a moulded frame, that opened to a tunnel, widened and heightened into an antechamber with a barrel-vaulted ceiling. Six massive pillars carved from the natural rock divide the burial chamber into two side aisles and a central nave, each with a barrel-vaulted ceiling. The entire chamber was surrounded by a moat-like corridor entered steps leading down from in front of the antechamber doorway. After Taharqa 21 kings and 53 queens and princesess were buried at Nuri under pyramids of good masonry, using blocks of local red sandstone. The Nuri pyramids were generally much larger than those at el-Kurru, reaching heights of 20 to 30 m. The last king to be buried at Nuri died in about 308 BC. Taken in Nuri,Northern Sudan. Check my set: Pyramids & templeS: <a href=\" https://www.flickr.com/photos/vithassan/sets/72157594264778397/ \">www.flickr.com/photos/vithassan/sets/72157594264778397/</a>",
+          "bredd": 800,
+          "hojd": 593,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Pyramids_of_Nuri.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Photographs by Vít Hassan",
+            "Pyramids of Nuri"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-20",
+      "stil": "egypten"
+    },
+    {
+      "id": "kyrene-grundas",
+      "titel": "Kolonister från Thera grundar Kyrene",
+      "start": -630,
+      "plats": "Kyrene vid Shahhat (i dag Libyen)",
+      "wikidata": "Q44112",
+      "kandidater": [
+        {
+          "fil": "File:Archaeological Site of Cyrene-109025.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Archaeological_Site_of_Cyrene-109025.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0 igo",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0/igo/deed.en",
+          "upphovsperson": "Giovanni Boccardi",
+          "datum": "1 January 2003",
+          "beskrivning": "Archaeological Site of Cyrene (Libya)",
+          "bredd": 1024,
+          "hojd": 768,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/Archaeological_Site_of_Cyrene-109025.jpg/960px-Archaeological_Site_of_Cyrene-109025.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Cyrene",
+            "Temple of Apollo in Cyrene"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "API:et säger \"CC BY-SA 3.0 igo\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        },
+        {
+          "fil": "File:Archaeological Site of Cyrene-109023.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Archaeological_Site_of_Cyrene-109023.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0 igo",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0/igo/deed.en",
+          "upphovsperson": "Giovanni Boccardi",
+          "datum": "2017-04-19 09:59:18",
+          "beskrivning": "Archaeological Site of Cyrene (Libya)",
+          "bredd": 1024,
+          "hojd": 768,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Archaeological_Site_of_Cyrene-109023.jpg/960px-Archaeological_Site_of_Cyrene-109023.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Caesareum (Cyrene)",
+            "Cyrenaica"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "API:et säger \"CC BY-SA 3.0 igo\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        },
+        {
+          "fil": "File:Archaeological Site of Cyrene-109029.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Archaeological_Site_of_Cyrene-109029.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0 igo",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0/igo/deed.en",
+          "upphovsperson": "Giovanni Boccardi",
+          "datum": "1 January 2003",
+          "beskrivning": "Agora Victory Monument, Archaeological Site of Cyrene (Libya)",
+          "bredd": 1024,
+          "hojd": 768,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/Archaeological_Site_of_Cyrene-109029.jpg/960px-Archaeological_Site_of_Cyrene-109029.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Nike of Cyrene"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "konstverk",
+            "licens-flagga"
+          ],
+          "licens_strikt": {
+            "status": "flagga",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "API:et säger \"CC BY-SA 3.0 igo\" men ingen licensmall kändes igen på filsidan (inga igenkända licensmallar)"
+            ],
+            "note": null,
+            "risker": [],
+            "mallar": []
+          }
+        }
+      ],
+      "hamtad": "2026-11-20",
+      "stil": "egypten"
+    },
+    {
+      "id": "alexandria-grundas",
+      "titel": "Alexandria grundas",
+      "start": -330,
+      "plats": "Alexandria vid Medelhavet (i dag Egypten)",
+      "wikidata": "Q87",
+      "kandidater": [
+        {
+          "fil": "File:AlexandriaSkyline.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:AlexandriaSkyline.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "ASaber91",
+          "datum": "2017-07-01 15:42:01",
+          "beskrivning": "Skyline of Alexandria viewed from Qaitbey Citadel",
+          "bredd": 5700,
+          "hojd": 3308,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/AlexandriaSkyline.jpg/960px-AlexandriaSkyline.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Forecourt of Qaitbay Citadel",
+            "Skylines"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-20",
+      "stil": "antik"
+    },
+    {
+      "id": "senegambiska-stencirklar",
+      "titel": "De senegambiska stencirklarna",
+      "start": -299,
+      "plats": "Senegal och Gambia",
+      "wikidata": null,
+      "kandidater": [
+        {
+          "fil": "File:Wassu Stone Cirles shaunamullally 02.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Wassu_Stone_Cirles_shaunamullally_02.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 2.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
+          "upphovsperson": "shaunamullally",
+          "datum": "Taken on 6 June 2006",
+          "beskrivning": "Wassu Stone Cirles",
+          "bredd": 800,
+          "hojd": 600,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Wassu_Stone_Cirles_shaunamullally_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Wassu stone circles"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 2.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "cc-by-sa-2.0"
+            ]
+          }
+        },
+        {
+          "fil": "File:Wassu stone circle.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Wassu_stone_circle.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "Ikiwaner",
+          "datum": "2008-03-01 17:33:49",
+          "beskrivning": "A stone circle in Wassu/The Gambia",
+          "bredd": 3888,
+          "hojd": 2592,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Wassu_stone_circle.jpg/960px-Wassu_stone_circle.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "2008 in the Gambia",
+            "Wassu stone circles"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-22): {{GFDL}}, {{GFDL|migration=relicense}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "GFDL",
+              "GFDL|migration=relicense"
+            ]
+          }
+        },
+        {
+          "fil": "File:Πέτρινοι κύκλοι της Σενεγκάμπια(κάτοψη).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:%CE%A0%CE%AD%CF%84%CF%81%CE%B9%CE%BD%CE%BF%CE%B9_%CE%BA%CF%8D%CE%BA%CE%BB%CE%BF%CE%B9_%CF%84%CE%B7%CF%82_%CE%A3%CE%B5%CE%BD%CE%B5%CE%B3%CE%BA%CE%AC%CE%BC%CF%80%CE%B9%CE%B1(%CE%BA%CE%AC%CF%84%CE%BF%CF%88%CE%B7).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Blair02",
+          "datum": "2021-04-02",
+          "beskrivning": "On the right river Gambia, on the left the stones from above",
+          "bredd": 934,
+          "hojd": 1442,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/c/c5/%CE%A0%CE%AD%CF%84%CF%81%CE%B9%CE%BD%CE%BF%CE%B9_%CE%BA%CF%8D%CE%BA%CE%BB%CE%BF%CE%B9_%CF%84%CE%B7%CF%82_%CE%A3%CE%B5%CE%BD%CE%B5%CE%B3%CE%BA%CE%AC%CE%BC%CF%80%CE%B9%CE%B1%28%CE%BA%CE%AC%CF%84%CE%BF%CF%88%CE%B7%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Senegambian stone circles",
+            "Sketches"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "staende",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "self|cc-by-sa-4.0"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-20",
+      "stil": "antik"
+    },
+    {
+      "id": "djenne-djenno",
+      "titel": "Djenné-Djenno, en av Västafrikas äldsta städer",
+      "start": -249,
+      "plats": "Djenné-Djenno vid Nigerfloden, nära Djenné (i dag Mali)",
+      "wikidata": "Q607668",
+      "kandidater": [
+        {
+          "fil": "File:Djenné Moschee.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Djenn%C3%A9_Moschee.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
+          "upphovsperson": "The original uploader was Euronaut at German Wikipedia . Later versions were uploaded by Zahnstein at de.wikipedia .",
+          "datum": "15 July 2004 (original upload date)",
+          "beskrivning": "Moschee von Djenné Beschreibung: Die Moschee von Djenné Quelle: Foto von Klaus Kien, entstanden in den 90er Jahren im Rahmen der de:Städtepartnerschaft zwischen de:Bous (Saar) und de:Koulikoro Fotograf oder Zeichner: Klaus Kien, Gde. de:Bous (Saar)",
+          "bredd": 708,
+          "hojd": 336,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/4/4d/Djenn%C3%A9_Moschee.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Great Mosque of Djenné"
+          ],
+          "smal": true,
+          "flaggor": [
+            "datum-osakert",
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-22): {{GFDL}}, {{GFDL|migration=relicense}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0.",
+            "risker": [],
+            "mallar": [
+              "GFDL",
+              "GFDL|migration=relicense"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-20",
+      "stil": "antik"
+    },
+    {
+      "id": "eratosthenes-mater-jordens-omkrets",
+      "titel": "Eratosthenes räknar ut jordens omkrets",
+      "start": -239,
+      "plats": "Alexandria och Syene, i dag Assuan (i dag Egypten)",
+      "wikidata": "Q43182",
+      "kandidater": [
+        {
+          "fil": "File:Eratosthenes.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Eratosthenes.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "2025-11-05 18:40:45",
+          "beskrivning": null,
+          "bredd": 2495,
+          "hojd": 3614,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Eratosthenes.jpg/960px-Eratosthenes.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Eratosthenes in art"
+          ],
+          "smal": false,
+          "flaggor": [
+            "datum-osakert",
+            "staende"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null,
+            "risker": [],
+            "mallar": [
+              "PD-art"
+            ]
+          }
+        }
+      ],
+      "hamtad": "2026-11-20",
+      "stil": "antik"
+    }
+  ],
+  "utan_kandidat": [
+    {
+      "id": "kremeringen-vid-hora",
+      "titel": "Kremeringen vid berget Hora",
+      "start": -7589,
+      "plats": "Klippskyddet Hora 1 vid foten av berget Hora, Mzimbadistriktet, norra Malawi",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-20",
+      "stil": "grotta"
+    },
+    {
+      "id": "snackor-fran-roda-havet-i-gebel-ramlah",
+      "titel": "Snäckor från Röda havet i Gebel Ramlahs gravar",
+      "start": -4999,
+      "plats": "Gebel Ramlah i Västra öknen, södra Egypten",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-20",
+      "stil": "grotta"
+    },
+    {
+      "id": "uan-muhuggiag-mumien",
+      "titel": "Barnmumien i Uan Muhuggiag",
+      "start": -4299,
+      "plats": "Klippskyddet Uan Muhuggiag i Tadrart Acacus, Libyen",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-20",
+      "stil": "grotta"
+    },
+    {
+      "id": "kintampokulturen",
+      "titel": "Kintampokulturen i Ghana",
+      "start": -2499,
+      "plats": "Bono East i Ghana; fynd också i östra Elfenbenskusten och Togo",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-20",
+      "stil": "egypten"
+    },
+    {
+      "id": "parlhirs-tams-i-norra-mali",
+      "titel": "Pärlhirs blir en odlad gröda i norra Mali",
+      "start": -2499,
+      "plats": "Norra Mali (punkten i Tilemsidalen)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-20",
+      "stil": "egypten"
+    },
+    {
+      "id": "vulkanutbrottet-vid-deriba",
+      "titel": "Stort utbrott vid Deriba i Jebel Marra",
+      "start": -1569,
+      "plats": "Deribakalderan i Jebel Marra, Darfur, Sudan",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-20",
+      "stil": "egypten"
+    },
+    {
+      "id": "herdarnas-boplats-luxmanda",
+      "titel": "Herdarnas boplats Luxmanda i Tanzania",
+      "start": -1249,
+      "plats": "Luxmanda på Mbuluplatån, Babatidistriktet, norra Tanzania",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-20",
+      "stil": "egypten"
+    },
+    {
+      "id": "afrikanskt-ris-odlas-i-nigerdeltat",
+      "titel": "Afrikanskt ris börjar odlas i Nigers inlandsdelta",
+      "start": -999,
+      "plats": "Nigers inlandsdelta, Mali",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-20",
+      "stil": "egypten"
+    },
+    {
+      "id": "koppar-vid-akjoujt",
+      "titel": "Koppar bryts och smälts vid Akjoujt",
+      "start": -999,
+      "plats": "Akjoujt i västra Mauretanien",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-20",
+      "stil": "egypten"
+    },
+    {
+      "id": "bananer-i-nkang",
+      "titel": "Spår av bananer i Nkang i Kamerun",
+      "start": -499,
+      "plats": "Nkang nära Monatélé, Centrumregionen i Kamerun",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-20",
+      "stil": "antik"
+    },
+    {
+      "id": "urewekulturen",
+      "titel": "Urewekulturen framställer järn kring Victoriasjön",
+      "start": -499,
+      "plats": "Kring Victoriasjön i Östafrika",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-20",
+      "stil": "antik"
+    },
+    {
+      "id": "tamfar-vid-spoegrivier",
+      "titel": "Ett tidigt tamfår i Namaqualand",
+      "start": -196,
+      "plats": "Spoegrivier i Namaqualand, Nordkapprovinsen, Sydafrika",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-20",
+      "stil": "antik"
+    },
+    {
+      "id": "rickettsia-felis-vid-ballito",
+      "titel": "Spår av en loppburen bakterie hos ett barn vid Ballito Bay",
+      "start": 14,
+      "plats": "Nära Ballito i KwaZulu-Natal, Sydafrika (punkten är orten Ballito)",
+      "wikidata": null,
+      "kandidater": [],
+      "hamtad": "2026-11-20",
+      "stil": "antik"
+    }
+  ]
+}

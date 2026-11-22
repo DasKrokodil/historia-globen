@@ -83,6 +83,7 @@
         "commons-bild-kilwa-pa-sin-hojd",
         "commons-bild-kilwas-stora-moske-norra-hallen",
         "commons-bild-krugerparken",
+        "commons-bild-lothagam-north",
         "commons-bild-manskliga-rattigheter-1948",
         "commons-bild-mayastadernas-nedgang",
         "commons-bild-muhammeds-forsta-uppenbarelse",
@@ -94,6 +95,7 @@
     {
       "license": "CC BY 2.5",
       "sourceIds": [
+        "commons-bild-gobero-gravfaltet",
         "commons-bild-sydney-harbour-bridge-invigs"
       ]
     },
@@ -134,6 +136,7 @@
         "cintas-pena-2023-valencina",
         "cliopatria",
         "commons-bild-borobudur-byggs",
+        "commons-bild-den-grona-sahara",
         "commons-bild-fn-grundas",
         "commons-bild-gagarin-vostok-1",
         "commons-bild-galileo-sidereus-nuncius",
@@ -328,6 +331,7 @@
         "commons-bild-caral",
         "commons-bild-kvinnlig-rostratt-nya-zeeland",
         "commons-bild-mosken-i-cordoba",
+        "commons-bild-senegambiska-stencirklar",
         "commons-bild-star-wars"
       ]
     },
@@ -342,12 +346,15 @@
       "license": "CC BY-SA 3.0",
       "sourceIds": [
         "commons-bild-asterix-frankrikes-forsta-satellit",
+        "commons-bild-bantuexpansionen",
         "commons-bild-bartolomeu-dias-rundar-afrika",
         "commons-bild-brihadisvaratemplet",
+        "commons-bild-garamanterna-i-fezzan",
         "commons-bild-gedi-grundas",
         "commons-bild-gobekli-tepe",
         "commons-bild-haamonga-a-maui",
         "commons-bild-hagia-sofia-byggs-532",
+        "commons-bild-hallmalningarna-i-laas-geel",
         "commons-bild-ife-huvudet",
         "commons-bild-jarnpelaren-i-delhi",
         "commons-bild-lanse-aux-meadows",
@@ -355,6 +362,7 @@
         "commons-bild-lunds-domkyrka-invigs",
         "commons-bild-moai-rapa-nui",
         "commons-bild-mohenjo-daro",
+        "commons-bild-nabta-playa",
         "commons-bild-slaget-vid-adwa",
         "commons-bild-slaget-vid-issos",
         "commons-bild-sovjetunionens-upplosning",
@@ -405,6 +413,7 @@
       "license": "CC BY-SA 4.0",
       "sourceIds": [
         "commons-bild-agadez-mosken",
+        "commons-bild-alexandria-grundas",
         "commons-bild-angkor-wat",
         "commons-bild-chan-chan",
         "commons-bild-chichen-itza",
@@ -413,6 +422,7 @@
         "commons-bild-guru-nanak",
         "commons-bild-jantar-mantar-jaipur",
         "commons-bild-jordbrukets-borjan",
+        "commons-bild-kermariket",
         "commons-bild-klippkonsten-vid-ubirr",
         "commons-bild-koutoubiamosken-byggs",
         "commons-bild-latte-stenar-pa-marianerna",
@@ -425,6 +435,7 @@
         "commons-bild-slaget-vid-salamis",
         "commons-bild-stora-buddha-i-kamakura",
         "commons-bild-tarikh-al-sudan",
+        "commons-bild-tassili-najjer-hallkonst",
         "commons-bild-taungbarnet-hittas",
         "commons-bild-teotihuacan-solpyramiden",
         "commons-bild-tikal-vaxer-fram",
@@ -3421,6 +3432,7 @@
         "commons-bild-blockaden-av-biafra",
         "commons-bild-borskraschen-1929",
         "commons-bild-broad-street-kolera-1854",
+        "commons-bild-brottare-i-beni-hasan",
         "commons-bild-burke-och-wills-expedition",
         "commons-bild-caesar-mordas",
         "commons-bild-cahokia",

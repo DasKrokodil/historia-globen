@@ -57,6 +57,21 @@
       "source": null
     },
     {
+      "eventId": "alexandria-grundas",
+      "eventTitle": "Alexandria grundas",
+      "file": "images/events/alexandria-grundas.webp",
+      "kind": "historisk",
+      "credit": "ASaber91 / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-alexandria-grundas",
+        "title": "AlexandriaSkyline – ASaber91 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:AlexandriaSkyline.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "alltinget-grundas",
       "eventTitle": "Alltinget grundas på Island",
       "file": "images/events/alltinget-grundas.webp",
@@ -328,6 +343,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "bantuexpansionen",
+      "eventTitle": "Bantuexpansionen",
+      "file": "images/events/bantuexpansionen.webp",
+      "kind": "historisk",
+      "credit": "Kimdime, Ulamm och Monsieur Fou / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-bantuexpansionen",
+        "title": "Niger-Congo map with delimitation (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Niger-Congo_map_with_delimitation.png",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-22"
+      }
     },
     {
       "eventId": "bartolomeu-dias-rundar-afrika",
@@ -639,6 +669,21 @@
       }
     },
     {
+      "eventId": "brottare-i-beni-hasan",
+      "eventTitle": "Brottarna i Baqet III:s grav i Beni Hasan",
+      "file": "images/events/brottare-i-beni-hasan.webp",
+      "kind": "historisk",
+      "credit": "Okänd tecknare / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-brottare-i-beni-hasan",
+        "title": "Egyptmotionseries (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Egyptmotionseries.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "buddha",
       "eventTitle": "Buddha grundar buddhismen",
       "file": "images/events/buddha.webp",
@@ -894,6 +939,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:The_Pnyx_plateau_on_23_September_2018.jpg",
         "license": "CC0",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "den-grona-sahara",
+      "eventTitle": "Den gröna Sahara",
+      "file": "images/events/den-grona-sahara.webp",
+      "kind": "historisk",
+      "credit": "Merikanto / Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "source": {
+        "id": "commons-bild-den-grona-sahara",
+        "title": "Npp green sahara simulation 1 – Merikanto (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Npp_green_sahara_simulation_1.png",
+        "license": "CC BY 4.0",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -1365,6 +1425,21 @@
       }
     },
     {
+      "eventId": "garamanterna-i-fezzan",
+      "eventTitle": "Garamanternas rike i Sahara",
+      "file": "images/events/garamanterna-i-fezzan.webp",
+      "kind": "historisk",
+      "credit": "Franzfoto / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-garamanterna-i-fezzan",
+        "title": "Germa - Garamantengräber – Franzfoto (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Germa_-_Garamantengr%C3%A4ber.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "gedi-grundas",
       "eventTitle": "Swahilistaden Gedi grundas",
       "file": "images/events/gedi-grundas.webp",
@@ -1407,6 +1482,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Göbekli_Tepe,_Urfa.jpg",
         "license": "CC BY-SA 3.0",
         "checked": "2026-11-07"
+      }
+    },
+    {
+      "eventId": "gobero-gravfaltet",
+      "eventTitle": "Gobero, Saharas äldsta kända gravfält",
+      "file": "images/events/gobero-gravfaltet.webp",
+      "kind": "historisk",
+      "credit": "Paul C. Sereno m.fl. (PLoS ONE 2008) / Wikimedia Commons",
+      "license": "CC BY 2.5",
+      "source": {
+        "id": "commons-bild-gobero-gravfaltet",
+        "title": "Gobero (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Gobero.jpg",
+        "license": "CC BY 2.5",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -1500,6 +1590,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Deklarasyon_Endepandans_Ayiti.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "hallmalningarna-i-laas-geel",
+      "eventTitle": "Hällmålningarna i Laas Geel",
+      "file": "images/events/hallmalningarna-i-laas-geel.webp",
+      "kind": "historisk",
+      "credit": "Theodor Hoffsten / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-hallmalningarna-i-laas-geel",
+        "title": "Laas Geel rock paintings – Theodor Hoffsten (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Laas_Geel_rock_paintings.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -2010,6 +2115,21 @@
       }
     },
     {
+      "eventId": "kermariket",
+      "eventTitle": "Kermariket i Nubien",
+      "file": "images/events/kermariket.webp",
+      "kind": "historisk",
+      "credit": "Lassi / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-kermariket",
+        "title": "Kerma city – Lassi (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Kerma_city.JPG",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "khorramshahr-aterorovras-1982",
       "eventTitle": "Iran tar tillbaka Khorramshahr",
       "file": "images/events/khorramshahr-aterorovras-1982.webp",
@@ -2487,6 +2607,21 @@
       }
     },
     {
+      "eventId": "lothagam-north",
+      "eventTitle": "Pelarplatsen vid Lothagam North",
+      "file": "images/events/lothagam-north.webp",
+      "kind": "historisk",
+      "credit": "Shaan Hurley / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-lothagam-north",
+        "title": "Lothagam Site in N. Kenya – Shaan Hurley (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Lothagam_Site_in_N._Kenya.jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "lothal",
       "eventTitle": "Lothal, Induskulturens hamnstad",
       "file": "images/events/lothal.webp",
@@ -2901,6 +3036,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Australian_Aborigines_slaughtered_by_convicts.png",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "nabta-playa",
+      "eventTitle": "Stencirkeln i Nabta Playa",
+      "file": "images/events/nabta-playa.webp",
+      "kind": "historisk",
+      "credit": "Raymbetz / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-nabta-playa",
+        "title": "Calendar aswan – Raymbetz (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Calendar_aswan.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -3435,6 +3585,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Semmelweis_Ign%C3%A1c.jpg",
         "license": "Public domain",
         "checked": "2026-11-13"
+      }
+    },
+    {
+      "eventId": "senegambiska-stencirklar",
+      "eventTitle": "De senegambiska stencirklarna",
+      "file": "images/events/senegambiska-stencirklar.webp",
+      "kind": "historisk",
+      "credit": "shaunamullally / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-senegambiska-stencirklar",
+        "title": "Wassu Stone Cirles shaunamullally 02 – shaunamullally (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Wassu_Stone_Cirles_shaunamullally_02.jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -4602,6 +4767,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Gilsemans_1642.jpg",
         "license": "Public domain",
         "checked": "2026-11-09"
+      }
+    },
+    {
+      "eventId": "tassili-najjer-hallkonst",
+      "eventTitle": "Hällkonsten i Tassili n'Ajjer",
+      "file": "images/events/tassili-najjer-hallkonst.webp",
+      "kind": "historisk",
+      "credit": "IssamBarhoumi / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-tassili-najjer-hallkonst",
+        "title": "The Tanzoumaitak cave painting in Tassili n'ajjer – IssamBarhoumi (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:The_Tanzoumaitak_cave_painting_in_Tassili_n%27ajjer.jpg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-22"
       }
     },
     {

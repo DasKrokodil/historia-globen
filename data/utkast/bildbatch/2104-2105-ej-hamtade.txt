@@ -1,0 +1,7 @@
+# Ej hämtade av tools/bild_hamta.py; kör igen med --lista
+File:Ounjougou confluence.JPG	ounjougou-keramik
+File:WadiSuraSingleSwimmer.jpg	simmarnas-grotta
+File:Haches et herminettes provenant de villages du Dhar Tichitt.jpg	dhar-tichitt	passa-in
+File:Nok Kultur, Nigeria. Fragment eines Gefäßes mit mehreren Figuren im Halbrelief..jpg	nok-kulturen	passa-in
+File:Stele Piye submission Mariette.jpg	piye-erovrar-egypten
+File:Pyramids of Nuri.jpg	kungapyramiderna-i-nuri
