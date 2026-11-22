@@ -222,7 +222,7 @@ Sökt i kandidatlistan `data/utkast/bildkandidater.json` och på Wikimedia Commo
 | `kimbangu-predikar-1921` | Det enda samtida fotot av Simon Kimbangu på Commons är 400 px brett och har mallen PD-US-expired utan någon källa (bara "Simon Kimbangu in the early 20th century"). Övriga träffar är nutida foton av museet i Nkamba och målningar från 2025. Library of Congress svarade HTTP 429. |
 | `brazzavillekonferensen-1944` | Fotot av Charles de Gaulle som öppnar konferensen ([filsidan](https://commons.wikimedia.org/wiki/File:Charles_de_Gaulle_opening_the_Brazzaville_Conference,_1944.jpg)) har PD-US-not renewed för ett franskt foto från 1944; filsidan visar inte att bilden först publicerades i USA och anger ingen status i Frankrike. |
 | `ethiopian-airlines-grundas-1945` | Bilderna av bolagets Douglas DC-3 på Commons har bara GFDL, som inte är tillåten. Wikidatas bild är ett nutida flygplan (2025). Library of Congress svarade inte inom 30 sekunder. |
-| `afrikas-ar-1960` | Wikidatas bild är en nutida karta med självständighetsår, där filsidans licensmall bara säger GFDL (med `migration=relicense`), medan API:et säger CC BY-SA 3.0. Ingen fri bild från 1960 hittades, bara små frimärken. |
+| `afrikas-ar-1960` | Möjlig bild, prövas i nästa omgång. Wikidatas bild ([File:Africa independence dates.svg](https://commons.wikimedia.org/wiki/File:Africa_independence_dates.svg)) är en nutida karta med självständighetsår. Filsidans licensmall är `{{GFDL|migration=relicense}}` (läst med action=raw 2026-11-22), och en sådan fil är också licensierad under CC BY-SA 3.0, som API:et anger. Ingen fri bild från 1960 hittades, bara små frimärken. |
 | `biafra-utropas` | Inga samtida foton av Ojukwu eller utropandet. Det enda fotot av Ojukwu från 1969 är märkt som uppladdarens eget verk (CC0) och är 328 px brett, så ursprunget är oklart. Library of Congress gav inga träffar. |
 | `enugu-faller-1967` | Bara nutida foton från delstaten Enugu (djur, landskap). |
 | `massakern-i-asaba` | Ingen bild av händelsen eller av Asaba vid den tiden. |
@@ -255,3 +255,34 @@ Tio av 18 händelser fick en bild från Wikimedia Commons (licensen kontrollerad
 | `shaka-bygger-zuluriket` | Kandidaten är ett foto av monumentet Spirit of eMakhosini, ett monument från 2003. Sydafrika saknar frihet för panorama för konstverk enligt Commons (Commons:Copyright rules by territory/South Africa), och filsidan har varken NoFoP-mall eller konstnärens tillstånd. Bilden lades först in i #2190 och togs bort efter granskningen. |
 
 | `ancs-ungdomsforbund-grundas-1944` | Vald bild: [Sisulu wedding with mandela and lembede.JPG](https://commons.wikimedia.org/wiki/File:Sisulu_wedding_with_mandela_and_lembede.JPG) (1944, PD-South-Africa enligt filsidan, okänd fotograf), Walter och Albertina Sisulus bröllop med Nelson Mandela och Anton Lembede. Licensen är läst, men själva filen på upload.wikimedia.org gav HTTP 429 med Retry-After 600 s vid två körningar (08:04 och 08:11 UTC). |
+
+## Afrika 12600 f.Kr.–14 e.Kr., #2104 och #2105 (bildpipelinen, 2026-11-22)
+
+Kontrollerat 2026-11-22 med granskningslistan `data/utkast/bildbatch/2104-2105.md`, licensen läst i filsidans wikitext (`action=raw`).
+
+| Händelse (id) | Skäl |
+|---|---|
+| `dufunakanoten` | Listans enda kandidat är märkt CC0, men filsidan anger okänd upphovsperson och webbplatsen theafricanhistory.com som källa, så licensen går inte att belägga. |
+| `lag-nil-och-svalt-2150-fkr` | Listans kandidater är nutida foton av Assuandammen (2012), som inte visar händelsen. |
+| `kyrene-grundas` | Möjlig bild, prövas i nästa omgång. Wikidatas bilder är UNESCO-foton (2003) av Kyrenes ruiner med licensmallen `{{cc-by-sa-3.0-igo}}`, som verktygen inte känner igen; enligt beslutet 2026-11-22 godkänns den inte av ett program, och en människa får bedöma den. |
+| `djenne-djenno` | Listans enda kandidat är Djennés stora moské, en annan plats från långt senare tid. |
+| `eratosthenes-mater-jordens-omkrets` | Listans enda kandidat är ett porträtt med bara `{{PD-art}}` och ett webbgalleri som källa. Filsidan anger varken konstnär, år eller verk, så licensen och motivet går inte att belägga. |
+
+### Ingen kandidat, egen sökning gav HTTP 429 (prövas igen)
+
+Kandidatlistan hade ingen bild till de här händelserna. En kort sökning per händelse på Commons den 22 november 2026 gav HTTP 429 på varje anrop.
+
+`kremeringen-vid-hora`, `snackor-fran-roda-havet-i-gebel-ramlah`, `uan-muhuggiag-mumien`, `kintampokulturen`, `parlhirs-tams-i-norra-mali`, `vulkanutbrottet-vid-deriba`, `herdarnas-boplats-luxmanda`, `afrikanskt-ris-odlas-i-nigerdeltat`, `koppar-vid-akjoujt`, `bananer-i-nkang`, `urewekulturen`, `tamfar-vid-spoegrivier`, `rickettsia-felis-vid-ballito`.
+
+### Ej hämtad, prövas igen
+
+Bilden är vald och licensen kontrollerad på filsidan, men miniatyren på upload.wikimedia.org gav HTTP 429 (Retry-After 600 s) i fyra körningar av `tools/bild_hamta.py` mellan 09.44 och 09.50 UTC. De står i `data/utkast/bildbatch/2104-2105-ej-hamtade.txt`, och motivet står i granskningslistan.
+
+| Händelse (id) | Vald bild |
+|---|---|
+| `ounjougou-keramik` | [File:Ounjougou confluence.JPG](https://commons.wikimedia.org/wiki/File:Ounjougou_confluence.JPG) (CC BY-SA 4.0) |
+| `simmarnas-grotta` | [File:WadiSuraSingleSwimmer.jpg](https://commons.wikimedia.org/wiki/File:WadiSuraSingleSwimmer.jpg) (CC BY-SA 3.0, också GFDL) |
+| `dhar-tichitt` | [File:Haches et herminettes provenant de villages du Dhar Tichitt.jpg](https://commons.wikimedia.org/wiki/File:Haches_et_herminettes_provenant_de_villages_du_Dhar_Tichitt.jpg) (CC BY 4.0, passa-in) |
+| `nok-kulturen` | [File:Nok Kultur, Nigeria. Fragment eines Gefäßes mit mehreren Figuren im Halbrelief..jpg](https://commons.wikimedia.org/wiki/File:Nok_Kultur,_Nigeria._Fragment_eines_Gef%C3%A4%C3%9Fes_mit_mehreren_Figuren_im_Halbrelief..jpg) (CC BY-SA 3.0, passa-in) |
+| `piye-erovrar-egypten` | [File:Stele Piye submission Mariette.jpg](https://commons.wikimedia.org/wiki/File:Stele_Piye_submission_Mariette.jpg) (public domain, Auguste Mariette 1872) |
+| `kungapyramiderna-i-nuri` | [File:Pyramids of Nuri.jpg](https://commons.wikimedia.org/wiki/File:Pyramids_of_Nuri.jpg) (CC BY-SA 2.0) |
