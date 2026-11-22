@@ -54,6 +54,9 @@ def klassa_mall(namn):
         return None
     if n in ('cc0', 'cc-zero', 'cc-zero-1.0'):
         return 'cc0', 'CC0'
+    if n in ('cc-by-sa-all', 'cc-by-all'):
+        # Mallar för flera versioner på en gång (#2193): klassen är tillåten, versionen tas från API:et om det anger en
+        return ('by-sa', 'CC BY-SA') if '-sa-' in n else ('by', 'CC BY')
     m = re.fullmatch(r'cc-by(-sa)?-(\d(?:\.\d)?)(?:,[\d.,]+)?(?:-([a-z]{2}))?(?:-migrated.*|-with-.*)?', n)
     if m:
         return ('by-sa' if m.group(1) else 'by'), _cc_etikett(m.group(1), m.group(2), m.group(3))
@@ -80,15 +83,21 @@ def licensmallar(wikitext):
         low = re.sub(r'[\s_]+', '-', namn.lower())
         if any(low.startswith(v) for v in VARNINGSMALLAR):
             varningar.append(namn)
+        # Licensmigreringen 2009: en GFDL-fil märkt migration=relicense är också licensierad under CC BY-SA 3.0 (#2193)
+        flyttad = any(re.sub(r'\s+', '', d.lower()) == 'migration=relicense' for d in delar[1:])
         if low in ('self', 'self2') or low.startswith('self-'):
             for d in delar[1:]:
                 k = klassa_mall(d)
                 if k:
                     hittade.append((f'{namn}|{d}', *k))
+                    if k[0] == 'gfdl' and flyttad:
+                        hittade.append((f'{namn}|{d}|migration=relicense', 'by-sa', 'CC BY-SA 3.0'))
             continue
         k = klassa_mall(namn)
         if k:
             hittade.append((namn, *k))
+            if k[0] == 'gfdl' and flyttad:
+                hittade.append((f'{namn}|migration=relicense', 'by-sa', 'CC BY-SA 3.0'))
     unika, sett = [], set()
     for h in hittade:
         if (h[1], h[2]) not in sett:
@@ -137,6 +146,9 @@ def bedom_commons(ext, wikitext, idag):
         res['skal'].append(f'licensen kunde inte avgöras ({mall_text}; API: "{api_namn}")')
         return res
     mall_tillatna = [m for m in mallar if m[1] in TILLATNA]
+    # En mall utan version (cc-by-sa-all) motsvarar API:ets licens med version i samma klass (#2193)
+    if api_klass and api_klass[0] in TILLATNA:
+        mall_tillatna = [(m[0], m[1], api_klass[1]) if m[1] == api_klass[0] and m[2] in VERSIONSLOSA else m for m in mall_tillatna]
     if api_klass and api_klass[0] in TILLATNA and mall_tillatna and (api_klass[0], api_klass[1]) not in {(m[1], m[2]) for m in mall_tillatna}:
         res['status'] = 'flagga'
         res['skal'].append(f'motsägelse: filsidans mallar ({mall_text}) och API:et ("{api_namn}") anger olika licens')
@@ -157,7 +169,10 @@ def bedom_commons(ext, wikitext, idag):
     else:
         valt = etiketter[0]
     res['licens'] = valt
-    if len(etiketter) > 1 or 'gfdl' in klasser or varningar:
+    res['risker'] = risker(wikitext, ext, [m[0] for m in mallar])
+    if valt in VERSIONSLOSA:
+        res['risker'].append(f'licensmallen anger ingen version ({valt}); skriv versionen ur filsidan')
+    if len(etiketter) > 1 or 'gfdl' in klasser or varningar or res['risker']:
         res['status'] = 'godkand-med-not'
         delar = [underlag]
         if len(etiketter) > 1:
@@ -169,10 +184,44 @@ def bedom_commons(ext, wikitext, idag):
         if varningar:
             delar.append('Filsidan har dessutom mallar om andra rättigheter: ' + ', '.join('{{' + v + '}}' for v in varningar) + '.')
             res['skal'].append('filsidan har mallar om andra rättigheter: ' + ', '.join(varningar))
+        if res['risker']:
+            delar.append('Att kontrollera: ' + '; '.join(res['risker']) + '.')
+            res['skal'] += ['risk: ' + r for r in res['risker']]
         res['note'] = ' '.join(delar)
     else:
         res['status'] = 'godkand'
     return res
+
+
+VERSIONSLOSA = {'CC BY-SA', 'CC BY'}
+PD_BARA_USA = ('pd-us-not-renewed', 'pd-us-no-notice', 'pd-us-unpublished', 'pd-us-1978-89')
+
+
+def _ar(text):
+    m = re.search(r'(?<!\d)(1[0-9]{3}|20[0-9]{2})(?!\d)', text or '')
+    return int(m.group(1)) if m else None
+
+
+def risker(wikitext, ext, mallnamn):
+    """Licensfall som brukar vara riskabla fast mallen är tillåten (#2193, fynd i piloten #2183). Ger text att kontrollera;
+    bilden avvisas inte, men statusen blir godkand-med-not så att granskaren ser det."""
+    ut = []
+    namn = [re.sub(r'[\s_]+', '-', m.split('|')[-1].strip().lower()) for m in mallnamn]
+    bara_usa = [m for m in namn if m.startswith(PD_BARA_USA) or m == 'pd-us']
+    if bara_usa:
+        ut.append(f'public domain bara i USA ({", ".join(bara_usa)}): kontrollera att verket först publicerades i USA, '
+                  'eller vad som gäller i ursprungslandet')
+    text = (wikitext or '').lower()
+    if any(m in ('pd-self', 'pd-author', 'pd-user') for m in namn) and re.search(r'free art|\bfal\b|cc-by|gfdl', text):
+        ut.append('PD-self, men filsidan nämner också en annan licens: skriv båda i källans note och i bildtexten')
+    ext = ext or {}
+    kredit = ((ext.get('Credit') or {}).get('value') or '').lower()
+    ar = _ar((ext.get('DateTimeOriginal') or {}).get('value'))
+    if 'own work' in kredit and ar and ar < 1950:
+        ut.append(f'"eget verk" av en bild daterad {ar}: kontrollera vem som tog eller gjorde originalet')
+    if re.search(r'\{\{\s*(nofop|fop-|no-fop)', text):
+        ut.append('filsidan har en mall om frihet för panorama: kontrollera upphovsrätten för konstverket i bilden')
+    return ut
 
 
 # ---------------------------------------------------------------- snabb gissning (utan filsidan)

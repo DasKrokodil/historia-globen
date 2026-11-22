@@ -46,8 +46,17 @@ SCHEMA = 'historia-globen/bildbatch@1'
 
 FLAGGTEXT = {
     'karta': 'karta: säg i bildtexten om kartan är samtida eller ritad senare',
-    'nutida-foto': 'datum 1990 eller senare för en händelse före 1900 (fototid eller bara uppladdningsdatum): är det ett nutida '
-                   'foto säger bildtexten "Nutida foto (år) av …, inte från händelsens tid"',
+    'nutida-foto': 'verkets datum enligt filsidan är 1990 eller senare för en händelse före 1900: bildtexten säger '
+                   '"Nutida foto (år) av …, inte från händelsens tid"',
+    'datum-osakert': 'filsidan anger bara filens datum (ofta uppladdningen), 1990 eller senare: kontrollera om det är ett nutida '
+                     'foto eller ett äldre verk',
+    'staende': 'stående eller nästan kvadratisk bild: 4:3-utsnittet tar bort mer än 20 % av höjden; skriv passa-in i tredje '
+               'kolumnen i listan för att visa hela',
+    'konstverk': 'modernt konstverk (monument, staty, skulptur, relief, väggmålning)? kontrollera frihet för panorama i landet '
+                 'och konstnärens dödsår',
+    'samma-fil': 'samma fil föreslås för flera händelser i omgången: välj den för högst en',
+    'licens-risk': 'licensen är tillåten men riskabel (till exempel public domain bara i USA, PD-self med annan licens, "eget '
+                   'verk" av en gammal bild): läs filsidan särskilt noga',
     'smal': 'smalare än 800 px: blir suddig i kortet',
     'ur-sokning': 'ur fritextsökning, inte Wikidatas bild: kontrollera särskilt att den visar händelsen',
     'licens-flagga': 'licensen kunde inte avgöras av programmet: en människa bedömer den på filsidan',
@@ -101,6 +110,9 @@ def valj(handelser, ids=None, period=None, region=None):
 # ---------------------------------------------------------------- flaggor och ordning
 
 KARTA = re.compile(r'\bmaps?\b|\bkarte\b|\bcarte\b|\bmapa\b|\bmappa\b|location map|locator|\bkarta\b')
+KONSTVERK = re.compile(r'monument|statues?\b|sculptur|murals?\b|\brelief|staty|skulptur|denkmal|denkmäler|monumento')
+GAMMALT_AR = re.compile(r'(?<!\d)(1[0-8][0-9]{2}|[1-9][0-9]{0,2})(?:th|st|nd|rd)?[- ](?:century|centuries|jahrhundert|siècle)|'
+                        r'(?<!\d)1[0-8][0-9]{2}(?!\d)|\b(?:bc|bce|ancient|antique|medieval|roman|neolithic)\b')
 
 
 def ar_i(datum):
@@ -113,11 +125,25 @@ def flaggor(k, e):
     f = []
     if KARTA.search(text):
         f.append('karta')
-    ar = ar_i(k.get('datum'))
-    if ar and ar >= NUTIDA_FRAN and e['start'] < NUTIDA_HANDELSE:
-        f.append('nutida-foto')
+    if e['start'] < NUTIDA_HANDELSE:
+        if 'datum_original' in k or 'datum_fil' in k:  # kandidatlistan från #2193 skiljer verkets datum från filens
+            ar = ar_i(k.get('datum_original'))
+            if ar and ar >= NUTIDA_FRAN:
+                f.append('nutida-foto')
+            elif not k.get('datum_original') and (ar_i(k.get('datum_fil')) or 0) >= NUTIDA_FRAN:
+                f.append('datum-osakert')
+        else:  # äldre kandidatlista: datumet kan vara uppladdningen
+            ar = ar_i(k.get('datum'))
+            if ar and ar >= NUTIDA_FRAN:
+                f.append('datum-osakert')
+    # Moderna konstverk: inte kartor och inte föremål som filsidan dateras före 1900 (ett kärl från 800-talet, #2193)
+    if KONSTVERK.search(text) and 'karta' not in f and not GAMMALT_AR.search(text):
+        f.append('konstverk')
     if k.get('smal'):
         f.append('smal')
+    # 4:3-utsnittet runt mitten tar bort mer än 20 % av höjden (även nästan kvadratiska kartor och dokument, #2193)
+    if k.get('bredd') and k.get('hojd') and 1 - (k['bredd'] * 3 / 4) / k['hojd'] > 0.2:
+        f.append('staende')
     if k.get('kalla') == 'commons-sok':
         f.append('ur-sokning')
     if k.get('licensstatus') == 'flagga':
@@ -168,7 +194,8 @@ def strikt_licens(titlar, idag, cache_dir=None, offline=False, bh=None, klient=N
         else:
             fel = None
         bed = bh.bedom_commons(ext, wikitext, idag)
-        r = {'status': bed['status'], 'licens': bed['licens'], 'skal': bed['skal'], 'note': bed['note']}
+        r = {'status': bed['status'], 'licens': bed['licens'], 'skal': bed['skal'], 'note': bed['note'],
+             'risker': bed.get('risker') or [], 'mallar': bed.get('mallar') or []}
         if fel:
             r['skal'] = r['skal'] + [f'licensmallen (action=raw) ej hämtad: {fel}']
         ut[t] = r
@@ -194,8 +221,36 @@ def bygg(handelser, kandidatposter, n=MAX_KANDIDATER):
         else:
             rad['kandidater'] = ordna(kp.get('kandidater') or [], e, n)
             rad['hamtad'] = kp.get('hamtad')
+        rad['stil'] = stil_for(e)
         (poster if rad['kandidater'] else utan).append(rad)
+    # Samma fil för flera händelser i omgången (#2193)
+    per_fil = {}
+    for p in poster:
+        for k in p['kandidater']:
+            per_fil.setdefault(k['fil'], []).append(p['id'])
+    for p in poster:
+        for k in p['kandidater']:
+            andra = [i for i in per_fil[k['fil']] if i != p['id']]
+            if andra:
+                k['samma_fil_som'] = andra
+                if 'samma-fil' not in k['flaggor']:
+                    k['flaggor'].append('samma-fil')
     return poster, utan
+
+
+_STILAR = None
+
+
+def stil_for(e):
+    """Stilens id enligt data/styles.json (tid och plats, samma regel som tools/bildpromptar.py), eller None."""
+    global _STILAR
+    try:
+        if _STILAR is None:
+            _STILAR = (_ladda('bildpromptar'), json.loads((ROOT / 'data' / 'styles.json').read_text(encoding='utf-8')))
+        bp, doc = _STILAR
+        return bp.style_for(e, doc)[0]['id']
+    except (OSError, ValueError, KeyError, IndexError, TypeError):
+        return None
 
 
 def lagg_till_strikt(poster, strikt):
@@ -207,6 +262,8 @@ def lagg_till_strikt(poster, strikt):
             k['licens_strikt'] = s
             if s['status'] in ('flagga', 'avvisad') and 'licens-flagga' not in k['flaggor']:
                 k['flaggor'].append('licens-flagga')
+            if s.get('risker') and 'licens-risk' not in k['flaggor']:
+                k['flaggor'].append('licens-risk')
 
 
 def licens_cell(k):
@@ -216,6 +273,11 @@ def licens_cell(k):
         return trolig + ', filsidans mall ej läst'
     return f'{trolig}; filsidan: {s["status"]}' + (f' {s["licens"]}' if s.get('licens') else '') + \
         (f' – {"; ".join(s["skal"])}' if s.get('skal') else '')
+
+
+def kort(t, n):
+    t = re.sub(r'\s+', ' ', str(t)).strip()
+    return t if len(t) <= n else t[:n - 1].rstrip() + '…'
 
 
 def cell(t):
@@ -243,17 +305,34 @@ def markdown(namn, poster, utan, idag, urval):
     rader += [f'- `{k}`: {v}' for k, v in FLAGGTEXT.items()]
     for i, p in enumerate(poster, 1):
         rader += ['', f'## {i}. `{p["id"]}`: {p["titel"]} ({ar_text(p["start"])}, {p["plats"] or "–"})', '']
+        info = []
         if p.get('wikidata'):
-            rader.append(f'Wikidata: [{p["wikidata"]}](https://www.wikidata.org/wiki/{p["wikidata"]}). '
-                         f'Kandidater hämtade {p.get("hamtad") or "–"}.')
-            rader.append('')
-        rader += ['| Nr | Fil | Källa | Licens | Upphov | Datum | Storlek | Flaggor |',
+            info.append(f'Wikidata: [{p["wikidata"]}](https://www.wikidata.org/wiki/{p["wikidata"]})')
+        info.append(f'Kandidater hämtade {p.get("hamtad") or "–"}')
+        if p.get('stil'):
+            info.append(f'Stil enligt data/styles.json: `{p["stil"]}`')
+        rader += ['. '.join(info) + '.', '']
+        rader += ['| Nr | Fil | Källa | Licens | Upphov | Datum (verk / fil) | Storlek | Flaggor |',
                   '| ---: | --- | --- | --- | --- | --- | --- | --- |']
         for j, k in enumerate(p['kandidater'], 1):
             storlek = f'{k.get("bredd")} × {k.get("hojd")}' if k.get('bredd') else '–'
+            datum = (f'{k.get("datum_original") or "–"} / {k.get("datum_fil") or "–"}' if ('datum_original' in k or 'datum_fil' in k)
+                     else f'{k.get("datum") or "–"} (verk eller fil)')
             rader.append(f'| {j} | [{cell(k["fil"])}]({k["filsida"]}) | {cell(k.get("kalla"))} | {cell(licens_cell(k))} | '
-                         f'{cell(k.get("upphovsperson"))} | {cell(k.get("datum"))} | {storlek} | '
+                         f'{cell(k.get("upphovsperson"))} | {cell(datum)} | {storlek} | '
                          f'{cell(", ".join(k["flaggor"]) or "–")} |')
+        for j, k in enumerate(p['kandidater'], 1):
+            delar = []
+            if k.get('beskrivning'):
+                delar.append('beskrivning: ' + kort(k['beskrivning'], 220))
+            if k.get('kategorier'):
+                delar.append('kategorier: ' + kort('; '.join(k['kategorier'][:6]), 220))
+            if k.get('samma_fil_som'):
+                delar.append('samma fil föreslås också för ' + ', '.join(f'`{i}`' for i in k['samma_fil_som']))
+            if (k.get('licens_strikt') or {}).get('risker'):
+                delar.append('licensrisk: ' + '; '.join(k['licens_strikt']['risker']))
+            if delar:
+                rader.append(f'- Nr {j}: ' + ' · '.join(delar))
         rader += ['', '- [ ] Vald (nr eller "ingen" med skäl): ', '- Motiv (bara det filsidan stöder): ']
     if utan:
         rader += ['', '## Utan användbar kandidat', '',
