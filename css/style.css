@@ -2105,7 +2105,7 @@ details.used-by summary:hover { color: var(--parchment); }
    Ramen följer händelsens tid och fungerar även utan bild. */
 .frame-grotta {
   --card-bg: radial-gradient(circle at 20% 15%, rgba(255,255,255,.05), transparent 40%), radial-gradient(circle at 80% 70%, rgba(0,0,0,.25), transparent 50%), var(--stone);
-  --card-line: var(--stone-edge); --card-accent: var(--ochre);
+  --card-line: var(--stone-edge); --card-accent: #d58c4e; /* läsbar även över stenens ljusa ton (#2153) */
   border-width: 3px; border-radius: 18px 8px 22px 10px;
 }
 .frame-egypten {
@@ -3415,4 +3415,28 @@ span.theme-event:hover { background: none; outline: none; }
   .app:not(.lesson):not(.touring):not(.focusing) { --ff-b: 130px; }
   .app:not(.lesson):not(.touring):not(.focusing):has(.pause-note:not([hidden])) { --ff-b: 192px; }
   .app:not(.lesson):not(.touring):not(.focusing) .detail-fig img { height: clamp(80px, 24vh, 180px); } /* faktarutan är 22 px lägre: bilden tar inte mer än hälften av den (#1310) */
+}
+
+/* Läsbar text i platskartan, skalraden och Lager → Fler val (#2153). */
+@media (max-width: 760px), (max-height: 480px) and (pointer: coarse) {
+  .timeline-scale-note,
+  .flat-region .flat-region-context, .flat-region:not(.globe-region-chip) .flat-region-tap,
+  .app.region-view .flat-region .flat-region-next, .app.region-view .flat-region .flat-region-legend,
+  #layer-menu :is(.layer-sect > summary, .layer-sect-count) { font-size: 12px; }
+}
+
+@media (max-height: 480px) and (orientation: landscape) and (pointer: coarse) {
+  .action-label, .extra-label, .teacher-h, .teacher-lesson-meta,
+  .ff-eyebrow, #layer-menu :is(.layer-heading, .layer-note, .layer-coverage, .layer-subheading, .view-chip-desc) { font-size: 12px; }
+  #extra-menu .chip-btn { min-width: 44px; min-height: 44px; box-sizing: border-box; }
+  /* Separata rader ger tryckytan utrymme mellan stegknapparna och reglaget. */
+  .app:not(.lesson):not(.touring):not(.focusing) #scale-switch .level-btn { height: 44px; border-radius: 12px; }
+}
+@media (min-width: 761px) and (max-width: 1100px) and (max-height: 480px) and (orientation: landscape) and (pointer: coarse) {
+  .app:not(.lesson):not(.touring):not(.focusing) :is(.funfact, .ff-tab) { bottom: 156px; }
+  .app:not(.lesson):not(.touring):not(.focusing) .detail-card { bottom: 148px; }
+}
+@media (max-width: 760px) and (max-height: 480px) and (orientation: landscape) and (pointer: coarse) {
+  .app:not(.lesson):not(.touring):not(.focusing) { --ff-b: 146px; }
+  .app:not(.lesson):not(.touring):not(.focusing):has(.pause-note:not([hidden])) { --ff-b: 208px; }
 }
