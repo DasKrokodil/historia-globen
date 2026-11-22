@@ -92,7 +92,14 @@ const { kor: KOR_BREDDER, medAvsnitt: MED_AVSNITT } = bredder(process.env.BREDD)
 const VIEWPORTS = ALLA_VIEWPORTS.filter(v => KOR_BREDDER.includes(v.name));
 
 fs.mkdirSync(OUT, { recursive: true });
+// context.close() kan hänga i WebKit (därför har varje finally en gräns på 10 s): stäng aldrig en sida utan gräns
+const stangSida = c => Promise.race([c.close().catch(() => {}), new Promise(r => setTimeout(r, 10000))]);
 const isFont = url => { try { return FONT_HOSTS.includes(new URL(url).hostname); } catch { return false; } };
+
+// Kontroller som öppnar förslagsformuläret ska fungera utan Cloudflare Turnstile.
+function stubbaTurnstile() {
+  window.turnstile = { render: (el, o) => { o.callback('test-token'); return 1; }, reset() {} };
+}
 
 // Körs i sidan: jämför den platta kartans pixlar (#flat-canvas) med en sparad bild.
 // Används för att se att ett lager faktiskt ritar något: lagret av → spara → lagret på → räkna ändrade pixlar.
@@ -292,6 +299,7 @@ async function run(browser, vp) {
     if (!wanted(name)) { skipped++; return; }
     if (!ALLTID.includes(name)) matched++;
     currentCheck = name;
+    console.log(`  … ${name}`); // en rad när kontrollen börjar: ett hängande jobb visar då vilken kontroll det stod i (#2171)
     abortedFiltered = 0;
     kontrollensBevakningar.length = 0;
     const t0 = Date.now();
@@ -302,6 +310,7 @@ async function run(browser, vp) {
       if (kvar.length) throw new Error(`sidfel: ${kvar.join('; ')}`);
       const filtered = abortedFiltered ? `${abortedFiltered} avbrutna hämtningar under sidbyte bortfiltrerade (#1393)` : null;
       results.push({ name, ok: true, ms: Date.now() - t0, note: [note, filtered].filter(Boolean).join(' · ') || undefined });
+      console.log(`  ✓ ${name} (${((Date.now() - t0) / 1000).toFixed(1)} s)`); // resultatet direkt, så att ett avbrutet jobb ändå visar vad som gick igenom (#2171)
     } catch (e) {
       // Läget i sidan när kontrollen föll (#702): vilket element som har fokus och vilka paneler som är öppna
       const state = await page.evaluate(ids => {
@@ -312,6 +321,7 @@ async function run(browser, vp) {
         return `läge: år ${document.getElementById('year-big')?.textContent.trim()}, fokus ${focus}, öppna: ${open.join(' ') || 'inga'}${menu}`;
       }, ['jump-pop', 'help', 'layer-menu', 'focus-menu', 'empire-legend', 'detail', 'panel', 'sources-dialog', 'search-pop', 'flat-view', 'tour-card']).catch(() => '');
       results.push({ name, ok: false, ms: Date.now() - t0, note: [failNote(e), state].filter(Boolean).join(' · ') });
+      console.log(`  ✗ ${name}: ${results.at(-1).note}`);
       await shot(`FEL-${name.replace(/[^a-zåäö0-9]+/gi, '-')}`).catch(() => {});
       await page.keyboard.press('Escape').catch(() => {});
     }
@@ -701,7 +711,17 @@ async function run(browser, vp) {
       if (off.year !== '1066') throw new Error(`Avsluta behöll inte året: ${off.year}`);
       // Ingen ny väg in i smal skärm (#1457): även ett klick som kommer sent, efter att fönstret blivit smalt, slår inte på läget
       const full = pp.viewportSize();
+      // Sidans egen mediefråga skapades vid start och WebKit uppdaterar den först när webbläsaren rapporterar ändringen (en ny
+      // MediaQueryList svarar redan rätt, den gamla inte). Därför skapas en lyssnare före storleksbytet, och klicket väntar på att
+      // webbläsaren har rapporterat ändringen: då har även sidans instans fått det nya värdet.
+      await pp.evaluate(() => {
+        const mql = matchMedia('(max-width: 760px)');
+        window.__smalRapporterad = mql.matches ? Promise.resolve() : new Promise(klar => mql.addEventListener('change', () => mql.matches && klar()));
+        window.__smalMql = mql; // hålls levande så att lyssnaren inte städas bort
+      });
       await pp.setViewportSize({ width: 400, height: 800 });
+      await pp.evaluate(() => Promise.race([window.__smalRapporterad, new Promise((_, avvisa) => setTimeout(() => avvisa(new Error('mediefrågan för smal bredd rapporterades aldrig')), 10000))]));
+      await pp.evaluate(() => new Promise(klar => requestAnimationFrame(() => requestAnimationFrame(klar))));
       await pp.evaluate(() => document.getElementById('teacher-presentation').click());
       const late = await pp.evaluate(() => ({ on: document.getElementById('app').classList.contains('presentation-mode'), param: new URL(location.href).searchParams.has('presentation') }));
       await pp.setViewportSize(full);
@@ -2526,12 +2546,12 @@ async function run(browser, vp) {
     }
   });
 
-  // #1785: murens linje i turen. Filen ska läsas (200), kortet ska bära linjens fil och inga sidfel får uppstå, och steget efter ska ta bort linjen
+  // #1785: murens linje i turen. Filen ska läsas (200, eller 304 när webbläsaren har den i cachen och frågar om den är oförändrad), kortet ska bära linjens fil och inga sidfel får uppstå, och steget efter ska ta bort linjen
   await check('turkortet: Mingmuren ritas som linje i steget Kinesiska muren och tas bort i nästa steg (#1785)', async () => {
     const lp = await context.newPage();
     const errs = [], bad = [];
     lp.on('pageerror', e => errs.push(e.message));
-    lp.on('response', r => { if (/data\/turer\/linjer\//.test(r.url()) && !r.ok()) bad.push(`${r.status()} ${r.url()}`); });
+    lp.on('response', r => { if (/data\/turer\/linjer\//.test(r.url()) && !r.ok() && r.status() !== 304) bad.push(`${r.status()} ${r.url()}`); });
     try {
       if (THREE_LOCAL) {
         const body = fs.readFileSync(THREE_LOCAL, 'utf8');
@@ -2542,8 +2562,9 @@ async function run(browser, vp) {
       await lp.goto(`${BASE}?ny=1785#t=det-har-har-du-hort&s=kinesiska-muren`);
       await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       const resp = await got;
-      if (!resp.ok()) throw new Error(`linjefilen gav ${resp.status()}`);
-      const data = await resp.json();
+      // Firefox kan fråga om filen är oförändrad (304) när en tidigare sida i samma körning har hämtat den: då finns den i cachen, och sidan får den därifrån
+      if (!resp.ok() && resp.status() !== 304) throw new Error(`linjefilen gav ${resp.status()}`);
+      const data = resp.status() === 304 ? await lp.evaluate(url => fetch(url).then(r => r.json()), resp.url()) : await resp.json();
       if (!data.lines?.length) throw new Error('linjefilen saknar linjer');
       const file = await lp.evaluate(() => document.getElementById('tour-card').dataset.line);
       if (file !== 'data/turer/linjer/muren-ming.json') throw new Error(`kortet bär linjen "${file}"`);
@@ -2723,6 +2744,9 @@ async function run(browser, vp) {
       await lp.waitForSelector('#tour-endcard:not([hidden])', { timeout: T.step });
       await lp.click('#tour-next');
       await lp.waitForSelector('#tour-card', { state: 'hidden', timeout: T.step });
+      // Adressen skrivs av en avläsning med fast takt (POLL_MS i js/controllers/address.js), inte i samma bildruta som kortet stängs:
+      // vänta in att turen försvunnit ur adressen innan den läses, så att kravet (ingen t= efter Stäng) prövas på riktigt (WebKit, #2171)
+      await lp.waitForFunction(() => !/t=/.test(location.hash), null, { timeout: T.step }).catch(() => {});
       const after = await lp.evaluate(() => ({ touring: document.getElementById('app').classList.contains('touring'), ending: document.getElementById('tour-card').classList.contains('is-ending'), notice: !!document.getElementById('link-notice-card') && document.getElementById('link-notice-card').getClientRects().length > 0, hash: location.hash }));
       if (after.touring || after.ending || after.notice || /t=/.test(after.hash)) throw new Error(`efter Stäng: touring ${after.touring}, slutkort ${after.ending}, rad ${after.notice}, adress ${after.hash}`);
       if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
@@ -3155,6 +3179,7 @@ async function run(browser, vp) {
         await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
         await lp.route(u => isFont(u.href), r => r.abort());
       }
+      await lp.addInitScript(stubbaTurnstile);
       await lp.goto(`${BASE}?ny=1575`);
       await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       if (await lp.isVisible('#more-toggle')) await lp.click('#more-toggle'); else await lp.click('#btn-more');
@@ -3229,6 +3254,7 @@ async function run(browser, vp) {
           Object.defineProperty(navigator, 'share', { value: undefined, configurable: true });
           Object.defineProperty(navigator, 'clipboard', { value: { writeText: async text => window.__shared.push(text) }, configurable: true });
         });
+        await tp.addInitScript(stubbaTurnstile);
         await tp.goto(`${BASE}?ny=1712-${size.width}`);
         await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
         const open = async () => {
@@ -3375,7 +3401,7 @@ async function run(browser, vp) {
         await lp.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
         await lp.route(u => isFont(u.href), r => r.abort());
       }
-      await lp.addInitScript(() => { window.turnstile = { render: (el, o) => { o.callback('test-token'); return 1; }, reset() {} }; });
+      await lp.addInitScript(stubbaTurnstile);
       await lp.route('**/api/feedback', r => r.fulfill({ status: 503, contentType: 'application/json', body: JSON.stringify({ ok: false, error: 'disabled' }) }));
       await lp.goto(`${BASE}?ny=1581`);
       await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
@@ -3696,11 +3722,6 @@ async function run(browser, vp) {
     const lp = await context.newPage();
     const errs = [];
     lp.on('pageerror', e => errs.push(e.message));
-    const farg = str => { // "rgb(r, g, b)", "rgba(…)" och Chromes "color(srgb r g b / a)" → { rgb, a }
-      const n = (str.match(/-?[\d.]+/g) ?? []).map(Number);
-      const unit = /^color\(/.test(str) ? 255 : 1;
-      return { rgb: n.slice(0, 3).map(v => v * unit), a: n.length > 3 ? n[3] : 1 };
-    };
     try {
       if (THREE_LOCAL) {
         const body = fs.readFileSync(THREE_LOCAL, 'utf8');
@@ -3723,7 +3744,16 @@ async function run(browser, vp) {
       const m = await lp.evaluate(() => {
         const cs = el => getComputedStyle(el);
         // Närmaste ogenomskinliga bakgrund, med genomskinliga lager lagda ovanpå varandra (uppifrån och ner)
-        const lager = el => { const r = []; for (let e = el; e; e = e.parentElement) { const b = cs(e).backgroundColor; if (b && b !== 'rgba(0, 0, 0, 0)' && b !== 'transparent') { r.push(b); if (!/rgba\([^)]*,\s*0?\.\d+\)/.test(b)) break; } } return r.reverse(); };
+        const lager = el => {
+          const r = [];
+          for (let e = el; e; e = e.parentElement) {
+            const b = cs(e).backgroundColor;
+            if (!b || b === 'rgba(0, 0, 0, 0)' || b === 'transparent') continue;
+            r.push(b);
+            if (!b.startsWith('rgba(') && !b.includes('/')) break;
+          }
+          return r.reverse();
+        };
         const info = (sel, what) => { const el = typeof sel === 'string' ? document.querySelector(sel) : sel; if (!el) return { what, saknas: true }; const s = cs(el), r = el.getBoundingClientRect();
           return { what, color: s.color, bg: lager(el), border: s.borderTopColor, borderStyle: s.borderTopStyle, size: parseFloat(s.fontSize), w: r.width, h: r.height, opacity: parseFloat(s.opacity) }; };
         const panel = document.getElementById('panel'), ps = cs(panel);
@@ -3731,7 +3761,7 @@ async function run(browser, vp) {
         const tab = document.querySelector('#panel .panel-tab[aria-selected="true"]'), tab2 = document.querySelector('#panel .panel-tab[aria-selected="false"]');
         const on = [...document.querySelectorAll('#panel-filters .filter[aria-pressed="true"]')][0], off = document.querySelector('#panel-filters .filter[aria-pressed="false"]');
         const dot = document.querySelector('#panel .event-btn .dot');
-        return {
+        const mått = {
           panel: { bg: ps.backgroundColor, border: ps.borderTopColor, width: ps.borderTopWidth, shadow: ps.boxShadow },
           funfact: fs2 ? { bg: fs2.backgroundColor, display: fs2.display } : null,
           rader: [info('#panel .panel-head h2', 'rubrik'), info('#panel .panel-sub', 'underrubrik'), info('#panel .panel-tag-note', 'urvalsrad'), info('#panel .panel-tag-note .link-btn', 'länk'),
@@ -3742,7 +3772,36 @@ async function run(browser, vp) {
           tabs: [...document.querySelectorAll('#panel .panel-tab')].filter(f => f.getBoundingClientRect().height > 0).map(f => { const r = f.getBoundingClientRect(); return { h: r.height, after: parseFloat(getComputedStyle(f, '::after').height) || 0 }; }),
           rows: [...document.querySelectorAll('#panel .event-btn')].map(f => f.getBoundingClientRect().height).filter(h => h > 0), // de i dolda världsdelar har ingen höjd
         };
+        // WebKit kan lämna en övergångsfärg i Oklab. Låt webbläsaren konvertera till sRGB med alfakanalen kvar.
+        const färger = [mått.panel.bg, mått.panel.border, mått.funfact?.bg, mått.dot?.outline,
+          ...mått.rader.filter(r => !r.saknas).flatMap(r => [r.color, r.border, ...r.bg])];
+        const oklab = [...new Set(färger.filter(färg => färg?.startsWith('oklab(')))];
+        const srgb = {};
+        if (oklab.length) {
+          const prov = document.createElement('span');
+          prov.hidden = true;
+          document.body.append(prov);
+          try {
+            for (const färg of oklab) {
+              prov.style.color = '';
+              prov.style.color = `color(from ${färg} srgb r g b / alpha)`;
+              if (!prov.style.color) throw new Error(`kan inte omvandla färgen ${färg} till sRGB`);
+              srgb[färg] = cs(prov).color;
+            }
+          } finally { prov.remove(); }
+        }
+        return { ...mått, srgb };
       });
+      const chipAv = m.rader.find(r => r.what === 'chip av');
+      console.log(`  #1317 chip av (${BROWSER}, ${smal ? 'mobil' : 'dator'}): ${JSON.stringify({ color: chipAv.color, lager: chipAv.bg, opacity: chipAv.opacity, srgb: m.srgb })}`);
+      const farg = rå => {
+        const str = m.srgb[rå] ?? rå;
+        if (!/^(?:rgba?\(|color\(srgb )/.test(str)) throw new Error(`okänt färgformat: ${rå}`);
+        const n = (str.match(/-?(?:\d*\.)?\d+(?:e[+-]?\d+)?/gi) ?? []).map(Number);
+        if (n.length !== 3 && n.length !== 4) throw new Error(`kan inte läsa färgvärdet: ${rå}`);
+        const enhet = str.startsWith('color(') ? 255 : 1;
+        return { rgb: n.slice(0, 3).map(v => v * enhet), a: n[3] ?? 1 };
+      };
       const lum = c => { const [r, g, b] = c.map(v => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }); return 0.2126 * r + 0.7152 * g + 0.0722 * b; };
       const kontrastPar = (a, b) => { const [x, y] = [lum(a), lum(b)]; return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
       const bottna = lager => lager.reduce((under, l) => { const c = farg(l); return blanda(c.rgb, under, c.a); }, [0, 0, 0]);
@@ -3758,6 +3817,7 @@ async function run(browser, vp) {
         const under = bottna(r.bg.length ? r.bg : [m.panel.bg]);
         const text = farg(r.color), skrift = blanda(text.rgb, under, text.a * (r.what === 'chip av' ? r.opacity : 1));
         const kr = kontrastPar(skrift.map(Math.round), under.map(Math.round));
+        if (r.what === 'chip av') chipAv.kontrast = kr;
         if (kr < 4.5) fel.push(`${r.what}: text ${kr.toFixed(2)}:1`);
         if (['filterknapp', 'chip på', 'chip av', 'stäng', 'flik', 'vald flik'].includes(r.what)) {
           const rb = farg(r.border), kb = kontrastPar(blanda(rb.rgb, under, rb.a).map(Math.round), under.map(Math.round));
@@ -3779,7 +3839,7 @@ async function run(browser, vp) {
       for (const tb of m.tabs) { if (Math.max(tb.h, tb.after) < (smal ? 44 : 24)) throw new Error(`en flik har ${tb.h.toFixed(1)} px yta`); }
       for (const h of m.rows) if (h < 44) throw new Error(`en händelserad är ${h.toFixed(1)} px hög (minst 44)`);
       if (errs.length) throw new Error(`sidfel: ${errs.join('; ')}`);
-      return `ram guld ${m.panel.width}, bakgrund pergament, ${m.rader.filter(r => !r.saknas).length} textrader ≥ 4,5:1, ${m.chips.length} chips ≥ 12 px och 24 px höga, pricken har mörk botten`;
+      return `ram guld ${m.panel.width}, bakgrund pergament, ${m.rader.filter(r => !r.saknas).length} textrader ≥ 4,5:1 (chip av ${chipAv.kontrast.toFixed(2)}:1), ${m.chips.length} chips ≥ 12 px och 24 px höga, pricken har mörk botten`;
     } finally {
       await lp.close();
     }
@@ -4668,7 +4728,8 @@ async function run(browser, vp) {
         const r = document.getElementById('flat-canvas').getBoundingClientRect(), base = Math.max(r.width / 4096, r.height / 2048), scale = base * zoom;
         return { lat, lon, zoom, halfLon: r.width / 2 / scale / 4096 * 360, halfLat: r.height / 2 / scale / 2048 * 180 };
       });
-      await tp.waitForFunction(() => Number(document.getElementById('flat-view').dataset.view.split(',')[2]) > 1.2, null, { timeout: T.step });
+      // data-view skrivs först när kartan har ritats; i Firefox saknas den en stund, och väntan ska då fortsätta i stället för att kasta (#2171)
+      await tp.waitForFunction(() => Number((document.getElementById('flat-view').dataset.view ?? '').split(',')[2]) > 1.2, null, { timeout: T.step });
       const f = await frame();
       // Hela Sverige (11° Ö–24° Ö, 55° N–69° N) ryms i kartans ruta
       if (f.lon - f.halfLon > 11 || f.lon + f.halfLon < 24 || f.lat - f.halfLat > 55 || f.lat + f.halfLat < 69) throw new Error(`Sverige ryms inte i kartan: mitt ${f.lat},${f.lon}, halva ${f.halfLat}×${f.halfLon} grader`);
@@ -5015,6 +5076,7 @@ async function run(browser, vp) {
     const tapAt = (pg, kind, x, y) => (kind === 'mus' ? pg.mouse.click(x, y) : pg.touchscreen.tap(x, y));
     try {
       for (const [i, sc] of scenarios.entries()) {
+        if (contexts.length) await stangSida(contexts.at(-1)); // en sida i taget: föregående stängs först, annars står femton WebGL-sidor öppna samtidigt i WebKit (#2171)
         const pg = await touchPage({ width: sc.width, height: sc.height }, { isMobile: sc.width <= 760 || sc.height <= 480 });
         const tp = pg.tp;
         contexts.push(pg.tctx);
@@ -5855,13 +5917,14 @@ async function run(browser, vp) {
       await pg.tp.waitForTimeout(600);
       return pg;
     };
+    const stang = stangSida;
     const button = async tp => ({ text: (await tp.textContent('#detail [data-selection-action]')).trim(), label: await tp.getAttribute('#detail [data-selection-action]', 'aria-label') });
     const regionShown = tp => tp.evaluate(() => { const c = document.getElementById('flat-region'); return !c.hidden && c.getClientRects().length > 0; });
     try {
       // 1. Fyra storlekar: texten före trycket och vad trycket ger
       for (const [width, height, room] of [[800, 360, true], [640, 360, true], [600, 375, true], [520, 375, false], [400, 800, true], [1280, 800, true]]) {
         const name = `${width} × ${height}`;
-        const { tp } = await open(width, height, '#y=1827&f=place:skane', { isMobile: width <= 760 || height <= 400 });
+        const { tp, tctx } = await open(width, height, '#y=1827&f=place:skane', { isMobile: width <= 760 || height <= 400 });
         const b = await button(tp);
         if (b.text !== MAP) throw new Error(`${name}: knappen heter "${b.text}", men regionvyn ${room ? 'ryms' : 'ryms inte'} och den ska heta "${MAP}"`);
         if (!b.label.startsWith(b.text) || !/Skåne/.test(b.label)) throw new Error(`${name}: knappens namn för skärmläsare är "${b.label}"`);
@@ -5879,15 +5942,18 @@ async function run(browser, vp) {
         const shown = await regionShown(tp);
         if (shown !== room) throw new Error(`${name}: knappen hette "${b.text}" men ${shown ? 'regionvyn öppnades' : 'regionvyn öppnades inte (Platt karta)'}`);
         out.push(`${name}: ${room ? 'regionvy' : 'Platt karta'}`);
+        await stang(tctx); // en globe med WebGL per storlek ska inte stå kvar öppen när nästa startar
       }
       // 2. Sverige får aldrig regionvyn och Grönland alltid (regionvyn på globen), också på en låg skärm
       {
-        const { tp } = await open(1280, 800, '#y=1827&f=place:sverige');
-        const b = await button(tp);
+        const sv = await open(1280, 800, '#y=1827&f=place:sverige');
+        const b = await button(sv.tp);
         if (b.text !== MAP) throw new Error(`Sverige: knappen heter "${b.text}"`);
+        await stang(sv.tctx);
         const g = await open(800, 360, '#y=1721&f=place:gronland', { isMobile: true });
         const gb = await button(g.tp);
         if (gb.text !== MAP) throw new Error(`Grönland vid 800 × 360: knappen heter "${gb.text}"`);
+        await stang(g.tctx);
       }
       // 3. Fönstret ändrar storlek med kortet öppet (utan isMobile: setViewportSize på en sida med isMobile blev aldrig klar i Firefox, #1667)
       {
@@ -5981,6 +6047,7 @@ async function run(browser, vp) {
     try {
       for (const [i, sc] of scenarios.entries()) {
         const { name, width, height, id, hash, globe } = sc;
+        if (contexts.length) await stangSida(contexts.at(-1)); // en sida i taget: föregående stängs först, annars står femton WebGL-sidor öppna samtidigt i WebKit (#2171)
         const pg = await touchPage({ width, height }, { isMobile: true });
         const tp = pg.tp;
         contexts.push(pg.tctx);
@@ -6114,6 +6181,7 @@ async function run(browser, vp) {
         const { width, height, id, hash, globe, lang } = sc;
         const name = `${globe ? 'glob' : 'Platt karta'} ${width} × ${height} ${lang}`;
         const text = textOf(lang);
+        if (contexts.length) await stangSida(contexts.at(-1)); // en sida i taget: föregående stängs först, annars står femton WebGL-sidor öppna samtidigt i WebKit (#2171)
         const pg = await touchPage({ width, height }, { isMobile: true });
         const tp = pg.tp;
         contexts.push(pg.tctx);
@@ -7500,7 +7568,8 @@ async function run(browser, vp) {
         await pp.click('#btn-panel');
         const knapp = pp.locator('.event-btn[data-id="nya-lagarna-1542"]');
         if (!(await knapp.count())) throw new Error('händelsen nya-lagarna-1542 (bild och lång text) finns inte i listan: byt till en annan med bild och lång text');
-        await knapp.first().scrollIntoViewIfNeeded();
+        // click() rullar själv fram knappen och försöker om när listan ritas om; ett eget scrollIntoViewIfNeeded före klicket föll i WebKit med
+        // "Element is not attached to the DOM" när listan ritades om under väntan på att knappen skulle stå still (#2171)
         await knapp.first().click();
         await pp.waitForSelector('#detail:not([hidden])', { timeout: T.step });
         await pp.waitForSelector('#detail .detail-fig img', { state: yta.width <= 760 ? 'attached' : 'visible', timeout: T.step });
@@ -11697,6 +11766,17 @@ async function run(browser, vp) {
         });
         if (!task.free || task.bottom > task.rootBottom || task.top < 0) throw new Error(`uppdragstexten är täckt eller klippt: ${JSON.stringify(task)}`);
       };
+      // #hunt-close gick inte att klicka i Firefox och WebKit efter omladdningen (Chromium: går): felet säger vad som hindrade (#2171)
+      const stangJakten = () => lp.click('#hunt-close', { timeout: T.step }).catch(async e => {
+        const d = await lp.evaluate(() => {
+          const el = document.getElementById('hunt-close');
+          if (!el) return { finns: false };
+          const r = el.getBoundingClientRect(), cs = getComputedStyle(el), top = document.elementFromPoint(r.left + r.width / 2, r.top + r.height / 2);
+          return { finns: true, dold: el.hidden || !!el.closest('[hidden]'), display: cs.display, visibility: cs.visibility, pointer: cs.pointerEvents, ruta: [Math.round(r.left), Math.round(r.top), Math.round(r.width), Math.round(r.height)],
+            fonster: [innerWidth, innerHeight], ovanpa: top ? `${top.id || top.className || top.tagName}` : 'inget' };
+        }).catch(() => ({ finns: 'okänt' }));
+        throw new Error(`#hunt-close gick inte att klicka: ${JSON.stringify(d)} (${String(e.message).split('\n')[0]})`);
+      });
       await startHunt();
       // Eleven kan välja en samtida händelse, inte bara se uppdraget.
       if (await lp.isHidden('#panel')) await lp.click('#btn-panel');
@@ -11711,7 +11791,7 @@ async function run(browser, vp) {
       await lp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
       await lp.waitForSelector('#hunt', { state: 'visible', timeout: T.step });
       if (await lp.isVisible('#tour-card') || await lp.isVisible('#detail')) throw new Error('slutkort eller faktaruta kom tillbaka vid omladdning');
-      await lp.click('#hunt-close');
+      await stangJakten();
       await lp.waitForSelector('#hunt', { state: 'hidden', timeout: T.step });
       await lp.waitForSelector('#tour-lesson-end', { state: 'visible', timeout: T.step });
       if ((await lp.textContent('#year-big')).trim() !== '1000') throw new Error('året flyttades när jakten avslutades');
@@ -12919,6 +12999,9 @@ async function run(browser, vp) {
       }
       await wp.goto(`${BASE}?lang=sv&ny=k1089#y=-49999`); // i reglaget Före 3000 f.Kr.: Home och End går till ändarna av reglaget som syns (#1958)
       await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      // Reglaget står en stund på startåret innan länkens år läses (som i #1725): vänta på länkens år, och sätt fokus först sedan, så att
+      // Home inte trycks före tangentbordslyssnaren eller på ett reglage som ritas om (WebKit, #2171)
+      await wp.waitForFunction(() => /50 000 f\.Kr\./.test(document.getElementById('track').getAttribute('aria-valuetext').replace(/\s+/g, ' ')), null, { timeout: T.step });
       await wp.focus('#track');
       const vt = () => wp.getAttribute('#track', 'aria-valuetext').then(v => v.replace(/\s+/g, ' '));
       const press = async (key, want) => {
