@@ -12988,6 +12988,9 @@ async function run(browser, vp) {
       }
       await wp.goto(`${BASE}?lang=sv&ny=k1089#y=-49999`); // i reglaget Före 3000 f.Kr.: Home och End går till ändarna av reglaget som syns (#1958)
       await wp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      // Reglaget står en stund på startåret innan länkens år läses (som i #1725): vänta på länkens år, och sätt fokus först sedan, så att
+      // Home inte trycks före tangentbordslyssnaren eller på ett reglage som ritas om (WebKit, #2171)
+      await wp.waitForFunction(() => /50 000 f\.Kr\./.test(document.getElementById('track').getAttribute('aria-valuetext').replace(/\s+/g, ' ')), null, { timeout: T.step });
       await wp.focus('#track');
       const vt = () => wp.getAttribute('#track', 'aria-valuetext').then(v => v.replace(/\s+/g, ' '));
       const press = async (key, want) => {
