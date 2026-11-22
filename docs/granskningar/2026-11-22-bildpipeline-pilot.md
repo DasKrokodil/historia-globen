@@ -119,7 +119,7 @@
 | Historikern för #2187 | cirka 0,26 miljoner |
 | Historikern för #2191 | cirka 0,22 miljoner |
 | Den samlade språkgranskningen, alla fyra | cirka 0,20 miljoner |
-| Varje expertgranskning av de känsliga bilderna | cirka 0,12–0,14 miljoner |
+| Varje expertgranskning av de känsliga bilderna | cirka 0,12–0,16 miljoner |
 
 Granskningen är alltså ungefär en tiondel av byggarnas kostnad.
 
