@@ -18,6 +18,21 @@
       }
     },
     {
+      "eventId": "afrikanska-frihandelsomradet",
+      "eventTitle": "Afrikanska frihandelsområdet AfCFTA grundas",
+      "file": "images/events/afrikanska-frihandelsomradet.webp",
+      "kind": "historisk",
+      "credit": "Themightyquill, Curiouskiwicat m.fl. / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-afrikanska-frihandelsomradet",
+        "title": "AfricanContinentalFreeTradeArea – modern karta, Themightyquill och Curiouskiwicat (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:AfricanContinentalFreeTradeArea.svg",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "agadez-mosken",
       "eventTitle": "Moskén i Agadez byggs",
       "file": "images/events/agadez-mosken.webp",
@@ -57,16 +72,16 @@
       "source": null
     },
     {
-      "eventId": "alexandria-grundas",
-      "eventTitle": "Alexandria grundas",
-      "file": "images/events/alexandria-grundas.webp",
+      "eventId": "al-qarawiyyin-grundas",
+      "eventTitle": "Al-Qarawiyyin grundas i Fès",
+      "file": "images/events/al-qarawiyyin-grundas.webp",
       "kind": "historisk",
-      "credit": "ASaber91 / Wikimedia Commons",
+      "credit": "Abdel Hassouni / Wikimedia Commons",
       "license": "CC BY-SA 4.0",
       "source": {
-        "id": "commons-bild-alexandria-grundas",
-        "title": "AlexandriaSkyline – ASaber91 (Wikimedia Commons, filsida)",
-        "url": "https://commons.wikimedia.org/wiki/File:AlexandriaSkyline.jpg",
+        "id": "commons-bild-al-qarawiyyin-grundas",
+        "title": "University of Al Qaraouiyine – Abdel Hassouni, nutida foto 2015 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:University_of_Al_Qaraouiyine.jpg",
         "license": "CC BY-SA 4.0",
         "checked": "2026-11-22"
       }
@@ -84,6 +99,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Althingi.jpg",
         "license": "Public domain",
         "checked": "2026-11-13"
+      }
+    },
+    {
+      "eventId": "amazigher-befolkar-kanarieoarna",
+      "eventTitle": "Amazigher från Nordafrika slår sig ner på Kanarieöarna",
+      "file": "images/events/amazigher-befolkar-kanarieoarna.webp",
+      "kind": "historisk",
+      "credit": "H. Zell / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-amazigher-befolkar-kanarieoarna",
+        "title": "Almogarén - Archaeological area of Cuatro Puertas – H. Zell, nutida foto 2016 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Almogar%C3%A9n_-_Archaeological_area_of_Cuatro_Puertas.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -114,6 +144,21 @@
         "url": "https://www.loc.gov/item/2018667050/",
         "license": "No known restrictions on publication",
         "checked": "2026-11-20"
+      }
+    },
+    {
+      "eventId": "andra-kongokriget",
+      "eventTitle": "Andra Kongokriget",
+      "file": "images/events/andra-kongokriget.webp",
+      "kind": "historisk",
+      "credit": "L. Rose / USAID via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-andra-kongokriget",
+        "title": "DRC- Child Soldiers – L. Rose, USAID (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:DRC-_Child_Soldiers.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -343,21 +388,6 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-29",
       "license": "CC BY 4.0",
       "source": null
-    },
-    {
-      "eventId": "bantuexpansionen",
-      "eventTitle": "Bantuexpansionen",
-      "file": "images/events/bantuexpansionen.webp",
-      "kind": "historisk",
-      "credit": "Kimdime, Ulamm och Monsieur Fou / Wikimedia Commons",
-      "license": "CC BY-SA 3.0",
-      "source": {
-        "id": "commons-bild-bantuexpansionen",
-        "title": "Niger-Congo map with delimitation (Wikimedia Commons, filsida)",
-        "url": "https://commons.wikimedia.org/wiki/File:Niger-Congo_map_with_delimitation.png",
-        "license": "CC BY-SA 3.0",
-        "checked": "2026-11-22"
-      }
     },
     {
       "eventId": "bartolomeu-dias-rundar-afrika",
@@ -669,21 +699,6 @@
       }
     },
     {
-      "eventId": "brottare-i-beni-hasan",
-      "eventTitle": "Brottarna i Baqet III:s grav i Beni Hasan",
-      "file": "images/events/brottare-i-beni-hasan.webp",
-      "kind": "historisk",
-      "credit": "Okänd tecknare / Wikimedia Commons",
-      "license": "Public domain",
-      "source": {
-        "id": "commons-bild-brottare-i-beni-hasan",
-        "title": "Egyptmotionseries (Wikimedia Commons, filsida)",
-        "url": "https://commons.wikimedia.org/wiki/File:Egyptmotionseries.jpg",
-        "license": "Public domain",
-        "checked": "2026-11-22"
-      }
-    },
-    {
       "eventId": "buddha",
       "eventTitle": "Buddha grundar buddhismen",
       "file": "images/events/buddha.webp",
@@ -942,21 +957,6 @@
       }
     },
     {
-      "eventId": "den-grona-sahara",
-      "eventTitle": "Den gröna Sahara",
-      "file": "images/events/den-grona-sahara.webp",
-      "kind": "historisk",
-      "credit": "Merikanto / Wikimedia Commons",
-      "license": "CC BY 4.0",
-      "source": {
-        "id": "commons-bild-den-grona-sahara",
-        "title": "Npp green sahara simulation 1 – Merikanto (Wikimedia Commons, filsida)",
-        "url": "https://commons.wikimedia.org/wiki/File:Npp_green_sahara_simulation_1.png",
-        "license": "CC BY 4.0",
-        "checked": "2026-11-22"
-      }
-    },
-    {
       "eventId": "diamanterna-i-kimberley",
       "eventTitle": "Diamantruschen i Kimberley",
       "file": "images/events/diamanterna-i-kimberley.webp",
@@ -1041,6 +1041,36 @@
       }
     },
     {
+      "eventId": "ebola-upptacks-i-yambuku",
+      "eventTitle": "Ebola upptäcks i Yambuku",
+      "file": "images/events/ebola-upptacks-i-yambuku.webp",
+      "kind": "historisk",
+      "credit": "Frederick A. Murphy / CDC via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-ebola-upptacks-i-yambuku",
+        "title": "Ebola virus em – Frederick A. Murphy, CDC, 1976 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ebola_virus_em.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "ebolaepidemin-i-vastafrika",
+      "eventTitle": "Ebolaepidemin i Västafrika",
+      "file": "images/events/ebolaepidemin-i-vastafrika.webp",
+      "kind": "historisk",
+      "credit": "CDC Global / Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-ebolaepidemin-i-vastafrika",
+        "title": "Checking for fever – CDC Global, 16 september 2014 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Checking_for_fever.jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "edwin-smith-papyrusen",
       "eventTitle": "Edwin Smith-papyrusen, den äldsta kända kirurgiska texten",
       "file": "images/events/edwin-smith-papyrusen.webp",
@@ -1083,6 +1113,21 @@
         "url": "https://www.loc.gov/pictures/item/2022635976/",
         "license": "No known restrictions on publication",
         "checked": "2026-10-29"
+      }
+    },
+    {
+      "eventId": "elefantfaglarna-dor-ut",
+      "eventTitle": "Elefantfåglarna dör ut på Madagaskar",
+      "file": "images/events/elefantfaglarna-dor-ut.webp",
+      "kind": "historisk",
+      "credit": "Marie-Lan Taÿ Pamart / Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "source": {
+        "id": "commons-bild-elefantfaglarna-dor-ut",
+        "title": "Aepyornis maximus eggs Zoothèque MNHN – Marie-Lan Taÿ Pamart, foto 2020 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Aepyornis_maximus_eggs_Zooth%C3%A8que_MNHN.jpg",
+        "license": "CC BY 4.0",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -1138,6 +1183,21 @@
       "credit": "AI-genererad med ChatGPT, 2026-10-30",
       "license": "CC BY 4.0",
       "source": null
+    },
+    {
+      "eventId": "festac-77",
+      "eventTitle": "Festac ’77, den stora afrikanska kulturfestivalen i Lagos",
+      "file": "images/events/festac-77.webp",
+      "kind": "historisk",
+      "credit": "Helinä Rautavaara / Helinä Rautavaaran museo via Wikimedia Commons",
+      "license": "CC BY 2.0",
+      "source": {
+        "id": "commons-bild-festac-77",
+        "title": "Festac '77 Regatta – Helinä Rautavaara, 1977 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Festac_%2777_Regatta_(22361732555).jpg",
+        "license": "CC BY 2.0",
+        "checked": "2026-11-22"
+      }
     },
     {
       "eventId": "finanskrisen-2008",
@@ -1290,6 +1350,21 @@
       }
     },
     {
+      "eventId": "fotbolls-vm-2010",
+      "eventTitle": "Fotbolls-VM i Sydafrika",
+      "file": "images/events/fotbolls-vm-2010.webp",
+      "kind": "historisk",
+      "credit": "Anthony Stanley / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": {
+        "id": "commons-bild-fotbolls-vm-2010",
+        "title": "FIFA World Cup 2010 Spain with cup – Anthony Stanley (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:FIFA_World_Cup_2010_Spain_with_cup.jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "frankrikes-fall",
       "eventTitle": "Frankrikes fall",
       "file": "images/events/frankrikes-fall.webp",
@@ -1425,17 +1500,17 @@
       }
     },
     {
-      "eventId": "garamanterna-i-fezzan",
-      "eventTitle": "Garamanternas rike i Sahara",
-      "file": "images/events/garamanterna-i-fezzan.webp",
+      "eventId": "gao-saney-handelsstad",
+      "eventTitle": "Handelsstaden Gao-Saney vid Nigerfloden",
+      "file": "images/events/gao-saney-handelsstad.webp",
       "kind": "historisk",
-      "credit": "Franzfoto / Wikimedia Commons",
-      "license": "CC BY-SA 3.0",
+      "credit": "Marie-Lan Nguyen / Wikimedia Commons",
+      "license": "CC BY 4.0",
       "source": {
-        "id": "commons-bild-garamanterna-i-fezzan",
-        "title": "Germa - Garamantengräber – Franzfoto (Wikimedia Commons, filsida)",
-        "url": "https://commons.wikimedia.org/wiki/File:Germa_-_Garamantengr%C3%A4ber.jpg",
-        "license": "CC BY-SA 3.0",
+        "id": "commons-bild-gao-saney-handelsstad",
+        "title": "Stele Almeria Gao-Saney MNM R88-19-279 – Marie-Lan Nguyen, foto 2017 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Stele_Almeria_Gao-Saney_MNM_R88-19-279.jpg",
+        "license": "CC BY 4.0",
         "checked": "2026-11-22"
       }
     },
@@ -1482,21 +1557,6 @@
         "url": "https://commons.wikimedia.org/wiki/File:Göbekli_Tepe,_Urfa.jpg",
         "license": "CC BY-SA 3.0",
         "checked": "2026-11-07"
-      }
-    },
-    {
-      "eventId": "gobero-gravfaltet",
-      "eventTitle": "Gobero, Saharas äldsta kända gravfält",
-      "file": "images/events/gobero-gravfaltet.webp",
-      "kind": "historisk",
-      "credit": "Paul C. Sereno m.fl. (PLoS ONE 2008) / Wikimedia Commons",
-      "license": "CC BY 2.5",
-      "source": {
-        "id": "commons-bild-gobero-gravfaltet",
-        "title": "Gobero (Wikimedia Commons, filsida)",
-        "url": "https://commons.wikimedia.org/wiki/File:Gobero.jpg",
-        "license": "CC BY 2.5",
-        "checked": "2026-11-22"
       }
     },
     {
@@ -1590,21 +1650,6 @@
         "url": "https://commons.wikimedia.org/wiki/File:Deklarasyon_Endepandans_Ayiti.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
-      }
-    },
-    {
-      "eventId": "hallmalningarna-i-laas-geel",
-      "eventTitle": "Hällmålningarna i Laas Geel",
-      "file": "images/events/hallmalningarna-i-laas-geel.webp",
-      "kind": "historisk",
-      "credit": "Theodor Hoffsten / Wikimedia Commons",
-      "license": "CC BY-SA 3.0",
-      "source": {
-        "id": "commons-bild-hallmalningarna-i-laas-geel",
-        "title": "Laas Geel rock paintings – Theodor Hoffsten (Wikimedia Commons, filsida)",
-        "url": "https://commons.wikimedia.org/wiki/File:Laas_Geel_rock_paintings.JPG",
-        "license": "CC BY-SA 3.0",
-        "checked": "2026-11-22"
       }
     },
     {
@@ -1756,6 +1801,21 @@
         "id": "commons-bild-ife-huvudet",
         "title": "Arte yoruba, nigeria, testa da ife, 12-15mo secolo – sailko (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Arte_yoruba,_nigeria,_testa_da_ife,_12-15mo_secolo.JPG",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "igbo-ukwu-bronserna",
+      "eventTitle": "Bronserna i Igbo-Ukwu gjuts",
+      "file": "images/events/igbo-ukwu-bronserna.webp",
+      "kind": "historisk",
+      "credit": "Ochiwar / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": {
+        "id": "commons-bild-igbo-ukwu-bronserna",
+        "title": "Bronze ceremonial vessel in form of a snail shell, 9th century, Igbo-Ukwu, Nigeria – Ochiwar, nutida foto 2013 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Bronze_ceremonial_vessel_in_form_of_a_snail_shell,_9th_century,_Igbo-Ukwu,_Nigeria.JPG",
         "license": "CC BY-SA 3.0",
         "checked": "2026-11-22"
       }
@@ -2025,6 +2085,21 @@
       "source": null
     },
     {
+      "eventId": "kanemriket",
+      "eventTitle": "Kanemriket vid Tchadsjön",
+      "file": "images/events/kanemriket.webp",
+      "kind": "historisk",
+      "credit": "Heinrich Kiepert / Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-kanemriket",
+        "title": "Eastern Sahel in Politische Wandkarte von Africa im Maßstabe by Heinrich Kiepert – Heinrich Kiepert, 1885 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Eastern_Sahel_in_Politische_Wandkarte_von_Africa_im_Ma%C3%9Fstabe_by_Heinrich_Kiepert.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-22"
+      }
+    },
+    {
       "eventId": "kant-vad-ar-upplysning",
       "eventTitle": "Kant svarar på frågan ”Vad är upplysning?”",
       "file": "images/events/kant-vad-ar-upplysning.webp",
@@ -2115,21 +2190,6 @@
       }
     },
     {
-      "eventId": "kermariket",
-      "eventTitle": "Kermariket i Nubien",
-      "file": "images/events/kermariket.webp",
-      "kind": "historisk",
-      "credit": "Lassi / Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "source": {
-        "id": "commons-bild-kermariket",
-        "title": "Kerma city – Lassi (Wikimedia Commons, filsida)",
-        "url": "https://commons.wikimedia.org/wiki/File:Kerma_city.JPG",
-        "license": "CC BY-SA 4.0",
-        "checked": "2026-11-22"
-      }
-    },
-    {
       "eventId": "khorramshahr-aterorovras-1982",
       "eventTitle": "Iran tar tillbaka Khorramshahr",
       "file": "images/events/khorramshahr-aterorovras-1982.webp",
@@ -2201,6 +2261,21 @@
         "title": "Great Mosque of Kilwa Kisiwani, 11th - 18th cents (5) (28963308352) – Richard Mortel from Riyadh, Saudi Arabia (Wikimedia Commons, filsida)",
         "url": "https://commons.wikimedia.org/wiki/File:Great_Mosque_of_Kilwa_Kisiwani,_11th_-_18th_cents_(5)_(28963308352).jpg",
         "license": "CC BY 2.0",
+        "checked": "2026-11-22"
+      }
+    },
+    {
+      "eventId": "kisaliska-gravarna",
+      "eventTitle": "Gravarna från den kisaliska tiden i Upembasänkan",
+      "file": "images/events/kisaliska-gravarna.webp",
+      "kind": "historisk",
+      "credit": "Hispalois / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": {
+        "id": "commons-bild-kisaliska-gravarna",
+        "title": "AfricaMuseum grave 03 – Hispalois, foto 2019 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:AfricaMuseum_grave_03.jpg",
+        "license": "CC BY-SA 4.0",
         "checked": "2026-11-22"
       }
     },
@@ -2607,21 +2682,6 @@
       }
     },
     {
-      "eventId": "lothagam-north",
-      "eventTitle": "Pelarplatsen vid Lothagam North",
-      "file": "images/events/lothagam-north.webp",
-      "kind": "historisk",
-      "credit": "Shaan Hurley / Wikimedia Commons",
-      "license": "CC BY 2.0",
-      "source": {
-        "id": "commons-bild-lothagam-north",
-        "title": "Lothagam Site in N. Kenya – Shaan Hurley (Wikimedia Commons, filsida)",
-        "url": "https://commons.wikimedia.org/wiki/File:Lothagam_Site_in_N._Kenya.jpg",
-        "license": "CC BY 2.0",
-        "checked": "2026-11-22"
-      }
-    },
-    {
       "eventId": "lothal",
       "eventTitle": "Lothal, Induskulturens hamnstad",
       "file": "images/events/lothal.webp",
@@ -2664,6 +2724,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Ninety-five_Theses_(Basel).jpg",
         "license": "Public domain",
         "checked": "2026-11-06"
+      }
+    },
+    {
+      "eventId": "lydenburghuvudena",
+      "eventTitle": "Lydenburghuvudena",
+      "file": "images/events/lydenburghuvudena.webp",
+      "kind": "historisk",
+      "credit": "Nkansahrexford / Wikimedia Commons",
+      "license": "CC BY 3.0",
+      "source": {
+        "id": "commons-bild-lydenburghuvudena",
+        "title": "Iziko Lydenburg Heads 1 – Nkansahrexford, nutida foto 2014 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Iziko_Lydenburg_Heads_1.JPG",
+        "license": "CC BY 3.0",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -3036,21 +3111,6 @@
         "url": "https://commons.wikimedia.org/wiki/File:Australian_Aborigines_slaughtered_by_convicts.png",
         "license": "Public domain",
         "checked": "2026-10-30"
-      }
-    },
-    {
-      "eventId": "nabta-playa",
-      "eventTitle": "Stencirkeln i Nabta Playa",
-      "file": "images/events/nabta-playa.webp",
-      "kind": "historisk",
-      "credit": "Raymbetz / Wikimedia Commons",
-      "license": "CC BY-SA 3.0",
-      "source": {
-        "id": "commons-bild-nabta-playa",
-        "title": "Calendar aswan – Raymbetz (Wikimedia Commons, filsida)",
-        "url": "https://commons.wikimedia.org/wiki/File:Calendar_aswan.JPG",
-        "license": "CC BY-SA 3.0",
-        "checked": "2026-11-22"
       }
     },
     {
@@ -3588,17 +3648,17 @@
       }
     },
     {
-      "eventId": "senegambiska-stencirklar",
-      "eventTitle": "De senegambiska stencirklarna",
-      "file": "images/events/senegambiska-stencirklar.webp",
+      "eventId": "sexdagarskriget-i-kisangani",
+      "eventTitle": "Sexdagarskriget i Kisangani",
+      "file": "images/events/sexdagarskriget-i-kisangani.webp",
       "kind": "historisk",
-      "credit": "shaunamullally / Wikimedia Commons",
-      "license": "CC BY-SA 2.0",
+      "credit": "Oasisk / Wikimedia Commons",
+      "license": "CC BY 2.5",
       "source": {
-        "id": "commons-bild-senegambiska-stencirklar",
-        "title": "Wassu Stone Cirles shaunamullally 02 – shaunamullally (Wikimedia Commons, filsida)",
-        "url": "https://commons.wikimedia.org/wiki/File:Wassu_Stone_Cirles_shaunamullally_02.jpg",
-        "license": "CC BY-SA 2.0",
+        "id": "commons-bild-sexdagarskriget-i-kisangani",
+        "title": "Cimetière Mémorial de la guerre de 2000 – nutida foto 2006, Oasisk (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Cimeti%C3%A8re_M%C3%A9morial_de_la_guerre_de_2000.JPG",
+        "license": "CC BY 2.5",
         "checked": "2026-11-22"
       }
     },
@@ -3615,6 +3675,21 @@
         "url": "https://commons.wikimedia.org/wiki/File:Shakespeare.jpg",
         "license": "Public domain",
         "checked": "2026-10-30"
+      }
+    },
+    {
+      "eventId": "sirleaf-valjs-i-liberia",
+      "eventTitle": "Ellen Johnson Sirleaf väljs till Liberias president",
+      "file": "images/events/sirleaf-valjs-i-liberia.webp",
+      "kind": "historisk",
+      "credit": "White House Photography Office / NARA via Wikimedia Commons",
+      "license": "Public domain",
+      "source": {
+        "id": "commons-bild-sirleaf-valjs-i-liberia",
+        "title": "The Inauguration Ceremony of Liberian President Ellen Johnson Sirleaf, 16 januari 2006 (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:The_Inauguration_Ceremony_of_Liberian_President_Ellen_Johnson_Sirleaf_-_DPLA_-_b23ac987cbce5568d24812d42529d5f6.JPG",
+        "license": "Public domain",
+        "checked": "2026-11-22"
       }
     },
     {
@@ -4767,21 +4842,6 @@
         "url": "https://commons.wikimedia.org/wiki/File:Gilsemans_1642.jpg",
         "license": "Public domain",
         "checked": "2026-11-09"
-      }
-    },
-    {
-      "eventId": "tassili-najjer-hallkonst",
-      "eventTitle": "Hällkonsten i Tassili n'Ajjer",
-      "file": "images/events/tassili-najjer-hallkonst.webp",
-      "kind": "historisk",
-      "credit": "IssamBarhoumi / Wikimedia Commons",
-      "license": "CC BY-SA 4.0",
-      "source": {
-        "id": "commons-bild-tassili-najjer-hallkonst",
-        "title": "The Tanzoumaitak cave painting in Tassili n'ajjer – IssamBarhoumi (Wikimedia Commons, filsida)",
-        "url": "https://commons.wikimedia.org/wiki/File:The_Tanzoumaitak_cave_painting_in_Tassili_n%27ajjer.jpg",
-        "license": "CC BY-SA 4.0",
-        "checked": "2026-11-22"
       }
     },
     {

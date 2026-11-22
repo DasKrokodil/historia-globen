@@ -88,6 +88,18 @@ except ValueError:
 check(religioner.klipp('United States of America', 2006, 2023, 'orörd') == 'orörd', 'klipp ändrar USA efter 2005')
 check(religioner.klipp('Republic of Vietnam', 1973, 1975, 'orörd') == 'orörd', 'klipp ändrar ett annat rike')
 
+# Handplockat val per rike (religionOverride, #2140): en känd religion och minst en källa, annars stoppas bygget
+override_religion = religioner.override_religion
+check(override_religion('X', {'religion': 'germansk', 'sources': ['wp-hwicce']}) == 'germansk',
+      'religionOverride med känd religion och källa ger inte religionen')
+for bad in ({'religion': 'okand', 'sources': ['a']}, {'religion': 'germansk'}, {'religion': 'germansk', 'sources': []},
+            {'religion': 'germansk', 'sources': ['']}, {'religion': 'germansk', 'sources': 'a'}):
+    try:
+        override_religion('X', bad)
+        fel.append(f'religionOverride {bad!r} stoppar inte bygget')
+    except ValueError:
+        pass
+
 if fel:
     print('\n'.join(fel))
     sys.exit(1)

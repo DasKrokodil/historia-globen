@@ -205,6 +205,12 @@ RHENLANDET = ((TRIER, 'Trier'), (AACHEN, 'Aachen'), (KOLN, 'Köln'), (BONN, 'Bon
               (KOBLENZ, 'Koblenz'), (DUSSELDORF, 'Düsseldorf'), (KEHL, 'Kehl'))
 
 # (grupp, punkt, namn, år, ska ligga i riket)
+# #2157, koordinater ur en.wikipedia (Istanbul, Tiraspol och Banjul, öppnade 2026-11-22)
+ISTANBUL = (28.955, 41.014)
+TIRASPOL = (29.643, 46.84)
+BANJUL = (-16.575, 13.454)
+BASSE = (-14.219, 13.309)  # Basse Santa Su, en.wikipedia, öppnad 2026-11-22
+
 PUNKTER = [
     # Mexikodalen (#1443, DasKrokodils svar A 2026-11-14). Punkterna visar läget som det är, inte som det borde vara: Cliopatrias
     # ytor för Tenochtitlan och Texcoco 1326–1428 ser förväxlade ut och ingen av dem innehåller sin stad, men ytorna står kvar som
@@ -226,6 +232,24 @@ PUNKTER = [
       for y in (1920, 1925, 1932, 1933, 1934)],
     *[('franska-kolonialvaldet', SAARBRUCKEN_WD, 'Saarbrücken', y, False) for y in (1935, 1937, 1939)],
     *[('nazityskland', SAARBRUCKEN_WD, 'Saarbrücken', y, True) for y in (1935, 1937, 1939)],
+    # Saarprotektoratet (#2157): franskt protektorat med egen regering och Västtyskland från 1 januari 1957 (en.wikipedia
+    # "Saar Protectorate"); Cliopatria räknar det till Frankrike till och med 1957. Utan stat 1947–1956, den franska zonen 1946,
+    # Västtyskland från 1957. Homburg låg i Västtysklands förenklade gräns 1950–1956 (geografens granskning)
+    ('franska-kolonialvaldet', SAARBRUCKEN_WD, 'Saarbrücken', 1946, True),
+    *[(g, p, n, y, False) for g in ('franska-kolonialvaldet', 'vasttyskland') for p, n in ((SAARBRUCKEN_WD, 'Saarbrücken'), (HOMBURG, 'Homburg'))
+      for y in (1947, 1948, 1950, 1952, 1956)],
+    *[('franska-kolonialvaldet', p, n, y, False) for p, n in ((SAARBRUCKEN_WD, 'Saarbrücken'), (HOMBURG, 'Homburg')) for y in (1957, 1958)],
+    *[('vasttyskland', p, n, y, True) for p, n in ((SAARBRUCKEN_WD, 'Saarbrücken'), (HOMBURG, 'Homburg')) for y in (1957, 1958)],
+    # Istanbul i Turkiet från 1924, som i Cliopatria (#2157); förut stod Brittiska imperiets form från 1922 kvar till 1925
+    *[('turkiet', ISTANBUL, 'Istanbul', y, True) for y in (1924, 1925, 1926)],
+    *[('brittiska-imperiet', ISTANBUL, 'Istanbul', y, False) for y in (1924, 1925, 1926)],
+    # Grannar som överlappade efter förenklingen (#2157): Tiraspol i Moldavien och inte i Ukraina, Banjul inte i Frankrike
+    *[('moldavien', TIRASPOL, 'Tiraspol', y, True) for y in (1992, 2000, 2014, 2024)],
+    *[('ukraina', TIRASPOL, 'Tiraspol', y, False) for y in (1992, 2000, 2014, 2024)],
+    *[('franska-kolonialvaldet', BANJUL, 'Banjul', y, False) for y in (1890, 1900, 1925, 1950, 1957)],
+    # Östra Gambia i Brittiska imperiet 1885–1966, som i Cliopatria; förut utan stat när Frankrike klipptes bort
+    *[('brittiska-imperiet', p, n, y, True) for p, n in ((BANJUL, 'Banjul'), (BASSE, 'Basse Santa Su')) for y in (1885, 1895, 1925, 1950, 1957, 1966)],
+    *[('franska-kolonialvaldet', BASSE, 'Basse Santa Su', y, False) for y in (1895, 1925, 1950, 1957)],
     # Kehl: Västtyskland från 1950, inte samtidigt Frankrike
     *[('franska-kolonialvaldet', KEHL, 'Kehl', y, False) for y in (1950, 1955, 1957)],
     *[('vasttyskland', KEHL, 'Kehl', y, True) for y in (1950, 1957)],
@@ -570,6 +594,10 @@ DUBBEL = [
     # Rhenlandet 1920–1929 (#1766): bara i Weimarrepubliken, också inte i USA (Cliopatrias amerikanska zon 1919–1923)
     *[(('weimarrepubliken', 'franska-kolonialvaldet', 'belgien', 'brittiska-imperiet', 'usa'), p, n, y) for p, n in RHENLANDET
       for y in (1920, 1922, 1923, 1925, 1929)],
+    # #2157: Istanbul i ett rike 1920–1930 (Brittiska imperiet till och med 1923 i Cliopatria, sedan Turkiet), Tiraspol och Banjul
+    *[(('brittiska-imperiet', 'turkiet'), ISTANBUL, 'Istanbul', y) for y in range(1920, 1931)],
+    *[(('ukraina', 'moldavien'), TIRASPOL, 'Tiraspol', y) for y in (1992, 2000, 2014, 2024)],
+    *[(('franska-kolonialvaldet', 'brittiska-imperiet'), BANJUL, 'Banjul', y) for y in (1925, 1950, 1957)],
 ]
 for grupper, pt, namn, year in DUBBEL:
     i = [g for g in grupper if in_group(g, pt, year)]
