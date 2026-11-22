@@ -14007,6 +14007,44 @@ async function run(browser, vp) {
     return ratios.join(', ');
   });
 
+  await check('grottramens rubrik Om slutet har minst 4,5:1 i liggande telefon (#2153)', async () => {
+    const { tp, tctx, errs } = await touchPage({ width: 800, height: 360 }, { reducedMotion: 'reduce' });
+    try {
+      await tp.addInitScript(() => localStorage.setItem('hg-year-tip', '1'));
+      await tp.goto(`${BASE}?lang=sv#y=-39999`);
+      await tp.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      await tp.click('#btn-focus');
+      await tp.click('#focus-menu [data-tab="Alla"]');
+      await tp.fill('#focus-menu .focus-search', 'Neandertalare');
+      await tp.click('#focus-menu [data-key="event:neandertalare"]');
+      const summary = tp.locator('#detail.frame-grotta .detail-note > summary').filter({ hasText: 'Om slutet' });
+      await summary.waitFor({ state: 'visible', timeout: T.step });
+      await summary.evaluate(el => el.scrollIntoView({ block: 'center' }));
+      const { color, clip } = await summary.evaluate(el => {
+        const range = document.createRange();
+        range.selectNodeContents(el);
+        const { x, y, width, height } = range.getBoundingClientRect();
+        return { color: getComputedStyle(el).color.match(/[0-9.]+/g).slice(0, 3).map(Number), clip: { x, y, width, height } };
+      });
+      // Dölj bara bokstäverna så att provet mäter den tonade bakgrunden där rubriken verkligen står.
+      const original = await summary.evaluate(el => {
+        const inlineColor = el.style.color;
+        el.style.color = 'transparent';
+        return inlineColor;
+      });
+      let data;
+      try { ({ data } = PNG.sync.read(await tp.screenshot({ clip }))); }
+      finally { await summary.evaluate((el, color) => { el.style.color = color; }, original); }
+      let min = Infinity;
+      for (let i = 0; i < data.length; i += 4) {
+        min = Math.min(min, kontrast(color, [data[i], data[i + 1], data[i + 2]]));
+      }
+      if (min < 4.5) throw new Error(`Om slutet: ${min.toFixed(2)}:1 understiger 4,5:1`);
+      if (errs.length) throw new Error(errs.join(' | '));
+      return `Om slutet: minst ${min.toFixed(2)}:1 över notens bakgrund`;
+    } finally { await stangSida(tctx); }
+  });
+
   await check('läsbar text och tryckytor på liggande telefon (#2153)', async () => {
     const { tp, tctx, errs } = await touchPage({ width: 800, height: 360 });
     try {

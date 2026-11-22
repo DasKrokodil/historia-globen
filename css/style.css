@@ -2198,6 +2198,8 @@ details.used-by summary:hover { color: var(--parchment); }
   display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 44px; cursor: pointer; list-style: none;
   font: 600 11px/1.3 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--card-accent, var(--brass));
 }
+/* Den tonade noten är ljusare än själva stenen, så rubriken behöver en ljusare ockra (#2153). */
+.frame-grotta .detail-note > summary { color: #e0a06b; }
 .detail-note > summary::-webkit-details-marker, .detail-about > summary::-webkit-details-marker { display: none; }
 .detail-note > summary::after, .detail-about > summary::after {
   content: ""; flex: none; width: 7px; height: 7px; border: solid currentColor; border-width: 0 2px 2px 0;
