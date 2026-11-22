@@ -102,7 +102,7 @@
       "start": 1921,
       "varldsdel": "Afrika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q104852916",
       "kandidater": [
@@ -116,6 +116,9 @@
           "licensadress": null,
           "upphovsperson": "Unknown author Unknown author",
           "datum": "1922",
+          "datum_original": "1922",
+          "datum_fil": "2011-11-30 18:21:45",
+          "kredit": "18 Meses de Cautiverio. De Annual a Monte Arruit. Crónica de un testigo . ISBN 978-84-936950-9-5",
           "beskrivning": "January 1922. Rif War. Months after the Battle of Annual (July-August 1921) the remains are still scattered.",
           "bredd": 711,
           "hojd": 607,
@@ -136,7 +139,7 @@
       "start": 1921,
       "varldsdel": "Afrika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q766437",
       "kandidater": [
@@ -150,6 +153,9 @@
           "licensadress": null,
           "upphovsperson": "José Moreno Carbonero",
           "datum": "1929",
+          "datum_original": "1929",
+          "datum_fil": "2016-07-11 17:48:51",
+          "kredit": "Colección , Museo del Prado.",
           "beskrivning": "The Alhucemas landing took place on 8 September 1925, under the command of General Miguel Primo de Rivera and which heralded the end of the Rif Wars between Spain and the Rif Republic in Morocco. Shown on board the torpedo boat 22 ( es:Clase T-1 ) are Generals de Rivera and José Sanjurjo Sacanell . The mountain of Morro Nuevo appears in the background.",
           "bredd": 2499,
           "hojd": 1497,
@@ -181,13 +187,9 @@
       "start": 1921,
       "varldsdel": "Afrika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q37102",
-      "soktext": "The Republic of the Rif is proclaimed The Rif",
-      "anmarkningar": [
-        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
       "kandidater": [
         {
           "fil": "File:Seal of the Republic of the Rif.png",
@@ -199,6 +201,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Visma",
           "datum": "2023-10-17",
+          "datum_original": "2023-10-17",
+          "datum_fil": "2023-10-17 21:53:43",
+          "kredit": "Own work",
           "beskrivning": "Seal of the Council of Ministers of the Rif Republic.",
           "bredd": 5764,
           "hojd": 5820,
@@ -220,6 +225,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "JamaicanWarlord58",
           "datum": "1923-09-04",
+          "datum_original": "1923-09-04",
+          "datum_fil": "2021-05-28 04:39:29",
+          "kredit": "Own work",
           "beskrivning": "Republic of the Rif 1 Riffan",
           "bredd": 512,
           "hojd": 332,
@@ -240,6 +248,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "SpaceImplorerExplorerImplorer",
           "datum": "2019-10-11",
+          "datum_original": "2019-10-11",
+          "datum_fil": "2019-10-11 16:35:31",
+          "kredit": "Own work",
           "beskrivning": "Flag Map of the Republic of the Rif (1921-26), a short-lived republic in northern Morocco that declared its independence from Spanish occupation and the Moroccan sultan Yusef.",
           "bredd": 993,
           "hojd": 662,
@@ -262,6 +273,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Donald Trung Quoc Don (Chữ Hán: 徵國單) - Wikimedia Commons - © CC BY-SA 4.0 International . ( Want to use this image? ) Original publication 📤: -- Donald Trung 『徵國單』 ( No Fake News 💬 ) ( WikiProject Numismatics 💴) ( Articles 📚 ) 19:37, 19 November 2023 (UTC)",
           "datum": "2023-11-19 15:53:47",
+          "datum_original": "2023-11-19 15:53:47",
+          "datum_fil": "2023-11-19 19:37:04",
+          "kredit": "Own work",
           "beskrivning": "The flag of the Republic of the Rif being flown at a Pro-Palestine demonstration, that is located in the Rotterdammer neighbourhood of the Centrum, Rotterdam Rechter Maasoever.",
           "bredd": 1501,
           "hojd": 1628,
@@ -284,6 +298,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Zenata123",
           "datum": "2020-10-15 05:13:40",
+          "datum_original": null,
+          "datum_fil": "2020-10-15 05:13:40",
+          "kredit": "Own work",
           "beskrivning": "drapeau republique rif",
           "bredd": 2560,
           "hojd": 1707,
@@ -294,6 +311,10 @@
           ],
           "smal": false
         }
+      ],
+      "soktext": "The Republic of the Rif is proclaimed The Rif",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
       ]
     },
     {
@@ -303,7 +324,7 @@
       "start": 1922,
       "varldsdel": "Afrika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q835309",
       "kandidater": [
@@ -317,6 +338,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "EditorfromMars",
           "datum": "2016-05-20 10:07:55",
+          "datum_original": "2016-05-20 10:07:55",
+          "datum_fil": "2020-08-19 05:42:40",
+          "kredit": "Own work",
           "beskrivning": "Inside Pharaoh Tutankhamun's tomb, 18th dynasty",
           "bredd": 3264,
           "hojd": 2448,
@@ -370,7 +394,7 @@
       "start": 1925,
       "varldsdel": "Afrika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q3026815",
       "kandidater": [
@@ -384,6 +408,9 @@
           "licensadress": null,
           "upphovsperson": "Unknown author Unknown author",
           "datum": "1925-09",
+          "datum_original": "1925-09",
+          "datum_fil": "2018-02-12 08:31:09",
+          "kredit": "Mando de Adiestramiento y Doctrina del Ejército de Tierra de España",
           "beskrivning": "14. La playa de Morro Nuevo en los días del desembarco.",
           "bredd": 1168,
           "hojd": 647,
@@ -405,11 +432,11 @@
       "start": 1926,
       "varldsdel": "Afrika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Abd el-Krim surrenders The Rif",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Abd el-Krim surrenders The Rif"
     },
     {
       "id": "krugerparken",
@@ -502,7 +529,7 @@
       "start": 1936,
       "varldsdel": "Afrika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q10859",
       "kandidater": [
@@ -516,6 +543,9 @@
           "licensadress": null,
           "upphovsperson": "Unknown author Unknown author",
           "datum": "1937-12",
+          "datum_original": "1937-12",
+          "datum_fil": "2017-02-19 21:45:23",
+          "kredit": "Narodowe Archiwum Cyfrowe, 1-E-6906",
           "beskrivning": "Soldados republicanos en las calles de Teruel, durante la conquista de la ciudad.",
           "bredd": 3500,
           "hojd": 2664,
@@ -807,7 +837,7 @@
       "start": 1954,
       "varldsdel": "Afrika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q200790",
       "kandidater": [
@@ -821,6 +851,9 @@
           "licensadress": null,
           "upphovsperson": "Madame Grinderche",
           "datum": "2010",
+          "datum_original": "2010",
+          "datum_fil": "2023-04-14 16:06:41",
+          "kredit": "Own work",
           "beskrivning": "Collage made by me using screenshots from two Public Domain videos. Collage description: (first row) Muslim rebels army ALN; French Army M8 Greyhound patrol; French settlers take up arms after the August 1955 Constantinois massacres. (second row) Charles de Gaulle's famous speech of June 4 1958 \"je vous ai compris\"; French settlers with banners saying \"De Gaulles to power\" in Algiers May 13 1958; Muslim veterans gathered in Algiers' Government Building in 1958. (third row) Barricades week French settlers uprising in January 1960; French settler FAF rioters throw stones to French Army M8 Greyhound armoured cars; French Army soldier use metal detector to check if muslim women wearing niqab are bomb-couriers. (fourth row) FLN muslim rebels riot in Algiers's European quarter in December 10 1960; French Army national guard Gardes Mobiles use tear gaz riot gun; FLN muslim supporters face to face with French paratroopers during the December 10 1960 protest. First video (all screenshots except one) is \"French President Charles De Gaulle and the Six-Year War\" (1960) https://archive.org/details/gov.archives.arc.649319 . Public Domain Algerian War documentary. National Archives and Records Administration. National Security Council. Central Intelligence Agency. (09/18/1947 - 12/04/1981). ARC Identifier 649319 / Local Identifier 263.1923. This movie is part of the collection FedFlix https://archive.org/details/FedFlix Second video (up-right corner screenshot only) is \"Rebellion Spreads in North Africa\" (1955) https://archive.org/details/1955-08-25_Flood_Relief .Universal Newsreels. In 1976, the films' owner, MCA, made the unusual decision to turn over ownership of all of the newsreels to the National Archives. Public Domain educative material presented as a public service and freely available in www.archive.net",
           "bredd": 960,
           "hojd": 960,
@@ -843,14 +876,14 @@
       "start": 1954,
       "varldsdel": "Afrika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q3535673",
+      "kandidater": [],
       "soktext": "The FLN begins the uprising (Toussaint Rouge)",
       "anmarkningar": [
         "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
-      "kandidater": []
+      ]
     },
     {
       "id": "philippeville-1955",
@@ -859,14 +892,14 @@
       "start": 1955,
       "varldsdel": "Afrika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q6889422",
+      "kandidater": [],
       "soktext": "The August offensive at Philippeville",
       "anmarkningar": [
         "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
-      "kandidater": []
+      ]
     },
     {
       "id": "slaget-om-alger",
@@ -875,7 +908,7 @@
       "start": 1956,
       "varldsdel": "Afrika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q1761043",
       "kandidater": [
@@ -889,6 +922,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "Saber68",
           "datum": "photo prise, le 2011-12-20",
+          "datum_original": "photo prise, le 2011-12-20",
+          "datum_fil": "2016-05-16 03:33:07",
+          "kredit": "Self-photographed",
           "beskrivning": "The remains of a house in the Casbah of Algiers destroyed in the explosion that killed Ali la Pointe, Hassiba Ben Bouali, Petit Omar and Mohamed Bouhmidi, october 8, 1957",
           "bredd": 1600,
           "hojd": 960,
@@ -915,6 +951,9 @@
           "licensadress": null,
           "upphovsperson": "Unknown author Unknown author",
           "datum": "1960s date QS:P,+1960-00-00T00:00:00Z/8",
+          "datum_original": "1960s date QS:P,+1960-00-00T00:00:00Z/8",
+          "datum_fil": "2023-02-27 15:51:04",
+          "kredit": "https://www.elkhabar.com/press/article/82320/%D8%A7%D9%84%D9%85%D8%AC%D8%A7%D9%87%D8%AF%D8%A9-%D8%AC%D9%85%D9%8A%D9%84%D8%A9-%D8%A8%D9%88%D8%B9%D8%B2%D8%A9-%D9%81%D9%8A-%D8%B0%D9%85%D8%A9-%D8%A7%D9%84%D9%84%D9%87/",
           "beskrivning": "Djamila bouazza with her bomb during the reconstitution of the Cafeteria attack in Algiers.",
           "bredd": 736,
           "hojd": 759,
@@ -937,6 +976,9 @@
           "licensadress": null,
           "upphovsperson": "Unknown author Unknown author",
           "datum": "1957-10-08",
+          "datum_original": "1957-10-08",
+          "datum_fil": "2023-02-19 17:42:04",
+          "kredit": "Unknown source Unknown source",
           "beskrivning": "La mort de Ali la pointe avec une bombe de l'armé française en 1957",
           "bredd": 746,
           "hojd": 536,
@@ -961,14 +1003,14 @@
       "start": 1958,
       "varldsdel": "Afrika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q3002737",
+      "kandidater": [],
       "soktext": "The coup in Algiers brings down the Fourth Republic Algiers",
       "anmarkningar": [
         "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
-      "kandidater": []
+      ]
     },
     {
       "id": "afrikas-ar-1960",
@@ -1013,7 +1055,7 @@
       "start": 1960,
       "varldsdel": "Afrika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q38891",
       "kandidater": [
@@ -1027,6 +1069,9 @@
           "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
           "upphovsperson": "شرف الدين",
           "datum": "2008-02-19",
+          "datum_original": "2008-02-19",
+          "datum_fil": "2010-05-18 02:12:40",
+          "kredit": "Own work",
           "beskrivning": "Aswan High Dam in Egypt",
           "bredd": 2592,
           "hojd": 1944,
@@ -1047,6 +1092,9 @@
           "licensadress": null,
           "upphovsperson": "NASA",
           "datum": "2001-03-18",
+          "datum_original": "2001-03-18",
+          "datum_fil": "2010-04-25 10:29:40",
+          "kredit": "http://earth.jsc.nasa.gov/sseop/EFS/lores.pl?PHOTO=STS102-303-17",
           "beskrivning": "NASA satellite image of the Nile , Aswan High Dam , and Lake Nasser - southern Egypt . The Aswan High Dam was completed in 1970 and is one of the largest earthen embankment dams in the world. It is 364 feet (111 m) tall, 12 565 feet (3830 m) long and nearly 3281 feet (1000 m) wide. When it was built the new reservoir required relocation of nearly 100 000 residents and some archaeological sites. Although the reservoir has benefited Egypt by providing power and controlling floods, it has also had detrimental effects on the Nile system. Before the dam, an estimated 110 million tons of silt was deposited by the annual flood of the Nile, enriching agricultural lands and maintaining the land of the Nile delta. Now this sediment is trapped behind the dam, requiring artificial fertilization of agricultural lands and leading to erosion and saltwater intrusion where the Nile river meets the Mediterranean Sea.",
           "bredd": 1160,
           "hojd": 960,
@@ -1070,13 +1118,9 @@
       "start": 1961,
       "varldsdel": "Afrika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q2605231",
-      "soktext": "The generals' coup in Algiers fails Algiers",
-      "anmarkningar": [
-        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
       "kandidater": [
         {
           "fil": "File:Plan D'Alger Et Ses Environs d'après Boutin.png",
@@ -1088,6 +1132,9 @@
           "licensadress": null,
           "upphovsperson": "Unknown author Unknown author",
           "datum": "1830",
+          "datum_original": "1830",
+          "datum_fil": "2023-01-05 09:55:14",
+          "kredit": "Barry Lawrence Ruderman Antique Maps Inc.",
           "beskrivning": "Map of Algiers and its Environs, according to Boutin.",
           "bredd": 7639,
           "hojd": 8784,
@@ -1101,6 +1148,10 @@
           ],
           "smal": false
         }
+      ],
+      "soktext": "The generals' coup in Algiers fails Algiers",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
       ]
     },
     {
@@ -1610,7 +1661,7 @@
       "start": 1973,
       "varldsdel": "Afrika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q49100",
       "kandidater": [
@@ -1624,6 +1675,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "Bamahane photographer",
           "datum": "Taken on 15 October 1973",
+          "datum_original": "Taken on 15 October 1973",
+          "datum_fil": "2020-04-14 06:27:05",
+          "kredit": "This file contains IDF content and released by the Israeli Defence Forces Spokesperson's Unit . To view all images uploaded courtesy of IDF Spokesperson's Unit This tag does not indicate the copyright status of the attached work. A normal copyright tag is still required. See Commons:Licensing .",
           "beskrivning": "מלחמת יום הכיפורים; סיני. פריסת גשר על תעלת סואץ מגח 6 של חטיבה 421 צולחים את תעלת סואץ התמסחים העבירו את הטנקים נראים מימין. הצילום ממערב לתעלה.",
           "bredd": 1800,
           "hojd": 1350,
@@ -1646,7 +1700,7 @@
       "start": 1973,
       "varldsdel": "Afrika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q2072316",
       "kandidater": [
@@ -1660,6 +1714,9 @@
           "licensadress": null,
           "upphovsperson": "The Department of History, United States Military Academy",
           "datum": "2025-12-08 13:12:00",
+          "datum_original": null,
+          "datum_fil": "2025-12-08 13:12:00",
+          "kredit": "The Department of History, United States Military Academy Newer version",
           "beskrivning": "Image of Operation Gazelle (also known as Operation Abiray-Lev or Operation Stouthearted Men) during the Yom Kippur War. Modified to show only the Israeli plan for the operation.",
           "bredd": 1200,
           "hojd": 1826,
@@ -1797,7 +1854,7 @@
       "start": 1983,
       "varldsdel": "Afrika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q1637896",
       "kandidater": [
@@ -1811,6 +1868,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/3.0",
           "upphovsperson": "Talskiddy at English Wikipedia",
           "datum": "3 November 2007 (original upload date)",
+          "datum_original": "3 November 2007 (original upload date)",
+          "datum_fil": "2009-10-08 23:56:03",
+          "kredit": "Transferred from en.wikipedia to Commons by Teratornis using CommonsHelper .",
           "beskrivning": "Photo i took whilst serving with 47 Air Despatch Squadron RCT in Ethiopia in 1985. Talskiddy 19:46, 3 November 2007 (UTC)",
           "bredd": 500,
           "hojd": 336,

@@ -19,7 +19,7 @@
       "start": 1802,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q3486058",
       "kandidater": [
@@ -33,6 +33,9 @@
           "licensadress": null,
           "upphovsperson": "Auguste Raffet / Ernest Hébert",
           "datum": "1839",
+          "datum_original": "1839",
+          "datum_fil": "2011-09-28 02:26:53",
+          "kredit": "[1] Histoire de Napoleon , M. de Norvins, 1839, page 239",
           "beskrivning": "Attack and take of the Crête-à-Pierrot (4 - 24 March 24, 1802). Original illustration by Auguste Raffet, engraving by Ernst Hébert.",
           "bredd": 1395,
           "hojd": 1032,
@@ -68,11 +71,11 @@
       "start": 1802,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Toussaint Louverture Surrenders and Is Arrested Cap-Français (today Cap-Haïtien)",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Toussaint Louverture Surrenders and Is Arrested Cap-Français (today Cap-Haïtien)"
     },
     {
       "id": "slaget-vid-vertieres",
@@ -81,7 +84,7 @@
       "start": 1803,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q2484240",
       "kandidater": [
@@ -95,6 +98,9 @@
           "licensadress": null,
           "upphovsperson": "Auguste Raffet / Ernest Hébert",
           "datum": "1839",
+          "datum_original": "1839",
+          "datum_fil": "2011-09-28 02:26:53",
+          "kredit": "[1] Histoire de Napoleon , M. de Norvins, 1839, page 239",
           "beskrivning": "Attack and take of the Crête-à-Pierrot (4 - 24 March 24, 1802). Original illustration by Auguste Raffet, engraving by Ernst Hébert.",
           "bredd": 1395,
           "hojd": 1032,
@@ -130,7 +136,7 @@
       "start": 1804,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q505802",
       "kandidater": [
@@ -144,6 +150,9 @@
           "licensadress": null,
           "upphovsperson": "Charles Marion Russell",
           "datum": "1905 date QS:P571,+1905-00-00T00:00:00Z/9",
+          "datum_original": "1905 date QS:P571,+1905-00-00T00:00:00Z/9",
+          "datum_fil": "2016-09-01 14:05:28",
+          "kredit": "Humanities Texas",
           "beskrivning": "Painting Lewis and Clark on the Lower Columbia (height: 24 in (60.9 cm); width: 28 in (71.1 cm) dimensions QS:P2048,24U218593 dimensions QS:P2049,28U218593 ) by Charles Marion Russell; Opaque and transparent watercolor over graphite underdrawing on paper",
           "bredd": 3000,
           "hojd": 2346,
@@ -175,7 +184,7 @@
       "start": 1808,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q1123201",
       "kandidater": [
@@ -189,6 +198,9 @@
           "licensadress": null,
           "upphovsperson": "Resvoluci",
           "datum": "2007",
+          "datum_original": "2007",
+          "datum_fil": "2012-10-18 19:25:15",
+          "kredit": "Own work",
           "beskrivning": "Guerra independencia hispanoamericana",
           "bredd": 470,
           "hojd": 608,
@@ -210,7 +222,7 @@
       "start": 1810,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q1145411",
       "kandidater": [
@@ -224,6 +236,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/2.5",
           "upphovsperson": "Paigemorrison at English Wikipedia",
           "datum": "1 May 2007 (original upload date)",
+          "datum_original": "1 May 2007 (original upload date)",
+          "datum_fil": "2011-12-13 02:54:47",
+          "kredit": "Transferred from en.wikipedia to Commons by nopira .",
           "beskrivning": "Photo taken March 2004 by Paige Morrison. (That's me.)",
           "bredd": 1536,
           "hojd": 2048,
@@ -244,7 +259,7 @@
       "start": 1810,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q838980",
       "kandidater": [
@@ -258,6 +273,9 @@
           "licensadress": null,
           "upphovsperson": "Pedro Subercaseaux",
           "datum": "1910 date QS:P571,+1910-00-00T00:00:00Z/9",
+          "datum_original": "1910 date QS:P571,+1910-00-00T00:00:00Z/9",
+          "datum_fil": "2010-05-14 22:54:18",
+          "kredit": "Museo Histórico Nacional",
           "beskrivning": "The \"Cabildo Abierto\" of may 22, 1810, in the city of Buenos Aires (now part of Argentina, then part of the Viceroyalty of the Río de la Plata), where it was decided to remove the viceroy Baltasar Hidalgo de Cisneros",
           "bredd": 1484,
           "hojd": 1139,
@@ -277,7 +295,7 @@
       "start": 1818,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q1073849",
       "kandidater": [
@@ -291,6 +309,9 @@
           "licensadress": null,
           "upphovsperson": "Johann Moritz Rugendas",
           "datum": "circa 1837 date QS:P571,+1837-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_original": "circa 1837 date QS:P571,+1837-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_fil": "2011-03-20 17:47:17",
+          "kredit": "Museo Histórico Nacional (Chile)",
           "beskrivning": null,
           "bredd": 600,
           "hojd": 419,
@@ -311,7 +332,7 @@
       "start": 1819,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q1150410",
       "kandidater": [
@@ -325,6 +346,9 @@
           "licensadress": null,
           "upphovsperson": "Martin Tovar y Tovar",
           "datum": "Published in 1890 (Caracas, Venzuela), author died in 1902",
+          "datum_original": "Published in 1890 (Caracas, Venzuela), author died in 1902",
+          "datum_fil": "2010-07-25 14:51:51",
+          "kredit": "Painting of Martín Tovar y Tovar exhibited in the Federal Palace, Caracas",
           "beskrivning": "The Battle of Boyacá in the War of Independence of Colombia, Venezuela, Ecuador and Panama against Spain (Boyacá, Colombia, 1819). Painting of Martín Tovar y Tovar exhibited in the Federal Palace, Caracas",
           "bredd": 1654,
           "hojd": 1122,
@@ -350,7 +374,7 @@
       "start": 1821,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q767450",
       "kandidater": [
@@ -364,6 +388,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Jaontiveros",
           "datum": "2010-04-11",
+          "datum_original": "2010-04-11",
+          "datum_fil": "2010-04-13 17:00:28",
+          "kredit": "Own work",
           "beskrivning": "Tratados de Córdoba. Versión impresa de los firmados el 24 de agosto de 1821. Archivo General de la Nación de México. Memoria de las revoluciones de México, tomo 5, 2009. ISBN 978-607-7748-04-5",
           "bredd": 2292,
           "hojd": 3056,
@@ -386,7 +413,7 @@
       "start": 1821,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q388210",
       "kandidater": [
@@ -400,6 +427,9 @@
           "licensadress": null,
           "upphovsperson": null,
           "datum": "2022-07-14 00:41:25",
+          "datum_original": null,
+          "datum_fil": "2022-07-14 00:41:25",
+          "kredit": null,
           "beskrivning": null,
           "bredd": 1236,
           "hojd": 720,
@@ -422,29 +452,28 @@
       "start": 1822,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q1548600",
-      "soktext": "Brazil Declares Independence",
-      "anmarkningar": [
-        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
       "kandidater": [
         {
-          "fil": "File:07.09.2022 - Prefeita Paula Mascarenhas participa do desfile cívico militar de Sete de Setembro - Foto- Gustavo Vara (52341161143).jpg",
-          "filsida": "https://commons.wikimedia.org/wiki/File:07.09.2022_-_Prefeita_Paula_Mascarenhas_participa_do_desfile_c%C3%ADvico_militar_de_Sete_de_Setembro_-_Foto-_Gustavo_Vara_(52341161143).jpg",
+          "fil": "File:07.09.2022 - Prefeita Paula Mascarenhas participa do desfile cívico militar de Sete de Setembro - Foto- Gustavo Vara (52340953141).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:07.09.2022_-_Prefeita_Paula_Mascarenhas_participa_do_desfile_c%C3%ADvico_militar_de_Sete_de_Setembro_-_Foto-_Gustavo_Vara_(52340953141).jpg",
           "kalla": "commons-sok",
           "licens": "Public domain",
           "licensklass": "public-domain",
           "licensstatus": "trolig",
           "licensadress": null,
           "upphovsperson": "Prefeitura de Pelotas",
-          "datum": "2022-09-07 09:33:22",
+          "datum": "2022-09-07 09:20:15",
+          "datum_original": "2022-09-07 09:20:15",
+          "datum_fil": "2022-09-13 16:58:55",
+          "kredit": "07.09.2022 - Prefeita Paula Mascarenhas participa do desfile cívico militar de Sete de Setembro - Foto: Gustavo Vara",
           "beskrivning": "07.09.2022 - Prefeita Paula Mascarenhas participa do desfile cívico militar de Sete de Setembro - Foto: Gustavo Vara",
-          "bredd": 5472,
-          "hojd": 3648,
+          "bredd": 4896,
+          "hojd": 3264,
           "mime": "image/jpeg",
-          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/07.09.2022_-_Prefeita_Paula_Mascarenhas_participa_do_desfile_c%C3%ADvico_militar_de_Sete_de_Setembro_-_Foto-_Gustavo_Vara_%2852341161143%29.jpg/960px-07.09.2022_-_Prefeita_Paula_Mascarenhas_participa_do_desfile_c%C3%ADvico_militar_de_Sete_de_Setembro_-_Foto-_Gustavo_Vara_%2852341161143%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/07.09.2022_-_Prefeita_Paula_Mascarenhas_participa_do_desfile_c%C3%ADvico_militar_de_Sete_de_Setembro_-_Foto-_Gustavo_Vara_%2852340953141%29.jpg/960px-07.09.2022_-_Prefeita_Paula_Mascarenhas_participa_do_desfile_c%C3%ADvico_militar_de_Sete_de_Setembro_-_Foto-_Gustavo_Vara_%2852340953141%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
           "kategorier": [
             "8.ª Brigada de Infantaria Motorizada",
             "Brazilian Army on Independence Day",
@@ -454,30 +483,34 @@
           "smal": false
         },
         {
-          "fil": "File:07.09.2022 - Prefeita Paula Mascarenhas participa do desfile cívico militar de Sete de Setembro - Foto- Gustavo Vara (52340983356).jpg",
-          "filsida": "https://commons.wikimedia.org/wiki/File:07.09.2022_-_Prefeita_Paula_Mascarenhas_participa_do_desfile_c%C3%ADvico_militar_de_Sete_de_Setembro_-_Foto-_Gustavo_Vara_(52340983356).jpg",
+          "fil": "File:07.09.2022 - Prefeita Paula Mascarenhas participa do desfile cívico militar de Sete de Setembro - Foto- Gustavo Vara (52341271429).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:07.09.2022_-_Prefeita_Paula_Mascarenhas_participa_do_desfile_c%C3%ADvico_militar_de_Sete_de_Setembro_-_Foto-_Gustavo_Vara_(52341271429).jpg",
           "kalla": "commons-sok",
           "licens": "Public domain",
           "licensklass": "public-domain",
           "licensstatus": "trolig",
           "licensadress": null,
           "upphovsperson": "Prefeitura de Pelotas",
-          "datum": "2022-09-07 09:41:06",
+          "datum": "2022-09-07 10:17:50",
+          "datum_original": "2022-09-07 10:17:50",
+          "datum_fil": "2022-09-12 11:03:31",
+          "kredit": "07.09.2022 - Prefeita Paula Mascarenhas participa do desfile cívico militar de Sete de Setembro - Foto: Gustavo Vara",
           "beskrivning": "07.09.2022 - Prefeita Paula Mascarenhas participa do desfile cívico militar de Sete de Setembro - Foto: Gustavo Vara",
-          "bredd": 4896,
-          "hojd": 3264,
+          "bredd": 5472,
+          "hojd": 3648,
           "mime": "image/jpeg",
-          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6b/07.09.2022_-_Prefeita_Paula_Mascarenhas_participa_do_desfile_c%C3%ADvico_militar_de_Sete_de_Setembro_-_Foto-_Gustavo_Vara_%2852340983356%29.jpg/960px-07.09.2022_-_Prefeita_Paula_Mascarenhas_participa_do_desfile_c%C3%ADvico_militar_de_Sete_de_Setembro_-_Foto-_Gustavo_Vara_%2852340983356%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/07.09.2022_-_Prefeita_Paula_Mascarenhas_participa_do_desfile_c%C3%ADvico_militar_de_Sete_de_Setembro_-_Foto-_Gustavo_Vara_%2852341271429%29.jpg/960px-07.09.2022_-_Prefeita_Paula_Mascarenhas_participa_do_desfile_c%C3%ADvico_militar_de_Sete_de_Setembro_-_Foto-_Gustavo_Vara_%2852341271429%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
           "kategorier": [
             "8.ª Brigada de Infantaria Motorizada",
             "Brazilian Army on Independence Day",
-            "Independence Day 2022 in Pelotas"
+            "Independence Day 2022 in Pelotas",
+            "VBTP-MR Guarani in the Brazilian Army"
           ],
           "smal": false
         },
         {
-          "fil": "File:2022-09-07 Bicentenário da Independência 12.jpg",
-          "filsida": "https://commons.wikimedia.org/wiki/File:2022-09-07_Bicenten%C3%A1rio_da_Independ%C3%AAncia_12.jpg",
+          "fil": "File:2022-09-07 Bicentenário da Independência 69.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:2022-09-07_Bicenten%C3%A1rio_da_Independ%C3%AAncia_69.jpg",
           "kalla": "commons-sok",
           "licens": "Public domain",
           "licensklass": "public-domain",
@@ -485,41 +518,22 @@
           "licensadress": null,
           "upphovsperson": "amigosdaarte",
           "datum": "2022-09-07",
-          "beskrivning": "Celebração do Bicentenário da Independência do Brasil e reabertura do Museu do Ipiranga, em São Paulo, no feriado de 7 de Setembro. Fotos: Adriano Escanhuela.",
-          "bredd": 2000,
-          "hojd": 1335,
-          "mime": "image/jpeg",
-          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c2/2022-09-07_Bicenten%C3%A1rio_da_Independ%C3%AAncia_12.jpg/960px-2022-09-07_Bicenten%C3%A1rio_da_Independ%C3%AAncia_12.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-          "kategorier": [
-            "Bicentennial of the Independence of Brazil celebrations at Parque da Independência",
-            "Mateus Carrilho"
-          ],
-          "smal": false
-        },
-        {
-          "fil": "File:2022-09-07 Bicentenário da Independência 42.jpg",
-          "filsida": "https://commons.wikimedia.org/wiki/File:2022-09-07_Bicenten%C3%A1rio_da_Independ%C3%AAncia_42.jpg",
-          "kalla": "commons-sok",
-          "licens": "Public domain",
-          "licensklass": "public-domain",
-          "licensstatus": "trolig",
-          "licensadress": null,
-          "upphovsperson": "amigosdaarte",
-          "datum": "2022-09-07",
+          "datum_original": "2022-09-07",
+          "datum_fil": "2022-11-30 23:48:42",
+          "kredit": "https://www.flickr.com/photos/amigosdaarte/52386847706/",
           "beskrivning": "Celebração do Bicentenário da Independência do Brasil e reabertura do Museu do Ipiranga, em São Paulo, no feriado de 7 de Setembro. Fotos: Adriano Escanhuela.",
           "bredd": 1335,
           "hojd": 2000,
           "mime": "image/jpeg",
-          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/2022-09-07_Bicenten%C3%A1rio_da_Independ%C3%AAncia_42.jpg/960px-2022-09-07_Bicenten%C3%A1rio_da_Independ%C3%AAncia_42.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/2022-09-07_Bicenten%C3%A1rio_da_Independ%C3%AAncia_69.jpg/960px-2022-09-07_Bicenten%C3%A1rio_da_Independ%C3%AAncia_69.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
           "kategorier": [
-            "Bicentennial of the Independence of Brazil celebrations at Parque da Independência",
-            "Criolo"
+            "Bicentennial of the Independence of Brazil celebrations at Parque da Independência"
           ],
           "smal": false
         },
         {
-          "fil": "File:2022-09-07 Bicentenário da Independência 52.jpg",
-          "filsida": "https://commons.wikimedia.org/wiki/File:2022-09-07_Bicenten%C3%A1rio_da_Independ%C3%AAncia_52.jpg",
+          "fil": "File:2022-09-07 Bicentenário da Independência 06.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:2022-09-07_Bicenten%C3%A1rio_da_Independ%C3%AAncia_06.jpg",
           "kalla": "commons-sok",
           "licens": "Public domain",
           "licensklass": "public-domain",
@@ -527,17 +541,48 @@
           "licensadress": null,
           "upphovsperson": "amigosdaarte",
           "datum": "2022-09-07",
+          "datum_original": "2022-09-07",
+          "datum_fil": "2022-11-30 23:45:43",
+          "kredit": "https://www.flickr.com/photos/amigosdaarte/52385928582/",
+          "beskrivning": "Celebração do Bicentenário da Independência do Brasil e reabertura do Museu do Ipiranga, em São Paulo, no feriado de 7 de Setembro. Fotos: Adriano Escanhuela.",
+          "bredd": 1335,
+          "hojd": 2000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/2022-09-07_Bicenten%C3%A1rio_da_Independ%C3%AAncia_06.jpg/960px-2022-09-07_Bicenten%C3%A1rio_da_Independ%C3%AAncia_06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Bicentennial of the Independence of Brazil celebrations at Parque da Independência",
+            "Priscilla (vocalist)"
+          ],
+          "smal": false
+        },
+        {
+          "fil": "File:2022-09-07 Bicentenário da Independência 17.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:2022-09-07_Bicenten%C3%A1rio_da_Independ%C3%AAncia_17.jpg",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "amigosdaarte",
+          "datum": "2022-09-07",
+          "datum_original": "2022-09-07",
+          "datum_fil": "2022-11-30 23:45:52",
+          "kredit": "https://www.flickr.com/photos/amigosdaarte/52387284140/",
           "beskrivning": "Celebração do Bicentenário da Independência do Brasil e reabertura do Museu do Ipiranga, em São Paulo, no feriado de 7 de Setembro. Fotos: Adriano Escanhuela.",
           "bredd": 2000,
           "hojd": 1335,
           "mime": "image/jpeg",
-          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/2022-09-07_Bicenten%C3%A1rio_da_Independ%C3%AAncia_52.jpg/960px-2022-09-07_Bicenten%C3%A1rio_da_Independ%C3%AAncia_52.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/2022-09-07_Bicenten%C3%A1rio_da_Independ%C3%AAncia_17.jpg/960px-2022-09-07_Bicenten%C3%A1rio_da_Independ%C3%AAncia_17.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
           "kategorier": [
             "Bicentennial of the Independence of Brazil celebrations at Parque da Independência",
-            "Melim"
+            "Juliette Freire"
           ],
           "smal": false
         }
+      ],
+      "soktext": "Brazil Declares Independence",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
       ]
     },
     {
@@ -547,13 +592,9 @@
       "start": 1822,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q1402751",
-      "soktext": "Battle of Pichincha",
-      "anmarkningar": [
-        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
       "kandidater": [
         {
           "fil": "File:Capitulacionquitosalas.png",
@@ -565,6 +606,9 @@
           "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
           "upphovsperson": "Antonio Salas",
           "datum": "1822",
+          "datum_original": "1822",
+          "datum_fil": "2025-08-10 22:21:52",
+          "kredit": "File:SALAS_ANTONIO_CAPITULACION2.JPG",
           "beskrivning": "Capitulation of Quito, by Antonio Salas",
           "bredd": 1063,
           "hojd": 528,
@@ -586,6 +630,9 @@
           "licensadress": null,
           "upphovsperson": "Johnston, Alexander Keith; Brewster, David; Berghaus, Heinrich Karl Wilhelm; William Blackwood And Sons",
           "datum": "1848",
+          "datum_original": "1848",
+          "datum_fil": "2025-03-24 09:03:56",
+          "kredit": "https://www.loc.gov/item/2007627199/",
           "beskrivning": "LC Civil War maps (2nd ed.), S183 Phillips, 4173 Available also through the Library of Congress Web site as a raster image. LC copy rebound in red cloth.",
           "bredd": 4930,
           "hojd": 2360,
@@ -610,6 +657,9 @@
           "licensadress": null,
           "upphovsperson": "Unknown author Unknown author",
           "datum": "1866",
+          "datum_original": "1866",
+          "datum_fil": "2019-10-18 16:24:52",
+          "kredit": "http://elinaresm.blogspot.com/2016/05/combate-del-2-de-mayo-parte-de-las.html",
           "beskrivning": "Batería Pichincha, Foto: Archivo Histórico de la Marina de Guerra del Perú",
           "bredd": 1600,
           "hojd": 1118,
@@ -630,6 +680,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Diego Delso",
           "datum": "2015-07-22",
+          "datum_original": "2015-07-22",
+          "datum_fil": "2015-12-30 11:22:10",
+          "kredit": "Own work",
           "beskrivning": "Cemetery of San Diego in the Historic Center of Quito , Ecuador, seen from El Panecillo . Inaugurated in 1872 in a location where fallen of the Battle of Pichincha (1822) had been buried, the cemetery contains the graves of numerous significant people, including five presidents of the Republic of Ecuador.",
           "bredd": 13887,
           "hojd": 4255,
@@ -652,6 +705,9 @@
           "licensadress": null,
           "upphovsperson": "Johnston, Alexander Keith; Brewster, David; Berghaus, Heinrich Karl Wilhelm; William Blackwood And Sons",
           "datum": "1848",
+          "datum_original": "1848",
+          "datum_fil": "2018-06-08 07:35:32",
+          "kredit": "https://www.loc.gov/item/2007627199/",
           "beskrivning": "LC Civil War maps (2nd ed.), S183 Phillips, 4173 Available also through the Library of Congress Web site as a raster image. LC copy rebound in red cloth.",
           "bredd": 7957,
           "hojd": 6669,
@@ -662,6 +718,10 @@
           ],
           "smal": false
         }
+      ],
+      "soktext": "Battle of Pichincha",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
       ]
     },
     {
@@ -671,13 +731,9 @@
       "start": 1826,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q6123901",
-      "soktext": "The Fall of Callao",
-      "anmarkningar": [
-        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
       "kandidater": [
         {
           "fil": "File:San Francisco's ocean trade, past and future; a story of the deep water service of San Francisco, 1848 to 1911. Effect the Panama canal will have upon it (1911) (14765891785).jpg",
@@ -689,6 +745,9 @@
           "licensadress": "https://www.flickr.com/commons/usage/",
           "upphovsperson": "Internet Archive Book Images",
           "datum": "1911",
+          "datum_original": "1911",
+          "datum_fil": "2018-04-17 16:01:02",
+          "kredit": "https://www.flickr.com/photos/internetarchivebookimages/14765891785/ Source book page: https://archive.org/stream/sanfranciscosoce01wrig/sanfranciscosoce01wrig#page/n94/mode/1up",
           "beskrivning": "Identifier : sanfranciscosoce01wrig ( find matches ) Title : San Francisco's ocean trade, past and future; a story of the deep water service of San Francisco, 1848 to 1911. Effect the Panama canal will have upon it Year : 1911 ( 1910s ) Authors : Wright, Benjamin Cooper Subjects : Shipping Publisher : San Francisco, A. Carlisle & co. Contributing Library : The Library of Congress Digitizing Sponsor : The Library of Congress View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: led on her maiden voyage to San Francisco on August 26th. It is claimed for this steamer that she combines in her construction all the latest improvements, and that her giant turbine engines will give her a speed of 21 knots. Steam Service with British Columbia. While there was an occasional steamer between British Columbia and San Francisco in the early fifties, it was not until 1858 that the service assumed any prominence. One of those earlier steamers in the trade was the British steamer Otter, which made one or more trips in 1854. Gold discoveries had been reported in the Fraser River region in British Columbia early in 1858. Many who had been disappointed in mining operations in California were naturally attracted by these reports of rich discoveries else-where. These hunters for the yellow metal were an impatient crowd. They would not have come to California if they had not been. Once here and not finding just what they wanted,they were willing at a moments notice to pack up and go elsewhere. Text Appearing After Image: IMAGE: The SS Isthmian (ship) of the American-Hawaiian Steamship Company - San Franciscos Ocean Trade —Past and Future 77 Evidence of this was shown in the rush for gold in the black sands on the beach in Humboldt county, known as the Gold Bluff mining excitement of 1851. This was too near San Francisco to last long, and the movement was checked before it had fairly begun by the return of those first on the field. In 1854, there were reports of gold deposits at the head-water of the Amazon in Eastern Peru, and a considerable number left San Francisco for Callao, only to learn upon arrival at that port that there was nothing in the stories. In 1855, the Kern river excitement in the southern part of California had the same effect on the floaters about San Francisco, who rushed off in that direction only to be disappointed. Despite these three false alarms in seven years, the news of the rich diggings in the Fraser river region stirred the community anew and very thoroughly. Some falling off in the gold yield in California and dull business conditions accentuated the res Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
           "bredd": 2976,
           "hojd": 1876,
@@ -711,6 +770,9 @@
           "licensadress": null,
           "upphovsperson": "Jean Baptiste Bourguignon d'Anville",
           "datum": "1794 date QS:P571,+1794-00-00T00:00:00Z/9",
+          "datum_original": "1794 date QS:P571,+1794-00-00T00:00:00Z/9",
+          "datum_fil": "2011-03-23 13:10:58",
+          "kredit": "This file was provided to Wikimedia Commons by Geographicus Rare Antique Maps , a specialist dealer in rare maps and other cartography of the 15th, 16th, 17th, 18th and 19th centuries, as part of a cooperation project .",
           "beskrivning": "An English map of South America, based on the earlier French map(s) of J.B. d'Anville This is probably the most important two panel wall map of South America produced in the 18th century. Largely based upon the earlier D’Anville map, this map has been enlarged and expanded by the English publishing house of Laurie and Whittle. Depicts the continent in full with an inset of the Falkland Islands. This map is unique in that it is a serious attempt to compile all of the accurate scientific knowledge of the South American continent available at the time. Offers a smorgasbord of factual, speculative, and historical detail. This extraordinary and highly decorative map bears up to almost endless perusal and volumes could be composed upon its content. The cartographer attempts to depict both known and unknown parts of the continent with actual data reported by both contemporary and historic travelers. In most cases it is extremely difficult to identify specific sources as much of the data is vague and uncertain. Our survey of this map beings with the coast which Spanish and Portuguese navigators had mapped with considerable accuracy as early as the late 16th century. This, like most early maps of the area, contrasts a detailed mapping of the coast with a speculative discussion of the interior, particularly Patagonia and the Amazon Basin. Offers a fairly accurate discussion of both the east and west coasts with exceptional detail in the populated Andean regions of Venezuela, Columbia, Ecuador (Labeled Quito), and Peru. Notes Cuzco, Lima, Quito, Valladolid, Arequipa, Trujillo and other important trading centers of the region. In Portuguese controlled Brazil, Rio de Janeiro, San Salvador and San Sebastian are noted. It is in the interior that this map becomes exceptionally fascinating. In the northern part of the continent D'Anville maps a number of confusions associated with the English adventurer Sir Walter Raleigh's search for El Dorado. Believing El Dorado to lie in the northern part of the Amazon, Raleigh sailed down the Orinoco River just before the onset of the rainy season. Reaching a remote tribal village, Raleigh noted canoes arriving bearing gold, silver, and other treasures. Asked where the gold came from, the natives replied, Manoa, the term for the tribe to which the river traders belonged. Manoa, the natives claimed could be reached following a long river voyage southward to a Great Lake, called Parima. Raleigh and his associates immediately associated Manoa and Lake Parima with the golden kingdom of El Dorado, though they never visited the city or lake. Subsequent maps, including this one, mapped El Dorado and Lake Parima in this location for several hundred years. Both Raleigh and the natives were describing an actual event known to occur annually in the region. Rains would annually swell the Amazon and Orinoco river systems creating a linkage in the Parima flood plain, which, during heavy rains, can resemble a massive lake. The Manoa were a large and populous trading nation active pre-colonial days whose vast empire, based in the Amazon Basin, extended form the Andes to the Orinoco. Curiously, in addition to noting the city of Manoa on Lake Parima, D'Anville also correctly maps the center of the ancient Manoan civilization between the Amazon tributaries Rio Negro and Rio Yapura. Sadly the Manoa and many of the other populous South American indigenous nations noted by the earliest explorers to the region vanished, brought low by European epidemics. A similar error appears far to the south where the Paraguay rivers empties into the Laguna de Xarayes. The Xarayes, a corruption of Xaraiés meaning Masters of the River, were an indigenous people occupying what are today parts of Brazil's Matte Grosso and the Pantanal. When Spanish and Portuguese explorers first navigated up the Paraguay River, as always in search of El Dorado, they encountered the vast Pantanal flood plain at the height of its annual inundation. Includes the legend: @media all and (max-width:720px){.mw-parser-output .div-col.grids{grid-template-columns:repeat(1,1fr)!important;width:100%!important}}.mw-parser-output .div-col.grids{display:grid} .mw-parser-output .smallcaps{font-variant:small-caps} Division of South America with a Summary Account of its Trade. South America is Divided into Nine Principal parts Viz. 1. Terra Firma to the Spaniards divided into the Governements of Panama, or Terra Firma proper, containing the Isthmus of Darien & the Adjacent Coast; Carthagena, S ta . Martha and Rio de la Hacha; Venezuela, Caraceas; Cumana, or new Andalusia; Paria, & part of Guayana, Popayan with Choco; & the New Kingdom of Granada whose Capital Santa Fé is the Metropolis of all Tierra Firma; with Several Islands belonging to the Spaniards, except Curaçao and Bonair which belong to the Dutch. All along the Coast from Carthagena, there are Pearl Fisheries, the Principal of which are at Margarita, Cubagua, Cumanagotto & la Rencheria. The whole Country abounds in Mines of Gold and Precious Stones, Indigo, Cocheneal & The Trees that produce the Balsa generally known under the name of Balsam of Tolu grow in the Governement of Popayan. The City of Panana is the center of Commerce from Peru & Chili. As soon as ever the Galleons enter the Port of Carthagena an express is dispatch'd over land to Panama, from whence he proceeds by Sea to Lima. In the mean time all the necessary preparations are made for Conveying y e Treasure as soon as it arrives, either by Sea or Land to Porto-belo. The Viceroi of Peru, on the other hand, makes all imaginable dispatch in Sending the Lima Fleet escort'd by an Armadilla or Small Squadron of Men of War to Panama, where as soon as Arrived they are unladen, & the Goods forwarded to Porto-belo. This may be perform'd two ways by Land, which is a Journey of 50 Miles & a pretty good road in Summer; or by Water, which is y e only method in Winter. & then the Plate & Goods are Convey'd to Venta de Cruz, which is 20 Miles, by Mules, & then down y e Rio Chagre into the Sea, whence they are transported to Porto-belo, which is about 18 Leagues distant. These different methods of Carriage are of vast utility, for in y e Summer Rio Chagre is frequently so low that Boats cannot pass; & in Winter, when y e navigation by that River is free, y e Road by land is altogether Imapssable. As soon as the Lima Ships are unladen at Panama they Sail to Perico, a little Island at a small distance from Panama, & there wait the return of the European goods from Porto-belo, by the same Carriage their were sent thither, & having taken this on board they imediately Sail away for Lima. 2. Peru to the Spaniards. Divided into the Audiences of Quito, Lima or Peru Proper, called the Royal Audience and las Chareas or Audience of la Plata. Peru abounds in Mines of Gold & Silver, the most Famous of which are the Mines of Potosi; in that Neighbourhood is the Town of Porco whose Mines are still richer, but harder to Work by reasons of the Water that is found in them; whereas there is none in the Mines of Potosi, even at a very great depth. Nearer the Coast are the famous Mines of Lipes & towards the North, those of Oruro, whence they draw a Fifth part of Silver from the Ore, besides many others. It may not be amiss to Observe, that when Mines are shut up, & not longer wrought, we must not Suppose that they are totally lost, for after a Considerable Space, they open them, & draw from them fresh Riches, sometimes in greater quantities than at First. The Town of Arica is the proper Port of Potosi & la Plata. In the Month of March they begin to bring y e Silver from thence to Arica, & in June the Flota from Lima comes to Fetch it. There is a Constant intercourse between la Plata, Lipes, Oruro, & this Port, by land, for conveniency of which there are Inns at every 4 Leagues insomuch that it is computed there are two Thousand Persons employ'd in the Management of these Inns and as Carriers. Lima called also the City of the Kings, is the Capital of all South America, as well as of Peru, & the residence of the Viceroy. Its Inhabitants have been so rich that in 1682, on the entry of the Duke de la Plata, their Viceroy, they paved two of the Streets, thro which he passed, with Ingots of Silver, to the amount of Eighty Millions of Pieces of Eight, which is about Eighteen Millions Sterling but they are not conceived to be near so rich at present. Callao is the Port of Lima ; its road is by much the largest & Fairest in the South Seas. There are two Flottas annually Sail from thence, one for Arica, the other for Panama. The former Sails about the end of February, & having receiv'd at Arica the Silver sent from the Mines, returns towards the end of March. In the beginning of May the Flota Sails for Panama, having on board the Wealth from Potosi, the Silver from Chili, which comes in the Valparaiso Fleet, the King's revenue & Merchandises from all parts of Peru and the Audience of las Charcas: and on the return of this Fleet laden with European Commodities they are disposed of from hence, part by Sea & part by Land, to all the different places to which they are destined. Besides these Fleets, there Sail Annually two Ships for Acapulco; & the Indian Commodities which they bring are all deposited in the magazines at Callao and sent from hence to all the Southern Provinces of America. 3. Amazonia, where the Spaniards and Portuguese have Missions & Settlements, is very little Known; It takes its name from the River Amazon that runs thro that immense Country, from West to East, the Course of that River was drawn in 1743 & 44 by M r . de la Condamine. 4. Guayana, divided between the Spaniards, Dutch & French. Spanish Guayana, is comprehended in Terra Firma, Dutch Guayana, contains the Colonies of Essequebe, Berbice and Surinam. French Guayana, contains the Colony of Cayenne, with Several Forts & Settlements. The Dutch & French cultivate Coffee, Cotton, Sugar, Rocon, or Annate & Cocoa. 5. Brasil, to the Portuguese, Divided into 12 Captainships, Viz. of the Bay of all Saints, Seregipe, Olinda Paraiba, Riogrande Seara, Maranham & Para, os Ilheos, Porto Seguro, Spiritu Santo & Riojaneiro, with the Commarcas of S t . Paul & of the Mines. The Portuguese in the Northern Captainships, are Masters of all the Coasts and 10 or 12 Leagues up in the Country, but in the Southern Captainships their Settlements extend a Great deal further in the Interior parts of the Land. Brasil, produces Gold, Tobacco & the best Sugar in great Plenty. Some years since the Portugese have Discover'd several Mines of Diamonds which are very Rich, & whose productions are almost as fine as those of the Mines of Asia. 6. Paraguay, to the Spaniards. Divided into the Great Governments 1 st . of Assomption, whose Eastern part is the Province of Chaco. 2 d . of Buenos-ayres. The Spaniards are become the absolute owners of that Country, since the expulsion of the Jesuits who had establish'd there an Independant Government, under the pretext of converting & civilizing the Indians. Paraguay abounds in very rich Mines both of Gold & Silver; there is besides plenty of Valuable Commodities, especially the Herb-Paraguay. The use made of it, is to compose a Certain Draught, Infusion, or Tea which recovers such as Work in the Mines from those grevious Cholicks & intolerable disorders in the Stomach caused by the exhalations in such places. The amount of this Trade is at least a Million & a Half of Pieces of Eight per Annum. By the Help of Rio Pilcomayo there is a quick & Straight passage from Potosi to Buenos-ayres; and a good Road thither also by Land. The importance of Buenos-ayres consists chiefly in its Convenient Situation for Commerce, indeed for such a Commerce as no Port in the Spanish Indies, can boast of the like. Hither come, even from the most distant Provinces, the most valuable Commodities in order to be Exchang'd for European Goods: such as Vigonia Wool from all parts of Peru, and Chili, Copper from Coquimbo, Gold from Chili, & Silver from Potosi. Tobacco, Sugar, Cotton thread, wax, Cotton Cloth from Paraguay. The Herb of that name is transported from Santafé to Potosi, partly in Waggons & partly on Mules; and tho it be a Journey of five Hundred Leagues, yet they Commonly perform it in a Month. They dispose of the Herb for ready Money, & generally gain upon it Cent per Cent. The Journey to the Mines of Chili is much more troublesome because the passage thro the Mountains which divide that Country from the Inland parts of America, is passable only from December to March. The Commerce between Buenos-ayres, & Peru is Chiefly for the Sale of Cattle, & of Mules for the Mines. The Trade carried on between Buenos-ayres & Europe ought to be only by Register Ships from Spain, but besides these, the Inhabitants carry on a great Contraband Commerce. On the North Side of Rio de la Plata, in Paraguay, the Portuguese have a colony called Colonia do Sacramento which was granted to them by a Treaty with the Spaniards in 1750. 7. Tucuman to the Spaniards. 8. Chili to the Spaniards. Divided into three Districts, Viz. those of Chili-proper, Imperiale & of Chicuyto. This country abounds every where with Gold, Silver, Copper, Lead, Mercury, Saltpetre & Sulphur, & from such parts of it as the Spaniards have thoroughly Settled, they reap Immense Profits. The Soil is Wonderfully Fertile. Producing not only Indian but European Corn, Wine, Fruits & all the Necessaries of Life in abundance; Whatever Herbs, Fruites or Flowers grow in Spain, are cultivated with Success here: & we learn from the accounts of the latest travellers, that in the Gardens of the Cities near the Coast, Orange-trees are Kept bearing all the Year. The Richest part of Chili is still in the hands of the Natives, & like to remain so, their Mountainous Situations affording the Indians such Advantages, as the Europeans, considering their small Number can hardly ever Surmount. In the mean time, the Governors run away with the greatest part of y e Wealth accruing from this Impertant Settlement, the King on the one hand being daily cheated of his revenues, and on the other paying prodigious Salaries; so that smaller returns are made to Spain, en the King's Account from hence that can well be Imagined. It must however be owned that within these Twenty Years, some pains have been taken to Remedy this abuse. 9. Patagonia, or the Country of the Gyants-Patagons, with the Magellanic Islands. Known under the names of Tierra del Fuego, & Falklands-Islands. Tierra del Fuego, or the Land of Fire, so named from a burning Mountain that is seen at a great distance, is a Desolate & Barren Country. The Isles of Falkland belong to Great Britain by Right of first Discovery. The English have a Fort & Settlement at Port Egmont, in Saunders Island, on the North of the Western Falkland, & the Spaniards have a Fort in the Eastern Isle. As Port Egmont, is a very safe & capacious Harbour, It will become of great utility to the British Navy & even to Privateers, in any future War, to annoy the Spanish Trade in the South Sea.",
           "bredd": 7000,
           "hojd": 6110,
@@ -736,6 +798,9 @@
           "licensadress": "https://www.flickr.com/commons/usage/",
           "upphovsperson": "Cooke, Wells Woodbridge, 1858-1916",
           "datum": "1915",
+          "datum_original": "1915",
+          "datum_fil": "2015-08-27 01:36:54",
+          "kredit": "https://www.flickr.com/photos/internetarchivebookimages/14782649862/ Source book page: https://archive.org/stream/distributionmigr292cook/distributionmigr292cook#page/n58/mode/1up",
           "beskrivning": "Identifier : distributionmigr292cook ( find matches ) Title : Distribution and migration of North American gulls and their allies Year : 1915 ( 1910s ) Authors : Cooke, Wells Woodbridge, 1858-1916 Subjects : Gulls Publisher : Washington, D.C. : U.S. Dept. of Agriculture Contributing Library : U.S. Department of Agriculture, National Agricultural Library Digitizing Sponsor : U.S. Department of Agriculture, National Agricultural Library View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: mon in Callao Bay, Peru, as late as April 11,1883 (Macfarlane), while a late date is that of one taken at Cham-perico, Guatemala, May 30, 1873 (Salvin). Other late spring datesare: Kerrville, Tex., May 17, 1910 (Lacey); Nishna Lake, Mo., May15, 1909 (Burnett); Wall Lake, Iowa, average date of the last seen,May 24, latest June 27, 1910 (Spurrell); Onaga, Kans., May 11,1910 (Crevecoeur); Clay Center, Kans., June 6, 1909 (Graves);Hudson, Kans., June 9, 1907 (specimen identified at Biological Sur-vey); and Aransas Bay, Tex., June, but not breeding (Armstrong). The earliest eggs were found at Heron Lake, Minn., May 25, 1885,May 8, 1886, May 18, 1890, and May 26, 1893 (Miller); near MarshLake, Minn., May 16, 1885 (Preston); and eggs heavily incubated,near Crane Lake, Saskatchewan, June 13, 1894 (Macoun). An enor-mous colony, estimated at 15,000 to 20,000 nests with eggs, was foundat Lake of the Narrows, Saskatchewan, June 9, 1905 (Bent). The 56 BULLETIN 292, U. S. DEPARTMENT OF AGRICULTURE. Text Appearing After Image: Fig. 26.—Franklins gull (Larus frariklini). NORTH AMERICAN GULLS AND THEIR ALLIES. 57 next year not a nest could be found at this lake, owing to a droughtthat had lowered the water level. Fall migration.—A very early migrant was taken at Valparaiso,Chile, in September, 1859 (Philippi), though usually the species doesnot reach southern Texas until the last of that month (Armstrong).The extreme northern part of the range is deserted, however, at anearly date, since for 14 years the average date of the last one seen atAweme, Manitoba, is August 10, latest August 21, 1905 (Criddle);Harrisburg, N. Dak., latest October 1, 1901 (Eastgate); southeasternSouth Dakota, average of the last seen October 13, latest November12, 1891; Badger, Nebr., November 12, 1899 (Colt); Lincoln, Nebr.,November 17, 1900 (Wolcott); Lawrence, Kans., November 1, 1905(Wetmore); Madison, Minn., October 8, 1894 (Lano); West Depere, Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
           "bredd": 2104,
           "hojd": 3476,
@@ -759,6 +824,9 @@
           "licensadress": null,
           "upphovsperson": "Léopold-Émile Reutlinger",
           "datum": "1906",
+          "datum_original": "1906",
+          "datum_fil": "2013-11-25 15:06:31",
+          "kredit": "http://www.etsy.com/listing/150700919/marguerite-brezil-belle-epoque-french",
           "beskrivning": "Marguerite Brezil with Bird, French Actress.",
           "bredd": 1500,
           "hojd": 962,
@@ -781,6 +849,9 @@
           "licensadress": null,
           "upphovsperson": "Léopold-Émile Reutlinger",
           "datum": "1905",
+          "datum_original": "1905",
+          "datum_fil": "2013-11-25 13:15:27",
+          "kredit": "http://redpoulaine.blogspot.in/2013/06/mlle-nostier-in-swan-bill-corset-by.html",
           "beskrivning": "French Actress Mlle. Nostier, in Swan-Bill Corset and Mutton Chop Sleeves, circa 1905.",
           "bredd": 968,
           "hojd": 1500,
@@ -795,6 +866,10 @@
           ],
           "smal": false
         }
+      ],
+      "soktext": "The Fall of Callao",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
       ]
     },
     {
@@ -804,7 +879,7 @@
       "start": 1830,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q3848233",
       "kandidater": [
@@ -818,6 +893,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
           "upphovsperson": "Jake from Utah, United States",
           "datum": "2006-06-03 12:02",
+          "datum_original": "2006-06-03 12:02",
+          "datum_fil": "2010-09-04 07:00:58",
+          "kredit": "Peter Whitmer Log Home",
           "beskrivning": "Replica of a cabin at the Peter Whitmer Farm, Fayette (Waterloo), New York, rebuilt by The Church of Jesus Christ of Latter-day Saints . In was in the original cabin in which Joseph Smith, Jr. organized the Church of Christ (renamed in 1838 the Church of Jesus Christ of Latter Day Saints ) on 6 April 1830.",
           "bredd": 2576,
           "hojd": 1716,
@@ -837,13 +915,9 @@
       "start": 1830,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q750448",
-      "soktext": "The Trail of Tears",
-      "anmarkningar": [
-        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
       "kandidater": [
         {
           "fil": "File:Trail of tears o-r coopertown TN.jpg",
@@ -855,6 +929,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Volunteer Politics",
           "datum": "2023-09-16",
+          "datum_original": "2023-09-16",
+          "datum_fil": "2023-09-17 14:29:12",
+          "kredit": "Own work",
           "beskrivning": "Trail of Tears historic route sign, coopertown TN",
           "bredd": 1080,
           "hojd": 1041,
@@ -879,6 +956,9 @@
           "licensadress": null,
           "upphovsperson": "mostateparks",
           "datum": "2014-10-10",
+          "datum_original": "2014-10-10",
+          "datum_fil": "2024-06-06 22:04:19",
+          "kredit": "https://www.flickr.com/photos/47969339@N02/15473599306/",
           "beskrivning": "Trail of Tears State Park",
           "bredd": 1592,
           "hojd": 1051,
@@ -899,6 +979,9 @@
           "licensadress": null,
           "upphovsperson": "Yam Nahar",
           "datum": "1/12/2008",
+          "datum_original": "1/12/2008",
+          "datum_fil": "2008-02-19 14:08:15",
+          "kredit": "Own work",
           "beskrivning": "Trail of Tears sign on Hwy 71 through Fayetteville, Arkansas",
           "bredd": 640,
           "hojd": 480,
@@ -924,6 +1007,9 @@
           "licensadress": null,
           "upphovsperson": "National Trails Office ( US National Park Service )",
           "datum": "Taken on 20 April 2010",
+          "datum_original": "Taken on 20 April 2010",
+          "datum_fil": "2023-06-22 20:31:32",
+          "kredit": "NPGallery",
           "beskrivning": "Trail of Tears video Exhibit Panels at Fort Smith Museum of History in Fort Smith, Arkansas Trail of Tears video Exhibit Panels at Fort Smith Museum of History in Fort Smith, Arkansas; https://www.nps.gov/places/fort-smith-national-historic-site-trail-of-tears.htm Keywords: trte; trail of tears national historic trail; nht; national historic trail; arkansas; sebastian county; fort smith; fort smith national historic site; fort smith museum of history; atkinson-williams warehouse; cultural resources; historic area; high potential site; nrhp; education/interpretation; exhibit; exhibit panels; facilities; structures; and assets; historic building; museum; (Trail of Tears National Historic Trail State)",
           "bredd": 3072,
           "hojd": 2304,
@@ -945,6 +1031,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/4.0",
           "upphovsperson": "John Phelan",
           "datum": "Taken on 27 June 2026, 13:10:43",
+          "datum_original": "Taken on 27 June 2026, 13:10:43",
+          "datum_fil": "2026-07-07 00:11:27",
+          "kredit": "Own work",
           "beskrivning": "Trail of Tears Original Route sign, Soapstick Georgia",
           "bredd": 4032,
           "hojd": 3024,
@@ -961,6 +1050,10 @@
           ],
           "smal": false
         }
+      ],
+      "soktext": "The Trail of Tears",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
       ]
     },
     {
@@ -970,10 +1063,9 @@
       "start": 1846,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The first public operation with ether Ether Dome",
       "kandidater": [
         {
           "fil": "File:Ether Dome Daguerreotype No. 4.png",
@@ -985,6 +1077,9 @@
           "licensadress": null,
           "upphovsperson": "Rajesh Parsotam Haridas, M.B.Ch.B., F.A.N.Z.C.A.",
           "datum": "Taken on 3 July 1847",
+          "datum_original": "Taken on 3 July 1847",
+          "datum_fil": "2016-07-24 15:21:40",
+          "kredit": "Photographs of Early Ether Anesthesia in Boston: The Daguerreotypes of Albert Southworth and Josiah Hawes Anesthesiology 7 2010, Vol.113, 13-26. doi:10.1097/ALN.0b013e3181de6f41",
           "beskrivning": "According to Rowley, the image is the first of three views of a surgery registered on Bigelow's tables for \"disease of the fibula\" –prosecuted July 3, 1847. Dr. John Collins Warren assumed responsibility for the surgery of Dr. Solomon David Townsend's patient, a 19-yr-old Portuguese sailor, named Francis Manuel. Rowley scholarship published online [1]",
           "bredd": 1199,
           "hojd": 909,
@@ -1011,6 +1106,9 @@
           "licensadress": null,
           "upphovsperson": "Rajesh Parsotam Haridas, M.B.Ch.B., F.A.N.Z.C.A.",
           "datum": "Taken on 3 July 1847",
+          "datum_original": "Taken on 3 July 1847",
+          "datum_fil": "2023-08-10 10:55:52",
+          "kredit": "Photographs of Early Ether Anesthesia in Boston: The Daguerreotypes of Albert Southworth and Josiah Hawes. Anesthesiology 7 2010, Vol.113, 13-26. doi:10.1097/ALN.0b013e3181de6f41",
           "beskrivning": "According to Rowley, the image is the third of three views of a surgery registered on Bigelow's tables for \"disease of the fibula\" –prosecuted July 3, 1847. Dr. John Collins Warren assumed responsibility for the surgery of Dr. Solomon David Townsend's patient, a 19-yr-old Portuguese sailor, named Francis Manuel. Rowley scholarship published online [1]",
           "bredd": 1198,
           "hojd": 961,
@@ -1037,6 +1135,9 @@
           "licensadress": null,
           "upphovsperson": "Rajesh Parsotam Haridas, M.B.Ch.B., F.A.N.Z.C.A.",
           "datum": "Taken on 3 July 1847",
+          "datum_original": "Taken on 3 July 1847",
+          "datum_fil": "2016-07-24 15:17:13",
+          "kredit": "Photographs of Early Ether Anesthesia in Boston: The Daguerreotypes of Albert Southworth and Josiah Hawes Anesthesiology 7 2010, Vol.113, 13-26. doi:10.1097/ALN.0b013e3181de6f41",
           "beskrivning": "Patient: Francis Manuel. According to Rowley (2022), the view captures an exploratory and intervention surgery for a young Portuguese sailor's diseased fibula. Although Manuel was Townsend's patient, Warren was the lead surgeon who prosecuted the operation on July 3, 1847. Warren's case notes for the surgery are published in Volume 2 of his biography. Rowley scholarship published online [1] Attributions of record, left to right: J. Mason Warren, M.D., Henry Grafton Clark, M.D., Samuel Parkman, M.D., etherizer, unknown, Solomon Davis Townsend, M.D., John Collins Warren, M.D., unknown person possibly Charles H. Hildreth, M.D. James Johnson or Oliver Wendell Holmes, M.D., unknown, unknown. Attributions from Haridas, Lowry & Lowry, et al.",
           "bredd": 1199,
           "hojd": 904,
@@ -1054,7 +1155,8 @@
           ],
           "smal": false
         }
-      ]
+      ],
+      "soktext": "The first public operation with ether Ether Dome"
     },
     {
       "id": "guldrushen-i-kalifornien",
@@ -1063,7 +1165,7 @@
       "start": 1848,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q17550",
       "kandidater": [
@@ -1077,6 +1179,9 @@
           "licensadress": null,
           "upphovsperson": "ArwinJ",
           "datum": "C.E.1849 / H.E.11,849",
+          "datum_original": "C.E.1849 / H.E.11,849",
+          "datum_fil": "2017-07-03 23:54:42",
+          "kredit": null,
           "beskrivning": "An 1849 handbill from the California Gold Rush. Advertising posters of the United States. GOLD RUSH Advertisements in the United States The image is from [1] .",
           "bredd": 940,
           "hojd": 1178,
@@ -1101,7 +1206,7 @@
       "start": 1861,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q221469",
       "kandidater": [
@@ -1115,6 +1220,9 @@
           "licensadress": null,
           "upphovsperson": "Richard W. Stewart General Editor",
           "datum": "2006-08-04 14:31:24",
+          "datum_original": null,
+          "datum_fil": "2006-08-04 14:31:24",
+          "kredit": "ARMY HISTORICAL SERIES, AMERICAN MILITARY HISTORY VOLUME 1, THE UNITED STATES ARMY AND THE FORGING OF A NATION, 1775-1917. Source [1]",
           "beskrivning": "Battle of Bull Run",
           "bredd": 992,
           "hojd": 596,
@@ -1134,7 +1242,7 @@
       "start": 1862,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q719252",
       "kandidater": [
@@ -1148,6 +1256,9 @@
           "licensadress": null,
           "upphovsperson": "Kurz and Allison / Adam Cuerden",
           "datum": "1888",
+          "datum_original": "1888",
+          "datum_fil": "2022-07-18 19:13:08",
+          "kredit": "This image is available from the United States Library of Congress 's Prints and Photographs division under the digital ID pga.01841 . This tag does not indicate the copyright status of the attached work. A normal copyright tag is still required. See Commons:Licensing .",
           "beskrivning": "\"Battle of Antietam\" by Kurz & Allison. Smaller text reads: Army of the Potomac: Gen. Geo. B. McClellan, Comm., Sept. 17' 1862. 1'2'4'6'9'12'Corps & Pleasanton's Cav. Div. Engaged. // Copyrighted 1888 by Kurz & Allison Art Publishers, 76 & 78 Wabash Ave., Chicago, U.S.A.\" ... MEDIUM: 1 print : lithograph, color. CREATED/PUBLISHED: c1888. Kurz & Allison. Copyrighted 1888 by Kurz & Allison, Art Publishers, Chicago, U.S.A.",
           "bredd": 8160,
           "hojd": 5992,
@@ -1170,7 +1281,7 @@
       "start": 1863,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q1066253",
       "kandidater": [
@@ -1184,6 +1295,9 @@
           "licensadress": null,
           "upphovsperson": "Kurz & Allison.",
           "datum": "1888",
+          "datum_original": "1888",
+          "datum_fil": "2018-11-01 10:42:28",
+          "kredit": "Library of Congress Catalog: http://lccn.loc.gov/91481552 Image download: http://cdn.loc.gov/service/pnp/pga/01800/01871v.jpg Original url: https://www.loc.gov/pictures/item/91481552/",
           "beskrivning": "Title: Siege of Vicksburg--13, 15, & 17 Corps, Commanded by Gen. U.S. Grant, assisted by the Navy under Admiral Porter--Surrender, July 4, 1863 Abstract/medium: 1 print : lithograph, color.",
           "bredd": 8341,
           "hojd": 6578,
@@ -1204,7 +1318,7 @@
       "start": 1863,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q391358",
       "kandidater": [
@@ -1218,6 +1332,9 @@
           "licensadress": null,
           "upphovsperson": "Engraving by W. Roberts.",
           "datum": "1864",
+          "datum_original": "1864",
+          "datum_fil": "2009-11-15 00:08:16",
+          "kredit": "This image is available from the United States Library of Congress 's Prints and Photographs division under the digital ID pga.04067 . This tag does not indicate the copyright status of the attached work. A normal copyright tag is still required. See Commons:Licensing .",
           "beskrivning": "Photograph of a reproduction of the Emancipation Proclamation",
           "bredd": 6063,
           "hojd": 7833,
@@ -1239,6 +1356,9 @@
           "licensadress": null,
           "upphovsperson": "The U.S. National Archives",
           "datum": "1863-01-01 14:52",
+          "datum_original": "1863-01-01 14:52",
+          "datum_fil": "2018-01-12 01:30:10",
+          "kredit": "Emancipation Proclamation, 01/01/1863 (Page 1 of 5)",
           "beskrivning": "Other Title: Presidential Proclamation #95 U.S. National Archives' Local Identifier: NWDT1-11-PRDOC-PI159E23-PROC95 From: Series: Presidential Proclamations, compiled 1791 – 1991 (Record Group 11) Created by: U.S. Government. (03/04/1789 - ) Production Date: 01/01/1863 Persistent URL: research.archives.gov/description/299998 Repository: National Archives Building - Archives I (Washington, DC) Access Restrictions: Unrestricted Use Restrictions: Unrestricted",
           "bredd": 3180,
           "hojd": 4970,
@@ -1259,6 +1379,9 @@
           "licensadress": null,
           "upphovsperson": "The U.S. National Archives",
           "datum": "1863-01-01 14:54",
+          "datum_original": "1863-01-01 14:54",
+          "datum_fil": "2018-01-12 01:29:00",
+          "kredit": "Emancipation Proclamation, 01/01/1863 (Page 2 of 5)",
           "beskrivning": "Other Title: Presidential Proclamation #95 U.S. National Archives' Local Identifier: NWDT1-11-PRDOC-PI159E23-PROC95 From: Series: Presidential Proclamations, compiled 1791 – 1991 (Record Group 11) Created by: U.S. Government. (03/04/1789 - ) Production Date: 01/01/1863 Persistent URL: research.archives.gov/description/299998 Repository: National Archives Building - Archives I (Washington, DC) Access Restrictions: Unrestricted Use Restrictions: Unrestricted",
           "bredd": 2017,
           "hojd": 3150,
@@ -1278,11 +1401,11 @@
       "start": 1864,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Paraguay seizes the Marquês de Olinda",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Paraguay seizes the Marquês de Olinda"
     },
     {
       "id": "juneteenth-1865",
@@ -1291,11 +1414,11 @@
       "start": 1865,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The last enslaved people in Texas learn that they are free Galveston",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "The last enslaved people in Texas learn that they are free Galveston"
     },
     {
       "id": "stand-watie-kapitulerar",
@@ -1304,11 +1427,11 @@
       "start": 1865,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Cherokee general Stand Watie lays down his arms",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Cherokee general Stand Watie lays down his arms"
     },
     {
       "id": "trippelalliansfordraget",
@@ -1317,13 +1440,9 @@
       "start": 1865,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q1782419",
-      "soktext": "Treaty of the Triple Alliance Buenos Aires",
-      "anmarkningar": [
-        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
       "kandidater": [
         {
           "fil": "File:Non-Native American Nations Control over South America 1700 and on.gif",
@@ -1335,6 +1454,9 @@
           "licensadress": null,
           "upphovsperson": "Esemono",
           "datum": "2008-04",
+          "datum_original": "2008-04",
+          "datum_fil": "2010-02-20 01:36:22",
+          "kredit": "Own work",
           "beskrivning": "Non-Native American Nations Control over South America — 1700 and on",
           "bredd": 800,
           "hojd": 1100,
@@ -1370,6 +1492,10 @@
           ],
           "smal": false
         }
+      ],
+      "soktext": "Treaty of the Triple Alliance Buenos Aires",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
       ]
     },
     {
@@ -1379,7 +1505,7 @@
       "start": 1866,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q2305019",
       "kandidater": [
@@ -1393,6 +1519,9 @@
           "licensadress": null,
           "upphovsperson": "Unknown( Candido Lopez , w:en:Cándido López )",
           "datum": "1866",
+          "datum_original": "1866",
+          "datum_fil": "2006-10-04 10:11:02",
+          "kredit": "en:Image:Batalhacurupaiti.jpg",
           "beskrivning": "Battle of Curupaity, 24. september 1866. Pt: Soldados paraguaios em Curupaiti atirando de uma trincheira contra as tropas aliadas.",
           "bredd": 400,
           "hojd": 285,
@@ -1415,7 +1544,7 @@
       "start": 1868,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q30326664",
       "kandidater": [
@@ -1429,6 +1558,9 @@
           "licensadress": null,
           "upphovsperson": "Billyriobr",
           "datum": "2 August 2010 (upload date)",
+          "datum_original": "2 August 2010 (upload date)",
+          "datum_fil": "2010-08-02 14:23:59",
+          "kredit": "Own work",
           "beskrivning": "Graphic scheme of the Passage of Humaita, who was a military operation, which was formed in order to pass through Humaitá Fortress, at the Paraguay River, with a small force of six monitors Navy of Brazil, on February 19, 1868, in the context of the War Triple Alliance.",
           "bredd": 532,
           "hojd": 877,
@@ -1449,7 +1581,7 @@
       "start": 1869,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q2717440",
       "kandidater": [
@@ -1463,6 +1595,9 @@
           "licensadress": null,
           "upphovsperson": "Pedro Américo",
           "datum": "1871 date QS:P571,+1871-00-00T00:00:00Z/9",
+          "datum_original": "1871 date QS:P571,+1871-00-00T00:00:00Z/9",
+          "datum_fil": "2020-05-04 00:29:34",
+          "kredit": "[1]",
           "beskrivning": null,
           "bredd": 620,
           "hojd": 387,
@@ -1483,7 +1618,7 @@
       "start": 1870,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q3504617",
       "kandidater": [
@@ -1497,6 +1632,9 @@
           "licensadress": null,
           "upphovsperson": "Unknown author Unknown author",
           "datum": "1870-03-27",
+          "datum_original": "1870-03-27",
+          "datum_fil": "2025-12-27 05:06:08",
+          "kredit": "Semana Illustrada, nº 485, 27/03/1870 ( https://memoria.bn.gov.br/DocReader/DocReader.aspx?bib=702951&pagfis=3969 ).",
           "beskrivning": "Chico Diabo atravessando com uma lança Solano López (Semana Illustrada nº 485, 27/03/1870).",
           "bredd": 2087,
           "hojd": 2543,
@@ -1521,7 +1659,7 @@
       "start": 1872,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q351",
       "kandidater": [
@@ -1535,6 +1673,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/2.0",
           "upphovsperson": "James St. John from Newark, Ohio",
           "datum": "2013-06-05 18:04",
+          "datum_original": "2013-06-05 18:04",
+          "datum_fil": "2014-08-22 13:09:13",
+          "kredit": "Flickr",
           "beskrivning": "Grand Prismatic Spring",
           "bredd": 4288,
           "hojd": 2848,
@@ -1554,10 +1695,9 @@
       "start": 1881,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Finlay: a mosquito spreads yellow fever Havana",
       "kandidater": [
         {
           "fil": "File:Walter Reed letter to Lieutenant Truby (Reeve 67753), National Museum of Health and Medicine (4837288053).jpg",
@@ -1569,6 +1709,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/2.0",
           "upphovsperson": "National Museum of Health and Medicine",
           "datum": "2010-07-28 10:28",
+          "datum_original": "2010-07-28 10:28",
+          "datum_fil": "2020-11-09 17:37:12",
+          "kredit": "Walter Reed letter to Lieutenant Truby (Reeve 67753), National Museum of Health and Medicine",
           "beskrivning": "Walter Reed letter to Lieutenant Truby (Reeve 67753), National Museum of Health and Medicine Description: Letter from Walter Reed to Lieutenant Truby on December 10, 1900 from the Columbia Barracks. Letter announces advances in experiments that indicate that yellow fever is spread by mosquitoes, not direct contact with infected material. Text reads: \"“My dear Dr. Truby/Just a line to thank you for the mosquitoes which came safely several days ago, (and which proved to be beautiful specimens of C. fasciatus), and, also, to tell you that the theory is alright! Our first case came down in camp (Kissenger) on Saturday night—was bitten on 5th at 11:20am by two 21 day “birds,” one 19 day, on 16 day, and one 12 day “bird.” Initial chill 11:30 at night, Saturday; first 84 hours (3 ½ days) following, with rise of T. to 100 degrees, severe headache and backache, with [infected?] eyes. T at midnight 101 degrees and at 9am 102.2 &c! The case is a beautiful one and will be seen by the Board of Havana Experts to-day, all of whom except Finlay, consider the theory a wild one!/ Cooke and Co. in infected bedding house are enjoying their usual health, but much relieved when told that C. fasciatus had got in his work! Congratulations are now in order—Love to my boy—Sincerely, your friend, Walter Reed” Date: December 10, 1900 Photo ID: Reeve 67753 Source collection: OHA 80: Reeve Photograph Collection Repository: National Museum of Health and Medicine, Otis Historical Archives Rights: No known restrictions upon publication, physical copy retained by National Museum of Health and Medicine. Publication and high resolution image requests should be directed to the NMHM (<a href=\" http://www.medicalmuseum.mil/ \" rel=\"nofollow\">www.medicalmuseum.mil/</a>)",
           "bredd": 2386,
           "hojd": 3134,
@@ -1580,7 +1723,8 @@
           ],
           "smal": false
         }
-      ]
+      ],
+      "soktext": "Finlay: a mosquito spreads yellow fever Havana"
     },
     {
       "id": "azul-ruben-dario-1888",
@@ -1589,7 +1733,7 @@
       "start": 1888,
       "varldsdel": "Amerika",
       "period": "1800",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q5715218",
       "kandidater": [
@@ -1603,6 +1747,9 @@
           "licensadress": null,
           "upphovsperson": "Ruben Dario",
           "datum": "1888",
+          "datum_original": "1888",
+          "datum_fil": "2021-08-08 19:38:34",
+          "kredit": "http://historiapolitica.bcn.cl/obtienearchivo?id=documentos/10221.1/40165/1/186930.pdf",
           "beskrivning": "Azul... es un libro de cuentos y poemas del poeta nicaragüense Rubén Darío, considerado una de las obras más relevantes del modernismo hispánico. Se publicó por primera vez en Valparaíso el 30 de julio de 1888. Dos años después, en Guatemala, apareció una segunda edición, corregida y aumentada.",
           "bredd": 1199,
           "hojd": 2001,

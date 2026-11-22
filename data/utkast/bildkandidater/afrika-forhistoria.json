@@ -19,11 +19,11 @@
       "start": -297999,
       "varldsdel": "Afrika",
       "period": "forhistoria",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Jebel Irhoud: the oldest finds counted as Homo sapiens Jebel Irhoud",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Jebel Irhoud: the oldest finds counted as Homo sapiens Jebel Irhoud"
     },
     {
       "id": "omo-kibish",
@@ -32,10 +32,9 @@
       "start": -230999,
       "varldsdel": "Afrika",
       "period": "forhistoria",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Homo sapiens at Omo Kibish",
       "kandidater": [
         {
           "fil": "File:Omo II 01.jpg",
@@ -47,6 +46,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "Alessandrosmerilli",
           "datum": "2013-03-05 15:03:09",
+          "datum_original": "2013-03-05 15:03:09",
+          "datum_fil": "2015-09-05 01:26:58",
+          "kredit": "File:Homo_Sapiens_Idaltu_-fossils_of_skull_of_man_and_child.JPG",
           "beskrivning": "Cráneo Omo II de H. sapiens",
           "bredd": 1159,
           "hojd": 1661,
@@ -67,6 +69,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "GuillaumeG",
           "datum": "2019-12-05 11:06:15",
+          "datum_original": "2019-12-05 11:06:15",
+          "datum_fil": "2020-05-30 18:20:46",
+          "kredit": "Own work",
           "beskrivning": "Reproduction du crâne de l'Homme de Kibish. Musée des Civilisations Noires de Dakar (Sénégal).",
           "bredd": 2352,
           "hojd": 2571,
@@ -89,6 +94,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "Bernard Gagnon",
           "datum": "2012-11-20",
+          "datum_original": "2012-11-20",
+          "datum_fil": "2013-12-29 18:11:45",
+          "kredit": "Own work",
           "beskrivning": "Omo River seen from the Karo village of Doose, Ethiopia",
           "bredd": 3264,
           "hojd": 2303,
@@ -99,7 +107,8 @@
           ],
           "smal": false
         }
-      ]
+      ],
+      "soktext": "Homo sapiens at Omo Kibish"
     },
     {
       "id": "florisbad",
@@ -108,11 +117,11 @@
       "start": -177999,
       "varldsdel": "Afrika",
       "period": "forhistoria",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Florisbad: a possible early find of Homo sapiens Florisbad",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Florisbad: a possible early find of Homo sapiens Florisbad"
     },
     {
       "id": "herto",
@@ -121,10 +130,9 @@
       "start": -157999,
       "varldsdel": "Afrika",
       "period": "forhistoria",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Homo sapiens at Herto",
       "kandidater": [
         {
           "fil": "File:Homo Sapiens Idaltu.JPG",
@@ -136,6 +144,9 @@
           "licensadress": null,
           "upphovsperson": "Alessandrosmerilli",
           "datum": "06.03.2013",
+          "datum_original": "06.03.2013",
+          "datum_fil": "2013-03-09 15:00:28",
+          "kredit": "Addis Ababa national museum",
           "beskrivning": "Herto skull , Homo sapiens idaltu",
           "bredd": 4000,
           "hojd": 3000,
@@ -157,6 +168,9 @@
           "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
           "upphovsperson": null,
           "datum": "2016-04-25 09:03:19",
+          "datum_original": null,
+          "datum_fil": "2016-04-25 09:03:19",
+          "kredit": null,
           "beskrivning": null,
           "bredd": 341,
           "hojd": 341,
@@ -179,6 +193,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "Alessandrosmerilli",
           "datum": "2013-03-05 15:03:09",
+          "datum_original": "2013-03-05 15:03:09",
+          "datum_fil": "2013-03-10 09:59:10",
+          "kredit": "Own work",
           "beskrivning": "Foreground (right): this skull of a seven to eight-year-old child, found in 1997, shows evidence of cut marks and polish after death, suggesting some form of ritualistic behavior post mortem. Catalogue name BOU-VP-16/5 (Herto rests). Foreground (center): This specimen of partial skull, found in 1967 in the lower Omo valley (Ethiopia) was estimated younger than 190.000 years old. Catalogue name: Omo II.",
           "bredd": 4000,
           "hojd": 3000,
@@ -199,6 +216,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "Alessandrosmerilli",
           "datum": "2013-03-05 15:01:45",
+          "datum_original": "2013-03-05 15:01:45",
+          "datum_fil": "2013-03-10 09:59:10",
+          "kredit": "Own work",
           "beskrivning": "Description of the photo",
           "bredd": 4000,
           "hojd": 3000,
@@ -219,6 +239,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/3.0",
           "upphovsperson": "Sailko",
           "datum": "2018-11-06 10:35:00",
+          "datum_original": "2018-11-06 10:35:00",
+          "datum_fil": "2020-05-01 15:12:41",
+          "kredit": "Own work",
           "beskrivning": "Paleontological collections of the National Museum of Ethiopia",
           "bredd": 2214,
           "hojd": 2250,
@@ -230,7 +253,8 @@
           ],
           "smal": false
         }
-      ]
+      ],
+      "soktext": "Homo sapiens at Herto"
     },
     {
       "id": "dar-es-soltan-benkniv",
@@ -239,11 +263,11 @@
       "start": -88049,
       "varldsdel": "Afrika",
       "period": "forhistoria",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "A bone knife at Dar es-Soltan",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "A bone knife at Dar es-Soltan"
     },
     {
       "id": "katanda-benharpuner",
@@ -252,11 +276,11 @@
       "start": -87999,
       "varldsdel": "Afrika",
       "period": "forhistoria",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Bone harpoons at Katanda",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Bone harpoons at Katanda"
     },
     {
       "id": "panga-ya-saidi-grav",
@@ -265,10 +289,9 @@
       "start": -75999,
       "varldsdel": "Afrika",
       "period": "forhistoria",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The oldest known burial in Africa",
       "kandidater": [
         {
           "fil": "File:The oldest grave in the cemetery.jpg",
@@ -280,6 +303,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Pjhap",
           "datum": "2017-11-12 11:28:19",
+          "datum_original": "2017-11-12 11:28:19",
+          "datum_fil": "2018-02-06 10:33:26",
+          "kredit": "Own work",
           "beskrivning": "170 burials",
           "bredd": 3000,
           "hojd": 4000,
@@ -300,6 +326,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "Roché Petersen",
           "datum": "2011-06-08 11:57:44",
+          "datum_original": "2011-06-08 11:57:44",
+          "datum_fil": "2012-09-29 13:24:54",
+          "kredit": "Own work",
           "beskrivning": "The Old Church Museum is the oldest (1754) cross-form church in South Africa and houses a wonderful collection of Cape furniture.",
           "bredd": 448,
           "hojd": 331,
@@ -322,6 +351,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Mickey Mystique",
           "datum": "2018-09-13 09:41:24",
+          "datum_original": "2018-09-13 09:41:24",
+          "datum_fil": "2018-09-15 15:16:53",
+          "kredit": "Own work",
           "beskrivning": "The oldest group of sculptures, known as the Telem, was supposedly crafted more than two hundred years ago in the same style as today. The Telem are distinguished by their exceptionally dynamic pose with arms raised upwards indicating a supplication for rain, or fertility. They are sometimes shown in a kneeling pose, mose often representing a woman. The Telem figures were kept in granaries, where sacrifices were offered to them; however, some have also been discovered in burial chambers - caves. Representations of anthropomorphic figures with elevated arms can be found on many objects, especially granary doors.",
           "bredd": 2353,
           "hojd": 2401,
@@ -344,6 +376,9 @@
           "licensadress": null,
           "upphovsperson": "Anonymous Unknown author",
           "datum": "1899",
+          "datum_original": "1899",
+          "datum_fil": "2018-06-29 15:05:23",
+          "kredit": "New York Time",
           "beskrivning": "John Vinton Dahlgren (1868-1899) obituary in the New York Times",
           "bredd": 627,
           "hojd": 5060,
@@ -365,6 +400,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "TheHistoryFinder",
           "datum": "2021-06-18 19:07:59",
+          "datum_original": "2021-06-18 19:07:59",
+          "datum_fil": "2025-06-17 03:43:58",
+          "kredit": "Own work",
           "beskrivning": "Reed Cemetery is an African-American cemetery in Russellville. Land was donated in 1884 to the city of Russellville in a wooden area southwest of the city during the period of Jim Crow segregation. The oldest known burial was in 1889. Earlier, unmarked graves in the historic section date from the mid-1880s. The cemetery contains a former slave over 100 years-old, the only African-American mayor in the city of Russellville, over 60 veterans from World War I through the Gulf War, and mulatto descendants of the namesake of Russellville, Dr. Thomas Russell.",
           "bredd": 4032,
           "hojd": 3024,
@@ -375,7 +413,8 @@
           ],
           "smal": false
         }
-      ]
+      ],
+      "soktext": "The oldest known burial in Africa"
     },
     {
       "id": "blombosgrottan",
@@ -384,7 +423,7 @@
       "start": -72999,
       "varldsdel": "Afrika",
       "period": "forhistoria",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q884971",
       "kandidater": [
@@ -398,6 +437,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "Vincent Mourre / Inrap",
           "datum": "2010-05-28",
+          "datum_original": "2010-05-28",
+          "datum_fil": "2010-10-29 12:29:50",
+          "kredit": "Own work",
           "beskrivning": "general view of Blombos site, South Africa",
           "bredd": 800,
           "hojd": 1200,
@@ -417,7 +459,7 @@
       "start": -61999,
       "varldsdel": "Afrika",
       "period": "forhistoria",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q1322486",
       "kandidater": [
@@ -431,6 +473,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/4.0",
           "upphovsperson": "M. Ecker",
           "datum": "2014-05-30",
+          "datum_original": "2014-05-30",
+          "datum_fil": "2015-05-06 17:19:54",
+          "kredit": "http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0098359 (Figure 2, modified)",
           "beskrivning": "The archaeological site of Sibudu, KwaZulu-Natal, South Africa. View on the excavation area within the rock shelter.",
           "bredd": 1926,
           "hojd": 1282,
@@ -451,10 +496,9 @@
       "start": -57999,
       "varldsdel": "Afrika",
       "period": "forhistoria",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Engraved ostrich eggshells at Diepkloof",
       "kandidater": [
         {
           "fil": "File:Iziko engraving ostrich eggshell.JPG",
@@ -466,6 +510,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "Nkansah Rexford",
           "datum": "2014-07-01 15:35:04",
+          "datum_original": "2014-07-01 15:35:04",
+          "datum_fil": "2014-07-01 14:16:17",
+          "kredit": "Own work",
           "beskrivning": "Diepkloof, Western Cape Between 55 and 65 000 years old Engraved ostrich eggshell Dated by optically stimulated luminescence (OSL) and radiocarbon.",
           "bredd": 2690,
           "hojd": 1512,
@@ -481,7 +528,8 @@
           ],
           "smal": false
         }
-      ]
+      ],
+      "soktext": "Engraved ostrich eggshells at Diepkloof"
     },
     {
       "id": "obsidian-i-porc-epicgrottan",
@@ -490,11 +538,11 @@
       "start": -48049,
       "varldsdel": "Afrika",
       "period": "forhistoria",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Obsidian from afar in Porc-Epic Cave",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Obsidian from afar in Porc-Epic Cave"
     },
     {
       "id": "lebombobenet",
@@ -503,14 +551,14 @@
       "start": -40999,
       "varldsdel": "Afrika",
       "period": "forhistoria",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q581731",
+      "kandidater": [],
       "soktext": "The Lebombo bone with incised notches",
       "anmarkningar": [
         "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
-      "kandidater": []
+      ]
     },
     {
       "id": "enkapune-ya-muto-parlor",
@@ -519,11 +567,11 @@
       "start": -37999,
       "varldsdel": "Afrika",
       "period": "forhistoria",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Ostrich eggshell beads at Enkapune Ya Muto",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Ostrich eggshell beads at Enkapune Ya Muto"
     },
     {
       "id": "apollo-11-stenarna",
@@ -532,11 +580,11 @@
       "start": -27999,
       "varldsdel": "Afrika",
       "period": "forhistoria",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The Apollo 11 stones, Africa’s oldest known figurative pictures",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "The Apollo 11 stones, Africa’s oldest known figurative pictures"
     },
     {
       "id": "ishangobenet",
@@ -545,7 +593,7 @@
       "start": -19999,
       "varldsdel": "Afrika",
       "period": "forhistoria",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q1077717",
       "kandidater": [
@@ -559,6 +607,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Joeykentin",
           "datum": "2022-02-09 16:35:16",
+          "datum_original": "2022-02-09 16:35:16",
+          "datum_fil": "2023-09-07 18:20:12",
+          "kredit": "Own work",
           "beskrivning": "Bone tool and possible mathematical device that dates to the Upper Paleolithic era discovered in Ishango",
           "bredd": 891,
           "hojd": 1230,
@@ -578,10 +629,9 @@
       "start": -16599,
       "varldsdel": "Afrika",
       "period": "forhistoria",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The violence at Jebel Sahaba",
       "kandidater": [
         {
           "fil": "File:Location of the Jebel Sahaba cemetery.webp",
@@ -593,6 +643,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/4.0",
           "upphovsperson": "Unknown author Unknown author",
           "datum": "2021-05-27",
+          "datum_original": "2021-05-27",
+          "datum_fil": "2026-01-16 16:15:00",
+          "kredit": "https://www.nature.com/articles/s41598-021-89386-y",
           "beskrivning": "Location of the Jebel Sahaba cemetery, Site 117, in the Nile Valley and map of the excavated area and burials (map following23, Image Courtesy British Museum Wendorf Archive, modified with Adobe Illustrator CS6, https://www.adobe.com/products/illustrator.html ). Red dots: individuals exhibiting signs of violence and/or traumatic lesions19,20,91; orange dots: newly identified lesions in the latter individuals; green dots: individuals newly identified as showing signs of violence and/or traumatic lesions; large dots: individuals discussed in detail in the text. Satellite image: Google Maps, 2020. 21° 58′ 12.0\" N 31° 22′ 12.0\" E, elevation 21.9 M. [online] Available through: < https://www.google.com/maps/place/ >.",
           "bredd": 685,
           "hojd": 606,
@@ -604,7 +657,8 @@
           ],
           "smal": true
         }
-      ]
+      ],
+      "soktext": "The violence at Jebel Sahaba"
     },
     {
       "id": "victoriasjon-fylls-pa-nytt",
@@ -613,10 +667,9 @@
       "start": -15049,
       "varldsdel": "Afrika",
       "period": "forhistoria",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Lake Victoria fills again Lake Victoria",
       "kandidater": [
         {
           "fil": "File:Map of North America Exhibiting The recent Discoveries, Geographical and Nautical.jpg",
@@ -628,6 +681,9 @@
           "licensadress": null,
           "upphovsperson": "James Wyld",
           "datum": "1848",
+          "datum_original": "1848",
+          "datum_fil": "2022-08-11 14:18:47",
+          "kredit": "https://purl.stanford.edu/cs172qh9863",
           "beskrivning": "Fine example of the 1848 (our dating) edition of Wyld's massive map of North America, which includes the extra panel at the bottom, adding Central America, first issued in 1824. John Wyld was one of the most prolific publishers of separately issued maps during the 19th Century. His 6 (and later 7) sheet map of North America is a testament to Wyld's publishing accumen. First published in 1823, the map was periodically updated to incorporate new discoveries. However, Wyld had the curious habit of frequently leaving older information on the map, making for a very curious mix of geographical details. The evolution of Wyld's map of North America is truly fascinating, and reflects Wyld's commercial savy. The map was periodically updated in the 1820 and 1830s. With the outbreak of the Mexican-American War in 1846, Wyld issued a special 4-sheet edition of the map (eliminating the top 2 sheets and the bottom central America sheet), with a new title (Mexico the British Possessions in North America and the United States . . . 1846), which included a number of geographical revisions in the regions depicted and focused on the battlegrounds of the Mexican American War. Following the resolution of the Mexican-American War, Wyld re-issued his map of North America, showing the boundaries as established by the Treaty of Guadalupe Hidalgo, and with significant updates in the polar region, Alaska and northern Canada. In 1849, with the discovery of Gold In California, Wyld again saw commercial opportunity. Wyld again issued a section of his 7-sheet map of North America, under the title The United States Of North America With Part of the British Possessions And Mexico . . . 1849 . For this map, Wyld completely re-worked California and incorporated for the first time the information from John Fremont's seminal map of Oregon and Upper California. The following year, Wyld would again release a revised edition of his 7 sheet map of North America, retaining the changes made in the US Gold Rush map of 1849, but with additional updates in both the US and again in the northern sections of the larger North America map which had not been offered as part of the US Gold Rush map of 1849. While we have not attempted a complete cataloguing of all of the later editions, we note that Wyld issued editions of his map of North America in 1860 and again in 1875. We suspect, although we have not made the analysis, that some of the Civil War maps issued by Wyld during the early 1860s are probably again fragments of his larger map of North America. This undated edition, which we have dated 1848 because of its relationship to the1846 4-sheet map of Mexico . . . and the 1849 US Gold Rush Map, has been significantly updated from the 1838 edition. Among the more noteworthy additions are as follows: North West Sheet: The northern coastline of Alaska is now complete, most notably along the area labled West Georgia, which was left blank in the 1838 edition. The coastline and cape to the west of this area has also been significantly revised. The beginnings of a river system in southern Alaska are now shown, whereas the 1838 edition had no rivers. Nunivak Island appears for the first time, as does the large Kuskokwim River and the large bay which if forms just to the south. A number of bays and rivers in the western part of Alaska also appear for the first time. In Canada, east of Queen Charlotte's Island, a number of rivers appear for the first time in an area which had largely been blank in the 1838 edition and several mountain ranges show minor changes. Along the Northwest Passage, there is new detail around the area of Victoria Island and the Coronation Gulf, which is beginning to show the first details of a Dolphin and Union Strait and the southern coastline of the lands to the north. North East Sheet: Most of the changes are in the area west of Baffin Bay near Lancaster Sound and Admiralty Inlet, where there is significantly more coastal detail than in the 1838 edtion and the shap of Admiralty Inlet and its southern most coastline have been radically altered. Central West Sheet: Significant updates have been made to the river systems in the western part of Canada and the mountains west of the Canadian Rockies have been revised. The tentative dotted line boundary of between the US and Canada has been replaced with an accurate depiction of the border. The river systerms in Western Oregon have been improved and the number of placenames on the coastline has doubled. The western part ofCanadian Rockies includes signficiantly new mountain details and some new lake and river details. In the Interior of the Northwestern US, there are additional placenames along a number of rivers. Central East Sheet: No major changes: South West Sheet: The boundary between Mexico and the US has been revised to reflect the Treaty of Guadalupe Hidalgo, making Upper California, New Mexico and Texas part of the US, however the border slopes northward to San Diego Bay, several miles north of its present location. A large river running south from San Francisco Bay for nearly two thirds of California has been added with a large lake in the middle, approximating the San Joaquin Valley and several smaller rivers have been added in Southern California. California includes more Indian Place names. South East Sheet: Many new place names in the Southeastern US, most notably in Southern Georgia. Arkansas is no longer running across the top of Texas in its \"double-wide\" configuration, but the boundary is shown 1 degree east of its proper location. Missouri has been enlarged in the north, but is also too narrow, losing 1 degree in the west. Many new place names in Texas and Arkansas. Several new placenames appear along the Gulf Coast on the Texas and Louisiana Coast lines and the shape and angle of the coastline has been changed just below the Rio Grande in northern Mexico. Several new roads in Texas and a few new rivers. Central America Sheet: New placenames on the north coast. New political borders in Central America. Changed place names in the Yucatan. Rumsey notes: The first edition, listed in Phillips but not by Stevens and Tree or Wheat [was published in 1823] . . . A large impressive map showing with great accuracy the recent discoveries in the north west passage, but wildly off in the American southwest - Wheat: \"a large and beautiful map, excellent in all respects save for its southwestern geography.\" In the southwest, Wyld adds many mountain ranges that were purely speculative - probably just to fill in blank spaces in the map (unlike Arrowsmith). In northwestern Texas is a curious note on the topography of the area attributed to \"Mellish\" which is copied from a pre-1822 edition of his large map of the United States. Comparing this edition to the derived map of 1846, \"Mexico, the British Possessions...,\" ; one sees many changes in the northern areas and few in the southwest. Stevens and Tree list editions of 1824, 1827/8, 1838, and 1851/56. In addition to the editions listed by Rumsey, we note edtions identified by OCLC as havng been published in 1854, in the 1860 and \"1870s.\" The Rumsey collection also includes an 1875 edition of the map. In December 2000, Sotheby's offered a map which would appear to be a Faden edition of this map, dated 1820 and described as follows: North America-Faden, W. Map of North America from 20 degrees to 80 degrees north latitude exhibiting the recent discoveries, geographical and nautical. London: Willam Faden, 1820 Total dimensions if joined 1480 x 1650mm., large engraved wall-map in 6 sheets, original outline colour . . . Extremely detailed map of North America, incorporating the discoveries of explorers such as Pike, Humboldt, Lewis and Clark, Mackenzie, Ross and Vancouver. Within Arctic Canada are pencil additions, supplying a northern coast for Alaska and additional information for the region between Baffin's Bay and Hudson's Bay, the latter additions in German. Full Title: Map of North America Exhibiting The recent Discoveries, Geographical and Nautical; Drawn Chiefly from the Authorities of M. De. Humboldt, Lieutt. Pike, Messrs. Lewis and Clarke, Sir. Alexandr. MacKenzie, Mr. Hearne, Coll. Bouchette, Captns, Vancouver, Ross, Parry, Franklin & Back, also describing the Boundary Lines between the Territories of Great Britain, the United States, and the Mexican and Central States -- London Published forJa. Wyld, successor to W. Faden. No. 5 Charring Cross. Geographer to His Majesty.",
           "bredd": 13160,
           "hojd": 14294,
@@ -649,6 +705,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "L.clarke",
           "datum": "2017-03-15",
+          "datum_original": "2017-03-15",
+          "datum_fil": "2017-03-15 18:15:36",
+          "kredit": "Own work",
           "beskrivning": "Braunstone Park, Leicester",
           "bredd": 640,
           "hojd": 286,
@@ -659,7 +718,8 @@
           ],
           "smal": true
         }
-      ]
+      ],
+      "soktext": "Lake Victoria fills again Lake Victoria"
     },
     {
       "id": "taforalt-gravplatsen",
@@ -668,7 +728,7 @@
       "start": -13099,
       "varldsdel": "Afrika",
       "period": "forhistoria",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q167862",
       "kandidater": [
@@ -682,6 +742,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Anwar Meqor",
           "datum": "2015-03-01 09:46:46",
+          "datum_original": "2015-03-01 09:46:46",
+          "datum_fil": "2016-05-01 12:15:56",
+          "kredit": "Own work",
           "beskrivning": "Taforalt Caves",
           "bredd": 1600,
           "hojd": 1200,
@@ -1062,11 +1125,11 @@
       "start": -7589,
       "varldsdel": "Afrika",
       "period": "forhistoria",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The cremation at Mount Hora",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "The cremation at Mount Hora"
     },
     {
       "id": "dufunakanoten",
@@ -1112,11 +1175,11 @@
       "start": -4999,
       "varldsdel": "Afrika",
       "period": "forhistoria",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Red Sea shells in the graves of Gebel Ramlah",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Red Sea shells in the graves of Gebel Ramlah"
     },
     {
       "id": "nabta-playa",
@@ -1159,11 +1222,11 @@
       "start": -4299,
       "varldsdel": "Afrika",
       "period": "forhistoria",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The child mummy of Uan Muhuggiag",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "The child mummy of Uan Muhuggiag"
     },
     {
       "id": "bantuexpansionen",
@@ -1306,11 +1369,11 @@
       "start": -3999,
       "varldsdel": "Afrika",
       "period": "forhistoria",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The Naqada culture in Egypt before the pharaohs",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "The Naqada culture in Egypt before the pharaohs"
     },
     {
       "id": "hallmalningarna-i-laas-geel",

@@ -19,7 +19,7 @@
       "start": 1900,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q4871978",
       "kandidater": [
@@ -33,6 +33,9 @@
           "licensadress": null,
           "upphovsperson": "Unknown author Unknown author",
           "datum": "1899",
+          "datum_original": "1899",
+          "datum_fil": "2013-03-21 20:12:14",
+          "kredit": "Revista Credential Historia N°172",
           "beskrivning": "Combattants conservateurs avant la bataille de Palonegro, durant la Guerre des Mille Jours",
           "bredd": 709,
           "hojd": 432,
@@ -54,7 +57,7 @@
       "start": 1902,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q386230",
       "kandidater": [
@@ -68,6 +71,9 @@
           "licensadress": "https://www.flickr.com/commons/usage/",
           "upphovsperson": "Internet Archive Book Images",
           "datum": "1902",
+          "datum_original": "1902",
+          "datum_fil": "2023-07-06 17:45:15",
+          "kredit": "https://www.flickr.com/photos/internetarchivebookimages/14595295848/ Source book page: https://archive.org/stream/nationalgeograp131902nati/nationalgeograp131902nati#page/n528/mode/1up",
           "beskrivning": "Identifier : nationalgeograp131902nati ( find matches ) Title : The National geographic magazine Year : 1888 ( 1880s ) Authors : National Geographic Society (U.S.) Subjects : Geography Publisher : Washington : National Geographic Society Contributing Library : Smithsonian Libraries Digitizing Sponsor : Biodiversity Heritage Library View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: it cra-ter, on the other hand, are more ener-getic than any that can without doubtbe referred to the pseudo-craters. Theminor eruptions from the summit cra-ter, however, may be due to preciselythe same immediate cause as the erup-tions of the pseudo-crater, namely, theaccess of surface water to highh heatedrocks, so that an apparent^ completesequence may be observed between theescape of steam from hot debris and thedischarges from true volcanic conduits.It is thus seen that the discovery of thecrucial test asked for is difficult, andthe final decision, if one is reached,must rest on a judicial balancing of allthe evidence and the weight to be givento the judgment of individual observers.An instructive fact furnished by thepseudo-crater (even when the largerand, as some persons may think, ques-tionable examples are not considered)which has a bearing on the theories ofthe ultimate causes of volcanic erup-tions, is the close similarity, and in factidentity, that exists between the explo- Text Appearing After Image: Mont Pelee from Vive, May 27 The great cloud of steam and smoke rose cauliflower shaped from the summit crater to a heightof from two to three miles. The descending shower of rain and ashes shows on the right Drawn by George Varian. Republished from McClures Magazine Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
           "bredd": 1483,
           "hojd": 2341,
@@ -89,11 +95,11 @@
       "start": 1909,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Carlos Chagas finds a new parasite Lassance",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Carlos Chagas finds a new parasite Lassance"
     },
     {
       "id": "mexikanska-revolutionen",
@@ -102,7 +108,7 @@
       "start": 1910,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q214426",
       "kandidater": [
@@ -116,6 +122,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "Rαge",
           "datum": "2010-04-24",
+          "datum_original": "2010-04-24",
+          "datum_fil": "2017-02-24 08:56:51",
+          "kredit": "Own work , Blank map of Mexico.svg as base, created by Keepscases",
           "beskrivning": "Constitucionalistas, villistas y zapatistas en diciembre de 1915. Basado en la información de Introducción a la Revolución mexicana , Garcíadiego páginas 75 y 85. ISBN:970-9765-16-7.",
           "bredd": 976,
           "hojd": 655,
@@ -136,10 +145,9 @@
       "start": 1911,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Hiram Bingham reaches Machu Picchu Machu Picchu",
       "kandidater": [
         {
           "fil": "File:Lascar Machu Picchu (4548077793).jpg",
@@ -151,6 +159,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/2.0",
           "upphovsperson": "Jorge Láscar from Australia",
           "datum": "2009-01-06 13:20",
+          "datum_original": "2009-01-06 13:20",
+          "datum_fil": "2014-04-02 09:19:22",
+          "kredit": "Machu Picchu",
           "beskrivning": "Machu Picchu (Quechua: Machu Pikchu, \"Old Peak\") is a pre-Columbian Inca site located 2,430 metres (8,000 ft) above sea level. It is situated on a mountain ridge above the Urubamba Valley in Peru, which is 80 kilometres (50 mi) northwest of Cuzco and through which the Urubamba River flows. The river is a partially navigable headwater of the Amazon River. Often referred to as \"The Lost City of the Incas\", Machu Picchu is one of the most familiar symbols of the Inca Empire. It was built around 1460 AD but was abandoned as an official site for the Inca rulers a hundred years later, at the time of the Spanish conquest of the Inca Empire. Although known locally, it was said to have been forgotten for centuries when the site was brought to worldwide attention in 1911 by Hiram Bingham, an American historian. Since then, Machu Picchu has become an important tourist attraction. It has recently come to light that the site may have been discovered and plundered several years previously, in 1867 by a German businessman, Augusto Berns. In fact, there is substantial evidence that a British missionary, Thomas Payne, and a German engineer, J. M. von Hassel, arrived earlier than Hiram, and maps found by historians show references to Machu Picchu as early as 1874. Machu Picchu was declared a Peruvian Historical Sanctuary in 1981 and a UNESCO World Heritage Site in 1983. Since it was not plundered by the Spanish when they conquered the Incas, it is especially important as a cultural site and is considered a sacred place. Machu Picchu was built in the classical Inca style, with polished dry-stone walls. Its primary buildings are the Intihuatana, the Temple of the Sun, and the Room of the Three Windows. These are located in what is known by archaeologists as the Sacred District of Machu Picchu. In September 2007, Peru and Yale University reached an agreement regarding the return of artifacts which Hiram Bingham had removed from Machu Picchu in the early twentieth century. Currently, there are concerns about the effect of tourism on the site as it reached 400,000 visitors in 2003 [Wikipedia.org]",
           "bredd": 3216,
           "hojd": 2136,
@@ -171,6 +182,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/2.0",
           "upphovsperson": "Jorge Láscar from Australia",
           "datum": "2009-01-06 13:32",
+          "datum_original": "2009-01-06 13:32",
+          "datum_fil": "2014-04-02 09:19:23",
+          "kredit": "Machu Picchu",
           "beskrivning": "Machu Picchu (Quechua: Machu Pikchu, \"Old Peak\") is a pre-Columbian Inca site located 2,430 metres (8,000 ft) above sea level. It is situated on a mountain ridge above the Urubamba Valley in Peru, which is 80 kilometres (50 mi) northwest of Cuzco and through which the Urubamba River flows. The river is a partially navigable headwater of the Amazon River. Often referred to as \"The Lost City of the Incas\", Machu Picchu is one of the most familiar symbols of the Inca Empire. It was built around 1460 AD but was abandoned as an official site for the Inca rulers a hundred years later, at the time of the Spanish conquest of the Inca Empire. Although known locally, it was said to have been forgotten for centuries when the site was brought to worldwide attention in 1911 by Hiram Bingham, an American historian. Since then, Machu Picchu has become an important tourist attraction. It has recently come to light that the site may have been discovered and plundered several years previously, in 1867 by a German businessman, Augusto Berns. In fact, there is substantial evidence that a British missionary, Thomas Payne, and a German engineer, J. M. von Hassel, arrived earlier than Hiram, and maps found by historians show references to Machu Picchu as early as 1874. Machu Picchu was declared a Peruvian Historical Sanctuary in 1981 and a UNESCO World Heritage Site in 1983. Since it was not plundered by the Spanish when they conquered the Incas, it is especially important as a cultural site and is considered a sacred place. Machu Picchu was built in the classical Inca style, with polished dry-stone walls. Its primary buildings are the Intihuatana, the Temple of the Sun, and the Room of the Three Windows. These are located in what is known by archaeologists as the Sacred District of Machu Picchu. In September 2007, Peru and Yale University reached an agreement regarding the return of artifacts which Hiram Bingham had removed from Machu Picchu in the early twentieth century. Currently, there are concerns about the effect of tourism on the site as it reached 400,000 visitors in 2003 [Wikipedia.org]",
           "bredd": 4288,
           "hojd": 2848,
@@ -191,6 +205,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/2.0",
           "upphovsperson": "Jorge Láscar from Australia",
           "datum": "2009-01-06 18:46",
+          "datum_original": "2009-01-06 18:46",
+          "datum_fil": "2013-08-14 22:40:00",
+          "kredit": "The luxurious Hiram Bingham train , Archivo:Hiram Bingham Perurail - linea Cusco-Machu Picchu - 2009-01-06 - Jorge Lascar.jpg .",
           "beskrivning": "The Hiram Bingham train is the most luxurious way to journey between Cusco and Machu Picchu. For many visitors a trip to Machu Picchu is a once in a lifetime experience. The Hiram Bingham assures a magical journey never to be forgotten. The Hiram Bingham is named after the explorer who discovered the fascinating remains of the Inca citadel, Machu Picchu on July 23rd 1911. The carriages are painted a distinctive blue and gold while interiors are luxurious, warm and inviting with elegant decoration in the style of the 1920's Pullman trains. As passengers step on board they are encompassed in a world of polished wood, gleaming cutlery and glittering glass. The train consists of two Dining Cars, an Observation Bar Car and a Kitchen Car, and can carry up to 84 passengers. The round trip between Machu Picchu and Cusco aboard the Hiram Bingham is a luxurious experience where every detail has been taken care of. In the morning en route to Machu Picchu a brunch will be served as you watch the stunning landscape unfold. Upon reaching your destination a guide will show you the highlights of the Machu Picchu citadel. After the day exploring the marvel of Machu Picchu, cocktails and a gourmet dinner are served on the return to Cusco [orient-express.com]",
           "bredd": 3216,
           "hojd": 2136,
@@ -206,7 +223,8 @@
           ],
           "smal": false
         }
-      ]
+      ],
+      "soktext": "Hiram Bingham reaches Machu Picchu Machu Picchu"
     },
     {
       "id": "fordraget-i-ciudad-juarez",
@@ -215,11 +233,11 @@
       "start": 1911,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The Treaty of Ciudad Juárez – Díaz resigns Ciudad Juárez",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "The Treaty of Ciudad Juárez – Díaz resigns Ciudad Juárez"
     },
     {
       "id": "plan-de-ayala",
@@ -228,10 +246,9 @@
       "start": 1911,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Zapata proclaims the Plan of Ayala Ayala",
       "kandidater": [
         {
           "fil": "File:Plan of Ayala WDL2970.jpg",
@@ -243,6 +260,9 @@
           "licensadress": null,
           "upphovsperson": "Montaño, Otilio (1877-1917)",
           "datum": "25 November 1911 date QS:P571,+1911-11-25T00:00:00Z/11",
+          "datum_original": "25 November 1911 date QS:P571,+1911-11-25T00:00:00Z/11",
+          "datum_fil": "2014-03-13 10:00:49",
+          "kredit": "http://www.wdl.org/media/2970/service/thumbnail/6000x6000/1/1.jpg Gallery: http://www.wdl.org/en/item/2970/",
           "beskrivning": "John Womack, historian of the Mexican Revolution, has called the Plan of Ayala the \"Sacred Scripture\" of the Zapatistas. Written by Emiliano Zapata and Otilio Montaño, and signed on November 25, 1911, the plan was proclaimed in Ayala, Morelos, on November 28 of the same year. It became the blueprint for the Zapatista rebellion after its break with the initiator of the Mexican Revolution, Francisco I. Madero. Besides condemning the \"treason\" of the more conciliatory Madero, the Plan of Ayala puts forward the demands of the Zapatista agrarian rebellion: restitution of lands taken from villages during the Porfiriato, and agrarian redistribution of the larger haciendas, with compensation. Zapatista peasants, based in the southern state of Morelos, would claim these rights by arms, continuing the rebellion started, but not completed, by Madero. Madero, Francisco I., 1873-1913; Mexican Revolution, 1910-1920; Zapata, Emiliano, 1879-1919; Zapatistas",
           "bredd": 1024,
           "hojd": 1600,
@@ -254,7 +274,8 @@
           ],
           "smal": false
         }
-      ]
+      ],
+      "soktext": "Zapata proclaims the Plan of Ayala Ayala"
     },
     {
       "id": "decena-tragica",
@@ -263,7 +284,7 @@
       "start": 1913,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q1187198",
       "kandidater": [
@@ -277,6 +298,9 @@
           "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
           "upphovsperson": "Osuna",
           "datum": "1913",
+          "datum_original": "1913",
+          "datum_fil": "2026-01-10 03:00:31",
+          "kredit": "Historia Sexto grado",
           "beskrivning": "Decena trágica. Soldados sublevados en acción. 1913. Fotografia: Osuna.",
           "bredd": 6098,
           "hojd": 4335,
@@ -299,7 +323,7 @@
       "start": 1914,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q7350",
       "kandidater": [
@@ -313,6 +337,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "User:Stan Shebs",
           "datum": "2000-01-02",
+          "datum_original": "2000-01-02",
+          "datum_fil": "2005-01-30 18:47:20",
+          "kredit": "Own work",
           "beskrivning": "Photo of Panama Canal Gatun Locks.",
           "bredd": 1600,
           "hojd": 1067,
@@ -333,6 +360,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Dr. Thomas Liptak",
           "datum": "2025-03-19 20:07:57",
+          "datum_original": "2025-03-19 20:07:57",
+          "datum_fil": "2025-06-20 13:46:57",
+          "kredit": "Own work",
           "beskrivning": "Panama Canal: Agua Clara locks: Control tower",
           "bredd": 5184,
           "hojd": 2916,
@@ -357,7 +387,7 @@
       "start": 1914,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q1848264",
       "kandidater": [
@@ -371,6 +401,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "Ángel Boliver, (1926-1993) [ 1 ]",
           "datum": "1965 [ 2 ]",
+          "datum_original": "1965 [ 2 ]",
+          "datum_fil": "2022-12-05 17:44:22",
+          "kredit": "Jflo23",
           "beskrivning": "Painting of Taking of Zacatecas, the largest battle of the Mexican Revolution, by Ángel Boliver, Museo Nacional de Historia",
           "bredd": 2769,
           "hojd": 1793,
@@ -391,7 +424,7 @@
       "start": 1914,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q1536726",
       "kandidater": [
@@ -405,6 +438,9 @@
           "licensadress": null,
           "upphovsperson": "Enno Meyer",
           "datum": "1912 , published 1921.",
+          "datum_original": "1912 , published 1921.",
+          "datum_fil": "2016-04-09 13:08:40",
+          "kredit": "https://archive.org/stream/publishedfigures00shuf#page/466/mode/2up",
           "beskrivning": "Martha the last passenger pigeon.",
           "bredd": 1587,
           "hojd": 2206,
@@ -425,7 +461,7 @@
       "start": 1915,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q8244123",
       "kandidater": [
@@ -439,6 +475,9 @@
           "licensadress": null,
           "upphovsperson": "Subido por User:Tatehuari el 14 de Marzo de 2007",
           "datum": "1915",
+          "datum_original": "1915",
+          "datum_fil": "2007-03-15 02:42:11",
+          "kredit": "Archivo General de la Nación",
           "beskrivning": "Batalla de Celaya in Guanajuato",
           "bredd": 425,
           "hojd": 259,
@@ -462,7 +501,7 @@
       "start": 1919,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q41718",
       "kandidater": [
@@ -476,6 +515,9 @@
           "licensadress": null,
           "upphovsperson": "Agustín Casasola",
           "datum": "1914",
+          "datum_original": "1914",
+          "datum_fil": "2019-08-09 06:39:16",
+          "kredit": "https://static1.squarespace.com/static/56420085e4b0a6ed01ccece1/58ec1c7cd482e9e6fdab471e/58ec1cb16a49630e8a3f5e5e/1491868856228/Emiliano+Zapata.jpg",
           "beskrivning": "Emiliano Zapata Salazar fue uno de los líderes militares y campesinos más importantes de la Revolución mexicana y un símbolo de la resistencia campesina en México.",
           "bredd": 970,
           "hojd": 1326,
@@ -499,7 +541,7 @@
       "start": 1920,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q313122",
       "kandidater": [
@@ -513,6 +555,9 @@
           "licensadress": null,
           "upphovsperson": "Harris & Ewing",
           "datum": "no later than 1915",
+          "datum_original": "no later than 1915",
+          "datum_fil": "2014-01-23 06:01:02",
+          "kredit": "The World's Work, 1915: https://archive.org/stream/worldswork31gard#page/124/mode/2up",
           "beskrivning": "Portrait of Venustiano Carranza",
           "bredd": 951,
           "hojd": 1429,
@@ -532,10 +577,9 @@
       "start": 1922,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "The first insulin treatment Toronto General Hospital",
       "kandidater": [
         {
           "fil": "File:The Hospital for Sick Children, Toronto, Ontario (29375668624).jpg",
@@ -547,6 +591,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/2.0",
           "upphovsperson": "Ken Lund from Reno, Nevada, USA",
           "datum": "2016-09-28 12:46",
+          "datum_original": "2016-09-28 12:46",
+          "datum_fil": "2022-03-10 17:50:07",
+          "kredit": "The Hospital for Sick Children, Toronto, Ontario",
           "beskrivning": "The Hospital for Sick Children, corporately branded as SickKids, is a major pediatric teaching hospital located on University Avenue in Toronto, Ontario, Canada. It is affiliated with the Faculty of Medicine of the University of Toronto. The hospital's Peter Gilgan Centre for Research and Learning is believed to be the largest pediatric research tower in the world at 69677.28 square metres. Founded in 1875, the hospital was inspired by the example of Great Ormond Street Hospital in London. The hospital is located in the Discovery District of Downtown Toronto on University Avenue, adjacent to the Toronto General Hospital and across from Mount Sinai Hospital and the Princess Margaret Cancer Centre—collectively forming a complex known as Hospital Row, each connected by underground tunnels and bridges. The hospital is known for its advertisement campaigns and the largest amounts of donations received for any Canadian hospital. Medical treatments at the hospital are covered by publicly funded health insurance, as is the case in most other Canadian hospitals. Philanthropy is a critical source of funding for SickKids Hospital that is separate and distinct from government and granting agencies. In 2006/07, financial support from SickKids Foundation to the hospital totalled $72.1 million. The support went towards infrastructure and support for physicians, researchers and scientists who compete for national and international research grants. Next to government, SickKids Foundation is the largest funding agency in child health research, education and care in Canada. The Foundation maintains a fund, called the Herbie Fund, for patients not covered by Canadian health insurance. The fund was established in 1979 to provide for the treatment of Herbie Quiñones, a seven-month-old patient from Brooklyn, New York. The hospital was an early leader in the fields of food safety and nutrition. In 1908 a pasteurization facility for milk was established at the hospital, the first in Toronto, and 30 years before milk pasteurization became mandatory. Researchers at the hospital invented the infant cereal, Pablum. The research that led to the discovery of insulin took place nearby at the University of Toronto and was soon applied at the hospital. Doctor Frederick Banting, one of the researchers, had served his internship at SickKids Hospital and went on to become an attending physician there. In 1963 William Thornton Mustard developed the Mustard surgical procedure used to help correct heart problems in blue baby syndrome. In 1989, a team of researchers at the hospital discovered the gene responsible for cystic fibrosis. <a href=\" https://en.wikipedia.org/wiki/The_Hospital_for_Sick_Children \" rel=\"noreferrer nofollow\">en.wikipedia.org/wiki/The_Hospital_for_Sick_Children</a> <a href=\" https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License \" rel=\"noreferrer nofollow\">en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_...</a>",
           "bredd": 4000,
           "hojd": 3000,
@@ -558,7 +605,8 @@
           ],
           "smal": false
         }
-      ]
+      ],
+      "soktext": "The first insulin treatment Toronto General Hospital"
     },
     {
       "id": "hubbles-lag",
@@ -567,11 +615,11 @@
       "start": 1929,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "Hubble: the galaxies are moving away from us Mount Wilson Observatory",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Hubble: the galaxies are moving away from us Mount Wilson Observatory"
     },
     {
       "id": "dust-bowl",
@@ -580,7 +628,7 @@
       "start": 1930,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q726501",
       "kandidater": [
@@ -594,6 +642,9 @@
           "licensadress": null,
           "upphovsperson": "Sloan (?)",
           "datum": "Taken on 13 May 1936",
+          "datum_original": "Taken on 13 May 1936",
+          "datum_fil": "2007-06-15 14:43:16",
+          "kredit": "United States Department of Agriculture; Image Number: 00di0971 (original link now dead)",
           "beskrivning": "Buried machinery in barn lot in Dallas , South Dakota , United States during the Dust Bowl , an agricultural, ecological, and economic disaster in the Great Plains region of North America in 1936",
           "bredd": 2400,
           "hojd": 1800,
@@ -623,10 +674,9 @@
       "start": 1931,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": null,
-      "soktext": "The Eastern Greenland case",
       "kandidater": [
         {
           "fil": "File:The story of our continent - a reader in the geography and geology of North America - for the use of schools (1893) (14776628164).jpg",
@@ -638,6 +688,9 @@
           "licensadress": "https://www.flickr.com/commons/usage/",
           "upphovsperson": "Shaler, Nathaniel Southgate, 1841-1906",
           "datum": "1893",
+          "datum_original": "1893",
+          "datum_fil": "2015-09-16 17:21:38",
+          "kredit": "https://www.flickr.com/photos/internetarchivebookimages/14776628164/ Source book page: https://archive.org/stream/storyofourcontin1893shal/storyofourcontin1893shal#page/n83/mode/1up",
           "beskrivning": "Identifier : storyofourcontin1893shal ( find matches ) Title : The story of our continent : a reader in the geography and geology of North America : for the use of schools Year : 1893 ( 1890s ) Authors : Shaler, Nathaniel Southgate, 1841-1906 Subjects : Physical geography Geology Publisher : Boston : Ginn & Co. Contributing Library : University of Connecticut Libraries Digitizing Sponsor : LYRASIS members and Sloan Foundation View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: eatest ofthese belts extends from Eastern Massachusetts, whereit is well exhibited on the promontory of Cape Cod andthe neighboring islands on the south, westward throughLong Island, New York, thence across the mainland ofNew Jersey, through parts of Pennsylvania and NewYork, Central and Southern Ohio, and thence in a north-westward direction through Dakota. When the icelay over the northern and eastern parts of the continentin the form of a vast sheet, it doubtless presented anunbroken upper surface over which the observer couldhave journeyed from the Potomac to Greenland, orfrom the valley of the Saskatchewan to Newfoundland,without observing any trace of the hills and valleyswhich were beneath him. We know from a recent ex-amination of the central part of Greenland that such acontinental glacier smooths over hill and dale as a win-ters snowstorm hides the irregularities of a ploughedfield or the hills where Indian corn has been grown.When the continental glacier was deepest and ex- Text Appearing After Image: THE GROWTH OF NORTH AMERICA. 69 tended farthest to the south, there were many smallerglaciers in the mountains of the Cordilleras and prob-ably also in those of Virginia which were not connectedwith the main ice-sheet. In the Cordilleras some ofthese detached glaciers were of great size, as for in-stance that of the upper Arkansas, which occupied thepart of the valley in which Leadville now stands, withan ice-sheet of great depth and thickness. These lesserdetached glaciers also formed morainal walls, which wereoften of great size. The accumulation of these depositsshows that in the case of these valley glaciers, as in thatof the greater ice-sheet, the ice remained for a consider-able time with its front in nearly one position. As the great ice-sheet ceased to be well fed by win-ters snows, its margin retreated to the northward. Hereand there we find in small moraines evidence that for alittle while the ice frequently paused in its falling back.It probably, from time to time, after ha Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
           "bredd": 2992,
           "hojd": 1716,
@@ -662,6 +715,9 @@
           "licensadress": "https://www.flickr.com/commons/usage/",
           "upphovsperson": "Internet Archive Book Images",
           "datum": "1862",
+          "datum_original": "1862",
+          "datum_fil": "2018-10-18 00:04:02",
+          "kredit": "https://www.flickr.com/photos/internetarchivebookimages/14750566432/ Source book page: https://archive.org/stream/historyofbritish06morr/historyofbritish06morr#page/n56/mode/1up",
           "beskrivning": "Knot Calidris canutus Identifier : historyofbritish06morr ( find matches ) Title : A history of British birds. By the Rev. F.O. Morris .. Year : 1862 ( 1860s ) Authors : Morris, F. O. (Francis Orpen), 1810-1893 Subjects : Birds Publisher : London, Groombridge and Sons Contributing Library : Smithsonian Libraries Digitizing Sponsor : Smithsonian Libraries View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: matter in the ballad under the above title in Percy*Reliques of Ancient British Poetry, in which, in school days,I used to read, and read, and read again of Sir AndrewBarton, Knight, The Nut-browne Maid, The ftaberlunzieMan, Chevy Chase, The Heir of Linne, Fair Rosamond,The Sturdy Rock, Brave Lord Willoughby, The Winningof Cales, The Wandering Jew, The Spanish Ladys Love,Admiral Hosiers Ghost, The Beggars Daughter of BednalGreen, Robin Hood and Guy of Gisborne, Adam Bell, Clymo the Clough, and William of Cloudesley, The Child ofElle, King Cophetua and the Beggar Maid, My Mind toMe a Kingdome is, King Lear and his three Daughters,The Dragon of Wantley, Gentle River, Gentle River, etc.,etc., etc.; it was then a very scarce book, but a new editionof it has since been published, and some of the poems arevery beautiful. The Knot advances north to the Arctic regions, and thererears its young. M. Nilsson says that it inhabits in Europethe northerly parts of Sweden and Norway, in summer, and Text Appearing After Image: KNOT. 35 the same appears to be the case in Finland; also in Holland,France, and Germany. It occurs likewise in America, evento the Polar regions, and in Asia; and rears its youngwithin the Arctic circle. It is enumerated by CaptainSabine among the birds inhabiting Greenland and Spitzbergen.Sir William Jardine says that he has seen a specimen fromNew Holland that appears in every way identical. Dr. Fleming mentions one killed in the Isle of Sanday,one of the Orkneys, on the 15th. of June, 1808. Vast flocksarrive on our eastern shores in the autumn. In Lincolnshireit used to be extremely abundant. In Ireland it is a regular autumnal visitant; also in Scotland,among other places, between Aberdeen and Peterhead. This species generally arrives in Orkney in September. Onewas killed by Mr. Strang, August 20th., 1811; several wereshot by the same gentleman on August 26th., 1843, September7th., 1837, and in October, 1831. They often appear inlarge flocks. On the 4th. of February, 1851, I shot Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
           "bredd": 3456,
           "hojd": 2187,
@@ -684,6 +740,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/2.0",
           "upphovsperson": "Cliff from I now live in Arlington, VA (Outside Washington DC), USA",
           "datum": "2008-11-25 15:10",
+          "datum_original": "2008-11-25 15:10",
+          "datum_fil": "2009-11-15 18:01:44",
+          "kredit": "Lockheed 8 Sirius \"Tingmissartoq\"",
           "beskrivning": "Every possible space in the aircraft was utilized, including the wings and floats, which contained the gasoline tanks. There was plenty of emergency equipment in case the Lindberghs had to make a forced landing in the frozen wilderness. From New York, the Lindberghs flew up the eastern border of Canada to Hopedale, Labrador. From Hopedale they made the first major overwater hop, 650 miles to Godthaab, Greenland, where the Sirius acquired its name—Tingmissartoq, which in Eskimo means \"one who flies like a big bird.\" After crisscrossing Greenland to Baffin Island and back, and then on to Iceland, the Lindberghs proceeded to the major cities of Europe and as far east as Moscow, down the west coast of Africa, and across the South Atlantic to South America. where they flew down the Amazon, and then north through Trinidad and Barbados and back to the United States. They returned to New York on December 19, having traveled 30,000 miles to four continents and twenty-one countries. The information gained from the trip proved invaluable in planning commercial air transport routes for the North and South Atlantic. The aircraft was in the American Museum of Natural History in New York City until 1955. The AirForce Museum in Dayton, Ohio, then acquired it and transferred it to the Smithsonian in 1959. collections.nasm.si.edu/code/emuseum.asp?profile=objects&...",
           "bredd": 1600,
           "hojd": 1066,
@@ -696,24 +755,6 @@
           "smal": false
         },
         {
-          "fil": "File:Aluminum Pot and Lid, Lockheed Sirius \"Tingmissartoq\", Lindbergh - DPLA - c2db2ffe9c603fe6192090efb3424f26 (page 1).jpg",
-          "filsida": "https://commons.wikimedia.org/wiki/File:Aluminum_Pot_and_Lid,_Lockheed_Sirius_%22Tingmissartoq%22,_Lindbergh_-_DPLA_-_c2db2ffe9c603fe6192090efb3424f26_(page_1).jpg",
-          "kalla": "commons-sok",
-          "licens": "CC0",
-          "licensklass": "cc0",
-          "licensstatus": "trolig",
-          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-          "upphovsperson": null,
-          "datum": "1931-1933",
-          "beskrivning": "Aluminum cooking pot, with bail & lid This aluminum cooking pot was among the equipment Charles Lindbergh and his wife, Anne Morrow Lindbergh, took on their 1931 flight to the Orient and 1933 survey flights across the North and South Atlantic. Lodging and meals were provided at the Lindberghs' planned stops, but they still had to consider what they would eat in case of an emergency landing. They took enough canned rations to last them several weeks, but even that might not have been enough. They were traveling over vast expanses of uninhabited territory and there was no telling how long it would take to find the nearest outpost after an emergency landing. If their canned rations ran out, they would need a way to cook whatever food they could find (or catch with their fishing gear). For that reason, they took along this cooking pot plus a frying pan and portable stove. They planned to use gasoline from the plane as fuel for the stove. A vacation flight with \"no start or finish, no diplomatic or commercial significance, and no records to be sought.\" So Charles A. Lindbergh described the flight that he and his wife, Anne Morrow Lindbergh, were planning to make to the Orient in 1931. Their choice of route, however, showed the feasibility of using the great circle to reach the Far East. The Lindberghs flew in a Lockheed Sirius low-wing monoplane, powered by a 680-hp Wright Cyclone. The Sirius had been designed in 1929 by John K. Northrop and Gerard Vultee, and this model was specially fitted with Edo floats, since most of the Lindberghs flight was to be over water. Their route took them from North Haven, Maine, to Ottawa, Moose Factory, Churchill, Baker Lake, and Aklavik, all in Canada; Point Barrow, Shismaref, and Nome, Alaska; Petropavlosk. Siberia; and on over the Kurile Islands to Japan. After receiving an enthusiastic welcome in Tokyo, they flew to China. They landed on Lotus Lake near Nanking on September 19, thus completing the first flight from the West to the East by way of the North. At Hankow, the Sirius, with the Lindberghs aboard, was being lowered into the Yangtze River from the British aircraft carrier Hermes, when the aircraft accidentally capsized. One of the wings was damaged when it hit a ship's cable, and the aircraft had to be returned to the United States for repairs. Their next venture in the Sirius came as a result of the five countries' interest in the development of commercial air transport. In 1933 Pan American Airways, Imperial Airways of Great Britain, Lufthansa of Germany, KLM of Holland, and Air France undertook a cooperative study of possible Atlantic routes. Each was assigned the responsibility for one of the following areas: New Newfoundland to Europe via Greenland; Newfoundland via the great circle route to Ireland; Newfoundland southeast to the Azores and Lisbon; Miami, Bermuda, the Azores, and Lisbon; and across the South Atlantic from Natal, Brazil, to Cape Verde, Africa. Pan American was to survey the Newfoundland to Europe via Greenland route. Ground survey and weather crews in Greenland were already hard at work when Lindbergh, Pan Am's technical advisor, took off from New York on July 9 in the rebuilt Lockheed Sirius, again accompanied by his wife, who would serve as copilot and radio operator. A Sperry artificial horizon and a directional gyro had been added to the instrument panel since the previous flight, and a new Wright Cyclone SR1820-F2 engine of 710 horsepower was installed. Lindbergh's plan was not to set up a particular route but to gather as much information as possible on the area to be covered. The Jellinge, a Danish ship, was chartered by Pan Am to maintain radio contact with the Lindberghs in the Labrador-Greenland-Iceland area. The ship also delivered advance supplies for them to Halifax, Saint John's, Cartwright, Greenland, and Iceland. Every possible space in the aircraft was utilized, including the wings and floats, which contained the gasoline tanks. There was plenty of emergency equipment in case the Lindberghs had to make a forced landing in the frozen wilderness. From New York, the Lindberghs flew up the eastern border of Canada to Hopedale, Labrador. From Hopedale they made the first major overwater hop, 650 miles to Godthaab, Greenland, where the Sirius acquired its name-Tingmissartoq, which in Eskimo means \"one who flies like a big bird.\" After crisscrossing Greenland to Baffin Island and back, and then on to Iceland, the Lindberghs proceeded to the major cities of Europe and as far east as Moscow, down the west coast of Africa, and across the South Atlantic to South America, where they flew down the Amazon, and then north through Trinidad and Barbados and back to the United States. They returned to New York on December 19, having traveled 30,000 miles to four continents and twenty-one countries. The information gained from the trip proved invaluable in planning commercial air transport routes for the North and South Atlantic. The aircraft was in the American Museum of Natural History in New York City until 1955. The Air Force Museum in Dayton, Ohio, then acquired it and transferred it to the Smithsonian in 1959.",
-          "bredd": 2000,
-          "hojd": 1487,
-          "mime": "image/jpeg",
-          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Aluminum_Pot_and_Lid%2C_Lockheed_Sirius_%22Tingmissartoq%22%2C_Lindbergh_-_DPLA_-_c2db2ffe9c603fe6192090efb3424f26_%28page_1%29.jpg/960px-Aluminum_Pot_and_Lid%2C_Lockheed_Sirius_%22Tingmissartoq%22%2C_Lindbergh_-_DPLA_-_c2db2ffe9c603fe6192090efb3424f26_%28page_1%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-          "kategorier": [],
-          "smal": false
-        },
-        {
           "fil": "File:Aluminum Pot and Lid, Lockheed Sirius \"Tingmissartoq\", Lindbergh - DPLA - c2db2ffe9c603fe6192090efb3424f26 (page 3).jpg",
           "filsida": "https://commons.wikimedia.org/wiki/File:Aluminum_Pot_and_Lid,_Lockheed_Sirius_%22Tingmissartoq%22,_Lindbergh_-_DPLA_-_c2db2ffe9c603fe6192090efb3424f26_(page_3).jpg",
           "kalla": "commons-sok",
@@ -723,6 +764,9 @@
           "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
           "upphovsperson": null,
           "datum": "1931-1933",
+          "datum_original": "1931-1933",
+          "datum_fil": "2026-05-23 05:54:48",
+          "kredit": "File URL Catalog record",
           "beskrivning": "Aluminum cooking pot, with bail & lid This aluminum cooking pot was among the equipment Charles Lindbergh and his wife, Anne Morrow Lindbergh, took on their 1931 flight to the Orient and 1933 survey flights across the North and South Atlantic. Lodging and meals were provided at the Lindberghs' planned stops, but they still had to consider what they would eat in case of an emergency landing. They took enough canned rations to last them several weeks, but even that might not have been enough. They were traveling over vast expanses of uninhabited territory and there was no telling how long it would take to find the nearest outpost after an emergency landing. If their canned rations ran out, they would need a way to cook whatever food they could find (or catch with their fishing gear). For that reason, they took along this cooking pot plus a frying pan and portable stove. They planned to use gasoline from the plane as fuel for the stove. A vacation flight with \"no start or finish, no diplomatic or commercial significance, and no records to be sought.\" So Charles A. Lindbergh described the flight that he and his wife, Anne Morrow Lindbergh, were planning to make to the Orient in 1931. Their choice of route, however, showed the feasibility of using the great circle to reach the Far East. The Lindberghs flew in a Lockheed Sirius low-wing monoplane, powered by a 680-hp Wright Cyclone. The Sirius had been designed in 1929 by John K. Northrop and Gerard Vultee, and this model was specially fitted with Edo floats, since most of the Lindberghs flight was to be over water. Their route took them from North Haven, Maine, to Ottawa, Moose Factory, Churchill, Baker Lake, and Aklavik, all in Canada; Point Barrow, Shismaref, and Nome, Alaska; Petropavlosk. Siberia; and on over the Kurile Islands to Japan. After receiving an enthusiastic welcome in Tokyo, they flew to China. They landed on Lotus Lake near Nanking on September 19, thus completing the first flight from the West to the East by way of the North. At Hankow, the Sirius, with the Lindberghs aboard, was being lowered into the Yangtze River from the British aircraft carrier Hermes, when the aircraft accidentally capsized. One of the wings was damaged when it hit a ship's cable, and the aircraft had to be returned to the United States for repairs. Their next venture in the Sirius came as a result of the five countries' interest in the development of commercial air transport. In 1933 Pan American Airways, Imperial Airways of Great Britain, Lufthansa of Germany, KLM of Holland, and Air France undertook a cooperative study of possible Atlantic routes. Each was assigned the responsibility for one of the following areas: New Newfoundland to Europe via Greenland; Newfoundland via the great circle route to Ireland; Newfoundland southeast to the Azores and Lisbon; Miami, Bermuda, the Azores, and Lisbon; and across the South Atlantic from Natal, Brazil, to Cape Verde, Africa. Pan American was to survey the Newfoundland to Europe via Greenland route. Ground survey and weather crews in Greenland were already hard at work when Lindbergh, Pan Am's technical advisor, took off from New York on July 9 in the rebuilt Lockheed Sirius, again accompanied by his wife, who would serve as copilot and radio operator. A Sperry artificial horizon and a directional gyro had been added to the instrument panel since the previous flight, and a new Wright Cyclone SR1820-F2 engine of 710 horsepower was installed. Lindbergh's plan was not to set up a particular route but to gather as much information as possible on the area to be covered. The Jellinge, a Danish ship, was chartered by Pan Am to maintain radio contact with the Lindberghs in the Labrador-Greenland-Iceland area. The ship also delivered advance supplies for them to Halifax, Saint John's, Cartwright, Greenland, and Iceland. Every possible space in the aircraft was utilized, including the wings and floats, which contained the gasoline tanks. There was plenty of emergency equipment in case the Lindberghs had to make a forced landing in the frozen wilderness. From New York, the Lindberghs flew up the eastern border of Canada to Hopedale, Labrador. From Hopedale they made the first major overwater hop, 650 miles to Godthaab, Greenland, where the Sirius acquired its name-Tingmissartoq, which in Eskimo means \"one who flies like a big bird.\" After crisscrossing Greenland to Baffin Island and back, and then on to Iceland, the Lindberghs proceeded to the major cities of Europe and as far east as Moscow, down the west coast of Africa, and across the South Atlantic to South America, where they flew down the Amazon, and then north through Trinidad and Barbados and back to the United States. They returned to New York on December 19, having traveled 30,000 miles to four continents and twenty-one countries. The information gained from the trip proved invaluable in planning commercial air transport routes for the North and South Atlantic. The aircraft was in the American Museum of Natural History in New York City until 1955. The Air Force Museum in Dayton, Ohio, then acquired it and transferred it to the Smithsonian in 1959.",
           "bredd": 1333,
           "hojd": 2000,
@@ -730,8 +774,30 @@
           "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Aluminum_Pot_and_Lid%2C_Lockheed_Sirius_%22Tingmissartoq%22%2C_Lindbergh_-_DPLA_-_c2db2ffe9c603fe6192090efb3424f26_%28page_3%29.jpg/960px-Aluminum_Pot_and_Lid%2C_Lockheed_Sirius_%22Tingmissartoq%22%2C_Lindbergh_-_DPLA_-_c2db2ffe9c603fe6192090efb3424f26_%28page_3%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
           "kategorier": [],
           "smal": false
+        },
+        {
+          "fil": "File:Aluminum Pot and Lid, Lockheed Sirius \"Tingmissartoq\", Lindbergh - DPLA - c2db2ffe9c603fe6192090efb3424f26 (page 1).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Aluminum_Pot_and_Lid,_Lockheed_Sirius_%22Tingmissartoq%22,_Lindbergh_-_DPLA_-_c2db2ffe9c603fe6192090efb3424f26_(page_1).jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": null,
+          "datum": "1931-1933",
+          "datum_original": "1931-1933",
+          "datum_fil": "2025-07-09 22:42:12",
+          "kredit": "File URL Catalog record",
+          "beskrivning": "Aluminum cooking pot, with bail & lid This aluminum cooking pot was among the equipment Charles Lindbergh and his wife, Anne Morrow Lindbergh, took on their 1931 flight to the Orient and 1933 survey flights across the North and South Atlantic. Lodging and meals were provided at the Lindberghs' planned stops, but they still had to consider what they would eat in case of an emergency landing. They took enough canned rations to last them several weeks, but even that might not have been enough. They were traveling over vast expanses of uninhabited territory and there was no telling how long it would take to find the nearest outpost after an emergency landing. If their canned rations ran out, they would need a way to cook whatever food they could find (or catch with their fishing gear). For that reason, they took along this cooking pot plus a frying pan and portable stove. They planned to use gasoline from the plane as fuel for the stove. A vacation flight with \"no start or finish, no diplomatic or commercial significance, and no records to be sought.\" So Charles A. Lindbergh described the flight that he and his wife, Anne Morrow Lindbergh, were planning to make to the Orient in 1931. Their choice of route, however, showed the feasibility of using the great circle to reach the Far East. The Lindberghs flew in a Lockheed Sirius low-wing monoplane, powered by a 680-hp Wright Cyclone. The Sirius had been designed in 1929 by John K. Northrop and Gerard Vultee, and this model was specially fitted with Edo floats, since most of the Lindberghs flight was to be over water. Their route took them from North Haven, Maine, to Ottawa, Moose Factory, Churchill, Baker Lake, and Aklavik, all in Canada; Point Barrow, Shismaref, and Nome, Alaska; Petropavlosk. Siberia; and on over the Kurile Islands to Japan. After receiving an enthusiastic welcome in Tokyo, they flew to China. They landed on Lotus Lake near Nanking on September 19, thus completing the first flight from the West to the East by way of the North. At Hankow, the Sirius, with the Lindberghs aboard, was being lowered into the Yangtze River from the British aircraft carrier Hermes, when the aircraft accidentally capsized. One of the wings was damaged when it hit a ship's cable, and the aircraft had to be returned to the United States for repairs. Their next venture in the Sirius came as a result of the five countries' interest in the development of commercial air transport. In 1933 Pan American Airways, Imperial Airways of Great Britain, Lufthansa of Germany, KLM of Holland, and Air France undertook a cooperative study of possible Atlantic routes. Each was assigned the responsibility for one of the following areas: New Newfoundland to Europe via Greenland; Newfoundland via the great circle route to Ireland; Newfoundland southeast to the Azores and Lisbon; Miami, Bermuda, the Azores, and Lisbon; and across the South Atlantic from Natal, Brazil, to Cape Verde, Africa. Pan American was to survey the Newfoundland to Europe via Greenland route. Ground survey and weather crews in Greenland were already hard at work when Lindbergh, Pan Am's technical advisor, took off from New York on July 9 in the rebuilt Lockheed Sirius, again accompanied by his wife, who would serve as copilot and radio operator. A Sperry artificial horizon and a directional gyro had been added to the instrument panel since the previous flight, and a new Wright Cyclone SR1820-F2 engine of 710 horsepower was installed. Lindbergh's plan was not to set up a particular route but to gather as much information as possible on the area to be covered. The Jellinge, a Danish ship, was chartered by Pan Am to maintain radio contact with the Lindberghs in the Labrador-Greenland-Iceland area. The ship also delivered advance supplies for them to Halifax, Saint John's, Cartwright, Greenland, and Iceland. Every possible space in the aircraft was utilized, including the wings and floats, which contained the gasoline tanks. There was plenty of emergency equipment in case the Lindberghs had to make a forced landing in the frozen wilderness. From New York, the Lindberghs flew up the eastern border of Canada to Hopedale, Labrador. From Hopedale they made the first major overwater hop, 650 miles to Godthaab, Greenland, where the Sirius acquired its name-Tingmissartoq, which in Eskimo means \"one who flies like a big bird.\" After crisscrossing Greenland to Baffin Island and back, and then on to Iceland, the Lindberghs proceeded to the major cities of Europe and as far east as Moscow, down the west coast of Africa, and across the South Atlantic to South America, where they flew down the Amazon, and then north through Trinidad and Barbados and back to the United States. They returned to New York on December 19, having traveled 30,000 miles to four continents and twenty-one countries. The information gained from the trip proved invaluable in planning commercial air transport routes for the North and South Atlantic. The aircraft was in the American Museum of Natural History in New York City until 1955. The Air Force Museum in Dayton, Ohio, then acquired it and transferred it to the Smithsonian in 1959.",
+          "bredd": 2000,
+          "hojd": 1487,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3b/Aluminum_Pot_and_Lid%2C_Lockheed_Sirius_%22Tingmissartoq%22%2C_Lindbergh_-_DPLA_-_c2db2ffe9c603fe6192090efb3424f26_%28page_1%29.jpg/960px-Aluminum_Pot_and_Lid%2C_Lockheed_Sirius_%22Tingmissartoq%22%2C_Lindbergh_-_DPLA_-_c2db2ffe9c603fe6192090efb3424f26_%28page_1%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [],
+          "smal": false
         }
-      ]
+      ],
+      "soktext": "The Eastern Greenland case"
     },
     {
       "id": "jordbavningen-i-chillan-1939",
@@ -740,13 +806,9 @@
       "start": 1939,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q3311679",
-      "soktext": "The Chillán earthquake",
-      "anmarkningar": [
-        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
       "kandidater": [
         {
           "fil": "File:1939 Chile Earthquake Memorial Placard.jpg",
@@ -758,6 +820,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/2.0",
           "upphovsperson": "U.S. Geological Survey",
           "datum": "2010-03-14 22:39",
+          "datum_original": "2010-03-14 22:39",
+          "datum_fil": "2010-04-02 02:22:38",
+          "kredit": "1939 Chile Earthquake Memorial Placard",
           "beskrivning": "A memorial placard next to a cathedral in Chillán, Chile commemorates the 30,000 people who died in the 1939 earthquake. This high death toll motivated the adoption of strict building design codes for the reconstruction of the cathedral. Photo by: Walter Mooney, U.S. Geological Survey",
           "bredd": 5616,
           "hojd": 3744,
@@ -781,6 +846,9 @@
           "licensadress": null,
           "upphovsperson": "Desconocido - Diario La Nación (Chile)",
           "datum": "1939-01-27",
+          "datum_original": "1939-01-27",
+          "datum_fil": "2022-11-09 14:01:41",
+          "kredit": "https://culturadigital.udp.cl/index.php/lanacion/la-nacion-7141/",
           "beskrivning": "\"El derrumbe de los muros permite ver el interior de la Catedral de Chillán totalmente en el suelo. -La perspectiva de la calle Libertad muestra el estado en que han quedado todas las edificaciones.\"",
           "bredd": 662,
           "hojd": 451,
@@ -802,6 +870,9 @@
           "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
           "upphovsperson": "Jorge Quezada (?)",
           "datum": "circa 1939 date QS:P,+1939-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_original": "circa 1939 date QS:P,+1939-00-00T00:00:00Z/9,P1480,Q5727902",
+          "datum_fil": "2013-07-26 14:37:15",
+          "kredit": "Obtenida de aquí bajo autorización.",
           "beskrivning": "Imagen de la Calle Barros Arana en Concepción, Chile , luego del Terremoto de Chillán de 1939 .",
           "bredd": 471,
           "hojd": 286,
@@ -823,6 +894,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "José Joaquín Cortes",
           "datum": "2022-01-24 23:18:34",
+          "datum_original": "2022-01-24 23:18:34",
+          "datum_fil": "2022-04-17 18:18:43",
+          "kredit": "Own work",
           "beskrivning": "Proyección de portada del diario El Mercurio, en la Catedral de Chillán, con motivo del aniversario 83 del Terremoto de Chillán de 1939.",
           "bredd": 2440,
           "hojd": 2885,
@@ -844,6 +918,9 @@
           "licensadress": null,
           "upphovsperson": "Fernando Melcher",
           "datum": "2011-05-31",
+          "datum_original": "2011-05-31",
+          "datum_fil": "2011-05-31 00:29:23",
+          "kredit": "http://www.lahoraalemana.cl",
           "beskrivning": "El Mirador Alemán luego del Terremoto de Chillán de 1939, donde perdió su segundo piso. Cerro Caracol, Concepción, Chile, 1926.",
           "bredd": 617,
           "hojd": 453,
@@ -855,6 +932,10 @@
           ],
           "smal": true
         }
+      ],
+      "soktext": "The Chillán earthquake",
+      "anmarkningar": [
+        "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
       ]
     },
     {
@@ -864,11 +945,11 @@
       "start": 1940,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "An African malaria mosquito is eradicated in Brazil Northeast Brazil",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "An African malaria mosquito is eradicated in Brazil Northeast Brazil"
     },
     {
       "id": "kauffmannavtalet",
@@ -877,11 +958,11 @@
       "start": 1941,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": null,
-      "soktext": "The agreement on the defence of Greenland Washington",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "The agreement on the defence of Greenland Washington"
     },
     {
       "id": "chicago-pile-1",
@@ -890,7 +971,7 @@
       "start": 1942,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q284681",
       "kandidater": [
@@ -904,6 +985,9 @@
           "licensadress": null,
           "upphovsperson": "Melvin A. Miller of the Argonne National Laboratory",
           "datum": "Unknown date",
+          "datum_original": "Unknown date",
+          "datum_fil": "2009-10-20 17:50:00",
+          "kredit": "http://narademo.umiacs.umd.edu/cgi-bin/isadg/viewobject.pl?object=95120",
           "beskrivning": "The first nuclear reactor was erected in 1942 in the West Stands section of Stagg Field at the University of Chicago. On December 2, 1942 a group of scientists achieved the first self-sustaining chain reaction and thereby initiated the controlled release of nuclear energy. The reactor consisted of uranium and uranium oxide lumps spaced in a cubic lattice embedded in graphite. In 1943 it was dismantled and reassembled at the Palos Park unit of the Argonne National Laboratory.",
           "bredd": 3000,
           "hojd": 2352,
@@ -923,14 +1007,14 @@
       "start": 1943,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q5163323",
+      "kandidater": [],
       "soktext": "Brazil consolidates its labour laws",
       "anmarkningar": [
         "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
-      "kandidater": []
+      ]
     },
     {
       "id": "bretton-woods-konferensen",
@@ -939,7 +1023,7 @@
       "start": 1944,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q1194052",
       "kandidater": [
@@ -953,6 +1037,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "Barry Livingstone",
           "datum": "2014-09-07 10:26:54",
+          "datum_original": "2014-09-07 10:26:54",
+          "datum_fil": "2014-09-08 12:38:14",
+          "kredit": "Own work",
           "beskrivning": "This small room within the Mount Washington Hotel is where the historic agreements were signed establishing the International Monetary Fund and World Bank in 1944.",
           "bredd": 2240,
           "hojd": 1344,
@@ -975,7 +1062,7 @@
       "start": 1944,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q3505891",
       "kandidater": [
@@ -989,6 +1076,9 @@
           "licensadress": null,
           "upphovsperson": "“Federico Cantoni. Hacedor del San Juan del Siglo XX. Confesiones, relatos y algo más sobre mi padre”, de Ursulina Cantoni",
           "datum": "1944",
+          "datum_original": "1944",
+          "datum_fil": "2018-12-19 19:17:37",
+          "kredit": "http://sanjuanalmundo.org/articulo.php?id=183418",
           "beskrivning": "Vista a la Casa de Gobierna de la provincia de San Juan, Argentina, completamente destruida por el terremoto de 1944.",
           "bredd": 1000,
           "hojd": 695,
@@ -1010,7 +1100,7 @@
       "start": 1945,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q80871",
       "kandidater": [
@@ -1024,6 +1114,9 @@
           "licensadress": null,
           "upphovsperson": "Anna Riwkin-Brick",
           "datum": "1945",
+          "datum_original": "1945",
+          "datum_fil": "2012-07-29 03:51:44",
+          "kredit": "http://nobelprize.org/nobel_prizes/literature/laureates/1945/mistral-bio.html",
           "beskrivning": "Gabriela Mistral , Nobel laureate in Literature 1945",
           "bredd": 280,
           "hojd": 396,
@@ -1044,11 +1137,11 @@
       "start": 1947,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": null,
-      "soktext": "César Lattes captures pions on Chacaltaya Chacaltaya",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "César Lattes captures pions on Chacaltaya Chacaltaya"
     },
     {
       "id": "gronland-upphor-vara-koloni",
@@ -1057,10 +1150,9 @@
       "start": 1953,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": null,
-      "soktext": "Greenland ceases to be a colony Greenland",
       "kandidater": [
         {
           "fil": "File:A voyage to the arctic in the whaler Aurora (1911) (14783749132).jpg",
@@ -1072,6 +1164,9 @@
           "licensadress": "https://www.flickr.com/commons/usage/",
           "upphovsperson": "Internet Archive Book Images",
           "datum": "1911",
+          "datum_original": "1911",
+          "datum_fil": "2016-05-02 09:00:33",
+          "kredit": "https://www.flickr.com/photos/internetarchivebookimages/14783749132/ Source book page: https://archive.org/stream/voyagetoarctici00lind/voyagetoarctici00lind#page/n168/mode/1up",
           "beskrivning": "Greenland Village Scene Identifier : voyagetoarctici00lind ( find matches ) Title : A voyage to the arctic in the whaler Aurora Year : 1911 ( 1910s ) Authors : Lindsay, David Moore, 1862- Subjects : Aurora (Ship) Whaling Publisher : Boston : Dana Estes & Co. Contributing Library : Robarts - University of Toronto Digitizing Sponsor : University of Toronto View Book Page : Book Viewer About This Book : Catalog Entry View All Images : All Images From Book Click here to view book online to see this illustration in context in a browseable online version of this book. Text Appearing Before Image: tors supervised the work ofthese. One or two ships from Copenhagen visited thecoast every year with supplies, taking back oiland skins. We have all svnig about the icy mountains ofGreenland, and most of us have in a vague wayconnected the country with w^hales, without hav-ing any idea of how great this whaling industrywas some years ago. In the appendix it will beseen that Great Britain alone sent one hundredand fifty-nine ships to Greenland waters in 1819,and, of course, the Norwegians and Dutch, theDanes, Gemians and others also profited by thefisheries. Many words in the modern whalersvocabulary are of Dutch origin, as these hardypeople were conspicuous among the most daringfollowers of this dangerous trade. Greenland has a past, but its history, viewedthrough the mists of centuries, and always moreor less traditional, is anything but distinct. The country w^as discovered toward the end ofthe tenth century; and a banished Norwegian,called Erick, wintered at what is now called Erick Text Appearing After Image: IN THE WHALER AURORA 103 Sound, shortly after. The unscrupulous Erick, inorder to promote colonization, called the newcoimtry Greenland. A fleet of twenty-five sailstarted for the country with colonists. Many werelost, but about half of them settled there and werejoined by others, foraiing quite a colony. Christianity was introduced about 1121 and abishop was appointed. By degrees the colonistsin the south formed other colonies, churches werebuilt, and the people prospered for a time. Grant tells us in his history of Greenland thatthere were about one hundred hamlets on thesecoasts. The colonies on the east coast have dis-appeared. Some ruins have been found, but whereare the people ? Nothing has been heard definitelyfrom them since 1408, when the east Greenlandtrade ceased. Some think that black death des-troyed them, others say that polar ice, comingdown, closed the coast from intercourse with theparent country, so that they starved. Accordingto one Kojake, who has written on the su Note About Images Please note that these images are extracted from scanned page images that may have been digitally enhanced for readability - coloration and appearance of these illustrations may not perfectly resemble the original work.",
           "bredd": 2912,
           "hojd": 1915,
@@ -1084,7 +1179,8 @@
           "smal": false,
           "licens_skal": "licensen känns inte igen som en tillåten licens och måste bedömas av en människa: No restrictions"
         }
-      ]
+      ],
+      "soktext": "Greenland ceases to be a colony Greenland"
     },
     {
       "id": "kubanska-revolutionen",
@@ -1093,7 +1189,7 @@
       "start": 1953,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q11264",
       "kandidater": [
@@ -1107,6 +1203,9 @@
           "licensadress": null,
           "upphovsperson": null,
           "datum": "1959-04-15",
+          "datum_original": "1959-04-15",
+          "datum_fil": "2016-12-05 10:56:55",
+          "kredit": "This image is available from the United States Library of Congress 's Prints and Photographs division under the digital ID ppmsc.03256 . This tag does not indicate the copyright status of the attached work. A normal copyright tag is still required. See Commons:Licensing .",
           "beskrivning": "Fidel Castro arrives MATS Terminal, Washington, D.C.",
           "bredd": 4300,
           "hojd": 4792,
@@ -1128,7 +1227,7 @@
       "start": 1956,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q951927",
       "kandidater": [
@@ -1142,6 +1241,9 @@
           "licensadress": null,
           "upphovsperson": "Karsten Kunibert",
           "datum": "2010-05-03 21:30:31",
+          "datum_original": null,
+          "datum_fil": "2010-05-03 21:30:31",
+          "kredit": "Public domain Public domain false false I, the copyright holder of this work, release this work into the public domain . This applies worldwide. In some countries this may not be legally possible; if so: I grant anyone the right to use this work for any purpose , without any conditions, unless such conditions are required by law.",
           "beskrivning": "Container steamship Ideal X , built in 1944 as the tanker Potrero Hills",
           "bredd": 5184,
           "hojd": 1128,
@@ -1162,6 +1264,9 @@
           "licensadress": null,
           "upphovsperson": "U.S. Navy",
           "datum": "1943-08-16",
+          "datum_original": "1943-08-16",
+          "datum_fil": "2006-07-16 14:56:00",
+          "kredit": "NARA Number 80022 from Record Group 80, General Records of the Department of the Navy, 1798-1947. The picture was researched by Dave Whittaker, Suffolk, VA",
           "beskrivning": "The U.S. Type T2-SE-A1 tanker Hat Creek underway at sea on 16 August 1943.",
           "bredd": 2630,
           "hojd": 964,
@@ -1181,7 +1286,7 @@
       "start": 1958,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q49901",
       "kandidater": [
@@ -1195,6 +1300,9 @@
           "licensadress": null,
           "upphovsperson": "NASA",
           "datum": "1958",
+          "datum_original": "1958",
+          "datum_fil": "2026-07-24 07:51:59",
+          "kredit": "[1] , [2] , [3]",
           "beskrivning": "Explorer 1 satellite",
           "bredd": 640,
           "hojd": 410,
@@ -1214,7 +1322,7 @@
       "start": 1958,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q2153101",
       "kandidater": [
@@ -1228,6 +1336,9 @@
           "licensadress": null,
           "upphovsperson": "Anonymous Unknown author",
           "datum": "1958-12",
+          "datum_original": "1958-12",
+          "datum_fil": "2026-09-03 04:50:12",
+          "kredit": "Oficina de Asuntos Históricos de Cuba. Publicada en la Revista Verde Oliva 1959.",
           "beskrivning": "Ernesto Guevara en Santa Clara.",
           "bredd": 586,
           "hojd": 744,
@@ -1253,6 +1364,9 @@
           "licensadress": "https://creativecommons.org/licenses/by/3.0",
           "upphovsperson": "PRA",
           "datum": "2006-02-17",
+          "datum_original": "2006-02-17",
+          "datum_fil": "2007-11-06 17:07:57",
+          "kredit": "Own work",
           "beskrivning": "Cuba - Santa Clara - Stèle commémorant l'attaque victorieuse d'un train blindé par les guerilleros cubains commandés par Che Guevara",
           "bredd": 1200,
           "hojd": 1600,
@@ -1273,7 +1387,7 @@
       "start": 1960,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q2844",
       "kandidater": [
@@ -1287,6 +1401,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Arturdiasr",
           "datum": "2015-03-29 11:30:21",
+          "datum_original": "2015-03-29 11:30:21",
+          "datum_fil": "2022-03-05 01:31:47",
+          "kredit": "Own work",
           "beskrivning": "This is a photo of a monument in Brazil identified by the ID",
           "bredd": 2733,
           "hojd": 1308,
@@ -1308,7 +1425,7 @@
       "start": 1962,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q17080530",
       "kandidater": [
@@ -1322,6 +1439,9 @@
           "licensadress": null,
           "upphovsperson": "Royal Constitutional Convention of Queen Elizabeth II",
           "datum": "1962-08-06",
+          "datum_original": "1962-08-06",
+          "datum_fil": "2018-10-21 14:54:26",
+          "kredit": "Constitution of Jamaica",
           "beskrivning": "Independence Proclamation of Jamaica",
           "bredd": 1000,
           "hojd": 600,
@@ -1342,14 +1462,14 @@
       "start": 1968,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q5159913",
+      "kandidater": [],
       "soktext": "The bishops at Medellín take the side of the poor Medellín",
       "anmarkningar": [
         "Wikidata-posten har ingen bild (P18); kandidaterna kommer ur en sökning på Commons"
-      ],
-      "kandidater": []
+      ]
     },
     {
       "id": "cites-washingtonkonventionen",
@@ -1358,7 +1478,7 @@
       "start": 1973,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q191836",
       "kandidater": [
@@ -1372,6 +1492,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
           "upphovsperson": "Mario Pazzaglia",
           "datum": "2016-11-29",
+          "datum_original": "2016-11-29",
+          "datum_fil": "2016-11-29 22:10:19",
+          "kredit": "creazione propria per una presentazione sull'etichettatura del caviale",
           "beskrivning": "explanation in italian Language of caviar label according Cites regulation",
           "bredd": 480,
           "hojd": 360,
@@ -1392,6 +1515,9 @@
           "licensadress": null,
           "upphovsperson": "Kürschner ( talk ) 08:01, 12 February 2010 (UTC)",
           "datum": "2010-02-11",
+          "datum_original": "2010-02-11",
+          "datum_fil": "2010-02-12 08:20:41",
+          "kredit": "Own work",
           "beskrivning": "Leopard fur-skin, Stamp for CITES",
           "bredd": 2048,
           "hojd": 1536,
@@ -1413,7 +1539,7 @@
       "start": 1975,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "source-checked",
       "wikidata": "Q156017",
       "kandidater": [
@@ -1427,6 +1553,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
           "upphovsperson": "Sannita",
           "datum": "2012-02-16",
+          "datum_original": "2012-02-16",
+          "datum_fil": "2022-11-22 11:41:40",
+          "kredit": "Own work",
           "beskrivning": "Map of the States that took part in Operation Condor . Green: main active members. Light green: less active members. Blue: United States (cooperation).",
           "bredd": 363,
           "hojd": 353,
@@ -1446,7 +1575,7 @@
       "start": 1979,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q18375",
       "kandidater": [
@@ -1460,6 +1589,9 @@
           "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
           "upphovsperson": "ignis",
           "datum": "8/Sep./2006",
+          "datum_original": "8/Sep./2006",
+          "datum_fil": "2006-10-27 21:58:01",
+          "kredit": "Own work",
           "beskrivning": "A model of an European rocket Ariane 1 in the Museum of Air and Space (Musée de l'air et de l'espace, Le Bourget, France)",
           "bredd": 2311,
           "hojd": 3471,
@@ -1479,11 +1611,11 @@
       "start": 1979,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": null,
-      "soktext": "Greenland gets home rule Nuuk",
-      "kandidater": []
+      "kandidater": [],
+      "soktext": "Greenland gets home rule Nuuk"
     },
     {
       "id": "gronland-lamnar-eg",
@@ -1492,10 +1624,9 @@
       "start": 1982,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": null,
-      "soktext": "Greenland leaves the EC Greenland",
       "kandidater": [
         {
           "fil": "File:EUenl.gif",
@@ -1507,6 +1638,9 @@
           "licensadress": "http://creativecommons.org/licenses/by-sa/3.0/",
           "upphovsperson": "No machine-readable author provided. Roke~commonswiki assumed (based on copyright claims).",
           "datum": "2022",
+          "datum_original": "2022",
+          "datum_fil": "2007-05-26 02:35:42",
+          "kredit": "No machine-readable source provided. Own work assumed (based on copyright claims).",
           "beskrivning": "Founding and enlarging the EU. Image made using the freely licenced maps at commons: EU-6 , EU-9 , EU-10 , EU-12 , EU-15 , EU-25 , EU-27 EU-28",
           "bredd": 262,
           "hojd": 160,
@@ -1518,7 +1652,8 @@
           ],
           "smal": true
         }
-      ]
+      ],
+      "soktext": "Greenland leaves the EC Greenland"
     },
     {
       "id": "klimatkonventionen-rio-1992",
@@ -1527,7 +1662,7 @@
       "start": 1992,
       "varldsdel": "Amerika",
       "period": "1900",
-      "hamtad": "2026-11-20",
+      "hamtad": "2026-11-22",
       "review": "two-sources",
       "wikidata": "Q208645",
       "kandidater": [
@@ -1541,6 +1676,9 @@
           "licensadress": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
           "upphovsperson": "Eckhard Henkel",
           "datum": "2014-06-12",
+          "datum_original": "2014-06-12",
+          "datum_fil": "2014-12-29 03:39:28",
+          "kredit": "Own work",
           "beskrivning": "“Old highrise of members of parliament”, Platz der Vereinten Nationen 1, Bonn -Gronau; now used as office building by the secretary of the United Nations Framework Convention on Climate Change and part of the “UN-Campus”",
           "bredd": 2179,
           "hojd": 1732,
