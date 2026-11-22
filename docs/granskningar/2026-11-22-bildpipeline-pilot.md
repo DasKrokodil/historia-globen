@@ -188,6 +188,29 @@ DasKrokodil beslutade att följa rekommendationerna (#2195): bygga #2193 (#2200)
 3. **De fasta kostnaderna** (fråga 2 i #2195) är nästa hävstång: större omgångar, skärmbilder för ett urval, och de "ej hämtade" i Actions. Avgör dem innan alla 58 återstående bildissues körs.
 4. **Ramstilen** för känsliga foton (fråga 4) är fortfarande öppen.
 
+## Första omgången med pipelinen som standard: #2104 och #2105 (2026-11-22)
+
+Omgången följde beslutet om pipelinen som standard: 36 händelser i en pull request ([#2210](https://github.com/DasKrokodil/historia-globen/pull/2210)), inga skärmbilder, testsviten en gång och rättningen gjord av en ny, liten arbetare. Händelserna är förhistoria och antik tid i Afrika och granskades därför av `forhistoriker`.
+
+| Mått | Värde |
+| --- | --- |
+| Händelser | 36 |
+| Med bild efter granskning | 12 (33 %) |
+| Ej hämtade (429) | 6, med färdiga bildtexter i `data/utkast/bildbatch/2104-2105.json`, för omhämtning i Actions |
+| Ingen fri bild | 18, varav 13 utan kandidat; alla egna sökningar gav 429 |
+| Tid till pull request | 11 minuter |
+| Bygget (viktat) | 1,66 miljoner (0,83 miljoner per 18 händelser) |
+| Rättningen (viktad) | 0,42 miljoner |
+| Summa per 18 händelser | 1,04 miljoner: **−62 %** mot det gamla sättet (2,74), −54 % mot steg B (2,27) |
+| Granskning (viktad) | förhistorikern 0,25 och språket 0,19 miljoner |
+| Licensfel till main | 0 |
+
+**Slutsatser:**
+- Större omgångar utan skärmbilder halverar kostnaden per händelse.
+- Andelen med bild (33 %, eller 50 % när de sex ej hämtade är inne) ligger under golvet 44 % för Afrika, men den här omgången var nästan bara förhistoria.
+- Golvet bör därför gälla per världsdel och period, eller mätas över flera omgångar.
+- Fynd som är rättade i #2200: flaggan `datum-osakert` var fel för nästan alla bilder med den gamla kandidatlistan och sätts inte längre, och licensen CC BY-SA 3.0 IGO känns nu igen.
+
 ## Övriga fynd
 
 - Ett möjligt sakfel i en händelsetext, "Tyskland erkände 2015", ska kontrolleras: #2194.
