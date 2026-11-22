@@ -310,6 +310,7 @@ async function run(browser, vp) {
       if (kvar.length) throw new Error(`sidfel: ${kvar.join('; ')}`);
       const filtered = abortedFiltered ? `${abortedFiltered} avbrutna hämtningar under sidbyte bortfiltrerade (#1393)` : null;
       results.push({ name, ok: true, ms: Date.now() - t0, note: [note, filtered].filter(Boolean).join(' · ') || undefined });
+      console.log(`  ✓ ${name} (${((Date.now() - t0) / 1000).toFixed(1)} s)`); // resultatet direkt, så att ett avbrutet jobb ändå visar vad som gick igenom (#2171)
     } catch (e) {
       // Läget i sidan när kontrollen föll (#702): vilket element som har fokus och vilka paneler som är öppna
       const state = await page.evaluate(ids => {
@@ -320,6 +321,7 @@ async function run(browser, vp) {
         return `läge: år ${document.getElementById('year-big')?.textContent.trim()}, fokus ${focus}, öppna: ${open.join(' ') || 'inga'}${menu}`;
       }, ['jump-pop', 'help', 'layer-menu', 'focus-menu', 'empire-legend', 'detail', 'panel', 'sources-dialog', 'search-pop', 'flat-view', 'tour-card']).catch(() => '');
       results.push({ name, ok: false, ms: Date.now() - t0, note: [failNote(e), state].filter(Boolean).join(' · ') });
+      console.log(`  ✗ ${name}: ${results.at(-1).note}`);
       await shot(`FEL-${name.replace(/[^a-zåäö0-9]+/gi, '-')}`).catch(() => {});
       await page.keyboard.press('Escape').catch(() => {});
     }
