@@ -1000,7 +1000,10 @@ export class Panel {
     // Datumraden i två rader (#1792): rad 1 är datumet med en enda markering för det osäkra (och hur länge sedan, för djup tid), rad 2 platsen
     // (kort, klippt till två rader i CSS) och kategorin. Hela platstexten, skalnoten och Historisk osäkerhet ligger i raden Källor och osäkerhet.
     // "≈ 42 000 år sedan" räknas ur årtalet (i dag minus årtalet, avrundat till tusental), som reglagets text; (i) förklarar f.Kr. mot år sedan (#1979)
-    const agoN = inDeepTime(e) ? groupDigits(Math.round((MAX_YEAR - e.start) / 1000) * 1000) : '';
+    // Med öppen start (edtf "../", som neandertalarna) är startåret bara tidslinjens kant och inte källans: då räknas
+    // "år sedan" ur slutåret, samma år som datumraden visar ("till cirka 37 000 f.Kr."), #2156
+    const agoYear = (e.edtf ?? '').startsWith('../') ? e.end : e.start;
+    const agoN = inDeepTime({ start: agoYear }) ? groupDigits(Math.round((MAX_YEAR - agoYear) / 1000) * 1000) : '';
     const ago = agoN ? ui('detail.yearsAgoShort', { n: agoN }) : '';
     const placeText = t(e.place), placeLong = placeText.length > 70;
     const mark = unc ? (uncertaintyMark(e, 'date', this.uncertainty) || uncertaintyMark(e, 'place', this.uncertainty)) : '';
@@ -1008,7 +1011,7 @@ export class Panel {
       <button type="button" class="detail-close" data-close aria-label="${esc(ui('common.close'))}">×</button>
       <h3${langAttr(e.title)}>${esc(t(e.title))}</h3>
       <div class="meta meta-when">${esc(formatEventTime(e))}${evidence.marker('date')}${mark}${ago ? ` · <span class="meta-ago">${esc(ago)}</span><button type="button" class="review-info ago-info" data-ago-info aria-expanded="false" aria-controls="detail-ago-help" aria-label="${esc(ui('detail.yearsAgoInfo'))}" title="${esc(ui('detail.yearsAgoInfo'))}">i</button>` : ''}</div>
-      ${ago ? `<p class="scale-note" id="detail-ago-help" hidden>${esc(ui('detail.yearsAgo', { year: formatYear(e.start), n: agoN }))}</p>` : ''}
+      ${ago ? `<p class="scale-note" id="detail-ago-help" hidden>${esc(ui('detail.yearsAgo', { year: formatYear(agoYear), n: agoN }))}</p>` : ''}
       <div class="meta meta-where"><span class="meta-place">${esc(placeText)}</span>${evidence.marker('location')} · ${esc(t(CAT[e.category]?.name))}</div>
       ${tagMarks(e, this.tags)}
       ${this.onShowPlace ? `<button type="button" class="place-row" data-show-place aria-label="${esc(ui('detail.showPlaceLabel', { place: t(e.place) }))}"><span class="place-pin" aria-hidden="true"></span><span class="place-go">${esc(ui('detail.showPlace'))}</span></button>` : ''}

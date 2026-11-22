@@ -1,0 +1,658 @@
+{
+  "schema": "historia-globen/bildbatch@1",
+  "status": "förslag",
+  "namn": "2108",
+  "datum": "2026-11-22",
+  "urval": "ids=18 licens=strikt",
+  "redan_bild_eller_utkast": [],
+  "handelser": [
+    {
+      "id": "ewuare-oba-i-benin",
+      "titel": "Oba Ewuare bygger upp kungariket Benin",
+      "start": 1440,
+      "plats": "Benin City (i dag Nigeria)",
+      "wikidata": "Q376898",
+      "kandidater": [
+        {
+          "fil": "File:Oba Ewuare the Great!.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Oba_Ewuare_the_Great!.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Ebameful",
+          "datum": "2016-12-31",
+          "beskrivning": "This is an image from",
+          "bredd": 1200,
+          "hojd": 1200,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Oba_Ewuare_the_Great%21.jpg/960px-Oba_Ewuare_the_Great%21.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Art of Nigeria",
+            "Benin Empire",
+            "Ewuare"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null
+          }
+        }
+      ],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "bartolomeu-dias-rundar-afrika",
+      "titel": "Bartolomeu Dias seglar runt Afrikas sydspets",
+      "start": 1488,
+      "plats": "Mossel Bay vid Afrikas sydkust (i dag Sydafrika)",
+      "wikidata": "Q130377",
+      "kandidater": [
+        {
+          "fil": "File:Bartolomeu Dias, South Africa House (cut).JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Bartolomeu_Dias,_South_Africa_House_(cut).JPG",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "Bartolomeu_Dias,_South_Africa_House.JPG : RedCoat ( en:User:RedCoat10 ) derivative work: Biser Todorov ( talk )",
+          "datum": "2009-08-17 17:40",
+          "beskrivning": "Statue of Bartolomeu Dias at the High Commission of South Africa in London",
+          "bredd": 648,
+          "hojd": 1439,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Bartolomeu_Dias%2C_South_Africa_House_%28cut%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Statue of Bartolomeu Dias, South Africa House, London"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-22): {{self|Cc-by-sa-3.0,2.5,2.0,1.0}}, {{self|GFDL}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0."
+          }
+        }
+      ],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "afonso-i-kung-av-kongo",
+      "titel": "Afonso I blir kung av Kongo",
+      "start": 1509,
+      "plats": "Mbanza Kongo, kungadömet Kongo (i dag Angola)",
+      "wikidata": "Q383455",
+      "kandidater": [
+        {
+          "fil": "File:Manikongo.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Manikongo.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Affricoll9",
+          "datum": "2019-12-22",
+          "beskrivning": "Roy du Kongo",
+          "bredd": 384,
+          "hojd": 551,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/b/be/Manikongo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Kongolese royalty"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null
+          }
+        },
+        {
+          "fil": "File:Coat of arms of Kongo.svg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Kongo.svg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "Samhanin",
+          "datum": "2017-01-02",
+          "beskrivning": "Coat of arms of Kongo (c. 1528-1541)",
+          "bredd": 344,
+          "hojd": 484,
+          "mime": "image/svg+xml",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Coat_of_arms_of_Kongo.svg/960px-Coat_of_arms_of_Kongo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Arms with sword in heraldry",
+            "Crosses flory argent",
+            "Gules a chief azure",
+            "Manicongo arms in Livro da Perfeição das Armas",
+            "SVG coats of arms of Portuguese Angola",
+            "Shells in heraldry"
+          ],
+          "smal": true,
+          "flaggor": [
+            "nutida-foto",
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 3.0",
+            "skal": [],
+            "note": null
+          }
+        }
+      ],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "atlantiska-slavhandeln",
+      "titel": "Den transatlantiska slavhandeln",
+      "start": 1519,
+      "plats": "Väst- och Centralafrika till Amerika (Gorée, Senegal, som exempel)",
+      "wikidata": "Q10701282",
+      "kandidater": [
+        {
+          "fil": "File:Slaveshipposter.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Slaveshipposter.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Plymouth Chapter of the Society for Effecting the Abolition of the Slave Trade",
+          "datum": "1788-12",
+          "beskrivning": "Stowage of the British slave ship Brookes under the regulated slave trade act of 1788.",
+          "bredd": 3952,
+          "hojd": 4672,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/82/Slaveshipposter.jpg/960px-Slaveshipposter.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "18th-century technical drawings",
+            "Atlantic slave trade",
+            "Brookes (ship, 1781)",
+            "General arrangements of slave ships"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null
+          }
+        }
+      ],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "etiopisk-adalska-kriget",
+      "titel": "Etiopisk-adalska kriget",
+      "start": 1529,
+      "plats": "Etiopiska kejsardömet, i dag Etiopien och Eritrea (började i Dawaro)",
+      "wikidata": "Q2915203",
+      "kandidater": [
+        {
+          "fil": "File:YagbeaSionBattlingAdaSultan.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:YagbeaSionBattlingAdaSultan.JPG",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "15 th century date QS:P,+1450-00-00T00:00:00Z/7",
+          "beskrivning": "Yagbea Sion Battling the sultan of Adem(Adal).",
+          "bredd": 2379,
+          "hojd": 1524,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/YagbeaSionBattlingAdaSultan.JPG/960px-YagbeaSionBattlingAdaSultan.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1294 deaths",
+            "Adal Sultanate",
+            "Monarchs of Ethiopia",
+            "Royal families",
+            "Royalty of Ethiopia",
+            "Yagbe'u Seyon"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null
+          }
+        }
+      ],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "slaget-vid-shimbra-kure",
+      "titel": "Slaget vid Shimbra Kure",
+      "start": 1529,
+      "plats": "Shimbra Kure i Dawaro, Etiopiska kejsardömet (exakt plats okänd)",
+      "wikidata": "Q2889965",
+      "kandidater": [
+        {
+          "fil": "File:YagbeaSionBattlingAdaSultan.JPG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:YagbeaSionBattlingAdaSultan.JPG",
+          "kalla": "commons-sok",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Unknown author Unknown author",
+          "datum": "15 th century date QS:P,+1450-00-00T00:00:00Z/7",
+          "beskrivning": "Yagbea Sion Battling the sultan of Adem(Adal).",
+          "bredd": 2379,
+          "hojd": 1524,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/YagbeaSionBattlingAdaSultan.JPG/960px-YagbeaSionBattlingAdaSultan.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1294 deaths",
+            "Adal Sultanate",
+            "Monarchs of Ethiopia",
+            "Royal families",
+            "Royalty of Ethiopia",
+            "Yagbe'u Seyon"
+          ],
+          "smal": false,
+          "flaggor": [
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null
+          }
+        },
+        {
+          "fil": "File:Illustration of Ahmad Gragn at war.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Illustration_of_Ahmad_Gragn_at_war.jpg",
+          "kalla": "commons-sok",
+          "licens": "CC0",
+          "licensklass": "cc0",
+          "licensstatus": "trolig",
+          "licensadress": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "upphovsperson": "Richard Pankhurst",
+          "datum": "1997-09-29",
+          "beskrivning": "An Ethiopian illustration depicting Ahmad ibn Ibrahim waging war against the Abyssinians",
+          "bredd": 2011,
+          "hojd": 1322,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/Illustration_of_Ahmad_Gragn_at_war.jpg/960px-Illustration_of_Ahmad_Gragn_at_war.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Battles of the Ethiopian–Adal War"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC0",
+            "skal": [],
+            "note": null
+          }
+        }
+      ],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "slaget-vid-antukyah",
+      "titel": "Slaget vid Antukyah",
+      "start": 1531,
+      "plats": "Antukyah vid kanten av de etiopiska högländerna, i dag distriktet Antsokiya och Gemza",
+      "wikidata": "Q2887867",
+      "kandidater": [
+        {
+          "fil": "File:Adal.PNG",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Adal.PNG",
+          "kalla": "commons-sok",
+          "licens": "CC BY 3.0",
+          "licensklass": "cc-by",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by/3.0",
+          "upphovsperson": "Jolle",
+          "datum": "2008-08-20 16:05:26",
+          "beskrivning": "Adal Sultanate and Aksum circa 1500",
+          "bredd": 485,
+          "hojd": 500,
+          "mime": "image/png",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/2/22/Adal.PNG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Maps of the Adal Sultanate",
+            "Maps of the Ethiopian Empire",
+            "Precolonial history",
+            "Somalia in the 16th century"
+          ],
+          "smal": true,
+          "flaggor": [
+            "karta",
+            "nutida-foto",
+            "smal",
+            "ur-sokning"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY 3.0",
+            "skal": [],
+            "note": null
+          }
+        }
+      ],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "oyoriket",
+      "titel": "Oyoriket blir en stormakt",
+      "start": 1608,
+      "plats": "Oyo-Ile (Gamla Oyo), rikets huvudstad, i dagens Nigeria",
+      "wikidata": "Q849623",
+      "kandidater": [
+        {
+          "fil": "File:Palace of Alaafin of Oyo circa mid-1900s.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Palace_of_Alaafin_of_Oyo_circa_mid-1900s.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "The African History",
+          "datum": "mid 1900s",
+          "beskrivning": "Palace of Alaafin of Oyo circa mid-1900s",
+          "bredd": 500,
+          "hojd": 351,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/5/52/Palace_of_Alaafin_of_Oyo_circa_mid-1900s.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "Oyo Empire"
+          ],
+          "smal": true,
+          "flaggor": [
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null
+          }
+        }
+      ],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "asanteriket-grundas",
+      "titel": "Asanteriket växer fram",
+      "start": 1701,
+      "plats": "Kumasi (i dag Ghana)",
+      "wikidata": "Q722071",
+      "kandidater": [
+        {
+          "fil": "File:Asante map.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Asante_map.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": null,
+          "datum": "2007-10-16 20:10:40",
+          "beskrivning": null,
+          "bredd": 428,
+          "hojd": 477,
+          "mime": "image/jpeg",
+          "miniatyr": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Asante_map.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "kategorier": [
+            "19th-century maps of Africa",
+            "19th-century maps of Ghana",
+            "Ashanti Empire"
+          ],
+          "smal": true,
+          "flaggor": [
+            "karta",
+            "nutida-foto",
+            "smal"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null
+          }
+        }
+      ],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "dahomey-erovrar-ouidah",
+      "titel": "Dahomey erövrar hamnstaden Ouidah",
+      "start": 1727,
+      "plats": "Ouidah (Whydah) vid kusten (i dag Benin)",
+      "wikidata": "Q562291",
+      "kandidater": [
+        {
+          "fil": "File:Emblème du roi Agadja-Musée africain de Lyon.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Embl%C3%A8me_du_roi_Agadja-Mus%C3%A9e_africain_de_Lyon.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 4.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/4.0",
+          "upphovsperson": "Ji-Elle",
+          "datum": "2016-02-23 15:42:34",
+          "beskrivning": "Emblème du roi Agadja. Fon, Bénin, fin du XVIIIe s. Bois et argent, 23 cm. Musée africain de Lyon",
+          "bredd": 3240,
+          "hojd": 4320,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e0/Embl%C3%A8me_du_roi_Agadja-Mus%C3%A9e_africain_de_Lyon.jpg/960px-Embl%C3%A8me_du_roi_Agadja-Mus%C3%A9e_africain_de_Lyon.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "18th-century art",
+            "Agadja",
+            "Collections of the Musée africain de Lyon",
+            "Fon people"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "CC BY-SA 4.0",
+            "skal": [],
+            "note": null
+          }
+        }
+      ],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "andrianampoinimerina-enar-imerina",
+      "titel": "Andrianampoinimerina enar Imerina",
+      "start": 1787,
+      "plats": "Ambohimanga på Madagaskars högland",
+      "wikidata": "Q218622",
+      "kandidater": [
+        {
+          "fil": "File:Andrianampoinimerina HQ.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Andrianampoinimerina_HQ.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Philippe-Auguste Ramanankirahina (1860-1915)",
+          "datum": "1905",
+          "beskrivning": "King Andrianampoinimerina of Madagascar",
+          "bredd": 1073,
+          "hojd": 1297,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Andrianampoinimerina_HQ.jpg/960px-Andrianampoinimerina_HQ.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Andrianampoinimerina",
+            "Ramanankirahina"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null
+          }
+        }
+      ],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "sokotokalifatet-grundas",
+      "titel": "Usman dan Fodio grundar Sokotokalifatet",
+      "start": 1804,
+      "plats": "Sokoto (i dag Nigeria)",
+      "wikidata": "Q600524",
+      "kandidater": [
+        {
+          "fil": "File:View of Sokoto (1890).jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:View_of_Sokoto_(1890).jpg",
+          "kalla": "wikidata-P18",
+          "licens": "Public domain",
+          "licensklass": "public-domain",
+          "licensstatus": "trolig",
+          "licensadress": null,
+          "upphovsperson": "Monteil, P.-L. (Parfait-Louis)",
+          "datum": "1890",
+          "beskrivning": "View of Sokoto from its outskirts. From \"De Saint-louis A Tripoli Par Le Lac Tchad: Voyage Au Travers Du Soudan Et Du Sahara Accompli Pendant Les Années 1890-91-92\"",
+          "bredd": 2861,
+          "hojd": 1759,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/View_of_Sokoto_%281890%29.jpg/960px-View_of_Sokoto_%281890%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "1890 in Nigeria",
+            "Sokoto",
+            "Sokoto Caliphate"
+          ],
+          "smal": false,
+          "flaggor": [],
+          "licens_strikt": {
+            "status": "godkand",
+            "licens": "Public domain",
+            "skal": [],
+            "note": null
+          }
+        }
+      ],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "shaka-bygger-zuluriket",
+      "titel": "Shaka bygger upp Zuluriket",
+      "start": 1816,
+      "plats": "Zululand, i dagens KwaZulu-Natal, Sydafrika",
+      "wikidata": "Q729768",
+      "kandidater": [
+        {
+          "fil": "File:Gees van eMakhosini-monument, eMakhosini.jpg",
+          "filsida": "https://commons.wikimedia.org/wiki/File:Gees_van_eMakhosini-monument,_eMakhosini.jpg",
+          "kalla": "wikidata-P18",
+          "licens": "CC BY-SA 3.0",
+          "licensklass": "cc-by-sa",
+          "licensstatus": "trolig",
+          "licensadress": "https://creativecommons.org/licenses/by-sa/3.0",
+          "upphovsperson": "JMK",
+          "datum": "2014-06-07 13:27",
+          "beskrivning": "Spirit of eMakhosini Monument at eMakhosini (i.e. Place of the (Zulu) Kings) in northern KwaZulu-Natal, South Africa. The \"Spirit of the Place of the (Zulu) Kings\" monument was erected in 2003 on Khumba hill, which allows vistas of the surrounding countryside. A large bronze beer pot or imbiza , symbolic of friendship, forms the center piece. Small friezes that adorn the base of the circular pedestal, depict scenes from the lives of the Zulu kings. Seven large animal horns represent seven Zulu kings whose graves are in the vicinity.",
+          "bredd": 4000,
+          "hojd": 3000,
+          "mime": "image/jpeg",
+          "miniatyr": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/Gees_van_eMakhosini-monument%2C_eMakhosini.jpg/960px-Gees_van_eMakhosini-monument%2C_eMakhosini.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "kategorier": [
+            "Spirit of eMakhosini"
+          ],
+          "smal": false,
+          "flaggor": [
+            "nutida-foto"
+          ],
+          "licens_strikt": {
+            "status": "godkand-med-not",
+            "licens": "CC BY-SA 3.0",
+            "skal": [
+              "GFDL anges också (dubbellicens)"
+            ],
+            "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-22): {{self|GFDL}}, {{self|cc-by-sa-3.0}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0."
+          }
+        }
+      ],
+      "hamtad": "2026-11-20"
+    }
+  ],
+  "utan_kandidat": [
+    {
+      "id": "kungadomet-kongo-grundas",
+      "titel": "Kungadömet Kongo grundas",
+      "start": 1390,
+      "plats": "Kring Mbanza Kongo, rikets huvudstad (i dag Angola)",
+      "wikidata": "Q796583",
+      "kandidater": [],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "mutapariket",
+      "titel": "Mutapariket växer fram",
+      "start": 1430,
+      "plats": "Dande–Musengezi-området i norra Zimbabwe, där de första huvudstäderna låg",
+      "wikidata": "Q854468",
+      "kandidater": [],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "askia-muhammad-tar-makten",
+      "titel": "Askia Muhammad tar makten i Songhairiket",
+      "start": 1493,
+      "plats": "Gao vid Nigerfloden (i dag Mali)",
+      "wikidata": "Q1771994",
+      "kandidater": [],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "slaget-vid-amba-sel",
+      "titel": "Slaget vid Amba Sel",
+      "start": 1531,
+      "plats": "Ambassel i Amhara, Etiopien",
+      "wikidata": "Q2887837",
+      "kandidater": [],
+      "hamtad": "2026-11-20"
+    },
+    {
+      "id": "rozviriket",
+      "titel": "Rozviriket på Zimbabweplatån",
+      "start": 1683,
+      "plats": "Zimbabweplatån (i dag Zimbabwe)",
+      "wikidata": "Q986822",
+      "kandidater": [],
+      "hamtad": "2026-11-20"
+    }
+  ]
+}

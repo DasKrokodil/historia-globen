@@ -147,7 +147,9 @@ OVERRIDES = {'brittiska-imperiet': (0.3, 0.08, 0.08),
 GROUPS = {
     'romarriket': ('Rom: kungadöme, republik, kejsardöme och Bysans', 'Rome: kingdom, republic, empire and Byzantium', [
         ('Roman Kingdom', 'romerska-kungadomet', 'Romerska kungadömet', '#b8433a'),
-        ('Roman Republic', 'romerska-republiken', 'Romerska republiken', '#b8433a'),
+        # Cliopatria anger Q175881 för Roman Republic, som är Romerska republiken 1798–1799 (en systerrepublik); antikens
+        # republik 509–27 f.Kr. är Q17167 (Wikidata, kontrollerat 2026-11-22, #2156)
+        ('Roman Republic', 'romerska-republiken', 'Romerska republiken', '#b8433a', {'wikidata': 'Q17167'}),
         # Cliopatria anger fel Wikidata-id för Roman Empire (Q12544, Bysantinska riket; rätt är Q2277) och Byzantine
         # Empire (Q112039853, "Foreign relations of the Byzantine Empire"; rätt är Q12544). Med Cliopatrias id fick
         # tools/riken_namn.py Bysans namn på Romerska kejsardömet och utrikesrelationernas spanska namn på Bysantinska
@@ -2121,6 +2123,9 @@ SUDANGRANSEN = [(24.15, 8.3, 25.2, 10.6), (25.2, 8.9, 32.2, 10.9), (32.2, 9.2, 3
 # (Cliopatrias gränser 1950 och 1960; 1960 är samma som 2024). Rutorna täcker halvön från Västkoreanska viken till Japanska havet
 KOREA38 = [(124.5, 37.6, 129.0, 38.5)]
 KOREAGRANSEN = [(124.5, 37.5, 129.0, 38.8)]
+# Rutan runt Cliopatrias USA-del över södra Vietnam 1967–2005 (#2151, 103,8–109,5 grader öst, 8,5–17,3 nord); inget annat av
+# USA ligger i den
+VIETNAM_USA = (103.0, 8.0, 110.5, 17.6)
 
 # Hainan (#1499): rutan runt ön. I Cliopatria når Hainan 20,151 grader nord och fastlandet (Leizhouhalvön) börjar vid 20,215,
 # så rutan som Folkrepublikens ö hämtas ur slutar vid 20,18 och når inte fastlandet. Rutan som ön klipps ur Taiwan med slutar
@@ -2206,6 +2211,15 @@ DISPUTED = {
     # 34,3–38,1 nord) och Jeju, men inte Tsushima (söder om 34,6 grader och öster om 129,0) eller Kyushu
     'sydkorea-usa': {'area': ('rutor', [(124.5, 34.2, 129.0, 38.3), (128.0, 34.6, 129.9, 38.3), (125.9, 33.0, 127.2, 33.75)]),
                      'from': 1948, 'to': 1966, 'strict': True, 'efter': True, 'remove': ['usa'], 'add': []},
+    # Södra Vietnam 1967–2005 (#2151): Cliopatrias USA-post 1967–2005 har en del på cirka 14 kvadratgrader över södra
+    # Vietnam (103,8–109,5 grader öst, 8,5–17,3 nord, nästan exakt Republic of Vietnam 1973), med Saigon och Pleiku.
+    # Sydvietnam var en egen, erkänd stat 1955–1975, och USA:s styrkor lämnade landet i slutet av mars 1973
+    # (wp-south-vietnam); landet enades med Nordvietnam 1976 (wp-vietnam-war). USA klipps bort där alla de åren, också
+    # efter förenklingen. 1967–1972 har Cliopatria ingen Republic of Vietnam, och dess gräns 1966 och 1973 skiljer sig
+    # med cirka 6,5 procent av ytan, så ingen fill är tillåten (beslutet 2026-11-13, punkt 2): området visas utan stat
+    # de åren. 1973–1975 är det Sydvietnam och från 1976 Vietnam, med Cliopatrias egna gränser. Ytan räknas utan området
+    'vietnam-usa': {'area': ('rutor', [VIETNAM_USA]), 'from': 1967, 'to': 2005, 'strict': True, 'efter': True, 'yta': True,
+                    'remove': ['usa'], 'add': []},
     # Hainan från 1950 (#1499): Cliopatrias Republic of China 1950–2023 (Taiwan hos oss) omfattar Hainan, och People's Republic
     # of China har ön först från 1953, så ön ritades som Taiwan 1950–2023 och dessutom som Kina 1953–2023. Folkrepubliken
     # intog ön i april 1950 och hade hela ön 1 maj (wp-hainan-battle: landstigning 16 april; wp-hainan nämner också 10 april), och

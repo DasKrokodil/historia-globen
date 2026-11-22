@@ -149,8 +149,8 @@ Kontrollerat 2026-11-22 med granskningslistan `data/utkast/bildbatch/2106.md` oc
 | `tsunamin-365-alexandria` | Tom kandidatlista. Sökningen gav bara orelaterade PDF-filer. |
 | `arabiska-erovringen-av-egypten` | Wikidatas bild är en arabisk karta från 1986 som Commons märker {{PD-Egypt}} med motiveringen att verk som inte är skapande och publicerades före 1987 är fria. En karta kan vara ett skapande verk, och filsidan saknar uppgift om status i USA, så licensen är osäker. |
 | `sungbos-eredo` | Wikidatas bild anges som eget verk (CC BY-SA 4.0), men datumfältet säger "culled from nigeria's national monuments", alltså hämtad ur en annan källa. Uppgifterna motsäger varandra. |
-| `mapungubwe-riket` | Bästa kandidaten, File:MapungubweHill.jpg, har bara {{GFDL-user}} med migration=relicense på filsidan. Licensen känns inte igen av verktygen, och enligt rutinen avstår vi hellre. Kandidat 1 visar guldföremål från både Ashantiriket och Mapungubwe utan att skilja dem åt. |
-| `fuktigare-klimat-vid-limpopo` | Fotot av Limpopos och Shashes sammanflöde (File:LSConfluence.jpg) har samma licensfråga som ovan ({{GFDL-user}} med migration=relicense). |
+| `mapungubwe-riket` | Möjlig bild: File:MapungubweHill.jpg har GFDL med migration=relicense, alltså också CC BY-SA 3.0; prövas i nästa omgång (2026-11-22). |
+| `fuktigare-klimat-vid-limpopo` | Möjlig bild: File:LSConfluence.jpg har GFDL med migration=relicense, alltså också CC BY-SA 3.0; prövas i nästa omgång (2026-11-22). |
 
 ### Ej hämtad, prövas igen
 
@@ -158,3 +158,84 @@ Kontrollerat 2026-11-22 med granskningslistan `data/utkast/bildbatch/2106.md` oc
 |---|---|
 | `sista-silfiumstjalken` | File:Cyrene coin.jpg (mynt från Kyrene med ett silfiumfrö, PD-old-auto och CC0) är godkänd, men upload.wikimedia.org svarade HTTP 429 med Retry-After 600 s. Raden står i `data/utkast/bildbatch/2106-ej-hamtade.txt`. |
 | `burakulturen` | File:Grave Marker MET VS1998.478.1.jpeg (gravmarkör av terrakotta, burafolket, 200–1000-talet, Metropolitan Museum of Art, CC0) är godkänd, men upload.wikimedia.org svarade HTTP 429 med Retry-After 600 s. Raden står i `data/utkast/bildbatch/2106-ej-hamtade.txt`. |
+
+## Afrika 1826–1905, pilot #2109 (bildpipelinen #2183)
+
+Kontrollerat 2026-11-22 med granskningslistan `data/utkast/bildbatch/2109.md`.
+
+| Händelse (id) | Skäl |
+|---|---|
+| `slaget-vid-dodowa` | Ingen kandidat i listan. En kort sökning på Commons gav bara en bild av ett annat slag mot Ashanti (1824). |
+| `anglo-zuluiska-kriget` | Den enda kandidaten är ett utsnitt av samma målning av Alphonse de Neuville som nu visas för `slaget-vid-rorkes-drift`. Krigets viktigaste händelse, `slaget-vid-isandlwana`, har redan en bild. |
+| `invasionen-av-zululand` | Den enda kandidaten är en kartsida ur Appleton's annual cyclopedia med Commons-etiketten "No restrictions" utan licensmall, som inte godkänns, och kartan visar inte invasionen. |
+| `slaget-vid-hlobane` | Den enda kandidaten är 300 × 389 px och en senare avbildning. En kort sökning gav bara ett porträtt av Piet Uys, som inte visar slaget. |
+
+### Ej hämtad, prövas igen
+
+Den 22 november 2026 svarade Commons HTTP 429 (Retry-After 600 s) och loc.gov svarade inte inom 30 sekunder.
+
+| Händelse (id) | Hinder |
+|---|---|
+| `slaget-vid-gingindlovu` | Gravyren "Inside the laager at Ginghilovo during the Zulu attack" (The Illustrated London News 1879, PD-art) är vald och kontrollerad, men miniatyren på upload.wikimedia.org gav HTTP 429 i tre körningar. |
+| `kongofristaten` | Kandidaten är en modern karta över Belgiska Kongos järnvägar före 1960. Egen sökning: HTTP 429. |
+| `freden-i-addis-abeba-1896` | Kandidaterna är nutida konferensfoton från Addis Abeba. Egen sökning: HTTP 429. |
+| `liberia-blir-sjalvstandigt` | Sökningen gav ett foto av ett självständighetståg i Monrovia utan känt datum. Metadata: HTTP 429. |
+| `boskapspesten-i-afrika` | Sökningen gav filen "Rinderpest 1896-CN.jpg". Metadata: HTTP 429. |
+
+## Afrika och Egypten 1000–1347, pilot #2107
+
+Kontrollerat 2026-11-22 med granskningslistan `data/utkast/bildbatch/2107.md`.
+
+| Händelse (id) | Skäl |
+|---|---|
+| `swahilikustens-afrikanska-och-asiatiska-rotter` | Ingen kandidat i listan, och händelsen är en DNA-studie utan motiv som en historisk bild kan visa. Ingen egen sökning. |
+| `banu-hilal-flyttar-till-maghreb` | Ingen kandidat i listan. Egen sökning gav nutida kartor; den närmaste (NBelazi 2014, CC BY-SA 3.0) visar stammarnas rörelser på Arabiska halvön på 900-talet, inte flytten till Maghreb, och ett manuskript från 1849 av den muntliga eposdiktningen om Banu Hilal visar inte händelsen. |
+| `war-jabi-infor-sharia-i-takrur` | Ingen kandidat i listan. Egen sökning gav bara en spansk karta från 1876 ("Parte del Sudan ó Takrur") och foton av berget El-Dakrur vid Siwa, som inte visar händelsen. |
+| `almoraviderna-och-ghanariket` | Ingen kandidat i listan. Egen sökning gav almoravidiska dinarer präglade av senare härskare (Yusuf ibn Tashfin, Ali ibn Yusuf), som inte visar den omstridda erövringen. |
+| `svalten-i-egypten-1200` | Ingen kandidat i listan. Egen sökning gav bara PDF-skanningar av senare översättningar av Abd al-Latif al-Baghdadis bok (1800 och 1810), ingen bild. |
+| `slaget-vid-kirina` | Listans enda kandidat (Wikidatas bild, 2019) visar enligt filsidans kategorier Kurukan Fuga och Mandékans stadga, inte slaget. |
+| `digerdoden-i-egypten` | Listans kandidater ur sökning är en gatubild från Kairo 1870 och utgrävningsfoton från Heliopolis 1903–1906, som inte visar pesten. |
+| `salomoniska-dynastin-tar-makten` | Listans kandidat (File:Yekuno Amlak.jpg): ursprung och datering saknas på filsidan (bara ett diskussionsforum som källa), så licensen går inte att belägga. Borttagen efter granskning av PR #2188. |
+
+## Afrika 1921–1968, del 8 av 9 (#2110, 2026-11-22)
+
+Sökt i kandidatlistan `data/utkast/bildkandidater.json` och på Wikimedia Commons 2026-11-22, licensen läst i filsidans wikitext (`action=raw`).
+
+| Händelse (id) | Skäl |
+|---|---|
+| `kimbangu-predikar-1921` | Det enda samtida fotot av Simon Kimbangu på Commons är 400 px brett och har mallen PD-US-expired utan någon källa (bara "Simon Kimbangu in the early 20th century"). Övriga träffar är nutida foton av museet i Nkamba och målningar från 2025. Library of Congress svarade HTTP 429. |
+| `brazzavillekonferensen-1944` | Fotot av Charles de Gaulle som öppnar konferensen ([filsidan](https://commons.wikimedia.org/wiki/File:Charles_de_Gaulle_opening_the_Brazzaville_Conference,_1944.jpg)) har PD-US-not renewed för ett franskt foto från 1944; filsidan visar inte att bilden först publicerades i USA och anger ingen status i Frankrike. |
+| `ethiopian-airlines-grundas-1945` | Bilderna av bolagets Douglas DC-3 på Commons har bara GFDL, som inte är tillåten. Wikidatas bild är ett nutida flygplan (2025). Library of Congress svarade inte inom 30 sekunder. |
+| `afrikas-ar-1960` | Wikidatas bild är en nutida karta med självständighetsår, där filsidans licensmall bara säger GFDL (med `migration=relicense`), medan API:et säger CC BY-SA 3.0. Ingen fri bild från 1960 hittades, bara små frimärken. |
+| `biafra-utropas` | Inga samtida foton av Ojukwu eller utropandet. Det enda fotot av Ojukwu från 1969 är märkt som uppladdarens eget verk (CC0) och är 328 px brett, så ursprunget är oklart. Library of Congress gav inga träffar. |
+| `enugu-faller-1967` | Bara nutida foton från delstaten Enugu (djur, landskap). |
+| `massakern-i-asaba` | Ingen bild av händelsen eller av Asaba vid den tiden. |
+| `port-harcourt-1968` | Bara nutida foton av staden (2023, 2024). |
+| `torkan-i-sahel` | Wikidatas bild är en karta över regnmängden 2007, inte torkan 1968–1973. Ingen fri bild av torkan hittades. |
+
+### Ej hämtad, prövas igen
+
+| Händelse (id) | Hinder |
+|---|---|
+| `jordbavningen-1303-alexandria` | Vald bild: [File:Book of Wonders folio 36a.jpg](https://commons.wikimedia.org/wiki/File:Book_of_Wonders_folio_36a.jpg) (fyren i Alexandria i handskriften Kitab al-bulhan, 1390–1450, Bodleian Library, CC BY 4.0, licensmallen läst 2026-11-22). upload.wikimedia.org svarade HTTP 429 med Retry-After 600 s vid tre körningar av `tools/bild_hamta.py`. |
+
+## Afrika 1390–1816, pilot #2108 (2026-11-22)
+
+Tio av 18 händelser fick en bild från Wikimedia Commons (licensen kontrollerad i filsidans wikitext 2026-11-22). Valen och skälen står i granskningslistan [data/utkast/bildbatch/2108.md](../data/utkast/bildbatch/2108.md). Värda att se över:
+
+- `etiopisk-adalska-kriget`: en fransk miniatyr från 1400-talet av Yagbea Sion mot sultanen av Adal, alltså ett tidigare krig. Bildtexten säger det.
+- `afonso-i-kung-av-kongo`: en modern vektorteckning (2017) av Kongos vapen omkring 1528–1541, lagd hel på svart bakgrund.
+- `bartolomeu-dias-rundar-afrika`, `askia-muhammad-tar-makten`, `rozviriket`: foton av platser och monument från långt senare tid; bildtexterna säger det.
+
+| Händelse (id) | Varför ingen bild |
+|---|---|
+| `ewuare-oba-i-benin` | Den enda kandidaten är ett suddigt foto (2016) av en liten träbyst i ett hem; filsidan säger inte när eller av vem bysten gjordes, och beskärningen till 4:3 skär av huvudet. |
+| `mutapariket` | Ingen kandidat i listan. En kort sökning på Commons gav kartor från 1740-talet, ett vapen och bilder ur europeiska verk från 1700-talet (till exempel "Uomo e donna del Monomotapa", 1765), som inte visar riket när det växte fram. Filsidorna öppnades inte. |
+| `slaget-vid-shimbra-kure` | Listans nr 1 är samma miniatyr som kriget fick, och den visar inte slaget. Nr 2 ("Illustration of Ahmad Gragn at war") är märkt CC0 med Richard Pankhurst som upphovsperson och hans bok från 1997 som källa; filsidan säger inte vem som gjorde bilden eller när, så licensen går inte att kontrollera. |
+| `slaget-vid-antukyah` | Den enda kandidaten är en modern, smal karta över Adal omkring 1500, inte av slaget. |
+| `slaget-vid-amba-sel` | Ingen kandidat i listan, och en kort sökning på Commons gav ingen träff. |
+| `oyoriket` | Den enda kandidaten är ett foto av palatset i Oyo från "mitten av 1900-talet", hämtat från en webbplats, med mallen PD-old (upphovspersonen död för mer än 70 år sedan). Det går inte att kontrollera för ett foto från 1900-talet utan känd fotograf. Bilden är dessutom smal (500 px). |
+| `asanteriket-grundas` | Den enda kandidaten är en liten karta (428 px) ur en engelsk atlas från 1800-talet, utan uppgift om källa, upphov eller år. |
+| `shaka-bygger-zuluriket` | Kandidaten är ett foto av monumentet Spirit of eMakhosini, ett monument från 2003. Sydafrika saknar frihet för panorama för konstverk enligt Commons (Commons:Copyright rules by territory/South Africa), och filsidan har varken NoFoP-mall eller konstnärens tillstånd. Bilden lades först in i #2190 och togs bort efter granskningen. |
+
+| `ancs-ungdomsforbund-grundas-1944` | Vald bild: [Sisulu wedding with mandela and lembede.JPG](https://commons.wikimedia.org/wiki/File:Sisulu_wedding_with_mandela_and_lembede.JPG) (1944, PD-South-Africa enligt filsidan, okänd fotograf), Walter och Albertina Sisulus bröllop med Nelson Mandela och Anton Lembede. Licensen är läst, men själva filen på upload.wikimedia.org gav HTTP 429 med Retry-After 600 s vid två körningar (08:04 och 08:11 UTC). |

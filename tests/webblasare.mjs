@@ -3581,6 +3581,28 @@ async function run(browser, vp) {
         await lp.close();
       }
     }
+    // #2156: med öppen start (edtf "../") räknas år sedan ur slutåret, inte ur tidslinjens kant -99999:
+    // neandertalarna, "till cirka 37 000 f.Kr.", är ≈ 39 000 år sedan och inte ≈ 102 000
+    const np = await context.newPage();
+    try {
+      if (THREE_LOCAL) {
+        const body = fs.readFileSync(THREE_LOCAL, 'utf8');
+        await np.route(THREE_URL, r => r.fulfill({ status: 200, contentType: 'application/javascript', body }));
+        await np.route(u => isFont(u.href), r => r.abort());
+      }
+      await np.goto(`${BASE}?ny=2156&lang=sv#y=-40050`);
+      await np.waitForSelector('#loading', { state: 'hidden', timeout: T.load });
+      if (await np.isHidden('#panel')) await np.click('#btn-panel');
+      await np.waitForSelector('#panel', { state: 'visible', timeout: T.step });
+      const nev = await panelEvent(np, { id: 'neandertalare' });
+      await nev.waitFor({ state: 'visible', timeout: T.step });
+      await nev.click();
+      const nago = (await np.locator('#detail .meta-ago').textContent({ timeout: T.step }) ?? '').replace(/[\u00a0\u202f]/g, ' ').trim();
+      if (nago !== '≈ 39 000 år sedan') throw new Error(`neandertalare: "≈ N år sedan" blev "${nago}", väntade ≈ 39 000 år sedan (öppen start, #2156)`);
+      seen.push(`neandertalare: ${nago}`);
+    } finally {
+      await np.close();
+    }
     return `${seen.join('; ')} | ${seenWhen.join('; ')}`;
   });
 
@@ -8015,23 +8037,49 @@ async function run(browser, vp) {
   // Definitionen av "samtidigt" (#1311): kortet säger om en fun fact är samtidig, nära i tid eller jämför avstånd,
   // och siffran räknas ur händelsernas årtal. 1889: Eiffeltornet och Nintendo samma år; 1843: faxen 33 år före telefonen.
   await check('Samtidigt-kortet visar relationen i tid för en fun fact (#1311)', async () => {
-    const kindFor = async (y, id) => {
-      await jumpTo(y);
-      for (let i = 0; i < 12; i++) {
-        if ((await page.getAttribute('#funfact', 'data-funfact-id')) === id) return (await page.textContent('#ff-kind')).trim();
-        const next = page.locator('#ff-next');
-        if (!await next.isVisible().catch(() => false)) break;
-        await next.click();
+    const fp = await context.newPage();
+    if (THREE_LOCAL) await fp.route(THREE_URL, r => r.fulfill({ contentType: 'application/javascript', path: THREE_LOCAL }));
+    try {
+      const heading = fp.locator('.ff-eyebrow > span').first();
+      for (const lang of ['sv', 'en', 'de', 'es', 'fr']) {
+        for (const [year, id, near] of [[1889, 'nintendo-eiffel', false], [1843, 'fax-telefon', true]]) {
+          await fp.goto(`${BASE}?lang=${lang}#y=${year}`);
+          await fp.waitForFunction(y => document.getElementById('track').getAttribute('aria-valuenow') === String(y), year, { timeout: T.load });
+          const card = fp.locator('#funfact');
+          await card.waitFor({ state: 'visible' });
+          const count = Number(await fp.locator('#ff-peek-count').textContent());
+          for (let i = 1; i < count && await card.getAttribute('data-funfact-id') !== id; i++) await fp.click('#ff-next');
+          if (await card.getAttribute('data-funfact-id') !== id) throw new Error(`${lang}: saknar ${id}`);
+          const expected = await fp.evaluate(async near => {
+            const { ui } = await import('./js/i18n.js');
+            const { pluralUi } = await import('./js/model.js');
+            const relation = near ? pluralUi('ff.relation.near', 33) : ui('ff.relation.together');
+            return `${ui('ff.title')} · ${relation}`;
+          }, near);
+          const normalize = t => t.replace(/\s+/g, ' ').trim().toLowerCase();
+          const shown = await heading.innerText();
+          if (normalize(shown) !== normalize(expected)) throw new Error(`${lang} ${year}: "${shown}", väntade "${expected}"`);
+        }
       }
-      throw new Error(`${y}: fun facten ${id} syns inte i kortet`);
-    };
-    const same = await kindFor(1889, 'nintendo-eiffel');
-    // Kortets rubrik heter "Visste du?" sedan #1306 (ff.kind.funfact); kontrollen följer texten (#1973)
-    if (same !== 'Visste du? · Samtidigt') throw new Error(`1889 säger "${same}"`);
-    const near = await kindFor(1843, 'fax-telefon');
-    if (near !== 'Visste du? · Nära i tid: 33 år isär') throw new Error(`1843 säger "${near}"`);
-    await jumpTo(1889);
-    return `"${same}" och "${near}"`;
+    } finally { await fp.close(); }
+    return 'kortnamnet en gång och rätt tidsrelation på fem språk';
+  });
+
+  await check('reglagets upplösning vid skarven visar samma år i huvud, tidsfönster och Samtidigt (#2152)', async () => {
+    try {
+      for (const y of [-3001, -3000, -2999, -2998]) {
+        await page.evaluate(y => { location.hash = `y=${y}`; }, y);
+        await page.waitForFunction(y => document.getElementById('track').getAttribute('aria-valuenow') === String(y), y, { timeout: T.step });
+        const expected = `${1 - y} f.Kr.`;
+        const big = `${await page.textContent('#year-big')} ${await page.textContent('#year-era')}`;
+        const window = await page.textContent('#year-segment'), panel = await page.textContent('#panel-sub');
+        const spoken = await page.getAttribute('#track', 'aria-valuetext');
+        if (big !== expected || spoken !== expected || !window.includes(expected) || !panel.includes(expected)) {
+          throw new Error(`${y}: "${big}", "${spoken}", "${window}", "${panel}"`);
+        }
+      }
+    } finally { await jumpTo(1889); }
+    return '3002, 3001, 3000 och 2999 f.Kr. stämmer i alla fyra texterna';
   });
 
   await check('skärmläsarstatusen säger paus och Samtidigt-text', async () => {

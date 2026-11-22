@@ -120,6 +120,10 @@ KOREA_SYD = ((SEOUL, 'Seoul'), (BUSAN, 'Busan'), (DAEGU, 'Daegu'))
 FAJARDO = (-65.65, 18.33)
 HUMACAO = (-65.83, 18.15)
 MINMAYA = (140.45, 41.2)
+# #2151, ur en.wikipedia (öppnade 2026-11-22): Saigon ("Ho Chi Minh City") och Pleiku i södra Vietnam
+SAIGON = (106.70194, 10.77556)
+PLEIKU = (107.99986, 13.97760)
+VIETNAM_SYD = ((SAIGON, 'Saigon'), (PLEIKU, 'Pleiku'))
 # #1499, ur en.wikipedia (kontrollerat 2026-11-15): Haikou och Sanya på Hainan, Taipei på Taiwan
 HAIKOU = (110.3488, 20.0186)
 SANYA = (109.5036, 18.2533)
@@ -393,6 +397,14 @@ PUNKTER = [
     *[('nordkorea', p, n, y, False) for p, n in KOREA_SYD for y in (1948, 1960)],
     *[('usa', p, n, y, True) for p, n in ((FAJARDO, 'Fajardo'), (HUMACAO, 'Humacao')) for y in (1948, 1950, 1953, 1960, 1966)],
     *[('usa', MINMAYA, 'Minmaya', y, True) for y in (1948, 1950, 1952)],
+    # Södra Vietnam (#2151): Cliopatrias USA-post 1967–2005 omfattar södra Vietnam. Sydvietnam var en egen stat 1955–1975 och
+    # USA:s styrkor lämnade landet i slutet av mars 1973 (wp-south-vietnam); Vietnam enades 1976 (wp-vietnam-war). USA ritas inte
+    # där. Sydvietnam 1973–1975 och Vietnam från 1976 enligt Cliopatria; 1967–1972 har Cliopatria inget Sydvietnam (utan stat)
+    *[('usa', p, n, y, False) for p, n in VIETNAM_SYD for y in (1967, 1970, 1972, 1973, 1975, 1976, 1990, 2005)],
+    *[('sydvietnam', p, n, y, True) for p, n in VIETNAM_SYD for y in (1960, 1966, 1973, 1974, 1975)],
+    *[('vietnam', p, n, y, True) for p, n in VIETNAM_SYD for y in (1976, 1990, 2005, 2024)],
+    *[('vietnam', p, n, y, False) for p, n in VIETNAM_SYD for y in (1966, 1970, 1974)],
+    *[('usa', p, n, y, True) for p, n in ((FAJARDO, 'Fajardo'), (HUMACAO, 'Humacao')) for y in (1967, 1970, 1990, 2005)],
     # Hainan och Zhoushan (#1499): Folkrepubliken Kina intog Hainan 16 april–1 maj 1950 och Zhoushan 17 maj 1950. Cliopatrias
     # Republiken Kina 1950–2023 (Taiwan) omfattar öarna, men de ritas inte i Taiwan; Taipei ligger kvar i Taiwan
     *[('kina', p, n, y, True) for p, n in HAINAN_PUNKTER for y in (1950, 1952, 1953, 1960, 2023, 2024)],

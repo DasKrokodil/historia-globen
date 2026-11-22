@@ -4,9 +4,11 @@
 Faktarutornas texter är delade i stycken vid ";" och ",". En rubrik som "State and majority" eller "Official:" står då
 som eget stycke och religionen i nästa. Provet kontrollerar att sådana rubriker ger regeln "officiell" (säker), och att
 stycken som inte betyder statsreligion inte gör det. Texterna nedan är faktarutornas egna texter ur data/religions.json.
+Provet kontrollerar också rutan som klipper bort Cliopatrias USA-del över södra Vietnam (KLIPP, #2162).
 Körs i CI utan shapely: python3 -I tests/religioner-test.py
 """
 import importlib.util
+import re
 import sys
 import types
 from pathlib import Path
@@ -68,7 +70,25 @@ for text, want in FALL:
     got = classify(text)
     check(got == want, f'classify({text!r}) gav {got}, väntat {want}')
 
+# Rikesdelar som Cliopatria har fel (#2162): USA:s del över södra Vietnam klipps bort 1967–2005 med samma ruta som
+# VIETNAM_USA i tools/riken.py (#2151). Finns rutan i riken.py ska den vara lika; annars kontrolleras rutan som den är.
+klipp = {namn: (fran, till, ruta) for namn, fran, till, ruta in religioner.KLIPP}
+check(klipp.get('United States of America') == (1967, 2005, (103.0, 8.0, 110.5, 17.6)),
+      f"USA:s ruta över södra Vietnam är {klipp.get('United States of America')}")
+m = re.search(r'^VIETNAM_USA\s*=\s*\(([^)]*)\)', (ROOT / 'tools/riken.py').read_text(), re.M)
+if m:
+    ruta = tuple(float(x) for x in m.group(1).split(','))
+    check(klipp['United States of America'][2] == ruta,
+          f"rutan {klipp['United States of America'][2]} är inte VIETNAM_USA {ruta} i tools/riken.py")
+try:
+    religioner.klipp('United States of America', 1960, 1970, None)
+    check(False, 'klipp godtar en period som bara delvis ligger inom rutans år')
+except ValueError:
+    pass
+check(religioner.klipp('United States of America', 2006, 2023, 'orörd') == 'orörd', 'klipp ändrar USA efter 2005')
+check(religioner.klipp('Republic of Vietnam', 1973, 1975, 'orörd') == 'orörd', 'klipp ändrar ett annat rike')
+
 if fel:
     print('\n'.join(fel))
     sys.exit(1)
-print(f'religioner: {len(FALL)} faktarutor och rubrikerna klassas rätt')
+print(f'religioner: {len(FALL)} faktarutor och rubrikerna klassas rätt, och USA:s del över södra Vietnam klipps bort')
