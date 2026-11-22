@@ -1826,5 +1826,170 @@
       "hamtad": "2026-11-20",
       "stil": "antik"
     }
+  ],
+  "vantar_pa_hamtning": [
+    {
+      "handelse": "ounjougou-keramik",
+      "filsida": "https://commons.wikimedia.org/wiki/File:Ounjougou_confluence.JPG",
+      "ref": "File:Ounjougou confluence.JPG",
+      "file": "images/events/ounjougou-keramik.webp",
+      "kind": "historisk",
+      "style": "grotta",
+      "utsnitt": false,
+      "caption": {
+        "sv": "Nutida foto (2005) av en del av de arkeologiska platserna vid Ounjougou i Yamédalen nära Bandiagara i Mali, inte från händelsens tid. Licens: CC BY-SA 4.0.",
+        "en": "Modern photo (2005) of part of the Ounjougou archaeological sites in the Yamé valley near Bandiagara in Mali, not from the time of the event. Licence: CC BY-SA 4.0.",
+        "de": "Heutiges Foto (2005) eines Teils der archäologischen Fundstätten von Ounjougou im Yamé-Tal nahe Bandiagara in Mali, nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 4.0.",
+        "es": "Foto actual (2005) de una parte de los yacimientos arqueológicos de Ounjougou, en el valle del Yamé, cerca de Bandiagara (Malí), no de la época del acontecimiento. Licencia: CC BY-SA 4.0.",
+        "fr": "Photo actuelle (2005) d’une partie des sites archéologiques d’Ounjougou, dans la vallée du Yamé, près de Bandiagara au Mali, pas de l’époque de l’événement. Licence : CC BY-SA 4.0."
+      },
+      "credit": "Ounjougou / Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": "commons-bild-ounjougou-keramik",
+      "sources_post": {
+        "id": "commons-bild-ounjougou-keramik",
+        "title": "Ounjougou confluence – Ounjougou (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Ounjougou_confluence.JPG",
+        "license": "CC BY-SA 4.0",
+        "checked": "2026-11-22"
+      },
+      "skal": "Miniatyren kunde inte hämtas (HTTP 429 från Wikimedia). Bilden hämtas om i Actions; image och källposten läggs in först då."
+    },
+    {
+      "handelse": "simmarnas-grotta",
+      "filsida": "https://commons.wikimedia.org/wiki/File:WadiSuraSingleSwimmer.jpg",
+      "ref": "File:WadiSuraSingleSwimmer.jpg",
+      "file": "images/events/simmarnas-grotta.webp",
+      "kind": "historisk",
+      "style": "grotta",
+      "utsnitt": true,
+      "caption": {
+        "sv": "Nutida foto (2011) av målningen av simmare i Simmarnas grotta i Wadi Sura, Gilf Kebir, i Egyptens västra öken, inte från händelsens tid. Utsnitt. Licens: CC BY-SA 3.0.",
+        "en": "Modern photo (2011) of the painting of swimmers in the Cave of Swimmers at Wadi Sura, Gilf Kebir, in Egypt’s Western Desert, not from the time of the event. Detail. Licence: CC BY-SA 3.0.",
+        "de": "Heutiges Foto (2011) der Schwimmerdarstellung in der Höhle der Schwimmer im Wadi Sura, Gilf Kebir, in der Westlichen Wüste Ägyptens, nicht aus der Zeit des Ereignisses. Ausschnitt. Lizenz: CC BY-SA 3.0.",
+        "es": "Foto actual (2011) de la pintura de nadadores de la cueva de los Nadadores, en Wadi Sura, Gilf Kebir, en el desierto occidental de Egipto, no de la época del acontecimiento. Detalle. Licencia: CC BY-SA 3.0.",
+        "fr": "Photo actuelle (2011) de la peinture de nageurs de la grotte des Nageurs, au Wadi Sura, dans le Gilf Kebir, dans le désert occidental égyptien, pas de l’époque de l’événement. Détail. Licence : CC BY-SA 3.0."
+      },
+      "credit": "Roland Unger / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": "commons-bild-simmarnas-grotta",
+      "sources_post": {
+        "id": "commons-bild-simmarnas-grotta",
+        "title": "WadiSuraSingleSwimmer – Roland Unger (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:WadiSuraSingleSwimmer.jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-22",
+        "note": "Licens enligt filsidan (action=raw, öppnad 2026-11-22): {{self|GFDL}}, {{self|cc-by-sa-3.0,2.5,2.0,1.0}}. Commons API (LicenseShortName): \"CC BY-SA 3.0\". Filen är också licensierad under GFDL; bilden används under CC BY-SA 3.0."
+      },
+      "skal": "Miniatyren kunde inte hämtas (HTTP 429 från Wikimedia). Bilden hämtas om i Actions; image och källposten läggs in först då."
+    },
+    {
+      "handelse": "dhar-tichitt",
+      "filsida": "https://commons.wikimedia.org/wiki/File:Haches_et_herminettes_provenant_de_villages_du_Dhar_Tichitt.jpg",
+      "ref": "File:Haches et herminettes provenant de villages du Dhar Tichitt.jpg",
+      "file": "images/events/dhar-tichitt.webp",
+      "kind": "historisk",
+      "style": "egypten",
+      "utsnitt": false,
+      "caption": {
+        "sv": "Föremål: yxor och tväryxor från byar vid Dhar Tichitt, fotograferade av Sylvie Amblard-Pison (2014). Var föremålen fotograferades anges inte. Hela bilden visas. Licens: CC BY 4.0.",
+        "en": "Objects: axes and adzes from villages at Dhar Tichitt, photographed by Sylvie Amblard-Pison (2014). Where the objects were photographed is not stated. The whole image is shown. Licence: CC BY 4.0.",
+        "de": "Objekte: Beile und Dechsel aus Dörfern bei Dhar Tichitt, fotografiert von Sylvie Amblard-Pison (2014). Wo die Objekte fotografiert wurden, ist nicht angegeben. Das ganze Bild wird gezeigt. Lizenz: CC BY 4.0.",
+        "es": "Objetos: hachas y azuelas de aldeas de Dhar Tichitt, fotografiadas por Sylvie Amblard-Pison (2014). No se indica dónde se fotografiaron. Se muestra la imagen completa. Licencia: CC BY 4.0.",
+        "fr": "Objets : haches et herminettes provenant de villages du Dhar Tichitt, photographiées par Sylvie Amblard-Pison (2014). Le lieu de la prise de vue n’est pas indiqué. L’image est montrée en entier. Licence : CC BY 4.0."
+      },
+      "credit": "Sylvie Amblard-Pison / Wikimedia Commons",
+      "license": "CC BY 4.0",
+      "source": "commons-bild-dhar-tichitt",
+      "sources_post": {
+        "id": "commons-bild-dhar-tichitt",
+        "title": "Haches et herminettes provenant de villages du Dhar Tichitt – Sylvie Amblard-Pison (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Haches_et_herminettes_provenant_de_villages_du_Dhar_Tichitt.jpg",
+        "license": "CC BY 4.0",
+        "checked": "2026-11-22"
+      },
+      "skal": "Miniatyren kunde inte hämtas (HTTP 429 från Wikimedia). Bilden hämtas om i Actions; image och källposten läggs in först då."
+    },
+    {
+      "handelse": "nok-kulturen",
+      "filsida": "https://commons.wikimedia.org/wiki/File:Nok_Kultur,_Nigeria._Fragment_eines_Gef%C3%A4%C3%9Fes_mit_mehreren_Figuren_im_Halbrelief..jpg",
+      "ref": "File:Nok Kultur, Nigeria. Fragment eines Gefäßes mit mehreren Figuren im Halbrelief..jpg",
+      "file": "images/events/nok-kulturen.webp",
+      "kind": "historisk",
+      "style": "egypten",
+      "utsnitt": false,
+      "caption": {
+        "sv": "Föremål från Nok-kulturen i Nigeria: fragment av ett kärl med flera figurer i halvrelief, fotograferat 2011. Var föremålet fotograferades anges inte. Hela bilden visas. Licens: CC BY-SA 3.0.",
+        "en": "Object from the Nok culture in Nigeria: fragment of a vessel with several figures in half-relief, photographed in 2011. Where the object was photographed is not stated. The whole image is shown. Licence: CC BY-SA 3.0.",
+        "de": "Objekt der Nok-Kultur in Nigeria: Fragment eines Gefäßes mit mehreren Figuren im Halbrelief, fotografiert 2011. Wo das Objekt fotografiert wurde, ist nicht angegeben. Das ganze Bild wird gezeigt. Lizenz: CC BY-SA 3.0.",
+        "es": "Objeto de la cultura nok, en Nigeria: fragmento de una vasija con varias figuras en medio relieve, fotografiado en 2011. No se indica dónde se fotografió. Se muestra la imagen completa. Licencia: CC BY-SA 3.0.",
+        "fr": "Objet de la culture Nok, au Nigeria : fragment d’un récipient orné de plusieurs figures en demi-relief, photographié en 2011. Le lieu de la prise de vue n’est pas indiqué. L’image est montrée en entier. Licence : CC BY-SA 3.0."
+      },
+      "credit": "Nicotta / Wikimedia Commons",
+      "license": "CC BY-SA 3.0",
+      "source": "commons-bild-nok-kulturen",
+      "sources_post": {
+        "id": "commons-bild-nok-kulturen",
+        "title": "Nok Kultur, Nigeria. Fragment eines Gefäßes mit mehreren Figuren im Halbrelief. – Nicotta (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Nok_Kultur,_Nigeria._Fragment_eines_Gef%C3%A4%C3%9Fes_mit_mehreren_Figuren_im_Halbrelief..jpg",
+        "license": "CC BY-SA 3.0",
+        "checked": "2026-11-22"
+      },
+      "skal": "Miniatyren kunde inte hämtas (HTTP 429 från Wikimedia). Bilden hämtas om i Actions; image och källposten läggs in först då."
+    },
+    {
+      "handelse": "piye-erovrar-egypten",
+      "filsida": "https://commons.wikimedia.org/wiki/File:Stele_Piye_submission_Mariette.jpg",
+      "ref": "File:Stele Piye submission Mariette.jpg",
+      "file": "images/events/piye-erovrar-egypten.webp",
+      "kind": "historisk",
+      "style": "egypten",
+      "utsnitt": true,
+      "caption": {
+        "sv": "Teckning av Auguste Mariette, publicerad 1872, av den övre högra delen av Piyes segerstele: fyra härskare från Nildeltat hyllar Piye. Stelen av granit hittades vid Jebel Barkal och finns på museet i Kairo. Utsnitt. Licens: Public domain.",
+        "en": "Drawing by Auguste Mariette, published in 1872, of the upper right part of Piye’s victory stele: four rulers from the Nile Delta pay tribute to Piye. The granite stele was found at Jebel Barkal and is in the museum in Cairo. Detail. Licence: Public domain.",
+        "de": "Zeichnung von Auguste Mariette, veröffentlicht 1872, des oberen rechten Teils der Siegesstele des Piye: Vier Herrscher aus dem Nildelta huldigen Piye. Die Granitstele wurde am Jebel Barkal gefunden und befindet sich im Museum in Kairo. Ausschnitt. Lizenz: gemeinfrei.",
+        "es": "Dibujo de Auguste Mariette, publicado en 1872, de la parte superior derecha de la estela de la victoria de Piye: cuatro gobernantes del delta del Nilo rinden tributo a Piye. La estela de granito se halló en Jebel Barkal y está en el museo de El Cairo. Detalle. Licencia: dominio público.",
+        "fr": "Dessin d’Auguste Mariette, publié en 1872, de la partie supérieure droite de la stèle de victoire de Piye : quatre souverains du delta du Nil rendent hommage à Piye. La stèle en granit a été trouvée au Gebel Barkal et se trouve au musée du Caire. Détail. Licence : domaine public."
+      },
+      "credit": "Auguste Mariette / Wikimedia Commons",
+      "license": "Public domain",
+      "source": "commons-bild-piye-erovrar-egypten",
+      "sources_post": {
+        "id": "commons-bild-piye-erovrar-egypten",
+        "title": "Stele Piye submission Mariette – Auguste Mariette (1821-1881) (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Stele_Piye_submission_Mariette.jpg",
+        "license": "Public domain",
+        "checked": "2026-11-22"
+      },
+      "skal": "Miniatyren kunde inte hämtas (HTTP 429 från Wikimedia). Bilden hämtas om i Actions; image och källposten läggs in först då."
+    },
+    {
+      "handelse": "kungapyramiderna-i-nuri",
+      "filsida": "https://commons.wikimedia.org/wiki/File:Pyramids_of_Nuri.jpg",
+      "ref": "File:Pyramids of Nuri.jpg",
+      "file": "images/events/kungapyramiderna-i-nuri.webp",
+      "kind": "historisk",
+      "style": "egypten",
+      "utsnitt": false,
+      "caption": {
+        "sv": "Nutida foto (2009) av pyramiderna i Nuri i norra Sudan, inte från händelsens tid. Licens: CC BY-SA 2.0.",
+        "en": "Modern photo (2009) of the pyramids at Nuri in northern Sudan, not from the time of the event. Licence: CC BY-SA 2.0.",
+        "de": "Heutiges Foto (2009) der Pyramiden von Nuri im Norden Sudans, nicht aus der Zeit des Ereignisses. Lizenz: CC BY-SA 2.0.",
+        "es": "Foto actual (2009) de las pirámides de Nuri, en el norte de Sudán, no de la época del acontecimiento. Licencia: CC BY-SA 2.0.",
+        "fr": "Photo actuelle (2009) des pyramides de Nuri, dans le nord du Soudan, pas de l’époque de l’événement. Licence : CC BY-SA 2.0."
+      },
+      "credit": "Vit Hassan / Wikimedia Commons",
+      "license": "CC BY-SA 2.0",
+      "source": "commons-bild-kungapyramiderna-i-nuri",
+      "sources_post": {
+        "id": "commons-bild-kungapyramiderna-i-nuri",
+        "title": "Pyramids of Nuri – Vit Hassan (Wikimedia Commons, filsida)",
+        "url": "https://commons.wikimedia.org/wiki/File:Pyramids_of_Nuri.jpg",
+        "license": "CC BY-SA 2.0",
+        "checked": "2026-11-22"
+      },
+      "skal": "Miniatyren kunde inte hämtas (HTTP 429 från Wikimedia). Bilden hämtas om i Actions; image och källposten läggs in först då."
+    }
   ]
 }
